@@ -1695,11 +1695,223 @@ html, body {
   border-radius: 2px;
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 600px) {
-  .title-logo h1 { font-size: 2.5rem; }
-  .starter-grid { grid-template-columns: 1fr; }
-  #battle-main-actions { grid-template-columns: repeat(2, 1fr); }
+/* ==========================================
+   MOBILE & TOUCH OPTIMIZATIONS
+   ========================================== */
+
+/* Prevent tap delay on all interactive elements */
+button, a, [role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Minimum touch target size (Apple HIG: 44px) */
+.btn-primary, .btn-secondary, .btn-action, .battle-btn,
+.nav-btn, .move-btn, .catch-item-btn, .switch-mon-btn,
+.starter-card, .team-card, .dex-card, .bag-item {
+  min-height: 44px;
+}
+
+/* ---- Tablet (≤768px) ---- */
+@media (max-width: 768px) {
+  /* HUD */
+  #hud { flex-wrap: wrap; gap: 0.4rem; padding: 0.4rem 0.75rem; }
+  #hud-right { font-size: 0.8rem; gap: 0.6rem; }
+  #hud-player-name { font-size: 0.9rem; }
+  #hud-badges-label { display: none; }
+  .badge-icon { width: 20px; height: 20px; font-size: 0.6rem; }
+
+  /* World layout: stack vertically */
   #world-layout { flex-direction: column; }
-  #area-panel { width: 100%; height: 200px; border-left: none; border-top: 1px solid var(--border); }
+  #world-map-container { min-height: 45vh; }
+  #world-map { min-height: 200px; }
+  #area-panel {
+    width: 100%;
+    height: auto;
+    max-height: 45vh;
+    border-left: none;
+    border-top: 1px solid var(--border);
+    overflow-y: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+  #area-header { width: 100%; }
+  #area-description { width: 100%; font-size: 0.8rem; }
+  #area-wild-preview { flex: 1; min-width: 140px; }
+  #area-actions { flex: 1; min-width: 140px; gap: 0.4rem; }
+  #area-gym-info { width: 100%; }
+
+  /* Map dots: bigger for touch */
+  .map-loc-dot { width: 34px; height: 34px; font-size: 1.1rem; }
+  .map-location.city .map-loc-dot { width: 42px; height: 42px; font-size: 1.5rem; }
+  .map-loc-label { font-size: 0.65rem; }
+
+  /* Battle: tighten up */
+  #battle-arena { padding: 0.6rem; gap: 0.6rem; }
+  .battle-sprite { font-size: 4rem; width: 80px; height: 80px; }
+  #battle-log-area { height: 70px; }
+  #battle-log { font-size: 0.8rem; }
+
+  /* Nav buttons */
+  .nav-btn { font-size: 0.7rem; padding: 0.55rem 0.25rem; }
+
+  /* Dex grid: more columns fit */
+  #dex-grid { grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)); }
+
+  /* Team: 2 cols */
+  #team-list { grid-template-columns: repeat(2, 1fr); }
+
+  /* Starter: 3 cols still but smaller */
+  .starter-card { padding: 1rem 0.5rem; }
+  .starter-emoji { font-size: 2.8rem; }
+}
+
+/* ---- Phone (≤480px) ---- */
+@media (max-width: 480px) {
+  /* Title */
+  .title-logo h1 { font-size: 2.2rem; letter-spacing: 4px; }
+  .title-monsters { font-size: 1.8rem; gap: 0.5rem; }
+  .title-hint { font-size: 0.7rem; }
+  .btn-primary, .btn-secondary { min-width: 160px; font-size: 0.9rem; }
+
+  /* HUD: single compact line */
+  #hud { padding: 0.3rem 0.5rem; }
+  #hud-location { display: none; } /* shown in area panel instead */
+
+  /* World map: taller on phone */
+  #world-map-container { min-height: 40vh; padding: 0.4rem; }
+  .map-title { font-size: 0.75rem; margin-bottom: 0.4rem; }
+  .map-loc-dot { width: 30px; height: 30px; font-size: 1rem; }
+  .map-location.city .map-loc-dot { width: 38px; height: 38px; font-size: 1.3rem; }
+  .map-loc-label { font-size: 0.58rem; max-width: 50px; }
+
+  /* Area panel: compact single column */
+  #area-panel {
+    flex-direction: column;
+    max-height: 42vh;
+    padding: 0.6rem;
+    gap: 0.4rem;
+  }
+  #area-name { font-size: 0.95rem; }
+  #area-description { font-size: 0.75rem; }
+  .btn-action { font-size: 0.82rem; padding: 0.5rem 0.75rem; min-height: 42px; }
+
+  /* Battle arena: vertical stack */
+  #battle-arena { padding: 0.4rem; gap: 0.4rem; }
+  #battle-enemy-side { flex-direction: row; align-items: center; }
+  #battle-player-side { flex-direction: row-reverse; align-items: center; }
+  #enemy-info, #player-info { padding: 0.5rem 0.6rem; }
+  #enemy-name, #player-mon-name { font-size: 0.85rem; }
+  #enemy-level, #player-mon-level { font-size: 0.72rem; }
+  .battle-sprite { font-size: 3.2rem; width: 65px; height: 65px; }
+  .hp-bar { height: 7px; }
+  #player-hp-text { font-size: 0.68rem; }
+
+  /* Battle log */
+  #battle-log-area { height: 60px; padding: 0.35rem 0.6rem; }
+  #battle-log { font-size: 0.75rem; }
+
+  /* Battle controls */
+  #battle-controls { padding: 0.5rem 0.6rem; }
+  #battle-main-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.4rem;
+  }
+  .battle-btn { font-size: 0.78rem; padding: 0.6rem 0.4rem; min-height: 46px; }
+
+  /* Moves: single column on very small screens */
+  #battle-moves-grid { grid-template-columns: 1fr 1fr; gap: 0.4rem; }
+  .move-btn { font-size: 0.78rem; padding: 0.5rem 0.6rem; min-height: 52px; }
+  .move-btn-name { font-size: 0.78rem; }
+  .move-btn-pp { font-size: 0.65rem; }
+  .move-btn-right { font-size: 0.6rem; }
+
+  /* Catch / switch panels */
+  #catch-items-grid { grid-template-columns: repeat(2, 1fr); }
+  .catch-item-btn { font-size: 0.75rem; min-height: 50px; }
+  #switch-monsters-list { max-height: 100px; }
+  .switch-mon-btn { font-size: 0.78rem; min-height: 44px; }
+
+  /* XP bar */
+  #battle-xp-bar-container { padding: 0.2rem 0.6rem; }
+
+  /* Bottom nav */
+  .nav-btn { font-size: 0.65rem; padding: 0.5rem 0.1rem; letter-spacing: 0; }
+
+  /* Starter screen */
+  .starter-grid { grid-template-columns: 1fr; gap: 0.6rem; }
+  .starter-card { padding: 0.8rem; display: flex; flex-direction: row; align-items: center; text-align: left; gap: 0.75rem; }
+  .starter-emoji { font-size: 2.5rem; flex-shrink: 0; margin-bottom: 0; }
+  .starter-name { font-size: 1rem; }
+
+  /* Team screen */
+  #team-list { grid-template-columns: 1fr; }
+  .team-sprite { font-size: 2rem; }
+  .team-name { font-size: 0.9rem; }
+
+  /* Bag screen */
+  .bag-item { padding: 0.5rem; }
+  .bag-item-icon { font-size: 1.2rem; }
+  .bag-item-name { font-size: 0.82rem; }
+  .bag-item-desc { font-size: 0.68rem; }
+
+  /* Dex grid */
+  #dex-grid { grid-template-columns: repeat(auto-fill, minmax(75px, 1fr)); gap: 0.4rem; }
+  .dex-card { padding: 0.5rem 0.3rem; }
+  .dex-emoji { font-size: 1.6rem; }
+  .dex-name { font-size: 0.62rem; }
+  .dex-num { font-size: 0.55rem; }
+
+  /* Overlays */
+  #notification-box, #levelup-box, #evolution-box {
+    padding: 1.25rem;
+    margin: 1rem;
+    max-width: calc(100vw - 2rem);
+  }
+  #notification-text { font-size: 0.9rem; }
+  #levelup-stats { grid-template-columns: repeat(3, 1fr); gap: 0.35rem; }
+  .levelup-stat { padding: 0.3rem; font-size: 0.72rem; }
+  #evolution-animation { font-size: 3rem; gap: 1rem; }
+
+  /* Menu headers */
+  .menu-header h2 { font-size: 1.1rem; }
+  #screen-team, #screen-bag, #screen-dex { padding: 0.75rem; }
+
+  /* Hall of fame */
+  .hof-content h1 { font-size: 1.8rem; }
+  #hof-team { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+  .hof-mon-sprite { font-size: 1.8rem; }
+  .hof-mon-name { font-size: 0.68rem; }
+  .hof-mon-level { font-size: 0.65rem; }
+}
+
+/* ---- Very small (≤360px, e.g. old iPhones) ---- */
+@media (max-width: 360px) {
+  .title-logo h1 { font-size: 1.8rem; letter-spacing: 2px; }
+  .battle-sprite { font-size: 2.6rem; width: 55px; height: 55px; }
+  .nav-btn { font-size: 0.58rem; }
+  #battle-main-actions { gap: 0.3rem; }
+  .battle-btn { font-size: 0.72rem; padding: 0.5rem 0.25rem; }
+  #battle-moves-grid { grid-template-columns: 1fr; }
+  .move-btn { min-height: 46px; }
+}
+
+/* ---- Safe area insets (notch / home-bar on iOS) ---- */
+@supports (padding: env(safe-area-inset-bottom)) {
+  #bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  #hud {
+    padding-top: max(0.5rem, env(safe-area-inset-top));
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+  #game-container {
+    /* ensure content isn't hidden behind notch */
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
 }

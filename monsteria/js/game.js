@@ -213,7 +213,9 @@ function renderWorldMap() {
     loc.appendChild(dot);
     loc.appendChild(label);
     if (!locked) {
+      // Support both click and touch for mobile
       loc.addEventListener("click", () => travelTo(areaId));
+      loc.addEventListener("touchend", (e) => { e.preventDefault(); travelTo(areaId); });
       loc.style.cursor = "pointer";
     }
     mapEl.appendChild(loc);

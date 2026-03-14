@@ -463,8 +463,8 @@ html, body {
 #world-map {
   flex: 1;
   position: relative;
-  background: var(--bg-panel);
-  border: 1px solid var(--border);
+  background: #1a4a66;
+  border: 1px solid #2a6a8a;
   border-radius: 8px;
   overflow: hidden;
 }
@@ -485,29 +485,39 @@ html, body {
 }
 
 .map-loc-dot {
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  background: var(--bg-card);
-  border: 2px solid var(--border);
+  background: #2a5a7a;
+  border: 2px solid #4a9acc;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 0.75rem;
   transition: all 0.15s ease;
 }
 
 .map-location.city .map-loc-dot {
-  width: 36px;
-  height: 36px;
-  background: var(--bg-card-hover);
-  border-color: var(--accent-blue);
-  font-size: 1.3rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 3px;
+  background: #c82828;
+  border: 2px solid #ff6666;
+  font-size: 1.1rem;
+}
+
+.map-location.special .map-loc-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 3px;
+  background: #a06800;
+  border: 2px solid #ffd700;
+  font-size: 1.1rem;
 }
 
 .map-location.current .map-loc-dot {
-  border-color: var(--accent-yellow);
-  box-shadow: 0 0 12px rgba(210, 153, 34, 0.6);
+  border-color: #ffd700 !important;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
   animation: pulse 2s infinite;
 }
 
@@ -523,7 +533,8 @@ html, body {
 }
 
 .map-location.gym-done .map-loc-dot {
-  border-color: var(--accent-green);
+  border-color: #3fb950 !important;
+  background: #1a6030 !important;
 }
 
 .map-loc-label {
@@ -1747,8 +1758,8 @@ button, a, [role="button"] {
   #area-gym-info { width: 100%; }
 
   /* Map dots: bigger for touch */
-  .map-loc-dot { width: 34px; height: 34px; font-size: 1.1rem; }
-  .map-location.city .map-loc-dot { width: 42px; height: 42px; font-size: 1.5rem; }
+  .map-loc-dot { width: 26px; height: 26px; font-size: 0.85rem; }
+  .map-location.city .map-loc-dot { width: 36px; height: 36px; font-size: 1.2rem; }
   .map-loc-label { font-size: 0.65rem; }
 
   /* Battle: tighten up */
@@ -1786,8 +1797,8 @@ button, a, [role="button"] {
   /* World map: taller on phone */
   #world-map-container { min-height: 40vh; padding: 0.4rem; }
   .map-title { font-size: 0.75rem; margin-bottom: 0.4rem; }
-  .map-loc-dot { width: 30px; height: 30px; font-size: 1rem; }
-  .map-location.city .map-loc-dot { width: 38px; height: 38px; font-size: 1.3rem; }
+  .map-loc-dot { width: 22px; height: 22px; font-size: 0.75rem; }
+  .map-location.city .map-loc-dot { width: 30px; height: 30px; font-size: 1rem; }
   .map-loc-label { font-size: 0.58rem; max-width: 50px; }
 
   /* Area panel: compact single column */

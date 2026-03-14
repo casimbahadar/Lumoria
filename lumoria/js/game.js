@@ -157,24 +157,26 @@ function showEvolution(partySlot, newId, cb) {
 
 // Terrain biome colors for map background
 const BIOME_REGIONS = [
-  // Grass/forest areas (south)
-  { x:5,  y:55, w:40, h:45, color:'#1a3d1a', label:'' },
-  // Ocean / sea (east)
-  { x:60, y:40, w:42, h:55, color:'#0a1a3d', label:'' },
-  // Volcanic area (east-center)
-  { x:65, y:25, w:25, h:22, color:'#3d1000', label:'' },
-  // Ice/mountain (top-left)
-  { x:5,  y:5,  w:35, h:30, color:'#1a2a3d', label:'' },
-  // Plains / electric area
-  { x:35, y:10, w:25, h:25, color:'#1a1a0a', label:'' },
-  // Central paths
-  { x:40, y:35, w:25, h:30, color:'#1a1a14', label:'' },
-  // Shadow / dark area (left-center)
-  { x:5,  y:32, w:20, h:25, color:'#14001e', label:'' },
-  // Sky / psychic area
-  { x:22, y:40, w:30, h:20, color:'#0f0f2a', label:'' },
-  // Dragon peak
-  { x:45, y:32, w:20, h:15, color:'#1e0038', label:'' },
+  // Main continent base (large green landmass)
+  { x:4,  y:10, w:90, h:85, color:'#2d6830', rx:18 },
+  // Southern forest / starter zone
+  { x:4,  y:54, w:58, h:40, color:'#1e5420', rx:12 },
+  // Southeast ocean
+  { x:58, y:44, w:38, h:50, color:'#0a3a58', rx:10 },
+  // Northeast ocean pocket
+  { x:74, y:10, w:22, h:40, color:'#0d3c56', rx:8 },
+  // Volcanic east region
+  { x:60, y:18, w:28, h:30, color:'#4a2008', rx:10 },
+  // Ice & glacier north-left
+  { x:4,  y:4,  w:40, h:24, color:'#3a6478', rx:12 },
+  // Thunder plains top-center
+  { x:30, y:4,  w:30, h:22, color:'#3a3e0c', rx:10 },
+  // Shadow/dark left-center
+  { x:4,  y:30, w:18, h:30, color:'#140020', rx:8 },
+  // Mystic sky/psychic zone center
+  { x:18, y:44, w:28, h:22, color:'#161630', rx:8 },
+  // Dragon peak center
+  { x:44, y:34, w:20, h:16, color:'#1c0436', rx:8 },
 ];
 
 function renderWorldMap() {
@@ -183,7 +185,6 @@ function renderWorldMap() {
   const mapW = mapEl.offsetWidth || 420;
   const mapH = mapEl.offsetHeight || 320;
 
-  // Build SVG map
   const svgNS = "http://www.w3.org/2000/svg";
   const svg = document.createElementNS(svgNS, "svg");
   svg.setAttribute("width", mapW);
@@ -194,44 +195,45 @@ function renderWorldMap() {
   svg.style.left = "0";
   svg.style.pointerEvents = "none";
 
-  // Background
+  // Ocean background
   const bgRect = document.createElementNS(svgNS, "rect");
-  bgRect.setAttribute("width", mapW); bgRect.setAttribute("height", mapH);
-  bgRect.setAttribute("fill", "#0d1117");
+  bgRect.setAttribute("width", mapW);
+  bgRect.setAttribute("height", mapH);
+  bgRect.setAttribute("fill", "#1a4a66");
   svg.appendChild(bgRect);
 
-  // Biome patches
+  // Terrain biome patches
   for (const b of BIOME_REGIONS) {
     const r = document.createElementNS(svgNS, "rect");
     r.setAttribute("x", (b.x / 100) * mapW);
     r.setAttribute("y", (b.y / 100) * mapH);
     r.setAttribute("width", (b.w / 100) * mapW);
     r.setAttribute("height", (b.h / 100) * mapH);
-    r.setAttribute("rx", "8");
+    r.setAttribute("rx", String(b.rx || 10));
     r.setAttribute("fill", b.color);
-    r.setAttribute("opacity", "0.85");
+    r.setAttribute("opacity", "0.9");
     svg.appendChild(r);
   }
 
-  // Grid lines (subtle)
-  for (let gx = 0; gx < mapW; gx += 30) {
-    const gl = document.createElementNS(svgNS, "line");
-    gl.setAttribute("x1", gx); gl.setAttribute("y1", 0);
-    gl.setAttribute("x2", gx); gl.setAttribute("y2", mapH);
-    gl.setAttribute("stroke", "#ffffff"); gl.setAttribute("stroke-width", "0.3");
-    gl.setAttribute("opacity", "0.04");
-    svg.appendChild(gl);
-  }
-  for (let gy = 0; gy < mapH; gy += 30) {
-    const gl = document.createElementNS(svgNS, "line");
-    gl.setAttribute("x1", 0); gl.setAttribute("y1", gy);
-    gl.setAttribute("x2", mapW); gl.setAttribute("y2", gy);
-    gl.setAttribute("stroke", "#ffffff"); gl.setAttribute("stroke-width", "0.3");
-    gl.setAttribute("opacity", "0.04");
-    svg.appendChild(gl);
+  // Determine if a connection is a water route
+  function isWaterConn(a, b) {
+    const wKeys = ['ocean', 'trench', 'abyss', 'shore', 'deep sea', 'underwater', 'coral'];
+    const check = area => area && (area.id === 'deep_trench' ||
+      (area.desc && wKeys.some(k => area.desc.toLowerCase().includes(k))));
+    return check(a) || check(b);
   }
 
-  // Draw route connections
+  // Build orthogonal (L-shaped) SVG path between two map points
+  function orthPath(x1, y1, x2, y2) {
+    const dx = Math.abs(x2 - x1), dy = Math.abs(y2 - y1);
+    if (dx >= dy) {
+      return `M ${x1},${y1} H ${x2} V ${y2}`;
+    } else {
+      return `M ${x1},${y1} V ${y2} H ${x2}`;
+    }
+  }
+
+  // Draw route connections as orthogonal paths
   const drawnConnections = new Set();
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
@@ -241,50 +243,76 @@ function renderWorldMap() {
       drawnConnections.add(sortedKey);
       const toArea = WORLD_DATA[conn];
       if (!toArea || !toArea.mapPos) continue;
+
       const x1 = (area.mapPos.x / 100) * mapW;
       const y1 = (area.mapPos.y / 100) * mapH;
       const x2 = (toArea.mapPos.x / 100) * mapW;
       const y2 = (toArea.mapPos.y / 100) * mapH;
+      const pathD = orthPath(x1, y1, x2, y2);
 
-      // Route shadow
-      const shadow = document.createElementNS(svgNS, "line");
-      shadow.setAttribute("x1", x1); shadow.setAttribute("y1", y1);
-      shadow.setAttribute("x2", x2); shadow.setAttribute("y2", y2);
-      shadow.setAttribute("stroke", "#000"); shadow.setAttribute("stroke-width", "4");
-      shadow.setAttribute("stroke-linecap", "round"); shadow.setAttribute("opacity", "0.4");
+      const fromLocked = G.badges.length < (area.requiredBadges || 0);
+      const toLocked   = G.badges.length < (toArea.requiredBadges || 0);
+      const water = isWaterConn(area, toArea);
+      const routeColor  = (fromLocked || toLocked) ? "#4a4a4a" : water ? "#3a9acc" : "#d4a030";
+      const shadowColor = (fromLocked || toLocked) ? "#222"    : water ? "#0d2a4a" : "#6a4a08";
+
+      // Shadow
+      const shadow = document.createElementNS(svgNS, "path");
+      shadow.setAttribute("d", pathD);
+      shadow.setAttribute("stroke", shadowColor);
+      shadow.setAttribute("stroke-width", "6");
+      shadow.setAttribute("fill", "none");
+      shadow.setAttribute("stroke-linecap", "square");
+      shadow.setAttribute("stroke-linejoin", "miter");
+      shadow.setAttribute("opacity", "0.65");
       svg.appendChild(shadow);
 
       // Route line
-      const line = document.createElementNS(svgNS, "line");
-      line.setAttribute("x1", x1); line.setAttribute("y1", y1);
-      line.setAttribute("x2", x2); line.setAttribute("y2", y2);
-      const fromLocked = G.badges.length < (area.requiredBadges || 0);
-      const toLocked   = G.badges.length < (toArea.requiredBadges || 0);
-      const routeColor = (fromLocked || toLocked) ? "#444" : "#7a8a6a";
+      const line = document.createElementNS(svgNS, "path");
+      line.setAttribute("d", pathD);
       line.setAttribute("stroke", routeColor);
-      line.setAttribute("stroke-width", "2.5");
-      line.setAttribute("stroke-linecap", "round");
-      line.setAttribute("stroke-dasharray", (area.type === "route" || toArea.type === "route") ? "6,4" : "none");
+      line.setAttribute("stroke-width", "4");
+      line.setAttribute("fill", "none");
+      line.setAttribute("stroke-linecap", "square");
+      line.setAttribute("stroke-linejoin", "miter");
       svg.appendChild(line);
+
+      // Edge highlight (lighter top edge to give 3D road feel)
+      const highlight = document.createElementNS(svgNS, "path");
+      highlight.setAttribute("d", pathD);
+      highlight.setAttribute("stroke", "#ffffff");
+      highlight.setAttribute("stroke-width", "1.2");
+      highlight.setAttribute("fill", "none");
+      highlight.setAttribute("stroke-linecap", "square");
+      highlight.setAttribute("stroke-linejoin", "miter");
+      highlight.setAttribute("opacity", "0.18");
+      svg.appendChild(highlight);
     }
   }
+
   mapEl.appendChild(svg);
 
-  // Draw location markers (DOM elements over SVG, for click support)
+  // Draw location markers (DOM elements over SVG for click support)
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
     const x = (area.mapPos.x / 100) * mapW;
     const y = (area.mapPos.y / 100) * mapH;
+
     const loc = document.createElement("div");
     loc.className = "map-location";
     const isCity = area.type === "city" || area.type === "special";
-    if (isCity) loc.classList.add("city");
+    const isRoute = area.type === "route";
+    if (isCity)  loc.classList.add("city");
+    if (isRoute) loc.classList.add("route");
+    if (area.type === "special") loc.classList.add("special");
     if (areaId === G.location) loc.classList.add("current");
+
     const badgesNeeded = area.requiredBadges || 0;
     const locked = G.badges.length < badgesNeeded && areaId !== G.location;
     if (locked) loc.classList.add("locked");
     if (area.hasGym && G.defeatedLeaders.includes(area.gymLeader)) loc.classList.add("gym-done");
     if (area.hasUmbraBase && G.defeatedLeaders.includes("umbra_shade")) loc.classList.add("gym-done");
+
     loc.style.left = x + "px";
     loc.style.top  = y + "px";
 
@@ -294,8 +322,9 @@ function renderWorldMap() {
 
     const label = document.createElement("div");
     label.className = "map-loc-label";
-    // Show first word + city type indicator
-    const shortName = area.name.replace(" Town","").replace(" City","").replace(" Village","").split(" ")[0];
+    const shortName = area.name
+      .replace(" Town","").replace(" City","").replace(" Village","")
+      .split(" ")[0];
     label.textContent = shortName;
     if (isCity) label.style.fontWeight = "bold";
 
@@ -310,9 +339,9 @@ function renderWorldMap() {
     mapEl.appendChild(loc);
   }
 
-  // Region label overlay
+  // Region label
   const regionLabel = document.createElement("div");
-  regionLabel.style.cssText = "position:absolute;bottom:4px;right:8px;font-size:0.6rem;color:#3d5;opacity:0.4;pointer-events:none;";
+  regionLabel.style.cssText = "position:absolute;bottom:4px;right:8px;font-size:0.6rem;color:#adf;opacity:0.5;pointer-events:none;font-family:monospace;letter-spacing:1px;";
   regionLabel.textContent = "LUMORIA REGION";
   mapEl.appendChild(regionLabel);
 }
@@ -440,7 +469,7 @@ function exploreArea() {
   }
   // Check if team can fight
   if (G.team.every(m => m.currentHP <= 0)) {
-    showNotification("All your monsters have fainted! Heal at a town first.");
+    showNotification("All your Lumos have fainted! Heal at a town first.");
     return;
   }
   // Pick a random monster based on rates
@@ -647,7 +676,7 @@ function startWildBattle(wildMon) {
   enemyActiveMon = wildMon;
   showScreen("screen-battle");
   clearBattleLog();
-  logMsg(`A wild ${wildMon.name} appeared! (Lv.${wildMon.level})`);
+  logMsg(`A wild Lumo — ${wildMon.name} appeared! (Lv.${wildMon.level})`);
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = false;
@@ -691,7 +720,7 @@ async function playerUseMove(moveId) {
 
 async function playerUseBall(orbId) {
   showBattleMainActions();
-  if (!battleContext.isWild) { logMsg("Can't catch gym monsters!"); return; }
+  if (!battleContext.isWild) { logMsg("Can't catch gym Lumos!"); return; }
   if ((G.bag[orbId] || 0) <= 0) { logMsg("No orbs of that type!"); return; }
   G.bag[orbId]--;
   const item = ITEMS_DATA[orbId];
@@ -961,7 +990,7 @@ async function handlePlayerFainted() {
     // All fainted
     endBattle("lost");
   } else {
-    logMsg("Choose your next monster!");
+    logMsg("Choose your next Lumo!");
     battleContext.forcedSwitch = true;
     showSwitchPanel(true);
   }
@@ -1195,12 +1224,12 @@ function useItemOnMon(itemId, monIdx) {
   if (!item || (G.bag[itemId] || 0) <= 0) return;
   if (item.type === "heal") {
     if (slot.currentHP >= slot.maxHP) { showNotification("Already at full HP!"); return; }
-    if (slot.currentHP <= 0) { showNotification("Can't use on a fainted monster!"); return; }
+    if (slot.currentHP <= 0) { showNotification("Can't use on a fainted Lumo!"); return; }
     slot.currentHP = Math.min(slot.maxHP, slot.currentHP + item.healAmt);
     G.bag[itemId]--;
     showNotification(`Used ${item.name}! HP restored.`);
   } else if (item.type === "revive") {
-    if (slot.currentHP > 0) { showNotification("Monster is not fainted!"); return; }
+    if (slot.currentHP > 0) { showNotification("Lumo is not fainted!"); return; }
     slot.currentHP = Math.floor(slot.maxHP / 2);
     G.bag[itemId]--;
     showNotification(`${MONSTERS_DATA[slot.monsterId].name} was revived!`);
@@ -1378,7 +1407,7 @@ function initEventListeners() {
     const area = WORLD_DATA[G.location];
     if (area?.gymLeader && !G.defeatedLeaders.includes(area.gymLeader)) {
       if (G.team.every(m => m.currentHP <= 0)) {
-        showNotification("All your monsters are fainted! Heal first.");
+        showNotification("All your Lumos are fainted! Heal first.");
         return;
       }
       const leader = GYM_LEADERS[area.gymLeader];
@@ -1390,7 +1419,7 @@ function initEventListeners() {
   document.getElementById("btn-champion").addEventListener("click", () => {
     if (!G.championDefeated) {
       if (G.team.every(m => m.currentHP <= 0)) {
-        showNotification("All your monsters are fainted! Heal first.");
+        showNotification("All your Lumos are fainted! Heal first.");
         return;
       }
       const leader = GYM_LEADERS["champion"];
@@ -1610,7 +1639,7 @@ window.addEventListener("load", () => {
   showScreen("screen-title");
 
   // Setup creation screen dialog
-  typewriterDialog("Welcome to the world of Lumoria! I am Professor Arbor. The world is full of incredible creatures called Monsters. Tell me, what is your name?");
+  typewriterDialog("Welcome to the world of Lumoria! I am Professor Arbor. The world is full of incredible creatures called Lumos. Tell me, what is your name?");
 
   // Map re-render on resize
   window.addEventListener("resize", () => {

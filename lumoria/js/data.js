@@ -800,7 +800,404 @@ const MONSTERS_DATA = {
     base:{hp:100,atk:110,def:90,spa:120,spd:100,spe:75},
     learnset:[[1,"hydro_pump"],[1,"dark_pulse"],[1,"dragon_pulse"],[1,"crunch"],[60,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
-    desc:"The Legendary Abyss Drake. Lurks in the deepest ocean trenches." }
+    desc:"The Legendary Abyss Drake. Lurks in the deepest ocean trenches." },
+
+  // ===== NEW LUMOS IDs 108-167 =====
+
+  // ===== ELECTRIC/ROCK =====
+  108: { id:108, name:"Thunderock", emoji:"⚡", types:["Electric","Rock"],
+    base:{hp:55,atk:65,def:70,spa:55,spd:50,spe:45},
+    learnset:[[1,"rock_throw"],[1,"thunder_shock"],[10,"spark"],[18,"rock_slide"],[26,"thunderbolt"],[34,"stone_edge"]],
+    evolveTo:128, evolveLevel:30, catchRate:130, expYield:96, rarity:"common",
+    desc:"A rocky beetle crackling with stored lightning. Its shell acts as a living battery." },
+
+  // ===== STEEL/DARK =====
+  109: { id:109, name:"Scrapbat", emoji:"🦇", types:["Steel","Dark"],
+    base:{hp:45,atk:55,def:60,spa:45,spd:50,spe:70},
+    learnset:[[1,"bite"],[1,"metal_claw"],[9,"wing_attack"],[17,"dark_pulse"],[25,"flash_cannon"],[33,"crunch"]],
+    evolveTo:129, evolveLevel:28, catchRate:140, expYield:88, rarity:"common",
+    desc:"A small bat with scrap-metal wings that screech on the wind. Lives in old ruins." },
+
+  // ===== FIRE/GROUND =====
+  110: { id:110, name:"Cindermole", emoji:"🐾", types:["Fire","Ground"],
+    base:{hp:60,atk:65,def:55,spa:50,spd:45,spe:40},
+    learnset:[[1,"ember"],[1,"scratch"],[9,"mud_shot"],[17,"flame_fang"],[25,"earthquake"],[33,"flamethrower"]],
+    evolveTo:130, evolveLevel:26, catchRate:150, expYield:92, rarity:"common",
+    desc:"A fire mole that tunnels through volcanic rock. Its claws glow orange with heat." },
+
+  // ===== FAIRY/GRASS =====
+  111: { id:111, name:"Petalpuff", emoji:"🌸", types:["Fairy","Grass"],
+    base:{hp:40,atk:35,def:40,spa:55,spd:50,spe:55},
+    learnset:[[1,"tackle"],[1,"fairy_wind"],[8,"vine_whip"],[16,"dazzling_gleam"],[24,"razor_leaf"],[32,"moonblast"]],
+    evolveTo:131, evolveLevel:20, catchRate:220, expYield:70, rarity:"common",
+    desc:"A puff of fairy pollen given form. It drifts wherever the breeze takes it." },
+
+  // ===== NORMAL/GROUND =====
+  112: { id:112, name:"Dustpaw", emoji:"🐾", types:["Normal","Ground"],
+    base:{hp:50,atk:55,def:45,spa:35,spd:40,spe:65},
+    learnset:[[1,"tackle"],[1,"growl"],[8,"mud_shot"],[16,"quick_attack"],[24,"headbutt"],[32,"earthquake"]],
+    evolveTo:132, evolveLevel:22, catchRate:180, expYield:78, rarity:"common",
+    desc:"A sandy-furred critter that kicks up dust clouds when startled. Very skittish." },
+
+  // ===== WATER/POISON =====
+  113: { id:113, name:"Polykling", emoji:"🐙", types:["Water","Poison"],
+    base:{hp:50,atk:50,def:55,spa:60,spd:55,spe:50},
+    learnset:[[1,"water_gun"],[1,"poison_sting"],[10,"bubble_beam"],[18,"sludge_bomb"],[26,"surf"],[34,"toxic"]],
+    evolveTo:133, evolveLevel:28, catchRate:130, expYield:90, rarity:"common",
+    desc:"A polypoid sea creature that releases clouds of inky venom to escape predators." },
+
+  // ===== WATER/STEEL =====
+  114: { id:114, name:"Coralgolem", emoji:"🪸", types:["Water","Steel"],
+    base:{hp:80,atk:75,def:100,spa:65,spd:80,spe:30},
+    learnset:[[1,"water_gun"],[1,"metal_claw"],[11,"harden"],[19,"aqua_tail"],[27,"flash_cannon"],[35,"surf"],[43,"iron_tail"]],
+    evolveTo:null, evolveLevel:null, catchRate:80, expYield:185, rarity:"uncommon",
+    desc:"A golem formed from centuries of compressed coral and sunken steel. Nearly indestructible." },
+
+  // ===== WATER/WIND =====
+  115: { id:115, name:"Tidalwing", emoji:"🐬", types:["Water","Wind"],
+    base:{hp:65,atk:70,def:60,spa:80,spd:70,spe:90},
+    learnset:[[1,"water_gun"],[1,"gust"],[12,"bubble_beam"],[20,"wing_attack"],[28,"surf"],[36,"air_slash"],[44,"hydro_pump"],[52,"hurricane"]],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:192, rarity:"uncommon",
+    desc:"A dolphin that leaps between ocean waves and sea winds. Its song calms storms." },
+
+  // ===== WIND/PSYCHIC =====
+  116: { id:116, name:"Zephyrling", emoji:"🌀", types:["Wind","Psychic"],
+    base:{hp:45,atk:40,def:40,spa:65,spd:60,spe:80},
+    learnset:[[1,"gust"],[1,"confusion"],[9,"quick_attack"],[17,"air_slash"],[25,"psybeam"],[33,"hurricane"],[41,"psychic_move"]],
+    evolveTo:134, evolveLevel:32, catchRate:110, expYield:90, rarity:"common",
+    desc:"A wisp of wind given a curious mind. Follows trainers to observe how they think." },
+
+  // ===== WATER/FAIRY =====
+  117: { id:117, name:"Pearlet", emoji:"🐚", types:["Water","Fairy"],
+    base:{hp:40,atk:35,def:50,spa:60,spd:55,spe:50},
+    learnset:[[1,"tackle"],[1,"water_gun"],[8,"fairy_wind"],[16,"bubble_beam"],[24,"dazzling_gleam"],[32,"surf"]],
+    evolveTo:135, evolveLevel:24, catchRate:200, expYield:74, rarity:"common",
+    desc:"A tiny shellfish encasing a fairy-touched pearl. Shimmers with a gentle inner light." },
+
+  // ===== GRASS/DARK =====
+  118: { id:118, name:"Thicketshade", emoji:"🌿", types:["Grass","Dark"],
+    base:{hp:55,atk:65,def:50,spa:60,spd:50,spe:65},
+    learnset:[[1,"vine_whip"],[1,"bite"],[10,"razor_leaf"],[18,"night_slash"],[26,"energy_ball"],[34,"crunch"],[42,"dark_pulse"]],
+    evolveTo:136, evolveLevel:30, catchRate:110, expYield:98, rarity:"common",
+    desc:"A shadowy plant sprite that hides in dark undergrowth. Its thorns drip with shadow energy." },
+
+  // ===== POISON/GRASS =====
+  119: { id:119, name:"Bogthorn", emoji:"🌾", types:["Poison","Grass"],
+    base:{hp:55,atk:60,def:55,spa:65,spd:55,spe:50},
+    learnset:[[1,"poison_sting"],[1,"vine_whip"],[10,"sludge_bomb"],[18,"razor_leaf"],[26,"toxic"],[34,"energy_ball"],[42,"venoshock"]],
+    evolveTo:137, evolveLevel:28, catchRate:120, expYield:94, rarity:"common",
+    desc:"A bog plant with razor-edged thorns dripping toxic sap. Thrives in poisoned swamps." },
+
+  // ===== DARK =====
+  120: { id:120, name:"Wraithling", emoji:"👻", types:["Dark"],
+    base:{hp:40,atk:50,def:35,spa:60,spd:50,spe:70},
+    learnset:[[1,"bite"],[1,"leer"],[8,"night_shade"],[16,"dark_pulse"],[24,"crunch"],[32,"shadow_ball"]],
+    evolveTo:138, evolveLevel:26, catchRate:160, expYield:80, rarity:"common",
+    desc:"A faint wraith of shadow energy. Haunts dark places and feeds on fearful emotions." },
+
+  // ===== PSYCHIC/DARK =====
+  121: { id:121, name:"Psyshade", emoji:"🔮", types:["Psychic","Dark"],
+    base:{hp:50,atk:55,def:45,spa:75,spd:65,spe:75},
+    learnset:[[1,"confusion"],[1,"bite"],[10,"psybeam"],[18,"dark_pulse"],[26,"psychic_move"],[34,"shadow_ball"],[42,"psystrike"]],
+    evolveTo:139, evolveLevel:34, catchRate:90, expYield:100, rarity:"common",
+    desc:"A shade of psychic darkness. It exists half in reality and half in the mind's eye." },
+
+  // ===== DARK/GRASS =====
+  122: { id:122, name:"Gravemoss", emoji:"🌿", types:["Dark","Grass"],
+    base:{hp:65,atk:70,def:65,spa:70,spd:65,spe:45},
+    learnset:[[1,"bite"],[1,"vine_whip"],[11,"night_slash"],[19,"razor_leaf"],[27,"crunch"],[35,"energy_ball"],[43,"dark_pulse"],[51,"shadow_ball"]],
+    evolveTo:null, evolveLevel:null, catchRate:75, expYield:175, rarity:"uncommon",
+    desc:"An ancient mossy boulder animated by dark energy. Feeds on the light of living things." },
+
+  // ===== BUG/FAIRY =====
+  123: { id:123, name:"Silkweaver", emoji:"🕷️", types:["Bug","Fairy"],
+    base:{hp:40,atk:45,def:50,spa:60,spd:55,spe:65},
+    learnset:[[1,"string_shot"],[1,"fairy_wind"],[9,"bug_bite"],[17,"dazzling_gleam"],[25,"x_scissor"],[33,"moonblast"]],
+    evolveTo:140, evolveLevel:26, catchRate:160, expYield:84, rarity:"common",
+    desc:"A spider that weaves silk infused with fairy dust. Its webs shimmer like spun moonlight." },
+
+  // ===== ICE/STEEL =====
+  124: { id:124, name:"Frostblade", emoji:"🗡️", types:["Ice","Steel"],
+    base:{hp:55,atk:80,def:80,spa:65,spd:65,spe:60},
+    learnset:[[1,"powder_snow"],[1,"metal_claw"],[11,"ice_punch"],[19,"flash_cannon"],[27,"icicle_crash"],[35,"iron_tail"],[43,"blizzard"]],
+    evolveTo:141, evolveLevel:36, catchRate:90, expYield:110, rarity:"uncommon",
+    desc:"A blade of living ice and metal. Keeps its edge forever sharp in the coldest conditions." },
+
+  // ===== ICE/FAIRY =====
+  125: { id:125, name:"Mirrorfish", emoji:"🐟", types:["Ice","Fairy"],
+    base:{hp:45,atk:40,def:50,spa:65,spd:60,spe:65},
+    learnset:[[1,"tackle"],[1,"powder_snow"],[8,"fairy_wind"],[16,"ice_beam"],[24,"dazzling_gleam"],[32,"moonblast"],[40,"blizzard"]],
+    evolveTo:142, evolveLevel:28, catchRate:150, expYield:85, rarity:"common",
+    desc:"A fish with scales like mirror-polished ice. Reflects attacks with its shimmering body." },
+
+  // ===== ICE/DRAGON =====
+  126: { id:126, name:"Lunaveil", emoji:"🌙", types:["Ice","Dragon"],
+    base:{hp:60,atk:75,def:65,spa:80,spd:75,spe:70},
+    learnset:[[1,"powder_snow"],[1,"dragon_breath"],[12,"ice_beam"],[20,"dragon_claw"],[28,"icicle_crash"],[36,"dragon_pulse"],[44,"blizzard"],[52,"outrage"]],
+    evolveTo:143, evolveLevel:40, catchRate:60, expYield:115, rarity:"uncommon",
+    desc:"A moonlit dragon of frost. Its scales glimmer with cold starlight on winter nights." },
+
+  // ===== WATER/STEEL =====
+  127: { id:127, name:"Rustleviathan", emoji:"🐋", types:["Water","Steel"],
+    base:{hp:120,atk:100,def:115,spa:90,spd:100,spe:45},
+    learnset:[[1,"surf"],[1,"iron_tail"],[1,"aqua_tail"],[1,"flash_cannon"],[55,"hydro_pump"],[65,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:15, expYield:280, rarity:"rare",
+    desc:"A leviathan armored in barnacle-covered steel. Said to be older than the ocean floor itself." },
+
+  // ===== EVOLUTIONS (108+ referenced above) =====
+
+  128: { id:128, name:"Boltcrag", emoji:"🪨", types:["Electric","Rock"],
+    base:{hp:80,atk:95,def:100,spa:80,spd:70,spe:55},
+    learnset:[[1,"rock_slide"],[1,"thunderbolt"],[30,"stone_edge"],[38,"thunder"],[46,"earthquake"],[54,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:45, expYield:220, rarity:"uncommon",
+    desc:"A towering boulder monster wreathed in crackling lightning. Its stomps cause earthquakes." },
+
+  129: { id:129, name:"Ironwraith", emoji:"🦇", types:["Steel","Dark"],
+    base:{hp:70,atk:85,def:90,spa:70,spd:75,spe:80},
+    learnset:[[1,"crunch"],[1,"flash_cannon"],[28,"iron_tail"],[36,"dark_pulse"],[44,"shadow_ball"],[52,"steel_wing"],[60,"night_slash"]],
+    evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
+    desc:"An iron-clad wraith bat. Its metallic screech disorients enemies from great distances." },
+
+  130: { id:130, name:"Magmaborer", emoji:"🦔", types:["Fire","Ground"],
+    base:{hp:85,atk:100,def:80,spa:70,spd:65,spe:55},
+    learnset:[[1,"flame_fang"],[1,"mud_shot"],[26,"flamethrower"],[34,"earthquake"],[42,"fire_blast"],[50,"earth_power"],[58,"inferno"]],
+    evolveTo:null, evolveLevel:null, catchRate:45, expYield:218, rarity:"uncommon",
+    desc:"A lava-boring behemoth that carves tunnels with molten precision. Its spines erupt flame." },
+
+  131: { id:131, name:"Bloomfae", emoji:"🌺", types:["Fairy","Grass"],
+    base:{hp:65,atk:55,def:65,spa:95,spd:85,spe:75},
+    learnset:[[1,"fairy_wind"],[1,"razor_leaf"],[20,"moonblast"],[28,"energy_ball"],[36,"dazzling_gleam"],[44,"petal_blitz"],[52,"moonblast"]],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:195, rarity:"uncommon",
+    desc:"A bloom fairy of extraordinary grace. Its petals carry healing magic on the breeze." },
+
+  132: { id:132, name:"Sandmane", emoji:"🦁", types:["Normal","Ground"],
+    base:{hp:75,atk:90,def:70,spa:55,spd:60,spe:75},
+    learnset:[[1,"mud_shot"],[1,"headbutt"],[22,"earthquake"],[30,"body_slam"],[38,"earth_power"],[46,"swords_dance"],[54,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:55, expYield:200, rarity:"uncommon",
+    desc:"A sand lion with a mane of hardened earth. Commands the desert winds." },
+
+  133: { id:133, name:"Venomantis", emoji:"🦑", types:["Water","Poison"],
+    base:{hp:75,atk:80,def:75,spa:95,spd:80,spe:65},
+    learnset:[[1,"sludge_bomb"],[1,"surf"],[28,"toxic"],[36,"venoshock"],[44,"hydro_pump"],[52,"sludge_bomb"],[60,"dark_pulse"]],
+    evolveTo:null, evolveLevel:null, catchRate:45, expYield:210, rarity:"uncommon",
+    desc:"A venomous sea predator with eight toxic-tipped tentacles. Feared by all ocean life." },
+
+  134: { id:134, name:"Cyclomind", emoji:"🌪️", types:["Wind","Psychic"],
+    base:{hp:70,atk:65,def:65,spa:105,spd:90,spe:100},
+    learnset:[[1,"air_slash"],[1,"psybeam"],[32,"hurricane"],[40,"psychic_move"],[48,"calm_mind"],[56,"psystrike"],[64,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:35, expYield:240, rarity:"rare",
+    desc:"A cyclone of pure psychic wind. Its thoughts create miniature tornadoes around it." },
+
+  135: { id:135, name:"Naiadess", emoji:"🧜", types:["Water","Fairy"],
+    base:{hp:70,atk:60,def:70,spa:105,spd:95,spe:75},
+    learnset:[[1,"water_gun"],[1,"fairy_wind"],[24,"surf"],[32,"moonblast"],[40,"hydro_pump"],[48,"dazzling_gleam"],[56,"moonblast"]],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:222, rarity:"rare",
+    desc:"A sea nymph radiating both water and fairy energy. Said to protect lost sailors." },
+
+  136: { id:136, name:"Umbravine", emoji:"🌑", types:["Grass","Dark"],
+    base:{hp:80,atk:90,def:75,spa:90,spd:75,spe:75},
+    learnset:[[1,"razor_leaf"],[1,"dark_pulse"],[30,"petal_blitz"],[38,"crunch"],[46,"shadow_ball"],[54,"energy_ball"],[62,"night_slash"]],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:218, rarity:"uncommon",
+    desc:"A dark vine predator that ensnares prey in shadow-infused tendrils. Ancient and cunning." },
+
+  137: { id:137, name:"Toxiflora", emoji:"🪷", types:["Poison","Grass"],
+    base:{hp:80,atk:80,def:70,spa:100,spd:80,spe:65},
+    learnset:[[1,"sludge_bomb"],[1,"energy_ball"],[28,"toxic"],[36,"venoshock"],[44,"petal_blitz"],[52,"sludge_bomb"],[60,"energy_ball"]],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
+    desc:"A carnivorous flower of potent venom. Its blooms lure in prey before injecting toxins." },
+
+  138: { id:138, name:"Phantomere", emoji:"👻", types:["Dark","Psychic"],
+    base:{hp:65,atk:70,def:60,spa:100,spd:85,spe:85},
+    learnset:[[1,"dark_pulse"],[1,"confusion"],[26,"shadow_ball"],[34,"psychic_move"],[42,"night_slash"],[50,"psystrike"],[58,"dark_pulse"]],
+    evolveTo:null, evolveLevel:null, catchRate:45, expYield:210, rarity:"uncommon",
+    desc:"A phantom born from dark and psychic energies. Can read minds and project nightmares." },
+
+  139: { id:139, name:"Voidmind", emoji:"🌀", types:["Psychic","Dark"],
+    base:{hp:75,atk:75,def:70,spa:115,spd:90,spe:85},
+    learnset:[[1,"psybeam"],[1,"dark_pulse"],[34,"psychic_move"],[42,"shadow_ball"],[50,"psystrike"],[58,"calm_mind"],[66,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:30, expYield:248, rarity:"rare",
+    desc:"A void being of psychic and dark power. Consumes light and thought with equal ease." },
+
+  140: { id:140, name:"Gossamerarch", emoji:"🕸️", types:["Bug","Fairy"],
+    base:{hp:65,atk:65,def:75,spa:95,spd:85,spe:75},
+    learnset:[[1,"bug_buzz"],[1,"dazzling_gleam"],[26,"moonblast"],[34,"x_scissor"],[42,"dazzling_gleam"],[50,"bug_buzz"],[58,"moonblast"]],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:210, rarity:"uncommon",
+    desc:"A radiant spider archon that spins webs that trap bad dreams. Revered as a good omen." },
+
+  141: { id:141, name:"Glaciablade", emoji:"⚔️", types:["Ice","Steel"],
+    base:{hp:80,atk:115,def:100,spa:85,spd:85,spe:70},
+    learnset:[[1,"ice_punch"],[1,"flash_cannon"],[36,"icicle_crash"],[44,"iron_tail"],[52,"blizzard"],[60,"steel_wing"],[68,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:25, expYield:260, rarity:"rare",
+    desc:"A legendary blade forged from glacier ice and pure ore. Its strikes freeze what they cut." },
+
+  142: { id:142, name:"Prismice", emoji:"💠", types:["Ice","Fairy"],
+    base:{hp:70,atk:60,def:80,spa:100,spd:95,spe:70},
+    learnset:[[1,"ice_beam"],[1,"dazzling_gleam"],[28,"moonblast"],[36,"blizzard"],[44,"icicle_crash"],[52,"moonblast"],[60,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:218, rarity:"rare",
+    desc:"A prismatic ice being of refined fairy power. Its crystalline body bends light into rainbows." },
+
+  143: { id:143, name:"Aurordrake", emoji:"🐉", types:["Ice","Dragon"],
+    base:{hp:90,atk:110,def:90,spa:110,spd:95,spe:80},
+    learnset:[[1,"ice_beam"],[1,"dragon_pulse"],[40,"blizzard"],[48,"outrage"],[56,"icicle_crash"],[64,"dragon_dance"],[72,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:10, expYield:285, rarity:"rare",
+    desc:"A dragon cloaked in the aurora. Its roar scatters ribbons of colored ice across the sky." },
+
+  // ===== ADDITIONAL COMMON/UNCOMMON/RARE LUMOS =====
+
+  // ===== FIRE/PSYCHIC =====
+  144: { id:144, name:"Embermind", emoji:"🔥", types:["Fire","Psychic"],
+    base:{hp:40,atk:45,def:38,spa:65,spd:55,spe:60},
+    learnset:[[1,"ember"],[1,"confusion"],[9,"psybeam"],[17,"flamethrower"],[25,"psychic_move"],[33,"fire_blast"]],
+    evolveTo:145, evolveLevel:28, catchRate:150, expYield:88, rarity:"common",
+    desc:"A psychic flame sprite. Its fire burns hotter when it concentrates its mind." },
+
+  145: { id:145, name:"Pyraxion", emoji:"🧠", types:["Fire","Psychic"],
+    base:{hp:70,atk:75,def:65,spa:105,spd:85,spe:85},
+    learnset:[[1,"flamethrower"],[1,"psychic_move"],[28,"fire_blast"],[36,"psystrike"],[44,"heat_wave"],[52,"calm_mind"],[60,"inferno"]],
+    evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"rare",
+    desc:"A psychic fire sage. Projects visions of infernos to terrify foes before striking." },
+
+  // ===== GRASS/ELECTRIC =====
+  146: { id:146, name:"Sprigvolt", emoji:"🌱", types:["Grass","Electric"],
+    base:{hp:40,atk:50,def:40,spa:55,spd:45,spe:70},
+    learnset:[[1,"vine_whip"],[1,"thunder_shock"],[8,"razor_leaf"],[16,"spark"],[24,"energy_ball"],[32,"thunderbolt"]],
+    evolveTo:147, evolveLevel:22, catchRate:190, expYield:78, rarity:"common",
+    desc:"A sprout crackling with static electricity. Charges itself by photosynthesizing lightning." },
+
+  147: { id:147, name:"Voltforest", emoji:"🌳", types:["Grass","Electric"],
+    base:{hp:75,atk:80,def:75,spa:95,spd:80,spe:70},
+    learnset:[[1,"razor_leaf"],[1,"thunderbolt"],[22,"energy_ball"],[30,"thunder"],[38,"petal_blitz"],[46,"swords_dance"],[54,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:45, expYield:210, rarity:"uncommon",
+    desc:"An ancient tree monster that stores electric charge in every leaf. Touch it and be zapped." },
+
+  // ===== ROCK/DARK =====
+  148: { id:148, name:"Shadowstone", emoji:"🪨", types:["Rock","Dark"],
+    base:{hp:60,atk:70,def:80,spa:45,spd:50,spe:30},
+    learnset:[[1,"rock_throw"],[1,"bite"],[10,"headbutt"],[18,"crunch"],[26,"rock_slide"],[34,"dark_pulse"],[42,"stone_edge"]],
+    evolveTo:149, evolveLevel:30, catchRate:130, expYield:97, rarity:"common",
+    desc:"A rock monster that absorbs shadow energy. Moves imperceptibly slow but hits with shattering force." },
+
+  149: { id:149, name:"Darkmonolith", emoji:"🗿", types:["Rock","Dark"],
+    base:{hp:90,atk:105,def:110,spa:65,spd:75,spe:30},
+    learnset:[[1,"rock_slide"],[1,"crunch"],[30,"stone_edge"],[38,"dark_pulse"],[46,"earthquake"],[54,"shadow_ball"],[62,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:35, expYield:230, rarity:"uncommon",
+    desc:"A living monolith of darkened stone. Ancient civilizations worshipped it as a god of night." },
+
+  // ===== POISON/BUG =====
+  150: { id:150, name:"Toxigrub", emoji:"🐛", types:["Poison","Bug"],
+    base:{hp:45,atk:40,def:45,spa:55,spd:45,spe:40},
+    learnset:[[1,"poison_sting"],[1,"string_shot"],[8,"bug_bite"],[16,"sludge_bomb"],[24,"x_scissor"],[32,"toxic"]],
+    evolveTo:151, evolveLevel:20, catchRate:220, expYield:65, rarity:"common",
+    desc:"A larva coated in toxic slime. Leaves a trail of venom wherever it crawls." },
+
+  151: { id:151, name:"Venomoth", emoji:"🦋", types:["Poison","Bug"],
+    base:{hp:65,atk:65,def:55,spa:90,spd:75,spe:90},
+    learnset:[[1,"sludge_bomb"],[1,"bug_buzz"],[20,"toxic"],[28,"venoshock"],[36,"air_slash"],[44,"bug_buzz"],[52,"sludge_bomb"]],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:185, rarity:"uncommon",
+    desc:"A venomous moth that releases toxic scales on the wind. A cloud of them can fell a Lumos quickly." },
+
+  // ===== STEEL/GROUND =====
+  152: { id:152, name:"Orekit", emoji:"⚙️", types:["Steel","Ground"],
+    base:{hp:55,atk:60,def:75,spa:35,spd:45,spe:35},
+    learnset:[[1,"metal_claw"],[1,"mud_shot"],[9,"harden"],[17,"flash_cannon"],[25,"earthquake"],[33,"iron_tail"]],
+    evolveTo:153, evolveLevel:26, catchRate:160, expYield:90, rarity:"common",
+    desc:"A small ore elemental born in deep mine shafts. Tough as iron and twice as stubborn." },
+
+  153: { id:153, name:"Forgebound", emoji:"🤖", types:["Steel","Ground"],
+    base:{hp:85,atk:100,def:110,spa:55,spd:70,spe:40},
+    learnset:[[1,"flash_cannon"],[1,"earthquake"],[26,"iron_tail"],[34,"rock_slide"],[42,"earth_power"],[50,"flash_cannon"],[58,"body_slam"]],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:222, rarity:"uncommon",
+    desc:"A forged golem of steel and compressed earth. Was created to guard ancient mines." },
+
+  // ===== DRAGON/GROUND =====
+  154: { id:154, name:"Terraling", emoji:"🐣", types:["Dragon","Ground"],
+    base:{hp:45,atk:60,def:50,spa:50,spd:45,spe:50},
+    learnset:[[1,"scratch"],[1,"dragon_breath"],[10,"mud_shot"],[18,"dragon_claw"],[26,"earthquake"],[34,"dragon_pulse"]],
+    evolveTo:155, evolveLevel:32, catchRate:80, expYield:94, rarity:"uncommon",
+    desc:"A burrowing dragon hatchling. Digs deep tunnels and breathes sand-laden gusts." },
+
+  155: { id:155, name:"Groundrake", emoji:"🐲", types:["Dragon","Ground"],
+    base:{hp:80,atk:110,def:90,spa:85,spd:75,spe:70},
+    learnset:[[1,"dragon_claw"],[1,"earthquake"],[32,"dragon_pulse"],[40,"earth_power"],[48,"dragon_dance"],[56,"outrage"],[64,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:25, expYield:260, rarity:"rare",
+    desc:"A subterranean dragon that causes quakes with each step. Rules the deep underground." },
+
+  // ===== NORMAL/PSYCHIC =====
+  156: { id:156, name:"Oddpuff", emoji:"🐑", types:["Normal","Psychic"],
+    base:{hp:50,atk:35,def:45,spa:65,spd:60,spe:50},
+    learnset:[[1,"tackle"],[1,"confusion"],[9,"growl"],[17,"psybeam"],[25,"recover"],[33,"psychic_move"],[41,"calm_mind"]],
+    evolveTo:157, evolveLevel:24, catchRate:180, expYield:78, rarity:"common",
+    desc:"A woolly psychic creature that reads emotional auras. Very empathetic and gentle." },
+
+  157: { id:157, name:"Dreamflock", emoji:"🐏", types:["Normal","Psychic"],
+    base:{hp:75,atk:55,def:65,spa:100,spd:90,spe:70},
+    learnset:[[1,"psybeam"],[1,"body_slam"],[24,"psychic_move"],[32,"calm_mind"],[40,"recover"],[48,"psystrike"],[56,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:50, expYield:200, rarity:"uncommon",
+    desc:"A dreaming flock manifestation. Said to appear to sleeping trainers before a great trial." },
+
+  // ===== BUG/GROUND =====
+  158: { id:158, name:"Burrgrub", emoji:"🪲", types:["Bug","Ground"],
+    base:{hp:55,atk:60,def:60,spa:40,spd:40,spe:35},
+    learnset:[[1,"bug_bite"],[1,"mud_shot"],[10,"string_shot"],[18,"x_scissor"],[26,"earthquake"],[34,"bug_buzz"]],
+    evolveTo:159, evolveLevel:24, catchRate:170, expYield:88, rarity:"common",
+    desc:"A burrowing beetle that lives in dry earth. Its mandibles can crack solid rock." },
+
+  159: { id:159, name:"Terrabeetle", emoji:"🪲", types:["Bug","Ground"],
+    base:{hp:80,atk:95,def:90,spa:60,spd:65,spe:45},
+    learnset:[[1,"x_scissor"],[1,"earthquake"],[24,"rock_slide"],[32,"bug_buzz"],[40,"earth_power"],[48,"stone_edge"],[56,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
+    desc:"An armored ground beetle of incredible toughness. Plows through solid bedrock with ease." },
+
+  // ===== WIND/ICE =====
+  160: { id:160, name:"Chillgust", emoji:"🌬️", types:["Wind","Ice"],
+    base:{hp:40,atk:40,def:40,spa:60,spd:55,spe:75},
+    learnset:[[1,"gust"],[1,"powder_snow"],[8,"wing_attack"],[16,"icy_wind"],[24,"air_slash"],[32,"ice_beam"],[40,"hurricane"]],
+    evolveTo:161, evolveLevel:26, catchRate:180, expYield:78, rarity:"common",
+    desc:"A gust of frozen air given form. Howls through mountain passes on the coldest nights." },
+
+  161: { id:161, name:"Blizzardwing", emoji:"🦅", types:["Wind","Ice"],
+    base:{hp:70,atk:85,def:70,spa:95,spd:80,spe:100},
+    learnset:[[1,"wing_attack"],[1,"ice_beam"],[26,"air_slash"],[34,"icicle_crash"],[42,"hurricane"],[50,"blizzard"],[58,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
+    desc:"A raptor of blizzards. Summons snowstorms with each powerful wingbeat." },
+
+  // ===== FAIRY/STEEL =====
+  162: { id:162, name:"Shimmerpin", emoji:"📌", types:["Fairy","Steel"],
+    base:{hp:40,atk:45,def:60,spa:60,spd:55,spe:55},
+    learnset:[[1,"fairy_wind"],[1,"metal_claw"],[9,"dazzling_gleam"],[17,"flash_cannon"],[25,"moonblast"],[33,"iron_tail"]],
+    evolveTo:163, evolveLevel:26, catchRate:170, expYield:82, rarity:"common",
+    desc:"A tiny fairy-knight made of living silver. Fiercely guards those it bonds with." },
+
+  163: { id:163, name:"Gleamguard", emoji:"🛡️", types:["Fairy","Steel"],
+    base:{hp:75,atk:75,def:105,spa:90,spd:90,spe:55},
+    learnset:[[1,"dazzling_gleam"],[1,"flash_cannon"],[26,"moonblast"],[34,"iron_tail"],[42,"steel_wing"],[50,"dazzling_gleam"],[58,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:35, expYield:230, rarity:"rare",
+    desc:"An armored fairy sentinel that never abandons its post. Its shield can repel any curse." },
+
+  // ===== NEW LEGENDARIES =====
+  164: { id:164, name:"Chronoveil", emoji:"⏳", types:["Psychic","Dragon"],
+    base:{hp:100,atk:105,def:95,spa:130,spd:105,spe:90},
+    learnset:[[1,"psychic_move"],[1,"dragon_pulse"],[1,"calm_mind"],[1,"dragon_dance"],[60,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
+    desc:"The Legendary Veil of Time. Said to exist at the crossing point of past and future." },
+
+  165: { id:165, name:"Terranova", emoji:"🌍", types:["Ground","Grass"],
+    base:{hp:115,atk:120,def:105,spa:95,spd:95,spe:65},
+    learnset:[[1,"earthquake"],[1,"energy_ball"],[1,"earth_power"],[1,"petal_blitz"],[60,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
+    desc:"The Legendary Spirit of the Land. Every continent in Lumoria trembles at its footfall." },
+
+  166: { id:166, name:"Voidstar", emoji:"🌌", types:["Dark","Fairy"],
+    base:{hp:95,atk:100,def:90,spa:130,spd:110,spe:100},
+    learnset:[[1,"dark_pulse"],[1,"moonblast"],[1,"shadow_ball"],[1,"dazzling_gleam"],[60,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
+    desc:"The Legendary Void Star. A being of absolute darkness ringed by fairy light. Where it passes, stars blink out." },
+
+  167: { id:167, name:"Stormforged", emoji:"⚡", types:["Steel","Electric"],
+    base:{hp:95,atk:120,def:100,spa:110,spd:90,spe:95},
+    learnset:[[1,"thunder"],[1,"flash_cannon"],[1,"iron_tail"],[1,"thunder_wave"],[60,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
+    desc:"The Legendary Stormforged. Born in the heart of the greatest storm ever recorded. Lightning is its heartbeat." }
 };
 
 

@@ -1,5 +1,5 @@
 // ============================================================
-// MONSTERIA - Game Data
+// LUMORIA - Game Data
 // ============================================================
 
 // TYPE EFFECTIVENESS CHART
@@ -170,7 +170,7 @@ const MONSTERS_DATA = {
     base:{hp:59,atk:63,def:80,spa:65,spd:80,spe:58},
     learnset:[[1,"water_gun"],[1,"tail_whip"],[16,"bubble_beam"],[22,"surf"],[30,"aqua_tail"],[40,"hydro_pump"],[50,"recover"]],
     evolveTo:6, evolveLevel:36, catchRate:25, expYield:142, rarity:"uncommon",
-    desc:"A serpentine water monster. Glides through water with incredible grace." },
+    desc:"A serpentine water Lumo. Glides through water with incredible grace." },
 
   6: { id:6, name:"Oceanoth",    emoji:"🐲", types:["Water","Dragon"],
     base:{hp:79,atk:83,def:100,spa:85,spd:105,spe:78},
@@ -276,7 +276,7 @@ const MONSTERS_DATA = {
     base:{hp:60,atk:62,def:55,spa:70,spd:60,spe:35},
     learnset:[[1,"tackle"],[1,"vine_whip"],[8,"poison_sting"],[16,"energy_ball"],[24,"sludge_bomb"],[32,"spore_blast"]],
     evolveTo:23, evolveLevel:25, catchRate:135, expYield:98, rarity:"common",
-    desc:"A mushroom monster that releases paralyzing spores when threatened." },
+    desc:"A mushroom Lumo that releases paralyzing spores when threatened." },
 
   23: { id:23, name:"Sporeking",   emoji:"🍄", types:["Grass","Poison"],
     base:{hp:85,atk:85,def:75,spa:100,spd:80,spe:50},
@@ -460,7 +460,7 @@ const MONSTERS_DATA = {
     base:{hp:95,atk:100,def:90,spa:65,spd:75,spe:50},
     learnset:[[1,"powder_snow"],[1,"scratch"],[30,"ice_beam"],[38,"earthquake"],[46,"blizzard"],[54,"icicle_crash"],[62,"earth_power"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:228, rarity:"uncommon",
-    desc:"A massive polar bear monster. Can freeze the ground solid with its roar." },
+    desc:"A massive polar bear Lumo. Can freeze the ground solid with its roar." },
 
   53: { id:53, name:"Sleetling",   emoji:"🌨️", types:["Ice","Water"],
     base:{hp:45,atk:40,def:45,spa:60,spd:55,spe:55},
@@ -725,7 +725,7 @@ const MONSTERS_DATA = {
     base:{hp:65,atk:60,def:60,spa:40,spd:40,spe:30},
     learnset:[[1,"tackle"],[1,"growl"],[10,"headbutt"],[20,"body_slam"],[30,"swords_dance"],[40,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:180, expYield:80, rarity:"common",
-    desc:"A snuffling pig monster that loves digging for truffles. Stubborn and cute." },
+    desc:"A snuffling pig Lumo that loves digging for truffles. Stubborn and cute." },
 
   // ===== ROCK =====
   96: { id:96, name:"Pebblepup",   emoji:"🪨", types:["Rock"],
@@ -800,7 +800,404 @@ const MONSTERS_DATA = {
     base:{hp:100,atk:110,def:90,spa:120,spd:100,spe:75},
     learnset:[[1,"hydro_pump"],[1,"dark_pulse"],[1,"dragon_pulse"],[1,"crunch"],[60,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
-    desc:"The Legendary Abyss Drake. Lurks in the deepest ocean trenches." }
+    desc:"The Legendary Abyss Drake. Lurks in the deepest ocean trenches." },
+
+  // ===== NEW LUMOS IDs 108-167 =====
+
+  // ===== ELECTRIC/ROCK =====
+  108: { id:108, name:"Thunderock", emoji:"⚡", types:["Electric","Rock"],
+    base:{hp:55,atk:65,def:70,spa:55,spd:50,spe:45},
+    learnset:[[1,"rock_throw"],[1,"thunder_shock"],[10,"spark"],[18,"rock_slide"],[26,"thunderbolt"],[34,"stone_edge"]],
+    evolveTo:128, evolveLevel:30, catchRate:130, expYield:96, rarity:"common",
+    desc:"A rocky beetle crackling with stored lightning. Its shell acts as a living battery." },
+
+  // ===== STEEL/DARK =====
+  109: { id:109, name:"Scrapbat", emoji:"🦇", types:["Steel","Dark"],
+    base:{hp:45,atk:55,def:60,spa:45,spd:50,spe:70},
+    learnset:[[1,"bite"],[1,"metal_claw"],[9,"wing_attack"],[17,"dark_pulse"],[25,"flash_cannon"],[33,"crunch"]],
+    evolveTo:129, evolveLevel:28, catchRate:140, expYield:88, rarity:"common",
+    desc:"A small bat with scrap-metal wings that screech on the wind. Lives in old ruins." },
+
+  // ===== FIRE/GROUND =====
+  110: { id:110, name:"Cindermole", emoji:"🐾", types:["Fire","Ground"],
+    base:{hp:60,atk:65,def:55,spa:50,spd:45,spe:40},
+    learnset:[[1,"ember"],[1,"scratch"],[9,"mud_shot"],[17,"flame_fang"],[25,"earthquake"],[33,"flamethrower"]],
+    evolveTo:130, evolveLevel:26, catchRate:150, expYield:92, rarity:"common",
+    desc:"A fire mole that tunnels through volcanic rock. Its claws glow orange with heat." },
+
+  // ===== FAIRY/GRASS =====
+  111: { id:111, name:"Petalpuff", emoji:"🌸", types:["Fairy","Grass"],
+    base:{hp:40,atk:35,def:40,spa:55,spd:50,spe:55},
+    learnset:[[1,"tackle"],[1,"fairy_wind"],[8,"vine_whip"],[16,"dazzling_gleam"],[24,"razor_leaf"],[32,"moonblast"]],
+    evolveTo:131, evolveLevel:20, catchRate:220, expYield:70, rarity:"common",
+    desc:"A puff of fairy pollen given form. It drifts wherever the breeze takes it." },
+
+  // ===== NORMAL/GROUND =====
+  112: { id:112, name:"Dustpaw", emoji:"🐾", types:["Normal","Ground"],
+    base:{hp:50,atk:55,def:45,spa:35,spd:40,spe:65},
+    learnset:[[1,"tackle"],[1,"growl"],[8,"mud_shot"],[16,"quick_attack"],[24,"headbutt"],[32,"earthquake"]],
+    evolveTo:132, evolveLevel:22, catchRate:180, expYield:78, rarity:"common",
+    desc:"A sandy-furred critter that kicks up dust clouds when startled. Very skittish." },
+
+  // ===== WATER/POISON =====
+  113: { id:113, name:"Polykling", emoji:"🐙", types:["Water","Poison"],
+    base:{hp:50,atk:50,def:55,spa:60,spd:55,spe:50},
+    learnset:[[1,"water_gun"],[1,"poison_sting"],[10,"bubble_beam"],[18,"sludge_bomb"],[26,"surf"],[34,"toxic"]],
+    evolveTo:133, evolveLevel:28, catchRate:130, expYield:90, rarity:"common",
+    desc:"A polypoid sea creature that releases clouds of inky venom to escape predators." },
+
+  // ===== WATER/STEEL =====
+  114: { id:114, name:"Coralgolem", emoji:"🪸", types:["Water","Steel"],
+    base:{hp:80,atk:75,def:100,spa:65,spd:80,spe:30},
+    learnset:[[1,"water_gun"],[1,"metal_claw"],[11,"harden"],[19,"aqua_tail"],[27,"flash_cannon"],[35,"surf"],[43,"iron_tail"]],
+    evolveTo:null, evolveLevel:null, catchRate:80, expYield:185, rarity:"uncommon",
+    desc:"A golem formed from centuries of compressed coral and sunken steel. Nearly indestructible." },
+
+  // ===== WATER/WIND =====
+  115: { id:115, name:"Tidalwing", emoji:"🐬", types:["Water","Wind"],
+    base:{hp:65,atk:70,def:60,spa:80,spd:70,spe:90},
+    learnset:[[1,"water_gun"],[1,"gust"],[12,"bubble_beam"],[20,"wing_attack"],[28,"surf"],[36,"air_slash"],[44,"hydro_pump"],[52,"hurricane"]],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:192, rarity:"uncommon",
+    desc:"A dolphin that leaps between ocean waves and sea winds. Its song calms storms." },
+
+  // ===== WIND/PSYCHIC =====
+  116: { id:116, name:"Zephyrling", emoji:"🌀", types:["Wind","Psychic"],
+    base:{hp:45,atk:40,def:40,spa:65,spd:60,spe:80},
+    learnset:[[1,"gust"],[1,"confusion"],[9,"quick_attack"],[17,"air_slash"],[25,"psybeam"],[33,"hurricane"],[41,"psychic_move"]],
+    evolveTo:134, evolveLevel:32, catchRate:110, expYield:90, rarity:"common",
+    desc:"A wisp of wind given a curious mind. Follows trainers to observe how they think." },
+
+  // ===== WATER/FAIRY =====
+  117: { id:117, name:"Pearlet", emoji:"🐚", types:["Water","Fairy"],
+    base:{hp:40,atk:35,def:50,spa:60,spd:55,spe:50},
+    learnset:[[1,"tackle"],[1,"water_gun"],[8,"fairy_wind"],[16,"bubble_beam"],[24,"dazzling_gleam"],[32,"surf"]],
+    evolveTo:135, evolveLevel:24, catchRate:200, expYield:74, rarity:"common",
+    desc:"A tiny shellfish encasing a fairy-touched pearl. Shimmers with a gentle inner light." },
+
+  // ===== GRASS/DARK =====
+  118: { id:118, name:"Thicketshade", emoji:"🌿", types:["Grass","Dark"],
+    base:{hp:55,atk:65,def:50,spa:60,spd:50,spe:65},
+    learnset:[[1,"vine_whip"],[1,"bite"],[10,"razor_leaf"],[18,"night_slash"],[26,"energy_ball"],[34,"crunch"],[42,"dark_pulse"]],
+    evolveTo:136, evolveLevel:30, catchRate:110, expYield:98, rarity:"common",
+    desc:"A shadowy plant sprite that hides in dark undergrowth. Its thorns drip with shadow energy." },
+
+  // ===== POISON/GRASS =====
+  119: { id:119, name:"Bogthorn", emoji:"🌾", types:["Poison","Grass"],
+    base:{hp:55,atk:60,def:55,spa:65,spd:55,spe:50},
+    learnset:[[1,"poison_sting"],[1,"vine_whip"],[10,"sludge_bomb"],[18,"razor_leaf"],[26,"toxic"],[34,"energy_ball"],[42,"venoshock"]],
+    evolveTo:137, evolveLevel:28, catchRate:120, expYield:94, rarity:"common",
+    desc:"A bog plant with razor-edged thorns dripping toxic sap. Thrives in poisoned swamps." },
+
+  // ===== DARK =====
+  120: { id:120, name:"Wraithling", emoji:"👻", types:["Dark"],
+    base:{hp:40,atk:50,def:35,spa:60,spd:50,spe:70},
+    learnset:[[1,"bite"],[1,"leer"],[8,"night_shade"],[16,"dark_pulse"],[24,"crunch"],[32,"shadow_ball"]],
+    evolveTo:138, evolveLevel:26, catchRate:160, expYield:80, rarity:"common",
+    desc:"A faint wraith of shadow energy. Haunts dark places and feeds on fearful emotions." },
+
+  // ===== PSYCHIC/DARK =====
+  121: { id:121, name:"Psyshade", emoji:"🔮", types:["Psychic","Dark"],
+    base:{hp:50,atk:55,def:45,spa:75,spd:65,spe:75},
+    learnset:[[1,"confusion"],[1,"bite"],[10,"psybeam"],[18,"dark_pulse"],[26,"psychic_move"],[34,"shadow_ball"],[42,"psystrike"]],
+    evolveTo:139, evolveLevel:34, catchRate:90, expYield:100, rarity:"common",
+    desc:"A shade of psychic darkness. It exists half in reality and half in the mind's eye." },
+
+  // ===== DARK/GRASS =====
+  122: { id:122, name:"Gravemoss", emoji:"🌿", types:["Dark","Grass"],
+    base:{hp:65,atk:70,def:65,spa:70,spd:65,spe:45},
+    learnset:[[1,"bite"],[1,"vine_whip"],[11,"night_slash"],[19,"razor_leaf"],[27,"crunch"],[35,"energy_ball"],[43,"dark_pulse"],[51,"shadow_ball"]],
+    evolveTo:null, evolveLevel:null, catchRate:75, expYield:175, rarity:"uncommon",
+    desc:"An ancient mossy boulder animated by dark energy. Feeds on the light of living things." },
+
+  // ===== BUG/FAIRY =====
+  123: { id:123, name:"Silkweaver", emoji:"🕷️", types:["Bug","Fairy"],
+    base:{hp:40,atk:45,def:50,spa:60,spd:55,spe:65},
+    learnset:[[1,"string_shot"],[1,"fairy_wind"],[9,"bug_bite"],[17,"dazzling_gleam"],[25,"x_scissor"],[33,"moonblast"]],
+    evolveTo:140, evolveLevel:26, catchRate:160, expYield:84, rarity:"common",
+    desc:"A spider that weaves silk infused with fairy dust. Its webs shimmer like spun moonlight." },
+
+  // ===== ICE/STEEL =====
+  124: { id:124, name:"Frostblade", emoji:"🗡️", types:["Ice","Steel"],
+    base:{hp:55,atk:80,def:80,spa:65,spd:65,spe:60},
+    learnset:[[1,"powder_snow"],[1,"metal_claw"],[11,"ice_punch"],[19,"flash_cannon"],[27,"icicle_crash"],[35,"iron_tail"],[43,"blizzard"]],
+    evolveTo:141, evolveLevel:36, catchRate:90, expYield:110, rarity:"uncommon",
+    desc:"A blade of living ice and metal. Keeps its edge forever sharp in the coldest conditions." },
+
+  // ===== ICE/FAIRY =====
+  125: { id:125, name:"Mirrorfish", emoji:"🐟", types:["Ice","Fairy"],
+    base:{hp:45,atk:40,def:50,spa:65,spd:60,spe:65},
+    learnset:[[1,"tackle"],[1,"powder_snow"],[8,"fairy_wind"],[16,"ice_beam"],[24,"dazzling_gleam"],[32,"moonblast"],[40,"blizzard"]],
+    evolveTo:142, evolveLevel:28, catchRate:150, expYield:85, rarity:"common",
+    desc:"A fish with scales like mirror-polished ice. Reflects attacks with its shimmering body." },
+
+  // ===== ICE/DRAGON =====
+  126: { id:126, name:"Lunaveil", emoji:"🌙", types:["Ice","Dragon"],
+    base:{hp:60,atk:75,def:65,spa:80,spd:75,spe:70},
+    learnset:[[1,"powder_snow"],[1,"dragon_breath"],[12,"ice_beam"],[20,"dragon_claw"],[28,"icicle_crash"],[36,"dragon_pulse"],[44,"blizzard"],[52,"outrage"]],
+    evolveTo:143, evolveLevel:40, catchRate:60, expYield:115, rarity:"uncommon",
+    desc:"A moonlit dragon of frost. Its scales glimmer with cold starlight on winter nights." },
+
+  // ===== WATER/STEEL =====
+  127: { id:127, name:"Rustleviathan", emoji:"🐋", types:["Water","Steel"],
+    base:{hp:120,atk:100,def:115,spa:90,spd:100,spe:45},
+    learnset:[[1,"surf"],[1,"iron_tail"],[1,"aqua_tail"],[1,"flash_cannon"],[55,"hydro_pump"],[65,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:15, expYield:280, rarity:"rare",
+    desc:"A leviathan armored in barnacle-covered steel. Said to be older than the ocean floor itself." },
+
+  // ===== EVOLUTIONS (108+ referenced above) =====
+
+  128: { id:128, name:"Boltcrag", emoji:"🪨", types:["Electric","Rock"],
+    base:{hp:80,atk:95,def:100,spa:80,spd:70,spe:55},
+    learnset:[[1,"rock_slide"],[1,"thunderbolt"],[30,"stone_edge"],[38,"thunder"],[46,"earthquake"],[54,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:45, expYield:220, rarity:"uncommon",
+    desc:"A towering boulder monster wreathed in crackling lightning. Its stomps cause earthquakes." },
+
+  129: { id:129, name:"Ironwraith", emoji:"🦇", types:["Steel","Dark"],
+    base:{hp:70,atk:85,def:90,spa:70,spd:75,spe:80},
+    learnset:[[1,"crunch"],[1,"flash_cannon"],[28,"iron_tail"],[36,"dark_pulse"],[44,"shadow_ball"],[52,"steel_wing"],[60,"night_slash"]],
+    evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
+    desc:"An iron-clad wraith bat. Its metallic screech disorients enemies from great distances." },
+
+  130: { id:130, name:"Magmaborer", emoji:"🦔", types:["Fire","Ground"],
+    base:{hp:85,atk:100,def:80,spa:70,spd:65,spe:55},
+    learnset:[[1,"flame_fang"],[1,"mud_shot"],[26,"flamethrower"],[34,"earthquake"],[42,"fire_blast"],[50,"earth_power"],[58,"inferno"]],
+    evolveTo:null, evolveLevel:null, catchRate:45, expYield:218, rarity:"uncommon",
+    desc:"A lava-boring behemoth that carves tunnels with molten precision. Its spines erupt flame." },
+
+  131: { id:131, name:"Bloomfae", emoji:"🌺", types:["Fairy","Grass"],
+    base:{hp:65,atk:55,def:65,spa:95,spd:85,spe:75},
+    learnset:[[1,"fairy_wind"],[1,"razor_leaf"],[20,"moonblast"],[28,"energy_ball"],[36,"dazzling_gleam"],[44,"petal_blitz"],[52,"moonblast"]],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:195, rarity:"uncommon",
+    desc:"A bloom fairy of extraordinary grace. Its petals carry healing magic on the breeze." },
+
+  132: { id:132, name:"Sandmane", emoji:"🦁", types:["Normal","Ground"],
+    base:{hp:75,atk:90,def:70,spa:55,spd:60,spe:75},
+    learnset:[[1,"mud_shot"],[1,"headbutt"],[22,"earthquake"],[30,"body_slam"],[38,"earth_power"],[46,"swords_dance"],[54,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:55, expYield:200, rarity:"uncommon",
+    desc:"A sand lion with a mane of hardened earth. Commands the desert winds." },
+
+  133: { id:133, name:"Venomantis", emoji:"🦑", types:["Water","Poison"],
+    base:{hp:75,atk:80,def:75,spa:95,spd:80,spe:65},
+    learnset:[[1,"sludge_bomb"],[1,"surf"],[28,"toxic"],[36,"venoshock"],[44,"hydro_pump"],[52,"sludge_bomb"],[60,"dark_pulse"]],
+    evolveTo:null, evolveLevel:null, catchRate:45, expYield:210, rarity:"uncommon",
+    desc:"A venomous sea predator with eight toxic-tipped tentacles. Feared by all ocean life." },
+
+  134: { id:134, name:"Cyclomind", emoji:"🌪️", types:["Wind","Psychic"],
+    base:{hp:70,atk:65,def:65,spa:105,spd:90,spe:100},
+    learnset:[[1,"air_slash"],[1,"psybeam"],[32,"hurricane"],[40,"psychic_move"],[48,"calm_mind"],[56,"psystrike"],[64,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:35, expYield:240, rarity:"rare",
+    desc:"A cyclone of pure psychic wind. Its thoughts create miniature tornadoes around it." },
+
+  135: { id:135, name:"Naiadess", emoji:"🧜", types:["Water","Fairy"],
+    base:{hp:70,atk:60,def:70,spa:105,spd:95,spe:75},
+    learnset:[[1,"water_gun"],[1,"fairy_wind"],[24,"surf"],[32,"moonblast"],[40,"hydro_pump"],[48,"dazzling_gleam"],[56,"moonblast"]],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:222, rarity:"rare",
+    desc:"A sea nymph radiating both water and fairy energy. Said to protect lost sailors." },
+
+  136: { id:136, name:"Umbravine", emoji:"🌑", types:["Grass","Dark"],
+    base:{hp:80,atk:90,def:75,spa:90,spd:75,spe:75},
+    learnset:[[1,"razor_leaf"],[1,"dark_pulse"],[30,"petal_blitz"],[38,"crunch"],[46,"shadow_ball"],[54,"energy_ball"],[62,"night_slash"]],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:218, rarity:"uncommon",
+    desc:"A dark vine predator that ensnares prey in shadow-infused tendrils. Ancient and cunning." },
+
+  137: { id:137, name:"Toxiflora", emoji:"🪷", types:["Poison","Grass"],
+    base:{hp:80,atk:80,def:70,spa:100,spd:80,spe:65},
+    learnset:[[1,"sludge_bomb"],[1,"energy_ball"],[28,"toxic"],[36,"venoshock"],[44,"petal_blitz"],[52,"sludge_bomb"],[60,"energy_ball"]],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
+    desc:"A carnivorous flower of potent venom. Its blooms lure in prey before injecting toxins." },
+
+  138: { id:138, name:"Phantomere", emoji:"👻", types:["Dark","Psychic"],
+    base:{hp:65,atk:70,def:60,spa:100,spd:85,spe:85},
+    learnset:[[1,"dark_pulse"],[1,"confusion"],[26,"shadow_ball"],[34,"psychic_move"],[42,"night_slash"],[50,"psystrike"],[58,"dark_pulse"]],
+    evolveTo:null, evolveLevel:null, catchRate:45, expYield:210, rarity:"uncommon",
+    desc:"A phantom born from dark and psychic energies. Can read minds and project nightmares." },
+
+  139: { id:139, name:"Voidmind", emoji:"🌀", types:["Psychic","Dark"],
+    base:{hp:75,atk:75,def:70,spa:115,spd:90,spe:85},
+    learnset:[[1,"psybeam"],[1,"dark_pulse"],[34,"psychic_move"],[42,"shadow_ball"],[50,"psystrike"],[58,"calm_mind"],[66,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:30, expYield:248, rarity:"rare",
+    desc:"A void being of psychic and dark power. Consumes light and thought with equal ease." },
+
+  140: { id:140, name:"Gossamerarch", emoji:"🕸️", types:["Bug","Fairy"],
+    base:{hp:65,atk:65,def:75,spa:95,spd:85,spe:75},
+    learnset:[[1,"bug_buzz"],[1,"dazzling_gleam"],[26,"moonblast"],[34,"x_scissor"],[42,"dazzling_gleam"],[50,"bug_buzz"],[58,"moonblast"]],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:210, rarity:"uncommon",
+    desc:"A radiant spider archon that spins webs that trap bad dreams. Revered as a good omen." },
+
+  141: { id:141, name:"Glaciablade", emoji:"⚔️", types:["Ice","Steel"],
+    base:{hp:80,atk:115,def:100,spa:85,spd:85,spe:70},
+    learnset:[[1,"ice_punch"],[1,"flash_cannon"],[36,"icicle_crash"],[44,"iron_tail"],[52,"blizzard"],[60,"steel_wing"],[68,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:25, expYield:260, rarity:"rare",
+    desc:"A legendary blade forged from glacier ice and pure ore. Its strikes freeze what they cut." },
+
+  142: { id:142, name:"Prismice", emoji:"💠", types:["Ice","Fairy"],
+    base:{hp:70,atk:60,def:80,spa:100,spd:95,spe:70},
+    learnset:[[1,"ice_beam"],[1,"dazzling_gleam"],[28,"moonblast"],[36,"blizzard"],[44,"icicle_crash"],[52,"moonblast"],[60,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:218, rarity:"rare",
+    desc:"A prismatic ice being of refined fairy power. Its crystalline body bends light into rainbows." },
+
+  143: { id:143, name:"Aurordrake", emoji:"🐉", types:["Ice","Dragon"],
+    base:{hp:90,atk:110,def:90,spa:110,spd:95,spe:80},
+    learnset:[[1,"ice_beam"],[1,"dragon_pulse"],[40,"blizzard"],[48,"outrage"],[56,"icicle_crash"],[64,"dragon_dance"],[72,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:10, expYield:285, rarity:"rare",
+    desc:"A dragon cloaked in the aurora. Its roar scatters ribbons of colored ice across the sky." },
+
+  // ===== ADDITIONAL COMMON/UNCOMMON/RARE LUMOS =====
+
+  // ===== FIRE/PSYCHIC =====
+  144: { id:144, name:"Embermind", emoji:"🔥", types:["Fire","Psychic"],
+    base:{hp:40,atk:45,def:38,spa:65,spd:55,spe:60},
+    learnset:[[1,"ember"],[1,"confusion"],[9,"psybeam"],[17,"flamethrower"],[25,"psychic_move"],[33,"fire_blast"]],
+    evolveTo:145, evolveLevel:28, catchRate:150, expYield:88, rarity:"common",
+    desc:"A psychic flame sprite. Its fire burns hotter when it concentrates its mind." },
+
+  145: { id:145, name:"Pyraxion", emoji:"🧠", types:["Fire","Psychic"],
+    base:{hp:70,atk:75,def:65,spa:105,spd:85,spe:85},
+    learnset:[[1,"flamethrower"],[1,"psychic_move"],[28,"fire_blast"],[36,"psystrike"],[44,"heat_wave"],[52,"calm_mind"],[60,"inferno"]],
+    evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"rare",
+    desc:"A psychic fire sage. Projects visions of infernos to terrify foes before striking." },
+
+  // ===== GRASS/ELECTRIC =====
+  146: { id:146, name:"Sprigvolt", emoji:"🌱", types:["Grass","Electric"],
+    base:{hp:40,atk:50,def:40,spa:55,spd:45,spe:70},
+    learnset:[[1,"vine_whip"],[1,"thunder_shock"],[8,"razor_leaf"],[16,"spark"],[24,"energy_ball"],[32,"thunderbolt"]],
+    evolveTo:147, evolveLevel:22, catchRate:190, expYield:78, rarity:"common",
+    desc:"A sprout crackling with static electricity. Charges itself by photosynthesizing lightning." },
+
+  147: { id:147, name:"Voltforest", emoji:"🌳", types:["Grass","Electric"],
+    base:{hp:75,atk:80,def:75,spa:95,spd:80,spe:70},
+    learnset:[[1,"razor_leaf"],[1,"thunderbolt"],[22,"energy_ball"],[30,"thunder"],[38,"petal_blitz"],[46,"swords_dance"],[54,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:45, expYield:210, rarity:"uncommon",
+    desc:"An ancient tree monster that stores electric charge in every leaf. Touch it and be zapped." },
+
+  // ===== ROCK/DARK =====
+  148: { id:148, name:"Shadowstone", emoji:"🪨", types:["Rock","Dark"],
+    base:{hp:60,atk:70,def:80,spa:45,spd:50,spe:30},
+    learnset:[[1,"rock_throw"],[1,"bite"],[10,"headbutt"],[18,"crunch"],[26,"rock_slide"],[34,"dark_pulse"],[42,"stone_edge"]],
+    evolveTo:149, evolveLevel:30, catchRate:130, expYield:97, rarity:"common",
+    desc:"A rock monster that absorbs shadow energy. Moves imperceptibly slow but hits with shattering force." },
+
+  149: { id:149, name:"Darkmonolith", emoji:"🗿", types:["Rock","Dark"],
+    base:{hp:90,atk:105,def:110,spa:65,spd:75,spe:30},
+    learnset:[[1,"rock_slide"],[1,"crunch"],[30,"stone_edge"],[38,"dark_pulse"],[46,"earthquake"],[54,"shadow_ball"],[62,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:35, expYield:230, rarity:"uncommon",
+    desc:"A living monolith of darkened stone. Ancient civilizations worshipped it as a god of night." },
+
+  // ===== POISON/BUG =====
+  150: { id:150, name:"Toxigrub", emoji:"🐛", types:["Poison","Bug"],
+    base:{hp:45,atk:40,def:45,spa:55,spd:45,spe:40},
+    learnset:[[1,"poison_sting"],[1,"string_shot"],[8,"bug_bite"],[16,"sludge_bomb"],[24,"x_scissor"],[32,"toxic"]],
+    evolveTo:151, evolveLevel:20, catchRate:220, expYield:65, rarity:"common",
+    desc:"A larva coated in toxic slime. Leaves a trail of venom wherever it crawls." },
+
+  151: { id:151, name:"Venomoth", emoji:"🦋", types:["Poison","Bug"],
+    base:{hp:65,atk:65,def:55,spa:90,spd:75,spe:90},
+    learnset:[[1,"sludge_bomb"],[1,"bug_buzz"],[20,"toxic"],[28,"venoshock"],[36,"air_slash"],[44,"bug_buzz"],[52,"sludge_bomb"]],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:185, rarity:"uncommon",
+    desc:"A venomous moth that releases toxic scales on the wind. A cloud of them can fell a Lumos quickly." },
+
+  // ===== STEEL/GROUND =====
+  152: { id:152, name:"Orekit", emoji:"⚙️", types:["Steel","Ground"],
+    base:{hp:55,atk:60,def:75,spa:35,spd:45,spe:35},
+    learnset:[[1,"metal_claw"],[1,"mud_shot"],[9,"harden"],[17,"flash_cannon"],[25,"earthquake"],[33,"iron_tail"]],
+    evolveTo:153, evolveLevel:26, catchRate:160, expYield:90, rarity:"common",
+    desc:"A small ore elemental born in deep mine shafts. Tough as iron and twice as stubborn." },
+
+  153: { id:153, name:"Forgebound", emoji:"🤖", types:["Steel","Ground"],
+    base:{hp:85,atk:100,def:110,spa:55,spd:70,spe:40},
+    learnset:[[1,"flash_cannon"],[1,"earthquake"],[26,"iron_tail"],[34,"rock_slide"],[42,"earth_power"],[50,"flash_cannon"],[58,"body_slam"]],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:222, rarity:"uncommon",
+    desc:"A forged golem of steel and compressed earth. Was created to guard ancient mines." },
+
+  // ===== DRAGON/GROUND =====
+  154: { id:154, name:"Terraling", emoji:"🐣", types:["Dragon","Ground"],
+    base:{hp:45,atk:60,def:50,spa:50,spd:45,spe:50},
+    learnset:[[1,"scratch"],[1,"dragon_breath"],[10,"mud_shot"],[18,"dragon_claw"],[26,"earthquake"],[34,"dragon_pulse"]],
+    evolveTo:155, evolveLevel:32, catchRate:80, expYield:94, rarity:"uncommon",
+    desc:"A burrowing dragon hatchling. Digs deep tunnels and breathes sand-laden gusts." },
+
+  155: { id:155, name:"Groundrake", emoji:"🐲", types:["Dragon","Ground"],
+    base:{hp:80,atk:110,def:90,spa:85,spd:75,spe:70},
+    learnset:[[1,"dragon_claw"],[1,"earthquake"],[32,"dragon_pulse"],[40,"earth_power"],[48,"dragon_dance"],[56,"outrage"],[64,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:25, expYield:260, rarity:"rare",
+    desc:"A subterranean dragon that causes quakes with each step. Rules the deep underground." },
+
+  // ===== NORMAL/PSYCHIC =====
+  156: { id:156, name:"Oddpuff", emoji:"🐑", types:["Normal","Psychic"],
+    base:{hp:50,atk:35,def:45,spa:65,spd:60,spe:50},
+    learnset:[[1,"tackle"],[1,"confusion"],[9,"growl"],[17,"psybeam"],[25,"recover"],[33,"psychic_move"],[41,"calm_mind"]],
+    evolveTo:157, evolveLevel:24, catchRate:180, expYield:78, rarity:"common",
+    desc:"A woolly psychic creature that reads emotional auras. Very empathetic and gentle." },
+
+  157: { id:157, name:"Dreamflock", emoji:"🐏", types:["Normal","Psychic"],
+    base:{hp:75,atk:55,def:65,spa:100,spd:90,spe:70},
+    learnset:[[1,"psybeam"],[1,"body_slam"],[24,"psychic_move"],[32,"calm_mind"],[40,"recover"],[48,"psystrike"],[56,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:50, expYield:200, rarity:"uncommon",
+    desc:"A dreaming flock manifestation. Said to appear to sleeping trainers before a great trial." },
+
+  // ===== BUG/GROUND =====
+  158: { id:158, name:"Burrgrub", emoji:"🪲", types:["Bug","Ground"],
+    base:{hp:55,atk:60,def:60,spa:40,spd:40,spe:35},
+    learnset:[[1,"bug_bite"],[1,"mud_shot"],[10,"string_shot"],[18,"x_scissor"],[26,"earthquake"],[34,"bug_buzz"]],
+    evolveTo:159, evolveLevel:24, catchRate:170, expYield:88, rarity:"common",
+    desc:"A burrowing beetle that lives in dry earth. Its mandibles can crack solid rock." },
+
+  159: { id:159, name:"Terrabeetle", emoji:"🪲", types:["Bug","Ground"],
+    base:{hp:80,atk:95,def:90,spa:60,spd:65,spe:45},
+    learnset:[[1,"x_scissor"],[1,"earthquake"],[24,"rock_slide"],[32,"bug_buzz"],[40,"earth_power"],[48,"stone_edge"],[56,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
+    desc:"An armored ground beetle of incredible toughness. Plows through solid bedrock with ease." },
+
+  // ===== WIND/ICE =====
+  160: { id:160, name:"Chillgust", emoji:"🌬️", types:["Wind","Ice"],
+    base:{hp:40,atk:40,def:40,spa:60,spd:55,spe:75},
+    learnset:[[1,"gust"],[1,"powder_snow"],[8,"wing_attack"],[16,"icy_wind"],[24,"air_slash"],[32,"ice_beam"],[40,"hurricane"]],
+    evolveTo:161, evolveLevel:26, catchRate:180, expYield:78, rarity:"common",
+    desc:"A gust of frozen air given form. Howls through mountain passes on the coldest nights." },
+
+  161: { id:161, name:"Blizzardwing", emoji:"🦅", types:["Wind","Ice"],
+    base:{hp:70,atk:85,def:70,spa:95,spd:80,spe:100},
+    learnset:[[1,"wing_attack"],[1,"ice_beam"],[26,"air_slash"],[34,"icicle_crash"],[42,"hurricane"],[50,"blizzard"],[58,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
+    desc:"A raptor of blizzards. Summons snowstorms with each powerful wingbeat." },
+
+  // ===== FAIRY/STEEL =====
+  162: { id:162, name:"Shimmerpin", emoji:"📌", types:["Fairy","Steel"],
+    base:{hp:40,atk:45,def:60,spa:60,spd:55,spe:55},
+    learnset:[[1,"fairy_wind"],[1,"metal_claw"],[9,"dazzling_gleam"],[17,"flash_cannon"],[25,"moonblast"],[33,"iron_tail"]],
+    evolveTo:163, evolveLevel:26, catchRate:170, expYield:82, rarity:"common",
+    desc:"A tiny fairy-knight made of living silver. Fiercely guards those it bonds with." },
+
+  163: { id:163, name:"Gleamguard", emoji:"🛡️", types:["Fairy","Steel"],
+    base:{hp:75,atk:75,def:105,spa:90,spd:90,spe:55},
+    learnset:[[1,"dazzling_gleam"],[1,"flash_cannon"],[26,"moonblast"],[34,"iron_tail"],[42,"steel_wing"],[50,"dazzling_gleam"],[58,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:35, expYield:230, rarity:"rare",
+    desc:"An armored fairy sentinel that never abandons its post. Its shield can repel any curse." },
+
+  // ===== NEW LEGENDARIES =====
+  164: { id:164, name:"Chronoveil", emoji:"⏳", types:["Psychic","Dragon"],
+    base:{hp:100,atk:105,def:95,spa:130,spd:105,spe:90},
+    learnset:[[1,"psychic_move"],[1,"dragon_pulse"],[1,"calm_mind"],[1,"dragon_dance"],[60,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
+    desc:"The Legendary Veil of Time. Said to exist at the crossing point of past and future." },
+
+  165: { id:165, name:"Terranova", emoji:"🌍", types:["Ground","Grass"],
+    base:{hp:115,atk:120,def:105,spa:95,spd:95,spe:65},
+    learnset:[[1,"earthquake"],[1,"energy_ball"],[1,"earth_power"],[1,"petal_blitz"],[60,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
+    desc:"The Legendary Spirit of the Land. Every continent in Lumoria trembles at its footfall." },
+
+  166: { id:166, name:"Voidstar", emoji:"🌌", types:["Dark","Fairy"],
+    base:{hp:95,atk:100,def:90,spa:130,spd:110,spe:100},
+    learnset:[[1,"dark_pulse"],[1,"moonblast"],[1,"shadow_ball"],[1,"dazzling_gleam"],[60,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
+    desc:"The Legendary Void Star. A being of absolute darkness ringed by fairy light. Where it passes, stars blink out." },
+
+  167: { id:167, name:"Stormforged", emoji:"⚡", types:["Steel","Electric"],
+    base:{hp:95,atk:120,def:100,spa:110,spd:90,spe:95},
+    learnset:[[1,"thunder"],[1,"flash_cannon"],[1,"iron_tail"],[1,"thunder_wave"],[60,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
+    desc:"The Legendary Stormforged. Born in the heart of the greatest storm ever recorded. Lightning is its heartbeat." }
 };
 
 
@@ -817,7 +1214,7 @@ const WORLD_DATA = {
   },
   route1: {
     id:"route1", name:"Route 1 - Meadow Path", icon:"🌿", type:"route",
-    desc:"A gentle grassy path with mild wild monsters. Perfect for beginners.",
+    desc:"A gentle grassy path with mild wild Lumos. Perfect for beginners.",
     connections:["seedvale","ashford"],
     wildMonsters:[
       {id:88, minLv:2, maxLv:4, rate:25},  // Furball
@@ -841,8 +1238,8 @@ const WORLD_DATA = {
   },
   route2: {
     id:"route2", name:"Route 2 - Greenwood Forest", icon:"🌲", type:"route",
-    desc:"A dense forest teeming with Bug and Grass type monsters.",
-    connections:["ashford","tidewatch"],
+    desc:"A dense forest teeming with Bug and Grass type Lumos.",
+    connections:["ashford","tidewatch","lumoria_jungle"],
     wildMonsters:[
       {id:100, minLv:6, maxLv:9, rate:25}, // Caterpet
       {id:103, minLv:6, maxLv:9, rate:20}, // Beetleback
@@ -855,7 +1252,7 @@ const WORLD_DATA = {
   tidewatch: {
     id:"tidewatch", name:"Tidewatch Port", icon:"⛵", type:"city",
     desc:"A bustling port city on the coast. Gym Leader Marina commands the waves.",
-    connections:["route2","route3"],
+    connections:["route2","route3","deep_trench"],
     wildMonsters:[
       {id:16, minLv:10, maxLv:13, rate:30}, // Bubblecrab
       {id:20, minLv:10, maxLv:13, rate:30}, // Coralfish
@@ -879,7 +1276,7 @@ const WORLD_DATA = {
   emberveil: {
     id:"emberveil", name:"Emberveil City", icon:"🌋", type:"city",
     desc:"Built near an active volcano. The fiery Gym Leader Pyros waits within.",
-    connections:["route3","route4"],
+    connections:["route3","route4","volcano_core"],
     wildMonsters:[
       {id:14, minLv:18, maxLv:22, rate:30}, // Emberworm
       {id:12, minLv:18, maxLv:22, rate:25}, // Lavabull
@@ -903,7 +1300,7 @@ const WORLD_DATA = {
   sparkmoor: {
     id:"sparkmoor", name:"Sparkmoor Town", icon:"⚡", type:"city",
     desc:"A town on the electric plains. Gym Leader Zara harnesses lightning power.",
-    connections:["route4","route5"],
+    connections:["route4","route5","storm_plateau"],
     wildMonsters:[
       {id:28, minLv:26, maxLv:30, rate:30}, // Sparklet
       {id:30, minLv:26, maxLv:30, rate:25}, // Zapbug
@@ -927,7 +1324,7 @@ const WORLD_DATA = {
   frostpeak: {
     id:"frostpeak", name:"Frostpeak Village", icon:"❄️", type:"city",
     desc:"A snow-covered village atop a frozen mountain. Ice Gym Leader Glacier awaits.",
-    connections:["route5","route6"],
+    connections:["route5","route6","storm_plateau","crystal_depths"],
     wildMonsters:[
       {id:47, minLv:34, maxLv:38, rate:30}, // Frostpup
       {id:49, minLv:34, maxLv:38, rate:25}, // Snowfluff
@@ -951,7 +1348,7 @@ const WORLD_DATA = {
   shadowmere: {
     id:"shadowmere", name:"Shadowmere City", icon:"🌑", type:"city",
     desc:"A city forever shrouded in shadow. Dark Gym Leader Nyx commands the night.",
-    connections:["route6","route7"],
+    connections:["route6","route7","crystal_depths"],
     wildMonsters:[
       {id:54, minLv:42, maxLv:46, rate:30}, // Shadowpup
       {id:56, minLv:42, maxLv:46, rate:25}, // Voidbat
@@ -963,7 +1360,7 @@ const WORLD_DATA = {
   route7: {
     id:"route7", name:"Route 7 - Poison Marshes", icon:"☠️", type:"route",
     desc:"A fetid swamp full of poison. Dark and Poison types are found in abundance.",
-    connections:["shadowmere","skyvault"],
+    connections:["shadowmere","skyvault","mystic_forest"],
     wildMonsters:[
       {id:73, minLv:46, maxLv:50, rate:25}, // Acidblob
       {id:71, minLv:46, maxLv:50, rate:25}, // Toxitoad
@@ -975,7 +1372,7 @@ const WORLD_DATA = {
   skyvault: {
     id:"skyvault", name:"Skyvault City", icon:"🏰", type:"city",
     desc:"A city floating on clouds. Psychic Gym Leader Oracle sees all futures.",
-    connections:["route7","route8"],
+    connections:["route7","route8","mystic_forest"],
     wildMonsters:[
       {id:76, minLv:50, maxLv:54, rate:30}, // Mindpup
       {id:64, minLv:50, maxLv:54, rate:25}, // Dawnsprite
@@ -1026,6 +1423,343 @@ const WORLD_DATA = {
     connections:["victoryroad"],
     wildMonsters:[], hasGym:false, isChampion:true, requiredBadges:8,
     mapPos:{x:72, y:30}
+  },
+
+  // ===== EXTRA AREAS =====
+  lumoria_jungle: {
+    id:"lumoria_jungle", name:"Lumoria Jungle", icon:"🌴", type:"route",
+    desc:"A dense, humid jungle teeming with Grass, Poison and Bug types. Ancient ruins peek through the canopy.",
+    connections:["route2","ancient_ruins"],
+    wildMonsters:[
+      {id:22, minLv:8, maxLv:12, rate:25},   // Mushrump
+      {id:24, minLv:8, maxLv:12, rate:25},   // Fernwhip
+      {id:62, minLv:9, maxLv:12, rate:20},   // Prismfly
+      {id:71, minLv:9, maxLv:13, rate:20},   // Toxitoad
+      {id:75, minLv:10, maxLv:13, rate:10}   // Miasmafly
+    ],
+    hasGym:false, requiredBadges:1, mapPos:{x:56, y:68}
+  },
+  ancient_ruins: {
+    id:"ancient_ruins", name:"Ancient Ruins", icon:"🏛️", type:"route",
+    desc:"Crumbling temples from a forgotten civilization. Psychic and Dark energies fill the air. Team Umbra has been spotted here.",
+    connections:["lumoria_jungle"],
+    wildMonsters:[
+      {id:64, minLv:12, maxLv:16, rate:25},  // Dawnsprite
+      {id:80, minLv:12, maxLv:16, rate:25},  // Dreamrift
+      {id:59, minLv:13, maxLv:17, rate:20},  // Phantomfang
+      {id:78, minLv:14, maxLv:17, rate:20},  // Esperia
+      {id:76, minLv:14, maxLv:17, rate:10}   // Mindpup
+    ],
+    hasGym:false, requiredBadges:1, mapPos:{x:64, y:76},
+    storyLocation:true
+  },
+  deep_trench: {
+    id:"deep_trench", name:"Abyssal Trench", icon:"🌊", type:"route",
+    desc:"The deepest part of Lumoria's ocean. Water and Dragon types of terrifying power lurk here. Team Umbra seeks something ancient in these depths.",
+    connections:["tidewatch"],
+    wildMonsters:[
+      {id:85, minLv:18, maxLv:24, rate:25},  // Seadrake
+      {id:33, minLv:18, maxLv:24, rate:25},  // Surgeeel
+      {id:19, minLv:19, maxLv:24, rate:25},  // Glaciaseal
+      {id:17, minLv:20, maxLv:25, rate:15},  // Waveclaw
+      {id:107, minLv:30, maxLv:35, rate:10}  // Abyssdrake (rare!)
+    ],
+    hasGym:false, requiredBadges:2, mapPos:{x:78, y:60},
+    storyLocation:true
+  },
+  volcano_core: {
+    id:"volcano_core", name:"Volcano Core", icon:"🌋", type:"route",
+    desc:"The scorching heart of the volcano beneath Emberveil. Only the most fearless trainers descend here. Legendary energies stir within.",
+    connections:["emberveil"],
+    wildMonsters:[
+      {id:15, minLv:22, maxLv:28, rate:25},  // Flamewyrm
+      {id:13, minLv:22, maxLv:28, rate:25},  // Magmacow
+      {id:38, minLv:23, maxLv:28, rate:20},  // Venomscorp
+      {id:97, minLv:24, maxLv:29, rate:20},  // Boulderhound
+      {id:106, minLv:35, maxLv:40, rate:10}  // Volcanox (rare!)
+    ],
+    hasGym:false, requiredBadges:3, mapPos:{x:82, y:42},
+    storyLocation:true
+  },
+  storm_plateau: {
+    id:"storm_plateau", name:"Storm Plateau", icon:"⛈️", type:"route",
+    desc:"A high plateau perpetually wracked by storms. Electric and Dragon types are drawn to its crackling energy.",
+    connections:["sparkmoor","frostpeak"],
+    wildMonsters:[
+      {id:86, minLv:28, maxLv:34, rate:25},  // Stormwyrm
+      {id:42, minLv:28, maxLv:34, rate:25},  // Galemane
+      {id:31, minLv:29, maxLv:34, rate:25},  // Thunderfly
+      {id:44, minLv:29, maxLv:34, rate:15},  // Cyclobird
+      {id:105, minLv:40, maxLv:45, rate:10}  // Tempestia (rare!)
+    ],
+    hasGym:false, requiredBadges:4, mapPos:{x:36, y:12},
+    storyLocation:true
+  },
+  crystal_depths: {
+    id:"crystal_depths", name:"Crystal Depths", icon:"💠", type:"route",
+    desc:"An underground crystal cavern with walls of pure ice and steel. Rare mineral-type Lumos call this glittering place home.",
+    connections:["frostpeak","shadowmere"],
+    wildMonsters:[
+      {id:87, minLv:34, maxLv:40, rate:25},  // Crystaldrake
+      {id:99, minLv:34, maxLv:40, rate:25},  // Crystalrock
+      {id:70, minLv:35, maxLv:40, rate:20},  // Titanshell
+      {id:104, minLv:36, maxLv:41, rate:20}, // Hardbeetle
+      {id:52, minLv:36, maxLv:41, rate:10}   // Polarex
+    ],
+    hasGym:false, requiredBadges:5, mapPos:{x:10, y:28}
+  },
+  mystic_forest: {
+    id:"mystic_forest", name:"Mystic Forest", icon:"🌌", type:"route",
+    desc:"A forest where the boundary between worlds is thin. Fairy and Psychic creatures drift between the trees. Team Umbra's hideout is rumoured to be nearby.",
+    connections:["route7","skyvault"],
+    wildMonsters:[
+      {id:65, minLv:46, maxLv:52, rate:25},  // Celestara
+      {id:63, minLv:46, maxLv:52, rate:25},  // Radiantfly
+      {id:79, minLv:47, maxLv:52, rate:20},  // Telepathy
+      {id:46, minLv:48, maxLv:52, rate:20},  // Mistwalker
+      {id:57, minLv:48, maxLv:52, rate:10}   // Spectrewing
+    ],
+    hasGym:false, requiredBadges:6, mapPos:{x:25, y:62},
+    storyLocation:true
+  },
+  umbra_base: {
+    id:"umbra_base", name:"Team Umbra Base", icon:"☠️", type:"special",
+    desc:"The hidden fortress of Team Umbra. Their leader, Commander Shade, awaits you here. This is your chance to stop their plan to awaken the three Legendaries.",
+    connections:["mystic_forest"],
+    wildMonsters:[
+      {id:55, minLv:50, maxLv:55, rate:25},  // Nighthound
+      {id:59, minLv:50, maxLv:55, rate:25},  // Phantomfang
+      {id:57, minLv:51, maxLv:55, rate:25},  // Spectrewing
+      {id:74, minLv:51, maxLv:55, rate:25}   // Sludgebeast
+    ],
+    hasGym:false, requiredBadges:6,
+    hasUmbraBase:true,
+    mapPos:{x:12, y:58}
+  },
+
+  // ===== NEW AREAS =====
+  coral_reef: {
+    id:"coral_reef", name:"Coral Reef", icon:"🪸", type:"route",
+    desc:"A stunning underwater coral garden teeming with colorful Water and Poison types. Sunlight filters through the shimmering water above.",
+    connections:["deep_trench","reef_ruins","sunken_temple"],
+    wildMonsters:[
+      {id:20, minLv:22, maxLv:28, rate:25},   // Coralfish
+      {id:16, minLv:22, maxLv:28, rate:25},   // Bubblecrab
+      {id:113, minLv:23, maxLv:28, rate:20},  // Polykling
+      {id:71, minLv:24, maxLv:29, rate:20},   // Toxitoad
+      {id:115, minLv:25, maxLv:30, rate:10}   // Tidalwing
+    ],
+    hasGym:false, requiredBadges:2, mapPos:{x:84, y:72}
+  },
+  haunted_grove: {
+    id:"haunted_grove", name:"Haunted Grove", icon:"👻", type:"route",
+    desc:"A twisted forest where ancient trees whisper in the dark. Ghost-like shadows drift between the gnarled branches.",
+    connections:["shadowmere","spirit_canyon"],
+    wildMonsters:[
+      {id:54, minLv:42, maxLv:47, rate:25},   // Shadowpup
+      {id:56, minLv:42, maxLv:47, rate:25},   // Voidbat
+      {id:120, minLv:43, maxLv:48, rate:20},  // Wraithling
+      {id:58, minLv:44, maxLv:48, rate:20},   // Umbralisard
+      {id:122, minLv:45, maxLv:50, rate:10}   // Gravemoss
+    ],
+    hasGym:false, requiredBadges:5, mapPos:{x:8, y:42}
+  },
+  sky_harbor: {
+    id:"sky_harbor", name:"Sky Harbor", icon:"⛵", type:"town",
+    desc:"A floating dock tethered to the clouds. Wind traders and Psychic navigators pass through this breezy waystation.",
+    connections:["skyvault","mystic_forest"],
+    wildMonsters:[
+      {id:41, minLv:48, maxLv:53, rate:25},   // Breezekit
+      {id:45, minLv:48, maxLv:53, rate:25},   // Cloudpuff
+      {id:116, minLv:49, maxLv:54, rate:20},  // Zephyrling
+      {id:63, minLv:50, maxLv:54, rate:20},   // Radiantfly
+      {id:43, minLv:49, maxLv:53, rate:10}    // Draftfinch
+    ],
+    hasGym:false, requiredBadges:6, mapPos:{x:18, y:62}
+  },
+  thunder_cliffs: {
+    id:"thunder_cliffs", name:"Thunder Cliffs", icon:"⚡", type:"route",
+    desc:"Sheer cliff faces perpetually struck by lightning. Electric energy crackles through every rock and stone here.",
+    connections:["sparkmoor","storm_plateau"],
+    wildMonsters:[
+      {id:28, minLv:28, maxLv:34, rate:25},   // Sparklet
+      {id:34, minLv:28, maxLv:34, rate:25},   // Stormchick
+      {id:108, minLv:29, maxLv:34, rate:20},  // Thunderock
+      {id:31, minLv:30, maxLv:35, rate:20},   // Thunderfly
+      {id:86, minLv:31, maxLv:36, rate:10}    // Stormwyrm
+    ],
+    hasGym:false, requiredBadges:4, mapPos:{x:60, y:16}
+  },
+  poison_swamp: {
+    id:"poison_swamp", name:"Poison Swamp", icon:"🌿", type:"route",
+    desc:"A festering bogland where toxic fumes hang low over the murky water. The air itself is thick with purple miasma.",
+    connections:["route7","lumoria_jungle"],
+    wildMonsters:[
+      {id:71, minLv:44, maxLv:50, rate:25},   // Toxitoad
+      {id:73, minLv:44, maxLv:50, rate:25},   // Acidblob
+      {id:75, minLv:45, maxLv:50, rate:20},   // Miasmafly
+      {id:119, minLv:46, maxLv:51, rate:20},  // Bogthorn
+      {id:74, minLv:47, maxLv:52, rate:10}    // Sludgebeast
+    ],
+    hasGym:false, requiredBadges:6, mapPos:{x:30, y:70}
+  },
+  sunken_temple: {
+    id:"sunken_temple", name:"Sunken Temple", icon:"🏛️", type:"special",
+    desc:"An ancient temple half-submerged beneath the ocean. Psychic inscriptions glow on the walls. Something powerful sleeps in the inner sanctum.",
+    connections:["deep_trench","coral_reef"],
+    wildMonsters:[
+      {id:85, minLv:25, maxLv:32, rate:25},   // Seadrake
+      {id:76, minLv:25, maxLv:32, rate:25},   // Mindpup
+      {id:114, minLv:26, maxLv:33, rate:20},  // Coralgolem
+      {id:78, minLv:27, maxLv:33, rate:15},   // Esperia
+      {id:79, minLv:35, maxLv:40, rate:10}    // Telepathy (rare!)
+    ],
+    hasGym:false, requiredBadges:2, mapPos:{x:88, y:52},
+    storyLocation:true
+  },
+  iron_canyon: {
+    id:"iron_canyon", name:"Iron Canyon", icon:"⛏️", type:"route",
+    desc:"A deep canyon carved by centuries of volcanic flow. The walls glint with veins of metal ore. Steel and Ground types dominate this harsh terrain.",
+    connections:["volcano_core","emberveil","lava_fields"],
+    wildMonsters:[
+      {id:66, minLv:25, maxLv:31, rate:25},   // Ironpup
+      {id:96, minLv:25, maxLv:31, rate:25},   // Pebblepup
+      {id:109, minLv:26, maxLv:32, rate:20},  // Scrapbat
+      {id:68, minLv:27, maxLv:32, rate:20},   // Gearbot
+      {id:70, minLv:28, maxLv:33, rate:10}    // Titanshell
+    ],
+    hasGym:false, requiredBadges:3, mapPos:{x:88, y:30}
+  },
+  fairy_meadow: {
+    id:"fairy_meadow", name:"Fairy Meadow", icon:"🌸", type:"route",
+    desc:"A gentle field carpeted in flowers where sunlight always shines. Fairy and Grass types play in the warm breeze.",
+    connections:["seedvale","route7"],
+    wildMonsters:[
+      {id:60, minLv:4, maxLv:8, rate:25},     // Glowpup
+      {id:26, minLv:4, maxLv:8, rate:25},     // Seedpod
+      {id:62, minLv:5, maxLv:9, rate:25},     // Prismfly
+      {id:111, minLv:5, maxLv:9, rate:25}     // Petalpuff
+    ],
+    hasGym:false, requiredBadges:0, mapPos:{x:8, y:68}
+  },
+  lunar_peak: {
+    id:"lunar_peak", name:"Lunar Peak", icon:"🌙", type:"route",
+    desc:"A remote mountain summit bathed in perpetual moonlight. Ice and Dragon types roam freely under the silver glow.",
+    connections:["frostpeak","storm_plateau","crystal_spire"],
+    wildMonsters:[
+      {id:47, minLv:36, maxLv:42, rate:25},   // Frostpup
+      {id:87, minLv:36, maxLv:42, rate:25},   // Crystaldrake
+      {id:51, minLv:37, maxLv:43, rate:20},   // Glaciawing
+      {id:126, minLv:38, maxLv:44, rate:20},  // Lunaveil
+      {id:52, minLv:40, maxLv:46, rate:10}    // Polarex
+    ],
+    hasGym:false, requiredBadges:5, mapPos:{x:20, y:10}
+  },
+  bug_forest: {
+    id:"bug_forest", name:"Bug Forest", icon:"🐛", type:"route",
+    desc:"A sprawling woodland where insect Lumos swarm in the undergrowth. The canopy buzzes with the sound of a thousand wings.",
+    connections:["lumoria_jungle","ancient_ruins"],
+    wildMonsters:[
+      {id:100, minLv:10, maxLv:16, rate:25},  // Caterpet
+      {id:103, minLv:10, maxLv:16, rate:25},  // Beetleback
+      {id:30, minLv:11, maxLv:16, rate:20},   // Zapbug
+      {id:123, minLv:12, maxLv:17, rate:20},  // Silkweaver
+      {id:10, minLv:13, maxLv:18, rate:10}    // Cinderling
+    ],
+    hasGym:false, requiredBadges:1, mapPos:{x:44, y:74}
+  },
+  mirror_lake: {
+    id:"mirror_lake", name:"Mirror Lake", icon:"🪞", type:"route",
+    desc:"A perfectly still alpine lake with a surface like polished glass. The reflected sky makes it impossible to tell up from down.",
+    connections:["route5","storm_plateau"],
+    wildMonsters:[
+      {id:53, minLv:30, maxLv:36, rate:25},   // Sleetling
+      {id:49, minLv:30, maxLv:36, rate:25},   // Snowfluff
+      {id:60, minLv:31, maxLv:36, rate:20},   // Glowpup
+      {id:125, minLv:32, maxLv:38, rate:20},  // Mirrorfish
+      {id:19, minLv:34, maxLv:39, rate:10}    // Glaciaseal
+    ],
+    hasGym:false, requiredBadges:4, mapPos:{x:48, y:14}
+  },
+  lava_fields: {
+    id:"lava_fields", name:"Lava Fields", icon:"🌋", type:"route",
+    desc:"A smoldering expanse of hardened lava and glowing fissures. The ground cracks underfoot and fire vents belch superheated air.",
+    connections:["volcano_core","iron_canyon"],
+    wildMonsters:[
+      {id:12, minLv:26, maxLv:32, rate:25},   // Lavabull
+      {id:15, minLv:26, maxLv:32, rate:25},   // Flamewyrm
+      {id:110, minLv:27, maxLv:33, rate:20},  // Cindermole
+      {id:13, minLv:28, maxLv:34, rate:20},   // Magmacow
+      {id:97, minLv:29, maxLv:34, rate:10}    // Boulderhound
+    ],
+    hasGym:false, requiredBadges:3, mapPos:{x:82, y:26}
+  },
+  spirit_canyon: {
+    id:"spirit_canyon", name:"Spirit Canyon", icon:"🌀", type:"route",
+    desc:"A deep chasm where psychic resonance amplifies every thought and memory. The walls seem to shift and breathe.",
+    connections:["haunted_grove","fairy_meadow"],
+    wildMonsters:[
+      {id:76, minLv:44, maxLv:50, rate:25},   // Mindpup
+      {id:80, minLv:44, maxLv:50, rate:25},   // Dreamrift
+      {id:121, minLv:45, maxLv:51, rate:20},  // Psyshade
+      {id:58, minLv:46, maxLv:51, rate:20},   // Umbralisard
+      {id:77, minLv:47, maxLv:52, rate:10}    // Psychound
+    ],
+    hasGym:false, requiredBadges:5, mapPos:{x:6, y:52}
+  },
+  reef_ruins: {
+    id:"reef_ruins", name:"Reef Ruins", icon:"🏛️", type:"special",
+    desc:"Ancient steel structures submerged beneath the sea, overgrown with coral. A forgotten civilization once thrived here beneath the waves.",
+    connections:["coral_reef","ancient_ruins"],
+    wildMonsters:[
+      {id:17, minLv:28, maxLv:35, rate:25},   // Waveclaw
+      {id:98, minLv:28, maxLv:35, rate:25},   // Cragclaw
+      {id:114, minLv:29, maxLv:36, rate:20},  // Coralgolem
+      {id:70, minLv:30, maxLv:36, rate:20},   // Titanshell
+      {id:127, minLv:35, maxLv:42, rate:10}   // Rustleviathan
+    ],
+    hasGym:false, requiredBadges:2, mapPos:{x:76, y:76},
+    storyLocation:true
+  },
+  wind_bridge: {
+    id:"wind_bridge", name:"Wind Bridge", icon:"🌬️", type:"route",
+    desc:"A series of ancient stone arches bridging floating islands in the sky. Powerful updrafts make travel treacherous but the view is breathtaking.",
+    connections:["route7","route8","skyvault"],
+    wildMonsters:[
+      {id:43, minLv:48, maxLv:54, rate:25},   // Draftfinch
+      {id:41, minLv:48, maxLv:54, rate:25},   // Breezekit
+      {id:44, minLv:49, maxLv:55, rate:20},   // Cyclobird
+      {id:116, minLv:50, maxLv:55, rate:20},  // Zephyrling
+      {id:42, minLv:51, maxLv:56, rate:10}    // Galemane
+    ],
+    hasGym:false, requiredBadges:6, mapPos:{x:36, y:40}
+  },
+  crystal_spire: {
+    id:"crystal_spire", name:"Crystal Spire", icon:"💎", type:"special",
+    desc:"A towering spire of pure crystal ice and steel that catches the moonlight. Few trainers have ever climbed to its pinnacle.",
+    connections:["crystal_depths","lunar_peak"],
+    wildMonsters:[
+      {id:50, minLv:38, maxLv:45, rate:25},   // Icecrystal
+      {id:99, minLv:38, maxLv:45, rate:25},   // Crystalrock
+      {id:67, minLv:39, maxLv:46, rate:20},   // Steelhound
+      {id:124, minLv:40, maxLv:47, rate:20},  // Frostblade
+      {id:104, minLv:42, maxLv:48, rate:10}   // Hardbeetle
+    ],
+    hasGym:false, requiredBadges:5, mapPos:{x:16, y:18},
+    storyLocation:true
+  },
+  dark_canyon: {
+    id:"dark_canyon", name:"Dark Canyon", icon:"🌑", type:"route",
+    desc:"A pitch-black gorge where no light penetrates. Dark type Lumos have claimed every shadowed corner, and even the rocks seem to absorb light.",
+    connections:["spirit_canyon","umbra_base"],
+    wildMonsters:[
+      {id:55, minLv:50, maxLv:56, rate:25},   // Nighthound
+      {id:57, minLv:50, maxLv:56, rate:25},   // Spectrewing
+      {id:120, minLv:51, maxLv:57, rate:20},  // Wraithling
+      {id:59, minLv:52, maxLv:57, rate:20},   // Phantomfang
+      {id:122, minLv:53, maxLv:58, rate:10}   // Gravemoss
+    ],
+    hasGym:false, requiredBadges:6, mapPos:{x:4, y:60}
   }
 };
 
@@ -1113,7 +1847,7 @@ const GYM_LEADERS = {
   drake: {
     id:"drake", name:"Leader Drake", emoji:"🐉", type:"Dragon",
     badge:"Dragon Badge", badgeEmoji:"🐉",
-    quote:"Dragons are the apex of all monsters. You cannot defeat their ancient power!",
+    quote:"Dragons are the apex of all Lumos. You cannot defeat their ancient power!",
     winQuote:"You have shown the heart of a true dragon master. The Dragon Badge is yours!",
     team:[
       {monsterId:82, level:56, moves:["dragon_breath","dragon_claw","headbutt","dragon_dance"]},
@@ -1164,4 +1898,144 @@ const STARTING_BAG = {
 };
 
 const STARTER_IDS = [1, 4, 7]; // Emberpaw, Dewdrop, Sproutling
+
+// ============================================================
+// TEAM UMBRA STORYLINE DATA
+// ============================================================
+
+// Rival Marcus - challenges you at key milestones
+const RIVAL_BATTLES = {
+  rival_1: {
+    id:"rival_1", name:"Rival Marcus", emoji:"🧒",
+    quote:"You got lucky with that starter. Let me show you how a REAL trainer fights!",
+    winQuote:"H-how?! I trained all week... Fine. Just you wait, I'll be stronger next time.",
+    triggerBadges:1,
+    team:[
+      {monsterId:28, level:13, moves:["thunder_shock","quick_attack","scratch","growl"]},
+      {monsterId:95, level:15, moves:["tackle","headbutt","growl","body_slam"]}
+    ]
+  },
+  rival_2: {
+    id:"rival_2", name:"Rival Marcus", emoji:"🧒",
+    quote:"I heard about Team Umbra messing with the Ruins... but that's not my problem. MY problem is beating YOU!",
+    winQuote:"Ugh! I need to train harder. Hey... be careful with Team Umbra. They're dangerous.",
+    triggerBadges:3,
+    team:[
+      {monsterId:29, level:30, moves:["thunderbolt","spark","body_slam","thunder_wave"]},
+      {monsterId:42, level:31, moves:["thunderbolt","wing_attack","air_slash","thunder"]},
+      {monsterId:35, level:33, moves:["mud_shot","headbutt","earthquake","body_slam"]}
+    ]
+  },
+  rival_3: {
+    id:"rival_3", name:"Rival Marcus", emoji:"🧒",
+    quote:"Team Umbra tried to recruit me, can you believe that? I told them to get lost. Now I'm going to prove my strength on YOU!",
+    winQuote:"You're incredible. Look... I found this near the Umbra Base. Take it - you'll need it more than me. Stop them!",
+    triggerBadges:6,
+    reward:{ ultraOrb:3, superPotion:3 },
+    team:[
+      {monsterId:29, level:50, moves:["thunder","thunderbolt","dragon_dance","body_slam"]},
+      {monsterId:81, level:51, moves:["psychic_move","dragon_pulse","confusion","psystrike"]},
+      {monsterId:25, level:52, moves:["earthquake","energy_ball","petal_blitz","earth_power"]},
+      {monsterId:69, level:54, moves:["flash_cannon","thunder","iron_tail","flash_cannon"]}
+    ]
+  }
+};
+
+// Team Umbra Commanders - encountered at key story locations
+const UMBRA_BATTLES = {
+  umbra_grunt_1: {
+    id:"umbra_grunt_1", name:"Umbra Grunt Vex", emoji:"🕶️",
+    quote:"Halt! Team Umbra's research must not be interrupted! The three Legendaries will be ours!",
+    winQuote:"This isn't over... Commander Shade will hear about you!",
+    team:[
+      {monsterId:54, level:14, moves:["bite","quick_attack","night_slash","scratch"]},
+      {monsterId:56, level:16, moves:["bite","gust","dark_pulse","wing_attack"]}
+    ]
+  },
+  umbra_grunt_2: {
+    id:"umbra_grunt_2", name:"Umbra Grunt Morta", emoji:"🕶️",
+    quote:"You dare enter the Abyssal Trench? Commander Shade has claimed these waters for Team Umbra!",
+    winQuote:"The Abyssdrake... you won't stop us from finding it!",
+    team:[
+      {monsterId:57, level:22, moves:["dark_pulse","wing_attack","air_slash","shadow_ball"]},
+      {monsterId:73, level:23, moves:["sludge_bomb","toxic","venoshock","recover"]},
+      {monsterId:55, level:25, moves:["crunch","night_slash","dark_pulse","body_slam"]}
+    ]
+  },
+  umbra_commander_kira: {
+    id:"umbra_commander_kira", name:"Commander Kira", emoji:"😈",
+    quote:"A child? Oh how entertaining. I am Kira, first commander of Team Umbra. The volcano's power will be OURS. Stand aside or be crushed!",
+    winQuote:"Impossible... I was trained by Shade himself! How can a child... Our plan is bigger than you know. Volcanox WILL awaken!",
+    team:[
+      {monsterId:15, level:32, moves:["flamethrower","dragon_claw","heat_wave","dragon_breath"]},
+      {monsterId:38, level:33, moves:["sludge_bomb","earthquake","toxic","venoshock"]},
+      {monsterId:13, level:36, moves:["flamethrower","rock_slide","fire_blast","body_slam"]},
+      {monsterId:97, level:38, moves:["earthquake","rock_slide","stone_edge","body_slam"]}
+    ]
+  },
+  umbra_commander_rex_shadow: {
+    id:"umbra_commander_rex_shadow", name:"Commander Vorn", emoji:"⚡",
+    quote:"I am Vorn, second commander of Team Umbra. We have awakened Tempestia from the Storm Plateau. Nothing can stop our plan now!",
+    winQuote:"You're more powerful than our intelligence suggested... But Commander Shade is still ahead of you. And Tempestia has been released!",
+    team:[
+      {monsterId:86, level:44, moves:["thunder","dragon_claw","dragon_pulse","dragon_breath"]},
+      {monsterId:42, level:45, moves:["hurricane","thunderbolt","air_slash","thunder"]},
+      {monsterId:57, level:47, moves:["shadow_ball","air_slash","hurricane","dark_pulse"]},
+      {monsterId:69, level:49, moves:["flash_cannon","thunder","iron_tail","body_slam"]}
+    ]
+  },
+  umbra_shade: {
+    id:"umbra_shade", name:"Commander Shade", emoji:"🌑",
+    quote:"So... you are the trainer who dismantled my commanders' plans. Impressive. But it ends HERE. I have awakened all three Legendaries — Tempestia, Volcanox, and Abyssdrake. With their power, Team Umbra will control all of Lumoria! You are too late, child!",
+    winQuote:"Defeated... by a trainer so young... Perhaps I misjudged the power of a trainer's bond with their Lumos. The Legendaries have retreated. Lumoria is safe... for now. You have my... grudging respect.",
+    reward:{ masterOrb:1, maxPotion:5 },
+    team:[
+      {monsterId:79, level:58, moves:["psystrike","psychic_move","calm_mind","recover"]},
+      {monsterId:59, level:59, moves:["crunch","dark_pulse","toxic","venoshock"]},
+      {monsterId:65, level:60, moves:["moonblast","psychic_move","dazzling_gleam","calm_mind"]},
+      {monsterId:84, level:61, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
+      {monsterId:105, level:62, moves:["hurricane","thunder","air_slash","dragon_dance"]},
+      {monsterId:107, level:65, moves:["hydro_pump","dark_pulse","dragon_pulse","crunch"]}
+    ]
+  }
+};
+
+// Story event text shown at key moments
+const STORY_EVENTS = {
+  intro: [
+    "Professor Arbor: Welcome, young trainer! The Lumoria Region is a beautiful land... but dark times approach.",
+    "Professor Arbor: A shadowy organization called TEAM UMBRA has been spotted near ancient sites across the region.",
+    "Professor Arbor: They seek to awaken the three Legendary Lumos — Tempestia, Volcanox, and Abyssdrake.",
+    "Professor Arbor: If awakened and controlled, these creatures could destroy Lumoria. You must become strong enough to stop them!",
+    "Professor Arbor: Collect all 8 Gym Badges, and the power you build along the way will be your greatest weapon. Good luck!"
+  ],
+  after_badge_1: [
+    "📰 News Flash: Strange hooded figures have been sighted near the Lumoria Jungle. Citizens are advised to be cautious.",
+    "Your Rival Marcus rushes up: 'Hey! Did you hear about Team Umbra? They were spotted at the Ancient Ruins! Be careful out there.'"
+  ],
+  after_badge_2: [
+    "Professor Arbor calls: 'Trainer! Team Umbra has been diving into the Abyssal Trench near Tidewatch Port. They're looking for Abyssdrake's resting place. Stop them!'"
+  ],
+  after_badge_3: [
+    "📰 Breaking News: Tremors reported near Emberveil! Experts fear Team Umbra is attempting to wake Volcanox in the Volcano Core.",
+    "A wounded explorer stumbles to you: 'Team Umbra... their commander Kira... she's in the Volcano Core... you must stop her!'"
+  ],
+  after_badge_4: [
+    "Storm clouds gather unusually above the Storm Plateau...",
+    "Professor Arbor: 'The storm patterns are abnormal — Team Umbra may be attempting to awaken Tempestia! Reach the Storm Plateau before it's too late!'"
+  ],
+  after_badge_5: [
+    "Marcus: 'Two Legendaries nearly awakened... I tried to follow Team Umbra but they disappeared into the Mystic Forest. Their base must be there!'",
+    "Professor Arbor: 'I've heard rumours of a hidden Umbra Base in the forest beyond Route 7. You must infiltrate it and confront Commander Shade!'"
+  ],
+  after_badge_6: [
+    "Professor Arbor: 'You defeated Commander Shade! The Legendaries have retreated. But... Shade escaped. Stay vigilant.'",
+    "Professor Arbor: 'The path to the Champion is now clear. Earn your final badges and face Champion Lumian. You've proven yourself a true hero of Lumoria!'"
+  ],
+  champion_defeated: [
+    "🏆 CONGRATULATIONS! You have defeated Champion Lumian and become the NEW LUMORIA CHAMPION!",
+    "Your deeds protecting Lumoria from Team Umbra will be remembered forever.",
+    "Professor Arbor: 'You are extraordinary. Not just a Champion in battle, but a Champion of heart. Lumoria is safe because of you!'"
+  ]
+};
 

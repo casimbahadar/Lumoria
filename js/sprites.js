@@ -87,8 +87,8 @@ function drawQuadruped(id, theme, size) {
   parts.push(`<path d="M ${s*0.24} ${bodyY + bRy*0.4} L ${s*0.22} ${s*0.36} L ${s*0.38} ${s*0.35} L ${s*0.38} ${bodyY - bRy*0.5}" fill="${col}" stroke="${olf}" stroke-width="1.5"/>`);
 
   // Head (circle, forward-leaning position)
-  const headX = s * 0.28, headY = s * 0.3;
-  const headR = s * 0.2;
+  const headX = s * 0.27, headY = s * 0.29;
+  const headR = s * 0.235;
   parts.push(`<circle cx="${headX}" cy="${headY}" r="${headR}" fill="${col}" stroke="${olf}" stroke-width="3"/>`);
   parts.push(`<ellipse cx="${headX - headR*0.12}" cy="${headY - headR*0.18}" rx="${headR*0.52}" ry="${headR*0.4}" fill="${lightenHex(col, 50)}" opacity="0.28"/>`);
 
@@ -157,8 +157,8 @@ function drawBipedal(id, theme, size) {
   parts.push(`<rect x="${bodyX - 7}" y="${bodyY - bRy - 7}" width="14" height="11" fill="${col}" stroke="${olf}" stroke-width="1.5"/>`);
 
   // Head (circle)
-  const headX = s * 0.5, headY = s * 0.3;
-  const headR = s * 0.2;
+  const headX = s * 0.5, headY = s * 0.28;
+  const headR = s * 0.235;
   parts.push(`<circle cx="${headX}" cy="${headY}" r="${headR}" fill="${col}" stroke="${olf}" stroke-width="3"/>`);
   parts.push(`<ellipse cx="${headX - headR*0.18}" cy="${headY - headR*0.2}" rx="${headR*0.55}" ry="${headR*0.42}" fill="${lightenHex(col, 55)}" opacity="0.26"/>`);
 
@@ -218,8 +218,8 @@ function drawAvian(id, theme, size) {
   parts.push(`<rect x="${bodyX - 7}" y="${bodyY - s*0.22}" width="14" height="12" fill="${col}" stroke="${olf}" stroke-width="1.5"/>`);
 
   // Head
-  const headX = s * 0.5, headY = s * 0.3;
-  const headR = s * 0.18;
+  const headX = s * 0.5, headY = s * 0.28;
+  const headR = s * 0.215;
   parts.push(`<circle cx="${headX}" cy="${headY}" r="${headR}" fill="${col}" stroke="${olf}" stroke-width="3"/>`);
   parts.push(`<ellipse cx="${headX - headR*0.15}" cy="${headY - headR*0.2}" rx="${headR*0.5}" ry="${headR*0.38}" fill="${lightenHex(col, 55)}" opacity="0.24"/>`);
 
@@ -552,60 +552,95 @@ function getMonsterSVG(monster, size = 80) {
   if (!monster) return '';
   const primaryType = monster.types[0];
   const theme = SPRITE_TYPE_THEMES[primaryType] || SPRITE_TYPE_THEMES.Normal;
+  const id = monster.id;
 
   const parts = [];
+  const bgGradId = `bg_${id}`;
+  const bdGradId = `bd_${id}`;
+  const shadowId  = `sh_${id}`;
+  const lightCol  = lightenHex(theme.body, 68);
+  const deepCol   = lightenHex(theme.outline, 32);
 
-  // Background gradient
-  const bgGradId = `bg_${monster.id}`;
+  // Defs: background radial + body linear gradient + drop-shadow filter
   parts.push(`<defs>
     <radialGradient id="${bgGradId}" cx="50%" cy="50%" r="70%">
       <stop offset="0%" stop-color="${theme.bg2}"/>
       <stop offset="100%" stop-color="${theme.bg1}"/>
     </radialGradient>
+    <linearGradient id="${bdGradId}" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%"   stop-color="${lightCol}"/>
+      <stop offset="52%"  stop-color="${theme.body}"/>
+      <stop offset="100%" stop-color="${deepCol}"/>
+    </linearGradient>
+    <filter id="${shadowId}" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="1.5" dy="2.5" stdDeviation="2.5"
+        flood-color="${theme.outline}" flood-opacity="0.55"/>
+    </filter>
   </defs>`);
+
   parts.push(`<rect width="${size}" height="${size}" rx="10" fill="url(#${bgGradId})"/>`);
 
-  // Subtle background pattern
-  parts.push(...bgPattern(theme, monster.id, size));
+  // Background pattern
+  parts.push(...bgPattern(theme, id, size));
 
-  // Soft glow around creature area
-  parts.push(`<circle cx="${size * 0.5}" cy="${size * 0.52}" r="${size * 0.36}" fill="${theme.glow}" opacity="0.07"/>`);
+  // Type glow (stronger for legendary)
+  const glowOp = monster.rarity === 'legendary' ? 0.18 : 0.11;
+  parts.push(`<ellipse cx="${size*0.5}" cy="${size*0.53}" rx="${size*0.4}" ry="${size*0.35}" fill="${theme.glow}" opacity="${glowOp}"/>`);
 
-  // Draw creature based on archetype (id % 5)
-  const archetype = monster.id % 5;
-  if (archetype === 0) {
-    parts.push(...drawQuadruped(monster.id, theme, size));
-  } else if (archetype === 1) {
-    parts.push(...drawBipedal(monster.id, theme, size));
-  } else if (archetype === 2) {
-    parts.push(...drawAvian(monster.id, theme, size));
-  } else if (archetype === 3) {
-    parts.push(...drawSerpentine(monster.id, theme, size));
-  } else {
-    parts.push(...drawCroucher(monster.id, theme, size));
+  // Legendary: outer aura ring
+  if (monster.rarity === 'legendary') {
+    parts.push(`<ellipse cx="${size*0.5}" cy="${size*0.53}" rx="${size*0.46}" ry="${size*0.42}" fill="none" stroke="${theme.accent}" stroke-width="2" opacity="0.28"/>`);
+    parts.push(`<ellipse cx="${size*0.5}" cy="${size*0.53}" rx="${size*0.48}" ry="${size*0.44}" fill="none" stroke="${lightCol}" stroke-width="1" opacity="0.18"/>`);
   }
 
-  // Body markings overlay
-  parts.push(...bodyMarkings(primaryType, monster.id, theme, size));
+  // Draw creature, then apply gradient + shadow upgrades via string replace
+  const creatureParts = [];
+  const archetype = id % 5;
+  if (archetype === 0)      creatureParts.push(...drawQuadruped(id, theme, size));
+  else if (archetype === 1) creatureParts.push(...drawBipedal(id, theme, size));
+  else if (archetype === 2) creatureParts.push(...drawAvian(id, theme, size));
+  else if (archetype === 3) creatureParts.push(...drawSerpentine(id, theme, size));
+  else                      creatureParts.push(...drawCroucher(id, theme, size));
 
-  // Type-specific decorations (horns, ears, crests, etc.)
-  parts.push(...typeDecorations(primaryType, monster.id, theme, size));
+  // Upgrade flat body fills → gradient, flat irises → themed color
+  let creatureSVG = creatureParts.join('');
+  creatureSVG = creatureSVG.split(`fill="${theme.body}"`).join(`fill="url(#${bdGradId})"`);
+  creatureSVG = creatureSVG.split('fill="#111"').join(`fill="${theme.accent}"`);
+
+  parts.push(`<g filter="url(#${shadowId})">${creatureSVG}</g>`);
+
+  // Body markings overlay
+  parts.push(...bodyMarkings(primaryType, id, theme, size));
+
+  // Type-specific decorations
+  parts.push(...typeDecorations(primaryType, id, theme, size));
+
+  // Legendary sparkles scattered around
+  if (monster.rarity === 'legendary') {
+    for (let i = 0; i < 8; i++) {
+      const sx = size * (0.08 + seededRand(id, i * 3)     * 0.84);
+      const sy = size * (0.06 + seededRand(id, i * 3 + 1) * 0.88);
+      const sr = 1.4 + seededRand(id, i * 3 + 2) * 2.2;
+      parts.push(`<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="${sr.toFixed(1)}" fill="${theme.accent}" opacity="0.75"/>`);
+      parts.push(`<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="${(sr*0.45).toFixed(1)}" fill="#fff" opacity="0.85"/>`);
+    }
+  }
 
   // Secondary type badge (bottom-right)
   const secType = monster.types[1];
   if (secType) {
     const secTheme = SPRITE_TYPE_THEMES[secType] || SPRITE_TYPE_THEMES.Normal;
-    parts.push(`<circle cx="${size - 10}" cy="${size - 10}" r="7" fill="${secTheme.accent}" opacity="0.85"/>`);
+    parts.push(`<circle cx="${size - 10}" cy="${size - 10}" r="7" fill="${secTheme.accent}" opacity="0.9" stroke="${secTheme.outline}" stroke-width="1"/>`);
   }
 
-  // Rarity sparkle
+  // Rarity badge
   parts.push(...rarityBadge(monster, size));
 
   // ID label
   parts.push(...idLabel(monster, size, theme));
 
   // Border
-  parts.push(`<rect width="${size}" height="${size}" rx="10" fill="none" stroke="${theme.accent}" stroke-width="1.5" opacity="0.4"/>`);
+  parts.push(`<rect width="${size}" height="${size}" rx="10" fill="none" stroke="${theme.accent}" stroke-width="1.5" opacity="0.45"/>`);
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">${parts.join('')}</svg>`;
 }

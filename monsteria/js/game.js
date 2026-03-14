@@ -152,74 +152,169 @@ function showEvolution(partySlot, newId, cb) {
 }
 
 // ============================================================
-// WORLD MAP
+// WORLD MAP - Pokemon-style SVG Region Map
 // ============================================================
+
+// Terrain biome colors for map background
+const BIOME_REGIONS = [
+  // Grass/forest areas (south)
+  { x:5,  y:55, w:40, h:45, color:'#1a3d1a', label:'' },
+  // Ocean / sea (east)
+  { x:60, y:40, w:42, h:55, color:'#0a1a3d', label:'' },
+  // Volcanic area (east-center)
+  { x:65, y:25, w:25, h:22, color:'#3d1000', label:'' },
+  // Ice/mountain (top-left)
+  { x:5,  y:5,  w:35, h:30, color:'#1a2a3d', label:'' },
+  // Plains / electric area
+  { x:35, y:10, w:25, h:25, color:'#1a1a0a', label:'' },
+  // Central paths
+  { x:40, y:35, w:25, h:30, color:'#1a1a14', label:'' },
+  // Shadow / dark area (left-center)
+  { x:5,  y:32, w:20, h:25, color:'#14001e', label:'' },
+  // Sky / psychic area
+  { x:22, y:40, w:30, h:20, color:'#0f0f2a', label:'' },
+  // Dragon peak
+  { x:45, y:32, w:20, h:15, color:'#1e0038', label:'' },
+];
+
 function renderWorldMap() {
   const mapEl = document.getElementById("world-map");
   mapEl.innerHTML = "";
-  const mapW = mapEl.offsetWidth || 400;
-  const mapH = mapEl.offsetHeight || 300;
+  const mapW = mapEl.offsetWidth || 420;
+  const mapH = mapEl.offsetHeight || 320;
 
-  // Draw route connections
-  const connections = [];
-  for (const [areaId, area] of Object.entries(WORLD_DATA)) {
-    for (const conn of area.connections) {
-      const sortedKey = [areaId, conn].sort().join("-");
-      if (!connections.includes(sortedKey)) {
-        connections.push(sortedKey);
-        const fromArea = WORLD_DATA[areaId];
-        const toArea = WORLD_DATA[conn];
-        if (fromArea && toArea) {
-          const x1 = (fromArea.mapPos.x / 100) * mapW;
-          const y1 = (fromArea.mapPos.y / 100) * mapH;
-          const x2 = (toArea.mapPos.x / 100) * mapW;
-          const y2 = (toArea.mapPos.y / 100) * mapH;
-          const line = document.createElement("div");
-          line.className = "map-route";
-          const dx = x2 - x1, dy = y2 - y1;
-          const len = Math.sqrt(dx*dx + dy*dy);
-          const angle = Math.atan2(dy, dx) * 180 / Math.PI;
-          Object.assign(line.style, {
-            left: x1 + "px", top: (y1 - 1) + "px",
-            width: len + "px", height: "2px",
-            transform: `rotate(${angle}deg)`
-          });
-          mapEl.appendChild(line);
-        }
-      }
-    }
+  // Build SVG map
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNS, "svg");
+  svg.setAttribute("width", mapW);
+  svg.setAttribute("height", mapH);
+  svg.setAttribute("viewBox", `0 0 ${mapW} ${mapH}`);
+  svg.style.position = "absolute";
+  svg.style.top = "0";
+  svg.style.left = "0";
+  svg.style.pointerEvents = "none";
+
+  // Background
+  const bgRect = document.createElementNS(svgNS, "rect");
+  bgRect.setAttribute("width", mapW); bgRect.setAttribute("height", mapH);
+  bgRect.setAttribute("fill", "#0d1117");
+  svg.appendChild(bgRect);
+
+  // Biome patches
+  for (const b of BIOME_REGIONS) {
+    const r = document.createElementNS(svgNS, "rect");
+    r.setAttribute("x", (b.x / 100) * mapW);
+    r.setAttribute("y", (b.y / 100) * mapH);
+    r.setAttribute("width", (b.w / 100) * mapW);
+    r.setAttribute("height", (b.h / 100) * mapH);
+    r.setAttribute("rx", "8");
+    r.setAttribute("fill", b.color);
+    r.setAttribute("opacity", "0.85");
+    svg.appendChild(r);
   }
 
-  // Draw locations
+  // Grid lines (subtle)
+  for (let gx = 0; gx < mapW; gx += 30) {
+    const gl = document.createElementNS(svgNS, "line");
+    gl.setAttribute("x1", gx); gl.setAttribute("y1", 0);
+    gl.setAttribute("x2", gx); gl.setAttribute("y2", mapH);
+    gl.setAttribute("stroke", "#ffffff"); gl.setAttribute("stroke-width", "0.3");
+    gl.setAttribute("opacity", "0.04");
+    svg.appendChild(gl);
+  }
+  for (let gy = 0; gy < mapH; gy += 30) {
+    const gl = document.createElementNS(svgNS, "line");
+    gl.setAttribute("x1", 0); gl.setAttribute("y1", gy);
+    gl.setAttribute("x2", mapW); gl.setAttribute("y2", gy);
+    gl.setAttribute("stroke", "#ffffff"); gl.setAttribute("stroke-width", "0.3");
+    gl.setAttribute("opacity", "0.04");
+    svg.appendChild(gl);
+  }
+
+  // Draw route connections
+  const drawnConnections = new Set();
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
+    if (!area.mapPos) continue;
+    for (const conn of area.connections) {
+      const sortedKey = [areaId, conn].sort().join("|");
+      if (drawnConnections.has(sortedKey)) continue;
+      drawnConnections.add(sortedKey);
+      const toArea = WORLD_DATA[conn];
+      if (!toArea || !toArea.mapPos) continue;
+      const x1 = (area.mapPos.x / 100) * mapW;
+      const y1 = (area.mapPos.y / 100) * mapH;
+      const x2 = (toArea.mapPos.x / 100) * mapW;
+      const y2 = (toArea.mapPos.y / 100) * mapH;
+
+      // Route shadow
+      const shadow = document.createElementNS(svgNS, "line");
+      shadow.setAttribute("x1", x1); shadow.setAttribute("y1", y1);
+      shadow.setAttribute("x2", x2); shadow.setAttribute("y2", y2);
+      shadow.setAttribute("stroke", "#000"); shadow.setAttribute("stroke-width", "4");
+      shadow.setAttribute("stroke-linecap", "round"); shadow.setAttribute("opacity", "0.4");
+      svg.appendChild(shadow);
+
+      // Route line
+      const line = document.createElementNS(svgNS, "line");
+      line.setAttribute("x1", x1); line.setAttribute("y1", y1);
+      line.setAttribute("x2", x2); line.setAttribute("y2", y2);
+      const fromLocked = G.badges.length < (area.requiredBadges || 0);
+      const toLocked   = G.badges.length < (toArea.requiredBadges || 0);
+      const routeColor = (fromLocked || toLocked) ? "#444" : "#7a8a6a";
+      line.setAttribute("stroke", routeColor);
+      line.setAttribute("stroke-width", "2.5");
+      line.setAttribute("stroke-linecap", "round");
+      line.setAttribute("stroke-dasharray", (area.type === "route" || toArea.type === "route") ? "6,4" : "none");
+      svg.appendChild(line);
+    }
+  }
+  mapEl.appendChild(svg);
+
+  // Draw location markers (DOM elements over SVG, for click support)
+  for (const [areaId, area] of Object.entries(WORLD_DATA)) {
+    if (!area.mapPos) continue;
     const x = (area.mapPos.x / 100) * mapW;
     const y = (area.mapPos.y / 100) * mapH;
     const loc = document.createElement("div");
     loc.className = "map-location";
-    if (area.type === "city" || area.type === "special") loc.classList.add("city");
+    const isCity = area.type === "city" || area.type === "special";
+    if (isCity) loc.classList.add("city");
     if (areaId === G.location) loc.classList.add("current");
     const badgesNeeded = area.requiredBadges || 0;
     const locked = G.badges.length < badgesNeeded && areaId !== G.location;
     if (locked) loc.classList.add("locked");
     if (area.hasGym && G.defeatedLeaders.includes(area.gymLeader)) loc.classList.add("gym-done");
+    if (area.hasUmbraBase && G.defeatedLeaders.includes("umbra_shade")) loc.classList.add("gym-done");
     loc.style.left = x + "px";
-    loc.style.top = y + "px";
+    loc.style.top  = y + "px";
+
     const dot = document.createElement("div");
     dot.className = "map-loc-dot";
-    dot.textContent = area.icon;
+    dot.textContent = locked ? "🔒" : area.icon;
+
     const label = document.createElement("div");
     label.className = "map-loc-label";
-    label.textContent = area.name.split(" ")[0];
+    // Show first word + city type indicator
+    const shortName = area.name.replace(" Town","").replace(" City","").replace(" Village","").split(" ")[0];
+    label.textContent = shortName;
+    if (isCity) label.style.fontWeight = "bold";
+
     loc.appendChild(dot);
     loc.appendChild(label);
+
     if (!locked) {
-      // Support both click and touch for mobile
       loc.addEventListener("click", () => travelTo(areaId));
       loc.addEventListener("touchend", (e) => { e.preventDefault(); travelTo(areaId); });
       loc.style.cursor = "pointer";
     }
     mapEl.appendChild(loc);
   }
+
+  // Region label overlay
+  const regionLabel = document.createElement("div");
+  regionLabel.style.cssText = "position:absolute;bottom:4px;right:8px;font-size:0.6rem;color:#3d5;opacity:0.4;pointer-events:none;";
+  regionLabel.textContent = "LUMORIA REGION";
+  mapEl.appendChild(regionLabel);
 }
 
 function travelTo(areaId) {
@@ -293,6 +388,27 @@ function renderAreaPanel() {
     championBtn.classList.remove("hidden");
     championBtn.textContent = beaten ? "✅ Champion Defeated!" : "👑 Challenge Champion Lumian";
     championBtn.disabled = beaten;
+  }
+
+  // Umbra Base button
+  const umbraBtn = document.getElementById("btn-umbra-base");
+  umbraBtn.classList.add("hidden");
+  if (area.hasUmbraBase) {
+    const beaten = G.defeatedLeaders.includes("umbra_shade");
+    umbraBtn.classList.remove("hidden");
+    umbraBtn.textContent = beaten ? "✅ Umbra Base Cleared!" : "☠️ Storm the Umbra Base";
+    umbraBtn.disabled = beaten;
+  }
+
+  // Rival button
+  const rivalBtn = document.getElementById("btn-rival");
+  rivalBtn.classList.add("hidden");
+  if (typeof RIVAL_BATTLES !== "undefined") {
+    const pendingRival = getPendingRivalBattle();
+    if (pendingRival) {
+      rivalBtn.classList.remove("hidden");
+      rivalBtn.textContent = "🧒 Battle Rival Marcus";
+    }
   }
 }
 
@@ -371,8 +487,13 @@ function updateBattleUI() {
   const player = playerActiveMon;
   const enemy = enemyActiveMon;
 
-  // Enemy
-  document.getElementById("enemy-sprite").textContent = enemy.emoji;
+  // Enemy sprite (SVG illustration)
+  const enemySpriteEl = document.getElementById("enemy-sprite");
+  if (typeof getMonsterSpriteURL === "function" && MONSTERS_DATA[enemy.monsterId]) {
+    enemySpriteEl.innerHTML = `<img src="${getMonsterSpriteURL(MONSTERS_DATA[enemy.monsterId], 90)}" width="90" height="90" alt="${enemy.name}">`;
+  } else {
+    enemySpriteEl.textContent = enemy.emoji;
+  }
   document.getElementById("enemy-name").textContent = enemy.name;
   document.getElementById("enemy-level").textContent = `Lv.${enemy.level}`;
   const enemyHPPct = Math.max(0, (enemy.currentHP / enemy.maxHP) * 100);
@@ -398,8 +519,13 @@ function updateBattleUI() {
     enemyTypes.appendChild(badge);
   }
 
-  // Player
-  document.getElementById("player-sprite").textContent = player.emoji;
+  // Player sprite (SVG illustration)
+  const playerSpriteEl = document.getElementById("player-sprite");
+  if (typeof getMonsterSpriteURL === "function" && MONSTERS_DATA[player.monsterId]) {
+    playerSpriteEl.innerHTML = `<img src="${getMonsterSpriteURL(MONSTERS_DATA[player.monsterId], 90)}" width="90" height="90" alt="${player.name}">`;
+  } else {
+    playerSpriteEl.textContent = player.emoji;
+  }
   document.getElementById("player-mon-name").textContent = player.name;
   document.getElementById("player-mon-level").textContent = `Lv.${player.level}`;
   const playerHPPct = Math.max(0, (player.currentHP / player.maxHP) * 100);
@@ -871,6 +997,7 @@ function endBattle(outcome, slot, levelUps) {
         if (battleContext.leaderId === "champion") {
           G.championDefeated = true;
           showHallOfFame();
+          triggerStorySequence("champion_defeated");
         } else {
           if (leader.badge) {
             G.badges.push(battleContext.leaderId);
@@ -882,7 +1009,39 @@ function endBattle(outcome, slot, levelUps) {
             renderAreaPanel();
             renderHUD();
             saveGame();
+            // Trigger story event for this badge milestone
+            triggerBadgeStoryEvent(G.badges.length);
           });
+        }
+      } else if (battleContext.isRival || battleContext.isUmbra) {
+        // Rival / Umbra battle won
+        const winner = battleContext.isRival
+          ? RIVAL_BATTLES[battleContext.leaderId]
+          : UMBRA_BATTLES[battleContext.leaderId];
+        if (winner) {
+          // Mark as defeated
+          if (!G.defeatedLeaders) G.defeatedLeaders = [];
+          if (!G.defeatedLeaders.includes(battleContext.leaderId)) {
+            G.defeatedLeaders.push(battleContext.leaderId);
+          }
+          // Give reward if any
+          if (winner.reward) {
+            for (const [item, amt] of Object.entries(winner.reward)) {
+              G.bag[item] = (G.bag[item] || 0) + amt;
+            }
+          }
+          showNotification(`${winner.emoji} <strong>${winner.name}</strong>: "${winner.winQuote}"`, () => {
+            showScreen("screen-main");
+            renderWorldMap();
+            renderAreaPanel();
+            renderHUD();
+            saveGame();
+          });
+        } else {
+          showScreen("screen-main");
+          renderWorldMap();
+          renderAreaPanel();
+          renderHUD();
         }
       } else {
         // Wild battle won
@@ -937,9 +1096,12 @@ function showTeamScreen() {
     const hpPct = Math.round((slot.currentHP / slot.maxHP) * 100);
     const hpClass = hpPct < 25 ? "red" : hpPct < 50 ? "yellow" : "";
     const typeHTML = def.types.map(t => `<span class="type-badge type-${t}" style="font-size:0.6rem">${t}</span>`).join("");
+    const spriteHTML = (typeof getMonsterSpriteURL === "function")
+      ? `<img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" class="team-sprite-img">`
+      : `<span class="team-sprite">${def.emoji}</span>`;
     card.innerHTML = `
       <div class="team-card-header">
-        <span class="team-sprite">${def.emoji}</span>
+        ${spriteHTML}
         <div>
           <div class="team-name">${slot.nickname || def.name}</div>
           <div class="team-level">Lv.${slot.level}</div>
@@ -1001,9 +1163,12 @@ function showTeamDetail(slot, idx) {
   const currXP = slot.xp || 0;
   const xpToNext = Math.max(0, nextLvXP - currXP);
 
+  const detailSpriteHTML = (typeof getMonsterSpriteURL === "function")
+    ? `<img src="${getMonsterSpriteURL(def, 100)}" width="100" height="100" alt="${def.name}" style="border-radius:12px">`
+    : `<span class="detail-sprite">${def.emoji}</span>`;
   document.getElementById("team-detail-content").innerHTML = `
     <div style="text-align:center;margin-bottom:1rem">
-      <span class="detail-sprite">${def.emoji}</span>
+      ${detailSpriteHTML}
       <h3>${slot.nickname || def.name} ${typeHTML}</h3>
       <p style="color:var(--text-secondary);font-size:0.8rem">Lv.${lv} | XP to next: ${xpToNext}</p>
       <p style="font-size:0.8rem;color:var(--text-muted)">${def.desc}</p>
@@ -1100,9 +1265,12 @@ function renderDexGrid(filter, search) {
     if (!seen) card.classList.add("unseen");
     else if (!caught) card.classList.add("seen");
     else card.classList.add("caught");
+    const dexSpriteHTML = seen && typeof getMonsterSpriteURL === "function"
+      ? `<img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" style="border-radius:6px">`
+      : `<div class="dex-emoji">${seen ? def.emoji : "❓"}</div>`;
     card.innerHTML = `
       <div class="dex-num">#${String(mid).padStart(3,"0")}</div>
-      <div class="dex-emoji">${seen ? def.emoji : "❓"}</div>
+      ${dexSpriteHTML}
       <div class="dex-name">${seen ? def.name : "???"}</div>
     `;
     if (seen) {
@@ -1129,9 +1297,12 @@ function showDexDetail(monsterId) {
     ? `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} at Lv.${def.evolveLevel}`
     : "Does not evolve";
 
+  const dexDetailSprite = (typeof getMonsterSpriteURL === "function")
+    ? `<img src="${getMonsterSpriteURL(def, 110)}" width="110" height="110" alt="${def.name}" style="border-radius:12px">`
+    : `<span style="font-size:5rem">${def.emoji}</span>`;
   document.getElementById("dex-detail-content").innerHTML = `
     <div style="text-align:center;margin-bottom:1rem">
-      <span style="font-size:5rem">${def.emoji}</span>
+      ${dexDetailSprite}
       <h3 style="margin-top:0.5rem">#${String(monsterId).padStart(3,"0")} ${def.name}</h3>
       <div>${typeHTML}</div>
       <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:0.5rem">${caught ? "✅ Caught" : "👁 Seen"}</p>
@@ -1183,7 +1354,9 @@ function initEventListeners() {
     renderWorldMap();
     renderAreaPanel();
     saveGame();
-    showNotification(`🎉 You chose ${MONSTERS_DATA[starterId].name}! Your adventure begins!`);
+    showNotification(`🎉 You chose ${MONSTERS_DATA[starterId].name}! Your adventure begins!`, () => {
+      triggerStorySequence("intro");
+    });
   });
   document.getElementById("btn-cancel-starter").addEventListener("click", () => {
     window._selectedStarter = null;
@@ -1265,6 +1438,32 @@ function initEventListeners() {
     renderDexGrid(activeFilter, e.target.value);
   });
 
+  // Umbra Base button
+  document.getElementById("btn-umbra-base").addEventListener("click", () => {
+    if (G.team.every(m => m.currentHP <= 0)) {
+      showNotification("All your monsters are fainted! Heal first.");
+      return;
+    }
+    const shade = UMBRA_BATTLES["umbra_shade"];
+    showNotification(`${shade.emoji} <strong>${shade.name}</strong>:<br>"${shade.quote}"`, () => {
+      startSpecialBattle("umbra_shade", UMBRA_BATTLES, true);
+    });
+  });
+
+  // Rival button
+  document.getElementById("btn-rival").addEventListener("click", () => {
+    if (G.team.every(m => m.currentHP <= 0)) {
+      showNotification("All your monsters are fainted! Heal first.");
+      return;
+    }
+    const pending = getPendingRivalBattle();
+    if (pending) {
+      showNotification(`${pending.emoji} <strong>${pending.name}</strong>:<br>"${pending.quote}"`, () => {
+        startSpecialBattle(pending.id, RIVAL_BATTLES, false);
+      });
+    }
+  });
+
   // Game over
   document.getElementById("btn-gameover-heal").addEventListener("click", () => {
     // Heal team
@@ -1295,8 +1494,11 @@ function showStarterScreen() {
     const card = document.createElement("div");
     card.className = "starter-card";
     const typeColor = getTypeColor(def.types[0]);
+    const starterSpriteHTML = (typeof getMonsterSpriteURL === "function")
+      ? `<img src="${getMonsterSpriteURL(def, 80)}" width="80" height="80" alt="${def.name}" style="border-radius:10px;margin-bottom:0.5rem">`
+      : `<span class="starter-emoji">${def.emoji}</span>`;
     card.innerHTML = `
-      <span class="starter-emoji">${def.emoji}</span>
+      ${starterSpriteHTML}
       <div class="starter-name">${def.name}</div>
       <span class="starter-type" style="background:${typeColor}">${def.types[0]}</span>
       <p class="starter-desc">${def.desc}</p>
@@ -1323,6 +1525,68 @@ function typewriterDialog(text) {
     if (i < text.length) { el.textContent += text[i++]; }
     else clearInterval(interval);
   }, 40);
+}
+
+// ============================================================
+// STORYLINE & SPECIAL BATTLES
+// ============================================================
+
+function getPendingRivalBattle() {
+  if (typeof RIVAL_BATTLES === "undefined") return null;
+  for (const [id, battle] of Object.entries(RIVAL_BATTLES)) {
+    if (G.badges.length >= battle.triggerBadges && !G.defeatedLeaders.includes(id)) {
+      return battle;
+    }
+  }
+  return null;
+}
+
+function startSpecialBattle(battleId, battleData, isUmbra) {
+  const battle = battleData[battleId];
+  if (!battle) return;
+  battleContext = {
+    isWild: false,
+    isGym: false,
+    isChampion: false,
+    isRival: !isUmbra,
+    isUmbra: isUmbra,
+    leaderId: battleId,
+    enemyTeam: battle.team.map(s => buildGymMon(s)),
+    enemyTeamIdx: 0,
+    playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
+  };
+  playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx]);
+  enemyActiveMon = battleContext.enemyTeam[0];
+  showScreen("screen-battle");
+  clearBattleLog();
+  logMsg(`${battle.emoji} ${battle.name}: "${battle.quote}"`);
+  logMsg(`${battle.name} sent out ${enemyActiveMon.name}!`);
+  updateBattleUI();
+  showBattleMainActions();
+  document.getElementById("btn-catch").disabled = true;
+}
+
+// Show a sequence of story messages one-by-one
+function triggerStorySequence(eventKey) {
+  if (typeof STORY_EVENTS === "undefined") return;
+  const messages = STORY_EVENTS[eventKey];
+  if (!messages || messages.length === 0) return;
+  showStoryMessage(messages, 0);
+}
+
+function showStoryMessage(messages, idx) {
+  if (idx >= messages.length) return;
+  showNotification(messages[idx], () => {
+    showStoryMessage(messages, idx + 1);
+  });
+}
+
+function triggerBadgeStoryEvent(badgeCount) {
+  const key = `after_badge_${badgeCount}`;
+  if (typeof STORY_EVENTS !== "undefined" && STORY_EVENTS[key]) {
+    setTimeout(() => triggerStorySequence(key), 400);
+  }
+  renderAreaPanel(); // refresh to show rival button if unlocked
 }
 
 // ---- BOOT ----

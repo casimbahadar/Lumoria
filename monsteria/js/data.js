@@ -842,7 +842,7 @@ const WORLD_DATA = {
   route2: {
     id:"route2", name:"Route 2 - Greenwood Forest", icon:"🌲", type:"route",
     desc:"A dense forest teeming with Bug and Grass type monsters.",
-    connections:["ashford","tidewatch"],
+    connections:["ashford","tidewatch","lumoria_jungle"],
     wildMonsters:[
       {id:100, minLv:6, maxLv:9, rate:25}, // Caterpet
       {id:103, minLv:6, maxLv:9, rate:20}, // Beetleback
@@ -855,7 +855,7 @@ const WORLD_DATA = {
   tidewatch: {
     id:"tidewatch", name:"Tidewatch Port", icon:"⛵", type:"city",
     desc:"A bustling port city on the coast. Gym Leader Marina commands the waves.",
-    connections:["route2","route3"],
+    connections:["route2","route3","deep_trench"],
     wildMonsters:[
       {id:16, minLv:10, maxLv:13, rate:30}, // Bubblecrab
       {id:20, minLv:10, maxLv:13, rate:30}, // Coralfish
@@ -879,7 +879,7 @@ const WORLD_DATA = {
   emberveil: {
     id:"emberveil", name:"Emberveil City", icon:"🌋", type:"city",
     desc:"Built near an active volcano. The fiery Gym Leader Pyros waits within.",
-    connections:["route3","route4"],
+    connections:["route3","route4","volcano_core"],
     wildMonsters:[
       {id:14, minLv:18, maxLv:22, rate:30}, // Emberworm
       {id:12, minLv:18, maxLv:22, rate:25}, // Lavabull
@@ -903,7 +903,7 @@ const WORLD_DATA = {
   sparkmoor: {
     id:"sparkmoor", name:"Sparkmoor Town", icon:"⚡", type:"city",
     desc:"A town on the electric plains. Gym Leader Zara harnesses lightning power.",
-    connections:["route4","route5"],
+    connections:["route4","route5","storm_plateau"],
     wildMonsters:[
       {id:28, minLv:26, maxLv:30, rate:30}, // Sparklet
       {id:30, minLv:26, maxLv:30, rate:25}, // Zapbug
@@ -927,7 +927,7 @@ const WORLD_DATA = {
   frostpeak: {
     id:"frostpeak", name:"Frostpeak Village", icon:"❄️", type:"city",
     desc:"A snow-covered village atop a frozen mountain. Ice Gym Leader Glacier awaits.",
-    connections:["route5","route6"],
+    connections:["route5","route6","storm_plateau","crystal_depths"],
     wildMonsters:[
       {id:47, minLv:34, maxLv:38, rate:30}, // Frostpup
       {id:49, minLv:34, maxLv:38, rate:25}, // Snowfluff
@@ -951,7 +951,7 @@ const WORLD_DATA = {
   shadowmere: {
     id:"shadowmere", name:"Shadowmere City", icon:"🌑", type:"city",
     desc:"A city forever shrouded in shadow. Dark Gym Leader Nyx commands the night.",
-    connections:["route6","route7"],
+    connections:["route6","route7","crystal_depths"],
     wildMonsters:[
       {id:54, minLv:42, maxLv:46, rate:30}, // Shadowpup
       {id:56, minLv:42, maxLv:46, rate:25}, // Voidbat
@@ -963,7 +963,7 @@ const WORLD_DATA = {
   route7: {
     id:"route7", name:"Route 7 - Poison Marshes", icon:"☠️", type:"route",
     desc:"A fetid swamp full of poison. Dark and Poison types are found in abundance.",
-    connections:["shadowmere","skyvault"],
+    connections:["shadowmere","skyvault","mystic_forest"],
     wildMonsters:[
       {id:73, minLv:46, maxLv:50, rate:25}, // Acidblob
       {id:71, minLv:46, maxLv:50, rate:25}, // Toxitoad
@@ -975,7 +975,7 @@ const WORLD_DATA = {
   skyvault: {
     id:"skyvault", name:"Skyvault City", icon:"🏰", type:"city",
     desc:"A city floating on clouds. Psychic Gym Leader Oracle sees all futures.",
-    connections:["route7","route8"],
+    connections:["route7","route8","mystic_forest"],
     wildMonsters:[
       {id:76, minLv:50, maxLv:54, rate:30}, // Mindpup
       {id:64, minLv:50, maxLv:54, rate:25}, // Dawnsprite
@@ -1026,6 +1026,118 @@ const WORLD_DATA = {
     connections:["victoryroad"],
     wildMonsters:[], hasGym:false, isChampion:true, requiredBadges:8,
     mapPos:{x:72, y:30}
+  },
+
+  // ===== EXTRA AREAS =====
+  lumoria_jungle: {
+    id:"lumoria_jungle", name:"Lumoria Jungle", icon:"🌴", type:"route",
+    desc:"A dense, humid jungle teeming with Grass, Poison and Bug types. Ancient ruins peek through the canopy.",
+    connections:["route2","ancient_ruins"],
+    wildMonsters:[
+      {id:22, minLv:8, maxLv:12, rate:25},   // Mushrump
+      {id:24, minLv:8, maxLv:12, rate:25},   // Fernwhip
+      {id:62, minLv:9, maxLv:12, rate:20},   // Prismfly
+      {id:71, minLv:9, maxLv:13, rate:20},   // Toxitoad
+      {id:75, minLv:10, maxLv:13, rate:10}   // Miasmafly
+    ],
+    hasGym:false, requiredBadges:1, mapPos:{x:56, y:68}
+  },
+  ancient_ruins: {
+    id:"ancient_ruins", name:"Ancient Ruins", icon:"🏛️", type:"route",
+    desc:"Crumbling temples from a forgotten civilization. Psychic and Dark energies fill the air. Team Umbra has been spotted here.",
+    connections:["lumoria_jungle"],
+    wildMonsters:[
+      {id:64, minLv:12, maxLv:16, rate:25},  // Dawnsprite
+      {id:80, minLv:12, maxLv:16, rate:25},  // Dreamrift
+      {id:59, minLv:13, maxLv:17, rate:20},  // Phantomfang
+      {id:78, minLv:14, maxLv:17, rate:20},  // Esperia
+      {id:76, minLv:14, maxLv:17, rate:10}   // Mindpup
+    ],
+    hasGym:false, requiredBadges:1, mapPos:{x:64, y:76},
+    storyLocation:true
+  },
+  deep_trench: {
+    id:"deep_trench", name:"Abyssal Trench", icon:"🌊", type:"route",
+    desc:"The deepest part of Lumoria's ocean. Water and Dragon types of terrifying power lurk here. Team Umbra seeks something ancient in these depths.",
+    connections:["tidewatch"],
+    wildMonsters:[
+      {id:85, minLv:18, maxLv:24, rate:25},  // Seadrake
+      {id:33, minLv:18, maxLv:24, rate:25},  // Surgeeel
+      {id:19, minLv:19, maxLv:24, rate:25},  // Glaciaseal
+      {id:17, minLv:20, maxLv:25, rate:15},  // Waveclaw
+      {id:107, minLv:30, maxLv:35, rate:10}  // Abyssdrake (rare!)
+    ],
+    hasGym:false, requiredBadges:2, mapPos:{x:78, y:60},
+    storyLocation:true
+  },
+  volcano_core: {
+    id:"volcano_core", name:"Volcano Core", icon:"🌋", type:"route",
+    desc:"The scorching heart of the volcano beneath Emberveil. Only the most fearless trainers descend here. Legendary energies stir within.",
+    connections:["emberveil"],
+    wildMonsters:[
+      {id:15, minLv:22, maxLv:28, rate:25},  // Flamewyrm
+      {id:13, minLv:22, maxLv:28, rate:25},  // Magmacow
+      {id:38, minLv:23, maxLv:28, rate:20},  // Venomscorp
+      {id:97, minLv:24, maxLv:29, rate:20},  // Boulderhound
+      {id:106, minLv:35, maxLv:40, rate:10}  // Volcanox (rare!)
+    ],
+    hasGym:false, requiredBadges:3, mapPos:{x:82, y:42},
+    storyLocation:true
+  },
+  storm_plateau: {
+    id:"storm_plateau", name:"Storm Plateau", icon:"⛈️", type:"route",
+    desc:"A high plateau perpetually wracked by storms. Electric and Dragon types are drawn to its crackling energy.",
+    connections:["sparkmoor","frostpeak"],
+    wildMonsters:[
+      {id:86, minLv:28, maxLv:34, rate:25},  // Stormwyrm
+      {id:42, minLv:28, maxLv:34, rate:25},  // Galemane
+      {id:31, minLv:29, maxLv:34, rate:25},  // Thunderfly
+      {id:44, minLv:29, maxLv:34, rate:15},  // Cyclobird
+      {id:105, minLv:40, maxLv:45, rate:10}  // Tempestia (rare!)
+    ],
+    hasGym:false, requiredBadges:4, mapPos:{x:36, y:12},
+    storyLocation:true
+  },
+  crystal_depths: {
+    id:"crystal_depths", name:"Crystal Depths", icon:"💠", type:"route",
+    desc:"An underground crystal cavern with walls of pure ice and steel. Rare mineral-type monsters call this glittering place home.",
+    connections:["frostpeak","shadowmere"],
+    wildMonsters:[
+      {id:87, minLv:34, maxLv:40, rate:25},  // Crystaldrake
+      {id:99, minLv:34, maxLv:40, rate:25},  // Crystalrock
+      {id:70, minLv:35, maxLv:40, rate:20},  // Titanshell
+      {id:104, minLv:36, maxLv:41, rate:20}, // Hardbeetle
+      {id:52, minLv:36, maxLv:41, rate:10}   // Polarex
+    ],
+    hasGym:false, requiredBadges:5, mapPos:{x:10, y:28}
+  },
+  mystic_forest: {
+    id:"mystic_forest", name:"Mystic Forest", icon:"🌌", type:"route",
+    desc:"A forest where the boundary between worlds is thin. Fairy and Psychic creatures drift between the trees. Team Umbra's hideout is rumoured to be nearby.",
+    connections:["route7","skyvault"],
+    wildMonsters:[
+      {id:65, minLv:46, maxLv:52, rate:25},  // Celestara
+      {id:63, minLv:46, maxLv:52, rate:25},  // Radiantfly
+      {id:79, minLv:47, maxLv:52, rate:20},  // Telepathy
+      {id:46, minLv:48, maxLv:52, rate:20},  // Mistwalker
+      {id:57, minLv:48, maxLv:52, rate:10}   // Spectrewing
+    ],
+    hasGym:false, requiredBadges:6, mapPos:{x:25, y:62},
+    storyLocation:true
+  },
+  umbra_base: {
+    id:"umbra_base", name:"Team Umbra Base", icon:"☠️", type:"special",
+    desc:"The hidden fortress of Team Umbra. Their leader, Commander Shade, awaits you here. This is your chance to stop their plan to awaken the three Legendaries.",
+    connections:["mystic_forest"],
+    wildMonsters:[
+      {id:55, minLv:50, maxLv:55, rate:25},  // Nighthound
+      {id:59, minLv:50, maxLv:55, rate:25},  // Phantomfang
+      {id:57, minLv:51, maxLv:55, rate:25},  // Spectrewing
+      {id:74, minLv:51, maxLv:55, rate:25}   // Sludgebeast
+    ],
+    hasGym:false, requiredBadges:6,
+    hasUmbraBase:true,
+    mapPos:{x:12, y:58}
   }
 };
 
@@ -1164,4 +1276,144 @@ const STARTING_BAG = {
 };
 
 const STARTER_IDS = [1, 4, 7]; // Emberpaw, Dewdrop, Sproutling
+
+// ============================================================
+// TEAM UMBRA STORYLINE DATA
+// ============================================================
+
+// Rival Marcus - challenges you at key milestones
+const RIVAL_BATTLES = {
+  rival_1: {
+    id:"rival_1", name:"Rival Marcus", emoji:"🧒",
+    quote:"You got lucky with that starter. Let me show you how a REAL trainer fights!",
+    winQuote:"H-how?! I trained all week... Fine. Just you wait, I'll be stronger next time.",
+    triggerBadges:1,
+    team:[
+      {monsterId:28, level:13, moves:["thunder_shock","quick_attack","scratch","growl"]},
+      {monsterId:95, level:15, moves:["tackle","headbutt","growl","body_slam"]}
+    ]
+  },
+  rival_2: {
+    id:"rival_2", name:"Rival Marcus", emoji:"🧒",
+    quote:"I heard about Team Umbra messing with the Ruins... but that's not my problem. MY problem is beating YOU!",
+    winQuote:"Ugh! I need to train harder. Hey... be careful with Team Umbra. They're dangerous.",
+    triggerBadges:3,
+    team:[
+      {monsterId:29, level:30, moves:["thunderbolt","spark","body_slam","thunder_wave"]},
+      {monsterId:42, level:31, moves:["thunderbolt","wing_attack","air_slash","thunder"]},
+      {monsterId:35, level:33, moves:["mud_shot","headbutt","earthquake","body_slam"]}
+    ]
+  },
+  rival_3: {
+    id:"rival_3", name:"Rival Marcus", emoji:"🧒",
+    quote:"Team Umbra tried to recruit me, can you believe that? I told them to get lost. Now I'm going to prove my strength on YOU!",
+    winQuote:"You're incredible. Look... I found this near the Umbra Base. Take it - you'll need it more than me. Stop them!",
+    triggerBadges:6,
+    reward:{ ultraOrb:3, superPotion:3 },
+    team:[
+      {monsterId:29, level:50, moves:["thunder","thunderbolt","dragon_dance","body_slam"]},
+      {monsterId:81, level:51, moves:["psychic_move","dragon_pulse","confusion","psystrike"]},
+      {monsterId:25, level:52, moves:["earthquake","energy_ball","petal_blitz","earth_power"]},
+      {monsterId:69, level:54, moves:["flash_cannon","thunder","iron_tail","flash_cannon"]}
+    ]
+  }
+};
+
+// Team Umbra Commanders - encountered at key story locations
+const UMBRA_BATTLES = {
+  umbra_grunt_1: {
+    id:"umbra_grunt_1", name:"Umbra Grunt Vex", emoji:"🕶️",
+    quote:"Halt! Team Umbra's research must not be interrupted! The three Legendaries will be ours!",
+    winQuote:"This isn't over... Commander Shade will hear about you!",
+    team:[
+      {monsterId:54, level:14, moves:["bite","quick_attack","night_slash","scratch"]},
+      {monsterId:56, level:16, moves:["bite","gust","dark_pulse","wing_attack"]}
+    ]
+  },
+  umbra_grunt_2: {
+    id:"umbra_grunt_2", name:"Umbra Grunt Morta", emoji:"🕶️",
+    quote:"You dare enter the Abyssal Trench? Commander Shade has claimed these waters for Team Umbra!",
+    winQuote:"The Abyssdrake... you won't stop us from finding it!",
+    team:[
+      {monsterId:57, level:22, moves:["dark_pulse","wing_attack","air_slash","shadow_ball"]},
+      {monsterId:73, level:23, moves:["sludge_bomb","toxic","venoshock","recover"]},
+      {monsterId:55, level:25, moves:["crunch","night_slash","dark_pulse","body_slam"]}
+    ]
+  },
+  umbra_commander_kira: {
+    id:"umbra_commander_kira", name:"Commander Kira", emoji:"😈",
+    quote:"A child? Oh how entertaining. I am Kira, first commander of Team Umbra. The volcano's power will be OURS. Stand aside or be crushed!",
+    winQuote:"Impossible... I was trained by Shade himself! How can a child... Our plan is bigger than you know. Volcanox WILL awaken!",
+    team:[
+      {monsterId:15, level:32, moves:["flamethrower","dragon_claw","heat_wave","dragon_breath"]},
+      {monsterId:38, level:33, moves:["sludge_bomb","earthquake","toxic","venoshock"]},
+      {monsterId:13, level:36, moves:["flamethrower","rock_slide","fire_blast","body_slam"]},
+      {monsterId:97, level:38, moves:["earthquake","rock_slide","stone_edge","body_slam"]}
+    ]
+  },
+  umbra_commander_rex_shadow: {
+    id:"umbra_commander_rex_shadow", name:"Commander Vorn", emoji:"⚡",
+    quote:"I am Vorn, second commander of Team Umbra. We have awakened Tempestia from the Storm Plateau. Nothing can stop our plan now!",
+    winQuote:"You're more powerful than our intelligence suggested... But Commander Shade is still ahead of you. And Tempestia has been released!",
+    team:[
+      {monsterId:86, level:44, moves:["thunder","dragon_claw","dragon_pulse","dragon_breath"]},
+      {monsterId:42, level:45, moves:["hurricane","thunderbolt","air_slash","thunder"]},
+      {monsterId:57, level:47, moves:["shadow_ball","air_slash","hurricane","dark_pulse"]},
+      {monsterId:69, level:49, moves:["flash_cannon","thunder","iron_tail","body_slam"]}
+    ]
+  },
+  umbra_shade: {
+    id:"umbra_shade", name:"Commander Shade", emoji:"🌑",
+    quote:"So... you are the trainer who dismantled my commanders' plans. Impressive. But it ends HERE. I have awakened all three Legendaries — Tempestia, Volcanox, and Abyssdrake. With their power, Team Umbra will control all of Lumoria! You are too late, child!",
+    winQuote:"Defeated... by a trainer so young... Perhaps I misjudged the power of a trainer's bond with their monsters. The Legendaries have retreated. Lumoria is safe... for now. You have my... grudging respect.",
+    reward:{ masterOrb:1, maxPotion:5 },
+    team:[
+      {monsterId:79, level:58, moves:["psystrike","psychic_move","calm_mind","recover"]},
+      {monsterId:59, level:59, moves:["crunch","dark_pulse","toxic","venoshock"]},
+      {monsterId:65, level:60, moves:["moonblast","psychic_move","dazzling_gleam","calm_mind"]},
+      {monsterId:84, level:61, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
+      {monsterId:105, level:62, moves:["hurricane","thunder","air_slash","dragon_dance"]},
+      {monsterId:107, level:65, moves:["hydro_pump","dark_pulse","dragon_pulse","crunch"]}
+    ]
+  }
+};
+
+// Story event text shown at key moments
+const STORY_EVENTS = {
+  intro: [
+    "Professor Arbor: Welcome, young trainer! The Lumoria Region is a beautiful land... but dark times approach.",
+    "Professor Arbor: A shadowy organization called TEAM UMBRA has been spotted near ancient sites across the region.",
+    "Professor Arbor: They seek to awaken the three Legendary monsters — Tempestia, Volcanox, and Abyssdrake.",
+    "Professor Arbor: If awakened and controlled, these creatures could destroy Lumoria. You must become strong enough to stop them!",
+    "Professor Arbor: Collect all 8 Gym Badges, and the power you build along the way will be your greatest weapon. Good luck!"
+  ],
+  after_badge_1: [
+    "📰 News Flash: Strange hooded figures have been sighted near the Lumoria Jungle. Citizens are advised to be cautious.",
+    "Your Rival Marcus rushes up: 'Hey! Did you hear about Team Umbra? They were spotted at the Ancient Ruins! Be careful out there.'"
+  ],
+  after_badge_2: [
+    "Professor Arbor calls: 'Trainer! Team Umbra has been diving into the Abyssal Trench near Tidewatch Port. They're looking for Abyssdrake's resting place. Stop them!'"
+  ],
+  after_badge_3: [
+    "📰 Breaking News: Tremors reported near Emberveil! Experts fear Team Umbra is attempting to wake Volcanox in the Volcano Core.",
+    "A wounded explorer stumbles to you: 'Team Umbra... their commander Kira... she's in the Volcano Core... you must stop her!'"
+  ],
+  after_badge_4: [
+    "Storm clouds gather unusually above the Storm Plateau...",
+    "Professor Arbor: 'The storm patterns are abnormal — Team Umbra may be attempting to awaken Tempestia! Reach the Storm Plateau before it's too late!'"
+  ],
+  after_badge_5: [
+    "Marcus: 'Two Legendaries nearly awakened... I tried to follow Team Umbra but they disappeared into the Mystic Forest. Their base must be there!'",
+    "Professor Arbor: 'I've heard rumours of a hidden Umbra Base in the forest beyond Route 7. You must infiltrate it and confront Commander Shade!'"
+  ],
+  after_badge_6: [
+    "Professor Arbor: 'You defeated Commander Shade! The Legendaries have retreated. But... Shade escaped. Stay vigilant.'",
+    "Professor Arbor: 'The path to the Champion is now clear. Earn your final badges and face Champion Lumian. You've proven yourself a true hero of Lumoria!'"
+  ],
+  champion_defeated: [
+    "🏆 CONGRATULATIONS! You have defeated Champion Lumian and become the NEW LUMORIA CHAMPION!",
+    "Your deeds protecting Lumoria from Team Umbra will be remembered forever.",
+    "Professor Arbor: 'You are extraordinary. Not just a Champion in battle, but a Champion of heart. Lumoria is safe because of you!'"
+  ]
+};
 

@@ -155,29 +155,177 @@ function showEvolution(partySlot, newId, cb) {
 // WORLD MAP - Pokemon-style SVG Region Map
 // ============================================================
 
-// Terrain biome colors for map background
+// Terrain biome definitions for Pokemon-style map background
+// Each biome uses an organic SVG path (%) for natural coastline shapes
 const BIOME_REGIONS = [
-  // Main continent base (large green landmass)
-  { x:4,  y:10, w:90, h:85, color:'#2d6830', rx:18 },
-  // Southern forest / starter zone
-  { x:4,  y:54, w:58, h:40, color:'#1e5420', rx:12 },
-  // Southeast ocean
-  { x:58, y:44, w:38, h:50, color:'#0a3a58', rx:10 },
-  // Northeast ocean pocket
-  { x:74, y:10, w:22, h:40, color:'#0d3c56', rx:8 },
-  // Volcanic east region
-  { x:60, y:18, w:28, h:30, color:'#4a2008', rx:10 },
-  // Ice & glacier north-left
-  { x:4,  y:4,  w:40, h:24, color:'#3a6478', rx:12 },
-  // Thunder plains top-center
-  { x:30, y:4,  w:30, h:22, color:'#3a3e0c', rx:10 },
-  // Shadow/dark left-center
-  { x:4,  y:30, w:18, h:30, color:'#140020', rx:8 },
-  // Mystic sky/psychic zone center
-  { x:18, y:44, w:28, h:22, color:'#161630', rx:8 },
-  // Dragon peak center
-  { x:44, y:34, w:20, h:16, color:'#1c0436', rx:8 },
+  // Main continent landmass - large organic shape
+  { type:'land', color:'#4a9e52', shadow:'#357a3c', highlight:'#6abb6e',
+    path:'M 8,18 C 5,16 3,20 3,28 C 3,40 4,55 5,65 C 6,78 8,88 14,92 C 22,96 38,97 52,94 C 62,92 68,86 70,78 C 72,70 68,62 62,56 C 60,54 58,50 60,46 C 63,40 68,38 72,34 C 78,28 82,22 80,16 C 78,12 72,10 65,10 C 56,10 48,12 40,14 C 32,16 22,18 15,18 Z' },
+  // Southern peninsula - starter forest
+  { type:'land', color:'#3d8a44', shadow:'#2d6e32', highlight:'#5aad5e',
+    path:'M 5,62 C 3,60 2,65 3,72 C 4,80 6,88 12,92 C 18,95 28,96 36,94 C 42,92 48,88 50,82 C 52,76 50,70 46,66 C 42,62 36,60 28,60 C 20,60 12,61 5,62 Z' },
+  // Volcanic eastern peninsula
+  { type:'volcanic', color:'#8B4513', shadow:'#5a2d0e', highlight:'#a0622a',
+    path:'M 62,20 C 58,18 56,22 58,28 C 60,34 64,38 70,36 C 76,34 82,28 84,22 C 86,16 82,12 76,12 C 70,12 66,16 62,20 Z' },
+  // Ice/glacier northern region
+  { type:'ice', color:'#7ab8c4', shadow:'#5a98a8', highlight:'#a0dce6',
+    path:'M 6,8 C 4,6 3,10 4,16 C 5,22 8,26 14,28 C 20,30 28,28 34,24 C 38,22 42,18 42,14 C 42,10 38,6 32,4 C 26,2 18,3 12,6 C 10,7 8,8 6,8 Z' },
+  // Thunder plains - top center
+  { type:'plains', color:'#8a8e30', shadow:'#6a6e1c', highlight:'#aab240',
+    path:'M 32,6 C 30,4 28,6 30,12 C 32,18 36,22 42,22 C 48,22 54,20 58,16 C 62,12 62,8 58,6 C 54,4 46,3 40,4 C 36,5 34,6 32,6 Z' },
+  // Shadow/dark western region
+  { type:'dark', color:'#2a1040', shadow:'#1a0828', highlight:'#3e1a5a',
+    path:'M 4,32 C 3,30 2,34 3,40 C 4,48 6,54 10,56 C 14,58 18,56 20,52 C 22,48 22,42 20,38 C 18,34 14,32 10,32 C 8,32 6,32 4,32 Z' },
+  // Mystic/psychic central zone
+  { type:'mystic', color:'#2a2050', shadow:'#1a1238', highlight:'#3e3068',
+    path:'M 20,48 C 18,46 16,48 18,54 C 20,60 24,62 30,62 C 36,62 40,58 42,54 C 44,50 42,46 38,44 C 34,42 28,42 24,44 C 22,46 21,47 20,48 Z' },
+  // Dragon peak - central mountain
+  { type:'mountain', color:'#4a3068', shadow:'#321e4a', highlight:'#624088',
+    path:'M 46,36 C 44,34 42,36 44,42 C 46,46 50,48 54,46 C 58,44 60,40 60,36 C 60,34 58,32 54,32 C 50,32 48,34 46,36 Z' },
 ];
+
+// Build SVG terrain patterns for Pokemon-style textures
+function buildMapPatterns(svgNS, defs, mapW, mapH) {
+  // Ocean wave pattern
+  const oceanPat = document.createElementNS(svgNS, "pattern");
+  oceanPat.setAttribute("id", "oceanPattern");
+  oceanPat.setAttribute("width", "30");
+  oceanPat.setAttribute("height", "20");
+  oceanPat.setAttribute("patternUnits", "userSpaceOnUse");
+  const wave1 = document.createElementNS(svgNS, "path");
+  wave1.setAttribute("d", "M 0,10 Q 7.5,5 15,10 Q 22.5,15 30,10");
+  wave1.setAttribute("stroke", "#2a7aaa");
+  wave1.setAttribute("stroke-width", "0.8");
+  wave1.setAttribute("fill", "none");
+  wave1.setAttribute("opacity", "0.4");
+  oceanPat.appendChild(wave1);
+  const wave2 = document.createElementNS(svgNS, "path");
+  wave2.setAttribute("d", "M 0,16 Q 7.5,11 15,16 Q 22.5,21 30,16");
+  wave2.setAttribute("stroke", "#2a7aaa");
+  wave2.setAttribute("stroke-width", "0.5");
+  wave2.setAttribute("fill", "none");
+  wave2.setAttribute("opacity", "0.25");
+  oceanPat.appendChild(wave2);
+  defs.appendChild(oceanPat);
+
+  // Grass tuft pattern
+  const grassPat = document.createElementNS(svgNS, "pattern");
+  grassPat.setAttribute("id", "grassPattern");
+  grassPat.setAttribute("width", "16");
+  grassPat.setAttribute("height", "16");
+  grassPat.setAttribute("patternUnits", "userSpaceOnUse");
+  const grassBg = document.createElementNS(svgNS, "rect");
+  grassBg.setAttribute("width", "16");
+  grassBg.setAttribute("height", "16");
+  grassBg.setAttribute("fill", "transparent");
+  grassPat.appendChild(grassBg);
+  // Small grass tufts
+  for (const [gx, gy] of [[3,12],[11,6],[7,14],[13,10]]) {
+    const tuft = document.createElementNS(svgNS, "path");
+    tuft.setAttribute("d", `M ${gx},${gy} l -1,-3 l 1,1 l 1,-2 l 0.5,1.5 l 1,-2.5 l -0.5,3 Z`);
+    tuft.setAttribute("fill", "#2d7a30");
+    tuft.setAttribute("opacity", "0.35");
+    grassPat.appendChild(tuft);
+  }
+  defs.appendChild(grassPat);
+
+  // Mountain/rock texture pattern
+  const mtnPat = document.createElementNS(svgNS, "pattern");
+  mtnPat.setAttribute("id", "mountainPattern");
+  mtnPat.setAttribute("width", "20");
+  mtnPat.setAttribute("height", "18");
+  mtnPat.setAttribute("patternUnits", "userSpaceOnUse");
+  const peak = document.createElementNS(svgNS, "path");
+  peak.setAttribute("d", "M 4,16 L 10,4 L 16,16 Z");
+  peak.setAttribute("fill", "none");
+  peak.setAttribute("stroke", "#ffffff");
+  peak.setAttribute("stroke-width", "0.6");
+  peak.setAttribute("opacity", "0.15");
+  mtnPat.appendChild(peak);
+  const snowCap = document.createElementNS(svgNS, "path");
+  snowCap.setAttribute("d", "M 8,8 L 10,4 L 12,8 Z");
+  snowCap.setAttribute("fill", "#ffffff");
+  snowCap.setAttribute("opacity", "0.12");
+  mtnPat.appendChild(snowCap);
+  defs.appendChild(mtnPat);
+
+  // Ice crystal pattern
+  const icePat = document.createElementNS(svgNS, "pattern");
+  icePat.setAttribute("id", "icePattern");
+  icePat.setAttribute("width", "14");
+  icePat.setAttribute("height", "14");
+  icePat.setAttribute("patternUnits", "userSpaceOnUse");
+  for (const [ix, iy] of [[4,4],[10,10]]) {
+    const crystal = document.createElementNS(svgNS, "path");
+    crystal.setAttribute("d", `M ${ix},${iy-2} L ${ix+1},${iy} L ${ix},${iy+2} L ${ix-1},${iy} Z`);
+    crystal.setAttribute("fill", "#ffffff");
+    crystal.setAttribute("opacity", "0.2");
+    icePat.appendChild(crystal);
+  }
+  defs.appendChild(icePat);
+
+  // Dark mist pattern
+  const darkPat = document.createElementNS(svgNS, "pattern");
+  darkPat.setAttribute("id", "darkPattern");
+  darkPat.setAttribute("width", "20");
+  darkPat.setAttribute("height", "20");
+  darkPat.setAttribute("patternUnits", "userSpaceOnUse");
+  const mist = document.createElementNS(svgNS, "circle");
+  mist.setAttribute("cx", "10");
+  mist.setAttribute("cy", "10");
+  mist.setAttribute("r", "5");
+  mist.setAttribute("fill", "#6a2aaa");
+  mist.setAttribute("opacity", "0.1");
+  darkPat.appendChild(mist);
+  defs.appendChild(darkPat);
+
+  // Volcanic lava crack pattern
+  const lavaPat = document.createElementNS(svgNS, "pattern");
+  lavaPat.setAttribute("id", "lavaPattern");
+  lavaPat.setAttribute("width", "18");
+  lavaPat.setAttribute("height", "18");
+  lavaPat.setAttribute("patternUnits", "userSpaceOnUse");
+  const crack = document.createElementNS(svgNS, "path");
+  crack.setAttribute("d", "M 2,8 Q 6,4 9,9 Q 12,14 16,10");
+  crack.setAttribute("stroke", "#ff4400");
+  crack.setAttribute("stroke-width", "0.7");
+  crack.setAttribute("fill", "none");
+  crack.setAttribute("opacity", "0.3");
+  lavaPat.appendChild(crack);
+  defs.appendChild(lavaPat);
+
+  // Sandy beach pattern (for coastlines)
+  const sandPat = document.createElementNS(svgNS, "pattern");
+  sandPat.setAttribute("id", "sandPattern");
+  sandPat.setAttribute("width", "8");
+  sandPat.setAttribute("height", "8");
+  sandPat.setAttribute("patternUnits", "userSpaceOnUse");
+  for (const [sx, sy] of [[2,2],[6,5],[4,7],[1,5]]) {
+    const dot = document.createElementNS(svgNS, "circle");
+    dot.setAttribute("cx", String(sx));
+    dot.setAttribute("cy", String(sy));
+    dot.setAttribute("r", "0.5");
+    dot.setAttribute("fill", "#d4b876");
+    dot.setAttribute("opacity", "0.5");
+    sandPat.appendChild(dot);
+  }
+  defs.appendChild(sandPat);
+}
+
+// Scale a path string from percentage coordinates to pixel coordinates
+function scaleMapPath(pathStr, mapW, mapH) {
+  return pathStr.replace(/([0-9]+\.?[0-9]*)/g, (match, num, offset) => {
+    // Determine if this is an X or Y coordinate based on position in path commands
+    const before = pathStr.substring(0, offset);
+    const cmdMatch = before.match(/[MLCQZ\s,]/g);
+    // Count numbers before this one to determine x vs y
+    const nums = before.match(/[0-9]+\.?[0-9]*/g);
+    const count = nums ? nums.length : 0;
+    // In SVG path: after M/L/C/Q, coordinates alternate x,y
+    const isX = count % 2 === 0;
+    return String(Math.round((parseFloat(num) / 100) * (isX ? mapW : mapH)));
+  });
+}
 
 function renderWorldMap() {
   const mapEl = document.getElementById("world-map");
@@ -195,24 +343,111 @@ function renderWorldMap() {
   svg.style.left = "0";
   svg.style.pointerEvents = "none";
 
-  // Ocean background
+  // Defs for patterns and gradients
+  const defs = document.createElementNS(svgNS, "defs");
+  svg.appendChild(defs);
+
+  // Ocean gradient (deep to lighter blue, like Pokemon ocean)
+  const oceanGrad = document.createElementNS(svgNS, "radialGradient");
+  oceanGrad.setAttribute("id", "oceanGrad");
+  oceanGrad.setAttribute("cx", "40%");
+  oceanGrad.setAttribute("cy", "50%");
+  oceanGrad.setAttribute("r", "60%");
+  const os1 = document.createElementNS(svgNS, "stop");
+  os1.setAttribute("offset", "0%");
+  os1.setAttribute("stop-color", "#1a6a9a");
+  const os2 = document.createElementNS(svgNS, "stop");
+  os2.setAttribute("offset", "100%");
+  os2.setAttribute("stop-color", "#0e3a5a");
+  oceanGrad.appendChild(os1);
+  oceanGrad.appendChild(os2);
+  defs.appendChild(oceanGrad);
+
+  // Build texture patterns
+  buildMapPatterns(svgNS, defs, mapW, mapH);
+
+  // Ocean background with gradient
   const bgRect = document.createElementNS(svgNS, "rect");
   bgRect.setAttribute("width", mapW);
   bgRect.setAttribute("height", mapH);
-  bgRect.setAttribute("fill", "#1a4a66");
+  bgRect.setAttribute("fill", "url(#oceanGrad)");
   svg.appendChild(bgRect);
 
-  // Terrain biome patches
+  // Ocean wave overlay
+  const waveRect = document.createElementNS(svgNS, "rect");
+  waveRect.setAttribute("width", mapW);
+  waveRect.setAttribute("height", mapH);
+  waveRect.setAttribute("fill", "url(#oceanPattern)");
+  svg.appendChild(waveRect);
+
+  // Render terrain biomes with organic shapes, shadows, highlights, and textures
   for (const b of BIOME_REGIONS) {
-    const r = document.createElementNS(svgNS, "rect");
-    r.setAttribute("x", (b.x / 100) * mapW);
-    r.setAttribute("y", (b.y / 100) * mapH);
-    r.setAttribute("width", (b.w / 100) * mapW);
-    r.setAttribute("height", (b.h / 100) * mapH);
-    r.setAttribute("rx", String(b.rx || 10));
-    r.setAttribute("fill", b.color);
-    r.setAttribute("opacity", "0.9");
-    svg.appendChild(r);
+    const scaledPath = scaleMapPath(b.path, mapW, mapH);
+
+    // Beach/sand border (slightly larger, behind the land)
+    if (b.type === 'land') {
+      const beach = document.createElementNS(svgNS, "path");
+      beach.setAttribute("d", scaledPath);
+      beach.setAttribute("fill", "#c8a860");
+      beach.setAttribute("stroke", "#b89848");
+      beach.setAttribute("stroke-width", "6");
+      beach.setAttribute("opacity", "0.6");
+      svg.appendChild(beach);
+
+      // Beach sand dots overlay
+      const beachTex = document.createElementNS(svgNS, "path");
+      beachTex.setAttribute("d", scaledPath);
+      beachTex.setAttribute("fill", "url(#sandPattern)");
+      beachTex.setAttribute("stroke", "none");
+      beachTex.setAttribute("opacity", "0.5");
+      // Make beach slightly bigger via stroke
+      beachTex.setAttribute("stroke", "url(#sandPattern)");
+      beachTex.setAttribute("stroke-width", "4");
+      svg.appendChild(beachTex);
+    }
+
+    // Drop shadow (offset darker shape behind terrain)
+    const shadow = document.createElementNS(svgNS, "path");
+    shadow.setAttribute("d", scaledPath);
+    shadow.setAttribute("fill", b.shadow);
+    shadow.setAttribute("transform", "translate(2, 3)");
+    shadow.setAttribute("opacity", "0.5");
+    svg.appendChild(shadow);
+
+    // Main terrain fill
+    const terrain = document.createElementNS(svgNS, "path");
+    terrain.setAttribute("d", scaledPath);
+    terrain.setAttribute("fill", b.color);
+    terrain.setAttribute("stroke", b.shadow);
+    terrain.setAttribute("stroke-width", "1.5");
+    svg.appendChild(terrain);
+
+    // Highlight edge (inner glow for 3D effect, like official Pokemon maps)
+    const highlightPath = document.createElementNS(svgNS, "path");
+    highlightPath.setAttribute("d", scaledPath);
+    highlightPath.setAttribute("fill", "none");
+    highlightPath.setAttribute("stroke", b.highlight);
+    highlightPath.setAttribute("stroke-width", "1.5");
+    highlightPath.setAttribute("opacity", "0.5");
+    highlightPath.setAttribute("transform", "translate(-0.5, -0.5)");
+    svg.appendChild(highlightPath);
+
+    // Apply texture pattern based on biome type
+    let patternId = null;
+    if (b.type === 'land') patternId = 'grassPattern';
+    else if (b.type === 'ice') patternId = 'icePattern';
+    else if (b.type === 'dark' || b.type === 'mystic') patternId = 'darkPattern';
+    else if (b.type === 'volcanic') patternId = 'lavaPattern';
+    else if (b.type === 'mountain') patternId = 'mountainPattern';
+    else if (b.type === 'plains') patternId = 'grassPattern';
+
+    if (patternId) {
+      const texOverlay = document.createElementNS(svgNS, "path");
+      texOverlay.setAttribute("d", scaledPath);
+      texOverlay.setAttribute("fill", `url(#${patternId})`);
+      texOverlay.setAttribute("opacity", "0.8");
+      svg.appendChild(texOverlay);
+    }
   }
 
   // Determine if a connection is a water route
@@ -824,6 +1059,7 @@ async function executeTurn(playerMoveId, _unused) {
   } else {
     await enemyTurn();
     if (battleContext.battleEnded) return;
+    if (playerActiveMon.fainted || playerActiveMon.currentHP <= 0) return;
     await doAttack(playerActiveMon, enemyActiveMon, playerMoveId, true);
     if (enemyActiveMon.fainted || enemyActiveMon.currentHP <= 0) {
       await handleEnemyFainted();
@@ -1117,6 +1353,7 @@ function showTeamScreen() {
   showScreen("screen-team");
   document.getElementById("team-detail").classList.add("hidden");
   const list = document.getElementById("team-list");
+  list.style.display = "";
   list.innerHTML = "";
   G.team.forEach((slot, idx) => {
     const def = MONSTERS_DATA[slot.monsterId];

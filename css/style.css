@@ -463,10 +463,11 @@ html, body {
 #world-map {
   flex: 1;
   position: relative;
-  background: #1a4a66;
-  border: 1px solid #2a6a8a;
-  border-radius: 8px;
+  background: #0e3a5a;
+  border: 2px solid #1a5a7a;
+  border-radius: 10px;
   overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .map-location {

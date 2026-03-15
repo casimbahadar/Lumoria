@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Badge Preview</title>
+<style>
+  body { background: #0d1117; color: #e6edf3; font-family: system-ui; display: flex; flex-wrap: wrap; gap: 2rem; padding: 2rem; justify-content: center; }
+  .badge-card { text-align: center; background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 1.5rem; width: 180px; }
+  .badge-card h3 { margin: 0.75rem 0 0.25rem; font-size: 1rem; }
+  .badge-card p { margin: 0; font-size: 0.8rem; color: #8b949e; }
+  .row { display: flex; gap: 1rem; justify-content: center; align-items: center; }
+  .label { font-size: 0.7rem; color: #8b949e; margin-top: 0.25rem; }
+  h1 { width: 100%; text-align: center; }
+</style>
+</head>
+<body>
+<h1>Lumoria Gym Badges</h1>
+<script src="js/data.js"></script>
+<script src="js/sprites.js"></script>
+<script>
+const badges = [
+  { id: "rex", name: "Foundation Badge", type: "Normal" },
+  { id: "marina", name: "Wave Badge", type: "Water" },
+  { id: "pyros", name: "Forge Badge", type: "Fire" },
+  { id: "zara", name: "Current Badge", type: "Electric" },
+  { id: "glacier", name: "Frost Badge", type: "Ice" },
+  { id: "nyx", name: "Dusk Badge", type: "Dark" },
+  { id: "oracle", name: "Foresight Badge", type: "Psychic" },
+  { id: "drake", name: "Wyrm Badge", type: "Dragon" }
+];
+badges.forEach(b => {
+  const card = document.createElement("div");
+  card.className = "badge-card";
+  card.innerHTML = `
+    <div class="row">
+      <div>
+        ${generateBadgeSVG(b.id, true, 80)}
+        <div class="label">Earned</div>
+      </div>
+      <div>
+        ${generateBadgeSVG(b.id, false, 80)}
+        <div class="label">Unearned</div>
+      </div>
+    </div>
+    <h3>${b.name}</h3>
+    <p>${b.type} Type</p>
+  `;
+  document.body.appendChild(card);
+});
+</script>
+</body>
+</html>

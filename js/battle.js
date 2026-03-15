@@ -45,15 +45,26 @@ function calcStat(base, level) {
 function buildBattleMon(partySlot) {
   const def = MONSTERS_DATA[partySlot.monsterId];
   const lv = partySlot.level;
-  const maxHP = calcMaxHP(def.base.hp, lv);
-  return {
+  const heldItemId = partySlot.heldItem || null;
+  const heldData = heldItemId ? ITEMS_DATA[heldItemId] : null;
+  let maxHP = calcMaxHP(def.base.hp, lv);
+  // Vital Seed: boost HP by 15%
+  if (heldData && heldData.held && heldData.held.stat === "hp") {
+    maxHP = Math.floor(maxHP * heldData.held.mult);
+  }
+  const rawHP = partySlot.currentHP !== undefined ? partySlot.currentHP : calcMaxHP(def.base.hp, lv);
+  // Scale current HP proportionally if HP was boosted
+  const baseMax = calcMaxHP(def.base.hp, lv);
+  const currentHP = maxHP > baseMax ? Math.min(maxHP, rawHP + (maxHP - baseMax)) : rawHP;
+
+  const mon = {
     monsterId: partySlot.monsterId,
     name: partySlot.nickname || def.name,
     emoji: def.emoji,
     types: [...def.types],
     level: lv,
     maxHP,
-    currentHP: partySlot.currentHP !== undefined ? partySlot.currentHP : maxHP,
+    currentHP: Math.min(maxHP, currentHP),
     atk:  calcStat(def.base.atk, lv),
     def:  calcStat(def.base.def, lv),
     spa:  calcStat(def.base.spa, lv),
@@ -67,8 +78,18 @@ function buildBattleMon(partySlot) {
     isConfused: false,
     confuseTurns: 0,
     fainted: partySlot.currentHP === 0,
+    heldItem: heldItemId,
+    focusSashUsed: false,
     partyRef: partySlot  // reference back to party
   };
+
+  // Apply stat-boosting held items
+  if (heldData && heldData.held && heldData.held.stat && heldData.held.stat !== "hp") {
+    const s = heldData.held.stat;
+    mon[s] = Math.floor(mon[s] * heldData.held.mult);
+  }
+
+  return mon;
 }
 
 // Build a wild monster battle object from scratch
@@ -144,6 +165,12 @@ function buildGymMon(slot) {
 
 // ---- Damage Calculation ----
 
+function getHeldData(mon) {
+  if (!mon.heldItem) return null;
+  const item = ITEMS_DATA[mon.heldItem];
+  return item && item.held ? item.held : null;
+}
+
 function calcDamage(attacker, defender, move) {
   if (move.power === 0) return 0;
   const atk = move.cat === "physical"
@@ -166,12 +193,23 @@ function calcDamage(attacker, defender, move) {
   // STAB: +50% if attacker shares type with move
   if (attacker.types.includes(move.type)) dmg = Math.floor(dmg * 1.5);
 
+  // Held item: type boost (e.g. Charcoal boosts Fire)
+  const atkHeld = getHeldData(attacker);
+  if (atkHeld && atkHeld.typeBoost && atkHeld.typeBoost === move.type) {
+    dmg = Math.floor(dmg * atkHeld.mult);
+  }
+  // Held item: category boost (Black Belt boosts physical, Wise Glasses boosts special)
+  if (atkHeld && atkHeld.catBoost && atkHeld.catBoost === move.cat) {
+    dmg = Math.floor(dmg * atkHeld.mult);
+  }
+
   // Type effectiveness
   const eff = getTypeEffectiveness(move.type, defender.types);
   dmg = Math.floor(dmg * eff);
 
-  // Critical hit (1/16 base, or 1/4 if crit flag)
-  const critRate = move.effect === "crit" ? 25 : 6.25;
+  // Critical hit (1/16 base, or 1/4 if crit flag; Scope Lens doubles base rate)
+  let critRate = move.effect === "crit" ? 25 : 6.25;
+  if (atkHeld && atkHeld.effect === "critUp") critRate = Math.min(50, critRate * 2);
   const isCrit = rollPercent(critRate);
   if (isCrit) dmg = Math.floor(dmg * 1.5);
 
@@ -332,7 +370,30 @@ function tickStatus(mon) {
       break;
   }
   if (mon.currentHP <= 0) mon.fainted = true;
+  // Leftovers: heal 1/16 max HP at end of turn
+  const heldInfo = getHeldData(mon);
+  if (heldInfo && heldInfo.effect === "leftovers" && mon.currentHP > 0 && mon.currentHP < mon.maxHP) {
+    const healAmt = Math.max(1, Math.floor(mon.maxHP / 16));
+    mon.currentHP = Math.min(mon.maxHP, mon.currentHP + healAmt);
+    msgs.push(`🍎 ${mon.name}'s Leftovers restored ${healAmt} HP!`);
+  }
   return msgs;
+}
+
+// Focus Sash: survive a fatal hit with 1 HP
+function applyFocusSash(mon, damage) {
+  const held = getHeldData(mon);
+  if (held && held.effect === "focusSash" && !mon.focusSashUsed && mon.currentHP === mon.maxHP && damage >= mon.currentHP) {
+    mon.focusSashUsed = true;
+    return { damage: mon.currentHP - 1, triggered: true };
+  }
+  return { damage, triggered: false };
+}
+
+// Quick Claw: 30% chance to move first
+function checkQuickClaw(mon) {
+  const held = getHeldData(mon);
+  return held && held.effect === "quickClaw" && rollPercent(30);
 }
 
 // Check if mon can move this turn

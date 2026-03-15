@@ -1862,9 +1862,9 @@ const WORLD_DATA = {
 const GYM_LEADERS = {
   rex: {
     id:"rex", name:"Leader Rex", emoji:"💪", type:"Normal",
-    badge:"Stone Badge", badgeEmoji:"🪨",
+    badge:"Foundation Badge", badgeEmoji:"🧱",
     quote:"You think you have what it takes? Let's see how normal you really are!",
-    winQuote:"Not bad! Here, take the Stone Badge. You've earned it.",
+    winQuote:"Not bad! Here, take the Foundation Badge. You've earned it.",
     team:[
       {monsterId:88, level:10, moves:["tackle","headbutt","growl","quick_attack"]},
       {monsterId:90, level:12, moves:["tackle","quick_attack","tail_whip","headbutt"]},
@@ -1884,9 +1884,9 @@ const GYM_LEADERS = {
   },
   pyros: {
     id:"pyros", name:"Leader Pyros", emoji:"🔥", type:"Fire",
-    badge:"Flame Badge", badgeEmoji:"🔥",
+    badge:"Forge Badge", badgeEmoji:"🔥",
     quote:"My fire burns hotter than any volcano! Can you withstand the heat?",
-    winQuote:"Your strength is as intense as a raging wildfire. The Flame Badge is yours!",
+    winQuote:"Your strength is as intense as a raging wildfire. The Forge Badge is yours!",
     team:[
       {monsterId:14, level:25, moves:["ember","quick_attack","flamethrower","tackle"]},
       {monsterId:10, level:26, moves:["ember","bug_bite","flame_fang","x_scissor"]},
@@ -1895,9 +1895,9 @@ const GYM_LEADERS = {
   },
   zara: {
     id:"zara", name:"Leader Zara", emoji:"⚡", type:"Electric",
-    badge:"Bolt Badge", badgeEmoji:"⚡",
+    badge:"Current Badge", badgeEmoji:"⚡",
     quote:"I'll shock you senseless! Electric types are unstoppable!",
-    winQuote:"You're truly electrifying! The Bolt Badge is yours.",
+    winQuote:"You're truly electrifying! The Current Badge is yours.",
     team:[
       {monsterId:30, level:32, moves:["thunder_shock","spark","bug_bite","string_shot"]},
       {monsterId:34, level:33, moves:["thunder_shock","wing_attack","spark","thunderbolt"]},
@@ -1928,9 +1928,9 @@ const GYM_LEADERS = {
   },
   oracle: {
     id:"oracle", name:"Leader Oracle", emoji:"🔮", type:"Psychic",
-    badge:"Mind Badge", badgeEmoji:"🔮",
+    badge:"Foresight Badge", badgeEmoji:"🔮",
     quote:"I have foreseen your defeat. The future is already written.",
-    winQuote:"Incredible. You have rewritten what I thought was fate. The Mind Badge is yours.",
+    winQuote:"Incredible. You have rewritten what I thought was fate. The Foresight Badge is yours.",
     team:[
       {monsterId:76, level:50, moves:["confusion","quick_attack","psybeam","recover"]},
       {monsterId:64, level:51, moves:["confusion","fairy_wind","psybeam","dazzling_gleam"]},
@@ -1939,9 +1939,9 @@ const GYM_LEADERS = {
   },
   drake: {
     id:"drake", name:"Leader Drake", emoji:"🐉", type:"Dragon",
-    badge:"Dragon Badge", badgeEmoji:"🐉",
+    badge:"Wyrm Badge", badgeEmoji:"🐉",
     quote:"Dragons are the apex of all Lumos. You cannot defeat their ancient power!",
-    winQuote:"You have shown the heart of a true dragon master. The Dragon Badge is yours!",
+    winQuote:"You have shown the heart of a true dragon master. The Wyrm Badge is yours!",
     team:[
       {monsterId:82, level:56, moves:["dragon_breath","dragon_claw","headbutt","dragon_dance"]},
       {monsterId:86, level:57, moves:["thunder_shock","dragon_breath","thunderbolt","dragon_claw"]},
@@ -1976,7 +1976,24 @@ const ITEMS_DATA = {
   potion:     { name:"Potion",      emoji:"🧪", desc:"Heals 20 HP.", catchMult:0, healAmt:20,  type:"heal" },
   superPotion:{ name:"Super Potion",emoji:"💊", desc:"Heals 50 HP.", catchMult:0, healAmt:50,  type:"heal" },
   maxPotion:  { name:"Max Potion",  emoji:"💉", desc:"Fully heals HP.", catchMult:0, healAmt:999, type:"heal" },
-  revive:     { name:"Revive",      emoji:"💫", desc:"Revives a fainted monster to 50% HP.", catchMult:0, healAmt:0, type:"revive" }
+  revive:     { name:"Revive",      emoji:"💫", desc:"Revives a fainted monster to 50% HP.", catchMult:0, healAmt:0, type:"revive" },
+  // Held items
+  powerBand:     { name:"Power Band",     emoji:"💪", desc:"Boosts Attack by 20% when held.",           type:"held", held:{ stat:"atk", mult:1.2 } },
+  guardCloak:    { name:"Guard Cloak",    emoji:"🛡️", desc:"Boosts Defense by 20% when held.",          type:"held", held:{ stat:"def", mult:1.2 } },
+  wisdomLens:    { name:"Wisdom Lens",    emoji:"🔮", desc:"Boosts Sp.Atk by 20% when held.",           type:"held", held:{ stat:"spa", mult:1.2 } },
+  spiritVeil:    { name:"Spirit Veil",    emoji:"🌀", desc:"Boosts Sp.Def by 20% when held.",           type:"held", held:{ stat:"spd", mult:1.2 } },
+  swiftFeather:  { name:"Swift Feather",  emoji:"🪶", desc:"Boosts Speed by 20% when held.",            type:"held", held:{ stat:"spe", mult:1.2 } },
+  vitalSeed:     { name:"Vital Seed",     emoji:"🌱", desc:"Boosts max HP by 15% when held.",           type:"held", held:{ stat:"hp",  mult:1.15 } },
+  charcoal:      { name:"Charcoal",       emoji:"🔥", desc:"Powers up Fire-type moves by 20%.",         type:"held", held:{ typeBoost:"Fire", mult:1.2 } },
+  mysticDew:     { name:"Mystic Dew",     emoji:"💧", desc:"Powers up Water-type moves by 20%.",        type:"held", held:{ typeBoost:"Water", mult:1.2 } },
+  miracleSeed:   { name:"Miracle Seed",   emoji:"🌿", desc:"Powers up Grass-type moves by 20%.",        type:"held", held:{ typeBoost:"Grass", mult:1.2 } },
+  magnet:        { name:"Magnet",         emoji:"🧲", desc:"Powers up Electric-type moves by 20%.",     type:"held", held:{ typeBoost:"Electric", mult:1.2 } },
+  blackBelt:     { name:"Black Belt",     emoji:"🥋", desc:"Powers up physical moves by 10%.",           type:"held", held:{ catBoost:"physical", mult:1.1 } },
+  wiseGlasses:   { name:"Wise Glasses",   emoji:"👓", desc:"Powers up special moves by 10%.",            type:"held", held:{ catBoost:"special", mult:1.1 } },
+  focusSash:     { name:"Focus Sash",     emoji:"🎗️", desc:"Survive a fatal hit with 1 HP once per battle.", type:"held", held:{ effect:"focusSash" } },
+  leftovers:     { name:"Leftovers",      emoji:"🍎", desc:"Restores 1/16 max HP each turn.",            type:"held", held:{ effect:"leftovers" } },
+  scopeLens:     { name:"Scope Lens",     emoji:"🔭", desc:"Increases critical hit rate.",                type:"held", held:{ effect:"critUp" } },
+  quickClaw:     { name:"Quick Claw",     emoji:"⚡", desc:"30% chance to move first each turn.",        type:"held", held:{ effect:"quickClaw" } }
 };
 
 const STARTING_BAG = {
@@ -1987,7 +2004,23 @@ const STARTING_BAG = {
   potion: 5,
   superPotion: 2,
   maxPotion: 0,
-  revive: 1
+  revive: 1,
+  powerBand: 1,
+  guardCloak: 0,
+  wisdomLens: 0,
+  spiritVeil: 0,
+  swiftFeather: 0,
+  vitalSeed: 0,
+  charcoal: 0,
+  mysticDew: 0,
+  miracleSeed: 0,
+  magnet: 0,
+  blackBelt: 0,
+  wiseGlasses: 0,
+  focusSash: 0,
+  leftovers: 0,
+  scopeLens: 0,
+  quickClaw: 0
 };
 
 const STARTER_IDS = [1, 4, 7]; // Emberpaw, Dewdrop, Sproutling

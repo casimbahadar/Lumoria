@@ -789,6 +789,171 @@ function getMonsterSpriteURL(monster, size = 80) {
   return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
 }
 
+// ============================================================
+// GYM BADGE SVG GENERATOR
+// Detailed metallic Pokemon-style gym badges
+// ============================================================
+
+function generateBadgeSVG(leaderId, earned, size = 28) {
+  const vb = 64; // viewBox size
+  const grayFilter = earned ? "" : `<filter id="gray-${leaderId}"><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncR type="linear" slope="0.4" intercept="0.15"/><feFuncG type="linear" slope="0.4" intercept="0.15"/><feFuncB type="linear" slope="0.4" intercept="0.15"/></feComponentTransfer></filter>`;
+  const filterAttr = earned ? "" : ` filter="url(#gray-${leaderId})"`;
+
+  const badges = {
+    // ---- FOUNDATION BADGE (Normal) - Sturdy octagonal shield with bricks ----
+    rex() {
+      const c1 = "#b8a878", c2 = "#d4c898", c3 = "#9a8860", cEdge = "#6a5830", cShine = "#f0e8d0";
+      return `
+        <defs>${grayFilter}
+          <linearGradient id="bg-rex" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${c2}"/><stop offset="100%" stop-color="${c3}"/></linearGradient>
+          <linearGradient id="sh-rex" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="${cShine}" stop-opacity="0.6"/><stop offset="50%" stop-color="${cShine}" stop-opacity="0.0"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <polygon points="20,4 44,4 58,18 58,46 44,60 20,60 6,46 6,18" fill="url(#bg-rex)" stroke="${cEdge}" stroke-width="2.5"/>
+          <polygon points="20,4 44,4 58,18 58,46 44,60 20,60 6,46 6,18" fill="url(#sh-rex)"/>
+          <rect x="15" y="18" width="14" height="8" rx="1" fill="${c1}" stroke="${cEdge}" stroke-width="1"/>
+          <rect x="35" y="18" width="14" height="8" rx="1" fill="${c1}" stroke="${cEdge}" stroke-width="1"/>
+          <rect x="24" y="28" width="16" height="8" rx="1" fill="${c1}" stroke="${cEdge}" stroke-width="1"/>
+          <rect x="15" y="38" width="14" height="8" rx="1" fill="${c1}" stroke="${cEdge}" stroke-width="1"/>
+          <rect x="35" y="38" width="14" height="8" rx="1" fill="${c1}" stroke="${cEdge}" stroke-width="1"/>
+          <polygon points="32,10 38,16 26,16" fill="${cShine}" opacity="0.5"/>
+        </g>`;
+    },
+
+    // ---- WAVE BADGE (Water) - Teardrop with flowing waves ----
+    marina() {
+      const c1 = "#1864b8", c2 = "#4da6ff", c3 = "#0a3870", cShine = "#b0dcff";
+      return `
+        <defs>${grayFilter}
+          <radialGradient id="bg-marina" cx="0.5" cy="0.4"><stop offset="0%" stop-color="${c2}"/><stop offset="100%" stop-color="${c1}"/></radialGradient>
+          <linearGradient id="sh-marina" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="${cShine}" stop-opacity="0.5"/><stop offset="40%" stop-color="${cShine}" stop-opacity="0.0"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <path d="M32,4 C32,4 56,28 56,40 C56,52 45,60 32,60 C19,60 8,52 8,40 C8,28 32,4 32,4Z" fill="url(#bg-marina)" stroke="${c3}" stroke-width="2.5"/>
+          <path d="M32,4 C32,4 56,28 56,40 C56,52 45,60 32,60 C19,60 8,52 8,40 C8,28 32,4 32,4Z" fill="url(#sh-marina)"/>
+          <path d="M12,38 Q20,32 28,38 Q36,44 44,38 Q50,34 52,36" fill="none" stroke="${cShine}" stroke-width="2" opacity="0.7"/>
+          <path d="M14,46 Q22,40 30,46 Q38,52 46,46 Q50,43 52,44" fill="none" stroke="${cShine}" stroke-width="1.8" opacity="0.5"/>
+          <ellipse cx="28" cy="22" rx="6" ry="3" fill="${cShine}" opacity="0.35"/>
+        </g>`;
+    },
+
+    // ---- FORGE BADGE (Fire) - Flame shape with inner fire ----
+    pyros() {
+      const c1 = "#c84010", c2 = "#ff6b35", c3 = "#7a2000", cInner = "#ffd700", cShine = "#fff4cc";
+      return `
+        <defs>${grayFilter}
+          <radialGradient id="bg-pyros" cx="0.5" cy="0.6"><stop offset="0%" stop-color="${cInner}"/><stop offset="50%" stop-color="${c2}"/><stop offset="100%" stop-color="${c1}"/></radialGradient>
+          <linearGradient id="sh-pyros" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="${cShine}" stop-opacity="0.5"/><stop offset="50%" stop-color="${cShine}" stop-opacity="0.0"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <path d="M32,2 C38,14 52,20 50,36 C49,44 46,50 42,54 C40,56 36,60 32,60 C28,60 24,56 22,54 C18,50 15,44 14,36 C12,20 26,14 32,2Z" fill="url(#bg-pyros)" stroke="${c3}" stroke-width="2.5"/>
+          <path d="M32,2 C38,14 52,20 50,36 C49,44 46,50 42,54 C40,56 36,60 32,60 C28,60 24,56 22,54 C18,50 15,44 14,36 C12,20 26,14 32,2Z" fill="url(#sh-pyros)"/>
+          <path d="M32,22 C36,30 42,32 40,40 C39,46 36,50 32,50 C28,50 25,46 24,40 C22,32 28,30 32,22Z" fill="${cInner}" opacity="0.8" stroke="${c2}" stroke-width="1"/>
+          <ellipse cx="30" cy="14" rx="4" ry="3" fill="${cShine}" opacity="0.3"/>
+        </g>`;
+    },
+
+    // ---- CURRENT BADGE (Electric) - Lightning bolt ----
+    zara() {
+      const c1 = "#c8a000", c2 = "#ffd700", c3 = "#8a6800", cShine = "#fffde0", cEdge = "#705000";
+      return `
+        <defs>${grayFilter}
+          <linearGradient id="bg-zara" x1="0.3" y1="0" x2="0.7" y2="1"><stop offset="0%" stop-color="${cShine}"/><stop offset="50%" stop-color="${c2}"/><stop offset="100%" stop-color="${c1}"/></linearGradient>
+          <linearGradient id="sh-zara" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="#fff" stop-opacity="0.5"/><stop offset="40%" stop-color="#fff" stop-opacity="0.0"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <polygon points="38,2 18,30 30,30 22,62 48,28 34,28" fill="url(#bg-zara)" stroke="${cEdge}" stroke-width="2.5" stroke-linejoin="round"/>
+          <polygon points="38,2 18,30 30,30 22,62 48,28 34,28" fill="url(#sh-zara)"/>
+          <polygon points="36,10 26,28 32,28 28,48 42,28 36,28" fill="${cShine}" opacity="0.25"/>
+        </g>`;
+    },
+
+    // ---- FROST BADGE (Ice) - Six-pointed star with hexagon ----
+    glacier() {
+      const c1 = "#48a8be", c2 = "#96d5d5", c3 = "#206878", cShine = "#e8ffff", cCenter = "#d0f4f4";
+      return `
+        <defs>${grayFilter}
+          <radialGradient id="bg-glacier" cx="0.5" cy="0.5"><stop offset="0%" stop-color="${cCenter}"/><stop offset="60%" stop-color="${c2}"/><stop offset="100%" stop-color="${c1}"/></radialGradient>
+          <linearGradient id="sh-glacier" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="${cShine}" stop-opacity="0.6"/><stop offset="45%" stop-color="${cShine}" stop-opacity="0.0"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <polygon points="32,2 42,17 58,17 48,32 58,47 42,47 32,62 22,47 6,47 16,32 6,17 22,17" fill="url(#bg-glacier)" stroke="${c3}" stroke-width="2"/>
+          <polygon points="32,2 42,17 58,17 48,32 58,47 42,47 32,62 22,47 6,47 16,32 6,17 22,17" fill="url(#sh-glacier)"/>
+          <polygon points="32,18 40,25 40,39 32,46 24,39 24,25" fill="${cCenter}" stroke="${c3}" stroke-width="1.2" opacity="0.6"/>
+          <line x1="32" y1="18" x2="32" y2="46" stroke="${cShine}" stroke-width="0.8" opacity="0.5"/>
+          <line x1="24" y1="25" x2="40" y2="39" stroke="${cShine}" stroke-width="0.8" opacity="0.5"/>
+          <line x1="40" y1="25" x2="24" y2="39" stroke="${cShine}" stroke-width="0.8" opacity="0.5"/>
+        </g>`;
+    },
+
+    // ---- DUSK BADGE (Dark) - Crescent moon with stars ----
+    nyx() {
+      const c1 = "#481068", c2 = "#7a3a90", c3 = "#280848", cShine = "#e0b0ff", cStar = "#cc88ff";
+      return `
+        <defs>${grayFilter}
+          <radialGradient id="bg-nyx" cx="0.4" cy="0.4"><stop offset="0%" stop-color="${c2}"/><stop offset="100%" stop-color="${c1}"/></radialGradient>
+          <linearGradient id="sh-nyx" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="${cShine}" stop-opacity="0.4"/><stop offset="40%" stop-color="${cShine}" stop-opacity="0.0"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <circle cx="32" cy="32" r="28" fill="url(#bg-nyx)" stroke="${c3}" stroke-width="2.5"/>
+          <circle cx="32" cy="32" r="28" fill="url(#sh-nyx)"/>
+          <circle cx="40" cy="28" r="20" fill="${c3}"/>
+          <path d="M18,12 L20,18 L14,18Z" fill="${cStar}"/>
+          <path d="M14,42 L16,47 L11,47Z" fill="${cStar}" opacity="0.7"/>
+          <path d="M24,50 L25.5,54 L21.5,54Z" fill="${cStar}" opacity="0.5"/>
+          <circle cx="10" cy="30" r="1.2" fill="${cShine}" opacity="0.8"/>
+          <circle cx="20" cy="56" r="1" fill="${cShine}" opacity="0.6"/>
+          <ellipse cx="22" cy="22" rx="5" ry="3" fill="${cShine}" opacity="0.15" transform="rotate(-20,22,22)"/>
+        </g>`;
+    },
+
+    // ---- FORESIGHT BADGE (Psychic) - All-seeing eye ----
+    oracle() {
+      const c1 = "#b00840", c2 = "#ff4081", c3 = "#700028", cIris = "#ff80ab", cPupil = "#1a0008", cShine = "#ffd0e0";
+      return `
+        <defs>${grayFilter}
+          <radialGradient id="bg-oracle" cx="0.5" cy="0.5"><stop offset="0%" stop-color="${c2}"/><stop offset="100%" stop-color="${c1}"/></radialGradient>
+          <radialGradient id="iris-oracle" cx="0.45" cy="0.45"><stop offset="0%" stop-color="${cShine}"/><stop offset="40%" stop-color="${cIris}"/><stop offset="100%" stop-color="${c2}"/></radialGradient>
+          <linearGradient id="sh-oracle" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="${cShine}" stop-opacity="0.4"/><stop offset="35%" stop-color="${cShine}" stop-opacity="0.0"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <path d="M2,32 Q32,4 62,32 Q32,60 2,32Z" fill="url(#bg-oracle)" stroke="${c3}" stroke-width="2.5"/>
+          <path d="M2,32 Q32,4 62,32 Q32,60 2,32Z" fill="url(#sh-oracle)"/>
+          <circle cx="32" cy="32" r="14" fill="url(#iris-oracle)" stroke="${c3}" stroke-width="1.5"/>
+          <circle cx="32" cy="32" r="7" fill="${cPupil}"/>
+          <circle cx="28" cy="28" r="3" fill="#fff" opacity="0.8"/>
+          <circle cx="35" cy="34" r="1.5" fill="#fff" opacity="0.4"/>
+          <path d="M10,32 Q32,18 54,32" fill="none" stroke="${cShine}" stroke-width="0.8" opacity="0.3"/>
+        </g>`;
+    },
+
+    // ---- WYRM BADGE (Dragon) - Dragon fang/claw with scale pattern ----
+    drake() {
+      const c1 = "#3810b0", c2 = "#7038f8", c3 = "#1a0060", cShine = "#c8a8ff", cScale = "#5020d0";
+      return `
+        <defs>${grayFilter}
+          <linearGradient id="bg-drake" x1="0.3" y1="0" x2="0.7" y2="1"><stop offset="0%" stop-color="${c2}"/><stop offset="100%" stop-color="${c1}"/></linearGradient>
+          <linearGradient id="sh-drake" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="${cShine}" stop-opacity="0.5"/><stop offset="40%" stop-color="${cShine}" stop-opacity="0.0"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <path d="M32,2 C22,2 10,10 8,24 C6,38 14,52 24,58 C28,60 32,62 32,62 C32,62 36,60 40,58 C50,52 58,38 56,24 C54,10 42,2 32,2Z" fill="url(#bg-drake)" stroke="${c3}" stroke-width="2.5"/>
+          <path d="M32,2 C22,2 10,10 8,24 C6,38 14,52 24,58 C28,60 32,62 32,62 C32,62 36,60 40,58 C50,52 58,38 56,24 C54,10 42,2 32,2Z" fill="url(#sh-drake)"/>
+          <path d="M20,18 L32,8 L44,18Z" fill="${cShine}" opacity="0.25"/>
+          <path d="M16,28 Q24,24 32,28 Q40,24 48,28" fill="none" stroke="${cScale}" stroke-width="1.5" opacity="0.6"/>
+          <path d="M14,36 Q24,32 32,36 Q40,32 50,36" fill="none" stroke="${cScale}" stroke-width="1.5" opacity="0.5"/>
+          <path d="M16,44 Q24,40 32,44 Q40,40 48,44" fill="none" stroke="${cScale}" stroke-width="1.5" opacity="0.4"/>
+          <path d="M32,18 L28,30 L32,28 L36,30Z" fill="${cShine}" opacity="0.5"/>
+          <circle cx="26" cy="22" r="2.5" fill="#fff" opacity="0.15"/>
+        </g>`;
+    }
+  };
+
+  const drawBadge = badges[leaderId];
+  if (!drawBadge) return "";
+  const inner = drawBadge();
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${vb} ${vb}" width="${size}" height="${size}">${inner}</svg>`;
+}
+
 // Render a monster sprite into a DOM element
 function renderMonsterSprite(container, monster, size = 80) {
   if (!container || !monster) return;

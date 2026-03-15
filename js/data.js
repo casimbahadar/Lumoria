@@ -1862,9 +1862,9 @@ const WORLD_DATA = {
 const GYM_LEADERS = {
   rex: {
     id:"rex", name:"Leader Rex", emoji:"💪", type:"Normal",
-    badge:"Balance Badge", badgeEmoji:"⚖️",
+    badge:"Foundation Badge", badgeEmoji:"🧱",
     quote:"You think you have what it takes? Let's see how normal you really are!",
-    winQuote:"Not bad! Here, take the Balance Badge. You've earned it.",
+    winQuote:"Not bad! Here, take the Foundation Badge. You've earned it.",
     team:[
       {monsterId:88, level:10, moves:["tackle","headbutt","growl","quick_attack"]},
       {monsterId:90, level:12, moves:["tackle","quick_attack","tail_whip","headbutt"]},

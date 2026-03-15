@@ -2038,3 +2038,80 @@ button, a, [role="button"] {
   display: block;
   margin: 1rem auto 0;
 }
+
+/* ---- Held Items ---- */
+.held-item-current {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--bg-card, #161b22);
+  border: 1px solid var(--border, #30363d);
+  border-radius: 8px;
+  margin-bottom: 0.25rem;
+}
+.held-item-icon {
+  font-size: 1.4rem;
+}
+.held-item-info {
+  flex: 1;
+}
+.held-item-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary, #e6edf3);
+}
+.held-item-desc {
+  font-size: 0.72rem;
+  color: var(--text-muted, #8b949e);
+}
+.btn-unequip-held {
+  background: #da3633;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.75rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+.btn-unequip-held:hover {
+  background: #f85149;
+}
+.held-item-option {
+  background: var(--bg-card, #161b22);
+  border: 1px solid var(--accent-1, #58a6ff);
+  color: var(--text-primary, #e6edf3);
+  border-radius: 6px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.78rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.held-item-option:hover {
+  background: rgba(88, 166, 255, 0.15);
+}
+.held-item-qty {
+  color: var(--text-muted, #8b949e);
+  font-size: 0.7rem;
+}
+.held-badge {
+  font-size: 0.7rem;
+  margin-left: 0.15rem;
+  vertical-align: middle;
+}
+.bag-item-equipped {
+  border-left: 3px solid var(--accent-1, #58a6ff);
+  opacity: 0.75;
+}
+.equipped-tag {
+  background: var(--accent-1, #58a6ff);
+  color: #000;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+}

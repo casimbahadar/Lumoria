@@ -1862,9 +1862,9 @@ const WORLD_DATA = {
 const GYM_LEADERS = {
   rex: {
     id:"rex", name:"Leader Rex", emoji:"💪", type:"Normal",
-    badge:"Stone Badge", badgeEmoji:"🪨",
+    badge:"Balance Badge", badgeEmoji:"⚖️",
     quote:"You think you have what it takes? Let's see how normal you really are!",
-    winQuote:"Not bad! Here, take the Stone Badge. You've earned it.",
+    winQuote:"Not bad! Here, take the Balance Badge. You've earned it.",
     team:[
       {monsterId:88, level:10, moves:["tackle","headbutt","growl","quick_attack"]},
       {monsterId:90, level:12, moves:["tackle","quick_attack","tail_whip","headbutt"]},
@@ -1976,7 +1976,24 @@ const ITEMS_DATA = {
   potion:     { name:"Potion",      emoji:"🧪", desc:"Heals 20 HP.", catchMult:0, healAmt:20,  type:"heal" },
   superPotion:{ name:"Super Potion",emoji:"💊", desc:"Heals 50 HP.", catchMult:0, healAmt:50,  type:"heal" },
   maxPotion:  { name:"Max Potion",  emoji:"💉", desc:"Fully heals HP.", catchMult:0, healAmt:999, type:"heal" },
-  revive:     { name:"Revive",      emoji:"💫", desc:"Revives a fainted monster to 50% HP.", catchMult:0, healAmt:0, type:"revive" }
+  revive:     { name:"Revive",      emoji:"💫", desc:"Revives a fainted monster to 50% HP.", catchMult:0, healAmt:0, type:"revive" },
+  // Held items
+  powerBand:     { name:"Power Band",     emoji:"💪", desc:"Boosts Attack by 20% when held.",           type:"held", held:{ stat:"atk", mult:1.2 } },
+  guardCloak:    { name:"Guard Cloak",    emoji:"🛡️", desc:"Boosts Defense by 20% when held.",          type:"held", held:{ stat:"def", mult:1.2 } },
+  wisdomLens:    { name:"Wisdom Lens",    emoji:"🔮", desc:"Boosts Sp.Atk by 20% when held.",           type:"held", held:{ stat:"spa", mult:1.2 } },
+  spiritVeil:    { name:"Spirit Veil",    emoji:"🌀", desc:"Boosts Sp.Def by 20% when held.",           type:"held", held:{ stat:"spd", mult:1.2 } },
+  swiftFeather:  { name:"Swift Feather",  emoji:"🪶", desc:"Boosts Speed by 20% when held.",            type:"held", held:{ stat:"spe", mult:1.2 } },
+  vitalSeed:     { name:"Vital Seed",     emoji:"🌱", desc:"Boosts max HP by 15% when held.",           type:"held", held:{ stat:"hp",  mult:1.15 } },
+  charcoal:      { name:"Charcoal",       emoji:"🔥", desc:"Powers up Fire-type moves by 20%.",         type:"held", held:{ typeBoost:"Fire", mult:1.2 } },
+  mysticDew:     { name:"Mystic Dew",     emoji:"💧", desc:"Powers up Water-type moves by 20%.",        type:"held", held:{ typeBoost:"Water", mult:1.2 } },
+  miracleSeed:   { name:"Miracle Seed",   emoji:"🌿", desc:"Powers up Grass-type moves by 20%.",        type:"held", held:{ typeBoost:"Grass", mult:1.2 } },
+  magnet:        { name:"Magnet",         emoji:"🧲", desc:"Powers up Electric-type moves by 20%.",     type:"held", held:{ typeBoost:"Electric", mult:1.2 } },
+  blackBelt:     { name:"Black Belt",     emoji:"🥋", desc:"Powers up physical moves by 10%.",           type:"held", held:{ catBoost:"physical", mult:1.1 } },
+  wiseGlasses:   { name:"Wise Glasses",   emoji:"👓", desc:"Powers up special moves by 10%.",            type:"held", held:{ catBoost:"special", mult:1.1 } },
+  focusSash:     { name:"Focus Sash",     emoji:"🎗️", desc:"Survive a fatal hit with 1 HP once per battle.", type:"held", held:{ effect:"focusSash" } },
+  leftovers:     { name:"Leftovers",      emoji:"🍎", desc:"Restores 1/16 max HP each turn.",            type:"held", held:{ effect:"leftovers" } },
+  scopeLens:     { name:"Scope Lens",     emoji:"🔭", desc:"Increases critical hit rate.",                type:"held", held:{ effect:"critUp" } },
+  quickClaw:     { name:"Quick Claw",     emoji:"⚡", desc:"30% chance to move first each turn.",        type:"held", held:{ effect:"quickClaw" } }
 };
 
 const STARTING_BAG = {
@@ -1987,7 +2004,23 @@ const STARTING_BAG = {
   potion: 5,
   superPotion: 2,
   maxPotion: 0,
-  revive: 1
+  revive: 1,
+  powerBand: 1,
+  guardCloak: 0,
+  wisdomLens: 0,
+  spiritVeil: 0,
+  swiftFeather: 0,
+  vitalSeed: 0,
+  charcoal: 0,
+  mysticDew: 0,
+  miracleSeed: 0,
+  magnet: 0,
+  blackBelt: 0,
+  wiseGlasses: 0,
+  focusSash: 0,
+  leftovers: 0,
+  scopeLens: 0,
+  quickClaw: 0
 };
 
 const STARTER_IDS = [1, 4, 7]; // Emberpaw, Dewdrop, Sproutling

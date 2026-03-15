@@ -38,7 +38,8 @@ function createPartySlot(monsterId, level) {
     maxHP,
     currentHP: maxHP,
     moves,
-    status: null
+    status: null,
+    heldItem: null
   };
 }
 
@@ -1152,10 +1153,16 @@ async function executeTurn(playerMoveId, _unused) {
   const move = MOVES_DATA[playerMoveId];
   if (!move) return;
 
-  // Determine turn order by speed (priority moves go first)
+  // Determine turn order by speed (priority moves go first, Quick Claw may override)
   const playerSpe = playerActiveMon.spe * stageMultiplier(playerActiveMon.stages.spe);
   const enemySpe  = enemyActiveMon.spe  * stageMultiplier(enemyActiveMon.stages.spe);
-  const playerFirst = move.effect === "priority" || playerSpe >= enemySpe;
+  const playerQuickClaw = checkQuickClaw(playerActiveMon);
+  const enemyQuickClaw = checkQuickClaw(enemyActiveMon);
+  if (playerQuickClaw && !enemyQuickClaw) logMsg(`${playerActiveMon.name}'s Quick Claw let it move first!`);
+  if (enemyQuickClaw && !playerQuickClaw) logMsg(`${enemyActiveMon.name}'s Quick Claw let it move first!`);
+  let playerFirst = move.effect === "priority" || playerSpe >= enemySpe;
+  if (playerQuickClaw && !enemyQuickClaw) playerFirst = true;
+  else if (enemyQuickClaw && !playerQuickClaw) playerFirst = false;
 
   if (playerFirst) {
     await doAttack(playerActiveMon, enemyActiveMon, playerMoveId, true);
@@ -1229,7 +1236,15 @@ async function doAttack(attacker, defender, moveId, isPlayer) {
 
   // Damage
   const result = calcDamage(attacker, defender, move);
+  // Focus Sash check
+  const sashResult = applyFocusSash(defender, result.damage);
+  if (sashResult.triggered) {
+    result.damage = sashResult.damage;
+  }
   defender.currentHP = Math.max(0, defender.currentHP - result.damage);
+  if (sashResult.triggered) {
+    defender.currentHP = Math.max(1, defender.currentHP);
+  }
   if (defender.currentHP <= 0) defender.fainted = true;
 
   // Animations
@@ -1253,6 +1268,7 @@ async function doAttack(attacker, defender, moveId, isPlayer) {
   if (result.crit) logMsg("A critical hit!", "log-damage");
 
   logMsg(`${defender.name} took ${result.damage} damage!`, "log-damage");
+  if (sashResult.triggered) logMsg(`${defender.name}'s Focus Sash kept it standing!`, "log-status");
 
   // Apply secondary effects
   const effMsgs = applyMoveEffect(move, attacker, defender);
@@ -1376,7 +1392,20 @@ function endBattle(outcome, slot, levelUps) {
             G.badges.push(battleContext.leaderId);
             G.money += 1000 * G.badges.length;
           }
-          showNotification(`🏅 ${leader.winQuote}<br><br>You received the <strong>${leader.badge}</strong>! ${leader.badgeEmoji}`, () => {
+          // Award a held item based on which gym was beaten
+          const GYM_HELD_REWARDS = {
+            rex: "powerBand", marina: "mysticDew", pyros: "charcoal",
+            zara: "magnet", glacier: "leftovers", nyx: "scopeLens",
+            oracle: "wisdomLens", drake: "focusSash"
+          };
+          const rewardItem = GYM_HELD_REWARDS[battleContext.leaderId];
+          let rewardMsg = "";
+          if (rewardItem) {
+            G.bag[rewardItem] = (G.bag[rewardItem] || 0) + 1;
+            const ri = ITEMS_DATA[rewardItem];
+            rewardMsg = `<br>${ri.emoji} You also received a <strong>${ri.name}</strong>!`;
+          }
+          showNotification(`🏅 ${leader.winQuote}<br><br>You received the <strong>${leader.badge}</strong>! ${leader.badgeEmoji}${rewardMsg}`, () => {
             showScreen("screen-main");
             renderWorldMap();
             renderAreaPanel();
@@ -1473,11 +1502,14 @@ function showTeamScreen() {
     const spriteHTML = (typeof getMonsterSpriteURL === "function")
       ? `<img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" class="team-sprite-img">`
       : `<span class="team-sprite">${def.emoji}</span>`;
+    const heldBadge = slot.heldItem && ITEMS_DATA[slot.heldItem]
+      ? `<span class="held-badge" title="${ITEMS_DATA[slot.heldItem].name}">${ITEMS_DATA[slot.heldItem].emoji}</span>`
+      : "";
     card.innerHTML = `
       <div class="team-card-header">
         ${spriteHTML}
         <div>
-          <div class="team-name">${slot.nickname || def.name}</div>
+          <div class="team-name">${slot.nickname || def.name} ${heldBadge}</div>
           <div class="team-level">Lv.${slot.level}</div>
           <div class="team-types">${typeHTML}</div>
         </div>
@@ -1522,6 +1554,29 @@ function showTeamDetail(slot, idx) {
     </div>`;
   }).join("");
 
+  // Held item display
+  const currentHeld = slot.heldItem ? ITEMS_DATA[slot.heldItem] : null;
+  const heldDisplay = currentHeld
+    ? `<div class="held-item-current">
+        <span class="held-item-icon">${currentHeld.emoji}</span>
+        <div class="held-item-info">
+          <div class="held-item-name">${currentHeld.name}</div>
+          <div class="held-item-desc">${currentHeld.desc}</div>
+        </div>
+        <button class="btn-unequip-held" data-unequip-mon="${idx}">Remove</button>
+      </div>`
+    : `<span style="color:#888;font-size:0.8rem">No item held</span>`;
+
+  // Available held items from bag to equip
+  const availableHeld = Object.entries(G.bag)
+    .filter(([id, cnt]) => cnt > 0 && ITEMS_DATA[id]?.type === "held");
+  const heldOptionsHTML = availableHeld.map(([id, cnt]) => {
+    const item = ITEMS_DATA[id];
+    return `<button class="held-item-option" data-equip-item="${id}" data-equip-mon="${idx}">
+      ${item.emoji} ${item.name} <span class="held-item-qty">x${cnt}</span>
+    </button>`;
+  }).join("") || "<span style='color:#888;font-size:0.8rem'>No held items in bag</span>";
+
   // Use item panel
   const healableItems = Object.entries(G.bag)
     .filter(([id, cnt]) => cnt > 0 && (ITEMS_DATA[id]?.type === "heal" || ITEMS_DATA[id]?.type === "revive"));
@@ -1549,8 +1604,45 @@ function showTeamDetail(slot, idx) {
     </div>
     <div class="detail-section"><h4>Stats</h4>${statsHTML}</div>
     <div class="detail-section"><h4>Moves</h4><div class="moves-grid">${movesHTML}</div></div>
+    <div class="detail-section">
+      <h4>Held Item</h4>
+      ${heldDisplay}
+      <div class="held-item-options" style="margin-top:0.5rem;display:flex;gap:0.4rem;flex-wrap:wrap">${heldOptionsHTML}</div>
+    </div>
     <div class="detail-section"><h4>Use Item</h4><div style="display:flex;gap:0.5rem;flex-wrap:wrap">${itemsHTML}</div></div>
   `;
+
+  // Held item equip handlers
+  document.querySelectorAll("[data-equip-item]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const itemId = btn.dataset.equipItem;
+      const monIdx = parseInt(btn.dataset.equipMon);
+      const mon = G.team[monIdx];
+      // If already holding something, return it to bag
+      if (mon.heldItem) {
+        G.bag[mon.heldItem] = (G.bag[mon.heldItem] || 0) + 1;
+      }
+      mon.heldItem = itemId;
+      G.bag[itemId]--;
+      showNotification(`${MONSTERS_DATA[mon.monsterId].name} is now holding ${ITEMS_DATA[itemId].name}!`);
+      showTeamDetail(G.team[monIdx], monIdx);
+    });
+  });
+
+  // Held item unequip handler
+  document.querySelectorAll("[data-unequip-mon]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const monIdx = parseInt(btn.dataset.unequipMon);
+      const mon = G.team[monIdx];
+      if (mon.heldItem) {
+        const itemName = ITEMS_DATA[mon.heldItem].name;
+        G.bag[mon.heldItem] = (G.bag[mon.heldItem] || 0) + 1;
+        mon.heldItem = null;
+        showNotification(`Removed ${itemName} and returned it to bag.`);
+        showTeamDetail(G.team[monIdx], monIdx);
+      }
+    });
+  });
 
   // Item use handlers
   document.querySelectorAll("[data-item][data-mon]").forEach(btn => {
@@ -1588,8 +1680,17 @@ function showBagScreen() {
   showScreen("screen-bag");
   const orbsEl = document.getElementById("bag-orbs");
   const medEl = document.getElementById("bag-medicine");
+  const heldEl = document.getElementById("bag-held");
   orbsEl.innerHTML = "";
   medEl.innerHTML = "";
+  heldEl.innerHTML = "";
+
+  // Count held items that are equipped on team members
+  const equippedCounts = {};
+  for (const mon of G.team) {
+    if (mon.heldItem) equippedCounts[mon.heldItem] = (equippedCounts[mon.heldItem] || 0) + 1;
+  }
+
   for (const [itemId, count] of Object.entries(G.bag)) {
     const item = ITEMS_DATA[itemId];
     if (!item || count <= 0) continue;
@@ -1604,7 +1705,29 @@ function showBagScreen() {
       <span class="bag-item-count">x${count}</span>
     `;
     if (item.type === "ball") orbsEl.appendChild(div);
+    else if (item.type === "held") heldEl.appendChild(div);
     else medEl.appendChild(div);
+  }
+
+  // Show equipped items info
+  for (const [itemId, eqCount] of Object.entries(equippedCounts)) {
+    const item = ITEMS_DATA[itemId];
+    if (!item) continue;
+    const div = document.createElement("div");
+    div.className = "bag-item bag-item-equipped";
+    div.innerHTML = `
+      <span class="bag-item-icon">${item.emoji}</span>
+      <div style="flex:1">
+        <div class="bag-item-name">${item.name} <span class="equipped-tag">EQUIPPED</span></div>
+        <div class="bag-item-desc">${item.desc}</div>
+      </div>
+      <span class="bag-item-count">x${eqCount}</span>
+    `;
+    heldEl.appendChild(div);
+  }
+
+  if (!heldEl.hasChildNodes()) {
+    heldEl.innerHTML = '<div class="bag-item-empty" style="color:#888;font-size:0.85rem;padding:0.5rem">No held items yet. Win gym battles to earn held items!</div>';
   }
 }
 

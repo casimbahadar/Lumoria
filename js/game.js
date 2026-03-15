@@ -791,13 +791,13 @@ function renderHUD() {
 
   const badgesDiv = document.getElementById("hud-badges");
   badgesDiv.innerHTML = "";
-  const allBadges = Object.values(GYM_LEADERS).filter(l => l.badge).map(l => ({ emoji: l.badgeEmoji, id: l.id }));
+  const allBadges = Object.values(GYM_LEADERS).filter(l => l.badge).map(l => ({ id: l.id }));
   for (const b of allBadges) {
+    const earned = G.badges.includes(b.id);
     const el = document.createElement("div");
     el.className = "badge-icon";
-    el.style.background = G.badges.includes(b.id) ? "#ffd700" : "#333";
     el.title = GYM_LEADERS[b.id]?.badge || "";
-    el.textContent = G.badges.includes(b.id) ? b.emoji : "";
+    el.innerHTML = generateBadgeSVG(b.id, earned, 30);
     badgesDiv.appendChild(el);
   }
 }

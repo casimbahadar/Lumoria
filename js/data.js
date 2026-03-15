@@ -1884,9 +1884,9 @@ const GYM_LEADERS = {
   },
   pyros: {
     id:"pyros", name:"Leader Pyros", emoji:"🔥", type:"Fire",
-    badge:"Flame Badge", badgeEmoji:"🔥",
+    badge:"Forge Badge", badgeEmoji:"🔥",
     quote:"My fire burns hotter than any volcano! Can you withstand the heat?",
-    winQuote:"Your strength is as intense as a raging wildfire. The Flame Badge is yours!",
+    winQuote:"Your strength is as intense as a raging wildfire. The Forge Badge is yours!",
     team:[
       {monsterId:14, level:25, moves:["ember","quick_attack","flamethrower","tackle"]},
       {monsterId:10, level:26, moves:["ember","bug_bite","flame_fang","x_scissor"]},
@@ -1895,9 +1895,9 @@ const GYM_LEADERS = {
   },
   zara: {
     id:"zara", name:"Leader Zara", emoji:"⚡", type:"Electric",
-    badge:"Bolt Badge", badgeEmoji:"⚡",
+    badge:"Current Badge", badgeEmoji:"⚡",
     quote:"I'll shock you senseless! Electric types are unstoppable!",
-    winQuote:"You're truly electrifying! The Bolt Badge is yours.",
+    winQuote:"You're truly electrifying! The Current Badge is yours.",
     team:[
       {monsterId:30, level:32, moves:["thunder_shock","spark","bug_bite","string_shot"]},
       {monsterId:34, level:33, moves:["thunder_shock","wing_attack","spark","thunderbolt"]},
@@ -1928,9 +1928,9 @@ const GYM_LEADERS = {
   },
   oracle: {
     id:"oracle", name:"Leader Oracle", emoji:"🔮", type:"Psychic",
-    badge:"Mind Badge", badgeEmoji:"🔮",
+    badge:"Foresight Badge", badgeEmoji:"🔮",
     quote:"I have foreseen your defeat. The future is already written.",
-    winQuote:"Incredible. You have rewritten what I thought was fate. The Mind Badge is yours.",
+    winQuote:"Incredible. You have rewritten what I thought was fate. The Foresight Badge is yours.",
     team:[
       {monsterId:76, level:50, moves:["confusion","quick_attack","psybeam","recover"]},
       {monsterId:64, level:51, moves:["confusion","fairy_wind","psybeam","dazzling_gleam"]},
@@ -1939,9 +1939,9 @@ const GYM_LEADERS = {
   },
   drake: {
     id:"drake", name:"Leader Drake", emoji:"🐉", type:"Dragon",
-    badge:"Dragon Badge", badgeEmoji:"🐉",
+    badge:"Wyrm Badge", badgeEmoji:"🐉",
     quote:"Dragons are the apex of all Lumos. You cannot defeat their ancient power!",
-    winQuote:"You have shown the heart of a true dragon master. The Dragon Badge is yours!",
+    winQuote:"You have shown the heart of a true dragon master. The Wyrm Badge is yours!",
     team:[
       {monsterId:82, level:56, moves:["dragon_breath","dragon_claw","headbutt","dragon_dance"]},
       {monsterId:86, level:57, moves:["thunder_shock","dragon_breath","thunderbolt","dragon_claw"]},

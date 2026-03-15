@@ -327,11 +327,33 @@ function scaleMapPath(pathStr, mapW, mapH) {
   });
 }
 
+// Zoom state
+let mapZoom = 1;
+const MAP_ZOOM_LEVELS = [1, 1.5, 2, 2.5];
+
+function setMapZoom(level) {
+  mapZoom = level;
+  const mapEl = document.getElementById("world-map");
+  const viewport = document.getElementById("world-map-viewport");
+  if (!mapEl || !viewport) return;
+  const baseW = viewport.clientWidth;
+  const baseH = viewport.clientHeight;
+  mapEl.style.width = (baseW * mapZoom) + "px";
+  mapEl.style.height = (baseH * mapZoom) + "px";
+  document.getElementById("btn-zoom-reset").textContent = mapZoom === 1 ? "1x" : mapZoom + "x";
+  renderWorldMap();
+}
+
 function renderWorldMap() {
   const mapEl = document.getElementById("world-map");
   mapEl.innerHTML = "";
-  const mapW = mapEl.offsetWidth || 420;
-  const mapH = mapEl.offsetHeight || 320;
+  const viewport = document.getElementById("world-map-viewport");
+  const baseW = viewport ? viewport.clientWidth : 420;
+  const baseH = viewport ? viewport.clientHeight : 320;
+  const mapW = Math.round(baseW * mapZoom);
+  const mapH = Math.round(baseH * mapZoom);
+  mapEl.style.width = mapW + "px";
+  mapEl.style.height = mapH + "px";
 
   const svgNS = "http://www.w3.org/2000/svg";
   const svg = document.createElementNS(svgNS, "svg");
@@ -341,7 +363,7 @@ function renderWorldMap() {
   svg.style.position = "absolute";
   svg.style.top = "0";
   svg.style.left = "0";
-  svg.style.pointerEvents = "none";
+  svg.style.zIndex = "5";
 
   // Defs for patterns and gradients
   const defs = document.createElementNS(svgNS, "defs");
@@ -366,19 +388,24 @@ function renderWorldMap() {
   // Build texture patterns
   buildMapPatterns(svgNS, defs, mapW, mapH);
 
+  // Non-interactive background group
+  const bgGroup = document.createElementNS(svgNS, "g");
+  bgGroup.setAttribute("pointer-events", "none");
+  svg.appendChild(bgGroup);
+
   // Ocean background with gradient
   const bgRect = document.createElementNS(svgNS, "rect");
   bgRect.setAttribute("width", mapW);
   bgRect.setAttribute("height", mapH);
   bgRect.setAttribute("fill", "url(#oceanGrad)");
-  svg.appendChild(bgRect);
+  bgGroup.appendChild(bgRect);
 
   // Ocean wave overlay
   const waveRect = document.createElementNS(svgNS, "rect");
   waveRect.setAttribute("width", mapW);
   waveRect.setAttribute("height", mapH);
   waveRect.setAttribute("fill", "url(#oceanPattern)");
-  svg.appendChild(waveRect);
+  bgGroup.appendChild(waveRect);
 
   // Render terrain biomes with organic shapes, shadows, highlights, and textures
   for (const b of BIOME_REGIONS) {
@@ -392,7 +419,7 @@ function renderWorldMap() {
       beach.setAttribute("stroke", "#b89848");
       beach.setAttribute("stroke-width", "6");
       beach.setAttribute("opacity", "0.6");
-      svg.appendChild(beach);
+      bgGroup.appendChild(beach);
 
       // Beach sand dots overlay
       const beachTex = document.createElementNS(svgNS, "path");
@@ -403,7 +430,7 @@ function renderWorldMap() {
       // Make beach slightly bigger via stroke
       beachTex.setAttribute("stroke", "url(#sandPattern)");
       beachTex.setAttribute("stroke-width", "4");
-      svg.appendChild(beachTex);
+      bgGroup.appendChild(beachTex);
     }
 
     // Drop shadow (offset darker shape behind terrain)
@@ -412,7 +439,7 @@ function renderWorldMap() {
     shadow.setAttribute("fill", b.shadow);
     shadow.setAttribute("transform", "translate(2, 3)");
     shadow.setAttribute("opacity", "0.5");
-    svg.appendChild(shadow);
+    bgGroup.appendChild(shadow);
 
     // Main terrain fill
     const terrain = document.createElementNS(svgNS, "path");
@@ -420,7 +447,7 @@ function renderWorldMap() {
     terrain.setAttribute("fill", b.color);
     terrain.setAttribute("stroke", b.shadow);
     terrain.setAttribute("stroke-width", "1.5");
-    svg.appendChild(terrain);
+    bgGroup.appendChild(terrain);
 
     // Highlight edge (inner glow for 3D effect, like official Pokemon maps)
     const highlightPath = document.createElementNS(svgNS, "path");
@@ -430,7 +457,7 @@ function renderWorldMap() {
     highlightPath.setAttribute("stroke-width", "1.5");
     highlightPath.setAttribute("opacity", "0.5");
     highlightPath.setAttribute("transform", "translate(-0.5, -0.5)");
-    svg.appendChild(highlightPath);
+    bgGroup.appendChild(highlightPath);
 
     // Apply texture pattern based on biome type
     let patternId = null;
@@ -446,7 +473,7 @@ function renderWorldMap() {
       texOverlay.setAttribute("d", scaledPath);
       texOverlay.setAttribute("fill", `url(#${patternId})`);
       texOverlay.setAttribute("opacity", "0.8");
-      svg.appendChild(texOverlay);
+      bgGroup.appendChild(texOverlay);
     }
   }
 
@@ -468,8 +495,20 @@ function renderWorldMap() {
     }
   }
 
+  // Collect which route areas sit on which connections (for placing route labels on paths)
+  // A route area is positioned at its mapPos, which should be along the connection path
+  const routeAreas = {};
+  for (const [areaId, area] of Object.entries(WORLD_DATA)) {
+    if (area.type === "route" && area.mapPos) {
+      routeAreas[areaId] = area;
+    }
+  }
+
   // Draw route connections as orthogonal paths
+  // For each connection, draw the path and if a route area lies on it, make it clickable
   const drawnConnections = new Set();
+  const routesMapped = new Set(); // track which route areas got placed on a connection
+
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
     for (const conn of area.connections) {
@@ -487,58 +526,131 @@ function renderWorldMap() {
 
       const fromLocked = G.badges.length < (area.requiredBadges || 0);
       const toLocked   = G.badges.length < (toArea.requiredBadges || 0);
+      const bothLocked = fromLocked && toLocked;
       const water = isWaterConn(area, toArea);
-      const routeColor  = (fromLocked || toLocked) ? "#4a4a4a" : water ? "#3a9acc" : "#d4a030";
-      const shadowColor = (fromLocked || toLocked) ? "#222"    : water ? "#0d2a4a" : "#6a4a08";
+      const routeColor  = bothLocked ? "#4a4a4a" : water ? "#3a9acc" : "#d4a030";
+      const shadowColor = bothLocked ? "#222"    : water ? "#0d2a4a" : "#6a4a08";
 
       // Shadow
       const shadow = document.createElementNS(svgNS, "path");
       shadow.setAttribute("d", pathD);
       shadow.setAttribute("stroke", shadowColor);
-      shadow.setAttribute("stroke-width", "6");
+      shadow.setAttribute("stroke-width", "7");
       shadow.setAttribute("fill", "none");
-      shadow.setAttribute("stroke-linecap", "square");
-      shadow.setAttribute("stroke-linejoin", "miter");
-      shadow.setAttribute("opacity", "0.65");
-      svg.appendChild(shadow);
+      shadow.setAttribute("stroke-linecap", "round");
+      shadow.setAttribute("stroke-linejoin", "round");
+      shadow.setAttribute("opacity", "0.55");
+      bgGroup.appendChild(shadow);
 
       // Route line
       const line = document.createElementNS(svgNS, "path");
       line.setAttribute("d", pathD);
       line.setAttribute("stroke", routeColor);
-      line.setAttribute("stroke-width", "4");
+      line.setAttribute("stroke-width", "5");
       line.setAttribute("fill", "none");
-      line.setAttribute("stroke-linecap", "square");
-      line.setAttribute("stroke-linejoin", "miter");
-      svg.appendChild(line);
+      line.setAttribute("stroke-linecap", "round");
+      line.setAttribute("stroke-linejoin", "round");
+      bgGroup.appendChild(line);
 
-      // Edge highlight (lighter top edge to give 3D road feel)
+      // Edge highlight (3D road feel)
       const highlight = document.createElementNS(svgNS, "path");
       highlight.setAttribute("d", pathD);
       highlight.setAttribute("stroke", "#ffffff");
-      highlight.setAttribute("stroke-width", "1.2");
+      highlight.setAttribute("stroke-width", "1.5");
       highlight.setAttribute("fill", "none");
-      highlight.setAttribute("stroke-linecap", "square");
-      highlight.setAttribute("stroke-linejoin", "miter");
-      highlight.setAttribute("opacity", "0.18");
-      svg.appendChild(highlight);
+      highlight.setAttribute("stroke-linecap", "round");
+      highlight.setAttribute("stroke-linejoin", "round");
+      highlight.setAttribute("opacity", "0.2");
+      bgGroup.appendChild(highlight);
+
+      // Find which route area(s) sit on or near this connection
+      // Check if either endpoint IS a route area, or if a route area is a neighbor of both
+      const connRouteIds = [];
+      if (area.type === "route") connRouteIds.push(areaId);
+      if (toArea.type === "route") connRouteIds.push(conn);
+
+      for (const rId of connRouteIds) {
+        if (routesMapped.has(rId)) continue;
+        routesMapped.add(rId);
+        const rArea = WORLD_DATA[rId];
+        const rx = (rArea.mapPos.x / 100) * mapW;
+        const ry = (rArea.mapPos.y / 100) * mapH;
+        const rBadgesNeeded = rArea.requiredBadges || 0;
+        const rLocked = G.badges.length < rBadgesNeeded && rId !== G.location;
+
+        // Invisible wide hit-area path for clicking the route
+        if (!rLocked) {
+          const hitArea = document.createElementNS(svgNS, "path");
+          hitArea.setAttribute("d", pathD);
+          hitArea.setAttribute("stroke", "transparent");
+          hitArea.setAttribute("stroke-width", "18");
+          hitArea.setAttribute("fill", "none");
+          hitArea.setAttribute("stroke-linecap", "round");
+          hitArea.setAttribute("stroke-linejoin", "round");
+          hitArea.style.cursor = "pointer";
+          hitArea.style.pointerEvents = "stroke";
+          hitArea.addEventListener("click", () => travelTo(rId));
+          hitArea.addEventListener("touchend", (e) => { e.preventDefault(); travelTo(rId); });
+          // Hover effect: brighten route
+          hitArea.addEventListener("mouseenter", () => {
+            line.setAttribute("stroke", water ? "#5ac0ee" : "#f0c050");
+            line.setAttribute("stroke-width", "6");
+          });
+          hitArea.addEventListener("mouseleave", () => {
+            line.setAttribute("stroke", routeColor);
+            line.setAttribute("stroke-width", "5");
+          });
+          svg.appendChild(hitArea);
+        }
+
+        // Route label positioned at the route area's mapPos
+        const routeLabel = document.createElement("div");
+        routeLabel.className = "map-route-label";
+        if (rLocked) routeLabel.classList.add("locked");
+        if (rId === G.location) routeLabel.classList.add("current");
+        routeLabel.textContent = rArea.name;
+        routeLabel.style.left = rx + "px";
+        routeLabel.style.top = (ry - 8) + "px";
+        mapEl.appendChild(routeLabel);
+      }
     }
+  }
+
+  // Also place labels for any route areas not yet mapped (e.g. routes only connected to one path)
+  for (const [rId, rArea] of Object.entries(routeAreas)) {
+    if (routesMapped.has(rId)) continue;
+    const rx = (rArea.mapPos.x / 100) * mapW;
+    const ry = (rArea.mapPos.y / 100) * mapH;
+    const rLocked = G.badges.length < (rArea.requiredBadges || 0) && rId !== G.location;
+
+    const routeLabel = document.createElement("div");
+    routeLabel.className = "map-route-label";
+    if (rLocked) routeLabel.classList.add("locked");
+    if (rId === G.location) routeLabel.classList.add("current");
+    routeLabel.textContent = rArea.name;
+    routeLabel.style.left = rx + "px";
+    routeLabel.style.top = (ry - 8) + "px";
+    if (!rLocked) {
+      routeLabel.style.pointerEvents = "auto";
+      routeLabel.style.cursor = "pointer";
+      routeLabel.addEventListener("click", () => travelTo(rId));
+    }
+    mapEl.appendChild(routeLabel);
   }
 
   mapEl.appendChild(svg);
 
-  // Draw location markers (DOM elements over SVG for click support)
+  // Draw location markers for cities, towns, and special locations only (not routes)
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
+    if (area.type === "route") continue; // Routes are on the paths now
     const x = (area.mapPos.x / 100) * mapW;
     const y = (area.mapPos.y / 100) * mapH;
 
     const loc = document.createElement("div");
     loc.className = "map-location";
-    const isCity = area.type === "city" || area.type === "special";
-    const isRoute = area.type === "route";
-    if (isCity)  loc.classList.add("city");
-    if (isRoute) loc.classList.add("route");
+    if (area.type === "city") loc.classList.add("city");
+    if (area.type === "town") loc.classList.add("town");
     if (area.type === "special") loc.classList.add("special");
     if (areaId === G.location) loc.classList.add("current");
 
@@ -557,11 +669,7 @@ function renderWorldMap() {
 
     const label = document.createElement("div");
     label.className = "map-loc-label";
-    const shortName = area.name
-      .replace(" Town","").replace(" City","").replace(" Village","")
-      .split(" ")[0];
-    label.textContent = shortName;
-    if (isCity) label.style.fontWeight = "bold";
+    label.textContent = area.name; // Full name visible
 
     loc.appendChild(dot);
     loc.appendChild(label);
@@ -1756,6 +1864,19 @@ function initEventListeners() {
     renderHUD();
     renderWorldMap();
     renderAreaPanel();
+  });
+
+  // Zoom controls
+  document.getElementById("btn-zoom-in").addEventListener("click", () => {
+    const idx = MAP_ZOOM_LEVELS.indexOf(mapZoom);
+    if (idx < MAP_ZOOM_LEVELS.length - 1) setMapZoom(MAP_ZOOM_LEVELS[idx + 1]);
+  });
+  document.getElementById("btn-zoom-out").addEventListener("click", () => {
+    const idx = MAP_ZOOM_LEVELS.indexOf(mapZoom);
+    if (idx > 0) setMapZoom(MAP_ZOOM_LEVELS[idx - 1]);
+  });
+  document.getElementById("btn-zoom-reset").addEventListener("click", () => {
+    setMapZoom(1);
   });
 }
 

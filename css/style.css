@@ -451,6 +451,7 @@ html, body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .map-title {
@@ -460,16 +461,58 @@ html, body {
   text-align: center;
 }
 
-#world-map {
-  flex: 1;
-  position: relative;
-  background: #0e3a5a;
-  border: 2px solid #1a5a7a;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.5);
+/* Zoom controls */
+#map-zoom-controls {
+  position: absolute;
+  top: 3rem;
+  right: 1.5rem;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.zoom-btn {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #4a9acc;
+  background: rgba(14, 58, 90, 0.9);
+  color: #e6edf3;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  border-radius: 4px;
+}
+.zoom-btn:hover {
+  background: rgba(30, 90, 130, 0.95);
+}
+.zoom-btn:active {
+  background: rgba(50, 120, 170, 0.95);
 }
 
+/* Scrollable viewport for zoom/pan */
+#world-map-viewport {
+  flex: 1;
+  overflow: auto;
+  border: 2px solid #1a5a7a;
+  border-radius: 10px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.5);
+  background: #0e3a5a;
+}
+
+#world-map {
+  position: relative;
+  background: #0e3a5a;
+  overflow: hidden;
+  transform-origin: 0 0;
+  transition: width 0.3s ease, height 0.3s ease;
+  min-height: 100%;
+}
+
+/* City/town markers - only for non-route locations */
 .map-location {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -477,43 +520,40 @@ html, body {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  z-index: 10;
+  z-index: 15;
   transition: all 0.15s ease;
 }
 
 .map-location:hover .map-loc-dot {
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 
 .map-loc-dot {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: #2a5a7a;
-  border: 2px solid #4a9acc;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  background: #c82828;
+  border: 2px solid #ff6666;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75rem;
+  font-size: 1rem;
   transition: all 0.15s ease;
-}
-
-.map-location.city .map-loc-dot {
-  width: 32px;
-  height: 32px;
-  border-radius: 3px;
-  background: #c82828;
-  border: 2px solid #ff6666;
-  font-size: 1.1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
 
 .map-location.special .map-loc-dot {
-  width: 32px;
-  height: 32px;
-  border-radius: 3px;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
   background: #a06800;
   border: 2px solid #ffd700;
-  font-size: 1.1rem;
+  font-size: 1rem;
+}
+
+.map-location.town .map-loc-dot {
+  background: #2868a8;
+  border-color: #58a6ff;
 }
 
 .map-location.current .map-loc-dot {
@@ -538,27 +578,44 @@ html, body {
   background: #1a6030 !important;
 }
 
+/* Full location name labels */
 .map-loc-label {
-  font-size: 0.6rem;
-  color: var(--text-secondary);
+  font-size: 0.55rem;
+  color: #e6edf3;
   margin-top: 2px;
   white-space: nowrap;
   text-align: center;
-  max-width: 60px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.9), 0 0 6px rgba(0,0,0,0.7);
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  pointer-events: none;
 }
 
 .map-location.current .map-loc-label {
   color: var(--accent-yellow);
 }
 
-.map-route {
+/* Route labels on paths */
+.map-route-label {
   position: absolute;
-  background: rgba(255,255,255,0.1);
-  border-radius: 2px;
-  transform-origin: 0 50%;
-  z-index: 5;
+  font-size: 0.45rem;
+  color: #ffe088;
+  white-space: nowrap;
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.95), 0 0 5px rgba(0,0,0,0.8);
+  pointer-events: none;
+  z-index: 12;
+  transform: translate(-50%, -50%);
+  letter-spacing: 0.2px;
+  font-weight: bold;
+}
+
+.map-route-label.locked {
+  color: #888;
+}
+
+.map-route-label.current {
+  color: #ffd700;
 }
 
 /* AREA PANEL */
@@ -1739,7 +1796,7 @@ button, a, [role="button"] {
   /* World layout: stack vertically */
   #world-layout { flex-direction: column; }
   #world-map-container { min-height: 45vh; }
-  #world-map { min-height: 200px; }
+  #world-map-viewport { min-height: 200px; }
   #area-panel {
     width: 100%;
     height: auto;

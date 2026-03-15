@@ -940,6 +940,10 @@ function showMovePanel() {
   document.getElementById("battle-moves-panel").classList.remove("hidden");
   const grid = document.getElementById("battle-moves-grid");
   grid.innerHTML = "";
+  // Remove any existing move info tooltip
+  const oldTooltip = document.getElementById("move-info-tooltip");
+  if (oldTooltip) oldTooltip.remove();
+
   for (const m of playerActiveMon.moves) {
     const move = MOVES_DATA[m.id];
     if (!move) continue;
@@ -947,13 +951,58 @@ function showMovePanel() {
     btn.className = "move-btn";
     const typeColor = getTypeColor(move.type);
     btn.disabled = m.pp <= 0;
+    const catIcon = move.cat === "physical" ? "⚔" : move.cat === "special" ? "✦" : "◈";
     btn.innerHTML = `
       <div class="move-btn-left">
         <span class="move-btn-name">${move.name}</span>
         <span class="move-btn-pp">PP: ${m.pp}/${m.maxPP}</span>
       </div>
-      <span class="move-btn-right" style="background:${typeColor}">${move.type}</span>
+      <div class="move-btn-meta">
+        <span class="move-btn-stats">${catIcon} ${move.power || "—"} / ${move.acc}%</span>
+        <span class="move-btn-right" style="background:${typeColor}">${move.type}</span>
+      </div>
     `;
+    // Show move info tooltip on long press / right click / hover
+    const showTooltip = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      let tooltip = document.getElementById("move-info-tooltip");
+      if (!tooltip) {
+        tooltip = document.createElement("div");
+        tooltip.id = "move-info-tooltip";
+        document.body.appendChild(tooltip);
+      }
+      const effectText = move.effect ? move.effect.replace(/([a-z])([A-Z])/g, "$1 $2") : "None";
+      tooltip.innerHTML = `
+        <div class="move-tooltip-header" style="background:${typeColor}">
+          <strong>${move.name}</strong>
+          <span>${move.type} ${catIcon}</span>
+        </div>
+        <div class="move-tooltip-body">
+          <div class="move-tooltip-row"><span>Power</span><span>${move.power || "—"}</span></div>
+          <div class="move-tooltip-row"><span>Accuracy</span><span>${move.acc}%</span></div>
+          <div class="move-tooltip-row"><span>Category</span><span>${move.cat}</span></div>
+          <div class="move-tooltip-row"><span>PP</span><span>${m.pp}/${m.maxPP}</span></div>
+          <p class="move-tooltip-desc">${move.desc}</p>
+        </div>
+        <div class="move-tooltip-close">Tap anywhere to close</div>
+      `;
+      tooltip.classList.add("visible");
+      // Close on click anywhere
+      const closeTooltip = () => {
+        tooltip.classList.remove("visible");
+        document.removeEventListener("click", closeTooltip);
+      };
+      setTimeout(() => document.addEventListener("click", closeTooltip), 10);
+    };
+    btn.addEventListener("contextmenu", showTooltip);
+    // Long press for mobile
+    let pressTimer;
+    btn.addEventListener("touchstart", (e) => {
+      pressTimer = setTimeout(() => showTooltip(e), 400);
+    }, {passive: false});
+    btn.addEventListener("touchend", () => clearTimeout(pressTimer));
+    btn.addEventListener("touchmove", () => clearTimeout(pressTimer));
     btn.addEventListener("click", () => {
       if (m.pp > 0) playerUseMove(m.id);
     });
@@ -1805,6 +1854,45 @@ function showDexDetail(monsterId) {
   const dexDetailSprite = (typeof getMonsterSpriteURL === "function")
     ? `<img src="${getMonsterSpriteURL(def, 110)}" width="110" height="110" alt="${def.name}" style="border-radius:12px">`
     : `<span style="font-size:5rem">${def.emoji}</span>`;
+  // Build learnset/moveset table
+  const movesetRows = [];
+  const seenMoves = new Set();
+  // Collect all moves with their learn levels
+  const moveEntries = [];
+  for (const entry of def.learnset) {
+    if (typeof entry[0] === "number" && typeof entry[1] === "string") {
+      moveEntries.push({level: entry[0], moveId: entry[1]});
+    }
+    if (entry.length >= 3 && Array.isArray(entry[2])) {
+      moveEntries.push({level: entry[2][0], moveId: entry[2][1]});
+    }
+  }
+  moveEntries.sort((a, b) => a.level - b.level);
+  for (const me of moveEntries) {
+    if (seenMoves.has(me.moveId)) continue;
+    seenMoves.add(me.moveId);
+    const mv = MOVES_DATA[me.moveId];
+    if (!mv) continue;
+    const typeColor = getTypeColor(mv.type);
+    const catIcon = mv.cat === "physical" ? "⚔" : mv.cat === "special" ? "✦" : "◈";
+    movesetRows.push(`
+      <tr class="dex-move-row" title="${mv.desc}">
+        <td style="font-size:0.7rem;color:var(--text-muted);width:30px">Lv${me.level}</td>
+        <td style="font-weight:bold;font-size:0.78rem">${mv.name}</td>
+        <td><span style="background:${typeColor};color:#fff;font-size:0.6rem;padding:1px 4px;border-radius:3px">${mv.type}</span></td>
+        <td style="font-size:0.7rem;text-align:center;width:22px" title="${mv.cat}">${catIcon}</td>
+        <td style="font-size:0.7rem;text-align:right;width:28px">${mv.power || "—"}</td>
+        <td style="font-size:0.7rem;text-align:right;width:28px">${mv.acc}%</td>
+      </tr>`);
+  }
+  const movesetHTML = `
+    <table style="width:100%;border-collapse:collapse">
+      <thead><tr style="font-size:0.65rem;color:var(--text-muted);text-align:left;border-bottom:1px solid var(--border)">
+        <th>Lv</th><th>Move</th><th>Type</th><th style="text-align:center">Cat</th><th style="text-align:right">Pow</th><th style="text-align:right">Acc</th>
+      </tr></thead>
+      <tbody>${movesetRows.join("")}</tbody>
+    </table>`;
+
   document.getElementById("dex-detail-content").innerHTML = `
     <div style="text-align:center;margin-bottom:1rem">
       ${dexDetailSprite}
@@ -1818,6 +1906,7 @@ function showDexDetail(monsterId) {
       <p style="font-size:0.8rem;color:var(--text-muted)">Rarity: ${def.rarity}</p>
     </div>
     <div class="detail-section"><h4>Base Stats</h4>${statsHTML}</div>
+    <div class="detail-section"><h4>Learnset</h4>${movesetHTML}</div>
   `;
 }
 

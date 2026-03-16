@@ -412,8 +412,9 @@ html, body {
 }
 
 #hud-badges {
-  display: flex;
-  gap: 0.3rem;
+  display: grid;
+  grid-template-columns: repeat(8, auto);
+  gap: 0.2rem;
 }
 
 .badge-icon {
@@ -1996,7 +1997,8 @@ button, a, [role="button"] {
   #hud-right { font-size: 0.8rem; gap: 0.6rem; }
   #hud-player-name { font-size: 0.9rem; }
   #hud-badges-label { display: none; }
-  .badge-icon { width: 24px; height: 24px; }
+  .badge-icon { width: 20px; height: 20px; }
+  #hud-badges { gap: 0.15rem; }
 
   /* World layout: stack vertically */
   #world-layout { flex-direction: column; }

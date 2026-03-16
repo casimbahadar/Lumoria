@@ -19,6 +19,9 @@ function newGameState(playerName, starterMonsterId) {
     seenMonsters: new Set([starterMonsterId]),
     caughtMonsters: new Set([starterMonsterId]),
     championDefeated: false,
+    questsCompleted: [],
+    questsActive: [],
+    visitedLocations: ["seedvale"],
     saveTimestamp: Date.now()
   };
 }
@@ -59,6 +62,10 @@ function loadGame() {
     const data = JSON.parse(raw);
     data.seenMonsters = new Set(data.seenMonsters);
     data.caughtMonsters = new Set(data.caughtMonsters);
+    // Ensure new fields exist for old saves
+    if (!data.questsCompleted) data.questsCompleted = [];
+    if (!data.questsActive) data.questsActive = [];
+    if (!data.visitedLocations) data.visitedLocations = [data.location];
     G = data;
     return true;
   } catch(e) { return false; }
@@ -698,6 +705,7 @@ function travelTo(areaId) {
     return;
   }
   G.location = areaId;
+  trackLocationVisit(areaId);
   renderWorldMap();
   renderAreaPanel();
 }
@@ -781,6 +789,36 @@ function renderAreaPanel() {
     if (pendingRival) {
       rivalBtn.classList.remove("hidden");
       rivalBtn.textContent = "🧒 Battle Rival Marcus";
+    }
+  }
+
+  // Shop button in area
+  const shopAreaBtn = document.getElementById("btn-area-shop");
+  if (shopAreaBtn) {
+    shopAreaBtn.classList.add("hidden");
+    if (typeof SHOPS_DATA !== "undefined" && SHOPS_DATA[G.location]) {
+      shopAreaBtn.classList.remove("hidden");
+      shopAreaBtn.textContent = `🛒 ${SHOPS_DATA[G.location].name}`;
+    }
+  }
+
+  // Elite Four button
+  const eliteBtn = document.getElementById("btn-elite-four");
+  if (eliteBtn) {
+    eliteBtn.classList.add("hidden");
+    if (area.isChampion && typeof ELITE_FOUR !== "undefined") {
+      // Show elite four challenge if not all defeated
+      const eliteDefeated = ELITE_FOUR.every(e => G.defeatedLeaders.includes(e.id));
+      if (!eliteDefeated) {
+        eliteBtn.classList.remove("hidden");
+        const nextElite = ELITE_FOUR.find(e => !G.defeatedLeaders.includes(e.id));
+        eliteBtn.textContent = `⚔️ Challenge Elite: ${nextElite?.name || "???"}`;
+        eliteBtn.disabled = false;
+      }
+      // Only allow champion battle if all elite four are defeated
+      if (championBtn) {
+        championBtn.classList.toggle("hidden", !eliteDefeated || G.championDefeated);
+      }
     }
   }
 }
@@ -1076,11 +1114,17 @@ function startWildBattle(wildMon) {
 }
 
 function startGymBattle(leaderId) {
-  const leader = GYM_LEADERS[leaderId];
+  // Look up in GYM_LEADERS first, then ELITE_FOUR
+  let leader = GYM_LEADERS[leaderId];
+  if (!leader && typeof ELITE_FOUR !== "undefined") {
+    leader = ELITE_FOUR.find(e => e.id === leaderId);
+  }
+  if (!leader) return;
   battleContext = {
     isWild: false,
     isGym: true,
     isChampion: leaderId === "champion",
+    isEliteFour: !!(typeof ELITE_FOUR !== "undefined" && ELITE_FOUR.find(e => e.id === leaderId)),
     leaderId,
     enemyTeam: leader.team.map(s => buildGymMon(s)),
     enemyTeamIdx: 0,
@@ -1418,26 +1462,45 @@ function endBattle(outcome, slot, levelUps) {
   }
 
   if (outcome === "lost") {
-    // Heal team to 1 HP each and return to last safe area
-    for (const m of G.team) { if (m.currentHP <= 0) m.currentHP = Math.floor(m.maxHP * 0.5); }
+    // Blackout: heal team to 100% HP, lose 5% money
+    const moneyLost = Math.floor(G.money * 0.05);
+    G.money -= moneyLost;
+    for (const m of G.team) { m.currentHP = m.maxHP; m.status = null; }
     showScreen("screen-gameover");
+    const lostMsg = moneyLost > 0 ? ` You lost 💰${moneyLost} in the confusion.` : "";
     document.getElementById("gameover-text").textContent =
-      `You blacked out and returned to ${WORLD_DATA[G.location]?.name || "town"}.`;
+      `You blacked out and were rushed to ${WORLD_DATA[G.location]?.name || "town"}.${lostMsg} Your Lumos have been fully healed.`;
     return;
   }
 
   if (outcome === "won") {
     // Show level ups then return
     const handleAfterLevelUps = () => {
-      if (battleContext.isGym || battleContext.isChampion) {
-        const leader = GYM_LEADERS[battleContext.leaderId];
-        G.defeatedLeaders.push(battleContext.leaderId);
+      if (battleContext.isGym || battleContext.isChampion || battleContext.isEliteFour) {
+        // Look up leader in GYM_LEADERS or ELITE_FOUR
+        let leader = GYM_LEADERS[battleContext.leaderId];
+        if (!leader && typeof ELITE_FOUR !== "undefined") {
+          leader = ELITE_FOUR.find(e => e.id === battleContext.leaderId);
+        }
+        if (!G.defeatedLeaders.includes(battleContext.leaderId)) {
+          G.defeatedLeaders.push(battleContext.leaderId);
+        }
         if (battleContext.leaderId === "champion") {
           G.championDefeated = true;
           showHallOfFame();
           triggerStorySequence("champion_defeated");
+        } else if (battleContext.isEliteFour) {
+          // Elite Four defeated - give money reward
+          G.money += 8000;
+          showNotification(`⚔️ ${leader?.winQuote || "You defeated the Elite!"}<br><br>Received 💰8000!`, () => {
+            showScreen("screen-main");
+            renderWorldMap();
+            renderAreaPanel();
+            renderHUD();
+            saveGame();
+          });
         } else {
-          if (leader.badge) {
+          if (leader && leader.badge) {
             G.badges.push(battleContext.leaderId);
             G.money += 1000 * G.badges.length;
           }
@@ -1445,7 +1508,10 @@ function endBattle(outcome, slot, levelUps) {
           const GYM_HELD_REWARDS = {
             rex: "powerBand", marina: "mysticDew", pyros: "charcoal",
             zara: "magnet", glacier: "leftovers", nyx: "scopeLens",
-            oracle: "wisdomLens", drake: "focusSash"
+            oracle: "wisdomLens", drake: "focusSash",
+            thorne: "miracleSeed", viper: "blackBelt", atlas: "guardCloak",
+            mantis: "quickClaw", zephyra: "swiftFeather", ferro: "wiseGlasses",
+            boulder: "vitalSeed", seraphina: "spiritVeil"
           };
           const rewardItem = GYM_HELD_REWARDS[battleContext.leaderId];
           let rewardMsg = "";
@@ -1494,6 +1560,16 @@ function endBattle(outcome, slot, levelUps) {
           renderAreaPanel();
           renderHUD();
         }
+      } else if (battleContext.isQuest) {
+        // Quest boss defeated
+        const quest = typeof QUESTS_DATA !== "undefined" ? QUESTS_DATA.find(q => q.id === battleContext.questId) : null;
+        if (quest) {
+          completeQuest(quest);
+        }
+        showScreen("screen-main");
+        renderWorldMap();
+        renderAreaPanel();
+        renderHUD();
       } else {
         // Wild battle won
         showScreen("screen-main");
@@ -1986,12 +2062,46 @@ function initEventListeners() {
     }
   });
 
+  // Elite Four
+  document.getElementById("btn-elite-four")?.addEventListener("click", () => {
+    if (typeof ELITE_FOUR === "undefined") return;
+    if (G.team.every(m => m.currentHP <= 0)) {
+      showNotification("All your Lumos are fainted! Heal first.");
+      return;
+    }
+    const nextElite = ELITE_FOUR.find(e => !G.defeatedLeaders.includes(e.id));
+    if (nextElite) {
+      showNotification(`⚔️ <strong>${nextElite.name}</strong>: "${nextElite.quote}"`, () => {
+        startGymBattle(nextElite.id);
+      });
+    }
+  });
+
   // Bottom nav
   document.getElementById("nav-team").addEventListener("click", showTeamScreen);
   document.getElementById("nav-bag").addEventListener("click", showBagScreen);
   document.getElementById("nav-dex").addEventListener("click", showDexScreen);
   document.getElementById("nav-save").addEventListener("click", saveGame);
   document.getElementById("nav-tutorial").addEventListener("click", showTutorial);
+  document.getElementById("nav-quests").addEventListener("click", showQuestScreen);
+  document.getElementById("nav-shop").addEventListener("click", showShopScreen);
+
+  // Quest filter buttons
+  document.querySelectorAll(".quest-filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".quest-filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderQuestLog();
+    });
+  });
+
+  // Shop/Quest back buttons
+  document.getElementById("shop-back-btn")?.addEventListener("click", () => {
+    showScreen("screen-main"); renderHUD();
+  });
+  document.getElementById("quests-back-btn")?.addEventListener("click", () => {
+    showScreen("screen-main"); renderHUD();
+  });
   document.getElementById("btn-tutorial-close").addEventListener("click", hideTutorial);
 
   // Battle controls
@@ -2062,12 +2172,13 @@ function initEventListeners() {
 
   // Game over
   document.getElementById("btn-gameover-heal").addEventListener("click", () => {
-    // Heal team
-    for (const m of G.team) { m.currentHP = Math.floor(m.maxHP / 2); }
+    // Team already healed to 100% in battle outcome handler
+    for (const m of G.team) { m.currentHP = m.maxHP; m.status = null; }
     showScreen("screen-main");
     renderHUD();
     renderWorldMap();
     renderAreaPanel();
+    saveGame();
   });
 
   // Hall of fame
@@ -2196,6 +2307,224 @@ function triggerBadgeStoryEvent(badgeCount) {
     setTimeout(() => triggerStorySequence(key), 400);
   }
   renderAreaPanel(); // refresh to show rival button if unlocked
+}
+
+// ============================================================
+// SHOP SYSTEM
+// ============================================================
+function showShopScreen() {
+  if (typeof SHOPS_DATA === "undefined") { showNotification("No shops available yet."); return; }
+  const shop = SHOPS_DATA[G.location];
+  if (!shop) { showNotification("There is no shop in this area."); return; }
+  showScreen("screen-shop");
+  renderShop(shop);
+}
+
+function renderShop(shop) {
+  const container = document.getElementById("shop-content");
+  document.getElementById("shop-title").textContent = shop.name;
+  document.getElementById("shop-money").textContent = `💰 ${G.money}`;
+  container.innerHTML = "";
+  for (const [itemId, price] of Object.entries(shop.items)) {
+    const item = ITEMS_DATA[itemId];
+    if (!item) continue;
+    const owned = G.bag[itemId] || 0;
+    const canAfford = G.money >= price;
+    const row = document.createElement("div");
+    row.className = "shop-item" + (canAfford ? "" : " shop-item-disabled");
+    row.innerHTML = `
+      <div class="shop-item-info">
+        <span class="shop-item-name">${item.emoji} ${item.name}</span>
+        <span class="shop-item-desc">${item.desc}</span>
+      </div>
+      <div class="shop-item-right">
+        <span class="shop-item-owned">Owned: ${owned}</span>
+        <span class="shop-item-price">💰 ${price}</span>
+        <button class="shop-buy-btn" ${canAfford ? "" : "disabled"}>BUY</button>
+      </div>
+    `;
+    row.querySelector(".shop-buy-btn").addEventListener("click", () => {
+      if (G.money >= price) {
+        G.money -= price;
+        G.bag[itemId] = (G.bag[itemId] || 0) + 1;
+        renderShop(shop);
+        renderHUD();
+      }
+    });
+    container.appendChild(row);
+  }
+}
+
+// ============================================================
+// QUEST LOG SYSTEM
+// ============================================================
+function showQuestScreen() {
+  showScreen("screen-quests");
+  renderQuestLog();
+}
+
+function renderQuestLog() {
+  if (typeof QUESTS_DATA === "undefined") return;
+  const container = document.getElementById("quest-list");
+  const filterBtns = document.querySelectorAll(".quest-filter-btn");
+  let activeFilter = document.querySelector(".quest-filter-btn.active")?.dataset?.filter || "available";
+
+  // Ensure quest state arrays exist
+  if (!G.questsCompleted) G.questsCompleted = [];
+  if (!G.questsActive) G.questsActive = [];
+
+  container.innerHTML = "";
+
+  const allQuests = Object.values(QUESTS_DATA);
+  let filteredQuests;
+
+  if (activeFilter === "available") {
+    filteredQuests = allQuests.filter(q =>
+      !G.questsCompleted.includes(q.id) &&
+      !G.questsActive.includes(q.id) &&
+      G.badges.length >= (q.requiredBadges || 0)
+    );
+  } else if (activeFilter === "active") {
+    filteredQuests = allQuests.filter(q => G.questsActive.includes(q.id));
+  } else {
+    filteredQuests = allQuests.filter(q => G.questsCompleted.includes(q.id));
+  }
+
+  if (filteredQuests.length === 0) {
+    container.innerHTML = `<p style="color:var(--text-muted);text-align:center;padding:2rem">No ${activeFilter} quests.</p>`;
+    return;
+  }
+
+  // Sort by required badges then by name
+  filteredQuests.sort((a, b) => (a.requirements?.badges || 0) - (b.requirements?.badges || 0));
+
+  for (const quest of filteredQuests) {
+    const isCompleted = G.questsCompleted.includes(quest.id);
+    const isActive = G.questsActive.includes(quest.id);
+    const locationName = WORLD_DATA[quest.location]?.name || quest.location;
+    const typeIcons = { boss: "⚔️", catch: "🔵", visit: "🗺️", fetch: "📦", battle: "🥊" };
+
+    const card = document.createElement("div");
+    card.className = "quest-card" + (isCompleted ? " quest-completed" : "");
+    card.innerHTML = `
+      <div class="quest-card-header">
+        <span class="quest-type-icon">${typeIcons[quest.type] || "📋"}</span>
+        <div class="quest-card-title">
+          <strong>${quest.title}</strong>
+          <span class="quest-location">${locationName}</span>
+        </div>
+        <span class="quest-badge-req">${quest.requiredBadges || 0}+ badges</span>
+      </div>
+      <p class="quest-desc">${quest.desc}</p>
+      <div class="quest-rewards">
+        <span>🎁 ${quest.rewardText}</span>
+      </div>
+      <div class="quest-actions">
+        ${!isCompleted && !isActive ? `<button class="quest-accept-btn">Accept Quest</button>` : ""}
+        ${isActive ? `<button class="quest-start-btn">Start Quest</button>` : ""}
+        ${isCompleted ? `<span class="quest-done-label">✅ Completed</span>` : ""}
+      </div>
+    `;
+
+    // Accept quest
+    const acceptBtn = card.querySelector(".quest-accept-btn");
+    if (acceptBtn) {
+      acceptBtn.addEventListener("click", () => {
+        G.questsActive.push(quest.id);
+        renderQuestLog();
+        showNotification(`Quest accepted: <strong>${quest.title}</strong>`);
+      });
+    }
+
+    // Start quest (begin boss battle or check objectives)
+    const startBtn = card.querySelector(".quest-start-btn");
+    if (startBtn) {
+      startBtn.addEventListener("click", () => {
+        attemptQuestCompletion(quest);
+      });
+    }
+
+    container.appendChild(card);
+  }
+}
+
+function attemptQuestCompletion(quest) {
+  if (quest.type === "boss") {
+    // Must be at the quest location
+    if (G.location !== quest.location) {
+      showNotification(`You must be at <strong>${WORLD_DATA[quest.location]?.name || quest.location}</strong> to attempt this quest.`);
+      return;
+    }
+    startQuestBattle(quest);
+  } else if (quest.type === "visit") {
+    if (!G.visitedLocations) G.visitedLocations = [];
+    if (G.visitedLocations.includes(quest.location)) {
+      completeQuest(quest);
+    } else {
+      const locName = WORLD_DATA[quest.location]?.name || quest.location;
+      showNotification(`You need to visit <strong>${locName}</strong> to complete this quest.`);
+    }
+  } else {
+    completeQuest(quest);
+  }
+}
+
+function startQuestBattle(quest) {
+  const boss = quest.boss;
+  const bossTeam = [{
+    monsterId: boss.monsterId,
+    level: boss.level,
+    moves: boss.moves,
+    heldItem: boss.heldItem || null
+  }];
+
+  const bossName = MONSTERS_DATA[boss.monsterId]?.name || "Quest Boss";
+
+  battleContext = {
+    isGym: false, isChampion: false, isRival: false, isUmbra: false,
+    isQuest: true, questId: quest.id,
+    leaderId: quest.id
+  };
+
+  showNotification(`⚔️ A wild <strong>${bossName}</strong> (Lv.${boss.level}) appears!`, () => {
+    showScreen("screen-battle");
+    startBattle(bossTeam, bossName);
+  });
+}
+
+function completeQuest(quest) {
+  if (G.questsCompleted.includes(quest.id)) return;
+  G.questsCompleted.push(quest.id);
+  G.questsActive = G.questsActive.filter(id => id !== quest.id);
+
+  // Grant rewards
+  const r = quest.reward;
+  if (r.type === "money") {
+    G.money += r.amount;
+  } else if (r.type === "item") {
+    G.bag[r.itemId] = (G.bag[r.itemId] || 0) + (r.qty || 1);
+  }
+
+  renderHUD();
+  saveGame();
+  showNotification(`✅ Quest Complete: <strong>${quest.title}</strong>!<br><br>Rewards: ${quest.rewardText}<br><br>Well done!`);
+}
+
+// Track location visits for quest completion
+function trackLocationVisit(locationId) {
+  if (!G.visitedLocations) G.visitedLocations = [];
+  if (!G.visitedLocations.includes(locationId)) {
+    G.visitedLocations.push(locationId);
+  }
+  // Check if any active quests have visit objectives for this location
+  if (typeof QUESTS_DATA !== "undefined") {
+    for (const qid of (G.questsActive || [])) {
+      const q = QUESTS_DATA.find(quest => quest.id === qid);
+      if (q && q.type === "visit" && q.location === locationId) {
+        completeQuest(q);
+      }
+    }
+  }
 }
 
 // ---- BOOT ----

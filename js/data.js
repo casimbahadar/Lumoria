@@ -1734,7 +1734,7 @@ const WORLD_DATA = {
   dragonspire: {
     id:"dragonspire", name:"Dragonspire Peak", icon:"🐉", type:"city",
     desc:"The highest peak in Lumoria. Dragon Gym Leader Drake commands ancient power.",
-    connections:["route8","victoryroad"],
+    connections:["route8","route9"],
     wildMonsters:[
       {id:82, minLv:58, maxLv:62, rate:30}, // Drakling
       {id:85, minLv:58, maxLv:62, rate:25}, // Seadrake
@@ -1745,21 +1745,21 @@ const WORLD_DATA = {
   },
   victoryroad: {
     id:"victoryroad", name:"Victory Road", icon:"⚔️", type:"route",
-    desc:"The final gauntlet. Only trainers with all 8 badges may pass.",
-    connections:["dragonspire","summit"],
+    desc:"The final gauntlet. Only trainers with all 16 badges may pass.",
+    connections:["starbloom","summit"],
     wildMonsters:[
       {id:83, minLv:62, maxLv:66, rate:25}, // Wyrmsire
       {id:59, minLv:62, maxLv:66, rate:25}, // Phantomfang
       {id:65, minLv:62, maxLv:66, rate:25}, // Celestara
       {id:69, minLv:63, maxLv:66, rate:25}  // Mecharon
     ],
-    hasGym:false, requiredBadges:8, mapPos:{x:62, y:35}
+    hasGym:false, requiredBadges:16, mapPos:{x:62, y:35}
   },
   summit: {
     id:"summit", name:"Victory Summit", icon:"👑", type:"special",
     desc:"The seat of the Lumoria Champion. Only the greatest trainers reach this place.",
     connections:["victoryroad"],
-    wildMonsters:[], hasGym:false, isChampion:true, requiredBadges:8,
+    wildMonsters:[], hasGym:false, isChampion:true, requiredBadges:16,
     mapPos:{x:72, y:30}
   },
 
@@ -2098,6 +2098,207 @@ const WORLD_DATA = {
       {id:122, minLv:53, maxLv:58, rate:10}   // Gravemoss
     ],
     hasGym:false, requiredBadges:6, mapPos:{x:4, y:60}
+  },
+  // ---- NEW ROUTES & GYM CITIES (badges 8-15) ----
+  route9: {
+    id:"route9", name:"Route 9 - Verdant Trail", icon:"🌿", type:"route",
+    desc:"A lush overgrown trail leading south from Dragonspire. Grass and Bug types thrive here.",
+    connections:["dragonspire","bloomhaven"],
+    wildMonsters:[
+      {id:7, minLv:55, maxLv:60, rate:25},
+      {id:24, minLv:55, maxLv:60, rate:25},
+      {id:100, minLv:55, maxLv:60, rate:25},
+      {id:111, minLv:56, maxLv:61, rate:15},
+      {id:131, minLv:57, maxLv:62, rate:10}
+    ],
+    hasGym:false, requiredBadges:8, mapPos:{x:60, y:48}
+  },
+  bloomhaven: {
+    id:"bloomhaven", name:"Bloomhaven City", icon:"🌸", type:"city",
+    desc:"A city built around an ancient greenhouse. Home to Gym Leader Thorne, master of Grass types.",
+    connections:["route9","route10"],
+    wildMonsters:[
+      {id:8, minLv:56, maxLv:60, rate:30},
+      {id:27, minLv:56, maxLv:60, rate:30},
+      {id:131, minLv:57, maxLv:61, rate:20},
+      {id:146, minLv:58, maxLv:62, rate:20}
+    ],
+    hasGym:true, gymLeader:"thorne", requiredBadges:8, mapPos:{x:55, y:55}
+  },
+  route10: {
+    id:"route10", name:"Route 10 - Toxic Passage", icon:"☠️", type:"route",
+    desc:"A murky swamp path where poisonous fumes rise from the ground.",
+    connections:["bloomhaven","miasmacity"],
+    wildMonsters:[
+      {id:71, minLv:57, maxLv:62, rate:25},
+      {id:73, minLv:57, maxLv:62, rate:25},
+      {id:75, minLv:58, maxLv:63, rate:25},
+      {id:137, minLv:59, maxLv:63, rate:15},
+      {id:150, minLv:58, maxLv:63, rate:10}
+    ],
+    hasGym:false, requiredBadges:9, mapPos:{x:48, y:60}
+  },
+  miasmacity: {
+    id:"miasmacity", name:"Miasma City", icon:"🏭", type:"city",
+    desc:"An industrial city shrouded in toxic mist. Home to Gym Leader Viper, master of Poison types.",
+    connections:["route10","route11"],
+    wildMonsters:[
+      {id:72, minLv:58, maxLv:63, rate:30},
+      {id:74, minLv:58, maxLv:63, rate:25},
+      {id:133, minLv:59, maxLv:64, rate:25},
+      {id:151, minLv:60, maxLv:64, rate:20}
+    ],
+    hasGym:true, gymLeader:"viper", requiredBadges:9, mapPos:{x:42, y:65}
+  },
+  route11: {
+    id:"route11", name:"Route 11 - Tremor Pass", icon:"🏔️", type:"route",
+    desc:"A rumbling mountain pass where the ground never stops shaking.",
+    connections:["miasmacity","terravault"],
+    wildMonsters:[
+      {id:35, minLv:59, maxLv:64, rate:25},
+      {id:39, minLv:59, maxLv:64, rate:25},
+      {id:112, minLv:60, maxLv:65, rate:25},
+      {id:154, minLv:60, maxLv:65, rate:15},
+      {id:132, minLv:61, maxLv:66, rate:10}
+    ],
+    hasGym:false, requiredBadges:10, mapPos:{x:35, y:72}
+  },
+  terravault: {
+    id:"terravault", name:"Terravault City", icon:"⛏️", type:"city",
+    desc:"A city carved into a mountainside, rich with mineral deposits. Home to Gym Leader Atlas.",
+    connections:["route11","route12"],
+    wildMonsters:[
+      {id:36, minLv:60, maxLv:65, rate:30},
+      {id:40, minLv:60, maxLv:65, rate:25},
+      {id:155, minLv:61, maxLv:66, rate:25},
+      {id:153, minLv:62, maxLv:66, rate:20}
+    ],
+    hasGym:true, gymLeader:"atlas", requiredBadges:10, mapPos:{x:28, y:78}
+  },
+  route12: {
+    id:"route12", name:"Route 12 - Silk Road", icon:"🕸️", type:"route",
+    desc:"A path threaded with giant webs. Bug types ambush travelers at every turn.",
+    connections:["terravault","silkwood"],
+    wildMonsters:[
+      {id:100, minLv:61, maxLv:66, rate:25},
+      {id:101, minLv:61, maxLv:66, rate:25},
+      {id:103, minLv:62, maxLv:67, rate:25},
+      {id:123, minLv:62, maxLv:67, rate:15},
+      {id:158, minLv:63, maxLv:68, rate:10}
+    ],
+    hasGym:false, requiredBadges:11, mapPos:{x:22, y:82}
+  },
+  silkwood: {
+    id:"silkwood", name:"Silkwood Village", icon:"🌲", type:"city",
+    desc:"A village nestled in an ancient forest where Bug types are revered. Home to Gym Leader Mantis.",
+    connections:["route12","route13"],
+    wildMonsters:[
+      {id:102, minLv:62, maxLv:67, rate:30},
+      {id:104, minLv:62, maxLv:67, rate:25},
+      {id:140, minLv:63, maxLv:68, rate:25},
+      {id:159, minLv:64, maxLv:68, rate:20}
+    ],
+    hasGym:true, gymLeader:"mantis", requiredBadges:11, mapPos:{x:15, y:88}
+  },
+  route13: {
+    id:"route13", name:"Route 13 - Gale Ridge", icon:"🌬️", type:"route",
+    desc:"A windswept ridge where powerful gusts knock down the unprepared.",
+    connections:["silkwood","gusthaven"],
+    wildMonsters:[
+      {id:41, minLv:63, maxLv:68, rate:25},
+      {id:43, minLv:63, maxLv:68, rate:25},
+      {id:45, minLv:64, maxLv:69, rate:25},
+      {id:116, minLv:64, maxLv:69, rate:15},
+      {id:160, minLv:65, maxLv:70, rate:10}
+    ],
+    hasGym:false, requiredBadges:12, mapPos:{x:10, y:92}
+  },
+  gusthaven: {
+    id:"gusthaven", name:"Gusthaven Town", icon:"🌀", type:"city",
+    desc:"A town of windmills and airships. Home to Gym Leader Zephyra, master of Wind types.",
+    connections:["route13","route14"],
+    wildMonsters:[
+      {id:42, minLv:64, maxLv:69, rate:30},
+      {id:44, minLv:64, maxLv:69, rate:25},
+      {id:46, minLv:65, maxLv:70, rate:25},
+      {id:161, minLv:66, maxLv:70, rate:20}
+    ],
+    hasGym:true, gymLeader:"zephyra", requiredBadges:12, mapPos:{x:18, y:95}
+  },
+  route14: {
+    id:"route14", name:"Route 14 - Ironwork Path", icon:"⚙️", type:"route",
+    desc:"A path lined with abandoned machinery. Steel types have claimed the ruins as their territory.",
+    connections:["gusthaven","ironforge"],
+    wildMonsters:[
+      {id:66, minLv:65, maxLv:70, rate:25},
+      {id:68, minLv:65, maxLv:70, rate:25},
+      {id:109, minLv:66, maxLv:71, rate:25},
+      {id:152, minLv:66, maxLv:71, rate:15},
+      {id:124, minLv:67, maxLv:72, rate:10}
+    ],
+    hasGym:false, requiredBadges:13, mapPos:{x:28, y:92}
+  },
+  ironforge: {
+    id:"ironforge", name:"Ironforge City", icon:"🔨", type:"city",
+    desc:"A city of foundries and forges. Home to Gym Leader Ferro, master of Steel types.",
+    connections:["route14","route15"],
+    wildMonsters:[
+      {id:67, minLv:66, maxLv:71, rate:30},
+      {id:69, minLv:66, maxLv:71, rate:25},
+      {id:70, minLv:67, maxLv:72, rate:25},
+      {id:163, minLv:68, maxLv:72, rate:20}
+    ],
+    hasGym:true, gymLeader:"ferro", requiredBadges:13, mapPos:{x:38, y:88}
+  },
+  route15: {
+    id:"route15", name:"Route 15 - Granite Pass", icon:"🪨", type:"route",
+    desc:"A narrow mountain pass strewn with boulders. Rock types dominate.",
+    connections:["ironforge","quarryville"],
+    wildMonsters:[
+      {id:96, minLv:67, maxLv:72, rate:25},
+      {id:98, minLv:67, maxLv:72, rate:25},
+      {id:103, minLv:68, maxLv:73, rate:25},
+      {id:148, minLv:68, maxLv:73, rate:15},
+      {id:128, minLv:69, maxLv:74, rate:10}
+    ],
+    hasGym:false, requiredBadges:14, mapPos:{x:48, y:85}
+  },
+  quarryville: {
+    id:"quarryville", name:"Quarryville Town", icon:"🏗️", type:"city",
+    desc:"A mining town carved from solid rock. Home to Gym Leader Boulder, master of Rock types.",
+    connections:["route15","route16"],
+    wildMonsters:[
+      {id:97, minLv:68, maxLv:73, rate:30},
+      {id:99, minLv:68, maxLv:73, rate:25},
+      {id:149, minLv:69, maxLv:74, rate:25},
+      {id:108, minLv:70, maxLv:74, rate:20}
+    ],
+    hasGym:true, gymLeader:"boulder", requiredBadges:14, mapPos:{x:55, y:82}
+  },
+  route16: {
+    id:"route16", name:"Route 16 - Starlit Path", icon:"✨", type:"route",
+    desc:"A magical path where starlight dances on every surface. Fairy types float among the luminescent flowers.",
+    connections:["quarryville","starbloom"],
+    wildMonsters:[
+      {id:60, minLv:69, maxLv:74, rate:25},
+      {id:111, minLv:69, maxLv:74, rate:25},
+      {id:117, minLv:70, maxLv:75, rate:25},
+      {id:162, minLv:70, maxLv:75, rate:15},
+      {id:131, minLv:71, maxLv:76, rate:10}
+    ],
+    hasGym:false, requiredBadges:15, mapPos:{x:62, y:78}
+  },
+  starbloom: {
+    id:"starbloom", name:"Starbloom City", icon:"🌟", type:"city",
+    desc:"A radiant city that glows with fairy magic. Home to Gym Leader Seraphina, the last gym before the Elite Four.",
+    connections:["route16","victoryroad"],
+    wildMonsters:[
+      {id:61, minLv:70, maxLv:75, rate:30},
+      {id:65, minLv:70, maxLv:75, rate:25},
+      {id:163, minLv:71, maxLv:76, rate:25},
+      {id:140, minLv:72, maxLv:76, rate:20}
+    ],
+    hasGym:true, gymLeader:"seraphina", requiredBadges:15, mapPos:{x:68, y:72}
   }
 };
 
@@ -2194,18 +2395,115 @@ const GYM_LEADERS = {
       {monsterId:83, level:62, moves:["dragon_claw","dragon_pulse","dragon_dance","outrage"]}
     ]
   },
+  // ---- 8 NEW GYM LEADERS (badges 8-15) ----
+  thorne: {
+    id:"thorne", name:"Leader Thorne", emoji:"🌿", type:"Grass",
+    badge:"Canopy Badge", badgeEmoji:"🌿",
+    quote:"The forest speaks to me. Let its vines entangle your hopes!",
+    winQuote:"Your spirit is as resilient as ancient oak. The Canopy Badge is yours.",
+    team:[
+      {monsterId:8, level:58, moves:["razor_leaf","vine_whip","seed_bomb","energy_ball"]},
+      {monsterId:25, level:59, moves:["earthquake","razor_leaf","energy_ball","mud_shot"]},
+      {monsterId:137, level:60, moves:["sludge_bomb","energy_ball","petal_blitz","toxic"]},
+      {monsterId:9, level:62, moves:["petal_blitz","energy_ball","moonblast","canopy_crash"]}
+    ]
+  },
+  viper: {
+    id:"viper", name:"Leader Viper", emoji:"☠️", type:"Poison",
+    badge:"Venom Badge", badgeEmoji:"☠️",
+    quote:"One drop is all it takes. My Lumos are lethal to the touch!",
+    winQuote:"You survived my venom... impressive. The Venom Badge is yours.",
+    team:[
+      {monsterId:72, level:60, moves:["sludge_bomb","venoshock","toxic","acid_rain"]},
+      {monsterId:75, level:61, moves:["sludge_bomb","air_slash","miasma_cloud","toxic"]},
+      {monsterId:133, level:62, moves:["venom_lance","x_scissor","bug_buzz","toxic_surge"]},
+      {monsterId:74, level:64, moves:["sludge_wave","earthquake","acid_rain","toxic"]}
+    ]
+  },
+  atlas: {
+    id:"atlas", name:"Leader Atlas", emoji:"🏔️", type:"Ground",
+    badge:"Tectonic Badge", badgeEmoji:"🏔️",
+    quote:"I am the earth itself. Unshakable. Unyielding. Unstoppable!",
+    winQuote:"The ground trembles in respect. The Tectonic Badge is yours.",
+    team:[
+      {monsterId:36, level:62, moves:["earthquake","rock_slide","mud_shot","stone_edge"]},
+      {monsterId:40, level:63, moves:["earthquake","earth_power","body_slam","fissure_slam"]},
+      {monsterId:155, level:64, moves:["earthquake","earth_power","fissure_slam","terra_spike"]},
+      {monsterId:52, level:66, moves:["earthquake","blizzard","ice_beam","earth_power"]}
+    ]
+  },
+  mantis: {
+    id:"mantis", name:"Leader Mantis", emoji:"🦗", type:"Bug",
+    badge:"Chitin Badge", badgeEmoji:"🦗",
+    quote:"Bugs are nature's perfect warriors. Swift, sharp, and relentless!",
+    winQuote:"Your reflexes rival even my bugs. The Chitin Badge is yours!",
+    team:[
+      {monsterId:104, level:64, moves:["x_scissor","bug_buzz","iron_tail","mandible_crush"]},
+      {monsterId:151, level:65, moves:["bug_buzz","sludge_bomb","venoshock","x_scissor"]},
+      {monsterId:159, level:66, moves:["bug_buzz","earthquake","x_scissor","mandible_crush"]},
+      {monsterId:140, level:68, moves:["bug_buzz","moonblast","x_scissor","dazzling_gleam"]}
+    ]
+  },
+  zephyra: {
+    id:"zephyra", name:"Leader Zephyra", emoji:"🌪️", type:"Wind",
+    badge:"Tempest Badge", badgeEmoji:"🌪️",
+    quote:"The winds obey my command! Can you stand against the storm?",
+    winQuote:"You've weathered the fiercest gale. The Tempest Badge is yours.",
+    team:[
+      {monsterId:44, level:66, moves:["hurricane","air_slash","cyclone_blade","jetstream"]},
+      {monsterId:46, level:67, moves:["hurricane","cyclone_blade","skyfall","air_slash"]},
+      {monsterId:161, level:68, moves:["blizzard","hurricane","ice_beam","air_slash"]},
+      {monsterId:105, level:70, moves:["hurricane","thunderbolt","tempest_wrath","gale_cannon"]}
+    ]
+  },
+  ferro: {
+    id:"ferro", name:"Leader Ferro", emoji:"⚙️", type:"Steel",
+    badge:"Alloy Badge", badgeEmoji:"⚙️",
+    quote:"Steel is perfection. No weakness, no flaw, no mercy!",
+    winQuote:"Even steel bends before your will. The Alloy Badge is yours.",
+    team:[
+      {monsterId:67, level:68, moves:["iron_tail","forge_strike","flash_cannon","crunch"]},
+      {monsterId:70, level:69, moves:["tungsten_ram","stone_edge","iron_tail","flash_cannon"]},
+      {monsterId:129, level:70, moves:["shadow_ball","flash_cannon","dark_pulse","forge_strike"]},
+      {monsterId:69, level:72, moves:["tungsten_ram","flash_cannon","thunder","iron_tail"]}
+    ]
+  },
+  boulder: {
+    id:"boulder", name:"Leader Boulder", emoji:"🪨", type:"Rock",
+    badge:"Geode Badge", badgeEmoji:"🪨",
+    quote:"Solid as stone, heavy as mountains. My Lumos are unbreakable!",
+    winQuote:"You've shattered my defenses. The Geode Badge is yours.",
+    team:[
+      {monsterId:97, level:70, moves:["earthquake","stone_edge","rock_slide","landslide"]},
+      {monsterId:99, level:71, moves:["crystal_lance","stone_edge","landslide","geode_burst"]},
+      {monsterId:149, level:72, moves:["dark_pulse","stone_edge","shadow_ball","landslide"]},
+      {monsterId:70, level:74, moves:["tungsten_ram","stone_edge","iron_tail","landslide"]}
+    ]
+  },
+  seraphina: {
+    id:"seraphina", name:"Leader Seraphina", emoji:"🧚", type:"Fairy",
+    badge:"Aurora Badge", badgeEmoji:"🧚",
+    quote:"Fairy magic is the most beautiful and the most deadly force in Lumoria!",
+    winQuote:"Your heart shines brighter than any fairy light. The Aurora Badge is yours!",
+    team:[
+      {monsterId:61, level:72, moves:["moonblast","dazzling_gleam","fairy_wind","celestial_wave"]},
+      {monsterId:131, level:73, moves:["moonblast","energy_ball","dazzling_gleam","fairy_wind"]},
+      {monsterId:163, level:74, moves:["moonblast","flash_cannon","celestial_wave","dazzling_gleam"]},
+      {monsterId:65, level:76, moves:["moonblast","psychic_move","celestial_wave","calm_mind"]}
+    ]
+  },
   champion: {
     id:"champion", name:"Champion Lumian", emoji:"👑", type:"Mixed",
     badge:null, badgeEmoji:"🏆",
     quote:"I am Champion Lumian, master of all types and all strategies. Many have tried... none have succeeded. Show me your resolve, young trainer!",
     winQuote:"Astounding! You have defeated the Champion of Lumoria! Your name will echo through the ages! You are the new Lumoria Champion!",
     team:[
-      {monsterId:48, level:65, moves:["blizzard","ice_beam","icicle_crash","body_slam"]},
-      {monsterId:3,  level:66, moves:["flamethrower","dragon_claw","heat_wave","outrage"]},
-      {monsterId:84, level:67, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
-      {monsterId:65, level:68, moves:["moonblast","psychic_move","dazzling_gleam","calm_mind"]},
-      {monsterId:81, level:69, moves:["psychic_move","dragon_pulse","psystrike","outrage"]},
-      {monsterId:69, level:72, moves:["flash_cannon","thunder","iron_tail","hyper_beam"]}
+      {monsterId:3,  level:75, moves:["flamethrower","dragon_claw","heat_wave","outrage"]},
+      {monsterId:52, level:76, moves:["blizzard","earthquake","ice_beam","earth_power"]},
+      {monsterId:167, level:77, moves:["thunderbolt","tungsten_ram","flash_cannon","forge_strike"]},
+      {monsterId:65, level:78, moves:["moonblast","psychic_move","celestial_wave","calm_mind"]},
+      {monsterId:84, level:79, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
+      {monsterId:81, level:80, moves:["psychic_move","dragon_pulse","temporal_rift","outrage"]}
     ]
   }
 };
@@ -2238,7 +2536,23 @@ const ITEMS_DATA = {
   focusSash:     { name:"Focus Sash",     emoji:"🎗️", desc:"Survive a fatal hit with 1 HP once per battle.", type:"held", held:{ effect:"focusSash" } },
   leftovers:     { name:"Leftovers",      emoji:"🍎", desc:"Restores 1/16 max HP each turn.",            type:"held", held:{ effect:"leftovers" } },
   scopeLens:     { name:"Scope Lens",     emoji:"🔭", desc:"Increases critical hit rate.",                type:"held", held:{ effect:"critUp" } },
-  quickClaw:     { name:"Quick Claw",     emoji:"⚡", desc:"30% chance to move first each turn.",        type:"held", held:{ effect:"quickClaw" } }
+  quickClaw:     { name:"Quick Claw",     emoji:"⚡", desc:"30% chance to move first each turn.",        type:"held", held:{ effect:"quickClaw" } },
+  // Battle items
+  xAttack:       { name:"X-Attack",      emoji:"⚔️", desc:"Raises Attack in battle.", catchMult:0, healAmt:0, type:"battle", battleEffect:{ stat:"atk", stages:1 } },
+  xDefense:      { name:"X-Defense",     emoji:"🛡️", desc:"Raises Defense in battle.", catchMult:0, healAmt:0, type:"battle", battleEffect:{ stat:"def", stages:1 } },
+  xSpeed:        { name:"X-Speed",       emoji:"💨", desc:"Raises Speed in battle.", catchMult:0, healAmt:0, type:"battle", battleEffect:{ stat:"spd", stages:1 } },
+  // Additional held items
+  poisonBarb:    { name:"Poison Barb",   emoji:"🗡️", desc:"Boosts Poison-type moves by 20% when held.", type:"held", held:{ typeBoost:"Poison", mult:1.2 } },
+  softSand:      { name:"Soft Sand",     emoji:"🏖️", desc:"Boosts Ground-type moves by 20% when held.", type:"held", held:{ typeBoost:"Ground", mult:1.2 } },
+  silverPowder:  { name:"Silver Powder", emoji:"✨", desc:"Boosts Bug-type moves by 20% when held.", type:"held", held:{ typeBoost:"Bug", mult:1.2 } },
+  metalCoat:     { name:"Metal Coat",    emoji:"🔩", desc:"Boosts Steel-type moves by 20% when held.", type:"held", held:{ typeBoost:"Steel", mult:1.2 } },
+  hardStone:     { name:"Hard Stone",    emoji:"🪨", desc:"Boosts Rock-type moves by 20% when held.", type:"held", held:{ typeBoost:"Rock", mult:1.2 } },
+  pixieDust:     { name:"Pixie Dust",    emoji:"🧚", desc:"Boosts Fairy-type moves by 20% when held.", type:"held", held:{ typeBoost:"Fairy", mult:1.2 } },
+  blackGlasses:  { name:"Black Glasses", emoji:"🕶️", desc:"Boosts Dark-type moves by 20% when held.", type:"held", held:{ typeBoost:"Dark", mult:1.2 } },
+  neverMeltIce:  { name:"Never-Melt Ice",emoji:"🧊", desc:"Boosts Ice-type moves by 20% when held.", type:"held", held:{ typeBoost:"Ice", mult:1.2 } },
+  dragonFang:    { name:"Dragon Fang",   emoji:"🐲", desc:"Boosts Dragon-type moves by 20% when held.", type:"held", held:{ typeBoost:"Dragon", mult:1.2 } },
+  shellBell:     { name:"Shell Bell",    emoji:"🔔", desc:"Restores HP equal to 1/8 of damage dealt.", type:"held", held:{ effect:"shellBell" } },
+  mysticWater:   { name:"Mystic Water",  emoji:"💧", desc:"Boosts Water-type moves by 20% when held.", type:"held", held:{ typeBoost:"Water", mult:1.2 } }
 };
 
 const STARTING_BAG = {
@@ -2265,7 +2579,21 @@ const STARTING_BAG = {
   focusSash: 0,
   leftovers: 0,
   scopeLens: 0,
-  quickClaw: 0
+  quickClaw: 0,
+  xAttack: 0,
+  xDefense: 0,
+  xSpeed: 0,
+  poisonBarb: 0,
+  softSand: 0,
+  silverPowder: 0,
+  metalCoat: 0,
+  hardStone: 0,
+  pixieDust: 0,
+  blackGlasses: 0,
+  neverMeltIce: 0,
+  dragonFang: 0,
+  shellBell: 0,
+  mysticWater: 0
 };
 
 const STARTER_IDS = [1, 4, 7]; // Emberpaw, Dewdrop, Sproutling
@@ -2410,3 +2738,580 @@ const STORY_EVENTS = {
   ]
 };
 
+
+// ============================================================
+// SHOPS DATA
+// ============================================================
+const SHOPS_DATA = {
+  seedvale: {
+    name: "Seedvale Mart",
+    items: [
+      { itemId: "basicOrb", price: 100 },
+      { itemId: "potion", price: 50 }
+    ]
+  },
+  ashford: {
+    name: "Ashford Supply Co.",
+    items: [
+      { itemId: "basicOrb", price: 100 },
+      { itemId: "greatOrb", price: 300 },
+      { itemId: "potion", price: 50 },
+      { itemId: "superPotion", price: 150 }
+    ]
+  },
+  tidewatch: {
+    name: "Tidewatch Market",
+    items: [
+      { itemId: "basicOrb", price: 100 },
+      { itemId: "greatOrb", price: 300 },
+      { itemId: "potion", price: 50 },
+      { itemId: "superPotion", price: 150 },
+      { itemId: "revive", price: 500 }
+    ]
+  },
+  emberveil: {
+    name: "Emberveil Emporium",
+    items: [
+      { itemId: "greatOrb", price: 300 },
+      { itemId: "ultraOrb", price: 600 },
+      { itemId: "superPotion", price: 150 },
+      { itemId: "maxPotion", price: 500 },
+      { itemId: "revive", price: 500 }
+    ]
+  },
+  sparkmoor: {
+    name: "Sparkmoor Electronics",
+    items: [
+      { itemId: "greatOrb", price: 300 },
+      { itemId: "ultraOrb", price: 600 },
+      { itemId: "superPotion", price: 150 },
+      { itemId: "maxPotion", price: 500 },
+      { itemId: "revive", price: 500 }
+    ]
+  },
+  frostpeak: {
+    name: "Frostpeak Provisions",
+    items: [
+      { itemId: "ultraOrb", price: 600 },
+      { itemId: "maxPotion", price: 500 },
+      { itemId: "revive", price: 500 },
+      { itemId: "xAttack", price: 250 },
+      { itemId: "xDefense", price: 250 }
+    ]
+  },
+  shadowmere: {
+    name: "Shadowmere Black Market",
+    items: [
+      { itemId: "ultraOrb", price: 600 },
+      { itemId: "maxPotion", price: 500 },
+      { itemId: "revive", price: 500 },
+      { itemId: "xAttack", price: 250 },
+      { itemId: "xDefense", price: 250 },
+      { itemId: "xSpeed", price: 250 }
+    ]
+  },
+  skyvault: {
+    name: "Skyvault Boutique",
+    items: [
+      { itemId: "ultraOrb", price: 600 },
+      { itemId: "maxPotion", price: 500 },
+      { itemId: "revive", price: 500 },
+      { itemId: "xAttack", price: 250 },
+      { itemId: "xDefense", price: 250 },
+      { itemId: "xSpeed", price: 250 }
+    ]
+  },
+  dragonspire: {
+    name: "Dragonspire Forge",
+    items: [
+      { itemId: "ultraOrb", price: 600 },
+      { itemId: "masterOrb", price: 50000 },
+      { itemId: "maxPotion", price: 500 },
+      { itemId: "revive", price: 500 },
+      { itemId: "xAttack", price: 250 },
+      { itemId: "xDefense", price: 250 },
+      { itemId: "xSpeed", price: 250 }
+    ]
+  },
+  bloomhaven: {
+    name: "Bloomhaven Greenhouse",
+    items: [
+      { itemId: "ultraOrb", price: 600 },
+      { itemId: "maxPotion", price: 500 },
+      { itemId: "revive", price: 500 },
+      { itemId: "miracleSeed", price: 3000 }
+    ]
+  },
+  miasmacity: {
+    name: "Miasma City Apothecary",
+    items: [
+      { itemId: "ultraOrb", price: 600 },
+      { itemId: "maxPotion", price: 500 },
+      { itemId: "revive", price: 500 },
+      { itemId: "poisonBarb", price: 3000 }
+    ]
+  },
+  terravault: {
+    name: "Terravault Mining Supply",
+    items: [
+      { itemId: "ultraOrb", price: 600 },
+      { itemId: "maxPotion", price: 500 },
+      { itemId: "revive", price: 500 },
+      { itemId: "softSand", price: 3000 }
+    ]
+  },
+  silkwood: {
+    name: "Silkwood Nature Shop",
+    items: [
+      { itemId: "ultraOrb", price: 600 },
+      { itemId: "maxPotion", price: 500 },
+      { itemId: "revive", price: 500 },
+      { itemId: "silverPowder", price: 3000 }
+    ]
+  },
+  gusthaven: {
+    name: "Gusthaven Windmill Market",
+    items: [
+      { itemId: "ultraOrb", price: 600 },
+      { itemId: "maxPotion", price: 500 },
+      { itemId: "revive", price: 500 },
+      { itemId: "swiftFeather", price: 3000 }
+    ]
+  },
+  ironforge: {
+    name: "Ironforge Metallurgy",
+    items: [
+      { itemId: "ultraOrb", price: 600 },
+      { itemId: "masterOrb", price: 50000 },
+      { itemId: "maxPotion", price: 500 },
+      { itemId: "revive", price: 500 },
+      { itemId: "metalCoat", price: 3000 }
+    ]
+  },
+  quarryville: {
+    name: "Quarryville Stone Works",
+    items: [
+      { itemId: "ultraOrb", price: 600 },
+      { itemId: "maxPotion", price: 500 },
+      { itemId: "revive", price: 500 },
+      { itemId: "hardStone", price: 3000 }
+    ]
+  },
+  starbloom: {
+    name: "Starbloom Enchantments",
+    items: [
+      { itemId: "ultraOrb", price: 600 },
+      { itemId: "masterOrb", price: 50000 },
+      { itemId: "maxPotion", price: 500 },
+      { itemId: "revive", price: 500 }
+    ]
+  }
+};
+
+// ============================================================
+// ELITE FOUR (themed, NOT monotype)
+// ============================================================
+const ELITE_FOUR = [
+  {
+    id: "aria", name: "Elite Aria", emoji: "🎵", theme: "Graceful Offense",
+    quote: "My Lumos dance through battle like a symphony. Can you keep up with the tempo?",
+    winQuote: "A beautiful performance... You've earned my respect.",
+    team: [
+      { monsterId: 65, level: 72, moves: ["moonblast", "psychic_move", "dazzling_gleam", "calm_mind"] },
+      { monsterId: 42, level: 71, moves: ["hurricane", "air_slash", "moonblast", "jetstream"] },
+      { monsterId: 9, level: 72, moves: ["petal_blitz", "energy_ball", "moonblast", "sleep_powder"] },
+      { monsterId: 115, level: 73, moves: ["surf", "hurricane", "ice_beam", "aqua_tail"] },
+      { monsterId: 134, level: 74, moves: ["psychic_move", "hurricane", "cyclone_blade", "calm_mind"] }
+    ]
+  },
+  {
+    id: "grimshaw", name: "Elite Grimshaw", emoji: "💀", theme: "Brutal Power",
+    quote: "I don't do finesse. I crush. I break. I win.",
+    winQuote: "Tch... You hit harder than I expected. Fine, you pass.",
+    team: [
+      { monsterId: 58, level: 73, moves: ["crunch", "sludge_bomb", "dark_pulse", "poison_sting"] },
+      { monsterId: 40, level: 72, moves: ["earthquake", "earth_power", "body_slam", "mud_shot"] },
+      { monsterId: 74, level: 73, moves: ["sludge_wave", "earthquake", "acid_rain", "toxic"] },
+      { monsterId: 67, level: 74, moves: ["iron_tail", "crunch", "flash_cannon", "forge_strike"] },
+      { monsterId: 84, level: 75, moves: ["outrage", "dragon_pulse", "fire_blast", "dragon_dance"] }
+    ]
+  },
+  {
+    id: "celeste", name: "Elite Celeste", emoji: "✨", theme: "Cosmic Balance",
+    quote: "The stars have aligned for this battle. Let us see what fate decrees.",
+    winQuote: "The cosmos acknowledges your strength. Proceed, champion-to-be.",
+    team: [
+      { monsterId: 78, level: 74, moves: ["psychic_move", "dazzling_gleam", "moonblast", "calm_mind"] },
+      { monsterId: 48, level: 73, moves: ["blizzard", "ice_beam", "surf", "icicle_crash"] },
+      { monsterId: 69, level: 74, moves: ["flash_cannon", "thunderbolt", "tungsten_ram", "hyper_beam"] },
+      { monsterId: 3, level: 75, moves: ["flamethrower", "dragon_claw", "heat_wave", "outrage"] },
+      { monsterId: 166, level: 76, moves: ["dark_pulse", "moonblast", "psychic_move", "shadow_ball"] }
+    ]
+  },
+  {
+    id: "titan", name: "Elite Titan", emoji: "🏔️", theme: "Immovable Fortress",
+    quote: "I am the mountain. I am the wall. You shall not pass.",
+    winQuote: "The mountain crumbles... You have the strength of a titan yourself.",
+    team: [
+      { monsterId: 99, level: 74, moves: ["stone_edge", "crystal_lance", "landslide", "rock_slide"] },
+      { monsterId: 70, level: 75, moves: ["tungsten_ram", "stone_edge", "iron_tail", "flash_cannon"] },
+      { monsterId: 52, level: 74, moves: ["blizzard", "earthquake", "ice_beam", "earth_power"] },
+      { monsterId: 127, level: 75, moves: ["flash_cannon", "surf", "tungsten_ram", "hydro_pump"] },
+      { monsterId: 83, level: 76, moves: ["outrage", "dragon_pulse", "dragon_dance", "hyper_beam"] }
+    ]
+  }
+];
+
+// ============================================================
+// QUESTS DATA (100+ side quests)
+// ============================================================
+const QUESTS_DATA = [
+  // ---- SEEDVALE & EARLY ROUTES (1-10) ----
+  { id:"q1", title:"First Steps", desc:"Defeat 3 wild Lumos on Route 1 to prove your mettle.", location:"route1", type:"boss", requiredBadges:0,
+    boss:{monsterId:91, level:8, moves:["tackle","headbutt","growl","quick_attack"]},
+    reward:{type:"item", itemId:"potion", qty:5}, rewardText:"5 Potions" },
+  { id:"q2", title:"Seedvale's Lost Pet", desc:"A child in Seedvale lost their Pudgeling. Find and defeat the wild one on Route 1.", location:"route1", type:"boss", requiredBadges:0,
+    boss:{monsterId:94, level:7, moves:["tackle","gust","growl","wing_attack"]},
+    reward:{type:"item", itemId:"greatOrb", qty:3}, rewardText:"3 Great Orbs" },
+  { id:"q3", title:"Bug Catcher's Challenge", desc:"A bug catcher on Route 1 challenges you to battle his prized Caterpet!", location:"route1", type:"boss", requiredBadges:0,
+    boss:{monsterId:101, level:10, moves:["bug_bite","string_shot","tackle","harden"]},
+    reward:{type:"money", amount:500}, rewardText:"500 coins" },
+  { id:"q4", title:"Meadow Guardian", desc:"A powerful Bushbear guards the meadow clearing. Defeat it!", location:"route1", type:"boss", requiredBadges:0,
+    boss:{monsterId:27, level:12, moves:["vine_whip","tackle","razor_leaf","growl"]},
+    reward:{type:"item", itemId:"miracleSeed", qty:1}, rewardText:"Miracle Seed" },
+  { id:"q5", title:"Professor's Errand", desc:"Visit Ashford City to deliver a package for Professor Arbor.", location:"ashford", type:"visit", requiredBadges:0,
+    reward:{type:"money", amount:300}, rewardText:"300 coins" },
+  { id:"q6", title:"Night Prowler", desc:"A mysterious dark Lumos has been spotted on Route 1 at night. Defeat it!", location:"route1", type:"boss", requiredBadges:1,
+    boss:{monsterId:54, level:15, moves:["bite","quick_attack","night_slash","growl"]},
+    reward:{type:"item", itemId:"blackGlasses", qty:1}, rewardText:"Black Glasses" },
+  { id:"q7", title:"Fairy Ring Mystery", desc:"Strange lights glow in Fairy Meadow. Investigate by defeating the guardian.", location:"fairy_meadow", type:"boss", requiredBadges:0,
+    boss:{monsterId:60, level:10, moves:["fairy_wind","tackle","sweet_kiss","quick_attack"]},
+    reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Pixie Dust" },
+  { id:"q8", title:"The Stubborn Sproutling", desc:"A giant Sproutling blocks the path! Battle it to clear the way.", location:"route1", type:"boss", requiredBadges:0,
+    boss:{monsterId:7, level:11, moves:["vine_whip","tackle","razor_leaf","sleep_powder"]},
+    reward:{type:"item", itemId:"potion", qty:3}, rewardText:"3 Potions" },
+  { id:"q9", title:"Route 1 Champion", desc:"Become the undisputed champion of Route 1 by defeating the alpha!", location:"route1", type:"boss", requiredBadges:1,
+    boss:{monsterId:89, level:18, moves:["headbutt","body_slam","quick_attack","hyper_beam"]},
+    reward:{type:"money", amount:1000}, rewardText:"1000 coins" },
+  { id:"q10", title:"Ashford Arena Amateur", desc:"Win the Ashford amateur tournament!", location:"ashford", type:"boss", requiredBadges:1,
+    boss:{monsterId:93, level:16, moves:["body_slam","headbutt","quick_attack","hyper_beam"]},
+    reward:{type:"item", itemId:"superPotion", qty:3}, rewardText:"3 Super Potions" },
+
+  // ---- TIDEWATCH & WATER AREAS (11-20) ----
+  { id:"q11", title:"Tidewatch Fisherman", desc:"A fisherman challenges you with his strongest Water Lumos!", location:"tidewatch", type:"boss", requiredBadges:1,
+    boss:{monsterId:16, level:22, moves:["surf","aqua_tail","bubble_beam","harden"]},
+    reward:{type:"money", amount:800}, rewardText:"800 coins" },
+  { id:"q12", title:"Coral Reef Explorer", desc:"Explore the Coral Reef and defeat its guardian.", location:"coral_reef", type:"boss", requiredBadges:2,
+    boss:{monsterId:114, level:28, moves:["surf","flash_cannon","rock_slide","harden"]},
+    reward:{type:"item", itemId:"mysticWater", qty:1}, rewardText:"Mystic Water" },
+  { id:"q13", title:"Sunken Treasure", desc:"Dive deep in the Sunken Temple to find legendary treasure.", location:"sunken_temple", type:"boss", requiredBadges:2,
+    boss:{monsterId:18, level:30, moves:["hydro_pump","aqua_tail","ice_beam","surf"]},
+    reward:{type:"money", amount:3000}, rewardText:"3000 coins" },
+  { id:"q14", title:"Reef Ruins Riddle", desc:"Solve the puzzle of the Reef Ruins by defeating the ancient guardian.", location:"reef_ruins", type:"boss", requiredBadges:2,
+    boss:{monsterId:135, level:30, moves:["surf","moonblast","ice_beam","dazzling_gleam"]},
+    reward:{type:"item", itemId:"shellBell", qty:1}, rewardText:"Shell Bell" },
+  { id:"q15", title:"The Lurking Depth", desc:"Something massive lurks in the Deep Trench. Defeat it!", location:"deep_trench", type:"boss", requiredBadges:2,
+    boss:{monsterId:127, level:35, moves:["flash_cannon","surf","tungsten_ram","hydro_pump"]},
+    reward:{type:"item", itemId:"ultraOrb", qty:5}, rewardText:"5 Ultra Orbs" },
+  { id:"q16", title:"Jungle Expedition", desc:"Navigate the Lumoria Jungle and defeat the territorial alpha.", location:"lumoria_jungle", type:"boss", requiredBadges:1,
+    boss:{monsterId:25, level:20, moves:["vine_whip","mud_shot","razor_leaf","earthquake"]},
+    reward:{type:"item", itemId:"greatOrb", qty:5}, rewardText:"5 Great Orbs" },
+  { id:"q17", title:"Ancient Ruins Scholar", desc:"A scholar needs help clearing Lumos from the Ancient Ruins.", location:"ancient_ruins", type:"boss", requiredBadges:1,
+    boss:{monsterId:76, level:22, moves:["confusion","psybeam","quick_attack","recover"]},
+    reward:{type:"money", amount:1200}, rewardText:"1200 coins" },
+  { id:"q18", title:"Tidal Wave Warning", desc:"A rogue Water Lumos threatens Tidewatch harbor!", location:"tidewatch", type:"boss", requiredBadges:2,
+    boss:{monsterId:115, level:28, moves:["surf","hurricane","aqua_tail","wing_attack"]},
+    reward:{type:"item", itemId:"revive", qty:3}, rewardText:"3 Revives" },
+  { id:"q19", title:"Pearl Diver", desc:"Dive for pearls in the Coral Reef, but beware the guardian!", location:"coral_reef", type:"boss", requiredBadges:2,
+    boss:{monsterId:117, level:26, moves:["dazzling_gleam","surf","fairy_wind","bubble_beam"]},
+    reward:{type:"money", amount:2000}, rewardText:"2000 coins" },
+  { id:"q20", title:"Route 2 Ranger", desc:"The Route 2 ranger needs help with an aggressive wild Lumos.", location:"route2", type:"boss", requiredBadges:1,
+    boss:{monsterId:8, level:18, moves:["razor_leaf","vine_whip","poison_sting","body_slam"]},
+    reward:{type:"item", itemId:"superPotion", qty:5}, rewardText:"5 Super Potions" },
+
+  // ---- EMBERVEIL & FIRE AREAS (21-30) ----
+  { id:"q21", title:"Volcanic Challenge", desc:"Brave the Volcano Core and defeat its fiery guardian!", location:"volcano_core", type:"boss", requiredBadges:3,
+    boss:{monsterId:130, level:35, moves:["flamethrower","earthquake","fire_blast","earth_power"]},
+    reward:{type:"item", itemId:"charcoal", qty:1}, rewardText:"Charcoal" },
+  { id:"q22", title:"Lava Fields Survivor", desc:"Cross the Lava Fields and defeat the alpha fire Lumos.", location:"lava_fields", type:"boss", requiredBadges:3,
+    boss:{monsterId:12, level:34, moves:["flamethrower","body_slam","heat_wave","fire_blast"]},
+    reward:{type:"money", amount:2500}, rewardText:"2500 coins" },
+  { id:"q23", title:"Emberveil Forge Master", desc:"The Forge Master tests trainers with his strongest Lumos.", location:"emberveil", type:"boss", requiredBadges:2,
+    boss:{monsterId:14, level:30, moves:["flamethrower","quick_attack","heat_wave","fire_blast"]},
+    reward:{type:"item", itemId:"maxPotion", qty:3}, rewardText:"3 Max Potions" },
+  { id:"q24", title:"Cinder Mole Hunt", desc:"A rare Cindermole has been spotted in the Lava Fields!", location:"lava_fields", type:"boss", requiredBadges:3,
+    boss:{monsterId:110, level:32, moves:["flamethrower","earthquake","mud_shot","ember"]},
+    reward:{type:"item", itemId:"softSand", qty:1}, rewardText:"Soft Sand" },
+  { id:"q25", title:"Iron Canyon Explorer", desc:"Explore the treacherous Iron Canyon and defeat its sentinel.", location:"iron_canyon", type:"boss", requiredBadges:3,
+    boss:{monsterId:67, level:34, moves:["iron_tail","crunch","flash_cannon","metal_claw"]},
+    reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Metal Coat" },
+  { id:"q26", title:"Route 3 Gauntlet", desc:"Run the Route 3 trainer gauntlet and face the final boss!", location:"route3", type:"boss", requiredBadges:2,
+    boss:{monsterId:17, level:26, moves:["surf","rock_slide","aqua_tail","headbutt"]},
+    reward:{type:"money", amount:1500}, rewardText:"1500 coins" },
+  { id:"q27", title:"Fire Dance Festival", desc:"Win the Emberveil Fire Dance Festival battle tournament!", location:"emberveil", type:"boss", requiredBadges:3,
+    boss:{monsterId:11, level:32, moves:["flamethrower","wing_attack","air_slash","heat_wave"]},
+    reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 X-Attacks" },
+  { id:"q28", title:"Molten Core Mystery", desc:"Strange energy readings in the Volcano Core need investigation.", location:"volcano_core", type:"boss", requiredBadges:3,
+    boss:{monsterId:13, level:36, moves:["flamethrower","rock_slide","earthquake","fire_blast"]},
+    reward:{type:"money", amount:3000}, rewardText:"3000 coins" },
+  { id:"q29", title:"The Scorched Path", desc:"Clear the scorched path through Route 4 from aggressive Lumos.", location:"route4", type:"boss", requiredBadges:3,
+    boss:{monsterId:38, level:34, moves:["earthquake","poison_sting","venoshock","mud_shot"]},
+    reward:{type:"item", itemId:"revive", qty:3}, rewardText:"3 Revives" },
+  { id:"q30", title:"Ember Guardian", desc:"The legendary ember guardian protects Emberveil's sacred flame.", location:"emberveil", type:"boss", requiredBadges:3,
+    boss:{monsterId:3, level:38, moves:["flamethrower","dragon_claw","heat_wave","outrage"]},
+    reward:{type:"item", itemId:"dragonFang", qty:1}, rewardText:"Dragon Fang" },
+
+  // ---- SPARKMOOR & ELECTRIC AREAS (31-40) ----
+  { id:"q31", title:"Static Shock", desc:"A dangerously charged Lumos terrorizes Sparkmoor. Stop it!", location:"sparkmoor", type:"boss", requiredBadges:3,
+    boss:{monsterId:29, level:36, moves:["thunderbolt","spark","thunder_wave","body_slam"]},
+    reward:{type:"item", itemId:"magnet", qty:1}, rewardText:"Magnet" },
+  { id:"q32", title:"Thunder Cliffs Dare", desc:"Scale the Thunder Cliffs and face the storm beast!", location:"thunder_cliffs", type:"boss", requiredBadges:4,
+    boss:{monsterId:108, level:40, moves:["thunderbolt","rock_slide","stone_edge","spark"]},
+    reward:{type:"money", amount:3500}, rewardText:"3500 coins" },
+  { id:"q33", title:"Power Plant Breach", desc:"Wild Electric Lumos have breached the Sparkmoor power plant!", location:"sparkmoor", type:"boss", requiredBadges:3,
+    boss:{monsterId:31, level:35, moves:["thunderbolt","bug_buzz","spark","x_scissor"]},
+    reward:{type:"item", itemId:"ultraOrb", qty:3}, rewardText:"3 Ultra Orbs" },
+  { id:"q34", title:"Route 4 Blockade", desc:"A stubborn Ground Lumos blocks Route 4. Move it!", location:"route4", type:"boss", requiredBadges:3,
+    boss:{monsterId:36, level:33, moves:["earthquake","rock_slide","mud_shot","headbutt"]},
+    reward:{type:"item", itemId:"maxPotion", qty:2}, rewardText:"2 Max Potions" },
+  { id:"q35", title:"Storm Chaser", desc:"Chase down and battle the legendary storm bird on Storm Plateau!", location:"storm_plateau", type:"boss", requiredBadges:4,
+    boss:{monsterId:34, level:42, moves:["thunderbolt","hurricane","spark","wing_attack"]},
+    reward:{type:"item", itemId:"swiftFeather", qty:1}, rewardText:"Swift Feather" },
+  { id:"q36", title:"Mirror Lake Enigma", desc:"The Mirror Lake's surface shimmers with psychic energy. Investigate!", location:"mirror_lake", type:"boss", requiredBadges:4,
+    boss:{monsterId:142, level:40, moves:["ice_beam","dazzling_gleam","psychic_move","fairy_wind"]},
+    reward:{type:"item", itemId:"wiseGlasses", qty:1}, rewardText:"Wise Glasses" },
+  { id:"q37", title:"Sparkmoor Circuit", desc:"Win the Sparkmoor Circuit racing tournament!", location:"sparkmoor", type:"boss", requiredBadges:3,
+    boss:{monsterId:146, level:35, moves:["thunderbolt","vine_whip","spark","energy_ball"]},
+    reward:{type:"money", amount:2500}, rewardText:"2500 coins" },
+  { id:"q38", title:"Lightning Rod", desc:"Capture the wild electricity surging through Route 5.", location:"route5", type:"boss", requiredBadges:4,
+    boss:{monsterId:128, level:40, moves:["thunderbolt","stone_edge","rock_slide","spark"]},
+    reward:{type:"item", itemId:"xSpeed", qty:5}, rewardText:"5 X-Speeds" },
+  { id:"q39", title:"Voltforest Protector", desc:"The Voltforest needs a champion to defeat the invasive alpha.", location:"bug_forest", type:"boss", requiredBadges:1,
+    boss:{monsterId:147, level:20, moves:["thunderbolt","vine_whip","spark","razor_leaf"]},
+    reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Silver Powder" },
+  { id:"q40", title:"The Magnetic Anomaly", desc:"A strange magnetic field disrupts Sparkmoor. Find the source!", location:"sparkmoor", type:"boss", requiredBadges:4,
+    boss:{monsterId:69, level:42, moves:["flash_cannon","thunderbolt","iron_tail","hyper_beam"]},
+    reward:{type:"money", amount:4000}, rewardText:"4000 coins" },
+
+  // ---- FROSTPEAK & ICE AREAS (41-50) ----
+  { id:"q41", title:"Blizzard Warning", desc:"A massive blizzard Lumos rampages near Frostpeak!", location:"frostpeak", type:"boss", requiredBadges:4,
+    boss:{monsterId:49, level:44, moves:["blizzard","ice_beam","icicle_crash","harden"]},
+    reward:{type:"item", itemId:"neverMeltIce", qty:1}, rewardText:"Never-Melt Ice" },
+  { id:"q42", title:"Frozen Lake Monster", desc:"Break through the ice and battle the creature beneath!", location:"mirror_lake", type:"boss", requiredBadges:4,
+    boss:{monsterId:53, level:42, moves:["blizzard","surf","ice_beam","hydro_pump"]},
+    reward:{type:"money", amount:4000}, rewardText:"4000 coins" },
+  { id:"q43", title:"Avalanche Alert", desc:"Stop the Lumos causing avalanches on Route 5!", location:"route5", type:"boss", requiredBadges:4,
+    boss:{monsterId:141, level:43, moves:["blizzard","flash_cannon","ice_beam","iron_tail"]},
+    reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Revives" },
+  { id:"q44", title:"Crystal Depths Expedition", desc:"Delve into the Crystal Depths and claim the crystal prize.", location:"crystal_depths", type:"boss", requiredBadges:5,
+    boss:{monsterId:99, level:48, moves:["crystal_lance","stone_edge","rock_slide","landslide"]},
+    reward:{type:"item", itemId:"hardStone", qty:1}, rewardText:"Hard Stone" },
+  { id:"q45", title:"Frostpeak Ski Challenge", desc:"Win the Frostpeak ski challenge battle tournament!", location:"frostpeak", type:"boss", requiredBadges:4,
+    boss:{monsterId:47, level:42, moves:["ice_beam","icicle_crash","quick_attack","blizzard"]},
+    reward:{type:"money", amount:3000}, rewardText:"3000 coins" },
+  { id:"q46", title:"Ice Sculptor's Request", desc:"An ice sculptor needs rare ice crystals. Defeat the Lumos guarding them.", location:"frostpeak", type:"boss", requiredBadges:4,
+    boss:{monsterId:124, level:44, moves:["ice_beam","flash_cannon","iron_tail","blizzard"]},
+    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Max Potions" },
+  { id:"q47", title:"Polar Expedition", desc:"Join the polar expedition and face the apex predator!", location:"route5", type:"boss", requiredBadges:4,
+    boss:{monsterId:52, level:45, moves:["blizzard","earthquake","ice_beam","earth_power"]},
+    reward:{type:"item", itemId:"xDefense", qty:5}, rewardText:"5 X-Defenses" },
+  { id:"q48", title:"The Frozen Guardian", desc:"Awaken and battle the legendary frozen guardian of Frostpeak.", location:"frostpeak", type:"boss", requiredBadges:5,
+    boss:{monsterId:48, level:50, moves:["blizzard","ice_beam","surf","icicle_crash"]},
+    reward:{type:"item", itemId:"ultraOrb", qty:10}, rewardText:"10 Ultra Orbs" },
+  { id:"q49", title:"Glacial Passage", desc:"Clear the glacial passage for travelers by defeating the blockade.", location:"crystal_depths", type:"boss", requiredBadges:5,
+    boss:{monsterId:160, level:46, moves:["blizzard","gust","ice_beam","hurricane"]},
+    reward:{type:"money", amount:3500}, rewardText:"3500 coins" },
+  { id:"q50", title:"Chillgust Chase", desc:"A rare Chillgust has been spotted! Track it down!", location:"storm_plateau", type:"boss", requiredBadges:4,
+    boss:{monsterId:161, level:45, moves:["blizzard","hurricane","ice_beam","air_slash"]},
+    reward:{type:"item", itemId:"swiftFeather", qty:1}, rewardText:"Swift Feather" },
+
+  // ---- SHADOWMERE & DARK AREAS (51-60) ----
+  { id:"q51", title:"Shadow Stalker", desc:"A shadow stalks Shadowmere at night. Put it to rest.", location:"shadowmere", type:"boss", requiredBadges:5,
+    boss:{monsterId:55, level:48, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
+    reward:{type:"item", itemId:"blackGlasses", qty:1}, rewardText:"Black Glasses" },
+  { id:"q52", title:"Haunted Grove Terror", desc:"The Haunted Grove has become more dangerous. Investigate!", location:"haunted_grove", type:"boss", requiredBadges:5,
+    boss:{monsterId:59, level:48, moves:["shadow_ball","dark_pulse","crunch","poison_sting"]},
+    reward:{type:"money", amount:4500}, rewardText:"4500 coins" },
+  { id:"q53", title:"Lunar Peak Ascent", desc:"Climb Lunar Peak and face the moonlit guardian!", location:"lunar_peak", type:"boss", requiredBadges:5,
+    boss:{monsterId:65, level:50, moves:["moonblast","psychic_move","dazzling_gleam","calm_mind"]},
+    reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Pixie Dust" },
+  { id:"q54", title:"Spirit Canyon Crossing", desc:"Cross Spirit Canyon by defeating the ghostly guardians.", location:"spirit_canyon", type:"boss", requiredBadges:5,
+    boss:{monsterId:129, level:48, moves:["shadow_ball","flash_cannon","dark_pulse","iron_tail"]},
+    reward:{type:"item", itemId:"spiritVeil", qty:1}, rewardText:"Spirit Veil" },
+  { id:"q55", title:"Crystal Spire Mystery", desc:"Unlock the Crystal Spire's secrets by defeating its protector.", location:"crystal_spire", type:"boss", requiredBadges:5,
+    boss:{monsterId:142, level:48, moves:["ice_beam","dazzling_gleam","psychic_move","blizzard"]},
+    reward:{type:"money", amount:5000}, rewardText:"5000 coins" },
+  { id:"q56", title:"Dark Canyon Depths", desc:"Venture into the Dark Canyon and face what lurks within.", location:"dark_canyon", type:"boss", requiredBadges:6,
+    boss:{monsterId:149, level:52, moves:["dark_pulse","stone_edge","shadow_ball","crunch"]},
+    reward:{type:"item", itemId:"ultraOrb", qty:5}, rewardText:"5 Ultra Orbs" },
+  { id:"q57", title:"Shadowmere Underworld", desc:"The underworld beneath Shadowmere holds a powerful foe.", location:"shadowmere", type:"boss", requiredBadges:5,
+    boss:{monsterId:136, level:48, moves:["dark_pulse","energy_ball","vine_whip","shadow_ball"]},
+    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Max Potions" },
+  { id:"q58", title:"Grave Moss Collector", desc:"Collect rare grave moss by defeating its parasitic host.", location:"haunted_grove", type:"boss", requiredBadges:5,
+    boss:{monsterId:122, level:46, moves:["shadow_ball","energy_ball","dark_pulse","razor_leaf"]},
+    reward:{type:"money", amount:3500}, rewardText:"3500 coins" },
+  { id:"q59", title:"The Umbravine", desc:"A monstrous Umbravine has rooted in Route 6. Remove it!", location:"route6", type:"boss", requiredBadges:5,
+    boss:{monsterId:136, level:50, moves:["dark_pulse","energy_ball","seed_bomb","shadow_ball"]},
+    reward:{type:"item", itemId:"miracleSeed", qty:1}, rewardText:"Miracle Seed" },
+  { id:"q60", title:"Nightfall Reckoning", desc:"Face the most powerful dark Lumos in all of Shadowmere.", location:"shadowmere", type:"boss", requiredBadges:6,
+    boss:{monsterId:58, level:55, moves:["crunch","sludge_bomb","dark_pulse","shadow_ball"]},
+    reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 X-Attacks" },
+
+  // ---- SKYVAULT & PSYCHIC AREAS (61-70) ----
+  { id:"q61", title:"Mind Over Matter", desc:"A psychic barrier blocks Skyvault. Shatter it by defeating the guardian.", location:"skyvault", type:"boss", requiredBadges:6,
+    boss:{monsterId:78, level:54, moves:["psychic_move","dazzling_gleam","psybeam","calm_mind"]},
+    reward:{type:"item", itemId:"wiseGlasses", qty:1}, rewardText:"Wise Glasses" },
+  { id:"q62", title:"Mystic Forest Patrol", desc:"Patrol the Mystic Forest and defeat rogue Lumos.", location:"mystic_forest", type:"boss", requiredBadges:6,
+    boss:{monsterId:118, level:50, moves:["shadow_ball","razor_leaf","dark_pulse","energy_ball"]},
+    reward:{type:"money", amount:4000}, rewardText:"4000 coins" },
+  { id:"q63", title:"Sky Harbor Defense", desc:"Sky Harbor is under attack! Defend it from the invader!", location:"sky_harbor", type:"boss", requiredBadges:6,
+    boss:{monsterId:44, level:52, moves:["hurricane","air_slash","wing_attack","jetstream"]},
+    reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Revives" },
+  { id:"q64", title:"Poison Swamp Cleanup", desc:"Clear the toxic Lumos polluting the Poison Swamp.", location:"poison_swamp", type:"boss", requiredBadges:6,
+    boss:{monsterId:74, level:52, moves:["sludge_wave","earthquake","acid_rain","toxic"]},
+    reward:{type:"item", itemId:"poisonBarb", qty:1}, rewardText:"Poison Barb" },
+  { id:"q65", title:"Wind Bridge Battle", desc:"A wind elemental guards the Wind Bridge. Cross by defeating it!", location:"wind_bridge", type:"boss", requiredBadges:6,
+    boss:{monsterId:46, level:52, moves:["hurricane","air_slash","cyclone_blade","jetstream"]},
+    reward:{type:"money", amount:4500}, rewardText:"4500 coins" },
+  { id:"q66", title:"Umbra Base Infiltrator", desc:"Infiltrate the abandoned Umbra Base and clear remaining forces.", location:"umbra_base", type:"boss", requiredBadges:6,
+    boss:{monsterId:57, level:54, moves:["dark_pulse","wing_attack","hurricane","crunch"]},
+    reward:{type:"item", itemId:"ultraOrb", qty:5}, rewardText:"5 Ultra Orbs" },
+  { id:"q67", title:"Psychic Duel", desc:"Oracle's apprentice challenges you to a psychic duel!", location:"skyvault", type:"boss", requiredBadges:6,
+    boss:{monsterId:134, level:54, moves:["psychic_move","hurricane","cyclone_blade","calm_mind"]},
+    reward:{type:"money", amount:5000}, rewardText:"5000 coins" },
+  { id:"q68", title:"Route 7 Guardian", desc:"The ancient guardian of Route 7 awakens. Defeat it!", location:"route7", type:"boss", requiredBadges:6,
+    boss:{monsterId:9, level:52, moves:["petal_blitz","moonblast","energy_ball","sleep_powder"]},
+    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Max Potions" },
+  { id:"q69", title:"Skyvault Observatory", desc:"The observatory telescope reveals a hidden Lumos. Battle it!", location:"skyvault", type:"boss", requiredBadges:6,
+    boss:{monsterId:166, level:56, moves:["dark_pulse","moonblast","psychic_move","shadow_ball"]},
+    reward:{type:"item", itemId:"spiritVeil", qty:1}, rewardText:"Spirit Veil" },
+  { id:"q70", title:"Dreamweaver", desc:"A Lumos weaves dreams into reality. Snap out of it by fighting!", location:"mystic_forest", type:"boss", requiredBadges:6,
+    boss:{monsterId:64, level:52, moves:["dazzling_gleam","fairy_wind","psychic_move","moonblast"]},
+    reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Pixie Dust" },
+
+  // ---- DRAGONSPIRE & LATE GAME (71-80) ----
+  { id:"q71", title:"Dragon's Trial", desc:"Pass the Dragon's Trial at Dragonspire to prove your worth.", location:"dragonspire", type:"boss", requiredBadges:7,
+    boss:{monsterId:83, level:60, moves:["outrage","dragon_pulse","dragon_dance","hyper_beam"]},
+    reward:{type:"money", amount:8000}, rewardText:"8000 coins" },
+  { id:"q72", title:"Route 8 Warden", desc:"The Route 8 warden tests all who pass.", location:"route8", type:"boss", requiredBadges:7,
+    boss:{monsterId:84, level:58, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
+    reward:{type:"item", itemId:"dragonFang", qty:1}, rewardText:"Dragon Fang" },
+  { id:"q73", title:"Victory Road Preview", desc:"Get a taste of Victory Road by defeating its gatekeeper!", location:"victoryroad", type:"boss", requiredBadges:8,
+    boss:{monsterId:70, level:60, moves:["tungsten_ram","stone_edge","iron_tail","flash_cannon"]},
+    reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 X-Attacks" },
+  { id:"q74", title:"Dragon Egg Protector", desc:"Protect the dragon eggs from poachers by defeating their leader!", location:"dragonspire", type:"boss", requiredBadges:7,
+    boss:{monsterId:82, level:56, moves:["dragon_claw","dragon_breath","body_slam","dragon_dance"]},
+    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Max Potions" },
+  { id:"q75", title:"The Dragon Sage", desc:"An ancient dragon sage challenges worthy trainers.", location:"dragonspire", type:"boss", requiredBadges:8,
+    boss:{monsterId:85, level:62, moves:["surf","dragon_pulse","hydro_pump","dragon_claw"]},
+    reward:{type:"money", amount:10000}, rewardText:"10000 coins" },
+  { id:"q76", title:"Stormforged Encounter", desc:"A rare Stormforged has been spotted near Thunder Cliffs!", location:"thunder_cliffs", type:"boss", requiredBadges:4,
+    boss:{monsterId:167, level:45, moves:["thunderbolt","flash_cannon","forge_strike","spark"]},
+    reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Metal Coat" },
+  { id:"q77", title:"Route 8 Ambush", desc:"Bandits ambush travelers on Route 8. Stop them!", location:"route8", type:"boss", requiredBadges:7,
+    boss:{monsterId:55, level:56, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
+    reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Revives" },
+  { id:"q78", title:"The Apex Hunter", desc:"Track down the apex predator of Dragonspire.", location:"dragonspire", type:"boss", requiredBadges:8,
+    boss:{monsterId:86, level:60, moves:["thunderbolt","dragon_pulse","thunder","dragon_claw"]},
+    reward:{type:"item", itemId:"dragonFang", qty:1}, rewardText:"Dragon Fang" },
+  { id:"q79", title:"Legends Awakening", desc:"The ancient legends stir. Face a lesser dragon to prove readiness.", location:"dragonspire", type:"boss", requiredBadges:8,
+    boss:{monsterId:81, level:62, moves:["psychic_move","dragon_pulse","psystrike","outrage"]},
+    reward:{type:"money", amount:12000}, rewardText:"12000 coins" },
+  { id:"q80", title:"Summit Sentinel", desc:"The Summit's sentinel bars entry to the unworthy.", location:"summit", type:"boss", requiredBadges:8,
+    boss:{monsterId:69, level:62, moves:["flash_cannon","thunder","tungsten_ram","hyper_beam"]},
+    reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
+
+  // ---- NEW AREAS - BLOOMHAVEN TO STARBLOOM (81-100) ----
+  { id:"q81", title:"Bloomhaven Blossom Festival", desc:"Win the annual Blossom Festival tournament!", location:"bloomhaven", type:"boss", requiredBadges:8,
+    boss:{monsterId:9, level:58, moves:["petal_blitz","energy_ball","moonblast","canopy_crash"]},
+    reward:{type:"money", amount:6000}, rewardText:"6000 coins" },
+  { id:"q82", title:"Toxic Waste Crisis", desc:"Miasma City's toxic waste has spawned a dangerous Lumos!", location:"miasmacity", type:"boss", requiredBadges:9,
+    boss:{monsterId:74, level:60, moves:["sludge_wave","earthquake","acid_rain","toxic"]},
+    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Max Potions" },
+  { id:"q83", title:"Terravault Excavation", desc:"Join the excavation and battle what you unearth!", location:"terravault", type:"boss", requiredBadges:10,
+    boss:{monsterId:155, level:62, moves:["earthquake","earth_power","fissure_slam","mud_shot"]},
+    reward:{type:"item", itemId:"softSand", qty:1}, rewardText:"Soft Sand" },
+  { id:"q84", title:"Silkwood Cocoon Crisis", desc:"Giant cocoons are hatching dangerous Lumos in Silkwood!", location:"silkwood", type:"boss", requiredBadges:11,
+    boss:{monsterId:104, level:64, moves:["x_scissor","bug_buzz","iron_tail","mandible_crush"]},
+    reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Silver Powder" },
+  { id:"q85", title:"Gusthaven Wind Trial", desc:"Pass the Wind Trial to earn the respect of Gusthaven.", location:"gusthaven", type:"boss", requiredBadges:12,
+    boss:{monsterId:42, level:66, moves:["hurricane","moonblast","air_slash","cyclone_blade"]},
+    reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
+  { id:"q86", title:"Ironforge Masterwork", desc:"Defeat the Ironforge champion's ultimate creation!", location:"ironforge", type:"boss", requiredBadges:13,
+    boss:{monsterId:69, level:68, moves:["tungsten_ram","flash_cannon","thunder","iron_tail"]},
+    reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Metal Coat" },
+  { id:"q87", title:"Quarryville Fossil Hunt", desc:"A rare fossil Lumos has been revived! Battle it!", location:"quarryville", type:"boss", requiredBadges:14,
+    boss:{monsterId:99, level:68, moves:["crystal_lance","stone_edge","landslide","geode_burst"]},
+    reward:{type:"item", itemId:"hardStone", qty:1}, rewardText:"Hard Stone" },
+  { id:"q88", title:"Starbloom Celestial Trial", desc:"The Celestial Trial awaits at Starbloom. Are you worthy?", location:"starbloom", type:"boss", requiredBadges:15,
+    boss:{monsterId:65, level:70, moves:["moonblast","psychic_move","celestial_wave","dazzling_gleam"]},
+    reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Pixie Dust" },
+  { id:"q89", title:"Route 9 Pioneer", desc:"Be the first to explore the new Route 9!", location:"route9", type:"boss", requiredBadges:8,
+    boss:{monsterId:8, level:55, moves:["petal_blitz","razor_leaf","seed_bomb","energy_ball"]},
+    reward:{type:"money", amount:5000}, rewardText:"5000 coins" },
+  { id:"q90", title:"Route 10 Toxin", desc:"Clear the toxic Lumos blocking Route 10.", location:"route10", type:"boss", requiredBadges:9,
+    boss:{monsterId:72, level:58, moves:["sludge_bomb","venoshock","toxic","acid_rain"]},
+    reward:{type:"item", itemId:"superPotion", qty:10}, rewardText:"10 Super Potions" },
+  { id:"q91", title:"Route 11 Tremors", desc:"Investigate the tremors shaking Route 11.", location:"route11", type:"boss", requiredBadges:10,
+    boss:{monsterId:40, level:60, moves:["earthquake","earth_power","body_slam","fissure_slam"]},
+    reward:{type:"money", amount:6000}, rewardText:"6000 coins" },
+  { id:"q92", title:"Route 12 Swarm", desc:"A massive bug swarm threatens Route 12!", location:"route12", type:"boss", requiredBadges:11,
+    boss:{monsterId:140, level:62, moves:["bug_buzz","moonblast","x_scissor","dazzling_gleam"]},
+    reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Revives" },
+  { id:"q93", title:"Route 13 Gale", desc:"Navigate through the gale on Route 13.", location:"route13", type:"boss", requiredBadges:12,
+    boss:{monsterId:44, level:64, moves:["hurricane","air_slash","cyclone_blade","skyfall"]},
+    reward:{type:"item", itemId:"xSpeed", qty:5}, rewardText:"5 X-Speeds" },
+  { id:"q94", title:"Route 14 Forge", desc:"Cross through the active forge on Route 14.", location:"route14", type:"boss", requiredBadges:13,
+    boss:{monsterId:67, level:66, moves:["forge_strike","iron_tail","flash_cannon","crunch"]},
+    reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
+  { id:"q95", title:"Route 15 Rockslide", desc:"Clear the massive rockslide on Route 15.", location:"route15", type:"boss", requiredBadges:14,
+    boss:{monsterId:97, level:66, moves:["earthquake","stone_edge","rock_slide","landslide"]},
+    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Max Potions" },
+  { id:"q96", title:"Route 16 Enchantment", desc:"Break through the fairy enchantment on Route 16.", location:"route16", type:"boss", requiredBadges:15,
+    boss:{monsterId:163, level:68, moves:["moonblast","flash_cannon","dazzling_gleam","celestial_wave"]},
+    reward:{type:"item", itemId:"ultraOrb", qty:10}, rewardText:"10 Ultra Orbs" },
+  { id:"q97", title:"Bloomhaven Herb Garden", desc:"The herb garden has been overrun! Reclaim it!", location:"bloomhaven", type:"boss", requiredBadges:8,
+    boss:{monsterId:23, level:56, moves:["sludge_bomb","seed_bomb","spore_burst","energy_ball"]},
+    reward:{type:"item", itemId:"miracleSeed", qty:1}, rewardText:"Miracle Seed" },
+  { id:"q98", title:"Miasma Underbelly", desc:"Explore the toxic underbelly of Miasma City.", location:"miasmacity", type:"boss", requiredBadges:9,
+    boss:{monsterId:151, level:60, moves:["bug_buzz","sludge_bomb","venoshock","x_scissor"]},
+    reward:{type:"money", amount:6000}, rewardText:"6000 coins" },
+  { id:"q99", title:"Terravault Deep Mine", desc:"Delve into the deepest mine shaft of Terravault.", location:"terravault", type:"boss", requiredBadges:10,
+    boss:{monsterId:153, level:62, moves:["earthquake","forge_strike","flash_cannon","earth_power"]},
+    reward:{type:"item", itemId:"xDefense", qty:5}, rewardText:"5 X-Defenses" },
+  { id:"q100", title:"The Great Silkwood Tree", desc:"The Great Tree's guardian challenges all who approach!", location:"silkwood", type:"boss", requiredBadges:11,
+    boss:{monsterId:123, level:62, moves:["bug_buzz","moonblast","silk_bind","dazzling_gleam"]},
+    reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
+
+  // ---- BONUS/ENDGAME QUESTS (101-110) ----
+  { id:"q101", title:"Legendary Tempest", desc:"Tempestia stirs atop the Storm Plateau. Face its wrath!", location:"storm_plateau", type:"boss", requiredBadges:12,
+    boss:{monsterId:105, level:70, moves:["hurricane","thunderbolt","tempest_wrath","gale_cannon"]},
+    reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
+  { id:"q102", title:"Volcanic Awakening", desc:"Volcanox rumbles in the Volcano Core. Calm it by battle!", location:"volcano_core", type:"boss", requiredBadges:10,
+    boss:{monsterId:106, level:70, moves:["fire_blast","stone_edge","caldera_meltdown","earthquake"]},
+    reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
+  { id:"q103", title:"Abyssal Dragon", desc:"Abyssdrake lurks in the Deep Trench. Challenge the abyss!", location:"deep_trench", type:"boss", requiredBadges:8,
+    boss:{monsterId:107, level:70, moves:["hydro_pump","dragon_pulse","outrage","surf"]},
+    reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
+  { id:"q104", title:"Temporal Rift", desc:"Chronoseer appears in the Crystal Spire. Face time itself!", location:"crystal_spire", type:"boss", requiredBadges:14,
+    boss:{monsterId:164, level:70, moves:["psychic_move","temporal_rift","psystrike","calm_mind"]},
+    reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
+  { id:"q105", title:"World Seed", desc:"Terranova awakens in the Ancient Ruins. Face nature's fury!", location:"ancient_ruins", type:"boss", requiredBadges:14,
+    boss:{monsterId:165, level:70, moves:["earthquake","energy_ball","worldseed_quake","petal_blitz"]},
+    reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
+  { id:"q106", title:"Void Star Rising", desc:"Voidstar manifests in the Dark Canyon. Face the void!", location:"dark_canyon", type:"boss", requiredBadges:14,
+    boss:{monsterId:166, level:70, moves:["dark_pulse","moonblast","shadow_ball","psychic_move"]},
+    reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
+  { id:"q107", title:"Storm Forged Legend", desc:"The legendary Stormforged descends on Iron Canyon!", location:"iron_canyon", type:"boss", requiredBadges:13,
+    boss:{monsterId:167, level:70, moves:["thunderbolt","tungsten_ram","flash_cannon","forge_strike"]},
+    reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
+  { id:"q108", title:"Champion's Rematch", desc:"Champion Lumian offers a rematch at full power!", location:"summit", type:"boss", requiredBadges:16,
+    boss:{monsterId:84, level:80, moves:["outrage","dragon_pulse","fire_blast","dragon_dance"]},
+    reward:{type:"money", amount:25000}, rewardText:"25000 coins" },
+  { id:"q109", title:"Ultimate Trial", desc:"Face the ultimate trial: a gauntlet of the strongest wild Lumos!", location:"victoryroad", type:"boss", requiredBadges:16,
+    boss:{monsterId:83, level:78, moves:["outrage","dragon_pulse","dragon_dance","hyper_beam"]},
+    reward:{type:"money", amount:20000}, rewardText:"20000 coins" },
+  { id:"q110", title:"The Final Quest", desc:"Complete every challenge Lumoria has to offer.", location:"summit", type:"boss", requiredBadges:16,
+    boss:{monsterId:81, level:80, moves:["psychic_move","dragon_pulse","temporal_rift","outrage"]},
+    reward:{type:"money", amount:50000}, rewardText:"50000 coins" }
+];

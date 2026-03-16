@@ -109,10 +109,12 @@
         <div id="area-actions">
           <button class="btn-action" id="btn-explore">🌿 Explore Area</button>
           <button class="btn-action hidden" id="btn-gym">🏛 Challenge Gym</button>
+          <button class="btn-action hidden" id="btn-elite-four">⚔️ Challenge Elite Four</button>
           <button class="btn-action hidden" id="btn-champion">👑 Challenge Champion</button>
           <button class="btn-action hidden" id="btn-victory-road">⚔ Enter Victory Road</button>
           <button class="btn-action hidden" id="btn-umbra-base">☠️ Storm the Umbra Base</button>
           <button class="btn-action hidden" id="btn-rival">🧒 Battle Rival Marcus</button>
+          <button class="btn-action hidden" id="btn-area-shop">🛒 Shop</button>
         </div>
         <div id="area-gym-info" class="hidden">
           <div class="gym-leader-card">
@@ -131,8 +133,9 @@
     <div id="bottom-nav">
       <button class="nav-btn" id="nav-team">👥 TEAM</button>
       <button class="nav-btn" id="nav-bag">🎒 BAG</button>
-      <button class="nav-btn" id="nav-dex">📖 LUMODEX</button>
-      <button class="nav-btn" id="nav-tutorial">❓ HOW TO PLAY</button>
+      <button class="nav-btn" id="nav-dex">📖 DEX</button>
+      <button class="nav-btn" id="nav-quests">📜 QUESTS</button>
+      <button class="nav-btn" id="nav-shop">🛒 SHOP</button>
       <button class="nav-btn" id="nav-save">💾 SAVE</button>
     </div>
   </div>
@@ -317,6 +320,30 @@
       <p id="evo-text"></p>
       <button id="btn-evo-ok" class="btn-primary">Amazing!</button>
     </div>
+  </div>
+
+  <!-- SHOP SCREEN -->
+  <div id="screen-shop" class="screen">
+    <div class="screen-header">
+      <button class="back-btn" id="shop-back-btn">← Back</button>
+      <h2 id="shop-title">Shop</h2>
+      <span id="shop-money">💰 0</span>
+    </div>
+    <div id="shop-content" class="scrollable-content"></div>
+  </div>
+
+  <!-- QUEST LOG SCREEN -->
+  <div id="screen-quests" class="screen">
+    <div class="screen-header">
+      <button class="back-btn" id="quests-back-btn">← Back</button>
+      <h2>Quest Log</h2>
+    </div>
+    <div id="quest-filters">
+      <button class="quest-filter-btn active" data-filter="available">Available</button>
+      <button class="quest-filter-btn" data-filter="active">Active</button>
+      <button class="quest-filter-btn" data-filter="completed">Completed</button>
+    </div>
+    <div id="quest-list" class="scrollable-content"></div>
   </div>
 
   <!-- GAME OVER -->

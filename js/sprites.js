@@ -945,6 +945,125 @@ function generateBadgeSVG(leaderId, earned, size = 28) {
           <path d="M32,18 L28,30 L32,28 L36,30Z" fill="${cShine}" opacity="0.5"/>
           <circle cx="26" cy="22" r="2.5" fill="#fff" opacity="0.15"/>
         </g>`;
+    },
+    // ---- CANOPY BADGE (Grass) - Leaf-shaped badge ----
+    thorne() {
+      const c1 = "#2d8a4e", c2 = "#4aba6a", c3 = "#1a6638", cEdge = "#0d4420", cShine = "#90e8a0";
+      return `
+        <defs>${grayFilter}
+          <linearGradient id="bg-thorne" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${c2}"/><stop offset="100%" stop-color="${c3}"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <path d="M32,4 C16,4 4,20 4,36 C4,52 18,60 32,60 C46,60 60,52 60,36 C60,20 48,4 32,4Z" fill="url(#bg-thorne)" stroke="${cEdge}" stroke-width="2.5"/>
+          <path d="M32,12 L32,50" stroke="${cShine}" stroke-width="2" opacity="0.5"/>
+          <path d="M20,24 L32,20 L44,24" fill="none" stroke="${cShine}" stroke-width="1.5" opacity="0.4"/>
+          <path d="M18,34 L32,30 L46,34" fill="none" stroke="${cShine}" stroke-width="1.5" opacity="0.3"/>
+          <path d="M20,44 L32,40 L44,44" fill="none" stroke="${cShine}" stroke-width="1.5" opacity="0.3"/>
+          <circle cx="32" cy="32" r="6" fill="${cShine}" opacity="0.3"/>
+        </g>`;
+    },
+    // ---- VENOM BADGE (Poison) - Skull-like hexagonal badge ----
+    viper() {
+      const c1 = "#8b45a6", c2 = "#a855c8", c3 = "#6a2d8a", cEdge = "#4a1a6a", cShine = "#d4a0f0";
+      return `
+        <defs>${grayFilter}
+          <linearGradient id="bg-viper" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${c2}"/><stop offset="100%" stop-color="${c3}"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <polygon points="32,4 56,18 56,46 32,60 8,46 8,18" fill="url(#bg-viper)" stroke="${cEdge}" stroke-width="2.5"/>
+          <circle cx="24" cy="28" r="5" fill="${cShine}" opacity="0.4"/>
+          <circle cx="40" cy="28" r="5" fill="${cShine}" opacity="0.4"/>
+          <path d="M26,42 L30,38 L34,38 L38,42" fill="none" stroke="${cShine}" stroke-width="2" opacity="0.5"/>
+          <circle cx="32" cy="20" r="3" fill="${cShine}" opacity="0.2"/>
+        </g>`;
+    },
+    // ---- TECTONIC BADGE (Ground) - Mountain/triangle badge ----
+    atlas() {
+      const c1 = "#8b6d3a", c2 = "#c49a52", c3 = "#6a4d2a", cEdge = "#4a3010", cShine = "#e8d4a0";
+      return `
+        <defs>${grayFilter}
+          <linearGradient id="bg-atlas" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="${c2}"/><stop offset="100%" stop-color="${c3}"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <polygon points="32,4 60,56 4,56" fill="url(#bg-atlas)" stroke="${cEdge}" stroke-width="2.5"/>
+          <polygon points="32,16 48,48 16,48" fill="none" stroke="${cShine}" stroke-width="1.5" opacity="0.3"/>
+          <line x1="32" y1="4" x2="32" y2="56" stroke="${cShine}" stroke-width="1" opacity="0.2"/>
+          <circle cx="32" cy="36" r="5" fill="${cShine}" opacity="0.3"/>
+        </g>`;
+    },
+    // ---- CHITIN BADGE (Bug) - Beetle/wing badge ----
+    mantis() {
+      const c1 = "#5a8a28", c2 = "#7ab838", c3 = "#3a6a18", cEdge = "#224a08", cShine = "#c8f080";
+      return `
+        <defs>${grayFilter}
+          <linearGradient id="bg-mantis" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${c2}"/><stop offset="100%" stop-color="${c3}"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <ellipse cx="32" cy="32" rx="26" ry="28" fill="url(#bg-mantis)" stroke="${cEdge}" stroke-width="2.5"/>
+          <path d="M32,8 C20,16 14,28 16,42 L32,36Z" fill="${cShine}" opacity="0.2"/>
+          <path d="M32,8 C44,16 50,28 48,42 L32,36Z" fill="${cShine}" opacity="0.15"/>
+          <ellipse cx="32" cy="32" rx="8" ry="10" fill="${cShine}" opacity="0.3"/>
+          <line x1="24" y1="20" x2="40" y2="20" stroke="${cShine}" stroke-width="1.5" opacity="0.3"/>
+        </g>`;
+    },
+    // ---- TEMPEST BADGE (Wind) - Swirl/cyclone badge ----
+    zephyra() {
+      const c1 = "#5898c8", c2 = "#78b8e8", c3 = "#3878a8", cEdge = "#1a5888", cShine = "#c0e8ff";
+      return `
+        <defs>${grayFilter}
+          <linearGradient id="bg-zephyra" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${c2}"/><stop offset="100%" stop-color="${c3}"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <circle cx="32" cy="32" r="28" fill="url(#bg-zephyra)" stroke="${cEdge}" stroke-width="2.5"/>
+          <path d="M32,12 C44,12 50,20 48,28 C46,36 38,36 32,32" fill="none" stroke="${cShine}" stroke-width="2.5" opacity="0.5"/>
+          <path d="M32,52 C20,52 14,44 16,36 C18,28 26,28 32,32" fill="none" stroke="${cShine}" stroke-width="2.5" opacity="0.4"/>
+          <circle cx="32" cy="32" r="5" fill="${cShine}" opacity="0.4"/>
+        </g>`;
+    },
+    // ---- ALLOY BADGE (Steel) - Gear/cog badge ----
+    ferro() {
+      const c1 = "#788898", c2 = "#a0b0c0", c3 = "#586878", cEdge = "#384858", cShine = "#d0e0f0";
+      return `
+        <defs>${grayFilter}
+          <linearGradient id="bg-ferro" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${c2}"/><stop offset="100%" stop-color="${c3}"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <polygon points="32,4 44,10 56,20 60,32 56,44 44,54 32,60 20,54 8,44 4,32 8,20 20,10" fill="url(#bg-ferro)" stroke="${cEdge}" stroke-width="2.5"/>
+          <circle cx="32" cy="32" r="12" fill="none" stroke="${cShine}" stroke-width="2" opacity="0.4"/>
+          <circle cx="32" cy="32" r="5" fill="${cShine}" opacity="0.3"/>
+          <line x1="32" y1="4" x2="32" y2="20" stroke="${cShine}" stroke-width="2" opacity="0.3"/>
+          <line x1="32" y1="44" x2="32" y2="60" stroke="${cShine}" stroke-width="2" opacity="0.3"/>
+          <line x1="4" y1="32" x2="20" y2="32" stroke="${cShine}" stroke-width="2" opacity="0.3"/>
+          <line x1="44" y1="32" x2="60" y2="32" stroke="${cShine}" stroke-width="2" opacity="0.3"/>
+        </g>`;
+    },
+    // ---- GEODE BADGE (Rock) - Crystal/gem badge ----
+    boulder() {
+      const c1 = "#8a7050", c2 = "#b89868", c3 = "#6a5038", cEdge = "#4a3020", cShine = "#e0c8a0";
+      return `
+        <defs>${grayFilter}
+          <linearGradient id="bg-boulder" x1="0.5" y1="0" x2="0.5" y2="1"><stop offset="0%" stop-color="${c2}"/><stop offset="100%" stop-color="${c3}"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <polygon points="32,4 52,14 60,36 48,58 16,58 4,36 12,14" fill="url(#bg-boulder)" stroke="${cEdge}" stroke-width="2.5"/>
+          <polygon points="32,14 42,22 46,36 38,48 26,48 18,36 22,22" fill="${cShine}" opacity="0.2"/>
+          <polygon points="32,24 36,30 34,38 28,38 26,30" fill="${cShine}" opacity="0.3"/>
+          <circle cx="30" cy="20" r="2" fill="#fff" opacity="0.2"/>
+        </g>`;
+    },
+    // ---- AURORA BADGE (Fairy) - Star/sparkle badge ----
+    seraphina() {
+      const c1 = "#d86098", c2 = "#f080b8", c3 = "#b84078", cEdge = "#882858", cShine = "#ffc0e0";
+      return `
+        <defs>${grayFilter}
+          <linearGradient id="bg-seraph" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${c2}"/><stop offset="100%" stop-color="${c3}"/></linearGradient>
+        </defs>
+        <g${filterAttr}>
+          <polygon points="32,2 38,22 60,22 42,36 48,58 32,44 16,58 22,36 4,22 26,22" fill="url(#bg-seraph)" stroke="${cEdge}" stroke-width="2"/>
+          <polygon points="32,12 35,24 46,24 37,32 40,44 32,36 24,44 27,32 18,24 29,24" fill="${cShine}" opacity="0.3"/>
+          <circle cx="32" cy="28" r="4" fill="${cShine}" opacity="0.4"/>
+          <circle cx="26" cy="20" r="1.5" fill="#fff" opacity="0.3"/>
+        </g>`;
     }
   };
 

@@ -42,9 +42,10 @@ function calcStat(base, level) {
 }
 
 // Build a live monster object for battle from a party slot
-function buildBattleMon(partySlot) {
+// levelCap: optional max level to scale down to for capped battles
+function buildBattleMon(partySlot, levelCap) {
   const def = MONSTERS_DATA[partySlot.monsterId];
-  const lv = partySlot.level;
+  const lv = (levelCap && partySlot.level > levelCap) ? levelCap : partySlot.level;
   const heldItemId = partySlot.heldItem || null;
   const heldData = heldItemId ? ITEMS_DATA[heldItemId] : null;
   let maxHP = calcMaxHP(def.base.hp, lv);
@@ -52,10 +53,17 @@ function buildBattleMon(partySlot) {
   if (heldData && heldData.held && heldData.held.stat === "hp") {
     maxHP = Math.floor(maxHP * heldData.held.mult);
   }
-  const rawHP = partySlot.currentHP !== undefined ? partySlot.currentHP : calcMaxHP(def.base.hp, lv);
-  // Scale current HP proportionally if HP was boosted
+  const actualMax = calcMaxHP(def.base.hp, partySlot.level);
+  const rawHP = partySlot.currentHP !== undefined ? partySlot.currentHP : actualMax;
+  // Scale current HP proportionally if level-capped or HP was boosted
   const baseMax = calcMaxHP(def.base.hp, lv);
-  const currentHP = maxHP > baseMax ? Math.min(maxHP, rawHP + (maxHP - baseMax)) : rawHP;
+  let currentHP;
+  if (levelCap && partySlot.level > levelCap) {
+    // Scale HP proportionally for level cap
+    currentHP = Math.max(1, Math.floor((rawHP / actualMax) * maxHP));
+  } else {
+    currentHP = maxHP > baseMax ? Math.min(maxHP, rawHP + (maxHP - baseMax)) : rawHP;
+  }
 
   const mon = {
     monsterId: partySlot.monsterId,

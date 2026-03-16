@@ -66,6 +66,8 @@ function loadGame() {
     if (!data.questsCompleted) data.questsCompleted = [];
     if (!data.questsActive) data.questsActive = [];
     if (!data.visitedLocations) data.visitedLocations = [data.location];
+    if (!data.box) data.box = [];
+    if (data.bag && data.bag.rareCandy === undefined) data.bag.rareCandy = 0;
     G = data;
     return true;
   } catch(e) { return false; }
@@ -1145,20 +1147,23 @@ function startGymBattle(leaderId) {
     leader = ELITE_FOUR.find(e => e.id === leaderId);
   }
   if (!leader) return;
+  const levelCap = (typeof LEVEL_CAPS !== "undefined" && LEVEL_CAPS[leaderId]) ? LEVEL_CAPS[leaderId] : null;
   battleContext = {
     isWild: false,
     isGym: true,
     isChampion: leaderId === "champion",
     isEliteFour: !!(typeof ELITE_FOUR !== "undefined" && ELITE_FOUR.find(e => e.id === leaderId)),
     leaderId,
+    levelCap,
     enemyTeam: leader.team.map(s => buildGymMon(s)),
     enemyTeamIdx: 0,
     playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
   };
-  playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx]);
+  playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx], levelCap);
   enemyActiveMon = battleContext.enemyTeam[0];
   showScreen("screen-battle");
   clearBattleLog();
+  if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
   logMsg(`${leader.emoji} ${leader.name}: "${leader.quote}"`);
   logMsg(`${leader.name} sent out ${enemyActiveMon.name}!`);
   updateBattleUI();
@@ -1232,7 +1237,7 @@ async function playerSwitch(idx) {
   // Sync current HP back
   syncPlayerMonHP();
   battleContext.playerTeamIdx = idx;
-  playerActiveMon = buildBattleMon(G.team[idx]);
+  playerActiveMon = buildBattleMon(G.team[idx], battleContext.levelCap || null);
   logMsg(`Go, ${playerActiveMon.name}!`);
   updateBattleUI();
   // Enemy gets a free turn after switch (unless forced switch)
@@ -1729,7 +1734,7 @@ function showTeamDetail(slot, idx) {
 
   // Use item panel
   const healableItems = Object.entries(G.bag)
-    .filter(([id, cnt]) => cnt > 0 && (ITEMS_DATA[id]?.type === "heal" || ITEMS_DATA[id]?.type === "revive"));
+    .filter(([id, cnt]) => cnt > 0 && (ITEMS_DATA[id]?.type === "heal" || ITEMS_DATA[id]?.type === "revive" || ITEMS_DATA[id]?.type === "candy"));
   const itemsHTML = healableItems.map(([id, cnt]) => {
     const item = ITEMS_DATA[id];
     return `<button class="catch-item-btn" data-item="${id}" data-mon="${idx}">
@@ -1820,6 +1825,25 @@ function useItemOnMon(itemId, monIdx) {
     slot.currentHP = Math.floor(slot.maxHP / 2);
     G.bag[itemId]--;
     showNotification(`${MONSTERS_DATA[slot.monsterId].name} was revived!`);
+  } else if (item.type === "candy") {
+    if (slot.currentHP <= 0) { showNotification("Can't use on a fainted Lumo!"); return; }
+    if (slot.level >= 100) { showNotification("Already at max level!"); return; }
+    G.bag[itemId]--;
+    const levelUps = giveXP(slot, xpForLevel(slot.level + 1) - (slot.xp || 0));
+    // Check evolution
+    const evoTarget = checkEvolution(slot);
+    if (evoTarget) {
+      const evoResult = evolveMonster(slot);
+      if (evoResult) {
+        const oldDef = MONSTERS_DATA[evoResult.oldId];
+        const newDef = MONSTERS_DATA[evoResult.newId];
+        G.seenMonsters.add(evoResult.newId);
+        G.caughtMonsters.add(evoResult.newId);
+        showNotification(`🍬 ${oldDef.name} leveled up to Lv.${slot.level}!<br><br>✨ ${oldDef.name} evolved into <strong>${newDef.name}</strong>!`);
+        return;
+      }
+    }
+    showNotification(`🍬 ${MONSTERS_DATA[slot.monsterId].name} leveled up to Lv.${slot.level}!`);
   }
 }
 
@@ -1856,7 +1880,7 @@ function showBagScreen() {
     `;
     if (item.type === "ball") orbsEl.appendChild(div);
     else if (item.type === "held") heldEl.appendChild(div);
-    else medEl.appendChild(div);
+    else medEl.appendChild(div); // heal, revive, candy all go in medicine
   }
 
   // Show equipped items info
@@ -1879,6 +1903,126 @@ function showBagScreen() {
   if (!heldEl.hasChildNodes()) {
     heldEl.innerHTML = '<div class="bag-item-empty" style="color:#888;font-size:0.85rem;padding:0.5rem">No held items yet. Win gym battles to earn held items!</div>';
   }
+}
+
+// ============================================================
+// PC BOX SCREEN
+// ============================================================
+function showBoxScreen() {
+  showScreen("screen-box");
+  renderBoxScreen();
+}
+
+function renderBoxScreen() {
+  const teamList = document.getElementById("box-team-list");
+  const storageList = document.getElementById("box-storage-list");
+  document.getElementById("box-team-count").textContent = G.team.length;
+  document.getElementById("box-storage-count").textContent = G.box.length;
+  teamList.innerHTML = "";
+  storageList.innerHTML = "";
+
+  // Render team
+  G.team.forEach((slot, idx) => {
+    const card = createBoxCard(slot, idx, "team");
+    teamList.appendChild(card);
+  });
+
+  // Render box storage
+  if (G.box.length === 0) {
+    storageList.innerHTML = '<div class="box-empty">No Lumos in storage. Catch more when your team is full!</div>';
+  } else {
+    G.box.forEach((slot, idx) => {
+      const card = createBoxCard(slot, idx, "box");
+      storageList.appendChild(card);
+    });
+  }
+}
+
+function createBoxCard(slot, idx, source) {
+  const def = MONSTERS_DATA[slot.monsterId];
+  const card = document.createElement("div");
+  const hpPct = Math.round((slot.currentHP / slot.maxHP) * 100);
+  const hpClass = slot.currentHP <= 0 ? "fainted" : "";
+  card.className = `box-card ${hpClass}`;
+  const spriteHTML = (typeof getMonsterSpriteURL === "function")
+    ? `<img src="${getMonsterSpriteURL(def, 40)}" width="40" height="40" alt="${def.name}">`
+    : `<span style="font-size:1.5rem">${def.emoji}</span>`;
+  const typeHTML = def.types.map(t => `<span class="type-badge type-${t}" style="font-size:0.55rem">${t}</span>`).join("");
+  card.innerHTML = `
+    <div class="box-card-sprite">${spriteHTML}</div>
+    <div class="box-card-info">
+      <div class="box-card-name">${slot.nickname || def.name}</div>
+      <div class="box-card-level">Lv.${slot.level} ${typeHTML}</div>
+      <div class="box-card-hp">${slot.currentHP}/${slot.maxHP} HP</div>
+    </div>
+    <div class="box-card-actions">
+      ${source === "box" ? `<button class="box-btn box-withdraw" data-box-idx="${idx}">Withdraw</button>` : ""}
+      ${source === "team" && G.team.length > 1 ? `<button class="box-btn box-deposit" data-team-idx="${idx}">Deposit</button>` : ""}
+    </div>
+  `;
+
+  if (source === "box") {
+    const withdrawBtn = card.querySelector(".box-withdraw");
+    if (withdrawBtn) {
+      withdrawBtn.addEventListener("click", () => {
+        if (G.team.length >= 6) {
+          // Swap mode: ask which team member to swap
+          showBoxSwapPicker(idx);
+        } else {
+          // Withdraw directly
+          const mon = G.box.splice(idx, 1)[0];
+          G.team.push(mon);
+          renderBoxScreen();
+        }
+      });
+    }
+  }
+  if (source === "team") {
+    const depositBtn = card.querySelector(".box-deposit");
+    if (depositBtn) {
+      depositBtn.addEventListener("click", () => {
+        if (G.team.length <= 1) {
+          showNotification("You must keep at least 1 Lumo on your team!");
+          return;
+        }
+        const mon = G.team.splice(idx, 1)[0];
+        G.box.push(mon);
+        renderBoxScreen();
+      });
+    }
+  }
+
+  return card;
+}
+
+function showBoxSwapPicker(boxIdx) {
+  showNotification("Team is full! Choose a team member to swap:", () => {});
+  // Replace notification with swap picker
+  const notifBox = document.getElementById("notification-box");
+  const notifOverlay = document.getElementById("notification-overlay");
+  notifOverlay.classList.remove("hidden");
+  let swapHTML = '<p style="margin-bottom:0.5rem"><strong>Swap with which team member?</strong></p>';
+  G.team.forEach((slot, tIdx) => {
+    const def = MONSTERS_DATA[slot.monsterId];
+    swapHTML += `<button class="box-swap-btn" data-swap-team="${tIdx}" style="display:block;width:100%;margin:0.3rem 0;padding:0.5rem;border-radius:6px;background:var(--bg-card);border:1px solid var(--border);color:var(--text-primary);cursor:pointer;text-align:left">
+      ${def.emoji} ${slot.nickname || def.name} Lv.${slot.level}
+    </button>`;
+  });
+  swapHTML += `<button class="btn-secondary" id="btn-swap-cancel" style="margin-top:0.5rem;width:100%">Cancel</button>`;
+  notifBox.innerHTML = swapHTML;
+  notifBox.querySelectorAll("[data-swap-team]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const tIdx = parseInt(btn.dataset.swapTeam);
+      const fromBox = G.box.splice(boxIdx, 1)[0];
+      const fromTeam = G.team.splice(tIdx, 1, fromBox)[0];
+      G.box.push(fromTeam);
+      notifOverlay.classList.add("hidden");
+      renderBoxScreen();
+    });
+  });
+  document.getElementById("btn-swap-cancel").addEventListener("click", () => {
+    notifOverlay.classList.add("hidden");
+  });
 }
 
 // ============================================================
@@ -2109,6 +2253,7 @@ function initEventListeners() {
   document.getElementById("nav-save").addEventListener("click", saveGame);
   document.getElementById("nav-tutorial").addEventListener("click", showTutorial);
   document.getElementById("nav-quests").addEventListener("click", showQuestScreen);
+  document.getElementById("nav-box").addEventListener("click", showBoxScreen);
   document.getElementById("nav-shop").addEventListener("click", showShopScreen);
 
   // Quest filter buttons
@@ -2150,6 +2295,9 @@ function initEventListeners() {
 
   // Bag screen
   document.getElementById("btn-close-bag").addEventListener("click", () => showScreen("screen-main"));
+
+  // Box screen
+  document.getElementById("btn-close-box").addEventListener("click", () => showScreen("screen-main"));
 
   // Dex screen
   document.getElementById("btn-close-dex").addEventListener("click", () => showScreen("screen-main"));
@@ -2289,6 +2437,7 @@ function getPendingRivalBattle() {
 function startSpecialBattle(battleId, battleData, isUmbra) {
   const battle = battleData[battleId];
   if (!battle) return;
+  const levelCap = (typeof LEVEL_CAPS !== "undefined" && LEVEL_CAPS[battleId]) ? LEVEL_CAPS[battleId] : null;
   battleContext = {
     isWild: false,
     isGym: false,
@@ -2296,14 +2445,16 @@ function startSpecialBattle(battleId, battleData, isUmbra) {
     isRival: !isUmbra,
     isUmbra: isUmbra,
     leaderId: battleId,
+    levelCap,
     enemyTeam: battle.team.map(s => buildGymMon(s)),
     enemyTeamIdx: 0,
     playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
   };
-  playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx]);
+  playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx], levelCap);
   enemyActiveMon = battleContext.enemyTeam[0];
   showScreen("screen-battle");
   clearBattleLog();
+  if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
   logMsg(`${battle.emoji} ${battle.name}: "${battle.quote}"`);
   logMsg(`${battle.name} sent out ${enemyActiveMon.name}!`);
   updateBattleUI();
@@ -2350,7 +2501,9 @@ function renderShop(shop) {
   document.getElementById("shop-title").textContent = shop.name;
   document.getElementById("shop-money").textContent = `💰 ${G.money}`;
   container.innerHTML = "";
-  for (const [itemId, price] of Object.entries(shop.items)) {
+  for (const shopEntry of shop.items) {
+    const itemId = shopEntry.itemId;
+    const price = shopEntry.price;
     const item = ITEMS_DATA[itemId];
     if (!item) continue;
     const owned = G.bag[itemId] || 0;

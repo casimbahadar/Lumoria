@@ -2520,6 +2520,7 @@ const ITEMS_DATA = {
   superPotion:{ name:"Super Potion",emoji:"💊", desc:"Heals 50 HP.", catchMult:0, healAmt:50,  type:"heal" },
   maxPotion:  { name:"Max Potion",  emoji:"💉", desc:"Fully heals HP.", catchMult:0, healAmt:999, type:"heal" },
   revive:     { name:"Revive",      emoji:"💫", desc:"Revives a fainted monster to 50% HP.", catchMult:0, healAmt:0, type:"revive" },
+  rareCandy:  { name:"Rare Candy",  emoji:"🍬", desc:"Instantly raises a Lumo by 1 level.", catchMult:0, healAmt:0, type:"candy" },
   // Held items
   powerBand:     { name:"Power Band",     emoji:"💪", desc:"Boosts Attack by 20% when held.",           type:"held", held:{ stat:"atk", mult:1.2 } },
   guardCloak:    { name:"Guard Cloak",    emoji:"🛡️", desc:"Boosts Defense by 20% when held.",          type:"held", held:{ stat:"def", mult:1.2 } },
@@ -2564,6 +2565,7 @@ const STARTING_BAG = {
   superPotion: 2,
   maxPotion: 0,
   revive: 1,
+  rareCandy: 999,
   powerBand: 1,
   guardCloak: 0,
   wisdomLens: 0,
@@ -2747,7 +2749,8 @@ const SHOPS_DATA = {
     name: "Seedvale Mart",
     items: [
       { itemId: "basicOrb", price: 100 },
-      { itemId: "potion", price: 50 }
+      { itemId: "potion", price: 50 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   ashford: {
@@ -2756,7 +2759,8 @@ const SHOPS_DATA = {
       { itemId: "basicOrb", price: 100 },
       { itemId: "greatOrb", price: 300 },
       { itemId: "potion", price: 50 },
-      { itemId: "superPotion", price: 150 }
+      { itemId: "superPotion", price: 150 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   tidewatch: {
@@ -2766,7 +2770,8 @@ const SHOPS_DATA = {
       { itemId: "greatOrb", price: 300 },
       { itemId: "potion", price: 50 },
       { itemId: "superPotion", price: 150 },
-      { itemId: "revive", price: 500 }
+      { itemId: "revive", price: 500 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   emberveil: {
@@ -2776,7 +2781,8 @@ const SHOPS_DATA = {
       { itemId: "ultraOrb", price: 600 },
       { itemId: "superPotion", price: 150 },
       { itemId: "maxPotion", price: 500 },
-      { itemId: "revive", price: 500 }
+      { itemId: "revive", price: 500 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   sparkmoor: {
@@ -2796,7 +2802,8 @@ const SHOPS_DATA = {
       { itemId: "maxPotion", price: 500 },
       { itemId: "revive", price: 500 },
       { itemId: "xAttack", price: 250 },
-      { itemId: "xDefense", price: 250 }
+      { itemId: "xDefense", price: 250 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   shadowmere: {
@@ -2807,7 +2814,8 @@ const SHOPS_DATA = {
       { itemId: "revive", price: 500 },
       { itemId: "xAttack", price: 250 },
       { itemId: "xDefense", price: 250 },
-      { itemId: "xSpeed", price: 250 }
+      { itemId: "xSpeed", price: 250 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   skyvault: {
@@ -2818,7 +2826,8 @@ const SHOPS_DATA = {
       { itemId: "revive", price: 500 },
       { itemId: "xAttack", price: 250 },
       { itemId: "xDefense", price: 250 },
-      { itemId: "xSpeed", price: 250 }
+      { itemId: "xSpeed", price: 250 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   dragonspire: {
@@ -2830,7 +2839,8 @@ const SHOPS_DATA = {
       { itemId: "revive", price: 500 },
       { itemId: "xAttack", price: 250 },
       { itemId: "xDefense", price: 250 },
-      { itemId: "xSpeed", price: 250 }
+      { itemId: "xSpeed", price: 250 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   bloomhaven: {
@@ -2839,7 +2849,8 @@ const SHOPS_DATA = {
       { itemId: "ultraOrb", price: 600 },
       { itemId: "maxPotion", price: 500 },
       { itemId: "revive", price: 500 },
-      { itemId: "miracleSeed", price: 3000 }
+      { itemId: "miracleSeed", price: 3000 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   miasmacity: {
@@ -2848,7 +2859,8 @@ const SHOPS_DATA = {
       { itemId: "ultraOrb", price: 600 },
       { itemId: "maxPotion", price: 500 },
       { itemId: "revive", price: 500 },
-      { itemId: "poisonBarb", price: 3000 }
+      { itemId: "poisonBarb", price: 3000 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   terravault: {
@@ -2857,7 +2869,8 @@ const SHOPS_DATA = {
       { itemId: "ultraOrb", price: 600 },
       { itemId: "maxPotion", price: 500 },
       { itemId: "revive", price: 500 },
-      { itemId: "softSand", price: 3000 }
+      { itemId: "softSand", price: 3000 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   silkwood: {
@@ -2866,7 +2879,8 @@ const SHOPS_DATA = {
       { itemId: "ultraOrb", price: 600 },
       { itemId: "maxPotion", price: 500 },
       { itemId: "revive", price: 500 },
-      { itemId: "silverPowder", price: 3000 }
+      { itemId: "silverPowder", price: 3000 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   gusthaven: {
@@ -2875,7 +2889,8 @@ const SHOPS_DATA = {
       { itemId: "ultraOrb", price: 600 },
       { itemId: "maxPotion", price: 500 },
       { itemId: "revive", price: 500 },
-      { itemId: "swiftFeather", price: 3000 }
+      { itemId: "swiftFeather", price: 3000 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   ironforge: {
@@ -2885,7 +2900,8 @@ const SHOPS_DATA = {
       { itemId: "masterOrb", price: 50000 },
       { itemId: "maxPotion", price: 500 },
       { itemId: "revive", price: 500 },
-      { itemId: "metalCoat", price: 3000 }
+      { itemId: "metalCoat", price: 3000 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   quarryville: {
@@ -2894,7 +2910,8 @@ const SHOPS_DATA = {
       { itemId: "ultraOrb", price: 600 },
       { itemId: "maxPotion", price: 500 },
       { itemId: "revive", price: 500 },
-      { itemId: "hardStone", price: 3000 }
+      { itemId: "hardStone", price: 3000 },
+      { itemId: "rareCandy", price: 1 }
     ]
   },
   starbloom: {
@@ -2903,7 +2920,8 @@ const SHOPS_DATA = {
       { itemId: "ultraOrb", price: 600 },
       { itemId: "masterOrb", price: 50000 },
       { itemId: "maxPotion", price: 500 },
-      { itemId: "revive", price: 500 }
+      { itemId: "revive", price: 500 },
+      { itemId: "rareCandy", price: 1 }
     ]
   }
 };
@@ -2961,6 +2979,27 @@ const ELITE_FOUR = [
     ]
   }
 ];
+
+// ============================================================
+// LEVEL CAPS - Player team levels are capped in major battles
+// ============================================================
+const LEVEL_CAPS = {
+  // Gym Leaders: cap = highest team member level + 2
+  rex: 16, marina: 24, pyros: 30, zara: 37,
+  glacier: 44, nyx: 50, oracle: 56, drake: 64,
+  thorne: 64, viper: 66, atlas: 68, mantis: 70,
+  zephyra: 72, ferro: 74, boulder: 76, seraphina: 78,
+  // Elite Four
+  aria: 78, grimshaw: 78, celeste: 78, titan: 78,
+  // Champion
+  champion: 82,
+  // Rival battles
+  rival_1: 17, rival_2: 35, rival_3: 56,
+  // Team Umbra bosses
+  umbra_grunt_1: 18, umbra_grunt_2: 27,
+  umbra_commander_kira: 40, umbra_commander_rex_shadow: 51,
+  umbra_shade: 67
+};
 
 // ============================================================
 // QUESTS DATA (100+ side quests)

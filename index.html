@@ -135,6 +135,7 @@
       <button class="nav-btn" id="nav-bag">🎒 BAG</button>
       <button class="nav-btn" id="nav-dex">📖 DEX</button>
       <button class="nav-btn" id="nav-quests">📜 QUESTS</button>
+      <button class="nav-btn" id="nav-box">📦 BOX</button>
       <button class="nav-btn" id="nav-shop">🛒 SHOP</button>
       <button class="nav-btn" id="nav-save">💾 SAVE</button>
     </div>
@@ -287,6 +288,23 @@
     <div id="dex-detail" class="hidden">
       <button class="btn-back" id="btn-dex-detail-back">← BACK</button>
       <div id="dex-detail-content"></div>
+    </div>
+  </div>
+
+  <!-- PC BOX SCREEN -->
+  <div id="screen-box" class="screen">
+    <div class="menu-header">
+      <h2>📦 PC Box</h2>
+      <button class="btn-back-menu" id="btn-close-box">✕</button>
+    </div>
+    <p class="box-hint">Tap a Lumo to swap it with a team member, or withdraw it if your team has space.</p>
+    <div id="box-team-section">
+      <h3>Your Team (<span id="box-team-count">0</span>/6)</h3>
+      <div id="box-team-list"></div>
+    </div>
+    <div id="box-storage-section">
+      <h3>Storage (<span id="box-storage-count">0</span>)</h3>
+      <div id="box-storage-list"></div>
     </div>
   </div>
 

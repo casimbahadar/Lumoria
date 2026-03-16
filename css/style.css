@@ -2558,7 +2558,7 @@ button, a, [role="button"] {
   font-weight: bold;
 }
 
-#screen-shop, #screen-quests {
+#screen-shop.active, #screen-quests.active {
   display: flex;
   flex-direction: column;
   height: 100%;

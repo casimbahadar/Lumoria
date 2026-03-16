@@ -2160,7 +2160,10 @@ function showDexDetail(monsterId) {
 // ============================================================
 function initEventListeners() {
   // Title screen
-  document.getElementById("btn-new-game").addEventListener("click", () => showScreen("screen-create"));
+  document.getElementById("btn-new-game").addEventListener("click", () => {
+    showScreen("screen-create");
+    typewriterDialog("Welcome to the world of Lumoria! I am Professor Arbor. The world is full of incredible creatures called Lumos. Tell me, what is your name?");
+  });
   document.getElementById("btn-continue").addEventListener("click", () => {
     if (loadGame()) {
       showScreen("screen-main");
@@ -2251,7 +2254,7 @@ function initEventListeners() {
   document.getElementById("nav-bag").addEventListener("click", showBagScreen);
   document.getElementById("nav-dex").addEventListener("click", showDexScreen);
   document.getElementById("nav-save").addEventListener("click", saveGame);
-  document.getElementById("nav-tutorial").addEventListener("click", showTutorial);
+  document.getElementById("nav-tutorial")?.addEventListener("click", showTutorial);
   document.getElementById("nav-quests").addEventListener("click", showQuestScreen);
   document.getElementById("nav-box").addEventListener("click", showBoxScreen);
   document.getElementById("nav-shop").addEventListener("click", showShopScreen);
@@ -2715,8 +2718,7 @@ window.addEventListener("load", () => {
   // Start on title screen
   showScreen("screen-title");
 
-  // Setup creation screen dialog
-  typewriterDialog("Welcome to the world of Lumoria! I am Professor Arbor. The world is full of incredible creatures called Lumos. Tell me, what is your name?");
+  // Creation screen dialog now triggered when NEW GAME is clicked
 
   // Map re-render on resize
   window.addEventListener("resize", () => {

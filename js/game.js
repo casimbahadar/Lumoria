@@ -493,13 +493,27 @@ function renderWorldMap() {
     return check(a) || check(b);
   }
 
-  // Build orthogonal (L-shaped) SVG path between two map points
-  function orthPath(x1, y1, x2, y2) {
+  // Build orthogonal segments between two map points
+  // Returns array of straight-line segment paths (split at direction changes)
+  function orthSegments(x1, y1, x2, y2) {
     const dx = Math.abs(x2 - x1), dy = Math.abs(y2 - y1);
+    // If nearly a straight line, return single segment
+    if (dx < 3 || dy < 3) {
+      return [`M ${x1},${y1} L ${x2},${y2}`];
+    }
+    // L-shaped: split into two straight segments at the corner
     if (dx >= dy) {
-      return `M ${x1},${y1} H ${x2} V ${y2}`;
+      // Horizontal first, then vertical. Corner at (x2, y1)
+      return [
+        `M ${x1},${y1} L ${x2},${y1}`,
+        `M ${x2},${y1} L ${x2},${y2}`
+      ];
     } else {
-      return `M ${x1},${y1} V ${y2} H ${x2}`;
+      // Vertical first, then horizontal. Corner at (x1, y2)
+      return [
+        `M ${x1},${y1} L ${x1},${y2}`,
+        `M ${x1},${y2} L ${x2},${y2}`
+      ];
     }
   }
 
@@ -530,7 +544,7 @@ function renderWorldMap() {
       const y1 = (area.mapPos.y / 100) * mapH;
       const x2 = (toArea.mapPos.x / 100) * mapW;
       const y2 = (toArea.mapPos.y / 100) * mapH;
-      const pathD = orthPath(x1, y1, x2, y2);
+      const segments = orthSegments(x1, y1, x2, y2);
 
       const fromLocked = G.badges.length < (area.requiredBadges || 0);
       const toLocked   = G.badges.length < (toArea.requiredBadges || 0);
@@ -539,40 +553,45 @@ function renderWorldMap() {
       const routeColor  = bothLocked ? "#4a4a4a" : water ? "#3a9acc" : "#d4a030";
       const shadowColor = bothLocked ? "#222"    : water ? "#0d2a4a" : "#6a4a08";
 
-      // Shadow
-      const shadow = document.createElementNS(svgNS, "path");
-      shadow.setAttribute("d", pathD);
-      shadow.setAttribute("stroke", shadowColor);
-      shadow.setAttribute("stroke-width", "7");
-      shadow.setAttribute("fill", "none");
-      shadow.setAttribute("stroke-linecap", "round");
-      shadow.setAttribute("stroke-linejoin", "round");
-      shadow.setAttribute("opacity", "0.55");
-      bgGroup.appendChild(shadow);
+      // Draw each segment separately so they can be clicked individually
+      const segLines = [];
+      for (const segD of segments) {
+        // Shadow
+        const shadow = document.createElementNS(svgNS, "path");
+        shadow.setAttribute("d", segD);
+        shadow.setAttribute("stroke", shadowColor);
+        shadow.setAttribute("stroke-width", "7");
+        shadow.setAttribute("fill", "none");
+        shadow.setAttribute("stroke-linecap", "round");
+        shadow.setAttribute("stroke-linejoin", "round");
+        shadow.setAttribute("opacity", "0.55");
+        bgGroup.appendChild(shadow);
 
-      // Route line
-      const line = document.createElementNS(svgNS, "path");
-      line.setAttribute("d", pathD);
-      line.setAttribute("stroke", routeColor);
-      line.setAttribute("stroke-width", "5");
-      line.setAttribute("fill", "none");
-      line.setAttribute("stroke-linecap", "round");
-      line.setAttribute("stroke-linejoin", "round");
-      bgGroup.appendChild(line);
+        // Route line
+        const line = document.createElementNS(svgNS, "path");
+        line.setAttribute("d", segD);
+        line.setAttribute("stroke", routeColor);
+        line.setAttribute("stroke-width", "5");
+        line.setAttribute("fill", "none");
+        line.setAttribute("stroke-linecap", "round");
+        line.setAttribute("stroke-linejoin", "round");
+        bgGroup.appendChild(line);
 
-      // Edge highlight (3D road feel)
-      const highlight = document.createElementNS(svgNS, "path");
-      highlight.setAttribute("d", pathD);
-      highlight.setAttribute("stroke", "#ffffff");
-      highlight.setAttribute("stroke-width", "1.5");
-      highlight.setAttribute("fill", "none");
-      highlight.setAttribute("stroke-linecap", "round");
-      highlight.setAttribute("stroke-linejoin", "round");
-      highlight.setAttribute("opacity", "0.2");
-      bgGroup.appendChild(highlight);
+        // Edge highlight (3D road feel)
+        const highlight = document.createElementNS(svgNS, "path");
+        highlight.setAttribute("d", segD);
+        highlight.setAttribute("stroke", "#ffffff");
+        highlight.setAttribute("stroke-width", "1.5");
+        highlight.setAttribute("fill", "none");
+        highlight.setAttribute("stroke-linecap", "round");
+        highlight.setAttribute("stroke-linejoin", "round");
+        highlight.setAttribute("opacity", "0.2");
+        bgGroup.appendChild(highlight);
+
+        segLines.push({ pathD: segD, line });
+      }
 
       // Find which route area(s) sit on or near this connection
-      // Check if either endpoint IS a route area, or if a route area is a neighbor of both
       const connRouteIds = [];
       if (area.type === "route") connRouteIds.push(areaId);
       if (toArea.type === "route") connRouteIds.push(conn);
@@ -586,29 +605,35 @@ function renderWorldMap() {
         const rBadgesNeeded = rArea.requiredBadges || 0;
         const rLocked = G.badges.length < rBadgesNeeded && rId !== G.location;
 
-        // Invisible wide hit-area path for clicking the route
+        // Add a clickable hit-area for each segment
         if (!rLocked) {
-          const hitArea = document.createElementNS(svgNS, "path");
-          hitArea.setAttribute("d", pathD);
-          hitArea.setAttribute("stroke", "transparent");
-          hitArea.setAttribute("stroke-width", "18");
-          hitArea.setAttribute("fill", "none");
-          hitArea.setAttribute("stroke-linecap", "round");
-          hitArea.setAttribute("stroke-linejoin", "round");
-          hitArea.style.cursor = "pointer";
-          hitArea.style.pointerEvents = "stroke";
-          hitArea.addEventListener("click", () => travelTo(rId));
-          hitArea.addEventListener("touchend", (e) => { e.preventDefault(); travelTo(rId); });
-          // Hover effect: brighten route
-          hitArea.addEventListener("mouseenter", () => {
-            line.setAttribute("stroke", water ? "#5ac0ee" : "#f0c050");
-            line.setAttribute("stroke-width", "6");
-          });
-          hitArea.addEventListener("mouseleave", () => {
-            line.setAttribute("stroke", routeColor);
-            line.setAttribute("stroke-width", "5");
-          });
-          svg.appendChild(hitArea);
+          for (const seg of segLines) {
+            const hitArea = document.createElementNS(svgNS, "path");
+            hitArea.setAttribute("d", seg.pathD);
+            hitArea.setAttribute("stroke", "transparent");
+            hitArea.setAttribute("stroke-width", "18");
+            hitArea.setAttribute("fill", "none");
+            hitArea.setAttribute("stroke-linecap", "round");
+            hitArea.setAttribute("stroke-linejoin", "round");
+            hitArea.style.cursor = "pointer";
+            hitArea.style.pointerEvents = "stroke";
+            hitArea.addEventListener("click", () => travelTo(rId));
+            hitArea.addEventListener("touchend", (e) => { e.preventDefault(); travelTo(rId); });
+            // Hover effect: brighten all segments of this route together
+            hitArea.addEventListener("mouseenter", () => {
+              for (const s of segLines) {
+                s.line.setAttribute("stroke", water ? "#5ac0ee" : "#f0c050");
+                s.line.setAttribute("stroke-width", "6");
+              }
+            });
+            hitArea.addEventListener("mouseleave", () => {
+              for (const s of segLines) {
+                s.line.setAttribute("stroke", routeColor);
+                s.line.setAttribute("stroke-width", "5");
+              }
+            });
+            svg.appendChild(hitArea);
+          }
         }
 
         // Route label positioned at the route area's mapPos

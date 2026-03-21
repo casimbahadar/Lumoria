@@ -2523,6 +2523,7 @@ const GYM_LEADERS = {
   ferro: {
     id:"ferro", name:"Leader Ferro", emoji:"⚙️", type:"Steel",
     badge:"Alloy Badge", badgeEmoji:"⚙️",
+    battleMode:"double",
     quote:"Steel is perfection. No weakness, no flaw, no mercy!",
     winQuote:"Even steel bends before your will. The Alloy Badge is yours.",
     team:[
@@ -2535,6 +2536,7 @@ const GYM_LEADERS = {
   boulder: {
     id:"boulder", name:"Leader Boulder", emoji:"🪨", type:"Rock",
     badge:"Geode Badge", badgeEmoji:"🪨",
+    battleMode:"double",
     quote:"Solid as stone, heavy as mountains. My Lumos are unbreakable!",
     winQuote:"You've shattered my defenses. The Geode Badge is yours.",
     team:[
@@ -2547,6 +2549,7 @@ const GYM_LEADERS = {
   seraphina: {
     id:"seraphina", name:"Leader Seraphina", emoji:"🧚", type:"Fairy",
     badge:"Aurora Badge", badgeEmoji:"🧚",
+    battleMode:"double",
     quote:"Fairy magic is the most beautiful and the most deadly force in Lumoria!",
     winQuote:"Your heart shines brighter than any fairy light. The Aurora Badge is yours!",
     team:[
@@ -2559,6 +2562,7 @@ const GYM_LEADERS = {
   champion: {
     id:"champion", name:"Champion Lumian", emoji:"👑", type:"Mixed",
     badge:null, badgeEmoji:"🏆",
+    battleMode:"triple",
     quote:"I am Champion Lumian, master of all types and all strategies. Many have tried... none have succeeded. Show me your resolve, young trainer!",
     winQuote:"Astounding! You have defeated the Champion of Lumoria! Your name will echo through the ages! You are the new Lumoria Champion!",
     team:[

@@ -930,6 +930,12 @@ let playerActiveMon = null;
 let enemyActiveMon = null;
 let battleContext = {};
 
+// Multi-battle state (double/triple)
+let playerActiveMons = [];  // Array of active player mons in multi battles
+let enemyActiveMons = [];   // Array of active enemy mons in multi battles
+let playerTeamIdxs = [];    // Team indices for active player mons
+let multiBattlePendingMoves = []; // Moves queued for multi battle turn
+
 function logMsg(text, cls) {
   const logEl = document.getElementById("battle-log");
   const entry = document.createElement("div");
@@ -1035,6 +1041,7 @@ function showBattleMainActions() {
   document.getElementById("battle-moves-panel").classList.add("hidden");
   document.getElementById("battle-catch-panel").classList.add("hidden");
   document.getElementById("battle-switch-panel").classList.add("hidden");
+  document.getElementById("battle-target-panel")?.classList.add("hidden");
 }
 
 function showMovePanel() {
@@ -1164,11 +1171,13 @@ function startWildBattle(wildMon) {
     isWild: true,
     isGym: false,
     isChampion: false,
+    battleMode: "single",
     wildMon,
     playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
   };
   playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx]);
   enemyActiveMon = wildMon;
+  hideMultiBattleSlots();
   showScreen("screen-battle");
   clearBattleLog();
   logMsg(`A wild Lumo — ${wildMon.name} appeared! (Lv.${wildMon.level})`);
@@ -1185,6 +1194,8 @@ function startGymBattle(leaderId) {
   }
   if (!leader) return;
   const levelCap = (typeof LEVEL_CAPS !== "undefined" && LEVEL_CAPS[leaderId]) ? LEVEL_CAPS[leaderId] : null;
+  const battleMode = leader.battleMode || "single";
+
   battleContext = {
     isWild: false,
     isGym: true,
@@ -1192,12 +1203,22 @@ function startGymBattle(leaderId) {
     isEliteFour: !!(typeof ELITE_FOUR !== "undefined" && ELITE_FOUR.find(e => e.id === leaderId)),
     leaderId,
     levelCap,
+    battleMode,
     enemyTeam: leader.team.map(s => buildGymMon(s)),
     enemyTeamIdx: 0,
     playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
   };
+
+  // Multi-battle mode
+  if (battleMode === "double" || battleMode === "triple") {
+    logMsg(`${leader.emoji} ${leader.name}: "${leader.quote}"`);
+    startMultiBattle(battleContext.enemyTeam, leader.name, battleMode);
+    return;
+  }
+
   playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx], levelCap);
   enemyActiveMon = battleContext.enemyTeam[0];
+  hideMultiBattleSlots();
   showScreen("screen-battle");
   clearBattleLog();
   if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
@@ -1676,6 +1697,460 @@ function showHallOfFame() {
 }
 
 function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+// ============================================================
+// MULTI-BATTLE SYSTEM (Double & Triple)
+// ============================================================
+
+function isMultiBattle() {
+  return battleContext.battleMode === "double" || battleContext.battleMode === "triple";
+}
+
+function getMultiSlotCount() {
+  if (battleContext.battleMode === "triple") return 3;
+  if (battleContext.battleMode === "double") return 2;
+  return 1;
+}
+
+function startMultiBattle(enemyTeam, leaderName, mode) {
+  const slots = mode === "triple" ? 3 : 2;
+  battleContext.battleMode = mode;
+
+  // Initialize active enemy mons (up to slots from enemy team)
+  enemyActiveMons = [];
+  battleContext.enemyTeamIdx = 0;
+  for (let i = 0; i < Math.min(slots, enemyTeam.length); i++) {
+    enemyActiveMons.push(enemyTeam[i]);
+    battleContext.enemyTeamIdx = i + 1;
+  }
+  enemyActiveMon = enemyActiveMons[0]; // primary for compatibility
+
+  // Initialize active player mons
+  playerActiveMons = [];
+  playerTeamIdxs = [];
+  let placed = 0;
+  for (let i = 0; i < G.team.length && placed < slots; i++) {
+    if (G.team[i].currentHP > 0) {
+      const levelCap = battleContext.levelCap || null;
+      playerActiveMons.push(buildBattleMon(G.team[i], levelCap));
+      playerTeamIdxs.push(i);
+      placed++;
+    }
+  }
+  playerActiveMon = playerActiveMons[0]; // primary for compatibility
+  battleContext.playerTeamIdx = playerTeamIdxs[0];
+
+  showScreen("screen-battle");
+  clearBattleLog();
+
+  // Show multi-battle slots
+  const enemySide = document.getElementById("battle-enemy-side");
+  const playerSide = document.getElementById("battle-player-side");
+  enemySide.classList.add("multi-battle");
+  playerSide.classList.add("multi-battle");
+
+  if (battleContext.levelCap) logMsg(`⚠️ Level Cap: ${battleContext.levelCap} — your team is scaled down!`);
+  const modeLabel = mode === "triple" ? "TRIPLE BATTLE" : "DOUBLE BATTLE";
+  logMsg(`⚔️ ${modeLabel}! ${leaderName} sent out ${enemyActiveMons.map(m => m.name).join(" & ")}!`);
+
+  updateMultiBattleUI();
+  showBattleMainActions();
+  document.getElementById("btn-catch").disabled = true;
+}
+
+function updateMultiBattleUI() {
+  // Update primary slots (reuse existing updateBattleUI for slot 0)
+  updateBattleUI();
+
+  // Update extra enemy slots
+  for (let i = 1; i < 3; i++) {
+    const infoEl = document.getElementById(`enemy-info-${i + 1}`);
+    const spriteEl = document.getElementById(`enemy-sprite-${i + 1}`);
+    if (i < enemyActiveMons.length && enemyActiveMons[i] && !enemyActiveMons[i].fainted) {
+      const e = enemyActiveMons[i];
+      infoEl.classList.remove("hidden");
+      spriteEl.classList.remove("hidden");
+      document.getElementById(`enemy-name-${i + 1}`).textContent = e.name;
+      document.getElementById(`enemy-level-${i + 1}`).textContent = `Lv.${e.level}`;
+      const hpPct = Math.max(0, (e.currentHP / e.maxHP) * 100);
+      const fill = document.getElementById(`enemy-hp-fill-${i + 1}`);
+      fill.style.width = hpPct + "%";
+      fill.className = "hp-fill" + (hpPct < 25 ? " red" : hpPct < 50 ? " yellow" : "");
+      const statusEl = document.getElementById(`enemy-status-badge-${i + 1}`);
+      if (e.status) {
+        statusEl.classList.remove("hidden");
+        statusEl.textContent = e.status.toUpperCase();
+        statusEl.className = `status-badge status-${e.status}`;
+      } else {
+        statusEl.classList.add("hidden");
+      }
+      const typesEl = document.getElementById(`enemy-type-badges-${i + 1}`);
+      typesEl.innerHTML = "";
+      for (const t of e.types) {
+        const badge = document.createElement("span");
+        badge.className = `type-badge-small type-${t}`;
+        badge.textContent = t;
+        typesEl.appendChild(badge);
+      }
+      if (typeof getMonsterSpriteURL === "function" && MONSTERS_DATA[e.monsterId]) {
+        spriteEl.innerHTML = `<img src="${getMonsterSpriteURL(MONSTERS_DATA[e.monsterId], 60)}" width="60" height="60" alt="${e.name}">`;
+      } else {
+        spriteEl.textContent = e.emoji;
+      }
+    } else {
+      infoEl.classList.add("hidden");
+      spriteEl.classList.add("hidden");
+    }
+  }
+
+  // Update extra player slots
+  for (let i = 1; i < 3; i++) {
+    const infoEl = document.getElementById(`player-info-${i + 1}`);
+    const spriteEl = document.getElementById(`player-sprite-${i + 1}`);
+    if (i < playerActiveMons.length && playerActiveMons[i] && !playerActiveMons[i].fainted) {
+      const p = playerActiveMons[i];
+      infoEl.classList.remove("hidden");
+      spriteEl.classList.remove("hidden");
+      document.getElementById(`player-mon-name-${i + 1}`).textContent = p.name;
+      document.getElementById(`player-mon-level-${i + 1}`).textContent = `Lv.${p.level}`;
+      const hpPct = Math.max(0, (p.currentHP / p.maxHP) * 100);
+      const fill = document.getElementById(`player-hp-fill-${i + 1}`);
+      fill.style.width = hpPct + "%";
+      fill.className = "hp-fill" + (hpPct < 25 ? " red" : hpPct < 50 ? " yellow" : "");
+      document.getElementById(`player-hp-text-${i + 1}`).textContent = `${p.currentHP} / ${p.maxHP}`;
+      const statusEl = document.getElementById(`player-status-badge-${i + 1}`);
+      if (p.status) {
+        statusEl.classList.remove("hidden");
+        statusEl.textContent = p.status.toUpperCase();
+        statusEl.className = `status-badge status-${p.status}`;
+      } else {
+        statusEl.classList.add("hidden");
+      }
+      if (typeof getMonsterSpriteURL === "function" && MONSTERS_DATA[p.monsterId]) {
+        spriteEl.innerHTML = `<img src="${getMonsterSpriteURL(MONSTERS_DATA[p.monsterId], 60)}" width="60" height="60" alt="${p.name}">`;
+      } else {
+        spriteEl.textContent = p.emoji;
+      }
+    } else {
+      infoEl.classList.add("hidden");
+      spriteEl.classList.add("hidden");
+    }
+  }
+}
+
+function hideMultiBattleSlots() {
+  const enemySide = document.getElementById("battle-enemy-side");
+  const playerSide = document.getElementById("battle-player-side");
+  enemySide.classList.remove("multi-battle");
+  playerSide.classList.remove("multi-battle");
+  for (let i = 2; i <= 3; i++) {
+    document.getElementById(`enemy-info-${i}`)?.classList.add("hidden");
+    document.getElementById(`enemy-sprite-${i}`)?.classList.add("hidden");
+    document.getElementById(`player-info-${i}`)?.classList.add("hidden");
+    document.getElementById(`player-sprite-${i}`)?.classList.add("hidden");
+  }
+}
+
+// Multi-battle move panel: player picks a move, then a target
+function showMultiMovePanel(monIndex) {
+  const mon = playerActiveMons[monIndex];
+  if (!mon || mon.fainted) return;
+
+  document.getElementById("battle-main-actions").classList.add("hidden");
+  document.getElementById("battle-moves-panel").classList.remove("hidden");
+  const grid = document.getElementById("battle-moves-grid");
+  grid.innerHTML = "";
+
+  const oldTooltip = document.getElementById("move-info-tooltip");
+  if (oldTooltip) oldTooltip.remove();
+
+  logMsg(`Choose a move for ${mon.name}:`);
+
+  for (const m of mon.moves) {
+    const move = MOVES_DATA[m.id];
+    if (!move) continue;
+    const btn = document.createElement("button");
+    btn.className = "move-btn";
+    const typeColor = getTypeColor(move.type);
+    btn.disabled = m.pp <= 0;
+    const catIcon = move.cat === "physical" ? "⚔" : move.cat === "special" ? "✦" : "◈";
+    btn.innerHTML = `
+      <div class="move-btn-left">
+        <span class="move-btn-name">${move.name}</span>
+        <span class="move-btn-pp">PP: ${m.pp}/${m.maxPP}</span>
+      </div>
+      <div class="move-btn-meta">
+        <span class="move-btn-stats">${catIcon} ${move.power || "—"} / ${move.acc}%</span>
+        <span class="move-btn-right" style="background:${typeColor}">${move.type}</span>
+      </div>
+    `;
+    btn.addEventListener("click", () => {
+      if (m.pp <= 0) return;
+      // For damaging moves, show target selection
+      if (move.power > 0) {
+        showMultiTargetPanel(monIndex, m.id);
+      } else {
+        // Status moves target a random enemy
+        const aliveEnemies = enemyActiveMons.filter(e => e && !e.fainted && e.currentHP > 0);
+        const target = aliveEnemies.length > 0 ? enemyActiveMons.indexOf(aliveEnemies[0]) : 0;
+        queueMultiMove(monIndex, m.id, target);
+      }
+    });
+    grid.appendChild(btn);
+  }
+}
+
+function showMultiTargetPanel(monIndex, moveId) {
+  document.getElementById("battle-moves-panel").classList.add("hidden");
+  document.getElementById("battle-target-panel").classList.remove("hidden");
+  const list = document.getElementById("target-list");
+  list.innerHTML = "";
+
+  enemyActiveMons.forEach((e, idx) => {
+    if (!e) return;
+    const btn = document.createElement("button");
+    btn.textContent = `${e.emoji} ${e.name} (Lv.${e.level})`;
+    if (e.fainted || e.currentHP <= 0) {
+      btn.classList.add("fainted-target");
+    } else {
+      btn.addEventListener("click", () => {
+        document.getElementById("battle-target-panel").classList.add("hidden");
+        queueMultiMove(monIndex, moveId, idx);
+      });
+    }
+    list.appendChild(btn);
+  });
+
+  document.getElementById("btn-target-back").onclick = () => {
+    document.getElementById("battle-target-panel").classList.add("hidden");
+    showMultiMovePanel(monIndex);
+  };
+}
+
+function queueMultiMove(monIndex, moveId, targetIndex) {
+  multiBattlePendingMoves.push({ monIndex, moveId, targetIndex });
+
+  // Check if all alive player mons have queued moves
+  const alivePlayerMons = playerActiveMons.filter(m => m && !m.fainted && m.currentHP > 0);
+  if (multiBattlePendingMoves.length >= alivePlayerMons.length) {
+    executeMultiTurn();
+  } else {
+    // Queue next mon's move
+    const nextIdx = playerActiveMons.findIndex((m, i) =>
+      m && !m.fainted && m.currentHP > 0 && !multiBattlePendingMoves.find(p => p.monIndex === i));
+    if (nextIdx >= 0) {
+      showMultiMovePanel(nextIdx);
+    }
+  }
+}
+
+async function executeMultiTurn() {
+  if (battleContext.battleEnded) return;
+  document.getElementById("battle-main-actions").classList.add("hidden");
+  document.getElementById("battle-moves-panel").classList.add("hidden");
+
+  // Build all actions: player moves + enemy AI moves
+  const actions = [];
+
+  // Player moves
+  for (const pm of multiBattlePendingMoves) {
+    const mon = playerActiveMons[pm.monIndex];
+    if (!mon || mon.fainted) continue;
+    const moveSlot = mon.moves.find(m => m.id === pm.moveId);
+    if (moveSlot) moveSlot.pp = Math.max(0, moveSlot.pp - 1);
+    actions.push({
+      mon, moveId: pm.moveId, targetIdx: pm.targetIndex, isPlayer: true,
+      monIdx: pm.monIndex,
+      spe: mon.spe * stageMultiplier(mon.stages.spe)
+    });
+  }
+
+  // Enemy AI moves
+  for (let i = 0; i < enemyActiveMons.length; i++) {
+    const e = enemyActiveMons[i];
+    if (!e || e.fainted || e.currentHP <= 0) continue;
+    // Pick a random alive player target
+    const alivePlayers = playerActiveMons.map((m, idx) => ({ m, idx })).filter(x => x.m && !x.m.fainted && x.m.currentHP > 0);
+    if (alivePlayers.length === 0) break;
+    const target = alivePlayers[Math.floor(Math.random() * alivePlayers.length)];
+    const moveSlot = aiChooseMove(e, target.m);
+    const move = MOVES_DATA[moveSlot.id];
+    if (moveSlot.id !== "tackle") moveSlot.pp = Math.max(0, moveSlot.pp - 1);
+    actions.push({
+      mon: e, moveId: moveSlot.id, targetIdx: target.idx, isPlayer: false,
+      monIdx: i,
+      spe: e.spe * stageMultiplier(e.stages.spe)
+    });
+  }
+
+  // Sort by speed (fastest first)
+  actions.sort((a, b) => {
+    const moveA = MOVES_DATA[a.moveId];
+    const moveB = MOVES_DATA[b.moveId];
+    if (moveA?.effect === "priority" && moveB?.effect !== "priority") return -1;
+    if (moveB?.effect === "priority" && moveA?.effect !== "priority") return 1;
+    return b.spe - a.spe;
+  });
+
+  // Execute all actions in order
+  for (const action of actions) {
+    if (battleContext.battleEnded) break;
+    if (action.mon.fainted || action.mon.currentHP <= 0) continue;
+
+    const target = action.isPlayer
+      ? enemyActiveMons[action.targetIdx]
+      : playerActiveMons[action.targetIdx];
+
+    if (!target || target.fainted || target.currentHP <= 0) {
+      // Retarget to another alive target
+      const pool = action.isPlayer ? enemyActiveMons : playerActiveMons;
+      const alive = pool.find(m => m && !m.fainted && m.currentHP > 0);
+      if (!alive) continue;
+      await doAttack(action.mon, alive, action.moveId, action.isPlayer);
+    } else {
+      await doAttack(action.mon, target, action.moveId, action.isPlayer);
+    }
+
+    // Sync HP for player mons
+    for (let i = 0; i < playerActiveMons.length; i++) {
+      if (playerActiveMons[i]) {
+        const slot = G.team[playerTeamIdxs[i]];
+        if (slot) {
+          slot.currentHP = Math.max(0, playerActiveMons[i].currentHP);
+          slot.status = playerActiveMons[i].status;
+        }
+      }
+    }
+
+    updateMultiBattleUI();
+    await delay(300);
+  }
+
+  // Status ticks for all active mons
+  for (const mon of [...playerActiveMons, ...enemyActiveMons]) {
+    if (mon && !mon.fainted && mon.currentHP > 0) {
+      const msgs = tickStatus(mon);
+      for (const msg of msgs) logMsg(msg);
+    }
+  }
+
+  // Sync HP again
+  for (let i = 0; i < playerActiveMons.length; i++) {
+    if (playerActiveMons[i]) {
+      const slot = G.team[playerTeamIdxs[i]];
+      if (slot) {
+        slot.currentHP = Math.max(0, playerActiveMons[i].currentHP);
+        slot.status = playerActiveMons[i].status;
+      }
+    }
+  }
+
+  updateMultiBattleUI();
+
+  // Check for fainted mons and handle replacements
+  await handleMultiFaintedMons();
+
+  multiBattlePendingMoves = [];
+
+  if (!battleContext.battleEnded) {
+    // Start next turn - prompt for moves for each alive player mon
+    const alivePlayer = playerActiveMons.find(m => m && !m.fainted && m.currentHP > 0);
+    if (alivePlayer) {
+      const firstIdx = playerActiveMons.indexOf(alivePlayer);
+      showBattleMainActions();
+    }
+  }
+}
+
+async function handleMultiFaintedMons() {
+  // Handle fainted enemy mons - try to send in replacements
+  for (let i = 0; i < enemyActiveMons.length; i++) {
+    const e = enemyActiveMons[i];
+    if (e && (e.fainted || e.currentHP <= 0)) {
+      logMsg(`${e.name} fainted!`);
+      // Give XP to the player mon that was targeting it
+      const xpGain = calcXPGain(e, false);
+      const alivePlayerMon = playerActiveMons.find(m => m && !m.fainted && m.currentHP > 0);
+      if (alivePlayerMon) {
+        const pIdx = playerActiveMons.indexOf(alivePlayerMon);
+        const slot = G.team[playerTeamIdxs[pIdx]];
+        giveXP(slot, xpGain);
+      }
+      // Try to send in next enemy from team
+      if (battleContext.enemyTeamIdx < battleContext.enemyTeam.length) {
+        const next = battleContext.enemyTeam[battleContext.enemyTeamIdx];
+        battleContext.enemyTeamIdx++;
+        enemyActiveMons[i] = next;
+        logMsg(`${next.name} was sent out!`);
+      } else {
+        enemyActiveMons[i] = null;
+      }
+    }
+  }
+
+  // Handle fainted player mons - try to send in replacements
+  for (let i = 0; i < playerActiveMons.length; i++) {
+    const p = playerActiveMons[i];
+    if (p && (p.fainted || p.currentHP <= 0)) {
+      logMsg(`${p.name} fainted!`);
+      // Find next alive team member not already in battle
+      const nextIdx = G.team.findIndex((m, idx) =>
+        m.currentHP > 0 && !playerTeamIdxs.includes(idx));
+      if (nextIdx >= 0) {
+        const levelCap = battleContext.levelCap || null;
+        playerActiveMons[i] = buildBattleMon(G.team[nextIdx], levelCap);
+        playerTeamIdxs[i] = nextIdx;
+        logMsg(`Go, ${playerActiveMons[i].name}!`);
+      } else {
+        playerActiveMons[i] = null;
+      }
+    }
+  }
+
+  // Check if all enemies are down
+  const aliveEnemies = enemyActiveMons.filter(e => e && !e.fainted && e.currentHP > 0);
+  if (aliveEnemies.length === 0) {
+    // Find XP slot for level ups
+    const aliveP = playerActiveMons.find(m => m && !m.fainted);
+    const pIdx = aliveP ? playerActiveMons.indexOf(aliveP) : 0;
+    const slot = G.team[playerTeamIdxs[pIdx] || 0];
+    const levelUps = []; // XP was already given during faint handling
+    hideMultiBattleSlots();
+    endBattle("won", slot, levelUps);
+    return;
+  }
+
+  // Check if all players are down
+  const alivePlayers = playerActiveMons.filter(p => p && !p.fainted && p.currentHP > 0);
+  if (alivePlayers.length === 0) {
+    hideMultiBattleSlots();
+    endBattle("lost");
+    return;
+  }
+
+  // Update main references for compatibility
+  enemyActiveMon = aliveEnemies[0];
+  const alivePlayerMon = alivePlayers[0];
+  playerActiveMon = alivePlayerMon;
+  battleContext.playerTeamIdx = playerTeamIdxs[playerActiveMons.indexOf(alivePlayerMon)];
+
+  updateMultiBattleUI();
+  await delay(500);
+}
+
+// Override showMovePanel for multi battles
+const _originalShowMovePanel = typeof showMovePanel === "function" ? showMovePanel : null;
+
+// Hook into the fight button for multi battles
+function onFightButtonMulti() {
+  if (!isMultiBattle()) return false;
+  multiBattlePendingMoves = [];
+  const firstAlive = playerActiveMons.findIndex(m => m && !m.fainted && m.currentHP > 0);
+  if (firstAlive >= 0) {
+    showMultiMovePanel(firstAlive);
+  }
+  return true;
+}
 
 // ============================================================
 // TEAM SCREEN
@@ -2336,7 +2811,9 @@ function initEventListeners() {
   document.getElementById("btn-tutorial-close").addEventListener("click", hideTutorial);
 
   // Battle controls
-  document.getElementById("btn-fight").addEventListener("click", showMovePanel);
+  document.getElementById("btn-fight").addEventListener("click", () => {
+    if (!onFightButtonMulti()) showMovePanel();
+  });
   document.getElementById("btn-catch").addEventListener("click", showCatchPanel);
   document.getElementById("btn-switch").addEventListener("click", () => showSwitchPanel(false));
   document.getElementById("btn-run").addEventListener("click", playerRun);
@@ -2511,6 +2988,7 @@ function startSpecialBattle(battleId, battleData, isUmbra) {
     isChampion: false,
     isRival: !isUmbra,
     isUmbra: isUmbra,
+    battleMode: "single",
     leaderId: battleId,
     levelCap,
     enemyTeam: battle.team.map(s => buildGymMon(s)),
@@ -2519,6 +2997,7 @@ function startSpecialBattle(battleId, battleData, isUmbra) {
   };
   playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx], levelCap);
   enemyActiveMon = battleContext.enemyTeam[0];
+  hideMultiBattleSlots();
   showScreen("screen-battle");
   clearBattleLog();
   if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
@@ -2754,6 +3233,7 @@ function startQuestBattle(quest) {
     isWild: false,
     isGym: false, isChampion: false, isRival: false, isUmbra: false,
     isQuest: true, questId: quest.id,
+    battleMode: "single",
     leaderId: quest.id,
     enemyTeam: bossTeam.map(s => buildGymMon(s)),
     enemyTeamIdx: 0,
@@ -2763,6 +3243,7 @@ function startQuestBattle(quest) {
   showNotification(`⚔️ A wild <strong>${bossName}</strong> (Lv.${boss.level}) appears!`, () => {
     playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx]);
     enemyActiveMon = battleContext.enemyTeam[0];
+    hideMultiBattleSlots();
     showScreen("screen-battle");
     clearBattleLog();
     logMsg(`⚔️ Quest Boss ${bossName} appeared! (Lv.${boss.level})`);

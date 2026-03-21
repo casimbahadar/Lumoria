@@ -825,6 +825,65 @@ html, body {
   color: var(--accent-blue);
 }
 
+/* Multi-battle slots */
+.multi-battle-slot {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.3rem 0.5rem;
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+}
+.multi-battle-slot .hp-bar-container { margin: 0.1rem 0; }
+.multi-battle-slot .hp-bar { height: 4px; }
+
+#battle-enemy-side.multi-battle,
+#battle-player-side.multi-battle {
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+#battle-enemy-side.multi-battle .battle-sprite,
+#battle-player-side.multi-battle .battle-sprite {
+  font-size: 3rem;
+  width: 60px;
+  height: 60px;
+}
+
+#battle-target-panel {
+  padding: 0.5rem;
+}
+#target-list {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+#target-list button {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+#target-list button:hover {
+  background: var(--bg-card-hover);
+}
+#target-list button.fainted-target {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Battle mode label */
+.battle-mode-label {
+  text-align: center;
+  font-size: 0.65rem;
+  color: var(--accent-purple);
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 0.2rem;
+}
+
 #enemy-header, #player-header {
   display: flex;
   align-items: center;

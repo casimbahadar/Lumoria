@@ -1189,6 +1189,7 @@ function startWildBattle(wildMon) {
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = false;
+  if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
 }
 
 function startGymBattle(leaderId) {
@@ -1232,6 +1233,7 @@ function startGymBattle(leaderId) {
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
+  if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
 }
 
 // ---- Player Actions ----
@@ -1547,6 +1549,11 @@ async function handlePlayerFainted() {
 function endBattle(outcome, slot, levelUps) {
   battleContext.battleEnded = true;
   syncPlayerMonHP();
+  if (typeof MusicEngine !== "undefined") {
+    MusicEngine.stop();
+    // Resume overworld music after a short delay
+    setTimeout(() => { if (typeof MusicEngine !== "undefined" && !MusicEngine.isMuted()) MusicEngine.playOverworld(); }, 1500);
+  }
 
   if (outcome === "ran" || outcome === "caught") {
     showScreen("screen-main");
@@ -1761,6 +1768,7 @@ function startMultiBattle(enemyTeam, leaderName, mode) {
   updateMultiBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
+  if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
 }
 
 function updateMultiBattleUI() {
@@ -2708,6 +2716,7 @@ function initEventListeners() {
       renderHUD();
       renderWorldMap();
       renderAreaPanel();
+      if (typeof MusicEngine !== "undefined") { MusicEngine.init(); MusicEngine.playOverworld(); }
     } else {
       showNotification("No save file found!");
     }
@@ -2735,6 +2744,7 @@ function initEventListeners() {
     renderAreaPanel();
     saveGame();
     showNotification(`🎉 You chose ${MONSTERS_DATA[starterId].name}! Your adventure begins!`, () => {
+      if (typeof MusicEngine !== "undefined") { MusicEngine.init(); MusicEngine.playOverworld(); }
       triggerStorySequence("intro");
     });
   });
@@ -2796,6 +2806,14 @@ function initEventListeners() {
   document.getElementById("nav-dex").addEventListener("click", showDexScreen);
   document.getElementById("nav-save").addEventListener("click", saveGame);
   document.getElementById("nav-tutorial")?.addEventListener("click", showTutorial);
+  document.getElementById("nav-music")?.addEventListener("click", () => {
+    if (typeof MusicEngine !== "undefined") {
+      const muted = MusicEngine.toggleMute();
+      const btn = document.getElementById("nav-music");
+      btn.textContent = muted ? "🔇 MUSIC" : "🔊 MUSIC";
+      if (!muted) MusicEngine.playOverworld();
+    }
+  });
   document.getElementById("nav-quests").addEventListener("click", showQuestScreen);
   document.getElementById("nav-box").addEventListener("click", showBoxScreen);
   document.getElementById("nav-shop").addEventListener("click", showShopScreen);
@@ -3014,6 +3032,7 @@ function startSpecialBattle(battleId, battleData, isUmbra) {
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
+  if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
 }
 
 // Show a sequence of story messages one-by-one
@@ -3258,6 +3277,7 @@ function startQuestBattle(quest) {
     updateBattleUI();
     showBattleMainActions();
     document.getElementById("btn-catch").disabled = true;
+    if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
   });
 }
 

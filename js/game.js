@@ -28,7 +28,8 @@ function newGameState(playerName, starterMonsterId) {
 
 function createPartySlot(monsterId, level) {
   const def = MONSTERS_DATA[monsterId];
-  const maxHP = calcMaxHP(def.base.hp, level);
+  const ivs = generateIVs();
+  const maxHP = calcMaxHP(def.base.hp, level, ivs.hp);
   // Build initial moveset
   const known = def.learnset.filter(e => e[0] <= level).map(e => e[1]);
   const moves = known.slice(-4);
@@ -42,7 +43,9 @@ function createPartySlot(monsterId, level) {
     currentHP: maxHP,
     moves,
     status: null,
-    heldItem: null
+    heldItem: null,
+    nature: getRandomNature(),
+    ivs
   };
 }
 
@@ -68,6 +71,15 @@ function loadGame() {
     if (!data.visitedLocations) data.visitedLocations = [data.location];
     if (!data.box) data.box = [];
     if (data.bag && data.bag.rareCandy === undefined) data.bag.rareCandy = 0;
+    // Assign natures and IVs to existing mons that don't have them
+    for (const mon of (data.team || [])) {
+      if (!mon.nature) mon.nature = getRandomNature();
+      if (!mon.ivs) mon.ivs = generateIVs();
+    }
+    for (const mon of (data.box || [])) {
+      if (!mon.nature) mon.nature = getRandomNature();
+      if (!mon.ivs) mon.ivs = generateIVs();
+    }
     G = data;
     return true;
   } catch(e) { return false; }
@@ -106,13 +118,14 @@ function showLevelUp(partySlot, levelUps, cb) {
     `${partySlot.nickname || def.name} reached Level ${lv}!`;
   const statsDiv = document.getElementById("levelup-stats");
   statsDiv.innerHTML = "";
+  const pIvs = partySlot.ivs || { hp:0, atk:0, def:0, spa:0, spd:0, spe:0 };
   const stats = [
-    ["HP", calcMaxHP(def.base.hp, lv) - calcMaxHP(def.base.hp, lv-1)],
-    ["ATK", calcStat(def.base.atk, lv) - calcStat(def.base.atk, lv-1)],
-    ["DEF", calcStat(def.base.def, lv) - calcStat(def.base.def, lv-1)],
-    ["SP.A", calcStat(def.base.spa, lv) - calcStat(def.base.spa, lv-1)],
-    ["SP.D", calcStat(def.base.spd, lv) - calcStat(def.base.spd, lv-1)],
-    ["SPE", calcStat(def.base.spe, lv) - calcStat(def.base.spe, lv-1)]
+    ["HP", calcMaxHP(def.base.hp, lv, pIvs.hp) - calcMaxHP(def.base.hp, lv-1, pIvs.hp)],
+    ["ATK", calcStat(def.base.atk, lv, pIvs.atk) - calcStat(def.base.atk, lv-1, pIvs.atk)],
+    ["DEF", calcStat(def.base.def, lv, pIvs.def) - calcStat(def.base.def, lv-1, pIvs.def)],
+    ["SP.A", calcStat(def.base.spa, lv, pIvs.spa) - calcStat(def.base.spa, lv-1, pIvs.spa)],
+    ["SP.D", calcStat(def.base.spd, lv, pIvs.spd) - calcStat(def.base.spd, lv-1, pIvs.spd)],
+    ["SPE", calcStat(def.base.spe, lv, pIvs.spe) - calcStat(def.base.spe, lv-1, pIvs.spe)]
   ];
   for (const [name, gain] of stats) {
     const d = document.createElement("div");
@@ -829,6 +842,15 @@ function renderAreaPanel() {
     }
   }
 
+  // Heal button in towns/cities
+  const healBtn = document.getElementById("btn-heal");
+  if (healBtn) {
+    healBtn.classList.add("hidden");
+    if (area.type === "town" || area.type === "city") {
+      healBtn.classList.remove("hidden");
+    }
+  }
+
   // Elite Four button
   const eliteBtn = document.getElementById("btn-elite-four");
   if (eliteBtn) {
@@ -955,6 +977,21 @@ function updateBattleUI() {
     badge.className = `type-badge-small type-${t}`;
     badge.textContent = t;
     enemyTypes.appendChild(badge);
+  }
+
+  // Show IVs for wild encounters so players can evaluate
+  const enemyIVsEl = document.getElementById("enemy-ivs");
+  if (enemyIVsEl) {
+    if (battleContext.isWild && enemy.ivs) {
+      const iv = enemy.ivs;
+      const total = iv.hp + iv.atk + iv.def + iv.spa + iv.spd + iv.spe;
+      enemyIVsEl.innerHTML = `<span class="iv-label">IVs:</span> ` +
+        `HP:${iv.hp} ATK:${iv.atk} DEF:${iv.def} SPA:${iv.spa} SPD:${iv.spd} SPE:${iv.spe}` +
+        ` <span class="iv-total">(${total}/186)</span>`;
+      enemyIVsEl.classList.remove("hidden");
+    } else {
+      enemyIVsEl.classList.add("hidden");
+    }
   }
 
   // Player sprite (SVG illustration)
@@ -1227,7 +1264,9 @@ function createCaughtSlot(battleMon) {
     maxHP: battleMon.maxHP,
     currentHP: battleMon.currentHP,
     moves: battleMon.moves.map(m => m.id),
-    status: battleMon.status
+    status: battleMon.status,
+    nature: battleMon.nature || getRandomNature(),
+    ivs: battleMon.ivs || generateIVs()
   };
 }
 
@@ -1685,21 +1724,33 @@ function showTeamDetail(slot, idx) {
   document.getElementById("team-detail").classList.remove("hidden");
   document.getElementById("team-list").style.display = "none";
 
+  const nature = slot.nature || "Balanced";
+  const natureData = typeof NATURES_DATA !== "undefined" ? NATURES_DATA[nature] : null;
+  const ivs = slot.ivs || { hp:0, atk:0, def:0, spa:0, spd:0, spe:0 };
   const stats = [
-    ["HP",  slot.maxHP,                    250],
-    ["ATK", calcStat(def.base.atk, lv), 200],
-    ["DEF", calcStat(def.base.def, lv), 200],
-    ["SPA", calcStat(def.base.spa, lv), 200],
-    ["SPD", calcStat(def.base.spd, lv), 200],
-    ["SPE", calcStat(def.base.spe, lv), 200]
+    ["HP",  calcMaxHP(def.base.hp, lv, ivs.hp),                                250],
+    ["ATK", applyNatureToStat("atk", calcStat(def.base.atk, lv, ivs.atk), nature), 200],
+    ["DEF", applyNatureToStat("def", calcStat(def.base.def, lv, ivs.def), nature), 200],
+    ["SPA", applyNatureToStat("spa", calcStat(def.base.spa, lv, ivs.spa), nature), 200],
+    ["SPD", applyNatureToStat("spd", calcStat(def.base.spd, lv, ivs.spd), nature), 200],
+    ["SPE", applyNatureToStat("spe", calcStat(def.base.spe, lv, ivs.spe), nature), 200]
   ];
+  const statKeyMap = { ATK:"atk", DEF:"def", SPA:"spa", SPD:"spd", SPE:"spe" };
   const typeHTML = def.types.map(t => `<span class="type-badge type-${t}">${t}</span>`).join(" ");
-  const statsHTML = stats.map(([n, v, max]) => `
-    <div class="stat-row">
-      <span class="stat-label">${n}</span>
-      <div class="stat-bar"><div class="stat-fill" style="width:${Math.min(100,(v/max)*100)}%;background:${n==="HP"?"#3fb950":"#58a6ff"}"></div></div>
+  const statsHTML = stats.map(([n, v, max]) => {
+    const key = statKeyMap[n];
+    let color = n === "HP" ? "#3fb950" : "#58a6ff";
+    let label = n;
+    if (natureData && key) {
+      if (natureData.up === key) { color = "#f85149"; label = n + "▲"; }
+      if (natureData.down === key) { color = "#58a6ff"; label = n + "▼"; }
+    }
+    return `<div class="stat-row">
+      <span class="stat-label">${label}</span>
+      <div class="stat-bar"><div class="stat-fill" style="width:${Math.min(100,(v/max)*100)}%;background:${color}"></div></div>
       <span class="stat-val">${v}</span>
-    </div>`).join("");
+    </div>`;
+  }).join("");
   const movesHTML = slot.moves.map(mid => {
     const m = MOVES_DATA[mid];
     if (!m) return "";
@@ -1755,9 +1806,16 @@ function showTeamDetail(slot, idx) {
       ${detailSpriteHTML}
       <h3>${slot.nickname || def.name} ${typeHTML}</h3>
       <p style="color:var(--text-secondary);font-size:0.8rem">Lv.${lv} | XP to next: ${xpToNext}</p>
+      <p style="font-size:0.8rem;color:#c9a0dc;margin:0.2rem 0"><strong>${nature}</strong> nature${natureData ? ` — ${natureData.desc}` : ""}</p>
       <p style="font-size:0.8rem;color:var(--text-muted)">${def.desc}</p>
     </div>
-    <div class="detail-section"><h4>Stats</h4>${statsHTML}</div>
+    <div class="detail-section"><h4>Stats</h4>${statsHTML}
+      <div style="margin-top:0.5rem;font-size:0.7rem;color:var(--text-muted)">
+        <span style="color:var(--accent-purple);font-weight:bold">IVs:</span>
+        HP:${(slot.ivs||{}).hp||0} ATK:${(slot.ivs||{}).atk||0} DEF:${(slot.ivs||{}).def||0} SPA:${(slot.ivs||{}).spa||0} SPD:${(slot.ivs||{}).spd||0} SPE:${(slot.ivs||{}).spe||0}
+        <span style="color:var(--accent-blue)">(${Object.values(slot.ivs||{}).reduce((a,b)=>a+b,0)}/186)</span>
+      </div>
+    </div>
     <div class="detail-section"><h4>Moves</h4><div class="moves-grid">${movesHTML}</div></div>
     <div class="detail-section">
       <h4>Held Item</h4>
@@ -2332,6 +2390,12 @@ function initEventListeners() {
     });
   });
 
+  // Area shop button
+  document.getElementById("btn-area-shop")?.addEventListener("click", showShopScreen);
+
+  // Heal button
+  document.getElementById("btn-heal")?.addEventListener("click", healTeam);
+
   // Rival button
   document.getElementById("btn-rival").addEventListener("click", () => {
     if (G.team.every(m => m.currentHP <= 0)) {
@@ -2486,6 +2550,31 @@ function triggerBadgeStoryEvent(badgeCount) {
     setTimeout(() => triggerStorySequence(key), 400);
   }
   renderAreaPanel(); // refresh to show rival button if unlocked
+}
+
+// ============================================================
+// HEAL SYSTEM
+// ============================================================
+function healTeam() {
+  const area = WORLD_DATA[G.location];
+  if (!area || (area.type !== "town" && area.type !== "city")) {
+    showNotification("You can only heal at a town or city.");
+    return;
+  }
+  let healed = false;
+  for (const mon of G.team) {
+    if (mon.currentHP < mon.stats.hp) {
+      mon.currentHP = mon.stats.hp;
+      healed = true;
+    }
+  }
+  if (healed) {
+    renderHUD();
+    saveGame();
+    showNotification("💊 Your Lumos team has been fully healed!");
+  } else {
+    showNotification("Your Lumos are already at full health!");
+  }
 }
 
 // ============================================================
@@ -2662,14 +2751,24 @@ function startQuestBattle(quest) {
   const bossName = MONSTERS_DATA[boss.monsterId]?.name || "Quest Boss";
 
   battleContext = {
+    isWild: false,
     isGym: false, isChampion: false, isRival: false, isUmbra: false,
     isQuest: true, questId: quest.id,
-    leaderId: quest.id
+    leaderId: quest.id,
+    enemyTeam: bossTeam.map(s => buildGymMon(s)),
+    enemyTeamIdx: 0,
+    playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
   };
 
   showNotification(`⚔️ A wild <strong>${bossName}</strong> (Lv.${boss.level}) appears!`, () => {
+    playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx]);
+    enemyActiveMon = battleContext.enemyTeam[0];
     showScreen("screen-battle");
-    startBattle(bossTeam, bossName);
+    clearBattleLog();
+    logMsg(`⚔️ Quest Boss ${bossName} appeared! (Lv.${boss.level})`);
+    updateBattleUI();
+    showBattleMainActions();
+    document.getElementById("btn-catch").disabled = true;
   });
 }
 

@@ -2,6 +2,70 @@
 // LUMORIA - Game Data
 // ============================================================
 
+// NATURES SYSTEM
+// Each nature boosts one stat by 10% and lowers another by 10%
+// Neutral natures (same boost/lower) have no effect
+const NATURES_DATA = {
+  // ATK boosted
+  Blazing:   { up: "atk", down: "def", desc: "Fierce and reckless" },
+  Feral:     { up: "atk", down: "spa", desc: "Raw physical power" },
+  Savage:    { up: "atk", down: "spd", desc: "Attacks without restraint" },
+  Reckless:  { up: "atk", down: "spe", desc: "Hits hard but charges in" },
+  // DEF boosted
+  Ironclad:  { up: "def", down: "atk", desc: "Tough and unyielding" },
+  Stalwart:  { up: "def", down: "spa", desc: "Steadfast defender" },
+  Armored:   { up: "def", down: "spd", desc: "Heavily shielded" },
+  Anchored:  { up: "def", down: "spe", desc: "Immovable wall" },
+  // SPA boosted
+  Mystic:    { up: "spa", down: "atk", desc: "Attuned to arcane forces" },
+  Arcane:    { up: "spa", down: "def", desc: "Channels raw magic" },
+  Ethereal:  { up: "spa", down: "spd", desc: "Otherworldly presence" },
+  Astral:    { up: "spa", down: "spe", desc: "Cosmic power, slow to act" },
+  // SPD boosted
+  Serene:    { up: "spd", down: "atk", desc: "Calm and resilient" },
+  Warding:   { up: "spd", down: "def", desc: "Magic-resistant aura" },
+  Tranquil:  { up: "spd", down: "spa", desc: "Peaceful inner strength" },
+  Patient:   { up: "spd", down: "spe", desc: "Waits and endures" },
+  // SPE boosted
+  Swift:     { up: "spe", down: "atk", desc: "Lightning fast but light" },
+  Nimble:    { up: "spe", down: "def", desc: "Quick and agile" },
+  Hasty:     { up: "spe", down: "spa", desc: "Acts before thinking" },
+  Dashing:   { up: "spe", down: "spd", desc: "Speed over caution" },
+  // Neutral natures
+  Balanced:  { up: null, down: null, desc: "Well-rounded nature" },
+  Stoic:     { up: null, down: null, desc: "Unchanging temperament" },
+  Spirited:  { up: null, down: null, desc: "Full of energy" },
+  Steadfast: { up: null, down: null, desc: "Reliable and consistent" },
+  Resolute:  { up: null, down: null, desc: "Determined and focused" }
+};
+
+const NATURES_LIST = Object.keys(NATURES_DATA);
+
+function getRandomNature() {
+  return NATURES_LIST[Math.floor(Math.random() * NATURES_LIST.length)];
+}
+
+function applyNatureToStat(statName, value, nature) {
+  const n = NATURES_DATA[nature];
+  if (!n) return value;
+  if (n.up === statName) return Math.floor(value * 1.1);
+  if (n.down === statName) return Math.floor(value * 0.9);
+  return value;
+}
+
+// INDIVIDUAL VALUES (IVs)
+// Each stat gets a random IV from 0-31, affecting final stat calculation
+function generateIVs() {
+  return {
+    hp:  Math.floor(Math.random() * 32),
+    atk: Math.floor(Math.random() * 32),
+    def: Math.floor(Math.random() * 32),
+    spa: Math.floor(Math.random() * 32),
+    spd: Math.floor(Math.random() * 32),
+    spe: Math.floor(Math.random() * 32)
+  };
+}
+
 // TYPE EFFECTIVENESS CHART
 // [attackType][defenseType] = multiplier
 const TYPE_CHART = {

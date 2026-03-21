@@ -811,6 +811,20 @@ html, body {
   max-width: 250px;
 }
 
+.battle-ivs {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  line-height: 1.3;
+}
+.battle-ivs .iv-label {
+  color: var(--accent-purple);
+  font-weight: bold;
+}
+.battle-ivs .iv-total {
+  color: var(--accent-blue);
+}
+
 #enemy-header, #player-header {
   display: flex;
   align-items: center;

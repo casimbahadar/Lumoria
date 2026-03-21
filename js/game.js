@@ -798,7 +798,12 @@ function renderAreaPanel() {
     gymBtn.textContent = beaten ? `✅ ${leader.name} (Won)` : `🏛 Challenge ${leader.name}`;
     gymBtn.disabled = beaten;
     gymInfo.classList.remove("hidden");
-    document.getElementById("gym-leader-emoji").textContent = leader.emoji;
+    const leaderEmojiEl = document.getElementById("gym-leader-emoji");
+    if (typeof getTrainerSpriteURL === "function") {
+      leaderEmojiEl.innerHTML = `<img src="${getTrainerSpriteURL(area.gymLeader, leader, 48)}" width="48" height="48" alt="${leader.name}" style="border-radius:8px">`;
+    } else {
+      leaderEmojiEl.textContent = leader.emoji;
+    }
     document.getElementById("gym-leader-name").textContent = leader.name;
     document.getElementById("gym-leader-type").textContent = `Type: ${leader.type}`;
     document.getElementById("gym-badge-name").textContent = `Badge: ${leader.badge}`;
@@ -2749,7 +2754,10 @@ function initEventListeners() {
         return;
       }
       const leader = GYM_LEADERS[area.gymLeader];
-      showNotification(`${leader.emoji} <strong>${leader.name}</strong> wants to battle!<br>"${leader.quote}"`, () => {
+      const trainerImg = typeof getTrainerSpriteURL === "function"
+        ? `<img src="${getTrainerSpriteURL(area.gymLeader, leader, 64)}" width="64" height="64" style="border-radius:10px;margin-bottom:0.5rem"><br>`
+        : "";
+      showNotification(`${trainerImg}${leader.emoji} <strong>${leader.name}</strong> wants to battle!<br>"${leader.quote}"`, () => {
         startGymBattle(area.gymLeader);
       });
     }

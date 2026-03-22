@@ -989,10 +989,10 @@ const MONSTERS_DATA = {
   173: { id:173, name:"Serpenthos",    emoji:"🐲", types:["Dragon"],
     base:{hp:71,atk:102,def:72,spa:79,spd:65,spe:67},
     learnset:[[1,"dragon_breath"],[2,"dragon_claw"],[3,"dragon_pulse"],[4,"dragon_dance"],[5,"draconic_roar"],[33,"tail_whip"],[36,"battle_cry"],[37,"outrage"],[39,"wild_tumble"],[42,"drake_rush"],[45,"scale_storm"],[46,"hyper_beam"],[6,"primordial_roar"],[30,"recover"]],
-    evolveTo:174, evolveLevel:55, catchRate:15, expYield:170, rarity:"rare",
+    evolveTo:213, evolveLevel:55, catchRate:15, expYield:170, rarity:"rare",
     desc:"A powerful wyrm with tremendous strength. Known to destroy mountains." },
 
-  174: { id:174, name:"Dragemian",  emoji:"🐉", types:["Dragon","Fire"],
+  213: { id:213, name:"Dragemian",  emoji:"🐉", types:["Dragon","Fire"],
     base:{hp:86,atk:149,def:101,spa:101,spd:94,spe:66},
     learnset:[[1,"outrage"],[2,"dragon_pulse"],[3,"scale_storm"],[4,"hyper_beam"],[5,"dragon_dance"],[58,"char_dance"],[61,"growl"],[64,"harden"],[65,"flame_fang"],[66,"pyre_fang"],[67,"heat_wave"],[68,"inferno"],[69,"ancient_breath"],[70,"fire_blast"]],
     evolveTo:null, evolveLevel:null, catchRate:5, expYield:340, rarity:"legendary",
@@ -2439,25 +2439,24 @@ const WORLD_DATA = {
     desc:"A murky swamp path where poisonous fumes rise from the ground.",
     connections:["bloomhaven","murk_crossing"],
     wildMonsters:[
-      {id:155, minLv:57, maxLv:62, rate:20},   // Toxirin (base)
-      {id:157, minLv:57, maxLv:62, rate:20},   // Acidelix (base)
-      {id:160, minLv:58, maxLv:63, rate:20},   // Miasoveth (base)
-      {id:162, minLv:58, maxLv:63, rate:15},   // Marlix (base, pre-evo of Venomalis)
-      {id:163, minLv:59, maxLv:63, rate:15},   // Venomalis (evo of Marlix)
-      {id:159, minLv:60, maxLv:65, rate:10}    // Acidovast (3rd-stage, rare)
+      {id:155, minLv:57, maxLv:62, rate:20},  // Toxirin (base)
+      {id:157, minLv:57, maxLv:62, rate:20},  // Acidelix (base)
+      {id:160, minLv:58, maxLv:63, rate:20},  // Miasoveth (base)
+      {id:161, minLv:59, maxLv:64, rate:15},  // Toxivane (mid → after base ✓)
+      {id:162, minLv:58, maxLv:63, rate:15},  // Marlix (base)
+      {id:163, minLv:59, maxLv:64, rate:10}   // Venomalis (mid → after base ✓)
     ],
     hasGym:false, requiredBadges:9, mapPos:{x:48, y:60}
   },
   miasmacity: {
     id:"miasmacity", name:"Miasma City", icon:"🏭", type:"city",
     desc:"An industrial city shrouded in toxic mist. Home to Gym Leader Viper, master of Poison types.",
-    connections:["murk_crossing","route11"],
+    connections:["toxic_bog","route11"],
     wildMonsters:[
       {id:156, minLv:58, maxLv:63, rate:25},  // Venekon (mid)
-      {id:158, minLv:58, maxLv:63, rate:25},  // Toxoloth (mid)
-      {id:32,  minLv:59, maxLv:64, rate:20},
-      {id:165, minLv:60, maxLv:64, rate:20},  // Noxoveth (mid)
-      {id:159, minLv:61, maxLv:65, rate:10}   // Acidovast (3rd-stage, rare)
+      {id:159, minLv:60, maxLv:65, rate:25},  // Acidovast (final, 158 on murk_crossing ✓)
+      {id:163, minLv:59, maxLv:64, rate:25},  // Venomalis (mid, 162 on route10 ✓)
+      {id:165, minLv:59, maxLv:64, rate:25}   // Noxoveth (mid, 164 on murk_crossing ✓)
     ],
     hasGym:true, gymLeader:"viper", requiredBadges:9, mapPos:{x:42, y:65}
   },
@@ -2466,25 +2465,25 @@ const WORLD_DATA = {
     desc:"A rumbling mountain pass where the ground never stops shaking.",
     connections:["miasmacity","quake_foothills"],
     wildMonsters:[
-      {id:95, minLv:59, maxLv:64, rate:20},   // Terrakin (base)
+      {id:95,  minLv:59, maxLv:64, rate:20},  // Terrakin (base)
+      {id:98,  minLv:59, maxLv:64, rate:20},  // Aridix (base)
       {id:101, minLv:59, maxLv:64, rate:20},  // Limoux (base)
-      {id:104, minLv:60, maxLv:65, rate:20},  // Arenikin (base, pre-evo of Dravanas)
-      {id:105, minLv:61, maxLv:66, rate:15},  // Dravanas (evo of Arenikin) — after base ✓
-      {id:106, minLv:60, maxLv:65, rate:15},  // Geodrak (base)
-      {id:97,  minLv:62, maxLv:67, rate:10}   // Tectonvast (3rd-stage, rare)
+      {id:104, minLv:60, maxLv:65, rate:20},  // Arenikin (base)
+      {id:105, minLv:61, maxLv:66, rate:10},  // Dravanas (mid → after 104 ✓)
+      {id:106, minLv:60, maxLv:65, rate:10}   // Geodrak (base)
     ],
     hasGym:false, requiredBadges:10, mapPos:{x:35, y:72}
   },
   terravault: {
     id:"terravault", name:"Terravault City", icon:"⛏️", type:"city",
     desc:"A city carved into a mountainside, rich with mineral deposits. Home to Gym Leader Atlas.",
-    connections:["quake_foothills","route12"],
+    connections:["tremor_summit","route12"],
     wildMonsters:[
-      {id:96,  minLv:60, maxLv:65, rate:25},  // Seismith (mid, pre-evo of Tectonvast)
-      {id:97,  minLv:61, maxLv:66, rate:15},  // Tectonvast (3rd-stage) — after mid ✓
-      {id:102, minLv:60, maxLv:65, rate:25},  // Geoloth (mid, pre-evo of Geovast)
-      {id:107, minLv:61, maxLv:66, rate:20},  // Terraquon (final)
-      {id:154, minLv:62, maxLv:66, rate:15}   // Ferrolith (mid)
+      {id:97,  minLv:61, maxLv:66, rate:25},  // Tectonvast (final, 96 on quake_foothills ✓)
+      {id:100, minLv:61, maxLv:66, rate:25},  // Geovenomvast (final, 99 on quake_foothills ✓)
+      {id:103, minLv:61, maxLv:66, rate:25},  // Geovast (final, 102 on quake_foothills ✓)
+      {id:105, minLv:61, maxLv:66, rate:15},  // Dravanas (final, 104 on route11 ✓)
+      {id:107, minLv:62, maxLv:67, rate:10}   // Terraquon (final, 106 on route11 ✓)
     ],
     hasGym:true, gymLeader:"atlas", requiredBadges:10, mapPos:{x:28, y:78}
   },
@@ -2494,11 +2493,10 @@ const WORLD_DATA = {
     connections:["terravault","cobweb_gully"],
     wildMonsters:[
       {id:197, minLv:61, maxLv:66, rate:20},  // Vermelin (base)
-      {id:198, minLv:62, maxLv:67, rate:20},  // Chrysalix (mid, evo of Vermelin) — after base ✓
-      {id:199, minLv:63, maxLv:68, rate:10},  // Aeridaleth (3rd-stage, rare) — after mid ✓
+      {id:198, minLv:62, maxLv:67, rate:20},  // Chrysalix (mid → after 197 ✓)
       {id:200, minLv:61, maxLv:66, rate:20},  // Colerix (base)
       {id:202, minLv:62, maxLv:67, rate:20},  // Sericrix (base)
-      {id:204, minLv:63, maxLv:68, rate:10}   // Terramite (base)
+      {id:204, minLv:63, maxLv:68, rate:20}   // Terramite (base)
     ],
     hasGym:false, requiredBadges:11, mapPos:{x:22, y:82}
   },
@@ -2507,24 +2505,24 @@ const WORLD_DATA = {
     desc:"A village nestled in an ancient forest where Bug types are revered. Home to Gym Leader Mantis.",
     connections:["cobweb_gully","route13"],
     wildMonsters:[
-      {id:199, minLv:62, maxLv:67, rate:30},
-      {id:201, minLv:62, maxLv:67, rate:25},
-      {id:203, minLv:63, maxLv:68, rate:25},
-      {id:205, minLv:64, maxLv:68, rate:20}
+      {id:199, minLv:63, maxLv:68, rate:25},  // Aeridaleth (final)
+      {id:201, minLv:62, maxLv:67, rate:25},  // Scarabion (mid)
+      {id:203, minLv:63, maxLv:68, rate:25},  // Arachnalis (mid, 202 on route12 ✓)
+      {id:205, minLv:64, maxLv:69, rate:25}   // Geodrix (mid)
     ],
     hasGym:true, gymLeader:"mantis", requiredBadges:11, mapPos:{x:15, y:88}
   },
   route13: {
     id:"route13", name:"Route 13 - Gale Ridge West", icon:"🌬️", type:"route",
     desc:"The western arm of Gale Ridge, where howling winds funnel through a narrow canyon toward the furthest point of the region.",
-    connections:["silkwood","gale_ridge_east"],
+    connections:["silkwood","gale_peak"],
     wildMonsters:[
       {id:108, minLv:63, maxLv:68, rate:20},  // Zephyrkin (base)
+      {id:109, minLv:64, maxLv:69, rate:20},  // Aeolomane (mid → after 108 ✓)
       {id:111, minLv:63, maxLv:68, rate:20},  // Aeolin (base)
-      {id:114, minLv:64, maxLv:69, rate:20},  // Nimbusel (base)
-      {id:116, minLv:64, maxLv:69, rate:20},  // Zephyrin (base)
-      {id:61,  minLv:65, maxLv:70, rate:10},  // wind-type
-      {id:110, minLv:65, maxLv:70, rate:10}   // Aeolarch (3rd-stage, rare)
+      {id:114, minLv:64, maxLv:69, rate:15},  // Nimbusel (base)
+      {id:116, minLv:64, maxLv:69, rate:15},  // Zephyrin (base)
+      {id:61,  minLv:65, maxLv:70, rate:10}   // wind-type standalone
     ],
     hasGym:false, requiredBadges:12, mapPos:{x:10, y:92}
   },
@@ -2533,26 +2531,25 @@ const WORLD_DATA = {
     desc:"A town of windmills and airships. Home to Gym Leader Zephyra, master of Wind types.",
     connections:["gale_ridge_east","route14"],
     wildMonsters:[
-      {id:109, minLv:64, maxLv:69, rate:20},  // Aeolomane (mid, pre-evo of Aeolarch)
-      {id:110, minLv:65, maxLv:70, rate:15},  // Aeolarch (3rd-stage) — after mid ✓
-      {id:112, minLv:64, maxLv:69, rate:20},  // Cyclavel (mid, pre-evo of Cyclavorn)
-      {id:113, minLv:65, maxLv:70, rate:15},  // Cyclavorn (3rd-stage) — after mid ✓
-      {id:115, minLv:65, maxLv:70, rate:20},  // Aetherworn (final)
-      {id:62,  minLv:66, maxLv:70, rate:10}
+      {id:110, minLv:65, maxLv:70, rate:25},  // Aeolarch (final)
+      {id:113, minLv:65, maxLv:70, rate:25},  // Cyclavorn (final)
+      {id:115, minLv:65, maxLv:70, rate:20},  // Aetherworn (mid)
+      {id:117, minLv:65, maxLv:70, rate:20},  // Pneumathos (mid)
+      {id:62,  minLv:66, maxLv:70, rate:10}   // standalone
     ],
     hasGym:true, gymLeader:"zephyra", requiredBadges:12, mapPos:{x:18, y:95}
   },
   route14: {
     id:"route14", name:"Route 14 - Ironwork Path", icon:"⚙️", type:"route",
     desc:"A path lined with abandoned machinery. Steel types have claimed the ruins as their territory.",
-    connections:["gusthaven","forge_approach"],
+    connections:["gusthaven","forge_ruins"],
     wildMonsters:[
       {id:147, minLv:65, maxLv:70, rate:20},  // Ferrokin (base)
+      {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid → after 147 ✓)
       {id:150, minLv:65, maxLv:70, rate:20},  // Gearon (base)
       {id:134, minLv:66, maxLv:71, rate:20},  // Aeronyx (base)
-      {id:153, minLv:66, maxLv:71, rate:15},  // Forgekin (base)
-      {id:55,  minLv:67, maxLv:72, rate:15},  // steel-type
-      {id:149, minLv:67, maxLv:72, rate:10}   // Adamovast (3rd-stage, rare)
+      {id:153, minLv:66, maxLv:71, rate:10},  // Forgekin (base)
+      {id:55,  minLv:67, maxLv:72, rate:10}   // standalone steel
     ],
     hasGym:false, requiredBadges:13, mapPos:{x:28, y:92}
   },
@@ -2561,11 +2558,11 @@ const WORLD_DATA = {
     desc:"A city of foundries and forges. Home to Gym Leader Ferro, master of Steel types.",
     connections:["forge_approach","route15"],
     wildMonsters:[
-      {id:148, minLv:66, maxLv:71, rate:25},  // Adamavast (mid, pre-evo of Adamovast)
-      {id:149, minLv:67, maxLv:72, rate:15},  // Adamovast (3rd-stage) — after mid ✓
-      {id:151, minLv:66, maxLv:71, rate:25},  // Ferrotron (mid)
+      {id:149, minLv:67, maxLv:72, rate:25},  // Adamovast (final)
+      {id:151, minLv:66, maxLv:71, rate:20},  // Ferrotron (mid)
       {id:152, minLv:67, maxLv:72, rate:20},  // Imperion (Steel/Rock)
-      {id:146, minLv:68, maxLv:72, rate:15}   // Shinarith (Fairy/Steel final)
+      {id:135, minLv:67, maxLv:72, rate:20},  // Ferrovex (mid, 134 on route14 ✓)
+      {id:136, minLv:68, maxLv:73, rate:15}   // Ferrovast (final → after 135 ✓)
     ],
     hasGym:true, gymLeader:"ferro", requiredBadges:13, mapPos:{x:38, y:88}
   },
@@ -2575,11 +2572,11 @@ const WORLD_DATA = {
     connections:["ironforge","stone_plateau"],
     wildMonsters:[
       {id:191, minLv:67, maxLv:72, rate:20},  // Petrikin (base)
+      {id:192, minLv:68, maxLv:73, rate:20},  // Lithavast (mid → after 191 ✓)
       {id:193, minLv:67, maxLv:72, rate:20},  // Rugothon (base)
-      {id:132, minLv:68, maxLv:73, rate:20},  // Obsidrix (base, pre-evo of Monolithox)
-      {id:133, minLv:69, maxLv:74, rate:15},  // Monolithox (evo of Obsidrix) — after base ✓
-      {id:93,  minLv:69, maxLv:74, rate:15},  // rock-type
-      {id:196, minLv:70, maxLv:75, rate:10}   // Frigolith (3rd-stage, rare)
+      {id:132, minLv:68, maxLv:73, rate:20},  // Obsidrix (base)
+      {id:133, minLv:69, maxLv:74, rate:10},  // Monolithox (mid → after 132 ✓)
+      {id:93,  minLv:69, maxLv:74, rate:10}   // standalone rock
     ],
     hasGym:false, requiredBadges:14, mapPos:{x:48, y:85}
   },
@@ -2588,11 +2585,11 @@ const WORLD_DATA = {
     desc:"A mining town carved from solid rock. Home to Gym Leader Boulder, master of Rock types.",
     connections:["stone_plateau","route16"],
     wildMonsters:[
-      {id:192, minLv:68, maxLv:73, rate:25},  // Lithavast (mid)
-      {id:195, minLv:68, maxLv:73, rate:20},  // Prismolith (mid, pre-evo of Frigolith)
-      {id:196, minLv:69, maxLv:74, rate:15},  // Frigolith (3rd-stage) — after mid ✓
-      {id:133, minLv:69, maxLv:74, rate:25},  // Monolithox (final)
-      {id:92,  minLv:70, maxLv:74, rate:15}
+      {id:192, minLv:68, maxLv:73, rate:20},  // Lithavast (mid)
+      {id:195, minLv:69, maxLv:74, rate:20},  // Prismolith (195 on stone_plateau ✓)
+      {id:196, minLv:70, maxLv:75, rate:20},  // Frigolith (mid → after 195 ✓)
+      {id:133, minLv:69, maxLv:74, rate:25},  // Monolithox (mid)
+      {id:92,  minLv:70, maxLv:74, rate:15}   // standalone
     ],
     hasGym:true, gymLeader:"boulder", requiredBadges:14, mapPos:{x:55, y:82}
   },
@@ -2603,10 +2600,9 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:137, minLv:69, maxLv:74, rate:20},  // Lumkin (base)
       {id:72,  minLv:69, maxLv:74, rate:20},  // fairy-type (base)
-      {id:73,  minLv:70, maxLv:75, rate:20},  // fairy-type (evo, after base ✓)
-      {id:34,  minLv:70, maxLv:75, rate:15},  // fairy-type
-      {id:145, minLv:70, maxLv:75, rate:15},  // Faerrin (base)
-      {id:144, minLv:71, maxLv:76, rate:10}   // Celestarch (3rd-stage, rare)
+      {id:73,  minLv:70, maxLv:75, rate:20},  // fairy-type (evo → after 72 ✓)
+      {id:142, minLv:69, maxLv:74, rate:20},  // Dawnirel (base, new)
+      {id:145, minLv:70, maxLv:75, rate:20}   // Faerrin (base)
     ],
     hasGym:false, requiredBadges:15, mapPos:{x:62, y:78}
   },
@@ -2615,12 +2611,12 @@ const WORLD_DATA = {
     desc:"A radiant city that glows with fairy magic. Home to Gym Leader Seraphina, the last gym before the Elite Four.",
     connections:["cosmic_cavern","victoryroad","void_rift"],
     wildMonsters:[
-      {id:138, minLv:70, maxLv:75, rate:20},  // Aetherael (mid, pre-evo of Lumiarch)
-      {id:139, minLv:71, maxLv:76, rate:15},  // Lumiarch (3rd-stage) — after mid ✓
-      {id:143, minLv:70, maxLv:75, rate:20},  // Lunarael (mid, pre-evo of Celestarch)
-      {id:144, minLv:71, maxLv:76, rate:15},  // Celestarch (3rd-stage) — after mid ✓
-      {id:146, minLv:71, maxLv:76, rate:20},  // Shinarith (final)
-      {id:203, minLv:72, maxLv:76, rate:10}   // Arachnalis (final)
+      {id:138, minLv:70, maxLv:75, rate:20},  // Aetherael (mid)
+      {id:139, minLv:71, maxLv:76, rate:15},  // Lumiarch (final → after 138 ✓)
+      {id:143, minLv:70, maxLv:75, rate:20},  // Lunarael (mid)
+      {id:144, minLv:71, maxLv:76, rate:15},  // Celestarch (final → after 143 ✓)
+      {id:146, minLv:71, maxLv:76, rate:20},  // Shinarith (mid, 145 on route16 ✓)
+      {id:203, minLv:72, maxLv:76, rate:10}   // Arachnalis (mid)
     ],
     hasGym:true, gymLeader:"seraphina", requiredBadges:15, mapPos:{x:68, y:72}
   }
@@ -2628,26 +2624,28 @@ const WORLD_DATA = {
   murk_crossing: {
     id:"murk_crossing", name:"Murk Crossing", icon:"🌫️", type:"route",
     desc:"A bog-choked crossing where the path turns south through fetid marshland. Toxic vapors hang low and Poison types lurk in every murky puddle.",
-    connections:["route10","miasmacity"],
+    connections:["route10","toxic_bog"],
     wildMonsters:[
-      {id:155, minLv:57, maxLv:62, rate:20},  // Toxirin (base)
-      {id:156, minLv:58, maxLv:63, rate:25},  // Venekon (mid) — after base ✓
-      {id:157, minLv:57, maxLv:62, rate:20},  // Acidelix (base)
-      {id:158, minLv:58, maxLv:63, rate:25},  // Toxoloth (mid) — after base ✓
-      {id:159, minLv:60, maxLv:65, rate:10}   // Acidovast (3rd-stage, rare)
+      {id:155, minLv:57, maxLv:62, rate:15},  // Toxirin (base)
+      {id:156, minLv:58, maxLv:63, rate:20},  // Venekon (mid → after base ✓)
+      {id:158, minLv:58, maxLv:63, rate:20},  // Toxoloth (mid, base Acidelix on route10 ✓)
+      {id:159, minLv:60, maxLv:65, rate:20},  // Acidovast (final → after 158 ✓)
+      {id:164, minLv:58, maxLv:63, rate:15},  // Venomite (base, new)
+      {id:165, minLv:59, maxLv:64, rate:10}   // Noxoveth (mid → after 164 ✓)
     ],
     hasGym:false, requiredBadges:9, mapPos:{x:42, y:60}
   },
   quake_foothills: {
     id:"quake_foothills", name:"Quake Foothills", icon:"🌋", type:"route",
     desc:"Rolling foothills rocked by constant tremors where Terravault's mountain range begins. Ground-type Lumos burrow through the cracked and heaving earth.",
-    connections:["route11","terravault"],
+    connections:["route11","tremor_summit"],
     wildMonsters:[
-      {id:95,  minLv:59, maxLv:64, rate:20},  // Terrakin (base)
-      {id:96,  minLv:60, maxLv:65, rate:25},  // Seismith (mid) — after base ✓
-      {id:101, minLv:59, maxLv:64, rate:20},  // Limoux (base)
-      {id:102, minLv:60, maxLv:65, rate:25},  // Geoloth (mid) — after base ✓
-      {id:97,  minLv:62, maxLv:67, rate:10}   // Tectonvast (3rd-stage, rare)
+      {id:95,  minLv:59, maxLv:64, rate:15},  // Terrakin (base)
+      {id:96,  minLv:60, maxLv:65, rate:20},  // Seismith (mid → after 95 ✓)
+      {id:98,  minLv:59, maxLv:64, rate:15},  // Aridix (base)
+      {id:99,  minLv:60, maxLv:65, rate:20},  // Geovenoth (mid → after 98 ✓)
+      {id:101, minLv:59, maxLv:64, rate:15},  // Limoux (base)
+      {id:102, minLv:60, maxLv:65, rate:15}   // Geoloth (mid → after 101 ✓)
     ],
     hasGym:false, requiredBadges:10, mapPos:{x:28, y:72}
   },
@@ -2656,40 +2654,40 @@ const WORLD_DATA = {
     desc:"A sunken gully thick with silken threads where every tree and boulder is wrapped in webs. Bug types in every stage of evolution compete for territory.",
     connections:["route12","silkwood"],
     wildMonsters:[
-      {id:197, minLv:61, maxLv:66, rate:20},  // Vermelin (base)
-      {id:198, minLv:62, maxLv:67, rate:20},  // Chrysalix (mid) — after base ✓
-      {id:199, minLv:63, maxLv:68, rate:10},  // Aeridaleth (3rd-stage, rare) — after mid ✓
-      {id:200, minLv:61, maxLv:66, rate:20},  // Colerix (base)
-      {id:204, minLv:62, maxLv:67, rate:20},  // Terramite (base)
-      {id:205, minLv:63, maxLv:68, rate:10}   // Geodrix (mid) — after base ✓
+      {id:198, minLv:62, maxLv:67, rate:15},  // Chrysalix (mid, 197 on route12 ✓)
+      {id:199, minLv:63, maxLv:68, rate:15},  // Aeridaleth (final → after 198 ✓)
+      {id:200, minLv:61, maxLv:66, rate:15},  // Colerix (base)
+      {id:201, minLv:62, maxLv:67, rate:20},  // Scarabion (mid → after 200 ✓)
+      {id:204, minLv:63, maxLv:68, rate:15},  // Terramite (base)
+      {id:205, minLv:64, maxLv:69, rate:20}   // Geodrix (mid → after 204 ✓)
     ],
     hasGym:false, requiredBadges:11, mapPos:{x:15, y:82}
   },
   gale_ridge_east: {
     id:"gale_ridge_east", name:"Gale Ridge East", icon:"🌪️", type:"route",
     desc:"Where Gale Ridge curves sharply eastward, the winds reverse direction entirely. This turn is notorious for sending unprepared trainers stumbling backward toward Silkwood.",
-    connections:["route13","gusthaven"],
+    connections:["gale_peak","gusthaven"],
     wildMonsters:[
-      {id:108, minLv:63, maxLv:68, rate:15},  // Zephyrkin (base)
-      {id:109, minLv:64, maxLv:69, rate:20},  // Aeolomane (mid) — after base ✓
-      {id:111, minLv:63, maxLv:68, rate:15},  // Aeolin (base)
-      {id:112, minLv:64, maxLv:69, rate:20},  // Cyclavel (mid) — after base ✓
-      {id:110, minLv:65, maxLv:70, rate:15},  // Aeolarch (3rd-stage) — after mid ✓
-      {id:113, minLv:65, maxLv:70, rate:15}   // Cyclavorn (3rd-stage) — after mid ✓
+      {id:109, minLv:64, maxLv:69, rate:15},  // Aeolomane (mid, 108 on route13 ✓)
+      {id:110, minLv:65, maxLv:70, rate:20},  // Aeolarch (final → after 109 ✓)
+      {id:112, minLv:64, maxLv:69, rate:15},  // Cyclavel (mid, 111 on route13 ✓)
+      {id:113, minLv:65, maxLv:70, rate:20},  // Cyclavorn (final → after 112 ✓)
+      {id:115, minLv:65, maxLv:70, rate:15},  // Aetherworn (mid, 114 on route13 ✓)
+      {id:117, minLv:65, maxLv:70, rate:15}   // Pneumathos (mid, 116 on route13 ✓)
     ],
     hasGym:false, requiredBadges:12, mapPos:{x:14, y:95}
   },
   forge_approach: {
     id:"forge_approach", name:"Forge Approach", icon:"🔩", type:"route",
     desc:"The rusted outer edge of Ironforge's industrial sprawl. Abandoned conveyor lines and slag heaps attract Steel-type Lumos who claim the metal as their own.",
-    connections:["route14","ironforge"],
+    connections:["forge_ruins","ironforge"],
     wildMonsters:[
-      {id:147, minLv:65, maxLv:70, rate:20},  // Ferrokin (base)
-      {id:148, minLv:66, maxLv:71, rate:25},  // Adamavast (mid) — after base ✓
-      {id:150, minLv:65, maxLv:70, rate:20},  // Gearon (base)
-      {id:151, minLv:66, maxLv:71, rate:20},  // Ferrotron (mid) — after base ✓
-      {id:149, minLv:67, maxLv:72, rate:10},  // Adamovast (3rd-stage, rare) — after mid ✓
-      {id:153, minLv:66, maxLv:71, rate:5}    // Forgekin (base)
+      {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid)
+      {id:149, minLv:67, maxLv:72, rate:15},  // Adamovast (final → after 148 ✓)
+      {id:150, minLv:65, maxLv:70, rate:15},  // Gearon (base)
+      {id:151, minLv:66, maxLv:71, rate:20},  // Ferrotron (mid → after 150 ✓)
+      {id:153, minLv:66, maxLv:71, rate:15},  // Forgekin (base)
+      {id:154, minLv:67, maxLv:72, rate:15}   // Ferrolith (mid → after 153 ✓)
     ],
     hasGym:false, requiredBadges:13, mapPos:{x:38, y:92}
   },
@@ -2698,12 +2696,12 @@ const WORLD_DATA = {
     desc:"A windswept expanse of exposed bedrock leading into Quarryville. Ancient monoliths dot the plateau and Rock and Dark types claim each one as territory.",
     connections:["route15","quarryville"],
     wildMonsters:[
-      {id:191, minLv:67, maxLv:72, rate:20},  // Petrikin (base)
-      {id:192, minLv:68, maxLv:73, rate:25},  // Lithavast (mid) — after base ✓
-      {id:193, minLv:67, maxLv:72, rate:20},  // Rugothon (base)
-      {id:132, minLv:68, maxLv:73, rate:15},  // Obsidrix (base, Rock/Dark)
-      {id:133, minLv:69, maxLv:74, rate:10},  // Monolithox (mid) — after base ✓
-      {id:196, minLv:70, maxLv:75, rate:10}   // Frigolith (3rd-stage, rare)
+      {id:192, minLv:68, maxLv:73, rate:20},  // Lithavast (mid, 191 on route15 ✓)
+      {id:193, minLv:67, maxLv:72, rate:15},  // Rugothon (base)
+      {id:194, minLv:68, maxLv:73, rate:20},  // Lithomere (mid → after 193 ✓)
+      {id:133, minLv:69, maxLv:74, rate:20},  // Monolithox (mid)
+      {id:195, minLv:69, maxLv:74, rate:15},  // Prismolith (base, new)
+      {id:196, minLv:70, maxLv:75, rate:10}   // Frigolith (mid → after 195 ✓)
     ],
     hasGym:false, requiredBadges:14, mapPos:{x:48, y:82}
   },
@@ -2712,12 +2710,12 @@ const WORLD_DATA = {
     desc:"A glittering cavern lit by bioluminescent crystals on the approach to Starbloom. Fairy types dance in the starlight, but dark shadows hint at lurking Umbra agents.",
     connections:["route16","starbloom"],
     wildMonsters:[
-      {id:137, minLv:69, maxLv:74, rate:20},  // Lumkin (base)
-      {id:138, minLv:70, maxLv:75, rate:20},  // Aetherael (mid) — after base ✓
-      {id:142, minLv:69, maxLv:74, rate:20},  // Dawnirel (base)
-      {id:143, minLv:70, maxLv:75, rate:20},  // Lunarael (mid) — after base ✓
-      {id:144, minLv:71, maxLv:76, rate:10},  // Celestarch (3rd-stage, rare) — after mid ✓
-      {id:119, minLv:70, maxLv:74, rate:10}   // Nighthound (Dark, Umbra-linked)
+      {id:137, minLv:69, maxLv:74, rate:15},  // Lumkin (base)
+      {id:138, minLv:70, maxLv:75, rate:20},  // Aetherael (mid → after 137 ✓)
+      {id:143, minLv:70, maxLv:75, rate:15},  // Lunarael (mid, 142 on route16 ✓)
+      {id:144, minLv:71, maxLv:76, rate:20},  // Celestarch (final → after 143 ✓)
+      {id:145, minLv:70, maxLv:75, rate:15},  // Faerrin (base)
+      {id:119, minLv:70, maxLv:74, rate:15}   // Nighthound (Dark/Umbra)
     ],
     hasGym:false, requiredBadges:15, mapPos:{x:68, y:78}
   },
@@ -2726,13 +2724,67 @@ const WORLD_DATA = {
     desc:"A tear in reality pulsing with dark energy near Route 16. Team Umbra's experiments cracked open this rift, and within its swirling darkness, Voidraxis — the Void Star — awaits any trainer bold enough to enter.",
     connections:["starbloom"],
     wildMonsters:[
-      {id:119, minLv:72, maxLv:77, rate:25},  // Nighthound (Dark)
-      {id:122, minLv:72, maxLv:77, rate:25},  // Spectrewing (Dark)
-      {id:120, minLv:73, maxLv:78, rate:20},  // dark-type
-      {id:131, minLv:73, maxLv:78, rate:15},  // Necrothon (Dark/Grass)
-      {id:211, minLv:75, maxLv:80, rate:5}    // Voidraxis (Legendary, very rare)
+      {id:119, minLv:72, maxLv:77, rate:30},  // Nighthound (Dark)
+      {id:122, minLv:72, maxLv:77, rate:30},  // Spectrewing (Dark)
+      {id:120, minLv:73, maxLv:78, rate:25},  // dark-type
+      {id:131, minLv:73, maxLv:78, rate:15}   // Necrothon (Dark/Grass)
     ],
     hasGym:false, requiredBadges:15, mapPos:{x:75, y:72}
+  }
+  // ---- ADDITIONAL MID-GYM ROUTES (phase 2) ----
+  toxic_bog: {
+    id:"toxic_bog", name:"Toxic Bog", icon:"🐸", type:"route",
+    desc:"A stagnant bog where the path turns south toward Miasma City. Foul gas bubbles up through the mud and Poison types lurk beneath the surface.",
+    connections:["murk_crossing","miasmacity"],
+    wildMonsters:[
+      {id:156, minLv:58, maxLv:63, rate:20},  // Venekon (mid)
+      {id:158, minLv:58, maxLv:63, rate:20},  // Toxoloth (mid)
+      {id:159, minLv:60, maxLv:65, rate:20},  // Acidovast (final)
+      {id:164, minLv:58, maxLv:63, rate:20},  // Venomite (base)
+      {id:165, minLv:59, maxLv:64, rate:20}   // Noxoveth (mid → after 164 ✓)
+    ],
+    hasGym:false, requiredBadges:9, mapPos:{x:42, y:63}
+  },
+  tremor_summit: {
+    id:"tremor_summit", name:"Tremor Summit", icon:"⛰️", type:"route",
+    desc:"The crest of the quake-ridden foothills where the shaking is strongest. Only final-stage Ground-type Lumos can hold their footing here.",
+    connections:["quake_foothills","terravault"],
+    wildMonsters:[
+      {id:97,  minLv:62, maxLv:67, rate:25},  // Tectonvast (final, 96 on quake_foothills ✓)
+      {id:100, minLv:62, maxLv:67, rate:25},  // Geovenomvast (final, 99 on quake_foothills ✓)
+      {id:103, minLv:62, maxLv:67, rate:25},  // Geovast (final, 102 on quake_foothills ✓)
+      {id:105, minLv:63, maxLv:68, rate:15},  // Dravanas (final, 104 on route11 ✓)
+      {id:107, minLv:63, maxLv:68, rate:10}   // Terraquon (final, 106 on route11 ✓)
+    ],
+    hasGym:false, requiredBadges:10, mapPos:{x:28, y:75}
+  },
+  gale_peak: {
+    id:"gale_peak", name:"Gale Peak", icon:"🌀", type:"route",
+    desc:"The westernmost tip of the region — where Gale Ridge reaches its farthest point before turning sharply east. The wind here changes direction mid-step.",
+    connections:["route13","gale_ridge_east"],
+    wildMonsters:[
+      {id:108, minLv:63, maxLv:68, rate:15},  // Zephyrkin (base)
+      {id:109, minLv:64, maxLv:69, rate:20},  // Aeolomane (mid → after 108 ✓)
+      {id:111, minLv:63, maxLv:68, rate:15},  // Aeolin (base)
+      {id:112, minLv:64, maxLv:69, rate:20},  // Cyclavel (mid → after 111 ✓)
+      {id:116, minLv:64, maxLv:69, rate:15},  // Zephyrin (base)
+      {id:117, minLv:65, maxLv:70, rate:15}   // Pneumathos (mid → after 116 ✓)
+    ],
+    hasGym:false, requiredBadges:12, mapPos:{x:7, y:96}
+  },
+  forge_ruins: {
+    id:"forge_ruins", name:"Forge Ruins", icon:"🏚️", type:"route",
+    desc:"Collapsed factory halls stretching east from the old Ironwork Path. Steel-type Lumos nest in the rusted machinery, and mid-stage chains are common sightings.",
+    connections:["route14","forge_approach"],
+    wildMonsters:[
+      {id:147, minLv:65, maxLv:70, rate:15},  // Ferrokin (base)
+      {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid → after 147 ✓)
+      {id:150, minLv:65, maxLv:70, rate:15},  // Gearon (base)
+      {id:151, minLv:66, maxLv:71, rate:20},  // Ferrotron (mid → after 150 ✓)
+      {id:134, minLv:66, maxLv:71, rate:15},  // Aeronyx (base)
+      {id:135, minLv:67, maxLv:72, rate:15}   // Ferrovex (mid → after 134 ✓)
+    ],
+    hasGym:false, requiredBadges:13, mapPos:{x:33, y:92}
   }
 };
 
@@ -2936,7 +2988,7 @@ const GYM_LEADERS = {
       {monsterId:54, level:76, moves:["blizzard","earthquake","ice_beam","earth_power"]},
       {monsterId:212, level:77, moves:["thunderbolt","tungsten_ram","flash_cannon","forge_strike"]},
       {monsterId:143, level:78, moves:["moonblast","psychic_move","celestial_wave","calm_mind"]},
-      {monsterId:174, level:79, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
+      {monsterId:213, level:79, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
       {monsterId:171, level:80, moves:["psychic_move","dragon_pulse","temporal_rift","outrage"]}
     ]
   }
@@ -3099,7 +3151,7 @@ const RIVAL_BATTLES = {
       {monsterId:97, level:72, moves:["earthquake","stone_edge","tectonic_slam","earth_power"]},
       {monsterId:151, level:73, moves:["flash_cannon","thunder","tungsten_ram","anvil_drop"]},
       {monsterId:65, level:74, moves:["petal_blitz","verdant_surge","moonblast","canopy_crash"]},
-      {monsterId:174, level:75, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]}
+      {monsterId:213, level:75, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]}
     ]
   }
 };
@@ -3156,7 +3208,7 @@ const UMBRA_BATTLES = {
       {monsterId:169, level:58, moves:["psystrike","psychic_move","calm_mind","recover"]},
       {monsterId:124, level:59, moves:["crunch","dark_pulse","toxic","venoshock"]},
       {monsterId:143, level:60, moves:["moonblast","psychic_move","dazzling_gleam","calm_mind"]},
-      {monsterId:174, level:61, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
+      {monsterId:213, level:61, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
       {monsterId:206, level:62, moves:["hurricane","thunder","air_slash","dragon_dance"]},
       {monsterId:208, level:65, moves:["hydro_pump","dark_pulse","dragon_pulse","crunch"]}
     ]
@@ -3451,7 +3503,7 @@ const ELITE_FOUR = [
       { monsterId: 102, level: 72, moves: ["earthquake", "earth_power", "body_slam", "mud_shot"] },
       { monsterId: 158, level: 73, moves: ["sludge_wave", "earthquake", "acid_rain", "toxic"] },
       { monsterId: 148, level: 74, moves: ["iron_tail", "crunch", "flash_cannon", "forge_strike"] },
-      { monsterId: 174, level: 75, moves: ["outrage", "dragon_pulse", "fire_blast", "dragon_dance"] }
+      { monsterId: 213, level: 75, moves: ["outrage", "dragon_pulse", "fire_blast", "dragon_dance"] }
     ]
   },
   {
@@ -3735,7 +3787,7 @@ const QUESTS_DATA = [
     boss:{monsterId:173, level:60, moves:["outrage","dragon_pulse","dragon_dance","hyper_beam"]},
     reward:{type:"money", amount:8000}, rewardText:"8000 coins" },
   { id:"q72", title:"Route 8 Warden", desc:"The Route 8 warden tests all who pass.", location:"route8", type:"boss", requiredBadges:7,
-    boss:{monsterId:174, level:58, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
+    boss:{monsterId:213, level:58, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
     reward:{type:"item", itemId:"dragonFang", qty:1}, rewardText:"Dragon Fang" },
   { id:"q73", title:"Victory Road Preview", desc:"Get a taste of Victory Road by defeating its gatekeeper!", location:"victoryroad", type:"boss", requiredBadges:8,
     boss:{monsterId:152, level:60, moves:["tungsten_ram","stone_edge","iron_tail","flash_cannon"]},
@@ -3840,14 +3892,14 @@ const QUESTS_DATA = [
   { id:"q105", title:"World Seed", desc:"Terranova awakens in the Ancient Ruins. Face nature's fury!", location:"ancient_ruins", type:"boss", requiredBadges:14,
     boss:{monsterId:210, level:70, moves:["earthquake","energy_ball","worldseed_quake","petal_blitz"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
-  { id:"q106", title:"Void Star Rising", desc:"Voidstar manifests in the Dark Canyon. Face the void!", location:"dark_canyon", type:"boss", requiredBadges:14,
+  { id:"q106", title:"Void Star Rising", desc:"Voidstar manifests in the Dark Canyon. Face the void!", location:"void_rift", type:"boss", requiredBadges:15,
     boss:{monsterId:211, level:70, moves:["dark_pulse","moonblast","shadow_ball","psychic_move"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
   { id:"q107", title:"Storm Forged Legend", desc:"The legendary Stormforged descends on Iron Canyon!", location:"iron_canyon", type:"boss", requiredBadges:13,
     boss:{monsterId:212, level:70, moves:["thunderbolt","tungsten_ram","flash_cannon","forge_strike"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
   { id:"q108", title:"Champion's Rematch", desc:"Champion Lumian offers a rematch at full power!", location:"summit", type:"boss", requiredBadges:16,
-    boss:{monsterId:174, level:80, moves:["outrage","dragon_pulse","fire_blast","dragon_dance"]},
+    boss:{monsterId:213, level:80, moves:["outrage","dragon_pulse","fire_blast","dragon_dance"]},
     reward:{type:"money", amount:25000}, rewardText:"25000 coins" },
   { id:"q109", title:"Ultimate Trial", desc:"Face the ultimate trial: a gauntlet of the strongest wild Lumos!", location:"victoryroad", type:"boss", requiredBadges:16,
     boss:{monsterId:173, level:78, moves:["outrage","dragon_pulse","dragon_dance","hyper_beam"]},

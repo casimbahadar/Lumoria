@@ -22,6 +22,9 @@ function newGameState(playerName, starterMonsterId) {
     questsCompleted: [],
     questsActive: [],
     visitedLocations: ["seedvale"],
+    defeatedTrainers: [],
+    defeatedUmbraEncounters: [],
+    defeatedLegendaries: [],
     saveTimestamp: Date.now()
   };
 }
@@ -71,6 +74,14 @@ function loadGame() {
     if (!data.visitedLocations) data.visitedLocations = [data.location];
     if (!data.box) data.box = [];
     if (data.bag && data.bag.rareCandy === undefined) data.bag.rareCandy = 0;
+    if (!data.defeatedTrainers) data.defeatedTrainers = [];
+    if (!data.defeatedUmbraEncounters) data.defeatedUmbraEncounters = [];
+    if (!data.defeatedLegendaries) data.defeatedLegendaries = [];
+    // Add new evo items to existing bags
+    const evoItems = ["fireStone","waterStone","leafStone","thunderStone","moonStone","sunStone","duskStone","dragonScale","steelCoating","prismShard"];
+    if (data.bag) {
+      for (const ei of evoItems) { if (data.bag[ei] === undefined) data.bag[ei] = 0; }
+    }
     // Assign natures and IVs to existing mons that don't have them
     for (const mon of (data.team || [])) {
       if (!mon.nature) mon.nature = getRandomNature();
@@ -847,6 +858,82 @@ function renderAreaPanel() {
     }
   }
 
+  // Legendary encounter button
+  const legendBtn = document.getElementById("btn-legendary");
+  if (legendBtn) {
+    legendBtn.classList.add("hidden");
+    if (area.legendaryEncounter) {
+      const legDef = MONSTERS_DATA[area.legendaryEncounter.monsterId];
+      const caught = G.defeatedLegendaries && G.defeatedLegendaries.includes(area.legendaryEncounter.monsterId);
+      legendBtn.classList.remove("hidden");
+      legendBtn.textContent = caught
+        ? `✅ ${legDef.name} (Caught/Defeated)`
+        : `🌟 Challenge ${legDef.name}`;
+      legendBtn.disabled = caught;
+    }
+  }
+
+  // Route trainer button
+  const routeTrainerBtn = document.getElementById("btn-route-trainer");
+  if (routeTrainerBtn) {
+    routeTrainerBtn.classList.add("hidden");
+    if (typeof ROUTE_TRAINERS !== "undefined" && ROUTE_TRAINERS[G.location]) {
+      const trainers = ROUTE_TRAINERS[G.location];
+      const beaten = trainers.filter((t, i) =>
+        G.defeatedTrainers.includes(`${G.location}_trainer_${i}`)
+      ).length;
+      if (beaten < trainers.length) {
+        routeTrainerBtn.classList.remove("hidden");
+        const next = trainers[beaten];
+        routeTrainerBtn.textContent = `⚔️ Battle ${next.name}`;
+        routeTrainerBtn.innerHTML += `<span class="trainer-progress"> (${beaten}/${trainers.length})</span>`;
+      }
+    }
+  }
+
+  // Umbra area encounter button
+  const umbraAreaBtn = document.getElementById("btn-umbra-area");
+  if (umbraAreaBtn) {
+    umbraAreaBtn.classList.add("hidden");
+    if (area.hasUmbraEncounter && typeof UMBRA_BATTLES !== "undefined") {
+      // Find the umbra battle for this location
+      const umbraId = Object.keys(UMBRA_BATTLES).find(k => {
+        const b = UMBRA_BATTLES[k];
+        return b.triggerLocation === G.location;
+      });
+      if (umbraId) {
+        const beaten = G.defeatedUmbraEncounters && G.defeatedUmbraEncounters.includes(umbraId);
+        umbraAreaBtn.classList.remove("hidden");
+        const ub = UMBRA_BATTLES[umbraId];
+        umbraAreaBtn.textContent = beaten
+          ? `✅ ${ub.name} (Defeated)`
+          : `🕶️ Battle ${ub.name}`;
+        umbraAreaBtn.disabled = beaten;
+      }
+    }
+  }
+
+  // Gym trainer button
+  const gymTrainerBtn = document.getElementById("btn-gym-trainers");
+  if (gymTrainerBtn) {
+    gymTrainerBtn.classList.add("hidden");
+    if (area.hasGym && area.gymLeader && typeof GYM_TRAINERS !== "undefined" && GYM_TRAINERS[area.gymLeader]) {
+      const beaten = G.defeatedLeaders.includes(area.gymLeader);
+      if (!beaten) {
+        const trainers = GYM_TRAINERS[area.gymLeader];
+        const beatenCount = trainers.filter((t, i) =>
+          G.defeatedTrainers.includes(`gym_${area.gymLeader}_trainer_${i}`)
+        ).length;
+        if (beatenCount < trainers.length) {
+          gymTrainerBtn.classList.remove("hidden");
+          const next = trainers[beatenCount];
+          gymTrainerBtn.textContent = `🥋 Battle ${next.name}`;
+          gymTrainerBtn.innerHTML += `<span class="trainer-progress"> (${beatenCount}/${trainers.length})</span>`;
+        }
+      }
+    }
+  }
+
   // Heal button in towns/cities
   const healBtn = document.getElementById("btn-heal");
   if (healBtn) {
@@ -1556,6 +1643,13 @@ function endBattle(outcome, slot, levelUps) {
   }
 
   if (outcome === "ran" || outcome === "caught") {
+    // Mark legendary as caught/encountered
+    if (outcome === "caught" && battleContext.isLegendary && battleContext.wildMon) {
+      if (!G.defeatedLegendaries.includes(battleContext.wildMon.monsterId)) {
+        G.defeatedLegendaries.push(battleContext.wildMon.monsterId);
+      }
+      saveGame();
+    }
     showScreen("screen-main");
     renderWorldMap();
     renderAreaPanel();
@@ -1662,6 +1756,40 @@ function endBattle(outcome, slot, levelUps) {
           renderAreaPanel();
           renderHUD();
         }
+      } else if (battleContext.isTrainer) {
+        // Route/gym trainer defeated
+        if (!G.defeatedTrainers.includes(battleContext.trainerId)) {
+          G.defeatedTrainers.push(battleContext.trainerId);
+        }
+        // Money reward based on enemy team level
+        const trainerReward = battleContext.enemyTeam.reduce((sum, m) => sum + m.level * 30, 0);
+        G.money += trainerReward;
+        showNotification(`⚔️ You defeated the trainer!<br><br>Received 💰${trainerReward}!`, () => {
+          showScreen("screen-main");
+          renderWorldMap();
+          renderAreaPanel();
+          renderHUD();
+          saveGame();
+        });
+      } else if (battleContext.isUmbraArea) {
+        // Umbra area encounter defeated
+        if (!G.defeatedUmbraEncounters.includes(battleContext.leaderId)) {
+          G.defeatedUmbraEncounters.push(battleContext.leaderId);
+        }
+        const battle = UMBRA_BATTLES[battleContext.leaderId];
+        // Give reward if any
+        if (battle?.reward) {
+          for (const [item, amt] of Object.entries(battle.reward)) {
+            G.bag[item] = (G.bag[item] || 0) + amt;
+          }
+        }
+        showNotification(`${battle?.emoji || "🕶️"} <strong>${battle?.name || "Umbra Agent"}</strong>: "${battle?.winQuote || "You win..."}"`, () => {
+          showScreen("screen-main");
+          renderWorldMap();
+          renderAreaPanel();
+          renderHUD();
+          saveGame();
+        });
       } else if (battleContext.isQuest) {
         // Quest boss defeated
         const quest = typeof QUESTS_DATA !== "undefined" ? QUESTS_DATA.find(q => q.id === battleContext.questId) : null;
@@ -1673,7 +1801,12 @@ function endBattle(outcome, slot, levelUps) {
         renderAreaPanel();
         renderHUD();
       } else {
-        // Wild battle won
+        // Wild battle won (including legendary)
+        if (battleContext.isLegendary && battleContext.wildMon) {
+          if (!G.defeatedLegendaries.includes(battleContext.wildMon.monsterId)) {
+            G.defeatedLegendaries.push(battleContext.wildMon.monsterId);
+          }
+        }
         showScreen("screen-main");
         renderWorldMap();
         renderAreaPanel();
@@ -2764,12 +2897,28 @@ function initEventListeners() {
         return;
       }
       const leader = GYM_LEADERS[area.gymLeader];
-      const trainerImg = typeof getTrainerSpriteURL === "function"
-        ? `<img src="${getTrainerSpriteURL(area.gymLeader, leader, 64)}" width="64" height="64" style="border-radius:10px;margin-bottom:0.5rem"><br>`
-        : "";
-      showNotification(`${trainerImg}${leader.emoji} <strong>${leader.name}</strong> wants to battle!<br>"${leader.quote}"`, () => {
-        startGymBattle(area.gymLeader);
-      });
+      // Check if all gym trainers beaten (if gym trainers exist)
+      if (typeof GYM_TRAINERS !== "undefined" && GYM_TRAINERS[area.gymLeader]) {
+        const trainers = GYM_TRAINERS[area.gymLeader];
+        const beatenCount = trainers.filter((t, i) =>
+          G.defeatedTrainers.includes(`gym_${area.gymLeader}_trainer_${i}`)
+        ).length;
+        if (beatenCount < trainers.length) {
+          showNotification("You must defeat all gym trainers before challenging the leader!");
+          return;
+        }
+      }
+      // Show battle type selection if leader has multiple team types
+      if (leader.teamSingle || leader.teamDouble || leader.teamTriple) {
+        showBattleTypeSelection(area.gymLeader, leader);
+      } else {
+        const trainerImg = typeof getTrainerSpriteURL === "function"
+          ? `<img src="${getTrainerSpriteURL(area.gymLeader, leader, 64)}" width="64" height="64" style="border-radius:10px;margin-bottom:0.5rem"><br>`
+          : "";
+        showNotification(`${trainerImg}${leader.emoji} <strong>${leader.name}</strong> wants to battle!<br>"${leader.quote}"`, () => {
+          startGymBattle(area.gymLeader);
+        });
+      }
     }
   });
   document.getElementById("btn-champion").addEventListener("click", () => {
@@ -2779,9 +2928,8 @@ function initEventListeners() {
         return;
       }
       const leader = GYM_LEADERS["champion"];
-      showNotification(`👑 <strong>${leader.name}</strong> awaits!<br>"${leader.quote}"`, () => {
-        startGymBattle("champion");
-      });
+      // Champion always gets battle type selection
+      showBattleTypeSelection("champion", leader);
     }
   });
 
@@ -2891,6 +3039,119 @@ function initEventListeners() {
     showNotification(`${shade.emoji} <strong>${shade.name}</strong>:<br>"${shade.quote}"`, () => {
       startSpecialBattle("umbra_shade", UMBRA_BATTLES, true);
     });
+  });
+
+  // Legendary encounter button
+  document.getElementById("btn-legendary")?.addEventListener("click", () => {
+    const area = WORLD_DATA[G.location];
+    if (!area?.legendaryEncounter) return;
+    if (G.team.every(m => m.currentHP <= 0)) {
+      showNotification("All your Lumos are fainted! Heal first.");
+      return;
+    }
+    const legDef = MONSTERS_DATA[area.legendaryEncounter.monsterId];
+    showNotification(`🌟 A <strong>${legDef.name}</strong> (Lv.${area.legendaryEncounter.level}) blocks your path!<br>"${legDef.desc}"`, () => {
+      const wildMon = buildWildMon(area.legendaryEncounter.monsterId, area.legendaryEncounter.level);
+      G.seenMonsters.add(area.legendaryEncounter.monsterId);
+      battleContext = {
+        isWild: true,
+        isGym: false,
+        isChampion: false,
+        isLegendary: true,
+        battleMode: "single",
+        wildMon,
+        playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
+      };
+      playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx]);
+      enemyActiveMon = wildMon;
+      hideMultiBattleSlots();
+      showScreen("screen-battle");
+      clearBattleLog();
+      logMsg(`🌟 The Legendary ${wildMon.name} appeared! (Lv.${wildMon.level})`);
+      updateBattleUI();
+      showBattleMainActions();
+      document.getElementById("btn-catch").disabled = false;
+      if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle({ ...battleContext, isUmbra: true });
+    });
+  });
+
+  // Route trainer button
+  document.getElementById("btn-route-trainer")?.addEventListener("click", () => {
+    if (typeof ROUTE_TRAINERS === "undefined" || !ROUTE_TRAINERS[G.location]) return;
+    if (G.team.every(m => m.currentHP <= 0)) {
+      showNotification("All your Lumos are fainted! Heal first.");
+      return;
+    }
+    const trainers = ROUTE_TRAINERS[G.location];
+    const beaten = trainers.filter((t, i) =>
+      G.defeatedTrainers.includes(`${G.location}_trainer_${i}`)
+    ).length;
+    if (beaten >= trainers.length) return;
+    const trainer = trainers[beaten];
+    const trainerId = `${G.location}_trainer_${beaten}`;
+    showNotification(`${trainer.emoji} <strong>${trainer.name}</strong> wants to battle!`, () => {
+      startTrainerBattle(trainerId, trainer);
+    });
+  });
+
+  // Gym trainer button
+  document.getElementById("btn-gym-trainers")?.addEventListener("click", () => {
+    const area = WORLD_DATA[G.location];
+    if (!area?.gymLeader || typeof GYM_TRAINERS === "undefined" || !GYM_TRAINERS[area.gymLeader]) return;
+    if (G.team.every(m => m.currentHP <= 0)) {
+      showNotification("All your Lumos are fainted! Heal first.");
+      return;
+    }
+    const trainers = GYM_TRAINERS[area.gymLeader];
+    const beatenCount = trainers.filter((t, i) =>
+      G.defeatedTrainers.includes(`gym_${area.gymLeader}_trainer_${i}`)
+    ).length;
+    if (beatenCount >= trainers.length) return;
+    const trainer = trainers[beatenCount];
+    const trainerId = `gym_${area.gymLeader}_trainer_${beatenCount}`;
+    showNotification(`${trainer.emoji} <strong>${trainer.name}</strong>: "You won't get past me!"`, () => {
+      startTrainerBattle(trainerId, trainer);
+    });
+  });
+
+  // Umbra area encounter button
+  document.getElementById("btn-umbra-area")?.addEventListener("click", () => {
+    if (G.team.every(m => m.currentHP <= 0)) {
+      showNotification("All your Lumos are fainted! Heal first.");
+      return;
+    }
+    if (typeof UMBRA_BATTLES === "undefined") return;
+    const umbraId = Object.keys(UMBRA_BATTLES).find(k => {
+      const b = UMBRA_BATTLES[k];
+      return b.triggerLocation === G.location;
+    });
+    if (!umbraId) return;
+    const battle = UMBRA_BATTLES[umbraId];
+    showNotification(`${battle.emoji} <strong>${battle.name}</strong>:<br>"${battle.quote}"`, () => {
+      startUmbraAreaBattle(umbraId, battle);
+    });
+  });
+
+  // Battle mode selection buttons
+  document.querySelectorAll(".battle-mode-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const mode = btn.dataset.mode;
+      const overlay = document.getElementById("battle-mode-overlay");
+      overlay.classList.add("hidden");
+      if (window._battleModeCallback) {
+        window._battleModeCallback(mode);
+        window._battleModeCallback = null;
+      }
+    });
+  });
+  document.getElementById("btn-battle-mode-cancel")?.addEventListener("click", () => {
+    document.getElementById("battle-mode-overlay").classList.add("hidden");
+    window._battleModeCallback = null;
+  });
+
+  // Evolution item cancel
+  document.getElementById("btn-evo-item-cancel")?.addEventListener("click", () => {
+    document.getElementById("evo-item-overlay").classList.add("hidden");
   });
 
   // Area shop button
@@ -3033,6 +3294,216 @@ function startSpecialBattle(battleId, battleData, isUmbra) {
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+}
+
+// ============================================================
+// ROUTE/GYM TRAINER BATTLES
+// ============================================================
+function startTrainerBattle(trainerId, trainer) {
+  const levelCap = null;
+  battleContext = {
+    isWild: false,
+    isGym: false,
+    isChampion: false,
+    isTrainer: true,
+    trainerId,
+    battleMode: "single",
+    enemyTeam: trainer.team.map(s => buildGymMon(s)),
+    enemyTeamIdx: 0,
+    playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
+  };
+  playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx], levelCap);
+  enemyActiveMon = battleContext.enemyTeam[0];
+  hideMultiBattleSlots();
+  showScreen("screen-battle");
+  clearBattleLog();
+  logMsg(`${trainer.emoji} ${trainer.name} wants to battle!`);
+  logMsg(`${trainer.name} sent out ${enemyActiveMon.name}!`);
+  updateBattleUI();
+  showBattleMainActions();
+  document.getElementById("btn-catch").disabled = true;
+  if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+}
+
+function startUmbraAreaBattle(umbraId, battle) {
+  const levelCap = (typeof LEVEL_CAPS !== "undefined" && LEVEL_CAPS[umbraId]) ? LEVEL_CAPS[umbraId] : null;
+  battleContext = {
+    isWild: false,
+    isGym: false,
+    isChampion: false,
+    isUmbra: true,
+    isUmbraArea: true,
+    leaderId: umbraId,
+    levelCap,
+    battleMode: "single",
+    enemyTeam: battle.team.map(s => buildGymMon(s)),
+    enemyTeamIdx: 0,
+    playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
+  };
+  playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx], levelCap);
+  enemyActiveMon = battleContext.enemyTeam[0];
+  hideMultiBattleSlots();
+  showScreen("screen-battle");
+  clearBattleLog();
+  if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
+  logMsg(`${battle.emoji} ${battle.name}: "${battle.quote}"`);
+  logMsg(`${battle.name} sent out ${enemyActiveMon.name}!`);
+  updateBattleUI();
+  showBattleMainActions();
+  document.getElementById("btn-catch").disabled = true;
+  if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+}
+
+// ============================================================
+// BATTLE TYPE SELECTION
+// ============================================================
+function showBattleTypeSelection(leaderId, leader) {
+  const overlay = document.getElementById("battle-mode-overlay");
+  overlay.classList.remove("hidden");
+  document.getElementById("battle-mode-title").textContent = `Battle ${leader.name}`;
+  document.getElementById("battle-mode-desc").textContent = "Choose your battle format:";
+
+  // Determine available modes
+  const btns = document.querySelectorAll(".battle-mode-btn");
+  btns.forEach(btn => {
+    const mode = btn.dataset.mode;
+    // Always allow single for leaders that have any team
+    if (mode === "single") {
+      btn.disabled = false;
+      btn.classList.remove("hidden");
+    } else if (mode === "double") {
+      btn.disabled = G.team.filter(m => m.currentHP > 0).length < 2;
+      btn.classList.remove("hidden");
+    } else if (mode === "triple") {
+      btn.disabled = G.team.filter(m => m.currentHP > 0).length < 3;
+      btn.classList.remove("hidden");
+    }
+  });
+
+  window._battleModeCallback = (chosenMode) => {
+    // Select the right team for the chosen mode
+    let team;
+    if (chosenMode === "single" && leader.teamSingle) {
+      team = leader.teamSingle;
+    } else if (chosenMode === "double" && leader.teamDouble) {
+      team = leader.teamDouble;
+    } else if (chosenMode === "triple" && leader.teamTriple) {
+      team = leader.teamTriple;
+    } else {
+      team = leader.team; // fallback to default team
+    }
+
+    // Temporarily set the leader's team and battle mode, then start the battle
+    const origTeam = leader.team;
+    const origMode = leader.battleMode;
+    leader.team = team;
+    leader.battleMode = chosenMode;
+
+    const trainerImg = typeof getTrainerSpriteURL === "function"
+      ? `<img src="${getTrainerSpriteURL(leaderId, leader, 64)}" width="64" height="64" style="border-radius:10px;margin-bottom:0.5rem"><br>`
+      : "";
+    showNotification(`${trainerImg}${leader.emoji} <strong>${leader.name}</strong>: "${leader.quote}"<br><br>⚔️ ${chosenMode.toUpperCase()} BATTLE`, () => {
+      startGymBattle(leaderId);
+      // Restore original team/mode so data stays clean
+      leader.team = origTeam;
+      leader.battleMode = origMode;
+    });
+  };
+}
+
+// ============================================================
+// EVOLUTION ITEM USAGE
+// ============================================================
+function useEvoItem(itemId, partyIdx) {
+  const slot = G.team[partyIdx];
+  if (!slot) return;
+  const def = MONSTERS_DATA[slot.monsterId];
+  if (!def) return;
+
+  let targetId = null;
+
+  // Check if this mon evolves with this item
+  if (def.evolveItem === itemId && def.evolveTo) {
+    targetId = def.evolveTo;
+  }
+  // Check alt evolution
+  if (def.evolveAlt && def.evolveAlt.item === itemId) {
+    targetId = def.evolveAlt.monsterId;
+  }
+
+  if (!targetId) {
+    showNotification("This item has no effect on this Lumo.");
+    return;
+  }
+
+  // Consume item
+  G.bag[itemId]--;
+
+  // Evolve
+  const oldDef = MONSTERS_DATA[slot.monsterId];
+  const newDef = MONSTERS_DATA[targetId];
+  slot.monsterId = targetId;
+  const newMax = calcMaxHP(newDef.base.hp, slot.level, slot.ivs?.hp || 0);
+  const ratio = slot.currentHP / slot.maxHP;
+  slot.maxHP = newMax;
+  slot.currentHP = Math.max(1, Math.floor(newMax * ratio));
+  // Merge moves
+  const existingMoves = new Set(slot.moves);
+  const newMoves = newDef.learnset
+    .filter(e => e[0] <= slot.level)
+    .map(e => e[1])
+    .filter(m => !existingMoves.has(m));
+  for (const m of newMoves) {
+    if (slot.moves.length < 4) slot.moves.push(m);
+  }
+  G.seenMonsters.add(targetId);
+  G.caughtMonsters.add(targetId);
+
+  showNotification(`🌟 ${oldDef.name} evolved into <strong>${newDef.name}</strong>!`, () => {
+    showTeamScreen();
+    saveGame();
+  });
+}
+
+function showEvoItemSelection(partyIdx) {
+  const slot = G.team[partyIdx];
+  if (!slot) return;
+  const def = MONSTERS_DATA[slot.monsterId];
+  if (!def) return;
+
+  // Find which evo items work on this mon
+  const validItems = [];
+  if (def.evolveItem && def.evolveTo && G.bag[def.evolveItem] > 0) {
+    const targetDef = MONSTERS_DATA[def.evolveTo];
+    validItems.push({ itemId: def.evolveItem, targetName: targetDef?.name || "???", targetId: def.evolveTo });
+  }
+  if (def.evolveAlt && def.evolveAlt.item && G.bag[def.evolveAlt.item] > 0) {
+    const targetDef = MONSTERS_DATA[def.evolveAlt.monsterId];
+    validItems.push({ itemId: def.evolveAlt.item, targetName: targetDef?.name || "???", targetId: def.evolveAlt.monsterId });
+  }
+
+  if (validItems.length === 0) {
+    showNotification("No evolution items can be used on this Lumo.");
+    return;
+  }
+
+  const overlay = document.getElementById("evo-item-overlay");
+  overlay.classList.remove("hidden");
+  document.getElementById("evo-item-text").textContent = `Choose an evolution for ${def.name}:`;
+  const optionsEl = document.getElementById("evo-item-options");
+  optionsEl.innerHTML = "";
+
+  for (const vi of validItems) {
+    const itemDef = ITEMS_DATA[vi.itemId];
+    const btn = document.createElement("button");
+    btn.className = "evo-item-btn";
+    btn.innerHTML = `${itemDef?.emoji || "🔮"} Use <strong>${itemDef?.name || vi.itemId}</strong> → <strong>${vi.targetName}</strong> (x${G.bag[vi.itemId]})`;
+    btn.addEventListener("click", () => {
+      overlay.classList.add("hidden");
+      useEvoItem(vi.itemId, partyIdx);
+    });
+    optionsEl.appendChild(btn);
+  }
 }
 
 // Show a sequence of story messages one-by-one

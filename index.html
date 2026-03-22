@@ -108,6 +108,10 @@
         </div>
         <div id="area-actions">
           <button class="btn-action" id="btn-explore">🌿 Explore Area</button>
+          <button class="btn-action hidden" id="btn-route-trainer">⚔️ Battle Trainer</button>
+          <button class="btn-action hidden" id="btn-legendary">🌟 Challenge Legendary</button>
+          <button class="btn-action hidden" id="btn-umbra-area">🕶️ Battle Umbra Agent</button>
+          <button class="btn-action hidden" id="btn-gym-trainers">🥋 Gym Trainers</button>
           <button class="btn-action hidden" id="btn-gym">🏛 Challenge Gym</button>
           <button class="btn-action hidden" id="btn-elite-four">⚔️ Challenge Elite Four</button>
           <button class="btn-action hidden" id="btn-champion">👑 Challenge Champion</button>
@@ -379,6 +383,30 @@
     <div id="notification-box">
       <p id="notification-text"></p>
       <button id="btn-notification-ok" class="btn-primary">OK</button>
+    </div>
+  </div>
+
+  <!-- BATTLE MODE SELECTION OVERLAY -->
+  <div id="battle-mode-overlay" class="hidden">
+    <div id="battle-mode-box">
+      <h3 id="battle-mode-title">Choose Battle Type</h3>
+      <p id="battle-mode-desc">Select how you want to battle:</p>
+      <div id="battle-mode-buttons">
+        <button class="btn-action battle-mode-btn" data-mode="single">⚔️ Single (1v1)</button>
+        <button class="btn-action battle-mode-btn" data-mode="double">⚔️⚔️ Double (2v2)</button>
+        <button class="btn-action battle-mode-btn" data-mode="triple">⚔️⚔️⚔️ Triple (3v3)</button>
+      </div>
+      <button id="btn-battle-mode-cancel" class="btn-secondary">Cancel</button>
+    </div>
+  </div>
+
+  <!-- EVOLUTION ITEM OVERLAY -->
+  <div id="evo-item-overlay" class="hidden">
+    <div id="evo-item-box">
+      <h3>Use Evolution Item</h3>
+      <p id="evo-item-text"></p>
+      <div id="evo-item-options"></div>
+      <button id="btn-evo-item-cancel" class="btn-secondary">Cancel</button>
     </div>
   </div>
 

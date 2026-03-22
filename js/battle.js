@@ -551,7 +551,10 @@ function giveXP(partySlot, amount) {
 // Check evolution
 function checkEvolution(partySlot) {
   const def = MONSTERS_DATA[partySlot.monsterId];
-  if (def.evolveTo && partySlot.level >= def.evolveLevel) {
+  // Skip item-only evolutions (no evolveLevel means item evolution)
+  if (def.evolveTo && def.evolveLevel && partySlot.level >= def.evolveLevel) {
+    // Don't auto-evolve if this is an item-only evolution
+    if (def.evolveItem && !def.evolveLevel) return null;
     return def.evolveTo;
   }
   return null;

@@ -461,6 +461,102 @@ function drawCroucher(id, theme, size, gradId) {
   return parts;
 }
 
+// ---- Archetype 5: Insectoid (bug/spider-like) ----
+function drawInsectoid(id, theme, size, gradId) {
+  const parts = [];
+  const olf = theme.outline, col = theme.body, mark = theme.mark, acc = theme.accent;
+  const s = size;
+  const gf = `url(#${gradId})`;
+  const cx = s * 0.5, cy = s * 0.48;
+
+  // Abdomen (rear, larger)
+  const abdX = cx, abdY = cy + s * 0.1;
+  const abdRX = s * 0.18, abdRY = s * 0.14;
+  parts.push(`<ellipse cx="${abdX}" cy="${abdY}" rx="${abdRX}" ry="${abdRY}" fill="${gf}" stroke="${olf}" stroke-width="2"/>`);
+  // Abdomen stripes
+  for (let i = 0; i < 3; i++) {
+    const sy = abdY - abdRY * 0.5 + i * abdRY * 0.45;
+    parts.push(`<path d="M${abdX-abdRX*0.6},${sy} Q${abdX},${sy+s*0.015} ${abdX+abdRX*0.6},${sy}" fill="none" stroke="${mark}" stroke-width="1.5" opacity="0.5"/>`);
+  }
+
+  // Thorax (middle)
+  const thX = cx, thY = cy - s * 0.06;
+  parts.push(`<ellipse cx="${thX}" cy="${thY}" rx="${s*0.1}" ry="${s*0.08}" fill="${gf}" stroke="${olf}" stroke-width="1.5"/>`);
+
+  // Head
+  const headX = cx, headY = cy - s * 0.2;
+  const headR = s * 0.09;
+  parts.push(`<circle cx="${headX}" cy="${headY}" r="${headR}" fill="${gf}" stroke="${olf}" stroke-width="1.5"/>`);
+
+  // Mandibles
+  parts.push(`<path d="M${headX-headR*0.6},${headY+headR*0.7} Q${headX-headR*1.2},${headY+headR*1.5} ${headX-headR*0.3},${headY+headR*1.3}" fill="none" stroke="${olf}" stroke-width="1.8" stroke-linecap="round"/>`);
+  parts.push(`<path d="M${headX+headR*0.6},${headY+headR*0.7} Q${headX+headR*1.2},${headY+headR*1.5} ${headX+headR*0.3},${headY+headR*1.3}" fill="none" stroke="${olf}" stroke-width="1.8" stroke-linecap="round"/>`);
+
+  // Legs (3 pairs)
+  for (let i = 0; i < 3; i++) {
+    const ly = thY - s * 0.04 + i * s * 0.06;
+    const ang = -20 + i * 20;
+    parts.push(`<path d="M${thX-s*0.1},${ly} Q${thX-s*0.22},${ly+s*0.02} ${thX-s*0.28},${ly+s*0.1+i*s*0.02}" fill="none" stroke="${col}" stroke-width="2" stroke-linecap="round"/>`);
+    parts.push(`<path d="M${thX+s*0.1},${ly} Q${thX+s*0.22},${ly+s*0.02} ${thX+s*0.28},${ly+s*0.1+i*s*0.02}" fill="none" stroke="${col}" stroke-width="2" stroke-linecap="round"/>`);
+  }
+
+  // Eyes (compound-style, larger)
+  const eyeR = headR * 0.38;
+  parts.push(drawEye(headX - headR * 0.5, headY - headR * 0.1, eyeR, acc, olf));
+  parts.push(drawEye(headX + headR * 0.5, headY - headR * 0.1, eyeR, acc, olf));
+
+  // Antennae
+  parts.push(`<path d="M${headX-headR*0.3},${headY-headR*0.8} Q${headX-headR*1},${headY-headR*2} ${headX-headR*1.5},${headY-headR*1.8}" fill="none" stroke="${col}" stroke-width="1.5" stroke-linecap="round"/>`);
+  parts.push(`<circle cx="${headX-headR*1.5}" cy="${headY-headR*1.8}" r="${s*0.015}" fill="${acc}"/>`);
+  parts.push(`<path d="M${headX+headR*0.3},${headY-headR*0.8} Q${headX+headR*1},${headY-headR*2} ${headX+headR*1.5},${headY-headR*1.8}" fill="none" stroke="${col}" stroke-width="1.5" stroke-linecap="round"/>`);
+  parts.push(`<circle cx="${headX+headR*1.5}" cy="${headY-headR*1.8}" r="${s*0.015}" fill="${acc}"/>`);
+
+  return parts;
+}
+
+// ---- Archetype 6: Amorphous (ghost/blob/ethereal) ----
+function drawAmorphous(id, theme, size, gradId) {
+  const parts = [];
+  const olf = theme.outline, col = theme.body, mark = theme.mark, acc = theme.accent;
+  const s = size;
+  const gf = `url(#${gradId})`;
+  const cx = s * 0.5, cy = s * 0.45;
+
+  // Wispy body base (irregular blob shape)
+  const wobble = seededRand(id, 99) * s * 0.04;
+  parts.push(`<path d="M${cx},${cy-s*0.22} Q${cx+s*0.22+wobble},${cy-s*0.18} ${cx+s*0.24},${cy} Q${cx+s*0.26},${cy+s*0.15} ${cx+s*0.12},${cy+s*0.25} Q${cx+s*0.05},${cy+s*0.32} ${cx-s*0.05},${cy+s*0.30} Q${cx-s*0.15},${cy+s*0.28} ${cx-s*0.24},${cy+s*0.08} Q${cx-s*0.26-wobble},${cy-s*0.12} ${cx},${cy-s*0.22}Z" fill="${gf}" stroke="${olf}" stroke-width="1.8" opacity="0.9"/>`);
+
+  // Inner glow
+  parts.push(`<ellipse cx="${cx}" cy="${cy}" rx="${s*0.14}" ry="${s*0.12}" fill="${acc}" opacity="0.15"/>`);
+
+  // Wispy tendrils at bottom
+  for (let i = 0; i < 3; i++) {
+    const tx = cx - s * 0.1 + i * s * 0.1;
+    const tLen = s * 0.08 + seededRand(id, i + 30) * s * 0.06;
+    parts.push(`<path d="M${tx},${cy+s*0.22} Q${tx+s*0.03},${cy+s*0.22+tLen*0.6} ${tx-s*0.02},${cy+s*0.22+tLen}" fill="none" stroke="${col}" stroke-width="2.5" opacity="0.6" stroke-linecap="round"/>`);
+  }
+
+  // Eyes (large, haunting)
+  const eyeR = s * 0.06;
+  const eyeY = cy - s * 0.06;
+  parts.push(drawEye(cx - s * 0.09, eyeY, eyeR, acc, olf));
+  parts.push(drawEye(cx + s * 0.09, eyeY, eyeR, acc, olf));
+
+  // Mouth (wavy, eerie grin)
+  const mouthY = cy + s * 0.06;
+  parts.push(`<path d="M${cx-s*0.08},${mouthY} Q${cx-s*0.04},${mouthY+s*0.04} ${cx},${mouthY} Q${cx+s*0.04},${mouthY+s*0.04} ${cx+s*0.08},${mouthY}" fill="none" stroke="${olf}" stroke-width="1.5"/>`);
+
+  // Floating particles
+  for (let i = 0; i < 4; i++) {
+    const px = cx - s * 0.2 + seededRand(id, i + 70) * s * 0.4;
+    const py = cy - s * 0.25 + seededRand(id, i + 80) * s * 0.15;
+    const pr = s * 0.01 + seededRand(id, i + 90) * s * 0.015;
+    parts.push(`<circle cx="${px}" cy="${py}" r="${pr}" fill="${acc}" opacity="0.5"/>`);
+  }
+
+  return parts;
+}
+
 // ---- Type-specific decorations layered OVER the creature ----
 function typeDecorations(primaryType, id, theme, size) {
   const parts = [];
@@ -736,8 +832,8 @@ function getMonsterSVG(monster, size = 80) {
   // ---- Creature group with drop shadow ----
   parts.push(`<g filter="url(#${shadowId})">`);
 
-  // Draw creature based on archetype (id % 5)
-  const archetype = id % 5;
+  // Draw creature based on archetype (id % 7)
+  const archetype = id % 7;
   let creatureParts = [];
   if (archetype === 0) {
     creatureParts = drawQuadruped(id, theme, size, bodyGradId);
@@ -747,8 +843,12 @@ function getMonsterSVG(monster, size = 80) {
     creatureParts = drawAvian(id, theme, size, bodyGradId);
   } else if (archetype === 3) {
     creatureParts = drawSerpentine(id, theme, size, bodyGradId);
-  } else {
+  } else if (archetype === 4) {
     creatureParts = drawCroucher(id, theme, size, bodyGradId);
+  } else if (archetype === 5) {
+    creatureParts = drawInsectoid(id, theme, size, bodyGradId);
+  } else {
+    creatureParts = drawAmorphous(id, theme, size, bodyGradId);
   }
   parts.push(...creatureParts);
   parts.push(`</g>`);
@@ -1084,4 +1184,138 @@ function renderMonsterSprite(container, monster, size = 80) {
   img.style.imageRendering = "auto";
   container.innerHTML = "";
   container.appendChild(img);
+}
+
+// ============================================================
+// TRAINER SVG SPRITE GENERATOR
+// Chibi-style trainer portraits for gym leaders, rival, etc.
+// ============================================================
+
+const TRAINER_STYLES = {
+  // Hair styles (SVG path data relative to head center)
+  hair: [
+    // 0: Spiky
+    (cx, cy, r, col) => `<path d="M${cx-r},${cy} Q${cx-r},${cy-r*1.6} ${cx-r*0.3},${cy-r*1.8} L${cx},${cy-r*1.4} L${cx+r*0.3},${cy-r*1.8} Q${cx+r},${cy-r*1.6} ${cx+r},${cy}" fill="${col}"/>`,
+    // 1: Long flowing
+    (cx, cy, r, col) => `<path d="M${cx-r},${cy} Q${cx-r*1.1},${cy-r*1.4} ${cx},${cy-r*1.3} Q${cx+r*1.1},${cy-r*1.4} ${cx+r},${cy} L${cx+r*0.9},${cy+r*1.2} Q${cx},${cy+r*0.5} ${cx-r*0.9},${cy+r*1.2} Z" fill="${col}"/>`,
+    // 2: Short crop
+    (cx, cy, r, col) => `<path d="M${cx-r},${cy-r*0.2} Q${cx-r*0.9},${cy-r*1.4} ${cx},${cy-r*1.2} Q${cx+r*0.9},${cy-r*1.4} ${cx+r},${cy-r*0.2}" fill="${col}" stroke="${col}" stroke-width="1"/>`,
+    // 3: Ponytail
+    (cx, cy, r, col) => `<path d="M${cx-r},${cy} Q${cx-r},${cy-r*1.5} ${cx},${cy-r*1.3} Q${cx+r},${cy-r*1.5} ${cx+r},${cy}" fill="${col}"/>
+      <path d="M${cx+r*0.5},${cy-r*1.1} Q${cx+r*1.4},${cy-r*0.6} ${cx+r*1.2},${cy+r*0.8}" fill="none" stroke="${col}" stroke-width="${r*0.4}" stroke-linecap="round"/>`,
+    // 4: Mohawk
+    (cx, cy, r, col) => `<path d="M${cx-r*0.8},${cy} Q${cx-r*0.3},${cy-r*1.2} ${cx},${cy-r*2} Q${cx+r*0.3},${cy-r*1.2} ${cx+r*0.8},${cy}" fill="${col}"/>`
+  ],
+  // Skin tones
+  skin: ["#ffe0bd", "#f5c7a1", "#d4a373", "#c68642", "#8d5524", "#f0d5b8"],
+  // Eye colors
+  eyes: ["#2196f3", "#4caf50", "#9c27b0", "#f44336", "#ff9800", "#607d8b", "#e91e63"]
+};
+
+function getTrainerSVG(leaderId, leaderData, size = 80) {
+  const type = leaderData?.type || "Normal";
+  const theme = SPRITE_TYPE_THEMES[type] || SPRITE_TYPE_THEMES.Normal;
+
+  // Use leaderId as seed for consistent randomization
+  let seed = 0;
+  for (let i = 0; i < leaderId.length; i++) seed += leaderId.charCodeAt(i) * (i + 1);
+
+  const hairIdx = seed % TRAINER_STYLES.hair.length;
+  const skinIdx = seed % TRAINER_STYLES.skin.length;
+  const eyeIdx = (seed * 3 + 7) % TRAINER_STYLES.eyes.length;
+  const skinColor = TRAINER_STYLES.skin[skinIdx];
+  const hairColor = theme.accent;
+  const eyeColor = TRAINER_STYLES.eyes[eyeIdx];
+  const outfitColor = theme.body;
+  const outfitLight = theme.light;
+  const outfitAccent = theme.accent;
+
+  const s = size;
+  const cx = s * 0.5;
+  const headR = s * 0.18;
+  const headY = s * 0.3;
+
+  const parts = [];
+
+  // Background
+  parts.push(`<defs>
+    <radialGradient id="tbg_${leaderId}" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="${theme.bg2}"/>
+      <stop offset="100%" stop-color="${theme.bg1}"/>
+    </radialGradient>
+    <filter id="tsh_${leaderId}" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>`);
+  parts.push(`<rect width="${s}" height="${s}" rx="10" fill="url(#tbg_${leaderId})"/>`);
+
+  // Body group with shadow
+  parts.push(`<g filter="url(#tsh_${leaderId})">`);
+
+  // Body/outfit - torso
+  const bodyTop = headY + headR * 0.8;
+  const bodyBot = s * 0.82;
+  const shoulderW = s * 0.22;
+  parts.push(`<path d="M${cx-shoulderW},${bodyTop+s*0.08} Q${cx},${bodyTop-s*0.02} ${cx+shoulderW},${bodyTop+s*0.08} L${cx+shoulderW*0.9},${bodyBot} L${cx-shoulderW*0.9},${bodyBot} Z" fill="${outfitColor}" stroke="${theme.outline}" stroke-width="1.2"/>`);
+
+  // Outfit collar/detail
+  parts.push(`<path d="M${cx-s*0.06},${bodyTop+s*0.04} L${cx},${bodyTop+s*0.12} L${cx+s*0.06},${bodyTop+s*0.04}" fill="none" stroke="${outfitAccent}" stroke-width="1.5"/>`);
+
+  // Belt/sash
+  const beltY = bodyTop + (bodyBot - bodyTop) * 0.55;
+  parts.push(`<rect x="${cx-shoulderW*0.9}" y="${beltY}" width="${shoulderW*1.8}" height="${s*0.04}" rx="1" fill="${outfitAccent}" opacity="0.8"/>`);
+
+  // Arms
+  parts.push(`<path d="M${cx-shoulderW},${bodyTop+s*0.1} Q${cx-shoulderW*1.5},${bodyTop+s*0.25} ${cx-shoulderW*1.2},${bodyBot*0.7}" fill="${outfitColor}" stroke="${theme.outline}" stroke-width="1"/>`);
+  parts.push(`<path d="M${cx+shoulderW},${bodyTop+s*0.1} Q${cx+shoulderW*1.5},${bodyTop+s*0.25} ${cx+shoulderW*1.2},${bodyBot*0.7}" fill="${outfitColor}" stroke="${theme.outline}" stroke-width="1"/>`);
+
+  // Hands
+  parts.push(`<circle cx="${cx-shoulderW*1.2}" cy="${bodyBot*0.7}" r="${s*0.03}" fill="${skinColor}"/>`);
+  parts.push(`<circle cx="${cx+shoulderW*1.2}" cy="${bodyBot*0.7}" r="${s*0.03}" fill="${skinColor}"/>`);
+
+  // Legs (just below torso)
+  parts.push(`<rect x="${cx-s*0.08}" y="${bodyBot}" width="${s*0.06}" height="${s*0.12}" rx="2" fill="${theme.outline}" opacity="0.7"/>`);
+  parts.push(`<rect x="${cx+s*0.02}" y="${bodyBot}" width="${s*0.06}" height="${s*0.12}" rx="2" fill="${theme.outline}" opacity="0.7"/>`);
+
+  // Head (skin)
+  parts.push(`<circle cx="${cx}" cy="${headY}" r="${headR}" fill="${skinColor}" stroke="${theme.outline}" stroke-width="1"/>`);
+
+  // Hair
+  const drawHair = TRAINER_STYLES.hair[hairIdx];
+  parts.push(drawHair(cx, headY, headR, hairColor));
+
+  // Eyes
+  const eyeR = headR * 0.22;
+  const eyeY = headY + headR * 0.05;
+  parts.push(drawEye(cx - headR * 0.35, eyeY, eyeR, eyeColor, theme.outline));
+  parts.push(drawEye(cx + headR * 0.35, eyeY, eyeR, eyeColor, theme.outline));
+
+  // Mouth
+  parts.push(`<path d="M${cx-headR*0.2},${headY+headR*0.45} Q${cx},${headY+headR*0.6} ${cx+headR*0.2},${headY+headR*0.45}" fill="none" stroke="#333" stroke-width="0.8"/>`);
+
+  // Type emblem on chest
+  const emblems = {
+    Fire: "🔥", Water: "💧", Grass: "🍃", Electric: "⚡", Ground: "🏔️",
+    Wind: "🌪️", Ice: "❄️", Dark: "🌑", Fairy: "✨", Steel: "⚙️",
+    Poison: "☠️", Psychic: "🔮", Dragon: "🐉", Normal: "⭐", Rock: "🪨", Bug: "🦗",
+    Mixed: "👑"
+  };
+  const emblem = emblems[type] || "⭐";
+  const emblemY = bodyTop + (bodyBot - bodyTop) * 0.25;
+  parts.push(`<text x="${cx}" y="${emblemY}" text-anchor="middle" font-size="${s*0.08}" dominant-baseline="central">${emblem}</text>`);
+
+  parts.push(`</g>`);
+
+  // Glow effect
+  parts.push(`<circle cx="${cx}" cy="${s*0.45}" r="${s*0.35}" fill="${theme.glow}" opacity="0.06"/>`);
+
+  // Border
+  parts.push(`<rect width="${s}" height="${s}" rx="10" fill="none" stroke="${theme.accent}" stroke-width="1.5" opacity="0.4"/>`);
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${s}" height="${s}" viewBox="0 0 ${s} ${s}">${parts.join("")}</svg>`;
+}
+
+function getTrainerSpriteURL(leaderId, leaderData, size = 80) {
+  const svg = getTrainerSVG(leaderId, leaderData, size);
+  return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
 }

@@ -31,14 +31,16 @@ function stageMultiplier(stage) {
   return tbl[stage + 6];
 }
 
-// Calculate max HP from base stat and level
-function calcMaxHP(baseHP, level) {
-  return Math.floor(((2 * baseHP) * level) / 100) + level + 10;
+// Calculate max HP from base stat, level, and IV
+function calcMaxHP(baseHP, level, iv) {
+  const ivVal = iv || 0;
+  return Math.floor(((2 * baseHP + ivVal) * level) / 100) + level + 10;
 }
 
-// Calculate a stat from base, level
-function calcStat(base, level) {
-  return Math.floor(((2 * base) * level) / 100) + 5;
+// Calculate a stat from base, level, and IV
+function calcStat(base, level, iv) {
+  const ivVal = iv || 0;
+  return Math.floor(((2 * base + ivVal) * level) / 100) + 5;
 }
 
 // Build a live monster object for battle from a party slot
@@ -48,15 +50,16 @@ function buildBattleMon(partySlot, levelCap) {
   const lv = (levelCap && partySlot.level > levelCap) ? levelCap : partySlot.level;
   const heldItemId = partySlot.heldItem || null;
   const heldData = heldItemId ? ITEMS_DATA[heldItemId] : null;
-  let maxHP = calcMaxHP(def.base.hp, lv);
+  const ivs = partySlot.ivs || { hp:0, atk:0, def:0, spa:0, spd:0, spe:0 };
+  let maxHP = calcMaxHP(def.base.hp, lv, ivs.hp);
   // Vital Seed: boost HP by 15%
   if (heldData && heldData.held && heldData.held.stat === "hp") {
     maxHP = Math.floor(maxHP * heldData.held.mult);
   }
-  const actualMax = calcMaxHP(def.base.hp, partySlot.level);
+  const actualMax = calcMaxHP(def.base.hp, partySlot.level, ivs.hp);
   const rawHP = partySlot.currentHP !== undefined ? partySlot.currentHP : actualMax;
   // Scale current HP proportionally if level-capped or HP was boosted
-  const baseMax = calcMaxHP(def.base.hp, lv);
+  const baseMax = calcMaxHP(def.base.hp, lv, ivs.hp);
   let currentHP;
   if (levelCap && partySlot.level > levelCap) {
     // Scale HP proportionally for level cap
@@ -65,19 +68,22 @@ function buildBattleMon(partySlot, levelCap) {
     currentHP = maxHP > baseMax ? Math.min(maxHP, rawHP + (maxHP - baseMax)) : rawHP;
   }
 
+  const nature = partySlot.nature || "Balanced";
   const mon = {
     monsterId: partySlot.monsterId,
     name: partySlot.nickname || def.name,
     emoji: def.emoji,
     types: [...def.types],
     level: lv,
+    nature,
+    ivs,
     maxHP,
     currentHP: Math.min(maxHP, currentHP),
-    atk:  calcStat(def.base.atk, lv),
-    def:  calcStat(def.base.def, lv),
-    spa:  calcStat(def.base.spa, lv),
-    spd:  calcStat(def.base.spd, lv),
-    spe:  calcStat(def.base.spe, lv),
+    atk:  applyNatureToStat("atk", calcStat(def.base.atk, lv, ivs.atk), nature),
+    def:  applyNatureToStat("def", calcStat(def.base.def, lv, ivs.def), nature),
+    spa:  applyNatureToStat("spa", calcStat(def.base.spa, lv, ivs.spa), nature),
+    spd:  applyNatureToStat("spd", calcStat(def.base.spd, lv, ivs.spd), nature),
+    spe:  applyNatureToStat("spe", calcStat(def.base.spe, lv, ivs.spe), nature),
     moves: partySlot.moves.map(mid => ({ id: mid, pp: MOVES_DATA[mid].pp, maxPP: MOVES_DATA[mid].pp })),
     status: partySlot.status || null,   // burn|paralyze|poison|badpoison|sleep|freeze
     poisonTurns: 0,
@@ -103,7 +109,6 @@ function buildBattleMon(partySlot, levelCap) {
 // Build a wild monster battle object from scratch
 function buildWildMon(monsterId, level) {
   const def = MONSTERS_DATA[monsterId];
-  const maxHP = calcMaxHP(def.base.hp, level);
   // Pick moves from learnset that the monster knows at this level
   const knownMoves = def.learnset
     .filter(entry => entry[0] <= level)
@@ -114,19 +119,24 @@ function buildWildMon(monsterId, level) {
   }));
   if (moves.length === 0) moves.push({ id: "tackle", pp: 35, maxPP: 35 });
 
+  const nature = getRandomNature();
+  const ivs = generateIVs();
+  const maxHPWithIV = calcMaxHP(def.base.hp, level, ivs.hp);
   return {
     monsterId,
     name: def.name,
     emoji: def.emoji,
     types: [...def.types],
     level,
-    maxHP,
-    currentHP: maxHP,
-    atk:  calcStat(def.base.atk, level),
-    def:  calcStat(def.base.def, level),
-    spa:  calcStat(def.base.spa, level),
-    spd:  calcStat(def.base.spd, level),
-    spe:  calcStat(def.base.spe, level),
+    nature,
+    ivs,
+    maxHP: maxHPWithIV,
+    currentHP: maxHPWithIV,
+    atk:  applyNatureToStat("atk", calcStat(def.base.atk, level, ivs.atk), nature),
+    def:  applyNatureToStat("def", calcStat(def.base.def, level, ivs.def), nature),
+    spa:  applyNatureToStat("spa", calcStat(def.base.spa, level, ivs.spa), nature),
+    spd:  applyNatureToStat("spd", calcStat(def.base.spd, level, ivs.spd), nature),
+    spe:  applyNatureToStat("spe", calcStat(def.base.spe, level, ivs.spe), nature),
     moves,
     status: null,
     poisonTurns: 0,
@@ -144,7 +154,8 @@ function buildWildMon(monsterId, level) {
 function buildGymMon(slot) {
   const def = MONSTERS_DATA[slot.monsterId];
   const lv = slot.level;
-  const maxHP = calcMaxHP(def.base.hp, lv);
+  // Gym/boss mons get perfect IVs (31 each)
+  const maxHP = calcMaxHP(def.base.hp, lv, 31);
   return {
     monsterId: slot.monsterId,
     name: def.name,
@@ -153,11 +164,11 @@ function buildGymMon(slot) {
     level: lv,
     maxHP,
     currentHP: maxHP,
-    atk:  calcStat(def.base.atk, lv),
-    def:  calcStat(def.base.def, lv),
-    spa:  calcStat(def.base.spa, lv),
-    spd:  calcStat(def.base.spd, lv),
-    spe:  calcStat(def.base.spe, lv),
+    atk:  calcStat(def.base.atk, lv, 31),
+    def:  calcStat(def.base.def, lv, 31),
+    spa:  calcStat(def.base.spa, lv, 31),
+    spd:  calcStat(def.base.spd, lv, 31),
+    spe:  calcStat(def.base.spe, lv, 31),
     moves: slot.moves.map(mid => ({ id: mid, pp: MOVES_DATA[mid].pp, maxPP: MOVES_DATA[mid].pp })),
     status: null,
     poisonTurns: 0,
@@ -512,8 +523,9 @@ function giveXP(partySlot, amount) {
     // Recalculate stats
     const def = MONSTERS_DATA[partySlot.monsterId];
     const lv = partySlot.level;
-    const oldMax = partySlot.maxHP || calcMaxHP(def.base.hp, lv - 1);
-    const newMax = calcMaxHP(def.base.hp, lv);
+    const pIvs = partySlot.ivs || { hp:0, atk:0, def:0, spa:0, spd:0, spe:0 };
+    const oldMax = partySlot.maxHP || calcMaxHP(def.base.hp, lv - 1, pIvs.hp);
+    const newMax = calcMaxHP(def.base.hp, lv, pIvs.hp);
     const hpGain = newMax - oldMax;
     partySlot.maxHP = newMax;
     partySlot.currentHP = Math.min(partySlot.maxHP, (partySlot.currentHP || 1) + hpGain);
@@ -539,7 +551,10 @@ function giveXP(partySlot, amount) {
 // Check evolution
 function checkEvolution(partySlot) {
   const def = MONSTERS_DATA[partySlot.monsterId];
-  if (def.evolveTo && partySlot.level >= def.evolveLevel) {
+  // Skip item-only evolutions (no evolveLevel means item evolution)
+  if (def.evolveTo && def.evolveLevel && partySlot.level >= def.evolveLevel) {
+    // Don't auto-evolve if this is an item-only evolution
+    if (def.evolveItem && !def.evolveLevel) return null;
     return def.evolveTo;
   }
   return null;

@@ -811,6 +811,123 @@ html, body {
   max-width: 250px;
 }
 
+.battle-ivs {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+  line-height: 1.3;
+}
+.battle-ivs .iv-label {
+  color: var(--accent-purple);
+  font-weight: bold;
+}
+.battle-ivs .iv-total {
+  color: var(--accent-blue);
+}
+
+/* Multi-battle slots */
+.multi-battle-slot {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.3rem 0.5rem;
+  margin-top: 0.3rem;
+  font-size: 0.75rem;
+}
+.multi-battle-slot .hp-bar-container { margin: 0.1rem 0; }
+.multi-battle-slot .hp-bar { height: 4px; }
+
+#battle-enemy-side.multi-battle,
+#battle-player-side.multi-battle {
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+#battle-enemy-side.multi-battle .battle-sprite,
+#battle-player-side.multi-battle .battle-sprite {
+  font-size: 3rem;
+  width: 60px;
+  height: 60px;
+}
+
+#battle-target-panel {
+  padding: 0.5rem;
+}
+#target-list {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+#target-list button {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+#target-list button:hover {
+  background: var(--bg-card-hover);
+}
+#target-list button.fainted-target {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Battle mode label */
+.battle-mode-label {
+  text-align: center;
+  font-size: 0.65rem;
+  color: var(--accent-purple);
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 0.2rem;
+}
+
+/* Battle mode selection overlay */
+#battle-mode-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.battle-mode-btn {
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+}
+.battle-mode-btn:hover {
+  background: var(--accent-blue);
+  color: #fff;
+}
+
+/* Evolution item overlay */
+#evo-item-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.evo-item-btn {
+  padding: 0.6rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  cursor: pointer;
+  text-align: left;
+}
+.evo-item-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-blue);
+}
+
+/* Route trainer / gym trainer progress */
+.trainer-progress {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
 #enemy-header, #player-header {
   display: flex;
   align-items: center;
@@ -1754,7 +1871,7 @@ html, body {
 /* ==========================================
    OVERLAYS
    ========================================== */
-#notification-overlay, #levelup-overlay, #evolution-overlay {
+#notification-overlay, #levelup-overlay, #evolution-overlay, #battle-mode-overlay, #evo-item-overlay {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
@@ -1765,7 +1882,7 @@ html, body {
   z-index: 1000;
 }
 
-#notification-box, #levelup-box, #evolution-box {
+#notification-box, #levelup-box, #evolution-box, #battle-mode-box, #evo-item-box {
   background: var(--bg-panel);
   border: 2px solid var(--border);
   border-radius: 12px;
@@ -2027,6 +2144,9 @@ button, a, [role="button"] {
   .map-location.city .map-loc-dot { width: 36px; height: 36px; font-size: 1.2rem; }
   .map-loc-label { font-size: 0.65rem; }
 
+  /* Smaller route labels on tablet to reduce overlap */
+  .map-route-label { font-size: 0.35rem; padding: 1px 3px; }
+
   /* Battle: tighten up */
   #battle-arena { padding: 0.6rem; gap: 0.6rem; }
   .battle-sprite { font-size: 4rem; width: 80px; height: 80px; }
@@ -2064,7 +2184,16 @@ button, a, [role="button"] {
   .map-title { font-size: 0.75rem; margin-bottom: 0.4rem; }
   .map-loc-dot { width: 22px; height: 22px; font-size: 0.75rem; }
   .map-location.city .map-loc-dot { width: 30px; height: 30px; font-size: 1rem; }
-  .map-loc-label { font-size: 0.58rem; max-width: 50px; }
+  .map-loc-label {
+    font-size: 0.5rem;
+    max-width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.1;
+  }
+  .map-route-label { font-size: 0.3rem; padding: 1px 2px; }
+  /* Add more touch area padding to map locations */
+  .map-location { padding: 4px; }
 
   /* Area panel: compact single column */
   #area-panel {
@@ -2145,7 +2274,7 @@ button, a, [role="button"] {
   .dex-num { font-size: 0.55rem; }
 
   /* Overlays */
-  #notification-box, #levelup-box, #evolution-box {
+  #notification-box, #levelup-box, #evolution-box, #battle-mode-box, #evo-item-box {
     padding: 1.25rem;
     margin: 1rem;
     max-width: calc(100vw - 2rem);

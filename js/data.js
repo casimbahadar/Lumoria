@@ -2,6 +2,70 @@
 // LUMORIA - Game Data
 // ============================================================
 
+// NATURES SYSTEM
+// Each nature boosts one stat by 10% and lowers another by 10%
+// Neutral natures (same boost/lower) have no effect
+const NATURES_DATA = {
+  // ATK boosted
+  Blazing:   { up: "atk", down: "def", desc: "Fierce and reckless" },
+  Feral:     { up: "atk", down: "spa", desc: "Raw physical power" },
+  Savage:    { up: "atk", down: "spd", desc: "Attacks without restraint" },
+  Reckless:  { up: "atk", down: "spe", desc: "Hits hard but charges in" },
+  // DEF boosted
+  Ironclad:  { up: "def", down: "atk", desc: "Tough and unyielding" },
+  Stalwart:  { up: "def", down: "spa", desc: "Steadfast defender" },
+  Armored:   { up: "def", down: "spd", desc: "Heavily shielded" },
+  Anchored:  { up: "def", down: "spe", desc: "Immovable wall" },
+  // SPA boosted
+  Mystic:    { up: "spa", down: "atk", desc: "Attuned to arcane forces" },
+  Arcane:    { up: "spa", down: "def", desc: "Channels raw magic" },
+  Ethereal:  { up: "spa", down: "spd", desc: "Otherworldly presence" },
+  Astral:    { up: "spa", down: "spe", desc: "Cosmic power, slow to act" },
+  // SPD boosted
+  Serene:    { up: "spd", down: "atk", desc: "Calm and resilient" },
+  Warding:   { up: "spd", down: "def", desc: "Magic-resistant aura" },
+  Tranquil:  { up: "spd", down: "spa", desc: "Peaceful inner strength" },
+  Patient:   { up: "spd", down: "spe", desc: "Waits and endures" },
+  // SPE boosted
+  Swift:     { up: "spe", down: "atk", desc: "Lightning fast but light" },
+  Nimble:    { up: "spe", down: "def", desc: "Quick and agile" },
+  Hasty:     { up: "spe", down: "spa", desc: "Acts before thinking" },
+  Dashing:   { up: "spe", down: "spd", desc: "Speed over caution" },
+  // Neutral natures
+  Balanced:  { up: null, down: null, desc: "Well-rounded nature" },
+  Stoic:     { up: null, down: null, desc: "Unchanging temperament" },
+  Spirited:  { up: null, down: null, desc: "Full of energy" },
+  Steadfast: { up: null, down: null, desc: "Reliable and consistent" },
+  Resolute:  { up: null, down: null, desc: "Determined and focused" }
+};
+
+const NATURES_LIST = Object.keys(NATURES_DATA);
+
+function getRandomNature() {
+  return NATURES_LIST[Math.floor(Math.random() * NATURES_LIST.length)];
+}
+
+function applyNatureToStat(statName, value, nature) {
+  const n = NATURES_DATA[nature];
+  if (!n) return value;
+  if (n.up === statName) return Math.floor(value * 1.1);
+  if (n.down === statName) return Math.floor(value * 0.9);
+  return value;
+}
+
+// INDIVIDUAL VALUES (IVs)
+// Each stat gets a random IV from 0-31, affecting final stat calculation
+function generateIVs() {
+  return {
+    hp:  Math.floor(Math.random() * 32),
+    atk: Math.floor(Math.random() * 32),
+    def: Math.floor(Math.random() * 32),
+    spa: Math.floor(Math.random() * 32),
+    spd: Math.floor(Math.random() * 32),
+    spe: Math.floor(Math.random() * 32)
+  };
+}
+
 // TYPE EFFECTIVENESS CHART
 // [attackType][defenseType] = multiplier
 const TYPE_CHART = {
@@ -2598,7 +2662,7 @@ const WORLD_DATA = {
   seedvale: {
     id:"seedvale", name:"Seedvale Town", icon:"🏡", type:"town",
     desc:"A peaceful starter town nestled in a valley. Professor Arbor's lab is here.",
-    connections:["route1"],
+    connections:["route1","fairy_meadow_south"],
     wildMonsters:[], hasGym:false, requiredBadges:0,
     mapPos:{x:15, y:75}
   },
@@ -2666,7 +2730,7 @@ const WORLD_DATA = {
   emberveil: {
     id:"emberveil", name:"Emberveil City", icon:"🌋", type:"city",
     desc:"Built near an active volcano. The fiery Gym Leader Pyros waits within.",
-    connections:["route3","route4","volcano_core"],
+    connections:["route3","route4","volcano_core","iron_canyon"],
     wildMonsters:[
       {id:16, minLv:18, maxLv:22, rate:30}, // Emberworm
       {id:13, minLv:18, maxLv:22, rate:25}, // Lavabull
@@ -2690,7 +2754,7 @@ const WORLD_DATA = {
   sparkmoor: {
     id:"sparkmoor", name:"Sparkmoor Town", icon:"⚡", type:"city",
     desc:"A town on the electric plains. Gym Leader Zara harnesses lightning power.",
-    connections:["route4","route5","storm_plateau"],
+    connections:["route4","route5","storm_plateau","thunder_cliffs"],
     wildMonsters:[
       {id:81, minLv:26, maxLv:30, rate:30}, // Sparklet
       {id:84, minLv:26, maxLv:30, rate:25}, // Zapbug
@@ -2702,7 +2766,7 @@ const WORLD_DATA = {
   route5: {
     id:"route5", name:"Route 5 - Thunder Plains", icon:"🌩️", type:"route",
     desc:"A wide open plain where storms are constant and Electric types roam freely.",
-    connections:["sparkmoor","frostpeak"],
+    connections:["sparkmoor","frostpeak","mirror_lake"],
     wildMonsters:[
       {id:81, minLv:30, maxLv:34, rate:25},
       {id:90, minLv:30, maxLv:34, rate:25},
@@ -2714,7 +2778,7 @@ const WORLD_DATA = {
   frostpeak: {
     id:"frostpeak", name:"Frostpeak Village", icon:"❄️", type:"city",
     desc:"A snow-covered village atop a frozen mountain. Ice Gym Leader Glacier awaits.",
-    connections:["route5","route6","storm_plateau","crystal_depths"],
+    connections:["route5","route6","storm_plateau","crystal_depths","lunar_peak"],
     wildMonsters:[
       {id:47, minLv:34, maxLv:38, rate:30}, // Frostpup
       {id:50, minLv:34, maxLv:38, rate:25}, // Snowfluff
@@ -2738,7 +2802,7 @@ const WORLD_DATA = {
   shadowmere: {
     id:"shadowmere", name:"Shadowmere City", icon:"🌑", type:"city",
     desc:"A city forever shrouded in shadow. Dark Gym Leader Nyx commands the night.",
-    connections:["route6","route7","crystal_depths"],
+    connections:["route6","route7","crystal_depths","haunted_grove"],
     wildMonsters:[
       {id:118, minLv:42, maxLv:46, rate:30}, // Shadowpup
       {id:121, minLv:42, maxLv:46, rate:25}, // Voidbat
@@ -2750,7 +2814,7 @@ const WORLD_DATA = {
   route7: {
     id:"route7", name:"Route 7 - Poison Marshes", icon:"☠️", type:"route",
     desc:"A fetid swamp full of poison. Dark and Poison types are found in abundance.",
-    connections:["shadowmere","skyvault","mystic_forest"],
+    connections:["shadowmere","skyvault","mystic_forest","fairy_meadow_north","poison_swamp_upper","wind_bridge"],
     wildMonsters:[
       {id:157, minLv:46, maxLv:50, rate:25}, // Acidblob
       {id:155, minLv:46, maxLv:50, rate:25}, // Toxitoad
@@ -2762,7 +2826,7 @@ const WORLD_DATA = {
   skyvault: {
     id:"skyvault", name:"Skyvault City", icon:"🏰", type:"city",
     desc:"A city floating on clouds. Psychic Gym Leader Oracle sees all futures.",
-    connections:["route7","route8","mystic_forest"],
+    connections:["route7","route8","mystic_forest","sky_harbor","wind_bridge"],
     wildMonsters:[
       {id:166, minLv:50, maxLv:54, rate:30}, // Mindpup
       {id:142, minLv:50, maxLv:54, rate:25}, // Dawnsprite
@@ -2774,7 +2838,7 @@ const WORLD_DATA = {
   route8: {
     id:"route8", name:"Route 8 - Sky Corridors", icon:"🌤️", type:"route",
     desc:"Aerial paths between floating islands. Wind and Psychic types soar here.",
-    connections:["skyvault","dragonspire"],
+    connections:["skyvault","dragonspire","wind_bridge"],
     wildMonsters:[
       {id:108, minLv:54, maxLv:58, rate:25}, // Breezekit
       {id:112, minLv:54, maxLv:58, rate:25}, // Cyclobird
@@ -2793,7 +2857,8 @@ const WORLD_DATA = {
       {id:176, minLv:59, maxLv:62, rate:25}, // Stormwyrm
       {id:177, minLv:59, maxLv:62, rate:20}  // Crystaldrake
     ],
-    hasGym:true, gymLeader:"drake", requiredBadges:7, mapPos:{x:55, y:42}
+    hasGym:true, gymLeader:"drake", requiredBadges:7, mapPos:{x:55, y:42},
+    legendaryEncounter:{monsterId:84, level:60}
   },
   victoryroad: {
     id:"victoryroad", name:"Victory Road", icon:"⚔️", type:"route",
@@ -2819,7 +2884,7 @@ const WORLD_DATA = {
   lumoria_jungle: {
     id:"lumoria_jungle", name:"Lumoria Jungle", icon:"🌴", type:"route",
     desc:"A dense, humid jungle teeming with Grass, Poison and Bug types. Ancient ruins peek through the canopy.",
-    connections:["route2","ancient_ruins"],
+    connections:["route2","ancient_ruins","bug_forest_west","poison_swamp_lower"],
     wildMonsters:[
       {id:63, minLv:8, maxLv:12, rate:25},   // Mushrump
       {id:66, minLv:8, maxLv:12, rate:25},   // Fernwhip
@@ -2832,7 +2897,7 @@ const WORLD_DATA = {
   ancient_ruins: {
     id:"ancient_ruins", name:"Ancient Ruins", icon:"🏛️", type:"route",
     desc:"Crumbling temples from a forgotten civilization. Psychic and Dark energies fill the air. Team Umbra has been spotted here.",
-    connections:["lumoria_jungle"],
+    connections:["lumoria_jungle","bug_forest_east","reef_ruins"],
     wildMonsters:[
       {id:142, minLv:12, maxLv:16, rate:25},  // Dawnsprite
       {id:170, minLv:12, maxLv:16, rate:25},  // Dreamrift
@@ -2841,54 +2906,58 @@ const WORLD_DATA = {
       {id:166, minLv:14, maxLv:17, rate:10}   // Mindpup
     ],
     hasGym:false, requiredBadges:1, mapPos:{x:64, y:76},
-    storyLocation:true
+    storyLocation:true, hasUmbraEncounter:true,
+    legendaryEncounter:{monsterId:165, level:55}
   },
   deep_trench: {
     id:"deep_trench", name:"Abyssal Trench", icon:"🌊", type:"route",
     desc:"The deepest part of Lumoria's ocean. Water and Dragon types of terrifying power lurk here. Team Umbra seeks something ancient in these depths.",
-    connections:["tidewatch"],
+    connections:["tidewatch","coral_reef","sunken_temple"],
     wildMonsters:[
-      {id:175, minLv:18, maxLv:24, rate:25},  // Seadrake
-      {id:88, minLv:18, maxLv:24, rate:25},  // Surgeeel
-      {id:43, minLv:19, maxLv:24, rate:25},  // Glaciaseal
-      {id:26, minLv:20, maxLv:25, rate:15},  // Waveclaw
-      {id:316, minLv:30, maxLv:35, rate:10}  // Abyssdrake (rare!)
+      {id:85, minLv:18, maxLv:24, rate:25},  // Seadrake
+      {id:33, minLv:18, maxLv:24, rate:25},  // Surgeeel
+      {id:19, minLv:19, maxLv:24, rate:25},  // Glaciaseal
+      {id:17, minLv:20, maxLv:25, rate:15},  // Waveclaw
+      {id:98, minLv:20, maxLv:25, rate:10}   // Cragclaw
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:78, y:60},
-    storyLocation:true
+    storyLocation:true, hasUmbraEncounter:true,
+    legendaryEncounter:{monsterId:107, level:50}
   },
   volcano_core: {
     id:"volcano_core", name:"Volcano Core", icon:"🌋", type:"route",
     desc:"The scorching heart of the volcano beneath Emberveil. Only the most fearless trainers descend here. Legendary energies stir within.",
-    connections:["emberveil"],
+    connections:["emberveil","iron_canyon","lava_fields"],
     wildMonsters:[
-      {id:17, minLv:22, maxLv:28, rate:25},  // Flamewyrm
-      {id:14, minLv:22, maxLv:28, rate:25},  // Magmacow
-      {id:99, minLv:23, maxLv:28, rate:20},  // Venomscorp
-      {id:192, minLv:24, maxLv:29, rate:20},  // Boulderhound
-      {id:315, minLv:35, maxLv:40, rate:10}  // Volcanox (rare!)
+      {id:15, minLv:22, maxLv:28, rate:25},  // Flamewyrm
+      {id:13, minLv:22, maxLv:28, rate:25},  // Magmacow
+      {id:38, minLv:23, maxLv:28, rate:20},  // Venomscorp
+      {id:97, minLv:24, maxLv:29, rate:20},  // Boulderhound
+      {id:15, minLv:24, maxLv:29, rate:10}   // Flamewyrm
     ],
     hasGym:false, requiredBadges:3, mapPos:{x:82, y:42},
-    storyLocation:true
+    storyLocation:true, hasUmbraEncounter:true,
+    legendaryEncounter:{monsterId:106, level:50}
   },
   storm_plateau: {
     id:"storm_plateau", name:"Storm Plateau", icon:"⛈️", type:"route",
     desc:"A high plateau perpetually wracked by storms. Electric and Dragon types are drawn to its crackling energy.",
-    connections:["sparkmoor","frostpeak"],
+    connections:["sparkmoor","frostpeak","lunar_peak","mirror_lake","thunder_cliffs"],
     wildMonsters:[
-      {id:176, minLv:28, maxLv:34, rate:25},  // Stormwyrm
-      {id:109, minLv:28, maxLv:34, rate:25},  // Galemane
-      {id:85, minLv:29, maxLv:34, rate:25},  // Thunderfly
-      {id:112, minLv:29, maxLv:34, rate:15},  // Cyclobird
-      {id:314, minLv:40, maxLv:45, rate:10}  // Tempestia (rare!)
+      {id:86, minLv:28, maxLv:34, rate:25},  // Stormwyrm
+      {id:42, minLv:28, maxLv:34, rate:25},  // Galemane
+      {id:31, minLv:29, maxLv:34, rate:25},  // Thunderfly
+      {id:44, minLv:29, maxLv:34, rate:15},  // Cyclobird
+      {id:33, minLv:30, maxLv:35, rate:10}   // Surgeeel
     ],
     hasGym:false, requiredBadges:4, mapPos:{x:36, y:12},
-    storyLocation:true
+    storyLocation:true, hasUmbraEncounter:true,
+    legendaryEncounter:{monsterId:105, level:50}
   },
   crystal_depths: {
     id:"crystal_depths", name:"Crystal Depths", icon:"💠", type:"route",
     desc:"An underground crystal cavern with walls of pure ice and steel. Rare mineral-type Lumos call this glittering place home.",
-    connections:["frostpeak","shadowmere"],
+    connections:["frostpeak","shadowmere","crystal_spire"],
     wildMonsters:[
       {id:177, minLv:34, maxLv:40, rate:25},  // Crystaldrake
       {id:195, minLv:34, maxLv:40, rate:25},  // Crystalrock
@@ -2901,7 +2970,7 @@ const WORLD_DATA = {
   mystic_forest: {
     id:"mystic_forest", name:"Mystic Forest", icon:"🌌", type:"route",
     desc:"A forest where the boundary between worlds is thin. Fairy and Psychic creatures drift between the trees. Team Umbra's hideout is rumoured to be nearby.",
-    connections:["route7","skyvault"],
+    connections:["route7","skyvault","sky_harbor","umbra_base"],
     wildMonsters:[
       {id:143, minLv:46, maxLv:52, rate:25},  // Celestara
       {id:141, minLv:46, maxLv:52, rate:25},  // Radiantfly
@@ -2910,12 +2979,12 @@ const WORLD_DATA = {
       {id:122, minLv:48, maxLv:52, rate:10}   // Spectrewing
     ],
     hasGym:false, requiredBadges:6, mapPos:{x:25, y:62},
-    storyLocation:true
+    storyLocation:true, hasUmbraEncounter:true
   },
   umbra_base: {
     id:"umbra_base", name:"Team Umbra Base", icon:"☠️", type:"special",
     desc:"The hidden fortress of Team Umbra. Their leader, Commander Shade, awaits you here. This is your chance to stop their plan to awaken the three Legendaries.",
-    connections:["mystic_forest"],
+    connections:["mystic_forest","dark_canyon"],
     wildMonsters:[
       {id:119, minLv:50, maxLv:55, rate:25},  // Nighthound
       {id:124, minLv:50, maxLv:55, rate:25},  // Phantomfang
@@ -2980,18 +3049,27 @@ const WORLD_DATA = {
     ],
     hasGym:false, requiredBadges:4, mapPos:{x:60, y:16}
   },
-  poison_swamp: {
-    id:"poison_swamp", name:"Poison Swamp", icon:"🌿", type:"route",
-    desc:"A festering bogland where toxic fumes hang low over the murky water. The air itself is thick with purple miasma.",
-    connections:["route7","lumoria_jungle"],
+  poison_swamp_upper: {
+    id:"poison_swamp_upper", name:"Poison Swamp Upper", icon:"🌿", type:"route",
+    desc:"The upper reaches of the Poison Swamp, where toxic fumes seep from cracks in the earth near the marshes of Route 7.",
+    connections:["route7","poison_swamp_lower"],
     wildMonsters:[
-      {id:155, minLv:44, maxLv:50, rate:25},   // Toxitoad
-      {id:157, minLv:44, maxLv:50, rate:25},   // Acidblob
-      {id:160, minLv:45, maxLv:50, rate:20},   // Miasmafly
-      {id:162, minLv:46, maxLv:51, rate:20},  // Bogthorn
-      {id:158, minLv:47, maxLv:52, rate:10}    // Sludgebeast
+      {id:71, minLv:44, maxLv:49, rate:30},   // Toxitoad
+      {id:73, minLv:44, maxLv:49, rate:35},   // Acidblob
+      {id:75, minLv:45, maxLv:50, rate:35}    // Miasmafly
     ],
-    hasGym:false, requiredBadges:6, mapPos:{x:30, y:70}
+    hasGym:false, requiredBadges:6, mapPos:{x:30, y:56}
+  },
+  poison_swamp_lower: {
+    id:"poison_swamp_lower", name:"Poison Swamp Lower", icon:"🌿", type:"route",
+    desc:"The deeper, fouler reaches of the Poison Swamp. The air is thick with noxious miasma and stronger Poison types lurk in the muck.",
+    connections:["poison_swamp_upper","lumoria_jungle"],
+    wildMonsters:[
+      {id:75, minLv:46, maxLv:51, rate:25},   // Miasmafly
+      {id:119, minLv:47, maxLv:52, rate:35},  // Bogthorn
+      {id:74, minLv:48, maxLv:53, rate:40}    // Sludgebeast
+    ],
+    hasGym:false, requiredBadges:6, mapPos:{x:42, y:70}
   },
   sunken_temple: {
     id:"sunken_temple", name:"Sunken Temple", icon:"🏛️", type:"special",
@@ -3005,7 +3083,7 @@ const WORLD_DATA = {
       {id:169, minLv:35, maxLv:40, rate:10}    // Telepathy (rare!)
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:88, y:52},
-    storyLocation:true
+    storyLocation:true, hasUmbraEncounter:true
   },
   iron_canyon: {
     id:"iron_canyon", name:"Iron Canyon", icon:"⛏️", type:"route",
@@ -3018,19 +3096,30 @@ const WORLD_DATA = {
       {id:150, minLv:27, maxLv:32, rate:20},   // Gearbot
       {id:152, minLv:28, maxLv:33, rate:10}    // Titanshell
     ],
-    hasGym:false, requiredBadges:3, mapPos:{x:88, y:30}
+    hasGym:false, requiredBadges:3, mapPos:{x:88, y:30},
+    legendaryEncounter:{monsterId:167, level:55}
   },
-  fairy_meadow: {
-    id:"fairy_meadow", name:"Fairy Meadow", icon:"🌸", type:"route",
-    desc:"A gentle field carpeted in flowers where sunlight always shines. Fairy and Grass types play in the warm breeze.",
-    connections:["seedvale","route7"],
+  fairy_meadow_south: {
+    id:"fairy_meadow_south", name:"Fairy Meadow South", icon:"🌸", type:"route",
+    desc:"The southern stretch of Fairy Meadow, where gentle flowers bloom near Seedvale. Fairy and Grass types play in the warm breeze.",
+    connections:["seedvale","fairy_meadow_north","spirit_canyon"],
     wildMonsters:[
-      {id:137, minLv:4, maxLv:8, rate:25},     // Glowpup
-      {id:69, minLv:4, maxLv:8, rate:25},     // Seedpod
-      {id:140, minLv:5, maxLv:9, rate:25},     // Prismfly
-      {id:72, minLv:5, maxLv:9, rate:25}     // Petalpuff
+      {id:60, minLv:4, maxLv:7, rate:30},     // Glowpup
+      {id:26, minLv:4, maxLv:7, rate:35},     // Seedpod
+      {id:111, minLv:5, maxLv:8, rate:35}     // Petalpuff
     ],
     hasGym:false, requiredBadges:0, mapPos:{x:8, y:68}
+  },
+  fairy_meadow_north: {
+    id:"fairy_meadow_north", name:"Fairy Meadow North", icon:"🌸", type:"route",
+    desc:"The northern stretch of Fairy Meadow leading toward the Poison Marshes. Stronger Fairy types guard this path.",
+    connections:["fairy_meadow_south","route7"],
+    wildMonsters:[
+      {id:60, minLv:6, maxLv:10, rate:25},    // Glowpup
+      {id:62, minLv:7, maxLv:11, rate:35},    // Prismfly
+      {id:111, minLv:7, maxLv:11, rate:40}    // Petalpuff
+    ],
+    hasGym:false, requiredBadges:0, mapPos:{x:8, y:48}
   },
   lunar_peak: {
     id:"lunar_peak", name:"Lunar Peak", icon:"🌙", type:"route",
@@ -3045,18 +3134,27 @@ const WORLD_DATA = {
     ],
     hasGym:false, requiredBadges:5, mapPos:{x:20, y:10}
   },
-  bug_forest: {
-    id:"bug_forest", name:"Bug Forest", icon:"🐛", type:"route",
-    desc:"A sprawling woodland where insect Lumos swarm in the undergrowth. The canopy buzzes with the sound of a thousand wings.",
-    connections:["lumoria_jungle","ancient_ruins"],
+  bug_forest_west: {
+    id:"bug_forest_west", name:"Bug Forest West", icon:"🐛", type:"route",
+    desc:"The western edge of the Bug Forest, thick with webs and buzzing wings. Connects to the Lumoria Jungle.",
+    connections:["lumoria_jungle","bug_forest_east"],
     wildMonsters:[
-      {id:197, minLv:10, maxLv:16, rate:25},  // Caterpet
-      {id:200, minLv:10, maxLv:16, rate:25},  // Beetleback
-      {id:84, minLv:11, maxLv:16, rate:20},   // Zapbug
-      {id:202, minLv:12, maxLv:17, rate:20},  // Silkweaver
-      {id:10, minLv:13, maxLv:18, rate:10}    // Cinderling
+      {id:100, minLv:10, maxLv:14, rate:30},  // Caterpet
+      {id:103, minLv:10, maxLv:14, rate:30},  // Beetleback
+      {id:30, minLv:11, maxLv:15, rate:40}    // Zapbug
     ],
-    hasGym:false, requiredBadges:1, mapPos:{x:44, y:74}
+    hasGym:false, requiredBadges:1, mapPos:{x:50, y:74}
+  },
+  bug_forest_east: {
+    id:"bug_forest_east", name:"Bug Forest East", icon:"🐛", type:"route",
+    desc:"The deeper eastern reaches of the Bug Forest. Stronger bugs and rare species inhabit the ancient trees near the ruins.",
+    connections:["bug_forest_west","ancient_ruins"],
+    wildMonsters:[
+      {id:103, minLv:12, maxLv:17, rate:25},  // Beetleback
+      {id:123, minLv:13, maxLv:18, rate:35},  // Silkweaver
+      {id:10, minLv:14, maxLv:19, rate:40}    // Cinderling
+    ],
+    hasGym:false, requiredBadges:1, mapPos:{x:56, y:76}
   },
   mirror_lake: {
     id:"mirror_lake", name:"Mirror Lake", icon:"🪞", type:"route",
@@ -3087,7 +3185,7 @@ const WORLD_DATA = {
   spirit_canyon: {
     id:"spirit_canyon", name:"Spirit Canyon", icon:"🌀", type:"route",
     desc:"A deep chasm where psychic resonance amplifies every thought and memory. The walls seem to shift and breathe.",
-    connections:["haunted_grove","fairy_meadow"],
+    connections:["haunted_grove","fairy_meadow_south","dark_canyon"],
     wildMonsters:[
       {id:166, minLv:44, maxLv:50, rate:25},   // Mindpup
       {id:170, minLv:44, maxLv:50, rate:25},   // Dreamrift
@@ -3109,7 +3207,7 @@ const WORLD_DATA = {
       {id:41, minLv:35, maxLv:42, rate:10}   // Rustleviathan
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:76, y:76},
-    storyLocation:true
+    storyLocation:true, hasUmbraEncounter:true
   },
   wind_bridge: {
     id:"wind_bridge", name:"Wind Bridge", icon:"🌬️", type:"route",
@@ -3136,7 +3234,8 @@ const WORLD_DATA = {
       {id:201, minLv:42, maxLv:48, rate:10}   // Hardbeetle
     ],
     hasGym:false, requiredBadges:5, mapPos:{x:16, y:18},
-    storyLocation:true
+    storyLocation:true, hasUmbraEncounter:true,
+    legendaryEncounter:{monsterId:164, level:55}
   },
   dark_canyon: {
     id:"dark_canyon", name:"Dark Canyon", icon:"🌑", type:"route",
@@ -3149,7 +3248,8 @@ const WORLD_DATA = {
       {id:124, minLv:52, maxLv:57, rate:20},   // Phantomfang
       {id:130, minLv:53, maxLv:58, rate:10}   // Gravemoss
     ],
-    hasGym:false, requiredBadges:6, mapPos:{x:4, y:60}
+    hasGym:false, requiredBadges:6, mapPos:{x:4, y:60},
+    legendaryEncounter:{monsterId:166, level:55}
   },
   // ---- NEW ROUTES & GYM CITIES (badges 8-15) ----
   route9: {
@@ -3887,6 +3987,7 @@ const GYM_LEADERS = {
   ferro: {
     id:"ferro", name:"Leader Ferro", emoji:"⚙️", type:"Steel",
     badge:"Alloy Badge", badgeEmoji:"⚙️",
+    battleMode:"double",
     quote:"Steel is perfection. No weakness, no flaw, no mercy!",
     winQuote:"Even steel bends before your will. The Alloy Badge is yours.",
     team:[
@@ -3899,6 +4000,7 @@ const GYM_LEADERS = {
   boulder: {
     id:"boulder", name:"Leader Boulder", emoji:"🪨", type:"Rock",
     badge:"Geode Badge", badgeEmoji:"🪨",
+    battleMode:"double",
     quote:"Solid as stone, heavy as mountains. My Lumos are unbreakable!",
     winQuote:"You've shattered my defenses. The Geode Badge is yours.",
     team:[
@@ -3911,6 +4013,7 @@ const GYM_LEADERS = {
   seraphina: {
     id:"seraphina", name:"Leader Seraphina", emoji:"🧚", type:"Fairy",
     badge:"Aurora Badge", badgeEmoji:"🧚",
+    battleMode:"double",
     quote:"Fairy magic is the most beautiful and the most deadly force in Lumoria!",
     winQuote:"Your heart shines brighter than any fairy light. The Aurora Badge is yours!",
     team:[
@@ -3923,6 +4026,7 @@ const GYM_LEADERS = {
   champion: {
     id:"champion", name:"Champion Lumian", emoji:"👑", type:"Mixed",
     badge:null, badgeEmoji:"🏆",
+    battleMode:"triple",
     quote:"I am Champion Lumian, master of all types and all strategies. Many have tried... none have succeeded. Show me your resolve, young trainer!",
     winQuote:"Astounding! You have defeated the Champion of Lumoria! Your name will echo through the ages! You are the new Lumoria Champion!",
     team:[
@@ -3981,7 +4085,18 @@ const ITEMS_DATA = {
   neverMeltIce:  { name:"Never-Melt Ice",emoji:"🧊", desc:"Boosts Ice-type moves by 20% when held.", type:"held", held:{ typeBoost:"Ice", mult:1.2 } },
   dragonFang:    { name:"Dragon Fang",   emoji:"🐲", desc:"Boosts Dragon-type moves by 20% when held.", type:"held", held:{ typeBoost:"Dragon", mult:1.2 } },
   shellBell:     { name:"Shell Bell",    emoji:"🔔", desc:"Restores HP equal to 1/8 of damage dealt.", type:"held", held:{ effect:"shellBell" } },
-  mysticWater:   { name:"Mystic Water",  emoji:"💧", desc:"Boosts Water-type moves by 20% when held.", type:"held", held:{ typeBoost:"Water", mult:1.2 } }
+  mysticWater:   { name:"Mystic Water",  emoji:"💧", desc:"Boosts Water-type moves by 20% when held.", type:"held", held:{ typeBoost:"Water", mult:1.2 } },
+  // Evolution Items
+  fireStone:     { name:"Fire Stone",     emoji:"🔴", desc:"A stone radiating fiery energy. Evolves certain Lumos.", type:"evoItem" },
+  waterStone:    { name:"Water Stone",    emoji:"🔵", desc:"A stone pulsing with aquatic energy. Evolves certain Lumos.", type:"evoItem" },
+  leafStone:     { name:"Leaf Stone",     emoji:"🟢", desc:"A stone infused with the essence of nature. Evolves certain Lumos.", type:"evoItem" },
+  thunderStone:  { name:"Thunder Stone",  emoji:"🟡", desc:"A stone crackling with electric charge. Evolves certain Lumos.", type:"evoItem" },
+  moonStone:     { name:"Moon Stone",     emoji:"🌙", desc:"A stone that glows with lunar energy. Evolves certain Lumos.", type:"evoItem" },
+  sunStone:      { name:"Sun Stone",      emoji:"☀️", desc:"A stone radiating solar warmth. Evolves certain Lumos.", type:"evoItem" },
+  duskStone:     { name:"Dusk Stone",     emoji:"🌑", desc:"A stone steeped in twilight energy. Evolves certain Lumos.", type:"evoItem" },
+  dragonScale:   { name:"Dragon Scale",   emoji:"🐉", desc:"A scale from an ancient dragon. Evolves certain Lumos.", type:"evoItem" },
+  steelCoating:  { name:"Steel Coating",  emoji:"🔩", desc:"A special metallic coating. Evolves certain Lumos.", type:"evoItem" },
+  prismShard:    { name:"Prism Shard",    emoji:"💎", desc:"A shard of prismatic crystal. Evolves certain Lumos.", type:"evoItem" }
 };
 
 const STARTING_BAG = {
@@ -4023,7 +4138,17 @@ const STARTING_BAG = {
   neverMeltIce: 0,
   dragonFang: 0,
   shellBell: 0,
-  mysticWater: 0
+  mysticWater: 0,
+  fireStone: 0,
+  waterStone: 0,
+  leafStone: 0,
+  thunderStone: 0,
+  moonStone: 0,
+  sunStone: 0,
+  duskStone: 0,
+  dragonScale: 0,
+  steelCoating: 0,
+  prismShard: 0
 };
 
 const STARTER_IDS = [1, 4, 7]; // Emberpaw, Dewdrop, Sproutling
@@ -4102,6 +4227,7 @@ const RIVAL_BATTLES = {
 const UMBRA_BATTLES = {
   umbra_grunt_1: {
     id:"umbra_grunt_1", name:"Umbra Grunt Vex", emoji:"🕶️",
+    triggerLocation:"ancient_ruins",
     quote:"Halt! Team Umbra's research must not be interrupted! The three Legendaries will be ours!",
     winQuote:"This isn't over... Commander Shade will hear about you!",
     team:[
@@ -4111,6 +4237,7 @@ const UMBRA_BATTLES = {
   },
   umbra_grunt_2: {
     id:"umbra_grunt_2", name:"Umbra Grunt Morta", emoji:"🕶️",
+    triggerLocation:"deep_trench",
     quote:"You dare enter the Abyssal Trench? Commander Shade has claimed these waters for Team Umbra!",
     winQuote:"The Abyssdrake... you won't stop us from finding it!",
     team:[
@@ -4121,6 +4248,7 @@ const UMBRA_BATTLES = {
   },
   umbra_commander_kira: {
     id:"umbra_commander_kira", name:"Commander Kira", emoji:"😈",
+    triggerLocation:"volcano_core",
     quote:"A child? Oh how entertaining. I am Kira, first commander of Team Umbra. The volcano's power will be OURS. Stand aside or be crushed!",
     winQuote:"Impossible... I was trained by Shade himself! How can a child... Our plan is bigger than you know. Volcanox WILL awaken!",
     team:[
@@ -4132,6 +4260,7 @@ const UMBRA_BATTLES = {
   },
   umbra_commander_rex_shadow: {
     id:"umbra_commander_rex_shadow", name:"Commander Vorn", emoji:"⚡",
+    triggerLocation:"storm_plateau",
     quote:"I am Vorn, second commander of Team Umbra. We have awakened Tempestia from the Storm Plateau. Nothing can stop our plan now!",
     winQuote:"You're more powerful than our intelligence suggested... But Commander Shade is still ahead of you. And Tempestia has been released!",
     team:[
@@ -4143,6 +4272,7 @@ const UMBRA_BATTLES = {
   },
   umbra_shade: {
     id:"umbra_shade", name:"Commander Shade", emoji:"🌑",
+    triggerLocation:"haunted_grove",
     quote:"So... you are the trainer who dismantled my commanders' plans. Impressive. But it ends HERE. I have awakened all three Legendaries — Tempestia, Volcanox, and Abyssdrake. With their power, Team Umbra will control all of Lumoria! You are too late, child!",
     winQuote:"Defeated... by a trainer so young... Perhaps I misjudged the power of a trainer's bond with their Lumos. The Legendaries have retreated. Lumoria is safe... for now. You have my... grudging respect.",
     reward:{ masterOrb:1, maxPotion:5 },
@@ -4244,7 +4374,16 @@ const SHOPS_DATA = {
     items: [
       { itemId: "basicOrb", price: 100 },
       { itemId: "potion", price: 50 },
-      { itemId: "rareCandy", price: 1 }
+      { itemId: "rareCandy", price: 1 },
+      { itemId: "steelCoating", price: 2500 },
+      { itemId: "dragonScale", price: 3000 },
+      { itemId: "duskStone", price: 2000 },
+      { itemId: "sunStone", price: 2000 },
+      { itemId: "moonStone", price: 2000 },
+      { itemId: "prismShard", price: 3000 },
+      { itemId: "leafStone", price: 2000 },
+      { itemId: "waterStone", price: 2000 },
+      { itemId: "fireStone", price: 2000 }
     ]
   },
   ashford: {
@@ -4265,6 +4404,7 @@ const SHOPS_DATA = {
       { itemId: "potion", price: 50 },
       { itemId: "superPotion", price: 150 },
       { itemId: "revive", price: 500 },
+      { itemId: "thunderStone", price: 2000 },
       { itemId: "rareCandy", price: 1 }
     ]
   },
@@ -4519,8 +4659,8 @@ const QUESTS_DATA = [
   { id:"q6", title:"Night Prowler", desc:"A mysterious dark Lumos has been spotted on Route 1 at night. Defeat it!", location:"route1", type:"boss", requiredBadges:1,
     boss:{monsterId:118, level:15, moves:["bite","quick_attack","night_slash","growl"]},
     reward:{type:"item", itemId:"blackGlasses", qty:1}, rewardText:"Black Glasses" },
-  { id:"q7", title:"Fairy Ring Mystery", desc:"Strange lights glow in Fairy Meadow. Investigate by defeating the guardian.", location:"fairy_meadow", type:"boss", requiredBadges:0,
-    boss:{monsterId:137, level:10, moves:["fairy_wind","tackle","sweet_kiss","quick_attack"]},
+  { id:"q7", title:"Fairy Ring Mystery", desc:"Strange lights glow in Fairy Meadow. Investigate by defeating the guardian.", location:"fairy_meadow_south", type:"boss", requiredBadges:0,
+    boss:{monsterId:60, level:10, moves:["fairy_wind","tackle","sweet_kiss","quick_attack"]},
     reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Pixie Dust" },
   { id:"q8", title:"The Stubborn Sproutling", desc:"A giant Sproutling blocks the path! Battle it to clear the way.", location:"route1", type:"boss", requiredBadges:0,
     boss:{monsterId:7, level:11, moves:["vine_whip","tackle","razor_leaf","sleep_powder"]},
@@ -4621,8 +4761,8 @@ const QUESTS_DATA = [
   { id:"q38", title:"Lightning Rod", desc:"Capture the wild electricity surging through Route 5.", location:"route5", type:"boss", requiredBadges:4,
     boss:{monsterId:93, level:40, moves:["thunderbolt","stone_edge","rock_slide","spark"]},
     reward:{type:"item", itemId:"xSpeed", qty:5}, rewardText:"5 X-Speeds" },
-  { id:"q39", title:"Voltforest Protector", desc:"The Voltforest needs a champion to defeat the invasive alpha.", location:"bug_forest", type:"boss", requiredBadges:1,
-    boss:{monsterId:76, level:20, moves:["thunderbolt","vine_whip","spark","razor_leaf"]},
+  { id:"q39", title:"Voltforest Protector", desc:"The Voltforest needs a champion to defeat the invasive alpha.", location:"bug_forest_west", type:"boss", requiredBadges:1,
+    boss:{monsterId:147, level:20, moves:["thunderbolt","vine_whip","spark","razor_leaf"]},
     reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Silver Powder" },
   { id:"q40", title:"The Magnetic Anomaly", desc:"A strange magnetic field disrupts Sparkmoor. Find the source!", location:"sparkmoor", type:"boss", requiredBadges:4,
     boss:{monsterId:151, level:42, moves:["flash_cannon","thunderbolt","iron_tail","hyper_beam"]},
@@ -4702,8 +4842,8 @@ const QUESTS_DATA = [
   { id:"q63", title:"Sky Harbor Defense", desc:"Sky Harbor is under attack! Defend it from the invader!", location:"sky_harbor", type:"boss", requiredBadges:6,
     boss:{monsterId:112, level:52, moves:["hurricane","air_slash","wing_attack","jetstream"]},
     reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Revives" },
-  { id:"q64", title:"Poison Swamp Cleanup", desc:"Clear the toxic Lumos polluting the Poison Swamp.", location:"poison_swamp", type:"boss", requiredBadges:6,
-    boss:{monsterId:158, level:52, moves:["sludge_wave","earthquake","acid_rain","toxic"]},
+  { id:"q64", title:"Poison Swamp Cleanup", desc:"Clear the toxic Lumos polluting the Poison Swamp.", location:"poison_swamp_upper", type:"boss", requiredBadges:6,
+    boss:{monsterId:74, level:52, moves:["sludge_wave","earthquake","acid_rain","toxic"]},
     reward:{type:"item", itemId:"poisonBarb", qty:1}, rewardText:"Poison Barb" },
   { id:"q65", title:"Wind Bridge Battle", desc:"A wind elemental guards the Wind Bridge. Cross by defeating it!", location:"wind_bridge", type:"boss", requiredBadges:6,
     boss:{monsterId:115, level:52, moves:["hurricane","air_slash","cyclone_blade","jetstream"]},

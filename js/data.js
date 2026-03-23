@@ -3926,12 +3926,12 @@ const GYM_LEADERS = {
     quote:"I am Champion Lumian, master of all types and all strategies. Many have tried... none have succeeded. Show me your resolve, young trainer!",
     winQuote:"Astounding! You have defeated the Champion of Lumoria! Your name will echo through the ages! You are the new Lumoria Champion!",
     team:[
-      {monsterId:3,  level:75, moves:["flamethrower","dragon_claw","heat_wave","outrage"]},
-      {monsterId:54, level:76, moves:["blizzard","earthquake","ice_beam","earth_power"]},
-      {monsterId:320, level:77, moves:["thunderbolt","tungsten_ram","flash_cannon","forge_strike"]},
-      {monsterId:143, level:78, moves:["moonblast","psychic_move","celestial_wave","calm_mind"]},
-      {monsterId:321, level:79, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
-      {monsterId:171, level:80, moves:["psychic_move","dragon_pulse","temporal_rift","outrage"]}
+      {monsterId:3,  level:79, moves:["flamethrower","dragon_claw","heat_wave","outrage"]},
+      {monsterId:54, level:80, moves:["blizzard","earthquake","ice_beam","earth_power"]},
+      {monsterId:320, level:81, moves:["thunderbolt","tungsten_ram","flash_cannon","forge_strike"]},
+      {monsterId:143, level:82, moves:["moonblast","psychic_move","celestial_wave","calm_mind"]},
+      {monsterId:321, level:83, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
+      {monsterId:171, level:84, moves:["psychic_move","dragon_pulse","temporal_rift","outrage"]}
     ]
   }
 };
@@ -4429,11 +4429,11 @@ const ELITE_FOUR = [
     quote: "My Lumos dance through battle like a symphony. Can you keep up with the tempo?",
     winQuote: "A beautiful performance... You've earned my respect.",
     team: [
-      { monsterId: 143, level: 72, moves: ["moonblast", "psychic_move", "dazzling_gleam", "calm_mind"] },
-      { monsterId: 109, level: 71, moves: ["hurricane", "air_slash", "moonblast", "jetstream"] },
-      { monsterId: 9, level: 72, moves: ["petal_blitz", "energy_ball", "moonblast", "sleep_powder"] },
-      { monsterId: 39, level: 73, moves: ["surf", "hurricane", "ice_beam", "aqua_tail"] },
-      { monsterId: 117, level: 74, moves: ["psychic_move", "hurricane", "cyclone_blade", "calm_mind"] }
+      { monsterId: 143, level: 75, moves: ["moonblast", "psychic_move", "dazzling_gleam", "calm_mind"] },
+      { monsterId: 109, level: 75, moves: ["hurricane", "air_slash", "moonblast", "jetstream"] },
+      { monsterId: 9, level: 76, moves: ["petal_blitz", "energy_ball", "moonblast", "sleep_powder"] },
+      { monsterId: 39, level: 77, moves: ["surf", "hurricane", "ice_beam", "aqua_tail"] },
+      { monsterId: 117, level: 77, moves: ["psychic_move", "hurricane", "cyclone_blade", "calm_mind"] }
     ]
   },
   {
@@ -4441,11 +4441,11 @@ const ELITE_FOUR = [
     quote: "I don't do finesse. I crush. I break. I win.",
     winQuote: "Tch... You hit harder than I expected. Fine, you pass.",
     team: [
-      { monsterId: 123, level: 73, moves: ["crunch", "sludge_bomb", "dark_pulse", "poison_sting"] },
-      { monsterId: 102, level: 72, moves: ["earthquake", "earth_power", "body_slam", "mud_shot"] },
-      { monsterId: 158, level: 73, moves: ["sludge_wave", "earthquake", "acid_rain", "toxic"] },
-      { monsterId: 148, level: 74, moves: ["iron_tail", "crunch", "flash_cannon", "forge_strike"] },
-      { monsterId: 213, level: 75, moves: ["outrage", "dragon_pulse", "fire_blast", "dragon_dance"] }
+      { monsterId: 123, level: 76, moves: ["crunch", "sludge_bomb", "dark_pulse", "poison_sting"] },
+      { monsterId: 102, level: 76, moves: ["earthquake", "earth_power", "body_slam", "mud_shot"] },
+      { monsterId: 158, level: 77, moves: ["sludge_wave", "earthquake", "acid_rain", "toxic"] },
+      { monsterId: 148, level: 78, moves: ["iron_tail", "crunch", "flash_cannon", "forge_strike"] },
+      { monsterId: 213, level: 78, moves: ["outrage", "dragon_pulse", "fire_blast", "dragon_dance"] }
     ]
   },
   {
@@ -4453,11 +4453,11 @@ const ELITE_FOUR = [
     quote: "The stars have aligned for this battle. Let us see what fate decrees.",
     winQuote: "The cosmos acknowledges your strength. Proceed, champion-to-be.",
     team: [
-      { monsterId: 168, level: 74, moves: ["psychic_move", "dazzling_gleam", "moonblast", "calm_mind"] },
-      { monsterId: 48, level: 73, moves: ["blizzard", "ice_beam", "surf", "icicle_crash"] },
-      { monsterId: 151, level: 74, moves: ["flash_cannon", "thunderbolt", "tungsten_ram", "hyper_beam"] },
-      { monsterId: 3, level: 75, moves: ["flamethrower", "dragon_claw", "heat_wave", "outrage"] },
-      { monsterId: 211, level: 76, moves: ["dark_pulse", "moonblast", "psychic_move", "shadow_ball"] }
+      { monsterId: 168, level: 77, moves: ["psychic_move", "dazzling_gleam", "moonblast", "calm_mind"] },
+      { monsterId: 48, level: 77, moves: ["blizzard", "ice_beam", "surf", "icicle_crash"] },
+      { monsterId: 151, level: 78, moves: ["flash_cannon", "thunderbolt", "tungsten_ram", "hyper_beam"] },
+      { monsterId: 3, level: 79, moves: ["flamethrower", "dragon_claw", "heat_wave", "outrage"] },
+      { monsterId: 211, level: 79, moves: ["dark_pulse", "moonblast", "psychic_move", "shadow_ball"] }
     ]
   },
   {
@@ -4465,11 +4465,11 @@ const ELITE_FOUR = [
     quote: "I am the mountain. I am the wall. You shall not pass.",
     winQuote: "The mountain crumbles... You have the strength of a titan yourself.",
     team: [
-      { monsterId: 195, level: 74, moves: ["stone_edge", "crystal_lance", "landslide", "rock_slide"] },
-      { monsterId: 152, level: 75, moves: ["tungsten_ram", "stone_edge", "iron_tail", "flash_cannon"] },
-      { monsterId: 54, level: 74, moves: ["blizzard", "earthquake", "ice_beam", "earth_power"] },
-      { monsterId: 41, level: 75, moves: ["flash_cannon", "surf", "tungsten_ram", "hydro_pump"] },
-      { monsterId: 173, level: 76, moves: ["outrage", "dragon_pulse", "dragon_dance", "hyper_beam"] }
+      { monsterId: 195, level: 77, moves: ["stone_edge", "crystal_lance", "landslide", "rock_slide"] },
+      { monsterId: 152, level: 78, moves: ["tungsten_ram", "stone_edge", "iron_tail", "flash_cannon"] },
+      { monsterId: 54, level: 79, moves: ["blizzard", "earthquake", "ice_beam", "earth_power"] },
+      { monsterId: 41, level: 79, moves: ["flash_cannon", "surf", "tungsten_ram", "hydro_pump"] },
+      { monsterId: 173, level: 80, moves: ["outrage", "dragon_pulse", "dragon_dance", "hyper_beam"] }
     ]
   }
 ];
@@ -4479,14 +4479,14 @@ const ELITE_FOUR = [
 // ============================================================
 const LEVEL_CAPS = {
   // Gym Leaders: cap = highest team member level + 2
-  rex: 16, marina: 24, pyros: 30, zara: 37,
-  glacier: 44, nyx: 50, oracle: 56, drake: 64,
-  thorne: 64, viper: 66, atlas: 68, mantis: 70,
-  zephyra: 72, ferro: 74, boulder: 76, seraphina: 78,
+  rex: 16, marina: 19, pyros: 23, zara: 28,
+  glacier: 34, nyx: 39, oracle: 45, drake: 50,
+  thorne: 53, viper: 57, atlas: 60, mantis: 63,
+  zephyra: 66, ferro: 69, boulder: 72, seraphina: 75,
   // Elite Four
-  aria: 78, grimshaw: 78, celeste: 78, titan: 78,
+  aria: 79, grimshaw: 79, celeste: 79, titan: 80,
   // Champion
-  champion: 82,
+  champion: 84,
   // Rival battles
   rival_1: 17, rival_2: 35, rival_3: 56,
   rival_4: 68, rival_5: 77,

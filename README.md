@@ -10,16 +10,20 @@ Open `index.html` in any modern browser. No build step, no dependencies — it r
 
 ### World & Exploration
 
-- **60 locations** across the Lumoria Region — 16 cities, 2 towns, 37 routes, and 5 special areas (caves, ruins, underwater zones)
+- **70+ locations** across the Lumoria Region — 16 gym cities, routes, caves, ruins, bogs, caverns, and special event areas
 - Fully interactive **SVG region map** with zoomable terrain, biome textures, and clickable routes between locations
-- Orthogonal route paths split into individually clickable segments for easy navigation
+- Orthogonal route paths with direction-change areas — every turn in the regional map becomes its own explorable zone
+- 12 new routes added between gyms 9–16 including Mire Depths, Magma Vent, Fungal Cavern, Ancient Grove, Wind Hollow, Tempest Cliffs, Ash Fields, Smelter Pass, Granite Tunnels, Crystal Mine, Nebula Gorge, and Astral Plateau
 
 ### Lumos (Monsters)
 
-- **107 unique Lumos** to discover, catch, and train
+- **321 unique Lumos** to discover, catch, and train
 - **16 types:** Fire, Water, Grass, Electric, Ground, Wind, Ice, Dark, Fairy, Steel, Poison, Psychic, Dragon, Normal, Rock, Bug
 - Full **type effectiveness chart** with dual-type support and immunities
-- **Multi-stage evolution** system — many Lumos evolve at specific levels, sometimes gaining new types
+- **Multi-stage evolution** system — 2-stage, 3-stage, item-based (Fire Stone, Moon Stone, Thunder Stone, Metal Coat, Dusk Stone, Water Stone), and location-based evolutions
+- **Split evolutions** — some base Lumos evolve into entirely different forms depending on which item is used
+- **8 Legendary Lumos** (IDs 314–321) at the end of the Lumodex, encountered through story quests and special events
+- New Lumos exclusive to post-Gym 8 routes incorporate rare type combinations including Poison/Dragon, Fire/Ice, Normal/Electric, and more
 - Carry a team of up to 6 Lumos with overflow stored in your PC Box
 
 ### Battle System
@@ -55,8 +59,9 @@ Open `index.html` in any modern browser. No build step, no dependencies — it r
 
 ### Story
 
-- **Team Umbra** is trying to awaken three legendary Lumos — Tempestia, Volcanox, and Abyssdrake
+- **Team Umbra** is trying to awaken legendary Lumos and tear open a rift in reality
 - Battle through Umbra Grunts, Commanders Kira and Vorn, and Leader Shade
+- After Gym 15, Team Umbra's experiments crack open the **Void Rift** — confront Voidraxis before it consumes Starbloom
 - Professor Arbor guides you from starter selection through the endgame
 
 ### Items & Shops

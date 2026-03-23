@@ -989,14 +989,14 @@ const MONSTERS_DATA = {
   173: { id:173, name:"Serpenthos",    emoji:"🐲", types:["Dragon"],
     base:{hp:71,atk:102,def:72,spa:79,spd:65,spe:67},
     learnset:[[1,"dragon_breath"],[2,"dragon_claw"],[3,"dragon_pulse"],[4,"dragon_dance"],[5,"draconic_roar"],[33,"tail_whip"],[36,"battle_cry"],[37,"outrage"],[39,"wild_tumble"],[42,"drake_rush"],[45,"scale_storm"],[46,"hyper_beam"],[6,"primordial_roar"],[30,"recover"]],
-    evolveTo:321, evolveLevel:55, catchRate:15, expYield:170, rarity:"rare",
-    desc:"A powerful wyrm with tremendous strength. Known to destroy mountains." },
+    evolveTo:174, evolveLevel:55, catchRate:15, expYield:175, rarity:"rare",
+    desc:"A powerful wyrm with tremendous strength. Known to destroy mountains. Legends say it will one day don armor of living steel." },
 
   174: { id:174, name:"Scalevorn", emoji:"🦕", types:["Dragon","Steel"],
     base:{hp:88,atk:115,def:118,spa:75,spd:85,spe:62},
     learnset:[[1,"dragon_claw"],[1,"metal_claw"],[20,"dragon_pulse"],[30,"flash_cannon"],[40,"iron_tail"],[50,"outrage"],[60,"forge_strike"],[70,"hyper_beam"]],
-    evolveTo:null, evolveLevel:null, catchRate:38, expYield:218, rarity:"uncommon",
-    desc:"An armored dragon whose scales have fused into a steel shell over millennia. Lives deep in metallic caverns." },
+    evolveTo:null, evolveLevel:null, catchRate:22, expYield:275, rarity:"rare",
+    desc:"The final form of the ancient dragon lineage. Its scales have fused into living steel over millennia of battle, creating impenetrable natural armor." },
 
   321: { id:321, name:"Dragemian",  emoji:"🐉", types:["Dragon","Fire"],
     base:{hp:86,atk:149,def:101,spa:101,spd:94,spe:66},
@@ -1128,117 +1128,117 @@ const MONSTERS_DATA = {
     desc:"A steel beetle of terrifying might. Its mandibles can cut through iron." },
 
 
-  // ===== BATCH 1: FIGHTING TYPES (IDs 206-214) =====
+  // ===== BATCH 1: POISON/DRAGON, ELECTRIC, FIRE/ICE (IDs 206-214) =====
 
-  // 3-stage Fighting chain: Cuffkin → Knuxavore → Titanfist
-  206: { id:206, name:"Cuffkin", emoji:"🥊", types:["Fighting"],
-    base:{hp:50,atk:65,def:45,spa:30,spd:40,spe:58},
-    learnset:[[1,"tackle"],[1,"headbutt"],[10,"body_slam"],[18,"iron_press"],[28,"reckless_charge"],[38,"battle_cry"],[48,"heavy_slam"],[58,"ignition_kick"]],
+  // 3-stage Poison/Dragon chain: Venomscale → Toxidrak → Dragovenom
+  206: { id:206, name:"Venomscale", emoji:"🐍", types:["Poison","Dragon"],
+    base:{hp:50,atk:62,def:50,spa:68,spd:52,spe:65},
+    learnset:[[1,"poison_sting"],[1,"dragon_breath"],[12,"sludge_bomb"],[22,"dragon_claw"],[32,"toxic"],[42,"dragon_pulse"],[52,"venom_lance"],[62,"hyper_beam"]],
     evolveTo:207, evolveLevel:26, catchRate:180, expYield:72, rarity:"common",
-    desc:"A scrappy little brawler that wraps its tiny fists in leaf fibers. Never backs down from a fight." },
+    desc:"A small serpent whose venom has a faint draconic energy. Its fangs drip with corrosive toxin." },
 
-  207: { id:207, name:"Knuxavore", emoji:"🤜", types:["Fighting"],
-    base:{hp:75,atk:95,def:68,spa:50,spd:60,spe:75},
-    learnset:[[1,"headbutt"],[1,"body_slam"],[20,"iron_press"],[28,"reckless_charge"],[36,"battle_cry"],[44,"heavy_slam"],[52,"ignition_kick"],[60,"hyper_beam"]],
-    evolveTo:208, evolveLevel:48, catchRate:90, expYield:145, rarity:"uncommon",
-    desc:"A powerful brawler whose fists are hardened to stone-like density. Its punches shatter solid rock." },
+  207: { id:207, name:"Toxidrak", emoji:"🐉", types:["Poison","Dragon"],
+    base:{hp:75,atk:90,def:68,spa:98,spd:72,spe:80},
+    learnset:[[1,"sludge_bomb"],[1,"dragon_claw"],[20,"toxic"],[28,"dragon_pulse"],[36,"venom_lance"],[44,"outrage"],[52,"sludge_wave"],[60,"hyper_beam"]],
+    evolveTo:208, evolveLevel:46, catchRate:90, expYield:148, rarity:"uncommon",
+    desc:"A dragon-serpent that breathes venomous mist. Its flight path traces poisonous trails through the sky." },
 
-  208: { id:208, name:"Titanfist", emoji:"💪", types:["Fighting","Rock"],
-    base:{hp:100,atk:140,def:95,spa:60,spd:85,spe:65},
-    learnset:[[1,"heavy_slam"],[1,"battle_cry"],[30,"reckless_charge"],[38,"iron_press"],[46,"earthquake"],[54,"stone_edge"],[62,"ignition_kick"],[70,"hyper_beam"]],
-    evolveTo:null, evolveLevel:null, catchRate:35, expYield:245, rarity:"rare",
-    desc:"A titan whose body has become part mountain. Its fists leave craters when they strike the ground." },
+  208: { id:208, name:"Dragovenom", emoji:"🐲", types:["Poison","Dragon"],
+    base:{hp:102,atk:120,def:92,spa:130,spd:100,spe:88},
+    learnset:[[1,"venom_lance"],[1,"outrage"],[30,"sludge_wave"],[38,"dragon_pulse"],[46,"dragon_dance"],[54,"corrosion_fang"],[62,"ancient_breath"],[70,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:28, expYield:262, rarity:"rare",
+    desc:"A venomous wyvern of terrible power. Its mere presence poisons the ground for miles around." },
 
-  // 2-stage Fighting/Psychic chain: Grapplix → Combathorn
-  209: { id:209, name:"Grapplix", emoji:"🦴", types:["Fighting","Psychic"],
-    base:{hp:55,atk:72,def:52,spa:65,spd:55,spe:62},
-    learnset:[[1,"tackle"],[1,"confusion"],[12,"body_slam"],[22,"iron_press"],[30,"psybeam"],[40,"reckless_charge"],[50,"psychic_move"],[60,"battle_cry"]],
-    evolveTo:210, evolveLevel:32, catchRate:150, expYield:88, rarity:"common",
-    desc:"A fighting type that channels psychic power into its strikes. Studies opponents before attacking." },
+  // 2-stage Normal/Electric chain: Boltfur → Thundermane (level 30)
+  209: { id:209, name:"Boltfur", emoji:"🐇", types:["Normal","Electric"],
+    base:{hp:58,atk:52,def:48,spa:65,spd:58,spe:88},
+    learnset:[[1,"thunder_shock"],[1,"tackle"],[12,"spark"],[22,"thunderbolt"],[32,"discharge"],[42,"volt_surge"],[52,"ball_lightning"],[60,"hyper_beam"]],
+    evolveTo:210, evolveLevel:30, catchRate:155, expYield:82, rarity:"common",
+    desc:"A rabbit-like creature whose fur stands permanently on end from static electricity. Leaves sparks wherever it hops." },
 
-  210: { id:210, name:"Combathorn", emoji:"🦏", types:["Fighting","Psychic"],
-    base:{hp:85,atk:112,def:75,spa:95,spd:78,spe:70},
-    learnset:[[1,"headbutt"],[1,"psybeam"],[26,"iron_press"],[34,"reckless_charge"],[42,"psychic_move"],[50,"heavy_slam"],[58,"battle_cry"],[66,"hyper_beam"]],
-    evolveTo:null, evolveLevel:null, catchRate:55, expYield:215, rarity:"uncommon",
-    desc:"A warrior blessed with psychic sight. Reads its foe's next move before it is made." },
+  210: { id:210, name:"Thundermane", emoji:"🦁", types:["Normal","Electric"],
+    base:{hp:92,atk:88,def:78,spa:108,spd:90,spe:112},
+    learnset:[[1,"thunderbolt"],[1,"body_slam"],[24,"discharge"],[32,"volt_surge"],[40,"thunder"],[48,"ball_lightning"],[56,"plasma_strike"],[64,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:42, expYield:222, rarity:"uncommon",
+    desc:"An electric lion whose mane generates constant lightning storms. The pride leader of its herd." },
 
-  // 3-stage Fighting/Dark chain: Punchling → Brawlvex → Grapplethon
-  211: { id:211, name:"Punchling", emoji:"👊", types:["Fighting","Dark"],
-    base:{hp:48,atk:68,def:42,spa:35,spd:38,spe:70},
-    learnset:[[1,"tackle"],[1,"bite"],[10,"headbutt"],[20,"night_slash"],[28,"body_slam"],[38,"dark_pulse"],[46,"reckless_charge"],[54,"heavy_slam"]],
-    evolveTo:212, evolveLevel:28, catchRate:175, expYield:70, rarity:"common",
-    desc:"A sly street fighter that uses underhanded tricks to win. Quick and hard to pin down." },
+  // 3-stage Fire/Ice chain: Cinderfrost → Glaciblaze → Pyroglacier
+  211: { id:211, name:"Cinderfrost", emoji:"🔥", types:["Fire","Ice"],
+    base:{hp:48,atk:58,def:45,spa:72,spd:55,spe:68},
+    learnset:[[1,"ember"],[1,"powder_snow"],[12,"flamethrower"],[22,"ice_beam"],[32,"fire_blast"],[42,"blizzard"],[52,"overheat"],[62,"hyper_beam"]],
+    evolveTo:212, evolveLevel:28, catchRate:175, expYield:72, rarity:"common",
+    desc:"A creature born where volcanic vents meet glacial ice. Its body perpetually cycles between fire and frost." },
 
-  212: { id:212, name:"Brawlvex", emoji:"🥷", types:["Fighting","Dark"],
-    base:{hp:72,atk:96,def:65,spa:58,spd:60,spe:88},
-    learnset:[[1,"bite"],[1,"headbutt"],[22,"night_slash"],[30,"dark_pulse"],[38,"body_slam"],[46,"reckless_charge"],[54,"heavy_slam"],[62,"battle_cry"]],
-    evolveTo:213, evolveLevel:46, catchRate:90, expYield:150, rarity:"uncommon",
-    desc:"A martial arts master of shadow techniques. Fights dirty and hits hard." },
+  212: { id:212, name:"Glaciblaze", emoji:"🌡️", types:["Fire","Ice"],
+    base:{hp:74,atk:82,def:68,spa:108,spd:88,spe:88},
+    learnset:[[1,"flamethrower"],[1,"ice_beam"],[22,"fire_blast"],[30,"blizzard"],[38,"frost_breath"],[46,"overheat"],[54,"glacial_tomb"],[62,"hyper_beam"]],
+    evolveTo:213, evolveLevel:46, catchRate:88, expYield:155, rarity:"uncommon",
+    desc:"A dual-natured creature of perfect thermal balance. Its left side blazes while its right side freezes." },
 
-  213: { id:213, name:"Grapplethon", emoji:"🏋️", types:["Fighting","Dark"],
-    base:{hp:102,atk:138,def:88,spa:72,spd:84,spe:90},
-    learnset:[[1,"dark_pulse"],[1,"reckless_charge"],[32,"night_slash"],[40,"heavy_slam"],[48,"battle_cry"],[56,"eclipse_shroud"],[64,"soul_rend"],[72,"hyper_beam"]],
-    evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
-    desc:"The ultimate shadow warrior. Its punches are cloaked in dark energy that disrupt the soul." },
+  213: { id:213, name:"Pyroglacier", emoji:"🌋", types:["Fire","Ice"],
+    base:{hp:105,atk:108,def:95,spa:140,spd:110,spe:85},
+    learnset:[[1,"fire_blast"],[1,"blizzard"],[32,"overheat"],[40,"glacial_tomb"],[48,"heat_wave"],[56,"icicle_crash"],[64,"caldera_meltdown"],[72,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:25, expYield:268, rarity:"rare",
+    desc:"A cataclysmic being that collapses the boundary between fire and ice. Superheated geysers and flash-freezes occur in its wake." },
 
-  // Standalone Fighting/Normal: Skuffin
-  214: { id:214, name:"Skuffin", emoji:"🐾", types:["Fighting","Normal"],
-    base:{hp:100,atk:110,def:88,spa:55,spd:75,spe:72},
-    learnset:[[1,"tackle"],[1,"headbutt"],[15,"body_slam"],[25,"reckless_charge"],[35,"iron_press"],[45,"battle_cry"],[55,"heavy_slam"],[65,"hyper_beam"]],
-    evolveTo:null, evolveLevel:null, catchRate:45, expYield:205, rarity:"uncommon",
-    desc:"A bear-like bruiser with natural armor skin. Roams the highlands looking for worthy challengers." },
+  // Standalone Water/Rock: Coralstone
+  214: { id:214, name:"Coralstone", emoji:"🪸", types:["Water","Rock"],
+    base:{hp:102,atk:98,def:118,spa:85,spd:100,spe:55},
+    learnset:[[1,"water_gun"],[1,"rock_throw"],[18,"surf"],[28,"stone_edge"],[38,"hydro_pump"],[48,"rock_slide"],[58,"bedrock_slam"],[68,"hyper_beam"]],
+    evolveTo:null, evolveLevel:null, catchRate:48, expYield:212, rarity:"uncommon",
+    desc:"A living coral fortress. Anchors itself to seafloor rocks and grows for centuries, becoming near-indestructible." },
 
-  // ===== BATCH 1: GHOST TYPES (IDs 215-220) =====
+  // ===== BATCH 1: PSYCHIC/DARK TYPES (IDs 215-221) =====
 
   // 3-stage Ghost/Psychic chain: Spiritch → Phantorge → Spectraith
-  215: { id:215, name:"Spiritch", emoji:"👻", types:["Ghost"],
-    base:{hp:40,atk:45,def:30,spa:62,spd:48,spe:68},
-    learnset:[[1,"shadow_ball"],[1,"confusion"],[12,"psybeam"],[20,"phantom_claw"],[28,"eclipse_shroud"],[36,"psychic_move"],[44,"soul_rend"],[52,"shadow_ball"]],
+  215: { id:215, name:"Psywisp", emoji:"🌀", types:["Psychic"],
+    base:{hp:40,atk:42,def:30,spa:68,spd:52,spe:72},
+    learnset:[[1,"confusion"],[1,"psybeam"],[12,"calm_mind"],[20,"psychic_move"],[28,"moonblast"],[36,"psystrike"],[44,"neural_storm"],[52,"astral_rend"]],
     evolveTo:216, evolveLevel:26, catchRate:175, expYield:68, rarity:"common",
-    desc:"A wisp of pure spirit energy. Phases through walls and whispers half-remembered secrets." },
+    desc:"A wisp of pure psychic energy. Drifts through reality reading the thoughts of every living thing nearby." },
 
-  216: { id:216, name:"Phantorge", emoji:"🌫️", types:["Ghost","Psychic"],
-    base:{hp:65,atk:70,def:52,spa:96,spd:75,spe:80},
-    learnset:[[1,"phantom_claw"],[1,"psybeam"],[20,"eclipse_shroud"],[28,"psychic_move"],[36,"shadow_ball"],[44,"soul_rend"],[52,"dark_pulse"],[60,"hyper_beam"]],
+  216: { id:216, name:"Psychdrift", emoji:"🌫️", types:["Psychic"],
+    base:{hp:65,atk:65,def:52,spa:102,spd:80,spe:88},
+    learnset:[[1,"psybeam"],[1,"calm_mind"],[20,"psychic_move"],[28,"moonblast"],[36,"psystrike"],[44,"neural_storm"],[52,"astral_rend"],[60,"hyper_beam"]],
     evolveTo:217, evolveLevel:44, catchRate:90, expYield:145, rarity:"uncommon",
-    desc:"A specter of swirling psychic mist. Haunts ancient tombs and siphons residual memories." },
+    desc:"A drifting psychic entity that bridges the conscious and unconscious mind. Its form shifts like fog." },
 
-  217: { id:217, name:"Spectraith", emoji:"💀", types:["Ghost","Psychic"],
-    base:{hp:88,atk:82,def:70,spa:135,spd:105,spe:90},
-    learnset:[[1,"eclipse_shroud"],[1,"psychic_move"],[30,"shadow_ball"],[38,"soul_rend"],[46,"dark_pulse"],[54,"phantom_claw"],[62,"astral_rend"],[70,"hyper_beam"]],
+  217: { id:217, name:"Mentovast", emoji:"🔮", types:["Psychic"],
+    base:{hp:88,atk:75,def:72,spa:140,spd:112,spe:98},
+    learnset:[[1,"psychic_move"],[1,"moonblast"],[30,"psystrike"],[38,"neural_storm"],[46,"astral_rend"],[54,"psybeam"],[62,"calm_mind"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
-    desc:"A ghost of transcendent power. Peers into the minds of the living and shows them their greatest fears." },
+    desc:"A vast psychic intelligence that defies physical form. Peers into the deepest layers of consciousness." },
 
   // 2-stage Ghost/Dark chain: Mistwraith → Shademont (item evo: Dusk Stone)
-  218: { id:218, name:"Mistwraith", emoji:"🌑", types:["Ghost","Dark"],
-    base:{hp:52,atk:60,def:45,spa:82,spd:65,spe:72},
-    learnset:[[1,"shadow_ball"],[1,"bite"],[14,"dark_pulse"],[24,"night_slash"],[34,"eclipse_shroud"],[44,"phantom_claw"],[54,"soul_rend"],[60,"hyper_beam"]],
+  218: { id:218, name:"Duskmist", emoji:"🌑", types:["Dark"],
+    base:{hp:55,atk:62,def:48,spa:85,spd:68,spe:75},
+    learnset:[[1,"bite"],[1,"dark_pulse"],[14,"night_slash"],[24,"eclipse_shroud"],[34,"crunch"],[44,"soul_rend"],[54,"dread_howl"],[60,"hyper_beam"]],
     evolveTo:219, evolveLevel:null, evolveItem:"duskStone", evolveMethod:"item", catchRate:130, expYield:102, rarity:"common",
-    desc:"A dark mist that stalks prey from the shadows. Drains warmth and light from its surroundings." },
+    desc:"A dark mist that drains ambient light and warmth. Those who walk through it feel inexplicable despair." },
 
-  219: { id:219, name:"Shademont", emoji:"🖤", types:["Ghost","Dark"],
-    base:{hp:82,atk:88,def:72,spa:125,spd:100,spe:85},
-    learnset:[[1,"dark_pulse"],[1,"eclipse_shroud"],[28,"night_slash"],[36,"phantom_claw"],[44,"soul_rend"],[52,"shadow_ball"],[60,"dread_howl"],[68,"hyper_beam"]],
+  219: { id:219, name:"Nightmont", emoji:"🖤", types:["Dark"],
+    base:{hp:85,atk:92,def:78,spa:128,spd:105,spe:90},
+    learnset:[[1,"dark_pulse"],[1,"eclipse_shroud"],[28,"night_slash"],[36,"crunch"],[44,"soul_rend"],[52,"dread_howl"],[60,"dark_pulse"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:225, rarity:"rare",
-    desc:"A mountain of living shadow. Absorbs all light within a wide radius, creating total darkness." },
+    desc:"A mountain of absolute darkness. Creates a shadow zone where no light can penetrate for hundreds of meters." },
 
   // 2-stage Ghost/Normal chain: Hauntrix → Grimveil (level 34)
-  220: { id:220, name:"Hauntrix", emoji:"🎭", types:["Ghost","Normal"],
-    base:{hp:60,atk:55,def:55,spa:75,spd:60,spe:78},
-    learnset:[[1,"tackle"],[1,"shadow_ball"],[12,"psybeam"],[22,"phantom_claw"],[32,"eclipse_shroud"],[42,"soul_rend"],[52,"shadow_ball"],[60,"hyper_beam"]],
+  220: { id:220, name:"Duskjest", emoji:"🎭", types:["Dark","Psychic"],
+    base:{hp:62,atk:58,def:55,spa:78,spd:62,spe:82},
+    learnset:[[1,"bite"],[1,"confusion"],[12,"dark_pulse"],[22,"psybeam"],[32,"night_slash"],[42,"psychic_move"],[52,"eclipse_shroud"],[60,"hyper_beam"]],
     evolveTo:221, evolveLevel:34, catchRate:145, expYield:92, rarity:"common",
-    desc:"A trickster spirit in a jester's mask. Entertains itself by scaring travelers at night." },
+    desc:"A trickster in a dark jester's mask. Uses psychic illusions and dark energy to confuse and terrify." },
 
 
 
   // ===== BATCH 2: GHOST/PSYCHIC/DRAGON (IDs 221-235) =====
 
   // Grimveil (evolves from Hauntrix 220)
-  221: { id:221, name:"Grimveil", emoji:"🎪", types:["Ghost","Normal"],
-    base:{hp:90,atk:80,def:78,spa:105,spd:88,spe:92},
-    learnset:[[1,"shadow_ball"],[1,"tackle"],[26,"phantom_claw"],[34,"eclipse_shroud"],[42,"soul_rend"],[50,"dread_howl"],[58,"moonblast"],[66,"hyper_beam"]],
+  221: { id:221, name:"Shadowveil", emoji:"🎪", types:["Dark","Psychic"],
+    base:{hp:92,atk:85,def:80,spa:110,spd:92,spe:98},
+    learnset:[[1,"dark_pulse"],[1,"psychic_move"],[26,"night_slash"],[34,"eclipse_shroud"],[42,"soul_rend"],[50,"dread_howl"],[58,"moonblast"],[66,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:220, rarity:"uncommon",
-    desc:"A master of illusions that wears a haunted clown mask. Its performances end in vanishing acts—permanently." },
+    desc:"A master of dark illusions. Those who witness its act lose themselves in psychic nightmares for days." },
 
   // 3-stage Psychic chain: Mindpuff → Cerebrix → Psytheon
   222: { id:222, name:"Mindpuff", emoji:"🫧", types:["Psychic"],
@@ -1393,21 +1393,21 @@ const MONSTERS_DATA = {
     desc:"An electrified beetle warrior. Its wing-cases generate static as it flies, creating lightning storms." },
 
   // 3-stage Electric/Fighting chain: Staticlaw → Thundravex → Megavolt
-  244: { id:244, name:"Staticlaw", emoji:"🦁", types:["Electric","Fighting"],
-    base:{hp:55,atk:72,def:52,spa:58,spd:50,spe:70},
-    learnset:[[1,"thunder_shock"],[1,"headbutt"],[12,"spark"],[20,"iron_press"],[30,"thunderbolt"],[38,"reckless_charge"],[46,"battle_cry"],[54,"thunder"]],
+  244: { id:244, name:"Staticlaw", emoji:"🦁", types:["Electric"],
+    base:{hp:58,atk:68,def:52,spa:72,spd:55,spe:88},
+    learnset:[[1,"thunder_shock"],[1,"spark"],[12,"thunderbolt"],[20,"discharge"],[30,"arc_flash"],[38,"ball_lightning"],[46,"thunder"],[54,"plasma_strike"]],
     evolveTo:245, evolveLevel:28, catchRate:160, expYield:80, rarity:"common",
     desc:"A lion pup whose mane crackles with electricity. Each battle makes its mane larger and brighter." },
 
-  245: { id:245, name:"Thundravex", emoji:"⚡", types:["Electric","Fighting"],
-    base:{hp:80,atk:100,def:72,spa:85,spd:72,spe:90},
-    learnset:[[1,"thunderbolt"],[1,"reckless_charge"],[22,"battle_cry"],[30,"iron_press"],[38,"thunder"],[46,"heavy_slam"],[54,"discharge"],[62,"hyper_beam"]],
+  245: { id:245, name:"Thundravex", emoji:"⚡", types:["Electric"],
+    base:{hp:82,atk:90,def:72,spa:110,spd:80,spe:108},
+    learnset:[[1,"thunderbolt"],[1,"discharge"],[22,"ball_lightning"],[30,"arc_flash"],[38,"thunder"],[46,"volt_surge"],[54,"plasma_strike"],[62,"hyper_beam"]],
     evolveTo:246, evolveLevel:48, catchRate:75, expYield:165, rarity:"uncommon",
     desc:"A thunder lion that calls down lightning with its roar. Its mane is a living Tesla coil." },
 
-  246: { id:246, name:"Megavolt", emoji:"🦁", types:["Electric","Fighting"],
-    base:{hp:105,atk:130,def:90,spa:108,spd:88,spe:102},
-    learnset:[[1,"thunder"],[1,"heavy_slam"],[32,"discharge"],[40,"ball_lightning"],[48,"battle_cry"],[56,"iron_press"],[64,"plasma_strike"],[72,"hyper_beam"]],
+  246: { id:246, name:"Megavolt", emoji:"🦁", types:["Electric"],
+    base:{hp:105,atk:110,def:90,spa:130,spd:95,spe:118},
+    learnset:[[1,"thunder"],[1,"discharge"],[32,"ball_lightning"],[40,"plasma_strike"],[48,"arc_flash"],[56,"volt_surge"],[64,"overcharge"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:270, rarity:"rare",
     desc:"A king of thunder whose roar is heard across continents. Lightning bends to its will." },
 
@@ -1550,13 +1550,13 @@ const MONSTERS_DATA = {
     evolveTo:267, evolveLevel:26, catchRate:180, expYield:70, rarity:"common",
     desc:"A shadow wolf pup that feeds on ambient light. Eyes glow in pitch darkness where nothing should glow." },
 
-  267: { id:267, name:"Nightclaw", emoji:"🐾", types:["Dark","Ghost"],
+  267: { id:267, name:"Nightclaw", emoji:"🐾", types:["Dark"],
     base:{hp:72,atk:95,def:65,spa:75,spd:68,spe:90},
     learnset:[[1,"night_slash"],[1,"phantom_claw"],[20,"dark_pulse"],[28,"eclipse_shroud"],[36,"crunch"],[44,"soul_rend"],[52,"shadow_ball"],[60,"hyper_beam"]],
     evolveTo:268, evolveLevel:44, catchRate:85, expYield:150, rarity:"uncommon",
     desc:"A ghost-dark wolf that phases through shadows. Its claws can strike from a different dimension." },
 
-  268: { id:268, name:"Darkfang", emoji:"🐕", types:["Dark","Ghost"],
+  268: { id:268, name:"Darkfang", emoji:"🐕", types:["Dark"],
     base:{hp:98,atk:130,def:88,spa:95,spd:88,spe:108},
     learnset:[[1,"eclipse_shroud"],[1,"soul_rend"],[30,"dark_pulse"],[38,"shadow_ball"],[46,"night_slash"],[54,"phantom_claw"],[62,"dread_howl"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
@@ -1705,7 +1705,7 @@ const MONSTERS_DATA = {
     desc:"A perfectly spherical blob of pure vitality. Its round body absorbs physical impacts with zero damage." },
 
   // Standalone Normal/Ghost: Mimiclaw (evolves in gloomy location)
-  290: { id:290, name:"Mimiclaw", emoji:"🎭", types:["Normal","Ghost"],
+  290: { id:290, name:"Mimiclaw", emoji:"🎭", types:["Normal","Dark"],
     base:{hp:82,atk:90,def:78,spa:95,spd:85,spe:102},
     learnset:[[1,"tackle"],[1,"shadow_ball"],[15,"phantom_claw"],[25,"eclipse_shroud"],[35,"body_slam"],[45,"soul_rend"],[55,"shadow_ball"],[65,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, evolveLocation:"cobweb_gully", evolveMethod:"location", catchRate:52, expYield:212, rarity:"uncommon",
@@ -1780,7 +1780,7 @@ const MONSTERS_DATA = {
     desc:"A scorpion-bug hybrid of lethal venom. Its claws inject a toxin that dissolves steel over time." },
 
   // Standalone Fire/Ghost: Emberveil
-  301: { id:301, name:"Emberveil", emoji:"👻", types:["Fire","Ghost"],
+  301: { id:301, name:"Emberveil", emoji:"🔥", types:["Fire","Dark"],
     base:{hp:78,atk:82,def:72,spa:118,spd:95,spe:102},
     learnset:[[1,"ember"],[1,"shadow_ball"],[18,"flamethrower"],[28,"phantom_claw"],[38,"fire_blast"],[48,"eclipse_shroud"],[58,"soul_rend"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:48, expYield:215, rarity:"uncommon",
@@ -1826,13 +1826,13 @@ const MONSTERS_DATA = {
     desc:"A dark flame cat that stalks targets silently before unleashing explosive fire attacks. Unpredictable and cunning." },
 
   // 2-stage Water/Ghost chain: Tidewraith → Aquaphant (Water Stone item)
-  308: { id:308, name:"Tidewraith", emoji:"🌊", types:["Water","Ghost"],
+  308: { id:308, name:"Tidewraith", emoji:"🌊", types:["Water","Dark"],
     base:{hp:58,atk:62,def:58,spa:88,spd:75,spe:80},
     learnset:[[1,"water_gun"],[1,"shadow_ball"],[14,"surf"],[24,"phantom_claw"],[34,"hydro_pump"],[44,"eclipse_shroud"],[54,"soul_rend"],[60,"hyper_beam"]],
     evolveTo:309, evolveLevel:null, evolveItem:"waterStone", evolveMethod:"item", catchRate:135, expYield:98, rarity:"common",
     desc:"A ghost that drowned and merged with ocean tides. Haunts coastal routes, pulling travelers into the surf." },
 
-  309: { id:309, name:"Aquaphant", emoji:"🐋", types:["Water","Ghost"],
+  309: { id:309, name:"Aquaphant", emoji:"🐋", types:["Water","Dark"],
     base:{hp:100,atk:88,def:92,spa:120,spd:108,spe:78},
     learnset:[[1,"hydro_pump"],[1,"eclipse_shroud"],[28,"soul_rend"],[36,"phantom_claw"],[44,"geyser_burst"],[52,"shadow_ball"],[60,"dark_pulse"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:232, rarity:"rare",
@@ -3182,12 +3182,15 @@ const WORLD_DATA = {
     desc:"A murky swamp path where poisonous fumes rise from the ground.",
     connections:["bloomhaven","murk_crossing"],
     wildMonsters:[
-      {id:155, minLv:57, maxLv:62, rate:20},  // Toxirin (base)
-      {id:157, minLv:57, maxLv:62, rate:20},  // Acidelix (base)
-      {id:160, minLv:58, maxLv:63, rate:20},  // Miasoveth (base)
-      {id:161, minLv:59, maxLv:64, rate:15},  // Toxivane (mid → after base ✓)
-      {id:162, minLv:58, maxLv:63, rate:15},  // Marlix (base)
-      {id:163, minLv:59, maxLv:64, rate:10}   // Venomalis (mid → after base ✓)
+      {id:155, minLv:57, maxLv:62, rate:15},  // Toxirin (base)
+      {id:157, minLv:57, maxLv:62, rate:15},  // Acidelix (base)
+      {id:160, minLv:58, maxLv:63, rate:15},  // Miasoveth (base)
+      {id:161, minLv:59, maxLv:64, rate:10},  // Toxivane (mid → after base ✓)
+      {id:162, minLv:58, maxLv:63, rate:10},  // Marlix (base)
+      {id:163, minLv:59, maxLv:64, rate:10},  // Venomalis (mid → after base ✓)
+      {id:206, minLv:57, maxLv:62, rate:10},  // Venomscale (base Poison/Dragon)
+      {id:266, minLv:57, maxLv:62, rate:10},  // Shadowpup (base Dark)
+      {id:299, minLv:57, maxLv:62, rate:5}    // Stinglet (base Bug/Poi)
     ],
     hasGym:false, requiredBadges:9, mapPos:{x:48, y:60}
   },
@@ -3213,7 +3216,9 @@ const WORLD_DATA = {
       {id:101, minLv:59, maxLv:64, rate:20},  // Limoux (base)
       {id:104, minLv:60, maxLv:65, rate:20},  // Arenikin (base)
       {id:105, minLv:61, maxLv:66, rate:10},  // Dravanas (mid → after 104 ✓)
-      {id:106, minLv:60, maxLv:65, rate:10}   // Geodrak (base)
+      {id:106, minLv:60, maxLv:65, rate:10},  // Geodrak (base)
+      {id:236, minLv:59, maxLv:64, rate:10},  // Frostick (base Ice)
+      {id:248, minLv:59, maxLv:64, rate:10}   // Pebblard (base Rock)
     ],
     hasGym:false, requiredBadges:10, mapPos:{x:35, y:72}
   },
@@ -3233,20 +3238,22 @@ const WORLD_DATA = {
   route12: {
     id:"route12", name:"Route 12 - Silk Road", icon:"🕸️", type:"route",
     desc:"A path threaded with giant webs. Bug types ambush travelers at every turn.",
-    connections:["terravault","cobweb_gully"],
+    connections:["terravault","fungal_cavern"],
     wildMonsters:[
       {id:197, minLv:61, maxLv:66, rate:20},  // Vermelin (base)
       {id:198, minLv:62, maxLv:67, rate:20},  // Chrysalix (mid → after 197 ✓)
       {id:200, minLv:61, maxLv:66, rate:20},  // Colerix (base)
       {id:202, minLv:62, maxLv:67, rate:20},  // Sericrix (base)
-      {id:204, minLv:63, maxLv:68, rate:20}   // Terramite (base)
+      {id:204, minLv:63, maxLv:68, rate:15},  // Terramite (base)
+      {id:215, minLv:62, maxLv:67, rate:10},  // Psywisp (base Psychic)
+      {id:262, minLv:62, maxLv:67, rate:10}   // Seedling (base Grass/Poi)
     ],
     hasGym:false, requiredBadges:11, mapPos:{x:22, y:82}
   },
   silkwood: {
     id:"silkwood", name:"Silkwood Village", icon:"🌲", type:"city",
     desc:"A village nestled in an ancient forest where Bug types are revered. Home to Gym Leader Mantis.",
-    connections:["cobweb_gully","route13"],
+    connections:["ancient_grove","route13"],
     wildMonsters:[
       {id:199, minLv:63, maxLv:68, rate:25},  // Aeridaleth (final)
       {id:201, minLv:62, maxLv:67, rate:25},  // Scarabion (mid)
@@ -3258,21 +3265,24 @@ const WORLD_DATA = {
   route13: {
     id:"route13", name:"Route 13 - Gale Ridge West", icon:"🌬️", type:"route",
     desc:"The western arm of Gale Ridge, where howling winds funnel through a narrow canyon toward the furthest point of the region.",
-    connections:["silkwood","gale_peak"],
+    connections:["silkwood","wind_hollow"],
     wildMonsters:[
       {id:108, minLv:63, maxLv:68, rate:20},  // Zephyrkin (base)
       {id:109, minLv:64, maxLv:69, rate:20},  // Aeolomane (mid → after 108 ✓)
       {id:111, minLv:63, maxLv:68, rate:20},  // Aeolin (base)
       {id:114, minLv:64, maxLv:69, rate:15},  // Nimbusel (base)
       {id:116, minLv:64, maxLv:69, rate:15},  // Zephyrin (base)
-      {id:61,  minLv:65, maxLv:70, rate:10}   // wind-type standalone
+      {id:61,  minLv:65, maxLv:70, rate:10},  // wind-type standalone
+      {id:291, minLv:63, maxLv:68, rate:10},  // Breezekin (base Wind)
+      {id:222, minLv:63, maxLv:68, rate:10},  // Mindpuff (base Psychic)
+      {id:220, minLv:63, maxLv:68, rate:5}    // Duskjest (base Dark/Psychic)
     ],
     hasGym:false, requiredBadges:12, mapPos:{x:10, y:92}
   },
   gusthaven: {
     id:"gusthaven", name:"Gusthaven Town", icon:"🌀", type:"city",
     desc:"A town of windmills and airships. Home to Gym Leader Zephyra, master of Wind types.",
-    connections:["gale_ridge_east","route14"],
+    connections:["tempest_cliffs","route14"],
     wildMonsters:[
       {id:110, minLv:65, maxLv:70, rate:25},  // Aeolarch (final)
       {id:113, minLv:65, maxLv:70, rate:25},  // Cyclavorn (final)
@@ -3285,14 +3295,17 @@ const WORLD_DATA = {
   route14: {
     id:"route14", name:"Route 14 - Ironwork Path", icon:"⚙️", type:"route",
     desc:"A path lined with abandoned machinery. Steel types have claimed the ruins as their territory.",
-    connections:["gusthaven","forge_ruins"],
+    connections:["gusthaven","ash_fields"],
     wildMonsters:[
       {id:147, minLv:65, maxLv:70, rate:20},  // Ferrokin (base)
       {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid → after 147 ✓)
       {id:150, minLv:65, maxLv:70, rate:20},  // Gearon (base)
       {id:134, minLv:66, maxLv:71, rate:20},  // Aeronyx (base)
       {id:153, minLv:66, maxLv:71, rate:10},  // Forgekin (base)
-      {id:55,  minLv:67, maxLv:72, rate:10}   // standalone steel
+      {id:55,  minLv:67, maxLv:72, rate:10},  // standalone steel
+      {id:278, minLv:65, maxLv:70, rate:10},  // Ironling (base Steel/Fairy)
+      {id:244, minLv:65, maxLv:70, rate:10},  // Staticlaw (base Electric)
+      {id:280, minLv:65, maxLv:70, rate:5}    // Gearbit (base Steel/Ground)
     ],
     hasGym:false, requiredBadges:13, mapPos:{x:28, y:92}
   },
@@ -3312,21 +3325,24 @@ const WORLD_DATA = {
   route15: {
     id:"route15", name:"Route 15 - Granite Pass", icon:"🪨", type:"route",
     desc:"A narrow mountain pass strewn with boulders. Rock types dominate.",
-    connections:["ironforge","stone_plateau"],
+    connections:["ironforge","granite_tunnels"],
     wildMonsters:[
       {id:191, minLv:67, maxLv:72, rate:20},  // Petrikin (base)
       {id:192, minLv:68, maxLv:73, rate:20},  // Lithavast (mid → after 191 ✓)
       {id:193, minLv:67, maxLv:72, rate:20},  // Rugothon (base)
       {id:132, minLv:68, maxLv:73, rate:20},  // Obsidrix (base)
       {id:133, minLv:69, maxLv:74, rate:10},  // Monolithox (mid → after 132 ✓)
-      {id:93,  minLv:69, maxLv:74, rate:10}   // standalone rock
+      {id:93,  minLv:69, maxLv:74, rate:10},  // standalone rock
+      {id:251, minLv:67, maxLv:72, rate:10},  // Crumblite (base Rock/Steel)
+      {id:304, minLv:67, maxLv:72, rate:10},  // Crysthorn (base Rock/Ice)
+      {id:232, minLv:67, maxLv:72, rate:5}    // Draxon (base Dragon/Ground)
     ],
     hasGym:false, requiredBadges:14, mapPos:{x:48, y:85}
   },
   quarryville: {
     id:"quarryville", name:"Quarryville Town", icon:"🏗️", type:"city",
     desc:"A mining town carved from solid rock. Home to Gym Leader Boulder, master of Rock types.",
-    connections:["stone_plateau","route16"],
+    connections:["crystal_mine","route16"],
     wildMonsters:[
       {id:192, minLv:68, maxLv:73, rate:20},  // Lithavast (mid)
       {id:195, minLv:69, maxLv:74, rate:20},  // Prismolith (195 on stone_plateau ✓)
@@ -3339,27 +3355,33 @@ const WORLD_DATA = {
   route16: {
     id:"route16", name:"Route 16 - Starlit Path", icon:"✨", type:"route",
     desc:"A magical path where starlight dances on every surface. Fairy types float among the luminescent flowers.",
-    connections:["quarryville","cosmic_cavern"],
+    connections:["quarryville","nebula_gorge"],
     wildMonsters:[
       {id:137, minLv:69, maxLv:74, rate:20},  // Lumkin (base)
       {id:72,  minLv:69, maxLv:74, rate:20},  // fairy-type (base)
       {id:73,  minLv:70, maxLv:75, rate:20},  // fairy-type (evo → after 72 ✓)
       {id:142, minLv:69, maxLv:74, rate:20},  // Dawnirel (base, new)
-      {id:145, minLv:70, maxLv:75, rate:20}   // Faerrin (base)
+      {id:145, minLv:70, maxLv:75, rate:15},  // Faerrin (base)
+      {id:225, minLv:69, maxLv:74, rate:10},  // Glimmerkin (standalone Psy/Fairy)
+      {id:226, minLv:69, maxLv:74, rate:10},  // Prismoo (base split-evo)
+      {id:254, minLv:69, maxLv:74, rate:10},  // Aquapuff (base Water/Psy)
+      {id:302, minLv:69, maxLv:74, rate:5}    // Lightpuff (base Fairy, item evo)
     ],
     hasGym:false, requiredBadges:15, mapPos:{x:62, y:78}
   },
   starbloom: {
     id:"starbloom", name:"Starbloom City", icon:"🌟", type:"city",
     desc:"A radiant city that glows with fairy magic. Home to Gym Leader Seraphina, the last gym before the Elite Four.",
-    connections:["cosmic_cavern","victoryroad","void_rift"],
+    connections:["astral_plateau","victoryroad","void_rift"],
     wildMonsters:[
       {id:138, minLv:70, maxLv:75, rate:20},  // Aetherael (mid)
       {id:139, minLv:71, maxLv:76, rate:15},  // Lumiarch (final → after 138 ✓)
       {id:143, minLv:70, maxLv:75, rate:20},  // Lunarael (mid)
       {id:144, minLv:71, maxLv:76, rate:15},  // Celestarch (final → after 143 ✓)
       {id:146, minLv:71, maxLv:76, rate:20},  // Shinarith (mid, 145 on route16 ✓)
-      {id:203, minLv:72, maxLv:76, rate:10}   // Arachnalis (mid)
+      {id:203, minLv:72, maxLv:76, rate:10},  // Arachnalis (mid)
+      {id:224, minLv:72, maxLv:76, rate:10},  // Psytheon (final → 223 on cosmic_cavern ✓)
+      {id:217, minLv:73, maxLv:77, rate:5}    // Mentovast (final Psychic)
     ],
     hasGym:true, gymLeader:"seraphina", requiredBadges:15, mapPos:{x:68, y:72}
   }
@@ -3381,7 +3403,7 @@ const WORLD_DATA = {
   quake_foothills: {
     id:"quake_foothills", name:"Quake Foothills", icon:"🌋", type:"route",
     desc:"Rolling foothills rocked by constant tremors where Terravault's mountain range begins. Ground-type Lumos burrow through the cracked and heaving earth.",
-    connections:["route11","tremor_summit"],
+    connections:["route11","magma_vent"],
     wildMonsters:[
       {id:95,  minLv:59, maxLv:64, rate:15},  // Terrakin (base)
       {id:96,  minLv:60, maxLv:65, rate:20},  // Seismith (mid → after 95 ✓)
@@ -3395,7 +3417,7 @@ const WORLD_DATA = {
   cobweb_gully: {
     id:"cobweb_gully", name:"Cobweb Gully", icon:"🕸️", type:"route",
     desc:"A sunken gully thick with silken threads where every tree and boulder is wrapped in webs. Bug types in every stage of evolution compete for territory.",
-    connections:["route12","silkwood"],
+    connections:["fungal_cavern","ancient_grove"],
     wildMonsters:[
       {id:198, minLv:62, maxLv:67, rate:15},  // Chrysalix (mid, 197 on route12 ✓)
       {id:199, minLv:63, maxLv:68, rate:15},  // Aeridaleth (final → after 198 ✓)
@@ -3409,7 +3431,7 @@ const WORLD_DATA = {
   gale_ridge_east: {
     id:"gale_ridge_east", name:"Gale Ridge East", icon:"🌪️", type:"route",
     desc:"Where Gale Ridge curves sharply eastward, the winds reverse direction entirely. This turn is notorious for sending unprepared trainers stumbling backward toward Silkwood.",
-    connections:["gale_peak","gusthaven"],
+    connections:["gale_peak","tempest_cliffs"],
     wildMonsters:[
       {id:109, minLv:64, maxLv:69, rate:15},  // Aeolomane (mid, 108 on route13 ✓)
       {id:110, minLv:65, maxLv:70, rate:20},  // Aeolarch (final → after 109 ✓)
@@ -3423,7 +3445,7 @@ const WORLD_DATA = {
   forge_approach: {
     id:"forge_approach", name:"Forge Approach", icon:"🔩", type:"route",
     desc:"The rusted outer edge of Ironforge's industrial sprawl. Abandoned conveyor lines and slag heaps attract Steel-type Lumos who claim the metal as their own.",
-    connections:["forge_ruins","ironforge"],
+    connections:["smelter_pass","ironforge"],
     wildMonsters:[
       {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid)
       {id:149, minLv:67, maxLv:72, rate:15},  // Adamovast (final → after 148 ✓)
@@ -3437,7 +3459,7 @@ const WORLD_DATA = {
   stone_plateau: {
     id:"stone_plateau", name:"Stone Plateau", icon:"🏜️", type:"route",
     desc:"A windswept expanse of exposed bedrock leading into Quarryville. Ancient monoliths dot the plateau and Rock and Dark types claim each one as territory.",
-    connections:["route15","quarryville"],
+    connections:["granite_tunnels","crystal_mine"],
     wildMonsters:[
       {id:192, minLv:68, maxLv:73, rate:20},  // Lithavast (mid, 191 on route15 ✓)
       {id:193, minLv:67, maxLv:72, rate:15},  // Rugothon (base)
@@ -3451,14 +3473,17 @@ const WORLD_DATA = {
   cosmic_cavern: {
     id:"cosmic_cavern", name:"Cosmic Cavern", icon:"🌌", type:"route",
     desc:"A glittering cavern lit by bioluminescent crystals on the approach to Starbloom. Fairy types dance in the starlight, but dark shadows hint at lurking Umbra agents.",
-    connections:["route16","starbloom"],
+    connections:["nebula_gorge","astral_plateau"],
     wildMonsters:[
       {id:137, minLv:69, maxLv:74, rate:15},  // Lumkin (base)
       {id:138, minLv:70, maxLv:75, rate:20},  // Aetherael (mid → after 137 ✓)
       {id:143, minLv:70, maxLv:75, rate:15},  // Lunarael (mid, 142 on route16 ✓)
       {id:144, minLv:71, maxLv:76, rate:20},  // Celestarch (final → after 143 ✓)
       {id:145, minLv:70, maxLv:75, rate:15},  // Faerrin (base)
-      {id:119, minLv:70, maxLv:74, rate:15}   // Nighthound (Dark/Umbra)
+      {id:119, minLv:70, maxLv:74, rate:10},  // Nighthound (Dark/Umbra)
+      {id:222, minLv:70, maxLv:74, rate:10},  // Mindpuff (base, for Psytheon chain)
+      {id:223, minLv:70, maxLv:74, rate:10},  // Cerebrix (mid → after 222 ✓)
+      {id:255, minLv:71, maxLv:75, rate:10}   // Wavrix (mid → Aquapuff on route16 ✓)
     ],
     hasGym:false, requiredBadges:15, mapPos:{x:68, y:78}
   },
@@ -3478,7 +3503,7 @@ const WORLD_DATA = {
   toxic_bog: {
     id:"toxic_bog", name:"Toxic Bog", icon:"🐸", type:"route",
     desc:"A stagnant bog where the path turns south toward Miasma City. Foul gas bubbles up through the mud and Poison types lurk beneath the surface.",
-    connections:["murk_crossing","miasmacity"],
+    connections:["murk_crossing","mire_depths"],
     wildMonsters:[
       {id:156, minLv:58, maxLv:63, rate:20},  // Venekon (mid)
       {id:158, minLv:58, maxLv:63, rate:20},  // Toxoloth (mid)
@@ -3504,7 +3529,7 @@ const WORLD_DATA = {
   gale_peak: {
     id:"gale_peak", name:"Gale Peak", icon:"🌀", type:"route",
     desc:"The westernmost tip of the region — where Gale Ridge reaches its farthest point before turning sharply east. The wind here changes direction mid-step.",
-    connections:["route13","gale_ridge_east"],
+    connections:["wind_hollow","gale_ridge_east"],
     wildMonsters:[
       {id:108, minLv:63, maxLv:68, rate:15},  // Zephyrkin (base)
       {id:109, minLv:64, maxLv:69, rate:20},  // Aeolomane (mid → after 108 ✓)
@@ -3518,7 +3543,7 @@ const WORLD_DATA = {
   forge_ruins: {
     id:"forge_ruins", name:"Forge Ruins", icon:"🏚️", type:"route",
     desc:"Collapsed factory halls stretching east from the old Ironwork Path. Steel-type Lumos nest in the rusted machinery, and mid-stage chains are common sightings.",
-    connections:["route14","forge_approach"],
+    connections:["ash_fields","smelter_pass"],
     wildMonsters:[
       {id:147, minLv:65, maxLv:70, rate:15},  // Ferrokin (base)
       {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid → after 147 ✓)
@@ -3529,6 +3554,180 @@ const WORLD_DATA = {
     ],
     hasGym:false, requiredBadges:13, mapPos:{x:33, y:92}
   }
+
+  // ---- NEW AREAS: GYMS 9-16 EXPANSION ----
+
+  mire_depths: {
+    id:"mire_depths", name:"Mire Depths", icon:"🐸", type:"route",
+    desc:"A labyrinthine deep-swamp sector south of Toxic Bog. Venomous Lumos that have shed their pre-evolutions stalk the murky waterways. Umbra scouts use the miasma as cover.",
+    connections:["toxic_bog","miasmacity"],
+    wildMonsters:[
+      {id:156, minLv:59, maxLv:64, rate:20},  // Venekon (mid, base 155 on route10 ✓)
+      {id:297, minLv:58, maxLv:63, rate:20},  // Venomwing (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
+      {id:165, minLv:59, maxLv:64, rate:20},  // Noxoveth (mid, 164 on murk_crossing ✓)
+      {id:296, minLv:58, maxLv:63, rate:20},  // Toxifly (base Poi/Bug)
+      {id:299, minLv:58, maxLv:63, rate:10},  // Stinglet (base Bug/Poi, also on route10)
+      {id:218, minLv:59, maxLv:64, rate:10}   // Mistwraith (base Ghost/Dark, item evo)
+    ],
+    hasGym:false, requiredBadges:9, mapPos:{x:41, y:67}
+  },
+  magma_vent: {
+    id:"magma_vent", name:"Magma Vent", icon:"🌋", type:"route",
+    desc:"A superheated gorge where magma seeps through rock fissures between the foothills and Tremor Summit. Ground and Fire types bask in the thermal heat.",
+    connections:["quake_foothills","tremor_summit"],
+    wildMonsters:[
+      {id:96,  minLv:61, maxLv:66, rate:20},  // Seismith (mid, 95 on quake_foothills ✓)
+      {id:99,  minLv:61, maxLv:66, rate:20},  // Geovenoth (mid, 98 on quake_foothills ✓)
+      {id:102, minLv:61, maxLv:66, rate:20},  // Geoloth (mid, 101 on quake_foothills ✓)
+      {id:248, minLv:60, maxLv:65, rate:15},  // Pebblard (base Rock, also on route11)
+      {id:274, minLv:60, maxLv:65, rate:15},  // Cindling (base Fire/Rock)
+      {id:312, minLv:60, maxLv:65, rate:10}   // Dunecrawl (base Ground/Dark)
+    ],
+    hasGym:false, requiredBadges:10, mapPos:{x:28, y:74}
+  },
+  fungal_cavern: {
+    id:"fungal_cavern", name:"Fungal Cavern", icon:"🍄", type:"route",
+    desc:"An underground cavern lit by bioluminescent fungi on the route to Cobweb Gully. Grass and Bug types thrive in the moist, glowing dark.",
+    connections:["route12","cobweb_gully"],
+    wildMonsters:[
+      {id:197, minLv:62, maxLv:67, rate:15},  // Vermelin (base Bug)
+      {id:215, minLv:62, maxLv:67, rate:20},  // Psywisp (base Psychic)
+      {id:216, minLv:63, maxLv:68, rate:15},  // Psychdrift (mid → Psywisp 215 ✓)
+      {id:262, minLv:62, maxLv:67, rate:20},  // Seedling (base Grass/Poi)
+      {id:263, minLv:63, maxLv:68, rate:15},  // Vinrix (mid → after 262 ✓)
+      {id:272, minLv:62, maxLv:67, rate:15}   // Embrix (base Fire/Dragon)
+    ],
+    hasGym:false, requiredBadges:11, mapPos:{x:20, y:83}
+  },
+  ancient_grove: {
+    id:"ancient_grove", name:"Ancient Grove", icon:"🌳", type:"route",
+    desc:"A sacred forest grove of thousand-year-old trees. The air hums with ancient energy. Grass types here have evolved beyond their usual forms.",
+    connections:["cobweb_gully","silkwood"],
+    wildMonsters:[
+      {id:221, minLv:64, maxLv:69, rate:20},  // Grimveil (mid → Hauntrix 220 on route13 ✓)
+      {id:264, minLv:64, maxLv:69, rate:20},  // Thornvast (final → Vinrix 263 on fungal_cavern ✓)
+      {id:199, minLv:63, maxLv:68, rate:20},  // Aeridaleth (final Bug)
+      {id:265, minLv:63, maxLv:68, rate:20},  // Mosswing (standalone Grass/Bug)
+      {id:273, minLv:63, maxLv:68, rate:10},  // Blazeon (mid → Embrix 272 on fungal_cavern ✓)
+      {id:290, minLv:63, maxLv:68, rate:10}   // Mimiclaw (location evo cobweb_gully nearby)
+    ],
+    hasGym:false, requiredBadges:11, mapPos:{x:14, y:86}
+  },
+  wind_hollow: {
+    id:"wind_hollow", name:"Wind Hollow", icon:"🌬️", type:"route",
+    desc:"A sheltered bowl between cliff faces that creates a perfect wind tunnel. Rookie Wind-type Lumos train here before ascending Gale Ridge.",
+    connections:["route13","gale_peak"],
+    wildMonsters:[
+      {id:292, minLv:64, maxLv:69, rate:25},  // Galehorn (mid → 291 Breezekin on route13 ✓)
+      {id:293, minLv:63, maxLv:68, rate:20},  // Zephyrpuff (base Wind)
+      {id:222, minLv:63, maxLv:68, rate:20},  // Mindpuff (base Psychic)
+      {id:223, minLv:64, maxLv:69, rate:15},  // Cerebrix (mid → after 222 ✓)
+      {id:238, minLv:63, maxLv:68, rate:10},  // Snowble (base Ice/Wind)
+      {id:284, minLv:63, maxLv:68, rate:10}   // Fluffkin (base Normal/Wind)
+    ],
+    hasGym:false, requiredBadges:12, mapPos:{x:8, y:93}
+  },
+  tempest_cliffs: {
+    id:"tempest_cliffs", name:"Tempest Cliffs", icon:"⛰️", type:"route",
+    desc:"Sheer cliff faces battered by perpetual gales where Gale Ridge meets Gusthaven. Only the most powerful Wind types cling to the rockface here.",
+    connections:["gale_ridge_east","gusthaven"],
+    wildMonsters:[
+      {id:294, minLv:65, maxLv:70, rate:25},  // Stormwing (mid → 293 on gale_peak ✓)
+      {id:295, minLv:66, maxLv:71, rate:15},  // Cyclonax (final → after 294 ✓)
+      {id:239, minLv:65, maxLv:70, rate:20},  // Blizzavane (mid → 238 on gale_peak ✓)
+      {id:240, minLv:66, maxLv:71, rate:15},  // Permafrix (final → after 239 ✓)
+      {id:285, minLv:65, maxLv:70, rate:15},  // Cloudvane (mid → Fluffkin on wind_hollow ✓)
+      {id:174, minLv:65, maxLv:70, rate:10}   // Scalevorn (standalone Dragon/Steel)
+    ],
+    hasGym:false, requiredBadges:12, mapPos:{x:16, y:97}
+  },
+  ash_fields: {
+    id:"ash_fields", name:"Ash Fields", icon:"🏜️", type:"route",
+    desc:"A barren expanse of volcanic ash fields between Gusthaven and the Forge Ruins. Fire types scorch the ashen ground, and Steel types scavenge the slag.",
+    connections:["route14","forge_ruins"],
+    wildMonsters:[
+      {id:245, minLv:66, maxLv:71, rate:25},  // Thundravex (mid Electric → 244 ✓)
+      {id:275, minLv:66, maxLv:71, rate:25},  // Infernox (mid → 274 Cindling on magma_vent ✓)
+      {id:266, minLv:65, maxLv:70, rate:20},  // Shadowpup (base Dark, also route10)
+      {id:267, minLv:66, maxLv:71, rate:15},  // Nightclaw (mid → after 266 ✓)
+      {id:278, minLv:65, maxLv:70, rate:10},  // Ironling (base, also route14)
+      {id:312, minLv:65, maxLv:70, rate:5}    // Dunecrawl (base, also magma_vent)
+    ],
+    hasGym:false, requiredBadges:13, mapPos:{x:30, y:90}
+  },
+  smelter_pass: {
+    id:"smelter_pass", name:"Smelter Pass", icon:"🔥", type:"route",
+    desc:"A narrow gorge between forge ruin walls where steel smelting still occurs. Metal vapors attract Steel/Fire hybrids and battle-hardened mid-evolutions.",
+    connections:["forge_ruins","forge_approach"],
+    wildMonsters:[
+      {id:281, minLv:67, maxLv:72, rate:25},  // Cogvex (mid → 280 Gearbit on route14 ✓)
+      {id:276, minLv:67, maxLv:72, rate:20},  // Pyrovast (final → Infernox on ash_fields ✓)
+      {id:283, minLv:66, maxLv:71, rate:20},  // Rustpike (standalone Steel/Poi)
+      {id:246, minLv:67, maxLv:72, rate:15},  // Megavolt (final → 245 on ash_fields ✓)
+      {id:268, minLv:67, maxLv:72, rate:10},  // Darkfang (final Dark → 267 ✓)
+      {id:307, minLv:66, maxLv:71, rate:10}   // Cinderpaw (standalone Fire/Dark)
+    ],
+    hasGym:false, requiredBadges:13, mapPos:{x:36, y:91}
+  },
+  granite_tunnels: {
+    id:"granite_tunnels", name:"Granite Tunnels", icon:"⛏️", type:"route",
+    desc:"Underground tunnels bored through solid granite linking Ironforge to the Stone Plateau. Rock and Dragon types nest in the crystalline formations.",
+    connections:["route15","stone_plateau"],
+    wildMonsters:[
+      {id:249, minLv:68, maxLv:73, rate:25},  // Boulderax (mid → 248 on route11/magma_vent ✓)
+      {id:305, minLv:68, maxLv:73, rate:20},  // Geoshard (mid → 304 Crysthorn on route15 ✓)
+      {id:233, minLv:68, maxLv:73, rate:20},  // Serpenthorn (mid → 232 Draxon on route15 ✓)
+      {id:174, minLv:68, maxLv:73, rate:15},  // Scalevorn (standalone Dragon/Steel)
+      {id:251, minLv:67, maxLv:72, rate:10},  // Crumblite (base Rock/Steel, also route15)
+      {id:282, minLv:68, maxLv:73, rate:10}   // Mechavast (final → Cogvex on smelter_pass ✓)
+    ],
+    hasGym:false, requiredBadges:14, mapPos:{x:46, y:84}
+  },
+  crystal_mine: {
+    id:"crystal_mine", name:"Crystal Mine", icon:"💎", type:"route",
+    desc:"An exhausted gem mine between Stone Plateau and Quarryville where crystalline Rock types have colonized the abandoned shafts.",
+    connections:["stone_plateau","quarryville"],
+    wildMonsters:[
+      {id:250, minLv:70, maxLv:75, rate:20},  // Megalith (final → 249 on granite_tunnels ✓)
+      {id:306, minLv:70, maxLv:75, rate:20},  // Crystallon (final → 305 on granite_tunnels ✓)
+      {id:234, minLv:70, maxLv:75, rate:20},  // Wyvernak (final → 233 on granite_tunnels ✓)
+      {id:237, minLv:69, maxLv:74, rate:15},  // Glacicore (mid → 236 Frostick on route11 ✓)
+      {id:313, minLv:69, maxLv:74, rate:15},  // Sandrix (mid → 312 Dunecrawl on magma_vent ✓)
+      {id:241, minLv:70, maxLv:75, rate:10}   // Crystalix (location evo from cosmic_cavern energy)
+    ],
+    hasGym:false, requiredBadges:14, mapPos:{x:53, y:83}
+  },
+  nebula_gorge: {
+    id:"nebula_gorge", name:"Nebula Gorge", icon:"🌠", type:"route",
+    desc:"A star-dusted gorge where cosmic energy from nearby Starbloom saturates the air. Psychic and Fairy types commune with the starlight here.",
+    connections:["route16","cosmic_cavern"],
+    wildMonsters:[
+      {id:254, minLv:70, maxLv:75, rate:20},  // Aquapuff (base, also on route16)
+      {id:255, minLv:71, maxLv:76, rate:20},  // Wavrix (mid → after 254 ✓)
+      {id:215, minLv:70, maxLv:75, rate:15},  // Psywisp (base Psychic)
+      {id:216, minLv:71, maxLv:76, rate:15},  // Psychdrift (mid → Psywisp 215 ✓)
+      {id:259, minLv:70, maxLv:75, rate:15},  // Lumejell (standalone Water/Psy)
+      {id:269, minLv:70, maxLv:75, rate:10},  // Grimshade (base Dark, item evo)
+      {id:271, minLv:70, maxLv:75, rate:5}    // Duskrat (standalone Dark/Normal)
+    ],
+    hasGym:false, requiredBadges:15, mapPos:{x:64, y:76}
+  },
+  astral_plateau: {
+    id:"astral_plateau", name:"Astral Plateau", icon:"⭐", type:"route",
+    desc:"A high plateau above Cosmic Cavern where the sky seems close enough to touch. Rare Lumos shaped by cosmic energy appear here in the hours around midnight.",
+    connections:["cosmic_cavern","starbloom"],
+    wildMonsters:[
+      {id:217, minLv:72, maxLv:77, rate:20},  // Mentovast (final Psychic)
+      {id:224, minLv:72, maxLv:77, rate:20},  // Psytheon (final → 223 on cosmic_cavern ✓)
+      {id:303, minLv:72, maxLv:77, rate:15},  // Lumivane (Moon Stone evo, base 302 on route16 ✓)
+      {id:229, minLv:72, maxLv:77, rate:15},  // Prismolt (Thunder Stone evo, base 226 on route16 ✓)
+      {id:228, minLv:72, maxLv:77, rate:10},  // Prismoon (Moon Stone evo, base 226 on route16 ✓)
+      {id:309, minLv:72, maxLv:77, rate:10},  // Aquaphant (Water Stone evo, base 308 → Water/Dark)
+      {id:308, minLv:71, maxLv:76, rate:10}   // Tidewraith (base Water/Dark)
+    ],
+    hasGym:false, requiredBadges:15, mapPos:{x:67, y:74}
+  },
+
 };
 
 // ============================================================

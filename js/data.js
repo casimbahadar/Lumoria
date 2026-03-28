@@ -3912,209 +3912,424 @@ const GYM_LEADERS = {
     badge:"Foundation Badge", badgeEmoji:"🧱",
     quote:"You think you have what it takes? Let's see how normal you really are!",
     winQuote:"Not bad! Here, take the Foundation Badge. You've earned it.",
-    team:[
-      {monsterId:178, level:10, moves:["tackle","headbutt","growl","quick_attack"]},
-      {monsterId:180, level:12, moves:["tackle","quick_attack","tail_whip","headbutt"]},
-      {monsterId:183, level:14, moves:["headbutt","body_slam","growl","tackle"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:178, level:11, moves:["tackle","headbutt","growl","quick_attack"]},
+        {monsterId:183, level:14, moves:["headbutt","body_slam","growl","tackle"]}
+      ],
+      double:[
+        {monsterId:178, level:10, moves:["tackle","headbutt","growl","quick_attack"]},
+        {monsterId:180, level:12, moves:["tackle","quick_attack","tail_whip","headbutt"]},
+        {monsterId:183, level:14, moves:["headbutt","body_slam","growl","tackle"]}
+      ],
+      triple:[
+        {monsterId:178, level:10, moves:["tackle","headbutt","growl","quick_attack"]},
+        {monsterId:180, level:11, moves:["tackle","quick_attack","tail_whip","headbutt"]},
+        {monsterId:182, level:12, moves:["headbutt","body_slam","growl","tackle"]},
+        {monsterId:183, level:13, moves:["headbutt","body_slam","growl","tackle"]},
+        {monsterId:184, level:14, moves:["body_slam","headbutt","tackle","quick_attack"]}
+      ]
+    }
   },
   marina: {
     id:"marina", name:"Leader Marina", emoji:"🌊", type:"Water",
     badge:"Wave Badge", badgeEmoji:"🌊",
     quote:"The ocean is vast and powerful. Feel the force of its tides!",
     winQuote:"You truly understand the ocean's power. The Wave Badge is yours.",
-    team:[
-      {monsterId:28, level:17, moves:["water_gun","bubble_beam","sweet_kiss","quick_attack"]},
-      {monsterId:25, level:18, moves:["water_gun","bubble_beam","harden","aqua_tail"]},
-      {monsterId:5,  level:19, moves:["water_gun","aqua_tail","surf","recover"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:25, level:18, moves:["water_gun","bubble_beam","harden","aqua_tail"]},
+        {monsterId:5,  level:19, moves:["water_gun","aqua_tail","surf","recover"]}
+      ],
+      double:[
+        {monsterId:28, level:17, moves:["water_gun","bubble_beam","sweet_kiss","quick_attack"]},
+        {monsterId:25, level:18, moves:["water_gun","bubble_beam","harden","aqua_tail"]},
+        {monsterId:193, level:19, moves:["water_gun","rock_slide","aqua_tail","harden"]},
+        {monsterId:5,  level:20, moves:["water_gun","aqua_tail","surf","recover"]}
+      ],
+      triple:[
+        {monsterId:28, level:17, moves:["water_gun","bubble_beam","sweet_kiss","quick_attack"]},
+        {monsterId:25, level:18, moves:["water_gun","bubble_beam","harden","aqua_tail"]},
+        {monsterId:193, level:18, moves:["water_gun","rock_slide","aqua_tail","harden"]},
+        {monsterId:194, level:19, moves:["stone_edge","surf","aqua_tail","rock_slide"]},
+        {monsterId:5,  level:20, moves:["water_gun","aqua_tail","surf","recover"]}
+      ]
+    }
   },
   pyros: {
     id:"pyros", name:"Leader Pyros", emoji:"🔥", type:"Fire",
     badge:"Forge Badge", badgeEmoji:"🔥",
     quote:"My fire burns hotter than any volcano! Can you withstand the heat?",
     winQuote:"Your strength is as intense as a raging wildfire. The Forge Badge is yours!",
-    team:[
-      {monsterId:16, level:21, moves:["ember","quick_attack","flamethrower","tackle"]},
-      {monsterId:10, level:22, moves:["ember","bug_bite","flame_fang","x_scissor"]},
-      {monsterId:13, level:23, moves:["ember","headbutt","flamethrower","body_slam"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:16, level:22, moves:["ember","quick_attack","flamethrower","tackle"]},
+        {monsterId:13, level:23, moves:["ember","headbutt","flamethrower","body_slam"]}
+      ],
+      double:[
+        {monsterId:16, level:21, moves:["ember","quick_attack","flamethrower","tackle"]},
+        {monsterId:10, level:22, moves:["ember","bug_bite","flame_fang","x_scissor"]},
+        {monsterId:13, level:23, moves:["ember","headbutt","flamethrower","body_slam"]}
+      ],
+      triple:[
+        {monsterId:16, level:21, moves:["ember","quick_attack","flamethrower","tackle"]},
+        {monsterId:10, level:22, moves:["ember","bug_bite","flame_fang","x_scissor"]},
+        {monsterId:17, level:22, moves:["flamethrower","dragon_claw","heat_wave","dragon_breath"]},
+        {monsterId:13, level:23, moves:["ember","headbutt","flamethrower","body_slam"]}
+      ]
+    }
   },
   zara: {
     id:"zara", name:"Leader Zara", emoji:"⚡", type:"Electric",
     badge:"Current Badge", badgeEmoji:"⚡",
     quote:"I'll shock you senseless! Electric types are unstoppable!",
     winQuote:"You're truly electrifying! The Current Badge is yours.",
-    team:[
-      {monsterId:84, level:25, moves:["thunder_shock","spark","bug_bite","string_shot"]},
-      {monsterId:90, level:26, moves:["thunder_shock","wing_attack","spark","thunderbolt"]},
-      {monsterId:82, level:28, moves:["thunderbolt","spark","body_slam","thunder_wave"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:90, level:26, moves:["thunder_shock","wing_attack","spark","thunderbolt"]},
+        {monsterId:82, level:28, moves:["thunderbolt","spark","body_slam","thunder_wave"]}
+      ],
+      double:[
+        {monsterId:84, level:25, moves:["thunder_shock","spark","bug_bite","string_shot"]},
+        {monsterId:90, level:26, moves:["thunder_shock","wing_attack","spark","thunderbolt"]},
+        {monsterId:82, level:28, moves:["thunderbolt","spark","body_slam","thunder_wave"]}
+      ],
+      triple:[
+        {monsterId:84, level:25, moves:["thunder_shock","spark","bug_bite","string_shot"]},
+        {monsterId:90, level:26, moves:["thunder_shock","wing_attack","spark","thunderbolt"]},
+        {monsterId:81, level:27, moves:["thunder_shock","spark","thunderbolt","quick_attack"]},
+        {monsterId:82, level:28, moves:["thunderbolt","spark","body_slam","thunder_wave"]}
+      ]
+    }
   },
   glacier: {
     id:"glacier", name:"Leader Glacier", emoji:"❄️", type:"Ice",
     badge:"Frost Badge", badgeEmoji:"❄️",
     quote:"The cold never bothered me! But it will certainly bother you!",
     winQuote:"Your warmth has melted even my icy heart. The Frost Badge is yours.",
-    team:[
-      {monsterId:45, level:32, moves:["powder_snow","water_gun","ice_beam","surf"]},
-      {monsterId:47, level:33, moves:["powder_snow","quick_attack","ice_beam","icicle_crash"]},
-      {monsterId:50, level:34, moves:["powder_snow","harden","ice_beam","blizzard"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:47, level:33, moves:["powder_snow","quick_attack","ice_beam","icicle_crash"]},
+        {monsterId:50, level:34, moves:["powder_snow","harden","ice_beam","blizzard"]}
+      ],
+      double:[
+        {monsterId:45, level:32, moves:["powder_snow","water_gun","ice_beam","surf"]},
+        {monsterId:47, level:33, moves:["powder_snow","quick_attack","ice_beam","icicle_crash"]},
+        {monsterId:50, level:34, moves:["powder_snow","harden","ice_beam","blizzard"]}
+      ],
+      triple:[
+        {monsterId:45, level:32, moves:["powder_snow","water_gun","ice_beam","surf"]},
+        {monsterId:47, level:33, moves:["powder_snow","quick_attack","ice_beam","icicle_crash"]},
+        {monsterId:48, level:33, moves:["blizzard","ice_beam","surf","icicle_crash"]},
+        {monsterId:50, level:34, moves:["powder_snow","harden","ice_beam","blizzard"]}
+      ]
+    }
   },
   nyx: {
     id:"nyx", name:"Leader Nyx", emoji:"🌑", type:"Dark",
     badge:"Dusk Badge", badgeEmoji:"🌑",
     quote:"Light cannot penetrate my darkness. Surrender to the shadow!",
     winQuote:"A light that cannot be extinguished... The Dusk Badge is yours.",
-    team:[
-      {monsterId:121, level:36, moves:["bite","gust","dark_pulse","wing_attack"]},
-      {monsterId:118, level:37, moves:["bite","quick_attack","crunch","night_slash"]},
-      {monsterId:123, level:39, moves:["bite","poison_sting","crunch","shadow_ball"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:118, level:37, moves:["bite","quick_attack","crunch","night_slash"]},
+        {monsterId:123, level:39, moves:["bite","poison_sting","crunch","shadow_ball"]}
+      ],
+      double:[
+        {monsterId:121, level:36, moves:["bite","gust","dark_pulse","wing_attack"]},
+        {monsterId:118, level:37, moves:["bite","quick_attack","crunch","night_slash"]},
+        {monsterId:123, level:39, moves:["bite","poison_sting","crunch","shadow_ball"]}
+      ],
+      triple:[
+        {monsterId:121, level:36, moves:["bite","gust","dark_pulse","wing_attack"]},
+        {monsterId:118, level:37, moves:["bite","quick_attack","crunch","night_slash"]},
+        {monsterId:122, level:38, moves:["dark_pulse","wing_attack","air_slash","shadow_ball"]},
+        {monsterId:123, level:39, moves:["bite","poison_sting","crunch","shadow_ball"]}
+      ]
+    }
   },
   oracle: {
     id:"oracle", name:"Leader Oracle", emoji:"🔮", type:"Psychic",
     badge:"Foresight Badge", badgeEmoji:"🔮",
     quote:"I have foreseen your defeat. The future is already written.",
     winQuote:"Incredible. You have rewritten what I thought was fate. The Foresight Badge is yours.",
-    team:[
-      {monsterId:166, level:42, moves:["confusion","quick_attack","psybeam","recover"]},
-      {monsterId:142, level:43, moves:["confusion","fairy_wind","psybeam","dazzling_gleam"]},
-      {monsterId:168, level:45, moves:["psybeam","dazzling_gleam","psychic_move","calm_mind"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:166, level:43, moves:["confusion","quick_attack","psybeam","recover"]},
+        {monsterId:168, level:45, moves:["psybeam","dazzling_gleam","psychic_move","calm_mind"]}
+      ],
+      double:[
+        {monsterId:167, level:42, moves:["confusion","psybeam","recover","quick_attack"]},
+        {monsterId:166, level:43, moves:["confusion","quick_attack","psybeam","recover"]},
+        {monsterId:142, level:43, moves:["confusion","fairy_wind","psybeam","dazzling_gleam"]},
+        {monsterId:168, level:45, moves:["psybeam","dazzling_gleam","psychic_move","calm_mind"]}
+      ],
+      triple:[
+        {monsterId:167, level:42, moves:["confusion","psybeam","recover","quick_attack"]},
+        {monsterId:166, level:43, moves:["confusion","quick_attack","psybeam","recover"]},
+        {monsterId:142, level:43, moves:["confusion","fairy_wind","psybeam","dazzling_gleam"]},
+        {monsterId:169, level:44, moves:["confusion","psybeam","psychic_move","calm_mind"]},
+        {monsterId:170, level:45, moves:["psychic_move","dark_pulse","shadow_ball","night_slash"]},
+        {monsterId:168, level:45, moves:["psybeam","dazzling_gleam","psychic_move","calm_mind"]}
+      ]
+    }
   },
   drake: {
     id:"drake", name:"Leader Drake", emoji:"🐉", type:"Dragon",
     badge:"Wyrm Badge", badgeEmoji:"🐉",
     quote:"Dragons are the apex of all Lumos. You cannot defeat their ancient power!",
     winQuote:"You have shown the heart of a true dragon master. The Wyrm Badge is yours!",
-    team:[
-      {monsterId:172, level:47, moves:["dragon_breath","dragon_claw","headbutt","dragon_dance"]},
-      {monsterId:176, level:48, moves:["thunder_shock","dragon_breath","thunderbolt","dragon_claw"]},
-      {monsterId:175, level:49, moves:["water_gun","dragon_breath","surf","dragon_claw"]},
-      {monsterId:173, level:50, moves:["dragon_claw","dragon_pulse","dragon_dance","outrage"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:172, level:48, moves:["dragon_breath","dragon_claw","headbutt","dragon_dance"]},
+        {monsterId:173, level:50, moves:["dragon_claw","dragon_pulse","dragon_dance","outrage"]}
+      ],
+      double:[
+        {monsterId:172, level:47, moves:["dragon_breath","dragon_claw","headbutt","dragon_dance"]},
+        {monsterId:174, level:48, moves:["dragon_claw","iron_tail","dragon_breath","flash_cannon"]},
+        {monsterId:175, level:49, moves:["water_gun","dragon_breath","surf","dragon_claw"]},
+        {monsterId:173, level:50, moves:["dragon_claw","dragon_pulse","dragon_dance","outrage"]}
+      ],
+      triple:[
+        {monsterId:172, level:47, moves:["dragon_breath","dragon_claw","headbutt","dragon_dance"]},
+        {monsterId:174, level:48, moves:["dragon_claw","iron_tail","dragon_breath","flash_cannon"]},
+        {monsterId:175, level:49, moves:["water_gun","dragon_breath","surf","dragon_claw"]},
+        {monsterId:176, level:49, moves:["thunder_shock","dragon_breath","thunderbolt","dragon_claw"]},
+        {monsterId:177, level:50, moves:["ice_beam","dragon_breath","blizzard","dragon_claw"]},
+        {monsterId:173, level:50, moves:["dragon_claw","dragon_pulse","dragon_dance","outrage"]}
+      ]
+    }
   },
   // ---- 8 NEW GYM LEADERS (badges 8-15) ----
   thorne: {
     id:"thorne", name:"Leader Thorne", emoji:"🌿", type:"Grass",
     badge:"Canopy Badge", badgeEmoji:"🌿",
-    battleType:"double",
     quote:"The forest speaks to me. Let its vines entangle your hopes!",
     winQuote:"Your spirit is as resilient as ancient oak. The Canopy Badge is yours.",
-    team:[
-      {monsterId:8,   level:51, moves:["razor_leaf","vine_whip","seed_bomb","energy_ball"]},
-      {monsterId:263, level:52, moves:["vine_whip","poison_jab","energy_ball","toxic"]},
-      {monsterId:264, level:52, moves:["energy_ball","toxic","sludge_bomb","petal_blitz"]},
-      {monsterId:9,   level:53, moves:["petal_blitz","energy_ball","moonblast","canopy_crash"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:263, level:52, moves:["vine_whip","poison_jab","energy_ball","toxic"]},
+        {monsterId:9,   level:53, moves:["petal_blitz","energy_ball","moonblast","canopy_crash"]}
+      ],
+      double:[
+        {monsterId:8,   level:51, moves:["razor_leaf","vine_whip","seed_bomb","energy_ball"]},
+        {monsterId:263, level:52, moves:["vine_whip","poison_jab","energy_ball","toxic"]},
+        {monsterId:264, level:52, moves:["energy_ball","toxic","sludge_bomb","petal_blitz"]},
+        {monsterId:9,   level:53, moves:["petal_blitz","energy_ball","moonblast","canopy_crash"]}
+      ],
+      triple:[
+        {monsterId:8,   level:51, moves:["razor_leaf","vine_whip","seed_bomb","energy_ball"]},
+        {monsterId:263, level:52, moves:["vine_whip","poison_jab","energy_ball","toxic"]},
+        {monsterId:264, level:52, moves:["energy_ball","toxic","sludge_bomb","petal_blitz"]},
+        {monsterId:65,  level:52, moves:["petal_blitz","energy_ball","verdant_surge","canopy_crash"]},
+        {monsterId:9,   level:53, moves:["petal_blitz","energy_ball","moonblast","canopy_crash"]}
+      ]
+    }
   },
   viper: {
     id:"viper", name:"Leader Viper", emoji:"☠️", type:"Poison",
     badge:"Venom Badge", badgeEmoji:"☠️",
-    battleType:"single",
     quote:"One drop is all it takes. My Lumos are lethal to the touch!",
     winQuote:"You survived my venom... impressive. The Venom Badge is yours.",
-    team:[
-      {monsterId:156, level:55, moves:["sludge_bomb","venoshock","toxic","acid_rain"]},
-      {monsterId:297, level:55, moves:["sludge_bomb","air_slash","toxic","bug_buzz"]},
-      {monsterId:208, level:56, moves:["sludge_bomb","dragon_pulse","venoshock","toxic"]},
-      {monsterId:158, level:57, moves:["sludge_wave","earthquake","acid_rain","toxic"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:156, level:56, moves:["sludge_bomb","venoshock","toxic","acid_rain"]},
+        {monsterId:158, level:57, moves:["sludge_wave","earthquake","acid_rain","toxic"]}
+      ],
+      double:[
+        {monsterId:156, level:55, moves:["sludge_bomb","venoshock","toxic","acid_rain"]},
+        {monsterId:297, level:55, moves:["sludge_bomb","air_slash","toxic","bug_buzz"]},
+        {monsterId:208, level:56, moves:["sludge_bomb","dragon_pulse","venoshock","toxic"]},
+        {monsterId:158, level:57, moves:["sludge_wave","earthquake","acid_rain","toxic"]}
+      ],
+      triple:[
+        {monsterId:156, level:55, moves:["sludge_bomb","venoshock","toxic","acid_rain"]},
+        {monsterId:297, level:55, moves:["sludge_bomb","air_slash","toxic","bug_buzz"]},
+        {monsterId:99,  level:56, moves:["sludge_bomb","earthquake","toxic","venoshock"]},
+        {monsterId:208, level:56, moves:["sludge_bomb","dragon_pulse","venoshock","toxic"]},
+        {monsterId:158, level:57, moves:["sludge_wave","earthquake","acid_rain","toxic"]}
+      ]
+    }
   },
   atlas: {
     id:"atlas", name:"Leader Atlas", emoji:"🏔️", type:"Ground",
     badge:"Tectonic Badge", badgeEmoji:"🏔️",
-    battleType:"double",
     quote:"I am the earth itself. Unshakable. Unyielding. Unstoppable!",
     winQuote:"The ground trembles in respect. The Tectonic Badge is yours.",
-    team:[
-      {monsterId:96,  level:58, moves:["earthquake","rock_slide","mud_shot","stone_edge"]},
-      {monsterId:310, level:59, moves:["mud_shot","water_gun","earthquake","mud_bomb"]},
-      {monsterId:311, level:59, moves:["surf","earthquake","earth_power","mud_shot"]},
-      {monsterId:54,  level:60, moves:["earthquake","blizzard","ice_beam","earth_power"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:96,  level:59, moves:["earthquake","rock_slide","mud_shot","stone_edge"]},
+        {monsterId:54,  level:60, moves:["earthquake","blizzard","ice_beam","earth_power"]}
+      ],
+      double:[
+        {monsterId:96,  level:58, moves:["earthquake","rock_slide","mud_shot","stone_edge"]},
+        {monsterId:310, level:59, moves:["mud_shot","water_gun","earthquake","mud_bomb"]},
+        {monsterId:311, level:59, moves:["surf","earthquake","earth_power","mud_shot"]},
+        {monsterId:54,  level:60, moves:["earthquake","blizzard","ice_beam","earth_power"]}
+      ],
+      triple:[
+        {monsterId:96,  level:58, moves:["earthquake","rock_slide","mud_shot","stone_edge"]},
+        {monsterId:310, level:59, moves:["mud_shot","water_gun","earthquake","mud_bomb"]},
+        {monsterId:311, level:59, moves:["surf","earthquake","earth_power","mud_shot"]},
+        {monsterId:250, level:59, moves:["earthquake","stone_edge","rock_slide","landslide"]},
+        {monsterId:54,  level:60, moves:["earthquake","blizzard","ice_beam","earth_power"]}
+      ]
+    }
   },
   mantis: {
     id:"mantis", name:"Leader Mantis", emoji:"🦗", type:"Bug",
     badge:"Chitin Badge", badgeEmoji:"🦗",
-    battleType:"triple",
     quote:"Bugs are nature's perfect warriors. Swift, sharp, and relentless!",
     winQuote:"Your reflexes rival even my bugs. The Chitin Badge is yours!",
-    team:[
-      {monsterId:201, level:61, moves:["x_scissor","bug_buzz","iron_tail","mandible_crush"]},
-      {monsterId:299, level:62, moves:["bug_bite","poison_sting","x_scissor","toxic"]},
-      {monsterId:300, level:62, moves:["x_scissor","sludge_bomb","toxic","bug_buzz"]},
-      {monsterId:203, level:63, moves:["bug_buzz","moonblast","x_scissor","dazzling_gleam"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:201, level:62, moves:["x_scissor","bug_buzz","iron_tail","mandible_crush"]},
+        {monsterId:203, level:63, moves:["bug_buzz","moonblast","x_scissor","dazzling_gleam"]}
+      ],
+      double:[
+        {monsterId:201, level:61, moves:["x_scissor","bug_buzz","iron_tail","mandible_crush"]},
+        {monsterId:197, level:62, moves:["bug_bite","x_scissor","poison_sting","bug_buzz"]},
+        {monsterId:299, level:62, moves:["bug_bite","poison_sting","x_scissor","toxic"]},
+        {monsterId:203, level:63, moves:["bug_buzz","moonblast","x_scissor","dazzling_gleam"]}
+      ],
+      triple:[
+        {monsterId:201, level:61, moves:["x_scissor","bug_buzz","iron_tail","mandible_crush"]},
+        {monsterId:197, level:62, moves:["bug_bite","x_scissor","poison_sting","bug_buzz"]},
+        {monsterId:299, level:62, moves:["bug_bite","poison_sting","x_scissor","toxic"]},
+        {monsterId:300, level:62, moves:["x_scissor","sludge_bomb","toxic","bug_buzz"]},
+        {monsterId:199, level:63, moves:["bug_buzz","air_slash","x_scissor","hurricane"]},
+        {monsterId:203, level:63, moves:["bug_buzz","moonblast","x_scissor","dazzling_gleam"]}
+      ]
+    }
   },
   zephyra: {
     id:"zephyra", name:"Leader Zephyra", emoji:"🌪️", type:"Wind",
     badge:"Tempest Badge", badgeEmoji:"🌪️",
-    battleType:"double",
     quote:"The winds obey my command! Can you stand against the storm?",
     winQuote:"You've weathered the fiercest gale. The Tempest Badge is yours.",
-    team:[
-      {monsterId:112, level:64, moves:["hurricane","air_slash","cyclone_blade","jetstream"]},
-      {monsterId:294, level:65, moves:["hurricane","dragon_breath","air_slash","cyclone_blade"]},
-      {monsterId:295, level:65, moves:["hurricane","dragon_claw","air_slash","cyclone_blade"]},
-      {monsterId:314, level:66, moves:["hurricane","thunderbolt","tempest_wrath","gale_cannon"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:112, level:65, moves:["hurricane","air_slash","cyclone_blade","jetstream"]},
+        {monsterId:314, level:66, moves:["hurricane","thunderbolt","tempest_wrath","gale_cannon"]}
+      ],
+      double:[
+        {monsterId:112, level:64, moves:["hurricane","air_slash","cyclone_blade","jetstream"]},
+        {monsterId:294, level:65, moves:["hurricane","dragon_breath","air_slash","cyclone_blade"]},
+        {monsterId:295, level:65, moves:["hurricane","dragon_claw","air_slash","cyclone_blade"]},
+        {monsterId:314, level:66, moves:["hurricane","thunderbolt","tempest_wrath","gale_cannon"]}
+      ],
+      triple:[
+        {monsterId:112, level:64, moves:["hurricane","air_slash","cyclone_blade","jetstream"]},
+        {monsterId:294, level:65, moves:["hurricane","dragon_breath","air_slash","cyclone_blade"]},
+        {monsterId:295, level:65, moves:["hurricane","dragon_claw","air_slash","cyclone_blade"]},
+        {monsterId:186, level:65, moves:["body_slam","hurricane","air_slash","quick_attack"]},
+        {monsterId:199, level:65, moves:["bug_buzz","air_slash","x_scissor","hurricane"]},
+        {monsterId:314, level:66, moves:["hurricane","thunderbolt","tempest_wrath","gale_cannon"]}
+      ]
+    }
   },
   ferro: {
     id:"ferro", name:"Leader Ferro", emoji:"⚙️", type:"Steel",
     badge:"Alloy Badge", badgeEmoji:"⚙️",
-    battleType:"double",
     quote:"Steel is perfection. No weakness, no flaw, no mercy!",
     winQuote:"Even steel bends before your will. The Alloy Badge is yours.",
-    team:[
-      {monsterId:148, level:67, moves:["iron_tail","forge_strike","flash_cannon","crunch"]},
-      {monsterId:252, level:68, moves:["stone_edge","iron_tail","flash_cannon","rock_slide"]},
-      {monsterId:279, level:68, moves:["flash_cannon","moonblast","iron_tail","dazzling_gleam"]},
-      {monsterId:151, level:69, moves:["tungsten_ram","flash_cannon","thunder","iron_tail"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:148, level:68, moves:["iron_tail","forge_strike","flash_cannon","crunch"]},
+        {monsterId:151, level:69, moves:["tungsten_ram","flash_cannon","thunder","iron_tail"]}
+      ],
+      double:[
+        {monsterId:148, level:67, moves:["iron_tail","forge_strike","flash_cannon","crunch"]},
+        {monsterId:252, level:68, moves:["stone_edge","iron_tail","flash_cannon","rock_slide"]},
+        {monsterId:279, level:68, moves:["flash_cannon","moonblast","iron_tail","dazzling_gleam"]},
+        {monsterId:151, level:69, moves:["tungsten_ram","flash_cannon","thunder","iron_tail"]}
+      ],
+      triple:[
+        {monsterId:148, level:67, moves:["iron_tail","forge_strike","flash_cannon","crunch"]},
+        {monsterId:252, level:68, moves:["stone_edge","iron_tail","flash_cannon","rock_slide"]},
+        {monsterId:279, level:68, moves:["flash_cannon","moonblast","iron_tail","dazzling_gleam"]},
+        {monsterId:174, level:68, moves:["dragon_claw","iron_tail","dragon_breath","flash_cannon"]},
+        {monsterId:151, level:69, moves:["tungsten_ram","flash_cannon","thunder","iron_tail"]}
+      ]
+    }
   },
   boulder: {
     id:"boulder", name:"Leader Boulder", emoji:"🪨", type:"Rock",
     badge:"Geode Badge", badgeEmoji:"🪨",
-    battleType:"triple",
     quote:"Solid as stone, heavy as mountains. My Lumos are unbreakable!",
     winQuote:"You've shattered my defenses. The Geode Badge is yours.",
-    team:[
-      {monsterId:192, level:70, moves:["earthquake","stone_edge","rock_slide","landslide"]},
-      {monsterId:304, level:71, moves:["crystal_lance","stone_edge","ice_beam","rock_slide"]},
-      {monsterId:305, level:71, moves:["stone_edge","ice_beam","rock_slide","blizzard"]},
-      {monsterId:152, level:72, moves:["tungsten_ram","stone_edge","iron_tail","landslide"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:191, level:70, moves:["stone_edge","rock_slide","tackle","headbutt"]},
+        {monsterId:192, level:71, moves:["earthquake","stone_edge","rock_slide","landslide"]},
+        {monsterId:152, level:72, moves:["tungsten_ram","stone_edge","iron_tail","landslide"]}
+      ],
+      double:[
+        {monsterId:191, level:70, moves:["stone_edge","rock_slide","tackle","headbutt"]},
+        {monsterId:192, level:70, moves:["earthquake","stone_edge","rock_slide","landslide"]},
+        {monsterId:304, level:71, moves:["crystal_lance","stone_edge","ice_beam","rock_slide"]},
+        {monsterId:305, level:71, moves:["stone_edge","ice_beam","rock_slide","blizzard"]}
+      ],
+      triple:[
+        {monsterId:191, level:70, moves:["stone_edge","rock_slide","tackle","headbutt"]},
+        {monsterId:192, level:70, moves:["earthquake","stone_edge","rock_slide","landslide"]},
+        {monsterId:304, level:71, moves:["crystal_lance","stone_edge","ice_beam","rock_slide"]},
+        {monsterId:305, level:71, moves:["stone_edge","ice_beam","rock_slide","blizzard"]},
+        {monsterId:152, level:72, moves:["tungsten_ram","stone_edge","iron_tail","landslide"]}
+      ]
+    }
   },
   seraphina: {
     id:"seraphina", name:"Leader Seraphina", emoji:"🧚", type:"Fairy",
     badge:"Aurora Badge", badgeEmoji:"🧚",
-    battleType:"triple",
     quote:"Fairy magic is the most beautiful and the most deadly force in Lumoria!",
     winQuote:"Your heart shines brighter than any fairy light. The Aurora Badge is yours!",
-    team:[
-      {monsterId:138, level:73, moves:["moonblast","dazzling_gleam","fairy_wind","celestial_wave"]},
-      {monsterId:302, level:74, moves:["moonblast","dazzling_gleam","fairy_wind","draining_kiss"]},
-      {monsterId:303, level:74, moves:["moonblast","psychic_move","dazzling_gleam","calm_mind"]},
-      {monsterId:143, level:75, moves:["moonblast","psychic_move","celestial_wave","calm_mind"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:302, level:74, moves:["moonblast","dazzling_gleam","fairy_wind","draining_kiss"]},
+        {monsterId:143, level:75, moves:["moonblast","psychic_move","celestial_wave","calm_mind"]}
+      ],
+      double:[
+        {monsterId:138, level:73, moves:["moonblast","dazzling_gleam","fairy_wind","celestial_wave"]},
+        {monsterId:302, level:74, moves:["moonblast","dazzling_gleam","fairy_wind","draining_kiss"]},
+        {monsterId:303, level:74, moves:["moonblast","psychic_move","dazzling_gleam","calm_mind"]},
+        {monsterId:143, level:75, moves:["moonblast","psychic_move","celestial_wave","calm_mind"]}
+      ],
+      triple:[
+        {monsterId:138, level:73, moves:["moonblast","dazzling_gleam","fairy_wind","celestial_wave"]},
+        {monsterId:302, level:74, moves:["moonblast","dazzling_gleam","fairy_wind","draining_kiss"]},
+        {monsterId:303, level:74, moves:["moonblast","psychic_move","dazzling_gleam","calm_mind"]},
+        {monsterId:142, level:74, moves:["confusion","fairy_wind","psybeam","dazzling_gleam"]},
+        {monsterId:143, level:75, moves:["moonblast","psychic_move","celestial_wave","calm_mind"]}
+      ]
+    }
   },
   champion: {
     id:"champion", name:"Champion Lumian", emoji:"👑", type:"Mixed",
     badge:null, badgeEmoji:"🏆",
-    battleType:"triple",
     quote:"I am Champion Lumian, master of all types and all strategies. Many have tried... none have succeeded. Show me your resolve, young trainer!",
     winQuote:"Astounding! You have defeated the Champion of Lumoria! Your name will echo through the ages! You are the new Lumoria Champion!",
-    team:[
-      {monsterId:273, level:79, moves:["flamethrower","dragon_pulse","fire_blast","outrage"]},
-      {monsterId:240, level:80, moves:["blizzard","hurricane","ice_beam","air_slash"]},
-      {monsterId:320, level:81, moves:["thunderbolt","tungsten_ram","flash_cannon","forge_strike"]},
-      {monsterId:225, level:82, moves:["psychic_move","moonblast","dazzling_gleam","calm_mind"]},
-      {monsterId:321, level:83, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
-      {monsterId:171, level:84, moves:["psychic_move","dragon_pulse","temporal_rift","outrage"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:320, level:81, moves:["thunderbolt","tungsten_ram","flash_cannon","forge_strike"]},
+        {monsterId:321, level:83, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
+        {monsterId:171, level:84, moves:["psychic_move","dragon_pulse","temporal_rift","outrage"]}
+      ],
+      double:[
+        {monsterId:273, level:79, moves:["flamethrower","dragon_pulse","fire_blast","outrage"]},
+        {monsterId:225, level:82, moves:["psychic_move","moonblast","dazzling_gleam","calm_mind"]},
+        {monsterId:321, level:83, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
+        {monsterId:171, level:84, moves:["psychic_move","dragon_pulse","temporal_rift","outrage"]}
+      ],
+      triple:[
+        {monsterId:273, level:79, moves:["flamethrower","dragon_pulse","fire_blast","outrage"]},
+        {monsterId:240, level:80, moves:["blizzard","hurricane","ice_beam","air_slash"]},
+        {monsterId:189, level:81, moves:["psychic_move","body_slam","quick_attack","recover"]},
+        {monsterId:190, level:82, moves:["psychic_move","moonblast","quick_attack","calm_mind"]},
+        {monsterId:321, level:83, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
+        {monsterId:171, level:84, moves:["psychic_move","dragon_pulse","temporal_rift","outrage"]}
+      ]
+    }
   }
 };
 
@@ -4221,65 +4436,130 @@ const RIVAL_BATTLES = {
     quote:"You got lucky with that starter. Let me show you how a REAL trainer fights!",
     winQuote:"H-how?! I trained all week... Fine. Just you wait, I'll be stronger next time.",
     triggerBadges:1,
-    team:[
-      {monsterId:81, level:13, moves:["thunder_shock","quick_attack","scratch","growl"]},
-      {monsterId:187, level:15, moves:["tackle","headbutt","growl","body_slam"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:81, level:13, moves:["thunder_shock","quick_attack","scratch","growl"]},
+        {monsterId:187, level:15, moves:["tackle","headbutt","growl","body_slam"]}
+      ],
+      double:[
+        {monsterId:81, level:12, moves:["thunder_shock","quick_attack","scratch","growl"]},
+        {monsterId:95, level:13, moves:["mud_shot","headbutt","earthquake","body_slam"]},
+        {monsterId:187, level:15, moves:["tackle","headbutt","growl","body_slam"]}
+      ],
+      triple:[
+        {monsterId:81, level:12, moves:["thunder_shock","quick_attack","scratch","growl"]},
+        {monsterId:95, level:13, moves:["mud_shot","headbutt","earthquake","body_slam"]},
+        {monsterId:16, level:14, moves:["ember","quick_attack","tackle","growl"]},
+        {monsterId:187, level:15, moves:["tackle","headbutt","growl","body_slam"]}
+      ]
+    }
   },
   rival_2: {
     id:"rival_2", name:"Rival Marcus", emoji:"🧒",
     quote:"I heard about Team Umbra messing with the Ruins... but that's not my problem. MY problem is beating YOU!",
     winQuote:"Ugh! I need to train harder. Hey... be careful with Team Umbra. They're dangerous.",
     triggerBadges:3,
-    team:[
-      {monsterId:82, level:30, moves:["thunderbolt","spark","body_slam","thunder_wave"]},
-      {monsterId:109, level:31, moves:["thunderbolt","wing_attack","air_slash","thunder"]},
-      {monsterId:95, level:33, moves:["mud_shot","headbutt","earthquake","body_slam"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:82, level:30, moves:["thunderbolt","spark","body_slam","thunder_wave"]},
+        {monsterId:95, level:33, moves:["mud_shot","headbutt","earthquake","body_slam"]}
+      ],
+      double:[
+        {monsterId:82, level:30, moves:["thunderbolt","spark","body_slam","thunder_wave"]},
+        {monsterId:109, level:31, moves:["thunderbolt","wing_attack","air_slash","thunder"]},
+        {monsterId:95, level:33, moves:["mud_shot","headbutt","earthquake","body_slam"]}
+      ],
+      triple:[
+        {monsterId:82, level:30, moves:["thunderbolt","spark","body_slam","thunder_wave"]},
+        {monsterId:109, level:31, moves:["thunderbolt","wing_attack","air_slash","thunder"]},
+        {monsterId:121, level:32, moves:["bite","gust","dark_pulse","wing_attack"]},
+        {monsterId:95, level:33, moves:["mud_shot","headbutt","earthquake","body_slam"]}
+      ]
+    }
   },
   rival_3: {
     id:"rival_3", name:"Rival Marcus", emoji:"🧒",
-    battleType:"single",
     quote:"Team Umbra tried to recruit me, can you believe that? I told them to get lost. Now I'm going to prove my strength on YOU!",
     winQuote:"You're incredible. Look... I found this near the Umbra Base. Take it - you'll need it more than me. Stop them!",
     triggerBadges:6,
     reward:{ ultraOrb:3, superPotion:3 },
-    team:[
-      {monsterId:82,  level:50, moves:["thunder","thunderbolt","dragon_dance","body_slam"]},
-      {monsterId:171, level:51, moves:["psychic_move","dragon_pulse","confusion","psystrike"]},
-      {monsterId:234, level:52, moves:["dragon_breath","earthquake","dragon_pulse","earth_power"]},
-      {monsterId:281, level:54, moves:["iron_tail","earthquake","flash_cannon","thunder"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:82,  level:50, moves:["thunder","thunderbolt","dragon_dance","body_slam"]},
+        {monsterId:171, level:51, moves:["psychic_move","dragon_pulse","confusion","psystrike"]},
+        {monsterId:281, level:54, moves:["iron_tail","earthquake","flash_cannon","thunder"]}
+      ],
+      double:[
+        {monsterId:82,  level:50, moves:["thunder","thunderbolt","dragon_dance","body_slam"]},
+        {monsterId:171, level:51, moves:["psychic_move","dragon_pulse","confusion","psystrike"]},
+        {monsterId:234, level:52, moves:["dragon_breath","earthquake","dragon_pulse","earth_power"]},
+        {monsterId:281, level:54, moves:["iron_tail","earthquake","flash_cannon","thunder"]}
+      ],
+      triple:[
+        {monsterId:82,  level:50, moves:["thunder","thunderbolt","dragon_dance","body_slam"]},
+        {monsterId:171, level:51, moves:["psychic_move","dragon_pulse","confusion","psystrike"]},
+        {monsterId:234, level:52, moves:["dragon_breath","earthquake","dragon_pulse","earth_power"]},
+        {monsterId:109, level:52, moves:["hurricane","thunderbolt","air_slash","thunder"]},
+        {monsterId:281, level:54, moves:["iron_tail","earthquake","flash_cannon","thunder"]}
+      ]
+    }
   },
   rival_4: {
     id:"rival_4", name:"Rival Marcus", emoji:"🧒",
-    battleType:"double",
     quote:"I heard a rumour — a new Umbra faction is operating in the southern routes. They've been capturing evolved Lumos. This doesn't sit right with me... but first, I need to settle things with YOU!",
     winQuote:"Incredible as always... I'll investigate those Umbra sightings. Watch your back on Routes 12 onward — something's off.",
     triggerBadges:9,
-    team:[
-      {monsterId:82,  level:62, moves:["thunder","dragon_dance","body_slam","thunderbolt"]},
-      {monsterId:171, level:63, moves:["psychic_move","dragon_pulse","psystrike","calm_mind"]},
-      {monsterId:250, level:64, moves:["earthquake","stone_edge","rock_slide","landslide"]},
-      {monsterId:282, level:65, moves:["flash_cannon","iron_tail","earthquake","thunderbolt"]},
-      {monsterId:65,  level:66, moves:["petal_blitz","energy_ball","verdant_surge","canopy_crash"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:82,  level:62, moves:["thunder","dragon_dance","body_slam","thunderbolt"]},
+        {monsterId:171, level:63, moves:["psychic_move","dragon_pulse","psystrike","calm_mind"]},
+        {monsterId:282, level:65, moves:["flash_cannon","iron_tail","earthquake","thunderbolt"]}
+      ],
+      double:[
+        {monsterId:82,  level:62, moves:["thunder","dragon_dance","body_slam","thunderbolt"]},
+        {monsterId:171, level:63, moves:["psychic_move","dragon_pulse","psystrike","calm_mind"]},
+        {monsterId:250, level:64, moves:["earthquake","stone_edge","rock_slide","landslide"]},
+        {monsterId:282, level:65, moves:["flash_cannon","iron_tail","earthquake","thunderbolt"]},
+        {monsterId:65,  level:66, moves:["petal_blitz","energy_ball","verdant_surge","canopy_crash"]}
+      ],
+      triple:[
+        {monsterId:82,  level:62, moves:["thunder","dragon_dance","body_slam","thunderbolt"]},
+        {monsterId:171, level:63, moves:["psychic_move","dragon_pulse","psystrike","calm_mind"]},
+        {monsterId:250, level:64, moves:["earthquake","stone_edge","rock_slide","landslide"]},
+        {monsterId:282, level:65, moves:["flash_cannon","iron_tail","earthquake","thunderbolt"]},
+        {monsterId:65,  level:66, moves:["petal_blitz","energy_ball","verdant_surge","canopy_crash"]},
+        {monsterId:234, level:66, moves:["dragon_breath","earthquake","dragon_pulse","earth_power"]}
+      ]
+    }
   },
   rival_5: {
     id:"rival_5", name:"Rival Marcus", emoji:"🧒",
-    battleType:"triple",
     quote:"I found what Team Umbra is after — Voidraxis, the Void Star legendary! They've opened a Void Rift near Route 16. This is serious. If you can't beat ME, you have no chance against what's waiting there!",
     winQuote:"You're ready. I've been tracking Commander Phantom — she's at the Void Rift with Voidraxis. Hurry, before they complete the ritual! Take this — you'll need it.",
     triggerBadges:14,
     reward:{ masterOrb:1, maxPotion:5 },
-    team:[
-      {monsterId:82,  level:70, moves:["thunder","dragon_dance","arc_flash","overcharge"]},
-      {monsterId:171, level:71, moves:["psystrike","dragon_pulse","temporal_rift","calm_mind"]},
-      {monsterId:250, level:72, moves:["earthquake","stone_edge","tectonic_slam","earth_power"]},
-      {monsterId:282, level:73, moves:["flash_cannon","thunder","tungsten_ram","anvil_drop"]},
-      {monsterId:264, level:74, moves:["petal_blitz","verdant_surge","energy_ball","toxic"]},
-      {monsterId:321, level:75, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:171, level:71, moves:["psystrike","dragon_pulse","temporal_rift","calm_mind"]},
+        {monsterId:282, level:73, moves:["flash_cannon","thunder","tungsten_ram","anvil_drop"]},
+        {monsterId:321, level:75, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]}
+      ],
+      double:[
+        {monsterId:82,  level:70, moves:["thunder","dragon_dance","arc_flash","overcharge"]},
+        {monsterId:171, level:71, moves:["psystrike","dragon_pulse","temporal_rift","calm_mind"]},
+        {monsterId:250, level:72, moves:["earthquake","stone_edge","tectonic_slam","earth_power"]},
+        {monsterId:282, level:73, moves:["flash_cannon","thunder","tungsten_ram","anvil_drop"]},
+        {monsterId:264, level:74, moves:["petal_blitz","verdant_surge","energy_ball","toxic"]}
+      ],
+      triple:[
+        {monsterId:82,  level:70, moves:["thunder","dragon_dance","arc_flash","overcharge"]},
+        {monsterId:171, level:71, moves:["psystrike","dragon_pulse","temporal_rift","calm_mind"]},
+        {monsterId:250, level:72, moves:["earthquake","stone_edge","tectonic_slam","earth_power"]},
+        {monsterId:282, level:73, moves:["flash_cannon","thunder","tungsten_ram","anvil_drop"]},
+        {monsterId:264, level:74, moves:["petal_blitz","verdant_surge","energy_ball","toxic"]},
+        {monsterId:321, level:75, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]}
+      ]
+    }
   }
 };
 
@@ -4289,83 +4569,175 @@ const UMBRA_BATTLES = {
     id:"umbra_grunt_1", name:"Umbra Grunt Vex", emoji:"🕶️",
     quote:"Halt! Team Umbra's research must not be interrupted! The three Legendaries will be ours!",
     winQuote:"This isn't over... Commander Shade will hear about you!",
-    team:[
-      {monsterId:118, level:14, moves:["bite","quick_attack","night_slash","scratch"]},
-      {monsterId:121, level:16, moves:["bite","gust","dark_pulse","wing_attack"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:118, level:14, moves:["bite","quick_attack","night_slash","scratch"]},
+        {monsterId:121, level:16, moves:["bite","gust","dark_pulse","wing_attack"]}
+      ],
+      double:[
+        {monsterId:118, level:14, moves:["bite","quick_attack","night_slash","scratch"]},
+        {monsterId:119, level:15, moves:["crunch","night_slash","dark_pulse","body_slam"]},
+        {monsterId:121, level:16, moves:["bite","gust","dark_pulse","wing_attack"]}
+      ],
+      triple:[
+        {monsterId:118, level:14, moves:["bite","quick_attack","night_slash","scratch"]},
+        {monsterId:119, level:15, moves:["crunch","night_slash","dark_pulse","body_slam"]},
+        {monsterId:121, level:16, moves:["bite","gust","dark_pulse","wing_attack"]},
+        {monsterId:122, level:16, moves:["dark_pulse","wing_attack","air_slash","shadow_ball"]}
+      ]
+    }
   },
   umbra_grunt_2: {
     id:"umbra_grunt_2", name:"Umbra Grunt Morta", emoji:"🕶️",
     quote:"You dare enter the Abyssal Trench? Commander Shade has claimed these waters for Team Umbra!",
     winQuote:"The Abyssdrake... you won't stop us from finding it!",
-    team:[
-      {monsterId:122, level:22, moves:["dark_pulse","wing_attack","air_slash","shadow_ball"]},
-      {monsterId:157, level:23, moves:["sludge_bomb","toxic","venoshock","recover"]},
-      {monsterId:119, level:25, moves:["crunch","night_slash","dark_pulse","body_slam"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:122, level:22, moves:["dark_pulse","wing_attack","air_slash","shadow_ball"]},
+        {monsterId:119, level:25, moves:["crunch","night_slash","dark_pulse","body_slam"]}
+      ],
+      double:[
+        {monsterId:122, level:22, moves:["dark_pulse","wing_attack","air_slash","shadow_ball"]},
+        {monsterId:157, level:23, moves:["sludge_bomb","toxic","venoshock","recover"]},
+        {monsterId:119, level:25, moves:["crunch","night_slash","dark_pulse","body_slam"]}
+      ],
+      triple:[
+        {monsterId:122, level:22, moves:["dark_pulse","wing_attack","air_slash","shadow_ball"]},
+        {monsterId:157, level:23, moves:["sludge_bomb","toxic","venoshock","recover"]},
+        {monsterId:119, level:25, moves:["crunch","night_slash","dark_pulse","body_slam"]},
+        {monsterId:118, level:25, moves:["bite","quick_attack","crunch","night_slash"]}
+      ]
+    }
   },
   umbra_commander_kira: {
     id:"umbra_commander_kira", name:"Commander Kira", emoji:"😈",
     quote:"A child? Oh how entertaining. I am Kira, first commander of Team Umbra. The volcano's power will be OURS. Stand aside or be crushed!",
     winQuote:"Impossible... I was trained by Shade himself! How can a child... Our plan is bigger than you know. Volcanox WILL awaken!",
-    team:[
-      {monsterId:17, level:32, moves:["flamethrower","dragon_claw","heat_wave","dragon_breath"]},
-      {monsterId:99, level:33, moves:["sludge_bomb","earthquake","toxic","venoshock"]},
-      {monsterId:14, level:36, moves:["flamethrower","rock_slide","fire_blast","body_slam"]},
-      {monsterId:192, level:38, moves:["earthquake","rock_slide","stone_edge","body_slam"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:14, level:36, moves:["flamethrower","rock_slide","fire_blast","body_slam"]},
+        {monsterId:192, level:38, moves:["earthquake","rock_slide","stone_edge","body_slam"]}
+      ],
+      double:[
+        {monsterId:17, level:32, moves:["flamethrower","dragon_claw","heat_wave","dragon_breath"]},
+        {monsterId:99, level:33, moves:["sludge_bomb","earthquake","toxic","venoshock"]},
+        {monsterId:14, level:36, moves:["flamethrower","rock_slide","fire_blast","body_slam"]},
+        {monsterId:192, level:38, moves:["earthquake","rock_slide","stone_edge","body_slam"]}
+      ],
+      triple:[
+        {monsterId:17, level:32, moves:["flamethrower","dragon_claw","heat_wave","dragon_breath"]},
+        {monsterId:99, level:33, moves:["sludge_bomb","earthquake","toxic","venoshock"]},
+        {monsterId:16, level:35, moves:["flamethrower","quick_attack","fire_blast","body_slam"]},
+        {monsterId:14, level:36, moves:["flamethrower","rock_slide","fire_blast","body_slam"]},
+        {monsterId:192, level:38, moves:["earthquake","rock_slide","stone_edge","body_slam"]}
+      ]
+    }
   },
   umbra_commander_rex_shadow: {
     id:"umbra_commander_rex_shadow", name:"Commander Vorn", emoji:"⚡",
     quote:"I am Vorn, second commander of Team Umbra. We have awakened Tempestia from the Storm Plateau. Nothing can stop our plan now!",
     winQuote:"You're more powerful than our intelligence suggested... But Commander Shade is still ahead of you. And Tempestia has been released!",
-    team:[
-      {monsterId:176, level:44, moves:["thunder","dragon_claw","dragon_pulse","dragon_breath"]},
-      {monsterId:109, level:45, moves:["hurricane","thunderbolt","air_slash","thunder"]},
-      {monsterId:122, level:47, moves:["shadow_ball","air_slash","hurricane","dark_pulse"]},
-      {monsterId:151, level:49, moves:["flash_cannon","thunder","iron_tail","body_slam"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:109, level:45, moves:["hurricane","thunderbolt","air_slash","thunder"]},
+        {monsterId:151, level:49, moves:["flash_cannon","thunder","iron_tail","body_slam"]}
+      ],
+      double:[
+        {monsterId:176, level:44, moves:["thunder","dragon_claw","dragon_pulse","dragon_breath"]},
+        {monsterId:109, level:45, moves:["hurricane","thunderbolt","air_slash","thunder"]},
+        {monsterId:122, level:47, moves:["shadow_ball","air_slash","hurricane","dark_pulse"]},
+        {monsterId:151, level:49, moves:["flash_cannon","thunder","iron_tail","body_slam"]}
+      ],
+      triple:[
+        {monsterId:176, level:44, moves:["thunder","dragon_claw","dragon_pulse","dragon_breath"]},
+        {monsterId:109, level:45, moves:["hurricane","thunderbolt","air_slash","thunder"]},
+        {monsterId:82,  level:46, moves:["thunderbolt","spark","body_slam","thunder_wave"]},
+        {monsterId:122, level:47, moves:["shadow_ball","air_slash","hurricane","dark_pulse"]},
+        {monsterId:151, level:49, moves:["flash_cannon","thunder","iron_tail","body_slam"]}
+      ]
+    }
   },
   umbra_shade: {
     id:"umbra_shade", name:"Commander Shade", emoji:"🌑",
-    battleType:"triple",
     quote:"So... you are the trainer who dismantled my commanders' plans. Impressive. But it ends HERE. I have awakened all three Legendaries — Tempestia, Volcanox, and Abyssdrake. With their power, Team Umbra will control all of Lumoria! You are too late, child!",
     winQuote:"Defeated... by a trainer so young... Perhaps I misjudged the power of a trainer's bond with their Lumos. The Legendaries have retreated. Lumoria is safe... for now. You have my... grudging respect.",
     reward:{ masterOrb:1, maxPotion:5 },
-    team:[
-      {monsterId:217, level:58, moves:["psychic_move","psystrike","calm_mind","recover"]},
-      {monsterId:269, level:59, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
-      {monsterId:270, level:60, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]},
-      {monsterId:321, level:61, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
-      {monsterId:314, level:62, moves:["hurricane","thunder","air_slash","dragon_dance"]},
-      {monsterId:316, level:65, moves:["hydro_pump","dark_pulse","dragon_pulse","crunch"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:269, level:59, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
+        {monsterId:316, level:63, moves:["hydro_pump","dark_pulse","dragon_pulse","crunch"]},
+        {monsterId:321, level:65, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]}
+      ],
+      double:[
+        {monsterId:217, level:58, moves:["psychic_move","psystrike","calm_mind","recover"]},
+        {monsterId:269, level:59, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
+        {monsterId:270, level:60, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]},
+        {monsterId:314, level:62, moves:["hurricane","thunder","air_slash","dragon_dance"]},
+        {monsterId:316, level:65, moves:["hydro_pump","dark_pulse","dragon_pulse","crunch"]}
+      ],
+      triple:[
+        {monsterId:217, level:58, moves:["psychic_move","psystrike","calm_mind","recover"]},
+        {monsterId:269, level:59, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
+        {monsterId:270, level:60, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]},
+        {monsterId:321, level:61, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
+        {monsterId:314, level:62, moves:["hurricane","thunder","air_slash","dragon_dance"]},
+        {monsterId:316, level:65, moves:["hydro_pump","dark_pulse","dragon_pulse","crunch"]}
+      ]
+    }
   },
 
   // ---- POST-GYM-15 VOIDRAXIS STORYLINE ----
   umbra_phantom_grunt: {
     id:"umbra_phantom_grunt", name:"Umbra Agent Riven", emoji:"🕶️",
-    battleType:"single",
     quote:"Turn back, trainer! Commander Phantom has reclaimed these routes for Team Umbra's new operation. The Void Star awakens — and its power over dark and fairy energy will be OURS!",
     winQuote:"You're stronger than I expected... but the Commander won't be stopped so easily. The Void Rift is already open!",
-    team:[
-      {monsterId:119, level:65, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
-      {monsterId:267, level:66, moves:["crunch","dark_pulse","night_slash","shadow_sneak"]},
-      {monsterId:125, level:68, moves:["dark_pulse","sludge_bomb","venoshock","night_slash"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:119, level:65, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
+        {monsterId:267, level:66, moves:["crunch","dark_pulse","night_slash","shadow_sneak"]},
+        {monsterId:125, level:68, moves:["dark_pulse","sludge_bomb","venoshock","night_slash"]}
+      ],
+      double:[
+        {monsterId:119, level:65, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
+        {monsterId:267, level:66, moves:["crunch","dark_pulse","night_slash","shadow_sneak"]},
+        {monsterId:269, level:67, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
+        {monsterId:125, level:68, moves:["dark_pulse","sludge_bomb","venoshock","night_slash"]}
+      ],
+      triple:[
+        {monsterId:119, level:65, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
+        {monsterId:267, level:66, moves:["crunch","dark_pulse","night_slash","shadow_sneak"]},
+        {monsterId:269, level:67, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
+        {monsterId:125, level:68, moves:["dark_pulse","sludge_bomb","venoshock","night_slash"]},
+        {monsterId:270, level:68, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]}
+      ]
+    }
   },
   umbra_commander_phantom: {
     id:"umbra_commander_phantom", name:"Commander Phantom", emoji:"🌌",
-    battleType:"double",
     quote:"A child again? How tiresome. I am Phantom, Commander of Team Umbra's Void Division. While you were playing gym challenger, WE discovered the Void Star — Voidraxis — slumbering in the rift between light and darkness. With its power over both Dark AND Fairy energy, no one in Lumoria can resist us. Stand aside!",
     winQuote:"Impossible... Voidraxis should have responded to my call... The bond between trainer and Lumo really IS stronger than raw power. I— retreat! This isn't over, trainer. Voidraxis is still free. Find it before Umbra does!",
-    team:[
-      {monsterId:269, level:68, moves:["crunch","dark_pulse","shadow_ball","night_slash"]},
-      {monsterId:270, level:69, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]},
-      {monsterId:133, level:70, moves:["crunch","stone_edge","shadow_ball","dark_pulse"]},
-      {monsterId:136, level:72, moves:["flash_cannon","dark_pulse","forge_strike","void_rend"]},
-      {monsterId:319, level:74, moves:["dark_pulse","moonblast","shadow_ball","soul_rend"]}
-    ]
+    teams:{
+      single:[
+        {monsterId:270, level:69, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]},
+        {monsterId:136, level:72, moves:["flash_cannon","dark_pulse","forge_strike","void_rend"]},
+        {monsterId:319, level:74, moves:["dark_pulse","moonblast","shadow_ball","soul_rend"]}
+      ],
+      double:[
+        {monsterId:269, level:68, moves:["crunch","dark_pulse","shadow_ball","night_slash"]},
+        {monsterId:270, level:69, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]},
+        {monsterId:133, level:70, moves:["crunch","stone_edge","shadow_ball","dark_pulse"]},
+        {monsterId:136, level:72, moves:["flash_cannon","dark_pulse","forge_strike","void_rend"]},
+        {monsterId:319, level:74, moves:["dark_pulse","moonblast","shadow_ball","soul_rend"]}
+      ],
+      triple:[
+        {monsterId:269, level:68, moves:["crunch","dark_pulse","shadow_ball","night_slash"]},
+        {monsterId:270, level:69, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]},
+        {monsterId:133, level:70, moves:["crunch","stone_edge","shadow_ball","dark_pulse"]},
+        {monsterId:125, level:71, moves:["dark_pulse","sludge_bomb","venoshock","night_slash"]},
+        {monsterId:136, level:72, moves:["flash_cannon","dark_pulse","forge_strike","void_rend"]},
+        {monsterId:319, level:74, moves:["dark_pulse","moonblast","shadow_ball","soul_rend"]}
+      ]
+    }
   }
 };
 
@@ -4614,55 +4986,111 @@ const SHOPS_DATA = {
 const ELITE_FOUR = [
   {
     id: "aria", name: "Elite Aria", emoji: "🎵", theme: "Graceful Offense",
-    battleType: "double",
     quote: "My Lumos dance through battle like a symphony. Can you keep up with the tempo?",
     winQuote: "A beautiful performance... You've earned my respect.",
-    team: [
-      { monsterId: 143, level: 75, moves: ["moonblast", "psychic_move", "dazzling_gleam", "calm_mind"] },
-      { monsterId: 109, level: 75, moves: ["hurricane", "air_slash", "moonblast", "jetstream"] },
-      { monsterId: 224, level: 76, moves: ["psychic_move", "moonblast", "dazzling_gleam", "calm_mind"] },
-      { monsterId: 303, level: 77, moves: ["moonblast", "psychic_move", "dazzling_gleam", "celestial_wave"] },
-      { monsterId: 117, level: 77, moves: ["psychic_move", "hurricane", "cyclone_blade", "calm_mind"] }
-    ]
+    teams: {
+      single: [
+        { monsterId: 109, level: 75, moves: ["hurricane", "air_slash", "moonblast", "jetstream"] },
+        { monsterId: 303, level: 77, moves: ["moonblast", "psychic_move", "dazzling_gleam", "celestial_wave"] },
+        { monsterId: 117, level: 77, moves: ["psychic_move", "hurricane", "cyclone_blade", "calm_mind"] }
+      ],
+      double: [
+        { monsterId: 143, level: 75, moves: ["moonblast", "psychic_move", "dazzling_gleam", "calm_mind"] },
+        { monsterId: 109, level: 75, moves: ["hurricane", "air_slash", "moonblast", "jetstream"] },
+        { monsterId: 224, level: 76, moves: ["psychic_move", "moonblast", "dazzling_gleam", "calm_mind"] },
+        { monsterId: 303, level: 77, moves: ["moonblast", "psychic_move", "dazzling_gleam", "celestial_wave"] },
+        { monsterId: 117, level: 77, moves: ["psychic_move", "hurricane", "cyclone_blade", "calm_mind"] }
+      ],
+      triple: [
+        { monsterId: 143, level: 75, moves: ["moonblast", "psychic_move", "dazzling_gleam", "calm_mind"] },
+        { monsterId: 109, level: 75, moves: ["hurricane", "air_slash", "moonblast", "jetstream"] },
+        { monsterId: 224, level: 76, moves: ["psychic_move", "moonblast", "dazzling_gleam", "calm_mind"] },
+        { monsterId: 303, level: 77, moves: ["moonblast", "psychic_move", "dazzling_gleam", "celestial_wave"] },
+        { monsterId: 117, level: 77, moves: ["psychic_move", "hurricane", "cyclone_blade", "calm_mind"] },
+        { monsterId: 138, level: 77, moves: ["moonblast", "dazzling_gleam", "fairy_wind", "celestial_wave"] }
+      ]
+    }
   },
   {
     id: "grimshaw", name: "Elite Grimshaw", emoji: "💀", theme: "Brutal Power",
-    battleType: "single",
     quote: "I don't do finesse. I crush. I break. I win.",
     winQuote: "Tch... You hit harder than I expected. Fine, you pass.",
-    team: [
-      { monsterId: 123, level: 76, moves: ["crunch", "sludge_bomb", "dark_pulse", "poison_sting"] },
-      { monsterId: 312, level: 76, moves: ["earthquake", "dark_pulse", "crunch", "sand_tomb"] },
-      { monsterId: 208, level: 77, moves: ["sludge_wave", "dragon_pulse", "venoshock", "toxic"] },
-      { monsterId: 148, level: 78, moves: ["iron_tail", "crunch", "flash_cannon", "forge_strike"] },
-      { monsterId: 213, level: 78, moves: ["outrage", "dragon_pulse", "fire_blast", "dragon_dance"] }
-    ]
+    teams: {
+      single: [
+        { monsterId: 312, level: 76, moves: ["earthquake", "dark_pulse", "crunch", "sand_tomb"] },
+        { monsterId: 148, level: 78, moves: ["iron_tail", "crunch", "flash_cannon", "forge_strike"] },
+        { monsterId: 213, level: 78, moves: ["outrage", "dragon_pulse", "fire_blast", "dragon_dance"] }
+      ],
+      double: [
+        { monsterId: 123, level: 76, moves: ["crunch", "sludge_bomb", "dark_pulse", "poison_sting"] },
+        { monsterId: 312, level: 76, moves: ["earthquake", "dark_pulse", "crunch", "sand_tomb"] },
+        { monsterId: 208, level: 77, moves: ["sludge_wave", "dragon_pulse", "venoshock", "toxic"] },
+        { monsterId: 148, level: 78, moves: ["iron_tail", "crunch", "flash_cannon", "forge_strike"] },
+        { monsterId: 213, level: 78, moves: ["outrage", "dragon_pulse", "fire_blast", "dragon_dance"] }
+      ],
+      triple: [
+        { monsterId: 123, level: 76, moves: ["crunch", "sludge_bomb", "dark_pulse", "poison_sting"] },
+        { monsterId: 312, level: 76, moves: ["earthquake", "dark_pulse", "crunch", "sand_tomb"] },
+        { monsterId: 208, level: 77, moves: ["sludge_wave", "dragon_pulse", "venoshock", "toxic"] },
+        { monsterId: 148, level: 78, moves: ["iron_tail", "crunch", "flash_cannon", "forge_strike"] },
+        { monsterId: 213, level: 78, moves: ["outrage", "dragon_pulse", "fire_blast", "dragon_dance"] },
+        { monsterId: 133, level: 78, moves: ["crunch", "stone_edge", "shadow_ball", "dark_pulse"] }
+      ]
+    }
   },
   {
     id: "celeste", name: "Elite Celeste", emoji: "✨", theme: "Cosmic Balance",
-    battleType: "double",
     quote: "The stars have aligned for this battle. Let us see what fate decrees.",
     winQuote: "The cosmos acknowledges your strength. Proceed, champion-to-be.",
-    team: [
-      { monsterId: 168, level: 77, moves: ["psychic_move", "dazzling_gleam", "moonblast", "calm_mind"] },
-      { monsterId: 48,  level: 77, moves: ["blizzard", "ice_beam", "surf", "icicle_crash"] },
-      { monsterId: 229, level: 78, moves: ["thunderbolt", "psychic_move", "thunder", "calm_mind"] },
-      { monsterId: 3,   level: 79, moves: ["flamethrower", "dragon_claw", "heat_wave", "outrage"] },
-      { monsterId: 241, level: 79, moves: ["ice_beam", "psychic_move", "blizzard", "calm_mind"] }
-    ]
+    teams: {
+      single: [
+        { monsterId: 48,  level: 77, moves: ["blizzard", "ice_beam", "surf", "icicle_crash"] },
+        { monsterId: 229, level: 78, moves: ["thunderbolt", "psychic_move", "thunder", "calm_mind"] },
+        { monsterId: 3,   level: 79, moves: ["flamethrower", "dragon_claw", "heat_wave", "outrage"] }
+      ],
+      double: [
+        { monsterId: 168, level: 77, moves: ["psychic_move", "dazzling_gleam", "moonblast", "calm_mind"] },
+        { monsterId: 48,  level: 77, moves: ["blizzard", "ice_beam", "surf", "icicle_crash"] },
+        { monsterId: 229, level: 78, moves: ["thunderbolt", "psychic_move", "thunder", "calm_mind"] },
+        { monsterId: 3,   level: 79, moves: ["flamethrower", "dragon_claw", "heat_wave", "outrage"] },
+        { monsterId: 241, level: 79, moves: ["ice_beam", "psychic_move", "blizzard", "calm_mind"] }
+      ],
+      triple: [
+        { monsterId: 168, level: 77, moves: ["psychic_move", "dazzling_gleam", "moonblast", "calm_mind"] },
+        { monsterId: 48,  level: 77, moves: ["blizzard", "ice_beam", "surf", "icicle_crash"] },
+        { monsterId: 229, level: 78, moves: ["thunderbolt", "psychic_move", "thunder", "calm_mind"] },
+        { monsterId: 3,   level: 79, moves: ["flamethrower", "dragon_claw", "heat_wave", "outrage"] },
+        { monsterId: 241, level: 79, moves: ["ice_beam", "psychic_move", "blizzard", "calm_mind"] },
+        { monsterId: 170, level: 79, moves: ["psychic_move", "dark_pulse", "shadow_ball", "night_slash"] }
+      ]
+    }
   },
   {
     id: "titan", name: "Elite Titan", emoji: "🏔️", theme: "Immovable Fortress",
-    battleType: "triple",
     quote: "I am the mountain. I am the wall. You shall not pass.",
     winQuote: "The mountain crumbles... You have the strength of a titan yourself.",
-    team: [
-      { monsterId: 195, level: 77, moves: ["stone_edge", "crystal_lance", "landslide", "rock_slide"] },
-      { monsterId: 152, level: 78, moves: ["tungsten_ram", "stone_edge", "iron_tail", "flash_cannon"] },
-      { monsterId: 54,  level: 79, moves: ["blizzard", "earthquake", "ice_beam", "earth_power"] },
-      { monsterId: 251, level: 79, moves: ["stone_edge", "iron_tail", "flash_cannon", "rock_slide"] },
-      { monsterId: 237, level: 80, moves: ["ice_beam", "stone_edge", "blizzard", "crystal_lance"] }
-    ]
+    teams: {
+      single: [
+        { monsterId: 152, level: 78, moves: ["tungsten_ram", "stone_edge", "iron_tail", "flash_cannon"] },
+        { monsterId: 54,  level: 79, moves: ["blizzard", "earthquake", "ice_beam", "earth_power"] },
+        { monsterId: 237, level: 80, moves: ["ice_beam", "stone_edge", "blizzard", "crystal_lance"] }
+      ],
+      double: [
+        { monsterId: 195, level: 77, moves: ["stone_edge", "crystal_lance", "landslide", "rock_slide"] },
+        { monsterId: 152, level: 78, moves: ["tungsten_ram", "stone_edge", "iron_tail", "flash_cannon"] },
+        { monsterId: 54,  level: 79, moves: ["blizzard", "earthquake", "ice_beam", "earth_power"] },
+        { monsterId: 251, level: 79, moves: ["stone_edge", "iron_tail", "flash_cannon", "rock_slide"] },
+        { monsterId: 237, level: 80, moves: ["ice_beam", "stone_edge", "blizzard", "crystal_lance"] }
+      ],
+      triple: [
+        { monsterId: 195, level: 77, moves: ["stone_edge", "crystal_lance", "landslide", "rock_slide"] },
+        { monsterId: 152, level: 78, moves: ["tungsten_ram", "stone_edge", "iron_tail", "flash_cannon"] },
+        { monsterId: 54,  level: 79, moves: ["blizzard", "earthquake", "ice_beam", "earth_power"] },
+        { monsterId: 251, level: 79, moves: ["stone_edge", "iron_tail", "flash_cannon", "rock_slide"] },
+        { monsterId: 237, level: 80, moves: ["ice_beam", "stone_edge", "blizzard", "crystal_lance"] },
+        { monsterId: 192, level: 80, moves: ["earthquake", "stone_edge", "rock_slide", "landslide"] }
+      ]
+    }
   }
 ];
 

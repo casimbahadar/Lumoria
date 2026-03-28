@@ -2565,3 +2565,109 @@ button, a, [role="button"] {
   flex-direction: column;
   height: 100%;
 }
+
+/* Battle Format Selection Overlay */
+#format-select-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.82);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+#format-select-box {
+  background: var(--bg-panel);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem 1.5rem 1.75rem;
+  max-width: 480px;
+  width: 95%;
+  text-align: center;
+}
+
+#format-select-opponent {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+#format-select-title {
+  font-size: 1.3rem;
+  color: var(--accent-yellow);
+  margin: 0 0 0.3rem;
+}
+
+.format-select-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted, #888);
+  margin: 0 0 1.25rem;
+}
+
+#format-select-options {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.format-card {
+  flex: 1;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.format-card:hover {
+  border-color: var(--accent-yellow);
+  background: var(--bg-hover, rgba(255,220,50,0.06));
+  transform: translateY(-2px);
+}
+
+.format-card:active {
+  transform: translateY(0);
+}
+
+.format-card-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.format-card-name {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.format-card-desc {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+@media (max-width: 400px) {
+  #format-select-options {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .format-card {
+    flex-direction: row;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .format-card-icon { font-size: 1.6rem; }
+  .format-card-desc { margin-top: 0.1rem; }
+}

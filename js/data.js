@@ -470,7 +470,180 @@ const MOVES_DATA = {
   pin_missile:   { name:"Pin Missile",   type:"Bug",      power:55,  acc:95,  pp:20, cat:"physical", effect:null,        ec:0,   desc:"Fires sharp pins at the foe in rapid succession." },
   lunge:         { name:"Lunge",         type:"Bug",      power:80,  acc:100, pp:15, cat:"physical", effect:"atkdown",   ec:100, desc:"Lunges at the foe, lowering their Attack on contact." },
   infestation:   { name:"Infestation",   type:"Bug",      power:50,  acc:100, pp:20, cat:"special",  effect:"spedown",   ec:30,  desc:"Infests the foe with parasitic bugs that slow them down." },
-  metamorphosis: { name:"Metamorphosis", type:"Bug",      power:0,   acc:100, pp:10, cat:"status",   effect:"calmup",    ec:100, desc:"Undergoes a transformation that sharpens special power and resilience." }
+  metamorphosis: { name:"Metamorphosis", type:"Bug",      power:0,   acc:100, pp:10, cat:"status",   effect:"calmup",    ec:100, desc:"Undergoes a transformation that sharpens special power and resilience." },
+
+  // ============================================================
+  // BATCH 2 — 125 NEW MOVES
+  // ============================================================
+
+  // --- Normal (+8) ---
+  rapid_strike:     { name:"Rapid Strike",      type:"Normal",   power:50,  acc:100, pp:25, cat:"physical", effect:"flinch",    ec:20,  desc:"Unleashes a flurry of rapid blows that may cause flinching." },
+  echoing_shout:    { name:"Echoing Shout",     type:"Normal",   power:60,  acc:100, pp:20, cat:"special",  effect:"defdown",   ec:30,  desc:"A reverberating shout that rattles the target's defenses." },
+  relentless_fury:  { name:"Relentless Fury",   type:"Normal",   power:80,  acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"Attacks with reckless fury at the cost of the user's own HP." },
+  iron_will:        { name:"Iron Will",         type:"Normal",   power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Steels the body with iron resolve, raising the user's Defense." },
+  afterimage:       { name:"Afterimage",        type:"Normal",   power:0,   acc:100, pp:20, cat:"status",   effect:"speup",     ec:100, desc:"Moves so fast it leaves an afterimage, raising the user's Speed." },
+  encore_blast:     { name:"Encore Blast",      type:"Normal",   power:90,  acc:100, pp:10, cat:"special",  effect:"spatkup",   ec:30,  desc:"A theatrical burst of energy that may boost the user's Special Attack." },
+  last_stand:       { name:"Last Stand",        type:"Normal",   power:120, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100, desc:"A desperate all-or-nothing strike that takes a heavy toll on the user." },
+  double_edge:      { name:"Double-Edge",       type:"Normal",   power:100, acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"A reckless life-risking tackle that also damages the user." },
+
+  // --- Fire (+7) ---
+  will_o_wisp:      { name:"Will-O-Wisp",       type:"Fire",     power:0,   acc:85,  pp:15, cat:"status",   effect:"burn",      ec:100, desc:"Shoots a sinister flame that reliably burns the target." },
+  flame_charge:     { name:"Flame Charge",      type:"Fire",     power:50,  acc:100, pp:20, cat:"physical", effect:"speup",     ec:100, desc:"Cloaks the user in flame and charges forward, raising Speed." },
+  sun_burst:        { name:"Sun Burst",         type:"Fire",     power:80,  acc:100, pp:15, cat:"special",  effect:"burn",      ec:30,  desc:"Concentrates solar energy into a burst of searing heat that may burn." },
+  molten_tide:      { name:"Molten Tide",       type:"Fire",     power:95,  acc:90,  pp:10, cat:"special",  effect:"spdefdown", ec:30,  desc:"A wave of molten rock that may erode the target's special resistance." },
+  eruption:         { name:"Eruption",          type:"Fire",     power:140, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Erupts with volcanic force, dealing immense damage at a cost to the user." },
+  infernal_roar:    { name:"Infernal Roar",     type:"Fire",     power:0,   acc:100, pp:15, cat:"status",   effect:"spatkup",   ec:100, desc:"A roar blazing with inner fire, sharply raising the user's Special Attack." },
+  fire_spin:        { name:"Fire Spin",         type:"Fire",     power:35,  acc:85,  pp:15, cat:"special",  effect:"spedown",   ec:100, desc:"Traps the foe in a swirling vortex of fire, slowing it down." },
+
+  // --- Water (+7) ---
+  water_pulse:      { name:"Water Pulse",       type:"Water",    power:60,  acc:100, pp:20, cat:"special",  effect:"confuse",   ec:20,  desc:"A pulsing wave of water that may confuse the target." },
+  rain_cascade:     { name:"Rain Cascade",      type:"Water",    power:55,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"A cascading downpour of rain that never misses its mark." },
+  diving_strike:    { name:"Diving Strike",     type:"Water",    power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Dives deep then rockets up to slam the foe with crushing force." },
+  crabhammer:       { name:"Crabhammer",        type:"Water",    power:100, acc:90,  pp:10, cat:"physical", effect:"crit",      ec:100, desc:"A massive claw strike at high speed — always finds a critical spot." },
+  steam_geyser:     { name:"Steam Geyser",      type:"Water",    power:90,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:30,  desc:"A column of superheated steam that may burn the target." },
+  flood_tide:       { name:"Flood Tide",        type:"Water",    power:0,   acc:100, pp:15, cat:"status",   effect:"calmup",    ec:100, desc:"Rides the rising flood tide, bolstering special power and resilience." },
+  ocean_crash:      { name:"Ocean Crash",       type:"Water",    power:120, acc:85,  pp:5,  cat:"physical", effect:"defdown",   ec:30,  desc:"Crashes into the foe with the full force of a collapsing ocean wave." },
+
+  // --- Grass (+7) ---
+  bullet_seed:      { name:"Bullet Seed",       type:"Grass",    power:65,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"Forcefully shoots seeds in rapid bursts at the target." },
+  magical_leaf:     { name:"Magical Leaf",      type:"Grass",    power:60,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Scatters leaves imbued with magical energy that never miss." },
+  leech_seed:       { name:"Leech Seed",        type:"Grass",    power:0,   acc:90,  pp:10, cat:"status",   effect:"drain",     ec:100, desc:"Plants a parasitic seed on the foe that saps HP each turn." },
+  leaf_storm:       { name:"Leaf Storm",        type:"Grass",    power:130, acc:90,  pp:5,  cat:"special",  effect:"spatkdown", ec:100, desc:"A savage storm of razor leaves that sharply lowers the user's Sp. Atk." },
+  petal_dance:      { name:"Petal Dance",       type:"Grass",    power:120, acc:100, pp:10, cat:"special",  effect:"confuse",   ec:100, desc:"A whirling dance of petals for several turns, then confuses the user." },
+  solar_beam:       { name:"Solar Beam",        type:"Grass",    power:120, acc:100, pp:10, cat:"special",  effect:"recharge",  ec:100, desc:"Absorbs sunlight on the first turn, then unleashes a powerful beam." },
+  spore_shield:     { name:"Spore Shield",      type:"Grass",    power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Grows a coating of hardened spores over the body, raising Defense." },
+
+  // --- Electric (+7) ---
+  nuzzle:           { name:"Nuzzle",            type:"Electric", power:20,  acc:100, pp:20, cat:"physical", effect:"paralyze",  ec:100, desc:"Rubs cheeks against the target, delivering a jolt that always paralyzes." },
+  electroweb:       { name:"Electroweb",        type:"Electric", power:55,  acc:95,  pp:15, cat:"special",  effect:"spedown",   ec:100, desc:"Shoots an electric web that snares and slows the target." },
+  volt_switch:      { name:"Volt Switch",       type:"Electric", power:70,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Jolts the foe with electricity, then retreats with swift momentum." },
+  zap_cannon:       { name:"Zap Cannon",        type:"Electric", power:120, acc:50,  pp:5,  cat:"special",  effect:"paralyze",  ec:100, desc:"An electric cannon blast that always paralyzes but is hard to aim." },
+  plasma_fists:     { name:"Plasma Fists",      type:"Electric", power:100, acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Slams with fists wreathed in crackling plasma for massive damage." },
+  rising_voltage:   { name:"Rising Voltage",    type:"Electric", power:70,  acc:100, pp:20, cat:"special",  effect:"burn",      ec:10,  desc:"Charges the air with intensifying voltage that can unpredictably cause burns." },
+  thunder_cage:     { name:"Thunder Cage",      type:"Electric", power:80,  acc:90,  pp:15, cat:"special",  effect:"spedown",   ec:30,  desc:"Imprisons the foe in a cage of crackling lightning that slows movement." },
+
+  // --- Ground (+8) ---
+  bulldoze:         { name:"Bulldoze",          type:"Ground",   power:60,  acc:100, pp:20, cat:"physical", effect:"spedown",   ec:100, desc:"Stomps the ground heavily, shaking the area and lowering the foe's Speed." },
+  sand_attack:      { name:"Sand Attack",       type:"Ground",   power:0,   acc:100, pp:15, cat:"status",   effect:"atkdown",   ec:100, desc:"Kicks sand into the foe's face, impairing its offensive precision." },
+  bone_rush:        { name:"Bone Rush",         type:"Ground",   power:65,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Strikes the foe 2–5 times in rapid succession with a hard bone." },
+  scorched_sand:    { name:"Scorched Sand",     type:"Ground",   power:70,  acc:100, pp:15, cat:"special",  effect:"burn",      ec:30,  desc:"Fires scorching superheated sand that may leave burns on contact." },
+  tectonic_wrath:   { name:"Tectonic Wrath",    type:"Ground",   power:110, acc:90,  pp:10, cat:"physical", effect:"recoil",    ec:100, desc:"Channels seismic fury into a devastating blow that rattles the user too." },
+  underground_slam: { name:"Underground Slam",  type:"Ground",   power:80,  acc:100, pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"Burrows underground and erupts beneath the foe for a bone-crunching slam." },
+  quicksand_trap:   { name:"Quicksand Trap",    type:"Ground",   power:0,   acc:90,  pp:15, cat:"status",   effect:"spedown2",  ec:100, desc:"Sucks the foe into quicksand, drastically reducing its Speed." },
+  bone_club:        { name:"Bone Club",         type:"Ground",   power:65,  acc:85,  pp:20, cat:"physical", effect:"flinch",    ec:10,  desc:"Strikes the foe with a club-like bone. May cause flinching." },
+
+  // --- Wind (+7) ---
+  breeze_blade:     { name:"Breeze Blade",      type:"Wind",     power:50,  acc:100, pp:20, cat:"physical", effect:"crit",      ec:100, desc:"Slices with focused wind so precisely it always finds a critical spot." },
+  gale_strike:      { name:"Gale Strike",       type:"Wind",     power:70,  acc:100, pp:20, cat:"physical", effect:"flinch",    ec:20,  desc:"A powerful strike backed by gale-force winds that may cause flinching." },
+  vacuum_wave:      { name:"Vacuum Wave",       type:"Wind",     power:40,  acc:100, pp:30, cat:"special",  effect:"priority",  ec:0,   desc:"Creates a vacuum wave that strikes before the foe can react." },
+  aerial_slam:      { name:"Aerial Slam",       type:"Wind",     power:90,  acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:30,  desc:"Soars high then slams the foe with the full force of a high-altitude dive." },
+  stratosphere_drop:{ name:"Stratosphere Drop", type:"Wind",     power:120, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Ascends to the stratosphere and releases a shockwave of compressed air." },
+  whirlwind_force:  { name:"Whirlwind Force",   type:"Wind",     power:0,   acc:100, pp:20, cat:"status",   effect:"defdown",   ec:100, desc:"A relentless whirlwind that shreds through the target's guard." },
+  wind_barrier:     { name:"Wind Barrier",      type:"Wind",     power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Wraps the body in a spinning shell of compressed wind, bolstering defense." },
+
+  // --- Ice (+8) ---
+  frost_bite:       { name:"Frost Bite",        type:"Ice",      power:60,  acc:95,  pp:15, cat:"physical", effect:"freeze",    ec:10,  desc:"Bites down with frost-coated fangs. May freeze the target." },
+  aurora_blast:     { name:"Aurora Blast",      type:"Ice",      power:80,  acc:100, pp:15, cat:"special",  effect:"freeze",    ec:10,  desc:"A brilliant aurora-hued blast of frozen energy that may freeze." },
+  ice_hammer:       { name:"Ice Hammer",        type:"Ice",      power:100, acc:90,  pp:10, cat:"physical", effect:"spedown",   ec:100, desc:"Slams with a fist of solid ice. Devastating power that slows the user." },
+  sheer_cold:       { name:"Sheer Cold",        type:"Ice",      power:0,   acc:30,  pp:5,  cat:"special",  effect:"freeze",    ec:100, desc:"An intense cold snap of absolute zero. Rarely lands, but always freezes." },
+  snow_veil:        { name:"Snow Veil",         type:"Ice",      power:0,   acc:100, pp:20, cat:"status",   effect:"spdefup",   ec:100, desc:"Cloaks the body in swirling snow that bolsters special defense." },
+  glacial_lance:    { name:"Glacial Lance",     type:"Ice",      power:120, acc:95,  pp:5,  cat:"physical", effect:null,        ec:0,   desc:"Conjures a massive lance of glacial ice and hurls it at the foe." },
+  hail_barrage:     { name:"Hail Barrage",      type:"Ice",      power:65,  acc:90,  pp:15, cat:"special",  effect:"flinch",    ec:20,  desc:"Pelts the foe with a relentless barrage of sharp hailstones." },
+  cryogenic_breath: { name:"Cryogenic Breath",  type:"Ice",      power:85,  acc:90,  pp:10, cat:"special",  effect:"freeze",    ec:20,  desc:"Exhales a breath of cryogenic air cold enough to instantly freeze." },
+
+  // --- Dark (+8) ---
+  taunt:            { name:"Taunt",             type:"Dark",     power:0,   acc:100, pp:20, cat:"status",   effect:"atkdown",   ec:100, desc:"Provokes the target with taunts, rattling their composure and lowering Attack." },
+  pursuit:          { name:"Pursuit",           type:"Dark",     power:40,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"Relentlessly pursues the foe, cutting off any attempt to flee." },
+  throat_chop:      { name:"Throat Chop",       type:"Dark",     power:80,  acc:100, pp:15, cat:"physical", effect:"atkdown",   ec:100, desc:"Strikes the foe in the throat, disabling their offensive capabilities." },
+  nasty_plot:       { name:"Nasty Plot",        type:"Dark",     power:0,   acc:100, pp:20, cat:"status",   effect:"spatkup",   ec:100, desc:"Schemes devious plots that sharply raise the user's Special Attack." },
+  dark_void:        { name:"Dark Void",         type:"Dark",     power:0,   acc:80,  pp:10, cat:"status",   effect:"sleep",     ec:100, desc:"Drags the foe into a void of darkness, pulling them into deep slumber." },
+  wicked_torrent:   { name:"Wicked Torrent",    type:"Dark",     power:95,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:20,  desc:"Unleashes a torrent of wicked dark energy that may erode special defenses." },
+  shadow_force:     { name:"Shadow Force",      type:"Dark",     power:120, acc:100, pp:5,  cat:"physical", effect:null,        ec:0,   desc:"Vanishes into shadow then reappears to deliver a devastating strike." },
+  abyss_stare:      { name:"Abyss Stare",       type:"Dark",     power:0,   acc:100, pp:15, cat:"status",   effect:"spatkdown", ec:100, desc:"Fixes the target with a gaze from the bottomless abyss, sapping special power." },
+
+  // --- Fairy (+7) ---
+  disarming_voice:  { name:"Disarming Voice",   type:"Fairy",    power:40,  acc:100, pp:15, cat:"special",  effect:null,        ec:0,   desc:"A melodic cry that never misses and disarms the foe's heart." },
+  charm:            { name:"Charm",             type:"Fairy",    power:0,   acc:100, pp:20, cat:"status",   effect:"atkdown",   ec:100, desc:"Charms the foe with cuteness, sharply lowering its Attack." },
+  moonlight:        { name:"Moonlight",         type:"Fairy",    power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Bathes in moonlight to restore the user's HP." },
+  misty_explosion:  { name:"Misty Explosion",   type:"Fairy",    power:100, acc:100, pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Explodes in a burst of mystic mist, dealing heavy damage at a cost." },
+  sparkling_aria:   { name:"Sparkling Aria",    type:"Fairy",    power:90,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Sings a sparkling aria that resonates with magical force." },
+  light_of_ruin:    { name:"Light of Ruin",     type:"Fairy",    power:140, acc:90,  pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Draws in destructive light for a catastrophic blast at the user's expense." },
+  fairy_lock:       { name:"Fairy Lock",        type:"Fairy",    power:0,   acc:100, pp:15, cat:"status",   effect:"spedown",   ec:100, desc:"Seals the battlefield with fairy magic, slowing the foe with mystical bonds." },
+
+  // --- Steel (+7) ---
+  metal_sound:      { name:"Metal Sound",       type:"Steel",    power:0,   acc:85,  pp:40, cat:"status",   effect:"spdefdown", ec:100, desc:"Scrapes metal to produce a horrible sound that sharply lowers Sp. Def." },
+  iron_defense:     { name:"Iron Defense",      type:"Steel",    power:0,   acc:100, pp:15, cat:"status",   effect:"defup",     ec:100, desc:"Hardens the body like iron, sharply raising the user's Defense." },
+  magnet_bomb:      { name:"Magnet Bomb",       type:"Steel",    power:60,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"Launches a magnetic bomb that homes in on the target and never misses." },
+  smart_strike:     { name:"Smart Strike",      type:"Steel",    power:70,  acc:100, pp:10, cat:"physical", effect:null,        ec:0,   desc:"Strikes with calculated precision — never missing its mark." },
+  sunsteel_strike:  { name:"Sunsteel Strike",   type:"Steel",    power:100, acc:100, pp:10, cat:"physical", effect:null,        ec:0,   desc:"Charges with the force of a meteorite, ignoring the target's defenses." },
+  titan_blade:      { name:"Titan Blade",       type:"Steel",    power:110, acc:90,  pp:10, cat:"physical", effect:"recoil",    ec:100, desc:"Swings a blade of titanic steel with overwhelming force, damaging the user too." },
+  steel_roller:     { name:"Steel Roller",      type:"Steel",    power:130, acc:90,  pp:5,  cat:"physical", effect:"defdown",   ec:30,  desc:"Rolls over the foe with massive steel momentum, crushing through their guard." },
+
+  // --- Poison (+7) ---
+  poison_powder:    { name:"Poison Powder",     type:"Poison",   power:0,   acc:75,  pp:35, cat:"status",   effect:"poison",    ec:100, desc:"Scatters toxic powder that poisons the target on contact." },
+  toxic_thread:     { name:"Toxic Thread",      type:"Poison",   power:0,   acc:100, pp:20, cat:"status",   effect:"poison",    ec:100, desc:"Shoots a thread laced with venom that poisons and entangles the foe." },
+  coil:             { name:"Coil",              type:"Poison",   power:0,   acc:100, pp:20, cat:"status",   effect:"atkup",     ec:100, desc:"Coils up tightly, raising Attack and focus for the coming battle." },
+  gunk_blast:       { name:"Gunk Blast",        type:"Poison",   power:120, acc:85,  pp:5,  cat:"special",  effect:"poison",    ec:30,  desc:"Blasts the foe with a surge of concentrated toxins that may poison." },
+  corrosive_rain:   { name:"Corrosive Rain",    type:"Poison",   power:80,  acc:100, pp:10, cat:"special",  effect:"poison",    ec:30,  desc:"Summons a rain of corrosive acid that may poison the target." },
+  venom_surge:      { name:"Venom Surge",       type:"Poison",   power:95,  acc:90,  pp:10, cat:"special",  effect:"badpoison", ec:30,  desc:"Releases concentrated venom that may badly poison the target." },
+  blight_drain:     { name:"Blight Drain",      type:"Poison",   power:75,  acc:100, pp:15, cat:"special",  effect:"drain",     ec:100, desc:"Fires blighted energy that saps the foe's life force to restore the user's HP." },
+
+  // --- Psychic (+8) ---
+  cosmic_power:     { name:"Cosmic Power",      type:"Psychic",  power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Absorbs the energy of the cosmos to raise the user's Defense and resilience." },
+  stored_power:     { name:"Stored Power",      type:"Psychic",  power:60,  acc:100, pp:10, cat:"special",  effect:"spatkup",   ec:30,  desc:"Unleashes stored psychic energy — the more the user is powered up, the harder it hits." },
+  expanding_force:  { name:"Expanding Force",   type:"Psychic",  power:80,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Unleashes a psychic force that expands outward to blanket the target." },
+  psy_blast:        { name:"Psy Blast",         type:"Psychic",  power:120, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:30,  desc:"A concentrated psychic beam that may crack the target's mental defenses." },
+  mind_burst:       { name:"Mind Burst",        type:"Psychic",  power:85,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:20,  desc:"Causes an explosive burst inside the target's mind, weakening special defenses." },
+  future_sight:     { name:"Future Sight",      type:"Psychic",  power:120, acc:100, pp:10, cat:"special",  effect:"recharge",  ec:100, desc:"Focuses psychic power that strikes the foe two turns later with tremendous force." },
+  gravitational_pull:{ name:"Gravitational Pull",type:"Psychic", power:0,   acc:90,  pp:20, cat:"status",   effect:"spedown2",  ec:100, desc:"Warps gravity around the foe, drastically reducing its Speed." },
+  thought_wave:     { name:"Thought Wave",      type:"Psychic",  power:50,  acc:100, pp:20, cat:"special",  effect:"confuse",   ec:30,  desc:"Sends disruptive thought waves that may leave the target confused." },
+
+  // --- Dragon (+7) ---
+  scale_shot:       { name:"Scale Shot",        type:"Dragon",   power:65,  acc:90,  pp:20, cat:"physical", effect:"speup",     ec:100, desc:"Fires sharp scales as projectiles, raising the user's Speed afterward." },
+  dual_chop:        { name:"Dual Chop",         type:"Dragon",   power:40,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Strikes the target twice in swift succession with dragon-like precision." },
+  breaking_swipe:   { name:"Breaking Swipe",    type:"Dragon",   power:60,  acc:100, pp:15, cat:"physical", effect:"atkdown",   ec:100, desc:"Sweeps the foe with a dragon's tail, always lowering their Attack." },
+  clanging_scales:  { name:"Clanging Scales",   type:"Dragon",   power:110, acc:100, pp:5,  cat:"special",  effect:"spdefdown", ec:100, desc:"Clashes the user's scales to release a deafening sound that lowers Sp. Def." },
+  eternabeam:       { name:"Eternabeam",        type:"Dragon",   power:160, acc:90,  pp:5,  cat:"special",  effect:"recharge",  ec:100, desc:"The most powerful attack a dragon can use — must rest on the following turn." },
+  dragon_ascent:    { name:"Dragon Ascent",     type:"Dragon",   power:120, acc:100, pp:5,  cat:"physical", effect:"defdown",   ec:100, desc:"Ascends with dragon power and crashes down, lowering the user's defenses." },
+  dragon_maw:       { name:"Dragon Maw",        type:"Dragon",   power:85,  acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Snaps with powerful dragon jaws. The sheer force may cause flinching." },
+
+  // --- Rock (+8) ---
+  stealth_rock:     { name:"Stealth Rock",      type:"Rock",     power:0,   acc:100, pp:20, cat:"status",   effect:"atkdown",   ec:100, desc:"Lays a trap of razor-sharp rocks that weakens foes as they enter battle." },
+  rock_polish:      { name:"Rock Polish",       type:"Rock",     power:0,   acc:100, pp:20, cat:"status",   effect:"speup",     ec:100, desc:"Polishes the body's rocky surface until frictionless, sharply raising Speed." },
+  diamond_crash:    { name:"Diamond Crash",     type:"Rock",     power:100, acc:95,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Crashes into the foe with crystalline diamond hardness." },
+  ancient_tide:     { name:"Ancient Tide",      type:"Rock",     power:75,  acc:95,  pp:15, cat:"special",  effect:"defdown",   ec:20,  desc:"Unleashes a wave of ancient stone energy that may erode the foe's defenses." },
+  meteor_strike:    { name:"Meteor Strike",     type:"Rock",     power:140, acc:85,  pp:5,  cat:"special",  effect:"recharge",  ec:100, desc:"Calls down a meteorite from above. Must rest on the following turn." },
+  stone_axe:        { name:"Stone Axe",         type:"Rock",     power:65,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Strikes with the cleaving force of a stone axe, splitting through armor." },
+  rock_wrecker:     { name:"Rock Wrecker",      type:"Rock",     power:150, acc:90,  pp:5,  cat:"physical", effect:"recharge",  ec:100, desc:"A devastating rock-shattering blow that requires rest on the next turn." },
+  crystal_spear:    { name:"Crystal Spear",     type:"Rock",     power:80,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"A spear of pure crystal that always strikes a critical point." },
+
+  // --- Bug (+7) ---
+  quiver_dance:     { name:"Quiver Dance",      type:"Bug",      power:0,   acc:100, pp:20, cat:"status",   effect:"calmup",    ec:100, desc:"A mystical dance that raises the user's special power, resilience, and Speed." },
+  sticky_web:       { name:"Sticky Web",        type:"Bug",      power:0,   acc:100, pp:20, cat:"status",   effect:"spedown",   ec:100, desc:"Shoots a sticky web that significantly slows the target." },
+  twineedle:        { name:"Twineedle",         type:"Bug",      power:50,  acc:100, pp:20, cat:"physical", effect:"poison",    ec:20,  desc:"Stings the foe twice with a sharp stinger. May poison." },
+  attack_order:     { name:"Attack Order",      type:"Bug",      power:90,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Commands bug allies to swarm the foe — their unified assault always finds weak points." },
+  swarm_fury:       { name:"Swarm Fury",        type:"Bug",      power:80,  acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"An unrelenting swarming assault that exhausts the user as well." },
+  cocoon_guard:     { name:"Cocoon Guard",      type:"Bug",      power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Wraps the body in a hardened cocoon shell, dramatically raising Defense." },
+  hivemind_surge:   { name:"Hivemind Surge",    type:"Bug",      power:110, acc:90,  pp:10, cat:"special",  effect:null,        ec:0,   desc:"Channels the collective power of a hivemind into a single devastating burst." },
+
+  // ============================================================
+  // LEGENDARY SIGNATURE MOVES (+7)
+  // ============================================================
+
+  // Tempestarch — Electric/Wind sovereign
+  storm_sovereignty:      { name:"Storm Sovereignty",      type:"Electric", power:130, acc:90,  pp:5,  cat:"special",  effect:"paralyze",  ec:50,  desc:"Tempestarch's ultimate technique — asserts dominion over all storms, paralyzing foes with sovereign lightning." },
+  // Chronoveil — Psychic/Dragon time weaver
+  temporal_collapse:      { name:"Temporal Collapse",      type:"Psychic",  power:120, acc:90,  pp:5,  cat:"special",  effect:"confuse",   ec:50,  desc:"Chronoveil collapses the flow of time around the target, leaving them disoriented and confused." },
+  // Pyrovanus — Fire/Rock volcano titan
+  volcanic_wrath:         { name:"Volcanic Wrath",         type:"Fire",     power:140, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:100, desc:"Pyrovanus channels the full fury of a super-volcano, always severely burning the target." },
+  // Thalassovex — Water/Dark abyss drake
+  abyssal_dominion:       { name:"Abyssal Dominion",       type:"Dark",     power:130, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50,  desc:"Thalassovex asserts dominion over the deep abyss, crushing the target's psychic defenses." },
+  // Gaiavorn — Ground/Grass land spirit
+  world_root_bind:        { name:"World Root Bind",        type:"Ground",   power:130, acc:90,  pp:5,  cat:"physical", effect:"spedown",   ec:100, desc:"Gaiavorn erupts roots from the world's core to bind and crush the target." },
+  // Voidraxis — Dark/Fairy void star
+  starlight_obliteration: { name:"Starlight Obliteration", type:"Dark",     power:150, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Voidraxis extinguishes entire stars and channels their death into a single point of annihilation." },
+  // Dragemian — Dragon/Fire emperor
+  emperor_inferno:        { name:"Emperor Inferno",        type:"Dragon",   power:140, acc:90,  pp:5,  cat:"physical", effect:"burn",      ec:100, desc:"Dragemian, lord of all dragons, breathes the emperor's eternal flame — always scorches the target." }
 };
 
 
@@ -3384,7 +3557,7 @@ const WORLD_DATA = {
       {id:217, minLv:73, maxLv:77, rate:5}    // Mentovast (final Psychic)
     ],
     hasGym:true, gymLeader:"seraphina", requiredBadges:15, mapPos:{x:68, y:72}
-  }
+  },
   // ---- ADDITIONAL ROUTES (direction-change splits & mid-gym connectors) ----
   murk_crossing: {
     id:"murk_crossing", name:"Murk Crossing", icon:"🌫️", type:"route",
@@ -3498,7 +3671,7 @@ const WORLD_DATA = {
       {id:131, minLv:73, maxLv:78, rate:15}   // Necrothon (Dark/Grass)
     ],
     hasGym:false, requiredBadges:15, mapPos:{x:75, y:72}
-  }
+  },
   // ---- ADDITIONAL MID-GYM ROUTES (phase 2) ----
   toxic_bog: {
     id:"toxic_bog", name:"Toxic Bog", icon:"🐸", type:"route",
@@ -3553,7 +3726,7 @@ const WORLD_DATA = {
       {id:135, minLv:67, maxLv:72, rate:15}   // Ferrovex (mid → after 134 ✓)
     ],
     hasGym:false, requiredBadges:13, mapPos:{x:33, y:92}
-  }
+  },
 
   // ---- NEW AREAS: GYMS 9-16 EXPANSION ----
 
@@ -3827,109 +4000,118 @@ const GYM_LEADERS = {
   thorne: {
     id:"thorne", name:"Leader Thorne", emoji:"🌿", type:"Grass",
     badge:"Canopy Badge", badgeEmoji:"🌿",
+    battleType:"double",
     quote:"The forest speaks to me. Let its vines entangle your hopes!",
     winQuote:"Your spirit is as resilient as ancient oak. The Canopy Badge is yours.",
     team:[
-      {monsterId:8, level:51, moves:["razor_leaf","vine_whip","seed_bomb","energy_ball"]},
-      {monsterId:67, level:52, moves:["earthquake","razor_leaf","energy_ball","mud_shot"]},
-      {monsterId:163, level:52, moves:["sludge_bomb","energy_ball","petal_blitz","toxic"]},
-      {monsterId:9, level:53, moves:["petal_blitz","energy_ball","moonblast","canopy_crash"]}
+      {monsterId:8,   level:51, moves:["razor_leaf","vine_whip","seed_bomb","energy_ball"]},
+      {monsterId:263, level:52, moves:["vine_whip","poison_jab","energy_ball","toxic"]},
+      {monsterId:264, level:52, moves:["energy_ball","toxic","sludge_bomb","petal_blitz"]},
+      {monsterId:9,   level:53, moves:["petal_blitz","energy_ball","moonblast","canopy_crash"]}
     ]
   },
   viper: {
     id:"viper", name:"Leader Viper", emoji:"☠️", type:"Poison",
     badge:"Venom Badge", badgeEmoji:"☠️",
+    battleType:"single",
     quote:"One drop is all it takes. My Lumos are lethal to the touch!",
     winQuote:"You survived my venom... impressive. The Venom Badge is yours.",
     team:[
       {monsterId:156, level:55, moves:["sludge_bomb","venoshock","toxic","acid_rain"]},
-      {monsterId:160, level:55, moves:["sludge_bomb","air_slash","miasma_cloud","toxic"]},
-      {monsterId:32, level:56, moves:["venom_lance","x_scissor","bug_buzz","toxic_surge"]},
+      {monsterId:297, level:55, moves:["sludge_bomb","air_slash","toxic","bug_buzz"]},
+      {monsterId:208, level:56, moves:["sludge_bomb","dragon_pulse","venoshock","toxic"]},
       {monsterId:158, level:57, moves:["sludge_wave","earthquake","acid_rain","toxic"]}
     ]
   },
   atlas: {
     id:"atlas", name:"Leader Atlas", emoji:"🏔️", type:"Ground",
     badge:"Tectonic Badge", badgeEmoji:"🏔️",
+    battleType:"double",
     quote:"I am the earth itself. Unshakable. Unyielding. Unstoppable!",
     winQuote:"The ground trembles in respect. The Tectonic Badge is yours.",
     team:[
-      {monsterId:96, level:58, moves:["earthquake","rock_slide","mud_shot","stone_edge"]},
-      {monsterId:102, level:59, moves:["earthquake","earth_power","body_slam","fissure_slam"]},
-      {monsterId:107, level:59, moves:["earthquake","earth_power","fissure_slam","terra_spike"]},
-      {monsterId:54, level:60, moves:["earthquake","blizzard","ice_beam","earth_power"]}
+      {monsterId:96,  level:58, moves:["earthquake","rock_slide","mud_shot","stone_edge"]},
+      {monsterId:310, level:59, moves:["mud_shot","water_gun","earthquake","mud_bomb"]},
+      {monsterId:311, level:59, moves:["surf","earthquake","earth_power","mud_shot"]},
+      {monsterId:54,  level:60, moves:["earthquake","blizzard","ice_beam","earth_power"]}
     ]
   },
   mantis: {
     id:"mantis", name:"Leader Mantis", emoji:"🦗", type:"Bug",
     badge:"Chitin Badge", badgeEmoji:"🦗",
+    battleType:"triple",
     quote:"Bugs are nature's perfect warriors. Swift, sharp, and relentless!",
     winQuote:"Your reflexes rival even my bugs. The Chitin Badge is yours!",
     team:[
       {monsterId:201, level:61, moves:["x_scissor","bug_buzz","iron_tail","mandible_crush"]},
-      {monsterId:165, level:62, moves:["bug_buzz","sludge_bomb","venoshock","x_scissor"]},
-      {monsterId:205, level:62, moves:["bug_buzz","earthquake","x_scissor","mandible_crush"]},
+      {monsterId:299, level:62, moves:["bug_bite","poison_sting","x_scissor","toxic"]},
+      {monsterId:300, level:62, moves:["x_scissor","sludge_bomb","toxic","bug_buzz"]},
       {monsterId:203, level:63, moves:["bug_buzz","moonblast","x_scissor","dazzling_gleam"]}
     ]
   },
   zephyra: {
     id:"zephyra", name:"Leader Zephyra", emoji:"🌪️", type:"Wind",
     badge:"Tempest Badge", badgeEmoji:"🌪️",
+    battleType:"double",
     quote:"The winds obey my command! Can you stand against the storm?",
     winQuote:"You've weathered the fiercest gale. The Tempest Badge is yours.",
     team:[
       {monsterId:112, level:64, moves:["hurricane","air_slash","cyclone_blade","jetstream"]},
-      {monsterId:115, level:65, moves:["hurricane","cyclone_blade","skyfall","air_slash"]},
-      {monsterId:62, level:65, moves:["blizzard","hurricane","ice_beam","air_slash"]},
+      {monsterId:294, level:65, moves:["hurricane","dragon_breath","air_slash","cyclone_blade"]},
+      {monsterId:295, level:65, moves:["hurricane","dragon_claw","air_slash","cyclone_blade"]},
       {monsterId:314, level:66, moves:["hurricane","thunderbolt","tempest_wrath","gale_cannon"]}
     ]
   },
   ferro: {
     id:"ferro", name:"Leader Ferro", emoji:"⚙️", type:"Steel",
     badge:"Alloy Badge", badgeEmoji:"⚙️",
+    battleType:"double",
     quote:"Steel is perfection. No weakness, no flaw, no mercy!",
     winQuote:"Even steel bends before your will. The Alloy Badge is yours.",
     team:[
       {monsterId:148, level:67, moves:["iron_tail","forge_strike","flash_cannon","crunch"]},
-      {monsterId:152, level:68, moves:["tungsten_ram","stone_edge","iron_tail","flash_cannon"]},
-      {monsterId:135, level:68, moves:["shadow_ball","flash_cannon","dark_pulse","forge_strike"]},
+      {monsterId:252, level:68, moves:["stone_edge","iron_tail","flash_cannon","rock_slide"]},
+      {monsterId:279, level:68, moves:["flash_cannon","moonblast","iron_tail","dazzling_gleam"]},
       {monsterId:151, level:69, moves:["tungsten_ram","flash_cannon","thunder","iron_tail"]}
     ]
   },
   boulder: {
     id:"boulder", name:"Leader Boulder", emoji:"🪨", type:"Rock",
     badge:"Geode Badge", badgeEmoji:"🪨",
+    battleType:"triple",
     quote:"Solid as stone, heavy as mountains. My Lumos are unbreakable!",
     winQuote:"You've shattered my defenses. The Geode Badge is yours.",
     team:[
       {monsterId:192, level:70, moves:["earthquake","stone_edge","rock_slide","landslide"]},
-      {monsterId:195, level:71, moves:["crystal_lance","stone_edge","landslide","geode_burst"]},
-      {monsterId:133, level:71, moves:["dark_pulse","stone_edge","shadow_ball","landslide"]},
+      {monsterId:304, level:71, moves:["crystal_lance","stone_edge","ice_beam","rock_slide"]},
+      {monsterId:305, level:71, moves:["stone_edge","ice_beam","rock_slide","blizzard"]},
       {monsterId:152, level:72, moves:["tungsten_ram","stone_edge","iron_tail","landslide"]}
     ]
   },
   seraphina: {
     id:"seraphina", name:"Leader Seraphina", emoji:"🧚", type:"Fairy",
     badge:"Aurora Badge", badgeEmoji:"🧚",
+    battleType:"triple",
     quote:"Fairy magic is the most beautiful and the most deadly force in Lumoria!",
     winQuote:"Your heart shines brighter than any fairy light. The Aurora Badge is yours!",
     team:[
       {monsterId:138, level:73, moves:["moonblast","dazzling_gleam","fairy_wind","celestial_wave"]},
-      {monsterId:73, level:74, moves:["moonblast","energy_ball","dazzling_gleam","fairy_wind"]},
-      {monsterId:146, level:74, moves:["moonblast","flash_cannon","celestial_wave","dazzling_gleam"]},
+      {monsterId:302, level:74, moves:["moonblast","dazzling_gleam","fairy_wind","draining_kiss"]},
+      {monsterId:303, level:74, moves:["moonblast","psychic_move","dazzling_gleam","calm_mind"]},
       {monsterId:143, level:75, moves:["moonblast","psychic_move","celestial_wave","calm_mind"]}
     ]
   },
   champion: {
     id:"champion", name:"Champion Lumian", emoji:"👑", type:"Mixed",
     badge:null, badgeEmoji:"🏆",
+    battleType:"triple",
     quote:"I am Champion Lumian, master of all types and all strategies. Many have tried... none have succeeded. Show me your resolve, young trainer!",
     winQuote:"Astounding! You have defeated the Champion of Lumoria! Your name will echo through the ages! You are the new Lumoria Champion!",
     team:[
-      {monsterId:3,  level:79, moves:["flamethrower","dragon_claw","heat_wave","outrage"]},
-      {monsterId:54, level:80, moves:["blizzard","earthquake","ice_beam","earth_power"]},
+      {monsterId:273, level:79, moves:["flamethrower","dragon_pulse","fire_blast","outrage"]},
+      {monsterId:240, level:80, moves:["blizzard","hurricane","ice_beam","air_slash"]},
       {monsterId:320, level:81, moves:["thunderbolt","tungsten_ram","flash_cannon","forge_strike"]},
-      {monsterId:143, level:82, moves:["moonblast","psychic_move","celestial_wave","calm_mind"]},
+      {monsterId:225, level:82, moves:["psychic_move","moonblast","dazzling_gleam","calm_mind"]},
       {monsterId:321, level:83, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
       {monsterId:171, level:84, moves:["psychic_move","dragon_pulse","temporal_rift","outrage"]}
     ]
@@ -4057,42 +4239,45 @@ const RIVAL_BATTLES = {
   },
   rival_3: {
     id:"rival_3", name:"Rival Marcus", emoji:"🧒",
+    battleType:"single",
     quote:"Team Umbra tried to recruit me, can you believe that? I told them to get lost. Now I'm going to prove my strength on YOU!",
     winQuote:"You're incredible. Look... I found this near the Umbra Base. Take it - you'll need it more than me. Stop them!",
     triggerBadges:6,
     reward:{ ultraOrb:3, superPotion:3 },
     team:[
-      {monsterId:82, level:50, moves:["thunder","thunderbolt","dragon_dance","body_slam"]},
+      {monsterId:82,  level:50, moves:["thunder","thunderbolt","dragon_dance","body_slam"]},
       {monsterId:171, level:51, moves:["psychic_move","dragon_pulse","confusion","psystrike"]},
-      {monsterId:67, level:52, moves:["earthquake","energy_ball","petal_blitz","earth_power"]},
-      {monsterId:151, level:54, moves:["flash_cannon","thunder","iron_tail","flash_cannon"]}
+      {monsterId:234, level:52, moves:["dragon_breath","earthquake","dragon_pulse","earth_power"]},
+      {monsterId:281, level:54, moves:["iron_tail","earthquake","flash_cannon","thunder"]}
     ]
   },
   rival_4: {
     id:"rival_4", name:"Rival Marcus", emoji:"🧒",
+    battleType:"double",
     quote:"I heard a rumour — a new Umbra faction is operating in the southern routes. They've been capturing evolved Lumos. This doesn't sit right with me... but first, I need to settle things with YOU!",
     winQuote:"Incredible as always... I'll investigate those Umbra sightings. Watch your back on Routes 12 onward — something's off.",
     triggerBadges:9,
     team:[
-      {monsterId:82, level:62, moves:["thunder","dragon_dance","body_slam","thunderbolt"]},
+      {monsterId:82,  level:62, moves:["thunder","dragon_dance","body_slam","thunderbolt"]},
       {monsterId:171, level:63, moves:["psychic_move","dragon_pulse","psystrike","calm_mind"]},
-      {monsterId:97, level:64, moves:["earthquake","stone_edge","rock_slide","earth_power"]},
-      {monsterId:151, level:65, moves:["flash_cannon","thunder","forge_strike","iron_tail"]},
-      {monsterId:65, level:66, moves:["petal_blitz","energy_ball","verdant_surge","canopy_crash"]}
+      {monsterId:250, level:64, moves:["earthquake","stone_edge","rock_slide","landslide"]},
+      {monsterId:282, level:65, moves:["flash_cannon","iron_tail","earthquake","thunderbolt"]},
+      {monsterId:65,  level:66, moves:["petal_blitz","energy_ball","verdant_surge","canopy_crash"]}
     ]
   },
   rival_5: {
     id:"rival_5", name:"Rival Marcus", emoji:"🧒",
+    battleType:"triple",
     quote:"I found what Team Umbra is after — Voidraxis, the Void Star legendary! They've opened a Void Rift near Route 16. This is serious. If you can't beat ME, you have no chance against what's waiting there!",
     winQuote:"You're ready. I've been tracking Commander Phantom — she's at the Void Rift with Voidraxis. Hurry, before they complete the ritual! Take this — you'll need it.",
     triggerBadges:14,
     reward:{ masterOrb:1, maxPotion:5 },
     team:[
-      {monsterId:82, level:70, moves:["thunder","dragon_dance","arc_flash","overcharge"]},
+      {monsterId:82,  level:70, moves:["thunder","dragon_dance","arc_flash","overcharge"]},
       {monsterId:171, level:71, moves:["psystrike","dragon_pulse","temporal_rift","calm_mind"]},
-      {monsterId:97, level:72, moves:["earthquake","stone_edge","tectonic_slam","earth_power"]},
-      {monsterId:151, level:73, moves:["flash_cannon","thunder","tungsten_ram","anvil_drop"]},
-      {monsterId:65, level:74, moves:["petal_blitz","verdant_surge","moonblast","canopy_crash"]},
+      {monsterId:250, level:72, moves:["earthquake","stone_edge","tectonic_slam","earth_power"]},
+      {monsterId:282, level:73, moves:["flash_cannon","thunder","tungsten_ram","anvil_drop"]},
+      {monsterId:264, level:74, moves:["petal_blitz","verdant_surge","energy_ball","toxic"]},
       {monsterId:321, level:75, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]}
     ]
   }
@@ -4143,13 +4328,14 @@ const UMBRA_BATTLES = {
   },
   umbra_shade: {
     id:"umbra_shade", name:"Commander Shade", emoji:"🌑",
+    battleType:"triple",
     quote:"So... you are the trainer who dismantled my commanders' plans. Impressive. But it ends HERE. I have awakened all three Legendaries — Tempestia, Volcanox, and Abyssdrake. With their power, Team Umbra will control all of Lumoria! You are too late, child!",
     winQuote:"Defeated... by a trainer so young... Perhaps I misjudged the power of a trainer's bond with their Lumos. The Legendaries have retreated. Lumoria is safe... for now. You have my... grudging respect.",
     reward:{ masterOrb:1, maxPotion:5 },
     team:[
-      {monsterId:169, level:58, moves:["psystrike","psychic_move","calm_mind","recover"]},
-      {monsterId:124, level:59, moves:["crunch","dark_pulse","toxic","venoshock"]},
-      {monsterId:143, level:60, moves:["moonblast","psychic_move","dazzling_gleam","calm_mind"]},
+      {monsterId:217, level:58, moves:["psychic_move","psystrike","calm_mind","recover"]},
+      {monsterId:269, level:59, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
+      {monsterId:270, level:60, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]},
       {monsterId:321, level:61, moves:["outrage","fire_blast","dragon_pulse","dragon_dance"]},
       {monsterId:314, level:62, moves:["hurricane","thunder","air_slash","dragon_dance"]},
       {monsterId:316, level:65, moves:["hydro_pump","dark_pulse","dragon_pulse","crunch"]}
@@ -4159,21 +4345,23 @@ const UMBRA_BATTLES = {
   // ---- POST-GYM-15 VOIDRAXIS STORYLINE ----
   umbra_phantom_grunt: {
     id:"umbra_phantom_grunt", name:"Umbra Agent Riven", emoji:"🕶️",
+    battleType:"single",
     quote:"Turn back, trainer! Commander Phantom has reclaimed these routes for Team Umbra's new operation. The Void Star awakens — and its power over dark and fairy energy will be OURS!",
     winQuote:"You're stronger than I expected... but the Commander won't be stopped so easily. The Void Rift is already open!",
     team:[
       {monsterId:119, level:65, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
-      {monsterId:122, level:66, moves:["dark_pulse","wing_attack","hurricane","shadow_ball"]},
+      {monsterId:267, level:66, moves:["crunch","dark_pulse","night_slash","shadow_sneak"]},
       {monsterId:125, level:68, moves:["dark_pulse","sludge_bomb","venoshock","night_slash"]}
     ]
   },
   umbra_commander_phantom: {
     id:"umbra_commander_phantom", name:"Commander Phantom", emoji:"🌌",
+    battleType:"double",
     quote:"A child again? How tiresome. I am Phantom, Commander of Team Umbra's Void Division. While you were playing gym challenger, WE discovered the Void Star — Voidraxis — slumbering in the rift between light and darkness. With its power over both Dark AND Fairy energy, no one in Lumoria can resist us. Stand aside!",
     winQuote:"Impossible... Voidraxis should have responded to my call... The bond between trainer and Lumo really IS stronger than raw power. I— retreat! This isn't over, trainer. Voidraxis is still free. Find it before Umbra does!",
     team:[
-      {monsterId:120, level:68, moves:["crunch","dark_pulse","night_slash","void_rend"]},
-      {monsterId:131, level:69, moves:["dark_pulse","energy_ball","vine_whip","shadow_ball"]},
+      {monsterId:269, level:68, moves:["crunch","dark_pulse","shadow_ball","night_slash"]},
+      {monsterId:270, level:69, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]},
       {monsterId:133, level:70, moves:["crunch","stone_edge","shadow_ball","dark_pulse"]},
       {monsterId:136, level:72, moves:["flash_cannon","dark_pulse","forge_strike","void_rend"]},
       {monsterId:319, level:74, moves:["dark_pulse","moonblast","shadow_ball","soul_rend"]}
@@ -4426,50 +4614,54 @@ const SHOPS_DATA = {
 const ELITE_FOUR = [
   {
     id: "aria", name: "Elite Aria", emoji: "🎵", theme: "Graceful Offense",
+    battleType: "double",
     quote: "My Lumos dance through battle like a symphony. Can you keep up with the tempo?",
     winQuote: "A beautiful performance... You've earned my respect.",
     team: [
       { monsterId: 143, level: 75, moves: ["moonblast", "psychic_move", "dazzling_gleam", "calm_mind"] },
       { monsterId: 109, level: 75, moves: ["hurricane", "air_slash", "moonblast", "jetstream"] },
-      { monsterId: 9, level: 76, moves: ["petal_blitz", "energy_ball", "moonblast", "sleep_powder"] },
-      { monsterId: 39, level: 77, moves: ["surf", "hurricane", "ice_beam", "aqua_tail"] },
+      { monsterId: 224, level: 76, moves: ["psychic_move", "moonblast", "dazzling_gleam", "calm_mind"] },
+      { monsterId: 303, level: 77, moves: ["moonblast", "psychic_move", "dazzling_gleam", "celestial_wave"] },
       { monsterId: 117, level: 77, moves: ["psychic_move", "hurricane", "cyclone_blade", "calm_mind"] }
     ]
   },
   {
     id: "grimshaw", name: "Elite Grimshaw", emoji: "💀", theme: "Brutal Power",
+    battleType: "single",
     quote: "I don't do finesse. I crush. I break. I win.",
     winQuote: "Tch... You hit harder than I expected. Fine, you pass.",
     team: [
       { monsterId: 123, level: 76, moves: ["crunch", "sludge_bomb", "dark_pulse", "poison_sting"] },
-      { monsterId: 102, level: 76, moves: ["earthquake", "earth_power", "body_slam", "mud_shot"] },
-      { monsterId: 158, level: 77, moves: ["sludge_wave", "earthquake", "acid_rain", "toxic"] },
+      { monsterId: 312, level: 76, moves: ["earthquake", "dark_pulse", "crunch", "sand_tomb"] },
+      { monsterId: 208, level: 77, moves: ["sludge_wave", "dragon_pulse", "venoshock", "toxic"] },
       { monsterId: 148, level: 78, moves: ["iron_tail", "crunch", "flash_cannon", "forge_strike"] },
       { monsterId: 213, level: 78, moves: ["outrage", "dragon_pulse", "fire_blast", "dragon_dance"] }
     ]
   },
   {
     id: "celeste", name: "Elite Celeste", emoji: "✨", theme: "Cosmic Balance",
+    battleType: "double",
     quote: "The stars have aligned for this battle. Let us see what fate decrees.",
     winQuote: "The cosmos acknowledges your strength. Proceed, champion-to-be.",
     team: [
       { monsterId: 168, level: 77, moves: ["psychic_move", "dazzling_gleam", "moonblast", "calm_mind"] },
-      { monsterId: 48, level: 77, moves: ["blizzard", "ice_beam", "surf", "icicle_crash"] },
-      { monsterId: 151, level: 78, moves: ["flash_cannon", "thunderbolt", "tungsten_ram", "hyper_beam"] },
-      { monsterId: 3, level: 79, moves: ["flamethrower", "dragon_claw", "heat_wave", "outrage"] },
-      { monsterId: 211, level: 79, moves: ["dark_pulse", "moonblast", "psychic_move", "shadow_ball"] }
+      { monsterId: 48,  level: 77, moves: ["blizzard", "ice_beam", "surf", "icicle_crash"] },
+      { monsterId: 229, level: 78, moves: ["thunderbolt", "psychic_move", "thunder", "calm_mind"] },
+      { monsterId: 3,   level: 79, moves: ["flamethrower", "dragon_claw", "heat_wave", "outrage"] },
+      { monsterId: 241, level: 79, moves: ["ice_beam", "psychic_move", "blizzard", "calm_mind"] }
     ]
   },
   {
     id: "titan", name: "Elite Titan", emoji: "🏔️", theme: "Immovable Fortress",
+    battleType: "triple",
     quote: "I am the mountain. I am the wall. You shall not pass.",
     winQuote: "The mountain crumbles... You have the strength of a titan yourself.",
     team: [
       { monsterId: 195, level: 77, moves: ["stone_edge", "crystal_lance", "landslide", "rock_slide"] },
       { monsterId: 152, level: 78, moves: ["tungsten_ram", "stone_edge", "iron_tail", "flash_cannon"] },
-      { monsterId: 54, level: 79, moves: ["blizzard", "earthquake", "ice_beam", "earth_power"] },
-      { monsterId: 41, level: 79, moves: ["flash_cannon", "surf", "tungsten_ram", "hydro_pump"] },
-      { monsterId: 173, level: 80, moves: ["outrage", "dragon_pulse", "dragon_dance", "hyper_beam"] }
+      { monsterId: 54,  level: 79, moves: ["blizzard", "earthquake", "ice_beam", "earth_power"] },
+      { monsterId: 251, level: 79, moves: ["stone_edge", "iron_tail", "flash_cannon", "rock_slide"] },
+      { monsterId: 237, level: 80, moves: ["ice_beam", "stone_edge", "blizzard", "crystal_lance"] }
     ]
   }
 ];
@@ -4484,7 +4676,7 @@ const LEVEL_CAPS = {
   thorne: 53, viper: 57, atlas: 60, mantis: 63,
   zephyra: 66, ferro: 69, boulder: 72, seraphina: 75,
   // Elite Four
-  aria: 79, grimshaw: 79, celeste: 79, titan: 80,
+  aria: 77, grimshaw: 78, celeste: 79, titan: 80,
   // Champion
   champion: 84,
   // Rival battles

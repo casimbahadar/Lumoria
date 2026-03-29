@@ -108,6 +108,10 @@
         </div>
         <div id="area-actions">
           <button class="btn-action" id="btn-explore">🌿 Explore Area</button>
+          <button class="btn-action hidden" id="btn-route-trainer">⚔️ Battle Trainer</button>
+          <button class="btn-action hidden" id="btn-legendary">🌟 Challenge Legendary</button>
+          <button class="btn-action hidden" id="btn-umbra-area">🕶️ Battle Umbra Agent</button>
+          <button class="btn-action hidden" id="btn-gym-trainers">🥋 Gym Trainers</button>
           <button class="btn-action hidden" id="btn-gym">🏛 Challenge Gym</button>
           <button class="btn-action hidden" id="btn-elite-four">⚔️ Challenge Elite Four</button>
           <button class="btn-action hidden" id="btn-champion">👑 Challenge Champion</button>
@@ -115,6 +119,7 @@
           <button class="btn-action hidden" id="btn-umbra-base">☠️ Storm the Umbra Base</button>
           <button class="btn-action hidden" id="btn-rival">🧒 Battle Rival Marcus</button>
           <button class="btn-action hidden" id="btn-area-shop">🛒 Shop</button>
+          <button class="btn-action hidden" id="btn-heal">💊 Heal Team</button>
         </div>
         <div id="area-gym-info" class="hidden">
           <div class="gym-leader-card">
@@ -138,6 +143,7 @@
       <button class="nav-btn" id="nav-box">📦 BOX</button>
       <button class="nav-btn" id="nav-shop">🛒 SHOP</button>
       <button class="nav-btn" id="nav-save">💾 SAVE</button>
+      <button class="nav-btn" id="nav-music">🔊 MUSIC</button>
     </div>
   </div>
 
@@ -159,8 +165,37 @@
             </div>
           </div>
           <div id="enemy-type-badges"></div>
+          <div id="enemy-ivs" class="battle-ivs hidden"></div>
         </div>
         <div id="enemy-sprite" class="battle-sprite enemy-pos">🐍</div>
+        <!-- Second enemy slot (double/triple) -->
+        <div id="enemy-info-2" class="multi-battle-slot hidden">
+          <div id="enemy-header-2">
+            <span id="enemy-name-2"></span>
+            <span id="enemy-level-2"></span>
+            <span id="enemy-status-badge-2" class="status-badge hidden"></span>
+          </div>
+          <div class="hp-bar-container">
+            <span class="hp-label">HP</span>
+            <div class="hp-bar"><div id="enemy-hp-fill-2" class="hp-fill"></div></div>
+          </div>
+          <div id="enemy-type-badges-2"></div>
+        </div>
+        <div id="enemy-sprite-2" class="battle-sprite enemy-pos hidden"></div>
+        <!-- Third enemy slot (triple) -->
+        <div id="enemy-info-3" class="multi-battle-slot hidden">
+          <div id="enemy-header-3">
+            <span id="enemy-name-3"></span>
+            <span id="enemy-level-3"></span>
+            <span id="enemy-status-badge-3" class="status-badge hidden"></span>
+          </div>
+          <div class="hp-bar-container">
+            <span class="hp-label">HP</span>
+            <div class="hp-bar"><div id="enemy-hp-fill-3" class="hp-fill"></div></div>
+          </div>
+          <div id="enemy-type-badges-3"></div>
+        </div>
+        <div id="enemy-sprite-3" class="battle-sprite enemy-pos hidden"></div>
       </div>
 
       <!-- Player side -->
@@ -180,7 +215,42 @@
           </div>
           <div id="player-hp-text">35 / 45</div>
         </div>
+        <!-- Second player slot (double/triple) -->
+        <div id="player-sprite-2" class="battle-sprite player-pos hidden"></div>
+        <div id="player-info-2" class="multi-battle-slot hidden">
+          <div id="player-header-2">
+            <span id="player-mon-name-2"></span>
+            <span id="player-mon-level-2"></span>
+            <span id="player-status-badge-2" class="status-badge hidden"></span>
+          </div>
+          <div class="hp-bar-container">
+            <span class="hp-label">HP</span>
+            <div class="hp-bar"><div id="player-hp-fill-2" class="hp-fill"></div></div>
+          </div>
+          <div id="player-hp-text-2"></div>
+        </div>
+        <!-- Third player slot (triple) -->
+        <div id="player-sprite-3" class="battle-sprite player-pos hidden"></div>
+        <div id="player-info-3" class="multi-battle-slot hidden">
+          <div id="player-header-3">
+            <span id="player-mon-name-3"></span>
+            <span id="player-mon-level-3"></span>
+            <span id="player-status-badge-3" class="status-badge hidden"></span>
+          </div>
+          <div class="hp-bar-container">
+            <span class="hp-label">HP</span>
+            <div class="hp-bar"><div id="player-hp-fill-3" class="hp-fill"></div></div>
+          </div>
+          <div id="player-hp-text-3"></div>
+        </div>
       </div>
+    </div>
+
+    <!-- Target selection for multi battles -->
+    <div id="battle-target-panel" class="control-panel hidden">
+      <h4>Choose a target:</h4>
+      <div id="target-list"></div>
+      <button class="btn-back" id="btn-target-back">← BACK</button>
     </div>
 
     <!-- Battle Log -->
@@ -342,6 +412,30 @@
     </div>
   </div>
 
+  <!-- BATTLE MODE SELECTION OVERLAY -->
+  <div id="battle-mode-overlay" class="hidden">
+    <div id="battle-mode-box">
+      <h3 id="battle-mode-title">Choose Battle Type</h3>
+      <p id="battle-mode-desc">Select how you want to battle:</p>
+      <div id="battle-mode-buttons">
+        <button class="btn-action battle-mode-btn" data-mode="single">⚔️ Single (1v1)</button>
+        <button class="btn-action battle-mode-btn" data-mode="double">⚔️⚔️ Double (2v2)</button>
+        <button class="btn-action battle-mode-btn" data-mode="triple">⚔️⚔️⚔️ Triple (3v3)</button>
+      </div>
+      <button id="btn-battle-mode-cancel" class="btn-secondary">Cancel</button>
+    </div>
+  </div>
+
+  <!-- EVOLUTION ITEM OVERLAY -->
+  <div id="evo-item-overlay" class="hidden">
+    <div id="evo-item-box">
+      <h3>Use Evolution Item</h3>
+      <p id="evo-item-text"></p>
+      <div id="evo-item-options"></div>
+      <button id="btn-evo-item-cancel" class="btn-secondary">Cancel</button>
+    </div>
+  </div>
+
   <!-- LEVEL UP OVERLAY -->
   <div id="levelup-overlay" class="hidden">
     <div id="levelup-box">
@@ -462,6 +556,7 @@
 
 <script src="js/data.js"></script>
 <script src="js/sprites.js"></script>
+<script src="js/music.js"></script>
 <script src="js/battle.js"></script>
 <script src="js/game.js"></script>
 </body>

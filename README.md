@@ -25,14 +25,17 @@ Open `index.html` in any modern browser. No build step, no dependencies — it r
 - **8 Legendary Lumos** (IDs 314–321) at the end of the Lumodex, encountered through story quests and special events
 - New Lumos exclusive to post-Gym 8 routes incorporate rare type combinations including Poison/Dragon, Fire/Ice, Normal/Electric, and more
 - Carry a team of up to 6 Lumos with overflow stored in your PC Box
+- Non-legendary Lumos capped at **BST 550** for balanced progression
 
 ### Battle System
 
-- Turn-based battles with **352 moves** across all 16 types
+- Turn-based battles with **477 moves** across all 16 types
 - **Physical, Special, and Status** move categories
 - **Status effects:** Burn, Paralyze, Poison, Sleep, Freeze, Confusion, Flinch
 - Critical hits, priority moves, recharge mechanics, and stat stage modifiers
 - **Held items** affect battles — type-boosting items, Focus Sash, Leftovers, Quick Claw, Scope Lens, and more
+- **Battle format selection** — choose Single, Double, or Triple format before every major battle; each format uses a distinct opponent team and strategy
+- **In-battle item use** — open your bag mid-battle to use Potions, Revives, or stat-boosting items; using an item costs your turn
 
 ### Progression
 
@@ -54,8 +57,9 @@ Open `index.html` in any modern browser. No build step, no dependencies — it r
   15. Boulder (Rock) — Geode Badge
   16. Seraphina (Fairy) — Aurora Badge
 - **Elite Four** — Aria, Grimshaw, Celeste, and Titan guard the path to the Champion
-- **Champion Lumian** awaits at Victory Summit with a team of level 75–80 Lumos
+- **Champion Lumian** awaits at Victory Summit with a team of level 79–84 Lumos
 - **Rival Marcus** challenges you at key badge milestones throughout your journey
+- Wild Lumos with BST above 375 are locked behind Gym 3, ensuring balanced early-game encounters
 
 ### Story
 
@@ -67,14 +71,16 @@ Open `index.html` in any modern browser. No build step, no dependencies — it r
 ### Items & Shops
 
 - **Capture Orbs:** Basic, Great, Ultra, and Master Orb
-- **Medicine:** Potion, Super Potion, Max Potion, Revive
-- **40+ held items** including stat boosters, type-boosting items, and battle-effect items
+- **Medicine:** Potion, Super Potion, Max Potion, Revive — usable both in the overworld and during battle
+- **27 held items** including stat boosters, type-boosting items, and battle-effect items
+- **X-items** (X-Attack, X-Defense, X-Speed) usable in battle to boost your active Lumo's stats
 - **Shops** in towns and cities with inventory that scales with progression
+- **Healing Centers** in every town and city fully restore your team's HP and status
 
 ### Additional Features
 
-- **Lumodex** — tracks all seen and caught Lumos with search and filter
-- **Quest system** — 110+ quests with money and item rewards
+- **Lumodex** — tracks all seen and caught Lumos with search, filter, and a total BST bar on each entry
+- **Quest system** — 132 quests with money and item rewards
 - **Bag management** — organized by Orbs, Medicine, and Held Items
 - **Save/Load** via browser local storage with backward-compatible migration
 - **In-game tutorial** covering all mechanics

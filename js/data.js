@@ -3277,7 +3277,7 @@ const WORLD_DATA = {
     desc:"The southern stretch of Fairy Meadow, where gentle flowers bloom near Seedvale. Fairy and Grass types play in the warm breeze.",
     connections:["seedvale","fairy_meadow_north","spirit_canyon"],
     wildMonsters:[
-      {id:60, minLv:4, maxLv:7, rate:30},     // Glowpup
+      {id:137, minLv:4, maxLv:7, rate:30},     // Glowpup
       {id:26, minLv:4, maxLv:7, rate:35},     // Seedpod
       {id:111, minLv:5, maxLv:8, rate:35}     // Petalpuff
     ],
@@ -3288,7 +3288,7 @@ const WORLD_DATA = {
     desc:"The northern stretch of Fairy Meadow leading toward the Poison Marshes. Stronger Fairy types guard this path.",
     connections:["fairy_meadow_south","route7"],
     wildMonsters:[
-      {id:60, minLv:6, maxLv:10, rate:25},    // Glowpup
+      {id:137, minLv:6, maxLv:10, rate:25},    // Glowpup
       {id:62, minLv:7, maxLv:11, rate:35},    // Prismfly
       {id:111, minLv:7, maxLv:11, rate:40}    // Petalpuff
     ],

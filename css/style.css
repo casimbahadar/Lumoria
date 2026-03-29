@@ -1564,6 +1564,22 @@ html, body {
   margin-bottom: 0.3rem;
 }
 
+.stat-row-bst {
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--border);
+}
+
+.stat-row-bst .stat-label {
+  color: var(--accent-yellow);
+  font-weight: bold;
+}
+
+.stat-row-bst .stat-val {
+  color: var(--accent-yellow);
+  font-weight: bold;
+}
+
 .stat-label {
   font-size: 0.75rem;
   color: var(--text-muted);

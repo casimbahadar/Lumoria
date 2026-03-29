@@ -1279,7 +1279,28 @@ function startWildBattle(wildMon) {
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
 }
 
-function startGymBattle(leaderId) {
+function showBattleFormatSelection(opponentLabel, opponentEmoji, onSelect) {
+  const overlay = document.getElementById("format-select-overlay");
+  document.getElementById("format-select-opponent").textContent = `${opponentEmoji} ${opponentLabel}`;
+  overlay.classList.remove("hidden");
+
+  function pick(fmt) {
+    overlay.classList.add("hidden");
+    document.getElementById("format-card-single").removeEventListener("click", onSingle);
+    document.getElementById("format-card-double").removeEventListener("click", onDouble);
+    document.getElementById("format-card-triple").removeEventListener("click", onTriple);
+    onSelect(fmt);
+  }
+  function onSingle() { pick("single"); }
+  function onDouble() { pick("double"); }
+  function onTriple() { pick("triple"); }
+
+  document.getElementById("format-card-single").addEventListener("click", onSingle);
+  document.getElementById("format-card-double").addEventListener("click", onDouble);
+  document.getElementById("format-card-triple").addEventListener("click", onTriple);
+}
+
+function startGymBattle(leaderId, battleType = "single") {
   // Look up in GYM_LEADERS first, then ELITE_FOUR
   let leader = GYM_LEADERS[leaderId];
   if (!leader && typeof ELITE_FOUR !== "undefined") {
@@ -1287,6 +1308,10 @@ function startGymBattle(leaderId) {
   }
   if (!leader) return;
   const levelCap = (typeof LEVEL_CAPS !== "undefined" && LEVEL_CAPS[leaderId]) ? LEVEL_CAPS[leaderId] : null;
+  // Support both old team: [...] and new teams: { single, double, triple }
+  const teamSlots = (leader.teams && leader.teams[battleType]) ? leader.teams[battleType]
+                  : (leader.teams && leader.teams.single) ? leader.teams.single
+                  : leader.team || [];
   const battleMode = leader.battleMode || "single";
 
   battleContext = {
@@ -1295,7 +1320,9 @@ function startGymBattle(leaderId) {
     isChampion: leaderId === "champion",
     isEliteFour: !!(typeof ELITE_FOUR !== "undefined" && ELITE_FOUR.find(e => e.id === leaderId)),
     leaderId,
+    battleType,
     levelCap,
+    enemyTeam: teamSlots.map(s => buildGymMon(s)),
     battleMode,
     enemyTeam: leader.team.map(s => buildGymMon(s)),
     enemyTeamIdx: 0,
@@ -1315,6 +1342,8 @@ function startGymBattle(leaderId) {
   showScreen("screen-battle");
   clearBattleLog();
   if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
+  const fmtLabel = battleType === "single" ? "Single Battle" : battleType === "double" ? "Double Battle" : "Triple Battle";
+  logMsg(`⚔️ ${fmtLabel} begins!`);
   logMsg(`${leader.emoji} ${leader.name}: "${leader.quote}"`);
   logMsg(`${leader.name} sent out ${enemyActiveMon.name}!`);
   updateBattleUI();
@@ -2897,6 +2926,9 @@ function initEventListeners() {
         return;
       }
       const leader = GYM_LEADERS[area.gymLeader];
+      showNotification(`${leader.emoji} <strong>${leader.name}</strong> wants to battle!<br>"${leader.quote}"`, () => {
+        showBattleFormatSelection(leader.name, leader.emoji, fmt => startGymBattle(area.gymLeader, fmt));
+      });
       // Check if all gym trainers beaten (if gym trainers exist)
       if (typeof GYM_TRAINERS !== "undefined" && GYM_TRAINERS[area.gymLeader]) {
         const trainers = GYM_TRAINERS[area.gymLeader];
@@ -2928,6 +2960,9 @@ function initEventListeners() {
         return;
       }
       const leader = GYM_LEADERS["champion"];
+      showNotification(`👑 <strong>${leader.name}</strong> awaits!<br>"${leader.quote}"`, () => {
+        showBattleFormatSelection(leader.name, "👑", fmt => startGymBattle("champion", fmt));
+      });
       // Champion always gets battle type selection
       showBattleTypeSelection("champion", leader);
     }
@@ -2943,7 +2978,7 @@ function initEventListeners() {
     const nextElite = ELITE_FOUR.find(e => !G.defeatedLeaders.includes(e.id));
     if (nextElite) {
       showNotification(`⚔️ <strong>${nextElite.name}</strong>: "${nextElite.quote}"`, () => {
-        startGymBattle(nextElite.id);
+        showBattleFormatSelection(nextElite.name, nextElite.emoji || "⚔️", fmt => startGymBattle(nextElite.id, fmt));
       });
     }
   });
@@ -3037,7 +3072,7 @@ function initEventListeners() {
     }
     const shade = UMBRA_BATTLES["umbra_shade"];
     showNotification(`${shade.emoji} <strong>${shade.name}</strong>:<br>"${shade.quote}"`, () => {
-      startSpecialBattle("umbra_shade", UMBRA_BATTLES, true);
+      showBattleFormatSelection(shade.name, shade.emoji, fmt => startSpecialBattle("umbra_shade", UMBRA_BATTLES, true, fmt));
     });
   });
 
@@ -3169,7 +3204,7 @@ function initEventListeners() {
     const pending = getPendingRivalBattle();
     if (pending) {
       showNotification(`${pending.emoji} <strong>${pending.name}</strong>:<br>"${pending.quote}"`, () => {
-        startSpecialBattle(pending.id, RIVAL_BATTLES, false);
+        showBattleFormatSelection(pending.name, pending.emoji, fmt => startSpecialBattle(pending.id, RIVAL_BATTLES, false, fmt));
       });
     }
   });
@@ -3265,10 +3300,14 @@ function getPendingRivalBattle() {
   return null;
 }
 
-function startSpecialBattle(battleId, battleData, isUmbra) {
+function startSpecialBattle(battleId, battleData, isUmbra, battleType = "single") {
   const battle = battleData[battleId];
   if (!battle) return;
   const levelCap = (typeof LEVEL_CAPS !== "undefined" && LEVEL_CAPS[battleId]) ? LEVEL_CAPS[battleId] : null;
+  // Support both old team: [...] and new teams: { single, double, triple }
+  const teamSlots = (battle.teams && battle.teams[battleType]) ? battle.teams[battleType]
+                  : (battle.teams && battle.teams.single) ? battle.teams.single
+                  : battle.team || [];
   battleContext = {
     isWild: false,
     isGym: false,
@@ -3277,8 +3316,9 @@ function startSpecialBattle(battleId, battleData, isUmbra) {
     isUmbra: isUmbra,
     battleMode: "single",
     leaderId: battleId,
+    battleType,
     levelCap,
-    enemyTeam: battle.team.map(s => buildGymMon(s)),
+    enemyTeam: teamSlots.map(s => buildGymMon(s)),
     enemyTeamIdx: 0,
     playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
   };
@@ -3346,6 +3386,8 @@ function startUmbraAreaBattle(umbraId, battle) {
   showScreen("screen-battle");
   clearBattleLog();
   if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
+  const fmtLabel = battleType === "single" ? "Single Battle" : battleType === "double" ? "Double Battle" : "Triple Battle";
+  logMsg(`⚔️ ${fmtLabel} begins!`);
   logMsg(`${battle.emoji} ${battle.name}: "${battle.quote}"`);
   logMsg(`${battle.name} sent out ${enemyActiveMon.name}!`);
   updateBattleUI();

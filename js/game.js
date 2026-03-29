@@ -989,10 +989,10 @@ function exploreArea() {
   if (!area?.wildMonsters?.length) { showNotification("There's nothing to explore here."); return; }
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumos have fainted! Heal at a town first."); return; }
 
-  // Filter out high-BST mons until the player has enough badges
+  // Filter out high-BST mons until the player has enough badges; also exclude unknown IDs (BST=0)
   const pool = G.badges.length < 3
-    ? area.wildMonsters.filter(wm => getMonBST(wm.id) <= 375)
-    : area.wildMonsters;
+    ? area.wildMonsters.filter(wm => { const b = getMonBST(wm.id); return b > 0 && b <= 375; })
+    : area.wildMonsters.filter(wm => getMonBST(wm.id) > 0);
   if (!pool.length) { showNotification("No wild Lumos appear here yet."); return; }
 
   const total = pool.reduce((s, wm) => s + wm.rate, 0);
@@ -1124,6 +1124,7 @@ function showBattleMainActions() {
   document.getElementById("battle-main-actions").classList.remove("hidden");
   document.getElementById("battle-moves-panel").classList.add("hidden");
   document.getElementById("battle-catch-panel").classList.add("hidden");
+  document.getElementById("battle-bag-panel").classList.add("hidden");
   document.getElementById("battle-switch-panel").classList.add("hidden");
   document.getElementById("battle-target-panel")?.classList.add("hidden");
 }
@@ -1238,6 +1239,96 @@ function showSwitchPanel(forceSwitch = false) {
     btn.addEventListener("click", () => playerSwitch(idx));
     list.appendChild(btn);
   });
+}
+
+let battleBagSelectedMon = 0;
+
+function showBattleBagPanel() {
+  document.getElementById("battle-main-actions").classList.add("hidden");
+  document.getElementById("battle-bag-panel").classList.remove("hidden");
+  battleBagSelectedMon = battleContext.playerTeamIdx;
+  renderBattleBagPanel();
+}
+
+function renderBattleBagPanel() {
+  // Mon selector
+  const monSel = document.getElementById("battle-bag-mon-select");
+  monSel.innerHTML = "";
+  G.team.forEach((slot, idx) => {
+    const def = MONSTERS_DATA[slot.monsterId];
+    const btn = document.createElement("button");
+    btn.className = "switch-mon-btn" + (idx === battleBagSelectedMon ? " active" : "");
+    btn.style.fontSize = "0.7rem";
+    btn.style.padding = "0.3rem 0.5rem";
+    btn.innerHTML = `${def.emoji} ${slot.nickname || def.name}<br><small>${slot.currentHP}/${slot.maxHP} HP</small>`;
+    btn.disabled = false;
+    btn.addEventListener("click", () => { battleBagSelectedMon = idx; renderBattleBagPanel(); });
+    monSel.appendChild(btn);
+  });
+
+  // Items grid
+  const grid = document.getElementById("battle-bag-items-grid");
+  grid.innerHTML = "";
+  const usable = Object.entries(G.bag).filter(([id, cnt]) => {
+    if (!cnt || cnt <= 0) return false;
+    const item = ITEMS_DATA[id];
+    if (!item) return false;
+    return item.type === "heal" || item.type === "revive" || item.type === "battle";
+  });
+  if (!usable.length) {
+    grid.innerHTML = "<p style='color:#888;font-size:0.8rem'>No usable items!</p>";
+    return;
+  }
+  usable.forEach(([id, cnt]) => {
+    const item = ITEMS_DATA[id];
+    const btn = document.createElement("button");
+    btn.className = "catch-item-btn";
+    btn.innerHTML = `${item.emoji} ${item.name}<br><small>x${cnt} — ${item.desc}</small>`;
+    btn.addEventListener("click", () => playerUseBattleItem(id, battleBagSelectedMon));
+    grid.appendChild(btn);
+  });
+}
+
+async function playerUseBattleItem(itemId, monIdx) {
+  const item = ITEMS_DATA[itemId];
+  const slot = G.team[monIdx];
+  if (!item || !slot || (G.bag[itemId] || 0) <= 0) return;
+
+  if (item.type === "heal") {
+    if (slot.currentHP <= 0) { showNotification("Can't heal a fainted Lumo in battle!"); return; }
+    if (slot.currentHP >= slot.maxHP) { showNotification("Already at full HP!"); return; }
+    const healed = Math.min(slot.maxHP - slot.currentHP, item.healAmt);
+    slot.currentHP += healed;
+    // Also update live battle mon if it's the active one
+    if (monIdx === battleContext.playerTeamIdx) {
+      playerActiveMon.currentHP = Math.min(playerActiveMon.maxHP, playerActiveMon.currentHP + healed);
+    }
+    G.bag[itemId]--;
+    logMsg(`Used ${item.name} on ${slot.nickname || MONSTERS_DATA[slot.monsterId].name}! +${healed} HP`);
+  } else if (item.type === "revive") {
+    if (slot.currentHP > 0) { showNotification("That Lumo isn't fainted!"); return; }
+    slot.currentHP = Math.floor(slot.maxHP * 0.5);
+    slot.status = null;
+    G.bag[itemId]--;
+    logMsg(`${slot.nickname || MONSTERS_DATA[slot.monsterId].name} was revived!`);
+  } else if (item.type === "battle") {
+    // Stat booster — only works on active mon
+    if (monIdx !== battleContext.playerTeamIdx) { showNotification("Stat items only work on your active Lumo!"); return; }
+    const eff = item.battleEffect;
+    if (eff?.stat) {
+      playerActiveMon.stages[eff.stat] = Math.min(6, (playerActiveMon.stages[eff.stat] || 0) + (eff.stages || 1));
+      logMsg(`${playerActiveMon.name}'s ${eff.stat.toUpperCase()} rose!`);
+    }
+    G.bag[itemId]--;
+  }
+
+  showBattleMainActions();
+  updateBattleUI();
+  saveGame();
+  // Enemy gets a free turn as cost of using an item
+  await enemyTurn();
+  if (!battleContext.battleEnded) updateBattleUI();
+  if (!battleContext.battleEnded) showBattleMainActions();
 }
 
 function getTypeColor(type) {
@@ -2982,10 +3073,12 @@ function initEventListeners() {
     if (!onFightButtonMulti()) showMovePanel();
   });
   document.getElementById("btn-catch").addEventListener("click", showCatchPanel);
+  document.getElementById("btn-battle-bag").addEventListener("click", showBattleBagPanel);
   document.getElementById("btn-switch").addEventListener("click", () => showSwitchPanel(false));
   document.getElementById("btn-run").addEventListener("click", playerRun);
   document.getElementById("btn-moves-back").addEventListener("click", showBattleMainActions);
   document.getElementById("btn-catch-back").addEventListener("click", showBattleMainActions);
+  document.getElementById("btn-battle-bag-back").addEventListener("click", showBattleMainActions);
   document.getElementById("btn-switch-back").addEventListener("click", showBattleMainActions);
 
   // Team screen
@@ -3529,8 +3622,9 @@ function healTeam() {
   }
   let healed = false;
   for (const mon of G.team) {
-    if (mon.currentHP < mon.stats.hp) {
-      mon.currentHP = mon.stats.hp;
+    if (mon.currentHP < mon.maxHP || mon.status) {
+      mon.currentHP = mon.maxHP;
+      mon.status = null;
       healed = true;
     }
   }

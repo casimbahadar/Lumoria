@@ -1127,7 +1127,7 @@ html, body {
 
 #battle-main-actions {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 0.5rem;
 }
 
@@ -1161,6 +1161,17 @@ html, body {
 
 .catch-btn:hover {
   background: #2288ff;
+  transform: translateY(-2px);
+}
+
+.bag-btn {
+  background: #f5a623;
+  color: #fff;
+  border-color: #d48a0a;
+}
+
+.bag-btn:hover {
+  background: #d48a0a;
   transform: translateY(-2px);
 }
 
@@ -1562,6 +1573,22 @@ html, body {
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.3rem;
+}
+
+.stat-row-bst {
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--border);
+}
+
+.stat-row-bst .stat-label {
+  color: var(--accent-yellow);
+  font-weight: bold;
+}
+
+.stat-row-bst .stat-val {
+  color: var(--accent-yellow);
+  font-weight: bold;
 }
 
 .stat-label {

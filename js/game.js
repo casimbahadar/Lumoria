@@ -2930,6 +2930,38 @@ function showDexDetail(monsterId) {
       <tbody>${movesetRows.join("")}</tbody>
     </table>`;
 
+  // Build paginated lore lines (4 lines per page)
+  const loreText = def.lore || def.desc;
+  // Split into sentences then wrap into lines of ~45 chars
+  const sentences = loreText.match(/[^.!?]+[.!?]+/g) || [loreText];
+  const lines = [];
+  for (const s of sentences) {
+    const words = s.trim().split(" ");
+    let line = "";
+    for (const w of words) {
+      if ((line + " " + w).trim().length > 45 && line.length > 0) {
+        lines.push(line.trim());
+        line = w;
+      } else {
+        line = (line + " " + w).trim();
+      }
+    }
+    if (line) lines.push(line.trim());
+  }
+  const LINES_PER_PAGE = 4;
+  const totalPages = Math.max(1, Math.ceil(lines.length / LINES_PER_PAGE));
+  let lorePage = 0;
+
+  const renderLoreScreen = () => {
+    const start = lorePage * LINES_PER_PAGE;
+    const pageLines = lines.slice(start, start + LINES_PER_PAGE);
+    while (pageLines.length < LINES_PER_PAGE) pageLines.push("");
+    document.getElementById("pokedex-lines").innerHTML = pageLines.map(l => `<div>${l || "&nbsp;"}</div>`).join("");
+    document.getElementById("pokedex-page-indicator").textContent = `${lorePage + 1} / ${totalPages}`;
+    document.getElementById("pokedex-prev").disabled = lorePage === 0;
+    document.getElementById("pokedex-next").disabled = lorePage >= totalPages - 1;
+  };
+
   document.getElementById("dex-detail-content").innerHTML = `
     <div style="text-align:center;margin-bottom:1rem">
       ${dexDetailSprite}
@@ -2938,13 +2970,24 @@ function showDexDetail(monsterId) {
       <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:0.5rem">${caught ? "✅ Caught" : "👁 Seen"}</p>
     </div>
     <div class="detail-section">
-      <p style="font-size:0.85rem;color:var(--text-secondary)">${def.desc}</p>
-      <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.5rem">${evoInfo}</p>
+      <div class="pokedex-screen">
+        <div class="pokedex-screen-lines" id="pokedex-lines"></div>
+        <div class="pokedex-page-nav">
+          <button class="pokedex-page-btn" id="pokedex-prev">◀ PREV</button>
+          <span class="pokedex-page-indicator" id="pokedex-page-indicator"></span>
+          <button class="pokedex-page-btn" id="pokedex-next">NEXT ▶</button>
+        </div>
+      </div>
+      <p style="font-size:0.8rem;color:var(--text-muted);margin-top:0.3rem">${evoInfo}</p>
       <p style="font-size:0.8rem;color:var(--text-muted)">Rarity: ${def.rarity}</p>
     </div>
     <div class="detail-section"><h4>Base Stats</h4>${statsHTML}</div>
     <div class="detail-section"><h4>Learnset</h4>${movesetHTML}</div>
   `;
+
+  renderLoreScreen();
+  document.getElementById("pokedex-prev").addEventListener("click", () => { lorePage--; renderLoreScreen(); });
+  document.getElementById("pokedex-next").addEventListener("click", () => { lorePage++; renderLoreScreen(); });
 }
 
 // ============================================================

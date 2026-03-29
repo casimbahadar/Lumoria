@@ -986,31 +986,23 @@ function renderHUD() {
 // ============================================================
 function exploreArea() {
   const area = WORLD_DATA[G.location];
-  if (!area || !area.wildMonsters || area.wildMonsters.length === 0) {
-    showNotification("There's nothing to explore here.");
-    return;
-  }
-  // Check if team can fight
-  if (G.team.every(m => m.currentHP <= 0)) {
-    showNotification("All your Lumos have fainted! Heal at a town first.");
-    return;
-  }
-  // Pick a random monster based on rates
-  const total = area.wildMonsters.reduce((s, wm) => s + wm.rate, 0);
+  if (!area?.wildMonsters?.length) { showNotification("There's nothing to explore here."); return; }
+  if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumos have fainted! Heal at a town first."); return; }
+
+  // Filter out high-BST mons until the player has enough badges
+  const pool = G.badges.length < 3
+    ? area.wildMonsters.filter(wm => getMonBST(wm.id) <= 375)
+    : area.wildMonsters;
+  if (!pool.length) { showNotification("No wild Lumos appear here yet."); return; }
+
+  const total = pool.reduce((s, wm) => s + wm.rate, 0);
   let roll = Math.random() * total;
-  let chosen = area.wildMonsters[0];
-  for (const wm of area.wildMonsters) {
-    roll -= wm.rate;
-    if (roll <= 0) { chosen = wm; break; }
-  }
+  let chosen = pool[pool.length - 1];
+  for (const wm of pool) { roll -= wm.rate; if (roll <= 0) { chosen = wm; break; } }
+
   const level = chosen.minLv + Math.floor(Math.random() * (chosen.maxLv - chosen.minLv + 1));
-  const wildMon = buildWildMon(chosen.id, level);
-
-  // Mark as seen
   G.seenMonsters.add(chosen.id);
-
-  // Start wild battle
-  startWildBattle(wildMon);
+  startWildBattle(buildWildMon(chosen.id, level));
 }
 
 // ============================================================
@@ -1279,25 +1271,21 @@ function startWildBattle(wildMon) {
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
 }
 
-function showBattleFormatSelection(opponentLabel, opponentEmoji, onSelect) {
-  const overlay = document.getElementById("format-select-overlay");
-  document.getElementById("format-select-opponent").textContent = `${opponentEmoji} ${opponentLabel}`;
-  overlay.classList.remove("hidden");
+function showBattleFormatSelection(label, emoji, quote, onSelect) {
+  document.getElementById("format-select-opponent").textContent = `${emoji} ${label}`;
+  document.getElementById("format-select-quote").textContent = quote ? `"${quote}"` : "";
+  document.getElementById("format-select-overlay").classList.remove("hidden");
+  ["single","double","triple"].forEach(fmt => {
+    document.getElementById(`format-card-${fmt}`).addEventListener("click", () => {
+      document.getElementById("format-select-overlay").classList.add("hidden");
+      onSelect(fmt);
+    }, { once: true });
+  });
+}
 
-  function pick(fmt) {
-    overlay.classList.add("hidden");
-    document.getElementById("format-card-single").removeEventListener("click", onSingle);
-    document.getElementById("format-card-double").removeEventListener("click", onDouble);
-    document.getElementById("format-card-triple").removeEventListener("click", onTriple);
-    onSelect(fmt);
-  }
-  function onSingle() { pick("single"); }
-  function onDouble() { pick("double"); }
-  function onTriple() { pick("triple"); }
-
-  document.getElementById("format-card-single").addEventListener("click", onSingle);
-  document.getElementById("format-card-double").addEventListener("click", onDouble);
-  document.getElementById("format-card-triple").addEventListener("click", onTriple);
+function getMonBST(id) {
+  const b = MONSTERS_DATA[id]?.base;
+  return b ? b.hp + b.atk + b.def + b.spa + b.spd + b.spe : 0;
 }
 
 function startGymBattle(leaderId, battleType = "single") {
@@ -1342,9 +1330,8 @@ function startGymBattle(leaderId, battleType = "single") {
   showScreen("screen-battle");
   clearBattleLog();
   if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
-  const fmtLabel = battleType === "single" ? "Single Battle" : battleType === "double" ? "Double Battle" : "Triple Battle";
-  logMsg(`⚔️ ${fmtLabel} begins!`);
-  logMsg(`${leader.emoji} ${leader.name}: "${leader.quote}"`);
+  const fmtLabel = {single:"Single",double:"Double",triple:"Triple"}[battleType] || "Single";
+  logMsg(`⚔️ ${fmtLabel} Battle — ${leader.emoji} ${leader.name}`);
   logMsg(`${leader.name} sent out ${enemyActiveMon.name}!`);
   updateBattleUI();
   showBattleMainActions();
@@ -2920,66 +2907,31 @@ function initEventListeners() {
   document.getElementById("btn-explore").addEventListener("click", exploreArea);
   document.getElementById("btn-gym").addEventListener("click", () => {
     const area = WORLD_DATA[G.location];
-    if (area?.gymLeader && !G.defeatedLeaders.includes(area.gymLeader)) {
-      if (G.team.every(m => m.currentHP <= 0)) {
-        showNotification("All your Lumos are fainted! Heal first.");
-        return;
-      }
-      const leader = GYM_LEADERS[area.gymLeader];
-      showNotification(`${leader.emoji} <strong>${leader.name}</strong> wants to battle!<br>"${leader.quote}"`, () => {
-        showBattleFormatSelection(leader.name, leader.emoji, fmt => startGymBattle(area.gymLeader, fmt));
-      });
-      // Check if all gym trainers beaten (if gym trainers exist)
-      if (typeof GYM_TRAINERS !== "undefined" && GYM_TRAINERS[area.gymLeader]) {
-        const trainers = GYM_TRAINERS[area.gymLeader];
-        const beatenCount = trainers.filter((t, i) =>
-          G.defeatedTrainers.includes(`gym_${area.gymLeader}_trainer_${i}`)
-        ).length;
-        if (beatenCount < trainers.length) {
-          showNotification("You must defeat all gym trainers before challenging the leader!");
-          return;
-        }
-      }
-      // Show battle type selection if leader has multiple team types
-      if (leader.teamSingle || leader.teamDouble || leader.teamTriple) {
-        showBattleTypeSelection(area.gymLeader, leader);
-      } else {
-        const trainerImg = typeof getTrainerSpriteURL === "function"
-          ? `<img src="${getTrainerSpriteURL(area.gymLeader, leader, 64)}" width="64" height="64" style="border-radius:10px;margin-bottom:0.5rem"><br>`
-          : "";
-        showNotification(`${trainerImg}${leader.emoji} <strong>${leader.name}</strong> wants to battle!<br>"${leader.quote}"`, () => {
-          startGymBattle(area.gymLeader);
-        });
-      }
+    if (!area?.gymLeader || G.defeatedLeaders.includes(area.gymLeader)) return;
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumos are fainted! Heal first."); return; }
+    // Require all gym trainers beaten first (if feature is active)
+    if (typeof GYM_TRAINERS !== "undefined" && GYM_TRAINERS[area.gymLeader]) {
+      const trainers = GYM_TRAINERS[area.gymLeader];
+      const beatenCount = trainers.filter((t, i) => G.defeatedTrainers.includes(`gym_${area.gymLeader}_trainer_${i}`)).length;
+      if (beatenCount < trainers.length) { showNotification("You must defeat all gym trainers before challenging the leader!"); return; }
     }
+    const leader = GYM_LEADERS[area.gymLeader];
+    showBattleFormatSelection(leader.name, leader.emoji, leader.quote, fmt => startGymBattle(area.gymLeader, fmt));
   });
   document.getElementById("btn-champion").addEventListener("click", () => {
-    if (!G.championDefeated) {
-      if (G.team.every(m => m.currentHP <= 0)) {
-        showNotification("All your Lumos are fainted! Heal first.");
-        return;
-      }
-      const leader = GYM_LEADERS["champion"];
-      showNotification(`👑 <strong>${leader.name}</strong> awaits!<br>"${leader.quote}"`, () => {
-        showBattleFormatSelection(leader.name, "👑", fmt => startGymBattle("champion", fmt));
-      });
-      // Champion always gets battle type selection
-      showBattleTypeSelection("champion", leader);
-    }
+    if (G.championDefeated) return;
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumos are fainted! Heal first."); return; }
+    const leader = GYM_LEADERS["champion"];
+    showBattleFormatSelection(leader.name, "👑", leader.quote, fmt => startGymBattle("champion", fmt));
   });
 
   // Elite Four
   document.getElementById("btn-elite-four")?.addEventListener("click", () => {
     if (typeof ELITE_FOUR === "undefined") return;
-    if (G.team.every(m => m.currentHP <= 0)) {
-      showNotification("All your Lumos are fainted! Heal first.");
-      return;
-    }
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumos are fainted! Heal first."); return; }
     const nextElite = ELITE_FOUR.find(e => !G.defeatedLeaders.includes(e.id));
     if (nextElite) {
-      showNotification(`⚔️ <strong>${nextElite.name}</strong>: "${nextElite.quote}"`, () => {
-        showBattleFormatSelection(nextElite.name, nextElite.emoji || "⚔️", fmt => startGymBattle(nextElite.id, fmt));
-      });
+      showBattleFormatSelection(nextElite.name, nextElite.emoji || "⚔️", nextElite.quote, fmt => startGymBattle(nextElite.id, fmt));
     }
   });
 
@@ -3066,14 +3018,9 @@ function initEventListeners() {
 
   // Umbra Base button
   document.getElementById("btn-umbra-base").addEventListener("click", () => {
-    if (G.team.every(m => m.currentHP <= 0)) {
-      showNotification("All your monsters are fainted! Heal first.");
-      return;
-    }
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your monsters are fainted! Heal first."); return; }
     const shade = UMBRA_BATTLES["umbra_shade"];
-    showNotification(`${shade.emoji} <strong>${shade.name}</strong>:<br>"${shade.quote}"`, () => {
-      showBattleFormatSelection(shade.name, shade.emoji, fmt => startSpecialBattle("umbra_shade", UMBRA_BATTLES, true, fmt));
-    });
+    showBattleFormatSelection(shade.name, shade.emoji, shade.quote, fmt => startSpecialBattle("umbra_shade", UMBRA_BATTLES, true, fmt));
   });
 
   // Legendary encounter button
@@ -3197,15 +3144,10 @@ function initEventListeners() {
 
   // Rival button
   document.getElementById("btn-rival").addEventListener("click", () => {
-    if (G.team.every(m => m.currentHP <= 0)) {
-      showNotification("All your monsters are fainted! Heal first.");
-      return;
-    }
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your monsters are fainted! Heal first."); return; }
     const pending = getPendingRivalBattle();
     if (pending) {
-      showNotification(`${pending.emoji} <strong>${pending.name}</strong>:<br>"${pending.quote}"`, () => {
-        showBattleFormatSelection(pending.name, pending.emoji, fmt => startSpecialBattle(pending.id, RIVAL_BATTLES, false, fmt));
-      });
+      showBattleFormatSelection(pending.name, pending.emoji, pending.quote, fmt => startSpecialBattle(pending.id, RIVAL_BATTLES, false, fmt));
     }
   });
 
@@ -3386,9 +3328,8 @@ function startUmbraAreaBattle(umbraId, battle) {
   showScreen("screen-battle");
   clearBattleLog();
   if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
-  const fmtLabel = battleType === "single" ? "Single Battle" : battleType === "double" ? "Double Battle" : "Triple Battle";
-  logMsg(`⚔️ ${fmtLabel} begins!`);
-  logMsg(`${battle.emoji} ${battle.name}: "${battle.quote}"`);
+  const fmtLabel = {single:"Single",double:"Double",triple:"Triple"}[battleType] || "Single";
+  logMsg(`⚔️ ${fmtLabel} Battle — ${battle.emoji} ${battle.name}`);
   logMsg(`${battle.name} sent out ${enemyActiveMon.name}!`);
   updateBattleUI();
   showBattleMainActions();

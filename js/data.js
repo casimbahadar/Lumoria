@@ -4027,7 +4027,7 @@ const GYM_LEADERS = {
         {monsterId:180, level:11, moves:["tackle","quick_attack","tail_whip","headbutt"]},
         {monsterId:182, level:12, moves:["headbutt","body_slam","growl","tackle"]},
         {monsterId:183, level:13, moves:["headbutt","body_slam","growl","tackle"]},
-        {monsterId:184, level:14, moves:["body_slam","headbutt","tackle","quick_attack"]}
+        {monsterId:185, level:13, moves:["tackle","gust","quick_attack","wing_attack"]}
       ]
     }
   },
@@ -4051,7 +4051,7 @@ const GYM_LEADERS = {
         {monsterId:28, level:17, moves:["water_gun","bubble_beam","sweet_kiss","quick_attack"]},
         {monsterId:25, level:18, moves:["water_gun","bubble_beam","harden","aqua_tail"]},
         {monsterId:193, level:18, moves:["water_gun","rock_slide","aqua_tail","harden"]},
-        {monsterId:194, level:19, moves:["stone_edge","surf","aqua_tail","rock_slide"]},
+        {monsterId:29, level:19, moves:["water_gun","aqua_tail","bubble_beam","dazzling_gleam"]},
         {monsterId:5,  level:20, moves:["water_gun","aqua_tail","surf","recover"]}
       ]
     }

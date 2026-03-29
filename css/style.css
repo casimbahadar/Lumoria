@@ -2725,6 +2725,14 @@ button, a, [role="button"] {
   margin-bottom: 0.3rem;
 }
 
+#format-select-quote {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0 0 0.6rem;
+  line-height: 1.4;
+}
+
 #format-select-title {
   font-size: 1.3rem;
   color: var(--accent-yellow);

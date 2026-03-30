@@ -698,9 +698,9 @@ const MOVES_DATA = {
   storm_sovereignty:      { name:"Storm Sovereignty",      type:"Electric", power:130, acc:90,  pp:5,  cat:"special",  effect:"paralyze",  ec:50,  desc:"Tempestarch's ultimate technique — asserts dominion over all storms, paralyzing foes with sovereign lightning." },
   // Chronoveil — Psychic/Dragon time weaver
   temporal_collapse:      { name:"Temporal Collapse",      type:"Psychic",  power:120, acc:90,  pp:5,  cat:"special",  effect:"confuse",   ec:50,  desc:"Chronoveil collapses the flow of time around the target, leaving them disoriented and confused." },
-  // Pyrovanus — Fire/Rock volcano titan
+  // Ashvanus — Fire/Rock volcano titan
   volcanic_wrath:         { name:"Volcanic Wrath",         type:"Fire",     power:140, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:100, desc:"Pyrovanus channels the full fury of a super-volcano, always severely burning the target." },
-  // Thalassovex — Water/Dark abyss drake
+  // Abyssovex — Water/Dark abyss drake
   abyssal_dominion:       { name:"Abyssal Dominion",       type:"Dark",     power:130, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50,  desc:"Thalassovex asserts dominion over the deep abyss, crushing the target's psychic defenses." },
   // Gaiavorn — Ground/Grass land spirit
   world_root_bind:        { name:"World Root Bind",        type:"Ground",   power:130, acc:90,  pp:5,  cat:"physical", effect:"spedown",   ec:100, desc:"Gaiavorn erupts roots from the world's core to bind and crush the target." },
@@ -797,7 +797,7 @@ const MONSTERS_DATA = {
     evolveTo:15, evolveLevel:42, catchRate:45, expYield:235, rarity:"uncommon",
     desc:"A volcanic beast covered in hardened magma. Nothing can stop its charge." },
 
-  16: { id:16, name:"Ignicula",   emoji:"🐍", types:["Fire"],
+  16: { id:16, name:"Cindercula",   emoji:"🐍", types:["Fire"],
     base:{hp:41,atk:53,def:46,spa:59,spd:45,spe:47},
     learnset:[[1,"tackle",[20,"cinderwhirl"]],[1,"ember"],[9,"quick_attack"],[14,"leer"],[17,"flamethrower",[5,"scorch_veil"]],[24,"vital_pulse"],[32,"ashfall"],[40,"fire_blast"],[3,"embercloak"],[31,"tail_whip"]],
     evolveTo:17, evolveLevel:20, catchRate:200, expYield:65, rarity:"common",
@@ -810,7 +810,7 @@ const MONSTERS_DATA = {
     desc:"A serpentine fire dragon. Coils around prey before unleashing flame." },
 
   // ===== ADDITIONAL WATER =====
-  25: { id:25, name:"Coralix",  emoji:"🦀", types:["Water"],
+  25: { id:25, name:"Reefling",  emoji:"🦀", types:["Water"],
     base:{hp:59,atk:66,def:78,spa:43,spd:63,spe:34},
     learnset:[[1,"scratch",[22,"coral_barrage"]],[1,"water_gun"],[10,"bubble_beam"],[18,"harden"],[20,"vital_pulse"],[26,"aqua_tail"],[34,"surf",[5,"tidecaller"]],[36,"hydro_pump"],[3,"deepwater_hymn"],[31,"leer"]],
     evolveTo:26, evolveLevel:20, catchRate:190, expYield:71, rarity:"common",
@@ -865,7 +865,7 @@ const MONSTERS_DATA = {
     evolveTo:67, evolveLevel:22, catchRate:180, expYield:78, rarity:"common",
     desc:"A quick, vine-like snake that lashes with razor-edged leaves." },
 
-  67: { id:67, name:"Terravin", emoji:"🌳", types:["Grass","Ground"],
+  67: { id:67, name:"Loamvin", emoji:"🌳", types:["Grass","Ground"],
     base:{hp:83,atk:93,def:80,spa:80,spd:75,spe:76},
     learnset:[[1,"razor_leaf"],[2,"seed_bomb"],[3,"sleep_powder"],[22,"energy_ball"],[27,"growl"],[32,"tackle"],[37,"sandstrike"],[42,"sand_geyser"],[47,"root_lance"],[52,"earth_power"],[57,"earthquake"],[62,"petal_blitz"],[4,"spore_burst"],[40,"scorched_earth"]],
     evolveTo:68, evolveLevel:42, catchRate:55, expYield:195, rarity:"uncommon",
@@ -902,7 +902,7 @@ const MONSTERS_DATA = {
     evolveTo:85, evolveLevel:22, catchRate:200, expYield:74, rarity:"common",
     desc:"An electric beetle that emits charged buzzing sounds. Very energetic." },
 
-  85: { id:85, name:"Voltharpe",  emoji:"🦟", types:["Electric","Bug"],
+  85: { id:85, name:"Shockharpe",  emoji:"🦟", types:["Electric","Bug"],
     base:{hp:81,atk:68,def:53,spa:107,spd:67,spe:101},
     learnset:[[1,"thunder_shock"],[2,"bug_bite"],[3,"thunder_wave"],[23,"thunderbolt"],[29,"tail_whip"],[31,"bug_buzz"],[33,"x_scissor"],[36,"scratch"],[43,"silk_bind"],[50,"swarm_dive"],[57,"volt_surge"],[64,"thunder"],[4,"static_cage"],[42,"mandible_crush"]],
     evolveTo:86, evolveLevel:42, catchRate:75, expYield:180, rarity:"uncommon",
@@ -914,7 +914,7 @@ const MONSTERS_DATA = {
     evolveTo:88, evolveLevel:28, catchRate:120, expYield:90, rarity:"common",
     desc:"An electric fish that shocks prey in shallow water. Glows when excited." },
 
-  88: { id:88, name:"Volterel",    emoji:"🐡", types:["Electric","Water"],
+  88: { id:88, name:"Sparkrel",    emoji:"🐡", types:["Electric","Water"],
     base:{hp:78,atk:61,def:64,spa:113,spd:85,spe:100},
     learnset:[[1,"thunder_shock"],[2,"water_gun"],[3,"thunderbolt"],[4,"bubble_beam"],[5,"thunder_wave"],[32,"voltaic_fang"],[33,"surf"],[35,"tail_whip"],[42,"scratch"],[49,"thunder"],[56,"hydro_pump"],[63,"overcharge"],[6,"static_cage"],[43,"aqua_tail"]],
     evolveTo:89, evolveLevel:42, catchRate:50, expYield:205, rarity:"uncommon",
@@ -927,7 +927,7 @@ const MONSTERS_DATA = {
     desc:"A little bird of storms. Rides thunderclouds and harnesses lightning." },
 
   // ===== GROUND =====
-  95: { id:95, name:"Terrakin",     emoji:"🐶", types:["Ground"],
+  95: { id:95, name:"Dustkin",     emoji:"🐶", types:["Ground"],
     base:{hp:61,atk:71,def:58,spa:40,spd:40,spe:68},
     learnset:[[1,"scratch",[22,"sandstrike"]],[1,"growl"],[8,"mud_shot"],[16,"headbutt"],[24,"earthquake"],[29,"tail_whip"],[32,"earth_power"],[40,"body_slam",[5,"dust_veil"]],[3,"clay_armor"],[31,"leer"]],
     evolveTo:96, evolveLevel:25, catchRate:160, expYield:88, rarity:"common",
@@ -945,7 +945,7 @@ const MONSTERS_DATA = {
     evolveTo:99, evolveLevel:30, catchRate:100, expYield:95, rarity:"common",
     desc:"A desert scorpion with a venomous stinger. Buries itself in sand to ambush." },
 
-  99: { id:99, name:"Geovenoth",  emoji:"🦂", types:["Ground","Poison"],
+  99: { id:99, name:"Toxivenoth",  emoji:"🦂", types:["Ground","Poison"],
     base:{hp:64,atk:90,def:71,spa:77,spd:85,spe:88},
     learnset:[[1,"poison_sting"],[2,"fissure_slam"],[3,"mud_shot"],[4,"earthquake"],[5,"venoshock"],[6,"dust_veil"],[31,"sludge_bomb"],[38,"vital_pulse"],[39,"toxic"],[46,"miasma_cloud"],[54,"earth_power"],[62,"plague_burst"],[7,"clay_armor"],[42,"venom_lance"]],
     evolveTo:100, evolveLevel:42, catchRate:35, expYield:321, rarity:"uncommon",
@@ -957,20 +957,20 @@ const MONSTERS_DATA = {
     evolveTo:102, evolveLevel:22, catchRate:140, expYield:88, rarity:"common",
     desc:"A mud-crawling amphibian. Slides through swamps with ease." },
 
-  102: { id:102, name:"Geoloth",   emoji:"🐊", types:["Ground","Water"],
+  102: { id:102, name:"Dunoloth",   emoji:"🐊", types:["Ground","Water"],
     base:{hp:93,atk:97,def:77,spa:91,spd:78,spe:66},
     learnset:[[1,"mud_shot"],[2,"water_gun"],[3,"dust_veil"],[23,"earthquake"],[28,"battle_cry"],[31,"surf"],[34,"frost_current"],[40,"boulder_roll"],[46,"body_slam"],[52,"earth_power"],[58,"tidal_crush"],[64,"hydro_pump"],[4,"clay_armor"],[42,"aqua_tail"]],
     evolveTo:103, evolveLevel:44, catchRate:45, expYield:205, rarity:"uncommon",
     desc:"A massive silt beast that haunts murky river deltas. Ancient and powerful." },
 
   // ===== WIND =====
-  108: { id:108, name:"Zephyrkin",   emoji:"🐱", types:["Wind"],
+  108: { id:108, name:"Gustkin",   emoji:"🐱", types:["Wind"],
     base:{hp:46,atk:43,def:37,spa:56,spd:45,spe:81},
     learnset:[[1,"scratch",[20,"cyclone_blade"]],[1,"gust"],[8,"quick_attack"],[16,"wing_attack"],[21,"harden"],[24,"air_slash"],[32,"hurricane",[5,"mistveil"]],[36,"thermal_dive"],[3,"zephyr_dance"],[31,"leer"]],
     evolveTo:109, evolveLevel:22, catchRate:200, expYield:70, rarity:"common",
     desc:"A light-footed wind kitten. Jumps and glides on invisible air currents." },
 
-  109: { id:109, name:"Aeolomane",    emoji:"🦁", types:["Wind","Electric"],
+  109: { id:109, name:"Siroccomane",    emoji:"🦁", types:["Wind","Electric"],
     base:{hp:70,atk:98,def:57,spa:68,spd:74,spe:119},
     learnset:[[1,"gust"],[2,"wing_attack"],[3,"mistveil"],[22,"air_slash"],[28,"zephyr_dance"],[29,"hurricane"],[34,"vital_pulse"],[40,"thunder_shock"],[46,"arc_flash"],[52,"thunderbolt"],[58,"gale_cannon"],[64,"thunder"],[4,"vortex_trap"],[42,"storm_surge"]],
     evolveTo:110, evolveLevel:44, catchRate:55, expYield:318, rarity:"uncommon",
@@ -982,7 +982,7 @@ const MONSTERS_DATA = {
     evolveTo:112, evolveLevel:20, catchRate:230, expYield:65, rarity:"common",
     desc:"A common draft finch that rides air currents effortlessly." },
 
-  112: { id:112, name:"Cyclavel",   emoji:"🦅", types:["Wind"],
+  112: { id:112, name:"Swirlavel",   emoji:"🦅", types:["Wind"],
     base:{hp:61,atk:90,def:58,spa:85,spd:61,spe:130},
     learnset:[[1,"gust"],[2,"wing_attack"],[3,"jetstream"],[4,"mistveil"],[21,"air_slash"],[27,"swords_dance"],[29,"body_slam"],[34,"scratch"],[41,"steel_wing"],[48,"skyfall"],[55,"hurricane"],[62,"tempest_wrath"],[5,"zephyr_dance"],[42,"leer"]],
     evolveTo:113, evolveLevel:42, catchRate:65, expYield:195, rarity:"uncommon",
@@ -1001,13 +1001,13 @@ const MONSTERS_DATA = {
     desc:"A ghost of mist that drifts at night. Its touch drains life energy." },
 
   // ===== ICE =====
-  47: { id:47, name:"Cryokin",    emoji:"🐺", types:["Ice"],
+  47: { id:47, name:"Sleetkin",    emoji:"🐺", types:["Ice"],
     base:{hp:49,atk:54,def:51,spa:63,spd:47,spe:73},
     learnset:[[1,"scratch",[22,"glacial_shard"]],[1,"powder_snow"],[8,"quick_attack"],[16,"icicle_crash"],[24,"ice_beam"],[29,"recover"],[32,"ice_punch"],[40,"blizzard",[5,"permafrost"]],[3,"winter_shroud"],[31,"leer"]],
     evolveTo:48, evolveLevel:28, catchRate:120, expYield:90, rarity:"common",
     desc:"An ice wolf pup with fur as white as fresh snow. Very loyal and fierce." },
 
-  48: { id:48, name:"Boreovast",emoji:"🐺", types:["Ice"],
+  48: { id:48, name:"Hailgorge",emoji:"🐺", types:["Ice"],
     base:{hp:89,atk:85,def:55,spa:81,spd:76,spe:94},
     learnset:[[1,"powder_snow"],[2,"quick_attack"],[3,"ice_beam"],[4,"icicle_crash"],[5,"scratch"],[6,"permafrost"],[28,"recover"],[29,"ice_punch"],[37,"blizzard"],[40,"hoarfrost_bite"],[52,"body_slam"],[64,"avalanche_drive"],[7,"winter_shroud"],[44,"leer"]],
     evolveTo:49, evolveLevel:44, catchRate:40, expYield:220, rarity:"uncommon",
@@ -1019,13 +1019,13 @@ const MONSTERS_DATA = {
     evolveTo:51, evolveLevel:24, catchRate:180, expYield:77, rarity:"common",
     desc:"A fluffy snow sheep. Its wool absorbs cold air and condenses it to ice." },
 
-  51: { id:51, name:"Glacivern",  emoji:"💎", types:["Ice"],
+  51: { id:51, name:"Shiverling",  emoji:"💎", types:["Ice"],
     base:{hp:76,atk:67,def:93,spa:106,spd:91,spe:56},
     learnset:[[1,"powder_snow"],[2,"winter_shroud"],[3,"harden"],[4,"vital_pulse"],[5,"ice_beam"],[6,"permafrost"],[31,"blizzard"],[33,"headbutt"],[34,"growl"],[44,"recover"],[54,"hoarfrost_bite"],[64,"icicle_crash"],[7,"frostfire_veil"],[43,"leer"]],
     evolveTo:52, evolveLevel:42, catchRate:60, expYield:185, rarity:"uncommon",
     desc:"A crystalline ice being of pure frozen beauty. It never melts." },
 
-  53: { id:53, name:"Cryovane",  emoji:"🦢", types:["Ice","Wind"],
+  53: { id:53, name:"Mistwhirl",  emoji:"🦢", types:["Ice","Wind"],
     base:{hp:54,atk:40,def:41,spa:68,spd:55,spe:98},
     learnset:[[1,"powder_snow",[22,"cryo_lance"]],[1,"gust"],[12,"wing_attack"],[20,"ice_beam"],[28,"air_slash"],[31,"glacial_tomb"],[36,"blizzard"],[44,"hurricane",[5,"permafrost"]],[3,"winter_shroud"],[33,"thermal_dive"]],
     evolveTo:54, evolveLevel:30, catchRate:100, expYield:95, rarity:"common",
@@ -1050,7 +1050,7 @@ const MONSTERS_DATA = {
     evolveTo:119, evolveLevel:25, catchRate:150, expYield:88, rarity:"common",
     desc:"A shadow puppy that hides in darkness. Its eyes glow red at night." },
 
-  119: { id:119, name:"Noctivast",  emoji:"🐕", types:["Dark"],
+  119: { id:119, name:"Shadowvast",  emoji:"🐕", types:["Dark"],
     base:{hp:81,atk:90,def:57,spa:83,spd:77,spe:92},
     learnset:[[1,"bite"],[2,"quick_attack"],[3,"crunch"],[4,"night_slash"],[5,"scratch"],[6,"eclipse_shroud"],[26,"recover"],[29,"dark_pulse"],[37,"shadow_ball"],[38,"nightmare_pulse"],[51,"body_slam"],[64,"void_rend"],[7,"dread_howl"],[44,"leer"]],
     evolveTo:120, evolveLevel:44, catchRate:45, expYield:316, rarity:"uncommon",
@@ -1136,7 +1136,7 @@ const MONSTERS_DATA = {
     evolveTo:151, evolveLevel:28, catchRate:100, expYield:95, rarity:"common",
     desc:"A mechanical gear-bot that runs on electric power. Loves to tinker." },
 
-  151: { id:151, name:"Ferrotron",    emoji:"🦿", types:["Steel","Electric"],
+  151: { id:151, name:"Alloytron",    emoji:"🦿", types:["Steel","Electric"],
     base:{hp:77,atk:72,def:92,spa:108,spd:75,spe:66},
     learnset:[[1,"thunderbolt"],[2,"magnetize"],[31,"flash_cannon"],[32,"surge_field"],[36,"harden"],[39,"thunder"],[40,"rivet_barrage"],[44,"volt_surge"],[48,"iron_tail"],[52,"tungsten_ram"],[56,"overcharge"],[60,"hyper_beam"],[3,"ironskin"],[37,"forge_strike"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"uncommon",
@@ -1167,7 +1167,7 @@ const MONSTERS_DATA = {
     evolveTo:158, evolveLevel:26, catchRate:130, expYield:95, rarity:"common",
     desc:"A blob of acid that oozes across the ground. Dissolves things with its body." },
 
-  158: { id:158, name:"Toxoloth",  emoji:"🫧", types:["Poison","Ground"],
+  158: { id:158, name:"Acidoloth",  emoji:"🫧", types:["Poison","Ground"],
     base:{hp:98,atk:70,def:86,spa:110,spd:86,spe:30},
     learnset:[[1,"toxic"],[2,"tackle"],[3,"venoshock"],[4,"toxic_surge"],[32,"growl"],[35,"sludge_wave"],[38,"mud_shot"],[39,"sludge_bomb"],[44,"loam_leech"],[50,"terra_spike"],[56,"earth_power"],[62,"earthquake"],[5,"toxin_bloom"],[41,"magnitude"]],
     evolveTo:159, evolveLevel:44, catchRate:45, expYield:318, rarity:"uncommon",
@@ -1180,7 +1180,7 @@ const MONSTERS_DATA = {
     desc:"A miasma fly that leaves toxic trails in its wake. Spreads pestilence." },
 
   // ===== PSYCHIC =====
-  166: { id:166, name:"Mentakin",     emoji:"🐩", types:["Psychic"],
+  166: { id:166, name:"Novakin",     emoji:"🐩", types:["Psychic"],
     base:{hp:50,atk:34,def:39,spa:74,spd:72,spe:72},
     learnset:[[1,"tackle",[22,"mind_shatter"]],[1,"confusion"],[8,"quick_attack"],[16,"psybeam"],[24,"psychic_move"],[29,"leer"],[32,"calm_mind"],[40,"psystrike",[5,"prism_ward"]],[3,"mind_reader"],[31,"recover"]],
     evolveTo:167, evolveLevel:25, catchRate:165, expYield:86, rarity:"common",
@@ -1198,7 +1198,7 @@ const MONSTERS_DATA = {
     evolveTo:169, evolveLevel:32, catchRate:90, expYield:100, rarity:"common",
     desc:"A mystical esper being. Bridges the worlds of psychic and fairy magic." },
 
-  169: { id:169, name:"Mentarael",   emoji:"🌀", types:["Psychic"],
+  169: { id:169, name:"Aurarael",   emoji:"🌀", types:["Psychic"],
     base:{hp:83,atk:62,def:59,spa:119,spd:98,spe:104},
     learnset:[[1,"psybeam"],[2,"psychic_move"],[3,"prism_ward"],[36,"harden"],[39,"calm_mind"],[40,"recover"],[44,"quick_attack"],[47,"psystrike"],[48,"telepathic_slam"],[52,"thought_crush"],[56,"temporal_rift"],[60,"hyper_beam"],[4,"mind_reader"],[35,"leer"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:245, rarity:"rare",
@@ -1217,7 +1217,7 @@ const MONSTERS_DATA = {
     desc:"A psychic dragon that manipulates reality with its mind. Ancient and mysterious." },
 
   // ===== DRAGON =====
-  172: { id:172, name:"Drakurin",    emoji:"🐣", types:["Dragon"],
+  172: { id:172, name:"Scalurin",    emoji:"🐣", types:["Dragon"],
     base:{hp:47,atk:73,def:53,spa:63,spd:60,spe:30},
     learnset:[[1,"scratch",[22,"wyrm_strike"]],[1,"dragon_breath"],[12,"dragon_claw"],[20,"vital_pulse"],[22,"dragon_pulse"],[30,"dragon_dance"],[36,"cataclysm_breath"],[40,"outrage",[5,"draconic_roar"]],[3,"primordial_roar"],[31,"recover"]],
     evolveTo:173, evolveLevel:30, catchRate:45, expYield:91, rarity:"uncommon",
@@ -1374,13 +1374,13 @@ const MONSTERS_DATA = {
     evolveTo:207, evolveLevel:26, catchRate:180, expYield:72, rarity:"common",
     desc:"A small serpent whose venom has a faint draconic energy. Its fangs drip with corrosive toxin." },
 
-  207: { id:207, name:"Toxidrak", emoji:"🐉", types:["Poison","Dragon"],
+  207: { id:207, name:"Venodrak", emoji:"🐉", types:["Poison","Dragon"],
     base:{hp:75,atk:90,def:68,spa:98,spd:72,spe:80},
     learnset:[[1,"sludge_bomb"],[1,"dragon_claw"],[20,"toxic"],[28,"dragon_pulse"],[36,"venom_lance"],[44,"outrage"],[52,"sludge_wave"],[60,"hyper_beam"]],
     evolveTo:208, evolveLevel:46, catchRate:90, expYield:148, rarity:"uncommon",
     desc:"A dragon-serpent that breathes venomous mist. Its flight path traces poisonous trails through the sky." },
 
-  208: { id:208, name:"Dragovenom", emoji:"🐲", types:["Poison","Dragon"],
+  208: { id:208, name:"Wyrmvenom", emoji:"🐲", types:["Poison","Dragon"],
     base:{hp:88,atk:105,def:80,spa:114,spd:87,spe:76},
     learnset:[[1,"venom_lance"],[1,"outrage"],[30,"sludge_wave"],[38,"dragon_pulse"],[46,"dragon_dance"],[54,"corrosion_fang"],[62,"ancient_breath"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:28, expYield:262, rarity:"rare",
@@ -1406,20 +1406,20 @@ const MONSTERS_DATA = {
     evolveTo:212, evolveLevel:28, catchRate:175, expYield:72, rarity:"common",
     desc:"A creature born where volcanic vents meet glacial ice. Its body perpetually cycles between fire and frost." },
 
-  212: { id:212, name:"Glaciblaze", emoji:"🌡️", types:["Fire","Ice"],
+  212: { id:212, name:"Frostscorch", emoji:"🌡️", types:["Fire","Ice"],
     base:{hp:74,atk:82,def:68,spa:108,spd:88,spe:88},
     learnset:[[1,"flamethrower"],[1,"ice_beam"],[22,"fire_blast"],[30,"blizzard"],[38,"frost_breath"],[46,"overheat"],[54,"glacial_tomb"],[62,"hyper_beam"]],
     evolveTo:213, evolveLevel:46, catchRate:88, expYield:155, rarity:"uncommon",
     desc:"A dual-natured creature of perfect thermal balance. Its left side blazes while its right side freezes." },
 
-  213: { id:213, name:"Pyroglacier", emoji:"🌋", types:["Fire","Ice"],
+  213: { id:213, name:"Infriglace", emoji:"🌋", types:["Fire","Ice"],
     base:{hp:89,atk:93,def:81,spa:120,spd:95,spe:72},
     learnset:[[1,"fire_blast"],[1,"blizzard"],[32,"overheat"],[40,"glacial_tomb"],[48,"heat_wave"],[56,"icicle_crash"],[64,"caldera_meltdown"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:268, rarity:"rare",
     desc:"A cataclysmic being that collapses the boundary between fire and ice. Superheated geysers and flash-freezes occur in its wake." },
 
   // Standalone Water/Rock: Coralstone
-  214: { id:214, name:"Coralstone", emoji:"🪸", types:["Water","Rock"],
+  214: { id:214, name:"Petrwave", emoji:"🪸", types:["Water","Rock"],
     base:{hp:101,atk:96,def:117,spa:83,spd:99,spe:54},
     learnset:[[1,"water_gun"],[1,"rock_throw"],[18,"surf"],[28,"stone_edge"],[38,"hydro_pump"],[48,"rock_slide"],[58,"bedrock_slam"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:48, expYield:212, rarity:"uncommon",
@@ -1428,13 +1428,13 @@ const MONSTERS_DATA = {
   // ===== BATCH 1: PSYCHIC/DARK TYPES (IDs 215-221) =====
 
   // 3-stage Ghost/Psychic chain: Spiritch → Phantorge → Spectraith
-  215: { id:215, name:"Psywisp", emoji:"🌀", types:["Psychic"],
+  215: { id:215, name:"Veilwisp", emoji:"🌀", types:["Psychic"],
     base:{hp:40,atk:42,def:30,spa:68,spd:52,spe:72},
     learnset:[[1,"confusion"],[1,"psybeam"],[12,"calm_mind"],[20,"psychic_move"],[28,"moonblast"],[36,"psystrike"],[44,"neural_storm"],[52,"astral_rend"]],
     evolveTo:216, evolveLevel:26, catchRate:175, expYield:68, rarity:"common",
     desc:"A wisp of pure psychic energy. Drifts through reality reading the thoughts of every living thing nearby." },
 
-  216: { id:216, name:"Psychdrift", emoji:"🌫️", types:["Psychic"],
+  216: { id:216, name:"Mindrift", emoji:"🌫️", types:["Psychic"],
     base:{hp:65,atk:65,def:52,spa:102,spd:80,spe:88},
     learnset:[[1,"psybeam"],[1,"calm_mind"],[20,"psychic_move"],[28,"moonblast"],[36,"psystrike"],[44,"neural_storm"],[52,"astral_rend"],[60,"hyper_beam"]],
     evolveTo:217, evolveLevel:44, catchRate:90, expYield:145, rarity:"uncommon",
@@ -1460,7 +1460,7 @@ const MONSTERS_DATA = {
     desc:"A mountain of absolute darkness. Creates a shadow zone where no light can penetrate for hundreds of meters." },
 
   // 2-stage Ghost/Normal chain: Hauntrix → Grimveil (level 34)
-  220: { id:220, name:"Duskjest", emoji:"🎭", types:["Dark","Psychic"],
+  220: { id:220, name:"Umbrajest", emoji:"🎭", types:["Dark","Psychic"],
     base:{hp:62,atk:58,def:55,spa:78,spd:62,spe:82},
     learnset:[[1,"bite"],[1,"confusion"],[12,"dark_pulse"],[22,"psybeam"],[32,"night_slash"],[42,"psychic_move"],[52,"eclipse_shroud"],[60,"hyper_beam"]],
     evolveTo:221, evolveLevel:34, catchRate:145, expYield:92, rarity:"common",
@@ -1504,22 +1504,22 @@ const MONSTERS_DATA = {
     desc:"A crystalline fairy of pure mental energy. Its body refracts light into impossible colors." },
 
   // Split evolution family: Prismoo → 3 forms via stones
-  // Prismoo (base, Normal/Psychic) → Prismace (Fire Stone), Prismoon (Moon Stone), Prismolt (Thunder Stone)
-  226: { id:226, name:"Prismoo", emoji:"🌈", types:["Normal","Psychic"],
+  // Spectroo (base, Normal/Psychic) → Prismace (Fire Stone), Prismoon (Moon Stone), Prismolt (Thunder Stone)
+  226: { id:226, name:"Spectroo", emoji:"🌈", types:["Normal","Psychic"],
     base:{hp:60,atk:55,def:55,spa:68,spd:60,spe:62},
     learnset:[[1,"tackle"],[1,"confusion"],[14,"psybeam"],[22,"fairy_wind"],[30,"moonblast"],[40,"psychic_move"],[50,"hyper_beam"]],
     evolveTo:227, evolveLevel:null, evolveItem:"firestone", evolveMethod:"item", catchRate:140, expYield:88, rarity:"common",
     desc:"A prism-shaped creature full of untapped potential. Exposure to different energies changes its form entirely." },
 
-  // Prismace: Fire Stone evolution (Fire/Psychic)
-  227: { id:227, name:"Prismace", emoji:"🔥", types:["Fire","Psychic"],
+  // Spectrace: Fire Stone evolution (Fire/Psychic)
+  227: { id:227, name:"Spectrace", emoji:"🔥", types:["Fire","Psychic"],
     base:{hp:78,atk:95,def:65,spa:118,spd:72,spe:92},
     learnset:[[1,"flamethrower"],[1,"psychic_move"],[28,"fire_blast"],[36,"psystrike"],[44,"astral_rend"],[52,"overheat"],[60,"neural_storm"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:225, rarity:"rare",
     desc:"A blazing prism warrior. Its psychic fire burns away illusions and exposes hidden truths." },
 
-  // Prismoon: Moon Stone evolution (Ice/Psychic)
-  228: { id:228, name:"Prismoon", emoji:"🌙", types:["Ice","Psychic"],
+  // Spectroon: Moon Stone evolution (Ice/Psychic)
+  228: { id:228, name:"Lunaroon", emoji:"🌙", types:["Ice","Psychic"],
     base:{hp:82,atk:72,def:88,spa:122,spd:108,spe:78},
     learnset:[[1,"ice_beam"],[1,"psychic_move"],[28,"blizzard"],[36,"psystrike"],[44,"astral_rend"],[52,"frost_breath"],[60,"neural_storm"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:225, rarity:"rare",
@@ -1548,7 +1548,7 @@ const MONSTERS_DATA = {
     desc:"A river drake that has mastered both land and water. Controls currents with its dragon energy." },
 
   // 3-stage Dragon/Ground chain: Draxon → Serpenthorn → Wyvernak
-  232: { id:232, name:"Draxon", emoji:"🦎", types:["Dragon","Ground"],
+  232: { id:232, name:"Serphaxon", emoji:"🦎", types:["Dragon","Ground"],
     base:{hp:52,atk:68,def:65,spa:45,spd:50,spe:55},
     learnset:[[1,"tackle"],[1,"mud_shot"],[14,"dragon_breath"],[24,"earthquake"],[34,"dragon_claw"],[44,"dragon_pulse"],[54,"outrage"],[64,"hyper_beam"]],
     evolveTo:233, evolveLevel:32, catchRate:160, expYield:82, rarity:"common",
@@ -1584,7 +1584,7 @@ const MONSTERS_DATA = {
     evolveTo:237, evolveLevel:30, catchRate:170, expYield:78, rarity:"common",
     desc:"A porcupine of solid ice. Its quills are natural ice needles that regenerate after use." },
 
-  237: { id:237, name:"Glacicore", emoji:"❄️", types:["Ice","Rock"],
+  237: { id:237, name:"Icevault", emoji:"❄️", types:["Ice","Rock"],
     base:{hp:92,atk:102,def:112,spa:78,spd:88,spe:48},
     learnset:[[1,"ice_beam"],[1,"rock_slide"],[24,"blizzard"],[32,"stone_edge"],[40,"cryo_lance"],[48,"icicle_crash"],[56,"avalanche_drive"],[64,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:215, rarity:"uncommon",
@@ -1597,7 +1597,7 @@ const MONSTERS_DATA = {
     evolveTo:239, evolveLevel:28, catchRate:175, expYield:72, rarity:"common",
     desc:"A snowball that rides wind currents to travel. Gets bigger and angrier in blizzards." },
 
-  239: { id:239, name:"Blizzavane", emoji:"🌨️", types:["Ice","Wind"],
+  239: { id:239, name:"Blizzariel", emoji:"🌨️", types:["Ice","Wind"],
     base:{hp:68,atk:62,def:65,spa:100,spd:82,spe:90},
     learnset:[[1,"air_slash"],[1,"ice_beam"],[22,"blizzard"],[30,"hurricane"],[38,"cryo_lance"],[46,"icicle_crash"],[54,"avalanche_drive"],[62,"hyper_beam"]],
     evolveTo:240, evolveLevel:44, catchRate:90, expYield:148, rarity:"uncommon",
@@ -1610,7 +1610,7 @@ const MONSTERS_DATA = {
     desc:"A permanent blizzard given form. The cold zone around it stretches for miles in every direction." },
 
   // Standalone Ice/Crystal evolves in cold area: Crystalix
-  241: { id:241, name:"Crystalix", emoji:"💠", types:["Ice","Psychic"],
+  241: { id:241, name:"Shardlix", emoji:"💠", types:["Ice","Psychic"],
     base:{hp:78,atk:75,def:105,spa:115,spd:100,spe:72},
     learnset:[[1,"ice_beam"],[1,"psychic_move"],[20,"cryo_lance"],[30,"psybeam"],[40,"blizzard"],[50,"psystrike"],[60,"glacial_tomb"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, evolveLocation:"cosmic_cavern", evolveMethod:"location", catchRate:50, expYield:215, rarity:"uncommon",
@@ -1623,7 +1623,7 @@ const MONSTERS_DATA = {
     evolveTo:243, evolveLevel:30, catchRate:170, expYield:75, rarity:"common",
     desc:"A ladybug-like creature that stores electricity in its shell spots. Releases it when threatened." },
 
-  243: { id:243, name:"Voltrixa", emoji:"🪲", types:["Electric","Bug"],
+  243: { id:243, name:"Arcdrix", emoji:"🪲", types:["Electric","Bug"],
     base:{hp:72,atk:82,def:68,spa:110,spd:78,spe:98},
     learnset:[[1,"thunderbolt"],[1,"x_scissor"],[24,"discharge"],[32,"bug_buzz"],[40,"thunder"],[48,"volt_surge"],[56,"ball_lightning"],[64,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:215, rarity:"uncommon",
@@ -1699,7 +1699,7 @@ const MONSTERS_DATA = {
     desc:"Volcanic rock infused with fire. Found only near ancient forge sites where magma once flowed freely." },
 
   // 2-stage Water/Psychic chain: Aquapuff → Wavrix (level 28)
-  254: { id:254, name:"Aquapuff", emoji:"🫧", types:["Water","Psychic"],
+  254: { id:254, name:"Bubblepuff", emoji:"🫧", types:["Water","Psychic"],
     base:{hp:50,atk:45,def:48,spa:72,spd:62,spe:68},
     learnset:[[1,"water_gun"],[1,"confusion"],[10,"bubble_beam"],[20,"psybeam"],[30,"surf"],[40,"psychic_move"],[50,"hydro_pump"],[60,"hyper_beam"]],
     evolveTo:255, evolveLevel:28, catchRate:165, expYield:76, rarity:"common",
@@ -1712,13 +1712,13 @@ const MONSTERS_DATA = {
     desc:"A psychic wave entity. Predicts tides and currents with perfect accuracy millennia in advance." },
 
   // 3-stage Water/Ice chain: Tideling → Coralhorn → Torrentox
-  256: { id:256, name:"Tideling", emoji:"🦀", types:["Water","Ice"],
+  256: { id:256, name:"Waveling", emoji:"🦀", types:["Water","Ice"],
     base:{hp:48,atk:52,def:58,spa:65,spd:55,spe:52},
     learnset:[[1,"water_gun"],[1,"powder_snow"],[12,"bubble_beam"],[22,"ice_beam"],[32,"surf"],[42,"blizzard"],[52,"hydro_pump"],[60,"hyper_beam"]],
     evolveTo:257, evolveLevel:26, catchRate:170, expYield:74, rarity:"common",
     desc:"A crab-like creature with frozen shell. Moves between sea and frozen tundra with ease." },
 
-  257: { id:257, name:"Coralhorn", emoji:"🦞", types:["Water","Ice"],
+  257: { id:257, name:"Reefhorn", emoji:"🦞", types:["Water","Ice"],
     base:{hp:72,atk:80,def:88,spa:90,spd:78,spe:65},
     learnset:[[1,"ice_beam"],[1,"surf"],[20,"blizzard"],[28,"aqua_tail"],[36,"cryo_lance"],[44,"hydro_pump"],[52,"icicle_crash"],[60,"hyper_beam"]],
     evolveTo:258, evolveLevel:44, catchRate:80, expYield:155, rarity:"uncommon",
@@ -1813,7 +1813,7 @@ const MONSTERS_DATA = {
     desc:"The eclipse bat, born when moon stone energy meets absolute darkness. Its wings block out the stars." },
 
   // Standalone Dark/Normal: Duskrat
-  271: { id:271, name:"Duskrat", emoji:"🐀", types:["Dark","Normal"],
+  271: { id:271, name:"Murkrat", emoji:"🐀", types:["Dark","Normal"],
     base:{hp:95,atk:100,def:82,spa:68,spd:75,spe:105},
     learnset:[[1,"bite"],[1,"tackle"],[18,"night_slash"],[28,"dark_pulse"],[38,"body_slam"],[48,"crunch"],[58,"eclipse_shroud"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:205, rarity:"uncommon",
@@ -1845,7 +1845,7 @@ const MONSTERS_DATA = {
     evolveTo:276, evolveLevel:46, catchRate:75, expYield:158, rarity:"uncommon",
     desc:"A volcanic rock beast that erupts periodically. Carries magma inside its carapace like a pressure cooker." },
 
-  276: { id:276, name:"Pyrovast", emoji:"🏔️", types:["Fire","Rock"],
+  276: { id:276, name:"Scorchvast", emoji:"🏔️", types:["Fire","Rock"],
     base:{hp:102,atk:118,def:109,spa:90,spd:78,spe:53},
     learnset:[[1,"fire_blast"],[1,"magma_rock"],[32,"caldera_meltdown"],[40,"earthquake"],[48,"stone_edge"],[56,"bedrock_slam"],[64,"ashfall"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:272, rarity:"rare",
@@ -1909,7 +1909,7 @@ const MONSTERS_DATA = {
     evolveTo:285, evolveLevel:26, catchRate:170, expYield:72, rarity:"common",
     desc:"A fluffy cloud puff with tiny wings. Drifts on thermals and sheds soft white fur that becomes rain clouds." },
 
-  285: { id:285, name:"Cloudvane", emoji:"🌤️", types:["Normal","Wind"],
+  285: { id:285, name:"Cloudrift", emoji:"🌤️", types:["Normal","Wind"],
     base:{hp:88,atk:78,def:78,spa:95,spd:90,spe:100},
     learnset:[[1,"air_slash"],[1,"body_slam"],[20,"hurricane"],[28,"gale_cannon"],[36,"downdraft"],[44,"squall_slash"],[52,"tempest_wrath"],[60,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:218, rarity:"uncommon",
@@ -1962,7 +1962,7 @@ const MONSTERS_DATA = {
     desc:"A wind horn creature that channels storms. Its horn generates tornadic electrical vortexes." },
 
   // 3-stage Wind chain: Zephyrpuff → Stormwing → Cyclonax
-  293: { id:293, name:"Zephyrpuff", emoji:"💨", types:["Wind"],
+  293: { id:293, name:"Gustpuff", emoji:"💨", types:["Wind"],
     base:{hp:42,atk:45,def:38,spa:65,spd:55,spe:90},
     learnset:[[1,"gust"],[1,"tackle"],[10,"air_slash"],[20,"downdraft"],[30,"hurricane"],[40,"gale_cannon"],[50,"squall_slash"],[60,"hyper_beam"]],
     evolveTo:294, evolveLevel:26, catchRate:175, expYield:68, rarity:"common",
@@ -1985,13 +1985,13 @@ const MONSTERS_DATA = {
   // ===== BATCH 7: POISON / BUG / MIXED FILLS (IDs 296-313) =====
 
   // 3-stage Poison/Bug chain: Toxifly → Venomwing → Plagueoth (lv26, lv44)
-  296: { id:296, name:"Toxifly", emoji:"🦟", types:["Poison","Bug"],
+  296: { id:296, name:"Plaguefly", emoji:"🦟", types:["Poison","Bug"],
     base:{hp:44,atk:52,def:40,spa:68,spd:52,spe:80},
     learnset:[[1,"poison_sting"],[1,"bug_buzz"],[10,"sludge_bomb"],[20,"x_scissor"],[30,"toxic"],[40,"venoshock"],[50,"venom_lance"],[60,"hyper_beam"]],
     evolveTo:297, evolveLevel:26, catchRate:178, expYield:70, rarity:"common",
     desc:"A mosquito-like creature with toxic saliva. A single bite can poison most Lumos instantly." },
 
-  297: { id:297, name:"Venomwing", emoji:"🦋", types:["Poison","Bug"],
+  297: { id:297, name:"Blightwing", emoji:"🦋", types:["Poison","Bug"],
     base:{hp:68,atk:78,def:62,spa:98,spd:78,spe:100},
     learnset:[[1,"x_scissor"],[1,"sludge_bomb"],[20,"toxic"],[28,"venoshock"],[36,"bug_buzz"],[44,"venom_lance"],[52,"sludge_wave"],[60,"hyper_beam"]],
     evolveTo:298, evolveLevel:44, catchRate:85, expYield:148, rarity:"uncommon",
@@ -2037,7 +2037,7 @@ const MONSTERS_DATA = {
     desc:"The comet fairy, born from moonstone energy and starlight. Crosses the sky in streaks of prismatic light." },
 
   // 3-stage Rock/Ice chain: Crysthorn → Geoshard → Crystallon (location: cold area, lv28, lv48)
-  304: { id:304, name:"Crysthorn", emoji:"💎", types:["Rock","Ice"],
+  304: { id:304, name:"Icethorn", emoji:"💎", types:["Rock","Ice"],
     base:{hp:52,atk:62,def:75,spa:58,spd:60,spe:50},
     learnset:[[1,"rock_throw"],[1,"powder_snow"],[12,"rock_slide"],[22,"ice_beam"],[32,"stone_edge"],[42,"cryo_lance"],[52,"blizzard"],[60,"hyper_beam"]],
     evolveTo:305, evolveLevel:28, catchRate:162, expYield:78, rarity:"common",
@@ -2063,13 +2063,13 @@ const MONSTERS_DATA = {
     desc:"A dark flame cat that stalks targets silently before unleashing explosive fire attacks. Unpredictable and cunning." },
 
   // 2-stage Water/Ghost chain: Tidewraith → Aquaphant (Water Stone item)
-  308: { id:308, name:"Tidewraith", emoji:"🌊", types:["Water","Dark"],
+  308: { id:308, name:"Seafraith", emoji:"🌊", types:["Water","Dark"],
     base:{hp:58,atk:62,def:58,spa:88,spd:75,spe:80},
     learnset:[[1,"water_gun"],[1,"shadow_ball"],[14,"surf"],[24,"phantom_claw"],[34,"hydro_pump"],[44,"eclipse_shroud"],[54,"soul_rend"],[60,"hyper_beam"]],
     evolveTo:309, evolveLevel:null, evolveItem:"waterStone", evolveMethod:"item", catchRate:135, expYield:98, rarity:"common",
     desc:"A ghost that drowned and merged with ocean tides. Haunts coastal routes, pulling travelers into the surf." },
 
-  309: { id:309, name:"Aquaphant", emoji:"🐋", types:["Water","Dark"],
+  309: { id:309, name:"Tidephant", emoji:"🐋", types:["Water","Dark"],
     base:{hp:94,atk:82,def:86,spa:113,spd:102,spe:73},
     learnset:[[1,"hydro_pump"],[1,"eclipse_shroud"],[28,"soul_rend"],[36,"phantom_claw"],[44,"geyser_burst"],[52,"shadow_ball"],[60,"dark_pulse"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:232, rarity:"rare",
@@ -2103,19 +2103,19 @@ const MONSTERS_DATA = {
 
 
   // ===== LEGENDARIES (IDs 314-321) =====
-  314: { id:314, name:"Aeolaxis",  emoji:"🌪️", types:["Wind","Electric"],
+  314: { id:314, name:"Galeaxis",  emoji:"🌪️", types:["Wind","Electric"],
     base:{hp:102,atk:84,def:93,spa:125,spd:96,spe:100},
     learnset:[[1,"air_slash"],[1,"thunder_shock"],[7,"gust"],[14,"spark"],[21,"zephyr_dance"],[28,"thunderbolt"],[35,"downdraft"],[42,"hurricane"],[49,"squall_slash"],[56,"overcharge"],[63,"tempest_wrath"],[70,"gale_cannon"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
     desc:"The Legendary Storm Bird. Said to control all weather in Lumoria." },
 
-  315: { id:315, name:"Pyrovanus",   emoji:"🌋", types:["Fire","Rock"],
+  315: { id:315, name:"Ashvanus",   emoji:"🌋", types:["Fire","Rock"],
     base:{hp:113,atk:145,def:111,spa:102,spd:89,spe:50},
     learnset:[[1,"ember"],[1,"rock_throw"],[7,"flame_fang"],[14,"rock_slide"],[21,"magma_surge"],[28,"stone_edge"],[35,"ashfall"],[42,"flamethrower"],[49,"magma_rock"],[56,"fire_blast"],[63,"caldera_meltdown"],[70,"bedrock_slam"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
     desc:"The Legendary Volcano Titan. Eruptions across Lumoria mark its awakening." },
 
-  316: { id:316, name:"Thalassovex", emoji:"🌊", types:["Water","Dark"],
+  316: { id:316, name:"Abyssovex", emoji:"🌊", types:["Water","Dark"],
     base:{hp:99,atk:102,def:85,spa:130,spd:92,spe:82},
     learnset:[[1,"water_gun"],[1,"bite"],[7,"bubble_beam"],[14,"crunch"],[21,"abyssal_jet"],[28,"dark_pulse"],[35,"surf"],[42,"abyssal_snare"],[49,"dragon_pulse"],[56,"soul_rend"],[63,"hydro_pump"],[70,"geyser_burst"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
@@ -2124,7 +2124,7 @@ const MONSTERS_DATA = {
   // ===== NEW LUMOS IDs 108-167 =====
 
   // ===== ELECTRIC/ROCK =====
-  92: { id:92, name:"Voltrix", emoji:"⚡", types:["Electric","Rock"],
+  92: { id:92, name:"Arcrix", emoji:"⚡", types:["Electric","Rock"],
     base:{hp:62,atk:68,def:75,spa:48,spd:55,spe:41},
     learnset:[[1,"rock_throw",[22,"arc_flash"]],[1,"thunder_shock"],[10,"spark"],[18,"rock_slide"],[20,"recover"],[26,"thunderbolt"],[34,"stone_edge",[5,"thunder_wave"]],[36,"volt_surge"],[3,"static_cage"],[31,"ball_lightning"]],
     evolveTo:93, evolveLevel:30, catchRate:130, expYield:96, rarity:"common",
@@ -2173,7 +2173,7 @@ const MONSTERS_DATA = {
     desc:"A golem formed from centuries of compressed coral and sunken steel. Nearly indestructible." },
 
   // ===== WATER/WIND =====
-  39: { id:39, name:"Thalveth", emoji:"🐬", types:["Water","Wind"],
+  39: { id:39, name:"Depthveth", emoji:"🐬", types:["Water","Wind"],
     base:{hp:73,atk:74,def:69,spa:86,spd:72,spe:84},
     learnset:[[1,"water_gun",[24,"tidal_crush"]],[1,"gust"],[12,"bubble_beam"],[20,"wing_attack"],[25,"swords_dance"],[28,"surf"],[36,"air_slash"],[44,"hydro_pump"],[45,"riptide_slam"],[52,"hurricane",[5,"tidecaller"]],[3,"deepwater_hymn"],[37,"storm_surge"]],
     evolveTo:40, evolveLevel:42, catchRate:60, expYield:185, rarity:"uncommon",
@@ -2236,7 +2236,7 @@ const MONSTERS_DATA = {
     desc:"A spider that weaves silk infused with fairy dust. Its webs shimmer like spun moonlight." },
 
   // ===== ICE/STEEL =====
-  55: { id:55, name:"Glacirin", emoji:"🗡️", types:["Ice","Steel"],
+  55: { id:55, name:"Rimeling", emoji:"🗡️", types:["Ice","Steel"],
     base:{hp:46,atk:73,def:66,spa:56,spd:52,spe:76},
     learnset:[[1,"powder_snow",[25,"cryo_lance"]],[1,"metal_claw"],[11,"ice_punch"],[19,"flash_cannon"],[27,"icicle_crash"],[30,"smelt_crush"],[35,"iron_tail"],[43,"blizzard",[5,"permafrost"]],[3,"winter_shroud"],[33,"forge_strike"]],
     evolveTo:56, evolveLevel:36, catchRate:90, expYield:110, rarity:"uncommon",
@@ -2265,19 +2265,19 @@ const MONSTERS_DATA = {
 
   // ===== EVOLUTIONS (108+ referenced above) =====
 
-  93: { id:93, name:"Petravolt", emoji:"🪨", types:["Electric","Rock"],
+  93: { id:93, name:"Stonebolt", emoji:"🪨", types:["Electric","Rock"],
     base:{hp:81,atk:98,def:92,spa:69,spd:57,spe:83},
     learnset:[[1,"rock_slide"],[2,"thunderbolt"],[3,"spark"],[4,"thunder_wave"],[31,"stone_edge"],[33,"volt_surge"],[35,"vital_pulse"],[40,"geode_burst"],[45,"earthquake"],[50,"thunder"],[55,"overcharge"],[60,"hyper_beam"],[5,"static_cage"],[39,"wild_charge"]],
     evolveTo:94, evolveLevel:44, catchRate:45, expYield:220, rarity:"uncommon",
     desc:"A towering boulder monster wreathed in crackling lightning. Its stomps cause earthquakes." },
 
-  135: { id:135, name:"Ferrovex", emoji:"🦇", types:["Steel","Dark"],
+  135: { id:135, name:"Steelvex", emoji:"🦇", types:["Steel","Dark"],
     base:{hp:82,atk:102,def:94,spa:59,spd:73,spe:78},
     learnset:[[1,"flash_cannon"],[2,"dark_pulse"],[3,"magnetize"],[30,"crunch"],[33,"shadow_ball"],[34,"harden"],[38,"rivet_barrage"],[43,"steel_wing"],[48,"night_slash"],[53,"forge_strike"],[58,"void_rend"],[63,"iron_tail"],[4,"ironskin"],[41,"smelt_crush"]],
     evolveTo:136, evolveLevel:44, catchRate:45, expYield:215, rarity:"uncommon",
     desc:"An iron-clad wraith bat. Its metallic screech disorients enemies from great distances." },
 
-  20: { id:20, name:"Pyroterrath", emoji:"🦔", types:["Fire","Ground"],
+  20: { id:20, name:"Embrath", emoji:"🦔", types:["Fire","Ground"],
     base:{hp:97,atk:121,def:76,spa:69,spd:62,spe:64},
     learnset:[[1,"flame_fang"],[2,"mud_shot"],[3,"earthquake"],[4,"scorch_veil"],[30,"flamethrower"],[31,"battle_cry"],[36,"ashfall"],[41,"earth_power"],[46,"fissure_slam"],[51,"inferno"],[56,"fire_blast"],[61,"tectonic_slam"],[5,"embercloak"],[40,"scorched_earth"]],
     evolveTo:21, evolveLevel:44, catchRate:45, expYield:218, rarity:"uncommon",
@@ -2319,7 +2319,7 @@ const MONSTERS_DATA = {
     evolveTo:80, evolveLevel:44, catchRate:40, expYield:218, rarity:"uncommon",
     desc:"A dark vine predator that ensnares prey in shadow-infused tendrils. Ancient and cunning." },
 
-  163: { id:163, name:"Venomalis", emoji:"🪷", types:["Poison","Grass"],
+  163: { id:163, name:"Blightalis", emoji:"🪷", types:["Poison","Grass"],
     base:{hp:88,atk:80,def:60,spa:116,spd:83,spe:58},
     learnset:[[1,"sludge_bomb"],[2,"toxic"],[3,"poison_sting"],[4,"toxic_surge"],[28,"petal_blitz"],[31,"energy_ball"],[35,"growl"],[39,"venoshock"],[42,"battle_cry"],[49,"photon_leaf"],[56,"venom_lance"],[63,"root_lance"],[5,"toxin_bloom"],[43,"leaf_blade"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
@@ -2343,7 +2343,7 @@ const MONSTERS_DATA = {
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:318, rarity:"uncommon",
     desc:"A radiant spider archon that spins webs that trap bad dreams. Revered as a good omen." },
 
-  56: { id:56, name:"Cryovast", emoji:"⚔️", types:["Ice","Steel"],
+  56: { id:56, name:"Deepfreeze", emoji:"⚔️", types:["Ice","Steel"],
     base:{hp:69,atk:122,def:105,spa:78,spd:83,spe:79},
     learnset:[[1,"ice_punch"],[2,"flash_cannon"],[3,"icicle_crash"],[4,"iron_tail"],[5,"permafrost"],[40,"blizzard"],[41,"winter_shroud"],[44,"swords_dance"],[48,"glacial_shard"],[52,"steel_wing"],[56,"avalanche_drive"],[60,"hyper_beam"],[6,"frostfire_veil"],[37,"subzero_slash"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:260, rarity:"rare",
@@ -2364,7 +2364,7 @@ const MONSTERS_DATA = {
   // ===== ADDITIONAL COMMON/UNCOMMON/RARE LUMOS =====
 
   // ===== FIRE/PSYCHIC =====
-  22: { id:22, name:"Ignorin", emoji:"🔥", types:["Fire","Psychic"],
+  22: { id:22, name:"Scorchorin", emoji:"🔥", types:["Fire","Psychic"],
     base:{hp:35,atk:41,def:37,spa:58,spd:56,spe:68},
     learnset:[[1,"ember",[20,"cinderwhirl"]],[1,"confusion"],[9,"psybeam"],[17,"flamethrower"],[21,"recover"],[25,"psychic_move"],[33,"fire_blast",[5,"scorch_veil"]],[36,"magma_surge"],[3,"embercloak"],[31,"inferno"]],
     evolveTo:23, evolveLevel:28, catchRate:150, expYield:88, rarity:"common",
@@ -2383,7 +2383,7 @@ const MONSTERS_DATA = {
     evolveTo:76, evolveLevel:22, catchRate:190, expYield:78, rarity:"common",
     desc:"A sprout crackling with static electricity. Charges itself by photosynthesizing lightning." },
 
-  76: { id:76, name:"Arborvolt", emoji:"🌳", types:["Grass","Electric"],
+  76: { id:76, name:"Sparkwood", emoji:"🌳", types:["Grass","Electric"],
     base:{hp:81,atk:78,def:68,spa:111,spd:84,spe:68},
     learnset:[[1,"razor_leaf"],[2,"recover"],[3,"vine_whip"],[4,"volt_surge"],[5,"sleep_powder"],[22,"energy_ball"],[29,"thunderbolt"],[30,"swords_dance"],[38,"petal_blitz"],[46,"verdant_surge"],[54,"thunder"],[62,"hyper_beam"],[6,"spore_burst"],[42,"canopy_crash"]],
     evolveTo:77, evolveLevel:44, catchRate:45, expYield:318, rarity:"uncommon",
@@ -2403,7 +2403,7 @@ const MONSTERS_DATA = {
     desc:"A living monolith of darkened stone. Ancient civilizations worshipped it as a god of night." },
 
   // ===== POISON/BUG =====
-  164: { id:164, name:"Venomite", emoji:"🐛", types:["Poison","Bug"],
+  164: { id:164, name:"Blightmite", emoji:"🐛", types:["Poison","Bug"],
     base:{hp:56,atk:37,def:55,spa:65,spd:52,spe:30},
     learnset:[[1,"poison_sting",[20,"venom_lance"]],[1,"string_shot"],[8,"bug_bite"],[16,"sludge_bomb"],[21,"recover"],[24,"x_scissor"],[32,"toxic",[5,"toxic_surge"]],[36,"sonic_buzz"],[3,"toxin_bloom"],[31,"mandible_crush"]],
     evolveTo:165, evolveLevel:20, catchRate:220, expYield:65, rarity:"common",
@@ -2422,7 +2422,7 @@ const MONSTERS_DATA = {
     evolveTo:154, evolveLevel:26, catchRate:160, expYield:90, rarity:"common",
     desc:"A small ore elemental born in deep mine shafts. Tough as iron and twice as stubborn." },
 
-  154: { id:154, name:"Ferrolith", emoji:"🤖", types:["Steel","Ground"],
+  154: { id:154, name:"Titanolith", emoji:"🤖", types:["Steel","Ground"],
     base:{hp:95,atk:108,def:116,spa:52,spd:79,spe:30},
     learnset:[[1,"flash_cannon"],[2,"earthquake"],[3,"magnetize"],[30,"iron_tail"],[31,"battle_cry"],[34,"loam_leech"],[38,"rock_slide"],[42,"temper_edge"],[46,"body_slam"],[50,"earth_power"],[54,"tungsten_ram"],[58,"anvil_drop"],[4,"ironskin"],[37,"magnitude"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:222, rarity:"uncommon",
@@ -2435,7 +2435,7 @@ const MONSTERS_DATA = {
     evolveTo:107, evolveLevel:32, catchRate:80, expYield:94, rarity:"uncommon",
     desc:"A burrowing dragon hatchling. Digs deep tunnels and breathes sand-laden gusts." },
 
-  107: { id:107, name:"Terraquon", emoji:"🐲", types:["Dragon","Ground"],
+  107: { id:107, name:"Quakeon", emoji:"🐲", types:["Dragon","Ground"],
     base:{hp:86,atk:108,def:96,spa:94,spd:64,spe:69},
     learnset:[[1,"dragon_claw"],[2,"earthquake"],[3,"dragon_dance"],[32,"dragon_pulse"],[36,"battle_cry"],[40,"draconic_roar"],[44,"tremor_stomp"],[48,"earth_power"],[52,"eon_crash"],[56,"ancient_breath"],[60,"outrage"],[64,"hyper_beam"],[4,"primordial_roar"],[39,"scale_storm"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:260, rarity:"rare",
@@ -2455,26 +2455,26 @@ const MONSTERS_DATA = {
     desc:"A dreaming flock manifestation. Said to appear to sleeping trainers before a great trial." },
 
   // ===== BUG/GROUND =====
-  204: { id:204, name:"Terramite", emoji:"🪲", types:["Bug","Ground"],
+  204: { id:204, name:"Muddite", emoji:"🪲", types:["Bug","Ground"],
     base:{hp:62,atk:68,def:73,spa:34,spd:35,spe:45},
     learnset:[[1,"bug_bite",[22,"chitin_guard"]],[1,"mud_shot"],[10,"string_shot"],[18,"x_scissor"],[20,"leer"],[26,"earthquake"],[34,"bug_buzz",[5,"compound_glare"]],[36,"swarm_dive"],[3,"moth_dust"],[31,"magnitude"]],
     evolveTo:205, evolveLevel:24, catchRate:170, expYield:88, rarity:"common",
     desc:"A burrowing beetle that lives in dry earth. Its mandibles can crack solid rock." },
 
-  205: { id:205, name:"Geodrix", emoji:"🪲", types:["Bug","Ground"],
+  205: { id:205, name:"Quarrix", emoji:"🪲", types:["Bug","Ground"],
     base:{hp:90,atk:108,def:93,spa:68,spd:58,spe:65},
     learnset:[[1,"x_scissor"],[2,"string_shot"],[24,"earthquake"],[29,"swords_dance"],[31,"bug_buzz"],[34,"sandstrike"],[39,"rock_slide"],[44,"mandible_crush"],[49,"cocoon_burst"],[54,"earth_power"],[59,"stone_edge"],[64,"hyper_beam"],[3,"chitin_guard"],[41,"drill_run"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
     desc:"An armored ground beetle of incredible toughness. Plows through solid bedrock with ease." },
 
   // ===== WIND/ICE =====
-  61: { id:61, name:"Borix", emoji:"🌬️", types:["Wind","Ice"],
+  61: { id:61, name:"Gelspike", emoji:"🌬️", types:["Wind","Ice"],
     base:{hp:34,atk:45,def:36,spa:64,spd:47,spe:93},
     learnset:[[1,"gust"],[1,"powder_snow"],[8,"wing_attack"],[16,"permafrost"],[22,"cryo_lance"],[24,"air_slash"],[29,"gale_cannon"],[32,"ice_beam"],[40,"hurricane",[5,"mistveil"]],[3,"zephyr_dance"],[31,"storm_surge"]],
     evolveTo:62, evolveLevel:26, catchRate:180, expYield:78, rarity:"common",
     desc:"A gust of frozen air given form. Howls through mountain passes on the coldest nights." },
 
-  62: { id:62, name:"Boreovane", emoji:"🦅", types:["Wind","Ice"],
+  62: { id:62, name:"Gelwing", emoji:"🦅", types:["Wind","Ice"],
     base:{hp:74,atk:66,def:61,spa:106,spd:78,spe:92},
     learnset:[[1,"wing_attack"],[2,"air_slash"],[3,"mistveil"],[29,"ice_beam"],[31,"battle_cry"],[36,"sleet_barrage"],[37,"hurricane"],[41,"cyclone_blade"],[46,"icicle_crash"],[51,"avalanche_drive"],[56,"blizzard"],[61,"hyper_beam"],[4,"zephyr_dance"],[40,"thermal_dive"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
@@ -2511,7 +2511,7 @@ const MONSTERS_DATA = {
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
     desc:"The Legendary Void Star. A being of absolute darkness ringed by fairy light. Where it passes, stars blink out." },
 
-  320: { id:320, name:"Ferrothon", emoji:"⚡", types:["Steel","Electric"],
+  320: { id:320, name:"Galvathon", emoji:"⚡", types:["Steel","Electric"],
     base:{hp:91,atk:120,def:108,spa:103,spd:84,spe:93},
     learnset:[[1,"metal_claw"],[1,"thunder_shock"],[7,"spark"],[14,"steel_wing"],[21,"magnetize"],[28,"thunderbolt"],[35,"flash_cannon"],[42,"forge_strike"],[49,"iron_tail"],[56,"ball_lightning"],[63,"anvil_drop"],[70,"thunder"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
@@ -2519,19 +2519,19 @@ const MONSTERS_DATA = {
 
   // ===== NEW EVOLUTIONS (IDs 168-177) =====
 
-  91: { id:91, name:"Cyclomathos", emoji:"🦅", types:["Electric","Wind"],
+  91: { id:91, name:"Vortexathos", emoji:"🦅", types:["Electric","Wind"],
     base:{hp:65,atk:78,def:55,spa:96,spd:73,spe:120},
     learnset:[[1,"thunder_shock"],[1,"downdraft"],[2,"thunderbolt"],[3,"air_slash"],[4,"static_cage"],[30,"arc_flash"],[35,"tempest_wrath"],[40,"thunder"],[45,"volt_surge"],[50,"hurricane"],[55,"plasma_strike"],[60,"ball_lightning"],[6,"charge_burst"],[42,"wing_attack"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:198, rarity:"uncommon",
     desc:"An electrified storm raptor that rides cyclones. Its wingspan crackles with constant discharge." },
 
-  46: { id:46, name:"Boreoveth", emoji:"🦭", types:["Ice","Water"],
+  46: { id:46, name:"Frostmere", emoji:"🦭", types:["Ice","Water"],
     base:{hp:90,atk:65,def:90,spa:109,spd:92,spe:59},
     learnset:[[1,"powder_snow"],[1,"water_gun"],[2,"ice_beam"],[3,"permafrost"],[4,"winter_shroud"],[33,"blizzard"],[38,"aqua_tail"],[42,"hoarfrost_bite"],[46,"icicle_crash"],[50,"hydro_pump"],[54,"glacial_tomb"],[58,"surf"],[5,"cryo_lance"],[43,"harden"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:205, rarity:"uncommon",
     desc:"An ancient ice behemoth that rests in glacial caves. Its breath can freeze the ocean surface." },
 
-  161: { id:161, name:"Toxivane", emoji:"🦠", types:["Poison","Wind"],
+  161: { id:161, name:"Mistbane", emoji:"🦠", types:["Poison","Wind"],
     base:{hp:70,atk:75,def:54,spa:102,spd:80,spe:105},
     learnset:[[1,"poison_sting"],[1,"downdraft"],[2,"sludge_bomb"],[3,"air_slash"],[4,"mycelia_net"],[31,"toxic"],[36,"venoshock"],[40,"tempest_wrath"],[45,"corrosion_fang"],[50,"hurricane"],[55,"venom_lance"],[60,"sludge_wave"],[5,"miasma_cloud"],[43,"wing_attack"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:195, rarity:"uncommon",
@@ -2687,7 +2687,7 @@ const MONSTERS_DATA = {
     desc:"A being of pure spring magic. Where it dances, flowers bloom overnight and the air fills with the scent of a thousand blossoms." },
 
   // 193: Junglevolt - Grass/Electric (Sylvolt→Arborvolt→Junglevolt)
-  77: { id:77, name:"Junglevolt", emoji:"⚡", types:["Grass","Electric"],
+  77: { id:77, name:"Thorncharge", emoji:"⚡", types:["Grass","Electric"],
     base:{hp:92,atk:98,def:82,spa:132,spd:98,spe:48},
     learnset:[[1,"razor_leaf"],[1,"thunderbolt"],[2,"energy_ball"],[3,"volt_surge"],[4,"sleep_powder"],[38,"thunder"],[42,"petal_blitz"],[46,"verdant_surge"],[50,"plasma_strike"],[54,"canopy_crash"],[58,"ion_cannon"],[62,"arc_flash"],[5,"spore_burst"],[44,"charge_burst"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
@@ -2729,14 +2729,14 @@ const MONSTERS_DATA = {
     desc:"A living tectonic plate. Every step it takes registers as a minor earthquake. Civilizations have risen and fallen on the choices of where it walks." },
 
   // 199: Geovenomvast - Ground/Poison (Aridix→Geovenoth→Geovenomvast)
-  100: { id:100, name:"Geovenomvast", emoji:"🦂", types:["Ground","Poison"],
+  100: { id:100, name:"Venomvast", emoji:"🦂", types:["Ground","Poison"],
     base:{hp:89,atk:119,def:89,spa:105,spd:99,spe:49},
     learnset:[[1,"poison_sting"],[1,"earthquake"],[2,"venom_lance"],[3,"earth_power"],[4,"toxic"],[38,"sludge_wave"],[42,"miasma_cloud"],[46,"scorched_earth"],[50,"acid_rain"],[54,"sand_geyser"],[58,"stinger_volley"],[62,"toxic_surge"],[5,"clay_armor"],[44,"corrosion_fang"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
     desc:"A scorpion tyrant of the poisoned badlands. Its stinger contains enough venom to wilt an entire forest, and its tail leaves craters in the earth." },
 
   // 200: Geovast - Ground/Water (Limoux→Geoloth→Geovast)
-  103: { id:103, name:"Geovast", emoji:"🐊", types:["Ground","Water"],
+  103: { id:103, name:"Crustvast", emoji:"🐊", types:["Ground","Water"],
     base:{hp:109,atk:118,def:98,spa:103,spd:83,spe:39},
     learnset:[[1,"earthquake"],[1,"surf"],[2,"earth_power"],[3,"tidal_crush"],[4,"mud_shot"],[38,"hydro_pump"],[42,"sand_geyser"],[46,"aqua_tail"],[50,"scorched_earth"],[54,"sea_serpent_strike"],[58,"boulder_roll"],[62,"abyssal_jet"],[5,"clay_armor"],[44,"frost_current"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:260, rarity:"rare",
@@ -2764,7 +2764,7 @@ const MONSTERS_DATA = {
     desc:"A wolf of absolute zero whose howl flash-freezes the air for miles. Entire mountain valleys have become permanent glacier fields where it hunts." },
 
   // 204: Glaciovast - Ice/Normal (Nivelin→Glacivern→Glaciovast)
-  52: { id:52, name:"Glaciovast", emoji:"🐻‍❄️", types:["Ice","Normal"],
+  52: { id:52, name:"Permavast", emoji:"🐻‍❄️", types:["Ice","Normal"],
     base:{hp:109,atk:88,def:118,spa:113,spd:103,spe:19},
     learnset:[[1,"powder_snow"],[1,"body_slam"],[2,"ice_beam"],[3,"harden"],[4,"blizzard"],[38,"headbutt"],[42,"hoarfrost_bite"],[46,"icicle_crash"],[50,"glacial_tomb"],[54,"recover"],[58,"cryo_lance"],[62,"hyper_beam"],[5,"winter_shroud"],[44,"vital_pulse"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:260, rarity:"rare",
@@ -3458,9 +3458,9 @@ const WORLD_DATA = {
       {id:155, minLv:57, maxLv:62, rate:15},  // Toxirin (base)
       {id:157, minLv:57, maxLv:62, rate:15},  // Acidelix (base)
       {id:160, minLv:58, maxLv:63, rate:15},  // Miasoveth (base)
-      {id:161, minLv:59, maxLv:64, rate:10},  // Toxivane (mid → after base ✓)
+      {id:161, minLv:59, maxLv:64, rate:10},  // Mistbane (mid → after base ✓)
       {id:162, minLv:58, maxLv:63, rate:10},  // Marlix (base)
-      {id:163, minLv:59, maxLv:64, rate:10},  // Venomalis (mid → after base ✓)
+      {id:163, minLv:59, maxLv:64, rate:10},  // Blightalis (mid → after base ✓)
       {id:206, minLv:57, maxLv:62, rate:10},  // Venomscale (base Poison/Dragon)
       {id:266, minLv:57, maxLv:62, rate:10},  // Shadowpup (base Dark)
       {id:299, minLv:57, maxLv:62, rate:5}    // Stinglet (base Bug/Poi)
@@ -3474,7 +3474,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:156, minLv:58, maxLv:63, rate:25},  // Venekon (mid)
       {id:159, minLv:60, maxLv:65, rate:25},  // Acidovast (final, 158 on murk_crossing ✓)
-      {id:163, minLv:59, maxLv:64, rate:25},  // Venomalis (mid, 162 on route10 ✓)
+      {id:163, minLv:59, maxLv:64, rate:25},  // Blightalis (mid, 162 on route10 ✓)
       {id:165, minLv:59, maxLv:64, rate:25}   // Noxoveth (mid, 164 on murk_crossing ✓)
     ],
     hasGym:true, gymLeader:"viper", requiredBadges:9, mapPos:{x:42, y:65}
@@ -3484,7 +3484,7 @@ const WORLD_DATA = {
     desc:"A rumbling mountain pass where the ground never stops shaking.",
     connections:["miasmacity","quake_foothills"],
     wildMonsters:[
-      {id:95,  minLv:59, maxLv:64, rate:20},  // Terrakin (base)
+      {id:95,  minLv:59, maxLv:64, rate:20},  // Dustkin (base)
       {id:98,  minLv:59, maxLv:64, rate:20},  // Aridix (base)
       {id:101, minLv:59, maxLv:64, rate:20},  // Limoux (base)
       {id:104, minLv:60, maxLv:65, rate:20},  // Arenikin (base)
@@ -3501,10 +3501,10 @@ const WORLD_DATA = {
     connections:["tremor_summit","route12"],
     wildMonsters:[
       {id:97,  minLv:61, maxLv:66, rate:25},  // Tectonvast (final, 96 on quake_foothills ✓)
-      {id:100, minLv:61, maxLv:66, rate:25},  // Geovenomvast (final, 99 on quake_foothills ✓)
-      {id:103, minLv:61, maxLv:66, rate:25},  // Geovast (final, 102 on quake_foothills ✓)
+      {id:100, minLv:61, maxLv:66, rate:25},  // Venomvast (final, 99 on quake_foothills ✓)
+      {id:103, minLv:61, maxLv:66, rate:25},  // Crustvast (final, 102 on quake_foothills ✓)
       {id:105, minLv:61, maxLv:66, rate:15},  // Dravanas (final, 104 on route11 ✓)
-      {id:107, minLv:62, maxLv:67, rate:10}   // Terraquon (final, 106 on route11 ✓)
+      {id:107, minLv:62, maxLv:67, rate:10}   // Quakeon (final, 106 on route11 ✓)
     ],
     hasGym:true, gymLeader:"atlas", requiredBadges:10, mapPos:{x:28, y:78}
   },
@@ -3517,8 +3517,8 @@ const WORLD_DATA = {
       {id:198, minLv:62, maxLv:67, rate:20},  // Chrysalix (mid → after 197 ✓)
       {id:200, minLv:61, maxLv:66, rate:20},  // Colerix (base)
       {id:202, minLv:62, maxLv:67, rate:20},  // Sericrix (base)
-      {id:204, minLv:63, maxLv:68, rate:15},  // Terramite (base)
-      {id:215, minLv:62, maxLv:67, rate:10},  // Psywisp (base Psychic)
+      {id:204, minLv:63, maxLv:68, rate:15},  // Muddite (base)
+      {id:215, minLv:62, maxLv:67, rate:10},  // Veilwisp (base Psychic)
       {id:262, minLv:62, maxLv:67, rate:10}   // Seedling (base Grass/Poi)
     ],
     hasGym:false, requiredBadges:11, mapPos:{x:22, y:82}
@@ -3531,7 +3531,7 @@ const WORLD_DATA = {
       {id:199, minLv:63, maxLv:68, rate:25},  // Aeridaleth (final)
       {id:201, minLv:62, maxLv:67, rate:25},  // Scarabion (mid)
       {id:203, minLv:63, maxLv:68, rate:25},  // Arachnalis (mid, 202 on route12 ✓)
-      {id:205, minLv:64, maxLv:69, rate:25}   // Geodrix (mid)
+      {id:205, minLv:64, maxLv:69, rate:25}   // Quarrix (mid)
     ],
     hasGym:true, gymLeader:"mantis", requiredBadges:11, mapPos:{x:15, y:88}
   },
@@ -3540,15 +3540,15 @@ const WORLD_DATA = {
     desc:"The western arm of Gale Ridge, where howling winds funnel through a narrow canyon toward the furthest point of the region.",
     connections:["silkwood","wind_hollow"],
     wildMonsters:[
-      {id:108, minLv:63, maxLv:68, rate:20},  // Zephyrkin (base)
-      {id:109, minLv:64, maxLv:69, rate:20},  // Aeolomane (mid → after 108 ✓)
+      {id:108, minLv:63, maxLv:68, rate:20},  // Gustkin (base)
+      {id:109, minLv:64, maxLv:69, rate:20},  // Siroccomane (mid → after 108 ✓)
       {id:111, minLv:63, maxLv:68, rate:20},  // Aeolin (base)
       {id:114, minLv:64, maxLv:69, rate:15},  // Nimbusel (base)
       {id:116, minLv:64, maxLv:69, rate:15},  // Zephyrin (base)
       {id:61,  minLv:65, maxLv:70, rate:10},  // wind-type standalone
       {id:291, minLv:63, maxLv:68, rate:10},  // Breezekin (base Wind)
       {id:222, minLv:63, maxLv:68, rate:10},  // Mindpuff (base Psychic)
-      {id:220, minLv:63, maxLv:68, rate:5}    // Duskjest (base Dark/Psychic)
+      {id:220, minLv:63, maxLv:68, rate:5}    // Umbrajest (base Dark/Psychic)
     ],
     hasGym:false, requiredBadges:12, mapPos:{x:10, y:92}
   },
@@ -3588,9 +3588,9 @@ const WORLD_DATA = {
     connections:["forge_approach","route15"],
     wildMonsters:[
       {id:149, minLv:67, maxLv:72, rate:25},  // Adamovast (final)
-      {id:151, minLv:66, maxLv:71, rate:20},  // Ferrotron (mid)
+      {id:151, minLv:66, maxLv:71, rate:20},  // Alloytron (mid)
       {id:152, minLv:67, maxLv:72, rate:20},  // Imperion (Steel/Rock)
-      {id:135, minLv:67, maxLv:72, rate:20},  // Ferrovex (mid, 134 on route14 ✓)
+      {id:135, minLv:67, maxLv:72, rate:20},  // Steelvex (mid, 134 on route14 ✓)
       {id:136, minLv:68, maxLv:73, rate:15}   // Ferrovast (final → after 135 ✓)
     ],
     hasGym:true, gymLeader:"ferro", requiredBadges:13, mapPos:{x:38, y:88}
@@ -3607,8 +3607,8 @@ const WORLD_DATA = {
       {id:133, minLv:69, maxLv:74, rate:10},  // Monolithox (mid → after 132 ✓)
       {id:93,  minLv:69, maxLv:74, rate:10},  // standalone rock
       {id:251, minLv:67, maxLv:72, rate:10},  // Crumblite (base Rock/Steel)
-      {id:304, minLv:67, maxLv:72, rate:10},  // Crysthorn (base Rock/Ice)
-      {id:232, minLv:67, maxLv:72, rate:5}    // Draxon (base Dragon/Ground)
+      {id:304, minLv:67, maxLv:72, rate:10},  // Icethorn (base Rock/Ice)
+      {id:232, minLv:67, maxLv:72, rate:5}    // Serphaxon (base Dragon/Ground)
     ],
     hasGym:false, requiredBadges:14, mapPos:{x:48, y:85}
   },
@@ -3636,8 +3636,8 @@ const WORLD_DATA = {
       {id:142, minLv:69, maxLv:74, rate:20},  // Dawnirel (base, new)
       {id:145, minLv:70, maxLv:75, rate:15},  // Faerrin (base)
       {id:225, minLv:69, maxLv:74, rate:10},  // Glimmerkin (standalone Psy/Fairy)
-      {id:226, minLv:69, maxLv:74, rate:10},  // Prismoo (base split-evo)
-      {id:254, minLv:69, maxLv:74, rate:10},  // Aquapuff (base Water/Psy)
+      {id:226, minLv:69, maxLv:74, rate:10},  // Spectroo (base split-evo)
+      {id:254, minLv:69, maxLv:74, rate:10},  // Bubblepuff (base Water/Psy)
       {id:302, minLv:69, maxLv:74, rate:5}    // Lightpuff (base Fairy, item evo)
     ],
     hasGym:false, requiredBadges:15, mapPos:{x:62, y:78}
@@ -3666,9 +3666,9 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:155, minLv:57, maxLv:62, rate:15},  // Toxirin (base)
       {id:156, minLv:58, maxLv:63, rate:20},  // Venekon (mid → after base ✓)
-      {id:158, minLv:58, maxLv:63, rate:20},  // Toxoloth (mid, base Acidelix on route10 ✓)
+      {id:158, minLv:58, maxLv:63, rate:20},  // Acidoloth (mid, base Acidelix on route10 ✓)
       {id:159, minLv:60, maxLv:65, rate:20},  // Acidovast (final → after 158 ✓)
-      {id:164, minLv:58, maxLv:63, rate:15},  // Venomite (base, new)
+      {id:164, minLv:58, maxLv:63, rate:15},  // Blightmite (base, new)
       {id:165, minLv:59, maxLv:64, rate:10}   // Noxoveth (mid → after 164 ✓)
     ],
     hasGym:false, requiredBadges:9, mapPos:{x:42, y:60}
@@ -3678,12 +3678,12 @@ const WORLD_DATA = {
     desc:"Rolling foothills rocked by constant tremors where Terravault's mountain range begins. Ground-type Lumos burrow through the cracked and heaving earth.",
     connections:["route11","magma_vent"],
     wildMonsters:[
-      {id:95,  minLv:59, maxLv:64, rate:15},  // Terrakin (base)
+      {id:95,  minLv:59, maxLv:64, rate:15},  // Dustkin (base)
       {id:96,  minLv:60, maxLv:65, rate:20},  // Seismith (mid → after 95 ✓)
       {id:98,  minLv:59, maxLv:64, rate:15},  // Aridix (base)
-      {id:99,  minLv:60, maxLv:65, rate:20},  // Geovenoth (mid → after 98 ✓)
+      {id:99,  minLv:60, maxLv:65, rate:20},  // Toxivenoth (mid → after 98 ✓)
       {id:101, minLv:59, maxLv:64, rate:15},  // Limoux (base)
-      {id:102, minLv:60, maxLv:65, rate:15}   // Geoloth (mid → after 101 ✓)
+      {id:102, minLv:60, maxLv:65, rate:15}   // Dunoloth (mid → after 101 ✓)
     ],
     hasGym:false, requiredBadges:10, mapPos:{x:28, y:72}
   },
@@ -3696,8 +3696,8 @@ const WORLD_DATA = {
       {id:199, minLv:63, maxLv:68, rate:15},  // Aeridaleth (final → after 198 ✓)
       {id:200, minLv:61, maxLv:66, rate:15},  // Colerix (base)
       {id:201, minLv:62, maxLv:67, rate:20},  // Scarabion (mid → after 200 ✓)
-      {id:204, minLv:63, maxLv:68, rate:15},  // Terramite (base)
-      {id:205, minLv:64, maxLv:69, rate:20}   // Geodrix (mid → after 204 ✓)
+      {id:204, minLv:63, maxLv:68, rate:15},  // Muddite (base)
+      {id:205, minLv:64, maxLv:69, rate:20}   // Quarrix (mid → after 204 ✓)
     ],
     hasGym:false, requiredBadges:11, mapPos:{x:15, y:82}
   },
@@ -3706,9 +3706,9 @@ const WORLD_DATA = {
     desc:"Where Gale Ridge curves sharply eastward, the winds reverse direction entirely. This turn is notorious for sending unprepared trainers stumbling backward toward Silkwood.",
     connections:["gale_peak","tempest_cliffs"],
     wildMonsters:[
-      {id:109, minLv:64, maxLv:69, rate:15},  // Aeolomane (mid, 108 on route13 ✓)
+      {id:109, minLv:64, maxLv:69, rate:15},  // Siroccomane (mid, 108 on route13 ✓)
       {id:110, minLv:65, maxLv:70, rate:20},  // Aeolarch (final → after 109 ✓)
-      {id:112, minLv:64, maxLv:69, rate:15},  // Cyclavel (mid, 111 on route13 ✓)
+      {id:112, minLv:64, maxLv:69, rate:15},  // Swirlavel (mid, 111 on route13 ✓)
       {id:113, minLv:65, maxLv:70, rate:20},  // Cyclavorn (final → after 112 ✓)
       {id:115, minLv:65, maxLv:70, rate:15},  // Aetherworn (mid, 114 on route13 ✓)
       {id:117, minLv:65, maxLv:70, rate:15}   // Pneumathos (mid, 116 on route13 ✓)
@@ -3723,9 +3723,9 @@ const WORLD_DATA = {
       {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid)
       {id:149, minLv:67, maxLv:72, rate:15},  // Adamovast (final → after 148 ✓)
       {id:150, minLv:65, maxLv:70, rate:15},  // Gearon (base)
-      {id:151, minLv:66, maxLv:71, rate:20},  // Ferrotron (mid → after 150 ✓)
+      {id:151, minLv:66, maxLv:71, rate:20},  // Alloytron (mid → after 150 ✓)
       {id:153, minLv:66, maxLv:71, rate:15},  // Forgekin (base)
-      {id:154, minLv:67, maxLv:72, rate:15}   // Ferrolith (mid → after 153 ✓)
+      {id:154, minLv:67, maxLv:72, rate:15}   // Titanolith (mid → after 153 ✓)
     ],
     hasGym:false, requiredBadges:13, mapPos:{x:38, y:92}
   },
@@ -3779,9 +3779,9 @@ const WORLD_DATA = {
     connections:["murk_crossing","mire_depths"],
     wildMonsters:[
       {id:156, minLv:58, maxLv:63, rate:20},  // Venekon (mid)
-      {id:158, minLv:58, maxLv:63, rate:20},  // Toxoloth (mid)
+      {id:158, minLv:58, maxLv:63, rate:20},  // Acidoloth (mid)
       {id:159, minLv:60, maxLv:65, rate:20},  // Acidovast (final)
-      {id:164, minLv:58, maxLv:63, rate:20},  // Venomite (base)
+      {id:164, minLv:58, maxLv:63, rate:20},  // Blightmite (base)
       {id:165, minLv:59, maxLv:64, rate:20}   // Noxoveth (mid → after 164 ✓)
     ],
     hasGym:false, requiredBadges:9, mapPos:{x:42, y:63}
@@ -3792,10 +3792,10 @@ const WORLD_DATA = {
     connections:["quake_foothills","terravault"],
     wildMonsters:[
       {id:97,  minLv:62, maxLv:67, rate:25},  // Tectonvast (final, 96 on quake_foothills ✓)
-      {id:100, minLv:62, maxLv:67, rate:25},  // Geovenomvast (final, 99 on quake_foothills ✓)
-      {id:103, minLv:62, maxLv:67, rate:25},  // Geovast (final, 102 on quake_foothills ✓)
+      {id:100, minLv:62, maxLv:67, rate:25},  // Venomvast (final, 99 on quake_foothills ✓)
+      {id:103, minLv:62, maxLv:67, rate:25},  // Crustvast (final, 102 on quake_foothills ✓)
       {id:105, minLv:63, maxLv:68, rate:15},  // Dravanas (final, 104 on route11 ✓)
-      {id:107, minLv:63, maxLv:68, rate:10}   // Terraquon (final, 106 on route11 ✓)
+      {id:107, minLv:63, maxLv:68, rate:10}   // Quakeon (final, 106 on route11 ✓)
     ],
     hasGym:false, requiredBadges:10, mapPos:{x:28, y:75}
   },
@@ -3804,10 +3804,10 @@ const WORLD_DATA = {
     desc:"The westernmost tip of the region — where Gale Ridge reaches its farthest point before turning sharply east. The wind here changes direction mid-step.",
     connections:["wind_hollow","gale_ridge_east"],
     wildMonsters:[
-      {id:108, minLv:63, maxLv:68, rate:15},  // Zephyrkin (base)
-      {id:109, minLv:64, maxLv:69, rate:20},  // Aeolomane (mid → after 108 ✓)
+      {id:108, minLv:63, maxLv:68, rate:15},  // Gustkin (base)
+      {id:109, minLv:64, maxLv:69, rate:20},  // Siroccomane (mid → after 108 ✓)
       {id:111, minLv:63, maxLv:68, rate:15},  // Aeolin (base)
-      {id:112, minLv:64, maxLv:69, rate:20},  // Cyclavel (mid → after 111 ✓)
+      {id:112, minLv:64, maxLv:69, rate:20},  // Swirlavel (mid → after 111 ✓)
       {id:116, minLv:64, maxLv:69, rate:15},  // Zephyrin (base)
       {id:117, minLv:65, maxLv:70, rate:15}   // Pneumathos (mid → after 116 ✓)
     ],
@@ -3821,9 +3821,9 @@ const WORLD_DATA = {
       {id:147, minLv:65, maxLv:70, rate:15},  // Ferrokin (base)
       {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid → after 147 ✓)
       {id:150, minLv:65, maxLv:70, rate:15},  // Gearon (base)
-      {id:151, minLv:66, maxLv:71, rate:20},  // Ferrotron (mid → after 150 ✓)
+      {id:151, minLv:66, maxLv:71, rate:20},  // Alloytron (mid → after 150 ✓)
       {id:134, minLv:66, maxLv:71, rate:15},  // Aeronyx (base)
-      {id:135, minLv:67, maxLv:72, rate:15}   // Ferrovex (mid → after 134 ✓)
+      {id:135, minLv:67, maxLv:72, rate:15}   // Steelvex (mid → after 134 ✓)
     ],
     hasGym:false, requiredBadges:13, mapPos:{x:33, y:92}
   },
@@ -3836,9 +3836,9 @@ const WORLD_DATA = {
     connections:["toxic_bog","miasmacity"],
     wildMonsters:[
       {id:156, minLv:59, maxLv:64, rate:20},  // Venekon (mid, base 155 on route10 ✓)
-      {id:297, minLv:58, maxLv:63, rate:20},  // Venomwing (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
+      {id:297, minLv:58, maxLv:63, rate:20},  // Blightwing (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
       {id:165, minLv:59, maxLv:64, rate:20},  // Noxoveth (mid, 164 on murk_crossing ✓)
-      {id:296, minLv:58, maxLv:63, rate:20},  // Toxifly (base Poi/Bug)
+      {id:296, minLv:58, maxLv:63, rate:20},  // Plaguefly (base Poi/Bug)
       {id:299, minLv:58, maxLv:63, rate:10},  // Stinglet (base Bug/Poi, also on route10)
       {id:218, minLv:59, maxLv:64, rate:10}   // Mistwraith (base Ghost/Dark, item evo)
     ],
@@ -3850,8 +3850,8 @@ const WORLD_DATA = {
     connections:["quake_foothills","tremor_summit"],
     wildMonsters:[
       {id:96,  minLv:61, maxLv:66, rate:20},  // Seismith (mid, 95 on quake_foothills ✓)
-      {id:99,  minLv:61, maxLv:66, rate:20},  // Geovenoth (mid, 98 on quake_foothills ✓)
-      {id:102, minLv:61, maxLv:66, rate:20},  // Geoloth (mid, 101 on quake_foothills ✓)
+      {id:99,  minLv:61, maxLv:66, rate:20},  // Toxivenoth (mid, 98 on quake_foothills ✓)
+      {id:102, minLv:61, maxLv:66, rate:20},  // Dunoloth (mid, 101 on quake_foothills ✓)
       {id:248, minLv:60, maxLv:65, rate:15},  // Pebblard (base Rock, also on route11)
       {id:274, minLv:60, maxLv:65, rate:15},  // Cindling (base Fire/Rock)
       {id:312, minLv:60, maxLv:65, rate:10}   // Dunecrawl (base Ground/Dark)
@@ -3864,8 +3864,8 @@ const WORLD_DATA = {
     connections:["route12","cobweb_gully"],
     wildMonsters:[
       {id:197, minLv:62, maxLv:67, rate:15},  // Vermelin (base Bug)
-      {id:215, minLv:62, maxLv:67, rate:20},  // Psywisp (base Psychic)
-      {id:216, minLv:63, maxLv:68, rate:15},  // Psychdrift (mid → Psywisp 215 ✓)
+      {id:215, minLv:62, maxLv:67, rate:20},  // Veilwisp (base Psychic)
+      {id:216, minLv:63, maxLv:68, rate:15},  // Mindrift (mid → Psywisp 215 ✓)
       {id:262, minLv:62, maxLv:67, rate:20},  // Seedling (base Grass/Poi)
       {id:263, minLv:63, maxLv:68, rate:15},  // Vinrix (mid → after 262 ✓)
       {id:272, minLv:62, maxLv:67, rate:15}   // Embrix (base Fire/Dragon)
@@ -3892,7 +3892,7 @@ const WORLD_DATA = {
     connections:["route13","gale_peak"],
     wildMonsters:[
       {id:292, minLv:64, maxLv:69, rate:25},  // Galehorn (mid → 291 Breezekin on route13 ✓)
-      {id:293, minLv:63, maxLv:68, rate:20},  // Zephyrpuff (base Wind)
+      {id:293, minLv:63, maxLv:68, rate:20},  // Gustpuff (base Wind)
       {id:222, minLv:63, maxLv:68, rate:20},  // Mindpuff (base Psychic)
       {id:223, minLv:64, maxLv:69, rate:15},  // Cerebrix (mid → after 222 ✓)
       {id:238, minLv:63, maxLv:68, rate:10},  // Snowble (base Ice/Wind)
@@ -3907,9 +3907,9 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:294, minLv:65, maxLv:70, rate:25},  // Stormwing (mid → 293 on gale_peak ✓)
       {id:295, minLv:66, maxLv:71, rate:15},  // Cyclonax (final → after 294 ✓)
-      {id:239, minLv:65, maxLv:70, rate:20},  // Blizzavane (mid → 238 on gale_peak ✓)
+      {id:239, minLv:65, maxLv:70, rate:20},  // Blizzariel (mid → 238 on gale_peak ✓)
       {id:240, minLv:66, maxLv:71, rate:15},  // Permafrix (final → after 239 ✓)
-      {id:285, minLv:65, maxLv:70, rate:15},  // Cloudvane (mid → Fluffkin on wind_hollow ✓)
+      {id:285, minLv:65, maxLv:70, rate:15},  // Cloudrift (mid → Fluffkin on wind_hollow ✓)
       {id:174, minLv:65, maxLv:70, rate:10}   // Scalevorn (standalone Dragon/Steel)
     ],
     hasGym:false, requiredBadges:12, mapPos:{x:16, y:97}
@@ -3934,7 +3934,7 @@ const WORLD_DATA = {
     connections:["forge_ruins","forge_approach"],
     wildMonsters:[
       {id:281, minLv:67, maxLv:72, rate:25},  // Cogvex (mid → 280 Gearbit on route14 ✓)
-      {id:276, minLv:67, maxLv:72, rate:20},  // Pyrovast (final → Infernox on ash_fields ✓)
+      {id:276, minLv:67, maxLv:72, rate:20},  // Scorchvast (final → Infernox on ash_fields ✓)
       {id:283, minLv:66, maxLv:71, rate:20},  // Rustpike (standalone Steel/Poi)
       {id:246, minLv:67, maxLv:72, rate:15},  // Megavolt (final → 245 on ash_fields ✓)
       {id:268, minLv:67, maxLv:72, rate:10},  // Darkfang (final Dark → 267 ✓)
@@ -3964,9 +3964,9 @@ const WORLD_DATA = {
       {id:250, minLv:70, maxLv:75, rate:20},  // Megalith (final → 249 on granite_tunnels ✓)
       {id:306, minLv:70, maxLv:75, rate:20},  // Crystallon (final → 305 on granite_tunnels ✓)
       {id:234, minLv:70, maxLv:75, rate:20},  // Wyvernak (final → 233 on granite_tunnels ✓)
-      {id:237, minLv:69, maxLv:74, rate:15},  // Glacicore (mid → 236 Frostick on route11 ✓)
+      {id:237, minLv:69, maxLv:74, rate:15},  // Icevault (mid → 236 Frostick on route11 ✓)
       {id:313, minLv:69, maxLv:74, rate:15},  // Sandrix (mid → 312 Dunecrawl on magma_vent ✓)
-      {id:241, minLv:70, maxLv:75, rate:10}   // Crystalix (location evo from cosmic_cavern energy)
+      {id:241, minLv:70, maxLv:75, rate:10}   // Shardlix (location evo from cosmic_cavern energy)
     ],
     hasGym:false, requiredBadges:14, mapPos:{x:53, y:83}
   },
@@ -3975,13 +3975,13 @@ const WORLD_DATA = {
     desc:"A star-dusted gorge where cosmic energy from nearby Starbloom saturates the air. Psychic and Fairy types commune with the starlight here.",
     connections:["route16","cosmic_cavern"],
     wildMonsters:[
-      {id:254, minLv:70, maxLv:75, rate:20},  // Aquapuff (base, also on route16)
+      {id:254, minLv:70, maxLv:75, rate:20},  // Bubblepuff (base, also on route16)
       {id:255, minLv:71, maxLv:76, rate:20},  // Wavrix (mid → after 254 ✓)
-      {id:215, minLv:70, maxLv:75, rate:15},  // Psywisp (base Psychic)
-      {id:216, minLv:71, maxLv:76, rate:15},  // Psychdrift (mid → Psywisp 215 ✓)
+      {id:215, minLv:70, maxLv:75, rate:15},  // Veilwisp (base Psychic)
+      {id:216, minLv:71, maxLv:76, rate:15},  // Mindrift (mid → Psywisp 215 ✓)
       {id:259, minLv:70, maxLv:75, rate:15},  // Lumejell (standalone Water/Psy)
       {id:269, minLv:70, maxLv:75, rate:10},  // Grimshade (base Dark, item evo)
-      {id:271, minLv:70, maxLv:75, rate:5}    // Duskrat (standalone Dark/Normal)
+      {id:271, minLv:70, maxLv:75, rate:5}    // Murkrat (standalone Dark/Normal)
     ],
     hasGym:false, requiredBadges:15, mapPos:{x:64, y:76}
   },
@@ -3994,9 +3994,9 @@ const WORLD_DATA = {
       {id:224, minLv:72, maxLv:77, rate:20},  // Psytheon (final → 223 on cosmic_cavern ✓)
       {id:303, minLv:72, maxLv:77, rate:15},  // Lumivane (Moon Stone evo, base 302 on route16 ✓)
       {id:229, minLv:72, maxLv:77, rate:15},  // Prismolt (Thunder Stone evo, base 226 on route16 ✓)
-      {id:228, minLv:72, maxLv:77, rate:10},  // Prismoon (Moon Stone evo, base 226 on route16 ✓)
-      {id:309, minLv:72, maxLv:77, rate:10},  // Aquaphant (Water Stone evo, base 308 → Water/Dark)
-      {id:308, minLv:71, maxLv:76, rate:10}   // Tidewraith (base Water/Dark)
+      {id:228, minLv:72, maxLv:77, rate:10},  // Spectroon (Moon Stone evo, base 226 on route16 ✓)
+      {id:309, minLv:72, maxLv:77, rate:10},  // Tidephant (Water Stone evo, base 308 → Water/Dark)
+      {id:308, minLv:71, maxLv:76, rate:10}   // Seafraith (base Water/Dark)
     ],
     hasGym:false, requiredBadges:15, mapPos:{x:67, y:74}
   },

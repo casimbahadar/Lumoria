@@ -720,131 +720,152 @@ const MONSTERS_DATA = {
     base:{hp:35,atk:48,def:40,spa:64,spd:47,spe:91},
     learnset:[[1,"tackle",[20,"cinderwhirl"]],[1,"growl"],[4,"ember"],[8,"quick_attack"],[13,"flame_fang"],[19,"swords_dance"],[27,"flamethrower"],[38,"fire_blast",[5,"scorch_veil"]]],
     evolveTo:2, evolveLevel:16, catchRate:45, expYield:62, rarity:"starter",
-    desc:"A fire fox cub. Its tail flame glows brighter when its spirit is high." },
+    desc:"A fire fox cub. Its tail flame glows brighter when its spirit is high.",
+    lore:"Solkin resembles a lean fox kit covered in orange-red fur that fades to pale cream on its underbelly. Its tail tip burns with a small candle-bright flame that flickers when excited. Stands roughly 50 cm tall. It hunts at dawn using bursts of speed to chase insects across sun-warmed stone, and is known for its affectionate, curious temperament." },
 
   2: { id:2, name:"Pyrevix",    emoji:"🦊", types:["Fire"],
     base:{hp:52,atk:59,def:62,spa:74,spd:57,spe:105},
     learnset:[[1,"tackle"],[2,"ember"],[3,"quick_attack"],[4,"flame_fang"],[5,"scorch_veil"],[24,"flamethrower"],[25,"blazing_rush"],[34,"heat_wave"],[35,"fire_blast"],[43,"inferno"],[6,"embercloak"],[32,"recover"]],
     evolveTo:3, evolveLevel:36, catchRate:25, expYield:142, rarity:"uncommon",
-    desc:"A blazing fox with a fiery mane. Rivals fear its flaming charge." },
+    desc:"A blazing fox with a fiery mane. Rivals fear its flaming charge.",
+    lore:"Pyrevix is a mid-sized fox standing 90 cm tall with a broad chest and a flowing mane of orange flame that streams behind it when running. Its paws leave faint scorch marks on soft ground. It patrols wide territories each night, marking boundaries by igniting patches of dry grass in small controlled rings." },
 
   3: { id:3, name:"Ignaraeth",  emoji:"🐲", types:["Fire","Dragon"],
     base:{hp:70,atk:88,def:80,spa:105,spd:79,spe:105},
     learnset:[[1,"flame_fang"],[2,"flamethrower"],[3,"heat_wave"],[4,"scorch_veil"],[37,"fire_blast"],[40,"swords_dance"],[44,"dragon_breath"],[47,"inferno"],[48,"dragon_claw"],[52,"dragon_pulse"],[56,"solar_flare"],[60,"outrage"],[5,"embercloak"],[36,"eon_crash"]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:265, rarity:"rare",
-    desc:"A terrifying dragon-fox hybrid. Its volcanic roar can be heard for miles." },
+    desc:"A terrifying dragon-fox hybrid. Its volcanic roar can be heard for miles.",
+    lore:"Ignaraeth is a massive dragon-fox over 3 metres from snout to tail. Its body is draped in overlapping scales the colour of cooling lava — dark charcoal edged with glowing amber. Two broad draconic wings fold flat when at rest. It dwells inside dormant calderas, sleeping curled around magma pools, and its roar carries the heat of a forge blast." },
 
   // Water Starters
   4: { id:4, name:"Aquilin",     emoji:"💧", types:["Water"],
     base:{hp:45,atk:52,def:69,spa:45,spd:66,spe:46},
     learnset:[[1,"tackle",[20,"frost_current"]],[1,"tail_whip"],[4,"water_gun"],[8,"bubble_beam"],[13,"aqua_tail"],[19,"recover"],[27,"surf"],[38,"hydro_pump",[5,"tidecaller"]]],
     evolveTo:5, evolveLevel:16, catchRate:45, expYield:59, rarity:"starter",
-    desc:"A water sprite that lives near ponds. Its skin is always cool and moist." },
+    desc:"A water sprite that lives near ponds. Its skin is always cool and moist.",
+    lore:"Aquilin is a slender otter-like creature about 60 cm long with bright teal fur and large silver-rimmed eyes. A ridged fin runs from its neck to the base of its tail for steering underwater. It inhabits clear mountain streams and wedges smooth pebbles together to form small dams as nesting sites." },
 
   5: { id:5, name:"Nerilis",    emoji:"🐍", types:["Water"],
     base:{hp:60,atk:66,def:79,spa:64,spd:85,spe:64},
     learnset:[[1,"water_gun"],[2,"tail_whip"],[3,"bubble_beam"],[4,"aqua_tail"],[5,"tidecaller"],[16,"recover"],[24,"surf"],[30,"harden"],[35,"hydro_pump"],[44,"tidal_crush"],[6,"deepwater_hymn"],[33,"swords_dance"]],
     evolveTo:6, evolveLevel:36, catchRate:25, expYield:142, rarity:"uncommon",
-    desc:"A serpentine water Lumo. Glides through water with incredible grace." },
+    desc:"A serpentine water Lumo. Glides through water with incredible grace.",
+    lore:"Nerilis is a sleek sea-serpent roughly 2 metres long with cobalt-blue scales that reflect light like polished glass. A pale turquoise stripe runs its full length, and a fan-shaped crest unfurls behind its head when threatened. It leaps between waves and can sustain speeds that outpace most sailing vessels." },
 
   6: { id:6, name:"Pelagroth",    emoji:"🐲", types:["Water","Dragon"],
     base:{hp:72,atk:90,def:97,spa:89,spd:105,spe:75},
     learnset:[[1,"surf"],[2,"aqua_tail"],[3,"harden"],[4,"tidecaller"],[37,"hydro_pump"],[40,"abyssal_jet"],[44,"dragon_breath"],[48,"coral_barrage"],[52,"dragon_claw"],[56,"dragon_pulse"],[60,"eon_crash"],[64,"outrage"],[5,"deepwater_hymn"],[39,"ocean_tempest"]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:265, rarity:"rare",
-    desc:"An oceanic behemoth said to rule the seas. Its roar causes tidal waves." },
+    desc:"An oceanic behemoth said to rule the seas. Its roar causes tidal waves.",
+    lore:"Pelagroth is a colossal aquatic dragon over 8 metres long, tapering from a broad armoured head to a powerful eel-like tail. Deep indigo scales cover its back while the belly is pale violet with bioluminescent patches that pulse in the deep ocean. Ancient sailors mistook its silhouette for a rising island." },
 
   // Grass Starters
   7: { id:7, name:"Verdkin",  emoji:"🌱", types:["Grass"],
     base:{hp:49,atk:42,def:55,spa:61,spd:70,spe:47},
     learnset:[[1,"tackle",[20,"root_lance"]],[1,"growl"],[4,"vine_whip"],[8,"razor_leaf"],[13,"seed_bomb"],[19,"swords_dance"],[27,"energy_ball"],[38,"petal_blitz",[5,"sleep_powder"]]],
     evolveTo:8, evolveLevel:16, catchRate:45, expYield:64, rarity:"starter",
-    desc:"A little plant seedling that walks on root-legs. Very curious and brave." },
+    desc:"A little plant seedling that walks on root-legs. Very curious and brave.",
+    lore:"Verdkin is a small round herbivore about 35 cm tall with smooth lime-green skin and two leaf-shaped ears that absorb sunlight. A single bud sprouts from the crown of its head. It grazes in meadows during morning light and huddles with others in dense thickets at night, pressing leaves together to share warmth." },
 
   8: { id:8, name:"Barknell",   emoji:"🦕", types:["Grass"],
     base:{hp:57,atk:68,def:63,spa:75,spd:74,spe:70},
     learnset:[[1,"vine_whip"],[2,"razor_leaf"],[3,"seed_bomb"],[4,"tackle"],[5,"sleep_powder"],[16,"swords_dance"],[24,"energy_ball"],[30,"canopy_crash"],[35,"petal_blitz"],[44,"verdant_surge"],[6,"spore_burst"],[33,"recover"]],
     evolveTo:9, evolveLevel:36, catchRate:25, expYield:142, rarity:"uncommon",
-    desc:"A thorny dinosaur with bark-like skin. Each spine is razor sharp." },
+    desc:"A thorny dinosaur with bark-like skin. Each spine is razor sharp.",
+    lore:"Barknell is a stout quadrupedal reptile roughly the size of a large dog. Its hide is textured like bark and varies from grey-green to deep brown, blending with forest undergrowth. Rows of leaf-shaped protrusions line its spine. It sleeps pressed against tree trunks, becoming nearly invisible to passing predators." },
 
   9: { id:9, name:"Floraith",   emoji:"🌸", types:["Grass","Fairy"],
     base:{hp:82,atk:75,def:80,spa:101,spd:110,spe:84},
     learnset:[[1,"seed_bomb"],[2,"energy_ball"],[3,"vine_whip"],[4,"sleep_powder"],[40,"verdant_surge"],[41,"tail_whip"],[44,"fairy_wind"],[47,"petal_blitz"],[48,"scratch"],[52,"dazzling_gleam"],[56,"root_lance"],[60,"moonblast"],[5,"spore_burst"],[36,"celestial_wave"]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:265, rarity:"rare",
-    desc:"A majestic flower guardian. Its petals shimmer with magical energy." },
+    desc:"A majestic flower guardian. Its petals shimmer with magical energy.",
+    lore:"Floraith is a graceful deer-like creature 1.2 metres tall at the shoulder. Its white body is dappled with pink flower-shaped markings, and a garland of blossoms perpetually blooms along its neck regardless of season. It radiates a faint floral scent that calms nearby wild creatures and draws pollinators to the forest floor." },
 
   // ===== ADDITIONAL FIRE =====
   10: { id:10, name:"Embrix",  emoji:"🐛", types:["Fire","Bug"],
     base:{hp:54,atk:68,def:37,spa:43,spd:43,spe:48},
     learnset:[[1,"tackle",[20,"cinderwhirl"]],[1,"ember"],[8,"bug_bite"],[15,"flame_fang"],[17,"swords_dance"],[22,"x_scissor",[5,"scorch_veil"]],[29,"venom_drool"],[39,"stinger_volley"]],
     evolveTo:11, evolveLevel:18, catchRate:255, expYield:56, rarity:"common",
-    desc:"A fire beetle larva. Leaves scorch marks wherever it walks." },
+    desc:"A fire beetle larva. Leaves scorch marks wherever it walks.",
+    lore:"Embrix is a chubby flame-patterned caterpillar about 20 cm long. Its body segments alternate vivid orange and smoky black, with two antennae that glow orange at the tips. It feeds on dried bark near volcanic soil, and its silk threads are heat-resistant enough to be woven into flame-proof cloth." },
 
   11: { id:11, name:"Helioveth",  emoji:"🦋", types:["Fire","Wind"],
     base:{hp:65,atk:91,def:52,spa:80,spd:60,spe:128},
     learnset:[[1,"ember"],[2,"bug_bite"],[3,"flame_fang"],[4,"scorch_veil"],[23,"battle_cry"],[28,"blazing_rush"],[33,"wing_attack"],[38,"downdraft"],[43,"air_slash"],[48,"magma_surge"],[53,"heat_wave"],[58,"tempest_wrath"],[5,"embercloak"],[39,"inferno"]],
     evolveTo:12, evolveLevel:40, catchRate:75, expYield:158, rarity:"uncommon",
-    desc:"A blazing moth that flies at incredible speed. Its wings radiate fierce heat." },
+    desc:"A blazing moth that flies at incredible speed. Its wings radiate fierce heat.",
+    lore:"Helioveth is a large butterfly with a 70 cm wingspan. Its upper wings blaze with gold and crimson patterning, while the undersides are ash-grey with ember-like spots. Visible thermals guide its migration. Each wingbeat releases a tiny cascade of warm sparks that drift harmlessly to the ground." },
 
   13: { id:13, name:"Taurcin",    emoji:"🐂", types:["Fire"],
     base:{hp:67,atk:69,def:56,spa:52,spd:37,spe:43},
     learnset:[[1,"tackle",[22,"magma_surge"]],[1,"ember"],[12,"headbutt"],[19,"swords_dance"],[20,"flamethrower"],[30,"body_slam"],[35,"heat_wave"],[40,"fire_blast",[5,"scorch_veil"]],[3,"embercloak"],[31,"tail_whip"]],
     evolveTo:14, evolveLevel:22, catchRate:120, expYield:112, rarity:"common",
-    desc:"A powerful bull with lava dripping from its hooves. Incredibly stubborn." },
+    desc:"A powerful bull with lava dripping from its hooves. Incredibly stubborn.",
+    lore:"Taurcin is a bulky bull-like creature standing 1.5 metres at the shoulder. Its rust-red hide is thick as leather armour, and two forward-curving horns glow orange at the tips from retained heat. It stamps and snorts before charging, and the impact of its body can crack stone walls." },
 
   14: { id:14, name:"Molteroth",    emoji:"🐃", types:["Fire","Rock"],
     base:{hp:94,atk:111,def:97,spa:78,spd:64,spe:63},
     learnset:[[1,"headbutt"],[2,"magma_surge"],[3,"ember"],[4,"flamethrower"],[5,"scorch_veil"],[30,"battle_cry"],[32,"heat_wave"],[37,"fire_blast"],[38,"stalactite_drop"],[46,"rock_slide"],[54,"stone_edge"],[62,"inferno"],[6,"embercloak"],[42,"quarry_crush"]],
     evolveTo:15, evolveLevel:42, catchRate:45, expYield:235, rarity:"uncommon",
-    desc:"A volcanic beast covered in hardened magma. Nothing can stop its charge." },
+    desc:"A volcanic beast covered in hardened magma. Nothing can stop its charge.",
+    lore:"Molteroth is a massive volcanic bull over 2 metres tall, covered in plates of hardened lava-rock that grind and shift as it moves. Jets of steam escape from vents along its spine. It inhabits lava fields, grazing on mineral deposits by grinding rock with its flat stone-hard teeth." },
 
   16: { id:16, name:"Cindercula",   emoji:"🐍", types:["Fire"],
     base:{hp:41,atk:53,def:46,spa:59,spd:45,spe:47},
     learnset:[[1,"tackle",[20,"cinderwhirl"]],[1,"ember"],[9,"quick_attack"],[14,"leer"],[17,"flamethrower",[5,"scorch_veil"]],[24,"vital_pulse"],[32,"ashfall"],[40,"fire_blast"],[3,"embercloak"],[31,"tail_whip"]],
     evolveTo:17, evolveLevel:20, catchRate:200, expYield:65, rarity:"common",
-    desc:"A small worm that breathes tiny flames. Very shy and avoids conflict." },
+    desc:"A small worm that breathes tiny flames. Very shy and avoids conflict.",
+    lore:"Cindercula is a sinuous fire-serpent about 1.8 metres long with iridescent scales shading from copper at the head to charcoal at the tail. A thin crest of flame-coloured feathers runs from its neck to mid-body. It slithers through ash fields and hunts by sensing heat signatures with specialised pit organs." },
 
   17: { id:17, name:"Pyroveth",   emoji:"🐉", types:["Fire","Dragon"],
     base:{hp:78,atk:97,def:61,spa:101,spd:75,spe:92},
     learnset:[[1,"ember"],[2,"flamethrower"],[3,"cinderwhirl"],[4,"scorch_veil"],[21,"vital_pulse"],[26,"char_dance"],[32,"dragon_breath"],[38,"dragon_claw"],[44,"heat_wave"],[50,"inferno"],[56,"outrage"],[62,"solar_flare"],[5,"embercloak"],[41,"dragon_rush"]],
     evolveTo:18, evolveLevel:42, catchRate:45, expYield:198, rarity:"uncommon",
-    desc:"A serpentine fire dragon. Coils around prey before unleashing flame." },
+    desc:"A serpentine fire dragon. Coils around prey before unleashing flame.",
+    lore:"Pyroveth is a powerful fire dragon 4 metres long with scarlet and black scales. Its broad wings generate intense heat when flapping, scorching the air in wide arcs. Pairs of backward-swept horns frame its angular head. It roosts in mountain crags above the treeline and uses updrafts to glide effortlessly for hours." },
 
   // ===== ADDITIONAL WATER =====
   25: { id:25, name:"Reefling",  emoji:"🦀", types:["Water"],
     base:{hp:59,atk:66,def:78,spa:43,spd:63,spe:34},
     learnset:[[1,"scratch",[22,"coral_barrage"]],[1,"water_gun"],[10,"bubble_beam"],[18,"harden"],[20,"vital_pulse"],[26,"aqua_tail"],[34,"surf",[5,"tidecaller"]],[36,"hydro_pump"],[3,"deepwater_hymn"],[31,"leer"]],
     evolveTo:26, evolveLevel:20, catchRate:190, expYield:71, rarity:"common",
-    desc:"A crab that blows iridescent bubbles. Very territorial near shorelines." },
+    desc:"A crab that blows iridescent bubbles. Very territorial near shorelines.",
+    lore:"Reefling is a small crab-like creature only 15 cm across. Its shell is pale blue-green studded with tiny polyps that filter nutrients from the water. It scuttles across coral formations in shallow warm seas, using its patterned shell for camouflage, and hides inside anemones when threatened." },
 
   26: { id:26, name:"Aquidon",    emoji:"🦞", types:["Water","Rock"],
     base:{hp:75,atk:102,def:110,spa:59,spd:68,spe:81},
     learnset:[[1,"scratch"],[2,"water_gun"],[3,"tidecaller"],[23,"aqua_tail"],[27,"swords_dance"],[31,"surf"],[33,"hydro_pump"],[34,"stalactite_drop"],[41,"rock_slide"],[48,"crystal_lance"],[55,"tidal_crush"],[62,"stone_edge"],[4,"deepwater_hymn"],[42,"quarry_crush"]],
     evolveTo:27, evolveLevel:44, catchRate:60, expYield:188, rarity:"uncommon",
-    desc:"A massive sea claw with rock-hard shell. Few can match its raw strength." },
+    desc:"A massive sea claw with rock-hard shell. Few can match its raw strength.",
+    lore:"Aquidon is a broad-bodied rock lobster about 50 cm long with a stone-grey carapace reinforced by calcified mineral deposits. Its crushing claws can crack thick coral. It dwells in rocky sea caves along the coastline, guarding its territory fiercely against any intruder." },
 
   42: { id:42, name:"Cryonik",    emoji:"🦭", types:["Ice","Water"],
     base:{hp:54,atk:56,def:64,spa:73,spd:75,spe:31},
     learnset:[[1,"tackle",[22,"frost_current"]],[1,"powder_snow"],[10,"water_gun"],[18,"ice_beam"],[20,"leer"],[26,"aqua_tail"],[34,"blizzard",[5,"permafrost"]],[36,"cryo_lance"],[3,"winter_shroud"],[31,"surf"]],
     evolveTo:43, evolveLevel:28, catchRate:120, expYield:91, rarity:"common",
-    desc:"An adorable ice seal. Its smooth skin can withstand arctic temperatures." },
+    desc:"An adorable ice seal. Its smooth skin can withstand arctic temperatures.",
+    lore:"Cryonik is a plump seal-like creature about 80 cm long with pale powder-blue fur tipped in white. Its wide eyes are deep amber. A thin layer of ice perpetually coats its outer fur, crackling softly as it moves. It naps on floating ice floes and slides effortlessly into freezing water to catch fish." },
 
   43: { id:43, name:"Boreon",  emoji:"🦭", types:["Ice","Water"],
     base:{hp:82,atk:60,def:80,spa:103,spd:97,spe:81},
     learnset:[[1,"powder_snow"],[2,"water_gun"],[3,"ice_beam"],[4,"permafrost"],[31,"blizzard"],[33,"harden"],[38,"abyssal_jet"],[43,"hoarfrost_bite"],[48,"icicle_crash"],[53,"surf"],[58,"glacial_tomb"],[63,"hydro_pump"],[5,"winter_shroud"],[41,"aqua_tail"]],
     evolveTo:44, evolveLevel:44, catchRate:40, expYield:217, rarity:"uncommon",
-    desc:"A regal glacial seal. It can freeze oceans with a single breath." },
+    desc:"A regal glacial seal. It can freeze oceans with a single breath.",
+    lore:"Boreon is a larger muscular seal with slate-blue fur and a thick neck mane of frosted white hair. Bands of ice spontaneously form around its flippers when it rears up. Its bark echoes across frozen bays, audible several kilometres away. It is highly territorial during breeding season on ice shelves." },
 
   28: { id:28, name:"Corelin",   emoji:"🐠", types:["Water"],
     base:{hp:49,atk:34,def:58,spa:59,spd:52,spe:62},
     learnset:[[1,"tackle",[22,"coral_barrage"]],[1,"water_gun"],[9,"bubble_beam"],[16,"tail_whip"],[17,"sweet_kiss"],[25,"surf",[5,"tidecaller"]],[29,"vital_pulse"],[39,"aqua_tail"],[3,"deepwater_hymn"],[32,"leer"]],
     evolveTo:29, evolveLevel:25, catchRate:220, expYield:72, rarity:"common",
-    desc:"A dazzling coral fish with rainbow fins. Lures prey with its bright colors." },
+    desc:"A dazzling coral fish with rainbow fins. Lures prey with its bright colors.",
+    lore:"Corelin is a delicate tropical fish 25 cm long, striped vivid orange and white with translucent fins edged in blue. It lives inside branching coral formations and carries a weak electric charge in its scales that deters predators. Its scales refract light into small rainbows in shallow water." },
 
   29: { id:29, name:"Neraxis",    emoji:"🐡", types:["Water"],
     base:{hp:76,atk:69,def:64,spa:114,spd:99,spe:74},
     learnset:[[1,"water_gun"],[2,"bubble_beam"],[3,"surf"],[4,"tidecaller"],[30,"growl"],[35,"harden"],[40,"quick_attack"],[45,"dazzling_gleam"],[50,"whirlpool_dive"],[55,"sea_serpent_strike"],[60,"moonblast"],[65,"hydro_pump"],[5,"deepwater_hymn"],[42,"recover"]],
     evolveTo:30, evolveLevel:42, catchRate:70, expYield:184, rarity:"uncommon",
-    desc:"A majestic reef king with jewel-like scales. Commands schools of fish." },
+    desc:"A majestic reef king with jewel-like scales. Commands schools of fish.",
+    lore:"Neraxis is a rotund puffer fish about 30 cm in diameter when deflated. Its base colouration is sandy yellow with dark brown spots. When startled it inflates to three times its size, erecting short sharp quills. It dwells in sandy lagoons and buries itself to ambush worms and molluscs." },
 
   // ===== ADDITIONAL GRASS =====
   63: { id:63, name:"Sporix",    emoji:"🍄", types:["Grass","Poison"],
@@ -1005,19 +1026,22 @@ const MONSTERS_DATA = {
     base:{hp:49,atk:54,def:51,spa:63,spd:47,spe:73},
     learnset:[[1,"scratch",[22,"glacial_shard"]],[1,"powder_snow"],[8,"quick_attack"],[16,"icicle_crash"],[24,"ice_beam"],[29,"recover"],[32,"ice_punch"],[40,"blizzard",[5,"permafrost"]],[3,"winter_shroud"],[31,"leer"]],
     evolveTo:48, evolveLevel:28, catchRate:120, expYield:90, rarity:"common",
-    desc:"An ice wolf pup with fur as white as fresh snow. Very loyal and fierce." },
+    desc:"An ice wolf pup with fur as white as fresh snow. Very loyal and fierce.",
+    lore:"Sleetkin is a lean wolf-like creature about 70 cm at the shoulder with short grey-white fur overlaid by a thin shell of constantly renewing ice crystals. Its paws leave perfectly hexagonal imprints in snow. It hunts in packs across tundra, using coordinated flanking manoeuvres to drive prey toward waiting ambushers." },
 
   48: { id:48, name:"Hailgorge",emoji:"🐺", types:["Ice"],
     base:{hp:89,atk:85,def:55,spa:81,spd:76,spe:94},
     learnset:[[1,"powder_snow"],[2,"quick_attack"],[3,"ice_beam"],[4,"icicle_crash"],[5,"scratch"],[6,"permafrost"],[28,"recover"],[29,"ice_punch"],[37,"blizzard"],[40,"hoarfrost_bite"],[52,"body_slam"],[64,"avalanche_drive"],[7,"winter_shroud"],[44,"leer"]],
     evolveTo:49, evolveLevel:44, catchRate:40, expYield:220, rarity:"uncommon",
-    desc:"A blizzard hound that howls to summon snowstorms. Fearsome and fast." },
+    desc:"A blizzard hound that howls to summon snowstorms. Fearsome and fast.",
+    lore:"Hailgorge is a massive ice wolf 1.3 metres tall at the shoulder with broad shoulders and white fur that bristles with jagged ice spines when it raises its hackles. Its howl condenses moisture in the air into a brief localised hailstorm. It leads Sleetkin packs with absolute authority." },
 
   50: { id:50, name:"Nivelin",   emoji:"🐏", types:["Ice","Normal"],
     base:{hp:49,atk:49,def:55,spa:52,spd:64,spe:54},
     learnset:[[1,"tackle",[22,"permafrost"]],[1,"powder_snow"],[10,"harden"],[18,"ice_beam"],[20,"vital_pulse"],[26,"body_slam"],[34,"blizzard",[5,"winter_shroud"]],[36,"headbutt"],[3,"frostfire_veil"],[31,"glacial_shard"]],
     evolveTo:51, evolveLevel:24, catchRate:180, expYield:77, rarity:"common",
-    desc:"A fluffy snow sheep. Its wool absorbs cold air and condenses it to ice." },
+    desc:"A fluffy snow sheep. Its wool absorbs cold air and condenses it to ice.",
+    lore:"Nivelin is a stocky ram-like creature with thick white wool and curling horns coated in layers of old ice. A pale blue tinge runs through the wool near its spine. It grazes on frost-covered highland moss and climbs sheer glacier faces using hooves specially adapted to grip slick ice surfaces." },
 
   51: { id:51, name:"Shiverling",  emoji:"💎", types:["Ice"],
     base:{hp:76,atk:67,def:93,spa:106,spd:91,spe:56},
@@ -1041,7 +1065,8 @@ const MONSTERS_DATA = {
     base:{hp:51,atk:39,def:49,spa:74,spd:64,spe:45},
     learnset:[[1,"tackle",[20,"frost_breath"]],[1,"water_gun"],[9,"powder_snow"],[14,"growl"],[17,"ice_beam"],[24,"scratch"],[25,"surf"],[33,"blizzard",[5,"permafrost"]],[34,"bubble_beam"],[42,"riptide_slam"],[3,"winter_shroud"],[32,"aqua_tail"]],
     evolveTo:46, evolveLevel:32, catchRate:130, expYield:82, rarity:"common",
-    desc:"A sleet sprite that lives in cold mountain streams. Chills the air around it." },
+    desc:"A sleet sprite that lives in cold mountain streams. Chills the air around it.",
+    lore:"Slatis is a drifting jellyfish-like ice creature 60 cm in diameter. Its translucent bell shimmers with pale arctic blue light, and long trailing tendrils of frozen water hang below it like icicles. It bobs through freezing mountain lakes, generating a localised cold field that chills the surrounding water." },
 
   // ===== DARK =====
   118: { id:118, name:"Umbrakin",   emoji:"🐕", types:["Dark"],
@@ -2142,7 +2167,8 @@ const MONSTERS_DATA = {
     base:{hp:68,atk:70,def:59,spa:51,spd:43,spe:49},
     learnset:[[1,"ember",[22,"magma_surge"]],[1,"scratch"],[9,"mud_shot"],[17,"flame_fang"],[20,"leer"],[25,"earthquake"],[33,"flamethrower",[5,"scorch_veil"]],[36,"cinderwhirl"],[3,"embercloak"],[31,"wildfire_surge"]],
     evolveTo:20, evolveLevel:26, catchRate:150, expYield:92, rarity:"common",
-    desc:"A fire mole that tunnels through volcanic rock. Its claws glow orange with heat." },
+    desc:"A fire mole that tunnels through volcanic rock. Its claws glow orange with heat.",
+    lore:"Magmaurin is a stocky bear-sized creature with a rounded body half-coated in cooling lava plates. Its fur beneath the stone armour is singed brown. It lumbers through volcanic badlands, digging up mineral veins with massive clawed forearms, and rolls into a ball of cooled rock when threatened." },
 
   // ===== FAIRY/GRASS =====
   72: { id:72, name:"Floralin", emoji:"🌸", types:["Fairy","Grass"],
@@ -2163,21 +2189,24 @@ const MONSTERS_DATA = {
     base:{hp:52,atk:50,def:55,spa:57,spd:52,spe:51},
     learnset:[[1,"water_gun",[22,"putrid_pulse"]],[1,"poison_sting"],[10,"bubble_beam"],[18,"sludge_bomb"],[20,"recover"],[26,"surf"],[34,"toxic",[5,"tidecaller"]],[36,"corrosion_fang"],[3,"deepwater_hymn"],[31,"sludge_wave"]],
     evolveTo:32, evolveLevel:28, catchRate:130, expYield:90, rarity:"common",
-    desc:"A polypoid sea creature that releases clouds of inky venom to escape predators." },
+    desc:"A polypoid sea creature that releases clouds of inky venom to escape predators.",
+    lore:"Toxaquil is a purple-mantled octopus about 45 cm across with eight tentacles banded in deep violet and sickly yellow. Glands beneath its skin secrete a mild paralytic toxin that coats its arms. It hunts by spreading tentacles in a wide web beneath unsuspecting prey and then quickly contracting." },
 
   // ===== WATER/STEEL =====
   37: { id:37, name:"Coralossus", emoji:"🪸", types:["Water","Steel"],
     base:{hp:88,atk:83,def:118,spa:71,spd:90,spe:30},
     learnset:[[1,"water_gun",[25,"ironskin"]],[1,"metal_claw"],[11,"harden"],[16,"swords_dance"],[19,"aqua_tail"],[27,"flash_cannon"],[29,"rivet_barrage"],[35,"surf"],[40,"tidal_crush"],[43,"iron_tail",[5,"tidecaller"]],[3,"deepwater_hymn"],[33,"smelt_crush"]],
     evolveTo:38, evolveLevel:44, catchRate:55, expYield:188, rarity:"uncommon",
-    desc:"A golem formed from centuries of compressed coral and sunken steel. Nearly indestructible." },
+    desc:"A golem formed from centuries of compressed coral and sunken steel. Nearly indestructible.",
+    lore:"Coralossus is a massive living-reef creature 4 metres tall appearing as a hulking humanoid formed from packed coral, encrusted shells, and marine growth. Steel-hard armour covers every surface. It stands motionless on the sea floor for decades, and divers often mistake it for a natural reef formation." },
 
   // ===== WATER/WIND =====
   39: { id:39, name:"Depthveth", emoji:"🐬", types:["Water","Wind"],
     base:{hp:73,atk:74,def:69,spa:86,spd:72,spe:84},
     learnset:[[1,"water_gun",[24,"tidal_crush"]],[1,"gust"],[12,"bubble_beam"],[20,"wing_attack"],[25,"swords_dance"],[28,"surf"],[36,"air_slash"],[44,"hydro_pump"],[45,"riptide_slam"],[52,"hurricane",[5,"tidecaller"]],[3,"deepwater_hymn"],[37,"storm_surge"]],
     evolveTo:40, evolveLevel:42, catchRate:60, expYield:185, rarity:"uncommon",
-    desc:"A dolphin that leaps between ocean waves and sea winds. Its song calms storms." },
+    desc:"A dolphin that leaps between ocean waves and sea winds. Its song calms storms.",
+    lore:"Depthveth is a sleek manta-ray-like creature with a 3-metre wingspan and gossamer trailing fins that ripple like silk in underwater currents. Its body is midnight blue above and pale silver beneath. It glides silently through cold deep-water channels, guided by a keen sense of electromagnetic fields." },
 
   // ===== WIND/PSYCHIC =====
   116: { id:116, name:"Zephyrin", emoji:"🌀", types:["Wind","Psychic"],
@@ -2191,7 +2220,8 @@ const MONSTERS_DATA = {
     base:{hp:36,atk:37,def:52,spa:69,spd:62,spe:57},
     learnset:[[1,"tackle",[22,"wish_spark"]],[1,"water_gun"],[8,"fairy_wind"],[16,"bubble_beam"],[20,"leer"],[24,"dazzling_gleam"],[32,"surf",[5,"tidecaller"]],[36,"riptide_slam"],[3,"deepwater_hymn"],[31,"moonblast"]],
     evolveTo:35, evolveLevel:24, catchRate:200, expYield:74, rarity:"common",
-    desc:"A tiny shellfish encasing a fairy-touched pearl. Shimmers with a gentle inner light." },
+    desc:"A tiny shellfish encasing a fairy-touched pearl. Shimmers with a gentle inner light.",
+    lore:"Pearlith resembles a barnacle-encrusted oyster about 20 cm in diameter, but its interior emits warm rose-gold luminescence. It forms pearls infused with fairy energy and defends itself by snapping its shell shut with surprising force against anything attempting to pry it open." },
 
   // ===== GRASS/DARK =====
   78: { id:78, name:"Sylvnox", emoji:"🌿", types:["Grass","Dark"],
@@ -2261,7 +2291,8 @@ const MONSTERS_DATA = {
     base:{hp:113,atk:95,def:109,spa:84,spd:91,spe:58},
     learnset:[[1,"surf",[1,"sea_serpent_strike"]],[1,"iron_tail"],[1,"aqua_tail"],[1,"flash_cannon"],[18,"growl"],[31,"tackle"],[44,"bubble_beam"],[55,"hydro_pump"],[58,"temper_edge"],[65,"hyper_beam",[5,"tidecaller"]],[3,"deepwater_hymn"],[41,"forge_strike"]],
     evolveTo:null, evolveLevel:null, catchRate:15, expYield:280, rarity:"rare",
-    desc:"A leviathan armored in barnacle-covered steel. Said to be older than the ocean floor itself." },
+    desc:"A leviathan armored in barnacle-covered steel. Said to be older than the ocean floor itself.",
+    lore:"Titanomare is an oceanic titan 10 metres long with a whale-like body coated in overlapping steel-grey armour plates thick enough to deflect cannon fire. Four broad stabilising fins propel it at great speed. Ancient civilisations built harbours specifically to attract and appease this living warship." },
 
   // ===== EVOLUTIONS (108+ referenced above) =====
 
@@ -2281,7 +2312,8 @@ const MONSTERS_DATA = {
     base:{hp:97,atk:121,def:76,spa:69,spd:62,spe:64},
     learnset:[[1,"flame_fang"],[2,"mud_shot"],[3,"earthquake"],[4,"scorch_veil"],[30,"flamethrower"],[31,"battle_cry"],[36,"ashfall"],[41,"earth_power"],[46,"fissure_slam"],[51,"inferno"],[56,"fire_blast"],[61,"tectonic_slam"],[5,"embercloak"],[40,"scorched_earth"]],
     evolveTo:21, evolveLevel:44, catchRate:45, expYield:218, rarity:"uncommon",
-    desc:"A lava-boring behemoth that carves tunnels with molten precision. Its spines erupt flame." },
+    desc:"A lava-boring behemoth that carves tunnels with molten precision. Its spines erupt flame.",
+    lore:"Embrath is a medium-sized spined lizard about 80 cm long with scales alternating charcoal grey and deep rust. Heat-sensing pits line its snout. It hunts underground prey by detecting body heat through soil, then erupts from the ground in a burst of superheated air to stun its catch." },
 
   73: { id:73, name:"Faelomis", emoji:"🌺", types:["Fairy","Grass"],
     base:{hp:78,atk:60,def:65,spa:115,spd:89,spe:93},
@@ -2299,7 +2331,8 @@ const MONSTERS_DATA = {
     base:{hp:77,atk:80,def:76,spa:108,spd:83,spe:53},
     learnset:[[1,"sludge_bomb"],[2,"surf"],[3,"tidecaller"],[31,"toxic"],[33,"corrosion_fang"],[34,"growl"],[38,"tackle"],[43,"blight_mist"],[48,"venoshock"],[53,"dark_pulse"],[58,"sludge_wave"],[63,"hydro_pump"],[4,"deepwater_hymn"],[41,"venom_lance"]],
     evolveTo:33, evolveLevel:44, catchRate:45, expYield:318, rarity:"uncommon",
-    desc:"A venomous sea predator with eight toxic-tipped tentacles. Feared by all ocean life." },
+    desc:"A venomous sea predator with eight toxic-tipped tentacles. Feared by all ocean life.",
+    lore:"Noxaquith is a large hood-flaring squid about 1.2 metres long. Its body is deep navy blue with patterns that shift like oil on water. Poisoned ink jets blind and briefly paralyze anything caught in the cloud, serving as both camouflage and an offensive weapon." },
 
   117: { id:117, name:"Pneumathos", emoji:"🌪️", types:["Wind","Psychic"],
     base:{hp:66,atk:57,def:69,spa:114,spd:88,spe:110},
@@ -2311,7 +2344,8 @@ const MONSTERS_DATA = {
     base:{hp:65,atk:62,def:63,spa:110,spd:87,spe:103},
     learnset:[[1,"water_gun"],[2,"fairy_wind"],[3,"bubble_beam"],[4,"dazzling_gleam"],[5,"tidecaller"],[29,"surf"],[30,"tail_whip"],[36,"scratch"],[42,"moonveil"],[48,"aqua_tail"],[54,"moonblast"],[60,"hydro_pump"],[6,"deepwater_hymn"],[40,"sea_serpent_strike"]],
     evolveTo:36, evolveLevel:46, catchRate:40, expYield:222, rarity:"rare",
-    desc:"A sea nymph radiating both water and fairy energy. Said to protect lost sailors." },
+    desc:"A sea nymph radiating both water and fairy energy. Said to protect lost sailors.",
+    lore:"Undirael is a mermaid-like creature 1.5 metres tall with the lower body of a deep-sea fish in shimmering violet and a humanoid torso. Its flowing hair is made of water-weed adorned with living sea-stars. It guides lost sailors away from dangerous reefs by projecting alluring visions of safe harbours." },
 
   79: { id:79, name:"Morraveth", emoji:"🌑", types:["Grass","Dark"],
     base:{hp:84,atk:101,def:80,spa:100,spd:72,spe:67},
@@ -2368,13 +2402,15 @@ const MONSTERS_DATA = {
     base:{hp:35,atk:41,def:37,spa:58,spd:56,spe:68},
     learnset:[[1,"ember",[20,"cinderwhirl"]],[1,"confusion"],[9,"psybeam"],[17,"flamethrower"],[21,"recover"],[25,"psychic_move"],[33,"fire_blast",[5,"scorch_veil"]],[36,"magma_surge"],[3,"embercloak"],[31,"inferno"]],
     evolveTo:23, evolveLevel:28, catchRate:150, expYield:88, rarity:"common",
-    desc:"A psychic flame sprite. Its fire burns hotter when it concentrates its mind." },
+    desc:"A psychic flame sprite. Its fire burns hotter when it concentrates its mind.",
+    lore:"Scorchorin is a lightly built snake-headed lizard about 1 metre long with bright amber scales marked by psychic-violet patterns along the flanks. Its eyes glow purple when focusing energy. It preys on animals much larger than itself by implanting sensory illusions that disorient them before striking." },
 
   23: { id:23, name:"Pyraxis", emoji:"🧠", types:["Fire","Psychic"],
     base:{hp:68,atk:64,def:68,spa:103,spd:81,spe:98},
     learnset:[[1,"flamethrower"],[2,"psychic_move"],[3,"scorch_veil"],[30,"fire_blast"],[32,"battle_cry"],[36,"calm_mind"],[40,"dreamweave"],[44,"heat_wave"],[48,"psystrike"],[52,"mind_shatter"],[56,"inferno"],[60,"solar_flare"],[4,"embercloak"],[38,"thought_crush"]],
     evolveTo:24, evolveLevel:44, catchRate:35, expYield:235, rarity:"rare",
-    desc:"A psychic fire sage. Projects visions of infernos to terrify foes before striking." },
+    desc:"A psychic fire sage. Projects visions of infernos to terrify foes before striking.",
+    lore:"Pyraxis is a tall mantis-like biped 1.5 metres high with flame-red chitin plating and violet-lit compound eyes. Long scythe-like forelimbs channel both heat and psychic pressure. It stalks prey through arid ruins, paralyzing targets with a telepathic shock before incinerating them." },
 
   // ===== GRASS/ELECTRIC =====
   75: { id:75, name:"Sylvolt", emoji:"🌱", types:["Grass","Electric"],
@@ -2529,7 +2565,8 @@ const MONSTERS_DATA = {
     base:{hp:90,atk:65,def:90,spa:109,spd:92,spe:59},
     learnset:[[1,"powder_snow"],[1,"water_gun"],[2,"ice_beam"],[3,"permafrost"],[4,"winter_shroud"],[33,"blizzard"],[38,"aqua_tail"],[42,"hoarfrost_bite"],[46,"icicle_crash"],[50,"hydro_pump"],[54,"glacial_tomb"],[58,"surf"],[5,"cryo_lance"],[43,"harden"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:205, rarity:"uncommon",
-    desc:"An ancient ice behemoth that rests in glacial caves. Its breath can freeze the ocean surface." },
+    desc:"An ancient ice behemoth that rests in glacial caves. Its breath can freeze the ocean surface.",
+    lore:"Frostmere is a streamlined ice-seal 1.5 metres long with shimmering silver-white fur and eyes the colour of deep glacier melt. Patches of semi-transparent ice form naturally on its back and shoulders. It hunts in polar water channels, detecting prey through vibrations in the ice with specialised sensors in its snout." },
 
   161: { id:161, name:"Mistbane", emoji:"🦠", types:["Poison","Wind"],
     base:{hp:70,atk:75,def:54,spa:102,spd:80,spe:105},
@@ -2565,7 +2602,8 @@ const MONSTERS_DATA = {
     base:{hp:84,atk:87,def:80,spa:108,spd:90,spe:101},
     learnset:[[1,"surf"],[1,"downdraft"],[2,"aqua_tail"],[3,"air_slash"],[4,"tidecaller"],[43,"hydro_pump"],[47,"hurricane"],[51,"tidal_crush"],[55,"tempest_wrath"],[59,"sea_serpent_strike"],[63,"ocean_tempest"],[67,"whirlpool_dive"],[5,"deepwater_hymn"],[48,"recover"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
-    desc:"A sovereign of sky and sea. It breaches into storm clouds and dives into ocean trenches with equal majesty." },
+    desc:"A sovereign of sky and sea. It breaches into storm clouds and dives into ocean trenches with equal majesty.",
+    lore:"Marevanos is a cetacean-like creature 6 metres long with a streamlined blue-grey body and vast translucent wing-fins that catch both wind and water. It breaches spectacularly, launching fully airborne and gliding long distances. Sailors consider spotting it a good-weather omen." },
 
   131: { id:131, name:"Necrothon", emoji:"🌑", types:["Dark","Grass"],
     base:{hp:94,atk:89,def:99,spa:104,spd:90,spe:74},
@@ -2577,7 +2615,8 @@ const MONSTERS_DATA = {
     base:{hp:97,atk:92,def:137,spa:82,spd:108,spe:34},
     learnset:[[1,"scratch"],[1,"water_gun"],[2,"aqua_tail"],[3,"flash_cannon"],[4,"harden"],[45,"hydro_pump"],[49,"iron_tail"],[53,"tidal_crush"],[57,"magnetize"],[61,"sea_serpent_strike"],[65,"forge_strike"],[69,"anvil_drop"],[5,"tidecaller"],[50,"swords_dance"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:275, rarity:"rare",
-    desc:"A mythic armored leviathan said to have dragged whole ships to the ocean floor. Its shell is impenetrable." },
+    desc:"A mythic armored leviathan said to have dragged whole ships to the ocean floor. Its shell is impenetrable.",
+    lore:"Titanariel is a 7-metre armoured sea titan resembling a colossal nautilus with a steel-hard shell and tentacles reinforced with metallic plating. It propels itself by expelling high-pressure water jets. Ancient naval records describe it capsizing large ships by wrapping its tentacles around the hull." },
 
   // ===== 3RD STAGE EVOLUTIONS (IDs 178-212) =====
 
@@ -2586,70 +2625,80 @@ const MONSTERS_DATA = {
     base:{hp:84,atk:110,def:79,spa:119,spd:84,spe:74},
     learnset:[[1,"ember"],[1,"flamethrower"],[2,"dragon_breath"],[3,"heat_wave"],[4,"scorch_veil"],[38,"fire_blast"],[43,"dragon_claw"],[48,"solar_flare"],[52,"outrage"],[57,"inferno"],[62,"dragon_pulse"],[67,"char_dance"],[5,"embercloak"],[44,"eon_crash"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:265, rarity:"rare",
-    desc:"A sovereign of flame and ancient dragon lineage. Its wingbeats ignite the air itself into roaring curtains of fire." },
+    desc:"A sovereign of flame and ancient dragon lineage. Its wingbeats ignite the air itself into roaring curtains of fire.",
+    lore:"Inferarch is an enormous draconic predator nearly 5 metres long. Its scales are layered like volcanic rock — deep black at the base transitioning to red along the edges, with a continuous inner glow visible through the gaps. It inhabits the deepest volcanic rifts, drawing sustenance directly from geothermal heat." },
 
   // 179: Pyroclasm - Fire/Rock (Taurcin→Molteroth→Pyroclasm)
   15: { id:15, name:"Pyroclasm", emoji:"🌋", types:["Fire","Rock"],
     base:{hp:102,atk:126,def:107,spa:86,spd:72,spe:57},
     learnset:[[1,"headbutt"],[1,"magma_surge"],[2,"flamethrower"],[3,"scorch_veil"],[4,"rock_slide"],[38,"heat_wave"],[42,"stone_edge"],[46,"fire_blast"],[50,"stalactite_drop"],[54,"inferno"],[58,"quarry_crush"],[62,"solar_flare"],[5,"embercloak"],[44,"ashfall"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
-    desc:"A living caldera given form. When it charges, the ground splits and magma fountains in its wake." },
+    desc:"A living caldera given form. When it charges, the ground splits and magma fountains in its wake.",
+    lore:"Pyroclasm is a jagged semi-humanoid rock creature 2.5 metres tall. Its body is a mass of dark basalt encrusted with glowing magma veins. When agitated it hurls chunks of its own burning body as projectiles. It forms in the wake of eruptions and is considered a manifestation of volcanic rage." },
 
   // 180: Helixareth - Fire/Dragon (Ignicula→Pyroveth→Helixareth)
   18: { id:18, name:"Helixareth", emoji:"🐉", types:["Fire","Dragon"],
     base:{hp:87,atk:111,def:72,spa:121,spd:82,spe:77},
     learnset:[[1,"ember"],[1,"flamethrower"],[2,"dragon_breath"],[3,"cinderwhirl"],[4,"scorch_veil"],[38,"dragon_claw"],[42,"heat_wave"],[46,"fire_blast"],[50,"dragon_pulse"],[54,"solar_flare"],[58,"outrage"],[62,"inferno"],[5,"embercloak"],[44,"eon_crash"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
-    desc:"An ancient serpent of celestial fire that coils around mountaintops. Legends say its breath forged the first volcanoes." },
+    desc:"An ancient serpent of celestial fire that coils around mountaintops. Legends say its breath forged the first volcanoes.",
+    lore:"Helixareth is a serpentine fire dragon 6 metres long that coils tightly around rocky spires to sleep. Its amber-and-black scales overlap like armour, and twin crests of blue-tipped flame crown its narrow skull. It breathes a spiralling helix of fire able to bore through solid stone." },
 
   // 181: Terravore - Fire/Ground (Magmaurin→Pyroterrath→Terravore)
   21: { id:21, name:"Terravore", emoji:"🦎", types:["Fire","Ground"],
     base:{hp:100,atk:134,def:89,spa:79,spd:74,spe:74},
     learnset:[[1,"flame_fang"],[1,"earthquake"],[2,"magma_surge"],[3,"scorched_earth"],[4,"scorch_veil"],[38,"flamethrower"],[42,"earth_power"],[46,"fire_blast"],[50,"ashfall"],[54,"inferno"],[58,"sand_geyser"],[62,"solar_flare"],[5,"embercloak"],[44,"blazing_rush"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:260, rarity:"rare",
-    desc:"A predator born from the magma deep within the earth. It tunnels through bedrock and erupts beneath its prey." },
+    desc:"A predator born from the magma deep within the earth. It tunnels through bedrock and erupts beneath its prey.",
+    lore:"Terravore is a hulking dinosaur-like creature 3 metres long with thick terracotta hide reinforced by fire-hardened dorsal plates. Its wide mouth can swallow boulders to digest the minerals within. It tunnels through volcanic earth, leaving perfectly circular bore-holes 1 metre in diameter." },
 
   // 182: Ignitheon - Fire/Psychic (Ignorin→Pyraxis→Ignitheon)
   24: { id:24, name:"Ignitheon", emoji:"🔮", types:["Fire","Psychic"],
     base:{hp:82,atk:77,def:77,spa:131,spd:97,spe:86},
     learnset:[[1,"flamethrower"],[1,"psychic_move"],[2,"scorch_veil"],[3,"psystrike"],[4,"heat_wave"],[38,"fire_blast"],[42,"calm_mind"],[46,"solar_flare"],[50,"thought_crush"],[54,"inferno"],[58,"mind_shatter"],[62,"neural_storm"],[5,"embercloak"],[44,"astral_rend"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
-    desc:"An oracle of living flame. It reads the minds of its foes and burns their deepest fears into reality." },
+    desc:"An oracle of living flame. It reads the minds of its foes and burns their deepest fears into reality.",
+    lore:"Ignitheon is a regal lion-like psychic-fire creature 2 metres long. Its mane is living fire that changes colour with its emotional state — gold when calm, white when enraged. Violet markings pulse along its flanks. It guards ancient flame temples and is said to judge challengers before allowing passage." },
 
   // 183: Tidalossus - Water/Rock (Coralix→Aquidon→Tidalossus)
   27: { id:27, name:"Tidalossus", emoji:"🦞", types:["Water","Rock"],
     base:{hp:92,atk:121,def:126,spa:67,spd:82,spe:62},
     learnset:[[1,"scratch"],[1,"surf"],[2,"tidecaller"],[3,"stalactite_drop"],[4,"rock_slide"],[38,"aqua_tail"],[42,"stone_edge"],[46,"tidal_crush"],[50,"crystal_lance"],[54,"hydro_pump"],[58,"quarry_crush"],[62,"sea_serpent_strike"],[5,"deepwater_hymn"],[44,"coral_barrage"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
-    desc:"A colossus of tide and stone that rules coastal shallows. Its claws can shear cliff faces clean through." },
+    desc:"A colossus of tide and stone that rules coastal shallows. Its claws can shear cliff faces clean through.",
+    lore:"Tidalossus is a massive crustacean predator 4 metres across, with a dome-shaped granite-grey shell etched by centuries of wave erosion. Its six limbs end in serrated crushing claws. It prowls coastal shallows at night and generates a localised tidal surge by rapidly displacing water with its body." },
 
   // 184: Polarveth - Ice/Water (Cryonik→Boreon→Polarveth)
   44: { id:44, name:"Polarveth", emoji:"🧊", types:["Ice","Water"],
     base:{hp:97,atk:73,def:97,spa:122,spd:103,spe:58},
     learnset:[[1,"powder_snow"],[1,"surf"],[2,"ice_beam"],[3,"permafrost"],[4,"winter_shroud"],[38,"blizzard"],[42,"hoarfrost_bite"],[46,"icicle_crash"],[50,"hydro_pump"],[54,"glacial_tomb"],[58,"cryo_lance"],[62,"abyssal_jet"],[5,"tidecaller"],[44,"frost_current"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
-    desc:"A titan of polar seas whose body is half glacier and half deep ocean. Its roar shatters icebergs for miles around." },
+    desc:"A titan of polar seas whose body is half glacier and half deep ocean. Its roar shatters icebergs for miles around.",
+    lore:"Polarveth is a serpentine ice-water creature 3 metres long with translucent blue-white scales and broad front flippers. Its tail sweeps in wide arcs to break through thin ice sheets. It hunts beneath pack ice, surfacing through cracks to catch prey venturing near the frozen edge." },
 
   // 185: Nepturix - Water (Corelin→Neraxis→Nepturix)
   30: { id:30, name:"Nepturix", emoji:"🐟", types:["Water"],
     base:{hp:91,atk:82,def:77,spa:136,spd:107,spe:57},
     learnset:[[1,"water_gun"],[1,"surf"],[2,"bubble_beam"],[3,"tidecaller"],[4,"whirlpool_dive"],[38,"hydro_pump"],[42,"tidal_crush"],[46,"sea_serpent_strike"],[50,"coral_barrage"],[54,"abyssal_jet"],[58,"ocean_tempest"],[62,"dazzling_gleam"],[5,"deepwater_hymn"],[44,"frost_current"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
-    desc:"A leviathan of the reef that commands all ocean life with a single glance. Its scales scatter light like a shattered prism." },
+    desc:"A leviathan of the reef that commands all ocean life with a single glance. Its scales scatter light like a shattered prism.",
+    lore:"Nepturix is a silvery deep-sea fish about 60 cm long with enormous light-gathering eyes and a slender streamlined body. Bioluminescent dots line its lateral line. It descends to lightless ocean trenches during the day and ascends to shallower water at night to feed on schooling fish." },
 
   // 186: Noxarith - Water/Poison (Toxaquil→Noxaquith→Noxarith)
   33: { id:33, name:"Noxarith", emoji:"🪸", types:["Water","Poison"],
     base:{hp:92,atk:98,def:87,spa:127,spd:98,spe:48},
     learnset:[[1,"sludge_bomb"],[1,"surf"],[2,"tidecaller"],[3,"toxic"],[4,"corrosion_fang"],[38,"venom_lance"],[42,"sludge_wave"],[46,"hydro_pump"],[50,"acid_rain"],[54,"venoshock"],[58,"putrid_pulse"],[62,"stinger_volley"],[5,"deepwater_hymn"],[44,"miasma_cloud"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
-    desc:"A dread titan of poisoned tides. Its very presence turns the sea around it a sickly green and chokes all nearby life." },
+    desc:"A dread titan of poisoned tides. Its very presence turns the sea around it a sickly green and chokes all nearby life.",
+    lore:"Noxarith resembles a bright-red sea anemone 40 cm across, crowned with tentacles tipped in venomous barbs. It anchors to rocky outcroppings in poison-saturated waters and releases drifting stinging cells to stun plankton and small fish drawn by its vivid colouration." },
 
   // 187: Thalassira - Water/Fairy (Pearlith→Undirael→Thalassira)
   36: { id:36, name:"Thalassira", emoji:"🧜", types:["Water","Fairy"],
     base:{hp:91,atk:76,def:81,spa:139,spd:106,spe:57},
     learnset:[[1,"water_gun"],[1,"fairy_wind"],[2,"dazzling_gleam"],[3,"tidecaller"],[4,"moonblast"],[38,"celestial_wave"],[42,"surf"],[46,"glitter_storm"],[50,"hydro_pump"],[54,"fae_requiem"],[58,"sea_serpent_strike"],[62,"moonveil"],[5,"deepwater_hymn"],[44,"sweet_kiss"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:275, rarity:"rare",
-    desc:"The radiant sovereign of the world's oceans. Sailors who see it are said to be blessed with eternal safe passage." },
+    desc:"The radiant sovereign of the world's oceans. Sailors who see it are said to be blessed with eternal safe passage.",
+    lore:"Thalassira is a grand aquatic fairy-dragon 5 metres long, combining the sinuous body of a sea serpent with translucent fairy wings that function as fins. Its scales are iridescent ocean-blue and silver. It guards hidden underwater groves where rare magical plants grow undisturbed." },
 
   // 188: Mycovast - Grass/Poison (Sporix→Myceloth→Mycovast)
   65: { id:65, name:"Mycovast", emoji:"🍄", types:["Grass","Poison"],
@@ -2761,7 +2810,8 @@ const MONSTERS_DATA = {
     base:{hp:97,atk:108,def:77,spa:103,spd:92,spe:73},
     learnset:[[1,"powder_snow"],[1,"ice_beam"],[2,"icicle_crash"],[3,"blizzard"],[4,"permafrost"],[38,"hoarfrost_bite"],[42,"cryo_lance"],[46,"glacial_tomb"],[50,"avalanche_drive"],[54,"winter_shroud"],[58,"body_slam"],[62,"quick_attack"],[5,"frostfire_veil"],[44,"instinct_slash"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
-    desc:"A wolf of absolute zero whose howl flash-freezes the air for miles. Entire mountain valleys have become permanent glacier fields where it hunts." },
+    desc:"A wolf of absolute zero whose howl flash-freezes the air for miles. Entire mountain valleys have become permanent glacier fields where it hunts.",
+    lore:"Frigidvorn is a solitary bear-like ice creature 2 metres tall, covered in thick grey-white fur matted with ice crystals. Its breath freezes solid on contact with open air, producing a permanent mist cloud around its face. It excavates dens deep in glacier ice and hibernates for years between active periods." },
 
   // 204: Glaciovast - Ice/Normal (Nivelin→Glacivern→Glaciovast)
   52: { id:52, name:"Permavast", emoji:"🐻‍❄️", types:["Ice","Normal"],

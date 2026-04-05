@@ -1323,7 +1323,8 @@ const MONSTERS_DATA = {
     base:{hp:86,atk:149,def:101,spa:101,spd:94,spe:66},
     learnset:[[1,"outrage"],[2,"dragon_pulse"],[3,"scale_storm"],[4,"hyper_beam"],[5,"dragon_dance"],[58,"char_dance"],[61,"growl"],[64,"harden"],[65,"flame_fang"],[66,"pyre_fang"],[67,"heat_wave"],[68,"inferno"],[69,"ancient_breath"],[70,"fire_blast"]],
     evolveTo:null, evolveLevel:null, catchRate:5, expYield:340, rarity:"legendary",
-    desc:"The lord of all dragons. Its fire is hot enough to melt any metal." },
+    desc:"The lord of all dragons. Its fire is hot enough to melt any metal.",
+    lore:"Dragemian is a legendary fire-dragon of enormous size, estimated at 12 metres from snout to tail. Its scales are deep crimson-black edged with gold, and two enormous curved horns sweep back from its broad angular skull. Its wings span nearly 20 metres and darken the sky when spread. Ancient texts describe it as the progenitor of all fire dragon lineages, and its breath weapon — a sustained column of solar-temperature fire — can be seen from the horizon." },
 
   175: { id:175, name:"Neruveth",    emoji:"🦭", types:["Water","Dragon"],
     base:{hp:71,atk:104,def:76,spa:98,spd:92,spe:88},
@@ -2220,85 +2221,98 @@ const MONSTERS_DATA = {
     base:{hp:78,atk:82,def:72,spa:118,spd:95,spe:102},
     learnset:[[1,"ember"],[1,"shadow_ball"],[18,"flamethrower"],[28,"phantom_claw"],[38,"fire_blast"],[48,"eclipse_shroud"],[58,"soul_rend"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:48, expYield:215, rarity:"uncommon",
-    desc:"A fire specter born from the embers of burned-down haunted houses. Leaves smoldering phantom footprints." },
+    desc:"A fire specter born from the embers of burned-down haunted houses. Leaves smoldering phantom footprints.",
+    lore:"Emberveil is a fire-dark creature 60 cm tall resembling a smouldering black cat whose fur is made of living shadow and ember. Dim orange flames flicker through its dark coat without burning it. It inhabits the spaces near dying fires — hearths, burn-sites, campfire remains — absorbing residual heat from ash." },
 
   // 2-stage Fairy chain: Lightpuff → Lumivane (Moon Stone item)
   302: { id:302, name:"Lightpuff", emoji:"🌟", types:["Fairy"],
     base:{hp:55,atk:48,def:55,spa:78,spd:68,spe:70},
     learnset:[[1,"fairy_wind"],[1,"dazzling_gleam"],[14,"moonblast"],[24,"celestial_wave"],[34,"glitter_storm"],[44,"fae_requiem"],[54,"moonveil"],[60,"hyper_beam"]],
     evolveTo:303, evolveLevel:null, evolveItem:"moonStone", evolveMethod:"item", catchRate:138, expYield:96, rarity:"common",
-    desc:"A star-dust fairy of gentle light. Absorbs moonlight to build its energy toward a magnificent transformation." },
+    desc:"A star-dust fairy of gentle light. Absorbs moonlight to build its energy toward a magnificent transformation.",
+    lore:"Lightpuff is a small fairy creature 20 cm across resembling a round luminous orb with two bright eyes and a constant gentle glow. Its light is warm and golden. It drifts through settlements at night, drawn to windows of occupied homes, and its presence is considered a sign of domestic happiness." },
 
   303: { id:303, name:"Lumivane", emoji:"🌠", types:["Fairy","Psychic"],
     base:{hp:81,atk:68,def:78,spa:122,spd:109,spe:92},
     learnset:[[1,"moonblast"],[1,"psychic_move"],[28,"celestial_wave"],[36,"psystrike"],[44,"glitter_storm"],[52,"neural_storm"],[60,"fae_requiem"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:230, rarity:"rare",
-    desc:"The comet fairy, born from moonstone energy and starlight. Crosses the sky in streaks of prismatic light." },
+    desc:"The comet fairy, born from moonstone energy and starlight. Crosses the sky in streaks of prismatic light.",
+    lore:"Lumivane is a fairy-psychic creature 50 cm tall resembling a graceful humanoid composed of starlight and psychic radiance. Its body shifts between solid and luminous depending on its concentration. It inhabits high mountain observatories and archives astronomical data in a crystalline psychic memory." },
 
   // 3-stage Rock/Ice chain: Crysthorn → Geoshard → Crystallon (location: cold area, lv28, lv48)
   304: { id:304, name:"Icethorn", emoji:"💎", types:["Rock","Ice"],
     base:{hp:52,atk:62,def:75,spa:58,spd:60,spe:50},
     learnset:[[1,"rock_throw"],[1,"powder_snow"],[12,"rock_slide"],[22,"ice_beam"],[32,"stone_edge"],[42,"cryo_lance"],[52,"blizzard"],[60,"hyper_beam"]],
     evolveTo:305, evolveLevel:28, catchRate:162, expYield:78, rarity:"common",
-    desc:"A crystal thorn creature that grows in frozen caves. Its crystalline spines shatter on impact then regrow." },
+    desc:"A crystal thorn creature that grows in frozen caves. Its crystalline spines shatter on impact then regrow.",
+    lore:"Icethorn is a rock-ice creature 40 cm tall resembling a cactus-like formation of grey rock studded with ice-crystal spines. Its ice spines regrow within hours if broken off. It inhabits frozen rocky highlands and uses its spines both to collect water from passing fog and to deter large herbivores." },
 
   305: { id:305, name:"Geoshard", emoji:"🗻", types:["Rock","Ice"],
     base:{hp:78,atk:92,def:105,spa:78,spd:82,spe:58},
     learnset:[[1,"ice_beam"],[1,"stone_edge"],[22,"cryo_lance"],[30,"blizzard"],[38,"bedrock_slam"],[46,"icicle_crash"],[54,"avalanche_drive"],[62,"hyper_beam"]],
     evolveTo:306, evolveLevel:48, catchRate:75, expYield:158, rarity:"uncommon",
-    desc:"A rock and ice giant with shard weapons. Lives on the highest frozen peaks of the Lumoria mountain range." },
+    desc:"A rock and ice giant with shard weapons. Lives on the highest frozen peaks of the Lumoria mountain range.",
+    lore:"Geoshard is a rock-ice creature 80 cm tall resembling a jagged crystal cluster that has grown into a vaguely bipedal shape. Its body is dark stone filled with brilliant ice formations visible through large natural gaps. It moves rarely and is often mistaken for a natural geological feature." },
 
   306: { id:306, name:"Crystallon", emoji:"🏔️", types:["Rock","Ice"],
     base:{hp:101,atk:108,def:117,spa:83,spd:91,spe:50},
     learnset:[[1,"blizzard"],[1,"bedrock_slam"],[32,"avalanche_drive"],[40,"icicle_crash"],[48,"stone_edge"],[56,"glacial_tomb"],[64,"worldseed_quake"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:275, rarity:"rare",
-    desc:"The frozen mountain titan. Glaciers form around it spontaneously. Worshipped by ancient mountain peoples." },
+    desc:"The frozen mountain titan. Glaciers form around it spontaneously. Worshipped by ancient mountain peoples.",
+    lore:"Crystallon is a large rock-ice entity 1.5 metres tall resembling an ancient standing stone made of interlocked rock and ice crystal structures. Its face is barely defined — two faint depressions in the stone suggest eyes. It has stood in the same valley for centuries, and local cultures have built myths around it." },
 
   // Standalone Fire/Dark: Cinderpaw
   307: { id:307, name:"Cinderpaw", emoji:"🐈", types:["Fire","Dark"],
     base:{hp:85,atk:103,def:73,spa:98,spd:79,spe:112},
     learnset:[[1,"ember"],[1,"bite"],[18,"flamethrower"],[28,"night_slash"],[38,"fire_blast"],[48,"dark_pulse"],[58,"eclipse_shroud"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:52, expYield:212, rarity:"uncommon",
-    desc:"A dark flame cat that stalks targets silently before unleashing explosive fire attacks. Unpredictable and cunning." },
+    desc:"A dark flame cat that stalks targets silently before unleashing explosive fire attacks. Unpredictable and cunning.",
+    lore:"Cinderpaw is a fire-dark cat 45 cm at the shoulder with glossy black fur overlaid with faintly glowing ember-orange markings on its paws, ears, and tail tip. It moves silently and blends into shadow easily. It inhabits ancient forge-ruins and warm building interiors, drawn to residual warmth in stone." },
 
   // 2-stage Water/Ghost chain: Tidewraith → Aquaphant (Water Stone item)
   308: { id:308, name:"Seafraith", emoji:"🌊", types:["Water","Dark"],
     base:{hp:58,atk:62,def:58,spa:88,spd:75,spe:80},
     learnset:[[1,"water_gun"],[1,"shadow_ball"],[14,"surf"],[24,"phantom_claw"],[34,"hydro_pump"],[44,"eclipse_shroud"],[54,"soul_rend"],[60,"hyper_beam"]],
     evolveTo:309, evolveLevel:null, evolveItem:"waterStone", evolveMethod:"item", catchRate:135, expYield:98, rarity:"common",
-    desc:"A ghost that drowned and merged with ocean tides. Haunts coastal routes, pulling travelers into the surf." },
+    desc:"A ghost that drowned and merged with ocean tides. Haunts coastal routes, pulling travelers into the surf.",
+    lore:"Seafraith is a water-dark creature 60 cm long resembling a deep-sea fish with a translucent dark body through which dim bioluminescent organs are visible. Its eyes are white and sightless — it navigates by sensing water displacement. It inhabits sunken ruins at depths where light never reaches." },
 
   309: { id:309, name:"Tidephant", emoji:"🐋", types:["Water","Dark"],
     base:{hp:94,atk:82,def:86,spa:113,spd:102,spe:73},
     learnset:[[1,"hydro_pump"],[1,"eclipse_shroud"],[28,"soul_rend"],[36,"phantom_claw"],[44,"geyser_burst"],[52,"shadow_ball"],[60,"dark_pulse"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:232, rarity:"rare",
-    desc:"A spectral sea leviathan that capsizes ships. Half water, half ghost—completely terrifying." },
+    desc:"A spectral sea leviathan that capsizes ships. Half water, half ghost—completely terrifying.",
+    lore:"Tidephant is a large water-dark creature 2 metres long resembling a cetacean with dark blue-black hide and a broad flat head. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },
 
   // 2-stage Ground/Water chain: Mudpump → Marshix (level 28)
   310: { id:310, name:"Mudpump", emoji:"🐊", types:["Ground","Water"],
     base:{hp:58,atk:68,def:62,spa:58,spd:55,spe:55},
     learnset:[[1,"mud_shot"],[1,"water_gun"],[12,"earth_power"],[22,"surf"],[32,"earthquake"],[42,"hydro_pump"],[52,"clay_armor"],[60,"hyper_beam"]],
     evolveTo:311, evolveLevel:28, catchRate:155, expYield:80, rarity:"common",
-    desc:"A muddy crocodile creature that wallows in swamps. Its mud coating provides natural camouflage and armor." },
+    desc:"A muddy crocodile creature that wallows in swamps. Its mud coating provides natural camouflage and armor.",
+    lore:"Mudpump is a small ground-water creature 30 cm long resembling a mudskipper with a broad head and four short legs equally suited to mud and shallow water. It builds dome-shaped mud homes in tidal mudflats and uses suction from its wide mouth to excavate burrow chambers." },
 
   311: { id:311, name:"Marshix", emoji:"🦛", types:["Ground","Water"],
     base:{hp:105,atk:118,def:100,spa:78,spd:82,spe:62},
     learnset:[[1,"earthquake"],[1,"surf"],[22,"earth_power"],[30,"hydro_pump"],[38,"clay_armor"],[46,"bedrock_slam"],[54,"aqua_tail"],[62,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:222, rarity:"uncommon",
-    desc:"A hippo-like swamp titan that commands both mud and water. Creates marshy terrain wherever it settles." },
+    desc:"A hippo-like swamp titan that commands both mud and water. Creates marshy terrain wherever it settles.",
+    lore:"Marshix is a large ground-water hippo-like creature 1.5 metres at the shoulder with a broad pale grey body and mud-brown legs. It spends most of its time submerged in shallow marsh water with only its eyes and nostrils above the surface. Its movements churn the marsh bottom, aerating the sediment beneficially." },
 
   // 2-stage Ground/Dark chain: Dunecrawl → Sandrix (level 32)
   312: { id:312, name:"Dunecrawl", emoji:"🦂", types:["Ground","Dark"],
     base:{hp:55,atk:72,def:60,spa:52,spd:55,spe:70},
     learnset:[[1,"mud_shot"],[1,"bite"],[14,"earth_power"],[24,"night_slash"],[34,"earthquake"],[44,"dark_pulse"],[54,"eclipse_shroud"],[60,"hyper_beam"]],
     evolveTo:313, evolveLevel:32, catchRate:148, expYield:85, rarity:"common",
-    desc:"A scorpion-like creature that burrows under desert sands. Strikes from below with venomous ambushes." },
+    desc:"A scorpion-like creature that burrows under desert sands. Strikes from below with venomous ambushes.",
+    lore:"Dunecrawl is a medium ground-dark creature 70 cm long resembling an armadillo with dark sand-coloured armour and the ability to roll into a complete sphere. At night it unfurls and hunts, and at dawn it rolls into a ball and buries itself under a thin layer of sand, becoming invisible." },
 
   313: { id:313, name:"Sandrix", emoji:"🐍", types:["Ground","Dark"],
     base:{hp:88,atk:112,def:88,spa:75,spd:80,spe:98},
     learnset:[[1,"earthquake"],[1,"dark_pulse"],[26,"night_slash"],[34,"earth_power"],[42,"eclipse_shroud"],[50,"bedrock_slam"],[58,"soul_rend"],[66,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:225, rarity:"uncommon",
-    desc:"A sand serpent of deadly cunning. Camouflages perfectly in desert terrain and strikes without warning." },
+    desc:"A sand serpent of deadly cunning. Camouflages perfectly in desert terrain and strikes without warning.",
+    lore:"Sandrix is a ground-dark serpent 1.5 metres long with sandy brown-black scales and a flat head. It inhabits desert shadow-zones — rocky overhangs and dune troughs — and hunts by detecting the vibration of footsteps in sand. Its dark colouration appears to absorb light, deepening shadows around it." },
 
 
   // ===== LEGENDARIES (IDs 314-321) =====
@@ -2306,19 +2320,22 @@ const MONSTERS_DATA = {
     base:{hp:102,atk:84,def:93,spa:125,spd:96,spe:100},
     learnset:[[1,"air_slash"],[1,"thunder_shock"],[7,"gust"],[14,"spark"],[21,"zephyr_dance"],[28,"thunderbolt"],[35,"downdraft"],[42,"hurricane"],[49,"squall_slash"],[56,"overcharge"],[63,"tempest_wrath"],[70,"gale_cannon"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
-    desc:"The Legendary Storm Bird. Said to control all weather in Lumoria." },
+    desc:"The Legendary Storm Bird. Said to control all weather in Lumoria.",
+    lore:"Galeaxis is a wind-electric creature 1 metre at the shoulder resembling a sleek greyhound whose pale grey body constantly trails streamers of compressed air and electric sparks. It runs at extraordinary speeds across open plains and its passage creates brief localised sonic booms as it exceeds natural air displacement limits." },
 
   315: { id:315, name:"Ashvanus",   emoji:"🌋", types:["Fire","Rock"],
     base:{hp:113,atk:145,def:111,spa:102,spd:89,spe:50},
     learnset:[[1,"ember"],[1,"rock_throw"],[7,"flame_fang"],[14,"rock_slide"],[21,"magma_surge"],[28,"stone_edge"],[35,"ashfall"],[42,"flamethrower"],[49,"magma_rock"],[56,"fire_blast"],[63,"caldera_meltdown"],[70,"bedrock_slam"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
-    desc:"The Legendary Volcano Titan. Eruptions across Lumoria mark its awakening." },
+    desc:"The Legendary Volcano Titan. Eruptions across Lumoria mark its awakening.",
+    lore:"Ashvanus is a large fire-rock creature 2 metres tall resembling a volcanic vent that has grown a body. Its core is glowing magma surrounded by a shell of compressed ash-rock. It stands dormant for years between activity phases, during which local plants colonise its ash-body, making it appear as a small hill." },
 
   316: { id:316, name:"Abyssovex", emoji:"🌊", types:["Water","Dark"],
     base:{hp:99,atk:102,def:85,spa:130,spd:92,spe:82},
     learnset:[[1,"water_gun"],[1,"bite"],[7,"bubble_beam"],[14,"crunch"],[21,"abyssal_jet"],[28,"dark_pulse"],[35,"surf"],[42,"abyssal_snare"],[49,"dragon_pulse"],[56,"soul_rend"],[63,"hydro_pump"],[70,"geyser_burst"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
-    desc:"The Legendary Abyss Drake. Lurks in the deepest ocean trenches." },
+    desc:"The Legendary Abyss Drake. Lurks in the deepest ocean trenches.",
+    lore:"Abyssovex is a massive water-dark leviathan 8 metres long resembling an enormous deep-sea squid with dark bioluminescent patches along its body. Its tentacles extend 4 metres beyond its mantle. It inhabits the deepest ocean trenches and ascends toward surface waters only during rare deep-sea events." },
 
   // ===== NEW LUMOS IDs 108-167 =====
 
@@ -2752,25 +2769,29 @@ const MONSTERS_DATA = {
     base:{hp:97,atk:100,def:99,spa:132,spd:107,spe:83},
     learnset:[[1,"confusion"],[1,"dragon_breath"],[7,"psybeam"],[14,"calm_mind"],[21,"dragon_claw"],[28,"psychic_move"],[35,"dragon_pulse"],[42,"prism_ward"],[49,"astral_rend"],[56,"ancient_breath"],[63,"temporal_rift"],[70,"neural_storm"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
-    desc:"The Legendary Veil of Time. Said to exist at the crossing point of past and future." },
+    desc:"The Legendary Veil of Time. Said to exist at the crossing point of past and future.",
+    lore:"Temporith is a psychic-dragon 3 metres long whose scales appear to flicker between states of existence — slightly out of phase with the present moment. Its outline is never quite sharp. It inhabits places where history is dense — ancient battlefields, old libraries — feeding on residual temporal energy." },
 
   318: { id:318, name:"Gaiavorn", emoji:"🌍", types:["Ground","Grass"],
     base:{hp:103,atk:125,def:104,spa:92,spd:89,spe:75},
     learnset:[[1,"mud_shot"],[1,"vine_whip"],[7,"sandstrike"],[14,"razor_leaf"],[21,"earth_power"],[28,"seed_bomb"],[35,"clay_armor"],[42,"briar_lash"],[49,"earthquake"],[56,"grove_wrath"],[63,"worldseed_quake"],[70,"verdant_surge"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
-    desc:"The Legendary Spirit of the Land. Every continent in Lumoria trembles at its footfall." },
+    desc:"The Legendary Spirit of the Land. Every continent in Lumoria trembles at its footfall.",
+    lore:"Gaiavorn is a ground-grass titan 4 metres tall resembling a towering elemental figure whose lower body is packed earth and roots and whose upper body is a living forest canopy. Trees grow from its shoulders. It moves once per decade at most and its displacement creates new valleys and ridges." },
 
   319: { id:319, name:"Voidraxis", emoji:"🌌", types:["Dark","Fairy"],
     base:{hp:95,atk:93,def:89,spa:131,spd:113,spe:88},
     learnset:[[1,"fairy_wind"],[1,"bite"],[7,"dark_pulse"],[14,"dazzling_gleam"],[21,"eclipse_shroud"],[28,"moonblast"],[35,"abyssal_snare"],[42,"shadow_ball"],[49,"dread_howl"],[56,"glitter_storm"],[63,"soul_rend"],[70,"fae_requiem"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
-    desc:"The Legendary Void Star. A being of absolute darkness ringed by fairy light. Where it passes, stars blink out." },
+    desc:"The Legendary Void Star. A being of absolute darkness ringed by fairy light. Where it passes, stars blink out.",
+    lore:"Voidraxis is a dark-fairy creature 1 metre at the shoulder with a body that appears as a perfectly shaped void in reality — an absence of light surrounded by a rim of pale fairy luminescence. It inhabits boundary spaces between light and dark and feeds on ambient emotional energy at dawn and dusk." },
 
   320: { id:320, name:"Galvathon", emoji:"⚡", types:["Steel","Electric"],
     base:{hp:91,atk:120,def:108,spa:103,spd:84,spe:93},
     learnset:[[1,"metal_claw"],[1,"thunder_shock"],[7,"spark"],[14,"steel_wing"],[21,"magnetize"],[28,"thunderbolt"],[35,"flash_cannon"],[42,"forge_strike"],[49,"iron_tail"],[56,"ball_lightning"],[63,"anvil_drop"],[70,"thunder"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
-    desc:"The Legendary Stormforged. Born in the heart of the greatest storm ever recorded. Lightning is its heartbeat." },
+    desc:"The Legendary Stormforged. Born in the heart of the greatest storm ever recorded. Lightning is its heartbeat.",
+    lore:"Galvathon is a massive steel-electric creature 3 metres tall resembling a great mechanical titan powered by its own internal fusion of steel and lightning. Its body is dark polished metal with electric arcs cascading continuously across its surface. It is considered the pinnacle of natural mechanical evolution." },
 
   // ===== NEW EVOLUTIONS (IDs 168-177) =====
 

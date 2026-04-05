@@ -1560,6 +1560,52 @@ html, body {
   margin-bottom: 0.75rem;
 }
 
+/* Pokédex lore screen */
+.pokedex-screen {
+  background: #1a2e1a;
+  border: 3px solid #2a4a2a;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  min-height: 7rem;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.5), 0 0 6px rgba(60,180,60,0.15);
+  position: relative;
+}
+.pokedex-screen-lines {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #a8d8a8;
+  line-height: 1.6;
+  min-height: 5.5rem;
+}
+.pokedex-page-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid #2a4a2a;
+}
+.pokedex-page-btn {
+  background: #2a4a2a;
+  border: 1px solid #3a6a3a;
+  border-radius: 4px;
+  color: #a8d8a8;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+}
+.pokedex-page-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.pokedex-page-indicator {
+  font-size: 0.7rem;
+  color: #6aaa6a;
+  font-family: 'Courier New', monospace;
+}
+
 .detail-section h4 {
   color: var(--text-secondary);
   font-size: 0.8rem;

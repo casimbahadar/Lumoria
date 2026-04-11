@@ -4,101 +4,99 @@
 
 const BattleState = {
   active: false,
-  playerMon: null,       // live battle copy
-  enemyMon: null,        // live battle copy
+  playerMon: null,
+  enemyMon: null,
   isWild: false,
   isGym: false,
   isChampion: false,
   gymLeaderId: null,
-  enemyTeam: [],         // for gym/champion battles
+  enemyTeam: [],
   enemyTeamIndex: 0,
   playerTeamIndex: 0,
-  playerWaiting: false,  // waiting for player input
+  playerWaiting: false,
   turnInProgress: false,
-  onBattleEnd: null,     // callback
+  onBattleEnd: null,
   log: []
 };
 
 // ---- Helpers ----
 
 function rollPercent(chance) { return Math.random() * 100 < chance; }
-
 function clamp(val, min, max) { return Math.max(min, Math.min(max, val)); }
 
 function stageMultiplier(stage) {
-  // Attack/Defense stages: -6 to +6
-  const tbl = [0.25,0.29,0.33,0.4,0.5,0.67,1,1.5,2,2.5,3,3.5,4];
-  return tbl[stage + 6];
+  return [0.25,0.29,0.33,0.4,0.5,0.67,1,1.5,2,2.5,3,3.5,4][stage + 6];
 }
 
-// Calculate max HP from base stat, level, and IV
 function calcMaxHP(baseHP, level, iv) {
-  const ivVal = iv || 0;
-  return Math.floor(((2 * baseHP + ivVal) * level) / 100) + level + 10;
+  return Math.floor(((2 * baseHP + (iv||0)) * level) / 100) + level + 10;
 }
 
-// Calculate a stat from base, level, and IV
 function calcStat(base, level, iv) {
-  const ivVal = iv || 0;
-  return Math.floor(((2 * base + ivVal) * level) / 100) + 5;
+  return Math.floor(((2 * base + (iv||0)) * level) / 100) + 5;
 }
 
-// Build a live monster object for battle from a party slot
-// levelCap: optional max level to scale down to for capped battles
+// Shared move array builder
+function buildMoveArr(moveIds) {
+  return moveIds.map(mid => ({ id: mid, pp: MOVES_DATA[mid].pp, maxPP: MOVES_DATA[mid].pp }));
+}
+
+// Shared battle-mon base (common fields for all 3 build functions)
+function buildMonBase(def, lv, ivs, nature) {
+  const np = nature || "Balanced";
+  const maxHP = calcMaxHP(def.base.hp, lv, ivs.hp);
+  return {
+    name: def.name, emoji: def.emoji,
+    types: [...def.types], level: lv, nature: np, ivs,
+    maxHP, currentHP: maxHP,
+    atk: applyNatureToStat("atk", calcStat(def.base.atk, lv, ivs.atk), np),
+    def: applyNatureToStat("def", calcStat(def.base.def, lv, ivs.def), np),
+    spa: applyNatureToStat("spa", calcStat(def.base.spa, lv, ivs.spa), np),
+    spd: applyNatureToStat("spd", calcStat(def.base.spd, lv, ivs.spd), np),
+    spe: applyNatureToStat("spe", calcStat(def.base.spe, lv, ivs.spe), np),
+    status: null, poisonTurns: 0, sleepTurns: 0,
+    stages: { atk:0, def:0, spa:0, spd:0, spe:0 },
+    isConfused: false, confuseTurns: 0, fainted: false,
+  };
+}
+
+// Build a live battle copy from a party slot (levelCap optional)
 function buildBattleMon(partySlot, levelCap) {
   const def = MONSTERS_DATA[partySlot.monsterId];
   const lv = (levelCap && partySlot.level > levelCap) ? levelCap : partySlot.level;
+  const ivs = partySlot.ivs || { hp:0, atk:0, def:0, spa:0, spd:0, spe:0 };
   const heldItemId = partySlot.heldItem || null;
   const heldData = heldItemId ? ITEMS_DATA[heldItemId] : null;
-  const ivs = partySlot.ivs || { hp:0, atk:0, def:0, spa:0, spd:0, spe:0 };
-  let maxHP = calcMaxHP(def.base.hp, lv, ivs.hp);
-  // Vital Seed: boost HP by 15%
-  if (heldData && heldData.held && heldData.held.stat === "hp") {
-    maxHP = Math.floor(maxHP * heldData.held.mult);
-  }
-  const actualMax = calcMaxHP(def.base.hp, partySlot.level, ivs.hp);
-  const rawHP = partySlot.currentHP !== undefined ? partySlot.currentHP : actualMax;
-  // Scale current HP proportionally if level-capped or HP was boosted
-  const baseMax = calcMaxHP(def.base.hp, lv, ivs.hp);
-  let currentHP;
-  if (levelCap && partySlot.level > levelCap) {
-    // Scale HP proportionally for level cap
-    currentHP = Math.max(1, Math.floor((rawHP / actualMax) * maxHP));
-  } else {
-    currentHP = maxHP > baseMax ? Math.min(maxHP, rawHP + (maxHP - baseMax)) : rawHP;
-  }
 
-  const nature = partySlot.nature || "Balanced";
   const mon = {
+    ...buildMonBase(def, lv, ivs, partySlot.nature),
     monsterId: partySlot.monsterId,
     name: partySlot.nickname || def.name,
-    emoji: def.emoji,
-    types: [...def.types],
-    level: lv,
-    nature,
-    ivs,
-    maxHP,
-    currentHP: Math.min(maxHP, currentHP),
-    atk:  applyNatureToStat("atk", calcStat(def.base.atk, lv, ivs.atk), nature),
-    def:  applyNatureToStat("def", calcStat(def.base.def, lv, ivs.def), nature),
-    spa:  applyNatureToStat("spa", calcStat(def.base.spa, lv, ivs.spa), nature),
-    spd:  applyNatureToStat("spd", calcStat(def.base.spd, lv, ivs.spd), nature),
-    spe:  applyNatureToStat("spe", calcStat(def.base.spe, lv, ivs.spe), nature),
-    moves: partySlot.moves.map(mid => ({ id: mid, pp: MOVES_DATA[mid].pp, maxPP: MOVES_DATA[mid].pp })),
-    status: partySlot.status || null,   // burn|paralyze|poison|badpoison|sleep|freeze
-    poisonTurns: 0,
-    sleepTurns: 0,
-    stages: { atk:0, def:0, spa:0, spd:0, spe:0 }, // stat stages
-    isConfused: false,
-    confuseTurns: 0,
+    moves: buildMoveArr(partySlot.moves),
+    status: partySlot.status || null,
     fainted: partySlot.currentHP === 0,
     heldItem: heldItemId,
     focusSashUsed: false,
-    partyRef: partySlot  // reference back to party
+    partyRef: partySlot,
   };
 
-  // Apply stat-boosting held items
-  if (heldData && heldData.held && heldData.held.stat && heldData.held.stat !== "hp") {
+  // Vital Seed: boost maxHP by 15%
+  if (heldData?.held?.stat === "hp") {
+    mon.maxHP = Math.floor(mon.maxHP * heldData.held.mult);
+  }
+
+  // Restore actual current HP (scale if level-capped or HP-boosted)
+  const actualMax = calcMaxHP(def.base.hp, partySlot.level, ivs.hp);
+  const rawHP = partySlot.currentHP !== undefined ? partySlot.currentHP : actualMax;
+  const baseMax = calcMaxHP(def.base.hp, lv, ivs.hp);
+  mon.currentHP = Math.min(mon.maxHP,
+    (levelCap && partySlot.level > levelCap)
+      ? Math.max(1, Math.floor((rawHP / actualMax) * mon.maxHP))
+      : (mon.maxHP > baseMax ? Math.min(mon.maxHP, rawHP + (mon.maxHP - baseMax)) : rawHP)
+  );
+
+  // Stat-boosting held items (non-HP)
+  if (heldData?.held?.stat && heldData.held.stat !== "hp") {
     const s = heldData.held.stat;
     mon[s] = Math.floor(mon[s] * heldData.held.mult);
   }
@@ -106,79 +104,32 @@ function buildBattleMon(partySlot, levelCap) {
   return mon;
 }
 
-// Build a wild monster battle object from scratch
+// Build a wild monster battle object
 function buildWildMon(monsterId, level) {
   const def = MONSTERS_DATA[monsterId];
-  // Pick moves from learnset that the monster knows at this level
-  const knownMoves = def.learnset
-    .filter(entry => entry[0] <= level)
-    .map(entry => entry[1]);
-  // Take last 4 moves known
-  const moves = knownMoves.slice(-4).map(mid => ({
-    id: mid, pp: MOVES_DATA[mid].pp, maxPP: MOVES_DATA[mid].pp
-  }));
-  if (moves.length === 0) moves.push({ id: "tackle", pp: 35, maxPP: 35 });
-
   const nature = getRandomNature();
   const ivs = generateIVs();
-  const maxHPWithIV = calcMaxHP(def.base.hp, level, ivs.hp);
+  const knownMoves = def.learnset.filter(e => e[0] <= level).map(e => e[1]).slice(-4);
+  if (knownMoves.length === 0) knownMoves.push("tackle");
   return {
+    ...buildMonBase(def, level, ivs, nature),
     monsterId,
-    name: def.name,
-    emoji: def.emoji,
-    types: [...def.types],
-    level,
-    nature,
-    ivs,
-    maxHP: maxHPWithIV,
-    currentHP: maxHPWithIV,
-    atk:  applyNatureToStat("atk", calcStat(def.base.atk, level, ivs.atk), nature),
-    def:  applyNatureToStat("def", calcStat(def.base.def, level, ivs.def), nature),
-    spa:  applyNatureToStat("spa", calcStat(def.base.spa, level, ivs.spa), nature),
-    spd:  applyNatureToStat("spd", calcStat(def.base.spd, level, ivs.spd), nature),
-    spe:  applyNatureToStat("spe", calcStat(def.base.spe, level, ivs.spe), nature),
-    moves,
-    status: null,
-    poisonTurns: 0,
-    sleepTurns: 0,
-    stages: { atk:0, def:0, spa:0, spd:0, spe:0 },
-    isConfused: false,
-    confuseTurns: 0,
-    fainted: false,
+    moves: buildMoveArr(knownMoves),
     catchRate: def.catchRate,
-    expYield: def.expYield
+    expYield: def.expYield,
   };
 }
 
-// Build a gym leader's monster
+// Build a gym/boss monster (perfect IVs, no nature modifier)
 function buildGymMon(slot) {
   const def = MONSTERS_DATA[slot.monsterId];
-  const lv = slot.level;
-  // Gym/boss mons get perfect IVs (31 each)
-  const maxHP = calcMaxHP(def.base.hp, lv, 31);
+  const ivs31 = { hp:31, atk:31, def:31, spa:31, spd:31, spe:31 };
   return {
+    ...buildMonBase(def, slot.level, ivs31, "Balanced"),
     monsterId: slot.monsterId,
-    name: def.name,
-    emoji: def.emoji,
-    types: [...def.types],
-    level: lv,
-    maxHP,
-    currentHP: maxHP,
-    atk:  calcStat(def.base.atk, lv, 31),
-    def:  calcStat(def.base.def, lv, 31),
-    spa:  calcStat(def.base.spa, lv, 31),
-    spd:  calcStat(def.base.spd, lv, 31),
-    spe:  calcStat(def.base.spe, lv, 31),
-    moves: slot.moves.map(mid => ({ id: mid, pp: MOVES_DATA[mid].pp, maxPP: MOVES_DATA[mid].pp })),
-    status: null,
-    poisonTurns: 0,
-    sleepTurns: 0,
-    stages: { atk:0, def:0, spa:0, spd:0, spe:0 },
-    isConfused: false,
-    confuseTurns: 0,
-    fainted: false,
+    moves: buildMoveArr(slot.moves),
     catchRate: 0,
-    expYield: MONSTERS_DATA[slot.monsterId].expYield
+    expYield: def.expYield,
   };
 }
 
@@ -187,7 +138,7 @@ function buildGymMon(slot) {
 function getHeldData(mon) {
   if (!mon.heldItem) return null;
   const item = ITEMS_DATA[mon.heldItem];
-  return item && item.held ? item.held : null;
+  return item?.held ?? null;
 }
 
 function calcDamage(attacker, defender, move) {
@@ -199,36 +150,20 @@ function calcDamage(attacker, defender, move) {
     ? defender.def * stageMultiplier(defender.stages.def)
     : defender.spd * stageMultiplier(defender.stages.spd);
 
-  // Burn halves physical attack
   const burnMod = (attacker.status === "burn" && move.cat === "physical") ? 0.5 : 1;
-
   let dmg = Math.floor(((2 * attacker.level / 5 + 2) * move.power * atk / def) / 50 + 2);
-  dmg = Math.floor(dmg * burnMod);
-
-  // Random factor 0.85-1.0
-  const rand = 0.85 + Math.random() * 0.15;
-  dmg = Math.floor(dmg * rand);
-
-  // STAB: +50% if attacker shares type with move
+  dmg = Math.floor(dmg * burnMod * (0.85 + Math.random() * 0.15));
   if (attacker.types.includes(move.type)) dmg = Math.floor(dmg * 1.5);
 
-  // Held item: type boost (e.g. Charcoal boosts Fire)
   const atkHeld = getHeldData(attacker);
-  if (atkHeld && atkHeld.typeBoost && atkHeld.typeBoost === move.type) {
-    dmg = Math.floor(dmg * atkHeld.mult);
-  }
-  // Held item: category boost (Black Belt boosts physical, Wise Glasses boosts special)
-  if (atkHeld && atkHeld.catBoost && atkHeld.catBoost === move.cat) {
-    dmg = Math.floor(dmg * atkHeld.mult);
-  }
+  if (atkHeld?.typeBoost === move.type) dmg = Math.floor(dmg * atkHeld.mult);
+  if (atkHeld?.catBoost === move.cat)   dmg = Math.floor(dmg * atkHeld.mult);
 
-  // Type effectiveness
   const eff = getTypeEffectiveness(move.type, defender.types);
   dmg = Math.floor(dmg * eff);
 
-  // Critical hit (1/16 base, or 1/4 if crit flag; Scope Lens doubles base rate)
   let critRate = move.effect === "crit" ? 25 : 6.25;
-  if (atkHeld && atkHeld.effect === "critUp") critRate = Math.min(50, critRate * 2);
+  if (atkHeld?.effect === "critUp") critRate = Math.min(50, critRate * 2);
   const isCrit = rollPercent(critRate);
   if (isCrit) dmg = Math.floor(dmg * 1.5);
 
@@ -237,12 +172,60 @@ function calcDamage(attacker, defender, move) {
 
 // ---- Apply Move Effects ----
 
+// Data-driven single-stat stage changes { who:'a'=attacker/'d'=defender, stat, delta, msg }
+const STAGE_FX = {
+  atkdown:   { who:'d', stat:'atk', delta:-1, msg:'Attack fell' },
+  defdown:   { who:'d', stat:'def', delta:-1, msg:'Defense fell' },
+  spdefdown: { who:'d', stat:'spd', delta:-1, msg:'Sp.Def fell' },
+  spedown:   { who:'d', stat:'spe', delta:-1, msg:'Speed fell' },
+  spedown2:  { who:'d', stat:'spe', delta:-2, msg:'Speed fell sharply' },
+  spatkdown: { who:'d', stat:'spa', delta:-1, msg:'Sp.Atk fell' },
+  atkup:     { who:'a', stat:'atk', delta:+1, msg:'Attack rose' },
+  atkup2:    { who:'a', stat:'atk', delta:+2, msg:'Attack rose sharply' },
+  defup:     { who:'a', stat:'def', delta:+1, msg:'Defense rose' },
+};
+// Multi-stat stage changes
+const MULTI_STAGE_FX = {
+  calmup:      { changes:[{who:'a',stat:'spa',delta:+1},{who:'a',stat:'spd',delta:+1}], msg:'Sp.Atk and Sp.Def rose' },
+  dragondance: { changes:[{who:'a',stat:'atk',delta:+1},{who:'a',stat:'spe',delta:+1}], msg:'Attack and Speed rose' },
+};
+
+function applyStageChange(mon, stat, delta) {
+  const cur = mon.stages[stat];
+  if (delta < 0 && cur <= -6) return false;
+  if (delta > 0 && cur >= 6) return false;
+  mon.stages[stat] = Math.max(-6, Math.min(6, cur + delta));
+  return true;
+}
+
 function applyMoveEffect(move, attacker, defender) {
   if (!move.effect || move.ec === 0) return [];
   const messages = [];
   if (!rollPercent(move.ec)) return messages;
+  const fx = move.effect;
 
-  switch (move.effect) {
+  // Single-stat stage changes
+  if (STAGE_FX[fx]) {
+    const { who, stat, delta, msg } = STAGE_FX[fx];
+    const mon = who === 'a' ? attacker : defender;
+    if (applyStageChange(mon, stat, delta)) {
+      const arrow = delta > 0 ? '📈' : '📉';
+      messages.push(`${arrow} ${mon.name}'s ${msg}!`);
+    }
+    return messages;
+  }
+
+  // Multi-stat stage changes
+  if (MULTI_STAGE_FX[fx]) {
+    const { changes, msg } = MULTI_STAGE_FX[fx];
+    const mon = attacker; // all multi-stage effects target attacker
+    let changed = false;
+    for (const c of changes) changed = applyStageChange(mon, c.stat, c.delta) || changed;
+    if (changed) messages.push(`📈 ${mon.name}'s ${msg}!`);
+    return messages;
+  }
+
+  switch (fx) {
     case "burn":
       if (!defender.status && !defender.types.includes("Fire")) {
         defender.status = "burn";
@@ -289,78 +272,14 @@ function applyMoveEffect(move, attacker, defender) {
       }
       break;
     case "flinch":
-      // flinch handled in turn order
       defender._flinched = true;
       break;
-    case "atkdown":
-      if (defender.stages.atk > -6) {
-        defender.stages.atk = Math.max(-6, defender.stages.atk - 1);
-        messages.push(`📉 ${defender.name}'s Attack fell!`);
-      }
-      break;
-    case "defdown":
-      if (defender.stages.def > -6) {
-        defender.stages.def = Math.max(-6, defender.stages.def - 1);
-        messages.push(`📉 ${defender.name}'s Defense fell!`);
-      }
-      break;
-    case "spdefdown":
-      if (defender.stages.spd > -6) {
-        defender.stages.spd = Math.max(-6, defender.stages.spd - 1);
-        messages.push(`📉 ${defender.name}'s Sp.Def fell!`);
-      }
-      break;
-    case "spedown":
-      if (defender.stages.spe > -6) {
-        defender.stages.spe = Math.max(-6, defender.stages.spe - 1);
-        messages.push(`📉 ${defender.name}'s Speed fell!`);
-      }
-      break;
-    case "spedown2":
-      if (defender.stages.spe > -6) {
-        defender.stages.spe = Math.max(-6, defender.stages.spe - 2);
-        messages.push(`📉 ${defender.name}'s Speed fell sharply!`);
-      }
-      break;
-    case "spatkdown":
-      if (defender.stages.spa > -6) {
-        defender.stages.spa = Math.max(-6, defender.stages.spa - 1);
-        messages.push(`📉 ${defender.name}'s Sp.Atk fell!`);
-      }
-      break;
-    case "atkup":
-      if (attacker.stages.atk < 6) {
-        attacker.stages.atk = Math.min(6, attacker.stages.atk + 1);
-        messages.push(`📈 ${attacker.name}'s Attack rose!`);
-      }
-      break;
-    case "atkup2":
-      if (attacker.stages.atk < 6) {
-        attacker.stages.atk = Math.min(6, attacker.stages.atk + 2);
-        messages.push(`📈 ${attacker.name}'s Attack rose sharply!`);
-      }
-      break;
-    case "defup":
-      if (attacker.stages.def < 6) {
-        attacker.stages.def = Math.min(6, attacker.stages.def + 1);
-        messages.push(`📈 ${attacker.name}'s Defense rose!`);
-      }
-      break;
-    case "calmup":
-      if (attacker.stages.spa < 6) attacker.stages.spa = Math.min(6, attacker.stages.spa + 1);
-      if (attacker.stages.spd < 6) attacker.stages.spd = Math.min(6, attacker.stages.spd + 1);
-      messages.push(`📈 ${attacker.name}'s Sp.Atk and Sp.Def rose!`);
-      break;
-    case "dragondance":
-      if (attacker.stages.atk < 6) attacker.stages.atk = Math.min(6, attacker.stages.atk + 1);
-      if (attacker.stages.spe < 6) attacker.stages.spe = Math.min(6, attacker.stages.spe + 1);
-      messages.push(`📈 ${attacker.name}'s Attack and Speed rose!`);
-      break;
-    case "heal50":
+    case "heal50": {
       const healAmt = Math.floor(attacker.maxHP * 0.5);
       attacker.currentHP = Math.min(attacker.maxHP, attacker.currentHP + healAmt);
       messages.push(`💚 ${attacker.name} restored ${healAmt} HP!`);
       break;
+    }
   }
   return messages;
 }
@@ -369,32 +288,26 @@ function applyMoveEffect(move, attacker, defender) {
 
 function tickStatus(mon) {
   const msgs = [];
-  if (!mon.status) return msgs;
-  switch (mon.status) {
-    case "burn":
-      const burnDmg = Math.max(1, Math.floor(mon.maxHP / 8));
-      mon.currentHP = Math.max(0, mon.currentHP - burnDmg);
-      msgs.push(`🔥 ${mon.name} is hurt by burn! (-${burnDmg})`);
-      break;
-    case "poison":
-      const poisDmg = Math.max(1, Math.floor(mon.maxHP / 8));
-      mon.currentHP = Math.max(0, mon.currentHP - poisDmg);
-      msgs.push(`☠️ ${mon.name} is hurt by poison! (-${poisDmg})`);
-      break;
-    case "badpoison":
-      const bpDmg = Math.max(1, Math.floor(mon.maxHP * mon.poisonTurns / 16));
-      mon.currentHP = Math.max(0, mon.currentHP - bpDmg);
-      mon.poisonTurns++;
-      msgs.push(`☠️ ${mon.name} is hurt by bad poison! (-${bpDmg})`);
-      break;
+  if (mon.status === "burn" || mon.status === "poison") {
+    const dmg = Math.max(1, Math.floor(mon.maxHP / 8));
+    mon.currentHP = Math.max(0, mon.currentHP - dmg);
+    msgs.push(mon.status === "burn"
+      ? `🔥 ${mon.name} is hurt by burn! (-${dmg})`
+      : `☠️ ${mon.name} is hurt by poison! (-${dmg})`);
+  } else if (mon.status === "badpoison") {
+    const dmg = Math.max(1, Math.floor(mon.maxHP * mon.poisonTurns / 16));
+    mon.currentHP = Math.max(0, mon.currentHP - dmg);
+    mon.poisonTurns++;
+    msgs.push(`☠️ ${mon.name} is hurt by bad poison! (-${dmg})`);
   }
   if (mon.currentHP <= 0) mon.fainted = true;
-  // Leftovers: heal 1/16 max HP at end of turn
+
+  // Leftovers: heal 1/16 max HP per turn
   const heldInfo = getHeldData(mon);
-  if (heldInfo && heldInfo.effect === "leftovers" && mon.currentHP > 0 && mon.currentHP < mon.maxHP) {
-    const healAmt = Math.max(1, Math.floor(mon.maxHP / 16));
-    mon.currentHP = Math.min(mon.maxHP, mon.currentHP + healAmt);
-    msgs.push(`🍎 ${mon.name}'s Leftovers restored ${healAmt} HP!`);
+  if (heldInfo?.effect === "leftovers" && mon.currentHP > 0 && mon.currentHP < mon.maxHP) {
+    const heal = Math.max(1, Math.floor(mon.maxHP / 16));
+    mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+    msgs.push(`🍎 ${mon.name}'s Leftovers restored ${heal} HP!`);
   }
   return msgs;
 }
@@ -402,7 +315,7 @@ function tickStatus(mon) {
 // Focus Sash: survive a fatal hit with 1 HP
 function applyFocusSash(mon, damage) {
   const held = getHeldData(mon);
-  if (held && held.effect === "focusSash" && !mon.focusSashUsed && mon.currentHP === mon.maxHP && damage >= mon.currentHP) {
+  if (held?.effect === "focusSash" && !mon.focusSashUsed && mon.currentHP === mon.maxHP && damage >= mon.currentHP) {
     mon.focusSashUsed = true;
     return { damage: mon.currentHP - 1, triggered: true };
   }
@@ -411,33 +324,24 @@ function applyFocusSash(mon, damage) {
 
 // Quick Claw: 30% chance to move first
 function checkQuickClaw(mon) {
-  const held = getHeldData(mon);
-  return held && held.effect === "quickClaw" && rollPercent(30);
+  return getHeldData(mon)?.effect === "quickClaw" && rollPercent(30);
 }
 
-// Check if mon can move this turn
+// Check if mon can move this turn (handles sleep/freeze/paralyze/confusion)
 function canMove(mon) {
   if (mon.status === "sleep") {
-    mon.sleepTurns--;
-    if (mon.sleepTurns <= 0) {
-      mon.status = null;
-      return { can: true, msg: `${mon.name} woke up!` };
-    }
+    if (--mon.sleepTurns <= 0) { mon.status = null; return { can: true,  msg: `${mon.name} woke up!` }; }
     return { can: false, msg: `💤 ${mon.name} is fast asleep!` };
   }
   if (mon.status === "freeze") {
-    if (rollPercent(20)) {
-      mon.status = null;
-      return { can: true, msg: `${mon.name} thawed out!` };
-    }
+    if (rollPercent(20)) { mon.status = null; return { can: true,  msg: `${mon.name} thawed out!` }; }
     return { can: false, msg: `🧊 ${mon.name} is frozen solid!` };
   }
   if (mon.status === "paralyze" && rollPercent(25)) {
     return { can: false, msg: `⚡ ${mon.name} is paralyzed and can't move!` };
   }
   if (mon.isConfused) {
-    mon.confuseTurns--;
-    if (mon.confuseTurns <= 0) {
+    if (--mon.confuseTurns <= 0) {
       mon.isConfused = false;
     } else if (rollPercent(33)) {
       const selfDmg = Math.max(1, Math.floor(mon.maxHP / 8));
@@ -452,36 +356,24 @@ function canMove(mon) {
 // ---- AI Move Selection ----
 
 function aiChooseMove(ai, target) {
-  // Score each move by expected damage and utility
   const usableMoves = ai.moves.filter(m => m.pp > 0);
-  if (usableMoves.length === 0) return { id: "tackle", pp: 1, maxPP: 35 }; // struggle
+  if (!usableMoves.length) return { id: "tackle", pp: 1, maxPP: 35 };
 
-  let bestMove = usableMoves[0];
-  let bestScore = -1;
-
-  for (const m of usableMoves) {
+  return usableMoves.reduce((best, m) => {
     const move = MOVES_DATA[m.id];
-    if (!move) continue;
+    if (!move) return best;
     let score = 0;
-
     if (move.power > 0) {
-      const eff = getTypeEffectiveness(move.type, target.types);
-      score = move.power * eff;
-      // STAB bonus
+      score = move.power * getTypeEffectiveness(move.type, target.types);
       if (ai.types.includes(move.type)) score *= 1.5;
-      // Prefer finishing moves
-      const { damage } = calcDamage(ai, target, move);
-      if (damage >= target.currentHP) score += 1000;
+      if (calcDamage(ai, target, move).damage >= target.currentHP) score += 1000;
     } else {
-      // Status moves: value them based on situation
       if (move.effect === "heal50" && ai.currentHP < ai.maxHP * 0.5) score = 80;
       else if (move.effect === "atkup2" || move.effect === "dragondance") score = 60;
-      else if (!target.status) score = 50;
-      else score = 10;
+      else score = target.status ? 10 : 50;
     }
-    if (score > bestScore) { bestScore = score; bestMove = m; }
-  }
-  return bestMove;
+    return score > best.score ? { m, score } : best;
+  }, { m: usableMoves[0], score: -1 }).m;
 }
 
 // ---- Capture Mechanic ----
@@ -489,101 +381,62 @@ function aiChooseMove(ai, target) {
 function attemptCapture(wildMon, orbType) {
   const item = ITEMS_DATA[orbType];
   if (!item) return false;
-  if (item.catchMult >= 255) return true; // Master Orb
-
-  const rate = wildMon.catchRate || 45;
-  const hpFactor = (3 * wildMon.maxHP - 2 * wildMon.currentHP) / (3 * wildMon.maxHP);
-  const statusBonus = wildMon.status ? 2 : 1;
-  const catchVal = (rate * hpFactor * item.catchMult * statusBonus) / 255;
+  if (item.catchMult >= 255) return true;
+  const catchVal = (wildMon.catchRate || 45)
+    * ((3 * wildMon.maxHP - 2 * wildMon.currentHP) / (3 * wildMon.maxHP))
+    * item.catchMult * (wildMon.status ? 2 : 1) / 255;
   return Math.random() < catchVal;
 }
 
-// ---- XP Calculation ----
+// ---- XP & Levelling ----
 
 function calcXPGain(defeatedMon, isWild) {
-  const base = defeatedMon.expYield || 100;
-  const factor = isWild ? 1 : 1.5;
-  return Math.floor(base * defeatedMon.level * factor / 7);
+  return Math.floor((defeatedMon.expYield || 100) * defeatedMon.level * (isWild ? 1 : 1.5) / 7);
 }
 
-// XP needed for level n (medium-fast: n^3)
-function xpForLevel(level) {
-  return Math.floor(Math.pow(level, 3) * 0.8);
-}
+function xpForLevel(level) { return Math.floor(Math.pow(level, 3) * 0.8); }
 
-// Give XP to a party monster and handle level ups
 function giveXP(partySlot, amount) {
   partySlot.xp = (partySlot.xp || 0) + amount;
   const levelUps = [];
-
-  while (partySlot.level < 100) {
-    const needed = xpForLevel(partySlot.level + 1);
-    if (partySlot.xp < needed) break;
+  while (partySlot.level < 100 && partySlot.xp >= xpForLevel(partySlot.level + 1)) {
     partySlot.level++;
-    // Recalculate stats
     const def = MONSTERS_DATA[partySlot.monsterId];
     const lv = partySlot.level;
     const pIvs = partySlot.ivs || { hp:0, atk:0, def:0, spa:0, spd:0, spe:0 };
-    const oldMax = partySlot.maxHP || calcMaxHP(def.base.hp, lv - 1, pIvs.hp);
     const newMax = calcMaxHP(def.base.hp, lv, pIvs.hp);
-    const hpGain = newMax - oldMax;
+    partySlot.currentHP = Math.min(newMax, (partySlot.currentHP || 1) + newMax - (partySlot.maxHP || newMax));
     partySlot.maxHP = newMax;
-    partySlot.currentHP = Math.min(partySlot.maxHP, (partySlot.currentHP || 1) + hpGain);
-    // Learn new moves
-    const newMoves = def.learnset
-      .filter(entry => entry[0] === lv)
-      .map(entry => entry[1]);
+    const newMoves = def.learnset.filter(e => e[0] === lv).map(e => e[1]);
     for (const mid of newMoves) {
-      if (!partySlot.moves.includes(mid)) {
-        if (partySlot.moves.length < 4) {
-          partySlot.moves.push(mid);
-        } else {
-          // Replace last move (simplified)
-          partySlot.moves[3] = mid;
-        }
-      }
+      if (!partySlot.moves.includes(mid))
+        partySlot.moves.length < 4 ? partySlot.moves.push(mid) : (partySlot.moves[3] = mid);
     }
     levelUps.push({ level: lv, newMoves });
   }
   return levelUps;
 }
 
-// Check evolution
+// ---- Evolution ----
+
 function checkEvolution(partySlot) {
   const def = MONSTERS_DATA[partySlot.monsterId];
-  // Skip item-only evolutions (no evolveLevel means item evolution)
-  if (def.evolveTo && def.evolveLevel && partySlot.level >= def.evolveLevel) {
-    // Don't auto-evolve if this is an item-only evolution
-    if (def.evolveItem && !def.evolveLevel) return null;
-    return def.evolveTo;
-  }
+  if (def.evolveTo && def.evolveLevel && partySlot.level >= def.evolveLevel) return def.evolveTo;
   return null;
 }
 
-// Evolve a party slot
 function evolveMonster(partySlot) {
   const targetId = checkEvolution(partySlot);
   if (!targetId) return null;
   const oldId = partySlot.monsterId;
   const newDef = MONSTERS_DATA[targetId];
   partySlot.monsterId = targetId;
-  // Keep nickname if set
-  if (!partySlot.nickname) partySlot.nickname = null;
-  // Update HP proportionally
-  const lv = partySlot.level;
-  const newMax = calcMaxHP(newDef.base.hp, lv);
-  const ratio = partySlot.currentHP / partySlot.maxHP;
+  const newMax = calcMaxHP(newDef.base.hp, partySlot.level);
+  partySlot.currentHP = Math.max(1, Math.floor(newMax * (partySlot.currentHP / partySlot.maxHP)));
   partySlot.maxHP = newMax;
-  partySlot.currentHP = Math.max(1, Math.floor(newMax * ratio));
-  // Merge moves
   const existingMoves = new Set(partySlot.moves);
-  const newMoves = newDef.learnset
-    .filter(e => e[0] <= lv)
-    .map(e => e[1])
-    .filter(m => !existingMoves.has(m));
-  for (const m of newMoves) {
+  for (const m of newDef.learnset.filter(e => e[0] <= partySlot.level).map(e => e[1]).filter(m => !existingMoves.has(m))) {
     if (partySlot.moves.length < 4) partySlot.moves.push(m);
   }
   return { oldId, newId: targetId };
 }
-

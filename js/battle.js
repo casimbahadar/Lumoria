@@ -78,6 +78,9 @@ function buildBattleMon(partySlot, levelCap) {
     heldItem: heldItemId,
     focusSashUsed: false,
     partyRef: partySlot,
+    shiny: !!partySlot.shiny,
+    variant: !!partySlot.variant,
+    variantTypes: partySlot.variantTypes || null,
   };
 
   // Vital Seed: boost maxHP by 15%
@@ -101,23 +104,60 @@ function buildBattleMon(partySlot, levelCap) {
     mon[s] = Math.floor(mon[s] * heldData.held.mult);
   }
 
+  // Shiny: +10% all stats
+  if (partySlot.shiny) {
+    const b = x => Math.floor(x * 1.1);
+    mon.maxHP = b(mon.maxHP); mon.currentHP = Math.min(mon.currentHP, mon.maxHP);
+    mon.atk = b(mon.atk); mon.def = b(mon.def);
+    mon.spa = b(mon.spa); mon.spd = b(mon.spd); mon.spe = b(mon.spe);
+  }
+  // Variant: override types
+  if (partySlot.variant && partySlot.variantTypes) mon.types = [...partySlot.variantTypes];
+
   return mon;
 }
 
+// Deterministic variant typing for a monster (completely different from original)
+const ALL_TYPES = ["Fire","Water","Grass","Electric","Ground","Wind","Ice","Dark","Fairy","Steel","Poison","Psychic","Dragon","Normal","Rock","Bug"];
+function getVariantTypes(monsterId, origTypes) {
+  const pool = ALL_TYPES.filter(t => !origTypes.includes(t));
+  const t1 = pool[monsterId % pool.length];
+  const t2 = pool[(monsterId * 3 + 7) % pool.length];
+  return t1 !== t2 ? [t1, t2] : [t1, pool[(pool.indexOf(t1) + 1) % pool.length]];
+}
+
 // Build a wild monster battle object
-function buildWildMon(monsterId, level) {
+function buildWildMon(monsterId, level, forceShiny, forceVariant) {
   const def = MONSTERS_DATA[monsterId];
   const nature = getRandomNature();
   const ivs = generateIVs();
   const knownMoves = def.learnset.filter(e => e[0] <= level).map(e => e[1]).slice(-4);
   if (knownMoves.length === 0) knownMoves.push("tackle");
-  return {
+
+  const shiny   = forceShiny   !== undefined ? forceShiny   : (Math.random() < 1/2048);
+  const variant = forceVariant !== undefined ? forceVariant : (!shiny && Math.random() < 1/100);
+  const variantTypes = variant ? getVariantTypes(monsterId, def.types) : null;
+
+  const mon = {
     ...buildMonBase(def, level, ivs, nature),
     monsterId,
     moves: buildMoveArr(knownMoves),
     catchRate: def.catchRate,
     expYield: def.expYield,
+    shiny, variant, variantTypes,
   };
+
+  // Shiny: 10% higher stats across the board
+  if (shiny) {
+    const boost = x => Math.floor(x * 1.1);
+    mon.maxHP = boost(mon.maxHP); mon.currentHP = mon.maxHP;
+    mon.atk = boost(mon.atk); mon.def = boost(mon.def);
+    mon.spa = boost(mon.spa); mon.spd = boost(mon.spd); mon.spe = boost(mon.spe);
+  }
+  // Variant: different typing
+  if (variant && variantTypes) mon.types = [...variantTypes];
+
+  return mon;
 }
 
 // Build a gym/boss monster (perfect IVs, no nature modifier)

@@ -25,6 +25,7 @@ function newGameState(playerName, starterMonsterId) {
     defeatedTrainers: [],
     defeatedUmbraEncounters: [],
     defeatedLegendaries: [],
+    achievements: [],
     saveTimestamp: Date.now()
   };
 }
@@ -38,17 +39,10 @@ function createPartySlot(monsterId, level) {
   const moves = known.slice(-4);
   if (moves.length === 0) moves.push("tackle");
   return {
-    monsterId,
-    nickname: null,
-    level,
-    xp: xpForLevel(level),
-    maxHP,
-    currentHP: maxHP,
-    moves,
-    status: null,
-    heldItem: null,
-    nature: getRandomNature(),
-    ivs
+    monsterId, nickname: null, level, xp: xpForLevel(level),
+    maxHP, currentHP: maxHP, moves, status: null, heldItem: null,
+    nature: getRandomNature(), ivs,
+    shiny: false, variant: false, variantTypes: null
   };
 }
 
@@ -83,14 +77,14 @@ function loadGame() {
       for (const ei of evoItems) { if (data.bag[ei] === undefined) data.bag[ei] = 0; }
     }
     // Assign natures and IVs to existing mons that don't have them
-    for (const mon of (data.team || [])) {
+    for (const mon of [...(data.team || []), ...(data.box || [])]) {
       if (!mon.nature) mon.nature = getRandomNature();
       if (!mon.ivs) mon.ivs = generateIVs();
+      if (mon.shiny === undefined) mon.shiny = false;
+      if (mon.variant === undefined) mon.variant = false;
+      if (mon.variantTypes === undefined) mon.variantTypes = null;
     }
-    for (const mon of (data.box || [])) {
-      if (!mon.nature) mon.nature = getRandomNature();
-      if (!mon.ivs) mon.ivs = generateIVs();
-    }
+    if (!data.achievements) data.achievements = [];
     G = data;
     return true;
   } catch(e) { return false; }
@@ -177,6 +171,8 @@ function showEvolution(partySlot, newId, cb) {
   if (result) {
     G.seenMonsters.add(newId);
     G.caughtMonsters.add(newId);
+    G.evolveCount = (G.evolveCount || 0) + 1;
+    if (G.evolveCount >= 5) checkAchievement("evolve5");
   }
 
   document.getElementById("btn-evo-ok").onclick = () => {
@@ -846,12 +842,16 @@ function updateBattleUI() {
 
   // Enemy sprite (SVG illustration)
   const enemySpriteEl = document.getElementById("enemy-sprite");
+  enemySpriteEl.classList.toggle("shiny-sprite", !!enemy.shiny);
+  enemySpriteEl.classList.toggle("variant-sprite", !!enemy.variant);
   if (typeof getMonsterSpriteURL === "function" && MONSTERS_DATA[enemy.monsterId]) {
     enemySpriteEl.innerHTML = `<img src="${getMonsterSpriteURL(MONSTERS_DATA[enemy.monsterId], 90)}" width="90" height="90" alt="${enemy.name}">`;
   } else {
     enemySpriteEl.textContent = enemy.emoji;
   }
-  document.getElementById("enemy-name").textContent = enemy.name;
+  const enemyNameEl = document.getElementById("enemy-name");
+  enemyNameEl.className = enemy.shiny ? "shiny-name" : enemy.variant ? "variant-name" : "";
+  enemyNameEl.textContent = enemy.name;
   document.getElementById("enemy-level").textContent = `Lv.${enemy.level}`;
   const enemyHPPct = Math.max(0, (enemy.currentHP / enemy.maxHP) * 100);
   const enemyFill = document.getElementById("enemy-hp-fill");
@@ -893,6 +893,8 @@ function updateBattleUI() {
 
   // Player sprite (SVG illustration)
   const playerSpriteEl = document.getElementById("player-sprite");
+  playerSpriteEl.classList.toggle("shiny-sprite", !!player.shiny);
+  playerSpriteEl.classList.toggle("variant-sprite", !!player.variant);
   if (typeof getMonsterSpriteURL === "function" && MONSTERS_DATA[player.monsterId]) {
     playerSpriteEl.innerHTML = `<img src="${getMonsterSpriteURL(MONSTERS_DATA[player.monsterId], 90)}" width="90" height="90" alt="${player.name}">`;
   } else {
@@ -1162,7 +1164,10 @@ function startWildBattle(wildMon) {
   hideMultiBattleSlots();
   showScreen("screen-battle");
   clearBattleLog();
-  logMsg(`A wild Lumo — ${wildMon.name} appeared! (Lv.${wildMon.level})`);
+  if (wildMon.shiny)   logMsg(`✨ A shiny ${wildMon.name} appeared! (Lv.${wildMon.level})`, "log-catch");
+  else if (wildMon.variant) logMsg(`🔀 A variant ${wildMon.name} appeared! [${wildMon.types.join("/")}] (Lv.${wildMon.level})`, "log-catch");
+  else logMsg(`A wild Lumo — ${wildMon.name} appeared! (Lv.${wildMon.level})`);
+  if (wildMon.shiny) checkAchievement("first_shiny");
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = false;
@@ -1264,6 +1269,10 @@ async function playerUseBall(orbId) {
   if (caught) {
     logMsg(`✅ Gotcha! ${enemyActiveMon.name} was caught!`, "log-catch");
     G.caughtMonsters.add(enemyActiveMon.monsterId);
+    if (enemyActiveMon.shiny)   checkAchievement("catch_shiny");
+    if (enemyActiveMon.variant) checkAchievement("catch_variant");
+    if (MONSTERS_DATA[enemyActiveMon.monsterId]?.rarity === "legendary") checkAchievement("legendary");
+    checkAchievements();
     G.seenMonsters.add(enemyActiveMon.monsterId);
     // Add to team or box
     const caught_slot = createCaughtSlot(enemyActiveMon);
@@ -1287,15 +1296,15 @@ async function playerUseBall(orbId) {
 function createCaughtSlot(battleMon) {
   return {
     monsterId: battleMon.monsterId,
-    nickname: null,
-    level: battleMon.level,
+    nickname: null, level: battleMon.level,
     xp: xpForLevel(battleMon.level),
-    maxHP: battleMon.maxHP,
-    currentHP: battleMon.currentHP,
+    maxHP: battleMon.maxHP, currentHP: battleMon.currentHP,
     moves: battleMon.moves.map(m => m.id),
     status: battleMon.status,
     nature: battleMon.nature || getRandomNature(),
-    ivs: battleMon.ivs || generateIVs()
+    ivs: battleMon.ivs || generateIVs(),
+    shiny: !!battleMon.shiny, variant: !!battleMon.variant,
+    variantTypes: battleMon.variantTypes || null
   };
 }
 
@@ -1584,6 +1593,9 @@ function endBattle(outcome, slot, levelUps) {
   }
 
   if (outcome === "won") {
+    G.battleWins = (G.battleWins || 0) + 1;
+    if (battleContext.battleMode === "double" || battleContext.battleMode === "triple") checkAchievement("win_double");
+    checkAchievements();
     // Show level ups then return
     const handleAfterLevelUps = () => {
       if (battleContext.isGym || battleContext.isChampion || battleContext.isEliteFour) {
@@ -1597,6 +1609,7 @@ function endBattle(outcome, slot, levelUps) {
         }
         if (battleContext.leaderId === "champion") {
           G.championDefeated = true;
+          checkAchievements();
           showHallOfFame();
           triggerStorySequence("champion_defeated");
         } else if (battleContext.isEliteFour) {
@@ -1637,6 +1650,7 @@ function endBattle(outcome, slot, levelUps) {
             renderHUD();
             saveGame();
             // Trigger story event for this badge milestone
+            checkAchievements();
             triggerBadgeStoryEvent(G.badges.length);
           });
         }
@@ -1753,6 +1767,7 @@ function showHallOfFame() {
     teamEl.appendChild(div);
   }
   saveGame();
+  setTimeout(showPostGameContent, 1500);
 }
 
 function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
@@ -1813,8 +1828,8 @@ function startMultiBattle(enemyTeam, leaderName, mode) {
   logMsg(`⚔️ ${modeLabel}! ${leaderName} sent out ${enemyActiveMons.map(m => m.name).join(" & ")}!`);
 
   updateMultiBattleUI();
-  showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
+  showMultiMovePanel(0);
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
 }
 
@@ -2113,12 +2128,8 @@ async function executeMultiTurn() {
   multiBattlePendingMoves = [];
 
   if (!battleContext.battleEnded) {
-    // Start next turn - prompt for moves for each alive player mon
-    const alivePlayer = playerActiveMons.find(m => m && !m.fainted && m.currentHP > 0);
-    if (alivePlayer) {
-      const firstIdx = playerActiveMons.indexOf(alivePlayer);
-      showBattleMainActions();
-    }
+    const firstAliveIdx = playerActiveMons.findIndex(m => m && !m.fainted && m.currentHP > 0);
+    if (firstAliveIdx >= 0) showMultiMovePanel(firstAliveIdx);
   }
 }
 
@@ -2899,6 +2910,8 @@ function initEventListeners() {
   document.getElementById("nav-quests").addEventListener("click", showQuestScreen);
   document.getElementById("nav-box").addEventListener("click", showBoxScreen);
   document.getElementById("nav-shop").addEventListener("click", showShopScreen);
+  document.getElementById("nav-achievements")?.addEventListener("click", showAchievementsScreen);
+  document.getElementById("btn-achievements-back")?.addEventListener("click", () => showScreen("screen-main"));
 
   // Quest filter buttons
   document.querySelectorAll(".quest-filter-btn").forEach(btn => {
@@ -3718,6 +3731,102 @@ function trackLocationVisit(locationId) {
       }
     }
   }
+}
+
+// ============================================================
+// ACHIEVEMENTS
+// ============================================================
+const ACHIEVEMENTS = [
+  { id:"first_catch",    icon:"🎉", name:"First Catch",        desc:"Catch your first Lumo" },
+  { id:"catch_10",       icon:"📦", name:"Collector",           desc:"Catch 10 different Lumos" },
+  { id:"catch_50",       icon:"🏆", name:"Great Collector",     desc:"Catch 50 different Lumos" },
+  { id:"catch_all",      icon:"👑", name:"Lumodex Complete",    desc:"Catch all 321 Lumos" },
+  { id:"first_badge",    icon:"🏅", name:"Badge Earner",        desc:"Win your first gym badge" },
+  { id:"eight_badges",   icon:"💎", name:"Badge Master",        desc:"Earn all 16 badges" },
+  { id:"first_shiny",    icon:"✨", name:"Shiny Hunter",        desc:"Encounter a shiny Lumo" },
+  { id:"catch_shiny",    icon:"🌟", name:"Shiny Keeper",        desc:"Catch a shiny Lumo" },
+  { id:"catch_variant",  icon:"🔀", name:"Variant Collector",   desc:"Catch a variant Lumo" },
+  { id:"champion",       icon:"🥇", name:"Champion",            desc:"Defeat the Lumoria Champion" },
+  { id:"elite_four",     icon:"⚔️", name:"Elite Victor",        desc:"Defeat all Elite Four members" },
+  { id:"level100",       icon:"💯", name:"Max Level",           desc:"Raise a Lumo to level 100" },
+  { id:"win_50",         icon:"🔥", name:"Battle Veteran",      desc:"Win 50 battles" },
+  { id:"win_double",     icon:"🤝", name:"Double Trouble",      desc:"Win a double battle" },
+  { id:"evolve5",        icon:"⬆️", name:"Evolver",             desc:"Evolve 5 Lumos" },
+  { id:"use_all_types",  icon:"🌈", name:"Type Master",         desc:"Use a move of every type in battle" },
+  { id:"full_party",     icon:"🐾", name:"Full Team",           desc:"Fill your party with 6 Lumos" },
+  { id:"dex100",         icon:"📖", name:"Half-Dex",            desc:"See 100 different Lumos" },
+  { id:"post_game",      icon:"🌐", name:"What Lies Beyond",    desc:"Become Champion and start post-game" },
+  { id:"legendary",      icon:"🦋", name:"Legendary Tamer",     desc:"Catch a legendary Lumo" },
+];
+
+function checkAchievement(id) {
+  if (!G || G.achievements.includes(id)) return;
+  const def = ACHIEVEMENTS.find(a => a.id === id);
+  if (!def) return;
+  G.achievements.push(id);
+  showAchievementToast(def);
+}
+
+function checkAchievements() {
+  if (!G) return;
+  const caught = G.caughtMonsters.size;
+  if (caught >= 1)  checkAchievement("first_catch");
+  if (caught >= 10) checkAchievement("catch_10");
+  if (caught >= 50) checkAchievement("catch_50");
+  if (caught >= 321) checkAchievement("catch_all");
+  if (G.badges.length >= 1)  checkAchievement("first_badge");
+  if (G.badges.length >= 16) checkAchievement("eight_badges");
+  if (G.championDefeated)    checkAchievement("champion");
+  if (typeof ELITE_FOUR !== "undefined" && ELITE_FOUR.every(e => G.defeatedLeaders.includes(e.id))) checkAchievement("elite_four");
+  if (G.team.some(m => m.level >= 100)) checkAchievement("level100");
+  if (G.team.length >= 6)    checkAchievement("full_party");
+  if (G.seenMonsters.size >= 100) checkAchievement("dex100");
+  if (G.team.some(m => m.shiny && G.caughtMonsters.has(m.monsterId))) checkAchievement("catch_shiny");
+  if (G.team.some(m => m.variant) || (G.box||[]).some(m => m.variant)) checkAchievement("catch_variant");
+  if (G.defeatedLegendaries?.length > 0) checkAchievement("legendary");
+  const wins = G.battleWins || 0;
+  if (wins >= 50) checkAchievement("win_50");
+}
+
+let _achieveTimer = null;
+function showAchievementToast(def) {
+  const toast = document.getElementById("achievement-toast");
+  if (!toast) return;
+  toast.querySelector(".achievement-toast-icon").textContent = def.icon;
+  toast.querySelector(".achievement-toast-name").textContent = def.name;
+  toast.querySelector(".achievement-toast-desc").textContent = def.desc;
+  toast.classList.add("visible");
+  clearTimeout(_achieveTimer);
+  _achieveTimer = setTimeout(() => toast.classList.remove("visible"), 4000);
+}
+
+function showAchievementsScreen() {
+  showScreen("screen-achievements");
+  const list = document.getElementById("achievements-list");
+  list.innerHTML = "";
+  for (const a of ACHIEVEMENTS) {
+    const earned = G.achievements.includes(a.id);
+    const div = document.createElement("div");
+    div.className = "achievement-card" + (earned ? " earned" : "");
+    div.innerHTML = `<div class="achievement-icon">${earned ? a.icon : "❓"}</div><div class="achievement-info"><div class="achievement-name">${a.name}</div><div class="achievement-desc">${a.desc}</div></div>`;
+    list.appendChild(div);
+  }
+}
+
+// ============================================================
+// POST-GAME
+// ============================================================
+function showPostGameContent() {
+  const banner = document.getElementById("postGame-banner");
+  if (!banner || !G?.championDefeated) return;
+  banner.classList.remove("hidden");
+  banner.innerHTML = `<strong>🌐 Post-Game Unlocked!</strong><br>
+    • Gym leaders will rematch you at higher levels<br>
+    • Seek out the <em>legendary Lumos</em> still hidden across the region<br>
+    • Hunt for <em>✨ shinies</em> (1/2048) and <em>🔀 variants</em> (1/100)<br>
+    • Complete your Lumodex — ${G.caughtMonsters.size}/321 caught<br>
+    • Earn all ${ACHIEVEMENTS.length} achievements`;
+  checkAchievement("post_game");
 }
 
 // ---- BOOT ----

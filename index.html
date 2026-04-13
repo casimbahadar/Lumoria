@@ -144,6 +144,7 @@
       <button class="nav-btn" id="nav-shop">🛒 SHOP</button>
       <button class="nav-btn" id="nav-save">💾 SAVE</button>
       <button class="nav-btn" id="nav-music">🔊 MUSIC</button>
+      <button class="nav-btn" id="nav-achievements">🏅 FEATS</button>
     </div>
   </div>
 
@@ -562,10 +563,30 @@
       <h2>Champion of Lumoria!</h2>
       <p id="hof-player-name"></p>
       <div id="hof-team"></div>
+      <div id="postGame-banner" class="hidden"></div>
       <button class="btn-primary" id="btn-hof-continue">Continue Your Adventure</button>
     </div>
   </div>
 
+  <!-- ACHIEVEMENTS SCREEN -->
+  <div id="screen-achievements" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" id="btn-achievements-back">← Back</button>
+      <h2>🏅 Achievements</h2>
+    </div>
+    <div id="achievements-list"></div>
+  </div>
+
+</div>
+
+<!-- ACHIEVEMENT TOAST (fixed overlay) -->
+<div id="achievement-toast">
+  <div class="achievement-toast-icon"></div>
+  <div class="achievement-toast-text">
+    <div class="achievement-toast-title">Achievement Unlocked</div>
+    <div class="achievement-toast-name"></div>
+    <div class="achievement-toast-desc"></div>
+  </div>
 </div>
 
 <script src="js/data.js"></script>

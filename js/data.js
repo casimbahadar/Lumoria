@@ -4084,7 +4084,7 @@ const WORLD_DATA = {
   void_rift: {
     id:"void_rift", name:"The Void Rift", icon:"🌀", type:"special",
     desc:"A tear in reality pulsing with dark energy near Route 16. Team Umbra's experiments cracked open this rift, and within its swirling darkness, Voidraxis — the Void Star — awaits any trainer bold enough to enter.",
-    connections:["starbloom"],
+    connections:["starbloom","umbra_lab"],
     wildMonsters:[
       {id:119, minLv:72, maxLv:77, rate:30},  // Nighthound (Dark)
       {id:122, minLv:72, maxLv:77, rate:30},  // Spectrewing (Dark)
@@ -4320,6 +4320,52 @@ const WORLD_DATA = {
       {id:308, minLv:71, maxLv:76, rate:10}   // Seafraith (base Water/Dark)
     ],
     hasGym:false, requiredBadges:15, mapPos:{x:67, y:74}
+  },
+
+  // ============================================================
+  // POST-GAME: UMBRA REMNANT RAIDS (accessible after becoming Champion)
+  // ============================================================
+  umbra_lab: {
+    id:"umbra_lab", name:"Umbra Secret Lab", icon:"🧪", type:"special",
+    desc:"A concealed laboratory carved into the cliffs near the Void Rift. Umbra scientists who fled justice still experiment here, mutating Lumos with void energy. Fire and Poison types roam the toxic corridors.",
+    connections:["void_rift","shadow_archive"],
+    wildMonsters:[
+      {id:52,  minLv:65, maxLv:70, rate:20},
+      {id:55,  minLv:65, maxLv:70, rate:20},
+      {id:156, minLv:66, maxLv:71, rate:20},
+      {id:159, minLv:67, maxLv:72, rate:20},
+      {id:315, minLv:68, maxLv:72, rate:5}   // Ashvanus roams the vents
+    ],
+    hasGym:false, requiredBadges:16, requiresChampion:true,
+    hasUmbraEncounter:true, mapPos:{x:81, y:69}
+  },
+  shadow_archive: {
+    id:"shadow_archive", name:"Shadow Archive", icon:"📂", type:"special",
+    desc:"Umbra's encrypted data vault hidden beneath a collapsed glacier. Ghost and Steel Lumos guard the servers that hold the organization's remaining secrets.",
+    connections:["umbra_lab","void_nexus"],
+    wildMonsters:[
+      {id:136, minLv:68, maxLv:73, rate:20},
+      {id:131, minLv:68, maxLv:73, rate:20},
+      {id:133, minLv:69, maxLv:74, rate:20},
+      {id:120, minLv:69, maxLv:74, rate:20},
+      {id:122, minLv:70, maxLv:75, rate:20}
+    ],
+    hasGym:false, requiredBadges:16, requiresChampion:true,
+    hasUmbraEncounter:true, mapPos:{x:86, y:73}
+  },
+  void_nexus: {
+    id:"void_nexus", name:"Void Nexus", icon:"🌑", type:"special",
+    desc:"The heart of Umbra's post-defeat operations — a nexus of void energy deep in unmapped territory. Only the strongest trainers reach this place. Ultra-rare Lumos cluster around the residual void energy.",
+    connections:["shadow_archive"],
+    wildMonsters:[
+      {id:270, minLv:72, maxLv:78, rate:20},
+      {id:267, minLv:72, maxLv:78, rate:20},
+      {id:269, minLv:73, maxLv:78, rate:15},
+      {id:319, minLv:74, maxLv:78, rate:5},
+      {id:320, minLv:74, maxLv:78, rate:5}
+    ],
+    hasGym:false, requiredBadges:16, requiresChampion:true,
+    hasUmbraEncounter:true, mapPos:{x:83, y:79}
   },
 
 };
@@ -5160,6 +5206,91 @@ const UMBRA_BATTLES = {
         {monsterId:269, level:67, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
         {monsterId:125, level:68, moves:["dark_pulse","sludge_bomb","venoshock","night_slash"]},
         {monsterId:270, level:68, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]}
+      ]
+    }
+  },
+  // ---- POST-GAME REMNANT RAIDS ----
+  umbra_remnant_lab: {
+    id:"umbra_remnant_lab", name:"Dr. Vex Caldris", emoji:"🧪",
+    triggerLocation:"umbra_lab",
+    quote:"You found us? Impressive. But the Champion title doesn't intimidate science. We've been perfecting void-energy mutation since before you won your first badge. These specimens will destroy you!",
+    winQuote:"Our research... ruined again... How does one child keep dismantling everything we build?",
+    reward:{ ultraOrb:3, maxPotion:3 },
+    teams:{
+      single:[
+        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","overheat","smog"]},
+        {monsterId:159, level:70, moves:["sludge_bomb","venoshock","gunk_shot","toxic"]},
+        {monsterId:315, level:72, moves:["magma_rock","fire_blast","stone_edge","caldera_meltdown"]}
+      ],
+      double:[
+        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","overheat","smog"]},
+        {monsterId:55,  level:69, moves:["fire_blast","flamethrower","heat_wave","smog"]},
+        {monsterId:159, level:70, moves:["sludge_bomb","venoshock","gunk_shot","toxic"]},
+        {monsterId:315, level:72, moves:["magma_rock","fire_blast","stone_edge","caldera_meltdown"]}
+      ],
+      triple:[
+        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","overheat","smog"]},
+        {monsterId:55,  level:69, moves:["fire_blast","flamethrower","heat_wave","smog"]},
+        {monsterId:156, level:69, moves:["venoshock","sludge_bomb","toxic","poison_fang"]},
+        {monsterId:159, level:70, moves:["sludge_bomb","venoshock","gunk_shot","toxic"]},
+        {monsterId:315, level:72, moves:["magma_rock","fire_blast","stone_edge","caldera_meltdown"]}
+      ]
+    }
+  },
+  umbra_remnant_archive: {
+    id:"umbra_remnant_archive", name:"Archivist Nera", emoji:"📂",
+    triggerLocation:"shadow_archive",
+    quote:"This archive holds the sum of Team Umbra's knowledge. I will not let it fall into the hands of some reckless Champion. The secrets here are worth more than your victory lap.",
+    winQuote:"The data... it's all exposed now. Fine. Take it. Maybe someone else can finish what we started.",
+    reward:{ masterOrb:1, maxPotion:4 },
+    teams:{
+      single:[
+        {monsterId:136, level:71, moves:["flash_cannon","iron_tail","forge_strike","dark_pulse"]},
+        {monsterId:133, level:73, moves:["crunch","stone_edge","shadow_ball","dark_pulse"]},
+        {monsterId:320, level:75, moves:["thunder","flash_cannon","forge_strike","anvil_drop"]}
+      ],
+      double:[
+        {monsterId:136, level:71, moves:["flash_cannon","iron_tail","forge_strike","dark_pulse"]},
+        {monsterId:122, level:72, moves:["dark_pulse","air_slash","shadow_ball","wing_attack"]},
+        {monsterId:133, level:73, moves:["crunch","stone_edge","shadow_ball","dark_pulse"]},
+        {monsterId:320, level:75, moves:["thunder","flash_cannon","forge_strike","anvil_drop"]}
+      ],
+      triple:[
+        {monsterId:131, level:70, moves:["shadow_ball","dark_pulse","giga_drain","energy_ball"]},
+        {monsterId:136, level:71, moves:["flash_cannon","iron_tail","forge_strike","dark_pulse"]},
+        {monsterId:122, level:72, moves:["dark_pulse","air_slash","shadow_ball","wing_attack"]},
+        {monsterId:133, level:73, moves:["crunch","stone_edge","shadow_ball","dark_pulse"]},
+        {monsterId:320, level:75, moves:["thunder","flash_cannon","forge_strike","anvil_drop"]}
+      ]
+    }
+  },
+  umbra_remnant_nexus: {
+    id:"umbra_remnant_nexus", name:"Void-Master Sable", emoji:"🌑",
+    triggerLocation:"void_nexus",
+    quote:"So. You followed the void all the way here. I am Sable — the last true believer. While the others fled or surrendered, I stayed to master what the void offers. You are Champion of Lumoria. I am Champion of the Void. Let us settle this once and for all.",
+    winQuote:"...The void does not forgive failure. Nor do I. But you — you've earned something rare: my respect. Take what you need. The Void Nexus is yours.",
+    reward:{ masterOrb:2, rareCandy:5 },
+    teams:{
+      single:[
+        {monsterId:269, level:74, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
+        {monsterId:270, level:75, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]},
+        {monsterId:319, level:77, moves:["dark_pulse","moonblast","shadow_ball","soul_rend"]},
+        {monsterId:320, level:78, moves:["thunder","flash_cannon","forge_strike","anvil_drop"]}
+      ],
+      double:[
+        {monsterId:267, level:73, moves:["crunch","dark_pulse","night_slash","shadow_sneak"]},
+        {monsterId:269, level:74, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
+        {monsterId:270, level:75, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]},
+        {monsterId:319, level:77, moves:["dark_pulse","moonblast","shadow_ball","soul_rend"]},
+        {monsterId:320, level:78, moves:["thunder","flash_cannon","forge_strike","anvil_drop"]}
+      ],
+      triple:[
+        {monsterId:267, level:73, moves:["crunch","dark_pulse","night_slash","shadow_sneak"]},
+        {monsterId:269, level:74, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
+        {monsterId:270, level:75, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]},
+        {monsterId:125, level:75, moves:["dark_pulse","sludge_bomb","venoshock","night_slash"]},
+        {monsterId:319, level:77, moves:["dark_pulse","moonblast","shadow_ball","soul_rend"]},
+        {monsterId:320, level:78, moves:["thunder","flash_cannon","forge_strike","anvil_drop"]}
       ]
     }
   },

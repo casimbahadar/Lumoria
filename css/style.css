@@ -2185,3 +2185,31 @@ button, a, [role="button"] {
   font-size: 0.8rem; color: var(--text-secondary);
 }
 #postGame-banner strong { color: var(--accent-purple); }
+
+/* ==========================================
+   DAILY CHALLENGES
+   ========================================== */
+#daily-challenges-section {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.25rem;
+}
+.daily-header {
+  font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--accent-yellow); margin-bottom: 0.4rem; font-weight: bold;
+}
+.daily-card {
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 6px; padding: 0.45rem 0.6rem; margin-bottom: 0.35rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.daily-card.daily-done { border-color: #2a7a2a; opacity: 0.65; }
+.daily-icon { font-size: 1.1rem; flex-shrink: 0; width: 24px; text-align: center; }
+.daily-info { flex: 1; }
+.daily-text { font-size: 0.8rem; }
+.daily-progress { font-size: 0.68rem; color: var(--text-secondary); }
+.daily-reward { font-size: 0.72rem; color: var(--accent-yellow); white-space: nowrap; }
+
+/* Roaming legendary button — distinct pulse colour */
+#btn-roaming { border-color: #40c070; color: #40c070; }
+#btn-roaming:hover { background: rgba(64,192,112,0.15); }

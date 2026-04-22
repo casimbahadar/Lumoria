@@ -26,6 +26,8 @@ function newGameState(playerName, starterMonsterId) {
     defeatedUmbraEncounters: [],
     defeatedLegendaries: [],
     achievements: [],
+    roamingCaught: [],
+    dailyChallenges: null,
     saveTimestamp: Date.now()
   };
 }
@@ -85,6 +87,8 @@ function loadGame() {
       if (mon.variantTypes === undefined) mon.variantTypes = null;
     }
     if (!data.achievements) data.achievements = [];
+    if (!data.roamingCaught) data.roamingCaught = [];
+    if (!data.dailyChallenges) data.dailyChallenges = null;
     G = data;
     return true;
   } catch(e) { return false; }
@@ -173,6 +177,7 @@ function showEvolution(partySlot, newId, cb) {
     G.caughtMonsters.add(newId);
     G.evolveCount = (G.evolveCount || 0) + 1;
     if (G.evolveCount >= 5) checkAchievement("evolve5");
+    trackDailyChallenge("evolve_today");
   }
 
   document.getElementById("btn-evo-ok").onclick = () => {
@@ -396,12 +401,14 @@ function renderWorldMap() {
 
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
+    if (area.requiresChampion && !G?.championDefeated) continue;
     for (const conn of area.connections) {
       const sortedKey = [areaId, conn].sort().join("|");
       if (drawnConnections.has(sortedKey)) continue;
       drawnConnections.add(sortedKey);
       const toArea = WORLD_DATA[conn];
       if (!toArea || !toArea.mapPos) continue;
+      if (toArea.requiresChampion && !G?.championDefeated) continue;
 
       const x1 = (area.mapPos.x / 100) * mapW;
       const y1 = (area.mapPos.y / 100) * mapH;
@@ -506,6 +513,7 @@ function renderWorldMap() {
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
     if (area.type === "route") continue; // Routes are on the paths now
+    if (area.requiresChampion && !G?.championDefeated) continue;
     const x = (area.mapPos.x / 100) * mapW;
     const y = (area.mapPos.y / 100) * mapH;
 
@@ -554,10 +562,15 @@ function renderWorldMap() {
 function travelTo(areaId) {
   const area = WORLD_DATA[areaId];
   if (!area) return;
+  if (area.requiresChampion && !G.championDefeated) {
+    showNotification(`🔒 ${area.name} is only accessible after becoming Champion.`);
+    return;
+  }
   if (G.badges.length < (area.requiredBadges || 0)) {
     showNotification(`You need ${area.requiredBadges} badge(s) to enter ${area.name}.`);
     return;
   }
+  trackDailyChallenge("visit_areas");
   G.location = areaId;
   trackLocationVisit(areaId);
   renderWorldMap();
@@ -673,6 +686,18 @@ function renderAreaPanel() {
         ? `✅ ${legDef.name} (Caught/Defeated)`
         : `🌟 Challenge ${legDef.name}`;
       legendBtn.disabled = caught;
+    }
+  }
+
+  // Roaming legendary button
+  const roamingBtn = document.getElementById("btn-roaming");
+  if (roamingBtn) {
+    roamingBtn.classList.add("hidden");
+    const roamersHere = getRoamingAtLocation(G.location);
+    if (roamersHere.length > 0) {
+      const roamer = roamersHere[0];
+      roamingBtn.classList.remove("hidden");
+      roamingBtn.textContent = `🌿 Roaming ${roamer.name} is here!`;
     }
   }
 
@@ -1167,7 +1192,7 @@ function startWildBattle(wildMon) {
   if (wildMon.shiny)   logMsg(`✨ A shiny ${wildMon.name} appeared! (Lv.${wildMon.level})`, "log-catch");
   else if (wildMon.variant) logMsg(`🔀 A variant ${wildMon.name} appeared! [${wildMon.types.join("/")}] (Lv.${wildMon.level})`, "log-catch");
   else logMsg(`A wild Lumo — ${wildMon.name} appeared! (Lv.${wildMon.level})`);
-  if (wildMon.shiny) checkAchievement("first_shiny");
+  if (wildMon.shiny) { checkAchievement("first_shiny"); trackDailyChallenge("shiny_encounter"); }
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = false;
@@ -1271,8 +1296,16 @@ async function playerUseBall(orbId) {
     G.caughtMonsters.add(enemyActiveMon.monsterId);
     if (enemyActiveMon.shiny)   checkAchievement("catch_shiny");
     if (enemyActiveMon.variant) checkAchievement("catch_variant");
-    if (MONSTERS_DATA[enemyActiveMon.monsterId]?.rarity === "legendary") checkAchievement("legendary");
+    const caughtDef = MONSTERS_DATA[enemyActiveMon.monsterId];
+    if (caughtDef?.rarity === "legendary") checkAchievement("legendary");
     checkAchievements();
+    trackDailyChallenge("catch_count");
+    if (caughtDef) for (const t of caughtDef.types) trackDailyChallenge("catch_type", t);
+    if (caughtDef?.rarity === "rare" || caughtDef?.rarity === "legendary") trackDailyChallenge("catch_rare");
+    if (enemyActiveMon.shiny) trackDailyChallenge("shiny_encounter");
+    if (battleContext.isRoaming && !G.roamingCaught.includes(battleContext.roamingId)) {
+      G.roamingCaught.push(battleContext.roamingId);
+    }
     G.seenMonsters.add(enemyActiveMon.monsterId);
     // Add to team or box
     const caught_slot = createCaughtSlot(enemyActiveMon);
@@ -1596,6 +1629,9 @@ function endBattle(outcome, slot, levelUps) {
     G.battleWins = (G.battleWins || 0) + 1;
     if (battleContext.battleMode === "double" || battleContext.battleMode === "triple") checkAchievement("win_double");
     checkAchievements();
+    trackDailyChallenge("battle_wins");
+    if (battleContext.battleMode === "double" || battleContext.battleMode === "triple") trackDailyChallenge("win_double");
+    if (slot && slot.currentHP === slot.maxHP) trackDailyChallenge("full_hp_win");
     // Show level ups then return
     const handleAfterLevelUps = () => {
       if (battleContext.isGym || battleContext.isChampion || battleContext.isEliteFour) {
@@ -1729,10 +1765,15 @@ function endBattle(outcome, slot, levelUps) {
         renderAreaPanel();
         renderHUD();
       } else {
-        // Wild battle won (including legendary)
+        // Wild battle won (including legendary and roaming)
         if (battleContext.isLegendary && battleContext.wildMon) {
           if (!G.defeatedLegendaries.includes(battleContext.wildMon.monsterId)) {
             G.defeatedLegendaries.push(battleContext.wildMon.monsterId);
+          }
+        }
+        if (battleContext.isRoaming && battleContext.roamingId) {
+          if (!G.roamingCaught.includes(battleContext.roamingId)) {
+            G.roamingCaught.push(battleContext.roamingId);
           }
         }
         showScreen("screen-main");
@@ -3101,6 +3142,34 @@ function initEventListeners() {
   // Area shop button
   document.getElementById("btn-area-shop")?.addEventListener("click", showShopScreen);
 
+  // Roaming legendary button
+  document.getElementById("btn-roaming")?.addEventListener("click", () => {
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumos are fainted! Heal first."); return; }
+    const roamers = getRoamingAtLocation(G.location);
+    if (roamers.length === 0) { renderAreaPanel(); return; }
+    const r = roamers[0];
+    const def = MONSTERS_DATA[r.monsterId];
+    showNotification(`🌿 The roaming <strong>${r.name}</strong> (Lv.${r.level}) has been spotted here!<br>"${def.desc}"`, () => {
+      const wildMon = buildWildMon(r.monsterId, r.level);
+      G.seenMonsters.add(r.monsterId);
+      battleContext = {
+        isWild: true, isGym: false, isChampion: false, isLegendary: true,
+        isRoaming: true, roamingId: r.monsterId,
+        battleMode: "single", wildMon,
+        playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
+      };
+      playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx]);
+      enemyActiveMon = wildMon;
+      hideMultiBattleSlots();
+      showScreen("screen-battle");
+      clearBattleLog();
+      logMsg(`🌿 The roaming ${r.name} appeared! (Lv.${r.level})`, "log-catch");
+      updateBattleUI();
+      showBattleMainActions();
+      document.getElementById("btn-catch").disabled = false;
+    });
+  });
+
   // Heal button
   document.getElementById("btn-heal")?.addEventListener("click", healTeam);
 
@@ -3492,6 +3561,7 @@ function healTeam() {
     }
   }
   if (healed) {
+    trackDailyChallenge("heal");
     renderHUD();
     saveGame();
     showNotification("💊 Your Lumos team has been fully healed!");
@@ -3553,6 +3623,7 @@ function renderShop(shop) {
 // ============================================================
 function showQuestScreen() {
   showScreen("screen-quests");
+  renderDailyChallengesUI();
   renderQuestLog();
 }
 
@@ -3823,10 +3894,129 @@ function showPostGameContent() {
   banner.innerHTML = `<strong>🌐 Post-Game Unlocked!</strong><br>
     • Gym leaders will rematch you at higher levels<br>
     • Seek out the <em>legendary Lumos</em> still hidden across the region<br>
+    • 🌿 <em>Roaming Legendaries</em> appear at different areas each day<br>
+    • 🧪 <em>Umbra Remnant Raids</em> are now accessible from the Void Rift<br>
     • Hunt for <em>✨ shinies</em> (1/2048) and <em>🔀 variants</em> (1/100)<br>
     • Complete your Lumodex — ${G.caughtMonsters.size}/321 caught<br>
     • Earn all ${ACHIEVEMENTS.length} achievements`;
   checkAchievement("post_game");
+}
+
+// ============================================================
+// ROAMING LEGENDARIES
+// ============================================================
+const ROAMING_LEGENDARIES = [
+  { monsterId:314, name:"Galeaxis",  emoji:"🌪️", level:65,
+    areas:["route4","gale_peak","storm_plateau","route8","crystal_cliffs","route2"] },
+  { monsterId:317, name:"Temporith", emoji:"⏳",  level:68,
+    areas:["ancient_ruins","void_rift","cosmic_cavern","astral_plateau","nebula_gorge","route16"] },
+];
+
+function getRoamingArea(entry) {
+  const dayIndex = Math.floor(Date.now() / 86400000);
+  return entry.areas[dayIndex % entry.areas.length];
+}
+
+function getRoamingAtLocation(locationId) {
+  if (!G?.championDefeated) return [];
+  return ROAMING_LEGENDARIES.filter(r =>
+    !(G.roamingCaught || []).includes(r.monsterId) &&
+    getRoamingArea(r) === locationId
+  );
+}
+
+// ============================================================
+// DAILY CHALLENGES
+// ============================================================
+const DAILY_CHALLENGE_POOL = [
+  { id:"win3",      icon:"⚔️", text:"Win 3 battles today",          type:"battle_wins",    target:3,  reward:{money:500} },
+  { id:"win5",      icon:"🏅", text:"Win 5 battles today",          type:"battle_wins",    target:5,  reward:{item:"maxPotion",qty:2} },
+  { id:"catch2",    icon:"🔵", text:"Catch 2 Lumos today",           type:"catch_count",    target:2,  reward:{item:"greatOrb",qty:3} },
+  { id:"catch_fire",icon:"🔥", text:"Catch a Fire-type Lumo",       type:"catch_type",     param:"Fire",    target:1, reward:{money:400} },
+  { id:"catch_water",icon:"💧",text:"Catch a Water-type Lumo",      type:"catch_type",     param:"Water",   target:1, reward:{money:400} },
+  { id:"catch_elec",icon:"⚡", text:"Catch an Electric-type Lumo",  type:"catch_type",     param:"Electric",target:1, reward:{money:400} },
+  { id:"catch_dark",icon:"🌑", text:"Catch a Dark-type Lumo",       type:"catch_type",     param:"Dark",    target:1, reward:{money:400} },
+  { id:"catch_psyc",icon:"🔮", text:"Catch a Psychic-type Lumo",    type:"catch_type",     param:"Psychic", target:1, reward:{money:400} },
+  { id:"catch_rare",icon:"⭐", text:"Catch a rare or legendary Lumo",type:"catch_rare",    target:1,  reward:{item:"ultraOrb",qty:2} },
+  { id:"heal",      icon:"💊", text:"Heal your team at a town",      type:"heal",           target:1,  reward:{money:200} },
+  { id:"visit3",    icon:"🗺️", text:"Visit 3 different areas",      type:"visit_areas",    target:3,  reward:{money:300} },
+  { id:"evolve",    icon:"⬆️", text:"Evolve a Lumo today",           type:"evolve_today",   target:1,  reward:{item:"rareCandy",qty:2} },
+  { id:"win_double",icon:"🤝", text:"Win a double battle",           type:"win_double",     target:1,  reward:{money:600} },
+  { id:"shiny_enc", icon:"✨", text:"Encounter a shiny Lumo",        type:"shiny_encounter",target:1,  reward:{item:"masterOrb",qty:1} },
+  { id:"full_hp",   icon:"❤️", text:"Win a battle with your lead at full HP", type:"full_hp_win", target:1, reward:{money:400} },
+];
+
+function getTodayKey() {
+  const d = new Date();
+  return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
+}
+
+function getDailyChallenges() {
+  const d = new Date();
+  let seed = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+  const pool = [...DAILY_CHALLENGE_POOL];
+  const picks = [];
+  while (picks.length < 3 && pool.length > 0) {
+    seed = ((seed * 1664525) + 1013904223) & 0x7fffffff;
+    picks.push(pool.splice(seed % pool.length, 1)[0]);
+  }
+  return picks;
+}
+
+function initDailyChallenges() {
+  const today = getTodayKey();
+  if (!G.dailyChallenges || G.dailyChallenges.date !== today) {
+    G.dailyChallenges = { date: today, progress: {}, completed: [] };
+  }
+}
+
+function trackDailyChallenge(type, param) {
+  if (!G) return;
+  initDailyChallenges();
+  for (const ch of getDailyChallenges()) {
+    if (G.dailyChallenges.completed.includes(ch.id)) continue;
+    if (ch.type !== type) continue;
+    if (ch.param && ch.param !== param) continue;
+    G.dailyChallenges.progress[ch.id] = (G.dailyChallenges.progress[ch.id] || 0) + 1;
+    if (G.dailyChallenges.progress[ch.id] >= ch.target) {
+      completeDailyChallenge(ch);
+    }
+  }
+}
+
+function completeDailyChallenge(ch) {
+  G.dailyChallenges.completed.push(ch.id);
+  if (ch.reward.money) G.money += ch.reward.money;
+  if (ch.reward.item)  G.bag[ch.reward.item] = (G.bag[ch.reward.item] || 0) + (ch.reward.qty || 1);
+  renderHUD();
+  saveGame();
+  showAchievementToast({ icon: ch.icon, name: "Daily Complete! " + ch.icon, desc: ch.text });
+  renderDailyChallengesUI();
+}
+
+function renderDailyChallengesUI() {
+  const el = document.getElementById("daily-challenges-section");
+  if (!el || !G) return;
+  initDailyChallenges();
+  const challenges = getDailyChallenges();
+  el.innerHTML = `<div class="daily-header">📅 Daily Challenges — ${getTodayKey()}</div>`;
+  for (const ch of challenges) {
+    const done = G.dailyChallenges.completed.includes(ch.id);
+    const prog = G.dailyChallenges.progress[ch.id] || 0;
+    const rewardText = ch.reward.money
+      ? `💰 ${ch.reward.money}`
+      : `${ch.reward.item} ×${ch.reward.qty || 1}`;
+    const div = document.createElement("div");
+    div.className = "daily-card" + (done ? " daily-done" : "");
+    div.innerHTML = `
+      <span class="daily-icon">${done ? "✅" : ch.icon}</span>
+      <div class="daily-info">
+        <div class="daily-text">${ch.text}</div>
+        <div class="daily-progress">${done ? "Complete!" : `${prog} / ${ch.target}`}</div>
+      </div>
+      <div class="daily-reward">${rewardText}</div>`;
+    el.appendChild(div);
+  }
 }
 
 // ---- BOOT ----

@@ -3504,7 +3504,78 @@ const MONSTERS_DATA = {
     learnset:[[1,"void_rend"],[10,"headbutt"],[20,"shadow_ball"],[30,"body_slam"],[40,"phantom_claw"],[50,"hyper_beam"],[60,"neural_storm"],[5,"shadowstep"],[38,"battle_cry"]],
     catchRate:8, expYield:325, rarity:"rare",
     desc:"A creature with no definite type at heart. It absorbs the nature of whatever it defeats.",
-    lore:"Nullform is a dark-normal creature 2 metres tall with a body of perfect matte black that reflects no light at all. It has no fixed features but rearranges its form to match whatever it has most recently defeated." }
+    lore:"Nullform is a dark-normal creature 2 metres tall with a body of perfect matte black that reflects no light at all. It has no fixed features but rearranges its form to match whatever it has most recently defeated." },
+
+  // ---- Tier 4: Prismatic Rift exclusives BST ~630–670 ----
+  372: { id:372, name:"Prismancer", emoji:"🌈", types:["Psychic","Dragon"],
+    base:{hp:90,atk:115,def:100,spa:140,spd:115,spe:115}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"psychic_move"],[10,"dragon_pulse"],[20,"psystrike"],[30,"dragon_claw"],[40,"mind_shatter"],[50,"wyrm_strike"],[60,"neural_storm"],[5,"dragon_dance"],[48,"cataclysm_breath"]],
+    catchRate:8, expYield:335, rarity:"rare",
+    desc:"A dragon born from a rift in the visible spectrum. Its scales cycle through every wavelength of light.",
+    lore:"Prismancer is a psychic-dragon 4 metres long whose scales shift through every colour of visible light in a constant slow cycle. The air around it refracts into rainbow halos." },
+
+  373: { id:373, name:"Voidrend", emoji:"🌌", types:["Dark","Ghost"],
+    base:{hp:88,atk:130,def:95,spa:118,spd:105,spe:128}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"void_rend"],[10,"phantom_claw"],[20,"shadow_ball"],[30,"shadowstep"],[40,"umbral_claw"],[50,"mind_shatter"],[60,"neural_storm"],[5,"shadow_sneak"],[48,"cataclysm_breath"]],
+    catchRate:7, expYield:338, rarity:"rare",
+    desc:"A predator from between realities. It tears holes in space as naturally as others breathe.",
+    lore:"Voidrend is a dark-ghost entity 2.5 metres tall with a body that exists simultaneously in normal space and the void between dimensions. Its claws leave visible tears in reality that slowly heal." },
+
+  374: { id:374, name:"Auroradrake", emoji:"🌠", types:["Ice","Dragon"],
+    base:{hp:88,atk:118,def:100,spa:130,spd:108,spe:120}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"ice_beam"],[10,"dragon_breath"],[20,"cryo_lance"],[30,"dragon_pulse"],[40,"blizzard"],[50,"scale_storm"],[60,"cataclysm_breath"],[5,"dragon_dance"],[48,"ancient_breath"]],
+    catchRate:7, expYield:338, rarity:"rare",
+    desc:"A dragon woven from the aurora itself. It migrates between magnetic poles, trailing lights across the sky.",
+    lore:"Auroradrake is an ice-dragon 5 metres long with translucent scales that emit bioluminescent light in bands of green, violet, and gold — a living aurora. It navigates by magnetic field." },
+
+  375: { id:375, name:"Fluxserpent", emoji:"⚡", types:["Electric","Psychic"],
+    base:{hp:85,atk:108,def:88,spa:138,spd:110,spe:128}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"thunder_shock"],[10,"psychic_move"],[20,"thunderbolt"],[30,"psystrike"],[40,"thunder"],[50,"mind_shatter"],[60,"neural_storm"],[5,"thunder_wave"],[48,"volt_surge"]],
+    catchRate:7, expYield:340, rarity:"rare",
+    desc:"A serpent of pure electrokinetic thought. It rewrites neural pathways with a single discharge.",
+    lore:"Fluxserpent is an electric-psychic serpent 3 metres long composed of a continuous loop of electrical current given physical form. It can project its consciousness through any electrical system." },
+
+  376: { id:376, name:"Solarwrath", emoji:"☀️", types:["Fire","Fairy"],
+    base:{hp:85,atk:105,def:92,spa:140,spd:112,spe:118}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"ember"],[10,"fairy_wind"],[20,"solar_flare"],[30,"fae_requiem"],[40,"fire_blast"],[50,"mind_shatter"],[60,"neural_storm"],[5,"char_dance"],[48,"solar_flare"]],
+    catchRate:7, expYield:338, rarity:"rare",
+    desc:"A being of concentrated solar fury blessed by ancient fairy magic. It has never been touched by shadow.",
+    lore:"Solarwrath is a fire-fairy creature 2 metres tall composed of radiant solar plasma. It is warm to be near and hot to approach — within 10 metres, all shadow is eliminated." },
+
+  377: { id:377, name:"Abyssforge", emoji:"🌋", types:["Ground","Steel"],
+    base:{hp:105,atk:130,def:130,spa:90,spd:100,spe:90}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"earth_power"],[10,"metal_claw"],[20,"fissure_slam"],[30,"iron_tail"],[40,"terra_spike"],[50,"flash_cannon"],[60,"fossil_rush"],[5,"harden"],[48,"alloy_edge"]],
+    catchRate:7, expYield:340, rarity:"rare",
+    desc:"Born at the meeting of mantle and iron core, it forges new minerals inside itself as it moves.",
+    lore:"Abyssforge is a ground-steel creature 3 metres tall with a body of compressed ultra-dense alloy formed under planetary core pressures. It leaves impressions in solid steel where it rests." },
+
+  378: { id:378, name:"Dreamweald", emoji:"💭", types:["Psychic","Fairy"],
+    base:{hp:85,atk:90,def:90,spa:142,spd:120,spe:118}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[30,"psystrike"],[40,"mind_shatter"],[50,"neural_storm"],[60,"dreamweave"],[5,"prism_ward"],[48,"cortex_spike"]],
+    catchRate:7, expYield:340, rarity:"rare",
+    desc:"A being that exists only in the shared dreamspace of nearby creatures. Physical contact wakes it permanently.",
+    lore:"Dreamweald is a psychic-fairy entity visible only to those who are half-asleep. In full wakefulness it appears as a translucent shimmer, but in dreams it takes whatever form the dreamer most desires." },
+
+  379: { id:379, name:"Riftscale", emoji:"🔮", types:["Dragon","Ghost"],
+    base:{hp:90,atk:120,def:100,spa:128,spd:108,spe:120}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"dragon_breath"],[10,"shadow_ball"],[20,"dragon_claw"],[30,"phantom_claw"],[40,"wyrm_strike"],[50,"void_rend"],[60,"cataclysm_breath"],[5,"dragon_dance"],[48,"eon_crash"]],
+    catchRate:6, expYield:342, rarity:"rare",
+    desc:"A dragon that phases between worlds. Its scales exist in multiple realities simultaneously.",
+    lore:"Riftscale is a dragon-ghost 4.5 metres long whose scales shimmer with a translucent quality — half of them appear solid and half ghostly. It can phase through solid matter at will." },
+
+  380: { id:380, name:"Tempestborn", emoji:"⛈️", types:["Electric","Wind"],
+    base:{hp:88,atk:112,def:88,spa:135,spd:108,spe:135}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"thunder_shock"],[10,"gust"],[20,"thunderbolt"],[30,"air_slash"],[40,"thunder"],[50,"volt_surge"],[60,"tailwind_strike"],[5,"zephyr_dance"],[48,"neural_storm"]],
+    catchRate:6, expYield:345, rarity:"rare",
+    desc:"Born at the eye of a century-storm. It IS the storm — a permanent atmospheric event given will.",
+    lore:"Tempestborn is an electric-wind entity 4 metres across — a self-sustaining atmospheric vortex with a crackling lightning nucleus. Meteorologists have tracked it as both a storm and a living creature." },
+
+  381: { id:381, name:"Crystalmind", emoji:"💎", types:["Psychic","Steel"],
+    base:{hp:88,atk:100,def:120,spa:138,spd:118,spe:102}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"metal_claw"],[10,"psychic_move"],[20,"alloy_edge"],[30,"psystrike"],[40,"flash_cannon"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[48,"cortex_spike"]],
+    catchRate:6, expYield:345, rarity:"rare",
+    desc:"A crystal computer of living steel and pure psychic energy. It has solved every problem ever posed to it.",
+    lore:"Crystalmind is a psychic-steel entity 1.5 metres tall shaped like a perfect geometric polyhedron of living crystal laced with steel filaments. Its psychic processing speed exceeds any known computation." }
 };
 
 

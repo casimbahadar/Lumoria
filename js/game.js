@@ -214,6 +214,7 @@ function startNGPlus() {
     slot: G.saveSlot
   };
   window._pendingSlot = G.saveSlot;
+  if (typeof onNGPlusStarted === "function") onNGPlusStarted();
   showStarterScreen();
 }
 
@@ -919,6 +920,7 @@ function renderAreaPanel() {
 function renderHUD() {
   document.getElementById("hud-player-name").textContent = G.playerName;
   document.getElementById("hud-money").textContent = `💰 ${G.money}`;
+  if (typeof renderTimeEvents === "function") renderTimeEvents();
 
   const badgesDiv = document.getElementById("hud-badges");
   badgesDiv.innerHTML = "";
@@ -942,18 +944,37 @@ function exploreArea() {
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori have fainted! Heal at a town first."); return; }
 
   // Filter out high-BST mons until the player has enough badges; also exclude unknown IDs (BST=0)
-  const pool = G.badges.length < 3
+  let pool = G.badges.length < 3
     ? area.wildMonsters.filter(wm => { const b = getMonBST(wm.id); return b > 0 && b <= 375; })
     : area.wildMonsters.filter(wm => getMonBST(wm.id) > 0);
   if (!pool.length) { showNotification("No wild Lumori appear here yet."); return; }
 
-  const total = pool.reduce((s, wm) => s + wm.rate, 0);
+  // Inject event-exclusive spawns if active
+  if (typeof getEventExclusiveMons === "function") {
+    const extras = getEventExclusiveMons(area.id);
+    if (extras.length) pool = pool.concat(extras);
+  }
+
+  // Apply time/event spawn-rate multipliers per monster type
+  const getEffectiveRate = (wm) => {
+    const def = MONSTERS_DATA[wm.id];
+    if (!def) return wm.rate;
+    let mult = 1;
+    for (const t of (def.types || [])) {
+      if (typeof getTimeSpawnMult  === "function") mult *= getTimeSpawnMult(t);
+      if (typeof getEventSpawnBoost === "function") mult *= getEventSpawnBoost(t);
+    }
+    return wm.rate * mult;
+  };
+
+  const total = pool.reduce((s, wm) => s + getEffectiveRate(wm), 0);
   let roll = Math.random() * total;
   let chosen = pool[pool.length - 1];
-  for (const wm of pool) { roll -= wm.rate; if (roll <= 0) { chosen = wm; break; } }
+  for (const wm of pool) { roll -= getEffectiveRate(wm); if (roll <= 0) { chosen = wm; break; } }
 
   const level = ngPlusScale(chosen.minLv + Math.floor(Math.random() * (chosen.maxLv - chosen.minLv + 1)));
   G.seenMonsters.add(chosen.id);
+  if (typeof incrementCommunityProgress === "function") incrementCommunityProgress();
   startWildBattle(buildWildMon(chosen.id, level));
 }
 
@@ -1418,6 +1439,7 @@ async function playerUseBall(orbId) {
   if (caught) {
     logMsg(`✅ Gotcha! ${enemyActiveMon.name} was caught!`, "log-catch");
     G.caughtMonsters.add(enemyActiveMon.monsterId);
+    if (typeof onLumoriCaught === "function") onLumoriCaught();
     if (enemyActiveMon.shiny)   checkAchievement("catch_shiny");
     if (enemyActiveMon.variant) checkAchievement("catch_variant");
     const caughtDef = MONSTERS_DATA[enemyActiveMon.monsterId];
@@ -1770,6 +1792,7 @@ function endBattle(outcome, slot, levelUps) {
         if (battleContext.leaderId === "champion") {
           G.championDefeated = true;
           checkAchievements();
+          if (typeof onChampionDefeated === "function") onChampionDefeated();
           showHallOfFame();
           triggerStorySequence("champion_defeated");
         } else if (battleContext.isEliteFour) {
@@ -3086,15 +3109,23 @@ function initEventListeners() {
   document.getElementById("nav-achievements")?.addEventListener("click", showAchievementsScreen);
   document.getElementById("btn-achievements-back")?.addEventListener("click", () => showScreen("screen-main"));
 
-  // Online screens
-  document.getElementById("btn-friends-back")?.addEventListener("click", () => showScreen("screen-main"));
+  // Online nav + hub
+  document.getElementById("nav-online")?.addEventListener("click", () => showOnlineHub());
+  document.getElementById("btn-online-hub-back")?.addEventListener("click", () => showScreen("screen-main"));
+  document.getElementById("hub-leaderboards")?.addEventListener("click", () => { if (typeof showLeaderboards === "function") showLeaderboards(); else showScreen("screen-leaderboards"); });
+  document.getElementById("hub-trade")?.addEventListener("click", () => { if (typeof loadTradeListings === "function") { loadTradeListings(); if (typeof renderMyBoxForTrade === "function") renderMyBoxForTrade(); } showScreen("screen-trade"); });
+  document.getElementById("hub-pvp")?.addEventListener("click", () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); });
+  document.getElementById("hub-friends")?.addEventListener("click", () => { if (typeof showFriendsScreen === "function") showFriendsScreen(); else showScreen("screen-friends"); });
+
+  // Online screens back buttons — return to hub
+  document.getElementById("btn-friends-back")?.addEventListener("click", () => showScreen("screen-online-hub"));
   document.getElementById("btn-add-friend")?.addEventListener("click", () => {
     const code = document.getElementById("add-friend-input")?.value.trim();
     if (code && typeof addFriend === "function") addFriend(code);
   });
-  document.getElementById("btn-lb-back")?.addEventListener("click", () => showScreen("screen-main"));
-  document.getElementById("btn-trade-back")?.addEventListener("click", () => showScreen("screen-main"));
-  document.getElementById("btn-pvp-back")?.addEventListener("click", () => showScreen("screen-main"));
+  document.getElementById("btn-lb-back")?.addEventListener("click", () => showScreen("screen-online-hub"));
+  document.getElementById("btn-trade-back")?.addEventListener("click", () => showScreen("screen-online-hub"));
+  document.getElementById("btn-pvp-back")?.addEventListener("click", () => showScreen("screen-online-hub"));
   document.getElementById("btn-post-trade")?.addEventListener("click", () => {
     const type = document.getElementById("trade-wanted-type")?.value || "";
     if (typeof postTrade === "function") postTrade(type);
@@ -4023,6 +4054,18 @@ function showAchievementToast(def) {
   toast.classList.add("visible");
   clearTimeout(_achieveTimer);
   _achieveTimer = setTimeout(() => toast.classList.remove("visible"), 4000);
+}
+
+function showOnlineHub() {
+  showScreen("screen-online-hub");
+  const statusEl = document.getElementById("online-hub-status");
+  if (!statusEl) return;
+  if (typeof onlineReady !== "undefined" && onlineReady) {
+    const code = typeof getMyFriendCode === "function" ? getMyFriendCode() : null;
+    statusEl.innerHTML = `<span class="online-status-on">🟢 Online</span>${code ? ` · Your Friend Code: <strong>${code}</strong>` : ""}`;
+  } else {
+    statusEl.innerHTML = `<span class="online-status-off">🔴 Offline</span> — Configure Firebase in js/online.js to enable online features.`;
+  }
 }
 
 function showAchievementsScreen() {

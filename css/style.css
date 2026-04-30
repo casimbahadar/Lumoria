@@ -2401,3 +2401,24 @@ button, a, [role="button"] {
 .friend-lastseen { font-size: 0.68rem; color: var(--text-muted); }
 .friend-code-label { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 1px; }
 .friends-loading, .friends-empty, .friends-error { padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+
+/* ===== ONLINE HUB ===== */
+.online-hub-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  padding: 1.5rem; max-width: 480px; margin: 0 auto;
+}
+.online-hub-btn {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.4rem; padding: 1.5rem 0.5rem;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 12px; cursor: pointer; font-size: 2rem;
+  color: var(--text-primary); transition: border-color 0.15s, transform 0.1s;
+}
+.online-hub-btn span { font-size: 0.82rem; color: var(--text-secondary); }
+.online-hub-btn:hover { border-color: var(--accent-blue); transform: translateY(-2px); }
+.online-hub-status {
+  text-align: center; padding: 0.6rem 1rem 0; font-size: 0.85rem; color: var(--text-secondary);
+}
+.online-status-on  { color: #4caf50; font-weight: bold; }
+.online-status-off { color: #f44336; font-weight: bold; }
+.nav-btn-online { background: linear-gradient(135deg, #1a3a6b 0%, #1e6bb8 100%); color: #fff; }

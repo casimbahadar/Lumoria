@@ -134,7 +134,10 @@ function buildWildMon(monsterId, level, forceShiny, forceVariant) {
   const knownMoves = def.learnset.filter(e => e[0] <= level).map(e => e[1]).slice(-4);
   if (knownMoves.length === 0) knownMoves.push("tackle");
 
-  const shiny   = forceShiny   !== undefined ? forceShiny   : (Math.random() < 1/2048);
+  let shinyRate = 1/2048;
+  if (typeof getTimeShinyMult  === "function") shinyRate *= getTimeShinyMult();
+  if (typeof getEventShinyBoost === "function") shinyRate *= getEventShinyBoost();
+  const shiny   = forceShiny   !== undefined ? forceShiny   : (Math.random() < shinyRate);
   const variant = forceVariant !== undefined ? forceVariant : (!shiny && Math.random() < 1/100);
   const variantTypes = variant ? getVariantTypes(monsterId, def.types) : null;
 

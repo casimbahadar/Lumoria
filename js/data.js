@@ -3145,7 +3145,82 @@ const MONSTERS_DATA = {
     learnset:[[1,"headbutt"],[1,"body_slam"],[2,"battle_cry"],[3,"swords_dance"],[4,"recover"],[38,"hyper_beam"],[42,"wild_tumble"],[46,"momentum_rush"],[50,"vital_pulse"],[54,"instinct_slash"],[58,"harden"],[62,"tackle"],[5,"focus_roar"],[44,"leer"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"The greatest bear that has ever walked Lumoria. When it stands fully upright, it blots out the sun. Its roar has been mistaken for natural disasters.",
-    lore:"Behemovast is a titanic normal-type creature 3 metres at the shoulder, resembling an enormous bear with a solid barrel-shaped torso and legs like columns. Its thick brown-grey fur is matted and tough. It is the heaviest non-legendary Lumori known and leaves impressions in solid rock where it steps." }
+    lore:"Behemovast is a titanic normal-type creature 3 metres at the shoulder, resembling an enormous bear with a solid barrel-shaped torso and legs like columns. Its thick brown-grey fur is matted and tough. It is the heaviest non-legendary Lumori known and leaves impressions in solid rock where it steps." },
+
+  // =====================================================================
+  // NG+-EXCLUSIVE LUMORI (IDs 322–421) — appear only in New Game+ runs
+  // =====================================================================
+
+  // ---- Tier 1: Mid-game NG+ (badges 8–11 areas) BST ~490–540 ----
+  322: { id:322, name:"Venomwraith", emoji:"☠️", types:["Poison","Ghost"],
+    base:{hp:78,atk:85,def:70,spa:105,spd:90,spe:92}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"poison_sting"],[10,"shadow_ball"],[20,"sludge_bomb"],[30,"miasma_cloud"],[40,"void_rend"],[50,"sludge_wave"],[60,"toxic_surge"],[5,"toxic"],[45,"venom_lance"]],
+    catchRate:30, expYield:255, rarity:"rare",
+    desc:"A wraith of pure venom that haunts poison-soaked ruins. Its touch corrupts everything.",
+    lore:"Venomwraith is a spectral poison-type 1.5 metres tall with a translucent body that glows sickly green. Corrosive vapour constantly seeps from its form." },
+
+  323: { id:323, name:"Toxicore", emoji:"🧪", types:["Poison","Fire"],
+    base:{hp:82,atk:95,def:75,spa:110,spd:80,spe:78}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"ember"],[8,"poison_sting"],[18,"flamethrower"],[28,"sludge_bomb"],[38,"heat_wave"],[48,"acid_rain"],[58,"inferno"],[5,"toxic"],[42,"venom_lance"]],
+    catchRate:28, expYield:260, rarity:"rare",
+    desc:"An alchemical horror born in Miasma City's toxic reactors. Its core burns with caustic plasma.",
+    lore:"Toxicore is a compact fire-poison creature 1.2 metres tall resembling a living flask of boiling acid. Its core chamber glows a violent orange-green." },
+
+  324: { id:324, name:"Chittering", emoji:"🦗", types:["Bug","Dark"],
+    base:{hp:70,atk:110,def:80,spa:75,spd:85,spe:100}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"bug_bite"],[12,"shadowstep"],[22,"bug_buzz"],[32,"umbral_claw"],[42,"phantom_claw"],[52,"shadow_ball"],[62,"bug_buzz"],[5,"shadow_sneak"],[38,"void_rend"]],
+    catchRate:25, expYield:248, rarity:"rare",
+    desc:"A razor-limbed predator insect that hunts in absolute darkness. It clicks its mandibles as it circles prey.",
+    lore:"Chittering is a sleek dark-coloured insect 1.3 metres long with six blade-like limbs and multi-faceted crimson eyes that see perfectly in darkness." },
+
+  325: { id:325, name:"Dunespike", emoji:"🏜️", types:["Ground","Poison"],
+    base:{hp:90,atk:105,def:88,spa:72,spd:78,spe:87}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"earth_power"],[10,"poison_sting"],[22,"terra_spike"],[32,"sludge_bomb"],[42,"fissure_slam"],[52,"acid_rain"],[62,"earth_power"],[5,"toxic"],[35,"venom_lance"]],
+    catchRate:28, expYield:252, rarity:"rare",
+    desc:"A burrowing predator that injects venom through bone spikes as it erupts from the sand.",
+    lore:"Dunespike is a powerful ground-poison creature 1.6 metres long resembling an armoured mole-rat with elongated venom spines along its spine and snout." },
+
+  326: { id:326, name:"Silthorn", emoji:"🌿", types:["Grass","Poison"],
+    base:{hp:85,atk:88,def:92,spa:100,spd:88,spe:67}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"vine_whip"],[12,"poison_sting"],[22,"energy_ball"],[32,"sludge_bomb"],[42,"root_lance"],[52,"verdant_surge"],[62,"acid_rain"],[5,"toxic"],[38,"sleep_powder"]],
+    catchRate:30, expYield:250, rarity:"rare",
+    desc:"A carnivorous marsh plant that lures prey with sweet-smelling nectar before paralysing them with venom.",
+    lore:"Silthorn is a large ambulatory plant 1.8 metres tall with glossy dark-green leaves edged with translucent purple poison sacs. Its roots move like fingers." },
+
+  327: { id:327, name:"Quarrex", emoji:"⛏️", types:["Rock","Ground"],
+    base:{hp:95,atk:115,def:110,spa:60,spd:75,spe:65}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"rock_throw"],[10,"earth_power"],[20,"rock_slide"],[30,"terra_spike"],[40,"fissure_slam"],[50,"fossil_rush"],[60,"rock_slide"],[5,"harden"],[35,"iron_tail"]],
+    catchRate:25, expYield:258, rarity:"rare",
+    desc:"A titan of compressed stone forged in Terravault's deepest mines. Its fists leave craters.",
+    lore:"Quarrex is a massive rock-ground creature 2.2 metres tall composed of interlocked slabs of granite and iron ore. Miners initially mistook ancient specimens for geological formations." },
+
+  328: { id:328, name:"Smogveil", emoji:"🌫️", types:["Poison","Wind"],
+    base:{hp:75,atk:78,def:68,spa:108,spd:92,spe:99}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"gust"],[10,"miasma_cloud"],[20,"air_slash"],[30,"sludge_bomb"],[40,"sludge_wave"],[50,"acid_rain"],[60,"tailwind_strike"],[5,"toxic"],[38,"neural_storm"]],
+    catchRate:27, expYield:253, rarity:"rare",
+    desc:"A drifting toxic cloud given form. Entire towns have been evacuated when a Smogveil settled overhead.",
+    lore:"Smogveil is an amorphous poison-wind creature 3 metres across that resembles a dense yellow-green storm cloud. It has no fixed shape but two amber luminescent eye-spots drift within it." },
+
+  329: { id:329, name:"Skullmite", emoji:"💀", types:["Bug","Rock"],
+    base:{hp:80,atk:100,def:105,spa:65,spd:80,spe:90}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"bug_bite"],[10,"rock_throw"],[20,"metal_claw"],[30,"rock_slide"],[40,"fossil_rush"],[50,"bug_buzz"],[60,"iron_tail"],[5,"harden"],[38,"venom_drool"]],
+    catchRate:26, expYield:256, rarity:"rare",
+    desc:"An armoured beetle with a fossilised shell harder than most metals. Ancient specimens are sold as armour.",
+    lore:"Skullmite is a beetle-like rock-bug creature 1.1 metres long with a helmet-shaped carapace of fossilised mineral. Its mandibles can crack geodes." },
+
+  330: { id:330, name:"Blistermaw", emoji:"🐊", types:["Water","Poison"],
+    base:{hp:88,atk:100,def:82,spa:95,spd:85,spe:70}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"water_gun"],[10,"poison_sting"],[20,"tidal_crush"],[30,"sludge_bomb"],[40,"hydro_pump"],[50,"sludge_wave"],[60,"sea_serpent_strike"],[5,"toxic"],[38,"venom_lance"]],
+    catchRate:28, expYield:258, rarity:"rare",
+    desc:"A swamp crocodilian with acid-laced saliva. Prey dissolves within minutes of a bite.",
+    lore:"Blistermaw is a water-poison reptile 2.8 metres long resembling a heavily built crocodile with blistered, acid-weeping skin and rows of hollow venom-conducting teeth." },
+
+  331: { id:331, name:"Thornmoth", emoji:"🦋", types:["Bug","Grass"],
+    base:{hp:72,atk:82,def:75,spa:102,spd:88,spe:101}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"gust"],[8,"vine_whip"],[18,"bug_bite"],[28,"razor_leaf"],[38,"bug_buzz"],[48,"canopy_crash"],[58,"verdant_surge"],[5,"sleep_powder"],[35,"spore_burst"]],
+    catchRate:28, expYield:248, rarity:"rare",
+    desc:"A giant moth covered in razor-edged leaf-scales. Its wing-beats strip bark from trees.",
+    lore:"Thornmoth is a large bug-grass creature with a 2-metre wingspan. Its wings resemble overlapping serrated leaves in deep emerald and brown patterns." }
 };
 
 

@@ -771,7 +771,7 @@ function renderAreaPanel() {
     }
   }
 
-  // Elite Four button
+  // The Vanguard button
   const eliteBtn = document.getElementById("btn-elite-four");
   if (eliteBtn) {
     eliteBtn.classList.add("hidden");
@@ -815,13 +815,13 @@ function renderHUD() {
 function exploreArea() {
   const area = WORLD_DATA[G.location];
   if (!area?.wildMonsters?.length) { showNotification("There's nothing to explore here."); return; }
-  if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumos have fainted! Heal at a town first."); return; }
+  if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori have fainted! Heal at a town first."); return; }
 
   // Filter out high-BST mons until the player has enough badges; also exclude unknown IDs (BST=0)
   const pool = G.badges.length < 3
     ? area.wildMonsters.filter(wm => { const b = getMonBST(wm.id); return b > 0 && b <= 375; })
     : area.wildMonsters.filter(wm => getMonBST(wm.id) > 0);
-  if (!pool.length) { showNotification("No wild Lumos appear here yet."); return; }
+  if (!pool.length) { showNotification("No wild Lumori appear here yet."); return; }
 
   const total = pool.reduce((s, wm) => s + wm.rate, 0);
   let roll = Math.random() * total;
@@ -1129,7 +1129,7 @@ async function playerUseBattleItem(itemId, monIdx) {
   if (!item || !slot || (G.bag[itemId] || 0) <= 0) return;
 
   if (item.type === "heal") {
-    if (slot.currentHP <= 0) { showNotification("Can't heal a fainted Lumo in battle!"); return; }
+    if (slot.currentHP <= 0) { showNotification("Can't heal a fainted Lumori in battle!"); return; }
     if (slot.currentHP >= slot.maxHP) { showNotification("Already at full HP!"); return; }
     const healed = Math.min(slot.maxHP - slot.currentHP, item.healAmt);
     slot.currentHP += healed;
@@ -1140,14 +1140,14 @@ async function playerUseBattleItem(itemId, monIdx) {
     G.bag[itemId]--;
     logMsg(`Used ${item.name} on ${slot.nickname || MONSTERS_DATA[slot.monsterId].name}! +${healed} HP`);
   } else if (item.type === "revive") {
-    if (slot.currentHP > 0) { showNotification("That Lumo isn't fainted!"); return; }
+    if (slot.currentHP > 0) { showNotification("That Lumori isn't fainted!"); return; }
     slot.currentHP = Math.floor(slot.maxHP * 0.5);
     slot.status = null;
     G.bag[itemId]--;
     logMsg(`${slot.nickname || MONSTERS_DATA[slot.monsterId].name} was revived!`);
   } else if (item.type === "battle") {
     // Stat booster — only works on active mon
-    if (monIdx !== battleContext.playerTeamIdx) { showNotification("Stat items only work on your active Lumo!"); return; }
+    if (monIdx !== battleContext.playerTeamIdx) { showNotification("Stat items only work on your active Lumori!"); return; }
     const eff = item.battleEffect;
     if (eff?.stat) {
       playerActiveMon.stages[eff.stat] = Math.min(6, (playerActiveMon.stages[eff.stat] || 0) + (eff.stages || 1));
@@ -1189,9 +1189,9 @@ function startWildBattle(wildMon) {
   hideMultiBattleSlots();
   showScreen("screen-battle");
   clearBattleLog();
-  if (wildMon.shiny)   logMsg(`✨ A shiny ${wildMon.name} appeared! (Lv.${wildMon.level})`, "log-catch");
+  if (wildMon.shiny)   logMsg(`✨ A Radiant ${wildMon.name} appeared! (Lv.${wildMon.level})`, "log-catch");
   else if (wildMon.variant) logMsg(`🔀 A variant ${wildMon.name} appeared! [${wildMon.types.join("/")}] (Lv.${wildMon.level})`, "log-catch");
-  else logMsg(`A wild Lumo — ${wildMon.name} appeared! (Lv.${wildMon.level})`);
+  else logMsg(`A wild Lumori — ${wildMon.name} appeared! (Lv.${wildMon.level})`);
   if (wildMon.shiny) { checkAchievement("first_shiny"); trackDailyChallenge("shiny_encounter"); }
   updateBattleUI();
   showBattleMainActions();
@@ -1283,7 +1283,7 @@ async function playerUseMove(moveId) {
 
 async function playerUseBall(orbId) {
   showBattleMainActions();
-  if (!battleContext.isWild) { logMsg("Can't catch gym Lumos!"); return; }
+  if (!battleContext.isWild) { logMsg("Can't catch gym Lumori!"); return; }
   if ((G.bag[orbId] || 0) <= 0) { logMsg("No orbs of that type!"); return; }
   G.bag[orbId]--;
   const item = ITEMS_DATA[orbId];
@@ -1583,7 +1583,7 @@ async function handlePlayerFainted() {
     // All fainted
     endBattle("lost");
   } else {
-    logMsg("Choose your next Lumo!");
+    logMsg("Choose your next Lumori!");
     battleContext.forcedSwitch = true;
     showSwitchPanel(true);
   }
@@ -1621,7 +1621,7 @@ function endBattle(outcome, slot, levelUps) {
     showScreen("screen-gameover");
     const lostMsg = moneyLost > 0 ? ` You lost 💰${moneyLost} in the confusion.` : "";
     document.getElementById("gameover-text").textContent =
-      `You blacked out and were rushed to ${WORLD_DATA[G.location]?.name || "town"}.${lostMsg} Your Lumos have been fully healed.`;
+      `You blacked out and were rushed to ${WORLD_DATA[G.location]?.name || "town"}.${lostMsg} Your Lumori have been fully healed.`;
     return;
   }
 
@@ -1649,7 +1649,7 @@ function endBattle(outcome, slot, levelUps) {
           showHallOfFame();
           triggerStorySequence("champion_defeated");
         } else if (battleContext.isEliteFour) {
-          // Elite Four defeated - give money reward
+          // The Vanguard defeated - give money reward
           G.money += 8000;
           showNotification(`⚔️ ${leader?.winQuote || "You defeated the Elite!"}<br><br>Received 💰8000!`, () => {
             showScreen("screen-main");
@@ -2461,17 +2461,17 @@ function useItemOnMon(itemId, monIdx) {
   if (!item || (G.bag[itemId] || 0) <= 0) return;
   if (item.type === "heal") {
     if (slot.currentHP >= slot.maxHP) { showNotification("Already at full HP!"); return; }
-    if (slot.currentHP <= 0) { showNotification("Can't use on a fainted Lumo!"); return; }
+    if (slot.currentHP <= 0) { showNotification("Can't use on a fainted Lumori!"); return; }
     slot.currentHP = Math.min(slot.maxHP, slot.currentHP + item.healAmt);
     G.bag[itemId]--;
     showNotification(`Used ${item.name}! HP restored.`);
   } else if (item.type === "revive") {
-    if (slot.currentHP > 0) { showNotification("Lumo is not fainted!"); return; }
+    if (slot.currentHP > 0) { showNotification("Lumori is not fainted!"); return; }
     slot.currentHP = Math.floor(slot.maxHP / 2);
     G.bag[itemId]--;
     showNotification(`${MONSTERS_DATA[slot.monsterId].name} was revived!`);
   } else if (item.type === "candy") {
-    if (slot.currentHP <= 0) { showNotification("Can't use on a fainted Lumo!"); return; }
+    if (slot.currentHP <= 0) { showNotification("Can't use on a fainted Lumori!"); return; }
     if (slot.level >= 100) { showNotification("Already at max level!"); return; }
     G.bag[itemId]--;
     const levelUps = giveXP(slot, xpForLevel(slot.level + 1) - (slot.xp || 0));
@@ -2574,7 +2574,7 @@ function renderBoxScreen() {
 
   // Render box storage
   if (G.box.length === 0) {
-    storageList.innerHTML = '<div class="box-empty">No Lumos in storage. Catch more when your team is full!</div>';
+    storageList.innerHTML = '<div class="box-empty">No Lumori in storage. Catch more when your team is full!</div>';
   } else {
     G.box.forEach((slot, idx) => {
       const card = createBoxCard(slot, idx, "box");
@@ -2627,7 +2627,7 @@ function createBoxCard(slot, idx, source) {
     if (depositBtn) {
       depositBtn.addEventListener("click", () => {
         if (G.team.length <= 1) {
-          showNotification("You must keep at least 1 Lumo on your team!");
+          showNotification("You must keep at least 1 Lumori on your team!");
           return;
         }
         const mon = G.team.splice(idx, 1)[0];
@@ -2856,7 +2856,7 @@ function initEventListeners() {
   // Title screen
   document.getElementById("btn-new-game").addEventListener("click", () => {
     showScreen("screen-create");
-    typewriterDialog("Welcome to the world of Lumoria! I am Professor Arbor. The world is full of incredible creatures called Lumos. Tell me, what is your name?");
+    typewriterDialog("Welcome to the world of Lumoria! I am Professor Solaris. The world is full of incredible creatures called Lumori. Tell me, what is your name?");
   });
   document.getElementById("btn-continue").addEventListener("click", () => {
     if (loadGame()) {
@@ -2907,7 +2907,7 @@ function initEventListeners() {
   document.getElementById("btn-gym").addEventListener("click", () => {
     const area = WORLD_DATA[G.location];
     if (!area?.gymLeader || G.defeatedLeaders.includes(area.gymLeader)) return;
-    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumos are fainted! Heal first."); return; }
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori are fainted! Heal first."); return; }
     // Require all gym trainers beaten first (if feature is active)
     if (typeof GYM_TRAINERS !== "undefined" && GYM_TRAINERS[area.gymLeader]) {
       const trainers = GYM_TRAINERS[area.gymLeader];
@@ -2919,15 +2919,15 @@ function initEventListeners() {
   });
   document.getElementById("btn-champion").addEventListener("click", () => {
     if (G.championDefeated) return;
-    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumos are fainted! Heal first."); return; }
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori are fainted! Heal first."); return; }
     const leader = GYM_LEADERS["champion"];
     showBattleFormatSelection(leader.name, "👑", leader.quote, fmt => startGymBattle("champion", fmt));
   });
 
-  // Elite Four
+  // The Vanguard
   document.getElementById("btn-elite-four")?.addEventListener("click", () => {
     if (typeof ELITE_FOUR === "undefined") return;
-    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumos are fainted! Heal first."); return; }
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori are fainted! Heal first."); return; }
     const nextElite = ELITE_FOUR.find(e => !G.defeatedLeaders.includes(e.id));
     if (nextElite) {
       showBattleFormatSelection(nextElite.name, nextElite.emoji || "⚔️", nextElite.quote, fmt => startGymBattle(nextElite.id, fmt));
@@ -3031,7 +3031,7 @@ function initEventListeners() {
     const area = WORLD_DATA[G.location];
     if (!area?.legendaryEncounter) return;
     if (G.team.every(m => m.currentHP <= 0)) {
-      showNotification("All your Lumos are fainted! Heal first.");
+      showNotification("All your Lumori are fainted! Heal first.");
       return;
     }
     const legDef = MONSTERS_DATA[area.legendaryEncounter.monsterId];
@@ -3064,7 +3064,7 @@ function initEventListeners() {
   document.getElementById("btn-route-trainer")?.addEventListener("click", () => {
     if (typeof ROUTE_TRAINERS === "undefined" || !ROUTE_TRAINERS[G.location]) return;
     if (G.team.every(m => m.currentHP <= 0)) {
-      showNotification("All your Lumos are fainted! Heal first.");
+      showNotification("All your Lumori are fainted! Heal first.");
       return;
     }
     const trainers = ROUTE_TRAINERS[G.location];
@@ -3084,7 +3084,7 @@ function initEventListeners() {
     const area = WORLD_DATA[G.location];
     if (!area?.gymLeader || typeof GYM_TRAINERS === "undefined" || !GYM_TRAINERS[area.gymLeader]) return;
     if (G.team.every(m => m.currentHP <= 0)) {
-      showNotification("All your Lumos are fainted! Heal first.");
+      showNotification("All your Lumori are fainted! Heal first.");
       return;
     }
     const trainers = GYM_TRAINERS[area.gymLeader];
@@ -3102,7 +3102,7 @@ function initEventListeners() {
   // Umbra area encounter button
   document.getElementById("btn-umbra-area")?.addEventListener("click", () => {
     if (G.team.every(m => m.currentHP <= 0)) {
-      showNotification("All your Lumos are fainted! Heal first.");
+      showNotification("All your Lumori are fainted! Heal first.");
       return;
     }
     if (typeof UMBRA_BATTLES === "undefined") return;
@@ -3144,7 +3144,7 @@ function initEventListeners() {
 
   // Roaming legendary button
   document.getElementById("btn-roaming")?.addEventListener("click", () => {
-    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumos are fainted! Heal first."); return; }
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori are fainted! Heal first."); return; }
     const roamers = getRoamingAtLocation(G.location);
     if (roamers.length === 0) { renderAreaPanel(); return; }
     const r = roamers[0];
@@ -3446,7 +3446,7 @@ function useEvoItem(itemId, partyIdx) {
   }
 
   if (!targetId) {
-    showNotification("This item has no effect on this Lumo.");
+    showNotification("This item has no effect on this Lumori.");
     return;
   }
 
@@ -3497,7 +3497,7 @@ function showEvoItemSelection(partyIdx) {
   }
 
   if (validItems.length === 0) {
-    showNotification("No evolution items can be used on this Lumo.");
+    showNotification("No evolution items can be used on this Lumori.");
     return;
   }
 
@@ -3564,9 +3564,9 @@ function healTeam() {
     trackDailyChallenge("heal");
     renderHUD();
     saveGame();
-    showNotification("💊 Your Lumos team has been fully healed!");
+    showNotification("💊 Your Lumori team has been fully healed!");
   } else {
-    showNotification("Your Lumos are already at full health!");
+    showNotification("Your Lumori are already at full health!");
   }
 }
 
@@ -3808,26 +3808,26 @@ function trackLocationVisit(locationId) {
 // ACHIEVEMENTS
 // ============================================================
 const ACHIEVEMENTS = [
-  { id:"first_catch",    icon:"🎉", name:"First Catch",        desc:"Catch your first Lumo" },
-  { id:"catch_10",       icon:"📦", name:"Collector",           desc:"Catch 10 different Lumos" },
-  { id:"catch_50",       icon:"🏆", name:"Great Collector",     desc:"Catch 50 different Lumos" },
-  { id:"catch_all",      icon:"👑", name:"Lumodex Complete",    desc:"Catch all 321 Lumos" },
+  { id:"first_catch",    icon:"🎉", name:"First Catch",        desc:"Catch your first Lumori" },
+  { id:"catch_10",       icon:"📦", name:"Collector",           desc:"Catch 10 different Lumori" },
+  { id:"catch_50",       icon:"🏆", name:"Great Collector",     desc:"Catch 50 different Lumori" },
+  { id:"catch_all",      icon:"👑", name:"Luminex Complete",    desc:"Catch all 321 Lumori" },
   { id:"first_badge",    icon:"🏅", name:"Badge Earner",        desc:"Win your first gym badge" },
   { id:"eight_badges",   icon:"💎", name:"Badge Master",        desc:"Earn all 16 badges" },
-  { id:"first_shiny",    icon:"✨", name:"Shiny Hunter",        desc:"Encounter a shiny Lumo" },
-  { id:"catch_shiny",    icon:"🌟", name:"Shiny Keeper",        desc:"Catch a shiny Lumo" },
-  { id:"catch_variant",  icon:"🔀", name:"Variant Collector",   desc:"Catch a variant Lumo" },
+  { id:"first_shiny",    icon:"✨", name:"Radiant Hunter",        desc:"Encounter a Radiant Lumori" },
+  { id:"catch_shiny",    icon:"🌟", name:"Radiant Keeper",        desc:"Catch a Radiant Lumori" },
+  { id:"catch_variant",  icon:"🔀", name:"Variant Collector",   desc:"Catch a variant Lumori" },
   { id:"champion",       icon:"🥇", name:"Champion",            desc:"Defeat the Lumoria Champion" },
-  { id:"elite_four",     icon:"⚔️", name:"Elite Victor",        desc:"Defeat all Elite Four members" },
-  { id:"level100",       icon:"💯", name:"Max Level",           desc:"Raise a Lumo to level 100" },
+  { id:"elite_four",     icon:"⚔️", name:"Elite Victor",        desc:"Defeat all The Vanguard members" },
+  { id:"level100",       icon:"💯", name:"Max Level",           desc:"Raise a Lumori to level 100" },
   { id:"win_50",         icon:"🔥", name:"Battle Veteran",      desc:"Win 50 battles" },
   { id:"win_double",     icon:"🤝", name:"Double Trouble",      desc:"Win a double battle" },
-  { id:"evolve5",        icon:"⬆️", name:"Evolver",             desc:"Evolve 5 Lumos" },
+  { id:"evolve5",        icon:"⬆️", name:"Evolver",             desc:"Evolve 5 Lumori" },
   { id:"use_all_types",  icon:"🌈", name:"Type Master",         desc:"Use a move of every type in battle" },
-  { id:"full_party",     icon:"🐾", name:"Full Team",           desc:"Fill your party with 6 Lumos" },
-  { id:"dex100",         icon:"📖", name:"Half-Dex",            desc:"See 100 different Lumos" },
+  { id:"full_party",     icon:"🐾", name:"Full Team",           desc:"Fill your party with 6 Lumori" },
+  { id:"dex100",         icon:"📖", name:"Half-Dex",            desc:"See 100 different Lumori" },
   { id:"post_game",      icon:"🌐", name:"What Lies Beyond",    desc:"Become Champion and start post-game" },
-  { id:"legendary",      icon:"🦋", name:"Legendary Tamer",     desc:"Catch a legendary Lumo" },
+  { id:"legendary",      icon:"🦋", name:"Legendary Tamer",     desc:"Catch a legendary Lumori" },
 ];
 
 function checkAchievement(id) {
@@ -3893,11 +3893,11 @@ function showPostGameContent() {
   banner.classList.remove("hidden");
   banner.innerHTML = `<strong>🌐 Post-Game Unlocked!</strong><br>
     • Gym leaders will rematch you at higher levels<br>
-    • Seek out the <em>legendary Lumos</em> still hidden across the region<br>
+    • Seek out the <em>legendary Lumori</em> still hidden across the region<br>
     • 🌿 <em>Roaming Legendaries</em> appear at different areas each day<br>
     • 🧪 <em>Umbra Remnant Raids</em> are now accessible from the Void Rift<br>
     • Hunt for <em>✨ shinies</em> (1/2048) and <em>🔀 variants</em> (1/100)<br>
-    • Complete your Lumodex — ${G.caughtMonsters.size}/321 caught<br>
+    • Complete your Luminex — ${G.caughtMonsters.size}/321 caught<br>
     • Earn all ${ACHIEVEMENTS.length} achievements`;
   checkAchievement("post_game");
 }
@@ -3931,18 +3931,18 @@ function getRoamingAtLocation(locationId) {
 const DAILY_CHALLENGE_POOL = [
   { id:"win3",      icon:"⚔️", text:"Win 3 battles today",          type:"battle_wins",    target:3,  reward:{money:500} },
   { id:"win5",      icon:"🏅", text:"Win 5 battles today",          type:"battle_wins",    target:5,  reward:{item:"maxPotion",qty:2} },
-  { id:"catch2",    icon:"🔵", text:"Catch 2 Lumos today",           type:"catch_count",    target:2,  reward:{item:"greatOrb",qty:3} },
-  { id:"catch_fire",icon:"🔥", text:"Catch a Fire-type Lumo",       type:"catch_type",     param:"Fire",    target:1, reward:{money:400} },
-  { id:"catch_water",icon:"💧",text:"Catch a Water-type Lumo",      type:"catch_type",     param:"Water",   target:1, reward:{money:400} },
-  { id:"catch_elec",icon:"⚡", text:"Catch an Electric-type Lumo",  type:"catch_type",     param:"Electric",target:1, reward:{money:400} },
-  { id:"catch_dark",icon:"🌑", text:"Catch a Dark-type Lumo",       type:"catch_type",     param:"Dark",    target:1, reward:{money:400} },
-  { id:"catch_psyc",icon:"🔮", text:"Catch a Psychic-type Lumo",    type:"catch_type",     param:"Psychic", target:1, reward:{money:400} },
-  { id:"catch_rare",icon:"⭐", text:"Catch a rare or legendary Lumo",type:"catch_rare",    target:1,  reward:{item:"ultraOrb",qty:2} },
+  { id:"catch2",    icon:"🔵", text:"Catch 2 Lumori today",           type:"catch_count",    target:2,  reward:{item:"greatOrb",qty:3} },
+  { id:"catch_fire",icon:"🔥", text:"Catch a Fire-type Lumori",       type:"catch_type",     param:"Fire",    target:1, reward:{money:400} },
+  { id:"catch_water",icon:"💧",text:"Catch a Water-type Lumori",      type:"catch_type",     param:"Water",   target:1, reward:{money:400} },
+  { id:"catch_elec",icon:"⚡", text:"Catch an Electric-type Lumori",  type:"catch_type",     param:"Electric",target:1, reward:{money:400} },
+  { id:"catch_dark",icon:"🌑", text:"Catch a Dark-type Lumori",       type:"catch_type",     param:"Dark",    target:1, reward:{money:400} },
+  { id:"catch_psyc",icon:"🔮", text:"Catch a Psychic-type Lumori",    type:"catch_type",     param:"Psychic", target:1, reward:{money:400} },
+  { id:"catch_rare",icon:"⭐", text:"Catch a rare or legendary Lumori",type:"catch_rare",    target:1,  reward:{item:"ultraOrb",qty:2} },
   { id:"heal",      icon:"💊", text:"Heal your team at a town",      type:"heal",           target:1,  reward:{money:200} },
   { id:"visit3",    icon:"🗺️", text:"Visit 3 different areas",      type:"visit_areas",    target:3,  reward:{money:300} },
-  { id:"evolve",    icon:"⬆️", text:"Evolve a Lumo today",           type:"evolve_today",   target:1,  reward:{item:"rareCandy",qty:2} },
+  { id:"evolve",    icon:"⬆️", text:"Evolve a Lumori today",           type:"evolve_today",   target:1,  reward:{item:"rareCandy",qty:2} },
   { id:"win_double",icon:"🤝", text:"Win a double battle",           type:"win_double",     target:1,  reward:{money:600} },
-  { id:"shiny_enc", icon:"✨", text:"Encounter a shiny Lumo",        type:"shiny_encounter",target:1,  reward:{item:"masterOrb",qty:1} },
+  { id:"shiny_enc", icon:"✨", text:"Encounter a Radiant Lumori",        type:"shiny_encounter",target:1,  reward:{item:"masterOrb",qty:1} },
   { id:"full_hp",   icon:"❤️", text:"Win a battle with your lead at full HP", type:"full_hp_win", target:1, reward:{money:400} },
 ];
 

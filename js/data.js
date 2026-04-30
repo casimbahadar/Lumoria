@@ -3646,7 +3646,78 @@ const MONSTERS_DATA = {
     learnset:[[1,"headbutt"],[10,"dragon_breath"],[20,"body_slam"],[30,"dragon_claw"],[40,"hyper_beam"],[50,"wyrm_strike"],[60,"eon_crash"],[5,"dragon_dance"],[52,"primordial_roar"]],
     catchRate:5, expYield:362, rarity:"rare",
     desc:"The largest creature confirmed alive in Lumoria. It has no natural predators.",
-    lore:"Titanfang is a normal-dragon creature 10 metres long resembling an ancient apex predator grown to impossible scale. The ground shakes with each step. Its roar is felt as a physical pressure for 30 kilometres." }
+    lore:"Titanfang is a normal-dragon creature 10 metres long resembling an ancient apex predator grown to impossible scale. The ground shakes with each step. Its roar is felt as a physical pressure for 30 kilometres." },
+
+  // ---- Tier 5b: Ultra-rare Apex Summit BST ~680–710 ----
+  392: { id:392, name:"Eondrake", emoji:"🐉", types:["Dragon","Psychic"],
+    base:{hp:98,atk:138,def:110,spa:145,spd:115,spe:120}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"dragon_pulse"],[10,"psystrike"],[20,"wyrm_strike"],[30,"mind_shatter"],[40,"scale_storm"],[50,"neural_storm"],[60,"cataclysm_breath"],[5,"dragon_dance"],[55,"primordial_roar"]],
+    catchRate:4, expYield:368, rarity:"rare",
+    desc:"A dragon that has lived so long it perceives all possible futures simultaneously. It fights battles it has already won.",
+    lore:"Eondrake is a dragon-psychic 7 metres long whose scales carry the iridescent sheen of deep time. Its eyes are filled with visions of every past and future moment. Ancient records show it has appeared at every major historical turning point." },
+
+  393: { id:393, name:"Nullstorm", emoji:"🌀", types:["Dark","Electric"],
+    base:{hp:92,atk:128,def:95,spa:145,spd:112,spe:138}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"void_rend"],[10,"thunder_shock"],[20,"shadow_ball"],[30,"thunderbolt"],[40,"phantom_claw"],[50,"volt_surge"],[60,"neural_storm"],[5,"shadow_sneak"],[55,"thunder_wave"]],
+    catchRate:4, expYield:368, rarity:"rare",
+    desc:"A dark electromagnetic storm given will. It communicates by interrupting every electrical device within range.",
+    lore:"Nullstorm is a dark-electric entity 5 metres across that resembles a contained electromagnetic storm with a dark nucleus. Every electronic device within a kilometre malfunctions in its presence." },
+
+  394: { id:394, name:"Solarvast", emoji:"🌟", types:["Fire","Dragon"],
+    base:{hp:100,atk:140,def:108,spa:138,spd:108,spe:118}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"flamethrower"],[10,"dragon_breath"],[20,"solar_flare"],[30,"dragon_pulse"],[40,"fire_blast"],[50,"cataclysm_breath"],[60,"ancient_breath"],[5,"char_dance"],[55,"primordial_roar"]],
+    catchRate:4, expYield:370, rarity:"rare",
+    desc:"A fire dragon born from the sun itself. The corona of its home star still wraps its body.",
+    lore:"Solarvast is a fire-dragon 7 metres long whose scales burn with the surface temperature of a star. It was first recorded appearing from a solar flare. Its breath weapon reaches temperatures measurable only in solar physics." },
+
+  395: { id:395, name:"Glacierend", emoji:"❄️", types:["Ice","Dragon"],
+    base:{hp:105,atk:135,def:120,spa:125,spd:112,spe:108}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"ice_beam"],[10,"dragon_claw"],[20,"cryo_lance"],[30,"dragon_pulse"],[40,"blizzard"],[50,"scale_storm"],[60,"cataclysm_breath"],[5,"dragon_dance"],[55,"ancient_breath"]],
+    catchRate:4, expYield:370, rarity:"rare",
+    desc:"A glacier-dragon that has been growing since the last ice age. It moves slowly, but nothing stops it.",
+    lore:"Glacierend is an ice-dragon 8 metres long with scales of glacial blue ice 50,000 years old. It moves at glacial speed outside battle but in combat is explosively fast. Every valley it has walked through remains permanently frozen." },
+
+  396: { id:396, name:"Thunderpeak", emoji:"⚡", types:["Electric","Steel"],
+    base:{hp:95,atk:135,def:125,spa:128,spd:108,spe:125}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"thunder_shock"],[10,"metal_claw"],[20,"thunderbolt"],[30,"iron_tail"],[40,"thunder"],[50,"flash_cannon"],[60,"volt_surge"],[5,"harden"],[55,"alloy_edge"]],
+    catchRate:4, expYield:370, rarity:"rare",
+    desc:"A living lightning rod of steel. Every bolt from every storm in Lumoria eventually passes through it.",
+    lore:"Thunderpeak is an electric-steel creature 3 metres tall resembling a stylised lightning bolt in living metal. It has a near-perfect conductor rating and can absorb, store, and release planet-scale electrical charge." },
+
+  397: { id:397, name:"Abyssalord", emoji:"🌊", types:["Water","Ghost"],
+    base:{hp:108,atk:125,def:110,spa:138,spd:118,spe:115}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"surf"],[10,"shadow_ball"],[20,"tidal_crush"],[30,"phantom_claw"],[40,"hydro_pump"],[50,"void_rend"],[60,"neural_storm"],[5,"shadowstep"],[55,"sea_serpent_strike"]],
+    catchRate:4, expYield:372, rarity:"rare",
+    desc:"The lord of all drowned things. Sailors who die at sea answer to it now.",
+    lore:"Abyssalord is a water-ghost creature 9 metres long resembling a massive spectral leviathan trailing ghostly sea-wrack. It is invisible underwater — its presence is detected only by a sudden drop in water temperature and the silencing of all sea life." },
+
+  398: { id:398, name:"Voidcrown", emoji:"🌌", types:["Dark","Fairy"],
+    base:{hp:95,atk:112,def:105,spa:150,spd:122,spe:128}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"fae_requiem"],[10,"void_rend"],[20,"mind_shatter"],[30,"shadow_ball"],[40,"neural_storm"],[50,"phantom_claw"],[60,"fae_requiem"],[5,"dreamweave"],[55,"prism_ward"]],
+    catchRate:4, expYield:372, rarity:"rare",
+    desc:"The sovereign of corrupted fae — a ruler that bridges the beautiful and the terrible without apology.",
+    lore:"Voidcrown is a dark-fairy entity 2.5 metres tall wearing a permanent crown of void-matter and fairy-light. Half of its face is radiant and warm; the other half is an absolute darkness that swallows sight." },
+
+  399: { id:399, name:"Stonekeeper", emoji:"⛰️", types:["Rock","Ghost"],
+    base:{hp:110,atk:118,def:138,spa:118,spd:118,spe:95}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"rock_slide"],[10,"shadow_ball"],[20,"fossil_rush"],[30,"phantom_claw"],[40,"rock_slide"],[50,"void_rend"],[60,"neural_storm"],[5,"harden"],[55,"prism_ward"]],
+    catchRate:4, expYield:370, rarity:"rare",
+    desc:"The ghost of a mountain that refused to erode. It guards the summit as it always has.",
+    lore:"Stonekeeper is a rock-ghost entity 4 metres tall resembling a craggy mountain peak with a translucent interior. It is the spirit of a specific peak that was destroyed in an ancient cataclysm. It still performs the same patrol it did 10,000 years ago." },
+
+  400: { id:400, name:"Primordiax", emoji:"🔥", types:["Fire","Ground"],
+    base:{hp:110,atk:148,def:118,spa:118,spd:108,spe:108}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"flamethrower"],[10,"earth_power"],[20,"magma_surge"],[30,"fissure_slam"],[40,"solar_flare"],[50,"terra_spike"],[60,"inferno"],[5,"char_dance"],[55,"magma_surge"]],
+    catchRate:4, expYield:375, rarity:"rare",
+    desc:"A creature born when the planet's crust cracked and the mantle met the surface. It predates all others.",
+    lore:"Primordiax is a fire-ground creature 5 metres tall resembling a primordial titan of cooling lava and deep rock. Geologists have identified its footprints in geological formations 500 million years old." },
+
+  401: { id:401, name:"Cosmoveil", emoji:"🌠", types:["Psychic","Fairy"],
+    base:{hp:95,atk:100,def:100,spa:155,spd:128,spe:128}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[30,"psystrike"],[40,"mind_shatter"],[50,"neural_storm"],[60,"dreamweave"],[5,"prism_ward"],[55,"cortex_spike"]],
+    catchRate:3, expYield:380, rarity:"rare",
+    desc:"A being from beyond the known world. It arrived as a point of light that grew into something impossible.",
+    lore:"Cosmoveil is a psychic-fairy entity 2 metres tall composed of condensed starlight and cosmic fairy magic. It arrived from outside the known Lumoria region and has not yet been placed in any evolutionary lineage. Its biology resembles nothing previously recorded." }
 };
 
 

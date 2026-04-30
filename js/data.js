@@ -3575,7 +3575,78 @@ const MONSTERS_DATA = {
     learnset:[[1,"metal_claw"],[10,"psychic_move"],[20,"alloy_edge"],[30,"psystrike"],[40,"flash_cannon"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[48,"cortex_spike"]],
     catchRate:6, expYield:345, rarity:"rare",
     desc:"A crystal computer of living steel and pure psychic energy. It has solved every problem ever posed to it.",
-    lore:"Crystalmind is a psychic-steel entity 1.5 metres tall shaped like a perfect geometric polyhedron of living crystal laced with steel filaments. Its psychic processing speed exceeds any known computation." }
+    lore:"Crystalmind is a psychic-steel entity 1.5 metres tall shaped like a perfect geometric polyhedron of living crystal laced with steel filaments. Its psychic processing speed exceeds any known computation." },
+
+  // ---- Tier 5: Apex Summit exclusives BST ~655–695 ----
+  382: { id:382, name:"Oblivionwing", emoji:"🖤", types:["Dark","Dragon"],
+    base:{hp:95,atk:138,def:105,spa:128,spd:108,spe:130}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"dragon_claw"],[10,"void_rend"],[20,"wyrm_strike"],[30,"shadow_ball"],[40,"scale_storm"],[50,"phantom_claw"],[60,"cataclysm_breath"],[5,"dragon_dance"],[52,"primordial_roar"]],
+    catchRate:5, expYield:355, rarity:"rare",
+    desc:"A dragon that devours light itself. Darkness spreads for kilometres from wherever it roosts.",
+    lore:"Oblivionwing is a dark-dragon 6 metres long with wings that absorb all incoming light. Flying overhead, it casts a shadow darker than any natural darkness. Stars are visible at noon beneath its wings." },
+
+  383: { id:383, name:"Apexblade", emoji:"⚔️", types:["Steel","Dragon"],
+    base:{hp:92,atk:145,def:120,spa:100,spd:105,spe:118}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"metal_claw"],[10,"dragon_breath"],[20,"iron_tail"],[30,"dragon_claw"],[40,"flash_cannon"],[50,"wyrm_strike"],[60,"scale_storm"],[5,"dragon_dance"],[52,"alloy_edge"]],
+    catchRate:5, expYield:355, rarity:"rare",
+    desc:"The ultimate fusion of forged steel and draconic power. Its body is a living weapon.",
+    lore:"Apexblade is a steel-dragon 5 metres long with a body of folded ultra-steel and draconic biology merged at the cellular level. Every surface is an edge. Its teeth alone number 340." },
+
+  384: { id:384, name:"Solarcrown", emoji:"🌞", types:["Fire","Psychic"],
+    base:{hp:90,atk:108,def:98,spa:148,spd:118,spe:118}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"solar_flare"],[10,"psychic_move"],[20,"fire_blast"],[30,"psystrike"],[40,"heat_wave"],[50,"mind_shatter"],[60,"neural_storm"],[5,"char_dance"],[52,"dreamweave"]],
+    catchRate:5, expYield:358, rarity:"rare",
+    desc:"The embodiment of solar noon — a psychic sun that walks the earth and has never known night.",
+    lore:"Solarcrown is a fire-psychic entity 2.5 metres tall composed of compressed solar plasma. Its crown is a permanent coronal loop. Astronomers debate whether the sun responds to it or vice versa." },
+
+  385: { id:385, name:"Permafrost", emoji:"🧊", types:["Ice","Ground"],
+    base:{hp:110,atk:128,def:130,spa:95,spd:110,spe:88}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"ice_punch"],[10,"earth_power"],[20,"cryo_lance"],[30,"fissure_slam"],[40,"blizzard"],[50,"terra_spike"],[60,"ice_beam"],[5,"winter_shroud"],[52,"harden"]],
+    catchRate:5, expYield:355, rarity:"rare",
+    desc:"A creature so cold it freezes the ground beneath it permanently. It has never melted.",
+    lore:"Permafrost is an ice-ground creature 3 metres tall resembling a glacial boulder with limbs. The ground beneath it freezes to a depth of 50 metres and does not thaw for decades after it leaves." },
+
+  386: { id:386, name:"Wraithstorm", emoji:"💀", types:["Ghost","Electric"],
+    base:{hp:88,atk:118,def:90,spa:138,spd:108,spe:135}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"shadow_ball"],[10,"thunder_shock"],[20,"phantom_claw"],[30,"thunderbolt"],[40,"void_rend"],[50,"volt_surge"],[60,"thunder"],[5,"shadow_sneak"],[52,"neural_storm"]],
+    catchRate:5, expYield:358, rarity:"rare",
+    desc:"A ghost electrified by a lightning strike. It haunts storm fronts and strikes from inside the thunder.",
+    lore:"Wraithstorm is a ghost-electric entity that exists inside active lightning bolts. Between strikes it takes the form of a translucent humanoid crackling with contained electricity." },
+
+  387: { id:387, name:"Deepvoid", emoji:"🕳️", types:["Dark","Water"],
+    base:{hp:105,atk:120,def:108,spa:128,spd:108,spe:100}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"surf"],[10,"void_rend"],[20,"tidal_crush"],[30,"shadow_ball"],[40,"hydro_pump"],[50,"phantom_claw"],[60,"sea_serpent_strike"],[5,"shadowstep"],[52,"abyssal_jet"]],
+    catchRate:5, expYield:355, rarity:"rare",
+    desc:"Something pulled up from a depth so great that light has never touched it. It is the dark of absolute abyss.",
+    lore:"Deepvoid is a dark-water creature 6 metres long with a featureless body of absolute black. No light reflects from it. It was first encountered when it breached from a trench 12 kilometres deep." },
+
+  388: { id:388, name:"Chronolith", emoji:"⏳", types:["Rock","Psychic"],
+    base:{hp:108,atk:110,def:130,spa:128,spd:115,spe:78}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"rock_slide"],[10,"psychic_move"],[20,"fossil_rush"],[30,"psystrike"],[40,"rock_slide"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[52,"cortex_spike"]],
+    catchRate:5, expYield:358, rarity:"rare",
+    desc:"A stone that has witnessed every moment of Lumoria's history and remembers all of them simultaneously.",
+    lore:"Chronolith is a rock-psychic entity resembling a massive standing stone 2.5 metres tall with geological strata that each contain a perfect frozen moment from the past, visible if viewed psychically." },
+
+  389: { id:389, name:"Stormcrown", emoji:"⛈️", types:["Electric","Dragon"],
+    base:{hp:92,atk:122,def:100,spa:142,spd:108,spe:128}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"thunder_shock"],[10,"dragon_breath"],[20,"thunderbolt"],[30,"dragon_pulse"],[40,"thunder"],[50,"wyrm_strike"],[60,"cataclysm_breath"],[5,"dragon_dance"],[52,"volt_surge"]],
+    catchRate:5, expYield:360, rarity:"rare",
+    desc:"The apex predator of electric dragons. Every storm in Lumoria eventually reports to it.",
+    lore:"Stormcrown is an electric-dragon 5.5 metres long with a permanent crown of crackling lightning. It is the dominant electric-type in any region it inhabits and other electric creatures defer to it instinctively." },
+
+  390: { id:390, name:"Voidgarden", emoji:"🌸", types:["Fairy","Dark"],
+    base:{hp:92,atk:105,def:100,spa:145,spd:120,spe:118}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"fairy_wind"],[10,"shadow_ball"],[20,"fae_requiem"],[30,"void_rend"],[40,"mind_shatter"],[50,"phantom_claw"],[60,"neural_storm"],[5,"dreamweave"],[52,"umbral_claw"]],
+    catchRate:5, expYield:360, rarity:"rare",
+    desc:"A garden of beautiful but corrupted fae life. Its flowers are as poisonous as they are gorgeous.",
+    lore:"Voidgarden is a fairy-dark entity 2 metres tall resembling a humanoid composed of luminous flowers and dark thorned vines growing simultaneously. The flowers glow with a light that induces euphoria." },
+
+  391: { id:391, name:"Titanfang", emoji:"🦷", types:["Normal","Dragon"],
+    base:{hp:115,atk:145,def:112,spa:100,spd:105,spe:108}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"headbutt"],[10,"dragon_breath"],[20,"body_slam"],[30,"dragon_claw"],[40,"hyper_beam"],[50,"wyrm_strike"],[60,"eon_crash"],[5,"dragon_dance"],[52,"primordial_roar"]],
+    catchRate:5, expYield:362, rarity:"rare",
+    desc:"The largest creature confirmed alive in Lumoria. It has no natural predators.",
+    lore:"Titanfang is a normal-dragon creature 10 metres long resembling an ancient apex predator grown to impossible scale. The ground shakes with each step. Its roar is felt as a physical pressure for 30 kilometres." }
 };
 
 

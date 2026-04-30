@@ -2213,3 +2213,161 @@ button, a, [role="button"] {
 /* Roaming legendary button — distinct pulse colour */
 #btn-roaming { border-color: #40c070; color: #40c070; }
 #btn-roaming:hover { background: rgba(64,192,112,0.15); }
+
+/* ==========================================
+   SAVE SLOT SCREEN
+   ========================================== */
+#screen-saveslots {
+  justify-content: center; align-items: center;
+  background: linear-gradient(135deg, #0d1117 0%, #1a0a2e 50%, #0d1117 100%);
+  padding: 1.5rem;
+}
+.saveslots-wrap { width: 100%; max-width: 520px; }
+.saveslots-title {
+  text-align: center; font-size: 1.4rem; margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, #ffd700, #a78bfa); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+}
+.slot-card {
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1rem; margin-bottom: 0.75rem;
+  transition: border-color 0.2s;
+}
+.slot-occupied { border-color: var(--accent-blue); }
+.slot-empty { border-color: var(--border); opacity: 0.7; }
+.slot-header {
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--text-muted); margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.slot-name { font-size: 1.1rem; font-weight: bold; color: var(--accent-blue); margin-bottom: 0.2rem; }
+.slot-info { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.3rem; }
+.slot-team { font-size: 1.3rem; letter-spacing: 2px; margin-bottom: 0.3rem; }
+.slot-time { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.6rem; }
+.slot-empty-text { color: var(--text-muted); font-style: italic; margin: 0.6rem 0; }
+.slot-actions { display: flex; gap: 0.5rem; }
+.slot-actions .btn-primary, .slot-actions .btn-secondary { flex: 1; padding: 0.4rem 0.6rem; font-size: 0.85rem; }
+.btn-danger {
+  background: transparent; border: 1px solid #e05050; color: #e05050;
+  border-radius: 6px; padding: 0.4rem 0.8rem; cursor: pointer; font-size: 0.85rem;
+  transition: background 0.2s;
+}
+.btn-danger:hover { background: rgba(224,80,80,0.15); }
+.ng-badge {
+  background: linear-gradient(90deg, #ffd700, #ff6b35); color: #000;
+  border-radius: 4px; padding: 1px 5px; font-size: 0.65rem; font-weight: bold;
+}
+#btn-slots-back { margin-top: 0.75rem; width: 100%; }
+
+/* ==========================================
+   FULLSCREEN BUTTON
+   ========================================== */
+#btn-fullscreen {
+  background: transparent; border: 1px solid var(--border); color: var(--text-secondary);
+  border-radius: 4px; padding: 0.15rem 0.4rem; cursor: pointer; font-size: 0.85rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+#btn-fullscreen:hover { color: var(--accent-blue); border-color: var(--accent-blue); }
+
+/* NG+ button on The Pantheon screen */
+#btn-hof-ng-plus {
+  display: block; margin: 0.5rem auto;
+  background: linear-gradient(135deg, #1a0a2e, #0a1a2e);
+  border-color: #ffd700; color: #ffd700;
+}
+#btn-hof-ng-plus:hover { background: rgba(255,215,0,0.1); }
+
+/* ==========================================
+   LIVE EVENT BANNER & TIME EVENTS
+   ========================================== */
+#live-event-banner {
+  background: linear-gradient(90deg, #1a2e0a, #0a1a2e, #1a0a2e);
+  border-bottom: 1px solid var(--accent-purple); padding: 0.35rem 1rem;
+  font-size: 0.8rem; color: var(--text-secondary); text-align: center;
+}
+#live-event-banner strong { color: #a78bfa; }
+.event-timer { color: var(--text-muted); margin-left: 0.5rem; }
+#community-progress { padding: 0.3rem 1rem; font-size: 0.75rem; text-align: center; }
+.comm-bar-wrap { background: var(--bg-panel); border-radius: 4px; height: 6px; width: 200px; display: inline-block; margin-right: 0.5rem; vertical-align: middle; }
+.comm-bar { background: linear-gradient(90deg, #40c070, #a78bfa); height: 100%; border-radius: 4px; }
+#time-events-display { display: flex; gap: 0.25rem; }
+.time-event-tag {
+  background: rgba(167,139,250,0.15); border: 1px solid rgba(167,139,250,0.3);
+  border-radius: 4px; padding: 0.1rem 0.35rem; font-size: 0.65rem; color: #a78bfa; white-space: nowrap;
+}
+#hud-online-status { font-size: 0.8rem; }
+
+/* ==========================================
+   LEADERBOARDS
+   ========================================== */
+.lb-tabs { display: flex; gap: 0.4rem; padding: 0.75rem 1rem; overflow-x: auto; border-bottom: 1px solid var(--border); }
+.lb-tab {
+  background: var(--bg-panel); border: 1px solid var(--border); color: var(--text-secondary);
+  border-radius: 20px; padding: 0.3rem 0.8rem; cursor: pointer; font-size: 0.8rem; white-space: nowrap;
+  transition: all 0.2s;
+}
+.lb-tab.active { border-color: var(--accent-blue); color: var(--accent-blue); }
+.lb-entries { padding: 0.75rem 1rem; }
+.lb-row {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 6px; padding: 0.5rem 0.75rem; margin-bottom: 0.4rem;
+}
+.lb-mine { border-color: var(--accent-blue); }
+.lb-rank { font-size: 0.9rem; font-weight: bold; color: var(--accent-yellow); width: 2rem; flex-shrink: 0; }
+.lb-name { flex: 1; font-size: 0.9rem; }
+.lb-value { font-size: 1rem; font-weight: bold; color: var(--accent-blue); }
+.lb-loading, .lb-empty { padding: 2rem; text-align: center; color: var(--text-muted); }
+
+/* ==========================================
+   TRADING
+   ========================================== */
+.trade-layout { display: flex; gap: 1rem; padding: 0.75rem; flex-wrap: wrap; }
+.trade-left, .trade-right { flex: 1; min-width: 260px; }
+.trade-left h3, .trade-right h3 { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
+.trade-card {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.6rem; margin-bottom: 0.4rem;
+}
+.trade-mon-info { display: flex; align-items: center; gap: 0.5rem; flex: 1; }
+.trade-emoji { font-size: 1.8rem; }
+.trade-mon-name { font-size: 0.85rem; font-weight: bold; }
+.trade-poster { font-size: 0.7rem; color: var(--text-muted); }
+.trade-want { font-size: 0.7rem; color: var(--accent-blue); }
+.trade-box-slot {
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 6px; padding: 0.4rem 0.6rem; margin-bottom: 0.3rem;
+  cursor: pointer; font-size: 0.8rem; transition: border-color 0.2s;
+}
+.trade-box-slot:hover { border-color: var(--accent-blue); }
+.trade-box-slot.selected { border-color: var(--accent-blue); background: rgba(88,166,255,0.1); }
+.trade-post-controls { display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
+.trade-select {
+  background: var(--bg-panel); border: 1px solid var(--border); color: var(--text-primary);
+  border-radius: 6px; padding: 0.35rem 0.5rem; font-size: 0.8rem; flex: 1;
+}
+.trade-label { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+.trade-loading, .trade-empty, .trade-error { padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+
+/* ==========================================
+   PVP BATTLES
+   ========================================== */
+.pvp-layout { display: flex; gap: 1rem; padding: 0.75rem; flex-wrap: wrap; }
+.pvp-post, .pvp-browse { flex: 1; min-width: 240px; }
+.pvp-post h3, .pvp-browse h3 { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
+.pvp-desc { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+.pvp-code-display { font-size: 1.4rem; font-weight: bold; color: var(--accent-yellow); letter-spacing: 4px; padding: 0.5rem; text-align: center; }
+.pvp-input {
+  background: var(--bg-panel); border: 1px solid var(--border); color: var(--text-primary);
+  border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.9rem; width: 100%;
+  margin-bottom: 0.4rem; letter-spacing: 2px; text-transform: uppercase; box-sizing: border-box;
+}
+.pvp-card {
+  display: flex; align-items: center; gap: 0.5rem;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.6rem; margin-bottom: 0.4rem;
+}
+.pvp-challenger { flex: 1; font-size: 0.85rem; font-weight: bold; }
+.pvp-badges { font-size: 0.75rem; color: var(--text-muted); }
+.pvp-code { font-size: 0.75rem; color: var(--accent-blue); letter-spacing: 1px; }
+.pvp-loading, .pvp-empty, .pvp-error { padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }

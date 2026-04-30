@@ -28,7 +28,9 @@ function newGameState(playerName, starterMonsterId) {
     achievements: [],
     roamingCaught: [],
     dailyChallenges: null,
-    saveTimestamp: Date.now()
+    saveTimestamp: Date.now(),
+    saveSlot: 0,
+    ngPlusCount: 0
   };
 }
 
@@ -53,12 +55,13 @@ function saveGame() {
   if (!G) return;
   G.saveTimestamp = Date.now();
   const save = { ...G, seenMonsters: [...G.seenMonsters], caughtMonsters: [...G.caughtMonsters] };
-  localStorage.setItem("lumoria_save", JSON.stringify(save));
+  localStorage.setItem(getSaveKey(G.saveSlot || 0), JSON.stringify(save));
   showNotification("Game saved! ✅");
 }
 
-function loadGame() {
-  const raw = localStorage.getItem("lumoria_save");
+function loadGame(slot) {
+  slot = slot ?? 0;
+  const raw = localStorage.getItem(getSaveKey(slot));
   if (!raw) return false;
   try {
     const data = JSON.parse(raw);
@@ -89,13 +92,131 @@ function loadGame() {
     if (!data.achievements) data.achievements = [];
     if (!data.roamingCaught) data.roamingCaught = [];
     if (!data.dailyChallenges) data.dailyChallenges = null;
+    if (data.ngPlusCount === undefined) data.ngPlusCount = 0;
+    data.saveSlot = slot;
     G = data;
     return true;
   } catch(e) { return false; }
 }
 
-function hasSave() {
-  return !!localStorage.getItem("lumoria_save");
+const SAVE_PREFIX = "lumoria_save_";
+function getSaveKey(slot) { return SAVE_PREFIX + slot; }
+function hasSaveInSlot(slot) { return !!localStorage.getItem(getSaveKey(slot)); }
+function hasAnySave() { return [0,1,2].some(s => hasSaveInSlot(s)); }
+
+function getSaveSlotData(slot) {
+  const raw = localStorage.getItem(getSaveKey(slot));
+  if (!raw) return null;
+  try { return JSON.parse(raw); } catch(e) { return null; }
+}
+
+function deleteSaveSlot(slot) {
+  localStorage.removeItem(getSaveKey(slot));
+}
+
+function timeSince(ts) {
+  const diff = Date.now() - ts;
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return "just now";
+  if (mins < 60) return `${mins}m ago`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `${hrs}h ago`;
+  return `${Math.floor(hrs / 24)}d ago`;
+}
+
+// ---- NG+ Scaling ----
+function ngPlusScale(level) {
+  if (!G || !G.ngPlusCount) return level;
+  return Math.min(100, Math.round(level * (1 + 0.2 * G.ngPlusCount)));
+}
+
+// ---- Fullscreen ----
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(() => showNotification("Fullscreen not supported by your browser."));
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+// ---- Save Slot Screen ----
+function showSaveSlots() {
+  const list = document.getElementById("save-slots-list");
+  list.innerHTML = "";
+  for (let i = 0; i < 3; i++) {
+    const data = getSaveSlotData(i);
+    const card = document.createElement("div");
+    card.className = "slot-card " + (data ? "slot-occupied" : "slot-empty");
+    if (data) {
+      const team = (data.team || []).slice(0, 6).map(m => {
+        const def = MONSTERS_DATA[m.monsterId];
+        return def ? def.emoji : "❓";
+      }).join(" ");
+      const elapsed = data.saveTimestamp ? timeSince(data.saveTimestamp) : "Unknown";
+      const ngTag = data.ngPlusCount > 0 ? `<span class="ng-badge">NG+${data.ngPlusCount}</span>` : "";
+      card.innerHTML = `
+        <div class="slot-header">Slot ${i+1} ${ngTag}</div>
+        <div class="slot-name">${data.playerName || "Trainer"}</div>
+        <div class="slot-info">🏅 ${(data.badges||[]).length}/16 Badges${data.championDefeated ? " · 🏆 Champion" : ""}</div>
+        <div class="slot-team">${team}</div>
+        <div class="slot-time">Saved ${elapsed}</div>
+        <div class="slot-actions">
+          <button class="btn-primary slot-load" data-slot="${i}">▶ Load</button>
+          <button class="btn-danger slot-delete" data-slot="${i}">🗑</button>
+        </div>`;
+    } else {
+      card.innerHTML = `
+        <div class="slot-header">Slot ${i+1}</div>
+        <div class="slot-empty-text">— Empty —</div>
+        <div class="slot-actions">
+          <button class="btn-primary slot-new" data-slot="${i}">⚔ New Game</button>
+        </div>`;
+    }
+    list.appendChild(card);
+  }
+  list.querySelectorAll(".slot-load").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const slot = parseInt(btn.dataset.slot);
+      if (loadGame(slot)) {
+        showScreen("screen-main");
+        renderHUD(); renderWorldMap(); renderAreaPanel();
+        if (typeof MusicEngine !== "undefined") { MusicEngine.init(); MusicEngine.playOverworld(); }
+      }
+    });
+  });
+  list.querySelectorAll(".slot-new").forEach(btn => {
+    btn.addEventListener("click", () => {
+      window._pendingSlot = parseInt(btn.dataset.slot);
+      showScreen("screen-create");
+      typewriterDialog("Welcome to the world of Lumoria! I am Professor Solaris. The world is full of incredible creatures called Lumori. Tell me, what is your name?");
+    });
+  });
+  list.querySelectorAll(".slot-delete").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const slot = parseInt(btn.dataset.slot);
+      if (confirm(`Delete Slot ${slot+1}? This cannot be undone.`)) {
+        deleteSaveSlot(slot);
+        showSaveSlots();
+      }
+    });
+  });
+  showScreen("screen-saveslots");
+}
+
+// ---- New Game+ ----
+function startNGPlus() {
+  if (!G) return;
+  if (!confirm("Start New Game+? You will keep your Lumori box, items, and half your money. The world will be harder.")) return;
+  window._ngPlusCarry = {
+    box: [...G.box],
+    bag: { ...G.bag },
+    money: Math.floor(G.money / 2),
+    ngCount: (G.ngPlusCount || 0) + 1,
+    name: G.playerName,
+    slot: G.saveSlot
+  };
+  window._pendingSlot = G.saveSlot;
+  showStarterScreen();
 }
 
 // ---- Screen Management ----
@@ -828,7 +949,7 @@ function exploreArea() {
   let chosen = pool[pool.length - 1];
   for (const wm of pool) { roll -= wm.rate; if (roll <= 0) { chosen = wm; break; } }
 
-  const level = chosen.minLv + Math.floor(Math.random() * (chosen.maxLv - chosen.minLv + 1));
+  const level = ngPlusScale(chosen.minLv + Math.floor(Math.random() * (chosen.maxLv - chosen.minLv + 1)));
   G.seenMonsters.add(chosen.id);
   startWildBattle(buildWildMon(chosen.id, level));
 }
@@ -1808,6 +1929,8 @@ function showHallOfFame() {
     teamEl.appendChild(div);
   }
   saveGame();
+  const ngBtn = document.getElementById("btn-hof-ng-plus");
+  if (ngBtn) ngBtn.classList.remove("hidden");
   setTimeout(showPostGameContent, 1500);
 }
 
@@ -2854,20 +2977,13 @@ function showDexDetail(monsterId) {
 // ============================================================
 function initEventListeners() {
   // Title screen
-  document.getElementById("btn-new-game").addEventListener("click", () => {
-    showScreen("screen-create");
-    typewriterDialog("Welcome to the world of Lumoria! I am Professor Solaris. The world is full of incredible creatures called Lumori. Tell me, what is your name?");
-  });
-  document.getElementById("btn-continue").addEventListener("click", () => {
-    if (loadGame()) {
-      showScreen("screen-main");
-      renderHUD();
-      renderWorldMap();
-      renderAreaPanel();
-      if (typeof MusicEngine !== "undefined") { MusicEngine.init(); MusicEngine.playOverworld(); }
-    } else {
-      showNotification("No save file found!");
-    }
+  document.getElementById("btn-new-game").addEventListener("click", () => showSaveSlots());
+  document.getElementById("btn-continue").addEventListener("click", () => showSaveSlots());
+  document.getElementById("btn-slots-back").addEventListener("click", () => showScreen("screen-title"));
+  document.getElementById("btn-fullscreen").addEventListener("click", toggleFullscreen);
+  document.addEventListener("fullscreenchange", () => {
+    const btn = document.getElementById("btn-fullscreen");
+    if (btn) btn.textContent = document.fullscreenElement ? "⛶ Exit" : "⛶";
   });
 
   // Character creation
@@ -2885,16 +3001,31 @@ function initEventListeners() {
   document.getElementById("btn-take-starter").addEventListener("click", () => {
     const starterId = window._selectedStarter;
     if (!starterId) return;
-    G = newGameState(window._pendingName, starterId);
+    const carry = window._ngPlusCarry;
+    G = newGameState(window._pendingName || carry?.name || "Trainer", starterId);
+    G.saveSlot = window._pendingSlot || 0;
+    if (carry) {
+      G.ngPlusCount = carry.ngCount;
+      G.box = carry.box;
+      G.bag = carry.bag;
+      G.money = carry.money;
+      window._ngPlusCarry = null;
+    }
     showScreen("screen-main");
     renderHUD();
     renderWorldMap();
     renderAreaPanel();
     saveGame();
-    showNotification(`🎉 You chose ${MONSTERS_DATA[starterId].name}! Your adventure begins!`, () => {
-      if (typeof MusicEngine !== "undefined") { MusicEngine.init(); MusicEngine.playOverworld(); }
-      triggerStorySequence("intro");
-    });
+    const isNGP = G.ngPlusCount > 0;
+    showNotification(
+      isNGP
+        ? `⭐ NG+${G.ngPlusCount} started! You chose ${MONSTERS_DATA[starterId].name}!`
+        : `🎉 You chose ${MONSTERS_DATA[starterId].name}! Your adventure begins!`,
+      () => {
+        if (typeof MusicEngine !== "undefined") { MusicEngine.init(); MusicEngine.playOverworld(); }
+        if (!isNGP) triggerStorySequence("intro");
+      }
+    );
   });
   document.getElementById("btn-cancel-starter").addEventListener("click", () => {
     window._selectedStarter = null;
@@ -2953,6 +3084,22 @@ function initEventListeners() {
   document.getElementById("nav-shop").addEventListener("click", showShopScreen);
   document.getElementById("nav-achievements")?.addEventListener("click", showAchievementsScreen);
   document.getElementById("btn-achievements-back")?.addEventListener("click", () => showScreen("screen-main"));
+
+  // Online screens
+  document.getElementById("btn-lb-back")?.addEventListener("click", () => showScreen("screen-main"));
+  document.getElementById("btn-trade-back")?.addEventListener("click", () => showScreen("screen-main"));
+  document.getElementById("btn-pvp-back")?.addEventListener("click", () => showScreen("screen-main"));
+  document.getElementById("btn-post-trade")?.addEventListener("click", () => {
+    const type = document.getElementById("trade-wanted-type")?.value || "";
+    if (typeof postTrade === "function") postTrade(type);
+  });
+  document.getElementById("btn-post-challenge")?.addEventListener("click", () => {
+    if (typeof postBattleChallenge === "function") postBattleChallenge();
+  });
+  document.getElementById("btn-accept-by-code")?.addEventListener("click", () => {
+    const code = document.getElementById("pvp-code-input")?.value.trim();
+    if (code && typeof acceptBattleChallenge === "function") acceptBattleChallenge(code);
+  });
 
   // Quest filter buttons
   document.querySelectorAll(".quest-filter-btn").forEach(btn => {
@@ -3193,7 +3340,8 @@ function initEventListeners() {
     saveGame();
   });
 
-  // Hall of fame
+  // Hall of fame / New Game+
+  document.getElementById("btn-hof-ng-plus").addEventListener("click", () => startNGPlus());
   document.getElementById("btn-hof-continue").addEventListener("click", () => {
     showScreen("screen-main");
     renderHUD();
@@ -4022,14 +4170,7 @@ function renderDailyChallengesUI() {
 // ---- BOOT ----
 window.addEventListener("load", () => {
   initEventListeners();
-
-  // Show continue button only if save exists
-  document.getElementById("btn-continue").style.display = hasSave() ? "" : "none";
-
-  // Start on title screen
   showScreen("screen-title");
-
-  // Creation screen dialog now triggered when NEW GAME is clicked
 
   // Map re-render on resize
   window.addEventListener("resize", () => {

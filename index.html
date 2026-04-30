@@ -26,14 +26,23 @@
       </div>
       <div class="title-logo">
         <h1>LUMORIA</h1>
-        <p class="subtitle">A Lumo Catching Adventure</p>
+        <p class="subtitle">A Lumori Catching Adventure</p>
         <p class="region-tag">Explore the Lumoria Region</p>
       </div>
       <div class="title-buttons">
         <button class="btn-primary" id="btn-new-game">⚔ NEW GAME</button>
         <button class="btn-secondary" id="btn-continue">▶ CONTINUE</button>
       </div>
-      <p class="title-hint">321 Lumos to Discover · 16 Gyms · 1 Champion</p>
+      <p class="title-hint">321 Lumori to Discover · 16 Gyms · 1 Champion</p>
+    </div>
+  </div>
+
+  <!-- SAVE SLOT SELECTION -->
+  <div id="screen-saveslots" class="screen">
+    <div class="saveslots-wrap">
+      <h2 class="saveslots-title">🌟 Select Save Slot</h2>
+      <div id="save-slots-list"></div>
+      <button class="btn-secondary" id="btn-slots-back">← Back</button>
     </div>
   </div>
 
@@ -77,8 +86,15 @@
       <div id="hud-right">
         <span id="hud-money">💰 3000</span>
         <span id="hud-location">📍 Seedvale Town</span>
+        <span id="hud-online-status" title="Online"></span>
+        <div id="time-events-display"></div>
+        <button id="btn-fullscreen" title="Toggle Fullscreen">⛶</button>
       </div>
     </div>
+
+    <!-- LIVE EVENT BANNER -->
+    <div id="live-event-banner" class="hidden"></div>
+    <div id="community-progress" class="hidden"></div>
 
     <!-- WORLD MAP + AREA PANEL -->
     <div id="world-layout">
@@ -566,7 +582,70 @@
       <p id="hof-player-name"></p>
       <div id="hof-team"></div>
       <div id="postGame-banner" class="hidden"></div>
+      <button class="btn-secondary hidden" id="btn-hof-ng-plus">⭐ New Game+</button>
       <button class="btn-primary" id="btn-hof-continue">Continue Your Adventure</button>
+    </div>
+  </div>
+
+  <!-- LEADERBOARDS SCREEN -->
+  <div id="screen-leaderboards" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" id="btn-lb-back">← Back</button>
+      <h2>🏆 Leaderboards</h2>
+    </div>
+    <div id="lb-tabs" class="lb-tabs"></div>
+    <div id="lb-entries" class="lb-entries"></div>
+  </div>
+
+  <!-- TRADING SCREEN -->
+  <div id="screen-trade" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" id="btn-trade-back">← Back</button>
+      <h2>🤝 Lumori Trading</h2>
+    </div>
+    <div class="trade-layout">
+      <div class="trade-left">
+        <h3>Open Trades</h3>
+        <div id="trade-listings"></div>
+      </div>
+      <div class="trade-right">
+        <h3>Offer a Lumori</h3>
+        <div id="trade-my-box"></div>
+        <div class="trade-post-controls">
+          <select id="trade-wanted-type" class="trade-select">
+            <option value="">Any type</option>
+            <option>Fire</option><option>Water</option><option>Grass</option>
+            <option>Electric</option><option>Ice</option><option>Psychic</option>
+            <option>Dark</option><option>Fairy</option><option>Dragon</option>
+            <option>Ghost</option><option>Steel</option><option>Rock</option>
+            <option>Ground</option><option>Bug</option><option>Poison</option>
+            <option>Flying</option><option>Normal</option><option>Fighting</option>
+          </select>
+          <button class="btn-primary" id="btn-post-trade">Post Trade</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PVP SCREEN -->
+  <div id="screen-pvp" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" id="btn-pvp-back">← Back</button>
+      <h2>⚔️ PvP Battles</h2>
+    </div>
+    <div class="pvp-layout">
+      <div class="pvp-post">
+        <h3>Challenge Someone</h3>
+        <p class="pvp-desc">Post a challenge and share the code. Your opponent enters it to battle you.</p>
+        <button class="btn-primary" id="btn-post-challenge">⚔️ Post Challenge</button>
+        <div id="pvp-my-code" class="pvp-code-display hidden"></div>
+      </div>
+      <div class="pvp-browse">
+        <h3>Open Challenges</h3>
+        <input type="text" id="pvp-code-input" class="pvp-input" placeholder="Enter battle code..." maxlength="6">
+        <button class="btn-secondary" id="btn-accept-by-code">Accept by Code</button>
+        <div id="pvp-listings" class="pvp-list"></div>
+      </div>
     </div>
   </div>
 
@@ -591,10 +670,16 @@
   </div>
 </div>
 
+<!-- Firebase SDK (loaded before online.js) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
 <script src="js/data.js"></script>
 <script src="js/sprites.js"></script>
 <script src="js/music.js"></script>
 <script src="js/battle.js"></script>
 <script src="js/game.js"></script>
+<script src="js/online.js"></script>
 </body>
 </html>

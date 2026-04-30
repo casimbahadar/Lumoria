@@ -102,17 +102,17 @@ function getTypeEffectiveness(moveType, defenderTypes) {
 // ============================================================
 const MOVES_DATA = {
   // --- Normal ---
-  tackle:       { name:"Tackle",        type:"Normal",   power:40,  acc:100, pp:35, cat:"physical", effect:null,        ec:0,   desc:"A basic tackle attack." },
+  tackle:       { name:"Collide",        type:"Normal",   power:40,  acc:100, pp:35, cat:"physical", effect:null,        ec:0,   desc:"A basic tackle attack." },
   scratch:      { name:"Scratch",       type:"Normal",   power:40,  acc:100, pp:35, cat:"physical", effect:null,        ec:0,   desc:"Scratches the foe with sharp claws." },
   headbutt:     { name:"Headbutt",      type:"Normal",   power:70,  acc:100, pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"A forceful headbutt that may cause flinching." },
   body_slam:    { name:"Body Slam",     type:"Normal",   power:85,  acc:100, pp:15, cat:"physical", effect:"paralyze",  ec:30,  desc:"Slams the foe with a massive body. May paralyze." },
-  hyper_beam:   { name:"Hyper Beam",    type:"Normal",   power:150, acc:90,  pp:5,  cat:"special",  effect:"recharge",  ec:100, desc:"A powerful beam. Must recharge next turn." },
-  quick_attack: { name:"Quick Attack",  type:"Normal",   power:40,  acc:100, pp:30, cat:"physical", effect:"priority",  ec:0,   desc:"Attacks first with blinding speed." },
+  hyper_beam:   { name:"Radiance Cannon",    type:"Normal",   power:150, acc:90,  pp:5,  cat:"special",  effect:"recharge",  ec:100, desc:"A powerful beam. Must recharge next turn." },
+  quick_attack: { name:"Blitz",  type:"Normal",   power:40,  acc:100, pp:30, cat:"physical", effect:"priority",  ec:0,   desc:"Attacks first with blinding speed." },
   growl:        { name:"Growl",         type:"Normal",   power:0,   acc:100, pp:40, cat:"status",   effect:"atkdown",   ec:100, desc:"Lowers the foe's Attack." },
   tail_whip:    { name:"Tail Whip",     type:"Normal",   power:0,   acc:100, pp:30, cat:"status",   effect:"defdown",   ec:100, desc:"Lowers the foe's Defense." },
   leer:         { name:"Leer",          type:"Normal",   power:0,   acc:100, pp:30, cat:"status",   effect:"defdown",   ec:100, desc:"Menacing glare lowers the foe's Defense." },
   recover:      { name:"Recover",       type:"Normal",   power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Restores up to half the user's max HP." },
-  swords_dance: { name:"Swords Dance",  type:"Normal",   power:0,   acc:100, pp:20, cat:"status",   effect:"atkup2",    ec:100, desc:"Raises the user's Attack by 2 stages." },
+  swords_dance: { name:"War Dance",  type:"Normal",   power:0,   acc:100, pp:20, cat:"status",   effect:"atkup2",    ec:100, desc:"Raises the user's Attack by 2 stages." },
   harden:       { name:"Harden",        type:"Normal",   power:0,   acc:100, pp:30, cat:"status",   effect:"defup",     ec:100, desc:"Stiffens the body to raise Defense." },
   wild_tumble:  { name:"Wild Tumble",   type:"Normal",   power:60,  acc:100, pp:20, cat:"physical", effect:"flinch",    ec:20,  desc:"Tumbles into the foe wildly with reckless abandon." },
   battle_cry:   { name:"Battle Cry",    type:"Normal",   power:0,   acc:100, pp:20, cat:"status",   effect:"atkup2",    ec:100, desc:"Lets out a ferocious cry that fires up the user's fighting spirit." },
@@ -122,7 +122,7 @@ const MOVES_DATA = {
   // --- Fire ---
   ember:        { name:"Ember",         type:"Fire",     power:40,  acc:100, pp:25, cat:"special",  effect:"burn",      ec:10,  desc:"A weak fire attack that may burn." },
   flame_fang:   { name:"Flame Fang",    type:"Fire",     power:65,  acc:95,  pp:15, cat:"physical", effect:"burn",      ec:10,  desc:"Bites with flaming fangs. May burn." },
-  flamethrower: { name:"Flamethrower",  type:"Fire",     power:90,  acc:100, pp:15, cat:"special",  effect:"burn",      ec:10,  desc:"Shoots a stream of intense fire. May burn." },
+  flamethrower: { name:"Inferno Jet",  type:"Fire",     power:90,  acc:100, pp:15, cat:"special",  effect:"burn",      ec:10,  desc:"Shoots a stream of intense fire. May burn." },
   fire_blast:   { name:"Fire Blast",    type:"Fire",     power:110, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:10,  desc:"A massive fireball. May burn the target." },
   heat_wave:    { name:"Heat Wave",     type:"Fire",     power:95,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:10,  desc:"Exhales a wave of scorching heat." },
   inferno:      { name:"Inferno",       type:"Fire",     power:100, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:100, desc:"A raging inferno that always burns." },
@@ -135,10 +135,10 @@ const MOVES_DATA = {
   char_dance:   { name:"Char Dance",    type:"Fire",     power:0,   acc:100, pp:10, cat:"status",   effect:"dragondance",ec:100,desc:"A fiery war dance that emboldens the user, raising Attack and Speed." },
   // --- Water ---
   water_gun:    { name:"Water Gun",     type:"Water",    power:40,  acc:100, pp:25, cat:"special",  effect:null,        ec:0,   desc:"Squirts water at the foe." },
-  aqua_tail:    { name:"Aqua Tail",     type:"Water",    power:90,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Attacks with a powerful water tail." },
-  surf:         { name:"Surf",          type:"Water",    power:90,  acc:100, pp:15, cat:"special",  effect:null,        ec:0,   desc:"A powerful wave crashes over the foe." },
+  aqua_tail:    { name:"Tidal Sweep",     type:"Water",    power:90,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Attacks with a powerful water tail." },
+  surf:         { name:"Tidal Rush",          type:"Water",    power:90,  acc:100, pp:15, cat:"special",  effect:null,        ec:0,   desc:"A powerful wave crashes over the foe." },
   hydro_pump:   { name:"Hydro Pump",    type:"Water",    power:110, acc:80,  pp:5,  cat:"special",  effect:null,        ec:0,   desc:"Blasts the foe with a powerful water jet." },
-  bubble_beam:  { name:"Bubble Beam",   type:"Water",    power:65,  acc:100, pp:20, cat:"special",  effect:"spedown",   ec:10,  desc:"Shoots bubbles that may reduce Speed." },
+  bubble_beam:  { name:"Bubble Jet",   type:"Water",    power:65,  acc:100, pp:20, cat:"special",  effect:"spedown",   ec:10,  desc:"Shoots bubbles that may reduce Speed." },
   tidal_crush:  { name:"Tidal Crush",   type:"Water",    power:100, acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Slams the foe with a crushing wall of tide water." },
   whirlpool_dive:{ name:"Whirlpool Dive",type:"Water",   power:80,  acc:95,  pp:15, cat:"physical", effect:"confuse",   ec:20,  desc:"Dives into a churning whirlpool and emerges to slam the foe." },
   frost_current:{ name:"Frost Current", type:"Water",    power:70,  acc:100, pp:15, cat:"special",  effect:"spedown",   ec:30,  desc:"Fires a current of near-freezing water that slows the target." },
@@ -149,10 +149,10 @@ const MOVES_DATA = {
   // --- Grass ---
   vine_whip:    { name:"Vine Whip",     type:"Grass",    power:45,  acc:100, pp:25, cat:"physical", effect:null,        ec:0,   desc:"Strikes with long, slender vines." },
   razor_leaf:   { name:"Razor Leaf",    type:"Grass",    power:55,  acc:95,  pp:25, cat:"physical", effect:"crit",      ec:100, desc:"Slices with razor-edged leaves. High crit." },
-  seed_bomb:    { name:"Seed Bomb",     type:"Grass",    power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Drops a giant seed bomb on the foe." },
-  energy_ball:  { name:"Energy Ball",   type:"Grass",    power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"A ball of energy drawn from nature." },
+  seed_bomb:    { name:"Pod Blast",     type:"Grass",    power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Drops a giant seed bomb on the foe." },
+  energy_ball:  { name:"Verdant Orb",   type:"Grass",    power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"A ball of energy drawn from nature." },
   petal_blitz:  { name:"Petal Blitz",   type:"Grass",    power:100, acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Strikes with a furious petal storm." },
-  sleep_powder: { name:"Sleep Powder",  type:"Grass",    power:0,   acc:75,  pp:15, cat:"status",   effect:"sleep",     ec:100, desc:"Scatters a powder that induces sleep." },
+  sleep_powder: { name:"Slumber Dust",  type:"Grass",    power:0,   acc:75,  pp:15, cat:"status",   effect:"sleep",     ec:100, desc:"Scatters a powder that induces sleep." },
   root_lance:   { name:"Root Lance",    type:"Grass",    power:85,  acc:95,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Drives an enormous root spear through the ground and up into the foe." },
   canopy_crash: { name:"Canopy Crash",  type:"Grass",    power:90,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Drops a massive section of forest canopy onto the opponent." },
   spore_burst:  { name:"Spore Burst",   type:"Grass",    power:0,   acc:80,  pp:15, cat:"status",   effect:"sleep",     ec:100, desc:"Releases an explosive burst of sleep-inducing spores." },
@@ -161,7 +161,7 @@ const MOVES_DATA = {
   photon_leaf:  { name:"Photon Leaf",   type:"Grass",    power:70,  acc:100, pp:15, cat:"special",  effect:"crit",      ec:100, desc:"A leaf sharpened by concentrated sunlight that always finds weak points." },
   // --- Electric ---
   thunder_shock:{ name:"Thunder Shock", type:"Electric", power:40,  acc:100, pp:30, cat:"special",  effect:"paralyze",  ec:10,  desc:"A jolt of electricity. May paralyze." },
-  thunderbolt:  { name:"Thunderbolt",   type:"Electric", power:90,  acc:100, pp:15, cat:"special",  effect:"paralyze",  ec:10,  desc:"A strong thunderbolt. May paralyze." },
+  thunderbolt:  { name:"Volt Jet",   type:"Electric", power:90,  acc:100, pp:15, cat:"special",  effect:"paralyze",  ec:10,  desc:"A strong thunderbolt. May paralyze." },
   thunder:      { name:"Thunder",       type:"Electric", power:110, acc:70,  pp:10, cat:"special",  effect:"paralyze",  ec:30,  desc:"A massive thunderstrike. May paralyze." },
   thunder_wave: { name:"Thunder Wave",  type:"Electric", power:0,   acc:90,  pp:20, cat:"status",   effect:"paralyze",  ec:100, desc:"A weak electrical charge that paralyzes." },
   spark:        { name:"Spark",         type:"Electric", power:65,  acc:100, pp:20, cat:"physical", effect:"paralyze",  ec:30,  desc:"Electric tackle. May paralyze." },
@@ -197,7 +197,7 @@ const MOVES_DATA = {
   ice_beam:     { name:"Ice Beam",      type:"Ice",      power:90,  acc:100, pp:10, cat:"special",  effect:"freeze",    ec:10,  desc:"Fires a beam of ice. May freeze." },
   blizzard:     { name:"Blizzard",      type:"Ice",      power:110, acc:70,  pp:5,  cat:"special",  effect:"freeze",    ec:10,  desc:"A howling blizzard. May freeze." },
   ice_punch:    { name:"Ice Punch",     type:"Ice",      power:75,  acc:100, pp:15, cat:"physical", effect:"freeze",    ec:10,  desc:"A punch with an icy fist. May freeze." },
-  icicle_crash: { name:"Icicle Crash",  type:"Ice",      power:85,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:30,  desc:"Drops icicles on the foe. May flinch." },
+  icicle_crash: { name:"Frost Crash",  type:"Ice",      power:85,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:30,  desc:"Drops icicles on the foe. May flinch." },
   glacial_shard:{ name:"Glacial Shard", type:"Ice",      power:65,  acc:100, pp:20, cat:"physical", effect:"freeze",    ec:15,  desc:"Fires a razor-sharp shard of glacial ice that may freeze the target." },
   frost_breath: { name:"Frost Breath",  type:"Ice",      power:60,  acc:90,  pp:15, cat:"special",  effect:"freeze",    ec:100, desc:"Exhales a breath of supercooled air that always freezes the foe." },
   permafrost:   { name:"Permafrost",    type:"Ice",      power:0,   acc:100, pp:15, cat:"status",   effect:"spedown2",  ec:100, desc:"Encases the foe's feet in permafrost, drastically reducing Speed." },
@@ -207,9 +207,9 @@ const MOVES_DATA = {
   // --- Dark ---
   bite:         { name:"Bite",          type:"Dark",     power:60,  acc:100, pp:25, cat:"physical", effect:"flinch",    ec:30,  desc:"Bites with dark power. May cause flinching." },
   crunch:       { name:"Crunch",        type:"Dark",     power:80,  acc:100, pp:15, cat:"physical", effect:"defdown",   ec:20,  desc:"Crunches with dark fangs. May lower Defense." },
-  shadow_ball:  { name:"Shadow Ball",   type:"Dark",     power:80,  acc:100, pp:15, cat:"special",  effect:"spdefdown", ec:20,  desc:"Hurls a shadowy blob. May lower Sp.Def." },
+  shadow_ball:  { name:"Void Sphere",   type:"Dark",     power:80,  acc:100, pp:15, cat:"special",  effect:"spdefdown", ec:20,  desc:"Hurls a shadowy blob. May lower Sp.Def." },
   night_slash:  { name:"Night Slash",   type:"Dark",     power:70,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes in the dark. High critical rate." },
-  dark_pulse:   { name:"Dark Pulse",    type:"Dark",     power:80,  acc:100, pp:15, cat:"special",  effect:"flinch",    ec:20,  desc:"Fires pulses of dark energy." },
+  dark_pulse:   { name:"Void Pulse",    type:"Dark",     power:80,  acc:100, pp:15, cat:"special",  effect:"flinch",    ec:20,  desc:"Fires pulses of dark energy." },
   void_rend:    { name:"Void Rend",     type:"Dark",     power:95,  acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Tears through the foe with a claw infused with the emptiness of the void." },
   shadowstep:   { name:"Shadowstep",    type:"Dark",     power:60,  acc:100, pp:20, cat:"physical", effect:"priority",  ec:0,   desc:"Steps through shadows to strike the foe before they can see it coming." },
   nightmare_pulse:{ name:"Nightmare Pulse",type:"Dark",  power:85,  acc:90,  pp:10, cat:"special",  effect:"confuse",   ec:30,  desc:"Bombards the foe's mind with terrifying nightmare imagery." },
@@ -217,8 +217,8 @@ const MOVES_DATA = {
   obsidian_fang:{ name:"Obsidian Fang", type:"Dark",     power:75,  acc:100, pp:15, cat:"physical", effect:"poison",    ec:20,  desc:"Bites with fangs of living obsidian, may leave a dark toxin behind." },
   // --- Fairy ---
   fairy_wind:   { name:"Fairy Wind",    type:"Fairy",    power:40,  acc:100, pp:30, cat:"special",  effect:null,        ec:0,   desc:"Stirs up a fairy wind to strike." },
-  moonblast:    { name:"Moonblast",     type:"Fairy",    power:95,  acc:100, pp:15, cat:"special",  effect:"spatkdown", ec:30,  desc:"Attacks using moonlight. May lower Sp.Atk." },
-  dazzling_gleam:{ name:"Dazzling Gleam",type:"Fairy",  power:80,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Emits a powerful flash of light." },
+  moonblast:    { name:"Lunar Burst",     type:"Fairy",    power:95,  acc:100, pp:15, cat:"special",  effect:"spatkdown", ec:30,  desc:"Attacks using moonlight. May lower Sp.Atk." },
+  dazzling_gleam:{ name:"Prism Flare",type:"Fairy",  power:80,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Emits a powerful flash of light." },
   sweet_kiss:   { name:"Sweet Kiss",    type:"Fairy",    power:0,   acc:75,  pp:10, cat:"status",   effect:"confuse",   ec:100, desc:"An angel's kiss that confuses the foe." },
   stardust_veil:{ name:"Stardust Veil", type:"Fairy",    power:0,   acc:100, pp:20, cat:"status",   effect:"calmup",    ec:100, desc:"Wraps the user in drifting stardust that enhances special power and resilience." },
   pixie_bolt:   { name:"Pixie Bolt",    type:"Fairy",    power:75,  acc:100, pp:15, cat:"special",  effect:"confuse",   ec:20,  desc:"Fires a bolt of concentrated pixie energy that scrambles the foe's mind." },
@@ -229,7 +229,7 @@ const MOVES_DATA = {
   // --- Steel ---
   steel_wing:   { name:"Steel Wing",    type:"Steel",    power:70,  acc:90,  pp:25, cat:"physical", effect:"defup",     ec:10,  desc:"Strikes with steel wings. May raise Defense." },
   iron_tail:    { name:"Iron Tail",     type:"Steel",    power:100, acc:75,  pp:15, cat:"physical", effect:"defdown",   ec:30,  desc:"Slams with a steel-hard tail. May lower Defense." },
-  flash_cannon: { name:"Flash Cannon",  type:"Steel",    power:80,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"Fires a flash of steel-colored light." },
+  flash_cannon: { name:"Forge Blast",  type:"Steel",    power:80,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"Fires a flash of steel-colored light." },
   metal_claw:   { name:"Metal Claw",    type:"Steel",    power:50,  acc:95,  pp:35, cat:"physical", effect:"atkup",     ec:10,  desc:"Slashes with steel claws. May raise Attack." },
   forge_strike: { name:"Forge Strike",  type:"Steel",    power:90,  acc:95,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Strikes with a blow as powerful as a forge hammer, denting armor." },
   tungsten_ram: { name:"Tungsten Ram",  type:"Steel",    power:110, acc:85,  pp:5,  cat:"physical", effect:"recharge",  ec:100, desc:"Charges with the density of tungsten in a devastating ram that needs recovery." },
@@ -241,7 +241,7 @@ const MOVES_DATA = {
   poison_sting: { name:"Poison Sting",  type:"Poison",   power:15,  acc:100, pp:35, cat:"physical", effect:"poison",    ec:30,  desc:"Stings with a poisonous stinger." },
   sludge_bomb:  { name:"Sludge Bomb",   type:"Poison",   power:90,  acc:100, pp:10, cat:"special",  effect:"poison",    ec:30,  desc:"Hurls a sludge bomb. May poison." },
   toxic:        { name:"Toxic",         type:"Poison",   power:0,   acc:90,  pp:10, cat:"status",   effect:"badpoison", ec:100, desc:"Badly poisons the foe. Damage worsens each turn." },
-  venoshock:    { name:"Venoshock",     type:"Poison",   power:65,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Doubles damage if target is poisoned." },
+  venoshock:    { name:"Venom Burst",     type:"Poison",   power:65,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Doubles damage if target is poisoned." },
   miasma_cloud: { name:"Miasma Cloud",  type:"Poison",   power:70,  acc:90,  pp:15, cat:"special",  effect:"badpoison", ec:30,  desc:"Releases a dense toxic cloud that seeps into wounds and worsens over time." },
   acid_rain:    { name:"Acid Rain",     type:"Poison",   power:80,  acc:90,  pp:10, cat:"special",  effect:"poison",    ec:50,  desc:"Summons a rain of burning acid that corrodes the foe's body." },
   venom_lance:  { name:"Venom Lance",   type:"Poison",   power:85,  acc:95,  pp:10, cat:"physical", effect:"badpoison", ec:20,  desc:"Drives a concentrated venom spike deep into the foe." },
@@ -250,9 +250,9 @@ const MOVES_DATA = {
   putrid_pulse: { name:"Putrid Pulse",  type:"Poison",   power:75,  acc:100, pp:15, cat:"special",  effect:"confuse",   ec:20,  desc:"Emits a nauseating pulse of putrid energy that may disorient the foe." },
   // --- Psychic ---
   confusion:    { name:"Confusion",     type:"Psychic",  power:50,  acc:100, pp:25, cat:"special",  effect:"confuse",   ec:10,  desc:"A telekinetic attack. May confuse." },
-  psybeam:      { name:"Psybeam",       type:"Psychic",  power:65,  acc:100, pp:20, cat:"special",  effect:"confuse",   ec:10,  desc:"Shoots a peculiar ray. May confuse." },
+  psybeam:      { name:"Psi Burst",       type:"Psychic",  power:65,  acc:100, pp:20, cat:"special",  effect:"confuse",   ec:10,  desc:"Shoots a peculiar ray. May confuse." },
   psychic_move: { name:"Psychic",       type:"Psychic",  power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"A powerful psychic wave. May lower Sp.Def." },
-  psystrike:    { name:"Psystrike",     type:"Psychic",  power:100, acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Materializes psychic power to attack." },
+  psystrike:    { name:"Psi Strike",     type:"Psychic",  power:100, acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Materializes psychic power to attack." },
   calm_mind:    { name:"Calm Mind",     type:"Psychic",  power:0,   acc:100, pp:20, cat:"status",   effect:"calmup",    ec:100, desc:"Raises Sp.Atk and Sp.Def by 1 stage." },
   mind_shatter: { name:"Mind Shatter",  type:"Psychic",  power:100, acc:90,  pp:10, cat:"special",  effect:"spdefdown", ec:30,  desc:"Shatters the foe's mental fortitude with a concentrated psychic burst." },
   telepathic_slam:{ name:"Telepathic Slam",type:"Psychic",power:85, acc:95,  pp:10, cat:"special",  effect:"confuse",   ec:30,  desc:"Reads the foe's thoughts and strikes using their own fear against them." },
@@ -264,7 +264,7 @@ const MOVES_DATA = {
   dragon_claw:  { name:"Dragon Claw",   type:"Dragon",   power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Slashes with razor-sharp dragon claws." },
   dragon_pulse: { name:"Dragon Pulse",  type:"Dragon",   power:85,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Fires a shockwave of dragon energy." },
   outrage:      { name:"Outrage",       type:"Dragon",   power:120, acc:100, pp:10, cat:"physical", effect:"confuse",   ec:100, desc:"A 2-3 turn rampage. Confuses user after." },
-  dragon_dance: { name:"Dragon Dance",  type:"Dragon",   power:0,   acc:100, pp:20, cat:"status",   effect:"dragondance",ec:100,desc:"A ritualistic dance that raises Atk and Speed." },
+  dragon_dance: { name:"Wyrm Dance",  type:"Dragon",   power:0,   acc:100, pp:20, cat:"status",   effect:"dragondance",ec:100,desc:"A ritualistic dance that raises Atk and Speed." },
   wyrm_strike:  { name:"Wyrm Strike",   type:"Dragon",   power:90,  acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Strikes with the coiled force of an ancient wyrm's tail." },
   draconic_roar:{ name:"Draconic Roar", type:"Dragon",   power:0,   acc:100, pp:15, cat:"status",   effect:"atkdown",   ec:100, desc:"Unleashes a terrifying draconic roar that withers the foe's fighting spirit." },
   scale_storm:  { name:"Scale Storm",   type:"Dragon",   power:95,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Whips a storm of razor-edged dragon scales across the battlefield." },
@@ -273,7 +273,7 @@ const MOVES_DATA = {
   // --- Rock ---
   rock_throw:   { name:"Rock Throw",    type:"Rock",     power:50,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Hurls a small rock at the foe." },
   rock_slide:   { name:"Rock Slide",    type:"Rock",     power:75,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:30,  desc:"Large boulders fall on the foe. May flinch." },
-  stone_edge:   { name:"Stone Edge",    type:"Rock",     power:100, acc:80,  pp:5,  cat:"physical", effect:"crit",      ec:100, desc:"Stabs with sharp stones. High critical." },
+  stone_edge:   { name:"Crag Strike",    type:"Rock",     power:100, acc:80,  pp:5,  cat:"physical", effect:"crit",      ec:100, desc:"Stabs with sharp stones. High critical." },
   obsidian_crash:{ name:"Obsidian Crash",type:"Rock",    power:85,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:30,  desc:"Crashes an enormous slab of obsidian onto the foe." },
   geode_burst:  { name:"Geode Burst",   type:"Rock",     power:80,  acc:95,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Hurls a hollow geode that shatters on impact, scattering crystal shards." },
   crystal_lance:{ name:"Crystal Lance", type:"Rock",     power:90,  acc:90,  pp:10, cat:"physical", effect:"crit",      ec:100, desc:"Drives a lance of perfectly formed crystal at the foe with perfect accuracy." },
@@ -281,8 +281,8 @@ const MOVES_DATA = {
   landslide:    { name:"Landslide",     type:"Rock",     power:95,  acc:85,  pp:10, cat:"physical", effect:"spedown",   ec:100, desc:"Triggers a devastating landslide that buries the foe under rubble." },
   // --- Bug ---
   bug_bite:     { name:"Bug Bite",      type:"Bug",      power:60,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"Bites the foe with bug mandibles." },
-  bug_buzz:     { name:"Bug Buzz",      type:"Bug",      power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"Emits a harsh buzzing sound." },
-  x_scissor:    { name:"X-Scissor",     type:"Bug",      power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Slashes the foe in an X shape." },
+  bug_buzz:     { name:"Resonance Hum",      type:"Bug",      power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"Emits a harsh buzzing sound." },
+  x_scissor:    { name:"Shear Strike",     type:"Bug",      power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Slashes the foe in an X shape." },
   string_shot:  { name:"String Shot",   type:"Bug",      power:0,   acc:95,  pp:40, cat:"status",   effect:"spedown2",  ec:100, desc:"Binds the foe with string, slowing them." },
   silk_bind:    { name:"Silk Bind",     type:"Bug",      power:55,  acc:95,  pp:20, cat:"physical", effect:"spedown",   ec:100, desc:"Wraps the foe in strong silk threads that bind and slow their movement." },
   mandible_crush:{ name:"Mandible Crush",type:"Bug",     power:85,  acc:95,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Crushes the foe between massive mandibles with bone-cracking force." },
@@ -472,7 +472,7 @@ const MOVES_DATA = {
   malice_beam:   { name:"Malice Beam",   type:"Dark",     power:85,  acc:95,  pp:10, cat:"special",  effect:"spdefdown", ec:20,  desc:"Fires a beam of concentrated malice that erodes mental barriers." },
   dark_shroud:   { name:"Dark Shroud",   type:"Dark",     power:0,   acc:100, pp:15, cat:"status",   effect:"speup",     ec:100, desc:"Cloaks the user in darkness, boosting evasion and speed." },
   phantom_claw:  { name:"Phantom Claw",  type:"Dark",     power:75,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes with ghostly claws that find vital points. High crit rate." },
-  wicked_blow:   { name:"Wicked Blow",   type:"Dark",     power:95,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Delivers a single devastating blow with wicked intent." },
+  wicked_blow:   { name:"Savage Blow",   type:"Dark",     power:95,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Delivers a single devastating blow with wicked intent." },
 
   // Fairy (+7 → 22)
   draining_kiss: { name:"Draining Kiss",  type:"Fairy",   power:50,  acc:100, pp:10, cat:"special",  effect:"drain",     ec:100, desc:"Steals the foe's energy with an enchanted kiss." },
@@ -620,9 +620,9 @@ const MOVES_DATA = {
   pursuit:          { name:"Pursuit",           type:"Dark",     power:40,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"Relentlessly pursues the foe, cutting off any attempt to flee." },
   throat_chop:      { name:"Throat Chop",       type:"Dark",     power:80,  acc:100, pp:15, cat:"physical", effect:"atkdown",   ec:100, desc:"Strikes the foe in the throat, disabling their offensive capabilities." },
   nasty_plot:       { name:"Nasty Plot",        type:"Dark",     power:0,   acc:100, pp:20, cat:"status",   effect:"spatkup",   ec:100, desc:"Schemes devious plots that sharply raise the user's Special Attack." },
-  dark_void:        { name:"Dark Void",         type:"Dark",     power:0,   acc:80,  pp:10, cat:"status",   effect:"sleep",     ec:100, desc:"Drags the foe into a void of darkness, pulling them into deep slumber." },
+  dark_void:        { name:"Null Void",         type:"Dark",     power:0,   acc:80,  pp:10, cat:"status",   effect:"sleep",     ec:100, desc:"Drags the foe into a void of darkness, pulling them into deep slumber." },
   wicked_torrent:   { name:"Wicked Torrent",    type:"Dark",     power:95,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:20,  desc:"Unleashes a torrent of wicked dark energy that may erode special defenses." },
-  shadow_force:     { name:"Shadow Force",      type:"Dark",     power:120, acc:100, pp:5,  cat:"physical", effect:null,        ec:0,   desc:"Vanishes into shadow then reappears to deliver a devastating strike." },
+  shadow_force:     { name:"Wraith Drive",      type:"Dark",     power:120, acc:100, pp:5,  cat:"physical", effect:null,        ec:0,   desc:"Vanishes into shadow then reappears to deliver a devastating strike." },
   abyss_stare:      { name:"Abyss Stare",       type:"Dark",     power:0,   acc:100, pp:15, cat:"status",   effect:"spatkdown", ec:100, desc:"Fixes the target with a gaze from the bottomless abyss, sapping special power." },
 
   // --- Fairy (+7) ---
@@ -630,8 +630,8 @@ const MOVES_DATA = {
   charm:            { name:"Charm",             type:"Fairy",    power:0,   acc:100, pp:20, cat:"status",   effect:"atkdown",   ec:100, desc:"Charms the foe with cuteness, sharply lowering its Attack." },
   moonlight:        { name:"Moonlight",         type:"Fairy",    power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Bathes in moonlight to restore the user's HP." },
   misty_explosion:  { name:"Misty Explosion",   type:"Fairy",    power:100, acc:100, pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Explodes in a burst of mystic mist, dealing heavy damage at a cost." },
-  sparkling_aria:   { name:"Sparkling Aria",    type:"Fairy",    power:90,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Sings a sparkling aria that resonates with magical force." },
-  light_of_ruin:    { name:"Light of Ruin",     type:"Fairy",    power:140, acc:90,  pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Draws in destructive light for a catastrophic blast at the user's expense." },
+  sparkling_aria:   { name:"Glimmering Song",    type:"Fairy",    power:90,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Sings a sparkling aria that resonates with magical force." },
+  light_of_ruin:    { name:"Fairy Blast",     type:"Fairy",    power:140, acc:90,  pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Draws in destructive light for a catastrophic blast at the user's expense." },
   fairy_lock:       { name:"Fairy Lock",        type:"Fairy",    power:0,   acc:100, pp:15, cat:"status",   effect:"spedown",   ec:100, desc:"Seals the battlefield with fairy magic, slowing the foe with mystical bonds." },
 
   // --- Steel (+7) ---
@@ -639,7 +639,7 @@ const MOVES_DATA = {
   iron_defense:     { name:"Iron Defense",      type:"Steel",    power:0,   acc:100, pp:15, cat:"status",   effect:"defup",     ec:100, desc:"Hardens the body like iron, sharply raising the user's Defense." },
   magnet_bomb:      { name:"Magnet Bomb",       type:"Steel",    power:60,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"Launches a magnetic bomb that homes in on the target and never misses." },
   smart_strike:     { name:"Smart Strike",      type:"Steel",    power:70,  acc:100, pp:10, cat:"physical", effect:null,        ec:0,   desc:"Strikes with calculated precision — never missing its mark." },
-  sunsteel_strike:  { name:"Sunsteel Strike",   type:"Steel",    power:100, acc:100, pp:10, cat:"physical", effect:null,        ec:0,   desc:"Charges with the force of a meteorite, ignoring the target's defenses." },
+  sunsteel_strike:  { name:"Solar Impact",   type:"Steel",    power:100, acc:100, pp:10, cat:"physical", effect:null,        ec:0,   desc:"Charges with the force of a meteorite, ignoring the target's defenses." },
   titan_blade:      { name:"Titan Blade",       type:"Steel",    power:110, acc:90,  pp:10, cat:"physical", effect:"recoil",    ec:100, desc:"Swings a blade of titanic steel with overwhelming force, damaging the user too." },
   steel_roller:     { name:"Steel Roller",      type:"Steel",    power:130, acc:90,  pp:5,  cat:"physical", effect:"defdown",   ec:30,  desc:"Rolls over the foe with massive steel momentum, crushing through their guard." },
 
@@ -666,9 +666,9 @@ const MOVES_DATA = {
   scale_shot:       { name:"Scale Shot",        type:"Dragon",   power:65,  acc:90,  pp:20, cat:"physical", effect:"speup",     ec:100, desc:"Fires sharp scales as projectiles, raising the user's Speed afterward." },
   dual_chop:        { name:"Dual Chop",         type:"Dragon",   power:40,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Strikes the target twice in swift succession with dragon-like precision." },
   breaking_swipe:   { name:"Breaking Swipe",    type:"Dragon",   power:60,  acc:100, pp:15, cat:"physical", effect:"atkdown",   ec:100, desc:"Sweeps the foe with a dragon's tail, always lowering their Attack." },
-  clanging_scales:  { name:"Clanging Scales",   type:"Dragon",   power:110, acc:100, pp:5,  cat:"special",  effect:"spdefdown", ec:100, desc:"Clashes the user's scales to release a deafening sound that lowers Sp. Def." },
-  eternabeam:       { name:"Eternabeam",        type:"Dragon",   power:160, acc:90,  pp:5,  cat:"special",  effect:"recharge",  ec:100, desc:"The most powerful attack a dragon can use — must rest on the following turn." },
-  dragon_ascent:    { name:"Dragon Ascent",     type:"Dragon",   power:120, acc:100, pp:5,  cat:"physical", effect:"defdown",   ec:100, desc:"Ascends with dragon power and crashes down, lowering the user's defenses." },
+  clanging_scales:  { name:"Scale Crash",   type:"Dragon",   power:110, acc:100, pp:5,  cat:"special",  effect:"spdefdown", ec:100, desc:"Clashes the user's scales to release a deafening sound that lowers Sp. Def." },
+  eternabeam:       { name:"Abyss Ray",        type:"Dragon",   power:160, acc:90,  pp:5,  cat:"special",  effect:"recharge",  ec:100, desc:"The most powerful attack a dragon can use — must rest on the following turn." },
+  dragon_ascent:    { name:"Sky Surge",     type:"Dragon",   power:120, acc:100, pp:5,  cat:"physical", effect:"defdown",   ec:100, desc:"Ascends with dragon power and crashes down, lowering the user's defenses." },
   dragon_maw:       { name:"Dragon Maw",        type:"Dragon",   power:85,  acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Snaps with powerful dragon jaws. The sheer force may cause flinching." },
 
   // --- Rock (+8) ---
@@ -677,7 +677,7 @@ const MOVES_DATA = {
   diamond_crash:    { name:"Diamond Crash",     type:"Rock",     power:100, acc:95,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Crashes into the foe with crystalline diamond hardness." },
   ancient_tide:     { name:"Ancient Tide",      type:"Rock",     power:75,  acc:95,  pp:15, cat:"special",  effect:"defdown",   ec:20,  desc:"Unleashes a wave of ancient stone energy that may erode the foe's defenses." },
   meteor_strike:    { name:"Meteor Strike",     type:"Rock",     power:140, acc:85,  pp:5,  cat:"special",  effect:"recharge",  ec:100, desc:"Calls down a meteorite from above. Must rest on the following turn." },
-  stone_axe:        { name:"Stone Axe",         type:"Rock",     power:65,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Strikes with the cleaving force of a stone axe, splitting through armor." },
+  stone_axe:        { name:"Rock Cleave",         type:"Rock",     power:65,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Strikes with the cleaving force of a stone axe, splitting through armor." },
   rock_wrecker:     { name:"Rock Wrecker",      type:"Rock",     power:150, acc:90,  pp:5,  cat:"physical", effect:"recharge",  ec:100, desc:"A devastating rock-shattering blow that requires rest on the next turn." },
   crystal_spear:    { name:"Crystal Spear",     type:"Rock",     power:80,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"A spear of pure crystal that always strikes a critical point." },
 
@@ -685,7 +685,7 @@ const MOVES_DATA = {
   quiver_dance:     { name:"Quiver Dance",      type:"Bug",      power:0,   acc:100, pp:20, cat:"status",   effect:"calmup",    ec:100, desc:"A mystical dance that raises the user's special power, resilience, and Speed." },
   sticky_web:       { name:"Sticky Web",        type:"Bug",      power:0,   acc:100, pp:20, cat:"status",   effect:"spedown",   ec:100, desc:"Shoots a sticky web that significantly slows the target." },
   twineedle:        { name:"Twineedle",         type:"Bug",      power:50,  acc:100, pp:20, cat:"physical", effect:"poison",    ec:20,  desc:"Stings the foe twice with a sharp stinger. May poison." },
-  attack_order:     { name:"Attack Order",      type:"Bug",      power:90,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Commands bug allies to swarm the foe — their unified assault always finds weak points." },
+  attack_order:     { name:"Swarm Strike",      type:"Bug",      power:90,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Commands bug allies to swarm the foe — their unified assault always finds weak points." },
   swarm_fury:       { name:"Swarm Fury",        type:"Bug",      power:80,  acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"An unrelenting swarming assault that exhausts the user as well." },
   cocoon_guard:     { name:"Cocoon Guard",      type:"Bug",      power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Wraps the body in a hardened cocoon shell, dramatically raising Defense." },
   hivemind_surge:   { name:"Hivemind Surge",    type:"Bug",      power:110, acc:90,  pp:10, cat:"special",  effect:null,        ec:0,   desc:"Channels the collective power of a hivemind into a single devastating burst." },
@@ -749,7 +749,7 @@ const MONSTERS_DATA = {
     base:{hp:60,atk:66,def:79,spa:64,spd:85,spe:64},
     learnset:[[1,"water_gun"],[2,"tail_whip"],[3,"bubble_beam"],[4,"aqua_tail"],[5,"tidecaller"],[16,"recover"],[24,"surf"],[30,"harden"],[35,"hydro_pump"],[44,"tidal_crush"],[6,"deepwater_hymn"],[33,"swords_dance"]],
     evolveTo:6, evolveLevel:36, catchRate:25, expYield:142, rarity:"uncommon",
-    desc:"A serpentine water Lumo. Glides through water with incredible grace.",
+    desc:"A serpentine water Lumori. Glides through water with incredible grace.",
     lore:"Nerilis is a sleek sea-serpent roughly 2 metres long with cobalt-blue scales that reflect light like polished glass. A pale turquoise stripe runs its full length, and a fan-shaped crest unfurls behind its head when threatened. It leaps between waves and can sustain speeds that outpace most sailing vessels." },
 
   6: { id:6, name:"Pelagroth",    emoji:"🐲", types:["Water","Dragon"],
@@ -872,7 +872,7 @@ const MONSTERS_DATA = {
     base:{hp:60,atk:58,def:57,spa:66,spd:70,spe:38},
     learnset:[[1,"tackle"],[1,"vine_whip"],[8,"poison_sting"],[16,"energy_ball"],[20,"leer"],[22,"spore_burst"],[24,"sludge_bomb"],[32,"sleep_powder",[5,"thornwall"]],[36,"seed_bomb"],[3,"mycelia_net"],[31,"leaf_blade"]],
     evolveTo:64, evolveLevel:25, catchRate:135, expYield:98, rarity:"common",
-    desc:"A mushroom Lumo that releases paralyzing spores when threatened.",
+    desc:"A mushroom Lumori that releases paralyzing spores when threatened.",
     lore:"Sporix is a small mushroom-topped creature about 20 cm tall with a soft, spongy white body and a broad purple-spotted cap. It releases clouds of glittering green spores when disturbed. It grows in dense clusters in dark, damp forest floors and uses spore clouds to communicate danger between neighbouring clusters." },
 
   64: { id:64, name:"Myceloth",   emoji:"🍄", types:["Grass","Poison"],
@@ -1086,7 +1086,7 @@ const MONSTERS_DATA = {
     base:{hp:92,atk:101,def:89,spa:66,spd:79,spe:61},
     learnset:[[1,"powder_snow"],[2,"ice_beam"],[3,"permafrost"],[30,"glacial_tomb"],[33,"blizzard"],[35,"battle_cry"],[40,"scratch"],[45,"glacial_shard"],[50,"icicle_crash"],[55,"earth_power"],[60,"avalanche_drive"],[65,"earthquake"],[4,"winter_shroud"],[42,"sinkhole_maw"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:228, rarity:"uncommon",
-    desc:"A massive polar bear Lumo. Can freeze the ground solid with its roar.",
+    desc:"A massive polar bear Lumori. Can freeze the ground solid with its roar.",
     lore:"Arcturex is a stocky white bear 2.5 metres tall whose paws are broad and flat as snowshoes. Rings of brown-grey stone and compacted earth encircle its upper arms and neck, formed from years of digging frozen ground. It excavates hibernation dens 3 metres deep into permafrost, lining them with ice shavings for insulation." },
 
   45: { id:45, name:"Slatis",   emoji:"🌨️", types:["Ice","Water"],
@@ -1401,7 +1401,7 @@ const MONSTERS_DATA = {
     base:{hp:65,atk:66,def:62,spa:42,spd:44,spe:30},
     learnset:[[1,"tackle",[22,"momentum_rush"]],[1,"growl"],[10,"headbutt"],[14,"recover"],[20,"body_slam"],[24,"battle_cry"],[30,"swords_dance"],[33,"scratch"],[40,"hyper_beam",[5,"tail_whip"]],[42,"wild_tumble"],[3,"leer"],[32,"quick_attack"]],
     evolveTo:188, evolveLevel:30, catchRate:170, expYield:80, rarity:"common",
-    desc:"A snuffling pig Lumo that loves digging for truffles. Stubborn and cute.",
+    desc:"A snuffling pig Lumori that loves digging for truffles. Stubborn and cute.",
     lore:"Norindel is a plump pink pig 40 cm at the shoulder with a curly tail and a perpetually contented expression. It roots in rich soil with its broad sensitive snout and locates buried tubers, truffles, and underground water sources with remarkable accuracy. Farmers prize it as a living divining rod." },
 
   // ===== ROCK =====
@@ -1603,7 +1603,7 @@ const MONSTERS_DATA = {
     base:{hp:42,atk:35,def:38,spa:70,spd:58,spe:65},
     learnset:[[1,"confusion"],[1,"psybeam"],[10,"calm_mind"],[20,"psychic_move"],[30,"moonblast"],[40,"psystrike"],[50,"neural_storm"],[60,"hyper_beam"]],
     evolveTo:223, evolveLevel:24, catchRate:190, expYield:65, rarity:"common",
-    desc:"A floating blob of pure thought-energy. Its mood is contagious to nearby Lumos.",
+    desc:"A floating blob of pure thought-energy. Its mood is contagious to nearby Lumori.",
     lore:"Mindpuff is a small psychic creature 20 cm across resembling a round cloud-puff of blue-silver light with two bright eyes. It bounces gently in the air and broadcasts simple emotions outward in waves — contentment, curiosity, mild alarm. It is drawn to calm environments and distressed by conflict." },
 
   223: { id:223, name:"Cerebrix", emoji:"🧠", types:["Psychic"],
@@ -2119,7 +2119,7 @@ const MONSTERS_DATA = {
     base:{hp:98,atk:98,def:85,spa:98,spd:97,spe:74},
     learnset:[[1,"heavy_slam"],[1,"psychic_move"],[30,"battle_cry"],[38,"reckless_charge"],[46,"psystrike"],[54,"neural_storm"],[62,"hyper_beam"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:265, rarity:"rare",
-    desc:"A majestic being that has awakened psychic powers. Perfectly balanced in all attributes, a ruler among Lumos.",
+    desc:"A majestic being that has awakened psychic powers. Perfectly balanced in all attributes, a ruler among Lumori.",
     lore:"Majesticore is a large normal-psychic creature 1.2 metres at the shoulder resembling a lion with a broad flat psychic-light mane. It moves with deliberate, unhurried grace. Its gaze holds a density of presence that causes involuntary deference even in creatures far larger than itself." },
 
   // Standalone Normal: Bouncyblob
@@ -2135,7 +2135,7 @@ const MONSTERS_DATA = {
     base:{hp:82,atk:90,def:78,spa:95,spd:85,spe:102},
     learnset:[[1,"tackle"],[1,"shadow_ball"],[15,"phantom_claw"],[25,"eclipse_shroud"],[35,"body_slam"],[45,"soul_rend"],[55,"shadow_ball"],[65,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, evolveLocation:"cobweb_gully", evolveMethod:"location", catchRate:52, expYield:212, rarity:"uncommon",
-    desc:"An unsettling mimic that copies the appearance of other Lumos. Found deep in haunted gullies and ruins.",
+    desc:"An unsettling mimic that copies the appearance of other Lumori. Found deep in haunted gullies and ruins.",
     lore:"Mimiclaw is a dark-normal creature 40 cm long resembling a cat with dark grey fur and the ability to shift its outline. Its face can rearrange its features to mimic any creature it has studied for ten minutes or more. It uses mimicry of distressed sounds to lure curious prey within reach." },
 
   // 2-stage Wind chain: Breezekin → Galehorn (level 28)
@@ -2143,7 +2143,7 @@ const MONSTERS_DATA = {
     base:{hp:48,atk:52,def:45,spa:68,spd:58,spe:85},
     learnset:[[1,"gust"],[1,"air_slash"],[12,"downdraft"],[22,"hurricane"],[32,"gale_cannon"],[42,"squall_slash"],[52,"tempest_wrath"],[60,"hyper_beam"]],
     evolveTo:292, evolveLevel:28, catchRate:168, expYield:74, rarity:"common",
-    desc:"A gentle breeze spirit that grows stronger in storms. Races other flying Lumos for fun.",
+    desc:"A gentle breeze spirit that grows stronger in storms. Races other flying Lumori for fun.",
     lore:"Breezekin is a compact wind creature 35 cm at the shoulder resembling a slender pale-grey cat whose fur streams perpetually as if blown by a gentle breeze even indoors. Its movements are fluid and almost silent. It inhabits open plains and coastal areas, navigating primarily by smell carried on wind currents." },
 
   292: { id:292, name:"Galehorn", emoji:"🌪️", types:["Wind","Electric"],
@@ -2184,7 +2184,7 @@ const MONSTERS_DATA = {
     base:{hp:44,atk:52,def:40,spa:68,spd:52,spe:80},
     learnset:[[1,"poison_sting"],[1,"bug_buzz"],[10,"sludge_bomb"],[20,"x_scissor"],[30,"toxic"],[40,"venoshock"],[50,"venom_lance"],[60,"hyper_beam"]],
     evolveTo:297, evolveLevel:26, catchRate:178, expYield:70, rarity:"common",
-    desc:"A mosquito-like creature with toxic saliva. A single bite can poison most Lumos instantly.",
+    desc:"A mosquito-like creature with toxic saliva. A single bite can poison most Lumori instantly.",
     lore:"Plaguefly is a large poison-bug insect with a 30 cm wingspan. Its wings are translucent grey with poison-green venation. Its body is a bloated sack of toxic fluid. It breeds in stagnant water and its larval masses are visible as roiling dark clouds beneath the surface of contaminated ponds." },
 
   297: { id:297, name:"Blightwing", emoji:"🦋", types:["Poison","Bug"],
@@ -2672,7 +2672,7 @@ const MONSTERS_DATA = {
     base:{hp:77,atk:69,def:57,spa:106,spd:84,spe:92},
     learnset:[[1,"sludge_bomb"],[2,"toxic_surge"],[20,"recover"],[25,"quick_attack"],[29,"toxic"],[30,"nerve_agent"],[35,"venoshock"],[40,"air_slash"],[45,"putrid_pulse"],[50,"acid_rain"],[55,"cocoon_burst"],[60,"bug_buzz"],[3,"toxin_bloom"],[39,"leech_life"]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:185, rarity:"uncommon",
-    desc:"A venomous moth that releases toxic scales on the wind. A cloud of them can fell a Lumos quickly.",
+    desc:"A venomous moth that releases toxic scales on the wind. A cloud of them can fell a Lumori quickly.",
     lore:"Noxoveth is a large poison-bug butterfly with a 50 cm wingspan. Its wings are deep black with vivid purple warning patterns. It releases a cloud of toxic scales when startled, and the scales cause skin irritation and respiratory distress in creatures that inhale them. It inhabits dense poisonous forest regions." },
 
   // ===== STEEL/GROUND =====
@@ -2827,7 +2827,7 @@ const MONSTERS_DATA = {
     base:{hp:105,atk:94,def:89,spa:60,spd:70,spe:62},
     learnset:[[1,"tackle"],[1,"growl"],[2,"headbutt"],[3,"body_slam"],[4,"harden"],[31,"swords_dance"],[35,"wild_tumble"],[39,"recover"],[43,"momentum_rush"],[48,"body_slam"],[53,"instinct_slash"],[58,"hyper_beam"],[5,"battle_cry"],[40,"leer"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:188, rarity:"uncommon",
-    desc:"A round and robust Lumo of immense endurance. Unshakable and steadfast, it weathers any storm with quiet dignity.",
+    desc:"A round and robust Lumori of immense endurance. Unshakable and steadfast, it weathers any storm with quiet dignity.",
     lore:"Plentorus is a stocky hedgehog-like normal creature 40 cm long. Its broad rounded back is covered in dense pale-brown quills with cream tips. It forages constantly and builds elaborate winter larders by hiding food in dozens of separate caches. It never seems to remember all of them, inadvertently planting many seeds." },
 
   194: { id:194, name:"Lithomere", emoji:"🦀", types:["Rock","Water"],
@@ -3145,7 +3145,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"headbutt"],[1,"body_slam"],[2,"battle_cry"],[3,"swords_dance"],[4,"recover"],[38,"hyper_beam"],[42,"wild_tumble"],[46,"momentum_rush"],[50,"vital_pulse"],[54,"instinct_slash"],[58,"harden"],[62,"tackle"],[5,"focus_roar"],[44,"leer"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"The greatest bear that has ever walked Lumoria. When it stands fully upright, it blots out the sun. Its roar has been mistaken for natural disasters.",
-    lore:"Behemovast is a titanic normal-type creature 3 metres at the shoulder, resembling an enormous bear with a solid barrel-shaped torso and legs like columns. Its thick brown-grey fur is matted and tough. It is the heaviest non-legendary Lumo known and leaves impressions in solid rock where it steps." }
+    lore:"Behemovast is a titanic normal-type creature 3 metres at the shoulder, resembling an enormous bear with a solid barrel-shaped torso and legs like columns. Its thick brown-grey fur is matted and tough. It is the heaviest non-legendary Lumori known and leaves impressions in solid rock where it steps." }
 };
 
 
@@ -3155,14 +3155,14 @@ const MONSTERS_DATA = {
 const WORLD_DATA = {
   seedvale: {
     id:"seedvale", name:"Seedvale Town", icon:"🏡", type:"town",
-    desc:"A peaceful starter town nestled in a valley. Professor Arbor's lab is here.",
+    desc:"A peaceful starter town nestled in a valley. Professor Solaris's lab is here.",
     connections:["route1","fairy_meadow_south"],
     wildMonsters:[], hasGym:false, requiredBadges:0,
     mapPos:{x:15, y:75}
   },
   route1: {
     id:"route1", name:"Route 1 - Meadow Path", icon:"🌿", type:"route",
-    desc:"A gentle grassy path with mild wild Lumos. Perfect for beginners.",
+    desc:"A gentle grassy path with mild wild Lumori. Perfect for beginners.",
     connections:["seedvale","ashford"],
     wildMonsters:[
       {id:178, minLv:2, maxLv:4, rate:25},  // Furball
@@ -3186,7 +3186,7 @@ const WORLD_DATA = {
   },
   route2: {
     id:"route2", name:"Route 2 - Greenwood Forest", icon:"🌲", type:"route",
-    desc:"A dense forest teeming with Bug and Grass type Lumos.",
+    desc:"A dense forest teeming with Bug and Grass type Lumori.",
     connections:["ashford","tidewatch","lumoria_jungle"],
     wildMonsters:[
       {id:197, minLv:6, maxLv:9, rate:25}, // Caterpet
@@ -3355,7 +3355,7 @@ const WORLD_DATA = {
     legendaryEncounter:{monsterId:84, level:60}
   },
   victoryroad: {
-    id:"victoryroad", name:"Victory Road", icon:"⚔️", type:"route",
+    id:"victoryroad", name:"The Gauntlet", icon:"⚔️", type:"route",
     desc:"The final gauntlet. Only trainers with all 16 badges may pass.",
     connections:["starbloom","summit"],
     wildMonsters:[
@@ -3390,7 +3390,7 @@ const WORLD_DATA = {
   },
   ancient_ruins: {
     id:"ancient_ruins", name:"Ancient Ruins", icon:"🏛️", type:"route",
-    desc:"Crumbling temples from a forgotten civilization. Psychic and Dark energies fill the air. Team Umbra has been spotted here.",
+    desc:"Crumbling temples from a forgotten civilization. Psychic and Dark energies fill the air. The Umbra Order has been spotted here.",
     connections:["lumoria_jungle","bug_forest_east","reef_ruins"],
     wildMonsters:[
       {id:142, minLv:12, maxLv:16, rate:25},  // Dawnsprite
@@ -3405,7 +3405,7 @@ const WORLD_DATA = {
   },
   deep_trench: {
     id:"deep_trench", name:"Abyssal Trench", icon:"🌊", type:"route",
-    desc:"The deepest part of Lumoria's ocean. Water and Dragon types of terrifying power lurk here. Team Umbra seeks something ancient in these depths.",
+    desc:"The deepest part of Lumoria's ocean. Water and Dragon types of terrifying power lurk here. The Umbra Order seeks something ancient in these depths.",
     connections:["tidewatch","coral_reef","sunken_temple"],
     wildMonsters:[
       {id:85, minLv:18, maxLv:24, rate:25},  // Seadrake
@@ -3450,7 +3450,7 @@ const WORLD_DATA = {
   },
   crystal_depths: {
     id:"crystal_depths", name:"Crystal Depths", icon:"💠", type:"route",
-    desc:"An underground crystal cavern with walls of pure ice and steel. Rare mineral-type Lumos call this glittering place home.",
+    desc:"An underground crystal cavern with walls of pure ice and steel. Rare mineral-type Lumori call this glittering place home.",
     connections:["frostpeak","shadowmere","crystal_spire"],
     wildMonsters:[
       {id:177, minLv:34, maxLv:40, rate:25},  // Crystaldrake
@@ -3463,7 +3463,7 @@ const WORLD_DATA = {
   },
   mystic_forest: {
     id:"mystic_forest", name:"Mystic Forest", icon:"🌌", type:"route",
-    desc:"A forest where the boundary between worlds is thin. Fairy and Psychic creatures drift between the trees. Team Umbra's hideout is rumoured to be nearby.",
+    desc:"A forest where the boundary between worlds is thin. Fairy and Psychic creatures drift between the trees. The Umbra Order's hideout is rumoured to be nearby.",
     connections:["route7","skyvault","sky_harbor","umbra_base"],
     wildMonsters:[
       {id:143, minLv:46, maxLv:52, rate:25},  // Celestara
@@ -3476,8 +3476,8 @@ const WORLD_DATA = {
     storyLocation:true, hasUmbraEncounter:true
   },
   umbra_base: {
-    id:"umbra_base", name:"Team Umbra Base", icon:"☠️", type:"special",
-    desc:"The hidden fortress of Team Umbra. Their leader, Commander Shade, awaits you here. This is your chance to stop their plan to awaken the three Legendaries.",
+    id:"umbra_base", name:"The Umbra Order Base", icon:"☠️", type:"special",
+    desc:"The hidden fortress of The Umbra Order. Their leader, Commander Shade, awaits you here. This is your chance to stop their plan to awaken the three Legendaries.",
     connections:["mystic_forest","dark_canyon"],
     wildMonsters:[
       {id:119, minLv:50, maxLv:55, rate:25},  // Nighthound
@@ -3733,7 +3733,7 @@ const WORLD_DATA = {
   },
   dark_canyon: {
     id:"dark_canyon", name:"Dark Canyon", icon:"🌑", type:"route",
-    desc:"A pitch-black gorge where no light penetrates. Dark type Lumos have claimed every shadowed corner, and even the rocks seem to absorb light.",
+    desc:"A pitch-black gorge where no light penetrates. Dark type Lumori have claimed every shadowed corner, and even the rocks seem to absorb light.",
     connections:["spirit_canyon","umbra_base"],
     wildMonsters:[
       {id:119, minLv:50, maxLv:56, rate:25},   // Nighthound
@@ -3965,7 +3965,7 @@ const WORLD_DATA = {
   },
   starbloom: {
     id:"starbloom", name:"Starbloom City", icon:"🌟", type:"city",
-    desc:"A radiant city that glows with fairy magic. Home to Gym Leader Seraphina, the last gym before the Elite Four.",
+    desc:"A radiant city that glows with fairy magic. Home to Gym Leader Seraphina, the last gym before The Vanguard.",
     connections:["astral_plateau","victoryroad","void_rift"],
     wildMonsters:[
       {id:138, minLv:70, maxLv:75, rate:20},  // Aetherael (mid)
@@ -3996,7 +3996,7 @@ const WORLD_DATA = {
   },
   quake_foothills: {
     id:"quake_foothills", name:"Quake Foothills", icon:"🌋", type:"route",
-    desc:"Rolling foothills rocked by constant tremors where Terravault's mountain range begins. Ground-type Lumos burrow through the cracked and heaving earth.",
+    desc:"Rolling foothills rocked by constant tremors where Terravault's mountain range begins. Ground-type Lumori burrow through the cracked and heaving earth.",
     connections:["route11","magma_vent"],
     wildMonsters:[
       {id:95,  minLv:59, maxLv:64, rate:15},  // Dustkin (base)
@@ -4038,7 +4038,7 @@ const WORLD_DATA = {
   },
   forge_approach: {
     id:"forge_approach", name:"Forge Approach", icon:"🔩", type:"route",
-    desc:"The rusted outer edge of Ironforge's industrial sprawl. Abandoned conveyor lines and slag heaps attract Steel-type Lumos who claim the metal as their own.",
+    desc:"The rusted outer edge of Ironforge's industrial sprawl. Abandoned conveyor lines and slag heaps attract Steel-type Lumori who claim the metal as their own.",
     connections:["smelter_pass","ironforge"],
     wildMonsters:[
       {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid)
@@ -4083,7 +4083,7 @@ const WORLD_DATA = {
   },
   void_rift: {
     id:"void_rift", name:"The Void Rift", icon:"🌀", type:"special",
-    desc:"A tear in reality pulsing with dark energy near Route 16. Team Umbra's experiments cracked open this rift, and within its swirling darkness, Voidraxis — the Void Star — awaits any trainer bold enough to enter.",
+    desc:"A tear in reality pulsing with dark energy near Route 16. The Umbra Order's experiments cracked open this rift, and within its swirling darkness, Voidraxis — the Void Star — awaits any trainer bold enough to enter.",
     connections:["starbloom","umbra_lab"],
     wildMonsters:[
       {id:119, minLv:72, maxLv:77, rate:30},  // Nighthound (Dark)
@@ -4109,7 +4109,7 @@ const WORLD_DATA = {
   },
   tremor_summit: {
     id:"tremor_summit", name:"Tremor Summit", icon:"⛰️", type:"route",
-    desc:"The crest of the quake-ridden foothills where the shaking is strongest. Only final-stage Ground-type Lumos can hold their footing here.",
+    desc:"The crest of the quake-ridden foothills where the shaking is strongest. Only final-stage Ground-type Lumori can hold their footing here.",
     connections:["quake_foothills","terravault"],
     wildMonsters:[
       {id:97,  minLv:62, maxLv:67, rate:25},  // Tectonvast (final, 96 on quake_foothills ✓)
@@ -4136,7 +4136,7 @@ const WORLD_DATA = {
   },
   forge_ruins: {
     id:"forge_ruins", name:"Forge Ruins", icon:"🏚️", type:"route",
-    desc:"Collapsed factory halls stretching east from the old Ironwork Path. Steel-type Lumos nest in the rusted machinery, and mid-stage chains are common sightings.",
+    desc:"Collapsed factory halls stretching east from the old Ironwork Path. Steel-type Lumori nest in the rusted machinery, and mid-stage chains are common sightings.",
     connections:["ash_fields","smelter_pass"],
     wildMonsters:[
       {id:147, minLv:65, maxLv:70, rate:15},  // Ferrokin (base)
@@ -4153,7 +4153,7 @@ const WORLD_DATA = {
 
   mire_depths: {
     id:"mire_depths", name:"Mire Depths", icon:"🐸", type:"route",
-    desc:"A labyrinthine deep-swamp sector south of Toxic Bog. Venomous Lumos that have shed their pre-evolutions stalk the murky waterways. Umbra scouts use the miasma as cover.",
+    desc:"A labyrinthine deep-swamp sector south of Toxic Bog. Venomous Lumori that have shed their pre-evolutions stalk the murky waterways. Umbra scouts use the miasma as cover.",
     connections:["toxic_bog","miasmacity"],
     wildMonsters:[
       {id:156, minLv:59, maxLv:64, rate:20},  // Venekon (mid, base 155 on route10 ✓)
@@ -4209,7 +4209,7 @@ const WORLD_DATA = {
   },
   wind_hollow: {
     id:"wind_hollow", name:"Wind Hollow", icon:"🌬️", type:"route",
-    desc:"A sheltered bowl between cliff faces that creates a perfect wind tunnel. Rookie Wind-type Lumos train here before ascending Gale Ridge.",
+    desc:"A sheltered bowl between cliff faces that creates a perfect wind tunnel. Rookie Wind-type Lumori train here before ascending Gale Ridge.",
     connections:["route13","gale_peak"],
     wildMonsters:[
       {id:292, minLv:64, maxLv:69, rate:25},  // Galehorn (mid → 291 Breezekin on route13 ✓)
@@ -4308,7 +4308,7 @@ const WORLD_DATA = {
   },
   astral_plateau: {
     id:"astral_plateau", name:"Astral Plateau", icon:"⭐", type:"route",
-    desc:"A high plateau above Cosmic Cavern where the sky seems close enough to touch. Rare Lumos shaped by cosmic energy appear here in the hours around midnight.",
+    desc:"A high plateau above Cosmic Cavern where the sky seems close enough to touch. Rare Lumori shaped by cosmic energy appear here in the hours around midnight.",
     connections:["cosmic_cavern","starbloom"],
     wildMonsters:[
       {id:217, minLv:72, maxLv:77, rate:20},  // Mentovast (final Psychic)
@@ -4327,7 +4327,7 @@ const WORLD_DATA = {
   // ============================================================
   umbra_lab: {
     id:"umbra_lab", name:"Umbra Secret Lab", icon:"🧪", type:"special",
-    desc:"A concealed laboratory carved into the cliffs near the Void Rift. Umbra scientists who fled justice still experiment here, mutating Lumos with void energy. Fire and Poison types roam the toxic corridors.",
+    desc:"A concealed laboratory carved into the cliffs near the Void Rift. Umbra scientists who fled justice still experiment here, mutating Lumori with void energy. Fire and Poison types roam the toxic corridors.",
     connections:["void_rift","shadow_archive"],
     wildMonsters:[
       {id:52,  minLv:65, maxLv:70, rate:20},
@@ -4341,7 +4341,7 @@ const WORLD_DATA = {
   },
   shadow_archive: {
     id:"shadow_archive", name:"Shadow Archive", icon:"📂", type:"special",
-    desc:"Umbra's encrypted data vault hidden beneath a collapsed glacier. Ghost and Steel Lumos guard the servers that hold the organization's remaining secrets.",
+    desc:"Umbra's encrypted data vault hidden beneath a collapsed glacier. Ghost and Steel Lumori guard the servers that hold the organization's remaining secrets.",
     connections:["umbra_lab","void_nexus"],
     wildMonsters:[
       {id:136, minLv:68, maxLv:73, rate:20},
@@ -4355,7 +4355,7 @@ const WORLD_DATA = {
   },
   void_nexus: {
     id:"void_nexus", name:"Void Nexus", icon:"🌑", type:"special",
-    desc:"The heart of Umbra's post-defeat operations — a nexus of void energy deep in unmapped territory. Only the strongest trainers reach this place. Ultra-rare Lumos cluster around the residual void energy.",
+    desc:"The heart of Umbra's post-defeat operations — a nexus of void energy deep in unmapped territory. Only the strongest trainers reach this place. Ultra-rare Lumori cluster around the residual void energy.",
     connections:["shadow_archive"],
     wildMonsters:[
       {id:270, minLv:72, maxLv:78, rate:20},
@@ -4544,7 +4544,7 @@ const GYM_LEADERS = {
   drake: {
     id:"drake", name:"Leader Drake", emoji:"🐉", type:"Dragon",
     badge:"Wyrm Badge", badgeEmoji:"🐉",
-    quote:"Dragons are the apex of all Lumos. You cannot defeat their ancient power!",
+    quote:"Dragons are the apex of all Lumori. You cannot defeat their ancient power!",
     winQuote:"You have shown the heart of a true dragon master. The Wyrm Badge is yours!",
     teams:{
       single:[
@@ -4596,7 +4596,7 @@ const GYM_LEADERS = {
   viper: {
     id:"viper", name:"Leader Viper", emoji:"☠️", type:"Poison",
     badge:"Venom Badge", badgeEmoji:"☠️",
-    quote:"One drop is all it takes. My Lumos are lethal to the touch!",
+    quote:"One drop is all it takes. My Lumori are lethal to the touch!",
     winQuote:"You survived my venom... impressive. The Venom Badge is yours.",
     teams:{
       single:[
@@ -4725,7 +4725,7 @@ const GYM_LEADERS = {
     id:"boulder", name:"Leader Boulder", emoji:"🪨", type:"Rock",
     badge:"Geode Badge", badgeEmoji:"🪨",
     battleMode:"double",
-    quote:"Solid as stone, heavy as mountains. My Lumos are unbreakable!",
+    quote:"Solid as stone, heavy as mountains. My Lumori are unbreakable!",
     winQuote:"You've shattered my defenses. The Geode Badge is yours.",
     teams:{
       single:[
@@ -4812,11 +4812,11 @@ const ITEMS_DATA = {
   greatOrb:   { name:"Great Orb",   emoji:"🔶", desc:"A better capture orb.", catchMult:1.5, healAmt:0, type:"ball" },
   ultraOrb:   { name:"Ultra Orb",   emoji:"⚫", desc:"A high-quality orb.", catchMult:2,   healAmt:0, type:"ball" },
   masterOrb:  { name:"Master Orb",  emoji:"🌟", desc:"Always catches!", catchMult:255, healAmt:0, type:"ball" },
-  potion:     { name:"Potion",      emoji:"🧪", desc:"Heals 20 HP.", catchMult:0, healAmt:20,  type:"heal" },
-  superPotion:{ name:"Super Potion",emoji:"💊", desc:"Heals 50 HP.", catchMult:0, healAmt:50,  type:"heal" },
-  maxPotion:  { name:"Max Potion",  emoji:"💉", desc:"Fully heals HP.", catchMult:0, healAmt:999, type:"heal" },
-  revive:     { name:"Revive",      emoji:"💫", desc:"Revives a fainted monster to 50% HP.", catchMult:0, healAmt:0, type:"revive" },
-  rareCandy:  { name:"Rare Candy",  emoji:"🍬", desc:"Instantly raises a Lumo by 1 level.", catchMult:0, healAmt:0, type:"candy" },
+  potion:     { name:"Luma Vial",      emoji:"🧪", desc:"Heals 20 HP.", catchMult:0, healAmt:20,  type:"heal" },
+  superPotion:{ name:"Luma Draught",emoji:"💊", desc:"Heals 50 HP.", catchMult:0, healAmt:50,  type:"heal" },
+  maxPotion:  { name:"Luma Infusion",  emoji:"💉", desc:"Fully heals HP.", catchMult:0, healAmt:999, type:"heal" },
+  revive:     { name:"Luma Shard",      emoji:"💫", desc:"Revives a fainted monster to 50% HP.", catchMult:0, healAmt:0, type:"revive" },
+  rareCandy:  { name:"Growth Crystal",  emoji:"🍬", desc:"Instantly raises a Lumori by 1 level.", catchMult:0, healAmt:0, type:"candy" },
   // Held items
   powerBand:     { name:"Power Band",     emoji:"💪", desc:"Boosts Attack by 20% when held.",           type:"held", held:{ stat:"atk", mult:1.2 } },
   guardCloak:    { name:"Guard Cloak",    emoji:"🛡️", desc:"Boosts Defense by 20% when held.",          type:"held", held:{ stat:"def", mult:1.2 } },
@@ -4830,37 +4830,37 @@ const ITEMS_DATA = {
   magnet:        { name:"Magnet",         emoji:"🧲", desc:"Powers up Electric-type moves by 20%.",     type:"held", held:{ typeBoost:"Electric", mult:1.2 } },
   blackBelt:     { name:"Black Belt",     emoji:"🥋", desc:"Powers up physical moves by 10%.",           type:"held", held:{ catBoost:"physical", mult:1.1 } },
   wiseGlasses:   { name:"Wise Glasses",   emoji:"👓", desc:"Powers up special moves by 10%.",            type:"held", held:{ catBoost:"special", mult:1.1 } },
-  focusSash:     { name:"Focus Sash",     emoji:"🎗️", desc:"Survive a fatal hit with 1 HP once per battle.", type:"held", held:{ effect:"focusSash" } },
-  leftovers:     { name:"Leftovers",      emoji:"🍎", desc:"Restores 1/16 max HP each turn.",            type:"held", held:{ effect:"leftovers" } },
+  focusSash:     { name:"Resolve Band",     emoji:"🎗️", desc:"Survive a fatal hit with 1 HP once per battle.", type:"held", held:{ effect:"focusSash" } },
+  leftovers:     { name:"Food Scraps",      emoji:"🍎", desc:"Restores 1/16 max HP each turn.",            type:"held", held:{ effect:"leftovers" } },
   scopeLens:     { name:"Scope Lens",     emoji:"🔭", desc:"Increases critical hit rate.",                type:"held", held:{ effect:"critUp" } },
-  quickClaw:     { name:"Quick Claw",     emoji:"⚡", desc:"30% chance to move first each turn.",        type:"held", held:{ effect:"quickClaw" } },
+  quickClaw:     { name:"Swift Claw",     emoji:"⚡", desc:"30% chance to move first each turn.",        type:"held", held:{ effect:"quickClaw" } },
   // Battle items
-  xAttack:       { name:"X-Attack",      emoji:"⚔️", desc:"Raises Attack in battle.", catchMult:0, healAmt:0, type:"battle", battleEffect:{ stat:"atk", stages:1 } },
-  xDefense:      { name:"X-Defense",     emoji:"🛡️", desc:"Raises Defense in battle.", catchMult:0, healAmt:0, type:"battle", battleEffect:{ stat:"def", stages:1 } },
-  xSpeed:        { name:"X-Speed",       emoji:"💨", desc:"Raises Speed in battle.", catchMult:0, healAmt:0, type:"battle", battleEffect:{ stat:"spe", stages:1 } },
+  xAttack:       { name:"Power Charge",      emoji:"⚔️", desc:"Raises Attack in battle.", catchMult:0, healAmt:0, type:"battle", battleEffect:{ stat:"atk", stages:1 } },
+  xDefense:      { name:"Guard Charge",     emoji:"🛡️", desc:"Raises Defense in battle.", catchMult:0, healAmt:0, type:"battle", battleEffect:{ stat:"def", stages:1 } },
+  xSpeed:        { name:"Swift Charge",       emoji:"💨", desc:"Raises Speed in battle.", catchMult:0, healAmt:0, type:"battle", battleEffect:{ stat:"spe", stages:1 } },
   // Additional held items
-  poisonBarb:    { name:"Poison Barb",   emoji:"🗡️", desc:"Boosts Poison-type moves by 20% when held.", type:"held", held:{ typeBoost:"Poison", mult:1.2 } },
-  softSand:      { name:"Soft Sand",     emoji:"🏖️", desc:"Boosts Ground-type moves by 20% when held.", type:"held", held:{ typeBoost:"Ground", mult:1.2 } },
-  silverPowder:  { name:"Silver Powder", emoji:"✨", desc:"Boosts Bug-type moves by 20% when held.", type:"held", held:{ typeBoost:"Bug", mult:1.2 } },
-  metalCoat:     { name:"Metal Coat",    emoji:"🔩", desc:"Boosts Steel-type moves by 20% when held.", type:"held", held:{ typeBoost:"Steel", mult:1.2 } },
-  hardStone:     { name:"Hard Stone",    emoji:"🪨", desc:"Boosts Rock-type moves by 20% when held.", type:"held", held:{ typeBoost:"Rock", mult:1.2 } },
-  pixieDust:     { name:"Pixie Dust",    emoji:"🧚", desc:"Boosts Fairy-type moves by 20% when held.", type:"held", held:{ typeBoost:"Fairy", mult:1.2 } },
+  poisonBarb:    { name:"Venom Thorn",   emoji:"🗡️", desc:"Boosts Poison-type moves by 20% when held.", type:"held", held:{ typeBoost:"Poison", mult:1.2 } },
+  softSand:      { name:"Coarse Sand",     emoji:"🏖️", desc:"Boosts Ground-type moves by 20% when held.", type:"held", held:{ typeBoost:"Ground", mult:1.2 } },
+  silverPowder:  { name:"Carapace Dust", emoji:"✨", desc:"Boosts Bug-type moves by 20% when held.", type:"held", held:{ typeBoost:"Bug", mult:1.2 } },
+  metalCoat:     { name:"Iron Shell",    emoji:"🔩", desc:"Boosts Steel-type moves by 20% when held.", type:"held", held:{ typeBoost:"Steel", mult:1.2 } },
+  hardStone:     { name:"Crag Shard",    emoji:"🪨", desc:"Boosts Rock-type moves by 20% when held.", type:"held", held:{ typeBoost:"Rock", mult:1.2 } },
+  pixieDust:     { name:"Fairy Essence",    emoji:"🧚", desc:"Boosts Fairy-type moves by 20% when held.", type:"held", held:{ typeBoost:"Fairy", mult:1.2 } },
   blackGlasses:  { name:"Black Glasses", emoji:"🕶️", desc:"Boosts Dark-type moves by 20% when held.", type:"held", held:{ typeBoost:"Dark", mult:1.2 } },
-  neverMeltIce:  { name:"Never-Melt Ice",emoji:"🧊", desc:"Boosts Ice-type moves by 20% when held.", type:"held", held:{ typeBoost:"Ice", mult:1.2 } },
+  neverMeltIce:  { name:"Eternal Ice",emoji:"🧊", desc:"Boosts Ice-type moves by 20% when held.", type:"held", held:{ typeBoost:"Ice", mult:1.2 } },
   dragonFang:    { name:"Dragon Fang",   emoji:"🐲", desc:"Boosts Dragon-type moves by 20% when held.", type:"held", held:{ typeBoost:"Dragon", mult:1.2 } },
   shellBell:     { name:"Shell Bell",    emoji:"🔔", desc:"Restores HP equal to 1/8 of damage dealt.", type:"held", held:{ effect:"shellBell" } },
   mysticWater:   { name:"Mystic Water",  emoji:"💧", desc:"Boosts Water-type moves by 20% when held.", type:"held", held:{ typeBoost:"Water", mult:1.2 } },
   // Evolution Items
-  fireStone:     { name:"Fire Stone",     emoji:"🔴", desc:"A stone radiating fiery energy. Evolves certain Lumos.", type:"evoItem" },
-  waterStone:    { name:"Water Stone",    emoji:"🔵", desc:"A stone pulsing with aquatic energy. Evolves certain Lumos.", type:"evoItem" },
-  leafStone:     { name:"Leaf Stone",     emoji:"🟢", desc:"A stone infused with the essence of nature. Evolves certain Lumos.", type:"evoItem" },
-  thunderStone:  { name:"Thunder Stone",  emoji:"🟡", desc:"A stone crackling with electric charge. Evolves certain Lumos.", type:"evoItem" },
-  moonStone:     { name:"Moon Stone",     emoji:"🌙", desc:"A stone that glows with lunar energy. Evolves certain Lumos.", type:"evoItem" },
-  sunStone:      { name:"Sun Stone",      emoji:"☀️", desc:"A stone radiating solar warmth. Evolves certain Lumos.", type:"evoItem" },
-  duskStone:     { name:"Dusk Stone",     emoji:"🌑", desc:"A stone steeped in twilight energy. Evolves certain Lumos.", type:"evoItem" },
-  dragonScale:   { name:"Dragon Scale",   emoji:"🐉", desc:"A scale from an ancient dragon. Evolves certain Lumos.", type:"evoItem" },
-  steelCoating:  { name:"Steel Coating",  emoji:"🔩", desc:"A special metallic coating. Evolves certain Lumos.", type:"evoItem" },
-  prismShard:    { name:"Prism Shard",    emoji:"💎", desc:"A shard of prismatic crystal. Evolves certain Lumos.", type:"evoItem" }
+  fireStone:     { name:"Ember Shard",     emoji:"🔴", desc:"A stone radiating fiery energy. Evolves certain Lumori.", type:"evoItem" },
+  waterStone:    { name:"Tide Shard",    emoji:"🔵", desc:"A stone pulsing with aquatic energy. Evolves certain Lumori.", type:"evoItem" },
+  leafStone:     { name:"Grove Shard",     emoji:"🟢", desc:"A stone infused with the essence of nature. Evolves certain Lumori.", type:"evoItem" },
+  thunderStone:  { name:"Storm Shard",  emoji:"🟡", desc:"A stone crackling with electric charge. Evolves certain Lumori.", type:"evoItem" },
+  moonStone:     { name:"Lunar Shard",     emoji:"🌙", desc:"A stone that glows with lunar energy. Evolves certain Lumori.", type:"evoItem" },
+  sunStone:      { name:"Solar Shard",      emoji:"☀️", desc:"A stone radiating solar warmth. Evolves certain Lumori.", type:"evoItem" },
+  duskStone:     { name:"Twilight Shard",     emoji:"🌑", desc:"A stone steeped in twilight energy. Evolves certain Lumori.", type:"evoItem" },
+  dragonScale:   { name:"Wyrm Scale",   emoji:"🐉", desc:"A scale from an ancient dragon. Evolves certain Lumori.", type:"evoItem" },
+  steelCoating:  { name:"Steel Coating",  emoji:"🔩", desc:"A special metallic coating. Evolves certain Lumori.", type:"evoItem" },
+  prismShard:    { name:"Prism Shard",    emoji:"💎", desc:"A shard of prismatic crystal. Evolves certain Lumori.", type:"evoItem" }
 };
 
 const STARTING_BAG = {
@@ -4948,8 +4948,8 @@ const RIVAL_BATTLES = {
   },
   rival_2: {
     id:"rival_2", name:"Rival Marcus", emoji:"🧒",
-    quote:"I heard about Team Umbra messing with the Ruins... but that's not my problem. MY problem is beating YOU!",
-    winQuote:"Ugh! I need to train harder. Hey... be careful with Team Umbra. They're dangerous.",
+    quote:"I heard about The Umbra Order messing with the Ruins... but that's not my problem. MY problem is beating YOU!",
+    winQuote:"Ugh! I need to train harder. Hey... be careful with The Umbra Order. They're dangerous.",
     triggerBadges:3,
     teams:{
       single:[
@@ -4971,7 +4971,7 @@ const RIVAL_BATTLES = {
   },
   rival_3: {
     id:"rival_3", name:"Rival Marcus", emoji:"🧒",
-    quote:"Team Umbra tried to recruit me, can you believe that? I told them to get lost. Now I'm going to prove my strength on YOU!",
+    quote:"The Umbra Order tried to recruit me, can you believe that? I told them to get lost. Now I'm going to prove my strength on YOU!",
     winQuote:"You're incredible. Look... I found this near the Umbra Base. Take it - you'll need it more than me. Stop them!",
     triggerBadges:6,
     reward:{ ultraOrb:3, superPotion:3 },
@@ -4998,7 +4998,7 @@ const RIVAL_BATTLES = {
   },
   rival_4: {
     id:"rival_4", name:"Rival Marcus", emoji:"🧒",
-    quote:"I heard a rumour — a new Umbra faction is operating in the southern routes. They've been capturing evolved Lumos. This doesn't sit right with me... but first, I need to settle things with YOU!",
+    quote:"I heard a rumour — a new Umbra faction is operating in the southern routes. They've been capturing evolved Lumori. This doesn't sit right with me... but first, I need to settle things with YOU!",
     winQuote:"Incredible as always... I'll investigate those Umbra sightings. Watch your back on Routes 12 onward — something's off.",
     triggerBadges:9,
     teams:{
@@ -5026,7 +5026,7 @@ const RIVAL_BATTLES = {
   },
   rival_5: {
     id:"rival_5", name:"Rival Marcus", emoji:"🧒",
-    quote:"I found what Team Umbra is after — Voidraxis, the Void Star legendary! They've opened a Void Rift near Route 16. This is serious. If you can't beat ME, you have no chance against what's waiting there!",
+    quote:"I found what The Umbra Order is after — Voidraxis, the Void Star legendary! They've opened a Void Rift near Route 16. This is serious. If you can't beat ME, you have no chance against what's waiting there!",
     winQuote:"You're ready. I've been tracking Commander Phantom — she's at the Void Rift with Voidraxis. Hurry, before they complete the ritual! Take this — you'll need it.",
     triggerBadges:14,
     reward:{ masterOrb:1, maxPotion:5 },
@@ -5055,12 +5055,12 @@ const RIVAL_BATTLES = {
   }
 };
 
-// Team Umbra Commanders - encountered at key story locations
+// The Umbra Order Commanders - encountered at key story locations
 const UMBRA_BATTLES = {
   umbra_grunt_1: {
-    id:"umbra_grunt_1", name:"Umbra Grunt Vex", emoji:"🕶️",
+    id:"umbra_grunt_1", name:"Umbra Acolyte Vex", emoji:"🕶️",
     triggerLocation:"ancient_ruins",
-    quote:"Halt! Team Umbra's research must not be interrupted! The three Legendaries will be ours!",
+    quote:"Halt! The Umbra Order's research must not be interrupted! The three Legendaries will be ours!",
     winQuote:"This isn't over... Commander Shade will hear about you!",
     teams:{
       single:[
@@ -5081,9 +5081,9 @@ const UMBRA_BATTLES = {
     }
   },
   umbra_grunt_2: {
-    id:"umbra_grunt_2", name:"Umbra Grunt Morta", emoji:"🕶️",
+    id:"umbra_grunt_2", name:"Umbra Acolyte Morta", emoji:"🕶️",
     triggerLocation:"deep_trench",
-    quote:"You dare enter the Abyssal Trench? Commander Shade has claimed these waters for Team Umbra!",
+    quote:"You dare enter the Abyssal Trench? Commander Shade has claimed these waters for The Umbra Order!",
     winQuote:"The Abyssdrake... you won't stop us from finding it!",
     teams:{
       single:[
@@ -5106,7 +5106,7 @@ const UMBRA_BATTLES = {
   umbra_commander_kira: {
     id:"umbra_commander_kira", name:"Commander Kira", emoji:"😈",
     triggerLocation:"volcano_core",
-    quote:"A child? Oh how entertaining. I am Kira, first commander of Team Umbra. The volcano's power will be OURS. Stand aside or be crushed!",
+    quote:"A child? Oh how entertaining. I am Kira, first commander of The Umbra Order. The volcano's power will be OURS. Stand aside or be crushed!",
     winQuote:"Impossible... I was trained by Shade himself! How can a child... Our plan is bigger than you know. Volcanox WILL awaken!",
     teams:{
       single:[
@@ -5131,7 +5131,7 @@ const UMBRA_BATTLES = {
   umbra_commander_rex_shadow: {
     id:"umbra_commander_rex_shadow", name:"Commander Vorn", emoji:"⚡",
     triggerLocation:"storm_plateau",
-    quote:"I am Vorn, second commander of Team Umbra. We have awakened Tempestia from the Storm Plateau. Nothing can stop our plan now!",
+    quote:"I am Vorn, second commander of The Umbra Order. We have awakened Tempestia from the Storm Plateau. Nothing can stop our plan now!",
     winQuote:"You're more powerful than our intelligence suggested... But Commander Shade is still ahead of you. And Tempestia has been released!",
     teams:{
       single:[
@@ -5156,8 +5156,8 @@ const UMBRA_BATTLES = {
   umbra_shade: {
     id:"umbra_shade", name:"Commander Shade", emoji:"🌑",
     triggerLocation:"haunted_grove",
-    quote:"So... you are the trainer who dismantled my commanders' plans. Impressive. But it ends HERE. I have awakened all three Legendaries — Tempestia, Volcanox, and Abyssdrake. With their power, Team Umbra will control all of Lumoria! You are too late, child!",
-    winQuote:"Defeated... by a trainer so young... Perhaps I misjudged the power of a trainer's bond with their Lumos. The Legendaries have retreated. Lumoria is safe... for now. You have my... grudging respect.",
+    quote:"So... you are the trainer who dismantled my commanders' plans. Impressive. But it ends HERE. I have awakened all three Legendaries — Tempestia, Volcanox, and Abyssdrake. With their power, The Umbra Order will control all of Lumoria! You are too late, child!",
+    winQuote:"Defeated... by a trainer so young... Perhaps I misjudged the power of a trainer's bond with their Lumori. The Legendaries have retreated. Lumoria is safe... for now. You have my... grudging respect.",
     reward:{ masterOrb:1, maxPotion:5 },
     teams:{
       single:[
@@ -5186,7 +5186,7 @@ const UMBRA_BATTLES = {
   // ---- POST-GYM-15 VOIDRAXIS STORYLINE ----
   umbra_phantom_grunt: {
     id:"umbra_phantom_grunt", name:"Umbra Agent Riven", emoji:"🕶️",
-    quote:"Turn back, trainer! Commander Phantom has reclaimed these routes for Team Umbra's new operation. The Void Star awakens — and its power over dark and fairy energy will be OURS!",
+    quote:"Turn back, trainer! Commander Phantom has reclaimed these routes for The Umbra Order's new operation. The Void Star awakens — and its power over dark and fairy energy will be OURS!",
     winQuote:"You're stronger than I expected... but the Commander won't be stopped so easily. The Void Rift is already open!",
     teams:{
       single:[
@@ -5240,7 +5240,7 @@ const UMBRA_BATTLES = {
   umbra_remnant_archive: {
     id:"umbra_remnant_archive", name:"Archivist Nera", emoji:"📂",
     triggerLocation:"shadow_archive",
-    quote:"This archive holds the sum of Team Umbra's knowledge. I will not let it fall into the hands of some reckless Champion. The secrets here are worth more than your victory lap.",
+    quote:"This archive holds the sum of The Umbra Order's knowledge. I will not let it fall into the hands of some reckless Champion. The secrets here are worth more than your victory lap.",
     winQuote:"The data... it's all exposed now. Fine. Take it. Maybe someone else can finish what we started.",
     reward:{ masterOrb:1, maxPotion:4 },
     teams:{
@@ -5296,8 +5296,8 @@ const UMBRA_BATTLES = {
   },
   umbra_commander_phantom: {
     id:"umbra_commander_phantom", name:"Commander Phantom", emoji:"🌌",
-    quote:"A child again? How tiresome. I am Phantom, Commander of Team Umbra's Void Division. While you were playing gym challenger, WE discovered the Void Star — Voidraxis — slumbering in the rift between light and darkness. With its power over both Dark AND Fairy energy, no one in Lumoria can resist us. Stand aside!",
-    winQuote:"Impossible... Voidraxis should have responded to my call... The bond between trainer and Lumo really IS stronger than raw power. I— retreat! This isn't over, trainer. Voidraxis is still free. Find it before Umbra does!",
+    quote:"A child again? How tiresome. I am Phantom, Commander of The Umbra Order's Void Division. While you were playing gym challenger, WE discovered the Void Star — Voidraxis — slumbering in the rift between light and darkness. With its power over both Dark AND Fairy energy, no one in Lumoria can resist us. Stand aside!",
+    winQuote:"Impossible... Voidraxis should have responded to my call... The bond between trainer and Lumori really IS stronger than raw power. I— retreat! This isn't over, trainer. Voidraxis is still free. Find it before Umbra does!",
     teams:{
       single:[
         {monsterId:270, level:69, moves:["dark_pulse","moonblast","shadow_ball","dazzling_gleam"]},
@@ -5326,34 +5326,34 @@ const UMBRA_BATTLES = {
 // Story event text shown at key moments
 const STORY_EVENTS = {
   intro: [
-    "Professor Arbor: Welcome, young trainer! The Lumoria Region is a beautiful land... but dark times approach.",
-    "Professor Arbor: A shadowy organization called TEAM UMBRA has been spotted near ancient sites across the region.",
-    "Professor Arbor: They seek to awaken the three Legendary Lumos — Tempestia, Volcanox, and Abyssdrake.",
-    "Professor Arbor: If awakened and controlled, these creatures could destroy Lumoria. You must become strong enough to stop them!",
-    "Professor Arbor: Collect all 8 Gym Badges, and the power you build along the way will be your greatest weapon. Good luck!"
+    "Professor Solaris: Welcome, young trainer! The Lumoria Region is a beautiful land... but dark times approach.",
+    "Professor Solaris: A shadowy organization called TEAM UMBRA has been spotted near ancient sites across the region.",
+    "Professor Solaris: They seek to awaken the three Legendary Lumori — Tempestia, Volcanox, and Abyssdrake.",
+    "Professor Solaris: If awakened and controlled, these creatures could destroy Lumoria. You must become strong enough to stop them!",
+    "Professor Solaris: Collect all 8 Gym Badges, and the power you build along the way will be your greatest weapon. Good luck!"
   ],
   after_badge_1: [
     "📰 News Flash: Strange hooded figures have been sighted near the Lumoria Jungle. Citizens are advised to be cautious.",
-    "Your Rival Marcus rushes up: 'Hey! Did you hear about Team Umbra? They were spotted at the Ancient Ruins! Be careful out there.'"
+    "Your Rival Marcus rushes up: 'Hey! Did you hear about The Umbra Order? They were spotted at the Ancient Ruins! Be careful out there.'"
   ],
   after_badge_2: [
-    "Professor Arbor calls: 'Trainer! Team Umbra has been diving into the Abyssal Trench near Tidewatch Port. They're looking for Abyssdrake's resting place. Stop them!'"
+    "Professor Solaris calls: 'Trainer! The Umbra Order has been diving into the Abyssal Trench near Tidewatch Port. They're looking for Abyssdrake's resting place. Stop them!'"
   ],
   after_badge_3: [
-    "📰 Breaking News: Tremors reported near Emberveil! Experts fear Team Umbra is attempting to wake Volcanox in the Volcano Core.",
-    "A wounded explorer stumbles to you: 'Team Umbra... their commander Kira... she's in the Volcano Core... you must stop her!'"
+    "📰 Breaking News: Tremors reported near Emberveil! Experts fear The Umbra Order is attempting to wake Volcanox in the Volcano Core.",
+    "A wounded explorer stumbles to you: 'The Umbra Order... their commander Kira... she's in the Volcano Core... you must stop her!'"
   ],
   after_badge_4: [
     "Storm clouds gather unusually above the Storm Plateau...",
-    "Professor Arbor: 'The storm patterns are abnormal — Team Umbra may be attempting to awaken Tempestia! Reach the Storm Plateau before it's too late!'"
+    "Professor Solaris: 'The storm patterns are abnormal — The Umbra Order may be attempting to awaken Tempestia! Reach the Storm Plateau before it's too late!'"
   ],
   after_badge_5: [
-    "Marcus: 'Two Legendaries nearly awakened... I tried to follow Team Umbra but they disappeared into the Mystic Forest. Their base must be there!'",
-    "Professor Arbor: 'I've heard rumours of a hidden Umbra Base in the forest beyond Route 7. You must infiltrate it and confront Commander Shade!'"
+    "Marcus: 'Two Legendaries nearly awakened... I tried to follow The Umbra Order but they disappeared into the Mystic Forest. Their base must be there!'",
+    "Professor Solaris: 'I've heard rumours of a hidden Umbra Base in the forest beyond Route 7. You must infiltrate it and confront Commander Shade!'"
   ],
   after_badge_6: [
-    "Professor Arbor: 'You defeated Commander Shade! The Legendaries have retreated. But... Shade escaped. Stay vigilant.'",
-    "Professor Arbor: 'The path to the Champion is now clear. Earn your final badges and face Champion Lumian. You've proven yourself a true hero of Lumoria!'"
+    "Professor Solaris: 'You defeated Commander Shade! The Legendaries have retreated. But... Shade escaped. Stay vigilant.'",
+    "Professor Solaris: 'The path to the Champion is now clear. Earn your final badges and face Champion Lumian. You've proven yourself a true hero of Lumoria!'"
   ],
   after_badge_9: [
     "Marcus: 'Hey! I've been seeing suspicious black-cloaked figures on the southern routes. Different from the Umbra grunts we fought before. Something new is brewing...'",
@@ -5361,18 +5361,18 @@ const STORY_EVENTS = {
   ],
   after_badge_14: [
     "📰 BREAKING: A mysterious 'Void Rift' has opened near Starbloom City! Dark and Fairy energy readings are off the charts. Citizens warned to stay away from Route 16.",
-    "Marcus rushes up, breathless: 'It's Team Umbra — a new commander called Phantom! They've been working in secret since Shade was defeated. They found a new legendary, Voidraxis the Void Star, and they're trying to control it!'",
-    "Professor Arbor: 'The Void Star — Voidraxis — is a legendary being of absolute dark and fairy power. If Team Umbra binds it to their will, all of Lumoria's dark and fairy Lumos will fall under their control. You MUST stop Commander Phantom!'"
+    "Marcus rushes up, breathless: 'It's The Umbra Order — a new commander called Phantom! They've been working in secret since Shade was defeated. They found a new legendary, Voidraxis the Void Star, and they're trying to control it!'",
+    "Professor Solaris: 'The Void Star — Voidraxis — is a legendary being of absolute dark and fairy power. If The Umbra Order binds it to their will, all of Lumoria's dark and fairy Lumori will fall under their control. You MUST stop Commander Phantom!'"
   ],
   after_badge_15: [
     "You've defeated Commander Phantom! But she escaped... and Voidraxis roams free, unbound.",
     "Marcus: 'The Void Rift is still active near Route 16. Voidraxis is unsettled — if you can face it and earn its respect, it won't be a threat anymore. It's now or never.'",
-    "Professor Arbor: 'An untamed Voidraxis could destabilize the balance of dark and fairy energy across Lumoria. Face it in the Void Rift — not to destroy it, but to challenge it. A true bond can calm even the most powerful legendary!'"
+    "Professor Solaris: 'An untamed Voidraxis could destabilize the balance of dark and fairy energy across Lumoria. Face it in the Void Rift — not to destroy it, but to challenge it. A true bond can calm even the most powerful legendary!'"
   ],
   champion_defeated: [
     "🏆 CONGRATULATIONS! You have defeated Champion Lumian and become the NEW LUMORIA CHAMPION!",
-    "Your deeds protecting Lumoria from Team Umbra — twice! — will be remembered forever.",
-    "Professor Arbor: 'You are extraordinary. Not just a Champion in battle, but a Champion of heart. Lumoria is safe because of you — and because of the bond you share with your Lumos!'"
+    "Your deeds protecting Lumoria from The Umbra Order — twice! — will be remembered forever.",
+    "Professor Solaris: 'You are extraordinary. Not just a Champion in battle, but a Champion of heart. Lumoria is safe because of you — and because of the bond you share with your Lumori!'"
   ]
 };
 
@@ -5578,7 +5578,7 @@ const SHOPS_DATA = {
 const ELITE_FOUR = [
   {
     id: "aria", name: "Elite Aria", emoji: "🎵", theme: "Graceful Offense",
-    quote: "My Lumos dance through battle like a symphony. Can you keep up with the tempo?",
+    quote: "My Lumori dance through battle like a symphony. Can you keep up with the tempo?",
     winQuote: "A beautiful performance... You've earned my respect.",
     teams: {
       single: [
@@ -5695,14 +5695,14 @@ const LEVEL_CAPS = {
   glacier: 34, nyx: 39, oracle: 45, drake: 50,
   thorne: 53, viper: 57, atlas: 60, mantis: 63,
   zephyra: 66, ferro: 69, boulder: 72, seraphina: 75,
-  // Elite Four
+  // The Vanguard
   aria: 77, grimshaw: 78, celeste: 79, titan: 80,
   // Champion
   champion: 84,
   // Rival battles
   rival_1: 17, rival_2: 35, rival_3: 56,
   rival_4: 68, rival_5: 77,
-  // Team Umbra bosses
+  // The Umbra Order bosses
   umbra_grunt_1: 18, umbra_grunt_2: 27,
   umbra_phantom_grunt: 70, umbra_commander_phantom: 76,
   umbra_commander_kira: 40, umbra_commander_rex_shadow: 51,
@@ -5714,9 +5714,9 @@ const LEVEL_CAPS = {
 // ============================================================
 const QUESTS_DATA = [
   // ---- SEEDVALE & EARLY ROUTES (1-10) ----
-  { id:"q1", title:"First Steps", desc:"Defeat 3 wild Lumos on Route 1 to prove your mettle.", location:"route1", type:"boss", requiredBadges:0,
+  { id:"q1", title:"First Steps", desc:"Defeat 3 wild Lumori on Route 1 to prove your mettle.", location:"route1", type:"boss", requiredBadges:0,
     boss:{monsterId:181, level:8, moves:["tackle","headbutt","growl","quick_attack"]},
-    reward:{type:"item", itemId:"potion", qty:5}, rewardText:"5 Potions" },
+    reward:{type:"item", itemId:"potion", qty:5}, rewardText:"5 Luma Vials" },
   { id:"q2", title:"Seedvale's Lost Pet", desc:"A child in Seedvale lost their Pudgeling. Find and defeat the wild one on Route 1.", location:"route1", type:"boss", requiredBadges:0,
     boss:{monsterId:185, level:7, moves:["tackle","gust","growl","wing_attack"]},
     reward:{type:"item", itemId:"greatOrb", qty:3}, rewardText:"3 Great Orbs" },
@@ -5726,26 +5726,26 @@ const QUESTS_DATA = [
   { id:"q4", title:"Meadow Guardian", desc:"A powerful Bushbear guards the meadow clearing. Defeat it!", location:"route1", type:"boss", requiredBadges:0,
     boss:{monsterId:70, level:12, moves:["vine_whip","tackle","razor_leaf","growl"]},
     reward:{type:"item", itemId:"miracleSeed", qty:1}, rewardText:"Miracle Seed" },
-  { id:"q5", title:"Professor's Errand", desc:"Visit Ashford City to deliver a package for Professor Arbor.", location:"ashford", type:"visit", requiredBadges:0,
+  { id:"q5", title:"Professor's Errand", desc:"Visit Ashford City to deliver a package for Professor Solaris.", location:"ashford", type:"visit", requiredBadges:0,
     reward:{type:"money", amount:300}, rewardText:"300 coins" },
-  { id:"q6", title:"Night Prowler", desc:"A mysterious dark Lumos has been spotted on Route 1 at night. Defeat it!", location:"route1", type:"boss", requiredBadges:1,
+  { id:"q6", title:"Night Prowler", desc:"A mysterious dark Lumori has been spotted on Route 1 at night. Defeat it!", location:"route1", type:"boss", requiredBadges:1,
     boss:{monsterId:118, level:15, moves:["bite","quick_attack","night_slash","growl"]},
     reward:{type:"item", itemId:"blackGlasses", qty:1}, rewardText:"Black Glasses" },
   { id:"q7", title:"Fairy Ring Mystery", desc:"Strange lights glow in Fairy Meadow. Investigate by defeating the guardian.", location:"fairy_meadow_south", type:"boss", requiredBadges:0,
     boss:{monsterId:60, level:10, moves:["fairy_wind","tackle","sweet_kiss","quick_attack"]},
-    reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Pixie Dust" },
+    reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Fairy Essence" },
   { id:"q8", title:"The Stubborn Sproutling", desc:"A giant Sproutling blocks the path! Battle it to clear the way.", location:"route1", type:"boss", requiredBadges:0,
     boss:{monsterId:7, level:11, moves:["vine_whip","tackle","razor_leaf","sleep_powder"]},
-    reward:{type:"item", itemId:"potion", qty:3}, rewardText:"3 Potions" },
+    reward:{type:"item", itemId:"potion", qty:3}, rewardText:"3 Luma Vials" },
   { id:"q9", title:"Route 1 Champion", desc:"Become the undisputed champion of Route 1 by defeating the alpha!", location:"route1", type:"boss", requiredBadges:1,
     boss:{monsterId:179, level:18, moves:["headbutt","body_slam","quick_attack","hyper_beam"]},
     reward:{type:"money", amount:1000}, rewardText:"1000 coins" },
   { id:"q10", title:"Ashford Arena Amateur", desc:"Win the Ashford amateur tournament!", location:"ashford", type:"boss", requiredBadges:1,
     boss:{monsterId:183, level:16, moves:["body_slam","headbutt","quick_attack","hyper_beam"]},
-    reward:{type:"item", itemId:"superPotion", qty:3}, rewardText:"3 Super Potions" },
+    reward:{type:"item", itemId:"superPotion", qty:3}, rewardText:"3 Luma Draughts" },
 
   // ---- TIDEWATCH & WATER AREAS (11-20) ----
-  { id:"q11", title:"Tidewatch Fisherman", desc:"A fisherman challenges you with his strongest Water Lumos!", location:"tidewatch", type:"boss", requiredBadges:1,
+  { id:"q11", title:"Tidewatch Fisherman", desc:"A fisherman challenges you with his strongest Water Lumori!", location:"tidewatch", type:"boss", requiredBadges:1,
     boss:{monsterId:25, level:22, moves:["surf","aqua_tail","bubble_beam","harden"]},
     reward:{type:"money", amount:800}, rewardText:"800 coins" },
   { id:"q12", title:"Coral Reef Explorer", desc:"Explore the Coral Reef and defeat its guardian.", location:"coral_reef", type:"boss", requiredBadges:2,
@@ -5763,64 +5763,64 @@ const QUESTS_DATA = [
   { id:"q16", title:"Jungle Expedition", desc:"Navigate the Lumoria Jungle and defeat the territorial alpha.", location:"lumoria_jungle", type:"boss", requiredBadges:1,
     boss:{monsterId:67, level:20, moves:["vine_whip","mud_shot","razor_leaf","earthquake"]},
     reward:{type:"item", itemId:"greatOrb", qty:5}, rewardText:"5 Great Orbs" },
-  { id:"q17", title:"Ancient Ruins Scholar", desc:"A scholar needs help clearing Lumos from the Ancient Ruins.", location:"ancient_ruins", type:"boss", requiredBadges:1,
+  { id:"q17", title:"Ancient Ruins Scholar", desc:"A scholar needs help clearing Lumori from the Ancient Ruins.", location:"ancient_ruins", type:"boss", requiredBadges:1,
     boss:{monsterId:166, level:22, moves:["confusion","psybeam","quick_attack","recover"]},
     reward:{type:"money", amount:1200}, rewardText:"1200 coins" },
-  { id:"q18", title:"Tidal Wave Warning", desc:"A rogue Water Lumos threatens Tidewatch harbor!", location:"tidewatch", type:"boss", requiredBadges:2,
+  { id:"q18", title:"Tidal Wave Warning", desc:"A rogue Water Lumori threatens Tidewatch harbor!", location:"tidewatch", type:"boss", requiredBadges:2,
     boss:{monsterId:39, level:28, moves:["surf","hurricane","aqua_tail","wing_attack"]},
-    reward:{type:"item", itemId:"revive", qty:3}, rewardText:"3 Revives" },
+    reward:{type:"item", itemId:"revive", qty:3}, rewardText:"3 Luma Shards" },
   { id:"q19", title:"Pearl Diver", desc:"Dive for pearls in the Coral Reef, but beware the guardian!", location:"coral_reef", type:"boss", requiredBadges:2,
     boss:{monsterId:34, level:26, moves:["dazzling_gleam","surf","fairy_wind","bubble_beam"]},
     reward:{type:"money", amount:2000}, rewardText:"2000 coins" },
-  { id:"q20", title:"Route 2 Ranger", desc:"The Route 2 ranger needs help with an aggressive wild Lumos.", location:"route2", type:"boss", requiredBadges:1,
+  { id:"q20", title:"Route 2 Ranger", desc:"The Route 2 ranger needs help with an aggressive wild Lumori.", location:"route2", type:"boss", requiredBadges:1,
     boss:{monsterId:8, level:18, moves:["razor_leaf","vine_whip","poison_sting","body_slam"]},
-    reward:{type:"item", itemId:"superPotion", qty:5}, rewardText:"5 Super Potions" },
+    reward:{type:"item", itemId:"superPotion", qty:5}, rewardText:"5 Luma Draughts" },
 
   // ---- EMBERVEIL & FIRE AREAS (21-30) ----
   { id:"q21", title:"Volcanic Challenge", desc:"Brave the Volcano Core and defeat its fiery guardian!", location:"volcano_core", type:"boss", requiredBadges:3,
     boss:{monsterId:20, level:35, moves:["flamethrower","earthquake","fire_blast","earth_power"]},
     reward:{type:"item", itemId:"charcoal", qty:1}, rewardText:"Charcoal" },
-  { id:"q22", title:"Lava Fields Survivor", desc:"Cross the Lava Fields and defeat the alpha fire Lumos.", location:"lava_fields", type:"boss", requiredBadges:3,
+  { id:"q22", title:"Lava Fields Survivor", desc:"Cross the Lava Fields and defeat the alpha fire Lumori.", location:"lava_fields", type:"boss", requiredBadges:3,
     boss:{monsterId:13, level:34, moves:["flamethrower","body_slam","heat_wave","fire_blast"]},
     reward:{type:"money", amount:2500}, rewardText:"2500 coins" },
-  { id:"q23", title:"Emberveil Forge Master", desc:"The Forge Master tests trainers with his strongest Lumos.", location:"emberveil", type:"boss", requiredBadges:2,
+  { id:"q23", title:"Emberveil Forge Master", desc:"The Forge Master tests trainers with his strongest Lumori.", location:"emberveil", type:"boss", requiredBadges:2,
     boss:{monsterId:16, level:30, moves:["flamethrower","quick_attack","heat_wave","fire_blast"]},
-    reward:{type:"item", itemId:"maxPotion", qty:3}, rewardText:"3 Max Potions" },
+    reward:{type:"item", itemId:"maxPotion", qty:3}, rewardText:"3 Luma Infusions" },
   { id:"q24", title:"Cinder Mole Hunt", desc:"A rare Cindermole has been spotted in the Lava Fields!", location:"lava_fields", type:"boss", requiredBadges:3,
     boss:{monsterId:19, level:32, moves:["flamethrower","earthquake","mud_shot","ember"]},
-    reward:{type:"item", itemId:"softSand", qty:1}, rewardText:"Soft Sand" },
+    reward:{type:"item", itemId:"softSand", qty:1}, rewardText:"Coarse Sand" },
   { id:"q25", title:"Iron Canyon Explorer", desc:"Explore the treacherous Iron Canyon and defeat its sentinel.", location:"iron_canyon", type:"boss", requiredBadges:3,
     boss:{monsterId:148, level:34, moves:["iron_tail","crunch","flash_cannon","metal_claw"]},
-    reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Metal Coat" },
+    reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Iron Shell" },
   { id:"q26", title:"Route 3 Gauntlet", desc:"Run the Route 3 trainer gauntlet and face the final boss!", location:"route3", type:"boss", requiredBadges:2,
     boss:{monsterId:26, level:26, moves:["surf","rock_slide","aqua_tail","headbutt"]},
     reward:{type:"money", amount:1500}, rewardText:"1500 coins" },
   { id:"q27", title:"Fire Dance Festival", desc:"Win the Emberveil Fire Dance Festival battle tournament!", location:"emberveil", type:"boss", requiredBadges:3,
     boss:{monsterId:11, level:32, moves:["flamethrower","wing_attack","air_slash","heat_wave"]},
-    reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 X-Attacks" },
+    reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 Power Charges" },
   { id:"q28", title:"Molten Core Mystery", desc:"Strange energy readings in the Volcano Core need investigation.", location:"volcano_core", type:"boss", requiredBadges:3,
     boss:{monsterId:14, level:36, moves:["flamethrower","rock_slide","earthquake","fire_blast"]},
     reward:{type:"money", amount:3000}, rewardText:"3000 coins" },
-  { id:"q29", title:"The Scorched Path", desc:"Clear the scorched path through Route 4 from aggressive Lumos.", location:"route4", type:"boss", requiredBadges:3,
+  { id:"q29", title:"The Scorched Path", desc:"Clear the scorched path through Route 4 from aggressive Lumori.", location:"route4", type:"boss", requiredBadges:3,
     boss:{monsterId:99, level:34, moves:["earthquake","poison_sting","venoshock","mud_shot"]},
-    reward:{type:"item", itemId:"revive", qty:3}, rewardText:"3 Revives" },
+    reward:{type:"item", itemId:"revive", qty:3}, rewardText:"3 Luma Shards" },
   { id:"q30", title:"Ember Guardian", desc:"The legendary ember guardian protects Emberveil's sacred flame.", location:"emberveil", type:"boss", requiredBadges:3,
     boss:{monsterId:3, level:38, moves:["flamethrower","dragon_claw","heat_wave","outrage"]},
     reward:{type:"item", itemId:"dragonFang", qty:1}, rewardText:"Dragon Fang" },
 
   // ---- SPARKMOOR & ELECTRIC AREAS (31-40) ----
-  { id:"q31", title:"Static Shock", desc:"A dangerously charged Lumos terrorizes Sparkmoor. Stop it!", location:"sparkmoor", type:"boss", requiredBadges:3,
+  { id:"q31", title:"Static Shock", desc:"A dangerously charged Lumori terrorizes Sparkmoor. Stop it!", location:"sparkmoor", type:"boss", requiredBadges:3,
     boss:{monsterId:82, level:36, moves:["thunderbolt","spark","thunder_wave","body_slam"]},
     reward:{type:"item", itemId:"magnet", qty:1}, rewardText:"Magnet" },
   { id:"q32", title:"Thunder Cliffs Dare", desc:"Scale the Thunder Cliffs and face the storm beast!", location:"thunder_cliffs", type:"boss", requiredBadges:4,
     boss:{monsterId:92, level:40, moves:["thunderbolt","rock_slide","stone_edge","spark"]},
     reward:{type:"money", amount:3500}, rewardText:"3500 coins" },
-  { id:"q33", title:"Power Plant Breach", desc:"Wild Electric Lumos have breached the Sparkmoor power plant!", location:"sparkmoor", type:"boss", requiredBadges:3,
+  { id:"q33", title:"Power Plant Breach", desc:"Wild Electric Lumori have breached the Sparkmoor power plant!", location:"sparkmoor", type:"boss", requiredBadges:3,
     boss:{monsterId:85, level:35, moves:["thunderbolt","bug_buzz","spark","x_scissor"]},
     reward:{type:"item", itemId:"ultraOrb", qty:3}, rewardText:"3 Ultra Orbs" },
-  { id:"q34", title:"Route 4 Blockade", desc:"A stubborn Ground Lumos blocks Route 4. Move it!", location:"route4", type:"boss", requiredBadges:3,
+  { id:"q34", title:"Route 4 Blockade", desc:"A stubborn Ground Lumori blocks Route 4. Move it!", location:"route4", type:"boss", requiredBadges:3,
     boss:{monsterId:96, level:33, moves:["earthquake","rock_slide","mud_shot","headbutt"]},
-    reward:{type:"item", itemId:"maxPotion", qty:2}, rewardText:"2 Max Potions" },
+    reward:{type:"item", itemId:"maxPotion", qty:2}, rewardText:"2 Luma Infusions" },
   { id:"q35", title:"Storm Chaser", desc:"Chase down and battle the legendary storm bird on Storm Plateau!", location:"storm_plateau", type:"boss", requiredBadges:4,
     boss:{monsterId:90, level:42, moves:["thunderbolt","hurricane","spark","wing_attack"]},
     reward:{type:"item", itemId:"swiftFeather", qty:1}, rewardText:"Swift Feather" },
@@ -5832,36 +5832,36 @@ const QUESTS_DATA = [
     reward:{type:"money", amount:2500}, rewardText:"2500 coins" },
   { id:"q38", title:"Lightning Rod", desc:"Capture the wild electricity surging through Route 5.", location:"route5", type:"boss", requiredBadges:4,
     boss:{monsterId:93, level:40, moves:["thunderbolt","stone_edge","rock_slide","spark"]},
-    reward:{type:"item", itemId:"xSpeed", qty:5}, rewardText:"5 X-Speeds" },
+    reward:{type:"item", itemId:"xSpeed", qty:5}, rewardText:"5 Swift Charges" },
   { id:"q39", title:"Voltforest Protector", desc:"The Voltforest needs a champion to defeat the invasive alpha.", location:"bug_forest_west", type:"boss", requiredBadges:1,
     boss:{monsterId:147, level:20, moves:["thunderbolt","vine_whip","spark","razor_leaf"]},
-    reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Silver Powder" },
+    reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Carapace Dust" },
   { id:"q40", title:"The Magnetic Anomaly", desc:"A strange magnetic field disrupts Sparkmoor. Find the source!", location:"sparkmoor", type:"boss", requiredBadges:4,
     boss:{monsterId:151, level:42, moves:["flash_cannon","thunderbolt","iron_tail","hyper_beam"]},
     reward:{type:"money", amount:4000}, rewardText:"4000 coins" },
 
   // ---- FROSTPEAK & ICE AREAS (41-50) ----
-  { id:"q41", title:"Blizzard Warning", desc:"A massive blizzard Lumos rampages near Frostpeak!", location:"frostpeak", type:"boss", requiredBadges:4,
+  { id:"q41", title:"Blizzard Warning", desc:"A massive blizzard Lumori rampages near Frostpeak!", location:"frostpeak", type:"boss", requiredBadges:4,
     boss:{monsterId:50, level:44, moves:["blizzard","ice_beam","icicle_crash","harden"]},
-    reward:{type:"item", itemId:"neverMeltIce", qty:1}, rewardText:"Never-Melt Ice" },
+    reward:{type:"item", itemId:"neverMeltIce", qty:1}, rewardText:"Eternal Ice" },
   { id:"q42", title:"Frozen Lake Monster", desc:"Break through the ice and battle the creature beneath!", location:"mirror_lake", type:"boss", requiredBadges:4,
     boss:{monsterId:45, level:42, moves:["blizzard","surf","ice_beam","hydro_pump"]},
     reward:{type:"money", amount:4000}, rewardText:"4000 coins" },
-  { id:"q43", title:"Avalanche Alert", desc:"Stop the Lumos causing avalanches on Route 5!", location:"route5", type:"boss", requiredBadges:4,
+  { id:"q43", title:"Avalanche Alert", desc:"Stop the Lumori causing avalanches on Route 5!", location:"route5", type:"boss", requiredBadges:4,
     boss:{monsterId:56, level:43, moves:["blizzard","flash_cannon","ice_beam","iron_tail"]},
-    reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Revives" },
+    reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Luma Shards" },
   { id:"q44", title:"Crystal Depths Expedition", desc:"Delve into the Crystal Depths and claim the crystal prize.", location:"crystal_depths", type:"boss", requiredBadges:5,
     boss:{monsterId:195, level:48, moves:["crystal_lance","stone_edge","rock_slide","landslide"]},
-    reward:{type:"item", itemId:"hardStone", qty:1}, rewardText:"Hard Stone" },
+    reward:{type:"item", itemId:"hardStone", qty:1}, rewardText:"Crag Shard" },
   { id:"q45", title:"Frostpeak Ski Challenge", desc:"Win the Frostpeak ski challenge battle tournament!", location:"frostpeak", type:"boss", requiredBadges:4,
     boss:{monsterId:47, level:42, moves:["ice_beam","icicle_crash","quick_attack","blizzard"]},
     reward:{type:"money", amount:3000}, rewardText:"3000 coins" },
-  { id:"q46", title:"Ice Sculptor's Request", desc:"An ice sculptor needs rare ice crystals. Defeat the Lumos guarding them.", location:"frostpeak", type:"boss", requiredBadges:4,
+  { id:"q46", title:"Ice Sculptor's Request", desc:"An ice sculptor needs rare ice crystals. Defeat the Lumori guarding them.", location:"frostpeak", type:"boss", requiredBadges:4,
     boss:{monsterId:55, level:44, moves:["ice_beam","flash_cannon","iron_tail","blizzard"]},
-    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Max Potions" },
+    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
   { id:"q47", title:"Polar Expedition", desc:"Join the polar expedition and face the apex predator!", location:"route5", type:"boss", requiredBadges:4,
     boss:{monsterId:54, level:45, moves:["blizzard","earthquake","ice_beam","earth_power"]},
-    reward:{type:"item", itemId:"xDefense", qty:5}, rewardText:"5 X-Defenses" },
+    reward:{type:"item", itemId:"xDefense", qty:5}, rewardText:"5 Guard Charges" },
   { id:"q48", title:"The Frozen Guardian", desc:"Awaken and battle the legendary frozen guardian of Frostpeak.", location:"frostpeak", type:"boss", requiredBadges:5,
     boss:{monsterId:48, level:50, moves:["blizzard","ice_beam","surf","icicle_crash"]},
     reward:{type:"item", itemId:"ultraOrb", qty:10}, rewardText:"10 Ultra Orbs" },
@@ -5881,7 +5881,7 @@ const QUESTS_DATA = [
     reward:{type:"money", amount:4500}, rewardText:"4500 coins" },
   { id:"q53", title:"Lunar Peak Ascent", desc:"Climb Lunar Peak and face the moonlit guardian!", location:"lunar_peak", type:"boss", requiredBadges:5,
     boss:{monsterId:143, level:50, moves:["moonblast","psychic_move","dazzling_gleam","calm_mind"]},
-    reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Pixie Dust" },
+    reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Fairy Essence" },
   { id:"q54", title:"Spirit Canyon Crossing", desc:"Cross Spirit Canyon by defeating the ghostly guardians.", location:"spirit_canyon", type:"boss", requiredBadges:5,
     boss:{monsterId:135, level:48, moves:["shadow_ball","flash_cannon","dark_pulse","iron_tail"]},
     reward:{type:"item", itemId:"spiritVeil", qty:1}, rewardText:"Spirit Veil" },
@@ -5893,30 +5893,30 @@ const QUESTS_DATA = [
     reward:{type:"item", itemId:"ultraOrb", qty:5}, rewardText:"5 Ultra Orbs" },
   { id:"q57", title:"Shadowmere Underworld", desc:"The underworld beneath Shadowmere holds a powerful foe.", location:"shadowmere", type:"boss", requiredBadges:5,
     boss:{monsterId:79, level:48, moves:["dark_pulse","energy_ball","vine_whip","shadow_ball"]},
-    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Max Potions" },
+    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
   { id:"q58", title:"Grave Moss Collector", desc:"Collect rare grave moss by defeating its parasitic host.", location:"haunted_grove", type:"boss", requiredBadges:5,
     boss:{monsterId:130, level:46, moves:["shadow_ball","energy_ball","dark_pulse","razor_leaf"]},
     reward:{type:"money", amount:3500}, rewardText:"3500 coins" },
   { id:"q59", title:"The Umbravine", desc:"A monstrous Umbravine has rooted in Route 6. Remove it!", location:"route6", type:"boss", requiredBadges:5,
     boss:{monsterId:79, level:50, moves:["dark_pulse","energy_ball","seed_bomb","shadow_ball"]},
     reward:{type:"item", itemId:"miracleSeed", qty:1}, rewardText:"Miracle Seed" },
-  { id:"q60", title:"Nightfall Reckoning", desc:"Face the most powerful dark Lumos in all of Shadowmere.", location:"shadowmere", type:"boss", requiredBadges:6,
+  { id:"q60", title:"Nightfall Reckoning", desc:"Face the most powerful dark Lumori in all of Shadowmere.", location:"shadowmere", type:"boss", requiredBadges:6,
     boss:{monsterId:123, level:55, moves:["crunch","sludge_bomb","dark_pulse","shadow_ball"]},
-    reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 X-Attacks" },
+    reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 Power Charges" },
 
   // ---- SKYVAULT & PSYCHIC AREAS (61-70) ----
   { id:"q61", title:"Mind Over Matter", desc:"A psychic barrier blocks Skyvault. Shatter it by defeating the guardian.", location:"skyvault", type:"boss", requiredBadges:6,
     boss:{monsterId:168, level:54, moves:["psychic_move","dazzling_gleam","psybeam","calm_mind"]},
     reward:{type:"item", itemId:"wiseGlasses", qty:1}, rewardText:"Wise Glasses" },
-  { id:"q62", title:"Mystic Forest Patrol", desc:"Patrol the Mystic Forest and defeat rogue Lumos.", location:"mystic_forest", type:"boss", requiredBadges:6,
+  { id:"q62", title:"Mystic Forest Patrol", desc:"Patrol the Mystic Forest and defeat rogue Lumori.", location:"mystic_forest", type:"boss", requiredBadges:6,
     boss:{monsterId:78, level:50, moves:["shadow_ball","razor_leaf","dark_pulse","energy_ball"]},
     reward:{type:"money", amount:4000}, rewardText:"4000 coins" },
   { id:"q63", title:"Sky Harbor Defense", desc:"Sky Harbor is under attack! Defend it from the invader!", location:"sky_harbor", type:"boss", requiredBadges:6,
     boss:{monsterId:112, level:52, moves:["hurricane","air_slash","wing_attack","jetstream"]},
-    reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Revives" },
-  { id:"q64", title:"Poison Swamp Cleanup", desc:"Clear the toxic Lumos polluting the Poison Swamp.", location:"poison_swamp_upper", type:"boss", requiredBadges:6,
+    reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Luma Shards" },
+  { id:"q64", title:"Poison Swamp Cleanup", desc:"Clear the toxic Lumori polluting the Poison Swamp.", location:"poison_swamp_upper", type:"boss", requiredBadges:6,
     boss:{monsterId:74, level:52, moves:["sludge_wave","earthquake","acid_rain","toxic"]},
-    reward:{type:"item", itemId:"poisonBarb", qty:1}, rewardText:"Poison Barb" },
+    reward:{type:"item", itemId:"poisonBarb", qty:1}, rewardText:"Venom Thorn" },
   { id:"q65", title:"Wind Bridge Battle", desc:"A wind elemental guards the Wind Bridge. Cross by defeating it!", location:"wind_bridge", type:"boss", requiredBadges:6,
     boss:{monsterId:115, level:52, moves:["hurricane","air_slash","cyclone_blade","jetstream"]},
     reward:{type:"money", amount:4500}, rewardText:"4500 coins" },
@@ -5928,13 +5928,13 @@ const QUESTS_DATA = [
     reward:{type:"money", amount:5000}, rewardText:"5000 coins" },
   { id:"q68", title:"Route 7 Guardian", desc:"The ancient guardian of Route 7 awakens. Defeat it!", location:"route7", type:"boss", requiredBadges:6,
     boss:{monsterId:9, level:52, moves:["petal_blitz","moonblast","energy_ball","sleep_powder"]},
-    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Max Potions" },
-  { id:"q69", title:"Skyvault Observatory", desc:"The observatory telescope reveals a hidden Lumos. Battle it!", location:"skyvault", type:"boss", requiredBadges:6,
+    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
+  { id:"q69", title:"Skyvault Observatory", desc:"The observatory telescope reveals a hidden Lumori. Battle it!", location:"skyvault", type:"boss", requiredBadges:6,
     boss:{monsterId:319, level:56, moves:["dark_pulse","moonblast","psychic_move","shadow_ball"]},
     reward:{type:"item", itemId:"spiritVeil", qty:1}, rewardText:"Spirit Veil" },
-  { id:"q70", title:"Dreamweaver", desc:"A Lumos weaves dreams into reality. Snap out of it by fighting!", location:"mystic_forest", type:"boss", requiredBadges:6,
+  { id:"q70", title:"Dreamweaver", desc:"A Lumori weaves dreams into reality. Snap out of it by fighting!", location:"mystic_forest", type:"boss", requiredBadges:6,
     boss:{monsterId:142, level:52, moves:["dazzling_gleam","fairy_wind","psychic_move","moonblast"]},
-    reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Pixie Dust" },
+    reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Fairy Essence" },
 
   // ---- DRAGONSPIRE & LATE GAME (71-80) ----
   { id:"q71", title:"Dragon's Trial", desc:"Pass the Dragon's Trial at Dragonspire to prove your worth.", location:"dragonspire", type:"boss", requiredBadges:7,
@@ -5945,19 +5945,19 @@ const QUESTS_DATA = [
     reward:{type:"item", itemId:"dragonFang", qty:1}, rewardText:"Dragon Fang" },
   { id:"q73", title:"Victory Road Preview", desc:"Get a taste of Victory Road by defeating its gatekeeper!", location:"victoryroad", type:"boss", requiredBadges:8,
     boss:{monsterId:152, level:60, moves:["tungsten_ram","stone_edge","iron_tail","flash_cannon"]},
-    reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 X-Attacks" },
+    reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 Power Charges" },
   { id:"q74", title:"Dragon Egg Protector", desc:"Protect the dragon eggs from poachers by defeating their leader!", location:"dragonspire", type:"boss", requiredBadges:7,
     boss:{monsterId:172, level:56, moves:["dragon_claw","dragon_breath","body_slam","dragon_dance"]},
-    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Max Potions" },
+    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
   { id:"q75", title:"The Dragon Sage", desc:"An ancient dragon sage challenges worthy trainers.", location:"dragonspire", type:"boss", requiredBadges:8,
     boss:{monsterId:175, level:62, moves:["surf","dragon_pulse","hydro_pump","dragon_claw"]},
     reward:{type:"money", amount:10000}, rewardText:"10000 coins" },
   { id:"q76", title:"Stormforged Encounter", desc:"A rare Stormforged has been spotted near Thunder Cliffs!", location:"thunder_cliffs", type:"boss", requiredBadges:4,
     boss:{monsterId:320, level:45, moves:["thunderbolt","flash_cannon","forge_strike","spark"]},
-    reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Metal Coat" },
+    reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Iron Shell" },
   { id:"q77", title:"Route 8 Ambush", desc:"Bandits ambush travelers on Route 8. Stop them!", location:"route8", type:"boss", requiredBadges:7,
     boss:{monsterId:119, level:56, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
-    reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Revives" },
+    reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Luma Shards" },
   { id:"q78", title:"The Apex Hunter", desc:"Track down the apex predator of Dragonspire.", location:"dragonspire", type:"boss", requiredBadges:8,
     boss:{monsterId:176, level:60, moves:["thunderbolt","dragon_pulse","thunder","dragon_claw"]},
     reward:{type:"item", itemId:"dragonFang", qty:1}, rewardText:"Dragon Fang" },
@@ -5972,31 +5972,31 @@ const QUESTS_DATA = [
   { id:"q81", title:"Bloomhaven Blossom Festival", desc:"Win the annual Blossom Festival tournament!", location:"bloomhaven", type:"boss", requiredBadges:8,
     boss:{monsterId:9, level:58, moves:["petal_blitz","energy_ball","moonblast","canopy_crash"]},
     reward:{type:"money", amount:6000}, rewardText:"6000 coins" },
-  { id:"q82", title:"Toxic Waste Crisis", desc:"Miasma City's toxic waste has spawned a dangerous Lumos!", location:"miasmacity", type:"boss", requiredBadges:9,
+  { id:"q82", title:"Toxic Waste Crisis", desc:"Miasma City's toxic waste has spawned a dangerous Lumori!", location:"miasmacity", type:"boss", requiredBadges:9,
     boss:{monsterId:158, level:60, moves:["sludge_wave","earthquake","acid_rain","toxic"]},
-    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Max Potions" },
+    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
   { id:"q83", title:"Terravault Excavation", desc:"Join the excavation and battle what you unearth!", location:"terravault", type:"boss", requiredBadges:10,
     boss:{monsterId:107, level:62, moves:["earthquake","earth_power","fissure_slam","mud_shot"]},
-    reward:{type:"item", itemId:"softSand", qty:1}, rewardText:"Soft Sand" },
-  { id:"q84", title:"Silkwood Cocoon Crisis", desc:"Giant cocoons are hatching dangerous Lumos in Silkwood!", location:"silkwood", type:"boss", requiredBadges:11,
+    reward:{type:"item", itemId:"softSand", qty:1}, rewardText:"Coarse Sand" },
+  { id:"q84", title:"Silkwood Cocoon Crisis", desc:"Giant cocoons are hatching dangerous Lumori in Silkwood!", location:"silkwood", type:"boss", requiredBadges:11,
     boss:{monsterId:201, level:64, moves:["x_scissor","bug_buzz","iron_tail","mandible_crush"]},
-    reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Silver Powder" },
+    reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Carapace Dust" },
   { id:"q85", title:"Gusthaven Wind Trial", desc:"Pass the Wind Trial to earn the respect of Gusthaven.", location:"gusthaven", type:"boss", requiredBadges:12,
     boss:{monsterId:109, level:66, moves:["hurricane","moonblast","air_slash","cyclone_blade"]},
     reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
   { id:"q86", title:"Ironforge Masterwork", desc:"Defeat the Ironforge champion's ultimate creation!", location:"ironforge", type:"boss", requiredBadges:13,
     boss:{monsterId:151, level:68, moves:["tungsten_ram","flash_cannon","thunder","iron_tail"]},
-    reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Metal Coat" },
-  { id:"q87", title:"Quarryville Fossil Hunt", desc:"A rare fossil Lumos has been revived! Battle it!", location:"quarryville", type:"boss", requiredBadges:14,
+    reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Iron Shell" },
+  { id:"q87", title:"Quarryville Fossil Hunt", desc:"A rare fossil Lumori has been revived! Battle it!", location:"quarryville", type:"boss", requiredBadges:14,
     boss:{monsterId:195, level:68, moves:["crystal_lance","stone_edge","landslide","geode_burst"]},
-    reward:{type:"item", itemId:"hardStone", qty:1}, rewardText:"Hard Stone" },
+    reward:{type:"item", itemId:"hardStone", qty:1}, rewardText:"Crag Shard" },
   { id:"q88", title:"Starbloom Celestial Trial", desc:"The Celestial Trial awaits at Starbloom. Are you worthy?", location:"starbloom", type:"boss", requiredBadges:15,
     boss:{monsterId:143, level:70, moves:["moonblast","psychic_move","celestial_wave","dazzling_gleam"]},
-    reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Pixie Dust" },
+    reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Fairy Essence" },
   { id:"q89", title:"Route 9 Pioneer", desc:"Be the first to explore the new Route 9!", location:"route9", type:"boss", requiredBadges:8,
     boss:{monsterId:8, level:55, moves:["petal_blitz","razor_leaf","seed_bomb","energy_ball"]},
     reward:{type:"money", amount:5000}, rewardText:"5000 coins" },
-  { id:"q90", title:"Route 10 Toxin", desc:"Clear the toxic Lumos blocking Route 10.", location:"route10", type:"boss", requiredBadges:9,
+  { id:"q90", title:"Route 10 Toxin", desc:"Clear the toxic Lumori blocking Route 10.", location:"route10", type:"boss", requiredBadges:9,
     boss:{monsterId:156, level:58, moves:["sludge_bomb","venoshock","toxic","acid_rain"]},
     reward:{type:"item", itemId:"superPotion", qty:10}, rewardText:"10 Super Potions" },
   { id:"q91", title:"Route 11 Tremors", desc:"Investigate the tremors shaking Route 11.", location:"route11", type:"boss", requiredBadges:10,
@@ -6004,16 +6004,16 @@ const QUESTS_DATA = [
     reward:{type:"money", amount:6000}, rewardText:"6000 coins" },
   { id:"q92", title:"Route 12 Swarm", desc:"A massive bug swarm threatens Route 12!", location:"route12", type:"boss", requiredBadges:11,
     boss:{monsterId:203, level:62, moves:["bug_buzz","moonblast","x_scissor","dazzling_gleam"]},
-    reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Revives" },
+    reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Luma Shards" },
   { id:"q93", title:"Route 13 Gale", desc:"Navigate through the gale on Route 13.", location:"route13", type:"boss", requiredBadges:12,
     boss:{monsterId:112, level:64, moves:["hurricane","air_slash","cyclone_blade","skyfall"]},
-    reward:{type:"item", itemId:"xSpeed", qty:5}, rewardText:"5 X-Speeds" },
+    reward:{type:"item", itemId:"xSpeed", qty:5}, rewardText:"5 Swift Charges" },
   { id:"q94", title:"Route 14 Forge", desc:"Cross through the active forge on Route 14.", location:"route14", type:"boss", requiredBadges:13,
     boss:{monsterId:148, level:66, moves:["forge_strike","iron_tail","flash_cannon","crunch"]},
     reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
   { id:"q95", title:"Route 15 Rockslide", desc:"Clear the massive rockslide on Route 15.", location:"route15", type:"boss", requiredBadges:14,
     boss:{monsterId:192, level:66, moves:["earthquake","stone_edge","rock_slide","landslide"]},
-    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Max Potions" },
+    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
   { id:"q96", title:"Route 16 Enchantment", desc:"Break through the fairy enchantment on Route 16.", location:"route16", type:"boss", requiredBadges:15,
     boss:{monsterId:146, level:68, moves:["moonblast","flash_cannon","dazzling_gleam","celestial_wave"]},
     reward:{type:"item", itemId:"ultraOrb", qty:10}, rewardText:"10 Ultra Orbs" },
@@ -6025,7 +6025,7 @@ const QUESTS_DATA = [
     reward:{type:"money", amount:6000}, rewardText:"6000 coins" },
   { id:"q99", title:"Terravault Deep Mine", desc:"Delve into the deepest mine shaft of Terravault.", location:"terravault", type:"boss", requiredBadges:10,
     boss:{monsterId:154, level:62, moves:["earthquake","forge_strike","flash_cannon","earth_power"]},
-    reward:{type:"item", itemId:"xDefense", qty:5}, rewardText:"5 X-Defenses" },
+    reward:{type:"item", itemId:"xDefense", qty:5}, rewardText:"5 Guard Charges" },
   { id:"q100", title:"The Great Silkwood Tree", desc:"The Great Tree's guardian challenges all who approach!", location:"silkwood", type:"boss", requiredBadges:11,
     boss:{monsterId:202, level:62, moves:["bug_buzz","moonblast","silk_bind","dazzling_gleam"]},
     reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
@@ -6055,7 +6055,7 @@ const QUESTS_DATA = [
   { id:"q108", title:"Champion's Rematch", desc:"Champion Lumian offers a rematch at full power!", location:"summit", type:"boss", requiredBadges:16,
     boss:{monsterId:321, level:80, moves:["outrage","dragon_pulse","fire_blast","dragon_dance"]},
     reward:{type:"money", amount:25000}, rewardText:"25000 coins" },
-  { id:"q109", title:"Ultimate Trial", desc:"Face the ultimate trial: a gauntlet of the strongest wild Lumos!", location:"victoryroad", type:"boss", requiredBadges:16,
+  { id:"q109", title:"Ultimate Trial", desc:"Face the ultimate trial: a gauntlet of the strongest wild Lumori!", location:"victoryroad", type:"boss", requiredBadges:16,
     boss:{monsterId:173, level:78, moves:["outrage","dragon_pulse","dragon_dance","hyper_beam"]},
     reward:{type:"money", amount:20000}, rewardText:"20000 coins" },
   { id:"q110", title:"The Final Quest", desc:"Complete every challenge Lumoria has to offer.", location:"summit", type:"boss", requiredBadges:16,
@@ -6072,7 +6072,7 @@ const QUESTS_DATA = [
     reward:{type:"item", itemId:"miracleSeed", qty:1}, rewardText:"Miracle Seed" },
   { id:"q113", title:"Bloomhaven Bug Wrangler", desc:"The local bug wrangler challenges you with his prized evolved insects.", location:"bloomhaven", type:"boss", requiredBadges:8,
     boss:{monsterId:203, level:57, moves:["moonblast","bug_buzz","dazzling_gleam","silk_bind"]},
-    reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Silver Powder" },
+    reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Carapace Dust" },
 
   // Route 10 - Toxic Passage (Poison focus)
   { id:"q114", title:"Toxic Passage Brawler", desc:"A battle-hardened Poison trainer blocks the toxic passage.", location:"route10", type:"boss", requiredBadges:9,
@@ -6080,10 +6080,10 @@ const QUESTS_DATA = [
     reward:{type:"money", amount:6500}, rewardText:"6500 coins" },
   { id:"q115", title:"Miasma City Chemist", desc:"A Miasma City chemist tests trainers with toxic-type experiments.", location:"miasmacity", type:"boss", requiredBadges:9,
     boss:{monsterId:163, level:61, moves:["sludge_wave","venoshock","venom_lance","toxic"]},
-    reward:{type:"item", itemId:"poisonBarb", qty:1}, rewardText:"Poison Barb" },
+    reward:{type:"item", itemId:"poisonBarb", qty:1}, rewardText:"Venom Thorn" },
   { id:"q116", title:"Evolved Wind Venom", desc:"A Toxivane has evolved and taken root on Route 10. Clear it out!", location:"route10", type:"boss", requiredBadges:9,
     boss:{monsterId:161, level:60, moves:["hurricane","sludge_wave","air_slash","venom_lance"]},
-    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Max Potions" },
+    reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
 
   // Route 11 - Tremor Pass (Ground focus)
   { id:"q117", title:"Tremor Pass Demolitions", desc:"A demolitions expert challenges you at the rockiest point of Route 11.", location:"route11", type:"boss", requiredBadges:10,
@@ -6091,10 +6091,10 @@ const QUESTS_DATA = [
     reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
   { id:"q118", title:"Desert Dragon Duel", desc:"A legendary desert dragon has been spotted at Route 11. Challenge it!", location:"route11", type:"boss", requiredBadges:10,
     boss:{monsterId:107, level:64, moves:["dragon_claw","earthquake","earth_power","outrage"]},
-    reward:{type:"item", itemId:"softSand", qty:1}, rewardText:"Soft Sand" },
+    reward:{type:"item", itemId:"softSand", qty:1}, rewardText:"Coarse Sand" },
   { id:"q119", title:"Terravault Iron Giant", desc:"An ancient iron giant guards the entrance to Terravault's mines.", location:"terravault", type:"boss", requiredBadges:10,
     boss:{monsterId:103, level:63, moves:["earthquake","surf","earth_power","tidal_crush"]},
-    reward:{type:"item", itemId:"xDefense", qty:5}, rewardText:"5 X-Defenses" },
+    reward:{type:"item", itemId:"xDefense", qty:5}, rewardText:"5 Guard Charges" },
 
   // Route 12 - Silk Road (Bug focus)
   { id:"q120", title:"Silk Road Weaver", desc:"The legendary Silk Road Weaver challenges trainers who disturb its web.", location:"route12", type:"boss", requiredBadges:11,
@@ -6102,13 +6102,13 @@ const QUESTS_DATA = [
     reward:{type:"money", amount:7500}, rewardText:"7500 coins" },
   { id:"q121", title:"Silkwood Ancient Beetle", desc:"An ancient evolved beetle protects the Great Silkwood Tree's roots.", location:"silkwood", type:"boss", requiredBadges:11,
     boss:{monsterId:201, level:65, moves:["x_scissor","iron_tail","flash_cannon","mandible_crush"]},
-    reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Silver Powder" },
+    reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Carapace Dust" },
   { id:"q122", title:"Rock Beetle King", desc:"The Rock Beetle King rules the Silk Road tunnels deep below.", location:"route12", type:"boss", requiredBadges:11,
     boss:{monsterId:205, level:65, moves:["bug_buzz","earthquake","stone_edge","mandible_crush"]},
-    reward:{type:"item", itemId:"hardStone", qty:1}, rewardText:"Hard Stone" },
+    reward:{type:"item", itemId:"hardStone", qty:1}, rewardText:"Crag Shard" },
 
   // Route 13 - Gale Ridge (Wind focus)
-  { id:"q123", title:"Gale Ridge Storm Rider", desc:"A storm rider has trained her Wind Lumos to hurricane strength.", location:"route13", type:"boss", requiredBadges:12,
+  { id:"q123", title:"Gale Ridge Storm Rider", desc:"A storm rider has trained her Wind Lumori to hurricane strength.", location:"route13", type:"boss", requiredBadges:12,
     boss:{monsterId:113, level:67, moves:["hurricane","tempest_wrath","cyclone_blade","air_slash"]},
     reward:{type:"money", amount:8000}, rewardText:"8000 coins" },
   { id:"q124", title:"Gusthaven Wind Sage", desc:"The ancient Wind Sage challenges only the strongest trainers.", location:"gusthaven", type:"boss", requiredBadges:12,
@@ -6116,21 +6116,21 @@ const QUESTS_DATA = [
     reward:{type:"item", itemId:"swiftFeather", qty:1}, rewardText:"Swift Feather" },
   { id:"q125", title:"Cyclavorn Chase", desc:"A Cyclavorn has run amok through Gale Ridge! Calm it with battle.", location:"route13", type:"boss", requiredBadges:12,
     boss:{monsterId:110, level:66, moves:["hurricane","thunderbolt","cyclone_blade","storm_surge"]},
-    reward:{type:"item", itemId:"xSpeed", qty:5}, rewardText:"5 X-Speeds" },
+    reward:{type:"item", itemId:"xSpeed", qty:5}, rewardText:"5 Swift Charges" },
 
   // Route 14 - Ironwork Path (Steel focus)
   { id:"q126", title:"Ironwork Sentinel", desc:"The Ironwork Path's mechanical sentinel bars all unworthy trainers.", location:"route14", type:"boss", requiredBadges:13,
     boss:{monsterId:149, level:69, moves:["tungsten_ram","flash_cannon","iron_tail","forge_strike"]},
     reward:{type:"money", amount:8500}, rewardText:"8500 coins" },
-  { id:"q127", title:"Ironforge Champion Smith", desc:"The master blacksmith of Ironforge forged his Lumos as hard as steel.", location:"ironforge", type:"boss", requiredBadges:13,
+  { id:"q127", title:"Ironforge Champion Smith", desc:"The master blacksmith of Ironforge forged his Lumori as hard as steel.", location:"ironforge", type:"boss", requiredBadges:13,
     boss:{monsterId:154, level:69, moves:["flash_cannon","earthquake","tungsten_ram","anvil_drop"]},
-    reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Metal Coat" },
+    reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Iron Shell" },
 
-  // Route 15 - Granite Pass / Team Umbra Resurgence
+  // Route 15 - Granite Pass / The Umbra Order Resurgence
   { id:"q128", title:"Granite Pass Guardian", desc:"A Rock master guards the narrowest point of Granite Pass.", location:"route15", type:"boss", requiredBadges:14,
     boss:{monsterId:196, level:71, moves:["stone_edge","icicle_crash","blizzard","crystal_lance"]},
     reward:{type:"money", amount:9000}, rewardText:"9000 coins" },
-  { id:"q129", title:"Umbra Void Patrol", desc:"Team Umbra agents have set up a checkpoint on Route 15! Clear them out!", location:"route15", type:"boss", requiredBadges:14,
+  { id:"q129", title:"Umbra Void Patrol", desc:"The Umbra Order agents have set up a checkpoint on Route 15! Clear them out!", location:"route15", type:"boss", requiredBadges:14,
     boss:{monsterId:119, level:67, moves:["crunch","dark_pulse","night_slash","shadow_ball"]},
     reward:{type:"item", itemId:"ultraOrb", qty:10}, rewardText:"10 Ultra Orbs",
     umbra:true },
@@ -6142,7 +6142,7 @@ const QUESTS_DATA = [
   { id:"q131", title:"Starbloom Fairy Guardian", desc:"A radiant fairy guardian challenges all who approach Starbloom's gates.", location:"starbloom", type:"boss", requiredBadges:15,
     boss:{monsterId:144, level:71, moves:["moonblast","psychic_move","celestial_wave","dazzling_gleam"]},
     reward:{type:"money", amount:10000}, rewardText:"10000 coins" },
-  { id:"q132", title:"Commander Phantom's Last Stand", desc:"Commander Phantom has regrouped on Route 16! Stop Team Umbra before they re-open the Void Rift!", location:"route16", type:"boss", requiredBadges:15,
+  { id:"q132", title:"Commander Phantom's Last Stand", desc:"Commander Phantom has regrouped on Route 16! Stop The Umbra Order before they re-open the Void Rift!", location:"route16", type:"boss", requiredBadges:15,
     boss:{monsterId:120, level:70, moves:["crunch","dark_pulse","void_rend","night_slash"]},
     reward:{type:"item", itemId:"maxPotion", qty:10}, rewardText:"10 Max Potions",
     umbra:true }

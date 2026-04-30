@@ -2490,3 +2490,14 @@ button, a, [role="button"] {
 .ngplus-info-card ul { padding-left:1.2rem; }
 .ngplus-info-card li { margin:0.15rem 0; }
 #btn-hof-ngplus-info { margin-top:0.4rem; }
+
+/* ===== NG+ QUEST CARDS ===== */
+.quest-ngplus {
+  border-left: 3px solid var(--accent-yellow) !important;
+  background: rgba(255,200,0,0.04);
+}
+.quest-ngplus .ng-badge {
+  background: rgba(255,200,0,0.2); border: 1px solid rgba(255,200,0,0.5);
+  color: var(--accent-yellow); border-radius: 4px; padding: 0 0.3rem;
+  font-size: 0.65rem; font-weight: bold; vertical-align: middle;
+}

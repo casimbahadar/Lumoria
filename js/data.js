@@ -707,7 +707,21 @@ const MOVES_DATA = {
   // Voidraxis — Dark/Fairy void star
   starlight_obliteration: { name:"Starlight Obliteration", type:"Dark",     power:150, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Voidraxis extinguishes entire stars and channels their death into a single point of annihilation." },
   // Dragemian — Dragon/Fire emperor
-  emperor_inferno:        { name:"Emperor Inferno",        type:"Dragon",   power:140, acc:90,  pp:5,  cat:"physical", effect:"burn",      ec:100, desc:"Dragemian, lord of all dragons, breathes the emperor's eternal flame — always scorches the target." }
+  emperor_inferno:        { name:"Emperor Inferno",        type:"Dragon",   power:140, acc:90,  pp:5,  cat:"physical", effect:"burn",      ec:100, desc:"Dragemian, lord of all dragons, breathes the emperor's eternal flame — always scorches the target." },
+
+  // NG+ Signature Moves
+  // Cosmoveil (401) — Psychic/Fairy cosmos strike
+  cosmic_veil:      { name:"Cosmic Veil",     type:"Psychic", power:140, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50, desc:"Cosmoveil wraps the battlefield in condensed starlight, crushing the foe's mind and spirit." },
+  // Eondrake (392) — Dragon/Psychic time fracture
+  time_fracture:    { name:"Time Fracture",   type:"Dragon",  power:130, acc:90,  pp:5,  cat:"special",  effect:"spedown2",  ec:50, desc:"Eondrake shatters the flow of time around the target, massively reducing its speed." },
+  // Primordiax (400) — Fire/Ground mantle surge
+  mantle_surge:     { name:"Mantle Surge",    type:"Ground",  power:135, acc:85,  pp:5,  cat:"physical", effect:"defdown",   ec:50, desc:"Primordiax channels the planet's mantle into a cataclysmic ground surge that weakens all defenses." },
+  // Voidcrown (398) — Dark/Fairy void dominion
+  void_dominion:    { name:"Void Dominion",   type:"Dark",    power:135, acc:90,  pp:5,  cat:"special",  effect:"atkdown",   ec:50, desc:"Voidcrown exerts absolute dominion over the void, draining the target's will to fight." },
+  // Veildrak (404) — Dragon/Psychic pseudo signature
+  veil_collapse:    { name:"Veil Collapse",   type:"Psychic", power:120, acc:95,  pp:10, cat:"special",  effect:"confuse",   ec:50, desc:"Veildrak tears the psychic veil protecting the target's mind, leaving it confused and vulnerable." },
+  // Voidwarden (407) — Dark/Steel pseudo signature
+  warden_strike:    { name:"Warden Strike",   type:"Steel",   power:120, acc:95,  pp:10, cat:"physical", effect:"defdown",   ec:50, desc:"Voidwarden strikes with the full force of a guardian of worlds, shattering defensive stances." }
 };
 
 
@@ -3153,70 +3167,70 @@ const MONSTERS_DATA = {
 
   // ---- Tier 1a: Mid-game NG+ (badges 8–11 areas) BST ~490–540 ----
   322: { id:322, name:"Venomwraith", emoji:"☠️", types:["Poison","Ghost"],
-    base:{hp:78,atk:85,def:70,spa:105,spd:90,spe:92}, evolveTo:null, evolveLevel:null,
+    base:{hp:60,atk:65,def:54,spa:81,spd:69,spe:71}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"poison_sting"],[10,"shadow_ball"],[20,"sludge_bomb"],[30,"miasma_cloud"],[40,"void_rend"],[50,"sludge_wave"],[60,"toxic_surge"],[5,"toxic"],[45,"venom_lance"]],
     catchRate:30, expYield:255, rarity:"rare",
     desc:"A wraith of pure venom that haunts poison-soaked ruins. Its touch corrupts everything.",
     lore:"Venomwraith is a spectral poison-type 1.5 metres tall with a translucent body that glows sickly green. Corrosive vapour constantly seeps from its form." },
 
   323: { id:323, name:"Toxicore", emoji:"🧪", types:["Poison","Fire"],
-    base:{hp:82,atk:95,def:75,spa:110,spd:80,spe:78}, evolveTo:null, evolveLevel:null,
+    base:{hp:63,atk:73,def:58,spa:84,spd:62,spe:60}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ember"],[8,"poison_sting"],[18,"flamethrower"],[28,"sludge_bomb"],[38,"heat_wave"],[48,"acid_rain"],[58,"inferno"],[5,"toxic"],[42,"venom_lance"]],
     catchRate:28, expYield:260, rarity:"rare",
     desc:"An alchemical horror born in Miasma City's toxic reactors. Its core burns with caustic plasma.",
     lore:"Toxicore is a compact fire-poison creature 1.2 metres tall resembling a living flask of boiling acid. Its core chamber glows a violent orange-green." },
 
   324: { id:324, name:"Chittering", emoji:"🦗", types:["Bug","Dark"],
-    base:{hp:70,atk:110,def:80,spa:75,spd:85,spe:100}, evolveTo:null, evolveLevel:null,
+    base:{hp:54,atk:84,def:62,spa:58,spd:65,spe:77}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"bug_bite"],[12,"shadowstep"],[22,"bug_buzz"],[32,"umbral_claw"],[42,"phantom_claw"],[52,"shadow_ball"],[62,"bug_buzz"],[5,"shadow_sneak"],[38,"void_rend"]],
     catchRate:25, expYield:248, rarity:"rare",
     desc:"A razor-limbed predator insect that hunts in absolute darkness. It clicks its mandibles as it circles prey.",
     lore:"Chittering is a sleek dark-coloured insect 1.3 metres long with six blade-like limbs and multi-faceted crimson eyes that see perfectly in darkness." },
 
   325: { id:325, name:"Dunespike", emoji:"🏜️", types:["Ground","Poison"],
-    base:{hp:90,atk:105,def:88,spa:72,spd:78,spe:87}, evolveTo:null, evolveLevel:null,
+    base:{hp:70,atk:81,def:69,spa:56,spd:61,spe:68}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"earth_power"],[10,"poison_sting"],[22,"terra_spike"],[32,"sludge_bomb"],[42,"fissure_slam"],[52,"acid_rain"],[62,"earth_power"],[5,"toxic"],[35,"venom_lance"]],
     catchRate:28, expYield:252, rarity:"rare",
     desc:"A burrowing predator that injects venom through bone spikes as it erupts from the sand.",
     lore:"Dunespike is a powerful ground-poison creature 1.6 metres long resembling an armoured mole-rat with elongated venom spines along its spine and snout." },
 
   326: { id:326, name:"Silthorn", emoji:"🌿", types:["Grass","Poison"],
-    base:{hp:85,atk:88,def:92,spa:100,spd:88,spe:67}, evolveTo:null, evolveLevel:null,
+    base:{hp:66,atk:69,def:72,spa:77,spd:69,spe:52}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"vine_whip"],[12,"poison_sting"],[22,"energy_ball"],[32,"sludge_bomb"],[42,"root_lance"],[52,"verdant_surge"],[62,"acid_rain"],[5,"toxic"],[38,"sleep_powder"]],
     catchRate:30, expYield:250, rarity:"rare",
     desc:"A carnivorous marsh plant that lures prey with sweet-smelling nectar before paralysing them with venom.",
     lore:"Silthorn is a large ambulatory plant 1.8 metres tall with glossy dark-green leaves edged with translucent purple poison sacs. Its roots move like fingers." },
 
   327: { id:327, name:"Quarrex", emoji:"⛏️", types:["Rock","Ground"],
-    base:{hp:95,atk:115,def:110,spa:60,spd:75,spe:65}, evolveTo:null, evolveLevel:null,
+    base:{hp:77,atk:93,def:89,spa:48,spd:61,spe:52}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"rock_throw"],[10,"earth_power"],[20,"rock_slide"],[30,"terra_spike"],[40,"fissure_slam"],[50,"fossil_rush"],[60,"rock_slide"],[5,"harden"],[35,"iron_tail"]],
     catchRate:25, expYield:258, rarity:"rare",
     desc:"A titan of compressed stone forged in Terravault's deepest mines. Its fists leave craters.",
     lore:"Quarrex is a massive rock-ground creature 2.2 metres tall composed of interlocked slabs of granite and iron ore. Miners initially mistook ancient specimens for geological formations." },
 
   328: { id:328, name:"Smogveil", emoji:"🌫️", types:["Poison","Wind"],
-    base:{hp:75,atk:78,def:68,spa:108,spd:92,spe:99}, evolveTo:null, evolveLevel:null,
+    base:{hp:58,atk:60,def:52,spa:83,spd:71,spe:76}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"gust"],[10,"miasma_cloud"],[20,"air_slash"],[30,"sludge_bomb"],[40,"sludge_wave"],[50,"acid_rain"],[60,"tailwind_strike"],[5,"toxic"],[38,"neural_storm"]],
     catchRate:27, expYield:253, rarity:"rare",
     desc:"A drifting toxic cloud given form. Entire towns have been evacuated when a Smogveil settled overhead.",
     lore:"Smogveil is an amorphous poison-wind creature 3 metres across that resembles a dense yellow-green storm cloud. It has no fixed shape but two amber luminescent eye-spots drift within it." },
 
   329: { id:329, name:"Skullmite", emoji:"💀", types:["Bug","Rock"],
-    base:{hp:80,atk:100,def:105,spa:65,spd:80,spe:90}, evolveTo:null, evolveLevel:null,
+    base:{hp:65,atk:81,def:84,spa:52,spd:65,spe:73}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"bug_bite"],[10,"rock_throw"],[20,"metal_claw"],[30,"rock_slide"],[40,"fossil_rush"],[50,"bug_buzz"],[60,"iron_tail"],[5,"harden"],[38,"venom_drool"]],
     catchRate:26, expYield:256, rarity:"rare",
     desc:"An armoured beetle with a fossilised shell harder than most metals. Ancient specimens are sold as armour.",
     lore:"Skullmite is a beetle-like rock-bug creature 1.1 metres long with a helmet-shaped carapace of fossilised mineral. Its mandibles can crack geodes." },
 
   330: { id:330, name:"Blistermaw", emoji:"🐊", types:["Water","Poison"],
-    base:{hp:88,atk:100,def:82,spa:95,spd:85,spe:70}, evolveTo:null, evolveLevel:null,
+    base:{hp:71,atk:80,def:66,spa:77,spd:69,spe:57}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"water_gun"],[10,"poison_sting"],[20,"tidal_crush"],[30,"sludge_bomb"],[40,"hydro_pump"],[50,"sludge_wave"],[60,"sea_serpent_strike"],[5,"toxic"],[38,"venom_lance"]],
     catchRate:28, expYield:258, rarity:"rare",
     desc:"A swamp crocodilian with acid-laced saliva. Prey dissolves within minutes of a bite.",
     lore:"Blistermaw is a water-poison reptile 2.8 metres long resembling a heavily built crocodile with blistered, acid-weeping skin and rows of hollow venom-conducting teeth." },
 
   331: { id:331, name:"Thornmoth", emoji:"🦋", types:["Bug","Grass"],
-    base:{hp:72,atk:82,def:75,spa:102,spd:88,spe:101}, evolveTo:null, evolveLevel:null,
+    base:{hp:55,atk:63,def:58,spa:78,spd:68,spe:78}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"gust"],[8,"vine_whip"],[18,"bug_bite"],[28,"razor_leaf"],[38,"bug_buzz"],[48,"canopy_crash"],[58,"verdant_surge"],[5,"sleep_powder"],[35,"spore_burst"]],
     catchRate:28, expYield:248, rarity:"rare",
     desc:"A giant moth covered in razor-edged leaf-scales. Its wing-beats strip bark from trees.",
@@ -3224,70 +3238,70 @@ const MONSTERS_DATA = {
 
   // ---- Tier 1b: Mid-game NG+ (badges 8–11) Steel/Ice/Electric BST ~510–550 ----
   332: { id:332, name:"Glacicore", emoji:"🧊", types:["Ice","Steel"],
-    base:{hp:80,atk:98,def:112,spa:88,spd:95,spe:67}, evolveTo:null, evolveLevel:null,
+    base:{hp:68,atk:83,def:96,spa:75,spd:81,spe:57}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ice_punch"],[10,"metal_claw"],[20,"ice_beam"],[30,"iron_tail"],[40,"cryo_lance"],[50,"flash_cannon"],[60,"blizzard"],[5,"harden"],[38,"winter_shroud"]],
     catchRate:25, expYield:262, rarity:"rare",
     desc:"A golem wrapped in self-generated permafrost. Its steel core never melts, no matter the heat.",
     lore:"Glacicore is an ice-steel creature 1.8 metres tall resembling a humanoid armour suit formed from interlocking plates of iron and glacial ice." },
 
   333: { id:333, name:"Voltfang", emoji:"🐺", types:["Electric","Dark"],
-    base:{hp:78,atk:108,def:72,spa:92,spd:80,spe:110}, evolveTo:null, evolveLevel:null,
+    base:{hp:66,atk:91,def:61,spa:78,spd:67,spe:92}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"thunder_shock"],[10,"shadowstep"],[20,"thunderbolt"],[30,"void_rend"],[40,"thunder"],[50,"phantom_claw"],[60,"volt_surge"],[5,"thunder_wave"],[38,"shadow_ball"]],
     catchRate:26, expYield:258, rarity:"rare",
     desc:"A storm wolf that channels voltage through its dark fur. Its howl triggers localised lightning strikes.",
     lore:"Voltfang is an electric-dark wolf 1.4 metres at the shoulder with jet-black fur shot through with crackling yellow lightning. Its eyes glow violet." },
 
   334: { id:334, name:"Ferrocrush", emoji:"⚙️", types:["Steel","Ground"],
-    base:{hp:95,atk:120,def:115,spa:60,spd:80,spe:70}, evolveTo:null, evolveLevel:null,
+    base:{hp:83,atk:104,def:100,spa:52,spd:70,spe:61}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"metal_claw"],[10,"earth_power"],[20,"iron_tail"],[30,"fissure_slam"],[40,"flash_cannon"],[50,"terra_spike"],[60,"fossil_rush"],[5,"harden"],[38,"alloy_edge"]],
     catchRate:22, expYield:268, rarity:"rare",
     desc:"A mechanical behemoth forged in Ironforge's deepest furnaces. It was never meant to leave.",
     lore:"Ferrocrush is a 2.5-metre steel-ground golem with a body of smelted iron and a core of compressed ore. Its joints run at thousands of atmospheres of pressure." },
 
   335: { id:335, name:"Frostprowl", emoji:"🐆", types:["Ice","Wind"],
-    base:{hp:75,atk:102,def:70,spa:88,spd:80,spe:125}, evolveTo:null, evolveLevel:null,
+    base:{hp:63,atk:86,def:59,spa:74,spd:67,spe:106}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"powder_snow"],[8,"gust"],[18,"air_slash"],[28,"ice_beam"],[38,"cryo_lance"],[48,"blizzard"],[58,"tailwind_strike"],[5,"winter_shroud"],[38,"zephyr_dance"]],
     catchRate:27, expYield:255, rarity:"rare",
     desc:"A predator born in arctic storm-fronts. It rides its own blizzard to close in on prey invisibly.",
     lore:"Frostprowl is an ice-wind feline 1.5 metres long with pale blue-white fur and translucent crystalline whiskers. It can achieve speeds of 120 km/h in an open blizzard." },
 
   336: { id:336, name:"Coilstrike", emoji:"🐍", types:["Electric","Poison"],
-    base:{hp:72,atk:88,def:75,spa:112,spd:90,spe:103}, evolveTo:null, evolveLevel:null,
+    base:{hp:61,atk:74,def:63,spa:94,spd:76,spe:87}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"thunder_shock"],[10,"poison_sting"],[20,"thunderbolt"],[30,"sludge_bomb"],[40,"thunder"],[50,"acid_rain"],[60,"volt_surge"],[5,"thunder_wave"],[38,"toxic_surge"]],
     catchRate:28, expYield:252, rarity:"rare",
     desc:"A serpent that generates electricity through its venom glands. A single bite delivers both poison and paralysis.",
     lore:"Coilstrike is a sleek electric-poison snake 2.5 metres long with alternating bands of bright yellow and dark purple scales. Electrical discharge is visible along its spine." },
 
   337: { id:337, name:"Ashgolem", emoji:"🔥", types:["Fire","Rock"],
-    base:{hp:100,atk:112,def:105,spa:88,spd:78,spe:57}, evolveTo:null, evolveLevel:null,
+    base:{hp:87,atk:97,def:91,spa:77,spd:68,spe:50}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ember"],[10,"rock_throw"],[20,"flamethrower"],[30,"rock_slide"],[40,"heat_wave"],[50,"fossil_rush"],[60,"fire_blast"],[5,"harden"],[40,"magma_surge"]],
     catchRate:24, expYield:265, rarity:"rare",
     desc:"A creature born from a volcanic eruption, its body is a walking magma chamber encased in basalt.",
     lore:"Ashgolem is a fire-rock creature 2 metres tall with a body of cooling basalt cracked to reveal glowing magma beneath. Ash and cinders constantly drift from its surface." },
 
   338: { id:338, name:"Rimeclaw", emoji:"🦅", types:["Ice","Flying"],
-    base:{hp:76,atk:105,def:72,spa:90,spd:82,spe:115}, evolveTo:null, evolveLevel:null,
+    base:{hp:64,atk:88,def:61,spa:76,spd:69,spe:97}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"powder_snow"],[8,"gust"],[18,"ice_punch"],[28,"air_slash"],[38,"cryo_lance"],[48,"blizzard"],[58,"tailwind_strike"],[5,"zephyr_dance"],[35,"ice_beam"]],
     catchRate:25, expYield:258, rarity:"rare",
     desc:"A hawk that nests on storm-capped peaks. Its talons are perpetually coated in razor-sharp ice.",
     lore:"Rimeclaw is an ice-flying raptor with a 2.4-metre wingspan and talons of permanent glacial ice that never melt. Its primary feathers cut like edged weapons." },
 
   339: { id:339, name:"Voltbeetle", emoji:"⚡", types:["Bug","Electric"],
-    base:{hp:78,atk:95,def:100,spa:88,spd:85,spe:94}, evolveTo:null, evolveLevel:null,
+    base:{hp:66,atk:81,def:86,spa:75,spd:72,spe:80}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"bug_bite"],[10,"thunder_shock"],[20,"metal_claw"],[30,"thunderbolt"],[40,"bug_buzz"],[50,"volt_surge"],[60,"thunder"],[5,"harden"],[38,"alloy_edge"]],
     catchRate:26, expYield:257, rarity:"rare",
     desc:"A beetle that accumulates static charge on its elytra. Touching its wing-covers triggers a full discharge.",
     lore:"Voltbeetle is a squat beetle 0.9 metres long with highly polished elytra that generate static electricity from air resistance alone. A constant low hum surrounds it." },
 
   340: { id:340, name:"Cryoshard", emoji:"💎", types:["Ice","Psychic"],
-    base:{hp:74,atk:80,def:85,spa:118,spd:105,spe:78}, evolveTo:null, evolveLevel:null,
+    base:{hp:63,atk:68,def:72,spa:102,spd:89,spe:66}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"powder_snow"],[10,"psychic_move"],[20,"ice_beam"],[30,"psystrike"],[40,"cryo_lance"],[50,"mind_shatter"],[60,"blizzard"],[5,"winter_shroud"],[38,"prism_ward"]],
     catchRate:24, expYield:262, rarity:"rare",
     desc:"A sentient crystal of psychically-active ice. Its facets reflect possible futures.",
     lore:"Cryoshard is a floating ice-psychic crystal 1 metre across with an irregular faceted form that constantly shifts. Each face reflects a different perceived future of whoever looks into it." },
 
   341: { id:341, name:"Mirestone", emoji:"🪨", types:["Rock","Psychic"],
-    base:{hp:85,atk:82,def:108,spa:105,spd:98,spe:62}, evolveTo:null, evolveLevel:null,
+    base:{hp:72,atk:70,def:93,spa:89,spd:83,spe:53}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"rock_throw"],[10,"psychic_move"],[20,"rock_slide"],[30,"psystrike"],[40,"fossil_rush"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"harden"]],
     catchRate:24, expYield:263, rarity:"rare",
     desc:"A monolith of psychically-resonant stone found at ancient ley line intersections.",
@@ -3295,70 +3309,70 @@ const MONSTERS_DATA = {
 
   // ---- Tier 2: Late-game NG+ (badges 12–16 areas) BST ~545–590 ----
   342: { id:342, name:"Wraithking", emoji:"👑", types:["Ghost","Dark"],
-    base:{hp:82,atk:112,def:85,spa:110,spd:95,spe:108}, evolveTo:null, evolveLevel:null,
+    base:{hp:69,atk:94,def:71,spa:92,spd:79,spe:90}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"shadow_ball"],[10,"void_rend"],[20,"umbral_claw"],[30,"phantom_claw"],[40,"shadow_sneak"],[50,"shadowstep"],[60,"neural_storm"],[5,"toxic"],[38,"mind_shatter"]],
     catchRate:18, expYield:285, rarity:"rare",
     desc:"The apex ghost predator — a crowned wraith that rules over all lesser ghost-types in its domain.",
     lore:"Wraithking is a ghost-dark entity 2 metres tall with a spectral crown of black flame. It commands lesser ghost-types and its presence causes all light sources within 50 metres to dim." },
 
   343: { id:343, name:"Shadowreave", emoji:"🌑", types:["Dark","Psychic"],
-    base:{hp:78,atk:95,def:78,spa:122,spd:100,spe:105}, evolveTo:null, evolveLevel:null,
+    base:{hp:66,atk:81,def:66,spa:103,spd:85,spe:89}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"shadowstep"],[10,"psychic_move"],[20,"void_rend"],[30,"psystrike"],[40,"phantom_claw"],[50,"mind_shatter"],[60,"neural_storm"],[5,"shadow_sneak"],[38,"dreamweave"]],
     catchRate:18, expYield:283, rarity:"rare",
     desc:"A being that exists simultaneously in darkness and thought. It reads minds to hunt more efficiently.",
     lore:"Shadowreave is a dark-psychic entity 1.6 metres tall with a body composed of living shadow and two luminous violet eyes. Its silhouette is never quite the same shape twice." },
 
   344: { id:344, name:"Glimmeritch", emoji:"🧚", types:["Fairy","Ghost"],
-    base:{hp:75,atk:82,def:80,spa:120,spd:108,spe:115}, evolveTo:null, evolveLevel:null,
+    base:{hp:63,atk:69,def:68,spa:102,spd:91,spe:97}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"fairy_wind"],[10,"shadow_ball"],[20,"fae_requiem"],[30,"psystrike"],[40,"phantom_claw"],[50,"void_rend"],[60,"fae_requiem"],[5,"dreamweave"],[38,"prism_ward"]],
     catchRate:18, expYield:280, rarity:"rare",
     desc:"A corrupted fairy that has passed through death and returned. Its glow is beautiful and deeply unsettling.",
     lore:"Glimmeritch is a fairy-ghost creature resembling a 0.6-metre glowing humanoid with translucent wings and a body that flickers between solid and spectral forms." },
 
   345: { id:345, name:"Voidcoil", emoji:"🌀", types:["Dark","Dragon"],
-    base:{hp:85,atk:115,def:88,spa:105,spd:90,spe:95}, evolveTo:null, evolveLevel:null,
+    base:{hp:73,atk:99,def:75,spa:90,spd:77,spe:81}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"dragon_breath"],[10,"void_rend"],[20,"dragon_claw"],[30,"shadow_ball"],[40,"wyrm_strike"],[50,"phantom_claw"],[60,"cataclysm_breath"],[5,"dragon_dance"],[38,"primordial_roar"]],
     catchRate:16, expYield:290, rarity:"rare",
     desc:"A dragon born from a void rift. Its scales absorb all light, making it nearly invisible in darkness.",
     lore:"Voidcoil is a dark-dragon serpent 4 metres long with scales so black they create a visible absence of light. Its eyes emit dim crimson light visible only in complete darkness." },
 
   346: { id:346, name:"Astralwing", emoji:"🌟", types:["Psychic","Flying"],
-    base:{hp:80,atk:88,def:78,spa:118,spd:105,spe:115}, evolveTo:null, evolveLevel:null,
+    base:{hp:67,atk:74,def:65,spa:100,spd:88,spe:96}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"gust"],[10,"psychic_move"],[20,"air_slash"],[30,"psystrike"],[40,"tailwind_strike"],[50,"mind_shatter"],[60,"neural_storm"],[5,"zephyr_dance"],[38,"dreamweave"]],
     catchRate:17, expYield:285, rarity:"rare",
     desc:"A being of pure psychic energy given wings. It navigates by reading the surface thoughts of other creatures.",
     lore:"Astralwing is a psychic-flying entity with a 3-metre wingspan composed of solidified psychic energy. Its body is a luminous humanoid shape with feathers made of thought-light." },
 
   347: { id:347, name:"Embersteel", emoji:"🔩", types:["Steel","Fire"],
-    base:{hp:88,atk:118,def:112,spa:88,spd:85,spe:79}, evolveTo:null, evolveLevel:null,
+    base:{hp:77,atk:104,def:98,spa:77,spd:75,spe:69}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"metal_claw"],[10,"ember"],[20,"iron_tail"],[30,"flamethrower"],[40,"flash_cannon"],[50,"heat_wave"],[60,"solar_flare"],[5,"embercloak"],[38,"alloy_edge"]],
     catchRate:16, expYield:292, rarity:"rare",
     desc:"Forged in Ironforge's legendary seventh furnace, it is the pinnacle of fire-steel metallurgy.",
     lore:"Embersteel is a steel-fire golem 2.2 metres tall with a body of superheated steel that glows white-hot at its joints. It was created as a guardian automaton and has never been fully tamed." },
 
   348: { id:348, name:"Galedrake", emoji:"🌪️", types:["Dragon","Wind"],
-    base:{hp:82,atk:108,def:82,spa:108,spd:90,spe:115}, evolveTo:null, evolveLevel:null,
+    base:{hp:69,atk:91,def:69,spa:91,spd:76,spe:99}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"gust"],[10,"dragon_breath"],[20,"air_slash"],[30,"dragon_claw"],[40,"tailwind_strike"],[50,"wyvern_gust"],[60,"scale_storm"],[5,"zephyr_dance"],[38,"wyrm_strike"]],
     catchRate:16, expYield:288, rarity:"rare",
     desc:"A dragon that rides perpetual cyclones of its own creation. It cannot stop flying or the storm dies.",
     lore:"Galedrake is a dragon-wind creature 3.5 metres long with broad swept-back wings that generate a constant personal cyclone. The air around it is always in violent circular motion." },
 
   349: { id:349, name:"Crystavault", emoji:"💠", types:["Ice","Rock"],
-    base:{hp:92,atk:105,def:125,spa:85,spd:100,spe:62}, evolveTo:null, evolveLevel:null,
+    base:{hp:80,atk:91,def:109,spa:74,spd:87,spe:54}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ice_punch"],[10,"rock_throw"],[20,"ice_beam"],[30,"rock_slide"],[40,"cryo_lance"],[50,"fossil_rush"],[60,"blizzard"],[5,"harden"],[38,"winter_shroud"]],
     catchRate:16, expYield:292, rarity:"rare",
     desc:"A fortress of living glacier-stone. Its outer shell has never been successfully breached in recorded history.",
     lore:"Crystavault is an ice-rock creature 2.5 metres tall resembling a fortified tower of layered glacial ice and granite. Ancient siege equipment has been found bent and broken around specimens." },
 
   350: { id:350, name:"Fernwrath", emoji:"🌿", types:["Grass","Dragon"],
-    base:{hp:85,atk:110,def:88,spa:108,spd:92,spe:95}, evolveTo:null, evolveLevel:null,
+    base:{hp:73,atk:95,def:75,spa:92,spd:79,spe:81}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"vine_whip"],[10,"dragon_breath"],[20,"root_lance"],[30,"dragon_pulse"],[40,"canopy_crash"],[50,"wyrm_strike"],[60,"verdant_surge"],[5,"dragon_dance"],[38,"ancient_breath"]],
     catchRate:15, expYield:292, rarity:"rare",
     desc:"A dragon grown from the world's oldest forest. Its scales are living wood; vines sprout from its wounds.",
     lore:"Fernwrath is a grass-dragon 4 metres long with scales of polished dark wood and a mane of living ferns. Where it walks, plants accelerate through their entire life cycle in hours." },
 
   351: { id:351, name:"Spectravore", emoji:"🌈", types:["Fairy","Psychic"],
-    base:{hp:78,atk:85,def:82,spa:125,spd:110,spe:108}, evolveTo:null, evolveLevel:null,
+    base:{hp:65,atk:71,def:68,spa:104,spd:92,spe:90}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[30,"psystrike"],[40,"mind_shatter"],[50,"neural_storm"],[60,"fae_requiem"],[5,"dreamweave"],[38,"prism_ward"]],
     catchRate:15, expYield:288, rarity:"rare",
     desc:"A being of pure prismatic thought that feeds on raw psychic energy. It is invariably found near psychic Lumori.",
@@ -3366,70 +3380,70 @@ const MONSTERS_DATA = {
 
   // ---- Tier 3: Post-game NG+ (requiresChampion areas) BST ~580–630 ----
   352: { id:352, name:"Voidlord", emoji:"🕳️", types:["Dark","Psychic"],
-    base:{hp:90,atk:118,def:95,spa:125,spd:105,spe:112}, evolveTo:null, evolveLevel:null,
+    base:{hp:72,atk:94,def:76,spa:100,spd:84,spe:89}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"void_rend"],[10,"mind_shatter"],[20,"phantom_claw"],[30,"neural_storm"],[40,"shadowstep"],[50,"psystrike"],[60,"cataclysm_breath"],[5,"dreamweave"],[45,"prism_ward"]],
     catchRate:12, expYield:308, rarity:"rare",
     desc:"The sovereign of all void-touched creatures. Its mind is a labyrinth with no exit.",
     lore:"Voidlord is a dark-psychic entity 2.2 metres tall with a body of solidified void-matter and a crown of hovering psychic fragments. No one who has entered its mindscape has returned unchanged." },
 
   353: { id:353, name:"Infernotitan", emoji:"🌋", types:["Fire","Dragon"],
-    base:{hp:95,atk:130,def:100,spa:120,spd:90,spe:100}, evolveTo:null, evolveLevel:null,
+    base:{hp:78,atk:106,def:82,spa:98,spd:74,spe:82}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"flamethrower"],[10,"dragon_claw"],[20,"fire_blast"],[30,"dragon_pulse"],[40,"solar_flare"],[50,"cataclysm_breath"],[60,"ancient_breath"],[5,"char_dance"],[38,"primordial_roar"]],
     catchRate:10, expYield:318, rarity:"rare",
     desc:"A volcanic dragon that erupts when enraged. Continents have shifted from its ancient battles.",
     lore:"Infernotitan is a fire-dragon 6 metres long with scales of hardened magma and breath hot enough to liquefy stone. Ancient geological surveys attribute certain canyon formations to its rampages." },
 
   354: { id:354, name:"Riftwhale", emoji:"🐋", types:["Water","Psychic"],
-    base:{hp:130,atk:95,def:108,spa:122,spd:115,spe:65}, evolveTo:null, evolveLevel:null,
+    base:{hp:105,atk:77,def:88,spa:99,spd:93,spe:53}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"surf"],[10,"psychic_move"],[20,"hydro_pump"],[30,"psystrike"],[40,"sea_serpent_strike"],[50,"mind_shatter"],[60,"neural_storm"],[5,"tidecaller"],[38,"dreamweave"]],
     catchRate:10, expYield:315, rarity:"rare",
     desc:"A leviathan that travels between dimensions using psychic rift gates. Islands vanish when it surfaces.",
     lore:"Riftwhale is a water-psychic creature 12 metres long resembling a colossal whale with flanks covered in luminous psychic sigils. It navigates by warping local space." },
 
   355: { id:355, name:"Abyssalith", emoji:"🌊", types:["Water","Dark"],
-    base:{hp:100,atk:122,def:108,spa:110,spd:100,spe:95}, evolveTo:null, evolveLevel:null,
+    base:{hp:81,atk:99,def:88,spa:89,spd:81,spe:77}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"surf"],[10,"void_rend"],[20,"tidal_crush"],[30,"shadow_ball"],[40,"hydro_pump"],[50,"sea_serpent_strike"],[60,"sludge_wave"],[5,"shadowstep"],[38,"phantom_claw"]],
     catchRate:10, expYield:318, rarity:"rare",
     desc:"A hunter from the deepest abyss. Light physically bends around it as though avoiding contact.",
     lore:"Abyssalith is a water-dark creature 5 metres long resembling an armoured eel with bioluminescent lures. Its black scales have a refractive property that makes it nearly invisible underwater." },
 
   356: { id:356, name:"Stormlord", emoji:"⛈️", types:["Electric","Dragon"],
-    base:{hp:88,atk:112,def:88,spa:128,spd:100,spe:120}, evolveTo:null, evolveLevel:null,
+    base:{hp:72,atk:92,def:72,spa:104,spd:82,spe:98}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"thunder_shock"],[10,"dragon_breath"],[20,"thunderbolt"],[30,"dragon_pulse"],[40,"thunder"],[50,"wyrm_strike"],[60,"volt_surge"],[5,"dragon_dance"],[38,"ancient_breath"]],
     catchRate:10, expYield:320, rarity:"rare",
     desc:"A dragon that calls down storms across entire regions. It is the living embodiment of a thunderhead.",
     lore:"Stormlord is an electric-dragon 5 metres long with scales of polished chrome-blue and wing membranes of crackling electricity. The sky darkens for 100 kilometres when it takes flight." },
 
   357: { id:357, name:"Thornspire", emoji:"🌳", types:["Grass","Steel"],
-    base:{hp:100,atk:110,def:130,spa:100,spd:108,spe:72}, evolveTo:null, evolveLevel:null,
+    base:{hp:83,atk:91,def:108,spa:83,spd:90,spe:60}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"vine_whip"],[10,"metal_claw"],[20,"root_lance"],[30,"iron_tail"],[40,"canopy_crash"],[50,"flash_cannon"],[60,"verdant_surge"],[5,"thornwall"],[38,"alloy_edge"]],
     catchRate:10, expYield:316, rarity:"rare",
     desc:"An ancient tree-god whose bark is stronger than titanium. It has not moved in ten thousand years.",
     lore:"Thornspire is a grass-steel creature 8 metres tall resembling an impossibly old tree with branches of reinforced steel-alloy and roots that pierce solid bedrock." },
 
   358: { id:358, name:"Pyrocrown", emoji:"👑", types:["Fire","Psychic"],
-    base:{hp:85,atk:100,def:88,spa:132,spd:110,spe:108}, evolveTo:null, evolveLevel:null,
+    base:{hp:71,atk:83,def:73,spa:111,spd:92,spe:90}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ember"],[10,"psychic_move"],[20,"flamethrower"],[30,"psystrike"],[40,"solar_flare"],[50,"mind_shatter"],[60,"neural_storm"],[5,"char_dance"],[38,"dreamweave"]],
     catchRate:10, expYield:318, rarity:"rare",
     desc:"A psychic phoenix wearing a crown of permanent solar fire. Flame is its thought made manifest.",
     lore:"Pyrocrown is a fire-psychic bird 1.8 metres tall with feathers of solidified flame and a crown of pure solar fire. Its thoughts manifest as bursts of psychokinetic flame." },
 
   359: { id:359, name:"Glaciarch", emoji:"❄️", types:["Ice","Psychic"],
-    base:{hp:88,atk:95,def:108,spa:128,spd:112,spe:88}, evolveTo:null, evolveLevel:null,
+    base:{hp:73,atk:79,def:90,spa:107,spd:93,spe:73}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ice_beam"],[10,"psychic_move"],[20,"cryo_lance"],[30,"psystrike"],[40,"blizzard"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"winter_shroud"]],
     catchRate:10, expYield:316, rarity:"rare",
     desc:"The sovereign of all ice-bound psychics. Its mind is as cold and clear as absolute zero.",
     lore:"Glaciarch is an ice-psychic entity 2 metres tall resembling an idealised humanoid carved entirely from deep blue glacial ice. Its eyes are voids of total blue-white." },
 
   360: { id:360, name:"Duskmantle", emoji:"🌙", types:["Dark","Fairy"],
-    base:{hp:82,atk:100,def:88,spa:128,spd:118,spe:112}, evolveTo:null, evolveLevel:null,
+    base:{hp:68,atk:83,def:73,spa:105,spd:98,spe:93}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"fairy_wind"],[10,"void_rend"],[20,"fae_requiem"],[30,"shadow_ball"],[40,"phantom_claw"],[50,"mind_shatter"],[60,"neural_storm"],[5,"shadowstep"],[38,"dreamweave"]],
     catchRate:10, expYield:318, rarity:"rare",
     desc:"A twilight sovereign that rules the threshold between day and night. It is neither fully light nor dark.",
     lore:"Duskmantle is a dark-fairy entity 1.8 metres tall that appears different from each angle — from one side it is a radiant fairy, from the other a creature of shadow. Both states are equally real." },
 
   361: { id:361, name:"Tectolith", emoji:"🌍", types:["Ground","Dragon"],
-    base:{hp:112,atk:128,def:115,spa:95,spd:100,spe:85}, evolveTo:null, evolveLevel:null,
+    base:{hp:92,atk:104,def:94,spa:78,spd:82,spe:70}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"earth_power"],[10,"dragon_claw"],[20,"fissure_slam"],[30,"dragon_pulse"],[40,"terra_spike"],[50,"wyrm_strike"],[60,"eon_crash"],[5,"dragon_dance"],[38,"primordial_roar"]],
     catchRate:10, expYield:320, rarity:"rare",
     desc:"A dragon so old it has become part of the land itself. Earthquakes are merely it turning in its sleep.",
@@ -3437,70 +3451,70 @@ const MONSTERS_DATA = {
 
   // ---- Tier 3b: More post-game NG+ BST ~590–640 ----
   362: { id:362, name:"Lunaspectre", emoji:"🌕", types:["Psychic","Ghost"],
-    base:{hp:85,atk:95,def:90,spa:135,spd:115,spe:115}, evolveTo:null, evolveLevel:null,
+    base:{hp:70,atk:78,def:74,spa:110,spd:94,spe:94}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"psychic_move"],[10,"shadow_ball"],[20,"psystrike"],[30,"void_rend"],[40,"mind_shatter"],[50,"phantom_claw"],[60,"neural_storm"],[5,"dreamweave"],[38,"prism_ward"]],
     catchRate:10, expYield:320, rarity:"rare",
     desc:"A moon-born spectre woven from lunar psychic energy. It appears only on nights of the full moon.",
     lore:"Lunaspectre is a psychic-ghost entity 2 metres tall that resembles a human silhouette composed of condensed moonlight. Its edges blur and shimmer like a reflection on disturbed water." },
 
   363: { id:363, name:"Chromavast", emoji:"🎨", types:["Normal","Psychic"],
-    base:{hp:105,atk:108,def:100,spa:120,spd:108,spe:90}, evolveTo:null, evolveLevel:null,
+    base:{hp:87,atk:90,def:83,spa:100,spd:90,spe:75}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"headbutt"],[10,"psychic_move"],[20,"body_slam"],[30,"psystrike"],[40,"hyper_beam"],[50,"mind_shatter"],[60,"neural_storm"],[5,"battle_cry"],[38,"dreamweave"]],
     catchRate:8, expYield:322, rarity:"rare",
     desc:"A colossal entity that shifts colour with its mood. When all colours appear simultaneously, it is enraged.",
     lore:"Chromavast is a normal-psychic creature 3 metres tall with a smooth ovoid body that cycles through every colour in the visible spectrum. Its form is constantly, slowly shifting." },
 
   364: { id:364, name:"Deepcrawler", emoji:"🦀", types:["Water","Steel"],
-    base:{hp:100,atk:118,def:128,spa:88,spd:100,spe:80}, evolveTo:null, evolveLevel:null,
+    base:{hp:85,atk:100,def:107,spa:75,spd:85,spe:68}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"water_gun"],[10,"metal_claw"],[20,"tidal_crush"],[30,"iron_tail"],[40,"hydro_pump"],[50,"flash_cannon"],[60,"sea_serpent_strike"],[5,"harden"],[38,"alloy_edge"]],
     catchRate:9, expYield:320, rarity:"rare",
     desc:"An armoured crustacean from the ocean floor. Its shell is composed of self-reinforcing bio-steel alloy.",
     lore:"Deepcrawler is a water-steel crustacean 2.5 metres across with a carapace of bio-synthesised steel alloy. Deep-sea pressure sensors have detected it moving at depths of 11 kilometres." },
 
   365: { id:365, name:"Cinderking", emoji:"🔥", types:["Fire","Dark"],
-    base:{hp:90,atk:125,def:95,spa:112,spd:92,spe:108}, evolveTo:null, evolveLevel:null,
+    base:{hp:75,atk:105,def:79,spa:94,spd:77,spe:90}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ember"],[10,"void_rend"],[20,"flamethrower"],[30,"shadow_ball"],[40,"solar_flare"],[50,"phantom_claw"],[60,"inferno"],[5,"char_dance"],[38,"umbral_claw"]],
     catchRate:9, expYield:318, rarity:"rare",
     desc:"A fire tyrant that rules through fear and flame. Its crown of black fire is cold to the touch.",
     lore:"Cinderking is a fire-dark creature 2.5 metres tall with a regal, bipedal form and a crown of black fire. It rules fire-type territory through dominance displays so intense that lesser fire-types flee entire regions." },
 
   366: { id:366, name:"Starlance", emoji:"⭐", types:["Psychic","Steel"],
-    base:{hp:82,atk:115,def:110,spa:120,spd:100,spe:108}, evolveTo:null, evolveLevel:null,
+    base:{hp:67,atk:94,def:90,spa:99,spd:82,spe:88}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"metal_claw"],[10,"psychic_move"],[20,"iron_tail"],[30,"psystrike"],[40,"flash_cannon"],[50,"mind_shatter"],[60,"neural_storm"],[5,"alloy_edge"],[38,"prism_ward"]],
     catchRate:9, expYield:322, rarity:"rare",
     desc:"A celestial lance that achieved sentience. It fell from orbit and has been fighting battles ever since.",
     lore:"Starlance is a psychic-steel entity 2 metres long resembling an elongated lance of alien metal with psychic runes carved along its entire length. It moves by telekinesis." },
 
   367: { id:367, name:"Bouldertide", emoji:"🌊", types:["Water","Rock"],
-    base:{hp:108,atk:115,def:120,spa:95,spd:98,spe:78}, evolveTo:null, evolveLevel:null,
+    base:{hp:91,atk:97,def:103,spa:80,spd:83,spe:66}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"water_gun"],[10,"rock_throw"],[20,"surf"],[30,"rock_slide"],[40,"hydro_pump"],[50,"fossil_rush"],[60,"sea_serpent_strike"],[5,"harden"],[38,"tidal_crush"]],
     catchRate:9, expYield:318, rarity:"rare",
     desc:"A creature that is half ocean, half cliff-face. It creates tsunamis as a side effect of moving.",
     lore:"Bouldertide is a water-rock creature 4 metres tall resembling a tide-carved sea stack that walks. Water constantly flows through channels in its stone body." },
 
   368: { id:368, name:"Willowisp", emoji:"🕯️", types:["Ghost","Fire"],
-    base:{hp:80,atk:95,def:82,spa:130,spd:110,spe:120}, evolveTo:null, evolveLevel:null,
+    base:{hp:67,atk:80,def:69,spa:110,spd:93,spe:101}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ember"],[10,"shadow_ball"],[20,"flamethrower"],[30,"void_rend"],[40,"solar_flare"],[50,"phantom_claw"],[60,"inferno"],[5,"shadowstep"],[38,"shadow_sneak"]],
     catchRate:9, expYield:320, rarity:"rare",
     desc:"An ancient will-o-the-wisp grown to monstrous power. It leads the living into the realm of flame.",
     lore:"Willowisp is a ghost-fire entity resembling a human-sized floating flame with a faint spectral face visible in its core. Its fire burns without fuel and consumes nothing physical." },
 
   369: { id:369, name:"Gravithorn", emoji:"🔮", types:["Psychic","Ground"],
-    base:{hp:95,atk:112,def:105,spa:118,spd:100,spe:88}, evolveTo:null, evolveLevel:null,
+    base:{hp:80,atk:94,def:88,spa:100,spd:84,spe:74}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"earth_power"],[10,"psychic_move"],[20,"terra_spike"],[30,"psystrike"],[40,"fissure_slam"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"dreamweave"]],
     catchRate:9, expYield:320, rarity:"rare",
     desc:"A psychic that has learned to manipulate gravity. It walks on any surface, including the sky.",
     lore:"Gravithorn is a psychic-ground entity 1.8 metres tall with a body of psychically compressed stone. It can reverse gravity in a 30-metre radius and routinely walks on vertical surfaces." },
 
   370: { id:370, name:"Vortexwing", emoji:"🌪️", types:["Wind","Electric"],
-    base:{hp:82,atk:105,def:80,spa:118,spd:95,spe:128}, evolveTo:null, evolveLevel:null,
+    base:{hp:70,atk:90,def:68,spa:101,spd:81,spe:110}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"gust"],[10,"thunder_shock"],[20,"air_slash"],[30,"thunderbolt"],[40,"tailwind_strike"],[50,"volt_surge"],[60,"thunder"],[5,"zephyr_dance"],[38,"thunder_wave"]],
     catchRate:9, expYield:322, rarity:"rare",
     desc:"A living tornado that generates electricity from its rotation. Anything inside it is shredded and electrocuted simultaneously.",
     lore:"Vortexwing is a wind-electric entity 3 metres tall that exists as a permanent self-sustaining vortex. At its core is a dense electromagnetic nucleus visible as a crackling violet sphere." },
 
   371: { id:371, name:"Nullform", emoji:"⬛", types:["Dark","Normal"],
-    base:{hp:100,atk:115,def:100,spa:115,spd:105,spe:105}, evolveTo:null, evolveLevel:null,
+    base:{hp:82,atk:95,def:82,spa:94,spd:86,spe:86}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"void_rend"],[10,"headbutt"],[20,"shadow_ball"],[30,"body_slam"],[40,"phantom_claw"],[50,"hyper_beam"],[60,"neural_storm"],[5,"shadowstep"],[38,"battle_cry"]],
     catchRate:8, expYield:325, rarity:"rare",
     desc:"A creature with no definite type at heart. It absorbs the nature of whatever it defeats.",
@@ -3508,70 +3522,70 @@ const MONSTERS_DATA = {
 
   // ---- Tier 4: Prismatic Rift exclusives BST ~630–670 ----
   372: { id:372, name:"Prismancer", emoji:"🌈", types:["Psychic","Dragon"],
-    base:{hp:90,atk:115,def:100,spa:140,spd:115,spe:115}, evolveTo:null, evolveLevel:null,
+    base:{hp:69,atk:89,def:77,spa:107,spd:89,spe:89}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"psychic_move"],[10,"dragon_pulse"],[20,"psystrike"],[30,"dragon_claw"],[40,"mind_shatter"],[50,"wyrm_strike"],[60,"neural_storm"],[5,"dragon_dance"],[48,"cataclysm_breath"]],
     catchRate:8, expYield:335, rarity:"rare",
     desc:"A dragon born from a rift in the visible spectrum. Its scales cycle through every wavelength of light.",
     lore:"Prismancer is a psychic-dragon 4 metres long whose scales shift through every colour of visible light in a constant slow cycle. The air around it refracts into rainbow halos." },
 
   373: { id:373, name:"Voidrend", emoji:"🌌", types:["Dark","Ghost"],
-    base:{hp:88,atk:130,def:95,spa:118,spd:105,spe:128}, evolveTo:null, evolveLevel:null,
+    base:{hp:69,atk:103,def:74,spa:92,spd:82,spe:100}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"void_rend"],[10,"phantom_claw"],[20,"shadow_ball"],[30,"shadowstep"],[40,"umbral_claw"],[50,"mind_shatter"],[60,"neural_storm"],[5,"shadow_sneak"],[48,"cataclysm_breath"]],
     catchRate:7, expYield:338, rarity:"rare",
     desc:"A predator from between realities. It tears holes in space as naturally as others breathe.",
     lore:"Voidrend is a dark-ghost entity 2.5 metres tall with a body that exists simultaneously in normal space and the void between dimensions. Its claws leave visible tears in reality that slowly heal." },
 
   374: { id:374, name:"Auroradrake", emoji:"🌠", types:["Ice","Dragon"],
-    base:{hp:88,atk:118,def:100,spa:130,spd:108,spe:120}, evolveTo:null, evolveLevel:null,
+    base:{hp:69,atk:92,def:78,spa:102,spd:85,spe:94}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ice_beam"],[10,"dragon_breath"],[20,"cryo_lance"],[30,"dragon_pulse"],[40,"blizzard"],[50,"scale_storm"],[60,"cataclysm_breath"],[5,"dragon_dance"],[48,"ancient_breath"]],
     catchRate:7, expYield:338, rarity:"rare",
     desc:"A dragon woven from the aurora itself. It migrates between magnetic poles, trailing lights across the sky.",
     lore:"Auroradrake is an ice-dragon 5 metres long with translucent scales that emit bioluminescent light in bands of green, violet, and gold — a living aurora. It navigates by magnetic field." },
 
   375: { id:375, name:"Fluxserpent", emoji:"⚡", types:["Electric","Psychic"],
-    base:{hp:85,atk:108,def:88,spa:138,spd:110,spe:128}, evolveTo:null, evolveLevel:null,
+    base:{hp:67,atk:85,def:70,spa:110,spd:87,spe:101}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"thunder_shock"],[10,"psychic_move"],[20,"thunderbolt"],[30,"psystrike"],[40,"thunder"],[50,"mind_shatter"],[60,"neural_storm"],[5,"thunder_wave"],[48,"volt_surge"]],
     catchRate:7, expYield:340, rarity:"rare",
     desc:"A serpent of pure electrokinetic thought. It rewrites neural pathways with a single discharge.",
     lore:"Fluxserpent is an electric-psychic serpent 3 metres long composed of a continuous loop of electrical current given physical form. It can project its consciousness through any electrical system." },
 
   376: { id:376, name:"Solarwrath", emoji:"☀️", types:["Fire","Fairy"],
-    base:{hp:85,atk:105,def:92,spa:140,spd:112,spe:118}, evolveTo:null, evolveLevel:null,
+    base:{hp:68,atk:84,def:73,spa:112,spd:89,spe:94}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ember"],[10,"fairy_wind"],[20,"solar_flare"],[30,"fae_requiem"],[40,"fire_blast"],[50,"mind_shatter"],[60,"neural_storm"],[5,"char_dance"],[48,"solar_flare"]],
     catchRate:7, expYield:338, rarity:"rare",
     desc:"A being of concentrated solar fury blessed by ancient fairy magic. It has never been touched by shadow.",
     lore:"Solarwrath is a fire-fairy creature 2 metres tall composed of radiant solar plasma. It is warm to be near and hot to approach — within 10 metres, all shadow is eliminated." },
 
   377: { id:377, name:"Abyssforge", emoji:"🌋", types:["Ground","Steel"],
-    base:{hp:105,atk:130,def:130,spa:90,spd:100,spe:90}, evolveTo:null, evolveLevel:null,
+    base:{hp:85,atk:103,def:105,spa:73,spd:81,spe:73}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"earth_power"],[10,"metal_claw"],[20,"fissure_slam"],[30,"iron_tail"],[40,"terra_spike"],[50,"flash_cannon"],[60,"fossil_rush"],[5,"harden"],[48,"alloy_edge"]],
     catchRate:7, expYield:340, rarity:"rare",
     desc:"Born at the meeting of mantle and iron core, it forges new minerals inside itself as it moves.",
     lore:"Abyssforge is a ground-steel creature 3 metres tall with a body of compressed ultra-dense alloy formed under planetary core pressures. It leaves impressions in solid steel where it rests." },
 
   378: { id:378, name:"Dreamweald", emoji:"💭", types:["Psychic","Fairy"],
-    base:{hp:85,atk:90,def:90,spa:142,spd:120,spe:118}, evolveTo:null, evolveLevel:null,
+    base:{hp:69,atk:73,def:73,spa:113,spd:97,spe:95}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[30,"psystrike"],[40,"mind_shatter"],[50,"neural_storm"],[60,"dreamweave"],[5,"prism_ward"],[48,"cortex_spike"]],
     catchRate:7, expYield:340, rarity:"rare",
     desc:"A being that exists only in the shared dreamspace of nearby creatures. Physical contact wakes it permanently.",
     lore:"Dreamweald is a psychic-fairy entity visible only to those who are half-asleep. In full wakefulness it appears as a translucent shimmer, but in dreams it takes whatever form the dreamer most desires." },
 
   379: { id:379, name:"Riftscale", emoji:"🔮", types:["Dragon","Ghost"],
-    base:{hp:90,atk:120,def:100,spa:128,spd:108,spe:120}, evolveTo:null, evolveLevel:null,
+    base:{hp:78,atk:105,def:87,spa:111,spd:94,spe:105}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"dragon_breath"],[10,"shadow_ball"],[20,"dragon_claw"],[30,"phantom_claw"],[40,"wyrm_strike"],[50,"void_rend"],[60,"cataclysm_breath"],[5,"dragon_dance"],[48,"eon_crash"]],
-    catchRate:6, expYield:342, rarity:"rare",
+    catchRate:6, expYield:342, rarity:"legendary",
     desc:"A dragon that phases between worlds. Its scales exist in multiple realities simultaneously.",
     lore:"Riftscale is a dragon-ghost 4.5 metres long whose scales shimmer with a translucent quality — half of them appear solid and half ghostly. It can phase through solid matter at will." },
 
   380: { id:380, name:"Tempestborn", emoji:"⛈️", types:["Electric","Wind"],
-    base:{hp:88,atk:112,def:88,spa:135,spd:108,spe:135}, evolveTo:null, evolveLevel:null,
+    base:{hp:77,atk:98,def:77,spa:116,spd:94,spe:118}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"thunder_shock"],[10,"gust"],[20,"thunderbolt"],[30,"air_slash"],[40,"thunder"],[50,"volt_surge"],[60,"tailwind_strike"],[5,"zephyr_dance"],[48,"neural_storm"]],
-    catchRate:6, expYield:345, rarity:"rare",
+    catchRate:6, expYield:345, rarity:"legendary",
     desc:"Born at the eye of a century-storm. It IS the storm — a permanent atmospheric event given will.",
     lore:"Tempestborn is an electric-wind entity 4 metres across — a self-sustaining atmospheric vortex with a crackling lightning nucleus. Meteorologists have tracked it as both a storm and a living creature." },
 
   381: { id:381, name:"Crystalmind", emoji:"💎", types:["Psychic","Steel"],
-    base:{hp:88,atk:100,def:120,spa:138,spd:118,spe:102}, evolveTo:null, evolveLevel:null,
+    base:{hp:69,atk:78,def:94,spa:107,spd:92,spe:80}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"metal_claw"],[10,"psychic_move"],[20,"alloy_edge"],[30,"psystrike"],[40,"flash_cannon"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[48,"cortex_spike"]],
     catchRate:6, expYield:345, rarity:"rare",
     desc:"A crystal computer of living steel and pure psychic energy. It has solved every problem ever posed to it.",
@@ -3579,70 +3593,70 @@ const MONSTERS_DATA = {
 
   // ---- Tier 5: Apex Summit exclusives BST ~655–695 ----
   382: { id:382, name:"Oblivionwing", emoji:"🖤", types:["Dark","Dragon"],
-    base:{hp:95,atk:138,def:105,spa:128,spd:108,spe:130}, evolveTo:null, evolveLevel:null,
+    base:{hp:71,atk:103,def:78,spa:95,spd:81,spe:97}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"dragon_claw"],[10,"void_rend"],[20,"wyrm_strike"],[30,"shadow_ball"],[40,"scale_storm"],[50,"phantom_claw"],[60,"cataclysm_breath"],[5,"dragon_dance"],[52,"primordial_roar"]],
     catchRate:5, expYield:355, rarity:"rare",
     desc:"A dragon that devours light itself. Darkness spreads for kilometres from wherever it roosts.",
     lore:"Oblivionwing is a dark-dragon 6 metres long with wings that absorb all incoming light. Flying overhead, it casts a shadow darker than any natural darkness. Stars are visible at noon beneath its wings." },
 
   383: { id:383, name:"Apexblade", emoji:"⚔️", types:["Steel","Dragon"],
-    base:{hp:92,atk:145,def:120,spa:100,spd:105,spe:118}, evolveTo:null, evolveLevel:null,
+    base:{hp:71,atk:112,def:93,spa:77,spd:81,spe:91}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"metal_claw"],[10,"dragon_breath"],[20,"iron_tail"],[30,"dragon_claw"],[40,"flash_cannon"],[50,"wyrm_strike"],[60,"scale_storm"],[5,"dragon_dance"],[52,"alloy_edge"]],
     catchRate:5, expYield:355, rarity:"rare",
     desc:"The ultimate fusion of forged steel and draconic power. Its body is a living weapon.",
     lore:"Apexblade is a steel-dragon 5 metres long with a body of folded ultra-steel and draconic biology merged at the cellular level. Every surface is an edge. Its teeth alone number 340." },
 
   384: { id:384, name:"Solarcrown", emoji:"🌞", types:["Fire","Psychic"],
-    base:{hp:90,atk:108,def:98,spa:148,spd:118,spe:118}, evolveTo:null, evolveLevel:null,
+    base:{hp:69,atk:83,def:76,spa:115,spd:91,spe:91}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"solar_flare"],[10,"psychic_move"],[20,"fire_blast"],[30,"psystrike"],[40,"heat_wave"],[50,"mind_shatter"],[60,"neural_storm"],[5,"char_dance"],[52,"dreamweave"]],
     catchRate:5, expYield:358, rarity:"rare",
     desc:"The embodiment of solar noon — a psychic sun that walks the earth and has never known night.",
     lore:"Solarcrown is a fire-psychic entity 2.5 metres tall composed of compressed solar plasma. Its crown is a permanent coronal loop. Astronomers debate whether the sun responds to it or vice versa." },
 
   385: { id:385, name:"Permafrost", emoji:"🧊", types:["Ice","Ground"],
-    base:{hp:110,atk:128,def:130,spa:95,spd:110,spe:88}, evolveTo:null, evolveLevel:null,
+    base:{hp:87,atk:102,def:104,spa:75,spd:87,spe:70}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ice_punch"],[10,"earth_power"],[20,"cryo_lance"],[30,"fissure_slam"],[40,"blizzard"],[50,"terra_spike"],[60,"ice_beam"],[5,"winter_shroud"],[52,"harden"]],
     catchRate:5, expYield:355, rarity:"rare",
     desc:"A creature so cold it freezes the ground beneath it permanently. It has never melted.",
     lore:"Permafrost is an ice-ground creature 3 metres tall resembling a glacial boulder with limbs. The ground beneath it freezes to a depth of 50 metres and does not thaw for decades after it leaves." },
 
   386: { id:386, name:"Wraithstorm", emoji:"💀", types:["Ghost","Electric"],
-    base:{hp:88,atk:118,def:90,spa:138,spd:108,spe:135}, evolveTo:null, evolveLevel:null,
+    base:{hp:68,atk:92,def:70,spa:106,spd:84,spe:105}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"shadow_ball"],[10,"thunder_shock"],[20,"phantom_claw"],[30,"thunderbolt"],[40,"void_rend"],[50,"volt_surge"],[60,"thunder"],[5,"shadow_sneak"],[52,"neural_storm"]],
     catchRate:5, expYield:358, rarity:"rare",
     desc:"A ghost electrified by a lightning strike. It haunts storm fronts and strikes from inside the thunder.",
     lore:"Wraithstorm is a ghost-electric entity that exists inside active lightning bolts. Between strikes it takes the form of a translucent humanoid crackling with contained electricity." },
 
   387: { id:387, name:"Deepvoid", emoji:"🕳️", types:["Dark","Water"],
-    base:{hp:105,atk:120,def:108,spa:128,spd:108,spe:100}, evolveTo:null, evolveLevel:null,
+    base:{hp:82,atk:94,def:85,spa:101,spd:85,spe:78}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"surf"],[10,"void_rend"],[20,"tidal_crush"],[30,"shadow_ball"],[40,"hydro_pump"],[50,"phantom_claw"],[60,"sea_serpent_strike"],[5,"shadowstep"],[52,"abyssal_jet"]],
     catchRate:5, expYield:355, rarity:"rare",
     desc:"Something pulled up from a depth so great that light has never touched it. It is the dark of absolute abyss.",
     lore:"Deepvoid is a dark-water creature 6 metres long with a featureless body of absolute black. No light reflects from it. It was first encountered when it breached from a trench 12 kilometres deep." },
 
   388: { id:388, name:"Chronolith", emoji:"⏳", types:["Rock","Psychic"],
-    base:{hp:108,atk:110,def:130,spa:128,spd:115,spe:78}, evolveTo:null, evolveLevel:null,
+    base:{hp:85,atk:86,def:103,spa:100,spd:90,spe:61}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"rock_slide"],[10,"psychic_move"],[20,"fossil_rush"],[30,"psystrike"],[40,"rock_slide"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[52,"cortex_spike"]],
     catchRate:5, expYield:358, rarity:"rare",
     desc:"A stone that has witnessed every moment of Lumoria's history and remembers all of them simultaneously.",
     lore:"Chronolith is a rock-psychic entity resembling a massive standing stone 2.5 metres tall with geological strata that each contain a perfect frozen moment from the past, visible if viewed psychically." },
 
   389: { id:389, name:"Stormcrown", emoji:"⛈️", types:["Electric","Dragon"],
-    base:{hp:92,atk:122,def:100,spa:142,spd:108,spe:128}, evolveTo:null, evolveLevel:null,
+    base:{hp:78,atk:103,def:85,spa:120,spd:91,spe:108}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"thunder_shock"],[10,"dragon_breath"],[20,"thunderbolt"],[30,"dragon_pulse"],[40,"thunder"],[50,"wyrm_strike"],[60,"cataclysm_breath"],[5,"dragon_dance"],[52,"volt_surge"]],
-    catchRate:5, expYield:360, rarity:"rare",
+    catchRate:5, expYield:360, rarity:"legendary",
     desc:"The apex predator of electric dragons. Every storm in Lumoria eventually reports to it.",
     lore:"Stormcrown is an electric-dragon 5.5 metres long with a permanent crown of crackling lightning. It is the dominant electric-type in any region it inhabits and other electric creatures defer to it instinctively." },
 
   390: { id:390, name:"Voidgarden", emoji:"🌸", types:["Fairy","Dark"],
-    base:{hp:92,atk:105,def:100,spa:145,spd:120,spe:118}, evolveTo:null, evolveLevel:null,
+    base:{hp:71,atk:81,def:77,spa:112,spd:93,spe:91}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"fairy_wind"],[10,"shadow_ball"],[20,"fae_requiem"],[30,"void_rend"],[40,"mind_shatter"],[50,"phantom_claw"],[60,"neural_storm"],[5,"dreamweave"],[52,"umbral_claw"]],
     catchRate:5, expYield:360, rarity:"rare",
     desc:"A garden of beautiful but corrupted fae life. Its flowers are as poisonous as they are gorgeous.",
     lore:"Voidgarden is a fairy-dark entity 2 metres tall resembling a humanoid composed of luminous flowers and dark thorned vines growing simultaneously. The flowers glow with a light that induces euphoria." },
 
   391: { id:391, name:"Titanfang", emoji:"🦷", types:["Normal","Dragon"],
-    base:{hp:115,atk:145,def:112,spa:100,spd:105,spe:108}, evolveTo:null, evolveLevel:null,
+    base:{hp:88,atk:111,def:86,spa:77,spd:80,spe:83}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"headbutt"],[10,"dragon_breath"],[20,"body_slam"],[30,"dragon_claw"],[40,"hyper_beam"],[50,"wyrm_strike"],[60,"eon_crash"],[5,"dragon_dance"],[52,"primordial_roar"]],
     catchRate:5, expYield:362, rarity:"rare",
     desc:"The largest creature confirmed alive in Lumoria. It has no natural predators.",
@@ -3650,74 +3664,124 @@ const MONSTERS_DATA = {
 
   // ---- Tier 5b: Ultra-rare Apex Summit BST ~680–710 ----
   392: { id:392, name:"Eondrake", emoji:"🐉", types:["Dragon","Psychic"],
-    base:{hp:98,atk:138,def:110,spa:145,spd:115,spe:120}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"dragon_pulse"],[10,"psystrike"],[20,"wyrm_strike"],[30,"mind_shatter"],[40,"scale_storm"],[50,"neural_storm"],[60,"cataclysm_breath"],[5,"dragon_dance"],[55,"primordial_roar"]],
-    catchRate:4, expYield:368, rarity:"rare",
+    base:{hp:80,atk:112,def:89,spa:118,spd:93,spe:98}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"dragon_pulse"],[10,"psystrike"],[20,"wyrm_strike"],[30,"mind_shatter"],[40,"scale_storm"],[50,"neural_storm"],[60,"cataclysm_breath"],[5,"dragon_dance"],[55,"time_fracture"]],
+    catchRate:4, expYield:368, rarity:"legendary",
     desc:"A dragon that has lived so long it perceives all possible futures simultaneously. It fights battles it has already won.",
     lore:"Eondrake is a dragon-psychic 7 metres long whose scales carry the iridescent sheen of deep time. Its eyes are filled with visions of every past and future moment. Ancient records show it has appeared at every major historical turning point." },
 
   393: { id:393, name:"Nullstorm", emoji:"🌀", types:["Dark","Electric"],
-    base:{hp:92,atk:128,def:95,spa:145,spd:112,spe:138}, evolveTo:null, evolveLevel:null,
+    base:{hp:68,atk:95,def:70,spa:107,spd:83,spe:102}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"void_rend"],[10,"thunder_shock"],[20,"shadow_ball"],[30,"thunderbolt"],[40,"phantom_claw"],[50,"volt_surge"],[60,"neural_storm"],[5,"shadow_sneak"],[55,"thunder_wave"]],
     catchRate:4, expYield:368, rarity:"rare",
     desc:"A dark electromagnetic storm given will. It communicates by interrupting every electrical device within range.",
     lore:"Nullstorm is a dark-electric entity 5 metres across that resembles a contained electromagnetic storm with a dark nucleus. Every electronic device within a kilometre malfunctions in its presence." },
 
   394: { id:394, name:"Solarvast", emoji:"🌟", types:["Fire","Dragon"],
-    base:{hp:100,atk:140,def:108,spa:138,spd:108,spe:118}, evolveTo:null, evolveLevel:null,
+    base:{hp:83,atk:117,def:89,spa:114,spd:89,spe:98}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"flamethrower"],[10,"dragon_breath"],[20,"solar_flare"],[30,"dragon_pulse"],[40,"fire_blast"],[50,"cataclysm_breath"],[60,"ancient_breath"],[5,"char_dance"],[55,"primordial_roar"]],
-    catchRate:4, expYield:370, rarity:"rare",
+    catchRate:4, expYield:370, rarity:"legendary",
     desc:"A fire dragon born from the sun itself. The corona of its home star still wraps its body.",
     lore:"Solarvast is a fire-dragon 7 metres long whose scales burn with the surface temperature of a star. It was first recorded appearing from a solar flare. Its breath weapon reaches temperatures measurable only in solar physics." },
 
   395: { id:395, name:"Glacierend", emoji:"❄️", types:["Ice","Dragon"],
-    base:{hp:105,atk:135,def:120,spa:125,spd:112,spe:108}, evolveTo:null, evolveLevel:null,
+    base:{hp:88,atk:113,def:100,spa:105,spd:94,spe:90}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ice_beam"],[10,"dragon_claw"],[20,"cryo_lance"],[30,"dragon_pulse"],[40,"blizzard"],[50,"scale_storm"],[60,"cataclysm_breath"],[5,"dragon_dance"],[55,"ancient_breath"]],
-    catchRate:4, expYield:370, rarity:"rare",
+    catchRate:4, expYield:370, rarity:"legendary",
     desc:"A glacier-dragon that has been growing since the last ice age. It moves slowly, but nothing stops it.",
     lore:"Glacierend is an ice-dragon 8 metres long with scales of glacial blue ice 50,000 years old. It moves at glacial speed outside battle but in combat is explosively fast. Every valley it has walked through remains permanently frozen." },
 
   396: { id:396, name:"Thunderpeak", emoji:"⚡", types:["Electric","Steel"],
-    base:{hp:95,atk:135,def:125,spa:128,spd:108,spe:125}, evolveTo:null, evolveLevel:null,
+    base:{hp:70,atk:98,def:92,spa:94,spd:79,spe:92}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"thunder_shock"],[10,"metal_claw"],[20,"thunderbolt"],[30,"iron_tail"],[40,"thunder"],[50,"flash_cannon"],[60,"volt_surge"],[5,"harden"],[55,"alloy_edge"]],
     catchRate:4, expYield:370, rarity:"rare",
     desc:"A living lightning rod of steel. Every bolt from every storm in Lumoria eventually passes through it.",
     lore:"Thunderpeak is an electric-steel creature 3 metres tall resembling a stylised lightning bolt in living metal. It has a near-perfect conductor rating and can absorb, store, and release planet-scale electrical charge." },
 
   397: { id:397, name:"Abyssalord", emoji:"🌊", types:["Water","Ghost"],
-    base:{hp:108,atk:125,def:110,spa:138,spd:118,spe:115}, evolveTo:null, evolveLevel:null,
+    base:{hp:79,atk:92,def:81,spa:101,spd:87,spe:85}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"surf"],[10,"shadow_ball"],[20,"tidal_crush"],[30,"phantom_claw"],[40,"hydro_pump"],[50,"void_rend"],[60,"neural_storm"],[5,"shadowstep"],[55,"sea_serpent_strike"]],
     catchRate:4, expYield:372, rarity:"rare",
     desc:"The lord of all drowned things. Sailors who die at sea answer to it now.",
     lore:"Abyssalord is a water-ghost creature 9 metres long resembling a massive spectral leviathan trailing ghostly sea-wrack. It is invisible underwater — its presence is detected only by a sudden drop in water temperature and the silencing of all sea life." },
 
   398: { id:398, name:"Voidcrown", emoji:"🌌", types:["Dark","Fairy"],
-    base:{hp:95,atk:112,def:105,spa:150,spd:122,spe:128}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"fae_requiem"],[10,"void_rend"],[20,"mind_shatter"],[30,"shadow_ball"],[40,"neural_storm"],[50,"phantom_claw"],[60,"fae_requiem"],[5,"dreamweave"],[55,"prism_ward"]],
-    catchRate:4, expYield:372, rarity:"rare",
+    base:{hp:79,atk:93,def:87,spa:124,spd:101,spe:106}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"fae_requiem"],[10,"void_rend"],[20,"mind_shatter"],[30,"shadow_ball"],[40,"neural_storm"],[50,"phantom_claw"],[60,"void_dominion"],[5,"dreamweave"],[55,"void_dominion"]],
+    catchRate:4, expYield:372, rarity:"legendary",
     desc:"The sovereign of corrupted fae — a ruler that bridges the beautiful and the terrible without apology.",
     lore:"Voidcrown is a dark-fairy entity 2.5 metres tall wearing a permanent crown of void-matter and fairy-light. Half of its face is radiant and warm; the other half is an absolute darkness that swallows sight." },
 
   399: { id:399, name:"Stonekeeper", emoji:"⛰️", types:["Rock","Ghost"],
-    base:{hp:110,atk:118,def:138,spa:118,spd:118,spe:95}, evolveTo:null, evolveLevel:null,
+    base:{hp:83,atk:89,def:103,spa:89,spd:89,spe:72}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"rock_slide"],[10,"shadow_ball"],[20,"fossil_rush"],[30,"phantom_claw"],[40,"rock_slide"],[50,"void_rend"],[60,"neural_storm"],[5,"harden"],[55,"prism_ward"]],
     catchRate:4, expYield:370, rarity:"rare",
     desc:"The ghost of a mountain that refused to erode. It guards the summit as it always has.",
     lore:"Stonekeeper is a rock-ghost entity 4 metres tall resembling a craggy mountain peak with a translucent interior. It is the spirit of a specific peak that was destroyed in an ancient cataclysm. It still performs the same patrol it did 10,000 years ago." },
 
   400: { id:400, name:"Primordiax", emoji:"🔥", types:["Fire","Ground"],
-    base:{hp:110,atk:148,def:118,spa:118,spd:108,spe:108}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"flamethrower"],[10,"earth_power"],[20,"magma_surge"],[30,"fissure_slam"],[40,"solar_flare"],[50,"terra_spike"],[60,"inferno"],[5,"char_dance"],[55,"magma_surge"]],
-    catchRate:4, expYield:375, rarity:"rare",
+    base:{hp:92,atk:123,def:99,spa:99,spd:91,spe:91}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"flamethrower"],[10,"earth_power"],[20,"magma_surge"],[30,"fissure_slam"],[40,"solar_flare"],[50,"terra_spike"],[60,"mantle_surge"],[5,"char_dance"],[55,"mantle_surge"]],
+    catchRate:4, expYield:375, rarity:"legendary",
     desc:"A creature born when the planet's crust cracked and the mantle met the surface. It predates all others.",
     lore:"Primordiax is a fire-ground creature 5 metres tall resembling a primordial titan of cooling lava and deep rock. Geologists have identified its footprints in geological formations 500 million years old." },
 
   401: { id:401, name:"Cosmoveil", emoji:"🌠", types:["Psychic","Fairy"],
-    base:{hp:95,atk:100,def:100,spa:155,spd:128,spe:128}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[30,"psystrike"],[40,"mind_shatter"],[50,"neural_storm"],[60,"dreamweave"],[5,"prism_ward"],[55,"cortex_spike"]],
-    catchRate:3, expYield:380, rarity:"rare",
+    base:{hp:80,atk:84,def:84,spa:131,spd:108,spe:108}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[30,"psystrike"],[40,"mind_shatter"],[50,"neural_storm"],[60,"cosmic_veil"],[5,"prism_ward"],[55,"cosmic_veil"]],
+    catchRate:3, expYield:380, rarity:"legendary",
     desc:"A being from beyond the known world. It arrived as a point of light that grew into something impossible.",
-    lore:"Cosmoveil is a psychic-fairy entity 2 metres tall composed of condensed starlight and cosmic fairy magic. It arrived from outside the known Lumoria region and has not yet been placed in any evolutionary lineage. Its biology resembles nothing previously recorded." }
+    lore:"Cosmoveil is a psychic-fairy entity 2 metres tall composed of condensed starlight and cosmic fairy magic. It arrived from outside the known Lumoria region and has not yet been placed in any evolutionary lineage. Its biology resembles nothing previously recorded." },
+
+  // ---- Pseudo-legendary Family 1: Dragon/Psychic (Dracoveil line) BST 310→470→600 ----
+  402: { id:402, name:"Scalit", emoji:"🐣", types:["Dragon","Psychic"],
+    evolveTo:403, evolveLevel:32,
+    base:{hp:50,atk:65,def:45,spa:60,spd:50,spe:40}, // BST 310
+    learnset:[[1,"dragon_breath"],[1,"psychic_move"],[12,"dragon_claw"],[20,"psystrike"],[28,"dragon_dance"],[32,"wyrm_strike"]],
+    catchRate:45, expYield:65, rarity:"uncommon",
+    desc:"A tiny dragon hatchling with a faintly glowing psychic crest. Found only in NG+ rifts.",
+    lore:"Scalit is a dragon-psychic hatchling 0.4 metres long with iridescent scales that pulse faintly with psychic energy. Its crest grows brighter each time it uses a psychic move." },
+
+  403: { id:403, name:"Dracomind", emoji:"🐲", types:["Dragon","Psychic"],
+    evolveTo:404, evolveLevel:52,
+    base:{hp:72,atk:92,def:70,spa:95,spd:78,spe:63}, // BST 470
+    learnset:[[1,"dragon_breath"],[1,"psychic_move"],[15,"dragon_claw"],[25,"psystrike"],[35,"dragon_dance"],[45,"wyrm_strike"],[55,"mind_shatter"]],
+    catchRate:15, expYield:155, rarity:"rare",
+    desc:"A fierce mid-stage dragon whose psychic power has grown enough to bend reality around it.",
+    lore:"Dracomind is a dragon-psychic creature 1.8 metres long with gleaming scales layered in psychokinetic field. Its roar leaves visible ripples in the air from the psychic shock wave it produces." },
+
+  404: { id:404, name:"Veildrak", emoji:"🐉", types:["Dragon","Psychic"],
+    evolveTo:null, evolveLevel:null,
+    base:{hp:92,atk:110,def:88,spa:130,spd:100,spe:80}, // BST 600
+    learnset:[[1,"dragon_pulse"],[1,"psystrike"],[20,"wyrm_strike"],[30,"mind_shatter"],[40,"scale_storm"],[50,"neural_storm"],[60,"cataclysm_breath"],[5,"dragon_dance"],[60,"time_fracture"]],
+    catchRate:5, expYield:300, rarity:"pseudolegendary",
+    desc:"The apex of dragon-psychic evolution. It perceives battle outcomes before they happen and acts accordingly.",
+    lore:"Veildrak is a dragon-psychic 5 metres long with wings that refract light into prismatic patterns and a crest of crystallised psychic energy. It is considered the pinnacle of the NG+ Lumori hierarchy." },
+
+  // ---- Pseudo-legendary Family 2: Dark/Steel (Voidsteel line) BST 300→465→600 ----
+  405: { id:405, name:"Mirkling", emoji:"🐾", types:["Dark","Steel"],
+    evolveTo:406, evolveLevel:30,
+    base:{hp:45,atk:62,def:55,spa:48,spd:50,spe:40}, // BST 300
+    learnset:[[1,"shadowstep"],[1,"metal_claw"],[10,"void_rend"],[18,"iron_tail"],[26,"phantom_claw"],[30,"alloy_edge"]],
+    catchRate:45, expYield:62, rarity:"uncommon",
+    desc:"A shadow-pup of dark-steel born in the void rifts. Its tiny steel claws cut harder than they should.",
+    lore:"Mirkling is a dark-steel creature 0.5 metres long resembling a shadowy puppy with small but razor-sharp steel claws. It instinctively forms alliances with other dark-types." },
+
+  406: { id:406, name:"Umbrasteel", emoji:"🐺", types:["Dark","Steel"],
+    evolveTo:407, evolveLevel:50,
+    base:{hp:68,atk:98,def:88,spa:72,spd:78,spe:61}, // BST 465
+    learnset:[[1,"shadowstep"],[1,"metal_claw"],[12,"void_rend"],[22,"iron_tail"],[32,"phantom_claw"],[42,"alloy_edge"],[52,"flash_cannon"]],
+    catchRate:15, expYield:152, rarity:"rare",
+    desc:"A wolf of forged shadows and living steel. It hunts in packs but leads every pack it joins.",
+    lore:"Umbrasteel is a dark-steel creature 1.5 metres at the shoulder with a body of woven shadow filaments reinforced with micro-crystal steel alloy. It can become completely invisible in shadow." },
+
+  407: { id:407, name:"Voidwarden", emoji:"⚔️", types:["Dark","Steel"],
+    evolveTo:null, evolveLevel:null,
+    base:{hp:88,atk:130,def:115,spa:85,spd:95,spe:87}, // BST 600
+    learnset:[[1,"void_rend"],[1,"iron_tail"],[20,"phantom_claw"],[30,"flash_cannon"],[40,"umbral_claw"],[50,"alloy_edge"],[60,"scale_storm"],[5,"dragon_dance"],[60,"void_dominion"]],
+    catchRate:5, expYield:300, rarity:"pseudolegendary",
+    desc:"The supreme guardian of the void boundary. It wields darkness and steel as extensions of its own will.",
+    lore:"Voidwarden is a dark-steel creature 3 metres tall with a body of condensed void-matter reinforced with an exoskeleton of ultra-dense steel. Ancient legends name it the Warden of the Boundary Between Worlds." }
 };
 
 
@@ -4420,7 +4484,7 @@ const WORLD_DATA = {
       {id:262, minLv:62, maxLv:67, rate:10}   // Seedling (base Grass/Poi)
     ],
     hasGym:false, requiredBadges:11, mapPos:{x:22, y:82},
-    ngPlusWildMonsters:[{id:324,minLv:68,maxLv:74,rate:20},{id:329,minLv:68,maxLv:74,rate:15},{id:339,minLv:69,maxLv:75,rate:10}]
+    ngPlusWildMonsters:[{id:324,minLv:68,maxLv:74,rate:20},{id:329,minLv:68,maxLv:74,rate:15},{id:339,minLv:69,maxLv:75,rate:10},{id:402,minLv:68,maxLv:74,rate:8},{id:405,minLv:68,maxLv:74,rate:8}]
   },
   silkwood: {
     id:"silkwood", name:"Silkwood Village", icon:"🌲", type:"city",
@@ -4433,7 +4497,7 @@ const WORLD_DATA = {
       {id:205, minLv:64, maxLv:69, rate:25}   // Quarrix (mid)
     ],
     hasGym:true, gymLeader:"mantis", requiredBadges:11, mapPos:{x:15, y:88},
-    ngPlusWildMonsters:[{id:330,minLv:68,maxLv:74,rate:25},{id:331,minLv:68,maxLv:74,rate:20},{id:326,minLv:68,maxLv:74,rate:10}]
+    ngPlusWildMonsters:[{id:330,minLv:68,maxLv:74,rate:25},{id:331,minLv:68,maxLv:74,rate:20},{id:326,minLv:68,maxLv:74,rate:10},{id:402,minLv:69,maxLv:75,rate:6},{id:405,minLv:69,maxLv:75,rate:6}]
   },
   route13: {
     id:"route13", name:"Route 13 - Gale Ridge West", icon:"🌬️", type:"route",
@@ -4977,7 +5041,9 @@ const WORLD_DATA = {
       {id:378, minLv:86, maxLv:92, rate:7},
       {id:379, minLv:86, maxLv:92, rate:6},
       {id:380, minLv:87, maxLv:93, rate:5},
-      {id:381, minLv:87, maxLv:93, rate:4}
+      {id:381, minLv:87, maxLv:93, rate:4},
+      {id:403, minLv:85, maxLv:91, rate:5},
+      {id:406, minLv:85, maxLv:91, rate:5}
     ],
     hasGym:false, requiredBadges:16, requiresChampion:true, requiresNGPlus:true,
     mapPos:{x:76, y:84}
@@ -5009,7 +5075,9 @@ const WORLD_DATA = {
       {id:398, minLv:92, maxLv:98, rate:2},
       {id:399, minLv:93, maxLv:99, rate:1},
       {id:400, minLv:93, maxLv:99, rate:1},
-      {id:401, minLv:95, maxLv:100, rate:1}
+      {id:401, minLv:95, maxLv:100, rate:1},
+      {id:404, minLv:90, maxLv:96, rate:3},
+      {id:407, minLv:90, maxLv:96, rate:3}
     ],
     hasGym:false, requiredBadges:16, requiresChampion:true, requiresNGPlus:true,
     isApexBoss:true, mapPos:{x:70, y:88}
@@ -5481,6 +5549,10 @@ const ITEMS_DATA = {
   leftovers:     { name:"Food Scraps",      emoji:"🍎", desc:"Restores 1/16 max HP each turn.",            type:"held", held:{ effect:"leftovers" } },
   scopeLens:     { name:"Scope Lens",     emoji:"🔭", desc:"Increases critical hit rate.",                type:"held", held:{ effect:"critUp" } },
   quickClaw:     { name:"Swift Claw",     emoji:"⚡", desc:"30% chance to move first each turn.",        type:"held", held:{ effect:"quickClaw" } },
+  // NG+-exclusive held items
+  prismaticShard: { name:"Prismatic Shard", emoji:"🌈", desc:"Boosts all stats by 15% for NG+-exclusive Lumori.",       type:"held", held:{ effect:"ngPlusBoost", mult:1.15 }, requiresNGPlus:true },
+  apexCore:       { name:"Apex Core",       emoji:"💠", desc:"Raises all battle stats by 10% when held by any Lumori.", type:"held", held:{ effect:"allStatsUp",  mult:1.10 }, requiresNGPlus:true },
+  voidEmber:      { name:"Void Ember",      emoji:"🔮", desc:"Boosts Dark and Fire-type moves by 30% when held.",       type:"held", held:{ typeBoostDual:["Dark","Fire"], mult:1.3 }, requiresNGPlus:true },
   // Battle items
   xAttack:       { name:"Power Charge",      emoji:"⚔️", desc:"Raises Attack in battle.", catchMult:0, healAmt:0, type:"battle", battleEffect:{ stat:"atk", stages:1 } },
   xDefense:      { name:"Guard Charge",     emoji:"🛡️", desc:"Raises Defense in battle.", catchMult:0, healAmt:0, type:"battle", battleEffect:{ stat:"def", stages:1 } },
@@ -6216,6 +6288,32 @@ const SHOPS_DATA = {
       { itemId: "revive", price: 500 },
       { itemId: "rareCandy", price: 1 }
     ]
+  },
+  void_rift: {
+    name: "Rift Outpost (NG+ Shop)",
+    items: [
+      { itemId: "ultraOrb",      price: 600 },
+      { itemId: "masterOrb",     price: 50000 },
+      { itemId: "maxPotion",     price: 500 },
+      { itemId: "revive",        price: 500 },
+      { itemId: "rareCandy",     price: 1 },
+      { itemId: "prismaticShard",price: 12000 },
+      { itemId: "apexCore",      price: 15000 },
+      { itemId: "voidEmber",     price: 10000 }
+    ]
+  },
+  apex_summit: {
+    name: "Summit Vault (NG+ Shop)",
+    items: [
+      { itemId: "ultraOrb",      price: 600 },
+      { itemId: "masterOrb",     price: 50000 },
+      { itemId: "maxPotion",     price: 500 },
+      { itemId: "revive",        price: 500 },
+      { itemId: "rareCandy",     price: 1 },
+      { itemId: "prismaticShard",price: 12000 },
+      { itemId: "apexCore",      price: 15000 },
+      { itemId: "voidEmber",     price: 10000 }
+    ]
   }
 };
 
@@ -6792,5 +6890,81 @@ const QUESTS_DATA = [
   { id:"q132", title:"Commander Phantom's Last Stand", desc:"Commander Phantom has regrouped on Route 16! Stop The Umbra Order before they re-open the Void Rift!", location:"route16", type:"boss", requiredBadges:15,
     boss:{monsterId:120, level:70, moves:["crunch","dark_pulse","void_rend","night_slash"]},
     reward:{type:"item", itemId:"maxPotion", qty:10}, rewardText:"10 Max Potions",
-    umbra:true }
+    umbra:true },
+
+  // ============================================================
+  // NG+-EXCLUSIVE QUESTS (requiresNGPlus: true)
+  // ============================================================
+
+  // --- Discovery & Exploration ---
+  { id:"ngq01", title:"Beyond the Boundary", desc:"A shimmer in the air marks where reality has thinned. Enter the Void Rift and encounter the creatures that now roam there.", location:"void_rift", type:"exploration", requiresNGPlus:true, requiredBadges:0,
+    reward:{type:"item", itemId:"prismaticShard", qty:1}, rewardText:"Prismatic Shard" },
+  { id:"ngq02", title:"The Summit Calls", desc:"Locals speak of new creatures seen at the Apex Summit since your return. Be the first to catalogue them.", location:"apex_summit", type:"exploration", requiresNGPlus:true, requiredBadges:0,
+    reward:{type:"item", itemId:"apexCore", qty:1}, rewardText:"Apex Core" },
+  { id:"ngq03", title:"Prismatic Phenomena", desc:"A researcher in Veilport has documented strange prismatic energy readings across the Prismatic Rift. Investigate three encounters there.", location:"prismatic_rift", type:"exploration", requiresNGPlus:true, requiredBadges:0,
+    reward:{type:"money", amount:15000}, rewardText:"15000 coins" },
+  { id:"ngq04", title:"Rift Walker's Journal", desc:"Find the journal of a trainer who entered the Void Nexus in a prior era. It contains clues to finding NG+-exclusive Lumori.", location:"void_nexus", type:"exploration", requiresNGPlus:true, requiredBadges:0,
+    reward:{type:"item", itemId:"voidEmber", qty:1}, rewardText:"Void Ember" },
+
+  // --- Catch Quests ---
+  { id:"ngq05", title:"Rift Collector: Tier I", desc:"The creatures of this new era are unlike any before. Catch 5 NG+-exclusive Lumori to prove your worth as a rift collector.", location:"void_rift", type:"catch", requiresNGPlus:true, requiredBadges:0,
+    catchTarget:5, catchNGPlusOnly:true, reward:{type:"item", itemId:"ultraOrb", qty:10}, rewardText:"10 Ultra Orbs" },
+  { id:"ngq06", title:"Rift Collector: Tier II", desc:"You have only scratched the surface. Catch 15 NG+-exclusive Lumori across any area.", location:"prismatic_rift", type:"catch", requiresNGPlus:true, requiredBadges:0,
+    catchTarget:15, catchNGPlusOnly:true, reward:{type:"item", itemId:"apexCore", qty:2}, rewardText:"2 Apex Cores" },
+  { id:"ngq07", title:"Void Menagerie", desc:"A legendary collector challenges you to fill your box with the rarest void-touched creatures. Catch 30 NG+ Lumori.", location:"apex_summit", type:"catch", requiresNGPlus:true, requiredBadges:0,
+    catchTarget:30, catchNGPlusOnly:true, reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
+  { id:"ngq08", title:"The Apex Archive", desc:"Catch every creature in the Apex Summit area — the rarest living things in Lumoria.", location:"apex_summit", type:"catch", requiresNGPlus:true, requiredBadges:0,
+    catchTarget:20, catchNGPlusOnly:true, reward:{type:"item", itemId:"masterOrb", qty:3}, rewardText:"3 Master Orbs" },
+
+  // --- Boss Battles ---
+  { id:"ngq09", title:"Prismatic Trial — Wave 1", desc:"A mysterious trainer calling himself the Prismatic Warden challenges all who enter the Rift. Defeat him to prove your worth.", location:"prismatic_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:379, level:85, moves:["dragon_claw","phantom_claw","wyrm_strike","cataclysm_breath"]},
+    reward:{type:"item", itemId:"prismaticShard", qty:2}, rewardText:"2 Prismatic Shards" },
+  { id:"ngq10", title:"Prismatic Trial — Wave 2", desc:"The Prismatic Warden's partner has emerged. Face the storm entity she commands.", location:"prismatic_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:380, level:87, moves:["thunder","tailwind_strike","volt_surge","neural_storm"]},
+    reward:{type:"item", itemId:"apexCore", qty:2}, rewardText:"2 Apex Cores" },
+  { id:"ngq11", title:"Apex Gauntlet — Round 1", desc:"The Apex Gauntlet is a legendary test. Face the first guardian of the Summit.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:389, level:90, moves:["thunder","dragon_pulse","volt_surge","cataclysm_breath"]},
+    reward:{type:"item", itemId:"voidEmber", qty:2}, rewardText:"2 Void Embers" },
+  { id:"ngq12", title:"Apex Gauntlet — Round 2", desc:"The second guardian awaits. Its power dwarfs all that came before.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:392, level:92, moves:["time_fracture","cataclysm_breath","mind_shatter","neural_storm"]},
+    reward:{type:"money", amount:80000}, rewardText:"80000 coins" },
+  { id:"ngq13", title:"Apex Gauntlet — The Final Trial", desc:"Face the pinnacle of the Apex Gauntlet — the guardian that has never been defeated.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:401, level:95, moves:["cosmic_veil","neural_storm","fae_requiem","prism_ward"]},
+    reward:{type:"item", itemId:"masterOrb", qty:5}, rewardText:"5 Master Orbs" },
+
+  // --- Gym Leader Omega Rematches ---
+  { id:"ngq14", title:"Rex Omega Challenge", desc:"Gym Leader Rex has trained in the NG+ era. His Normal-types are now truly fearsome.", location:"ashford", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:391, level:82, moves:["headbutt","body_slam","hyper_beam","dragon_claw"]},
+    reward:{type:"money", amount:20000}, rewardText:"20000 coins", gymOmega:true },
+  { id:"ngq15", title:"Zephyra Omega Challenge", desc:"Gym Leader Zephyra has embraced the void-touched wind Lumori. Her speed is now unmatched.", location:"gusthaven", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:370, level:84, moves:["thunder","tailwind_strike","volt_surge","air_slash"]},
+    reward:{type:"money", amount:22000}, rewardText:"22000 coins", gymOmega:true },
+  { id:"ngq16", title:"Atlas Omega Challenge", desc:"Gym Leader Atlas wields NG+ steel behemoths. Can you crack his iron fortress?", location:"ironforge", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:334, level:83, moves:["flash_cannon","iron_tail","terra_spike","fissure_slam"]},
+    reward:{type:"money", amount:21000}, rewardText:"21000 coins", gymOmega:true },
+
+  // --- Special Trainer Battles ---
+  { id:"ngq17", title:"The Void Scholar", desc:"A researcher who survived exposure to a Void Rift challenges you with a void-type team.", location:"void_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:373, level:86, moves:["void_rend","phantom_claw","shadow_ball","cataclysm_breath"]},
+    reward:{type:"item", itemId:"prismaticShard", qty:3}, rewardText:"3 Prismatic Shards" },
+  { id:"ngq18", title:"Champion++ — The True Test", desc:"The Champion has been training since your first victory. This rematch will push you beyond your limits.", location:"victoryroad", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:400, level:98, moves:["mantle_surge","solar_flare","terra_spike","inferno"]},
+    reward:{type:"item", itemId:"apexCore", qty:5}, rewardText:"5 Apex Cores" },
+
+  // --- NG+ Umbra Order Return ---
+  { id:"ngq19", title:"Umbra Returns — The Void Ritual", desc:"The Umbra Order has reconstituted in the NG+ era, attempting to open a permanent void portal. Stop them!", location:"void_nexus", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:398, level:88, moves:["void_dominion","void_rend","neural_storm","fae_requiem"]},
+    reward:{type:"money", amount:60000}, rewardText:"60000 coins", umbra:true },
+  { id:"ngq20", title:"Director Shade — Final Form", desc:"Director Shade has absorbed void energy and returned more powerful than ever. End this once and for all.", location:"void_nexus", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:352, level:90, moves:["void_rend","mind_shatter","neural_storm","phantom_claw"]},
+    reward:{type:"item", itemId:"masterOrb", qty:5}, rewardText:"5 Master Orbs + title", umbra:true },
+
+  // --- Pseudo-legendary Quests ---
+  { id:"ngq21", title:"The Dragon Veil Seeker", desc:"Legends speak of a Dragon-Psychic lineage hidden in the Prismatic Rift. Find and face the evolved form.", location:"prismatic_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:404, level:88, moves:["veil_collapse","cataclysm_breath","mind_shatter","wyrm_strike"]},
+    reward:{type:"item", itemId:"prismaticShard", qty:3}, rewardText:"3 Prismatic Shards" },
+  { id:"ngq22", title:"Warden of the Void Gate", desc:"The dark-steel warden protects the boundary between worlds. Defeat it to prove you are master of this era.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:407, level:88, moves:["warden_strike","void_dominion","alloy_edge","phantom_claw"]},
+    reward:{type:"item", itemId:"apexCore", qty:3}, rewardText:"3 Apex Cores" }
 ];

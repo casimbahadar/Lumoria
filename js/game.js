@@ -227,6 +227,7 @@ function startNGPlus() {
     slot: G.saveSlot
   };
   window._pendingSlot = G.saveSlot;
+  checkAchievement("ngplus_start");
   if (typeof onNGPlusStarted === "function") onNGPlusStarted();
   showStarterScreen();
 }
@@ -1463,6 +1464,15 @@ async function playerUseBall(orbId) {
     if (enemyActiveMon.variant) checkAchievement("catch_variant");
     const caughtDef = MONSTERS_DATA[enemyActiveMon.monsterId];
     if (caughtDef?.rarity === "legendary") checkAchievement("legendary");
+    if (caughtDef?.rarity === "legendary" && enemyActiveMon.monsterId >= NG_PLUS_DEX_START) checkAchievement("ngplus_legend");
+    if (caughtDef?.rarity === "pseudolegendary") checkAchievement("ngplus_pseudo");
+    if (enemyActiveMon.monsterId >= NG_PLUS_DEX_START) {
+      const ngCaught = [...G.caughtMonsters].filter(id => id >= NG_PLUS_DEX_START).length;
+      if (ngCaught >= 25) checkAchievement("ngplus_catch25");
+      if (ngCaught >= 50) checkAchievement("ngplus_catch50");
+      const totalNGPlus = Object.keys(MONSTERS_DATA).filter(k => parseInt(k) >= NG_PLUS_DEX_START).length;
+      if (ngCaught >= totalNGPlus) checkAchievement("ngplus_catchall");
+    }
     checkAchievements();
     trackDailyChallenge("catch_count");
     if (caughtDef) for (const t of caughtDef.types) trackDailyChallenge("catch_type", t);
@@ -3877,7 +3887,9 @@ function renderQuestLog() {
     filteredQuests = allQuests.filter(q =>
       !G.questsCompleted.includes(q.id) &&
       !G.questsActive.includes(q.id) &&
-      G.badges.length >= (q.requiredBadges || 0)
+      G.badges.length >= (q.requiredBadges || 0) &&
+      (!q.requiresNGPlus || (G.ngPlusCount > 0)) &&
+      (!q.requiresChampion || G.championDefeated)
     );
   } else if (activeFilter === "active") {
     filteredQuests = allQuests.filter(q => G.questsActive.includes(q.id));
@@ -3900,12 +3912,13 @@ function renderQuestLog() {
     const typeIcons = { boss: "⚔️", catch: "🔵", visit: "🗺️", fetch: "📦", battle: "🥊" };
 
     const card = document.createElement("div");
-    card.className = "quest-card" + (isCompleted ? " quest-completed" : "");
+    const ngPlusQuest = !!quest.requiresNGPlus;
+    card.className = "quest-card" + (isCompleted ? " quest-completed" : "") + (ngPlusQuest ? " quest-ngplus" : "");
     card.innerHTML = `
       <div class="quest-card-header">
         <span class="quest-type-icon">${typeIcons[quest.type] || "📋"}</span>
         <div class="quest-card-title">
-          <strong>${quest.title}</strong>
+          <strong>${quest.title}${ngPlusQuest ? ' <span class="ng-badge">NG+</span>' : ""}</strong>
           <span class="quest-location">${locationName}</span>
         </div>
         <span class="quest-badge-req">${quest.requiredBadges || 0}+ badges</span>
@@ -4059,6 +4072,13 @@ const ACHIEVEMENTS = [
   { id:"dex100",         icon:"📖", name:"Half-Dex",            desc:"See 100 different Lumori" },
   { id:"post_game",      icon:"🌐", name:"What Lies Beyond",    desc:"Become Champion and start post-game" },
   { id:"legendary",      icon:"🦋", name:"Legendary Tamer",     desc:"Catch a legendary Lumori" },
+  // NG+ achievements
+  { id:"ngplus_start",   icon:"⭐", name:"NG+ Pioneer",         desc:"Begin your first New Game Plus run" },
+  { id:"ngplus_catch25", icon:"🌌", name:"Rift Walker",         desc:"Catch 25 NG+-exclusive Lumori" },
+  { id:"ngplus_catch50", icon:"🔮", name:"Void Collector",      desc:"Catch 50 NG+-exclusive Lumori" },
+  { id:"ngplus_catchall",icon:"👑", name:"Apex Completionist",  desc:"Catch all NG+-exclusive Lumori" },
+  { id:"ngplus_pseudo",  icon:"🐉", name:"Pseudo Hunter",       desc:"Catch a pseudo-legendary NG+ Lumori" },
+  { id:"ngplus_legend",  icon:"⚡", name:"Legend of Legends",   desc:"Catch a legendary NG+ Lumori" },
 ];
 
 function checkAchievement(id) {

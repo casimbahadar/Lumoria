@@ -104,6 +104,22 @@ function buildBattleMon(partySlot, levelCap) {
     mon[s] = Math.floor(mon[s] * heldData.held.mult);
   }
 
+  // Apex Core: +10% all stats
+  if (heldData?.held?.effect === "allStatsUp") {
+    const m = heldData.held.mult;
+    const b = x => Math.floor(x * m);
+    mon.maxHP = b(mon.maxHP); mon.atk = b(mon.atk); mon.def = b(mon.def);
+    mon.spa = b(mon.spa); mon.spd = b(mon.spd); mon.spe = b(mon.spe);
+  }
+
+  // Prismatic Shard: +15% all stats for NG+-exclusive Lumori
+  if (heldData?.held?.effect === "ngPlusBoost" && typeof NG_PLUS_DEX_START !== "undefined" && def.id >= NG_PLUS_DEX_START) {
+    const m = heldData.held.mult;
+    const b = x => Math.floor(x * m);
+    mon.maxHP = b(mon.maxHP); mon.atk = b(mon.atk); mon.def = b(mon.def);
+    mon.spa = b(mon.spa); mon.spd = b(mon.spd); mon.spe = b(mon.spe);
+  }
+
   // Shiny: +10% all stats
   if (partySlot.shiny) {
     const b = x => Math.floor(x * 1.1);
@@ -137,6 +153,7 @@ function buildWildMon(monsterId, level, forceShiny, forceVariant) {
   let shinyRate = 1/2048;
   if (typeof getTimeShinyMult  === "function") shinyRate *= getTimeShinyMult();
   if (typeof getEventShinyBoost === "function") shinyRate *= getEventShinyBoost();
+  if (typeof NG_PLUS_DEX_START !== "undefined" && monsterId >= NG_PLUS_DEX_START) shinyRate *= 4;
   const shiny   = forceShiny   !== undefined ? forceShiny   : (Math.random() < shinyRate);
   const variant = forceVariant !== undefined ? forceVariant : (!shiny && Math.random() < 1/100);
   const variantTypes = variant ? getVariantTypes(monsterId, def.types) : null;
@@ -201,6 +218,7 @@ function calcDamage(attacker, defender, move) {
   const atkHeld = getHeldData(attacker);
   if (atkHeld?.typeBoost === move.type) dmg = Math.floor(dmg * atkHeld.mult);
   if (atkHeld?.catBoost === move.cat)   dmg = Math.floor(dmg * atkHeld.mult);
+  if (atkHeld?.typeBoostDual?.includes(move.type)) dmg = Math.floor(dmg * atkHeld.mult);
 
   const eff = getTypeEffectiveness(move.type, defender.types);
   dmg = Math.floor(dmg * eff);

@@ -3362,7 +3362,78 @@ const MONSTERS_DATA = {
     learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[30,"psystrike"],[40,"mind_shatter"],[50,"neural_storm"],[60,"fae_requiem"],[5,"dreamweave"],[38,"prism_ward"]],
     catchRate:15, expYield:288, rarity:"rare",
     desc:"A being of pure prismatic thought that feeds on raw psychic energy. It is invariably found near psychic Lumori.",
-    lore:"Spectravore is a fairy-psychic entity 1 metre tall that appears as a floating iridescent humanoid silhouette surrounded by a shifting aura of all visible colours." }
+    lore:"Spectravore is a fairy-psychic entity 1 metre tall that appears as a floating iridescent humanoid silhouette surrounded by a shifting aura of all visible colours." },
+
+  // ---- Tier 3: Post-game NG+ (requiresChampion areas) BST ~580–630 ----
+  352: { id:352, name:"Voidlord", emoji:"🕳️", types:["Dark","Psychic"],
+    base:{hp:90,atk:118,def:95,spa:125,spd:105,spe:112}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"void_rend"],[10,"mind_shatter"],[20,"phantom_claw"],[30,"neural_storm"],[40,"shadowstep"],[50,"psystrike"],[60,"cataclysm_breath"],[5,"dreamweave"],[45,"prism_ward"]],
+    catchRate:12, expYield:308, rarity:"rare",
+    desc:"The sovereign of all void-touched creatures. Its mind is a labyrinth with no exit.",
+    lore:"Voidlord is a dark-psychic entity 2.2 metres tall with a body of solidified void-matter and a crown of hovering psychic fragments. No one who has entered its mindscape has returned unchanged." },
+
+  353: { id:353, name:"Infernotitan", emoji:"🌋", types:["Fire","Dragon"],
+    base:{hp:95,atk:130,def:100,spa:120,spd:90,spe:100}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"flamethrower"],[10,"dragon_claw"],[20,"fire_blast"],[30,"dragon_pulse"],[40,"solar_flare"],[50,"cataclysm_breath"],[60,"ancient_breath"],[5,"char_dance"],[38,"primordial_roar"]],
+    catchRate:10, expYield:318, rarity:"rare",
+    desc:"A volcanic dragon that erupts when enraged. Continents have shifted from its ancient battles.",
+    lore:"Infernotitan is a fire-dragon 6 metres long with scales of hardened magma and breath hot enough to liquefy stone. Ancient geological surveys attribute certain canyon formations to its rampages." },
+
+  354: { id:354, name:"Riftwhale", emoji:"🐋", types:["Water","Psychic"],
+    base:{hp:130,atk:95,def:108,spa:122,spd:115,spe:65}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"surf"],[10,"psychic_move"],[20,"hydro_pump"],[30,"psystrike"],[40,"sea_serpent_strike"],[50,"mind_shatter"],[60,"neural_storm"],[5,"tidecaller"],[38,"dreamweave"]],
+    catchRate:10, expYield:315, rarity:"rare",
+    desc:"A leviathan that travels between dimensions using psychic rift gates. Islands vanish when it surfaces.",
+    lore:"Riftwhale is a water-psychic creature 12 metres long resembling a colossal whale with flanks covered in luminous psychic sigils. It navigates by warping local space." },
+
+  355: { id:355, name:"Abyssalith", emoji:"🌊", types:["Water","Dark"],
+    base:{hp:100,atk:122,def:108,spa:110,spd:100,spe:95}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"surf"],[10,"void_rend"],[20,"tidal_crush"],[30,"shadow_ball"],[40,"hydro_pump"],[50,"sea_serpent_strike"],[60,"sludge_wave"],[5,"shadowstep"],[38,"phantom_claw"]],
+    catchRate:10, expYield:318, rarity:"rare",
+    desc:"A hunter from the deepest abyss. Light physically bends around it as though avoiding contact.",
+    lore:"Abyssalith is a water-dark creature 5 metres long resembling an armoured eel with bioluminescent lures. Its black scales have a refractive property that makes it nearly invisible underwater." },
+
+  356: { id:356, name:"Stormlord", emoji:"⛈️", types:["Electric","Dragon"],
+    base:{hp:88,atk:112,def:88,spa:128,spd:100,spe:120}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"thunder_shock"],[10,"dragon_breath"],[20,"thunderbolt"],[30,"dragon_pulse"],[40,"thunder"],[50,"wyrm_strike"],[60,"volt_surge"],[5,"dragon_dance"],[38,"ancient_breath"]],
+    catchRate:10, expYield:320, rarity:"rare",
+    desc:"A dragon that calls down storms across entire regions. It is the living embodiment of a thunderhead.",
+    lore:"Stormlord is an electric-dragon 5 metres long with scales of polished chrome-blue and wing membranes of crackling electricity. The sky darkens for 100 kilometres when it takes flight." },
+
+  357: { id:357, name:"Thornspire", emoji:"🌳", types:["Grass","Steel"],
+    base:{hp:100,atk:110,def:130,spa:100,spd:108,spe:72}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"vine_whip"],[10,"metal_claw"],[20,"root_lance"],[30,"iron_tail"],[40,"canopy_crash"],[50,"flash_cannon"],[60,"verdant_surge"],[5,"thornwall"],[38,"alloy_edge"]],
+    catchRate:10, expYield:316, rarity:"rare",
+    desc:"An ancient tree-god whose bark is stronger than titanium. It has not moved in ten thousand years.",
+    lore:"Thornspire is a grass-steel creature 8 metres tall resembling an impossibly old tree with branches of reinforced steel-alloy and roots that pierce solid bedrock." },
+
+  358: { id:358, name:"Pyrocrown", emoji:"👑", types:["Fire","Psychic"],
+    base:{hp:85,atk:100,def:88,spa:132,spd:110,spe:108}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"ember"],[10,"psychic_move"],[20,"flamethrower"],[30,"psystrike"],[40,"solar_flare"],[50,"mind_shatter"],[60,"neural_storm"],[5,"char_dance"],[38,"dreamweave"]],
+    catchRate:10, expYield:318, rarity:"rare",
+    desc:"A psychic phoenix wearing a crown of permanent solar fire. Flame is its thought made manifest.",
+    lore:"Pyrocrown is a fire-psychic bird 1.8 metres tall with feathers of solidified flame and a crown of pure solar fire. Its thoughts manifest as bursts of psychokinetic flame." },
+
+  359: { id:359, name:"Glaciarch", emoji:"❄️", types:["Ice","Psychic"],
+    base:{hp:88,atk:95,def:108,spa:128,spd:112,spe:88}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"ice_beam"],[10,"psychic_move"],[20,"cryo_lance"],[30,"psystrike"],[40,"blizzard"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"winter_shroud"]],
+    catchRate:10, expYield:316, rarity:"rare",
+    desc:"The sovereign of all ice-bound psychics. Its mind is as cold and clear as absolute zero.",
+    lore:"Glaciarch is an ice-psychic entity 2 metres tall resembling an idealised humanoid carved entirely from deep blue glacial ice. Its eyes are voids of total blue-white." },
+
+  360: { id:360, name:"Duskmantle", emoji:"🌙", types:["Dark","Fairy"],
+    base:{hp:82,atk:100,def:88,spa:128,spd:118,spe:112}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"fairy_wind"],[10,"void_rend"],[20,"fae_requiem"],[30,"shadow_ball"],[40,"phantom_claw"],[50,"mind_shatter"],[60,"neural_storm"],[5,"shadowstep"],[38,"dreamweave"]],
+    catchRate:10, expYield:318, rarity:"rare",
+    desc:"A twilight sovereign that rules the threshold between day and night. It is neither fully light nor dark.",
+    lore:"Duskmantle is a dark-fairy entity 1.8 metres tall that appears different from each angle — from one side it is a radiant fairy, from the other a creature of shadow. Both states are equally real." },
+
+  361: { id:361, name:"Tectolith", emoji:"🌍", types:["Ground","Dragon"],
+    base:{hp:112,atk:128,def:115,spa:95,spd:100,spe:85}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"earth_power"],[10,"dragon_claw"],[20,"fissure_slam"],[30,"dragon_pulse"],[40,"terra_spike"],[50,"wyrm_strike"],[60,"eon_crash"],[5,"dragon_dance"],[38,"primordial_roar"]],
+    catchRate:10, expYield:320, rarity:"rare",
+    desc:"A dragon so old it has become part of the land itself. Earthquakes are merely it turning in its sleep.",
+    lore:"Tectolith is a ground-dragon 7 metres long with a body of compacted tectonic plates and continents of moss and stone across its back. It is older than most mountain ranges." }
 };
 
 

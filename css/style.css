@@ -2422,3 +2422,45 @@ button, a, [role="button"] {
 .online-status-on  { color: #4caf50; font-weight: bold; }
 .online-status-off { color: #f44336; font-weight: bold; }
 .nav-btn-online { background: linear-gradient(135deg, #1a3a6b 0%, #1e6bb8 100%); color: #fff; }
+
+/* ===== PvP MODE TABS ===== */
+.pvp-mode-tabs { display:flex; gap:0.5rem; padding:0.75rem 1rem 0; }
+.pvp-tab {
+  padding:0.4rem 1.2rem; border-radius:6px 6px 0 0; border:1px solid var(--border);
+  background:var(--bg-panel); color:var(--text-secondary); cursor:pointer; font-size:0.85rem;
+}
+.pvp-tab.active { background:var(--accent-blue); color:#fff; border-color:var(--accent-blue); }
+.pvp-tab-content { padding:1rem; }
+.pvp-live-desc { margin-bottom:1rem; font-size:0.82rem; color:var(--text-secondary); }
+
+/* ===== LIVE PvP BATTLE ARENA ===== */
+.live-setup { display:flex; flex-direction:column; gap:0.75rem; max-width:320px; margin:0 auto; }
+.live-join-row { display:flex; gap:0.5rem; }
+.live-waiting { text-align:center; padding:2rem; }
+.live-code-display {
+  font-size:1.6rem; font-weight:bold; letter-spacing:4px;
+  color:var(--accent-blue); background:var(--bg-panel);
+  border:1px solid var(--border); border-radius:8px; padding:0.6rem 1.2rem; display:inline-block; margin-bottom:0.5rem;
+}
+.live-hint { font-size:0.78rem; color:var(--text-muted); margin-bottom:1rem; }
+.live-room-header { font-size:0.8rem; color:var(--text-muted); text-align:center; margin-bottom:0.5rem; letter-spacing:2px; }
+.live-arena {
+  display:flex; align-items:center; gap:0.5rem; margin-bottom:0.75rem;
+  background:var(--bg-panel); border-radius:10px; padding:0.75rem;
+}
+.live-side { flex:1; }
+.live-side-name { font-size:0.72rem; color:var(--text-muted); margin-bottom:0.2rem; }
+.live-mon-name { font-size:0.9rem; font-weight:bold; margin-bottom:0.25rem; }
+.live-vs { font-size:1.1rem; font-weight:bold; color:var(--text-muted); padding:0 0.25rem; }
+.live-hp-bar-wrap { background:var(--bg-dark); border-radius:4px; height:8px; margin-bottom:0.2rem; overflow:hidden; }
+.live-hp-bar { height:100%; background:linear-gradient(90deg,#4caf50,#8bc34a); border-radius:4px; transition:width 0.4s; }
+.live-hp-text { font-size:0.7rem; color:var(--text-secondary); }
+.live-moves { display:grid; grid-template-columns:1fr 1fr; gap:0.4rem; margin-bottom:0.6rem; }
+.live-move-btn { font-size:0.78rem; padding:0.5rem 0.4rem; text-align:center; }
+.live-move-btn small { display:block; color:rgba(255,255,255,0.7); font-size:0.65rem; }
+.live-waiting-msg { grid-column:1/-1; text-align:center; color:var(--text-muted); font-size:0.82rem; padding:0.75rem; }
+.live-log {
+  background:var(--bg-dark); border-radius:6px; padding:0.5rem 0.6rem;
+  height:120px; overflow-y:auto; font-size:0.72rem; margin-bottom:0.6rem;
+}
+.live-log-line { padding:0.1rem 0; border-bottom:1px solid rgba(255,255,255,0.04); color:var(--text-secondary); }

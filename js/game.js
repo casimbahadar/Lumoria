@@ -125,9 +125,22 @@ function timeSince(ts) {
 }
 
 // ---- NG+ Scaling ----
-function ngPlusScale(level) {
+function ngPlusScale(level, area) {
   if (!G || !G.ngPlusCount) return level;
-  return Math.min(100, Math.round(level * (1 + 0.2 * G.ngPlusCount)));
+  // Per-tier scaling cap to keep NG+ balanced by content difficulty
+  let cap;
+  const badges = area?.requiredBadges || 0;
+  if (area?.requiresChampion || area?.requiresNGPlus) {
+    cap = 0.15;  // post-game / NG+-exclusive content
+  } else if (badges >= 12) {
+    cap = 0.25;  // late game (badges 12-16)
+  } else if (badges >= 6) {
+    cap = 0.35;  // mid game (badges 6-11)
+  } else {
+    cap = 0.40;  // early game (badges 1-5 or no requirement)
+  }
+  const boost = Math.min(cap, 0.2 * G.ngPlusCount);
+  return Math.min(100, Math.round(level * (1 + boost)));
 }
 
 // ---- Fullscreen ----
@@ -949,6 +962,11 @@ function exploreArea() {
     : area.wildMonsters.filter(wm => getMonBST(wm.id) > 0);
   if (!pool.length) { showNotification("No wild Lumori appear here yet."); return; }
 
+  // Inject NG+-exclusive spawns when in NG+ run
+  if (G.ngPlusCount > 0 && area.ngPlusWildMonsters?.length) {
+    pool = pool.concat(area.ngPlusWildMonsters.filter(wm => getMonBST(wm.id) > 0));
+  }
+
   // Inject event-exclusive spawns if active
   if (typeof getEventExclusiveMons === "function") {
     const extras = getEventExclusiveMons(area.id);
@@ -972,7 +990,7 @@ function exploreArea() {
   let chosen = pool[pool.length - 1];
   for (const wm of pool) { roll -= getEffectiveRate(wm); if (roll <= 0) { chosen = wm; break; } }
 
-  const level = ngPlusScale(chosen.minLv + Math.floor(Math.random() * (chosen.maxLv - chosen.minLv + 1)));
+  const level = ngPlusScale(chosen.minLv + Math.floor(Math.random() * (chosen.maxLv - chosen.minLv + 1)), area);
   G.seenMonsters.add(chosen.id);
   if (typeof incrementCommunityProgress === "function") incrementCommunityProgress();
   startWildBattle(buildWildMon(chosen.id, level));
@@ -1439,7 +1457,8 @@ async function playerUseBall(orbId) {
   if (caught) {
     logMsg(`✅ Gotcha! ${enemyActiveMon.name} was caught!`, "log-catch");
     G.caughtMonsters.add(enemyActiveMon.monsterId);
-    if (typeof onLumoriCaught === "function") onLumoriCaught();
+    if (enemyActiveMon.shiny) G.shinyCaught = (G.shinyCaught || 0) + 1;
+    if (typeof onLumoriCaught === "function") onLumoriCaught(!!enemyActiveMon.shiny);
     if (enemyActiveMon.shiny)   checkAchievement("catch_shiny");
     if (enemyActiveMon.variant) checkAchievement("catch_variant");
     const caughtDef = MONSTERS_DATA[enemyActiveMon.monsterId];
@@ -3125,7 +3144,22 @@ function initEventListeners() {
   });
   document.getElementById("btn-lb-back")?.addEventListener("click", () => showScreen("screen-online-hub"));
   document.getElementById("btn-trade-back")?.addEventListener("click", () => showScreen("screen-online-hub"));
-  document.getElementById("btn-pvp-back")?.addEventListener("click", () => showScreen("screen-online-hub"));
+  document.getElementById("btn-pvp-back")?.addEventListener("click", () => {
+    if (typeof leaveLiveRoom === "function") leaveLiveRoom();
+    showScreen("screen-online-hub");
+  });
+  // PvP mode tabs (simulated / live)
+  document.querySelectorAll(".pvp-tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".pvp-tab").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".pvp-tab-content").forEach(c => c.classList.add("hidden"));
+      btn.classList.add("active");
+      document.getElementById(`pvp-tab-${btn.dataset.tab}`)?.classList.remove("hidden");
+      if (btn.dataset.tab === "live" && typeof renderLiveRoomUI === "function") {
+        renderLiveRoomUI("idle", null, null);
+      }
+    });
+  });
   document.getElementById("btn-post-trade")?.addEventListener("click", () => {
     const type = document.getElementById("trade-wanted-type")?.value || "";
     if (typeof postTrade === "function") postTrade(type);

@@ -55,10 +55,10 @@ function renderOnlineHUD() {
 // LEADERBOARDS
 // ============================================================
 const LB_CATEGORIES = [
-  { id:"champion_count", label:"Champion Clears", icon:"🏆", getValue: g => (g.championDefeated ? 1 : 0) },
-  { id:"badges",         label:"Badges Earned",  icon:"🏅", getValue: g => (g.badges||[]).length },
-  { id:"dex",            label:"Lumori Caught",  icon:"📖", getValue: g => (g.caughtMonsters?.size || [...(g.caughtMonsters||[])].length) },
-  { id:"ng_plus",        label:"NG+ Runs",       icon:"⭐", getValue: g => g.ngPlusCount || 0 },
+  { id:"battles_won", label:"Battles Won",     icon:"⚔️",  getValue: g => g.battleWins || 0 },
+  { id:"dex",         label:"Lumori Caught",   icon:"📖", getValue: g => (g.caughtMonsters?.size || [...(g.caughtMonsters||[])].length) },
+  { id:"shiny_caught",label:"Radiant Caught",  icon:"✨", getValue: g => g.shinyCaught || 0 },
+  { id:"event_pts",   label:"Event Points",    icon:"🎉", getValue: g => g.eventPoints || 0 },
 ];
 
 async function submitLeaderboardScore(category) {
@@ -89,7 +89,7 @@ async function showLeaderboards() {
 
   async function loadCategory(catId) {
     container.innerHTML = '<div class="lb-loading">Loading...</div>';
-    const snap = await firebaseDB.ref(`leaderboards/${catId}`).orderByChild("value").limitToLast(20).once("value");
+    const snap = await firebaseDB.ref(`leaderboards/${catId}`).orderByChild("value").limitToLast(100).once("value");
     const entries = [];
     snap.forEach(child => entries.push({ uid: child.key, ...child.val() }));
     entries.sort((a,b) => b.value - a.value);
@@ -184,6 +184,7 @@ async function watchCommunityProgress(ev) {
 async function incrementCommunityProgress() {
   if (!onlineReady || !activeEvent || activeEvent.type !== "community_challenge") return;
   await firebaseDB.ref("events/community_progress").transaction(v => (v || 0) + 1);
+  if (typeof onEventPointEarned === "function") onEventPointEarned();
 }
 
 // ============================================================
@@ -518,6 +519,269 @@ async function loadOpenChallenges() {
 }
 
 // ============================================================
+// LIVE PvP BATTLES (real-time, room-code system)
+// ============================================================
+let liveRoomCode = null;
+let liveRoomRef  = null;
+let liveIsHost   = false;
+let liveRoomListener = null;
+
+function generateRoomCode() {
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  let code = "";
+  for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  return code;
+}
+
+function buildLiveTeam() {
+  if (!G) return [];
+  return G.team.filter(m => m.currentHP > 0).slice(0, 3).map(m => {
+    const def = MONSTERS_DATA[m.monsterId];
+    const spd = (def?.baseStats?.speed || def?.base?.spe || 50) + Math.floor(m.level * 0.5);
+    const atk = (def?.baseStats?.attack || def?.base?.atk || 50) + Math.floor(m.level * 0.5);
+    const defStat = (def?.baseStats?.defense || def?.base?.def || 50) + Math.floor(m.level * 0.5);
+    const maxHP = m.maxHP || m.currentHP;
+    return {
+      monsterId: m.monsterId, name: m.name, emoji: def?.emoji || "❓",
+      level: m.level, nature: m.nature,
+      moves: m.moves.map(mv => mv.id || mv),
+      atk, def: defStat, spd, maxHP
+    };
+  });
+}
+
+function livePvPDamage(attackerMon, moveId, defenderMon) {
+  const moveDef = MOVES_DATA[moveId];
+  if (!moveDef?.power) return 0;
+  const dmg = Math.floor((2 * attackerMon.level / 5 + 2) * moveDef.power * attackerMon.atk / defenderMon.def / 50 + 2);
+  return Math.max(1, Math.round(dmg * (0.85 + Math.random() * 0.15)));
+}
+
+async function createLiveRoom() {
+  if (!requireOnline() || !G) return;
+  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team first!"); return; }
+  const code = generateRoomCode();
+  const team = buildLiveTeam();
+  const hpArr = team.map(m => m.maxHP);
+  const room = {
+    hostUID: firebaseUID, hostName: G.playerName,
+    hostTeam: JSON.stringify(team),
+    guestUID: null, guestName: null, guestTeam: null,
+    status: "waiting",
+    hostHP: hpArr, hostMaxHP: hpArr,
+    guestHP: [], guestMaxHP: [],
+    hostActive: 0, guestActive: 0,
+    hostMove: null, guestMove: null,
+    log: [`${G.playerName} created the room. Waiting for opponent...`],
+    winner: null, ts: Date.now()
+  };
+  await firebaseDB.ref(`pvp_live/${code}`).set(room);
+  liveRoomCode = code;
+  liveIsHost = true;
+  renderLiveRoomUI("waiting", code, null);
+  watchLiveRoom(code);
+}
+
+async function joinLiveRoom(code) {
+  if (!requireOnline() || !G) return;
+  if (!code || code.length !== 6) { showNotification("Enter a 6-character room code."); return; }
+  code = code.toUpperCase();
+  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team first!"); return; }
+  const snap = await firebaseDB.ref(`pvp_live/${code}`).once("value");
+  const room = snap.val();
+  if (!room) { showNotification("Room not found."); return; }
+  if (room.status !== "waiting") { showNotification("Room is already full or finished."); return; }
+  if (room.hostUID === firebaseUID) { showNotification("You can't join your own room."); return; }
+  const team = buildLiveTeam();
+  const hpArr = team.map(m => m.maxHP);
+  await firebaseDB.ref(`pvp_live/${code}`).update({
+    guestUID: firebaseUID, guestName: G.playerName,
+    guestTeam: JSON.stringify(team),
+    guestHP: hpArr, guestMaxHP: hpArr,
+    status: "battling",
+    log: [...(room.log || []), `${G.playerName} joined! Battle begins!`]
+  });
+  liveRoomCode = code;
+  liveIsHost = false;
+  watchLiveRoom(code);
+}
+
+function watchLiveRoom(code) {
+  if (liveRoomListener) liveRoomRef?.off("value", liveRoomListener);
+  liveRoomRef = firebaseDB.ref(`pvp_live/${code}`);
+  liveRoomListener = liveRoomRef.on("value", snap => {
+    const room = snap.val();
+    if (!room) return;
+    renderLiveRoomUI(room.status, code, room);
+    // Host resolves turn when both moves are submitted
+    if (liveIsHost && room.status === "battling" && room.hostMove && room.guestMove) {
+      resolveLiveTurn(code, room);
+    }
+  });
+}
+
+async function resolveLiveTurn(code, room) {
+  let hostTeam, guestTeam;
+  try { hostTeam = JSON.parse(room.hostTeam); guestTeam = JSON.parse(room.guestTeam); } catch(e) { return; }
+  const hostMon  = hostTeam[room.hostActive];
+  const guestMon = guestTeam[room.guestActive];
+  let hostHP  = [...room.hostHP];
+  let guestHP = [...room.guestHP];
+  const log = [...(room.log || [])];
+
+  // Determine turn order by speed
+  const hostFirst = hostMon.spd >= guestMon.spd;
+  function applyMove(attackerMon, moveId, defenderHP, defenderIdx, defenderTeam) {
+    const moveDef = MOVES_DATA[moveId];
+    const moveName = moveDef?.name || moveId;
+    const dmg = livePvPDamage(attackerMon, moveId, defenderTeam[defenderIdx]);
+    defenderHP[defenderIdx] = Math.max(0, defenderHP[defenderIdx] - dmg);
+    log.push(`${attackerMon.name} used ${moveName}! ${dmg} damage.`);
+    return defenderHP[defenderIdx] === 0;
+  }
+
+  let hostAct = room.hostActive, guestAct = room.guestActive;
+  const first  = hostFirst ? [hostMon, room.hostMove, guestHP, guestAct, guestTeam] : [guestMon, room.guestMove, hostHP, hostAct, hostTeam];
+  const second = hostFirst ? [guestMon, room.guestMove, hostHP, hostAct, hostTeam]  : [hostMon, room.hostMove, guestHP, guestAct, guestTeam];
+  const firstFainted = applyMove(...first);
+  if (!firstFainted) applyMove(...second);
+
+  // Advance active index past fainted mons
+  if (hostHP[hostAct] === 0) {
+    const next = hostTeam.findIndex((_, i) => i > hostAct && hostHP[i] > 0);
+    if (next !== -1) { hostAct = next; log.push(`${room.hostName}'s ${hostTeam[hostAct-1]?.name || "Lumori"} fainted! Go, ${hostTeam[hostAct].name}!`); }
+  }
+  if (guestHP[guestAct] === 0) {
+    const next = guestTeam.findIndex((_, i) => i > guestAct && guestHP[i] > 0);
+    if (next !== -1) { guestAct = next; log.push(`${room.guestName}'s ${guestTeam[guestAct-1]?.name || "Lumori"} fainted! Go, ${guestTeam[guestAct].name}!`); }
+  }
+
+  // Check winner
+  const hostAllFainted  = hostHP.every(hp => hp <= 0);
+  const guestAllFainted = guestHP.every(hp => hp <= 0);
+  const winner = hostAllFainted ? "guest" : guestAllFainted ? "host" : null;
+  if (winner) log.push(winner === "host" ? `${room.hostName} wins!` : `${room.guestName} wins!`);
+
+  await firebaseDB.ref(`pvp_live/${code}`).update({
+    hostHP, guestHP, hostActive: hostAct, guestActive: guestAct,
+    hostMove: null, guestMove: null,
+    log: log.slice(-30),
+    status: winner ? "done" : "battling",
+    winner
+  });
+
+  if (winner) {
+    const prize = winner === (liveIsHost ? "host" : "guest") ? 600 : 150;
+    if (G) { G.money += prize; G.battleWins = (G.battleWins||0) + (winner === (liveIsHost ? "host" : "guest") ? 1 : 0); saveGame(); }
+    if (typeof submitLeaderboardScore === "function") submitLeaderboardScore("battles_won");
+    showNotification(winner === (liveIsHost ? "host" : "guest") ? `🏆 You won the live battle! +${prize} coins` : `😞 You lost the live battle. +${prize} coins for participating.`);
+    leaveLiveRoom();
+  }
+}
+
+async function submitLiveMove(moveId) {
+  if (!liveRoomCode || !onlineReady) return;
+  const field = liveIsHost ? "hostMove" : "guestMove";
+  await firebaseDB.ref(`pvp_live/${liveRoomCode}`).update({ [field]: moveId });
+  // Disable move buttons until turn resolves
+  document.querySelectorAll(".live-move-btn").forEach(b => b.disabled = true);
+  document.getElementById("live-waiting-label")?.classList.remove("hidden");
+}
+
+function leaveLiveRoom() {
+  if (liveRoomListener && liveRoomRef) liveRoomRef.off("value", liveRoomListener);
+  if (liveRoomCode && liveIsHost) firebaseDB.ref(`pvp_live/${liveRoomCode}`).update({ status:"abandoned" }).catch(()=>{});
+  liveRoomCode = null; liveRoomRef = null; liveIsHost = false; liveRoomListener = null;
+  renderLiveRoomUI("idle", null, null);
+}
+
+function renderLiveRoomUI(status, code, room) {
+  const area = document.getElementById("pvp-live-area");
+  if (!area) return;
+
+  if (status === "idle" || !code) {
+    area.innerHTML = `
+      <div class="live-setup">
+        <button class="btn-primary" id="btn-create-room">🏠 Create Room</button>
+        <div class="live-join-row">
+          <input type="text" id="live-room-input" class="pvp-input" placeholder="Enter room code..." maxlength="6">
+          <button class="btn-secondary" id="btn-join-room">Join</button>
+        </div>
+      </div>`;
+    document.getElementById("btn-create-room")?.addEventListener("click", createLiveRoom);
+    document.getElementById("btn-join-room")?.addEventListener("click", () => joinLiveRoom(document.getElementById("live-room-input")?.value.trim()));
+    return;
+  }
+
+  if (status === "waiting") {
+    area.innerHTML = `
+      <div class="live-waiting">
+        <div class="live-code-display">Room Code: <strong>${code}</strong></div>
+        <p class="live-hint">Share this code with your opponent so they can join.</p>
+        <button class="btn-secondary" id="btn-leave-room">✖ Cancel</button>
+      </div>`;
+    document.getElementById("btn-leave-room")?.addEventListener("click", leaveLiveRoom);
+    return;
+  }
+
+  if (status === "battling" || status === "done") {
+    let hostTeam, guestTeam;
+    try { hostTeam = JSON.parse(room.hostTeam || "[]"); guestTeam = JSON.parse(room.guestTeam || "[]"); } catch(e) { return; }
+    const myTeam    = liveIsHost ? hostTeam  : guestTeam;
+    const theirTeam = liveIsHost ? guestTeam : hostTeam;
+    const myHP      = liveIsHost ? (room.hostHP  || []) : (room.guestHP  || []);
+    const myMaxHP   = liveIsHost ? (room.hostMaxHP || []) : (room.guestMaxHP || []);
+    const theirHP   = liveIsHost ? (room.guestHP  || []) : (room.hostHP  || []);
+    const theirMaxHP= liveIsHost ? (room.guestMaxHP || []) : (room.hostMaxHP || []);
+    const myActive  = liveIsHost ? room.hostActive  : room.guestActive;
+    const theirActive = liveIsHost ? room.guestActive : room.hostActive;
+    const myMon     = myTeam[myActive] || {};
+    const theirMon  = theirTeam[theirActive] || {};
+    const myMoved   = liveIsHost ? !!room.hostMove : !!room.guestMove;
+    const myName    = liveIsHost ? room.hostName : room.guestName;
+    const theirName = liveIsHost ? room.guestName : room.hostName;
+
+    const hpBar = (cur, max) => `<div class="live-hp-bar-wrap"><div class="live-hp-bar" style="width:${Math.max(0,Math.round((cur/max)*100))}%"></div></div><span class="live-hp-text">${cur}/${max}</span>`;
+
+    const moveBtns = (status === "battling" && !myMoved) ?
+      (myMon.moves || []).map(mv => {
+        const md = MOVES_DATA[mv];
+        return `<button class="live-move-btn btn-action" data-move="${mv}">${md?.name || mv} <small>${md?.type||""}</small></button>`;
+      }).join("") : `<div id="live-waiting-label" class="live-waiting-msg">⏳ Waiting for opponent...</div>`;
+
+    const logHtml = (room.log || []).slice(-8).map(l => `<div class="live-log-line">${escapeHtml(l)}</div>`).join("");
+
+    area.innerHTML = `
+      <div class="live-room-header">Room: <strong>${code}</strong></div>
+      <div class="live-arena">
+        <div class="live-side">
+          <div class="live-side-name">${escapeHtml(myName || "You")}</div>
+          <div class="live-mon-name">${myMon.emoji || "❓"} ${myMon.name || "?"} Lv.${myMon.level||"?"}</div>
+          ${hpBar(myHP[myActive]||0, myMaxHP[myActive]||1)}
+        </div>
+        <div class="live-vs">VS</div>
+        <div class="live-side">
+          <div class="live-side-name">${escapeHtml(theirName || "Opponent")}</div>
+          <div class="live-mon-name">${theirMon.emoji || "❓"} ${theirMon.name || "?"} Lv.${theirMon.level||"?"}</div>
+          ${hpBar(theirHP[theirActive]||0, theirMaxHP[theirActive]||1)}
+        </div>
+      </div>
+      <div class="live-moves">${moveBtns}</div>
+      <div class="live-log">${logHtml}</div>
+      ${status === "done" ? `<button class="btn-primary" id="btn-live-done">Back to PvP</button>` : `<button class="btn-secondary" id="btn-leave-room-battle">Forfeit</button>`}`;
+
+    area.querySelectorAll(".live-move-btn").forEach(btn => {
+      btn.addEventListener("click", () => submitLiveMove(btn.dataset.move));
+    });
+    document.getElementById("btn-live-done")?.addEventListener("click", () => { leaveLiveRoom(); });
+    document.getElementById("btn-leave-room-battle")?.addEventListener("click", () => {
+      if (confirm("Forfeit this battle?")) leaveLiveRoom();
+    });
+    return;
+  }
+}
+
+// ============================================================
 // FRIEND CODES & PROFILES
 // ============================================================
 function getMyFriendCode() {
@@ -618,8 +882,18 @@ function escapeHtml(str) {
 
 // Auto-submit scores after key events
 function onChampionDefeated() { submitAllScores(); }
-function onLumoriCaught()     { submitLeaderboardScore("dex"); }
-function onNGPlusStarted()    { submitLeaderboardScore("ng_plus"); }
+function onLumoriCaught(isShiny) {
+  submitLeaderboardScore("dex");
+  submitLeaderboardScore("battles_won");
+  if (isShiny) submitLeaderboardScore("shiny_caught");
+}
+function onNGPlusStarted()    { submitAllScores(); }
+function onEventPointEarned() {
+  if (!G) return;
+  G.eventPoints = (G.eventPoints || 0) + 1;
+  saveGame();
+  submitLeaderboardScore("event_pts");
+}
 
 // Start on page load
 window.addEventListener("load", () => {

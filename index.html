@@ -649,19 +649,33 @@
       <button class="btn-back" id="btn-pvp-back">← Back</button>
       <h2>⚔️ PvP Battles</h2>
     </div>
-    <div class="pvp-layout">
-      <div class="pvp-post">
-        <h3>Challenge Someone</h3>
-        <p class="pvp-desc">Post a challenge and share the code. Your opponent enters it to battle you.</p>
-        <button class="btn-primary" id="btn-post-challenge">⚔️ Post Challenge</button>
-        <div id="pvp-my-code" class="pvp-code-display hidden"></div>
+    <div class="pvp-mode-tabs">
+      <button class="pvp-tab active" data-tab="simulated">🤖 Simulated</button>
+      <button class="pvp-tab" data-tab="live">⚡ Live</button>
+    </div>
+
+    <!-- SIMULATED TAB -->
+    <div id="pvp-tab-simulated" class="pvp-tab-content">
+      <div class="pvp-layout">
+        <div class="pvp-post">
+          <h3>Challenge Someone</h3>
+          <p class="pvp-desc">Post a challenge and share the code. Your opponent enters it to auto-resolve a battle.</p>
+          <button class="btn-primary" id="btn-post-challenge">⚔️ Post Challenge</button>
+          <div id="pvp-my-code" class="pvp-code-display hidden"></div>
+        </div>
+        <div class="pvp-browse">
+          <h3>Open Challenges</h3>
+          <input type="text" id="pvp-code-input" class="pvp-input" placeholder="Enter battle code..." maxlength="6">
+          <button class="btn-secondary" id="btn-accept-by-code">Accept by Code</button>
+          <div id="pvp-listings" class="pvp-list"></div>
+        </div>
       </div>
-      <div class="pvp-browse">
-        <h3>Open Challenges</h3>
-        <input type="text" id="pvp-code-input" class="pvp-input" placeholder="Enter battle code..." maxlength="6">
-        <button class="btn-secondary" id="btn-accept-by-code">Accept by Code</button>
-        <div id="pvp-listings" class="pvp-list"></div>
-      </div>
+    </div>
+
+    <!-- LIVE TAB -->
+    <div id="pvp-tab-live" class="pvp-tab-content hidden">
+      <p class="pvp-desc pvp-live-desc">Real-time battles! Create a room, share the 6-letter code with a friend, and battle live. Both players must be online at the same time.</p>
+      <div id="pvp-live-area"></div>
     </div>
   </div>
 

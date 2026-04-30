@@ -2464,3 +2464,29 @@ button, a, [role="button"] {
   height:120px; overflow-y:auto; font-size:0.72rem; margin-bottom:0.6rem;
 }
 .live-log-line { padding:0.1rem 0; border-bottom:1px solid rgba(255,255,255,0.04); color:var(--text-secondary); }
+
+/* ===== NG+ DEX BADGE ===== */
+.dex-ngplus-badge {
+  font-size:0.6rem; vertical-align:super; margin-left:1px;
+  color:var(--accent-yellow); text-shadow:0 0 4px rgba(255,200,0,0.6);
+}
+.ngplus-dex-card { border-color:rgba(255,200,0,0.35) !important; }
+.ngplus-dex-card.caught { border-color:rgba(255,200,0,0.7) !important; }
+.ngplus-detail-badge {
+  display:inline-block; margin:0.4rem 0 0.2rem;
+  background:rgba(255,200,0,0.15); border:1px solid rgba(255,200,0,0.4);
+  color:var(--accent-yellow); border-radius:6px; padding:0.2rem 0.6rem;
+  font-size:0.72rem; font-weight:bold;
+}
+
+/* ===== NG+ INFO SCREEN ===== */
+.ngplus-info-body { padding:1rem; max-width:520px; margin:0 auto; display:flex; flex-direction:column; gap:0.8rem; overflow-y:auto; }
+.ngplus-info-card {
+  background:var(--bg-panel); border:1px solid rgba(255,200,0,0.3);
+  border-radius:10px; padding:0.85rem 1rem;
+}
+.ngplus-info-card h3 { margin:0 0 0.4rem; font-size:0.95rem; color:var(--accent-yellow); }
+.ngplus-info-card p, .ngplus-info-card ul { margin:0.2rem 0 0; font-size:0.8rem; color:var(--text-secondary); line-height:1.5; }
+.ngplus-info-card ul { padding-left:1.2rem; }
+.ngplus-info-card li { margin:0.15rem 0; }
+#btn-hof-ngplus-info { margin-top:0.4rem; }

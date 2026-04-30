@@ -2861,6 +2861,8 @@ function hideTutorial() {
   document.getElementById("tutorial-overlay").classList.add("hidden");
 }
 
+const NG_PLUS_DEX_START = 322; // IDs >= this are NG+-exclusive
+
 function renderDexGrid(filter, search) {
   const grid = document.getElementById("dex-grid");
   grid.innerHTML = "";
@@ -2868,6 +2870,9 @@ function renderDexGrid(filter, search) {
     const mid = parseInt(id);
     const seen = G.seenMonsters.has(mid);
     const caught = G.caughtMonsters.has(mid);
+    const isNGPlus = mid >= NG_PLUS_DEX_START;
+    // In base game, hide NG+ entries entirely unless player is in NG+
+    if (isNGPlus && !(G.ngPlusCount > 0) && !seen) continue;
     if (filter === "caught" && !caught) continue;
     if (filter === "seen" && !seen) continue;
     if (search && !def.name.toLowerCase().includes(search.toLowerCase()) && !seen) continue;
@@ -2877,11 +2882,13 @@ function renderDexGrid(filter, search) {
     if (!seen) card.classList.add("unseen");
     else if (!caught) card.classList.add("seen");
     else card.classList.add("caught");
+    if (isNGPlus) card.classList.add("ngplus-dex-card");
     const dexSpriteHTML = seen && typeof getMonsterSpriteURL === "function"
       ? `<img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" style="border-radius:6px">`
       : `<div class="dex-emoji">${seen ? def.emoji : "❓"}</div>`;
+    const ngBadge = isNGPlus ? `<span class="dex-ngplus-badge" title="NG+ Exclusive">⭐</span>` : "";
     card.innerHTML = `
-      <div class="dex-num">#${String(mid).padStart(3,"0")}</div>
+      <div class="dex-num">#${String(mid).padStart(3,"0")}${ngBadge}</div>
       ${dexSpriteHTML}
       <div class="dex-name">${seen ? def.name : "???"}</div>
     `;
@@ -2898,6 +2905,8 @@ function showDexDetail(monsterId) {
   document.getElementById("dex-detail").classList.remove("hidden");
   document.getElementById("dex-grid").style.display = "none";
 
+  const isNGPlusMon = monsterId >= NG_PLUS_DEX_START;
+  const ngPlusDetailBadge = isNGPlusMon ? `<span class="ngplus-detail-badge">⭐ NG+ Exclusive — only found in New Game+ runs</span>` : "";
   const typeHTML = def.types.map(t => `<span class="type-badge type-${t}">${t}</span>`).join(" ");
   const bst = Object.values(def.base).reduce((s, v) => s + v, 0);
   const statsHTML = Object.entries(def.base).map(([stat, val]) => `
@@ -2994,6 +3003,7 @@ function showDexDetail(monsterId) {
       ${dexDetailSprite}
       <h3 style="margin-top:0.5rem">#${String(monsterId).padStart(3,"0")} ${def.name}</h3>
       <div>${typeHTML}</div>
+      ${ngPlusDetailBadge}
       <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:0.5rem">${caught ? "✅ Caught" : "👁 Seen"}</p>
     </div>
     <div class="detail-section">
@@ -3413,6 +3423,8 @@ function initEventListeners() {
 
   // Hall of fame / New Game+
   document.getElementById("btn-hof-ng-plus").addEventListener("click", () => startNGPlus());
+  document.getElementById("btn-hof-ngplus-info")?.addEventListener("click", () => showScreen("screen-ngplus-info"));
+  document.getElementById("btn-ngplus-info-back")?.addEventListener("click", () => showScreen("screen-hof"));
   document.getElementById("btn-hof-continue").addEventListener("click", () => {
     showScreen("screen-main");
     renderHUD();

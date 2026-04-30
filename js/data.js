@@ -3151,7 +3151,7 @@ const MONSTERS_DATA = {
   // NG+-EXCLUSIVE LUMORI (IDs 322–421) — appear only in New Game+ runs
   // =====================================================================
 
-  // ---- Tier 1: Mid-game NG+ (badges 8–11 areas) BST ~490–540 ----
+  // ---- Tier 1a: Mid-game NG+ (badges 8–11 areas) BST ~490–540 ----
   322: { id:322, name:"Venomwraith", emoji:"☠️", types:["Poison","Ghost"],
     base:{hp:78,atk:85,def:70,spa:105,spd:90,spe:92}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"poison_sting"],[10,"shadow_ball"],[20,"sludge_bomb"],[30,"miasma_cloud"],[40,"void_rend"],[50,"sludge_wave"],[60,"toxic_surge"],[5,"toxic"],[45,"venom_lance"]],
@@ -3220,7 +3220,78 @@ const MONSTERS_DATA = {
     learnset:[[1,"gust"],[8,"vine_whip"],[18,"bug_bite"],[28,"razor_leaf"],[38,"bug_buzz"],[48,"canopy_crash"],[58,"verdant_surge"],[5,"sleep_powder"],[35,"spore_burst"]],
     catchRate:28, expYield:248, rarity:"rare",
     desc:"A giant moth covered in razor-edged leaf-scales. Its wing-beats strip bark from trees.",
-    lore:"Thornmoth is a large bug-grass creature with a 2-metre wingspan. Its wings resemble overlapping serrated leaves in deep emerald and brown patterns." }
+    lore:"Thornmoth is a large bug-grass creature with a 2-metre wingspan. Its wings resemble overlapping serrated leaves in deep emerald and brown patterns." },
+
+  // ---- Tier 1b: Mid-game NG+ (badges 8–11) Steel/Ice/Electric BST ~510–550 ----
+  332: { id:332, name:"Glacicore", emoji:"🧊", types:["Ice","Steel"],
+    base:{hp:80,atk:98,def:112,spa:88,spd:95,spe:67}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"ice_punch"],[10,"metal_claw"],[20,"ice_beam"],[30,"iron_tail"],[40,"cryo_lance"],[50,"flash_cannon"],[60,"blizzard"],[5,"harden"],[38,"winter_shroud"]],
+    catchRate:25, expYield:262, rarity:"rare",
+    desc:"A golem wrapped in self-generated permafrost. Its steel core never melts, no matter the heat.",
+    lore:"Glacicore is an ice-steel creature 1.8 metres tall resembling a humanoid armour suit formed from interlocking plates of iron and glacial ice." },
+
+  333: { id:333, name:"Voltfang", emoji:"🐺", types:["Electric","Dark"],
+    base:{hp:78,atk:108,def:72,spa:92,spd:80,spe:110}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"thunder_shock"],[10,"shadowstep"],[20,"thunderbolt"],[30,"void_rend"],[40,"thunder"],[50,"phantom_claw"],[60,"volt_surge"],[5,"thunder_wave"],[38,"shadow_ball"]],
+    catchRate:26, expYield:258, rarity:"rare",
+    desc:"A storm wolf that channels voltage through its dark fur. Its howl triggers localised lightning strikes.",
+    lore:"Voltfang is an electric-dark wolf 1.4 metres at the shoulder with jet-black fur shot through with crackling yellow lightning. Its eyes glow violet." },
+
+  334: { id:334, name:"Ferrocrush", emoji:"⚙️", types:["Steel","Ground"],
+    base:{hp:95,atk:120,def:115,spa:60,spd:80,spe:70}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"metal_claw"],[10,"earth_power"],[20,"iron_tail"],[30,"fissure_slam"],[40,"flash_cannon"],[50,"terra_spike"],[60,"fossil_rush"],[5,"harden"],[38,"alloy_edge"]],
+    catchRate:22, expYield:268, rarity:"rare",
+    desc:"A mechanical behemoth forged in Ironforge's deepest furnaces. It was never meant to leave.",
+    lore:"Ferrocrush is a 2.5-metre steel-ground golem with a body of smelted iron and a core of compressed ore. Its joints run at thousands of atmospheres of pressure." },
+
+  335: { id:335, name:"Frostprowl", emoji:"🐆", types:["Ice","Wind"],
+    base:{hp:75,atk:102,def:70,spa:88,spd:80,spe:125}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"powder_snow"],[8,"gust"],[18,"air_slash"],[28,"ice_beam"],[38,"cryo_lance"],[48,"blizzard"],[58,"tailwind_strike"],[5,"winter_shroud"],[38,"zephyr_dance"]],
+    catchRate:27, expYield:255, rarity:"rare",
+    desc:"A predator born in arctic storm-fronts. It rides its own blizzard to close in on prey invisibly.",
+    lore:"Frostprowl is an ice-wind feline 1.5 metres long with pale blue-white fur and translucent crystalline whiskers. It can achieve speeds of 120 km/h in an open blizzard." },
+
+  336: { id:336, name:"Coilstrike", emoji:"🐍", types:["Electric","Poison"],
+    base:{hp:72,atk:88,def:75,spa:112,spd:90,spe:103}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"thunder_shock"],[10,"poison_sting"],[20,"thunderbolt"],[30,"sludge_bomb"],[40,"thunder"],[50,"acid_rain"],[60,"volt_surge"],[5,"thunder_wave"],[38,"toxic_surge"]],
+    catchRate:28, expYield:252, rarity:"rare",
+    desc:"A serpent that generates electricity through its venom glands. A single bite delivers both poison and paralysis.",
+    lore:"Coilstrike is a sleek electric-poison snake 2.5 metres long with alternating bands of bright yellow and dark purple scales. Electrical discharge is visible along its spine." },
+
+  337: { id:337, name:"Ashgolem", emoji:"🔥", types:["Fire","Rock"],
+    base:{hp:100,atk:112,def:105,spa:88,spd:78,spe:57}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"ember"],[10,"rock_throw"],[20,"flamethrower"],[30,"rock_slide"],[40,"heat_wave"],[50,"fossil_rush"],[60,"fire_blast"],[5,"harden"],[40,"magma_surge"]],
+    catchRate:24, expYield:265, rarity:"rare",
+    desc:"A creature born from a volcanic eruption, its body is a walking magma chamber encased in basalt.",
+    lore:"Ashgolem is a fire-rock creature 2 metres tall with a body of cooling basalt cracked to reveal glowing magma beneath. Ash and cinders constantly drift from its surface." },
+
+  338: { id:338, name:"Rimeclaw", emoji:"🦅", types:["Ice","Flying"],
+    base:{hp:76,atk:105,def:72,spa:90,spd:82,spe:115}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"powder_snow"],[8,"gust"],[18,"ice_punch"],[28,"air_slash"],[38,"cryo_lance"],[48,"blizzard"],[58,"tailwind_strike"],[5,"zephyr_dance"],[35,"ice_beam"]],
+    catchRate:25, expYield:258, rarity:"rare",
+    desc:"A hawk that nests on storm-capped peaks. Its talons are perpetually coated in razor-sharp ice.",
+    lore:"Rimeclaw is an ice-flying raptor with a 2.4-metre wingspan and talons of permanent glacial ice that never melt. Its primary feathers cut like edged weapons." },
+
+  339: { id:339, name:"Voltbeetle", emoji:"⚡", types:["Bug","Electric"],
+    base:{hp:78,atk:95,def:100,spa:88,spd:85,spe:94}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"bug_bite"],[10,"thunder_shock"],[20,"metal_claw"],[30,"thunderbolt"],[40,"bug_buzz"],[50,"volt_surge"],[60,"thunder"],[5,"harden"],[38,"alloy_edge"]],
+    catchRate:26, expYield:257, rarity:"rare",
+    desc:"A beetle that accumulates static charge on its elytra. Touching its wing-covers triggers a full discharge.",
+    lore:"Voltbeetle is a squat beetle 0.9 metres long with highly polished elytra that generate static electricity from air resistance alone. A constant low hum surrounds it." },
+
+  340: { id:340, name:"Cryoshard", emoji:"💎", types:["Ice","Psychic"],
+    base:{hp:74,atk:80,def:85,spa:118,spd:105,spe:78}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"powder_snow"],[10,"psychic_move"],[20,"ice_beam"],[30,"psystrike"],[40,"cryo_lance"],[50,"mind_shatter"],[60,"blizzard"],[5,"winter_shroud"],[38,"prism_ward"]],
+    catchRate:24, expYield:262, rarity:"rare",
+    desc:"A sentient crystal of psychically-active ice. Its facets reflect possible futures.",
+    lore:"Cryoshard is a floating ice-psychic crystal 1 metre across with an irregular faceted form that constantly shifts. Each face reflects a different perceived future of whoever looks into it." },
+
+  341: { id:341, name:"Mirestone", emoji:"🪨", types:["Rock","Psychic"],
+    base:{hp:85,atk:82,def:108,spa:105,spd:98,spe:62}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"rock_throw"],[10,"psychic_move"],[20,"rock_slide"],[30,"psystrike"],[40,"fossil_rush"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"harden"]],
+    catchRate:24, expYield:263, rarity:"rare",
+    desc:"A monolith of psychically-resonant stone found at ancient ley line intersections.",
+    lore:"Mirestone is a floating rock-psychic entity resembling a worn monolith 1.5 metres tall. Ancient carvings on its surface glow when it uses psychic powers." }
 };
 
 

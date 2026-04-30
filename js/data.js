@@ -3291,7 +3291,78 @@ const MONSTERS_DATA = {
     learnset:[[1,"rock_throw"],[10,"psychic_move"],[20,"rock_slide"],[30,"psystrike"],[40,"fossil_rush"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"harden"]],
     catchRate:24, expYield:263, rarity:"rare",
     desc:"A monolith of psychically-resonant stone found at ancient ley line intersections.",
-    lore:"Mirestone is a floating rock-psychic entity resembling a worn monolith 1.5 metres tall. Ancient carvings on its surface glow when it uses psychic powers." }
+    lore:"Mirestone is a floating rock-psychic entity resembling a worn monolith 1.5 metres tall. Ancient carvings on its surface glow when it uses psychic powers." },
+
+  // ---- Tier 2: Late-game NG+ (badges 12–16 areas) BST ~545–590 ----
+  342: { id:342, name:"Wraithking", emoji:"👑", types:["Ghost","Dark"],
+    base:{hp:82,atk:112,def:85,spa:110,spd:95,spe:108}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"shadow_ball"],[10,"void_rend"],[20,"umbral_claw"],[30,"phantom_claw"],[40,"shadow_sneak"],[50,"shadowstep"],[60,"neural_storm"],[5,"toxic"],[38,"mind_shatter"]],
+    catchRate:18, expYield:285, rarity:"rare",
+    desc:"The apex ghost predator — a crowned wraith that rules over all lesser ghost-types in its domain.",
+    lore:"Wraithking is a ghost-dark entity 2 metres tall with a spectral crown of black flame. It commands lesser ghost-types and its presence causes all light sources within 50 metres to dim." },
+
+  343: { id:343, name:"Shadowreave", emoji:"🌑", types:["Dark","Psychic"],
+    base:{hp:78,atk:95,def:78,spa:122,spd:100,spe:105}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"shadowstep"],[10,"psychic_move"],[20,"void_rend"],[30,"psystrike"],[40,"phantom_claw"],[50,"mind_shatter"],[60,"neural_storm"],[5,"shadow_sneak"],[38,"dreamweave"]],
+    catchRate:18, expYield:283, rarity:"rare",
+    desc:"A being that exists simultaneously in darkness and thought. It reads minds to hunt more efficiently.",
+    lore:"Shadowreave is a dark-psychic entity 1.6 metres tall with a body composed of living shadow and two luminous violet eyes. Its silhouette is never quite the same shape twice." },
+
+  344: { id:344, name:"Glimmeritch", emoji:"🧚", types:["Fairy","Ghost"],
+    base:{hp:75,atk:82,def:80,spa:120,spd:108,spe:115}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"fairy_wind"],[10,"shadow_ball"],[20,"fae_requiem"],[30,"psystrike"],[40,"phantom_claw"],[50,"void_rend"],[60,"fae_requiem"],[5,"dreamweave"],[38,"prism_ward"]],
+    catchRate:18, expYield:280, rarity:"rare",
+    desc:"A corrupted fairy that has passed through death and returned. Its glow is beautiful and deeply unsettling.",
+    lore:"Glimmeritch is a fairy-ghost creature resembling a 0.6-metre glowing humanoid with translucent wings and a body that flickers between solid and spectral forms." },
+
+  345: { id:345, name:"Voidcoil", emoji:"🌀", types:["Dark","Dragon"],
+    base:{hp:85,atk:115,def:88,spa:105,spd:90,spe:95}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"dragon_breath"],[10,"void_rend"],[20,"dragon_claw"],[30,"shadow_ball"],[40,"wyrm_strike"],[50,"phantom_claw"],[60,"cataclysm_breath"],[5,"dragon_dance"],[38,"primordial_roar"]],
+    catchRate:16, expYield:290, rarity:"rare",
+    desc:"A dragon born from a void rift. Its scales absorb all light, making it nearly invisible in darkness.",
+    lore:"Voidcoil is a dark-dragon serpent 4 metres long with scales so black they create a visible absence of light. Its eyes emit dim crimson light visible only in complete darkness." },
+
+  346: { id:346, name:"Astralwing", emoji:"🌟", types:["Psychic","Flying"],
+    base:{hp:80,atk:88,def:78,spa:118,spd:105,spe:115}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"gust"],[10,"psychic_move"],[20,"air_slash"],[30,"psystrike"],[40,"tailwind_strike"],[50,"mind_shatter"],[60,"neural_storm"],[5,"zephyr_dance"],[38,"dreamweave"]],
+    catchRate:17, expYield:285, rarity:"rare",
+    desc:"A being of pure psychic energy given wings. It navigates by reading the surface thoughts of other creatures.",
+    lore:"Astralwing is a psychic-flying entity with a 3-metre wingspan composed of solidified psychic energy. Its body is a luminous humanoid shape with feathers made of thought-light." },
+
+  347: { id:347, name:"Embersteel", emoji:"🔩", types:["Steel","Fire"],
+    base:{hp:88,atk:118,def:112,spa:88,spd:85,spe:79}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"metal_claw"],[10,"ember"],[20,"iron_tail"],[30,"flamethrower"],[40,"flash_cannon"],[50,"heat_wave"],[60,"solar_flare"],[5,"embercloak"],[38,"alloy_edge"]],
+    catchRate:16, expYield:292, rarity:"rare",
+    desc:"Forged in Ironforge's legendary seventh furnace, it is the pinnacle of fire-steel metallurgy.",
+    lore:"Embersteel is a steel-fire golem 2.2 metres tall with a body of superheated steel that glows white-hot at its joints. It was created as a guardian automaton and has never been fully tamed." },
+
+  348: { id:348, name:"Galedrake", emoji:"🌪️", types:["Dragon","Wind"],
+    base:{hp:82,atk:108,def:82,spa:108,spd:90,spe:115}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"gust"],[10,"dragon_breath"],[20,"air_slash"],[30,"dragon_claw"],[40,"tailwind_strike"],[50,"wyvern_gust"],[60,"scale_storm"],[5,"zephyr_dance"],[38,"wyrm_strike"]],
+    catchRate:16, expYield:288, rarity:"rare",
+    desc:"A dragon that rides perpetual cyclones of its own creation. It cannot stop flying or the storm dies.",
+    lore:"Galedrake is a dragon-wind creature 3.5 metres long with broad swept-back wings that generate a constant personal cyclone. The air around it is always in violent circular motion." },
+
+  349: { id:349, name:"Crystavault", emoji:"💠", types:["Ice","Rock"],
+    base:{hp:92,atk:105,def:125,spa:85,spd:100,spe:62}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"ice_punch"],[10,"rock_throw"],[20,"ice_beam"],[30,"rock_slide"],[40,"cryo_lance"],[50,"fossil_rush"],[60,"blizzard"],[5,"harden"],[38,"winter_shroud"]],
+    catchRate:16, expYield:292, rarity:"rare",
+    desc:"A fortress of living glacier-stone. Its outer shell has never been successfully breached in recorded history.",
+    lore:"Crystavault is an ice-rock creature 2.5 metres tall resembling a fortified tower of layered glacial ice and granite. Ancient siege equipment has been found bent and broken around specimens." },
+
+  350: { id:350, name:"Fernwrath", emoji:"🌿", types:["Grass","Dragon"],
+    base:{hp:85,atk:110,def:88,spa:108,spd:92,spe:95}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"vine_whip"],[10,"dragon_breath"],[20,"root_lance"],[30,"dragon_pulse"],[40,"canopy_crash"],[50,"wyrm_strike"],[60,"verdant_surge"],[5,"dragon_dance"],[38,"ancient_breath"]],
+    catchRate:15, expYield:292, rarity:"rare",
+    desc:"A dragon grown from the world's oldest forest. Its scales are living wood; vines sprout from its wounds.",
+    lore:"Fernwrath is a grass-dragon 4 metres long with scales of polished dark wood and a mane of living ferns. Where it walks, plants accelerate through their entire life cycle in hours." },
+
+  351: { id:351, name:"Spectravore", emoji:"🌈", types:["Fairy","Psychic"],
+    base:{hp:78,atk:85,def:82,spa:125,spd:110,spe:108}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[30,"psystrike"],[40,"mind_shatter"],[50,"neural_storm"],[60,"fae_requiem"],[5,"dreamweave"],[38,"prism_ward"]],
+    catchRate:15, expYield:288, rarity:"rare",
+    desc:"A being of pure prismatic thought that feeds on raw psychic energy. It is invariably found near psychic Lumori.",
+    lore:"Spectravore is a fairy-psychic entity 1 metre tall that appears as a floating iridescent humanoid silhouette surrounded by a shifting aura of all visible colours." }
 };
 
 

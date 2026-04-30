@@ -3433,7 +3433,78 @@ const MONSTERS_DATA = {
     learnset:[[1,"earth_power"],[10,"dragon_claw"],[20,"fissure_slam"],[30,"dragon_pulse"],[40,"terra_spike"],[50,"wyrm_strike"],[60,"eon_crash"],[5,"dragon_dance"],[38,"primordial_roar"]],
     catchRate:10, expYield:320, rarity:"rare",
     desc:"A dragon so old it has become part of the land itself. Earthquakes are merely it turning in its sleep.",
-    lore:"Tectolith is a ground-dragon 7 metres long with a body of compacted tectonic plates and continents of moss and stone across its back. It is older than most mountain ranges." }
+    lore:"Tectolith is a ground-dragon 7 metres long with a body of compacted tectonic plates and continents of moss and stone across its back. It is older than most mountain ranges." },
+
+  // ---- Tier 3b: More post-game NG+ BST ~590–640 ----
+  362: { id:362, name:"Lunaspectre", emoji:"🌕", types:["Psychic","Ghost"],
+    base:{hp:85,atk:95,def:90,spa:135,spd:115,spe:115}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"psychic_move"],[10,"shadow_ball"],[20,"psystrike"],[30,"void_rend"],[40,"mind_shatter"],[50,"phantom_claw"],[60,"neural_storm"],[5,"dreamweave"],[38,"prism_ward"]],
+    catchRate:10, expYield:320, rarity:"rare",
+    desc:"A moon-born spectre woven from lunar psychic energy. It appears only on nights of the full moon.",
+    lore:"Lunaspectre is a psychic-ghost entity 2 metres tall that resembles a human silhouette composed of condensed moonlight. Its edges blur and shimmer like a reflection on disturbed water." },
+
+  363: { id:363, name:"Chromavast", emoji:"🎨", types:["Normal","Psychic"],
+    base:{hp:105,atk:108,def:100,spa:120,spd:108,spe:90}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"headbutt"],[10,"psychic_move"],[20,"body_slam"],[30,"psystrike"],[40,"hyper_beam"],[50,"mind_shatter"],[60,"neural_storm"],[5,"battle_cry"],[38,"dreamweave"]],
+    catchRate:8, expYield:322, rarity:"rare",
+    desc:"A colossal entity that shifts colour with its mood. When all colours appear simultaneously, it is enraged.",
+    lore:"Chromavast is a normal-psychic creature 3 metres tall with a smooth ovoid body that cycles through every colour in the visible spectrum. Its form is constantly, slowly shifting." },
+
+  364: { id:364, name:"Deepcrawler", emoji:"🦀", types:["Water","Steel"],
+    base:{hp:100,atk:118,def:128,spa:88,spd:100,spe:80}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"water_gun"],[10,"metal_claw"],[20,"tidal_crush"],[30,"iron_tail"],[40,"hydro_pump"],[50,"flash_cannon"],[60,"sea_serpent_strike"],[5,"harden"],[38,"alloy_edge"]],
+    catchRate:9, expYield:320, rarity:"rare",
+    desc:"An armoured crustacean from the ocean floor. Its shell is composed of self-reinforcing bio-steel alloy.",
+    lore:"Deepcrawler is a water-steel crustacean 2.5 metres across with a carapace of bio-synthesised steel alloy. Deep-sea pressure sensors have detected it moving at depths of 11 kilometres." },
+
+  365: { id:365, name:"Cinderking", emoji:"🔥", types:["Fire","Dark"],
+    base:{hp:90,atk:125,def:95,spa:112,spd:92,spe:108}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"ember"],[10,"void_rend"],[20,"flamethrower"],[30,"shadow_ball"],[40,"solar_flare"],[50,"phantom_claw"],[60,"inferno"],[5,"char_dance"],[38,"umbral_claw"]],
+    catchRate:9, expYield:318, rarity:"rare",
+    desc:"A fire tyrant that rules through fear and flame. Its crown of black fire is cold to the touch.",
+    lore:"Cinderking is a fire-dark creature 2.5 metres tall with a regal, bipedal form and a crown of black fire. It rules fire-type territory through dominance displays so intense that lesser fire-types flee entire regions." },
+
+  366: { id:366, name:"Starlance", emoji:"⭐", types:["Psychic","Steel"],
+    base:{hp:82,atk:115,def:110,spa:120,spd:100,spe:108}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"metal_claw"],[10,"psychic_move"],[20,"iron_tail"],[30,"psystrike"],[40,"flash_cannon"],[50,"mind_shatter"],[60,"neural_storm"],[5,"alloy_edge"],[38,"prism_ward"]],
+    catchRate:9, expYield:322, rarity:"rare",
+    desc:"A celestial lance that achieved sentience. It fell from orbit and has been fighting battles ever since.",
+    lore:"Starlance is a psychic-steel entity 2 metres long resembling an elongated lance of alien metal with psychic runes carved along its entire length. It moves by telekinesis." },
+
+  367: { id:367, name:"Bouldertide", emoji:"🌊", types:["Water","Rock"],
+    base:{hp:108,atk:115,def:120,spa:95,spd:98,spe:78}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"water_gun"],[10,"rock_throw"],[20,"surf"],[30,"rock_slide"],[40,"hydro_pump"],[50,"fossil_rush"],[60,"sea_serpent_strike"],[5,"harden"],[38,"tidal_crush"]],
+    catchRate:9, expYield:318, rarity:"rare",
+    desc:"A creature that is half ocean, half cliff-face. It creates tsunamis as a side effect of moving.",
+    lore:"Bouldertide is a water-rock creature 4 metres tall resembling a tide-carved sea stack that walks. Water constantly flows through channels in its stone body." },
+
+  368: { id:368, name:"Willowisp", emoji:"🕯️", types:["Ghost","Fire"],
+    base:{hp:80,atk:95,def:82,spa:130,spd:110,spe:120}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"ember"],[10,"shadow_ball"],[20,"flamethrower"],[30,"void_rend"],[40,"solar_flare"],[50,"phantom_claw"],[60,"inferno"],[5,"shadowstep"],[38,"shadow_sneak"]],
+    catchRate:9, expYield:320, rarity:"rare",
+    desc:"An ancient will-o-the-wisp grown to monstrous power. It leads the living into the realm of flame.",
+    lore:"Willowisp is a ghost-fire entity resembling a human-sized floating flame with a faint spectral face visible in its core. Its fire burns without fuel and consumes nothing physical." },
+
+  369: { id:369, name:"Gravithorn", emoji:"🔮", types:["Psychic","Ground"],
+    base:{hp:95,atk:112,def:105,spa:118,spd:100,spe:88}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"earth_power"],[10,"psychic_move"],[20,"terra_spike"],[30,"psystrike"],[40,"fissure_slam"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"dreamweave"]],
+    catchRate:9, expYield:320, rarity:"rare",
+    desc:"A psychic that has learned to manipulate gravity. It walks on any surface, including the sky.",
+    lore:"Gravithorn is a psychic-ground entity 1.8 metres tall with a body of psychically compressed stone. It can reverse gravity in a 30-metre radius and routinely walks on vertical surfaces." },
+
+  370: { id:370, name:"Vortexwing", emoji:"🌪️", types:["Wind","Electric"],
+    base:{hp:82,atk:105,def:80,spa:118,spd:95,spe:128}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"gust"],[10,"thunder_shock"],[20,"air_slash"],[30,"thunderbolt"],[40,"tailwind_strike"],[50,"volt_surge"],[60,"thunder"],[5,"zephyr_dance"],[38,"thunder_wave"]],
+    catchRate:9, expYield:322, rarity:"rare",
+    desc:"A living tornado that generates electricity from its rotation. Anything inside it is shredded and electrocuted simultaneously.",
+    lore:"Vortexwing is a wind-electric entity 3 metres tall that exists as a permanent self-sustaining vortex. At its core is a dense electromagnetic nucleus visible as a crackling violet sphere." },
+
+  371: { id:371, name:"Nullform", emoji:"⬛", types:["Dark","Normal"],
+    base:{hp:100,atk:115,def:100,spa:115,spd:105,spe:105}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"void_rend"],[10,"headbutt"],[20,"shadow_ball"],[30,"body_slam"],[40,"phantom_claw"],[50,"hyper_beam"],[60,"neural_storm"],[5,"shadowstep"],[38,"battle_cry"]],
+    catchRate:8, expYield:325, rarity:"rare",
+    desc:"A creature with no definite type at heart. It absorbs the nature of whatever it defeats.",
+    lore:"Nullform is a dark-normal creature 2 metres tall with a body of perfect matte black that reflects no light at all. It has no fixed features but rearranges its form to match whatever it has most recently defeated." }
 };
 
 

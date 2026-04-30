@@ -35,6 +35,7 @@ async function initOnline() {
     console.log("Online ready, uid:", firebaseUID);
     loadLiveEvent();
     renderOnlineHUD();
+    syncPlayerProfile();
   } catch(e) {
     console.warn("Firebase init failed:", e.message);
   }
@@ -513,6 +514,98 @@ async function loadOpenChallenges() {
     });
   } catch(e) {
     container.innerHTML = '<div class="pvp-error">Failed to load challenges.</div>';
+  }
+}
+
+// ============================================================
+// FRIEND CODES & PROFILES
+// ============================================================
+function getMyFriendCode() {
+  if (!firebaseUID) return null;
+  return firebaseUID.slice(-8).toUpperCase();
+}
+
+async function syncPlayerProfile() {
+  if (!onlineReady || !G) return;
+  const profile = {
+    name: G.playerName,
+    badges: (G.badges || []).length,
+    champion: !!G.championDefeated,
+    ngPlus: G.ngPlusCount || 0,
+    dex: G.caughtMonsters?.size || 0,
+    lastSeen: Date.now()
+  };
+  await firebaseDB.ref(`players/${firebaseUID}/profile`).set(profile);
+}
+
+async function showFriendsScreen() {
+  if (!requireOnline()) return;
+  showScreen("screen-friends");
+  const code = getMyFriendCode();
+  const el = document.getElementById("my-friend-code");
+  if (el) el.textContent = code || "---";
+  loadFriendsList();
+}
+
+async function addFriend(code) {
+  if (!requireOnline() || !code) return;
+  code = code.toUpperCase().trim();
+  // Search for UID with matching last-8 code
+  const snap = await firebaseDB.ref("players").once("value");
+  let foundUID = null;
+  snap.forEach(child => {
+    if (child.key.slice(-8).toUpperCase() === code && child.key !== firebaseUID) {
+      foundUID = child.key;
+    }
+  });
+  if (!foundUID) { showNotification("Friend code not found. Make sure they have played online."); return; }
+  await firebaseDB.ref(`players/${firebaseUID}/friends/${foundUID}`).set(true);
+  showNotification("Friend added! ✅");
+  loadFriendsList();
+}
+
+async function removeFriend(friendUID) {
+  if (!requireOnline()) return;
+  await firebaseDB.ref(`players/${firebaseUID}/friends/${friendUID}`).remove();
+  loadFriendsList();
+}
+
+async function loadFriendsList() {
+  const container = document.getElementById("friends-list");
+  if (!container) return;
+  container.innerHTML = '<div class="friends-loading">Loading...</div>';
+  try {
+    const friendsSnap = await firebaseDB.ref(`players/${firebaseUID}/friends`).once("value");
+    const friendUIDs = [];
+    friendsSnap.forEach(child => friendUIDs.push(child.key));
+    if (!friendUIDs.length) {
+      container.innerHTML = '<div class="friends-empty">No friends yet. Add someone using their code!</div>';
+      return;
+    }
+    const profiles = await Promise.all(friendUIDs.map(async uid => {
+      const snap = await firebaseDB.ref(`players/${uid}/profile`).once("value");
+      return { uid, ...snap.val() };
+    }));
+    container.innerHTML = profiles.map(p => `
+      <div class="friend-card">
+        <div class="friend-info">
+          <div class="friend-name">${escapeHtml(p.name || "Trainer")}</div>
+          <div class="friend-stats">
+            🏅 ${p.badges || 0}/16
+            ${p.champion ? " · 🏆 Champion" : ""}
+            ${p.ngPlus > 0 ? ` · <span class="ng-badge">NG+${p.ngPlus}</span>` : ""}
+            · 📖 ${p.dex || 0}
+          </div>
+          <div class="friend-lastseen">Last seen: ${p.lastSeen ? timeSince(p.lastSeen) : "Unknown"}</div>
+        </div>
+        <div class="friend-code-label">Code: ${p.uid.slice(-8).toUpperCase()}</div>
+        <button class="btn-danger friend-remove" data-uid="${p.uid}">Remove</button>
+      </div>`).join("");
+    container.querySelectorAll(".friend-remove").forEach(btn => {
+      btn.addEventListener("click", () => removeFriend(btn.dataset.uid));
+    });
+  } catch(e) {
+    container.innerHTML = '<div class="friends-error">Failed to load friends list.</div>';
   }
 }
 

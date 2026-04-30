@@ -4356,7 +4356,7 @@ const WORLD_DATA = {
   void_nexus: {
     id:"void_nexus", name:"Void Nexus", icon:"🌑", type:"special",
     desc:"The heart of Umbra's post-defeat operations — a nexus of void energy deep in unmapped territory. Only the strongest trainers reach this place. Ultra-rare Lumori cluster around the residual void energy.",
-    connections:["shadow_archive"],
+    connections:["shadow_archive","prismatic_rift"],
     wildMonsters:[
       {id:270, minLv:72, maxLv:78, rate:20},
       {id:267, minLv:72, maxLv:78, rate:20},
@@ -4366,6 +4366,34 @@ const WORLD_DATA = {
     ],
     hasGym:false, requiredBadges:16, requiresChampion:true,
     hasUmbraEncounter:true, mapPos:{x:83, y:79}
+  },
+
+  // ===== NG+ EXCLUSIVE AREAS =====
+  prismatic_rift: {
+    id:"prismatic_rift", name:"Prismatic Rift", icon:"🌈", type:"special",
+    desc:"A fracture in reality shimmering with all colours at once. Only those who have already conquered Lumoria once can perceive its existence. Lumori here have been twisted by exposure to every type simultaneously.",
+    connections:["void_nexus","apex_summit"],
+    wildMonsters:[
+      {id:300, minLv:82, maxLv:88, rate:20},
+      {id:150, minLv:83, maxLv:88, rate:15},
+      {id:130, minLv:84, maxLv:90, rate:10},
+      {id:310, minLv:84, maxLv:90, rate:10},
+      {id:321, minLv:85, maxLv:92, rate:5}
+    ],
+    hasGym:false, requiredBadges:16, requiresChampion:true, requiresNGPlus:true,
+    mapPos:{x:76, y:84}
+  },
+  apex_summit: {
+    id:"apex_summit", name:"Apex Summit", icon:"⛰️", type:"special",
+    desc:"The highest point in all of Lumoria, accessible only to trainers who have already stood as Champion. A legendary Lumori of pure light waits here for someone worthy of a second journey.",
+    connections:["prismatic_rift"],
+    wildMonsters:[
+      {id:1,   minLv:85, maxLv:90, rate:25},
+      {id:130, minLv:86, maxLv:92, rate:20},
+      {id:321, minLv:88, maxLv:95, rate:5}
+    ],
+    hasGym:false, requiredBadges:16, requiresChampion:true, requiresNGPlus:true,
+    isApexBoss:true, mapPos:{x:70, y:88}
   },
 
 };

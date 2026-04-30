@@ -2371,3 +2371,33 @@ button, a, [role="button"] {
 .pvp-badges { font-size: 0.75rem; color: var(--text-muted); }
 .pvp-code { font-size: 0.75rem; color: var(--accent-blue); letter-spacing: 1px; }
 .pvp-loading, .pvp-empty, .pvp-error { padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+
+/* ==========================================
+   FRIENDS SCREEN
+   ========================================== */
+.friends-layout { padding: 0.75rem 1rem; }
+.friends-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.3rem; }
+.my-code-display {
+  font-size: 2rem; font-weight: bold; letter-spacing: 6px;
+  color: var(--accent-yellow); text-align: center; padding: 0.5rem;
+  background: var(--bg-panel); border: 1px solid var(--accent-yellow);
+  border-radius: 8px; margin-bottom: 0.3rem;
+}
+.friends-hint { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 1rem; }
+.add-friend-section { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+.friend-code-input {
+  flex: 1; background: var(--bg-panel); border: 1px solid var(--border);
+  color: var(--text-primary); border-radius: 6px; padding: 0.4rem 0.6rem;
+  font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase;
+}
+.friend-card {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.6rem; margin-bottom: 0.4rem;
+}
+.friend-info { flex: 1; }
+.friend-name { font-size: 0.9rem; font-weight: bold; color: var(--accent-blue); }
+.friend-stats { font-size: 0.75rem; color: var(--text-secondary); margin: 0.1rem 0; }
+.friend-lastseen { font-size: 0.68rem; color: var(--text-muted); }
+.friend-code-label { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 1px; }
+.friends-loading, .friends-empty, .friends-error { padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }

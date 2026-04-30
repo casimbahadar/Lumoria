@@ -206,11 +206,9 @@ function showSaveSlots() {
 // ---- New Game+ ----
 function startNGPlus() {
   if (!G) return;
-  if (!confirm("Start New Game+? You will keep your Lumori box, items, and half your money. The world will be harder.")) return;
+  if (!confirm("Start New Game+? Your box Lumori carry over. Enemies will be significantly stronger and new areas unlock.")) return;
   window._ngPlusCarry = {
     box: [...G.box],
-    bag: { ...G.bag },
-    money: Math.floor(G.money / 2),
     ngCount: (G.ngPlusCount || 0) + 1,
     name: G.playerName,
     slot: G.saveSlot
@@ -522,7 +520,7 @@ function renderWorldMap() {
 
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
-    if (area.requiresChampion && !G?.championDefeated) continue;
+    if (area.requiresChampion && !G?.championDefeated || (area.requiresNGPlus && !(G?.ngPlusCount > 0))) continue;
     for (const conn of area.connections) {
       const sortedKey = [areaId, conn].sort().join("|");
       if (drawnConnections.has(sortedKey)) continue;
@@ -530,6 +528,7 @@ function renderWorldMap() {
       const toArea = WORLD_DATA[conn];
       if (!toArea || !toArea.mapPos) continue;
       if (toArea.requiresChampion && !G?.championDefeated) continue;
+      if (toArea.requiresNGPlus && !(G?.ngPlusCount > 0)) continue;
 
       const x1 = (area.mapPos.x / 100) * mapW;
       const y1 = (area.mapPos.y / 100) * mapH;
@@ -634,7 +633,7 @@ function renderWorldMap() {
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
     if (area.type === "route") continue; // Routes are on the paths now
-    if (area.requiresChampion && !G?.championDefeated) continue;
+    if (area.requiresChampion && !G?.championDefeated || (area.requiresNGPlus && !(G?.ngPlusCount > 0))) continue;
     const x = (area.mapPos.x / 100) * mapW;
     const y = (area.mapPos.y / 100) * mapH;
 
@@ -685,6 +684,10 @@ function travelTo(areaId) {
   if (!area) return;
   if (area.requiresChampion && !G.championDefeated) {
     showNotification(`🔒 ${area.name} is only accessible after becoming Champion.`);
+    return;
+  }
+  if (area.requiresNGPlus && !(G.ngPlusCount > 0)) {
+    showNotification(`⭐ ${area.name} is only accessible in New Game+.`);
     return;
   }
   if (G.badges.length < (area.requiredBadges || 0)) {
@@ -3007,8 +3010,6 @@ function initEventListeners() {
     if (carry) {
       G.ngPlusCount = carry.ngCount;
       G.box = carry.box;
-      G.bag = carry.bag;
-      G.money = carry.money;
       window._ngPlusCarry = null;
     }
     showScreen("screen-main");
@@ -3086,6 +3087,11 @@ function initEventListeners() {
   document.getElementById("btn-achievements-back")?.addEventListener("click", () => showScreen("screen-main"));
 
   // Online screens
+  document.getElementById("btn-friends-back")?.addEventListener("click", () => showScreen("screen-main"));
+  document.getElementById("btn-add-friend")?.addEventListener("click", () => {
+    const code = document.getElementById("add-friend-input")?.value.trim();
+    if (code && typeof addFriend === "function") addFriend(code);
+  });
   document.getElementById("btn-lb-back")?.addEventListener("click", () => showScreen("screen-main"));
   document.getElementById("btn-trade-back")?.addEventListener("click", () => showScreen("screen-main"));
   document.getElementById("btn-pvp-back")?.addEventListener("click", () => showScreen("screen-main"));

@@ -1443,7 +1443,7 @@ html, body {
 /* ==========================================
    OVERLAYS
    ========================================== */
-#notification-overlay, #levelup-overlay, #evolution-overlay, #battle-mode-overlay, #evo-item-overlay {
+#notification-overlay, #levelup-overlay, #evolution-overlay, #battle-mode-overlay, #evo-item-overlay, #vaeldris-party-select {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
@@ -1463,6 +1463,42 @@ html, body {
   width: 90%;
   text-align: center;
 }
+
+#vaeldris-party-box {
+  background: var(--bg-panel);
+  border: 2px solid var(--accent-purple, #8e44ad);
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 480px;
+  width: 95%;
+  max-height: 85vh;
+  overflow-y: auto;
+  text-align: center;
+}
+
+#vaeldris-select-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.vaeldris-select-card {
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem 0.5rem;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.vaeldris-select-card:hover:not(.fainted) { border-color: var(--accent-blue, #3498db); }
+.vaeldris-select-card.chosen { border-color: var(--accent-yellow, #f1c40f); background: rgba(241,196,15,0.08); }
+.vaeldris-select-card.fainted { opacity: 0.4; cursor: not-allowed; }
+.vaeldris-card-emoji { font-size: 2rem; }
+.vaeldris-card-name { font-size: 0.8rem; font-weight: 600; margin: 0.25rem 0; }
+.vaeldris-card-level { font-size: 0.75rem; color: var(--text-muted); }
+.vaeldris-card-hp { font-size: 0.7rem; margin-top: 0.2rem; }
 
 #notification-text { margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.6; }
 
@@ -2213,3 +2249,305 @@ button, a, [role="button"] {
 /* Roaming legendary button — distinct pulse colour */
 #btn-roaming { border-color: #40c070; color: #40c070; }
 #btn-roaming:hover { background: rgba(64,192,112,0.15); }
+
+/* ==========================================
+   SAVE SLOT SCREEN
+   ========================================== */
+#screen-saveslots {
+  justify-content: center; align-items: center;
+  background: linear-gradient(135deg, #0d1117 0%, #1a0a2e 50%, #0d1117 100%);
+  padding: 1.5rem;
+}
+.saveslots-wrap { width: 100%; max-width: 520px; }
+.saveslots-title {
+  text-align: center; font-size: 1.4rem; margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, #ffd700, #a78bfa); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+}
+.slot-card {
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1rem; margin-bottom: 0.75rem;
+  transition: border-color 0.2s;
+}
+.slot-occupied { border-color: var(--accent-blue); }
+.slot-empty { border-color: var(--border); opacity: 0.7; }
+.slot-header {
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--text-muted); margin-bottom: 0.3rem; display: flex; align-items: center; gap: 0.5rem;
+}
+.slot-name { font-size: 1.1rem; font-weight: bold; color: var(--accent-blue); margin-bottom: 0.2rem; }
+.slot-info { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.3rem; }
+.slot-team { font-size: 1.3rem; letter-spacing: 2px; margin-bottom: 0.3rem; }
+.slot-time { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 0.6rem; }
+.slot-empty-text { color: var(--text-muted); font-style: italic; margin: 0.6rem 0; }
+.slot-actions { display: flex; gap: 0.5rem; }
+.slot-actions .btn-primary, .slot-actions .btn-secondary { flex: 1; padding: 0.4rem 0.6rem; font-size: 0.85rem; }
+.btn-danger {
+  background: transparent; border: 1px solid #e05050; color: #e05050;
+  border-radius: 6px; padding: 0.4rem 0.8rem; cursor: pointer; font-size: 0.85rem;
+  transition: background 0.2s;
+}
+.btn-danger:hover { background: rgba(224,80,80,0.15); }
+.ng-badge {
+  background: linear-gradient(90deg, #ffd700, #ff6b35); color: #000;
+  border-radius: 4px; padding: 1px 5px; font-size: 0.65rem; font-weight: bold;
+}
+#btn-slots-back { margin-top: 0.75rem; width: 100%; }
+
+/* ==========================================
+   FULLSCREEN BUTTON
+   ========================================== */
+#btn-fullscreen {
+  background: transparent; border: 1px solid var(--border); color: var(--text-secondary);
+  border-radius: 4px; padding: 0.15rem 0.4rem; cursor: pointer; font-size: 0.85rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+#btn-fullscreen:hover { color: var(--accent-blue); border-color: var(--accent-blue); }
+
+/* NG+ button on The Pantheon screen */
+#btn-hof-ng-plus {
+  display: block; margin: 0.5rem auto;
+  background: linear-gradient(135deg, #1a0a2e, #0a1a2e);
+  border-color: #ffd700; color: #ffd700;
+}
+#btn-hof-ng-plus:hover { background: rgba(255,215,0,0.1); }
+
+/* ==========================================
+   LIVE EVENT BANNER & TIME EVENTS
+   ========================================== */
+#live-event-banner {
+  background: linear-gradient(90deg, #1a2e0a, #0a1a2e, #1a0a2e);
+  border-bottom: 1px solid var(--accent-purple); padding: 0.35rem 1rem;
+  font-size: 0.8rem; color: var(--text-secondary); text-align: center;
+}
+#live-event-banner strong { color: #a78bfa; }
+.event-timer { color: var(--text-muted); margin-left: 0.5rem; }
+#community-progress { padding: 0.3rem 1rem; font-size: 0.75rem; text-align: center; }
+.comm-bar-wrap { background: var(--bg-panel); border-radius: 4px; height: 6px; width: 200px; display: inline-block; margin-right: 0.5rem; vertical-align: middle; }
+.comm-bar { background: linear-gradient(90deg, #40c070, #a78bfa); height: 100%; border-radius: 4px; }
+#time-events-display { display: flex; gap: 0.25rem; }
+.time-event-tag {
+  background: rgba(167,139,250,0.15); border: 1px solid rgba(167,139,250,0.3);
+  border-radius: 4px; padding: 0.1rem 0.35rem; font-size: 0.65rem; color: #a78bfa; white-space: nowrap;
+}
+#hud-online-status { font-size: 0.8rem; }
+
+/* ==========================================
+   LEADERBOARDS
+   ========================================== */
+.lb-tabs { display: flex; gap: 0.4rem; padding: 0.75rem 1rem; overflow-x: auto; border-bottom: 1px solid var(--border); }
+.lb-tab {
+  background: var(--bg-panel); border: 1px solid var(--border); color: var(--text-secondary);
+  border-radius: 20px; padding: 0.3rem 0.8rem; cursor: pointer; font-size: 0.8rem; white-space: nowrap;
+  transition: all 0.2s;
+}
+.lb-tab.active { border-color: var(--accent-blue); color: var(--accent-blue); }
+.lb-entries { padding: 0.75rem 1rem; }
+.lb-row {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 6px; padding: 0.5rem 0.75rem; margin-bottom: 0.4rem;
+}
+.lb-mine { border-color: var(--accent-blue); }
+.lb-rank { font-size: 0.9rem; font-weight: bold; color: var(--accent-yellow); width: 2rem; flex-shrink: 0; }
+.lb-name { flex: 1; font-size: 0.9rem; }
+.lb-value { font-size: 1rem; font-weight: bold; color: var(--accent-blue); }
+.lb-loading, .lb-empty { padding: 2rem; text-align: center; color: var(--text-muted); }
+
+/* ==========================================
+   TRADING
+   ========================================== */
+.trade-layout { display: flex; gap: 1rem; padding: 0.75rem; flex-wrap: wrap; }
+.trade-left, .trade-right { flex: 1; min-width: 260px; }
+.trade-left h3, .trade-right h3 { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
+.trade-card {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.6rem; margin-bottom: 0.4rem;
+}
+.trade-mon-info { display: flex; align-items: center; gap: 0.5rem; flex: 1; }
+.trade-emoji { font-size: 1.8rem; }
+.trade-mon-name { font-size: 0.85rem; font-weight: bold; }
+.trade-poster { font-size: 0.7rem; color: var(--text-muted); }
+.trade-want { font-size: 0.7rem; color: var(--accent-blue); }
+.trade-box-slot {
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 6px; padding: 0.4rem 0.6rem; margin-bottom: 0.3rem;
+  cursor: pointer; font-size: 0.8rem; transition: border-color 0.2s;
+}
+.trade-box-slot:hover { border-color: var(--accent-blue); }
+.trade-box-slot.selected { border-color: var(--accent-blue); background: rgba(88,166,255,0.1); }
+.trade-post-controls { display: flex; gap: 0.5rem; margin-top: 0.75rem; flex-wrap: wrap; }
+.trade-select {
+  background: var(--bg-panel); border: 1px solid var(--border); color: var(--text-primary);
+  border-radius: 6px; padding: 0.35rem 0.5rem; font-size: 0.8rem; flex: 1;
+}
+.trade-label { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+.trade-loading, .trade-empty, .trade-error { padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+
+/* ==========================================
+   PVP BATTLES
+   ========================================== */
+.pvp-layout { display: flex; gap: 1rem; padding: 0.75rem; flex-wrap: wrap; }
+.pvp-post, .pvp-browse { flex: 1; min-width: 240px; }
+.pvp-post h3, .pvp-browse h3 { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
+.pvp-desc { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+.pvp-code-display { font-size: 1.4rem; font-weight: bold; color: var(--accent-yellow); letter-spacing: 4px; padding: 0.5rem; text-align: center; }
+.pvp-input {
+  background: var(--bg-panel); border: 1px solid var(--border); color: var(--text-primary);
+  border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.9rem; width: 100%;
+  margin-bottom: 0.4rem; letter-spacing: 2px; text-transform: uppercase; box-sizing: border-box;
+}
+.pvp-card {
+  display: flex; align-items: center; gap: 0.5rem;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.6rem; margin-bottom: 0.4rem;
+}
+.pvp-challenger { flex: 1; font-size: 0.85rem; font-weight: bold; }
+.pvp-badges { font-size: 0.75rem; color: var(--text-muted); }
+.pvp-code { font-size: 0.75rem; color: var(--accent-blue); letter-spacing: 1px; }
+.pvp-loading, .pvp-empty, .pvp-error { padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+
+/* ==========================================
+   FRIENDS SCREEN
+   ========================================== */
+.friends-layout { padding: 0.75rem 1rem; }
+.friends-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.3rem; }
+.my-code-display {
+  font-size: 2rem; font-weight: bold; letter-spacing: 6px;
+  color: var(--accent-yellow); text-align: center; padding: 0.5rem;
+  background: var(--bg-panel); border: 1px solid var(--accent-yellow);
+  border-radius: 8px; margin-bottom: 0.3rem;
+}
+.friends-hint { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 1rem; }
+.add-friend-section { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+.friend-code-input {
+  flex: 1; background: var(--bg-panel); border: 1px solid var(--border);
+  color: var(--text-primary); border-radius: 6px; padding: 0.4rem 0.6rem;
+  font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase;
+}
+.friend-card {
+  display: flex; align-items: center; gap: 0.75rem;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.6rem; margin-bottom: 0.4rem;
+}
+.friend-info { flex: 1; }
+.friend-name { font-size: 0.9rem; font-weight: bold; color: var(--accent-blue); }
+.friend-stats { font-size: 0.75rem; color: var(--text-secondary); margin: 0.1rem 0; }
+.friend-lastseen { font-size: 0.68rem; color: var(--text-muted); }
+.friend-code-label { font-size: 0.68rem; color: var(--text-muted); letter-spacing: 1px; }
+.friends-loading, .friends-empty, .friends-error { padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.85rem; }
+
+/* ===== ONLINE HUB ===== */
+.online-hub-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  padding: 1.5rem; max-width: 480px; margin: 0 auto;
+}
+.online-hub-btn {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 0.4rem; padding: 1.5rem 0.5rem;
+  background: var(--bg-panel); border: 1px solid var(--border);
+  border-radius: 12px; cursor: pointer; font-size: 2rem;
+  color: var(--text-primary); transition: border-color 0.15s, transform 0.1s;
+}
+.online-hub-btn span { font-size: 0.82rem; color: var(--text-secondary); }
+.online-hub-btn:hover { border-color: var(--accent-blue); transform: translateY(-2px); }
+.online-hub-status {
+  text-align: center; padding: 0.6rem 1rem 0; font-size: 0.85rem; color: var(--text-secondary);
+}
+.online-status-on  { color: #4caf50; font-weight: bold; }
+.online-status-off { color: #f44336; font-weight: bold; }
+.nav-btn-online { background: linear-gradient(135deg, #1a3a6b 0%, #1e6bb8 100%); color: #fff; }
+
+/* ===== PvP MODE TABS ===== */
+.pvp-mode-tabs { display:flex; gap:0.5rem; padding:0.75rem 1rem 0; }
+.pvp-tab {
+  padding:0.4rem 1.2rem; border-radius:6px 6px 0 0; border:1px solid var(--border);
+  background:var(--bg-panel); color:var(--text-secondary); cursor:pointer; font-size:0.85rem;
+}
+.pvp-tab.active { background:var(--accent-blue); color:#fff; border-color:var(--accent-blue); }
+.pvp-tab-content { padding:1rem; }
+.pvp-live-desc { margin-bottom:1rem; font-size:0.82rem; color:var(--text-secondary); }
+
+/* ===== LIVE PvP BATTLE ARENA ===== */
+.live-setup { display:flex; flex-direction:column; gap:0.75rem; max-width:320px; margin:0 auto; }
+.live-join-row { display:flex; gap:0.5rem; }
+.live-waiting { text-align:center; padding:2rem; }
+.live-code-display {
+  font-size:1.6rem; font-weight:bold; letter-spacing:4px;
+  color:var(--accent-blue); background:var(--bg-panel);
+  border:1px solid var(--border); border-radius:8px; padding:0.6rem 1.2rem; display:inline-block; margin-bottom:0.5rem;
+}
+.live-hint { font-size:0.78rem; color:var(--text-muted); margin-bottom:1rem; }
+.live-room-header { font-size:0.8rem; color:var(--text-muted); text-align:center; margin-bottom:0.5rem; letter-spacing:2px; }
+.live-arena {
+  display:flex; align-items:center; gap:0.5rem; margin-bottom:0.75rem;
+  background:var(--bg-panel); border-radius:10px; padding:0.75rem;
+}
+.live-side { flex:1; }
+.live-side-name { font-size:0.72rem; color:var(--text-muted); margin-bottom:0.2rem; }
+.live-mon-name { font-size:0.9rem; font-weight:bold; margin-bottom:0.25rem; }
+.live-vs { font-size:1.1rem; font-weight:bold; color:var(--text-muted); padding:0 0.25rem; }
+.live-hp-bar-wrap { background:var(--bg-dark); border-radius:4px; height:8px; margin-bottom:0.2rem; overflow:hidden; }
+.live-hp-bar { height:100%; background:linear-gradient(90deg,#4caf50,#8bc34a); border-radius:4px; transition:width 0.4s; }
+.live-hp-text { font-size:0.7rem; color:var(--text-secondary); }
+.live-moves { display:grid; grid-template-columns:1fr 1fr; gap:0.4rem; margin-bottom:0.6rem; }
+.live-move-btn { font-size:0.78rem; padding:0.5rem 0.4rem; text-align:center; }
+.live-move-btn small { display:block; color:rgba(255,255,255,0.7); font-size:0.65rem; }
+.live-waiting-msg { grid-column:1/-1; text-align:center; color:var(--text-muted); font-size:0.82rem; padding:0.75rem; }
+.live-log {
+  background:var(--bg-dark); border-radius:6px; padding:0.5rem 0.6rem;
+  height:120px; overflow-y:auto; font-size:0.72rem; margin-bottom:0.6rem;
+}
+.live-log-line { padding:0.1rem 0; border-bottom:1px solid rgba(255,255,255,0.04); color:var(--text-secondary); }
+
+/* ===== NG+ DEX BADGE ===== */
+.dex-ngplus-badge {
+  font-size:0.6rem; vertical-align:super; margin-left:1px;
+  color:var(--accent-yellow); text-shadow:0 0 4px rgba(255,200,0,0.6);
+}
+.ngplus-dex-card { border-color:rgba(255,200,0,0.35) !important; }
+.ngplus-dex-card.caught { border-color:rgba(255,200,0,0.7) !important; }
+.ngplus-detail-badge {
+  display:inline-block; margin:0.4rem 0 0.2rem;
+  background:rgba(255,200,0,0.15); border:1px solid rgba(255,200,0,0.4);
+  color:var(--accent-yellow); border-radius:6px; padding:0.2rem 0.6rem;
+  font-size:0.72rem; font-weight:bold;
+}
+
+/* ===== NG+ INFO SCREEN ===== */
+.ngplus-info-body { padding:1rem; max-width:520px; margin:0 auto; display:flex; flex-direction:column; gap:0.8rem; overflow-y:auto; }
+.ngplus-info-card {
+  background:var(--bg-panel); border:1px solid rgba(255,200,0,0.3);
+  border-radius:10px; padding:0.85rem 1rem;
+}
+.ngplus-info-card h3 { margin:0 0 0.4rem; font-size:0.95rem; color:var(--accent-yellow); }
+.ngplus-info-card p, .ngplus-info-card ul { margin:0.2rem 0 0; font-size:0.8rem; color:var(--text-secondary); line-height:1.5; }
+.ngplus-info-card ul { padding-left:1.2rem; }
+.ngplus-info-card li { margin:0.15rem 0; }
+#btn-hof-ngplus-info { margin-top:0.4rem; }
+
+/* ===== NG+ QUEST CARDS ===== */
+.quest-ngplus {
+  border-left: 3px solid var(--accent-yellow) !important;
+  background: rgba(255,200,0,0.04);
+}
+.quest-ngplus .ng-badge {
+  background: rgba(255,200,0,0.2); border: 1px solid rgba(255,200,0,0.5);
+  color: var(--accent-yellow); border-radius: 4px; padding: 0 0.3rem;
+  font-size: 0.65rem; font-weight: bold; vertical-align: middle;
+}
+
+/* ===== NG+ LEGEND TIER DEX CARDS ===== */
+.ngplus-tier-2 { border-color:rgba(180,160,255,0.5) !important; }
+.ngplus-tier-2.caught { border-color:rgba(180,160,255,0.9) !important; }
+.ngplus-tier-3 { border-color:rgba(100,200,255,0.55) !important; box-shadow:0 0 6px rgba(100,200,255,0.2); }
+.ngplus-tier-3.caught { border-color:rgba(100,200,255,0.9) !important; }
+.ngplus-tier-4 {
+  border-color:rgba(255,200,80,0.7) !important;
+  box-shadow:0 0 10px rgba(255,200,80,0.25);
+}
+.ngplus-tier-4.caught {
+  border-color:rgba(255,200,80,1) !important;
+  box-shadow:0 0 14px rgba(255,200,80,0.45);
+}

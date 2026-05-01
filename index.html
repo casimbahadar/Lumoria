@@ -26,14 +26,23 @@
       </div>
       <div class="title-logo">
         <h1>LUMORIA</h1>
-        <p class="subtitle">A Lumo Catching Adventure</p>
+        <p class="subtitle">A Lumori Catching Adventure</p>
         <p class="region-tag">Explore the Lumoria Region</p>
       </div>
       <div class="title-buttons">
         <button class="btn-primary" id="btn-new-game">⚔ NEW GAME</button>
         <button class="btn-secondary" id="btn-continue">▶ CONTINUE</button>
       </div>
-      <p class="title-hint">321 Lumos to Discover · 16 Gyms · 1 Champion</p>
+      <p class="title-hint">321 Lumori to Discover · 16 Gyms · 1 Champion</p>
+    </div>
+  </div>
+
+  <!-- SAVE SLOT SELECTION -->
+  <div id="screen-saveslots" class="screen">
+    <div class="saveslots-wrap">
+      <h2 class="saveslots-title">🌟 Select Save Slot</h2>
+      <div id="save-slots-list"></div>
+      <button class="btn-secondary" id="btn-slots-back">← Back</button>
     </div>
   </div>
 
@@ -77,8 +86,15 @@
       <div id="hud-right">
         <span id="hud-money">💰 3000</span>
         <span id="hud-location">📍 Seedvale Town</span>
+        <span id="hud-online-status" title="Online"></span>
+        <div id="time-events-display"></div>
+        <button id="btn-fullscreen" title="Toggle Fullscreen">⛶</button>
       </div>
     </div>
+
+    <!-- LIVE EVENT BANNER -->
+    <div id="live-event-banner" class="hidden"></div>
+    <div id="community-progress" class="hidden"></div>
 
     <!-- WORLD MAP + AREA PANEL -->
     <div id="world-layout">
@@ -146,6 +162,7 @@
       <button class="nav-btn" id="nav-save">💾 SAVE</button>
       <button class="nav-btn" id="nav-music">🔊 MUSIC</button>
       <button class="nav-btn" id="nav-achievements">🏅 FEATS</button>
+      <button class="nav-btn nav-btn-online" id="nav-online">🌐 ONLINE</button>
     </div>
   </div>
 
@@ -357,7 +374,7 @@
   <!-- LUMODEX SCREEN -->
   <div id="screen-dex" class="screen">
     <div class="menu-header">
-      <h2>📖 Lumodex</h2>
+      <h2>📖 Luminex</h2>
       <button class="btn-back-menu" id="btn-close-dex">✕</button>
     </div>
     <div id="dex-stats"></div>
@@ -365,9 +382,11 @@
       <button class="dex-filter active" data-filter="all">All</button>
       <button class="dex-filter" data-filter="caught">Caught</button>
       <button class="dex-filter" data-filter="seen">Seen</button>
+      <button class="dex-filter" data-filter="ngplus">NG+</button>
+      <button class="dex-filter" data-filter="vaeldris">Vaeldris</button>
     </div>
     <div id="dex-search">
-      <input type="text" id="dex-search-input" placeholder="Search Lumos...">
+      <input type="text" id="dex-search-input" placeholder="Search Lumori...">
     </div>
     <div id="dex-grid"></div>
     <div id="dex-detail" class="hidden">
@@ -439,6 +458,21 @@
         <button class="btn-action battle-mode-btn" data-mode="triple">⚔️⚔️⚔️ Triple (3v3)</button>
       </div>
       <button id="btn-battle-mode-cancel" class="btn-secondary">Cancel</button>
+    </div>
+  </div>
+
+  <!-- VAELDRIS PARTY SELECTION OVERLAY -->
+  <div id="vaeldris-party-select" class="hidden">
+    <div id="vaeldris-party-box">
+      <h3 id="vaeldris-select-title">Choose Your 4 Lumori</h3>
+      <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:1rem">
+        Select exactly 4 from your locked party. 3 will start in battle; 1 is your reserve.
+      </p>
+      <div id="vaeldris-select-grid"></div>
+      <div style="display:flex;gap:0.75rem;margin-top:1rem;justify-content:center">
+        <button id="vaeldris-select-cancel" class="btn-secondary">Cancel</button>
+        <button id="vaeldris-select-confirm" class="btn-primary" disabled>Confirm (0/4 selected)</button>
+      </div>
     </div>
   </div>
 
@@ -566,7 +600,157 @@
       <p id="hof-player-name"></p>
       <div id="hof-team"></div>
       <div id="postGame-banner" class="hidden"></div>
+      <button class="btn-secondary hidden" id="btn-hof-ng-plus">⭐ New Game+</button>
+      <button class="btn-secondary" id="btn-hof-ngplus-info">📖 What is NG+?</button>
       <button class="btn-primary" id="btn-hof-continue">Continue Your Adventure</button>
+    </div>
+  </div>
+
+  <!-- NG+ INFO SCREEN -->
+  <div id="screen-ngplus-info" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" id="btn-ngplus-info-back">← Back</button>
+      <h2>⭐ New Game+</h2>
+    </div>
+    <div class="ngplus-info-body">
+      <div class="ngplus-info-card">
+        <h3>🔄 What carries over</h3>
+        <p>Your entire <strong>Box</strong> of caught Lumori transfers into the new run. Your Badges, Money, and Bag items do <em>not</em> carry over — you start fresh.</p>
+      </div>
+      <div class="ngplus-info-card">
+        <h3>⚡ Harder enemies</h3>
+        <p>Wild and Trainer Lumori are significantly stronger. Scaling is tuned by area:</p>
+        <ul>
+          <li>Early areas (Badges 1–5): up to <strong>+40%</strong> levels</li>
+          <li>Mid areas (Badges 6–11): up to <strong>+35%</strong></li>
+          <li>Late areas (Badges 12–16): up to <strong>+25%</strong></li>
+          <li>Post-game &amp; NG+ areas: up to <strong>+15%</strong></li>
+        </ul>
+        <p>Each additional NG+ run adds another layer of difficulty up to these caps.</p>
+      </div>
+      <div class="ngplus-info-card">
+        <h3>🌈 New areas unlock</h3>
+        <p>Two entirely new locations appear on the map — <strong>Prismatic Rift</strong> and <strong>Apex Summit</strong> — accessible only in NG+ after defeating the Champion again. These hold the rarest Lumori in the game.</p>
+      </div>
+      <div class="ngplus-info-card">
+        <h3>⭐ 80 NG+-exclusive Lumori</h3>
+        <p>Across all mid-to-late areas, <strong>80 new Lumori</strong> join the encounter pools — visible in your Luminex only in NG+ runs. The most powerful and rarest of these live exclusively in Prismatic Rift and Apex Summit. They are marked with a <strong>⭐</strong> in the Luminex.</p>
+      </div>
+      <div class="ngplus-info-card">
+        <h3>📖 Luminex entries</h3>
+        <p>NG+-exclusive Lumori show a <strong>⭐</strong> badge next to their number. They are hidden entirely from the Luminex until you begin your first NG+ run.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ONLINE HUB SCREEN -->
+  <div id="screen-online-hub" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" id="btn-online-hub-back">← Back</button>
+      <h2>🌐 Online Features</h2>
+    </div>
+    <div id="online-hub-status" class="online-hub-status"></div>
+    <div class="online-hub-grid">
+      <button class="online-hub-btn" id="hub-leaderboards">🏆<span>Leaderboards</span></button>
+      <button class="online-hub-btn" id="hub-trade">🤝<span>Lumori Trading</span></button>
+      <button class="online-hub-btn" id="hub-pvp">⚔️<span>PvP Battles</span></button>
+      <button class="online-hub-btn" id="hub-friends">👥<span>Friends</span></button>
+    </div>
+  </div>
+
+  <!-- LEADERBOARDS SCREEN -->
+  <div id="screen-leaderboards" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" id="btn-lb-back">← Back</button>
+      <h2>🏆 Leaderboards</h2>
+    </div>
+    <div id="lb-tabs" class="lb-tabs"></div>
+    <div id="lb-entries" class="lb-entries"></div>
+  </div>
+
+  <!-- TRADING SCREEN -->
+  <div id="screen-trade" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" id="btn-trade-back">← Back</button>
+      <h2>🤝 Lumori Trading</h2>
+    </div>
+    <div class="trade-layout">
+      <div class="trade-left">
+        <h3>Open Trades</h3>
+        <div id="trade-listings"></div>
+      </div>
+      <div class="trade-right">
+        <h3>Offer a Lumori</h3>
+        <div id="trade-my-box"></div>
+        <div class="trade-post-controls">
+          <select id="trade-wanted-type" class="trade-select">
+            <option value="">Any type</option>
+            <option>Fire</option><option>Water</option><option>Grass</option>
+            <option>Electric</option><option>Ice</option><option>Psychic</option>
+            <option>Dark</option><option>Fairy</option><option>Dragon</option>
+            <option>Ghost</option><option>Steel</option><option>Rock</option>
+            <option>Ground</option><option>Bug</option><option>Poison</option>
+            <option>Flying</option><option>Normal</option><option>Fighting</option>
+          </select>
+          <button class="btn-primary" id="btn-post-trade">Post Trade</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PVP SCREEN -->
+  <div id="screen-pvp" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" id="btn-pvp-back">← Back</button>
+      <h2>⚔️ PvP Battles</h2>
+    </div>
+    <div class="pvp-mode-tabs">
+      <button class="pvp-tab active" data-tab="simulated">🤖 Simulated</button>
+      <button class="pvp-tab" data-tab="live">⚡ Live</button>
+    </div>
+
+    <!-- SIMULATED TAB -->
+    <div id="pvp-tab-simulated" class="pvp-tab-content">
+      <div class="pvp-layout">
+        <div class="pvp-post">
+          <h3>Challenge Someone</h3>
+          <p class="pvp-desc">Post a challenge and share the code. Your opponent enters it to auto-resolve a battle.</p>
+          <button class="btn-primary" id="btn-post-challenge">⚔️ Post Challenge</button>
+          <div id="pvp-my-code" class="pvp-code-display hidden"></div>
+        </div>
+        <div class="pvp-browse">
+          <h3>Open Challenges</h3>
+          <input type="text" id="pvp-code-input" class="pvp-input" placeholder="Enter battle code..." maxlength="6">
+          <button class="btn-secondary" id="btn-accept-by-code">Accept by Code</button>
+          <div id="pvp-listings" class="pvp-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LIVE TAB -->
+    <div id="pvp-tab-live" class="pvp-tab-content hidden">
+      <p class="pvp-desc pvp-live-desc">Real-time battles! Create a room, share the 6-letter code with a friend, and battle live. Both players must be online at the same time.</p>
+      <div id="pvp-live-area"></div>
+    </div>
+  </div>
+
+  <!-- FRIENDS SCREEN -->
+  <div id="screen-friends" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" id="btn-friends-back">← Back</button>
+      <h2>👥 Friends</h2>
+    </div>
+    <div class="friends-layout">
+      <div class="my-code-section">
+        <p class="friends-label">Your Friend Code:</p>
+        <div class="my-code-display" id="my-friend-code">---</div>
+        <p class="friends-hint">Share this code so others can add you.</p>
+      </div>
+      <div class="add-friend-section">
+        <input type="text" id="add-friend-input" class="friend-code-input" placeholder="Enter friend code..." maxlength="8">
+        <button class="btn-primary" id="btn-add-friend">Add Friend</button>
+      </div>
+      <div id="friends-list"></div>
     </div>
   </div>
 
@@ -591,10 +775,16 @@
   </div>
 </div>
 
+<!-- Firebase SDK (loaded before online.js) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
 <script src="js/data.js"></script>
 <script src="js/sprites.js"></script>
 <script src="js/music.js"></script>
 <script src="js/battle.js"></script>
 <script src="js/game.js"></script>
+<script src="js/online.js"></script>
 </body>
 </html>

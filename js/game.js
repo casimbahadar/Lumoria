@@ -28,7 +28,11 @@ function newGameState(playerName, starterMonsterId) {
     achievements: [],
     roamingCaught: [],
     dailyChallenges: null,
-    saveTimestamp: Date.now()
+    saveTimestamp: Date.now(),
+    saveSlot: 0,
+    ngPlusCount: 0,
+    vaeldrisPartyLock: null,
+    defeatedWielders: []
   };
 }
 
@@ -53,12 +57,13 @@ function saveGame() {
   if (!G) return;
   G.saveTimestamp = Date.now();
   const save = { ...G, seenMonsters: [...G.seenMonsters], caughtMonsters: [...G.caughtMonsters] };
-  localStorage.setItem("lumoria_save", JSON.stringify(save));
+  localStorage.setItem(getSaveKey(G.saveSlot || 0), JSON.stringify(save));
   showNotification("Game saved! ✅");
 }
 
-function loadGame() {
-  const raw = localStorage.getItem("lumoria_save");
+function loadGame(slot) {
+  slot = slot ?? 0;
+  const raw = localStorage.getItem(getSaveKey(slot));
   if (!raw) return false;
   try {
     const data = JSON.parse(raw);
@@ -89,13 +94,146 @@ function loadGame() {
     if (!data.achievements) data.achievements = [];
     if (!data.roamingCaught) data.roamingCaught = [];
     if (!data.dailyChallenges) data.dailyChallenges = null;
+    if (data.ngPlusCount === undefined) data.ngPlusCount = 0;
+    if (data.vaeldrisPartyLock === undefined) data.vaeldrisPartyLock = null;
+    if (!data.defeatedWielders) data.defeatedWielders = [];
+    data.saveSlot = slot;
     G = data;
     return true;
   } catch(e) { return false; }
 }
 
-function hasSave() {
-  return !!localStorage.getItem("lumoria_save");
+const SAVE_PREFIX = "lumoria_save_";
+function getSaveKey(slot) { return SAVE_PREFIX + slot; }
+function hasSaveInSlot(slot) { return !!localStorage.getItem(getSaveKey(slot)); }
+function hasAnySave() { return [0,1,2].some(s => hasSaveInSlot(s)); }
+
+function getSaveSlotData(slot) {
+  const raw = localStorage.getItem(getSaveKey(slot));
+  if (!raw) return null;
+  try { return JSON.parse(raw); } catch(e) { return null; }
+}
+
+function deleteSaveSlot(slot) {
+  localStorage.removeItem(getSaveKey(slot));
+}
+
+function timeSince(ts) {
+  const diff = Date.now() - ts;
+  const mins = Math.floor(diff / 60000);
+  if (mins < 1) return "just now";
+  if (mins < 60) return `${mins}m ago`;
+  const hrs = Math.floor(mins / 60);
+  if (hrs < 24) return `${hrs}h ago`;
+  return `${Math.floor(hrs / 24)}d ago`;
+}
+
+// ---- NG+ Scaling ----
+function ngPlusScale(level, area) {
+  if (!G || !G.ngPlusCount) return level;
+  // Per-tier scaling cap to keep NG+ balanced by content difficulty
+  let cap;
+  const badges = area?.requiredBadges || 0;
+  if (area?.requiresChampion || area?.requiresNGPlus) {
+    cap = 0.15;  // post-game / NG+-exclusive content
+  } else if (badges >= 12) {
+    cap = 0.25;  // late game (badges 12-16)
+  } else if (badges >= 6) {
+    cap = 0.35;  // mid game (badges 6-11)
+  } else {
+    cap = 0.40;  // early game (badges 1-5 or no requirement)
+  }
+  const boost = Math.min(cap, 0.2 * G.ngPlusCount);
+  return Math.min(100, Math.round(level * (1 + boost)));
+}
+
+// ---- Fullscreen ----
+function toggleFullscreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen().catch(() => showNotification("Fullscreen not supported by your browser."));
+  } else {
+    document.exitFullscreen();
+  }
+}
+
+// ---- Save Slot Screen ----
+function showSaveSlots() {
+  const list = document.getElementById("save-slots-list");
+  list.innerHTML = "";
+  for (let i = 0; i < 3; i++) {
+    const data = getSaveSlotData(i);
+    const card = document.createElement("div");
+    card.className = "slot-card " + (data ? "slot-occupied" : "slot-empty");
+    if (data) {
+      const team = (data.team || []).slice(0, 6).map(m => {
+        const def = MONSTERS_DATA[m.monsterId];
+        return def ? def.emoji : "❓";
+      }).join(" ");
+      const elapsed = data.saveTimestamp ? timeSince(data.saveTimestamp) : "Unknown";
+      const ngTag = data.ngPlusCount > 0 ? `<span class="ng-badge">NG+${data.ngPlusCount}</span>` : "";
+      card.innerHTML = `
+        <div class="slot-header">Slot ${i+1} ${ngTag}</div>
+        <div class="slot-name">${data.playerName || "Trainer"}</div>
+        <div class="slot-info">🏅 ${(data.badges||[]).length}/16 Badges${data.championDefeated ? " · 🏆 Champion" : ""}</div>
+        <div class="slot-team">${team}</div>
+        <div class="slot-time">Saved ${elapsed}</div>
+        <div class="slot-actions">
+          <button class="btn-primary slot-load" data-slot="${i}">▶ Load</button>
+          <button class="btn-danger slot-delete" data-slot="${i}">🗑</button>
+        </div>`;
+    } else {
+      card.innerHTML = `
+        <div class="slot-header">Slot ${i+1}</div>
+        <div class="slot-empty-text">— Empty —</div>
+        <div class="slot-actions">
+          <button class="btn-primary slot-new" data-slot="${i}">⚔ New Game</button>
+        </div>`;
+    }
+    list.appendChild(card);
+  }
+  list.querySelectorAll(".slot-load").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const slot = parseInt(btn.dataset.slot);
+      if (loadGame(slot)) {
+        showScreen("screen-main");
+        renderHUD(); renderWorldMap(); renderAreaPanel();
+        if (typeof MusicEngine !== "undefined") { MusicEngine.init(); MusicEngine.playOverworld(); }
+      }
+    });
+  });
+  list.querySelectorAll(".slot-new").forEach(btn => {
+    btn.addEventListener("click", () => {
+      window._pendingSlot = parseInt(btn.dataset.slot);
+      showScreen("screen-create");
+      typewriterDialog("Welcome to the world of Lumoria! I am Professor Solaris. The world is full of incredible creatures called Lumori. Tell me, what is your name?");
+    });
+  });
+  list.querySelectorAll(".slot-delete").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const slot = parseInt(btn.dataset.slot);
+      if (confirm(`Delete Slot ${slot+1}? This cannot be undone.`)) {
+        deleteSaveSlot(slot);
+        showSaveSlots();
+      }
+    });
+  });
+  showScreen("screen-saveslots");
+}
+
+// ---- New Game+ ----
+function startNGPlus() {
+  if (!G) return;
+  if (!confirm("Start New Game+? Your box Lumori carry over. Enemies will be significantly stronger and new areas unlock.")) return;
+  window._ngPlusCarry = {
+    box: [...G.box],
+    ngCount: (G.ngPlusCount || 0) + 1,
+    name: G.playerName,
+    slot: G.saveSlot
+  };
+  window._pendingSlot = G.saveSlot;
+  checkAchievement("ngplus_start");
+  if (typeof onNGPlusStarted === "function") onNGPlusStarted();
+  showStarterScreen();
 }
 
 // ---- Screen Management ----
@@ -401,7 +539,8 @@ function renderWorldMap() {
 
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
-    if (area.requiresChampion && !G?.championDefeated) continue;
+    if (area.requiresChampion && !G?.championDefeated || (area.requiresNGPlus && !(G?.ngPlusCount > 0))) continue;
+    if (area.requiresDefeated && !(G?.defeatedLeaders || []).includes(area.requiresDefeated)) continue;
     for (const conn of area.connections) {
       const sortedKey = [areaId, conn].sort().join("|");
       if (drawnConnections.has(sortedKey)) continue;
@@ -409,6 +548,8 @@ function renderWorldMap() {
       const toArea = WORLD_DATA[conn];
       if (!toArea || !toArea.mapPos) continue;
       if (toArea.requiresChampion && !G?.championDefeated) continue;
+      if (toArea.requiresNGPlus && !(G?.ngPlusCount > 0)) continue;
+      if (toArea.requiresDefeated && !(G?.defeatedLeaders || []).includes(toArea.requiresDefeated)) continue;
 
       const x1 = (area.mapPos.x / 100) * mapW;
       const y1 = (area.mapPos.y / 100) * mapH;
@@ -513,7 +654,8 @@ function renderWorldMap() {
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
     if (area.type === "route") continue; // Routes are on the paths now
-    if (area.requiresChampion && !G?.championDefeated) continue;
+    if (area.requiresChampion && !G?.championDefeated || (area.requiresNGPlus && !(G?.ngPlusCount > 0))) continue;
+    if (area.requiresDefeated && !(G?.defeatedLeaders || []).includes(area.requiresDefeated)) continue;
     const x = (area.mapPos.x / 100) * mapW;
     const y = (area.mapPos.y / 100) * mapH;
 
@@ -564,6 +706,14 @@ function travelTo(areaId) {
   if (!area) return;
   if (area.requiresChampion && !G.championDefeated) {
     showNotification(`🔒 ${area.name} is only accessible after becoming Champion.`);
+    return;
+  }
+  if (area.requiresNGPlus && !(G.ngPlusCount > 0)) {
+    showNotification(`⭐ ${area.name} is only accessible in New Game+.`);
+    return;
+  }
+  if (area.requiresDefeated && !(G.defeatedLeaders || []).includes(area.requiresDefeated)) {
+    showNotification(`🔒 ${area.name} requires defeating ${area.requiresDefeated.replace(/_/g, " ")} first.`);
     return;
   }
   if (G.badges.length < (area.requiredBadges || 0)) {
@@ -795,6 +945,7 @@ function renderAreaPanel() {
 function renderHUD() {
   document.getElementById("hud-player-name").textContent = G.playerName;
   document.getElementById("hud-money").textContent = `💰 ${G.money}`;
+  if (typeof renderTimeEvents === "function") renderTimeEvents();
 
   const badgesDiv = document.getElementById("hud-badges");
   badgesDiv.innerHTML = "";
@@ -818,18 +969,42 @@ function exploreArea() {
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori have fainted! Heal at a town first."); return; }
 
   // Filter out high-BST mons until the player has enough badges; also exclude unknown IDs (BST=0)
-  const pool = G.badges.length < 3
+  let pool = G.badges.length < 3
     ? area.wildMonsters.filter(wm => { const b = getMonBST(wm.id); return b > 0 && b <= 375; })
     : area.wildMonsters.filter(wm => getMonBST(wm.id) > 0);
   if (!pool.length) { showNotification("No wild Lumori appear here yet."); return; }
 
-  const total = pool.reduce((s, wm) => s + wm.rate, 0);
+  // Inject NG+-exclusive spawns when in NG+ run
+  if (G.ngPlusCount > 0 && area.ngPlusWildMonsters?.length) {
+    pool = pool.concat(area.ngPlusWildMonsters.filter(wm => getMonBST(wm.id) > 0));
+  }
+
+  // Inject event-exclusive spawns if active
+  if (typeof getEventExclusiveMons === "function") {
+    const extras = getEventExclusiveMons(area.id);
+    if (extras.length) pool = pool.concat(extras);
+  }
+
+  // Apply time/event spawn-rate multipliers per monster type
+  const getEffectiveRate = (wm) => {
+    const def = MONSTERS_DATA[wm.id];
+    if (!def) return wm.rate;
+    let mult = 1;
+    for (const t of (def.types || [])) {
+      if (typeof getTimeSpawnMult  === "function") mult *= getTimeSpawnMult(t);
+      if (typeof getEventSpawnBoost === "function") mult *= getEventSpawnBoost(t);
+    }
+    return wm.rate * mult;
+  };
+
+  const total = pool.reduce((s, wm) => s + getEffectiveRate(wm), 0);
   let roll = Math.random() * total;
   let chosen = pool[pool.length - 1];
-  for (const wm of pool) { roll -= wm.rate; if (roll <= 0) { chosen = wm; break; } }
+  for (const wm of pool) { roll -= getEffectiveRate(wm); if (roll <= 0) { chosen = wm; break; } }
 
-  const level = chosen.minLv + Math.floor(Math.random() * (chosen.maxLv - chosen.minLv + 1));
+  const level = ngPlusScale(chosen.minLv + Math.floor(Math.random() * (chosen.maxLv - chosen.minLv + 1)), area);
   G.seenMonsters.add(chosen.id);
+  if (typeof incrementCommunityProgress === "function") incrementCommunityProgress();
   startWildBattle(buildWildMon(chosen.id, level));
 }
 
@@ -847,6 +1022,17 @@ let playerActiveMons = [];  // Array of active player mons in multi battles
 let enemyActiveMons = [];   // Array of active enemy mons in multi battles
 let playerTeamIdxs = [];    // Team indices for active player mons
 let multiBattlePendingMoves = []; // Moves queued for multi battle turn
+
+// Returns the player-facing display name for a battle mon.
+// foreignRegion mons show as "Forgotten Lumori X" and are added to seenMonsters.
+function getDisplayName(mon) {
+  const def = MONSTERS_DATA[mon.monsterId];
+  if (def && def.foreignRegion) {
+    G.seenMonsters.add(mon.monsterId);
+    return `Forgotten Lumori ${mon.monsterId - 407}`;
+  }
+  return mon.name;
+}
 
 function logMsg(text, cls) {
   const logEl = document.getElementById("battle-log");
@@ -1062,7 +1248,11 @@ function showSwitchPanel(forceSwitch = false) {
   document.getElementById("battle-switch-panel").classList.remove("hidden");
   const list = document.getElementById("switch-monsters-list");
   list.innerHTML = "";
+  const allowedSlots = battleContext.isWielder && battleContext.vaeldrisPlayerSlots
+    ? new Set(battleContext.vaeldrisPlayerSlots)
+    : null;
   G.team.forEach((slot, idx) => {
+    if (allowedSlots && !allowedSlots.has(idx)) return;
     if (idx === battleContext.playerTeamIdx && !forceSwitch) return;
     const def = MONSTERS_DATA[slot.monsterId];
     const btn = document.createElement("button");
@@ -1260,7 +1450,7 @@ function startGymBattle(leaderId, battleType = "single") {
   if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
   const fmtLabel = {single:"Single",double:"Double",triple:"Triple"}[battleType] || "Single";
   logMsg(`⚔️ ${fmtLabel} Battle — ${leader.emoji} ${leader.name}`);
-  logMsg(`${leader.name} sent out ${enemyActiveMon.name}!`);
+  logMsg(`${leader.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
@@ -1294,10 +1484,21 @@ async function playerUseBall(orbId) {
   if (caught) {
     logMsg(`✅ Gotcha! ${enemyActiveMon.name} was caught!`, "log-catch");
     G.caughtMonsters.add(enemyActiveMon.monsterId);
+    if (enemyActiveMon.shiny) G.shinyCaught = (G.shinyCaught || 0) + 1;
+    if (typeof onLumoriCaught === "function") onLumoriCaught(!!enemyActiveMon.shiny);
     if (enemyActiveMon.shiny)   checkAchievement("catch_shiny");
     if (enemyActiveMon.variant) checkAchievement("catch_variant");
     const caughtDef = MONSTERS_DATA[enemyActiveMon.monsterId];
     if (caughtDef?.rarity === "legendary") checkAchievement("legendary");
+    if (caughtDef?.rarity === "legendary" && enemyActiveMon.monsterId >= NG_PLUS_DEX_START) checkAchievement("ngplus_legend");
+    if (caughtDef?.rarity === "pseudolegendary") checkAchievement("ngplus_pseudo");
+    if (enemyActiveMon.monsterId >= NG_PLUS_DEX_START) {
+      const ngCaught = [...G.caughtMonsters].filter(id => id >= NG_PLUS_DEX_START).length;
+      if (ngCaught >= 25) checkAchievement("ngplus_catch25");
+      if (ngCaught >= 50) checkAchievement("ngplus_catch50");
+      const totalNGPlus = Object.keys(MONSTERS_DATA).filter(k => parseInt(k) >= NG_PLUS_DEX_START).length;
+      if (ngCaught >= totalNGPlus) checkAchievement("ngplus_catchall");
+    }
     checkAchievements();
     trackDailyChallenge("catch_count");
     if (caughtDef) for (const t of caughtDef.types) trackDailyChallenge("catch_type", t);
@@ -1467,45 +1668,82 @@ async function doAttack(attacker, defender, moveId, isPlayer) {
     return;
   }
 
-  // Damage
-  const result = calcDamage(attacker, defender, move);
-  // Focus Sash check
-  const sashResult = applyFocusSash(defender, result.damage);
-  if (sashResult.triggered) {
-    result.damage = sashResult.damage;
+  // Multi-hit loop (move.hits defaults to 1)
+  const hitCount = move.hits || 1;
+  let totalDamage = 0;
+  let lastResult = null;
+  let sashTriggered = false;
+
+  for (let h = 0; h < hitCount; h++) {
+    if (defender.fainted) break;
+
+    const result = calcDamage(attacker, defender, move);
+
+    // Focus Sash only activates on the first hit
+    if (h === 0) {
+      const sashResult = applyFocusSash(defender, result.damage);
+      if (sashResult.triggered) {
+        result.damage = sashResult.damage;
+        sashTriggered = true;
+      }
+    }
+
+    defender.currentHP = Math.max(0, defender.currentHP - result.damage);
+    if (h === 0 && sashTriggered) defender.currentHP = Math.max(1, defender.currentHP);
+    if (defender.currentHP <= 0) defender.fainted = true;
+
+    totalDamage += result.damage;
+    lastResult = result;
+
+    // Animations
+    if (isPlayer) {
+      document.getElementById("enemy-sprite").classList.add("shake");
+      setTimeout(() => document.getElementById("enemy-sprite").classList.remove("shake"), 400);
+    } else {
+      document.getElementById("player-sprite").classList.add("shake");
+      setTimeout(() => document.getElementById("player-sprite").classList.remove("shake"), 400);
+    }
+
+    if (isPlayer) syncPlayerMonHP();
+    updateBattleUI();
+    await delay(hitCount > 1 ? 200 : 400);
   }
-  defender.currentHP = Math.max(0, defender.currentHP - result.damage);
-  if (sashResult.triggered) {
-    defender.currentHP = Math.max(1, defender.currentHP);
+
+  if (hitCount > 1) logMsg(`Hit ${hitCount} times!`, "log-damage");
+
+  // Effectiveness and damage messages (based on last hit)
+  if (lastResult.effectiveness > 1) logMsg("It's super effective!", "log-super-effective");
+  else if (lastResult.effectiveness < 1 && lastResult.effectiveness > 0) logMsg("It's not very effective...", "log-not-effective");
+  else if (lastResult.effectiveness === 0) logMsg("It had no effect!", "log-immune");
+  if (lastResult.crit) logMsg("A critical hit!", "log-damage");
+
+  logMsg(`${defender.name} took ${totalDamage} damage!`, "log-damage");
+  if (sashTriggered) logMsg(`${defender.name}'s Focus Sash kept it standing!`, "log-status");
+
+  // Recoil damage
+  if (move.effect === "recoil" && totalDamage > 0 && !attacker.fainted) {
+    const recoilDmg = Math.max(1, Math.floor(totalDamage / 3));
+    attacker.currentHP = Math.max(0, attacker.currentHP - recoilDmg);
+    if (attacker.currentHP <= 0) attacker.fainted = true;
+    logMsg(`${attacker.name} was hurt by recoil! (${recoilDmg})`, "log-damage");
+    if (isPlayer) syncPlayerMonHP();
+    updateBattleUI();
   }
-  if (defender.currentHP <= 0) defender.fainted = true;
 
-  // Animations
-  if (isPlayer) {
-    document.getElementById("enemy-sprite").classList.add("shake");
-    setTimeout(() => document.getElementById("enemy-sprite").classList.remove("shake"), 400);
-  } else {
-    document.getElementById("player-sprite").classList.add("shake");
-    setTimeout(() => document.getElementById("player-sprite").classList.remove("shake"), 400);
+  // Drain heal
+  if (move.effect === "drain" && totalDamage > 0 && !attacker.fainted) {
+    const drainAmt = Math.max(1, Math.floor(totalDamage / 2));
+    attacker.currentHP = Math.min(attacker.maxHP, attacker.currentHP + drainAmt);
+    logMsg(`${attacker.name} drained ${drainAmt} HP!`, "log-status");
+    if (isPlayer) syncPlayerMonHP();
+    updateBattleUI();
   }
 
-  // Sync HP back to party if player's mon
-  if (isPlayer) syncPlayerMonHP();
-  updateBattleUI();
-  await delay(400);
-
-  // Effectiveness message
-  if (result.effectiveness > 1) logMsg("It's super effective!", "log-super-effective");
-  else if (result.effectiveness < 1 && result.effectiveness > 0) logMsg("It's not very effective...", "log-not-effective");
-  else if (result.effectiveness === 0) logMsg("It had no effect!", "log-immune");
-  if (result.crit) logMsg("A critical hit!", "log-damage");
-
-  logMsg(`${defender.name} took ${result.damage} damage!`, "log-damage");
-  if (sashResult.triggered) logMsg(`${defender.name}'s Focus Sash kept it standing!`, "log-status");
-
-  // Apply secondary effects
-  const effMsgs = applyMoveEffect(move, attacker, defender);
-  for (const msg of effMsgs) logMsg(msg, "log-status");
+  // Secondary stat/status effects (recoil and drain moves have no additional secondary effect)
+  if (move.effect !== "recoil" && move.effect !== "drain") {
+    const effMsgs = applyMoveEffect(move, attacker, defender);
+    for (const msg of effMsgs) logMsg(msg, "log-status");
+  }
   await delay(300);
 }
 
@@ -1564,7 +1802,7 @@ async function handleEnemyFainted() {
       giveXP(slot, xpGain);
       enemyActiveMon = battleContext.enemyTeam[battleContext.enemyTeamIdx];
       const leaderName = GYM_LEADERS[battleContext.leaderId].name;
-      logMsg(`${leaderName} sent out ${enemyActiveMon.name}!`);
+      logMsg(`${leaderName} sent out ${getDisplayName(enemyActiveMon)}!`);
       updateBattleUI();
       await delay(600);
       showBattleMainActions();
@@ -1646,6 +1884,7 @@ function endBattle(outcome, slot, levelUps) {
         if (battleContext.leaderId === "champion") {
           G.championDefeated = true;
           checkAchievements();
+          if (typeof onChampionDefeated === "function") onChampionDefeated();
           showHallOfFame();
           triggerStorySequence("champion_defeated");
         } else if (battleContext.isEliteFour) {
@@ -1754,6 +1993,53 @@ function endBattle(outcome, slot, levelUps) {
           renderHUD();
           saveGame();
         });
+      } else if (battleContext.isWielder) {
+        // Vaeldris Wielder defeated
+        if (!G.defeatedWielders) G.defeatedWielders = [];
+        if (!G.defeatedWielders.includes(battleContext.wielderId)) {
+          G.defeatedWielders.push(battleContext.wielderId);
+        }
+        const wielder = typeof VAELDRIS_WIELDERS !== "undefined" ? VAELDRIS_WIELDERS[battleContext.wielderId] : null;
+        const wq = typeof QUESTS_DATA !== "undefined" ? QUESTS_DATA.find(q => q.id === battleContext.wielderId) : null;
+        if (wq) completeQuest(wq);
+        const allDefeated = typeof VAELDRIS_WIELDERS !== "undefined" &&
+          Object.keys(VAELDRIS_WIELDERS).every(id => G.defeatedWielders.includes(id));
+        if (allDefeated) {
+          G.vaeldrisPartyLock = null;
+        }
+        const wMsg = wielder ? `${wielder.emoji} <strong>${wielder.name}</strong>:<br>"${wielder.winQuote}"` : "⚔️ Wielder defeated!";
+        const afterWin = () => {
+          showScreen("screen-main");
+          renderWorldMap();
+          renderAreaPanel();
+          renderHUD();
+          saveGame();
+        };
+        if (wielder && (wielder.lumoriLore || wielder.vaeldrisLore)) {
+          showNotification(wMsg, () => {
+            if (wielder.lumoriLore) {
+              showNotification(`📖 <strong>${wielder.name} — Their Forgotten Lumori</strong><br><br>${wielder.lumoriLore}`, () => {
+                if (wielder.vaeldrisLore) {
+                  const loreSegments = wielder.vaeldrisLore.split("\n\n");
+                  const showSegment = (i) => {
+                    if (i >= loreSegments.length) { afterWin(); return; }
+                    showNotification(`🌌 <strong>${wielder.name} — Fragment of Vaeldris</strong><br><br>${loreSegments[i]}`, () => showSegment(i + 1));
+                  };
+                  showSegment(0);
+                } else { afterWin(); }
+              });
+            } else if (wielder.vaeldrisLore) {
+              const loreSegments = wielder.vaeldrisLore.split("\n\n");
+              const showSegment = (i) => {
+                if (i >= loreSegments.length) { afterWin(); return; }
+                showNotification(`🌌 <strong>${wielder.name} — Fragment of Vaeldris</strong><br><br>${loreSegments[i]}`, () => showSegment(i + 1));
+              };
+              showSegment(0);
+            } else { afterWin(); }
+          });
+        } else {
+          showNotification(wMsg, afterWin);
+        }
       } else if (battleContext.isQuest) {
         // Quest boss defeated
         const quest = typeof QUESTS_DATA !== "undefined" ? QUESTS_DATA.find(q => q.id === battleContext.questId) : null;
@@ -1808,6 +2094,8 @@ function showHallOfFame() {
     teamEl.appendChild(div);
   }
   saveGame();
+  const ngBtn = document.getElementById("btn-hof-ng-plus");
+  if (ngBtn) ngBtn.classList.remove("hidden");
   setTimeout(showPostGameContent, 1500);
 }
 
@@ -1827,7 +2115,7 @@ function getMultiSlotCount() {
   return 1;
 }
 
-function startMultiBattle(enemyTeam, leaderName, mode) {
+function startMultiBattle(enemyTeam, leaderName, mode, playerSlots = null) {
   const slots = mode === "triple" ? 3 : 2;
   battleContext.battleMode = mode;
 
@@ -1841,14 +2129,18 @@ function startMultiBattle(enemyTeam, leaderName, mode) {
   enemyActiveMon = enemyActiveMons[0]; // primary for compatibility
 
   // Initialize active player mons
+  // playerSlots restricts which team indices are allowed (used for wielder battles)
   playerActiveMons = [];
   playerTeamIdxs = [];
   let placed = 0;
-  for (let i = 0; i < G.team.length && placed < slots; i++) {
-    if (G.team[i].currentHP > 0) {
+  const allowedSlots = playerSlots || G.team.map((_, i) => i);
+  for (const idx of allowedSlots) {
+    if (placed >= slots) break;
+    const m = G.team[idx];
+    if (m && m.currentHP > 0) {
       const levelCap = battleContext.levelCap || null;
-      playerActiveMons.push(buildBattleMon(G.team[i], levelCap));
-      playerTeamIdxs.push(i);
+      playerActiveMons.push(buildBattleMon(m, levelCap));
+      playerTeamIdxs.push(idx);
       placed++;
     }
   }
@@ -1866,7 +2158,7 @@ function startMultiBattle(enemyTeam, leaderName, mode) {
 
   if (battleContext.levelCap) logMsg(`⚠️ Level Cap: ${battleContext.levelCap} — your team is scaled down!`);
   const modeLabel = mode === "triple" ? "TRIPLE BATTLE" : "DOUBLE BATTLE";
-  logMsg(`⚔️ ${modeLabel}! ${leaderName} sent out ${enemyActiveMons.map(m => m.name).join(" & ")}!`);
+  logMsg(`⚔️ ${modeLabel}! ${leaderName} sent out ${enemyActiveMons.map(m => getDisplayName(m)).join(" & ")}!`);
 
   updateMultiBattleUI();
   document.getElementById("btn-catch").disabled = true;
@@ -2193,7 +2485,7 @@ async function handleMultiFaintedMons() {
         const next = battleContext.enemyTeam[battleContext.enemyTeamIdx];
         battleContext.enemyTeamIdx++;
         enemyActiveMons[i] = next;
-        logMsg(`${next.name} was sent out!`);
+        logMsg(`${getDisplayName(next)} was sent out!`);
       } else {
         enemyActiveMons[i] = null;
       }
@@ -2205,10 +2497,12 @@ async function handleMultiFaintedMons() {
     const p = playerActiveMons[i];
     if (p && (p.fainted || p.currentHP <= 0)) {
       logMsg(`${p.name} fainted!`);
-      // Find next alive team member not already in battle
-      const nextIdx = G.team.findIndex((m, idx) =>
-        m.currentHP > 0 && !playerTeamIdxs.includes(idx));
-      if (nextIdx >= 0) {
+      // For wielder battles, restrict replacement to the selected 4 slots
+      const allowedSlots = battleContext.vaeldrisPlayerSlots ||
+        G.team.map((_, idx) => idx);
+      const nextIdx = allowedSlots.find(idx =>
+        G.team[idx]?.currentHP > 0 && !playerTeamIdxs.includes(idx));
+      if (nextIdx !== undefined) {
         const levelCap = battleContext.levelCap || null;
         playerActiveMons[i] = buildBattleMon(G.team[nextIdx], levelCap);
         playerTeamIdxs[i] = nextIdx;
@@ -2554,6 +2848,10 @@ function showBagScreen() {
 // PC BOX SCREEN
 // ============================================================
 function showBoxScreen() {
+  if (G.vaeldrisPartyLock) {
+    showNotification("🌀 <strong>Vaeldrian Gauntlet Active</strong><br><br>Your party is locked for the duration of the 13 Wielder battles. PC access is restricted until all Wielders are defeated.");
+    return;
+  }
   showScreen("screen-box");
   renderBoxScreen();
 }
@@ -2693,35 +2991,103 @@ function hideTutorial() {
   document.getElementById("tutorial-overlay").classList.add("hidden");
 }
 
+const NG_PLUS_DEX_START = 322; // IDs >= this are NG+-exclusive
+
 function renderDexGrid(filter, search) {
   const grid = document.getElementById("dex-grid");
   grid.innerHTML = "";
-  for (const [id, def] of Object.entries(MONSTERS_DATA)) {
-    const mid = parseInt(id);
+
+  // Sort entries: base game (by ID), then NG+ regular (by ID), then pseudo (tier 1),
+  // then legend minor (tier 2), mid (tier 3), apex (tier 4) — all within NG+ section
+  const entries = Object.entries(MONSTERS_DATA).map(([id, def]) => [parseInt(id), def]);
+  entries.sort(([aId, aDef], [bId, bDef]) => {
+    const aNg = aId >= NG_PLUS_DEX_START;
+    const bNg = bId >= NG_PLUS_DEX_START;
+    if (!aNg && !bNg) return aId - bId;
+    if (!aNg) return -1;
+    if (!bNg) return 1;
+    const aTier = aDef.ngPlusTier || 0;
+    const bTier = bDef.ngPlusTier || 0;
+    if (aTier !== bTier) return aTier - bTier;
+    return aId - bId;
+  });
+
+  for (const [mid, def] of entries) {
     const seen = G.seenMonsters.has(mid);
     const caught = G.caughtMonsters.has(mid);
+    const isNGPlus = mid >= NG_PLUS_DEX_START;
+    const isForeign = !!def.foreignRegion;
+
+    // Vaeldris filter: only show foreignRegion mons (mystery display)
+    if (filter === "vaeldris") {
+      if (!isForeign) continue;
+      const num = mid - 407;
+      const displayName = seen ? `Forgotten Lumori ${num}` : "???";
+      const emojiHTML = seen ? `<div class="dex-emoji">${def.emoji}</div>` : `<div class="dex-emoji">❓</div>`;
+      const card = document.createElement("div");
+      card.className = "dex-card vaeldris-card" + (seen ? " seen" : " unseen");
+      card.innerHTML = `
+        <div class="dex-num">#V${String(num).padStart(2,"0")}</div>
+        ${emojiHTML}
+        <div class="dex-name">${displayName}</div>
+      `;
+      if (seen) card.addEventListener("click", () => showForgottenDetail(mid));
+      grid.appendChild(card);
+      continue;
+    }
+
+    // All other filters: skip foreignRegion mons entirely
+    if (isForeign) continue;
+    if (isNGPlus && !(G.ngPlusCount > 0) && !seen) continue;
+    if (filter === "ngplus" && !isNGPlus) continue;
     if (filter === "caught" && !caught) continue;
     if (filter === "seen" && !seen) continue;
     if (search && !def.name.toLowerCase().includes(search.toLowerCase()) && !seen) continue;
 
+    const tier = def.ngPlusTier || 0;
+    const tierLabels = { 1:"Pseudo", 2:"Legend", 3:"Legend", 4:"Apex Legend" };
     const card = document.createElement("div");
     card.className = "dex-card";
     if (!seen) card.classList.add("unseen");
     else if (!caught) card.classList.add("seen");
     else card.classList.add("caught");
+    if (isNGPlus) card.classList.add("ngplus-dex-card");
+    if (tier >= 2) card.classList.add(`ngplus-tier-${tier}`);
     const dexSpriteHTML = seen && typeof getMonsterSpriteURL === "function"
       ? `<img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" style="border-radius:6px">`
       : `<div class="dex-emoji">${seen ? def.emoji : "❓"}</div>`;
+    const ngBadge = isNGPlus ? `<span class="dex-ngplus-badge" title="NG+ Exclusive${tier >= 2 ? ' — '+tierLabels[tier] : ''}">⭐</span>` : "";
     card.innerHTML = `
-      <div class="dex-num">#${String(mid).padStart(3,"0")}</div>
+      <div class="dex-num">#${String(mid).padStart(3,"0")}${ngBadge}</div>
       ${dexSpriteHTML}
       <div class="dex-name">${seen ? def.name : "???"}</div>
     `;
-    if (seen) {
-      card.addEventListener("click", () => showDexDetail(mid));
-    }
+    if (seen) card.addEventListener("click", () => showDexDetail(mid));
     grid.appendChild(card);
   }
+}
+
+function showForgottenDetail(monsterId) {
+  const def = MONSTERS_DATA[monsterId];
+  const num = monsterId - 407;
+  document.getElementById("dex-detail").classList.remove("hidden");
+  document.getElementById("dex-grid").style.display = "none";
+  document.getElementById("dex-detail-content").innerHTML = `
+    <div style="text-align:center;padding:2rem 1rem">
+      <div style="font-size:4rem;margin-bottom:0.5rem">${def.emoji}</div>
+      <h2 style="color:var(--accent-yellow);margin:0 0 0.5rem">Forgotten Lumori ${num}</h2>
+      <div style="color:var(--text-muted);font-size:0.85rem;margin-bottom:1.5rem">Encountered in battle</div>
+      <div style="display:flex;gap:0.5rem;justify-content:center;margin-bottom:1.5rem">
+        <span class="type-badge" style="background:#555;color:#aaa">???</span>
+        <span class="type-badge" style="background:#555;color:#aaa">???</span>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:1rem;max-width:280px;margin:0 auto">
+        <p style="color:var(--text-muted);font-style:italic;font-size:0.85rem;line-height:1.6">
+          No data available. This creature is not native to Lumoria.<br><br>
+          Its origins, typing, and capabilities remain unknown.
+        </p>
+      </div>
+    </div>`;
 }
 
 function showDexDetail(monsterId) {
@@ -2730,6 +3096,8 @@ function showDexDetail(monsterId) {
   document.getElementById("dex-detail").classList.remove("hidden");
   document.getElementById("dex-grid").style.display = "none";
 
+  const isNGPlusMon = monsterId >= NG_PLUS_DEX_START;
+  const ngPlusDetailBadge = isNGPlusMon ? `<span class="ngplus-detail-badge">⭐ NG+ Exclusive — only found in New Game+ runs</span>` : "";
   const typeHTML = def.types.map(t => `<span class="type-badge type-${t}">${t}</span>`).join(" ");
   const bst = Object.values(def.base).reduce((s, v) => s + v, 0);
   const statsHTML = Object.entries(def.base).map(([stat, val]) => `
@@ -2826,6 +3194,7 @@ function showDexDetail(monsterId) {
       ${dexDetailSprite}
       <h3 style="margin-top:0.5rem">#${String(monsterId).padStart(3,"0")} ${def.name}</h3>
       <div>${typeHTML}</div>
+      ${ngPlusDetailBadge}
       <p style="font-size:0.8rem;color:var(--text-secondary);margin-top:0.5rem">${caught ? "✅ Caught" : "👁 Seen"}</p>
     </div>
     <div class="detail-section">
@@ -2854,20 +3223,13 @@ function showDexDetail(monsterId) {
 // ============================================================
 function initEventListeners() {
   // Title screen
-  document.getElementById("btn-new-game").addEventListener("click", () => {
-    showScreen("screen-create");
-    typewriterDialog("Welcome to the world of Lumoria! I am Professor Solaris. The world is full of incredible creatures called Lumori. Tell me, what is your name?");
-  });
-  document.getElementById("btn-continue").addEventListener("click", () => {
-    if (loadGame()) {
-      showScreen("screen-main");
-      renderHUD();
-      renderWorldMap();
-      renderAreaPanel();
-      if (typeof MusicEngine !== "undefined") { MusicEngine.init(); MusicEngine.playOverworld(); }
-    } else {
-      showNotification("No save file found!");
-    }
+  document.getElementById("btn-new-game").addEventListener("click", () => showSaveSlots());
+  document.getElementById("btn-continue").addEventListener("click", () => showSaveSlots());
+  document.getElementById("btn-slots-back").addEventListener("click", () => showScreen("screen-title"));
+  document.getElementById("btn-fullscreen").addEventListener("click", toggleFullscreen);
+  document.addEventListener("fullscreenchange", () => {
+    const btn = document.getElementById("btn-fullscreen");
+    if (btn) btn.textContent = document.fullscreenElement ? "⛶ Exit" : "⛶";
   });
 
   // Character creation
@@ -2885,16 +3247,29 @@ function initEventListeners() {
   document.getElementById("btn-take-starter").addEventListener("click", () => {
     const starterId = window._selectedStarter;
     if (!starterId) return;
-    G = newGameState(window._pendingName, starterId);
+    const carry = window._ngPlusCarry;
+    G = newGameState(window._pendingName || carry?.name || "Trainer", starterId);
+    G.saveSlot = window._pendingSlot || 0;
+    if (carry) {
+      G.ngPlusCount = carry.ngCount;
+      G.box = carry.box;
+      window._ngPlusCarry = null;
+    }
     showScreen("screen-main");
     renderHUD();
     renderWorldMap();
     renderAreaPanel();
     saveGame();
-    showNotification(`🎉 You chose ${MONSTERS_DATA[starterId].name}! Your adventure begins!`, () => {
-      if (typeof MusicEngine !== "undefined") { MusicEngine.init(); MusicEngine.playOverworld(); }
-      triggerStorySequence("intro");
-    });
+    const isNGP = G.ngPlusCount > 0;
+    showNotification(
+      isNGP
+        ? `⭐ NG+${G.ngPlusCount} started! You chose ${MONSTERS_DATA[starterId].name}!`
+        : `🎉 You chose ${MONSTERS_DATA[starterId].name}! Your adventure begins!`,
+      () => {
+        if (typeof MusicEngine !== "undefined") { MusicEngine.init(); MusicEngine.playOverworld(); }
+        if (!isNGP) triggerStorySequence("intro");
+      }
+    );
   });
   document.getElementById("btn-cancel-starter").addEventListener("click", () => {
     window._selectedStarter = null;
@@ -2953,6 +3328,50 @@ function initEventListeners() {
   document.getElementById("nav-shop").addEventListener("click", showShopScreen);
   document.getElementById("nav-achievements")?.addEventListener("click", showAchievementsScreen);
   document.getElementById("btn-achievements-back")?.addEventListener("click", () => showScreen("screen-main"));
+
+  // Online nav + hub
+  document.getElementById("nav-online")?.addEventListener("click", () => showOnlineHub());
+  document.getElementById("btn-online-hub-back")?.addEventListener("click", () => showScreen("screen-main"));
+  document.getElementById("hub-leaderboards")?.addEventListener("click", () => { if (typeof showLeaderboards === "function") showLeaderboards(); else showScreen("screen-leaderboards"); });
+  document.getElementById("hub-trade")?.addEventListener("click", () => { if (typeof loadTradeListings === "function") { loadTradeListings(); if (typeof renderMyBoxForTrade === "function") renderMyBoxForTrade(); } showScreen("screen-trade"); });
+  document.getElementById("hub-pvp")?.addEventListener("click", () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); });
+  document.getElementById("hub-friends")?.addEventListener("click", () => { if (typeof showFriendsScreen === "function") showFriendsScreen(); else showScreen("screen-friends"); });
+
+  // Online screens back buttons — return to hub
+  document.getElementById("btn-friends-back")?.addEventListener("click", () => showScreen("screen-online-hub"));
+  document.getElementById("btn-add-friend")?.addEventListener("click", () => {
+    const code = document.getElementById("add-friend-input")?.value.trim();
+    if (code && typeof addFriend === "function") addFriend(code);
+  });
+  document.getElementById("btn-lb-back")?.addEventListener("click", () => showScreen("screen-online-hub"));
+  document.getElementById("btn-trade-back")?.addEventListener("click", () => showScreen("screen-online-hub"));
+  document.getElementById("btn-pvp-back")?.addEventListener("click", () => {
+    if (typeof leaveLiveRoom === "function") leaveLiveRoom();
+    showScreen("screen-online-hub");
+  });
+  // PvP mode tabs (simulated / live)
+  document.querySelectorAll(".pvp-tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".pvp-tab").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".pvp-tab-content").forEach(c => c.classList.add("hidden"));
+      btn.classList.add("active");
+      document.getElementById(`pvp-tab-${btn.dataset.tab}`)?.classList.remove("hidden");
+      if (btn.dataset.tab === "live" && typeof renderLiveRoomUI === "function") {
+        renderLiveRoomUI("idle", null, null);
+      }
+    });
+  });
+  document.getElementById("btn-post-trade")?.addEventListener("click", () => {
+    const type = document.getElementById("trade-wanted-type")?.value || "";
+    if (typeof postTrade === "function") postTrade(type);
+  });
+  document.getElementById("btn-post-challenge")?.addEventListener("click", () => {
+    if (typeof postBattleChallenge === "function") postBattleChallenge();
+  });
+  document.getElementById("btn-accept-by-code")?.addEventListener("click", () => {
+    const code = document.getElementById("pvp-code-input")?.value.trim();
+    if (code && typeof acceptBattleChallenge === "function") acceptBattleChallenge(code);
+  });
 
   // Quest filter buttons
   document.querySelectorAll(".quest-filter-btn").forEach(btn => {
@@ -3193,7 +3612,10 @@ function initEventListeners() {
     saveGame();
   });
 
-  // Hall of fame
+  // Hall of fame / New Game+
+  document.getElementById("btn-hof-ng-plus").addEventListener("click", () => startNGPlus());
+  document.getElementById("btn-hof-ngplus-info")?.addEventListener("click", () => showScreen("screen-ngplus-info"));
+  document.getElementById("btn-ngplus-info-back")?.addEventListener("click", () => showScreen("screen-hof"));
   document.getElementById("btn-hof-continue").addEventListener("click", () => {
     showScreen("screen-main");
     renderHUD();
@@ -3302,7 +3724,7 @@ function startSpecialBattle(battleId, battleData, isUmbra, battleType = "single"
   clearBattleLog();
   if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
   logMsg(`${battle.emoji} ${battle.name}: "${battle.quote}"`);
-  logMsg(`${battle.name} sent out ${enemyActiveMon.name}!`);
+  logMsg(`${battle.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
@@ -3331,7 +3753,7 @@ function startTrainerBattle(trainerId, trainer) {
   showScreen("screen-battle");
   clearBattleLog();
   logMsg(`${trainer.emoji} ${trainer.name} wants to battle!`);
-  logMsg(`${trainer.name} sent out ${enemyActiveMon.name}!`);
+  logMsg(`${trainer.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
@@ -3361,7 +3783,7 @@ function startUmbraAreaBattle(umbraId, battle) {
   if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
   const fmtLabel = {single:"Single",double:"Double",triple:"Triple"}[battleType] || "Single";
   logMsg(`⚔️ ${fmtLabel} Battle — ${battle.emoji} ${battle.name}`);
-  logMsg(`${battle.name} sent out ${enemyActiveMon.name}!`);
+  logMsg(`${battle.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
@@ -3646,7 +4068,10 @@ function renderQuestLog() {
     filteredQuests = allQuests.filter(q =>
       !G.questsCompleted.includes(q.id) &&
       !G.questsActive.includes(q.id) &&
-      G.badges.length >= (q.requiredBadges || 0)
+      G.badges.length >= (q.requiredBadges || 0) &&
+      (!q.requiresNGPlus || (G.ngPlusCount > 0)) &&
+      (!q.requiresChampion || G.championDefeated) &&
+      (!q.requiresDefeated || (G.defeatedLeaders || []).includes(q.requiresDefeated))
     );
   } else if (activeFilter === "active") {
     filteredQuests = allQuests.filter(q => G.questsActive.includes(q.id));
@@ -3666,15 +4091,16 @@ function renderQuestLog() {
     const isCompleted = G.questsCompleted.includes(quest.id);
     const isActive = G.questsActive.includes(quest.id);
     const locationName = WORLD_DATA[quest.location]?.name || quest.location;
-    const typeIcons = { boss: "⚔️", catch: "🔵", visit: "🗺️", fetch: "📦", battle: "🥊" };
+    const typeIcons = { boss: "⚔️", catch: "🔵", visit: "🗺️", fetch: "📦", battle: "🥊", wielder: "🌀" };
 
     const card = document.createElement("div");
-    card.className = "quest-card" + (isCompleted ? " quest-completed" : "");
+    const ngPlusQuest = !!quest.requiresNGPlus;
+    card.className = "quest-card" + (isCompleted ? " quest-completed" : "") + (ngPlusQuest ? " quest-ngplus" : "");
     card.innerHTML = `
       <div class="quest-card-header">
         <span class="quest-type-icon">${typeIcons[quest.type] || "📋"}</span>
         <div class="quest-card-title">
-          <strong>${quest.title}</strong>
+          <strong>${quest.title}${ngPlusQuest ? ' <span class="ng-badge">NG+</span>' : ""}</strong>
           <span class="quest-location">${locationName}</span>
         </div>
         <span class="quest-badge-req">${quest.requiredBadges || 0}+ badges</span>
@@ -3713,6 +4139,18 @@ function renderQuestLog() {
 }
 
 function attemptQuestCompletion(quest) {
+  if (quest.type === "wielder") {
+    if (G.location !== quest.location) {
+      showNotification(`You must be at <strong>${WORLD_DATA[quest.location]?.name || quest.location}</strong> to challenge this Wielder.`);
+      return;
+    }
+    if ((G.defeatedWielders || []).includes(quest.id)) {
+      showNotification(`You have already defeated this Wielder.`);
+      return;
+    }
+    startWielderBattle(quest);
+    return;
+  }
   if (quest.type === "boss") {
     // Must be at the quest location
     if (G.location !== quest.location) {
@@ -3767,6 +4205,131 @@ function startQuestBattle(quest) {
     document.getElementById("btn-catch").disabled = true;
     if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
   });
+}
+
+// ============================================================
+// VAELDRIS WIELDER BATTLE SYSTEM
+// ============================================================
+
+function startWielderBattle(quest) {
+  const wielder = typeof VAELDRIS_WIELDERS !== "undefined" ? VAELDRIS_WIELDERS[quest.id] : null;
+  const doFormatThenParty = () => {
+    showBattleFormatSelection(
+      wielder?.name || "the Wielder",
+      wielder?.emoji || "🌀",
+      wielder?.quote || "",
+      fmt => showVaeldrisPartySelect(quest, fmt)
+    );
+  };
+  if (!G.vaeldrisPartyLock) {
+    G.vaeldrisPartyLock = G.team.map((_, i) => i);
+    saveGame();
+    showNotification(`🌀 <strong>Vaeldrian Gauntlet Begins!</strong><br><br>Your current party of ${G.team.length} is now locked for all 13 Wielder battles. You cannot change your team via PC until all 13 are defeated.<br><br>You will choose how many Lumori to bring each fight.`, doFormatThenParty);
+  } else {
+    doFormatThenParty();
+  }
+}
+
+function showVaeldrisPartySelect(quest, fmt = "triple") {
+  const wielderId = quest.id;
+  const wielder = typeof VAELDRIS_WIELDERS !== "undefined" ? VAELDRIS_WIELDERS[wielderId] : null;
+  const lockedIndices = G.vaeldrisPartyLock || G.team.map((_, i) => i);
+  const pickCount = fmt === "single" ? 2 : fmt === "double" ? 3 : 4;
+
+  const overlay = document.getElementById("vaeldris-party-select");
+  const title = document.getElementById("vaeldris-select-title");
+  const grid = document.getElementById("vaeldris-select-grid");
+  const confirmBtn = document.getElementById("vaeldris-select-confirm");
+
+  if (!overlay || !grid || !confirmBtn) {
+    const fallback = lockedIndices.filter(i => G.team[i]?.currentHP > 0).slice(0, pickCount);
+    if (fallback.length < 1) { showNotification("Your Lumori have no HP! Heal before challenging a Wielder."); return; }
+    launchWielderBattle(quest, fallback, fmt);
+    return;
+  }
+
+  const fmtLabel = {single:"Single",double:"Double",triple:"Triple"}[fmt] || "Triple";
+  title.textContent = `${fmtLabel} Battle — Choose ${pickCount} for ${wielder?.name || "the Wielder"}`;
+  grid.innerHTML = "";
+  let selected = [];
+
+  for (const idx of lockedIndices) {
+    const m = G.team[idx];
+    if (!m) continue;
+    const def = MONSTERS_DATA[m.monsterId];
+    const card = document.createElement("div");
+    card.className = "vaeldris-select-card" + (m.currentHP <= 0 ? " fainted" : "");
+    card.dataset.idx = idx;
+    card.innerHTML = `
+      <div class="vaeldris-card-emoji">${def?.emoji || "❓"}</div>
+      <div class="vaeldris-card-name">${m.nickname || def?.name || "?"}</div>
+      <div class="vaeldris-card-level">Lv.${m.level}</div>
+      <div class="vaeldris-card-hp" style="color:${m.currentHP <= 0 ? "#e74c3c" : "var(--text-muted)"}">
+        ${m.currentHP <= 0 ? "FAINTED" : `HP: ${m.currentHP}/${m.maxHP}`}
+      </div>`;
+    if (m.currentHP > 0) {
+      card.addEventListener("click", () => {
+        if (card.classList.contains("chosen")) {
+          card.classList.remove("chosen");
+          selected = selected.filter(i => i !== idx);
+        } else if (selected.length < pickCount) {
+          card.classList.add("chosen");
+          selected.push(idx);
+        }
+        confirmBtn.disabled = selected.length !== pickCount;
+        confirmBtn.textContent = `Confirm (${selected.length}/${pickCount} selected)`;
+      });
+    }
+    grid.appendChild(card);
+  }
+
+  confirmBtn.disabled = true;
+  confirmBtn.textContent = `Confirm (0/${pickCount} selected)`;
+  confirmBtn.onclick = () => {
+    if (selected.length !== pickCount) return;
+    overlay.classList.add("hidden");
+    launchWielderBattle(quest, selected, fmt);
+  };
+  document.getElementById("vaeldris-select-cancel")?.addEventListener("click", () => {
+    overlay.classList.add("hidden");
+  }, { once: true });
+
+  overlay.classList.remove("hidden");
+}
+
+function launchWielderBattle(quest, playerSlots, fmt = "triple") {
+  const wielderId = quest.id;
+  const wielder = typeof VAELDRIS_WIELDERS !== "undefined" ? VAELDRIS_WIELDERS[wielderId] : null;
+  if (!wielder) { showNotification("Wielder data not found."); return; }
+  const isNGPlus = G.ngPlusCount > 0;
+  const teamData = (isNGPlus && wielder.ngTeam) ? wielder.ngTeam : wielder.team;
+  const enemyTeam = teamData.map(s => buildGymMon(s));
+
+  battleContext = {
+    isWild: false, isGym: false, isChampion: false, isRival: false,
+    isUmbra: false, isUmbraArea: false, isQuest: false, isTrainer: false,
+    isWielder: true, wielderId, questId: wielderId,
+    battleMode: fmt,
+    leaderId: wielderId,
+    enemyTeam, enemyTeamIdx: Math.min(fmt === "triple" ? 3 : fmt === "double" ? 2 : 1, enemyTeam.length),
+    vaeldrisPlayerSlots: playerSlots,
+    levelCap: null
+  };
+
+  if (fmt === "single") {
+    const playerIdx = playerSlots[0];
+    battleContext.playerTeamIdx = playerIdx;
+    const levelCap = null;
+    playerActiveMon = buildBattleMon(G.team[playerIdx], levelCap);
+    enemyActiveMon = enemyTeam[0];
+    hideMultiBattleSlots();
+    showScreen("screen-battle");
+    clearBattleLog();
+    logMsg(`${wielder.emoji} ${wielder.name}: "${wielder.quote}"`);
+    renderBattleUI();
+  } else {
+    startMultiBattle(enemyTeam, wielder.name, fmt, playerSlots);
+  }
 }
 
 function completeQuest(quest) {
@@ -3828,6 +4391,13 @@ const ACHIEVEMENTS = [
   { id:"dex100",         icon:"📖", name:"Half-Dex",            desc:"See 100 different Lumori" },
   { id:"post_game",      icon:"🌐", name:"What Lies Beyond",    desc:"Become Champion and start post-game" },
   { id:"legendary",      icon:"🦋", name:"Legendary Tamer",     desc:"Catch a legendary Lumori" },
+  // NG+ achievements
+  { id:"ngplus_start",   icon:"⭐", name:"NG+ Pioneer",         desc:"Begin your first New Game Plus run" },
+  { id:"ngplus_catch25", icon:"🌌", name:"Rift Walker",         desc:"Catch 25 NG+-exclusive Lumori" },
+  { id:"ngplus_catch50", icon:"🔮", name:"Void Collector",      desc:"Catch 50 NG+-exclusive Lumori" },
+  { id:"ngplus_catchall",icon:"👑", name:"Apex Completionist",  desc:"Catch all NG+-exclusive Lumori" },
+  { id:"ngplus_pseudo",  icon:"🐉", name:"Pseudo Hunter",       desc:"Catch a pseudo-legendary NG+ Lumori" },
+  { id:"ngplus_legend",  icon:"⚡", name:"Legend of Legends",   desc:"Catch a legendary NG+ Lumori" },
 ];
 
 function checkAchievement(id) {
@@ -3869,6 +4439,18 @@ function showAchievementToast(def) {
   toast.classList.add("visible");
   clearTimeout(_achieveTimer);
   _achieveTimer = setTimeout(() => toast.classList.remove("visible"), 4000);
+}
+
+function showOnlineHub() {
+  showScreen("screen-online-hub");
+  const statusEl = document.getElementById("online-hub-status");
+  if (!statusEl) return;
+  if (typeof onlineReady !== "undefined" && onlineReady) {
+    const code = typeof getMyFriendCode === "function" ? getMyFriendCode() : null;
+    statusEl.innerHTML = `<span class="online-status-on">🟢 Online</span>${code ? ` · Your Friend Code: <strong>${code}</strong>` : ""}`;
+  } else {
+    statusEl.innerHTML = `<span class="online-status-off">🔴 Offline</span> — Configure Firebase in js/online.js to enable online features.`;
+  }
 }
 
 function showAchievementsScreen() {
@@ -4022,14 +4604,7 @@ function renderDailyChallengesUI() {
 // ---- BOOT ----
 window.addEventListener("load", () => {
   initEventListeners();
-
-  // Show continue button only if save exists
-  document.getElementById("btn-continue").style.display = hasSave() ? "" : "none";
-
-  // Start on title screen
   showScreen("screen-title");
-
-  // Creation screen dialog now triggered when NEW GAME is clicked
 
   // Map re-render on resize
   window.addEventListener("resize", () => {

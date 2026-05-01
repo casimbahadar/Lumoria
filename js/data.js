@@ -3864,7 +3864,82 @@ const MONSTERS_DATA = {
     learnset:[[1,"gust"],[20,"surf"],[35,"hurricane"],[50,"hydro_pump"],[65,"tidal_crush"],[70,"time_fracture"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Fulgureis was worshipped as Vaeldris's storm god. Its roar causes lightning to strike from all directions simultaneously. It has never been struck by lightning — it IS lightning.",
-    lore:"Kael refuses to call Fulgureis by any title. He says if you need a title to respect something, you haven't understood it yet." }
+    lore:"Kael refuses to call Fulgureis by any title. He says if you need a title to respect something, you haven't understood it yet." },
+
+  // --- Wielder: Thessaly (Ancient Root Cavern) ---
+  417: { id:417, name:"Forgotten Rootborn", emoji:"🌿", types:["Grass","Poison"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:155,atk:135,def:130,spa:90,spd:120,spe:90},
+    learnset:[[1,"vine_whip"],[20,"sludge_bomb"],[35,"seed_bomb"],[50,"energy_ball"],[65,"toxic_surge"],[70,"verdant_surge"]],
+    catchRate:0, expYield:300, rarity:"legendary",
+    desc:"Rootborn grew from ancient seed-stones buried beneath Vaeldris's mountains for ten thousand years. Their roots crack bedrock and draw nutrients from bare stone.",
+    lore:"A single Rootborn can undermine a mountain's foundation in a century. Thessaly meditates beside hers every morning and says it tells her things the mountains are thinking." },
+
+  418: { id:418, name:"Forgotten Tellurak", emoji:"🗻", types:["Rock","Steel"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:160,atk:145,def:140,spa:95,spd:125,spe:85},
+    learnset:[[1,"rock_slide"],[20,"iron_tail"],[35,"stone_edge"],[50,"flash_cannon"],[65,"obsidian_crash"],[70,"warden_strike"]],
+    catchRate:0, expYield:350, rarity:"legendary",
+    desc:"Tellurak has absorbed millennia of geological pressure. Eruptions and earthquakes do not faze it. It once held a mountain together for a week through sheer will.",
+    lore:"Vaeldrian stonecutters believed Tellurak were mountains that decided to walk. Thessaly has never corrected this belief." },
+
+  419: { id:419, name:"Forgotten Gaiasurge", emoji:"🌋", types:["Ground","Dragon"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:170,atk:160,def:150,spa:105,spd:130,spe:85},
+    learnset:[[1,"earthquake"],[20,"dragon_breath"],[35,"earth_power"],[50,"dragon_claw"],[65,"fissure_slam"],[70,"mantle_surge"]],
+    catchRate:0, expYield:420, rarity:"legendary",
+    desc:"Gaiasurge embodies Vaeldris's tectonic fury. When the Sundering struck, it held the land together for as long as anything could. Then it could hold no longer.",
+    lore:"Thessaly never speaks of what she saw Gaiasurge do during the Sundering. She says some things are too large for language." },
+
+  // --- Wielder: Nereus (The Hadal Depths) ---
+  420: { id:420, name:"Forgotten Pelagor", emoji:"🐬", types:["Water","Psychic"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:110,atk:110,def:100,spa:145,spd:115,spe:140},
+    learnset:[[1,"water_gun"],[20,"confusion"],[35,"surf"],[50,"psychic_move"],[65,"hydro_pump"],[70,"telepathic_slam"]],
+    catchRate:0, expYield:300, rarity:"legendary",
+    desc:"Pelagor perceive the emotional currents of the ocean and can sense fear, joy, and hunger across miles of open water.",
+    lore:"Nereus claims Pelagor told him about the Sundering before it happened. He was three days' sail from Vaeldris and turned back because of it. He has never decided if that was the right choice." },
+
+  421: { id:421, name:"Forgotten Bathykor", emoji:"🦈", types:["Dark","Poison"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:115,atk:120,def:105,spa:155,spd:120,spe:135},
+    learnset:[[1,"dark_pulse"],[20,"sludge_bomb"],[35,"crunch"],[50,"venom_lance"],[65,"obsidian_fang"],[70,"void_dominion"]],
+    catchRate:0, expYield:350, rarity:"legendary",
+    desc:"From Vaeldris's lightless deep zones, Bathykor evolved to crush prey under pressures that collapse iron. Its gaze draws enemies toward an unseen void.",
+    lore:"The toxin Bathykor produces doesn't cause pain. Victims simply become very still, very calm, and very far from the surface." },
+
+  422: { id:422, name:"Forgotten Tidecrest", emoji:"🌊", types:["Dragon","Ice"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:125,atk:140,def:110,spa:165,spd:130,spe:130},
+    learnset:[[1,"dragon_breath"],[20,"ice_beam"],[35,"dragon_claw"],[50,"blizzard"],[65,"eon_crash"],[70,"time_fracture"]],
+    catchRate:0, expYield:420, rarity:"legendary",
+    desc:"Tidecrest commands ocean currents that span continents. A single pulse of its tail can redirect rivers. Nereus calls it the last ocean god. The ocean agrees.",
+    lore:"In Vaeldrian myth, Tidecrest did not swim the ocean. The ocean flowed around Tidecrest." },
+
+  // --- Wielder: Caelia (Cloudspire) ---
+  423: { id:423, name:"Forgotten Aetherveil", emoji:"🦋", types:["Fairy","Electric"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:85,atk:100,def:90,spa:155,spd:110,spe:180},
+    learnset:[[1,"fairy_wind"],[20,"thunder_shock"],[35,"dazzling_gleam"],[50,"thunderbolt"],[65,"moonblast"],[70,"pixie_bolt"]],
+    catchRate:0, expYield:300, rarity:"legendary",
+    desc:"Aetherveil are the songs of the wind given form. Their calls travel across mountain ranges in seconds, carrying the voices of the lost to where they are needed.",
+    lore:"Caelia says Aetherveil don't fly so much as they remind the air where it wants to go." },
+
+  424: { id:424, name:"Forgotten Zephyrak", emoji:"🦅", types:["Flying","Steel"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:90,atk:105,def:95,spa:165,spd:115,spe:180},
+    learnset:[[1,"gust"],[20,"flash_cannon"],[35,"air_slash"],[50,"alloy_edge"],[65,"hurricane"],[70,"warden_strike"]],
+    catchRate:0, expYield:350, rarity:"legendary",
+    desc:"Zephyrak navigate by the electromagnetic signatures of all living things below, seeing the world as a tapestry of pulsing lights from miles in the clouds.",
+    lore:"A Zephyrak's steel-feathers vibrate at frequencies that predict weather systems days in advance. Vaeldrian navigators once paid fortunes to travel with one." },
+
+  425: { id:425, name:"Forgotten Skydrak", emoji:"🌬️", types:["Wind","Dragon"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:100,atk:115,def:100,spa:180,spd:125,spe:180},
+    learnset:[[1,"gust"],[20,"dragon_breath"],[35,"hurricane"],[50,"dragon_pulse"],[65,"gale_cannon"],[70,"time_fracture"]],
+    catchRate:0, expYield:420, rarity:"legendary",
+    desc:"Skydrak soars at the edge of the atmosphere where air meets space. Its wings span a city block. The last of its kind watched Vaeldris fall from that height and could do nothing.",
+    lore:"Caelia refuses to let Skydrak land. She says it belongs in the sky and the day it touches the ground again is the day she'll know it has given up." }
 };
 
 

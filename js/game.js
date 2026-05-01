@@ -1668,45 +1668,82 @@ async function doAttack(attacker, defender, moveId, isPlayer) {
     return;
   }
 
-  // Damage
-  const result = calcDamage(attacker, defender, move);
-  // Focus Sash check
-  const sashResult = applyFocusSash(defender, result.damage);
-  if (sashResult.triggered) {
-    result.damage = sashResult.damage;
+  // Multi-hit loop (move.hits defaults to 1)
+  const hitCount = move.hits || 1;
+  let totalDamage = 0;
+  let lastResult = null;
+  let sashTriggered = false;
+
+  for (let h = 0; h < hitCount; h++) {
+    if (defender.fainted) break;
+
+    const result = calcDamage(attacker, defender, move);
+
+    // Focus Sash only activates on the first hit
+    if (h === 0) {
+      const sashResult = applyFocusSash(defender, result.damage);
+      if (sashResult.triggered) {
+        result.damage = sashResult.damage;
+        sashTriggered = true;
+      }
+    }
+
+    defender.currentHP = Math.max(0, defender.currentHP - result.damage);
+    if (h === 0 && sashTriggered) defender.currentHP = Math.max(1, defender.currentHP);
+    if (defender.currentHP <= 0) defender.fainted = true;
+
+    totalDamage += result.damage;
+    lastResult = result;
+
+    // Animations
+    if (isPlayer) {
+      document.getElementById("enemy-sprite").classList.add("shake");
+      setTimeout(() => document.getElementById("enemy-sprite").classList.remove("shake"), 400);
+    } else {
+      document.getElementById("player-sprite").classList.add("shake");
+      setTimeout(() => document.getElementById("player-sprite").classList.remove("shake"), 400);
+    }
+
+    if (isPlayer) syncPlayerMonHP();
+    updateBattleUI();
+    await delay(hitCount > 1 ? 200 : 400);
   }
-  defender.currentHP = Math.max(0, defender.currentHP - result.damage);
-  if (sashResult.triggered) {
-    defender.currentHP = Math.max(1, defender.currentHP);
+
+  if (hitCount > 1) logMsg(`Hit ${hitCount} times!`, "log-damage");
+
+  // Effectiveness and damage messages (based on last hit)
+  if (lastResult.effectiveness > 1) logMsg("It's super effective!", "log-super-effective");
+  else if (lastResult.effectiveness < 1 && lastResult.effectiveness > 0) logMsg("It's not very effective...", "log-not-effective");
+  else if (lastResult.effectiveness === 0) logMsg("It had no effect!", "log-immune");
+  if (lastResult.crit) logMsg("A critical hit!", "log-damage");
+
+  logMsg(`${defender.name} took ${totalDamage} damage!`, "log-damage");
+  if (sashTriggered) logMsg(`${defender.name}'s Focus Sash kept it standing!`, "log-status");
+
+  // Recoil damage
+  if (move.effect === "recoil" && totalDamage > 0 && !attacker.fainted) {
+    const recoilDmg = Math.max(1, Math.floor(totalDamage / 3));
+    attacker.currentHP = Math.max(0, attacker.currentHP - recoilDmg);
+    if (attacker.currentHP <= 0) attacker.fainted = true;
+    logMsg(`${attacker.name} was hurt by recoil! (${recoilDmg})`, "log-damage");
+    if (isPlayer) syncPlayerMonHP();
+    updateBattleUI();
   }
-  if (defender.currentHP <= 0) defender.fainted = true;
 
-  // Animations
-  if (isPlayer) {
-    document.getElementById("enemy-sprite").classList.add("shake");
-    setTimeout(() => document.getElementById("enemy-sprite").classList.remove("shake"), 400);
-  } else {
-    document.getElementById("player-sprite").classList.add("shake");
-    setTimeout(() => document.getElementById("player-sprite").classList.remove("shake"), 400);
+  // Drain heal
+  if (move.effect === "drain" && totalDamage > 0 && !attacker.fainted) {
+    const drainAmt = Math.max(1, Math.floor(totalDamage / 2));
+    attacker.currentHP = Math.min(attacker.maxHP, attacker.currentHP + drainAmt);
+    logMsg(`${attacker.name} drained ${drainAmt} HP!`, "log-status");
+    if (isPlayer) syncPlayerMonHP();
+    updateBattleUI();
   }
 
-  // Sync HP back to party if player's mon
-  if (isPlayer) syncPlayerMonHP();
-  updateBattleUI();
-  await delay(400);
-
-  // Effectiveness message
-  if (result.effectiveness > 1) logMsg("It's super effective!", "log-super-effective");
-  else if (result.effectiveness < 1 && result.effectiveness > 0) logMsg("It's not very effective...", "log-not-effective");
-  else if (result.effectiveness === 0) logMsg("It had no effect!", "log-immune");
-  if (result.crit) logMsg("A critical hit!", "log-damage");
-
-  logMsg(`${defender.name} took ${result.damage} damage!`, "log-damage");
-  if (sashResult.triggered) logMsg(`${defender.name}'s Focus Sash kept it standing!`, "log-status");
-
-  // Apply secondary effects
-  const effMsgs = applyMoveEffect(move, attacker, defender);
-  for (const msg of effMsgs) logMsg(msg, "log-status");
+  // Secondary stat/status effects (recoil and drain moves have no additional secondary effect)
+  if (move.effect !== "recoil" && move.effect !== "drain") {
+    const effMsgs = applyMoveEffect(move, attacker, defender);
+    for (const msg of effMsgs) logMsg(msg, "log-status");
+  }
   await delay(300);
 }
 

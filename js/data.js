@@ -69,25 +69,26 @@ function generateIVs() {
 // TYPE EFFECTIVENESS CHART
 // [attackType][defenseType] = multiplier
 const TYPE_CHART = {
-  Fire:     { Fire:0.5, Water:0.5, Grass:2, Electric:1, Ground:1, Wind:1, Ice:2, Dark:1, Fairy:1, Steel:2, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:0.5, Bug:2, Ghost:1,   Flying:1,   Fighting:1   },
-  Water:    { Fire:2, Water:0.5, Grass:0.5, Electric:1, Ground:2, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:1, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:2, Bug:1,   Ghost:1,   Flying:1,   Fighting:1   },
-  Grass:    { Fire:0.5, Water:2, Grass:0.5, Electric:1, Ground:2, Wind:0.5, Ice:0.5, Dark:1, Fairy:1, Steel:0.5, Poison:0.5, Psychic:1, Dragon:0.5, Normal:1, Rock:2, Bug:0.5, Ghost:1,   Flying:0.5, Fighting:1   },
-  Electric: { Fire:1, Water:2, Grass:0.5, Electric:0.5, Ground:0, Wind:2, Ice:1, Dark:1, Fairy:1, Steel:1, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:1, Bug:1,   Ghost:1,   Flying:2,   Fighting:1   },
-  Ground:   { Fire:2, Water:1, Grass:0.5, Electric:2, Ground:1, Wind:0, Ice:1, Dark:1, Fairy:1, Steel:2, Poison:2, Psychic:1, Dragon:1, Normal:1, Rock:2, Bug:0.5,   Ghost:1,   Flying:0,   Fighting:1   },
-  Wind:     { Fire:1, Water:1, Grass:2, Electric:0.5, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:2,  Ghost:1,   Flying:1,   Fighting:1   },
-  Ice:      { Fire:0.5, Water:0.5, Grass:2, Electric:1, Ground:2, Wind:2, Ice:0.5, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1, Ghost:1,   Flying:2,   Fighting:1   },
-  Dark:     { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:0.5, Fairy:0.5, Steel:1, Poison:1, Psychic:2, Dragon:1, Normal:1, Rock:1, Bug:1,    Ghost:2,   Flying:1,   Fighting:0.5 },
-  Fairy:    { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:2, Fairy:1, Steel:0.5, Poison:0.5, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1,    Ghost:1,   Flying:1,   Fighting:2   },
-  Steel:    { Fire:0.5, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:2, Dark:1, Fairy:2, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:2, Bug:1,    Ghost:1,   Flying:1,   Fighting:1   },
-  Poison:   { Fire:1, Water:1, Grass:2, Electric:1, Ground:0.5, Wind:1, Ice:1, Dark:1, Fairy:2, Steel:0, Poison:0.5, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:1,  Ghost:0.5, Flying:1,   Fighting:1   },
-  Psychic:  { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:0, Fairy:1, Steel:1, Poison:2, Psychic:0.5, Dragon:1, Normal:1, Rock:1, Bug:0.5,   Ghost:1,   Flying:1,   Fighting:2   },
-  Dragon:   { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:0, Steel:0.5, Poison:1, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1,      Ghost:1,   Flying:1,   Fighting:1   },
-  Normal:   { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:1,    Ghost:0,   Flying:1,   Fighting:1   },
-  Rock:     { Fire:2, Water:0.5, Grass:1, Electric:1, Ground:0.5, Wind:2, Ice:2, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:1, Bug:2,  Ghost:1,   Flying:2,   Fighting:0.5 },
-  Bug:      { Fire:0.5, Water:1, Grass:2, Electric:1, Ground:0.5, Wind:0.5, Ice:1, Dark:2, Fairy:0.5, Steel:0.5, Poison:0.5, Psychic:2, Dragon:1, Normal:1, Rock:1, Bug:1, Ghost:0.5, Flying:0.5, Fighting:0.5 },
-  Flying:   { Fire:1, Water:1, Grass:2, Electric:0.5, Ground:1, Wind:1, Ice:0.5, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:2, Ghost:1,   Flying:1,   Fighting:2   },
-  Ghost:    { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:0.5, Fairy:1, Steel:1, Poison:1, Psychic:2, Dragon:1, Normal:0, Rock:1, Bug:1,      Ghost:2,   Flying:1,   Fighting:0   },
-  Fighting: { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:2, Dark:2, Fairy:0.5, Steel:2, Poison:0.5, Psychic:0.5, Dragon:1, Normal:2, Rock:2, Bug:0.5, Ghost:0,  Flying:0.5, Fighting:1   }
+  Fire:     { Fire:0.5, Water:0.5, Grass:2, Electric:1, Ground:1, Wind:1, Ice:2, Dark:1, Fairy:1, Steel:2, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:0.5, Bug:2, Ghost:1,   Flying:1,   Fighting:1,   Cosmic:1   },
+  Water:    { Fire:2, Water:0.5, Grass:0.5, Electric:1, Ground:2, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:1, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:2, Bug:1,   Ghost:1,   Flying:1,   Fighting:1,   Cosmic:1   },
+  Grass:    { Fire:0.5, Water:2, Grass:0.5, Electric:1, Ground:2, Wind:0.5, Ice:0.5, Dark:1, Fairy:1, Steel:0.5, Poison:0.5, Psychic:1, Dragon:0.5, Normal:1, Rock:2, Bug:0.5, Ghost:1,   Flying:0.5, Fighting:1,   Cosmic:1   },
+  Electric: { Fire:1, Water:2, Grass:0.5, Electric:0.5, Ground:0, Wind:2, Ice:1, Dark:1, Fairy:1, Steel:1, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:1, Bug:1,   Ghost:1,   Flying:2,   Fighting:1,   Cosmic:0.5 },
+  Ground:   { Fire:2, Water:1, Grass:0.5, Electric:2, Ground:1, Wind:0, Ice:1, Dark:1, Fairy:1, Steel:2, Poison:2, Psychic:1, Dragon:1, Normal:1, Rock:2, Bug:0.5,   Ghost:1,   Flying:0,   Fighting:1,   Cosmic:1   },
+  Wind:     { Fire:1, Water:1, Grass:2, Electric:0.5, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:2,  Ghost:1,   Flying:1,   Fighting:1,   Cosmic:1   },
+  Ice:      { Fire:0.5, Water:0.5, Grass:2, Electric:1, Ground:2, Wind:2, Ice:0.5, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1, Ghost:1,   Flying:2,   Fighting:1,   Cosmic:1   },
+  Dark:     { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:0.5, Fairy:0.5, Steel:1, Poison:1, Psychic:2, Dragon:1, Normal:1, Rock:1, Bug:1,    Ghost:2,   Flying:1,   Fighting:0.5, Cosmic:2   },
+  Fairy:    { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:2, Fairy:1, Steel:0.5, Poison:0.5, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1,    Ghost:1,   Flying:1,   Fighting:2,   Cosmic:0.5 },
+  Steel:    { Fire:0.5, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:2, Dark:1, Fairy:2, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:2, Bug:1,    Ghost:1,   Flying:1,   Fighting:1,   Cosmic:1   },
+  Poison:   { Fire:1, Water:1, Grass:2, Electric:1, Ground:0.5, Wind:1, Ice:1, Dark:1, Fairy:2, Steel:0, Poison:0.5, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:1,  Ghost:0.5, Flying:1,   Fighting:1,   Cosmic:2   },
+  Psychic:  { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:0, Fairy:1, Steel:1, Poison:2, Psychic:0.5, Dragon:1, Normal:1, Rock:1, Bug:0.5,   Ghost:1,   Flying:1,   Fighting:2,   Cosmic:0.5 },
+  Dragon:   { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:0, Steel:0.5, Poison:1, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1,      Ghost:1,   Flying:1,   Fighting:1,   Cosmic:1   },
+  Normal:   { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:1,    Ghost:0,   Flying:1,   Fighting:1,   Cosmic:1   },
+  Rock:     { Fire:2, Water:0.5, Grass:1, Electric:1, Ground:0.5, Wind:2, Ice:2, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:1, Bug:2,  Ghost:1,   Flying:2,   Fighting:0.5, Cosmic:1   },
+  Bug:      { Fire:0.5, Water:1, Grass:2, Electric:1, Ground:0.5, Wind:0.5, Ice:1, Dark:2, Fairy:0.5, Steel:0.5, Poison:0.5, Psychic:2, Dragon:1, Normal:1, Rock:1, Bug:1, Ghost:0.5, Flying:0.5, Fighting:0.5, Cosmic:1 },
+  Flying:   { Fire:1, Water:1, Grass:2, Electric:0.5, Ground:1, Wind:1, Ice:0.5, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:2, Ghost:1,   Flying:1,   Fighting:2,   Cosmic:1   },
+  Ghost:    { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:0.5, Fairy:1, Steel:1, Poison:1, Psychic:2, Dragon:1, Normal:0, Rock:1, Bug:1,      Ghost:2,   Flying:1,   Fighting:0,   Cosmic:2   },
+  Fighting: { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:2, Dark:2, Fairy:0.5, Steel:2, Poison:0.5, Psychic:0.5, Dragon:1, Normal:2, Rock:2, Bug:0.5, Ghost:0,  Flying:0.5, Fighting:1,   Cosmic:1   },
+  Cosmic:   { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:2, Fairy:0.5, Steel:1, Poison:1, Psychic:2, Dragon:2, Normal:0.5, Rock:1, Bug:1,    Ghost:0.5, Flying:1,   Fighting:1,   Cosmic:0.5 }
 };
 
 function getTypeEffectiveness(moveType, defenderTypes) {
@@ -736,7 +737,87 @@ const MOVES_DATA = {
   seismic_force:    { name:"Seismic Force",   type:"Fighting",power:120, acc:85,  pp:5,  cat:"special",  effect:"recharge",  ec:100,desc:"Channels fighting spirit into a devastating force wave. Must recharge next turn." },
   // --- Flying (signature moves for Forgotten Lumori) ---
   aerial_assault:   { name:"Aerial Assault",  type:"Flying",  power:85,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20, desc:"Dives from great heights and slams into the foe with aerial precision." },
-  sky_dive:         { name:"Sky Dive",         type:"Flying",  power:100, acc:90,  pp:10, cat:"physical", effect:"priority",  ec:0,  desc:"Plunges from the heavens with staggering speed, always striking first." }
+  sky_dive:         { name:"Sky Dive",         type:"Flying",  power:100, acc:90,  pp:10, cat:"physical", effect:"priority",  ec:0,  desc:"Plunges from the heavens with staggering speed, always striking first." },
+
+  // --- Cosmic (signature moves for Forgotten Lumori) ---
+  aura_veil_strike: { name:"Aura Veil Strike", type:"Cosmic",  power:85,  acc:100, pp:15, cat:"special",  effect:"defup",     ec:30, desc:"Auravian wraps itself in stellar light and fires a focused cosmic beam, the energy hardening into a protective shell around it." },
+  aether_shock:     { name:"Aether Shock",     type:"Cosmic",  power:90,  acc:95,  pp:10, cat:"special",  effect:"paralyze",  ec:20, desc:"Aetherveil releases a pulse of raw aetheric energy that crackles through the target's nervous system." },
+  cosmic_dust:      { name:"Cosmic Dust",      type:"Cosmic",  power:85,  acc:100, pp:15, cat:"special",  effect:"spatkdown", ec:30, desc:"Cosmolith scatters ancient stellar matter across the battlefield, clouding the opponent's senses and dulling their power." },
+  celestial_forge:  { name:"Celestial Forge",  type:"Cosmic",  power:140, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Celestrix compresses starlight into a solid weapon and delivers a strike that scorches reality. The feedback tears at the wielder." },
+  star_cannon:      { name:"Star Cannon",      type:"Cosmic",  power:55,  acc:100, pp:10, cat:"special",  effect:"defdown",   ec:30, hits:2, desc:"Celestrix fires two concentrated bolts of compressed starlight that punch through defenses on impact." },
+
+  // --- Bug (signature moves for Forgotten Lumori) ---
+  swarm_tide:       { name:"Swarm Tide",       type:"Bug",     power:40,  acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30, hits:3, desc:"Fulgureis summons a torrent of charged insects in three cascading waves, each slowing the target further." },
+
+  // --- Water (signature moves for Forgotten Lumori) ---
+  torrent_shell:    { name:"Torrent Shell",    type:"Water",   power:150, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Fulgureis condenses an ocean's worth of pressure into a single catastrophic blast. The backlash is immense." },
+  dream_torrent:    { name:"Dream Torrent",    type:"Water",   power:90,  acc:95,  pp:10, cat:"special",  effect:"confuse",   ec:30, desc:"Dreamaith floods the opponent's mind with tidal dreamscapes, leaving them disoriented and struggling to focus." },
+  moonlit_surge:    { name:"Moonlit Surge",    type:"Fairy",   power:100, acc:95,  pp:10, cat:"special",  effect:"spatkdown", ec:30, desc:"Luneveth channels concentrated moonlight into a surge of lunar energy that dims the opponent's special power." },
+
+  // --- Ground (signature moves for Forgotten Lumori) ---
+  luma_quake:       { name:"Luma Quake",       type:"Ground",  power:100, acc:95,  pp:10, cat:"physical", effect:"atkup",     ec:30, desc:"Lumarix strikes the earth with radiant force, the impact reverberating through its body and sharpening its resolve." },
+  tectonic_wrath:   { name:"Tectonic Wrath",   type:"Ground",  power:145, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Gaiasurge ruptures the continental shelf beneath the opponent. The shockwave tears back through Gaiasurge's limbs." },
+  quake_barrage:    { name:"Quake Barrage",    type:"Fighting",power:40,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20, hits:3, desc:"Gaiasurge delivers three earth-shaking blows in rapid succession, each strike rattling the opponent's footing." },
+  smoldering_abyss: { name:"Smoldering Abyss", type:"Ground", power:95,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:30, desc:"Emberon opens a rift to magmatic depths beneath the opponent's feet. Superheated gases scorch what survives the impact." },
+  nihil_quake:      { name:"Nihil Quake",      type:"Ground",  power:90,  acc:95,  pp:10, cat:"physical", effect:"spedown",   ec:30, desc:"Nihilax tears apart the ground itself with nihilistic force, disrupting the target's footing and momentum." },
+
+  // --- Ice (signature moves for Forgotten Lumori) ---
+  mind_blizzard:    { name:"Mind Blizzard",    type:"Psychic", power:135, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Duskmourn amplifies psychic energy to a destructive extreme, generating a psychic blizzard. The mental strain is brutal." },
+  frost_pulse:      { name:"Frost Pulse",      type:"Ice",     power:50,  acc:95,  pp:10, cat:"special",  effect:"freeze",    ec:20, hits:2, desc:"Duskmourn fires two pulses of absolute-zero energy that can lock the target in ice on contact." },
+  glacial_riptide:  { name:"Glacial Riptide",  type:"Ice",     power:140, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Tidecrest summons a riptide flash-frozen to absolute zero and drives it through the target. The backlash chills even Tidecrest." },
+  tidal_fang:       { name:"Tidal Fang",       type:"Dragon",  power:60,  acc:100, pp:10, cat:"physical", effect:"defdown",   ec:30, hits:2, desc:"Tidecrest bites twice with draconic force backed by tidal momentum, wearing down the target's defenses." },
+  cryo_plate:       { name:"Cryo Plate",       type:"Ice",     power:85,  acc:100, pp:10, cat:"physical", effect:"freeze",    ec:10, desc:"Frigalum slams an ice-hardened plate of steel into the target. A thin probability of total freezing lingers." },
+  frost_lattice:    { name:"Frost Lattice",    type:"Ice",     power:100, acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30, desc:"Sparkeis weaves a crystalline lattice of ice energy around the target, restricting their movement and slowing their reactions." },
+
+  // --- Dark (signature moves for Forgotten Lumori) ---
+  nyx_fang:         { name:"Nyx Fang",         type:"Dark",    power:85,  acc:100, pp:15, cat:"physical", effect:"spedown",   ec:30, desc:"Nyxviper strikes from absolute darkness with fangs that leave a numbing venom slowing the target's reflexes." },
+  dark_corrosion:   { name:"Dark Corrosion",   type:"Dark",    power:95,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:30, desc:"Bathykor releases a wave of corrosive dark energy that eats through the target's mental defenses." },
+  cryo_shatter:     { name:"Cryo Shatter",     type:"Rock",    power:110, acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:30, desc:"Cryvorn superheats then instantly flash-freezes stone before detonating it into the opponent, cracking their defenses." },
+  forge_blast:      { name:"Forge Blast",      type:"Fire",    power:105, acc:90,  pp:10, cat:"special",  effect:"burn",      ec:30, desc:"Forgerak channels forge-fire intensified beyond metal's tolerance and releases it in a shaped detonation." },
+
+  // --- Poison (signature moves for Forgotten Lumori) ---
+  toxic_blaze:      { name:"Toxic Blaze",      type:"Fire",    power:95,  acc:100, pp:10, cat:"special",  effect:"burn",      ec:20, desc:"Morrath ignites its toxins into a poisonous firestorm. The heat is almost secondary to the burning residue it leaves." },
+  root_toxin:       { name:"Root Toxin",       type:"Poison",  power:85,  acc:100, pp:15, cat:"physical", effect:"poison",    ec:100,desc:"Rootborn drives toxin-saturated vines into the target, delivering a full dose of its most potent venom on contact." },
+  venom_surge:      { name:"Venom Surge",      type:"Dragon",  power:145, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Dracofire condenses venom and dragonfire into a single explosive charge and detonates it on contact. The explosion damages both." },
+  acid_burst:       { name:"Acid Burst",       type:"Poison",  power:40,  acc:90,  pp:10, cat:"special",  effect:"poison",    ec:30, hits:3, desc:"Dracofire erupts with three blasts of concentrated acid in rapid succession, each carrying a chance to poison." },
+  venom_mind:       { name:"Venom Mind",       type:"Psychic", power:95,  acc:100, pp:10, cat:"special",  effect:"spatkdown", ec:30, desc:"Vantarix injects psychic toxins into the opponent's mind, steadily diminishing their capacity for special attacks." },
+
+  // --- Electric (signature moves for Forgotten Lumori) ---
+  volt_rail:        { name:"Volt Rail",        type:"Electric",power:90,  acc:95,  pp:10, cat:"physical", effect:"paralyze",  ec:20, desc:"Electrak fires along a magnetic rail it generates in an instant, striking with rail-gun velocity and leaving the target stunned." },
+  thought_stream:   { name:"Thought Stream",   type:"Psychic", power:90,  acc:95,  pp:10, cat:"special",  effect:"spdefdown", ec:30, desc:"Pelagor floods the target with a torrent of raw psychic data, overwhelming their mental defenses." },
+  voltaic_fang:     { name:"Voltaic Fang",     type:"Dragon",  power:140, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Psydrak charges its draconic fangs with lethal voltage before biting down. The discharge blows back through Psydrak's own jaw." },
+  thunder_chain:    { name:"Thunder Chain",    type:"Electric",power:40,  acc:90,  pp:10, cat:"special",  effect:"paralyze",  ec:20, hits:3, desc:"Psydrak fires three chained lightning arcs that arc between target limbs, each carrying a chance to paralyze." },
+  psycho_surge:     { name:"Psycho Surge",     type:"Psychic", power:90,  acc:95,  pp:10, cat:"special",  effect:"calmup",    ec:30, desc:"Volteon releases a surge of psychoelectric energy, sometimes amplifying its own mental capabilities in the process." },
+
+  // --- Rock (signature moves for Forgotten Lumori) ---
+  arc_strike:       { name:"Arc Strike",       type:"Normal",  power:110, acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20, desc:"Arcvolt concentrates its electromagnetic force into a normal-type shockwave of pure concussive energy that stuns on impact." },
+  mineral_lance:    { name:"Mineral Lance",    type:"Rock",    power:105, acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:30, desc:"Tellurak fires a dense spike of compressed minerals at hypersonic velocity that pierces through the target's defenses." },
+
+  // --- Steel (signature moves for Forgotten Lumori) ---
+  pyro_alloy:       { name:"Pyro Alloy",       type:"Steel",   power:85,  acc:100, pp:10, cat:"physical", effect:"burn",      ec:20, desc:"Pyraeon fuses its superheated alloy scales into an edge and strikes, leaving a burning brand on contact." },
+  iron_fortress:    { name:"Iron Fortress",    type:"Steel",   power:85,  acc:100, pp:10, cat:"physical", effect:"defup",     ec:100,desc:"Ironvast strikes with total commitment, its own body acting as a rampart. Every blow hardens its defensive posture." },
+  steel_gale:       { name:"Steel Gale",       type:"Steel",   power:100, acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:20, desc:"Zephyrak spins its steel-edged wings to hurricane velocity and releases a blade of compressed metal-edged air." },
+
+  // --- Ghost (signature moves for Forgotten Lumori) ---
+  phantom_gale:     { name:"Phantom Gale",     type:"Ghost",   power:130, acc:90,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Skydrak tears open a corridor to the void and channels its force through a phantom-wind strike. The void tears back." },
+  void_cyclone:     { name:"Void Cyclone",     type:"Wind",    power:50,  acc:95,  pp:10, cat:"special",  effect:"spatkdown", ec:30, hits:2, desc:"Skydrak creates two cyclones of void-infused wind in succession, each disrupting the target's focus." },
+  winter_shade:     { name:"Winter Shade",     type:"Ghost",   power:130, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Frostdrax becomes solid shadow and delivers a blow that hits from inside the target's own silhouette. The impact echoes back." },
+  glacial_spirit:   { name:"Glacial Spirit",   type:"Fairy",   power:55,  acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30, hits:2, desc:"Frostdrax fires two waves of fairy-imbued glacial energy that seep into the target's joints, slowing their movement." },
+  void_rend_ex:     { name:"Void Rend EX",     type:"Ghost",   power:55,  acc:95,  pp:10, cat:"special",  effect:"spdefdown", ec:30, hits:2, desc:"Abysdrak tears twin rifts through the fabric of space itself, each rend tearing through the target's special defenses." },
+  abyssal_fang:     { name:"Abyssal Fang",     type:"Dragon",  power:145, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Abysdrak descends from the abyssal deep with draconic force beyond comprehension. The impact damage reverberates back." },
+  ghost_radiance:   { name:"Ghost Radiance",   type:"Ghost",   power:40,  acc:90,  pp:10, cat:"special",  effect:"spatkdown", ec:30, hits:3, desc:"Stellarion fires three pulses of spectral radiance that haunt the target's mind with each successive hit." },
+
+  // --- Dragon (signature moves for Forgotten Lumori) ---
+  stellar_flare:    { name:"Stellar Flare",    type:"Dragon",  power:110, acc:90,  pp:10, cat:"special",  effect:"burn",      ec:20, desc:"Stardrax ignites draconic plasma at stellar temperature and fires it in a focused jet that carries lingering heat." },
+  alloy_breaker:    { name:"Alloy Breaker",    type:"Dragon",  power:150, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Alloydrax drives its full metallic mass at draconic velocity into the target. The resulting impact damages Alloydrax as well." },
+  dragon_pummels:   { name:"Dragon Pummels",   type:"Fighting",power:40,  acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:20, hits:3, desc:"Alloydrax delivers three relentless draconic strikes in sequence, each eroding the target's defensive stance." },
+
+  // --- Flying (signature moves for Forgotten Lumori) ---
+  canopy_strike:    { name:"Canopy Strike",    type:"Flying",  power:130, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Thunderax dives from maximum altitude and slams into the target like a falling sky. It pulls up hard but the landing hurts." },
+  sky_harvest:      { name:"Sky Harvest",      type:"Grass",   power:90,  acc:95,  pp:10, cat:"special",  effect:"drain",     ec:100,desc:"Thunderax converts solar energy it has absorbed during flight directly into a beam attack, restoring its health as it strikes." },
+
+  // --- Normal (signature moves for Forgotten Lumori) ---
+  stellar_collapse: { name:"Stellar Collapse", type:"Normal",  power:150, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Stellarion implodes its own normal-type presence into a gravitational singularity and releases it on impact. Survivable, barely." }
 };
 
 
@@ -3807,10 +3888,10 @@ const MONSTERS_DATA = {
   // ============================================================
 
   // --- Wielder: Lysara (Celestial Plateau) ---
-  408: { id:408, name:"Forgotten Auravian", emoji:"🕊️", types:["Psychic","Flying"],
+  408: { id:408, name:"Forgotten Auravian", emoji:"🕊️", types:["Cosmic","Flying"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:95,def:110,spa:145,spd:130,spe:125},
-    learnset:[[1,"confusion"],[20,"psybeam"],[35,"air_slash"],[50,"psychic_move"],[65,"moonblast"],[70,"cosmic_veil"]],
+    learnset:[[1,"confusion"],[20,"psybeam"],[35,"air_slash"],[50,"psychic_move"],[65,"moonblast"],[70,"cosmic_veil"],[80,"aura_veil_strike"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Messengers of the sacred temples of a lost land, Auravian carry the resonance of ancient prayers on crystalline wings.",
     lore:"Auravian are the divine messengers of Vaeldris. They appear to those who have lost something precious and are said to carry the voices of the departed on their wings." },
@@ -3818,15 +3899,15 @@ const MONSTERS_DATA = {
   409: { id:409, name:"Forgotten Lumarix", emoji:"🦢", types:["Fairy","Ground"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:120,atk:100,def:115,spa:155,spd:135,spe:125},
-    learnset:[[1,"fairy_wind"],[20,"earth_power"],[35,"dazzling_gleam"],[50,"moonblast"],[65,"fissure_slam"],[70,"celestial_wave"]],
+    learnset:[[1,"fairy_wind"],[20,"earth_power"],[35,"dazzling_gleam"],[50,"moonblast"],[65,"fissure_slam"],[70,"celestial_wave"],[80,"luma_quake"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Lumarix hold fragments of starlight within their translucent bodies and release blinding radiance when threatened.",
     lore:"The crystalline structures within a Lumarix's body refract light in ways that physicists from Vaeldris spent centuries trying to explain. They never succeeded." },
 
-  410: { id:410, name:"Forgotten Celestrix", emoji:"👼", types:["Normal","Steel"],
+  410: { id:410, name:"Forgotten Celestrix", emoji:"👼", types:["Cosmic","Steel"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:130,atk:105,def:120,spa:170,spd:145,spe:130},
-    learnset:[[1,"body_slam"],[20,"flash_cannon"],[35,"psychic_move"],[50,"moonblast"],[65,"alloy_edge"],[70,"cosmic_veil"]],
+    learnset:[[1,"body_slam"],[20,"flash_cannon"],[35,"psychic_move"],[50,"moonblast"],[65,"alloy_edge"],[70,"cosmic_veil"],[80,"celestial_forge"],[90,"star_cannon"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"The apex guardian of Vaeldris's celestial order, Celestrix was said to manifest only when the stars aligned perfectly.",
     lore:"Lysara wept on the day Celestrix became the last of its kind. She has never spoken of the Sundering to anyone, but those who watch her battle claim they can see it in her eyes." },
@@ -3835,7 +3916,7 @@ const MONSTERS_DATA = {
   411: { id:411, name:"Forgotten Nyxviper", emoji:"🦇", types:["Dark","Ghost"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:80,atk:150,def:80,spa:120,spd:90,spe:200},
-    learnset:[[1,"night_slash"],[20,"shadow_ball"],[35,"dark_pulse"],[50,"void_rend"],[65,"shadowstep"],[70,"eclipse_shroud"]],
+    learnset:[[1,"night_slash"],[20,"shadow_ball"],[35,"dark_pulse"],[50,"void_rend"],[65,"shadowstep"],[70,"eclipse_shroud"],[80,"nyx_fang"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Nyxviper phase through solid matter and strike from the space between moments. Their venom erases memories rather than dealing damage.",
     lore:"Vaeldrian scholars debated whether Nyxviper were truly physical beings or manifestations of collective nightmares. The debate was never resolved." },
@@ -3843,7 +3924,7 @@ const MONSTERS_DATA = {
   412: { id:412, name:"Forgotten Morrath", emoji:"🌑", types:["Poison","Fire"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:85,atk:145,def:90,spa:135,spd:95,spe:200},
-    learnset:[[1,"shadow_ball"],[20,"fire_blast"],[35,"dark_pulse"],[50,"sludge_wave"],[65,"cinderwhirl"],[70,"nightmare_pulse"]],
+    learnset:[[1,"shadow_ball"],[20,"fire_blast"],[35,"dark_pulse"],[50,"sludge_wave"],[65,"cinderwhirl"],[70,"nightmare_pulse"],[80,"toxic_blaze"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Ancient Vaeldrians believed Morrath were warriors who refused to pass on. Their dark flames absorb light and burn without producing warmth.",
     lore:"The flames Morrath produce are called darkfire — they are technically fire in every measurable sense, yet a room lit only by darkfire grows darker the longer they burn." },
@@ -3851,7 +3932,7 @@ const MONSTERS_DATA = {
   413: { id:413, name:"Forgotten Duskmourn", emoji:"🕷️", types:["Ice","Psychic"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:155,def:95,spa:155,spd:100,spe:200},
-    learnset:[[1,"ice_punch"],[20,"psychic_move"],[35,"blizzard"],[50,"psystrike"],[65,"cryo_lance"],[70,"veil_collapse"]],
+    learnset:[[1,"ice_punch"],[20,"psychic_move"],[35,"blizzard"],[50,"psystrike"],[65,"cryo_lance"],[70,"veil_collapse"],[80,"mind_blizzard"],[90,"frost_pulse"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Duskmourn presided over Vaeldris's shadow courts as judge and executioner. It was the last thing standing when the Sundering came — and it still carries that grief.",
     lore:"Morrigan found Duskmourn three days after the Sundering, standing perfectly still at the edge of the collapse. She has never been able to explain why it chose to follow her." },
@@ -3860,23 +3941,23 @@ const MONSTERS_DATA = {
   414: { id:414, name:"Forgotten Electrak", emoji:"🌩️", types:["Electric","Steel"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:130,def:90,spa:150,spd:90,spe:170},
-    learnset:[[1,"thunder_shock"],[20,"flash_cannon"],[35,"thunderbolt"],[50,"volt_surge"],[65,"alloy_edge"],[70,"overcharge"]],
+    learnset:[[1,"thunder_shock"],[20,"flash_cannon"],[35,"thunderbolt"],[50,"volt_surge"],[65,"alloy_edge"],[70,"overcharge"],[80,"volt_rail"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Electrak surf electromagnetic currents at speeds that blur their outline. Their charged steel scales can discharge enough power to fuel a city for hours.",
     lore:"The steel in Electrak's scales is a natural alloy produced by their bodies — a material that conducts electricity with zero resistance that Vaeldrian engineers failed to replicate." },
 
-  415: { id:415, name:"Forgotten Arcvolt", emoji:"⚡", types:["Dragon","Rock"],
+  415: { id:415, name:"Forgotten Arcvolt", emoji:"⚡", types:["Normal","Rock"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:140,def:95,spa:155,spd:100,spe:165},
-    learnset:[[1,"dragon_breath"],[20,"stone_edge"],[35,"dragon_claw"],[50,"dragon_pulse"],[65,"obsidian_crash"],[70,"time_fracture"]],
+    learnset:[[1,"dragon_breath"],[20,"stone_edge"],[35,"dragon_claw"],[50,"dragon_pulse"],[65,"obsidian_crash"],[70,"time_fracture"],[80,"arc_strike"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Arcvolt stores massive charges within draconic stone-scale formations before releasing them in a single arc. The discharge leaves glass where the lightning lands.",
     lore:"Arcvolt's scales form geological strata within their bodies over time — geologists from Vaeldris once found evidence of strikes dating back sixty thousand years in a single Arcvolt's hide." },
 
-  416: { id:416, name:"Forgotten Fulgureis", emoji:"🌪️", types:["Flying","Water"],
+  416: { id:416, name:"Forgotten Fulgureis", emoji:"🌪️", types:["Bug","Water"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:100,atk:155,def:100,spa:165,spd:110,spe:170},
-    learnset:[[1,"gust"],[20,"surf"],[35,"hurricane"],[50,"hydro_pump"],[65,"tidal_crush"],[70,"time_fracture"]],
+    learnset:[[1,"gust"],[20,"surf"],[35,"hurricane"],[50,"hydro_pump"],[65,"tidal_crush"],[70,"time_fracture"],[80,"torrent_shell"],[90,"swarm_tide"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Fulgureis was worshipped as Vaeldris's storm god. Its roar causes lightning to strike from all directions simultaneously. It has never been struck by lightning — it IS lightning.",
     lore:"Kael refuses to call Fulgureis by any title. He says if you need a title to respect something, you haven't understood it yet." },
@@ -3885,7 +3966,7 @@ const MONSTERS_DATA = {
   417: { id:417, name:"Forgotten Rootborn", emoji:"🌿", types:["Grass","Poison"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:155,atk:135,def:130,spa:90,spd:120,spe:90},
-    learnset:[[1,"vine_whip"],[20,"sludge_bomb"],[35,"seed_bomb"],[50,"energy_ball"],[65,"toxic_surge"],[70,"verdant_surge"]],
+    learnset:[[1,"vine_whip"],[20,"sludge_bomb"],[35,"seed_bomb"],[50,"energy_ball"],[65,"toxic_surge"],[70,"verdant_surge"],[80,"root_toxin"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Rootborn grew from ancient seed-stones buried beneath Vaeldris's mountains for ten thousand years. Their roots crack bedrock and draw nutrients from bare stone.",
     lore:"A single Rootborn can undermine a mountain's foundation in a century. Thessaly meditates beside hers every morning and says it tells her things the mountains are thinking." },
@@ -3893,7 +3974,7 @@ const MONSTERS_DATA = {
   418: { id:418, name:"Forgotten Tellurak", emoji:"🗻", types:["Rock","Steel"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:160,atk:145,def:140,spa:95,spd:125,spe:85},
-    learnset:[[1,"rock_slide"],[20,"iron_tail"],[35,"stone_edge"],[50,"flash_cannon"],[65,"obsidian_crash"],[70,"warden_strike"]],
+    learnset:[[1,"rock_slide"],[20,"iron_tail"],[35,"stone_edge"],[50,"flash_cannon"],[65,"obsidian_crash"],[70,"warden_strike"],[80,"mineral_lance"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Tellurak has absorbed millennia of geological pressure. Eruptions and earthquakes do not faze it. It once held a mountain together for a week through sheer will.",
     lore:"Vaeldrian stonecutters believed Tellurak were mountains that decided to walk. Thessaly has never corrected this belief." },
@@ -3901,7 +3982,7 @@ const MONSTERS_DATA = {
   419: { id:419, name:"Forgotten Gaiasurge", emoji:"🌋", types:["Ground","Fighting"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:170,atk:160,def:150,spa:105,spd:130,spe:85},
-    learnset:[[1,"earthquake"],[20,"power_drive"],[35,"earth_power"],[50,"iron_cleave"],[65,"fissure_slam"],[70,"mantle_surge"]],
+    learnset:[[1,"earthquake"],[20,"power_drive"],[35,"earth_power"],[50,"iron_cleave"],[65,"fissure_slam"],[70,"mantle_surge"],[80,"tectonic_wrath"],[90,"quake_barrage"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Gaiasurge embodies Vaeldris's tectonic fury. When the Sundering struck, it held the land together for as long as anything could. Then it could hold no longer.",
     lore:"Thessaly never speaks of what she saw Gaiasurge do during the Sundering. She says some things are too large for language." },
@@ -3910,7 +3991,7 @@ const MONSTERS_DATA = {
   420: { id:420, name:"Forgotten Pelagor", emoji:"🐬", types:["Water","Psychic"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:110,atk:110,def:100,spa:145,spd:115,spe:140},
-    learnset:[[1,"water_gun"],[20,"confusion"],[35,"surf"],[50,"psychic_move"],[65,"hydro_pump"],[70,"telepathic_slam"]],
+    learnset:[[1,"water_gun"],[20,"confusion"],[35,"surf"],[50,"psychic_move"],[65,"hydro_pump"],[70,"telepathic_slam"],[80,"thought_stream"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Pelagor perceive the emotional currents of the ocean and can sense fear, joy, and hunger across miles of open water.",
     lore:"Nereus claims Pelagor told him about the Sundering before it happened. He was three days' sail from Vaeldris and turned back because of it. He has never decided if that was the right choice." },
@@ -3918,7 +3999,7 @@ const MONSTERS_DATA = {
   421: { id:421, name:"Forgotten Bathykor", emoji:"🦈", types:["Dark","Poison"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:120,def:105,spa:155,spd:120,spe:135},
-    learnset:[[1,"dark_pulse"],[20,"sludge_bomb"],[35,"crunch"],[50,"venom_lance"],[65,"obsidian_fang"],[70,"void_dominion"]],
+    learnset:[[1,"dark_pulse"],[20,"sludge_bomb"],[35,"crunch"],[50,"venom_lance"],[65,"obsidian_fang"],[70,"void_dominion"],[80,"dark_corrosion"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"From Vaeldris's lightless deep zones, Bathykor evolved to crush prey under pressures that collapse iron. Its gaze draws enemies toward an unseen void.",
     lore:"The toxin Bathykor produces doesn't cause pain. Victims simply become very still, very calm, and very far from the surface." },
@@ -3926,16 +4007,16 @@ const MONSTERS_DATA = {
   422: { id:422, name:"Forgotten Tidecrest", emoji:"🌊", types:["Dragon","Ice"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:140,def:110,spa:165,spd:130,spe:130},
-    learnset:[[1,"dragon_breath"],[20,"ice_beam"],[35,"dragon_claw"],[50,"blizzard"],[65,"eon_crash"],[70,"time_fracture"]],
+    learnset:[[1,"dragon_breath"],[20,"ice_beam"],[35,"dragon_claw"],[50,"blizzard"],[65,"eon_crash"],[70,"time_fracture"],[80,"glacial_riptide"],[90,"tidal_fang"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Tidecrest commands ocean currents that span continents. A single pulse of its tail can redirect rivers. Nereus calls it the last ocean god. The ocean agrees.",
     lore:"In Vaeldrian myth, Tidecrest did not swim the ocean. The ocean flowed around Tidecrest." },
 
   // --- Wielder: Caelia (Cloudspire) ---
-  423: { id:423, name:"Forgotten Aetherveil", emoji:"🦋", types:["Fairy","Electric"],
+  423: { id:423, name:"Forgotten Aetherveil", emoji:"🦋", types:["Cosmic","Electric"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:85,atk:100,def:90,spa:155,spd:110,spe:180},
-    learnset:[[1,"fairy_wind"],[20,"thunder_shock"],[35,"dazzling_gleam"],[50,"thunderbolt"],[65,"moonblast"],[70,"pixie_bolt"]],
+    learnset:[[1,"fairy_wind"],[20,"thunder_shock"],[35,"dazzling_gleam"],[50,"thunderbolt"],[65,"moonblast"],[70,"pixie_bolt"],[80,"aether_shock"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Aetherveil are the songs of the wind given form. Their calls travel across mountain ranges in seconds, carrying the voices of the lost to where they are needed.",
     lore:"Caelia says Aetherveil don't fly so much as they remind the air where it wants to go." },
@@ -3943,7 +4024,7 @@ const MONSTERS_DATA = {
   424: { id:424, name:"Forgotten Zephyrak", emoji:"🦅", types:["Flying","Steel"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:105,def:95,spa:165,spd:115,spe:180},
-    learnset:[[1,"gust"],[20,"flash_cannon"],[35,"air_slash"],[50,"alloy_edge"],[65,"hurricane"],[70,"warden_strike"]],
+    learnset:[[1,"gust"],[20,"flash_cannon"],[35,"air_slash"],[50,"alloy_edge"],[65,"hurricane"],[70,"warden_strike"],[80,"steel_gale"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Zephyrak navigate by the electromagnetic signatures of all living things below, seeing the world as a tapestry of pulsing lights from miles in the clouds.",
     lore:"A Zephyrak's steel-feathers vibrate at frequencies that predict weather systems days in advance. Vaeldrian navigators once paid fortunes to travel with one." },
@@ -3951,7 +4032,7 @@ const MONSTERS_DATA = {
   425: { id:425, name:"Forgotten Skydrak", emoji:"🌬️", types:["Wind","Ghost"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:100,atk:115,def:100,spa:180,spd:125,spe:180},
-    learnset:[[1,"gust"],[20,"specter_pulse"],[35,"hurricane"],[50,"spirit_strike"],[65,"gale_cannon"],[70,"haunting_cry"]],
+    learnset:[[1,"gust"],[20,"specter_pulse"],[35,"hurricane"],[50,"spirit_strike"],[65,"gale_cannon"],[70,"haunting_cry"],[80,"phantom_gale"],[90,"void_cyclone"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Skydrak soars at the edge of the atmosphere where air meets space. Its wings span a city block. The last of its kind watched Vaeldris fall from that height and could do nothing.",
     lore:"Caelia refuses to let Skydrak land. She says it belongs in the sky and the day it touches the ground again is the day she'll know it has given up." },
@@ -3960,7 +4041,7 @@ const MONSTERS_DATA = {
   426: { id:426, name:"Forgotten Pyraeon", emoji:"🦁", types:["Fire","Steel"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:155,def:110,spa:130,spd:95,spe:140},
-    learnset:[[1,"ember"],[20,"metal_claw"],[35,"fire_blast"],[50,"flash_cannon"],[65,"solar_flare"],[70,"forge_strike"]],
+    learnset:[[1,"ember"],[20,"metal_claw"],[35,"fire_blast"],[50,"flash_cannon"],[65,"solar_flare"],[70,"forge_strike"],[80,"pyro_alloy"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Pyraeon's body is a living alloy — bone-steel fused with molten cores. Their claws can cut through solid iron with a single stroke.",
     lore:"Dravek sharpens Pyraeon's claws on volcanic rock every morning. He says the ritual keeps them both sharp." },
@@ -3968,7 +4049,7 @@ const MONSTERS_DATA = {
   427: { id:427, name:"Forgotten Emberon", emoji:"🐯", types:["Dark","Ground"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:165,def:115,spa:135,spd:100,spe:140},
-    learnset:[[1,"night_slash"],[20,"earthquake"],[35,"dark_pulse"],[50,"earth_power"],[65,"obsidian_fang"],[70,"void_dominion"]],
+    learnset:[[1,"night_slash"],[20,"earthquake"],[35,"dark_pulse"],[50,"earth_power"],[65,"obsidian_fang"],[70,"void_dominion"],[80,"smoldering_abyss"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Emberon hunts in volcanic shadow. Its strikes leave wounds that refuse to stop burning, channeled through volcanic earth energy into something darker.",
     lore:"Every general in Vaeldris's history tried to recruit Dravek. He refused every one of them. Emberon, he said, fights for itself — he just happens to agree with it." },
@@ -3976,7 +4057,7 @@ const MONSTERS_DATA = {
   428: { id:428, name:"Forgotten Dracofire", emoji:"🔥", types:["Dragon","Poison"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:185,def:120,spa:145,spd:105,spe:140},
-    learnset:[[1,"dragon_breath"],[20,"sludge_wave"],[35,"dragon_claw"],[50,"venom_lance"],[65,"outrage"],[70,"mantle_surge"]],
+    learnset:[[1,"dragon_breath"],[20,"sludge_wave"],[35,"dragon_claw"],[50,"venom_lance"],[65,"outrage"],[70,"mantle_surge"],[80,"venom_surge"],[90,"acid_burst"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Dracofire channels volcanic energy through draconic poison. Its exhale reaches temperatures that melt diamond — and the vapour corrodes whatever survives the heat.",
     lore:"Dravek bonded Dracofire as a hatchling, when it fit in his palm. He carried it under his armour for two winters. He has never admitted this publicly." },
@@ -3985,7 +4066,7 @@ const MONSTERS_DATA = {
   429: { id:429, name:"Forgotten Frigalum", emoji:"🦊", types:["Ice","Steel"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:120,atk:120,def:130,spa:120,spd:130,spe:100},
-    learnset:[[1,"ice_punch"],[20,"flash_cannon"],[35,"ice_beam"],[50,"alloy_edge"],[65,"permafrost"],[70,"warden_strike"]],
+    learnset:[[1,"ice_punch"],[20,"flash_cannon"],[35,"ice_beam"],[50,"alloy_edge"],[65,"permafrost"],[70,"warden_strike"],[80,"cryo_plate"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Frigalum are armored in ice-steel — a material unique to Vaeldris that never melts and deflects dragonfire. Vaeldrian smiths spent centuries failing to replicate it.",
     lore:"The only sample of Frigalum ice-steel that made it out of Vaeldris is the pauldron on Nylara's left shoulder. She refuses to explain how she acquired it." },
@@ -3993,7 +4074,7 @@ const MONSTERS_DATA = {
   430: { id:430, name:"Forgotten Cryvorn", emoji:"🐺", types:["Dark","Rock"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:130,def:140,spa:125,spd:135,spe:95},
-    learnset:[[1,"dark_pulse"],[20,"stone_edge"],[35,"crunch"],[50,"obsidian_crash"],[65,"eclipse_shroud"],[70,"crystal_lance"]],
+    learnset:[[1,"dark_pulse"],[20,"stone_edge"],[35,"crunch"],[50,"obsidian_crash"],[65,"eclipse_shroud"],[70,"crystal_lance"],[80,"cryo_shatter"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Cryvorn lurk beneath glacial ice, rising to drag prey into the frozen depths. Their dark aura prevents victims from feeling the cold — until it is already fatal.",
     lore:"Nylara says Cryvorn don't hunt so much as they remind prey that warmth was always temporary." },
@@ -4001,16 +4082,16 @@ const MONSTERS_DATA = {
   431: { id:431, name:"Forgotten Frostdrax", emoji:"❄️", types:["Ghost","Fairy"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:135,atk:145,def:150,spa:135,spd:145,spe:90},
-    learnset:[[1,"spirit_strike"],[20,"fairy_wind"],[35,"specter_pulse"],[50,"moonblast"],[65,"celestial_wave"],[70,"haunting_cry"]],
+    learnset:[[1,"spirit_strike"],[20,"fairy_wind"],[35,"specter_pulse"],[50,"moonblast"],[65,"celestial_wave"],[70,"haunting_cry"],[80,"winter_shade"],[90,"glacial_spirit"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Frostdrax maintained Vaeldris's northern climate for millennia. The ice continent shattered within hours of the moment it fled. It has not forgiven itself.",
     lore:"Frostdrax is the only one of the 39 that Nylara says chose to come with her. She did not command it. It simply followed." },
 
   // --- Wielder: Solenne (Moonhaven Ruins) ---
-  432: { id:432, name:"Forgotten Dreamaith", emoji:"🦉", types:["Psychic","Ghost"],
+  432: { id:432, name:"Forgotten Dreamaith", emoji:"🦉", types:["Psychic","Water"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:100,atk:75,def:105,spa:175,spd:150,spe:115},
-    learnset:[[1,"confusion"],[20,"shadow_ball"],[35,"psychic_move"],[50,"void_rend"],[65,"psystrike"],[70,"veil_collapse"]],
+    learnset:[[1,"confusion"],[20,"shadow_ball"],[35,"psychic_move"],[50,"void_rend"],[65,"psystrike"],[70,"veil_collapse"],[80,"dream_torrent"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Dreamaith drift through walls and minds alike, leaving vivid impressions of Vaeldris in their wake. Those who encounter one report dreaming of a lost land for weeks afterward.",
     lore:"Solenne says Dreamaith don't know Vaeldris is gone. Every night, in the dream they share with her, it still stands." },
@@ -4018,7 +4099,7 @@ const MONSTERS_DATA = {
   433: { id:433, name:"Forgotten Luneveth", emoji:"🌙", types:["Fairy","Water"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:80,def:110,spa:185,spd:155,spe:115},
-    learnset:[[1,"fairy_wind"],[20,"water_gun"],[35,"moonblast"],[50,"surf"],[65,"celestial_wave"],[70,"hydro_pump"]],
+    learnset:[[1,"fairy_wind"],[20,"water_gun"],[35,"moonblast"],[50,"surf"],[65,"celestial_wave"],[70,"hydro_pump"],[80,"moonlit_surge"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Luneveth absorb moonlight and convert it into tidal energy. On full moon nights their power doubles. They are drawn to places that remember the sea.",
     lore:"There is a pool in Moonhaven Ruins that Luneveth fills each night with reflected moonlight. By morning it is dry again. Solenne has watched this every night for fifteen years." },
@@ -4026,7 +4107,7 @@ const MONSTERS_DATA = {
   434: { id:434, name:"Forgotten Psydrak", emoji:"💭", types:["Dragon","Electric"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:90,def:115,spa:200,spd:165,spe:115},
-    learnset:[[1,"dragon_breath"],[20,"thunderbolt"],[35,"dragon_pulse"],[50,"thunder"],[65,"draconic_roar"],[70,"time_fracture"]],
+    learnset:[[1,"dragon_breath"],[20,"thunderbolt"],[35,"dragon_pulse"],[50,"thunder"],[65,"draconic_roar"],[70,"time_fracture"],[80,"voltaic_fang"],[90,"thunder_chain"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Psydrak exists simultaneously across multiple timelines. Its draconic mind holds the memory of Vaeldris in a thousand possible futures — and the grief of knowing none survived.",
     lore:"Solenne says Psydrak has been trying to show her a timeline where Vaeldris still exists. She says she can feel it almost finding one, night after night." },
@@ -4035,7 +4116,7 @@ const MONSTERS_DATA = {
   435: { id:435, name:"Forgotten Ironvast", emoji:"🦾", types:["Steel","Rock"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:130,atk:145,def:175,spa:75,spd:130,spe:65},
-    learnset:[[1,"metal_claw"],[20,"rock_slide"],[35,"iron_tail"],[50,"stone_edge"],[65,"obsidian_crash"],[70,"warden_strike"]],
+    learnset:[[1,"metal_claw"],[20,"rock_slide"],[35,"iron_tail"],[50,"stone_edge"],[65,"obsidian_crash"],[70,"warden_strike"],[80,"iron_fortress"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Ironvast's carapace has never been cracked in recorded Vaeldrian history. Engineers once used shed Ironvast shells as building material — with their full consent.",
     lore:"Rax says Ironvast has only ever been afraid once. He doesn't say when." },
@@ -4043,7 +4124,7 @@ const MONSTERS_DATA = {
   436: { id:436, name:"Forgotten Forgerak", emoji:"⚔️", types:["Fire","Dark"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:135,atk:155,def:185,spa:80,spd:135,spe:60},
-    learnset:[[1,"ember"],[20,"night_slash"],[35,"fire_blast"],[50,"dark_pulse"],[65,"solar_flare"],[70,"eclipse_shroud"]],
+    learnset:[[1,"ember"],[20,"night_slash"],[35,"fire_blast"],[50,"dark_pulse"],[65,"solar_flare"],[70,"eclipse_shroud"],[80,"forge_blast"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Forgerak can heat their core to temperatures that liquefy ore. Vaeldrian smiths once worked alongside them to craft legendary weapons. Those weapons are all gone now.",
     lore:"Rax carries one of those weapons — a blade forged by Forgerak before the Sundering. He has never used it in battle. He says it isn't meant for fighting." },
@@ -4051,7 +4132,7 @@ const MONSTERS_DATA = {
   437: { id:437, name:"Forgotten Alloydrax", emoji:"🛡️", types:["Dragon","Fighting"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:145,atk:170,def:200,spa:90,spd:145,spe:50},
-    learnset:[[1,"dragon_breath"],[20,"body_slam"],[35,"dragon_claw"],[50,"outrage"],[65,"eon_crash"],[70,"mantle_surge"]],
+    learnset:[[1,"dragon_breath"],[20,"body_slam"],[35,"dragon_claw"],[50,"outrage"],[65,"eon_crash"],[70,"mantle_surge"],[80,"dragon_pummels"],[90,"alloy_breaker"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Alloydrax continuously refines its own body, becoming stronger with every battle. It was Vaeldris's final line of defense. The fact that Vaeldris still fell says everything.",
     lore:"Rax does not speak of Alloydrax's battle during the Sundering. He only says that it did its job — and that doing your job perfectly is not always enough." },
@@ -4060,7 +4141,7 @@ const MONSTERS_DATA = {
   438: { id:438, name:"Forgotten Volteon", emoji:"🔋", types:["Electric","Psychic"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:110,def:95,spa:160,spd:120,spe:145},
-    learnset:[[1,"thunder_shock"],[20,"confusion"],[35,"thunderbolt"],[50,"psychic_move"],[65,"volt_surge"],[70,"overcharge"]],
+    learnset:[[1,"thunder_shock"],[20,"confusion"],[35,"thunderbolt"],[50,"psychic_move"],[65,"volt_surge"],[70,"overcharge"],[80,"psycho_surge"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Volteon processes battle outcomes in microseconds using electric-psychic predictive modeling. By the time you have decided to act, Volteon has already chosen its counter.",
     lore:"Tempris designed the predictive model that Volteon runs. He says it's 94.7% accurate. Volteon disagrees with the 5.3% margin of error." },
@@ -4068,7 +4149,7 @@ const MONSTERS_DATA = {
   439: { id:439, name:"Forgotten Sparkeis", emoji:"⚡", types:["Steel","Ice"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:120,def:100,spa:165,spd:125,spe:145},
-    learnset:[[1,"metal_claw"],[20,"ice_punch"],[35,"flash_cannon"],[50,"blizzard"],[65,"alloy_edge"],[70,"warden_strike"]],
+    learnset:[[1,"metal_claw"],[20,"ice_punch"],[35,"flash_cannon"],[50,"blizzard"],[65,"alloy_edge"],[70,"warden_strike"],[80,"frost_lattice"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Sparkeis are living power grids — their steel chassis stores charges that could power a city for months. They convert all kinetic energy into electricity passively.",
     lore:"Tempris installed a small meter on Sparkeis to measure output. It broke after three days. He has not replaced it." },
@@ -4076,7 +4157,7 @@ const MONSTERS_DATA = {
   440: { id:440, name:"Forgotten Thunderax", emoji:"🌩️", types:["Flying","Grass"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:135,def:110,spa:180,spd:135,spe:135},
-    learnset:[[1,"aerial_assault"],[20,"energy_ball"],[35,"sky_dive"],[50,"verdant_surge"],[65,"gale_cannon"],[70,"aerial_assault"]],
+    learnset:[[1,"aerial_assault"],[20,"energy_ball"],[35,"sky_dive"],[50,"verdant_surge"],[65,"gale_cannon"],[70,"aerial_assault"],[80,"canopy_strike"],[90,"sky_harvest"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Thunderax charges itself using entire storm systems. Tempris claims it once powered a civilization for a week by standing still in a thundercloud. He is not exaggerating.",
     lore:"Thunderax is the only one of the 39 that does not seem to remember Vaeldris. Tempris has never decided if that is a tragedy or a mercy." },
@@ -4085,7 +4166,7 @@ const MONSTERS_DATA = {
   441: { id:441, name:"Forgotten Nihilax", emoji:"🕳️", types:["Dark","Ground"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:75,atk:145,def:80,spa:160,spd:90,spe:170},
-    learnset:[[1,"night_slash"],[20,"earth_power"],[35,"dark_pulse"],[50,"earthquake"],[65,"eclipse_shroud"],[70,"void_dominion"]],
+    learnset:[[1,"night_slash"],[20,"earth_power"],[35,"dark_pulse"],[50,"earthquake"],[65,"eclipse_shroud"],[70,"void_dominion"],[80,"nihil_quake"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Nihilax emit a field that suppresses all energy signatures within range. In their presence, lights dim, sound muffles, and time seems to hesitate.",
     lore:"Vayne says Nihilax was the first Lumori she saw after the Sundering began. She has never been sure if it was trying to help or simply watching." },
@@ -4093,7 +4174,7 @@ const MONSTERS_DATA = {
   442: { id:442, name:"Forgotten Vantarix", emoji:"🌌", types:["Psychic","Poison"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:80,atk:155,def:85,spa:170,spd:95,spe:165},
-    learnset:[[1,"confusion"],[20,"sludge_bomb"],[35,"psychic_move"],[50,"venom_lance"],[65,"psystrike"],[70,"toxic_surge"]],
+    learnset:[[1,"confusion"],[20,"sludge_bomb"],[35,"psychic_move"],[50,"venom_lance"],[65,"psystrike"],[70,"toxic_surge"],[80,"venom_mind"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Vantarix absorb light across all spectrums, appearing as a perfect silhouette even in total darkness. They are the only known Lumori visible inside the dimensional collapse itself.",
     lore:"Vayne has a drawing of Vantarix she made the first night she was safe. She has never looked at it again." },
@@ -4101,16 +4182,16 @@ const MONSTERS_DATA = {
   443: { id:443, name:"Forgotten Abysdrak", emoji:"💠", types:["Dragon","Ghost"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:170,def:90,spa:185,spd:100,spe:165},
-    learnset:[[1,"dragon_breath"],[20,"shadow_ball"],[35,"dragon_claw"],[50,"void_rend"],[65,"outrage"],[70,"void_dominion"]],
+    learnset:[[1,"dragon_breath"],[20,"shadow_ball"],[35,"dragon_claw"],[50,"void_rend"],[65,"outrage"],[70,"void_dominion"],[80,"abyssal_fang"],[90,"void_rend_ex"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Abysdrak embodies the void at the heart of the Sundering. Vayne refuses to explain how she bound it to her will. Only that the night she did, stars over Vaeldris went out and never came back.",
     lore:"Some of the other wielders are afraid of Abysdrak. Vayne considers this the only reasonable response." },
 
   // --- Wielder: Azura (Observatory Peak) ---
-  444: { id:444, name:"Forgotten Cosmolith", emoji:"🌠", types:["Psychic","Fairy"],
+  444: { id:444, name:"Forgotten Cosmolith", emoji:"🌠", types:["Cosmic","Fairy"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:110,atk:90,def:110,spa:185,spd:130,spe:95},
-    learnset:[[1,"confusion"],[20,"fairy_wind"],[35,"psychic_move"],[50,"moonblast"],[65,"psystrike"],[70,"cosmic_veil"]],
+    learnset:[[1,"confusion"],[20,"fairy_wind"],[35,"psychic_move"],[50,"moonblast"],[65,"psystrike"],[70,"cosmic_veil"],[80,"cosmic_dust"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Cosmolith serve as living star maps — their scales reflect the night sky of Vaeldris exactly as it existed the moment before the Sundering. They are the only record those stars ever existed.",
     lore:"Azura detected the Sundering three days before it happened by reading a change in Cosmolith's scale patterns. She had not understood what she was seeing until it was too late." },
@@ -4118,7 +4199,7 @@ const MONSTERS_DATA = {
   445: { id:445, name:"Forgotten Stardrax", emoji:"✨", types:["Dragon","Fire"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:100,def:115,spa:195,spd:135,spe:90},
-    learnset:[[1,"dragon_breath"],[20,"fire_blast"],[35,"dragon_pulse"],[50,"solar_flare"],[65,"ancient_breath"],[70,"time_fracture"]],
+    learnset:[[1,"dragon_breath"],[20,"fire_blast"],[35,"dragon_pulse"],[50,"solar_flare"],[65,"ancient_breath"],[70,"time_fracture"],[80,"stellar_flare"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Stardrax's power surges like a dying star — quiet and vast until catastrophically sudden. Azura kept its egg safe for twelve years before it hatched the day the Sundering began.",
     lore:"The egg hatched the exact moment the Sundering started. Azura has spent fifteen years deciding what that means." },
@@ -4126,7 +4207,7 @@ const MONSTERS_DATA = {
   446: { id:446, name:"Forgotten Stellarion", emoji:"🔭", types:["Normal","Ghost"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:115,def:125,spa:210,spd:145,spe:80},
-    learnset:[[1,"body_slam"],[20,"shadow_ball"],[35,"psychic_move"],[50,"hyper_beam"],[65,"void_rend"],[70,"cosmic_veil"]],
+    learnset:[[1,"body_slam"],[20,"shadow_ball"],[35,"psychic_move"],[50,"hyper_beam"],[65,"void_rend"],[70,"cosmic_veil"],[80,"stellar_collapse"],[90,"ghost_radiance"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Stellarion is said to contain a fragment of the first star that ever formed. To those who cannot perceive cosmic energy it appears ordinary. To Azura, it blazes like a newborn universe.",
     lore:"Azura says Stellarion is the last wonder Vaeldris ever produced — and that it is also the most important thing to survive the Sundering, because it carries the proof that Vaeldris was worth mourning." }
@@ -6416,14 +6497,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Stellarion appeared during the great centennial alignment — a night when every constellation in Vaeldris locked into perfect geometric relation. It did not emerge from anywhere visible. The temple stones simply parted for it. I had been the temple's keeper for eleven years. It walked to me, looked at me once, and never left. I still do not know if I found it or if it was simply done waiting for me to arrive.",
     vaeldrisLore:"Vaeldris was not like other regions. Its Ley lines ran near enough to the surface that you could feel them if you knew how to listen — a low resonance in the stone, a pressure behind the eyes in certain valleys. The sacred temples I kept were built on convergence points of that energy, built by people who understood it long before any formal study existed. That energy was the reason the 39 came. It was the reason all of this happened.",
     team:[
-      {monsterId:408, level:98, moves:["psychic_move","air_slash","moonblast","cosmic_veil"]},
-      {monsterId:409, level:99, moves:["moonblast","earth_power","dazzling_gleam","celestial_wave"]},
-      {monsterId:410, level:100, moves:["flash_cannon","moonblast","alloy_edge","cosmic_veil"]}
+      {monsterId:408, level:98, moves:["psychic_move","air_slash","moonblast","aura_veil_strike"]},
+      {monsterId:409, level:99, moves:["moonblast","earth_power","dazzling_gleam","luma_quake"]},
+      {monsterId:410, level:100, moves:["flash_cannon","moonblast","celestial_forge","star_cannon"]}
     ],
     ngTeam:[
-      {monsterId:408, level:100, moves:["psychic_move","air_slash","moonblast","cosmic_veil"]},
-      {monsterId:409, level:102, moves:["moonblast","earth_power","dazzling_gleam","celestial_wave"]},
-      {monsterId:410, level:105, moves:["flash_cannon","moonblast","alloy_edge","cosmic_veil"]}
+      {monsterId:408, level:100, moves:["psychic_move","air_slash","moonblast","aura_veil_strike"]},
+      {monsterId:409, level:102, moves:["moonblast","earth_power","dazzling_gleam","luma_quake"]},
+      {monsterId:410, level:105, moves:["flash_cannon","moonblast","celestial_forge","star_cannon"]}
     ]
   },
   wielder_morrigan: {
@@ -6433,14 +6514,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Voidwing had been trying to extinguish Vaeldris's coastal fires alone for three days when I found it. Working with its ice and psychic force against blazes it could not possibly stop, exhausted past anything that should have allowed it to keep moving. When I reached it, it looked at me and did not run. That was the only introduction we needed — two things past feeling, deciding without words to face what remained together.",
     vaeldrisLore:"The 39 were not native to Vaeldris. They came from places beyond known maps — older, stranger places — drawn by the Ley resonance into a region that could sustain them. While Vaeldris lived, scholars came from four regions to study them. They were proof that Lumori could be something older, shaped by forces no other region offered. We were proud. After Vaeldris fell, the world forgot they had ever existed at all.",
     team:[
-      {monsterId:411, level:98, moves:["shadow_ball","dark_pulse","void_rend","eclipse_shroud"]},
-      {monsterId:412, level:99, moves:["fire_blast","sludge_wave","dark_pulse","nightmare_pulse"]},
-      {monsterId:413, level:100, moves:["blizzard","psystrike","cryo_lance","veil_collapse"]}
+      {monsterId:411, level:98, moves:["shadow_ball","dark_pulse","void_rend","nyx_fang"]},
+      {monsterId:412, level:99, moves:["fire_blast","sludge_wave","dark_pulse","toxic_blaze"]},
+      {monsterId:413, level:100, moves:["blizzard","psystrike","mind_blizzard","frost_pulse"]}
     ],
     ngTeam:[
-      {monsterId:411, level:100, moves:["shadow_ball","dark_pulse","void_rend","eclipse_shroud"]},
-      {monsterId:412, level:102, moves:["fire_blast","sludge_wave","dark_pulse","nightmare_pulse"]},
-      {monsterId:413, level:105, moves:["blizzard","psystrike","cryo_lance","veil_collapse"]}
+      {monsterId:411, level:100, moves:["shadow_ball","dark_pulse","void_rend","nyx_fang"]},
+      {monsterId:412, level:102, moves:["fire_blast","sludge_wave","dark_pulse","toxic_blaze"]},
+      {monsterId:413, level:105, moves:["blizzard","psystrike","mind_blizzard","frost_pulse"]}
     ]
   },
   wielder_kael: {
@@ -6450,14 +6531,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"I was sixteen the first time I saw Stormdrake. A surge had rolled over Vaeldris's northern cliffs without warning and I had climbed to the top to watch it — which was not wise. Stormdrake was already there. It had been watching storms since before my great-grandparents were born. It ignored me for three hours. Then the storm broke and it looked at me and made a sound I have never been able to describe. I consider it the best conversation of my life.",
     vaeldrisLore:"We were not selected. We were recognized. The region had a way of making itself known to certain people — a particular resonance, a quality of light in specific valleys. The 39 came to each of us individually, years apart. When the last of us was found, we had not announced ourselves as a group. We had simply, without planning it, become one. The Ley Network settled the day all 13 bonds were formed. None of us realized it until much later.",
     team:[
-      {monsterId:414, level:98, moves:["thunderbolt","flash_cannon","volt_surge","overcharge"]},
-      {monsterId:415, level:99, moves:["stone_edge","dragon_pulse","obsidian_crash","time_fracture"]},
-      {monsterId:416, level:100, moves:["hurricane","hydro_pump","tidal_crush","time_fracture"]}
+      {monsterId:414, level:98, moves:["thunderbolt","flash_cannon","volt_surge","volt_rail"]},
+      {monsterId:415, level:99, moves:["stone_edge","dragon_pulse","obsidian_crash","arc_strike"]},
+      {monsterId:416, level:100, moves:["hurricane","hydro_pump","torrent_shell","swarm_tide"]}
     ],
     ngTeam:[
-      {monsterId:414, level:100, moves:["thunderbolt","flash_cannon","volt_surge","overcharge"]},
-      {monsterId:415, level:102, moves:["stone_edge","dragon_pulse","obsidian_crash","time_fracture"]},
-      {monsterId:416, level:105, moves:["hurricane","hydro_pump","tidal_crush","time_fracture"]}
+      {monsterId:414, level:100, moves:["thunderbolt","flash_cannon","volt_surge","volt_rail"]},
+      {monsterId:415, level:102, moves:["stone_edge","dragon_pulse","obsidian_crash","arc_strike"]},
+      {monsterId:416, level:105, moves:["hurricane","hydro_pump","torrent_shell","swarm_tide"]}
     ]
   },
   wielder_thessaly: {
@@ -6467,14 +6548,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"The eastern fault line was shifting the day Gaiasurge came to me — shifting in a way that should have destroyed three villages. Gaiasurge went to the fault and stood there for six hours, legs braced against tectonic forces that could have split a continent. It did not ask for help. It did not acknowledge me until it was done. Then it walked to where I was standing and sat down beside me. I have never found words for what I felt. I have stopped trying.",
     vaeldrisLore:"The Ley Network was Vaeldris's circulatory system — lines of convergent elemental energy running beneath every stone and current and root. A researcher named Solarn mapped it completely for the first time in recorded history. His maps were extraordinary. They showed exactly where every line ran, exactly where they converged, exactly how the energy moved. They were the most accurate document of Vaeldris's internal structure that had ever existed. We should have been more careful about what he did with them afterward.",
     team:[
-      {monsterId:417, level:98, moves:["seed_bomb","sludge_bomb","energy_ball","verdant_surge"]},
-      {monsterId:418, level:99, moves:["stone_edge","flash_cannon","obsidian_crash","warden_strike"]},
-      {monsterId:419, level:100, moves:["earthquake","earth_power","iron_cleave","mantle_surge"]}
+      {monsterId:417, level:98, moves:["seed_bomb","sludge_bomb","energy_ball","root_toxin"]},
+      {monsterId:418, level:99, moves:["stone_edge","flash_cannon","obsidian_crash","mineral_lance"]},
+      {monsterId:419, level:100, moves:["earthquake","earth_power","tectonic_wrath","quake_barrage"]}
     ],
     ngTeam:[
-      {monsterId:417, level:100, moves:["seed_bomb","sludge_bomb","energy_ball","verdant_surge"]},
-      {monsterId:418, level:102, moves:["stone_edge","flash_cannon","obsidian_crash","warden_strike"]},
-      {monsterId:419, level:105, moves:["earthquake","earth_power","iron_cleave","mantle_surge"]}
+      {monsterId:417, level:100, moves:["seed_bomb","sludge_bomb","energy_ball","root_toxin"]},
+      {monsterId:418, level:102, moves:["stone_edge","flash_cannon","obsidian_crash","mineral_lance"]},
+      {monsterId:419, level:105, moves:["earthquake","earth_power","tectonic_wrath","quake_barrage"]}
     ]
   },
   wielder_nereus: {
@@ -6484,14 +6565,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"My diving equipment failed at four thousand meters. Something enormous caught me in the dark before I hit the trench floor. I woke on the surface with Abyssalon circling beneath me — a silhouette the size of a ship, visible only because the water around it was colder than the deep current. It had carried me up four kilometers without explanation. I have returned to that depth many times since. Each time I am afraid. Each time I know I am exactly where I am supposed to be.",
     vaeldrisLore:"Solarn's maps revealed something none of us had suspected. All the Ley lines converged at a single node — not near the center of Vaeldris but exactly the center, with a mathematical precision that could not be natural. Something had placed them there, long before any recorded history. Solarn spent a year determining what. When he found his answer, he published it in academic journals across three regions. The answer attracted attention. Not the kind he had intended.",
     team:[
-      {monsterId:420, level:98, moves:["surf","psychic_move","hydro_pump","telepathic_slam"]},
-      {monsterId:421, level:99, moves:["crunch","venom_lance","dark_pulse","void_dominion"]},
-      {monsterId:422, level:100, moves:["dragon_claw","blizzard","eon_crash","time_fracture"]}
+      {monsterId:420, level:98, moves:["surf","psychic_move","hydro_pump","thought_stream"]},
+      {monsterId:421, level:99, moves:["crunch","venom_lance","dark_pulse","dark_corrosion"]},
+      {monsterId:422, level:100, moves:["dragon_claw","blizzard","glacial_riptide","tidal_fang"]}
     ],
     ngTeam:[
-      {monsterId:420, level:100, moves:["surf","psychic_move","hydro_pump","telepathic_slam"]},
-      {monsterId:421, level:102, moves:["crunch","venom_lance","dark_pulse","void_dominion"]},
-      {monsterId:422, level:105, moves:["dragon_claw","blizzard","eon_crash","time_fracture"]}
+      {monsterId:420, level:100, moves:["surf","psychic_move","hydro_pump","thought_stream"]},
+      {monsterId:421, level:102, moves:["crunch","venom_lance","dark_pulse","dark_corrosion"]},
+      {monsterId:422, level:105, moves:["dragon_claw","blizzard","glacial_riptide","tidal_fang"]}
     ]
   },
   wielder_caelia: {
@@ -6501,14 +6582,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Skydrak lives at the edge of breathable atmosphere. I reached it once, on borrowed altitude, running out of air. It appeared from nowhere and flew beneath me. I do not know why. I have spent years wondering whether it was instinct, whether it recognized something in me, whether I simply fell in its direction at the right moment. Skydrak has shown no interest in clarifying this. After all our years together, I have come to understand that this is its way of saying the reason should already be obvious.",
     vaeldrisLore:"Within a year of Solarn's publication, something had begun following his work. Not reading it — consuming it. Absorbing the mapped knowledge of the Ley Network the way certain Lumori absorb elemental energy, drawing the information into itself across a vast distance. We did not notice it immediately because it had no body. It was attending to our world with something older and more patient than eyes. By the time Solarn recognized what was happening, it had already found what it came for.",
     team:[
-      {monsterId:423, level:98, moves:["moonblast","thunderbolt","dazzling_gleam","pixie_bolt"]},
-      {monsterId:424, level:99, moves:["air_slash","flash_cannon","hurricane","warden_strike"]},
-      {monsterId:425, level:100, moves:["hurricane","specter_pulse","gale_cannon","spirit_strike"]}
+      {monsterId:423, level:98, moves:["moonblast","thunderbolt","dazzling_gleam","aether_shock"]},
+      {monsterId:424, level:99, moves:["air_slash","flash_cannon","hurricane","steel_gale"]},
+      {monsterId:425, level:100, moves:["hurricane","specter_pulse","phantom_gale","void_cyclone"]}
     ],
     ngTeam:[
-      {monsterId:423, level:100, moves:["moonblast","thunderbolt","dazzling_gleam","pixie_bolt"]},
-      {monsterId:424, level:102, moves:["air_slash","flash_cannon","hurricane","warden_strike"]},
-      {monsterId:425, level:105, moves:["hurricane","specter_pulse","gale_cannon","spirit_strike"]}
+      {monsterId:423, level:100, moves:["moonblast","thunderbolt","dazzling_gleam","aether_shock"]},
+      {monsterId:424, level:102, moves:["air_slash","flash_cannon","hurricane","steel_gale"]},
+      {monsterId:425, level:105, moves:["hurricane","specter_pulse","phantom_gale","void_cyclone"]}
     ]
   },
   wielder_dravek: {
@@ -6518,14 +6599,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"I was nineteen and angry at everything when I descended into Vaeldris's volcanic interior, looking for something to prove. Pyralloy was asleep in the magma. It woke when I arrived and regarded me with the expression of someone interrupted during something important. That expression has not meaningfully changed in thirty years. I have come to find it comforting — it is the face of a creature with nothing left to prove, looking at one who has not yet learned that lesson.",
     vaeldrisLore:"The entity fed precisely. It consumed the minor Ley convergence nodes first — dozens of them over months — so slowly that the early tremors seemed like ordinary geological activity. By the time Solarn recognized the pattern, fourteen nodes were already gone. It had been patient. It had been thorough. It understood the Network better than most of us did. Solarn came to the thirteen of us with his analysis. He told us we had perhaps two weeks before the larger nodes began to fall.",
     team:[
-      {monsterId:426, level:98, moves:["fire_blast","flash_cannon","solar_flare","forge_strike"]},
-      {monsterId:427, level:99, moves:["dark_pulse","earth_power","obsidian_fang","void_dominion"]},
-      {monsterId:428, level:100, moves:["dragon_claw","venom_lance","outrage","mantle_surge"]}
+      {monsterId:426, level:98, moves:["fire_blast","flash_cannon","solar_flare","pyro_alloy"]},
+      {monsterId:427, level:99, moves:["dark_pulse","earth_power","obsidian_fang","smoldering_abyss"]},
+      {monsterId:428, level:100, moves:["dragon_claw","venom_lance","venom_surge","acid_burst"]}
     ],
     ngTeam:[
-      {monsterId:426, level:100, moves:["fire_blast","flash_cannon","solar_flare","forge_strike"]},
-      {monsterId:427, level:102, moves:["dark_pulse","earth_power","obsidian_fang","void_dominion"]},
-      {monsterId:428, level:105, moves:["dragon_claw","venom_lance","outrage","mantle_surge"]}
+      {monsterId:426, level:100, moves:["fire_blast","flash_cannon","solar_flare","pyro_alloy"]},
+      {monsterId:427, level:102, moves:["dark_pulse","earth_power","obsidian_fang","smoldering_abyss"]},
+      {monsterId:428, level:105, moves:["dragon_claw","venom_lance","venom_surge","acid_burst"]}
     ]
   },
   wielder_nylara: {
@@ -6535,14 +6616,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"I was sitting in my study the night after the evacuation order, doing nothing, staring at a wall. The door opened. Frostdrax came in, looked at me, and curled up beside my desk. I had not sought it. It had found its way to me across a thousand kilometers of collapsing region and simply decided to stay. I believe it understood something that night that took me years longer to reach: that choosing to remain beside someone who is grieving is its own kind of strength.",
     vaeldrisLore:"Solarn had identified a failsafe. The central convergence node could be deliberately collapsed — it would destroy the Ley Network permanently, but the entity would have nothing left to consume. The window was 37 hours. It required physically destroying the shutdown mechanism at the node itself. It would cost Vaeldris everything it was, but it would stop the entity from reaching any other region. Rax did not hesitate. He said he would go. He left within the hour.",
     team:[
-      {monsterId:429, level:98, moves:["ice_beam","flash_cannon","alloy_edge","warden_strike"]},
-      {monsterId:430, level:99, moves:["crunch","obsidian_crash","eclipse_shroud","crystal_lance"]},
-      {monsterId:431, level:100, moves:["specter_pulse","moonblast","celestial_wave","spirit_strike"]}
+      {monsterId:429, level:98, moves:["ice_beam","flash_cannon","alloy_edge","cryo_plate"]},
+      {monsterId:430, level:99, moves:["crunch","obsidian_crash","eclipse_shroud","cryo_shatter"]},
+      {monsterId:431, level:100, moves:["specter_pulse","moonblast","winter_shade","glacial_spirit"]}
     ],
     ngTeam:[
-      {monsterId:429, level:100, moves:["ice_beam","flash_cannon","alloy_edge","warden_strike"]},
-      {monsterId:430, level:102, moves:["crunch","obsidian_crash","eclipse_shroud","crystal_lance"]},
-      {monsterId:431, level:105, moves:["specter_pulse","moonblast","celestial_wave","spirit_strike"]}
+      {monsterId:429, level:100, moves:["ice_beam","flash_cannon","alloy_edge","cryo_plate"]},
+      {monsterId:430, level:102, moves:["crunch","obsidian_crash","eclipse_shroud","cryo_shatter"]},
+      {monsterId:431, level:105, moves:["specter_pulse","moonblast","winter_shade","glacial_spirit"]}
     ]
   },
   wielder_solenne: {
@@ -6552,14 +6633,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Psydrak first appeared to me in a dream — not as a symbol but literally, walking through my sleeping mind as if the boundary between sleeping thought and physical reality were a courtesy it had decided not to observe. When I woke, it was outside my window. I asked it over years whether it had been in the dream or whether the dream had taken place within it. Psydrak has never provided a satisfying answer. I have come to suspect it considers the question beside the point.",
     vaeldrisLore:"Rax fought through forty-three hours of entity-warped territory to reach the central node. He arrived with twelve hours remaining in the window. The shutdown mechanism had already been destroyed — physically obliterated, with a precision that required knowing exactly what it was, exactly what it did, and exactly what destroying it would prevent. Someone had been there before him. Not the entity, which consumed rather than destroyed selectively. Someone with knowledge. Someone with purpose. We have never established who.",
     team:[
-      {monsterId:432, level:98, moves:["psychic_move","shadow_ball","psystrike","veil_collapse"]},
-      {monsterId:433, level:99, moves:["moonblast","surf","celestial_wave","hydro_pump"]},
-      {monsterId:434, level:100, moves:["dragon_pulse","thunder","draconic_roar","time_fracture"]}
+      {monsterId:432, level:98, moves:["psychic_move","shadow_ball","psystrike","dream_torrent"]},
+      {monsterId:433, level:99, moves:["moonblast","surf","celestial_wave","moonlit_surge"]},
+      {monsterId:434, level:100, moves:["dragon_pulse","thunder","voltaic_fang","thunder_chain"]}
     ],
     ngTeam:[
-      {monsterId:432, level:100, moves:["psychic_move","shadow_ball","psystrike","veil_collapse"]},
-      {monsterId:433, level:102, moves:["moonblast","surf","celestial_wave","hydro_pump"]},
-      {monsterId:434, level:105, moves:["dragon_pulse","thunder","draconic_roar","time_fracture"]}
+      {monsterId:432, level:100, moves:["psychic_move","shadow_ball","psystrike","dream_torrent"]},
+      {monsterId:433, level:102, moves:["moonblast","surf","celestial_wave","moonlit_surge"]},
+      {monsterId:434, level:105, moves:["dragon_pulse","thunder","voltaic_fang","thunder_chain"]}
     ]
   },
   wielder_rax: {
@@ -6569,14 +6650,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Alloydrax held the line for eleven hours. I had deployed it as a defensive anchor while the evacuation proceeded — the last barrier between the entity's advance and Vaeldris's population centers. It should have lasted two hours at most. I have reviewed the force data many times and have no physical explanation for how it lasted eleven. I believe it knew what was at stake. I believe it chose to hold anyway, past every reasonable threshold, because the alternative was allowing what it guarded against to reach the people behind it.",
     vaeldrisLore:"I reached the central node and I could not stop it. The mechanism was gone. I tried seventeen improvised methods. None worked. I asked the 39 Lumori to hold with me. They held. The other twelve channeled every available Ley energy into a containment field. We bought thirty-one hours. We did not stop it. Someone destroyed that shutdown mechanism before I arrived — deliberately, with full knowledge of what it would mean. I do not know who. I think about it every day. I will think about it every day for the rest of my life.",
     team:[
-      {monsterId:435, level:98, moves:["iron_tail","stone_edge","obsidian_crash","warden_strike"]},
-      {monsterId:436, level:99, moves:["fire_blast","dark_pulse","solar_flare","eclipse_shroud"]},
-      {monsterId:437, level:100, moves:["dragon_claw","iron_cleave","seismic_force","mantle_surge"]}
+      {monsterId:435, level:98, moves:["iron_tail","stone_edge","obsidian_crash","iron_fortress"]},
+      {monsterId:436, level:99, moves:["fire_blast","dark_pulse","solar_flare","forge_blast"]},
+      {monsterId:437, level:100, moves:["dragon_claw","iron_cleave","dragon_pummels","alloy_breaker"]}
     ],
     ngTeam:[
-      {monsterId:435, level:100, moves:["iron_tail","stone_edge","obsidian_crash","warden_strike"]},
-      {monsterId:436, level:102, moves:["fire_blast","dark_pulse","solar_flare","eclipse_shroud"]},
-      {monsterId:437, level:105, moves:["dragon_claw","iron_cleave","seismic_force","mantle_surge"]}
+      {monsterId:435, level:100, moves:["iron_tail","stone_edge","obsidian_crash","iron_fortress"]},
+      {monsterId:436, level:102, moves:["fire_blast","dark_pulse","solar_flare","forge_blast"]},
+      {monsterId:437, level:105, moves:["dragon_claw","iron_cleave","dragon_pummels","alloy_breaker"]}
     ]
   },
   wielder_tempris: {
@@ -6586,14 +6667,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Thunderax powered my research station for two years before I understood it was doing so intentionally. I had attributed the anomalous charge readings to atmospheric variance — a reasonable assumption. The day I understood, I walked outside and found Thunderax on the generator array, perfectly still, producing consistent and precisely calibrated output. I asked it why. It looked at me. I made the only non-quantitative notation in twelve years of research logs: it wanted to help. I have not removed that line. I have stopped trying.",
     vaeldrisLore:"The thirteen of us maintained the containment field for thirty-one hours. The 39 Lumori coordinated with us without instruction — they had understood the situation before we finished explaining it, or perhaps before we began. We were running out of time. The entity had adapted to the field's frequency and was beginning to breach. We had bought every hour we could buy. And then Vayne said something none of us had prepared for.",
     team:[
-      {monsterId:438, level:98, moves:["thunderbolt","psychic_move","volt_surge","overcharge"]},
-      {monsterId:439, level:99, moves:["flash_cannon","blizzard","alloy_edge","warden_strike"]},
-      {monsterId:440, level:100, moves:["aerial_assault","verdant_surge","sky_dive","gale_cannon"]}
+      {monsterId:438, level:98, moves:["thunderbolt","psychic_move","volt_surge","psycho_surge"]},
+      {monsterId:439, level:99, moves:["flash_cannon","blizzard","alloy_edge","frost_lattice"]},
+      {monsterId:440, level:100, moves:["aerial_assault","verdant_surge","canopy_strike","sky_harvest"]}
     ],
     ngTeam:[
-      {monsterId:438, level:100, moves:["thunderbolt","psychic_move","volt_surge","overcharge"]},
-      {monsterId:439, level:102, moves:["flash_cannon","blizzard","alloy_edge","warden_strike"]},
-      {monsterId:440, level:105, moves:["aerial_assault","verdant_surge","sky_dive","gale_cannon"]}
+      {monsterId:438, level:100, moves:["thunderbolt","psychic_move","volt_surge","psycho_surge"]},
+      {monsterId:439, level:102, moves:["flash_cannon","blizzard","alloy_edge","frost_lattice"]},
+      {monsterId:440, level:105, moves:["aerial_assault","verdant_surge","canopy_strike","sky_harvest"]}
     ]
   },
   wielder_vayne: {
@@ -6603,14 +6684,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Voidcrown was sitting at the edge of the most unstable void rift in Vaeldris when I found it — a place where the boundary between something and nothing had worn thin enough to be dangerous. It was watching the rift with the patience of something that had already seen where the void leads and had decided, with full knowledge, to remain beside it anyway. I understood that patience immediately. It was the only introduction we needed. We have never required anything more from each other.",
     vaeldrisLore:"I told the others I could end it. The entity was, in some fundamental sense, a relative of the void — something that devours rather than contains. I had spent years studying void resonance and believed I could draw it in. I told them the cost was personal and that I had already decided. Voidcrown came with me without being asked. We entered the rift. I cannot describe what happened inside — the physics of that space do not map to language. The entity did not come back out. Voidcrown and I are here. We are not unchanged. I do not consider that a loss.",
     team:[
-      {monsterId:441, level:98, moves:["dark_pulse","earthquake","eclipse_shroud","void_dominion"]},
-      {monsterId:442, level:99, moves:["psychic_move","venom_lance","psystrike","toxic_surge"]},
-      {monsterId:443, level:100, moves:["dragon_claw","void_rend","outrage","void_dominion"]}
+      {monsterId:441, level:98, moves:["dark_pulse","earthquake","eclipse_shroud","nihil_quake"]},
+      {monsterId:442, level:99, moves:["psychic_move","venom_lance","psystrike","venom_mind"]},
+      {monsterId:443, level:100, moves:["dragon_claw","void_rend","abyssal_fang","void_rend_ex"]}
     ],
     ngTeam:[
-      {monsterId:441, level:100, moves:["dark_pulse","earthquake","eclipse_shroud","void_dominion"]},
-      {monsterId:442, level:102, moves:["psychic_move","venom_lance","psystrike","toxic_surge"]},
-      {monsterId:443, level:105, moves:["dragon_claw","void_rend","outrage","void_dominion"]}
+      {monsterId:441, level:100, moves:["dark_pulse","earthquake","eclipse_shroud","nihil_quake"]},
+      {monsterId:442, level:102, moves:["psychic_move","venom_lance","psystrike","venom_mind"]},
+      {monsterId:443, level:105, moves:["dragon_claw","void_rend","abyssal_fang","void_rend_ex"]}
     ]
   },
   wielder_azura: {
@@ -6620,14 +6701,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Stardrax appeared at my observatory window three days before the Sundering began. I had been reading the stars and they had changed — not physically, but in their relationships to each other, arranged into a configuration that meant catastrophe on a scale I had not witnessed in any prior chart. Stardrax looked at me with the expression it always has: as if it already knows the outcome and is waiting for me to catch up. I have never determined if this is meant to comfort me. I suspect it simply is what it is.",
     vaeldrisLore:"I will tell you what I know, as clearly as I can. A researcher named Solarn spent his life mapping Vaeldris's Ley Network — the lines of convergent elemental energy that ran beneath our region and made it what it was. His maps revealed that all our Ley lines converged at a single artificially placed node at the exact center of Vaeldris, a construction older than any recorded history. Solarn published this discovery across three regions' academic journals. Something read that publication and came for what it described.\n\nThe entity had no conventional form. It was an intelligence that consumed structured energy — Ley networks were its preferred sustenance. It had done this before, in places the old texts called the Dimmed Reaches, which we had assumed were mythology. They were not mythology. They were warning.\n\nSolarn identified a failsafe: deliberately collapsing the central node would starve the entity and stop its spread, at the cost of Vaeldris's Ley Network forever. The window was 37 hours. Rax went to execute it. The shutdown mechanism had already been destroyed when he arrived — deliberately, surgically, by someone with precise knowledge of what it did and what its destruction would prevent. The identity of whoever destroyed it has never been established. I have my suspicions. I have kept them to myself.\n\nWe held for thirty-one hours. All thirteen wielders, all 39 Lumori, channeling everything we had into a containment field. Vayne ended it. He drew the entity into the void rift using resonance techniques I still do not fully understand. He and Voidcrown came back. They are different. He says this is acceptable.\n\nThe 39 Lumori followed us when we left Vaeldris. We did not command them. We did not ask. They came. I have read many things in the stars over the course of my life. I have never read anything that told me why they chose to follow. I have come to believe some things are simply choices — made by creatures old enough to understand exactly what choosing costs — and that the only proper response is to spend the rest of your life being worthy of them.",
     team:[
-      {monsterId:444, level:98, moves:["psychic_move","moonblast","psystrike","cosmic_veil"]},
-      {monsterId:445, level:99, moves:["dragon_pulse","solar_flare","ancient_breath","time_fracture"]},
-      {monsterId:446, level:100, moves:["shadow_ball","hyper_beam","void_rend","cosmic_veil"]}
+      {monsterId:444, level:98, moves:["psychic_move","moonblast","psystrike","cosmic_dust"]},
+      {monsterId:445, level:99, moves:["dragon_pulse","solar_flare","ancient_breath","stellar_flare"]},
+      {monsterId:446, level:100, moves:["shadow_ball","hyper_beam","stellar_collapse","ghost_radiance"]}
     ],
     ngTeam:[
-      {monsterId:444, level:100, moves:["psychic_move","moonblast","psystrike","cosmic_veil"]},
-      {monsterId:445, level:102, moves:["dragon_pulse","solar_flare","ancient_breath","time_fracture"]},
-      {monsterId:446, level:105, moves:["shadow_ball","hyper_beam","void_rend","cosmic_veil"]}
+      {monsterId:444, level:100, moves:["psychic_move","moonblast","psystrike","cosmic_dust"]},
+      {monsterId:445, level:102, moves:["dragon_pulse","solar_flare","ancient_breath","stellar_flare"]},
+      {monsterId:446, level:105, moves:["shadow_ball","hyper_beam","stellar_collapse","ghost_radiance"]}
     ]
   }
 };

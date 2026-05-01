@@ -69,26 +69,27 @@ function generateIVs() {
 // TYPE EFFECTIVENESS CHART
 // [attackType][defenseType] = multiplier
 const TYPE_CHART = {
-  Fire:     { Fire:0.5, Water:0.5, Grass:2, Electric:1, Ground:1, Wind:1, Ice:2, Dark:1, Fairy:1, Steel:2, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:0.5, Bug:2, Ghost:1,   Flying:1,   Fighting:1,   Cosmic:1   },
-  Water:    { Fire:2, Water:0.5, Grass:0.5, Electric:1, Ground:2, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:1, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:2, Bug:1,   Ghost:1,   Flying:1,   Fighting:1,   Cosmic:1   },
-  Grass:    { Fire:0.5, Water:2, Grass:0.5, Electric:1, Ground:2, Wind:0.5, Ice:0.5, Dark:1, Fairy:1, Steel:0.5, Poison:0.5, Psychic:1, Dragon:0.5, Normal:1, Rock:2, Bug:0.5, Ghost:1,   Flying:0.5, Fighting:1,   Cosmic:1   },
-  Electric: { Fire:1, Water:2, Grass:0.5, Electric:0.5, Ground:0, Wind:2, Ice:1, Dark:1, Fairy:1, Steel:1, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:1, Bug:1,   Ghost:1,   Flying:2,   Fighting:1,   Cosmic:0.5 },
-  Ground:   { Fire:2, Water:1, Grass:0.5, Electric:2, Ground:1, Wind:0, Ice:1, Dark:1, Fairy:1, Steel:2, Poison:2, Psychic:1, Dragon:1, Normal:1, Rock:2, Bug:0.5,   Ghost:1,   Flying:0,   Fighting:1,   Cosmic:1   },
-  Wind:     { Fire:1, Water:1, Grass:2, Electric:0.5, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:2,  Ghost:1,   Flying:1,   Fighting:1,   Cosmic:1   },
-  Ice:      { Fire:0.5, Water:0.5, Grass:2, Electric:1, Ground:2, Wind:2, Ice:0.5, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1, Ghost:1,   Flying:2,   Fighting:1,   Cosmic:1   },
-  Dark:     { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:0.5, Fairy:0.5, Steel:1, Poison:1, Psychic:2, Dragon:1, Normal:1, Rock:1, Bug:1,    Ghost:2,   Flying:1,   Fighting:0.5, Cosmic:2   },
-  Fairy:    { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:2, Fairy:1, Steel:0.5, Poison:0.5, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1,    Ghost:1,   Flying:1,   Fighting:2,   Cosmic:0.5 },
-  Steel:    { Fire:0.5, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:2, Dark:1, Fairy:2, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:2, Bug:1,    Ghost:1,   Flying:1,   Fighting:1,   Cosmic:1   },
-  Poison:   { Fire:1, Water:1, Grass:2, Electric:1, Ground:0.5, Wind:1, Ice:1, Dark:1, Fairy:2, Steel:0, Poison:0.5, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:1,  Ghost:0.5, Flying:1,   Fighting:1,   Cosmic:2   },
-  Psychic:  { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:0, Fairy:1, Steel:1, Poison:2, Psychic:0.5, Dragon:1, Normal:1, Rock:1, Bug:0.5,   Ghost:1,   Flying:1,   Fighting:2,   Cosmic:0.5 },
-  Dragon:   { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:0, Steel:0.5, Poison:1, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1,      Ghost:1,   Flying:1,   Fighting:1,   Cosmic:1   },
-  Normal:   { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:1,    Ghost:0,   Flying:1,   Fighting:1,   Cosmic:1   },
-  Rock:     { Fire:2, Water:0.5, Grass:1, Electric:1, Ground:0.5, Wind:2, Ice:2, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:1, Bug:2,  Ghost:1,   Flying:2,   Fighting:0.5, Cosmic:1   },
-  Bug:      { Fire:0.5, Water:1, Grass:2, Electric:1, Ground:0.5, Wind:0.5, Ice:1, Dark:2, Fairy:0.5, Steel:0.5, Poison:0.5, Psychic:2, Dragon:1, Normal:1, Rock:1, Bug:1, Ghost:0.5, Flying:0.5, Fighting:0.5, Cosmic:1 },
-  Flying:   { Fire:1, Water:1, Grass:2, Electric:0.5, Ground:1, Wind:1, Ice:0.5, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:2, Ghost:1,   Flying:1,   Fighting:2,   Cosmic:1   },
-  Ghost:    { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:0.5, Fairy:1, Steel:1, Poison:1, Psychic:2, Dragon:1, Normal:0, Rock:1, Bug:1,      Ghost:2,   Flying:1,   Fighting:0,   Cosmic:2   },
-  Fighting: { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:2, Dark:2, Fairy:0.5, Steel:2, Poison:0.5, Psychic:0.5, Dragon:1, Normal:2, Rock:2, Bug:0.5, Ghost:0,  Flying:0.5, Fighting:1,   Cosmic:1   },
-  Cosmic:   { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:2, Fairy:0.5, Steel:1, Poison:1, Psychic:2, Dragon:2, Normal:0.5, Rock:1, Bug:1,    Ghost:0.5, Flying:1,   Fighting:1,   Cosmic:0.5 }
+  Fire:     { Fire:0.5, Water:0.5, Grass:2,   Electric:1,   Ground:1,   Wind:1,   Ice:2,   Dark:1,   Fairy:1,   Steel:2,   Poison:1,   Psychic:1,   Dragon:0.5, Normal:1,   Rock:0.5, Bug:2,   Ghost:1,   Fighting:1,   Aether:1,   Crystal:2,   Primal:1   },
+  Water:    { Fire:2,   Water:0.5, Grass:0.5, Electric:1,   Ground:2,   Wind:1,   Ice:1,   Dark:1,   Fairy:1,   Steel:1,   Poison:1,   Psychic:1,   Dragon:0.5, Normal:1,   Rock:2,   Bug:1,   Ghost:1,   Fighting:1,   Aether:1,   Crystal:1,   Primal:1   },
+  Grass:    { Fire:0.5, Water:2,   Grass:0.5, Electric:1,   Ground:2,   Wind:0.5, Ice:0.5, Dark:1,   Fairy:1,   Steel:0.5, Poison:0.5, Psychic:1,   Dragon:0.5, Normal:1,   Rock:2,   Bug:0.5, Ghost:1,   Fighting:1,   Aether:1,   Crystal:1,   Primal:1   },
+  Electric: { Fire:1,   Water:2,   Grass:0.5, Electric:0.5, Ground:0,   Wind:2,   Ice:1,   Dark:1,   Fairy:1,   Steel:1,   Poison:1,   Psychic:1,   Dragon:0.5, Normal:1,   Rock:1,   Bug:1,   Ghost:1,   Fighting:1,   Aether:0.5, Crystal:0.5, Primal:1   },
+  Ground:   { Fire:2,   Water:1,   Grass:0.5, Electric:2,   Ground:1,   Wind:0,   Ice:1,   Dark:1,   Fairy:1,   Steel:2,   Poison:2,   Psychic:1,   Dragon:1,   Normal:1,   Rock:2,   Bug:0.5, Ghost:1,   Fighting:1,   Aether:1,   Crystal:1,   Primal:0.5 },
+  Wind:     { Fire:1,   Water:1,   Grass:2,   Electric:0.5, Ground:1,   Wind:1,   Ice:1,   Dark:1,   Fairy:1,   Steel:0.5, Poison:1,   Psychic:1,   Dragon:1,   Normal:1,   Rock:0.5, Bug:2,   Ghost:1,   Fighting:1,   Aether:1,   Crystal:1,   Primal:1   },
+  Ice:      { Fire:0.5, Water:0.5, Grass:2,   Electric:1,   Ground:2,   Wind:2,   Ice:0.5, Dark:1,   Fairy:1,   Steel:0.5, Poison:1,   Psychic:1,   Dragon:2,   Normal:1,   Rock:1,   Bug:1,   Ghost:1,   Fighting:1,   Aether:1,   Crystal:0.5, Primal:2   },
+  Dark:     { Fire:1,   Water:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:0.5, Fairy:0.5, Steel:1,   Poison:1,   Psychic:2,   Dragon:1,   Normal:1,   Rock:1,   Bug:1,   Ghost:2,   Fighting:0.5, Aether:2,   Crystal:1,   Primal:0.5 },
+  Fairy:    { Fire:1,   Water:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:2,   Fairy:1,   Steel:0.5, Poison:0.5, Psychic:1,   Dragon:2,   Normal:1,   Rock:1,   Bug:1,   Ghost:1,   Fighting:2,   Aether:0.5, Crystal:1,   Primal:1   },
+  Steel:    { Fire:0.5, Water:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:2,   Dark:1,   Fairy:2,   Steel:0.5, Poison:1,   Psychic:1,   Dragon:1,   Normal:1,   Rock:2,   Bug:1,   Ghost:1,   Fighting:1,   Aether:1,   Crystal:2,   Primal:1   },
+  Poison:   { Fire:1,   Water:1,   Grass:2,   Electric:1,   Ground:0.5, Wind:1,   Ice:1,   Dark:1,   Fairy:2,   Steel:0,   Poison:0.5, Psychic:1,   Dragon:1,   Normal:1,   Rock:0.5, Bug:1,   Ghost:0.5, Fighting:1,   Aether:2,   Crystal:0.5, Primal:1   },
+  Psychic:  { Fire:1,   Water:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:0,   Fairy:1,   Steel:1,   Poison:2,   Psychic:0.5, Dragon:1,   Normal:1,   Rock:1,   Bug:0.5, Ghost:1,   Fighting:2,   Aether:0.5, Crystal:1,   Primal:2   },
+  Dragon:   { Fire:1,   Water:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:1,   Fairy:0,   Steel:0.5, Poison:1,   Psychic:1,   Dragon:2,   Normal:1,   Rock:1,   Bug:1,   Ghost:1,   Fighting:1,   Aether:1,   Crystal:1,   Primal:2   },
+  Normal:   { Fire:1,   Water:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:1,   Fairy:1,   Steel:0.5, Poison:1,   Psychic:1,   Dragon:1,   Normal:1,   Rock:0.5, Bug:1,   Ghost:0,   Fighting:1,   Aether:1,   Crystal:1,   Primal:0.5 },
+  Rock:     { Fire:2,   Water:0.5, Grass:1,   Electric:1,   Ground:0.5, Wind:2,   Ice:2,   Dark:1,   Fairy:1,   Steel:0.5, Poison:1,   Psychic:1,   Dragon:1,   Normal:1,   Rock:1,   Bug:2,   Ghost:1,   Fighting:0.5, Aether:1,   Crystal:1,   Primal:1   },
+  Bug:      { Fire:0.5, Water:1,   Grass:2,   Electric:1,   Ground:0.5, Wind:0.5, Ice:1,   Dark:2,   Fairy:0.5, Steel:0.5, Poison:0.5, Psychic:2,   Dragon:1,   Normal:1,   Rock:1,   Bug:1,   Ghost:0.5, Fighting:0.5, Aether:1,   Crystal:1,   Primal:1   },
+  Ghost:    { Fire:1,   Water:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:0.5, Fairy:1,   Steel:1,   Poison:1,   Psychic:2,   Dragon:1,   Normal:0,   Rock:1,   Bug:1,   Ghost:2,   Fighting:0,   Aether:2,   Crystal:1,   Primal:1   },
+  Fighting: { Fire:1,   Water:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:2,   Dark:2,   Fairy:0.5, Steel:2,   Poison:0.5, Psychic:0.5, Dragon:1,   Normal:2,   Rock:2,   Bug:0.5, Ghost:0,   Fighting:1,   Aether:1,   Crystal:2,   Primal:1   },
+  Aether:   { Fire:1,   Water:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:2,   Fairy:0.5, Steel:1,   Poison:1,   Psychic:2,   Dragon:2,   Normal:0.5, Rock:1,   Bug:1,   Ghost:0.5, Fighting:1,   Aether:0.5, Crystal:1,   Primal:1   },
+  Crystal:  { Fire:1,   Water:0.5, Grass:1,   Electric:1,   Ground:2,   Wind:1,   Ice:2,   Dark:1,   Fairy:1,   Steel:0.5, Poison:1,   Psychic:1,   Dragon:1,   Normal:2,   Rock:1,   Bug:1,   Ghost:1,   Fighting:1,   Aether:1,   Crystal:0.5, Primal:1   },
+  Primal:   { Fire:1,   Water:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:1,   Fairy:2,   Steel:2,   Poison:1,   Psychic:1,   Dragon:0.5, Normal:2,   Rock:0.5, Bug:1,   Ghost:1,   Fighting:1,   Aether:1,   Crystal:1,   Primal:0.5 }
 };
 
 function getTypeEffectiveness(moveType, defenderTypes) {
@@ -736,15 +737,15 @@ const MOVES_DATA = {
   iron_cleave:      { name:"Iron Cleave",     type:"Fighting",power:95,  acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:20, desc:"Cleaves through armor and fortitude alike with raw physical mastery." },
   seismic_force:    { name:"Seismic Force",   type:"Fighting",power:120, acc:85,  pp:5,  cat:"special",  effect:"recharge",  ec:100,desc:"Channels fighting spirit into a devastating force wave. Must recharge next turn." },
   // --- Flying (signature moves for Forgotten Lumori) ---
-  aerial_assault:   { name:"Aerial Assault",  type:"Flying",  power:85,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20, desc:"Dives from great heights and slams into the foe with aerial precision." },
-  sky_dive:         { name:"Sky Dive",         type:"Flying",  power:100, acc:90,  pp:10, cat:"physical", effect:"priority",  ec:0,  desc:"Plunges from the heavens with staggering speed, always striking first." },
+  aerial_assault:   { name:"Aerial Assault",  type:"Wind",  power:85,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20, desc:"Dives from great heights and slams into the foe with aerial precision." },
+  sky_dive:         { name:"Sky Dive",         type:"Wind",  power:100, acc:90,  pp:10, cat:"physical", effect:"priority",  ec:0,  desc:"Plunges from the heavens with staggering speed, always striking first." },
 
   // --- Cosmic (signature moves for Forgotten Lumori) ---
-  aura_veil_strike: { name:"Aura Veil Strike", type:"Cosmic",  power:85,  acc:100, pp:15, cat:"special",  effect:"defup",     ec:30, desc:"Auravian wraps itself in stellar light and fires a focused cosmic beam, the energy hardening into a protective shell around it." },
-  aether_shock:     { name:"Aether Shock",     type:"Cosmic",  power:90,  acc:95,  pp:10, cat:"special",  effect:"paralyze",  ec:20, desc:"Aetherveil releases a pulse of raw aetheric energy that crackles through the target's nervous system." },
-  cosmic_dust:      { name:"Cosmic Dust",      type:"Cosmic",  power:85,  acc:100, pp:15, cat:"special",  effect:"spatkdown", ec:30, desc:"Cosmolith scatters ancient stellar matter across the battlefield, clouding the opponent's senses and dulling their power." },
-  celestial_forge:  { name:"Celestial Forge",  type:"Cosmic",  power:140, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Celestrix compresses starlight into a solid weapon and delivers a strike that scorches reality. The feedback tears at the wielder." },
-  star_cannon:      { name:"Star Cannon",      type:"Cosmic",  power:55,  acc:100, pp:10, cat:"special",  effect:"defdown",   ec:30, hits:2, desc:"Celestrix fires two concentrated bolts of compressed starlight that punch through defenses on impact." },
+  aura_veil_strike: { name:"Aura Veil Strike", type:"Aether",  power:85,  acc:100, pp:15, cat:"special",  effect:"defup",     ec:30, desc:"Auravian wraps itself in stellar light and fires a focused cosmic beam, the energy hardening into a protective shell around it." },
+  aether_shock:     { name:"Aether Shock",     type:"Aether",  power:90,  acc:95,  pp:10, cat:"special",  effect:"paralyze",  ec:20, desc:"Aetherveil releases a pulse of raw aetheric energy that crackles through the target's nervous system." },
+  cosmic_dust:      { name:"Cosmic Dust",      type:"Aether",  power:85,  acc:100, pp:15, cat:"special",  effect:"spatkdown", ec:30, desc:"Cosmolith scatters ancient stellar matter across the battlefield, clouding the opponent's senses and dulling their power." },
+  celestial_forge:  { name:"Celestial Forge",  type:"Aether",  power:140, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Celestrix compresses starlight into a solid weapon and delivers a strike that scorches reality. The feedback tears at the wielder." },
+  star_cannon:      { name:"Star Cannon",      type:"Aether",  power:55,  acc:100, pp:10, cat:"special",  effect:"defdown",   ec:30, hits:2, desc:"Celestrix fires two concentrated bolts of compressed starlight that punch through defenses on impact." },
 
   // --- Bug (signature moves for Forgotten Lumori) ---
   swarm_tide:       { name:"Swarm Tide",       type:"Bug",     power:40,  acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30, hits:3, desc:"Fulgureis summons a torrent of charged insects in three cascading waves, each slowing the target further." },
@@ -759,13 +760,13 @@ const MOVES_DATA = {
   tectonic_wrath:   { name:"Tectonic Wrath",   type:"Ground",  power:145, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Gaiasurge ruptures the continental shelf beneath the opponent. The shockwave tears back through Gaiasurge's limbs." },
   quake_barrage:    { name:"Quake Barrage",    type:"Fighting",power:40,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20, hits:3, desc:"Gaiasurge delivers three earth-shaking blows in rapid succession, each strike rattling the opponent's footing." },
   smoldering_abyss: { name:"Smoldering Abyss", type:"Ground", power:95,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:30, desc:"Emberon opens a rift to magmatic depths beneath the opponent's feet. Superheated gases scorch what survives the impact." },
-  nihil_quake:      { name:"Nihil Quake",      type:"Ground",  power:90,  acc:95,  pp:10, cat:"physical", effect:"spedown",   ec:30, desc:"Nihilax tears apart the ground itself with nihilistic force, disrupting the target's footing and momentum." },
+  nihil_quake:      { name:"Nihil Quake",      type:"Primal",  power:90,  acc:95,  pp:10, cat:"physical", effect:"spedown",   ec:30, desc:"Nihilax tears apart the ground itself with nihilistic force, disrupting the target's footing and momentum." },
 
   // --- Ice (signature moves for Forgotten Lumori) ---
   mind_blizzard:    { name:"Mind Blizzard",    type:"Psychic", power:135, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Duskmourn amplifies psychic energy to a destructive extreme, generating a psychic blizzard. The mental strain is brutal." },
   frost_pulse:      { name:"Frost Pulse",      type:"Ice",     power:50,  acc:95,  pp:10, cat:"special",  effect:"freeze",    ec:20, hits:2, desc:"Duskmourn fires two pulses of absolute-zero energy that can lock the target in ice on contact." },
   glacial_riptide:  { name:"Glacial Riptide",  type:"Ice",     power:140, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Tidecrest summons a riptide flash-frozen to absolute zero and drives it through the target. The backlash chills even Tidecrest." },
-  tidal_fang:       { name:"Tidal Fang",       type:"Dragon",  power:60,  acc:100, pp:10, cat:"physical", effect:"defdown",   ec:30, hits:2, desc:"Tidecrest bites twice with draconic force backed by tidal momentum, wearing down the target's defenses." },
+  tidal_fang:       { name:"Tidal Fang",       type:"Primal",  power:60,  acc:100, pp:10, cat:"physical", effect:"defdown",   ec:30, hits:2, desc:"Tidecrest bites twice with draconic force backed by tidal momentum, wearing down the target's defenses." },
   cryo_plate:       { name:"Cryo Plate",       type:"Ice",     power:85,  acc:100, pp:10, cat:"physical", effect:"freeze",    ec:10, desc:"Frigalum slams an ice-hardened plate of steel into the target. A thin probability of total freezing lingers." },
   frost_lattice:    { name:"Frost Lattice",    type:"Ice",     power:100, acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30, desc:"Sparkeis weaves a crystalline lattice of ice energy around the target, restricting their movement and slowing their reactions." },
 
@@ -795,7 +796,7 @@ const MOVES_DATA = {
 
   // --- Steel (signature moves for Forgotten Lumori) ---
   pyro_alloy:       { name:"Pyro Alloy",       type:"Steel",   power:85,  acc:100, pp:10, cat:"physical", effect:"burn",      ec:20, desc:"Pyraeon fuses its superheated alloy scales into an edge and strikes, leaving a burning brand on contact." },
-  iron_fortress:    { name:"Iron Fortress",    type:"Steel",   power:85,  acc:100, pp:10, cat:"physical", effect:"defup",     ec:100,desc:"Ironvast strikes with total commitment, its own body acting as a rampart. Every blow hardens its defensive posture." },
+  iron_fortress:    { name:"Iron Fortress",    type:"Crystal",   power:85,  acc:100, pp:10, cat:"physical", effect:"defup",     ec:100,desc:"Ironvast strikes with total commitment, its own body acting as a rampart. Every blow hardens its defensive posture." },
   steel_gale:       { name:"Steel Gale",       type:"Steel",   power:100, acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:20, desc:"Zephyrak spins its steel-edged wings to hurricane velocity and releases a blade of compressed metal-edged air." },
 
   // --- Ghost (signature moves for Forgotten Lumori) ---
@@ -803,7 +804,7 @@ const MOVES_DATA = {
   void_cyclone:     { name:"Void Cyclone",     type:"Wind",    power:50,  acc:95,  pp:10, cat:"special",  effect:"spatkdown", ec:30, hits:2, desc:"Skydrak creates two cyclones of void-infused wind in succession, each disrupting the target's focus." },
   winter_shade:     { name:"Winter Shade",     type:"Ghost",   power:130, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Frostdrax becomes solid shadow and delivers a blow that hits from inside the target's own silhouette. The impact echoes back." },
   glacial_spirit:   { name:"Glacial Spirit",   type:"Fairy",   power:55,  acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30, hits:2, desc:"Frostdrax fires two waves of fairy-imbued glacial energy that seep into the target's joints, slowing their movement." },
-  void_rend_ex:     { name:"Void Rend EX",     type:"Ghost",   power:55,  acc:95,  pp:10, cat:"special",  effect:"spdefdown", ec:30, hits:2, desc:"Abysdrak tears twin rifts through the fabric of space itself, each rend tearing through the target's special defenses." },
+  void_rend_ex:     { name:"Void Rend EX",     type:"Wind",   power:55,  acc:95,  pp:10, cat:"special",  effect:"spdefdown", ec:30, hits:2, desc:"Abysdrak tears twin rifts through the fabric of space itself, each rend tearing through the target's special defenses." },
   abyssal_fang:     { name:"Abyssal Fang",     type:"Dragon",  power:145, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Abysdrak descends from the abyssal deep with draconic force beyond comprehension. The impact damage reverberates back." },
   ghost_radiance:   { name:"Ghost Radiance",   type:"Ghost",   power:40,  acc:90,  pp:10, cat:"special",  effect:"spatkdown", ec:30, hits:3, desc:"Stellarion fires three pulses of spectral radiance that haunt the target's mind with each successive hit." },
 
@@ -813,7 +814,7 @@ const MOVES_DATA = {
   dragon_pummels:   { name:"Dragon Pummels",   type:"Fighting",power:40,  acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:20, hits:3, desc:"Alloydrax delivers three relentless draconic strikes in sequence, each eroding the target's defensive stance." },
 
   // --- Flying (signature moves for Forgotten Lumori) ---
-  canopy_strike:    { name:"Canopy Strike",    type:"Flying",  power:130, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Thunderax dives from maximum altitude and slams into the target like a falling sky. It pulls up hard but the landing hurts." },
+  canopy_strike:    { name:"Canopy Strike",    type:"Wind",  power:130, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Thunderax dives from maximum altitude and slams into the target like a falling sky. It pulls up hard but the landing hurts." },
   sky_harvest:      { name:"Sky Harvest",      type:"Grass",   power:90,  acc:95,  pp:10, cat:"special",  effect:"drain",     ec:100,desc:"Thunderax converts solar energy it has absorbed during flight directly into a beam attack, restoring its health as it strikes." },
 
   // --- Normal (signature moves for Forgotten Lumori) ---
@@ -1321,7 +1322,7 @@ const MONSTERS_DATA = {
     desc:"A mechanical warrior powered by electric cores. Feared on every battlefield.",
     lore:"Alloytron is a larger electric-steel automaton 1.2 metres tall. Its body is an assembly of interlocked alloy panels with exposed wiring running between them. Its chest houses a glowing power core visible through a transparent casing. It can interface with electrical infrastructure and draw power directly from city grid lines." },
 
-  152: { id:152, name:"Imperion",  emoji:"🐢", types:["Steel","Rock"],
+  152: { id:152, name:"Imperion",  emoji:"🐢", types:["Crystal","Rock"],
     base:{hp:108,atk:61,def:138,spa:59,spd:105,spe:30},
     learnset:[[1,"tackle",[25,"ironskin"]],[1,"rock_throw"],[12,"harden"],[20,"flash_cannon"],[24,"growl"],[28,"rock_slide"],[36,"iron_tail"],[44,"stone_edge"],[45,"temper_edge"],[52,"body_slam",[5,"magnetize"]],[3,"slag_shield"],[37,"crystal_lance"]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:318, rarity:"uncommon",
@@ -2578,7 +2579,7 @@ const MONSTERS_DATA = {
     lore:"Sericrix is a spider 15 cm across with a pale cream body and legs banded in rose-gold. Its silk is exceptionally strong and has a faint iridescent sheen. It weaves elaborate three-dimensional web sculptures rather than flat sheets, incorporating fairy-touched strands that glow at dawn and dusk." },
 
   // ===== ICE/STEEL =====
-  55: { id:55, name:"Rimeling", emoji:"🗡️", types:["Ice","Steel"],
+  55: { id:55, name:"Rimeling", emoji:"🗡️", types:["Ice","Crystal"],
     base:{hp:46,atk:73,def:66,spa:56,spd:52,spe:76},
     learnset:[[1,"powder_snow",[25,"cryo_lance"]],[1,"metal_claw"],[11,"ice_punch"],[19,"flash_cannon"],[27,"icicle_crash"],[30,"smelt_crush"],[35,"iron_tail"],[43,"blizzard",[5,"permafrost"]],[3,"winter_shroud"],[33,"forge_strike"]],
     evolveTo:56, evolveLevel:36, catchRate:90, expYield:110, rarity:"uncommon",
@@ -3375,7 +3376,7 @@ const MONSTERS_DATA = {
     desc:"A creature born from a volcanic eruption, its body is a walking magma chamber encased in basalt.",
     lore:"Ashgolem is a fire-rock creature 2 metres tall with a body of cooling basalt cracked to reveal glowing magma beneath. Ash and cinders constantly drift from its surface." },
 
-  338: { id:338, name:"Rimeclaw", emoji:"🦅", types:["Ice","Flying"],
+  338: { id:338, name:"Rimeclaw", emoji:"🦅", types:["Ice","Wind"],
     base:{hp:64,atk:88,def:61,spa:76,spd:69,spe:97}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"powder_snow"],[8,"gust"],[18,"ice_punch"],[28,"air_slash"],[38,"cryo_lance"],[48,"blizzard"],[58,"tailwind_strike"],[5,"zephyr_dance"],[35,"ice_beam"]],
     catchRate:25, expYield:258, rarity:"rare",
@@ -3432,7 +3433,7 @@ const MONSTERS_DATA = {
     desc:"A dragon born from a void rift. Its scales absorb all light, making it nearly invisible in darkness.",
     lore:"Voidcoil is a dark-dragon serpent 4 metres long with scales so black they create a visible absence of light. Its eyes emit dim crimson light visible only in complete darkness." },
 
-  346: { id:346, name:"Astralwing", emoji:"🌟", types:["Psychic","Flying"],
+  346: { id:346, name:"Astralwing", emoji:"🌟", types:["Psychic","Wind"],
     base:{hp:67,atk:74,def:65,spa:100,spd:88,spe:96}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"gust"],[10,"psychic_move"],[20,"air_slash"],[30,"psystrike"],[40,"tailwind_strike"],[50,"mind_shatter"],[60,"neural_storm"],[5,"zephyr_dance"],[38,"dreamweave"]],
     catchRate:17, expYield:285, rarity:"rare",
@@ -3666,7 +3667,7 @@ const MONSTERS_DATA = {
     desc:"A being that exists only in the shared dreamspace of nearby creatures. Physical contact wakes it permanently.",
     lore:"Dreamweald is a psychic-fairy entity visible only to those who are half-asleep. In full wakefulness it appears as a translucent shimmer, but in dreams it takes whatever form the dreamer most desires." },
 
-  379: { id:379, name:"Riftscale", emoji:"🔮", types:["Dragon","Ghost"],
+  379: { id:379, name:"Riftscale", emoji:"🔮", types:["Wind","Dragon"],
     base:{hp:78,atk:105,def:87,spa:111,spd:94,spe:105}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
     learnset:[[1,"dragon_breath"],[10,"shadow_ball"],[20,"dragon_claw"],[30,"phantom_claw"],[40,"wyrm_strike"],[50,"void_rend"],[60,"cataclysm_breath"],[5,"dragon_dance"],[48,"eon_crash"]],
     catchRate:6, expYield:342, rarity:"legendary",
@@ -3888,7 +3889,7 @@ const MONSTERS_DATA = {
   // ============================================================
 
   // --- Wielder: Lysara (Celestial Plateau) ---
-  408: { id:408, name:"Forgotten Auravian", emoji:"🕊️", types:["Cosmic","Flying"],
+  408: { id:408, name:"Forgotten Auravian", emoji:"🕊️", types:["Aether","Primal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:95,def:110,spa:145,spd:130,spe:125},
     learnset:[[1,"confusion"],[20,"psybeam"],[35,"air_slash"],[50,"psychic_move"],[65,"moonblast"],[70,"cosmic_veil"],[80,"aura_veil_strike"]],
@@ -3904,7 +3905,7 @@ const MONSTERS_DATA = {
     desc:"Lumarix hold fragments of starlight within their translucent bodies and release blinding radiance when threatened.",
     lore:"The crystalline structures within a Lumarix's body refract light in ways that physicists from Vaeldris spent centuries trying to explain. They never succeeded." },
 
-  410: { id:410, name:"Forgotten Celestrix", emoji:"👼", types:["Cosmic","Steel"],
+  410: { id:410, name:"Forgotten Celestrix", emoji:"👼", types:["Aether","Steel"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:130,atk:105,def:120,spa:170,spd:145,spe:130},
     learnset:[[1,"body_slam"],[20,"flash_cannon"],[35,"psychic_move"],[50,"moonblast"],[65,"alloy_edge"],[70,"cosmic_veil"],[80,"celestial_forge"],[90,"star_cannon"]],
@@ -4004,7 +4005,7 @@ const MONSTERS_DATA = {
     desc:"From Vaeldris's lightless deep zones, Bathykor evolved to crush prey under pressures that collapse iron. Its gaze draws enemies toward an unseen void.",
     lore:"The toxin Bathykor produces doesn't cause pain. Victims simply become very still, very calm, and very far from the surface." },
 
-  422: { id:422, name:"Forgotten Tidecrest", emoji:"🌊", types:["Dragon","Ice"],
+  422: { id:422, name:"Forgotten Tidecrest", emoji:"🌊", types:["Primal","Ice"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:140,def:110,spa:165,spd:130,spe:130},
     learnset:[[1,"dragon_breath"],[20,"ice_beam"],[35,"dragon_claw"],[50,"blizzard"],[65,"eon_crash"],[70,"time_fracture"],[80,"glacial_riptide"],[90,"tidal_fang"]],
@@ -4013,7 +4014,7 @@ const MONSTERS_DATA = {
     lore:"In Vaeldrian myth, Tidecrest did not swim the ocean. The ocean flowed around Tidecrest." },
 
   // --- Wielder: Caelia (Cloudspire) ---
-  423: { id:423, name:"Forgotten Aetherveil", emoji:"🦋", types:["Cosmic","Electric"],
+  423: { id:423, name:"Forgotten Aetherveil", emoji:"🦋", types:["Aether","Electric"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:85,atk:100,def:90,spa:155,spd:110,spe:180},
     learnset:[[1,"fairy_wind"],[20,"thunder_shock"],[35,"dazzling_gleam"],[50,"thunderbolt"],[65,"moonblast"],[70,"pixie_bolt"],[80,"aether_shock"]],
@@ -4021,7 +4022,7 @@ const MONSTERS_DATA = {
     desc:"Aetherveil are the songs of the wind given form. Their calls travel across mountain ranges in seconds, carrying the voices of the lost to where they are needed.",
     lore:"Caelia says Aetherveil don't fly so much as they remind the air where it wants to go." },
 
-  424: { id:424, name:"Forgotten Zephyrak", emoji:"🦅", types:["Flying","Steel"],
+  424: { id:424, name:"Forgotten Zephyrak", emoji:"🦅", types:["Wind","Steel"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:105,def:95,spa:165,spd:115,spe:180},
     learnset:[[1,"gust"],[20,"flash_cannon"],[35,"air_slash"],[50,"alloy_edge"],[65,"hurricane"],[70,"warden_strike"],[80,"steel_gale"]],
@@ -4046,7 +4047,7 @@ const MONSTERS_DATA = {
     desc:"Pyraeon's body is a living alloy — bone-steel fused with molten cores. Their claws can cut through solid iron with a single stroke.",
     lore:"Dravek sharpens Pyraeon's claws on volcanic rock every morning. He says the ritual keeps them both sharp." },
 
-  427: { id:427, name:"Forgotten Emberon", emoji:"🐯", types:["Dark","Ground"],
+  427: { id:427, name:"Forgotten Emberon", emoji:"🐯", types:["Primal","Ground"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:165,def:115,spa:135,spd:100,spe:140},
     learnset:[[1,"night_slash"],[20,"earthquake"],[35,"dark_pulse"],[50,"earth_power"],[65,"obsidian_fang"],[70,"void_dominion"],[80,"smoldering_abyss"]],
@@ -4146,7 +4147,7 @@ const MONSTERS_DATA = {
     desc:"Volteon processes battle outcomes in microseconds using electric-psychic predictive modeling. By the time you have decided to act, Volteon has already chosen its counter.",
     lore:"Tempris designed the predictive model that Volteon runs. He says it's 94.7% accurate. Volteon disagrees with the 5.3% margin of error." },
 
-  439: { id:439, name:"Forgotten Sparkeis", emoji:"⚡", types:["Steel","Ice"],
+  439: { id:439, name:"Forgotten Sparkeis", emoji:"⚡", types:["Crystal","Ice"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:120,def:100,spa:165,spd:125,spe:145},
     learnset:[[1,"metal_claw"],[20,"ice_punch"],[35,"flash_cannon"],[50,"blizzard"],[65,"alloy_edge"],[70,"warden_strike"],[80,"frost_lattice"]],
@@ -4154,7 +4155,7 @@ const MONSTERS_DATA = {
     desc:"Sparkeis are living power grids — their steel chassis stores charges that could power a city for months. They convert all kinetic energy into electricity passively.",
     lore:"Tempris installed a small meter on Sparkeis to measure output. It broke after three days. He has not replaced it." },
 
-  440: { id:440, name:"Forgotten Thunderax", emoji:"🌩️", types:["Flying","Grass"],
+  440: { id:440, name:"Forgotten Thunderax", emoji:"🌩️", types:["Wind","Grass"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:135,def:110,spa:180,spd:135,spe:135},
     learnset:[[1,"aerial_assault"],[20,"energy_ball"],[35,"sky_dive"],[50,"verdant_surge"],[65,"gale_cannon"],[70,"aerial_assault"],[80,"canopy_strike"],[90,"sky_harvest"]],
@@ -4163,7 +4164,7 @@ const MONSTERS_DATA = {
     lore:"Thunderax is the only one of the 39 that does not seem to remember Vaeldris. Tempris has never decided if that is a tragedy or a mercy." },
 
   // --- Wielder: Vayne (The Void Gate) ---
-  441: { id:441, name:"Forgotten Nihilax", emoji:"🕳️", types:["Dark","Ground"],
+  441: { id:441, name:"Forgotten Nihilax", emoji:"🕳️", types:["Primal","Dark"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:75,atk:145,def:80,spa:160,spd:90,spe:170},
     learnset:[[1,"night_slash"],[20,"earth_power"],[35,"dark_pulse"],[50,"earthquake"],[65,"eclipse_shroud"],[70,"void_dominion"],[80,"nihil_quake"]],
@@ -4171,7 +4172,7 @@ const MONSTERS_DATA = {
     desc:"Nihilax emit a field that suppresses all energy signatures within range. In their presence, lights dim, sound muffles, and time seems to hesitate.",
     lore:"Vayne says Nihilax was the first Lumori she saw after the Sundering began. She has never been sure if it was trying to help or simply watching." },
 
-  442: { id:442, name:"Forgotten Vantarix", emoji:"🌌", types:["Psychic","Poison"],
+  442: { id:442, name:"Forgotten Vantarix", emoji:"🌌", types:["Psychic","Bug"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:80,atk:155,def:85,spa:170,spd:95,spe:165},
     learnset:[[1,"confusion"],[20,"sludge_bomb"],[35,"psychic_move"],[50,"venom_lance"],[65,"psystrike"],[70,"toxic_surge"],[80,"venom_mind"]],
@@ -4188,7 +4189,7 @@ const MONSTERS_DATA = {
     lore:"Some of the other wielders are afraid of Abysdrak. Vayne considers this the only reasonable response." },
 
   // --- Wielder: Azura (Observatory Peak) ---
-  444: { id:444, name:"Forgotten Cosmolith", emoji:"🌠", types:["Cosmic","Fairy"],
+  444: { id:444, name:"Forgotten Cosmolith", emoji:"🌠", types:["Aether","Fairy"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:110,atk:90,def:110,spa:185,spd:130,spe:95},
     learnset:[[1,"confusion"],[20,"fairy_wind"],[35,"psychic_move"],[50,"moonblast"],[65,"psystrike"],[70,"cosmic_veil"],[80,"cosmic_dust"]],

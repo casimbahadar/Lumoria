@@ -69,22 +69,25 @@ function generateIVs() {
 // TYPE EFFECTIVENESS CHART
 // [attackType][defenseType] = multiplier
 const TYPE_CHART = {
-  Fire:     { Fire:0.5, Water:0.5, Grass:2, Electric:1, Ground:1, Wind:1, Ice:2, Dark:1, Fairy:1, Steel:2, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:0.5, Bug:2 },
-  Water:    { Fire:2, Water:0.5, Grass:0.5, Electric:1, Ground:2, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:1, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:2, Bug:1 },
-  Grass:    { Fire:0.5, Water:2, Grass:0.5, Electric:1, Ground:2, Wind:0.5, Ice:0.5, Dark:1, Fairy:1, Steel:0.5, Poison:0.5, Psychic:1, Dragon:0.5, Normal:1, Rock:2, Bug:0.5 },
-  Electric: { Fire:1, Water:2, Grass:0.5, Electric:0.5, Ground:0, Wind:2, Ice:1, Dark:1, Fairy:1, Steel:1, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:1, Bug:1 },
-  Ground:   { Fire:2, Water:1, Grass:0.5, Electric:2, Ground:1, Wind:0, Ice:1, Dark:1, Fairy:1, Steel:2, Poison:2, Psychic:1, Dragon:1, Normal:1, Rock:2, Bug:0.5 },
-  Wind:     { Fire:1, Water:1, Grass:2, Electric:0.5, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:2 },
-  Ice:      { Fire:0.5, Water:0.5, Grass:2, Electric:1, Ground:2, Wind:2, Ice:0.5, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1 },
-  Dark:     { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:0.5, Fairy:0.5, Steel:1, Poison:1, Psychic:2, Dragon:1, Normal:1, Rock:1, Bug:1 },
-  Fairy:    { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:2, Fairy:1, Steel:0.5, Poison:0.5, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1 },
-  Steel:    { Fire:0.5, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:2, Dark:1, Fairy:2, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:2, Bug:1 },
-  Poison:   { Fire:1, Water:1, Grass:2, Electric:1, Ground:0.5, Wind:1, Ice:1, Dark:1, Fairy:2, Steel:0, Poison:0.5, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:1 },
-  Psychic:  { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:0, Fairy:1, Steel:1, Poison:2, Psychic:0.5, Dragon:1, Normal:1, Rock:1, Bug:0.5 },
-  Dragon:   { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:0, Steel:0.5, Poison:1, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1 },
-  Normal:   { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:1 },
-  Rock:     { Fire:2, Water:0.5, Grass:1, Electric:1, Ground:0.5, Wind:2, Ice:2, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:1, Bug:2 },
-  Bug:      { Fire:0.5, Water:1, Grass:2, Electric:1, Ground:0.5, Wind:0.5, Ice:1, Dark:2, Fairy:0.5, Steel:0.5, Poison:0.5, Psychic:2, Dragon:1, Normal:1, Rock:1, Bug:1 }
+  Fire:     { Fire:0.5, Water:0.5, Grass:2, Electric:1, Ground:1, Wind:1, Ice:2, Dark:1, Fairy:1, Steel:2, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:0.5, Bug:2, Ghost:1,   Flying:1,   Fighting:1   },
+  Water:    { Fire:2, Water:0.5, Grass:0.5, Electric:1, Ground:2, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:1, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:2, Bug:1,   Ghost:1,   Flying:1,   Fighting:1   },
+  Grass:    { Fire:0.5, Water:2, Grass:0.5, Electric:1, Ground:2, Wind:0.5, Ice:0.5, Dark:1, Fairy:1, Steel:0.5, Poison:0.5, Psychic:1, Dragon:0.5, Normal:1, Rock:2, Bug:0.5, Ghost:1,   Flying:0.5, Fighting:1   },
+  Electric: { Fire:1, Water:2, Grass:0.5, Electric:0.5, Ground:0, Wind:2, Ice:1, Dark:1, Fairy:1, Steel:1, Poison:1, Psychic:1, Dragon:0.5, Normal:1, Rock:1, Bug:1,   Ghost:1,   Flying:2,   Fighting:1   },
+  Ground:   { Fire:2, Water:1, Grass:0.5, Electric:2, Ground:1, Wind:0, Ice:1, Dark:1, Fairy:1, Steel:2, Poison:2, Psychic:1, Dragon:1, Normal:1, Rock:2, Bug:0.5,   Ghost:1,   Flying:0,   Fighting:1   },
+  Wind:     { Fire:1, Water:1, Grass:2, Electric:0.5, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:2,  Ghost:1,   Flying:1,   Fighting:1   },
+  Ice:      { Fire:0.5, Water:0.5, Grass:2, Electric:1, Ground:2, Wind:2, Ice:0.5, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1, Ghost:1,   Flying:2,   Fighting:1   },
+  Dark:     { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:0.5, Fairy:0.5, Steel:1, Poison:1, Psychic:2, Dragon:1, Normal:1, Rock:1, Bug:1,    Ghost:2,   Flying:1,   Fighting:0.5 },
+  Fairy:    { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:2, Fairy:1, Steel:0.5, Poison:0.5, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1,    Ghost:1,   Flying:1,   Fighting:2   },
+  Steel:    { Fire:0.5, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:2, Dark:1, Fairy:2, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:2, Bug:1,    Ghost:1,   Flying:1,   Fighting:1   },
+  Poison:   { Fire:1, Water:1, Grass:2, Electric:1, Ground:0.5, Wind:1, Ice:1, Dark:1, Fairy:2, Steel:0, Poison:0.5, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:1,  Ghost:0.5, Flying:1,   Fighting:1   },
+  Psychic:  { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:0, Fairy:1, Steel:1, Poison:2, Psychic:0.5, Dragon:1, Normal:1, Rock:1, Bug:0.5,   Ghost:1,   Flying:1,   Fighting:2   },
+  Dragon:   { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:0, Steel:0.5, Poison:1, Psychic:1, Dragon:2, Normal:1, Rock:1, Bug:1,      Ghost:1,   Flying:1,   Fighting:1   },
+  Normal:   { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:1,    Ghost:0,   Flying:1,   Fighting:1   },
+  Rock:     { Fire:2, Water:0.5, Grass:1, Electric:1, Ground:0.5, Wind:2, Ice:2, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:1, Bug:2,  Ghost:1,   Flying:2,   Fighting:0.5 },
+  Bug:      { Fire:0.5, Water:1, Grass:2, Electric:1, Ground:0.5, Wind:0.5, Ice:1, Dark:2, Fairy:0.5, Steel:0.5, Poison:0.5, Psychic:2, Dragon:1, Normal:1, Rock:1, Bug:1, Ghost:0.5, Flying:0.5, Fighting:0.5 },
+  Flying:   { Fire:1, Water:1, Grass:2, Electric:0.5, Ground:1, Wind:1, Ice:0.5, Dark:1, Fairy:1, Steel:0.5, Poison:1, Psychic:1, Dragon:1, Normal:1, Rock:0.5, Bug:2, Ghost:1,   Flying:1,   Fighting:2   },
+  Ghost:    { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:1, Dark:0.5, Fairy:1, Steel:1, Poison:1, Psychic:2, Dragon:1, Normal:0, Rock:1, Bug:1,      Ghost:2,   Flying:1,   Fighting:0   },
+  Fighting: { Fire:1, Water:1, Grass:1, Electric:1, Ground:1, Wind:1, Ice:2, Dark:2, Fairy:0.5, Steel:2, Poison:0.5, Psychic:0.5, Dragon:1, Normal:2, Rock:2, Bug:0.5, Ghost:0,  Flying:0.5, Fighting:1   }
 };
 
 function getTypeEffectiveness(moveType, defenderTypes) {
@@ -721,7 +724,19 @@ const MOVES_DATA = {
   // Veildrak (404) — Dragon/Psychic pseudo signature
   veil_collapse:    { name:"Veil Collapse",   type:"Psychic", power:120, acc:95,  pp:10, cat:"special",  effect:"confuse",   ec:50, desc:"Veildrak tears the psychic veil protecting the target's mind, leaving it confused and vulnerable." },
   // Voidwarden (407) — Dark/Steel pseudo signature
-  warden_strike:    { name:"Warden Strike",   type:"Steel",   power:120, acc:95,  pp:10, cat:"physical", effect:"defdown",   ec:50, desc:"Voidwarden strikes with the full force of a guardian of worlds, shattering defensive stances." }
+  warden_strike:    { name:"Warden Strike",   type:"Steel",   power:120, acc:95,  pp:10, cat:"physical", effect:"defdown",   ec:50, desc:"Voidwarden strikes with the full force of a guardian of worlds, shattering defensive stances." },
+  // --- Ghost (signature moves for Forgotten Lumori) ---
+  spirit_strike:    { name:"Spirit Strike",   type:"Ghost",   power:80,  acc:95,  pp:15, cat:"physical", effect:"flinch",    ec:20, desc:"Strikes with a surge of spectral force that rattles the target to its core." },
+  specter_pulse:    { name:"Specter Pulse",   type:"Ghost",   power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:20, desc:"Fires a concentrated pulse of spectral energy that erodes the target's special defenses." },
+  haunting_cry:     { name:"Haunting Cry",    type:"Ghost",   power:0,   acc:100, pp:15, cat:"status",   effect:"atkdown",   ec:100,desc:"An otherworldly wail that weakens the target's will to strike." },
+  phantom_force:    { name:"Phantom Force",   type:"Ghost",   power:110, acc:90,  pp:5,  cat:"physical", effect:"confuse",   ec:30, desc:"Phases through reality to strike with ghostly force, leaving the target disoriented." },
+  // --- Fighting (signature moves for Forgotten Lumori) ---
+  power_drive:      { name:"Power Drive",     type:"Fighting",power:80,  acc:100, pp:15, cat:"physical", effect:"flinch",    ec:20, desc:"Drives forward with concentrated fighting power that rocks the target off balance." },
+  iron_cleave:      { name:"Iron Cleave",     type:"Fighting",power:95,  acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:20, desc:"Cleaves through armor and fortitude alike with raw physical mastery." },
+  seismic_force:    { name:"Seismic Force",   type:"Fighting",power:120, acc:85,  pp:5,  cat:"special",  effect:"recharge",  ec:100,desc:"Channels fighting spirit into a devastating force wave. Must recharge next turn." },
+  // --- Flying (signature moves for Forgotten Lumori) ---
+  aerial_assault:   { name:"Aerial Assault",  type:"Flying",  power:85,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20, desc:"Dives from great heights and slams into the foe with aerial precision." },
+  sky_dive:         { name:"Sky Dive",         type:"Flying",  power:100, acc:90,  pp:10, cat:"physical", effect:"priority",  ec:0,  desc:"Plunges from the heavens with staggering speed, always striking first." }
 };
 
 
@@ -3883,10 +3898,10 @@ const MONSTERS_DATA = {
     desc:"Tellurak has absorbed millennia of geological pressure. Eruptions and earthquakes do not faze it. It once held a mountain together for a week through sheer will.",
     lore:"Vaeldrian stonecutters believed Tellurak were mountains that decided to walk. Thessaly has never corrected this belief." },
 
-  419: { id:419, name:"Forgotten Gaiasurge", emoji:"🌋", types:["Ground","Dragon"],
+  419: { id:419, name:"Forgotten Gaiasurge", emoji:"🌋", types:["Ground","Fighting"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:170,atk:160,def:150,spa:105,spd:130,spe:85},
-    learnset:[[1,"earthquake"],[20,"dragon_breath"],[35,"earth_power"],[50,"dragon_claw"],[65,"fissure_slam"],[70,"mantle_surge"]],
+    learnset:[[1,"earthquake"],[20,"power_drive"],[35,"earth_power"],[50,"iron_cleave"],[65,"fissure_slam"],[70,"mantle_surge"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Gaiasurge embodies Vaeldris's tectonic fury. When the Sundering struck, it held the land together for as long as anything could. Then it could hold no longer.",
     lore:"Thessaly never speaks of what she saw Gaiasurge do during the Sundering. She says some things are too large for language." },
@@ -3933,10 +3948,10 @@ const MONSTERS_DATA = {
     desc:"Zephyrak navigate by the electromagnetic signatures of all living things below, seeing the world as a tapestry of pulsing lights from miles in the clouds.",
     lore:"A Zephyrak's steel-feathers vibrate at frequencies that predict weather systems days in advance. Vaeldrian navigators once paid fortunes to travel with one." },
 
-  425: { id:425, name:"Forgotten Skydrak", emoji:"🌬️", types:["Wind","Dragon"],
+  425: { id:425, name:"Forgotten Skydrak", emoji:"🌬️", types:["Wind","Ghost"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:100,atk:115,def:100,spa:180,spd:125,spe:180},
-    learnset:[[1,"gust"],[20,"dragon_breath"],[35,"hurricane"],[50,"dragon_pulse"],[65,"gale_cannon"],[70,"time_fracture"]],
+    learnset:[[1,"gust"],[20,"specter_pulse"],[35,"hurricane"],[50,"spirit_strike"],[65,"gale_cannon"],[70,"haunting_cry"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Skydrak soars at the edge of the atmosphere where air meets space. Its wings span a city block. The last of its kind watched Vaeldris fall from that height and could do nothing.",
     lore:"Caelia refuses to let Skydrak land. She says it belongs in the sky and the day it touches the ground again is the day she'll know it has given up." },
@@ -3983,10 +3998,10 @@ const MONSTERS_DATA = {
     desc:"Cryvorn lurk beneath glacial ice, rising to drag prey into the frozen depths. Their dark aura prevents victims from feeling the cold — until it is already fatal.",
     lore:"Nylara says Cryvorn don't hunt so much as they remind prey that warmth was always temporary." },
 
-  431: { id:431, name:"Forgotten Frostdrax", emoji:"❄️", types:["Dragon","Fairy"],
+  431: { id:431, name:"Forgotten Frostdrax", emoji:"❄️", types:["Ghost","Fairy"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:135,atk:145,def:150,spa:135,spd:145,spe:90},
-    learnset:[[1,"dragon_breath"],[20,"fairy_wind"],[35,"dragon_claw"],[50,"moonblast"],[65,"eon_crash"],[70,"time_fracture"]],
+    learnset:[[1,"spirit_strike"],[20,"fairy_wind"],[35,"specter_pulse"],[50,"moonblast"],[65,"celestial_wave"],[70,"haunting_cry"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Frostdrax maintained Vaeldris's northern climate for millennia. The ice continent shattered within hours of the moment it fled. It has not forgiven itself.",
     lore:"Frostdrax is the only one of the 39 that Nylara says chose to come with her. She did not command it. It simply followed." },
@@ -4058,10 +4073,10 @@ const MONSTERS_DATA = {
     desc:"Sparkeis are living power grids — their steel chassis stores charges that could power a city for months. They convert all kinetic energy into electricity passively.",
     lore:"Tempris installed a small meter on Sparkeis to measure output. It broke after three days. He has not replaced it." },
 
-  440: { id:440, name:"Forgotten Thunderax", emoji:"🌩️", types:["Dragon","Grass"],
+  440: { id:440, name:"Forgotten Thunderax", emoji:"🌩️", types:["Flying","Grass"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:135,def:110,spa:180,spd:135,spe:135},
-    learnset:[[1,"dragon_breath"],[20,"energy_ball"],[35,"dragon_pulse"],[50,"verdant_surge"],[65,"eon_crash"],[70,"time_fracture"]],
+    learnset:[[1,"aerial_assault"],[20,"energy_ball"],[35,"sky_dive"],[50,"verdant_surge"],[65,"gale_cannon"],[70,"aerial_assault"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Thunderax charges itself using entire storm systems. Tempris claims it once powered a civilization for a week by standing still in a thundercloud. He is not exaggerating.",
     lore:"Thunderax is the only one of the 39 that does not seem to remember Vaeldris. Tempris has never decided if that is a tragedy or a mercy." },
@@ -6446,12 +6461,12 @@ const VAELDRIS_WIELDERS = {
     team:[
       {monsterId:417, level:98, moves:["seed_bomb","sludge_bomb","energy_ball","verdant_surge"]},
       {monsterId:418, level:99, moves:["stone_edge","flash_cannon","obsidian_crash","warden_strike"]},
-      {monsterId:419, level:100, moves:["earthquake","earth_power","dragon_claw","mantle_surge"]}
+      {monsterId:419, level:100, moves:["earthquake","earth_power","iron_cleave","mantle_surge"]}
     ],
     ngTeam:[
       {monsterId:417, level:100, moves:["seed_bomb","sludge_bomb","energy_ball","verdant_surge"]},
       {monsterId:418, level:102, moves:["stone_edge","flash_cannon","obsidian_crash","warden_strike"]},
-      {monsterId:419, level:105, moves:["earthquake","earth_power","dragon_claw","mantle_surge"]}
+      {monsterId:419, level:105, moves:["earthquake","earth_power","iron_cleave","mantle_surge"]}
     ]
   },
   wielder_nereus: {
@@ -6476,12 +6491,12 @@ const VAELDRIS_WIELDERS = {
     team:[
       {monsterId:423, level:98, moves:["moonblast","thunderbolt","dazzling_gleam","pixie_bolt"]},
       {monsterId:424, level:99, moves:["air_slash","flash_cannon","hurricane","warden_strike"]},
-      {monsterId:425, level:100, moves:["hurricane","dragon_pulse","gale_cannon","time_fracture"]}
+      {monsterId:425, level:100, moves:["hurricane","specter_pulse","gale_cannon","spirit_strike"]}
     ],
     ngTeam:[
       {monsterId:423, level:100, moves:["moonblast","thunderbolt","dazzling_gleam","pixie_bolt"]},
       {monsterId:424, level:102, moves:["air_slash","flash_cannon","hurricane","warden_strike"]},
-      {monsterId:425, level:105, moves:["hurricane","dragon_pulse","gale_cannon","time_fracture"]}
+      {monsterId:425, level:105, moves:["hurricane","specter_pulse","gale_cannon","spirit_strike"]}
     ]
   },
   wielder_dravek: {
@@ -6506,12 +6521,12 @@ const VAELDRIS_WIELDERS = {
     team:[
       {monsterId:429, level:98, moves:["ice_beam","flash_cannon","alloy_edge","warden_strike"]},
       {monsterId:430, level:99, moves:["crunch","obsidian_crash","eclipse_shroud","crystal_lance"]},
-      {monsterId:431, level:100, moves:["dragon_claw","moonblast","eon_crash","time_fracture"]}
+      {monsterId:431, level:100, moves:["specter_pulse","moonblast","celestial_wave","spirit_strike"]}
     ],
     ngTeam:[
       {monsterId:429, level:100, moves:["ice_beam","flash_cannon","alloy_edge","warden_strike"]},
       {monsterId:430, level:102, moves:["crunch","obsidian_crash","eclipse_shroud","crystal_lance"]},
-      {monsterId:431, level:105, moves:["dragon_claw","moonblast","eon_crash","time_fracture"]}
+      {monsterId:431, level:105, moves:["specter_pulse","moonblast","celestial_wave","spirit_strike"]}
     ]
   },
   wielder_solenne: {
@@ -6536,12 +6551,12 @@ const VAELDRIS_WIELDERS = {
     team:[
       {monsterId:435, level:98, moves:["iron_tail","stone_edge","obsidian_crash","warden_strike"]},
       {monsterId:436, level:99, moves:["fire_blast","dark_pulse","solar_flare","eclipse_shroud"]},
-      {monsterId:437, level:100, moves:["dragon_claw","outrage","eon_crash","mantle_surge"]}
+      {monsterId:437, level:100, moves:["dragon_claw","iron_cleave","seismic_force","mantle_surge"]}
     ],
     ngTeam:[
       {monsterId:435, level:100, moves:["iron_tail","stone_edge","obsidian_crash","warden_strike"]},
       {monsterId:436, level:102, moves:["fire_blast","dark_pulse","solar_flare","eclipse_shroud"]},
-      {monsterId:437, level:105, moves:["dragon_claw","outrage","eon_crash","mantle_surge"]}
+      {monsterId:437, level:105, moves:["dragon_claw","iron_cleave","seismic_force","mantle_surge"]}
     ]
   },
   wielder_tempris: {
@@ -6551,12 +6566,12 @@ const VAELDRIS_WIELDERS = {
     team:[
       {monsterId:438, level:98, moves:["thunderbolt","psychic_move","volt_surge","overcharge"]},
       {monsterId:439, level:99, moves:["flash_cannon","blizzard","alloy_edge","warden_strike"]},
-      {monsterId:440, level:100, moves:["dragon_pulse","verdant_surge","eon_crash","time_fracture"]}
+      {monsterId:440, level:100, moves:["aerial_assault","verdant_surge","sky_dive","gale_cannon"]}
     ],
     ngTeam:[
       {monsterId:438, level:100, moves:["thunderbolt","psychic_move","volt_surge","overcharge"]},
       {monsterId:439, level:102, moves:["flash_cannon","blizzard","alloy_edge","warden_strike"]},
-      {monsterId:440, level:105, moves:["dragon_pulse","verdant_surge","eon_crash","time_fracture"]}
+      {monsterId:440, level:105, moves:["aerial_assault","verdant_surge","sky_dive","gale_cannon"]}
     ]
   },
   wielder_vayne: {

@@ -6413,6 +6413,8 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_lysara", name:"Lysara", emoji:"🌟", location:"vaeldrian_reaches",
     quote:"You have come this far from a land that still breathes. Show me it was worth it.",
     winQuote:"You carry something we no longer have. Hold onto it.",
+    lumoriLore:"Stellarion appeared during the great centennial alignment — a night when every constellation in Vaeldris locked into perfect geometric relation. It did not emerge from anywhere visible. The temple stones simply parted for it. I had been the temple's keeper for eleven years. It walked to me, looked at me once, and never left. I still do not know if I found it or if it was simply done waiting for me to arrive.",
+    vaeldrisLore:"Vaeldris was not like other regions. Its Ley lines ran near enough to the surface that you could feel them if you knew how to listen — a low resonance in the stone, a pressure behind the eyes in certain valleys. The sacred temples I kept were built on convergence points of that energy, built by people who understood it long before any formal study existed. That energy was the reason the 39 came. It was the reason all of this happened.",
     team:[
       {monsterId:408, level:98, moves:["psychic_move","air_slash","moonblast","cosmic_veil"]},
       {monsterId:409, level:99, moves:["moonblast","earth_power","dazzling_gleam","celestial_wave"]},
@@ -6428,6 +6430,8 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_morrigan", name:"Morrigan", emoji:"🌑", location:"vaeldrian_reaches",
     quote:"Vaeldris burned while I watched. What will you do when everything you know is gone?",
     winQuote:"You fight like someone who still has something to lose. That used to describe me.",
+    lumoriLore:"Voidwing had been trying to extinguish Vaeldris's coastal fires alone for three days when I found it. Working with its ice and psychic force against blazes it could not possibly stop, exhausted past anything that should have allowed it to keep moving. When I reached it, it looked at me and did not run. That was the only introduction we needed — two things past feeling, deciding without words to face what remained together.",
+    vaeldrisLore:"The 39 were not native to Vaeldris. They came from places beyond known maps — older, stranger places — drawn by the Ley resonance into a region that could sustain them. While Vaeldris lived, scholars came from four regions to study them. They were proof that Lumori could be something older, shaped by forces no other region offered. We were proud. After Vaeldris fell, the world forgot they had ever existed at all.",
     team:[
       {monsterId:411, level:98, moves:["shadow_ball","dark_pulse","void_rend","eclipse_shroud"]},
       {monsterId:412, level:99, moves:["fire_blast","sludge_wave","dark_pulse","nightmare_pulse"]},
@@ -6443,6 +6447,8 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_kael", name:"Kael", emoji:"⛈️", location:"vaeldrian_reaches",
     quote:"The storm was the only honest thing in Vaeldris. Let's see if you can survive honesty.",
     winQuote:"You weathered it. That's rare.",
+    lumoriLore:"I was sixteen the first time I saw Stormdrake. A surge had rolled over Vaeldris's northern cliffs without warning and I had climbed to the top to watch it — which was not wise. Stormdrake was already there. It had been watching storms since before my great-grandparents were born. It ignored me for three hours. Then the storm broke and it looked at me and made a sound I have never been able to describe. I consider it the best conversation of my life.",
+    vaeldrisLore:"We were not selected. We were recognized. The region had a way of making itself known to certain people — a particular resonance, a quality of light in specific valleys. The 39 came to each of us individually, years apart. When the last of us was found, we had not announced ourselves as a group. We had simply, without planning it, become one. The Ley Network settled the day all 13 bonds were formed. None of us realized it until much later.",
     team:[
       {monsterId:414, level:98, moves:["thunderbolt","flash_cannon","volt_surge","overcharge"]},
       {monsterId:415, level:99, moves:["stone_edge","dragon_pulse","obsidian_crash","time_fracture"]},
@@ -6458,6 +6464,8 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_thessaly", name:"Thessaly", emoji:"🌿", location:"vaeldrian_reaches",
     quote:"The roots remember what the surface has forgotten. I will test whether you do too.",
     winQuote:"The land acknowledges you. That means something.",
+    lumoriLore:"The eastern fault line was shifting the day Gaiasurge came to me — shifting in a way that should have destroyed three villages. Gaiasurge went to the fault and stood there for six hours, legs braced against tectonic forces that could have split a continent. It did not ask for help. It did not acknowledge me until it was done. Then it walked to where I was standing and sat down beside me. I have never found words for what I felt. I have stopped trying.",
+    vaeldrisLore:"The Ley Network was Vaeldris's circulatory system — lines of convergent elemental energy running beneath every stone and current and root. A researcher named Solarn mapped it completely for the first time in recorded history. His maps were extraordinary. They showed exactly where every line ran, exactly where they converged, exactly how the energy moved. They were the most accurate document of Vaeldris's internal structure that had ever existed. We should have been more careful about what he did with them afterward.",
     team:[
       {monsterId:417, level:98, moves:["seed_bomb","sludge_bomb","energy_ball","verdant_surge"]},
       {monsterId:418, level:99, moves:["stone_edge","flash_cannon","obsidian_crash","warden_strike"]},
@@ -6473,6 +6481,8 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_nereus", name:"Nereus", emoji:"🌊", location:"vaeldrian_reaches",
     quote:"I turned back when the ocean warned me. Now I turn nothing back. Prove you can handle the deep.",
     winQuote:"The depths respect strength. So do I.",
+    lumoriLore:"My diving equipment failed at four thousand meters. Something enormous caught me in the dark before I hit the trench floor. I woke on the surface with Abyssalon circling beneath me — a silhouette the size of a ship, visible only because the water around it was colder than the deep current. It had carried me up four kilometers without explanation. I have returned to that depth many times since. Each time I am afraid. Each time I know I am exactly where I am supposed to be.",
+    vaeldrisLore:"Solarn's maps revealed something none of us had suspected. All the Ley lines converged at a single node — not near the center of Vaeldris but exactly the center, with a mathematical precision that could not be natural. Something had placed them there, long before any recorded history. Solarn spent a year determining what. When he found his answer, he published it in academic journals across three regions. The answer attracted attention. Not the kind he had intended.",
     team:[
       {monsterId:420, level:98, moves:["surf","psychic_move","hydro_pump","telepathic_slam"]},
       {monsterId:421, level:99, moves:["crunch","venom_lance","dark_pulse","void_dominion"]},
@@ -6488,6 +6498,8 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_caelia", name:"Caelia", emoji:"☁️", location:"vaeldrian_reaches",
     quote:"The sky doesn't care where you're from. It only cares how high you reach.",
     winQuote:"You belong up here. Not many do.",
+    lumoriLore:"Skydrak lives at the edge of breathable atmosphere. I reached it once, on borrowed altitude, running out of air. It appeared from nowhere and flew beneath me. I do not know why. I have spent years wondering whether it was instinct, whether it recognized something in me, whether I simply fell in its direction at the right moment. Skydrak has shown no interest in clarifying this. After all our years together, I have come to understand that this is its way of saying the reason should already be obvious.",
+    vaeldrisLore:"Within a year of Solarn's publication, something had begun following his work. Not reading it — consuming it. Absorbing the mapped knowledge of the Ley Network the way certain Lumori absorb elemental energy, drawing the information into itself across a vast distance. We did not notice it immediately because it had no body. It was attending to our world with something older and more patient than eyes. By the time Solarn recognized what was happening, it had already found what it came for.",
     team:[
       {monsterId:423, level:98, moves:["moonblast","thunderbolt","dazzling_gleam","pixie_bolt"]},
       {monsterId:424, level:99, moves:["air_slash","flash_cannon","hurricane","warden_strike"]},
@@ -6503,6 +6515,8 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_dravek", name:"Dravek", emoji:"🔥", location:"vaeldrian_reaches",
     quote:"The forge never apologizes for the heat. Neither do I.",
     winQuote:"You didn't flinch. That's the first requirement.",
+    lumoriLore:"I was nineteen and angry at everything when I descended into Vaeldris's volcanic interior, looking for something to prove. Pyralloy was asleep in the magma. It woke when I arrived and regarded me with the expression of someone interrupted during something important. That expression has not meaningfully changed in thirty years. I have come to find it comforting — it is the face of a creature with nothing left to prove, looking at one who has not yet learned that lesson.",
+    vaeldrisLore:"The entity fed precisely. It consumed the minor Ley convergence nodes first — dozens of them over months — so slowly that the early tremors seemed like ordinary geological activity. By the time Solarn recognized the pattern, fourteen nodes were already gone. It had been patient. It had been thorough. It understood the Network better than most of us did. Solarn came to the thirteen of us with his analysis. He told us we had perhaps two weeks before the larger nodes began to fall.",
     team:[
       {monsterId:426, level:98, moves:["fire_blast","flash_cannon","solar_flare","forge_strike"]},
       {monsterId:427, level:99, moves:["dark_pulse","earth_power","obsidian_fang","void_dominion"]},
@@ -6518,6 +6532,8 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_nylara", name:"Nylara", emoji:"❄️", location:"vaeldrian_reaches",
     quote:"The cold preserves everything that heat destroys. I have preserved much. Now let me test you.",
     winQuote:"You survived the cold. Vaeldris would have welcomed you.",
+    lumoriLore:"I was sitting in my study the night after the evacuation order, doing nothing, staring at a wall. The door opened. Frostdrax came in, looked at me, and curled up beside my desk. I had not sought it. It had found its way to me across a thousand kilometers of collapsing region and simply decided to stay. I believe it understood something that night that took me years longer to reach: that choosing to remain beside someone who is grieving is its own kind of strength.",
+    vaeldrisLore:"Solarn had identified a failsafe. The central convergence node could be deliberately collapsed — it would destroy the Ley Network permanently, but the entity would have nothing left to consume. The window was 37 hours. It required physically destroying the shutdown mechanism at the node itself. It would cost Vaeldris everything it was, but it would stop the entity from reaching any other region. Rax did not hesitate. He said he would go. He left within the hour.",
     team:[
       {monsterId:429, level:98, moves:["ice_beam","flash_cannon","alloy_edge","warden_strike"]},
       {monsterId:430, level:99, moves:["crunch","obsidian_crash","eclipse_shroud","crystal_lance"]},
@@ -6533,6 +6549,8 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_solenne", name:"Solenne", emoji:"🌙", location:"vaeldrian_reaches",
     quote:"Dreams outlast everything. Even the world that made them. What do yours contain?",
     winQuote:"You fight like you're awake. Most people never manage that.",
+    lumoriLore:"Psydrak first appeared to me in a dream — not as a symbol but literally, walking through my sleeping mind as if the boundary between sleeping thought and physical reality were a courtesy it had decided not to observe. When I woke, it was outside my window. I asked it over years whether it had been in the dream or whether the dream had taken place within it. Psydrak has never provided a satisfying answer. I have come to suspect it considers the question beside the point.",
+    vaeldrisLore:"Rax fought through forty-three hours of entity-warped territory to reach the central node. He arrived with twelve hours remaining in the window. The shutdown mechanism had already been destroyed — physically obliterated, with a precision that required knowing exactly what it was, exactly what it did, and exactly what destroying it would prevent. Someone had been there before him. Not the entity, which consumed rather than destroyed selectively. Someone with knowledge. Someone with purpose. We have never established who.",
     team:[
       {monsterId:432, level:98, moves:["psychic_move","shadow_ball","psystrike","veil_collapse"]},
       {monsterId:433, level:99, moves:["moonblast","surf","celestial_wave","hydro_pump"]},
@@ -6548,6 +6566,8 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_rax", name:"Rax", emoji:"🛡️", location:"vaeldrian_reaches",
     quote:"Vaeldris had one final defense. It wasn't enough. I want to know if you would have been.",
     winQuote:"You would have been. That is the most I have ever said about anyone.",
+    lumoriLore:"Alloydrax held the line for eleven hours. I had deployed it as a defensive anchor while the evacuation proceeded — the last barrier between the entity's advance and Vaeldris's population centers. It should have lasted two hours at most. I have reviewed the force data many times and have no physical explanation for how it lasted eleven. I believe it knew what was at stake. I believe it chose to hold anyway, past every reasonable threshold, because the alternative was allowing what it guarded against to reach the people behind it.",
+    vaeldrisLore:"I reached the central node and I could not stop it. The mechanism was gone. I tried seventeen improvised methods. None worked. I asked the 39 Lumori to hold with me. They held. The other twelve channeled every available Ley energy into a containment field. We bought thirty-one hours. We did not stop it. Someone destroyed that shutdown mechanism before I arrived — deliberately, with full knowledge of what it would mean. I do not know who. I think about it every day. I will think about it every day for the rest of my life.",
     team:[
       {monsterId:435, level:98, moves:["iron_tail","stone_edge","obsidian_crash","warden_strike"]},
       {monsterId:436, level:99, moves:["fire_blast","dark_pulse","solar_flare","eclipse_shroud"]},
@@ -6563,6 +6583,8 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_tempris", name:"Tempris", emoji:"⚡", location:"vaeldrian_reaches",
     quote:"I have modelled every possible outcome of this battle. One of them involves you winning. Show me that one.",
     winQuote:"You were the 5.3%. I have updated my model.",
+    lumoriLore:"Thunderax powered my research station for two years before I understood it was doing so intentionally. I had attributed the anomalous charge readings to atmospheric variance — a reasonable assumption. The day I understood, I walked outside and found Thunderax on the generator array, perfectly still, producing consistent and precisely calibrated output. I asked it why. It looked at me. I made the only non-quantitative notation in twelve years of research logs: it wanted to help. I have not removed that line. I have stopped trying.",
+    vaeldrisLore:"The thirteen of us maintained the containment field for thirty-one hours. The 39 Lumori coordinated with us without instruction — they had understood the situation before we finished explaining it, or perhaps before we began. We were running out of time. The entity had adapted to the field's frequency and was beginning to breach. We had bought every hour we could buy. And then Vayne said something none of us had prepared for.",
     team:[
       {monsterId:438, level:98, moves:["thunderbolt","psychic_move","volt_surge","overcharge"]},
       {monsterId:439, level:99, moves:["flash_cannon","blizzard","alloy_edge","warden_strike"]},
@@ -6578,6 +6600,8 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_vayne", name:"Vayne", emoji:"🕳️", location:"vaeldrian_reaches",
     quote:"I have stared into the void long enough that it has started staring back. Let's see what it makes of you.",
     winQuote:"The void considered you and retreated. You should be proud.",
+    lumoriLore:"Voidcrown was sitting at the edge of the most unstable void rift in Vaeldris when I found it — a place where the boundary between something and nothing had worn thin enough to be dangerous. It was watching the rift with the patience of something that had already seen where the void leads and had decided, with full knowledge, to remain beside it anyway. I understood that patience immediately. It was the only introduction we needed. We have never required anything more from each other.",
+    vaeldrisLore:"I told the others I could end it. The entity was, in some fundamental sense, a relative of the void — something that devours rather than contains. I had spent years studying void resonance and believed I could draw it in. I told them the cost was personal and that I had already decided. Voidcrown came with me without being asked. We entered the rift. I cannot describe what happened inside — the physics of that space do not map to language. The entity did not come back out. Voidcrown and I are here. We are not unchanged. I do not consider that a loss.",
     team:[
       {monsterId:441, level:98, moves:["dark_pulse","earthquake","eclipse_shroud","void_dominion"]},
       {monsterId:442, level:99, moves:["psychic_move","venom_lance","psystrike","toxic_surge"]},
@@ -6593,6 +6617,8 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_azura", name:"Azura", emoji:"🌠", location:"vaeldrian_reaches",
     quote:"I read the stars and knew Vaeldris would fall three days before it happened. I read you now. I wonder what I see.",
     winQuote:"The stars said you would win. I didn't believe them. I was wrong.",
+    lumoriLore:"Stardrax appeared at my observatory window three days before the Sundering began. I had been reading the stars and they had changed — not physically, but in their relationships to each other, arranged into a configuration that meant catastrophe on a scale I had not witnessed in any prior chart. Stardrax looked at me with the expression it always has: as if it already knows the outcome and is waiting for me to catch up. I have never determined if this is meant to comfort me. I suspect it simply is what it is.",
+    vaeldrisLore:"I will tell you what I know, as clearly as I can. A researcher named Solarn spent his life mapping Vaeldris's Ley Network — the lines of convergent elemental energy that ran beneath our region and made it what it was. His maps revealed that all our Ley lines converged at a single artificially placed node at the exact center of Vaeldris, a construction older than any recorded history. Solarn published this discovery across three regions' academic journals. Something read that publication and came for what it described.\n\nThe entity had no conventional form. It was an intelligence that consumed structured energy — Ley networks were its preferred sustenance. It had done this before, in places the old texts called the Dimmed Reaches, which we had assumed were mythology. They were not mythology. They were warning.\n\nSolarn identified a failsafe: deliberately collapsing the central node would starve the entity and stop its spread, at the cost of Vaeldris's Ley Network forever. The window was 37 hours. Rax went to execute it. The shutdown mechanism had already been destroyed when he arrived — deliberately, surgically, by someone with precise knowledge of what it did and what its destruction would prevent. The identity of whoever destroyed it has never been established. I have my suspicions. I have kept them to myself.\n\nWe held for thirty-one hours. All thirteen wielders, all 39 Lumori, channeling everything we had into a containment field. Vayne ended it. He drew the entity into the void rift using resonance techniques I still do not fully understand. He and Voidcrown came back. They are different. He says this is acceptable.\n\nThe 39 Lumori followed us when we left Vaeldris. We did not command them. We did not ask. They came. I have read many things in the stars over the course of my life. I have never read anything that told me why they chose to follow. I have come to believe some things are simply choices — made by creatures old enough to understand exactly what choosing costs — and that the only proper response is to spend the rest of your life being worthy of them.",
     team:[
       {monsterId:444, level:98, moves:["psychic_move","moonblast","psystrike","cosmic_veil"]},
       {monsterId:445, level:99, moves:["dragon_pulse","solar_flare","ancient_breath","time_fracture"]},

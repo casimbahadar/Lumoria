@@ -5341,7 +5341,7 @@ const WORLD_DATA = {
   void_nexus: {
     id:"void_nexus", name:"Void Nexus", icon:"🌑", type:"special",
     desc:"The heart of Umbra's post-defeat operations — a nexus of void energy deep in unmapped territory. Only the strongest trainers reach this place. Ultra-rare Lumori cluster around the residual void energy.",
-    connections:["shadow_archive","prismatic_rift"],
+    connections:["shadow_archive","prismatic_rift","vaeldrian_reaches"],
     wildMonsters:[
       {id:270, minLv:72, maxLv:78, rate:20},
       {id:267, minLv:72, maxLv:78, rate:20},
@@ -5352,6 +5352,18 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:16, requiresChampion:true,
     hasUmbraEncounter:true, mapPos:{x:83, y:79},
     ngPlusWildMonsters:[{id:345,minLv:80,maxLv:87,rate:20},{id:352,minLv:81,maxLv:87,rate:15},{id:373,minLv:82,maxLv:88,rate:8}]
+  },
+
+  // ============================================================
+  // VAELDRIAN REACHES — Post-game, accessible after defeating umbra_shade
+  // ============================================================
+  vaeldrian_reaches: {
+    id:"vaeldrian_reaches", name:"The Vaeldrian Reaches", icon:"🌀", type:"special",
+    desc:"A convergence point where the boundary between Lumoria and the lost land of Vaeldris grows thin. Thirteen Wielders wait here — survivors of a world that no longer exists, each carrying a bond that outlasted their home.",
+    connections:["void_nexus"],
+    wildMonsters:[],
+    hasGym:false, requiredBadges:16, requiresChampion:true, requiresDefeated:"umbra_shade",
+    mapPos:{x:88, y:85}
   },
 
   // ===== NG+ EXCLUSIVE AREAS =====
@@ -6372,6 +6384,210 @@ const UMBRA_BATTLES = {
         {monsterId:319, level:74, moves:["dark_pulse","moonblast","shadow_ball","soul_rend"]}
       ]
     }
+  }
+};
+
+// ============================================================
+// VAELDRIS WIELDERS — 13 post-game triple battles
+// Accessible after defeating umbra_shade (Commander Shade).
+// NG+ scales team levels up (ngTeam arrays).
+// Each battle is triple format; player brings 4 mons (3 active + 1 reserve).
+// ============================================================
+const VAELDRIS_WIELDERS = {
+  wielder_lysara: {
+    id:"wielder_lysara", name:"Lysara", emoji:"🌟", location:"vaeldrian_reaches",
+    quote:"You have come this far from a land that still breathes. Show me it was worth it.",
+    winQuote:"You carry something we no longer have. Hold onto it.",
+    team:[
+      {monsterId:408, level:98, moves:["psychic_move","air_slash","moonblast","cosmic_veil"]},
+      {monsterId:409, level:99, moves:["moonblast","earth_power","dazzling_gleam","celestial_wave"]},
+      {monsterId:410, level:100, moves:["flash_cannon","moonblast","alloy_edge","cosmic_veil"]}
+    ],
+    ngTeam:[
+      {monsterId:408, level:100, moves:["psychic_move","air_slash","moonblast","cosmic_veil"]},
+      {monsterId:409, level:102, moves:["moonblast","earth_power","dazzling_gleam","celestial_wave"]},
+      {monsterId:410, level:105, moves:["flash_cannon","moonblast","alloy_edge","cosmic_veil"]}
+    ]
+  },
+  wielder_morrigan: {
+    id:"wielder_morrigan", name:"Morrigan", emoji:"🌑", location:"vaeldrian_reaches",
+    quote:"Vaeldris burned while I watched. What will you do when everything you know is gone?",
+    winQuote:"You fight like someone who still has something to lose. That used to describe me.",
+    team:[
+      {monsterId:411, level:98, moves:["shadow_ball","dark_pulse","void_rend","eclipse_shroud"]},
+      {monsterId:412, level:99, moves:["fire_blast","sludge_wave","dark_pulse","nightmare_pulse"]},
+      {monsterId:413, level:100, moves:["blizzard","psystrike","cryo_lance","veil_collapse"]}
+    ],
+    ngTeam:[
+      {monsterId:411, level:100, moves:["shadow_ball","dark_pulse","void_rend","eclipse_shroud"]},
+      {monsterId:412, level:102, moves:["fire_blast","sludge_wave","dark_pulse","nightmare_pulse"]},
+      {monsterId:413, level:105, moves:["blizzard","psystrike","cryo_lance","veil_collapse"]}
+    ]
+  },
+  wielder_kael: {
+    id:"wielder_kael", name:"Kael", emoji:"⛈️", location:"vaeldrian_reaches",
+    quote:"The storm was the only honest thing in Vaeldris. Let's see if you can survive honesty.",
+    winQuote:"You weathered it. That's rare.",
+    team:[
+      {monsterId:414, level:98, moves:["thunderbolt","flash_cannon","volt_surge","overcharge"]},
+      {monsterId:415, level:99, moves:["stone_edge","dragon_pulse","obsidian_crash","time_fracture"]},
+      {monsterId:416, level:100, moves:["hurricane","hydro_pump","tidal_crush","time_fracture"]}
+    ],
+    ngTeam:[
+      {monsterId:414, level:100, moves:["thunderbolt","flash_cannon","volt_surge","overcharge"]},
+      {monsterId:415, level:102, moves:["stone_edge","dragon_pulse","obsidian_crash","time_fracture"]},
+      {monsterId:416, level:105, moves:["hurricane","hydro_pump","tidal_crush","time_fracture"]}
+    ]
+  },
+  wielder_thessaly: {
+    id:"wielder_thessaly", name:"Thessaly", emoji:"🌿", location:"vaeldrian_reaches",
+    quote:"The roots remember what the surface has forgotten. I will test whether you do too.",
+    winQuote:"The land acknowledges you. That means something.",
+    team:[
+      {monsterId:417, level:98, moves:["seed_bomb","sludge_bomb","energy_ball","verdant_surge"]},
+      {monsterId:418, level:99, moves:["stone_edge","flash_cannon","obsidian_crash","warden_strike"]},
+      {monsterId:419, level:100, moves:["earthquake","earth_power","dragon_claw","mantle_surge"]}
+    ],
+    ngTeam:[
+      {monsterId:417, level:100, moves:["seed_bomb","sludge_bomb","energy_ball","verdant_surge"]},
+      {monsterId:418, level:102, moves:["stone_edge","flash_cannon","obsidian_crash","warden_strike"]},
+      {monsterId:419, level:105, moves:["earthquake","earth_power","dragon_claw","mantle_surge"]}
+    ]
+  },
+  wielder_nereus: {
+    id:"wielder_nereus", name:"Nereus", emoji:"🌊", location:"vaeldrian_reaches",
+    quote:"I turned back when the ocean warned me. Now I turn nothing back. Prove you can handle the deep.",
+    winQuote:"The depths respect strength. So do I.",
+    team:[
+      {monsterId:420, level:98, moves:["surf","psychic_move","hydro_pump","telepathic_slam"]},
+      {monsterId:421, level:99, moves:["crunch","venom_lance","dark_pulse","void_dominion"]},
+      {monsterId:422, level:100, moves:["dragon_claw","blizzard","eon_crash","time_fracture"]}
+    ],
+    ngTeam:[
+      {monsterId:420, level:100, moves:["surf","psychic_move","hydro_pump","telepathic_slam"]},
+      {monsterId:421, level:102, moves:["crunch","venom_lance","dark_pulse","void_dominion"]},
+      {monsterId:422, level:105, moves:["dragon_claw","blizzard","eon_crash","time_fracture"]}
+    ]
+  },
+  wielder_caelia: {
+    id:"wielder_caelia", name:"Caelia", emoji:"☁️", location:"vaeldrian_reaches",
+    quote:"The sky doesn't care where you're from. It only cares how high you reach.",
+    winQuote:"You belong up here. Not many do.",
+    team:[
+      {monsterId:423, level:98, moves:["moonblast","thunderbolt","dazzling_gleam","pixie_bolt"]},
+      {monsterId:424, level:99, moves:["air_slash","flash_cannon","hurricane","warden_strike"]},
+      {monsterId:425, level:100, moves:["hurricane","dragon_pulse","gale_cannon","time_fracture"]}
+    ],
+    ngTeam:[
+      {monsterId:423, level:100, moves:["moonblast","thunderbolt","dazzling_gleam","pixie_bolt"]},
+      {monsterId:424, level:102, moves:["air_slash","flash_cannon","hurricane","warden_strike"]},
+      {monsterId:425, level:105, moves:["hurricane","dragon_pulse","gale_cannon","time_fracture"]}
+    ]
+  },
+  wielder_dravek: {
+    id:"wielder_dravek", name:"Dravek", emoji:"🔥", location:"vaeldrian_reaches",
+    quote:"The forge never apologizes for the heat. Neither do I.",
+    winQuote:"You didn't flinch. That's the first requirement.",
+    team:[
+      {monsterId:426, level:98, moves:["fire_blast","flash_cannon","solar_flare","forge_strike"]},
+      {monsterId:427, level:99, moves:["dark_pulse","earth_power","obsidian_fang","void_dominion"]},
+      {monsterId:428, level:100, moves:["dragon_claw","venom_lance","outrage","mantle_surge"]}
+    ],
+    ngTeam:[
+      {monsterId:426, level:100, moves:["fire_blast","flash_cannon","solar_flare","forge_strike"]},
+      {monsterId:427, level:102, moves:["dark_pulse","earth_power","obsidian_fang","void_dominion"]},
+      {monsterId:428, level:105, moves:["dragon_claw","venom_lance","outrage","mantle_surge"]}
+    ]
+  },
+  wielder_nylara: {
+    id:"wielder_nylara", name:"Nylara", emoji:"❄️", location:"vaeldrian_reaches",
+    quote:"The cold preserves everything that heat destroys. I have preserved much. Now let me test you.",
+    winQuote:"You survived the cold. Vaeldris would have welcomed you.",
+    team:[
+      {monsterId:429, level:98, moves:["ice_beam","flash_cannon","alloy_edge","warden_strike"]},
+      {monsterId:430, level:99, moves:["crunch","obsidian_crash","eclipse_shroud","crystal_lance"]},
+      {monsterId:431, level:100, moves:["dragon_claw","moonblast","eon_crash","time_fracture"]}
+    ],
+    ngTeam:[
+      {monsterId:429, level:100, moves:["ice_beam","flash_cannon","alloy_edge","warden_strike"]},
+      {monsterId:430, level:102, moves:["crunch","obsidian_crash","eclipse_shroud","crystal_lance"]},
+      {monsterId:431, level:105, moves:["dragon_claw","moonblast","eon_crash","time_fracture"]}
+    ]
+  },
+  wielder_solenne: {
+    id:"wielder_solenne", name:"Solenne", emoji:"🌙", location:"vaeldrian_reaches",
+    quote:"Dreams outlast everything. Even the world that made them. What do yours contain?",
+    winQuote:"You fight like you're awake. Most people never manage that.",
+    team:[
+      {monsterId:432, level:98, moves:["psychic_move","shadow_ball","psystrike","veil_collapse"]},
+      {monsterId:433, level:99, moves:["moonblast","surf","celestial_wave","hydro_pump"]},
+      {monsterId:434, level:100, moves:["dragon_pulse","thunder","draconic_roar","time_fracture"]}
+    ],
+    ngTeam:[
+      {monsterId:432, level:100, moves:["psychic_move","shadow_ball","psystrike","veil_collapse"]},
+      {monsterId:433, level:102, moves:["moonblast","surf","celestial_wave","hydro_pump"]},
+      {monsterId:434, level:105, moves:["dragon_pulse","thunder","draconic_roar","time_fracture"]}
+    ]
+  },
+  wielder_rax: {
+    id:"wielder_rax", name:"Rax", emoji:"🛡️", location:"vaeldrian_reaches",
+    quote:"Vaeldris had one final defense. It wasn't enough. I want to know if you would have been.",
+    winQuote:"You would have been. That is the most I have ever said about anyone.",
+    team:[
+      {monsterId:435, level:98, moves:["iron_tail","stone_edge","obsidian_crash","warden_strike"]},
+      {monsterId:436, level:99, moves:["fire_blast","dark_pulse","solar_flare","eclipse_shroud"]},
+      {monsterId:437, level:100, moves:["dragon_claw","outrage","eon_crash","mantle_surge"]}
+    ],
+    ngTeam:[
+      {monsterId:435, level:100, moves:["iron_tail","stone_edge","obsidian_crash","warden_strike"]},
+      {monsterId:436, level:102, moves:["fire_blast","dark_pulse","solar_flare","eclipse_shroud"]},
+      {monsterId:437, level:105, moves:["dragon_claw","outrage","eon_crash","mantle_surge"]}
+    ]
+  },
+  wielder_tempris: {
+    id:"wielder_tempris", name:"Tempris", emoji:"⚡", location:"vaeldrian_reaches",
+    quote:"I have modelled every possible outcome of this battle. One of them involves you winning. Show me that one.",
+    winQuote:"You were the 5.3%. I have updated my model.",
+    team:[
+      {monsterId:438, level:98, moves:["thunderbolt","psychic_move","volt_surge","overcharge"]},
+      {monsterId:439, level:99, moves:["flash_cannon","blizzard","alloy_edge","warden_strike"]},
+      {monsterId:440, level:100, moves:["dragon_pulse","verdant_surge","eon_crash","time_fracture"]}
+    ],
+    ngTeam:[
+      {monsterId:438, level:100, moves:["thunderbolt","psychic_move","volt_surge","overcharge"]},
+      {monsterId:439, level:102, moves:["flash_cannon","blizzard","alloy_edge","warden_strike"]},
+      {monsterId:440, level:105, moves:["dragon_pulse","verdant_surge","eon_crash","time_fracture"]}
+    ]
+  },
+  wielder_vayne: {
+    id:"wielder_vayne", name:"Vayne", emoji:"🕳️", location:"vaeldrian_reaches",
+    quote:"I have stared into the void long enough that it has started staring back. Let's see what it makes of you.",
+    winQuote:"The void considered you and retreated. You should be proud.",
+    team:[
+      {monsterId:441, level:98, moves:["dark_pulse","earthquake","eclipse_shroud","void_dominion"]},
+      {monsterId:442, level:99, moves:["psychic_move","venom_lance","psystrike","toxic_surge"]},
+      {monsterId:443, level:100, moves:["dragon_claw","void_rend","outrage","void_dominion"]}
+    ],
+    ngTeam:[
+      {monsterId:441, level:100, moves:["dark_pulse","earthquake","eclipse_shroud","void_dominion"]},
+      {monsterId:442, level:102, moves:["psychic_move","venom_lance","psystrike","toxic_surge"]},
+      {monsterId:443, level:105, moves:["dragon_claw","void_rend","outrage","void_dominion"]}
+    ]
+  },
+  wielder_azura: {
+    id:"wielder_azura", name:"Azura", emoji:"🌠", location:"vaeldrian_reaches",
+    quote:"I read the stars and knew Vaeldris would fall three days before it happened. I read you now. I wonder what I see.",
+    winQuote:"The stars said you would win. I didn't believe them. I was wrong.",
+    team:[
+      {monsterId:444, level:98, moves:["psychic_move","moonblast","psystrike","cosmic_veil"]},
+      {monsterId:445, level:99, moves:["dragon_pulse","solar_flare","ancient_breath","time_fracture"]},
+      {monsterId:446, level:100, moves:["shadow_ball","hyper_beam","void_rend","cosmic_veil"]}
+    ],
+    ngTeam:[
+      {monsterId:444, level:100, moves:["psychic_move","moonblast","psystrike","cosmic_veil"]},
+      {monsterId:445, level:102, moves:["dragon_pulse","solar_flare","ancient_breath","time_fracture"]},
+      {monsterId:446, level:105, moves:["shadow_ball","hyper_beam","void_rend","cosmic_veil"]}
+    ]
   }
 };
 

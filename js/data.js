@@ -3781,7 +3781,90 @@ const MONSTERS_DATA = {
     learnset:[[1,"void_rend"],[1,"iron_tail"],[20,"phantom_claw"],[30,"flash_cannon"],[40,"umbral_claw"],[50,"alloy_edge"],[60,"scale_storm"],[5,"dragon_dance"],[60,"void_dominion"]],
     catchRate:5, expYield:300, rarity:"pseudolegendary",
     desc:"The supreme guardian of the void boundary. It wields darkness and steel as extensions of its own will.",
-    lore:"Voidwarden is a dark-steel creature 3 metres tall with a body of condensed void-matter reinforced with an exoskeleton of ultra-dense steel. Ancient legends name it the Warden of the Boundary Between Worlds." }
+    lore:"Voidwarden is a dark-steel creature 3 metres tall with a body of condensed void-matter reinforced with an exoskeleton of ultra-dense steel. Ancient legends name it the Warden of the Boundary Between Worlds." },
+
+  // ============================================================
+  // FORGOTTEN LUMORI — IDs 408–446 (Vaeldrian Region)
+  // These Lumori are not catchable and not named to the player.
+  // In battle: "Forgotten Lumori X came in to battle."
+  // In Luminex Vaeldris tab: shows only emoji + "Forgotten Lumori X"
+  // foreignRegion:true flags all entries for mystery display.
+  // ============================================================
+
+  // --- Wielder: Lysara (Celestial Plateau) ---
+  408: { id:408, name:"Forgotten Auravian", emoji:"🕊️", types:["Psychic","Flying"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:115,atk:95,def:110,spa:145,spd:130,spe:125},
+    learnset:[[1,"confusion"],[20,"psybeam"],[35,"air_slash"],[50,"psychic_move"],[65,"moonblast"],[70,"cosmic_veil"]],
+    catchRate:0, expYield:300, rarity:"legendary",
+    desc:"Messengers of the sacred temples of a lost land, Auravian carry the resonance of ancient prayers on crystalline wings.",
+    lore:"Auravian are the divine messengers of Vaeldris. They appear to those who have lost something precious and are said to carry the voices of the departed on their wings." },
+
+  409: { id:409, name:"Forgotten Lumarix", emoji:"🦢", types:["Fairy","Ground"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:120,atk:100,def:115,spa:155,spd:135,spe:125},
+    learnset:[[1,"fairy_wind"],[20,"earth_power"],[35,"dazzling_gleam"],[50,"moonblast"],[65,"fissure_slam"],[70,"celestial_wave"]],
+    catchRate:0, expYield:350, rarity:"legendary",
+    desc:"Lumarix hold fragments of starlight within their translucent bodies and release blinding radiance when threatened.",
+    lore:"The crystalline structures within a Lumarix's body refract light in ways that physicists from Vaeldris spent centuries trying to explain. They never succeeded." },
+
+  410: { id:410, name:"Forgotten Celestrix", emoji:"👼", types:["Normal","Steel"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:130,atk:105,def:120,spa:170,spd:145,spe:130},
+    learnset:[[1,"body_slam"],[20,"flash_cannon"],[35,"psychic_move"],[50,"moonblast"],[65,"alloy_edge"],[70,"cosmic_veil"]],
+    catchRate:0, expYield:420, rarity:"legendary",
+    desc:"The apex guardian of Vaeldris's celestial order, Celestrix was said to manifest only when the stars aligned perfectly.",
+    lore:"Lysara wept on the day Celestrix became the last of its kind. She has never spoken of the Sundering to anyone, but those who watch her battle claim they can see it in her eyes." },
+
+  // --- Wielder: Morrigan (The Shadowfen) ---
+  411: { id:411, name:"Forgotten Nyxviper", emoji:"🦇", types:["Dark","Ghost"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:80,atk:150,def:80,spa:120,spd:90,spe:200},
+    learnset:[[1,"night_slash"],[20,"shadow_ball"],[35,"dark_pulse"],[50,"void_rend"],[65,"shadowstep"],[70,"eclipse_shroud"]],
+    catchRate:0, expYield:300, rarity:"legendary",
+    desc:"Nyxviper phase through solid matter and strike from the space between moments. Their venom erases memories rather than dealing damage.",
+    lore:"Vaeldrian scholars debated whether Nyxviper were truly physical beings or manifestations of collective nightmares. The debate was never resolved." },
+
+  412: { id:412, name:"Forgotten Morrath", emoji:"🌑", types:["Poison","Fire"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:85,atk:145,def:90,spa:135,spd:95,spe:200},
+    learnset:[[1,"shadow_ball"],[20,"fire_blast"],[35,"dark_pulse"],[50,"sludge_wave"],[65,"cinderwhirl"],[70,"nightmare_pulse"]],
+    catchRate:0, expYield:350, rarity:"legendary",
+    desc:"Ancient Vaeldrians believed Morrath were warriors who refused to pass on. Their dark flames absorb light and burn without producing warmth.",
+    lore:"The flames Morrath produce are called darkfire — they are technically fire in every measurable sense, yet a room lit only by darkfire grows darker the longer they burn." },
+
+  413: { id:413, name:"Forgotten Duskmourn", emoji:"🕷️", types:["Ice","Psychic"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:95,atk:155,def:95,spa:155,spd:100,spe:200},
+    learnset:[[1,"ice_punch"],[20,"psychic_move"],[35,"blizzard"],[50,"psystrike"],[65,"cryo_lance"],[70,"veil_collapse"]],
+    catchRate:0, expYield:420, rarity:"legendary",
+    desc:"Duskmourn presided over Vaeldris's shadow courts as judge and executioner. It was the last thing standing when the Sundering came — and it still carries that grief.",
+    lore:"Morrigan found Duskmourn three days after the Sundering, standing perfectly still at the edge of the collapse. She has never been able to explain why it chose to follow her." },
+
+  // --- Wielder: Kael (Stormpeak Ridge) ---
+  414: { id:414, name:"Forgotten Electrak", emoji:"🌩️", types:["Electric","Steel"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:90,atk:130,def:90,spa:150,spd:90,spe:170},
+    learnset:[[1,"thunder_shock"],[20,"flash_cannon"],[35,"thunderbolt"],[50,"volt_surge"],[65,"alloy_edge"],[70,"overcharge"]],
+    catchRate:0, expYield:300, rarity:"legendary",
+    desc:"Electrak surf electromagnetic currents at speeds that blur their outline. Their charged steel scales can discharge enough power to fuel a city for hours.",
+    lore:"The steel in Electrak's scales is a natural alloy produced by their bodies — a material that conducts electricity with zero resistance that Vaeldrian engineers failed to replicate." },
+
+  415: { id:415, name:"Forgotten Arcvolt", emoji:"⚡", types:["Dragon","Rock"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:95,atk:140,def:95,spa:155,spd:100,spe:165},
+    learnset:[[1,"dragon_breath"],[20,"stone_edge"],[35,"dragon_claw"],[50,"dragon_pulse"],[65,"obsidian_crash"],[70,"time_fracture"]],
+    catchRate:0, expYield:350, rarity:"legendary",
+    desc:"Arcvolt stores massive charges within draconic stone-scale formations before releasing them in a single arc. The discharge leaves glass where the lightning lands.",
+    lore:"Arcvolt's scales form geological strata within their bodies over time — geologists from Vaeldris once found evidence of strikes dating back sixty thousand years in a single Arcvolt's hide." },
+
+  416: { id:416, name:"Forgotten Fulgureis", emoji:"🌪️", types:["Flying","Water"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:100,atk:155,def:100,spa:165,spd:110,spe:170},
+    learnset:[[1,"gust"],[20,"surf"],[35,"hurricane"],[50,"hydro_pump"],[65,"tidal_crush"],[70,"time_fracture"]],
+    catchRate:0, expYield:420, rarity:"legendary",
+    desc:"Fulgureis was worshipped as Vaeldris's storm god. Its roar causes lightning to strike from all directions simultaneously. It has never been struck by lightning — it IS lightning.",
+    lore:"Kael refuses to call Fulgureis by any title. He says if you need a title to respect something, you haven't understood it yet." }
 };
 
 

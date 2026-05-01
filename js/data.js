@@ -6410,7 +6410,7 @@ const UMBRA_BATTLES = {
 // ============================================================
 const VAELDRIS_WIELDERS = {
   wielder_lysara: {
-    id:"wielder_lysara", name:"Lysara", emoji:"🌟", location:"vaeldrian_reaches",
+    id:"wielder_lysara", name:"Lysara", emoji:"🌟", location:"astral_plateau",
     quote:"You have come this far from a land that still breathes. Show me it was worth it.",
     winQuote:"You carry something we no longer have. Hold onto it.",
     lumoriLore:"Stellarion appeared during the great centennial alignment — a night when every constellation in Vaeldris locked into perfect geometric relation. It did not emerge from anywhere visible. The temple stones simply parted for it. I had been the temple's keeper for eleven years. It walked to me, looked at me once, and never left. I still do not know if I found it or if it was simply done waiting for me to arrive.",
@@ -6427,7 +6427,7 @@ const VAELDRIS_WIELDERS = {
     ]
   },
   wielder_morrigan: {
-    id:"wielder_morrigan", name:"Morrigan", emoji:"🌑", location:"vaeldrian_reaches",
+    id:"wielder_morrigan", name:"Morrigan", emoji:"🌑", location:"haunted_grove",
     quote:"Vaeldris burned while I watched. What will you do when everything you know is gone?",
     winQuote:"You fight like someone who still has something to lose. That used to describe me.",
     lumoriLore:"Voidwing had been trying to extinguish Vaeldris's coastal fires alone for three days when I found it. Working with its ice and psychic force against blazes it could not possibly stop, exhausted past anything that should have allowed it to keep moving. When I reached it, it looked at me and did not run. That was the only introduction we needed — two things past feeling, deciding without words to face what remained together.",
@@ -6444,7 +6444,7 @@ const VAELDRIS_WIELDERS = {
     ]
   },
   wielder_kael: {
-    id:"wielder_kael", name:"Kael", emoji:"⛈️", location:"vaeldrian_reaches",
+    id:"wielder_kael", name:"Kael", emoji:"⛈️", location:"storm_plateau",
     quote:"The storm was the only honest thing in Vaeldris. Let's see if you can survive honesty.",
     winQuote:"You weathered it. That's rare.",
     lumoriLore:"I was sixteen the first time I saw Stormdrake. A surge had rolled over Vaeldris's northern cliffs without warning and I had climbed to the top to watch it — which was not wise. Stormdrake was already there. It had been watching storms since before my great-grandparents were born. It ignored me for three hours. Then the storm broke and it looked at me and made a sound I have never been able to describe. I consider it the best conversation of my life.",
@@ -6461,7 +6461,7 @@ const VAELDRIS_WIELDERS = {
     ]
   },
   wielder_thessaly: {
-    id:"wielder_thessaly", name:"Thessaly", emoji:"🌿", location:"vaeldrian_reaches",
+    id:"wielder_thessaly", name:"Thessaly", emoji:"🌿", location:"ancient_ruins",
     quote:"The roots remember what the surface has forgotten. I will test whether you do too.",
     winQuote:"The land acknowledges you. That means something.",
     lumoriLore:"The eastern fault line was shifting the day Gaiasurge came to me — shifting in a way that should have destroyed three villages. Gaiasurge went to the fault and stood there for six hours, legs braced against tectonic forces that could have split a continent. It did not ask for help. It did not acknowledge me until it was done. Then it walked to where I was standing and sat down beside me. I have never found words for what I felt. I have stopped trying.",
@@ -6478,7 +6478,7 @@ const VAELDRIS_WIELDERS = {
     ]
   },
   wielder_nereus: {
-    id:"wielder_nereus", name:"Nereus", emoji:"🌊", location:"vaeldrian_reaches",
+    id:"wielder_nereus", name:"Nereus", emoji:"🌊", location:"deep_trench",
     quote:"I turned back when the ocean warned me. Now I turn nothing back. Prove you can handle the deep.",
     winQuote:"The depths respect strength. So do I.",
     lumoriLore:"My diving equipment failed at four thousand meters. Something enormous caught me in the dark before I hit the trench floor. I woke on the surface with Abyssalon circling beneath me — a silhouette the size of a ship, visible only because the water around it was colder than the deep current. It had carried me up four kilometers without explanation. I have returned to that depth many times since. Each time I am afraid. Each time I know I am exactly where I am supposed to be.",
@@ -6495,7 +6495,7 @@ const VAELDRIS_WIELDERS = {
     ]
   },
   wielder_caelia: {
-    id:"wielder_caelia", name:"Caelia", emoji:"☁️", location:"vaeldrian_reaches",
+    id:"wielder_caelia", name:"Caelia", emoji:"☁️", location:"gale_peak",
     quote:"The sky doesn't care where you're from. It only cares how high you reach.",
     winQuote:"You belong up here. Not many do.",
     lumoriLore:"Skydrak lives at the edge of breathable atmosphere. I reached it once, on borrowed altitude, running out of air. It appeared from nowhere and flew beneath me. I do not know why. I have spent years wondering whether it was instinct, whether it recognized something in me, whether I simply fell in its direction at the right moment. Skydrak has shown no interest in clarifying this. After all our years together, I have come to understand that this is its way of saying the reason should already be obvious.",
@@ -6512,7 +6512,7 @@ const VAELDRIS_WIELDERS = {
     ]
   },
   wielder_dravek: {
-    id:"wielder_dravek", name:"Dravek", emoji:"🔥", location:"vaeldrian_reaches",
+    id:"wielder_dravek", name:"Dravek", emoji:"🔥", location:"volcano_core",
     quote:"The forge never apologizes for the heat. Neither do I.",
     winQuote:"You didn't flinch. That's the first requirement.",
     lumoriLore:"I was nineteen and angry at everything when I descended into Vaeldris's volcanic interior, looking for something to prove. Pyralloy was asleep in the magma. It woke when I arrived and regarded me with the expression of someone interrupted during something important. That expression has not meaningfully changed in thirty years. I have come to find it comforting — it is the face of a creature with nothing left to prove, looking at one who has not yet learned that lesson.",
@@ -6529,7 +6529,7 @@ const VAELDRIS_WIELDERS = {
     ]
   },
   wielder_nylara: {
-    id:"wielder_nylara", name:"Nylara", emoji:"❄️", location:"vaeldrian_reaches",
+    id:"wielder_nylara", name:"Nylara", emoji:"❄️", location:"crystal_spire",
     quote:"The cold preserves everything that heat destroys. I have preserved much. Now let me test you.",
     winQuote:"You survived the cold. Vaeldris would have welcomed you.",
     lumoriLore:"I was sitting in my study the night after the evacuation order, doing nothing, staring at a wall. The door opened. Frostdrax came in, looked at me, and curled up beside my desk. I had not sought it. It had found its way to me across a thousand kilometers of collapsing region and simply decided to stay. I believe it understood something that night that took me years longer to reach: that choosing to remain beside someone who is grieving is its own kind of strength.",
@@ -6546,7 +6546,7 @@ const VAELDRIS_WIELDERS = {
     ]
   },
   wielder_solenne: {
-    id:"wielder_solenne", name:"Solenne", emoji:"🌙", location:"vaeldrian_reaches",
+    id:"wielder_solenne", name:"Solenne", emoji:"🌙", location:"lunar_peak",
     quote:"Dreams outlast everything. Even the world that made them. What do yours contain?",
     winQuote:"You fight like you're awake. Most people never manage that.",
     lumoriLore:"Psydrak first appeared to me in a dream — not as a symbol but literally, walking through my sleeping mind as if the boundary between sleeping thought and physical reality were a courtesy it had decided not to observe. When I woke, it was outside my window. I asked it over years whether it had been in the dream or whether the dream had taken place within it. Psydrak has never provided a satisfying answer. I have come to suspect it considers the question beside the point.",
@@ -6563,7 +6563,7 @@ const VAELDRIS_WIELDERS = {
     ]
   },
   wielder_rax: {
-    id:"wielder_rax", name:"Rax", emoji:"🛡️", location:"vaeldrian_reaches",
+    id:"wielder_rax", name:"Rax", emoji:"🛡️", location:"umbra_base",
     quote:"Vaeldris had one final defense. It wasn't enough. I want to know if you would have been.",
     winQuote:"You would have been. That is the most I have ever said about anyone.",
     lumoriLore:"Alloydrax held the line for eleven hours. I had deployed it as a defensive anchor while the evacuation proceeded — the last barrier between the entity's advance and Vaeldris's population centers. It should have lasted two hours at most. I have reviewed the force data many times and have no physical explanation for how it lasted eleven. I believe it knew what was at stake. I believe it chose to hold anyway, past every reasonable threshold, because the alternative was allowing what it guarded against to reach the people behind it.",
@@ -6580,7 +6580,7 @@ const VAELDRIS_WIELDERS = {
     ]
   },
   wielder_tempris: {
-    id:"wielder_tempris", name:"Tempris", emoji:"⚡", location:"vaeldrian_reaches",
+    id:"wielder_tempris", name:"Tempris", emoji:"⚡", location:"thunder_cliffs",
     quote:"I have modelled every possible outcome of this battle. One of them involves you winning. Show me that one.",
     winQuote:"You were the 5.3%. I have updated my model.",
     lumoriLore:"Thunderax powered my research station for two years before I understood it was doing so intentionally. I had attributed the anomalous charge readings to atmospheric variance — a reasonable assumption. The day I understood, I walked outside and found Thunderax on the generator array, perfectly still, producing consistent and precisely calibrated output. I asked it why. It looked at me. I made the only non-quantitative notation in twelve years of research logs: it wanted to help. I have not removed that line. I have stopped trying.",
@@ -6597,7 +6597,7 @@ const VAELDRIS_WIELDERS = {
     ]
   },
   wielder_vayne: {
-    id:"wielder_vayne", name:"Vayne", emoji:"🕳️", location:"vaeldrian_reaches",
+    id:"wielder_vayne", name:"Vayne", emoji:"🕳️", location:"void_rift",
     quote:"I have stared into the void long enough that it has started staring back. Let's see what it makes of you.",
     winQuote:"The void considered you and retreated. You should be proud.",
     lumoriLore:"Voidcrown was sitting at the edge of the most unstable void rift in Vaeldris when I found it — a place where the boundary between something and nothing had worn thin enough to be dangerous. It was watching the rift with the patience of something that had already seen where the void leads and had decided, with full knowledge, to remain beside it anyway. I understood that patience immediately. It was the only introduction we needed. We have never required anything more from each other.",
@@ -6614,7 +6614,7 @@ const VAELDRIS_WIELDERS = {
     ]
   },
   wielder_azura: {
-    id:"wielder_azura", name:"Azura", emoji:"🌠", location:"vaeldrian_reaches",
+    id:"wielder_azura", name:"Azura", emoji:"🌠", location:"cosmic_cavern",
     quote:"I read the stars and knew Vaeldris would fall three days before it happened. I read you now. I wonder what I see.",
     winQuote:"The stars said you would win. I didn't believe them. I was wrong.",
     lumoriLore:"Stardrax appeared at my observatory window three days before the Sundering began. I had been reading the stars and they had changed — not physically, but in their relationships to each other, arranged into a configuration that meant catastrophe on a scale I had not witnessed in any prior chart. Stardrax looked at me with the expression it always has: as if it already knows the outcome and is waiting for me to catch up. I have never determined if this is meant to comfort me. I suspect it simply is what it is.",
@@ -7621,43 +7621,43 @@ const QUESTS_DATA = [
   // Party of 6 locked before first wielder battle; choose 4 per fight.
   // NG+ scales the opposing team levels higher.
   // ============================================================
-  { id:"wielder_lysara", title:"The Celestial Witness", desc:"Lysara of Vaeldris waits at the Vaeldrian Reaches. She holds the memory of Vaeldris's sacred temples. Face her in a triple battle — bring four Lumori and choose wisely.",
-    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+  { id:"wielder_lysara", title:"The Celestial Witness", desc:"A survivor of Vaeldris is said to rest where the stars burn brightest in Lumoria — seekers speak of a plateau so high that the air itself seems to sing. Lysara holds the memory of Vaeldris's sacred temples. She will not come to you. Seek her at the Astral Plateau in the east.",
+    location:"astral_plateau", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
-  { id:"wielder_morrigan", title:"The Shadowfen's Grief", desc:"Morrigan watched Vaeldris burn. She has fought her grief into something sharp. Face her in a triple battle at the Vaeldrian Reaches.",
-    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+  { id:"wielder_morrigan", title:"The Shadowfen's Grief", desc:"Morrigan watched Vaeldris burn. She has carried that grief into darkness — those who have wandered the Haunted Grove report a figure among the shadows who does not flinch from the dead. She is there. Bring four Lumori and choose wisely.",
+    location:"haunted_grove", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
-  { id:"wielder_kael", title:"The Storm That Remembers", desc:"Kael commands the last of Vaeldris's storm-forged creatures. His honesty is as uncompromising as a lightning strike. Triple battle at the Vaeldrian Reaches.",
-    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+  { id:"wielder_kael", title:"The Storm That Remembers", desc:"Kael goes where storms go. Trainers who have crossed the Storm Plateau claim to have seen a lone figure standing in the lightning who did not run. That is him. He does not move for weather. He moves for worthy challengers.",
+    location:"storm_plateau", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
-  { id:"wielder_thessaly", title:"The Root Memory", desc:"Thessaly's bond with the earth of Vaeldris runs deeper than any mountain. Face her at the Vaeldrian Reaches — her team is older than any you have battled.",
-    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+  { id:"wielder_thessaly", title:"The Root Memory", desc:"Thessaly communes with old things. The Ancient Ruins hold layers of history she can read like text — she has been there since the Umbra was defeated, waiting among stones that remember. Find the deepest chamber. She will know you are coming.",
+    location:"ancient_ruins", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
-  { id:"wielder_nereus", title:"The Depth That Does Not Forgive", desc:"Nereus turned back when warned. He has never forgiven himself for it. Face him at the Vaeldrian Reaches — the deep does not show mercy.",
-    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+  { id:"wielder_nereus", title:"The Depth That Does Not Forgive", desc:"Nereus returned to the deepest water he could find after Vaeldris fell. The Abyssal Trench in the south — so deep that light gives up trying — is where he has stayed. Something massive guards the path to him. That is not a warning. That is information.",
+    location:"deep_trench", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
-  { id:"wielder_caelia", title:"Keeper of the Open Sky", desc:"Caelia's creatures belong to the sky above Vaeldris — the one thing the Sundering could not consume. Triple battle at the Vaeldrian Reaches.",
-    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+  { id:"wielder_caelia", title:"Keeper of the Open Sky", desc:"Caelia's creatures belong to the sky — the one thing the Sundering could not consume. She keeps to Gale Peak at Lumoria's northwestern edge, above the clouds where her Lumori fly free. The wind there will tell you if you're close.",
+    location:"gale_peak", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
-  { id:"wielder_dravek", title:"The Forge That Still Burns", desc:"Dravek forged his team in Vaeldris's volcanic heart. The forge is gone but the fire never stopped. Face him at the Vaeldrian Reaches.",
-    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+  { id:"wielder_dravek", title:"The Forge That Still Burns", desc:"Dravek forged his team in Vaeldris's volcanic heart. When that forge was gone, he found Lumoria's Volcano Core — active, unforgiving, as close to what he lost as he could manage. Go south to the Volcano Core. The heat will intensify near him.",
+    location:"volcano_core", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
-  { id:"wielder_nylara", title:"The Glacial Keeper", desc:"Nylara preserved what the cold could save. Everything else was lost. Face her in a triple battle at the Vaeldrian Reaches.",
-    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+  { id:"wielder_nylara", title:"The Glacial Keeper", desc:"Nylara preserved what cold could save. She settled at the Crystal Spire — a place of frozen permanence in Lumoria's northern reaches where the ice remembers everything. The spire is difficult to reach. She considers that appropriate.",
+    location:"crystal_spire", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
-  { id:"wielder_solenne", title:"The Dream That Remains", desc:"Solenne and her Lumori dream of Vaeldris every night. The dream is the only place it still exists. Triple battle at the Vaeldrian Reaches.",
-    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+  { id:"wielder_solenne", title:"The Dream That Remains", desc:"Solenne and her Lumori dream of Vaeldris every night. She has made her home at Lunar Peak, where the moonlight never fully yields to day — a place between waking and sleep. Reach her there. She will already know you are on your way.",
+    location:"lunar_peak", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
-  { id:"wielder_rax", title:"The Last Defense", desc:"Rax was Vaeldris's final guardian. He has never decided if he failed or if it was always inevitable. Face him at the Vaeldrian Reaches.",
-    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+  { id:"wielder_rax", title:"The Last Defense", desc:"After the Umbra Order fell, Rax moved into their abandoned base. He said someone should guard a place that dangerous — that leaving it empty would be its own kind of mistake. The Umbra Order Base is quiet now. Rax is not.",
+    location:"umbra_base", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
-  { id:"wielder_tempris", title:"The Architect of Odds", desc:"Tempris has modelled every possible battle outcome. One of them involves you winning. Face him in a triple battle at the Vaeldrian Reaches.",
-    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+  { id:"wielder_tempris", title:"The Architect of Odds", desc:"Tempris chose Thunder Cliffs for its electrical output data — the most consistent high-voltage readings in Lumoria, useful for research. He is there, running models. He already knows there is a non-trivial probability you will find him.",
+    location:"thunder_cliffs", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
-  { id:"wielder_vayne", title:"The Void That Watches", desc:"Vayne stared into the void long enough that it stared back. She brought it with her. Triple battle at the Vaeldrian Reaches.",
-    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+  { id:"wielder_vayne", title:"The Void That Watches", desc:"Vayne returned to a void rift after Vaeldris — the one in Lumoria's northwest, where the boundary between worlds is thin. She says it feels like home now. The Void Rift is not safe for unprepared trainers. She is counting on that.",
+    location:"void_rift", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
-  { id:"wielder_azura", title:"The Last Star Reader", desc:"Azura read the stars and knew what was coming. She survived anyway. Face her in a triple battle at the Vaeldrian Reaches — the final Wielder.",
-    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
-    reward:{type:"item", itemId:"masterOrb", qty:5}, rewardText:"5 Master Orbs" }
+  { id:"wielder_azura", title:"The Last Star Reader", desc:"Azura knew what was coming before it arrived. She chose Cosmic Cavern — where the star-light filters down through stone and the Ley resonance is strongest in all of Lumoria. She is the last. Find her deep within. She has been expecting you.",
+    location:"cosmic_cavern", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    reward:{type:"item", itemId:"masterOrb", qty:2}, rewardText:"2 Master Orbs" }
 ];

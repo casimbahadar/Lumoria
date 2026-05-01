@@ -4014,7 +4014,107 @@ const MONSTERS_DATA = {
     learnset:[[1,"dragon_breath"],[20,"thunderbolt"],[35,"dragon_pulse"],[50,"thunder"],[65,"draconic_roar"],[70,"time_fracture"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Psydrak exists simultaneously across multiple timelines. Its draconic mind holds the memory of Vaeldris in a thousand possible futures — and the grief of knowing none survived.",
-    lore:"Solenne says Psydrak has been trying to show her a timeline where Vaeldris still exists. She says she can feel it almost finding one, night after night." }
+    lore:"Solenne says Psydrak has been trying to show her a timeline where Vaeldris still exists. She says she can feel it almost finding one, night after night." },
+
+  // --- Wielder: Rax (The Iron Sanctum) ---
+  435: { id:435, name:"Forgotten Ironvast", emoji:"🦾", types:["Steel","Rock"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:130,atk:145,def:175,spa:75,spd:130,spe:65},
+    learnset:[[1,"metal_claw"],[20,"rock_slide"],[35,"iron_tail"],[50,"stone_edge"],[65,"obsidian_crash"],[70,"warden_strike"]],
+    catchRate:0, expYield:300, rarity:"legendary",
+    desc:"Ironvast's carapace has never been cracked in recorded Vaeldrian history. Engineers once used shed Ironvast shells as building material — with their full consent.",
+    lore:"Rax says Ironvast has only ever been afraid once. He doesn't say when." },
+
+  436: { id:436, name:"Forgotten Forgerak", emoji:"⚔️", types:["Fire","Dark"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:135,atk:155,def:185,spa:80,spd:135,spe:60},
+    learnset:[[1,"ember"],[20,"night_slash"],[35,"fire_blast"],[50,"dark_pulse"],[65,"solar_flare"],[70,"eclipse_shroud"]],
+    catchRate:0, expYield:350, rarity:"legendary",
+    desc:"Forgerak can heat their core to temperatures that liquefy ore. Vaeldrian smiths once worked alongside them to craft legendary weapons. Those weapons are all gone now.",
+    lore:"Rax carries one of those weapons — a blade forged by Forgerak before the Sundering. He has never used it in battle. He says it isn't meant for fighting." },
+
+  437: { id:437, name:"Forgotten Alloydrax", emoji:"🛡️", types:["Dragon","Fighting"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:145,atk:170,def:200,spa:90,spd:145,spe:50},
+    learnset:[[1,"dragon_breath"],[20,"body_slam"],[35,"dragon_claw"],[50,"outrage"],[65,"eon_crash"],[70,"mantle_surge"]],
+    catchRate:0, expYield:420, rarity:"legendary",
+    desc:"Alloydrax continuously refines its own body, becoming stronger with every battle. It was Vaeldris's final line of defense. The fact that Vaeldris still fell says everything.",
+    lore:"Rax does not speak of Alloydrax's battle during the Sundering. He only says that it did its job — and that doing your job perfectly is not always enough." },
+
+  // --- Wielder: Tempris (The Arc Station) ---
+  438: { id:438, name:"Forgotten Volteon", emoji:"🔋", types:["Electric","Psychic"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:90,atk:110,def:95,spa:160,spd:120,spe:145},
+    learnset:[[1,"thunder_shock"],[20,"confusion"],[35,"thunderbolt"],[50,"psychic_move"],[65,"volt_surge"],[70,"overcharge"]],
+    catchRate:0, expYield:300, rarity:"legendary",
+    desc:"Volteon processes battle outcomes in microseconds using electric-psychic predictive modeling. By the time you have decided to act, Volteon has already chosen its counter.",
+    lore:"Tempris designed the predictive model that Volteon runs. He says it's 94.7% accurate. Volteon disagrees with the 5.3% margin of error." },
+
+  439: { id:439, name:"Forgotten Sparkeis", emoji:"⚡", types:["Steel","Ice"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:95,atk:120,def:100,spa:165,spd:125,spe:145},
+    learnset:[[1,"metal_claw"],[20,"ice_punch"],[35,"flash_cannon"],[50,"blizzard"],[65,"alloy_edge"],[70,"warden_strike"]],
+    catchRate:0, expYield:350, rarity:"legendary",
+    desc:"Sparkeis are living power grids — their steel chassis stores charges that could power a city for months. They convert all kinetic energy into electricity passively.",
+    lore:"Tempris installed a small meter on Sparkeis to measure output. It broke after three days. He has not replaced it." },
+
+  440: { id:440, name:"Forgotten Thunderax", emoji:"🌩️", types:["Dragon","Grass"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:105,atk:135,def:110,spa:180,spd:135,spe:135},
+    learnset:[[1,"dragon_breath"],[20,"energy_ball"],[35,"dragon_pulse"],[50,"verdant_surge"],[65,"eon_crash"],[70,"time_fracture"]],
+    catchRate:0, expYield:420, rarity:"legendary",
+    desc:"Thunderax charges itself using entire storm systems. Tempris claims it once powered a civilization for a week by standing still in a thundercloud. He is not exaggerating.",
+    lore:"Thunderax is the only one of the 39 that does not seem to remember Vaeldris. Tempris has never decided if that is a tragedy or a mercy." },
+
+  // --- Wielder: Vayne (The Void Gate) ---
+  441: { id:441, name:"Forgotten Nihilax", emoji:"🕳️", types:["Dark","Ground"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:75,atk:145,def:80,spa:160,spd:90,spe:170},
+    learnset:[[1,"night_slash"],[20,"earth_power"],[35,"dark_pulse"],[50,"earthquake"],[65,"eclipse_shroud"],[70,"void_dominion"]],
+    catchRate:0, expYield:300, rarity:"legendary",
+    desc:"Nihilax emit a field that suppresses all energy signatures within range. In their presence, lights dim, sound muffles, and time seems to hesitate.",
+    lore:"Vayne says Nihilax was the first Lumori she saw after the Sundering began. She has never been sure if it was trying to help or simply watching." },
+
+  442: { id:442, name:"Forgotten Vantarix", emoji:"🌌", types:["Psychic","Poison"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:80,atk:155,def:85,spa:170,spd:95,spe:165},
+    learnset:[[1,"confusion"],[20,"sludge_bomb"],[35,"psychic_move"],[50,"venom_lance"],[65,"psystrike"],[70,"toxic_surge"]],
+    catchRate:0, expYield:350, rarity:"legendary",
+    desc:"Vantarix absorb light across all spectrums, appearing as a perfect silhouette even in total darkness. They are the only known Lumori visible inside the dimensional collapse itself.",
+    lore:"Vayne has a drawing of Vantarix she made the first night she was safe. She has never looked at it again." },
+
+  443: { id:443, name:"Forgotten Abysdrak", emoji:"💠", types:["Dragon","Ghost"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:90,atk:170,def:90,spa:185,spd:100,spe:165},
+    learnset:[[1,"dragon_breath"],[20,"shadow_ball"],[35,"dragon_claw"],[50,"void_rend"],[65,"outrage"],[70,"void_dominion"]],
+    catchRate:0, expYield:420, rarity:"legendary",
+    desc:"Abysdrak embodies the void at the heart of the Sundering. Vayne refuses to explain how she bound it to her will. Only that the night she did, stars over Vaeldris went out and never came back.",
+    lore:"Some of the other wielders are afraid of Abysdrak. Vayne considers this the only reasonable response." },
+
+  // --- Wielder: Azura (Observatory Peak) ---
+  444: { id:444, name:"Forgotten Cosmolith", emoji:"🌠", types:["Psychic","Fairy"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:110,atk:90,def:110,spa:185,spd:130,spe:95},
+    learnset:[[1,"confusion"],[20,"fairy_wind"],[35,"psychic_move"],[50,"moonblast"],[65,"psystrike"],[70,"cosmic_veil"]],
+    catchRate:0, expYield:300, rarity:"legendary",
+    desc:"Cosmolith serve as living star maps — their scales reflect the night sky of Vaeldris exactly as it existed the moment before the Sundering. They are the only record those stars ever existed.",
+    lore:"Azura detected the Sundering three days before it happened by reading a change in Cosmolith's scale patterns. She had not understood what she was seeing until it was too late." },
+
+  445: { id:445, name:"Forgotten Stardrax", emoji:"✨", types:["Dragon","Fire"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:115,atk:100,def:115,spa:195,spd:135,spe:90},
+    learnset:[[1,"dragon_breath"],[20,"fire_blast"],[35,"dragon_pulse"],[50,"solar_flare"],[65,"ancient_breath"],[70,"time_fracture"]],
+    catchRate:0, expYield:350, rarity:"legendary",
+    desc:"Stardrax's power surges like a dying star — quiet and vast until catastrophically sudden. Azura kept its egg safe for twelve years before it hatched the day the Sundering began.",
+    lore:"The egg hatched the exact moment the Sundering started. Azura has spent fifteen years deciding what that means." },
+
+  446: { id:446, name:"Forgotten Stellarion", emoji:"🔭", types:["Normal","Ghost"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:125,atk:115,def:125,spa:210,spd:145,spe:80},
+    learnset:[[1,"body_slam"],[20,"shadow_ball"],[35,"psychic_move"],[50,"hyper_beam"],[65,"void_rend"],[70,"cosmic_veil"]],
+    catchRate:0, expYield:420, rarity:"legendary",
+    desc:"Stellarion is said to contain a fragment of the first star that ever formed. To those who cannot perceive cosmic energy it appears ordinary. To Azura, it blazes like a newborn universe.",
+    lore:"Azura says Stellarion is the last wonder Vaeldris ever produced — and that it is also the most important thing to survive the Sundering, because it carries the proof that Vaeldris was worth mourning." }
 };
 
 

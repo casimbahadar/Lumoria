@@ -95,6 +95,8 @@ function loadGame(slot) {
     if (!data.roamingCaught) data.roamingCaught = [];
     if (!data.dailyChallenges) data.dailyChallenges = null;
     if (data.ngPlusCount === undefined) data.ngPlusCount = 0;
+    if (data.vaeldrisPartyLock === undefined) data.vaeldrisPartyLock = null;
+    if (!data.defeatedWielders) data.defeatedWielders = [];
     data.saveSlot = slot;
     G = data;
     return true;

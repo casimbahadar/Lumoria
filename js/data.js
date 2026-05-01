@@ -716,7 +716,7 @@ const MOVES_DATA = {
 
   // NG+ Signature Moves
   // Cosmoveil (401) — Psychic/Fairy cosmos strike
-  cosmic_veil:      { name:"Cosmic Veil",     type:"Psychic", power:140, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50, desc:"Cosmoveil wraps the battlefield in condensed starlight, crushing the foe's mind and spirit." },
+  cosmic_veil:      { name:"Cosmic Veil",     type:"Aether" , power:140, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50, desc:"Cosmoveil wraps the battlefield in condensed starlight, crushing the foe's mind and spirit." },
   // Eondrake (392) — Dragon/Psychic time fracture
   time_fracture:    { name:"Time Fracture",   type:"Dragon",  power:130, acc:90,  pp:5,  cat:"special",  effect:"spedown2",  ec:50, desc:"Eondrake shatters the flow of time around the target, massively reducing its speed." },
   // Primordiax (400) — Fire/Ground mantle surge
@@ -3892,7 +3892,7 @@ const MONSTERS_DATA = {
   408: { id:408, name:"Forgotten Auravian", emoji:"🕊️", types:["Aether","Primal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:95,def:110,spa:145,spd:130,spe:125},
-    learnset:[[1,"confusion"],[20,"psybeam"],[35,"air_slash"],[50,"psychic_move"],[65,"moonblast"],[70,"cosmic_veil"],[80,"aura_veil_strike"]],
+    learnset:[[1,"confusion"],[20,"psybeam"],[35,"earth_power"],[50,"psychic_move"],[65,"moonblast"],[70,"cosmic_veil"],[80,"aura_veil_strike"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Messengers of the sacred temples of a lost land, Auravian carry the resonance of ancient prayers on crystalline wings.",
     lore:"Auravian are the divine messengers of Vaeldris. They appear to those who have lost something precious and are said to carry the voices of the departed on their wings." },
@@ -4008,7 +4008,7 @@ const MONSTERS_DATA = {
   422: { id:422, name:"Forgotten Tidecrest", emoji:"🌊", types:["Primal","Ice"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:140,def:110,spa:165,spd:130,spe:130},
-    learnset:[[1,"dragon_breath"],[20,"ice_beam"],[35,"dragon_claw"],[50,"blizzard"],[65,"eon_crash"],[70,"time_fracture"],[80,"glacial_riptide"],[90,"tidal_fang"]],
+    learnset:[[1,"ice_punch"],[20,"ice_beam"],[35,"surf"],[50,"blizzard"],[65,"eon_crash"],[70,"time_fracture"],[80,"glacial_riptide"],[90,"tidal_fang"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Tidecrest commands ocean currents that span continents. A single pulse of its tail can redirect rivers. Nereus calls it the last ocean god. The ocean agrees.",
     lore:"In Vaeldrian myth, Tidecrest did not swim the ocean. The ocean flowed around Tidecrest." },
@@ -4017,7 +4017,7 @@ const MONSTERS_DATA = {
   423: { id:423, name:"Forgotten Aetherveil", emoji:"🦋", types:["Aether","Electric"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:85,atk:100,def:90,spa:155,spd:110,spe:180},
-    learnset:[[1,"fairy_wind"],[20,"thunder_shock"],[35,"dazzling_gleam"],[50,"thunderbolt"],[65,"moonblast"],[70,"pixie_bolt"],[80,"aether_shock"]],
+    learnset:[[1,"confusion"],[20,"thunder_shock"],[35,"dazzling_gleam"],[50,"thunderbolt"],[65,"moonblast"],[70,"discharge"],[80,"aether_shock"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Aetherveil are the songs of the wind given form. Their calls travel across mountain ranges in seconds, carrying the voices of the lost to where they are needed.",
     lore:"Caelia says Aetherveil don't fly so much as they remind the air where it wants to go." },
@@ -4050,7 +4050,7 @@ const MONSTERS_DATA = {
   427: { id:427, name:"Forgotten Emberon", emoji:"🐯", types:["Primal","Ground"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:165,def:115,spa:135,spd:100,spe:140},
-    learnset:[[1,"night_slash"],[20,"earthquake"],[35,"dark_pulse"],[50,"earth_power"],[65,"obsidian_fang"],[70,"void_dominion"],[80,"smoldering_abyss"]],
+    learnset:[[1,"rock_slide"],[20,"earthquake"],[35,"fire_blast"],[50,"earth_power"],[65,"dragon_claw"],[70,"stone_edge"],[80,"smoldering_abyss"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Emberon hunts in volcanic shadow. Its strikes leave wounds that refuse to stop burning, channeled through volcanic earth energy into something darker.",
     lore:"Every general in Vaeldris's history tried to recruit Dravek. He refused every one of them. Emberon, he said, fights for itself — he just happens to agree with it." },
@@ -4064,10 +4064,10 @@ const MONSTERS_DATA = {
     lore:"Dravek bonded Dracofire as a hatchling, when it fit in his palm. He carried it under his armour for two winters. He has never admitted this publicly." },
 
   // --- Wielder: Nylara (Glacial Abyss) ---
-  429: { id:429, name:"Forgotten Frigalum", emoji:"🦊", types:["Ice","Steel"],
+  429: { id:429, name:"Forgotten Frigalum", emoji:"🦊", types:["Ice","Crystal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:120,atk:120,def:130,spa:120,spd:130,spe:100},
-    learnset:[[1,"ice_punch"],[20,"flash_cannon"],[35,"ice_beam"],[50,"alloy_edge"],[65,"permafrost"],[70,"warden_strike"],[80,"cryo_plate"]],
+    learnset:[[1,"ice_punch"],[20,"blizzard"],[35,"ice_beam"],[50,"rock_slide"],[65,"permafrost"],[70,"stone_edge"],[80,"cryo_plate"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Frigalum are armored in ice-steel — a material unique to Vaeldris that never melts and deflects dragonfire. Vaeldrian smiths spent centuries failing to replicate it.",
     lore:"The only sample of Frigalum ice-steel that made it out of Vaeldris is the pauldron on Nylara's left shoulder. She refuses to explain how she acquired it." },
@@ -4075,7 +4075,7 @@ const MONSTERS_DATA = {
   430: { id:430, name:"Forgotten Cryvorn", emoji:"🐺", types:["Dark","Ice"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:130,def:140,spa:125,spd:135,spe:95},
-    learnset:[[1,"dark_pulse"],[20,"stone_edge"],[35,"crunch"],[50,"obsidian_crash"],[65,"eclipse_shroud"],[70,"crystal_lance"],[80,"cryo_shatter"]],
+    learnset:[[1,"dark_pulse"],[20,"ice_punch"],[35,"crunch"],[50,"blizzard"],[65,"eclipse_shroud"],[70,"ice_beam"],[80,"cryo_shatter"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Cryvorn lurk beneath glacial ice, rising to drag prey into the frozen depths. Their dark aura prevents victims from feeling the cold — until it is already fatal.",
     lore:"Nylara says Cryvorn don't hunt so much as they remind prey that warmth was always temporary." },
@@ -4114,10 +4114,10 @@ const MONSTERS_DATA = {
     lore:"Solenne says Psydrak has been trying to show her a timeline where Vaeldris still exists. She says she can feel it almost finding one, night after night." },
 
   // --- Wielder: Rax (The Iron Sanctum) ---
-  435: { id:435, name:"Forgotten Ironvast", emoji:"🦾", types:["Steel","Rock"],
+  435: { id:435, name:"Forgotten Ironvast", emoji:"🦾", types:["Crystal","Rock"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:130,atk:145,def:175,spa:75,spd:130,spe:65},
-    learnset:[[1,"metal_claw"],[20,"rock_slide"],[35,"iron_tail"],[50,"stone_edge"],[65,"obsidian_crash"],[70,"warden_strike"],[80,"iron_fortress"]],
+    learnset:[[1,"rock_throw"],[20,"rock_slide"],[35,"rock_blast"],[50,"stone_edge"],[65,"obsidian_crash"],[70,"earthquake"],[80,"iron_fortress"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Ironvast's carapace has never been cracked in recorded Vaeldrian history. Engineers once used shed Ironvast shells as building material — with their full consent.",
     lore:"Rax says Ironvast has only ever been afraid once. He doesn't say when." },
@@ -4150,7 +4150,7 @@ const MONSTERS_DATA = {
   439: { id:439, name:"Forgotten Sparkeis", emoji:"⚡", types:["Crystal","Ice"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:120,def:100,spa:165,spd:125,spe:145},
-    learnset:[[1,"metal_claw"],[20,"ice_punch"],[35,"flash_cannon"],[50,"blizzard"],[65,"alloy_edge"],[70,"warden_strike"],[80,"frost_lattice"]],
+    learnset:[[1,"powder_snow"],[20,"ice_punch"],[35,"ice_beam"],[50,"blizzard"],[65,"rock_slide"],[70,"stone_edge"],[80,"frost_lattice"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Sparkeis are living power grids — their steel chassis stores charges that could power a city for months. They convert all kinetic energy into electricity passively.",
     lore:"Tempris installed a small meter on Sparkeis to measure output. It broke after three days. He has not replaced it." },
@@ -4158,7 +4158,7 @@ const MONSTERS_DATA = {
   440: { id:440, name:"Forgotten Thunderax", emoji:"🌩️", types:["Wind","Grass"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:135,def:110,spa:180,spd:135,spe:135},
-    learnset:[[1,"aerial_assault"],[20,"energy_ball"],[35,"sky_dive"],[50,"verdant_surge"],[65,"gale_cannon"],[70,"aerial_assault"],[80,"canopy_strike"],[90,"sky_harvest"]],
+    learnset:[[1,"aerial_assault"],[20,"energy_ball"],[35,"sky_dive"],[50,"verdant_surge"],[65,"gale_cannon"],[70,"hurricane"],[80,"canopy_strike"],[90,"sky_harvest"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Thunderax charges itself using entire storm systems. Tempris claims it once powered a civilization for a week by standing still in a thundercloud. He is not exaggerating.",
     lore:"Thunderax is the only one of the 39 that does not seem to remember Vaeldris. Tempris has never decided if that is a tragedy or a mercy." },
@@ -4175,15 +4175,15 @@ const MONSTERS_DATA = {
   442: { id:442, name:"Forgotten Vantarix", emoji:"🌌", types:["Psychic","Bug"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:80,atk:155,def:85,spa:170,spd:95,spe:165},
-    learnset:[[1,"confusion"],[20,"sludge_bomb"],[35,"psychic_move"],[50,"venom_lance"],[65,"psystrike"],[70,"toxic_surge"],[80,"venom_mind"]],
+    learnset:[[1,"confusion"],[20,"bug_bite"],[35,"psychic_move"],[50,"x_scissor"],[65,"psystrike"],[70,"signal_beam"],[80,"venom_mind"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Vantarix absorb light across all spectrums, appearing as a perfect silhouette even in total darkness. They are the only known Lumori visible inside the dimensional collapse itself.",
     lore:"Vayne has a drawing of Vantarix she made the first night she was safe. She has never looked at it again." },
 
-  443: { id:443, name:"Forgotten Abysdrak", emoji:"💠", types:["Dragon","Ghost"],
+  443: { id:443, name:"Forgotten Abysdrak", emoji:"💠", types:["Wind","Dragon"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:170,def:90,spa:185,spd:100,spe:165},
-    learnset:[[1,"dragon_breath"],[20,"shadow_ball"],[35,"dragon_claw"],[50,"void_rend"],[65,"outrage"],[70,"void_dominion"],[80,"abyssal_fang"],[90,"void_rend_ex"]],
+    learnset:[[1,"dragon_breath"],[20,"air_slash"],[35,"dragon_claw"],[50,"hurricane"],[65,"outrage"],[70,"gale_cannon"],[80,"abyssal_fang"],[90,"void_rend_ex"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Abysdrak embodies the void at the heart of the Sundering. Vayne refuses to explain how she bound it to her will. Only that the night she did, stars over Vaeldris went out and never came back.",
     lore:"Some of the other wielders are afraid of Abysdrak. Vayne considers this the only reasonable response." },
@@ -4192,7 +4192,7 @@ const MONSTERS_DATA = {
   444: { id:444, name:"Forgotten Cosmolith", emoji:"🌠", types:["Aether","Fairy"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:110,atk:90,def:110,spa:185,spd:130,spe:95},
-    learnset:[[1,"confusion"],[20,"fairy_wind"],[35,"psychic_move"],[50,"moonblast"],[65,"psystrike"],[70,"cosmic_veil"],[80,"cosmic_dust"]],
+    learnset:[[1,"confusion"],[20,"fairy_wind"],[35,"dazzling_gleam"],[50,"moonblast"],[65,"psystrike"],[70,"cosmic_veil"],[80,"cosmic_dust"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Cosmolith serve as living star maps — their scales reflect the night sky of Vaeldris exactly as it existed the moment before the Sundering. They are the only record those stars ever existed.",
     lore:"Azura detected the Sundering three days before it happened by reading a change in Cosmolith's scale patterns. She had not understood what she was seeing until it was too late." },
@@ -6686,13 +6686,13 @@ const VAELDRIS_WIELDERS = {
     vaeldrisLore:"I told the others I could end it. The entity was, in some fundamental sense, a relative of the void — something that devours rather than contains. I had spent years studying void resonance and believed I could draw it in. I told them the cost was personal and that I had already decided. Voidcrown came with me without being asked. We entered the rift. I cannot describe what happened inside — the physics of that space do not map to language. The entity did not come back out. Voidcrown and I are here. We are not unchanged. I do not consider that a loss.",
     team:[
       {monsterId:441, level:98, moves:["specter_pulse","earthquake","dark_pulse","nihil_quake"]},
-      {monsterId:442, level:99, moves:["psychic_move","venom_lance","psystrike","venom_mind"]},
-      {monsterId:443, level:100, moves:["dragon_claw","void_rend","abyssal_fang","void_rend_ex"]}
+      {monsterId:442, level:99, moves:["psychic_move","x_scissor","psystrike","venom_mind"]},
+      {monsterId:443, level:100, moves:["dragon_claw","gale_cannon","abyssal_fang","void_rend_ex"]}
     ],
     ngTeam:[
       {monsterId:441, level:100, moves:["specter_pulse","earthquake","dark_pulse","nihil_quake"]},
-      {monsterId:442, level:102, moves:["psychic_move","venom_lance","psystrike","venom_mind"]},
-      {monsterId:443, level:105, moves:["dragon_claw","void_rend","abyssal_fang","void_rend_ex"]}
+      {monsterId:442, level:102, moves:["psychic_move","x_scissor","psystrike","venom_mind"]},
+      {monsterId:443, level:105, moves:["dragon_claw","gale_cannon","abyssal_fang","void_rend_ex"]}
     ]
   },
   wielder_azura: {

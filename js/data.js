@@ -7572,5 +7572,51 @@ const QUESTS_DATA = [
     reward:{type:"item", itemId:"masterOrb", qty:2}, rewardText:"2 Master Orbs" },
   { id:"ngq36", title:"Legend Hunt: Cosmoveil", desc:"Cosmoveil has been sighted at the absolute peak of Apex Summit. Reach it and face the being from beyond the stars.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,
     boss:{monsterId:401, level:95, moves:["cosmic_veil","fae_requiem","neural_storm","psystrike"]},
-    reward:{type:"item", itemId:"masterOrb", qty:3}, rewardText:"3 Master Orbs" }
+    reward:{type:"item", itemId:"masterOrb", qty:3}, rewardText:"3 Master Orbs" },
+
+  // ============================================================
+  // VAELDRIS WIELDER QUESTS (13 battles) — Post-game, after umbra_shade
+  // Triple battles; player brings 4 Lumori (3 active + 1 reserve).
+  // Party of 6 locked before first wielder battle; choose 4 per fight.
+  // NG+ scales the opposing team levels higher.
+  // ============================================================
+  { id:"wielder_lysara", title:"The Celestial Witness", desc:"Lysara of Vaeldris waits at the Vaeldrian Reaches. She holds the memory of Vaeldris's sacred temples. Face her in a triple battle — bring four Lumori and choose wisely.",
+    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
+  { id:"wielder_morrigan", title:"The Shadowfen's Grief", desc:"Morrigan watched Vaeldris burn. She has fought her grief into something sharp. Face her in a triple battle at the Vaeldrian Reaches.",
+    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
+  { id:"wielder_kael", title:"The Storm That Remembers", desc:"Kael commands the last of Vaeldris's storm-forged creatures. His honesty is as uncompromising as a lightning strike. Triple battle at the Vaeldrian Reaches.",
+    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
+  { id:"wielder_thessaly", title:"The Root Memory", desc:"Thessaly's bond with the earth of Vaeldris runs deeper than any mountain. Face her at the Vaeldrian Reaches — her team is older than any you have battled.",
+    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
+  { id:"wielder_nereus", title:"The Depth That Does Not Forgive", desc:"Nereus turned back when warned. He has never forgiven himself for it. Face him at the Vaeldrian Reaches — the deep does not show mercy.",
+    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
+  { id:"wielder_caelia", title:"Keeper of the Open Sky", desc:"Caelia's creatures belong to the sky above Vaeldris — the one thing the Sundering could not consume. Triple battle at the Vaeldrian Reaches.",
+    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
+  { id:"wielder_dravek", title:"The Forge That Still Burns", desc:"Dravek forged his team in Vaeldris's volcanic heart. The forge is gone but the fire never stopped. Face him at the Vaeldrian Reaches.",
+    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
+  { id:"wielder_nylara", title:"The Glacial Keeper", desc:"Nylara preserved what the cold could save. Everything else was lost. Face her in a triple battle at the Vaeldrian Reaches.",
+    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
+  { id:"wielder_solenne", title:"The Dream That Remains", desc:"Solenne and her Lumori dream of Vaeldris every night. The dream is the only place it still exists. Triple battle at the Vaeldrian Reaches.",
+    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
+  { id:"wielder_rax", title:"The Last Defense", desc:"Rax was Vaeldris's final guardian. He has never decided if he failed or if it was always inevitable. Face him at the Vaeldrian Reaches.",
+    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
+  { id:"wielder_tempris", title:"The Architect of Odds", desc:"Tempris has modelled every possible battle outcome. One of them involves you winning. Face him in a triple battle at the Vaeldrian Reaches.",
+    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
+  { id:"wielder_vayne", title:"The Void That Watches", desc:"Vayne stared into the void long enough that it stared back. She brought it with her. Triple battle at the Vaeldrian Reaches.",
+    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
+  { id:"wielder_azura", title:"The Last Star Reader", desc:"Azura read the stars and knew what was coming. She survived anyway. Face her in a triple battle at the Vaeldrian Reaches — the final Wielder.",
+    location:"vaeldrian_reaches", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    reward:{type:"item", itemId:"masterOrb", qty:5}, rewardText:"5 Master Orbs" }
 ];

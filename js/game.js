@@ -1248,7 +1248,11 @@ function showSwitchPanel(forceSwitch = false) {
   document.getElementById("battle-switch-panel").classList.remove("hidden");
   const list = document.getElementById("switch-monsters-list");
   list.innerHTML = "";
+  const allowedSlots = battleContext.isWielder && battleContext.vaeldrisPlayerSlots
+    ? new Set(battleContext.vaeldrisPlayerSlots)
+    : null;
   G.team.forEach((slot, idx) => {
+    if (allowedSlots && !allowedSlots.has(idx)) return;
     if (idx === battleContext.playerTeamIdx && !forceSwitch) return;
     const def = MONSTERS_DATA[slot.monsterId];
     const btn = document.createElement("button");
@@ -1967,13 +1971,38 @@ function endBattle(outcome, slot, levelUps) {
           G.vaeldrisPartyLock = null;
         }
         const wMsg = wielder ? `${wielder.emoji} <strong>${wielder.name}</strong>:<br>"${wielder.winQuote}"` : "⚔️ Wielder defeated!";
-        showNotification(wMsg, () => {
+        const afterWin = () => {
           showScreen("screen-main");
           renderWorldMap();
           renderAreaPanel();
           renderHUD();
           saveGame();
-        });
+        };
+        if (wielder && (wielder.lumoriLore || wielder.vaeldrisLore)) {
+          showNotification(wMsg, () => {
+            if (wielder.lumoriLore) {
+              showNotification(`📖 <strong>${wielder.name} — Their Forgotten Lumori</strong><br><br>${wielder.lumoriLore}`, () => {
+                if (wielder.vaeldrisLore) {
+                  const loreSegments = wielder.vaeldrisLore.split("\n\n");
+                  const showSegment = (i) => {
+                    if (i >= loreSegments.length) { afterWin(); return; }
+                    showNotification(`🌌 <strong>${wielder.name} — Fragment of Vaeldris</strong><br><br>${loreSegments[i]}`, () => showSegment(i + 1));
+                  };
+                  showSegment(0);
+                } else { afterWin(); }
+              });
+            } else if (wielder.vaeldrisLore) {
+              const loreSegments = wielder.vaeldrisLore.split("\n\n");
+              const showSegment = (i) => {
+                if (i >= loreSegments.length) { afterWin(); return; }
+                showNotification(`🌌 <strong>${wielder.name} — Fragment of Vaeldris</strong><br><br>${loreSegments[i]}`, () => showSegment(i + 1));
+              };
+              showSegment(0);
+            } else { afterWin(); }
+          });
+        } else {
+          showNotification(wMsg, afterWin);
+        }
       } else if (battleContext.isQuest) {
         // Quest boss defeated
         const quest = typeof QUESTS_DATA !== "undefined" ? QUESTS_DATA.find(q => q.id === battleContext.questId) : null;
@@ -2782,6 +2811,10 @@ function showBagScreen() {
 // PC BOX SCREEN
 // ============================================================
 function showBoxScreen() {
+  if (G.vaeldrisPartyLock) {
+    showNotification("🌀 <strong>Vaeldrian Gauntlet Active</strong><br><br>Your party is locked for the duration of the 13 Wielder battles. PC access is restricted until all Wielders are defeated.");
+    return;
+  }
   showScreen("screen-box");
   renderBoxScreen();
 }
@@ -4142,23 +4175,29 @@ function startQuestBattle(quest) {
 // ============================================================
 
 function startWielderBattle(quest) {
+  const wielder = typeof VAELDRIS_WIELDERS !== "undefined" ? VAELDRIS_WIELDERS[quest.id] : null;
+  const doFormatThenParty = () => {
+    showBattleFormatSelection(
+      wielder?.name || "the Wielder",
+      wielder?.emoji || "🌀",
+      wielder?.quote || "",
+      fmt => showVaeldrisPartySelect(quest, fmt)
+    );
+  };
   if (!G.vaeldrisPartyLock) {
-    // First wielder battle — lock current team indices
     G.vaeldrisPartyLock = G.team.map((_, i) => i);
     saveGame();
-    showNotification(`🌀 <strong>Vaeldrian Gauntlet Begins!</strong><br><br>Your current party of ${G.team.length} is now locked for all 13 Wielder battles.<br>Choose 4 of your ${G.team.length} to bring to each fight.`, () => {
-      showVaeldrisPartySelect(quest);
-    });
+    showNotification(`🌀 <strong>Vaeldrian Gauntlet Begins!</strong><br><br>Your current party of ${G.team.length} is now locked for all 13 Wielder battles. You cannot change your team via PC until all 13 are defeated.<br><br>You will choose how many Lumori to bring each fight.`, doFormatThenParty);
   } else {
-    showVaeldrisPartySelect(quest);
+    doFormatThenParty();
   }
 }
 
-function showVaeldrisPartySelect(quest) {
+function showVaeldrisPartySelect(quest, fmt = "triple") {
   const wielderId = quest.id;
   const wielder = typeof VAELDRIS_WIELDERS !== "undefined" ? VAELDRIS_WIELDERS[wielderId] : null;
   const lockedIndices = G.vaeldrisPartyLock || G.team.map((_, i) => i);
-  const lockedMons = lockedIndices.map(i => G.team[i]).filter(Boolean);
+  const pickCount = fmt === "single" ? 2 : fmt === "double" ? 3 : 4;
 
   const overlay = document.getElementById("vaeldris-party-select");
   const title = document.getElementById("vaeldris-select-title");
@@ -4166,14 +4205,14 @@ function showVaeldrisPartySelect(quest) {
   const confirmBtn = document.getElementById("vaeldris-select-confirm");
 
   if (!overlay || !grid || !confirmBtn) {
-    // Fallback: just launch with first 4 available
-    const fallback = lockedIndices.filter(i => G.team[i]?.currentHP > 0).slice(0, 4);
+    const fallback = lockedIndices.filter(i => G.team[i]?.currentHP > 0).slice(0, pickCount);
     if (fallback.length < 1) { showNotification("Your Lumori have no HP! Heal before challenging a Wielder."); return; }
-    launchWielderBattle(quest, fallback);
+    launchWielderBattle(quest, fallback, fmt);
     return;
   }
 
-  title.textContent = `Choose 4 for ${wielder?.name || "the Wielder"}`;
+  const fmtLabel = {single:"Single",double:"Double",triple:"Triple"}[fmt] || "Triple";
+  title.textContent = `${fmtLabel} Battle — Choose ${pickCount} for ${wielder?.name || "the Wielder"}`;
   grid.innerHTML = "";
   let selected = [];
 
@@ -4196,23 +4235,23 @@ function showVaeldrisPartySelect(quest) {
         if (card.classList.contains("chosen")) {
           card.classList.remove("chosen");
           selected = selected.filter(i => i !== idx);
-        } else if (selected.length < 4) {
+        } else if (selected.length < pickCount) {
           card.classList.add("chosen");
           selected.push(idx);
         }
-        confirmBtn.disabled = selected.length !== 4;
-        confirmBtn.textContent = `Confirm (${selected.length}/4 selected)`;
+        confirmBtn.disabled = selected.length !== pickCount;
+        confirmBtn.textContent = `Confirm (${selected.length}/${pickCount} selected)`;
       });
     }
     grid.appendChild(card);
   }
 
   confirmBtn.disabled = true;
-  confirmBtn.textContent = "Confirm (0/4 selected)";
+  confirmBtn.textContent = `Confirm (0/${pickCount} selected)`;
   confirmBtn.onclick = () => {
-    if (selected.length !== 4) return;
+    if (selected.length !== pickCount) return;
     overlay.classList.add("hidden");
-    launchWielderBattle(quest, selected);
+    launchWielderBattle(quest, selected, fmt);
   };
   document.getElementById("vaeldris-select-cancel")?.addEventListener("click", () => {
     overlay.classList.add("hidden");
@@ -4221,7 +4260,7 @@ function showVaeldrisPartySelect(quest) {
   overlay.classList.remove("hidden");
 }
 
-function launchWielderBattle(quest, playerSlots) {
+function launchWielderBattle(quest, playerSlots, fmt = "triple") {
   const wielderId = quest.id;
   const wielder = typeof VAELDRIS_WIELDERS !== "undefined" ? VAELDRIS_WIELDERS[wielderId] : null;
   if (!wielder) { showNotification("Wielder data not found."); return; }
@@ -4233,16 +4272,27 @@ function launchWielderBattle(quest, playerSlots) {
     isWild: false, isGym: false, isChampion: false, isRival: false,
     isUmbra: false, isUmbraArea: false, isQuest: false, isTrainer: false,
     isWielder: true, wielderId, questId: wielderId,
-    battleMode: "triple",
+    battleMode: fmt,
     leaderId: wielderId,
-    enemyTeam, enemyTeamIdx: Math.min(3, enemyTeam.length),
+    enemyTeam, enemyTeamIdx: Math.min(fmt === "triple" ? 3 : fmt === "double" ? 2 : 1, enemyTeam.length),
     vaeldrisPlayerSlots: playerSlots,
     levelCap: null
   };
 
-  showNotification(`🌀 <strong>${wielder.name}</strong>: "${wielder.quote}"`, () => {
-    startMultiBattle(enemyTeam, wielder.name, "triple", playerSlots);
-  });
+  if (fmt === "single") {
+    const playerIdx = playerSlots[0];
+    battleContext.playerTeamIdx = playerIdx;
+    const levelCap = null;
+    playerActiveMon = buildBattleMon(G.team[playerIdx], levelCap);
+    enemyActiveMon = enemyTeam[0];
+    hideMultiBattleSlots();
+    showScreen("screen-battle");
+    clearBattleLog();
+    logMsg(`${wielder.emoji} ${wielder.name}: "${wielder.quote}"`);
+    renderBattleUI();
+  } else {
+    startMultiBattle(enemyTeam, wielder.name, fmt, playerSlots);
+  }
 }
 
 function completeQuest(quest) {

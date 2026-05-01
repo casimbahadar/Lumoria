@@ -4072,7 +4072,7 @@ const MONSTERS_DATA = {
     desc:"Frigalum are armored in ice-steel — a material unique to Vaeldris that never melts and deflects dragonfire. Vaeldrian smiths spent centuries failing to replicate it.",
     lore:"The only sample of Frigalum ice-steel that made it out of Vaeldris is the pauldron on Nylara's left shoulder. She refuses to explain how she acquired it." },
 
-  430: { id:430, name:"Forgotten Cryvorn", emoji:"🐺", types:["Dark","Rock"],
+  430: { id:430, name:"Forgotten Cryvorn", emoji:"🐺", types:["Dark","Ice"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:130,def:140,spa:125,spd:135,spe:95},
     learnset:[[1,"dark_pulse"],[20,"stone_edge"],[35,"crunch"],[50,"obsidian_crash"],[65,"eclipse_shroud"],[70,"crystal_lance"],[80,"cryo_shatter"]],
@@ -4164,10 +4164,10 @@ const MONSTERS_DATA = {
     lore:"Thunderax is the only one of the 39 that does not seem to remember Vaeldris. Tempris has never decided if that is a tragedy or a mercy." },
 
   // --- Wielder: Vayne (The Void Gate) ---
-  441: { id:441, name:"Forgotten Nihilax", emoji:"🕳️", types:["Primal","Dark"],
+  441: { id:441, name:"Forgotten Nihilax", emoji:"🕳️", types:["Primal","Ghost"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:75,atk:145,def:80,spa:160,spd:90,spe:170},
-    learnset:[[1,"night_slash"],[20,"earth_power"],[35,"dark_pulse"],[50,"earthquake"],[65,"eclipse_shroud"],[70,"void_dominion"],[80,"nihil_quake"]],
+    learnset:[[1,"night_slash"],[20,"earth_power"],[35,"dark_pulse"],[50,"earthquake"],[65,"specter_pulse"],[70,"void_dominion"],[80,"nihil_quake"]],
     catchRate:0, expYield:300, rarity:"legendary",
     desc:"Nihilax emit a field that suppresses all energy signatures within range. In their presence, lights dim, sound muffles, and time seems to hesitate.",
     lore:"Vayne says Nihilax was the first Lumori she saw after the Sundering began. She has never been sure if it was trying to help or simply watching." },
@@ -6685,12 +6685,12 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Voidcrown was sitting at the edge of the most unstable void rift in Vaeldris when I found it — a place where the boundary between something and nothing had worn thin enough to be dangerous. It was watching the rift with the patience of something that had already seen where the void leads and had decided, with full knowledge, to remain beside it anyway. I understood that patience immediately. It was the only introduction we needed. We have never required anything more from each other.",
     vaeldrisLore:"I told the others I could end it. The entity was, in some fundamental sense, a relative of the void — something that devours rather than contains. I had spent years studying void resonance and believed I could draw it in. I told them the cost was personal and that I had already decided. Voidcrown came with me without being asked. We entered the rift. I cannot describe what happened inside — the physics of that space do not map to language. The entity did not come back out. Voidcrown and I are here. We are not unchanged. I do not consider that a loss.",
     team:[
-      {monsterId:441, level:98, moves:["dark_pulse","earthquake","eclipse_shroud","nihil_quake"]},
+      {monsterId:441, level:98, moves:["specter_pulse","earthquake","dark_pulse","nihil_quake"]},
       {monsterId:442, level:99, moves:["psychic_move","venom_lance","psystrike","venom_mind"]},
       {monsterId:443, level:100, moves:["dragon_claw","void_rend","abyssal_fang","void_rend_ex"]}
     ],
     ngTeam:[
-      {monsterId:441, level:100, moves:["dark_pulse","earthquake","eclipse_shroud","nihil_quake"]},
+      {monsterId:441, level:100, moves:["specter_pulse","earthquake","dark_pulse","nihil_quake"]},
       {monsterId:442, level:102, moves:["psychic_move","venom_lance","psystrike","venom_mind"]},
       {monsterId:443, level:105, moves:["dragon_claw","void_rend","abyssal_fang","void_rend_ex"]}
     ]

@@ -3939,7 +3939,82 @@ const MONSTERS_DATA = {
     learnset:[[1,"gust"],[20,"dragon_breath"],[35,"hurricane"],[50,"dragon_pulse"],[65,"gale_cannon"],[70,"time_fracture"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Skydrak soars at the edge of the atmosphere where air meets space. Its wings span a city block. The last of its kind watched Vaeldris fall from that height and could do nothing.",
-    lore:"Caelia refuses to let Skydrak land. She says it belongs in the sky and the day it touches the ground again is the day she'll know it has given up." }
+    lore:"Caelia refuses to let Skydrak land. She says it belongs in the sky and the day it touches the ground again is the day she'll know it has given up." },
+
+  // --- Wielder: Dravek (Magma Forge) ---
+  426: { id:426, name:"Forgotten Pyraeon", emoji:"🦁", types:["Fire","Steel"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:90,atk:155,def:110,spa:130,spd:95,spe:140},
+    learnset:[[1,"ember"],[20,"metal_claw"],[35,"fire_blast"],[50,"flash_cannon"],[65,"solar_flare"],[70,"forge_strike"]],
+    catchRate:0, expYield:300, rarity:"legendary",
+    desc:"Pyraeon's body is a living alloy — bone-steel fused with molten cores. Their claws can cut through solid iron with a single stroke.",
+    lore:"Dravek sharpens Pyraeon's claws on volcanic rock every morning. He says the ritual keeps them both sharp." },
+
+  427: { id:427, name:"Forgotten Emberon", emoji:"🐯", types:["Dark","Ground"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:95,atk:165,def:115,spa:135,spd:100,spe:140},
+    learnset:[[1,"night_slash"],[20,"earthquake"],[35,"dark_pulse"],[50,"earth_power"],[65,"obsidian_fang"],[70,"void_dominion"]],
+    catchRate:0, expYield:350, rarity:"legendary",
+    desc:"Emberon hunts in volcanic shadow. Its strikes leave wounds that refuse to stop burning, channeled through volcanic earth energy into something darker.",
+    lore:"Every general in Vaeldris's history tried to recruit Dravek. He refused every one of them. Emberon, he said, fights for itself — he just happens to agree with it." },
+
+  428: { id:428, name:"Forgotten Dracofire", emoji:"🔥", types:["Dragon","Poison"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:105,atk:185,def:120,spa:145,spd:105,spe:140},
+    learnset:[[1,"dragon_breath"],[20,"sludge_wave"],[35,"dragon_claw"],[50,"venom_lance"],[65,"outrage"],[70,"mantle_surge"]],
+    catchRate:0, expYield:420, rarity:"legendary",
+    desc:"Dracofire channels volcanic energy through draconic poison. Its exhale reaches temperatures that melt diamond — and the vapour corrodes whatever survives the heat.",
+    lore:"Dravek bonded Dracofire as a hatchling, when it fit in his palm. He carried it under his armour for two winters. He has never admitted this publicly." },
+
+  // --- Wielder: Nylara (Glacial Abyss) ---
+  429: { id:429, name:"Forgotten Frigalum", emoji:"🦊", types:["Ice","Steel"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:120,atk:120,def:130,spa:120,spd:130,spe:100},
+    learnset:[[1,"ice_punch"],[20,"flash_cannon"],[35,"ice_beam"],[50,"alloy_edge"],[65,"permafrost"],[70,"warden_strike"]],
+    catchRate:0, expYield:300, rarity:"legendary",
+    desc:"Frigalum are armored in ice-steel — a material unique to Vaeldris that never melts and deflects dragonfire. Vaeldrian smiths spent centuries failing to replicate it.",
+    lore:"The only sample of Frigalum ice-steel that made it out of Vaeldris is the pauldron on Nylara's left shoulder. She refuses to explain how she acquired it." },
+
+  430: { id:430, name:"Forgotten Cryvorn", emoji:"🐺", types:["Dark","Rock"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:125,atk:130,def:140,spa:125,spd:135,spe:95},
+    learnset:[[1,"dark_pulse"],[20,"stone_edge"],[35,"crunch"],[50,"obsidian_crash"],[65,"eclipse_shroud"],[70,"crystal_lance"]],
+    catchRate:0, expYield:350, rarity:"legendary",
+    desc:"Cryvorn lurk beneath glacial ice, rising to drag prey into the frozen depths. Their dark aura prevents victims from feeling the cold — until it is already fatal.",
+    lore:"Nylara says Cryvorn don't hunt so much as they remind prey that warmth was always temporary." },
+
+  431: { id:431, name:"Forgotten Frostdrax", emoji:"❄️", types:["Dragon","Fairy"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:135,atk:145,def:150,spa:135,spd:145,spe:90},
+    learnset:[[1,"dragon_breath"],[20,"fairy_wind"],[35,"dragon_claw"],[50,"moonblast"],[65,"eon_crash"],[70,"time_fracture"]],
+    catchRate:0, expYield:420, rarity:"legendary",
+    desc:"Frostdrax maintained Vaeldris's northern climate for millennia. The ice continent shattered within hours of the moment it fled. It has not forgiven itself.",
+    lore:"Frostdrax is the only one of the 39 that Nylara says chose to come with her. She did not command it. It simply followed." },
+
+  // --- Wielder: Solenne (Moonhaven Ruins) ---
+  432: { id:432, name:"Forgotten Dreamaith", emoji:"🦉", types:["Psychic","Ghost"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:100,atk:75,def:105,spa:175,spd:150,spe:115},
+    learnset:[[1,"confusion"],[20,"shadow_ball"],[35,"psychic_move"],[50,"void_rend"],[65,"psystrike"],[70,"veil_collapse"]],
+    catchRate:0, expYield:300, rarity:"legendary",
+    desc:"Dreamaith drift through walls and minds alike, leaving vivid impressions of Vaeldris in their wake. Those who encounter one report dreaming of a lost land for weeks afterward.",
+    lore:"Solenne says Dreamaith don't know Vaeldris is gone. Every night, in the dream they share with her, it still stands." },
+
+  433: { id:433, name:"Forgotten Luneveth", emoji:"🌙", types:["Fairy","Water"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:105,atk:80,def:110,spa:185,spd:155,spe:115},
+    learnset:[[1,"fairy_wind"],[20,"water_gun"],[35,"moonblast"],[50,"surf"],[65,"celestial_wave"],[70,"hydro_pump"]],
+    catchRate:0, expYield:350, rarity:"legendary",
+    desc:"Luneveth absorb moonlight and convert it into tidal energy. On full moon nights their power doubles. They are drawn to places that remember the sea.",
+    lore:"There is a pool in Moonhaven Ruins that Luneveth fills each night with reflected moonlight. By morning it is dry again. Solenne has watched this every night for fifteen years." },
+
+  434: { id:434, name:"Forgotten Psydrak", emoji:"💭", types:["Dragon","Electric"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    base:{hp:115,atk:90,def:115,spa:200,spd:165,spe:115},
+    learnset:[[1,"dragon_breath"],[20,"thunderbolt"],[35,"dragon_pulse"],[50,"thunder"],[65,"draconic_roar"],[70,"time_fracture"]],
+    catchRate:0, expYield:420, rarity:"legendary",
+    desc:"Psydrak exists simultaneously across multiple timelines. Its draconic mind holds the memory of Vaeldris in a thousand possible futures — and the grief of knowing none survived.",
+    lore:"Solenne says Psydrak has been trying to show her a timeline where Vaeldris still exists. She says she can feel it almost finding one, night after night." }
 };
 
 

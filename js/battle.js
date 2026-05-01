@@ -45,8 +45,9 @@ function buildMoveArr(moveIds) {
 function buildMonBase(def, lv, ivs, nature) {
   const np = nature || "Balanced";
   const maxHP = calcMaxHP(def.base.hp, lv, ivs.hp);
+  const displayName = def.foreignRegion ? `Forgotten Lumori ${def.id - 407}` : def.name;
   return {
-    name: def.name, emoji: def.emoji,
+    name: displayName, emoji: def.emoji,
     types: [...def.types], level: lv, nature: np, ivs,
     maxHP, currentHP: maxHP,
     atk: applyNatureToStat("atk", calcStat(def.base.atk, lv, ivs.atk), np),

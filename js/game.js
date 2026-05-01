@@ -1012,6 +1012,17 @@ let enemyActiveMons = [];   // Array of active enemy mons in multi battles
 let playerTeamIdxs = [];    // Team indices for active player mons
 let multiBattlePendingMoves = []; // Moves queued for multi battle turn
 
+// Returns the player-facing display name for a battle mon.
+// foreignRegion mons show as "Forgotten Lumori X" and are added to seenMonsters.
+function getDisplayName(mon) {
+  const def = MONSTERS_DATA[mon.monsterId];
+  if (def && def.foreignRegion) {
+    G.seenMonsters.add(mon.monsterId);
+    return `Forgotten Lumori ${mon.monsterId - 407}`;
+  }
+  return mon.name;
+}
+
 function logMsg(text, cls) {
   const logEl = document.getElementById("battle-log");
   const entry = document.createElement("div");
@@ -1424,7 +1435,7 @@ function startGymBattle(leaderId, battleType = "single") {
   if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
   const fmtLabel = {single:"Single",double:"Double",triple:"Triple"}[battleType] || "Single";
   logMsg(`⚔️ ${fmtLabel} Battle — ${leader.emoji} ${leader.name}`);
-  logMsg(`${leader.name} sent out ${enemyActiveMon.name}!`);
+  logMsg(`${leader.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
@@ -1739,7 +1750,7 @@ async function handleEnemyFainted() {
       giveXP(slot, xpGain);
       enemyActiveMon = battleContext.enemyTeam[battleContext.enemyTeamIdx];
       const leaderName = GYM_LEADERS[battleContext.leaderId].name;
-      logMsg(`${leaderName} sent out ${enemyActiveMon.name}!`);
+      logMsg(`${leaderName} sent out ${getDisplayName(enemyActiveMon)}!`);
       updateBattleUI();
       await delay(600);
       showBattleMainActions();
@@ -2044,7 +2055,7 @@ function startMultiBattle(enemyTeam, leaderName, mode) {
 
   if (battleContext.levelCap) logMsg(`⚠️ Level Cap: ${battleContext.levelCap} — your team is scaled down!`);
   const modeLabel = mode === "triple" ? "TRIPLE BATTLE" : "DOUBLE BATTLE";
-  logMsg(`⚔️ ${modeLabel}! ${leaderName} sent out ${enemyActiveMons.map(m => m.name).join(" & ")}!`);
+  logMsg(`⚔️ ${modeLabel}! ${leaderName} sent out ${enemyActiveMons.map(m => getDisplayName(m)).join(" & ")}!`);
 
   updateMultiBattleUI();
   document.getElementById("btn-catch").disabled = true;
@@ -2371,7 +2382,7 @@ async function handleMultiFaintedMons() {
         const next = battleContext.enemyTeam[battleContext.enemyTeamIdx];
         battleContext.enemyTeamIdx++;
         enemyActiveMons[i] = next;
-        logMsg(`${next.name} was sent out!`);
+        logMsg(`${getDisplayName(next)} was sent out!`);
       } else {
         enemyActiveMons[i] = null;
       }
@@ -2896,7 +2907,30 @@ function renderDexGrid(filter, search) {
     const seen = G.seenMonsters.has(mid);
     const caught = G.caughtMonsters.has(mid);
     const isNGPlus = mid >= NG_PLUS_DEX_START;
+    const isForeign = !!def.foreignRegion;
+
+    // Vaeldris filter: only show foreignRegion mons (mystery display)
+    if (filter === "vaeldris") {
+      if (!isForeign) continue;
+      const num = mid - 407;
+      const displayName = seen ? `Forgotten Lumori ${num}` : "???";
+      const emojiHTML = seen ? `<div class="dex-emoji">${def.emoji}</div>` : `<div class="dex-emoji">❓</div>`;
+      const card = document.createElement("div");
+      card.className = "dex-card vaeldris-card" + (seen ? " seen" : " unseen");
+      card.innerHTML = `
+        <div class="dex-num">#V${String(num).padStart(2,"0")}</div>
+        ${emojiHTML}
+        <div class="dex-name">${displayName}</div>
+      `;
+      if (seen) card.addEventListener("click", () => showForgottenDetail(mid));
+      grid.appendChild(card);
+      continue;
+    }
+
+    // All other filters: skip foreignRegion mons entirely
+    if (isForeign) continue;
     if (isNGPlus && !(G.ngPlusCount > 0) && !seen) continue;
+    if (filter === "ngplus" && !isNGPlus) continue;
     if (filter === "caught" && !caught) continue;
     if (filter === "seen" && !seen) continue;
     if (search && !def.name.toLowerCase().includes(search.toLowerCase()) && !seen) continue;
@@ -2922,6 +2956,29 @@ function renderDexGrid(filter, search) {
     if (seen) card.addEventListener("click", () => showDexDetail(mid));
     grid.appendChild(card);
   }
+}
+
+function showForgottenDetail(monsterId) {
+  const def = MONSTERS_DATA[monsterId];
+  const num = monsterId - 407;
+  document.getElementById("dex-detail").classList.remove("hidden");
+  document.getElementById("dex-grid").style.display = "none";
+  document.getElementById("dex-detail-content").innerHTML = `
+    <div style="text-align:center;padding:2rem 1rem">
+      <div style="font-size:4rem;margin-bottom:0.5rem">${def.emoji}</div>
+      <h2 style="color:var(--accent-yellow);margin:0 0 0.5rem">Forgotten Lumori ${num}</h2>
+      <div style="color:var(--text-muted);font-size:0.85rem;margin-bottom:1.5rem">Encountered in battle</div>
+      <div style="display:flex;gap:0.5rem;justify-content:center;margin-bottom:1.5rem">
+        <span class="type-badge" style="background:#555;color:#aaa">???</span>
+        <span class="type-badge" style="background:#555;color:#aaa">???</span>
+      </div>
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:8px;padding:1rem;max-width:280px;margin:0 auto">
+        <p style="color:var(--text-muted);font-style:italic;font-size:0.85rem;line-height:1.6">
+          No data available. This creature is not native to Lumoria.<br><br>
+          Its origins, typing, and capabilities remain unknown.
+        </p>
+      </div>
+    </div>`;
 }
 
 function showDexDetail(monsterId) {
@@ -3558,7 +3615,7 @@ function startSpecialBattle(battleId, battleData, isUmbra, battleType = "single"
   clearBattleLog();
   if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
   logMsg(`${battle.emoji} ${battle.name}: "${battle.quote}"`);
-  logMsg(`${battle.name} sent out ${enemyActiveMon.name}!`);
+  logMsg(`${battle.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
@@ -3587,7 +3644,7 @@ function startTrainerBattle(trainerId, trainer) {
   showScreen("screen-battle");
   clearBattleLog();
   logMsg(`${trainer.emoji} ${trainer.name} wants to battle!`);
-  logMsg(`${trainer.name} sent out ${enemyActiveMon.name}!`);
+  logMsg(`${trainer.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
@@ -3617,7 +3674,7 @@ function startUmbraAreaBattle(umbraId, battle) {
   if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
   const fmtLabel = {single:"Single",double:"Double",triple:"Triple"}[battleType] || "Single";
   logMsg(`⚔️ ${fmtLabel} Battle — ${battle.emoji} ${battle.name}`);
-  logMsg(`${battle.name} sent out ${enemyActiveMon.name}!`);
+  logMsg(`${battle.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;

@@ -2501,3 +2501,17 @@ button, a, [role="button"] {
   color: var(--accent-yellow); border-radius: 4px; padding: 0 0.3rem;
   font-size: 0.65rem; font-weight: bold; vertical-align: middle;
 }
+
+/* ===== NG+ LEGEND TIER DEX CARDS ===== */
+.ngplus-tier-2 { border-color:rgba(180,160,255,0.5) !important; }
+.ngplus-tier-2.caught { border-color:rgba(180,160,255,0.9) !important; }
+.ngplus-tier-3 { border-color:rgba(100,200,255,0.55) !important; box-shadow:0 0 6px rgba(100,200,255,0.2); }
+.ngplus-tier-3.caught { border-color:rgba(100,200,255,0.9) !important; }
+.ngplus-tier-4 {
+  border-color:rgba(255,200,80,0.7) !important;
+  box-shadow:0 0 10px rgba(255,200,80,0.25);
+}
+.ngplus-tier-4.caught {
+  border-color:rgba(255,200,80,1) !important;
+  box-shadow:0 0 14px rgba(255,200,80,0.45);
+}

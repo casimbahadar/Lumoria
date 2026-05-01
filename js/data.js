@@ -3571,14 +3571,14 @@ const MONSTERS_DATA = {
     lore:"Dreamweald is a psychic-fairy entity visible only to those who are half-asleep. In full wakefulness it appears as a translucent shimmer, but in dreams it takes whatever form the dreamer most desires." },
 
   379: { id:379, name:"Riftscale", emoji:"🔮", types:["Dragon","Ghost"],
-    base:{hp:78,atk:105,def:87,spa:111,spd:94,spe:105}, evolveTo:null, evolveLevel:null,
+    base:{hp:78,atk:105,def:87,spa:111,spd:94,spe:105}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
     learnset:[[1,"dragon_breath"],[10,"shadow_ball"],[20,"dragon_claw"],[30,"phantom_claw"],[40,"wyrm_strike"],[50,"void_rend"],[60,"cataclysm_breath"],[5,"dragon_dance"],[48,"eon_crash"]],
     catchRate:6, expYield:342, rarity:"legendary",
     desc:"A dragon that phases between worlds. Its scales exist in multiple realities simultaneously.",
     lore:"Riftscale is a dragon-ghost 4.5 metres long whose scales shimmer with a translucent quality — half of them appear solid and half ghostly. It can phase through solid matter at will." },
 
   380: { id:380, name:"Tempestborn", emoji:"⛈️", types:["Electric","Wind"],
-    base:{hp:77,atk:98,def:77,spa:116,spd:94,spe:118}, evolveTo:null, evolveLevel:null,
+    base:{hp:77,atk:98,def:77,spa:116,spd:94,spe:116}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
     learnset:[[1,"thunder_shock"],[10,"gust"],[20,"thunderbolt"],[30,"air_slash"],[40,"thunder"],[50,"volt_surge"],[60,"tailwind_strike"],[5,"zephyr_dance"],[48,"neural_storm"]],
     catchRate:6, expYield:345, rarity:"legendary",
     desc:"Born at the eye of a century-storm. It IS the storm — a permanent atmospheric event given will.",
@@ -3642,7 +3642,7 @@ const MONSTERS_DATA = {
     lore:"Chronolith is a rock-psychic entity resembling a massive standing stone 2.5 metres tall with geological strata that each contain a perfect frozen moment from the past, visible if viewed psychically." },
 
   389: { id:389, name:"Stormcrown", emoji:"⛈️", types:["Electric","Dragon"],
-    base:{hp:78,atk:103,def:85,spa:120,spd:91,spe:108}, evolveTo:null, evolveLevel:null,
+    base:{hp:78,atk:103,def:85,spa:118,spd:91,spe:108}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
     learnset:[[1,"thunder_shock"],[10,"dragon_breath"],[20,"thunderbolt"],[30,"dragon_pulse"],[40,"thunder"],[50,"wyrm_strike"],[60,"cataclysm_breath"],[5,"dragon_dance"],[52,"volt_surge"]],
     catchRate:5, expYield:360, rarity:"legendary",
     desc:"The apex predator of electric dragons. Every storm in Lumoria eventually reports to it.",
@@ -3664,7 +3664,7 @@ const MONSTERS_DATA = {
 
   // ---- Tier 5b: Ultra-rare Apex Summit BST ~680–710 ----
   392: { id:392, name:"Eondrake", emoji:"🐉", types:["Dragon","Psychic"],
-    base:{hp:80,atk:112,def:89,spa:118,spd:93,spe:98}, evolveTo:null, evolveLevel:null,
+    base:{hp:82,atk:115,def:91,spa:122,spd:95,spe:100}, evolveTo:null, evolveLevel:null, ngPlusTier:3,
     learnset:[[1,"dragon_pulse"],[10,"psystrike"],[20,"wyrm_strike"],[30,"mind_shatter"],[40,"scale_storm"],[50,"neural_storm"],[60,"cataclysm_breath"],[5,"dragon_dance"],[55,"time_fracture"]],
     catchRate:4, expYield:368, rarity:"legendary",
     desc:"A dragon that has lived so long it perceives all possible futures simultaneously. It fights battles it has already won.",
@@ -3678,14 +3678,14 @@ const MONSTERS_DATA = {
     lore:"Nullstorm is a dark-electric entity 5 metres across that resembles a contained electromagnetic storm with a dark nucleus. Every electronic device within a kilometre malfunctions in its presence." },
 
   394: { id:394, name:"Solarvast", emoji:"🌟", types:["Fire","Dragon"],
-    base:{hp:83,atk:117,def:89,spa:114,spd:89,spe:98}, evolveTo:null, evolveLevel:null,
+    base:{hp:86,atk:120,def:92,spa:117,spd:92,spe:101}, evolveTo:null, evolveLevel:null, ngPlusTier:3,
     learnset:[[1,"flamethrower"],[10,"dragon_breath"],[20,"solar_flare"],[30,"dragon_pulse"],[40,"fire_blast"],[50,"cataclysm_breath"],[60,"ancient_breath"],[5,"char_dance"],[55,"primordial_roar"]],
     catchRate:4, expYield:370, rarity:"legendary",
     desc:"A fire dragon born from the sun itself. The corona of its home star still wraps its body.",
     lore:"Solarvast is a fire-dragon 7 metres long whose scales burn with the surface temperature of a star. It was first recorded appearing from a solar flare. Its breath weapon reaches temperatures measurable only in solar physics." },
 
   395: { id:395, name:"Glacierend", emoji:"❄️", types:["Ice","Dragon"],
-    base:{hp:88,atk:113,def:100,spa:105,spd:94,spe:90}, evolveTo:null, evolveLevel:null,
+    base:{hp:97,atk:124,def:110,spa:115,spd:103,spe:99}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
     learnset:[[1,"ice_beam"],[10,"dragon_claw"],[20,"cryo_lance"],[30,"dragon_pulse"],[40,"blizzard"],[50,"scale_storm"],[60,"cataclysm_breath"],[5,"dragon_dance"],[55,"ancient_breath"]],
     catchRate:4, expYield:370, rarity:"legendary",
     desc:"A glacier-dragon that has been growing since the last ice age. It moves slowly, but nothing stops it.",
@@ -3706,7 +3706,7 @@ const MONSTERS_DATA = {
     lore:"Abyssalord is a water-ghost creature 9 metres long resembling a massive spectral leviathan trailing ghostly sea-wrack. It is invisible underwater — its presence is detected only by a sudden drop in water temperature and the silencing of all sea life." },
 
   398: { id:398, name:"Voidcrown", emoji:"🌌", types:["Dark","Fairy"],
-    base:{hp:79,atk:93,def:87,spa:124,spd:101,spe:106}, evolveTo:null, evolveLevel:null,
+    base:{hp:87,atk:103,def:96,spa:137,spd:112,spe:117}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
     learnset:[[1,"fae_requiem"],[10,"void_rend"],[20,"mind_shatter"],[30,"shadow_ball"],[40,"neural_storm"],[50,"phantom_claw"],[60,"void_dominion"],[5,"dreamweave"],[55,"void_dominion"]],
     catchRate:4, expYield:372, rarity:"legendary",
     desc:"The sovereign of corrupted fae — a ruler that bridges the beautiful and the terrible without apology.",
@@ -3720,14 +3720,14 @@ const MONSTERS_DATA = {
     lore:"Stonekeeper is a rock-ghost entity 4 metres tall resembling a craggy mountain peak with a translucent interior. It is the spirit of a specific peak that was destroyed in an ancient cataclysm. It still performs the same patrol it did 10,000 years ago." },
 
   400: { id:400, name:"Primordiax", emoji:"🔥", types:["Fire","Ground"],
-    base:{hp:92,atk:123,def:99,spa:99,spd:91,spe:91}, evolveTo:null, evolveLevel:null,
+    base:{hp:102,atk:136,def:110,spa:110,spd:101,spe:101}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
     learnset:[[1,"flamethrower"],[10,"earth_power"],[20,"magma_surge"],[30,"fissure_slam"],[40,"solar_flare"],[50,"terra_spike"],[60,"mantle_surge"],[5,"char_dance"],[55,"mantle_surge"]],
     catchRate:4, expYield:375, rarity:"legendary",
     desc:"A creature born when the planet's crust cracked and the mantle met the surface. It predates all others.",
     lore:"Primordiax is a fire-ground creature 5 metres tall resembling a primordial titan of cooling lava and deep rock. Geologists have identified its footprints in geological formations 500 million years old." },
 
   401: { id:401, name:"Cosmoveil", emoji:"🌠", types:["Psychic","Fairy"],
-    base:{hp:80,atk:84,def:84,spa:131,spd:108,spe:108}, evolveTo:null, evolveLevel:null,
+    base:{hp:89,atk:94,def:94,spa:146,spd:121,spe:121}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
     learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[30,"psystrike"],[40,"mind_shatter"],[50,"neural_storm"],[60,"cosmic_veil"],[5,"prism_ward"],[55,"cosmic_veil"]],
     catchRate:3, expYield:380, rarity:"legendary",
     desc:"A being from beyond the known world. It arrived as a point of light that grew into something impossible.",
@@ -3735,7 +3735,7 @@ const MONSTERS_DATA = {
 
   // ---- Pseudo-legendary Family 1: Dragon/Psychic (Dracoveil line) BST 310→470→600 ----
   402: { id:402, name:"Scalit", emoji:"🐣", types:["Dragon","Psychic"],
-    evolveTo:403, evolveLevel:32,
+    evolveTo:403, evolveLevel:32, ngPlusTier:1,
     base:{hp:50,atk:65,def:45,spa:60,spd:50,spe:40}, // BST 310
     learnset:[[1,"dragon_breath"],[1,"psychic_move"],[12,"dragon_claw"],[20,"psystrike"],[28,"dragon_dance"],[32,"wyrm_strike"]],
     catchRate:45, expYield:65, rarity:"uncommon",
@@ -3743,7 +3743,7 @@ const MONSTERS_DATA = {
     lore:"Scalit is a dragon-psychic hatchling 0.4 metres long with iridescent scales that pulse faintly with psychic energy. Its crest grows brighter each time it uses a psychic move." },
 
   403: { id:403, name:"Dracomind", emoji:"🐲", types:["Dragon","Psychic"],
-    evolveTo:404, evolveLevel:52,
+    evolveTo:404, evolveLevel:52, ngPlusTier:1,
     base:{hp:72,atk:92,def:70,spa:95,spd:78,spe:63}, // BST 470
     learnset:[[1,"dragon_breath"],[1,"psychic_move"],[15,"dragon_claw"],[25,"psystrike"],[35,"dragon_dance"],[45,"wyrm_strike"],[55,"mind_shatter"]],
     catchRate:15, expYield:155, rarity:"rare",
@@ -3751,7 +3751,7 @@ const MONSTERS_DATA = {
     lore:"Dracomind is a dragon-psychic creature 1.8 metres long with gleaming scales layered in psychokinetic field. Its roar leaves visible ripples in the air from the psychic shock wave it produces." },
 
   404: { id:404, name:"Veildrak", emoji:"🐉", types:["Dragon","Psychic"],
-    evolveTo:null, evolveLevel:null,
+    evolveTo:null, evolveLevel:null, ngPlusTier:1,
     base:{hp:92,atk:110,def:88,spa:130,spd:100,spe:80}, // BST 600
     learnset:[[1,"dragon_pulse"],[1,"psystrike"],[20,"wyrm_strike"],[30,"mind_shatter"],[40,"scale_storm"],[50,"neural_storm"],[60,"cataclysm_breath"],[5,"dragon_dance"],[60,"time_fracture"]],
     catchRate:5, expYield:300, rarity:"pseudolegendary",
@@ -3760,7 +3760,7 @@ const MONSTERS_DATA = {
 
   // ---- Pseudo-legendary Family 2: Dark/Steel (Voidsteel line) BST 300→465→600 ----
   405: { id:405, name:"Mirkling", emoji:"🐾", types:["Dark","Steel"],
-    evolveTo:406, evolveLevel:30,
+    evolveTo:406, evolveLevel:30, ngPlusTier:1,
     base:{hp:45,atk:62,def:55,spa:48,spd:50,spe:40}, // BST 300
     learnset:[[1,"shadowstep"],[1,"metal_claw"],[10,"void_rend"],[18,"iron_tail"],[26,"phantom_claw"],[30,"alloy_edge"]],
     catchRate:45, expYield:62, rarity:"uncommon",
@@ -3768,7 +3768,7 @@ const MONSTERS_DATA = {
     lore:"Mirkling is a dark-steel creature 0.5 metres long resembling a shadowy puppy with small but razor-sharp steel claws. It instinctively forms alliances with other dark-types." },
 
   406: { id:406, name:"Umbrasteel", emoji:"🐺", types:["Dark","Steel"],
-    evolveTo:407, evolveLevel:50,
+    evolveTo:407, evolveLevel:50, ngPlusTier:1,
     base:{hp:68,atk:98,def:88,spa:72,spd:78,spe:61}, // BST 465
     learnset:[[1,"shadowstep"],[1,"metal_claw"],[12,"void_rend"],[22,"iron_tail"],[32,"phantom_claw"],[42,"alloy_edge"],[52,"flash_cannon"]],
     catchRate:15, expYield:152, rarity:"rare",
@@ -3776,7 +3776,7 @@ const MONSTERS_DATA = {
     lore:"Umbrasteel is a dark-steel creature 1.5 metres at the shoulder with a body of woven shadow filaments reinforced with micro-crystal steel alloy. It can become completely invisible in shadow." },
 
   407: { id:407, name:"Voidwarden", emoji:"⚔️", types:["Dark","Steel"],
-    evolveTo:null, evolveLevel:null,
+    evolveTo:null, evolveLevel:null, ngPlusTier:1,
     base:{hp:88,atk:130,def:115,spa:85,spd:95,spe:87}, // BST 600
     learnset:[[1,"void_rend"],[1,"iron_tail"],[20,"phantom_claw"],[30,"flash_cannon"],[40,"umbral_claw"],[50,"alloy_edge"],[60,"scale_storm"],[5,"dragon_dance"],[60,"void_dominion"]],
     catchRate:5, expYield:300, rarity:"pseudolegendary",
@@ -6966,5 +6966,62 @@ const QUESTS_DATA = [
     reward:{type:"item", itemId:"prismaticShard", qty:3}, rewardText:"3 Prismatic Shards" },
   { id:"ngq22", title:"Warden of the Void Gate", desc:"The dark-steel warden protects the boundary between worlds. Defeat it to prove you are master of this era.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,
     boss:{monsterId:407, level:88, moves:["warden_strike","void_dominion","alloy_edge","phantom_claw"]},
-    reward:{type:"item", itemId:"apexCore", qty:3}, rewardText:"3 Apex Cores" }
+    reward:{type:"item", itemId:"apexCore", qty:3}, rewardText:"3 Apex Cores" },
+
+  // ============================================================
+  // MISCELLANEOUS TOUGH NG+ BATTLES — Unique Strong Trainers
+  // High-difficulty fights with curated full teams, not leader rematches
+  // ============================================================
+
+  // --- The Void Council (5 elite specialists) ---
+  { id:"ngq23", title:"Void Council: The Tactician", desc:"Councilor Vale commands a perfectly coordinated team built around prediction and counters. Every switch is calculated.", location:"void_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:343, level:88, moves:["shadowstep","psystrike","mind_shatter","phantom_claw"]},
+    reward:{type:"money", amount:40000}, rewardText:"40000 coins", council:true },
+  { id:"ngq24", title:"Void Council: The Berserker", desc:"Councilor Kade brings raw overwhelming power. No strategy — just six monsters that hit as hard as anything alive.", location:"void_nexus", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:382, level:90, moves:["cataclysm_breath","scale_storm","void_rend","primordial_roar"]},
+    reward:{type:"money", amount:45000}, rewardText:"45000 coins", council:true },
+  { id:"ngq25", title:"Void Council: The Illusionist", desc:"Councilor Mira uses status, confusion, and misdirection. You will never know what hits you.", location:"prismatic_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:378, level:89, moves:["dreamweave","fae_requiem","neural_storm","mind_shatter"]},
+    reward:{type:"item", itemId:"prismaticShard", qty:2}, rewardText:"2 Prismatic Shards", council:true },
+  { id:"ngq26", title:"Void Council: The Titan", desc:"Councilor Gorn fields the heaviest defensive walls in Lumoria. Chip through or be outlasted.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:385, level:91, moves:["blizzard","fissure_slam","cryo_lance","terra_spike"]},
+    reward:{type:"money", amount:50000}, rewardText:"50000 coins", council:true },
+  { id:"ngq27", title:"Void Council: The Grandmaster", desc:"Councilor Null is the most fearsome trainer in NG+ Lumoria. His team is the stuff of legend.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:398, level:95, moves:["void_dominion","neural_storm","fae_requiem","mind_shatter"]},
+    reward:{type:"item", itemId:"apexCore", qty:5}, rewardText:"5 Apex Cores + title", council:true },
+
+  // --- The Ancient Gauntlet (10-wave no-heal challenge) ---
+  { id:"ngq28", title:"Ancient Gauntlet — Entry", desc:"The Ancient Gauntlet is a legendary 10-battle challenge with no healing between fights. Attempt it only when fully prepared.", location:"void_nexus", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:352, level:87, moves:["void_rend","mind_shatter","phantom_claw","neural_storm"]},
+    reward:{type:"money", amount:30000}, rewardText:"30000 coins" },
+  { id:"ngq29", title:"Ancient Gauntlet — The Final Wave", desc:"You've fought through everything the Gauntlet has. One last opponent stands between you and eternal glory.", location:"void_nexus", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:401, level:98, moves:["cosmic_veil","neural_storm","psystrike","fae_requiem"]},
+    reward:{type:"item", itemId:"masterOrb", qty:10}, rewardText:"10 Master Orbs + Gauntlet title" },
+
+  // --- Wandering Elite Trainers (scattered across NG+ map) ---
+  { id:"ngq30", title:"The Drifting Duelist", desc:"A masked trainer wanders the NG+ routes seeking worthy challengers. They appear without warning and leave the same way.", location:"void_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:356, level:88, moves:["thunder","dragon_pulse","wyrm_strike","volt_surge"]},
+    reward:{type:"money", amount:35000}, rewardText:"35000 coins" },
+  { id:"ngq31", title:"The Apex Archivist", desc:"A scholar who has catalogued every NG+ Lumori challenges you to prove you understand their power.", location:"prismatic_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:379, level:90, moves:["wyrm_strike","cataclysm_breath","phantom_claw","scale_storm"]},
+    reward:{type:"item", itemId:"prismaticShard", qty:4}, rewardText:"4 Prismatic Shards" },
+  { id:"ngq32", title:"The Storm Hermit", desc:"A recluse who has lived at the top of Apex Summit for 30 years. Their Lumori are battle-hardened beyond anything you have fought.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:389, level:93, moves:["volt_surge","cataclysm_breath","thunder","neural_storm"]},
+    reward:{type:"money", amount:55000}, rewardText:"55000 coins" },
+
+  // --- The Rival Gauntlet (your journey's rivals, all NG+ evolved) ---
+  { id:"ngq33", title:"Rival Challenge: The First Rival", desc:"Your first rival has completed their own NG+ journey. Their team is unrecognisable from what you once faced.", location:"void_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:345, level:89, moves:["wyrm_strike","void_rend","shadow_ball","cataclysm_breath"]},
+    reward:{type:"money", amount:30000}, rewardText:"30000 coins" },
+  { id:"ngq34", title:"Rival Challenge: The Team Rocket", desc:"Your nemesis rival has rebuilt their team around pure NG+ power. They want to settle the score permanently.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:393, level:92, moves:["void_rend","thunder","shadow_ball","neural_storm"]},
+    reward:{type:"money", amount:40000}, rewardText:"40000 coins" },
+
+  // --- Legendary Beast Hunt (high-level wild legendary encounters as quests) ---
+  { id:"ngq35", title:"Legend Hunt: Eondrake", desc:"Track down the ancient Eondrake that has been spotted near the Prismatic Rift. It will not be caught easily.", location:"prismatic_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:392, level:90, moves:["time_fracture","cataclysm_breath","mind_shatter","wyrm_strike"]},
+    reward:{type:"item", itemId:"masterOrb", qty:2}, rewardText:"2 Master Orbs" },
+  { id:"ngq36", title:"Legend Hunt: Cosmoveil", desc:"Cosmoveil has been sighted at the absolute peak of Apex Summit. Reach it and face the being from beyond the stars.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,
+    boss:{monsterId:401, level:95, moves:["cosmic_veil","fae_requiem","neural_storm","psystrike"]},
+    reward:{type:"item", itemId:"masterOrb", qty:3}, rewardText:"3 Master Orbs" }
 ];

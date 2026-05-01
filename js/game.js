@@ -2876,35 +2876,50 @@ const NG_PLUS_DEX_START = 322; // IDs >= this are NG+-exclusive
 function renderDexGrid(filter, search) {
   const grid = document.getElementById("dex-grid");
   grid.innerHTML = "";
-  for (const [id, def] of Object.entries(MONSTERS_DATA)) {
-    const mid = parseInt(id);
+
+  // Sort entries: base game (by ID), then NG+ regular (by ID), then pseudo (tier 1),
+  // then legend minor (tier 2), mid (tier 3), apex (tier 4) — all within NG+ section
+  const entries = Object.entries(MONSTERS_DATA).map(([id, def]) => [parseInt(id), def]);
+  entries.sort(([aId, aDef], [bId, bDef]) => {
+    const aNg = aId >= NG_PLUS_DEX_START;
+    const bNg = bId >= NG_PLUS_DEX_START;
+    if (!aNg && !bNg) return aId - bId;
+    if (!aNg) return -1;
+    if (!bNg) return 1;
+    const aTier = aDef.ngPlusTier || 0;
+    const bTier = bDef.ngPlusTier || 0;
+    if (aTier !== bTier) return aTier - bTier;
+    return aId - bId;
+  });
+
+  for (const [mid, def] of entries) {
     const seen = G.seenMonsters.has(mid);
     const caught = G.caughtMonsters.has(mid);
     const isNGPlus = mid >= NG_PLUS_DEX_START;
-    // In base game, hide NG+ entries entirely unless player is in NG+
     if (isNGPlus && !(G.ngPlusCount > 0) && !seen) continue;
     if (filter === "caught" && !caught) continue;
     if (filter === "seen" && !seen) continue;
     if (search && !def.name.toLowerCase().includes(search.toLowerCase()) && !seen) continue;
 
+    const tier = def.ngPlusTier || 0;
+    const tierLabels = { 1:"Pseudo", 2:"Legend", 3:"Legend", 4:"Apex Legend" };
     const card = document.createElement("div");
     card.className = "dex-card";
     if (!seen) card.classList.add("unseen");
     else if (!caught) card.classList.add("seen");
     else card.classList.add("caught");
     if (isNGPlus) card.classList.add("ngplus-dex-card");
+    if (tier >= 2) card.classList.add(`ngplus-tier-${tier}`);
     const dexSpriteHTML = seen && typeof getMonsterSpriteURL === "function"
       ? `<img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" style="border-radius:6px">`
       : `<div class="dex-emoji">${seen ? def.emoji : "❓"}</div>`;
-    const ngBadge = isNGPlus ? `<span class="dex-ngplus-badge" title="NG+ Exclusive">⭐</span>` : "";
+    const ngBadge = isNGPlus ? `<span class="dex-ngplus-badge" title="NG+ Exclusive${tier >= 2 ? ' — '+tierLabels[tier] : ''}">⭐</span>` : "";
     card.innerHTML = `
       <div class="dex-num">#${String(mid).padStart(3,"0")}${ngBadge}</div>
       ${dexSpriteHTML}
       <div class="dex-name">${seen ? def.name : "???"}</div>
     `;
-    if (seen) {
-      card.addEventListener("click", () => showDexDetail(mid));
-    }
+    if (seen) card.addEventListener("click", () => showDexDetail(mid));
     grid.appendChild(card);
   }
 }

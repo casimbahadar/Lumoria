@@ -20,7 +20,7 @@ Open `index.html` in any modern browser. No build step, no dependencies — runs
 ### Lumori
 
 - **407 unique Lumori** to discover, catch, and train — with more waiting to be uncovered
-- **16 types:** Fire, Water, Grass, Electric, Ground, Wind, Ice, Dark, Fairy, Steel, Poison, Psychic, Dragon, Normal, Rock, Bug
+- **21 types:** Fire, Water, Grass, Electric, Ground, Wind, Ice, Dark, Fairy, Steel, Poison, Psychic, Dragon, Normal, Rock, Bug, Ghost, Fighting, Crystal, Primal, Aether
 - Full **type effectiveness chart** with dual-type support and immunities
 - **Multi-stage evolution** — 2-stage, 3-stage, item-based (Fire Stone, Moon Stone, Thunder Stone, Metal Coat, Dusk Stone, Water Stone), and location-based evolutions
 - **Split evolutions** — some base Lumori branch into different forms depending on the item used
@@ -29,10 +29,11 @@ Open `index.html` in any modern browser. No build step, no dependencies — runs
 
 ### Battle System
 
-- Turn-based battles with **477 moves** across all 16 types
+- Turn-based battles with **544 moves** across all 21 types
 - **Physical, Special, and Status** move categories with accurate damage formulas
 - **Status effects:** Burn, Paralyze, Poison, Sleep, Freeze, Confusion, Flinch
 - Critical hits, priority moves, recharge mechanics, and stat stage modifiers
+- Multi-hit moves, recoil, and drain mechanics
 - **Battle format selection** — choose Single, Double, or Triple format before every major battle; each format uses a distinct opponent team and strategy
 - **Held items** that affect battle — type boosters, Focus Sash, Leftovers, Quick Claw, Scope Lens, and more
 - **In-battle item use** — open your bag mid-battle to use Potions, Revives, or stat items at the cost of your turn
@@ -98,6 +99,8 @@ Open `index.html` in any modern browser. No build step, no dependencies — runs
 Becoming Champion is only the beginning.
 
 Lumoria's post-game is substantial — rematches, new adversaries, hidden areas, and challenges that push your team far beyond what the main story demands. Some content is only accessible after you've proven yourself as Champion. Pursuing it all will take considerably longer than the main journey.
+
+Among the post-game's content: a set of thirteen distinct adversaries, each with a hand-crafted team of rare Lumori found nowhere else in the game. These Lumori carry moves exclusive to them — designed around their typings and built to be felt. Seek them out if you want the most demanding battles Lumoria has to offer.
 
 For those who have seen everything the post-game has to offer, there is one more layer still waiting.
 

@@ -30,7 +30,9 @@ function newGameState(playerName, starterMonsterId) {
     dailyChallenges: null,
     saveTimestamp: Date.now(),
     saveSlot: 0,
-    ngPlusCount: 0
+    ngPlusCount: 0,
+    vaeldrisPartyLock: null,
+    defeatedWielders: []
   };
 }
 
@@ -536,6 +538,7 @@ function renderWorldMap() {
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
     if (area.requiresChampion && !G?.championDefeated || (area.requiresNGPlus && !(G?.ngPlusCount > 0))) continue;
+    if (area.requiresDefeated && !(G?.defeatedLeaders || []).includes(area.requiresDefeated)) continue;
     for (const conn of area.connections) {
       const sortedKey = [areaId, conn].sort().join("|");
       if (drawnConnections.has(sortedKey)) continue;
@@ -544,6 +547,7 @@ function renderWorldMap() {
       if (!toArea || !toArea.mapPos) continue;
       if (toArea.requiresChampion && !G?.championDefeated) continue;
       if (toArea.requiresNGPlus && !(G?.ngPlusCount > 0)) continue;
+      if (toArea.requiresDefeated && !(G?.defeatedLeaders || []).includes(toArea.requiresDefeated)) continue;
 
       const x1 = (area.mapPos.x / 100) * mapW;
       const y1 = (area.mapPos.y / 100) * mapH;
@@ -649,6 +653,7 @@ function renderWorldMap() {
     if (!area.mapPos) continue;
     if (area.type === "route") continue; // Routes are on the paths now
     if (area.requiresChampion && !G?.championDefeated || (area.requiresNGPlus && !(G?.ngPlusCount > 0))) continue;
+    if (area.requiresDefeated && !(G?.defeatedLeaders || []).includes(area.requiresDefeated)) continue;
     const x = (area.mapPos.x / 100) * mapW;
     const y = (area.mapPos.y / 100) * mapH;
 
@@ -703,6 +708,10 @@ function travelTo(areaId) {
   }
   if (area.requiresNGPlus && !(G.ngPlusCount > 0)) {
     showNotification(`⭐ ${area.name} is only accessible in New Game+.`);
+    return;
+  }
+  if (area.requiresDefeated && !(G.defeatedLeaders || []).includes(area.requiresDefeated)) {
+    showNotification(`🔒 ${area.name} requires defeating ${area.requiresDefeated.replace(/_/g, " ")} first.`);
     return;
   }
   if (G.badges.length < (area.requiredBadges || 0)) {
@@ -1941,6 +1950,28 @@ function endBattle(outcome, slot, levelUps) {
           renderHUD();
           saveGame();
         });
+      } else if (battleContext.isWielder) {
+        // Vaeldris Wielder defeated
+        if (!G.defeatedWielders) G.defeatedWielders = [];
+        if (!G.defeatedWielders.includes(battleContext.wielderId)) {
+          G.defeatedWielders.push(battleContext.wielderId);
+        }
+        const wielder = typeof VAELDRIS_WIELDERS !== "undefined" ? VAELDRIS_WIELDERS[battleContext.wielderId] : null;
+        const wq = typeof QUESTS_DATA !== "undefined" ? QUESTS_DATA.find(q => q.id === battleContext.wielderId) : null;
+        if (wq) completeQuest(wq);
+        const allDefeated = typeof VAELDRIS_WIELDERS !== "undefined" &&
+          Object.keys(VAELDRIS_WIELDERS).every(id => G.defeatedWielders.includes(id));
+        if (allDefeated) {
+          G.vaeldrisPartyLock = null;
+        }
+        const wMsg = wielder ? `${wielder.emoji} <strong>${wielder.name}</strong>:<br>"${wielder.winQuote}"` : "⚔️ Wielder defeated!";
+        showNotification(wMsg, () => {
+          showScreen("screen-main");
+          renderWorldMap();
+          renderAreaPanel();
+          renderHUD();
+          saveGame();
+        });
       } else if (battleContext.isQuest) {
         // Quest boss defeated
         const quest = typeof QUESTS_DATA !== "undefined" ? QUESTS_DATA.find(q => q.id === battleContext.questId) : null;
@@ -2016,7 +2047,7 @@ function getMultiSlotCount() {
   return 1;
 }
 
-function startMultiBattle(enemyTeam, leaderName, mode) {
+function startMultiBattle(enemyTeam, leaderName, mode, playerSlots = null) {
   const slots = mode === "triple" ? 3 : 2;
   battleContext.battleMode = mode;
 
@@ -2030,14 +2061,18 @@ function startMultiBattle(enemyTeam, leaderName, mode) {
   enemyActiveMon = enemyActiveMons[0]; // primary for compatibility
 
   // Initialize active player mons
+  // playerSlots restricts which team indices are allowed (used for wielder battles)
   playerActiveMons = [];
   playerTeamIdxs = [];
   let placed = 0;
-  for (let i = 0; i < G.team.length && placed < slots; i++) {
-    if (G.team[i].currentHP > 0) {
+  const allowedSlots = playerSlots || G.team.map((_, i) => i);
+  for (const idx of allowedSlots) {
+    if (placed >= slots) break;
+    const m = G.team[idx];
+    if (m && m.currentHP > 0) {
       const levelCap = battleContext.levelCap || null;
-      playerActiveMons.push(buildBattleMon(G.team[i], levelCap));
-      playerTeamIdxs.push(i);
+      playerActiveMons.push(buildBattleMon(m, levelCap));
+      playerTeamIdxs.push(idx);
       placed++;
     }
   }
@@ -2394,10 +2429,12 @@ async function handleMultiFaintedMons() {
     const p = playerActiveMons[i];
     if (p && (p.fainted || p.currentHP <= 0)) {
       logMsg(`${p.name} fainted!`);
-      // Find next alive team member not already in battle
-      const nextIdx = G.team.findIndex((m, idx) =>
-        m.currentHP > 0 && !playerTeamIdxs.includes(idx));
-      if (nextIdx >= 0) {
+      // For wielder battles, restrict replacement to the selected 4 slots
+      const allowedSlots = battleContext.vaeldrisPlayerSlots ||
+        G.team.map((_, idx) => idx);
+      const nextIdx = allowedSlots.find(idx =>
+        G.team[idx]?.currentHP > 0 && !playerTeamIdxs.includes(idx));
+      if (nextIdx !== undefined) {
         const levelCap = battleContext.levelCap || null;
         playerActiveMons[i] = buildBattleMon(G.team[nextIdx], levelCap);
         playerTeamIdxs[i] = nextIdx;
@@ -3961,7 +3998,8 @@ function renderQuestLog() {
       !G.questsActive.includes(q.id) &&
       G.badges.length >= (q.requiredBadges || 0) &&
       (!q.requiresNGPlus || (G.ngPlusCount > 0)) &&
-      (!q.requiresChampion || G.championDefeated)
+      (!q.requiresChampion || G.championDefeated) &&
+      (!q.requiresDefeated || (G.defeatedLeaders || []).includes(q.requiresDefeated))
     );
   } else if (activeFilter === "active") {
     filteredQuests = allQuests.filter(q => G.questsActive.includes(q.id));
@@ -3981,7 +4019,7 @@ function renderQuestLog() {
     const isCompleted = G.questsCompleted.includes(quest.id);
     const isActive = G.questsActive.includes(quest.id);
     const locationName = WORLD_DATA[quest.location]?.name || quest.location;
-    const typeIcons = { boss: "⚔️", catch: "🔵", visit: "🗺️", fetch: "📦", battle: "🥊" };
+    const typeIcons = { boss: "⚔️", catch: "🔵", visit: "🗺️", fetch: "📦", battle: "🥊", wielder: "🌀" };
 
     const card = document.createElement("div");
     const ngPlusQuest = !!quest.requiresNGPlus;
@@ -4029,6 +4067,18 @@ function renderQuestLog() {
 }
 
 function attemptQuestCompletion(quest) {
+  if (quest.type === "wielder") {
+    if (G.location !== quest.location) {
+      showNotification(`You must be at <strong>${WORLD_DATA[quest.location]?.name || quest.location}</strong> to challenge this Wielder.`);
+      return;
+    }
+    if ((G.defeatedWielders || []).includes(quest.id)) {
+      showNotification(`You have already defeated this Wielder.`);
+      return;
+    }
+    startWielderBattle(quest);
+    return;
+  }
   if (quest.type === "boss") {
     // Must be at the quest location
     if (G.location !== quest.location) {
@@ -4082,6 +4132,114 @@ function startQuestBattle(quest) {
     showBattleMainActions();
     document.getElementById("btn-catch").disabled = true;
     if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+  });
+}
+
+// ============================================================
+// VAELDRIS WIELDER BATTLE SYSTEM
+// ============================================================
+
+function startWielderBattle(quest) {
+  if (!G.vaeldrisPartyLock) {
+    // First wielder battle — lock current team indices
+    G.vaeldrisPartyLock = G.team.map((_, i) => i);
+    saveGame();
+    showNotification(`🌀 <strong>Vaeldrian Gauntlet Begins!</strong><br><br>Your current party of ${G.team.length} is now locked for all 13 Wielder battles.<br>Choose 4 of your ${G.team.length} to bring to each fight.`, () => {
+      showVaeldrisPartySelect(quest);
+    });
+  } else {
+    showVaeldrisPartySelect(quest);
+  }
+}
+
+function showVaeldrisPartySelect(quest) {
+  const wielderId = quest.id;
+  const wielder = typeof VAELDRIS_WIELDERS !== "undefined" ? VAELDRIS_WIELDERS[wielderId] : null;
+  const lockedIndices = G.vaeldrisPartyLock || G.team.map((_, i) => i);
+  const lockedMons = lockedIndices.map(i => G.team[i]).filter(Boolean);
+
+  const overlay = document.getElementById("vaeldris-party-select");
+  const title = document.getElementById("vaeldris-select-title");
+  const grid = document.getElementById("vaeldris-select-grid");
+  const confirmBtn = document.getElementById("vaeldris-select-confirm");
+
+  if (!overlay || !grid || !confirmBtn) {
+    // Fallback: just launch with first 4 available
+    const fallback = lockedIndices.filter(i => G.team[i]?.currentHP > 0).slice(0, 4);
+    if (fallback.length < 1) { showNotification("Your Lumori have no HP! Heal before challenging a Wielder."); return; }
+    launchWielderBattle(quest, fallback);
+    return;
+  }
+
+  title.textContent = `Choose 4 for ${wielder?.name || "the Wielder"}`;
+  grid.innerHTML = "";
+  let selected = [];
+
+  for (const idx of lockedIndices) {
+    const m = G.team[idx];
+    if (!m) continue;
+    const def = MONSTERS_DATA[m.monsterId];
+    const card = document.createElement("div");
+    card.className = "vaeldris-select-card" + (m.currentHP <= 0 ? " fainted" : "");
+    card.dataset.idx = idx;
+    card.innerHTML = `
+      <div class="vaeldris-card-emoji">${def?.emoji || "❓"}</div>
+      <div class="vaeldris-card-name">${m.nickname || def?.name || "?"}</div>
+      <div class="vaeldris-card-level">Lv.${m.level}</div>
+      <div class="vaeldris-card-hp" style="color:${m.currentHP <= 0 ? "#e74c3c" : "var(--text-muted)"}">
+        ${m.currentHP <= 0 ? "FAINTED" : `HP: ${m.currentHP}/${m.maxHP}`}
+      </div>`;
+    if (m.currentHP > 0) {
+      card.addEventListener("click", () => {
+        if (card.classList.contains("chosen")) {
+          card.classList.remove("chosen");
+          selected = selected.filter(i => i !== idx);
+        } else if (selected.length < 4) {
+          card.classList.add("chosen");
+          selected.push(idx);
+        }
+        confirmBtn.disabled = selected.length !== 4;
+        confirmBtn.textContent = `Confirm (${selected.length}/4 selected)`;
+      });
+    }
+    grid.appendChild(card);
+  }
+
+  confirmBtn.disabled = true;
+  confirmBtn.textContent = "Confirm (0/4 selected)";
+  confirmBtn.onclick = () => {
+    if (selected.length !== 4) return;
+    overlay.classList.add("hidden");
+    launchWielderBattle(quest, selected);
+  };
+  document.getElementById("vaeldris-select-cancel")?.addEventListener("click", () => {
+    overlay.classList.add("hidden");
+  }, { once: true });
+
+  overlay.classList.remove("hidden");
+}
+
+function launchWielderBattle(quest, playerSlots) {
+  const wielderId = quest.id;
+  const wielder = typeof VAELDRIS_WIELDERS !== "undefined" ? VAELDRIS_WIELDERS[wielderId] : null;
+  if (!wielder) { showNotification("Wielder data not found."); return; }
+  const isNGPlus = G.ngPlusCount > 0;
+  const teamData = (isNGPlus && wielder.ngTeam) ? wielder.ngTeam : wielder.team;
+  const enemyTeam = teamData.map(s => buildGymMon(s));
+
+  battleContext = {
+    isWild: false, isGym: false, isChampion: false, isRival: false,
+    isUmbra: false, isUmbraArea: false, isQuest: false, isTrainer: false,
+    isWielder: true, wielderId, questId: wielderId,
+    battleMode: "triple",
+    leaderId: wielderId,
+    enemyTeam, enemyTeamIdx: Math.min(3, enemyTeam.length),
+    vaeldrisPlayerSlots: playerSlots,
+    levelCap: null
+  };
+
+  showNotification(`🌀 <strong>${wielder.name}</strong>: "${wielder.quote}"`, () => {
+    startMultiBattle(enemyTeam, wielder.name, "triple", playerSlots);
   });
 }
 

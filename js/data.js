@@ -889,8 +889,8 @@ const MONSTERS_DATA = {
     base:{hp:82,atk:75,def:80,spa:101,spd:110,spe:84},
     learnset:[[1,"seed_bomb"],[2,"energy_ball"],[3,"vine_whip"],[4,"sleep_powder"],[40,"verdant_surge"],[41,"tail_whip"],[44,"fairy_wind"],[47,"petal_blitz"],[48,"scratch"],[52,"dazzling_gleam"],[56,"root_lance"],[60,"moonblast"],[5,"spore_burst"],[36,"celestial_wave"]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:265, rarity:"rare",
-    desc:"A majestic flower guardian. Its petals shimmer with magical energy.",
-    lore:"Floraith is a graceful deer-like creature 1.2 metres tall at the shoulder. Its white body is dappled with pink flower-shaped markings, and a garland of blossoms perpetually blooms along its neck regardless of season. It radiates a faint floral scent that calms nearby wild creatures and draws pollinators to the forest floor." },
+    desc:"A bark-armored reptile guardian. Year-round blossoms bloom along its spine, drawing pollinators wherever it roams.",
+    lore:"Floraith is a powerfully built quadrupedal reptile about 2 metres at the shoulder — the fully grown form of the Barknell lineage. Its hide of tightly fused bark plates is overgrown with living petals and small white-and-pink blossoms that bloom year-round regardless of season. A garland of larger flowers crowns its broad skull, and pollen drifts from its flanks as it walks. It moves slowly through old-growth forest, grazing on understory ferns and emitting a faint floral musk that calms nearby wildlife and draws pollinators to congregate in its wake." },
 
   // ===== ADDITIONAL FIRE =====
   10: { id:10, name:"Scorchlarva",  emoji:"🐛", types:["Fire","Bug"],

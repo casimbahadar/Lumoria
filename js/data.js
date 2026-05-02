@@ -2727,7 +2727,7 @@ const MONSTERS_DATA = {
   // ===== ADDITIONAL COMMON/UNCOMMON/RARE LUMOS =====
 
   // ===== FIRE/PSYCHIC =====
-  22: { id:22, name:"Scorchorin", emoji:"🔥", types:["Fire","Psychic"],
+  22: { id:22, name:"Hallucigaze", emoji:"🔥", types:["Fire","Psychic"],
     base:{hp:35,atk:41,def:37,spa:58,spd:56,spe:68},
     learnset:[[1,"ember",[20,"cinderwhirl"]],[1,"confusion"],[9,"psybeam"],[17,"flamethrower"],[21,"recover"],[25,"psychic_move"],[33,"fire_blast",[5,"scorch_veil"]],[36,"magma_surge"],[3,"embercloak"],[31,"inferno"]],
     evolveTo:23, evolveLevel:28, catchRate:150, expYield:88, rarity:"common",
@@ -2995,7 +2995,7 @@ const MONSTERS_DATA = {
     lore:"Pyroclasm is a jagged semi-humanoid rock creature 2.5 metres tall. Its body is a mass of dark basalt encrusted with glowing magma veins. When agitated it hurls chunks of its own burning body as projectiles. It forms in the wake of eruptions and is considered a manifestation of volcanic rage." },
 
   // 180: Helixareth - Fire/Dragon (Ignicula→Pyroveth→Helixareth)
-  18: { id:18, name:"Helixareth", emoji:"🐉", types:["Fire","Dragon"],
+  18: { id:18, name:"Bahamber", emoji:"🐉", types:["Fire","Dragon"],
     base:{hp:87,atk:111,def:72,spa:121,spd:82,spe:77},
     learnset:[[1,"ember"],[1,"flamethrower"],[2,"dragon_breath"],[3,"cinderwhirl"],[4,"scorch_veil"],[38,"dragon_claw"],[42,"heat_wave"],[46,"fire_blast"],[50,"dragon_pulse"],[54,"solar_flare"],[58,"outrage"],[62,"inferno"],[5,"embercloak"],[44,"eon_crash"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",

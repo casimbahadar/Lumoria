@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 """
-Filter a list of candidate prefixes/suffixes to those that are SAFE under
-strict cap-2 against current data.js.
+Family-aware filter: a candidate prefix/suffix is SAFE iff for every length
+L in 3..8, the count of distinct families using that substring is <= 1
+(so adding our candidate, in a NEW family, makes <= 2).
 
-A prefix P is safe iff for every length L in 3..min(8, len(P)),
-the count of existing bare names starting with P[:L].lower() is <= 1.
-Same logic for suffixes (using last-L-chars).
+If the candidate is joining an existing family that already uses the
+substring, that family doesn't count twice — pass --family ID.
 
 Usage:
-  python3 scripts/safe_suggestions.py --prefix Magma Char Brand Sear ...
-  python3 scripts/safe_suggestions.py --suffix flare drake wyrm coil ...
-  python3 scripts/safe_suggestions.py --prefix A B C --suffix x y z
+  python3 scripts/safe_suggestions.py --prefix Magma Char ... --suffix flare drake ...
+  python3 scripts/safe_suggestions.py --family 11 --prefix ... --suffix ...
 """
 import re
 import sys
 from collections import defaultdict
+from family_map import family_of, mons as fam_mons
 
 DATA_JS = "/home/user/Lumoria/js/data.js"
 
@@ -26,59 +26,80 @@ mons = {int(m.group(1)): m.group(2) for m in mon_re.finditer(content)}
 def bare(n):
     return n[10:] if n.startswith("Forgotten ") else n
 
-# Pre-build prefix/suffix counters for lengths 3..8
-pfx_count = defaultdict(int)  # (length, substring.lower()) -> count
-sfx_count = defaultdict(int)
-for name in mons.values():
+pfx_families = defaultdict(set)
+sfx_families = defaultdict(set)
+for mid, name in mons.items():
     bl = bare(name).lower()
+    fam = family_of(mid)
     for L in range(3, 9):
         if len(bl) >= L:
-            pfx_count[(L, bl[:L])] += 1
-            sfx_count[(L, bl[-L:])] += 1
+            pfx_families[(L, bl[:L])].add(fam)
+            sfx_families[(L, bl[-L:])].add(fam)
 
-def safe_prefix(p, verbose=False):
-    """Return (ok, reasons). ok=True if every 3..len(p) char prefix has <=1 existing mon."""
+def safe_prefix(p, candidate_family=None):
     pl = p.lower()
     reasons = []
     for L in range(3, min(9, len(pl) + 1)):
-        c = pfx_count.get((L, pl[:L]), 0)
-        if c >= 2:
-            reasons.append(f"'{pl[:L]}-' (len {L}) already at {c} mons")
+        fams = pfx_families.get((L, pl[:L]), set())
+        # If the candidate's family is already in fams, no addition.
+        # Otherwise we'd add 1 family.
+        if candidate_family is not None and candidate_family in fams:
+            count = len(fams)
+        else:
+            count = len(fams) + 1
+        if count > 2:
+            reasons.append(f"'{pl[:L]}-' (len {L}) already in {len(fams)} families")
     return (len(reasons) == 0, reasons)
 
-def safe_suffix(s, verbose=False):
+def safe_suffix(s, candidate_family=None):
     sl = s.lower()
     reasons = []
     for L in range(3, min(9, len(sl) + 1)):
-        c = sfx_count.get((L, sl[-L:]), 0)
-        if c >= 2:
-            reasons.append(f"'-{sl[-L:]}' (len {L}) already at {c} mons")
+        fams = sfx_families.get((L, sl[-L:]), set())
+        if candidate_family is not None and candidate_family in fams:
+            count = len(fams)
+        else:
+            count = len(fams) + 1
+        if count > 2:
+            reasons.append(f"'-{sl[-L:]}' (len {L}) already in {len(fams)} families")
     return (len(reasons) == 0, reasons)
 
-def filter_list(candidates, kind):
+def filter_list(candidates, kind, candidate_family=None):
     fn = safe_prefix if kind == "prefix" else safe_suffix
     safe, blocked = [], []
     for c in candidates:
-        ok, reasons = fn(c)
+        ok, reasons = fn(c, candidate_family=candidate_family)
         (safe if ok else blocked).append((c, reasons))
     return safe, blocked
 
 if __name__ == "__main__":
     args = sys.argv[1:]
     mode = None
+    candidate_family = None
     prefixes, suffixes = [], []
-    for a in args:
-        if a == "--prefix":
+    i = 0
+    while i < len(args):
+        if args[i] == "--family":
+            candidate_family = int(args[i + 1])
+            i += 2
+        elif args[i] == "--prefix":
             mode = "p"
-        elif a == "--suffix":
+            i += 1
+        elif args[i] == "--suffix":
             mode = "s"
+            i += 1
         elif mode == "p":
-            prefixes.append(a)
+            prefixes.append(args[i]); i += 1
         elif mode == "s":
-            suffixes.append(a)
+            suffixes.append(args[i]); i += 1
+        else:
+            i += 1
+
+    if candidate_family is not None:
+        print(f"(family-aware: candidate joins family@{candidate_family})\n")
 
     if prefixes:
-        safe, blocked = filter_list(prefixes, "prefix")
+        safe, blocked = filter_list(prefixes, "prefix", candidate_family)
         print(f"=== PREFIX SAFE ({len(safe)}/{len(prefixes)}) ===")
         for c, _ in safe:
             print(f"  {c}")
@@ -88,7 +109,7 @@ if __name__ == "__main__":
                 print(f"  {c}: {'; '.join(reasons)}")
 
     if suffixes:
-        safe, blocked = filter_list(suffixes, "suffix")
+        safe, blocked = filter_list(suffixes, "suffix", candidate_family)
         print(f"\n=== SUFFIX SAFE ({len(safe)}/{len(suffixes)}) ===")
         for c, _ in safe:
             print(f"  {c}")

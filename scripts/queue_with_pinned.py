@@ -1,35 +1,30 @@
 #!/usr/bin/env python3
 """
-Re-derive the rename queue from current data.js, treating a fixed set of
-ids as PINNED (must keep their current names). Anything else over-cap on
-any 3..8 char prefix/suffix gets queued for rename.
+Family-aware queue derivation. Treats a fixed set of ids as PINNED
+(must keep their current names). Anything else over-cap on any 3..8 char
+prefix/suffix (counted by distinct families) gets queued for rename.
 
-For each over-cap group, drop the LOWEST-id NON-PINNED mons last (keep them
-canonical when possible to minimize churn) and flag the rest. Pinned mons
-are never flagged unless an entire over-cap group is composed of pinned
-mons (in which case we report it as needing manual resolution).
-
-Pinned set: the 53 ids just applied + #167 Cranidingo (still pending re-pick,
-keep its current name as a placeholder).
+For each over-cap group of size N families, drop the LOWEST-id NON-PINNED
+mons last (keep them canonical when possible to minimize churn) and flag
+the rest. Pinned mons are never flagged unless an entire over-cap group
+is composed of pinned mons (in which case we report it as needing manual
+resolution).
 """
 
 import re
 from collections import defaultdict
 from difflib import SequenceMatcher
 import sys
+from family_map import family_of, families
 
 DATA_JS = "/home/user/Lumoria/js/data.js"
 
-# 57 ids whose new names have been applied (must stay as-is).
-# 53 from the prior session's APPROVED dict (minus #167 Cranidingo, which
-# was dropped due to a 3-way Cra- INTRA conflict and returns to queue).
-# 4 from this session: 33 Septanemone, 39 Gossafin, 47 Hexaprowl, 50 Tundram.
 PINNED_IDS = {
-    10, 17, 33, 39, 44, 47, 50, 86, 92, 100, 103, 108, 118, 119, 120, 121,
-    122, 125, 126, 128, 132, 136, 137, 141, 147, 148, 149, 153, 154, 158,
-    159, 160, 165, 166, 175, 176, 177, 180, 181, 185, 186, 189, 191, 192,
-    197, 200, 202, 217, 223, 225, 229, 240, 242, 243, 255, 256, 262, 263,
-    264,
+    10, 17, 18, 22, 33, 39, 44, 47, 50, 86, 92, 100, 103, 108, 118, 119,
+    120, 121, 122, 125, 126, 128, 132, 136, 137, 141, 147, 148, 149, 153,
+    154, 158, 159, 160, 165, 166, 175, 176, 177, 180, 181, 185, 186, 189,
+    191, 192, 197, 200, 202, 217, 223, 225, 229, 240, 242, 243, 255, 256,
+    262, 263, 264,
 }
 
 with open(DATA_JS) as f:
@@ -50,83 +45,93 @@ print(f"Parsed {len(mons)} mons.")
 
 def bare(n): return n[10:] if n.startswith("Forgotten ") else n
 
-# Build prefix/suffix maps
-pfx, sfx = defaultdict(list), defaultdict(list)
+# Family-aware prefix/suffix maps: (L, sub) -> {family_root_id -> [mids]}
+pfx_fams = defaultdict(lambda: defaultdict(list))
+sfx_fams = defaultdict(lambda: defaultdict(list))
 for mid, mon in mons.items():
     bl = bare(mon["name"]).lower()
+    fam = family_of(mid)
     for L in range(3, 9):
         if len(bl) >= L:
-            pfx[(L, bl[:L])].append(mid)
-            sfx[(L, bl[-L:])].append(mid)
+            pfx_fams[(L, bl[:L])][fam].append(mid)
+            sfx_fams[(L, bl[-L:])][fam].append(mid)
 
 flagged = defaultdict(list)
 def mark(mid, reason):
     if reason not in flagged[mid]:
         flagged[mid].append(reason)
 
-unresolvable = []  # groups composed entirely of PINNED ids that exceed cap
+unresolvable = []
 
 def process(prefix=True):
-    src = pfx if prefix else sfx
-    for (L, sub), ids in list(src.items()):
+    src = pfx_fams if prefix else sfx_fams
+    for (L, sub), fam_dict in list(src.items()):
         if L != 3:
             continue
-        if len(ids) <= 2:
+        if len(fam_dict) <= 2:
             continue
-        # Separate into pinned vs non-pinned
-        pinned_in_group = [i for i in ids if i in PINNED_IDS]
-        non_pinned = [i for i in ids if i not in PINNED_IDS]
-        # If pinned alone exceed cap, that's unresolvable -- need manual pick
-        if len(pinned_in_group) > 2:
+        # Family-aware: too many distinct families share this substring
+        family_list = sorted(fam_dict.keys())  # by root id
+        # Count pinned vs non-pinned families
+        # A family is "pinned" if AT LEAST ONE of its members at this substring
+        # is pinned (we don't want to disturb pinned mons even if their family
+        # has other members)
+        pinned_families = []
+        non_pinned_families = []
+        for fam in family_list:
+            mids = fam_dict[fam]
+            has_pinned = any(m in PINNED_IDS for m in mids)
+            (pinned_families if has_pinned else non_pinned_families).append(fam)
+        # Keep up to 2 families canonical (prefer pinned, then lowest root id)
+        keep_families = set(pinned_families[:2])
+        slots = 2 - len(keep_families)
+        if slots > 0:
+            keep_families.update(non_pinned_families[:slots])
+        # If too many pinned families, unresolvable
+        if len(pinned_families) > 2:
             unresolvable.append({
                 "kind": "PREFIX" if prefix else "SUFFIX",
                 "sub": sub,
                 "L": L,
-                "pinned": [(i, mons[i]["name"]) for i in sorted(pinned_in_group)],
-                "non_pinned": [(i, mons[i]["name"]) for i in sorted(non_pinned)],
+                "pinned_families": [(f, [(m, mons[m]["name"]) for m in fam_dict[f]]) for f in pinned_families],
+                "non_pinned_families": [(f, [(m, mons[m]["name"]) for m in fam_dict[f]]) for f in non_pinned_families],
             })
-            # Flag all non-pinned anyway, plus excess pinned
-            for i in non_pinned:
-                names = [mons[x]["name"] for x in sorted(ids)]
+        # Flag all mons in non-keep families that aren't pinned
+        for fam in family_list:
+            if fam in keep_families:
+                continue
+            for m in fam_dict[fam]:
+                if m in PINNED_IDS:
+                    continue
+                family_names = sorted({mons[mid_]["name"] for fam_inner in fam_dict for mid_ in fam_dict[fam_inner]})
                 kind = "PREFIX" if prefix else "SUFFIX"
-                marker = "-" if prefix else ""
-                marker2 = "" if prefix else "-"
-                mark(i, f"{kind} '{marker2}{sub}{marker}' shared with {len(ids)} mons (cap 2): {names}")
-            continue
-        # Keep pinned (up to 2) and lowest-id non-pinned to fill remaining slots
-        keep = set(pinned_in_group[:2])
-        slots_left = 2 - len(keep)
-        if slots_left > 0:
-            keep.update(sorted(non_pinned)[:slots_left])
-        # Flag everyone not kept
-        for i in ids:
-            if i not in keep and i not in PINNED_IDS:
-                names = [mons[x]["name"] for x in sorted(ids)]
-                kind = "PREFIX" if prefix else "SUFFIX"
-                marker = "-" if prefix else ""
-                marker2 = "" if prefix else "-"
-                mark(i, f"{kind} '{marker2}{sub}{marker}' shared with {len(ids)} mons (cap 2): {names}")
+                mark(m, f"{kind} '{sub}' shared with {len(fam_dict)} families (cap 2): {family_names}")
 
 process(prefix=True)
 process(prefix=False)
 
-# Exact duplicates (excluding pinned)
+# Exact duplicates
 bare_to_ids = defaultdict(list)
 for mid, mon in mons.items():
     bare_to_ids[bare(mon["name"]).lower()].append(mid)
 for b, ids in bare_to_ids.items():
     if len(ids) > 1:
-        sorted_ids = sorted(ids)
-        for mid in sorted_ids[1:]:
-            if mid not in PINNED_IDS:
-                mark(mid, f"EXACT DUPLICATE bare name '{b}' shared with {sorted_ids}")
+        # If all in same family, allow (e.g. shouldn't happen but just in case)
+        fams = {family_of(i) for i in ids}
+        if len(fams) > 1:
+            sorted_ids = sorted(ids)
+            for mid in sorted_ids[1:]:
+                if mid not in PINNED_IDS:
+                    mark(mid, f"EXACT DUPLICATE bare name '{b}' with {sorted_ids}")
 
-# Near-duplicates (excluding pinned)
+# Near-duplicates
 THRESHOLD = 0.88
 all_ids = sorted(mons.keys())
 for i in range(len(all_ids)):
     for j in range(i + 1, len(all_ids)):
         a, b_id = all_ids[i], all_ids[j]
+        if family_of(a) == family_of(b_id):
+            continue  # same family — similar names are fine
         ba = bare(mons[a]["name"]).lower()
         bb = bare(mons[b_id]["name"]).lower()
         if ba == bb:
@@ -135,7 +140,7 @@ for i in range(len(all_ids)):
         if score >= THRESHOLD and b_id not in PINNED_IDS:
             mark(b_id, f"NEAR-DUPE of #{a} '{mons[a]['name']}' (sim {score:.3f})")
 
-# Forgotten midfix conflicts
+# Forgotten midfix conflicts (skip if midfix matches a same-family mon)
 for fid in sorted(mons):
     if not mons[fid]["name"].startswith("Forgotten "):
         continue
@@ -145,21 +150,25 @@ for fid in sorted(mons):
     if len(bname) < 3:
         continue
     midfix = bname[:3]
-    matches = [rid for rid in mons
-               if rid != fid
-               and bare(mons[rid]["name"]).lower().startswith(midfix)
-               and bare(mons[rid]["name"]).lower() != bname]
+    matches = []
+    for rid in mons:
+        if rid == fid:
+            continue
+        if family_of(rid) == family_of(fid):
+            continue  # same family - allowed
+        rname_bare = bare(mons[rid]["name"]).lower()
+        if rname_bare.startswith(midfix) and rname_bare != bname:
+            matches.append(rid)
     if matches:
         names = [mons[r]["name"] for r in sorted(matches)]
-        mark(fid, f"MIDFIX '{midfix}' (Forgotten) starts of: {names}")
+        mark(fid, f"MIDFIX '{midfix}' (Forgotten) starts: {names}")
 
-# Output
-print(f"\n=== TOTAL TO RENAME: {len(flagged)} ===\n")
+print(f"\n=== TOTAL TO RENAME (family-aware): {len(flagged)} ===\n")
 
 if unresolvable:
-    print(f"!! UNRESOLVABLE GROUPS (all pinned, manual resolution needed): {len(unresolvable)}")
-    for u in unresolvable:
-        print(f"  {u['kind']} '{u['sub']}' (len {u['L']}): pinned={u['pinned']}, non_pinned={u['non_pinned']}")
+    print(f"!! UNRESOLVABLE GROUPS (manual): {len(unresolvable)}")
+    for u in unresolvable[:5]:
+        print(f"  {u['kind']} '{u['sub']}': {len(u['pinned_families'])} pinned families")
     print()
 
 if "--full" in sys.argv:
@@ -173,7 +182,6 @@ if "--full" in sys.argv:
             reasons = reasons[:197] + "..."
         print(f"#{mid:>4}  {mon['name']:<28}  {types_str:<22}  {reasons}")
 else:
-    # Show just first 30 + summary
     print(f"First 30 in queue (id-ascending):")
     print(f"{'#':>5}  {'NAME':<28}  {'TYPES':<22}  TOP REASON")
     print("-" * 100)

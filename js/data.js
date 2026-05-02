@@ -3027,7 +3027,7 @@ const MONSTERS_DATA = {
     lore:"Tidalossus is a massive crustacean predator 4 metres across, with a dome-shaped granite-grey shell etched by centuries of wave erosion. Its six limbs end in serrated crushing claws. It prowls coastal shallows at night and generates a localised tidal surge by rapidly displacing water with its body." },
 
   // 184: Polarveth - Ice/Water (Cryonik→Boreon→Polarveth)
-  44: { id:44, name:"Polarveth", emoji:"🧊", types:["Ice","Water"],
+  44: { id:44, name:"Nagislither", emoji:"🧊", types:["Ice","Water"],
     base:{hp:97,atk:73,def:97,spa:122,spd:103,spe:58},
     learnset:[[1,"powder_snow"],[1,"surf"],[2,"ice_beam"],[3,"permafrost"],[4,"winter_shroud"],[38,"blizzard"],[42,"hoarfrost_bite"],[46,"icicle_crash"],[50,"hydro_pump"],[54,"glacial_tomb"],[58,"cryo_lance"],[62,"abyssal_jet"],[5,"tidecaller"],[44,"frost_current"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",

@@ -928,7 +928,7 @@ const MONSTERS_DATA = {
     desc:"A small worm that breathes tiny flames. Very shy and avoids conflict.",
     lore:"Cindercula is a sinuous fire-serpent about 1.8 metres long with iridescent scales shading from copper at the head to charcoal at the tail. A thin crest of flame-coloured feathers runs from its neck to mid-body. It slithers through ash fields and hunts by sensing heat signatures with specialised pit organs." },
 
-  17: { id:17, name:"Pyroveth",   emoji:"🐉", types:["Fire","Dragon"],
+  17: { id:17, name:"Searburn",   emoji:"🐉", types:["Fire","Dragon"],
     base:{hp:78,atk:97,def:61,spa:101,spd:75,spe:92},
     learnset:[[1,"ember"],[2,"flamethrower"],[3,"cinderwhirl"],[4,"scorch_veil"],[21,"vital_pulse"],[26,"char_dance"],[32,"dragon_breath"],[38,"dragon_claw"],[44,"heat_wave"],[50,"inferno"],[56,"outrage"],[62,"solar_flare"],[5,"embercloak"],[41,"dragon_rush"]],
     evolveTo:18, evolveLevel:42, catchRate:45, expYield:198, rarity:"uncommon",

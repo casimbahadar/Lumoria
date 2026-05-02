@@ -16,6 +16,10 @@ from collections import defaultdict
 
 DATA_JS = "/home/user/Lumoria/js/data.js"
 
+# 53 of the original 54 approved renames.
+# #167 Cranidingo dropped — it formed a 3-way INTRA conflict at "Cra-" with
+# #100 Craterlurk and #128 Cranivade (cap-2 forces dropping one). Cranidingo
+# returns to the front of the rename queue for a fresh prefix pick.
 APPROVED = {
     10:  "Scorchlarva",
     86:  "Galvaglide",
@@ -45,7 +49,6 @@ APPROVED = {
     160: "Miasmafly",
     165: "Venowarn",
     166: "Projectery",
-    167: "Cranidingo",
     175: "Biolumal",
     176: "Chromena",
     177: "Sapphier",
@@ -170,9 +173,12 @@ flagged_after -= set(APPROVED.keys())
 print(f"  {len(flagged_after)} mons would still need renaming")
 
 if "--apply" in sys.argv:
-    if clean_violations:
-        print("\n[ABORT] Refusing to apply with violations present.")
+    if clean_violations and "--force" not in sys.argv:
+        print("\n[ABORT] Refusing to apply with violations present. Pass --force to override.")
         sys.exit(1)
+    elif clean_violations:
+        print(f"\n[FORCE] Applying despite {len(clean_violations)} transitional violation(s).")
+        print("       Queue derivation will surface remaining canonical-mon collisions.")
     print("\n--- APPLYING RENAMES TO data.js ---")
     new_content = content
     applied = 0

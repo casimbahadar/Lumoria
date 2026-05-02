@@ -841,7 +841,7 @@ const MONSTERS_DATA = {
     desc:"A blazing fox with a fiery mane. Rivals fear its flaming charge.",
     lore:"Pyrevix is a mid-sized fox standing 90 cm tall with a broad chest and a flowing mane of orange flame that streams behind it when running. Its paws leave faint scorch marks on soft ground. It patrols wide territories each night, marking boundaries by igniting patches of dry grass in small controlled rings." },
 
-  3: { id:3, name:"Ignaraeth",  emoji:"🐲", types:["Fire","Dragon"],
+  3: { id:3, name:"Calderaeth",  emoji:"🐲", types:["Fire","Dragon"],
     base:{hp:70,atk:88,def:80,spa:105,spd:79,spe:105},
     learnset:[[1,"flame_fang"],[2,"flamethrower"],[3,"heat_wave"],[4,"scorch_veil"],[37,"fire_blast"],[40,"swords_dance"],[44,"dragon_breath"],[47,"inferno"],[48,"dragon_claw"],[52,"dragon_pulse"],[56,"solar_flare"],[60,"outrage"],[5,"embercloak"],[36,"eon_crash"]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:265, rarity:"rare",
@@ -849,26 +849,26 @@ const MONSTERS_DATA = {
     lore:"Ignaraeth is a massive dragon-fox over 3 metres from snout to tail. Its body is draped in overlapping scales the colour of cooling lava — dark charcoal edged with glowing amber. Two broad draconic wings fold flat when at rest. It dwells inside dormant calderas, sleeping curled around magma pools, and its roar carries the heat of a forge blast." },
 
   // Water Starters
-  4: { id:4, name:"Aquilin",     emoji:"💧", types:["Water"],
+  4: { id:4, name:"Aquatter",     emoji:"💧", types:["Water"],
     base:{hp:45,atk:52,def:69,spa:45,spd:66,spe:46},
     learnset:[[1,"tackle",[20,"frost_current"]],[1,"tail_whip"],[4,"water_gun"],[8,"bubble_beam"],[13,"aqua_tail"],[19,"recover"],[27,"surf"],[38,"hydro_pump",[5,"tidecaller"]]],
     evolveTo:5, evolveLevel:16, catchRate:45, expYield:59, rarity:"starter",
     desc:"A water sprite that lives near ponds. Its skin is always cool and moist.",
     lore:"Aquilin is a slender otter-like creature about 60 cm long with bright teal fur and large silver-rimmed eyes. A ridged fin runs from its neck to the base of its tail for steering underwater. It inhabits clear mountain streams and wedges smooth pebbles together to form small dams as nesting sites." },
 
-  5: { id:5, name:"Nerilis",    emoji:"🐍", types:["Water"],
+  5: { id:5, name:"Cobaleap",    emoji:"🐍", types:["Water"],
     base:{hp:60,atk:66,def:79,spa:64,spd:85,spe:64},
     learnset:[[1,"water_gun"],[2,"tail_whip"],[3,"bubble_beam"],[4,"aqua_tail"],[5,"tidecaller"],[16,"recover"],[24,"surf"],[30,"harden"],[35,"hydro_pump"],[44,"tidal_crush"],[6,"deepwater_hymn"],[33,"swords_dance"]],
     evolveTo:6, evolveLevel:36, catchRate:25, expYield:142, rarity:"uncommon",
     desc:"A serpentine water Lumori. Glides through water with incredible grace.",
     lore:"Nerilis is a sleek sea-serpent roughly 2 metres long with cobalt-blue scales that reflect light like polished glass. A pale turquoise stripe runs its full length, and a fan-shaped crest unfurls behind its head when threatened. It leaps between waves and can sustain speeds that outpace most sailing vessels." },
 
-  6: { id:6, name:"Pelagroth",    emoji:"🐲", types:["Water","Dragon"],
+  6: { id:6, name:"Pelagroth",    emoji:"🦦", types:["Water","Ground"],
     base:{hp:72,atk:90,def:97,spa:89,spd:105,spe:75},
     learnset:[[1,"surf"],[2,"aqua_tail"],[3,"harden"],[4,"tidecaller"],[37,"hydro_pump"],[40,"abyssal_jet"],[44,"dragon_breath"],[48,"coral_barrage"],[52,"dragon_claw"],[56,"dragon_pulse"],[60,"eon_crash"],[64,"outrage"],[5,"deepwater_hymn"],[39,"ocean_tempest"]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:265, rarity:"rare",
-    desc:"An oceanic behemoth said to rule the seas. Its roar causes tidal waves.",
-    lore:"Pelagroth is a colossal aquatic dragon over 8 metres long, tapering from a broad armoured head to a powerful eel-like tail. Deep indigo scales cover its back while the belly is pale violet with bioluminescent patches that pulse in the deep ocean. Ancient sailors mistook its silhouette for a rising island." },
+    desc:"An amphibious otter that has grown to thrive on land as much as in water. Its stretched limbs and digging claws make it as fearsome on the bank as in the current.",
+    lore:"Pelagroth is a powerfully built otter just over 2 metres from snout to tail-tip. Where its earlier stages spend almost all their lives submerged, this final form has gradually grown into a true land-thriver: its limbs have stretched and thickened, its glossy umber fur has gained a coarser overcoat that sheds water and sun alike, and its broad webbed forepaws have developed stout digging claws strong enough to carve deep tunnels straight into riverbanks. It still chases trout and crustaceans through submerged channels, but increasingly it patrols the surrounding grasslands as well — ambushing rodents and ground-nesting birds, then resting in long burrows whose chambers open well above the waterline. Long mud slides worn into embankments mark its preferred travel routes between water and land." },
 
   // Grass Starters
   7: { id:7, name:"Verdkin",  emoji:"🌱", types:["Grass"],

@@ -863,12 +863,12 @@ const MONSTERS_DATA = {
     desc:"A serpentine water Lumori. Glides through water with incredible grace.",
     lore:"Nerilis is a sleek sea-serpent roughly 2 metres long with cobalt-blue scales that reflect light like polished glass. A pale turquoise stripe runs its full length, and a fan-shaped crest unfurls behind its head when threatened. It leaps between waves and can sustain speeds that outpace most sailing vessels." },
 
-  6: { id:6, name:"Pelagroth",    emoji:"🦦", types:["Water","Ground"],
+  6: { id:6, name:"Banksnout",    emoji:"🦦", types:["Water","Ground"],
     base:{hp:72,atk:90,def:97,spa:89,spd:105,spe:75},
     learnset:[[1,"surf"],[2,"aqua_tail"],[3,"harden"],[4,"tidecaller"],[37,"hydro_pump"],[40,"abyssal_jet"],[44,"mud_shot"],[48,"coral_barrage"],[52,"drill_run"],[56,"earth_power"],[60,"fissure_slam"],[64,"tectonic_slam"],[5,"deepwater_hymn"],[39,"ocean_tempest"]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:265, rarity:"rare",
     desc:"An amphibious otter that has grown to thrive on land as much as in water. Its stretched limbs and digging claws make it as fearsome on the bank as in the current.",
-    lore:"Pelagroth is a powerfully built otter just over 2 metres from snout to tail-tip. Where its earlier stages spend almost all their lives submerged, this final form has gradually grown into a true land-thriver: its limbs have stretched and thickened, its glossy umber fur has gained a coarser overcoat that sheds water and sun alike, and its broad webbed forepaws have developed stout digging claws strong enough to carve deep tunnels straight into riverbanks. It still chases trout and crustaceans through submerged channels, but increasingly it patrols the surrounding grasslands as well — ambushing rodents and ground-nesting birds, then resting in long burrows whose chambers open well above the waterline. Long mud slides worn into embankments mark its preferred travel routes between water and land." },
+    lore:"Banksnout is a powerfully built otter just over 2 metres from snout to tail-tip. Where its earlier stages spend almost all their lives submerged, this final form has gradually grown into a true land-thriver: its limbs have stretched and thickened, its glossy umber fur has gained a coarser overcoat that sheds water and sun alike, and its broad webbed forepaws have developed stout digging claws strong enough to carve deep tunnels straight into riverbanks. It still chases trout and crustaceans through submerged channels, but increasingly it patrols the surrounding grasslands as well — ambushing rodents and ground-nesting birds, then resting in long burrows whose chambers open well above the waterline. Long mud slides worn into embankments mark its preferred travel routes between water and land." },
 
   // Grass Starters
   7: { id:7, name:"Verdkin",  emoji:"🌱", types:["Grass"],

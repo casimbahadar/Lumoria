@@ -1158,7 +1158,7 @@ const MONSTERS_DATA = {
     lore:"Aetherworn is a shadow-wind creature 50 cm long resembling a tattered bat with ragged dark wings and a body that seems to shift between solid and smoke. Its eyes are pale grey. It haunts windswept ruins and desolate cliff edges, and its passage chills the air noticeably even on warm days." },
 
   // ===== ICE =====
-  47: { id:47, name:"Sleetkin",    emoji:"🐺", types:["Ice"],
+  47: { id:47, name:"Hexaprowl",    emoji:"🐺", types:["Ice"],
     base:{hp:49,atk:54,def:51,spa:63,spd:47,spe:73},
     learnset:[[1,"scratch",[22,"glacial_shard"]],[1,"powder_snow"],[8,"quick_attack"],[16,"icicle_crash"],[24,"ice_beam"],[29,"recover"],[32,"ice_punch"],[40,"blizzard",[5,"permafrost"]],[3,"winter_shroud"],[31,"leer"]],
     evolveTo:48, evolveLevel:28, catchRate:120, expYield:90, rarity:"common",
@@ -1172,7 +1172,7 @@ const MONSTERS_DATA = {
     desc:"A blizzard hound that howls to summon snowstorms. Fearsome and fast.",
     lore:"Hailgorge is a massive ice wolf 1.3 metres tall at the shoulder with broad shoulders and white fur that bristles with jagged ice spines when it raises its hackles. Its howl condenses moisture in the air into a brief localised hailstorm. It leads Sleetkin packs with absolute authority." },
 
-  50: { id:50, name:"Nivelin",   emoji:"🐏", types:["Ice","Normal"],
+  50: { id:50, name:"Tundram",   emoji:"🐏", types:["Ice","Normal"],
     base:{hp:49,atk:49,def:55,spa:52,spd:64,spe:54},
     learnset:[[1,"tackle",[22,"permafrost"]],[1,"powder_snow"],[10,"harden"],[18,"ice_beam"],[20,"vital_pulse"],[26,"body_slam"],[34,"blizzard",[5,"winter_shroud"]],[36,"headbutt"],[3,"frostfire_veil"],[31,"glacial_shard"]],
     evolveTo:51, evolveLevel:24, catchRate:180, expYield:77, rarity:"common",
@@ -2507,7 +2507,7 @@ const MONSTERS_DATA = {
     lore:"Coralossus is a massive living-reef creature 4 metres tall appearing as a hulking humanoid formed from packed coral, encrusted shells, and marine growth. Steel-hard armour covers every surface. It stands motionless on the sea floor for decades, and divers often mistake it for a natural reef formation." },
 
   // ===== WATER/WIND =====
-  39: { id:39, name:"Depthveth", emoji:"🐬", types:["Water","Wind"],
+  39: { id:39, name:"Gossafin", emoji:"🐬", types:["Water","Wind"],
     base:{hp:73,atk:74,def:69,spa:86,spd:72,spe:84},
     learnset:[[1,"water_gun",[24,"tidal_crush"]],[1,"gust"],[12,"bubble_beam"],[20,"wing_attack"],[25,"swords_dance"],[28,"surf"],[36,"air_slash"],[44,"hydro_pump"],[45,"riptide_slam"],[52,"hurricane",[5,"tidecaller"]],[3,"deepwater_hymn"],[37,"storm_surge"]],
     evolveTo:40, evolveLevel:42, catchRate:60, expYield:185, rarity:"uncommon",
@@ -3043,7 +3043,7 @@ const MONSTERS_DATA = {
     lore:"Nepturix is a silvery deep-sea fish about 60 cm long with enormous light-gathering eyes and a slender streamlined body. Bioluminescent dots line its lateral line. It descends to lightless ocean trenches during the day and ascends to shallower water at night to feed on schooling fish." },
 
   // 186: Noxarith - Water/Poison (Toxaquil→Noxaquith→Noxarith)
-  33: { id:33, name:"Noxarith", emoji:"🪸", types:["Water","Poison"],
+  33: { id:33, name:"Septanemone", emoji:"🪸", types:["Water","Poison"],
     base:{hp:92,atk:98,def:87,spa:127,spd:98,spe:48},
     learnset:[[1,"sludge_bomb"],[1,"surf"],[2,"tidecaller"],[3,"toxic"],[4,"corrosion_fang"],[38,"venom_lance"],[42,"sludge_wave"],[46,"hydro_pump"],[50,"acid_rain"],[54,"venoshock"],[58,"putrid_pulse"],[62,"stinger_volley"],[5,"deepwater_hymn"],[44,"miasma_cloud"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",

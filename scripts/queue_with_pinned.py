@@ -20,13 +20,15 @@ import sys
 
 DATA_JS = "/home/user/Lumoria/js/data.js"
 
-# 53 ids whose new names were just applied (must stay as-is) + #167 (pending re-pick)
+# 57 ids whose new names have been applied (must stay as-is).
+# 53 from the prior session's APPROVED dict (minus #167 Cranidingo, which
+# was dropped due to a 3-way Cra- INTRA conflict and returns to queue).
+# 4 from this session: 33 Septanemone, 39 Gossafin, 47 Hexaprowl, 50 Tundram.
 PINNED_IDS = {
-    10, 86, 92, 100, 103, 108, 118, 119, 120, 121, 122, 125, 126, 128,
-    132, 136, 137, 141, 147, 148, 149, 153, 154, 158, 159, 160, 165,
-    166, 175, 176, 177, 180, 181, 185, 186, 189, 191, 192, 197, 200,
-    202, 217, 223, 225, 229, 240, 242, 243, 255, 256, 262, 263, 264,
-    167,  # pending re-pick — but its CURRENT name "Cranidingo" stays for now
+    10, 33, 39, 47, 50, 86, 92, 100, 103, 108, 118, 119, 120, 121, 122,
+    125, 126, 128, 132, 136, 137, 141, 147, 148, 149, 153, 154, 158, 159,
+    160, 165, 166, 175, 176, 177, 180, 181, 185, 186, 189, 191, 192, 197,
+    200, 202, 217, 223, 225, 229, 240, 242, 243, 255, 256, 262, 263, 264,
 }
 
 with open(DATA_JS) as f:
@@ -46,13 +48,6 @@ for m in mon_re.finditer(content):
 print(f"Parsed {len(mons)} mons.")
 
 def bare(n): return n[10:] if n.startswith("Forgotten ") else n
-
-# Wait -- #167 Cranidingo is in PINNED_IDS but its current data.js name is
-# still "Mentovast"... no wait, let me check actual current name
-# Actually it's "Vexakin" or similar. We need to PIN by keeping CURRENT name
-# even if it's still over-cap. So #167 will simply be flagged in queue.
-# Remove from PINNED to allow it to be flagged.
-PINNED_IDS.discard(167)
 
 # Build prefix/suffix maps
 pfx, sfx = defaultdict(list), defaultdict(list)

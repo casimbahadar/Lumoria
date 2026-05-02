@@ -16,12 +16,9 @@ from collections import defaultdict
 DATA_JS = "/home/user/Lumoria/js/data.js"
 
 # Approved renames already discussed but not yet written to data.js
-# (these REPLACE the current name in data.js for analysis purposes)
-APPROVED_PENDING = {
-    33: "Septanemone",
-    39: "Gossafin",
-    # 44, 47, 50 will be added once confirmed
-}
+# (these REPLACE the current name in data.js for analysis purposes).
+# Keep empty when checking candidates against the actual on-disk state.
+APPROVED_PENDING = {}
 
 with open(DATA_JS, "r", encoding="utf-8") as f:
     content = f.read()

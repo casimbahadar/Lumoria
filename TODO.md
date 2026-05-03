@@ -102,15 +102,15 @@ Last presented: #13 Taurcin (recommendation: KEEP). Awaiting user response.
 Per audit (Part 1 of evolution-line coherence audit). Tackle one-by-one, get user approval per family before applying.
 
 - [x] **#5 Cobaleap** — rewritten as 2 m long-bodied mustelid (cobalt fur, turquoise stripe, raised guard-hair ruff, leaping behaviour preserved). Emoji 🐍 → 🦦. Otter line now coherent: Aquatter (otter starter) → Cobaleap (sleek mustelid mid) → Banksnout (heavy amphibious otter final).
-- [ ] **#22-24 Hallucigaze → Pyraxis → Ignitheon** — reptile → mantis → lion. Fix: rewrite **Pyraxis** as bipedal lizard-sphinx.
-- [ ] **#31-33 Toxaquil → Noxaquith → Septanemone** — octopus → squid → sessile anemone. Fix: rewrite **Septanemone** as bloomed cephalopod with anemone-petal mantle (#33 already in PINNED_IDS as "Septanemone").
-- [ ] **#45-46 Slatis → Frostmere** — jellyfish → ice-seal. Fix: rewrite **Frostmere** as gelatinous-pinniped form.
-- [ ] **#50-52 Tundram → Shiverling → Permavast** — ram → crystal → bear. Fix: swap or remove **Shiverling** from line; OR rebuild as yak/musk-ox.
-- [ ] **#57-58 Speculith → Irisarael** — floating lens → winged fairy. Fix: rewrite **Speculith** as crystalline imp with wing-buds.
-- [ ] **#95-97 Dustkin → Seismith → Tectonvast** — dog → rock-dog → rhino. Fix: rewrite **Tectonvast** as stone-armoured mastiff/boarhound.
-- [ ] **#168-169 Espelith → Aurarael** — solid prism → formless light. Fix: rewrite **Aurarael** as orbiting prism shards.
+- [x] **#22-24 Hallucigaze → Pyraxis → Ignitheon** — Pyraxis (#23) rewritten as bipedal saurian with proto-mane (feathered ruff) bridging the snake-headed lizard base to the leonine final. Emoji 🧠 → 🦎. Stats/learnset unchanged. *(Uncommitted, batched with rest of BREAKING.)*
+- [x] **#31-33 Toxaquil → Noxaquith → Septanemone** — Septanemone (#33) rewritten as 3.5 m bloomed cephalopod with anemone-petal frills around the mantle and seven venom-tipped tentacles. Active swimmer (no longer sessile). Phylum now coherent: octopus → squid → bloomed cephalopod. Emoji 🪸 → 🦑. Lore opener "Noxarith…" fixed to "Septanemone…". *(Uncommitted, batched.)*
+- [x] **#45-46 Slatis → Frostmere** — Frostmere (#46) rewritten as a 1.5 m gelatinous deep-ocean creature condensed into a seal-shaped silhouette. Frost-crystal layer mimics fur; trailing tendrils from base form preserved behind the flippers; whole body acts as a resonant sensor for ice vibrations. Emoji 🦭 kept (pinniped silhouette retained). *(Uncommitted, batched.)*
+- [x] **#50-52 Tundram → Shiverling → Permavast** — full bovid line (Option A). Tundram (ram, pinned) kept; Shiverling (#51) rewritten as woolly frost-yak with growing ice-slab shoulders, type Ice → Ice/Normal, emoji 💎 → 🦬; Permavast (#52) reframed as colossal mountain auroch with curled horns and ice-slab armor, emoji 🐻‍❄️ → 🐃. Lore opener for Tundram fixed ("Nivelin" → "Tundram"). *(Uncommitted, batched.)*
+- [x] **#57-58 Speculith → Irisarael** — Speculith (#57) rewritten as a 40 cm floating ice-fairy sprite with a translucent lens-face, crystalline spines around the lens, and stubby iridescent wing-buds foreshadowing Irisarael's full wings. Fixes prior desc/lore contradiction (desc said "fish" while lore said "lens"). Emoji 🐟 → ✨. *(Uncommitted, batched.)*
+- [x] **#95-97 Dustkin → Seismith → Tectonvast** — full rhino line, retyped to **Ground/Electric** (mid + final). Dustkin (#95) reframed as 50 cm rhino calf with budding horn; Seismith (#96) as 1 m mid-rhino with conductive iron-veined plates and static-arc footfalls; Tectonvast (#97) as 2 m rhino-titan with lightning-following hide and storm-drawn ozone aura. Emojis 🐶/🐕/🦏 → 🦏 throughout. Learnset swaps (partial — kept some Rock/Crystal for variety): Seismith — stalactite_drop → spark, stone_edge → wild_charge (rock_slide and crystal_lance kept). Tectonvast — rock_slide → thunderbolt, stalactite_drop → ball_lightning, quarry_crush → overcharge (stone_edge and crystal_lance kept). *(Uncommitted, batched.)*
+- [x] **#168-169 Espelith → Aurarael** — Aurarael (#169) rewritten as a 60 cm levitating psychic core with seven orbiting prism shards held by a visible blue-violet mind-field; humanoid face from base stage preserved on the central core shard. Type expanded Psychic → Psychic/Fairy (now matches Espelith). Emoji 🌀 → 💫. *(Uncommitted, batched.)*
 - [ ] **#187-188 Norindel → Plentorus** — pig → hedgehog. Fix: rewrite **Plentorus** as quill-bristled boar.
-- [ ] **#209-210 Boltfur → Thundermane** — rabbit → lion. Fix: rewrite **Thundermane** as maned hare.
+- [x] **#209-210 Boltfur → Thundermane** — Thundermane (#210) rewritten as a 1.2 m maned storm-hare. Lagomorph silhouette preserved (long hind legs, upright ears) with the lion-mane visual reframed as a stiff fur mane crackling with static around the ears and neck. Pride-leader stalking → territory by hopping; roars → thunderclap mane-flares. Emoji 🦁 → 🐰. Stats/learnset already Electric-aligned, no swaps. *(Uncommitted, batched.)*
 
 # 🪛 MINOR family tweaks (one-line lore edits)
 
@@ -141,6 +141,22 @@ Address after BREAKING + MINOR. Plan: rebuild a few standalone or weaker family-
 - [ ] **golem (humanoid metal/stone)** — 10+ families. Trim to 3.
 - [ ] **crystalline / gem creature** — 8 families. Trim to 3.
 - [ ] **rock-monolith / standing-stone** — 5 families. Trim to 3.
+
+# 💡 Concept parking — future family ideas to use later
+
+- **"Whirlpool of light" — Water/Psychic family.** The original Aurarael flavor (a flowing psychic entity that resembles a whirlpool of blue-violet light given form, no solid body, continuously cycling vortex, inhabits locations of high psychic resonance, absorbs ambient thought energy) is being preserved here. Reuse for a new Water/Psychic family — possibly a deep-ocean meditation-shrine guardian, or a tidal-current spirit. Keep in mind during the renaming/typing pass.
+
+# 🧪 Type-combination audit — RUN AFTER BREAKING + MINOR, BEFORE THE RENAMING PART
+
+After all coherence fixes are committed, run a type-combination audit of the full roster:
+
+- [ ] Tally how many Lumori use each `[type1, type2]` (unordered) combination across the dex.
+- [ ] Devise a cap (e.g. 3-5 per combination) for "ordinary" typing pairs.
+- [ ] Flag any combo over the cap for redistribution OR mark as **"interesting / special typing combo"** if it's a deliberate flagship pairing (e.g. starter dual-types, signature legendary pairs, narratively distinctive combinations like Aether/Crystal).
+- [ ] Output: list of over-cap combos with member ids, plus a separate "special / preserve" list for user review.
+- [ ] Adjust types on selected mons to bring ordinary combos under cap, leaving the special ones intact.
+
+**Run order:** BREAKING fixes → MINOR fixes → this typing audit → archetype trim → renaming queue resumes.
 
 # 🔮 Mythical/rare archetype flags — END-OF-TASK USER DISCUSSION
 

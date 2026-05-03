@@ -101,7 +101,7 @@ Last presented: #13 Taurcin (recommendation: KEEP). Awaiting user response.
 
 Per audit (Part 1 of evolution-line coherence audit). Tackle one-by-one, get user approval per family before applying.
 
-- [ ] **#5 Cobaleap** — currently described as cobalt sea-serpent; line is otter→serpent→otter. **Proposal under user review** (rewrite as long-bodied mustelid, preserve cobalt color/turquoise stripe/leaping behaviour, change emoji 🐍 → 🦦).
+- [x] **#5 Cobaleap** — rewritten as 2 m long-bodied mustelid (cobalt fur, turquoise stripe, raised guard-hair ruff, leaping behaviour preserved). Emoji 🐍 → 🦦. Otter line now coherent: Aquatter (otter starter) → Cobaleap (sleek mustelid mid) → Banksnout (heavy amphibious otter final).
 - [ ] **#22-24 Hallucigaze → Pyraxis → Ignitheon** — reptile → mantis → lion. Fix: rewrite **Pyraxis** as bipedal lizard-sphinx.
 - [ ] **#31-33 Toxaquil → Noxaquith → Septanemone** — octopus → squid → sessile anemone. Fix: rewrite **Septanemone** as bloomed cephalopod with anemone-petal mantle (#33 already in PINNED_IDS as "Septanemone").
 - [ ] **#45-46 Slatis → Frostmere** — jellyfish → ice-seal. Fix: rewrite **Frostmere** as gelatinous-pinniped form.

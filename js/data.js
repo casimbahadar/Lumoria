@@ -900,7 +900,7 @@ const MONSTERS_DATA = {
     desc:"A fire beetle larva. Leaves scorch marks wherever it walks.",
     lore:"Embrix is a chubby flame-patterned caterpillar about 20 cm long. Its body segments alternate vivid orange and smoky black, with two antennae that glow orange at the tips. It feeds on dried bark near volcanic soil, and its silk threads are heat-resistant enough to be woven into flame-proof cloth." },
 
-  11: { id:11, name:"Heliocoon",  emoji:"🦋", types:["Fire","Wind"],
+  11: { id:11, name:"Heliocoon",  emoji:"🥚", types:["Fire","Wind"],
     base:{hp:80,atk:40,def:130,spa:60,spd:110,spe:56},
     learnset:[[1,"harden"],[1,"ember"],[4,"bug_bite"],[8,"chitin_guard"],[14,"scorch_veil"],[20,"recover"],[26,"harden"],[32,"embercloak"],[36,"heat_wave"],[5,"embercloak"],[39,"inferno"]],
     evolveTo:12, evolveLevel:40, catchRate:75, expYield:158, rarity:"uncommon",
@@ -2979,12 +2979,12 @@ const MONSTERS_DATA = {
   // ===== 3RD STAGE EVOLUTIONS (IDs 178-212) =====
 
   // 178: Inferarch - Fire/Dragon (Embrix→Helioveth→Inferarch)
-  12: { id:12, name:"Inferarch", emoji:"🔥", types:["Fire","Dragon"],
+  12: { id:12, name:"Inferarch", emoji:"🦋", types:["Fire","Wind"],
     base:{hp:84,atk:110,def:79,spa:119,spd:84,spe:74},
-    learnset:[[1,"ember"],[1,"flamethrower"],[2,"dragon_breath"],[3,"heat_wave"],[4,"scorch_veil"],[38,"fire_blast"],[43,"dragon_claw"],[48,"solar_flare"],[52,"outrage"],[57,"inferno"],[62,"dragon_pulse"],[67,"char_dance"],[5,"embercloak"],[44,"eon_crash"]],
+    learnset:[[1,"ember"],[1,"flamethrower"],[2,"gust"],[3,"heat_wave"],[4,"scorch_veil"],[38,"fire_blast"],[43,"wing_attack"],[48,"solar_flare"],[52,"bug_buzz"],[57,"inferno"],[62,"hurricane"],[67,"char_dance"],[5,"embercloak"],[44,"air_slash"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:265, rarity:"rare",
-    desc:"A sovereign of flame and ancient dragon lineage. Its wingbeats ignite the air itself into roaring curtains of fire.",
-    lore:"Inferarch is an enormous draconic predator nearly 5 metres long. Its scales are layered like volcanic rock — deep black at the base transitioning to red along the edges, with a continuous inner glow visible through the gaps. It inhabits the deepest volcanic rifts, drawing sustenance directly from geothermal heat." },
+    desc:"A regal fire-moth of vast wingspan. Heat shed by its wings rises into thermals it can ride for hours.",
+    lore:"Inferarch is an enormous fire-moth nearly 1.5 metres across the wings — the imago that finally splits Heliocoon's shell. Its slender body is banded in deep black; the upper wings flare with crimson, gold, and ash-rimmed eyespots that catch firelight when it rests, while the undersides shed a constant powder of ember-grey scales. Each broad wingbeat draws in cool air and releases it as a column of superheated wind that becomes its own thermal — Inferarch can drift silently above caldera fields for hours without descending. It feeds at night on the nectar of fire-blossoms that bloom only in geothermal soil, and the smouldering pollen it carries between flowers is responsible for the rapid spread of those heat-loving plants." },
 
   // 179: Pyroclasm - Fire/Rock (Taurcin→Molteroth→Pyroclasm)
   15: { id:15, name:"Pyroclasm", emoji:"🌋", types:["Fire","Rock"],

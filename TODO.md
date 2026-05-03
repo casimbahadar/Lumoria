@@ -101,7 +101,7 @@ Last presented: #13 Taurcin (recommendation: KEEP). Awaiting user response.
 
 Per audit (Part 1 of evolution-line coherence audit) **plus** the strict re-audit of ids 210-446. Tackle one-by-one, get user approval per family before applying.
 
-## Originally identified (8 of 9 done; 1 remaining)
+## Originally identified (9 done)
 
 - [x] **#5 Cobaleap** — rewritten as 2 m long-bodied mustelid (cobalt fur, turquoise stripe, raised guard-hair ruff, leaping behaviour preserved). Emoji 🐍 → 🦦. Otter line now coherent: Aquatter (otter starter) → Cobaleap (sleek mustelid mid) → Banksnout (heavy amphibious otter final).
 - [x] **#22-24 Hallucigaze → Pyraxis → Ignitheon** — Pyraxis (#23) rewritten as bipedal saurian with proto-mane (feathered ruff) bridging the snake-headed lizard base to the leonine final. Emoji 🧠 → 🦎. Stats/learnset unchanged.
@@ -112,7 +112,7 @@ Per audit (Part 1 of evolution-line coherence audit) **plus** the strict re-audi
 - [x] **#95-97 Dustkin → Seismith → Tectonvast** — full rhino line, retyped to **Ground/Electric** (mid + final). Dustkin (#95) reframed as 50 cm rhino calf with budding horn; Seismith (#96) as 1 m mid-rhino with conductive iron-veined plates and static-arc footfalls; Tectonvast (#97) as 2 m rhino-titan with lightning-following hide and storm-drawn ozone aura. Emojis 🐶/🐕/🦏 → 🦏 throughout. Learnset swaps (partial — kept some Rock/Crystal for variety): Seismith — stalactite_drop → spark, stone_edge → wild_charge (rock_slide and crystal_lance kept). Tectonvast — rock_slide → thunderbolt, stalactite_drop → ball_lightning, quarry_crush → overcharge (stone_edge and crystal_lance kept).
 - [x] **#168-169 Espelith → Aurarael** — Aurarael (#169) rewritten as a 60 cm levitating psychic core with seven orbiting prism shards held by a visible blue-violet mind-field; humanoid face from base stage preserved on the central core shard. Type expanded Psychic → Psychic/Fairy (now matches Espelith). Emoji 🌀 → 💫.
 - [x] **#209-210 Boltfur → Thundermane** — Thundermane (#210) rewritten as a 1.2 m maned storm-hare. Lagomorph silhouette preserved (long hind legs, upright ears) with the lion-mane visual reframed as a stiff fur mane crackling with static around the ears and neck. Pride-leader stalking → territory by hopping; roars → thunderclap mane-flares. Emoji 🦁 → 🐰. Stats/learnset already Electric-aligned, no swaps.
-- [ ] **#187-188 Norindel → Plentorus** — pig → hedgehog. Fix: rewrite **Plentorus** as quill-bristled boar.
+- [x] **#187-188 Norindel → Plentorus** — Plentorus (#188) rewritten as a 90 cm heavyset wild boar (Suidae throughout the line). Hedgehog quills preserved as a defensive ridge of stiffened bristles along its spine/shoulders/rump; pale-brown + cream-tip coloration retained; juvenile pink hide → mature coarse brown; foraging/winter-cache/accidental-planting behavior all kept. Emoji 🦔 → 🐗. *(Uncommitted, batched.)*
 
 ## Newly identified by strict re-audit of ids 210-446 (10 families)
 
@@ -126,6 +126,21 @@ Per audit (Part 1 of evolution-line coherence audit) **plus** the strict re-audi
 - [ ] **#310-311 Mudpump → Marshix** — mudskipper (fish) → hippo (mammal). Fix: rewrite **Marshix** as a 1.5 m broad-jawed swamp-newt-saurian, OR rewrite Mudpump as a hippo-calf form.
 - [ ] **#312-313 Dunecrawl → Sandrix** — armadillo (mammal) → limbless serpent (reptile). Fix: rewrite **Sandrix** as a long-bodied legged sand-saurian with retained dorsal armour plates.
 - [ ] **#405-407 Mirkling → Umbrasteel → Voidwarden** — quadruped wolf → bipedal humanoid warden. Fix: rewrite **Voidwarden** as a 3 m apex shadow-wolf in interlocking steel armour-plate (quadruped, may rear bipedal in combat).
+
+## Newly identified by direct manual audit of all 118 multi-stage families (12 families)
+
+- [ ] **#34-36 Pearlith → Undirael → Thalassira** — oyster (20 cm mollusk) → mermaid (1.5 m humanoid) → sea-serpent fairy-dragon. Three different body plans, no transitional silhouette. Fix: needs whole-line redesign — likely keep Pearlith as oyster-base, rewrite **Undirael** as a sirenian (mermaid-like sea-serpent) and **Thalassira** as the mythic final.
+- [ ] **#37-38 Coralossus → Titanariel** — hulking coral **humanoid** (4 m torso/limbs) → **nautilus** (shell + tentacles). Fix: rewrite **Titanariel** as a colossal coral-armoured humanoid titan, OR rewrite Coralossus as a smaller mollusc-form.
+- [ ] **#53-54 Mistwhirl → Arcturex** — **swan** (1.5 m wingspan glider) → **bear** (2.5 m). Aves → Mammalia. Fix: rewrite **Arcturex** as a great snow-swan / arctic albatross of significant size, OR reframe Mistwhirl as a downy bear cub.
+- [ ] **#61-62 Gelspike → Gelwing** — **hedgehog** → **eagle**. Fix: rewrite **Gelwing** as a large adult ice-porcupine with launchable quills (proposal already drafted earlier in session); rename considered (since "wing" misleads + `-wing` suffix is over-cap).
+- [ ] **#66-68 Viridix → Loamvin → Rootvorn** — **lizard** → **tree elemental** → **root elemental**. Animal → plant. Fix: rewrite **Loamvin** + **Rootvorn** as larger tree-saurian forms (lizard body draped in growing root/bark), OR rewrite Viridix as a small plant-elemental.
+- [ ] **#75-77 Sylvolt → Sparkwood → Thorncharge** — **raptor-dinosaur** → **tree-quadruped** → **thorny quadruped animal**. Fix: rewrite **Sparkwood** as a thorny saurian (preserves Sylvolt's reptile body plan and bridges to Thorncharge).
+- [ ] **#81-83 Joltan → Galvanos → Voltanox** — **mouse** (rodent) → **horse** (perissodactyl) → **bull** (bovid). Three orders. Fix: rewrite as a single ungulate line — Joltan as a small electric foal/calf, OR keep mouse and rewrite Galvanos+Voltanox as larger rodents.
+- [ ] **#87-89 Amperix → Sparkrel → Surgolith** — fish → fish → octopus. Stage 3 jumps from Vertebrata to Mollusca. Fix: rewrite **Surgolith** as an electric eel-like deep-sea fish OR rewrite Amperix+Sparkrel as juvenile cephalopods.
+- [ ] **#92-94 Arcspine → Stonebolt → Petrovast** — iguana (reptile) → rhino (mammal) → rhino-titan. Fix: rewrite **Stonebolt** + **Petrovast** as larger spine-armored saurians, OR rewrite Arcspine as a rhino-calf.
+- [ ] **#114-115 Nimbusel → Aetherworn** — cloud-fairy **humanoid** → **bat**. Fix: rewrite **Aetherworn** as a tattered cloud-fairy with shadow-wings (humanoid silhouette retained), OR rewrite Nimbusel as a small cloud-bat.
+- [ ] **#126-127 Impefurr → Specraxis** — fox → ghost smoke entity. Fix: rewrite **Specraxis** as a shadow-fox / spectral fox (preserves canid silhouette in ghost form).
+- [ ] **#160-161 Miasmafly → Mistbane** — insect (crane-fly) → formless haze. Fix: rewrite **Mistbane** as a larger swarm-form or corrupted blight-fly with bloated abdomen — preserve insect silhouette.
 
 # 🪛 MINOR family tweaks (one-line lore edits)
 
@@ -159,6 +174,20 @@ Batch these together once BREAKING is done. Each fix is a single-sentence wordin
 - [ ] **#302-303** Lightpuff → **Lumivane** — luminous orb → graceful humanoid. Fix: tweak #303 lore to "the moonstone causes its orb-body to elongate and bifurcate into limbs, retaining the original glow at the chest core."
 - [ ] **#308-309** Seafraith → **Tidephant** — deep-sea fish → cetacean (class jump). Fix: tweak #309 lore to "as it matures, its fins broaden into flippers and its skeleton calcifies into a whale-like frame — a fish-to-leviathan apotheosis."
 - [ ] **#404-407** *(see BREAKING #405-407 above; no separate MINOR needed.)*
+
+## Newly identified by direct manual audit of all 118 multi-stage families (11 families)
+
+- [ ] **#42-44** Cryonik → Boreon → **Nagislither** — seal → seal → serpentine flippered creature. Fix: tweak Nagislither lore to "elongated mature seal-form, pinniped lineage retained in flippered limbs and whiskered face."
+- [ ] **#69-71** Germix → Verdurus → Verdovast — seed-creature → grass-bear → grass-bear. Fix: tweak Germix lore to "the seed sprouts furred limbs and a small bear-cub silhouette as it matures."
+- [ ] **#78-80** Sylvnox → Morraveth → **Morralyn** — fox → wolf → "bear-wolf hybrid". Fix: tweak Morralyn lore to "heavy-shouldered dire-wolf with bear-like build" — drop the bear-hybrid framing, keep canid.
+- [ ] **#104-105** Arenikin → **Dravanas** — sandy dog → lion-sized creature with mane. Fix: tweak Dravanas lore to "large jackal-pack-leader" or "great desert wolf" — keep canid, drop "lion-sized".
+- [ ] **#108-110** **Silvergust** → Siroccomane → Aeolarch — cat → lion → lion. Fix: tweak Silvergust lore to "lion-cub-sized small felid" — felid throughout.
+- [ ] **#116-117** Zephyrin → **Pneumathos** — serpentine wind creature → humanoid-cored vortex. Fix: tweak Pneumathos lore to "serpentine core remains visible inside the swirling vortex."
+- [ ] **#128-129** Cranivade → **Voidaxis** — psychic biped → blurred shifting entity. Fix: tweak Voidaxis lore to "the biped silhouette persists at the form's centre, edges blurring outward."
+- [ ] **#142-144** Dawnirel → **Lunarael** → Celestarch — star-shape → crescent-shape → many-pointed star. Fix: tweak Lunarael lore to "pointed arms curve inward, briefly crescent-like, before blooming back to full star at its final stage."
+- [ ] **#162-163** Marlix → **Blightalis** — humanoid reed → corrupted flower. Fix: tweak Blightalis lore to "the reed-stalk body has bloomed into a flower-headed humanoid."
+- [ ] **#220-221** Umbrajest → **Shadowveil** — smoke trickster → cloaked humanoid shadow. Fix: tweak Shadowveil lore to "the trickster's smoke-body has solidified into a cloaked humanoid form."
+- [ ] **#226-229** Spectroo's stone-evolution branches (#228 Lunaroon, #229 Radiafish) need separate examination — current parser caught only #226→227 linear chain.
 
 # 🐺 Archetype oversaturation — common animals (cap = 3 families)
 

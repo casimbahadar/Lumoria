@@ -29,3 +29,11 @@ Everything else asks first.
 - `TODO.md` "ACTIVE WORK" section is the source of truth for in-progress tasks. Update it in real time as items get checked off.
 - `.claude-batching` marker file is present → the global stop-hook tolerates uncommitted changes. Commits are batched per TODO section, not per change.
 - See `rename_lumori.md` for the naming rules and `scripts/analyze_current.py` for cap-2 validation.
+
+## Post-game typing restriction
+
+**Aether, Fighting, Crystal, Primal, and Ghost are post-game typings reserved for Forgotten Lumori (id ≥ 408).** When proposing typings for any Lumori with id < 408, never recommend or include any of these five types — they belong to the Forgotten/post-game roster only.
+
+Suggestion lists, type-pivot proposals, and "pristine combo" recommendations for non-Forgotten ids must exclude all five.
+
+When a pre-408 Lumori already has one of these types in current data (legacy), do not auto-strip it — surface it for user discussion only.

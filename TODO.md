@@ -191,30 +191,155 @@ Batch these together once BREAKING is done. Each fix is a single-sentence wordin
 
 # 🦄 Creature inventory + mythological exemptions — RUN BEFORE archetype trim
 
-Goal: produce a complete inventory of every creature/animal/thing represented in the dex (with family counts), and a curated list of which archetypes are "special / mythological / unique" enough to be **exempt from the cap-of-3 family rule**. Also surface mythological creatures NOT yet in the dex that could be folded in during the renaming phase as ways to dilute over-cap common archetypes.
+Goal: complete inventory of every creature/animal/thing represented in the dex (with family counts), and curated lists of "special / mythological / unique" archetypes exempt from the cap-of-3 rule, plus mythological creatures NOT yet in dex for potential diversification.
 
-## Tasks
+## (a) Inventory — current state (auto-classified by lore-keyword sweep; needs manual cleanup)
 
-- [ ] **Inventory step.** Walk all 446 mons. Classify each family by primary creature/archetype using a cleaned-up keyword pass + manual review for ambiguous cases. Output a sorted table: archetype × family count × member list.
-- [ ] **Identify mythological exemptions in current dex.** From the inventory, surface archetypes that have strong folkloric / mythical / unique status and warrant > 3 families. Likely candidates (to verify against actual roster):
-  - Dragon (already flagged as mythical 20+ families)
-  - Wraith / spectre / ghost
-  - Void / cosmic / abstract being
-  - Phoenix / solar bird
-  - Storm-elemental / lightning-vortex
-  - Kitsune / fox-spirit (we just added)
-  - Tanuki (we just added)
-  - Kraken / sea-titan
-  - Sphinx / chimera (composite mythical)
-  - Slime / amorphous elemental
-  - Treant / ent
-  - Golem (humanoid metal/stone)
-  - Faerie sprite (humanoid winged-fairy)
-  - Crystal-being / prism-elemental
-- [ ] **List mythological creatures NOT currently in dex** that could be added during renaming/redesign to dilute over-cap common archetypes:
-  - Suggested: griffin, hippogriff, manticore, basilisk, cockatrice, unicorn, pegasus, qilin/kirin, dryad, naga, lamia, harpy, valkyrie, cerberus, hydra, banshee, leviathan, jormungandr-style world-serpent, gorgon, minotaur, satyr, faun, salamander (mythical fire-lizard), ifrit, djinn, sphinx, wendigo, yeti, mothman, jackalope, gargoyle, golem variants (clay, glass, blood), homunculus, kelpie, selkie, will-o-wisp, baba-yaga-style hut-creature, raiju (thunder-beast), tengu, oni, kappa, bake-neko (cat-spirit), ningyo (mermaid variant), shisa, kelpie, bunyip, drop-bear-style cryptids — etc.
-- [ ] For each over-cap common archetype (wolf, lion, dog, bear, raptor, etc.), pick a few members to convert into mythological-exempt or pristine-common archetypes from the lists above.
-- [ ] Output: **(a)** mythological-exempt list with rationale per archetype, **(b)** "diversification candidate" list pairing over-cap common-archetype members with proposed pivots, **(c)** updated cap-3 archetype trim list reflecting (a) and (b).
+**269 multi-stage + standalone families total. ~161 keyword-classified; ~108 unclassified (mostly Forgotten/postgame mons with abstract names — need manual archetype assignment).**
+
+### Over cap (>3 families) — common archetypes (regular-animal, will get trimmed):
+- **lion/big-cat**: 5 (Hallucigaze line, Arenikin/Dravanas, Silvergust line, Boltfur (now hare; counted as lion in keyword), Cuddrix line) — most contestable; some entries may have moved out
+- **cat (small felid)**: 5 (Fluffen, Staticlaw line (now mustelid), Mimiclaw, Emberveil, Cinderpaw)
+- **cetacean**: 5 (Gossafin/Marevanos, Titanomare, Scolphin line, Seafraith line, Riftwhale)
+- **butterfly/moth (imago)**: 6 (Scorchlarva line, Faeling, Blightmite, Photoworm line, Mosswing, Plaguefly line)
+- **beetle**: 4 (Iridibeetle, Muddite, Sparkeen, Voltbeetle)
+- **crab/lobster**: 4 (Reefling line, Rugothon, Petrwave, Deepcrawler)
+- **serpent (non-dragon)**: 4 (Nocturil line, Dunecrawl line, Coilstrike, Fluxserpent)
+
+### Over cap (>3) — mythical/exempt candidates (see (b) below):
+- **dragon-mythic**: 34 — exempt (mythical)
+- **faerie sprite / winged-fairy**: 9 — exempt (mythical)
+- **shadow/wraith/ghost-spectral**: 9 — exempt (mythical)
+- **crystalline-prism**: 6 — exempt (mythical)
+- **golem (humanoid metal/stone)**: 5 — exempt (mythical)
+- **void/cosmic/abstract**: 5 — exempt (mythical)
+- **orb/wisp/cloud-formless**: 4 — exempt (mythical/elemental)
+
+### At cap (3 families):
+- **bear**: 3 (Hexaprowl ice, Verdurus grass, Rotunden line)
+- **eagle/raptor**: 3 (Zephyrel, Aeolin line, Rimeclaw)
+- **fish (non-dragon/eel)**: 3 (Corelin line, Toxirin frog, Rustpike)
+- **lizard/saurian (non-dragon)**: 3 (Verdkin line, Cindling line, Blistermaw)
+
+### Under cap (≤2):
+- **bat**: 2 (Spiraloom line, Aeronyx line)
+- **bovid**: 2 (Tundram line, Breezekin line)
+- **cephalopod**: 2 (Toxaquil/Septanemone, Abyssovex)
+- **dragonfly**: 2 (Electrix line, Pulseglow line)
+- **fairy chimera/composite**: 2 (Sylvnox line, Stinglet line)
+- **jellyfish/cnidarian**: 2 (Slatis/Frostmere, Lumejell)
+- **kangaroo/marsupial**: 2 (Lunaroon, Radiafish — both stone-evos of Spectroo line)
+- **mouse/rat (rodent)**: 2 (Murkrat, Dunespike)
+- **shark/eel**: 2 (Amperix line, Abyssalith)
+- 1-family slots: bird, boar/pig, coral-titan, crocodilian, dog (non-wolf), echidna, frog/toad, hedgehog/porcupine, hippo, horse/equine, insect-swarm, **kitsune**, mushroom/fungus, mustelid, owl, plant-sapling, rabbit/hare, rhino, scorpion, sea-fairy queen, slime/blob, snail/mollusk, spider, stag/elk/deer, **tanuki**, wolf
+
+### Unclassified (108) — manual classification needed
+Many are Forgotten/postgame (id ≥ 408) with abstract/legendary names that don't match real-creature keywords. Some pre-408 lines also need manual review (e.g. Pyroclasm, Tundrafox now snowman, Nimbusel-Aetherworn cloud-fairy). **Recommended**: do a manual classification pass before running the archetype trim.
+
+## (b) Mythological / special / unique exemptions currently in dex (exempt from cap-of-3)
+
+These archetypes have strong folkloric / mythical / unique status and warrant > 3 families. The cap-of-3 should NOT apply.
+
+### Definite mythical exemptions
+- **Dragon** (34) — universal mythological pillar; many sub-flavors (wyvern, drake, wyrm) historically distinct
+- **Phoenix / solar bird** (Pyrocrown, Solarcrown, Solarwrath, Solarvast — 3-4 families)
+- **Kitsune / fox-spirit** (Specraxis line, just added) — Japanese folkloric magical fox
+- **Tanuki / magical raccoon-dog** (Eclipsoon line, just added) — Japanese folkloric trickster spirit
+- **Mermaid / sirenian** (Pearlith line) — universal mythical sea-being
+- **Sea-fairy queen** (Thalassira) — flagship legendary; ocean sovereign
+- **Coral-titan / colossus humanoid** (Titanariel) — flagship mythical sea-titan
+- **Kraken / sea-titan crustacean** (Tidalossus, Titanomare overlap) — universal sea-monster
+- **Wraith / ghost / spectre** (~9 families: Wraithking, Voidrend, Lunaspectre, Glimmeritch, Willowisp, Wraithstorm, Abyssalord, Stonekeeper, Venomwraith) — universal undead-spirit archetype
+- **Void / cosmic / abstract being** (~5 families: Voidlord, Cosmoveil, Voidcrown, Mirkling/Voidwarden, Shadowpup line) — abstract-elemental; flagship
+- **Slime / blob / amorphous** (Bouncyblob; should expand) — classic JRPG-mythic
+- **Crystalline-prism / gem-being** (~6 families: Espelith line, Megalith line, Volcascale/Monolithox, Icethorn line, Mirestone, Chronolith) — flagship mineral-elementals
+- **Treant / ent / walking-tree spirit** (Necralia/Necrothon, Transluceed-Tendrilisk-Impenezard line) — folkloric forest-guardian
+- **Golem (humanoid metal/stone construct)** (~5 families: Scrapsapien line, Dentshaft/Terragolem, Gearbit/Mechavast, Ferrocrush, Embersteel) — universal mythical-construct
+- **Faerie sprite / winged-fairy humanoid** (~9 families: Speculith line, Floralin line, Goldefluff line, Mindpuff line, Crealight, Sproutix line, Ironling line, Voidraxis, Solarwrath) — universal fae-mythic
+- **Will-o-wisp / ghostly orb** (Veilwisp line, Willowisp) — folkloric marsh-spirit
+- **Snowman (folkloric)** (Snowble line, just added) — Western seasonal-folkloric figure
+- **Insect-swarm collective** (Mistbane line, just added) — quasi-mythical (Pokémon's Vespiquen-style)
+- **Storm-elemental / lightning-vortex** (Tempestborn, Vortexwing, Stormcrown, Nullstorm, Wraithstorm, Galeaxis — 5+ families) — abstract-elemental mythical
+
+### Borderline (could go either way)
+- **Echidna** (1, Arcspine line) — real animal, but rare in dex/folklore both. Keep cap-3 unless trim forces.
+- **Owl** (1, Mistwhirl line) — real animal but folkloric (wisdom, watcher). Borderline cap-3.
+
+## (c) Mythological creatures NOT yet in dex (diversification candidates for renaming phase)
+
+For each over-cap common archetype, we can convert some members into one of these to dilute the count. Organized by mythological tradition:
+
+### Greek/Roman
+- **Griffin** (eagle + lion) — could absorb a raptor or lion line
+- **Hippogriff** (horse + eagle) — could absorb a horse or raptor line
+- **Manticore** (lion + scorpion-tail) — lion-archetype absorber
+- **Pegasus** (winged horse) — horse-archetype absorber
+- **Centaur** (human + horse) — humanoid + equine
+- **Satyr / faun** (human + goat)
+- **Minotaur** (human + bull)
+- **Sphinx** (lion + winged + face)
+- **Hydra** (multi-headed serpent)
+- **Cerberus** (3-headed dog)
+- **Gorgon** (snake-haired humanoid)
+- **Harpy** (woman + bird) — bird-of-prey absorber
+- **Medusa-like petrifiers**
+- **Cyclops** (one-eyed giant)
+- **Nymph / dryad** (forest-spirit) — already adjacent to faerie sprites
+
+### East Asian
+- **Qilin / kirin** (Chinese deer-unicorn) — deer-archetype absorber
+- **Tengu** (crow-human mountain spirit)
+- **Oni** (demon) — humanoid horror absorber
+- **Kappa** (water imp/turtle)
+- **Bake-neko / nekomata** (cat-spirit) — cat-archetype absorber
+- **Ningyo** (Japanese mermaid variant)
+- **Shisa** (lion-dog guardian) — lion absorber
+- **Raiju** (thunder-beast) — generic thunder-coded absorber
+- **Inugami** (dog-spirit)
+
+### Norse / Germanic
+- **Jormungandr** (world-serpent) — serpent absorber
+- **Valkyrie** (winged warrior-spirit) — bird absorber
+- **Fenrir / dire-wolf-mythic** (giant wolf) — wolf absorber
+- **Sleipnir** (8-legged horse)
+- **Nidhogg** (root-dragon)
+
+### European folklore / cryptids
+- **Kelpie** (water horse) — horse absorber
+- **Selkie** (seal-shapeshifter) — pinniped absorber
+- **Wendigo** (cold spirit) — already adjacent
+- **Yeti / Sasquatch** (cryptid ape)
+- **Mothman** (moth + humanoid) — moth absorber
+- **Jackalope** (rabbit + antlers) — rabbit absorber
+- **Drop-bear** (Australian cryptid)
+- **Banshee** (wailing female spirit)
+- **Gargoyle** (stone gargoyle)
+
+### Middle Eastern
+- **Ifrit / djinn** (fire-spirit)
+- **Roc** (giant bird) — raptor absorber
+- **Manticore** (already listed)
+
+### Generic mythical / RPG-traditional
+- **Salamander (mythical fire-lizard)** — saurian + fire
+- **Basilisk** (king of serpents) — serpent absorber
+- **Cockatrice** (rooster-serpent hybrid)
+- **Unicorn** — already adjacent to horse/deer
+- **Lamia** (snake-woman) — snake absorber
+- **Naga** (snake-being)
+- **Homunculus** (alchemical humanoid)
+- **Doppelganger** (shapeshifter mimic)
+- **Werewolf** (could leverage wolf overcap as a "human-form-bound-to-wolf" archetype)
+- **Lich / undead skeleton** — adjacent to wraith
+- **Vampire-bat** — bat-archetype mythical absorber
+- **Bunyip** (Australian water-cryptid)
+
+## (d) Tasks remaining
+
+- [ ] **Manual classification pass** on the 108 unclassified families (especially Forgotten/postgame mons) — assign each to an archetype.
+- [ ] **Verify (b) exemption list** with user once full inventory is clean.
+- [ ] **Pair (c) candidates** with specific over-cap common-archetype members to pivot during the renaming phase.
+- [ ] **Output the final cap-trim list** reflecting (a)+(b)+(c). This becomes the input to the existing "Archetype oversaturation" section below.
 
 **Run order placement:** before the existing "Archetype oversaturation — common animals" trim section below. The inventory + exemption list **defines** what counts toward the trim, then the trim runs against that updated list.
 

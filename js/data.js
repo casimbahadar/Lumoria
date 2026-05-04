@@ -1363,7 +1363,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"poison_sting",[22,"acid_rain"]],[1,"gust"],[10,"sludge_bomb"],[16,"vital_pulse"],[18,"air_slash"],[26,"toxic"],[29,"miasma_cloud"],[34,"hurricane"],[40,"plague_burst"],[42,"venoshock",[5,"toxic_surge"]],[3,"toxin_bloom"],[32,"sludge_wave"]],
     evolveTo:161, evolveLevel:30, catchRate:140, expYield:88, rarity:"common",
     desc:"A miasma fly that leaves toxic trails in its wake. Spreads pestilence.",
-    lore:"Miasoveth is a large winged insect creature with a 60 cm wingspan, resembling a crane fly but with a bloated poisonous abdomen. Its wings are translucent, tinted sickly yellow-green. It creates toxic air currents with its wings as it flies, leaving a drift of suspended poisonous particles in its wake." },
+    lore:"Miasmafly is a large winged insect creature with a 60 cm wingspan, resembling a crane fly but with a bloated poisonous abdomen. Its wings are translucent, tinted sickly yellow-green. It creates toxic air currents with its wings as it flies, leaving a drift of suspended poisonous particles in its wake." },
 
   // ===== PSYCHIC =====
   166: { id:166, name:"Projectery",     emoji:"🐩", types:["Psychic"],
@@ -1754,23 +1754,23 @@ const MONSTERS_DATA = {
     learnset:[[1,"flamethrower"],[1,"psychic_move"],[28,"fire_blast"],[36,"psystrike"],[44,"astral_rend"],[52,"overheat"],[60,"neural_storm"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:225, rarity:"rare",
     desc:"A blazing prism warrior. Its psychic fire burns away illusions and exposes hidden truths.",
-    lore:"Spectrace is a fire-psychic creature 50 cm long resembling a fast-moving trail of orange-violet flame with barely visible limbs. Its body is heat and psychic energy intertwined. It moves so rapidly its form appears as a blurred streak. Ancient texts describe it arriving at prophetic moments as an omen of transformation." },
+    lore:"Spectrace is a fire-psychic creature 50 cm long resembling a kangaroo-silhouette of streaking flame whose hindquarters trail off into fire and whose forelimbs are barely visible through the heat-haze. Its body is heat and psychic energy intertwined. It moves so rapidly its form appears as a blurred streak. Ancient texts describe it arriving at prophetic moments as an omen of transformation." },
 
   // Spectroon: Moon Stone evolution (Ice/Psychic)
-  228: { id:228, name:"Lunaroon", emoji:"🌙", types:["Ice","Psychic"],
+  228: { id:228, name:"Lunaroon", emoji:"🌙", types:["Grass","Psychic"],
     base:{hp:82,atk:72,def:88,spa:122,spd:108,spe:78},
-    learnset:[[1,"ice_beam"],[1,"psychic_move"],[28,"blizzard"],[36,"psystrike"],[44,"astral_rend"],[52,"frost_breath"],[60,"neural_storm"],[68,"hyper_beam"]],
+    learnset:[[1,"energy_ball"],[1,"psychic_move"],[28,"petal_blitz"],[36,"psystrike"],[44,"astral_rend"],[52,"spore_burst"],[60,"neural_storm"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:225, rarity:"rare",
-    desc:"A moonlit prism draped in eternal winter. Its gaze freezes time momentarily.",
-    lore:"Lunaroon is an ice-psychic creature 50 cm tall resembling a rounded creature with a body of compressed moonlight — pale silver-blue and cold to approach. It is visibly brighter during full moon phases. It inhabits high open plateaux and maps the positions of stars by psychic observation, never needing to look up." },
+    desc:"A moonlit kangaroo whose body grows night-blooming silver flora. Its presence opens blossoms across highland clearings wherever it pads.",
+    lore:"Lunaroon is a 50-centimetre marsupial form of compressed moonlight overgrown with night-blooming silver flora — pale violet-blue moss covers its hindquarters and a crown of small white-and-silver flowers blooms across its head and shoulders, opening only when full moonlight touches them. Its pouch holds a soft glow that draws moonlight downward in a faint cascade onto the soil it crosses, and dormant seeds sprout in its wake. It inhabits high open plateaux and roams quietly during clear nights, mapping the positions of stars by psychic observation while leaving a trail of newly-opened blossoms wherever it pauses." },
 
   // Prismolt: Thunder Stone evolution (Electric/Psychic)
   229: { id:229, name:"Radiafish", emoji:"⚡", types:["Electric","Psychic"],
     base:{hp:72,atk:88,def:62,spa:130,spd:78,spe:110},
     learnset:[[1,"thunderbolt"],[1,"psychic_move"],[28,"thunder"],[36,"psystrike"],[44,"astral_rend"],[52,"discharge"],[60,"neural_storm"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:225, rarity:"rare",
-    desc:"A thunderstruck prism crackling with psychic lightning. Thoughts become electrical impulses at its speed.",
-    lore:"Prismolt is an electric-psychic creature 40 cm long resembling a small fish whose body is a continuous spectrum of shifting colour. Electrical and psychic energies form a unified field around it. It inhabits the upper atmosphere, surfacing near radio towers and electrical masts to feed on broadcast radiation." },
+    desc:"A kangaroo-silhouette of crackling electric plasma. It bounds across high mountain ridges in arcing leaps that briefly carry it through the air on bursts of electrical thrust.",
+    lore:"Radiafish is a 40-centimetre electric-psychic creature whose body is a kangaroo-silhouette of constantly cycling electric plasma — pale yellow at the core, shifting through blue-white at its outer layers, with the pouch and hindquarters most visible when it pauses between leaps. It bounds across high mountain ridges and along power-line corridors in long arcing jumps that briefly carry it through the air on bursts of electrical thrust. It surfaces near radio towers and electrical masts to feed on broadcast radiation, and its psychic field translates surrounding electrical activity into thought-impulses at lightning speed." },
 
   // ===== DRAGON TYPES (IDs 230-235) =====
 
@@ -1839,26 +1839,26 @@ const MONSTERS_DATA = {
     lore:"Icevault is a medium ice-rock creature 50 cm tall shaped like a small fortress tower of interlocked ice and stone. Its walls are surprisingly thick. It inhabits glacier-topped mountains and creates elaborate ice-and-rock den structures that persist for centuries, providing shelter to generations of smaller creatures." },
 
   // 3-stage Ice/Wind chain: Snowble → Blizzavane → Permafrix
-  238: { id:238, name:"Snowble", emoji:"☃️", types:["Ice","Wind"],
+  238: { id:238, name:"Snowble", emoji:"☃️", types:["Ice"],
     base:{hp:44,atk:42,def:45,spa:65,spd:52,spe:68},
-    learnset:[[1,"powder_snow"],[1,"gust"],[10,"frost_breath"],[18,"air_slash"],[26,"ice_beam"],[36,"blizzard"],[46,"hurricane"],[56,"hyper_beam"]],
+    learnset:[[1,"powder_snow"],[1,"tackle"],[10,"frost_breath"],[18,"cryo_lance"],[26,"ice_beam"],[36,"blizzard"],[46,"avalanche_drive"],[56,"hyper_beam"]],
     evolveTo:239, evolveLevel:28, catchRate:175, expYield:72, rarity:"common",
-    desc:"A snowball that rides wind currents to travel. Gets bigger and angrier in blizzards.",
-    lore:"Snowble is a small ice-wind creature 20 cm across shaped like a rounded snowball with two eyes and a perpetual state of gentle tumbling. It is carried effortlessly by any breeze. When it rolls across snow it grows larger, and groups of Snowble combine into enormous snowballs during blizzards." },
+    desc:"A self-rolling snowball that grows larger with every tumble across fresh snow. Tiny dark coal-eyes peek from a perfectly round body, and faint bumps mark where stick-limbs will eventually emerge.",
+    lore:"Snowble is a small Ice creature 20 centimetres across, shaped exactly like a perfectly round snowball with two small dark coal-eyes peeking from its surface. Beneath its smooth white shell, traces of stick-limbs and a small carrot-shaped nose are already forming — barely-visible bumps that will emerge when it grows large enough. It rolls effortlessly across snowfields, gathering more snow with every revolution, and groups of Snowble combine into single enormous boulders during heavy blizzards as they pack together for warmth." },
 
-  239: { id:239, name:"Blizzariel", emoji:"🌨️", types:["Ice","Wind"],
+  239: { id:239, name:"Blizzariel", emoji:"☃️", types:["Ice"],
     base:{hp:68,atk:62,def:65,spa:100,spd:82,spe:90},
-    learnset:[[1,"air_slash"],[1,"ice_beam"],[22,"blizzard"],[30,"hurricane"],[38,"cryo_lance"],[46,"icicle_crash"],[54,"avalanche_drive"],[62,"hyper_beam"]],
+    learnset:[[1,"icicle_crash"],[1,"ice_beam"],[22,"blizzard"],[30,"permafrost"],[38,"cryo_lance"],[46,"icicle_crash"],[54,"avalanche_drive"],[62,"hyper_beam"]],
     evolveTo:240, evolveLevel:44, catchRate:90, expYield:148, rarity:"uncommon",
-    desc:"A blizzard spirit that travels on storm winds. Turns clear skies into whiteout conditions.",
-    lore:"Blizzariel is a medium ice-wind creature 60 cm tall resembling a humanoid made of condensed blizzard — compacted snow, ice shards, and wind — that holds a roughly consistent form but constantly sheds and reforms its outer layer. Its core is a small dense crystal of frozen wind-energy." },
+    desc:"An adolescent snowman whose three packed-snow tiers have stacked vertically. Stick arms reach out from its midsection and a small dense crystal glows at its core.",
+    lore:"Blizzariel is a 60-centimetre adolescent snowman, the first stage in which the rounded snowballs of its juvenile stage have stacked vertically into three growing tiers — a bottom for legs, a middle for the torso, and a top for the head. Its surface remains soft-white and constantly sheds and reforms its outer layer in the wind, but a small dense crystal of frozen wind-energy now glows visibly at its core, holding its body in shape against the elements. Two stick-arms reach out from its mid-section, a small carrot nose and three coal-buttons mark its face, and it walks slowly across snowfields on packed-snow legs, leaving prints that linger in the soft surface." },
 
-  240: { id:240, name:"Tundrafox", emoji:"🌀", types:["Ice","Wind"],
+  240: { id:240, name:"Tundrafox", emoji:"☃️", types:["Ice","Dark"],
     base:{hp:83,atk:77,def:80,spa:119,spd:99,spe:92},
-    learnset:[[1,"blizzard"],[1,"hurricane"],[32,"cryo_lance"],[40,"icicle_crash"],[48,"avalanche_drive"],[56,"glacial_tomb"],[64,"sleet_barrage"],[72,"hyper_beam"]],
+    learnset:[[1,"blizzard"],[1,"dark_pulse"],[32,"cryo_lance"],[40,"icicle_crash"],[48,"avalanche_drive"],[56,"glacial_tomb"],[64,"sleet_barrage"],[72,"night_slash"]],
     evolveTo:null, evolveLevel:null, catchRate:28, expYield:265, rarity:"rare",
-    desc:"A permanent blizzard given form. The cold zone around it stretches for miles in every direction.",
-    lore:"Permafrix is a large ice-wind creature 1 metre tall shaped like an arctic fox whose body is composed of ancient compressed glacier-air. Its fur appears to be made of fine ice needles. It runs at tremendous speed across frozen tundra, leaving no pawprints because it barely contacts the surface." },
+    desc:"A 3-metre malevolent snow-titan whose cheerful snowman frame has frozen into something cruel. Its hollow coal-eyes glint with predatory cold, and a permanent blizzard cloaks its approach.",
+    lore:"Tundrafox is a colossal malevolent snow-titan 3 metres tall whose three stacked tiers form an unsettlingly cheerful silhouette of a great snowman — until you notice the wrongness. Its transformation begins when a Blizzariel grows large enough to weather the months-long polar dark months without melting; the small dense crystal of frozen wind-energy at its core cools past a threshold during the unbroken polar night and develops a malice of its own, an awareness shaped by sustained darkness and cold rather than warmth. Around this dark-frozen core the snowman's body grows dense with compressed glacier-air rather than ordinary snow, giving the surface a faint silver-blue tint and the density of stone-ice. Long branch-arms hang past its midsection, ending in twisted fingers tipped in needle-sharp shards. Its broad face bears a long crystalline carrot-nose curved like a tusk and four hollow coal-eyes whose centres glow faint violet — two original, two new ones opened by the corrupted core. It hunts by gliding its lower tier across the surface like a sled, leaving no trail; a permanent localised blizzard cloaks its approach, dropping the air temperature and silencing all sound for kilometres around. Northern hunters consider it a true terror — a creature that wears the joyful shape of a snowman to lower its prey's guard before striking." },
 
   // Standalone Ice/Crystal evolves in cold area: Crystalix
   241: { id:241, name:"Shardlix", emoji:"💠", types:["Ice","Psychic"],
@@ -1884,26 +1884,26 @@ const MONSTERS_DATA = {
     lore:"Arcdrix is a medium electric-bug dragonfly with a 25 cm wingspan. Its four wings are translucent copper edged in electric-blue arcs. It hunts by creating a small electrical trap in mid-air and herding smaller insects into it. It can deliver a precise shock from its tail that stuns prey without killing it." },
 
   // 3-stage Electric/Fighting chain: Staticlaw → Thundravex → Megavolt
-  244: { id:244, name:"Staticlaw", emoji:"🦁", types:["Electric"],
+  244: { id:244, name:"Staticlaw", emoji:"🦡", types:["Electric"],
     base:{hp:58,atk:68,def:52,spa:72,spd:55,spe:88},
     learnset:[[1,"thunder_shock"],[1,"spark"],[12,"thunderbolt"],[20,"discharge"],[30,"arc_flash"],[38,"ball_lightning"],[46,"thunder"],[54,"plasma_strike"]],
     evolveTo:245, evolveLevel:28, catchRate:160, expYield:80, rarity:"common",
-    desc:"A lion pup whose mane crackles with electricity. Each battle makes its mane larger and brighter.",
-    lore:"Staticlaw is a small electric creature 30 cm at the shoulder resembling a weasel with short yellow-white fur that permanently crackles. Its claws generate static charge on contact with any surface. It is perpetually restless and accumulates charge by running in tight circles, periodically discharging into the ground." },
+    desc:"A small electric weasel-kit whose short fur permanently crackles with static. Runs in tight circles to build charge before discharging into the ground.",
+    lore:"Staticlaw is a small electric weasel-kit 30 centimetres at the shoulder with short yellow-white fur that permanently crackles with static charge. Its claws generate small static shocks on contact with any surface. It is perpetually restless and accumulates electrical charge by running in tight circles, periodically discharging the built-up energy into the ground in flashes that startle larger creatures away." },
 
   245: { id:245, name:"Thundravex", emoji:"⚡", types:["Electric"],
     base:{hp:82,atk:90,def:72,spa:110,spd:80,spe:108},
     learnset:[[1,"thunderbolt"],[1,"discharge"],[22,"ball_lightning"],[30,"arc_flash"],[38,"thunder"],[46,"volt_surge"],[54,"plasma_strike"],[62,"hyper_beam"]],
     evolveTo:246, evolveLevel:48, catchRate:75, expYield:165, rarity:"uncommon",
-    desc:"A thunder lion that calls down lightning with its roar. Its mane is a living Tesla coil.",
-    lore:"Thundravex is a medium electric creature 60 cm at the shoulder resembling a larger weasel-cat with bright yellow fur and dark dorsal stripe. Electrical arcs jump between its ears. It emits a continuous 50 Hz hum audible up close. It inhabits open areas near tall trees it uses as earthing points." },
+    desc:"An adolescent thunder-weasel 60 centimetres at the shoulder. Its dorsal stripe glows when it accumulates static, and arcs jump constantly between its alert ears.",
+    lore:"Thundravex is a 60-centimetre adolescent mustelid, longer-bodied and more muscular than its juvenile stage, with bright yellow fur and a dark dorsal stripe that runs from the back of its head to the tip of its sleek tail. Electrical arcs constantly jump between its alert pointed ears, and the dorsal stripe glows brighter when the static charge built up in its body approaches discharge. It emits a continuous 50 Hz hum audible up close, and inhabits open areas near tall trees it uses as earthing points to safely release accumulated charge." },
 
-  246: { id:246, name:"Megavolt", emoji:"🦁", types:["Electric"],
+  246: { id:246, name:"Megavolt", emoji:"🦡", types:["Electric"],
     base:{hp:89,atk:93,def:76,spa:111,spd:80,spe:101},
     learnset:[[1,"thunder"],[1,"discharge"],[32,"ball_lightning"],[40,"plasma_strike"],[48,"arc_flash"],[56,"volt_surge"],[64,"overcharge"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:270, rarity:"rare",
-    desc:"A king of thunder whose roar is heard across continents. Lightning bends to its will.",
-    lore:"Megavolt is a large electric creature 1 metre at the shoulder resembling a powerful felid with chrome-yellow fur and a mane of crackling electric coils. Its roar is accompanied by a visible electrical shockwave that temporarily blinds and deafens those nearby. It is considered the apex electric predator." },
+    desc:"A massive thunder-wolverine 1 metre at the shoulder, fearless and apex among electric predators. Its collar of crackling coils announces its presence with audible static.",
+    lore:"Megavolt is a massive thunder-wolverine 1 metre at the shoulder, the apex form of the Staticlaw lineage. Its body is heavily muscled with chrome-yellow fur and a thick collar of crackling electric coils running from the back of its neck down both shoulders, mistaken at distance for a felid mane. It is fearless to the point of recklessness, attacking creatures many times its size to defend its territory, and the visible electrical shockwave that accompanies its roar temporarily blinds and deafens those nearby. It is considered the apex electric predator of any region it claims." },
 
   // Standalone Electric/Bug: Sparkeen
   247: { id:247, name:"Sparkeen", emoji:"🦋", types:["Electric","Bug"],
@@ -2079,19 +2079,19 @@ const MONSTERS_DATA = {
     lore:"Darkfang is a large dark wolf 90 cm at the shoulder with pitch-black fur and fangs that absorb light, giving them a void-like appearance. Its growl is felt more than heard, as a pressure in the chest. It inhabits forested night-terrain and sees in conditions of total darkness as clearly as others see in daylight." },
 
   // 2-stage Dark split: Grimshade → Eclipsoon (Moon Stone item)
-  269: { id:269, name:"Grimshade", emoji:"🦇", types:["Dark"],
+  269: { id:269, name:"Grimshade", emoji:"🦝", types:["Dark"],
     base:{hp:55,atk:65,def:52,spa:78,spd:65,spe:82},
     learnset:[[1,"bite"],[1,"dark_pulse"],[14,"night_slash"],[24,"eclipse_shroud"],[34,"crunch"],[44,"soul_rend"],[54,"dread_howl"],[60,"hyper_beam"]],
     evolveTo:270, evolveLevel:null, evolveItem:"moonStone", evolveMethod:"item", catchRate:130, expYield:102, rarity:"common",
-    desc:"A twilight bat that thrives between day and night. Its fur absorbs moonlight and stores it as dark energy.",
-    lore:"Grimshade is a large dark predator 1.1 metres at the shoulder resembling a panther that exists partially as shadow. Its physical body is present but its shadow is far larger and moves independently. When it attacks, the shadow strikes first from an angle the prey cannot anticipate." },
+    desc:"A tanuki cub with deep slate-grey fur and a long shadow that seems to move on its own. Already learning the shape-shifting trickery of its lineage.",
+    lore:"Grimshade is a small tanuki-like creature 50 centimetres long with deep slate-grey fur and a thick raccoon-banded tail. Its shadow is unusually large for its size and seems to drift independently in low light, sometimes brushing surfaces several seconds after Grimshade has passed — the first sign of the eclipse-magic that will mature in its evolved form. It is fiercely curious and mischievous, opening pouches and pots in mountain camps for the sheer joy of seeing things fall over." },
 
   270: { id:270, name:"Eclipsoon", emoji:"🌑", types:["Dark","Fairy"],
     base:{hp:83,atk:87,def:75,spa:114,spd:100,spe:91},
     learnset:[[1,"dark_pulse"],[1,"moonblast"],[28,"eclipse_shroud"],[36,"soul_rend"],[44,"dread_howl"],[52,"fae_requiem"],[60,"shadow_ball"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:38, expYield:228, rarity:"rare",
-    desc:"The eclipse bat, born when moon stone energy meets absolute darkness. Its wings block out the stars.",
-    lore:"Eclipsoon is a dark-fairy creature 40 cm long resembling a small raccoon-like animal with black fur and patches of luminescent fairy-pink on its face and tail tip. It inhabits forest edge habitats and uses its glowing patches to signal to others across open clearings at night." },
+    desc:"An eclipse-tanuki whose dark fur is patched with fairy-pink moonlight markings. Its illusion-magic peaks under the shadow of an eclipse.",
+    lore:"Eclipsoon is a 70-centimetre dark-fairy tanuki, the matured form of Grimshade's mischievous lineage. Its dense dark fur is broken by patches of luminescent fairy-pink across its face, ear-tips, and the rings of its long banded tail; when full moonlight or eclipse shadow falls across it, those patches glow brightly enough to read by. It is famous in Lumoria folklore for spinning convincing illusions of vanished objects, missing creatures, or impossible vistas to confuse travellers, and its illusions are strongest under the shadow of an eclipse — when sun and moon align, an Eclipsoon's deceptions become indistinguishable from reality. It inhabits forest-edge habitats and signals to others across open clearings at night with rhythmic flashes of its glowing patches." },
 
   // Standalone Dark/Normal: Duskrat
   271: { id:271, name:"Murkrat", emoji:"🐀", types:["Dark","Normal"],
@@ -2924,8 +2924,8 @@ const MONSTERS_DATA = {
     base:{hp:70,atk:75,def:54,spa:102,spd:80,spe:105},
     learnset:[[1,"poison_sting"],[1,"downdraft"],[2,"sludge_bomb"],[3,"air_slash"],[4,"mycelia_net"],[31,"toxic"],[36,"venoshock"],[40,"tempest_wrath"],[45,"corrosion_fang"],[50,"hurricane"],[55,"venom_lance"],[60,"sludge_wave"],[5,"miasma_cloud"],[43,"wing_attack"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:195, rarity:"uncommon",
-    desc:"A miasmic wind wraith draped in toxic cloud. Its wingbeats scatter poisonous spores across entire valleys.",
-    lore:"Mistbane is a formless poison-wind entity about 40 cm across that resembles a drifting cloud of dark olive-green haze. It has no fixed body outline, constantly shifting shape. It inhabits bogs and toxic marshland, blending with natural mist and slowly sapping the vitality of any creature breathing the air it occupies." },
+    desc:"A drifting cloud-swarm of microscopic miasma-flies that moves and feeds as one creature. The swarm is denser at its centre, where a queen hovers.",
+    lore:"Mistbane is a 1-metre cloud-swarm of countless microscopic miasma-flies, each so small as to be barely visible individually but bound together by shared chemical signals into a single drifting collective. At its centre, sometimes glimpsed when the swarm thins, hovers a single larger queen-fly with a 30 centimetre wingspan whose pheromone trail directs the others. The swarm-cloud flows, condenses, and disperses but never fully dissolves; it inhabits bogs and toxic marshland, blending with natural mist and slowly sapping the vitality of any creature breathing the air it occupies." },
 
   186: { id:186, name:"Continemic", emoji:"🕊️", types:["Normal","Wind"],
     base:{hp:88,atk:73,def:55,spa:83,spd:70,spe:111},

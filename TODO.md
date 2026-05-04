@@ -116,10 +116,10 @@ Per audit (Part 1 of evolution-line coherence audit) **plus** the strict re-audi
 
 ## Newly identified by strict re-audit of ids 210-446 (10 families)
 
-- [ ] **#226→229 Spectroo → Radiafish** — kangaroo of light → fish (S3 via stone evolution). Fix: rewrite **Radiafish** as marsupial-of-light/plasma quadruped, dropping the fish framing.
-- [ ] **#238-240 Snowble → Blizzariel → Tundrafox** — ball → humanoid → quadruped fox (two body-plan resets). Fix: rewrite **Tundrafox** as a larger blizzard-titan humanoid.
-- [ ] **#244-246 Staticlaw → Thundravex → Megavolt** — weasel → weasel-cat → lion (mustelid → felid; emoji/lore mismatch on stage 1). Fix: rewrite **Staticlaw** + **Thundravex** as cubs of the lion (rebuild line as feline throughout).
-- [ ] **#269-270 Grimshade → Eclipsoon** — panther → raccoon (60% size regression + order shift). Fix: rewrite **Eclipsoon** as a 1.3 m moonlit panther-fairy with eclipse markings.
+- [x] **#226→229 Spectroo split-evo** — full kangaroo-silhouette across all four branches (Spectroo Normal/Psychic, Spectrace Fire/Psychic, Lunaroon Grass/Psychic, Radiafish Electric/Psychic). Spectrace (#227) MINOR tweak — flame-trail reframed as "kangaroo-silhouette of streaking flame". Lunaroon (#228) **retyped Ice/Psychic → Grass/Psychic** (pristine combo) — reframed as moonlit kangaroo whose body grows night-blooming silver flora; 3 learnset swaps (ice_beam → energy_ball, blizzard → petal_blitz, frost_breath → spore_burst). Radiafish (#229) BREAKING fix — fish → kangaroo-silhouette of electric plasma; lore opener "Prismolt is..." → "Radiafish is..." (name-leak fix); types Electric/Psychic kept; emoji ⚡ kept; learnset preserved. **Radiafish name flagged for renaming phase** (still contains "-fish" suffix that doesn't match new kangaroo body plan). Side benefit: Ice/Psychic combo drops 5 → 4 (still over cap but improving). Same-archetype peer check: kangaroo across 4 cells, all sole. *(Uncommitted, batches with next checkpoint at 26/32.)*
+- [x] **#238-240 Snowble → Blizzariel → Tundrafox** — full snowman line with dark-corruption final (Ice → Ice → Ice/Dark). Snowble (#238) reframed as 20 cm self-rolling snowball with proto-snowman features (coal-eyes, hidden stick-limbs/carrot-nose); Blizzariel (#239) reframed as 60 cm adolescent three-tier walking snowman (dense crystal core preserved); Tundrafox (#240) reframed as 3 m malevolent snow-titan whose core crystal cooled past threshold during polar dark months and developed malice — corruption mechanism explicit in lore. Types Ice/Wind → Ice (base/mid) and Ice/Wind → Ice/Dark (final). Pristine pre-408 Ice/Dark slot claimed. Emojis ☃️/🌨️/🌀 → ☃️ throughout. Lore opener "Permafrix is..." → "Tundrafox is..." (name-leak fix). 7 learnset swaps total to drop Wind STAB and add Dark STAB to final. Side benefit: Ice/Wind combo drops 4 → 3 (relieves over-cap). Same-archetype peer check: snowman = pristine archetype. **Tundrafox name flagged for renaming phase** (still contains "fox" which no longer fits). *(Uncommitted, batches with next checkpoint.)*
+- [x] **#244-246 Staticlaw → Thundravex → Megavolt** — full mustelid line (Option B; drops over-cap lion archetype by 1 instead of audit's lion-throughout idea). Staticlaw (#244) reframed as 30 cm electric weasel-kit (drops desc/lore "lion pup" mismatch). Thundravex (#245) reframed as 60 cm adolescent thunder-weasel/marten (drops "weasel-cat hybrid"). Megavolt (#246) reframed as 1 m massive thunder-wolverine; mane preserved as "thick collar of crackling electric coils mistaken at distance for a felid mane". Names, types Electric mono, learnsets all preserved. Emojis 🦁/⚡/🦁 → 🦡/⚡/🦡. Same-archetype peer check: mustelid×Electric mono = sole. Side benefit: lion archetype drops 6 → 5; mustelid goes 1 → 2 (under cap of 3). *(Uncommitted, batches with next checkpoint at 26/32.)*
+- [x] **#269-270 Grimshade → Eclipsoon** — full tanuki / magical raccoon-dog line (Option C; pristine archetype claimed). Grimshade (#269) reframed as 50 cm tanuki cub with developing eclipse-magic shadow-trickery; emoji 🦇 → 🦝. Eclipsoon (#270) reframed as 70 cm eclipse-tanuki with fairy-pink luminescent patches and folkloric illusion-magic that peaks under eclipse shadow; emoji 🌑 kept. Resolves all four prior desc/lore/emoji mismatches and the size-regression. Names, types Dark / Dark+Fairy, learnsets all preserved. Same-archetype peer check: tanuki = pristine archetype. Moonstone evolution method now thematically perfect for tanuki magic. *(Uncommitted, batches with 26/32 checkpoint.)*
 - [ ] **#286-288 Fuzzlet → Cuddrix → Majesticore** — fluff → bear-cub → lion (Ursidae → Felidae across final). Fix: rewrite **Majesticore** as a regal bear-king with a flaring psychic mane along its spine.
 - [ ] **#291-292 Breezekin → Galehorn** — cat → ram (felid → bovid). Fix: rewrite **Galehorn** as a larger wind-cat with a single spiralling horn.
 - [ ] **#293-295 Gustpuff → Stormwing → Cyclonax** — dandelion-puff → 3 m raptor → wind-dragon (formless plant → solid bird at S1→S2). Fix: rewrite **Gustpuff** as a fledgling raptor-chick with dandelion-fluff down trailing as wind-filaments.
@@ -140,7 +140,7 @@ Per audit (Part 1 of evolution-line coherence audit) **plus** the strict re-audi
 - [x] **#92-94 Arcspine → Stonebolt → Petrovast** — full rock-echidna line (Option D; pristine echidna archetype claimed; avoids reinforcing over-cap saurian or creating 2nd rhino line). Arcspine (#92) reframed as 80 cm spiny rock-echidna with crystal-tipped quills, curls into spiked ball; lore opener "Arcrix" → "Arcspine" fixes name leak. Stonebolt (#93) reframed as 1.3 m heavyset rock-echidna with paired forehead-spurs discharging directional bolts. Petrovast (#94) reframed as 2 m colossal ancient rock-echidna in basalt-plate fortress. Names, types Electric/Rock, emojis ⚡/🪨/⛰️, learnsets all preserved. Same-archetype peer check: echidna = sole family. *(Uncommitted, batched.)*
 - [x] **#114-115 Nimbusel → Aetherworn** — full cloud-fairy line (Option B; pristine cloud-fairy archetype). Nimbusel (#114) kept entirely. Aetherworn (#115) reframed from bat to 80 cm tattered shadow-cloud-fairy whose gossamer wings have frayed into trailing tatters of dark cloud-matter; "body shifts between solid and smoke" preserved verbatim, pale grey eyes preserved. Names, types Wind/Fairy → Wind/Dark, emojis ☁️/👻, learnsets all preserved (Dark moves still fit on a wraith-fairy). Same-archetype peer check: cloud-fairy = sole family. Side benefit: bat archetype drops from 3 to 2 families. *(Uncommitted, batched.)*
 - [x] **#126-127 Impefurr → Specraxis** — full fox/kitsune line (Option A). Impefurr (#126) lore opener "Vexakin is..." → "Impefurr is..." (name-leak fix); emoji 👻 → 🦊. Specraxis (#127) reframed as 70 cm kitsune-like fox-spirit with shadow-tails, deep-set violet eyes glowing through fringes of shadow-fur, floats 10 cm above ground; mind-reading + thought-broadcasting confusion preserved verbatim. Names, types Dark / Dark+Psychic, learnsets all preserved. Same-archetype peer check: fox×Dark/Psychic = sole. *(Uncommitted, batched.)*
-- [ ] **#160-161 Miasmafly → Mistbane** — insect (crane-fly) → formless haze. Fix: rewrite **Mistbane** as a larger swarm-form or corrupted blight-fly with bloated abdomen — preserve insect silhouette.
+- [x] **#160-161 Miasmafly → Mistbane** — insect-swarm-as-cloud line (Option C; pristine swarm archetype). Miasmafly (#160) kept; lore opener "Miasoveth is..." → "Miasmafly is..." (name-leak fix). Mistbane (#161) reframed as 1 m cloud-swarm of microscopic miasma-flies bound by shared chemical signals into a single drifting collective; queen-fly at centre directs the swarm. "No fixed outline" / "shifting cloud" / "olive-green haze" / bog habitat / vitality-sapping all preserved verbatim. Names, types Poison/Wind, emojis 🦟/🦠, learnsets all preserved. Same-archetype peer check: insect-swarm sole. *(Uncommitted, batches with next checkpoint at 26/32.)*
 
 # 🪛 MINOR family tweaks (one-line lore edits)
 
@@ -188,6 +188,35 @@ Batch these together once BREAKING is done. Each fix is a single-sentence wordin
 - [ ] **#162-163** Marlix → **Blightalis** — humanoid reed → corrupted flower. Fix: tweak Blightalis lore to "the reed-stalk body has bloomed into a flower-headed humanoid."
 - [ ] **#220-221** Umbrajest → **Shadowveil** — smoke trickster → cloaked humanoid shadow. Fix: tweak Shadowveil lore to "the trickster's smoke-body has solidified into a cloaked humanoid form."
 - [ ] **#226-229** Spectroo's stone-evolution branches (#228 Lunaroon, #229 Radiafish) need separate examination — current parser caught only #226→227 linear chain.
+
+# 🦄 Creature inventory + mythological exemptions — RUN BEFORE archetype trim
+
+Goal: produce a complete inventory of every creature/animal/thing represented in the dex (with family counts), and a curated list of which archetypes are "special / mythological / unique" enough to be **exempt from the cap-of-3 family rule**. Also surface mythological creatures NOT yet in the dex that could be folded in during the renaming phase as ways to dilute over-cap common archetypes.
+
+## Tasks
+
+- [ ] **Inventory step.** Walk all 446 mons. Classify each family by primary creature/archetype using a cleaned-up keyword pass + manual review for ambiguous cases. Output a sorted table: archetype × family count × member list.
+- [ ] **Identify mythological exemptions in current dex.** From the inventory, surface archetypes that have strong folkloric / mythical / unique status and warrant > 3 families. Likely candidates (to verify against actual roster):
+  - Dragon (already flagged as mythical 20+ families)
+  - Wraith / spectre / ghost
+  - Void / cosmic / abstract being
+  - Phoenix / solar bird
+  - Storm-elemental / lightning-vortex
+  - Kitsune / fox-spirit (we just added)
+  - Tanuki (we just added)
+  - Kraken / sea-titan
+  - Sphinx / chimera (composite mythical)
+  - Slime / amorphous elemental
+  - Treant / ent
+  - Golem (humanoid metal/stone)
+  - Faerie sprite (humanoid winged-fairy)
+  - Crystal-being / prism-elemental
+- [ ] **List mythological creatures NOT currently in dex** that could be added during renaming/redesign to dilute over-cap common archetypes:
+  - Suggested: griffin, hippogriff, manticore, basilisk, cockatrice, unicorn, pegasus, qilin/kirin, dryad, naga, lamia, harpy, valkyrie, cerberus, hydra, banshee, leviathan, jormungandr-style world-serpent, gorgon, minotaur, satyr, faun, salamander (mythical fire-lizard), ifrit, djinn, sphinx, wendigo, yeti, mothman, jackalope, gargoyle, golem variants (clay, glass, blood), homunculus, kelpie, selkie, will-o-wisp, baba-yaga-style hut-creature, raiju (thunder-beast), tengu, oni, kappa, bake-neko (cat-spirit), ningyo (mermaid variant), shisa, kelpie, bunyip, drop-bear-style cryptids — etc.
+- [ ] For each over-cap common archetype (wolf, lion, dog, bear, raptor, etc.), pick a few members to convert into mythological-exempt or pristine-common archetypes from the lists above.
+- [ ] Output: **(a)** mythological-exempt list with rationale per archetype, **(b)** "diversification candidate" list pairing over-cap common-archetype members with proposed pivots, **(c)** updated cap-3 archetype trim list reflecting (a) and (b).
+
+**Run order placement:** before the existing "Archetype oversaturation — common animals" trim section below. The inventory + exemption list **defines** what counts toward the trim, then the trim runs against that updated list.
 
 # 🐺 Archetype oversaturation — common animals (cap = 3 families)
 

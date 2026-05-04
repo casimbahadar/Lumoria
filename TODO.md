@@ -129,12 +129,12 @@ Per audit (Part 1 of evolution-line coherence audit) **plus** the strict re-audi
 
 ## Newly identified by direct manual audit of all 118 multi-stage families (12 families)
 
-- [ ] **#34-36 Pearlith → Undirael → Thalassira** — oyster (20 cm mollusk) → mermaid (1.5 m humanoid) → sea-serpent fairy-dragon. Three different body plans, no transitional silhouette. Fix: needs whole-line redesign — likely keep Pearlith as oyster-base, rewrite **Undirael** as a sirenian (mermaid-like sea-serpent) and **Thalassira** as the mythic final.
-- [ ] **#37-38 Coralossus → Titanariel** — hulking coral **humanoid** (4 m torso/limbs) → **nautilus** (shell + tentacles). Fix: rewrite **Titanariel** as a colossal coral-armoured humanoid titan, OR rewrite Coralossus as a smaller mollusc-form.
-- [ ] **#53-54 Mistwhirl → Arcturex** — **swan** (1.5 m wingspan glider) → **bear** (2.5 m). Aves → Mammalia. Fix: rewrite **Arcturex** as a great snow-swan / arctic albatross of significant size, OR reframe Mistwhirl as a downy bear cub.
-- [ ] **#61-62 Gelspike → Gelwing** — **hedgehog** → **eagle**. Fix: rewrite **Gelwing** as a large adult ice-porcupine with launchable quills (proposal already drafted earlier in session); rename considered (since "wing" misleads + `-wing` suffix is over-cap).
-- [ ] **#66-68 Viridix → Loamvin → Rootvorn** — **lizard** → **tree elemental** → **root elemental**. Animal → plant. Fix: rewrite **Loamvin** + **Rootvorn** as larger tree-saurian forms (lizard body draped in growing root/bark), OR rewrite Viridix as a small plant-elemental.
-- [ ] **#75-77 Sylvolt → Sparkwood → Thorncharge** — **raptor-dinosaur** → **tree-quadruped** → **thorny quadruped animal**. Fix: rewrite **Sparkwood** as a thorny saurian (preserves Sylvolt's reptile body plan and bridges to Thorncharge).
+- [x] **#34-36 Pearlith → Undirael → Thalassira** — full mermaid line (Option A). Pearlith (#34) rewritten as 12 cm pearl-mermaid fry curled inside a 20 cm oyster shell (shell as nursery/shelter, snaps shut when threatened). Undirael (#35) kept as the 1.5 m mermaid mid-stage. Thalassira (#36) reframed as a 4 m regal sea-fairy queen — humanoid torso, long sweeping fin-tail, two pairs of translucent fairy wings, pearl-fragment crown callback to Pearlith. Body plan now coherent: pearl-fry-in-shell → mermaid → sea-fairy queen. Emoji 🧜 → 👑 for Thalassira (Pearlith 🐚 + Undirael 🧜 unchanged). Stats/learnset unchanged. Fairy-dragon flavor moved to concept parking. *(Uncommitted, batched.)*
+- [x] **#37-38 Coralossus → Titanariel** — humanoid coral-titan throughout (Option A). Coralossus (#37) kept as 4 m hulking humanoid. Titanariel (#38) reframed as 7 m armored coral-titan humanoid; nautilus shell + tentacles dropped in favor of "two enormous arms thick as ships' masts" with grasping claws (preserves ship-capsizing behavior). Steel-and-coral armor, deep-ocean-floor habitat, storm-surface ship-drag behavior all preserved. Emoji 🦑 → 🗿. Stats/learnset unchanged. Nautilus-metallic-humanoid flavor moved to concept parking. *(Uncommitted, batched.)*
+- [x] **#53-54 Mistwhirl → Arcturex** — full owl line (Option C, picked over swan/bear/reindeer to avoid reinforcing the over-cap bear archetype). Mistwhirl (#53) reframed as a 30 cm fluffy snowy owlet with mist-trailing feathers. Arcturex (#54) reframed as a 1.2 m great snowy owl with 2.5 m wingspan, silent flight, Boötes-watcher namesake preserved. Both now Ice/Wind (was Ice/Wind + Ice/Ground). Emojis 🦢/🐻‍❄️ → 🦉. Stats redistributed for line coherence: Mistwhirl 54/40/41/68/55/98 → 52/60/32/45/70/98 (BST 357); Arcturex 92/101/89/66/79/61 → 80/101/52/57/87/113 (BST 490). Owl identity = fast physical hunter with high SpD and low Def. 3 learnset swaps on Arcturex: sinkhole_maw → cyclone_blade, earth_power → storm_surge, earthquake → hurricane. *(Uncommitted, batched.)*
+- [x] **#61-62 Gelspike → Gelwing** — full ice-porcupine line, retyped Wind/Ice → **Ice/Poison** (pristine combo). Gelspike (#61) reframed as 60 cm hedgehog with venom-tipped ice quills + numbing chill-mist. Gelwing (#62) reframed as 1.2 m ice-porcupine launching envenomed quill volleys, wind-borne rolling-ball travel preserved with toxic-mist trail. Emojis 🌬️/🦅 → 🦔. 12 learnset swaps total to align Wind moves with Poison STAB. Stats unchanged. **Gelwing rename deferred to renaming phase** (`-wing` suffix is over-cap; candidates: Hailspike, Mirespike, Coldbristle, Quillrime, Rimebristle). *(Uncommitted, batched.)*
+- [x] **#66-68 Viridix → Loamvin → Rootvorn** — full forest-snail line (Option C, snail/mollusk archetype — pristine slot; avoids reinforcing both over-cap saurian AND over-cap tree archetypes). Viridix (#66) reframed as 30 cm leaf-shell snail with fern-pattern shell. Loamvin (#67) reframed as 1 m forest snail with bark/moss/vine-encrusted shell. Rootvorn (#68) reframed as 3 m ancient snail whose shell has become a rooted bonsai forest with full canopy and tree-roots gripping the spiral. Names, types, emoji 🌿/🌳/🌳 → 🐌, learnsets all preserved. Rootvorn's "uproot at night, reorganise forests over decades" lore preserved verbatim in spirit. *(Uncommitted, batched.)*
+- [x] **#75-77 Sylvolt → Sparkwood → Thorncharge** — full electric-stag/elk line (Option B; pivots from over-cap saurian + tree archetypes into deer archetype, currently 2 lines, brings to 3 at cap). Sylvolt (#75) reframed as 70 cm fawn with leaf-tipped electric antler-buds, emoji 🌱 → 🦌. Sparkwood (#76) reframed as 1.3 m adolescent stag with bark-covered branching antlers acting as roaming lightning rod, emoji 🌳 kept (bark-antlers visually tree-like). Thorncharge (#77) reframed as 1.5 m armored elk with thorn-antler crown discharging lightning on impact, emoji ⚡ kept (electric output). Names, types Grass/Electric, learnsets all preserved. *(Uncommitted, batched.)*
 - [ ] **#81-83 Joltan → Galvanos → Voltanox** — **mouse** (rodent) → **horse** (perissodactyl) → **bull** (bovid). Three orders. Fix: rewrite as a single ungulate line — Joltan as a small electric foal/calf, OR keep mouse and rewrite Galvanos+Voltanox as larger rodents.
 - [ ] **#87-89 Amperix → Sparkrel → Surgolith** — fish → fish → octopus. Stage 3 jumps from Vertebrata to Mollusca. Fix: rewrite **Surgolith** as an electric eel-like deep-sea fish OR rewrite Amperix+Sparkrel as juvenile cephalopods.
 - [ ] **#92-94 Arcspine → Stonebolt → Petrovast** — iguana (reptile) → rhino (mammal) → rhino-titan. Fix: rewrite **Stonebolt** + **Petrovast** as larger spine-armored saurians, OR rewrite Arcspine as a rhino-calf.
@@ -205,6 +205,8 @@ Address after BREAKING + MINOR. Plan: rebuild a few standalone or weaker family-
 # 💡 Concept parking — future family ideas to use later
 
 - **"Whirlpool of light" — Water/Psychic family.** The original Aurarael flavor (a flowing psychic entity that resembles a whirlpool of blue-violet light given form, no solid body, continuously cycling vortex, inhabits locations of high psychic resonance, absorbs ambient thought energy) is being preserved here. Reuse for a new Water/Psychic family — possibly a deep-ocean meditation-shrine guardian, or a tidal-current spirit. Keep in mind during the renaming/typing pass.
+- **"Fairy-dragon" — Water/Fairy or Dragon/Fairy family.** The original Thalassira flavor (a grand aquatic fairy-dragon 5 metres long, combining the sinuous body of a sea serpent with translucent fairy wings that function as fins, iridescent ocean-blue and silver scales, guarding hidden underwater groves where rare magical plants grow undisturbed) is being preserved here. Reuse for a new family — possibly a flagship legendary fairy-dragon line, or as the final stage of a new aquatic dragon family during the renaming pass.
+- **"Nautilus metallic humanoid" — Water/Steel family.** The original Titanariel flavor (a 7-metre armoured sea-titan resembling a colossal nautilus with steel-hard shell and metallic-plated tentacles, propelled by high-pressure water jets, capsizing ships by wrapping tentacles around the hull) is being preserved. User specifically liked the **nautilus metallic humanoid** read — likely intent is a humanoid creature with a nautilus-shell carapace and metal-plated tentacle-arms (rather than a pure mollusk). Reuse for a new Water/Steel family — possibly a flagship deep-sea armored legendary or final stage of a new aquatic mollusk-knight line.
 
 # 🧪 Type-combination audit — RUN AFTER BREAKING + MINOR, BEFORE THE RENAMING PART
 
@@ -228,6 +230,69 @@ Per user instruction: leave these for late discussion before any consolidation.
 - [ ] **storm-elemental / lightning-vortex** — 5+ families.
 - [ ] **humanoid (non-armoured elemental)** — 6+ families.
 - [ ] **phoenix / solar-bird** — 3-4 families (borderline).
+
+# 🎯 Per-archetype typing-combo diversity audit — RUN BEFORE STAT REVIEW
+
+**Goal: max 1 family per archetype × typing-combo cell.** No two families that share an archetype (otter, lion, owl, beetle, tree-elemental, etc.) should also share the same typing combo. Different combos within the same archetype are fine (e.g. one Ground/Electric rhino + one Steel/Rock rhino is OK, but two Ground/Rock rhinos is not).
+
+This is distinct from:
+- The earlier **type-combination audit** (counts combos across the dex regardless of archetype)
+- The **archetype oversaturation** trim (caps total families per archetype at 3)
+
+This audit specifically catches the cross-product: same creature **and** same typing.
+
+## How to run
+
+- [ ] For every family (multi-stage and single-stage), assign a **primary archetype** (otter, owl, snail, lion, dragon, etc.) — use lore body-plan keywords as starting point, with manual review for ambiguity.
+- [ ] Build the matrix `[archetype] × [type-combo]` and tally families per cell.
+- [ ] List every cell with **≥2 families** as a violation.
+- [ ] For each violation, pick which family changes typing. Prefer keeping the typing on the family that names/anchors the archetype most strongly; reassign the others to currently-empty cells under that archetype.
+- [ ] Verify each reassignment doesn't create a new collision elsewhere (especially in over-cap general typing combos from the type-combination audit).
+- [ ] Dragon archetype is **mythical** — flagged for separate end-of-task discussion before any consolidation. Skip during this audit.
+
+## Known collisions at time of writing (re-verify when this runs)
+
+**Introduced by recent BREAKING fixes:**
+- pinniped × Ice+Water — #44 Cryonik/Boreon/Nagislither + #46 Frostmere
+- titan/colossus × Steel+Water — #38 Coralossus/Titanariel + #41 Titanomare
+
+**Pre-existing (sample; not exhaustive):**
+- humanoid × Fairy+Psychic (4 families)
+- crab/lobster × Rock+Water (3)
+- humanoid × Ground+Steel (3)
+- bat × Dark+Wind (2)
+- beetle × Bug+Electric (2)
+- butterfly/moth × Bug+Poison (2)
+- crystalline-prism × Psychic+Rock (2)
+- dragonfly × Bug+Electric (2)
+- fairy-sprite × Dark+Fairy (2)
+- fairy-sprite × Fairy+Psychic (2)
+- humanoid × Ice+Steel (2)
+- humanoid × Psychic+Wind (2)
+- shadow/wraith × Dark+Ghost (2)
+- wolf × Dark (2)
+- (plus 9 dragon-archetype cells deferred as mythical)
+
+**Run order:** BREAKING fixes → MINOR fixes → type-combination audit → archetype trim → renaming queue → **per-archetype typing-combo diversity audit (this section)** → stat spread review (last).
+
+## Per-proposal hook
+
+For every BREAKING/MINOR proposal going forward, include a **same-archetype peer typings** section so we catch new collisions before they go in. Format: list other families with the same archetype and their typing combos, flag any cell-collision the proposal would create.
+
+# 📊 Final-pass stat spread review — RUN LAST (after all renaming complete)
+
+After every coherence fix, type adjustment, and rename is committed, do a final pass over **every Lumori's base stat spread** across the whole dex. This is the last item in the entire workflow.
+
+- [ ] Walk every mon (or every family) and check the BST + stat distribution against:
+  - Stage tier (base / mid / final) — BSTs should grow uniformly along an evolution chain
+  - Body plan / role (fast hunter, tank, magical caster, balanced bruiser, glass cannon)
+  - Cross-family parity (similar-tier mons should have similar BSTs)
+  - Stat distribution coherence (e.g. high-Atk physical attackers have at least decent Spe; tanks have HP/Def synergy; SpA-leaning casters have SpD bulk)
+- [ ] Flag any mon whose stats fight its body plan (e.g. a fast bird with Speed 30, a heavy tank with Def 40)
+- [ ] Adjust to bring outliers in line, preserving overall power balance
+- [ ] Re-verify trainer encounters / wild-area difficulty curves still feel correct after stat adjustments
+
+**Run order:** BREAKING fixes → MINOR fixes → typing audit → archetype trim → renaming queue → **stat spread review (this section, last)**.
 
 ---
 

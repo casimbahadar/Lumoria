@@ -212,21 +212,6 @@ Goal: every standalone (single-stage) mon currently has no body-plan-coherence a
 
 **Run order:** BREAKING → MINOR → **solo desc/lore/emoji audit (this section)** → typing-combination audit → archetype trim → renaming → stat spread review.
 
-# 📉 Standalone count reduction — RUN BEFORE the renaming queue resumes
-
-**Current state:** 269 families total — **118 multi-stage + 151 single-stage**. Solo ratio is **56.1%** which is high; most established Pokémon-style dexes target 60-70% multi-stage families. Goal: significantly reduce the solo count by absorbing many standalone mons into multi-stage evolution chains, or by retiring/merging redundant solos.
-
-## Approach
-
-- [ ] **Inventory the 151 solos.** Group by archetype (cross-reference the creature inventory above) and by typing combo. Surface any solos that visually/thematically match an existing multi-stage family (could become a 4th stage, mega/branch evolution, or starter-pre-stage).
-- [ ] **Identify reduction targets.** For each over-represented archetype (lion, dog, bear, raptor, golem, etc.) and each over-cap typing combo, find which solos could be absorbed into existing chains as new stages or branches, vs. which solos are unique-mythical (exempt-list) and should remain standalone.
-- [ ] **Define merger candidates.** Pair a solo with an existing chain (e.g. an unattached lion-coded solo could be retitled as a branched evolution of an existing felid line). Decide stage placement (pre-evolution, mid, late-evolution, mega/awakened form).
-- [ ] **Identify retirement candidates.** Some solos may be redundant in role/typing/archetype with existing families and could be dropped from the dex entirely (or repurposed as variants).
-- [ ] **Target ratio.** Aim for ~70-75 solos remaining (down from 151), with the remainder absorbed/retired. Approximate target: 75 multi-stage + 70 solo = ~145 families, more comparable to mainline Pokémon density.
-- [ ] **Output:** a merger plan with **(a)** solos to absorb (with target chain + stage placement), **(b)** solos to retire (with replacement coverage if needed), **(c)** solos kept standalone (mythical-exempt or unique-niche).
-
-**Run order:** after BREAKING + MINOR + solo desc/lore audit + creature inventory + typing audits, **but before the renaming queue resumes** — because consolidating solos into chains affects names (new evolution-name relationships) and the rename pass should work on the post-consolidation roster.
-
 # 🦄 Creature inventory + mythological exemptions — RUN BEFORE archetype trim
 
 Goal: complete inventory of every creature/animal/thing represented in the dex (with family counts), and curated lists of "special / mythological / unique" archetypes exempt from the cap-of-3 rule, plus mythological creatures NOT yet in dex for potential diversification.
@@ -381,6 +366,18 @@ For each over-cap common archetype, we can convert some members into one of thes
 
 **Run order placement:** before the existing "Archetype oversaturation — common animals" trim section below. The inventory + exemption list **defines** what counts toward the trim, then the trim runs against that updated list.
 
+# 🧪 Type-combination audit — RUN AFTER BREAKING + MINOR, BEFORE THE RENAMING PART
+
+After all coherence fixes are committed, run a type-combination audit of the full roster:
+
+- [ ] Tally how many Lumori use each `[type1, type2]` (unordered) combination across the dex.
+- [ ] Devise a cap (e.g. 3-5 per combination) for "ordinary" typing pairs.
+- [ ] Flag any combo over the cap for redistribution OR mark as **"interesting / special typing combo"** if it's a deliberate flagship pairing (e.g. starter dual-types, signature legendary pairs, narratively distinctive combinations like Aether/Crystal).
+- [ ] Output: list of over-cap combos with member ids, plus a separate "special / preserve" list for user review.
+- [ ] Adjust types on selected mons to bring ordinary combos under cap, leaving the special ones intact.
+
+**Run order:** BREAKING fixes → MINOR fixes → this typing audit → archetype trim → renaming queue resumes.
+
 # 🐺 Archetype oversaturation — common animals (cap = 3 families)
 
 Address after BREAKING + MINOR. Plan: rebuild a few standalone or weaker family-final lores into different creature types.
@@ -394,34 +391,20 @@ Address after BREAKING + MINOR. Plan: rebuild a few standalone or weaker family-
 - [ ] **crystalline / gem creature** — 8 families. Trim to 3.
 - [ ] **rock-monolith / standing-stone** — 5 families. Trim to 3.
 
-# 💡 Concept parking — future family ideas to use later
+# 📉 Standalone count reduction — RUN BEFORE the renaming queue resumes
 
-- **"Whirlpool of light" — Water/Psychic family.** The original Aurarael flavor (a flowing psychic entity that resembles a whirlpool of blue-violet light given form, no solid body, continuously cycling vortex, inhabits locations of high psychic resonance, absorbs ambient thought energy) is being preserved here. Reuse for a new Water/Psychic family — possibly a deep-ocean meditation-shrine guardian, or a tidal-current spirit. Keep in mind during the renaming/typing pass.
-- **"Fairy-dragon" — Water/Fairy or Dragon/Fairy family.** The original Thalassira flavor (a grand aquatic fairy-dragon 5 metres long, combining the sinuous body of a sea serpent with translucent fairy wings that function as fins, iridescent ocean-blue and silver scales, guarding hidden underwater groves where rare magical plants grow undisturbed) is being preserved here. Reuse for a new family — possibly a flagship legendary fairy-dragon line, or as the final stage of a new aquatic dragon family during the renaming pass.
-- **"Nautilus metallic humanoid" — Water/Steel family.** The original Titanariel flavor (a 7-metre armoured sea-titan resembling a colossal nautilus with steel-hard shell and metallic-plated tentacles, propelled by high-pressure water jets, capsizing ships by wrapping tentacles around the hull) is being preserved. User specifically liked the **nautilus metallic humanoid** read — likely intent is a humanoid creature with a nautilus-shell carapace and metal-plated tentacle-arms (rather than a pure mollusk). Reuse for a new Water/Steel family — possibly a flagship deep-sea armored legendary or final stage of a new aquatic mollusk-knight line.
+**Current state:** 269 families total — **118 multi-stage + 151 single-stage**. Solo ratio is **56.1%** which is high; most established Pokémon-style dexes target 60-70% multi-stage families. Goal: significantly reduce the solo count by absorbing many standalone mons into multi-stage evolution chains, or by retiring/merging redundant solos.
 
-# 🧪 Type-combination audit — RUN AFTER BREAKING + MINOR, BEFORE THE RENAMING PART
+## Approach
 
-After all coherence fixes are committed, run a type-combination audit of the full roster:
+- [ ] **Inventory the 151 solos.** Group by archetype (cross-reference the creature inventory above) and by typing combo. Surface any solos that visually/thematically match an existing multi-stage family (could become a 4th stage, mega/branch evolution, or starter-pre-stage).
+- [ ] **Identify reduction targets.** For each over-represented archetype (lion, dog, bear, raptor, golem, etc.) and each over-cap typing combo, find which solos could be absorbed into existing chains as new stages or branches, vs. which solos are unique-mythical (exempt-list) and should remain standalone.
+- [ ] **Define merger candidates.** Pair a solo with an existing chain (e.g. an unattached lion-coded solo could be retitled as a branched evolution of an existing felid line). Decide stage placement (pre-evolution, mid, late-evolution, mega/awakened form).
+- [ ] **Identify retirement candidates.** Some solos may be redundant in role/typing/archetype with existing families and could be dropped from the dex entirely (or repurposed as variants).
+- [ ] **Target ratio.** Aim for ~70-75 solos remaining (down from 151), with the remainder absorbed/retired. Approximate target: 75 multi-stage + 70 solo = ~145 families, more comparable to mainline Pokémon density.
+- [ ] **Output:** a merger plan with **(a)** solos to absorb (with target chain + stage placement), **(b)** solos to retire (with replacement coverage if needed), **(c)** solos kept standalone (mythical-exempt or unique-niche).
 
-- [ ] Tally how many Lumori use each `[type1, type2]` (unordered) combination across the dex.
-- [ ] Devise a cap (e.g. 3-5 per combination) for "ordinary" typing pairs.
-- [ ] Flag any combo over the cap for redistribution OR mark as **"interesting / special typing combo"** if it's a deliberate flagship pairing (e.g. starter dual-types, signature legendary pairs, narratively distinctive combinations like Aether/Crystal).
-- [ ] Output: list of over-cap combos with member ids, plus a separate "special / preserve" list for user review.
-- [ ] Adjust types on selected mons to bring ordinary combos under cap, leaving the special ones intact.
-
-**Run order:** BREAKING fixes → MINOR fixes → this typing audit → archetype trim → renaming queue resumes.
-
-# 🔮 Mythical/rare archetype flags — END-OF-TASK USER DISCUSSION
-
-Per user instruction: leave these for late discussion before any consolidation.
-
-- [ ] **dragon (true dragon)** — 20+ families. Massive over-saturation. Discuss approach.
-- [ ] **ghost / wraith / spectral** — 7+ families.
-- [ ] **void / cosmic / abstract** — 8+ families.
-- [ ] **storm-elemental / lightning-vortex** — 5+ families.
-- [ ] **humanoid (non-armoured elemental)** — 6+ families.
-- [ ] **phoenix / solar-bird** — 3-4 families (borderline).
+**Run order:** after BREAKING + MINOR + solo desc/lore audit + creature inventory + typing audits, **but before the renaming queue resumes** — because consolidating solos into chains affects names (new evolution-name relationships) and the rename pass should work on the post-consolidation roster.
 
 # 🎯 Per-archetype typing-combo diversity audit — RUN BEFORE STAT REVIEW
 
@@ -470,6 +453,23 @@ This audit specifically catches the cross-product: same creature **and** same ty
 ## Per-proposal hook
 
 For every BREAKING/MINOR proposal going forward, include a **same-archetype peer typings** section so we catch new collisions before they go in. Format: list other families with the same archetype and their typing combos, flag any cell-collision the proposal would create.
+
+# 💡 Concept parking — future family ideas to use later
+
+- **"Whirlpool of light" — Water/Psychic family.** The original Aurarael flavor (a flowing psychic entity that resembles a whirlpool of blue-violet light given form, no solid body, continuously cycling vortex, inhabits locations of high psychic resonance, absorbs ambient thought energy) is being preserved here. Reuse for a new Water/Psychic family — possibly a deep-ocean meditation-shrine guardian, or a tidal-current spirit. Keep in mind during the renaming/typing pass.
+- **"Fairy-dragon" — Water/Fairy or Dragon/Fairy family.** The original Thalassira flavor (a grand aquatic fairy-dragon 5 metres long, combining the sinuous body of a sea serpent with translucent fairy wings that function as fins, iridescent ocean-blue and silver scales, guarding hidden underwater groves where rare magical plants grow undisturbed) is being preserved here. Reuse for a new family — possibly a flagship legendary fairy-dragon line, or as the final stage of a new aquatic dragon family during the renaming pass.
+- **"Nautilus metallic humanoid" — Water/Steel family.** The original Titanariel flavor (a 7-metre armoured sea-titan resembling a colossal nautilus with steel-hard shell and metallic-plated tentacles, propelled by high-pressure water jets, capsizing ships by wrapping tentacles around the hull) is being preserved. User specifically liked the **nautilus metallic humanoid** read — likely intent is a humanoid creature with a nautilus-shell carapace and metal-plated tentacle-arms (rather than a pure mollusk). Reuse for a new Water/Steel family — possibly a flagship deep-sea armored legendary or final stage of a new aquatic mollusk-knight line.
+
+# 🔮 Mythical/rare archetype flags — END-OF-TASK USER DISCUSSION
+
+Per user instruction: leave these for late discussion before any consolidation.
+
+- [ ] **dragon (true dragon)** — 20+ families. Massive over-saturation. Discuss approach.
+- [ ] **ghost / wraith / spectral** — 7+ families.
+- [ ] **void / cosmic / abstract** — 8+ families.
+- [ ] **storm-elemental / lightning-vortex** — 5+ families.
+- [ ] **humanoid (non-armoured elemental)** — 6+ families.
+- [ ] **phoenix / solar-bird** — 3-4 families (borderline).
 
 # 📊 Final-pass stat spread review — RUN LAST (after all renaming complete)
 

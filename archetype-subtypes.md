@@ -255,20 +255,15 @@
   - bonobo (great ape; distinct from chimpanzee)
   - orangutan (great ape)
   - gibbon (lesser ape)
-  - siamang (largest lesser ape)
 - **monkey** (subs each cap 1+1)
-  - old-world: baboon
-  - old-world: macaque
-  - old-world: mandrill
-  - old-world: proboscis-monkey
-  - old-world: langur
-  - old-world: gelada
-  - new-world: capuchin
-  - new-world: howler-monkey
-  - new-world: spider-monkey
-  - new-world: squirrel-monkey
-  - new-world: marmoset / tamarin
-  - new-world: saki / uakari (bearded / red-faced South American)
+  - baboon
+  - macaque
+  - mandrill
+  - capuchin
+  - howler-monkey
+  - spider-monkey
+  - squirrel-monkey
+  - marmoset / tamarin
 - **lemur** (cap 1+1)
 - **mythical-primate** (subs each cap 1+1)
   - yeti

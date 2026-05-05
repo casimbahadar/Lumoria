@@ -30,6 +30,12 @@ Everything else asks first.
 - `.claude-batching` marker file is present → the global stop-hook tolerates uncommitted changes. Commits are batched per TODO section, not per change.
 - See `rename_lumori.md` for the naming rules and `scripts/analyze_current.py` for cap-2 validation.
 
+## Context-window checkpoints
+
+Proactively notify the user when the session's context window crosses each of these thresholds: **50%, 75%, 90%, and 98%**. Surface a one-line warning at each threshold so the user can decide whether to commit, save state, or wrap up before context exhaustion.
+
+Example format: `⚠️ Context at 75% — consider committing recent work.`
+
 ## Post-game typing restriction
 
 **Aether, Fighting, Crystal, Primal, and Ghost are post-game typings reserved for Forgotten Lumori (id ≥ 408).** When proposing typings for any Lumori with id < 408, never recommend or include any of these five types — they belong to the Forgotten/post-game roster only.

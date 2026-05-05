@@ -1014,12 +1014,12 @@ const MONSTERS_DATA = {
     desc:"A living seed pod that rolls around. Harmless but quick to flee.",
     lore:"Germix is a round, seed-shaped creature about 15 cm tall. Its smooth green body has two tiny sprout-legs and a small face framed by curling leaf tendrils. It buries itself in rich soil during the day to photosynthesize through root-hairs. When threatened it releases a burst of accelerated growth, sprouting a tangle of vines around attackers." },
 
-  70: { id:70, name:"Verdurus",    emoji:"🐻", types:["Grass"],
+  70: { id:70, name:"Verdurus",    emoji:"🌱", types:["Grass"],
     base:{hp:90,atk:102,def:71,spa:95,spd:73,spe:61},
     learnset:[[1,"tackle"],[2,"vine_whip"],[3,"leer"],[4,"energy_ball"],[5,"sleep_powder"],[23,"seed_bomb"],[27,"swords_dance"],[36,"canopy_crash"],[37,"quick_attack"],[45,"briar_lash"],[54,"body_slam"],[63,"petal_blitz"],[6,"spore_burst"],[43,"tail_whip"]],
     evolveTo:71, evolveLevel:40, catchRate:75, expYield:186, rarity:"uncommon",
-    desc:"A bear covered in living vegetation. Gentle unless its forest is threatened.",
-    lore:"Verdurus is a rotund bear-like grass creature 1.5 metres tall completely covered in thick layers of soft moss and grass blades. Small flowers bloom from its back in spring. It is slow-moving and placid, grazing on rich meadow grass. Its weight compresses soil into particularly fertile patches wherever it sits." },
+    desc:"A mid-sized walking seed-pod 1.5 metres tall whose green husk has split open to reveal long curling leaf-tendrils and a soft moss-covered core. Drops fresh seeds in its wake.",
+    lore:"Verdurus is a 1.5-metre walking seed-pod, the matured form of Germix whose smooth green husk has gradually split open along ridge-lines to reveal a soft moss-covered core inside. Long curling leaf-tendrils unfurl from the open seams, swaying gently as it walks on its short root-legs. Small yellow flowers bloom in clusters across its outer surface in spring, and ripe pollen drifts from them onto the wind. Wherever Verdurus walks for any length of time, it drops fresh seeds from internal pods, and patches of new growth follow its trail." },
 
   // ===== ELECTRIC =====
   81: { id:81, name:"Joltan",    emoji:"🐎", types:["Electric"],
@@ -1036,19 +1036,19 @@ const MONSTERS_DATA = {
     desc:"An electric horse that gallops faster than lightning. Its mane crackles.",
     lore:"Galvanos is a horse-like creature 1.2 metres at the shoulder with sleek golden-yellow hide crisscrossed by electric-blue markings. Its flowing mane crackles with constant static. It can sustain a gallop at extraordinary speed for hours by converting its own electrical energy into kinetic force." },
 
-  84: { id:84, name:"Electrix",      emoji:"🐞", types:["Electric","Bug"],
+  84: { id:84, name:"Electrix",      emoji:"🐛", types:["Electric","Bug"],
     base:{hp:34,atk:48,def:43,spa:50,spd:43,spe:94},
     learnset:[[1,"bug_bite",[22,"arc_flash"]],[1,"thunder_shock"],[10,"spark"],[18,"string_shot"],[20,"recover"],[26,"thunderbolt"],[34,"bug_buzz",[5,"thunder_wave"]],[36,"x_scissor"],[3,"static_cage"],[31,"cocoon_burst"]],
     evolveTo:85, evolveLevel:22, catchRate:200, expYield:74, rarity:"common",
     desc:"An electric beetle that emits charged buzzing sounds. Very energetic.",
-    lore:"Electrix is a small beetle about 8 cm long with hard wing-cases of metallic gold and a dark underside. Two small antennae end in blue sparks. It lives in colonies in decaying wood near bodies of water and generates electricity from moisture and organic material it processes through its digestive system." },
+    lore:"Electrix is a small dragonfly nymph 8 cm long, the aquatic juvenile stage of the lineage. Its body is segmented and dark with metallic gold-edged plates, and small gilled abdomen-tufts trail behind it as it crawls along stream beds. It already generates faint electrical sparks from its rudimentary wing-buds when threatened. It hunts smaller aquatic insects with its hooked predatory mandibles, and lives in colonies in slow-moving water near decaying wood, where it processes organic material into bioelectric energy." },
 
-  85: { id:85, name:"Shockharpe",  emoji:"🦟", types:["Electric","Bug"],
+  85: { id:85, name:"Shockharpe",  emoji:"🪰", types:["Electric","Bug"],
     base:{hp:81,atk:68,def:53,spa:107,spd:67,spe:101},
     learnset:[[1,"thunder_shock"],[2,"bug_bite"],[3,"thunder_wave"],[23,"thunderbolt"],[29,"tail_whip"],[31,"bug_buzz"],[33,"x_scissor"],[36,"scratch"],[43,"silk_bind"],[50,"swarm_dive"],[57,"volt_surge"],[64,"thunder"],[4,"static_cage"],[42,"mandible_crush"]],
     evolveTo:86, evolveLevel:42, catchRate:75, expYield:180, rarity:"uncommon",
     desc:"A dragonfly of electricity. Moves so fast it leaves lightning trails behind.",
-    lore:"Shockharpe is a large mosquito-like creature 15 cm long with a translucent body and wings that hum at a frequency causing mild disorientation in nearby creatures. Its needle-like proboscis can pierce metal. It drains bioelectric energy from prey rather than blood, leaving targets drained and sluggish." },
+    lore:"Shockharpe is a 15 cm late-instar dragonfly, the metamorphic mid-stage of the lineage. Its body has elongated and slimmed, and its newly emerged wings are still soft and translucent, humming at a frequency that causes mild disorientation in nearby creatures. Its hooked predatory mandibles and accumulating electrical charge are inherited from the nymph. It drains bioelectric energy from prey rather than blood, leaving targets drained and sluggish." },
 
   87: { id:87, name:"Amperix",     emoji:"🐟", types:["Electric","Water"],
     base:{hp:48,atk:59,def:51,spa:74,spd:57,spe:63},
@@ -1120,7 +1120,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"scratch",[20,"cyclone_blade"]],[1,"gust"],[8,"quick_attack"],[16,"wing_attack"],[21,"harden"],[24,"air_slash"],[32,"hurricane",[5,"mistveil"]],[36,"thermal_dive"],[3,"zephyr_dance"],[31,"leer"]],
     evolveTo:109, evolveLevel:22, catchRate:200, expYield:70, rarity:"common",
     desc:"A light-footed wind kitten. Jumps and glides on invisible air currents.",
-    lore:"Gustkin is a lean, cat-like wind creature about 45 cm at the shoulder with pale silver-grey fur that ruffles constantly in self-generated air currents. Its ears are long and swept back. It moves with uncanny speed across open spaces, leaving a trail of swirling leaves and dust in its wake." },
+    lore:"Silvergust is a lion-cub-sized wind-felid about 45 cm at the shoulder with pale silver-grey fur that ruffles constantly in self-generated air currents. Its ears are long and swept back. It moves with uncanny speed across open spaces, leaving a trail of swirling leaves and dust in its wake." },
 
   109: { id:109, name:"Siroccomane",    emoji:"🦁", types:["Wind","Electric"],
     base:{hp:70,atk:98,def:57,spa:68,spd:74,spe:119},
@@ -2035,7 +2035,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"razor_leaf"],[1,"sludge_bomb"],[18,"energy_ball"],[28,"toxic"],[36,"petal_blitz"],[44,"venom_lance"],[52,"grove_wrath"],[60,"hyper_beam"]],
     evolveTo:264, evolveLevel:42, catchRate:90, expYield:145, rarity:"uncommon",
     desc:"A cactus warrior of venomous thorns. Its spines can inject toxins from up to three meters away.",
-    lore:"Vinrix is a grass-poison creature 60 cm long resembling a vine-wrapped lizard. Its body is covered in climbing vine tendrils that it can extend rapidly. The vines secrete a contact irritant. It inhabits jungle undergrowth and creates elaborate vine-trap networks around its territory that snare careless prey." },
+    lore:"Tendrilisk is a grass-poison creature 60 cm long whose vine-tendrils still wrap a seed-core body — the lizard silhouette is camouflage from outside, all plant within. Its body is covered in climbing vine tendrils that it can extend rapidly. The vines secrete a contact irritant. It inhabits jungle undergrowth and creates elaborate vine-trap networks around its territory that snare careless prey." },
 
   264: { id:264, name:"Impenezard", emoji:"🌳", types:["Grass","Poison"],
     base:{hp:95,atk:102,def:86,spa:111,spd:93,spe:63},
@@ -2393,7 +2393,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"hydro_pump"],[1,"eclipse_shroud"],[28,"soul_rend"],[36,"phantom_claw"],[44,"geyser_burst"],[52,"shadow_ball"],[60,"dark_pulse"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:232, rarity:"rare",
     desc:"A spectral sea leviathan that capsizes ships. Half water, half ghost—completely terrifying.",
-    lore:"Tidephant is a large water-dark creature 2 metres long resembling a cetacean with dark blue-black hide and a broad flat head. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },
+    lore:"Tidephant is a large water-dark creature 2 metres long resembling a cetacean with dark blue-black hide and a broad flat head. As it matured from Seafraith, its fins broadened into flippers and its skeleton calcified into a whale-like frame — a fish-to-leviathan apotheosis. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },
 
   // 2-stage Ground/Water chain: Mudpump → Marshix (level 28)
   310: { id:310, name:"Mudpump", emoji:"🦛", types:["Ground","Water"],
@@ -2488,7 +2488,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[22,"sandstrike"]],[1,"growl"],[8,"mud_shot"],[16,"quick_attack"],[20,"clay_armor"],[24,"headbutt"],[32,"earthquake",[5,"tail_whip"]],[36,"boulder_roll"],[3,"leer"],[31,"mud_bomb"]],
     evolveTo:105, evolveLevel:22, catchRate:180, expYield:78, rarity:"common",
     desc:"A sandy-furred critter that kicks up dust clouds when startled. Very skittish.",
-    lore:"Arenikin is a small sandy-furred dog about 35 cm at the shoulder with large upright ears and a slender snout suited for digging. Its colouring matches desert sand almost exactly. It stores excess food underground and marks its territory with scratched symbols in stone, which researchers have documented as a primitive map system." },
+    lore:"Arenikin is a small sandy-furred hyena-pup about 35 cm at the shoulder with large upright ears, a stocky build, and a slender snout suited for digging. Its colouring matches desert sand almost exactly. It stores excess food underground and marks its territory with scratched symbols in stone, which researchers have documented as a primitive map system." },
 
   // ===== WATER/POISON =====
   31: { id:31, name:"Toxaquil", emoji:"🐙", types:["Water","Poison"],
@@ -2520,7 +2520,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"gust",[22,"mind_shatter"]],[1,"confusion"],[9,"quick_attack"],[17,"air_slash"],[25,"psybeam"],[29,"psystrike"],[33,"hurricane"],[41,"psychic_move",[5,"mistveil"]],[3,"zephyr_dance"],[32,"astral_rend"]],
     evolveTo:117, evolveLevel:32, catchRate:110, expYield:90, rarity:"common",
     desc:"A wisp of wind given a curious mind. Follows trainers to observe how they think.",
-    lore:"Zephyrin is a graceful serpentine wind-psychic creature 1.5 metres long with translucent teal-blue scales and a constantly swirling aura of disturbed air. Its fins are long trailing ribbons of compressed wind. It inhabits mountain weather-stations and is considered a reliable predictor of atmospheric pressure changes." },
+    lore:"Zephyrin is a small wind-psychic vortex 1.5 metres tall, a swirling column of translucent teal-blue compressed air with a faint psychic glow at its centre. Long trailing ribbons of wind unfurl from its periphery and drift behind it as it moves. It inhabits mountain weather-stations and is considered a reliable predictor of atmospheric pressure changes." },
 
   // ===== WATER/FAIRY =====
   34: { id:34, name:"Pearlith", emoji:"🐚", types:["Water","Fairy"],
@@ -2536,7 +2536,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"vine_whip",[22,"root_lance"]],[1,"bite"],[10,"razor_leaf"],[18,"night_slash"],[26,"energy_ball"],[30,"grove_wrath"],[34,"crunch"],[42,"dark_pulse",[5,"sleep_powder"]],[3,"spore_burst"],[32,"void_rend"]],
     evolveTo:79, evolveLevel:30, catchRate:110, expYield:98, rarity:"common",
     desc:"A shadowy plant sprite that hides in dark undergrowth. Its thorns drip with shadow energy.",
-    lore:"Sylvnox is a sleek, fox-like dark-grass creature 65 cm at the shoulder. Its coat is deep forest-green with black underbelly and dark purple-black markings. Its eyes gleam amber in shadows. It prowls the edges of forests at twilight and uses shadow-camouflage to stalk prey, striking only when within striking range." },
+    lore:"Sylvnox is a small bark-skinned forest-sprite 60 cm tall, the youngest stage of the leshy lineage. Its body is bipedal and humanoid, wrapped in a fringed cloak of dark leaves and shadow-moss with two short twig-horns curling from its brow. Its amber eyes glow through the foliage-hood as it skitters through the undergrowth at twilight, drawing shadow-camouflage from the corrupted plants it touches. Travellers who hear its faint giggling among the trees rarely see it before it is gone." },
 
   // ===== POISON/GRASS =====
   162: { id:162, name:"Marlix", emoji:"🌾", types:["Poison","Grass"],
@@ -2560,7 +2560,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"confusion",[22,"telepathic_slam"]],[1,"bite"],[10,"psybeam"],[18,"dark_pulse"],[26,"psychic_move"],[30,"neural_storm"],[34,"shadow_ball"],[42,"psystrike",[5,"calm_mind"]],[3,"prism_ward"],[32,"blackout_bomb"]],
     evolveTo:129, evolveLevel:34, catchRate:90, expYield:100, rarity:"common",
     desc:"A shade of psychic darkness. It exists half in reality and half in the mind's eye.",
-    lore:"Mentarix is a tall psychic-dark biped 1.3 metres tall with a smooth lavender-grey body and an oversized cranium that pulses with light when it concentrates. Its small hands trail crackling dark energy. It dredges suppressed memories from others without consent and catalogues them in its own vast mental archive." },
+    lore:"Cranivade is a tall psychic-dark biped 1.3 metres tall with a smooth lavender-grey body and an oversized cranium that pulses with light when it concentrates. Its small hands trail crackling dark energy. It dredges suppressed memories from others without consent and catalogues them in its own vast mental archive." },
 
   // ===== DARK/GRASS =====
   130: { id:130, name:"Necralia", emoji:"🌿", types:["Dark","Grass"],
@@ -2640,12 +2640,12 @@ const MONSTERS_DATA = {
     desc:"A bloom fairy of extraordinary grace. Its petals carry healing magic on the breeze.",
     lore:"Faelomis is a tall graceful fairy-grass creature 1.2 metres tall. Its body is composed of interlocking flowering vines over a luminous inner core. Large bloom-wings trail from its back, their petals reshaping continuously. It is drawn to locations where multiple ley lines intersect, feeding on ambient magical energy." },
 
-  105: { id:105, name:"Dravanas", emoji:"🦁", types:["Normal","Ground"],
+  105: { id:105, name:"Dravanas", emoji:"🐾", types:["Normal","Ground"],
     base:{hp:91,atk:108,def:71,spa:50,spd:62,spe:112},
     learnset:[[1,"mud_shot"],[2,"growl"],[22,"headbutt"],[28,"vital_pulse"],[29,"earthquake"],[33,"boulder_roll"],[34,"swords_dance"],[40,"wild_tumble"],[46,"momentum_rush"],[52,"body_slam"],[58,"earth_power"],[64,"hyper_beam"],[3,"tail_whip"],[42,"loam_leech"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:200, rarity:"uncommon",
-    desc:"A sand lion with a mane of hardened earth. Commands the desert winds.",
-    lore:"Dravanas is a lion-sized ground creature 1.2 metres at the shoulder with tawny earth-coloured fur and a mane of compressed soil and pebbles. Its paws leave deep prints. It digs vast underground lair systems that can span a hectare, and its roar causes nearby loose soil to tremor in concentric rings." },
+    desc:"A great desert hyena with a thick crest-mane of hardened earth. Commands the desert winds.",
+    lore:"Dravanas is a great desert hyena 1.2 metres at the shoulder with tawny earth-coloured fur and a thick shoulder-and-back crest-mane of compressed soil and pebbles, a natural feature exaggerated in this lineage into a true earth-mantle. Its paws leave deep prints. It digs vast underground lair systems that can span a hectare, and its low whooping cackle causes nearby loose soil to tremor in concentric rings." },
 
   32: { id:32, name:"Noxaquith", emoji:"🦑", types:["Water","Poison"],
     base:{hp:77,atk:80,def:76,spa:108,spd:83,spe:53},
@@ -2668,12 +2668,12 @@ const MONSTERS_DATA = {
     desc:"A sea nymph radiating both water and fairy energy. Said to protect lost sailors.",
     lore:"Undirael is a mermaid-like creature 1.5 metres tall with the lower body of a deep-sea fish in shimmering violet and a humanoid torso. Its flowing hair is made of water-weed adorned with living sea-stars. It guides lost sailors away from dangerous reefs by projecting alluring visions of safe harbours." },
 
-  79: { id:79, name:"Morraveth", emoji:"🌑", types:["Grass","Dark"],
+  79: { id:79, name:"Morraveth", emoji:"🌳", types:["Grass","Dark"],
     base:{hp:84,atk:101,def:80,spa:100,spd:72,spe:67},
     learnset:[[1,"razor_leaf"],[2,"energy_ball"],[3,"night_slash"],[4,"sleep_powder"],[31,"crunch"],[35,"harden"],[39,"dark_pulse"],[40,"photon_leaf"],[45,"shadow_ball"],[50,"blackout_bomb"],[55,"void_rend"],[60,"petal_blitz"],[5,"spore_burst"],[38,"leaf_blade"]],
     evolveTo:80, evolveLevel:44, catchRate:40, expYield:218, rarity:"uncommon",
     desc:"A dark vine predator that ensnares prey in shadow-infused tendrils. Ancient and cunning.",
-    lore:"Morraveth is a wolf-like dark-grass predator 90 cm at the shoulder with midnight-green fur and black patches. Withered vines and dead bark cover parts of its body naturally. It hunts by corrupting plant growth around prey into thorny barriers, gradually encircling its target before closing in." },
+    lore:"Morraveth is a mid-stage leshy 1 metre tall, its bark-skin now thickened into shoulder-plates of dark wood and its twig-horns elongated into branching antler-buds. Withered vines coil around its forearms and its leaf-cloak has deepened to midnight green and black. It hunts by corrupting the plant growth around its prey into thorny barriers, gradually encircling the target before closing in from the shadows." },
 
   163: { id:163, name:"Blightalis", emoji:"🪷", types:["Poison","Grass"],
     base:{hp:88,atk:80,def:60,spa:116,spd:83,spe:58},
@@ -2694,7 +2694,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"psybeam"],[2,"dark_pulse"],[3,"psychic_move"],[4,"shadow_ball"],[5,"calm_mind"],[39,"psystrike"],[40,"battle_cry"],[44,"prism_ward"],[49,"obsidian_fang"],[54,"void_rend"],[59,"mind_shatter"],[64,"hyper_beam"],[6,"mind_reader"],[41,"thought_crush"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:248, rarity:"rare",
     desc:"A void being of psychic and dark power. Consumes light and thought with equal ease.",
-    lore:"Voidaxis is a large psychic-dark entity 1.5 metres tall whose body appears to exist partially in another dimension — its edges are blurred and its form shifts when viewed peripherally. Its presence makes nearby electronic devices malfunction. It communicates only through psychic projection and has never been heard to vocalise." },
+    lore:"Voidaxis is a large psychic-dark entity 1.5 metres tall whose body appears to exist partially in another dimension — the biped silhouette of its earlier form persists at the form's centre, but its edges are blurred and its outline shifts when viewed peripherally, dissolving into half-dimensional shadow. Its presence makes nearby electronic devices malfunction. It communicates only through psychic projection and has never been heard to vocalise." },
 
   203: { id:203, name:"Arachnalis", emoji:"🕸️", types:["Bug","Fairy"],
     base:{hp:76,atk:64,def:73,spa:101,spd:89,spe:74},
@@ -3032,7 +3032,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"powder_snow"],[1,"surf"],[2,"ice_beam"],[3,"permafrost"],[4,"winter_shroud"],[38,"blizzard"],[42,"hoarfrost_bite"],[46,"icicle_crash"],[50,"hydro_pump"],[54,"glacial_tomb"],[58,"cryo_lance"],[62,"abyssal_jet"],[5,"tidecaller"],[44,"frost_current"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A titan of polar seas whose body is half glacier and half deep ocean. Its roar shatters icebergs for miles around.",
-    lore:"Polarveth is a serpentine ice-water creature 3 metres long with translucent blue-white scales and broad front flippers. Its tail sweeps in wide arcs to break through thin ice sheets. It hunts beneath pack ice, surfacing through cracks to catch prey venturing near the frozen edge." },
+    lore:"Nagislither is an elongated mature seal-form 3 metres long, sleek and powerfully muscled, with translucent blue-white fur over a long pinniped body and broad front flippers. Its whiskered face and dark amber eyes match the Cryonik lineage, but its tail has lengthened into a sweeping rudder that breaks through thin ice sheets in wide arcs. It hunts beneath pack ice, surfacing through cracks to catch prey venturing near the frozen edge." },
 
   // 185: Nepturix - Water (Corelin→Neraxis→Nepturix)
   30: { id:30, name:"Nepturix", emoji:"🐟", types:["Water"],
@@ -3075,20 +3075,20 @@ const MONSTERS_DATA = {
     lore:"Rootvorn is a colossal ancient snail nearly 3 metres tall at the shell's apex, with a body that extends another 4 metres when fully out of the shell. Its great calcified spiral has been so deeply colonised over centuries that it now resembles a mossy hill — thick roots from full-grown saplings have driven down through the shell's surface and clutched it like a living crown, and a complete miniature canopy of broad leaves shades the back of its body. Its eyestalks are 1-metre wood-coloured stalks tipped in twin amber gleams, raised cautiously above the canopy when it senses motion. It uproots itself only at night, dragging its forested shell to a new location before dawn, and is believed to reorganise the layout of entire woodlands over decades — wherever it has travelled, new groves take root from the seeds shed by its passing." },
 
   // 190: Verdovast - Grass (Germix→Verdurus→Verdovast)
-  71: { id:71, name:"Verdovast", emoji:"🐻", types:["Grass"],
+  71: { id:71, name:"Verdovast", emoji:"🌳", types:["Grass"],
     base:{hp:109,atk:123,def:88,spa:113,spd:88,spe:29},
     learnset:[[1,"tackle"],[1,"vine_whip"],[2,"energy_ball"],[3,"sleep_powder"],[4,"seed_bomb"],[38,"petal_blitz"],[42,"swords_dance"],[46,"canopy_crash"],[50,"verdant_surge"],[54,"body_slam"],[58,"briar_lash"],[62,"photon_leaf"],[5,"spore_burst"],[44,"root_lance"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
-    desc:"A titanic forest guardian born of the oldest living wood. No axe or flame has ever felled it; those who try are swallowed by the undergrowth.",
-    lore:"Verdovast is a massive grass bear 2.5 metres tall, its body now fully encrusted in thick bark-like plant growth and flowering vines. Trees and shrubs spontaneously germinate on its back over the years, so older individuals resemble walking small ecosystems. It rarely moves fast but is nearly impossible to injure through its dense living armour." },
+    desc:"A colossal ancient seed-pod 2.5 metres tall whose surface is overgrown with saplings, vines, and a small ecosystem. Walks slowly across forests, dropping fertile seeds with each step.",
+    lore:"Verdovast is a colossal ancient seed-pod 2.5 metres tall, its surface so deeply grown over with saplings, vines, blossoms, and a small ecosystem of moss and tendrils that the original seed-husk is barely visible. Older Verdovast resemble walking gardens, with tiny trees growing from their shoulders and back, fruit ripening among the branches, and small creatures nesting in the foliage they carry. It walks slowly across forests on broad root-feet, dropping fertile seeds at every step, and patches of new growth — eventually entire grove ecosystems — spring up wherever it has lingered." },
 
   // 191: Morralyn - Grass/Dark (Sylvnox→Morraveth→Morralyn)
-  80: { id:80, name:"Morralyn", emoji:"🌑", types:["Grass","Dark"],
+  80: { id:80, name:"Morralyn", emoji:"🪵", types:["Grass","Dark"],
     base:{hp:98,atk:122,def:97,spa:117,spd:87,spe:29},
     learnset:[[1,"razor_leaf"],[1,"night_slash"],[2,"energy_ball"],[3,"dark_pulse"],[4,"sleep_powder"],[38,"petal_blitz"],[42,"shadow_ball"],[46,"void_rend"],[50,"verdant_surge"],[54,"soul_rend"],[58,"canopy_crash"],[62,"eclipse_shroud"],[5,"spore_burst"],[44,"abyssal_snare"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A wraith of shadow and thorn that stalks moonless forests. The trees it passes through wither and grow dark, feeding it endlessly.",
-    lore:"Morralyn is a large bear-wolf hybrid 1.5 metres at the shoulder, deeply dark green-black with dead plant material fused to its back forming a natural carapace. It emits a faint aura of decay that accelerates the decomposition of fallen material around it, enriching the soil as it passes." },
+    lore:"Morralyn is the ancient leshy-lord of corrupted groves, a towering 1.8-metre bark-skinned forest-spirit with a full crown of branching black antlers and a long vine-beard hung with hollow seedpods. Dead foliage and dark moss cover the heavy bark-armour plates of its body, and a faint aura of decay accelerates the decomposition of fallen material around it, enriching the soil it walks upon. It is said that the deepest, most shadow-tangled groves of Lumoria are still ruled by patriarchal Morralyn who have not been seen by human eyes in centuries." },
 
   // 192: Faevernal - Fairy/Grass (Floralin→Faelomis→Faevernal)
   74: { id:74, name:"Faevernal", emoji:"🌸", types:["Fairy","Grass"],
@@ -3115,12 +3115,12 @@ const MONSTERS_DATA = {
     lore:"Voltanox is a powerful electric stallion 1.6 metres at the shoulder with a dark charcoal hide marked by bright yellow lightning-bolt patterns along each flank and shoulder. Its broad chest and heavy musculature suggest a destrier or clydesdale-sized warhorse, and its long mane and tail crackle constantly with stored electrical charge. Two short forward-curving forehead-spurs act as capacitor tips, building enormous charges that release in arcs when it lowers its head and charges; the impact of its hooves on the ground can send visible shockwaves through metal surfaces nearby. Cities through which it briefly gallops are lit as bright as day for the moments of its passing." },
 
   // 195: Zapoveth - Electric/Bug (Electrix→Voltharpe→Zapoveth)
-  86: { id:86, name:"Galvaglide", emoji:"🦟", types:["Electric","Bug"],
+  86: { id:86, name:"Galvaglide", emoji:"🪰", types:["Electric","Bug"],
     base:{hp:84,atk:89,def:69,spa:129,spd:84,spe:95},
     learnset:[[1,"thunder_shock"],[1,"bug_buzz"],[2,"thunderbolt"],[3,"x_scissor"],[4,"thunder_wave"],[38,"thunder"],[42,"volt_surge"],[46,"swarm_dive"],[50,"plasma_strike"],[54,"mandible_crush"],[58,"ion_cannon"],[62,"stinger_volley"],[5,"static_cage"],[44,"silk_bind"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
     desc:"A dragonfly of pure lightning. Its body discharges with every wingbeat; to be caught in its swarm is to stand in a thunderstorm.",
-    lore:"Zapoveth is a dragonfly-like creature with a 40 cm wingspan. Its four wings are translucent gold and crackle with static charge. Its slender body is vivid yellow. It hunts in flight, hovering stationary before striking prey with a precisely targeted electrical discharge from its forward-pointing tail." },
+    lore:"Galvaglide is a dragonfly-like creature with a 40 cm wingspan. Its four wings are translucent gold and crackle with static charge. Its slender body is vivid yellow. It hunts in flight, hovering stationary before striking prey with a precisely targeted electrical discharge from its forward-pointing tail." },
 
   // 196: Surgolith - Electric/Water (Amperix→Volterel→Surgolith)
   89: { id:89, name:"Surgolith", emoji:"🐍", types:["Electric","Water"],

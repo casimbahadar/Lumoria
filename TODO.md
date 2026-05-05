@@ -91,9 +91,13 @@
 
 ## Walkthrough cursor
 
-**Currently paused at #13 Taurcin** (Fire bull) — pending user decision once BREAKING family fixes wrap up.
+**Currently in Borderline triage of MINOR-vs-BREAKING upgrades.** Borderline cases 1-7 done. Next up: **Borderline 8 (#128-129 Cranivade → Voidaxis)**.
 
-Last presented: #13 Taurcin (recommendation: KEEP). Awaiting user response.
+Remaining borderline cases: 8 (#128-129), 9 (#142-144), 10 (#157-159), 11 (#162-163), 12 (#172-174), 13 (#220-221), 14 (#222-224), 15 (#236-237), 16 (#242-243), 17 (#260-261), 18 (#262-264), 19 (#308-309).
+
+After borderline triage: 5 NEW BREAKING items (#84-86, #104-105, #296-298, #299-300, #302-303) → bulk name-leak fix (22+ identified in taxonomy.md) → resume MINOR tweaks → Solo audit → typing audit → archetype trim → renaming → stat review.
+
+The original walkthrough through ids 7-446 (paused at #13 Taurcin "keep" decision) is on hold until all the audit phases above complete.
 
 ---
 
@@ -130,6 +134,16 @@ Per audit (Part 1 of evolution-line coherence audit) **plus** the strict re-audi
 ## Newly identified by direct manual audit of all 118 multi-stage families (12 families)
 
 - [x] **#34-36 Pearlith → Undirael → Thalassira** — full mermaid line (Option A). Pearlith (#34) rewritten as 12 cm pearl-mermaid fry curled inside a 20 cm oyster shell (shell as nursery/shelter, snaps shut when threatened). Undirael (#35) kept as the 1.5 m mermaid mid-stage. Thalassira (#36) reframed as a 4 m regal sea-fairy queen — humanoid torso, long sweeping fin-tail, two pairs of translucent fairy wings, pearl-fragment crown callback to Pearlith. Body plan now coherent: pearl-fry-in-shell → mermaid → sea-fairy queen. Emoji 🧜 → 👑 for Thalassira (Pearlith 🐚 + Undirael 🧜 unchanged). Stats/learnset unchanged. Fairy-dragon flavor moved to concept parking. *(Uncommitted, batched.)*
+
+## Newly identified by strict re-audit (post-32/32) — 5 families flagged as genuine creature changes
+
+These are NEW BREAKING items surfaced when the audit was rerun strictly. Each is a real creature-archetype change between stages that no lore tweak can plausibly bridge. Tackle as full rewrites (proposal-and-approve flow).
+
+- [x] **#84-86 Electrix → Shockharpe → Galvaglide** — full Odonata/dragonfly line (Option A; drops over-cap beetle archetype 5→4). Electrix (#84) reframed as 8 cm aquatic dragonfly nymph (gilled, predatory mandibles, rudimentary wing-buds); emoji 🐞 → 🐛. Shockharpe (#85) reframed as 15 cm late-instar dragonfly with newly emerged wings (drops mosquito framing, keeps disorientation hum + predatory mandibles); emoji 🦟 → 🪰. Galvaglide (#86) lore opener "Zapoveth is..." → "Galvaglide is..." (name-leak fix); emoji 🦟 → 🪰. Names, types Electric/Bug, stats, learnsets all preserved. Body plan now coherent: nymph → emerging dragonfly → adult dragonfly. *(Uncommitted, batched.)*
+- [x] **#104-105 Arenikin → Dravanas** — full sand-hyena line (Option A; pristine archetype claimed; lion archetype stays at exactly cap of 3). Arenikin (#104) reframed as 35 cm sandy-furred hyena-pup (drops "dog" framing); emoji 🐾 kept. Dravanas (#105) reframed as 1.2 m great desert hyena with shoulder-and-back crest-mane of compressed soil and pebbles (preserves the mane element naturally — hyenas have prominent dorsal manes); emoji 🦁 → 🐾. Description "sand lion" → "great desert hyena"; "roar" → "low whooping cackle". Names, types Normal/Ground, stats, learnsets all preserved. Side benefits: pristine hyena (Hyaenidae) archetype claimed; lion stays at exactly cap of 3 (Siroccomane, Ignitheon, Pyraeon-postgame). *(Uncommitted, batched.)*
+- [ ] **#296-298 Plaguefly → Blightwing → Plagueoth** — mosquito (Diptera) → butterfly → moth (Lepidoptera). Order change. Fix: pivot to Lepidoptera throughout — rewrite **Plaguefly** as a blight-larva or large blight-caterpillar (drops mosquito), keep Blightwing (butterfly) and Plagueoth (moth).
+- [ ] **#299-300 Stinglet → Nettleclaw** — bee (Hymenoptera) → "scorpion-bee hybrid" (Hymenoptera + Arachnida). Cross-phylum hybrid. Fix: drop "scorpion" framing — rewrite **Nettleclaw** as a large bee with elongated tail-stinger that arches scorpion-like over its back (true Hymenoptera throughout).
+- [ ] **#302-303 Lightpuff → Lumivane** — luminous orb (formless) → graceful humanoid (bipedal). Body-plan reset. Fix: pick one body plan — likely rewrite **Lumivane** as a larger luminous orb-creature with rudimentary limb-extensions emerging from its sphere (orb at core throughout).
 - [x] **#37-38 Coralossus → Titanariel** — humanoid coral-titan throughout (Option A). Coralossus (#37) kept as 4 m hulking humanoid. Titanariel (#38) reframed as 7 m armored coral-titan humanoid; nautilus shell + tentacles dropped in favor of "two enormous arms thick as ships' masts" with grasping claws (preserves ship-capsizing behavior). Steel-and-coral armor, deep-ocean-floor habitat, storm-surface ship-drag behavior all preserved. Emoji 🦑 → 🗿. Stats/learnset unchanged. Nautilus-metallic-humanoid flavor moved to concept parking. *(Uncommitted, batched.)*
 - [x] **#53-54 Mistwhirl → Arcturex** — full owl line (Option C, picked over swan/bear/reindeer to avoid reinforcing the over-cap bear archetype). Mistwhirl (#53) reframed as a 30 cm fluffy snowy owlet with mist-trailing feathers. Arcturex (#54) reframed as a 1.2 m great snowy owl with 2.5 m wingspan, silent flight, Boötes-watcher namesake preserved. Both now Ice/Wind (was Ice/Wind + Ice/Ground). Emojis 🦢/🐻‍❄️ → 🦉. Stats redistributed for line coherence: Mistwhirl 54/40/41/68/55/98 → 52/60/32/45/70/98 (BST 357); Arcturex 92/101/89/66/79/61 → 80/101/52/57/87/113 (BST 490). Owl identity = fast physical hunter with high SpD and low Def. 3 learnset swaps on Arcturex: sinkhole_maw → cyclone_blade, earth_power → storm_surge, earthquake → hurricane. *(Uncommitted, batched.)*
 - [x] **#61-62 Gelspike → Gelwing** — full ice-porcupine line, retyped Wind/Ice → **Ice/Poison** (pristine combo). Gelspike (#61) reframed as 60 cm hedgehog with venom-tipped ice quills + numbing chill-mist. Gelwing (#62) reframed as 1.2 m ice-porcupine launching envenomed quill volleys, wind-borne rolling-ball travel preserved with toxic-mist trail. Emojis 🌬️/🦅 → 🦔. 12 learnset swaps total to align Wind moves with Poison STAB. Stats unchanged. **Gelwing rename deferred to renaming phase** (`-wing` suffix is over-cap; candidates: Hailspike, Mirespike, Coldbristle, Quillrime, Rimebristle). *(Uncommitted, batched.)*
@@ -178,12 +192,12 @@ Batch these together once BREAKING is done. Each fix is a single-sentence wordin
 ## Newly identified by direct manual audit of all 118 multi-stage families (11 families)
 
 - [ ] **#42-44** Cryonik → Boreon → **Nagislither** — seal → seal → serpentine flippered creature. Fix: tweak Nagislither lore to "elongated mature seal-form, pinniped lineage retained in flippered limbs and whiskered face."
-- [ ] **#69-71** Germix → Verdurus → Verdovast — seed-creature → grass-bear → grass-bear. Fix: tweak Germix lore to "the seed sprouts furred limbs and a small bear-cub silhouette as it matures."
-- [ ] **#78-80** Sylvnox → Morraveth → **Morralyn** — fox → wolf → "bear-wolf hybrid". Fix: tweak Morralyn lore to "heavy-shouldered dire-wolf with bear-like build" — drop the bear-hybrid framing, keep canid.
+- [x] **#69-71** Germix → Verdurus → Verdovast — **upgraded MINOR → BREAKING** (only seed-pod family in luminex; better to keep seed-pod identity than absorb into over-cap bear archetype). Germix (#69) kept as 30 cm seed. Verdurus (#70) reframed as 1.5 m walking seed-pod with split husk, moss-covered core, curling leaf-tendrils, drops fresh seeds in its trail; emoji 🐻 → 🌱. Verdovast (#71) reframed as 2.5 m colossal ancient seed-pod with surface so overgrown with saplings/vines/blossoms it resembles a walking garden; trees grow from its shoulders, fruit ripens among branches, creatures nest in its foliage; drops fertile seeds with each step, leaves grove ecosystems in its wake; emoji 🐻 → 🌳. Names, types Grass, learnsets all preserved. Side benefits: bear archetype drops 3 → 2 (relieves pressure); pristine seed-pod / walking-garden archetype claimed. *(Uncommitted, batched.)*
+- [x] **#78-80** Sylvnox → Morraveth → Morralyn — **upgraded MINOR → BREAKING** (pivoted whole line to Leshy / forest-spirit archetype to relieve over-cap wolf pressure and reframe Morralyn's "bear-wolf hybrid" as a coherent folkloric forest-spirit final). Sylvnox (#78) reframed as 60 cm bark-skinned forest-imp/sprite with leaf-cloak fringe, twig-horns, amber eyes glowing through foliage-hood (was 65 cm fox); emoji 🌿 kept. Morraveth (#79) reframed as 1 m mid-stage leshy with bark-plated shoulders, branching antler-buds, midnight leaf-cloak (was 90 cm wolf); emoji 🌑 → 🌳. Morralyn (#80) reframed as 1.8 m ancient leshy-lord with full antler-crown, vine-beard with hollow seedpods, bark-armour body, decay-aura (was 1.5 m bear-wolf hybrid); emoji 🌑 → 🪵. Names, types Grass/Dark, stats, learnsets all preserved (all moves fit a corrupted-forest-spirit just as well as a canine). Side benefits: wolf archetype drops 6 → 5 (helps trim target); "fairy chimera/composite" slot drops 2 → 1; pristine Leshy / forest-spirit lineage claimed as new mythical-exempt archetype. *(Uncommitted, batched.)*
 - [ ] **#104-105** Arenikin → **Dravanas** — sandy dog → lion-sized creature with mane. Fix: tweak Dravanas lore to "large jackal-pack-leader" or "great desert wolf" — keep canid, drop "lion-sized".
-- [ ] **#108-110** **Silvergust** → Siroccomane → Aeolarch — cat → lion → lion. Fix: tweak Silvergust lore to "lion-cub-sized small felid" — felid throughout.
-- [ ] **#116-117** Zephyrin → **Pneumathos** — serpentine wind creature → humanoid-cored vortex. Fix: tweak Pneumathos lore to "serpentine core remains visible inside the swirling vortex."
-- [ ] **#128-129** Cranivade → **Voidaxis** — psychic biped → blurred shifting entity. Fix: tweak Voidaxis lore to "the biped silhouette persists at the form's centre, edges blurring outward."
+- [x] **#108-110** **Silvergust** → Siroccomane → Aeolarch — cat → lion → lion. Fix: tweak Silvergust lore to "lion-cub-sized wind-felid" (drops "cat-like" framing) — felid throughout. Also fixed name leak: lore opener "Gustkin is..." → "Silvergust is...". Stages #109 and #110 untouched. *(Uncommitted, batched.)*
+- [x] **#116-117** Zephyrin → **Pneumathos** — serpentine wind creature → humanoid-cored vortex. **Pivoted Zephyrin to vortex-throughout** (rather than the original audit's "serpentine inside vortex" tweak) to relieve over-cap serpent archetype. Zephyrin (#116) reframed as 1.5 m small wind-psychic vortex (translucent teal-blue swirling column with faint psychic glow at centre, ribbons of wind trailing from periphery); drops "serpentine" / "scales" / "fins" framing. Pneumathos (#117) untouched. Names, types Wind/Psychic, emojis 🌀/🌪️, stats, learnsets all preserved. Side benefit: serpent (non-dragon) archetype drops 4 → 3 (at cap). **Note:** family lands in storm-elemental/lightning-vortex archetype which is now capped at 1-2 (no longer mythical-exempt) — see archetype trim list. *(Uncommitted, batched.)*
+- [x] **#128-129** Cranivade → **Voidaxis** — psychic biped → blurred shifting entity. Applied: Voidaxis lore extended to keep biped silhouette at form's centre with edges dissolving into half-dimensional shadow; Cranivade lore opener "Mentarix is..." → "Cranivade is..." (name-leak fix). Both stages now coherent — biped persists inside void aura. *(Uncommitted, batched.)*
 - [ ] **#142-144** Dawnirel → **Lunarael** → Celestarch — star-shape → crescent-shape → many-pointed star. Fix: tweak Lunarael lore to "pointed arms curve inward, briefly crescent-like, before blooming back to full star at its final stage."
 - [ ] **#162-163** Marlix → **Blightalis** — humanoid reed → corrupted flower. Fix: tweak Blightalis lore to "the reed-stalk body has bloomed into a flower-headed humanoid."
 - [ ] **#220-221** Umbrajest → **Shadowveil** — smoke trickster → cloaked humanoid shadow. Fix: tweak Shadowveil lore to "the trickster's smoke-body has solidified into a cloaked humanoid form."
@@ -227,7 +241,7 @@ Goal: complete inventory of every creature/animal/thing represented in the dex (
 - **butterfly/moth (imago)**: 6 (Scorchlarva line, Faeling, Blightmite, Photoworm line, Mosswing, Plaguefly line)
 - **beetle**: 4 (Iridibeetle, Muddite, Sparkeen, Voltbeetle)
 - **crab/lobster**: 4 (Reefling line, Rugothon, Petrwave, Deepcrawler)
-- **serpent (non-dragon)**: 4 (Nocturil line, Dunecrawl line, Coilstrike, Fluxserpent)
+- **serpent (non-dragon)**: 3 (Nocturil line, Coilstrike, Fluxserpent) *(Dunecrawl line → armadillo #312-313; Zephyrin line pivoted to vortex #116-117)*
 
 ### Over cap (>3) — mythical/exempt candidates (see (b) below):
 - **dragon-mythic**: 34 — exempt (mythical)
@@ -239,7 +253,7 @@ Goal: complete inventory of every creature/animal/thing represented in the dex (
 - **orb/wisp/cloud-formless**: 4 — exempt (mythical/elemental)
 
 ### At cap (3 families):
-- **bear**: 3 (Hexaprowl ice, Verdurus grass, Rotunden line)
+- **bear**: 2 (Hexaprowl ice, Rotunden line) *(Verdurus line converted to seed-pod #69-71)*
 - **eagle/raptor**: 3 (Zephyrel, Aeolin line, Rimeclaw)
 - **fish (non-dragon/eel)**: 3 (Corelin line, Toxirin frog, Rustpike)
 - **lizard/saurian (non-dragon)**: 3 (Verdkin line, Cindling line, Blistermaw)
@@ -249,12 +263,12 @@ Goal: complete inventory of every creature/animal/thing represented in the dex (
 - **bovid**: 2 (Tundram line, Breezekin line)
 - **cephalopod**: 2 (Toxaquil/Septanemone, Abyssovex)
 - **dragonfly**: 2 (Electrix line, Pulseglow line)
-- **fairy chimera/composite**: 2 (Sylvnox line, Stinglet line)
+- **fairy chimera/composite**: 1 (Stinglet line) *(Sylvnox line → leshy #78-80)*
 - **jellyfish/cnidarian**: 2 (Slatis/Frostmere, Lumejell)
 - **kangaroo/marsupial**: 2 (Lunaroon, Radiafish — both stone-evos of Spectroo line)
 - **mouse/rat (rodent)**: 2 (Murkrat, Dunespike)
 - **shark/eel**: 2 (Amperix line, Abyssalith)
-- 1-family slots: bird, boar/pig, coral-titan, crocodilian, dog (non-wolf), echidna, frog/toad, hedgehog/porcupine, hippo, horse/equine, insect-swarm, **kitsune**, mushroom/fungus, mustelid, owl, plant-sapling, rabbit/hare, rhino, scorpion, sea-fairy queen, slime/blob, snail/mollusk, spider, stag/elk/deer, **tanuki**, wolf
+- 1-family slots: bird, boar/pig, coral-titan, crocodilian, dog (non-wolf), echidna, frog/toad, hedgehog/porcupine, hippo, horse/equine, insect-swarm, **kitsune**, mushroom/fungus, mustelid, owl, plant-sapling, rabbit/hare, rhino, scorpion, sea-fairy queen, **seed-pod / walking-garden**, slime/blob, snail/mollusk, spider, stag/elk/deer, **tanuki**, wolf
 
 ### Unclassified (108) — manual classification needed
 Many are Forgotten/postgame (id ≥ 408) with abstract/legendary names that don't match real-creature keywords. Some pre-408 lines also need manual review (e.g. Pyroclasm, Tundrafox now snowman, Nimbusel-Aetherworn cloud-fairy). **Recommended**: do a manual classification pass before running the archetype trim.
@@ -281,8 +295,10 @@ These archetypes have strong folkloric / mythical / unique status and warrant > 
 - **Faerie sprite / winged-fairy humanoid** (~9 families: Speculith line, Floralin line, Goldefluff line, Mindpuff line, Crealight, Sproutix line, Ironling line, Voidraxis, Solarwrath) — universal fae-mythic
 - **Will-o-wisp / ghostly orb** (Veilwisp line, Willowisp) — folkloric marsh-spirit
 - **Snowman (folkloric)** (Snowble line, just added) — Western seasonal-folkloric figure
+- **Leshy / forest-spirit (Slavic folkloric)** (Sylvnox line, just added) — bark-skinned forest-guardian/trickster spirit
 - **Insect-swarm collective** (Mistbane line, just added) — quasi-mythical (Pokémon's Vespiquen-style)
-- **Storm-elemental / lightning-vortex** (Tempestborn, Vortexwing, Stormcrown, Nullstorm, Wraithstorm, Galeaxis — 5+ families) — abstract-elemental mythical
+
+*(Storm-elemental / lightning-vortex moved out of mythical-exempt — see archetype trim list, capped at 1-2 families.)*
 
 ### Borderline (could go either way)
 - **Echidna** (1, Arcspine line) — real animal, but rare in dex/folklore both. Keep cap-3 unless trim forces.
@@ -382,14 +398,30 @@ After all coherence fixes are committed, run a type-combination audit of the ful
 
 Address after BREAKING + MINOR. Plan: rebuild a few standalone or weaker family-final lores into different creature types.
 
-- [ ] **wolf** — 6 families (Hexaprowl, Eclipsehound, Shadowpup, Mirkling, Voltfang, Cryvorn). Trim ~2.
+- [ ] **wolf** — 5 families (Hexaprowl, Eclipsehound, Shadowpup, Voltfang, Cryvorn). Trim ~2. *(Mirkling line → bipedal warden via Voidwarden #405-407; Morraveth line → leshy #78-80.)*
 - [ ] **lion / big-cat** — 6 families (Siroccomane, Dravanas, Ignitheon, Thundermane, Megavolt, Majesticore). Trim ~3.
 - [ ] **dog (non-wolf canine)** — 5 families (Dustkin, Goldefluff, Arenikin, Projectery, Galeaxis). Trim ~2.
-- [ ] **bear** — 5 families (Verdurus, Frigidvorn, Permavast, Rotunden, Cuddrix-line, Arcturex). Trim ~2.
+- [ ] **bear** — 3 families (Frigidvorn, Permavast, Rotunden). At cap. *(Verdurus → seed-pod #69-71; Cuddrix-line → kirin #286-288; Arcturex → owl #53-54.)*
 - [ ] **bird-of-prey** — 5 families (Vortexathos, Swirlavel, Gelwing, Rimeclaw, Zephyrak). Trim ~2.
 - [ ] **golem (humanoid metal/stone)** — 10+ families. Trim to 3.
 - [ ] **crystalline / gem creature** — 8 families. Trim to 3.
 - [ ] **rock-monolith / standing-stone** — 5 families. Trim to 3.
+
+## Elementals (cap = 1 family + 1 standalone per element)
+
+One per type, 19 elementals total (all 21 types except Fighting and Primal). An "elemental" is a formless being literally made of an element. Each cap = 1 family + 1 standalone.
+
+- [ ] **wind-elemental** — 1 family (Pneumathos line #116-117 "swirling pillar of concentrated air with humanoid core"). At cap.
+- [ ] *(Other 18 elemental archetypes — full audit pending; see below.)*
+
+## Natural-disaster-inspired (cap = 1 family + 1 standalone per disaster subtype)
+
+Umbrella archetype with per-disaster subtypes (thunderstorm, tornado, tsunami, wildfire, earthquake, blizzard, eruption, flood, etc.). A natural-disaster-inspired creature is shaped like / themed after the disaster regardless of element. Each subtype cap = 1 family + 1 standalone.
+
+- [ ] **thunderstorm** — 3 families (Vortexwing #370, Tempestborn #380, Nullstorm #393 — all formless lightning-vortex with electromagnetic nucleus). Cap 1+1. Trim ~1-2. Tempestborn explicitly "tracked as both a storm and a living creature" — strongest disaster framing, prime keep candidate.
+- [ ] *(Other disaster subtypes — full audit pending.)*
+
+*(Wraithstorm #386 reclassified out of storm group → wraith archetype: "translucent humanoid wraith inside lightning bolts". Galeaxis/Vortexathos/Stormcrown stay in their animal archetypes.)*
 
 # 📉 Standalone count reduction — RUN BEFORE the renaming queue resumes
 

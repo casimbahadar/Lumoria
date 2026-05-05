@@ -2212,26 +2212,26 @@ const MONSTERS_DATA = {
     lore:"Cloudrift is a medium normal-wind creature 40 cm across resembling a compact cloud with a contented face. It drifts at a consistent altitude of 3 metres above ground level regardless of terrain and passes through tree canopies with only mild distortion of its form. It rains gently when sad." },
 
   // 3-stage Normal chain: Fuzzlet → Cuddrix → Majesticore (lv24, lv44)
-  286: { id:286, name:"Fuzzlet", emoji:"🐾", types:["Normal"],
+  286: { id:286, name:"Fuzzlet", emoji:"🦌", types:["Fairy"],
     base:{hp:50,atk:55,def:50,spa:45,spd:48,spe:65},
-    learnset:[[1,"tackle"],[1,"headbutt"],[10,"body_slam"],[20,"reckless_charge"],[30,"battle_cry"],[40,"heavy_slam"],[50,"hyper_beam"]],
+    learnset:[[1,"tackle"],[1,"fairy_wind"],[10,"dazzling_gleam"],[20,"sweet_kiss"],[30,"wish_spark"],[40,"moonblast"],[50,"hyper_beam"]],
     evolveTo:287, evolveLevel:24, catchRate:185, expYield:65, rarity:"common",
-    desc:"An extremely fluffy creature with boundless energy. Rolls into threats and bounces off harmlessly, then tries again.",
-    lore:"Fuzzlet is a small round normal creature 15 cm tall completely covered in dense fuzzy cream-white fur. Its eyes are barely visible through the fuzz. It grooms itself constantly and the shed fuzz accumulates into soft nest-like mounds that other small creatures use for shelter." },
+    desc:"A tiny fluffy kirin-fawn so densely furred that its body looks like a creamy puffball. Its hooves are barely visible beneath its fluff.",
+    lore:"Fuzzlet is a small kirin-fawn 15 centimetres tall, so densely covered in cream-white fluff that its body looks like a perfectly round puffball — only its tiny hooves and gentle dark eyes peek out. Beneath the fluff are the proportions of a slender deer-fawn, and small antler-buds are already raising the fluff at the crown of its head. A faint warm fairy-glow emanates from within its fluff and intensifies when it is content, casting soft golden light on whoever holds it. It grooms itself constantly, and shed fluff accumulates into soft nest-like mounds where it has rested." },
 
-  287: { id:287, name:"Cuddrix", emoji:"🐻", types:["Normal"],
+  287: { id:287, name:"Cuddrix", emoji:"🦌", types:["Fairy"],
     base:{hp:78,atk:82,def:72,spa:62,spd:68,spe:78},
-    learnset:[[1,"body_slam"],[1,"reckless_charge"],[18,"battle_cry"],[28,"heavy_slam"],[38,"headbutt"],[48,"iron_press"],[58,"hyper_beam"]],
+    learnset:[[1,"body_slam"],[1,"fairy_wind"],[18,"dazzling_gleam"],[28,"sweet_kiss"],[38,"moonblast"],[48,"glitter_storm"],[58,"hyper_beam"]],
     evolveTo:288, evolveLevel:44, catchRate:90, expYield:140, rarity:"uncommon",
-    desc:"A bear-like powerhouse with soft fur hiding tremendous muscle. Known for unexpectedly strong hugs.",
-    lore:"Cuddrix is a medium normal creature 35 cm tall resembling a round bear-cub with soft pale-brown fur and large dark eyes. It is intensely affectionate and uses gentle physical contact to communicate. Its presence measurably reduces stress hormone levels in larger creatures, which researchers attribute to a chemical it secretes." },
+    desc:"An adolescent kirin-calf with soft pale-brown fur and developing antler-buds. Its mere presence measurably calms larger creatures.",
+    lore:"Cuddrix is an adolescent kirin-calf 35 centimetres at the shoulder with soft pale-brown fur and large gentle dark eyes; small antler-buds tipped in pale gold are visible at its crown, growing larger with each passing season and already beginning to glow with a soft auspicious fairy-light. It is intensely affectionate and uses gentle physical contact — nuzzles, brief leans against another creature's flank — to communicate. Its presence measurably reduces stress hormone levels in larger creatures, an effect researchers attribute to the calming fairy-aura that emanates softly from its golden antler-glow." },
 
-  288: { id:288, name:"Majesticore", emoji:"🦁", types:["Normal","Psychic"],
+  288: { id:288, name:"Majesticore", emoji:"🌟", types:["Dragon","Fairy"],
     base:{hp:98,atk:98,def:85,spa:98,spd:97,spe:74},
-    learnset:[[1,"heavy_slam"],[1,"psychic_move"],[30,"battle_cry"],[38,"reckless_charge"],[46,"psystrike"],[54,"neural_storm"],[62,"hyper_beam"],[70,"hyper_beam"]],
+    learnset:[[1,"heavy_slam"],[1,"dragon_breath"],[30,"fairy_wind"],[38,"dragon_claw"],[46,"moonblast"],[54,"dragon_pulse"],[62,"hyper_beam"],[70,"outrage"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:265, rarity:"rare",
-    desc:"A majestic being that has awakened psychic powers. Perfectly balanced in all attributes, a ruler among Lumori.",
-    lore:"Majesticore is a large normal-psychic creature 1.2 metres at the shoulder resembling a lion with a broad flat psychic-light mane. It moves with deliberate, unhurried grace. Its gaze holds a density of presence that causes involuntary deference even in creatures far larger than itself." },
+    desc:"A regal dragon-kirin 1.2 metres at the shoulder. Its antlers wreathed in dragonfire-light, fine scales mixed with its fur, and its passage calls down gentle rain.",
+    lore:"Majesticore is a regal dragon-kirin 1.2 metres at the shoulder, the auspicious final form of the Fuzzlet lineage and the embodiment of the ancient legend of the qilin — the dragon-horse. Its sleek brown-gold body is overlaid with fine pale-gold scales beneath the longer fur of its haunches and shoulders, and its full branching antlers are wreathed in soft dragonfire-light that shifts through warm gold and rose hues. A flowing mane of fairy-light cascades from its neck down its shoulders, and at its passage gentle rain falls from clear skies — a sign of the dragon-blood that quickens the kirin's blessing. Its hooves leave only the gentlest impressions in soft soil, and its presence causes calm to settle over any region it crosses — agitated creatures still, fearful animals approach trustingly, and arguments between travellers cool to thoughtful silence within minutes of its arrival. Ancient texts describe its appearance at moments of great peace or great change as an auspicious omen." },
 
   // Standalone Normal: Bouncyblob
   289: { id:289, name:"Bouncyblob", emoji:"🎱", types:["Normal"],
@@ -2254,25 +2254,25 @@ const MONSTERS_DATA = {
     base:{hp:48,atk:52,def:45,spa:68,spd:58,spe:85},
     learnset:[[1,"gust"],[1,"air_slash"],[12,"downdraft"],[22,"hurricane"],[32,"gale_cannon"],[42,"squall_slash"],[52,"tempest_wrath"],[60,"hyper_beam"]],
     evolveTo:292, evolveLevel:28, catchRate:168, expYield:74, rarity:"common",
-    desc:"A gentle breeze spirit that grows stronger in storms. Races other flying Lumori for fun.",
-    lore:"Breezekin is a compact wind creature 35 cm at the shoulder resembling a slender pale-grey cat whose fur streams perpetually as if blown by a gentle breeze even indoors. Its movements are fluid and almost silent. It inhabits open plains and coastal areas, navigating primarily by smell carried on wind currents." },
+    desc:"A small wind-antelope fawn whose flowing mane streams perpetually in an invisible breeze. Bounds at remarkable speed across open plains.",
+    lore:"Breezekin is a compact wind-antelope fawn 35 centimetres at the shoulder, slender-legged and graceful, with a sleek pale-grey coat and a long flowing mane that streams perpetually as if caught in a constant breeze — even indoors. Its movements are fluid and almost silent, and it bounds at speeds far above what its size suggests, navigating open plains and coastal grasslands primarily by smell carried on wind currents." },
 
   292: { id:292, name:"Galehorn", emoji:"🌪️", types:["Wind","Electric"],
     base:{hp:78,atk:85,def:70,spa:108,spd:88,spe:115},
     learnset:[[1,"air_slash"],[1,"thunderbolt"],[22,"hurricane"],[30,"thunder"],[38,"tempest_wrath"],[46,"gale_cannon"],[54,"squall_slash"],[62,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:220, rarity:"uncommon",
-    desc:"A wind horn creature that channels storms. Its horn generates tornadic electrical vortexes.",
-    lore:"Galehorn is a large wind-electric creature 1.2 metres at the shoulder resembling a ram with a grey-white body and spiralling horns that generate electrical charge through the piezoelectric effect when they vibrate in high winds. During storms it faces directly into the gale and absorbs the energy." },
+    desc:"A swift wind-antelope crowned with spiralling horns that hum and crackle in high winds. Faces gales head-on to charge its piezoelectric horns.",
+    lore:"Galehorn is a large wind-antelope 1.2 metres at the shoulder, the matured form of the Breezekin lineage. Its slender muscular body is grey-white with a long flowing mane down its neck and shoulders, and its head bears a pair of long spiralling horns that generate electrical charge through the piezoelectric effect when they vibrate in high winds. During storms it faces directly into the gale and absorbs the energy through these horns. It is one of the swiftest land creatures in any region it claims, and its passage through open plains leaves a faint static charge in its wake that can be felt by other Lumori for hours." },
 
   // 3-stage Wind chain: Zephyrpuff → Stormwing → Cyclonax
   293: { id:293, name:"Gustpuff", emoji:"💨", types:["Wind"],
     base:{hp:42,atk:45,def:38,spa:65,spd:55,spe:90},
     learnset:[[1,"gust"],[1,"tackle"],[10,"air_slash"],[20,"downdraft"],[30,"hurricane"],[40,"gale_cannon"],[50,"squall_slash"],[60,"hyper_beam"]],
     evolveTo:294, evolveLevel:26, catchRate:175, expYield:68, rarity:"common",
-    desc:"A puff of magical wind given form. Spins in circles when excited, creating tiny dust devils.",
-    lore:"Gustpuff is a small wind creature 25 cm tall resembling a dandelion head that has achieved sentience. Its body is a central point from which dozens of light wind-filaments radiate in all directions. It blows apart and reassembles in new locations. Each filament carries sensory information back to its central point." },
+    desc:"A tiny wind-dragon hatchling whose newly-shed scale-husks float around it as drifting feather-light puffs of fluff. Disperses and reassembles in low winds.",
+    lore:"Gustpuff is a small wind-dragon hatchling about 25 centimetres long, with delicate pale-grey scales just hardening into solid form. Loose translucent scale-husks shed during its earliest moults still float around it like drifting puffs of dandelion-down — a cloud of soft filaments that lifts and reassembles around its body whenever it moves through low winds. Its tiny wings are not yet strong enough for sustained flight, but it darts through grasslands and coastal updrafts at speeds that belie its size, and its passage is announced by the gentle drift of those fluff-husks settling behind it." },
 
-  294: { id:294, name:"Stormwing", emoji:"🦅", types:["Wind","Dragon"],
+  294: { id:294, name:"Stormwing", emoji:"🐉", types:["Wind","Dragon"],
     base:{hp:70,atk:88,def:68,spa:98,spd:80,spe:108},
     learnset:[[1,"air_slash"],[1,"dragon_breath"],[20,"hurricane"],[28,"dragon_claw"],[36,"gale_cannon"],[44,"dragon_pulse"],[52,"tempest_wrath"],[60,"hyper_beam"]],
     evolveTo:295, evolveLevel:44, catchRate:80, expYield:155, rarity:"uncommon",
@@ -2396,12 +2396,12 @@ const MONSTERS_DATA = {
     lore:"Tidephant is a large water-dark creature 2 metres long resembling a cetacean with dark blue-black hide and a broad flat head. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },
 
   // 2-stage Ground/Water chain: Mudpump → Marshix (level 28)
-  310: { id:310, name:"Mudpump", emoji:"🐊", types:["Ground","Water"],
+  310: { id:310, name:"Mudpump", emoji:"🦛", types:["Ground","Water"],
     base:{hp:58,atk:68,def:62,spa:58,spd:55,spe:55},
     learnset:[[1,"mud_shot"],[1,"water_gun"],[12,"earth_power"],[22,"surf"],[32,"earthquake"],[42,"hydro_pump"],[52,"clay_armor"],[60,"hyper_beam"]],
     evolveTo:311, evolveLevel:28, catchRate:155, expYield:80, rarity:"common",
-    desc:"A muddy crocodile creature that wallows in swamps. Its mud coating provides natural camouflage and armor.",
-    lore:"Mudpump is a small ground-water creature 30 cm long resembling a mudskipper with a broad head and four short legs equally suited to mud and shallow water. It builds dome-shaped mud homes in tidal mudflats and uses suction from its wide mouth to excavate burrow chambers." },
+    desc:"A small hippo calf perpetually slick with mud. Wallows in shallow tidal mudflats and digs out cool burrow-chambers with its broad snout.",
+    lore:"Mudpump is a small hippo calf about 50 centimetres long with a broad rounded body coated in slick wet mud and a short blunt snout perfectly suited to scooping muddy water. It is too small to fully submerge in deep water, so it wallows in shallow tidal mudflats and shallow lagoons where it builds dome-shaped mud-and-reed homes by piling clay around itself with a suction-pump motion of its wide mouth. Small herds of Mudpump dig out vast networks of cool burrow-chambers connecting their wallows beneath the soft surface." },
 
   311: { id:311, name:"Marshix", emoji:"🦛", types:["Ground","Water"],
     base:{hp:105,atk:118,def:100,spa:78,spd:82,spe:62},
@@ -2411,19 +2411,19 @@ const MONSTERS_DATA = {
     lore:"Marshix is a large ground-water hippo-like creature 1.5 metres at the shoulder with a broad pale grey body and mud-brown legs. It spends most of its time submerged in shallow marsh water with only its eyes and nostrils above the surface. Its movements churn the marsh bottom, aerating the sediment beneficially." },
 
   // 2-stage Ground/Dark chain: Dunecrawl → Sandrix (level 32)
-  312: { id:312, name:"Dunecrawl", emoji:"🦂", types:["Ground","Dark"],
+  312: { id:312, name:"Dunecrawl", emoji:"🪨", types:["Ground","Dark"],
     base:{hp:55,atk:72,def:60,spa:52,spd:55,spe:70},
     learnset:[[1,"mud_shot"],[1,"bite"],[14,"earth_power"],[24,"night_slash"],[34,"earthquake"],[44,"dark_pulse"],[54,"eclipse_shroud"],[60,"hyper_beam"]],
     evolveTo:313, evolveLevel:32, catchRate:148, expYield:85, rarity:"common",
-    desc:"A scorpion-like creature that burrows under desert sands. Strikes from below with venomous ambushes.",
-    lore:"Dunecrawl is a medium ground-dark creature 70 cm long resembling an armadillo with dark sand-coloured armour and the ability to roll into a complete sphere. At night it unfurls and hunts, and at dawn it rolls into a ball and buries itself under a thin layer of sand, becoming invisible." },
+    desc:"A medium armadillo whose dark sand-coloured armour rolls into a perfect sphere. Buries itself under a thin layer of sand at dawn to disappear from view.",
+    lore:"Dunecrawl is a medium armadillo 70 centimetres long with overlapping plates of dark sand-coloured armour that fit together perfectly when it rolls into a sphere — small enough to nest in the palm of a giant's hand. At night it unfurls and hunts insects and small reptiles across the dunes, and at dawn it rolls back into a ball and buries itself under a thin layer of sand, becoming indistinguishable from a dark stone among many." },
 
-  313: { id:313, name:"Sandrix", emoji:"🐍", types:["Ground","Dark"],
+  313: { id:313, name:"Sandrix", emoji:"🪨", types:["Ground","Dark"],
     base:{hp:88,atk:112,def:88,spa:75,spd:80,spe:98},
     learnset:[[1,"earthquake"],[1,"dark_pulse"],[26,"night_slash"],[34,"earth_power"],[42,"eclipse_shroud"],[50,"bedrock_slam"],[58,"soul_rend"],[66,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:225, rarity:"uncommon",
-    desc:"A sand serpent of deadly cunning. Camouflages perfectly in desert terrain and strikes without warning.",
-    lore:"Sandrix is a ground-dark serpent 1.5 metres long with sandy brown-black scales and a flat head. It inhabits desert shadow-zones — rocky overhangs and dune troughs — and hunts by detecting the vibration of footsteps in sand. Its dark colouration appears to absorb light, deepening shadows around it." },
+    desc:"A massive desert armadillo 1.5 metres long. Strikes prey from below by burrowing through soft sand at deceptive speed.",
+    lore:"Sandrix is a large desert armadillo 1.5 metres long with overlapping plates of sandy brown-black armour that absorb light around it, deepening the shadow it casts even at midday. It inhabits desert shadow-zones — rocky overhangs and dune troughs — and hunts by detecting footstep vibrations through sand at extraordinary range, then burrowing rapidly beneath its prey and erupting from below to clamp on with armored jaws. When threatened it tucks fully into a 1-metre sphere of impenetrable plate-armor and rolls down dunes at frightening speed." },
 
 
   // ===== LEGENDARIES (IDs 314-321) =====
@@ -3878,7 +3878,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"void_rend"],[1,"iron_tail"],[20,"phantom_claw"],[30,"flash_cannon"],[40,"umbral_claw"],[50,"alloy_edge"],[60,"scale_storm"],[5,"dragon_dance"],[60,"void_dominion"]],
     catchRate:5, expYield:300, rarity:"pseudolegendary",
     desc:"The supreme guardian of the void boundary. It wields darkness and steel as extensions of its own will.",
-    lore:"Voidwarden is a dark-steel creature 3 metres tall with a body of condensed void-matter reinforced with an exoskeleton of ultra-dense steel. Ancient legends name it the Warden of the Boundary Between Worlds." },
+    lore:"Voidwarden is a dark-steel creature 3 metres tall with a body of condensed void-matter reinforced with an exoskeleton of ultra-dense steel. Its transformation begins when an Umbrasteel proves itself worthy of guarding the boundary between worlds — at that moment, the canine body it carried as juvenile and adolescent re-forges itself upright: the four legs reconstitute as two heavy hindlimbs and two long arms tipped in steel claws, and the shadow-filaments of its body re-weave into a humanoid silhouette better suited to wielding darkness and steel as tools. Ancient legends name Voidwarden the Warden of the Boundary Between Worlds, and it is rarely seen — its post is a fixed point in the lattice that separates one reality from another, and it leaves only at the call of catastrophic incursion." },
 
   // ============================================================
   // FORGOTTEN LUMORI — IDs 408–446 (Vaeldrian Region)

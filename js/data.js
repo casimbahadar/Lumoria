@@ -1036,19 +1036,19 @@ const MONSTERS_DATA = {
     desc:"An electric horse that gallops faster than lightning. Its mane crackles.",
     lore:"Galvanos is a horse-like creature 1.2 metres at the shoulder with sleek golden-yellow hide crisscrossed by electric-blue markings. Its flowing mane crackles with constant static. It can sustain a gallop at extraordinary speed for hours by converting its own electrical energy into kinetic force." },
 
-  84: { id:84, name:"Electrix",      emoji:"🐞", types:["Electric","Bug"],
+  84: { id:84, name:"Electrix",      emoji:"🐛", types:["Electric","Bug"],
     base:{hp:34,atk:48,def:43,spa:50,spd:43,spe:94},
     learnset:[[1,"bug_bite",[22,"arc_flash"]],[1,"thunder_shock"],[10,"spark"],[18,"string_shot"],[20,"recover"],[26,"thunderbolt"],[34,"bug_buzz",[5,"thunder_wave"]],[36,"x_scissor"],[3,"static_cage"],[31,"cocoon_burst"]],
     evolveTo:85, evolveLevel:22, catchRate:200, expYield:74, rarity:"common",
     desc:"An electric beetle that emits charged buzzing sounds. Very energetic.",
-    lore:"Electrix is a small beetle about 8 cm long with hard wing-cases of metallic gold and a dark underside. Two small antennae end in blue sparks. It lives in colonies in decaying wood near bodies of water and generates electricity from moisture and organic material it processes through its digestive system." },
+    lore:"Electrix is a small dragonfly nymph 8 cm long, the aquatic juvenile stage of the lineage. Its body is segmented and dark with metallic gold-edged plates, and small gilled abdomen-tufts trail behind it as it crawls along stream beds. It already generates faint electrical sparks from its rudimentary wing-buds when threatened. It hunts smaller aquatic insects with its hooked predatory mandibles, and lives in colonies in slow-moving water near decaying wood, where it processes organic material into bioelectric energy." },
 
-  85: { id:85, name:"Shockharpe",  emoji:"🦟", types:["Electric","Bug"],
+  85: { id:85, name:"Shockharpe",  emoji:"🪰", types:["Electric","Bug"],
     base:{hp:81,atk:68,def:53,spa:107,spd:67,spe:101},
     learnset:[[1,"thunder_shock"],[2,"bug_bite"],[3,"thunder_wave"],[23,"thunderbolt"],[29,"tail_whip"],[31,"bug_buzz"],[33,"x_scissor"],[36,"scratch"],[43,"silk_bind"],[50,"swarm_dive"],[57,"volt_surge"],[64,"thunder"],[4,"static_cage"],[42,"mandible_crush"]],
     evolveTo:86, evolveLevel:42, catchRate:75, expYield:180, rarity:"uncommon",
     desc:"A dragonfly of electricity. Moves so fast it leaves lightning trails behind.",
-    lore:"Shockharpe is a large mosquito-like creature 15 cm long with a translucent body and wings that hum at a frequency causing mild disorientation in nearby creatures. Its needle-like proboscis can pierce metal. It drains bioelectric energy from prey rather than blood, leaving targets drained and sluggish." },
+    lore:"Shockharpe is a 15 cm late-instar dragonfly, the metamorphic mid-stage of the lineage. Its body has elongated and slimmed, and its newly emerged wings are still soft and translucent, humming at a frequency that causes mild disorientation in nearby creatures. Its hooked predatory mandibles and accumulating electrical charge are inherited from the nymph. It drains bioelectric energy from prey rather than blood, leaving targets drained and sluggish." },
 
   87: { id:87, name:"Amperix",     emoji:"🐟", types:["Electric","Water"],
     base:{hp:48,atk:59,def:51,spa:74,spd:57,spe:63},
@@ -2488,7 +2488,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[22,"sandstrike"]],[1,"growl"],[8,"mud_shot"],[16,"quick_attack"],[20,"clay_armor"],[24,"headbutt"],[32,"earthquake",[5,"tail_whip"]],[36,"boulder_roll"],[3,"leer"],[31,"mud_bomb"]],
     evolveTo:105, evolveLevel:22, catchRate:180, expYield:78, rarity:"common",
     desc:"A sandy-furred critter that kicks up dust clouds when startled. Very skittish.",
-    lore:"Arenikin is a small sandy-furred dog about 35 cm at the shoulder with large upright ears and a slender snout suited for digging. Its colouring matches desert sand almost exactly. It stores excess food underground and marks its territory with scratched symbols in stone, which researchers have documented as a primitive map system." },
+    lore:"Arenikin is a small sandy-furred hyena-pup about 35 cm at the shoulder with large upright ears, a stocky build, and a slender snout suited for digging. Its colouring matches desert sand almost exactly. It stores excess food underground and marks its territory with scratched symbols in stone, which researchers have documented as a primitive map system." },
 
   // ===== WATER/POISON =====
   31: { id:31, name:"Toxaquil", emoji:"🐙", types:["Water","Poison"],
@@ -2560,7 +2560,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"confusion",[22,"telepathic_slam"]],[1,"bite"],[10,"psybeam"],[18,"dark_pulse"],[26,"psychic_move"],[30,"neural_storm"],[34,"shadow_ball"],[42,"psystrike",[5,"calm_mind"]],[3,"prism_ward"],[32,"blackout_bomb"]],
     evolveTo:129, evolveLevel:34, catchRate:90, expYield:100, rarity:"common",
     desc:"A shade of psychic darkness. It exists half in reality and half in the mind's eye.",
-    lore:"Mentarix is a tall psychic-dark biped 1.3 metres tall with a smooth lavender-grey body and an oversized cranium that pulses with light when it concentrates. Its small hands trail crackling dark energy. It dredges suppressed memories from others without consent and catalogues them in its own vast mental archive." },
+    lore:"Cranivade is a tall psychic-dark biped 1.3 metres tall with a smooth lavender-grey body and an oversized cranium that pulses with light when it concentrates. Its small hands trail crackling dark energy. It dredges suppressed memories from others without consent and catalogues them in its own vast mental archive." },
 
   // ===== DARK/GRASS =====
   130: { id:130, name:"Necralia", emoji:"🌿", types:["Dark","Grass"],
@@ -2640,12 +2640,12 @@ const MONSTERS_DATA = {
     desc:"A bloom fairy of extraordinary grace. Its petals carry healing magic on the breeze.",
     lore:"Faelomis is a tall graceful fairy-grass creature 1.2 metres tall. Its body is composed of interlocking flowering vines over a luminous inner core. Large bloom-wings trail from its back, their petals reshaping continuously. It is drawn to locations where multiple ley lines intersect, feeding on ambient magical energy." },
 
-  105: { id:105, name:"Dravanas", emoji:"🦁", types:["Normal","Ground"],
+  105: { id:105, name:"Dravanas", emoji:"🐾", types:["Normal","Ground"],
     base:{hp:91,atk:108,def:71,spa:50,spd:62,spe:112},
     learnset:[[1,"mud_shot"],[2,"growl"],[22,"headbutt"],[28,"vital_pulse"],[29,"earthquake"],[33,"boulder_roll"],[34,"swords_dance"],[40,"wild_tumble"],[46,"momentum_rush"],[52,"body_slam"],[58,"earth_power"],[64,"hyper_beam"],[3,"tail_whip"],[42,"loam_leech"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:200, rarity:"uncommon",
-    desc:"A sand lion with a mane of hardened earth. Commands the desert winds.",
-    lore:"Dravanas is a lion-sized ground creature 1.2 metres at the shoulder with tawny earth-coloured fur and a mane of compressed soil and pebbles. Its paws leave deep prints. It digs vast underground lair systems that can span a hectare, and its roar causes nearby loose soil to tremor in concentric rings." },
+    desc:"A great desert hyena with a thick crest-mane of hardened earth. Commands the desert winds.",
+    lore:"Dravanas is a great desert hyena 1.2 metres at the shoulder with tawny earth-coloured fur and a thick shoulder-and-back crest-mane of compressed soil and pebbles, a natural feature exaggerated in this lineage into a true earth-mantle. Its paws leave deep prints. It digs vast underground lair systems that can span a hectare, and its low whooping cackle causes nearby loose soil to tremor in concentric rings." },
 
   32: { id:32, name:"Noxaquith", emoji:"🦑", types:["Water","Poison"],
     base:{hp:77,atk:80,def:76,spa:108,spd:83,spe:53},
@@ -2694,7 +2694,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"psybeam"],[2,"dark_pulse"],[3,"psychic_move"],[4,"shadow_ball"],[5,"calm_mind"],[39,"psystrike"],[40,"battle_cry"],[44,"prism_ward"],[49,"obsidian_fang"],[54,"void_rend"],[59,"mind_shatter"],[64,"hyper_beam"],[6,"mind_reader"],[41,"thought_crush"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:248, rarity:"rare",
     desc:"A void being of psychic and dark power. Consumes light and thought with equal ease.",
-    lore:"Voidaxis is a large psychic-dark entity 1.5 metres tall whose body appears to exist partially in another dimension — its edges are blurred and its form shifts when viewed peripherally. Its presence makes nearby electronic devices malfunction. It communicates only through psychic projection and has never been heard to vocalise." },
+    lore:"Voidaxis is a large psychic-dark entity 1.5 metres tall whose body appears to exist partially in another dimension — the biped silhouette of its earlier form persists at the form's centre, but its edges are blurred and its outline shifts when viewed peripherally, dissolving into half-dimensional shadow. Its presence makes nearby electronic devices malfunction. It communicates only through psychic projection and has never been heard to vocalise." },
 
   203: { id:203, name:"Arachnalis", emoji:"🕸️", types:["Bug","Fairy"],
     base:{hp:76,atk:64,def:73,spa:101,spd:89,spe:74},
@@ -3115,12 +3115,12 @@ const MONSTERS_DATA = {
     lore:"Voltanox is a powerful electric stallion 1.6 metres at the shoulder with a dark charcoal hide marked by bright yellow lightning-bolt patterns along each flank and shoulder. Its broad chest and heavy musculature suggest a destrier or clydesdale-sized warhorse, and its long mane and tail crackle constantly with stored electrical charge. Two short forward-curving forehead-spurs act as capacitor tips, building enormous charges that release in arcs when it lowers its head and charges; the impact of its hooves on the ground can send visible shockwaves through metal surfaces nearby. Cities through which it briefly gallops are lit as bright as day for the moments of its passing." },
 
   // 195: Zapoveth - Electric/Bug (Electrix→Voltharpe→Zapoveth)
-  86: { id:86, name:"Galvaglide", emoji:"🦟", types:["Electric","Bug"],
+  86: { id:86, name:"Galvaglide", emoji:"🪰", types:["Electric","Bug"],
     base:{hp:84,atk:89,def:69,spa:129,spd:84,spe:95},
     learnset:[[1,"thunder_shock"],[1,"bug_buzz"],[2,"thunderbolt"],[3,"x_scissor"],[4,"thunder_wave"],[38,"thunder"],[42,"volt_surge"],[46,"swarm_dive"],[50,"plasma_strike"],[54,"mandible_crush"],[58,"ion_cannon"],[62,"stinger_volley"],[5,"static_cage"],[44,"silk_bind"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
     desc:"A dragonfly of pure lightning. Its body discharges with every wingbeat; to be caught in its swarm is to stand in a thunderstorm.",
-    lore:"Zapoveth is a dragonfly-like creature with a 40 cm wingspan. Its four wings are translucent gold and crackle with static charge. Its slender body is vivid yellow. It hunts in flight, hovering stationary before striking prey with a precisely targeted electrical discharge from its forward-pointing tail." },
+    lore:"Galvaglide is a dragonfly-like creature with a 40 cm wingspan. Its four wings are translucent gold and crackle with static charge. Its slender body is vivid yellow. It hunts in flight, hovering stationary before striking prey with a precisely targeted electrical discharge from its forward-pointing tail." },
 
   // 196: Surgolith - Electric/Water (Amperix→Volterel→Surgolith)
   89: { id:89, name:"Surgolith", emoji:"🐍", types:["Electric","Water"],

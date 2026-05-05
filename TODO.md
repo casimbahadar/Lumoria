@@ -91,9 +91,13 @@
 
 ## Walkthrough cursor
 
-**Currently paused at #13 Taurcin** (Fire bull) — pending user decision once BREAKING family fixes wrap up.
+**Currently in Borderline triage of MINOR-vs-BREAKING upgrades.** Borderline cases 1-7 done. Next up: **Borderline 8 (#128-129 Cranivade → Voidaxis)**.
 
-Last presented: #13 Taurcin (recommendation: KEEP). Awaiting user response.
+Remaining borderline cases: 8 (#128-129), 9 (#142-144), 10 (#157-159), 11 (#162-163), 12 (#172-174), 13 (#220-221), 14 (#222-224), 15 (#236-237), 16 (#242-243), 17 (#260-261), 18 (#262-264), 19 (#308-309).
+
+After borderline triage: 5 NEW BREAKING items (#84-86, #104-105, #296-298, #299-300, #302-303) → bulk name-leak fix (22+ identified in taxonomy.md) → resume MINOR tweaks → Solo audit → typing audit → archetype trim → renaming → stat review.
+
+The original walkthrough through ids 7-446 (paused at #13 Taurcin "keep" decision) is on hold until all the audit phases above complete.
 
 ---
 
@@ -135,8 +139,8 @@ Per audit (Part 1 of evolution-line coherence audit) **plus** the strict re-audi
 
 These are NEW BREAKING items surfaced when the audit was rerun strictly. Each is a real creature-archetype change between stages that no lore tweak can plausibly bridge. Tackle as full rewrites (proposal-and-approve flow).
 
-- [ ] **#84-86 Electrix → Shockharpe → Galvaglide** — beetle (Coleoptera) → mosquito-like (Diptera) → dragonfly (Odonata). Three different insect orders. Fix: pick a single insect order and rewrite the two off-stages. Likely cleanest: full beetle line (rewrite Shockharpe as winged beetle, Galvaglide as flying scarab) OR full Odonata line (rewrite Electrix as nymph).
-- [ ] **#104-105 Arenikin → Dravanas** — sandy dog (Canidae) → "lion-sized creature with mane" (Felidae). Family-level shift. Fix: keep canid throughout — rewrite **Dravanas** as a great desert wolf or jackal-pack-leader with sand-mane. (Drops a felid line, freeing pressure on lion archetype.)
+- [x] **#84-86 Electrix → Shockharpe → Galvaglide** — full Odonata/dragonfly line (Option A; drops over-cap beetle archetype 5→4). Electrix (#84) reframed as 8 cm aquatic dragonfly nymph (gilled, predatory mandibles, rudimentary wing-buds); emoji 🐞 → 🐛. Shockharpe (#85) reframed as 15 cm late-instar dragonfly with newly emerged wings (drops mosquito framing, keeps disorientation hum + predatory mandibles); emoji 🦟 → 🪰. Galvaglide (#86) lore opener "Zapoveth is..." → "Galvaglide is..." (name-leak fix); emoji 🦟 → 🪰. Names, types Electric/Bug, stats, learnsets all preserved. Body plan now coherent: nymph → emerging dragonfly → adult dragonfly. *(Uncommitted, batched.)*
+- [x] **#104-105 Arenikin → Dravanas** — full sand-hyena line (Option A; pristine archetype claimed; lion archetype stays at exactly cap of 3). Arenikin (#104) reframed as 35 cm sandy-furred hyena-pup (drops "dog" framing); emoji 🐾 kept. Dravanas (#105) reframed as 1.2 m great desert hyena with shoulder-and-back crest-mane of compressed soil and pebbles (preserves the mane element naturally — hyenas have prominent dorsal manes); emoji 🦁 → 🐾. Description "sand lion" → "great desert hyena"; "roar" → "low whooping cackle". Names, types Normal/Ground, stats, learnsets all preserved. Side benefits: pristine hyena (Hyaenidae) archetype claimed; lion stays at exactly cap of 3 (Siroccomane, Ignitheon, Pyraeon-postgame). *(Uncommitted, batched.)*
 - [ ] **#296-298 Plaguefly → Blightwing → Plagueoth** — mosquito (Diptera) → butterfly → moth (Lepidoptera). Order change. Fix: pivot to Lepidoptera throughout — rewrite **Plaguefly** as a blight-larva or large blight-caterpillar (drops mosquito), keep Blightwing (butterfly) and Plagueoth (moth).
 - [ ] **#299-300 Stinglet → Nettleclaw** — bee (Hymenoptera) → "scorpion-bee hybrid" (Hymenoptera + Arachnida). Cross-phylum hybrid. Fix: drop "scorpion" framing — rewrite **Nettleclaw** as a large bee with elongated tail-stinger that arches scorpion-like over its back (true Hymenoptera throughout).
 - [ ] **#302-303 Lightpuff → Lumivane** — luminous orb (formless) → graceful humanoid (bipedal). Body-plan reset. Fix: pick one body plan — likely rewrite **Lumivane** as a larger luminous orb-creature with rudimentary limb-extensions emerging from its sphere (orb at core throughout).
@@ -193,7 +197,7 @@ Batch these together once BREAKING is done. Each fix is a single-sentence wordin
 - [ ] **#104-105** Arenikin → **Dravanas** — sandy dog → lion-sized creature with mane. Fix: tweak Dravanas lore to "large jackal-pack-leader" or "great desert wolf" — keep canid, drop "lion-sized".
 - [x] **#108-110** **Silvergust** → Siroccomane → Aeolarch — cat → lion → lion. Fix: tweak Silvergust lore to "lion-cub-sized wind-felid" (drops "cat-like" framing) — felid throughout. Also fixed name leak: lore opener "Gustkin is..." → "Silvergust is...". Stages #109 and #110 untouched. *(Uncommitted, batched.)*
 - [x] **#116-117** Zephyrin → **Pneumathos** — serpentine wind creature → humanoid-cored vortex. **Pivoted Zephyrin to vortex-throughout** (rather than the original audit's "serpentine inside vortex" tweak) to relieve over-cap serpent archetype. Zephyrin (#116) reframed as 1.5 m small wind-psychic vortex (translucent teal-blue swirling column with faint psychic glow at centre, ribbons of wind trailing from periphery); drops "serpentine" / "scales" / "fins" framing. Pneumathos (#117) untouched. Names, types Wind/Psychic, emojis 🌀/🌪️, stats, learnsets all preserved. Side benefit: serpent (non-dragon) archetype drops 4 → 3 (at cap). **Note:** family lands in storm-elemental/lightning-vortex archetype which is now capped at 1-2 (no longer mythical-exempt) — see archetype trim list. *(Uncommitted, batched.)*
-- [ ] **#128-129** Cranivade → **Voidaxis** — psychic biped → blurred shifting entity. Fix: tweak Voidaxis lore to "the biped silhouette persists at the form's centre, edges blurring outward."
+- [x] **#128-129** Cranivade → **Voidaxis** — psychic biped → blurred shifting entity. Applied: Voidaxis lore extended to keep biped silhouette at form's centre with edges dissolving into half-dimensional shadow; Cranivade lore opener "Mentarix is..." → "Cranivade is..." (name-leak fix). Both stages now coherent — biped persists inside void aura. *(Uncommitted, batched.)*
 - [ ] **#142-144** Dawnirel → **Lunarael** → Celestarch — star-shape → crescent-shape → many-pointed star. Fix: tweak Lunarael lore to "pointed arms curve inward, briefly crescent-like, before blooming back to full star at its final stage."
 - [ ] **#162-163** Marlix → **Blightalis** — humanoid reed → corrupted flower. Fix: tweak Blightalis lore to "the reed-stalk body has bloomed into a flower-headed humanoid."
 - [ ] **#220-221** Umbrajest → **Shadowveil** — smoke trickster → cloaked humanoid shadow. Fix: tweak Shadowveil lore to "the trickster's smoke-body has solidified into a cloaked humanoid form."

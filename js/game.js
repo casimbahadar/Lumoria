@@ -3100,15 +3100,22 @@ function showDexDetail(monsterId) {
   const ngPlusDetailBadge = isNGPlusMon ? `<span class="ngplus-detail-badge">⭐ NG+ Exclusive — only found in New Game+ runs</span>` : "";
   const typeHTML = def.types.map(t => `<span class="type-badge type-${t}">${t}</span>`).join(" ");
   const bst = Object.values(def.base).reduce((s, v) => s + v, 0);
+  const STAT_CAP = 180;
+  const BST_CAP = 720;
+  const renderOverdrive = (val, cap) => {
+    if (val <= cap) return '';
+    const pct = ((val - cap) / cap) * 100;
+    return `<div class="stat-fill-overdrive" style="width:${pct}%" title="Overdrive: ${val - cap} above standard cap of ${cap}"></div>`;
+  };
   const statsHTML = Object.entries(def.base).map(([stat, val]) => `
     <div class="stat-row">
       <span class="stat-label">${stat.toUpperCase()}</span>
-      <div class="stat-bar"><div class="stat-fill" style="width:${Math.min(100,(val/180)*100)}%;background:#58a6ff"></div></div>
+      <div class="stat-bar"><div class="stat-fill" style="width:${Math.min(100,(val/STAT_CAP)*100)}%;background:#58a6ff"></div>${renderOverdrive(val, STAT_CAP)}</div>
       <span class="stat-val">${val}</span>
     </div>`).join("") + `
     <div class="stat-row stat-row-bst">
       <span class="stat-label">BST</span>
-      <div class="stat-bar"><div class="stat-fill" style="width:${Math.min(100,(bst/720)*100)}%;background:var(--accent-yellow)"></div></div>
+      <div class="stat-bar"><div class="stat-fill" style="width:${Math.min(100,(bst/BST_CAP)*100)}%;background:var(--accent-yellow)"></div>${renderOverdrive(bst, BST_CAP)}</div>
       <span class="stat-val">${bst}</span>
     </div>`;
   const evoInfo = def.evolveTo

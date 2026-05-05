@@ -140,9 +140,316 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[241] Shardlix | Ice/Psychic | crystalline-prism` (bipedal ice crystal humanoid, standalone — second crystalline-prism alongside Espelith line)
 - `[243] Pulseglow→Stuntrap | Electric/Bug | dragonfly` (firefly→dragonfly — second dragonfly alongside Electrix line)
 
-### Batch 3 (families 106-139) — IN PROGRESS
+### Batch 3 (families 106-139)
 
-(Continuing in next pass.)
+- `[246] Staticlaw→Thundravex→Megavolt | Electric | wolverine (mustelid)`
+- `[247] Sparkeen | Electric/Bug | beetle` (small electric beetle, standalone — third beetle alongside Iridibeetle and Quarrix lines; emoji butterfly is mismatch — flag)
+- `[250] Pebblard→Boulderax→Megalith | Rock/Ground | rock-monolith / standing stone` (second rock-monolith alongside Prismolith line)
+- `[252] Crumblite→Stonegrip | Rock/Steel | golem` (rock-steel humanoid)
+- `[253] Ashrock | Rock/Fire | rock-elemental` (formless basalt with magma veins, standalone — could equally be fire-elemental; lean rock-elemental since body is rock)
+- `[255] Bubblepuff→Psychotide | Water/Psychic | water-elemental` (wave humanoid, formless water — sole water-elemental candidate; **name leak in #255: "Wavrix"**)
+- `[258] Scolphin→Reefhorn→Torrentox | Water/Ice | cetacean` (orca/calf — second cetacean alongside Gossafin line + Titanomare standalone + Tidephant)
+- `[259] Lumejell | Water/Psychic | jellyfish / cnidarian` (psychic-jellyfish, standalone — second jelly alongside Slatis-line origin)
+- `[261] Sproutix→Leafhorn | Grass/Fairy | stag / deer (cervid)` (faun — second cervid alongside Sylvolt line)
+- `[264] Transluceed→Tendrilisk→Impenezard | Grass/Poison | treant / walking-tree spirit` (walking thorn-bush — **name leak in #264: "Thornvast"**; second treant alongside Necralia line)
+- `[265] Mosswing | Grass/Bug | moth` (moss-winged moth, standalone — third Lepidoptera alongside Inferarch and Aeridaleth lines)
+- `[268] Shadowpup→Nightclaw→Darkfang | Dark | wolf` (dark-wolf — third wolf alongside Hexaprowl and Eclipsehound lines)
+- `[270] Grimshade→Eclipsoon | Dark/Fairy | tanuki` (mythical, just claimed)
+- `[271] Murkrat | Dark/Normal | rat (rodent)` (standalone)
+- `[273] Embrix→Blazeon | Fire/Dragon | dragon-mythic` (sub: small fire-dragon — third fire-dragon alongside Calderaeth and Bahamber lines)
+- `[276] Cindling→Infernox→Scorchvast | Fire/Rock | saurian` (igneous lizard with rock plates — second fire-saurian alongside Magmaurin/Terravore line)
+- `[277] Magmite | Fire/Ground | fire-elemental` (lava droplet, formless walking magma — sole fire-elemental candidate, standalone)
+- `[279] Ironling→Steelhorn | Steel/Fairy | unicorn / single-horn fairy-equine` (single-horned humanoid — borderline; could be golem variant or pristine unicorn slot)
+- `[282] Gearbit→Cogvex→Mechavast | Steel/Ground | golem / industrial automaton`
+- `[283] Rustpike | Steel/Poison | fish` (rusting-iron pike, standalone — second fish family alongside Corelin line; could also classify as steel-elemental?)
+- `[285] Fluffkin→Cloudrift | Normal/Wind | cloud-elemental / wisp` (compact cloud with face — formless cloud being; under cap, but flag — could be wind-elemental too)
+- `[288] Fuzzlet→Cuddrix→Majesticore | Dragon/Fairy | kirin` (mythical, just claimed)
+- `[289] Bouncyblob | Normal | slime / blob` (mythical, standalone)
+- `[290] Mimiclaw | Normal/Dark | cat` (mimic-cat — second cat alongside Fluffen line + Cinderpaw + Emberveil)
+- `[292] Breezekin→Galehorn | Wind/Electric | antelope` (pristine archetype)
+- `[295] Gustpuff→Stormwing→Cyclonax | Wind/Dragon | dragon-mythic` (sub: wind-dragon)
+- `[298] Plaguefly→Blightwing→Plagueoth | Poison/Bug | moth` (Lepidoptera — currently inconsistent stages, on BREAKING list — fourth moth/butterfly family)
+- `[300] Stinglet→Nettleclaw | Bug/Poison | bee (Hymenoptera)` (currently inconsistent — bee→scorpion-bee hybrid on BREAKING list)
+- `[301] Emberveil | Fire/Dark | cat` (smouldering shadow-cat, standalone — third cat)
+- `[303] Lightpuff→Lumivane | Fairy/Psychic | faerie sprite` (humanoid composed of starlight; on BREAKING list — orb→humanoid body break)
+- `[306] Icethorn→Geoshard→Crystallon | Rock/Ice | rock-monolith / standing stone` (third rock-monolith alongside Prismolith and Pebblard lines)
+- `[307] Cinderpaw | Fire/Dark | cat` (fire-dark cat, standalone — fourth cat)
+- `[309] Seafraith→Tidephant | Water/Dark | cetacean` (whale — fourth cetacean alongside Gossafin/Titanomare/Scolphin lines; on BREAKING list — fish→cetacean class jump)
+- `[311] Mudpump→Marshix | Ground/Water | hippo` (pristine archetype)
+
+### Batch 4 (families 140-173)
+
+- `[313] Dunecrawl→Sandrix | Ground/Dark | armadillo` (pristine archetype, just claimed)
+- `[314] Galeaxis | Wind/Electric | dog (non-wolf canine)` (greyhound, standalone)
+- `[315] Ashvanus | Fire/Rock | volcanic-vent creature` (unique — "volcanic vent that has grown a body" with magma core; borderline rock-elemental vs unique. Standalone)
+- `[316] Abyssovex | Water/Dark | cephalopod` (deep-sea squid leviathan, standalone — second cephalopod alongside Toxaquil line)
+- `[317] Temporith | Psychic/Dragon | dragon-mythic` (sub: psychic-dragon — second psychic-dragon alongside Drakorius)
+- `[318] Gaiavorn | Ground/Grass | golem / earth-titan` (4m titan with living forest canopy — variant golem; could double as treant — flag)
+- `[319] Voidraxis | Dark/Fairy | void / cosmic abstract being` (mythical — second void/cosmic alongside Voidaxis)
+- `[320] Galvathon | Steel/Electric | golem` (mechanical titan)
+- `[321] Dragemian | Dragon/Fire | dragon-mythic` (sub: fire-dragon — fourth fire-dragon alongside Calderaeth/Bahamber/Blazeon)
+- `[322] Venomwraith | Poison/Ghost | wraith` (translucent spectral being — fourth wraith alongside Shadowveil/Wraithking/Shadowreave)
+- `[323] Toxicore | Poison/Fire | unique vessel-creature` (living flask/chemistry-vessel with internal acid; distinct from elemental; flag as unique)
+- `[324] Chittering | Bug/Dark | mantis / blade-limbed insect` (sleek dark insect with 6 blade-limbs; pristine sub-archetype)
+- `[325] Dunespike | Ground/Poison | mole-rat / rodent` (armored mole-rat — second rodent alongside Murkrat)
+- `[326] Silthorn | Grass/Poison | treant / walking-plant` (third treant alongside Necralia and Impenezard lines)
+- `[327] Quarrex | Rock/Ground | rock-monolith / golem hybrid` (interlocked granite slabs; could double-classify)
+- `[328] Smogveil | Poison/Wind | poison-elemental` (amorphous yellow-green storm cloud, formless, sole poison-elemental)
+- `[329] Skullmite | Bug/Rock | beetle` (helmet-shaped carapace — fourth beetle alongside Iridibeetle/Quarrix/Sparkeen/Voltbeetle)
+- `[330] Blistermaw | Water/Poison | crocodilian` (acid-weeping croc — second crocodilian alongside Limoux line)
+- `[331] Thornmoth | Bug/Grass | moth` (bug-grass moth — sixth Lepidoptera)
+- `[332] Glacicore | Ice/Steel | golem` (ice-steel humanoid armor — second armor-suit alongside Deepfreeze)
+- `[333] Voltfang | Electric/Dark | wolf` (electric-dark wolf — fourth wolf alongside Hexaprowl/Eclipsehound/Shadowpup)
+- `[334] Ferrocrush | Steel/Ground | golem` (steel-ground golem)
+- `[335] Frostprowl | Ice/Wind | feline (snow-leopard / cheetah)` (ice-wind feline — distinct from cat/lion; pristine snow-cat sub-archetype)
+- `[336] Coilstrike | Electric/Poison | serpent (non-dragon)` (electric-poison snake)
+- `[337] Ashgolem | Fire/Rock | golem` (fire-rock golem — explicitly named)
+- `[338] Rimeclaw | Ice/Wind | bird-of-prey` (raptor — fourth raptor alongside Vortexathos/Cyclavorn/Zephyrak)
+- `[339] Voltbeetle | Bug/Electric | beetle` (fifth beetle)
+- `[340] Cryoshard | Ice/Psychic | crystalline-prism` (third crystalline-prism alongside Aurarael/Shardlix)
+- `[341] Mirestone | Rock/Psychic | rock-monolith / standing stone` (fourth rock-monolith)
+- `[342] Wraithking | Ghost/Dark | wraith` (fifth wraith)
+- `[343] Shadowreave | Dark/Psychic | wraith / shadow-being` (sixth wraith)
+- `[344] Glimmeritch | Fairy/Ghost | wraith / spectral fairy hybrid` (seventh wraith — borderline faerie-sprite)
+- `[345] Voidcoil | Dark/Dragon | dragon-mythic` (sub: dark-dragon serpent)
+- `[346] Astralwing | Psychic/Wind | psychic-elemental` (winged humanoid of solidified psychic energy — second psychic-elemental alongside Veilwisp/Distorsion)
+
+### Batch 5 (families 174-209)
+
+Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395, #398, #400, #401, #402-407 (Mirkling pseudolegendary line). Tagged `[LEGEND tN]` where applicable below.
+
+- `[347] Embersteel | Steel/Fire | golem` (superheated steel guardian-automaton — third+ steel golem)
+- `[348] Galedrake | Dragon/Wind | dragon-mythic` (sub: wind-dragon — second wind-dragon alongside Cyclonax)
+- `[349] Crystavault | Ice/Rock | golem / fortress-tower` (layered ice/granite tower; borderline rock-monolith)
+- `[350] Fernwrath | Grass/Dragon | dragon-mythic` (sub: grass-dragon, sole)
+- `[351] Spectravore | Fairy/Psychic | rainbow / prismatic being` (iridescent humanoid silhouette with all-colour aura — unique sub)
+- `[352] Voidlord | Dark/Psychic | void / cosmic abstract being` (mythical — third void/cosmic alongside Voidaxis/Voidraxis)
+- `[353] Infernotitan | Fire/Dragon | dragon-mythic` (sub: fire-dragon — fifth fire-dragon)
+- `[354] Riftwhale | Water/Psychic | cetacean` (psychic-whale, 12m — fifth cetacean)
+- `[355] Abyssalith | Water/Dark | eel` (armoured eel — second eel alongside Surgolith)
+- `[356] Stormlord | Electric/Dragon | dragon-mythic` (sub: electric-dragon — second electric-dragon alongside Chromena)
+- `[357] Thornspire | Grass/Steel | treant` (8m steel-branched tree — fourth treant)
+- `[358] Pyrocrown | Fire/Psychic | phoenix / solar bird` (mythical-exempt — sole phoenix family)
+- `[359] Glaciarch | Ice/Psychic | golem` (idealised ice humanoid)
+- `[360] Duskmantle | Dark/Fairy | duality being` (half-fairy half-shadow; unique sub-archetype)
+- `[361] Tectolith | Ground/Dragon | dragon-mythic` (sub: ground-dragon — third ground-dragon)
+- `[362] Lunaspectre | Psychic/Ghost | wraith` (moonlight humanoid silhouette — eighth wraith. **⚠ Pre-408 with Ghost typing — flag per CLAUDE.md**)
+- `[363] Chromavast | Normal/Psychic | colour-shifting being` (smooth ovoid cycling all colours — unique sub)
+- `[364] Deepcrawler | Water/Steel | crustacean` (deep-sea armored crab — third crustacean alongside Tidalossus/Petrwave/Lithomere)
+- `[365] Cinderking | Fire/Dark | royal humanoid being` (regal bipedal with crown of black fire — unique royal sub; close to wraith)
+- `[366] Starlance | Psychic/Steel | weapon-creature` (telekinetic lance-shaped entity — unique sub)
+- `[367] Bouldertide | Water/Rock | rock-monolith / sea-stack` (walking sea-stack — fifth rock-monolith)
+- `[368] Willowisp | Ghost/Fire | will-o-wisp` (mythical sole)
+- `[369] Gravithorn | Psychic/Ground | psychic-elemental / golem` (compressed-stone humanoid with gravity inversion)
+- `[370] Vortexwing | Wind/Electric | thunderstorm-disaster` (over cap with Tempestborn/Nullstorm)
+- `[371] Nullform | Dark/Normal | shapeshifter / mimic` (matte-black form-shifter — second mimic alongside Mimiclaw)
+- `[372] Prismancer | Psychic/Dragon | dragon-mythic` (sub: psychic-dragon — third psychic-dragon)
+- `[373] Voidrend | Dark/Ghost | void / cosmic` (reality-tearing dark-ghost — fourth void/cosmic. **⚠ Pre-408 with Ghost typing**)
+- `[374] Auroradrake | Ice/Dragon | dragon-mythic` (sub: ice-dragon — third ice-dragon)
+- `[375] Fluxserpent | Electric/Psychic | electric-elemental serpent` (current-loop serpent — sole electric-elemental candidate; or could classify as serpent variant)
+- `[376] Solarwrath | Fire/Fairy | phoenix / solar-being` (solar plasma — second solar archetype with Pyrocrown)
+- `[377] Abyssforge | Ground/Steel | golem` (planetary-core-pressure alloy)
+- `[378] Dreamweald | Psychic/Fairy | dream-entity` (visible only to half-asleep; second dream-entity alongside Oneiron)
+- `[379] Riftscale | Wind/Dragon | dragon-mythic [LEGEND t2]` (sub: wind-dragon — third wind-dragon alongside Cyclonax/Galedrake)
+- `[380] Tempestborn | Electric/Wind | thunderstorm-disaster [LEGEND t2]` (over cap)
+- `[381] Crystalmind | Psychic/Steel | crystalline-prism` (geometric polyhedron — fourth crystalline-prism)
+- `[382] Oblivionwing | Dark/Dragon | dragon-mythic` (sub: dark-dragon — second dark-dragon alongside Voidcoil)
+
+### Batch 6 (families 210-243)
+
+- `[383] Apexblade | Steel/Dragon | dragon-mythic` (sub: steel-dragon — second steel-dragon alongside Scalevorn)
+- `[384] Solarcrown | Fire/Psychic | phoenix / solar-being` (third solar archetype with Pyrocrown/Solarwrath)
+- `[385] Permafrost | Ice/Ground | golem` (glacial boulder humanoid)
+- `[386] Wraithstorm | Ghost/Electric | wraith` (translucent humanoid in lightning bolts — ninth wraith)
+- `[387] Deepvoid | Dark/Water | void / cosmic abstract being` (sub: aquatic void — fifth void/cosmic)
+- `[388] Chronolith | Rock/Psychic | rock-monolith` (psychic-stone with frozen moments — sixth rock-monolith)
+- `[389] Stormcrown | Electric/Dragon | dragon-mythic [LEGEND t2]` (sub: electric-dragon — third electric-dragon)
+- `[390] Voidgarden | Fairy/Dark | plant-humanoid / fairy-flower-being` (luminous flowers + dark thorned vines humanoid; sub of corrupted-flower archetype with Blightalis)
+- `[391] Titanfang | Normal/Dragon | dragon-mythic` (sub: normal-dragon, ancient apex predator scale)
+- `[392] Eondrake | Dragon/Psychic | dragon-mythic [LEGEND t3]` (sub: time-dragon — fourth psychic-dragon)
+- `[393] Nullstorm | Dark/Electric | thunderstorm-disaster` (over cap)
+- `[394] Solarvast | Fire/Dragon | dragon-mythic [LEGEND t3]` (sub: solar-dragon / fire-dragon — sixth fire-dragon)
+- `[395] Glacierend | Ice/Dragon | dragon-mythic [LEGEND t4]` (sub: ice-dragon — fourth ice-dragon)
+- `[396] Thunderpeak | Electric/Steel | electric-elemental / lightning-bolt being` (lightning-bolt-shaped living metal — sole electric-elemental candidate alongside Fluxserpent — flag for trim)
+- `[397] Abyssalord | Water/Ghost | wraith / spectral leviathan` (tenth wraith — spectral-cetacean variant)
+- `[398] Voidcrown | Dark/Fairy | void / cosmic abstract being [LEGEND t4]` (sixth void/cosmic; flagship for archetype)
+- `[399] Stonekeeper | Rock/Ghost | wraith / mountain-spirit` (eleventh wraith — mountain-peak ghost)
+- `[400] Primordiax | Fire/Ground | primordial titan [LEGEND t4]` (cooling lava + deep rock titan; pristine primordial-titan archetype)
+- `[401] Cosmoveil | Psychic/Fairy | void / cosmic abstract being [LEGEND t4]` (seventh void/cosmic — starlight-cosmic variant; flagship)
+- `[404] Scalit→Dracomind→Veildrak | Dragon/Psychic | dragon-mythic [LEGEND t1 pseudo]` (sub: psychic-dragon pseudolegendary — fifth psychic-dragon)
+- `[407] Mirkling→Umbrasteel→Voidwarden | Dark/Steel | bipedal warden / boundary-sentinel [LEGEND t1 pseudo]` (just claimed pristine mythical-exempt)
+
+#### Forgotten / post-game (id ≥ 408)
+
+These are all post-game legendary-tier, mostly with cryptic short lore. Classifications are best-guess based on type/emoji/name; flag any that need fuller body-plan reframing later. All are exempt from pre-408 typing restrictions (Aether/Fighting/Crystal/Primal/Ghost allowed).
+
+- `[408] Forgotten Auravian | Aether/Primal | aether-divine messenger` (winged divine messenger — pristine aether-elemental candidate)
+- `[409] Forgotten Lumarix | Fairy/Ground | crystalline-fairy` (light-refracting body — variant crystalline-prism + fairy hybrid)
+- `[410] Forgotten Celestrix | Aether/Steel | angelic / divine being` (pristine post-game angelic archetype)
+- `[411] Forgotten Nyxviper | Dark/Ghost | bat / wraith` (collective-nightmare manifestation; bat emoji)
+- `[412] Forgotten Morrath | Poison/Fire | darkfire elemental` (paradoxical fire-that-darkens-rooms — unique sub)
+- `[413] Forgotten Duskmourn | Ice/Psychic | spider` (spider emoji; post-game spider)
+- `[414] Forgotten Electrak | Electric/Steel | dragon (electric-steel scales)` (likely dragon based on scales)
+- `[415] Forgotten Arcvolt | Normal/Rock | geological-strata being` (scales form geological strata over time)
+- `[416] Forgotten Fulgureis | Bug/Water | bug / aquatic insect` (tornado emoji + Bug/Water — borderline)
+- `[417] Forgotten Rootborn | Grass/Poison | treant / mountain-undermining root-being` (fifth treant)
+- `[418] Forgotten Tellurak | Rock/Steel | walking mountain / golem` (mountain-golem)
+- `[419] Forgotten Gaiasurge | Ground/Fighting | primordial earth-being` (volcano emoji; Fighting type — post-game allowed)
+- `[420] Forgotten Pelagor | Water/Psychic | cetacean (dolphin/oracle)` (sixth cetacean — post-game)
+
+### Batch 7 (families 244-269) — Forgotten / post-game continued
+
+Same caveat: Forgotten lores are narrative-focused; classifications are best-guess from type/emoji/name and need user-led body-plan reframing later if precision matters.
+
+- `[421] Forgotten Bathykor | Dark/Poison | shark` (toxin causes paralysis; sharkemoji)
+- `[422] Forgotten Tidecrest | Primal/Ice | tsunami-disaster / primordial-sea-being` (post-game; "ocean flowed around it" — flagship sub)
+- `[423] Forgotten Aetherveil | Aether/Electric | aether-elemental` (post-game; butterfly-like wings of air-and-light)
+- `[424] Forgotten Zephyrak | Wind/Steel | bird-of-prey` (eagle with steel-feathers — fifth raptor, post-game)
+- `[425] Forgotten Skydrak | Wind/Ghost | dragon-mythic` (sub: ghost-dragon — post-game; -drak suffix)
+- `[426] Forgotten Pyraeon | Fire/Steel | lion` (Dravek's lion — post-game lion)
+- `[427] Forgotten Emberon | Primal/Ground | tiger / big-cat` (post-game tiger — pristine sub for tiger)
+- `[428] Forgotten Dracofire | Dragon/Poison | dragon-mythic` (sub: poison-dragon, palm-sized hatchling — second poison-dragon alongside Wyrmvenom)
+- `[429] Forgotten Frigalum | Ice/Crystal | fox / kitsune` (post-game fox — second kitsune alongside Specraxis; Forgotten = mythical-exempt)
+- `[430] Forgotten Cryvorn | Dark/Ice | wolf` (post-game wolf — fifth wolf)
+- `[431] Forgotten Frostdrax | Ghost/Fairy | dragon-mythic` (sub: ghost-fairy-dragon — post-game; -drax suffix)
+- `[432] Forgotten Dreamaith | Psychic/Water | owl` (post-game owl — second owl alongside Arcturex)
+- `[433] Forgotten Luneveth | Fairy/Water | moonlight-fairy` (post-game moonlight water-fairy)
+- `[434] Forgotten Psydrak | Dragon/Electric | dragon-mythic` (sub: psychic-dragon — sixth psychic-dragon)
+- `[435] Forgotten Ironvast | Crystal/Rock | golem / mechanical-construct` (post-game robotic-golem)
+- `[436] Forgotten Forgerak | Fire/Dark | smith / forge-spirit` (Rax's smith — unique forge-being archetype)
+- `[437] Forgotten Alloydrax | Dragon/Fighting | dragon-mythic` (sub: steel-alloy dragon — third steel-dragon)
+- `[438] Forgotten Volteon | Electric/Psychic | mechanical / battery being` (predictive-model running mechanical entity)
+- `[439] Forgotten Sparkeis | Crystal/Ice | crystalline-prism` (electric crystal — fifth crystalline-prism)
+- `[440] Forgotten Thunderax | Wind/Grass | thunderstorm-disaster / wind-being` (lightning emoji + wind/grass — post-game)
+- `[441] Forgotten Nihilax | Primal/Ghost | void / cosmic` (eighth void/cosmic; void emoji)
+- `[442] Forgotten Vantarix | Psychic/Bug | cosmic-insect` (cosmic emoji + bug; unique sub)
+- `[443] Forgotten Abysdrak | Wind/Dragon | dragon-mythic` (sub: wind-dragon — fourth wind-dragon)
+- `[444] Forgotten Cosmolith | Aether/Fairy | void / cosmic` (ninth void/cosmic; cosmic emoji + scale-patterns)
+- `[445] Forgotten Stardrax | Dragon/Fire | dragon-mythic` (sub: star-dragon — seventh fire-dragon)
+- `[446] Forgotten Stellarion | Normal/Ghost | telescope / observation-being` (telescope emoji + named "wonder"; unique observatory archetype, last in the dex)
+
+### Audit complete — 269 families classified.
+
+---
+
+## Archetype tallies — over-cap groupings flagged
+
+(Compiled from all 269 family classifications above. Caps: animals = 3 families, elementals = 1 family + 1 standalone per element, disaster subtypes = 1 family + 1 standalone per disaster, mythical-exempt = no cap.)
+
+### Over-cap (needs trim)
+
+| Archetype | Count | Cap | Trim | Notes |
+|---|---|---|---|---|
+| **dragon-mythic** | ~30 | exempt | — | Mythical-exempt; sub-flavor diversity is high. No trim. |
+| **wraith / spectre** | 11 | exempt | — | Mythical-exempt. Sub-types vary (humanoid wraith, leviathan, mountain-spirit, etc.). |
+| **golem** | 11+ | exempt or 3 | trim ~5-8 | If treated as mythical-exempt: keep all. If common archetype: trim hard. **Decision needed.** |
+| **wolf** | 5 (post pivots) | 3 | trim 2 | Hexaprowl, Eclipsehound, Shadowpup, Voltfang, Cryvorn. (Mirkling/Morraveth lines already pivoted.) |
+| **fire-dragon** (sub) | 7 | n/a (under dragon-mythic) | discuss | If sub-caps applied: way over. |
+| **psychic-dragon** (sub) | 6 | n/a | discuss | Same. |
+| **lion** | 3 (post Dravanas pivot) | 3 | at cap | Siroccomane, Ignitheon, Pyraeon-postgame. Dravanas planned for canid pivot. |
+| **cetacean** | 6 | 3 | trim 3 | Marevanos, Titanomare, Torrentox, Riftwhale, Tidephant, Pelagor-postgame. |
+| **moth/butterfly (Lepidoptera)** | 6 | 3 | trim 3 | Inferarch, Aeridaleth, Venowarn, Mosswing, Thornmoth, Plagueoth. |
+| **beetle** | 5 | 3 | trim 2 | Iridibeetle, Quarrix, Sparkeen, Skullmite, Voltbeetle. |
+| **rock-monolith / standing stone** | 6 | 3 | trim 3 | Frigolith, Megalith, Crystallon, Mirestone, Bouldertide, Chronolith. |
+| **crystalline-prism** | 5 | 3 | trim 2 | Aurarael, Shardlix, Cryoshard, Crystalmind, Sparkeis-postgame. |
+| **bird-of-prey / raptor** | 5 | 3 | trim 2 | Vortexathos, Cyclavorn, Rimeclaw, Zephyrak-postgame, plus eagle-flavor on others. |
+| **treant / walking-tree** | 5 | exempt | — | Necralia, Impenezard, Thornspire, Silthorn, Rootborn-postgame. Treant is mythical-exempt. |
+| **void / cosmic abstract** | 9 | exempt | — | Voidaxis, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Cosmoveil, Nihilax, Cosmolith. Mythical-exempt. |
+| **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Mimiclaw, Emberveil, Cinderpaw. |
+| **thunderstorm-disaster** | 3 | 1+1 | trim 1-2 | Vortexwing, Tempestborn, Nullstorm. (See storm-elemental TODO entry.) |
+| **fire-dragon legendary cluster** | 3 (Dragemian, Infernotitan, Solarvast) + chain finals (Calderaeth, Bahamber, Blazeon, Stardrax) | n/a | discuss | All under dragon-mythic exempt but sub-flavor crowded. |
+
+### At cap (no action)
+
+- bear: 3 (Frigidvorn, Permavast, Rotunden line)
+- saurian/dinosaur: 3 (Verdkin/Garlawarden, Magmaurin/Terravore, Cindling/Scorchvast). Plus Volcascale/Monolithox = 4 — **trim 1 candidate.**
+- frog/toad: 2 (Toxirin, Acidelix lines)
+- crocodilian: 2 (Limoux line, Blistermaw)
+- hare/rabbit: 2 (Leapbun, Boltfur lines)
+- bovid: 3 (Tundram, Aetherflock-sheep, Pyroclasm-bull-titan?)
+- crustacean: 4 (Tidalossus, Lithomere, Petrwave, Deepcrawler) — **trim 1.**
+- dragonfly: 2 (Galvaglide, Stuntrap)
+- mustelid: 3 (Banksnout-otter, Megavolt-wolverine — pristine 2; need a 3rd consideration)
+
+### Pristine slots (1 family or 1 family + 1 standalone)
+
+**Real animal pristine (single family):** boar (Plentorus), horse (Voltanox), antelope (Galehorn), echidna (Petrovast), hippo (Marshix), armadillo (Sandrix), rhino (Tectonvast), spider (Arachnalis + Duskmourn-postgame), scorpion (Craterlurk), snail (Rootvorn), hedgehog (Gelwing), mushroom (Mycovast), shark (Bathykor-postgame), tiger (Emberon-postgame), tortoise (Imperion).
+
+**Mythical pristine:** snowman (Tundrafox), kitsune (Specraxis + Frigalum-postgame), tanuki (Eclipsoon), leshy (Morralyn), kirin (Majesticore), insect-swarm (Mistbane), sea-fairy queen (Thalassira), coral-titan (Titanariel), kraken (Tidalossus — could expand), seed-pod / walking-garden (Verdovast), phoenix/solar-being (Pyrocrown, Solarwrath, Solarcrown — already 3, at-cap or just over).
+
+### Elementals (cap = 1 family + 1 standalone per element)
+
+| Element | Family | Standalone | Status |
+|---|---|---|---|
+| wind-elemental | Pneumathos line | — | At cap (1) |
+| psychic-elemental | Veilwisp/Distorsion | Astralwing, Gravithorn | **Over cap (1+2)** |
+| dark-elemental | Nightmont line | — | At cap (1) |
+| fire-elemental | — | Magmite | At cap (0+1) |
+| poison-elemental | — | Smogveil | At cap (0+1) |
+| rock-elemental | — | Ashrock, Ashvanus | **Over cap (0+2)** — pick 1 |
+| electric-elemental | — | Thunderpeak, Fluxserpent | **Over cap (0+2)** — pick 1 |
+| water-elemental | Bubblepuff/Psychotide | — | At cap (1) |
+| aether-elemental | — | Aetherveil-postgame | At cap (0+1) |
+| Other 10 elements | — | — | All slots open |
+
+### Natural-disaster-inspired (cap = 1 family + 1 standalone per disaster)
+
+| Disaster | Family | Standalone | Status |
+|---|---|---|---|
+| thunderstorm | — | Vortexwing, Tempestborn, Nullstorm | **Over cap (0+3)** — trim to 1 standalone |
+| tornado | — | (none classified — Pneumathos is wind-elemental) | Open |
+| tsunami | — | Tidecrest-postgame | At cap (0+1) |
+| wildfire / eruption | — | Ashvanus (volcanic vent) | borderline; could be eruption-disaster instead of rock-elemental |
+| earthquake / blizzard / flood / etc. | — | — | All slots open |
+
+### Pre-408 Ghost-typing flags (per CLAUDE.md, surface for user discussion)
+
+- `#362 Lunaspectre | Psychic/Ghost`
+- `#373 Voidrend | Dark/Ghost`
+- (Others to be cross-checked.)
+
+---
+
+## Name leaks compiled (for mass-fix queue)
+
+From all 7 batches:
+
+- #17 Searburn → "Pyroveth"
+- #100 Craterlurk → "Venomvast"
+- #103 Calciderm → "Crustvast"
+- #120 Nightwolf → "Noctovast"
+- #122 Caveshroud → "Umbraveth"
+- #125 Venotitan → "Phantomvast"
+- #136 Metalibat → "Ferrovast"
+- #141 Iridesoar → "Prisoveth"
+- #149 Eternarmor → "Adamovast"
+- #154 Terragolem → "Titanolith"
+- #159 Dissotoad → "Acidovast"
+- #165 Venowarn → "Noxoveth"
+- #175 Biolumal → "Neruveth"
+- #176 Chromena → "Tempyroth"
+- #177 Sapphier → "Glaciroth"
+- #181 Racehare → "Boundrix"
+- #186 Continemic → "Airovast"
+- #192 Boulderoll → "Lithavast"
+- #217 Distorsion → "Mentovast"
+- #225 Crealight → "Glimmerkin"
+- #255 Psychotide → "Wavrix"
+- #264 Impenezard → "Thornvast"
+
+22 leaks visible just in the family-final lores. (Many more likely in intermediate stages — needs separate per-stage scan.)
+
+---
+
+## Open questions for user
+
+1. **Golem cap policy:** Treat as mythical-exempt (current TODO) or as a common cappable archetype (cap 3)? Current count is ~11+ families.
+2. **Dragon sub-flavor caps:** With dragon-mythic exempt overall, do you want sub-cap policy (e.g. cap 3 fire-dragons, cap 3 ice-dragons, cap 3 psychic-dragons)? Currently fire-dragon = 7, psychic-dragon = 6.
+3. **Cetacean (whale)** — over cap at 6. Is this a common-animal cap-3 case or borderline mythical (sea-leviathan)?
+4. **Wraith** — currently treated as mythical-exempt (~11 families). Confirm or apply cap.
+5. **Treant** — currently mythical-exempt (5 families). Confirm.
+6. **Pre-408 Ghost-typing** mons (#362 Lunaspectre, #373 Voidrend) — surface for retyping discussion.
+7. **Forgotten 408+ classifications** — many are best-guess from emoji/type. Want me to flag specific ones for fuller body-plan rewrites?
 
 ---
 

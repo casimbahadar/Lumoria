@@ -148,26 +148,26 @@ Batch these together once BREAKING is done. Each fix is a single-sentence wordin
 
 ## From original audit (12)
 
-- [ ] **#7-9** Verdkin → tweak lore to mention "stubby leg-roots and a small reptilian tail" (foreshadows Barknell's saurian shape).
-- [ ] **#13-15** Taurcin → Molteroth → **Pyroclasm**: tweak Pyroclasm to "bipedal volcanic bull-titan that has reared up onto two legs."
-- [ ] **#16-18** Cindercula → Searburn → **Bahamber**: tweak Bahamber to mention "vast wings folded along its serpentine length."
-- [ ] **#19-21** **Magmaurin** → tweak to "bear-sized stocky **saurian**" (one-word fix bridges to lizard mid-stage).
-- [ ] **#39-40** Gossafin → **Marevanos**: tweak to "winged cetacean whose flat broad head and pectoral wings retain the manta silhouette."
-- [ ] **#47-49** Hexaprowl → Hailgorge → **Frigidvorn**: tweak to "heavy-shouldered, shaggy ice-wolf 2 m at the shoulder" (avoid switching to bear).
+- [x] **#7-9** Verdkin → tweak lore to mention "stubby leg-roots and a small reptilian tail" (foreshadows Barknell's saurian shape).
+- [x] **#13-15** Taurcin → Molteroth → **Pyroclasm**: tweak Pyroclasm to "bipedal volcanic bull-titan that has reared up onto two legs."
+- [x] **#16-18** Cindercula → Searburn → **Bahamber**: tweak Bahamber to mention "vast wings folded along its serpentine length."
+- [x] **#19-21** **Magmaurin** → tweak to "bear-sized stocky **saurian**" (one-word fix bridges to lizard mid-stage).
+- [x] **#39-40** Gossafin → **Marevanos**: tweak to "winged cetacean whose flat broad head and pectoral wings retain the manta silhouette."
+- [x] **#47-49** Hexaprowl → Hailgorge → **Frigidvorn**: tweak to "heavy-shouldered, shaggy ice-wolf 2 m at the shoulder" (avoid switching to bear).
 - [ ] **#84-86** Electrix → **Shockharpe** → Galvaglide: rewrite Shockharpe as winged beetle (not mosquito) to keep coleopteran lineage.
-- [ ] **#123-125** Nocturil → **Phantorvex** → Venotitan: tweak Phantorvex to "long-bodied legless serpent-lizard with vestigial limb-stubs."
-- [ ] **#132-133** Volcascale → **Monolithox**: tweak to "hulking obsidian saurian whose back has fused into a towering monolithic plate-shell."
-- [ ] **#157-159** Acidelix → **Corrodisc** → Dissotoad: tweak Corrodisc to "flattened toad-tadpole shape."
+- [x] **#123-125** Nocturil → **Phantorvex** → Venotitan: tweak Phantorvex to "long-bodied legless serpent-lizard with vestigial limb-stubs."
+- [x] **#132-133** Volcascale → **Monolithox**: tweak to "hulking obsidian saurian whose back has fused into a towering monolithic plate-shell."
+- [x] **#157-159** Acidelix → **Corrodisc** → Dissotoad: tweak Corrodisc to "flattened toad-tadpole shape."
 - [ ] **#226-227** Spectroo → **Spectrace**: tweak Spectrace to "kangaroo-silhouette of streaking flame whose hindquarters trail off into fire." *(Note: covers the Spectrace branch only; the Radiafish branch is BREAKING above.)*
-- [ ] **#232-234** Serphaxon → **Serpenthorn** → Wyvernak: tweak Serpenthorn to "long-bodied four-legged ground-dragon that drags its belly low, almost serpentine."
+- [x] **#232-234** Serphaxon → **Serpenthorn** → Wyvernak: tweak Serpenthorn to "long-bodied four-legged ground-dragon that drags its belly low, almost serpentine."
 
 ## Newly identified by strict re-audit of ids 210-446 (11 families)
 
-- [ ] **#222-224** Mindpuff → **Recallum** → Psytheon — cloud-puff → limbed brain → winged humanoid. Fix: tweak Recallum lore to "limbs first manifest as condensed psychic energy and only later harden into matter."
-- [ ] **#230-231** Scaleling → **Wyvaxis** — copper-red dragon hatchling → aqua-blue water-dragon (element/colour swap). Fix: tweak #230 lore to "its scales redden when basking but darken to aqua-blue once it learns to swim."
-- [ ] **#236-237** Frostick → **Icevault** — small icicle critter → architectural fortress tower. Fix: tweak #237 lore to "Icevault forms when a Frostick fuses with cave bedrock, its body lattice expanding into a tower-like silhouette."
-- [ ] **#242-243** Pulseglow → **Stuntrap** — firefly (Coleoptera) → dragonfly (Odonata). Fix: tweak #243 lore to "Stuntrap moults from its firefly carapace into an elongated dragonfly form, the abdominal light-organs becoming wing-edge arcs."
-- [ ] **#260-261** Sproutix → **Leafhorn** — bipedal sapling → quadruped deer-faun. Fix: tweak #261 lore to "as it matures, its trunk-body splits into four leaf-clad limbs and its head-leaves harden into antlers."
+- [x] **#222-224** Mindpuff → **Recallum** → Psytheon — cloud-puff → limbed brain → winged humanoid. Fix: tweak Recallum lore to "limbs first manifest as condensed psychic energy and only later harden into matter."
+- [x] **#230-231** Scaleling → **Wyvaxis** — copper-red dragon hatchling → aqua-blue water-dragon (element/colour swap). Fix: tweak #230 lore to "its scales redden when basking but darken to aqua-blue once it learns to swim."
+- [x] **#236-237** Frostick → **Icevault** — small icicle critter → architectural fortress tower. Fix: tweak #237 lore to "Icevault forms when a Frostick fuses with cave bedrock, its body lattice expanding into a tower-like silhouette."
+- [x] **#242-243** Pulseglow → **Stuntrap** — firefly (Coleoptera) → dragonfly (Odonata). Fix: tweak #243 lore to "Stuntrap moults from its firefly carapace into an elongated dragonfly form, the abdominal light-organs becoming wing-edge arcs."
+- [x] **#260-261** Sproutix → **Leafhorn** — bipedal sapling → quadruped deer-faun. Fix: tweak #261 lore to "as it matures, its trunk-body splits into four leaf-clad limbs and its head-leaves harden into antlers."
 - [ ] **#262-264** Transluceed → **Tendrilisk** → Impenezard — seed-walker → vine-wrapped lizard → walking thorn-bush. Fix: tweak #263 Tendrilisk lore to "its vine-tendrils still wrap a seed-core body — the lizard silhouette is camouflage from outside, all plant within."
 - [ ] **#296-298** Plaguefly → **Blightwing** → Plagueoth — mosquito (Diptera) → butterfly → moth (Lepidoptera) crosses orders. Fix: tweak #297 Blightwing lore to "after pupation its proboscis shortens and its wings sprout lepidopteran scales, completing the toxic-imago transition."
 - [ ] **#299-300** Stinglet → **Nettleclaw** — bee → scorpion-bee hybrid. Fix: tweak #300 lore to "its rear segments elongate into a scorpion-like tail, parallel-evolved from the bee's stinger rather than a true arachnid feature."

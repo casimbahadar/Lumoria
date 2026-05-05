@@ -1014,12 +1014,12 @@ const MONSTERS_DATA = {
     desc:"A living seed pod that rolls around. Harmless but quick to flee.",
     lore:"Germix is a round, seed-shaped creature about 15 cm tall. Its smooth green body has two tiny sprout-legs and a small face framed by curling leaf tendrils. It buries itself in rich soil during the day to photosynthesize through root-hairs. When threatened it releases a burst of accelerated growth, sprouting a tangle of vines around attackers." },
 
-  70: { id:70, name:"Verdurus",    emoji:"🐻", types:["Grass"],
+  70: { id:70, name:"Verdurus",    emoji:"🌱", types:["Grass"],
     base:{hp:90,atk:102,def:71,spa:95,spd:73,spe:61},
     learnset:[[1,"tackle"],[2,"vine_whip"],[3,"leer"],[4,"energy_ball"],[5,"sleep_powder"],[23,"seed_bomb"],[27,"swords_dance"],[36,"canopy_crash"],[37,"quick_attack"],[45,"briar_lash"],[54,"body_slam"],[63,"petal_blitz"],[6,"spore_burst"],[43,"tail_whip"]],
     evolveTo:71, evolveLevel:40, catchRate:75, expYield:186, rarity:"uncommon",
-    desc:"A bear covered in living vegetation. Gentle unless its forest is threatened.",
-    lore:"Verdurus is a rotund bear-like grass creature 1.5 metres tall completely covered in thick layers of soft moss and grass blades. Small flowers bloom from its back in spring. It is slow-moving and placid, grazing on rich meadow grass. Its weight compresses soil into particularly fertile patches wherever it sits." },
+    desc:"A mid-sized walking seed-pod 1.5 metres tall whose green husk has split open to reveal long curling leaf-tendrils and a soft moss-covered core. Drops fresh seeds in its wake.",
+    lore:"Verdurus is a 1.5-metre walking seed-pod, the matured form of Germix whose smooth green husk has gradually split open along ridge-lines to reveal a soft moss-covered core inside. Long curling leaf-tendrils unfurl from the open seams, swaying gently as it walks on its short root-legs. Small yellow flowers bloom in clusters across its outer surface in spring, and ripe pollen drifts from them onto the wind. Wherever Verdurus walks for any length of time, it drops fresh seeds from internal pods, and patches of new growth follow its trail." },
 
   // ===== ELECTRIC =====
   81: { id:81, name:"Joltan",    emoji:"🐎", types:["Electric"],
@@ -1120,7 +1120,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"scratch",[20,"cyclone_blade"]],[1,"gust"],[8,"quick_attack"],[16,"wing_attack"],[21,"harden"],[24,"air_slash"],[32,"hurricane",[5,"mistveil"]],[36,"thermal_dive"],[3,"zephyr_dance"],[31,"leer"]],
     evolveTo:109, evolveLevel:22, catchRate:200, expYield:70, rarity:"common",
     desc:"A light-footed wind kitten. Jumps and glides on invisible air currents.",
-    lore:"Gustkin is a lean, cat-like wind creature about 45 cm at the shoulder with pale silver-grey fur that ruffles constantly in self-generated air currents. Its ears are long and swept back. It moves with uncanny speed across open spaces, leaving a trail of swirling leaves and dust in its wake." },
+    lore:"Silvergust is a lion-cub-sized wind-felid about 45 cm at the shoulder with pale silver-grey fur that ruffles constantly in self-generated air currents. Its ears are long and swept back. It moves with uncanny speed across open spaces, leaving a trail of swirling leaves and dust in its wake." },
 
   109: { id:109, name:"Siroccomane",    emoji:"🦁", types:["Wind","Electric"],
     base:{hp:70,atk:98,def:57,spa:68,spd:74,spe:119},
@@ -2035,7 +2035,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"razor_leaf"],[1,"sludge_bomb"],[18,"energy_ball"],[28,"toxic"],[36,"petal_blitz"],[44,"venom_lance"],[52,"grove_wrath"],[60,"hyper_beam"]],
     evolveTo:264, evolveLevel:42, catchRate:90, expYield:145, rarity:"uncommon",
     desc:"A cactus warrior of venomous thorns. Its spines can inject toxins from up to three meters away.",
-    lore:"Vinrix is a grass-poison creature 60 cm long resembling a vine-wrapped lizard. Its body is covered in climbing vine tendrils that it can extend rapidly. The vines secrete a contact irritant. It inhabits jungle undergrowth and creates elaborate vine-trap networks around its territory that snare careless prey." },
+    lore:"Tendrilisk is a grass-poison creature 60 cm long whose vine-tendrils still wrap a seed-core body — the lizard silhouette is camouflage from outside, all plant within. Its body is covered in climbing vine tendrils that it can extend rapidly. The vines secrete a contact irritant. It inhabits jungle undergrowth and creates elaborate vine-trap networks around its territory that snare careless prey." },
 
   264: { id:264, name:"Impenezard", emoji:"🌳", types:["Grass","Poison"],
     base:{hp:95,atk:102,def:86,spa:111,spd:93,spe:63},
@@ -2393,7 +2393,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"hydro_pump"],[1,"eclipse_shroud"],[28,"soul_rend"],[36,"phantom_claw"],[44,"geyser_burst"],[52,"shadow_ball"],[60,"dark_pulse"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:232, rarity:"rare",
     desc:"A spectral sea leviathan that capsizes ships. Half water, half ghost—completely terrifying.",
-    lore:"Tidephant is a large water-dark creature 2 metres long resembling a cetacean with dark blue-black hide and a broad flat head. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },
+    lore:"Tidephant is a large water-dark creature 2 metres long resembling a cetacean with dark blue-black hide and a broad flat head. As it matured from Seafraith, its fins broadened into flippers and its skeleton calcified into a whale-like frame — a fish-to-leviathan apotheosis. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },
 
   // 2-stage Ground/Water chain: Mudpump → Marshix (level 28)
   310: { id:310, name:"Mudpump", emoji:"🦛", types:["Ground","Water"],
@@ -2520,7 +2520,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"gust",[22,"mind_shatter"]],[1,"confusion"],[9,"quick_attack"],[17,"air_slash"],[25,"psybeam"],[29,"psystrike"],[33,"hurricane"],[41,"psychic_move",[5,"mistveil"]],[3,"zephyr_dance"],[32,"astral_rend"]],
     evolveTo:117, evolveLevel:32, catchRate:110, expYield:90, rarity:"common",
     desc:"A wisp of wind given a curious mind. Follows trainers to observe how they think.",
-    lore:"Zephyrin is a graceful serpentine wind-psychic creature 1.5 metres long with translucent teal-blue scales and a constantly swirling aura of disturbed air. Its fins are long trailing ribbons of compressed wind. It inhabits mountain weather-stations and is considered a reliable predictor of atmospheric pressure changes." },
+    lore:"Zephyrin is a small wind-psychic vortex 1.5 metres tall, a swirling column of translucent teal-blue compressed air with a faint psychic glow at its centre. Long trailing ribbons of wind unfurl from its periphery and drift behind it as it moves. It inhabits mountain weather-stations and is considered a reliable predictor of atmospheric pressure changes." },
 
   // ===== WATER/FAIRY =====
   34: { id:34, name:"Pearlith", emoji:"🐚", types:["Water","Fairy"],
@@ -2536,7 +2536,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"vine_whip",[22,"root_lance"]],[1,"bite"],[10,"razor_leaf"],[18,"night_slash"],[26,"energy_ball"],[30,"grove_wrath"],[34,"crunch"],[42,"dark_pulse",[5,"sleep_powder"]],[3,"spore_burst"],[32,"void_rend"]],
     evolveTo:79, evolveLevel:30, catchRate:110, expYield:98, rarity:"common",
     desc:"A shadowy plant sprite that hides in dark undergrowth. Its thorns drip with shadow energy.",
-    lore:"Sylvnox is a sleek, fox-like dark-grass creature 65 cm at the shoulder. Its coat is deep forest-green with black underbelly and dark purple-black markings. Its eyes gleam amber in shadows. It prowls the edges of forests at twilight and uses shadow-camouflage to stalk prey, striking only when within striking range." },
+    lore:"Sylvnox is a small bark-skinned forest-sprite 60 cm tall, the youngest stage of the leshy lineage. Its body is bipedal and humanoid, wrapped in a fringed cloak of dark leaves and shadow-moss with two short twig-horns curling from its brow. Its amber eyes glow through the foliage-hood as it skitters through the undergrowth at twilight, drawing shadow-camouflage from the corrupted plants it touches. Travellers who hear its faint giggling among the trees rarely see it before it is gone." },
 
   // ===== POISON/GRASS =====
   162: { id:162, name:"Marlix", emoji:"🌾", types:["Poison","Grass"],
@@ -2668,12 +2668,12 @@ const MONSTERS_DATA = {
     desc:"A sea nymph radiating both water and fairy energy. Said to protect lost sailors.",
     lore:"Undirael is a mermaid-like creature 1.5 metres tall with the lower body of a deep-sea fish in shimmering violet and a humanoid torso. Its flowing hair is made of water-weed adorned with living sea-stars. It guides lost sailors away from dangerous reefs by projecting alluring visions of safe harbours." },
 
-  79: { id:79, name:"Morraveth", emoji:"🌑", types:["Grass","Dark"],
+  79: { id:79, name:"Morraveth", emoji:"🌳", types:["Grass","Dark"],
     base:{hp:84,atk:101,def:80,spa:100,spd:72,spe:67},
     learnset:[[1,"razor_leaf"],[2,"energy_ball"],[3,"night_slash"],[4,"sleep_powder"],[31,"crunch"],[35,"harden"],[39,"dark_pulse"],[40,"photon_leaf"],[45,"shadow_ball"],[50,"blackout_bomb"],[55,"void_rend"],[60,"petal_blitz"],[5,"spore_burst"],[38,"leaf_blade"]],
     evolveTo:80, evolveLevel:44, catchRate:40, expYield:218, rarity:"uncommon",
     desc:"A dark vine predator that ensnares prey in shadow-infused tendrils. Ancient and cunning.",
-    lore:"Morraveth is a wolf-like dark-grass predator 90 cm at the shoulder with midnight-green fur and black patches. Withered vines and dead bark cover parts of its body naturally. It hunts by corrupting plant growth around prey into thorny barriers, gradually encircling its target before closing in." },
+    lore:"Morraveth is a mid-stage leshy 1 metre tall, its bark-skin now thickened into shoulder-plates of dark wood and its twig-horns elongated into branching antler-buds. Withered vines coil around its forearms and its leaf-cloak has deepened to midnight green and black. It hunts by corrupting the plant growth around its prey into thorny barriers, gradually encircling the target before closing in from the shadows." },
 
   163: { id:163, name:"Blightalis", emoji:"🪷", types:["Poison","Grass"],
     base:{hp:88,atk:80,def:60,spa:116,spd:83,spe:58},
@@ -3032,7 +3032,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"powder_snow"],[1,"surf"],[2,"ice_beam"],[3,"permafrost"],[4,"winter_shroud"],[38,"blizzard"],[42,"hoarfrost_bite"],[46,"icicle_crash"],[50,"hydro_pump"],[54,"glacial_tomb"],[58,"cryo_lance"],[62,"abyssal_jet"],[5,"tidecaller"],[44,"frost_current"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A titan of polar seas whose body is half glacier and half deep ocean. Its roar shatters icebergs for miles around.",
-    lore:"Polarveth is a serpentine ice-water creature 3 metres long with translucent blue-white scales and broad front flippers. Its tail sweeps in wide arcs to break through thin ice sheets. It hunts beneath pack ice, surfacing through cracks to catch prey venturing near the frozen edge." },
+    lore:"Nagislither is an elongated mature seal-form 3 metres long, sleek and powerfully muscled, with translucent blue-white fur over a long pinniped body and broad front flippers. Its whiskered face and dark amber eyes match the Cryonik lineage, but its tail has lengthened into a sweeping rudder that breaks through thin ice sheets in wide arcs. It hunts beneath pack ice, surfacing through cracks to catch prey venturing near the frozen edge." },
 
   // 185: Nepturix - Water (Corelin→Neraxis→Nepturix)
   30: { id:30, name:"Nepturix", emoji:"🐟", types:["Water"],
@@ -3075,20 +3075,20 @@ const MONSTERS_DATA = {
     lore:"Rootvorn is a colossal ancient snail nearly 3 metres tall at the shell's apex, with a body that extends another 4 metres when fully out of the shell. Its great calcified spiral has been so deeply colonised over centuries that it now resembles a mossy hill — thick roots from full-grown saplings have driven down through the shell's surface and clutched it like a living crown, and a complete miniature canopy of broad leaves shades the back of its body. Its eyestalks are 1-metre wood-coloured stalks tipped in twin amber gleams, raised cautiously above the canopy when it senses motion. It uproots itself only at night, dragging its forested shell to a new location before dawn, and is believed to reorganise the layout of entire woodlands over decades — wherever it has travelled, new groves take root from the seeds shed by its passing." },
 
   // 190: Verdovast - Grass (Germix→Verdurus→Verdovast)
-  71: { id:71, name:"Verdovast", emoji:"🐻", types:["Grass"],
+  71: { id:71, name:"Verdovast", emoji:"🌳", types:["Grass"],
     base:{hp:109,atk:123,def:88,spa:113,spd:88,spe:29},
     learnset:[[1,"tackle"],[1,"vine_whip"],[2,"energy_ball"],[3,"sleep_powder"],[4,"seed_bomb"],[38,"petal_blitz"],[42,"swords_dance"],[46,"canopy_crash"],[50,"verdant_surge"],[54,"body_slam"],[58,"briar_lash"],[62,"photon_leaf"],[5,"spore_burst"],[44,"root_lance"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
-    desc:"A titanic forest guardian born of the oldest living wood. No axe or flame has ever felled it; those who try are swallowed by the undergrowth.",
-    lore:"Verdovast is a massive grass bear 2.5 metres tall, its body now fully encrusted in thick bark-like plant growth and flowering vines. Trees and shrubs spontaneously germinate on its back over the years, so older individuals resemble walking small ecosystems. It rarely moves fast but is nearly impossible to injure through its dense living armour." },
+    desc:"A colossal ancient seed-pod 2.5 metres tall whose surface is overgrown with saplings, vines, and a small ecosystem. Walks slowly across forests, dropping fertile seeds with each step.",
+    lore:"Verdovast is a colossal ancient seed-pod 2.5 metres tall, its surface so deeply grown over with saplings, vines, blossoms, and a small ecosystem of moss and tendrils that the original seed-husk is barely visible. Older Verdovast resemble walking gardens, with tiny trees growing from their shoulders and back, fruit ripening among the branches, and small creatures nesting in the foliage they carry. It walks slowly across forests on broad root-feet, dropping fertile seeds at every step, and patches of new growth — eventually entire grove ecosystems — spring up wherever it has lingered." },
 
   // 191: Morralyn - Grass/Dark (Sylvnox→Morraveth→Morralyn)
-  80: { id:80, name:"Morralyn", emoji:"🌑", types:["Grass","Dark"],
+  80: { id:80, name:"Morralyn", emoji:"🪵", types:["Grass","Dark"],
     base:{hp:98,atk:122,def:97,spa:117,spd:87,spe:29},
     learnset:[[1,"razor_leaf"],[1,"night_slash"],[2,"energy_ball"],[3,"dark_pulse"],[4,"sleep_powder"],[38,"petal_blitz"],[42,"shadow_ball"],[46,"void_rend"],[50,"verdant_surge"],[54,"soul_rend"],[58,"canopy_crash"],[62,"eclipse_shroud"],[5,"spore_burst"],[44,"abyssal_snare"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A wraith of shadow and thorn that stalks moonless forests. The trees it passes through wither and grow dark, feeding it endlessly.",
-    lore:"Morralyn is a large bear-wolf hybrid 1.5 metres at the shoulder, deeply dark green-black with dead plant material fused to its back forming a natural carapace. It emits a faint aura of decay that accelerates the decomposition of fallen material around it, enriching the soil as it passes." },
+    lore:"Morralyn is the ancient leshy-lord of corrupted groves, a towering 1.8-metre bark-skinned forest-spirit with a full crown of branching black antlers and a long vine-beard hung with hollow seedpods. Dead foliage and dark moss cover the heavy bark-armour plates of its body, and a faint aura of decay accelerates the decomposition of fallen material around it, enriching the soil it walks upon. It is said that the deepest, most shadow-tangled groves of Lumoria are still ruled by patriarchal Morralyn who have not been seen by human eyes in centuries." },
 
   // 192: Faevernal - Fairy/Grass (Floralin→Faelomis→Faevernal)
   74: { id:74, name:"Faevernal", emoji:"🌸", types:["Fairy","Grass"],

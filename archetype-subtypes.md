@@ -566,18 +566,23 @@
 - **barnacle** (cap 1+1)
 - **isopod** (cap 1+1) — giant deep-sea
 
-### Cnidarians + sponges + worms + echinoderms
-- **jellyfish** (cap 1+1) — medusa form
+### Cnidarians + sponges + worms
+- **jellyfish** (subs each cap 1+1)
+  - moon-jellyfish
+  - box-jellyfish
+  - lions-mane-jellyfish
+  - sea-nettle
+  - cannonball-jellyfish
+  - comb-jelly
 - **anemone** (cap 1+1)
 - **coral** (cap 1+1)
-- **hydra** (cap 1+1) — cnidarian, distinct from mythical hydra
+- **cnidarian-hydra** (cap 1+1) — distinct from mythical hydra
 - **sponge** (cap 1+1)
 - **starfish** (cap 1+1) — echinoderm
-- **sea-urchin** (cap 1+1)
 - **worm** (subs each cap 1+1)
   - earthworm
-  - leech
   - sandworm-mythical
+  - tapeworm-parasite
 
 ---
 
@@ -598,21 +603,18 @@
 - **psychic-dragon**
 - **void-dragon**
 - **normal-dragon**
-- **ghost-dragon**
 - **fairy-dragon**
 - **bug-dragon**
 - **rock-dragon**
-- **aether-dragon** (post-game)
+- **radiant-dragon** (post-game) — replaces aether-dragon
 - **crystal-dragon** (post-game)
+- **primal-dragon** (post-game)
 
 ### Dragon-adjacent
 - **wyvern** (cap 1+1) — 2-leg dragon variant
 - **drake** (cap 1+1) — smaller dragon
 - **wyrm** (cap 1+1) — limbless serpentine dragon
-- **amphithere** (cap 1+1) — winged serpent
 - **hydra-multi-head** (cap 1+1)
-- **knucker** (cap 1+1) — well-dragon
-- **linnorm** (cap 1+1)
 
 ### Faerie / fae
 - **pixie / sprite** (cap 1+1) — small
@@ -620,24 +622,16 @@
 - **moonlight-fairy** (cap 1+1)
 - **flower-fairy** (cap 1+1)
 - **dust-fairy** (cap 1+1)
-- **fairy-court** (subs each cap 1+1)
-  - seelie
-  - unseelie
-- **leprechaun / clurichaun** (cap 1+1) — Irish fae
+- **leprechaun** (cap 1+1) — Irish fae
 - **dryad** (cap 1+1) — tree-spirit
-- **nymph** (subs each cap 1+1)
-  - naiad (water)
-  - oread (mountain)
-  - nereid (sea)
+- **nereid** (cap 1+1) — sea-nymph
 
 ### Wraiths / ghosts / undead
 - **humanoid-wraith** (cap 1+1)
 - **spectral-leviathan** (cap 1+1)
 - **mountain-spirit** (cap 1+1)
 - **banshee** (cap 1+1)
-- **revenant** (cap 1+1)
 - **shade** (cap 1+1)
-- **poltergeist** (cap 1+1)
 - **wraith-king / ghost-king** (cap 1+1)
 
 ### Golems / constructs
@@ -655,11 +649,10 @@
 - **whisper-spirit** (cap 1+1)
 - **voice-spirit** (cap 1+1)
 
-### Slimes / blobs
-- **slime / blob** (cap 1+1)
-- **ooze** (cap 1+1)
+### Slimes
+- **slime-viscous** (cap 1+1) — thicker / jellied texture
+- **slime-fluid** (cap 1+1) — thinner / runny texture
 - **gel** (cap 1+1)
-- **pudding** (cap 1+1) — D&D-style
 
 ### Treants / plant-spirits
 - **treant / ent** (cap 1+1)

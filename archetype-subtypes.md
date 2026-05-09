@@ -538,7 +538,7 @@
 
 ---
 
-## OTHER INVERTEBRATES *(starter draft)*
+## OTHER INVERTEBRATES
 
 ### Mollusks
 - **gastropod** (subs each cap 1+1)

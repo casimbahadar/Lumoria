@@ -38,7 +38,6 @@
   - siamese
 - **folkloric-cat** (subs each cap 1+1)
   - black-cat / witch-cat
-  - bakeneko
   - cat-sidhe
   - cheshire
 - **chimeric-cat** (subs each cap 1+1)
@@ -76,7 +75,6 @@
 - **dingo** (cap 1+1)
 - ~~African-wild-dog~~ — **excluded per notes**
 - **folkloric-canid** (subs each cap 1+1, **minus black-shuck**)
-  - kitsune
   - cu-sith
   - fenrir
   - werewolf
@@ -242,10 +240,6 @@
 - **sea-lion** (cap 1+1) — *only sea-lion; fur-seal dropped*
 - **walrus** (cap 1+1)
 - **manatee** (cap 1+1) — *dugong dropped*
-- **mythical-marine-mammal** (subs each cap 1+1)
-  - mermaid
-  - siren
-  - selkie
 
 ### Primates
 
@@ -419,7 +413,6 @@
 - **salamander / newt** (cap 1+1)
 - **axolotl** (cap 1+1)
 - **caecilian** (cap 1+1)
-- **kelpie** (cap 1+1)
 
 ---
 
@@ -657,45 +650,31 @@
 ### Treants / plant-spirits
 - **treant / ent** (cap 1+1)
 - **corrupted-treant** (cap 1+1)
-- **ancient-treant** (cap 1+1)
-- **huorn** (cap 1+1) — semi-conscious tree
 - **mandragora / mandrake** (cap 1+1)
 
 ### Sea/water mythicals
-- **mermaid / siren** (cap 1+1) — overlap with mythical-marine-mammal
-- **selkie** (cap 1+1) — overlap
+- **mermaid / siren** (cap 1+1)
+- **selkie** (cap 1+1)
 - **kraken** (cap 1+1)
-- **leviathan** (cap 1+1)
-- **coral-titan** (cap 1+1)
 - **sea-fairy queen** (cap 1+1)
-- **kelpie** (cap 1+1) — overlap with mythical-equid
-- **bunyip** (cap 1+1)
 
 ### East Asian mythical
-- **kitsune** (cap 1+1) — Japanese fox-spirit; overlap with folkloric-canid
+- **kitsune** (cap 1+1) — Japanese fox-spirit
 - **tanuki** (cap 1+1) — Japanese raccoon-dog spirit
-- **bakeneko** (cap 1+1) — cat-spirit; overlap with folkloric-cat
-- **kappa** (cap 1+1) — water-imp turtle
+- **bakeneko** (cap 1+1) — cat-spirit
 - **oni** (cap 1+1) — ogre/demon
-- **yokai** (cap 1+1) — general supernatural
+- **yokai** (subs each cap 1+1) — general supernatural
+  - tengu
+  - rokurokubi
+  - nurikabe
 - **kirin / qilin** (cap 1+1) — Chinese unicorn-dragon
 - **foo-dog / shisa** (cap 1+1) — lion-guardian
-- **pixiu / piyao** (cap 1+1) — winged-lion
-- **huli-jing** (cap 1+1) — Chinese fox-spirit
 
 ### Slavic mythical
 - **leshy** (cap 1+1) — forest-spirit (already claimed by Morralyn line)
 - **domovoi** (cap 1+1) — house-spirit
 - **rusalka** (cap 1+1) — water-spirit
 - **baba-yaga** (cap 1+1) — witch-hut on chicken legs
-- **vodyanoy** (cap 1+1) — water-demon
-- **zmey** (cap 1+1) — multi-headed dragon
-
-### Celtic / British Isles mythical
-- **cu-sith** (cap 1+1) — overlap with folkloric-canid
-- **pooka / puca** (cap 1+1) — shapeshifter
-- **redcap** (cap 1+1)
-- **spriggan** (cap 1+1)
 
 ### Greek/Roman mythical
 - **centaur** (cap 1+1)
@@ -711,13 +690,15 @@
 - **sphinx** (cap 1+1) — lion+human-face; overlap with chimeric-cat
 - **cyclops** (cap 1+1)
 - **titan** (cap 1+1) — primordial
+- **typhon** (cap 1+1) — primordial storm-titan
+- **lamia** (cap 1+1) — serpent-woman
 
 ### Other mythical (cross-cultural)
 - **vampire / nosferatu** (cap 1+1)
 - **werewolf / lycanthrope** (cap 1+1) — overlap with canid
 - **demon / devil** (cap 1+1)
 - **angel** (cap 1+1)
-- **imp / gremlin** (cap 1+1)
+- **imp** (cap 1+1)
 - **troll** (cap 1+1)
 - **ogre** (cap 1+1)
 - **goblin / hobgoblin / orc** (cap 1+1)
@@ -727,15 +708,14 @@
   - stone-giant
   - cloud-giant
   - hill-giant
-- **thunderbird** (cap 1+1) — Native American
-- **coyote-trickster** (cap 1+1) — Native American
-- **anansi** (cap 1+1) — West African spider-trickster
+- **shapeshifter** (cap 1+1) — captures pooka/puca and similar concepts
 - **yali** (cap 1+1) — Hindu lion-dragon
-- **makara** (cap 1+1) — Hindu sea-creature, croc-fish hybrid
-- **naga** (cap 1+1) — Hindu serpent-being
-- **mokele-mbembe** (cap 1+1) — Bantu cryptid
 - **chupacabra** (cap 1+1) — Latin American cryptid
 - **jorogumo** (cap 1+1) — Japanese spider-woman
+- **rakshasa** (cap 1+1) — Hindu demon
+- **djinn / genie** (cap 1+1) — Arabic spirit
+- **valkyrie** (cap 1+1) — Norse battle-maiden
+- **ifrit** (cap 1+1) — Arabic fire-spirit
 
 ---
 

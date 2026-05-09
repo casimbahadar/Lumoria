@@ -568,7 +568,7 @@
 
 ---
 
-## MYTHICAL CREATURES *(starter draft — large category)*
+## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)
 *(Dragon-mythic was treated as exempt from cap in earlier work; user may apply per-sub-element 1+1 cap if desired. If exempt: keep all. If capped: each sub-element gets 1+1.)*
@@ -756,7 +756,7 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 
 ---
 
-## VOID / COSMIC / ABSTRACT *(starter draft)*
+## VOID / COSMIC / ABSTRACT
 
 - **void-being** (cap 1+1) — formless darkness
 - **starlight-cosmic-being** (cap 1+1)
@@ -775,7 +775,7 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 
 ---
 
-## UNIQUE / ONE-OF-A-KIND *(starter draft)*
+## UNIQUE / ONE-OF-A-KIND
 
 - **divine-messenger** (cap 1+1) — winged / angelic-flavored
 - **observatory-being / watcher** (cap 1+1)
@@ -799,7 +799,7 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 
 ---
 
-## CRYSTALLINE / GEM *(starter draft)*
+## CRYSTALLINE / GEM
 
 - **crystalline-prism** (cap 1+1)
 - **gem-being** (subs each cap 1+1)
@@ -820,7 +820,7 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 
 ---
 
-## COSMOLOGICAL / ENERGY *(starter draft)*
+## COSMOLOGICAL / ENERGY
 
 - **solar-being / sun-spirit** (cap 1+1)
 - **lunar-being / moon-spirit** (cap 1+1)

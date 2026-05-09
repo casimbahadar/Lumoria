@@ -470,7 +470,7 @@
 
 ---
 
-## INSECTS *(starter draft)*
+## INSECTS
 
 ### Lepidoptera
 - **butterfly** (subs each cap 1+1)
@@ -522,7 +522,7 @@
 
 ---
 
-## ARACHNIDS *(starter draft)*
+## ARACHNIDS
 
 - **spider** (subs each cap 1+1)
   - tarantula

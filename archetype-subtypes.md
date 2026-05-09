@@ -770,9 +770,9 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 ## VOID / COSMIC / ABSTRACT *(starter draft)*
 
 - **void-being** (cap 1+1) — formless darkness
-- **cosmic-being** (cap 1+1) — starlight / nebula / galaxy
+- **starlight-cosmic-being** (cap 1+1)
+- **nebula-galaxy-cosmic-being** (cap 1+1)
 - **time-being** (cap 1+1) — chronological
-- **gravity-being** (cap 1+1)
 - **duality-being** (cap 1+1) — light/dark, etc.
 - **color-shifting / iridescent** (cap 1+1)
 - **prismatic / rainbow** (cap 1+1)
@@ -780,6 +780,9 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 - **mirror / reflection-being** (cap 1+1)
 - **dream-being / nightmare-being** (cap 1+1)
 - **memory-being / forgotten-spirit** (cap 1+1)
+- **echo-being** (cap 1+1) — sound-based, fades and resurfaces
+- **glyph / sigil-being** (cap 1+1) — written-symbol given form
+- **cardinal-direction-being** (cap 1+1) — N/S/E/W spirit
 
 ---
 
@@ -787,12 +790,23 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 
 - **divine-messenger** (cap 1+1) — winged / angelic-flavored
 - **observatory-being / watcher** (cap 1+1)
-- **vessel-creature** (cap 1+1) — chemistry-flask, sentient container
-- **weapon-creature** (cap 1+1) — lance / blade / bow
+- **weapon-creature** (subs each cap 1+1)
+  - sword-blade-creature
+  - bow-arrow-creature
+  - lance-spear-creature
+  - hammer-mace-creature
+  - axe-creature
+  - scythe-creature
+  - shield-creature
+  - dagger-creature
 - **mountain-walking** (cap 1+1) — literal walking-mountain
 - **volcano-vent-creature** (cap 1+1)
 - **corrupted-flower / plant-humanoid** (cap 1+1)
 - **chimeric-composite** (cap 1+1) — multi-animal hybrid
+- **hourglass-being** (cap 1+1) — time-counting vessel
+- **card-dice-fate-game-creature** (cap 1+1) — gambling/probability flavor
+- **instrument-creature** (cap 1+1) — music made manifest (flute, harp, drum)
+- **painted-canvas / mural-being** (cap 1+1) — art that escapes the frame
 
 ---
 
@@ -804,9 +818,16 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
   - sapphire
   - emerald
   - diamond
+  - amethyst
+  - topaz
+  - pearl
+  - aquamarine
+  - onyx
+  - moonstone
 - **rock-monolith / standing-stone** (cap 1+1)
 - **geode-being** (cap 1+1) — hollow-crystal
 - **obsidian-being** (cap 1+1) — volcanic-glass
+- **salt-crystal-being** (cap 1+1) — saline, distinct from gem
 
 ---
 

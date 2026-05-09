@@ -379,25 +379,27 @@
 
 ### Saurians / dinosaurs (mythical/extinct)
 - **theropod** (cap 1+1) — T-rex-like
-- **sauropod** (cap 1+1) — long-neck
 - **ankylosaur** (cap 1+1) — armored
+- **sauropod** (cap 1+1) — long-neck
 - **raptor** (cap 1+1) — velociraptor-like
 - **ceratopsian** (cap 1+1) — triceratops-like
+- **spinosaurus** (cap 1+1)
 - **pterosaur** (cap 1+1) — winged
+- **stegosaurus** (cap 1+1) — plated
+- **pachycephalosaur** (cap 1+1) — dome-headed
+- **plesiosaur** (cap 1+1) — marine, long-neck
 
 ### Crocodilians
 - **crocodile** (cap 1+1)
 - **alligator** (cap 1+1)
-- **gharial** (cap 1+1)
 - **caiman** (cap 1+1)
+- **gharial** (cap 1+1)
 
 ### Turtles / tortoises
 - **sea-turtle** (cap 1+1)
 - **land-tortoise** (cap 1+1)
 - **snapping-turtle** (cap 1+1)
-- **mythical-turtle** (subs each cap 1+1)
-  - world-turtle
-  - kappa (overlap with amphibian)
+- **world-turtle** (cap 1+1)
 
 ---
 
@@ -407,22 +409,45 @@
   - tree-frog
   - poison-dart-frog
   - bullfrog
-- **toad** (cap 1+1)
+  - glass-frog
+  - goliath-frog
+- **toad** (subs each cap 1+1)
+  - common-toad
+  - cane-toad
+  - fire-bellied-toad
+  - spadefoot-toad
 - **salamander / newt** (cap 1+1)
+- **axolotl** (cap 1+1)
 - **caecilian** (cap 1+1)
-- **mythical-amphibian** (subs each cap 1+1)
-  - kappa (overlap with reptile)
-  - kelpie (overlap with equid)
+- **kelpie** (cap 1+1)
 
 ---
 
 ## FISH *(starter draft)*
 
 ### Bony fish
-- **tropical-reef** (cap 1+1)
-- **deep-sea / abyssal** (cap 1+1)
-- **freshwater / lake** (cap 1+1)
-- **river-fish** (cap 1+1) — salmon / trout
+- **tropical-reef** (subs each cap 1+1)
+  - clownfish
+  - angelfish (marine)
+  - parrotfish
+  - butterflyfish
+  - tang
+- **deep-sea / abyssal** (subs each cap 1+1)
+  - gulper-eel
+  - dragonfish
+  - viperfish
+  - hatchetfish
+- **freshwater / lake** (subs each cap 1+1)
+  - bass
+  - perch
+  - pike
+  - catfish
+  - carp
+  - koi
+- **river-fish** (subs each cap 1+1)
+  - salmon
+  - trout
+  - char
 - **pufferfish** (cap 1+1)
 - **anglerfish** (cap 1+1)
 - **coelacanth** (cap 1+1) — ancient/relict
@@ -437,7 +462,6 @@
 
 ### Other fish
 - **eel** (cap 1+1)
-- **lungfish** (cap 1+1)
 - **sturgeon** (cap 1+1)
 - **mythical-fish** (subs each cap 1+1)
   - leviathan

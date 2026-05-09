@@ -38,14 +38,9 @@
   - siamese
 - **folkloric-cat** (subs each cap 1+1)
   - black-cat / witch-cat
-  - bakeneko
   - cat-sidhe
   - cheshire
-- **chimeric-cat** (subs each cap 1+1)
-  - sphinx (Egyptian)
-  - manticore
-  - chimera
-  - nemean
+- **nemean** (cap 1+1) — invulnerable lion (was chimeric-cat sub; promoted after dedupe)
 
 > **Felids — clarifications resolved (per user response):**
 > - cougar / puma / mountain-lion → merged under big-cat as a sub
@@ -76,10 +71,8 @@
 - **dingo** (cap 1+1)
 - ~~African-wild-dog~~ — **excluded per notes**
 - **folkloric-canid** (subs each cap 1+1, **minus black-shuck**)
-  - kitsune
   - cu-sith
   - fenrir
-  - werewolf
   - cerberus
 - **hyena** — moved into Canids per notes (subs each cap 1+1)
   - spotted-hyena
@@ -162,9 +155,7 @@
 ### Ungulates — Cervids (Deer)
 
 - **red-deer / elk / stag** (cap 1+1) — grouped
-- **mythical-deer** (subs each cap 1+1) [✱]
-  - faun (mythical half-deer-human)
-  - wendigo
+- **wendigo** (cap 1+1) — was mythical-deer sub; promoted after dedupe
 - **moose** (cap 1+1)
 - **reindeer / caribou** (cap 1+1) — grouped
 - **fawn** (cap 1+1) [✱] — *real young deer (distinct from mythical "faun" sub)*
@@ -192,11 +183,9 @@
 - **donkey / mule** (cap 1+1) — grouped
 - **zebra / zonkey** (cap 1+1) [✱] — grouped, zonkey added per asterisk
 - **mythical-equid** (subs each cap 1+1)
-  - pegasus
   - unicorn
   - kelpie
   - nightmare
-  - hippogriff
 
 ### Ungulates — Other
 
@@ -242,10 +231,6 @@
 - **sea-lion** (cap 1+1) — *only sea-lion; fur-seal dropped*
 - **walrus** (cap 1+1)
 - **manatee** (cap 1+1) — *dugong dropped*
-- **mythical-marine-mammal** (subs each cap 1+1)
-  - mermaid
-  - siren
-  - selkie
 
 ### Primates
 
@@ -274,7 +259,7 @@
 
 **Status:** All mammal categories complete (Felids → Primates).
 
-## BIRDS *(starter draft — pending user edits with handwritten notes)*
+## BIRDS
 
 ### Birds-of-prey
 - **eagle** (subs each cap 1+1)
@@ -290,25 +275,23 @@
   - barn-owl
   - elf-owl
 - **vulture / condor** (cap 1+1)
-- **kite** (cap 1+1)
 - **osprey** (cap 1+1)
 
 ### Waterfowl & wetland
 - **duck** (cap 1+1)
 - **goose** (cap 1+1)
 - **swan** (cap 1+1)
-- **heron / egret / crane** (cap 1+1)
+- **heron / crane** (cap 1+1)
+- **pelican** (cap 1+1)
 - **stork** (cap 1+1)
 - **ibis / spoonbill** (cap 1+1)
 - **flamingo** (cap 1+1)
-- **pelican** (cap 1+1)
 
 ### Seabirds
 - **albatross** (cap 1+1)
-- **gull** (cap 1+1)
+- **seagull** (cap 1+1)
 - **penguin** (cap 1+1)
 - **puffin** (cap 1+1)
-- **petrel** (cap 1+1)
 
 ### Songbirds & small
 - **corvid** (subs each cap 1+1)
@@ -316,9 +299,11 @@
   - raven
   - magpie
   - jay
-- **finch / sparrow / warbler** (cap 1+1)
-- **thrush / robin** (cap 1+1)
-- **starling** (cap 1+1)
+- **finch / sparrow** (cap 1+1)
+- **warbler** (cap 1+1)
+- **robin** (cap 1+1)
+- **cardinal** (cap 1+1)
+- **chickadee** (cap 1+1)
 - **mockingbird** (cap 1+1)
 
 ### Specialty birds
@@ -332,8 +317,8 @@
   - emu
   - cassowary
   - kiwi
-- **bird-of-paradise** (cap 1+1)
-- **peafowl / peacock** (cap 1+1)
+- **toucan** (cap 1+1)
+- **peacock** (cap 1+1)
 - **pheasant / quail** (cap 1+1)
 - **woodpecker** (cap 1+1)
 
@@ -343,24 +328,21 @@
 - **thunderbird** (cap 1+1)
 - **garuda** (cap 1+1)
 - **quetzalcoatl** (cap 1+1) — feathered serpent (overlap with serpent)
-- **harpy** (cap 1+1)
-- **huginn-muninn** (cap 1+1) — dual-corvid Norse
 - **simurgh** (cap 1+1)
-- **alkonost** (cap 1+1) — Slavic bird-woman
 
 ---
 
-## REPTILES *(starter draft)*
+## REPTILES
 
 ### Snakes
-- **viper / pit-viper** (cap 1+1)
-- **cobra / mamba** (cap 1+1)
-- **python / boa / constrictor** (cap 1+1)
+- **viper** (cap 1+1)
+- **cobra** (cap 1+1)
+- **python / boa** (cap 1+1)
 - **sea-snake** (cap 1+1)
 - **coral-snake** (cap 1+1)
+- **anaconda** (cap 1+1)
 - **mythical-snake** (subs each cap 1+1)
   - basilisk
-  - hydra (multi-headed)
   - naga
   - ouroboros
   - jormungandr (world-serpent)
@@ -368,60 +350,86 @@
 ### Lizards
 - **gecko** (cap 1+1)
 - **iguana** (cap 1+1)
-- **monitor / komodo** (cap 1+1)
+- **komodo-dragon** (cap 1+1)
 - **chameleon** (cap 1+1)
 - **skink** (cap 1+1)
 - **bearded-dragon** (cap 1+1) — real lizard, despite name
 - **mythical-lizard** (subs each cap 1+1)
   - salamander-fire-spirit
   - dragon-pup-as-lizard
+  - basilisk-as-lizard
+  - cockatrice
 
 ### Saurians / dinosaurs (mythical/extinct)
 - **theropod** (cap 1+1) — T-rex-like
-- **sauropod** (cap 1+1) — long-neck
 - **ankylosaur** (cap 1+1) — armored
+- **sauropod** (cap 1+1) — long-neck
 - **raptor** (cap 1+1) — velociraptor-like
 - **ceratopsian** (cap 1+1) — triceratops-like
+- **spinosaurus** (cap 1+1)
 - **pterosaur** (cap 1+1) — winged
+- **stegosaurus** (cap 1+1) — plated
+- **pachycephalosaur** (cap 1+1) — dome-headed
+- **plesiosaur** (cap 1+1) — marine, long-neck
 
 ### Crocodilians
 - **crocodile** (cap 1+1)
 - **alligator** (cap 1+1)
-- **gharial** (cap 1+1)
 - **caiman** (cap 1+1)
+- **gharial** (cap 1+1)
 
 ### Turtles / tortoises
 - **sea-turtle** (cap 1+1)
 - **land-tortoise** (cap 1+1)
 - **snapping-turtle** (cap 1+1)
-- **mythical-turtle** (subs each cap 1+1)
-  - world-turtle
-  - kappa (overlap with amphibian)
+- **world-turtle** (cap 1+1)
 
 ---
 
-## AMPHIBIANS *(starter draft)*
+## AMPHIBIANS
 
 - **frog** (subs each cap 1+1)
   - tree-frog
   - poison-dart-frog
   - bullfrog
-- **toad** (cap 1+1)
+  - glass-frog
+  - goliath-frog
+- **toad** (subs each cap 1+1)
+  - common-toad
+  - cane-toad
+  - fire-bellied-toad
+  - spadefoot-toad
 - **salamander / newt** (cap 1+1)
+- **axolotl** (cap 1+1)
 - **caecilian** (cap 1+1)
-- **mythical-amphibian** (subs each cap 1+1)
-  - kappa (overlap with reptile)
-  - kelpie (overlap with equid)
 
 ---
 
-## FISH *(starter draft)*
+## FISH
 
 ### Bony fish
-- **tropical-reef** (cap 1+1)
-- **deep-sea / abyssal** (cap 1+1)
-- **freshwater / lake** (cap 1+1)
-- **river-fish** (cap 1+1) — salmon / trout
+- **tropical-reef** (subs each cap 1+1)
+  - clownfish
+  - angelfish (marine)
+  - parrotfish
+  - butterflyfish
+  - tang
+- **deep-sea / abyssal** (subs each cap 1+1)
+  - gulper-eel
+  - dragonfish
+  - viperfish
+  - hatchetfish
+- **freshwater / lake** (subs each cap 1+1)
+  - bass
+  - perch
+  - pike
+  - catfish
+  - carp
+  - koi
+- **river-fish** (subs each cap 1+1)
+  - salmon
+  - trout
+  - char
 - **pufferfish** (cap 1+1)
 - **anglerfish** (cap 1+1)
 - **coelacanth** (cap 1+1) — ancient/relict
@@ -436,7 +444,6 @@
 
 ### Other fish
 - **eel** (cap 1+1)
-- **lungfish** (cap 1+1)
 - **sturgeon** (cap 1+1)
 - **mythical-fish** (subs each cap 1+1)
   - leviathan
@@ -445,13 +452,15 @@
 
 ---
 
-## INSECTS *(starter draft)*
+## INSECTS
 
 ### Lepidoptera
 - **butterfly** (subs each cap 1+1)
   - monarch
   - swallowtail
   - morpho
+  - peacock-butterfly
+  - glasswing
 - **moth** (subs each cap 1+1)
   - luna-moth
   - hawk-moth
@@ -461,17 +470,18 @@
 ### Coleoptera (beetles)
 - **scarab** (cap 1+1)
 - **stag-beetle** (cap 1+1)
-- **ladybug / ladybird** (cap 1+1)
-- **weevil** (cap 1+1)
-- **firefly / lightning-bug** (cap 1+1)
 - **ground-beetle** (cap 1+1)
 - **jewel-beetle** (cap 1+1)
+- **ladybug / ladybird** (cap 1+1)
+- **firefly / lightning-bug** (cap 1+1)
 
 ### Hymenoptera
 - **bee** (subs each cap 1+1)
   - honeybee
   - bumblebee
   - queen-bee
+  - drone-bee
+  - worker-bee
 - **wasp / hornet** (cap 1+1)
 - **ant** (subs each cap 1+1)
   - worker-ant
@@ -479,25 +489,22 @@
   - queen-ant
   - leafcutter
 
-### Odonata
-- **dragonfly** (cap 1+1)
-- **damselfly** (cap 1+1)
-
 ### Other insects
 - **mantis** (cap 1+1) — Mantodea
-- **cricket / grasshopper / locust** (cap 1+1)
-- **fly / mosquito** (cap 1+1) — Diptera
-- **true-bugs** (subs each cap 1+1) — Hemiptera
-  - cicada
-  - aphid
-  - leafhopper
-- **termite** (cap 1+1) — Isoptera
+- **grasshopper / locust** (cap 1+1)
+- **cicada** (cap 1+1)
 - **cockroach** (cap 1+1) — Blattodea
-- **earwig** (cap 1+1)
+- **fly** (subs each cap 1+1) — Diptera
+  - housefly
+  - fruit-fly
+  - horsefly
+  - hoverfly
+- **mosquito** (cap 1+1) — Diptera
+- **dragonfly** (cap 1+1) — Odonata
 
 ---
 
-## ARACHNIDS *(starter draft)*
+## ARACHNIDS
 
 - **spider** (subs each cap 1+1)
   - tarantula
@@ -505,16 +512,15 @@
   - jumping-spider
   - wolf-spider
   - black-widow
+  - daddy-long-legs
+  - trapdoor-spider
 - **scorpion** (subs each cap 1+1)
   - emperor-scorpion
-  - deathstalker
   - desert-scorpion
-- **mite / tick** (cap 1+1)
-- **harvestman / daddy-long-legs** (cap 1+1)
 
 ---
 
-## OTHER INVERTEBRATES *(starter draft)*
+## OTHER INVERTEBRATES
 
 ### Mollusks
 - **gastropod** (subs each cap 1+1)
@@ -531,37 +537,38 @@
   - oyster
   - mussel
   - scallop
-- **chiton** (cap 1+1)
 
 ### Crustaceans
 - **crab** (subs each cap 1+1)
+  - snow-crab
   - hermit-crab
-  - spider-crab
   - king-crab
-  - fiddler-crab
 - **lobster** (cap 1+1)
-- **shrimp / prawn** (cap 1+1)
-- **crayfish** (cap 1+1)
-- **mantis-shrimp** (cap 1+1)
+- **shrimp** (cap 1+1)
 - **barnacle** (cap 1+1)
 - **isopod** (cap 1+1) — giant deep-sea
 
-### Cnidarians + sponges + worms + echinoderms
-- **jellyfish** (cap 1+1) — medusa form
+### Cnidarians + sponges + worms
+- **jellyfish** (subs each cap 1+1)
+  - moon-jellyfish
+  - box-jellyfish
+  - lions-mane-jellyfish
+  - sea-nettle
+  - cannonball-jellyfish
+  - comb-jelly
 - **anemone** (cap 1+1)
 - **coral** (cap 1+1)
-- **hydra** (cap 1+1) — cnidarian, distinct from mythical hydra
+- **cnidarian-hydra** (cap 1+1) — distinct from mythical hydra
 - **sponge** (cap 1+1)
 - **starfish** (cap 1+1) — echinoderm
-- **sea-urchin** (cap 1+1)
 - **worm** (subs each cap 1+1)
   - earthworm
-  - leech
   - sandworm-mythical
+  - tapeworm-parasite
 
 ---
 
-## MYTHICAL CREATURES *(starter draft — large category)*
+## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)
 *(Dragon-mythic was treated as exempt from cap in earlier work; user may apply per-sub-element 1+1 cap if desired. If exempt: keep all. If capped: each sub-element gets 1+1.)*
@@ -578,21 +585,18 @@
 - **psychic-dragon**
 - **void-dragon**
 - **normal-dragon**
-- **ghost-dragon**
 - **fairy-dragon**
 - **bug-dragon**
 - **rock-dragon**
-- **aether-dragon** (post-game)
+- **radiant-dragon** (post-game) — replaces aether-dragon
 - **crystal-dragon** (post-game)
+- **primal-dragon** (post-game)
 
 ### Dragon-adjacent
 - **wyvern** (cap 1+1) — 2-leg dragon variant
 - **drake** (cap 1+1) — smaller dragon
 - **wyrm** (cap 1+1) — limbless serpentine dragon
-- **amphithere** (cap 1+1) — winged serpent
 - **hydra-multi-head** (cap 1+1)
-- **knucker** (cap 1+1) — well-dragon
-- **linnorm** (cap 1+1)
 
 ### Faerie / fae
 - **pixie / sprite** (cap 1+1) — small
@@ -600,24 +604,16 @@
 - **moonlight-fairy** (cap 1+1)
 - **flower-fairy** (cap 1+1)
 - **dust-fairy** (cap 1+1)
-- **fairy-court** (subs each cap 1+1)
-  - seelie
-  - unseelie
-- **leprechaun / clurichaun** (cap 1+1) — Irish fae
+- **leprechaun** (cap 1+1) — Irish fae
 - **dryad** (cap 1+1) — tree-spirit
-- **nymph** (subs each cap 1+1)
-  - naiad (water)
-  - oread (mountain)
-  - nereid (sea)
+- **nereid** (cap 1+1) — sea-nymph
 
 ### Wraiths / ghosts / undead
 - **humanoid-wraith** (cap 1+1)
 - **spectral-leviathan** (cap 1+1)
 - **mountain-spirit** (cap 1+1)
 - **banshee** (cap 1+1)
-- **revenant** (cap 1+1)
 - **shade** (cap 1+1)
-- **poltergeist** (cap 1+1)
 - **wraith-king / ghost-king** (cap 1+1)
 
 ### Golems / constructs
@@ -635,76 +631,63 @@
 - **whisper-spirit** (cap 1+1)
 - **voice-spirit** (cap 1+1)
 
-### Slimes / blobs
-- **slime / blob** (cap 1+1)
-- **ooze** (cap 1+1)
+### Slimes
+- **slime-viscous** (cap 1+1) — thicker / jellied texture
+- **slime-fluid** (cap 1+1) — thinner / runny texture
 - **gel** (cap 1+1)
-- **pudding** (cap 1+1) — D&D-style
 
 ### Treants / plant-spirits
 - **treant / ent** (cap 1+1)
 - **corrupted-treant** (cap 1+1)
-- **ancient-treant** (cap 1+1)
-- **huorn** (cap 1+1) — semi-conscious tree
 - **mandragora / mandrake** (cap 1+1)
 
 ### Sea/water mythicals
-- **mermaid / siren** (cap 1+1) — overlap with mythical-marine-mammal
-- **selkie** (cap 1+1) — overlap
+- **mermaid / siren** (cap 1+1)
+- **selkie** (cap 1+1)
 - **kraken** (cap 1+1)
-- **leviathan** (cap 1+1)
-- **coral-titan** (cap 1+1)
 - **sea-fairy queen** (cap 1+1)
-- **kelpie** (cap 1+1) — overlap with mythical-equid
-- **bunyip** (cap 1+1)
 
 ### East Asian mythical
-- **kitsune** (cap 1+1) — Japanese fox-spirit; overlap with folkloric-canid
+- **kitsune** (cap 1+1) — Japanese fox-spirit
 - **tanuki** (cap 1+1) — Japanese raccoon-dog spirit
-- **bakeneko** (cap 1+1) — cat-spirit; overlap with folkloric-cat
-- **kappa** (cap 1+1) — water-imp turtle
+- **bakeneko** (cap 1+1) — cat-spirit
 - **oni** (cap 1+1) — ogre/demon
-- **yokai** (cap 1+1) — general supernatural
+- **yokai** (subs each cap 1+1) — general supernatural
+  - tengu
+  - rokurokubi
+  - nurikabe
 - **kirin / qilin** (cap 1+1) — Chinese unicorn-dragon
 - **foo-dog / shisa** (cap 1+1) — lion-guardian
-- **pixiu / piyao** (cap 1+1) — winged-lion
-- **huli-jing** (cap 1+1) — Chinese fox-spirit
 
 ### Slavic mythical
 - **leshy** (cap 1+1) — forest-spirit (already claimed by Morralyn line)
 - **domovoi** (cap 1+1) — house-spirit
 - **rusalka** (cap 1+1) — water-spirit
 - **baba-yaga** (cap 1+1) — witch-hut on chicken legs
-- **vodyanoy** (cap 1+1) — water-demon
-- **zmey** (cap 1+1) — multi-headed dragon
-
-### Celtic / British Isles mythical
-- **cu-sith** (cap 1+1) — overlap with folkloric-canid
-- **pooka / puca** (cap 1+1) — shapeshifter
-- **redcap** (cap 1+1)
-- **spriggan** (cap 1+1)
 
 ### Greek/Roman mythical
 - **centaur** (cap 1+1)
 - **minotaur** (cap 1+1)
-- **satyr / faun** (cap 1+1) — overlap with mythical-deer
+- **satyr / faun** (cap 1+1)
 - **gorgon / medusa** (cap 1+1)
-- **harpy** (cap 1+1) — overlap with mythical-bird
+- **harpy** (cap 1+1)
 - **griffin** (cap 1+1) — eagle+lion
 - **hippogriff** (cap 1+1) — horse+eagle
-- **pegasus** (cap 1+1) — overlap with mythical-equid
+- **pegasus** (cap 1+1)
 - **chimera** (cap 1+1) — lion+goat+snake
 - **manticore** (cap 1+1) — lion+scorpion+human
-- **sphinx** (cap 1+1) — lion+human-face; overlap with chimeric-cat
+- **sphinx** (cap 1+1) — lion+human-face
 - **cyclops** (cap 1+1)
 - **titan** (cap 1+1) — primordial
+- **typhon** (cap 1+1) — primordial storm-titan
+- **lamia** (cap 1+1) — serpent-woman
 
 ### Other mythical (cross-cultural)
 - **vampire / nosferatu** (cap 1+1)
-- **werewolf / lycanthrope** (cap 1+1) — overlap with canid
+- **werewolf / lycanthrope** (cap 1+1)
 - **demon / devil** (cap 1+1)
 - **angel** (cap 1+1)
-- **imp / gremlin** (cap 1+1)
+- **imp** (cap 1+1)
 - **troll** (cap 1+1)
 - **ogre** (cap 1+1)
 - **goblin / hobgoblin / orc** (cap 1+1)
@@ -714,15 +697,14 @@
   - stone-giant
   - cloud-giant
   - hill-giant
-- **thunderbird** (cap 1+1) — Native American
-- **coyote-trickster** (cap 1+1) — Native American
-- **anansi** (cap 1+1) — West African spider-trickster
+- **shapeshifter** (cap 1+1) — captures pooka/puca and similar concepts
 - **yali** (cap 1+1) — Hindu lion-dragon
-- **makara** (cap 1+1) — Hindu sea-creature, croc-fish hybrid
-- **naga** (cap 1+1) — Hindu serpent-being
-- **mokele-mbembe** (cap 1+1) — Bantu cryptid
 - **chupacabra** (cap 1+1) — Latin American cryptid
 - **jorogumo** (cap 1+1) — Japanese spider-woman
+- **rakshasa** (cap 1+1) — Hindu demon
+- **djinn / genie** (cap 1+1) — Arabic spirit
+- **valkyrie** (cap 1+1) — Norse battle-maiden
+- **ifrit** (cap 1+1) — Arabic fire-spirit
 
 ---
 
@@ -774,12 +756,12 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 
 ---
 
-## VOID / COSMIC / ABSTRACT *(starter draft)*
+## VOID / COSMIC / ABSTRACT
 
 - **void-being** (cap 1+1) — formless darkness
-- **cosmic-being** (cap 1+1) — starlight / nebula / galaxy
+- **starlight-cosmic-being** (cap 1+1)
+- **nebula-galaxy-cosmic-being** (cap 1+1)
 - **time-being** (cap 1+1) — chronological
-- **gravity-being** (cap 1+1)
 - **duality-being** (cap 1+1) — light/dark, etc.
 - **color-shifting / iridescent** (cap 1+1)
 - **prismatic / rainbow** (cap 1+1)
@@ -787,23 +769,37 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 - **mirror / reflection-being** (cap 1+1)
 - **dream-being / nightmare-being** (cap 1+1)
 - **memory-being / forgotten-spirit** (cap 1+1)
+- **echo-being** (cap 1+1) — sound-based, fades and resurfaces
+- **glyph / sigil-being** (cap 1+1) — written-symbol given form
+- **cardinal-direction-being** (cap 1+1) — N/S/E/W spirit
 
 ---
 
-## UNIQUE / ONE-OF-A-KIND *(starter draft)*
+## UNIQUE / ONE-OF-A-KIND
 
 - **divine-messenger** (cap 1+1) — winged / angelic-flavored
 - **observatory-being / watcher** (cap 1+1)
-- **vessel-creature** (cap 1+1) — chemistry-flask, sentient container
-- **weapon-creature** (cap 1+1) — lance / blade / bow
+- **weapon-creature** (subs each cap 1+1)
+  - sword-blade-creature
+  - bow-arrow-creature
+  - lance-spear-creature
+  - hammer-mace-creature
+  - axe-creature
+  - scythe-creature
+  - shield-creature
+  - dagger-creature
 - **mountain-walking** (cap 1+1) — literal walking-mountain
 - **volcano-vent-creature** (cap 1+1)
 - **corrupted-flower / plant-humanoid** (cap 1+1)
 - **chimeric-composite** (cap 1+1) — multi-animal hybrid
+- **hourglass-being** (cap 1+1) — time-counting vessel
+- **card-dice-fate-game-creature** (cap 1+1) — gambling/probability flavor
+- **instrument-creature** (cap 1+1) — music made manifest (flute, harp, drum)
+- **painted-canvas / mural-being** (cap 1+1) — art that escapes the frame
 
 ---
 
-## CRYSTALLINE / GEM *(starter draft)*
+## CRYSTALLINE / GEM
 
 - **crystalline-prism** (cap 1+1)
 - **gem-being** (subs each cap 1+1)
@@ -811,13 +807,20 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
   - sapphire
   - emerald
   - diamond
+  - amethyst
+  - topaz
+  - pearl
+  - aquamarine
+  - onyx
+  - moonstone
 - **rock-monolith / standing-stone** (cap 1+1)
 - **geode-being** (cap 1+1) — hollow-crystal
 - **obsidian-being** (cap 1+1) — volcanic-glass
+- **salt-crystal-being** (cap 1+1) — saline, distinct from gem
 
 ---
 
-## COSMOLOGICAL / ENERGY *(starter draft)*
+## COSMOLOGICAL / ENERGY
 
 - **solar-being / sun-spirit** (cap 1+1)
 - **lunar-being / moon-spirit** (cap 1+1)
@@ -829,54 +832,4 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 
 ---
 
-## TODO — pending user notes
-
-All categories now have **starter drafts above**. User to walk through with handwritten notes and edit each one (same process as mammals: confirm/drop subs, add subs, add asterisks for changes). Remaining work per category:
-
-- Birds (6 subsections — birds-of-prey, waterfowl, seabirds, songbirds, specialty, mythical)
-- Reptiles (5 subsections — snakes, lizards, saurians, crocodilians, turtles)
-- Amphibians (1 section)
-- Fish (3 subsections — bony, cartilaginous, other)
-- Insects (5 subsections — Lepidoptera, Coleoptera, Hymenoptera, Odonata, other)
-- Arachnids (1 section)
-- Other invertebrates (3 subsections — mollusks, crustaceans, cnidarians/echinoderms/worms)
-- Mythical creatures (15+ subsections — dragons, dragon-adjacent, fae, wraiths, golems, wisps, slimes, treants, sea, East Asian, Slavic, Celtic, Greek/Roman, other)
-- Elementals (19 elements — established, awaiting any user overrides)
-- Natural-disaster-inspired (15 disasters — established)
-- Void / cosmic / abstract (1 section)
-- Unique / one-of-a-kind (1 section)
-- Crystalline / gem (1 section)
-- Cosmological / energy (1 section)
-
----
-
-## Open clarifications for user
-
-### Resolved (per most recent user response)
-
-- ✅ Felids — cougar/puma → merged as sub of big-cat; snow-leopard → merged with leopard sub
-- ✅ Black-bear ✱ → asterisk was misplaced; meant for red-panda
-- ✅ Mustelids — sable/fisher dropped entirely
-- ✅ Domestic-dog → keep 7 subs as separate slots
-- ✅ Rabbit/hare subs → confirmed each separate
-- ✅ Pangolin had no asterisk; anteater is the asterisk addition (intentional)
-- ✅ Bull and ox both on own bullets (ox combined with musk-ox)
-- ✅ Antelope/Gazelle bullet — only those two; springbok and pronghorn dropped
-- ✅ Bovids category ✱ was actually for combining ox + musk-ox into one bullet
-- ✅ Horse subs — clydesdale and other heavy-but-not-pure-draft kept; only "draft" excluded
-- ✅ Pig/Boar ✱ was actually meant for giraffe row (giraffe-only, okapi dropped)
-- ✅ Rhino subs added: white / black / Indian / Javan / Sumatran + woolly-rhino mythical
-- ✅ Dolphin subs: bottlenose, common, spinner, risso, dusky
-
-### All resolved (mammals complete)
-
-- ✅ Porpoise dropped intentionally
-- ✅ Fur-seal, dugong dropped intentionally
-- ✅ Hanuman dropped intentionally
-- ✅ Monkey restructured as subs (like cats/dogs) instead of cap-of-5; each sub-type gets own pristine 1+1 slot
-- ✅ Mythical-deer with subs faun + wendigo confirmed
-- ✅ Fawn (real young deer) as own bullet, Faun (mythical half-deer-human) as sub of mythical-deer
-
-### Mammals — fully complete
-
-All 16 mammal categories (Felids → Primates) fully transcribed and clarified per user notes.
+*All categories transcribed from user's handwritten notes. Status tracking moved to `TODO.md` (source of truth). Pending work: broader brainstorm pass for missing archetypes + entirely new top-level categories (deferred to fresh session).*

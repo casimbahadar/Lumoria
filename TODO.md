@@ -89,6 +89,10 @@
 - [x] **#11** Helioveth → **Heliocoon** (Fire/Wind; chrysalis lore, defensive stats, 🥚 emoji)
 - [x] **#12** Inferarch (kept name, retyped Fire/Dragon → Fire/Wind, butterfly lore + 🦋 emoji + 5 dragon moves swapped for Wind/Bug)
 
+## Reference docs
+
+- [x] **`archetype-subtypes.md`** — full transcription complete (cap 1+1 reference for all archetype subtypes across all categories). PR #38, branch `claude/luminex-rename-coherence-ZWTuu`. All starter-draft tags dropped; cross-section duplicates consolidated. Pending: broader brainstorm pass for missing archetypes + entirely new top-level categories (deferred to fresh session per context budget).
+
 ## Walkthrough cursor
 
 **Currently in Borderline triage of MINOR-vs-BREAKING upgrades.** Borderline cases 1-7 done. Next up: **Borderline 8 (#128-129 Cranivade → Voidaxis)**.

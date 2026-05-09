@@ -274,7 +274,7 @@
 
 **Status:** All mammal categories complete (Felids → Primates).
 
-## BIRDS *(starter draft — pending user edits with handwritten notes)*
+## BIRDS
 
 ### Birds-of-prey
 - **eagle** (subs each cap 1+1)
@@ -290,25 +290,23 @@
   - barn-owl
   - elf-owl
 - **vulture / condor** (cap 1+1)
-- **kite** (cap 1+1)
 - **osprey** (cap 1+1)
 
 ### Waterfowl & wetland
 - **duck** (cap 1+1)
 - **goose** (cap 1+1)
 - **swan** (cap 1+1)
-- **heron / egret / crane** (cap 1+1)
+- **heron / crane** (cap 1+1)
+- **pelican** (cap 1+1)
 - **stork** (cap 1+1)
 - **ibis / spoonbill** (cap 1+1)
 - **flamingo** (cap 1+1)
-- **pelican** (cap 1+1)
 
 ### Seabirds
 - **albatross** (cap 1+1)
-- **gull** (cap 1+1)
+- **seagull** (cap 1+1)
 - **penguin** (cap 1+1)
 - **puffin** (cap 1+1)
-- **petrel** (cap 1+1)
 
 ### Songbirds & small
 - **corvid** (subs each cap 1+1)
@@ -316,9 +314,11 @@
   - raven
   - magpie
   - jay
-- **finch / sparrow / warbler** (cap 1+1)
-- **thrush / robin** (cap 1+1)
-- **starling** (cap 1+1)
+- **finch / sparrow** (cap 1+1)
+- **warbler** (cap 1+1)
+- **robin** (cap 1+1)
+- **cardinal** (cap 1+1)
+- **chickadee** (cap 1+1)
 - **mockingbird** (cap 1+1)
 
 ### Specialty birds
@@ -332,8 +332,8 @@
   - emu
   - cassowary
   - kiwi
-- **bird-of-paradise** (cap 1+1)
-- **peafowl / peacock** (cap 1+1)
+- **toucan** (cap 1+1)
+- **peacock** (cap 1+1)
 - **pheasant / quail** (cap 1+1)
 - **woodpecker** (cap 1+1)
 
@@ -342,22 +342,21 @@
 - **roc** (cap 1+1)
 - **thunderbird** (cap 1+1)
 - **garuda** (cap 1+1)
-- **quetzalcoatl** (cap 1+1) — feathered serpent (overlap with serpent)
 - **harpy** (cap 1+1)
-- **huginn-muninn** (cap 1+1) — dual-corvid Norse
+- **quetzalcoatl** (cap 1+1) — feathered serpent (overlap with serpent)
 - **simurgh** (cap 1+1)
-- **alkonost** (cap 1+1) — Slavic bird-woman
 
 ---
 
 ## REPTILES *(starter draft)*
 
 ### Snakes
-- **viper / pit-viper** (cap 1+1)
-- **cobra / mamba** (cap 1+1)
-- **python / boa / constrictor** (cap 1+1)
+- **viper** (cap 1+1)
+- **cobra** (cap 1+1)
+- **python / boa** (cap 1+1)
 - **sea-snake** (cap 1+1)
 - **coral-snake** (cap 1+1)
+- **anaconda** (cap 1+1)
 - **mythical-snake** (subs each cap 1+1)
   - basilisk
   - hydra (multi-headed)
@@ -368,13 +367,15 @@
 ### Lizards
 - **gecko** (cap 1+1)
 - **iguana** (cap 1+1)
-- **monitor / komodo** (cap 1+1)
+- **komodo-dragon** (cap 1+1)
 - **chameleon** (cap 1+1)
 - **skink** (cap 1+1)
 - **bearded-dragon** (cap 1+1) — real lizard, despite name
 - **mythical-lizard** (subs each cap 1+1)
   - salamander-fire-spirit
   - dragon-pup-as-lizard
+  - basilisk-as-lizard
+  - cockatrice
 
 ### Saurians / dinosaurs (mythical/extinct)
 - **theropod** (cap 1+1) — T-rex-like

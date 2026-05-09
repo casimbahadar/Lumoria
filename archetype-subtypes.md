@@ -40,11 +40,7 @@
   - black-cat / witch-cat
   - cat-sidhe
   - cheshire
-- **chimeric-cat** (subs each cap 1+1)
-  - sphinx (Egyptian)
-  - manticore
-  - chimera
-  - nemean
+- **nemean** (cap 1+1) — invulnerable lion (was chimeric-cat sub; promoted after dedupe)
 
 > **Felids — clarifications resolved (per user response):**
 > - cougar / puma / mountain-lion → merged under big-cat as a sub
@@ -77,7 +73,6 @@
 - **folkloric-canid** (subs each cap 1+1, **minus black-shuck**)
   - cu-sith
   - fenrir
-  - werewolf
   - cerberus
 - **hyena** — moved into Canids per notes (subs each cap 1+1)
   - spotted-hyena
@@ -160,9 +155,7 @@
 ### Ungulates — Cervids (Deer)
 
 - **red-deer / elk / stag** (cap 1+1) — grouped
-- **mythical-deer** (subs each cap 1+1) [✱]
-  - faun (mythical half-deer-human)
-  - wendigo
+- **wendigo** (cap 1+1) — was mythical-deer sub; promoted after dedupe
 - **moose** (cap 1+1)
 - **reindeer / caribou** (cap 1+1) — grouped
 - **fawn** (cap 1+1) [✱] — *real young deer (distinct from mythical "faun" sub)*
@@ -190,11 +183,9 @@
 - **donkey / mule** (cap 1+1) — grouped
 - **zebra / zonkey** (cap 1+1) [✱] — grouped, zonkey added per asterisk
 - **mythical-equid** (subs each cap 1+1)
-  - pegasus
   - unicorn
   - kelpie
   - nightmare
-  - hippogriff
 
 ### Ungulates — Other
 
@@ -336,7 +327,6 @@
 - **roc** (cap 1+1)
 - **thunderbird** (cap 1+1)
 - **garuda** (cap 1+1)
-- **harpy** (cap 1+1)
 - **quetzalcoatl** (cap 1+1) — feathered serpent (overlap with serpent)
 - **simurgh** (cap 1+1)
 
@@ -353,7 +343,6 @@
 - **anaconda** (cap 1+1)
 - **mythical-snake** (subs each cap 1+1)
   - basilisk
-  - hydra (multi-headed)
   - naga
   - ouroboros
   - jormungandr (world-serpent)
@@ -679,15 +668,15 @@
 ### Greek/Roman mythical
 - **centaur** (cap 1+1)
 - **minotaur** (cap 1+1)
-- **satyr / faun** (cap 1+1) — overlap with mythical-deer
+- **satyr / faun** (cap 1+1)
 - **gorgon / medusa** (cap 1+1)
-- **harpy** (cap 1+1) — overlap with mythical-bird
+- **harpy** (cap 1+1)
 - **griffin** (cap 1+1) — eagle+lion
 - **hippogriff** (cap 1+1) — horse+eagle
-- **pegasus** (cap 1+1) — overlap with mythical-equid
+- **pegasus** (cap 1+1)
 - **chimera** (cap 1+1) — lion+goat+snake
 - **manticore** (cap 1+1) — lion+scorpion+human
-- **sphinx** (cap 1+1) — lion+human-face; overlap with chimeric-cat
+- **sphinx** (cap 1+1) — lion+human-face
 - **cyclops** (cap 1+1)
 - **titan** (cap 1+1) — primordial
 - **typhon** (cap 1+1) — primordial storm-titan
@@ -695,7 +684,7 @@
 
 ### Other mythical (cross-cultural)
 - **vampire / nosferatu** (cap 1+1)
-- **werewolf / lycanthrope** (cap 1+1) — overlap with canid
+- **werewolf / lycanthrope** (cap 1+1)
 - **demon / devil** (cap 1+1)
 - **angel** (cap 1+1)
 - **imp** (cap 1+1)

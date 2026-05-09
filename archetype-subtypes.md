@@ -477,6 +477,8 @@
   - monarch
   - swallowtail
   - morpho
+  - peacock-butterfly
+  - glasswing
 - **moth** (subs each cap 1+1)
   - luna-moth
   - hawk-moth
@@ -486,17 +488,18 @@
 ### Coleoptera (beetles)
 - **scarab** (cap 1+1)
 - **stag-beetle** (cap 1+1)
-- **ladybug / ladybird** (cap 1+1)
-- **weevil** (cap 1+1)
-- **firefly / lightning-bug** (cap 1+1)
 - **ground-beetle** (cap 1+1)
 - **jewel-beetle** (cap 1+1)
+- **ladybug / ladybird** (cap 1+1)
+- **firefly / lightning-bug** (cap 1+1)
 
 ### Hymenoptera
 - **bee** (subs each cap 1+1)
   - honeybee
   - bumblebee
   - queen-bee
+  - drone-bee
+  - worker-bee
 - **wasp / hornet** (cap 1+1)
 - **ant** (subs each cap 1+1)
   - worker-ant
@@ -504,21 +507,18 @@
   - queen-ant
   - leafcutter
 
-### Odonata
-- **dragonfly** (cap 1+1)
-- **damselfly** (cap 1+1)
-
 ### Other insects
 - **mantis** (cap 1+1) — Mantodea
-- **cricket / grasshopper / locust** (cap 1+1)
-- **fly / mosquito** (cap 1+1) — Diptera
-- **true-bugs** (subs each cap 1+1) — Hemiptera
-  - cicada
-  - aphid
-  - leafhopper
-- **termite** (cap 1+1) — Isoptera
+- **grasshopper / locust** (cap 1+1)
+- **cicada** (cap 1+1)
 - **cockroach** (cap 1+1) — Blattodea
-- **earwig** (cap 1+1)
+- **fly** (subs each cap 1+1) — Diptera
+  - housefly
+  - fruit-fly
+  - horsefly
+  - hoverfly
+- **mosquito** (cap 1+1) — Diptera
+- **dragonfly** (cap 1+1) — Odonata
 
 ---
 
@@ -530,12 +530,11 @@
   - jumping-spider
   - wolf-spider
   - black-widow
+  - daddy-long-legs
+  - trapdoor-spider
 - **scorpion** (subs each cap 1+1)
   - emperor-scorpion
-  - deathstalker
   - desert-scorpion
-- **mite / tick** (cap 1+1)
-- **harvestman / daddy-long-legs** (cap 1+1)
 
 ---
 
@@ -556,18 +555,14 @@
   - oyster
   - mussel
   - scallop
-- **chiton** (cap 1+1)
 
 ### Crustaceans
 - **crab** (subs each cap 1+1)
+  - snow-crab
   - hermit-crab
-  - spider-crab
   - king-crab
-  - fiddler-crab
 - **lobster** (cap 1+1)
-- **shrimp / prawn** (cap 1+1)
-- **crayfish** (cap 1+1)
-- **mantis-shrimp** (cap 1+1)
+- **shrimp** (cap 1+1)
 - **barnacle** (cap 1+1)
 - **isopod** (cap 1+1) — giant deep-sea
 

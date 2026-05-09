@@ -348,7 +348,7 @@
 
 ---
 
-## REPTILES *(starter draft)*
+## REPTILES
 
 ### Snakes
 - **viper** (cap 1+1)
@@ -403,7 +403,7 @@
 
 ---
 
-## AMPHIBIANS *(starter draft)*
+## AMPHIBIANS
 
 - **frog** (subs each cap 1+1)
   - tree-frog
@@ -423,7 +423,7 @@
 
 ---
 
-## FISH *(starter draft)*
+## FISH
 
 ### Bony fish
 - **tropical-reef** (subs each cap 1+1)

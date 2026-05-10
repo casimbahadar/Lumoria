@@ -458,14 +458,21 @@
   - bullfrog
   - glass-frog
   - goliath-frog
+  - horned-frog / pacman-frog
+  - wood-frog
+  - desert-rain-frog
 - **toad** (subs each cap 1+1)
   - common-toad
   - cane-toad
   - fire-bellied-toad
   - spadefoot-toad
+  - golden-toad
 - **salamander / newt** (cap 1+1)
 - **axolotl** (cap 1+1)
 - **caecilian** (cap 1+1)
+- **giant-salamander** (cap 1+1) — Chinese/Japanese; largest amphibian alive (1.8 m); "living fossil"
+- **fire-salamander** (cap 1+1) — vivid black-and-yellow; classic European folklore (born of fire)
+- **olm / proteus** (cap 1+1) — cave-dwelling, blind, ghost-white; called "baby dragon" by locals
 
 ---
 

@@ -91,7 +91,7 @@
 
 ## Reference docs
 
-- [x] **`archetype-subtypes.md`** — full transcription complete (cap 1+1 reference for all archetype subtypes across all categories). PR #38, branch `claude/luminex-rename-coherence-ZWTuu`. All starter-draft tags dropped; cross-section duplicates consolidated. Pending: broader brainstorm pass for missing archetypes + entirely new top-level categories (deferred to fresh session per context budget).
+- [x] **`archetype-subtypes.md`** — transcription + brainstorm pass through all 15 existing sections complete (Mammals → Cosmological/Energy). Dragon renames + dog-breed additions + Mythical Batches A & B applied. PR #38 (transcription) merged; PR #39 (brainstorm pass) draft, branch `claude/brainstorm-archetypes-dYaaF`, 20 commits ahead of main. **Remaining: entirely new top-level categories** — 7 candidates drafted (A=Plants/Flora, B=Fungi, C=Prehistoric, D=Cryptids, E=Emotions, F=Weather, G=Indigenous Mythology); awaiting per-category selection in next session.
 
 ## Walkthrough cursor
 

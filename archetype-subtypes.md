@@ -243,12 +243,16 @@
   - sperm-whale
   - orca
   - pilot-whale
+  - narwhal
+  - beluga
 - **dolphin** (subs each cap 1+1)
   - bottlenose
   - common-dolphin
   - spinner-dolphin
   - risso-dolphin
   - dusky-dolphin
+  - amazon-river-dolphin / pink-dolphin
+- **ambulocetus / walking-whale** (cap 1+1) — extinct semi-aquatic whale-ancestor; bridges land→sea
 - ~~Porpoise~~ — *dropped silently from my list*
 
 ### Marine Mammals — Pinnipeds + Sirenians
@@ -258,9 +262,11 @@
   - elephant-seal
   - monk-seal
   - leopard-seal
+  - ringed-seal
 - **sea-lion** (cap 1+1) — *only sea-lion; fur-seal dropped*
 - **walrus** (cap 1+1)
 - **manatee** (cap 1+1) — *dugong dropped*
+- **steller-sea-cow** (cap 1+1) — extinct giant sirenian (8 m long); hunted to extinction in 27 years; tragic-mega slot
 
 ### Primates
 

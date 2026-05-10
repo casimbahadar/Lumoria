@@ -608,6 +608,9 @@
   - black-widow
   - daddy-long-legs
   - trapdoor-spider
+  - huntsman-spider
+  - recluse / brown-recluse
+  - peacock-spider
 - **scorpion** (subs each cap 1+1)
   - emperor-scorpion
   - desert-scorpion

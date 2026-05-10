@@ -849,7 +849,7 @@
 
 ## ELEMENTALS *(established — one per type, cap 1 family + 1 standalone each)*
 
-19 elementals total (all 21 types except Fighting and Primal). An "elemental" is a formless being literally made of an element.
+18 elementals total (all 21 types except Fighting, Primal, and Bug). An "elemental" is a formless being literally made of an element. Bug excluded — an insect-swarm doesn't fit the "formless element" framing.
 
 - **fire-elemental** (cap 1+1)
 - **water-elemental** (cap 1+1)
@@ -860,7 +860,6 @@
 - **ground-elemental / earth-elemental** (cap 1+1)
 - **rock-elemental / stone-elemental** (cap 1+1)
 - **steel-elemental / metal-elemental** (cap 1+1)
-- **bug-elemental** (cap 1+1) — rare; formless insect-swarm overlap
 - **poison-elemental / toxic-elemental** (cap 1+1)
 - **psychic-elemental / mind-elemental** (cap 1+1)
 - **ghost-elemental / spectral-elemental** (cap 1+1)

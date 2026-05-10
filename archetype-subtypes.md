@@ -485,6 +485,8 @@
   - parrotfish
   - butterflyfish
   - tang
+  - lionfish
+  - mandarinfish
 - **deep-sea / abyssal** (subs each cap 1+1)
   - gulper-eel
   - dragonfish
@@ -504,6 +506,11 @@
 - **pufferfish** (cap 1+1)
 - **anglerfish** (cap 1+1)
 - **coelacanth** (cap 1+1) — ancient/relict
+- **seahorse** (cap 1+1) — male-pregnancy, prehensile tail; fairy-creature flavor
+- **leafy-sea-dragon** (cap 1+1) — extreme leaf-camouflage; fae-creature aesthetic
+- **mudskipper** (cap 1+1) — amphibious; walks on land using pectoral fins
+- **piranha** (cap 1+1) — Amazonian; swarm-attack flavor
+- **flying-fish** (cap 1+1) — actually glides above water using wing-like fins
 
 ### Cartilaginous fish
 - **shark** (subs each cap 1+1)
@@ -512,8 +519,11 @@
   - tiger-shark
   - megalodon (extinct/mythical)
 - **ray / manta / stingray** (cap 1+1)
+- **sawfish** (cap 1+1) — ray with toothed saw-snout; critically endangered
 
 ### Other fish
+- **moray-eel** (cap 1+1) — reef-dwelling predator with second jaw in throat (Alien-style)
+- **electric-eel** (cap 1+1) — generates 600-volt shocks; not a true eel taxonomically
 - **eel** (cap 1+1)
 - **sturgeon** (cap 1+1)
 - **mythical-fish** (subs each cap 1+1)

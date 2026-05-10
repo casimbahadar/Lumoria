@@ -19,11 +19,14 @@
   - jaguar
   - panther / melanistic-leopard
   - cougar / puma / mountain-lion
+  - clouded-leopard
 - **cheetah** (cap 1+1)
 - **lynx** (subs each cap 1+1)
   - bobcat
   - lynx
   - caracal
+  - eurasian-lynx
+  - iberian-lynx
 - **small-wildcat** (subs each cap 1+1)
   - serval
   - ocelot
@@ -36,11 +39,15 @@
   - sphinx (hairless)
   - persian
   - siamese
+  - maine-coon
+  - scottish-fold
+  - calico / tortoiseshell
 - **folkloric-cat** (subs each cap 1+1)
   - black-cat / witch-cat
   - cat-sidhe
   - cheshire
 - **nemean** (cap 1+1) — invulnerable lion (was chimeric-cat sub; promoted after dedupe)
+- **saber-tooth / smilodon** (cap 1+1) — extinct mega-felid; anchor for prehistoric ice-age slot
 
 > **Felids — clarifications resolved (per user response):**
 > - cougar / puma / mountain-lion → merged under big-cat as a sub
@@ -58,6 +65,7 @@
   - arctic-fox
   - fennec
   - silver-fox
+  - kit-fox / swift-fox
 - **domestic-dog** (subs each cap 1+1)
   - hound
   - mastiff
@@ -66,6 +74,9 @@
   - retriever
   - sighthound
   - spaniel
+  - husky / arctic-sled-dog
+  - bulldog
+  - poodle / curly-coated
 - **jackal** (cap 1+1)
 - **coyote** (cap 1+1)
 - **dingo** (cap 1+1)

@@ -624,26 +624,33 @@
   - snail
   - slug
   - conch
+  - nudibranch / sea-slug
 - **cephalopod** (subs each cap 1+1)
   - octopus
   - squid
   - cuttlefish
   - nautilus
+  - vampire-squid
+  - blue-ringed-octopus
 - **bivalve** (subs each cap 1+1)
   - clam
   - oyster
   - mussel
   - scallop
+- **chiton** (cap 1+1) — segmented eight-plated primitive mollusk; armored
+- **ammonite** (cap 1+1) — extinct spiral-shelled cephalopod; fossil-iconic
 
 ### Crustaceans
 - **crab** (subs each cap 1+1)
   - snow-crab
   - hermit-crab
   - king-crab
+  - coconut-crab
 - **lobster** (cap 1+1)
 - **shrimp** (cap 1+1)
 - **barnacle** (cap 1+1)
 - **isopod** (cap 1+1) — giant deep-sea
+- **mantis-shrimp** (cap 1+1) — most powerful punch in animal kingdom; cavitation-bubble strike
 
 ### Cnidarians + sponges + worms
 - **jellyfish** (subs each cap 1+1)
@@ -653,6 +660,7 @@
   - sea-nettle
   - cannonball-jellyfish
   - comb-jelly
+  - immortal-jellyfish
 - **anemone** (cap 1+1)
 - **coral** (cap 1+1)
 - **cnidarian-hydra** (cap 1+1) — distinct from mythical hydra
@@ -662,6 +670,8 @@
   - earthworm
   - sandworm-mythical
   - tapeworm-parasite
+- **sea-cucumber** (cap 1+1) — echinoderm; defensive evisceration (expels guts as decoy)
+- **colonial-siphonophore / man-of-war** (cap 1+1) — colony of specialized polyps acting as one organism; deadly tendrils
 
 ---
 

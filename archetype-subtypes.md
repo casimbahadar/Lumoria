@@ -915,6 +915,9 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 - **echo-being** (cap 1+1) — sound-based, fades and resurfaces
 - **glyph / sigil-being** (cap 1+1) — written-symbol given form
 - **cardinal-direction-being** (cap 1+1) — N/S/E/W spirit
+- **silence-being / anti-sound-being** (cap 1+1) — counterpart to echo-being; sound-eater
+- **chaos-being** (cap 1+1) — randomness/disorder; counterpart to order
+- **order-being** (cap 1+1) — pattern/symmetry; counterpart to chaos
 
 ---
 

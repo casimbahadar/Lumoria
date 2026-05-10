@@ -101,6 +101,7 @@
   - red-panda
 - **sloth-bear** (cap 1+1)
 - **spectacled-bear** (cap 1+1)
+- **cave-bear** (cap 1+1) — extinct ice-age mega-bear; pairs naturally with Ice/Ground or prehistoric slot
 - **ursa-major** (cap 1+1) — folkloric/constellation bear
 - ~~Sun-bear~~ — **excluded per notes**
 
@@ -111,6 +112,7 @@
 - **weasel / stoat / ferret** (cap 1+1) — grouped together in single slot
 - **badger / honey-badger** (cap 1+1) — grouped together in single slot
 - **marten** (cap 1+1) — *only marten; sable/fisher dropped entirely per user*
+- **mink** (cap 1+1) — semi-aquatic mustelid; sleek, fur-trade lore
 - **skunk** (cap 1+1)
 - **meerkat** (cap 1+1) — *added per notes*
 
@@ -137,6 +139,11 @@
 - **hamster / gerbil** (cap 1+1) — grouped
 - **naked-mole-rat** (cap 1+1)
 - **chipmunk** (cap 1+1)
+- **guinea-pig / cavy** (cap 1+1) — pet icon, distinct from hamster/gerbil
+- **prairie-dog** (cap 1+1) — social tunnel-town flavor, distinct from ground-squirrel
+- **chinchilla** (cap 1+1) — Andes mountain rodent; softest mammal fur on Earth
+- **groundhog / marmot** (cap 1+1) — whistler, hibernation, weather-omen folklore
+- **lemming** (cap 1+1) — mass-migration myth flavor
 
 ### Other Small Mammals
 

@@ -227,9 +227,9 @@
   - sumatran-rhino
   - woolly-rhino (mythical / extinct)
 - **giraffe** (cap 1+1) — *only giraffe; okapi dropped (✱ was for this row)*
-- **camel** (subs each cap 1+1)
-  - one-hump (dromedary)
-  - two-hump (bactrian)
+- **camel** (cap 1+1)
+- **dromedary / one-hump-camel** (cap 1+1)
+- **bactrian / two-hump-camel** (cap 1+1)
 - **llama** (cap 1+1) — on own slot
 - **tapir** (cap 1+1)
 - **entelodont / hell-pig** (cap 1+1) — extinct giant predatory pig; prehistoric apex slot
@@ -331,9 +331,9 @@
 ### Seabirds
 - **albatross** (cap 1+1)
 - **seagull** (cap 1+1)
-- **penguin** (subs each cap 1+1)
-  - emperor
-  - king
+- **penguin** (cap 1+1)
+- **emperor-penguin** (cap 1+1)
+- **king-penguin** (cap 1+1)
 - **puffin** (cap 1+1)
 
 ### Songbirds & small
@@ -387,7 +387,9 @@
 
 ### Snakes
 - **viper** (cap 1+1)
+- **rattlesnake** (cap 1+1) — distinctive rattle-tail warning, North American iconic
 - **cobra** (cap 1+1)
+- **king-cobra** (cap 1+1) — longest venomous snake, hood + crown markings
 - **python / boa** (cap 1+1)
 - **sea-snake** (cap 1+1)
 - **coral-snake** (cap 1+1)
@@ -397,10 +399,14 @@
   - naga
   - ouroboros
   - jormungandr (world-serpent)
+- **mamba** (cap 1+1) — fastest land snake; black-mamba iconic, distinct from cobra
+- **flying-snake** (cap 1+1) — Chrysopelea; actually glides between trees
 
 ### Lizards
 - **gecko** (cap 1+1)
+- **leopard-gecko** (cap 1+1) — spotted, pet-trade flagship
 - **iguana** (cap 1+1)
+- **marine-iguana** (cap 1+1) — Galápagos, salt-sneezing, ocean-feeding; only marine lizard
 - **komodo-dragon** (cap 1+1)
 - **chameleon** (cap 1+1)
 - **skink** (cap 1+1)
@@ -410,6 +416,8 @@
   - dragon-pup-as-lizard
   - basilisk-as-lizard
   - cockatrice
+- **gila-monster** (cap 1+1) — venomous lizard (one of two in world); beaded skin
+- **thorny-devil** (cap 1+1) — Australian, alien-spiked silhouette; water-channeling skin
 
 ### Saurians / dinosaurs (mythical/extinct)
 - **theropod** (cap 1+1) — T-rex-like
@@ -422,18 +430,23 @@
 - **stegosaurus** (cap 1+1) — plated
 - **pachycephalosaur** (cap 1+1) — dome-headed
 - **plesiosaur** (cap 1+1) — marine, long-neck
+- **archaeopteryx** (cap 1+1) — feathered bridge fossil between dinosaurs and birds
 
 ### Crocodilians
 - **crocodile** (cap 1+1)
 - **alligator** (cap 1+1)
 - **caiman** (cap 1+1)
 - **gharial** (cap 1+1)
+- **deinosuchus / sarcosuchus** (cap 1+1) — extinct super-croc (12 m); prehistoric apex
 
 ### Turtles / tortoises
 - **sea-turtle** (cap 1+1)
+- **leatherback** (cap 1+1) — largest, no hard shell, deepest-diving sea-turtle
 - **land-tortoise** (cap 1+1)
+- **galapagos-tortoise** (cap 1+1) — giant, century-living, Darwin-iconic
 - **snapping-turtle** (cap 1+1)
 - **world-turtle** (cap 1+1)
+- **archelon** (cap 1+1) — extinct giant sea-turtle (4 m); cretaceous-mega slot
 
 ---
 

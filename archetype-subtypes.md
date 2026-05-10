@@ -934,6 +934,8 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
   - scythe-creature
   - shield-creature
   - dagger-creature
+  - gauntlet-creature
+  - whip-creature
 - **mountain-walking** (cap 1+1) — literal walking-mountain
 - **volcano-vent-creature** (cap 1+1)
 - **corrupted-flower / plant-humanoid** (cap 1+1)
@@ -942,6 +944,10 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 - **card-dice-fate-game-creature** (cap 1+1) — gambling/probability flavor
 - **instrument-creature** (cap 1+1) — music made manifest (flute, harp, drum)
 - **painted-canvas / mural-being** (cap 1+1) — art that escapes the frame
+- **book-creature / tome-being** (cap 1+1) — sentient grimoire; knowledge given form, page-rustling
+- **lantern-creature / lamp-being** (cap 1+1) — light-source given form; flame-vessel
+- **door-creature / portal-being** (cap 1+1) — gateway given form; can lead anywhere
+- **fountain-creature / wishing-well-being** (cap 1+1) — water-feature with wish-granting
 
 ---
 

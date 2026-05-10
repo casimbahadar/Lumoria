@@ -969,6 +969,8 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 - **geode-being** (cap 1+1) — hollow-crystal
 - **obsidian-being** (cap 1+1) — volcanic-glass
 - **salt-crystal-being** (cap 1+1) — saline, distinct from gem
+- **amber-being / fossilized-resin-being** (cap 1+1) — organic fossil; time-frozen-creature inside, distinct from mineral gems
+- **stalactite-stalagmite-being** (cap 1+1) — drip-formation cave-creature; mineral-built-by-water
 
 ---
 

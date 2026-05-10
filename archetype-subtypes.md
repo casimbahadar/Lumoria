@@ -770,6 +770,8 @@
 - **selkie** (cap 1+1)
 - **kraken** (cap 1+1)
 - **sea-fairy queen** (cap 1+1)
+- **merman** (cap 1+1) — male merfolk counterpart; distinct from mermaid/siren grouped slot
+- **scylla** (cap 1+1) — Greek six-headed cliff-monster (paired with charybdis)
 
 ### East Asian mythical
 - **kitsune** (cap 1+1) — Japanese fox-spirit
@@ -782,6 +784,7 @@
   - nurikabe
 - **kirin / qilin** (cap 1+1) — Chinese unicorn-dragon
 - **foo-dog / shisa** (cap 1+1) — lion-guardian
+- **nine-tailed-fox / kyūbi** (cap 1+1) — distinct from kitsune base (most powerful kitsune form)
 
 ### Slavic mythical
 - **leshy** (cap 1+1) — forest-spirit (already claimed by Morralyn line)
@@ -829,6 +832,9 @@
 - **djinn / genie** (cap 1+1) — Arabic spirit
 - **valkyrie** (cap 1+1) — Norse battle-maiden
 - **ifrit** (cap 1+1) — Arabic fire-spirit
+- **seraph** (cap 1+1) — six-winged angel (highest-rank); distinct from generic angel
+- **nephilim** (cap 1+1) — giant fallen-angel hybrid offspring
+- **owlman** (cap 1+1) — Cornwall cryptid; winged humanoid with owl features
 
 ---
 

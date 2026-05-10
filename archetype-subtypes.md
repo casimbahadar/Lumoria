@@ -77,6 +77,15 @@
   - husky / arctic-sled-dog
   - bulldog
   - poodle / curly-coated
+  - pomeranian
+  - chihuahua
+  - pug
+  - dachshund
+  - shiba-inu
+  - akita
+  - rottweiler
+  - great-dane
+  - corgi
 - **jackal** (cap 1+1)
 - **coyote** (cap 1+1)
 - **dingo** (cap 1+1)

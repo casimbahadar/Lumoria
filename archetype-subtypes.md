@@ -547,6 +547,8 @@
   - hawk-moth
   - silk-moth
   - gypsy-moth
+  - atlas-moth
+  - death's-head-hawkmoth
 
 ### Coleoptera (beetles)
 - **scarab** (cap 1+1)
@@ -555,6 +557,11 @@
 - **jewel-beetle** (cap 1+1)
 - **ladybug / ladybird** (cap 1+1)
 - **firefly / lightning-bug** (cap 1+1)
+- **hercules-beetle** (cap 1+1) — male's gigantic horned claw; strongest insect for size
+- **rhinoceros-beetle** (cap 1+1) — single forward-curving horn; tank silhouette
+- **bombardier-beetle** (cap 1+1) — explosive chemical defense (boiling toxic spray)
+- **tiger-beetle** (cap 1+1) — fastest insect runner; iridescent
+- **click-beetle** (cap 1+1) — acrobatic flip-jump escape mechanism
 
 ### Hymenoptera
 - **bee** (subs each cap 1+1)
@@ -569,6 +576,9 @@
   - soldier-ant
   - queen-ant
   - leafcutter
+  - army-ant
+  - fire-ant
+  - bullet-ant
 
 ### Other insects
 - **mantis** (cap 1+1) — Mantodea
@@ -582,6 +592,9 @@
   - hoverfly
 - **mosquito** (cap 1+1) — Diptera
 - **dragonfly** (cap 1+1) — Odonata
+- **stick-insect / walking-stick** (cap 1+1) — Phasmida; twig camouflage extreme
+- **leaf-insect** (cap 1+1) — Phasmida; leaf-vein camouflage extreme
+- **aphid** (cap 1+1) — sap-sucker, parthenogenic swarm; symbiotic with ants
 
 ---
 

@@ -177,6 +177,10 @@
 - **moose** (cap 1+1)
 - **reindeer / caribou** (cap 1+1) — grouped
 - **fawn** (cap 1+1) [✱] — *real young deer (distinct from mythical "faun" sub)*
+- **chital / spotted-deer** (cap 1+1) — Indian dappled deer, jungle flavor
+- **pudu** (cap 1+1) — smallest deer in the world, South American
+- **megaloceros / irish-elk** (cap 1+1) — extinct giant antlers (3.6 m span); ice-age mega
+- **water-deer / chinese-water-deer** (cap 1+1) — antlerless, sabre-fanged; vampire-deer flavor
 
 ### Ungulates — Bovids
 
@@ -188,8 +192,10 @@
 - **goat** (subs each cap 1+1)
   - domestic-goat
   - mountain-goat
+  - ibex
 - **yak** (cap 1+1)
 - **antelope / gazelle** (cap 1+1) — only these two; springbok and pronghorn dropped per user
+- **gnu / wildebeest** (cap 1+1) — mass-migration iconic
 
 ### Ungulates — Equids
 
@@ -198,6 +204,9 @@
   - mare
   - pony
   - clydesdale (large workhorse, distinct from draft)
+  - arabian
+  - mustang
+  - thoroughbred
 - **donkey / mule** (cap 1+1) — grouped
 - **zebra / zonkey** (cap 1+1) [✱] — grouped, zonkey added per asterisk
 - **mythical-equid** (subs each cap 1+1)
@@ -218,9 +227,12 @@
   - sumatran-rhino
   - woolly-rhino (mythical / extinct)
 - **giraffe** (cap 1+1) — *only giraffe; okapi dropped (✱ was for this row)*
-- **camel** (cap 1+1) — on own slot
+- **camel** (subs each cap 1+1)
+  - one-hump (dromedary)
+  - two-hump (bactrian)
 - **llama** (cap 1+1) — on own slot
 - **tapir** (cap 1+1)
+- **entelodont / hell-pig** (cap 1+1) — extinct giant predatory pig; prehistoric apex slot
 
 ### Marine Mammals — Cetaceans
 

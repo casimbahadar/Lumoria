@@ -679,22 +679,26 @@
 
 ### Dragons (sub-types per element)
 *(Dragon-mythic was treated as exempt from cap in earlier work; user may apply per-sub-element 1+1 cap if desired. If exempt: keep all. If capped: each sub-element gets 1+1.)*
-- **fire-dragon**
-- **ice-dragon**
-- **water-dragon**
-- **wind-dragon**
-- **ground-dragon**
-- **electric-dragon**
-- **grass-dragon**
-- **poison-dragon**
-- **dark-dragon**
-- **steel-dragon**
-- **psychic-dragon**
+- **inferno-dragon**
+- **frost-dragon**
+- **maelstrom-dragon**
+- **zephyr-dragon**
+- **earth-dragon**
+- **storm-dragon / tempest-dragon**
+- **nature-dragon**
+- **plague-dragon**
+- **eclipse-dragon**
+- **plate-dragon / armored-dragon**
+- **oracle-dragon**
 - **void-dragon**
-- **normal-dragon**
-- **fairy-dragon**
-- **bug-dragon**
-- **rock-dragon**
+- **prime-dragon**
+- **purity-dragon**
+- **swarm-dragon**
+- **stone-dragon**
+- **eastern-dragon / long / 龍**
+- **bone-dragon / skeletal-dragon**
+- **moon-dragon / lunar-dragon**
+- **dragonkin / dragonborn-humanoid**
 - **radiant-dragon** (post-game) — replaces aether-dragon
 - **crystal-dragon** (post-game)
 - **primal-dragon** (post-game)
@@ -704,6 +708,7 @@
 - **drake** (cap 1+1) — smaller dragon
 - **wyrm** (cap 1+1) — limbless serpentine dragon
 - **hydra-multi-head** (cap 1+1)
+- **lindworm** (cap 1+1) — Scandinavian; serpentine dragon with single forelimb pair
 
 ### Faerie / fae
 - **pixie / sprite** (cap 1+1) — small
@@ -714,6 +719,7 @@
 - **leprechaun** (cap 1+1) — Irish fae
 - **dryad** (cap 1+1) — tree-spirit
 - **nereid** (cap 1+1) — sea-nymph
+- **elf / sidhe** (cap 1+1) — tall noble fae-humanoid; distinct from small pixie/sprite
 
 ### Wraiths / ghosts / undead
 - **humanoid-wraith** (cap 1+1)
@@ -722,6 +728,11 @@
 - **banshee** (cap 1+1)
 - **shade** (cap 1+1)
 - **wraith-king / ghost-king** (cap 1+1)
+- **lich** (cap 1+1) — undead spellcaster bound to phylactery; intelligent
+- **mummy** (cap 1+1) — Egyptian preserved-dead; bandaged, curse-tomb flavor
+- **skeleton-warrior** (cap 1+1) — animated bones; armed
+- **wight** (cap 1+1) — chilling-touch corpse-undead; barrow-haunt
+- **poltergeist** (cap 1+1) — noise-throwing mischief-ghost; object-mover
 
 ### Golems / constructs
 - **stone-golem** (cap 1+1)
@@ -731,17 +742,23 @@
 - **automaton** (cap 1+1) — clockwork / industrial
 - **armor-suit** (cap 1+1) — sentient
 - **gargoyle** (cap 1+1)
+- **wood-golem** (cap 1+1) — constructed, distinct from awakened-treant
+- **scarecrow** (cap 1+1) — rural folk-construct; field-guardian
+- **guardian-statue** (cap 1+1) — temple-guardian construct; distinct from rooftop gargoyle
 
 ### Wisps / formless spirits
 - **will-o-wisp** (cap 1+1) — marsh
 - **dream-wisp / dream-entity** (cap 1+1)
 - **whisper-spirit** (cap 1+1)
 - **voice-spirit** (cap 1+1)
+- **shadow-wisp** (cap 1+1) — dark formless flicker; counter-aspect of will-o-wisp
 
 ### Slimes
 - **slime-viscous** (cap 1+1) — thicker / jellied texture
 - **slime-fluid** (cap 1+1) — thinner / runny texture
 - **gel** (cap 1+1)
+- **iridescent-slime** (cap 1+1) — rainbow color-shifting; light-refracting
+- **magma-slime / lava-slime** (cap 1+1) — molten, semi-fluid; Fire-typed
 
 ### Treants / plant-spirits
 - **treant / ent** (cap 1+1)

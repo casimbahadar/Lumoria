@@ -304,14 +304,19 @@
   - harpy-eagle
   - sea-eagle
 - **hawk** (cap 1+1)
-- **falcon** (cap 1+1)
+- **falcon / peregrine** (cap 1+1)
 - **owl** (subs each cap 1+1)
   - snowy-owl
   - great-horned-owl
   - barn-owl
   - elf-owl
+  - eagle-owl
+  - tawny-owl
+  - burrowing-owl
 - **vulture / condor** (cap 1+1)
 - **osprey** (cap 1+1)
+- **secretary-bird** (cap 1+1) — terrestrial snake-killing raptor; quill-headed, weird silhouette
+- **shrike / butcher-bird** (cap 1+1) — songbird that impales prey on thorns; raptor-flavor
 
 ### Waterfowl & wetland
 - **duck** (cap 1+1)
@@ -326,7 +331,9 @@
 ### Seabirds
 - **albatross** (cap 1+1)
 - **seagull** (cap 1+1)
-- **penguin** (cap 1+1)
+- **penguin** (subs each cap 1+1)
+  - emperor
+  - king
 - **puffin** (cap 1+1)
 
 ### Songbirds & small
@@ -341,6 +348,10 @@
 - **cardinal** (cap 1+1)
 - **chickadee** (cap 1+1)
 - **mockingbird** (cap 1+1)
+- **nightingale** (cap 1+1) — song-iconic, folkloric/literary anchor
+- **lark** (cap 1+1) — skylark song-flight; dawn-flavor
+- **bird-of-paradise** (cap 1+1) — elaborate display dance, tropical
+- **lyrebird** (cap 1+1) — master mimic; can replicate any sound
 
 ### Specialty birds
 - **hummingbird** (cap 1+1)
@@ -357,6 +368,10 @@
 - **peacock** (cap 1+1)
 - **pheasant / quail** (cap 1+1)
 - **woodpecker** (cap 1+1)
+- **pigeon** (cap 1+1) — ubiquitous, urban-icon (currently missing from list)
+- **dove** (cap 1+1) — peace-symbolism, separate slot from pigeon
+- **dodo** (cap 1+1) — extinct iconic, anchor for extinction-flavor
+- **roadrunner** (cap 1+1) — terrestrial cuckoo; desert iconic
 
 ### Mythical birds
 - **phoenix** (cap 1+1)

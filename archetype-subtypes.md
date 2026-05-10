@@ -983,6 +983,10 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 - **nebula-being** (cap 1+1)
 - **comet-being** (cap 1+1)
 - **eclipse-being** (cap 1+1)
+- **black-hole-being** (cap 1+1) — extreme gravity, light-eater; cosmic apex-predator flavor
+- **constellation-being / zodiac-being** (cap 1+1) — pattern of stars given form; mythological
+- **planet-being / planetoid-being** (cap 1+1) — single celestial body embodied
+- **asteroid-being / asteroid-belt-being** (cap 1+1) — rocky-cosmic; distinct from comet-being
 
 ---
 

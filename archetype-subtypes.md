@@ -891,6 +891,11 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 - **hurricane / typhoon** (cap 1+1)
 - **meteor-strike** (cap 1+1) — cosmic disaster
 - **ice-age** (cap 1+1) — climate-scale
+- **lightning-strike** (cap 1+1) — singular bolt event; distinct from thunderstorm
+- **heatwave** (cap 1+1) — climate-scale extreme heat; opposite of blizzard
+- **supernova** (cap 1+1) — stellar-explosion disaster
+- **solar-flare / coronal-mass-ejection** (cap 1+1) — geomagnetic storm
+- **plague / pandemic** (cap 1+1) — biological disaster
 
 ---
 

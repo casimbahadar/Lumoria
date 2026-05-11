@@ -907,12 +907,12 @@ Real prehistoric/extinct creatures with no direct living-archetype slot. Already
 Subterranean habitat-as-being — the cave-space itself animated, with stalactite-teeth, echo-voice, and darkness-body. Distinct from animals that *live* in caves (cave-bat, olm, cave-cricket, cave-bear stay in their kingdoms). Cross-section notes: stalactite-stalagmite-being and geode-being remain in CRYSTALLINE / GEM; hot-spring / geyser is reserved for the upcoming HOT-SPRING batch; lava as element stays with Elementals. *Creature framing: each entry below is a discrete walking Lumori embodying the cave-feature — Duraludon-style (Pokemon's bipedal skyscraper-creature) is the canonical scaling/silhouette precedent, not a literal full-size cavern.*
 
 - **Cavern voids / chambers**
-  - cavern-being / great-hall (cap 1+1) — vast echo-chamber animated, mouth-opening front; *as creature: pebble-sized walking rock-cave with stalactite-fang mouth, chamber-belly that echoes when struck*
+  - cavern-being / great-hall (cap 1+1) — vast echo-chamber animated, mouth-opening front; *as creature: room-sized lumbering cavern-creature, hunched silhouette, stalactite-fang mouth spans the head, hollow chamber-belly that echoes when struck, drip-water trailing*
   - abyss / pit-being (cap 1+1) — bottomless vertical shaft, gravity-drop maw; *as creature: hovering void-creature, vertical pit-mouth ringed by levitating rim-stones, bottomless gullet that swallows light*
 
 - **Subterranean atmosphere / phenomena**
-  - cave-darkness / pitch-being (cap 1+1) — animated absolute-dark, light-eater body
-  - cave-echo (cap 1+1) — resonance given form, sound-creature that returns what shouts at it
+  - cave-darkness / pitch-being (cap 1+1) — animated absolute-dark, light-eater body; *as creature: bipedal shadow-mass with two glowing white pinprick eyes, light-absorbing matte-black silhouette, no defined edges*
+  - cave-echo (cap 1+1) — resonance given form, sound-creature that returns what shouts at it; *as creature: ghostly translucent humanoid with wide cupped-bat-ear head, mouth that throws back any sound thrown at it*
 
 ---
 
@@ -924,7 +924,7 @@ Glacial / polar-ice landscape-as-being — moving ice-mass as body, crevasses as
   - glacier-being / ice-river-being (cap 1+1) — slow-moving valley-ice flow, crevasse-mouthed, blue-throat; *as creature: bipedal walking ice-mass, crevasse-mouth across the chest, blue-throat interior, moraine-debris trailing from the feet*
 
 - **Sea-ice / floating**
-  - ice-floe / pack-ice-being (cap 1+1) — flat drifting raft-creature, polar surface dweller
+  - ice-floe / pack-ice-being (cap 1+1) — flat drifting raft-creature, polar surface dweller; *as creature: flat raft-creature, seal-pup body curled atop the floe-disc, blue-edged crack patterns across the back*
 
 ---
 
@@ -935,7 +935,7 @@ Geothermal hot-water habitat-as-being — steaming pool as body, mineral-rim as 
 - **Surface hot-water features**
   - hot-spring / onsen-being (cap 1+1) — canonical steaming pool, mineral-rimmed, restorative warmth
   - geyser-being (cap 1+1) — intermittent eruption-creature, pressure-built columns of scalding spray
-  - mud-pot / mud-pool-being (cap 1+1) — boiling-mud cauldron, gurgling skin, sulfur-bubble jaw
+  - mud-pot / mud-pool-being (cap 1+1) — boiling-mud cauldron, gurgling skin, sulfur-bubble jaw; *as creature: bubbling-mud blob-creature, dome body, rising-bubble eyes that pop with each gurgle*
 
 ---
 
@@ -944,12 +944,12 @@ Geothermal hot-water habitat-as-being — steaming pool as body, mineral-rim as 
 Isolated-landmass habitat-as-being — shoreline as skin, palm-grove or volcanic-cone as hair, freshwater spring as one eye, tidal cave as mouth. Distinct from other Habitat cluster batches (CAVE / URBAN / GLACIER / HOT-SPRING), from individual sea-creatures (their respective kingdoms), and from upcoming MATERIALS / MANMADE clusters. Cross-section notes: kelp-individual stays in PLANTS / FLORA; coral-polyp stays in OTHER INVERTEBRATES; sunken-island / Atlantis-style ruins flagged for MYTHICAL or UNIQUE if a slot is wanted later. The floating-island below is the habitat-form (gravity-defying landmass as habitat) — distinct from any mythical creature that might inhabit one. *Creature framing: each entry below is a discrete walking Lumori embodying the island-feature — Duraludon-style scaling applies (not a literal full-size landmass).*
 
 - **Land-island forms**
-  - volcanic-island-being (cap 1+1) — smoking-cone island, peak-mouth, Hawaii/Iceland silhouette; *as creature: turtle-shaped, smoking volcanic-cone shell on back, palm-tendril hair, lava-glow eye*
+  - volcanic-island-being (cap 1+1) — smoking-cone island, peak-mouth, Hawaii/Iceland silhouette; *as creature: irregular landmass-creature of no fixed body-plan, smoking volcanic-cone peak rising from the back, palm-tendril hair around the rim, lava-glow eye in the cone*
   - desert-island-being (cap 1+1) — barren single-palm islet, castaway-iconic, sun-bleached body; *as creature: tiny crab-like islet, single palm sprouting from carapace, sand-pebble legs*
 
 - **Coastal / shoreline features**
-  - beach / sandy-shore-being (cap 1+1) — long flat tidal creature, dune-spined back, wave-washed flank; *as creature: long flat sand-worm / sand-eel silhouette, dune-spined back, hermit-crab-hole eyes, wave-washed flank*
-  - lagoon-being (cap 1+1) — enclosed shallow-water bay, calm-protected inner-space, reef-rim lip; *as creature: small turtle-bowl creature, water-filled shell-basin on back, reef-rim lip ringing the rim*
+  - beach / sandy-shore-being (cap 1+1) — long flat tidal creature, dune-spined back, wave-washed flank
+  - lagoon-being (cap 1+1) — enclosed shallow-water bay, calm-protected inner-space, reef-rim lip; *as creature: humanoid figure in a serene lounging posture, water-filled bowl-belly cradled in arms, reef-rim halo around the head, soft tranquil expression, gentle wave-lap motion at the feet*
 
 - **Mythical / boundary islands**
   - floating-island-being (cap 1+1) — sky-island, gravity-defying landmass, cloud-rooted underside

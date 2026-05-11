@@ -969,6 +969,20 @@ Isolated-landmass habitat-as-being — shoreline as skin, palm-grove or volcanic
 
 ---
 
+## CLAY / CERAMIC
+
+Fired-earth / shaped-clay material-as-being — pot-belly torso, kiln-glaze skin, kintsugi-cracked seams as veins. Distinct from individual MANMADE objects (pots/vases/teacups go to upcoming CONTAINER batch; bricks/tiles to ARCHITECTURE; kilns to APPLIANCE; figurines/warriors to STATUE), from MUD as habitat (handled by mud-pot in HOT-SPRING), and from STATUE (which covers figurative/representational sculpture in any material; this category is the *material substance* itself).
+
+- **Raw / shaped clay**
+  - earthenware-pot-being (cap 1+1) — low-fired reddish unglazed body, porous skin, primitive-pottery silhouette
+
+- **Fired / glazed ceramics**
+  - porcelain-being (cap 1+1) — fine white translucent body, blue-painted patterning, delicate-luxury form
+  - glazed-ceramic-being (cap 1+1) — colored-glass coated, glossy-shell skin, vitrified-rainbow surface
+  - kintsugi-being (cap 1+1) — gold-mended broken-ceramic, scar-lined body, "more beautiful for the breaking"
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

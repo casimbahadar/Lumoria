@@ -852,6 +852,23 @@ Abandoned animal armor that animates and roams — the empty shell *is* the crea
 
 ---
 
+## SYMBIOSIS / PAIRED-BEINGS
+
+Host-bonded creature — the symbiotic *pair* is the being. Distinct from MICROORGANISMS (single-microbe), from individual-animal slots in their kingdoms, and from chimeric-composite in UNIQUE (fused hybrid vs. cooperating duo).
+
+- **Symbiotic mutualism pairs**
+  - clownfish + anemone (cap 1+1) — protection-pair, anemone hosts fish, fish lures food in
+  - remora + shark (cap 1+1) — hitchhiker disc-on-head + apex carrier
+  - oxpecker + rhino (cap 1+1) — bird-on-mammal grooming, tick-eater
+  - bee + flower (cap 1+1) — pollination/nectar exchange, iconic mutualism
+  - goby + pistol-shrimp (cap 1+1) — blind shrimp digs/maintains burrow, sharp-eyed goby keeps watch at entrance
+  - yucca-moth + yucca-plant (cap 1+1) — exclusive pollinator-pair; moth pollinates flower, lays eggs in seed-pod
+  - hermit-crab + sea-anemone-on-shell (cap 1+1) — crab carries anemone for sting-defense; anemone gets mobility and scraps
+  - honeyguide-bird + honey-badger (cap 1+1) — bird sings to lead mammal to beehive, both share spoils
+  - boxer-crab + twin-anemones (cap 1+1) — crab brandishes pair of anemones like pom-poms / boxing-gloves
+
+---
+
 ## PREHISTORIC / EXTINCT MEGAFAUNA
 
 Real prehistoric/extinct creatures with no direct living-archetype slot. Already-placed prehistoric slots stay in their living-relative sections (saber-tooth, cave-bear, megaloceros, entelodont, ambulocetus, steller-sea-cow, dodo, archaeopteryx, deinosuchus, archelon, coelacanth, ammonite, woolly-rhino, megalodon, quagga, all dinosaurs).

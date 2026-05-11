@@ -89,6 +89,34 @@ Real-world fungi archetypes. Lichen lives in PLANTS/FLORA → Mosses/ferns/primi
 
 ---
 
+## MICROORGANISMS
+
+The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Plants. Plague disaster in NATURAL-DISASTER is the *event*; this section is the *being*.
+
+- **Bacteria**
+  - cocci / sphere-bacteria (cap 1+1) — strep/staph cluster
+  - cyanobacteria (cap 1+1) — photosynthetic blue-green pond-slick
+
+- **Viruses**
+  - bacteriophage (cap 1+1) — geometric protein-shell with lander-legs
+  - influenza / flu-virus (cap 1+1) — spiked envelope
+  - coronavirus (cap 1+1) — crown-spike sphere
+
+- **Protists (single-celled eukaryotes)**
+  - amoeba (cap 1+1) — shape-shifting blob, pseudopod-extender
+  - paramecium (cap 1+1) — slipper-shape, cilia-fringed
+  - plasmodium / malaria-parasite (cap 1+1) — sickle-form
+  - diatom (cap 1+1) — geometric silica-glass shell
+
+- **Archaea / extremophile microbes**
+  - thermophile (cap 1+1) — hot-spring / vent dweller
+  - acidophile (cap 1+1) — acid-pool survivor
+
+- **Other**
+  - prion (cap 1+1) — mis-folded protein, infectious crystalline particle (life/non-life boundary)
+
+---
+
 ## MAMMALS
 
 ### Felids (Cats)

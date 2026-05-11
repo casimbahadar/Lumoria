@@ -1030,6 +1030,37 @@ Shaped-metal material-as-being — alloy-skin, hammered-rivet seams, oxide-patin
 
 ---
 
+## ARCHITECTURE
+
+Specific built-structure forms as walking creatures — building-typology silhouettes given creature-scale and limbs. Distinct from URBAN (dropped per session decision; its 3 entries — skyscraper, ruin, intersection — migrated here), from STATUE (figurative sculpture, separate batch), from CONTAINER (vessels), and from CAVE/UNDERGROUND (rock-cavern habitat). Cross-section notes: adobe-brick / brick / tile material-form belongs to CLAY/CERAMIC; mineshaft was carried over from CAVE deferral but deferred again this batch; bridge / dam / dungeon / watchtower / pier / stupa / ziggurat / cottage / yurt all deferred from this batch. *Creature framing: each entry below is a discrete walking Lumori shaped like the building-type — Duraludon (Pokemon's bipedal skyscraper-creature) is the canonical precedent for this entire batch.*
+
+- **Sacred / monumental**
+  - pagoda-being (cap 1+1) — tiered East-Asian sacred tower, swept-roof eaves; *as creature: bipedal tiered tower-creature, swept-roof shoulders stacked in 3–5 tiers, lantern-orb eyes, brass-bell tail-tip that rings on the wind*
+  - cathedral-being (cap 1+1) — Gothic spires, flying-buttress limbs, rose-window eye; *as creature: tall bipedal cathedral-creature, single rose-window cyclopean eye in the chest, spire-crown of needle-points, flying-buttress arm-supports flanking the torso*
+  - pyramid-being (cap 1+1) — triangular monument, four-faced creature; *as creature: quadrupedal triangular-shell creature with sphinx-low silhouette, eye-of-Horus apex marking glowing at the peak, sandstone-block hide, four small paw-feet*
+
+- **Fortified / defensive**
+  - castle-being (cap 1+1) — turret-crowned medieval fortress, drawbridge-mouth; *as creature: bipedal castle-tower with battlement-crown, drawbridge-tongue mouth, four turret-spike shoulder pauldrons, portcullis-grin teeth*
+  - fortress-wall / rampart-being (cap 1+1) — long defensive line, crenellated back; *as creature: Stakataka-style stone-block creature with cube-segments stacked **horizontally** (rather than upward) to form a long wall, crenellated top edge along the upper face, arrow-slit eye-row down the front, multiple small block-feet underneath; protective tendency — instinctively positions itself between threats and the castle-being*
+
+- **Maritime / coastal**
+  - lighthouse-being (cap 1+1) — tall pillar, rotating-light eye, wave-base; *as creature: tall slender pillar-creature, rotating-lamp head with a single sweeping beam-eye, red-and-white spiral body, wave-sloshed feet*
+
+- **Civic / specialized**
+  - windmill / watermill-being (cap 1+1) — sail-armed or wheel-driven, kinetic-limb body; *as creature: bipedal tower-creature with a four-arm rotating sail-wheel headdress (watermill variant: side-mounted water-wheel instead), kinetic-propeller spin pulse*
+
+- **Domestic / vernacular**
+  - tent-being (cap 1+1) — small portable fabric dwelling, frame-supported skin; *as creature: small mound-creature, fabric-skin pulled taut over hidden frame-bones, single guy-rope tail, smoke-vent ear at the peak*
+
+- **Modern / urban buildings** *(migrated from dropped URBAN cluster)*
+  - skyscraper-being (cap 1+1) — animated high-rise, window-grid as compound eye; *as creature: Duraludon-scale bipedal high-rise, window-grid eyestrip across the face, antenna-spike crown, concrete-slab limbs*
+  - ruin / abandoned-building-being (cap 1+1) — derelict structure with empty-window eye-sockets; *as creature: bipedal derelict-tower with broken-window eye-sockets, crumbling-mortar skin, ivy-trail tail*
+
+- **Street infrastructure** *(migrated from dropped URBAN cluster)*
+  - intersection / crossroads-being (cap 1+1) — four-armed junction-creature, traffic-light eyes; *as creature: four-armed humanoid with a traffic-light-bulb head (rotating red/yellow/green eye), white-painted crosswalk-stripe markings down the torso*
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

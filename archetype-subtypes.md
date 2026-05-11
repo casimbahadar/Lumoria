@@ -299,6 +299,7 @@ Real-world fungi archetypes. Lichen lives in PLANTS/FLORA → Mosses/ferns/primi
   - thoroughbred
 - **donkey / mule** (cap 1+1) — grouped
 - **zebra / zonkey** (cap 1+1) [✱] — grouped, zonkey added per asterisk
+- **quagga** (cap 1+1) — half-striped extinct zebra variant (recent extinction, hunted out by 1883)
 - **mythical-equid** (subs each cap 1+1)
   - unicorn
   - kelpie
@@ -686,6 +687,13 @@ Real-world fungi archetypes. Lichen lives in PLANTS/FLORA → Mosses/ferns/primi
 - **leaf-insect** (cap 1+1) — Phasmida; leaf-vein camouflage extreme
 - **aphid** (cap 1+1) — sap-sucker, parthenogenic swarm; symbiotic with ants
 
+### Myriapods
+
+> Note: myriapods (centipedes, millipedes) are arthropods but not true insects (separate class). Grouped here per archetype convenience.
+
+- **centipede** (cap 1+1) — fast predator, one pair of legs per segment, venomous forcipules
+- **millipede** (cap 1+1) — slow detritivore, two pairs of legs per segment, rolling defense
+
 ---
 
 ## ARACHNIDS
@@ -762,6 +770,39 @@ Real-world fungi archetypes. Lichen lives in PLANTS/FLORA → Mosses/ferns/primi
   - tapeworm-parasite
 - **sea-cucumber** (cap 1+1) — echinoderm; defensive evisceration (expels guts as decoy)
 - **colonial-siphonophore / man-of-war** (cap 1+1) — colony of specialized polyps acting as one organism; deadly tendrils
+
+---
+
+## PREHISTORIC / EXTINCT MEGAFAUNA
+
+Real prehistoric/extinct creatures with no direct living-archetype slot. Already-placed prehistoric slots stay in their living-relative sections (saber-tooth, cave-bear, megaloceros, entelodont, ambulocetus, steller-sea-cow, dodo, archaeopteryx, deinosuchus, archelon, coelacanth, ammonite, woolly-rhino, megalodon, quagga, all dinosaurs).
+
+- **Mammoth lineage / proboscideans**
+  - woolly mammoth (cap 1+1) — tundra-elephant, curved tusks
+  - mastodon (cap 1+1) — straight-tusked forest-elephant
+
+- **Giant marsupials**
+  - thylacoleo / marsupial lion (cap 1+1) — opposable thumb-claws, apex Pleistocene marsupial predator
+
+- **Giant ground sloths / xenarthrans**
+  - megatherium (cap 1+1) — elephant-sized ground sloth
+  - glyptodon (cap 1+1) — car-sized armored armadillo
+  - megalonyx (cap 1+1) — smaller ground sloth
+
+- **Pre-cat predators**
+  - amphicyon / bear-dog (cap 1+1) — hybrid bear-canid silhouette, apex Miocene predator
+
+- **Prehistoric marine reptiles & placoderms**
+  - mosasaur (cap 1+1) — marine reptile, distinct from plesiosaur
+  - dunkleosteus (cap 1+1) — armored placoderm fish
+  - basilosaurus (cap 1+1) — serpentine ancient whale
+
+- **Giant arthropods**
+  - meganeura / meganeuropsis (cap 1+1) — 75 cm wingspan dragonfly
+  - arthropleura (cap 1+1) — 2.5 m millipede
+
+- **Synapsids / proto-mammals**
+  - gorgonopsid (cap 1+1) — saber-toothed therapsid apex
 
 ---
 

@@ -916,6 +916,19 @@ Subterranean habitat-as-being — the cave-space itself animated, with stalactit
 
 ---
 
+## URBAN
+
+City-as-being — the built environment animated. Street-grid as veins, traffic-flow as pulse, neon as eyes, alleyways as gullets. Distinct from MANMADE objects (vehicles, statues, tools, etc. — covered by the 13-batch MANMADE cluster) and from urban-dwelling animals (pigeon, rat, raccoon, urban-fox stay in their kingdoms). Cross-section notes: vehicle / banner / jewelry / container / tool / appliance / camera / robotic / toy / game-piece / architecture / statue / trophy belong to MANMADE; smog / pollution-cloud belongs to SMOKE; light-pollution-glow / neon-sign belong to HOLOGRAM-lighting / PHENOMENA; graffiti belongs to INK / PIGMENT.
+
+- **Street infrastructure**
+  - intersection / crossroads-being (cap 1+1) — four-armed junction-creature, traffic-light eyes
+
+- **Building / facade beings**
+  - skyscraper-being (cap 1+1) — animated high-rise, window-grid as compound eye
+  - ruin / abandoned-building-being (cap 1+1) — derelict structure with empty-window eye-sockets
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

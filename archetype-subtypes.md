@@ -931,16 +931,13 @@ City-as-being — the built environment animated. Street-grid as veins, traffic-
 
 ## GLACIER
 
-Glacial / polar-ice landscape-as-being — moving ice-mass as body, crevasses as wounds, calving as birthing-action. Distinct from the **Ice element** (formless Elementals slot), from ice-elemental Lumori (Permavast/Tundrafox etc. stay in their dex slots), and from **snow/blizzard weather** (deferred to WEATHER/ATMOSPHERIC batch). Cross-section notes: avalanche stays in NATURAL-DISASTER; icicle-formation and polar-night defer to WEATHER; frozen-river and frozen-lake belong here (RIVER cluster dropped per session decision).
+Glacial / polar-ice landscape-as-being — moving ice-mass as body, crevasses as wounds, calving as birthing-action. Distinct from the **Ice element** (formless Elementals slot), from ice-elemental Lumori (Permavast/Tundrafox etc. stay in their dex slots), and from **snow/blizzard weather** (deferred to WEATHER/ATMOSPHERIC batch). Cross-section notes: avalanche stays in NATURAL-DISASTER; snowdrift, icicle-formation, and polar-night defer to WEATHER; frozen-river and frozen-lake belong here (RIVER cluster dropped per session decision).
 
 - **Continental / massive ice**
   - glacier-being / ice-river-being (cap 1+1) — slow-moving valley-ice flow, crevasse-mouthed, blue-throat
 
 - **Sea-ice / floating**
   - ice-floe / pack-ice-being (cap 1+1) — flat drifting raft-creature, polar surface dweller
-
-- **Polar terrain / phenomena**
-  - snowdrift-being (cap 1+1) — wind-piled snow-mound, shifting body, sculpted by gale
 
 ---
 

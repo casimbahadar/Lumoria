@@ -8,6 +8,115 @@
 
 ---
 
+## PLANTS / FLORA
+
+Real-world flora archetypes. Mythical/spirit-of-plant slots (treant, dryad, mandragora, corrupted-treant, corrupted-flower) remain in their existing categories — this section is for **literal plants** as creatures.
+
+- **Trees**
+  - maple (cap 1+1) — autumn-leaf, sap-flavor
+  - pine / conifer (cap 1+1) — evergreen, needle-clad
+  - cherry-blossom / sakura (cap 1+1) — pink-bloom seasonal icon
+  - bamboo (cap 1+1) — fast-growing grass-tree (placed here for silhouette)
+  - palm (cap 1+1) — tropical/coastal
+  - birch (cap 1+1) — white-bark, Slavic-folkloric
+  - olive (cap 1+1) — Mediterranean, peace-symbol
+  - dead / petrified-tree (cap 1+1) — leafless gnarled wood; non-spirit, distinct from corrupted-treant
+  - bonsai (cap 1+1) — cultivated miniature, living-art aesthetic
+
+- **Flowers**
+  - rose (cap 1+1) — thorned classic
+  - sunflower (cap 1+1) — sun-tracking, golden-disc
+  - lily (cap 1+1) — funerary/elegant
+  - lotus (cap 1+1) — pond/temple, eastern-spiritual
+  - orchid (cap 1+1) — exotic/elaborate
+  - tulip (cap 1+1) — bulb-bloom
+  - dandelion (cap 1+1) — puff/seed-dispersal
+  - rafflesia / corpse-flower (cap 1+1) — giant carrion-stench
+  - hibiscus (cap 1+1) — tropical
+  - hydrangea (cap 1+1) — clustered pom-pom blooms, color-shifting by soil pH
+
+- **Carnivorous plants**
+  - venus-flytrap (cap 1+1) — snap-trap jaw
+
+- **Cacti / succulents**
+  - prickly-pear (cap 1+1) — paddle-stacked, fruit-bearing
+  - aloe (cap 1+1) — gel-spear-leaved
+  - jade-plant (cap 1+1) — round-leaved succulent
+
+- **Vines / climbers**
+  - ivy (cap 1+1) — wall-creeping
+  - wisteria (cap 1+1) — drooping purple-cluster
+  - grape-vine (cap 1+1) — fruit-cluster
+
+- **Grasses / cereals**
+  - rice (cap 1+1) — paddy, eastern staple
+  - corn / maize (cap 1+1) — cob-bearing, husk-armor
+
+- **Mosses / ferns / primitive**
+  - moss (cap 1+1) — soft-mat, ancient ground-cover
+  - lichen (cap 1+1) — symbiotic crust
+  - clover (cap 1+1) — luck-folkloric
+
+- **Aquatic plants**
+  - water-lily / lotus-pad (cap 1+1) — flat-pad surface plant, distinct from lotus-bloom
+  - kelp (cap 1+1) — undersea-forest stalk
+  - seaweed (cap 1+1) — drifting fronds
+
+- **Cultivated / iconic crops & fruit**
+  - pumpkin / gourd (cap 1+1) — Halloween/autumn folklore-iconic
+  - apple-tree (cap 1+1) — Eden/Norse-mythology adjacent
+  - pomegranate (cap 1+1) — underworld-folklore (Persephone)
+  - strawberry / berry-bush (cap 1+1) — small-fruit cluster
+
+---
+
+## FUNGI / MUSHROOMS
+
+Real-world fungi archetypes. Lichen lives in PLANTS/FLORA → Mosses/ferns/primitive (primitive-plant framing kept). Mythical fungus-spirit slots stay in their existing categories where they exist.
+
+- **Edible / culinary**
+  - button / cremini / portobello (cap 1+1) — common white-cap, grocery-staple
+  - shiitake (cap 1+1) — Asian umami-classic, brown-cap
+  - truffle (cap 1+1) — underground, scent-foraged
+
+- **Toxic / deadly**
+  - death-cap (cap 1+1) — pale-green hood, hepatotoxic
+  - fly-agaric / amanita-muscaria (cap 1+1) — red-with-white-spots, fairy-tale iconic
+
+- **Bioluminescent / fox-fire**
+  - foxfire / jack-o-lantern-mushroom (cap 1+1) — glow-in-the-dark gill-fungus
+  - ghost-fungus (cap 1+1) — Australian eerie-green glow
+
+---
+
+## MICROORGANISMS
+
+The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Plants. Plague disaster in NATURAL-DISASTER is the *event*; this section is the *being*.
+
+- **Bacteria**
+  - cocci / sphere-bacteria (cap 1+1) — strep/staph cluster
+  - cyanobacteria (cap 1+1) — photosynthetic blue-green pond-slick
+
+- **Viruses**
+  - bacteriophage (cap 1+1) — geometric protein-shell with lander-legs
+  - influenza / flu-virus (cap 1+1) — spiked envelope
+  - coronavirus (cap 1+1) — crown-spike sphere
+
+- **Protists (single-celled eukaryotes)**
+  - amoeba (cap 1+1) — shape-shifting blob, pseudopod-extender
+  - paramecium (cap 1+1) — slipper-shape, cilia-fringed
+  - plasmodium / malaria-parasite (cap 1+1) — sickle-form
+  - diatom (cap 1+1) — geometric silica-glass shell
+
+- **Archaea / extremophile microbes**
+  - thermophile (cap 1+1) — hot-spring / vent dweller
+  - acidophile (cap 1+1) — acid-pool survivor
+
+- **Other**
+  - prion (cap 1+1) — mis-folded protein, infectious crystalline particle (life/non-life boundary)
+
+---
+
 ## MAMMALS
 
 ### Felids (Cats)
@@ -218,6 +327,7 @@
   - thoroughbred
 - **donkey / mule** (cap 1+1) — grouped
 - **zebra / zonkey** (cap 1+1) [✱] — grouped, zonkey added per asterisk
+- **quagga** (cap 1+1) — half-striped extinct zebra variant (recent extinction, hunted out by 1883)
 - **mythical-equid** (subs each cap 1+1)
   - unicorn
   - kelpie
@@ -605,6 +715,13 @@
 - **leaf-insect** (cap 1+1) — Phasmida; leaf-vein camouflage extreme
 - **aphid** (cap 1+1) — sap-sucker, parthenogenic swarm; symbiotic with ants
 
+### Myriapods
+
+> Note: myriapods (centipedes, millipedes) are arthropods but not true insects (separate class). Grouped here per archetype convenience.
+
+- **centipede** (cap 1+1) — fast predator, one pair of legs per segment, venomous forcipules
+- **millipede** (cap 1+1) — slow detritivore, two pairs of legs per segment, rolling defense
+
 ---
 
 ## ARACHNIDS
@@ -681,6 +798,107 @@
   - tapeworm-parasite
 - **sea-cucumber** (cap 1+1) — echinoderm; defensive evisceration (expels guts as decoy)
 - **colonial-siphonophore / man-of-war** (cap 1+1) — colony of specialized polyps acting as one organism; deadly tendrils
+
+---
+
+## EGG / COCOON / CHRYSALIS
+
+Pre-life vessel as walking creature — contents glimpsed through translucent shell; the egg itself is the being. Hatched mythical creatures stay in MYTHICAL CREATURES.
+
+- **Eggs (animal)**
+  - chicken-egg (cap 1+1) — classic ovoid
+  - reptile-egg (cap 1+1) — leathery snake/lizard
+  - turtle-egg (cap 1+1) — round shelled
+  - crocodile-egg (cap 1+1) — hard-shelled
+
+- **Insect cocoons & chrysalises**
+  - silkworm-cocoon (cap 1+1) — wound silk-thread shell
+  - butterfly-chrysalis (cap 1+1) — translucent green/brown casing
+  - moth-cocoon (cap 1+1) — fuzzy silk-and-leaf
+  - spider-egg-sac (cap 1+1) — round silk-bag with hundreds of spiderlings inside
+
+- **Aquatic spawn**
+  - frog-spawn (cap 1+1) — black-dot eggs suspended in clear jelly mass
+
+- **Mythical eggs**
+  - phoenix-egg (cap 1+1) — fire-cracked shell
+  - dragon-egg (cap 1+1) — scaled, color matches future-element
+  - basilisk-egg (cap 1+1) — laid by rooster, contains serpent-king
+
+---
+
+## SHELL / CARAPACE / EXOSKELETON
+
+Abandoned animal armor that animates and roams — the empty shell *is* the creature, not the original occupant. Distinct from the living-animal slots elsewhere (the molluscs in OTHER INVERTEBRATES, the crustaceans, etc.).
+
+- **Mollusk shells (empty-walking)**
+  - snail-shell (cap 1+1) — spiral whorl
+  - conch-shell (cap 1+1) — flared trumpet
+  - oyster-shell (cap 1+1) — hinged bivalve
+
+- **Crustacean molts**
+  - crab-carapace (cap 1+1) — discarded crab armor
+
+- **Insect & arachnid molts**
+  - spider-molt-shed (cap 1+1) — exoskeleton + leg-stubs intact
+  - scorpion-shed (cap 1+1) — pincered-husk
+  - beetle-elytra / wing-case (cap 1+1) — twin iridescent shields
+
+- **Reptile shed skins**
+  - snake-shed (cap 1+1) — papery serpent-ghost cast skin
+
+- **Empty hard shells**
+  - pangolin-armadillo-shed (cap 1+1) — scaled mammal armor empty
+
+---
+
+## SYMBIOSIS / PAIRED-BEINGS
+
+Host-bonded creature — the symbiotic *pair* is the being. Distinct from MICROORGANISMS (single-microbe), from individual-animal slots in their kingdoms, and from chimeric-composite in UNIQUE (fused hybrid vs. cooperating duo).
+
+- **Symbiotic mutualism pairs**
+  - clownfish + anemone (cap 1+1) — protection-pair, anemone hosts fish, fish lures food in
+  - remora + shark (cap 1+1) — hitchhiker disc-on-head + apex carrier
+  - oxpecker + rhino (cap 1+1) — bird-on-mammal grooming, tick-eater
+  - bee + flower (cap 1+1) — pollination/nectar exchange, iconic mutualism
+  - goby + pistol-shrimp (cap 1+1) — blind shrimp digs/maintains burrow, sharp-eyed goby keeps watch at entrance
+  - yucca-moth + yucca-plant (cap 1+1) — exclusive pollinator-pair; moth pollinates flower, lays eggs in seed-pod
+  - hermit-crab + sea-anemone-on-shell (cap 1+1) — crab carries anemone for sting-defense; anemone gets mobility and scraps
+  - honeyguide-bird + honey-badger (cap 1+1) — bird sings to lead mammal to beehive, both share spoils
+  - boxer-crab + twin-anemones (cap 1+1) — crab brandishes pair of anemones like pom-poms / boxing-gloves
+
+---
+
+## PREHISTORIC / EXTINCT MEGAFAUNA
+
+Real prehistoric/extinct creatures with no direct living-archetype slot. Already-placed prehistoric slots stay in their living-relative sections (saber-tooth, cave-bear, megaloceros, entelodont, ambulocetus, steller-sea-cow, dodo, archaeopteryx, deinosuchus, archelon, coelacanth, ammonite, woolly-rhino, megalodon, quagga, all dinosaurs).
+
+- **Mammoth lineage / proboscideans**
+  - woolly mammoth (cap 1+1) — tundra-elephant, curved tusks
+  - mastodon (cap 1+1) — straight-tusked forest-elephant
+
+- **Giant marsupials**
+  - thylacoleo / marsupial lion (cap 1+1) — opposable thumb-claws, apex Pleistocene marsupial predator
+
+- **Giant ground sloths / xenarthrans**
+  - megatherium (cap 1+1) — elephant-sized ground sloth
+  - glyptodon (cap 1+1) — car-sized armored armadillo
+  - megalonyx (cap 1+1) — smaller ground sloth
+
+- **Pre-cat predators**
+  - amphicyon / bear-dog (cap 1+1) — hybrid bear-canid silhouette, apex Miocene predator
+
+- **Prehistoric marine reptiles & placoderms**
+  - mosasaur (cap 1+1) — marine reptile, distinct from plesiosaur
+  - dunkleosteus (cap 1+1) — armored placoderm fish
+  - basilosaurus (cap 1+1) — serpentine ancient whale
+
+- **Giant arthropods**
+  - meganeura / meganeuropsis (cap 1+1) — 75 cm wingspan dragonfly
+  - arthropleura (cap 1+1) — 2.5 m millipede
+
+- **Synapsids / proto-mammals**
+  - gorgonopsid (cap 1+1) — saber-toothed therapsid apex
 
 ---
 

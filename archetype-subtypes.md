@@ -827,6 +827,31 @@ Pre-life vessel as walking creature — contents glimpsed through translucent sh
 
 ---
 
+## SHELL / CARAPACE / EXOSKELETON
+
+Abandoned animal armor that animates and roams — the empty shell *is* the creature, not the original occupant. Distinct from the living-animal slots elsewhere (the molluscs in OTHER INVERTEBRATES, the crustaceans, etc.).
+
+- **Mollusk shells (empty-walking)**
+  - snail-shell (cap 1+1) — spiral whorl
+  - conch-shell (cap 1+1) — flared trumpet
+  - oyster-shell (cap 1+1) — hinged bivalve
+
+- **Crustacean molts**
+  - crab-carapace (cap 1+1) — discarded crab armor
+
+- **Insect & arachnid molts**
+  - spider-molt-shed (cap 1+1) — exoskeleton + leg-stubs intact
+  - scorpion-shed (cap 1+1) — pincered-husk
+  - beetle-elytra / wing-case (cap 1+1) — twin iridescent shields
+
+- **Reptile shed skins**
+  - snake-shed (cap 1+1) — papery serpent-ghost cast skin
+
+- **Empty hard shells**
+  - pangolin-armadillo-shed (cap 1+1) — scaled mammal armor empty
+
+---
+
 ## PREHISTORIC / EXTINCT MEGAFAUNA
 
 Real prehistoric/extinct creatures with no direct living-archetype slot. Already-placed prehistoric slots stay in their living-relative sections (saber-tooth, cave-bear, megaloceros, entelodont, ambulocetus, steller-sea-cow, dodo, archaeopteryx, deinosuchus, archelon, coelacanth, ammonite, woolly-rhino, megalodon, quagga, all dinosaurs).

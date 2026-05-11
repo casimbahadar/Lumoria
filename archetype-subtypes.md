@@ -941,6 +941,17 @@ Glacial / polar-ice landscape-as-being — moving ice-mass as body, crevasses as
 
 ---
 
+## HOT-SPRING
+
+Geothermal hot-water habitat-as-being — steaming pool as body, mineral-rim as scales, sulfur-vent as breath, scalding-water as bite. Distinct from the **Water element** and **Fire element** (formless Elementals slots), from CAVE (rock-cavern voids, not water-filled hot pools), and from GLACIER (cold counterpart). Cross-section notes: thermophile microbe stays in MICROORGANISMS (line 112); steam-only fumaroles are SMOKE-adjacent and deferred; magma-chamber and hydrothermal-vent / black-smoker remain unassigned after this batch — revisit in a later cluster if a home is wanted.
+
+- **Surface hot-water features**
+  - hot-spring / onsen-being (cap 1+1) — canonical steaming pool, mineral-rimmed, restorative warmth
+  - geyser-being (cap 1+1) — intermittent eruption-creature, pressure-built columns of scalding spray
+  - mud-pot / mud-pool-being (cap 1+1) — boiling-mud cauldron, gurgling skin, sulfur-bubble jaw
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

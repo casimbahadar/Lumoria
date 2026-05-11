@@ -902,6 +902,20 @@ Real prehistoric/extinct creatures with no direct living-archetype slot. Already
 
 ---
 
+## CAVE / UNDERGROUND
+
+Subterranean habitat-as-being — the cave-space itself animated, with stalactite-teeth, echo-voice, and darkness-body. Distinct from animals that *live* in caves (cave-bat, olm, cave-cricket, cave-bear stay in their kingdoms). Cross-section notes: stalactite-stalagmite-being and geode-being remain in CRYSTALLINE / GEM; hot-spring / geyser is reserved for the upcoming HOT-SPRING batch; lava as element stays with Elementals.
+
+- **Cavern voids / chambers**
+  - cavern-being / great-hall (cap 1+1) — vast echo-chamber animated, mouth-opening front
+  - abyss / pit-being (cap 1+1) — bottomless vertical shaft, gravity-drop maw
+
+- **Subterranean atmosphere / phenomena**
+  - cave-darkness / pitch-being (cap 1+1) — animated absolute-dark, light-eater body
+  - cave-echo (cap 1+1) — resonance given form, sound-creature that returns what shouts at it
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

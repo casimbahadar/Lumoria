@@ -8,6 +8,68 @@
 
 ---
 
+## PLANTS / FLORA
+
+Real-world flora archetypes. Mythical/spirit-of-plant slots (treant, dryad, mandragora, corrupted-treant, corrupted-flower) remain in their existing categories — this section is for **literal plants** as creatures.
+
+- **Trees**
+  - maple (cap 1+1) — autumn-leaf, sap-flavor
+  - pine / conifer (cap 1+1) — evergreen, needle-clad
+  - cherry-blossom / sakura (cap 1+1) — pink-bloom seasonal icon
+  - bamboo (cap 1+1) — fast-growing grass-tree (placed here for silhouette)
+  - palm (cap 1+1) — tropical/coastal
+  - birch (cap 1+1) — white-bark, Slavic-folkloric
+  - olive (cap 1+1) — Mediterranean, peace-symbol
+  - dead / petrified-tree (cap 1+1) — leafless gnarled wood; non-spirit, distinct from corrupted-treant
+  - bonsai (cap 1+1) — cultivated miniature, living-art aesthetic
+
+- **Flowers**
+  - rose (cap 1+1) — thorned classic
+  - sunflower (cap 1+1) — sun-tracking, golden-disc
+  - lily (cap 1+1) — funerary/elegant
+  - lotus (cap 1+1) — pond/temple, eastern-spiritual
+  - orchid (cap 1+1) — exotic/elaborate
+  - tulip (cap 1+1) — bulb-bloom
+  - dandelion (cap 1+1) — puff/seed-dispersal
+  - rafflesia / corpse-flower (cap 1+1) — giant carrion-stench
+  - hibiscus (cap 1+1) — tropical
+  - hydrangea (cap 1+1) — clustered pom-pom blooms, color-shifting by soil pH
+
+- **Carnivorous plants**
+  - venus-flytrap (cap 1+1) — snap-trap jaw
+
+- **Cacti / succulents**
+  - prickly-pear (cap 1+1) — paddle-stacked, fruit-bearing
+  - aloe (cap 1+1) — gel-spear-leaved
+  - jade-plant (cap 1+1) — round-leaved succulent
+
+- **Vines / climbers**
+  - ivy (cap 1+1) — wall-creeping
+  - wisteria (cap 1+1) — drooping purple-cluster
+  - grape-vine (cap 1+1) — fruit-cluster
+
+- **Grasses / cereals**
+  - rice (cap 1+1) — paddy, eastern staple
+  - corn / maize (cap 1+1) — cob-bearing, husk-armor
+
+- **Mosses / ferns / primitive**
+  - moss (cap 1+1) — soft-mat, ancient ground-cover
+  - lichen (cap 1+1) — symbiotic crust
+  - clover (cap 1+1) — luck-folkloric
+
+- **Aquatic plants**
+  - water-lily / lotus-pad (cap 1+1) — flat-pad surface plant, distinct from lotus-bloom
+  - kelp (cap 1+1) — undersea-forest stalk
+  - seaweed (cap 1+1) — drifting fronds
+
+- **Cultivated / iconic crops & fruit**
+  - pumpkin / gourd (cap 1+1) — Halloween/autumn folklore-iconic
+  - apple-tree (cap 1+1) — Eden/Norse-mythology adjacent
+  - pomegranate (cap 1+1) — underworld-folklore (Persephone)
+  - strawberry / berry-bush (cap 1+1) — small-fruit cluster
+
+---
+
 ## MAMMALS
 
 ### Felids (Cats)

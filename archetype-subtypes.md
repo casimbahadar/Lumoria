@@ -1003,6 +1003,28 @@ Fiber / textile material-as-being — woven-warp torso, thread-tassel limbs, fra
 
 ---
 
+## INK / PIGMENT
+
+Liquid colorant / drawing medium material-as-being — pigment-pool body, brush-stroke limbs, signature-flourish tail. Distinct from the Water element, from CRYSTALLINE / GEM (opaque mineral colors as gems stay there; here we cover the *pigment-form* of the same mineral), from full painted artwork (deferred), from THREAD/CLOTH (the dyed-cloth is the textile-being; here the colorant *itself* is the being), and from CONTAINER (paint-can / ink-pot vessels go to the upcoming CONTAINER batch). Cross-references: pen-ink (ballpoint, fountain-pen) defers to TOOL batch; printer-ink-cartridge defers to TOOL; cephalopod stays in OTHER INVERTEBRATES but the ink-cloud lives here as a pigment-form. Graffiti carried over from URBAN deferral and included below.
+
+- **Calligraphy / drawing inks**
+  - sumi-ink-being (cap 1+1) — black East-Asian calligraphy ink, stone-ground rich-black body, brush-stroke limbs
+  - quill-ink / iron-gall-being (cap 1+1) — Western manuscript ink, dark-brown aged body, quill-tipped form
+
+- **Paint pigments**
+  - watercolor-being (cap 1+1) — translucent washes, paper-bleed body, soft-edge silhouette
+  - spray-paint-being (cap 1+1) — aerosol-mist body, drip-tail limbs, propellant-hiss voice
+
+- **Specialty / natural pigments**
+  - vermillion / cinnabar-being (cap 1+1) — bright-red mercury-mineral pigment, sacred-scarlet body
+  - charcoal / soot-being (cap 1+1) — burnt-carbon dark-mark, fingerprint-smudge body, ash-trail limbs
+
+- **Surface-applied / graffiti**
+  - graffiti-being (cap 1+1) — animated wall-painting that crawls off its surface, tag-signature face *(carried over from URBAN deferral)*
+  - mural-being (cap 1+1) — full-wall narrative-painting animated, scene-stretching body, multi-figure composite
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

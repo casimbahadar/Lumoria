@@ -983,6 +983,26 @@ Fired-earth / shaped-clay material-as-being — pot-belly torso, kiln-glaze skin
 
 ---
 
+## THREAD / CLOTH
+
+Fiber / textile material-as-being — woven-warp torso, thread-tassel limbs, frayed-edge body. Distinct from BANNER (flag-form goes to upcoming MANMADE batch), from full clothing/garments (deferred), from silkworm-cocoon (already in EGG/COCOON/CHRYSALIS), from spider-silk (the spider stays in ARACHNIDS), and from nets/sails (net defers to TOOL batch; sailcloth deferred this batch).
+
+- **Raw fiber / thread**
+  - yarn-ball-being (cap 1+1) — wound multi-ply ball, kitten-bait silhouette, unraveling-tail
+  - wool-fleece-being (cap 1+1) — raw shorn-sheep mass, cloud-bodied, lanolin-greasy hide
+
+- **Woven cloth**
+  - silk-cloth-being (cap 1+1) — shimmering-bolt, luxurious-drape body, river-flow ripple
+  - velvet-being (cap 1+1) — pile-weave, plush-nap surface, royal-purple depth
+
+- **Patterned / structured textiles**
+  - lace-being (cap 1+1) — open-work delicate pattern, gossamer-frilled body, intricate-knotted limbs
+
+- **Specialty / damaged cloth**
+  - ragged-cloth / tatter-being (cap 1+1) — frayed-torn animate scraps, ghost-bandage silhouette, trailing-strip limbs
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

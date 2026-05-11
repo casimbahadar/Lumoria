@@ -916,19 +916,6 @@ Subterranean habitat-as-being — the cave-space itself animated, with stalactit
 
 ---
 
-## URBAN
-
-City-as-being — the built environment animated. Street-grid as veins, traffic-flow as pulse, neon as eyes, alleyways as gullets. Distinct from MANMADE objects (vehicles, statues, tools, etc. — covered by the 13-batch MANMADE cluster) and from urban-dwelling animals (pigeon, rat, raccoon, urban-fox stay in their kingdoms). Cross-section notes: vehicle / banner / jewelry / container / tool / appliance / camera / robotic / toy / game-piece / architecture / statue / trophy belong to MANMADE; smog / pollution-cloud belongs to SMOKE; light-pollution-glow / neon-sign belong to HOLOGRAM-lighting / PHENOMENA; graffiti belongs to INK / PIGMENT. *Creature framing: each entry below is a discrete walking Lumori embodying the urban-feature — Duraludon (Pokemon's bipedal skyscraper-creature) is the canonical precedent for this entire batch.*
-
-- **Street infrastructure**
-  - intersection / crossroads-being (cap 1+1) — four-armed junction-creature, traffic-light eyes; *as creature: four-armed humanoid with a traffic-light-bulb head (rotating red/yellow/green eye), white-painted crosswalk-stripe markings down the torso*
-
-- **Building / facade beings**
-  - skyscraper-being (cap 1+1) — animated high-rise, window-grid as compound eye; *as creature: Duraludon-scale bipedal high-rise, window-grid eyestrip across the face, antenna-spike crown, concrete-slab limbs*
-  - ruin / abandoned-building-being (cap 1+1) — derelict structure with empty-window eye-sockets; *as creature: bipedal derelict-tower with broken-window eye-sockets, crumbling-mortar skin, ivy-trail tail*
-
----
-
 ## GLACIER
 
 Glacial / polar-ice landscape-as-being — moving ice-mass as body, crevasses as wounds, calving as birthing-action. Distinct from the **Ice element** (formless Elementals slot), from ice-elemental Lumori (Permavast/Tundrafox etc. stay in their dex slots), and from **snow/blizzard weather** (deferred to WEATHER/ATMOSPHERIC batch). Cross-section notes: avalanche stays in NATURAL-DISASTER; snowdrift, icicle-formation, and polar-night defer to WEATHER; frozen-river and frozen-lake belong here (RIVER cluster dropped per session decision). *Creature framing: each entry below is a discrete walking Lumori embodying the ice-feature — Duraludon-style scaling applies (not a literal full glacier).*

@@ -933,7 +933,7 @@ Glacial / polar-ice landscape-as-being — moving ice-mass as body, crevasses as
 Geothermal hot-water habitat-as-being — steaming pool as body, mineral-rim as scales, sulfur-vent as breath, scalding-water as bite. Distinct from the **Water element** and **Fire element** (formless Elementals slots), from CAVE (rock-cavern voids, not water-filled hot pools), and from GLACIER (cold counterpart). Cross-section notes: thermophile microbe stays in MICROORGANISMS (line 112); steam-only fumaroles are SMOKE-adjacent and deferred; magma-chamber and hydrothermal-vent / black-smoker remain unassigned after this batch — revisit in a later cluster if a home is wanted. *Creature framing: each entry below is a discrete walking Lumori embodying the geothermal-feature — Duraludon-style scaling applies.*
 
 - **Surface hot-water features**
-  - hot-spring / onsen-being (cap 1+1) — canonical steaming pool, mineral-rimmed, restorative warmth
+  - hot-spring / onsen-being (cap 1+1) — canonical steaming pool, mineral-rimmed, restorative warmth; *as creature: cylindrical bath-house facade walking on stone-block legs, paper-screen door mouth, mineral-rim shoulders. Alternative silhouette: floating spirit-form rising from steam-vapor, mineral-rim crown, water-droplet limbs that drip continuously.*
   - geyser-being (cap 1+1) — intermittent eruption-creature, pressure-built columns of scalding spray
   - mud-pot / mud-pool-being (cap 1+1) — boiling-mud cauldron, gurgling skin, sulfur-bubble jaw; *as creature: bubbling-mud blob-creature, dome body, rising-bubble eyes that pop with each gurgle*
 
@@ -945,11 +945,11 @@ Isolated-landmass habitat-as-being — shoreline as skin, palm-grove or volcanic
 
 - **Land-island forms**
   - volcanic-island-being (cap 1+1) — smoking-cone island, peak-mouth, Hawaii/Iceland silhouette; *as creature: irregular landmass-creature of no fixed body-plan, smoking volcanic-cone peak rising from the back, palm-tendril hair around the rim, lava-glow eye in the cone*
-  - desert-island-being (cap 1+1) — barren single-palm islet, castaway-iconic, sun-bleached body; *as creature: tiny crab-like islet, single palm sprouting from carapace, sand-pebble legs*
+  - desert-island-being (cap 1+1) — barren single-palm islet, castaway-iconic, sun-bleached body
 
 - **Coastal / shoreline features**
   - beach / sandy-shore-being (cap 1+1) — long flat tidal creature, dune-spined back, wave-washed flank
-  - lagoon-being (cap 1+1) — enclosed shallow-water bay, calm-protected inner-space, reef-rim lip; *as creature: humanoid figure in a serene lounging posture, water-filled bowl-belly cradled in arms, reef-rim halo around the head, soft tranquil expression, gentle wave-lap motion at the feet*
+  - lagoon-being (cap 1+1) — enclosed shallow-water bay, calm-protected inner-space, reef-rim lip; *as creature: humanoid figure in a serene lounging posture, water-filled bowl-belly cradled in arms, reef-rim halo around the head, soft tranquil expression, gentle wave-lap motion at the feet. Alternative silhouette: mer-form — humanoid torso with reef-rim mantle around the shoulders, lower body dissolving into still-lagoon water.*
 
 - **Mythical / boundary islands**
   - floating-island-being (cap 1+1) — sky-island, gravity-defying landmass, cloud-rooted underside

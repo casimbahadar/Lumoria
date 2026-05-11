@@ -952,6 +952,23 @@ Geothermal hot-water habitat-as-being — steaming pool as body, mineral-rim as 
 
 ---
 
+## ISLAND
+
+Isolated-landmass habitat-as-being — shoreline as skin, palm-grove or volcanic-cone as hair, freshwater spring as one eye, tidal cave as mouth. Distinct from other Habitat cluster batches (CAVE / URBAN / GLACIER / HOT-SPRING), from individual sea-creatures (their respective kingdoms), and from upcoming MATERIALS / MANMADE clusters. Cross-section notes: kelp-individual stays in PLANTS / FLORA; coral-polyp stays in OTHER INVERTEBRATES; sunken-island / Atlantis-style ruins flagged for MYTHICAL or UNIQUE if a slot is wanted later. The floating-island below is the habitat-form (gravity-defying landmass as habitat) — distinct from any mythical creature that might inhabit one.
+
+- **Land-island forms**
+  - volcanic-island-being (cap 1+1) — smoking-cone island, peak-mouth, Hawaii/Iceland silhouette
+  - desert-island-being (cap 1+1) — barren single-palm islet, castaway-iconic, sun-bleached body
+
+- **Coastal / shoreline features**
+  - beach / sandy-shore-being (cap 1+1) — long flat tidal creature, dune-spined back, wave-washed flank
+  - lagoon-being (cap 1+1) — enclosed shallow-water bay, calm-protected inner-space, reef-rim lip
+
+- **Mythical / boundary islands**
+  - floating-island-being (cap 1+1) — sky-island, gravity-defying landmass, cloud-rooted underside
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

@@ -1025,6 +1025,24 @@ Liquid colorant / drawing medium material-as-being — pigment-pool body, brush-
 
 ---
 
+## METAL-OBJECT
+
+Shaped-metal material-as-being — alloy-skin, hammered-rivet seams, oxide-patina aging. Distinct from individual MANMADE objects (weapons/keys/coins to TOOL, metal-jewelry sub to JEWELRY, metal-statues to STATUE, robots to ROBOTIC, vehicles to VEHICLE), from golems (MYTHICAL CREATURES → golems/constructs), from CRYSTALLINE / GEM (mineral substances; raw-ore could be added there later), and from the **Steel-type element** (Lumori Steel typing remains separate; steel as alloy-being deferred from this batch to avoid collision). Cross-references: iron-form represented here via rust/corroded-iron rather than iron-ingot; molten-metal deferred to avoid magma-chamber overlap; coin defers to JEWELRY.
+
+- **Pure / elemental metals**
+  - gold-bar / bullion-being (cap 1+1) — lustrous-yellow soft-metal, glow-aura, ingot-stack body
+  - silver-being (cap 1+1) — white-polished reflective body, tarnish-prone, moonlight-sheen
+  - copper-being (cap 1+1) — warm orange-red conductive body, electric-current pulse
+  - mercury / quicksilver-being (cap 1+1) — liquid-metal flowing body, droplet-shifting form, no fixed shape
+
+- **Worked metal forms**
+  - chain-being (cap 1+1) — linked-rings serpentine body, modular limbs, rattling-coil motion
+
+- **Aged / damaged metal**
+  - rust-being / corroded-iron-being (cap 1+1) — orange-flaking decayed body, fragile-crumbling form, iron-substrate visible beneath
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

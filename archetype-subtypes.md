@@ -801,6 +801,32 @@ The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Pla
 
 ---
 
+## EGG / COCOON / CHRYSALIS
+
+Pre-life vessel as walking creature — contents glimpsed through translucent shell; the egg itself is the being. Hatched mythical creatures stay in MYTHICAL CREATURES.
+
+- **Eggs (animal)**
+  - chicken-egg (cap 1+1) — classic ovoid
+  - reptile-egg (cap 1+1) — leathery snake/lizard
+  - turtle-egg (cap 1+1) — round shelled
+  - crocodile-egg (cap 1+1) — hard-shelled
+
+- **Insect cocoons & chrysalises**
+  - silkworm-cocoon (cap 1+1) — wound silk-thread shell
+  - butterfly-chrysalis (cap 1+1) — translucent green/brown casing
+  - moth-cocoon (cap 1+1) — fuzzy silk-and-leaf
+  - spider-egg-sac (cap 1+1) — round silk-bag with hundreds of spiderlings inside
+
+- **Aquatic spawn**
+  - frog-spawn (cap 1+1) — black-dot eggs suspended in clear jelly mass
+
+- **Mythical eggs**
+  - phoenix-egg (cap 1+1) — fire-cracked shell
+  - dragon-egg (cap 1+1) — scaled, color matches future-element
+  - basilisk-egg (cap 1+1) — laid by rooster, contains serpent-king
+
+---
+
 ## PREHISTORIC / EXTINCT MEGAFAUNA
 
 Real prehistoric/extinct creatures with no direct living-archetype slot. Already-placed prehistoric slots stay in their living-relative sections (saber-tooth, cave-bear, megaloceros, entelodont, ambulocetus, steller-sea-cow, dodo, archaeopteryx, deinosuchus, archelon, coelacanth, ammonite, woolly-rhino, megalodon, quagga, all dinosaurs).

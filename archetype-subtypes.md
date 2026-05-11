@@ -70,6 +70,25 @@ Real-world flora archetypes. Mythical/spirit-of-plant slots (treant, dryad, mand
 
 ---
 
+## FUNGI / MUSHROOMS
+
+Real-world fungi archetypes. Lichen lives in PLANTS/FLORA → Mosses/ferns/primitive (primitive-plant framing kept). Mythical fungus-spirit slots stay in their existing categories where they exist.
+
+- **Edible / culinary**
+  - button / cremini / portobello (cap 1+1) — common white-cap, grocery-staple
+  - shiitake (cap 1+1) — Asian umami-classic, brown-cap
+  - truffle (cap 1+1) — underground, scent-foraged
+
+- **Toxic / deadly**
+  - death-cap (cap 1+1) — pale-green hood, hepatotoxic
+  - fly-agaric / amanita-muscaria (cap 1+1) — red-with-white-spots, fairy-tale iconic
+
+- **Bioluminescent / fox-fire**
+  - foxfire / jack-o-lantern-mushroom (cap 1+1) — glow-in-the-dark gill-fungus
+  - ghost-fungus (cap 1+1) — Australian eerie-green glow
+
+---
+
 ## MAMMALS
 
 ### Felids (Cats)

@@ -904,11 +904,11 @@ Real prehistoric/extinct creatures with no direct living-archetype slot. Already
 
 ## CAVE / UNDERGROUND
 
-Subterranean habitat-as-being — the cave-space itself animated, with stalactite-teeth, echo-voice, and darkness-body. Distinct from animals that *live* in caves (cave-bat, olm, cave-cricket, cave-bear stay in their kingdoms). Cross-section notes: stalactite-stalagmite-being and geode-being remain in CRYSTALLINE / GEM; hot-spring / geyser is reserved for the upcoming HOT-SPRING batch; lava as element stays with Elementals.
+Subterranean habitat-as-being — the cave-space itself animated, with stalactite-teeth, echo-voice, and darkness-body. Distinct from animals that *live* in caves (cave-bat, olm, cave-cricket, cave-bear stay in their kingdoms). Cross-section notes: stalactite-stalagmite-being and geode-being remain in CRYSTALLINE / GEM; hot-spring / geyser is reserved for the upcoming HOT-SPRING batch; lava as element stays with Elementals. *Creature framing: each entry below is a discrete walking Lumori embodying the cave-feature — Duraludon-style (Pokemon's bipedal skyscraper-creature) is the canonical scaling/silhouette precedent, not a literal full-size cavern.*
 
 - **Cavern voids / chambers**
-  - cavern-being / great-hall (cap 1+1) — vast echo-chamber animated, mouth-opening front
-  - abyss / pit-being (cap 1+1) — bottomless vertical shaft, gravity-drop maw
+  - cavern-being / great-hall (cap 1+1) — vast echo-chamber animated, mouth-opening front; *as creature: pebble-sized walking rock-cave with stalactite-fang mouth, chamber-belly that echoes when struck*
+  - abyss / pit-being (cap 1+1) — bottomless vertical shaft, gravity-drop maw; *as creature: hovering void-creature, vertical pit-mouth ringed by levitating rim-stones, bottomless gullet that swallows light*
 
 - **Subterranean atmosphere / phenomena**
   - cave-darkness / pitch-being (cap 1+1) — animated absolute-dark, light-eater body
@@ -918,23 +918,23 @@ Subterranean habitat-as-being — the cave-space itself animated, with stalactit
 
 ## URBAN
 
-City-as-being — the built environment animated. Street-grid as veins, traffic-flow as pulse, neon as eyes, alleyways as gullets. Distinct from MANMADE objects (vehicles, statues, tools, etc. — covered by the 13-batch MANMADE cluster) and from urban-dwelling animals (pigeon, rat, raccoon, urban-fox stay in their kingdoms). Cross-section notes: vehicle / banner / jewelry / container / tool / appliance / camera / robotic / toy / game-piece / architecture / statue / trophy belong to MANMADE; smog / pollution-cloud belongs to SMOKE; light-pollution-glow / neon-sign belong to HOLOGRAM-lighting / PHENOMENA; graffiti belongs to INK / PIGMENT.
+City-as-being — the built environment animated. Street-grid as veins, traffic-flow as pulse, neon as eyes, alleyways as gullets. Distinct from MANMADE objects (vehicles, statues, tools, etc. — covered by the 13-batch MANMADE cluster) and from urban-dwelling animals (pigeon, rat, raccoon, urban-fox stay in their kingdoms). Cross-section notes: vehicle / banner / jewelry / container / tool / appliance / camera / robotic / toy / game-piece / architecture / statue / trophy belong to MANMADE; smog / pollution-cloud belongs to SMOKE; light-pollution-glow / neon-sign belong to HOLOGRAM-lighting / PHENOMENA; graffiti belongs to INK / PIGMENT. *Creature framing: each entry below is a discrete walking Lumori embodying the urban-feature — Duraludon (Pokemon's bipedal skyscraper-creature) is the canonical precedent for this entire batch.*
 
 - **Street infrastructure**
-  - intersection / crossroads-being (cap 1+1) — four-armed junction-creature, traffic-light eyes
+  - intersection / crossroads-being (cap 1+1) — four-armed junction-creature, traffic-light eyes; *as creature: four-armed humanoid with a traffic-light-bulb head (rotating red/yellow/green eye), white-painted crosswalk-stripe markings down the torso*
 
 - **Building / facade beings**
-  - skyscraper-being (cap 1+1) — animated high-rise, window-grid as compound eye
-  - ruin / abandoned-building-being (cap 1+1) — derelict structure with empty-window eye-sockets
+  - skyscraper-being (cap 1+1) — animated high-rise, window-grid as compound eye; *as creature: Duraludon-scale bipedal high-rise, window-grid eyestrip across the face, antenna-spike crown, concrete-slab limbs*
+  - ruin / abandoned-building-being (cap 1+1) — derelict structure with empty-window eye-sockets; *as creature: bipedal derelict-tower with broken-window eye-sockets, crumbling-mortar skin, ivy-trail tail*
 
 ---
 
 ## GLACIER
 
-Glacial / polar-ice landscape-as-being — moving ice-mass as body, crevasses as wounds, calving as birthing-action. Distinct from the **Ice element** (formless Elementals slot), from ice-elemental Lumori (Permavast/Tundrafox etc. stay in their dex slots), and from **snow/blizzard weather** (deferred to WEATHER/ATMOSPHERIC batch). Cross-section notes: avalanche stays in NATURAL-DISASTER; snowdrift, icicle-formation, and polar-night defer to WEATHER; frozen-river and frozen-lake belong here (RIVER cluster dropped per session decision).
+Glacial / polar-ice landscape-as-being — moving ice-mass as body, crevasses as wounds, calving as birthing-action. Distinct from the **Ice element** (formless Elementals slot), from ice-elemental Lumori (Permavast/Tundrafox etc. stay in their dex slots), and from **snow/blizzard weather** (deferred to WEATHER/ATMOSPHERIC batch). Cross-section notes: avalanche stays in NATURAL-DISASTER; snowdrift, icicle-formation, and polar-night defer to WEATHER; frozen-river and frozen-lake belong here (RIVER cluster dropped per session decision). *Creature framing: each entry below is a discrete walking Lumori embodying the ice-feature — Duraludon-style scaling applies (not a literal full glacier).*
 
 - **Continental / massive ice**
-  - glacier-being / ice-river-being (cap 1+1) — slow-moving valley-ice flow, crevasse-mouthed, blue-throat
+  - glacier-being / ice-river-being (cap 1+1) — slow-moving valley-ice flow, crevasse-mouthed, blue-throat; *as creature: bipedal walking ice-mass, crevasse-mouth across the chest, blue-throat interior, moraine-debris trailing from the feet*
 
 - **Sea-ice / floating**
   - ice-floe / pack-ice-being (cap 1+1) — flat drifting raft-creature, polar surface dweller
@@ -943,7 +943,7 @@ Glacial / polar-ice landscape-as-being — moving ice-mass as body, crevasses as
 
 ## HOT-SPRING
 
-Geothermal hot-water habitat-as-being — steaming pool as body, mineral-rim as scales, sulfur-vent as breath, scalding-water as bite. Distinct from the **Water element** and **Fire element** (formless Elementals slots), from CAVE (rock-cavern voids, not water-filled hot pools), and from GLACIER (cold counterpart). Cross-section notes: thermophile microbe stays in MICROORGANISMS (line 112); steam-only fumaroles are SMOKE-adjacent and deferred; magma-chamber and hydrothermal-vent / black-smoker remain unassigned after this batch — revisit in a later cluster if a home is wanted.
+Geothermal hot-water habitat-as-being — steaming pool as body, mineral-rim as scales, sulfur-vent as breath, scalding-water as bite. Distinct from the **Water element** and **Fire element** (formless Elementals slots), from CAVE (rock-cavern voids, not water-filled hot pools), and from GLACIER (cold counterpart). Cross-section notes: thermophile microbe stays in MICROORGANISMS (line 112); steam-only fumaroles are SMOKE-adjacent and deferred; magma-chamber and hydrothermal-vent / black-smoker remain unassigned after this batch — revisit in a later cluster if a home is wanted. *Creature framing: each entry below is a discrete walking Lumori embodying the geothermal-feature — Duraludon-style scaling applies.*
 
 - **Surface hot-water features**
   - hot-spring / onsen-being (cap 1+1) — canonical steaming pool, mineral-rimmed, restorative warmth
@@ -954,15 +954,15 @@ Geothermal hot-water habitat-as-being — steaming pool as body, mineral-rim as 
 
 ## ISLAND
 
-Isolated-landmass habitat-as-being — shoreline as skin, palm-grove or volcanic-cone as hair, freshwater spring as one eye, tidal cave as mouth. Distinct from other Habitat cluster batches (CAVE / URBAN / GLACIER / HOT-SPRING), from individual sea-creatures (their respective kingdoms), and from upcoming MATERIALS / MANMADE clusters. Cross-section notes: kelp-individual stays in PLANTS / FLORA; coral-polyp stays in OTHER INVERTEBRATES; sunken-island / Atlantis-style ruins flagged for MYTHICAL or UNIQUE if a slot is wanted later. The floating-island below is the habitat-form (gravity-defying landmass as habitat) — distinct from any mythical creature that might inhabit one.
+Isolated-landmass habitat-as-being — shoreline as skin, palm-grove or volcanic-cone as hair, freshwater spring as one eye, tidal cave as mouth. Distinct from other Habitat cluster batches (CAVE / URBAN / GLACIER / HOT-SPRING), from individual sea-creatures (their respective kingdoms), and from upcoming MATERIALS / MANMADE clusters. Cross-section notes: kelp-individual stays in PLANTS / FLORA; coral-polyp stays in OTHER INVERTEBRATES; sunken-island / Atlantis-style ruins flagged for MYTHICAL or UNIQUE if a slot is wanted later. The floating-island below is the habitat-form (gravity-defying landmass as habitat) — distinct from any mythical creature that might inhabit one. *Creature framing: each entry below is a discrete walking Lumori embodying the island-feature — Duraludon-style scaling applies (not a literal full-size landmass).*
 
 - **Land-island forms**
-  - volcanic-island-being (cap 1+1) — smoking-cone island, peak-mouth, Hawaii/Iceland silhouette
-  - desert-island-being (cap 1+1) — barren single-palm islet, castaway-iconic, sun-bleached body
+  - volcanic-island-being (cap 1+1) — smoking-cone island, peak-mouth, Hawaii/Iceland silhouette; *as creature: turtle-shaped, smoking volcanic-cone shell on back, palm-tendril hair, lava-glow eye*
+  - desert-island-being (cap 1+1) — barren single-palm islet, castaway-iconic, sun-bleached body; *as creature: tiny crab-like islet, single palm sprouting from carapace, sand-pebble legs*
 
 - **Coastal / shoreline features**
-  - beach / sandy-shore-being (cap 1+1) — long flat tidal creature, dune-spined back, wave-washed flank
-  - lagoon-being (cap 1+1) — enclosed shallow-water bay, calm-protected inner-space, reef-rim lip
+  - beach / sandy-shore-being (cap 1+1) — long flat tidal creature, dune-spined back, wave-washed flank; *as creature: long flat sand-worm / sand-eel silhouette, dune-spined back, hermit-crab-hole eyes, wave-washed flank*
+  - lagoon-being (cap 1+1) — enclosed shallow-water bay, calm-protected inner-space, reef-rim lip; *as creature: small turtle-bowl creature, water-filled shell-basin on back, reef-rim lip ringing the rim*
 
 - **Mythical / boundary islands**
   - floating-island-being (cap 1+1) — sky-island, gravity-defying landmass, cloud-rooted underside

@@ -934,7 +934,7 @@ Geothermal hot-water habitat-as-being — steaming pool as body, mineral-rim as 
 
 - **Surface hot-water features**
   - hot-spring / onsen-being (cap 1+1) — canonical steaming pool, mineral-rimmed, restorative warmth; *as creature: cylindrical bath-house facade walking on stone-block legs, paper-screen door mouth, mineral-rim shoulders. Alternative silhouette: floating spirit-form rising from steam-vapor, mineral-rim crown, water-droplet limbs that drip continuously.*
-  - geyser-being (cap 1+1) — intermittent eruption-creature, pressure-built columns of scalding spray
+  - geyser-being (cap 1+1) — intermittent eruption-creature, pressure-built columns of scalding spray; *as creature: tall slender column-creature with an eruption-spout head, periodic full-body shudder triggers a column-blast*
   - mud-pot / mud-pool-being (cap 1+1) — boiling-mud cauldron, gurgling skin, sulfur-bubble jaw; *as creature: bubbling-mud blob-creature, dome body, rising-bubble eyes that pop with each gurgle*
 
 ---
@@ -952,7 +952,7 @@ Isolated-landmass habitat-as-being — shoreline as skin, palm-grove or volcanic
   - lagoon-being (cap 1+1) — enclosed shallow-water bay, calm-protected inner-space, reef-rim lip; *as creature: humanoid figure in a serene lounging posture, water-filled bowl-belly cradled in arms, reef-rim halo around the head, soft tranquil expression, gentle wave-lap motion at the feet. Alternative silhouette: mer-form — humanoid torso with reef-rim mantle around the shoulders, lower body dissolving into still-lagoon water.*
 
 - **Mythical / boundary islands**
-  - floating-island-being (cap 1+1) — sky-island, gravity-defying landmass, cloud-rooted underside
+  - floating-island-being (cap 1+1) — sky-island, gravity-defying landmass, cloud-rooted underside; *as creature: small landmass-on-cloud creature, single tree growing on top, cloud-puff base. Alternative silhouette: two-tier island — tiny upper plateau with a lone shrine + lower wider mass, connected by waterfall-tether.*
 
 ---
 

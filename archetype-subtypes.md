@@ -902,6 +902,190 @@ Real prehistoric/extinct creatures with no direct living-archetype slot. Already
 
 ---
 
+## CAVE / UNDERGROUND
+
+Subterranean habitat-as-being — the cave-space itself animated, with stalactite-teeth, echo-voice, and darkness-body. Distinct from animals that *live* in caves (cave-bat, olm, cave-cricket, cave-bear stay in their kingdoms). Cross-section notes: stalactite-stalagmite-being and geode-being remain in CRYSTALLINE / GEM; hot-spring / geyser is reserved for the upcoming HOT-SPRING batch; lava as element stays with Elementals. *Creature framing: each entry below is a discrete walking Lumori embodying the cave-feature — Duraludon-style (Pokemon's bipedal skyscraper-creature) is the canonical scaling/silhouette precedent, not a literal full-size cavern.*
+
+- **Cavern voids / chambers**
+  - cavern-being / great-hall (cap 1+1) — vast echo-chamber animated, mouth-opening front; *as creature: room-sized lumbering cavern-creature, hunched silhouette, stalactite-fang mouth spans the head, hollow chamber-belly that echoes when struck, drip-water trailing*
+  - abyss / pit-being (cap 1+1) — bottomless vertical shaft, gravity-drop maw; *as creature: hovering void-creature, vertical pit-mouth ringed by levitating rim-stones, bottomless gullet that swallows light*
+
+- **Subterranean atmosphere / phenomena**
+  - cave-darkness / pitch-being (cap 1+1) — animated absolute-dark, light-eater body; *as creature: bipedal shadow-mass with two glowing white pinprick eyes, light-absorbing matte-black silhouette, no defined edges*
+  - cave-echo (cap 1+1) — resonance given form, sound-creature that returns what shouts at it; *as creature: ghostly translucent humanoid with wide cupped-bat-ear head, mouth that throws back any sound thrown at it*
+
+---
+
+## GLACIER
+
+Glacial / polar-ice landscape-as-being — moving ice-mass as body, crevasses as wounds, calving as birthing-action. Distinct from the **Ice element** (formless Elementals slot), from ice-elemental Lumori (Permavast/Tundrafox etc. stay in their dex slots), and from **snow/blizzard weather** (deferred to WEATHER/ATMOSPHERIC batch). Cross-section notes: avalanche stays in NATURAL-DISASTER; snowdrift, icicle-formation, and polar-night defer to WEATHER; frozen-river and frozen-lake belong here (RIVER cluster dropped per session decision). *Creature framing: each entry below is a discrete walking Lumori embodying the ice-feature — Duraludon-style scaling applies (not a literal full glacier).*
+
+- **Continental / massive ice**
+  - glacier-being / ice-river-being (cap 1+1) — slow-moving valley-ice flow, crevasse-mouthed, blue-throat; *as creature: bipedal walking ice-mass, crevasse-mouth across the chest, blue-throat interior, moraine-debris trailing from the feet*
+
+- **Sea-ice / floating**
+  - ice-floe / pack-ice-being (cap 1+1) — flat drifting raft-creature, polar surface dweller; *as creature: flat raft-creature, seal-pup body curled atop the floe-disc, blue-edged crack patterns across the back*
+
+---
+
+## HOT-SPRING
+
+Geothermal hot-water habitat-as-being — steaming pool as body, mineral-rim as scales, sulfur-vent as breath, scalding-water as bite. Distinct from the **Water element** and **Fire element** (formless Elementals slots), from CAVE (rock-cavern voids, not water-filled hot pools), and from GLACIER (cold counterpart). Cross-section notes: thermophile microbe stays in MICROORGANISMS (line 112); steam-only fumaroles are SMOKE-adjacent and deferred; magma-chamber and hydrothermal-vent / black-smoker remain unassigned after this batch — revisit in a later cluster if a home is wanted. *Creature framing: each entry below is a discrete walking Lumori embodying the geothermal-feature — Duraludon-style scaling applies.*
+
+- **Surface hot-water features**
+  - hot-spring / onsen-being (cap 1+1) — canonical steaming pool, mineral-rimmed, restorative warmth; *as creature: cylindrical bath-house facade walking on stone-block legs, paper-screen door mouth, mineral-rim shoulders. Alternative silhouette: floating spirit-form rising from steam-vapor, mineral-rim crown, water-droplet limbs that drip continuously.*
+  - geyser-being (cap 1+1) — intermittent eruption-creature, pressure-built columns of scalding spray; *as creature: tall slender column-creature with an eruption-spout head, periodic full-body shudder triggers a column-blast. Alternative silhouette: bipedal mineral-mound creature with a chimney-vent atop the head — Old Faithful silhouette, sulfur-rust hide, snow-dusted shoulders, steam constantly trailing from the chimney, periodic full-body shudder → vertical eruption.*
+  - mud-pot / mud-pool-being (cap 1+1) — boiling-mud cauldron, gurgling skin, sulfur-bubble jaw; *as creature: bubbling-mud blob-creature, dome body, rising-bubble eyes that pop with each gurgle*
+
+---
+
+## ISLAND
+
+Isolated-landmass habitat-as-being — shoreline as skin, palm-grove or volcanic-cone as hair, freshwater spring as one eye, tidal cave as mouth. Distinct from other Habitat cluster batches (CAVE / URBAN / GLACIER / HOT-SPRING), from individual sea-creatures (their respective kingdoms), and from upcoming MATERIALS / MANMADE clusters. Cross-section notes: kelp-individual stays in PLANTS / FLORA; coral-polyp stays in OTHER INVERTEBRATES; sunken-island / Atlantis-style ruins flagged for MYTHICAL or UNIQUE if a slot is wanted later. The floating-island below is the habitat-form (gravity-defying landmass as habitat) — distinct from any mythical creature that might inhabit one. *Creature framing: each entry below is a discrete walking Lumori embodying the island-feature — Duraludon-style scaling applies (not a literal full-size landmass).*
+
+- **Land-island forms**
+  - volcanic-island-being (cap 1+1) — smoking-cone island, peak-mouth, Hawaii/Iceland silhouette; *as creature: irregular landmass-creature of no fixed body-plan, smoking volcanic-cone peak rising from the back, palm-tendril hair around the rim, lava-glow eye in the cone*
+  - desert-island-being (cap 1+1) — barren single-palm islet, castaway-iconic, sun-bleached body
+
+- **Coastal / shoreline features**
+  - beach / sandy-shore-being (cap 1+1) — long flat tidal creature, dune-spined back, wave-washed flank
+  - lagoon-being (cap 1+1) — enclosed shallow-water bay, calm-protected inner-space, reef-rim lip; *as creature: humanoid figure in a serene lounging posture, water-filled bowl-belly cradled in arms, reef-rim halo around the head, soft tranquil expression, gentle wave-lap motion at the feet. Alternative silhouette: mer-form — humanoid torso with reef-rim mantle around the shoulders, lower body dissolving into still-lagoon water.*
+
+- **Mythical / boundary islands**
+  - floating-island-being (cap 1+1) — sky-island with mixed biomes on its surface (forest, desert, lake, rock outcrop), **psychic/flying typing as the lift mechanism**, anti-gravity / cloud-rooted underside; *as creature: small landmass-on-cloud creature, single tree growing on top, cloud-puff base. Alternative silhouette: two-tier island — tiny upper plateau with a lone shrine + lower wider mass, connected by waterfall-tether. Alternative silhouette (k): flat disc-island with 3–4 visible biomes on its surface (forest cluster, desert patch, lake-eye, rock outcrop), psychic-glow aura beneath maintaining levitation, slow hover-glide motion; biomes function as anatomy (trees-as-hair, lake-as-eye, rocks-as-spine-armor, desert as exposed back-hide). Alternative silhouette (l): two-tier sky-island — upper plateau holds a single iconic feature (lone shrine, lone tree, or lone snow-cap); lower wider mass shows mixed biomes (waterfall edges, forest patches, sandy beach-ring); psychic-energy bridge connects the tiers; flying-type wing-vestiges or aerodynamic-leaf frills at the sides. Alternative silhouette (o): layered-strata vertical column — stacked biome-discs (rock base, desert mid, forest cap, snow-peak top), each disc a different biome ecosystem; psychic field links the strata; flying-type via leaf-wings or feather-fronds growing from the equator.*
+
+---
+
+## CLAY / CERAMIC
+
+Fired-earth / shaped-clay material-as-being — pot-belly torso, kiln-glaze skin, kintsugi-cracked seams as veins. Distinct from individual MANMADE objects (pots/vases/teacups go to upcoming CONTAINER batch; bricks/tiles to ARCHITECTURE; kilns to APPLIANCE; figurines/warriors to STATUE), from MUD as habitat (handled by mud-pot in HOT-SPRING), and from STATUE (which covers figurative/representational sculpture in any material; this category is the *material substance* itself).
+
+- **Raw / shaped clay**
+  - earthenware-pot-being (cap 1+1) — low-fired reddish unglazed body, porous skin, primitive-pottery silhouette
+
+- **Fired / glazed ceramics**
+  - porcelain-being (cap 1+1) — fine white translucent body, blue-painted patterning, delicate-luxury form
+  - glazed-ceramic-being (cap 1+1) — colored-glass coated, glossy-shell skin, vitrified-rainbow surface
+  - kintsugi-being (cap 1+1) — gold-mended broken-ceramic, scar-lined body, "more beautiful for the breaking"
+
+---
+
+## THREAD / CLOTH
+
+Fiber / textile material-as-being — woven-warp torso, thread-tassel limbs, frayed-edge body. Distinct from BANNER (flag-form goes to upcoming MANMADE batch), from full clothing/garments (deferred), from silkworm-cocoon (already in EGG/COCOON/CHRYSALIS), from spider-silk (the spider stays in ARACHNIDS), and from nets/sails (net defers to TOOL batch; sailcloth deferred this batch).
+
+- **Raw fiber / thread**
+  - yarn-ball-being (cap 1+1) — wound multi-ply ball, kitten-bait silhouette, unraveling-tail
+  - wool-fleece-being (cap 1+1) — raw shorn-sheep mass, cloud-bodied, lanolin-greasy hide
+
+- **Woven cloth**
+  - silk-cloth-being (cap 1+1) — shimmering-bolt, luxurious-drape body, river-flow ripple
+  - velvet-being (cap 1+1) — pile-weave, plush-nap surface, royal-purple depth
+
+- **Patterned / structured textiles**
+  - lace-being (cap 1+1) — open-work delicate pattern, gossamer-frilled body, intricate-knotted limbs
+
+- **Specialty / damaged cloth**
+  - ragged-cloth / tatter-being (cap 1+1) — frayed-torn animate scraps, ghost-bandage silhouette, trailing-strip limbs
+
+---
+
+## INK / PIGMENT
+
+Liquid colorant / drawing medium material-as-being — pigment-pool body, brush-stroke limbs, signature-flourish tail. Distinct from the Water element, from CRYSTALLINE / GEM (opaque mineral colors as gems stay there; here we cover the *pigment-form* of the same mineral), from full painted artwork (deferred), from THREAD/CLOTH (the dyed-cloth is the textile-being; here the colorant *itself* is the being), and from CONTAINER (paint-can / ink-pot vessels go to the upcoming CONTAINER batch). Cross-references: pen-ink (ballpoint, fountain-pen) defers to TOOL batch; printer-ink-cartridge defers to TOOL; cephalopod stays in OTHER INVERTEBRATES but the ink-cloud lives here as a pigment-form. Graffiti carried over from URBAN deferral and included below.
+
+- **Calligraphy / drawing inks**
+  - sumi-ink-being (cap 1+1) — black East-Asian calligraphy ink, stone-ground rich-black body, brush-stroke limbs
+  - quill-ink / iron-gall-being (cap 1+1) — Western manuscript ink, dark-brown aged body, quill-tipped form
+
+- **Paint pigments**
+  - watercolor-being (cap 1+1) — translucent washes, paper-bleed body, soft-edge silhouette
+  - spray-paint-being (cap 1+1) — aerosol-mist body, drip-tail limbs, propellant-hiss voice
+
+- **Specialty / natural pigments**
+  - vermillion / cinnabar-being (cap 1+1) — bright-red mercury-mineral pigment, sacred-scarlet body
+  - charcoal / soot-being (cap 1+1) — burnt-carbon dark-mark, fingerprint-smudge body, ash-trail limbs
+
+- **Surface-applied / graffiti**
+  - graffiti-being (cap 1+1) — animated wall-painting that crawls off its surface, tag-signature face *(carried over from URBAN deferral)*
+  - mural-being (cap 1+1) — full-wall narrative-painting animated, scene-stretching body, multi-figure composite
+
+---
+
+## METAL-OBJECT
+
+Shaped-metal material-as-being — alloy-skin, hammered-rivet seams, oxide-patina aging. Distinct from individual MANMADE objects (weapons/keys/coins to TOOL, metal-jewelry sub to JEWELRY, metal-statues to STATUE, robots to ROBOTIC, vehicles to VEHICLE), from golems (MYTHICAL CREATURES → golems/constructs), from CRYSTALLINE / GEM (mineral substances; raw-ore could be added there later), and from the **Steel-type element** (Lumori Steel typing remains separate; steel as alloy-being deferred from this batch to avoid collision). Cross-references: iron-form represented here via rust/corroded-iron rather than iron-ingot; molten-metal deferred to avoid magma-chamber overlap; coin defers to JEWELRY.
+
+- **Pure / elemental metals**
+  - gold-bar / bullion-being (cap 1+1) — lustrous-yellow soft-metal, glow-aura, ingot-stack body
+  - silver-being (cap 1+1) — white-polished reflective body, tarnish-prone, moonlight-sheen
+  - copper-being (cap 1+1) — warm orange-red conductive body, electric-current pulse
+  - mercury / quicksilver-being (cap 1+1) — liquid-metal flowing body, droplet-shifting form, no fixed shape
+
+- **Worked metal forms**
+  - chain-being (cap 1+1) — linked-rings serpentine body, modular limbs, rattling-coil motion
+
+- **Aged / damaged metal**
+  - rust-being / corroded-iron-being (cap 1+1) — orange-flaking decayed body, fragile-crumbling form, iron-substrate visible beneath
+
+---
+
+## ARCHITECTURE
+
+Specific built-structure forms as walking creatures — building-typology silhouettes given creature-scale and limbs. Distinct from URBAN (dropped per session decision; its 3 entries — skyscraper, ruin, intersection — migrated here), from STATUE (figurative sculpture, separate batch), from CONTAINER (vessels), and from CAVE/UNDERGROUND (rock-cavern habitat). Cross-section notes: adobe-brick / brick / tile material-form belongs to CLAY/CERAMIC; mineshaft was carried over from CAVE deferral but deferred again this batch; bridge / dam / dungeon / watchtower / pier / stupa / ziggurat / cottage / yurt all deferred from this batch. *Creature framing: each entry below is a discrete walking Lumori shaped like the building-type — Duraludon (Pokemon's bipedal skyscraper-creature) is the canonical precedent for this entire batch.*
+
+- **Sacred / monumental**
+  - pagoda-being (cap 1+1) — tiered East-Asian sacred tower, swept-roof eaves; *as creature: bipedal tiered tower-creature, swept-roof shoulders stacked in 3–5 tiers, lantern-orb eyes, brass-bell tail-tip that rings on the wind*
+  - cathedral-being (cap 1+1) — Gothic spires, flying-buttress limbs, rose-window eye; *as creature: tall bipedal cathedral-creature, single rose-window cyclopean eye in the chest, spire-crown of needle-points, flying-buttress arm-supports flanking the torso*
+  - pyramid-being (cap 1+1) — triangular monument, four-faced creature
+
+- **Fortified / defensive**
+  - castle-being (cap 1+1) — turret-crowned medieval fortress, drawbridge-mouth
+  - fortress-wall / rampart-being (cap 1+1) — long defensive line, crenellated back; *behavior: protective tendency — instinctively positions itself between threats and the castle-being*
+
+- **Maritime / coastal**
+  - lighthouse-being (cap 1+1) — tall pillar, rotating-light eye, wave-base
+
+- **Civic / specialized**
+  - windmill / watermill-being (cap 1+1) — sail-armed or wheel-driven, kinetic-limb body
+
+- **Domestic / vernacular**
+  - tent-being (cap 1+1) — small portable fabric dwelling, frame-supported skin
+
+- **Modern / urban buildings** *(migrated from dropped URBAN cluster)*
+  - skyscraper-being (cap 1+1) — animated high-rise, window-grid as compound eye
+  - ruin / abandoned-building-being (cap 1+1) — derelict structure with empty-window eye-sockets
+
+- **Street infrastructure** *(migrated from dropped URBAN cluster)*
+  - intersection / crossroads-being (cap 1+1) — four-armed junction-creature, traffic-light eyes
+
+---
+
+## VEHICLE
+
+Transport-mechanism as walking / rolling / flying creature — vehicle silhouette with creature limbs/face. Distinct from TOY (toy-cars, model-trains go to TOY batch), from ROBOTIC (battle-mech vs. transport), from PHENOMENA, and from ARCHITECTURE (static structure vs. transport function). Cross-section notes: sailcloth as material-form was deferred from THREAD/CLOTH; the sail-bearing yacht/sailboat form was offered here but not picked; hearse / coffin-on-wheels deferred as specialty. *Creature framing per Duraludon precedent baked into prior sections. No per-entry silhouettes — visual interpretations are open and will be set during appearance design.*
+
+- **Land**
+  - car / automobile-being (cap 1+1) — headlight-eyes, wheel-feet, exhaust-tail
+  - motorcycle-being (cap 1+1) — two-wheel slim creature, handlebar-horns, throttle-grip hands
+  - train / locomotive-being (cap 1+1) — segmented body in a chain, smokestack-head, whistle-voice
+  - tank / armored-vehicle-being (cap 1+1) — treaded base, turret-cannon snout, armor-plate hide
+
+- **Water**
+  - submarine-being (cap 1+1) — torpedo-body, periscope-eye, dive-fin limbs
+  - ferry / cargo-ship-being (cap 1+1) — wide flat hauler, multi-deck back, container-stack shoulders
+  - jet-ski / speedboat-being (cap 1+1) — agile water-skimmer, low-slung body, spray-tail wake
+
+- **Air**
+  - airplane-being (cap 1+1) — wing-arms, propeller or jet-tail, cockpit-eye
+  - helicopter-being (cap 1+1) — rotor-headdress, hover-stance, tail-rotor counterweight
+  - rocket-being (cap 1+1) — vertical streamline, fin-feet, exhaust-plume tail
+
+- **Specialty**
+  - chariot-being (cap 1+1) — wheeled-platform creature with horse-vestige reins, charioteer-perch head
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

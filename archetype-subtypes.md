@@ -1286,6 +1286,15 @@ Musical-instrument object-as-being — sound-producing apparatus given creature-
 - **typhon** (cap 1+1) — primordial storm-titan
 - **lamia** (cap 1+1) — serpent-woman
 
+### Arcana / divination / fortune-telling
+*Western occult / Renaissance-Hermetic divinatory archetypes given creature-form. Tarot Major Arcana iconography is source-material. Sun / Moon / Star Major Arcana intentionally NOT included — `solar-being`, `lunar-being`, `stellar-being` in COSMOLOGICAL/ENERGY already claim those celestial-spirit slots. Death and Devil Major Arcana also skipped to avoid duplication with wraiths/undead and demon/devil entries. Chariot Major Arcana already claimed by VEHICLE `chariot-being`.*
+
+- **fool-arcana-being** (cap 1+1) — wandering jester-figure at cliff-edge with small-dog companion
+- **magician-arcana-being** (cap 1+1) — robed conjuror with infinity-halo, four-suit-tools arranged on altar (wand, cup, sword, pentacle)
+- **high-priestess-arcana-being** (cap 1+1) — moon-crowned veiled-seeress seated between black-and-white pillars
+- **fortune-teller-being** (cap 1+1) — head-scarfed crystal-ball gazer, ringed-fingers spread above the orb
+- **pythia-seer-being** (cap 1+1) — Delphic oracle-priestess seated on tripod-stool over vapor-rift, prophetic trance-state *(distinct from `oracle-dragon` in Dragon-adjacent, which is the dragon-form variant)*
+
 ### Other mythical (cross-cultural)
 - **vampire / nosferatu** (cap 1+1)
 - **werewolf / lycanthrope** (cap 1+1)

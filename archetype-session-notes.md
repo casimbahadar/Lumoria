@@ -1,0 +1,100 @@
+# Phase 1 archetype brainstorm — session notes
+
+Persistent record of cross-session framing decisions, deferred items, and workflow rules for the `archetype-subtypes.md` Phase 1 roadmap. Updated by each session as work progresses. The roadmap counters themselves live in `TODO.md` line 94 (source of truth); this file holds the *narrative* context that doesn't fit there.
+
+---
+
+## Key framing decisions (canonical across sessions)
+
+1. **Duraludon precedent** — Pokemon's bipedal skyscraper-creature is the canonical reference for "building / landmass / architectural-feature as walking creature." Every Habitat and ARCHITECTURE section intro carries this clause. Apply the same precedent to STATUE and any future cluster where the entry is a *structure/place* given creature-form.
+
+2. **Creature framing over place framing** — every entry below a cap-1+1 line is a *discrete walking Lumori*, not an abstract personification of a location/setting. Section intros must make this explicit; ambiguous wording (e.g. "the X itself animated") should be paired with a creature-framing clause.
+
+3. **Multi-silhouette format** — entries with multiple acceptable visual designs use:
+   ```
+   *as creature: [primary silhouette]. Alternative silhouette: [alt 1]. Alternative silhouette (letter): [alt 2].*
+   ```
+   Examples in `archetype-subtypes.md`: hot-spring (2 alts), lagoon (2 alts), geyser (2 alts), floating-island (5 alts).
+
+4. **Open silhouettes by default** — most entries should be left silhouette-less so the user has design freedom during the appearance-design phase. Only add per-entry silhouettes when (a) the entry is ambiguous and needs a creature-vs-place clarifying tag, or (b) the user explicitly requests one. ARCHITECTURE keeps silhouettes only for pagoda + cathedral; VEHICLE has none.
+
+5. **Cross-section deferrals tracked in intros** — each section intro names items that *could* have lived here but were deferred to another batch (e.g. graffiti → INK; sailcloth → THREAD; mineshaft → ARCHITECTURE then deferred). This prevents double-slotting later.
+
+6. **Behavioral notes survive silhouette strips** — when silhouettes are removed from an entry, any behavioral/lore content (e.g. fortress-wall's protective tendency toward castle-being) should be preserved as a separate `*behavior: ...*` italic tag.
+
+---
+
+## Workflow rules in force
+
+Per `CLAUDE.md` and TODO.md line 94:
+
+- **Always confirm before acting** — propose → letter-picks → write → commit → push. No "obvious next step" auto-applies.
+- **Per-batch commits** — each new top-level category is one commit; TODO.md refreshes are separate commits at cluster handoffs.
+- **PR strategy: session-stacked or per-batch** — 2026-05-11 session used one stacked PR (#41, merged). Future sessions may choose per-batch PRs if preferred; confirm at session start.
+- **Branch from latest `main`** at session start to pick up prior session merges.
+
+---
+
+## Run order remaining (post-2026-05-11)
+
+**Manmade cluster (11 left):** TOY → GAME-PIECE → JEWELRY → CONTAINER → TOOL → APPLIANCE → STATUE → BANNER → TROPHY → ROBOTIC → CAMERA
+
+**Phenomena cluster (7):** SHADOW-CAST → BUBBLE → SMOKE → PERFUME → HOLOGRAM → EXPLOSIVE → WEATHER/ATMOSPHERIC
+
+**Roadmap totals:** 33 batches total (35 − RIVER − URBAN both dropped); 15 roadmap done, 18 remaining. 17 categories committed total (15 roadmap + 2 bonus PLANTS/FUNGI).
+
+---
+
+## Deferred / unassigned items (revisit when relevant)
+
+Carried across batches without a final home. Each may end up reassigned to a future cluster or dropped entirely.
+
+### From Habitat cluster
+- **magma-chamber-being** — declined from CAVE and HOT-SPRING.
+- **hydrothermal-vent / black-smoker** — declined from CAVE and HOT-SPRING.
+- **desert-island-being** — entry exists in ISLAND but silhouette intentionally removed; user wants to revisit concept.
+- **beach / sandy-shore-being** — entry exists; silhouette intentionally blank (user has design in mind).
+- **snowdrift, icicle-formation, polar-night** — explicitly deferred to WEATHER/ATMOSPHERIC batch.
+- **fumarole / steam-only vent** — flagged SMOKE-adjacent, deferred.
+
+### From Materials cluster
+- **steel-being** as alloy-form — deferred to avoid collision with Steel-type element.
+- **molten-metal-being** — deferred to avoid magma-chamber/FIRE overlap.
+- **coin** — defers to JEWELRY batch.
+- **paint-can, ink-pot** vessel forms — defer to CONTAINER.
+- **printer-ink, pen-ink (fountain, ballpoint)** — defer to TOOL.
+
+### From Manmade cluster (ARCHITECTURE deferrals)
+- **mineshaft** — carried CAVE → ARCHITECTURE → deferred again. No home yet.
+- **bridge, dam, dungeon, watchtower, pier, stupa, ziggurat, cottage, yurt** — proposed for ARCHITECTURE but not picked.
+
+### From Manmade cluster (VEHICLE deferrals)
+- **sailboat / yacht** (with sailcloth carryover from THREAD).
+- **bicycle, rowboat / canoe, hot-air balloon, blimp / dirigible, sled / sleigh, hovercraft / hovercar**.
+- **hearse / coffin-on-wheels** — flagged as specialty too dark; dropped.
+
+### From URBAN drop fallout
+URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTURE: skyscraper-being, ruin/abandoned-building-being, intersection/crossroads-being. **Other URBAN candidates** proposed but never landed: alleyway, highway-overpass, subway-tunnel, subway-station, apartment-block, rooftop, sidewalk-pavement, manhole-cover, streetlamp, neon-sign, traffic-jam, graffiti (latter went to INK), light-pollution-glow.
+
+### Cross-cluster floating concepts
+- **sunken-island / Atlantis-style ruin-landmass** — flagged for MYTHICAL or UNIQUE.
+- **rainbow-pool / prismatic-spring** — proposed under HOT-SPRING (J) but not picked.
+- **kelp-forest as habitat-being** — kelp-individual stays in PLANTS; the habitat-form would need a slot if wanted.
+
+---
+
+## Cluster completion log
+
+| Cluster | Status | Notes |
+|---|---|---|
+| Bio (PLANTS, FUNGI, PREHISTORIC, MICROORGANISMS, EGG, SHELL, SYMBIOSIS) | DONE 5/5 | PLANTS + FUNGI predate the 35-batch roadmap (bonus categories). |
+| Habitat | DONE 4/4 | RIVER dropped, URBAN dropped (entries → ARCHITECTURE). |
+| Materials | DONE 4/4 | All 4 batches landed clean. |
+| Manmade | IN PROGRESS 2/13 | ARCHITECTURE + VEHICLE done. Next: TOY. |
+| Phenomena | NOT STARTED 0/7 | Receives multiple deferrals from earlier clusters. |
+
+---
+
+## Session log
+
+- **2026-05-11 session** — PR #41 (merged). 22 commits: 7 new categories (CAVE/UNDERGROUND, GLACIER, HOT-SPRING, ISLAND, CLAY/CERAMIC, THREAD/CLOTH, INK/PIGMENT, METAL-OBJECT, ARCHITECTURE, VEHICLE — net 10 added incl. URBAN-then-dropped) plus framing/cleanup commits. RIVER and URBAN clusters dropped. Duraludon precedent established. Multi-silhouette format introduced.

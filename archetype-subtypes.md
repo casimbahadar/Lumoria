@@ -1086,6 +1086,36 @@ Transport-mechanism as walking / rolling / flying creature — vehicle silhouett
 
 ---
 
+## TOY
+
+Plaything object-as-being — toy-form silhouette given creature-scale. Distinct from STATUE (decorative figurative sculpture; small figurines borderline — convention: posable/play-intended = TOY, display-only = STATUE), from ROBOTIC (functional/battle automaton vs. play-mechanism toy-robot), from JEWELRY (worn adornment vs. handheld plaything; friendship-charm borderline), from VEHICLE (actual transport vs. miniaturized play-form), and from CLAY/CERAMIC (the substance) — porcelain-doll's material sources there but doll-form would live here. Cross-section notes: toy-car and model-train were carried over from VEHICLE deferrals but not picked this batch; balloon / balloon-animal defers to BUBBLE; shadow-puppet defers to SHADOW-CAST; modeling-clay / play-doh stays in CLAY/CERAMIC; tin-soldier and toy-robot proposed but not picked (toy-robot remains for ROBOTIC); charm-toy defers to JEWELRY; board-game / card-game pieces defer to GAME-PIECE; slingshot defers to TOOL; musical-toy / xylophone / toy-drum defer to the tentative INSTRUMENTS cluster (below). *Creature framing per Duraludon precedent. No per-entry silhouettes — visual interpretations open for appearance-design phase.*
+
+- **Plush / Dolls**
+  - teddy-bear-being (cap 1+1) — classic stuffed ursine, stitched-seam body
+  - rag-doll-being (cap 1+1) — fabric humanoid, button-eyes, stitched-mouth
+  - marionette-being (cap 1+1) — string-jointed puppet, cross-bar handle vestige above head
+
+- **Action Figures**
+  - action-figure-being (cap 1+1) — articulated plastic warrior, ball-joint limbs
+
+- **Vehicles-as-Toys**
+  - rocking-horse-being (cap 1+1) — wooden curved-base ride-on horse
+
+- **Construction Toys**
+  - jigsaw-puzzle-being (cap 1+1) — interlocking-piece body, fragmentable anatomy
+
+- **Mechanical / Wind-up**
+  - wind-up-toy-being (cap 1+1) — key-back, ticking-gait creature
+  - spinning-top-being (cap 1+1) — gyroscope-balance pirouette
+  - music-box-being (cap 1+1) — winding-key, pinned-drum, ballerina-spinner
+
+- **Classic / Misc**
+  - kite-being (cap 1+1) — diamond wind-rider, string-tether
+  - marble-being (cap 1+1) — glass-sphere creature (swarm-form natural)
+  - frisbee / flying-disc-being (cap 1+1) — spinning flat disc, hover-glide
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

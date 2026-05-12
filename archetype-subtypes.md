@@ -1195,6 +1195,40 @@ Vessel object-as-being — storage / carry / display container given creature-sc
 
 ---
 
+## TOOL
+
+Functional implement object-as-being — handheld working-tool given creature-scale. Distinct from APPLIANCE upcoming (powered/active machine vs. handheld implement — drill borderline: hand-drill = TOOL, electric-drill = APPLIANCE), from CONTAINER (storage-vessel vs. working-implement), from WEAPONS-as-MYTHICAL (mythical-staves/wands stay in MYTHICAL; mundane working/combat tools live here), from JEWELRY (worn-ornament vs. used-implement), and from INSTRUMENTS upcoming (sound-producing artifacts; tuning-fork claimed here as pitch-precision tool; whistle redirected to TOY-side as a possible-future candidate per user call). Cross-section notes: weapons + keys arrive per METAL-OBJECT deferral (firearm / gun proposed but dropped as too-modern/dark, consistent with VEHICLE hearse-drop call); net per THREAD/CLOTH deferral NOT picked this batch (logged as candidate); pen / pencil / paintbrush / printer-ink-cartridge from INK/PIGMENT deferral NOT picked this batch (only quill kept; rest logged as candidates); slingshot per TOY deferral NOT picked (logged as candidate); hourglass per GAME-PIECE deferral NOT picked (logged as candidate); shovel/spade-as-TOOL flagged from GAME-PIECE NOT picked (logged as candidate). *Note: "candidate" framing means tracked-for-possible-future-pick, no commitment that an entry will ever land.* *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Hand tools / construction**
+  - hammer-being (cap 1+1) — claw-hammer, head-and-shaft silhouette
+  - saw-being (cap 1+1) — handsaw with teeth-line edge
+  - pickaxe-being (cap 1+1) — pointed-head mining tool
+  - axe-being (cap 1+1) — splitting/chopping head, wedge-blade
+
+- **Cutting tools**
+  - knife-being (cap 1+1) — generic blade (kitchen / utility silhouette); *(dagger covers concealable-weapon variant below)*
+  - scissors-being (cap 1+1) — two-bladed cutter, pivot-joint
+
+- **Weapons**
+  - sword-being (cap 1+1) — straight or curved blade with cross-guard hilt
+  - spear-being (cap 1+1) — pointed-tip pole-arm
+  - bow-and-arrow-being (cap 1+1) — drawn-string projectile pair
+  - dagger-being (cap 1+1) — short concealable blade *(distinct from knife-being)*
+
+- **Writing / drawing implements**
+  - quill-being (cap 1+1) — feather-tip ink stylus *(per INK/PIGMENT pen-deferral; only writing implement picked this batch — pen / pencil / paintbrush / printer-ink-cartridge logged as candidates)*
+
+- **Keys / locks**
+  - key / padlock-being (cap 1+1) — paired-concept entry, key + lock as companion-pair (matching vibe per JEWELRY's wedding-band/engagement-ring precedent) *(per METAL-OBJECT key-deferral)*
+
+- **Fishing / hunting**
+  - harpoon-being (cap 1+1) — barbed throwing-spear with line-attachment *(distinct from spear-being by line + barb)*
+
+- **Sound / signaling**
+  - tuning-fork-being (cap 1+1) — two-prong pitch-resonator *(per INSTRUMENTS placeholder note; whistle logged as TOY-side candidate per user call)*
+
+---
+
 ## INSTRUMENTS *(confirmed batch — entries pending future session)*
 
 Musical-instrument object-as-being — sound-producing apparatus given creature-scale. Cluster confirmed in roadmap; entries deferred to a future session. Candidate-list (subject to letter-picks at write-time): drum, xylophone, piano, violin / stringed-bow, trumpet / brass, flute / wind, accordion, harp, tambourine, bell, gong (music-box already placed under TOY). Cross-section notes: whistle / tuning-fork are TOOL-adjacent; church-bell / temple-gong might overlap ARCHITECTURE. *Creature framing per Duraludon precedent. No entries committed yet — slot reserved for a future brainstorm session.*

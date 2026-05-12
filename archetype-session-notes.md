@@ -37,11 +37,13 @@ Per `CLAUDE.md` and TODO.md line 94:
 
 ## Run order remaining (post-2026-05-11)
 
-**Manmade cluster (8 left):** TOOL → APPLIANCE → STATUE → BANNER → TROPHY → ROBOTIC → CAMERA → INSTRUMENTS *(confirmed)*
+**Manmade cluster (7 left):** APPLIANCE → STATUE → BANNER → TROPHY → ROBOTIC → CAMERA → INSTRUMENTS *(confirmed)*
 
 **Phenomena cluster (7):** SHADOW-CAST → BUBBLE → SMOKE → PERFUME → HOLOGRAM → EXPLOSIVE → WEATHER/ATMOSPHERIC
 
-**Roadmap totals:** 34 batches in roadmap (33 firm + INSTRUMENTS confirmed-pending-entries); 19 roadmap done (CONTAINER landed). **21 categories committed** (19 roadmap + 2 bonus PLANTS/FUNGI). **16 batches remaining** in roadmap: 7 Manmade + INSTRUMENTS confirmed-pending + 7 Phenomena. INSTRUMENTS reframed from "tentative" to "confirmed batch — entries deferred to future session" earlier this session.
+**Roadmap totals:** 34 batches in roadmap (33 firm + INSTRUMENTS confirmed-pending-entries); 20 roadmap done (TOOL landed). **22 categories committed** (20 roadmap + 2 bonus PLANTS/FUNGI). **15 batches remaining** in roadmap: 6 Manmade + INSTRUMENTS confirmed-pending + 7 Phenomena. INSTRUMENTS reframed from "tentative" to "confirmed batch — entries deferred to future session" earlier this session.
+
+*Deferral / carryover framing clarification (added 2026-05-12 mid-session):* Items "logged as candidates" or "flagged for [category]" in deferral lists are tracked-for-possible-future-pick. There is **no commitment** that an entry will ever land. Future-session brainstorms may pick from these lists, propose alternative entries, or leave a candidate dormant indefinitely.
 
 ---
 
@@ -115,6 +117,18 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **shipping-container-being** — declined this batch; VEHICLE cargo-ship's "container-stack shoulders" descriptor implicitly covers the concept (no standalone entry needed).
 - **envelope-being, gourd / hollow-fruit-being, piggy-bank-being** — specialty candidates not picked (piggy-bank flagged CLAY/CERAMIC + JEWELRY-coin adjacency; gourd flagged PLANTS/FLORA adjacency).
 
+### From Manmade cluster (TOOL deferrals)
+*All entries below are candidates only — no commitment they'll ever be picked. User clarified mid-session that deferrals/carryovers do not imply eventual addition.*
+- **screwdriver-being, wrench-being, pliers-being, chisel-being, shovel / spade-being** — hand-tool candidates not picked (hammer + saw + pickaxe + axe kept; shovel/spade is the carryover from GAME-PIECE's TOOL-shovel adjacency flag, logged here as inherited candidate).
+- **shears-being** — cutting-tool candidate not picked (knife + scissors kept).
+- **shield-being, gun / firearm-being, mace-being** — weapon candidates not picked (firearm explicitly dropped as too-modern/dark, consistent with VEHICLE hearse-drop call; shield flagged defensive-vs-offensive; mace not picked).
+- **pen-being (ballpoint / fountain-pen), pencil-being, paintbrush-being, printer-ink-cartridge-being** — writing-implement candidates not picked this batch (only quill kept). INK/PIGMENT's pen-ink + printer-ink-cartridge deferrals reach TOOL but only partially resolved — pen/pencil/paintbrush/cartridge are inherited candidates here.
+- **ruler-being, compass-being (drawing-compass two-leg), hourglass / sand-timer-being, magnifying-glass-being** — measuring/precision candidates not picked (hourglass is carryover from GAME-PIECE deferral, inherited).
+- **fishing-rod-being, net-being, slingshot-being** — fishing/hunting candidates not picked beyond harpoon (net is carryover from THREAD/CLOTH deferral, inherited; slingshot is carryover from TOY deferral, inherited).
+- **whistle-being** → user redirected to TOY as a TOY-side candidate (not a TOOL slot). Logged for possible future TOY densification only.
+- **magic-wand-being, wizard-staff-being** — flagged for MYTHICAL CREATURES (mystical-implement domain); not pulled into TOOL.
+- **microscope-being, telescope-being** — flagged as APPLIANCE candidates (lens-mechanism artifacts); not picked here.
+
 ### From URBAN drop fallout
 URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTURE: skyscraper-being, ruin/abandoned-building-being, intersection/crossroads-being. **Other URBAN candidates** proposed but never landed: alleyway, highway-overpass, subway-tunnel, subway-station, apartment-block, rooftop, sidewalk-pavement, manhole-cover, streetlamp, neon-sign, traffic-jam, graffiti (latter went to INK), light-pollution-glow.
 
@@ -132,7 +146,7 @@ URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTU
 | Bio (PLANTS, FUNGI, PREHISTORIC, MICROORGANISMS, EGG, SHELL, SYMBIOSIS) | DONE 5/5 | PLANTS + FUNGI predate the 35-batch roadmap (bonus categories). |
 | Habitat | DONE 4/4 | RIVER dropped, URBAN dropped (entries → ARCHITECTURE). |
 | Materials | DONE 4/4 | All 4 batches landed clean. |
-| Manmade | IN PROGRESS 6/14 | ARCHITECTURE + VEHICLE + TOY + GAME-PIECE + JEWELRY + CONTAINER done. INSTRUMENTS 14th slot confirmed (entries pending future session). Next: TOOL. |
+| Manmade | IN PROGRESS 7/14 | ARCHITECTURE + VEHICLE + TOY + GAME-PIECE + JEWELRY + CONTAINER + TOOL done. INSTRUMENTS 14th slot confirmed (entries pending future session). Next: APPLIANCE. |
 | Phenomena | NOT STARTED 0/7 | Receives multiple deferrals from earlier clusters. |
 
 ---
@@ -140,4 +154,4 @@ URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTU
 ## Session log
 
 - **2026-05-11 session** — PR #41 (merged). 22 commits: 7 new categories (CAVE/UNDERGROUND, GLACIER, HOT-SPRING, ISLAND, CLAY/CERAMIC, THREAD/CLOTH, INK/PIGMENT, METAL-OBJECT, ARCHITECTURE, VEHICLE — net 10 added incl. URBAN-then-dropped) plus framing/cleanup commits. RIVER and URBAN clusters dropped. Duraludon precedent established. Multi-silhouette format introduced.
-- **2026-05-12 session** — TOY landed as 18th committed category (12 entries across 6 sub-groups: plush/dolls, action figures, vehicles-as-toys, construction toys, mechanical/wind-up, classic/misc). INSTRUMENTS placeholder added at end of Manmade as tentative 14th slot, then confirmed-as-batch later same session (entries deferred to future session). GAME-PIECE landed as 19th committed category (13 entries across 5 sub-groups: chess sub-cluster, cards/suits, dice, tokens, specialty). Tarot Major Arcana picks moved to MYTHICAL CREATURES → new Arcana / divination / fortune-telling sub-section (separate commit, 5 entries). JEWELRY landed as 20th committed category (8 entries across 5 sub-groups: neckwear pendant+amulet, finger/hand ring+wedding-band, generic earring, crown+tiara, ancient-coin). Resolves METAL-OBJECT's coin-deferral + TOY's charm-toy-deferral (charm-bracelet logged in deferrals for future densification). CONTAINER landed as 21st committed category (9 entries across 5 sub-groups: pottery jar+urn+amphora, drinkware goblet/chalice+wine-glass, boxes treasure-chest+coffin, bags suitcase, utility paint-can). Resolves INK/PIGMENT's paint-can-deferral (ink-pot deferred again to future). Coffin retained despite VEHICLE hearse-drop precedent. Cauldron flagged for MYTHICAL future-session add. Counters now: **21 committed / 16 remaining**.
+- **2026-05-12 session** — TOY landed as 18th committed category (12 entries across 6 sub-groups: plush/dolls, action figures, vehicles-as-toys, construction toys, mechanical/wind-up, classic/misc). INSTRUMENTS placeholder added at end of Manmade as tentative 14th slot, then confirmed-as-batch later same session (entries deferred to future session). GAME-PIECE landed as 19th committed category (13 entries across 5 sub-groups: chess sub-cluster, cards/suits, dice, tokens, specialty). Tarot Major Arcana picks moved to MYTHICAL CREATURES → new Arcana / divination / fortune-telling sub-section (separate commit, 5 entries). JEWELRY landed as 20th committed category (8 entries across 5 sub-groups: neckwear pendant+amulet, finger/hand ring+wedding-band, generic earring, crown+tiara, ancient-coin). Resolves METAL-OBJECT's coin-deferral + TOY's charm-toy-deferral (charm-bracelet logged as candidate). CONTAINER landed as 21st committed category (9 entries across 5 sub-groups: pottery jar+urn+amphora, drinkware goblet/chalice+wine-glass, boxes treasure-chest+coffin, bags suitcase, utility paint-can). Resolves INK/PIGMENT's paint-can-deferral (ink-pot logged as candidate). Coffin retained despite VEHICLE hearse-drop precedent. Cauldron flagged for MYTHICAL as future-session candidate. TOOL landed as 22nd committed category (14 entries across 7 sub-groups: hand-tools hammer+saw+pickaxe+axe, cutting knife+scissors, weapons sword+spear+bow-and-arrow+dagger, writing quill, keys/locks key-padlock-paired-pair, fishing harpoon, sound tuning-fork). Resolves METAL-OBJECT's weapons+keys deferral and INSTRUMENTS placeholder's tuning-fork note. Whistle redirected to TOY as TOY-side candidate (not added this session). Mid-session framing clarification: "logged as candidate" / "flagged for X" means tracked for possible future pick — **no commitment** an entry will ever land. Counters now: **22 committed / 15 remaining**.

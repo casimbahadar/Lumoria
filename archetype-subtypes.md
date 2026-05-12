@@ -1037,27 +1037,52 @@ Specific built-structure forms as walking creatures — building-typology silhou
 - **Sacred / monumental**
   - pagoda-being (cap 1+1) — tiered East-Asian sacred tower, swept-roof eaves; *as creature: bipedal tiered tower-creature, swept-roof shoulders stacked in 3–5 tiers, lantern-orb eyes, brass-bell tail-tip that rings on the wind*
   - cathedral-being (cap 1+1) — Gothic spires, flying-buttress limbs, rose-window eye; *as creature: tall bipedal cathedral-creature, single rose-window cyclopean eye in the chest, spire-crown of needle-points, flying-buttress arm-supports flanking the torso*
-  - pyramid-being (cap 1+1) — triangular monument, four-faced creature; *as creature: quadrupedal triangular-shell creature with sphinx-low silhouette, eye-of-Horus apex marking glowing at the peak, sandstone-block hide, four small paw-feet*
+  - pyramid-being (cap 1+1) — triangular monument, four-faced creature
 
 - **Fortified / defensive**
-  - castle-being (cap 1+1) — turret-crowned medieval fortress, drawbridge-mouth; *as creature: bipedal castle-tower with battlement-crown, drawbridge-tongue mouth, four turret-spike shoulder pauldrons, portcullis-grin teeth*
-  - fortress-wall / rampart-being (cap 1+1) — long defensive line, crenellated back; *as creature: Stakataka-style stone-block creature with cube-segments stacked **horizontally** (rather than upward) to form a long wall, crenellated top edge along the upper face, arrow-slit eye-row down the front, multiple small block-feet underneath; protective tendency — instinctively positions itself between threats and the castle-being*
+  - castle-being (cap 1+1) — turret-crowned medieval fortress, drawbridge-mouth
+  - fortress-wall / rampart-being (cap 1+1) — long defensive line, crenellated back; *behavior: protective tendency — instinctively positions itself between threats and the castle-being*
 
 - **Maritime / coastal**
-  - lighthouse-being (cap 1+1) — tall pillar, rotating-light eye, wave-base; *as creature: tall slender pillar-creature, rotating-lamp head with a single sweeping beam-eye, red-and-white spiral body, wave-sloshed feet*
+  - lighthouse-being (cap 1+1) — tall pillar, rotating-light eye, wave-base
 
 - **Civic / specialized**
-  - windmill / watermill-being (cap 1+1) — sail-armed or wheel-driven, kinetic-limb body; *as creature: bipedal tower-creature with a four-arm rotating sail-wheel headdress (watermill variant: side-mounted water-wheel instead), kinetic-propeller spin pulse*
+  - windmill / watermill-being (cap 1+1) — sail-armed or wheel-driven, kinetic-limb body
 
 - **Domestic / vernacular**
-  - tent-being (cap 1+1) — small portable fabric dwelling, frame-supported skin; *as creature: small mound-creature, fabric-skin pulled taut over hidden frame-bones, single guy-rope tail, smoke-vent ear at the peak*
+  - tent-being (cap 1+1) — small portable fabric dwelling, frame-supported skin
 
 - **Modern / urban buildings** *(migrated from dropped URBAN cluster)*
-  - skyscraper-being (cap 1+1) — animated high-rise, window-grid as compound eye; *as creature: Duraludon-scale bipedal high-rise, window-grid eyestrip across the face, antenna-spike crown, concrete-slab limbs*
-  - ruin / abandoned-building-being (cap 1+1) — derelict structure with empty-window eye-sockets; *as creature: bipedal derelict-tower with broken-window eye-sockets, crumbling-mortar skin, ivy-trail tail*
+  - skyscraper-being (cap 1+1) — animated high-rise, window-grid as compound eye
+  - ruin / abandoned-building-being (cap 1+1) — derelict structure with empty-window eye-sockets
 
 - **Street infrastructure** *(migrated from dropped URBAN cluster)*
-  - intersection / crossroads-being (cap 1+1) — four-armed junction-creature, traffic-light eyes; *as creature: four-armed humanoid with a traffic-light-bulb head (rotating red/yellow/green eye), white-painted crosswalk-stripe markings down the torso*
+  - intersection / crossroads-being (cap 1+1) — four-armed junction-creature, traffic-light eyes
+
+---
+
+## VEHICLE
+
+Transport-mechanism as walking / rolling / flying creature — vehicle silhouette with creature limbs/face. Distinct from TOY (toy-cars, model-trains go to TOY batch), from ROBOTIC (battle-mech vs. transport), from PHENOMENA, and from ARCHITECTURE (static structure vs. transport function). Cross-section notes: sailcloth as material-form was deferred from THREAD/CLOTH; the sail-bearing yacht/sailboat form was offered here but not picked; hearse / coffin-on-wheels deferred as specialty. *Creature framing per Duraludon precedent baked into prior sections. No per-entry silhouettes — visual interpretations are open and will be set during appearance design.*
+
+- **Land**
+  - car / automobile-being (cap 1+1) — headlight-eyes, wheel-feet, exhaust-tail
+  - motorcycle-being (cap 1+1) — two-wheel slim creature, handlebar-horns, throttle-grip hands
+  - train / locomotive-being (cap 1+1) — segmented body in a chain, smokestack-head, whistle-voice
+  - tank / armored-vehicle-being (cap 1+1) — treaded base, turret-cannon snout, armor-plate hide
+
+- **Water**
+  - submarine-being (cap 1+1) — torpedo-body, periscope-eye, dive-fin limbs
+  - ferry / cargo-ship-being (cap 1+1) — wide flat hauler, multi-deck back, container-stack shoulders
+  - jet-ski / speedboat-being (cap 1+1) — agile water-skimmer, low-slung body, spray-tail wake
+
+- **Air**
+  - airplane-being (cap 1+1) — wing-arms, propeller or jet-tail, cockpit-eye
+  - helicopter-being (cap 1+1) — rotor-headdress, hover-stance, tail-rotor counterweight
+  - rocket-being (cap 1+1) — vertical streamline, fin-feet, exhaust-plume tail
+
+- **Specialty**
+  - chariot-being (cap 1+1) — wheeled-platform creature with horse-vestige reins, charioteer-perch head
 
 ---
 

@@ -37,11 +37,11 @@ Per `CLAUDE.md` and TODO.md line 94:
 
 ## Run order remaining (post-2026-05-11)
 
-**Manmade cluster (10 left):** JEWELRY → CONTAINER → TOOL → APPLIANCE → STATUE → BANNER → TROPHY → ROBOTIC → CAMERA → INSTRUMENTS *(confirmed)*
+**Manmade cluster (9 left):** CONTAINER → TOOL → APPLIANCE → STATUE → BANNER → TROPHY → ROBOTIC → CAMERA → INSTRUMENTS *(confirmed)*
 
 **Phenomena cluster (7):** SHADOW-CAST → BUBBLE → SMOKE → PERFUME → HOLOGRAM → EXPLOSIVE → WEATHER/ATMOSPHERIC
 
-**Roadmap totals:** 34 batches in roadmap (33 firm + INSTRUMENTS confirmed-pending-entries); 17 roadmap done (GAME-PIECE landed). **19 categories committed** (17 roadmap + 2 bonus PLANTS/FUNGI). **18 batches remaining** in roadmap: 9 Manmade + INSTRUMENTS confirmed-pending + 7 Phenomena. INSTRUMENTS reframed from "tentative" to "confirmed batch — entries deferred to future session" this session.
+**Roadmap totals:** 34 batches in roadmap (33 firm + INSTRUMENTS confirmed-pending-entries); 18 roadmap done (JEWELRY landed). **20 categories committed** (18 roadmap + 2 bonus PLANTS/FUNGI). **17 batches remaining** in roadmap: 8 Manmade + INSTRUMENTS confirmed-pending + 7 Phenomena. INSTRUMENTS reframed from "tentative" to "confirmed batch — entries deferred to future session" earlier this session.
 
 ---
 
@@ -93,6 +93,16 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **paper-fortune-teller (cootie-catcher)** → flagged for TOY (re-emergence possible).
 - **tarot-card / Major Arcana** → moved to MYTHICAL CREATURES this session as new `### Arcana / divination / fortune-telling` sub-section (separate commit). User decision: tarot is mystical/archetypal, fits Mythical better than mechanical game-piece.
 
+### From Manmade cluster (JEWELRY deferrals)
+- **talisman-being** — proposed but not picked (slot reserved alongside amulet-being; distinction: talisman attracts luck vs. amulet wards harm).
+- **locket-being, pearl-strand-being, choker-being** — neckwear candidates not picked.
+- **signet-ring-being, gem-encrusted-ring-being** — ring variants not picked (signet flagged for STATUE / heraldic crossover).
+- **hoop-earring-being, stud-earring-being, nose-ring-being, lip-ring-being** — ear/face piercing candidates not picked (earring-being kept as generic per user pick).
+- **bracelet-being, bangle-being, charm-bracelet-being, friendship-bracelet-being, cuff-bracelet-being, anklet-being, armlet-being** — wrist/arm/ankle candidates not picked. (charm-bracelet was carryover from TOY's charm-toy deferral; friendship-bracelet was carryover from THREAD/CLOTH's non-claim.)
+- **diadem-being, circlet-being** — crown-variant candidates not picked (crown + tiara kept).
+- **brooch-being, cufflink-being, body-chain-being** — body/decorative candidates not picked.
+- **coin-being (generic), gold-coin-being** — coin variant candidates not picked this batch; user picked split-coin framing → ancient-coin-being kept now; generic / gold-coin entries deferred to a future session.
+
 ### From URBAN drop fallout
 URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTURE: skyscraper-being, ruin/abandoned-building-being, intersection/crossroads-being. **Other URBAN candidates** proposed but never landed: alleyway, highway-overpass, subway-tunnel, subway-station, apartment-block, rooftop, sidewalk-pavement, manhole-cover, streetlamp, neon-sign, traffic-jam, graffiti (latter went to INK), light-pollution-glow.
 
@@ -110,7 +120,7 @@ URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTU
 | Bio (PLANTS, FUNGI, PREHISTORIC, MICROORGANISMS, EGG, SHELL, SYMBIOSIS) | DONE 5/5 | PLANTS + FUNGI predate the 35-batch roadmap (bonus categories). |
 | Habitat | DONE 4/4 | RIVER dropped, URBAN dropped (entries → ARCHITECTURE). |
 | Materials | DONE 4/4 | All 4 batches landed clean. |
-| Manmade | IN PROGRESS 4/14 | ARCHITECTURE + VEHICLE + TOY + GAME-PIECE done. INSTRUMENTS 14th slot confirmed (entries pending future session). Next: JEWELRY. |
+| Manmade | IN PROGRESS 5/14 | ARCHITECTURE + VEHICLE + TOY + GAME-PIECE + JEWELRY done. INSTRUMENTS 14th slot confirmed (entries pending future session). Next: CONTAINER. |
 | Phenomena | NOT STARTED 0/7 | Receives multiple deferrals from earlier clusters. |
 
 ---
@@ -118,4 +128,4 @@ URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTU
 ## Session log
 
 - **2026-05-11 session** — PR #41 (merged). 22 commits: 7 new categories (CAVE/UNDERGROUND, GLACIER, HOT-SPRING, ISLAND, CLAY/CERAMIC, THREAD/CLOTH, INK/PIGMENT, METAL-OBJECT, ARCHITECTURE, VEHICLE — net 10 added incl. URBAN-then-dropped) plus framing/cleanup commits. RIVER and URBAN clusters dropped. Duraludon precedent established. Multi-silhouette format introduced.
-- **2026-05-12 session** — TOY landed as 18th committed category (12 entries across 6 sub-groups: plush/dolls, action figures, vehicles-as-toys, construction toys, mechanical/wind-up, classic/misc). INSTRUMENTS placeholder added at end of Manmade as tentative 14th slot, then confirmed-as-batch later same session (entries deferred to future session). GAME-PIECE landed as 19th committed category (13 entries across 5 sub-groups: chess sub-cluster, cards/suits, dice, tokens, specialty). Tarot Major Arcana picks moved to MYTHICAL CREATURES → new Arcana / divination / fortune-telling sub-section (separate commit, 5 entries). Counters now: **19 committed / 18 remaining**.
+- **2026-05-12 session** — TOY landed as 18th committed category (12 entries across 6 sub-groups: plush/dolls, action figures, vehicles-as-toys, construction toys, mechanical/wind-up, classic/misc). INSTRUMENTS placeholder added at end of Manmade as tentative 14th slot, then confirmed-as-batch later same session (entries deferred to future session). GAME-PIECE landed as 19th committed category (13 entries across 5 sub-groups: chess sub-cluster, cards/suits, dice, tokens, specialty). Tarot Major Arcana picks moved to MYTHICAL CREATURES → new Arcana / divination / fortune-telling sub-section (separate commit, 5 entries). JEWELRY landed as 20th committed category (8 entries across 5 sub-groups: neckwear pendant+amulet, finger/hand ring+wedding-band, generic earring, crown+tiara, ancient-coin). Resolves METAL-OBJECT's coin-deferral + TOY's charm-toy-deferral (charm-bracelet logged in deferrals for future densification). Counters now: **20 committed / 17 remaining**.

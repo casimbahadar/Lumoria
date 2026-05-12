@@ -1146,6 +1146,30 @@ Game-piece object-as-being — playable component of a board / card / dice / tok
 
 ---
 
+## JEWELRY
+
+Worn adornment object-as-being — wearable jewelry given creature-scale. Distinct from METAL-OBJECT (the *substance*: bullion, industrial-chain, rust — `chain-being` there is structural-link; jewelry-chain compositions live here), from CRYSTALLINE / GEM (raw-gem-as-being: ruby, sapphire, diamond, pearl, etc. are mineral-creatures there; here gems are *set into* jewelry compositions, not duplicated as standalone beings), from THREAD / CLOTH (textile substance; jewelry-cord lives here as worn-form), from STATUE (freestanding-decorative vs. wearable), from TROPHY upcoming (chest-worn medal = JEWELRY, freestanding cup-trophy = TROPHY — convention), and from BANNER upcoming (sash with emblem judged BANNER if heraldic, JEWELRY if primarily ornament). Cross-section notes: ancient-coin-being arrives here per METAL-OBJECT's coin-deferral (currency-coin specifically; generic / gold-coin variants deferred to a future session as split entries). Talisman / locket / friendship-bracelet / charm-bracelet / hoop-earring / stud-earring / nose-ring / lip-ring / brooch / cufflink / body-chain / signet-ring / bangle / cuff-bracelet / anklet / armlet / diadem / circlet / choker / pearl-strand / gem-encrusted-ring all proposed but not picked this batch — future-session candidates. *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Neckwear**
+  - pendant-being (cap 1+1) — single hanging-ornament on cord/chain
+  - amulet-being (cap 1+1) — protective magical pendant with mystical-runes *(distinct from talisman: amulet wards harm; talisman not picked this batch, slot reserved)*
+
+- **Finger / hand**
+  - ring-being (cap 1+1) — generic band-ring
+  - wedding-band / engagement-ring-being (cap 1+1) — paired-ring concept; matching companion vibe
+
+- **Ear**
+  - earring-being (cap 1+1) — generic ear-adornment
+
+- **Crown / head**
+  - crown-being (cap 1+1) — royal crown
+  - tiara-being (cap 1+1) — front-only smaller crown
+
+- **Currency / coin**
+  - ancient-coin-being (cap 1+1) — antique minted-emperor / wax-pressed currency *(carry-over from METAL-OBJECT's coin → JEWELRY deferral; generic / gold-coin variants split off to future batch)*
+
+---
+
 ## INSTRUMENTS *(confirmed batch — entries pending future session)*
 
 Musical-instrument object-as-being — sound-producing apparatus given creature-scale. Cluster confirmed in roadmap; entries deferred to a future session. Candidate-list (subject to letter-picks at write-time): drum, xylophone, piano, violin / stringed-bow, trumpet / brass, flute / wind, accordion, harp, tambourine, bell, gong (music-box already placed under TOY). Cross-section notes: whistle / tuning-fork are TOOL-adjacent; church-bell / temple-gong might overlap ARCHITECTURE. *Creature framing per Duraludon precedent. No entries committed yet — slot reserved for a future brainstorm session.*

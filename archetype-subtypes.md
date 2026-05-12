@@ -1170,6 +1170,31 @@ Worn adornment object-as-being — wearable jewelry given creature-scale. Distin
 
 ---
 
+## CONTAINER
+
+Vessel object-as-being — storage / carry / display container given creature-scale. Distinct from CLAY/CERAMIC (the *substance*: `earthenware-pot-being` there is fired-clay-as-creature; here jar/urn/amphora are *vessel-functional-form* in any material), from METAL-OBJECT (substance vs. shape), from THREAD/CLOTH (textile substance; cloth-bags / sacks would live here as worn / carried vessels if picked later), from TOOL upcoming (implement vs. storage), from APPLIANCE upcoming (active machine vs. passive storage), from VEHICLE (cargo-ship's "container-stack shoulders" descriptor implicitly covers shipping-container; shipping-container itself not picked this batch), and from STATUE / JEWELRY (decorative-display vs. functional-storage). Cross-section notes: paint-can lands here per INK/PIGMENT deferral; ink-pot / inkwell from same deferral not picked this batch (deferred to a future CONTAINER densification session). Coffin included here despite hearse being dropped from VEHICLE as too-dark — convention diverged at user's call (coffin = funerary vessel for body, kept here as parallel to urn = funerary vessel for ashes). Cauldron flagged for MYTHICAL CREATURES (witch-cauldron iconography); shipping-container declined this batch; pot / vase deferred as distinct future entries; ink-pot / inkwell from INK/PIGMENT carryover deferred to future densification. *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Pottery / ceramic vessels**
+  - jar-being (cap 1+1) — wide-mouth lidded storage jar
+  - urn-being (cap 1+1) — funerary / cremation urn, ash-bearer *(parallel to coffin below: urn = ashes, coffin = body)*
+  - amphora-being (cap 1+1) — ancient Greek two-handled tall jar, pointed-bottom for ground-set
+
+- **Drinkware**
+  - goblet / chalice-being (cap 1+1) — stemmed ceremonial cup
+  - wine-glass-being (cap 1+1) — long-stem glass cup
+
+- **Boxes / chests**
+  - treasure-chest-being (cap 1+1) — locked lidded chest, gilt-trim hinges
+  - coffin-being (cap 1+1) — funerary chest, vessel-for-the-body *(included despite hearse-drop precedent in VEHICLE; user retained coffin as funerary parallel to urn)*
+
+- **Bags / soft containers**
+  - suitcase / luggage-being (cap 1+1) — hard-shell travel case, handle-grip + wheel-feet
+
+- **Industrial / utility**
+  - paint-can-being (cap 1+1) — cylindrical lid-removable can, paint-drip flank *(carry-over from INK/PIGMENT deferral)*
+
+---
+
 ## INSTRUMENTS *(confirmed batch — entries pending future session)*
 
 Musical-instrument object-as-being — sound-producing apparatus given creature-scale. Cluster confirmed in roadmap; entries deferred to a future session. Candidate-list (subject to letter-picks at write-time): drum, xylophone, piano, violin / stringed-bow, trumpet / brass, flute / wind, accordion, harp, tambourine, bell, gong (music-box already placed under TOY). Cross-section notes: whistle / tuning-fork are TOOL-adjacent; church-bell / temple-gong might overlap ARCHITECTURE. *Creature framing per Duraludon precedent. No entries committed yet — slot reserved for a future brainstorm session.*

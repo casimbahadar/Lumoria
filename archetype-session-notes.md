@@ -37,11 +37,11 @@ Per `CLAUDE.md` and TODO.md line 94:
 
 ## Run order remaining (post-2026-05-11)
 
-**Manmade cluster (11 left):** GAME-PIECE → JEWELRY → CONTAINER → TOOL → APPLIANCE → STATUE → BANNER → TROPHY → ROBOTIC → CAMERA → INSTRUMENTS *(tentative)*
+**Manmade cluster (10 left):** JEWELRY → CONTAINER → TOOL → APPLIANCE → STATUE → BANNER → TROPHY → ROBOTIC → CAMERA → INSTRUMENTS *(confirmed)*
 
 **Phenomena cluster (7):** SHADOW-CAST → BUBBLE → SMOKE → PERFUME → HOLOGRAM → EXPLOSIVE → WEATHER/ATMOSPHERIC
 
-**Roadmap totals:** 34 batches in roadmap (33 + 1 INSTRUMENTS tentative); 16 roadmap done (TOY landed). **18 categories committed** (16 roadmap + 2 bonus PLANTS/FUNGI). **19 batches remaining** in roadmap: 10 Manmade + INSTRUMENTS tentative + 7 Phenomena.
+**Roadmap totals:** 34 batches in roadmap (33 firm + INSTRUMENTS confirmed-pending-entries); 17 roadmap done (GAME-PIECE landed). **19 categories committed** (17 roadmap + 2 bonus PLANTS/FUNGI). **18 batches remaining** in roadmap: 9 Manmade + INSTRUMENTS confirmed-pending + 7 Phenomena. INSTRUMENTS reframed from "tentative" to "confirmed batch — entries deferred to future session" this session.
 
 ---
 
@@ -83,6 +83,16 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **bouncy-ball, pinwheel** — classic/misc candidates not picked.
 - **balloon-animal, shadow-puppet, charm-toy, board-game-piece, slingshot, musical-toy / xylophone / toy-drum** — flagged as adjacent and deferred to their respective clusters (BUBBLE, SHADOW-CAST, JEWELRY, GAME-PIECE, TOOL, INSTRUMENTS-or-TOOL).
 
+### From Manmade cluster (GAME-PIECE deferrals)
+- **checkers-piece, go-stone, shogi-piece, backgammon-checker, meeple, generic-game-token** — board-piece candidates proposed but not picked.
+- **trading-card-being** — proposed but not picked (collectible card vs. playing-card distinction; user kept only 52-deck playing-card + 4 individual suits).
+- **six-sided-die-being, coin-flip-being** — proposed but not picked (polyhedral-die covers the dice slot; coin-flip dropped since currency-coin lives in JEWELRY).
+- **poker-chip, mahjong-tile, domino** — token candidates not picked.
+- **game-board, spinner, generic-pawn, hourglass-timer, jenga-block, yahtzee-cup, bingo-ball, game-controller** — track/marker/specialty candidates not picked.
+- **slot-machine, roulette-wheel, pinball, arcade-cabinet** → flagged for APPLIANCE.
+- **paper-fortune-teller (cootie-catcher)** → flagged for TOY (re-emergence possible).
+- **tarot-card / Major Arcana** → moved to MYTHICAL CREATURES this session as new `### Arcana / divination / fortune-telling` sub-section (separate commit). User decision: tarot is mystical/archetypal, fits Mythical better than mechanical game-piece.
+
 ### From URBAN drop fallout
 URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTURE: skyscraper-being, ruin/abandoned-building-being, intersection/crossroads-being. **Other URBAN candidates** proposed but never landed: alleyway, highway-overpass, subway-tunnel, subway-station, apartment-block, rooftop, sidewalk-pavement, manhole-cover, streetlamp, neon-sign, traffic-jam, graffiti (latter went to INK), light-pollution-glow.
 
@@ -100,7 +110,7 @@ URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTU
 | Bio (PLANTS, FUNGI, PREHISTORIC, MICROORGANISMS, EGG, SHELL, SYMBIOSIS) | DONE 5/5 | PLANTS + FUNGI predate the 35-batch roadmap (bonus categories). |
 | Habitat | DONE 4/4 | RIVER dropped, URBAN dropped (entries → ARCHITECTURE). |
 | Materials | DONE 4/4 | All 4 batches landed clean. |
-| Manmade | IN PROGRESS 3/14 | ARCHITECTURE + VEHICLE + TOY done. INSTRUMENTS placeholder added (14th slot, tentative). Next: GAME-PIECE. |
+| Manmade | IN PROGRESS 4/14 | ARCHITECTURE + VEHICLE + TOY + GAME-PIECE done. INSTRUMENTS 14th slot confirmed (entries pending future session). Next: JEWELRY. |
 | Phenomena | NOT STARTED 0/7 | Receives multiple deferrals from earlier clusters. |
 
 ---
@@ -108,4 +118,4 @@ URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTU
 ## Session log
 
 - **2026-05-11 session** — PR #41 (merged). 22 commits: 7 new categories (CAVE/UNDERGROUND, GLACIER, HOT-SPRING, ISLAND, CLAY/CERAMIC, THREAD/CLOTH, INK/PIGMENT, METAL-OBJECT, ARCHITECTURE, VEHICLE — net 10 added incl. URBAN-then-dropped) plus framing/cleanup commits. RIVER and URBAN clusters dropped. Duraludon precedent established. Multi-silhouette format introduced.
-- **2026-05-12 session** — TOY landed as 18th committed category (12 entries across 6 sub-groups: plush/dolls, action figures, vehicles-as-toys, construction toys, mechanical/wind-up, classic/misc). INSTRUMENTS placeholder added at end of Manmade as tentative 14th slot — user 50/50 on retention. Counters bumped to 18 committed / 19 remaining (incl. INSTRUMENTS).
+- **2026-05-12 session** — TOY landed as 18th committed category (12 entries across 6 sub-groups: plush/dolls, action figures, vehicles-as-toys, construction toys, mechanical/wind-up, classic/misc). INSTRUMENTS placeholder added at end of Manmade as tentative 14th slot, then confirmed-as-batch later same session (entries deferred to future session). GAME-PIECE landed as 19th committed category (13 entries across 5 sub-groups: chess sub-cluster, cards/suits, dice, tokens, specialty). Tarot Major Arcana picks moved to MYTHICAL CREATURES → new Arcana / divination / fortune-telling sub-section (separate commit, 5 entries). Counters now: **19 committed / 18 remaining**.

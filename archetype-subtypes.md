@@ -1116,9 +1116,39 @@ Plaything object-as-being — toy-form silhouette given creature-scale. Distinct
 
 ---
 
-## INSTRUMENTS *(tentative — pending decision)*
+## GAME-PIECE
 
-Musical-instrument object-as-being — sound-producing apparatus given creature-scale. Cluster placeholder; user is 50/50 on whether to retain INSTRUMENTS as a standalone Manmade batch or absorb its candidates into TOY (toy-drum, xylophone) and TOOL (more serious instruments). Candidates to consider if kept: drum, xylophone, piano, violin / stringed-bow, trumpet / brass, flute / wind, accordion, harp, tambourine, bell, gong (music-box is already placed under TOY). Cross-section notes: whistle / tuning-fork are TOOL-adjacent; church-bell / temple-gong might overlap ARCHITECTURE. *Creature framing per Duraludon precedent if kept. No entries committed yet — decision deferred to a future session.*
+Game-piece object-as-being — playable component of a board / card / dice / token game given creature-scale. Distinct from TOY (board-game pieces with formal rules / rank vs. open-ended plaything — marble + jigsaw stayed in TOY; single-puzzle-piece lands here as the fragment form), from JEWELRY (charm worn on body vs. handled-in-game piece; diamond-suit-being flagged for JEWELRY adjacency), from STATUE (display sculpture vs. functional play-piece — chess figures judged GAME-PIECE since they're tournament-rule items), and from TOOL (functional implement vs. play-piece; spade-suit-being flagged for TOOL-shovel adjacency). Cross-section notes: heart-suit-being adjacent to BIO-organ (this is the suit-glyph, not the anatomical heart); club-suit-being adjacent to weapon (no current cluster claims). Tarot-card moved to MYTHICAL CREATURES → new Arcana / divination sub-section (separate commit this session). Coin-flip dropped (currency-coin lives in JEWELRY). Slot-machine / roulette / pinball / arcade-cabinet defer to APPLIANCE. *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Board-game Pieces (Chess sub-cluster)**
+  - chess-king-being (cap 1+1) — crowned-top monarch figure
+  - chess-queen-being (cap 1+1) — multi-pointed crown, regal silhouette
+  - chess-bishop-being (cap 1+1) — mitred peak, slit-face
+  - chess-knight-being (cap 1+1) — horse-head profile, mounted-vestige
+  - chess-rook-being (cap 1+1) — castled tower-crenellation top
+  - chess-pawn-being (cap 1+1) — round-headed peg figure
+
+- **Card Pieces**
+  - playing-card-being (cap 1+1) — 52-deck suited card, pip-face creature
+  - heart-suit-being (cap 1+1) — heart-glyph suit-emblem creature
+  - diamond-suit-being (cap 1+1) — diamond-glyph suit-emblem creature
+  - club-suit-being (cap 1+1) — three-lobed club-glyph suit-emblem creature
+  - spade-suit-being (cap 1+1) — pointed shovel-glyph suit-emblem creature
+
+- **Dice / Random**
+  - polyhedral-die-being (cap 1+1) — multi-face icosahedral D20 / D12 / D8 RPG die
+
+- **Tokens / Counters**
+  - scrabble-tile-being (cap 1+1) — lettered wooden square-tile, point-value corner
+
+- **Specialty**
+  - puzzle-piece-being (cap 1+1) — single interlocking jigsaw-fragment creature
+
+---
+
+## INSTRUMENTS *(confirmed batch — entries pending future session)*
+
+Musical-instrument object-as-being — sound-producing apparatus given creature-scale. Cluster confirmed in roadmap; entries deferred to a future session. Candidate-list (subject to letter-picks at write-time): drum, xylophone, piano, violin / stringed-bow, trumpet / brass, flute / wind, accordion, harp, tambourine, bell, gong (music-box already placed under TOY). Cross-section notes: whistle / tuning-fork are TOOL-adjacent; church-bell / temple-gong might overlap ARCHITECTURE. *Creature framing per Duraludon precedent. No entries committed yet — slot reserved for a future brainstorm session.*
 
 ---
 

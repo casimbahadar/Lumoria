@@ -37,11 +37,11 @@ Per `CLAUDE.md` and TODO.md line 94:
 
 ## Run order remaining (post-2026-05-11)
 
-**Manmade cluster (11 left):** TOY → GAME-PIECE → JEWELRY → CONTAINER → TOOL → APPLIANCE → STATUE → BANNER → TROPHY → ROBOTIC → CAMERA
+**Manmade cluster (11 left):** GAME-PIECE → JEWELRY → CONTAINER → TOOL → APPLIANCE → STATUE → BANNER → TROPHY → ROBOTIC → CAMERA → INSTRUMENTS *(tentative)*
 
 **Phenomena cluster (7):** SHADOW-CAST → BUBBLE → SMOKE → PERFUME → HOLOGRAM → EXPLOSIVE → WEATHER/ATMOSPHERIC
 
-**Roadmap totals:** 33 batches total (35 − RIVER − URBAN both dropped); 15 roadmap done, 18 remaining. 17 categories committed total (15 roadmap + 2 bonus PLANTS/FUNGI).
+**Roadmap totals:** 34 batches in roadmap (33 + 1 INSTRUMENTS tentative); 16 roadmap done (TOY landed). **18 categories committed** (16 roadmap + 2 bonus PLANTS/FUNGI). **19 batches remaining** in roadmap: 10 Manmade + INSTRUMENTS tentative + 7 Phenomena.
 
 ---
 
@@ -73,6 +73,16 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **bicycle, rowboat / canoe, hot-air balloon, blimp / dirigible, sled / sleigh, hovercraft / hovercar**.
 - **hearse / coffin-on-wheels** — flagged as specialty too dark; dropped.
 
+### From Manmade cluster (TOY deferrals)
+- **toy-car, model-train** — carried over from VEHICLE deferrals; offered in TOY proposal but not picked.
+- **tin-soldier-being, toy-robot-being** — proposed but not picked (toy-robot remains for ROBOTIC).
+- **sock-puppet, ventriloquist-dummy, finger-puppet, porcelain-doll** — plush/doll candidates not picked.
+- **action-figure variants (collectible-figurine, army-men)** — proposed but not picked.
+- **hobby-horse, building-block, interlocking-brick, erector / construction-set** — proposed but not picked.
+- **jack-in-the-box, yo-yo** — wind-up/mechanical candidates not picked.
+- **bouncy-ball, pinwheel** — classic/misc candidates not picked.
+- **balloon-animal, shadow-puppet, charm-toy, board-game-piece, slingshot, musical-toy / xylophone / toy-drum** — flagged as adjacent and deferred to their respective clusters (BUBBLE, SHADOW-CAST, JEWELRY, GAME-PIECE, TOOL, INSTRUMENTS-or-TOOL).
+
 ### From URBAN drop fallout
 URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTURE: skyscraper-being, ruin/abandoned-building-being, intersection/crossroads-being. **Other URBAN candidates** proposed but never landed: alleyway, highway-overpass, subway-tunnel, subway-station, apartment-block, rooftop, sidewalk-pavement, manhole-cover, streetlamp, neon-sign, traffic-jam, graffiti (latter went to INK), light-pollution-glow.
 
@@ -90,7 +100,7 @@ URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTU
 | Bio (PLANTS, FUNGI, PREHISTORIC, MICROORGANISMS, EGG, SHELL, SYMBIOSIS) | DONE 5/5 | PLANTS + FUNGI predate the 35-batch roadmap (bonus categories). |
 | Habitat | DONE 4/4 | RIVER dropped, URBAN dropped (entries → ARCHITECTURE). |
 | Materials | DONE 4/4 | All 4 batches landed clean. |
-| Manmade | IN PROGRESS 2/13 | ARCHITECTURE + VEHICLE done. Next: TOY. |
+| Manmade | IN PROGRESS 3/14 | ARCHITECTURE + VEHICLE + TOY done. INSTRUMENTS placeholder added (14th slot, tentative). Next: GAME-PIECE. |
 | Phenomena | NOT STARTED 0/7 | Receives multiple deferrals from earlier clusters. |
 
 ---
@@ -98,3 +108,4 @@ URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTU
 ## Session log
 
 - **2026-05-11 session** — PR #41 (merged). 22 commits: 7 new categories (CAVE/UNDERGROUND, GLACIER, HOT-SPRING, ISLAND, CLAY/CERAMIC, THREAD/CLOTH, INK/PIGMENT, METAL-OBJECT, ARCHITECTURE, VEHICLE — net 10 added incl. URBAN-then-dropped) plus framing/cleanup commits. RIVER and URBAN clusters dropped. Duraludon precedent established. Multi-silhouette format introduced.
+- **2026-05-12 session** — TOY landed as 18th committed category (12 entries across 6 sub-groups: plush/dolls, action figures, vehicles-as-toys, construction toys, mechanical/wind-up, classic/misc). INSTRUMENTS placeholder added at end of Manmade as tentative 14th slot — user 50/50 on retention. Counters bumped to 18 committed / 19 remaining (incl. INSTRUMENTS).

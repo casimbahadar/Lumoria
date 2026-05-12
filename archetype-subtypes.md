@@ -1116,6 +1116,12 @@ Plaything object-as-being — toy-form silhouette given creature-scale. Distinct
 
 ---
 
+## INSTRUMENTS *(tentative — pending decision)*
+
+Musical-instrument object-as-being — sound-producing apparatus given creature-scale. Cluster placeholder; user is 50/50 on whether to retain INSTRUMENTS as a standalone Manmade batch or absorb its candidates into TOY (toy-drum, xylophone) and TOOL (more serious instruments). Candidates to consider if kept: drum, xylophone, piano, violin / stringed-bow, trumpet / brass, flute / wind, accordion, harp, tambourine, bell, gong (music-box is already placed under TOY). Cross-section notes: whistle / tuning-fork are TOOL-adjacent; church-bell / temple-gong might overlap ARCHITECTURE. *Creature framing per Duraludon precedent if kept. No entries committed yet — decision deferred to a future session.*
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

@@ -1229,6 +1229,46 @@ Functional implement object-as-being — handheld working-tool given creature-sc
 
 ---
 
+## APPLIANCE
+
+Powered / active machine object-as-being — appliance with energy-source and mechanism given creature-scale. Distinct from TOOL (handheld passive implement; drill borderline — hand-drill = TOOL, electric-drill = APPLIANCE per TOOL intro), from CONTAINER (passive storage), from ROBOTIC upcoming (autonomous-agent automaton vs. operated-by-user machine — robot-vacuum borderline; convention: human-operated = APPLIANCE, autonomous-AI = ROBOTIC), from VEHICLE (transport vs. stationary appliance), from ARCHITECTURE (built-in fixtures; elevator borderline — flagged as candidate for either), from CAMERA upcoming (camera is its own batch — split for clarity), and from UNIQUE/ONE-OF-A-KIND (`lantern-creature / lamp-being` already there — generic lamp NOT duplicated here). Cross-section notes: kiln per CLAY/CERAMIC deferral; slot-machine + pinball per GAME-PIECE deferrals (arcade-cabinet + roulette-wheel from same deferral logged as candidates); electric-drill per TOOL distinction. Gaming-console proposed but redirected to TOY-side candidate per user lean (matches whistle redirect from TOOL). Modern computing kept (computer / laptop / smartphone / tablet split as distinct entries) — user "Keep" call diverges from VEHICLE hearse / TOOL firearm drops. Microscope / telescope / thermometer flagged from TOOL as APPLIANCE candidates but NOT picked this batch (logged as candidates). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Kitchen appliances**
+  - refrigerator / fridge-being (cap 1+1) — tall cold-storage cabinet, hum-box silhouette
+  - oven / stove / cooktop-being (cap 1+1) — combined heating-appliance creature, burner-top + oven-cavity body *(user combined-creature pick: oven + stove + cooktop as one entity rather than split)*
+  - microwave-oven-being (cap 1+1) — small box, turntable-belly, beep-voice *(distinct from oven/stove/cooktop above)*
+  - coffee-maker / espresso-machine-being (cap 1+1) — drip-funnel head, carafe-belly, steam-vent
+
+- **Laundry / cleaning**
+  - vacuum-cleaner-being (cap 1+1) — wheeled body with suction-hose proboscis, dust-bag belly
+
+- **HVAC / climate**
+  - air-conditioner-being (cap 1+1) — boxy window-unit or wall-mount, cold-vent mouth
+  - humidifier-being (cap 1+1) — water-tank body, steam-mist exhalation
+
+- **Modern computing**
+  - computer / desktop-being (cap 1+1) — tower + monitor pair, keyboard-feet
+  - laptop-being (cap 1+1) — hinged-clamshell silhouette, screen-face + keyboard-belly
+  - smartphone-being (cap 1+1) — slim glass-front rectangle, touchscreen face
+  - tablet-being (cap 1+1) — larger flat slab, screen-front
+
+- **Gaming / arcade**
+  - slot-machine-being (cap 1+1) — vertical cabinet with reel-display window, lever-arm *(per GAME-PIECE deferral)*
+  - pinball-machine-being (cap 1+1) — angled-bed cabinet with flipper-paddles, bumper-studded playfield *(per GAME-PIECE deferral)*
+
+- **Office / productivity**
+  - copier-being (cap 1+1) — large flatbed with scanning-light, paper-tray feet
+
+- **Industrial / heavy**
+  - kiln-being (cap 1+1) — refractory-brick chamber, fire-mouth, ceramic-glazed flank *(per CLAY/CERAMIC deferral)*
+  - generator-being (cap 1+1) — engine-block body, fuel-tank flank, exhaust-stack tail
+
+- **Personal care / power tools**
+  - hairdryer-being (cap 1+1) — handheld blower-cone, motor-grip body
+  - electric-drill-being (cap 1+1) — pistol-grip motor body, chuck-jaw mouth *(per TOOL hand-drill-vs-electric-drill distinction)*
+
+---
+
 ## INSTRUMENTS *(confirmed batch — entries pending future session)*
 
 Musical-instrument object-as-being — sound-producing apparatus given creature-scale. Cluster confirmed in roadmap; entries deferred to a future session. Candidate-list (subject to letter-picks at write-time): drum, xylophone, piano, violin / stringed-bow, trumpet / brass, flute / wind, accordion, harp, tambourine, bell, gong (music-box already placed under TOY). Cross-section notes: whistle / tuning-fork are TOOL-adjacent; church-bell / temple-gong might overlap ARCHITECTURE. *Creature framing per Duraludon precedent. No entries committed yet — slot reserved for a future brainstorm session.*

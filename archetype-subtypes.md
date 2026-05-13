@@ -1296,6 +1296,26 @@ Commemorative-award object-as-being — competition / achievement prize given cr
 
 ---
 
+## ROBOTIC
+
+Mechanical-automaton object-as-being — autonomous-agent machine given creature-scale, motion + sensors + decision-loop intrinsic to the form. Distinct from APPLIANCE (human-operated machine vs. autonomous-AI agent — robot-vacuum borderline resolved per APPLIANCE intro: human-operated = APPLIANCE, autonomous-AI = ROBOTIC), from TOY (functional/battle automaton vs. play-mechanism toy-robot per TOY intro — toy-robot proposed but NOT picked this batch, logged as candidate), from VEHICLE (transport platform vs. self-directed agent — self-driving-car stays VEHICLE-side per user call since car-being already covers the silhouette), from STATUE (figurative inert sculpture vs. animate machine — robot-statue would still be STATUE), from TOOL (handheld implement vs. autonomous machine), from MYTHICAL CREATURES (golems/constructs already there — mystical-animated = MYTHICAL, mechanical-engineered = ROBOTIC; **cyborg-being judged ROBOTIC-domain** per user call, NOT MYTHICAL/UNIQUE), from VOID/COSMIC/ABSTRACT (**sentient-AI-core-being judged ROBOTIC-domain** per user call rather than abstract-intelligence), and from CAMERA upcoming (sensor-instrument is its own batch; surveillance-bot deferred to CAMERA cross-section call). Cross-section notes: mech/mecha silhouette evokes Gundam-Wing-style piloted combat-frame per user flavor call; battle-bot distinct from mech (mech = large piloted-or-autonomous frame, battle-bot = autonomous combat-drone scale). Candidates logged but not picked: automaton (clockwork-Victorian / da-Vinci flavor), humanoid-robot (mid-tech generic), assistant-bot / butler-robot, factory-arm / industrial-robot-arm, drone (autonomous-aerial), rover (Mars-rover exploration), nanobot-swarm (ROBOTIC-domain confirmed per user). Gaming-console + whistle remain TOY-side candidates (not pulled here). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Humanoid / android**
+  - android-being (cap 1+1) — humanoid-shape robot, near-human passing-or-uncanny silhouette, polished-frame modern flavor
+  - mech / mecha-being (cap 1+1) — large piloted-or-autonomous humanoid combat-frame, exo-suit scale, Gundam-Wing piloted-mecha archetype
+  - cyborg-being (cap 1+1) — part-organic, part-machine hybrid, prosthetic-augmentation flavor *(ROBOTIC-domain per user call)*
+
+- **Companion / domestic**
+  - robot-vacuum-being (cap 1+1) — disc-shaped autonomous floor-cleaner, low-profile puck creature *(per APPLIANCE borderline-resolution)*
+  - companion-bot / pet-robot-being (cap 1+1) — small pet-form robot, quadruped or desk-companion silhouette, affection-display flavor
+
+- **Sci-fi / specialty**
+  - battle-bot / war-machine-being (cap 1+1) — autonomous combat-purpose frame, weapon-mount, armored-shell flavor *(smaller-than-mech scale)*
+  - sentient-AI-core-being (cap 1+1) — disembodied intelligence in central-monolith / server-core form, glowing-core nucleus *(ROBOTIC-domain per user call)*
+  - robo-spider / mechanical-arachnid-being (cap 1+1) — spider-silhouette autonomous bot, multi-leg articulated chassis
+
+---
+
 ## INSTRUMENTS *(confirmed batch — entries pending future session)*
 
 Musical-instrument object-as-being — sound-producing apparatus given creature-scale. Cluster confirmed in roadmap; entries deferred to a future session. Candidate-list (subject to letter-picks at write-time): drum, xylophone, piano, violin / stringed-bow, trumpet / brass, flute / wind, accordion, harp, tambourine, bell, gong (music-box already placed under TOY). Cross-section notes: whistle / tuning-fork are TOOL-adjacent; church-bell / temple-gong might overlap ARCHITECTURE. *Creature framing per Duraludon precedent. No entries committed yet — slot reserved for a future brainstorm session.*

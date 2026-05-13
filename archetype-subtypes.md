@@ -1286,6 +1286,16 @@ Figurative-sculpture object-as-being — freestanding representational sculpture
 
 ---
 
+## TROPHY
+
+Commemorative-award object-as-being — competition / achievement prize given creature-scale. Distinct from JEWELRY (medal convention: ribbon-medal = TROPHY, jewelry-chain-medal = JEWELRY per JEWELRY intro), from STATUE (statuette-trophy borderline — convention: pedestal-base + figure-top = TROPHY; freestanding figurative-only = STATUE), from BANNER (dropped this session), from ARCHITECTURE (mounted-plaque convention: small + portable = TROPHY, large + structural = ARCHITECTURE), and from TOOL (key-to-the-city borderline — ceremonial-key = TROPHY, working-key = TOOL). Cross-section notes: laurel-wreath-being flagged JEWELRY-headwear adjacent but kept here as Olympic-award convention; trophy-cup, blue-ribbon, plaque, olympic-medal-distinct, statuette-trophy, championship-belt, certificate/diploma, ribbon-rosette, prize-pennant, key-to-the-city all proposed but not picked (candidates only). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Awards**
+  - medal-being (cap 1+1) — chest-worn award disc on ribbon, gold/silver/bronze finish
+  - laurel-wreath-being (cap 1+1) — leaf-crown Olympic-style victor's award
+
+---
+
 ## INSTRUMENTS *(confirmed batch — entries pending future session)*
 
 Musical-instrument object-as-being — sound-producing apparatus given creature-scale. Cluster confirmed in roadmap; entries deferred to a future session. Candidate-list (subject to letter-picks at write-time): drum, xylophone, piano, violin / stringed-bow, trumpet / brass, flute / wind, accordion, harp, tambourine, bell, gong (music-box already placed under TOY). Cross-section notes: whistle / tuning-fork are TOOL-adjacent; church-bell / temple-gong might overlap ARCHITECTURE. *Creature framing per Duraludon precedent. No entries committed yet — slot reserved for a future brainstorm session.*

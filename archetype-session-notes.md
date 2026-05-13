@@ -139,7 +139,8 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **arcade-cabinet-being, roulette-wheel-being** — gaming-arcade candidates not picked (slot-machine + pinball-machine kept). These were inherited from GAME-PIECE deferral; partial resolution.
 - **printer-being, typewriter-being** — office candidates not picked (copier kept).
 - **furnace-being, elevator-being** — industrial/heavy candidates not picked (kiln + generator kept; elevator was flagged ARCHITECTURE-borderline).
-- **microscope-being, telescope-being, thermometer-being** — scientific-instrument candidates inherited from TOOL flag; not picked this batch.
+- **microscope-being, telescope-being** — scientific-instrument candidates inherited from TOOL flag; not picked in APPLIANCE batch. **Now reframed as CAMERA-side candidates** per CAMERA intro's lens-mechanism domain-claim (2026-05-13 session).
+- **thermometer-being** — scientific-instrument candidate inherited from TOOL flag; not picked in APPLIANCE batch. **Landed in TOOL retroactively** via separate commit on 2026-05-13 session per CAMERA cross-section redirect (measurement-instrument without lens-mechanism, doesn't fit CAMERA — opens new `**Measurement / precision**` sub-group in TOOL).
 - **electric-shaver-being, chainsaw-being** — personal-care / power-tool candidates not picked (hairdryer + electric-drill kept).
 
 ### From Manmade cluster (STATUE deferrals)

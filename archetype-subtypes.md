@@ -1227,6 +1227,9 @@ Functional implement object-as-being — handheld working-tool given creature-sc
 - **Sound / signaling**
   - tuning-fork-being (cap 1+1) — two-prong pitch-resonator *(per INSTRUMENTS placeholder note; whistle logged as TOY-side candidate per user call)*
 
+- **Measurement / precision**
+  - thermometer-being (cap 1+1) — temperature-measurement instrument, mercury-bulb-and-stem or digital-readout silhouette *(per CAMERA cross-section redirect this session — measurement-instrument without lens-mechanism, doesn't fit CAMERA's optical-apparatus definition; opens sub-group for future ruler / drawing-compass / hourglass candidates inherited from TOOL deferrals)*
+
 ---
 
 ## APPLIANCE

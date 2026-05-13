@@ -1319,6 +1319,27 @@ Mechanical-automaton object-as-being — autonomous-agent machine given creature
 
 ---
 
+## CAMERA
+
+Lens-and-image-capture object-as-being — optical-apparatus given creature-scale, lens + shutter + recording-or-observation mechanism intrinsic to the form. Distinct from APPLIANCE (split for clarity per APPLIANCE intro — APPLIANCE handles general-electronics; smartphone-camera implicitly covered by APPLIANCE's smartphone-being, no duplicate here), from ROBOTIC (autonomous-agent vs. lens-instrument — surveillance-bot CAMERA-domain confirmed per ROBOTIC deferral resolution but NOT picked this batch, logged as candidate), from TOOL (precision-implement vs. optical-apparatus — magnifying-glass + binoculars land here per **lens-mechanism reframing** of TOOL/APPLIANCE-deferred optical-instrument candidates; **thermometer redirected to TOOL-side per user call — landed in TOOL this session via separate commit** (measurement-instrument without lens-mechanism, doesn't fit CAMERA)), from STATUE (figurative-sculpture vs. functional-apparatus), from HOLOGRAM upcoming (projected-light-image is its own Phenomena batch — CAMERA captures, HOLOGRAM projects), and from VEHICLE (periscope CAMERA-domain confirmed per user call rather than submarine-component, but not picked this batch). Cross-section notes: optical-instruments (telescope / microscope / magnifying-glass / binoculars / periscope) take CAMERA as their canonical home per user call (lens-mechanism reframing — image-capture *and* lens-based-observation both qualify under CAMERA's apparatus definition); photo-booth CAMERA-domain confirmed but not picked. Candidates logged but not picked: polaroid / instant-camera, disposable-camera, bellows / large-format-camera, point-and-shoot / compact-camera, broadcast / TV-news-camera, CCTV / surveillance-camera, surveillance-bot (per ROBOTIC deferral), trail-cam / wildlife-camera, telescope, microscope, periscope, daguerreotype / antique-camera, photo-booth, pinhole-camera, spy-cam / hidden-camera. *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Photographic cameras**
+  - camera-being (cap 1+1) — generic modern still-camera, body + lens silhouette, viewfinder + shutter-release flavor
+  - DSLR / SLR-being (cap 1+1) — professional reflex-mirror camera, prominent-lens + grip + viewfinder-prism roof
+
+- **Cinematic / video**
+  - movie-camera / film-camera-being (cap 1+1) — cinema-camera with reel-housings, follow-focus + lens-turret flavor
+  - camcorder / video-camera-being (cap 1+1) — handheld consumer-form, fold-out screen + tape/cartridge-belly flavor
+
+- **Surveillance / observation**
+  - dashcam / bodycam-being (cap 1+1) — wearable / mounted small-format camera, clip-on or suction-cup form
+
+- **Optical instruments**
+  - binoculars-being (cap 1+1) — paired-lens viewing instrument, two-barrel symmetric body with center-focus bridge
+  - magnifying-glass-being (cap 1+1) — single-lens-on-handle, classic detective-flavor *(per TOOL deferral, reframed as CAMERA-domain via lens-mechanism)*
+
+---
+
 ## INSTRUMENTS *(confirmed batch — entries pending future session)*
 
 Musical-instrument object-as-being — sound-producing apparatus given creature-scale. Cluster confirmed in roadmap; entries deferred to a future session. Candidate-list (subject to letter-picks at write-time): drum, xylophone, piano, violin / stringed-bow, trumpet / brass, flute / wind, accordion, harp, tambourine, bell, gong (music-box already placed under TOY). Cross-section notes: whistle / tuning-fork are TOOL-adjacent; church-bell / temple-gong might overlap ARCHITECTURE. *Creature framing per Duraludon precedent. No entries committed yet — slot reserved for a future brainstorm session.*

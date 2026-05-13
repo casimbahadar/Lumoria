@@ -1086,6 +1086,222 @@ Transport-mechanism as walking / rolling / flying creature — vehicle silhouett
 
 ---
 
+## TOY
+
+Plaything object-as-being — toy-form silhouette given creature-scale. Distinct from STATUE (decorative figurative sculpture; small figurines borderline — convention: posable/play-intended = TOY, display-only = STATUE), from ROBOTIC (functional/battle automaton vs. play-mechanism toy-robot), from JEWELRY (worn adornment vs. handheld plaything; friendship-charm borderline), from VEHICLE (actual transport vs. miniaturized play-form), and from CLAY/CERAMIC (the substance) — porcelain-doll's material sources there but doll-form would live here. Cross-section notes: toy-car and model-train were carried over from VEHICLE deferrals but not picked this batch; balloon / balloon-animal defers to BUBBLE; shadow-puppet defers to SHADOW-CAST; modeling-clay / play-doh stays in CLAY/CERAMIC; tin-soldier and toy-robot proposed but not picked (toy-robot remains for ROBOTIC); charm-toy defers to JEWELRY; board-game / card-game pieces defer to GAME-PIECE; slingshot defers to TOOL; musical-toy / xylophone / toy-drum defer to the tentative INSTRUMENTS cluster (below). *Creature framing per Duraludon precedent. No per-entry silhouettes — visual interpretations open for appearance-design phase.*
+
+- **Plush / Dolls**
+  - teddy-bear-being (cap 1+1) — classic stuffed ursine, stitched-seam body
+  - rag-doll-being (cap 1+1) — fabric humanoid, button-eyes, stitched-mouth
+  - marionette-being (cap 1+1) — string-jointed puppet, cross-bar handle vestige above head
+
+- **Action Figures**
+  - action-figure-being (cap 1+1) — articulated plastic warrior, ball-joint limbs
+
+- **Vehicles-as-Toys**
+  - rocking-horse-being (cap 1+1) — wooden curved-base ride-on horse
+
+- **Construction Toys**
+  - jigsaw-puzzle-being (cap 1+1) — interlocking-piece body, fragmentable anatomy
+
+- **Mechanical / Wind-up**
+  - wind-up-toy-being (cap 1+1) — key-back, ticking-gait creature
+  - spinning-top-being (cap 1+1) — gyroscope-balance pirouette
+  - music-box-being (cap 1+1) — winding-key, pinned-drum, ballerina-spinner
+
+- **Classic / Misc**
+  - kite-being (cap 1+1) — diamond wind-rider, string-tether
+  - marble-being (cap 1+1) — glass-sphere creature (swarm-form natural)
+  - frisbee / flying-disc-being (cap 1+1) — spinning flat disc, hover-glide
+
+---
+
+## GAME-PIECE
+
+Game-piece object-as-being — playable component of a board / card / dice / token game given creature-scale. Distinct from TOY (board-game pieces with formal rules / rank vs. open-ended plaything — marble + jigsaw stayed in TOY; single-puzzle-piece lands here as the fragment form), from JEWELRY (charm worn on body vs. handled-in-game piece; diamond-suit-being flagged for JEWELRY adjacency), from STATUE (display sculpture vs. functional play-piece — chess figures judged GAME-PIECE since they're tournament-rule items), and from TOOL (functional implement vs. play-piece; spade-suit-being flagged for TOOL-shovel adjacency). Cross-section notes: heart-suit-being adjacent to BIO-organ (this is the suit-glyph, not the anatomical heart); club-suit-being adjacent to weapon (no current cluster claims). Tarot-card moved to MYTHICAL CREATURES → new Arcana / divination sub-section (separate commit this session). Coin-flip dropped (currency-coin lives in JEWELRY). Slot-machine / roulette / pinball / arcade-cabinet defer to APPLIANCE. *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Board-game Pieces (Chess sub-cluster)**
+  - chess-king-being (cap 1+1) — crowned-top monarch figure
+  - chess-queen-being (cap 1+1) — multi-pointed crown, regal silhouette
+  - chess-bishop-being (cap 1+1) — mitred peak, slit-face
+  - chess-knight-being (cap 1+1) — horse-head profile, mounted-vestige
+  - chess-rook-being (cap 1+1) — castled tower-crenellation top
+  - chess-pawn-being (cap 1+1) — round-headed peg figure
+
+- **Card Pieces**
+  - playing-card-being (cap 1+1) — 52-deck suited card, pip-face creature
+  - heart-suit-being (cap 1+1) — heart-glyph suit-emblem creature
+  - diamond-suit-being (cap 1+1) — diamond-glyph suit-emblem creature
+  - club-suit-being (cap 1+1) — three-lobed club-glyph suit-emblem creature
+  - spade-suit-being (cap 1+1) — pointed shovel-glyph suit-emblem creature
+
+- **Dice / Random**
+  - polyhedral-die-being (cap 1+1) — multi-face icosahedral D20 / D12 / D8 RPG die
+
+- **Tokens / Counters**
+  - scrabble-tile-being (cap 1+1) — lettered wooden square-tile, point-value corner
+
+- **Specialty**
+  - puzzle-piece-being (cap 1+1) — single interlocking jigsaw-fragment creature
+
+---
+
+## JEWELRY
+
+Worn adornment object-as-being — wearable jewelry given creature-scale. Distinct from METAL-OBJECT (the *substance*: bullion, industrial-chain, rust — `chain-being` there is structural-link; jewelry-chain compositions live here), from CRYSTALLINE / GEM (raw-gem-as-being: ruby, sapphire, diamond, pearl, etc. are mineral-creatures there; here gems are *set into* jewelry compositions, not duplicated as standalone beings), from THREAD / CLOTH (textile substance; jewelry-cord lives here as worn-form), from STATUE (freestanding-decorative vs. wearable), from TROPHY upcoming (chest-worn medal = JEWELRY, freestanding cup-trophy = TROPHY — convention), and from BANNER upcoming (sash with emblem judged BANNER if heraldic, JEWELRY if primarily ornament). Cross-section notes: ancient-coin-being arrives here per METAL-OBJECT's coin-deferral (currency-coin specifically; generic / gold-coin variants deferred to a future session as split entries). Talisman / locket / friendship-bracelet / charm-bracelet / hoop-earring / stud-earring / nose-ring / lip-ring / brooch / cufflink / body-chain / signet-ring / bangle / cuff-bracelet / anklet / armlet / diadem / circlet / choker / pearl-strand / gem-encrusted-ring all proposed but not picked this batch — future-session candidates. *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Neckwear**
+  - pendant-being (cap 1+1) — single hanging-ornament on cord/chain
+  - amulet-being (cap 1+1) — protective magical pendant with mystical-runes *(distinct from talisman: amulet wards harm; talisman not picked this batch, slot reserved)*
+
+- **Finger / hand**
+  - ring-being (cap 1+1) — generic band-ring
+  - wedding-band / engagement-ring-being (cap 1+1) — paired-ring concept; matching companion vibe
+
+- **Ear**
+  - earring-being (cap 1+1) — generic ear-adornment
+
+- **Crown / head**
+  - crown-being (cap 1+1) — royal crown
+  - tiara-being (cap 1+1) — front-only smaller crown
+
+- **Currency / coin**
+  - ancient-coin-being (cap 1+1) — antique minted-emperor / wax-pressed currency *(carry-over from METAL-OBJECT's coin → JEWELRY deferral; generic / gold-coin variants split off to future batch)*
+
+---
+
+## CONTAINER
+
+Vessel object-as-being — storage / carry / display container given creature-scale. Distinct from CLAY/CERAMIC (the *substance*: `earthenware-pot-being` there is fired-clay-as-creature; here jar/urn/amphora are *vessel-functional-form* in any material), from METAL-OBJECT (substance vs. shape), from THREAD/CLOTH (textile substance; cloth-bags / sacks would live here as worn / carried vessels if picked later), from TOOL upcoming (implement vs. storage), from APPLIANCE upcoming (active machine vs. passive storage), from VEHICLE (cargo-ship's "container-stack shoulders" descriptor implicitly covers shipping-container; shipping-container itself not picked this batch), and from STATUE / JEWELRY (decorative-display vs. functional-storage). Cross-section notes: paint-can lands here per INK/PIGMENT deferral; ink-pot / inkwell from same deferral not picked this batch (deferred to a future CONTAINER densification session). Coffin included here despite hearse being dropped from VEHICLE as too-dark — convention diverged at user's call (coffin = funerary vessel for body, kept here as parallel to urn = funerary vessel for ashes). Cauldron flagged for MYTHICAL CREATURES (witch-cauldron iconography); shipping-container declined this batch; pot / vase deferred as distinct future entries; ink-pot / inkwell from INK/PIGMENT carryover deferred to future densification. *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Pottery / ceramic vessels**
+  - jar-being (cap 1+1) — wide-mouth lidded storage jar
+  - urn-being (cap 1+1) — funerary / cremation urn, ash-bearer *(parallel to coffin below: urn = ashes, coffin = body)*
+  - amphora-being (cap 1+1) — ancient Greek two-handled tall jar, pointed-bottom for ground-set
+
+- **Drinkware**
+  - goblet / chalice-being (cap 1+1) — stemmed ceremonial cup
+  - wine-glass-being (cap 1+1) — long-stem glass cup
+
+- **Boxes / chests**
+  - treasure-chest-being (cap 1+1) — locked lidded chest, gilt-trim hinges
+  - coffin-being (cap 1+1) — funerary chest, vessel-for-the-body *(included despite hearse-drop precedent in VEHICLE; user retained coffin as funerary parallel to urn)*
+
+- **Bags / soft containers**
+  - suitcase / luggage-being (cap 1+1) — hard-shell travel case, handle-grip + wheel-feet
+
+- **Industrial / utility**
+  - paint-can-being (cap 1+1) — cylindrical lid-removable can, paint-drip flank *(carry-over from INK/PIGMENT deferral)*
+
+---
+
+## TOOL
+
+Functional implement object-as-being — handheld working-tool given creature-scale. Distinct from APPLIANCE upcoming (powered/active machine vs. handheld implement — drill borderline: hand-drill = TOOL, electric-drill = APPLIANCE), from CONTAINER (storage-vessel vs. working-implement), from WEAPONS-as-MYTHICAL (mythical-staves/wands stay in MYTHICAL; mundane working/combat tools live here), from JEWELRY (worn-ornament vs. used-implement), and from INSTRUMENTS upcoming (sound-producing artifacts; tuning-fork claimed here as pitch-precision tool; whistle redirected to TOY-side as a possible-future candidate per user call). Cross-section notes: weapons + keys arrive per METAL-OBJECT deferral (firearm / gun proposed but dropped as too-modern/dark, consistent with VEHICLE hearse-drop call); net per THREAD/CLOTH deferral NOT picked this batch (logged as candidate); pen / pencil / paintbrush / printer-ink-cartridge from INK/PIGMENT deferral NOT picked this batch (only quill kept; rest logged as candidates); slingshot per TOY deferral NOT picked (logged as candidate); hourglass per GAME-PIECE deferral NOT picked (logged as candidate); shovel/spade-as-TOOL flagged from GAME-PIECE NOT picked (logged as candidate). *Note: "candidate" framing means tracked-for-possible-future-pick, no commitment that an entry will ever land.* *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Hand tools / construction**
+  - hammer-being (cap 1+1) — claw-hammer, head-and-shaft silhouette
+  - saw-being (cap 1+1) — handsaw with teeth-line edge
+  - pickaxe-being (cap 1+1) — pointed-head mining tool
+  - axe-being (cap 1+1) — splitting/chopping head, wedge-blade
+
+- **Cutting tools**
+  - knife-being (cap 1+1) — generic blade (kitchen / utility silhouette); *(dagger covers concealable-weapon variant below)*
+  - scissors-being (cap 1+1) — two-bladed cutter, pivot-joint
+
+- **Weapons**
+  - sword-being (cap 1+1) — straight or curved blade with cross-guard hilt
+  - spear-being (cap 1+1) — pointed-tip pole-arm
+  - bow-and-arrow-being (cap 1+1) — drawn-string projectile pair
+  - dagger-being (cap 1+1) — short concealable blade *(distinct from knife-being)*
+
+- **Writing / drawing implements**
+  - quill-being (cap 1+1) — feather-tip ink stylus *(per INK/PIGMENT pen-deferral; only writing implement picked this batch — pen / pencil / paintbrush / printer-ink-cartridge logged as candidates)*
+
+- **Keys / locks**
+  - key / padlock-being (cap 1+1) — paired-concept entry, key + lock as companion-pair (matching vibe per JEWELRY's wedding-band/engagement-ring precedent) *(per METAL-OBJECT key-deferral)*
+
+- **Fishing / hunting**
+  - harpoon-being (cap 1+1) — barbed throwing-spear with line-attachment *(distinct from spear-being by line + barb)*
+
+- **Sound / signaling**
+  - tuning-fork-being (cap 1+1) — two-prong pitch-resonator *(per INSTRUMENTS placeholder note; whistle logged as TOY-side candidate per user call)*
+
+---
+
+## APPLIANCE
+
+Powered / active machine object-as-being — appliance with energy-source and mechanism given creature-scale. Distinct from TOOL (handheld passive implement; drill borderline — hand-drill = TOOL, electric-drill = APPLIANCE per TOOL intro), from CONTAINER (passive storage), from ROBOTIC upcoming (autonomous-agent automaton vs. operated-by-user machine — robot-vacuum borderline; convention: human-operated = APPLIANCE, autonomous-AI = ROBOTIC), from VEHICLE (transport vs. stationary appliance), from ARCHITECTURE (built-in fixtures; elevator borderline — flagged as candidate for either), from CAMERA upcoming (camera is its own batch — split for clarity), and from UNIQUE/ONE-OF-A-KIND (`lantern-creature / lamp-being` already there — generic lamp NOT duplicated here). Cross-section notes: kiln per CLAY/CERAMIC deferral; slot-machine + pinball per GAME-PIECE deferrals (arcade-cabinet + roulette-wheel from same deferral logged as candidates); electric-drill per TOOL distinction. Gaming-console proposed but redirected to TOY-side candidate per user lean (matches whistle redirect from TOOL). Modern computing kept (computer / laptop / smartphone / tablet split as distinct entries) — user "Keep" call diverges from VEHICLE hearse / TOOL firearm drops. Microscope / telescope / thermometer flagged from TOOL as APPLIANCE candidates but NOT picked this batch (logged as candidates). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Kitchen appliances**
+  - refrigerator / fridge-being (cap 1+1) — tall cold-storage cabinet, hum-box silhouette
+  - oven / stove / cooktop-being (cap 1+1) — combined heating-appliance creature, burner-top + oven-cavity body *(user combined-creature pick: oven + stove + cooktop as one entity rather than split)*
+  - microwave-oven-being (cap 1+1) — small box, turntable-belly, beep-voice *(distinct from oven/stove/cooktop above)*
+  - coffee-maker / espresso-machine-being (cap 1+1) — drip-funnel head, carafe-belly, steam-vent
+
+- **Laundry / cleaning**
+  - vacuum-cleaner-being (cap 1+1) — wheeled body with suction-hose proboscis, dust-bag belly
+
+- **HVAC / climate**
+  - air-conditioner-being (cap 1+1) — boxy window-unit or wall-mount, cold-vent mouth
+  - humidifier-being (cap 1+1) — water-tank body, steam-mist exhalation
+
+- **Modern computing**
+  - computer / desktop-being (cap 1+1) — tower + monitor pair, keyboard-feet
+  - laptop-being (cap 1+1) — hinged-clamshell silhouette, screen-face + keyboard-belly
+  - smartphone-being (cap 1+1) — slim glass-front rectangle, touchscreen face
+  - tablet-being (cap 1+1) — larger flat slab, screen-front
+
+- **Gaming / arcade**
+  - slot-machine-being (cap 1+1) — vertical cabinet with reel-display window, lever-arm *(per GAME-PIECE deferral)*
+  - pinball-machine-being (cap 1+1) — angled-bed cabinet with flipper-paddles, bumper-studded playfield *(per GAME-PIECE deferral)*
+
+- **Office / productivity**
+  - copier-being (cap 1+1) — large flatbed with scanning-light, paper-tray feet
+
+- **Industrial / heavy**
+  - kiln-being (cap 1+1) — refractory-brick chamber, fire-mouth, ceramic-glazed flank *(per CLAY/CERAMIC deferral)*
+  - generator-being (cap 1+1) — engine-block body, fuel-tank flank, exhaust-stack tail
+
+- **Personal care / power tools**
+  - hairdryer-being (cap 1+1) — handheld blower-cone, motor-grip body
+  - electric-drill-being (cap 1+1) — pistol-grip motor body, chuck-jaw mouth *(per TOOL hand-drill-vs-electric-drill distinction)*
+
+---
+
+## STATUE
+
+Figurative-sculpture object-as-being — freestanding representational sculpture given creature-scale (a statue *of* something, embodied as a creature). Distinct from CLAY/CERAMIC (substance; figurines/warriors land here per CLAY/CERAMIC deferral), from METAL-OBJECT (substance; metal-statues land here per METAL-OBJECT deferral), from ARCHITECTURE (built-structure vs. figurative-sculpture), from TOY (posable/play-figurine — bobblehead/nutcracker borderline; convention: display-only = STATUE), from GAME-PIECE (chess-figures stayed GAME-PIECE per tournament-rule criterion), from JEWELRY (wearable vs. freestanding), from CRYSTALLINE/GEM (`rock-monolith / standing-stone` lives there — non-figurative monolith excluded here), and from MYTHICAL CREATURES (frozen-sculpture vs. animate-being — gargoyle / weeping-angel / sphinx-statue convention confirmed STATUE if presented as inert sculpture-being, per user call). Cross-section notes: terracotta-warrior arrives per CLAY/CERAMIC's figurines/warriors deferral; metal-statues per METAL-OBJECT deferral are claimed conceptually here but no specific metal-statue entry picked this batch (bronze-horseman flagged but not picked, equestrian-statue covers the concept generically). Atlas-being proposed but redirected to MYTHICAL-side candidate per user call (titan-form fits MYTHICAL roster). Abstract-sculpture proposed but dropped (non-figurative; doesn't fit STATUE's representational definition). Sphinx-statue, gargoyle-statue, weeping-angel-statue, moai-easter-island convention confirmed STATUE-domain if/when added (user calls for sub-decisions 1, 2, 5). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Classical / Renaissance**
+  - david-being (cap 1+1) — Michelangelo iconic marble nude, sling-bearing youth, contrapposto stance
+  - equestrian-statue-being (cap 1+1) — rider-on-horse monumental sculpture, rearing or striding pose *(generic-form covers bronze-horseman and similar iconic rider statues)*
+
+- **Iconic monuments**
+  - statue-of-liberty-being (cap 1+1) — torch-bearing colossus, crown-spiked head, tablet in opposite arm
+  - terracotta-warrior-being (cap 1+1) — clay-fired soldier figure with armor + spear, mass-produced ranked-formation flavor *(per CLAY/CERAMIC deferral)*
+
+- **Garden / decorative**
+  - garden-cherub-being (cap 1+1) — small winged-baby figure, stone/concrete garden ornament
+
+---
+
+## TROPHY
+
+Commemorative-award object-as-being — competition / achievement prize given creature-scale. Distinct from JEWELRY (medal convention: ribbon-medal = TROPHY, jewelry-chain-medal = JEWELRY per JEWELRY intro), from STATUE (statuette-trophy borderline — convention: pedestal-base + figure-top = TROPHY; freestanding figurative-only = STATUE), from BANNER (dropped this session), from ARCHITECTURE (mounted-plaque convention: small + portable = TROPHY, large + structural = ARCHITECTURE), and from TOOL (key-to-the-city borderline — ceremonial-key = TROPHY, working-key = TOOL). Cross-section notes: laurel-wreath-being flagged JEWELRY-headwear adjacent but kept here as Olympic-award convention; trophy-cup, blue-ribbon, plaque, olympic-medal-distinct, statuette-trophy, championship-belt, certificate/diploma, ribbon-rosette, prize-pennant, key-to-the-city all proposed but not picked (candidates only). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Awards**
+  - medal-being (cap 1+1) — chest-worn award disc on ribbon, gold/silver/bronze finish
+  - laurel-wreath-being (cap 1+1) — leaf-crown Olympic-style victor's award
+
+---
+
+## INSTRUMENTS *(confirmed batch — entries pending future session)*
+
+Musical-instrument object-as-being — sound-producing apparatus given creature-scale. Cluster confirmed in roadmap; entries deferred to a future session. Candidate-list (subject to letter-picks at write-time): drum, xylophone, piano, violin / stringed-bow, trumpet / brass, flute / wind, accordion, harp, tambourine, bell, gong (music-box already placed under TOY). Cross-section notes: whistle / tuning-fork are TOOL-adjacent; church-bell / temple-gong might overlap ARCHITECTURE. *Creature framing per Duraludon precedent. No entries committed yet — slot reserved for a future brainstorm session.*
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)
@@ -1219,6 +1435,15 @@ Transport-mechanism as walking / rolling / flying creature — vehicle silhouett
 - **titan** (cap 1+1) — primordial
 - **typhon** (cap 1+1) — primordial storm-titan
 - **lamia** (cap 1+1) — serpent-woman
+
+### Arcana / divination / fortune-telling
+*Western occult / Renaissance-Hermetic divinatory archetypes given creature-form. Tarot Major Arcana iconography is source-material. Sun / Moon / Star Major Arcana intentionally NOT included — `solar-being`, `lunar-being`, `stellar-being` in COSMOLOGICAL/ENERGY already claim those celestial-spirit slots. Death and Devil Major Arcana also skipped to avoid duplication with wraiths/undead and demon/devil entries. Chariot Major Arcana already claimed by VEHICLE `chariot-being`.*
+
+- **fool-arcana-being** (cap 1+1) — wandering jester-figure at cliff-edge with small-dog companion
+- **magician-arcana-being** (cap 1+1) — robed conjuror with infinity-halo, four-suit-tools arranged on altar (wand, cup, sword, pentacle)
+- **high-priestess-arcana-being** (cap 1+1) — moon-crowned veiled-seeress seated between black-and-white pillars
+- **fortune-teller-being** (cap 1+1) — head-scarfed crystal-ball gazer, ringed-fingers spread above the orb
+- **pythia-seer-being** (cap 1+1) — Delphic oracle-priestess seated on tripod-stool over vapor-rift, prophetic trance-state *(distinct from `oracle-dragon` in Dragon-adjacent, which is the dragon-form variant)*
 
 ### Other mythical (cross-cultural)
 - **vampire / nosferatu** (cap 1+1)

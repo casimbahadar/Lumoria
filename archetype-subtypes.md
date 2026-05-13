@@ -1269,6 +1269,23 @@ Powered / active machine object-as-being — appliance with energy-source and me
 
 ---
 
+## STATUE
+
+Figurative-sculpture object-as-being — freestanding representational sculpture given creature-scale (a statue *of* something, embodied as a creature). Distinct from CLAY/CERAMIC (substance; figurines/warriors land here per CLAY/CERAMIC deferral), from METAL-OBJECT (substance; metal-statues land here per METAL-OBJECT deferral), from ARCHITECTURE (built-structure vs. figurative-sculpture), from TOY (posable/play-figurine — bobblehead/nutcracker borderline; convention: display-only = STATUE), from GAME-PIECE (chess-figures stayed GAME-PIECE per tournament-rule criterion), from JEWELRY (wearable vs. freestanding), from CRYSTALLINE/GEM (`rock-monolith / standing-stone` lives there — non-figurative monolith excluded here), and from MYTHICAL CREATURES (frozen-sculpture vs. animate-being — gargoyle / weeping-angel / sphinx-statue convention confirmed STATUE if presented as inert sculpture-being, per user call). Cross-section notes: terracotta-warrior arrives per CLAY/CERAMIC's figurines/warriors deferral; metal-statues per METAL-OBJECT deferral are claimed conceptually here but no specific metal-statue entry picked this batch (bronze-horseman flagged but not picked, equestrian-statue covers the concept generically). Atlas-being proposed but redirected to MYTHICAL-side candidate per user call (titan-form fits MYTHICAL roster). Abstract-sculpture proposed but dropped (non-figurative; doesn't fit STATUE's representational definition). Sphinx-statue, gargoyle-statue, weeping-angel-statue, moai-easter-island convention confirmed STATUE-domain if/when added (user calls for sub-decisions 1, 2, 5). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Classical / Renaissance**
+  - david-being (cap 1+1) — Michelangelo iconic marble nude, sling-bearing youth, contrapposto stance
+  - equestrian-statue-being (cap 1+1) — rider-on-horse monumental sculpture, rearing or striding pose *(generic-form covers bronze-horseman and similar iconic rider statues)*
+
+- **Iconic monuments**
+  - statue-of-liberty-being (cap 1+1) — torch-bearing colossus, crown-spiked head, tablet in opposite arm
+  - terracotta-warrior-being (cap 1+1) — clay-fired soldier figure with armor + spear, mass-produced ranked-formation flavor *(per CLAY/CERAMIC deferral)*
+
+- **Garden / decorative**
+  - garden-cherub-being (cap 1+1) — small winged-baby figure, stone/concrete garden ornament
+
+---
+
 ## INSTRUMENTS *(confirmed batch — entries pending future session)*
 
 Musical-instrument object-as-being — sound-producing apparatus given creature-scale. Cluster confirmed in roadmap; entries deferred to a future session. Candidate-list (subject to letter-picks at write-time): drum, xylophone, piano, violin / stringed-bow, trumpet / brass, flute / wind, accordion, harp, tambourine, bell, gong (music-box already placed under TOY). Cross-section notes: whistle / tuning-fork are TOOL-adjacent; church-bell / temple-gong might overlap ARCHITECTURE. *Creature framing per Duraludon precedent. No entries committed yet — slot reserved for a future brainstorm session.*

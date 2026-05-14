@@ -1340,9 +1340,28 @@ Lens-and-image-capture object-as-being — optical-apparatus given creature-scal
 
 ---
 
-## INSTRUMENTS *(confirmed batch — entries pending future session)*
+## INSTRUMENTS
 
-Musical-instrument object-as-being — sound-producing apparatus given creature-scale. Cluster confirmed in roadmap; entries deferred to a future session. Candidate-list (subject to letter-picks at write-time): drum, xylophone, piano, violin / stringed-bow, trumpet / brass, flute / wind, accordion, harp, tambourine, bell, gong (music-box already placed under TOY). Cross-section notes: whistle / tuning-fork are TOOL-adjacent; church-bell / temple-gong might overlap ARCHITECTURE. *Creature framing per Duraludon precedent. No entries committed yet — slot reserved for a future brainstorm session.*
+Musical-instrument object-as-being — sound-producing apparatus given creature-scale, resonator + sound-source + (typically) player-interface intrinsic to the form. Distinct from TOOL (precision-implement; tuning-fork already in TOOL's `**Sound / signaling**` sub-group as pitch-precision tool — NOT duplicated here; whistle remains TOY-side candidate per user call, NOT pulled here), from TOY (play-mechanism vs. performance-apparatus — music-box already in TOY's `**Mechanical / Wind-up**` sub-group as a wind-up plaything, NOT duplicated here; musical-toy / xylophone / toy-drum deferred from TOY now resolved here via the canonical adult-instrument forms drum-being + xylophone-being), from APPLIANCE (electronic-device-as-machine vs. instrument-as-performer; **synthesizer / drum-machine / theremin / DJ-turntable INSTRUMENTS-domain confirmed** per user call — performance-instrument with player-interface = INSTRUMENTS, ambient-electronic-device = APPLIANCE — but none picked this batch, logged as candidates), from ARCHITECTURE (mounted-fixture vs. portable-instrument; **church-bell / temple-gong / pipe-organ INSTRUMENTS-domain confirmed** per user call — performer-instrument framing wins over structural-fixture-bell-tower framing — but none picked this batch, logged as candidates), and from CAMERA (no overlap; lens-vs-sound apparatus). Cross-section notes: music-box + tuning-fork explicitly excluded as already-placed elsewhere; whistle stays TOY-side candidate (not pulled); **electric-guitar implicitly covered by generic guitar-being under 1+1 cap per user call** (no separate electric-guitar split). **Closes Manmade cluster at 13/13.** *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Percussion / drums**
+  - drum-being (cap 1+1) — generic barrel-and-skin percussion, snare/bass/marching variants covered by 1+1 cap
+
+- **Keyboard / mallet / tuned percussion**
+  - piano-being (cap 1+1) — acoustic upright-or-grand keyboard, hammer-strike string-resonator body
+  - xylophone-being (cap 1+1) — wooden-bar mallet instrument, tuned-row silhouette *(resolves TOY's musical-toy deferral via canonical adult-instrument form)*
+
+- **String (bowed + plucked)**
+  - violin / stringed-bow-being (cap 1+1) — bowed-string default, four-string body + bow companion silhouette
+  - harp-being (cap 1+1) — pillar-frame plucked-string array, triangular silhouette
+  - guitar-being (cap 1+1) — generic fretted-string instrument, covers electric / acoustic / classical / bass variants under 1+1 cap *(no separate electric-guitar split per user call)*
+
+- **Wind (brass + woodwind)**
+  - trumpet / brass-being (cap 1+1) — brass valved-horn, flared-bell silhouette
+  - flute / wind-being (cap 1+1) — woodwind transverse or end-blown, tube-and-finger-holes silhouette
+
+- **Folk / world / specialty**
+  - shamisen / koto-being (cap 1+1) — Japanese stringed instrument, shamisen 3-string lute or koto 13-string zither flavor
 
 ---
 

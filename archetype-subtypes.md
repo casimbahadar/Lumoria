@@ -1365,6 +1365,20 @@ Musical-instrument object-as-being — sound-producing apparatus given creature-
 
 ---
 
+## SHADOW-CAST
+
+Cast-shadow phenomenon-as-being — light-blockage silhouette given creature-scale, shadow detached or projected from a light-source-vs-object interaction. Distinct from CAVE/UNDERGROUND (cave-darkness / pitch-being already there — convention per user call: **absolute-dark-environment with NO defining light-source = CAVE pitch, cast-shadow-from-discrete-light-source = SHADOW-CAST**), from MYTHICAL CREATURES (wraith / shade / banshee live in MYTHICAL Wraiths/ghosts/undead; shadow-wisp lives in MYTHICAL Wisps/formless-spirits; slime-viscous / slime-fluid live in MYTHICAL Slimes — convention per user call: **spectral-undead-spirit = MYTHICAL wraith/shade; formless-shadow-flicker-spirit = MYTHICAL shadow-wisp; slimes-of-substance (jelly/fluid) = MYTHICAL slimes; physical-cast-shadow-from-object = SHADOW-CAST; fully-autonomous shape-mimic = MYTHICAL shapeshifter, anchored-to-visual-source shadow-mimic = SHADOW-CAST (doppelganger-shadow lands here per user call); living-puddle-of-shadow = SHADOW-CAST (shadow-pool-being)**), from ELEMENTALS (dark-elemental / shadow-elemental there — convention per user call: **elemental-substance-being = ELEMENTALS, cast-shadow-phenomenon-being = SHADOW-CAST**), from VOID/COSMIC/ABSTRACT (mirror / reflection-being + void-being + duality-being there — convention per user call: **light-reflection = VOID mirror, formless-darkness = VOID void-being, abstract-light/dark = VOID duality, light-blockage-cast-shadow = SHADOW-CAST**), from TOY (shadow-puppet defers here per TOY intro, logged as candidate this batch — not picked), and from HOLOGRAM upcoming (projected-light-image is the inverse — convention per user call: **projected-light-presence = HOLOGRAM, projected-light-absence (shadow-puppet / magic-lantern) = SHADOW-CAST**). Cross-section notes: eclipse-shadows confirmed SHADOW-CAST-domain per user call (not NATURAL-DISASTER overlap, though NATURAL-DISASTER's meteor-strike/supernova are adjacent cosmic events); magic-lantern-projection confirmed SHADOW-CAST-domain (light-blockage mechanism beats HOLOGRAM-projection framing). Candidates logged but not picked: cast-shadow / your-shadow-being, eclipse-shadow / solar-eclipse / lunar-eclipse / penumbra / umbra, tree-shadow / building-shadow / shadow-on-wall / silhouette-against-light, shadow-puppet (per TOY deferral), shadow-play / shadow-theater, magic-lantern-projection, crepuscular-ray / anticrepuscular-ray / earth-shadow-being. Conceptual fear-shadow / dusk-shadow candidates dropped entirely (out-of-scope per user call). *Phenomena cluster — first batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Personal / detached silhouettes**
+  - silhouette-being (cap 1+1) — generic dark-cutout phenomenon, no specific source-object required, ambient negative-space presence
+  - doppelganger-shadow-being (cap 1+1) — shadow detached from its owner, autonomous mimic flavor *(SHADOW-CAST-domain per user call — anchored-to-visual-source distinguishes from fully-detached MYTHICAL shapeshifter)*
+  - shadow-twin / shadow-self-being (cap 1+1) — companion-shadow paired-with-original flavor *(distinct from doppelganger-shadow: this one stays paired with its origin rather than detaching)*
+
+- **Ambient / pooled shadows**
+  - shadow-pool-being (cap 1+1) — living puddle of pure shadow and darkness, sentient dark-liquid form, ground-pooling or wall-creeping flavor *(distinct from MYTHICAL slimes via shadow-not-fluid substance framing; distinct from VOID void-being via puddle-physicality vs. formless-abstract-darkness; distinct from ELEMENTALS dark-elemental via phenomenon-not-element framing)*
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

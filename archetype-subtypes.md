@@ -1379,6 +1379,31 @@ Cast-shadow phenomenon-as-being — light-blockage silhouette given creature-sca
 
 ---
 
+## BUBBLE
+
+Bubble / sphere / foam phenomenon-as-being — thin-film-enclosed gas-pocket or aerated-form given creature-scale, surface-tension or membrane-containment intrinsic to the form. Distinct from TOY (balloon / balloon-animal defer here per TOY intro — landing this batch as the canonical inflatable forms; inflatable-pool-toy + beach-ball land here as hollow-air-filled inflatables, not TOY-side), from MICROORGANISMS (already done — cell / vesicle / blood-cell biological-membrane-bubbles **stay MICROORGANISMS-side per user call**, not duplicated here), from VEHICLE (hot-air-balloon / blimp / dirigible deferred from VEHICLE — convention per user call: **passenger-carrying inflatable = VEHICLE-side, decorative/non-transport inflatable = BUBBLE**), from CRYSTALLINE/GEM (solid-sphere crystal-ball / orb **stays CRYSTALLINE-side per user call** — solid-not-hollow framing; hollow-film-bubble = BUBBLE), from ARCHITECTURE (already done — geodesic-dome / protective-dome **stays ARCHITECTURE-side per user call** as built-rigid-structure; transparent-film-bubble = BUBBLE), from CONTAINER (already done — **snow-globe-being judged BUBBLE-domain per user call** ("snow-globe object looks like a bubble") rather than CONTAINER vessel-with-contents framing), from JEWELRY (pearl-being deferred there as wearable solid-sphere — **stays JEWELRY-side candidate per user call**, not pulled here), from HOLOGRAM upcoming (**force-field / energy-bubble judged BUBBLE-domain per user call** ("force-field over a town can look like a bubble") rather than HOLOGRAM projection or COSMOLOGICAL/ENERGY substance), and from SHADOW-CAST (no overlap; light-blockage vs. gas-enclosure phenomena). Cross-section notes: balloon + balloon-animal arrive per TOY deferral; force-field, snow-globe, terrarium-globe all judged BUBBLE-domain per user calls. *Phenomena cluster — second batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Soap / film / surface-tension bubbles**
+  - soap-bubble-being (cap 1+1) — classic rainbow-iridescent thin-film sphere, surface-tension membrane flavor
+  - dish-soap / detergent-foam-being (cap 1+1) — kitchen-sink suds-cluster, multiple-bubble froth form
+
+- **Inflatables / membrane-enclosed**
+  - balloon-being (cap 1+1) — rubber inflatable, classic party-balloon silhouette *(carryover from TOY deferral)*
+  - balloon-animal-being (cap 1+1) — twisted-balloon sculpture, animal-shape modeled-from-balloons flavor *(carryover from TOY deferral)*
+  - bubble-gum-bubble-being (cap 1+1) — pink chewing-gum stretched into thin-film bubble, breath-blown elastic-skin
+  - beach-ball-being (cap 1+1) — striped inflatable sphere, water-play and beach-decoration flavor
+  - inflatable-pool-toy-being (cap 1+1) — generic floaty (duck / dolphin / ring / swan variants), hollow-air-filled toy-form
+
+- **Liquid / aerated bubbles**
+  - boiling-bubble-being (cap 1+1) — rising bubble pattern in heated liquid, ascending-cluster flavor
+
+- **Encapsulating / containment bubbles**
+  - force-field / energy-bubble-being (cap 1+1) — protective transparent-dome over town or area, sci-fi membrane-containment *(BUBBLE-domain per user call — membrane-containment phenomenon vs. HOLOGRAM projection or COSMOLOGICAL energy-substance)*
+  - snow-globe-being (cap 1+1) — sealed miniature-scene bubble with shake-able snow-flakes inside *(BUBBLE-domain per user call — visually-bubble-like sealed-scene; CONTAINER-borderline resolved as BUBBLE)*
+  - terrarium-globe / biosphere-bubble-being (cap 1+1) — sealed glass-sphere ecosystem, miniature-world contained within
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

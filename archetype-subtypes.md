@@ -1542,6 +1542,16 @@ Anatomical body-part object-as-being — discrete organ or body-part given creat
 
 ---
 
+## MATHEMATICS
+
+Mathematical / geometric concept-as-being — abstract numerical or geometric form given creature-scale, with the concept embodied as a distinct entity. Distinct from CRYSTALLINE / GEM (physical-crystal-cube-shape stays CRYSTALLINE-side; MATHEMATICS cube-being = abstract-geometric-form), from INSTRUMENTS (triangle-being in INSTRUMENTS would be the metal-rod chime instrument candidate — not landed; MATHEMATICS would treat the geometric triangle as a separate-form-concept, not picked this batch either), from VOID / COSMIC / ABSTRACT (abstract concepts there include silence / chaos / order / duality; MATHEMATICS = numerical / geometric specifically), and from a future-potential WRITING / SYMBOLS cluster (alphabet-letter / punctuation / emoji could go there, distinct from mathematical-symbols here). Cross-section notes: number-digit-being, plus-sign / equals-sign / pi-symbol-being all adjacent candidates not picked this batch. *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Geometric / numerical forms**
+  - cube-being (cap 1+1) — six-faced solid geometric form, regular-polyhedron flavor
+  - infinity-symbol-being (cap 1+1) — ∞ glyph creature, looped-figure-eight flavor
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

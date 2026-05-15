@@ -1546,6 +1546,11 @@ Anatomical body-part object-as-being — discrete organ or body-part given creat
   - brain-being (cap 1+1) — convoluted gray-matter organ creature
   - eyeball-being (cap 1+1) — sclera + iris + pupil sphere
   - tongue-being (cap 1+1) — pink muscle-creature, taste-bud surface
+  - lung-being (cap 1+1) — paired breathing organ *(SYMBIOSIS-adjacent paired framing)* *(retro-added 2026-05-15 from brainstorm-batch-3 picks)*
+
+- **Cellular / molecular**
+  - DNA-strand-being (cap 1+1) — double-helix genetic material *(retro-added 2026-05-15 from brainstorm-batch-3 picks; opens sub-group for future cellular/molecular candidates)*
+  - neuron / brain-cell-being (cap 1+1) — single nerve-cell with dendrites and axon *(retro-added 2026-05-15 from brainstorm-batch-3 picks)*
 
 ---
 

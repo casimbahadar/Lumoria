@@ -1227,6 +1227,9 @@ Functional implement object-as-being — handheld working-tool given creature-sc
 - **Sound / signaling**
   - tuning-fork-being (cap 1+1) — two-prong pitch-resonator *(per INSTRUMENTS placeholder note; whistle logged as TOY-side candidate per user call)*
 
+- **Measurement / precision**
+  - thermometer-being (cap 1+1) — temperature-measurement instrument, mercury-bulb-and-stem or digital-readout silhouette *(per CAMERA cross-section redirect this session — measurement-instrument without lens-mechanism, doesn't fit CAMERA's optical-apparatus definition; opens sub-group for future ruler / drawing-compass / hourglass candidates inherited from TOOL deferrals)*
+
 ---
 
 ## APPLIANCE
@@ -1296,9 +1299,222 @@ Commemorative-award object-as-being — competition / achievement prize given cr
 
 ---
 
-## INSTRUMENTS *(confirmed batch — entries pending future session)*
+## ROBOTIC
 
-Musical-instrument object-as-being — sound-producing apparatus given creature-scale. Cluster confirmed in roadmap; entries deferred to a future session. Candidate-list (subject to letter-picks at write-time): drum, xylophone, piano, violin / stringed-bow, trumpet / brass, flute / wind, accordion, harp, tambourine, bell, gong (music-box already placed under TOY). Cross-section notes: whistle / tuning-fork are TOOL-adjacent; church-bell / temple-gong might overlap ARCHITECTURE. *Creature framing per Duraludon precedent. No entries committed yet — slot reserved for a future brainstorm session.*
+Mechanical-automaton object-as-being — autonomous-agent machine given creature-scale, motion + sensors + decision-loop intrinsic to the form. Distinct from APPLIANCE (human-operated machine vs. autonomous-AI agent — robot-vacuum borderline resolved per APPLIANCE intro: human-operated = APPLIANCE, autonomous-AI = ROBOTIC), from TOY (functional/battle automaton vs. play-mechanism toy-robot per TOY intro — toy-robot proposed but NOT picked this batch, logged as candidate), from VEHICLE (transport platform vs. self-directed agent — self-driving-car stays VEHICLE-side per user call since car-being already covers the silhouette), from STATUE (figurative inert sculpture vs. animate machine — robot-statue would still be STATUE), from TOOL (handheld implement vs. autonomous machine), from MYTHICAL CREATURES (golems/constructs already there — mystical-animated = MYTHICAL, mechanical-engineered = ROBOTIC; **cyborg-being judged ROBOTIC-domain** per user call, NOT MYTHICAL/UNIQUE), from VOID/COSMIC/ABSTRACT (**sentient-AI-core-being judged ROBOTIC-domain** per user call rather than abstract-intelligence), and from CAMERA upcoming (sensor-instrument is its own batch; surveillance-bot deferred to CAMERA cross-section call). Cross-section notes: mech/mecha silhouette evokes Gundam-Wing-style piloted combat-frame per user flavor call; battle-bot distinct from mech (mech = large piloted-or-autonomous frame, battle-bot = autonomous combat-drone scale). Candidates logged but not picked: automaton (clockwork-Victorian / da-Vinci flavor), humanoid-robot (mid-tech generic), assistant-bot / butler-robot, factory-arm / industrial-robot-arm, drone (autonomous-aerial), rover (Mars-rover exploration), nanobot-swarm (ROBOTIC-domain confirmed per user). Gaming-console + whistle remain TOY-side candidates (not pulled here). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Humanoid / android**
+  - android-being (cap 1+1) — humanoid-shape robot, near-human passing-or-uncanny silhouette, polished-frame modern flavor
+  - mech / mecha-being (cap 1+1) — large piloted-or-autonomous humanoid combat-frame, exo-suit scale, Gundam-Wing piloted-mecha archetype
+  - cyborg-being (cap 1+1) — part-organic, part-machine hybrid, prosthetic-augmentation flavor *(ROBOTIC-domain per user call)*
+
+- **Companion / domestic**
+  - robot-vacuum-being (cap 1+1) — disc-shaped autonomous floor-cleaner, low-profile puck creature *(per APPLIANCE borderline-resolution)*
+  - companion-bot / pet-robot-being (cap 1+1) — small pet-form robot, quadruped or desk-companion silhouette, affection-display flavor
+
+- **Sci-fi / specialty**
+  - battle-bot / war-machine-being (cap 1+1) — autonomous combat-purpose frame, weapon-mount, armored-shell flavor *(smaller-than-mech scale)*
+  - sentient-AI-core-being (cap 1+1) — disembodied intelligence in central-monolith / server-core form, glowing-core nucleus *(ROBOTIC-domain per user call)*
+  - robo-spider / mechanical-arachnid-being (cap 1+1) — spider-silhouette autonomous bot, multi-leg articulated chassis
+
+---
+
+## CAMERA
+
+Lens-and-image-capture object-as-being — optical-apparatus given creature-scale, lens + shutter + recording-or-observation mechanism intrinsic to the form. Distinct from APPLIANCE (split for clarity per APPLIANCE intro — APPLIANCE handles general-electronics; smartphone-camera implicitly covered by APPLIANCE's smartphone-being, no duplicate here), from ROBOTIC (autonomous-agent vs. lens-instrument — surveillance-bot CAMERA-domain confirmed per ROBOTIC deferral resolution but NOT picked this batch, logged as candidate), from TOOL (precision-implement vs. optical-apparatus — magnifying-glass + binoculars land here per **lens-mechanism reframing** of TOOL/APPLIANCE-deferred optical-instrument candidates; **thermometer redirected to TOOL-side per user call — landed in TOOL this session via separate commit** (measurement-instrument without lens-mechanism, doesn't fit CAMERA)), from STATUE (figurative-sculpture vs. functional-apparatus), from HOLOGRAM upcoming (projected-light-image is its own Phenomena batch — CAMERA captures, HOLOGRAM projects), and from VEHICLE (periscope CAMERA-domain confirmed per user call rather than submarine-component, but not picked this batch). Cross-section notes: optical-instruments (telescope / microscope / magnifying-glass / binoculars / periscope) take CAMERA as their canonical home per user call (lens-mechanism reframing — image-capture *and* lens-based-observation both qualify under CAMERA's apparatus definition); photo-booth CAMERA-domain confirmed but not picked. Candidates logged but not picked: polaroid / instant-camera, disposable-camera, bellows / large-format-camera, point-and-shoot / compact-camera, broadcast / TV-news-camera, CCTV / surveillance-camera, surveillance-bot (per ROBOTIC deferral), trail-cam / wildlife-camera, telescope, microscope, periscope, daguerreotype / antique-camera, photo-booth, pinhole-camera, spy-cam / hidden-camera. *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Photographic cameras**
+  - camera-being (cap 1+1) — generic modern still-camera, body + lens silhouette, viewfinder + shutter-release flavor
+  - DSLR / SLR-being (cap 1+1) — professional reflex-mirror camera, prominent-lens + grip + viewfinder-prism roof
+
+- **Cinematic / video**
+  - movie-camera / film-camera-being (cap 1+1) — cinema-camera with reel-housings, follow-focus + lens-turret flavor
+  - camcorder / video-camera-being (cap 1+1) — handheld consumer-form, fold-out screen + tape/cartridge-belly flavor
+
+- **Surveillance / observation**
+  - dashcam / bodycam-being (cap 1+1) — wearable / mounted small-format camera, clip-on or suction-cup form
+
+- **Optical instruments**
+  - binoculars-being (cap 1+1) — paired-lens viewing instrument, two-barrel symmetric body with center-focus bridge
+  - magnifying-glass-being (cap 1+1) — single-lens-on-handle, classic detective-flavor *(per TOOL deferral, reframed as CAMERA-domain via lens-mechanism)*
+
+---
+
+## INSTRUMENTS
+
+Musical-instrument object-as-being — sound-producing apparatus given creature-scale, resonator + sound-source + (typically) player-interface intrinsic to the form. Distinct from TOOL (precision-implement; tuning-fork already in TOOL's `**Sound / signaling**` sub-group as pitch-precision tool — NOT duplicated here; whistle remains TOY-side candidate per user call, NOT pulled here), from TOY (play-mechanism vs. performance-apparatus — music-box already in TOY's `**Mechanical / Wind-up**` sub-group as a wind-up plaything, NOT duplicated here; musical-toy / xylophone / toy-drum deferred from TOY now resolved here via the canonical adult-instrument forms drum-being + xylophone-being), from APPLIANCE (electronic-device-as-machine vs. instrument-as-performer; **synthesizer / drum-machine / theremin / DJ-turntable INSTRUMENTS-domain confirmed** per user call — performance-instrument with player-interface = INSTRUMENTS, ambient-electronic-device = APPLIANCE — but none picked this batch, logged as candidates), from ARCHITECTURE (mounted-fixture vs. portable-instrument; **church-bell / temple-gong / pipe-organ INSTRUMENTS-domain confirmed** per user call — performer-instrument framing wins over structural-fixture-bell-tower framing — but none picked this batch, logged as candidates), and from CAMERA (no overlap; lens-vs-sound apparatus). Cross-section notes: music-box + tuning-fork explicitly excluded as already-placed elsewhere; whistle stays TOY-side candidate (not pulled); **electric-guitar implicitly covered by generic guitar-being under 1+1 cap per user call** (no separate electric-guitar split). **Closes Manmade cluster at 13/13.** *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Percussion / drums**
+  - drum-being (cap 1+1) — generic barrel-and-skin percussion, snare/bass/marching variants covered by 1+1 cap
+
+- **Keyboard / mallet / tuned percussion**
+  - piano-being (cap 1+1) — acoustic upright-or-grand keyboard, hammer-strike string-resonator body
+  - xylophone-being (cap 1+1) — wooden-bar mallet instrument, tuned-row silhouette *(resolves TOY's musical-toy deferral via canonical adult-instrument form)*
+
+- **String (bowed + plucked)**
+  - violin / stringed-bow-being (cap 1+1) — bowed-string default, four-string body + bow companion silhouette
+  - harp-being (cap 1+1) — pillar-frame plucked-string array, triangular silhouette
+  - guitar-being (cap 1+1) — generic fretted-string instrument, covers electric / acoustic / classical / bass variants under 1+1 cap *(no separate electric-guitar split per user call)*
+
+- **Wind (brass + woodwind)**
+  - trumpet / brass-being (cap 1+1) — brass valved-horn, flared-bell silhouette
+  - flute / wind-being (cap 1+1) — woodwind transverse or end-blown, tube-and-finger-holes silhouette
+
+- **Folk / world / specialty**
+  - shamisen / koto-being (cap 1+1) — Japanese stringed instrument, shamisen 3-string lute or koto 13-string zither flavor
+
+---
+
+## SHADOW-CAST
+
+Cast-shadow phenomenon-as-being — light-blockage silhouette given creature-scale, shadow detached or projected from a light-source-vs-object interaction. Distinct from CAVE/UNDERGROUND (cave-darkness / pitch-being already there — convention per user call: **absolute-dark-environment with NO defining light-source = CAVE pitch, cast-shadow-from-discrete-light-source = SHADOW-CAST**), from MYTHICAL CREATURES (wraith / shade / banshee live in MYTHICAL Wraiths/ghosts/undead; shadow-wisp lives in MYTHICAL Wisps/formless-spirits; slime-viscous / slime-fluid live in MYTHICAL Slimes — convention per user call: **spectral-undead-spirit = MYTHICAL wraith/shade; formless-shadow-flicker-spirit = MYTHICAL shadow-wisp; slimes-of-substance (jelly/fluid) = MYTHICAL slimes; physical-cast-shadow-from-object = SHADOW-CAST; fully-autonomous shape-mimic = MYTHICAL shapeshifter, anchored-to-visual-source shadow-mimic = SHADOW-CAST (doppelganger-shadow lands here per user call); living-puddle-of-shadow = SHADOW-CAST (shadow-pool-being)**), from ELEMENTALS (dark-elemental / shadow-elemental there — convention per user call: **elemental-substance-being = ELEMENTALS, cast-shadow-phenomenon-being = SHADOW-CAST**), from VOID/COSMIC/ABSTRACT (mirror / reflection-being + void-being + duality-being there — convention per user call: **light-reflection = VOID mirror, formless-darkness = VOID void-being, abstract-light/dark = VOID duality, light-blockage-cast-shadow = SHADOW-CAST**), from TOY (shadow-puppet defers here per TOY intro, logged as candidate this batch — not picked), and from HOLOGRAM upcoming (projected-light-image is the inverse — convention per user call: **projected-light-presence = HOLOGRAM, projected-light-absence (shadow-puppet / magic-lantern) = SHADOW-CAST**). Cross-section notes: eclipse-shadows confirmed SHADOW-CAST-domain per user call (not NATURAL-DISASTER overlap, though NATURAL-DISASTER's meteor-strike/supernova are adjacent cosmic events); magic-lantern-projection confirmed SHADOW-CAST-domain (light-blockage mechanism beats HOLOGRAM-projection framing). Candidates logged but not picked: cast-shadow / your-shadow-being, eclipse-shadow / solar-eclipse / lunar-eclipse / penumbra / umbra, tree-shadow / building-shadow / shadow-on-wall / silhouette-against-light, shadow-puppet (per TOY deferral), shadow-play / shadow-theater, magic-lantern-projection, crepuscular-ray / anticrepuscular-ray / earth-shadow-being. Conceptual fear-shadow / dusk-shadow candidates dropped entirely (out-of-scope per user call). *Phenomena cluster — first batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Personal / detached silhouettes**
+  - silhouette-being (cap 1+1) — generic dark-cutout phenomenon, no specific source-object required, ambient negative-space presence
+  - doppelganger-shadow-being (cap 1+1) — shadow detached from its owner, autonomous mimic flavor *(SHADOW-CAST-domain per user call — anchored-to-visual-source distinguishes from fully-detached MYTHICAL shapeshifter)*
+  - shadow-twin / shadow-self-being (cap 1+1) — companion-shadow paired-with-original flavor *(distinct from doppelganger-shadow: this one stays paired with its origin rather than detaching)*
+
+- **Ambient / pooled shadows**
+  - shadow-pool-being (cap 1+1) — living puddle of pure shadow and darkness, sentient dark-liquid form, ground-pooling or wall-creeping flavor *(distinct from MYTHICAL slimes via shadow-not-fluid substance framing; distinct from VOID void-being via puddle-physicality vs. formless-abstract-darkness; distinct from ELEMENTALS dark-elemental via phenomenon-not-element framing)*
+
+---
+
+## BUBBLE
+
+Bubble / sphere / foam phenomenon-as-being — thin-film-enclosed gas-pocket or aerated-form given creature-scale, surface-tension or membrane-containment intrinsic to the form. Distinct from TOY (balloon / balloon-animal defer here per TOY intro — landing this batch as the canonical inflatable forms; inflatable-pool-toy + beach-ball land here as hollow-air-filled inflatables, not TOY-side), from MICROORGANISMS (already done — cell / vesicle / blood-cell biological-membrane-bubbles **stay MICROORGANISMS-side per user call**, not duplicated here), from VEHICLE (hot-air-balloon / blimp / dirigible deferred from VEHICLE — convention per user call: **passenger-carrying inflatable = VEHICLE-side, decorative/non-transport inflatable = BUBBLE**), from CRYSTALLINE/GEM (solid-sphere crystal-ball / orb **stays CRYSTALLINE-side per user call** — solid-not-hollow framing; hollow-film-bubble = BUBBLE), from ARCHITECTURE (already done — geodesic-dome / protective-dome **stays ARCHITECTURE-side per user call** as built-rigid-structure; transparent-film-bubble = BUBBLE), from CONTAINER (already done — **snow-globe-being judged BUBBLE-domain per user call** ("snow-globe object looks like a bubble") rather than CONTAINER vessel-with-contents framing), from JEWELRY (pearl-being deferred there as wearable solid-sphere — **stays JEWELRY-side candidate per user call**, not pulled here), from HOLOGRAM upcoming (**force-field / energy-bubble judged BUBBLE-domain per user call** ("force-field over a town can look like a bubble") rather than HOLOGRAM projection or COSMOLOGICAL/ENERGY substance), and from SHADOW-CAST (no overlap; light-blockage vs. gas-enclosure phenomena). Cross-section notes: balloon + balloon-animal arrive per TOY deferral; force-field, snow-globe, terrarium-globe all judged BUBBLE-domain per user calls. *Phenomena cluster — second batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Soap / film / surface-tension bubbles**
+  - soap-bubble-being (cap 1+1) — classic rainbow-iridescent thin-film sphere, surface-tension membrane flavor
+  - dish-soap / detergent-foam-being (cap 1+1) — kitchen-sink suds-cluster, multiple-bubble froth form
+
+- **Inflatables / membrane-enclosed**
+  - balloon-being (cap 1+1) — rubber inflatable, classic party-balloon silhouette *(carryover from TOY deferral)*
+  - balloon-animal-being (cap 1+1) — twisted-balloon sculpture, animal-shape modeled-from-balloons flavor *(carryover from TOY deferral)*
+  - bubble-gum-bubble-being (cap 1+1) — pink chewing-gum stretched into thin-film bubble, breath-blown elastic-skin
+  - beach-ball-being (cap 1+1) — striped inflatable sphere, water-play and beach-decoration flavor
+  - inflatable-pool-toy-being (cap 1+1) — generic floaty (duck / dolphin / ring / swan variants), hollow-air-filled toy-form
+
+- **Liquid / aerated bubbles**
+  - boiling-bubble-being (cap 1+1) — rising bubble pattern in heated liquid, ascending-cluster flavor
+
+- **Encapsulating / containment bubbles**
+  - force-field / energy-bubble-being (cap 1+1) — protective transparent-dome over town or area, sci-fi membrane-containment *(BUBBLE-domain per user call — membrane-containment phenomenon vs. HOLOGRAM projection or COSMOLOGICAL energy-substance)*
+  - snow-globe-being (cap 1+1) — sealed miniature-scene bubble with shake-able snow-flakes inside *(BUBBLE-domain per user call — visually-bubble-like sealed-scene; CONTAINER-borderline resolved as BUBBLE)*
+  - terrarium-globe / biosphere-bubble-being (cap 1+1) — sealed glass-sphere ecosystem, miniature-world contained within
+
+---
+
+## SMOKE
+
+Smoke / vapor / gaseous-emission phenomenon-as-being — visible-airborne particulate-or-water-vapor given creature-scale, combustion-or-heating-byproduct or vent-emission intrinsic to the form. Distinct from ELEMENTALS (fire-elemental / water-elemental / wind-elemental are pure-element substance-beings — convention: pure-element-substance = ELEMENTALS, byproduct-emission-vapor = SMOKE), from WEATHER/ATMOSPHERIC upcoming (atmospheric water-vapor — **cloud / mist / fog defer to WEATHER per user call** as natural-atmospheric phenomena; SMOKE = combustion-or-vent emission specifically), from PERFUME upcoming (convention: fragrance-carrying vapor = PERFUME, generic-or-unpleasant vapor = SMOKE — **incense-smoke routed to PERFUME-side per user call**), from BUBBLE (gaseous-pocket-enclosed-in-film vs. free-floating diffusing vapor), from HOLOGRAM upcoming (projected-light vs. light-scattering vapor), from VOID/COSMIC/ABSTRACT (formless-darkness void-being vs. visible-physical-vapor SMOKE), from MYTHICAL CREATURES (shadow-wisp + djinn/genie + dragon entries stay MYTHICAL as-is — **fantasy/mystical smoke variants (genie-smoke, dragon-breath, wizard-smoke / spell-vapor) DROPPED entirely per user call** as SMOKE-side proposals), from NATURAL-DISASTER (already done — **volcanic-smoke / ash-cloud routed to NATURAL-DISASTER-side per user call** (vapor-byproduct stays with the volcanic-eruption-event, not SMOKE-domain); **dust-cloud routed to NATURAL-DISASTER-side per user call** (sandstorm-adjacent particulate-not-vapor)), from HOT-SPRING (geyser-being already there; **fumarole / steam-only vent DROPPED entirely per user call** — earlier Habitat-deferral does not land), from VEHICLE (already done — **train-locomotive-smoke implicitly included in VEHICLE train-being silhouette per user call**, no standalone SMOKE entry), from APPLIANCE (already done — coffee-maker-steam + humidifier-steam-mist already vapor-as-feature in APPLIANCE entries, not standalone vapor-beings), and from SHADOW-CAST + BUBBLE (no overlap; combustion/vapor distinct from light-blockage and gas-enclosure). *Phenomena cluster — third batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Combustion smoke**
+  - smoke-being (cap 1+1) — generic smoke puff, default combustion-vapor form
+  - wildfire-smoke-being (cap 1+1) — hazy-orange destruction-byproduct vapor, distant-fire-sky flavor
+
+- **Steam / water-vapor**
+  - steam-being (cap 1+1) — generic water-vapor, kettle / bath / heating-byproduct flavor
+
+- **Volcanic / geothermal smoke**
+  - sulfur-vent / brimstone-vapor-being (cap 1+1) — yellow-gas geothermal venting, sulfurous flavor
+
+- **Atmospheric / specialty**
+  - smog-being (cap 1+1) — industrial-pollution-haze over urban areas, smoke+fog combination
+
+---
+
+## PERFUME
+
+Scented vapor / fragrance phenomenon-as-being — aromatic-airborne emission given creature-scale, scent-carrying vapor intrinsic to the form. Distinct from SMOKE (combustion-or-vent emission without scent-emphasis — convention per SMOKE intro: fragrance-carrying vapor = PERFUME, generic-or-unpleasant vapor = SMOKE; **incense-smoke routed here per SMOKE batch user call** and lands this batch; **campfire-aroma judged PERFUME-domain per user call** as pleasant-scent framing, but not picked this batch, logged as candidate), from BUBBLE (gas-enclosed-in-film vs. free-floating scented vapor), from WEATHER/ATMOSPHERIC upcoming (atmospheric water-vapor phenomena defer to WEATHER; **petrichor / after-rain-aroma judged PERFUME-domain per user call** as scent-emission rather than atmospheric-phenomenon, but not picked this batch, logged as candidate), from CONTAINER (already done — perfume-bottle / aroma-vessel = CONTAINER; PERFUME = the scent-vapor itself, not the bottle), from PLANTS/FLORA (already done — flower-being is the bloom itself; **flower-scent / floral-aroma judged PERFUME-domain per user call** as scent-emission distinct from PLANT-as-being, but generic flower-scent not picked this batch — specific roses + lavender + mint landed instead), from APPLIANCE (already done — **air-freshener / aerosol-spray + scented-candle judged PERFUME-domain per user call** as scent-vapor-products rather than device-as-being, but not picked this batch, logged as candidates), from MAMMALS (already done — skunk-being already at line 234 in MAMMALS/Mustelids; **skunk-spray-as-PERFUME-entry DROPPED entirely per user call**), from VOID/COSMIC/ABSTRACT (silence-being / echo-being are sound-domain analogs; PERFUME = scent-domain separately), and from MYTHICAL CREATURES (no overlap). Cross-section notes: incense-smoke arrives per SMOKE-batch routing. Items **DROPPED entirely per user call**: stench / stink / body-odor / sweat-aroma / rot / decay-aroma (unpleasant-scent counter-aspect proposed but dropped — PERFUME covers pleasant-scent domain only this session); pollen-cloud / spring-meadow-aroma; skunk-spray. *Phenomena cluster — fourth batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Perfume / cologne (commercial fragrance)**
+  - perfume-being (cap 1+1) — generic perfume vapor cloud, feminine/floral-default fragrance form
+  - cologne-being (cap 1+1) — masculine fragrance variant, woody/musk-default
+  - eau-de-toilette / body-spray-being (cap 1+1) — lighter spray variant, casual everyday-flavor
+
+- **Incense / ritual scent**
+  - incense-smoke-being (cap 1+1) — temple/ritual scented smoke *(carryover from SMOKE deferral)*
+
+- **Natural floral / herbal scent**
+  - rose-scent-being (cap 1+1) — iconic floral aroma, classic-rose flavor
+  - lavender-scent-being (cap 1+1) — calming herbal aroma, purple-bloom signature
+  - mint-aroma-being (cap 1+1) — fresh herbal aroma, cool / sharp flavor
+
+- **Food / kitchen aroma**
+  - spice-aroma-being (cap 1+1) — generic spice-blend aroma, cinnamon / curry / pepper variants
+
+- **Environmental / atmospheric (natural)**
+  - sea-breeze / ocean-aroma-being (cap 1+1) — saltwater scent, coastal-air flavor
+  - forest-aroma / pine-fresh-being (cap 1+1) — woodsy / cedar aroma, mountain-air flavor
+
+- **Synthetic / industrial / domestic aromas**
+  - gasoline-aroma-being (cap 1+1) — petroleum / fuel-station aroma, industrial-synthetic flavor
+  - fresh-laundry-aroma-being (cap 1+1) — clean-detergent / fabric-softener aroma, domestic-warmth flavor
+
+---
+
+## HOLOGRAM
+
+Projected-light-image phenomenon-as-being — light-formed visual projection given creature-scale, image-without-physical-substrate intrinsic to the form. Distinct from SHADOW-CAST (projected-light-presence = HOLOGRAM, projected-light-absence = SHADOW-CAST per SHADOW-CAST intro convention; magic-lantern-projection routed to SHADOW-CAST-side as light-blockage mechanism), from BUBBLE (force-field / energy-bubble routed to BUBBLE-side per BUBBLE intro as membrane-containment phenomenon), from CAMERA (camera captures images vs. HOLOGRAM projects them — inverse processes), from WEATHER/ATMOSPHERIC upcoming (atmospheric phenomena defer to WEATHER; **mirage-being routed to WEATHER-side per user call as reserved confirmed-pick for the upcoming WEATHER batch** — atmospheric-heat-shimmer framing wins over HOLOGRAM optical-illusion-projection framing; **sky-projection / cloud-projection-being judged HOLOGRAM-domain per user call** as projected-light-on-cloud-surface rather than cloud-itself — not picked this batch, logged as candidate), from COSMOLOGICAL/ENERGY (already done — starlight / nebula are cosmic-substance-beings; HOLOGRAM = projected-image-being), from APPLIANCE (already done — projector / movie-projector device = APPLIANCE-adjacent; HOLOGRAM = the projected image itself, not the device), from TOY (already done — **zoetrope-being judged HOLOGRAM-domain per user call** as proto-projected-animation phenomenon rather than wind-up plaything; not picked this batch, logged as candidate), from MYTHICAL CREATURES (illusion-magic / phantasm-spells live in MYTHICAL via wizard/mage flavor — convention: mystical-illusion = MYTHICAL, technological-light-projection = HOLOGRAM; **ghost-projection / phantom-image judged HOLOGRAM-domain per user call** as tech-projection-not-spirit, but not picked this batch), and from VOID/COSMIC/ABSTRACT (mirror / reflection-being = light-reflection; HOLOGRAM = light-projection — different mechanism). Cross-section notes: **afterimage-being DROPPED entirely per user call** (retinal-physiological phenomenon too narrow for HOLOGRAM's projected-image framing). *Phenomena cluster — fifth batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Sci-fi / technological holograms**
+  - virtual-reality / VR-projection-being (cap 1+1) — immersive sensory simulation, headset-rendered projected-environment flavor
+  - AR-overlay / augmented-reality-being (cap 1+1) — phone/glasses overlaid graphics, semi-transparent informational projection
+
+---
+
+## EXPLOSIVE
+
+Explosion / blast / detonation phenomenon-as-being — rapid-expansion combustion event given creature-scale, shockwave + flame-burst + smoke-aftermath intrinsic to the form. Distinct from ELEMENTALS (fire-elemental is pure-fire substance; EXPLOSIVE = combustion-with-rapid-expansion event), from SMOKE (combustion-byproduct vapor; EXPLOSIVE = the blast event itself, smoke is its trail), from NATURAL-DISASTER (already done — supernova / volcanic-eruption / meteor-strike are large-scale disasters; EXPLOSIVE = discrete blast-phenomenon as a being, from human-scale firework to weapons-scale detonation; **supernova explicitly skipped here per user call** as NATURAL-DISASTER already covers; **big-bang routed to COSMOLOGICAL/ENERGY-side per user call** as cosmic-origin-event), from TOOL (already done — firearm / gun explicitly DROPPED in TOOL batch as too-modern/dark per user call; **EXPLOSIVE accepts weapons-scale entries per user picks this batch** (grenade + bomb + missile land) — convention divergence: weapons-as-handheld-implement = TOOL drop precedent stands, weapons-as-blast-event = EXPLOSIVE-domain landed), from BUBBLE (already done — gas-enclosed-in-film vs. rapid-blast-expansion; **balloon-pop stays BUBBLE-side feature per user call**, not standalone EXPLOSIVE entry), from COSMOLOGICAL/ENERGY (already done — big-bang stays cosmic-side per user call), from VOID/COSMIC/ABSTRACT (chaos-being is abstract disorder; EXPLOSIVE = physical blast event), and from MYTHICAL CREATURES (mystical-explosion-spells live in MYTHICAL via wizard flavor — convention: mystical-explosion = MYTHICAL, physical-detonation = EXPLOSIVE). Cross-section notes: **atomic-bomb / nuclear-blast + landmine BOTH DROPPED entirely per user call** (uniquely heavy / dark; parallels VEHICLE hearse-drop and TOOL firearm-drop pattern); **sonic-boom judged EXPLOSIVE-domain per user call** (shockwave-only event) but not picked this batch. *Phenomena cluster — sixth batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Pyrotechnic / celebratory**
+  - firework-being (cap 1+1) — sky-burst rocket explosion, colored sparks flavor
+
+- **Industrial / mining / demolition**
+  - dynamite-being (cap 1+1) — TNT stick / bundle, classic red-stick fuse-burning silhouette
+  - demolition-charge / C4-being (cap 1+1) — modern shaped explosive, controlled-detonation flavor
+
+- **Weapons-scale**
+  - grenade-being (cap 1+1) — handheld military explosive, pin-pull spherical-or-pineapple silhouette
+  - bomb / aerial-bomb-being (cap 1+1) — dropped/placed military ordnance, fin-tailed or barrel-shape
+  - missile / rocket-warhead-being (cap 1+1) — guided projectile, propellant-trail + warhead-tip flavor
+
+- **Sound / shockwave-only**
+  - shockwave / blast-wave-being (cap 1+1) — pressure-front phenomenon without flame, expanding-ring silhouette
+
+---
+
+## WEATHER / ATMOSPHERIC
+
+Atmospheric phenomenon-as-being — weather event or sky/air manifestation given creature-scale, ambient-condition or transient-event intrinsic to the form. Distinct from ELEMENTALS (already done — wind-elemental / water-elemental / ice-elemental / electric-elemental are pure-element substance-beings — convention: pure-element-substance = ELEMENTALS, atmospheric-phenomenon-being = WEATHER), from NATURAL-DISASTER (already done — extreme weather events (tsunami, blizzard, hurricane, sandstorm, hailstorm, drought, heatwave, ice-age, lightning-strike, etc.) live there as *disaster events*; WEATHER = everyday-or-ambient atmospheric phenomena — **hail-being judged WEATHER-domain per user call** (discrete hailstone, vs. NATURAL-DISASTER's hailstorm event)), from SMOKE (combustion-or-vent emission; **mist + fog routed here per SMOKE batch user call** as natural-atmospheric water-vapor — landing this batch as reserved confirmed-picks; smog stays in SMOKE batch as industrial-pollution-haze, **smog duplicate skipped here per user call**), from PERFUME (scent-emission; petrichor stays PERFUME-side candidate, not WEATHER), from HOLOGRAM (projected-light-image; **mirage routed here per HOLOGRAM batch user call** as reserved confirmed-pick — landing this batch), from GLACIER (already done — **snowdrift / icicle-formation / polar-night routed here per Habitat/GLACIER deferrals** — landing this batch as reserved confirmed-picks; snowdrift was originally a GLACIER entry, dropped from GLACIER and re-routed here), from BUBBLE (gas-enclosed-in-film; storm-cloud is WEATHER-domain not BUBBLE), from COSMOLOGICAL/ENERGY (starlight / nebula are cosmic-substance; WEATHER = terrestrial atmospheric), from SHADOW-CAST (crepuscular-ray stays SHADOW-CAST candidate per SHADOW-CAST batch — no WEATHER cross-section claim per user call), from EXPLOSIVE (**mushroom-cloud DROPPED entirely per user call**, following the atomic-bomb DROP pattern), from TOOL (**weather-vane DROPPED entirely per user call** — device-not-phenomenon framing), and from MYTHICAL CREATURES (no overlap; weather-spirits not in MYTHICAL roster). Cross-section notes: **whirlwind / dust-devil judged WEATHER-domain per user call** (vs. NATURAL-DISASTER tornado event) but not picked this batch, logged as candidate. *Phenomena cluster — seventh and final batch. **Closes Phenomena cluster at 7/7 — Phenomena cluster DONE. Closes Phase 1 category roadmap at 35/35 (33 firm + 2 bonus PLANTS/FUNGI). Cross-cluster deferral-review pass to follow as a separate batch** — final consolidated look at all deferrals + logged-candidates + flagged-but-not-picked items across all categories, with goal of permanently dropping items from session-notes / candidate lists where appropriate.* *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Cloud / sky-form**
+  - cloud-being (cap 1+1) — generic cumulus puffy cloud, fair-weather flavor
+  - storm-cloud / thundercloud-being (cap 1+1) — dark anvil-shaped cumulonimbus, lightning-tension flavor
+
+- **Precipitation**
+  - rain-being / raindrop-being (cap 1+1) — generic falling rain, droplet-cloud paired silhouette
+  - snowflake / snow-being (cap 1+1) — falling snow, crystalline-symmetry flavor
+  - hail-being (cap 1+1) — frozen-pellet precipitation, hard-fall flavor *(WEATHER-domain per user call; distinct from NATURAL-DISASTER's hailstorm-event)*
+
+- **Wind / air-movement**
+  - breeze-being (cap 1+1) — gentle ambient wind, soft-stir flavor
+
+- **Light / sky-color phenomena**
+  - rainbow-being (cap 1+1) — refracted-light spectrum-arc, post-rain flavor
+  - aurora-borealis-being (cap 1+1) — polar light curtains, undulating sky-ribbon flavor
+
+- **Cold / winter**
+  - snowdrift-being (cap 1+1) — wind-blown accumulated snow pile *(per GLACIER deferral, originally a GLACIER entry then dropped and re-routed)*
+  - icicle-formation-being (cap 1+1) — hanging ice spear cluster *(per GLACIER deferral)*
+  - polar-night-being (cap 1+1) — extended winter darkness phenomenon at high latitudes *(per GLACIER deferral)*
+
+- **Heat / dry**
+  - mirage-being (cap 1+1) — desert heat-shimmer optical illusion *(reserved confirmed-pick per HOLOGRAM cross-section; atmospheric-heat-refraction phenomenon)*
+
+- **Vapor / moisture**
+  - mist-being (cap 1+1) — fine-droplet atmospheric vapor, light-visibility flavor *(per SMOKE deferral)*
+  - fog-being (cap 1+1) — dense-low-cloud atmospheric vapor, reduced-visibility flavor *(per SMOKE deferral)*
 
 ---
 

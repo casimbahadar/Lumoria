@@ -1568,14 +1568,18 @@ Symbolic / glyphic concept-as-being — abstract symbol (mathematical, geometric
 
 ---
 
-## CANDY / SWEETS
+## FOOD & DRINK
 
-Confection / sweet-treat object-as-being — sugary food-form given creature-scale, candy or pastry intrinsic to the form. Distinct from a future-potential FOOD/CUISINE cluster (savory or main-meal items would go there; CANDY = sweet-only domain), from PLANTS/FLORA (sugar-cane / cocoa-plant stay PLANTS-side; CANDY = the processed treat), from CONTAINER (a candy-jar would be CONTAINER; the candy itself = CANDY), and from PERFUME (candy-aroma stays PERFUME-domain candidate; CANDY = the physical treat). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+Consumable / ingestible object-as-being — sweet treat or liquid refreshment given creature-scale, the food-or-drink form intrinsic to the entity. Distinct from PLANTS/FLORA (sugar-cane / cocoa-plant / tea-leaf stay PLANTS-side; FOOD & DRINK = the processed product), from CONTAINER (wine-glass / goblet / chalice / jar / candy-jar live there as vessels-only; FOOD & DRINK = the consumable-and-vessel unit), from PERFUME (food-aroma / candy-aroma / coffee-aroma / tea-aroma are scent-emissions in PERFUME; FOOD & DRINK = the physical consumable), and from any future-potential expansion (FOOD & DRINK currently covers sweet treats + beverages; savory main-meal items could join later via densification). Cross-section notes: combined 2026-05-15 from former separate CANDY/SWEETS + DRINKS/BEVERAGES clusters (3-entry + 2-entry → 5-entry consolidation). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
 
 - **Sweet treats**
   - lollipop-being (cap 1+1) — spiral candy on stick, wrapper-and-stem flavor
   - chocolate-bar-being (cap 1+1) — segmented brown candy bar
   - donut / doughnut-being (cap 1+1) — ring-shaped fried pastry, glazed flavor
+
+- **Beverages**
+  - tea-cup-being (cap 1+1) — china-cup of steaming tea with saucer
+  - soda / soft-drink-can-being (cap 1+1) — aluminum can with straw, fizzy carbonated flavor
 
 ---
 
@@ -1729,16 +1733,6 @@ Zodiac-sign celestial-archetype creature-as-being — astrological sign embodied
   - capricorn-goat-being (cap 1+1) — goat-fish hybrid (sea-goat), earth-sign ambition flavor
   - aquarius-water-bearer-being (cap 1+1) — humanoid pouring water-vessel, air-sign visionary flavor
   - pisces-fish-being (cap 1+1) — paired fish *(SYMBIOSIS-adjacent paired framing)*, water-sign intuitive flavor
-
----
-
-## DRINKS / BEVERAGES
-
-Beverage / drink-and-vessel object-as-being — liquid refreshment paired with its iconic-container given creature-scale, the drink-and-cup unit intrinsic to the form. Distinct from CANDY/SWEETS (sweet-treat domain; DRINKS = liquid refreshment), from CONTAINER (wine-glass / goblet / chalice / jar live there as vessels-only; DRINKS = the beverage-and-vessel unit), from PERFUME (coffee-aroma / tea-aroma are scent-emissions in PERFUME; DRINKS = the physical drink), and from a future-potential FOOD/CUISINE cluster (food-meal items would go there; DRINKS = liquid only). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
-
-- **Beverages**
-  - tea-cup-being (cap 1+1) — china-cup of steaming tea with saucer
-  - soda / soft-drink-can-being (cap 1+1) — aluminum can with straw, fizzy carbonated flavor
 
 ---
 

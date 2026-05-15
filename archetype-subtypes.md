@@ -330,8 +330,7 @@ The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Pla
 - **quagga** (cap 1+1) — half-striped extinct zebra variant (recent extinction, hunted out by 1883)
 - **mythical-equid** (subs each cap 1+1)
   - unicorn
-  - kelpie
-  - nightmare
+  - nightmare *(kelpie moved to MYTHICAL Sea/water mythicals 2026-05-15 per N37 — kelpie is fundamentally a water-spirit, better-placed in Sea/water sub-section alongside mermaid / selkie / kraken)*
 
 ### Ungulates — Other
 
@@ -532,7 +531,7 @@ The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Pla
 - **bearded-dragon** (cap 1+1) — real lizard, despite name
 - **mythical-lizard** (subs each cap 1+1)
   - salamander-fire-spirit
-  - dragon-pup-as-lizard
+  - dragon-pup-as-lizard *(N43 framework note: this is the pre-evolution lizard-form of a MYTHICAL Dragon — i.e., a juvenile dragon classified as REPTILE during its pre-dragon stage. Evolves into a specific MYTHICAL Dragons entry on maturity. Parallels FISH `koi-dragon-pre-evolution` which is the fish-form pre-evolution of a MYTHICAL Dragon, evolving into eastern-dragon / long / 龍 specifically. Both are "evolution-line placeholder" slots that anchor pre-dragon stages in their biological-kingdom home.)*
   - cockatrice
 - **gila-monster** (cap 1+1) — venomous lizard (one of two in world); beaded skin
 - **thorny-devil** (cap 1+1) — Australian, alien-spiked silhouette; water-channeling skin
@@ -646,7 +645,7 @@ The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Pla
 - **sturgeon** (cap 1+1)
 - **mythical-fish** (subs each cap 1+1)
   - leviathan
-  - koi-dragon-pre-evolution
+  - koi-dragon-pre-evolution *(N43 framework: evolution-line placeholder — koi-form pre-evolution of MYTHICAL Dragons' eastern-dragon / long / 龍 specifically (per the legend that koi who climb the Dragon Gate waterfall transform into dragons). Anchors the pre-dragon stage in FISH; mature form lives in MYTHICAL Dragons. Parallel to REPTILES mythical-lizard `dragon-pup-as-lizard` which is the lizard-form pre-evolution of generic MYTHICAL Dragons.)*
   - nymph-fish
 
 ---
@@ -1276,7 +1275,7 @@ Powered / active machine object-as-being — appliance with energy-source and me
 
 ## STATUE
 
-Figurative-sculpture object-as-being — freestanding representational sculpture given creature-scale (a statue *of* something, embodied as a creature). Distinct from CLAY/CERAMIC (substance; figurines/warriors land here per CLAY/CERAMIC deferral), from METAL-OBJECT (substance; metal-statues land here per METAL-OBJECT deferral), from ARCHITECTURE (built-structure vs. figurative-sculpture), from TOY (posable/play-figurine — bobblehead/nutcracker borderline; convention: display-only = STATUE), from GAME-PIECE (chess-figures stayed GAME-PIECE per tournament-rule criterion), from JEWELRY (wearable vs. freestanding), from CRYSTALLINE/GEM (`rock-monolith / standing-stone` lives there — non-figurative monolith excluded here), and from MYTHICAL CREATURES (frozen-sculpture vs. animate-being — gargoyle / weeping-angel / sphinx-statue convention confirmed STATUE if presented as inert sculpture-being, per user call). Cross-section notes: terracotta-warrior arrives per CLAY/CERAMIC's figurines/warriors deferral; metal-statues per METAL-OBJECT deferral are claimed conceptually here but no specific metal-statue entry picked this batch (bronze-horseman flagged but not picked, equestrian-statue covers the concept generically). Atlas-being proposed but redirected to MYTHICAL-side candidate per user call (titan-form fits MYTHICAL roster). Abstract-sculpture proposed but dropped (non-figurative; doesn't fit STATUE's representational definition). Sphinx-statue, gargoyle-statue, weeping-angel-statue, moai-easter-island convention confirmed STATUE-domain if/when added (user calls for sub-decisions 1, 2, 5). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+Figurative-sculpture object-as-being — freestanding representational sculpture given creature-scale (a statue *of* something, embodied as a creature). Distinct from CLAY/CERAMIC (substance; figurines/warriors land here per CLAY/CERAMIC deferral), from METAL-OBJECT (substance; metal-statues land here per METAL-OBJECT deferral), from ARCHITECTURE (built-structure vs. figurative-sculpture), from TOY (posable/play-figurine — bobblehead/nutcracker borderline; convention: display-only = STATUE), from GAME-PIECE (chess-figures stayed GAME-PIECE per tournament-rule criterion), from JEWELRY (wearable vs. freestanding), from CRYSTALLINE/GEM (`rock-monolith / standing-stone` lives there — non-figurative monolith excluded here), and from MYTHICAL CREATURES (frozen-sculpture vs. animate-being). Cross-section notes: terracotta-warrior arrives per CLAY/CERAMIC's figurines/warriors deferral; metal-statues per METAL-OBJECT deferral are claimed conceptually here but no specific metal-statue entry picked this batch (bronze-horseman flagged but not picked, equestrian-statue covers the concept generically). Atlas-being proposed but redirected to MYTHICAL-side candidate per user call (titan-form fits MYTHICAL roster). Abstract-sculpture proposed but dropped (non-figurative; doesn't fit STATUE's representational definition). *(Prior reservation language for sphinx-statue / gargoyle-statue / weeping-angel-statue / moai-easter-island removed 2026-05-15 per N25 — those convention-confirmations were unrealized and were creating open commitments; STATUE intro now describes only what's actually here.)* *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
 
 - **Classical / Renaissance**
   - david-being (cap 1+1) — Michelangelo iconic marble nude, sling-bearing youth, contrapposto stance
@@ -1825,6 +1824,7 @@ Sensory-absence humanoid-creature-as-being — creature defined by lacking one s
 - **sea-fairy queen** (cap 1+1)
 - **merman** (cap 1+1) — male merfolk counterpart; distinct from mermaid/siren grouped slot
 - **scylla** (cap 1+1) — Greek six-headed cliff-monster (paired with charybdis)
+- **kelpie** (cap 1+1) — Scottish water-horse spirit, drowns riders; shifts between horse-form and humanoid *(moved here from MAMMALS mythical-equid 2026-05-15 per N37 — water-spirit framing wins over equine-form)*
 
 ### East Asian mythical
 - **kitsune** (cap 1+1) — Japanese fox-spirit

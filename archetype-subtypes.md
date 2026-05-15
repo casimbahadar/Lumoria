@@ -1570,6 +1570,18 @@ Confection / sweet-treat object-as-being — sugary food-form given creature-sca
 
 ---
 
+## DANCE / MOVEMENT
+
+Dance-style humanoid-creature-as-being — performance / ritual dance embodied as a dancer-creature, with the dance-style intrinsic to the form. **Humanoid framing per user call** (creatures based around the dance, not abstract pose-essences) — invokes session-notes key framing decision #7 for abstract / role-based concepts. Humanoid framing precedent: MYTHICAL's humanoid-wraith / lich / banshee; UNIQUE's divine-messenger. Distinct from MYTHICAL CREATURES (mystical-humanoid-spirits there; DANCE = secular performance-humanoid), from INSTRUMENTS (musician-creatures would be different — INSTRUMENTS covers the apparatus, DANCE covers the dancer), and from SYMBIOSIS (tango-pair is paired-dancer SYMBIOSIS-adjacent but DANCE-domain). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Dance-style creatures**
+  - ballet-dancer-being (cap 1+1) — pointe-shoe-clad graceful dancer, tutu + tiara flavor
+  - tango-pair-being (cap 1+1) — paired Latin dance partners, SYMBIOSIS-adjacent paired framing
+  - breakdancer / b-boy-being (cap 1+1) — street-dance acrobatic humanoid, urban-style flavor
+  - kabuki-dancer-being (cap 1+1) — Japanese stylized theater performer, mask + ornate-robe flavor
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

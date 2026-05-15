@@ -1453,6 +1453,16 @@ Scented vapor / fragrance phenomenon-as-being — aromatic-airborne emission giv
 
 ---
 
+## HOLOGRAM
+
+Projected-light-image phenomenon-as-being — light-formed visual projection given creature-scale, image-without-physical-substrate intrinsic to the form. Distinct from SHADOW-CAST (projected-light-presence = HOLOGRAM, projected-light-absence = SHADOW-CAST per SHADOW-CAST intro convention; magic-lantern-projection routed to SHADOW-CAST-side as light-blockage mechanism), from BUBBLE (force-field / energy-bubble routed to BUBBLE-side per BUBBLE intro as membrane-containment phenomenon), from CAMERA (camera captures images vs. HOLOGRAM projects them — inverse processes), from WEATHER/ATMOSPHERIC upcoming (atmospheric phenomena defer to WEATHER; **mirage-being routed to WEATHER-side per user call as reserved confirmed-pick for the upcoming WEATHER batch** — atmospheric-heat-shimmer framing wins over HOLOGRAM optical-illusion-projection framing; **sky-projection / cloud-projection-being judged HOLOGRAM-domain per user call** as projected-light-on-cloud-surface rather than cloud-itself — not picked this batch, logged as candidate), from COSMOLOGICAL/ENERGY (already done — starlight / nebula are cosmic-substance-beings; HOLOGRAM = projected-image-being), from APPLIANCE (already done — projector / movie-projector device = APPLIANCE-adjacent; HOLOGRAM = the projected image itself, not the device), from TOY (already done — **zoetrope-being judged HOLOGRAM-domain per user call** as proto-projected-animation phenomenon rather than wind-up plaything; not picked this batch, logged as candidate), from MYTHICAL CREATURES (illusion-magic / phantasm-spells live in MYTHICAL via wizard/mage flavor — convention: mystical-illusion = MYTHICAL, technological-light-projection = HOLOGRAM; **ghost-projection / phantom-image judged HOLOGRAM-domain per user call** as tech-projection-not-spirit, but not picked this batch), and from VOID/COSMIC/ABSTRACT (mirror / reflection-being = light-reflection; HOLOGRAM = light-projection — different mechanism). Cross-section notes: **afterimage-being DROPPED entirely per user call** (retinal-physiological phenomenon too narrow for HOLOGRAM's projected-image framing). *Phenomena cluster — fifth batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Sci-fi / technological holograms**
+  - virtual-reality / VR-projection-being (cap 1+1) — immersive sensory simulation, headset-rendered projected-environment flavor
+  - AR-overlay / augmented-reality-being (cap 1+1) — phone/glasses overlaid graphics, semi-transparent informational projection
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

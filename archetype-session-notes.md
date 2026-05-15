@@ -123,63 +123,38 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 
 ### From Manmade cluster (APPLIANCE deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked.*
-- **toaster-being, blender-being, dishwasher-being, kettle / electric-kettle-being, rice-cooker-being** — kitchen-appliance candidates not picked (refrigerator + oven/stove/cooktop combined + microwave + coffee-maker kept).
-- **washing-machine-being, dryer-being, clothes-iron-being** — laundry/cleaning candidates not picked (vacuum-cleaner kept).
-- **space-heater-being, electric-fan-being** — HVAC candidates not picked (air-conditioner + humidifier kept).
-- **television / TV-being, radio-being, record-player / phonograph-being, speaker / boombox-being** — entertainment-electronics candidates not picked.
-- **gaming-console-being** — proposed for APPLIANCE but user redirected to TOY-side. **DROPPED entirely 2026-05-15** per cross-cluster pending-review resolution (TOY cluster closed without retro-add; no home).
-- *(arcade-cabinet-being + roulette-wheel-being DROPPED entirely 2026-05-15 per user resolution — these were inherited from GAME-PIECE deferral, dropped from both blocks; slot-machine + pinball-machine remained and landed in APPLIANCE.)*
-- **printer-being, typewriter-being** — office candidates not picked (copier kept).
-- **furnace-being, elevator-being** — industrial/heavy candidates not picked (kiln + generator kept; elevator was flagged ARCHITECTURE-borderline).
-- **microscope-being, telescope-being** — scientific-instrument candidates inherited from TOOL flag; not picked in APPLIANCE batch. **Now reframed as CAMERA-side candidates** per CAMERA intro's lens-mechanism domain-claim (2026-05-13 session).
-- **thermometer-being** — scientific-instrument candidate inherited from TOOL flag; not picked in APPLIANCE batch. **Landed in TOOL retroactively** via separate commit on 2026-05-13 session per CAMERA cross-section redirect (measurement-instrument without lens-mechanism, doesn't fit CAMERA — opens new `**Measurement / precision**` sub-group in TOOL).
-- **electric-shaver-being, chainsaw-being** — personal-care / power-tool candidates not picked (hairdryer + electric-drill kept).
+- **blender-being, rice-cooker-being** — kitchen-appliance candidates not picked.
+- **television / TV-being** — entertainment-electronics candidate not picked.
+- **microscope-being** — scientific-instrument candidate; reframed as OPTICAL IMAGING (formerly CAMERA) candidate per lens-mechanism domain-claim (2026-05-13). *(telescope-being DROPPED per N48 2026-05-15.)*
+- **thermometer-being** — *LANDED in TOOL retroactively* via 2026-05-13 commit per CAMERA cross-section redirect (new Measurement/precision sub-group).
+- **chainsaw-being** — power-tool candidate not picked.
+- *(MAJOR DROP 2026-05-15 per user resolution: toaster-being, dishwasher-being, kettle/electric-kettle-being (kitchen), washing-machine-being, dryer-being, clothes-iron-being (laundry/cleaning), space-heater-being, electric-fan-being (HVAC), radio-being, record-player / phonograph-being, speaker / boombox-being (entertainment), printer-being, typewriter-being (office), furnace-being, elevator-being (industrial), electric-shaver-being (personal-care) — all DROPPED entirely.)* *(gaming-console-being earlier DROPPED per cross-cluster review. arcade-cabinet + roulette-wheel earlier DROPPED with GAME-PIECE block.)*
 
 ### From Manmade cluster (STATUE deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked.*
-- **venus-de-milo-being, discobolus-being, bust / portrait-bust-being** — classical/Renaissance candidates not picked (david + equestrian-statue kept).
-- **moai / easter-island-being, sphinx-statue-being** — iconic-monument candidates not picked; both confirmed STATUE-domain (per user sub-decision answers) if/when added in future densification.
-- **buddha-statue-being, crucifix-being, madonna-statue-being, jizo-statue-being** — religious-sculpture candidates not picked (n/a per user).
-- **gravestone / tombstone-being, weeping-angel-being, memorial-obelisk-being** — tomb/memorial candidates not picked; weeping-angel confirmed STATUE-domain (per user sub-decision); memorial-obelisk flagged ARCHITECTURE-borderline.
-- **garden-gnome-being, lawn-flamingo-being** — garden-decorative candidates not picked (garden-cherub kept).
-- **atlas-being** → user redirected to MYTHICAL-side. **LANDED in MYTHICAL Greek/Roman 2026-05-15** as `atlas` entry per cross-cluster pending-review resolution.
-- **caryatid-being** — column-figure-female-support candidate not picked (ARCHITECTURE-borderline; column-as-figure).
-- **gargoyle-statue-being** — candidate not picked; confirmed STATUE-domain (per user sub-decision; frozen-stone-gargoyle = STATUE, animate-gargoyle = MYTHICAL).
-- **wax-figure-being, mannequin-being, nutcracker-being, totem-pole-being, bobble-head-being, bronze-horseman-being** — specialty/figurative candidates not picked (nutcracker + bobble-head flagged TOY-borderline; mannequin flagged TOOL/APPLIANCE-borderline; bronze-horseman concept implicitly covered by generic equestrian-statue).
-- **abstract-sculpture-being** — DROPPED entirely (non-figurative; doesn't fit STATUE's representational definition per user call).
+- **buddha-statue-being** — religious-sculpture candidate not picked.
+- **gargoyle-statue-being** — candidate not picked; frozen-stone-gargoyle = STATUE, animate-gargoyle = MYTHICAL.
+- **atlas-being** → LANDED in MYTHICAL Greek/Roman 2026-05-15 as `atlas`.
+- **abstract-sculpture-being** — DROPPED entirely (non-figurative; doesn't fit STATUE definition per user call).
+- *(MAJOR DROP 2026-05-15 per user resolution: venus-de-milo-being, discobolus-being, bust / portrait-bust-being (classical/Renaissance), moai / easter-island-being, sphinx-statue-being (iconic-monument), crucifix-being, madonna-statue-being, jizo-statue-being (religious — buddha-statue kept), gravestone / tombstone-being, weeping-angel-being, memorial-obelisk-being (tomb/memorial), garden-gnome-being, lawn-flamingo-being (garden), caryatid-being (column-figure), wax-figure-being, mannequin-being, nutcracker-being, totem-pole-being, bobble-head-being, bronze-horseman-being (specialty/figurative) — all DROPPED entirely.)*
 
 ### From Manmade cluster (ROBOTIC deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked.*
 - **automaton-being** — clockwork-Victorian / da-Vinci-mechanical period-flavor humanoid candidate; not picked (android + mech + cyborg covered the humanoid sub-cluster).
-- **humanoid-robot-being** — mid-tech generic humanoid candidate; not picked (android polish + mech bulk bracketed the silhouette).
-- **toy-robot-being** — tin-toy / retro boxy-robot candidate, carried over from TOY deferral ("toy-robot remains for ROBOTIC" per TOY intro); explicitly **not picked** this batch per user call. Remains as inherited candidate for any future ROBOTIC densification.
-- **assistant-bot / butler-robot-being** — service-android tray-arms silhouette; not picked (companion-bot/pet-robot covered the domestic sub-cluster).
-- **factory-arm / industrial-robot-arm-being** — articulated-manipulator candidate; not picked (industrial sub-cluster left empty this batch).
-- **drone-being** — autonomous-aerial quad-rotor candidate; not picked. ROBOTIC-domain confirmed (vs. VEHICLE) per intro convention; logged for possible future ROBOTIC densification.
-- **rover-being** — wheeled exploration robot (Mars-rover silhouette) candidate; not picked.
-- **surveillance-bot-being** — camera-headed patrol robot candidate; **deferred to CAMERA cross-section call** to avoid pre-empting the CAMERA batch (per user sub-decision: "not relevant").
-- **nanobot-swarm-being** — microscale-swarm-form candidate; not picked. **ROBOTIC-domain confirmed** per user call (engineered-not-living, distinguishes from MICROORGANISMS swarm convention).
-- **self-driving-car-being** — autonomous-vehicle borderline; user call: **stays VEHICLE-side** since car-being already covers the silhouette (no ROBOTIC duplicate needed).
-- **sentient-AI-core-being** — landed as entry this batch; ROBOTIC-domain confirmed per user call (vs. VOID/COSMIC/ABSTRACT or UNIQUE/ONE-OF-A-KIND).
-- **cyborg-being** — landed as entry this batch; ROBOTIC-domain confirmed per user call (vs. MYTHICAL/UNIQUE redirect, which would have paralleled atlas/cauldron pattern).
 - **mech-suit-pilot-pair-being** — paired SYMBIOSIS-style entry candidate; not picked (SYMBIOSIS cluster already covers paired-being framing; mech-being covers the silhouette here).
-- **robotic-arm-prosthetic-being** — wearable cyborg-component candidate; not picked (cyborg-being covers part-organic-part-machine umbrella).
+- **sentient-AI-core-being** — LANDED as entry; ROBOTIC-domain confirmed per user call.
+- **cyborg-being** — LANDED as entry; ROBOTIC-domain confirmed per user call.
+- **self-driving-car-being** — stays VEHICLE-side (car-being covers silhouette).
+- *(MAJOR DROP 2026-05-15 per user resolution: humanoid-robot-being, toy-robot-being, assistant-bot/butler-robot-being, factory-arm/industrial-robot-arm-being, drone-being, rover-being, surveillance-bot-being (originally deferred to CAMERA cross-section), nanobot-swarm-being, robotic-arm-prosthetic-being — all DROPPED entirely.)* *(automaton earlier DROPPED per N49 — already in MYTHICAL Golems.)*
 
-### From Manmade cluster (CAMERA deferrals)
+### From Manmade cluster (OPTICAL IMAGING — formerly CAMERA + HOLOGRAM — deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked.*
-- **polaroid / instant-camera-being, disposable-camera-being, bellows / large-format-camera-being, point-and-shoot / compact-camera-being** — photographic-camera candidates not picked (generic camera + DSLR covered the sub-cluster).
-- **broadcast / TV-news-camera-being** — cinematic candidate not picked (movie-camera + camcorder covered the sub-cluster).
-- **CCTV / surveillance-camera-being, trail-cam / wildlife-camera-being** — surveillance candidates not picked (dashcam/bodycam covered the sub-cluster).
-- **surveillance-bot-being** — camera-headed patrol robot candidate; **CAMERA-domain confirmed** per user call (resolves ROBOTIC deferral that explicitly redirected to CAMERA cross-section call), but not picked this batch — logged as inherited candidate from ROBOTIC.
-- **telescope-being** — long-tube astronomical/spyglass optical-instrument candidate; **CAMERA-domain confirmed** per user call (lens-mechanism reframing — CAMERA is canonical home), but not picked. Inherited from TOOL→APPLIANCE deferral chain.
-- **microscope-being** — base + eyepiece + objective optical-instrument candidate; **CAMERA-domain confirmed** per user call, but not picked. Inherited from TOOL→APPLIANCE deferral chain.
-- **periscope-being** — extending L-shaped viewer candidate; **CAMERA-domain confirmed** per user call (rather than VEHICLE submarine-component), but not picked.
-- **daguerreotype / antique-camera-being, pinhole-camera-being** — specialty/vintage camera candidates not picked.
-- **photo-booth-being** — curtained-cabinet 4-strip-output booth candidate; **CAMERA-domain confirmed** per user call (camera-in-a-box vs. ARCHITECTURE-cabinet), but not picked.
-- **spy-cam / hidden-camera-being** — disguised-form camera candidate not picked.
-- **thermometer-being** — measurement-instrument flagged in earlier APPLIANCE deferrals; **redirected to TOOL-side per user call this session — landed in TOOL retroactively** via separate commit (new `**Measurement / precision**` sub-group). No lens-mechanism → outside CAMERA's optical-apparatus definition.
-- **camera-obscura-being, kaleidoscope-being, light-meter-being, projector-being** — adjacent-concept candidates not proposed this batch (projector would lean HOLOGRAM-side; camera-obscura is borderline ARCHITECTURE; light-meter is measurement-instrument like thermometer; kaleidoscope is optical-toy candidate).
-- **smartphone-camera-being** — implicit duplicate of APPLIANCE's smartphone-being; not pulled here per user "agree" call.
+- **microscope-being** — base + eyepiece + objective optical-instrument candidate; OPTICAL IMAGING-domain confirmed per lens-mechanism reframing, but not picked.
+- **thermometer-being** — *LANDED in TOOL retroactively* via 2026-05-13 commit per CAMERA cross-section redirect (new Measurement/precision sub-group).
+- **smartphone-camera-being** — implicit duplicate of APPLIANCE's smartphone-being; no separate entry.
+- *(rainbow-hologram-being, ghost-projection / phantom-image-being, sky-projection / cloud-projection-being all LANDED in OPTICAL IMAGING Sci-fi/technological projections sub-group 2026-05-15 per user resolution.)*
+- *(MAJOR CAMERA-SIDE DROP 2026-05-15 per user resolution: polaroid / instant-camera-being, disposable-camera-being, bellows / large-format-camera-being, point-and-shoot / compact-camera-being (photographic), broadcast / TV-news-camera-being (cinematic), CCTV / surveillance-camera-being, trail-cam / wildlife-camera-being (surveillance), surveillance-bot-being, periscope-being, daguerreotype / antique-camera-being, pinhole-camera-being (vintage/specialty), photo-booth-being, spy-cam / hidden-camera-being, camera-obscura-being, kaleidoscope-being, light-meter-being, projector-being — all DROPPED entirely.)*
+- *(MAJOR HOLOGRAM-SIDE DROP 2026-05-15 per user resolution: generic hologram-being, holographic-display-being, holographic-avatar / messenger-being, laser-projection-being, light-painting-being, stage-hologram-being, pepper's-ghost-being, zoetrope-being, light-show / laser-show-being, projected-map / planetarium-being, neon-sign, marquee-light, lighthouse-beam, search-light, christmas-light-projection — all DROPPED entirely.)* *(afterimage earlier DROPPED. telescope DROPPED per N48.)*
 
 ### From Manmade cluster (INSTRUMENTS deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked.*
@@ -272,29 +247,11 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **potpourri-being** — dried floral/herbal mix candidate not picked.
 - Other adjacent unproposed candidates: car-air-freshener-pine-tree, hospital-disinfectant-smell, new-car-smell, library-old-book-smell, ginger-aroma (logged for future densification awareness).
 
-### From Phenomena cluster (HOLOGRAM deferrals)
-*All entries below are candidates only — no commitment they'll ever be picked. One item explicitly DROPPED and one routed to WEATHER as confirmed-pick reservation per user calls.*
-
-**Dropped entirely per user call:**
-- **afterimage-being** — retinal-physiological lingering-image candidate DROPPED entirely (too narrow / physiological for HOLOGRAM's projected-image framing).
-
-**Routed to WEATHER as confirmed-pick reservation per user call:**
-- **mirage-being** — desert heat-shimmer optical illusion. **WEATHER-side reserved confirmed-pick** for upcoming WEATHER batch (atmospheric-heat-shimmer framing wins over HOLOGRAM optical-illusion-projection framing). When WEATHER batch lands, mirage should be auto-included as a confirmed pick with parenthetical "(per HOLOGRAM cross-section reservation, user call)."
-
-**Candidates not picked (HOLOGRAM-domain confirmed, logged for possible future densification):**
-- **generic hologram-being** — flickering-blue-projection sci-fi default candidate not picked (VR + AR covered the sub-cluster as user picks).
-- **holographic-display-being** — UI / data-readout projection candidate not picked.
-- **holographic-avatar / messenger-being** — projected-person communication (Star Wars Princess Leia flavor) candidate not picked.
-- **rainbow-hologram-being** — credit-card / security-sticker shimmer candidate not picked.
-- **laser-projection-being** — beam-drawn light-image candidate not picked.
-- **light-painting-being** — long-exposure light-trail candidate not picked.
-- **ghost-projection / phantom-image-being** — apparition-of-a-person candidate; **HOLOGRAM-domain confirmed per user call** (tech-projection-not-spirit; vs. MYTHICAL wraith/ghost framing) but not picked.
-- **stage-hologram-being** — concert hologram (Tupac / Hatsune Miku flavor) candidate not picked.
-- **pepper's-ghost-being** — Victorian stage illusion candidate not picked.
-- **zoetrope-being** — pre-cinema spinning-animation candidate; **HOLOGRAM-domain confirmed per user call** (proto-projected-animation; vs. TOY wind-up plaything framing — overrode my TOY lean) but not picked.
-- **light-show / laser-show-being, projected-map / planetarium-being** — entertainment / specialty projection candidates not picked.
-- **sky-projection / cloud-projection-being** — large-scale outdoor sky display candidate; **HOLOGRAM-domain confirmed per user call** (projected-light-on-cloud-surface, not cloud-itself; vs. WEATHER framing) but not picked.
-- Other adjacent unproposed candidates: neon-sign, marquee-light, lighthouse-beam, search-light, christmas-light-projection (logged for future densification awareness).
+### From Phenomena cluster (HOLOGRAM deferrals) — now merged into OPTICAL IMAGING per 2026-05-15 consolidation
+- **mirage-being** — LANDED in WEATHER as reserved confirmed-pick.
+- **afterimage-being** — DROPPED entirely per user call.
+- *(rainbow-hologram-being, ghost-projection / phantom-image-being, sky-projection / cloud-projection-being all LANDED in OPTICAL IMAGING Sci-fi/technological projections sub-group 2026-05-15.)*
+- *(MAJOR DROP 2026-05-15 per user resolution: generic hologram-being, holographic-display-being, holographic-avatar / messenger-being, laser-projection-being, light-painting-being, stage-hologram-being, pepper's-ghost-being, zoetrope-being, light-show / laser-show-being, projected-map / planetarium-being, neon-sign, marquee-light, lighthouse-beam, search-light, christmas-light-projection — all DROPPED entirely.)*
 
 ### From Phenomena cluster (EXPLOSIVE deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked. Several items explicitly DROPPED or ROUTED per user calls.*

@@ -1336,6 +1336,9 @@ Image-capture or image-projection optical-apparatus / phenomenon-as-being — le
 - **Sci-fi / technological projections**
   - virtual-reality / VR-projection-being (cap 1+1) — immersive sensory simulation, headset-rendered projected-environment flavor *(formerly HOLOGRAM)*
   - AR-overlay / augmented-reality-being (cap 1+1) — phone/glasses overlaid graphics, semi-transparent informational projection *(formerly HOLOGRAM)*
+  - rainbow-hologram-being (cap 1+1) — credit-card / security-sticker iridescent shimmer-film, holographic-foil flavor *(landed 2026-05-15 from deferral-sweep pass 3 per user resolution)*
+  - ghost-projection / phantom-image-being (cap 1+1) — apparition-of-a-person tech-projection, Star Wars Princess Leia flavor — distinct from MYTHICAL wraith / shade (tech-projection, not undead-spirit) *(landed 2026-05-15 from deferral-sweep pass 3 per user resolution)*
+  - sky-projection / cloud-projection-being (cap 1+1) — large-scale outdoor projection creature, projects light onto cloud-surface or open-sky canvas *(combined entry per user "creature that can do these projections" framing; landed 2026-05-15 from deferral-sweep pass 3)*
 
 ---
 

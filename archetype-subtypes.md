@@ -1713,6 +1713,16 @@ Written-symbol / script-glyph object-as-being — letter, glyph, or character fr
 
 ---
 
+## DRINKS / BEVERAGES
+
+Beverage / drink-and-vessel object-as-being — liquid refreshment paired with its iconic-container given creature-scale, the drink-and-cup unit intrinsic to the form. Distinct from CANDY/SWEETS (sweet-treat domain; DRINKS = liquid refreshment), from CONTAINER (wine-glass / goblet / chalice / jar live there as vessels-only; DRINKS = the beverage-and-vessel unit), from PERFUME (coffee-aroma / tea-aroma are scent-emissions in PERFUME; DRINKS = the physical drink), and from a future-potential FOOD/CUISINE cluster (food-meal items would go there; DRINKS = liquid only). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Beverages**
+  - tea-cup-being (cap 1+1) — china-cup of steaming tea with saucer
+  - soda / soft-drink-can-being (cap 1+1) — aluminum can with straw, fizzy carbonated flavor
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

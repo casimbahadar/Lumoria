@@ -1098,7 +1098,7 @@ Plaything object-as-being — toy-form silhouette given creature-scale. Distinct
   - rocking-horse-being (cap 1+1) — wooden curved-base ride-on horse
 
 - **Construction Toys**
-  - jigsaw-puzzle-being (cap 1+1) — interlocking-piece body, fragmentable anatomy
+  - jigsaw-puzzle-being (cap 1+1) — interlocking-piece body, fragmentable anatomy *(distinct from GAME-PIECE `puzzle-piece-being` which is the single-fragment form; jigsaw-puzzle = whole-assembly creature, puzzle-piece = single-piece-fragment creature — N39 cross-flag 2026-05-15)*
 
 - **Mechanical / Wind-up**
   - wind-up-toy-being (cap 1+1) — key-back, ticking-gait creature
@@ -1232,7 +1232,7 @@ Functional implement object-as-being — handheld working-tool given creature-sc
 
 - **Office / paper**
   - stapler-being (cap 1+1) — biting-jaw mechanical desk-creature, paper-fastening flavor *(retro-added 2026-05-15 from brainstorm-batch-1 user picks; opens sub-group for future eraser / paper-clip / sticky-note / sharpener candidates)*
-  - notebook / notepad-being (cap 1+1) — bound-paper writing surface, blank-pages flavor *(retro-added 2026-05-15 from brainstorm-batch-1 user picks)*
+  - notebook / notepad-being (cap 1+1) — bound-paper writing surface, blank-pages flavor *(retro-added 2026-05-15 from brainstorm-batch-1 user picks; distinct from UNIQUE/ONE-OF-A-KIND `book-creature / tome-being` — mundane stationery here vs. sentient magical grimoire there — N7 cross-flag 2026-05-15)*
 
 ---
 
@@ -1862,7 +1862,7 @@ Sensory-absence humanoid-creature-as-being — creature defined by lacking one s
 ### Arcana / divination / fortune-telling
 *Western occult / Renaissance-Hermetic divinatory archetypes given creature-form. Tarot Major Arcana iconography is source-material. Sun / Moon / Star Major Arcana intentionally NOT included — `solar-being`, `lunar-being`, `stellar-being` in COSMOLOGICAL/ENERGY already claim those celestial-spirit slots. Death and Devil Major Arcana also skipped to avoid duplication with wraiths/undead and demon/devil entries. Chariot Major Arcana already claimed by VEHICLE `chariot-being`.*
 
-- **fool-arcana-being** (cap 1+1) — wandering jester-figure at cliff-edge with small-dog companion
+- **fool-arcana-being** (cap 1+1) — wandering jester-figure at cliff-edge with small-dog companion *(pre-emptive cross-flag M5 2026-05-15: distinct from any future CAREERS/PROFESSIONS `jester-being` if added — fool-arcana = Tarot Major Arcana 0 specific iconography (cliff-edge + dog companion), jester = generic court-fool / clown profession)*
 - **magician-arcana-being** (cap 1+1) — robed conjuror with infinity-halo, four-suit-tools arranged on altar (wand, cup, sword, pentacle)
 - **high-priestess-arcana-being** (cap 1+1) — moon-crowned veiled-seeress seated between black-and-white pillars
 - **fortune-teller-being** (cap 1+1) — head-scarfed crystal-ball gazer, ringed-fingers spread above the orb

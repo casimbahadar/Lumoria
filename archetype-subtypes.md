@@ -1592,6 +1592,18 @@ Profession humanoid-creature-as-being — occupation embodied as a creature, wit
 
 ---
 
+## RELIGIOUS / SPIRITUAL
+
+Sacred symbol / ritual-item object-as-being — religious or spiritual artifact / glyph given creature-scale, with the sacred meaning intrinsic to the form. Distinct from MYTHICAL CREATURES (mythical beings live there — including the Arcana / divination sub-section for tarot; RELIGIOUS = secular ritual-objects / glyphs given creature-scale, not mythical entities themselves), from STATUE (crucifix-being already deferred to STATUE; RELIGIOUS = the symbol-glyph or ritual-implement, not the figurative sculpture), from JEWELRY (rosary borderline as wearable-beads but treated as ritual-implement first here), from VOID/COSMIC/ABSTRACT (**duality-being already there** as abstract light/dark concept; **yin-yang-being judged RELIGIOUS-domain per user pick** as the specific Taoist symbol/concept, distinct from abstract duality), and from CONTAINER (menorah holds candles but the framing is religious-implement, not vessel). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Sacred symbols / ritual items**
+  - crescent-moon-and-star-being (cap 1+1) — Islamic symbol
+  - ankh-being (cap 1+1) — Egyptian life symbol
+  - menorah / candelabra-being (cap 1+1) — multi-branched candle holder (Jewish)
+  - yin-yang-being (cap 1+1) — Taoist duality symbol *(RELIGIOUS-domain per user pick; distinct from VOID/COSMIC/ABSTRACT duality-being which is the abstract concept)*
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

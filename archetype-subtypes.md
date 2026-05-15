@@ -1652,6 +1652,37 @@ Sport-athlete or competition-equipment given creature-scale. **Humanoid framing 
 
 ---
 
+## VIRTUES / VICES / ABSTRACTS
+
+Abstract concept humanoid-creature-as-being — abstract concept (moral / philosophical / emotional) embodied as a humanoid creature, with the concept's iconic flavor intrinsic to the form. **Humanoid framing per key framing decision #7.** Distinct from VOID/COSMIC/ABSTRACT (existing cluster has formless-cosmic-abstract entries like void-being / silence-being / chaos-being / order-being / duality-being — convention: formless-cosmic = VOID, humanoid-embodied = VIRTUES/VICES/ABSTRACTS), from MYTHICAL CREATURES (mystical-spirit-beings; ABSTRACTS = personified abstract-concepts not from mythology), from RELIGIOUS/SPIRITUAL (faith-being borderline — humanoid-abstract-personification framing wins; cross-section noted in RELIGIOUS intro), and from CAREERS/PROFESSIONS (**justice-being judged ABSTRACTS-domain per user pick** as personified-virtue, distinct from CAREERS judge-being which is the profession). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Seven deadly sins**
+  - pride-being (cap 1+1) — peacock-flanked vain humanoid
+  - greed-being (cap 1+1) — gold-clutching avaricious humanoid
+  - wrath-being (cap 1+1) — flame-wreathed fury humanoid
+  - envy-being (cap 1+1) — green-tinted covetous humanoid
+  - lust-being (cap 1+1) — temptation-cloaked humanoid
+  - gluttony-being (cap 1+1) — gorged-bloated humanoid
+  - sloth-being (cap 1+1) — sluggish-recumbent humanoid
+
+- **Seven virtues**
+  - prudence-being (cap 1+1) — wise-counselor humanoid
+  - justice-being (cap 1+1) — scale + sword blindfolded humanoid *(ABSTRACTS-domain per user pick, distinct from CAREERS judge-being which is the profession)*
+  - fortitude-being (cap 1+1) — pillar-strong unyielding humanoid
+  - temperance-being (cap 1+1) — balanced moderation humanoid
+  - faith-being (cap 1+1) — cross-bearing devout humanoid *(borderline RELIGIOUS/SPIRITUAL but ABSTRACTS-domain per user pick)*
+  - hope-being (cap 1+1) — anchor-bearing humanoid
+  - charity-being (cap 1+1) — giving-handed humanoid
+
+- **Other personifications**
+  - love-being / cupid (cap 1+1) — winged-with-bow humanoid abstract
+  - luck / fortune-being (cap 1+1) — four-leaf-clover-adorned humanoid
+  - karma-being (cap 1+1) — wheel-bearing humanoid, cause-and-effect flavor
+  - boredom-being (cap 1+1) — slumped lethargic humanoid
+  - curiosity-being (cap 1+1) — wide-eyed exploring humanoid
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

@@ -1518,6 +1518,19 @@ Atmospheric phenomenon-as-being — weather event or sky/air manifestation given
 
 ---
 
+## FURNITURE
+
+Domestic furnishing object-as-being — household furniture given creature-scale, sittable / sleepable / work-surface form intrinsic to the entity. Distinct from ARCHITECTURE (built-rigid-structure vs. movable-household-furniture), from CONTAINER (storage-vessel; **bookshelf-being judged FURNITURE-domain** here as standing-furniture rather than CONTAINER's storage-vessel framing), from TOOL (handheld working-implement vs. household-fixture), from APPLIANCE (powered-machine vs. passive-furniture), and from MYTHICAL CREATURES (no overlap). Cross-section notes: rocking-horse-being already in TOY (play-object framing); standing-lamp not duplicated here (lantern-creature / lamp-being already in UNIQUE / ONE-OF-A-KIND); standing-mirror not duplicated here (mirror / reflection-being already in VOID / COSMIC / ABSTRACT). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Core furniture**
+  - chair-being (cap 1+1) — generic seating, four-leg silhouette
+  - table-being (cap 1+1) — flat-surface furniture, four-leg silhouette
+  - bed-being (cap 1+1) — sleeping-platform, headboard + mattress flavor
+  - couch / sofa-being (cap 1+1) — multi-seat upholstered cushion creature
+  - bookshelf / shelf-being (cap 1+1) — vertical-stack storage furniture *(FURNITURE-domain per user pick, not CONTAINER)*
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

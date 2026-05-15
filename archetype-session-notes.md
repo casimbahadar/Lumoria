@@ -22,6 +22,8 @@ Persistent record of cross-session framing decisions, deferred items, and workfl
 
 6. **Behavioral notes survive silhouette strips** — when silhouettes are removed from an entry, any behavioral/lore content (e.g. fortress-wall's protective tendency toward castle-being) should be preserved as a separate `*behavior: ...*` italic tag.
 
+7. **Humanoid creature-as-being framing for abstract / role-based concepts** — when a category is built around abstract concepts that don't have a singular canonical "object-form" (professions, dance styles, sport roles, performance archetypes, etc.), entries may be framed as **humanoid creatures embodying the concept** rather than iconic-item-as-being. The humanoid creature carries the iconic gear / pose / role of the concept as flavor (e.g., judge-being carries gavel + robe; astronaut-being carries spacesuit + helmet; ballet-dancer-being carries pointe-shoes + tutu). Established 2026-05-15 session for DANCE/MOVEMENT and CAREERS/PROFESSIONS clusters per user call. Humanoid framing precedent already exists in MYTHICAL CREATURES (humanoid-wraith / lich / banshee), UNIQUE/ONE-OF-A-KIND (divine-messenger), and elsewhere. **Applicable to future clusters around abstract / role-based concepts.** Existing object-as-being clusters are NOT retroactively rewritten unless the user explicitly requests it; cap-1+1 object-as-being framing remains the established default for most entries.
+
 ---
 
 ## Workflow rules in force

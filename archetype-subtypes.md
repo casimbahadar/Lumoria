@@ -916,23 +916,15 @@ Subterranean habitat-as-being — the cave-space itself animated, with stalactit
 
 ---
 
-## GLACIER
+## THERMAL EXTREMES
 
-Glacial / polar-ice landscape-as-being — moving ice-mass as body, crevasses as wounds, calving as birthing-action. Distinct from the **Ice element** (formless Elementals slot), from ice-elemental Lumori (Permavast/Tundrafox etc. stay in their dex slots), and from **snow/blizzard weather** (deferred to WEATHER/ATMOSPHERIC batch). Cross-section notes: avalanche stays in NATURAL-DISASTER; snowdrift, icicle-formation, and polar-night defer to WEATHER; frozen-river and frozen-lake belong here (RIVER cluster dropped per session decision). *Creature framing: each entry below is a discrete walking Lumori embodying the ice-feature — Duraludon-style scaling applies (not a literal full glacier).*
+Extreme-temperature habitat-as-being — frozen ice-mass or geothermal hot-water habitat given creature-scale, the temperature-extreme feature intrinsic to the form. Distinct from the **Ice element** / **Water element** / **Fire element** (formless Elementals slots), from elemental Lumori (Permavast/Tundrafox etc. stay in their dex slots), from CAVE/UNDERGROUND (rock-cavern voids, not temperature-extreme habitats), from ISLAND (landmass habitat), from WEATHER/ATMOSPHERIC (snow / blizzard / hail are weather-events; THERMAL EXTREMES = habitat-formations), and from NATURAL-DISASTER (avalanche / volcanic-eruption are disaster events; THERMAL EXTREMES = the habitat). Cross-section notes: combined 2026-05-15 from former separate GLACIER + HOT-SPRING clusters (2-entry + 3-entry → 5-entry consolidation). Snowdrift / icicle-formation / polar-night landed in WEATHER/ATMOSPHERIC; frozen-river / frozen-lake belong here (RIVER cluster dropped). Thermophile microbe stays in MICROORGANISMS; steam-only fumaroles dropped 2026-05-13 SMOKE batch; magma-chamber / hydrothermal-vent / black-smoker remain unassigned. *Creature framing: each entry below is a discrete walking Lumori embodying the thermal-extreme feature — Duraludon-style scaling applies.*
 
-- **Continental / massive ice**
+- **Frozen / cold**
   - glacier-being / ice-river-being (cap 1+1) — slow-moving valley-ice flow, crevasse-mouthed, blue-throat; *as creature: bipedal walking ice-mass, crevasse-mouth across the chest, blue-throat interior, moraine-debris trailing from the feet*
-
-- **Sea-ice / floating**
   - ice-floe / pack-ice-being (cap 1+1) — flat drifting raft-creature, polar surface dweller; *as creature: flat raft-creature, seal-pup body curled atop the floe-disc, blue-edged crack patterns across the back*
 
----
-
-## HOT-SPRING
-
-Geothermal hot-water habitat-as-being — steaming pool as body, mineral-rim as scales, sulfur-vent as breath, scalding-water as bite. Distinct from the **Water element** and **Fire element** (formless Elementals slots), from CAVE (rock-cavern voids, not water-filled hot pools), and from GLACIER (cold counterpart). Cross-section notes: thermophile microbe stays in MICROORGANISMS (line 112); steam-only fumaroles are SMOKE-adjacent and deferred; magma-chamber and hydrothermal-vent / black-smoker remain unassigned after this batch — revisit in a later cluster if a home is wanted. *Creature framing: each entry below is a discrete walking Lumori embodying the geothermal-feature — Duraludon-style scaling applies.*
-
-- **Surface hot-water features**
+- **Geothermal / hot**
   - hot-spring / onsen-being (cap 1+1) — canonical steaming pool, mineral-rimmed, restorative warmth; *as creature: cylindrical bath-house facade walking on stone-block legs, paper-screen door mouth, mineral-rim shoulders. Alternative silhouette: floating spirit-form rising from steam-vapor, mineral-rim crown, water-droplet limbs that drip continuously.*
   - geyser-being (cap 1+1) — intermittent eruption-creature, pressure-built columns of scalding spray; *as creature: tall slender column-creature with an eruption-spout head, periodic full-body shudder triggers a column-blast. Alternative silhouette: bipedal mineral-mound creature with a chimney-vent atop the head — Old Faithful silhouette, sulfur-rust hide, snow-dusted shoulders, steam constantly trailing from the chimney, periodic full-body shudder → vertical eruption.*
   - mud-pot / mud-pool-being (cap 1+1) — boiling-mud cauldron, gurgling skin, sulfur-bubble jaw; *as creature: bubbling-mud blob-creature, dome body, rising-bubble eyes that pop with each gurgle*

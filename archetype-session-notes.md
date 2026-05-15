@@ -391,7 +391,7 @@ URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTU
 - A8: Renamed UNIQUE `painted-canvas / mural-being` → `painted-canvas-being` (removes name-collision with INK/PIGMENT mural-being).
 - A9: Renamed UNIQUE `chimeric-composite` → `patchwork-composite` (disambiguates from MYTHICAL `chimera` Greek-myth).
 - A10: Dropped `card-dice-fate-game-creature` from UNIQUE (duplicate of GAME-PIECE coverage).
-- A11: Reframed UNIQUE `divine-messenger` from "angelic-flavored" to "courier / emissary-figure" (disambiguates from MYTHICAL angel; preserves humanoid-framing-precedent role).
+- A11: Reframed UNIQUE `divine-messenger` from "angelic-flavored" to "courier / emissary-figure" (disambiguates from MYTHICAL angel; preserves humanoid-framing-precedent role). **Option A follow-up applied 2026-05-15:** added new `prophet-being / oracle-prophet` entry to MYTHICAL CREATURES Other (cross-cultural) sub-section — captures the divine-flavor that was removed from divine-messenger reframe.
 - A12: Added cross-section note to CAVE intro distinguishing CAVE `cave-echo` (cave-specific resonance) from VOID `echo-being` (abstract free-floating echo).
 
 **Entry totals after consolidation + dedup:** 50 → 45 categories; 1,138 → 1,127 entries file-wide (1,150 with dragons). |

@@ -1897,6 +1897,7 @@ Sensory-absence humanoid-creature-as-being — creature defined by lacking one s
 - **ifrit** (cap 1+1) — Arabic fire-spirit
 - **seraph** (cap 1+1) — six-winged angel (highest-rank); distinct from generic angel
 - **nephilim** (cap 1+1) — giant fallen-angel hybrid offspring
+- **prophet-being / oracle-prophet** (cap 1+1) — robed visionary humanoid with divine-inspiration flavor, scroll or staff vestige, halo / aureole crowning the head, prophetic-trance posture *(distinct from `angel` which is the celestial-being-as-such; distinct from MYTHICAL Arcana `pythia-seer-being` which is the Delphic-oracle specific; prophet-being = the more general divine-revelation messenger archetype; added 2026-05-15 per A11 Option A — captures divine-flavor that was removed from UNIQUE `divine-messenger` reframe)*
 - **owlman** (cap 1+1) — Cornwall cryptid; winged humanoid with owl features
 
 ---

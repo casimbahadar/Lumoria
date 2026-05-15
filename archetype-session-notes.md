@@ -378,7 +378,7 @@ URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTU
 | Materials | DONE 4/4 | All 4 batches landed clean. |
 | Manmade | DONE 13/13 | ARCHITECTURE + VEHICLE + TOY + GAME-PIECE + JEWELRY + CONTAINER + TOOL + APPLIANCE + STATUE + TROPHY + ROBOTIC + CAMERA + INSTRUMENTS done. **BANNER permanently dropped 2026-05-12.** Cluster closed 2026-05-13. |
 | Phenomena | DONE 7/7 | SHADOW-CAST + BUBBLE + SMOKE + PERFUME + HOLOGRAM + EXPLOSIVE + WEATHER/ATMOSPHERIC all landed 2026-05-13. WEATHER landed 6 reserved confirmed-picks (mirage from HOLOGRAM; snowdrift + icicle-formation + polar-night from GLACIER/Habitat deferrals; mist + fog from SMOKE) plus 8 fresh picks. **Phase 1 category roadmap COMPLETE 35/35.** Final deferral-review pass pending. |
-| Phase 1 extension (post-roadmap-closure) | IN PROGRESS 12/? | Brainstorm batches 1+2+3 picks landed 2026-05-15: ... + MOON PHASES + SPORTS + VIRTUES/VICES/ABSTRACTS + ZODIAC (so far). ZODIAC 12 entries (all 12 signs) uses humanoid + hybrid-creature framing per #7. More commits coming: WRITING/SYMBOLS, DRINKS/BEVERAGES, MISSING SENSES + retro-adds to CAREERS/PROFESSIONS, COSMOLOGICAL/ENERGY, ANATOMY. Tracks new categories beyond original 35-batch roadmap. |
+| Phase 1 extension (post-roadmap-closure) | IN PROGRESS 13/? | Brainstorm batches 1+2+3 picks landed 2026-05-15: ... + ZODIAC + WRITING/SYMBOLS/LANGUAGE (so far). WRITING small starter cluster (2 ancient script-glyphs: hieroglyph, rune). More commits coming: DRINKS/BEVERAGES, MISSING SENSES + retro-adds to CAREERS/PROFESSIONS, COSMOLOGICAL/ENERGY, ANATOMY. Tracks new categories beyond original 35-batch roadmap. |
 
 ---
 

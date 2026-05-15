@@ -1703,6 +1703,16 @@ Zodiac-sign celestial-archetype creature-as-being — astrological sign embodied
 
 ---
 
+## WRITING / SYMBOLS / LANGUAGE
+
+Written-symbol / script-glyph object-as-being — letter, glyph, or character from a writing system given creature-scale. Distinct from MATHEMATICS (geometric / numerical symbols like cube / infinity-symbol live there; WRITING = linguistic / script glyphs), from RELIGIOUS/SPIRITUAL (sacred-symbols like ankh / yin-yang / cross live there as ritual-glyphs; WRITING = secular script-glyphs), from VOID/COSMIC/ABSTRACT (`glyph / sigil-being` already there as abstract-symbol; WRITING = specific real-world script-glyphs), and from a future-potential LANGUAGE-EXPRESSION cluster (word-being, sentence-being, emoji-being etc. would extend the category if added; this batch covers ancient script-glyphs only). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Ancient script-glyphs**
+  - hieroglyph-being (cap 1+1) — Egyptian pictographic script-glyph
+  - rune-being (cap 1+1) — Norse / runic angular script-glyph
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

@@ -2067,12 +2067,12 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 - **stellar-being / star-spirit** (cap 1+1)
 - **aurora-being** (cap 1+1) — northern-lights
 - **nebula-being** (cap 1+1)
-- **comet-being** (cap 1+1)
+- **comet-being** (cap 1+1) — icy-nucleus + long-trailing-tail traveling celestial, tail-points-away-from-sun flavor *(descriptor enhanced 2026-05-15 from brainstorm-batch-3 pick #110)*
 - **eclipse-being** (cap 1+1)
 - **black-hole-being** (cap 1+1) — extreme gravity, light-eater; cosmic apex-predator flavor
 - **constellation-being / zodiac-being** (cap 1+1) — pattern of stars given form; mythological
 - **planet-being / planetoid-being** (cap 1+1) — single celestial body embodied
-- **asteroid-being / asteroid-belt-being** (cap 1+1) — rocky-cosmic; distinct from comet-being
+- **asteroid-being / asteroid-belt-being** (cap 1+1) — irregular-rocky space-debris, scarred-and-pitted surface; distinct from comet-being *(descriptor enhanced 2026-05-15 from brainstorm-batch-3 pick #111)*
 
 ---
 

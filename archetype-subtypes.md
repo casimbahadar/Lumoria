@@ -1554,13 +1554,17 @@ Anatomical body-part object-as-being — discrete organ or body-part given creat
 
 ---
 
-## MATHEMATICS
+## SYMBOLS & GLYPHS
 
-Mathematical / geometric concept-as-being — abstract numerical or geometric form given creature-scale, with the concept embodied as a distinct entity. Distinct from CRYSTALLINE / GEM (physical-crystal-cube-shape stays CRYSTALLINE-side; MATHEMATICS cube-being = abstract-geometric-form), from INSTRUMENTS (triangle-being in INSTRUMENTS would be the metal-rod chime instrument candidate — not landed; MATHEMATICS would treat the geometric triangle as a separate-form-concept, not picked this batch either), from VOID / COSMIC / ABSTRACT (abstract concepts there include silence / chaos / order / duality; MATHEMATICS = numerical / geometric specifically), and from a future-potential WRITING / SYMBOLS cluster (alphabet-letter / punctuation / emoji could go there, distinct from mathematical-symbols here). Cross-section notes: number-digit-being, plus-sign / equals-sign / pi-symbol-being all adjacent candidates not picked this batch. *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+Symbolic / glyphic concept-as-being — abstract symbol (mathematical, geometric, linguistic, or script-glyph) given creature-scale, with the symbolic meaning intrinsic to the form. Distinct from CRYSTALLINE / GEM (physical-crystal-cube-shape stays CRYSTALLINE-side; SYMBOLS & GLYPHS cube-being = abstract-geometric-form), from INSTRUMENTS (triangle-being would be the metal-rod chime instrument candidate — not landed; SYMBOLS & GLYPHS would treat the geometric triangle as a separate-form-concept, not picked here), from VOID / COSMIC / ABSTRACT (`glyph / sigil-being` already there as abstract-symbol; SYMBOLS & GLYPHS = specific real-world symbols / script-glyphs given concrete form — silence / chaos / order / duality stay VOID-abstract), and from RELIGIOUS/SPIRITUAL (sacred symbols like ankh / yin-yang / cross live there as ritual-glyphs; SYMBOLS & GLYPHS = secular geometric / numerical / script). Cross-section notes: combined 2026-05-15 from former separate MATHEMATICS + WRITING/SYMBOLS/LANGUAGE clusters (2-entry + 2-entry → 4-entry consolidation). Adjacent candidates not picked: number-digit-being, plus-sign / equals-sign / pi-symbol-being, letter-of-alphabet-being, word-being, punctuation-being, emoji-being. *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
 
 - **Geometric / numerical forms**
   - cube-being (cap 1+1) — six-faced solid geometric form, regular-polyhedron flavor
   - infinity-symbol-being (cap 1+1) — ∞ glyph creature, looped-figure-eight flavor
+
+- **Ancient script-glyphs**
+  - hieroglyph-being (cap 1+1) — Egyptian pictographic script-glyph
+  - rune-being (cap 1+1) — Norse / runic angular script-glyph
 
 ---
 
@@ -1725,16 +1729,6 @@ Zodiac-sign celestial-archetype creature-as-being — astrological sign embodied
   - capricorn-goat-being (cap 1+1) — goat-fish hybrid (sea-goat), earth-sign ambition flavor
   - aquarius-water-bearer-being (cap 1+1) — humanoid pouring water-vessel, air-sign visionary flavor
   - pisces-fish-being (cap 1+1) — paired fish *(SYMBIOSIS-adjacent paired framing)*, water-sign intuitive flavor
-
----
-
-## WRITING / SYMBOLS / LANGUAGE
-
-Written-symbol / script-glyph object-as-being — letter, glyph, or character from a writing system given creature-scale. Distinct from MATHEMATICS (geometric / numerical symbols like cube / infinity-symbol live there; WRITING = linguistic / script glyphs), from RELIGIOUS/SPIRITUAL (sacred-symbols like ankh / yin-yang / cross live there as ritual-glyphs; WRITING = secular script-glyphs), from VOID/COSMIC/ABSTRACT (`glyph / sigil-being` already there as abstract-symbol; WRITING = specific real-world script-glyphs), and from a future-potential LANGUAGE-EXPRESSION cluster (word-being, sentence-being, emoji-being etc. would extend the category if added; this batch covers ancient script-glyphs only). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
-
-- **Ancient script-glyphs**
-  - hieroglyph-being (cap 1+1) — Egyptian pictographic script-glyph
-  - rune-being (cap 1+1) — Norse / runic angular script-glyph
 
 ---
 

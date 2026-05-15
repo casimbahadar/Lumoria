@@ -1531,6 +1531,17 @@ Domestic furnishing object-as-being — household furniture given creature-scale
 
 ---
 
+## ANATOMY
+
+Anatomical body-part object-as-being — discrete organ or body-part given creature-scale, with the part embodied as a standalone entity. Distinct from MAMMALS / BIRDS / REPTILES / etc. (whole-creature framing vs. part-as-creature; the parent-creature's own organs are not duplicated here), from GAME-PIECE (heart-suit-glyph already there as the suit-symbol; ANATOMY heart-organ-being is the anatomical pumping organ), from MYTHICAL CREATURES (skeleton-warrior + lich + mummy live there as undead-spirit beings; an inert anatomical skeleton-being would be ANATOMY-domain — not picked this batch but noted), from STATUE (figurative-sculpture-of-anatomy = STATUE; live-animate-organ = ANATOMY), and from CRYSTALLINE / GEM (no overlap). Cross-section notes: fingerprint / DNA-strand-being adjacent candidates not picked. *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Discrete organs**
+  - brain-being (cap 1+1) — convoluted gray-matter organ creature
+  - eyeball-being (cap 1+1) — sclera + iris + pupil sphere
+  - tongue-being (cap 1+1) — pink muscle-creature, taste-bud surface
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

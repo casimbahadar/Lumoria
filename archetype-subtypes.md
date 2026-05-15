@@ -1423,6 +1423,36 @@ Smoke / vapor / gaseous-emission phenomenon-as-being — visible-airborne partic
 
 ---
 
+## PERFUME
+
+Scented vapor / fragrance phenomenon-as-being — aromatic-airborne emission given creature-scale, scent-carrying vapor intrinsic to the form. Distinct from SMOKE (combustion-or-vent emission without scent-emphasis — convention per SMOKE intro: fragrance-carrying vapor = PERFUME, generic-or-unpleasant vapor = SMOKE; **incense-smoke routed here per SMOKE batch user call** and lands this batch; **campfire-aroma judged PERFUME-domain per user call** as pleasant-scent framing, but not picked this batch, logged as candidate), from BUBBLE (gas-enclosed-in-film vs. free-floating scented vapor), from WEATHER/ATMOSPHERIC upcoming (atmospheric water-vapor phenomena defer to WEATHER; **petrichor / after-rain-aroma judged PERFUME-domain per user call** as scent-emission rather than atmospheric-phenomenon, but not picked this batch, logged as candidate), from CONTAINER (already done — perfume-bottle / aroma-vessel = CONTAINER; PERFUME = the scent-vapor itself, not the bottle), from PLANTS/FLORA (already done — flower-being is the bloom itself; **flower-scent / floral-aroma judged PERFUME-domain per user call** as scent-emission distinct from PLANT-as-being, but generic flower-scent not picked this batch — specific roses + lavender + mint landed instead), from APPLIANCE (already done — **air-freshener / aerosol-spray + scented-candle judged PERFUME-domain per user call** as scent-vapor-products rather than device-as-being, but not picked this batch, logged as candidates), from MAMMALS (already done — skunk-being already at line 234 in MAMMALS/Mustelids; **skunk-spray-as-PERFUME-entry DROPPED entirely per user call**), from VOID/COSMIC/ABSTRACT (silence-being / echo-being are sound-domain analogs; PERFUME = scent-domain separately), and from MYTHICAL CREATURES (no overlap). Cross-section notes: incense-smoke arrives per SMOKE-batch routing. Items **DROPPED entirely per user call**: stench / stink / body-odor / sweat-aroma / rot / decay-aroma (unpleasant-scent counter-aspect proposed but dropped — PERFUME covers pleasant-scent domain only this session); pollen-cloud / spring-meadow-aroma; skunk-spray. *Phenomena cluster — fourth batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Perfume / cologne (commercial fragrance)**
+  - perfume-being (cap 1+1) — generic perfume vapor cloud, feminine/floral-default fragrance form
+  - cologne-being (cap 1+1) — masculine fragrance variant, woody/musk-default
+  - eau-de-toilette / body-spray-being (cap 1+1) — lighter spray variant, casual everyday-flavor
+
+- **Incense / ritual scent**
+  - incense-smoke-being (cap 1+1) — temple/ritual scented smoke *(carryover from SMOKE deferral)*
+
+- **Natural floral / herbal scent**
+  - rose-scent-being (cap 1+1) — iconic floral aroma, classic-rose flavor
+  - lavender-scent-being (cap 1+1) — calming herbal aroma, purple-bloom signature
+  - mint-aroma-being (cap 1+1) — fresh herbal aroma, cool / sharp flavor
+
+- **Food / kitchen aroma**
+  - spice-aroma-being (cap 1+1) — generic spice-blend aroma, cinnamon / curry / pepper variants
+
+- **Environmental / atmospheric (natural)**
+  - sea-breeze / ocean-aroma-being (cap 1+1) — saltwater scent, coastal-air flavor
+  - forest-aroma / pine-fresh-being (cap 1+1) — woodsy / cedar aroma, mountain-air flavor
+
+- **Synthetic / industrial / domestic aromas**
+  - gasoline-aroma-being (cap 1+1) — petroleum / fuel-station aroma, industrial-synthetic flavor
+  - fresh-laundry-aroma-being (cap 1+1) — clean-detergent / fabric-softener aroma, domestic-warmth flavor
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

@@ -56,48 +56,43 @@ Per `CLAUDE.md` and TODO.md line 94:
 Carried across batches without a final home. Each may end up reassigned to a future cluster or dropped entirely.
 
 ### From Habitat cluster
-- **magma-chamber-being** — declined from CAVE and HOT-SPRING.
-- **hydrothermal-vent / black-smoker** — declined from CAVE and HOT-SPRING.
+- **magma-chamber-being** — declined from CAVE and HOT-SPRING. **RENAMED to `magma-being` and LANDED in THERMAL EXTREMES Geothermal/hot sub-group 2026-05-15** per user resolution.
+- **hydrothermal-vent / black-smoker** — declined from CAVE and HOT-SPRING. **DROPPED entirely 2026-05-15** per user resolution (no home pursued).
 - **desert-island-being** — entry exists in ISLAND but silhouette intentionally removed; user wants to revisit concept.
 - **beach / sandy-shore-being** — entry exists; silhouette intentionally blank (user has design in mind).
 - **snowdrift, icicle-formation, polar-night** — explicitly deferred to WEATHER/ATMOSPHERIC batch. **All three LANDED in WEATHER batch 2026-05-13** as reserved confirmed-picks (snowdrift was originally a GLACIER entry, dropped from GLACIER and re-routed; icicle + polar-night came from this same Habitat-deferrals row).
 - **fumarole / steam-only vent** — flagged SMOKE-adjacent, deferred. **DROPPED entirely 2026-05-13 SMOKE batch** per user call (Habitat-deferral does not land; no remaining home).
 
 ### From Materials cluster
-- **steel-being** as alloy-form — deferred to avoid collision with Steel-type element.
-- **molten-metal-being** — deferred to avoid magma-chamber/FIRE overlap.
-- **coin** — defers to JEWELRY batch.
-- **paint-can, ink-pot** vessel forms — defer to CONTAINER.
+- **steel-being** as alloy-form — deferred to avoid collision with Steel-type element. **DROPPED entirely 2026-05-15** per user resolution.
+- **molten-metal-being** — deferred to avoid magma-chamber/FIRE overlap. **DROPPED entirely 2026-05-15** per user resolution.
+- **coin** — defers to JEWELRY batch. **LANDED in JEWELRY as `ancient-coin-being`.**
+- **paint-can** — vessel form, deferred to CONTAINER. **LANDED in CONTAINER.** **ink-pot DROPPED entirely 2026-05-15** per user resolution.
 - **printer-ink, pen-ink (fountain, ballpoint)** — defer to TOOL.
 
 ### From Manmade cluster (ARCHITECTURE deferrals)
-- **mineshaft** — carried CAVE → ARCHITECTURE → deferred again. No home yet.
-- **bridge, dam, dungeon, watchtower, pier, stupa, ziggurat, cottage, yurt** — proposed for ARCHITECTURE but not picked.
+- **mineshaft** — carried CAVE → ARCHITECTURE → deferred again. **DROPPED entirely 2026-05-15** per user resolution.
+- **bridge, watchtower** — proposed for ARCHITECTURE but not picked (logged as candidates). *(dam, dungeon, pier, stupa, ziggurat, cottage, yurt DROPPED entirely 2026-05-15 per user resolution.)*
 
 ### From Manmade cluster (VEHICLE deferrals)
 - **sailboat / yacht** (with sailcloth carryover from THREAD).
-- **bicycle, rowboat / canoe, hot-air balloon, blimp / dirigible, sled / sleigh, hovercraft / hovercar**.
+- **bicycle, hot-air balloon, blimp / dirigible, hovercraft / hovercar**. *(rowboat / canoe + sled / sleigh DROPPED entirely 2026-05-15 per user resolution.)*
 - **hearse / coffin-on-wheels** — flagged as specialty too dark; dropped.
 
 ### From Manmade cluster (TOY deferrals)
-- **toy-car, model-train** — carried over from VEHICLE deferrals; offered in TOY proposal but not picked.
-- **tin-soldier-being, toy-robot-being** — proposed but not picked (toy-robot remains for ROBOTIC).
-- **sock-puppet, ventriloquist-dummy, finger-puppet, porcelain-doll** — plush/doll candidates not picked.
+- **model-train** — carried over from VEHICLE deferrals; offered in TOY proposal but not picked. *(toy-car DROPPED entirely 2026-05-15 per user resolution.)*
+- **toy-robot-being** — proposed but not picked (toy-robot remains for ROBOTIC). *(tin-soldier-being DROPPED entirely 2026-05-15 per user resolution.)*
+- *(sock-puppet, ventriloquist-dummy, finger-puppet, porcelain-doll all DROPPED entirely 2026-05-15 per user resolution.)*
 - **action-figure variants (collectible-figurine, army-men)** — proposed but not picked.
-- **hobby-horse, building-block, interlocking-brick, erector / construction-set** — proposed but not picked.
-- **jack-in-the-box, yo-yo** — wind-up/mechanical candidates not picked.
-- **bouncy-ball, pinwheel** — classic/misc candidates not picked.
+- *(hobby-horse, building-block, interlocking-brick, erector / construction-set all DROPPED entirely 2026-05-15 per user resolution.)*
+- *(jack-in-the-box, yo-yo, bouncy-ball, pinwheel all DROPPED entirely 2026-05-15 per user resolution.)*
 - **balloon-animal, shadow-puppet, charm-toy, board-game-piece, slingshot, musical-toy / xylophone / toy-drum** — flagged as adjacent and deferred to their respective clusters (BUBBLE, SHADOW-CAST, JEWELRY, GAME-PIECE, TOOL, INSTRUMENTS-or-TOOL).
 
 ### From Manmade cluster (GAME-PIECE deferrals)
-- **checkers-piece, go-stone, shogi-piece, backgammon-checker, meeple, generic-game-token** — board-piece candidates proposed but not picked.
-- **trading-card-being** — proposed but not picked (collectible card vs. playing-card distinction; user kept only 52-deck playing-card + 4 individual suits).
-- **six-sided-die-being, coin-flip-being** — proposed but not picked (polyhedral-die covers the dice slot; coin-flip dropped since currency-coin lives in JEWELRY).
-- **poker-chip, mahjong-tile, domino** — token candidates not picked.
-- **game-board, spinner, generic-pawn, jenga-block, yahtzee-cup, bingo-ball, game-controller** — track/marker/specialty candidates not picked. *(hourglass-timer dropped from candidate list 2026-05-15 per N27 dedup — already landed in UNIQUE/ONE-OF-A-KIND as `hourglass-being`.)*
-- **slot-machine, roulette-wheel, pinball, arcade-cabinet** → flagged for APPLIANCE.
-- **paper-fortune-teller (cootie-catcher)** → flagged for TOY (re-emergence possible).
-- **tarot-card / Major Arcana** → moved to MYTHICAL CREATURES this session as new `### Arcana / divination / fortune-telling` sub-section (separate commit). User decision: tarot is mystical/archetypal, fits Mythical better than mechanical game-piece.
+- **game-controller** — track/marker/specialty candidate not picked, kept as candidate.
+- **slot-machine, pinball** → flagged for APPLIANCE, **LANDED in APPLIANCE.**
+- **tarot-card / Major Arcana** → moved to MYTHICAL CREATURES (Arcana / divination / fortune-telling sub-section, separate commit). User decision: tarot is mystical/archetypal, fits Mythical better than mechanical game-piece.
+- *(All other GAME-PIECE deferrals DROPPED entirely 2026-05-15 per user resolution: checkers-piece, go-stone, shogi-piece, backgammon-checker, meeple, generic-game-token, trading-card-being, six-sided-die-being, coin-flip-being, poker-chip, mahjong-tile, domino, game-board, spinner, generic-pawn, jenga-block, yahtzee-cup, bingo-ball, arcade-cabinet, roulette-wheel, paper-fortune-teller / cootie-catcher.)* *(hourglass-timer already dropped 2026-05-15 per N27 dedup — landed in UNIQUE.)*
 
 ### From Manmade cluster (JEWELRY deferrals)
 - **talisman-being** — proposed but not picked (slot reserved alongside amulet-being; distinction: talisman attracts luck vs. amulet wards harm).
@@ -140,7 +135,7 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **space-heater-being, electric-fan-being** — HVAC candidates not picked (air-conditioner + humidifier kept).
 - **television / TV-being, radio-being, record-player / phonograph-being, speaker / boombox-being** — entertainment-electronics candidates not picked.
 - **gaming-console-being** — proposed for APPLIANCE but user redirected to TOY-side. **DROPPED entirely 2026-05-15** per cross-cluster pending-review resolution (TOY cluster closed without retro-add; no home).
-- **arcade-cabinet-being, roulette-wheel-being** — gaming-arcade candidates not picked (slot-machine + pinball-machine kept). These were inherited from GAME-PIECE deferral; partial resolution.
+- *(arcade-cabinet-being + roulette-wheel-being DROPPED entirely 2026-05-15 per user resolution — these were inherited from GAME-PIECE deferral, dropped from both blocks; slot-machine + pinball-machine remained and landed in APPLIANCE.)*
 - **printer-being, typewriter-being** — office candidates not picked (copier kept).
 - **furnace-being, elevator-being** — industrial/heavy candidates not picked (kiln + generator kept; elevator was flagged ARCHITECTURE-borderline).
 - **microscope-being, telescope-being** — scientific-instrument candidates inherited from TOOL flag; not picked in APPLIANCE batch. **Now reframed as CAMERA-side candidates** per CAMERA intro's lens-mechanism domain-claim (2026-05-13 session).

@@ -1582,6 +1582,16 @@ Dance-style humanoid-creature-as-being — performance / ritual dance embodied a
 
 ---
 
+## CAREERS / PROFESSIONS
+
+Profession humanoid-creature-as-being — occupation embodied as a creature, with the profession's iconic gear / role intrinsic to the form. **Humanoid framing per user call** (creatures based around the careers, not iconic-item objects) — invokes session-notes key framing decision #7 for abstract / role-based concepts. Humanoid framing precedent: MYTHICAL's humanoid-wraith / lich / banshee; UNIQUE's divine-messenger; DANCE/MOVEMENT cluster (just-landed). Distinct from MYTHICAL CREATURES (mystical-humanoid-spirits; CAREERS = secular real-world occupations), from THREAD/CLOTH (clothing-as-garment vs. wearer-as-creature here), and from TOOL/APPLIANCE (gavel = TOOL-candidate, spacesuit = THREAD-candidate; CAREERS = the practitioner embodied with their iconic gear as flavor, not the gear itself). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Profession-creatures**
+  - judge-being (cap 1+1) — robed humanoid judge with gavel, court-bench flavor
+  - astronaut-being (cap 1+1) — spacesuit-clad humanoid astronaut, helmet + life-support flavor
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

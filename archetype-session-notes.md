@@ -158,49 +158,26 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 
 ### From Manmade cluster (INSTRUMENTS deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked.*
-- **snare-drum-being, bass-drum-being, timpani / kettle-drum-being, djembe / hand-drum-being, tambourine-being** — percussion candidates not picked (generic drum-being covered the sub-cluster).
-- **marimba-being** — xylophone's larger cousin; not picked (xylophone-being kept as the canonical mallet-instrument form).
-- **pipe-organ / organ-being** — INSTRUMENTS-domain confirmed per user call (vs. ARCHITECTURE cathedral-fixture framing) but not picked. Future-densification candidate.
-- **accordion-being** — squeezebox candidate from pre-staged candidate list; not picked.
-- **cello-being, lute / lyre / mandolin-being** — string candidates not picked (violin + harp + generic guitar covered the sub-cluster).
-- **saxophone-being, clarinet-being, tuba-being, french-horn-being** — wind candidates not picked (trumpet/brass + flute/wind covered the sub-cluster).
-- **bell-being, gong-being** — bell/gong-default candidates from pre-staged list not picked.
-- **church-bell-being, temple-gong-being** — INSTRUMENTS-domain confirmed per user call (vs. ARCHITECTURE bell-tower / temple-structure framing) but not picked.
-- **cymbal-being, triangle-being** — small-percussion candidates not picked.
-- **electric-guitar-being** — implicitly covered by generic guitar-being under 1+1 cap per user call (no separate split). Logged to record the design decision, not as a pickable candidate.
-- **synthesizer / keyboard-being, drum-machine-being, theremin-being, turntable / DJ-deck-being** — electronic-instrument candidates; **INSTRUMENTS-domain confirmed** per user call (performance-instrument with player-interface = INSTRUMENTS, not APPLIANCE) but none picked.
-- **didgeridoo-being, bagpipe-being, sitar-being, erhu-being, ocarina-being, harmonica-being, kazoo-being** — folk/world/specialty candidates; not picked (only shamisen/koto landed as the folk/world representative).
-- **bongo-being, congas-being, ukulele-being, banjo-being, oboe-being, bassoon-being, double-bass-being, sousaphone-being** — adjacent canonical instruments not proposed this batch (logged for future densification awareness).
-- **whistle-being** — TOY-side carryover candidate. **DROPPED entirely 2026-05-15** per cross-cluster pending-review resolution (TOY cluster closed without retro-add; no home).
-- **music-box-being** — already in TOY's `**Mechanical / Wind-up**` sub-group; not duplicated here (wind-up plaything framing wins over performance-instrument framing for the canonical music-box).
-- **tuning-fork-being** — already in TOOL's `**Sound / signaling**` sub-group as pitch-precision tool; not duplicated here.
+- **saxophone-being, clarinet-being** — wind candidates not picked.
+- **sitar-being** — folk/world candidate not picked.
+- **electric-guitar-being** — implicitly covered by generic guitar-being under 1+1 cap per user call.
+- **music-box-being** — already in TOY's `**Mechanical / Wind-up**` sub-group.
+- **tuning-fork-being** — already in TOOL's `**Sound / signaling**` sub-group.
+- *(MAJOR DROP 2026-05-15 per user resolution: snare-drum, bass-drum, timpani/kettle-drum, djembe/hand-drum, tambourine (percussion), marimba, pipe-organ/organ, accordion, cello, lute/lyre/mandolin (string), tuba, french-horn (wind — saxophone + clarinet kept), bell, gong, church-bell, temple-gong, cymbal, triangle, synthesizer/keyboard, drum-machine, theremin, turntable/DJ-deck (electronic), didgeridoo, bagpipe, erhu, ocarina, harmonica, kazoo (folk/world — sitar kept), bongo, congas, ukulele, banjo, oboe, bassoon, double-bass, sousaphone (adjacent) — all DROPPED entirely.)* *(whistle earlier DROPPED.)*
 
 ### From Phenomena cluster (SHADOW-CAST deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked.*
-- **cast-shadow / your-shadow-being** — the personal-shadow-anchored-to-owner default candidate; not picked (silhouette-being chosen as generic-form; doppelganger + shadow-twin chosen as detached/paired variants).
-- **eclipse-shadow-being, solar-eclipse-being, lunar-eclipse-being, penumbra-being, umbra-being** — astronomical-shadow candidates; **SHADOW-CAST-domain confirmed** per user call (vs. NATURAL-DISASTER overlap, though NATURAL-DISASTER's meteor-strike/supernova are cosmic-adjacent), but none picked.
-- **tree-shadow-being, building-shadow-being, shadow-on-wall-being, silhouette-against-light-being** — object-cast-shadow candidates not picked (silhouette-being covers the generic-cutout concept).
-- **shadow-puppet-being** — TOY deferral carryover ("shadow-puppet defers to SHADOW-CAST" per TOY intro); **SHADOW-CAST-domain confirmed** but not picked this batch — logged as inherited candidate from TOY.
-- **shadow-play / shadow-theater-being** — projected-performance ensemble candidate not picked.
-- **magic-lantern-projection-being** — pre-cinema light-blockage projection candidate; **SHADOW-CAST-domain confirmed** per user call (vs. HOLOGRAM projection framing — mechanism is silhouette-cutout, not light-emission) but not picked.
-- **crepuscular-ray-being, anticrepuscular-ray-being, earth-shadow-being** — atmospheric god-ray / horizon-band candidates; not picked. Earth-shadow-being adjacent to WEATHER/ATMOSPHERIC upcoming (sunset-horizon-band overlap).
-- **fear-shadow / dread-shadow-being, dusk-shadow / nightfall-shadow-being** — **DROPPED entirely** per user call (out-of-scope; conceptual fear-shadow leaned MYTHICAL wraith / VOID abstract, dusk-shadow leaned WEATHER twilight — neither cleanly SHADOW-CAST).
-- Other adjacent candidates not proposed this batch: dappled-light, mottled-shadow, sundial-gnomon-shadow, opaque-glass-blur (logged for future densification awareness).
+- **fear-shadow / dread-shadow-being, dusk-shadow / nightfall-shadow-being** — earlier DROPPED entirely (out-of-scope).
+- *(MAJOR DROP 2026-05-15 per user resolution: cast-shadow / your-shadow-being, tree-shadow, building-shadow, shadow-on-wall, silhouette-against-light, shadow-puppet, shadow-play / shadow-theater, magic-lantern-projection, crepuscular-ray, anticrepuscular-ray, earth-shadow-being, dappled-light, mottled-shadow, sundial-gnomon-shadow, opaque-glass-blur — all DROPPED entirely.)* *(eclipse-shadow / solar-eclipse / lunar-eclipse / penumbra / umbra earlier DROPPED per N1+N16.)*
 
 ### From Phenomena cluster (BUBBLE deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked.*
-- **bubble-bath / suds-being** — separate-foam candidate not picked (user picked dish-soap / detergent-foam-being as the foam representative; bubble-bath context-variant not pulled).
-- **bubble-wrap-being** — sheet-of-air-pockets candidate not picked.
-- **single-bubble-in-water-being, foam-being (generic), sea-foam-being, champagne-bubble / fizz-being** — liquid/aerated candidates not picked (boiling-bubble-being kept as the canonical rising-bubble form).
-- **geodesic-dome / protective-dome-bubble-being** — built-rigid-dome candidate; **ARCHITECTURE-side per user call** (built-rigid-structure framing wins over transparent-film-bubble framing). Logged for possible future ARCHITECTURE densification (ARCHITECTURE cluster is already DONE — would require retro-add similar to thermometer→TOOL precedent if ever pursued).
-- **plastic-bubble / quarantine-bubble-being** — medical/iconic sealed-environment candidate not picked.
-- **glass-blowing-bubble-being** — craft-process molten-glass sphere candidate not picked.
-- **ball-pit-ball-being** — single solid plastic ball candidate not picked (TOY-side framing; solid-not-bubble).
-- **hot-air-balloon-being, blimp-being, dirigible-being** — passenger-carrying inflatables; **stay VEHICLE-side candidates per user call** (existing VEHICLE deferrals). Convention: passenger-carrying inflatable = VEHICLE-side; decorative/non-transport inflatable = BUBBLE.
-- **crystal-ball / orb-being** — solid-sphere candidate; **stays CRYSTALLINE/GEM-side per user call** (solid-not-hollow framing; CRYSTALLINE is already DONE — would require retro-add if ever pursued).
-- **cell / vesicle / blood-cell-being** — biological-membrane-bubble candidates; **stay MICROORGANISMS-side per user call** (MICROORGANISMS is already DONE — biological framing wins, no BUBBLE duplicate).
-- **pearl-being** — solid-sphere wearable candidate; **stays JEWELRY-side per user call** (JEWELRY is already DONE — pearl deferred from JEWELRY batch as wearable; not pulled into BUBBLE).
-- Other adjacent unproposed candidates: spit-bubble, fish-bubble-breath, bubble-tea-pearl, mucus-bubble / nasal-bubble, oxygen-bubble-from-plant, frog's-throat-bubble (logged for future densification awareness).
+- **geodesic-dome / protective-dome-bubble-being** — ARCHITECTURE-side candidate per user call.
+- **hot-air-balloon-being, blimp-being, dirigible-being** — VEHICLE-side candidates per user call.
+- **crystal-ball / orb-being** — CRYSTALLINE/GEM-side candidate per user call.
+- **cell / vesicle / blood-cell-being** — MICROORGANISMS-side candidates per user call.
+- **pearl-being** — JEWELRY-side candidate per user call.
+- *(MAJOR DROP 2026-05-15 per user resolution: bubble-bath / suds-being, bubble-wrap-being, single-bubble-in-water-being, foam-being (generic), sea-foam-being, champagne-bubble / fizz-being, plastic-bubble / quarantine-bubble-being, glass-blowing-bubble-being, ball-pit-ball-being, spit-bubble, fish-bubble-breath, bubble-tea-pearl, mucus-bubble / nasal-bubble, oxygen-bubble-from-plant, frog's-throat-bubble — all DROPPED entirely.)*
 
 ### From Phenomena cluster (SMOKE deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked. Several items explicitly DROPPED or ROUTED per user calls this batch.*
@@ -219,12 +196,8 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **train-locomotive-smoke-being** — **implicit in VEHICLE train-being silhouette per user call** (no standalone SMOKE entry; VEHICLE train-being's "smokestack-head" descriptor covers).
 - **coffee-maker-steam-being, humidifier-steam-mist-being** — already vapor-as-feature in APPLIANCE entries (coffee-maker steam-vent + humidifier steam-mist exhalation), not standalone vapor-beings.
 
-**Standard candidates not picked (SMOKE-domain, logged for possible future densification):**
-- **campfire-smoke-being, cigarette / cigar / pipe-smoke-being, chimney-smoke-being, industrial-smokestack / factory-smoke-being** — combustion-smoke candidates not picked (generic smoke-being + wildfire-smoke-being kept as representatives).
-- **tea-kettle-steam-being, sauna-steam-being** — steam-context candidates not picked (generic steam-being kept).
-- **car-exhaust / tailpipe-smoke-being, rocket-exhaust / contrail-being, ship-funnel-smoke-being** — vehicular/exhaust candidates not picked.
-- **smoke-signal-being, flare-smoke / emergency-signal-being, fog-machine-smoke-being** — signaling/theatrical candidates not picked.
-- Other adjacent unproposed candidates: smoke-ring, grilling-smoke / barbecue-smoke, gunpowder-smoke / battlefield-smoke, propaganda-balloon-smoke (logged for future densification awareness).
+**Standard candidates DROPPED 2026-05-15 per user resolution:**
+- *(campfire-smoke, cigarette/cigar/pipe-smoke, chimney-smoke, industrial-smokestack/factory-smoke (combustion), tea-kettle-steam, sauna-steam (steam-context), car-exhaust/tailpipe-smoke, rocket-exhaust/contrail, ship-funnel-smoke (vehicular/exhaust), smoke-signal, flare-smoke/emergency-signal, fog-machine-smoke (signaling/theatrical), smoke-ring, grilling-smoke/barbecue-smoke, gunpowder-smoke/battlefield-smoke, propaganda-balloon-smoke (adjacent) — all DROPPED entirely.)*
 
 ### From Phenomena cluster (PERFUME deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked. Several items explicitly DROPPED per user calls this batch.*
@@ -235,17 +208,10 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **skunk-spray-being** — animal-defense scent vapor DROPPED entirely per user call (skunk-being already exists in MAMMALS/Mustelids at line 234; no separate PERFUME-side spray-vapor entry).
 
 **Candidates not picked (PERFUME-domain confirmed, logged for possible future densification):**
-- **essential-oil-aroma-being** — concentrated plant-fragrance candidate not picked.
-- **sage-bundle / smudge-smoke-being, resin-incense / frankincense-myrrh-being, joss-stick-being** — incense-context candidates not picked (generic incense-smoke-being kept as representative).
-- **flower-scent / floral-aroma-being (generic)** — PERFUME-domain confirmed per user call (scent-emission distinct from PLANTS/FLORA bloom-being) but generic floral entry not picked — specific roses + lavender + mint landed instead.
-- **jasmine-scent-being** — night-blooming fragrance candidate not picked.
-- **baking-aroma / bread-cookie-aroma-being, coffee-aroma-being, citrus-zest / lemon-aroma-being** — food/kitchen aroma candidates not picked (spice-aroma-being kept as representative).
-- **petrichor / after-rain-aroma-being** — earthen post-rain candidate; **PERFUME-domain confirmed per user call** (scent-emission framing wins over atmospheric-phenomenon framing) but not picked.
-- **campfire-aroma / wood-smoke-aroma-being** — pleasant-smoke scent candidate; **PERFUME-domain confirmed per user call** (pleasant-scent framing wins over SMOKE combustion-byproduct framing) but not picked.
-- **air-freshener / aerosol-spray-being** — commercial scent-product candidate; **PERFUME-domain confirmed per user call** (scent-vapor-product framing wins over APPLIANCE device-as-being framing) but not picked.
-- **scented-candle-aroma-being** — wax-fragrance candidate; **PERFUME-domain confirmed per user call** (aroma-as-being framing wins over APPLIANCE candle-as-device framing) but not picked.
-- **potpourri-being** — dried floral/herbal mix candidate not picked.
-- Other adjacent unproposed candidates: car-air-freshener-pine-tree, hospital-disinfectant-smell, new-car-smell, library-old-book-smell, ginger-aroma (logged for future densification awareness).
+- **flower-scent / floral-aroma-being (generic)** — PERFUME-domain confirmed.
+- **petrichor / after-rain-aroma-being** — PERFUME-domain confirmed (scent-emission framing wins over atmospheric-phenomenon framing).
+- **air-freshener / aerosol-spray-being** — PERFUME-domain confirmed (scent-vapor-product framing wins over APPLIANCE device-as-being framing).
+- *(MAJOR DROP 2026-05-15 per user resolution: essential-oil-aroma, sage-bundle/smudge-smoke, resin-incense/frankincense-myrrh, joss-stick (incense), jasmine-scent (specific floral), baking-aroma/bread-cookie-aroma, coffee-aroma, citrus-zest/lemon-aroma (food/kitchen), campfire-aroma/wood-smoke-aroma, scented-candle-aroma, potpourri, car-air-freshener-pine-tree, hospital-disinfectant-smell, new-car-smell, library-old-book-smell, ginger-aroma (adjacent) — all DROPPED entirely.)*
 
 ### From Phenomena cluster (HOLOGRAM deferrals) — now merged into OPTICAL IMAGING per 2026-05-15 consolidation
 - **mirage-being** — LANDED in WEATHER as reserved confirmed-pick.
@@ -268,14 +234,8 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 **Convention established this batch:**
 - **EXPLOSIVE accepts weapons-scale entries per user picks** (grenade + bomb + missile-warhead landed). Convention divergence from TOOL: weapons-as-handheld-implement = TOOL drop precedent stands (firearm dropped); weapons-as-blast-event = EXPLOSIVE-domain landed. This sets precedent for any future weapons-scale deliberations.
 
-**Candidates not picked (EXPLOSIVE-domain confirmed, logged for possible future densification):**
-- **sparkler-being, roman-candle-being, firecracker-being** — pyrotechnic candidates not picked (firework kept as representative).
-- **confetti-bomb / party-popper-being** — non-pyrotechnic celebratory burst candidate not picked.
-- **mining-blast / quarry-charge-being** — controlled-rock-breaking candidate not picked (dynamite + C4 covered demolition sub-cluster).
-- **gas-explosion / propane-blast-being, boiler-explosion-being, dust-explosion / grain-silo-being** — combustion / fuel-air candidates not picked.
-- **popcorn-pop / pop-snap-being** — small-scale benign pop candidate not picked.
-- **sonic-boom-being** — supersonic shockwave candidate; **EXPLOSIVE-domain confirmed per user call** (shockwave-only event) but not picked.
-- Other adjacent unproposed candidates: M-80, smoke-bomb (already SMOKE-side), volcano-pyroclastic-blast (already NATURAL-DISASTER) (logged for future densification awareness).
+**Candidates DROPPED 2026-05-15 per user resolution:**
+- *(sparkler, roman-candle, firecracker (pyrotechnic), confetti-bomb/party-popper (celebratory), mining-blast/quarry-charge (demolition), gas-explosion/propane-blast, boiler-explosion, dust-explosion/grain-silo (combustion/fuel-air), popcorn-pop/pop-snap (benign), sonic-boom (shockwave), M-80 (adjacent) — all DROPPED entirely.)*
 
 ### From Phenomena cluster (WEATHER/ATMOSPHERIC deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked. Several items explicitly DROPPED per user calls. **This is the final batch of the Phase 1 category roadmap.***
@@ -295,7 +255,7 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 
 **Candidates not picked (WEATHER-domain confirmed, logged for possible future densification):**
 - **cirrus-cloud-being, stratus-cloud-being, lenticular-cloud-being** — cloud-form candidates not picked (generic cloud + storm-cloud kept as representatives).
-- **sleet / freezing-rain-being, drizzle-being** — precipitation candidates not picked (rain + snow + hail kept).
+- **freezing-rain-being, drizzle-being** — precipitation candidates not picked (rain + snow + hail kept). *("sleet" half of former `sleet / freezing-rain-being` name DROPPED 2026-05-15 per user resolution — freezing-rain kept as the entry name; sleet not retained as alias.)*
 - **wind-gust-being, whirlwind / dust-devil-being, zephyr-being, chinook / foehn-wind-being** — wind candidates not picked (breeze kept as representative). **Whirlwind / dust-devil judged WEATHER-domain per user call** (vs. NATURAL-DISASTER tornado-event) but not picked.
 - **sunrise / sunset-being** — colored-sky transition candidate not picked (rainbow + aurora kept as light-phenomena representatives).
 - **frost-being, rime / hoarfrost-being** — winter surface-ice candidates not picked.

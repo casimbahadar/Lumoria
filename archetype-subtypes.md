@@ -1956,15 +1956,12 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 ## VOID / COSMIC / ABSTRACT
 
 - **void-being** (cap 1+1) — formless darkness
-- **starlight-cosmic-being** (cap 1+1)
-- **nebula-galaxy-cosmic-being** (cap 1+1)
 - **time-being** (cap 1+1) — chronological
 - **duality-being** (cap 1+1) — light/dark, etc.
 - **color-shifting / iridescent** (cap 1+1)
-- **prismatic / rainbow** (cap 1+1)
-- **shapeshifter / mimic / form-shifter** (cap 1+1)
+- **prismatic / rainbow** (cap 1+1) — abstract color-spectrum form; distinct from WEATHER `rainbow-being` (atmospheric post-rain arc)
 - **mirror / reflection-being** (cap 1+1)
-- **dream-being / nightmare-being** (cap 1+1)
+- **dream-being / nightmare-being** (cap 1+1) — abstract dream-state form; distinct from MYTHICAL Wisps `dream-wisp / dream-entity` (spirit-form) and MAMMALS `nightmare` sub of `mythical-equid` (horse-form)
 - **memory-being / forgotten-spirit** (cap 1+1)
 - **echo-being** (cap 1+1) — sound-based, fades and resurfaces
 - **glyph / sigil-being** (cap 1+1) — written-symbol given form
@@ -2033,7 +2030,6 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 - **solar-being / sun-spirit** (cap 1+1)
 - **lunar-being / moon-spirit** (cap 1+1)
 - **stellar-being / star-spirit** (cap 1+1)
-- **aurora-being** (cap 1+1) — northern-lights
 - **nebula-being** (cap 1+1)
 - **comet-being** (cap 1+1) — icy-nucleus + long-trailing-tail traveling celestial, tail-points-away-from-sun flavor *(descriptor enhanced 2026-05-15 from brainstorm-batch-3 pick #110)*
 - **eclipse-being** (cap 1+1)

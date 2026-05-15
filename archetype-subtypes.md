@@ -1634,6 +1634,24 @@ Lunar-phase celestial-object-as-being — specific moon-phase given creature-sca
 
 ---
 
+## SPORTS
+
+Sport-athlete or competition-equipment given creature-scale. **Humanoid framing per key framing decision #7** for athlete entries (sport practitioners embodying their discipline with iconic gear / pose); equipment entries use object-as-being framing. Distinct from CAREERS/PROFESSIONS (competitive-sport vs. career-profession framing — though there's overlap-by-design for archer-being which appears in both as a profession-warrior in CAREERS; SPORTS-archer would be the competitive-target archer), from TOY (play-object vs. competitive-sport-equipment), from DANCE/MOVEMENT (artistic performance vs. competitive athleticism), and from MEDICAL (no overlap; sport vs. healthcare). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Sport athletes** (humanoid per #7)
+  - boxer-being (cap 1+1) — gloved fighter, ring stance
+  - swimmer-being (cap 1+1) — cap + goggles aquatic athlete
+  - runner / sprinter-being (cap 1+1) — track-uniform speed-athlete
+  - gymnast-being (cap 1+1) — leotard + grace acrobatic athlete
+  - skier-being (cap 1+1) — poles + goggles + snowsuit
+  - surfer-being (cap 1+1) — board + wetsuit + tropical-coastal flavor
+  - race-car-driver / Formula-1-being (cap 1+1) — fire-suit + helmet motorsport athlete
+
+- **Sport equipment**
+  - boxing-gloves-being (cap 1+1) — paired puffy gloves *(SYMBIOSIS-adjacent paired framing)*
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

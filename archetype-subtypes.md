@@ -1463,6 +1463,27 @@ Projected-light-image phenomenon-as-being — light-formed visual projection giv
 
 ---
 
+## EXPLOSIVE
+
+Explosion / blast / detonation phenomenon-as-being — rapid-expansion combustion event given creature-scale, shockwave + flame-burst + smoke-aftermath intrinsic to the form. Distinct from ELEMENTALS (fire-elemental is pure-fire substance; EXPLOSIVE = combustion-with-rapid-expansion event), from SMOKE (combustion-byproduct vapor; EXPLOSIVE = the blast event itself, smoke is its trail), from NATURAL-DISASTER (already done — supernova / volcanic-eruption / meteor-strike are large-scale disasters; EXPLOSIVE = discrete blast-phenomenon as a being, from human-scale firework to weapons-scale detonation; **supernova explicitly skipped here per user call** as NATURAL-DISASTER already covers; **big-bang routed to COSMOLOGICAL/ENERGY-side per user call** as cosmic-origin-event), from TOOL (already done — firearm / gun explicitly DROPPED in TOOL batch as too-modern/dark per user call; **EXPLOSIVE accepts weapons-scale entries per user picks this batch** (grenade + bomb + missile land) — convention divergence: weapons-as-handheld-implement = TOOL drop precedent stands, weapons-as-blast-event = EXPLOSIVE-domain landed), from BUBBLE (already done — gas-enclosed-in-film vs. rapid-blast-expansion; **balloon-pop stays BUBBLE-side feature per user call**, not standalone EXPLOSIVE entry), from COSMOLOGICAL/ENERGY (already done — big-bang stays cosmic-side per user call), from VOID/COSMIC/ABSTRACT (chaos-being is abstract disorder; EXPLOSIVE = physical blast event), and from MYTHICAL CREATURES (mystical-explosion-spells live in MYTHICAL via wizard flavor — convention: mystical-explosion = MYTHICAL, physical-detonation = EXPLOSIVE). Cross-section notes: **atomic-bomb / nuclear-blast + landmine BOTH DROPPED entirely per user call** (uniquely heavy / dark; parallels VEHICLE hearse-drop and TOOL firearm-drop pattern); **sonic-boom judged EXPLOSIVE-domain per user call** (shockwave-only event) but not picked this batch. *Phenomena cluster — sixth batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Pyrotechnic / celebratory**
+  - firework-being (cap 1+1) — sky-burst rocket explosion, colored sparks flavor
+
+- **Industrial / mining / demolition**
+  - dynamite-being (cap 1+1) — TNT stick / bundle, classic red-stick fuse-burning silhouette
+  - demolition-charge / C4-being (cap 1+1) — modern shaped explosive, controlled-detonation flavor
+
+- **Weapons-scale**
+  - grenade-being (cap 1+1) — handheld military explosive, pin-pull spherical-or-pineapple silhouette
+  - bomb / aerial-bomb-being (cap 1+1) — dropped/placed military ordnance, fin-tailed or barrel-shape
+  - missile / rocket-warhead-being (cap 1+1) — guided projectile, propellant-trail + warhead-tip flavor
+
+- **Sound / shockwave-only**
+  - shockwave / blast-wave-being (cap 1+1) — pressure-front phenomenon without flame, expanding-ring silhouette
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

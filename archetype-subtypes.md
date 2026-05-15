@@ -988,6 +988,9 @@ Fiber / textile material-as-being — woven-warp torso, thread-tassel limbs, fra
 - **Specialty / damaged cloth**
   - ragged-cloth / tatter-being (cap 1+1) — frayed-torn animate scraps, ghost-bandage silhouette, trailing-strip limbs
 
+- **Wearable garments**
+  - scarf-being (cap 1+1) — long-strip neck/head wrapping garment *(retro-added 2026-05-15 from brainstorm-batch-1 user picks; partially resolves THREAD/CLOTH's "full clothing/garments deferred" framing in intro; opens sub-group for future shoe/boot / hat / tie / sock candidates)*
+
 ---
 
 ## INK / PIGMENT

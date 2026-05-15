@@ -1404,6 +1404,25 @@ Bubble / sphere / foam phenomenon-as-being — thin-film-enclosed gas-pocket or 
 
 ---
 
+## SMOKE
+
+Smoke / vapor / gaseous-emission phenomenon-as-being — visible-airborne particulate-or-water-vapor given creature-scale, combustion-or-heating-byproduct or vent-emission intrinsic to the form. Distinct from ELEMENTALS (fire-elemental / water-elemental / wind-elemental are pure-element substance-beings — convention: pure-element-substance = ELEMENTALS, byproduct-emission-vapor = SMOKE), from WEATHER/ATMOSPHERIC upcoming (atmospheric water-vapor — **cloud / mist / fog defer to WEATHER per user call** as natural-atmospheric phenomena; SMOKE = combustion-or-vent emission specifically), from PERFUME upcoming (convention: fragrance-carrying vapor = PERFUME, generic-or-unpleasant vapor = SMOKE — **incense-smoke routed to PERFUME-side per user call**), from BUBBLE (gaseous-pocket-enclosed-in-film vs. free-floating diffusing vapor), from HOLOGRAM upcoming (projected-light vs. light-scattering vapor), from VOID/COSMIC/ABSTRACT (formless-darkness void-being vs. visible-physical-vapor SMOKE), from MYTHICAL CREATURES (shadow-wisp + djinn/genie + dragon entries stay MYTHICAL as-is — **fantasy/mystical smoke variants (genie-smoke, dragon-breath, wizard-smoke / spell-vapor) DROPPED entirely per user call** as SMOKE-side proposals), from NATURAL-DISASTER (already done — **volcanic-smoke / ash-cloud routed to NATURAL-DISASTER-side per user call** (vapor-byproduct stays with the volcanic-eruption-event, not SMOKE-domain); **dust-cloud routed to NATURAL-DISASTER-side per user call** (sandstorm-adjacent particulate-not-vapor)), from HOT-SPRING (geyser-being already there; **fumarole / steam-only vent DROPPED entirely per user call** — earlier Habitat-deferral does not land), from VEHICLE (already done — **train-locomotive-smoke implicitly included in VEHICLE train-being silhouette per user call**, no standalone SMOKE entry), from APPLIANCE (already done — coffee-maker-steam + humidifier-steam-mist already vapor-as-feature in APPLIANCE entries, not standalone vapor-beings), and from SHADOW-CAST + BUBBLE (no overlap; combustion/vapor distinct from light-blockage and gas-enclosure). *Phenomena cluster — third batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Combustion smoke**
+  - smoke-being (cap 1+1) — generic smoke puff, default combustion-vapor form
+  - wildfire-smoke-being (cap 1+1) — hazy-orange destruction-byproduct vapor, distant-fire-sky flavor
+
+- **Steam / water-vapor**
+  - steam-being (cap 1+1) — generic water-vapor, kettle / bath / heating-byproduct flavor
+
+- **Volcanic / geothermal smoke**
+  - sulfur-vent / brimstone-vapor-being (cap 1+1) — yellow-gas geothermal venting, sulfurous flavor
+
+- **Atmospheric / specialty**
+  - smog-being (cap 1+1) — industrial-pollution-haze over urban areas, smoke+fog combination
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

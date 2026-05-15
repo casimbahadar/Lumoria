@@ -1586,9 +1586,29 @@ Dance-style humanoid-creature-as-being — performance / ritual dance embodied a
 
 Profession humanoid-creature-as-being — occupation embodied as a creature, with the profession's iconic gear / role intrinsic to the form. **Humanoid framing per user call** (creatures based around the careers, not iconic-item objects) — invokes session-notes key framing decision #7 for abstract / role-based concepts. Humanoid framing precedent: MYTHICAL's humanoid-wraith / lich / banshee; UNIQUE's divine-messenger; DANCE/MOVEMENT cluster (just-landed). Distinct from MYTHICAL CREATURES (mystical-humanoid-spirits; CAREERS = secular real-world occupations), from THREAD/CLOTH (clothing-as-garment vs. wearer-as-creature here), and from TOOL/APPLIANCE (gavel = TOOL-candidate, spacesuit = THREAD-candidate; CAREERS = the practitioner embodied with their iconic gear as flavor, not the gear itself). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
 
-- **Profession-creatures**
+- **Modern professionals**
   - judge-being (cap 1+1) — robed humanoid judge with gavel, court-bench flavor
+  - chef-being (cap 1+1) — toque-and-apron culinary humanoid
+  - doctor-being (cap 1+1) — white-coat + stethoscope medical humanoid
+  - firefighter-being (cap 1+1) — turnout-gear + helmet rescue humanoid
+  - police-officer-being (cap 1+1) — uniformed + badged law-enforcer humanoid
+  - scientist-being (cap 1+1) — lab-coat + beaker + glasses researcher humanoid
+  - miner-being (cap 1+1) — pickaxe + lantern + hard-hat underground-worker humanoid
   - astronaut-being (cap 1+1) — spacesuit-clad humanoid astronaut, helmet + life-support flavor
+  - artist / painter-being (cap 1+1) — palette + brush + beret creator humanoid
+  - musician-being (cap 1+1) — instrument-of-choice player humanoid
+
+- **Warrior / historical**
+  - knight-being (cap 1+1) — medieval plate-armor + sword humanoid
+  - samurai-being (cap 1+1) — Japanese katana-bearing armored warrior humanoid
+  - ninja-being (cap 1+1) — black-clad stealth operative humanoid
+  - viking-being (cap 1+1) — horned-helmet + axe Nordic raider humanoid
+  - gladiator-being (cap 1+1) — Roman arena fighter humanoid, net + trident or sword + shield
+  - pharaoh-being (cap 1+1) — Egyptian ruler humanoid, nemes-headdress + crook + flail
+  - archer-being (cap 1+1) — bow + quiver hunter / warrior humanoid *(distinct from SPORTS archer if added — CAREERS = warrior/hunter profession, SPORTS = competitive target-archer)*
+
+- **Spiritual / contemplative**
+  - monk-being (cap 1+1) — robed contemplative religious-practitioner humanoid
 
 ---
 

@@ -378,7 +378,7 @@ URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTU
 | Materials | DONE 4/4 | All 4 batches landed clean. |
 | Manmade | DONE 13/13 | ARCHITECTURE + VEHICLE + TOY + GAME-PIECE + JEWELRY + CONTAINER + TOOL + APPLIANCE + STATUE + TROPHY + ROBOTIC + CAMERA + INSTRUMENTS done. **BANNER permanently dropped 2026-05-12.** Cluster closed 2026-05-13. |
 | Phenomena | DONE 7/7 | SHADOW-CAST + BUBBLE + SMOKE + PERFUME + HOLOGRAM + EXPLOSIVE + WEATHER/ATMOSPHERIC all landed 2026-05-13. WEATHER landed 6 reserved confirmed-picks (mirage from HOLOGRAM; snowdrift + icicle-formation + polar-night from GLACIER/Habitat deferrals; mist + fog from SMOKE) plus 8 fresh picks. **Phase 1 category roadmap COMPLETE 35/35.** Final deferral-review pass pending. |
-| Phase 1 extension (post-roadmap-closure) | IN PROGRESS 15/? | Brainstorm batches 1+2+3 picks landed 2026-05-15: ... + DRINKS/BEVERAGES + MISSING SENSES (so far). **50-category milestone reached at MISSING SENSES (50th committed).** MISSING SENSES 5 entries uses humanoid framing per #7 (sightless, soundless, tasteless, numb, scentless). More commits coming: retro-adds to CAREERS/PROFESSIONS, COSMOLOGICAL/ENERGY, ANATOMY. |
+| Phase 1 extension (post-roadmap-closure) | IN PROGRESS 15/? | Brainstorm batches 1+2+3 picks landed 2026-05-15: ... + DRINKS/BEVERAGES + MISSING SENSES (so far). **50-category milestone reached at MISSING SENSES (50th committed).** CAREERS/PROFESSIONS densified with 16 retro-adds + restructured to 3 sub-groups (Modern professionals, Warrior/historical, Spiritual/contemplative). More commits coming: retro-adds to COSMOLOGICAL/ENERGY, ANATOMY. |
 
 ---
 

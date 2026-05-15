@@ -1228,7 +1228,11 @@ Functional implement object-as-being — handheld working-tool given creature-sc
   - tuning-fork-being (cap 1+1) — two-prong pitch-resonator *(per INSTRUMENTS placeholder note; whistle logged as TOY-side candidate per user call)*
 
 - **Measurement / precision**
-  - thermometer-being (cap 1+1) — temperature-measurement instrument, mercury-bulb-and-stem or digital-readout silhouette *(per CAMERA cross-section redirect this session — measurement-instrument without lens-mechanism, doesn't fit CAMERA's optical-apparatus definition; opens sub-group for future ruler / drawing-compass / hourglass candidates inherited from TOOL deferrals)*
+  - thermometer-being (cap 1+1) — temperature-measurement instrument, mercury-bulb-and-stem or digital-readout silhouette *(per CAMERA cross-section redirect 2026-05-13 session — measurement-instrument without lens-mechanism, doesn't fit CAMERA's optical-apparatus definition; opens sub-group for future ruler / drawing-compass / hourglass candidates inherited from TOOL deferrals)*
+
+- **Office / paper**
+  - stapler-being (cap 1+1) — biting-jaw mechanical desk-creature, paper-fastening flavor *(retro-added 2026-05-15 from brainstorm-batch-1 user picks; opens sub-group for future eraser / paper-clip / sticky-note / sharpener candidates)*
+  - notebook / notepad-being (cap 1+1) — bound-paper writing surface, blank-pages flavor *(retro-added 2026-05-15 from brainstorm-batch-1 user picks)*
 
 ---
 

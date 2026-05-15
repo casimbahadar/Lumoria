@@ -80,7 +80,7 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **hearse / coffin-on-wheels** — flagged as specialty too dark; dropped.
 
 ### From Manmade cluster (TOY deferrals)
-- **model-train** — carried over from VEHICLE deferrals; offered in TOY proposal but not picked. *(toy-car DROPPED entirely 2026-05-15 per user resolution.)*
+- *(toy-car + model-train DROPPED entirely 2026-05-15 per user resolution.)*
 - **toy-robot-being** — proposed but not picked (toy-robot remains for ROBOTIC). *(tin-soldier-being DROPPED entirely 2026-05-15 per user resolution.)*
 - *(sock-puppet, ventriloquist-dummy, finger-puppet, porcelain-doll all DROPPED entirely 2026-05-15 per user resolution.)*
 - **action-figure variants (collectible-figurine, army-men)** — proposed but not picked.
@@ -96,34 +96,27 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 
 ### From Manmade cluster (JEWELRY deferrals)
 - **talisman-being** — proposed but not picked (slot reserved alongside amulet-being; distinction: talisman attracts luck vs. amulet wards harm).
-- **locket-being, pearl-strand-being, choker-being** — neckwear candidates not picked.
+- **locket-being** — neckwear candidate not picked.
 - **signet-ring-being, gem-encrusted-ring-being** — ring variants not picked (signet flagged for STATUE / heraldic crossover).
-- **hoop-earring-being, stud-earring-being, nose-ring-being, lip-ring-being** — ear/face piercing candidates not picked (earring-being kept as generic per user pick).
-- **bracelet-being, bangle-being, charm-bracelet-being, friendship-bracelet-being, cuff-bracelet-being, anklet-being, armlet-being** — wrist/arm/ankle candidates not picked. (charm-bracelet was carryover from TOY's charm-toy deferral; friendship-bracelet was carryover from THREAD/CLOTH's non-claim.)
-- **diadem-being, circlet-being** — crown-variant candidates not picked (crown + tiara kept).
-- **brooch-being, cufflink-being, body-chain-being** — body/decorative candidates not picked.
+- **hoop-earring-being** — ear-piercing candidate not picked (earring-being kept as generic per user pick).
+- **bracelet-being, bangle-being, charm-bracelet-being, anklet-being, armlet-being** — wrist/arm/ankle candidates not picked. (charm-bracelet was carryover from TOY's charm-toy deferral.)
+- **diadem-being** — crown-variant candidate not picked (crown + tiara kept).
+- **brooch-being** — body/decorative candidate not picked.
 - **coin-being (generic), gold-coin-being** — coin variant candidates not picked this batch; user picked split-coin framing → ancient-coin-being kept now; generic / gold-coin entries deferred to a future session.
+- *(pearl-strand-being, choker-being, stud-earring-being, nose-ring-being, lip-ring-being, friendship-bracelet-being, cuff-bracelet-being, circlet-being, cufflink-being, body-chain-being all DROPPED entirely 2026-05-15 per user resolution.)*
 
 ### From Manmade cluster (CONTAINER deferrals)
-- **pot-being, vase-being** — pottery candidates not picked (user's "distinct" framing means future entries would split separately; jar-being kept this batch).
-- **ink-pot / inkwell-being** — INK/PIGMENT carryover deferral; reached CONTAINER but not picked this batch (paint-can resolved; ink-pot deferred again to future CONTAINER densification session).
-- **teacup-being, mug-being, tankard-being** — drinkware candidates not picked (goblet/chalice + wine-glass kept).
-- **bottle-being, wine-bottle-being, flask-being, canteen-being, thermos-being** — bottle/flask candidates not picked.
-- **box-being, crate-being, jewelry-box-being** — box/chest candidates not picked (treasure-chest + coffin kept).
-- **basket-being, sack-being, backpack-being, handbag / purse-being** — bag/soft-container candidates not picked (suitcase/luggage kept).
-- **barrel-being, bucket-being** — utility candidates not picked.
+- **vase-being** — pottery candidate not picked (user's "distinct" framing means future entries would split separately; jar-being kept this batch). *(pot-being DROPPED 2026-05-15 per user resolution.)*
+- **wine-bottle-being** — bottle/flask candidate not picked.
+- **jewelry-box-being** — box/chest candidate not picked (treasure-chest + coffin kept).
 - **cauldron-being** → flagged for MYTHICAL CREATURES (witch-cauldron iconography). **LANDED in MYTHICAL Other (cross-cultural) 2026-05-15** per cross-cluster pending-review resolution.
-- **shipping-container-being** — declined this batch; VEHICLE cargo-ship's "container-stack shoulders" descriptor implicitly covers the concept (no standalone entry needed).
-- **envelope-being** — specialty candidate not picked. **gourd / hollow-fruit-being + piggy-bank-being DROPPED entirely 2026-05-15** per cross-cluster pending-review resolution (gourd was flagged PLANTS/FLORA adjacency, PLANTS closed; piggy-bank was flagged CLAY/CERAMIC + JEWELRY adjacency, both closed; no retro-add pursued).
+- *(ink-pot / inkwell-being DROPPED 2026-05-15 per earlier resolution. teacup / mug / tankard / bottle / flask / canteen / thermos / box / crate / basket / sack / backpack / handbag / purse / barrel / bucket / shipping-container / envelope-being all DROPPED entirely 2026-05-15 per user resolution. gourd / hollow-fruit + piggy-bank previously DROPPED. paint-can previously LANDED in CONTAINER.)*
 
 ### From Manmade cluster (TOOL deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked. User clarified mid-session that deferrals/carryovers do not imply eventual addition.*
-- **screwdriver-being, wrench-being, pliers-being, chisel-being, shovel / spade-being** — hand-tool candidates not picked (hammer + saw + pickaxe + axe kept; shovel/spade is the carryover from GAME-PIECE's TOOL-shovel adjacency flag, logged here as inherited candidate).
-- **shears-being** — cutting-tool candidate not picked (knife + scissors kept).
-- **shield-being, gun / firearm-being, mace-being** — weapon candidates not picked (firearm explicitly dropped as too-modern/dark, consistent with VEHICLE hearse-drop call; shield flagged defensive-vs-offensive; mace not picked).
-- **pen-being (ballpoint / fountain-pen), pencil-being, paintbrush-being, printer-ink-cartridge-being** — writing-implement candidates not picked this batch (only quill kept). INK/PIGMENT's pen-ink + printer-ink-cartridge deferrals reach TOOL but only partially resolved — pen/pencil/paintbrush/cartridge are inherited candidates here.
-- **ruler-being, compass-being (drawing-compass two-leg), magnifying-glass-being** — measuring/precision candidates not picked. *(hourglass / sand-timer-being dropped from candidate list 2026-05-15 per N27 dedup — already landed in UNIQUE/ONE-OF-A-KIND as `hourglass-being`.)*
-- **fishing-rod-being, net-being, slingshot-being** — fishing/hunting candidates not picked beyond harpoon (net is carryover from THREAD/CLOTH deferral, inherited; slingshot is carryover from TOY deferral, inherited).
+- **shield-being** — weapon candidate not picked (defensive-vs-offensive framing; firearm + mace DROPPED earlier).
+- **magnifying-glass-being** — *landed in OPTICAL IMAGING (formerly CAMERA) per lens-mechanism reframing 2026-05-13.*
+- *(MAJOR DROP 2026-05-15 per user resolution: screwdriver-being, wrench-being, pliers-being, chisel-being, shovel/spade-being (hand-tools), shears-being (cutting), mace-being (weapon — firearm earlier DROPPED), pen-being (ballpoint/fountain-pen), pencil-being, paintbrush-being, printer-ink-cartridge-being (writing implements), ruler-being, compass-being / drawing-compass (measuring), fishing-rod-being, net-being, slingshot-being (fishing/hunting) — all DROPPED entirely.)* *(hourglass earlier dropped per N27 — landed in UNIQUE. telescope dropped per N48.)*
 - **whistle-being** → user redirected to TOY as a TOY-side candidate. **DROPPED entirely 2026-05-15** per cross-cluster pending-review resolution (TOY cluster closed without retro-add; no home).
 - **magic-wand-being** — flagged for MYTHICAL CREATURES (mystical-implement domain). **LANDED in MYTHICAL Other (cross-cultural) 2026-05-15** per cross-cluster pending-review resolution. **wizard-staff-being DROPPED entirely 2026-05-15** per same resolution (magic-wand-being covers mystical-implement domain sufficiently; staff-form not needed as separate entry).
 - **microscope-being, telescope-being** — flagged as APPLIANCE candidates (lens-mechanism artifacts); not picked here.

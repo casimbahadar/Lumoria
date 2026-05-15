@@ -94,7 +94,7 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **trading-card-being** — proposed but not picked (collectible card vs. playing-card distinction; user kept only 52-deck playing-card + 4 individual suits).
 - **six-sided-die-being, coin-flip-being** — proposed but not picked (polyhedral-die covers the dice slot; coin-flip dropped since currency-coin lives in JEWELRY).
 - **poker-chip, mahjong-tile, domino** — token candidates not picked.
-- **game-board, spinner, generic-pawn, hourglass-timer, jenga-block, yahtzee-cup, bingo-ball, game-controller** — track/marker/specialty candidates not picked.
+- **game-board, spinner, generic-pawn, jenga-block, yahtzee-cup, bingo-ball, game-controller** — track/marker/specialty candidates not picked. *(hourglass-timer dropped from candidate list 2026-05-15 per N27 dedup — already landed in UNIQUE/ONE-OF-A-KIND as `hourglass-being`.)*
 - **slot-machine, roulette-wheel, pinball, arcade-cabinet** → flagged for APPLIANCE.
 - **paper-fortune-teller (cootie-catcher)** → flagged for TOY (re-emergence possible).
 - **tarot-card / Major Arcana** → moved to MYTHICAL CREATURES this session as new `### Arcana / divination / fortune-telling` sub-section (separate commit). User decision: tarot is mystical/archetypal, fits Mythical better than mechanical game-piece.
@@ -127,7 +127,7 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **shears-being** — cutting-tool candidate not picked (knife + scissors kept).
 - **shield-being, gun / firearm-being, mace-being** — weapon candidates not picked (firearm explicitly dropped as too-modern/dark, consistent with VEHICLE hearse-drop call; shield flagged defensive-vs-offensive; mace not picked).
 - **pen-being (ballpoint / fountain-pen), pencil-being, paintbrush-being, printer-ink-cartridge-being** — writing-implement candidates not picked this batch (only quill kept). INK/PIGMENT's pen-ink + printer-ink-cartridge deferrals reach TOOL but only partially resolved — pen/pencil/paintbrush/cartridge are inherited candidates here.
-- **ruler-being, compass-being (drawing-compass two-leg), hourglass / sand-timer-being, magnifying-glass-being** — measuring/precision candidates not picked (hourglass is carryover from GAME-PIECE deferral, inherited).
+- **ruler-being, compass-being (drawing-compass two-leg), magnifying-glass-being** — measuring/precision candidates not picked. *(hourglass / sand-timer-being dropped from candidate list 2026-05-15 per N27 dedup — already landed in UNIQUE/ONE-OF-A-KIND as `hourglass-being`.)*
 - **fishing-rod-being, net-being, slingshot-being** — fishing/hunting candidates not picked beyond harpoon (net is carryover from THREAD/CLOTH deferral, inherited; slingshot is carryover from TOY deferral, inherited).
 - **whistle-being** → user redirected to TOY as a TOY-side candidate (not a TOOL slot). Logged for possible future TOY densification only.
 - **magic-wand-being, wizard-staff-being** — flagged for MYTHICAL CREATURES (mystical-implement domain); not pulled into TOOL.

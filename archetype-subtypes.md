@@ -904,7 +904,7 @@ Real prehistoric/extinct creatures with no direct living-archetype slot. Already
 
 ## CAVE / UNDERGROUND
 
-Subterranean habitat-as-being — the cave-space itself animated, with stalactite-teeth, echo-voice, and darkness-body. Distinct from animals that *live* in caves (cave-bat, olm, cave-cricket, cave-bear stay in their kingdoms). Cross-section notes: stalactite-stalagmite-being and geode-being remain in CRYSTALLINE / GEM; hot-spring / geyser is reserved for THERMAL EXTREMES (formerly HOT-SPRING) batch; lava as element stays with Elementals. *Creature framing: each entry below is a discrete walking Lumori embodying the cave-feature — Duraludon-style (Pokemon's bipedal skyscraper-creature) is the canonical scaling/silhouette precedent, not a literal full-size cavern.*
+Subterranean habitat-as-being — the cave-space itself animated, with stalactite-teeth, echo-voice, and darkness-body. Distinct from animals that *live* in caves (cave-bat, olm, cave-cricket, cave-bear stay in their kingdoms). Cross-section notes: stalactite-stalagmite-being and geode-being remain in CRYSTALLINE / GEM; hot-spring / geyser is reserved for THERMAL EXTREMES (formerly HOT-SPRING) batch; lava as element stays with Elementals; **cave-echo is distinct from VOID `echo-being`** (A12 convention 2026-05-15) — convention: cave-specific resonance / sound-throwing creature with anatomy = CAVE cave-echo, abstract free-floating sound-echo-as-being that "fades and resurfaces" = VOID echo-being. *Creature framing: each entry below is a discrete walking Lumori embodying the cave-feature — Duraludon-style (Pokemon's bipedal skyscraper-creature) is the canonical scaling/silhouette precedent, not a literal full-size cavern.*
 
 - **Cavern voids / chambers**
   - cavern-being / great-hall (cap 1+1) — vast echo-chamber animated, mouth-opening front; *as creature: room-sized lumbering cavern-creature, hunched silhouette, stalactite-fang mouth spans the head, hollow chamber-belly that echoes when struck, drip-water trailing*
@@ -1974,27 +1974,19 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 
 ## UNIQUE / ONE-OF-A-KIND
 
-- **divine-messenger** (cap 1+1) — winged / angelic-flavored
+- **divine-messenger** (cap 1+1) — winged courier / emissary-figure, scroll-bearer or summons-deliverer flavor *(distinct from MYTHICAL `angel`: divine-messenger emphasizes the messenger-role / quest-arc; angel is the celestial-being-as-such — A11 dedup 2026-05-15)*
 - **observatory-being / watcher** (cap 1+1)
-- **weapon-creature** (subs each cap 1+1)
-  - sword-blade-creature
-  - bow-arrow-creature
-  - lance-spear-creature
-  - hammer-mace-creature
-  - axe-creature
+- **weapon-creature** (subs each cap 1+1) — *(reduced 2026-05-15 from 10 subs to 4 — A6 dedup: 6 sub-types duplicating TOOL Weapons dropped: sword-blade, bow-arrow, lance-spear, hammer-mace, axe, dagger — see TOOL Weapons + Hand-tools sub-groups for those)*
   - scythe-creature
   - shield-creature
-  - dagger-creature
   - gauntlet-creature
   - whip-creature
 - **mountain-walking** (cap 1+1) — literal walking-mountain
 - **volcano-vent-creature** (cap 1+1)
 - **corrupted-flower / plant-humanoid** (cap 1+1)
-- **chimeric-composite** (cap 1+1) — multi-animal hybrid
+- **patchwork-composite** (cap 1+1) — stitched-together multi-animal hybrid, frankenstein-flavor *(renamed from `chimeric-composite` 2026-05-15 — A9 dedup, disambiguates from MYTHICAL `chimera` (lion+goat+snake) which is the specific Greek-myth)*
 - **hourglass-being** (cap 1+1) — time-counting vessel
-- **card-dice-fate-game-creature** (cap 1+1) — gambling/probability flavor
-- **instrument-creature** (cap 1+1) — music made manifest (flute, harp, drum)
-- **painted-canvas / mural-being** (cap 1+1) — art that escapes the frame
+- **painted-canvas-being** (cap 1+1) — art that escapes the frame *(renamed from `painted-canvas / mural-being` 2026-05-15 — A8 dedup, removes name-collision with INK/PIGMENT `mural-being` which is the full-wall narrative-painting form)*
 - **book-creature / tome-being** (cap 1+1) — sentient grimoire; knowledge given form, page-rustling
 - **lantern-creature / lamp-being** (cap 1+1) — light-source given form; flame-vessel
 - **door-creature / portal-being** (cap 1+1) — gateway given form; can lead anywhere

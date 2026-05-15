@@ -1604,6 +1604,23 @@ Sacred symbol / ritual-item object-as-being — religious or spiritual artifact 
 
 ---
 
+## MEDICAL
+
+Medical / surgical / healthcare object-as-being — clinical tool, surgical implement, or medical-equipment given creature-scale, with the medical-purpose intrinsic to the form. Distinct from TOOL (handheld working-implement; scalpel borderline — convention: medical-specific = MEDICAL-domain), from APPLIANCE (powered medical-device borderline — **defibrillator / AED judged MEDICAL-domain per user pick** rather than APPLIANCE), from VEHICLE (mobility-platform borderline — **wheelchair judged MEDICAL-domain per user pick** rather than VEHICLE-side, medical-mobility-aid framing wins over passenger-carrying-vehicle framing), from THREAD/CLOTH (surgical-mask candidate would be borderline-THREAD; medical-context wins if added), and from UNIQUE/ONE-OF-A-KIND (operating-room-light not duplicated with lantern-creature). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Surgical tools**
+  - scalpel-being (cap 1+1) — surgical blade, precision-cutting flavor
+  - suture / surgical-thread-being (cap 1+1) — medical stitching thread with curved-needle pair
+  - syringe-being (cap 1+1) — needle injection device, plunger-and-barrel flavor
+
+- **Medical equipment**
+  - IV-bag / drip-being (cap 1+1) — intravenous fluid bag with line and drip-chamber
+  - bandage / gauze-being (cap 1+1) — wound-dressing wrap, white-cloth-spool flavor
+  - defibrillator / AED-being (cap 1+1) — emergency cardiac device with paddle-pair *(MEDICAL-domain per user pick, not APPLIANCE)*
+  - wheelchair-being (cap 1+1) — wheeled personal mobility chair *(MEDICAL-domain per user pick, not VEHICLE-side; medical-mobility-aid framing wins)*
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

@@ -1143,7 +1143,7 @@ Game-piece object-as-being — playable component of a board / card / dice / tok
 
 ## JEWELRY
 
-Worn adornment object-as-being — wearable jewelry given creature-scale. Distinct from METAL-OBJECT (the *substance*: bullion, industrial-chain, rust — `chain-being` there is structural-link; jewelry-chain compositions live here), from CRYSTALLINE / GEM (raw-gem-as-being: ruby, sapphire, diamond, pearl, etc. are mineral-creatures there; here gems are *set into* jewelry compositions, not duplicated as standalone beings), from THREAD / CLOTH (textile substance; jewelry-cord lives here as worn-form), from STATUE (freestanding-decorative vs. wearable), from TROPHY upcoming (chest-worn medal = JEWELRY, freestanding cup-trophy = TROPHY — convention), and from BANNER upcoming (sash with emblem judged BANNER if heraldic, JEWELRY if primarily ornament). Cross-section notes: ancient-coin-being arrives here per METAL-OBJECT's coin-deferral (currency-coin specifically; generic / gold-coin variants deferred to a future session as split entries). Talisman / locket / friendship-bracelet / charm-bracelet / hoop-earring / stud-earring / nose-ring / lip-ring / brooch / cufflink / body-chain / signet-ring / bangle / cuff-bracelet / anklet / armlet / diadem / circlet / choker / pearl-strand / gem-encrusted-ring all proposed but not picked this batch — future-session candidates. *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+Worn adornment object-as-being — wearable jewelry given creature-scale, including commemorative-award honors absorbed from former TROPHY cluster (2026-05-15 consolidation). Distinct from METAL-OBJECT (the *substance*: bullion, industrial-chain, rust — `chain-being` there is structural-link; jewelry-chain compositions live here), from CRYSTALLINE / GEM (raw-gem-as-being: ruby, sapphire, diamond, pearl, etc. are mineral-creatures there; here gems are *set into* jewelry compositions, not duplicated as standalone beings), from THREAD / CLOTH (textile substance; jewelry-cord lives here as worn-form), from STATUE (freestanding-decorative vs. wearable — statuette-trophy borderline absorbed here as wearable-honor framing wins for medal + laurel-wreath), from BANNER (dropped) (sash with emblem judged BANNER if heraldic, JEWELRY if primarily ornament; BANNER cluster permanently dropped 2026-05-12), and from ARCHITECTURE (mounted-plaque convention: small + portable = JEWELRY Awards/honors, large + structural = ARCHITECTURE). Cross-section notes: ancient-coin-being arrives per METAL-OBJECT's coin-deferral; medal + laurel-wreath absorbed from former TROPHY cluster (2026-05-15 consolidation — Awards/honors sub-group). Talisman / locket / friendship-bracelet / charm-bracelet / hoop-earring / stud-earring / nose-ring / lip-ring / brooch / cufflink / body-chain / signet-ring / bangle / cuff-bracelet / anklet / armlet / diadem / circlet / choker / pearl-strand / gem-encrusted-ring + trophy-cup / blue-ribbon / plaque / olympic-medal-distinct / statuette-trophy / championship-belt / certificate-diploma / ribbon-rosette / prize-pennant / key-to-the-city (latter from former TROPHY candidates) all proposed but not picked — future-session candidates. *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
 
 - **Neckwear**
   - pendant-being (cap 1+1) — single hanging-ornament on cord/chain
@@ -1162,6 +1162,10 @@ Worn adornment object-as-being — wearable jewelry given creature-scale. Distin
 
 - **Currency / coin**
   - ancient-coin-being (cap 1+1) — antique minted-emperor / wax-pressed currency *(carry-over from METAL-OBJECT's coin → JEWELRY deferral; generic / gold-coin variants split off to future batch)*
+
+- **Awards / honors**
+  - medal-being (cap 1+1) — chest-worn award disc on ribbon, gold/silver/bronze finish *(absorbed from former TROPHY cluster 2026-05-15 consolidation)*
+  - laurel-wreath-being (cap 1+1) — leaf-crown Olympic-style victor's award *(absorbed from former TROPHY cluster 2026-05-15 consolidation; originally JEWELRY-headwear adjacent flag confirmed)*
 
 ---
 
@@ -1285,16 +1289,6 @@ Figurative-sculpture object-as-being — freestanding representational sculpture
 
 - **Garden / decorative**
   - garden-cherub-being (cap 1+1) — small winged-baby figure, stone/concrete garden ornament
-
----
-
-## TROPHY
-
-Commemorative-award object-as-being — competition / achievement prize given creature-scale. Distinct from JEWELRY (medal convention: ribbon-medal = TROPHY, jewelry-chain-medal = JEWELRY per JEWELRY intro), from STATUE (statuette-trophy borderline — convention: pedestal-base + figure-top = TROPHY; freestanding figurative-only = STATUE), from BANNER (dropped this session), from ARCHITECTURE (mounted-plaque convention: small + portable = TROPHY, large + structural = ARCHITECTURE), and from TOOL (key-to-the-city borderline — ceremonial-key = TROPHY, working-key = TOOL). Cross-section notes: laurel-wreath-being flagged JEWELRY-headwear adjacent but kept here as Olympic-award convention; trophy-cup, blue-ribbon, plaque, olympic-medal-distinct, statuette-trophy, championship-belt, certificate/diploma, ribbon-rosette, prize-pennant, key-to-the-city all proposed but not picked (candidates only). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
-
-- **Awards**
-  - medal-being (cap 1+1) — chest-worn award disc on ribbon, gold/silver/bronze finish
-  - laurel-wreath-being (cap 1+1) — leaf-crown Olympic-style victor's award
 
 ---
 

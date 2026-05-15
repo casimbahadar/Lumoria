@@ -1484,6 +1484,40 @@ Explosion / blast / detonation phenomenon-as-being — rapid-expansion combustio
 
 ---
 
+## WEATHER / ATMOSPHERIC
+
+Atmospheric phenomenon-as-being — weather event or sky/air manifestation given creature-scale, ambient-condition or transient-event intrinsic to the form. Distinct from ELEMENTALS (already done — wind-elemental / water-elemental / ice-elemental / electric-elemental are pure-element substance-beings — convention: pure-element-substance = ELEMENTALS, atmospheric-phenomenon-being = WEATHER), from NATURAL-DISASTER (already done — extreme weather events (tsunami, blizzard, hurricane, sandstorm, hailstorm, drought, heatwave, ice-age, lightning-strike, etc.) live there as *disaster events*; WEATHER = everyday-or-ambient atmospheric phenomena — **hail-being judged WEATHER-domain per user call** (discrete hailstone, vs. NATURAL-DISASTER's hailstorm event)), from SMOKE (combustion-or-vent emission; **mist + fog routed here per SMOKE batch user call** as natural-atmospheric water-vapor — landing this batch as reserved confirmed-picks; smog stays in SMOKE batch as industrial-pollution-haze, **smog duplicate skipped here per user call**), from PERFUME (scent-emission; petrichor stays PERFUME-side candidate, not WEATHER), from HOLOGRAM (projected-light-image; **mirage routed here per HOLOGRAM batch user call** as reserved confirmed-pick — landing this batch), from GLACIER (already done — **snowdrift / icicle-formation / polar-night routed here per Habitat/GLACIER deferrals** — landing this batch as reserved confirmed-picks; snowdrift was originally a GLACIER entry, dropped from GLACIER and re-routed here), from BUBBLE (gas-enclosed-in-film; storm-cloud is WEATHER-domain not BUBBLE), from COSMOLOGICAL/ENERGY (starlight / nebula are cosmic-substance; WEATHER = terrestrial atmospheric), from SHADOW-CAST (crepuscular-ray stays SHADOW-CAST candidate per SHADOW-CAST batch — no WEATHER cross-section claim per user call), from EXPLOSIVE (**mushroom-cloud DROPPED entirely per user call**, following the atomic-bomb DROP pattern), from TOOL (**weather-vane DROPPED entirely per user call** — device-not-phenomenon framing), and from MYTHICAL CREATURES (no overlap; weather-spirits not in MYTHICAL roster). Cross-section notes: **whirlwind / dust-devil judged WEATHER-domain per user call** (vs. NATURAL-DISASTER tornado event) but not picked this batch, logged as candidate. *Phenomena cluster — seventh and final batch. **Closes Phenomena cluster at 7/7 — Phenomena cluster DONE. Closes Phase 1 category roadmap at 35/35 (33 firm + 2 bonus PLANTS/FUNGI). Cross-cluster deferral-review pass to follow as a separate batch** — final consolidated look at all deferrals + logged-candidates + flagged-but-not-picked items across all categories, with goal of permanently dropping items from session-notes / candidate lists where appropriate.* *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Cloud / sky-form**
+  - cloud-being (cap 1+1) — generic cumulus puffy cloud, fair-weather flavor
+  - storm-cloud / thundercloud-being (cap 1+1) — dark anvil-shaped cumulonimbus, lightning-tension flavor
+
+- **Precipitation**
+  - rain-being / raindrop-being (cap 1+1) — generic falling rain, droplet-cloud paired silhouette
+  - snowflake / snow-being (cap 1+1) — falling snow, crystalline-symmetry flavor
+  - hail-being (cap 1+1) — frozen-pellet precipitation, hard-fall flavor *(WEATHER-domain per user call; distinct from NATURAL-DISASTER's hailstorm-event)*
+
+- **Wind / air-movement**
+  - breeze-being (cap 1+1) — gentle ambient wind, soft-stir flavor
+
+- **Light / sky-color phenomena**
+  - rainbow-being (cap 1+1) — refracted-light spectrum-arc, post-rain flavor
+  - aurora-borealis-being (cap 1+1) — polar light curtains, undulating sky-ribbon flavor
+
+- **Cold / winter**
+  - snowdrift-being (cap 1+1) — wind-blown accumulated snow pile *(per GLACIER deferral, originally a GLACIER entry then dropped and re-routed)*
+  - icicle-formation-being (cap 1+1) — hanging ice spear cluster *(per GLACIER deferral)*
+  - polar-night-being (cap 1+1) — extended winter darkness phenomenon at high latitudes *(per GLACIER deferral)*
+
+- **Heat / dry**
+  - mirage-being (cap 1+1) — desert heat-shimmer optical illusion *(reserved confirmed-pick per HOLOGRAM cross-section; atmospheric-heat-refraction phenomenon)*
+
+- **Vapor / moisture**
+  - mist-being (cap 1+1) — fine-droplet atmospheric vapor, light-visibility flavor *(per SMOKE deferral)*
+  - fog-being (cap 1+1) — dense-low-cloud atmospheric vapor, reduced-visibility flavor *(per SMOKE deferral)*
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

@@ -378,7 +378,7 @@ URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTU
 | Materials | DONE 4/4 | All 4 batches landed clean. |
 | Manmade | DONE 13/13 | ARCHITECTURE + VEHICLE + TOY + GAME-PIECE + JEWELRY + CONTAINER + TOOL + APPLIANCE + STATUE + TROPHY + ROBOTIC + CAMERA + INSTRUMENTS done. **BANNER permanently dropped 2026-05-12.** Cluster closed 2026-05-13. |
 | Phenomena | DONE 7/7 | SHADOW-CAST + BUBBLE + SMOKE + PERFUME + HOLOGRAM + EXPLOSIVE + WEATHER/ATMOSPHERIC all landed 2026-05-13. WEATHER landed 6 reserved confirmed-picks (mirage from HOLOGRAM; snowdrift + icicle-formation + polar-night from GLACIER/Habitat deferrals; mist + fog from SMOKE) plus 8 fresh picks. **Phase 1 category roadmap COMPLETE 35/35.** Final deferral-review pass pending. |
-| Phase 1 extension (post-roadmap-closure) | IN PROGRESS 3/? | FURNITURE + ANATOMY + MATHEMATICS landed 2026-05-15 (FURNITURE 5 entries: chair, table, bed, couch/sofa, bookshelf; ANATOMY 3 entries: brain, eyeball, tongue; MATHEMATICS 2 entries: cube, infinity-symbol — user picks from brainstorm-batch-1). Tracks any new top-level categories added beyond the original 35-batch roadmap. Open-ended; more potential additions via subsequent brainstorm batches. |
+| Phase 1 extension (post-roadmap-closure) | IN PROGRESS 4/? | FURNITURE + ANATOMY + MATHEMATICS + CANDY/SWEETS landed 2026-05-15 (FURNITURE 5 entries; ANATOMY 3 entries; MATHEMATICS 2 entries; CANDY/SWEETS 3 entries: lollipop, chocolate-bar, donut — user picks from brainstorm batches 1+2). Tracks any new top-level categories added beyond the original 35-batch roadmap. Open-ended; more potential additions via subsequent brainstorm batches. |
 
 ---
 

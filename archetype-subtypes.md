@@ -1559,6 +1559,17 @@ Mathematical / geometric concept-as-being — abstract numerical or geometric fo
 
 ---
 
+## CANDY / SWEETS
+
+Confection / sweet-treat object-as-being — sugary food-form given creature-scale, candy or pastry intrinsic to the form. Distinct from a future-potential FOOD/CUISINE cluster (savory or main-meal items would go there; CANDY = sweet-only domain), from PLANTS/FLORA (sugar-cane / cocoa-plant stay PLANTS-side; CANDY = the processed treat), from CONTAINER (a candy-jar would be CONTAINER; the candy itself = CANDY), and from PERFUME (candy-aroma stays PERFUME-domain candidate; CANDY = the physical treat). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Sweet treats**
+  - lollipop-being (cap 1+1) — spiral candy on stick, wrapper-and-stem flavor
+  - chocolate-bar-being (cap 1+1) — segmented brown candy bar
+  - donut / doughnut-being (cap 1+1) — ring-shaped fried pastry, glazed flavor
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

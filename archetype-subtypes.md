@@ -1683,6 +1683,26 @@ Abstract concept humanoid-creature-as-being — abstract concept (moral / philos
 
 ---
 
+## ZODIAC
+
+Zodiac-sign celestial-archetype creature-as-being — astrological sign embodied as the iconic creature-form, with the sign's mythological / symbolic flavor intrinsic to the form. **Humanoid + hybrid-creature framing per key framing decision #7** (some humanoid like aquarius / virgo, some hybrid-creature like centaur / capricorn, some pure-creature like lion / scorpion). Distinct from COSMOLOGICAL/ENERGY (astronomical-substance like starlight / nebula; ZODIAC = astrological-archetype creature-form), from MYTHICAL CREATURES (some signs overlap mythical-creature-archetypes like centaur — convention: zodiac-identified = ZODIAC, generic-mythical-creature = MYTHICAL), and from MOON PHASES (lunar-phase celestial vs. zodiac-astrological celestial). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Zodiac signs**
+  - aries-ram-being (cap 1+1) — ram-headed humanoid, fire-sign warrior flavor
+  - taurus-bull-being (cap 1+1) — bull-headed humanoid, earth-sign grounded flavor
+  - gemini-twin-being (cap 1+1) — paired twin humanoids *(SYMBIOSIS-adjacent paired framing)*, air-sign duality flavor
+  - cancer-crab-being (cap 1+1) — crab-humanoid hybrid, water-sign nurturing flavor
+  - leo-lion-being (cap 1+1) — lion-headed humanoid, fire-sign regal flavor
+  - virgo-maiden-being (cap 1+1) — humanoid maiden with wheat-stalk, earth-sign harvest flavor
+  - libra-scales-being (cap 1+1) — humanoid bearing balance-scales, air-sign justice flavor
+  - scorpio-scorpion-being (cap 1+1) — scorpion-humanoid hybrid, water-sign intense flavor
+  - sagittarius-centaur-being (cap 1+1) — half-human-half-horse archer, fire-sign questing flavor
+  - capricorn-goat-being (cap 1+1) — goat-fish hybrid (sea-goat), earth-sign ambition flavor
+  - aquarius-water-bearer-being (cap 1+1) — humanoid pouring water-vessel, air-sign visionary flavor
+  - pisces-fish-being (cap 1+1) — paired fish *(SYMBIOSIS-adjacent paired framing)*, water-sign intuitive flavor
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

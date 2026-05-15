@@ -155,6 +155,7 @@ The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Pla
   - black-cat / witch-cat
   - cat-sidhe
   - cheshire
+  - bakeneko *(Japanese cat-spirit; moved from MYTHICAL East Asian 2026-05-15 per N23 consolidation)*
 - **nemean** (cap 1+1) — invulnerable lion (was chimeric-cat sub; promoted after dedupe)
 - **saber-tooth / smilodon** (cap 1+1) — extinct mega-felid; anchor for prehistoric ice-age slot
 
@@ -203,6 +204,8 @@ The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Pla
   - cu-sith
   - fenrir
   - cerberus
+  - kitsune *(Japanese fox-spirit; moved from MYTHICAL East Asian 2026-05-15 per N22 consolidation)*
+  - nine-tailed-fox / kyūbi *(distinct from kitsune base — most powerful kitsune form; moved from MYTHICAL East Asian 2026-05-15 per N22 consolidation)*
 - **hyena** — moved into Canids per notes (subs each cap 1+1)
   - spotted-hyena
   - striped-hyena
@@ -530,7 +533,7 @@ The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Pla
 - **skink** (cap 1+1)
 - **bearded-dragon** (cap 1+1) — real lizard, despite name
 - **mythical-lizard** (subs each cap 1+1)
-  - salamander-fire-spirit
+  - salamander-flame-spirit *(renamed from `salamander-fire-spirit` 2026-05-15 per N42 — removes name-collision with AMPHIBIANS' real `fire-salamander` species; mythical-flame-folklore framing preserved)*
   - dragon-pup-as-lizard *(N43 framework note: this is the pre-evolution lizard-form of a MYTHICAL Dragon — i.e., a juvenile dragon classified as REPTILE during its pre-dragon stage. Evolves into a specific MYTHICAL Dragons entry on maturity. Parallels FISH `koi-dragon-pre-evolution` which is the fish-form pre-evolution of a MYTHICAL Dragon, evolving into eastern-dragon / long / 龍 specifically. Both are "evolution-line placeholder" slots that anchor pre-dragon stages in their biological-kingdom home.)*
   - cockatrice
 - **gila-monster** (cap 1+1) — venomous lizard (one of two in world); beaded skin
@@ -1746,7 +1749,6 @@ Sensory-absence humanoid-creature-as-being — creature defined by lacking one s
 - **prime-dragon**
 - **purity-dragon**
 - **swarm-dragon**
-- **stone-dragon**
 - **eastern-dragon / long / 龍**
 - **bone-dragon / skeletal-dragon**
 - **moon-dragon / lunar-dragon**
@@ -1775,7 +1777,6 @@ Sensory-absence humanoid-creature-as-being — creature defined by lacking one s
 
 ### Wraiths / ghosts / undead
 - **humanoid-wraith** (cap 1+1)
-- **spectral-leviathan** (cap 1+1)
 - **mountain-spirit** (cap 1+1)
 - **banshee** (cap 1+1)
 - **shade** (cap 1+1)
@@ -1787,7 +1788,6 @@ Sensory-absence humanoid-creature-as-being — creature defined by lacking one s
 - **poltergeist** (cap 1+1) — noise-throwing mischief-ghost; object-mover
 
 ### Golems / constructs
-- **stone-golem** (cap 1+1)
 - **metal-golem** (cap 1+1)
 - **clay-golem** (cap 1+1)
 - **forge-spirit / smith-construct** (cap 1+1)
@@ -1827,9 +1827,7 @@ Sensory-absence humanoid-creature-as-being — creature defined by lacking one s
 - **kelpie** (cap 1+1) — Scottish water-horse spirit, drowns riders; shifts between horse-form and humanoid *(moved here from MAMMALS mythical-equid 2026-05-15 per N37 — water-spirit framing wins over equine-form)*
 
 ### East Asian mythical
-- **kitsune** (cap 1+1) — Japanese fox-spirit
-- **tanuki** (cap 1+1) — Japanese raccoon-dog spirit
-- **bakeneko** (cap 1+1) — cat-spirit
+- **tanuki** (cap 1+1) — Japanese raccoon-dog spirit *(kitsune + nine-tailed-fox / kyūbi moved to MAMMALS Canids folkloric-canid sub 2026-05-15 per N22 consolidation; bakeneko moved to MAMMALS Felids folkloric-cat sub per N23. Tanuki stays here — raccoon-dog is biologically distinct from fox and not currently in MAMMALS Canids fox sub-cluster.)*
 - **oni** (cap 1+1) — ogre/demon
 - **yokai** (subs each cap 1+1) — general supernatural
   - tengu
@@ -1837,7 +1835,6 @@ Sensory-absence humanoid-creature-as-being — creature defined by lacking one s
   - nurikabe
 - **kirin / qilin** (cap 1+1) — Chinese unicorn-dragon
 - **foo-dog / shisa** (cap 1+1) — lion-guardian
-- **nine-tailed-fox / kyūbi** (cap 1+1) — distinct from kitsune base (most powerful kitsune form)
 
 ### Slavic mythical
 - **leshy** (cap 1+1) — forest-spirit (already claimed by Morralyn line)

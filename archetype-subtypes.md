@@ -1723,6 +1723,19 @@ Beverage / drink-and-vessel object-as-being — liquid refreshment paired with i
 
 ---
 
+## MISSING SENSES
+
+Sensory-absence humanoid-creature-as-being — creature defined by lacking one specific sense, with the sensory-void as the defining feature and adapted compensations (heightened other senses, alternative navigation, etc.) implicit in the design. **Humanoid framing per key framing decision #7.** Distinct from VOID/COSMIC/ABSTRACT (silence-being = abstract absence-of-sound; MISSING SENSES = humanoid creatures lacking individual senses), from ANATOMY (anatomical sensory organs like eyeball / tongue as creatures; MISSING SENSES = humanoid embodiment of the lack-thereof), and from MYTHICAL CREATURES (no overlap; mystical-spirit-beings vs. sensory-deprivation humanoids). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Sense-deprived humanoids**
+  - sightless-being (cap 1+1) — humanoid creature lacking sight, blindfolded or empty-socket flavor; navigates by echolocation / touch
+  - soundless-being (cap 1+1) — humanoid creature lacking hearing, ear-stoppered or absent-ear flavor; communicates via gesture / vibration
+  - tasteless-being (cap 1+1) — humanoid creature lacking taste, sealed-mouth or veiled-tongue flavor
+  - numb-being (cap 1+1) — humanoid creature lacking touch, hardened-skin or insensate-body flavor
+  - scentless-being (cap 1+1) — humanoid creature lacking smell, covered-nose or absent-nose flavor
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

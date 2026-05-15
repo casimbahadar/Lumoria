@@ -1621,6 +1621,19 @@ Medical / surgical / healthcare object-as-being — clinical tool, surgical impl
 
 ---
 
+## MOON PHASES
+
+Lunar-phase celestial-object-as-being — specific moon-phase given creature-scale, the moon-disc itself in a particular phase-state. Distinct from COSMOLOGICAL/ENERGY (starlight + nebula-galaxy = celestial-substance; MOON PHASES = specific moon-phase as transient celestial-event), from WEATHER/ATMOSPHERIC (atmospheric phenomena there; MOON = solar-system celestial), from SHADOW-CAST (eclipse-shadows there are the cast-shadow phenomenon; MOON PHASES = the moon-disc itself, not the cast-shadow), and from NATURAL-DISASTER (no overlap). Cross-section notes: blood-moon-being = the lunar-eclipse-tinted moon-disc (distinct from SHADOW-CAST lunar-eclipse-shadow which is the earth's shadow on the moon-surface — same astronomical event but different framings: SHADOW-CAST sees the shadow, MOON PHASES sees the moon). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Lunar phases**
+  - new-moon-being (cap 1+1) — invisible-disc / dark-shadow phase, hidden-moon flavor
+  - first-quarter-being (cap 1+1) — half-moon right-side-lit phase
+  - full-moon-being (cap 1+1) — complete bright-disc moon
+  - blood-moon-being (cap 1+1) — lunar-eclipse red-tinted moon
+  - harvest-moon-being (cap 1+1) — autumn full-moon orange-tinted, low-horizon flavor
+
+---
+
 ## MYTHICAL CREATURES
 
 ### Dragons (sub-types per element)

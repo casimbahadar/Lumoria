@@ -1857,6 +1857,7 @@ Sensory-absence humanoid-creature-as-being — creature defined by lacking one s
 - **cyclops** (cap 1+1)
 - **titan** (cap 1+1) — primordial
 - **typhon** (cap 1+1) — primordial storm-titan
+- **atlas** (cap 1+1) — primordial Titan condemned to bear the celestial sphere on his shoulders, muscular world-bearer figure *(landed 2026-05-15 — absorbed from former STATUE deferral per cross-cluster pending-review resolution; titan-form lands here distinct from generic `titan` which represents the broader primordial-Titan archetype)*
 - **lamia** (cap 1+1) — serpent-woman
 
 ### Arcana / divination / fortune-telling
@@ -1895,6 +1896,8 @@ Sensory-absence humanoid-creature-as-being — creature defined by lacking one s
 - **nephilim** (cap 1+1) — giant fallen-angel hybrid offspring
 - **prophet-being / oracle-prophet** (cap 1+1) — robed visionary humanoid with divine-inspiration flavor, scroll or staff vestige, halo / aureole crowning the head, prophetic-trance posture *(distinct from `angel` which is the celestial-being-as-such; distinct from MYTHICAL Arcana `pythia-seer-being` which is the Delphic-oracle specific; prophet-being = the more general divine-revelation messenger archetype; added 2026-05-15 per A11 Option A — captures divine-flavor that was removed from UNIQUE `divine-messenger` reframe)*
 - **owlman** (cap 1+1) — Cornwall cryptid; winged humanoid with owl features
+- **cauldron-being** (cap 1+1) — black cast-iron witch-cauldron on three legs, bubbling brew, mystical-brewing flavor *(landed 2026-05-15 — absorbed from former CONTAINER deferral per cross-cluster pending-review resolution; witch-iconography mystical-vessel)*
+- **magic-wand-being** (cap 1+1) — mystical implement, star-tipped or crystal-tipped wood-stave, sparkles-trailing spell-casting flavor *(landed 2026-05-15 — absorbed from former TOOL deferral per cross-cluster pending-review resolution; distinct from MYTHICAL Arcana `magician-arcana-being` who holds a wand among other tools — magic-wand-being is the wand-itself-as-creature)*
 
 ---
 

@@ -117,9 +117,9 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **box-being, crate-being, jewelry-box-being** — box/chest candidates not picked (treasure-chest + coffin kept).
 - **basket-being, sack-being, backpack-being, handbag / purse-being** — bag/soft-container candidates not picked (suitcase/luggage kept).
 - **barrel-being, bucket-being** — utility candidates not picked.
-- **cauldron-being** → flagged for MYTHICAL CREATURES (witch-cauldron iconography; future-session add probably in `### Other mythical (cross-cultural)`).
+- **cauldron-being** → flagged for MYTHICAL CREATURES (witch-cauldron iconography). **LANDED in MYTHICAL Other (cross-cultural) 2026-05-15** per cross-cluster pending-review resolution.
 - **shipping-container-being** — declined this batch; VEHICLE cargo-ship's "container-stack shoulders" descriptor implicitly covers the concept (no standalone entry needed).
-- **envelope-being, gourd / hollow-fruit-being, piggy-bank-being** — specialty candidates not picked (piggy-bank flagged CLAY/CERAMIC + JEWELRY-coin adjacency; gourd flagged PLANTS/FLORA adjacency).
+- **envelope-being** — specialty candidate not picked. **gourd / hollow-fruit-being + piggy-bank-being DROPPED entirely 2026-05-15** per cross-cluster pending-review resolution (gourd was flagged PLANTS/FLORA adjacency, PLANTS closed; piggy-bank was flagged CLAY/CERAMIC + JEWELRY adjacency, both closed; no retro-add pursued).
 
 ### From Manmade cluster (TOOL deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked. User clarified mid-session that deferrals/carryovers do not imply eventual addition.*
@@ -129,8 +129,8 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **pen-being (ballpoint / fountain-pen), pencil-being, paintbrush-being, printer-ink-cartridge-being** — writing-implement candidates not picked this batch (only quill kept). INK/PIGMENT's pen-ink + printer-ink-cartridge deferrals reach TOOL but only partially resolved — pen/pencil/paintbrush/cartridge are inherited candidates here.
 - **ruler-being, compass-being (drawing-compass two-leg), magnifying-glass-being** — measuring/precision candidates not picked. *(hourglass / sand-timer-being dropped from candidate list 2026-05-15 per N27 dedup — already landed in UNIQUE/ONE-OF-A-KIND as `hourglass-being`.)*
 - **fishing-rod-being, net-being, slingshot-being** — fishing/hunting candidates not picked beyond harpoon (net is carryover from THREAD/CLOTH deferral, inherited; slingshot is carryover from TOY deferral, inherited).
-- **whistle-being** → user redirected to TOY as a TOY-side candidate (not a TOOL slot). Logged for possible future TOY densification only.
-- **magic-wand-being, wizard-staff-being** — flagged for MYTHICAL CREATURES (mystical-implement domain); not pulled into TOOL.
+- **whistle-being** → user redirected to TOY as a TOY-side candidate. **DROPPED entirely 2026-05-15** per cross-cluster pending-review resolution (TOY cluster closed without retro-add; no home).
+- **magic-wand-being** — flagged for MYTHICAL CREATURES (mystical-implement domain). **LANDED in MYTHICAL Other (cross-cultural) 2026-05-15** per cross-cluster pending-review resolution. **wizard-staff-being DROPPED entirely 2026-05-15** per same resolution (magic-wand-being covers mystical-implement domain sufficiently; staff-form not needed as separate entry).
 - **microscope-being, telescope-being** — flagged as APPLIANCE candidates (lens-mechanism artifacts); not picked here.
 
 ### From Manmade cluster (APPLIANCE deferrals)
@@ -139,7 +139,7 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **washing-machine-being, dryer-being, clothes-iron-being** — laundry/cleaning candidates not picked (vacuum-cleaner kept).
 - **space-heater-being, electric-fan-being** — HVAC candidates not picked (air-conditioner + humidifier kept).
 - **television / TV-being, radio-being, record-player / phonograph-being, speaker / boombox-being** — entertainment-electronics candidates not picked.
-- **gaming-console-being** — proposed for APPLIANCE but user redirected to TOY-side candidate ("probably fits better as Toy"); logged for possible future TOY densification, not added to APPLIANCE or to TOY this session.
+- **gaming-console-being** — proposed for APPLIANCE but user redirected to TOY-side. **DROPPED entirely 2026-05-15** per cross-cluster pending-review resolution (TOY cluster closed without retro-add; no home).
 - **arcade-cabinet-being, roulette-wheel-being** — gaming-arcade candidates not picked (slot-machine + pinball-machine kept). These were inherited from GAME-PIECE deferral; partial resolution.
 - **printer-being, typewriter-being** — office candidates not picked (copier kept).
 - **furnace-being, elevator-being** — industrial/heavy candidates not picked (kiln + generator kept; elevator was flagged ARCHITECTURE-borderline).
@@ -154,7 +154,7 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **buddha-statue-being, crucifix-being, madonna-statue-being, jizo-statue-being** — religious-sculpture candidates not picked (n/a per user).
 - **gravestone / tombstone-being, weeping-angel-being, memorial-obelisk-being** — tomb/memorial candidates not picked; weeping-angel confirmed STATUE-domain (per user sub-decision); memorial-obelisk flagged ARCHITECTURE-borderline.
 - **garden-gnome-being, lawn-flamingo-being** — garden-decorative candidates not picked (garden-cherub kept).
-- **atlas-being** → user redirected to MYTHICAL-side candidate (titan-form fits MYTHICAL roster). Logged for possible future MYTHICAL densification.
+- **atlas-being** → user redirected to MYTHICAL-side. **LANDED in MYTHICAL Greek/Roman 2026-05-15** as `atlas` entry per cross-cluster pending-review resolution.
 - **caryatid-being** — column-figure-female-support candidate not picked (ARCHITECTURE-borderline; column-as-figure).
 - **gargoyle-statue-being** — candidate not picked; confirmed STATUE-domain (per user sub-decision; frozen-stone-gargoyle = STATUE, animate-gargoyle = MYTHICAL).
 - **wax-figure-being, mannequin-being, nutcracker-being, totem-pole-being, bobble-head-being, bronze-horseman-being** — specialty/figurative candidates not picked (nutcracker + bobble-head flagged TOY-borderline; mannequin flagged TOOL/APPLIANCE-borderline; bronze-horseman concept implicitly covered by generic equestrian-statue).
@@ -208,7 +208,7 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **synthesizer / keyboard-being, drum-machine-being, theremin-being, turntable / DJ-deck-being** — electronic-instrument candidates; **INSTRUMENTS-domain confirmed** per user call (performance-instrument with player-interface = INSTRUMENTS, not APPLIANCE) but none picked.
 - **didgeridoo-being, bagpipe-being, sitar-being, erhu-being, ocarina-being, harmonica-being, kazoo-being** — folk/world/specialty candidates; not picked (only shamisen/koto landed as the folk/world representative).
 - **bongo-being, congas-being, ukulele-being, banjo-being, oboe-being, bassoon-being, double-bass-being, sousaphone-being** — adjacent canonical instruments not proposed this batch (logged for future densification awareness).
-- **whistle-being** — TOY-side carryover candidate; per user call stays TOY-side (not pulled into INSTRUMENTS as wind-instrument). Logged for possible future TOY densification only.
+- **whistle-being** — TOY-side carryover candidate. **DROPPED entirely 2026-05-15** per cross-cluster pending-review resolution (TOY cluster closed without retro-add; no home).
 - **music-box-being** — already in TOY's `**Mechanical / Wind-up**` sub-group; not duplicated here (wind-up plaything framing wins over performance-instrument framing for the canonical music-box).
 - **tuning-fork-being** — already in TOOL's `**Sound / signaling**` sub-group as pitch-precision tool; not duplicated here.
 
@@ -363,7 +363,7 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTURE: skyscraper-being, ruin/abandoned-building-being, intersection/crossroads-being. **Other URBAN candidates** proposed but never landed: alleyway, highway-overpass, subway-tunnel, subway-station, apartment-block, rooftop, sidewalk-pavement, manhole-cover, streetlamp, neon-sign, traffic-jam, graffiti (latter went to INK), light-pollution-glow.
 
 ### Cross-cluster floating concepts
-- **sunken-island / Atlantis-style ruin-landmass** — flagged for MYTHICAL or UNIQUE.
+- **sunken-island / Atlantis-style ruin-landmass** — flagged for MYTHICAL or UNIQUE. **DROPPED entirely 2026-05-15** per cross-cluster pending-review resolution (no specific home pursued; concept dropped).
 - **rainbow-pool / prismatic-spring** — proposed under HOT-SPRING (J) but not picked.
 - **kelp-forest as habitat-being** — kelp-individual stays in PLANTS; the habitat-form would need a slot if wanted.
 

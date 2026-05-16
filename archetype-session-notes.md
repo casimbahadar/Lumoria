@@ -254,23 +254,19 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **crepuscular-ray / godray-being** — stays SHADOW-CAST candidate per SHADOW-CAST batch deferral; **N/A for WEATHER cross-section per user call** (no WEATHER-domain claim).
 
 **Candidates not picked (WEATHER-domain confirmed, logged for possible future densification):**
-- **cirrus-cloud-being, stratus-cloud-being, lenticular-cloud-being** — cloud-form candidates not picked (generic cloud + storm-cloud kept as representatives).
-- **freezing-rain-being, drizzle-being** — precipitation candidates not picked (rain + snow + hail kept). *("sleet" half of former `sleet / freezing-rain-being` name DROPPED 2026-05-15 per user resolution — freezing-rain kept as the entry name; sleet not retained as alias.)*
-- **wind-gust-being, whirlwind / dust-devil-being, zephyr-being, chinook / foehn-wind-being** — wind candidates not picked (breeze kept as representative). **Whirlwind / dust-devil judged WEATHER-domain per user call** (vs. NATURAL-DISASTER tornado-event) but not picked.
-- **sunrise / sunset-being** — colored-sky transition candidate not picked (rainbow + aurora kept as light-phenomena representatives).
-- **frost-being, rime / hoarfrost-being** — winter surface-ice candidates not picked.
-- **heat-haze / heat-shimmer-being, humidity-haze-being, sun-glare-being** — heat/dry candidates not picked (mirage kept as reserved-pick).
-- **dew-being** — morning surface-moisture candidate not picked.
-- **dawn-being, dusk / twilight-being, golden-hour-being, stormfront-being** — specialty/liminal candidates not picked.
-- Other adjacent unproposed candidates: thunderclap-sound, ball-lightning, fata-morgana, sundog-parhelion (logged for future densification awareness).
+- **freezing-rain-being, drizzle-being** — precipitation candidates not picked (rain + snow + hail kept). *("sleet" half of former `sleet / freezing-rain-being` name DROPPED 2026-05-15 per user resolution.)*
+- **whirlwind / dust-devil-being** — wind candidate; **WEATHER-domain confirmed per user call** (vs. NATURAL-DISASTER tornado-event) but not picked.
+- **zephyr-being** — west-wind / gentle-breeze poetic-form wind candidate not picked.
+- **ball-lightning-being** — adjacent unproposed candidate kept per user resolution.
+- *(MAJOR DROP 2026-05-15 per user resolution: cirrus-cloud, stratus-cloud, lenticular-cloud (cloud-form), wind-gust, chinook / foehn-wind (wind), sunrise / sunset (colored-sky), frost, rime / hoarfrost (winter surface-ice), heat-haze / heat-shimmer, humidity-haze, sun-glare (heat/dry), dew (morning-moisture), dawn, dusk / twilight, golden-hour, stormfront (specialty/liminal), thunderclap-sound, fata-morgana, sundog-parhelion (adjacent) — all DROPPED entirely.)*
 
 ### From URBAN drop fallout
 URBAN was dropped entirely in this session. Its 3 entries migrated to ARCHITECTURE: skyscraper-being, ruin/abandoned-building-being, intersection/crossroads-being. **Other URBAN candidates** proposed but never landed: alleyway, highway-overpass, subway-tunnel, subway-station, apartment-block, rooftop, sidewalk-pavement, manhole-cover, streetlamp, neon-sign, traffic-jam, graffiti (latter went to INK), light-pollution-glow.
 
 ### Cross-cluster floating concepts
 - **sunken-island / Atlantis-style ruin-landmass** — flagged for MYTHICAL or UNIQUE. **DROPPED entirely 2026-05-15** per cross-cluster pending-review resolution (no specific home pursued; concept dropped).
-- **rainbow-pool / prismatic-spring** — proposed under HOT-SPRING (J) but not picked.
-- **kelp-forest as habitat-being** — kelp-individual stays in PLANTS; the habitat-form would need a slot if wanted.
+- **rainbow-pool / prismatic-spring** — proposed under HOT-SPRING (J) but not picked. **LANDED 2026-05-16** in **THERMAL EXTREMES** Geothermal/hot sub-group per sweep pass 5 (cap 1+1, Yellowstone Grand Prismatic Spring iconography).
+- **kelp-forest as habitat-being** — kelp-individual stays in PLANTS; the habitat-form would need a slot if wanted. **DROPPED entirely 2026-05-16** per sweep pass 5 resolution (no home pursued).
 
 ---
 

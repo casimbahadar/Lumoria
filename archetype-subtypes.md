@@ -930,6 +930,7 @@ Extreme-temperature habitat-as-being — frozen ice-mass or geothermal hot-water
   - geyser-being (cap 1+1) — intermittent eruption-creature, pressure-built columns of scalding spray; *as creature: tall slender column-creature with an eruption-spout head, periodic full-body shudder triggers a column-blast. Alternative silhouette: bipedal mineral-mound creature with a chimney-vent atop the head — Old Faithful silhouette, sulfur-rust hide, snow-dusted shoulders, steam constantly trailing from the chimney, periodic full-body shudder → vertical eruption.*
   - mud-pot / mud-pool-being (cap 1+1) — boiling-mud cauldron, gurgling skin, sulfur-bubble jaw; *as creature: bubbling-mud blob-creature, dome body, rising-bubble eyes that pop with each gurgle*
   - magma-being (cap 1+1) — molten-rock underground habitat-as-being, glowing-red core, hardening basalt-skin flavor *(renamed + landed 2026-05-15 from former `magma-chamber-being` Habitat-orphan per user resolution; distinct from MYTHICAL Slimes `magma-slime / lava-slime` which is the slime-form, and from NATURAL-DISASTER `volcanic-eruption` which is the event)*
+  - rainbow-pool / prismatic-spring-being (cap 1+1) — geothermal pool with iridescent rainbow-colored mineral / microbial rings, Yellowstone Grand Prismatic Spring iconography, temperature-stratified concentric color-bands from thermophile communities *(landed 2026-05-15 from cross-cluster floating-concept resolution; was originally proposed under HOT-SPRING then deferred — now lands in the merged THERMAL EXTREMES cluster)*
 
 ---
 

@@ -1220,7 +1220,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"bite"],[2,"quick_attack"],[3,"crunch"],[4,"night_slash"],[5,"scratch"],[6,"eclipse_shroud"],[26,"recover"],[29,"dark_pulse"],[37,"shadow_ball"],[38,"nightmare_pulse"],[51,"body_slam"],[64,"void_rend"],[7,"dread_howl"],[44,"leer"]],
     evolveTo:120, evolveLevel:44, catchRate:45, expYield:316, rarity:"uncommon",
     desc:"A hound of the night. Moves silently and strikes from blind spots.",
-    lore:"Shadowvast is a large dark dog 90 cm at the shoulder with pure black fur and a broad powerful chest. It moves without sound on any surface. It guards underground lairs and claims territorial ownership of shadow-filled spaces within its range, tolerating no other predators in its claimed darkness." },
+    lore:"Dreadmaw is a large dark dog 90 cm at the shoulder — Eclipsehound's jet-black light-absorbing fur has deepened to pure black across a broad powerful chest, and the skittish pup's silent-paw habit has matured into the ability to move without sound on any surface. It guards underground lairs and claims territorial ownership of shadow-filled spaces within its range, tolerating no other predators in its claimed darkness." },
 
   121: { id:121, name:"Spiraloom",     emoji:"🦇", types:["Dark","Wind"],
     base:{hp:52,atk:47,def:34,spa:57,spd:51,spe:106},
@@ -1234,7 +1234,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"dark_pulse"],[2,"wing_attack"],[3,"air_slash"],[4,"shadowstep"],[5,"eclipse_shroud"],[30,"shadow_ball"],[35,"growl"],[38,"hurricane"],[42,"tackle"],[49,"night_slash"],[56,"nightmare_pulse"],[63,"cyclone_blade"],[6,"dread_howl"],[43,"void_rend"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:205, rarity:"uncommon",
     desc:"A spectral wing beast. Its mere passing through an area chills it completely.",
-    lore:"Umbraveth is a large dark-wind bat with a 1.5-metre wingspan. Its wings are leathery dark purple-black and its fur is deep charcoal grey. When it passes, shadows move in directions contrary to light sources. It roosts alone in sea caves and hunts by riding cold offshore winds far out to sea." },
+    lore:"Caveshroud is a large dark-wind bat with a 1.5-metre wingspan — Spiraloom's narrow grey-black wings have broadened to leathery dark purple-black and its echolocating nose-leaf has flattened against deeper charcoal-grey fur. When it passes, shadows move in directions contrary to light sources. It roosts alone in sea caves and hunts by riding cold offshore winds far out to sea." },
 
   123: { id:123, name:"Nocturil", emoji:"🦎", types:["Dark","Poison"],
     base:{hp:51,atk:60,def:50,spa:60,spd:48,spe:62},
@@ -1248,7 +1248,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"bite"],[2,"eclipse_shroud"],[3,"poison_sting"],[4,"obsidian_fang"],[5,"sludge_bomb"],[32,"crunch"],[39,"dark_pulse"],[40,"harden"],[47,"toxic"],[48,"dread_howl"],[56,"venoshock"],[64,"void_rend"],[6,"dark_shroud"],[42,"blackout_bomb"]],
     evolveTo:125, evolveLevel:44, catchRate:35, expYield:218, rarity:"uncommon",
     desc:"A phantom serpent of darkness and venom. Said to haunt ancient ruins.",
-    lore:"Phantorvex is a long-bodied legless serpent-lizard 2 metres long with vestigial limb-stubs against its sides and dark iridescent scales that shift between deep purple and black. Its fangs inject a necrotic venom. It haunts ancient ruins and underground crypts, and local legends claim it is drawn to places where death has recently occurred." },
+    lore:"Phantorvex is a long-bodied legless serpent-lizard 2 metres long — Nocturil's dark-green rough scales have darkened into dark iridescent scales that shift between deep purple and black, while its legs have shrivelled to vestigial limb-stubs against its sides. Its fangs inject a necrotic venom. It haunts ancient ruins and underground crypts, and local legends claim it is drawn to places where death has recently occurred." },
 
   // ===== FAIRY =====
   137: { id:137, name:"Goldefluff",     emoji:"🐶", types:["Fairy"],
@@ -1263,7 +1263,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"fairy_wind"],[2,"dazzling_gleam"],[3,"moonblast"],[4,"sweet_kiss"],[29,"recover"],[30,"tail_whip"],[35,"battle_cry"],[40,"quick_attack"],[45,"wish_spark"],[50,"moonveil"],[55,"celestial_wave"],[60,"psystrike"],[5,"stardust_veil"],[39,"leer"]],
     evolveTo:139, evolveLevel:44, catchRate:50, expYield:205, rarity:"uncommon",
     desc:"A luminous hound of fairy power. Its radiance can banish dark spirits.",
-    lore:"Aetherael is a sleek fairy hound 70 cm at the shoulder with luminous white fur and an aura of soft gold-pink light surrounding it constantly. Its eyes are deep amethyst. It moves with effortless grace and seeks out beings in distress, projecting a calming field of fairy light to soothe emotional pain." },
+    lore:"Aetherael is a sleek fairy hound 70 cm at the shoulder — Goldefluff's pure white fluffy puppy fur has lengthened into luminous adult fur, the warm golden glow has matured into a soft gold-pink aura surrounding it constantly, and the bright violet pup-eyes have deepened to amethyst. It moves with effortless grace and seeks out beings in distress, projecting a calming field of fairy light to soothe emotional pain." },
 
   140: { id:140, name:"Faeling",    emoji:"🦋", types:["Fairy","Bug"],
     base:{hp:35,atk:44,def:33,spa:79,spd:71,spe:78},
@@ -1277,7 +1277,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"fairy_wind"],[2,"dazzling_gleam"],[3,"recover"],[4,"sweet_kiss"],[23,"moonblast"],[29,"gust"],[33,"gossamer_lance"],[36,"quick_attack"],[43,"air_slash"],[50,"moonveil"],[57,"glitter_storm"],[64,"hurricane"],[5,"stardust_veil"],[42,"thermal_dive"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:200, rarity:"uncommon",
     desc:"A radiant butterfly of pure fairy energy. Its wings shimmer with all colors.",
-    lore:"Prisoveth is a large fairy-wind butterfly with a 90 cm wingspan. Its upper wings are brilliant iridescent white that fractures into rainbow spectra in sunlight, while the undersides show soft cloud-white with violet hints. It soars on warm thermals above flowering valleys, visible from great distances by its light display." },
+    lore:"Iridesoar is a large fairy-wind butterfly with a 90 cm wingspan — Faeling's pastel-shimmer juvenile wings have whitened to brilliant iridescent upper wings that now fracture into full rainbow spectra in sunlight, while the underside still shows the soft cloud-white with violet hints carried over from the chrysalis. It soars on warm thermals above flowering valleys, visible from great distances by its light display." },
 
   142: { id:142, name:"Dawnirel",  emoji:"✨", types:["Fairy","Psychic"],
     base:{hp:50,atk:48,def:54,spa:74,spd:61,spe:63},
@@ -1306,7 +1306,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"metal_claw"],[2,"flash_cannon"],[3,"steel_wing"],[4,"magnetize"],[28,"leer"],[30,"iron_tail"],[35,"battle_cry"],[38,"body_slam"],[42,"quick_attack"],[49,"rivet_barrage"],[56,"forge_strike"],[63,"tungsten_ram"],[5,"ironskin"],[43,"recover"]],
     evolveTo:149, evolveLevel:46, catchRate:40, expYield:225, rarity:"uncommon",
     desc:"A steel hound with titanium claws. Almost nothing can break its armor.",
-    lore:"Adamavast is a large humanoid steel creature 1.5 metres tall with a broad powerful chest and arms that function as natural weapons. Its surface is burnished dark steel with deep scratches from past battles. It is stoic, rarely speaking, and positions itself between perceived threats and those it considers worth protecting." },
+    lore:"Stoicguard is a large humanoid steel creature 1.5 metres tall — Scrapsapien's compact bolted-and-seamed plating has reforged into a broad powerful chest and arms that function as natural weapons, and the scrap-collecting habit of its juvenile form has left a surface of burnished dark steel with deep scratches from past battles. It is stoic, rarely speaking, and positions itself between perceived threats and those it considers worth protecting." },
 
   150: { id:150, name:"Gearon",     emoji:"⚙️", types:["Steel","Electric"],
     base:{hp:48,atk:50,def:67,spa:52,spd:57,spe:54},
@@ -1320,7 +1320,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"thunderbolt"],[2,"magnetize"],[31,"flash_cannon"],[32,"surge_field"],[36,"harden"],[39,"thunder"],[40,"rivet_barrage"],[44,"volt_surge"],[48,"iron_tail"],[52,"tungsten_ram"],[56,"overcharge"],[60,"hyper_beam"],[3,"ironskin"],[37,"forge_strike"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"uncommon",
     desc:"A mechanical warrior powered by electric cores. Feared on every battlefield.",
-    lore:"Alloytron is a larger electric-steel automaton 1.2 metres tall. Its body is an assembly of interlocked alloy panels with exposed wiring running between them. Its chest houses a glowing power core visible through a transparent casing. It can interface with electrical infrastructure and draw power directly from city grid lines." },
+    lore:"Alloytron is a larger electric-steel automaton 1.2 metres tall — Gearon's spinning cog-wheels have consolidated into an assembly of interlocked alloy panels with exposed wiring running between them, and the mechanical-motion sparks of its juvenile form have organised into a glowing power core visible through a transparent casing in its chest. Its chest houses a glowing power core visible through a transparent casing. It can interface with electrical infrastructure and draw power directly from city grid lines." },
 
   152: { id:152, name:"Imperion",  emoji:"🐢", types:["Crystal","Rock"],
     base:{hp:108,atk:61,def:138,spa:59,spd:105,spe:30},
@@ -1342,7 +1342,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"poison_sting"],[2,"bubble_beam"],[3,"toxic_surge"],[24,"toxic"],[30,"venoshock"],[32,"tail_whip"],[33,"sludge_wave"],[38,"sludge_bomb"],[40,"scratch"],[48,"venom_lance"],[56,"surf"],[64,"hydro_pump"],[4,"toxin_bloom"],[43,"aqua_tail"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:205, rarity:"uncommon",
     desc:"A venom toad of enormous size. Its croaking alone can poison the air.",
-    lore:"Venekon is a medium poison-water frog 35 cm long with a flattened head and webbed feet. Its skin is mottled blue-green and brown. It produces a diluted aquatic toxin that disperses through water to deter fish predators. It inhabits murky river backwaters and calls from beneath floating lily pads." },
+    lore:"Venekon is a medium poison-water frog 35 cm long with a flattened head and webbed feet — Toxirin's lime-green skin and yellow-black warning patterns have muddied to a mottled blue-green and brown as it migrated from rainforest ponds to murky river backwaters, and its sticky skin-toxin has dispersed into a diluted aquatic toxin for fending off fish predators. It produces a diluted aquatic toxin that disperses through water to deter fish predators. It inhabits murky river backwaters and calls from beneath floating lily pads." },
 
   157: { id:157, name:"Acidelix",    emoji:"🫧", types:["Poison"],
     base:{hp:61,atk:47,def:47,spa:75,spd:59,spe:43},
@@ -2624,7 +2624,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"flash_cannon"],[2,"dark_pulse"],[3,"magnetize"],[30,"crunch"],[33,"shadow_ball"],[34,"harden"],[38,"rivet_barrage"],[43,"steel_wing"],[48,"night_slash"],[53,"forge_strike"],[58,"void_rend"],[63,"iron_tail"],[4,"ironskin"],[41,"smelt_crush"]],
     evolveTo:136, evolveLevel:44, catchRate:45, expYield:215, rarity:"uncommon",
     desc:"An iron-clad wraith bat. Its metallic screech disorients enemies from great distances.",
-    lore:"Steelvex is a larger dark-steel bat 1.2 metres long with broad metallic wings that catch and reflect light strangely. Its body is chrome-black. It has the habit of dismantling mechanical objects it finds — gears, clockwork, small machines — studying each component before reassembling them incorrectly." },
+    lore:"Steelvex is a larger dark-steel bat 1.2 metres long — Aeronyx's gunmetal-grey alloy wings have broadened into the metallic shields that now catch and reflect light strangely, and the blue-tinted plating of its juvenile form has darkened to a chrome-black body. It has the habit of dismantling mechanical objects it finds — gears, clockwork, small machines — studying each component before reassembling them incorrectly." },
 
   20: { id:20, name:"Embrath", emoji:"🦔", types:["Fire","Ground"],
     base:{hp:97,atk:121,def:76,spa:69,spd:62,spe:64},
@@ -2694,7 +2694,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"psybeam"],[2,"dark_pulse"],[3,"psychic_move"],[4,"shadow_ball"],[5,"calm_mind"],[39,"psystrike"],[40,"battle_cry"],[44,"prism_ward"],[49,"obsidian_fang"],[54,"void_rend"],[59,"mind_shatter"],[64,"hyper_beam"],[6,"mind_reader"],[41,"thought_crush"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:248, rarity:"rare",
     desc:"A void being of psychic and dark power. Consumes light and thought with equal ease.",
-    lore:"Voidaxis is a large psychic-dark entity 1.5 metres tall whose body appears to exist partially in another dimension — the biped silhouette of its earlier form persists at the form's centre, but its edges are blurred and its outline shifts when viewed peripherally, dissolving into half-dimensional shadow. Its presence makes nearby electronic devices malfunction. It communicates only through psychic projection and has never been heard to vocalise." },
+    lore:"Voidaxis is a large psychic-dark entity 1.5 metres tall whose body appears to exist partially in another dimension — Cranivade's lavender-grey biped silhouette persists at the form's centre with its oversized cranium still pulsing dimly, but its edges are blurred and its outline shifts when viewed peripherally, dissolving into half-dimensional shadow. Its presence makes nearby electronic devices malfunction. It communicates only through psychic projection and has never been heard to vocalise." },
 
   203: { id:203, name:"Arachnalis", emoji:"🕸️", types:["Bug","Fairy"],
     base:{hp:76,atk:64,def:73,spa:101,spd:89,spe:74},
@@ -2799,7 +2799,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"flash_cannon"],[2,"earthquake"],[3,"magnetize"],[30,"iron_tail"],[31,"battle_cry"],[34,"loam_leech"],[38,"rock_slide"],[42,"temper_edge"],[46,"body_slam"],[50,"earth_power"],[54,"tungsten_ram"],[58,"anvil_drop"],[4,"ironskin"],[37,"magnitude"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:222, rarity:"uncommon",
     desc:"A forged golem of steel and compressed earth. Was created to guard ancient mines.",
-    lore:"Titanolith is a massive steel-ground golem 2.5 metres tall. Its body is a tremendous assembly of metal and compressed earth. The ground trembles slightly with each of its steps. It is largely indifferent to the world around it and moves at its own slow pace, but obstacles that cannot be sidestepped are simply absorbed." },
+    lore:"Terragolem is a massive steel-ground golem 2.5 metres tall — Dentshaft's dented-and-scuffed humanoid miner-frame has expanded into a tremendous assembly of metal and compressed earth, and the reflexive surface-tapping of its juvenile form has become a deep tremor through the ground with every step. The ground trembles slightly with each of its steps. It is largely indifferent to the world around it and moves at its own slow pace, but obstacles that cannot be sidestepped are simply absorbed." },
 
   // ===== DRAGON/GROUND =====
   106: { id:106, name:"Geodrak", emoji:"🐣", types:["Dragon","Ground"],
@@ -2874,7 +2874,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"dazzling_gleam"],[2,"flash_cannon"],[3,"moonblast"],[4,"metal_claw"],[5,"sweet_kiss"],[30,"iron_tail"],[32,"growl"],[38,"tackle"],[44,"steel_wing"],[50,"temper_edge"],[56,"moonveil"],[62,"hyper_beam"],[6,"stardust_veil"],[41,"forge_strike"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:230, rarity:"rare",
     desc:"An armored fairy sentinel that never abandons its post. Its shield can repel any curse.",
-    lore:"Shinarith is a medium fairy-steel guardian 90 cm tall encased in gleaming platinum armour decorated with fairy-glyph engravings. Its inner light shines through gaps in the armour in warm gold tones. It is fiercely loyal and will defend any being it has bonded with from threats many times its size." },
+    lore:"Shinarith is a medium fairy-steel guardian 90 cm tall — Faerrin's silver-gold knight-alloy has been forged anew into gleaming platinum armour decorated with fairy-glyph engravings, and the dazzling light-redirection of its juvenile form now shines through gaps in the armour as inner warm gold tones. It is fiercely loyal and will defend any being it has bonded with from threats many times its size." },
 
   317: { id:317, name:"Temporith", emoji:"⏳", types:["Psychic","Dragon"],
     base:{hp:97,atk:100,def:99,spa:132,spd:107,spe:83},
@@ -3208,7 +3208,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"bite"],[1,"venom_lance"],[2,"dark_pulse"],[3,"sludge_wave"],[4,"eclipse_shroud"],[38,"void_rend"],[42,"acid_rain"],[46,"shadow_ball"],[50,"soul_rend"],[54,"toxic_surge"],[58,"corrosion_fang"],[62,"dread_howl"],[5,"shadowstep"],[44,"abyssal_snare"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"A venom phantom of ancient ruin sites. It haunts deep in shadow, and those bitten by it suffer visions of oblivion they never escape.",
-    lore:"Phantomvast is a titanic dark-poison serpent 4 metres long with body width enough to encircle a large tree. Its scales are near-black with faint violet banding. It constricts prey before envenomating, and the venom it produces is so potent that researchers use it in diluted form as an anaesthetic." },
+    lore:"Venotitan is a titanic dark-poison serpent 4 metres long with body width enough to encircle a large tree — Phantorvex's iridescent purple-black scales have darkened to near-black with the violet shimmer now faint banding, and the necrotic venom of its juvenile form has matured into a constrictor's killing dose. It constricts prey before envenomating, and the venom it produces is so potent that researchers use it in diluted form as an anaesthetic." },
 
   // 207: Lumiarch - Fairy (Lumkin→Aetherael→Lumiarch)
   139: { id:139, name:"Lumiarch", emoji:"🌟", types:["Fairy"],
@@ -3232,7 +3232,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"metal_claw"],[1,"flash_cannon"],[2,"iron_tail"],[3,"magnetize"],[4,"forge_strike"],[38,"anvil_drop"],[42,"iron_press"],[46,"slag_shield"],[50,"temper_edge"],[54,"steel_wing"],[58,"body_slam"],[62,"hyper_beam"],[5,"ironskin"],[44,"recover"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:275, rarity:"rare",
     desc:"A steel titan of absolute indomitability. Every surface of its body is a different legendary alloy; no recorded force has ever cracked its hide.",
-    lore:"Adamovast is a massive steel entity 2 metres tall shaped like a heavy suit of full plate armour that moves of its own accord. Its surface is deep charcoal-grey adamantine. No creature has ever found a way to scratch its surface with any natural weapon. It considers itself a guardian of civilisation itself." },
+    lore:"Eternarmor is a massive steel entity 2 metres tall — Stoicguard's burnished battle-scarred chest and arms have hardened into a complete suit of full plate armour that now moves of its own accord, the surface refined to deep charcoal-grey adamantine that retains the silent stoicism of its juvenile form. No creature has ever found a way to scratch its surface with any natural weapon. It considers itself a guardian of civilisation itself." },
 
   // 210: Ferrovast - Steel/Dark (Aeronyx→Ferrovex→Ferrovast)
   136: { id:136, name:"Metalibat", emoji:"🦇", types:["Steel","Dark"],
@@ -3240,7 +3240,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"metal_claw"],[1,"dark_pulse"],[2,"flash_cannon"],[3,"crunch"],[4,"magnetize"],[38,"forge_strike"],[42,"void_rend"],[46,"iron_tail"],[50,"shadow_ball"],[54,"anvil_drop"],[58,"night_slash"],[62,"soul_rend"],[5,"ironskin"],[44,"eclipse_shroud"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A wraith of living iron that hunts in total darkness. Its metallic screech can shatter stone and its wings cut like blades.",
-    lore:"Ferrovast is a massive dark-steel bat with a 2.5-metre wingspan. Its body is entirely covered in overlapping dark steel plates that protect it like armour. In flight it produces a distinctive metallic drone audible from 500 metres. It nests inside abandoned industrial structures and hollowed-out ore deposits." },
+    lore:"Metalibat is a massive dark-steel bat with a 2.5-metre wingspan — Steelvex's chrome-black wing-shields have thickened into overlapping dark steel plates that now armour its entire body, and the mechanical-object obsession of its juvenile form has matured into a 500-metre metallic drone audible from the industrial structures it nests within. In flight it produces a distinctive metallic drone audible from 500 metres. It nests inside abandoned industrial structures and hollowed-out ore deposits." },
 
   // 211: Acidovast - Poison/Ground (Acidelix→Toxoloth→Acidovast)
   159: { id:159, name:"Dissotoad", emoji:"🐸", types:["Poison","Ground"],

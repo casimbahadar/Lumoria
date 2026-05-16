@@ -1521,7 +1521,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[22,"obsidian_crash"]],[1,"rock_throw"],[8,"harden"],[16,"headbutt"],[24,"rock_slide"],[29,"tail_whip"],[32,"stone_edge"],[40,"body_slam",[5,"granite_wall"]],[3,"petrify_gaze"],[31,"growl"]],
     evolveTo:192, evolveLevel:25, catchRate:160, expYield:88, rarity:"common",
     desc:"A rock puppy with pebble-studded fur. Loves rolling into a ball.",
-    lore:"Petrikin is a small rock creature 20 cm tall shaped like a round pebble with two tiny legs and a somewhat surprised-looking face embedded in the stone. It is almost indistinguishable from an ordinary river pebble when still. It lives in streambeds and rolls with the current when travelling." },
+    lore:"Pebblet is a small rock creature 20 cm tall shaped like a round pebble with two tiny legs and a somewhat surprised-looking face embedded in the stone. It is almost indistinguishable from an ordinary river pebble when still. It lives in streambeds and rolls with the current when travelling. Pebblet cluster in tight streambank groupings that mimic natural rock outcroppings; from within each cluster, individuals occasionally rear up on their two tiny legs and balance briefly upright before tumbling back — rehearsing both the humanoid stance and the geologist-fooling formations their evolved form will permanently maintain together." },
 
   192: { id:192, name:"Boulderoll",emoji:"🪨", types:["Rock","Ground"],
     base:{hp:82,atk:108,def:112,spa:50,spd:57,spe:69},
@@ -1535,7 +1535,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"scratch",[25,"geode_burst"]],[1,"rock_throw"],[11,"water_gun"],[16,"swords_dance"],[19,"rock_slide"],[27,"aqua_tail"],[29,"sandstone_rush"],[35,"stone_edge"],[40,"sea_serpent_strike"],[43,"surf",[5,"granite_wall"]],[3,"petrify_gaze"],[33,"landslide"]],
     evolveTo:194, evolveLevel:38, catchRate:75, expYield:168, rarity:"uncommon",
     desc:"A crag claw crab that lives on rocky sea cliffs. Fiercely territorial.",
-    lore:"Rugothon is a massive rock-water crustacean 2 metres long with a heavily encrusted shell of barnacles and embedded pebbles. Its eight wide legs are each tipped with flat digging pads. It inhabits rocky coastlines where it is mistaken for a tide-pool feature until it suddenly moves." },
+    lore:"Rugothon is a massive rock-water crustacean 2 metres long with a heavily encrusted shell of barnacles and embedded pebbles. Its eight wide legs are each tipped with flat digging pads. It inhabits rocky coastlines where it is mistaken for a tide-pool feature until it suddenly moves. Older Rugothon eat noticeably less in each successive moult cycle, then less again, slowly withdrawing into themselves — a metabolic shift that compounds across generations into the smaller, denser rock-crab form their lineage matures into." },
 
   195: { id:195, name:"Prismolith",  emoji:"💎", types:["Rock","Ice"],
     base:{hp:70,atk:66,def:101,spa:77,spd:87,spe:38},

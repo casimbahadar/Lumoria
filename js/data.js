@@ -2298,19 +2298,19 @@ const MONSTERS_DATA = {
     desc:"A mosquito-like creature with toxic saliva. A single bite can poison most Lumori instantly.",
     lore:"Plaguefly is a large poison-bug insect with a 30 cm wingspan. Its wings are translucent grey with poison-green venation. Its body is a bloated sack of toxic fluid. It breeds in stagnant water and its larval masses are visible as roiling dark clouds beneath the surface of contaminated ponds." },
 
-  297: { id:297, name:"Blightwing", emoji:"🦋", types:["Poison","Bug"],
+  297: { id:297, name:"Blightwing", emoji:"🦟", types:["Poison","Bug"],
     base:{hp:68,atk:78,def:62,spa:98,spd:78,spe:100},
     learnset:[[1,"x_scissor"],[1,"sludge_bomb"],[20,"toxic"],[28,"venoshock"],[36,"bug_buzz"],[44,"venom_lance"],[52,"sludge_wave"],[60,"hyper_beam"]],
     evolveTo:298, evolveLevel:44, catchRate:85, expYield:148, rarity:"uncommon",
-    desc:"A poison butterfly whose wing scales are deadly toxins. A single wing-flap spreads enough venom to fell a herd.",
-    lore:"Blightwing is a medium poison-bug butterfly with 40 cm wingspan. Its wings are dark purple with sickly yellow-green patches that glow faintly. Each wingbeat releases microscopic blight-spores that cause plant growth to wither. It inhabits areas of environmental decay, flourishing where other life struggles." },
+    desc:"A blight mosquito whose extended proboscis can drain entire forests of vitality. Its bite spreads withering pestilence.",
+    lore:"Blightwing is a medium poison-bug mosquito with 40 cm wingspan. Its translucent wings are dark purple with sickly yellow-green venation that glows faintly. Its elongated proboscis can pierce thick bark to drain plant sap, leaving withered scars in its wake. It inhabits areas of environmental decay, flourishing where other life struggles." },
 
-  298: { id:298, name:"Plagueoth", emoji:"🦠", types:["Poison","Bug"],
+  298: { id:298, name:"Plagueoth", emoji:"🦟", types:["Poison","Bug"],
     base:{hp:82,atk:89,def:73,spa:116,spd:95,spe:95},
     learnset:[[1,"venom_lance"],[1,"bug_buzz"],[30,"sludge_wave"],[38,"toxic"],[46,"venoshock"],[54,"mycelia_net"],[62,"corrosion_fang"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
-    desc:"The plague moth. Ancient texts describe its awakening as an omen of great pestilence. Its touch corrupts.",
-    lore:"Plagueoth is a large poison-bug creature 60 cm long resembling a grotesque moth with ragged dark wings and a bloated abdomen. Its wing-scales contain a contact toxin. It inhabits abandoned buildings and decaying organic matter and leaves a visible trail of toxin-dust in its wake." },
+    desc:"The plague mosquito. Ancient texts describe its awakening as an omen of great pestilence. A single drain leaves victims hollowed.",
+    lore:"Plagueoth is a large poison-bug mosquito 60 cm long with a needle-sharp proboscis as long as its body and a bloated venom-sac abdomen. Its ragged dark wings have a 1.5 m span. It inhabits abandoned buildings and decaying swampland, draining the vital fluids of any creature unfortunate enough to be caught alone at dusk." },
 
   // 2-stage Bug/Poison chain: Stinglet → Nettleclaw (level 28)
   299: { id:299, name:"Stinglet", emoji:"🐝", types:["Bug","Poison"],

@@ -1241,7 +1241,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"scratch",[22,"obsidian_fang"]],[1,"bite"],[10,"poison_sting"],[18,"night_slash"],[26,"sludge_bomb"],[34,"crunch"],[42,"dark_pulse"],[50,"toxic",[5,"eclipse_shroud"]],[3,"dread_howl"],[36,"blackout_bomb"]],
     evolveTo:124, evolveLevel:32, catchRate:90, expYield:98, rarity:"common",
     desc:"A dark lizard with venomous bite. Camouflages perfectly in shadows.",
-    lore:"Nocturil is a lean dark-green lizard 60 cm long with rough scales and a venomous forked tongue. A dark stripe runs from eye to tail. It inhabits rock crevices in shadowed ravines and is almost impossible to spot when motionless. Its venom causes mild hallucinations that disorient predators long enough to allow escape." },
+    lore:"Nocturil is a lean dark-green lizard 60 cm long with rough scales and a venomous forked tongue. A dark stripe runs from eye to tail. It inhabits rock crevices in shadowed ravines and is almost impossible to spot when motionless. Its venom causes mild hallucinations that disorient predators long enough to allow escape. When motionless against rock, Nocturil presses its four limbs flat against its sides until they nearly vanish into the body — already practising the legless silhouette its adult form will commit to permanently." },
 
   124: { id:124, name:"Phantorvex", emoji:"🐍", types:["Dark","Poison"],
     base:{hp:76,atk:95,def:72,spa:89,spd:73,spe:81},
@@ -1335,7 +1335,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[22,"miasma_cloud"]],[1,"poison_sting"],[9,"bubble_beam"],[17,"sludge_bomb"],[20,"battle_cry"],[25,"toxic"],[33,"venoshock"],[36,"sludge_wave"],[41,"sludge_bomb",[5,"toxic_surge"]],[3,"toxin_bloom"],[31,"leer"]],
     evolveTo:156, evolveLevel:24, catchRate:150, expYield:88, rarity:"common",
     desc:"A toxic toad that drips with powerful venom. Warty and repulsive but deadly.",
-    lore:"Toxirin is a small plump frog about 15 cm long with vivid lime-green skin marked by patterns of yellow and black warning colours. It secretes a sticky toxic slime from its skin that deters predators effectively. It inhabits warm rainforest ponds and amplifies its chirping call to remarkable volume for its size." },
+    lore:"Toxirin is a small plump frog about 15 cm long with vivid lime-green skin marked by patterns of yellow and black warning colours. It secretes a sticky toxic slime from its skin that deters predators effectively. It inhabits warm rainforest ponds and amplifies its chirping call to remarkable volume for its size. Some Toxirin leave the bright lily-pads of the rainforest entirely and drift downstream for hours into darker, slower water — early scouts of the murky river backwaters their adult form will eventually settle into." },
 
   156: { id:156, name:"Venekon",   emoji:"🐸", types:["Poison","Water"],
     base:{hp:98,atk:72,def:65,spa:113,spd:87,spe:56},
@@ -2464,7 +2464,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"bite",[20,"shadowstep"]],[1,"metal_claw"],[9,"wing_attack"],[17,"dark_pulse"],[21,"leer"],[25,"flash_cannon"],[33,"crunch",[5,"magnetize"]],[36,"shadow_ball"],[3,"ironskin"],[31,"smelt_crush"]],
     evolveTo:135, evolveLevel:28, catchRate:140, expYield:88, rarity:"common",
     desc:"A small bat with scrap-metal wings that screech on the wind. Lives in old ruins.",
-    lore:"Aeronyx is a sleek steel-dark bat 80 cm long with wings made of thin flexible metal alloy rather than membrane. Its body is dark gunmetal grey with blue-tinted metal plating. It slices through the air with minimal noise and can fold its metal wings to act as shields. It roosts on steel structures." },
+    lore:"Aeronyx is a sleek steel-dark bat 80 cm long with wings made of thin flexible metal alloy rather than membrane. Its body is dark gunmetal grey with blue-tinted metal plating. It slices through the air with minimal noise and can fold its metal wings to act as shields. It roosts on steel structures. Even with no threat present, Aeronyx will hold the wing-shield position for minutes at a time — an instinctive rehearsal of the chrome-black armour its evolved form will wear permanently." },
 
   // ===== FIRE/GROUND =====
   19: { id:19, name:"Magmaurin", emoji:"🐾", types:["Fire","Ground"],
@@ -2560,7 +2560,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"confusion",[22,"telepathic_slam"]],[1,"bite"],[10,"psybeam"],[18,"dark_pulse"],[26,"psychic_move"],[30,"neural_storm"],[34,"shadow_ball"],[42,"psystrike",[5,"calm_mind"]],[3,"prism_ward"],[32,"blackout_bomb"]],
     evolveTo:129, evolveLevel:34, catchRate:90, expYield:100, rarity:"common",
     desc:"A shade of psychic darkness. It exists half in reality and half in the mind's eye.",
-    lore:"Cranivade is a tall psychic-dark biped 1.3 metres tall with a smooth lavender-grey body and an oversized cranium that pulses with light when it concentrates. Its small hands trail crackling dark energy. It dredges suppressed memories from others without consent and catalogues them in its own vast mental archive." },
+    lore:"Cranivade is a tall psychic-dark biped 1.3 metres tall with a smooth lavender-grey body and an oversized cranium that pulses with light when it concentrates. Its small hands trail crackling dark energy. It dredges suppressed memories from others without consent and catalogues them in its own vast mental archive. During its deepest archiving trances, the lavender-grey cranium of a Cranivade briefly turns translucent at the edges and flickers between dimensions — a glimpse of the half-dimensional form its adult will inhabit permanently." },
 
   // ===== DARK/GRASS =====
   130: { id:130, name:"Necralia", emoji:"🌿", types:["Dark","Grass"],

@@ -2035,14 +2035,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"razor_leaf"],[1,"sludge_bomb"],[18,"energy_ball"],[28,"toxic"],[36,"petal_blitz"],[44,"venom_lance"],[52,"grove_wrath"],[60,"hyper_beam"]],
     evolveTo:264, evolveLevel:42, catchRate:90, expYield:145, rarity:"uncommon",
     desc:"A cactus warrior of venomous thorns. Its spines can inject toxins from up to three meters away.",
-    lore:"Tendrilisk is a grass-poison creature 60 cm long whose vine-tendrils still wrap a seed-core body — the lizard silhouette is camouflage from outside, all plant within. Its body is covered in climbing vine tendrils that it can extend rapidly. The vines secrete a contact irritant. It inhabits jungle undergrowth and creates elaborate vine-trap networks around its territory that snare careless prey." },
+    lore:"Tendrilisk is a grass-poison creature 60 cm long whose vine-tendrils still wrap Transluceed's pale-green translucent seed-pod at its core — the lizard silhouette is camouflage from outside, all plant within. Its body is covered in climbing vine tendrils that it can extend rapidly. The vines secrete a contact irritant. It inhabits jungle undergrowth and creates elaborate vine-trap networks around its territory that snare careless prey." },
 
   264: { id:264, name:"Impenezard", emoji:"🌳", types:["Grass","Poison"],
     base:{hp:95,atk:102,def:86,spa:111,spd:93,spe:63},
     learnset:[[1,"petal_blitz"],[1,"venom_lance"],[30,"grove_wrath"],[38,"toxic"],[46,"energy_ball"],[54,"sludge_wave"],[62,"briar_lash"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:260, rarity:"rare",
     desc:"An enormous toxic thorn tree. Its roots poison groundwater for miles, making it a territorial nightmare.",
-    lore:"Thornvast is a massive grass-poison creature 2 metres tall resembling a walking thorn-bush. Its broad body is impenetrable — every surface bristles with 15-cm thorns coated in irritant sap. It moves slowly through dense jungle, and other creatures create well-worn trails specifically to avoid contact with it." },
+    lore:"Impenezard is a massive grass-poison creature 2 metres tall resembling a walking thorn-bush — Tendrilisk's climbing vine-tendrils have hardened into 15-cm thorns coated in the same irritant sap, and the lizard-camouflage of its juvenile form has dropped away to reveal the bristling plant-mass beneath. Its broad body is impenetrable. It moves slowly through dense jungle, and other creatures create well-worn trails specifically to avoid contact with it." },
 
   // Standalone Grass/Bug: Mosswing
   265: { id:265, name:"Mosswing", emoji:"🦗", types:["Grass","Bug"],
@@ -2069,14 +2069,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"night_slash"],[1,"phantom_claw"],[20,"dark_pulse"],[28,"eclipse_shroud"],[36,"crunch"],[44,"soul_rend"],[52,"shadow_ball"],[60,"hyper_beam"]],
     evolveTo:268, evolveLevel:44, catchRate:85, expYield:150, rarity:"uncommon",
     desc:"A ghost-dark wolf that phases through shadows. Its claws can strike from a different dimension.",
-    lore:"Nightclaw is a medium dark dog 55 cm at the shoulder with deep black fur and retractable claws that are non-reflective. It hunts by moving through deep shadow too fast to track, using echolocation rather than vision. Its natural shadow-camouflage is so effective it can vanish against dark walls in daylight." },
+    lore:"Nightclaw is a medium dark dog 55 cm at the shoulder — Shadowpup's jet-black light-absorbing fur has deepened across a larger frame, and the strangely-flat outline of its pup-form has sharpened into non-reflective retractable claws. It hunts by moving through deep shadow too fast to track, using echolocation rather than vision. Its natural shadow-camouflage is so effective it can vanish against dark walls in daylight." },
 
   268: { id:268, name:"Darkfang", emoji:"🐕", types:["Dark"],
     base:{hp:89,atk:118,def:79,spa:87,spd:79,spe:98},
     learnset:[[1,"eclipse_shroud"],[1,"soul_rend"],[30,"dark_pulse"],[38,"shadow_ball"],[46,"night_slash"],[54,"phantom_claw"],[62,"dread_howl"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
     desc:"The apex shadow predator. Its howl resonates across dimensions and can be heard in the land of the dead.",
-    lore:"Darkfang is a large dark wolf 90 cm at the shoulder with pitch-black fur and fangs that absorb light, giving them a void-like appearance. Its growl is felt more than heard, as a pressure in the chest. It inhabits forested night-terrain and sees in conditions of total darkness as clearly as others see in daylight." },
+    lore:"Darkfang is a large dark wolf 90 cm at the shoulder — Nightclaw's deep-black coat has darkened to pitch and the non-reflective claws that hid its juvenile form have been joined by fangs that absorb light, giving them a void-like appearance. Its growl is felt more than heard, as a pressure in the chest. It inhabits forested night-terrain and sees in conditions of total darkness as clearly as others see in daylight." },
 
   // 2-stage Dark split: Grimshade → Eclipsoon (Moon Stone item)
   269: { id:269, name:"Grimshade", emoji:"🦝", types:["Dark"],
@@ -2129,14 +2129,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"flamethrower"],[1,"stone_edge"],[22,"fire_blast"],[30,"magma_rock"],[38,"rock_slide"],[46,"earthquake"],[54,"caldera_meltdown"],[62,"hyper_beam"]],
     evolveTo:276, evolveLevel:46, catchRate:75, expYield:158, rarity:"uncommon",
     desc:"A volcanic rock beast that erupts periodically. Carries magma inside its carapace like a pressure cooker.",
-    lore:"Infernox is a fire-rock creature 80 cm long resembling a larger armoured lizard with volcanic plate armour. Its joints glow with pooled magma. Its footsteps leave brief glowing prints. It inhabits lava fields and uses its rock-hard body to deflect predator strikes while retaliating with blasts of focused fire." },
+    lore:"Infernox is a fire-rock creature 80 cm long — Cindling's basalt-and-cinder juvenile body has thickened into volcanic plate armour resembling a larger armoured lizard, the embedded cinders of its early form now pooled magma glowing through every joint. Its footsteps leave brief glowing prints. It inhabits lava fields and uses its rock-hard body to deflect predator strikes while retaliating with blasts of focused fire." },
 
   276: { id:276, name:"Scorchvast", emoji:"🏔️", types:["Fire","Rock"],
     base:{hp:102,atk:118,def:109,spa:90,spd:78,spe:53},
     learnset:[[1,"fire_blast"],[1,"magma_rock"],[32,"caldera_meltdown"],[40,"earthquake"],[48,"stone_edge"],[56,"bedrock_slam"],[64,"ashfall"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:272, rarity:"rare",
     desc:"A living volcano of immense destructive power. When it battles, the sky fills with ash and the earth splits.",
-    lore:"Scorchvast is a massive fire-rock creature 2 metres long resembling a very large igneous lizard entirely encased in natural stone armour. Fountains of fire erupt from vents on its back when it is agitated. Its body temperature is sufficient to melt most metals on contact." },
+    lore:"Scorchvast is a massive fire-rock creature 2 metres long — Infernox's volcanic plate armour has thickened and fused into natural stone armour entirely encasing a very large igneous lizard, and the joint-magma of its juvenile form has rerouted into fountains of fire that erupt from vents on its back when it is agitated. Its body temperature is sufficient to melt most metals on contact." },
 
   // Standalone Fire/Ground: Magmite (location evo near forge area)
   277: { id:277, name:"Magmite", emoji:"🌶️", types:["Fire","Ground"],
@@ -2159,7 +2159,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"flash_cannon"],[1,"moonblast"],[28,"iron_tail"],[36,"dazzling_gleam"],[44,"forge_strike"],[52,"heavy_slam"],[60,"celestial_wave"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:38, expYield:228, rarity:"rare",
     desc:"A horned steel fairy of regal bearing. Its horn channels both fairy magic and forged steel energy.",
-    lore:"Steelhorn is a medium steel-fairy creature 70 cm tall with a humanoid body of polished silver steel and a single straight horn of fairy-charged metal from its forehead. The horn channels and purifies energy. It inhabits ancient forge-temples and stands watch over sacred metalworking sites." },
+    lore:"Steelhorn is a medium steel-fairy creature 70 cm tall — Ironling's silver-grey fairy-crafted iron armour has been refined under metalCoat's influence into a humanoid body of polished silver steel, and a single straight horn of fairy-charged metal has emerged from its forehead, channelling and purifying energy. It inhabits ancient forge-temples and stands watch over sacred metalworking sites." },
 
   // 3-stage Steel/Ground chain: Gearbit → Cogvex → Mechavast
   280: { id:280, name:"Gearbit", emoji:"🔩", types:["Steel","Ground"],
@@ -2179,14 +2179,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"flash_cannon"],[1,"earth_power"],[22,"iron_tail"],[30,"earthquake"],[38,"forge_strike"],[46,"bedrock_slam"],[54,"heavy_slam"],[62,"hyper_beam"]],
     evolveTo:282, evolveLevel:46, catchRate:80, expYield:155, rarity:"uncommon",
     desc:"A complex gear-machine creature that absorbs underground minerals to repair itself.",
-    lore:"Cogvex is a medium steel-ground automaton 60 cm tall with a more elaborate gear-work body. Its chest is an exposed mechanism of dozens of interlocking cogs and pistons. It constructs complex gear-driven tools from found materials and leaves functional mechanical devices scattered across its territory." },
+    lore:"Cogvex is a medium steel-ground automaton 60 cm tall — Gearbit's stubby gear-work frame has elaborated into a more complex body, and the metals it absorbed underground have crystallised into an exposed chest mechanism of dozens of interlocking cogs and pistons. It constructs complex gear-driven tools from found materials and leaves functional mechanical devices scattered across its territory." },
 
   282: { id:282, name:"Mechavast", emoji:"🤖", types:["Steel","Ground"],
     base:{hp:105,atk:122,def:124,spa:63,spd:85,spe:51},
     learnset:[[1,"forge_strike"],[1,"earthquake"],[32,"heavy_slam"],[40,"bedrock_slam"],[48,"iron_tail"],[56,"earth_power"],[64,"flash_cannon"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:278, rarity:"rare",
     desc:"The ultimate mechanical titan. Its body is a perfect fusion of steel and compressed earth.",
-    lore:"Mechavast is a large steel-ground automaton 1.5 metres tall with a heavy industrial design — thick piston-driven legs, a drill-bit hand, and a hydraulic claw. Its internal mechanisms grind audibly. It excavates ore deposits with mechanical precision and stacks sorted mineral samples in neat geometric arrangements." },
+    lore:"Mechavast is a large steel-ground automaton 1.5 metres tall — Cogvex's exposed chest-mechanism of interlocking cogs and pistons has been enclosed within a heavy industrial chassis, and the gear-driven tools its juvenile form constructed are now built directly into its body: thick piston-driven legs, a drill-bit hand, and a hydraulic claw. Its internal mechanisms grind audibly. It excavates ore deposits with mechanical precision and stacks sorted mineral samples in neat geometric arrangements." },
 
   // Standalone Steel/Ground: Rustpike
   283: { id:283, name:"Rustpike", emoji:"🗡️", types:["Steel","Poison"],
@@ -2209,7 +2209,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"air_slash"],[1,"body_slam"],[20,"hurricane"],[28,"gale_cannon"],[36,"downdraft"],[44,"squall_slash"],[52,"tempest_wrath"],[60,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:218, rarity:"uncommon",
     desc:"A cloud-form creature that rides jet streams. Creates weather patterns across entire regions as it travels.",
-    lore:"Cloudrift is a medium normal-wind creature 40 cm across resembling a compact cloud with a contented face. It drifts at a consistent altitude of 3 metres above ground level regardless of terrain and passes through tree canopies with only mild distortion of its form. It rains gently when sad." },
+    lore:"Cloudrift is a medium normal-wind creature 40 cm across resembling a compact cloud with a contented face — Fluffkin's cream-white fluff has densified into the cloud-body, and the wind that once dragged its juvenile form helplessly now bears it at a steady chosen altitude. It drifts at a consistent altitude of 3 metres above ground level regardless of terrain and passes through tree canopies with only mild distortion of its form. It rains gently when sad." },
 
   // 3-stage Normal chain: Fuzzlet → Cuddrix → Majesticore (lv24, lv44)
   286: { id:286, name:"Fuzzlet", emoji:"🦌", types:["Fairy"],
@@ -2277,14 +2277,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"air_slash"],[1,"dragon_breath"],[20,"hurricane"],[28,"dragon_claw"],[36,"gale_cannon"],[44,"dragon_pulse"],[52,"tempest_wrath"],[60,"hyper_beam"]],
     evolveTo:295, evolveLevel:44, catchRate:80, expYield:155, rarity:"uncommon",
     desc:"A storm-drake hybrid of wind and dragon power. Rides cyclones across entire mountain ranges.",
-    lore:"Stormwing is a large wind-dragon 3 metres long with powerful slate-grey wings spanning 5 metres. Its scales are grey-blue and its eyes are electric-white. It generates its own personal storm system wherever it flies — clouds condensing from its wingtip vortices, lightning striking where it looks." },
+    lore:"Stormwing is a large wind-dragon 3 metres long — Gustpuff's pale-grey hardening scales have darkened to grey-blue and the translucent scale-husks of its juvenile form have ceased shedding entirely, leaving powerful slate-grey wings spanning 5 metres. Its eyes are electric-white. It generates its own personal storm system wherever it flies — clouds condensing from its wingtip vortices, lightning striking where it looks." },
 
   295: { id:295, name:"Cyclonax", emoji:"🌀", types:["Wind","Dragon"],
     base:{hp:81,atk:93,def:77,spa:112,spd:88,spe:99},
     learnset:[[1,"hurricane"],[1,"dragon_pulse"],[30,"tempest_wrath"],[38,"dragon_dance"],[46,"gale_cannon"],[54,"outrage"],[62,"ancient_breath"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:20, expYield:272, rarity:"rare",
     desc:"A hurricane dragon of unimaginable velocity. When it flies, it creates permanent weather anomalies.",
-    lore:"Cyclonax is a massive wind-dragon 5 metres long with a vortex of perpetual cyclonic wind orbiting its body. Its scales are deep grey with white edges. It is rarely seen, living above the weather systems of the world. When it descends to lower altitudes it brings catastrophic storms with it." },
+    lore:"Cyclonax is a massive wind-dragon 5 metres long — Stormwing's grey-blue scales have darkened to deep grey with white edges, and the personal storm system that condensed from its juvenile form's wingtip vortices has matured into a perpetual cyclone orbiting its full body. It is rarely seen, living above the weather systems of the world. When it descends to lower altitudes it brings catastrophic storms with it." },
 
 
 
@@ -2363,14 +2363,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"ice_beam"],[1,"stone_edge"],[22,"cryo_lance"],[30,"blizzard"],[38,"bedrock_slam"],[46,"icicle_crash"],[54,"avalanche_drive"],[62,"hyper_beam"]],
     evolveTo:306, evolveLevel:48, catchRate:75, expYield:158, rarity:"uncommon",
     desc:"A rock and ice giant with shard weapons. Lives on the highest frozen peaks of the Lumoria mountain range.",
-    lore:"Geoshard is a rock-ice creature 80 cm tall resembling a jagged crystal cluster that has grown into a vaguely bipedal shape. Its body is dark stone filled with brilliant ice formations visible through large natural gaps. It moves rarely and is often mistaken for a natural geological feature." },
+    lore:"Geoshard is a rock-ice creature 80 cm tall — Icethorn's grey rock body has expanded and crystallised into a jagged cluster of natural rock and ice that has grown into a vaguely bipedal shape, the ice-crystal spines of its juvenile form now reorganised into brilliant ice formations visible through large natural gaps in its dark stone frame. It moves rarely and is often mistaken for a natural geological feature." },
 
   306: { id:306, name:"Crystallon", emoji:"🏔️", types:["Rock","Ice"],
     base:{hp:101,atk:108,def:117,spa:83,spd:91,spe:50},
     learnset:[[1,"blizzard"],[1,"bedrock_slam"],[32,"avalanche_drive"],[40,"icicle_crash"],[48,"stone_edge"],[56,"glacial_tomb"],[64,"worldseed_quake"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:275, rarity:"rare",
     desc:"The frozen mountain titan. Glaciers form around it spontaneously. Worshipped by ancient mountain peoples.",
-    lore:"Crystallon is a large rock-ice entity 1.5 metres tall resembling an ancient standing stone made of interlocked rock and ice crystal structures. Its face is barely defined — two faint depressions in the stone suggest eyes. It has stood in the same valley for centuries, and local cultures have built myths around it." },
+    lore:"Crystallon is a large rock-ice entity 1.5 metres tall — Geoshard's jagged crystal-cluster bipedal frame has settled and elongated into an ancient standing stone of interlocked rock and ice crystal structures, the natural gaps of its juvenile form now sealed. Its face is barely defined — two faint depressions in the stone suggest eyes. It has stood in the same valley for centuries, and local cultures have built myths around it." },
 
   // Standalone Fire/Dark: Cinderpaw
   307: { id:307, name:"Cinderpaw", emoji:"🐈", types:["Fire","Dark"],
@@ -2408,7 +2408,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"earthquake"],[1,"surf"],[22,"earth_power"],[30,"hydro_pump"],[38,"clay_armor"],[46,"bedrock_slam"],[54,"aqua_tail"],[62,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:222, rarity:"uncommon",
     desc:"A hippo-like swamp titan that commands both mud and water. Creates marshy terrain wherever it settles.",
-    lore:"Marshix is a large ground-water hippo-like creature 1.5 metres at the shoulder with a broad pale grey body and mud-brown legs. It spends most of its time submerged in shallow marsh water with only its eyes and nostrils above the surface. Its movements churn the marsh bottom, aerating the sediment beneficially." },
+    lore:"Marshix is a large ground-water hippo-like creature 1.5 metres at the shoulder — Mudpump's slick mud-coating has set and hardened into a broad pale grey body with mud-brown legs, and the suction-pump snout of its calf form has widened for adult marsh-feeding. It spends most of its time submerged in shallow marsh water with only its eyes and nostrils above the surface. Its movements churn the marsh bottom, aerating the sediment beneficially." },
 
   // 2-stage Ground/Dark chain: Dunecrawl → Sandrix (level 32)
   312: { id:312, name:"Dunecrawl", emoji:"🪨", types:["Ground","Dark"],

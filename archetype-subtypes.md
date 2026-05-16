@@ -107,6 +107,7 @@ The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Pla
   - paramecium (cap 1+1) — slipper-shape, cilia-fringed
   - plasmodium / malaria-parasite (cap 1+1) — sickle-form
   - diatom (cap 1+1) — geometric silica-glass shell
+  - cell-being (cap 1+1) — generic single-celled creature, nucleus + membrane + cytoplasm silhouette *(landed 2026-05-16 from BUBBLE cross-cluster routing per sweep pass 6)*
 
 - **Archaea / extremophile microbes**
   - thermophile (cap 1+1) — hot-spring / vent dweller
@@ -155,6 +156,7 @@ The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Pla
   - black-cat / witch-cat
   - cat-sidhe
   - cheshire
+  - bakeneko *(Japanese cat-spirit; moved from MYTHICAL East Asian 2026-05-15 per N23 consolidation)*
 - **nemean** (cap 1+1) — invulnerable lion (was chimeric-cat sub; promoted after dedupe)
 - **saber-tooth / smilodon** (cap 1+1) — extinct mega-felid; anchor for prehistoric ice-age slot
 
@@ -203,6 +205,8 @@ The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Pla
   - cu-sith
   - fenrir
   - cerberus
+  - kitsune *(Japanese fox-spirit; moved from MYTHICAL East Asian 2026-05-15 per N22 consolidation)*
+  - nine-tailed-fox / kyūbi *(distinct from kitsune base — most powerful kitsune form; moved from MYTHICAL East Asian 2026-05-15 per N22 consolidation)*
 - **hyena** — moved into Canids per notes (subs each cap 1+1)
   - spotted-hyena
   - striped-hyena
@@ -330,8 +334,7 @@ The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Pla
 - **quagga** (cap 1+1) — half-striped extinct zebra variant (recent extinction, hunted out by 1883)
 - **mythical-equid** (subs each cap 1+1)
   - unicorn
-  - kelpie
-  - nightmare
+  - nightmare *(kelpie moved to MYTHICAL Sea/water mythicals 2026-05-15 per N37 — kelpie is fundamentally a water-spirit, better-placed in Sea/water sub-section alongside mermaid / selkie / kraken)*
 
 ### Ungulates — Other
 
@@ -531,9 +534,8 @@ The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Pla
 - **skink** (cap 1+1)
 - **bearded-dragon** (cap 1+1) — real lizard, despite name
 - **mythical-lizard** (subs each cap 1+1)
-  - salamander-fire-spirit
-  - dragon-pup-as-lizard
-  - basilisk-as-lizard
+  - salamander-flame-spirit *(renamed from `salamander-fire-spirit` 2026-05-15 per N42 — removes name-collision with AMPHIBIANS' real `fire-salamander` species; mythical-flame-folklore framing preserved)*
+  - dragon-pup-as-lizard *(N43 framework note: this is the pre-evolution lizard-form of a MYTHICAL Dragon — i.e., a juvenile dragon classified as REPTILE during its pre-dragon stage. Evolves into a specific MYTHICAL Dragons entry on maturity. Parallels FISH `koi-dragon-pre-evolution` which is the fish-form pre-evolution of a MYTHICAL Dragon, evolving into eastern-dragon / long / 龍 specifically. Both are "evolution-line placeholder" slots that anchor pre-dragon stages in their biological-kingdom home.)*
   - cockatrice
 - **gila-monster** (cap 1+1) — venomous lizard (one of two in world); beaded skin
 - **thorny-devil** (cap 1+1) — Australian, alien-spiked silhouette; water-channeling skin
@@ -647,7 +649,7 @@ The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Pla
 - **sturgeon** (cap 1+1)
 - **mythical-fish** (subs each cap 1+1)
   - leviathan
-  - koi-dragon-pre-evolution
+  - koi-dragon-pre-evolution *(N43 framework: evolution-line placeholder — koi-form pre-evolution of MYTHICAL Dragons' eastern-dragon / long / 龍 specifically (per the legend that koi who climb the Dragon Gate waterfall transform into dragons). Anchors the pre-dragon stage in FISH; mature form lives in MYTHICAL Dragons. Parallel to REPTILES mythical-lizard `dragon-pup-as-lizard` which is the lizard-form pre-evolution of generic MYTHICAL Dragons.)*
   - nymph-fish
 
 ---
@@ -904,7 +906,7 @@ Real prehistoric/extinct creatures with no direct living-archetype slot. Already
 
 ## CAVE / UNDERGROUND
 
-Subterranean habitat-as-being — the cave-space itself animated, with stalactite-teeth, echo-voice, and darkness-body. Distinct from animals that *live* in caves (cave-bat, olm, cave-cricket, cave-bear stay in their kingdoms). Cross-section notes: stalactite-stalagmite-being and geode-being remain in CRYSTALLINE / GEM; hot-spring / geyser is reserved for the upcoming HOT-SPRING batch; lava as element stays with Elementals. *Creature framing: each entry below is a discrete walking Lumori embodying the cave-feature — Duraludon-style (Pokemon's bipedal skyscraper-creature) is the canonical scaling/silhouette precedent, not a literal full-size cavern.*
+Subterranean habitat-as-being — the cave-space itself animated, with stalactite-teeth, echo-voice, and darkness-body. Distinct from animals that *live* in caves (cave-bat, olm, cave-cricket, cave-bear stay in their kingdoms). Cross-section notes: stalactite-stalagmite-being and geode-being remain in CRYSTALLINE / GEM; hot-spring / geyser is reserved for THERMAL EXTREMES (formerly HOT-SPRING) batch; lava as element stays with Elementals; **cave-echo is distinct from VOID `echo-being`** (A12 convention 2026-05-15) — convention: cave-specific resonance / sound-throwing creature with anatomy = CAVE cave-echo, abstract free-floating sound-echo-as-being that "fades and resurfaces" = VOID echo-being. *Creature framing: each entry below is a discrete walking Lumori embodying the cave-feature — Duraludon-style (Pokemon's bipedal skyscraper-creature) is the canonical scaling/silhouette precedent, not a literal full-size cavern.*
 
 - **Cavern voids / chambers**
   - cavern-being / great-hall (cap 1+1) — vast echo-chamber animated, mouth-opening front; *as creature: room-sized lumbering cavern-creature, hunched silhouette, stalactite-fang mouth spans the head, hollow chamber-belly that echoes when struck, drip-water trailing*
@@ -916,32 +918,26 @@ Subterranean habitat-as-being — the cave-space itself animated, with stalactit
 
 ---
 
-## GLACIER
+## THERMAL EXTREMES
 
-Glacial / polar-ice landscape-as-being — moving ice-mass as body, crevasses as wounds, calving as birthing-action. Distinct from the **Ice element** (formless Elementals slot), from ice-elemental Lumori (Permavast/Tundrafox etc. stay in their dex slots), and from **snow/blizzard weather** (deferred to WEATHER/ATMOSPHERIC batch). Cross-section notes: avalanche stays in NATURAL-DISASTER; snowdrift, icicle-formation, and polar-night defer to WEATHER; frozen-river and frozen-lake belong here (RIVER cluster dropped per session decision). *Creature framing: each entry below is a discrete walking Lumori embodying the ice-feature — Duraludon-style scaling applies (not a literal full glacier).*
+Extreme-temperature habitat-as-being — frozen ice-mass or geothermal hot-water habitat given creature-scale, the temperature-extreme feature intrinsic to the form. Distinct from the **Ice element** / **Water element** / **Fire element** (formless Elementals slots), from elemental Lumori (Permavast/Tundrafox etc. stay in their dex slots), from CAVE/UNDERGROUND (rock-cavern voids, not temperature-extreme habitats), from ISLAND (landmass habitat), from WEATHER/ATMOSPHERIC (snow / blizzard / hail are weather-events; THERMAL EXTREMES = habitat-formations), and from NATURAL-DISASTER (avalanche / volcanic-eruption are disaster events; THERMAL EXTREMES = the habitat). Cross-section notes: combined 2026-05-15 from former separate GLACIER + HOT-SPRING clusters (2-entry + 3-entry → 5-entry consolidation). Snowdrift / icicle-formation / polar-night landed in WEATHER/ATMOSPHERIC; frozen-river / frozen-lake belong here (RIVER cluster dropped). Thermophile microbe stays in MICROORGANISMS; steam-only fumaroles dropped 2026-05-13 SMOKE batch; magma-chamber / hydrothermal-vent / black-smoker remain unassigned. *Creature framing: each entry below is a discrete walking Lumori embodying the thermal-extreme feature — Duraludon-style scaling applies.*
 
-- **Continental / massive ice**
+- **Frozen / cold**
   - glacier-being / ice-river-being (cap 1+1) — slow-moving valley-ice flow, crevasse-mouthed, blue-throat; *as creature: bipedal walking ice-mass, crevasse-mouth across the chest, blue-throat interior, moraine-debris trailing from the feet*
-
-- **Sea-ice / floating**
   - ice-floe / pack-ice-being (cap 1+1) — flat drifting raft-creature, polar surface dweller; *as creature: flat raft-creature, seal-pup body curled atop the floe-disc, blue-edged crack patterns across the back*
 
----
-
-## HOT-SPRING
-
-Geothermal hot-water habitat-as-being — steaming pool as body, mineral-rim as scales, sulfur-vent as breath, scalding-water as bite. Distinct from the **Water element** and **Fire element** (formless Elementals slots), from CAVE (rock-cavern voids, not water-filled hot pools), and from GLACIER (cold counterpart). Cross-section notes: thermophile microbe stays in MICROORGANISMS (line 112); steam-only fumaroles are SMOKE-adjacent and deferred; magma-chamber and hydrothermal-vent / black-smoker remain unassigned after this batch — revisit in a later cluster if a home is wanted. *Creature framing: each entry below is a discrete walking Lumori embodying the geothermal-feature — Duraludon-style scaling applies.*
-
-- **Surface hot-water features**
+- **Geothermal / hot**
   - hot-spring / onsen-being (cap 1+1) — canonical steaming pool, mineral-rimmed, restorative warmth; *as creature: cylindrical bath-house facade walking on stone-block legs, paper-screen door mouth, mineral-rim shoulders. Alternative silhouette: floating spirit-form rising from steam-vapor, mineral-rim crown, water-droplet limbs that drip continuously.*
   - geyser-being (cap 1+1) — intermittent eruption-creature, pressure-built columns of scalding spray; *as creature: tall slender column-creature with an eruption-spout head, periodic full-body shudder triggers a column-blast. Alternative silhouette: bipedal mineral-mound creature with a chimney-vent atop the head — Old Faithful silhouette, sulfur-rust hide, snow-dusted shoulders, steam constantly trailing from the chimney, periodic full-body shudder → vertical eruption.*
   - mud-pot / mud-pool-being (cap 1+1) — boiling-mud cauldron, gurgling skin, sulfur-bubble jaw; *as creature: bubbling-mud blob-creature, dome body, rising-bubble eyes that pop with each gurgle*
+  - magma-being (cap 1+1) — molten-rock underground habitat-as-being, glowing-red core, hardening basalt-skin flavor *(renamed + landed 2026-05-15 from former `magma-chamber-being` Habitat-orphan per user resolution; distinct from MYTHICAL Slimes `magma-slime / lava-slime` which is the slime-form, and from NATURAL-DISASTER `volcanic-eruption` which is the event)*
+  - rainbow-pool / prismatic-spring-being (cap 1+1) — geothermal pool with iridescent rainbow-colored mineral / microbial rings, Yellowstone Grand Prismatic Spring iconography, temperature-stratified concentric color-bands from thermophile communities *(landed 2026-05-15 from cross-cluster floating-concept resolution; was originally proposed under HOT-SPRING then deferred — now lands in the merged THERMAL EXTREMES cluster)*
 
 ---
 
 ## ISLAND
 
-Isolated-landmass habitat-as-being — shoreline as skin, palm-grove or volcanic-cone as hair, freshwater spring as one eye, tidal cave as mouth. Distinct from other Habitat cluster batches (CAVE / URBAN / GLACIER / HOT-SPRING), from individual sea-creatures (their respective kingdoms), and from upcoming MATERIALS / MANMADE clusters. Cross-section notes: kelp-individual stays in PLANTS / FLORA; coral-polyp stays in OTHER INVERTEBRATES; sunken-island / Atlantis-style ruins flagged for MYTHICAL or UNIQUE if a slot is wanted later. The floating-island below is the habitat-form (gravity-defying landmass as habitat) — distinct from any mythical creature that might inhabit one. *Creature framing: each entry below is a discrete walking Lumori embodying the island-feature — Duraludon-style scaling applies (not a literal full-size landmass).*
+Isolated-landmass habitat-as-being — shoreline as skin, palm-grove or volcanic-cone as hair, freshwater spring as one eye, tidal cave as mouth. Distinct from other Habitat cluster batches (CAVE / URBAN / THERMAL EXTREMES — formerly GLACIER + HOT-SPRING), from individual sea-creatures (their respective kingdoms), and from upcoming MATERIALS / MANMADE clusters. Cross-section notes: kelp-individual stays in PLANTS / FLORA; coral-polyp stays in OTHER INVERTEBRATES; sunken-island / Atlantis-style ruins flagged for MYTHICAL or UNIQUE if a slot is wanted later. The floating-island below is the habitat-form (gravity-defying landmass as habitat) — distinct from any mythical creature that might inhabit one. *Creature framing: each entry below is a discrete walking Lumori embodying the island-feature — Duraludon-style scaling applies (not a literal full-size landmass).*
 
 - **Land-island forms**
   - volcanic-island-being (cap 1+1) — smoking-cone island, peak-mouth, Hawaii/Iceland silhouette; *as creature: irregular landmass-creature of no fixed body-plan, smoking volcanic-cone peak rising from the back, palm-tendril hair around the rim, lava-glow eye in the cone*
@@ -958,7 +954,7 @@ Isolated-landmass habitat-as-being — shoreline as skin, palm-grove or volcanic
 
 ## CLAY / CERAMIC
 
-Fired-earth / shaped-clay material-as-being — pot-belly torso, kiln-glaze skin, kintsugi-cracked seams as veins. Distinct from individual MANMADE objects (pots/vases/teacups go to upcoming CONTAINER batch; bricks/tiles to ARCHITECTURE; kilns to APPLIANCE; figurines/warriors to STATUE), from MUD as habitat (handled by mud-pot in HOT-SPRING), and from STATUE (which covers figurative/representational sculpture in any material; this category is the *material substance* itself).
+Fired-earth / shaped-clay material-as-being — pot-belly torso, kiln-glaze skin, kintsugi-cracked seams as veins. Distinct from individual MANMADE objects (pots/vases/teacups go to upcoming CONTAINER batch; bricks/tiles to ARCHITECTURE; kilns to APPLIANCE; figurines/warriors to STATUE), from MUD as habitat (handled by mud-pot in THERMAL EXTREMES, formerly HOT-SPRING), and from STATUE (which covers figurative/representational sculpture in any material; this category is the *material substance* itself).
 
 - **Raw / shaped clay**
   - earthenware-pot-being (cap 1+1) — low-fired reddish unglazed body, porous skin, primitive-pottery silhouette
@@ -987,6 +983,9 @@ Fiber / textile material-as-being — woven-warp torso, thread-tassel limbs, fra
 
 - **Specialty / damaged cloth**
   - ragged-cloth / tatter-being (cap 1+1) — frayed-torn animate scraps, ghost-bandage silhouette, trailing-strip limbs
+
+- **Wearable garments**
+  - scarf-being (cap 1+1) — long-strip neck/head wrapping garment *(retro-added 2026-05-15 from brainstorm-batch-1 user picks; partially resolves THREAD/CLOTH's "full clothing/garments deferred" framing in intro; opens sub-group for future shoe/boot / hat / tie / sock candidates)*
 
 ---
 
@@ -1042,12 +1041,14 @@ Specific built-structure forms as walking creatures — building-typology silhou
 - **Fortified / defensive**
   - castle-being (cap 1+1) — turret-crowned medieval fortress, drawbridge-mouth
   - fortress-wall / rampart-being (cap 1+1) — long defensive line, crenellated back; *behavior: protective tendency — instinctively positions itself between threats and the castle-being*
+  - watchtower-being (cap 1+1) — slender lookout tower, observation-deck head, panoramic-window eyes *(landed 2026-05-16 from ARCHITECTURE deferral per sweep pass 6)*
 
 - **Maritime / coastal**
   - lighthouse-being (cap 1+1) — tall pillar, rotating-light eye, wave-base
 
 - **Civic / specialized**
   - windmill / watermill-being (cap 1+1) — sail-armed or wheel-driven, kinetic-limb body
+  - geodesic-dome / protective-dome-being (cap 1+1) — Bucky Fuller-style triangulated polyhedral dome, transparent panel-faceted shell *(landed 2026-05-16 from BUBBLE cross-cluster routing per sweep pass 6 — built-rigid-structure framing wins over BUBBLE membrane-containment)*
 
 - **Domestic / vernacular**
   - tent-being (cap 1+1) — small portable fabric dwelling, frame-supported skin
@@ -1058,6 +1059,9 @@ Specific built-structure forms as walking creatures — building-typology silhou
 
 - **Street infrastructure** *(migrated from dropped URBAN cluster)*
   - intersection / crossroads-being (cap 1+1) — four-armed junction-creature, traffic-light eyes
+
+- **Infrastructure**
+  - bridge-being (cap 1+1) — span-creature crossing river/gorge, arch-or-suspension silhouette, deck-back + pylon-legs *(landed 2026-05-16 from ARCHITECTURE deferral per sweep pass 6)*
 
 ---
 
@@ -1070,19 +1074,24 @@ Transport-mechanism as walking / rolling / flying creature — vehicle silhouett
   - motorcycle-being (cap 1+1) — two-wheel slim creature, handlebar-horns, throttle-grip hands
   - train / locomotive-being (cap 1+1) — segmented body in a chain, smokestack-head, whistle-voice
   - tank / armored-vehicle-being (cap 1+1) — treaded base, turret-cannon snout, armor-plate hide
+  - bicycle-being (cap 1+1) — two-wheeled pedal-powered slim creature, handlebar-antlers, chain-driven gait *(landed 2026-05-16 from VEHICLE deferral per sweep pass 6)*
 
 - **Water**
   - submarine-being (cap 1+1) — torpedo-body, periscope-eye, dive-fin limbs
   - ferry / cargo-ship-being (cap 1+1) — wide flat hauler, multi-deck back, container-stack shoulders
   - jet-ski / speedboat-being (cap 1+1) — agile water-skimmer, low-slung body, spray-tail wake
+  - sailboat / yacht-being (cap 1+1) — sail-armed maritime creature, mast-spine + canvas-wing silhouette, hull-belly *(landed 2026-05-16 from VEHICLE deferral per sweep pass 6 — sailcloth carryover from THREAD/CLOTH realized)*
 
 - **Air**
   - airplane-being (cap 1+1) — wing-arms, propeller or jet-tail, cockpit-eye
   - helicopter-being (cap 1+1) — rotor-headdress, hover-stance, tail-rotor counterweight
   - rocket-being (cap 1+1) — vertical streamline, fin-feet, exhaust-plume tail
+  - hot-air-balloon-being (cap 1+1) — large envelope-balloon with wicker-basket gondola, burner-flame breath *(landed 2026-05-16 from VEHICLE + BUBBLE cross-routing per sweep pass 6 — passenger-carrying inflatable = VEHICLE-side per BUBBLE intro convention)*
+  - blimp / dirigible-being (cap 1+1) — elongated airship envelope with cabin-gondola, slow-drifting flight *(landed 2026-05-16 from VEHICLE + BUBBLE cross-routing per sweep pass 6)*
 
 - **Specialty**
   - chariot-being (cap 1+1) — wheeled-platform creature with horse-vestige reins, charioteer-perch head
+  - hovercraft / hovercar-being (cap 1+1) — air-cushion levitating vehicle, skirt-base + ducted-fan propulsion, land/water-amphibious flavor *(landed 2026-05-16 from VEHICLE deferral per sweep pass 6)*
 
 ---
 
@@ -1096,18 +1105,19 @@ Plaything object-as-being — toy-form silhouette given creature-scale. Distinct
   - marionette-being (cap 1+1) — string-jointed puppet, cross-bar handle vestige above head
 
 - **Action Figures**
-  - action-figure-being (cap 1+1) — articulated plastic warrior, ball-joint limbs
+  - action-figure-being (cap 1+1) — articulated plastic warrior, ball-joint limbs *(cap 1+1 absorbs collectible-figurine + army-men variants per sweep pass 6 — display-collectible flavor + small-soldier-toy flavor both covered under this entry's standalone slot)*
 
 - **Vehicles-as-Toys**
   - rocking-horse-being (cap 1+1) — wooden curved-base ride-on horse
 
 - **Construction Toys**
-  - jigsaw-puzzle-being (cap 1+1) — interlocking-piece body, fragmentable anatomy
+  - jigsaw-puzzle-being (cap 1+1) — interlocking-piece body, fragmentable anatomy *(distinct from GAME-PIECE `puzzle-piece-being` which is the single-fragment form; jigsaw-puzzle = whole-assembly creature, puzzle-piece = single-piece-fragment creature — N39 cross-flag 2026-05-15)*
 
 - **Mechanical / Wind-up**
   - wind-up-toy-being (cap 1+1) — key-back, ticking-gait creature
   - spinning-top-being (cap 1+1) — gyroscope-balance pirouette
   - music-box-being (cap 1+1) — winding-key, pinned-drum, ballerina-spinner
+  - toy-robot-being (cap 1+1) — tin-plate retro-robot plaything, clunky-gait wind-up movement, antenna-head + claw-hands *(landed 2026-05-16 from TOY deferral per sweep pass 6 — distinct from ROBOTIC's android/mech as play-mechanism vs. functional automaton)*
 
 - **Classic / Misc**
   - kite-being (cap 1+1) — diamond wind-rider, string-tether
@@ -1143,30 +1153,56 @@ Game-piece object-as-being — playable component of a board / card / dice / tok
 
 - **Specialty**
   - puzzle-piece-being (cap 1+1) — single interlocking jigsaw-fragment creature
+  - game-controller-being (cap 1+1) — D-pad + button-array handheld gamepad creature, dual-grip silhouette *(landed 2026-05-16 from GAME-PIECE deferral per sweep pass 6 — electronic-input-device framing kept here as game-play piece rather than APPLIANCE)*
 
 ---
 
 ## JEWELRY
 
-Worn adornment object-as-being — wearable jewelry given creature-scale. Distinct from METAL-OBJECT (the *substance*: bullion, industrial-chain, rust — `chain-being` there is structural-link; jewelry-chain compositions live here), from CRYSTALLINE / GEM (raw-gem-as-being: ruby, sapphire, diamond, pearl, etc. are mineral-creatures there; here gems are *set into* jewelry compositions, not duplicated as standalone beings), from THREAD / CLOTH (textile substance; jewelry-cord lives here as worn-form), from STATUE (freestanding-decorative vs. wearable), from TROPHY upcoming (chest-worn medal = JEWELRY, freestanding cup-trophy = TROPHY — convention), and from BANNER upcoming (sash with emblem judged BANNER if heraldic, JEWELRY if primarily ornament). Cross-section notes: ancient-coin-being arrives here per METAL-OBJECT's coin-deferral (currency-coin specifically; generic / gold-coin variants deferred to a future session as split entries). Talisman / locket / friendship-bracelet / charm-bracelet / hoop-earring / stud-earring / nose-ring / lip-ring / brooch / cufflink / body-chain / signet-ring / bangle / cuff-bracelet / anklet / armlet / diadem / circlet / choker / pearl-strand / gem-encrusted-ring all proposed but not picked this batch — future-session candidates. *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+Worn adornment object-as-being — wearable jewelry given creature-scale, including commemorative-award honors absorbed from former TROPHY cluster (2026-05-15 consolidation). Distinct from METAL-OBJECT (the *substance*: bullion, industrial-chain, rust — `chain-being` there is structural-link; jewelry-chain compositions live here), from CRYSTALLINE / GEM (raw-gem-as-being: ruby, sapphire, diamond, pearl, etc. are mineral-creatures there; here gems are *set into* jewelry compositions, not duplicated as standalone beings), from THREAD / CLOTH (textile substance; jewelry-cord lives here as worn-form), from STATUE (freestanding-decorative vs. wearable — statuette-trophy borderline absorbed here as wearable-honor framing wins for medal + laurel-wreath), from BANNER (dropped) (sash with emblem judged BANNER if heraldic, JEWELRY if primarily ornament; BANNER cluster permanently dropped 2026-05-12), and from ARCHITECTURE (mounted-plaque convention: small + portable = JEWELRY Awards/honors, large + structural = ARCHITECTURE). Cross-section notes: ancient-coin-being arrives per METAL-OBJECT's coin-deferral; medal + laurel-wreath absorbed from former TROPHY cluster (2026-05-15 consolidation — Awards/honors sub-group). Talisman / locket / friendship-bracelet / charm-bracelet / hoop-earring / stud-earring / nose-ring / lip-ring / brooch / cufflink / body-chain / signet-ring / bangle / cuff-bracelet / anklet / armlet / diadem / circlet / choker / pearl-strand / gem-encrusted-ring + trophy-cup / blue-ribbon / plaque / olympic-medal-distinct / statuette-trophy / championship-belt / certificate-diploma / ribbon-rosette / prize-pennant / key-to-the-city (latter from former TROPHY candidates) all proposed but not picked — future-session candidates. *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
 
 - **Neckwear**
   - pendant-being (cap 1+1) — single hanging-ornament on cord/chain
-  - amulet-being (cap 1+1) — protective magical pendant with mystical-runes *(distinct from talisman: amulet wards harm; talisman not picked this batch, slot reserved)*
+  - amulet-being (cap 1+1) — protective magical pendant with mystical-runes *(distinct from talisman: amulet wards harm)*
+  - talisman-being (cap 1+1) — luck-attracting pendant counterpart to amulet, mystical-runes flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6; paired conceptually with amulet — talisman draws luck, amulet wards harm)*
+  - locket-being (cap 1+1) — hinged-pendant containing photo or keepsake, openable two-half silhouette *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
 
 - **Finger / hand**
   - ring-being (cap 1+1) — generic band-ring
   - wedding-band / engagement-ring-being (cap 1+1) — paired-ring concept; matching companion vibe
+  - signet-ring-being (cap 1+1) — heraldic seal-ring with engraved crest, wax-impression flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6; STATUE / heraldic crossover noted)*
+  - gem-encrusted-ring-being (cap 1+1) — large-stone-set jeweled ring, cocktail-ring flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
 
 - **Ear**
   - earring-being (cap 1+1) — generic ear-adornment
+  - hoop-earring-being (cap 1+1) — circular ring-form earring, large-hoop flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
+
+- **Wrist / arm / ankle**
+  - bracelet-being (cap 1+1) — generic wrist-worn band, link-chain or solid silhouette *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6; new sub-group opens here)*
+  - bangle-being (cap 1+1) — rigid circular wrist-band, slip-on flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
+  - charm-bracelet-being (cap 1+1) — wrist-band hung with dangling charm-trinkets, swarm-form natural *(landed 2026-05-16 from TOY's charm-toy deferral + JEWELRY deferral per sweep pass 6)*
+  - anklet-being (cap 1+1) — ankle-worn chain or band, foot-jewelry flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
+  - armlet-being (cap 1+1) — upper-arm worn band, Egyptian-or-classical armband flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
+
+- **Body / decorative**
+  - brooch-being (cap 1+1) — pin-back decorative ornament worn on chest/lapel, gem-set or enamel flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6; new sub-group opens here)*
 
 - **Crown / head**
   - crown-being (cap 1+1) — royal crown
   - tiara-being (cap 1+1) — front-only smaller crown
+  - diadem-being (cap 1+1) — jeweled headband royal-or-classical, simpler than crown silhouette *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
 
 - **Currency / coin**
-  - ancient-coin-being (cap 1+1) — antique minted-emperor / wax-pressed currency *(carry-over from METAL-OBJECT's coin → JEWELRY deferral; generic / gold-coin variants split off to future batch)*
+  - ancient-coin-being (cap 1+1) — antique minted-emperor / wax-pressed currency *(carry-over from METAL-OBJECT's coin → JEWELRY deferral)*
+  - coin-being (cap 1+1) — generic modern minted-currency disc *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6; distinct from ancient-coin's antique flavor)*
+  - gold-coin-being (cap 1+1) — pirate-treasure / bullion-coin variant, gleaming-gold flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
+
+- **Gem / pearl**
+  - pearl-necklace-being (cap 1+1) — strung-pearl worn-jewelry composition, cream-iridescent strand flavor *(landed 2026-05-16 from BUBBLE cross-cluster routing per sweep pass 6 — set-into-jewelry framing distinguishes from CRYSTALLINE/GEM's raw pearl gem-being sub-entry per JEWELRY intro convention; new sub-group opens here)*
+
+- **Awards / honors**
+  - medal-being (cap 1+1) — chest-worn award disc on ribbon, gold/silver/bronze finish *(absorbed from former TROPHY cluster 2026-05-15 consolidation)*
+  - laurel-wreath-being (cap 1+1) — leaf-crown Olympic-style victor's award *(absorbed from former TROPHY cluster 2026-05-15 consolidation; originally JEWELRY-headwear adjacent flag confirmed)*
 
 ---
 
@@ -1178,14 +1214,17 @@ Vessel object-as-being — storage / carry / display container given creature-sc
   - jar-being (cap 1+1) — wide-mouth lidded storage jar
   - urn-being (cap 1+1) — funerary / cremation urn, ash-bearer *(parallel to coffin below: urn = ashes, coffin = body)*
   - amphora-being (cap 1+1) — ancient Greek two-handled tall jar, pointed-bottom for ground-set
+  - vase-being (cap 1+1) — flower-vessel form, narrow-neck + bulbous-body silhouette *(landed 2026-05-16 from CONTAINER deferral per sweep pass 6; distinct from jar-being by display-flower function vs. lidded-storage)*
 
 - **Drinkware**
   - goblet / chalice-being (cap 1+1) — stemmed ceremonial cup
   - wine-glass-being (cap 1+1) — long-stem glass cup
+  - wine-bottle-being (cap 1+1) — corked tall-neck glass bottle, label-flank flavor *(landed 2026-05-16 from CONTAINER deferral per sweep pass 6)*
 
 - **Boxes / chests**
   - treasure-chest-being (cap 1+1) — locked lidded chest, gilt-trim hinges
   - coffin-being (cap 1+1) — funerary chest, vessel-for-the-body *(included despite hearse-drop precedent in VEHICLE; user retained coffin as funerary parallel to urn)*
+  - jewelry-box-being (cap 1+1) — small ornate keepsake box, velvet-lined interior + mirror-lid flavor *(landed 2026-05-16 from CONTAINER deferral per sweep pass 6)*
 
 - **Bags / soft containers**
   - suitcase / luggage-being (cap 1+1) — hard-shell travel case, handle-grip + wheel-feet
@@ -1197,7 +1236,7 @@ Vessel object-as-being — storage / carry / display container given creature-sc
 
 ## TOOL
 
-Functional implement object-as-being — handheld working-tool given creature-scale. Distinct from APPLIANCE upcoming (powered/active machine vs. handheld implement — drill borderline: hand-drill = TOOL, electric-drill = APPLIANCE), from CONTAINER (storage-vessel vs. working-implement), from WEAPONS-as-MYTHICAL (mythical-staves/wands stay in MYTHICAL; mundane working/combat tools live here), from JEWELRY (worn-ornament vs. used-implement), and from INSTRUMENTS upcoming (sound-producing artifacts; tuning-fork claimed here as pitch-precision tool; whistle redirected to TOY-side as a possible-future candidate per user call). Cross-section notes: weapons + keys arrive per METAL-OBJECT deferral (firearm / gun proposed but dropped as too-modern/dark, consistent with VEHICLE hearse-drop call); net per THREAD/CLOTH deferral NOT picked this batch (logged as candidate); pen / pencil / paintbrush / printer-ink-cartridge from INK/PIGMENT deferral NOT picked this batch (only quill kept; rest logged as candidates); slingshot per TOY deferral NOT picked (logged as candidate); hourglass per GAME-PIECE deferral NOT picked (logged as candidate); shovel/spade-as-TOOL flagged from GAME-PIECE NOT picked (logged as candidate). *Note: "candidate" framing means tracked-for-possible-future-pick, no commitment that an entry will ever land.* *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+Functional implement object-as-being — handheld working-tool given creature-scale. Distinct from APPLIANCE upcoming (powered/active machine vs. handheld implement — drill borderline: hand-drill = TOOL, electric-drill = APPLIANCE), from CONTAINER (storage-vessel vs. working-implement), from WEAPONS-as-MYTHICAL (mythical-staves/wands stay in MYTHICAL; mundane working/combat tools live here), from JEWELRY (worn-ornament vs. used-implement), and from INSTRUMENTS upcoming (sound-producing artifacts; tuning-fork claimed here as pitch-precision tool; whistle redirected to TOY-side as a possible-future candidate per user call). Cross-section notes: weapons + keys arrive per METAL-OBJECT deferral (firearm / gun proposed but dropped as too-modern/dark, consistent with VEHICLE hearse-drop call); net per THREAD/CLOTH deferral NOT picked this batch (logged as candidate); pen / pencil / paintbrush / printer-ink-cartridge from INK/PIGMENT deferral NOT picked this batch (only quill kept; rest logged as candidates); slingshot per TOY deferral NOT picked (logged as candidate); shovel/spade-as-TOOL flagged from GAME-PIECE NOT picked (logged as candidate). *(hourglass candidate dropped from TOOL + GAME-PIECE deferral lists 2026-05-15 per N27 dedup — already landed in UNIQUE/ONE-OF-A-KIND as `hourglass-being`.)* *Note: "candidate" framing means tracked-for-possible-future-pick, no commitment that an entry will ever land.* *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
 
 - **Hand tools / construction**
   - hammer-being (cap 1+1) — claw-hammer, head-and-shaft silhouette
@@ -1214,6 +1253,7 @@ Functional implement object-as-being — handheld working-tool given creature-sc
   - spear-being (cap 1+1) — pointed-tip pole-arm
   - bow-and-arrow-being (cap 1+1) — drawn-string projectile pair
   - dagger-being (cap 1+1) — short concealable blade *(distinct from knife-being)*
+  - shield-being (cap 1+1) — defensive round/kite/tower-form, emblem-face + grip-strap reverse *(landed 2026-05-16 from TOOL deferral per sweep pass 6; defensive-vs-offensive weapon framing accepts shield as TOOL-domain entry)*
 
 - **Writing / drawing implements**
   - quill-being (cap 1+1) — feather-tip ink stylus *(per INK/PIGMENT pen-deferral; only writing implement picked this batch — pen / pencil / paintbrush / printer-ink-cartridge logged as candidates)*
@@ -1228,19 +1268,24 @@ Functional implement object-as-being — handheld working-tool given creature-sc
   - tuning-fork-being (cap 1+1) — two-prong pitch-resonator *(per INSTRUMENTS placeholder note; whistle logged as TOY-side candidate per user call)*
 
 - **Measurement / precision**
-  - thermometer-being (cap 1+1) — temperature-measurement instrument, mercury-bulb-and-stem or digital-readout silhouette *(per CAMERA cross-section redirect this session — measurement-instrument without lens-mechanism, doesn't fit CAMERA's optical-apparatus definition; opens sub-group for future ruler / drawing-compass / hourglass candidates inherited from TOOL deferrals)*
+  - thermometer-being (cap 1+1) — temperature-measurement instrument, mercury-bulb-and-stem or digital-readout silhouette *(per CAMERA cross-section redirect 2026-05-13 session — measurement-instrument without lens-mechanism, doesn't fit CAMERA's optical-apparatus definition; opens sub-group for future ruler / drawing-compass candidates inherited from TOOL deferrals)*
+
+- **Office / paper**
+  - stapler-being (cap 1+1) — biting-jaw mechanical desk-creature, paper-fastening flavor *(retro-added 2026-05-15 from brainstorm-batch-1 user picks; opens sub-group for future eraser / paper-clip / sticky-note / sharpener candidates)*
+  - notebook / notepad-being (cap 1+1) — bound-paper writing surface, blank-pages flavor *(retro-added 2026-05-15 from brainstorm-batch-1 user picks; distinct from UNIQUE/ONE-OF-A-KIND `book-creature / tome-being` — mundane stationery here vs. sentient magical grimoire there — N7 cross-flag 2026-05-15)*
 
 ---
 
 ## APPLIANCE
 
-Powered / active machine object-as-being — appliance with energy-source and mechanism given creature-scale. Distinct from TOOL (handheld passive implement; drill borderline — hand-drill = TOOL, electric-drill = APPLIANCE per TOOL intro), from CONTAINER (passive storage), from ROBOTIC upcoming (autonomous-agent automaton vs. operated-by-user machine — robot-vacuum borderline; convention: human-operated = APPLIANCE, autonomous-AI = ROBOTIC), from VEHICLE (transport vs. stationary appliance), from ARCHITECTURE (built-in fixtures; elevator borderline — flagged as candidate for either), from CAMERA upcoming (camera is its own batch — split for clarity), and from UNIQUE/ONE-OF-A-KIND (`lantern-creature / lamp-being` already there — generic lamp NOT duplicated here). Cross-section notes: kiln per CLAY/CERAMIC deferral; slot-machine + pinball per GAME-PIECE deferrals (arcade-cabinet + roulette-wheel from same deferral logged as candidates); electric-drill per TOOL distinction. Gaming-console proposed but redirected to TOY-side candidate per user lean (matches whistle redirect from TOOL). Modern computing kept (computer / laptop / smartphone / tablet split as distinct entries) — user "Keep" call diverges from VEHICLE hearse / TOOL firearm drops. Microscope / telescope / thermometer flagged from TOOL as APPLIANCE candidates but NOT picked this batch (logged as candidates). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+Powered / active machine object-as-being — appliance with energy-source and mechanism given creature-scale. Distinct from TOOL (handheld passive implement; drill borderline — hand-drill = TOOL, electric-drill = APPLIANCE per TOOL intro), from CONTAINER (passive storage), from ROBOTIC upcoming (autonomous-agent automaton vs. operated-by-user machine — robot-vacuum borderline; convention: human-operated = APPLIANCE, autonomous-AI = ROBOTIC), from VEHICLE (transport vs. stationary appliance), from ARCHITECTURE (built-in fixtures; elevator borderline — flagged as candidate for either), from OPTICAL IMAGING (formerly CAMERA) (camera is its own batch — split for clarity), and from UNIQUE/ONE-OF-A-KIND (`lantern-creature / lamp-being` already there — generic lamp NOT duplicated here). Cross-section notes: kiln per CLAY/CERAMIC deferral; slot-machine + pinball per GAME-PIECE deferrals (arcade-cabinet + roulette-wheel from same deferral logged as candidates); electric-drill per TOOL distinction. Gaming-console proposed but redirected to TOY-side candidate per user lean (matches whistle redirect from TOOL). Modern computing kept (computer / laptop / smartphone / tablet split as distinct entries) — user "Keep" call diverges from VEHICLE hearse / TOOL firearm drops. Microscope / telescope / thermometer flagged from TOOL as APPLIANCE candidates but NOT picked this batch (logged as candidates). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
 
 - **Kitchen appliances**
   - refrigerator / fridge-being (cap 1+1) — tall cold-storage cabinet, hum-box silhouette
   - oven / stove / cooktop-being (cap 1+1) — combined heating-appliance creature, burner-top + oven-cavity body *(user combined-creature pick: oven + stove + cooktop as one entity rather than split)*
   - microwave-oven-being (cap 1+1) — small box, turntable-belly, beep-voice *(distinct from oven/stove/cooktop above)*
   - coffee-maker / espresso-machine-being (cap 1+1) — drip-funnel head, carafe-belly, steam-vent
+  - blender-being (cap 1+1) — pitcher-body with rotating-blade base, lid-cap head, smoothie-mixing flavor *(landed 2026-05-16 from APPLIANCE deferral per sweep pass 6)*
 
 - **Laundry / cleaning**
   - vacuum-cleaner-being (cap 1+1) — wheeled body with suction-hose proboscis, dust-bag belly
@@ -1254,6 +1299,9 @@ Powered / active machine object-as-being — appliance with energy-source and me
   - laptop-being (cap 1+1) — hinged-clamshell silhouette, screen-face + keyboard-belly
   - smartphone-being (cap 1+1) — slim glass-front rectangle, touchscreen face
   - tablet-being (cap 1+1) — larger flat slab, screen-front
+
+- **Entertainment electronics**
+  - television / TV-being (cap 1+1) — flat-screen-or-CRT display creature, screen-face + speaker-grille flanks *(landed 2026-05-16 from APPLIANCE deferral per sweep pass 6; new sub-group opens here)*
 
 - **Gaming / arcade**
   - slot-machine-being (cap 1+1) — vertical cabinet with reel-display window, lever-arm *(per GAME-PIECE deferral)*
@@ -1269,12 +1317,13 @@ Powered / active machine object-as-being — appliance with energy-source and me
 - **Personal care / power tools**
   - hairdryer-being (cap 1+1) — handheld blower-cone, motor-grip body
   - electric-drill-being (cap 1+1) — pistol-grip motor body, chuck-jaw mouth *(per TOOL hand-drill-vs-electric-drill distinction)*
+  - chainsaw-being (cap 1+1) — toothed-chain rotating cutter, motor-grip body, lumberjack-tool flavor *(landed 2026-05-16 from APPLIANCE deferral per sweep pass 6)*
 
 ---
 
 ## STATUE
 
-Figurative-sculpture object-as-being — freestanding representational sculpture given creature-scale (a statue *of* something, embodied as a creature). Distinct from CLAY/CERAMIC (substance; figurines/warriors land here per CLAY/CERAMIC deferral), from METAL-OBJECT (substance; metal-statues land here per METAL-OBJECT deferral), from ARCHITECTURE (built-structure vs. figurative-sculpture), from TOY (posable/play-figurine — bobblehead/nutcracker borderline; convention: display-only = STATUE), from GAME-PIECE (chess-figures stayed GAME-PIECE per tournament-rule criterion), from JEWELRY (wearable vs. freestanding), from CRYSTALLINE/GEM (`rock-monolith / standing-stone` lives there — non-figurative monolith excluded here), and from MYTHICAL CREATURES (frozen-sculpture vs. animate-being — gargoyle / weeping-angel / sphinx-statue convention confirmed STATUE if presented as inert sculpture-being, per user call). Cross-section notes: terracotta-warrior arrives per CLAY/CERAMIC's figurines/warriors deferral; metal-statues per METAL-OBJECT deferral are claimed conceptually here but no specific metal-statue entry picked this batch (bronze-horseman flagged but not picked, equestrian-statue covers the concept generically). Atlas-being proposed but redirected to MYTHICAL-side candidate per user call (titan-form fits MYTHICAL roster). Abstract-sculpture proposed but dropped (non-figurative; doesn't fit STATUE's representational definition). Sphinx-statue, gargoyle-statue, weeping-angel-statue, moai-easter-island convention confirmed STATUE-domain if/when added (user calls for sub-decisions 1, 2, 5). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+Figurative-sculpture object-as-being — freestanding representational sculpture given creature-scale (a statue *of* something, embodied as a creature). Distinct from CLAY/CERAMIC (substance; figurines/warriors land here per CLAY/CERAMIC deferral), from METAL-OBJECT (substance; metal-statues land here per METAL-OBJECT deferral), from ARCHITECTURE (built-structure vs. figurative-sculpture), from TOY (posable/play-figurine — bobblehead/nutcracker borderline; convention: display-only = STATUE), from GAME-PIECE (chess-figures stayed GAME-PIECE per tournament-rule criterion), from JEWELRY (wearable vs. freestanding), from CRYSTALLINE/GEM (`rock-monolith / standing-stone` lives there — non-figurative monolith excluded here), and from MYTHICAL CREATURES (frozen-sculpture vs. animate-being). Cross-section notes: terracotta-warrior arrives per CLAY/CERAMIC's figurines/warriors deferral; metal-statues per METAL-OBJECT deferral are claimed conceptually here but no specific metal-statue entry picked this batch (bronze-horseman flagged but not picked, equestrian-statue covers the concept generically). Atlas-being proposed but redirected to MYTHICAL-side candidate per user call (titan-form fits MYTHICAL roster). Abstract-sculpture proposed but dropped (non-figurative; doesn't fit STATUE's representational definition). *(Prior reservation language for sphinx-statue / gargoyle-statue / weeping-angel-statue / moai-easter-island removed 2026-05-15 per N25 — those convention-confirmations were unrealized and were creating open commitments; STATUE intro now describes only what's actually here.)* *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
 
 - **Classical / Renaissance**
   - david-being (cap 1+1) — Michelangelo iconic marble nude, sling-bearing youth, contrapposto stance
@@ -1287,21 +1336,17 @@ Figurative-sculpture object-as-being — freestanding representational sculpture
 - **Garden / decorative**
   - garden-cherub-being (cap 1+1) — small winged-baby figure, stone/concrete garden ornament
 
----
+- **Religious**
+  - buddha-statue-being (cap 1+1) — seated meditation figure, lotus-posture + serene expression, gilded/stone temple-icon flavor *(landed 2026-05-16 from STATUE deferral per sweep pass 6; new sub-group opens here)*
 
-## TROPHY
-
-Commemorative-award object-as-being — competition / achievement prize given creature-scale. Distinct from JEWELRY (medal convention: ribbon-medal = TROPHY, jewelry-chain-medal = JEWELRY per JEWELRY intro), from STATUE (statuette-trophy borderline — convention: pedestal-base + figure-top = TROPHY; freestanding figurative-only = STATUE), from BANNER (dropped this session), from ARCHITECTURE (mounted-plaque convention: small + portable = TROPHY, large + structural = ARCHITECTURE), and from TOOL (key-to-the-city borderline — ceremonial-key = TROPHY, working-key = TOOL). Cross-section notes: laurel-wreath-being flagged JEWELRY-headwear adjacent but kept here as Olympic-award convention; trophy-cup, blue-ribbon, plaque, olympic-medal-distinct, statuette-trophy, championship-belt, certificate/diploma, ribbon-rosette, prize-pennant, key-to-the-city all proposed but not picked (candidates only). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
-
-- **Awards**
-  - medal-being (cap 1+1) — chest-worn award disc on ribbon, gold/silver/bronze finish
-  - laurel-wreath-being (cap 1+1) — leaf-crown Olympic-style victor's award
+- **Architectural / Gothic**
+  - gargoyle-statue-being (cap 1+1) — grotesque carved-stone watchman atop cathedral, wing + claws + bestial-face flavor *(landed 2026-05-16 from STATUE deferral per sweep pass 6; frozen-stone form here vs. animate gargoyle in MYTHICAL roster; new sub-group opens here)*
 
 ---
 
 ## ROBOTIC
 
-Mechanical-automaton object-as-being — autonomous-agent machine given creature-scale, motion + sensors + decision-loop intrinsic to the form. Distinct from APPLIANCE (human-operated machine vs. autonomous-AI agent — robot-vacuum borderline resolved per APPLIANCE intro: human-operated = APPLIANCE, autonomous-AI = ROBOTIC), from TOY (functional/battle automaton vs. play-mechanism toy-robot per TOY intro — toy-robot proposed but NOT picked this batch, logged as candidate), from VEHICLE (transport platform vs. self-directed agent — self-driving-car stays VEHICLE-side per user call since car-being already covers the silhouette), from STATUE (figurative inert sculpture vs. animate machine — robot-statue would still be STATUE), from TOOL (handheld implement vs. autonomous machine), from MYTHICAL CREATURES (golems/constructs already there — mystical-animated = MYTHICAL, mechanical-engineered = ROBOTIC; **cyborg-being judged ROBOTIC-domain** per user call, NOT MYTHICAL/UNIQUE), from VOID/COSMIC/ABSTRACT (**sentient-AI-core-being judged ROBOTIC-domain** per user call rather than abstract-intelligence), and from CAMERA upcoming (sensor-instrument is its own batch; surveillance-bot deferred to CAMERA cross-section call). Cross-section notes: mech/mecha silhouette evokes Gundam-Wing-style piloted combat-frame per user flavor call; battle-bot distinct from mech (mech = large piloted-or-autonomous frame, battle-bot = autonomous combat-drone scale). Candidates logged but not picked: automaton (clockwork-Victorian / da-Vinci flavor), humanoid-robot (mid-tech generic), assistant-bot / butler-robot, factory-arm / industrial-robot-arm, drone (autonomous-aerial), rover (Mars-rover exploration), nanobot-swarm (ROBOTIC-domain confirmed per user). Gaming-console + whistle remain TOY-side candidates (not pulled here). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+Mechanical-automaton object-as-being — autonomous-agent machine given creature-scale, motion + sensors + decision-loop intrinsic to the form. Distinct from APPLIANCE (human-operated machine vs. autonomous-AI agent — robot-vacuum borderline resolved per APPLIANCE intro: human-operated = APPLIANCE, autonomous-AI = ROBOTIC), from TOY (functional/battle automaton vs. play-mechanism toy-robot per TOY intro — toy-robot proposed but NOT picked this batch, logged as candidate), from VEHICLE (transport platform vs. self-directed agent — self-driving-car stays VEHICLE-side per user call since car-being already covers the silhouette), from STATUE (figurative inert sculpture vs. animate machine — robot-statue would still be STATUE), from TOOL (handheld implement vs. autonomous machine), from MYTHICAL CREATURES (golems/constructs already there — mystical-animated = MYTHICAL, mechanical-engineered = ROBOTIC; **cyborg-being judged ROBOTIC-domain** per user call, NOT MYTHICAL/UNIQUE), from VOID/COSMIC/ABSTRACT (**sentient-AI-core-being judged ROBOTIC-domain** per user call rather than abstract-intelligence), and from OPTICAL IMAGING (formerly CAMERA) (sensor-instrument is its own batch; surveillance-bot deferred to OPTICAL IMAGING (formerly CAMERA) cross-section call). Cross-section notes: mech/mecha silhouette evokes Gundam-Wing-style piloted combat-frame per user flavor call; battle-bot distinct from mech (mech = large piloted-or-autonomous frame, battle-bot = autonomous combat-drone scale). Candidates logged but not picked: humanoid-robot (mid-tech generic), assistant-bot / butler-robot, factory-arm / industrial-robot-arm, drone (autonomous-aerial), rover (Mars-rover exploration), nanobot-swarm (ROBOTIC-domain confirmed per user). *(automaton dropped from this candidate list 2026-05-15 per N49 dedup — already landed in MYTHICAL Golems.)* Gaming-console + whistle remain TOY-side candidates (not pulled here). *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
 
 - **Humanoid / android**
   - android-being (cap 1+1) — humanoid-shape robot, near-human passing-or-uncanny silhouette, polished-frame modern flavor
@@ -1317,11 +1362,14 @@ Mechanical-automaton object-as-being — autonomous-agent machine given creature
   - sentient-AI-core-being (cap 1+1) — disembodied intelligence in central-monolith / server-core form, glowing-core nucleus *(ROBOTIC-domain per user call)*
   - robo-spider / mechanical-arachnid-being (cap 1+1) — spider-silhouette autonomous bot, multi-leg articulated chassis
 
+- **Paired / Piloted**
+  - mech-suit-pilot-pair-being (cap 1+1) — piloted-mecha companion-pair, SYMBIOSIS-style paired entry; mech-chassis frame + pilot-human inside the cockpit form a single creature-entry *(landed 2026-05-16 from ROBOTIC deferral per sweep pass 6; new sub-group opens here — pair-framing distinguishes from solo mech-being above)*
+
 ---
 
-## CAMERA
+## OPTICAL IMAGING
 
-Lens-and-image-capture object-as-being — optical-apparatus given creature-scale, lens + shutter + recording-or-observation mechanism intrinsic to the form. Distinct from APPLIANCE (split for clarity per APPLIANCE intro — APPLIANCE handles general-electronics; smartphone-camera implicitly covered by APPLIANCE's smartphone-being, no duplicate here), from ROBOTIC (autonomous-agent vs. lens-instrument — surveillance-bot CAMERA-domain confirmed per ROBOTIC deferral resolution but NOT picked this batch, logged as candidate), from TOOL (precision-implement vs. optical-apparatus — magnifying-glass + binoculars land here per **lens-mechanism reframing** of TOOL/APPLIANCE-deferred optical-instrument candidates; **thermometer redirected to TOOL-side per user call — landed in TOOL this session via separate commit** (measurement-instrument without lens-mechanism, doesn't fit CAMERA)), from STATUE (figurative-sculpture vs. functional-apparatus), from HOLOGRAM upcoming (projected-light-image is its own Phenomena batch — CAMERA captures, HOLOGRAM projects), and from VEHICLE (periscope CAMERA-domain confirmed per user call rather than submarine-component, but not picked this batch). Cross-section notes: optical-instruments (telescope / microscope / magnifying-glass / binoculars / periscope) take CAMERA as their canonical home per user call (lens-mechanism reframing — image-capture *and* lens-based-observation both qualify under CAMERA's apparatus definition); photo-booth CAMERA-domain confirmed but not picked. Candidates logged but not picked: polaroid / instant-camera, disposable-camera, bellows / large-format-camera, point-and-shoot / compact-camera, broadcast / TV-news-camera, CCTV / surveillance-camera, surveillance-bot (per ROBOTIC deferral), trail-cam / wildlife-camera, telescope, microscope, periscope, daguerreotype / antique-camera, photo-booth, pinhole-camera, spy-cam / hidden-camera. *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+Image-capture or image-projection optical-apparatus / phenomenon-as-being — lens-and-shutter capture device, lens-based observation instrument, OR projected-light-image given creature-scale, the optical mechanism intrinsic to the form. **Inverse-processes unified:** image-capture (camera) and image-projection (hologram) co-exist as complementary sides of the optical-imaging domain per consolidation 2026-05-15 (former separate CAMERA + HOLOGRAM clusters). Distinct from APPLIANCE (split for clarity — APPLIANCE handles general-electronics; smartphone-camera implicitly covered by APPLIANCE's smartphone-being, projector / movie-projector device = APPLIANCE-adjacent; OPTICAL IMAGING = the lens-apparatus or projected-image itself, not the device), from ROBOTIC (autonomous-agent vs. lens-instrument — surveillance-bot OPTICAL-IMAGING-domain confirmed per ROBOTIC deferral, logged as candidate), from TOOL (precision-implement vs. optical-apparatus — magnifying-glass + binoculars land here per **lens-mechanism reframing**; thermometer redirected to TOOL-side as measurement-instrument without lens-mechanism), from SHADOW-CAST (projected-light-presence = OPTICAL IMAGING projection-side, projected-light-absence = SHADOW-CAST; magic-lantern-projection routed to SHADOW-CAST as light-blockage mechanism), from BUBBLE (force-field / energy-bubble routed to BUBBLE-side as membrane-containment), from WEATHER/ATMOSPHERIC (**mirage-being landed in WEATHER** as atmospheric-heat-shimmer per HOLOGRAM cross-section reservation; sky-projection / cloud-projection OPTICAL-IMAGING-domain confirmed but not picked), from COSMOLOGICAL/ENERGY (starlight / nebula = cosmic-substance; OPTICAL IMAGING = projected/captured-image), from TOY (zoetrope-being OPTICAL-IMAGING-domain confirmed per user call as proto-projected-animation, not picked), from MYTHICAL CREATURES (illusion-magic / phantasm-spells = MYTHICAL; technological-light-projection = OPTICAL IMAGING; ghost-projection / phantom-image OPTICAL-IMAGING-domain confirmed, not picked), from VOID/COSMIC/ABSTRACT (mirror / reflection-being = light-reflection in VOID; OPTICAL IMAGING = capture/projection — different mechanisms), from STATUE (figurative-sculpture vs. functional-apparatus), and from VEHICLE (periscope OPTICAL-IMAGING-domain confirmed, not picked). Cross-section notes: optical-instruments (telescope / microscope / magnifying-glass / binoculars / periscope) take OPTICAL IMAGING as their canonical home per user call (lens-mechanism reframing — image-capture *and* lens-based-observation *and* projected-image all qualify); photo-booth OPTICAL-IMAGING-domain confirmed; **afterimage-being DROPPED entirely** per user call (too narrow / physiological). Candidates logged but not picked: polaroid / instant-camera, disposable-camera, bellows / large-format, point-and-shoot, broadcast / TV-news-camera, CCTV, trail-cam, microscope, periscope, daguerreotype, photo-booth, pinhole-camera, spy-cam, ghost-projection / phantom-image, zoetrope, sky-projection / cloud-projection, holographic-display, holographic-avatar / messenger, rainbow-hologram, laser-projection, light-painting, stage-hologram, pepper's-ghost, light-show / laser-show, projected-map / planetarium. *(telescope dropped from OPTICAL IMAGING candidate list 2026-05-15 per N48 — observatory-being in UNIQUE/ONE-OF-A-KIND already covers the telescope-bearing observatory concept; telescope as standalone can retro-add later if wanted.)* *Phase 1 roadmap (post-consolidation 2026-05-15). Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
 
 - **Photographic cameras**
   - camera-being (cap 1+1) — generic modern still-camera, body + lens silhouette, viewfinder + shutter-release flavor
@@ -1336,13 +1384,20 @@ Lens-and-image-capture object-as-being — optical-apparatus given creature-scal
 
 - **Optical instruments**
   - binoculars-being (cap 1+1) — paired-lens viewing instrument, two-barrel symmetric body with center-focus bridge
-  - magnifying-glass-being (cap 1+1) — single-lens-on-handle, classic detective-flavor *(per TOOL deferral, reframed as CAMERA-domain via lens-mechanism)*
+  - magnifying-glass-being (cap 1+1) — single-lens-on-handle, classic detective-flavor *(per TOOL deferral, reframed as OPTICAL-IMAGING-domain via lens-mechanism)*
+
+- **Sci-fi / technological projections**
+  - virtual-reality / VR-projection-being (cap 1+1) — immersive sensory simulation, headset-rendered projected-environment flavor *(formerly HOLOGRAM)*
+  - AR-overlay / augmented-reality-being (cap 1+1) — phone/glasses overlaid graphics, semi-transparent informational projection *(formerly HOLOGRAM)*
+  - rainbow-hologram-being (cap 1+1) — credit-card / security-sticker iridescent shimmer-film, holographic-foil flavor *(landed 2026-05-15 from deferral-sweep pass 3 per user resolution)*
+  - ghost-projection / phantom-image-being (cap 1+1) — apparition-of-a-person tech-projection, Star Wars Princess Leia flavor — distinct from MYTHICAL wraith / shade (tech-projection, not undead-spirit) *(landed 2026-05-15 from deferral-sweep pass 3 per user resolution)*
+  - sky-projection / cloud-projection-being (cap 1+1) — large-scale outdoor projection creature, projects light onto cloud-surface or open-sky canvas *(combined entry per user "creature that can do these projections" framing; landed 2026-05-15 from deferral-sweep pass 3)*
 
 ---
 
 ## INSTRUMENTS
 
-Musical-instrument object-as-being — sound-producing apparatus given creature-scale, resonator + sound-source + (typically) player-interface intrinsic to the form. Distinct from TOOL (precision-implement; tuning-fork already in TOOL's `**Sound / signaling**` sub-group as pitch-precision tool — NOT duplicated here; whistle remains TOY-side candidate per user call, NOT pulled here), from TOY (play-mechanism vs. performance-apparatus — music-box already in TOY's `**Mechanical / Wind-up**` sub-group as a wind-up plaything, NOT duplicated here; musical-toy / xylophone / toy-drum deferred from TOY now resolved here via the canonical adult-instrument forms drum-being + xylophone-being), from APPLIANCE (electronic-device-as-machine vs. instrument-as-performer; **synthesizer / drum-machine / theremin / DJ-turntable INSTRUMENTS-domain confirmed** per user call — performance-instrument with player-interface = INSTRUMENTS, ambient-electronic-device = APPLIANCE — but none picked this batch, logged as candidates), from ARCHITECTURE (mounted-fixture vs. portable-instrument; **church-bell / temple-gong / pipe-organ INSTRUMENTS-domain confirmed** per user call — performer-instrument framing wins over structural-fixture-bell-tower framing — but none picked this batch, logged as candidates), and from CAMERA (no overlap; lens-vs-sound apparatus). Cross-section notes: music-box + tuning-fork explicitly excluded as already-placed elsewhere; whistle stays TOY-side candidate (not pulled); **electric-guitar implicitly covered by generic guitar-being under 1+1 cap per user call** (no separate electric-guitar split). **Closes Manmade cluster at 13/13.** *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+Musical-instrument object-as-being — sound-producing apparatus given creature-scale, resonator + sound-source + (typically) player-interface intrinsic to the form. Distinct from TOOL (precision-implement; tuning-fork already in TOOL's `**Sound / signaling**` sub-group as pitch-precision tool — NOT duplicated here; whistle remains TOY-side candidate per user call, NOT pulled here), from TOY (play-mechanism vs. performance-apparatus — music-box already in TOY's `**Mechanical / Wind-up**` sub-group as a wind-up plaything, NOT duplicated here; musical-toy / xylophone / toy-drum deferred from TOY now resolved here via the canonical adult-instrument forms drum-being + xylophone-being), from APPLIANCE (electronic-device-as-machine vs. instrument-as-performer; **synthesizer / drum-machine / theremin / DJ-turntable INSTRUMENTS-domain confirmed** per user call — performance-instrument with player-interface = INSTRUMENTS, ambient-electronic-device = APPLIANCE — but none picked this batch, logged as candidates), from ARCHITECTURE (mounted-fixture vs. portable-instrument; **church-bell / temple-gong / pipe-organ INSTRUMENTS-domain confirmed** per user call — performer-instrument framing wins over structural-fixture-bell-tower framing — but none picked this batch, logged as candidates), and from OPTICAL IMAGING (formerly CAMERA — no overlap; lens-vs-sound apparatus). Cross-section notes: music-box + tuning-fork explicitly excluded as already-placed elsewhere; whistle stays TOY-side candidate (not pulled); **electric-guitar implicitly covered by generic guitar-being under 1+1 cap per user call** (no separate electric-guitar split). **Closes Manmade cluster at 13/13.** *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
 
 - **Percussion / drums**
   - drum-being (cap 1+1) — generic barrel-and-skin percussion, snare/bass/marching variants covered by 1+1 cap
@@ -1359,15 +1414,18 @@ Musical-instrument object-as-being — sound-producing apparatus given creature-
 - **Wind (brass + woodwind)**
   - trumpet / brass-being (cap 1+1) — brass valved-horn, flared-bell silhouette
   - flute / wind-being (cap 1+1) — woodwind transverse or end-blown, tube-and-finger-holes silhouette
+  - saxophone-being (cap 1+1) — curved brass-bodied woodwind, mouthpiece-reed + key-padded body *(landed 2026-05-16 from INSTRUMENTS deferral per sweep pass 6)*
+  - clarinet-being (cap 1+1) — straight black-wood single-reed woodwind, slim cylindrical silhouette *(landed 2026-05-16 from INSTRUMENTS deferral per sweep pass 6)*
 
 - **Folk / world / specialty**
   - shamisen / koto-being (cap 1+1) — Japanese stringed instrument, shamisen 3-string lute or koto 13-string zither flavor
+  - sitar-being (cap 1+1) — Indian long-necked plucked-string instrument, gourd-resonator body + drone-string flavor *(landed 2026-05-16 from INSTRUMENTS deferral per sweep pass 6)*
 
 ---
 
 ## SHADOW-CAST
 
-Cast-shadow phenomenon-as-being — light-blockage silhouette given creature-scale, shadow detached or projected from a light-source-vs-object interaction. Distinct from CAVE/UNDERGROUND (cave-darkness / pitch-being already there — convention per user call: **absolute-dark-environment with NO defining light-source = CAVE pitch, cast-shadow-from-discrete-light-source = SHADOW-CAST**), from MYTHICAL CREATURES (wraith / shade / banshee live in MYTHICAL Wraiths/ghosts/undead; shadow-wisp lives in MYTHICAL Wisps/formless-spirits; slime-viscous / slime-fluid live in MYTHICAL Slimes — convention per user call: **spectral-undead-spirit = MYTHICAL wraith/shade; formless-shadow-flicker-spirit = MYTHICAL shadow-wisp; slimes-of-substance (jelly/fluid) = MYTHICAL slimes; physical-cast-shadow-from-object = SHADOW-CAST; fully-autonomous shape-mimic = MYTHICAL shapeshifter, anchored-to-visual-source shadow-mimic = SHADOW-CAST (doppelganger-shadow lands here per user call); living-puddle-of-shadow = SHADOW-CAST (shadow-pool-being)**), from ELEMENTALS (dark-elemental / shadow-elemental there — convention per user call: **elemental-substance-being = ELEMENTALS, cast-shadow-phenomenon-being = SHADOW-CAST**), from VOID/COSMIC/ABSTRACT (mirror / reflection-being + void-being + duality-being there — convention per user call: **light-reflection = VOID mirror, formless-darkness = VOID void-being, abstract-light/dark = VOID duality, light-blockage-cast-shadow = SHADOW-CAST**), from TOY (shadow-puppet defers here per TOY intro, logged as candidate this batch — not picked), and from HOLOGRAM upcoming (projected-light-image is the inverse — convention per user call: **projected-light-presence = HOLOGRAM, projected-light-absence (shadow-puppet / magic-lantern) = SHADOW-CAST**). Cross-section notes: eclipse-shadows confirmed SHADOW-CAST-domain per user call (not NATURAL-DISASTER overlap, though NATURAL-DISASTER's meteor-strike/supernova are adjacent cosmic events); magic-lantern-projection confirmed SHADOW-CAST-domain (light-blockage mechanism beats HOLOGRAM-projection framing). Candidates logged but not picked: cast-shadow / your-shadow-being, eclipse-shadow / solar-eclipse / lunar-eclipse / penumbra / umbra, tree-shadow / building-shadow / shadow-on-wall / silhouette-against-light, shadow-puppet (per TOY deferral), shadow-play / shadow-theater, magic-lantern-projection, crepuscular-ray / anticrepuscular-ray / earth-shadow-being. Conceptual fear-shadow / dusk-shadow candidates dropped entirely (out-of-scope per user call). *Phenomena cluster — first batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+Cast-shadow phenomenon-as-being — light-blockage silhouette given creature-scale, shadow detached or projected from a light-source-vs-object interaction. Distinct from CAVE/UNDERGROUND (cave-darkness / pitch-being already there — convention per user call: **absolute-dark-environment with NO defining light-source = CAVE pitch, cast-shadow-from-discrete-light-source = SHADOW-CAST**), from MYTHICAL CREATURES (wraith / shade / banshee live in MYTHICAL Wraiths/ghosts/undead; shadow-wisp lives in MYTHICAL Wisps/formless-spirits; slime-viscous / slime-fluid live in MYTHICAL Slimes — convention per user call: **spectral-undead-spirit = MYTHICAL wraith/shade; formless-shadow-flicker-spirit = MYTHICAL shadow-wisp; slimes-of-substance (jelly/fluid) = MYTHICAL slimes; physical-cast-shadow-from-object = SHADOW-CAST; fully-autonomous shape-mimic = MYTHICAL shapeshifter, anchored-to-visual-source shadow-mimic = SHADOW-CAST (doppelganger-shadow lands here per user call); living-puddle-of-shadow = SHADOW-CAST (shadow-pool-being)**), from ELEMENTALS (dark-elemental / shadow-elemental there — convention per user call: **elemental-substance-being = ELEMENTALS, cast-shadow-phenomenon-being = SHADOW-CAST**), from VOID/COSMIC/ABSTRACT (mirror / reflection-being + void-being + duality-being there — convention per user call: **light-reflection = VOID mirror, formless-darkness = VOID void-being, abstract-light/dark = VOID duality, light-blockage-cast-shadow = SHADOW-CAST**), from TOY (shadow-puppet defers here per TOY intro, logged as candidate this batch — not picked), and from OPTICAL IMAGING projection-side (formerly HOLOGRAM) (projected-light-image is the inverse — convention per user call: **projected-light-presence = HOLOGRAM, projected-light-absence (shadow-puppet / magic-lantern) = SHADOW-CAST**). Cross-section notes: eclipse-shadows confirmed SHADOW-CAST-domain per user call (not NATURAL-DISASTER overlap, though NATURAL-DISASTER's meteor-strike/supernova are adjacent cosmic events); magic-lantern-projection confirmed SHADOW-CAST-domain (light-blockage mechanism beats HOLOGRAM-projection framing). Candidates logged but not picked: cast-shadow / your-shadow-being, tree-shadow / building-shadow / shadow-on-wall / silhouette-against-light, shadow-puppet (per TOY deferral), shadow-play / shadow-theater, magic-lantern-projection, crepuscular-ray / anticrepuscular-ray / earth-shadow-being. *(eclipse-shadow / solar-eclipse / lunar-eclipse / penumbra / umbra candidates dropped from SHADOW-CAST 2026-05-15 per N1+N16 dedup — eclipse-being also dropped from COSMOLOGICAL; eclipse-domain now owned by MYTHICAL Dragons' eclipse-dragon + MOON PHASES' blood-moon-being.)* Conceptual fear-shadow / dusk-shadow candidates dropped entirely (out-of-scope per user call). *Phenomena cluster — first batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
 
 - **Personal / detached silhouettes**
   - silhouette-being (cap 1+1) — generic dark-cutout phenomenon, no specific source-object required, ambient negative-space presence
@@ -1381,7 +1439,7 @@ Cast-shadow phenomenon-as-being — light-blockage silhouette given creature-sca
 
 ## BUBBLE
 
-Bubble / sphere / foam phenomenon-as-being — thin-film-enclosed gas-pocket or aerated-form given creature-scale, surface-tension or membrane-containment intrinsic to the form. Distinct from TOY (balloon / balloon-animal defer here per TOY intro — landing this batch as the canonical inflatable forms; inflatable-pool-toy + beach-ball land here as hollow-air-filled inflatables, not TOY-side), from MICROORGANISMS (already done — cell / vesicle / blood-cell biological-membrane-bubbles **stay MICROORGANISMS-side per user call**, not duplicated here), from VEHICLE (hot-air-balloon / blimp / dirigible deferred from VEHICLE — convention per user call: **passenger-carrying inflatable = VEHICLE-side, decorative/non-transport inflatable = BUBBLE**), from CRYSTALLINE/GEM (solid-sphere crystal-ball / orb **stays CRYSTALLINE-side per user call** — solid-not-hollow framing; hollow-film-bubble = BUBBLE), from ARCHITECTURE (already done — geodesic-dome / protective-dome **stays ARCHITECTURE-side per user call** as built-rigid-structure; transparent-film-bubble = BUBBLE), from CONTAINER (already done — **snow-globe-being judged BUBBLE-domain per user call** ("snow-globe object looks like a bubble") rather than CONTAINER vessel-with-contents framing), from JEWELRY (pearl-being deferred there as wearable solid-sphere — **stays JEWELRY-side candidate per user call**, not pulled here), from HOLOGRAM upcoming (**force-field / energy-bubble judged BUBBLE-domain per user call** ("force-field over a town can look like a bubble") rather than HOLOGRAM projection or COSMOLOGICAL/ENERGY substance), and from SHADOW-CAST (no overlap; light-blockage vs. gas-enclosure phenomena). Cross-section notes: balloon + balloon-animal arrive per TOY deferral; force-field, snow-globe, terrarium-globe all judged BUBBLE-domain per user calls. *Phenomena cluster — second batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+Bubble / sphere / foam phenomenon-as-being — thin-film-enclosed gas-pocket or aerated-form given creature-scale, surface-tension or membrane-containment intrinsic to the form. Distinct from TOY (balloon / balloon-animal defer here per TOY intro — landing this batch as the canonical inflatable forms; inflatable-pool-toy + beach-ball land here as hollow-air-filled inflatables, not TOY-side), from MICROORGANISMS (already done — cell / vesicle / blood-cell biological-membrane-bubbles **stay MICROORGANISMS-side per user call**, not duplicated here), from VEHICLE (hot-air-balloon / blimp / dirigible deferred from VEHICLE — convention per user call: **passenger-carrying inflatable = VEHICLE-side, decorative/non-transport inflatable = BUBBLE**), from CRYSTALLINE/GEM (solid-sphere crystal-ball / orb **stays CRYSTALLINE-side per user call** — solid-not-hollow framing; hollow-film-bubble = BUBBLE), from ARCHITECTURE (already done — geodesic-dome / protective-dome **stays ARCHITECTURE-side per user call** as built-rigid-structure; transparent-film-bubble = BUBBLE), from CONTAINER (already done — **snow-globe-being judged BUBBLE-domain per user call** ("snow-globe object looks like a bubble") rather than CONTAINER vessel-with-contents framing), from JEWELRY (pearl-being deferred there as wearable solid-sphere — **stays JEWELRY-side candidate per user call**, not pulled here), from OPTICAL IMAGING projection-side (formerly HOLOGRAM) (**force-field / energy-bubble judged BUBBLE-domain per user call** ("force-field over a town can look like a bubble") rather than HOLOGRAM projection or COSMOLOGICAL/ENERGY substance), and from SHADOW-CAST (no overlap; light-blockage vs. gas-enclosure phenomena). Cross-section notes: balloon + balloon-animal arrive per TOY deferral; force-field, snow-globe, terrarium-globe all judged BUBBLE-domain per user calls. *Phenomena cluster — second batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
 
 - **Soap / film / surface-tension bubbles**
   - soap-bubble-being (cap 1+1) — classic rainbow-iridescent thin-film sphere, surface-tension membrane flavor
@@ -1406,7 +1464,7 @@ Bubble / sphere / foam phenomenon-as-being — thin-film-enclosed gas-pocket or 
 
 ## SMOKE
 
-Smoke / vapor / gaseous-emission phenomenon-as-being — visible-airborne particulate-or-water-vapor given creature-scale, combustion-or-heating-byproduct or vent-emission intrinsic to the form. Distinct from ELEMENTALS (fire-elemental / water-elemental / wind-elemental are pure-element substance-beings — convention: pure-element-substance = ELEMENTALS, byproduct-emission-vapor = SMOKE), from WEATHER/ATMOSPHERIC upcoming (atmospheric water-vapor — **cloud / mist / fog defer to WEATHER per user call** as natural-atmospheric phenomena; SMOKE = combustion-or-vent emission specifically), from PERFUME upcoming (convention: fragrance-carrying vapor = PERFUME, generic-or-unpleasant vapor = SMOKE — **incense-smoke routed to PERFUME-side per user call**), from BUBBLE (gaseous-pocket-enclosed-in-film vs. free-floating diffusing vapor), from HOLOGRAM upcoming (projected-light vs. light-scattering vapor), from VOID/COSMIC/ABSTRACT (formless-darkness void-being vs. visible-physical-vapor SMOKE), from MYTHICAL CREATURES (shadow-wisp + djinn/genie + dragon entries stay MYTHICAL as-is — **fantasy/mystical smoke variants (genie-smoke, dragon-breath, wizard-smoke / spell-vapor) DROPPED entirely per user call** as SMOKE-side proposals), from NATURAL-DISASTER (already done — **volcanic-smoke / ash-cloud routed to NATURAL-DISASTER-side per user call** (vapor-byproduct stays with the volcanic-eruption-event, not SMOKE-domain); **dust-cloud routed to NATURAL-DISASTER-side per user call** (sandstorm-adjacent particulate-not-vapor)), from HOT-SPRING (geyser-being already there; **fumarole / steam-only vent DROPPED entirely per user call** — earlier Habitat-deferral does not land), from VEHICLE (already done — **train-locomotive-smoke implicitly included in VEHICLE train-being silhouette per user call**, no standalone SMOKE entry), from APPLIANCE (already done — coffee-maker-steam + humidifier-steam-mist already vapor-as-feature in APPLIANCE entries, not standalone vapor-beings), and from SHADOW-CAST + BUBBLE (no overlap; combustion/vapor distinct from light-blockage and gas-enclosure). *Phenomena cluster — third batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+Smoke / vapor / gaseous-emission phenomenon-as-being — visible-airborne particulate-or-water-vapor given creature-scale, combustion-or-heating-byproduct or vent-emission intrinsic to the form. Distinct from ELEMENTALS (fire-elemental / water-elemental / wind-elemental are pure-element substance-beings — convention: pure-element-substance = ELEMENTALS, byproduct-emission-vapor = SMOKE), from WEATHER/ATMOSPHERIC upcoming (atmospheric water-vapor — **cloud / mist / fog defer to WEATHER per user call** as natural-atmospheric phenomena; SMOKE = combustion-or-vent emission specifically), from PERFUME upcoming (convention: fragrance-carrying vapor = PERFUME, generic-or-unpleasant vapor = SMOKE — **incense-smoke routed to PERFUME-side per user call**), from BUBBLE (gaseous-pocket-enclosed-in-film vs. free-floating diffusing vapor), from OPTICAL IMAGING projection-side (formerly HOLOGRAM) (projected-light vs. light-scattering vapor), from VOID/COSMIC/ABSTRACT (formless-darkness void-being vs. visible-physical-vapor SMOKE), from MYTHICAL CREATURES (shadow-wisp + djinn/genie + dragon entries stay MYTHICAL as-is — **fantasy/mystical smoke variants (genie-smoke, dragon-breath, wizard-smoke / spell-vapor) DROPPED entirely per user call** as SMOKE-side proposals), from NATURAL-DISASTER (already done — **volcanic-smoke / ash-cloud routed to NATURAL-DISASTER-side per user call** (vapor-byproduct stays with the volcanic-eruption-event, not SMOKE-domain); **dust-cloud routed to NATURAL-DISASTER-side per user call** (sandstorm-adjacent particulate-not-vapor)), from THERMAL EXTREMES (formerly HOT-SPRING — geyser-being already there; **fumarole / steam-only vent DROPPED entirely per user call** — earlier Habitat-deferral does not land), from VEHICLE (already done — **train-locomotive-smoke implicitly included in VEHICLE train-being silhouette per user call**, no standalone SMOKE entry), from APPLIANCE (already done — coffee-maker-steam + humidifier-steam-mist already vapor-as-feature in APPLIANCE entries, not standalone vapor-beings), and from SHADOW-CAST + BUBBLE (no overlap; combustion/vapor distinct from light-blockage and gas-enclosure). *Phenomena cluster — third batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
 
 - **Combustion smoke**
   - smoke-being (cap 1+1) — generic smoke puff, default combustion-vapor form
@@ -1439,6 +1497,7 @@ Scented vapor / fragrance phenomenon-as-being — aromatic-airborne emission giv
   - rose-scent-being (cap 1+1) — iconic floral aroma, classic-rose flavor
   - lavender-scent-being (cap 1+1) — calming herbal aroma, purple-bloom signature
   - mint-aroma-being (cap 1+1) — fresh herbal aroma, cool / sharp flavor
+  - floral-aroma-being (cap 1+1) — generic flower-bouquet aroma, mixed-blossom signature *(landed 2026-05-16 from PERFUME deferral per sweep pass 6; distinct from specific rose/lavender entries by generic-floral-blend framing)*
 
 - **Food / kitchen aroma**
   - spice-aroma-being (cap 1+1) — generic spice-blend aroma, cinnamon / curry / pepper variants
@@ -1446,20 +1505,12 @@ Scented vapor / fragrance phenomenon-as-being — aromatic-airborne emission giv
 - **Environmental / atmospheric (natural)**
   - sea-breeze / ocean-aroma-being (cap 1+1) — saltwater scent, coastal-air flavor
   - forest-aroma / pine-fresh-being (cap 1+1) — woodsy / cedar aroma, mountain-air flavor
+  - petrichor / after-rain-aroma-being (cap 1+1) — fresh wet-earth fragrance after rainfall, geosmin-released signature *(landed 2026-05-16 from PERFUME deferral per sweep pass 6 — scent-emission framing wins over WEATHER atmospheric-phenomenon framing per prior user call)*
 
 - **Synthetic / industrial / domestic aromas**
   - gasoline-aroma-being (cap 1+1) — petroleum / fuel-station aroma, industrial-synthetic flavor
   - fresh-laundry-aroma-being (cap 1+1) — clean-detergent / fabric-softener aroma, domestic-warmth flavor
-
----
-
-## HOLOGRAM
-
-Projected-light-image phenomenon-as-being — light-formed visual projection given creature-scale, image-without-physical-substrate intrinsic to the form. Distinct from SHADOW-CAST (projected-light-presence = HOLOGRAM, projected-light-absence = SHADOW-CAST per SHADOW-CAST intro convention; magic-lantern-projection routed to SHADOW-CAST-side as light-blockage mechanism), from BUBBLE (force-field / energy-bubble routed to BUBBLE-side per BUBBLE intro as membrane-containment phenomenon), from CAMERA (camera captures images vs. HOLOGRAM projects them — inverse processes), from WEATHER/ATMOSPHERIC upcoming (atmospheric phenomena defer to WEATHER; **mirage-being routed to WEATHER-side per user call as reserved confirmed-pick for the upcoming WEATHER batch** — atmospheric-heat-shimmer framing wins over HOLOGRAM optical-illusion-projection framing; **sky-projection / cloud-projection-being judged HOLOGRAM-domain per user call** as projected-light-on-cloud-surface rather than cloud-itself — not picked this batch, logged as candidate), from COSMOLOGICAL/ENERGY (already done — starlight / nebula are cosmic-substance-beings; HOLOGRAM = projected-image-being), from APPLIANCE (already done — projector / movie-projector device = APPLIANCE-adjacent; HOLOGRAM = the projected image itself, not the device), from TOY (already done — **zoetrope-being judged HOLOGRAM-domain per user call** as proto-projected-animation phenomenon rather than wind-up plaything; not picked this batch, logged as candidate), from MYTHICAL CREATURES (illusion-magic / phantasm-spells live in MYTHICAL via wizard/mage flavor — convention: mystical-illusion = MYTHICAL, technological-light-projection = HOLOGRAM; **ghost-projection / phantom-image judged HOLOGRAM-domain per user call** as tech-projection-not-spirit, but not picked this batch), and from VOID/COSMIC/ABSTRACT (mirror / reflection-being = light-reflection; HOLOGRAM = light-projection — different mechanism). Cross-section notes: **afterimage-being DROPPED entirely per user call** (retinal-physiological phenomenon too narrow for HOLOGRAM's projected-image framing). *Phenomena cluster — fifth batch. Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
-
-- **Sci-fi / technological holograms**
-  - virtual-reality / VR-projection-being (cap 1+1) — immersive sensory simulation, headset-rendered projected-environment flavor
-  - AR-overlay / augmented-reality-being (cap 1+1) — phone/glasses overlaid graphics, semi-transparent informational projection
+  - air-freshener / aerosol-spray-being (cap 1+1) — scent-vapor product creature, plug-in or spray-can flavor *(landed 2026-05-16 from PERFUME deferral per sweep pass 6 — scent-vapor-product framing wins over APPLIANCE device-as-being)*
 
 ---
 
@@ -1486,7 +1537,7 @@ Explosion / blast / detonation phenomenon-as-being — rapid-expansion combustio
 
 ## WEATHER / ATMOSPHERIC
 
-Atmospheric phenomenon-as-being — weather event or sky/air manifestation given creature-scale, ambient-condition or transient-event intrinsic to the form. Distinct from ELEMENTALS (already done — wind-elemental / water-elemental / ice-elemental / electric-elemental are pure-element substance-beings — convention: pure-element-substance = ELEMENTALS, atmospheric-phenomenon-being = WEATHER), from NATURAL-DISASTER (already done — extreme weather events (tsunami, blizzard, hurricane, sandstorm, hailstorm, drought, heatwave, ice-age, lightning-strike, etc.) live there as *disaster events*; WEATHER = everyday-or-ambient atmospheric phenomena — **hail-being judged WEATHER-domain per user call** (discrete hailstone, vs. NATURAL-DISASTER's hailstorm event)), from SMOKE (combustion-or-vent emission; **mist + fog routed here per SMOKE batch user call** as natural-atmospheric water-vapor — landing this batch as reserved confirmed-picks; smog stays in SMOKE batch as industrial-pollution-haze, **smog duplicate skipped here per user call**), from PERFUME (scent-emission; petrichor stays PERFUME-side candidate, not WEATHER), from HOLOGRAM (projected-light-image; **mirage routed here per HOLOGRAM batch user call** as reserved confirmed-pick — landing this batch), from GLACIER (already done — **snowdrift / icicle-formation / polar-night routed here per Habitat/GLACIER deferrals** — landing this batch as reserved confirmed-picks; snowdrift was originally a GLACIER entry, dropped from GLACIER and re-routed here), from BUBBLE (gas-enclosed-in-film; storm-cloud is WEATHER-domain not BUBBLE), from COSMOLOGICAL/ENERGY (starlight / nebula are cosmic-substance; WEATHER = terrestrial atmospheric), from SHADOW-CAST (crepuscular-ray stays SHADOW-CAST candidate per SHADOW-CAST batch — no WEATHER cross-section claim per user call), from EXPLOSIVE (**mushroom-cloud DROPPED entirely per user call**, following the atomic-bomb DROP pattern), from TOOL (**weather-vane DROPPED entirely per user call** — device-not-phenomenon framing), and from MYTHICAL CREATURES (no overlap; weather-spirits not in MYTHICAL roster). Cross-section notes: **whirlwind / dust-devil judged WEATHER-domain per user call** (vs. NATURAL-DISASTER tornado event) but not picked this batch, logged as candidate. *Phenomena cluster — seventh and final batch. **Closes Phenomena cluster at 7/7 — Phenomena cluster DONE. Closes Phase 1 category roadmap at 35/35 (33 firm + 2 bonus PLANTS/FUNGI). Cross-cluster deferral-review pass to follow as a separate batch** — final consolidated look at all deferrals + logged-candidates + flagged-but-not-picked items across all categories, with goal of permanently dropping items from session-notes / candidate lists where appropriate.* *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+Atmospheric phenomenon-as-being — weather event or sky/air manifestation given creature-scale, ambient-condition or transient-event intrinsic to the form. Distinct from ELEMENTALS (already done — wind-elemental / water-elemental / ice-elemental / electric-elemental are pure-element substance-beings — convention: pure-element-substance = ELEMENTALS, atmospheric-phenomenon-being = WEATHER), from NATURAL-DISASTER (already done — extreme weather events (tsunami, blizzard, hurricane, sandstorm, hailstorm, drought, heatwave, ice-age, lightning-strike, etc.) live there as *disaster events*; WEATHER = everyday-or-ambient atmospheric phenomena — **hail-being judged WEATHER-domain per user call** (discrete hailstone, vs. NATURAL-DISASTER's hailstorm event)), from SMOKE (combustion-or-vent emission; **mist + fog routed here per SMOKE batch user call** as natural-atmospheric water-vapor — landing this batch as reserved confirmed-picks; smog stays in SMOKE batch as industrial-pollution-haze, **smog duplicate skipped here per user call**), from PERFUME (scent-emission; petrichor stays PERFUME-side candidate, not WEATHER), from OPTICAL IMAGING (formerly HOLOGRAM — projected-light-image; **mirage routed here per HOLOGRAM batch user call** as reserved confirmed-pick — landing this batch), from THERMAL EXTREMES (formerly GLACIER — already done — **snowdrift / icicle-formation / polar-night routed here per Habitat/GLACIER deferrals** — landing this batch as reserved confirmed-picks; snowdrift was originally a GLACIER entry, dropped from GLACIER and re-routed here), from BUBBLE (gas-enclosed-in-film; storm-cloud is WEATHER-domain not BUBBLE), from COSMOLOGICAL/ENERGY (starlight / nebula are cosmic-substance; WEATHER = terrestrial atmospheric), from SHADOW-CAST (crepuscular-ray stays SHADOW-CAST candidate per SHADOW-CAST batch — no WEATHER cross-section claim per user call), from EXPLOSIVE (**mushroom-cloud DROPPED entirely per user call**, following the atomic-bomb DROP pattern), from TOOL (**weather-vane DROPPED entirely per user call** — device-not-phenomenon framing), and from MYTHICAL CREATURES (no overlap; weather-spirits not in MYTHICAL roster). Cross-section notes: **whirlwind / dust-devil judged WEATHER-domain per user call** (vs. NATURAL-DISASTER tornado event) but not picked this batch, logged as candidate. *Phenomena cluster — seventh and final batch. **Closes Phenomena cluster at 7/7 — Phenomena cluster DONE. Closes Phase 1 category roadmap at 35/35 (33 firm + 2 bonus PLANTS/FUNGI). Cross-cluster deferral-review pass to follow as a separate batch** — final consolidated look at all deferrals + logged-candidates + flagged-but-not-picked items across all categories, with goal of permanently dropping items from session-notes / candidate lists where appropriate.* *Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
 
 - **Cloud / sky-form**
   - cloud-being (cap 1+1) — generic cumulus puffy cloud, fair-weather flavor
@@ -1496,25 +1547,256 @@ Atmospheric phenomenon-as-being — weather event or sky/air manifestation given
   - rain-being / raindrop-being (cap 1+1) — generic falling rain, droplet-cloud paired silhouette
   - snowflake / snow-being (cap 1+1) — falling snow, crystalline-symmetry flavor
   - hail-being (cap 1+1) — frozen-pellet precipitation, hard-fall flavor *(WEATHER-domain per user call; distinct from NATURAL-DISASTER's hailstorm-event)*
+  - freezing-rain-being (cap 1+1) — supercooled rain that glazes on contact, ice-shell precipitation flavor *(landed 2026-05-16 from WEATHER deferral per sweep pass 6; distinct from hail by liquid-on-fall vs. frozen-pellet)*
+  - drizzle-being (cap 1+1) — light fine-mist precipitation, gentle-drift flavor *(landed 2026-05-16 from WEATHER deferral per sweep pass 6; distinct from rain by droplet-size + gentleness)*
 
 - **Wind / air-movement**
   - breeze-being (cap 1+1) — gentle ambient wind, soft-stir flavor
+  - whirlwind / dust-devil-being (cap 1+1) — small spinning wind-vortex carrying dust + debris, miniature-tornado flavor *(landed 2026-05-16 from WEATHER deferral per sweep pass 6; WEATHER-domain per user call vs. NATURAL-DISASTER tornado-event)*
+  - zephyr-being (cap 1+1) — west-wind / gentle-breeze poetic-form, classical wind-spirit flavor *(landed 2026-05-16 from WEATHER deferral per sweep pass 6; distinct from generic breeze by directional + poetic framing)*
 
 - **Light / sky-color phenomena**
   - rainbow-being (cap 1+1) — refracted-light spectrum-arc, post-rain flavor
   - aurora-borealis-being (cap 1+1) — polar light curtains, undulating sky-ribbon flavor
 
 - **Cold / winter**
-  - snowdrift-being (cap 1+1) — wind-blown accumulated snow pile *(per GLACIER deferral, originally a GLACIER entry then dropped and re-routed)*
-  - icicle-formation-being (cap 1+1) — hanging ice spear cluster *(per GLACIER deferral)*
-  - polar-night-being (cap 1+1) — extended winter darkness phenomenon at high latitudes *(per GLACIER deferral)*
+  - snowdrift-being (cap 1+1) — wind-blown accumulated snow pile *(per former GLACIER (now THERMAL EXTREMES) deferral, originally a GLACIER entry then dropped and re-routed)*
+  - icicle-formation-being (cap 1+1) — hanging ice spear cluster *(per former GLACIER (now THERMAL EXTREMES) deferral)*
+  - polar-night-being (cap 1+1) — extended winter darkness phenomenon at high latitudes *(per former GLACIER (now THERMAL EXTREMES) deferral)*
 
 - **Heat / dry**
-  - mirage-being (cap 1+1) — desert heat-shimmer optical illusion *(reserved confirmed-pick per HOLOGRAM cross-section; atmospheric-heat-refraction phenomenon)*
+  - mirage-being (cap 1+1) — desert heat-shimmer optical illusion *(reserved confirmed-pick per OPTICAL IMAGING (formerly HOLOGRAM) cross-section; atmospheric-heat-refraction phenomenon)*
 
 - **Vapor / moisture**
   - mist-being (cap 1+1) — fine-droplet atmospheric vapor, light-visibility flavor *(per SMOKE deferral)*
   - fog-being (cap 1+1) — dense-low-cloud atmospheric vapor, reduced-visibility flavor *(per SMOKE deferral)*
+
+- **Lightning / electrical**
+  - ball-lightning-being (cap 1+1) — rare luminous spherical electric phenomenon, floating-orb of plasma flavor *(landed 2026-05-16 from WEATHER deferral per sweep pass 6; new sub-group opens here — distinct from storm-cloud's lightning-tension flavor by discrete-orb form)*
+
+---
+
+## FURNITURE
+
+Domestic furnishing object-as-being — household furniture given creature-scale, sittable / sleepable / work-surface form intrinsic to the entity. Distinct from ARCHITECTURE (built-rigid-structure vs. movable-household-furniture), from CONTAINER (storage-vessel; **bookshelf-being judged FURNITURE-domain** here as standing-furniture rather than CONTAINER's storage-vessel framing), from TOOL (handheld working-implement vs. household-fixture), from APPLIANCE (powered-machine vs. passive-furniture), and from MYTHICAL CREATURES (no overlap). Cross-section notes: rocking-horse-being already in TOY (play-object framing); standing-lamp not duplicated here (lantern-creature / lamp-being already in UNIQUE / ONE-OF-A-KIND); standing-mirror not duplicated here (mirror / reflection-being already in VOID / COSMIC / ABSTRACT). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Core furniture**
+  - chair-being (cap 1+1) — generic seating, four-leg silhouette
+  - table-being (cap 1+1) — flat-surface furniture, four-leg silhouette
+  - bed-being (cap 1+1) — sleeping-platform, headboard + mattress flavor
+  - couch / sofa-being (cap 1+1) — multi-seat upholstered cushion creature
+  - bookshelf / shelf-being (cap 1+1) — vertical-stack storage furniture *(FURNITURE-domain per user pick, not CONTAINER)*
+
+---
+
+## ANATOMY
+
+Anatomical body-part object-as-being — discrete organ or body-part given creature-scale, with the part embodied as a standalone entity. Distinct from MAMMALS / BIRDS / REPTILES / etc. (whole-creature framing vs. part-as-creature; the parent-creature's own organs are not duplicated here), from GAME-PIECE (heart-suit-glyph already there as the suit-symbol — distinct from anatomical heart-organ which is not currently in ANATOMY; phantom-reference removed 2026-05-15 per N28 dedup), from MYTHICAL CREATURES (skeleton-warrior + lich + mummy live there as undead-spirit beings; an inert anatomical skeleton-being would be ANATOMY-domain — not picked this batch but noted), from STATUE (figurative-sculpture-of-anatomy = STATUE; live-animate-organ = ANATOMY), and from CRYSTALLINE / GEM (no overlap). Cross-section notes: fingerprint / DNA-strand-being adjacent candidates not picked. *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Discrete organs**
+  - brain-being (cap 1+1) — convoluted gray-matter organ creature
+  - eyeball-being (cap 1+1) — sclera + iris + pupil sphere
+  - tongue-being (cap 1+1) — pink muscle-creature, taste-bud surface
+  - lung-being (cap 1+1) — paired breathing organ *(SYMBIOSIS-adjacent paired framing)* *(retro-added 2026-05-15 from brainstorm-batch-3 picks)*
+
+- **Cellular / molecular**
+  - DNA-strand-being (cap 1+1) — double-helix genetic material *(retro-added 2026-05-15 from brainstorm-batch-3 picks; opens sub-group for future cellular/molecular candidates)*
+  - neuron / brain-cell-being (cap 1+1) — single nerve-cell with dendrites and axon *(retro-added 2026-05-15 from brainstorm-batch-3 picks)*
+
+---
+
+## SYMBOLS & GLYPHS
+
+Symbolic / glyphic concept-as-being — abstract symbol (mathematical, geometric, linguistic, or script-glyph) given creature-scale, with the symbolic meaning intrinsic to the form. Distinct from CRYSTALLINE / GEM (physical-crystal-cube-shape stays CRYSTALLINE-side; SYMBOLS & GLYPHS cube-being = abstract-geometric-form), from INSTRUMENTS (triangle-being would be the metal-rod chime instrument candidate — not landed; SYMBOLS & GLYPHS would treat the geometric triangle as a separate-form-concept, not picked here), from VOID / COSMIC / ABSTRACT (`glyph / sigil-being` already there as abstract-symbol; SYMBOLS & GLYPHS = specific real-world symbols / script-glyphs given concrete form — silence / chaos / order / duality stay VOID-abstract), and from RELIGIOUS/SPIRITUAL (sacred symbols like ankh / yin-yang / cross live there as ritual-glyphs; SYMBOLS & GLYPHS = secular geometric / numerical / script). Cross-section notes: combined 2026-05-15 from former separate MATHEMATICS + WRITING/SYMBOLS/LANGUAGE clusters (2-entry + 2-entry → 4-entry consolidation). Adjacent candidates not picked: number-digit-being, plus-sign / equals-sign / pi-symbol-being, letter-of-alphabet-being, word-being, punctuation-being, emoji-being. *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent. No per-entry silhouettes — open for appearance-design phase.*
+
+- **Geometric / numerical forms**
+  - cube-being (cap 1+1) — six-faced solid geometric form, regular-polyhedron flavor
+  - infinity-symbol-being (cap 1+1) — ∞ glyph creature, looped-figure-eight flavor
+
+- **Ancient script-glyphs**
+  - hieroglyph-being (cap 1+1) — Egyptian pictographic script-glyph
+  - rune-being (cap 1+1) — Norse / runic angular script-glyph
+
+---
+
+## FOOD & DRINK
+
+Consumable / ingestible object-as-being — sweet treat or liquid refreshment given creature-scale, the food-or-drink form intrinsic to the entity. Distinct from PLANTS/FLORA (sugar-cane / cocoa-plant / tea-leaf stay PLANTS-side; FOOD & DRINK = the processed product), from CONTAINER (wine-glass / goblet / chalice / jar / candy-jar live there as vessels-only; FOOD & DRINK = the consumable-and-vessel unit), from PERFUME (food-aroma / candy-aroma / coffee-aroma / tea-aroma are scent-emissions in PERFUME; FOOD & DRINK = the physical consumable), and from any future-potential expansion (FOOD & DRINK currently covers sweet treats + beverages; savory main-meal items could join later via densification). Cross-section notes: combined 2026-05-15 from former separate CANDY/SWEETS + DRINKS/BEVERAGES clusters (3-entry + 2-entry → 5-entry consolidation). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Sweet treats**
+  - lollipop-being (cap 1+1) — spiral candy on stick, wrapper-and-stem flavor
+  - chocolate-bar-being (cap 1+1) — segmented brown candy bar
+  - donut / doughnut-being (cap 1+1) — ring-shaped fried pastry, glazed flavor
+
+- **Beverages**
+  - tea-cup-being (cap 1+1) — china-cup of steaming tea with saucer
+  - soda / soft-drink-can-being (cap 1+1) — aluminum can with straw, fizzy carbonated flavor
+
+---
+
+## DANCE / MOVEMENT
+
+Dance-style humanoid-creature-as-being — performance / ritual dance embodied as a dancer-creature, with the dance-style intrinsic to the form. **Humanoid framing per user call** (creatures based around the dance, not abstract pose-essences) — invokes session-notes key framing decision #7 for abstract / role-based concepts. Humanoid framing precedent: MYTHICAL's humanoid-wraith / lich / banshee; UNIQUE's divine-messenger. Distinct from MYTHICAL CREATURES (mystical-humanoid-spirits there; DANCE = secular performance-humanoid), from INSTRUMENTS (musician-creatures would be different — INSTRUMENTS covers the apparatus, DANCE covers the dancer), and from SYMBIOSIS (tango-pair is paired-dancer SYMBIOSIS-adjacent but DANCE-domain). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Dance-style creatures**
+  - ballet-dancer-being (cap 1+1) — pointe-shoe-clad graceful dancer, tutu + tiara flavor
+  - tango-pair-being (cap 1+1) — paired Latin dance partners, SYMBIOSIS-adjacent paired framing
+  - breakdancer / b-boy-being (cap 1+1) — street-dance acrobatic humanoid, urban-style flavor
+  - kabuki-dancer-being (cap 1+1) — Japanese stylized theater performer, mask + ornate-robe flavor
+
+---
+
+## CAREERS / PROFESSIONS
+
+Profession humanoid-creature-as-being — occupation embodied as a creature, with the profession's iconic gear / role intrinsic to the form. **Humanoid framing per user call** (creatures based around the careers, not iconic-item objects) — invokes session-notes key framing decision #7 for abstract / role-based concepts. Humanoid framing precedent: MYTHICAL's humanoid-wraith / lich / banshee; UNIQUE's divine-messenger; DANCE/MOVEMENT cluster (just-landed). Distinct from MYTHICAL CREATURES (mystical-humanoid-spirits; CAREERS = secular real-world occupations), from THREAD/CLOTH (clothing-as-garment vs. wearer-as-creature here), and from TOOL/APPLIANCE (gavel = TOOL-candidate, spacesuit = THREAD-candidate; CAREERS = the practitioner embodied with their iconic gear as flavor, not the gear itself). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Modern professionals**
+  - judge-being (cap 1+1) — robed humanoid judge with gavel, court-bench flavor
+  - chef-being (cap 1+1) — toque-and-apron culinary humanoid
+  - doctor-being (cap 1+1) — white-coat + stethoscope medical humanoid
+  - firefighter-being (cap 1+1) — turnout-gear + helmet rescue humanoid
+  - police-officer-being (cap 1+1) — uniformed + badged law-enforcer humanoid
+  - scientist-being (cap 1+1) — lab-coat + beaker + glasses researcher humanoid
+  - miner-being (cap 1+1) — pickaxe + lantern + hard-hat underground-worker humanoid
+  - astronaut-being (cap 1+1) — spacesuit-clad humanoid astronaut, helmet + life-support flavor
+  - artist / painter-being (cap 1+1) — palette + brush + beret creator humanoid
+  - musician-being (cap 1+1) — instrument-of-choice player humanoid
+
+- **Warrior / historical**
+  - knight-being (cap 1+1) — medieval plate-armor + sword humanoid
+  - samurai-being (cap 1+1) — Japanese katana-bearing armored warrior humanoid
+  - ninja-being (cap 1+1) — black-clad stealth operative humanoid
+  - viking-being (cap 1+1) — horned-helmet + axe Nordic raider humanoid
+  - gladiator-being (cap 1+1) — Roman arena fighter humanoid, net + trident or sword + shield
+  - pharaoh-being (cap 1+1) — Egyptian ruler humanoid, nemes-headdress + crook + flail
+  - archer-being (cap 1+1) — bow + quiver hunter / warrior humanoid *(distinct from SPORTS archer if added — CAREERS = warrior/hunter profession, SPORTS = competitive target-archer)*
+
+- **Spiritual / contemplative**
+  - monk-being (cap 1+1) — robed contemplative religious-practitioner humanoid
+
+---
+
+## RELIGIOUS / SPIRITUAL
+
+Sacred symbol / ritual-item object-as-being — religious or spiritual artifact / glyph given creature-scale, with the sacred meaning intrinsic to the form. Distinct from MYTHICAL CREATURES (mythical beings live there — including the Arcana / divination sub-section for tarot; RELIGIOUS = secular ritual-objects / glyphs given creature-scale, not mythical entities themselves), from STATUE (crucifix-being already deferred to STATUE; RELIGIOUS = the symbol-glyph or ritual-implement, not the figurative sculpture), from JEWELRY (rosary borderline as wearable-beads but treated as ritual-implement first here), from VOID/COSMIC/ABSTRACT (**duality-being already there** as abstract light/dark concept; **yin-yang-being judged RELIGIOUS-domain per user pick** as the specific Taoist symbol/concept, distinct from abstract duality), and from CONTAINER (menorah holds candles but the framing is religious-implement, not vessel). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Sacred symbols / ritual items**
+  - crescent-moon-and-star-being (cap 1+1) — Islamic symbol
+  - ankh-being (cap 1+1) — Egyptian life symbol
+  - menorah / candelabra-being (cap 1+1) — multi-branched candle holder (Jewish)
+  - yin-yang-being (cap 1+1) — Taoist duality symbol *(RELIGIOUS-domain per user pick; distinct from VOID/COSMIC/ABSTRACT duality-being which is the abstract concept)*
+
+---
+
+## MEDICAL
+
+Medical / surgical / healthcare object-as-being — clinical tool, surgical implement, or medical-equipment given creature-scale, with the medical-purpose intrinsic to the form. Distinct from TOOL (handheld working-implement; scalpel borderline — convention: medical-specific = MEDICAL-domain), from APPLIANCE (powered medical-device borderline — **defibrillator / AED judged MEDICAL-domain per user pick** rather than APPLIANCE), from VEHICLE (mobility-platform borderline — **wheelchair judged MEDICAL-domain per user pick** rather than VEHICLE-side, medical-mobility-aid framing wins over passenger-carrying-vehicle framing), from THREAD/CLOTH (surgical-mask candidate would be borderline-THREAD; medical-context wins if added), and from UNIQUE/ONE-OF-A-KIND (operating-room-light not duplicated with lantern-creature). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Surgical tools**
+  - scalpel-being (cap 1+1) — surgical blade, precision-cutting flavor
+  - suture / surgical-thread-being (cap 1+1) — medical stitching thread with curved-needle pair
+  - syringe-being (cap 1+1) — needle injection device, plunger-and-barrel flavor
+
+- **Medical equipment**
+  - IV-bag / drip-being (cap 1+1) — intravenous fluid bag with line and drip-chamber
+  - bandage / gauze-being (cap 1+1) — wound-dressing wrap, white-cloth-spool flavor
+  - defibrillator / AED-being (cap 1+1) — emergency cardiac device with paddle-pair *(MEDICAL-domain per user pick, not APPLIANCE)*
+  - wheelchair-being (cap 1+1) — wheeled personal mobility chair *(MEDICAL-domain per user pick, not VEHICLE-side; medical-mobility-aid framing wins)*
+
+---
+
+## MOON PHASES
+
+Lunar-phase celestial-object-as-being — specific moon-phase given creature-scale, the moon-disc itself in a particular phase-state. Distinct from COSMOLOGICAL/ENERGY (starlight + nebula-galaxy = celestial-substance; MOON PHASES = specific moon-phase as transient celestial-event), from WEATHER/ATMOSPHERIC (atmospheric phenomena there; MOON = solar-system celestial), from SHADOW-CAST (eclipse-shadows there are the cast-shadow phenomenon; MOON PHASES = the moon-disc itself, not the cast-shadow), and from NATURAL-DISASTER (no overlap). Cross-section notes: blood-moon-being = the lunar-eclipse-tinted moon-disc (distinct from SHADOW-CAST lunar-eclipse-shadow which is the earth's shadow on the moon-surface — same astronomical event but different framings: SHADOW-CAST sees the shadow, MOON PHASES sees the moon). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Lunar phases**
+  - new-moon-being (cap 1+1) — invisible-disc / dark-shadow phase, hidden-moon flavor
+  - first-quarter-being (cap 1+1) — half-moon right-side-lit phase
+  - full-moon-being (cap 1+1) — complete bright-disc moon
+  - blood-moon-being (cap 1+1) — lunar-eclipse red-tinted moon
+  - harvest-moon-being (cap 1+1) — autumn full-moon orange-tinted, low-horizon flavor
+
+---
+
+## SPORTS
+
+Sport-athlete or competition-equipment given creature-scale. **Humanoid framing per key framing decision #7** for athlete entries (sport practitioners embodying their discipline with iconic gear / pose); equipment entries use object-as-being framing. Distinct from CAREERS/PROFESSIONS (competitive-sport vs. career-profession framing — though there's overlap-by-design for archer-being which appears in both as a profession-warrior in CAREERS; SPORTS-archer would be the competitive-target archer), from TOY (play-object vs. competitive-sport-equipment), from DANCE/MOVEMENT (artistic performance vs. competitive athleticism), and from MEDICAL (no overlap; sport vs. healthcare). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Sport athletes** (humanoid per #7)
+  - boxer-being (cap 1+1) — gloved fighter, ring stance
+  - swimmer-being (cap 1+1) — cap + goggles aquatic athlete
+  - runner / sprinter-being (cap 1+1) — track-uniform speed-athlete
+  - gymnast-being (cap 1+1) — leotard + grace acrobatic athlete
+  - skier-being (cap 1+1) — poles + goggles + snowsuit
+  - surfer-being (cap 1+1) — board + wetsuit + tropical-coastal flavor
+  - race-car-driver / Formula-1-being (cap 1+1) — fire-suit + helmet motorsport athlete
+
+- **Sport equipment**
+  - boxing-gloves-being (cap 1+1) — paired puffy gloves *(SYMBIOSIS-adjacent paired framing)*
+
+---
+
+## VIRTUES / VICES / ABSTRACTS
+
+Abstract concept humanoid-creature-as-being — abstract concept (moral / philosophical / emotional) embodied as a humanoid creature, with the concept's iconic flavor intrinsic to the form. **Humanoid framing per key framing decision #7.** Distinct from VOID/COSMIC/ABSTRACT (existing cluster has formless-cosmic-abstract entries like void-being / silence-being / chaos-being / order-being / duality-being — convention: formless-cosmic = VOID, humanoid-embodied = VIRTUES/VICES/ABSTRACTS), from MYTHICAL CREATURES (mystical-spirit-beings; ABSTRACTS = personified abstract-concepts not from mythology), from RELIGIOUS/SPIRITUAL (faith-being borderline — humanoid-abstract-personification framing wins; cross-section noted in RELIGIOUS intro), and from CAREERS/PROFESSIONS (**justice-being judged ABSTRACTS-domain per user pick** as personified-virtue, distinct from CAREERS judge-being which is the profession). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Seven deadly sins**
+  - pride-being (cap 1+1) — peacock-flanked vain humanoid
+  - greed-being (cap 1+1) — gold-clutching avaricious humanoid
+  - wrath-being (cap 1+1) — flame-wreathed fury humanoid
+  - envy-being (cap 1+1) — green-tinted covetous humanoid
+  - lust-being (cap 1+1) — temptation-cloaked humanoid
+  - gluttony-being (cap 1+1) — gorged-bloated humanoid
+  - sloth-being (cap 1+1) — sluggish-recumbent humanoid
+
+- **Seven virtues**
+  - prudence-being (cap 1+1) — wise-counselor humanoid
+  - justice-being (cap 1+1) — scale + sword blindfolded humanoid *(ABSTRACTS-domain per user pick, distinct from CAREERS judge-being which is the profession)*
+  - fortitude-being (cap 1+1) — pillar-strong unyielding humanoid
+  - temperance-being (cap 1+1) — balanced moderation humanoid
+  - faith-being (cap 1+1) — cross-bearing devout humanoid *(borderline RELIGIOUS/SPIRITUAL but ABSTRACTS-domain per user pick)*
+  - hope-being (cap 1+1) — anchor-bearing humanoid
+  - charity-being (cap 1+1) — giving-handed humanoid
+
+- **Other personifications**
+  - love-being / cupid (cap 1+1) — winged-with-bow humanoid abstract
+  - luck / fortune-being (cap 1+1) — four-leaf-clover-adorned humanoid
+  - karma-being (cap 1+1) — wheel-bearing humanoid, cause-and-effect flavor
+  - boredom-being (cap 1+1) — slumped lethargic humanoid
+  - curiosity-being (cap 1+1) — wide-eyed exploring humanoid
+
+---
+
+## ZODIAC
+
+Zodiac-sign celestial-archetype creature-as-being — astrological sign embodied as the iconic creature-form, with the sign's mythological / symbolic flavor intrinsic to the form. **Humanoid + hybrid-creature framing per key framing decision #7** (some humanoid like aquarius / virgo, some hybrid-creature like centaur / capricorn, some pure-creature like lion / scorpion). Distinct from COSMOLOGICAL/ENERGY (astronomical-substance like starlight / nebula; ZODIAC = astrological-archetype creature-form), from MYTHICAL CREATURES (some signs overlap mythical-creature-archetypes like centaur — convention: zodiac-identified = ZODIAC, generic-mythical-creature = MYTHICAL), and from MOON PHASES (lunar-phase celestial vs. zodiac-astrological celestial). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Zodiac signs**
+  - aries-ram-being (cap 1+1) — ram-headed humanoid, fire-sign warrior flavor
+  - taurus-bull-being (cap 1+1) — bull-headed humanoid, earth-sign grounded flavor
+  - gemini-twin-being (cap 1+1) — paired twin humanoids *(SYMBIOSIS-adjacent paired framing)*, air-sign duality flavor
+  - cancer-crab-being (cap 1+1) — crab-humanoid hybrid, water-sign nurturing flavor
+  - leo-lion-being (cap 1+1) — lion-headed humanoid, fire-sign regal flavor
+  - virgo-maiden-being (cap 1+1) — humanoid maiden with wheat-stalk, earth-sign harvest flavor
+  - libra-scales-being (cap 1+1) — humanoid bearing balance-scales, air-sign justice flavor
+  - scorpio-scorpion-being (cap 1+1) — scorpion-humanoid hybrid, water-sign intense flavor
+  - sagittarius-centaur-being (cap 1+1) — half-human-half-horse archer, fire-sign questing flavor
+  - capricorn-goat-being (cap 1+1) — goat-fish hybrid (sea-goat), earth-sign ambition flavor
+  - aquarius-water-bearer-being (cap 1+1) — humanoid pouring water-vessel, air-sign visionary flavor
+  - pisces-fish-being (cap 1+1) — paired fish *(SYMBIOSIS-adjacent paired framing)*, water-sign intuitive flavor
+
+---
+
+## MISSING SENSES
+
+Sensory-absence humanoid-creature-as-being — creature defined by lacking one specific sense, with the sensory-void as the defining feature and adapted compensations (heightened other senses, alternative navigation, etc.) implicit in the design. **Humanoid framing per key framing decision #7.** Distinct from VOID/COSMIC/ABSTRACT (silence-being = abstract absence-of-sound; MISSING SENSES = humanoid creatures lacking individual senses), from ANATOMY (anatomical sensory organs like eyeball / tongue as creatures; MISSING SENSES = humanoid embodiment of the lack-thereof), and from MYTHICAL CREATURES (no overlap; mystical-spirit-beings vs. sensory-deprivation humanoids). *Phase 1 extension batch (post-roadmap-closure). Creature framing per Duraludon precedent.*
+
+- **Sense-deprived humanoids**
+  - sightless-being (cap 1+1) — humanoid creature lacking sight, blindfolded or empty-socket flavor; navigates by echolocation / touch
+  - soundless-being (cap 1+1) — humanoid creature lacking hearing, ear-stoppered or absent-ear flavor; communicates via gesture / vibration
+  - tasteless-being (cap 1+1) — humanoid creature lacking taste, sealed-mouth or veiled-tongue flavor
+  - numb-being (cap 1+1) — humanoid creature lacking touch, hardened-skin or insensate-body flavor
+  - scentless-being (cap 1+1) — humanoid creature lacking smell, covered-nose or absent-nose flavor
 
 ---
 
@@ -1537,7 +1819,6 @@ Atmospheric phenomenon-as-being — weather event or sky/air manifestation given
 - **prime-dragon**
 - **purity-dragon**
 - **swarm-dragon**
-- **stone-dragon**
 - **eastern-dragon / long / 龍**
 - **bone-dragon / skeletal-dragon**
 - **moon-dragon / lunar-dragon**
@@ -1566,7 +1847,6 @@ Atmospheric phenomenon-as-being — weather event or sky/air manifestation given
 
 ### Wraiths / ghosts / undead
 - **humanoid-wraith** (cap 1+1)
-- **spectral-leviathan** (cap 1+1)
 - **mountain-spirit** (cap 1+1)
 - **banshee** (cap 1+1)
 - **shade** (cap 1+1)
@@ -1578,7 +1858,6 @@ Atmospheric phenomenon-as-being — weather event or sky/air manifestation given
 - **poltergeist** (cap 1+1) — noise-throwing mischief-ghost; object-mover
 
 ### Golems / constructs
-- **stone-golem** (cap 1+1)
 - **metal-golem** (cap 1+1)
 - **clay-golem** (cap 1+1)
 - **forge-spirit / smith-construct** (cap 1+1)
@@ -1615,11 +1894,10 @@ Atmospheric phenomenon-as-being — weather event or sky/air manifestation given
 - **sea-fairy queen** (cap 1+1)
 - **merman** (cap 1+1) — male merfolk counterpart; distinct from mermaid/siren grouped slot
 - **scylla** (cap 1+1) — Greek six-headed cliff-monster (paired with charybdis)
+- **kelpie** (cap 1+1) — Scottish water-horse spirit, drowns riders; shifts between horse-form and humanoid *(moved here from MAMMALS mythical-equid 2026-05-15 per N37 — water-spirit framing wins over equine-form)*
 
 ### East Asian mythical
-- **kitsune** (cap 1+1) — Japanese fox-spirit
-- **tanuki** (cap 1+1) — Japanese raccoon-dog spirit
-- **bakeneko** (cap 1+1) — cat-spirit
+- **tanuki** (cap 1+1) — Japanese raccoon-dog spirit *(kitsune + nine-tailed-fox / kyūbi moved to MAMMALS Canids folkloric-canid sub 2026-05-15 per N22 consolidation; bakeneko moved to MAMMALS Felids folkloric-cat sub per N23. Tanuki stays here — raccoon-dog is biologically distinct from fox and not currently in MAMMALS Canids fox sub-cluster.)*
 - **oni** (cap 1+1) — ogre/demon
 - **yokai** (subs each cap 1+1) — general supernatural
   - tengu
@@ -1627,7 +1905,6 @@ Atmospheric phenomenon-as-being — weather event or sky/air manifestation given
   - nurikabe
 - **kirin / qilin** (cap 1+1) — Chinese unicorn-dragon
 - **foo-dog / shisa** (cap 1+1) — lion-guardian
-- **nine-tailed-fox / kyūbi** (cap 1+1) — distinct from kitsune base (most powerful kitsune form)
 
 ### Slavic mythical
 - **leshy** (cap 1+1) — forest-spirit (already claimed by Morralyn line)
@@ -1650,12 +1927,13 @@ Atmospheric phenomenon-as-being — weather event or sky/air manifestation given
 - **cyclops** (cap 1+1)
 - **titan** (cap 1+1) — primordial
 - **typhon** (cap 1+1) — primordial storm-titan
+- **atlas** (cap 1+1) — primordial Titan condemned to bear the celestial sphere on his shoulders, muscular world-bearer figure *(landed 2026-05-15 — absorbed from former STATUE deferral per cross-cluster pending-review resolution; titan-form lands here distinct from generic `titan` which represents the broader primordial-Titan archetype)*
 - **lamia** (cap 1+1) — serpent-woman
 
 ### Arcana / divination / fortune-telling
 *Western occult / Renaissance-Hermetic divinatory archetypes given creature-form. Tarot Major Arcana iconography is source-material. Sun / Moon / Star Major Arcana intentionally NOT included — `solar-being`, `lunar-being`, `stellar-being` in COSMOLOGICAL/ENERGY already claim those celestial-spirit slots. Death and Devil Major Arcana also skipped to avoid duplication with wraiths/undead and demon/devil entries. Chariot Major Arcana already claimed by VEHICLE `chariot-being`.*
 
-- **fool-arcana-being** (cap 1+1) — wandering jester-figure at cliff-edge with small-dog companion
+- **fool-arcana-being** (cap 1+1) — wandering jester-figure at cliff-edge with small-dog companion *(pre-emptive cross-flag M5 2026-05-15: distinct from any future CAREERS/PROFESSIONS `jester-being` if added — fool-arcana = Tarot Major Arcana 0 specific iconography (cliff-edge + dog companion), jester = generic court-fool / clown profession)*
 - **magician-arcana-being** (cap 1+1) — robed conjuror with infinity-halo, four-suit-tools arranged on altar (wand, cup, sword, pentacle)
 - **high-priestess-arcana-being** (cap 1+1) — moon-crowned veiled-seeress seated between black-and-white pillars
 - **fortune-teller-being** (cap 1+1) — head-scarfed crystal-ball gazer, ringed-fingers spread above the orb
@@ -1686,7 +1964,10 @@ Atmospheric phenomenon-as-being — weather event or sky/air manifestation given
 - **ifrit** (cap 1+1) — Arabic fire-spirit
 - **seraph** (cap 1+1) — six-winged angel (highest-rank); distinct from generic angel
 - **nephilim** (cap 1+1) — giant fallen-angel hybrid offspring
+- **prophet-being / oracle-prophet** (cap 1+1) — robed visionary humanoid with divine-inspiration flavor, scroll or staff vestige, halo / aureole crowning the head, prophetic-trance posture *(distinct from `angel` which is the celestial-being-as-such; distinct from MYTHICAL Arcana `pythia-seer-being` which is the Delphic-oracle specific; prophet-being = the more general divine-revelation messenger archetype; added 2026-05-15 per A11 Option A — captures divine-flavor that was removed from UNIQUE `divine-messenger` reframe)*
 - **owlman** (cap 1+1) — Cornwall cryptid; winged humanoid with owl features
+- **cauldron-being** (cap 1+1) — black cast-iron witch-cauldron on three legs, bubbling brew, mystical-brewing flavor *(landed 2026-05-15 — absorbed from former CONTAINER deferral per cross-cluster pending-review resolution; witch-iconography mystical-vessel)*
+- **magic-wand-being** (cap 1+1) — mystical implement, star-tipped or crystal-tipped wood-stave, sparkles-trailing spell-casting flavor *(landed 2026-05-15 — absorbed from former TOOL deferral per cross-cluster pending-review resolution; distinct from MYTHICAL Arcana `magician-arcana-being` who holds a wand among other tools — magic-wand-being is the wand-itself-as-creature)*
 
 ---
 
@@ -1738,22 +2019,19 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 - **heatwave** (cap 1+1) — climate-scale extreme heat; opposite of blizzard
 - **supernova** (cap 1+1) — stellar-explosion disaster
 - **solar-flare / coronal-mass-ejection** (cap 1+1) — geomagnetic storm
-- **plague / pandemic** (cap 1+1) — biological disaster
+*(plague / pandemic dropped from NATURAL-DISASTER 2026-05-15 per N15 dedup — kept MYTHICAL Dragons' plague-dragon as the canonical plague-domain entry.)*
 
 ---
 
 ## VOID / COSMIC / ABSTRACT
 
 - **void-being** (cap 1+1) — formless darkness
-- **starlight-cosmic-being** (cap 1+1)
-- **nebula-galaxy-cosmic-being** (cap 1+1)
 - **time-being** (cap 1+1) — chronological
 - **duality-being** (cap 1+1) — light/dark, etc.
 - **color-shifting / iridescent** (cap 1+1)
-- **prismatic / rainbow** (cap 1+1)
-- **shapeshifter / mimic / form-shifter** (cap 1+1)
+- **prismatic / rainbow** (cap 1+1) — abstract color-spectrum form; distinct from WEATHER `rainbow-being` (atmospheric post-rain arc)
 - **mirror / reflection-being** (cap 1+1)
-- **dream-being / nightmare-being** (cap 1+1)
+- **dream-being / nightmare-being** (cap 1+1) — abstract dream-state form; distinct from MYTHICAL Wisps `dream-wisp / dream-entity` (spirit-form) and MAMMALS `nightmare` sub of `mythical-equid` (horse-form)
 - **memory-being / forgotten-spirit** (cap 1+1)
 - **echo-being** (cap 1+1) — sound-based, fades and resurfaces
 - **glyph / sigil-being** (cap 1+1) — written-symbol given form
@@ -1766,27 +2044,18 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 
 ## UNIQUE / ONE-OF-A-KIND
 
-- **divine-messenger** (cap 1+1) — winged / angelic-flavored
+- **divine-messenger** (cap 1+1) — winged courier / emissary-figure, scroll-bearer or summons-deliverer flavor *(distinct from MYTHICAL `angel`: divine-messenger emphasizes the messenger-role / quest-arc; angel is the celestial-being-as-such — A11 dedup 2026-05-15)*
 - **observatory-being / watcher** (cap 1+1)
-- **weapon-creature** (subs each cap 1+1)
-  - sword-blade-creature
-  - bow-arrow-creature
-  - lance-spear-creature
-  - hammer-mace-creature
-  - axe-creature
+- **weapon-creature** (subs each cap 1+1) — *(reduced 2026-05-15 from 10 subs to 4 — A6 dedup: 6 sub-types duplicating TOOL Weapons dropped: sword-blade, bow-arrow, lance-spear, hammer-mace, axe, dagger — see TOOL Weapons + Hand-tools sub-groups for those)*
   - scythe-creature
   - shield-creature
-  - dagger-creature
   - gauntlet-creature
   - whip-creature
 - **mountain-walking** (cap 1+1) — literal walking-mountain
-- **volcano-vent-creature** (cap 1+1)
 - **corrupted-flower / plant-humanoid** (cap 1+1)
-- **chimeric-composite** (cap 1+1) — multi-animal hybrid
+- **patchwork-composite** (cap 1+1) — stitched-together multi-animal hybrid, frankenstein-flavor *(renamed from `chimeric-composite` 2026-05-15 — A9 dedup, disambiguates from MYTHICAL `chimera` (lion+goat+snake) which is the specific Greek-myth)*
 - **hourglass-being** (cap 1+1) — time-counting vessel
-- **card-dice-fate-game-creature** (cap 1+1) — gambling/probability flavor
-- **instrument-creature** (cap 1+1) — music made manifest (flute, harp, drum)
-- **painted-canvas / mural-being** (cap 1+1) — art that escapes the frame
+- **painted-canvas-being** (cap 1+1) — art that escapes the frame *(renamed from `painted-canvas / mural-being` 2026-05-15 — A8 dedup, removes name-collision with INK/PIGMENT `mural-being` which is the full-wall narrative-painting form)*
 - **book-creature / tome-being** (cap 1+1) — sentient grimoire; knowledge given form, page-rustling
 - **lantern-creature / lamp-being** (cap 1+1) — light-source given form; flame-vessel
 - **door-creature / portal-being** (cap 1+1) — gateway given form; can lead anywhere
@@ -1814,6 +2083,7 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 - **salt-crystal-being** (cap 1+1) — saline, distinct from gem
 - **amber-being / fossilized-resin-being** (cap 1+1) — organic fossil; time-frozen-creature inside, distinct from mineral gems
 - **stalactite-stalagmite-being** (cap 1+1) — drip-formation cave-creature; mineral-built-by-water
+- **crystal-ball / orb-being** (cap 1+1) — solid-sphere divination-orb, polished-crystal fortune-teller flavor *(landed 2026-05-16 from BUBBLE cross-cluster routing per sweep pass 6 — solid-not-hollow framing distinguishes from BUBBLE's hollow-film-bubbles)*
 
 ---
 
@@ -1822,14 +2092,12 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 - **solar-being / sun-spirit** (cap 1+1)
 - **lunar-being / moon-spirit** (cap 1+1)
 - **stellar-being / star-spirit** (cap 1+1)
-- **aurora-being** (cap 1+1) — northern-lights
 - **nebula-being** (cap 1+1)
-- **comet-being** (cap 1+1)
-- **eclipse-being** (cap 1+1)
+- **comet-being** (cap 1+1) — icy-nucleus + long-trailing-tail traveling celestial, tail-points-away-from-sun flavor *(descriptor enhanced 2026-05-15 from brainstorm-batch-3 pick #110)*
 - **black-hole-being** (cap 1+1) — extreme gravity, light-eater; cosmic apex-predator flavor
 - **constellation-being / zodiac-being** (cap 1+1) — pattern of stars given form; mythological
 - **planet-being / planetoid-being** (cap 1+1) — single celestial body embodied
-- **asteroid-being / asteroid-belt-being** (cap 1+1) — rocky-cosmic; distinct from comet-being
+- **asteroid-being / asteroid-belt-being** (cap 1+1) — irregular-rocky space-debris, scarred-and-pitted surface; distinct from comet-being *(descriptor enhanced 2026-05-15 from brainstorm-batch-3 pick #111)*
 
 ---
 

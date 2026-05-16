@@ -2320,12 +2320,12 @@ const MONSTERS_DATA = {
     desc:"A bee-like stinger creature with a massive venomous barb. Builds hives from toxic resin.",
     lore:"Stinglet is a small bug-poison bee 8 cm long with a bright yellow-and-black striped abdomen. Its stinger contains a venom that causes localised swelling and intense pain. It is fiercely territorial around its nest and coordinates with colony-mates using chemical signals to perform coordinated defence responses." },
 
-  300: { id:300, name:"Nettleclaw", emoji:"🦂", types:["Bug","Poison"],
+  300: { id:300, name:"Nettleclaw", emoji:"🐝", types:["Bug","Poison"],
     base:{hp:80,atk:105,def:80,spa:88,spd:80,spe:95},
     learnset:[[1,"x_scissor"],[1,"venom_lance"],[22,"toxic"],[30,"venoshock"],[38,"sludge_bomb"],[46,"bug_buzz"],[54,"sludge_wave"],[62,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:218, rarity:"uncommon",
-    desc:"A scorpion-bug hybrid of lethal venom. Its claws inject a toxin that dissolves steel over time.",
-    lore:"Nettleclaw is a large bug-poison scorpion-bee hybrid 25 cm long with a bee-striped yellow and black body and a scorpion-like tail in addition to its bee-stinger. It is solitary and aggressive, marking territory with scent-trails that it defends vigorously against any trespasser regardless of size." },
+    desc:"A great venom-bee with an elongated stinger-tail. The whip-stinger arches scorpion-like over its back but is true bee anatomy, parallel-evolved from the standard sting.",
+    lore:"Nettleclaw is a large bug-poison bee 25 cm long with a bee-striped yellow-and-black body, four membranous wings, and an elongated segmented stinger-tail that arches scorpion-like over its back. The whip-stinger is parallel-evolved from the bee's standard sting, not arachnid heritage. It is solitary and aggressive — unusual for Hymenoptera — marking territory with scent-trails that it defends vigorously against any trespasser regardless of size." },
 
   // Standalone Fire/Ghost: Emberveil
   301: { id:301, name:"Emberveil", emoji:"🔥", types:["Fire","Dark"],

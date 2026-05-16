@@ -528,6 +528,17 @@ After every coherence fix, type adjustment, and rename is committed, do a final 
 
 **Run order:** BREAKING fixes → MINOR fixes → typing audit → archetype trim → renaming queue → **stat spread review (this section, last)**.
 
+# 🧬 Abilities feature (or similar legal-safe name) — RUN AFTER STAT REVIEW
+
+Add a per-Lumori passive-ability system. Feature name must avoid legal risk (Pokémon's "Abilities" trademark) — candidate alternates: Traits / Aptitudes / Quirks / Knacks / Innate / Talents (final naming TBD).
+
+- [ ] Pick a non-infringing feature name
+- [ ] Design system scope (ability-pool size, per-creature count, hidden-ability slot)
+- [ ] Curate ability list (passive battle effects, stat modifiers, type resistances, weather triggers, etc.)
+- [ ] Assign abilities per Lumori (cross-reference body-plan + archetype)
+- [ ] Integrate into battle engine + UI (team detail, battle log)
+- [ ] Migration logic for existing saves
+
 ---
 
 ## How to resume in a new session

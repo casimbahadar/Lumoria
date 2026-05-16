@@ -1746,7 +1746,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle"],[1,"confusion"],[14,"psybeam"],[22,"fairy_wind"],[30,"moonblast"],[40,"psychic_move"],[50,"hyper_beam"]],
     evolveTo:227, evolveLevel:null, evolveItem:"firestone", evolveMethod:"item", catchRate:140, expYield:88, rarity:"common",
     desc:"A prism-shaped creature full of untapped potential. Exposure to different energies changes its form entirely.",
-    lore:"Spectroo is a normal-psychic creature 40 cm long resembling a kangaroo made of translucent white light. Its pouch holds concentrated psychic energy. It hops through open fields and its presence makes detailed hallucinations of past events visible in the area — a form of psychic archaeology." },
+    lore:"Spectroo is a normal-psychic creature 40 cm long resembling a kangaroo made of translucent white light. Its pouch holds concentrated psychic energy. It hops through open fields and its presence makes detailed hallucinations of past events visible in the area — a form of psychic archaeology. Spectroo cradle their psychic-pouch with their forelimbs whenever they pause, as if shielding something not yet ready to manifest. By adolescence, individuals from the same litter develop diverging sleeping postures — some tucking toward warmth, others facing the moon, others curling around the pouch like a battery, others spreading under prismatic light — and all become unusually attentive in the presence of evolution-stones at distances where other Lumori show no awareness: early sensitivities to the four stone-bound paths the lineage may take, long before any individual evolves." },
 
   // Spectrace: Fire Stone evolution (Fire/Psychic)
   227: { id:227, name:"Spectrace", emoji:"🔥", types:["Fire","Psychic"],

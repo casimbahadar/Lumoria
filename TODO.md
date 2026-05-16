@@ -56,38 +56,7 @@
 
 ---
 
-# 📋 ACTIVE WORK — Luminex Rename & Coherence Pass
-
-**Working branch:** `claude/complete-task-FkreZ` (PR: https://github.com/casimbahadar/Lumoria/pull/35 — draft)
-
-**Source of truth:** `js/data.js` (`MONSTERS_DATA` block, ~line 828 to end)
-
-**Reference docs:**
-- `rename_lumori.md` — naming rules, cap-2 suffix/prefix avoid lists, midfix rule
-- `scripts/analyze_current.py` — cap-2 validator (run after every rename to confirm no new flags)
-- `scripts/queue_with_pinned.py` — `PINNED_IDS` set for "already-decided" mons (skip during walkthrough)
-
-## Workflow rules
-
-1. Walking ids 7-446 sequentially. **Skip any id in `PINNED_IDS`** (those are already decided).
-2. For each id: present current name, types, emoji, lore summary, flag status, and a recommendation. **Wait for user "keep" or rename instruction before moving on.**
-3. After each rename: validate via `python3 scripts/analyze_current.py` (Total flagged should not increase). Add the new id to `PINNED_IDS`. Commit + push.
-4. When the user provides new lore details, update `desc` and `lore` fields. The `lore` opener should reference the new name, not the old one.
-5. Defer mythical/rare archetype oversaturation (dragon/void/ghost/etc.) for end-of-task discussion.
-
-## Current pinned (already-decided) IDs
-
-`{3, 4, 5, 6, 9, 10, 11, 12, 17, 18, 22, 33, 39, 44, 47, 50, 86, 92, 100, 103, 108, 118, 119, 120, 121, 122, 125, 126, 128, 132, 136, 137, 141, 147, 148, 149, 153, 154, 158, 159, 160, 165, 166, 175, 176, 177, 180, 181, 185, 186, 189, 191, 192, 197, 200, 202, 217, 223, 225, 229, 240, 242, 243, 255, 256, 262, 263, 264}`
-
-## Recently confirmed in this branch
-
-- [x] **#3** Ignaraeth → **Calderaeth** (Fire/Dragon)
-- [x] **#4** Aquilin → **Aquatter** (Water; otter starter)
-- [x] **#5** Nerilis → **Cobaleap** (Water; needs lore body-plan fix — see BREAKING below)
-- [x] **#6** Pelagroth → **Banksnout** (Water/Ground; full retype + lore + Ground learnset for amphibious otter)
-- [x] **#9** Floraith → **Garlawarden** (Grass/Fairy; lore refit to bark-armored reptile)
-- [x] **#11** Helioveth → **Heliocoon** (Fire/Wind; chrysalis lore, defensive stats, 🥚 emoji)
-- [x] **#12** Inferarch (kept name, retyped Fire/Dragon → Fire/Wind, butterfly lore + 🦋 emoji + 5 dragon moves swapped for Wind/Bug)
+# 📋 ACTIVE WORK — Phase 1 Coherence Pass
 
 ## Reference docs
 
@@ -512,6 +481,39 @@ Per user instruction: leave these for late discussion before any consolidation.
 - [ ] **storm-elemental / lightning-vortex** — 5+ families.
 - [ ] **humanoid (non-armoured elemental)** — 6+ families.
 - [ ] **phoenix / solar-bird** — 3-4 families (borderline).
+
+# 🏷️ Luminex Renaming Pass
+
+**Working branch:** `claude/complete-task-FkreZ` (PR: https://github.com/casimbahadar/Lumoria/pull/35 — draft)
+
+**Source of truth:** `js/data.js` (`MONSTERS_DATA` block, ~line 828 to end)
+
+**Reference docs:**
+- `rename_lumori.md` — naming rules, cap-2 suffix/prefix avoid lists, midfix rule
+- `scripts/analyze_current.py` — cap-2 validator (run after every rename to confirm no new flags)
+- `scripts/queue_with_pinned.py` — `PINNED_IDS` set for "already-decided" mons (skip during walkthrough)
+
+## Workflow rules
+
+1. Walking ids 7-446 sequentially. **Skip any id in `PINNED_IDS`** (those are already decided).
+2. For each id: present current name, types, emoji, lore summary, flag status, and a recommendation. **Wait for user "keep" or rename instruction before moving on.**
+3. After each rename: validate via `python3 scripts/analyze_current.py` (Total flagged should not increase). Add the new id to `PINNED_IDS`. Commit + push.
+4. When the user provides new lore details, update `desc` and `lore` fields. The `lore` opener should reference the new name, not the old one.
+5. Defer mythical/rare archetype oversaturation (dragon/void/ghost/etc.) for end-of-task discussion.
+
+## Current pinned (already-decided) IDs
+
+`{3, 4, 5, 6, 9, 10, 11, 12, 17, 18, 22, 33, 39, 44, 47, 50, 86, 92, 100, 103, 108, 118, 119, 120, 121, 122, 125, 126, 128, 132, 136, 137, 141, 147, 148, 149, 153, 154, 158, 159, 160, 165, 166, 175, 176, 177, 180, 181, 185, 186, 189, 191, 192, 197, 200, 202, 217, 223, 225, 229, 240, 242, 243, 255, 256, 262, 263, 264}`
+
+## Recently confirmed in this branch
+
+- [x] **#3** Ignaraeth → **Calderaeth** (Fire/Dragon)
+- [x] **#4** Aquilin → **Aquatter** (Water; otter starter)
+- [x] **#5** Nerilis → **Cobaleap** (Water; needs lore body-plan fix — see BREAKING below)
+- [x] **#6** Pelagroth → **Banksnout** (Water/Ground; full retype + lore + Ground learnset for amphibious otter)
+- [x] **#9** Floraith → **Garlawarden** (Grass/Fairy; lore refit to bark-armored reptile)
+- [x] **#11** Helioveth → **Heliocoon** (Fire/Wind; chrysalis lore, defensive stats, 🥚 emoji)
+- [x] **#12** Inferarch (kept name, retyped Fire/Dragon → Fire/Wind, butterfly lore + 🦋 emoji + 5 dragon moves swapped for Wind/Bug)
 
 # 📊 Final-pass stat spread review — RUN LAST (after all renaming complete)
 

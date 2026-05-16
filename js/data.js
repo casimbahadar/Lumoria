@@ -1356,7 +1356,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"toxic"],[2,"tackle"],[3,"venoshock"],[4,"toxic_surge"],[32,"growl"],[35,"sludge_wave"],[38,"mud_shot"],[39,"sludge_bomb"],[44,"loam_leech"],[50,"terra_spike"],[56,"earth_power"],[62,"earthquake"],[5,"toxin_bloom"],[41,"magnitude"]],
     evolveTo:159, evolveLevel:44, catchRate:45, expYield:318, rarity:"uncommon",
     desc:"A sludge behemoth that poisons everything it touches. Its territory reeks.",
-    lore:"Corrodisc is a large ground-crawling acidic creature 1 metre across, shaped like a flattened toad-tadpole with a broad disc-like body and short stubby limbs. Its undersurface exudes a corrosive fluid that slowly etches whatever it crawls across. It inhabits cave floors and underground acid springs, leaving characteristic pitting in stone wherever it travels." },
+    lore:"Corrodisc is a large ground-crawling acidic creature 1 metre across, shaped like a flattened toad-tadpole with a broad disc-like body and short stubby limbs — Acidelix's drifting orb-membrane has settled to the ground and reorganised into a flat disc, and the acid-green liquid that once filled its sphere now exudes from its undersurface as a corrosive fluid that slowly etches whatever it crawls across. It inhabits cave floors and underground acid springs, leaving characteristic pitting in stone wherever it travels." },
 
   160: { id:160, name:"Miasmafly",   emoji:"🦟", types:["Poison","Wind"],
     base:{hp:49,atk:53,def:30,spa:78,spd:64,spe:77},
@@ -1428,7 +1428,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"dragon_claw"],[1,"metal_claw"],[20,"dragon_pulse"],[30,"flash_cannon"],[40,"iron_tail"],[50,"outrage"],[60,"forge_strike"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:275, rarity:"rare",
     desc:"The final form of the ancient dragon lineage. Its scales have fused into living steel over millennia of battle, creating impenetrable natural armor.",
-    lore:"Scalevorn is a powerful dragon-steel hybrid 4 metres long with scales that have hardened into steel-grey metallic plates over centuries. Its body is broad and muscular. It moves on four limbs with its wings folded into secondary arms. Its scales have been used in legendary armour-forging projects." },
+    lore:"Scalevorn is a powerful dragon-steel hybrid 4 metres long — Serpenthos's green-bronze scales have hardened into steel-grey metallic plates over centuries, and the cobra-hood of its juvenile form has folded flat against the broad muscular base of its skull. Its body is broad and muscular. It moves on four limbs with its wings folded into secondary arms. Its scales have been used in legendary armour-forging projects." },
 
   321: { id:321, name:"Dragemian",  emoji:"🐉", types:["Dragon","Fire"],
     base:{hp:86,atk:149,def:101,spa:101,spd:94,spe:66},
@@ -1471,7 +1471,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"scratch"],[2,"quick_attack"],[3,"growl"],[21,"body_slam"],[26,"harden"],[29,"headbutt"],[30,"leer"],[37,"hyper_beam"],[38,"swords_dance"],[47,"vital_pulse"],[56,"instinct_slash"],[65,"night_slash"],[4,"tail_whip"],[44,"tackle"]],
     evolveTo:null, evolveLevel:null, catchRate:80, expYield:180, rarity:"common",
     desc:"A graceful cat with retractable steel-like claws. Nimble and quick.",
-    lore:"Velvetine is a sleek adult cat 35 cm at the shoulder with short, incredibly smooth dark-grey fur that shimmers like silk. Its eyes are pale gold. It moves with total silence on any surface and is nearly impossible to sneak up on in return. It prefers warmth and high vantage points in settled areas." },
+    lore:"Velvetine is a sleek adult cat 35 cm at the shoulder — Fluffen's enormously fluffy cream-white kitten-fur has shed and smoothed into short, incredibly silk-shimmering dark-grey fur, and the tiny hidden kitten-face has emerged with pale gold eyes. It moves with total silence on any surface and is nearly impossible to sneak up on in return. It prefers warmth and high vantage points in settled areas." },
 
   180: { id:180, name:"Leapbun",     emoji:"🐰", types:["Normal"],
     base:{hp:43,atk:44,def:38,spa:38,spd:38,spe:78},
@@ -1485,7 +1485,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"quick_attack"],[2,"headbutt"],[3,"tackle"],[4,"recover"],[5,"growl"],[18,"wild_tumble"],[21,"body_slam"],[27,"leer"],[36,"battle_cry"],[45,"swords_dance"],[54,"momentum_rush"],[63,"hyper_beam"],[6,"tail_whip"],[43,"scratch"]],
     evolveTo:null, evolveLevel:null, catchRate:100, expYield:165, rarity:"common",
     desc:"A super-quick bouncing rabbit. Few can outrun this energetic creature.",
-    lore:"Boundrix is a lean racing rabbit 45 cm long with short brown fur, long muscular legs, and a compact aerodynamic body shape. Its ears lie flat when running. It can sustain sprints of extraordinary speed for short distances and uses evasion rather than combat as its primary survival strategy." },
+    lore:"Racehare is a lean racing rabbit 45 cm long — Leapbun's soft white-grey fur has darkened to short brown across a compact aerodynamic body shape, and the oversized hind legs of the kit have lengthened into long muscular legs. Its ears lie flat when running rather than pivoting independently. It can sustain sprints of extraordinary speed for short distances and uses evasion rather than combat as its primary survival strategy." },
 
   182: { id:182, name:"Rotunden",   emoji:"🐻", types:["Normal"],
     base:{hp:81,atk:67,def:62,spa:52,spd:41,spe:48},
@@ -1499,7 +1499,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"headbutt"],[2,"battle_cry"],[3,"body_slam"],[4,"tail_whip"],[5,"growl"],[6,"tackle"],[25,"swords_dance"],[31,"hyper_beam"],[38,"leer"],[39,"recover"],[51,"harden"],[64,"vital_pulse"],[7,"focus_roar"],[44,"wild_tumble"]],
     evolveTo:184, evolveLevel:44, catchRate:50, expYield:220, rarity:"uncommon",
     desc:"A tubby great bear of enormous power. Its hugs can crush boulders.",
-    lore:"Glutoros is a massive bear 1.8 metres at the shoulder with heavy russet-brown fur and a broad rounded back. It has an almost supernatural appetite and can consume quantities of food that seem physically impossible. It is found in areas of extreme natural abundance and its presence indicates healthy ecosystem balance." },
+    lore:"Glutoros is a massive bear 1.8 metres at the shoulder — Rotunden's perfectly spherical russet-brown silhouette has elongated and grown upright into a broad rounded back with heavy russet-brown fur, and the autumn-gorging habit of its juvenile form has matured into an almost supernatural appetite. It has an almost supernatural appetite and can consume quantities of food that seem physically impossible. It is found in areas of extreme natural abundance and its presence indicates healthy ecosystem balance." },
 
   185: { id:185, name:"Hoverrow",   emoji:"🐦", types:["Normal","Wind"],
     base:{hp:60,atk:43,def:31,spa:54,spd:50,spe:64},
@@ -1528,7 +1528,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"rock_throw"],[2,"headbutt"],[3,"harden"],[4,"rock_slide"],[5,"granite_wall"],[29,"stone_edge"],[33,"tremor_stomp"],[37,"body_slam"],[41,"earth_power"],[49,"crystal_lance"],[57,"landslide"],[65,"earthquake"],[6,"petrify_gaze"],[44,"magnitude"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:222, rarity:"uncommon",
     desc:"A boulder hound encrusted with stones. Can cause landslides by running.",
-    lore:"Lithavast is a large rock-ground creature 1.5 metres tall shaped like a roughly humanoid boulder. Its features are barely defined but clearly present. It moves by rolling and shifting its own mass. Groups of Lithavast arrange themselves in formations that geologists initially mistake for natural rock outcroppings." },
+    lore:"Boulderoll is a large rock-ground creature 1.5 metres tall shaped like a roughly humanoid boulder — Pebblet's round river-pebble silhouette has grown and squared into a rough humanoid shape, the small surprised face of its kit form barely defined now but still clearly present, and the current-rolling travel habit has matured into a rolling shift of its own mass overland. It moves by rolling and shifting its own mass. Groups of Lithavast arrange themselves in formations that geologists initially mistake for natural rock outcroppings." },
 
   193: { id:193, name:"Rugothon",    emoji:"🦞", types:["Rock","Water"],
     base:{hp:71,atk:78,def:89,spa:52,spd:63,spe:68},
@@ -1557,7 +1557,7 @@ const MONSTERS_DATA = {
     learnset:[[17,"harden"]],
     evolveTo:199, evolveLevel:10, catchRate:120, expYield:72, rarity:"common",
     desc:"A shimmering cocoon. Inside, something remarkable is taking shape.",
-    lore:"Chrysalix is a pupating bug creature 12 cm long encased in a hard metallic-green chrysalis shell. Its body within is completely liquefied in the process of transformation. The chrysalis vibrates at a frequency inaudible to humans but felt by nearby insects as a call to gather and guard the emerging adult." },
+    lore:"Chrysalix is a pupating bug creature 12 cm long encased in a hard metallic-green chrysalis shell — Photoworm's pale-green segmented body has surfaced from its underground burrow and spun its weak-photosynthesis skin into the hardened metallic-green casing, the body within now completely liquefied in the process of transformation. The chrysalis vibrates at a frequency inaudible to humans but felt by nearby insects as a call to gather and guard the emerging adult." },
 
   199: { id:199, name:"Aeridaleth",emoji:"🦋", types:["Bug","Wind"],
     base:{hp:73,atk:39,def:53,spa:104,spd:85,spe:93},
@@ -2784,7 +2784,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"sludge_bomb"],[2,"toxic_surge"],[20,"recover"],[25,"quick_attack"],[29,"toxic"],[30,"nerve_agent"],[35,"venoshock"],[40,"air_slash"],[45,"putrid_pulse"],[50,"acid_rain"],[55,"cocoon_burst"],[60,"bug_buzz"],[3,"toxin_bloom"],[39,"leech_life"]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:185, rarity:"uncommon",
     desc:"A venomous moth that releases toxic scales on the wind. A cloud of them can fell a Lumori quickly.",
-    lore:"Noxoveth is a large poison-bug butterfly with a 50 cm wingspan. Its wings are deep black with vivid purple warning patterns. It releases a cloud of toxic scales when startled, and the scales cause skin irritation and respiratory distress in creatures that inhale them. It inhabits dense poisonous forest regions." },
+    lore:"Venowarn is a large poison-bug butterfly with a 50 cm wingspan — Blightmite's dark purple-black caterpillar body has metamorphosed into deep black wings, with the bristle-hair toxin now sequestered into vivid purple warning patterns. It releases a cloud of toxic scales when startled, and the scales cause skin irritation and respiratory distress in creatures that inhale them. It inhabits dense poisonous forest regions." },
 
   // ===== STEEL/GROUND =====
   153: { id:153, name:"Dentshaft", emoji:"⚙️", types:["Steel","Ground"],
@@ -2829,7 +2829,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"psybeam"],[2,"future_echo"],[3,"growl"],[24,"recover"],[30,"psychic_move"],[31,"vital_pulse"],[36,"wild_tumble"],[38,"calm_mind"],[42,"body_slam"],[48,"thought_crush"],[54,"psystrike"],[60,"hyper_beam"],[4,"tail_whip"],[40,"headbutt"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:200, rarity:"uncommon",
     desc:"A dreaming flock manifestation. Said to appear to sleeping trainers before a great trial.",
-    lore:"Aetherflock is a medium psychic sheep 70 cm at the shoulder with thicker wool of silvery-white that drifts gently in an invisible wind even in still air. Its wool glows faintly at night. Entire flocks graze on isolated mountain plateaux and are said to collectively generate powerful psychic fields." },
+    lore:"Aetherflock is a medium psychic sheep 70 cm at the shoulder — Woolcalm's soft white wool has thickened and lightened to silvery-white that drifts gently in an invisible wind even in still air, and the faint static charge of its juvenile fleece now manifests as a soft night-glow. Entire flocks graze on isolated mountain plateaux and are said to collectively generate powerful psychic fields." },
 
   // ===== BUG/GROUND =====
   204: { id:204, name:"Muddite", emoji:"🪲", types:["Bug","Ground"],
@@ -2925,14 +2925,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"poison_sting"],[1,"downdraft"],[2,"sludge_bomb"],[3,"air_slash"],[4,"mycelia_net"],[31,"toxic"],[36,"venoshock"],[40,"tempest_wrath"],[45,"corrosion_fang"],[50,"hurricane"],[55,"venom_lance"],[60,"sludge_wave"],[5,"miasma_cloud"],[43,"wing_attack"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:195, rarity:"uncommon",
     desc:"A drifting cloud-swarm of microscopic miasma-flies that moves and feeds as one creature. The swarm is denser at its centre, where a queen hovers.",
-    lore:"Mistbane is a 1-metre cloud-swarm of countless microscopic miasma-flies, each so small as to be barely visible individually but bound together by shared chemical signals into a single drifting collective. At its centre, sometimes glimpsed when the swarm thins, hovers a single larger queen-fly with a 30 centimetre wingspan whose pheromone trail directs the others. The swarm-cloud flows, condenses, and disperses but never fully dissolves; it inhabits bogs and toxic marshland, blending with natural mist and slowly sapping the vitality of any creature breathing the air it occupies." },
+    lore:"Mistbane is a 1-metre cloud-swarm of countless microscopic miasma-flies — Miasmafly's solo form has fractured into countless tiny offspring-flies, each so small as to be barely visible individually but bound together by shared chemical signals into a single drifting collective. At its centre, sometimes glimpsed when the swarm thins, hovers a single larger queen-fly with a 30 centimetre wingspan whose pheromone trail directs the others. The swarm-cloud flows, condenses, and disperses but never fully dissolves; it inhabits bogs and toxic marshland, blending with natural mist and slowly sapping the vitality of any creature breathing the air it occupies." },
 
   186: { id:186, name:"Continemic", emoji:"🕊️", types:["Normal","Wind"],
     base:{hp:88,atk:73,def:55,spa:83,spd:70,spe:111},
     learnset:[[1,"tackle"],[1,"downdraft"],[2,"quick_attack"],[3,"air_slash"],[4,"body_slam"],[29,"wing_attack"],[34,"wild_tumble"],[38,"momentum_rush"],[43,"hurricane"],[48,"battle_cry"],[53,"hyper_beam"],[58,"gale_cannon"],[5,"zephyr_dance"],[41,"leer"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:185, rarity:"uncommon",
     desc:"A free-spirited wind wanderer that soars over continents in a single day, carried effortlessly on warm thermals.",
-    lore:"Airovast is a large albatross-like wind-normal bird with a 2.5-metre wingspan. Its plumage is pure white above and pale grey below. It can fly continuously for months without landing using dynamic soaring — extracting energy from the boundary between fast and slow wind layers near the ocean surface." },
+    lore:"Continemic is a large albatross-like wind-normal bird with a 2.5-metre wingspan — Hoverrow's pale cream feathers have whitened to pure white above and pale grey below, and the perpetual-hover habit that atrophied its juvenile feet has matured into the dynamic soaring that lets it cross continents in a day without landing. It can fly continuously for months without landing using dynamic soaring — extracting energy from the boundary between fast and slow wind layers near the ocean surface." },
 
   188: { id:188, name:"Plentorus", emoji:"🐗", types:["Normal"],
     base:{hp:105,atk:94,def:89,spa:60,spd:70,spe:62},
@@ -2946,14 +2946,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"scratch"],[1,"water_gun"],[2,"aqua_tail"],[3,"stalactite_drop"],[4,"harden"],[39,"rock_slide"],[43,"hydro_pump"],[47,"stone_edge"],[52,"tidal_crush"],[56,"crystal_lance"],[60,"sea_serpent_strike"],[64,"quarry_crush"],[5,"tidecaller"],[42,"swords_dance"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:248, rarity:"rare",
     desc:"A colossal ancient shore titan. Its shell is older than recorded history, layered with oceanic minerals.",
-    lore:"Lithomere is a crab-like rock-water creature 60 cm across with a shell of compressed coastal rock. It inhabits intertidal zones and wedges itself into rock crevices during low tide, sealing gaps with a secreted mineral cement. Its shell grows thicker with each passing year." },
+    lore:"Lithomere is a crab-like rock-water creature 60 cm across with a shell of compressed coastal rock — Rugothon's massive barnacle-encrusted carapace has compressed down through dense mineral deposition into a smaller but far denser shell, and the eight digging legs have shortened into wedge-shaped braces that lock its body into rock crevices during low tide, sealing gaps with a secreted mineral cement. Its shell grows thicker with each passing year." },
 
   196: { id:196, name:"Frigolith", emoji:"💎", types:["Rock","Ice"],
     base:{hp:87,atk:77,def:127,spa:103,spd:108,spe:48},
     learnset:[[1,"powder_snow"],[1,"stalactite_drop"],[2,"ice_beam"],[3,"rock_slide"],[4,"harden"],[41,"blizzard"],[45,"stone_edge"],[49,"crystal_lance"],[53,"icicle_crash"],[57,"glacial_tomb"],[61,"quarry_crush"],[65,"cryo_lance"],[5,"permafrost"],[43,"harden"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:258, rarity:"rare",
     desc:"A titanic crystal colossus forged from eons of glacial pressure. Its body refracts light into blinding aurora beams.",
-    lore:"Frigolith is a rock-ice creature 1 metre long resembling a boulder partially submerged in permafrost. Crystalline ice formations have grown through cracks in its rock body over centuries. In winter it becomes nearly invisible against frozen tundra. Warming weather causes it distress as its ice components begin to melt." },
+    lore:"Frigolith is a rock-ice creature 1 metre long resembling a boulder partially submerged in permafrost — Prismolith's purple amethyst crystals have darkened and refrozen into crystalline ice formations that have grown through cracks in its rock body over centuries, and its mobile legs have rooted into the tundra it must now remain in to survive. In winter it becomes nearly invisible against frozen tundra. Warming weather causes it distress as its ice components begin to melt." },
 
   40: { id:40, name:"Marevanos", emoji:"🐋", types:["Water","Wind"],
     base:{hp:84,atk:87,def:80,spa:108,spd:90,spe:101},
@@ -3248,7 +3248,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"toxic"],[1,"earthquake"],[2,"sludge_wave"],[3,"earth_power"],[4,"toxic_surge"],[38,"acid_rain"],[42,"venom_lance"],[46,"sand_geyser"],[50,"sludge_bomb"],[54,"venoshock"],[58,"scorched_earth"],[62,"putrid_pulse"],[5,"miasma_cloud"],[44,"corrosion_fang"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"A colossal acid behemoth that dissolves the ground wherever it treads. Entire cave systems have been created by its acidic ooze eating through the earth.",
-    lore:"Acidovast is a massive ground-poison creature 2 metres tall resembling a toad made of compressed toxic earth. Its skin constantly weeps acidic liquid. The ground around it is perpetually discoloured. It is one of the few creatures that can neutralise other poisons by contact, making it paradoxically useful as an antidote source." },
+    lore:"Dissotoad is a massive ground-poison creature 2 metres tall resembling a toad made of compressed toxic earth — Corrodisc's flat disc-body has lifted upward into a true upright toad-frame, the corrosive undersurface now generalised across its skin as constant acidic weeping. The ground around it is perpetually discoloured. It is one of the few creatures that can neutralise other poisons by contact, making it paradoxically useful as an antidote source." },
 
   // 212: Behemovast - Normal (Rotunden→Glutoros→Behemovast)
   184: { id:184, name:"Behemovast", emoji:"🐻", types:["Normal"],
@@ -3256,7 +3256,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"headbutt"],[1,"body_slam"],[2,"battle_cry"],[3,"swords_dance"],[4,"recover"],[38,"hyper_beam"],[42,"wild_tumble"],[46,"momentum_rush"],[50,"vital_pulse"],[54,"instinct_slash"],[58,"harden"],[62,"tackle"],[5,"focus_roar"],[44,"leer"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"The greatest bear that has ever walked Lumoria. When it stands fully upright, it blots out the sun. Its roar has been mistaken for natural disasters.",
-    lore:"Behemovast is a titanic normal-type creature 3 metres at the shoulder, resembling an enormous bear with a solid barrel-shaped torso and legs like columns. Its thick brown-grey fur is matted and tough. It is the heaviest non-legendary Lumori known and leaves impressions in solid rock where it steps." },
+    lore:"Behemovast is a titanic normal-type creature 3 metres at the shoulder, resembling an enormous bear with a solid barrel-shaped torso and legs like columns — Glutoros's already-massive frame has grown into the heaviest non-legendary Lumori known, and the heavy russet-brown fur has matted and toughened to thick brown-grey under the bulk it must now support. It is the heaviest non-legendary Lumori known and leaves impressions in solid rock where it steps." },
 
   // =====================================================================
   // NG+-EXCLUSIVE LUMORI (IDs 322–421) — appear only in New Game+ runs

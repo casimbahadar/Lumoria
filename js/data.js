@@ -1578,7 +1578,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"x_scissor"],[2,"string_shot"],[25,"rock_slide"],[30,"harden"],[31,"stone_edge"],[33,"swarm_dive"],[35,"pheromone_rush"],[40,"flash_cannon"],[45,"bug_buzz"],[50,"stinger_volley"],[55,"iron_tail"],[60,"hyper_beam"],[3,"chitin_guard"],[39,"cocoon_burst"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:220, rarity:"uncommon",
     desc:"A steel beetle of terrifying might. Its mandibles can cut through iron.",
-    lore:"Scarabion is a large scarab beetle 20 cm long with a metallic copper-gold carapace etched with natural hieroglyphic-like patterns. Its wide horns are used to roll large balls of compressed organic material that it buries as food caches. Ancient cultures venerated it as a symbol of renewal and persistence." },
+    lore:"Scarabion is a large scarab beetle 20 cm long — Iridibeetle's iridescent emerald-sapphire wing-case has darkened and metallised into a copper-gold carapace etched with natural hieroglyphic-like patterns. Its wide horns are used to roll large balls of compressed organic material that it buries as food caches. Ancient cultures venerated it as a symbol of renewal and persistence." },
 
 
   // ===== BATCH 1: POISON/DRAGON, ELECTRIC, FIRE/ICE (IDs 206-214) =====
@@ -1633,14 +1633,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"flamethrower"],[1,"ice_beam"],[22,"fire_blast"],[30,"blizzard"],[38,"frost_breath"],[46,"overheat"],[54,"glacial_tomb"],[62,"hyper_beam"]],
     evolveTo:213, evolveLevel:46, catchRate:88, expYield:155, rarity:"uncommon",
     desc:"A dual-natured creature of perfect thermal balance. Its left side blazes while its right side freezes.",
-    lore:"Frostscorch is a medium fire-ice creature 80 cm long with a perfectly equal split — one half brilliant crimson, one half ice-blue. Its eyes are mismatched: one amber, one pale blue. It inhabits the specific boundary zones between volcanic and glacial terrain, the only creature perfectly adapted for that harsh transition." },
+    lore:"Frostscorch is a medium fire-ice creature 80 cm long — Cinderfrost's orange-and-blue lizard halves have intensified into a perfectly equal split, one half brilliant crimson and one half ice-blue, and the crackling midline-boundary has matured into mismatched eyes (one amber, one pale blue) anchoring either side of its dual nature. It inhabits the specific boundary zones between volcanic and glacial terrain, the only creature perfectly adapted for that harsh transition." },
 
   213: { id:213, name:"Infriglace", emoji:"🌋", types:["Fire","Ice"],
     base:{hp:89,atk:93,def:81,spa:120,spd:95,spe:72},
     learnset:[[1,"fire_blast"],[1,"blizzard"],[32,"overheat"],[40,"glacial_tomb"],[48,"heat_wave"],[56,"icicle_crash"],[64,"caldera_meltdown"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:268, rarity:"rare",
     desc:"A cataclysmic being that collapses the boundary between fire and ice. Superheated geysers and flash-freezes occur in its wake.",
-    lore:"Infriglace is a colossal fire-ice titan 3 metres long. Its left side blazes with a volcanic orange-red and its right is encased in glacial ice that never melts. The boundary between its natures is a permanent crackling storm of steam. Its very presence disrupts local climate in a radius of several kilometres." },
+    lore:"Infriglace is a colossal fire-ice titan 3 metres long — Frostscorch's crimson and ice-blue halves have intensified into volcanic orange-red and never-melting glacial ice, and the brief steam eruptions of its juvenile midline have grown into a permanent crackling storm between the two sides. The boundary between its natures is a permanent crackling storm of steam. Its very presence disrupts local climate in a radius of several kilometres." },
 
   // Standalone Water/Rock: Coralstone
   214: { id:214, name:"Petrwave", emoji:"🪸", types:["Water","Rock"],
@@ -1665,14 +1665,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"psybeam"],[1,"calm_mind"],[20,"psychic_move"],[28,"moonblast"],[36,"psystrike"],[44,"neural_storm"],[52,"astral_rend"],[60,"hyper_beam"]],
     evolveTo:217, evolveLevel:44, catchRate:90, expYield:145, rarity:"uncommon",
     desc:"A drifting psychic entity that bridges the conscious and unconscious mind. Its form shifts like fog.",
-    lore:"Mindrift is a larger psychic entity 40 cm across with a body like a slowly rotating galaxy of blue-white light particles. No fixed centre is visible — it is simultaneously everywhere within its form. It is drawn to sleeping creatures and hovers above their heads to sample their dream-states." },
+    lore:"Mindrift is a larger psychic entity 40 cm across — Veilwisp's condensed violet sphere has dispersed and lightened into a body like a slowly rotating galaxy of blue-white light particles, and its wandering wisp-form has matured into a state where no fixed centre is visible: the entity is simultaneously everywhere within itself. It is drawn to sleeping creatures and hovers above their heads to sample their dream-states." },
 
   217: { id:217, name:"Distorsion", emoji:"🔮", types:["Psychic"],
     base:{hp:82,atk:70,def:67,spa:132,spd:106,spe:93},
     learnset:[[1,"psychic_move"],[1,"moonblast"],[30,"psystrike"],[38,"neural_storm"],[46,"astral_rend"],[54,"psybeam"],[62,"calm_mind"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
     desc:"A vast psychic intelligence that defies physical form. Peers into the deepest layers of consciousness.",
-    lore:"Mentovast is a vast psychic intelligence that lacks a physical body, instead manifesting as a shimmering distortion in the air roughly 1 metre across. Nearby objects float slightly and light bends toward it. It exists primarily in a mental dimension and its physical manifestation is merely an accidental side-effect." },
+    lore:"Distorsion is a vast psychic intelligence that lacks a physical body — Mindrift's slowly-rotating particle-galaxy has dispersed entirely, leaving only a shimmering distortion in the air roughly 1 metre across. Nearby objects float slightly and light bends toward it. It exists primarily in a mental dimension and its physical manifestation is merely an accidental side-effect." },
 
   // 2-stage Ghost/Dark chain: Mistwraith → Shademont (item evo: Dusk Stone)
   218: { id:218, name:"Duskmist", emoji:"🌑", types:["Dark"],
@@ -1722,14 +1722,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"psybeam"],[1,"calm_mind"],[18,"psychic_move"],[28,"moonblast"],[38,"psystrike"],[48,"neural_storm"],[56,"astral_rend"],[64,"hyper_beam"]],
     evolveTo:224, evolveLevel:42, catchRate:90, expYield:145, rarity:"uncommon",
     desc:"An evolved brain-creature with exponential intelligence. Solves complex equations for fun.",
-    lore:"Recallum is a medium psychic creature 50 cm tall with a smooth ovoid body of pale blue-violet and a large visible cranium through which psychic energy pulses rhythmically. Its four thin limbs first manifest as condensed psychic energy and only later harden into matter, ending in long sensitive fingers. It can scan a mind in seconds and retains perfect recall of all information it encounters." },
+    lore:"Recallum is a medium psychic creature 50 cm tall — Mindpuff's round cloud-puff body has condensed into a smooth ovoid of pale blue-violet, and the simple emotion-broadcasts of its juvenile form have grown into a large visible cranium through which psychic energy now pulses rhythmically. Its four thin limbs first manifest as condensed psychic energy and only later harden into matter, ending in long sensitive fingers. It can scan a mind in seconds and retains perfect recall of all information it encounters." },
 
   224: { id:224, name:"Psytheon", emoji:"🔮", types:["Psychic","Fairy"],
     base:{hp:82,atk:63,def:74,spa:131,spd:112,spe:88},
     learnset:[[1,"psychic_move"],[1,"moonblast"],[32,"psystrike"],[40,"neural_storm"],[48,"astral_rend"],[56,"dazzling_gleam"],[64,"celestial_wave"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:265, rarity:"rare",
     desc:"The apex psychic being. Its thoughts reshape reality in its immediate vicinity.",
-    lore:"Psytheon is a graceful psychic-fairy creature 70 cm tall resembling a humanoid with oversized head and delicate crystal wings. Its body is pale lavender with gold trim on its wings. It exudes a field of concentrated wonder that makes nearby creatures briefly lose track of their fears. Artists claim it inspires creativity." },
+    lore:"Psytheon is a graceful psychic-fairy creature 70 cm tall — Recallum's ovoid body has stretched into a humanoid with its prominent cranium preserved as an oversized head, and the four condensed-energy limbs have crystallised into delicate crystal wings above a torso of pale lavender trimmed in gold. It exudes a field of concentrated wonder that makes nearby creatures briefly lose track of their fears. Artists claim it inspires creativity." },
 
   // Standalone Psychic/Fairy: Glimmerkin
   225: { id:225, name:"Crealight", emoji:"✨", types:["Psychic","Fairy"],
@@ -1754,7 +1754,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"flamethrower"],[1,"psychic_move"],[28,"fire_blast"],[36,"psystrike"],[44,"astral_rend"],[52,"overheat"],[60,"neural_storm"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:225, rarity:"rare",
     desc:"A blazing prism warrior. Its psychic fire burns away illusions and exposes hidden truths.",
-    lore:"Spectrace is a fire-psychic creature 50 cm long resembling a kangaroo-silhouette of streaking flame whose hindquarters trail off into fire and whose forelimbs are barely visible through the heat-haze. Its body is heat and psychic energy intertwined. It moves so rapidly its form appears as a blurred streak. Ancient texts describe it arriving at prophetic moments as an omen of transformation." },
+    lore:"Spectrace is a fire-psychic creature 50 cm long — Spectroo's translucent white-light kangaroo silhouette has ignited under firestone touch into streaking flame, hindquarters trailing off into fire and forelimbs barely visible through the heat-haze. Its body is heat and psychic energy intertwined. It moves so rapidly its form appears as a blurred streak. Ancient texts describe it arriving at prophetic moments as an omen of transformation." },
 
   // Spectroon: Moon Stone evolution (Ice/Psychic)
   228: { id:228, name:"Lunaroon", emoji:"🌙", types:["Grass","Psychic"],
@@ -1802,14 +1802,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"dragon_claw"],[1,"earthquake"],[26,"earth_power"],[34,"dragon_pulse"],[42,"dragon_dance"],[50,"outrage"],[58,"bedrock_slam"],[66,"hyper_beam"]],
     evolveTo:234, evolveLevel:52, catchRate:75, expYield:165, rarity:"uncommon",
     desc:"A horned serpent that tunnels through mountain roots. Its charge creates fissures in bedrock.",
-    lore:"Serpenthorn is a long-bodied four-legged ground-dragon 3 metres long that drags its belly low, almost serpentine in motion, with thick rust-brown scales and numerous backward-curved spines along its back. Its short legs fold tightly against its body when it rolls along rocky terrain, using its spine-ring as a natural wheel. It inhabits ravine systems and is capable of reaching high speed on smooth stone surfaces." },
+    lore:"Serpenthorn is a long-bodied four-legged ground-dragon 3 metres long — Serphaxon's earthy brown-bronze scales have thickened to rust-brown and its blunt-snout digger frame has elongated into a body that drags its belly low, almost serpentine in motion, with numerous backward-curved spines now lining its back. Its short legs fold tightly against its body when it rolls along rocky terrain, using its spine-ring as a natural wheel. It inhabits ravine systems and is capable of reaching high speed on smooth stone surfaces." },
 
   234: { id:234, name:"Wyvernak", emoji:"🐉", types:["Dragon","Ground"],
     base:{hp:100,atk:125,def:104,spa:72,spd:83,spe:66},
     learnset:[[1,"outrage"],[1,"earthquake"],[36,"dragon_dance"],[44,"earth_power"],[52,"dragon_pulse"],[60,"bedrock_slam"],[68,"ancient_breath"],[76,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:20, expYield:275, rarity:"rare",
     desc:"An ancient wyvern that has merged with the earth. Mountain ranges shift when it stirs in its sleep.",
-    lore:"Wyvernak is a large ground-dragon 4 metres long with broad grey-green scales and a crest of stone spines. Its wings generate dust-clouds when spread. It inhabits canyon systems where it ambushes prey by dropping from cliff ledges and pinning targets under its considerable weight before delivering a killing bite." },
+    lore:"Wyvernak is a large ground-dragon 4 metres long — Serpenthorn's rust-brown scales have weathered to broad grey-green plates, and the backward-curved spine-row of its juvenile form has consolidated into a single crest of stone spines crowning its skull. Its wings generate dust-clouds when spread. It inhabits canyon systems where it ambushes prey by dropping from cliff ledges and pinning targets under its considerable weight before delivering a killing bite." },
 
   // Standalone Dragon/Water: Glintscale
   235: { id:235, name:"Glintscale", emoji:"🐟", types:["Dragon","Water"],
@@ -1851,7 +1851,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"icicle_crash"],[1,"ice_beam"],[22,"blizzard"],[30,"permafrost"],[38,"cryo_lance"],[46,"icicle_crash"],[54,"avalanche_drive"],[62,"hyper_beam"]],
     evolveTo:240, evolveLevel:44, catchRate:90, expYield:148, rarity:"uncommon",
     desc:"An adolescent snowman whose three packed-snow tiers have stacked vertically. Stick arms reach out from its midsection and a small dense crystal glows at its core.",
-    lore:"Blizzariel is a 60-centimetre adolescent snowman, the first stage in which the rounded snowballs of its juvenile stage have stacked vertically into three growing tiers — a bottom for legs, a middle for the torso, and a top for the head. Its surface remains soft-white and constantly sheds and reforms its outer layer in the wind, but a small dense crystal of frozen wind-energy now glows visibly at its core, holding its body in shape against the elements. Two stick-arms reach out from its mid-section, a small carrot nose and three coal-buttons mark its face, and it walks slowly across snowfields on packed-snow legs, leaving prints that linger in the soft surface." },
+    lore:"Blizzariel is a 60-centimetre adolescent snowman — Snowble's perfectly-round juvenile body has stacked vertically into three growing tiers — a bottom for legs, a middle for the torso, and a top for the head. Its surface remains soft-white and constantly sheds and reforms its outer layer in the wind, but a small dense crystal of frozen wind-energy now glows visibly at its core, holding its body in shape against the elements. Two stick-arms reach out from its mid-section, a small carrot nose and three coal-buttons mark its face, and it walks slowly across snowfields on packed-snow legs, leaving prints that linger in the soft surface." },
 
   240: { id:240, name:"Tundrafox", emoji:"☃️", types:["Ice","Dark"],
     base:{hp:83,atk:77,def:80,spa:119,spd:99,spe:92},
@@ -1926,14 +1926,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"rock_slide"],[1,"earth_power"],[22,"stone_edge"],[30,"earthquake"],[38,"bedrock_slam"],[46,"mud_shot"],[54,"clay_armor"],[62,"hyper_beam"]],
     evolveTo:250, evolveLevel:46, catchRate:80, expYield:155, rarity:"uncommon",
     desc:"A boulder-bodied titan that rolls through terrain like a wrecking ball. Nothing stops its charge.",
-    lore:"Boulderax is a medium rock-ground creature 60 cm tall shaped like a squat boulder with thick arm-stubs and two flat feet. Its surface matches local geological formations. It rolls itself into a perfect sphere for travel and unfurls only when it finds suitable terrain to defend." },
+    lore:"Boulderax is a medium rock-ground creature 60 cm tall — Pebblard's smooth river-pebble silhouette has grown squat and boulder-shaped, sprouting thick arm-stubs and two flat feet, and the camouflage that once hid it among ordinary rocks now matches local geological formations at a much larger scale. It rolls itself into a perfect sphere for travel and unfurls only when it finds suitable terrain to defend." },
 
   250: { id:250, name:"Megalith", emoji:"🗿", types:["Rock","Ground"],
     base:{hp:110,atk:120,def:134,spa:55,spd:88,spe:43},
     learnset:[[1,"stone_edge"],[1,"earthquake"],[32,"bedrock_slam"],[40,"clay_armor"],[48,"earth_power"],[56,"rock_slide"],[64,"worldseed_quake"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:20, expYield:280, rarity:"rare",
     desc:"An ancient monolith that walks. Archaeological markings on its body predate all known civilizations.",
-    lore:"Megalith is a massive rock-ground creature 2 metres tall shaped like an ancient standing stone with barely-defined features. It can remain motionless for decades, and local legends often grow up around stationary Megalith mistaken for man-made monuments. It moves very rarely, only when its territory is significantly threatened." },
+    lore:"Megalith is a massive rock-ground creature 2 metres tall — Boulderax's squat boulder-frame has lengthened and straightened upward into an ancient standing stone with barely-defined features, and the sphere-rolling travel habit of its juvenile form has stilled into the motionless stillness that lets it stand for decades, often mistaken for a man-made monument. It can remain motionless for decades, and local legends often grow up around stationary Megalith mistaken for man-made monuments. It moves very rarely, only when its territory is significantly threatened." },
 
 
 
@@ -2701,7 +2701,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"dazzling_gleam"],[2,"x_scissor"],[3,"string_shot"],[30,"moonblast"],[31,"charm_bloom"],[34,"harden"],[38,"pheromone_rush"],[42,"wild_tumble"],[46,"gossamer_lance"],[50,"moonveil"],[54,"bug_buzz"],[58,"fae_requiem"],[4,"chitin_guard"],[37,"mandible_crush"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:318, rarity:"uncommon",
     desc:"A radiant spider archon that spins webs that trap bad dreams. Revered as a good omen.",
-    lore:"Arachnalis is a large spider 30 cm across with a sleek silver-white body and gossamer wings — vestigial but capable of short gliding jumps. Its web structures are architectural in complexity. It inhabits flowered glades and decorates its webs with flower petals, creating structures that attract pollinating insects as prey." },
+    lore:"Arachnalis is a large spider 30 cm across — Sculptweave's pale-cream body has lightened to silver-white and the rose-gold leg-banding has thinned to faint shimmer, while the fairy-touched silk it once spun has crystallised into vestigial gossamer wings capable of short gliding jumps. Its web structures are architectural in complexity. It inhabits flowered glades and decorates its webs with flower petals, creating structures that attract pollinating insects as prey." },
 
   56: { id:56, name:"Deepfreeze", emoji:"⚔️", types:["Ice","Steel"],
     base:{hp:69,atk:122,def:105,spa:78,spd:83,spe:79},
@@ -2844,7 +2844,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"x_scissor"],[2,"string_shot"],[24,"earthquake"],[29,"swords_dance"],[31,"bug_buzz"],[34,"sandstrike"],[39,"rock_slide"],[44,"mandible_crush"],[49,"cocoon_burst"],[54,"earth_power"],[59,"stone_edge"],[64,"hyper_beam"],[3,"chitin_guard"],[41,"drill_run"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
     desc:"An armored ground beetle of incredible toughness. Plows through solid bedrock with ease.",
-    lore:"Quarrix is a medium beetle 15 cm long with a hard quartzite-grey shell and powerful digging forelegs. Its shell surface has the texture of rough stone. It inhabits rocky hillsides and buries itself in gravel, extracting mineral nutrients from the stone it processes through a specialised digestive system." },
+    lore:"Quarrix is a medium beetle 15 cm long — Muddite's soft muddy-brown grub-body has hardened into a quartzite-grey shell with the texture of rough stone, and its short digging limbs have lengthened into powerful forelegs that crack rock as easily as its juvenile form once aerated clay. Its shell surface has the texture of rough stone. It inhabits rocky hillsides and buries itself in gravel, extracting mineral nutrients from the stone it processes through a specialised digestive system." },
 
   // ===== WIND/ICE =====
   61: { id:61, name:"Gelspike", emoji:"🦔", types:["Ice","Poison"],

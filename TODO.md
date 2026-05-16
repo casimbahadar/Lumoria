@@ -541,6 +541,21 @@ Add a per-Lumori passive-ability system. Feature name must avoid legal risk (Pok
 - [ ] Integrate into battle engine + UI (team detail, battle log)
 - [ ] Migration logic for existing saves
 
+# 🤝 Inter-Lumori interactions in lore/desc — RUN AFTER ABILITIES
+
+Add cross-references between Lumori in lore/description text to give the world ecological depth — predator/prey, ancestral rivalries, symbioses, territorial competition, parasite/host relationships, item-stealing behaviours, etc.
+
+**Reference examples (Pokémon, for shape only):**
+- Seviper × Zangoose — ancestral rivalry called out in both species' Pokédex entries.
+- Heracross × Pinsir — territorial competition for the same forest sap-trees.
+- Tinkaton × Corviknight — Tinkaton hunts Corviknight to harvest its feathers into its hammer (active predation referenced in Tinkaton's entry).
+
+**Lumoria approach:**
+- [ ] Identify candidate groupings — pairs, trios, or larger ensembles (over-cap archetypes butting heads, opposing-type rivalries, shared-habitat competition, parasite/host, mimicry-target, item-source predation, etc.). Co-location is NOT required — Lumori travel widely and can plausibly meet anywhere across the world.
+- [ ] Per grouping, decide which side(s) get the lore reference and what shape it takes (one-line behavioural reference vs. embedded ecological note).
+- [ ] Draft + apply edits in batches (propose-and-approve per batch, batched commits).
+- [ ] Audit for confusing circular references (avoid A→B→C→A loops unless thematically intentional).
+
 ---
 
 ## How to resume in a new session

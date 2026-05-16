@@ -1291,7 +1291,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"dazzling_gleam"],[2,"sweet_kiss"],[32,"psychic_move"],[36,"recover"],[39,"moonblast"],[40,"calm_mind"],[44,"quick_attack"],[48,"wish_spark"],[52,"future_echo"],[56,"celestial_wave"],[60,"psystrike"],[64,"mind_shatter"],[3,"stardust_veil"],[38,"thought_crush"]],
     evolveTo:144, evolveLevel:46, catchRate:25, expYield:248, rarity:"rare",
     desc:"A celestial being of fairy and psychic power. Claims to have come from the stars.",
-    lore:"Lunarael is a larger crescent-moon-shaped psychic-fairy creature 45 cm across. Its body is deep violet-blue with silver-white edges that glow brightly in darkness. It is nocturnal and inhabits open mountain summits, drifting upward on clear nights and releasing lunar-charged energy that causes nearby crystals to resonate." },
+    lore:"Lunarael is a larger crescent-moon-shaped psychic-fairy creature 45 cm across — Dawnirel's pointed arms have curved inward, briefly crescent-like, before they bloom back to a full many-pointed star at its final stage. Its body is deep violet-blue with silver-white edges that glow brightly in darkness. It is nocturnal and inhabits open mountain summits, drifting upward on clear nights and releasing lunar-charged energy that causes nearby crystals to resonate." },
 
   // ===== STEEL =====
   147: { id:147, name:"Scrapsapien",     emoji:"🤖", types:["Steel"],
@@ -1707,7 +1707,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"dark_pulse"],[1,"psychic_move"],[26,"night_slash"],[34,"eclipse_shroud"],[42,"soul_rend"],[50,"dread_howl"],[58,"moonblast"],[66,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:220, rarity:"uncommon",
     desc:"A master of dark illusions. Those who witness its act lose themselves in psychic nightmares for days.",
-    lore:"Shadowveil is a dark-psychic creature 90 cm tall resembling a tall humanoid draped in a cloak of living shadow. Its face is blank except for two silver eyes. It is impossible to touch directly — hands pass through its shadow-substance — but it can interact physically by will. It observes from darkened doorways." },
+    lore:"Shadowveil is a dark-psychic creature 90 cm tall resembling a tall humanoid draped in a cloak of living shadow — Umbrajest's wispy smoke-body has solidified into a cloaked humanoid form. Its face is blank except for two silver eyes. It is impossible to touch directly — hands pass through its shadow-substance — but it can interact physically by will. It observes from darkened doorways." },
 
   // 3-stage Psychic chain: Mindpuff → Cerebrix → Psytheon
   222: { id:222, name:"Mindpuff", emoji:"🫧", types:["Psychic"],
@@ -2298,19 +2298,19 @@ const MONSTERS_DATA = {
     desc:"A mosquito-like creature with toxic saliva. A single bite can poison most Lumori instantly.",
     lore:"Plaguefly is a large poison-bug insect with a 30 cm wingspan. Its wings are translucent grey with poison-green venation. Its body is a bloated sack of toxic fluid. It breeds in stagnant water and its larval masses are visible as roiling dark clouds beneath the surface of contaminated ponds." },
 
-  297: { id:297, name:"Blightwing", emoji:"🦋", types:["Poison","Bug"],
+  297: { id:297, name:"Blightwing", emoji:"🦟", types:["Poison","Bug"],
     base:{hp:68,atk:78,def:62,spa:98,spd:78,spe:100},
     learnset:[[1,"x_scissor"],[1,"sludge_bomb"],[20,"toxic"],[28,"venoshock"],[36,"bug_buzz"],[44,"venom_lance"],[52,"sludge_wave"],[60,"hyper_beam"]],
     evolveTo:298, evolveLevel:44, catchRate:85, expYield:148, rarity:"uncommon",
-    desc:"A poison butterfly whose wing scales are deadly toxins. A single wing-flap spreads enough venom to fell a herd.",
-    lore:"Blightwing is a medium poison-bug butterfly with 40 cm wingspan. Its wings are dark purple with sickly yellow-green patches that glow faintly. Each wingbeat releases microscopic blight-spores that cause plant growth to wither. It inhabits areas of environmental decay, flourishing where other life struggles." },
+    desc:"A blight mosquito whose extended proboscis can drain entire forests of vitality. Its bite spreads withering pestilence.",
+    lore:"Blightwing is a medium poison-bug mosquito with 40 cm wingspan. Its translucent wings are dark purple with sickly yellow-green venation that glows faintly. Its elongated proboscis can pierce thick bark to drain plant sap, leaving withered scars in its wake. It inhabits areas of environmental decay, flourishing where other life struggles." },
 
-  298: { id:298, name:"Plagueoth", emoji:"🦠", types:["Poison","Bug"],
+  298: { id:298, name:"Plagueoth", emoji:"🦟", types:["Poison","Bug"],
     base:{hp:82,atk:89,def:73,spa:116,spd:95,spe:95},
     learnset:[[1,"venom_lance"],[1,"bug_buzz"],[30,"sludge_wave"],[38,"toxic"],[46,"venoshock"],[54,"mycelia_net"],[62,"corrosion_fang"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
-    desc:"The plague moth. Ancient texts describe its awakening as an omen of great pestilence. Its touch corrupts.",
-    lore:"Plagueoth is a large poison-bug creature 60 cm long resembling a grotesque moth with ragged dark wings and a bloated abdomen. Its wing-scales contain a contact toxin. It inhabits abandoned buildings and decaying organic matter and leaves a visible trail of toxin-dust in its wake." },
+    desc:"The plague mosquito. Ancient texts describe its awakening as an omen of great pestilence. A single drain leaves victims hollowed.",
+    lore:"Plagueoth is a large poison-bug mosquito 60 cm long with a needle-sharp proboscis as long as its body and a bloated venom-sac abdomen. Its ragged dark wings have a 1.5 m span. It inhabits abandoned buildings and decaying swampland, draining the vital fluids of any creature unfortunate enough to be caught alone at dusk." },
 
   // 2-stage Bug/Poison chain: Stinglet → Nettleclaw (level 28)
   299: { id:299, name:"Stinglet", emoji:"🐝", types:["Bug","Poison"],
@@ -2320,12 +2320,12 @@ const MONSTERS_DATA = {
     desc:"A bee-like stinger creature with a massive venomous barb. Builds hives from toxic resin.",
     lore:"Stinglet is a small bug-poison bee 8 cm long with a bright yellow-and-black striped abdomen. Its stinger contains a venom that causes localised swelling and intense pain. It is fiercely territorial around its nest and coordinates with colony-mates using chemical signals to perform coordinated defence responses." },
 
-  300: { id:300, name:"Nettleclaw", emoji:"🦂", types:["Bug","Poison"],
+  300: { id:300, name:"Nettleclaw", emoji:"🐝", types:["Bug","Poison"],
     base:{hp:80,atk:105,def:80,spa:88,spd:80,spe:95},
     learnset:[[1,"x_scissor"],[1,"venom_lance"],[22,"toxic"],[30,"venoshock"],[38,"sludge_bomb"],[46,"bug_buzz"],[54,"sludge_wave"],[62,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:218, rarity:"uncommon",
-    desc:"A scorpion-bug hybrid of lethal venom. Its claws inject a toxin that dissolves steel over time.",
-    lore:"Nettleclaw is a large bug-poison scorpion-bee hybrid 25 cm long with a bee-striped yellow and black body and a scorpion-like tail in addition to its bee-stinger. It is solitary and aggressive, marking territory with scent-trails that it defends vigorously against any trespasser regardless of size." },
+    desc:"A great venom-bee with an elongated stinger-tail. The whip-stinger arches scorpion-like over its back but is true bee anatomy, parallel-evolved from the standard sting.",
+    lore:"Nettleclaw is a large bug-poison bee 25 cm long with a bee-striped yellow-and-black body, four membranous wings, and an elongated segmented stinger-tail that arches scorpion-like over its back. The whip-stinger is parallel-evolved from the bee's standard sting, not arachnid heritage. It is solitary and aggressive — unusual for Hymenoptera — marking territory with scent-trails that it defends vigorously against any trespasser regardless of size." },
 
   // Standalone Fire/Ghost: Emberveil
   301: { id:301, name:"Emberveil", emoji:"🔥", types:["Fire","Dark"],
@@ -2347,8 +2347,8 @@ const MONSTERS_DATA = {
     base:{hp:81,atk:68,def:78,spa:122,spd:109,spe:92},
     learnset:[[1,"moonblast"],[1,"psychic_move"],[28,"celestial_wave"],[36,"psystrike"],[44,"glitter_storm"],[52,"neural_storm"],[60,"fae_requiem"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:230, rarity:"rare",
-    desc:"The comet fairy, born from moonstone energy and starlight. Crosses the sky in streaks of prismatic light.",
-    lore:"Lumivane is a fairy-psychic creature 50 cm tall resembling a graceful humanoid composed of starlight and psychic radiance. Its body shifts between solid and luminous depending on its concentration. It inhabits high mountain observatories and archives astronomical data in a crystalline psychic memory." },
+    desc:"The comet-orb fairy, a larger luminous sphere haloed by streaming light-rays. Crosses the sky in streaks of prismatic light.",
+    lore:"Lumivane is a fairy-psychic creature 50 cm across resembling a brilliant luminous orb haloed by rudimentary limb-extensions of condensed light — translucent arm-rays and trailing tendril-legs that emerge from the central sphere but do not sever from it. Its body shifts between solid and luminous depending on its concentration. It inhabits high mountain observatories and archives astronomical data in a crystalline psychic memory at the core of its orb-body." },
 
   // 3-stage Rock/Ice chain: Crysthorn → Geoshard → Crystallon (location: cold area, lv28, lv48)
   304: { id:304, name:"Icethorn", emoji:"💎", types:["Rock","Ice"],
@@ -2680,7 +2680,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"sludge_bomb"],[2,"toxic"],[3,"poison_sting"],[4,"toxic_surge"],[28,"petal_blitz"],[31,"energy_ball"],[35,"growl"],[39,"venoshock"],[42,"battle_cry"],[49,"photon_leaf"],[56,"venom_lance"],[63,"root_lance"],[5,"toxin_bloom"],[43,"leaf_blade"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
     desc:"A carnivorous flower of potent venom. Its blooms lure in prey before injecting toxins.",
-    lore:"Blightalis is a poison-grass creature 1.2 metres tall resembling a large corrupted flower. Its petals are deep crimson-purple and droop downward like a wilting bloom. Its stem-body is hollow and filled with toxic nectar. It lures insects and small creatures into its central chamber, trapping and dissolving them." },
+    lore:"Blightalis is a poison-grass creature 1.2 metres tall whose reed-stalk body has bloomed into a flower-headed humanoid. Its petals are deep crimson-purple and droop downward like a wilting bloom around its head. Its stem-body is hollow and filled with toxic nectar. It lures insects and small creatures into its central chamber, trapping and dissolving them." },
 
   127: { id:127, name:"Specraxis", emoji:"👻", types:["Dark","Psychic"],
     base:{hp:78,atk:68,def:54,spa:107,spd:90,spe:91},

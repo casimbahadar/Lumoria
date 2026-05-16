@@ -2347,8 +2347,8 @@ const MONSTERS_DATA = {
     base:{hp:81,atk:68,def:78,spa:122,spd:109,spe:92},
     learnset:[[1,"moonblast"],[1,"psychic_move"],[28,"celestial_wave"],[36,"psystrike"],[44,"glitter_storm"],[52,"neural_storm"],[60,"fae_requiem"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:230, rarity:"rare",
-    desc:"The comet fairy, born from moonstone energy and starlight. Crosses the sky in streaks of prismatic light.",
-    lore:"Lumivane is a fairy-psychic creature 50 cm tall resembling a graceful humanoid composed of starlight and psychic radiance. Its body shifts between solid and luminous depending on its concentration. It inhabits high mountain observatories and archives astronomical data in a crystalline psychic memory." },
+    desc:"The comet-orb fairy, a larger luminous sphere haloed by streaming light-rays. Crosses the sky in streaks of prismatic light.",
+    lore:"Lumivane is a fairy-psychic creature 50 cm across resembling a brilliant luminous orb haloed by rudimentary limb-extensions of condensed light — translucent arm-rays and trailing tendril-legs that emerge from the central sphere but do not sever from it. Its body shifts between solid and luminous depending on its concentration. It inhabits high mountain observatories and archives astronomical data in a crystalline psychic memory at the core of its orb-body." },
 
   // 3-stage Rock/Ice chain: Crysthorn → Geoshard → Crystallon (location: cold area, lv28, lv48)
   304: { id:304, name:"Icethorn", emoji:"💎", types:["Rock","Ice"],

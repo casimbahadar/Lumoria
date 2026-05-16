@@ -1363,7 +1363,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"poison_sting",[22,"acid_rain"]],[1,"gust"],[10,"sludge_bomb"],[16,"vital_pulse"],[18,"air_slash"],[26,"toxic"],[29,"miasma_cloud"],[34,"hurricane"],[40,"plague_burst"],[42,"venoshock",[5,"toxic_surge"]],[3,"toxin_bloom"],[32,"sludge_wave"]],
     evolveTo:161, evolveLevel:30, catchRate:140, expYield:88, rarity:"common",
     desc:"A miasma fly that leaves toxic trails in its wake. Spreads pestilence.",
-    lore:"Miasmafly is a large winged insect creature with a 60 cm wingspan, resembling a crane fly but with a bloated poisonous abdomen. Its wings are translucent, tinted sickly yellow-green. It creates toxic air currents with its wings as it flies, leaving a drift of suspended poisonous particles in its wake." },
+    lore:"Miasmafly is a large winged insect creature with a 60 cm wingspan, resembling a crane fly but with a bloated poisonous abdomen. Its wings are translucent, tinted sickly yellow-green. It creates toxic air currents with its wings as it flies, leaving a drift of suspended poisonous particles in its wake. Mature Miasmafly grow increasingly drawn to stagnant water at the close of their lifespan — instinctively returning to the marsh-pools where their bodies will eventually fracture into the countless offspring-flies of the Mistbane swarm." },
 
   // ===== PSYCHIC =====
   166: { id:166, name:"Projectery",     emoji:"🐩", types:["Psychic"],
@@ -1506,7 +1506,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[22,"wild_tumble"]],[1,"gust"],[8,"quick_attack"],[14,"harden"],[16,"wing_attack"],[24,"air_slash"],[25,"vortex_trap"],[32,"body_slam",[5,"growl"]],[34,"instinct_slash"],[42,"skyfall"],[3,"tail_whip"],[33,"feral_swipe"]],
     evolveTo:186, evolveLevel:28, catchRate:180, expYield:72, rarity:"common",
     desc:"A pudgy bird that barely fits in trees. Better at fighting than flying.",
-    lore:"Airellin is a small sparrow-like wind bird 15 cm long with pale cream feathers and a round body. It perpetually hovers 30 cm above surfaces rather than perching, even when sleeping. Its feet have atrophied from disuse. It navigates entirely by air current and maintains a mental map of all wind patterns in its territory." },
+    lore:"Airellin is a small sparrow-like wind bird 15 cm long with pale cream feathers and a round body. It perpetually hovers 30 cm above surfaces rather than perching, even when sleeping. Its feet have atrophied from disuse. It navigates entirely by air current and maintains a mental map of all wind patterns in its territory. Hoverrow's atrophied feet make the rare necessary landings painful and clumsy — yet the bird seems unconcerned, as if its body already understands its evolved form will spend continents in the air without ever needing to perch." },
 
   187: { id:187, name:"Norindel",     emoji:"🐷", types:["Normal"],
     base:{hp:65,atk:66,def:62,spa:42,spd:44,spe:30},
@@ -1542,7 +1542,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"rock_throw",[25,"crystal_lance"]],[1,"powder_snow"],[12,"harden"],[17,"swords_dance"],[20,"rock_slide"],[28,"ice_beam"],[31,"stalactite_drop"],[36,"stone_edge"],[43,"icicle_crash"],[44,"blizzard",[5,"granite_wall"]],[3,"petrify_gaze"],[33,"quarry_crush"]],
     evolveTo:196, evolveLevel:40, catchRate:70, expYield:172, rarity:"uncommon",
     desc:"A crystal of ice and stone. Formed under tremendous pressure underground.",
-    lore:"Prismolith is a faceted crystal-rock creature 80 cm tall shaped like a natural geode that has grown legs. Its body is a rough dark matrix on the outside, but gaps reveal brilliant purple amethyst crystals within. It moves very slowly and is prized by miners for the high-quality crystals it sheds during moulting." },
+    lore:"Prismolith is a faceted crystal-rock creature 80 cm tall shaped like a natural geode that has grown legs. Its body is a rough dark matrix on the outside, but gaps reveal brilliant purple amethyst crystals within. It moves very slowly and is prized by miners for the high-quality crystals it sheds during moulting. Older Prismolith move with increasing slowness each year, occasionally pausing where their feet sink slightly into frozen ground — early signs of the permafrost rooting their evolved form will fully commit to." },
 
   // ===== BUG =====
   197: { id:197, name:"Photoworm",   emoji:"🐛", types:["Bug"],

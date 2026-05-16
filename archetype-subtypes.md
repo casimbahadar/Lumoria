@@ -107,6 +107,7 @@ The invisible-life kingdom — microscopic life not covered by Insects/Fungi/Pla
   - paramecium (cap 1+1) — slipper-shape, cilia-fringed
   - plasmodium / malaria-parasite (cap 1+1) — sickle-form
   - diatom (cap 1+1) — geometric silica-glass shell
+  - cell-being (cap 1+1) — generic single-celled creature, nucleus + membrane + cytoplasm silhouette *(landed 2026-05-16 from BUBBLE cross-cluster routing per sweep pass 6)*
 
 - **Archaea / extremophile microbes**
   - thermophile (cap 1+1) — hot-spring / vent dweller
@@ -1040,12 +1041,14 @@ Specific built-structure forms as walking creatures — building-typology silhou
 - **Fortified / defensive**
   - castle-being (cap 1+1) — turret-crowned medieval fortress, drawbridge-mouth
   - fortress-wall / rampart-being (cap 1+1) — long defensive line, crenellated back; *behavior: protective tendency — instinctively positions itself between threats and the castle-being*
+  - watchtower-being (cap 1+1) — slender lookout tower, observation-deck head, panoramic-window eyes *(landed 2026-05-16 from ARCHITECTURE deferral per sweep pass 6)*
 
 - **Maritime / coastal**
   - lighthouse-being (cap 1+1) — tall pillar, rotating-light eye, wave-base
 
 - **Civic / specialized**
   - windmill / watermill-being (cap 1+1) — sail-armed or wheel-driven, kinetic-limb body
+  - geodesic-dome / protective-dome-being (cap 1+1) — Bucky Fuller-style triangulated polyhedral dome, transparent panel-faceted shell *(landed 2026-05-16 from BUBBLE cross-cluster routing per sweep pass 6 — built-rigid-structure framing wins over BUBBLE membrane-containment)*
 
 - **Domestic / vernacular**
   - tent-being (cap 1+1) — small portable fabric dwelling, frame-supported skin
@@ -1056,6 +1059,9 @@ Specific built-structure forms as walking creatures — building-typology silhou
 
 - **Street infrastructure** *(migrated from dropped URBAN cluster)*
   - intersection / crossroads-being (cap 1+1) — four-armed junction-creature, traffic-light eyes
+
+- **Infrastructure**
+  - bridge-being (cap 1+1) — span-creature crossing river/gorge, arch-or-suspension silhouette, deck-back + pylon-legs *(landed 2026-05-16 from ARCHITECTURE deferral per sweep pass 6)*
 
 ---
 
@@ -1068,19 +1074,24 @@ Transport-mechanism as walking / rolling / flying creature — vehicle silhouett
   - motorcycle-being (cap 1+1) — two-wheel slim creature, handlebar-horns, throttle-grip hands
   - train / locomotive-being (cap 1+1) — segmented body in a chain, smokestack-head, whistle-voice
   - tank / armored-vehicle-being (cap 1+1) — treaded base, turret-cannon snout, armor-plate hide
+  - bicycle-being (cap 1+1) — two-wheeled pedal-powered slim creature, handlebar-antlers, chain-driven gait *(landed 2026-05-16 from VEHICLE deferral per sweep pass 6)*
 
 - **Water**
   - submarine-being (cap 1+1) — torpedo-body, periscope-eye, dive-fin limbs
   - ferry / cargo-ship-being (cap 1+1) — wide flat hauler, multi-deck back, container-stack shoulders
   - jet-ski / speedboat-being (cap 1+1) — agile water-skimmer, low-slung body, spray-tail wake
+  - sailboat / yacht-being (cap 1+1) — sail-armed maritime creature, mast-spine + canvas-wing silhouette, hull-belly *(landed 2026-05-16 from VEHICLE deferral per sweep pass 6 — sailcloth carryover from THREAD/CLOTH realized)*
 
 - **Air**
   - airplane-being (cap 1+1) — wing-arms, propeller or jet-tail, cockpit-eye
   - helicopter-being (cap 1+1) — rotor-headdress, hover-stance, tail-rotor counterweight
   - rocket-being (cap 1+1) — vertical streamline, fin-feet, exhaust-plume tail
+  - hot-air-balloon-being (cap 1+1) — large envelope-balloon with wicker-basket gondola, burner-flame breath *(landed 2026-05-16 from VEHICLE + BUBBLE cross-routing per sweep pass 6 — passenger-carrying inflatable = VEHICLE-side per BUBBLE intro convention)*
+  - blimp / dirigible-being (cap 1+1) — elongated airship envelope with cabin-gondola, slow-drifting flight *(landed 2026-05-16 from VEHICLE + BUBBLE cross-routing per sweep pass 6)*
 
 - **Specialty**
   - chariot-being (cap 1+1) — wheeled-platform creature with horse-vestige reins, charioteer-perch head
+  - hovercraft / hovercar-being (cap 1+1) — air-cushion levitating vehicle, skirt-base + ducted-fan propulsion, land/water-amphibious flavor *(landed 2026-05-16 from VEHICLE deferral per sweep pass 6)*
 
 ---
 
@@ -1094,7 +1105,7 @@ Plaything object-as-being — toy-form silhouette given creature-scale. Distinct
   - marionette-being (cap 1+1) — string-jointed puppet, cross-bar handle vestige above head
 
 - **Action Figures**
-  - action-figure-being (cap 1+1) — articulated plastic warrior, ball-joint limbs
+  - action-figure-being (cap 1+1) — articulated plastic warrior, ball-joint limbs *(cap 1+1 absorbs collectible-figurine + army-men variants per sweep pass 6 — display-collectible flavor + small-soldier-toy flavor both covered under this entry's standalone slot)*
 
 - **Vehicles-as-Toys**
   - rocking-horse-being (cap 1+1) — wooden curved-base ride-on horse
@@ -1106,6 +1117,7 @@ Plaything object-as-being — toy-form silhouette given creature-scale. Distinct
   - wind-up-toy-being (cap 1+1) — key-back, ticking-gait creature
   - spinning-top-being (cap 1+1) — gyroscope-balance pirouette
   - music-box-being (cap 1+1) — winding-key, pinned-drum, ballerina-spinner
+  - toy-robot-being (cap 1+1) — tin-plate retro-robot plaything, clunky-gait wind-up movement, antenna-head + claw-hands *(landed 2026-05-16 from TOY deferral per sweep pass 6 — distinct from ROBOTIC's android/mech as play-mechanism vs. functional automaton)*
 
 - **Classic / Misc**
   - kite-being (cap 1+1) — diamond wind-rider, string-tether
@@ -1141,6 +1153,7 @@ Game-piece object-as-being — playable component of a board / card / dice / tok
 
 - **Specialty**
   - puzzle-piece-being (cap 1+1) — single interlocking jigsaw-fragment creature
+  - game-controller-being (cap 1+1) — D-pad + button-array handheld gamepad creature, dual-grip silhouette *(landed 2026-05-16 from GAME-PIECE deferral per sweep pass 6 — electronic-input-device framing kept here as game-play piece rather than APPLIANCE)*
 
 ---
 
@@ -1150,21 +1163,42 @@ Worn adornment object-as-being — wearable jewelry given creature-scale, includ
 
 - **Neckwear**
   - pendant-being (cap 1+1) — single hanging-ornament on cord/chain
-  - amulet-being (cap 1+1) — protective magical pendant with mystical-runes *(distinct from talisman: amulet wards harm; talisman not picked this batch, slot reserved)*
+  - amulet-being (cap 1+1) — protective magical pendant with mystical-runes *(distinct from talisman: amulet wards harm)*
+  - talisman-being (cap 1+1) — luck-attracting pendant counterpart to amulet, mystical-runes flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6; paired conceptually with amulet — talisman draws luck, amulet wards harm)*
+  - locket-being (cap 1+1) — hinged-pendant containing photo or keepsake, openable two-half silhouette *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
 
 - **Finger / hand**
   - ring-being (cap 1+1) — generic band-ring
   - wedding-band / engagement-ring-being (cap 1+1) — paired-ring concept; matching companion vibe
+  - signet-ring-being (cap 1+1) — heraldic seal-ring with engraved crest, wax-impression flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6; STATUE / heraldic crossover noted)*
+  - gem-encrusted-ring-being (cap 1+1) — large-stone-set jeweled ring, cocktail-ring flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
 
 - **Ear**
   - earring-being (cap 1+1) — generic ear-adornment
+  - hoop-earring-being (cap 1+1) — circular ring-form earring, large-hoop flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
+
+- **Wrist / arm / ankle**
+  - bracelet-being (cap 1+1) — generic wrist-worn band, link-chain or solid silhouette *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6; new sub-group opens here)*
+  - bangle-being (cap 1+1) — rigid circular wrist-band, slip-on flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
+  - charm-bracelet-being (cap 1+1) — wrist-band hung with dangling charm-trinkets, swarm-form natural *(landed 2026-05-16 from TOY's charm-toy deferral + JEWELRY deferral per sweep pass 6)*
+  - anklet-being (cap 1+1) — ankle-worn chain or band, foot-jewelry flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
+  - armlet-being (cap 1+1) — upper-arm worn band, Egyptian-or-classical armband flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
+
+- **Body / decorative**
+  - brooch-being (cap 1+1) — pin-back decorative ornament worn on chest/lapel, gem-set or enamel flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6; new sub-group opens here)*
 
 - **Crown / head**
   - crown-being (cap 1+1) — royal crown
   - tiara-being (cap 1+1) — front-only smaller crown
+  - diadem-being (cap 1+1) — jeweled headband royal-or-classical, simpler than crown silhouette *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
 
 - **Currency / coin**
-  - ancient-coin-being (cap 1+1) — antique minted-emperor / wax-pressed currency *(carry-over from METAL-OBJECT's coin → JEWELRY deferral; generic / gold-coin variants split off to future batch)*
+  - ancient-coin-being (cap 1+1) — antique minted-emperor / wax-pressed currency *(carry-over from METAL-OBJECT's coin → JEWELRY deferral)*
+  - coin-being (cap 1+1) — generic modern minted-currency disc *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6; distinct from ancient-coin's antique flavor)*
+  - gold-coin-being (cap 1+1) — pirate-treasure / bullion-coin variant, gleaming-gold flavor *(landed 2026-05-16 from JEWELRY deferral per sweep pass 6)*
+
+- **Gem / pearl**
+  - pearl-necklace-being (cap 1+1) — strung-pearl worn-jewelry composition, cream-iridescent strand flavor *(landed 2026-05-16 from BUBBLE cross-cluster routing per sweep pass 6 — set-into-jewelry framing distinguishes from CRYSTALLINE/GEM's raw pearl gem-being sub-entry per JEWELRY intro convention; new sub-group opens here)*
 
 - **Awards / honors**
   - medal-being (cap 1+1) — chest-worn award disc on ribbon, gold/silver/bronze finish *(absorbed from former TROPHY cluster 2026-05-15 consolidation)*
@@ -1180,14 +1214,17 @@ Vessel object-as-being — storage / carry / display container given creature-sc
   - jar-being (cap 1+1) — wide-mouth lidded storage jar
   - urn-being (cap 1+1) — funerary / cremation urn, ash-bearer *(parallel to coffin below: urn = ashes, coffin = body)*
   - amphora-being (cap 1+1) — ancient Greek two-handled tall jar, pointed-bottom for ground-set
+  - vase-being (cap 1+1) — flower-vessel form, narrow-neck + bulbous-body silhouette *(landed 2026-05-16 from CONTAINER deferral per sweep pass 6; distinct from jar-being by display-flower function vs. lidded-storage)*
 
 - **Drinkware**
   - goblet / chalice-being (cap 1+1) — stemmed ceremonial cup
   - wine-glass-being (cap 1+1) — long-stem glass cup
+  - wine-bottle-being (cap 1+1) — corked tall-neck glass bottle, label-flank flavor *(landed 2026-05-16 from CONTAINER deferral per sweep pass 6)*
 
 - **Boxes / chests**
   - treasure-chest-being (cap 1+1) — locked lidded chest, gilt-trim hinges
   - coffin-being (cap 1+1) — funerary chest, vessel-for-the-body *(included despite hearse-drop precedent in VEHICLE; user retained coffin as funerary parallel to urn)*
+  - jewelry-box-being (cap 1+1) — small ornate keepsake box, velvet-lined interior + mirror-lid flavor *(landed 2026-05-16 from CONTAINER deferral per sweep pass 6)*
 
 - **Bags / soft containers**
   - suitcase / luggage-being (cap 1+1) — hard-shell travel case, handle-grip + wheel-feet
@@ -1216,6 +1253,7 @@ Functional implement object-as-being — handheld working-tool given creature-sc
   - spear-being (cap 1+1) — pointed-tip pole-arm
   - bow-and-arrow-being (cap 1+1) — drawn-string projectile pair
   - dagger-being (cap 1+1) — short concealable blade *(distinct from knife-being)*
+  - shield-being (cap 1+1) — defensive round/kite/tower-form, emblem-face + grip-strap reverse *(landed 2026-05-16 from TOOL deferral per sweep pass 6; defensive-vs-offensive weapon framing accepts shield as TOOL-domain entry)*
 
 - **Writing / drawing implements**
   - quill-being (cap 1+1) — feather-tip ink stylus *(per INK/PIGMENT pen-deferral; only writing implement picked this batch — pen / pencil / paintbrush / printer-ink-cartridge logged as candidates)*
@@ -1247,6 +1285,7 @@ Powered / active machine object-as-being — appliance with energy-source and me
   - oven / stove / cooktop-being (cap 1+1) — combined heating-appliance creature, burner-top + oven-cavity body *(user combined-creature pick: oven + stove + cooktop as one entity rather than split)*
   - microwave-oven-being (cap 1+1) — small box, turntable-belly, beep-voice *(distinct from oven/stove/cooktop above)*
   - coffee-maker / espresso-machine-being (cap 1+1) — drip-funnel head, carafe-belly, steam-vent
+  - blender-being (cap 1+1) — pitcher-body with rotating-blade base, lid-cap head, smoothie-mixing flavor *(landed 2026-05-16 from APPLIANCE deferral per sweep pass 6)*
 
 - **Laundry / cleaning**
   - vacuum-cleaner-being (cap 1+1) — wheeled body with suction-hose proboscis, dust-bag belly
@@ -1260,6 +1299,9 @@ Powered / active machine object-as-being — appliance with energy-source and me
   - laptop-being (cap 1+1) — hinged-clamshell silhouette, screen-face + keyboard-belly
   - smartphone-being (cap 1+1) — slim glass-front rectangle, touchscreen face
   - tablet-being (cap 1+1) — larger flat slab, screen-front
+
+- **Entertainment electronics**
+  - television / TV-being (cap 1+1) — flat-screen-or-CRT display creature, screen-face + speaker-grille flanks *(landed 2026-05-16 from APPLIANCE deferral per sweep pass 6; new sub-group opens here)*
 
 - **Gaming / arcade**
   - slot-machine-being (cap 1+1) — vertical cabinet with reel-display window, lever-arm *(per GAME-PIECE deferral)*
@@ -1275,6 +1317,7 @@ Powered / active machine object-as-being — appliance with energy-source and me
 - **Personal care / power tools**
   - hairdryer-being (cap 1+1) — handheld blower-cone, motor-grip body
   - electric-drill-being (cap 1+1) — pistol-grip motor body, chuck-jaw mouth *(per TOOL hand-drill-vs-electric-drill distinction)*
+  - chainsaw-being (cap 1+1) — toothed-chain rotating cutter, motor-grip body, lumberjack-tool flavor *(landed 2026-05-16 from APPLIANCE deferral per sweep pass 6)*
 
 ---
 
@@ -1292,6 +1335,12 @@ Figurative-sculpture object-as-being — freestanding representational sculpture
 
 - **Garden / decorative**
   - garden-cherub-being (cap 1+1) — small winged-baby figure, stone/concrete garden ornament
+
+- **Religious**
+  - buddha-statue-being (cap 1+1) — seated meditation figure, lotus-posture + serene expression, gilded/stone temple-icon flavor *(landed 2026-05-16 from STATUE deferral per sweep pass 6; new sub-group opens here)*
+
+- **Architectural / Gothic**
+  - gargoyle-statue-being (cap 1+1) — grotesque carved-stone watchman atop cathedral, wing + claws + bestial-face flavor *(landed 2026-05-16 from STATUE deferral per sweep pass 6; frozen-stone form here vs. animate gargoyle in MYTHICAL roster; new sub-group opens here)*
 
 ---
 
@@ -1312,6 +1361,9 @@ Mechanical-automaton object-as-being — autonomous-agent machine given creature
   - battle-bot / war-machine-being (cap 1+1) — autonomous combat-purpose frame, weapon-mount, armored-shell flavor *(smaller-than-mech scale)*
   - sentient-AI-core-being (cap 1+1) — disembodied intelligence in central-monolith / server-core form, glowing-core nucleus *(ROBOTIC-domain per user call)*
   - robo-spider / mechanical-arachnid-being (cap 1+1) — spider-silhouette autonomous bot, multi-leg articulated chassis
+
+- **Paired / Piloted**
+  - mech-suit-pilot-pair-being (cap 1+1) — piloted-mecha companion-pair, SYMBIOSIS-style paired entry; mech-chassis frame + pilot-human inside the cockpit form a single creature-entry *(landed 2026-05-16 from ROBOTIC deferral per sweep pass 6; new sub-group opens here — pair-framing distinguishes from solo mech-being above)*
 
 ---
 
@@ -1362,9 +1414,12 @@ Musical-instrument object-as-being — sound-producing apparatus given creature-
 - **Wind (brass + woodwind)**
   - trumpet / brass-being (cap 1+1) — brass valved-horn, flared-bell silhouette
   - flute / wind-being (cap 1+1) — woodwind transverse or end-blown, tube-and-finger-holes silhouette
+  - saxophone-being (cap 1+1) — curved brass-bodied woodwind, mouthpiece-reed + key-padded body *(landed 2026-05-16 from INSTRUMENTS deferral per sweep pass 6)*
+  - clarinet-being (cap 1+1) — straight black-wood single-reed woodwind, slim cylindrical silhouette *(landed 2026-05-16 from INSTRUMENTS deferral per sweep pass 6)*
 
 - **Folk / world / specialty**
   - shamisen / koto-being (cap 1+1) — Japanese stringed instrument, shamisen 3-string lute or koto 13-string zither flavor
+  - sitar-being (cap 1+1) — Indian long-necked plucked-string instrument, gourd-resonator body + drone-string flavor *(landed 2026-05-16 from INSTRUMENTS deferral per sweep pass 6)*
 
 ---
 
@@ -1442,6 +1497,7 @@ Scented vapor / fragrance phenomenon-as-being — aromatic-airborne emission giv
   - rose-scent-being (cap 1+1) — iconic floral aroma, classic-rose flavor
   - lavender-scent-being (cap 1+1) — calming herbal aroma, purple-bloom signature
   - mint-aroma-being (cap 1+1) — fresh herbal aroma, cool / sharp flavor
+  - floral-aroma-being (cap 1+1) — generic flower-bouquet aroma, mixed-blossom signature *(landed 2026-05-16 from PERFUME deferral per sweep pass 6; distinct from specific rose/lavender entries by generic-floral-blend framing)*
 
 - **Food / kitchen aroma**
   - spice-aroma-being (cap 1+1) — generic spice-blend aroma, cinnamon / curry / pepper variants
@@ -1449,10 +1505,12 @@ Scented vapor / fragrance phenomenon-as-being — aromatic-airborne emission giv
 - **Environmental / atmospheric (natural)**
   - sea-breeze / ocean-aroma-being (cap 1+1) — saltwater scent, coastal-air flavor
   - forest-aroma / pine-fresh-being (cap 1+1) — woodsy / cedar aroma, mountain-air flavor
+  - petrichor / after-rain-aroma-being (cap 1+1) — fresh wet-earth fragrance after rainfall, geosmin-released signature *(landed 2026-05-16 from PERFUME deferral per sweep pass 6 — scent-emission framing wins over WEATHER atmospheric-phenomenon framing per prior user call)*
 
 - **Synthetic / industrial / domestic aromas**
   - gasoline-aroma-being (cap 1+1) — petroleum / fuel-station aroma, industrial-synthetic flavor
   - fresh-laundry-aroma-being (cap 1+1) — clean-detergent / fabric-softener aroma, domestic-warmth flavor
+  - air-freshener / aerosol-spray-being (cap 1+1) — scent-vapor product creature, plug-in or spray-can flavor *(landed 2026-05-16 from PERFUME deferral per sweep pass 6 — scent-vapor-product framing wins over APPLIANCE device-as-being)*
 
 ---
 
@@ -1489,9 +1547,13 @@ Atmospheric phenomenon-as-being — weather event or sky/air manifestation given
   - rain-being / raindrop-being (cap 1+1) — generic falling rain, droplet-cloud paired silhouette
   - snowflake / snow-being (cap 1+1) — falling snow, crystalline-symmetry flavor
   - hail-being (cap 1+1) — frozen-pellet precipitation, hard-fall flavor *(WEATHER-domain per user call; distinct from NATURAL-DISASTER's hailstorm-event)*
+  - freezing-rain-being (cap 1+1) — supercooled rain that glazes on contact, ice-shell precipitation flavor *(landed 2026-05-16 from WEATHER deferral per sweep pass 6; distinct from hail by liquid-on-fall vs. frozen-pellet)*
+  - drizzle-being (cap 1+1) — light fine-mist precipitation, gentle-drift flavor *(landed 2026-05-16 from WEATHER deferral per sweep pass 6; distinct from rain by droplet-size + gentleness)*
 
 - **Wind / air-movement**
   - breeze-being (cap 1+1) — gentle ambient wind, soft-stir flavor
+  - whirlwind / dust-devil-being (cap 1+1) — small spinning wind-vortex carrying dust + debris, miniature-tornado flavor *(landed 2026-05-16 from WEATHER deferral per sweep pass 6; WEATHER-domain per user call vs. NATURAL-DISASTER tornado-event)*
+  - zephyr-being (cap 1+1) — west-wind / gentle-breeze poetic-form, classical wind-spirit flavor *(landed 2026-05-16 from WEATHER deferral per sweep pass 6; distinct from generic breeze by directional + poetic framing)*
 
 - **Light / sky-color phenomena**
   - rainbow-being (cap 1+1) — refracted-light spectrum-arc, post-rain flavor
@@ -1508,6 +1570,9 @@ Atmospheric phenomenon-as-being — weather event or sky/air manifestation given
 - **Vapor / moisture**
   - mist-being (cap 1+1) — fine-droplet atmospheric vapor, light-visibility flavor *(per SMOKE deferral)*
   - fog-being (cap 1+1) — dense-low-cloud atmospheric vapor, reduced-visibility flavor *(per SMOKE deferral)*
+
+- **Lightning / electrical**
+  - ball-lightning-being (cap 1+1) — rare luminous spherical electric phenomenon, floating-orb of plasma flavor *(landed 2026-05-16 from WEATHER deferral per sweep pass 6; new sub-group opens here — distinct from storm-cloud's lightning-tension flavor by discrete-orb form)*
 
 ---
 
@@ -2018,6 +2083,7 @@ Umbrella archetype with per-disaster subtypes. Each subtype cap = 1 family + 1 s
 - **salt-crystal-being** (cap 1+1) — saline, distinct from gem
 - **amber-being / fossilized-resin-being** (cap 1+1) — organic fossil; time-frozen-creature inside, distinct from mineral gems
 - **stalactite-stalagmite-being** (cap 1+1) — drip-formation cave-creature; mineral-built-by-water
+- **crystal-ball / orb-being** (cap 1+1) — solid-sphere divination-orb, polished-crystal fortune-teller flavor *(landed 2026-05-16 from BUBBLE cross-cluster routing per sweep pass 6 — solid-not-hollow framing distinguishes from BUBBLE's hollow-film-bubbles)*
 
 ---
 

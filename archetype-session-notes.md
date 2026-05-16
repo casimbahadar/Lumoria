@@ -72,68 +72,69 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 
 ### From Manmade cluster (ARCHITECTURE deferrals)
 - **mineshaft** — carried CAVE → ARCHITECTURE → deferred again. **DROPPED entirely 2026-05-15** per user resolution.
-- **bridge, watchtower** — proposed for ARCHITECTURE but not picked (logged as candidates). *(dam, dungeon, pier, stupa, ziggurat, cottage, yurt DROPPED entirely 2026-05-15 per user resolution.)*
+- **bridge, watchtower** — **BOTH LANDED 2026-05-16 per sweep pass 6** (bridge → new Infrastructure sub-group; watchtower → Fortified/defensive). *(dam, dungeon, pier, stupa, ziggurat, cottage, yurt DROPPED entirely 2026-05-15 per user resolution.)*
 
 ### From Manmade cluster (VEHICLE deferrals)
-- **sailboat / yacht** (with sailcloth carryover from THREAD).
-- **bicycle, hot-air balloon, blimp / dirigible, hovercraft / hovercar**. *(rowboat / canoe + sled / sleigh DROPPED entirely 2026-05-15 per user resolution.)*
+- **sailboat / yacht** — **LANDED 2026-05-16 per sweep pass 6** (Water sub-group; sailcloth carryover from THREAD realized).
+- **bicycle, hot-air balloon, blimp / dirigible, hovercraft / hovercar** — **ALL LANDED 2026-05-16 per sweep pass 6** (bicycle → Land; hot-air-balloon + blimp/dirigible → Air; hovercraft/hovercar → Specialty). *(rowboat / canoe + sled / sleigh DROPPED entirely 2026-05-15 per user resolution.)*
 - **hearse / coffin-on-wheels** — flagged as specialty too dark; dropped.
 
 ### From Manmade cluster (TOY deferrals)
 - *(toy-car + model-train DROPPED entirely 2026-05-15 per user resolution.)*
-- **toy-robot-being** — proposed but not picked (toy-robot remains for ROBOTIC). *(tin-soldier-being DROPPED entirely 2026-05-15 per user resolution.)*
+- **toy-robot-being** — **LANDED 2026-05-16 per sweep pass 6** (Mechanical/Wind-up sub-group; distinct from ROBOTIC's android/mech as play-mechanism vs. functional automaton). *(tin-soldier-being DROPPED entirely 2026-05-15 per user resolution.)*
 - *(sock-puppet, ventriloquist-dummy, finger-puppet, porcelain-doll all DROPPED entirely 2026-05-15 per user resolution.)*
-- **action-figure variants (collectible-figurine, army-men)** — proposed but not picked.
+- **action-figure variants (collectible-figurine, army-men)** — **ABSORBED 2026-05-16 per sweep pass 6** into existing `action-figure-being` cap 1+1 slot via descriptor enhancement (no separate entries).
 - *(hobby-horse, building-block, interlocking-brick, erector / construction-set all DROPPED entirely 2026-05-15 per user resolution.)*
 - *(jack-in-the-box, yo-yo, bouncy-ball, pinwheel all DROPPED entirely 2026-05-15 per user resolution.)*
 - **balloon-animal, shadow-puppet, charm-toy, board-game-piece, slingshot, musical-toy / xylophone / toy-drum** — flagged as adjacent and deferred to their respective clusters (BUBBLE, SHADOW-CAST, JEWELRY, GAME-PIECE, TOOL, INSTRUMENTS-or-TOOL).
 
 ### From Manmade cluster (GAME-PIECE deferrals)
-- **game-controller** — track/marker/specialty candidate not picked, kept as candidate.
+- **game-controller** — **LANDED 2026-05-16 per sweep pass 6** (Specialty sub-group; electronic-input-device framing kept as game-play piece rather than APPLIANCE).
 - **slot-machine, pinball** → flagged for APPLIANCE, **LANDED in APPLIANCE.**
 - **tarot-card / Major Arcana** → moved to MYTHICAL CREATURES (Arcana / divination / fortune-telling sub-section, separate commit). User decision: tarot is mystical/archetypal, fits Mythical better than mechanical game-piece.
 - *(All other GAME-PIECE deferrals DROPPED entirely 2026-05-15 per user resolution: checkers-piece, go-stone, shogi-piece, backgammon-checker, meeple, generic-game-token, trading-card-being, six-sided-die-being, coin-flip-being, poker-chip, mahjong-tile, domino, game-board, spinner, generic-pawn, jenga-block, yahtzee-cup, bingo-ball, arcade-cabinet, roulette-wheel, paper-fortune-teller / cootie-catcher.)* *(hourglass-timer already dropped 2026-05-15 per N27 dedup — landed in UNIQUE.)*
 
 ### From Manmade cluster (JEWELRY deferrals)
-- **talisman-being** — proposed but not picked (slot reserved alongside amulet-being; distinction: talisman attracts luck vs. amulet wards harm).
-- **locket-being** — neckwear candidate not picked.
-- **signet-ring-being, gem-encrusted-ring-being** — ring variants not picked (signet flagged for STATUE / heraldic crossover).
-- **hoop-earring-being** — ear-piercing candidate not picked (earring-being kept as generic per user pick).
-- **bracelet-being, bangle-being, charm-bracelet-being, anklet-being, armlet-being** — wrist/arm/ankle candidates not picked. (charm-bracelet was carryover from TOY's charm-toy deferral.)
-- **diadem-being** — crown-variant candidate not picked (crown + tiara kept).
-- **brooch-being** — body/decorative candidate not picked.
-- **coin-being (generic), gold-coin-being** — coin variant candidates not picked this batch; user picked split-coin framing → ancient-coin-being kept now; generic / gold-coin entries deferred to a future session.
+**ALL surviving JEWELRY deferrals LANDED 2026-05-16 per sweep pass 6 (15 entries total including pearl-necklace from BUBBLE cross-route):**
+- **talisman-being, locket-being** — LANDED in Neckwear sub-group.
+- **signet-ring-being, gem-encrusted-ring-being** — LANDED in Finger/hand sub-group.
+- **hoop-earring-being** — LANDED in Ear sub-group.
+- **bracelet-being, bangle-being, charm-bracelet-being, anklet-being, armlet-being** — LANDED in new **Wrist / arm / ankle** sub-group (charm-bracelet resolves TOY's charm-toy deferral).
+- **diadem-being** — LANDED in Crown/head sub-group.
+- **brooch-being** — LANDED in new **Body / decorative** sub-group.
+- **coin-being (generic), gold-coin-being** — LANDED in Currency/coin sub-group (alongside ancient-coin).
+- **pearl-necklace-being** — LANDED in new **Gem / pearl** sub-group per BUBBLE cross-routing (set-into-jewelry framing distinguishes from CRYSTALLINE/GEM's raw pearl gem-being sub-entry).
 - *(pearl-strand-being, choker-being, stud-earring-being, nose-ring-being, lip-ring-being, friendship-bracelet-being, cuff-bracelet-being, circlet-being, cufflink-being, body-chain-being all DROPPED entirely 2026-05-15 per user resolution.)*
 
 ### From Manmade cluster (CONTAINER deferrals)
-- **vase-being** — pottery candidate not picked (user's "distinct" framing means future entries would split separately; jar-being kept this batch). *(pot-being DROPPED 2026-05-15 per user resolution.)*
-- **wine-bottle-being** — bottle/flask candidate not picked.
-- **jewelry-box-being** — box/chest candidate not picked (treasure-chest + coffin kept).
+- **vase-being** — **LANDED 2026-05-16 per sweep pass 6** (Pottery/ceramic vessels sub-group; flower-vessel function distinguishes from jar-being's lidded-storage). *(pot-being DROPPED 2026-05-15 per user resolution.)*
+- **wine-bottle-being** — **LANDED 2026-05-16 per sweep pass 6** (Drinkware sub-group).
+- **jewelry-box-being** — **LANDED 2026-05-16 per sweep pass 6** (Boxes/chests sub-group).
 - **cauldron-being** → flagged for MYTHICAL CREATURES (witch-cauldron iconography). **LANDED in MYTHICAL Other (cross-cultural) 2026-05-15** per cross-cluster pending-review resolution.
 - *(ink-pot / inkwell-being DROPPED 2026-05-15 per earlier resolution. teacup / mug / tankard / bottle / flask / canteen / thermos / box / crate / basket / sack / backpack / handbag / purse / barrel / bucket / shipping-container / envelope-being all DROPPED entirely 2026-05-15 per user resolution. gourd / hollow-fruit + piggy-bank previously DROPPED. paint-can previously LANDED in CONTAINER.)*
 
 ### From Manmade cluster (TOOL deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked. User clarified mid-session that deferrals/carryovers do not imply eventual addition.*
-- **shield-being** — weapon candidate not picked (defensive-vs-offensive framing; firearm + mace DROPPED earlier).
+- **shield-being** — **LANDED 2026-05-16 per sweep pass 6** (Weapons sub-group; defensive-vs-offensive framing accepts shield as TOOL-domain entry; firearm + mace stay DROPPED).
 - **magnifying-glass-being** — *landed in OPTICAL IMAGING (formerly CAMERA) per lens-mechanism reframing 2026-05-13.*
 - *(MAJOR DROP 2026-05-15 per user resolution: screwdriver-being, wrench-being, pliers-being, chisel-being, shovel/spade-being (hand-tools), shears-being (cutting), mace-being (weapon — firearm earlier DROPPED), pen-being (ballpoint/fountain-pen), pencil-being, paintbrush-being, printer-ink-cartridge-being (writing implements), ruler-being, compass-being / drawing-compass (measuring), fishing-rod-being, net-being, slingshot-being (fishing/hunting) — all DROPPED entirely.)* *(hourglass earlier dropped per N27 — landed in UNIQUE. telescope dropped per N48.)*
 - **whistle-being** → user redirected to TOY as a TOY-side candidate. **DROPPED entirely 2026-05-15** per cross-cluster pending-review resolution (TOY cluster closed without retro-add; no home).
 - **magic-wand-being** — flagged for MYTHICAL CREATURES (mystical-implement domain). **LANDED in MYTHICAL Other (cross-cultural) 2026-05-15** per cross-cluster pending-review resolution. **wizard-staff-being DROPPED entirely 2026-05-15** per same resolution (magic-wand-being covers mystical-implement domain sufficiently; staff-form not needed as separate entry).
-- **microscope-being, telescope-being** — flagged as APPLIANCE candidates (lens-mechanism artifacts); not picked here.
+- **microscope-being, telescope-being** — **BOTH DROPPED entirely 2026-05-16 per sweep pass 6** (telescope was already dropped per N48; microscope now dropped from TOOL + APPLIANCE + OPTICAL IMAGING candidate lists).
 
 ### From Manmade cluster (APPLIANCE deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked.*
-- **blender-being, rice-cooker-being** — kitchen-appliance candidates not picked.
-- **television / TV-being** — entertainment-electronics candidate not picked.
-- **microscope-being** — scientific-instrument candidate; reframed as OPTICAL IMAGING (formerly CAMERA) candidate per lens-mechanism domain-claim (2026-05-13). *(telescope-being DROPPED per N48 2026-05-15.)*
+- **blender-being** — **LANDED 2026-05-16 per sweep pass 6** (Kitchen sub-group). **rice-cooker-being DROPPED entirely 2026-05-16 per sweep pass 6** per user resolution.
+- **television / TV-being** — **LANDED 2026-05-16 per sweep pass 6** (new Entertainment electronics sub-group).
+- **microscope-being** — **DROPPED entirely 2026-05-16 per sweep pass 6** per user resolution (was reframed OPTICAL IMAGING candidate). *(telescope-being DROPPED per N48 2026-05-15.)*
 - **thermometer-being** — *LANDED in TOOL retroactively* via 2026-05-13 commit per CAMERA cross-section redirect (new Measurement/precision sub-group).
-- **chainsaw-being** — power-tool candidate not picked.
+- **chainsaw-being** — **LANDED 2026-05-16 per sweep pass 6** (Personal care/power tools sub-group).
 - *(MAJOR DROP 2026-05-15 per user resolution: toaster-being, dishwasher-being, kettle/electric-kettle-being (kitchen), washing-machine-being, dryer-being, clothes-iron-being (laundry/cleaning), space-heater-being, electric-fan-being (HVAC), radio-being, record-player / phonograph-being, speaker / boombox-being (entertainment), printer-being, typewriter-being (office), furnace-being, elevator-being (industrial), electric-shaver-being (personal-care) — all DROPPED entirely.)* *(gaming-console-being earlier DROPPED per cross-cluster review. arcade-cabinet + roulette-wheel earlier DROPPED with GAME-PIECE block.)*
 
 ### From Manmade cluster (STATUE deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked.*
-- **buddha-statue-being** — religious-sculpture candidate not picked.
-- **gargoyle-statue-being** — candidate not picked; frozen-stone-gargoyle = STATUE, animate-gargoyle = MYTHICAL.
+- **buddha-statue-being** — **LANDED 2026-05-16 per sweep pass 6** (new Religious sub-group).
+- **gargoyle-statue-being** — **LANDED 2026-05-16 per sweep pass 6** (new Architectural/Gothic sub-group; frozen-stone form here vs. animate-gargoyle in MYTHICAL roster).
 - **atlas-being** → LANDED in MYTHICAL Greek/Roman 2026-05-15 as `atlas`.
 - **abstract-sculpture-being** — DROPPED entirely (non-figurative; doesn't fit STATUE definition per user call).
 - *(MAJOR DROP 2026-05-15 per user resolution: venus-de-milo-being, discobolus-being, bust / portrait-bust-being (classical/Renaissance), moai / easter-island-being, sphinx-statue-being (iconic-monument), crucifix-being, madonna-statue-being, jizo-statue-being (religious — buddha-statue kept), gravestone / tombstone-being, weeping-angel-being, memorial-obelisk-being (tomb/memorial), garden-gnome-being, lawn-flamingo-being (garden), caryatid-being (column-figure), wax-figure-being, mannequin-being, nutcracker-being, totem-pole-being, bobble-head-being, bronze-horseman-being (specialty/figurative) — all DROPPED entirely.)*
@@ -141,7 +142,7 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 ### From Manmade cluster (ROBOTIC deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked.*
 - **automaton-being** — clockwork-Victorian / da-Vinci-mechanical period-flavor humanoid candidate; not picked (android + mech + cyborg covered the humanoid sub-cluster).
-- **mech-suit-pilot-pair-being** — paired SYMBIOSIS-style entry candidate; not picked (SYMBIOSIS cluster already covers paired-being framing; mech-being covers the silhouette here).
+- **mech-suit-pilot-pair-being** — **LANDED 2026-05-16 per sweep pass 6** (new Paired/Piloted sub-group; pair-framing distinguishes from solo mech-being).
 - **sentient-AI-core-being** — LANDED as entry; ROBOTIC-domain confirmed per user call.
 - **cyborg-being** — LANDED as entry; ROBOTIC-domain confirmed per user call.
 - **self-driving-car-being** — stays VEHICLE-side (car-being covers silhouette).
@@ -149,7 +150,7 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 
 ### From Manmade cluster (OPTICAL IMAGING — formerly CAMERA + HOLOGRAM — deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked.*
-- **microscope-being** — base + eyepiece + objective optical-instrument candidate; OPTICAL IMAGING-domain confirmed per lens-mechanism reframing, but not picked.
+- **microscope-being** — **DROPPED entirely 2026-05-16 per sweep pass 6** per user resolution (was OPTICAL IMAGING-domain confirmed via lens-mechanism reframing but ultimately dropped).
 - **thermometer-being** — *LANDED in TOOL retroactively* via 2026-05-13 commit per CAMERA cross-section redirect (new Measurement/precision sub-group).
 - **smartphone-camera-being** — implicit duplicate of APPLIANCE's smartphone-being; no separate entry.
 - *(rainbow-hologram-being, ghost-projection / phantom-image-being, sky-projection / cloud-projection-being all LANDED in OPTICAL IMAGING Sci-fi/technological projections sub-group 2026-05-15 per user resolution.)*
@@ -158,8 +159,8 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 
 ### From Manmade cluster (INSTRUMENTS deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked.*
-- **saxophone-being, clarinet-being** — wind candidates not picked.
-- **sitar-being** — folk/world candidate not picked.
+- **saxophone-being, clarinet-being** — **BOTH LANDED 2026-05-16 per sweep pass 6** (Wind sub-group).
+- **sitar-being** — **LANDED 2026-05-16 per sweep pass 6** (Folk/world/specialty sub-group).
 - **electric-guitar-being** — implicitly covered by generic guitar-being under 1+1 cap per user call.
 - **music-box-being** — already in TOY's `**Mechanical / Wind-up**` sub-group.
 - **tuning-fork-being** — already in TOOL's `**Sound / signaling**` sub-group.
@@ -172,11 +173,11 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 
 ### From Phenomena cluster (BUBBLE deferrals)
 *All entries below are candidates only — no commitment they'll ever be picked.*
-- **geodesic-dome / protective-dome-bubble-being** — ARCHITECTURE-side candidate per user call.
-- **hot-air-balloon-being, blimp-being, dirigible-being** — VEHICLE-side candidates per user call.
-- **crystal-ball / orb-being** — CRYSTALLINE/GEM-side candidate per user call.
-- **cell / vesicle / blood-cell-being** — MICROORGANISMS-side candidates per user call.
-- **pearl-being** — JEWELRY-side candidate per user call.
+- **geodesic-dome / protective-dome-bubble-being** — **LANDED in ARCHITECTURE Civic/specialized 2026-05-16 per sweep pass 6**.
+- **hot-air-balloon-being, blimp-being, dirigible-being** — **ALL LANDED in VEHICLE Air 2026-05-16 per sweep pass 6**.
+- **crystal-ball / orb-being** — **LANDED in CRYSTALLINE/GEM 2026-05-16 per sweep pass 6** (solid-not-hollow framing).
+- **cell / vesicle / blood-cell-being** — **cell-being LANDED in MICROORGANISMS Protists sub-group 2026-05-16 per sweep pass 6**; **vesicle + blood-cell DROPPED entirely 2026-05-16 per sweep pass 6** per user resolution.
+- **pearl-being** — **LANDED as `pearl-necklace-being` in JEWELRY new Gem/pearl sub-group 2026-05-16 per sweep pass 6** (set-into-jewelry framing distinguishes from CRYSTALLINE/GEM's raw pearl gem-being sub-entry).
 - *(MAJOR DROP 2026-05-15 per user resolution: bubble-bath / suds-being, bubble-wrap-being, single-bubble-in-water-being, foam-being (generic), sea-foam-being, champagne-bubble / fizz-being, plastic-bubble / quarantine-bubble-being, glass-blowing-bubble-being, ball-pit-ball-being, spit-bubble, fish-bubble-breath, bubble-tea-pearl, mucus-bubble / nasal-bubble, oxygen-bubble-from-plant, frog's-throat-bubble — all DROPPED entirely.)*
 
 ### From Phenomena cluster (SMOKE deferrals)
@@ -207,10 +208,10 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **pollen-cloud / spring-meadow-aroma-being** — diffuse-aroma candidate DROPPED entirely per user call (not pulled into PERFUME, not retro-added to PLANTS).
 - **skunk-spray-being** — animal-defense scent vapor DROPPED entirely per user call (skunk-being already exists in MAMMALS/Mustelids at line 234; no separate PERFUME-side spray-vapor entry).
 
-**Candidates not picked (PERFUME-domain confirmed, logged for possible future densification):**
-- **flower-scent / floral-aroma-being (generic)** — PERFUME-domain confirmed.
-- **petrichor / after-rain-aroma-being** — PERFUME-domain confirmed (scent-emission framing wins over atmospheric-phenomenon framing).
-- **air-freshener / aerosol-spray-being** — PERFUME-domain confirmed (scent-vapor-product framing wins over APPLIANCE device-as-being framing).
+**All PERFUME survivor candidates LANDED 2026-05-16 per sweep pass 6:**
+- **flower-scent / floral-aroma-being (generic)** — **LANDED** in Natural floral/herbal scent sub-group.
+- **petrichor / after-rain-aroma-being** — **LANDED** in Environmental/atmospheric (natural) sub-group (scent-emission framing wins over atmospheric-phenomenon framing).
+- **air-freshener / aerosol-spray-being** — **LANDED** in Synthetic/industrial/domestic aromas sub-group (scent-vapor-product framing wins over APPLIANCE device-as-being framing).
 - *(MAJOR DROP 2026-05-15 per user resolution: essential-oil-aroma, sage-bundle/smudge-smoke, resin-incense/frankincense-myrrh, joss-stick (incense), jasmine-scent (specific floral), baking-aroma/bread-cookie-aroma, coffee-aroma, citrus-zest/lemon-aroma (food/kitchen), campfire-aroma/wood-smoke-aroma, scented-candle-aroma, potpourri, car-air-freshener-pine-tree, hospital-disinfectant-smell, new-car-smell, library-old-book-smell, ginger-aroma (adjacent) — all DROPPED entirely.)*
 
 ### From Phenomena cluster (HOLOGRAM deferrals) — now merged into OPTICAL IMAGING per 2026-05-15 consolidation
@@ -253,11 +254,11 @@ Carried across batches without a final home. Each may end up reassigned to a fut
 - **smog-being** — already landed in SMOKE batch as industrial-pollution-haze; **smog WEATHER-side duplicate skipped per user call**.
 - **crepuscular-ray / godray-being** — stays SHADOW-CAST candidate per SHADOW-CAST batch deferral; **N/A for WEATHER cross-section per user call** (no WEATHER-domain claim).
 
-**Candidates not picked (WEATHER-domain confirmed, logged for possible future densification):**
-- **freezing-rain-being, drizzle-being** — precipitation candidates not picked (rain + snow + hail kept). *("sleet" half of former `sleet / freezing-rain-being` name DROPPED 2026-05-15 per user resolution.)*
-- **whirlwind / dust-devil-being** — wind candidate; **WEATHER-domain confirmed per user call** (vs. NATURAL-DISASTER tornado-event) but not picked.
-- **zephyr-being** — west-wind / gentle-breeze poetic-form wind candidate not picked.
-- **ball-lightning-being** — adjacent unproposed candidate kept per user resolution.
+**All WEATHER survivor candidates LANDED 2026-05-16 per sweep pass 6:**
+- **freezing-rain-being, drizzle-being** — **BOTH LANDED** in Precipitation sub-group (alongside rain + snow + hail). *("sleet" half of former `sleet / freezing-rain-being` name DROPPED 2026-05-15 per user resolution.)*
+- **whirlwind / dust-devil-being** — **LANDED** in Wind/air-movement sub-group (WEATHER-domain per user call vs. NATURAL-DISASTER tornado-event).
+- **zephyr-being** — **LANDED** in Wind/air-movement sub-group (west-wind / gentle-breeze poetic-form, distinct from generic breeze by directional + poetic framing).
+- **ball-lightning-being** — **LANDED** in new Lightning/electrical sub-group (distinct from storm-cloud's lightning-tension flavor by discrete-orb form).
 - *(MAJOR DROP 2026-05-15 per user resolution: cirrus-cloud, stratus-cloud, lenticular-cloud (cloud-form), wind-gust, chinook / foehn-wind (wind), sunrise / sunset (colored-sky), frost, rime / hoarfrost (winter surface-ice), heat-haze / heat-shimmer, humidity-haze, sun-glare (heat/dry), dew (morning-moisture), dawn, dusk / twilight, golden-hour, stormfront (specialty/liminal), thunderclap-sound, fata-morgana, sundog-parhelion (adjacent) — all DROPPED entirely.)*
 
 ### From URBAN drop fallout

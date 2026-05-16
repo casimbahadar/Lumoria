@@ -2792,7 +2792,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"metal_claw",[22,"forge_strike"]],[1,"mud_shot"],[9,"harden"],[17,"flash_cannon"],[20,"tail_whip"],[25,"earthquake"],[33,"iron_tail",[5,"magnetize"]],[36,"boulder_roll"],[3,"ironskin"],[31,"scorched_earth"]],
     evolveTo:154, evolveLevel:26, catchRate:160, expYield:90, rarity:"common",
     desc:"A small ore elemental born in deep mine shafts. Tough as iron and twice as stubborn.",
-    lore:"Forgekin is a compact steel-ground creature 60 cm tall shaped like a short humanoid miner. Its steel body is scuffed and dented from constant digging. It uses its broad flat hands as shovels to excavate ore veins. It never stops working — even while dormant it taps at nearby rock surfaces reflexively." },
+    lore:"Dentshaft is a compact steel-ground creature 60 cm tall shaped like a short humanoid miner. Its steel body is scuffed and dented from constant digging. It uses its broad flat hands as shovels to excavate ore veins. It never stops working — even while dormant it taps at nearby rock surfaces reflexively. Each handful of ore a Dentshaft handles leaves a microscopic amount of metal and earth bonded into its body — an incremental absorption that compounds, over years of mine-work, into the 2.5-metre golem frame its evolved form attains." },
 
   154: { id:154, name:"Terragolem", emoji:"🤖", types:["Steel","Ground"],
     base:{hp:95,atk:108,def:116,spa:52,spd:79,spe:30},

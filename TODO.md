@@ -575,20 +575,23 @@ Add cross-references between Lumori in lore/description text to give the world e
 
 # 🎮 NG+ / Forgotten gating separation — RUN BEFORE LUMINEX REORDER
 
-Currently ids 322-421 are classified as NG+-exclusive in `js/data.js` comments, while ids 408-446 are classified as Forgotten Lumori (39 standalone miniboss-like creatures). This creates an unintended overlap at ids 408-421 (dual-classified as both NG+ and Forgotten).
+`js/data.js` currently classifies ids 322-421 as NG+-exclusive and ids 408-446 as Forgotten Lumori, creating an unintended dual-classification at ids 408-421. **These two ranges must be separate.**
 
-**Decision:** ids 408-421 should only appear in NG+ in secret locations IF the Forgotten Lumori quests and gameplay-flag is marked completed first. This makes Forgotten quest completion a milestone within NG+ that unlocks the Forgotten Lumori (408-446) range in secret locations.
+**Decision:**
+- **NG+ range stops before 408.** NG+-available Lumori are ids 322-407 only.
+- **Forgotten Lumori (ids 408-446) are NOT included in the NG+ available roster.** They do not spawn in NG+ encounter tables, even as rare encounters, until a separate condition is met.
+- **Forgotten Lumori unlock** only after the player has completed the Forgotten Lumori quest line and a corresponding gameplay flag is set. Once unlocked, they appear in secret/late-game post-quest locations distinct from NG+ encounter zones.
 
 **Implementation tasks:**
-- [ ] Verify exact current id boundaries (322-421 NG+, 408-446 Forgotten) and any other overlapping classifications.
-- [ ] Add a "forgotten quests complete" gameplay flag to save data (or repurpose an existing milestone flag if one fits).
-- [ ] Gate spawn-eligibility of ids 408-446 behind that flag in NG+ encounter logic.
+- [ ] Update `js/data.js` NG+-EXCLUSIVE comment from "(IDs 322–421)" to "(IDs 322–407)".
+- [ ] Verify no id in 408-446 appears in any NG+ encounter table, wild-spawn list, or trainer team that is reachable in standard NG+.
+- [ ] Add a "forgotten_quests_complete" gameplay flag to save data (or repurpose an existing milestone flag if one fits).
+- [ ] Gate spawn-eligibility of ids 408-446 behind that flag — they appear only after the flag is set, in dedicated post-quest secret locations.
 - [ ] Design secret-location placements for the 39 Forgotten Lumori (which routes/areas they appear in post-flag).
-- [ ] Update NG+-EXCLUSIVE comment in `js/data.js` to reflect "322-407 standard NG+, 408-446 Forgotten (post-quest)".
-- [ ] Audit any existing encounter tables / wild-spawn lists to confirm no 408-446 entry is reachable before the flag.
-- [ ] Update README / player-facing documentation to mention the Forgotten quest milestone.
+- [ ] Audit any existing encounter tables / wild-spawn lists for accidental 408-446 entries reachable before flag.
+- [ ] Update README / player-facing documentation to mention NG+ ends at 407 and Forgotten quest is the gate to 408-446.
 
-This work should run BEFORE the Luminex reorder (renumber pass) so that the reorder respects the new logical boundaries.
+This work should run BEFORE the Luminex reorder (renumber pass) so that the reorder respects the new NG+/Forgotten boundary at id 407/408.
 
 ---
 

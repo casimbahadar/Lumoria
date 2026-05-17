@@ -2028,7 +2028,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"vine_whip"],[1,"poison_sting"],[10,"razor_leaf"],[20,"sludge_bomb"],[30,"energy_ball"],[40,"toxic"],[50,"petal_blitz"],[60,"hyper_beam"]],
     evolveTo:263, evolveLevel:24, catchRate:180, expYield:68, rarity:"common",
     desc:"A seed creature wrapped in poisoned vines. It plants itself to absorb nutrients then walks away.",
-    lore:"Seedling is a small grass-poison creature 20 cm tall resembling a germinating seed that has grown a face and legs. Its body is pale green and slightly translucent. It releases spores from its open seed-pod head that fertilise nearby soil while delivering a mild deterrent toxin to grazing animals." },
+    lore:"Seedling is a small grass-poison creature 20 cm tall resembling a germinating seed that has grown a face and legs. Its body is pale green and slightly translucent. It releases spores from its open seed-pod head that fertilise nearby soil while delivering a mild deterrent toxin to grazing animals. Transluceed cannot absorb the spores it releases — they only fertilise the soil around it, building unseen reserves the lineage will later draw on to grow into the towering thorn-bush of its final form." },
 
   263: { id:263, name:"Tendrilisk", emoji:"🌵", types:["Grass","Poison"],
     base:{hp:70,atk:80,def:68,spa:98,spd:80,spe:72},
@@ -2167,7 +2167,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"metal_claw"],[1,"mud_shot"],[12,"flash_cannon"],[22,"earth_power"],[32,"iron_tail"],[42,"earthquake"],[52,"forge_strike"],[60,"hyper_beam"]],
     evolveTo:281, evolveLevel:28, catchRate:165, expYield:76, rarity:"common",
     desc:"A mechanical gear creature that burrows through ore deposits. Powered by geothermal energy.",
-    lore:"Gearbit is a small steel-ground creature 20 cm tall shaped like a round gear-work automaton with stubby legs. Its body is a collection of interlocked cogs that rotate slowly. It digs through soil to locate metal deposits and incorporates found metals into its growing gear-body." },
+    lore:"Gearbit is a small steel-ground creature 20 cm tall shaped like a round gear-work automaton with stubby legs. Its body is a collection of interlocked cogs that rotate slowly. It digs through soil to locate metal deposits and incorporates found metals into its growing gear-body. Gearbit's slow-rotating juvenile cogs are visibly oversized for the small frame that houses them — built at a scale meant for a far heavier machine to come, awaiting the body that will eventually grow large enough to put them properly to work." },
 
 
 

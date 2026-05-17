@@ -1906,7 +1906,7 @@ const MONSTERS_DATA = {
     lore:"Megavolt is a massive thunder-wolverine 1 metre at the shoulder, the apex form of the Staticlaw→Thundravex lineage. Its body is heavily muscled with chrome-yellow fur and a thick collar of crackling electric coils running from the back of its neck down both shoulders, mistaken at distance for a felid mane. It is fearless to the point of recklessness, attacking creatures many times its size to defend its territory, and the visible electrical shockwave that accompanies its roar temporarily blinds and deafens those nearby. It is considered the apex electric predator of any region it claims." },
 
   // Standalone Electric/Bug: Sparkeen
-  247: { id:247, name:"Sparkeen", emoji:"🦋", types:["Electric","Bug"],
+  247: { id:247, name:"Sparkeen", emoji:"🦋", types:["Bug","Fairy"],
     base:{hp:72,atk:68,def:65,spa:102,spd:88,spe:115},
     learnset:[[1,"thunderbolt"],[1,"bug_buzz"],[18,"discharge"],[28,"x_scissor"],[38,"thunder"],[48,"volt_surge"],[58,"ball_lightning"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:210, rarity:"uncommon",
@@ -3376,7 +3376,7 @@ const MONSTERS_DATA = {
     desc:"A creature born from a volcanic eruption, its body is a walking magma chamber encased in basalt.",
     lore:"Ashgolem is a fire-rock creature 2 metres tall with a body of cooling basalt cracked to reveal glowing magma beneath. Ash and cinders constantly drift from its surface." },
 
-  338: { id:338, name:"Rimeclaw", emoji:"🦅", types:["Ice","Wind"],
+  338: { id:338, name:"Rimeclaw", emoji:"🦅", types:["Ice"],
     base:{hp:64,atk:88,def:61,spa:76,spd:69,spe:97}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"powder_snow"],[8,"gust"],[18,"ice_punch"],[28,"air_slash"],[38,"cryo_lance"],[48,"blizzard"],[58,"tailwind_strike"],[5,"zephyr_dance"],[35,"ice_beam"]],
     catchRate:25, expYield:258, rarity:"rare",
@@ -3561,7 +3561,7 @@ const MONSTERS_DATA = {
     desc:"A colossal entity that shifts colour with its mood. When all colours appear simultaneously, it is enraged.",
     lore:"Chromavast is a normal-psychic creature 3 metres tall with a smooth ovoid body that cycles through every colour in the visible spectrum. Its form is constantly, slowly shifting." },
 
-  364: { id:364, name:"Deepcrawler", emoji:"🦀", types:["Water","Steel"],
+  364: { id:364, name:"Deepcrawler", emoji:"🦀", types:["Water"],
     base:{hp:85,atk:100,def:107,spa:75,spd:85,spe:68}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"water_gun"],[10,"metal_claw"],[20,"tidal_crush"],[30,"iron_tail"],[40,"hydro_pump"],[50,"flash_cannon"],[60,"sea_serpent_strike"],[5,"harden"],[38,"alloy_edge"]],
     catchRate:9, expYield:320, rarity:"rare",
@@ -3582,7 +3582,7 @@ const MONSTERS_DATA = {
     desc:"A celestial lance that achieved sentience. It fell from orbit and has been fighting battles ever since.",
     lore:"Starlance is a psychic-steel entity 2 metres long resembling an elongated lance of alien metal with psychic runes carved along its entire length. It moves by telekinesis." },
 
-  367: { id:367, name:"Bouldertide", emoji:"🌊", types:["Water","Rock"],
+  367: { id:367, name:"Bouldertide", emoji:"🌊", types:["Water","Wind"],
     base:{hp:91,atk:97,def:103,spa:80,spd:83,spe:66}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"water_gun"],[10,"rock_throw"],[20,"surf"],[30,"rock_slide"],[40,"hydro_pump"],[50,"fossil_rush"],[60,"sea_serpent_strike"],[5,"harden"],[38,"tidal_crush"]],
     catchRate:9, expYield:318, rarity:"rare",
@@ -3639,7 +3639,7 @@ const MONSTERS_DATA = {
     desc:"A dragon woven from the aurora itself. It migrates between magnetic poles, trailing lights across the sky.",
     lore:"Auroradrake is an ice-dragon 5 metres long with translucent scales that emit bioluminescent light in bands of green, violet, and gold — a living aurora. It navigates by magnetic field." },
 
-  375: { id:375, name:"Fluxserpent", emoji:"⚡", types:["Electric","Psychic"],
+  375: { id:375, name:"Fluxserpent", emoji:"⚡", types:["Electric"],
     base:{hp:67,atk:85,def:70,spa:110,spd:87,spe:101}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"thunder_shock"],[10,"psychic_move"],[20,"thunderbolt"],[30,"psystrike"],[40,"thunder"],[50,"mind_shatter"],[60,"neural_storm"],[5,"thunder_wave"],[48,"volt_surge"]],
     catchRate:7, expYield:340, rarity:"rare",
@@ -3653,7 +3653,7 @@ const MONSTERS_DATA = {
     desc:"A being of concentrated solar fury blessed by ancient fairy magic. It has never been touched by shadow.",
     lore:"Solarwrath is a fire-fairy creature 2 metres tall composed of radiant solar plasma. It is warm to be near and hot to approach — within 10 metres, all shadow is eliminated." },
 
-  377: { id:377, name:"Abyssforge", emoji:"🌋", types:["Ground","Steel"],
+  377: { id:377, name:"Abyssforge", emoji:"🌋", types:["Dark","Steel"],
     base:{hp:85,atk:103,def:105,spa:73,spd:81,spe:73}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"earth_power"],[10,"metal_claw"],[20,"fissure_slam"],[30,"iron_tail"],[40,"terra_spike"],[50,"flash_cannon"],[60,"fossil_rush"],[5,"harden"],[48,"alloy_edge"]],
     catchRate:7, expYield:340, rarity:"rare",
@@ -3703,7 +3703,7 @@ const MONSTERS_DATA = {
     desc:"The ultimate fusion of forged steel and draconic power. Its body is a living weapon.",
     lore:"Apexblade is a steel-dragon 5 metres long with a body of folded ultra-steel and draconic biology merged at the cellular level. Every surface is an edge. Its teeth alone number 340." },
 
-  384: { id:384, name:"Solarcrown", emoji:"🌞", types:["Fire","Psychic"],
+  384: { id:384, name:"Solarcrown", emoji:"🌞", types:["Fire","Wind"],
     base:{hp:69,atk:83,def:76,spa:115,spd:91,spe:91}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"solar_flare"],[10,"psychic_move"],[20,"fire_blast"],[30,"psystrike"],[40,"heat_wave"],[50,"mind_shatter"],[60,"neural_storm"],[5,"char_dance"],[52,"dreamweave"]],
     catchRate:5, expYield:358, rarity:"rare",
@@ -3816,7 +3816,7 @@ const MONSTERS_DATA = {
     desc:"The ghost of a mountain that refused to erode. It guards the summit as it always has.",
     lore:"Stonekeeper is a rock-ghost entity 4 metres tall resembling a craggy mountain peak with a translucent interior. It is the spirit of a specific peak that was destroyed in an ancient cataclysm. It still performs the same patrol it did 10,000 years ago." },
 
-  400: { id:400, name:"Primordiax", emoji:"🔥", types:["Fire","Ground"],
+  400: { id:400, name:"Primordiax", emoji:"🔥", types:["Fire"],
     base:{hp:102,atk:136,def:110,spa:110,spd:101,spe:101}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
     learnset:[[1,"flamethrower"],[10,"earth_power"],[20,"magma_surge"],[30,"fissure_slam"],[40,"solar_flare"],[50,"terra_spike"],[60,"mantle_surge"],[5,"char_dance"],[55,"mantle_surge"]],
     catchRate:4, expYield:375, rarity:"legendary",

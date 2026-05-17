@@ -70,11 +70,28 @@
 
 ## Walkthrough cursor
 
-**Currently in Borderline triage of MINOR-vs-BREAKING upgrades.** Borderline cases 1-7 done. Next up: **Borderline 8 (#128-129 Cranivade → Voidaxis)**.
+**Borderline triage complete.** All 19 borderline cases resolved as MINOR (decision: MINOR tweaks sufficient, no BREAKING pivots needed). Cases 1-7 done in prior session; 8-19 resolved as follows:
 
-Remaining borderline cases: 8 (#128-129), 9 (#142-144), 10 (#157-159), 11 (#162-163), 12 (#172-174), 13 (#220-221), 14 (#222-224), 15 (#236-237), 16 (#242-243), 17 (#260-261), 18 (#262-264), 19 (#308-309).
+- Case 8 (#128-129 Cranivade→Voidaxis) — MINOR applied in PR #47.
+- Case 9 (#142-144 Dawnirel→Lunarael→Celestarch) — MINOR applied in PR #47.
+- Case 10 (#157-159 Acidelix→Corrodisc→Dissotoad) — MINOR applied in PR #47.
+- Case 11 (#162-163 Marlix→Blightalis) — MINOR applied in PR #47.
+- Case 12 (#172-174 Scalurin→Serpenthos→Scalevorn) — resolved by PR #48 bridge work (Scalevorn←Serpenthos in Batch 5; Serpenthos←Scalurin in IMPLICIT sub-batch 3).
+- Case 13 (#220-221 Umbrajest→Shadowveil) — MINOR applied in PR #47.
+- Case 14 (#222-224 Mindpuff→Recallum→Psytheon) — MINOR applied in PR #47.
+- Case 15 (#236-237 Frostick→Icevault) — MINOR applied in PR #47.
+- Case 16 (#242-243 Pulseglow→Stuntrap) — MINOR applied in PR #47.
+- Case 17 (#260-261 Sproutix→Leafhorn) — MINOR applied in PR #47.
+- Case 18 (#262-264 Transluceed→Tendrilisk→Impenezard) — MINOR applied in PR #47 + reinforced by PR #48 bridges.
+- Case 19 (#308-309 Seafraith→Tidephant) — MINOR applied in PR #47.
 
-After borderline triage: 5 NEW BREAKING items (#84-86, #104-105, #296-298, #299-300, #302-303) → bulk name-leak fix (22+ identified in taxonomy.md) → resume MINOR tweaks → Solo audit → typing audit → archetype trim → renaming → stat review.
+**Pipeline status (post PR #47 + PR #48):**
+- ✅ Borderline triage (all 19 cases)
+- ✅ 5 NEW BREAKING items (#84-86, #104-105 done in earlier sessions; #296-298, #299-300, #302-303 done in PR #47)
+- ✅ MINOR tweaks (PR #47)
+- ✅ Bridge-lore sweep (PR #48: 98 BRIDGE_NEEDED bridges + 33 foreshadows + 61 IMPLICIT polish + 29 name-leak fixes; comprehensive name-leak scan confirmed 0 leaks remain)
+
+**Next up:** Solo desc/lore/emoji consistency audit (this section below), then typing audit → archetype trim → renaming → stat review.
 
 The original walkthrough through ids 7-446 (paused at #13 Taurcin "keep" decision) is on hold until all the audit phases above complete.
 

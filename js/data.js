@@ -1437,7 +1437,7 @@ const MONSTERS_DATA = {
     desc:"The lord of all dragons. Its fire is hot enough to melt any metal.",
     lore:"Dragemian is a legendary fire-dragon of enormous size, estimated at 12 metres from snout to tail. Its scales are deep crimson-black edged with gold, and two enormous curved horns sweep back from its broad angular skull. Its wings span nearly 20 metres and darken the sky when spread. Ancient texts describe it as the progenitor of all fire dragon lineages, and its breath weapon — a sustained column of solar-temperature fire — can be seen from the horizon." },
 
-  175: { id:175, name:"Biolumal",    emoji:"🦭", types:["Water","Dragon"],
+  175: { id:175, name:"Biolumal",    emoji:"🐉", types:["Water","Dragon"],
     base:{hp:71,atk:104,def:76,spa:98,spd:92,spe:88},
     learnset:[[1,"water_gun",[28,"eon_crash"]],[1,"dragon_breath"],[14,"surf"],[17,"harden"],[22,"dragon_claw"],[30,"hydro_pump"],[31,"coral_barrage"],[38,"dragon_pulse"],[43,"tidal_crush"],[46,"outrage",[5,"tidecaller"]],[3,"deepwater_hymn"],[34,"ocean_tempest"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:318, rarity:"uncommon",
@@ -1794,7 +1794,7 @@ const MONSTERS_DATA = {
     base:{hp:52,atk:68,def:65,spa:45,spd:50,spe:55},
     learnset:[[1,"tackle"],[1,"mud_shot"],[14,"dragon_breath"],[24,"earthquake"],[34,"dragon_claw"],[44,"dragon_pulse"],[54,"outrage"],[64,"hyper_beam"]],
     evolveTo:233, evolveLevel:32, catchRate:160, expYield:82, rarity:"common",
-    desc:"A ground-burrowing dragon hatchling. Its thick hide absorbs punishment like bedrock.",
+    desc:"A ground-burrowing young dragon. Its thick hide absorbs punishment like bedrock.",
     lore:"Serphaxon is a ground-dragon 2.5 metres long with earthy brown-bronze scales and four short powerful legs. Its blunt snout and heavy claws make it a capable excavator. It digs extensive underground lairs in rocky hillsides and uses its weight to collapse cave ceilings onto trespassers." },
 
   233: { id:233, name:"Serpenthorn", emoji:"🐍", types:["Dragon","Ground"],
@@ -1873,7 +1873,7 @@ const MONSTERS_DATA = {
     base:{hp:46,atk:55,def:42,spa:68,spd:50,spe:78},
     learnset:[[1,"thunder_shock"],[1,"bug_buzz"],[12,"spark"],[22,"thunderbolt"],[32,"discharge"],[42,"x_scissor"],[52,"thunder"],[60,"hyper_beam"]],
     evolveTo:243, evolveLevel:30, catchRate:170, expYield:75, rarity:"common",
-    desc:"A ladybug-like creature that stores electricity in its shell spots. Releases it when threatened.",
+    desc:"A firefly-like creature that stores electricity in its abdomen-light. Releases it when threatened.",
     lore:"Pulseglow is a tiny electric-bug creature 5 cm long resembling a glowing firefly. Its abdomen pulses with yellow-white electric light at regular intervals. Huge swarms congregate in summer nights over open water, and the coordinated light patterns of the swarm are a complex form of collective communication." },
 
   243: { id:243, name:"Stuntrap", emoji:"🪲", types:["Electric","Bug"],
@@ -1992,11 +1992,11 @@ const MONSTERS_DATA = {
     desc:"A horned sea creature made partly of frozen coral. Its horns channel water and ice attacks with precision.",
     lore:"Reefhorn is a water-ice creature 60 cm long — Scolphin's ice-blue dolphin form has solidified to a denser blue-grey narwhal frame and grown a single spiralling ice horn 20 cm long from its forehead, the schooling instinct dropping away in favour of solitary reef-territory. It inhabits cold-water reefs where its horn can chip algae from rock surfaces. The horn breaks and regrows seasonally, and shed horns are used by seabirds as nesting material." },
 
-  258: { id:258, name:"Torrentox", emoji:"🐙", types:["Water","Ice"],
+  258: { id:258, name:"Torrentox", emoji:"🐋", types:["Water","Ice"],
     base:{hp:90,atk:86,def:93,spa:119,spd:99,spe:63},
     learnset:[[1,"hydro_pump"],[1,"blizzard"],[30,"aqua_tail"],[38,"cryo_lance"],[46,"icicle_crash"],[54,"glacial_tomb"],[62,"geyser_burst"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
-    desc:"An ancient sea kraken of ice. Controls ocean currents and freezes sea lanes solid in winter.",
+    desc:"An ancient orca-titan of ice. Controls ocean currents and freezes sea lanes solid in winter.",
     lore:"Torrentox is a water-ice creature 1.2 metres long — Reefhorn's deep blue-grey narwhal frame has whitened to a muscular orca calf with blue-white colouration, and the spiralling ice-horn has dissolved into the ice-plate armour now lining its dorsal surface. It generates ice walls around prey by rapidly cooling a volume of water from within, trapping targets in an enclosed freezing pocket." },
 
   // Standalone Water/Psychic: Lumejell

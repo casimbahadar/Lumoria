@@ -1322,7 +1322,7 @@ const MONSTERS_DATA = {
     desc:"A mechanical warrior powered by electric cores. Feared on every battlefield.",
     lore:"Alloytron is a larger electric-steel automaton 1.2 metres tall — Gearon's spinning cog-wheels have consolidated into an assembly of interlocked alloy panels with exposed wiring running between them, and the mechanical-motion sparks of its juvenile form have organised into a glowing power core visible through a transparent casing in its chest. Its chest houses a glowing power core visible through a transparent casing. It can interface with electrical infrastructure and draw power directly from city grid lines." },
 
-  152: { id:152, name:"Imperion",  emoji:"🐢", types:["Crystal","Rock"],
+  152: { id:152, name:"Imperion",  emoji:"🐢", types:["Steel","Rock"],
     base:{hp:108,atk:61,def:138,spa:59,spd:105,spe:30},
     learnset:[[1,"tackle",[25,"ironskin"]],[1,"rock_throw"],[12,"harden"],[20,"flash_cannon"],[24,"growl"],[28,"rock_slide"],[36,"iron_tail"],[44,"stone_edge"],[45,"temper_edge"],[52,"body_slam",[5,"magnetize"]],[3,"slag_shield"],[37,"crystal_lance"]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:318, rarity:"uncommon",
@@ -2579,7 +2579,7 @@ const MONSTERS_DATA = {
     lore:"Sculptweave is a spider 15 cm across with a pale cream body and legs banded in rose-gold. Its silk is exceptionally strong and has a faint iridescent sheen. It weaves elaborate three-dimensional web sculptures rather than flat sheets, incorporating fairy-touched strands that glow at dawn and dusk." },
 
   // ===== ICE/STEEL =====
-  55: { id:55, name:"Rimeling", emoji:"🗡️", types:["Ice","Crystal"],
+  55: { id:55, name:"Rimeling", emoji:"🗡️", types:["Ice","Steel"],
     base:{hp:46,atk:73,def:66,spa:56,spd:52,spe:76},
     learnset:[[1,"powder_snow",[25,"cryo_lance"]],[1,"metal_claw"],[11,"ice_punch"],[19,"flash_cannon"],[27,"icicle_crash"],[30,"smelt_crush"],[35,"iron_tail"],[43,"blizzard",[5,"permafrost"]],[3,"winter_shroud"],[33,"forge_strike"]],
     evolveTo:56, evolveLevel:36, catchRate:90, expYield:110, rarity:"uncommon",
@@ -3263,7 +3263,7 @@ const MONSTERS_DATA = {
   // =====================================================================
 
   // ---- Tier 1a: Mid-game NG+ (badges 8–11 areas) BST ~490–540 ----
-  322: { id:322, name:"Venomwraith", emoji:"☠️", types:["Poison","Ghost"],
+  322: { id:322, name:"Venomwraith", emoji:"☠️", types:["Poison","Dark"],
     base:{hp:60,atk:65,def:54,spa:81,spd:69,spe:71}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"poison_sting"],[10,"shadow_ball"],[20,"sludge_bomb"],[30,"miasma_cloud"],[40,"void_rend"],[50,"sludge_wave"],[60,"toxic_surge"],[5,"toxic"],[45,"venom_lance"]],
     catchRate:30, expYield:255, rarity:"rare",
@@ -3405,7 +3405,7 @@ const MONSTERS_DATA = {
     lore:"Mirestone is a floating rock-psychic entity resembling a worn monolith 1.5 metres tall. Ancient carvings on its surface glow when it uses psychic powers." },
 
   // ---- Tier 2: Late-game NG+ (badges 12–16 areas) BST ~545–590 ----
-  342: { id:342, name:"Wraithking", emoji:"👑", types:["Ghost","Dark"],
+  342: { id:342, name:"Wraithking", emoji:"👑", types:["Dark"],
     base:{hp:69,atk:94,def:71,spa:92,spd:79,spe:90}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"shadow_ball"],[10,"void_rend"],[20,"umbral_claw"],[30,"phantom_claw"],[40,"shadow_sneak"],[50,"shadowstep"],[60,"neural_storm"],[5,"toxic"],[38,"mind_shatter"]],
     catchRate:18, expYield:285, rarity:"rare",
@@ -3419,7 +3419,7 @@ const MONSTERS_DATA = {
     desc:"A being that exists simultaneously in darkness and thought. It reads minds to hunt more efficiently.",
     lore:"Shadowreave is a dark-psychic entity 1.6 metres tall with a body composed of living shadow and two luminous violet eyes. Its silhouette is never quite the same shape twice." },
 
-  344: { id:344, name:"Glimmeritch", emoji:"🧚", types:["Fairy","Ghost"],
+  344: { id:344, name:"Glimmeritch", emoji:"🧚", types:["Fairy","Dark"],
     base:{hp:63,atk:69,def:68,spa:102,spd:91,spe:97}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"fairy_wind"],[10,"shadow_ball"],[20,"fae_requiem"],[30,"psystrike"],[40,"phantom_claw"],[50,"void_rend"],[60,"fae_requiem"],[5,"dreamweave"],[38,"prism_ward"]],
     catchRate:18, expYield:280, rarity:"rare",
@@ -3547,7 +3547,7 @@ const MONSTERS_DATA = {
     lore:"Tectolith is a ground-dragon 7 metres long with a body of compacted tectonic plates and continents of moss and stone across its back. It is older than most mountain ranges." },
 
   // ---- Tier 3b: More post-game NG+ BST ~590–640 ----
-  362: { id:362, name:"Lunaspectre", emoji:"🌕", types:["Psychic","Ghost"],
+  362: { id:362, name:"Lunaspectre", emoji:"🌕", types:["Psychic","Dark"],
     base:{hp:70,atk:78,def:74,spa:110,spd:94,spe:94}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"psychic_move"],[10,"shadow_ball"],[20,"psystrike"],[30,"void_rend"],[40,"mind_shatter"],[50,"phantom_claw"],[60,"neural_storm"],[5,"dreamweave"],[38,"prism_ward"]],
     catchRate:10, expYield:320, rarity:"rare",
@@ -3589,7 +3589,7 @@ const MONSTERS_DATA = {
     desc:"A creature that is half ocean, half cliff-face. It creates tsunamis as a side effect of moving.",
     lore:"Bouldertide is a water-rock creature 4 metres tall resembling a tide-carved sea stack that walks. Water constantly flows through channels in its stone body." },
 
-  368: { id:368, name:"Willowisp", emoji:"🕯️", types:["Ghost","Fire"],
+  368: { id:368, name:"Willowisp", emoji:"🕯️", types:["Fire","Dark"],
     base:{hp:67,atk:80,def:69,spa:110,spd:93,spe:101}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ember"],[10,"shadow_ball"],[20,"flamethrower"],[30,"void_rend"],[40,"solar_flare"],[50,"phantom_claw"],[60,"inferno"],[5,"shadowstep"],[38,"shadow_sneak"]],
     catchRate:9, expYield:320, rarity:"rare",
@@ -3625,7 +3625,7 @@ const MONSTERS_DATA = {
     desc:"A dragon born from a rift in the visible spectrum. Its scales cycle through every wavelength of light.",
     lore:"Prismancer is a psychic-dragon 4 metres long whose scales shift through every colour of visible light in a constant slow cycle. The air around it refracts into rainbow halos." },
 
-  373: { id:373, name:"Voidrend", emoji:"🌌", types:["Dark","Ghost"],
+  373: { id:373, name:"Voidrend", emoji:"🌌", types:["Dark","Psychic"],
     base:{hp:69,atk:103,def:74,spa:92,spd:82,spe:100}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"void_rend"],[10,"phantom_claw"],[20,"shadow_ball"],[30,"shadowstep"],[40,"umbral_claw"],[50,"mind_shatter"],[60,"neural_storm"],[5,"shadow_sneak"],[48,"cataclysm_breath"]],
     catchRate:7, expYield:338, rarity:"rare",
@@ -3717,7 +3717,7 @@ const MONSTERS_DATA = {
     desc:"A creature so cold it freezes the ground beneath it permanently. It has never melted.",
     lore:"Permafrost is an ice-ground creature 3 metres tall resembling a glacial boulder with limbs. The ground beneath it freezes to a depth of 50 metres and does not thaw for decades after it leaves." },
 
-  386: { id:386, name:"Wraithstorm", emoji:"💀", types:["Ghost","Electric"],
+  386: { id:386, name:"Wraithstorm", emoji:"💀", types:["Electric","Dark"],
     base:{hp:68,atk:92,def:70,spa:106,spd:84,spe:105}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"shadow_ball"],[10,"thunder_shock"],[20,"phantom_claw"],[30,"thunderbolt"],[40,"void_rend"],[50,"volt_surge"],[60,"thunder"],[5,"shadow_sneak"],[52,"neural_storm"]],
     catchRate:5, expYield:358, rarity:"rare",
@@ -3795,7 +3795,7 @@ const MONSTERS_DATA = {
     desc:"A living lightning rod of steel. Every bolt from every storm in Lumoria eventually passes through it.",
     lore:"Thunderpeak is an electric-steel creature 3 metres tall resembling a stylised lightning bolt in living metal. It has a near-perfect conductor rating and can absorb, store, and release planet-scale electrical charge." },
 
-  397: { id:397, name:"Abyssalord", emoji:"🌊", types:["Water","Ghost"],
+  397: { id:397, name:"Abyssalord", emoji:"🌊", types:["Water","Dark"],
     base:{hp:79,atk:92,def:81,spa:101,spd:87,spe:85}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"surf"],[10,"shadow_ball"],[20,"tidal_crush"],[30,"phantom_claw"],[40,"hydro_pump"],[50,"void_rend"],[60,"neural_storm"],[5,"shadowstep"],[55,"sea_serpent_strike"]],
     catchRate:4, expYield:372, rarity:"rare",
@@ -3809,7 +3809,7 @@ const MONSTERS_DATA = {
     desc:"The sovereign of corrupted fae — a ruler that bridges the beautiful and the terrible without apology.",
     lore:"Voidcrown is a dark-fairy entity 2.5 metres tall wearing a permanent crown of void-matter and fairy-light. Half of its face is radiant and warm; the other half is an absolute darkness that swallows sight." },
 
-  399: { id:399, name:"Stonekeeper", emoji:"⛰️", types:["Rock","Ghost"],
+  399: { id:399, name:"Stonekeeper", emoji:"⛰️", types:["Rock","Steel"],
     base:{hp:83,atk:89,def:103,spa:89,spd:89,spe:72}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"rock_slide"],[10,"shadow_ball"],[20,"fossil_rush"],[30,"phantom_claw"],[40,"rock_slide"],[50,"void_rend"],[60,"neural_storm"],[5,"harden"],[55,"prism_ward"]],
     catchRate:4, expYield:370, rarity:"rare",

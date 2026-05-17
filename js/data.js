@@ -1945,7 +1945,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"rock_throw"],[1,"metal_claw"],[14,"rock_slide"],[24,"flash_cannon"],[34,"stone_edge"],[44,"iron_tail"],[54,"forge_strike"],[60,"hyper_beam"]],
     evolveTo:252, evolveLevel:null, evolveItem:"metalCoat", evolveMethod:"item", catchRate:140, expYield:98, rarity:"common",
     desc:"A ore-encrusted creature that upgrades itself by absorbing metallic minerals from cave walls.",
-    lore:"Crumblite is a rock-steel creature 40 cm tall whose body appears to be crumbling stone held together by thin steel rebar-like structures growing through it. Chunks occasionally fall away and are immediately replaced by new growth. It inhabits construction sites and ruined architecture, instinctively reinforcing damaged structures." },
+    lore:"Crumblite is a rock-steel creature 40 cm tall whose body appears to be crumbling stone held together by thin steel rebar-like structures growing through it. Chunks occasionally fall away and are immediately replaced by new growth. It inhabits construction sites and ruined architecture, instinctively reinforcing damaged structures. Crumblite constantly loses and regrows chunks of its crumbling stone-body, but each replaced piece sets slightly more permanently than the last — the lineage gradually stabilising toward the bolted-steel-plate compactness Stonegrip exhibits when metalCoat fully reinforces it." },
 
   252: { id:252, name:"Stonegrip", emoji:"🛡️", types:["Rock","Steel"],
     base:{hp:95,atk:110,def:135,spa:58,spd:88,spe:52},
@@ -1968,7 +1968,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"water_gun"],[1,"confusion"],[10,"bubble_beam"],[20,"psybeam"],[30,"surf"],[40,"psychic_move"],[50,"hydro_pump"],[60,"hyper_beam"]],
     evolveTo:255, evolveLevel:28, catchRate:165, expYield:76, rarity:"common",
     desc:"A bubble of water with psychic intelligence. Floats using mental energy as much as buoyancy.",
-    lore:"Bubblepuff is a round water-psychic creature 25 cm across resembling a translucent bubble of water with two bright eyes and a dreamy expression. It floats just above water surfaces and can drift through the air for short distances. It projects thoughts as visible coloured ripples across any water surface it contacts." },
+    lore:"Bubblepuff is a round water-psychic creature 25 cm across resembling a translucent bubble of water with two bright eyes and a dreamy expression. It floats just above water surfaces and can drift through the air for short distances. It projects thoughts as visible coloured ripples across any water surface it contacts. Older Bubblepuff produce ripples that grow more complex and start to anticipate the water's own movements — early sign of the perfect tide-and-current prediction Psychotide adults perform across millennia." },
 
   255: { id:255, name:"Psychotide", emoji:"🌊", types:["Water","Psychic"],
     base:{hp:82,atk:70,def:78,spa:120,spd:102,spe:92},
@@ -3837,7 +3837,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"dragon_breath"],[1,"psychic_move"],[12,"dragon_claw"],[20,"psystrike"],[28,"dragon_dance"],[32,"wyrm_strike"]],
     catchRate:45, expYield:65, rarity:"uncommon",
     desc:"A tiny dragon hatchling with a faintly glowing psychic crest. Found only in NG+ rifts.",
-    lore:"Scalit is a dragon-psychic hatchling 0.4 metres long with iridescent scales that pulse faintly with psychic energy. Its crest grows brighter each time it uses a psychic move." },
+    lore:"Scalit is a dragon-psychic hatchling 0.4 metres long with iridescent scales that pulse faintly with psychic energy. Its crest grows brighter each time it uses a psychic move, the accumulating luminance never fully fading — the lineage gradually building the constant psychokinetic field that Dracomind layers across its scales and Veildrak crystallises into wing-prisms at maturity." },
 
   403: { id:403, name:"Dracomind", emoji:"🐲", types:["Dragon","Psychic"],
     evolveTo:404, evolveLevel:52, ngPlusTier:1,

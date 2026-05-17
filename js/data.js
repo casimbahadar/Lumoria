@@ -1983,7 +1983,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"water_gun"],[1,"powder_snow"],[12,"bubble_beam"],[22,"ice_beam"],[32,"surf"],[42,"blizzard"],[52,"hydro_pump"],[60,"hyper_beam"]],
     evolveTo:257, evolveLevel:26, catchRate:170, expYield:74, rarity:"common",
     desc:"A crab-like creature with frozen shell. Moves between sea and frozen tundra with ease.",
-    lore:"Waveling is a water-ice creature 30 cm long resembling a small dolphin made of ice-blue water. Its body is semi-solid — more ice than liquid in cold conditions and more liquid in warmth. It schools in large groups in cold coastal waters and leaps collectively in synchronised arcing patterns." },
+    lore:"Waveling is a water-ice creature 30 cm long resembling a small dolphin made of ice-blue water. Its body is semi-solid — more ice than liquid in cold conditions and more liquid in warmth. It schools in large groups in cold coastal waters and leaps collectively in synchronised arcing patterns. Younger Scolphin's body is roughly 60% liquid water and 40% ice, but the ratio reverses with age toward the dense solid form their narwhal and orca-calf adult stages adopt. Their tail-half is consistently denser and colder than their head-half — the body already pre-shaped along the axis Torrentox's armoured-dorsal will eventually establish — and their school-communication chirps narrow with each year into the directional precision-hunting echolocation Torrentox uses to map prey through frozen water." },
 
   257: { id:257, name:"Reefhorn", emoji:"🦞", types:["Water","Ice"],
     base:{hp:72,atk:80,def:88,spa:90,spd:78,spe:65},
@@ -3862,7 +3862,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"shadowstep"],[1,"metal_claw"],[10,"void_rend"],[18,"iron_tail"],[26,"phantom_claw"],[30,"alloy_edge"]],
     catchRate:45, expYield:62, rarity:"uncommon",
     desc:"A shadow-pup of dark-steel born in the void rifts. Its tiny steel claws cut harder than they should.",
-    lore:"Mirkling is a dark-steel creature 0.5 metres long resembling a shadowy puppy with small but razor-sharp steel claws. It instinctively forms alliances with other dark-types." },
+    lore:"Mirkling is a dark-steel creature 0.5 metres long resembling a shadowy puppy with small but razor-sharp steel claws. It instinctively forms alliances with other dark-types but rarely with its own kind — pre-conditioning for the solitary boundary-warden life its Voidwarden final form leads. Mirkling consistently patrol the edges of rift-zones rather than entering them, the puppy already drawn to that guardian role. Their claws are not steel from birth but slowly metallise across the first year of life, the shadow-and-steel fusion of the lineage chemically composing itself in the pup." },
 
   406: { id:406, name:"Umbrasteel", emoji:"🐺", types:["Dark","Steel"],
     evolveTo:407, evolveLevel:50, ngPlusTier:1,

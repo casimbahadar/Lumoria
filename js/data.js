@@ -832,7 +832,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[20,"cinderwhirl"]],[1,"growl"],[4,"ember"],[8,"quick_attack"],[13,"flame_fang"],[19,"swords_dance"],[27,"flamethrower"],[38,"fire_blast",[5,"scorch_veil"]]],
     evolveTo:2, evolveLevel:16, catchRate:45, expYield:62, rarity:"starter",
     desc:"A fire fox cub. Its tail flame glows brighter when its spirit is high.",
-    lore:"Solkin resembles a lean fox kit covered in orange-red fur that fades to pale cream on its underbelly. Its tail tip burns with a small candle-bright flame that flickers when excited. Stands roughly 50 cm tall. It hunts at dawn using bursts of speed to chase insects across sun-warmed stone, and is known for its affectionate, curious temperament. Solkin kits are sometimes seen staring upward at distant volcanic plumes with a curious longing, as if half-remembering some much greater scaled form they have yet to grow into." },
+    lore:"Solkin resembles a lean fox kit covered in orange-red fur that fades to pale cream on its underbelly. Its tail tip burns with a small candle-bright flame that flickers when excited. Stands roughly 50 cm tall. It hunts at dawn using bursts of speed to chase insects across sun-warmed stone, and is known for its affectionate, curious temperament. Solkin kits will often stare upward at distant volcanic plumes with a curious longing, as if half-remembering some much greater scaled form they have yet to grow into." },
 
   2: { id:2, name:"Pyrevix",    emoji:"🦊", types:["Fire"],
     base:{hp:52,atk:59,def:62,spa:74,spd:57,spe:105},
@@ -912,7 +912,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[22,"magma_surge"]],[1,"ember"],[12,"headbutt"],[19,"swords_dance"],[20,"flamethrower"],[30,"body_slam"],[35,"heat_wave"],[40,"fire_blast",[5,"scorch_veil"]],[3,"embercloak"],[31,"tail_whip"]],
     evolveTo:14, evolveLevel:22, catchRate:120, expYield:112, rarity:"common",
     desc:"A powerful bull with lava dripping from its hooves. Incredibly stubborn.",
-    lore:"Taurcin is a bulky bull-like creature standing 1.5 metres at the shoulder. Its rust-red hide is thick as leather armour, and two forward-curving horns glow orange at the tips from retained heat. It stamps and snorts before charging, and the impact of its body can crack stone walls. Old Taurcin sometimes stamp at the soil until a faint glow rises through the cracks — instinct from a form whose hooves will one day churn cooling lava as it walks." },
+    lore:"Taurcin is a bulky bull-like creature standing 1.5 metres at the shoulder. Its rust-red hide is thick as leather armour, and two forward-curving horns glow orange at the tips from retained heat. It stamps and snorts before charging, and the impact of its body can crack stone walls. An aging Taurcin will stamp at the soil until a faint glow rises through the cracks — instinct from a form whose hooves will one day churn cooling lava as it walks." },
 
   14: { id:14, name:"Molteroth",    emoji:"🐃", types:["Fire","Rock"],
     base:{hp:94,atk:111,def:97,spa:78,spd:64,spe:63},
@@ -1055,7 +1055,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"water_gun",[22,"arc_flash"]],[1,"thunder_shock"],[12,"spark"],[19,"recover"],[20,"bubble_beam"],[28,"thunderbolt"],[35,"voltaic_fang"],[36,"surf",[5,"thunder_wave"]],[3,"static_cage"],[31,"ion_cannon"]],
     evolveTo:88, evolveLevel:28, catchRate:120, expYield:90, rarity:"common",
     desc:"An electric fish that shocks prey in shallow water. Glows when excited.",
-    lore:"Amperix is a tropical fish 30 cm long with a vibrant yellow body striped in electric blue. Its dorsal fin doubles as an array of biological capacitor cells. It schools in large groups in warm coastal waters, and when a predator approaches the school emits a coordinated electrical pulse that stuns attackers. Older Amperix occasionally linger behind the school after the pulse has fired, drifting in place with their dorsal capacitors still humming — the first sign of an individual sensing solo current and beginning to leave its school for deeper water." },
+    lore:"Amperix is a tropical fish 30 cm long with a vibrant yellow body striped in electric blue. Its dorsal fin doubles as an array of biological capacitor cells. It schools in large groups in warm coastal waters, and when a predator approaches the school emits a coordinated electrical pulse that stuns attackers. Behind the school after the pulse has fired, a handful of Amperix tend to linger, drifting in place with their dorsal capacitors still humming — the first sign of an individual sensing solo current and beginning to leave its school for deeper water." },
 
   88: { id:88, name:"Sparkrel",    emoji:"🐟", types:["Electric","Water"],
     base:{hp:78,atk:61,def:64,spa:113,spd:85,spe:100},
@@ -1077,7 +1077,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"scratch",[22,"sandstrike"]],[1,"growl"],[8,"mud_shot"],[16,"headbutt"],[24,"earthquake"],[29,"tail_whip"],[32,"earth_power"],[40,"body_slam",[5,"dust_veil"]],[3,"clay_armor"],[31,"leer"]],
     evolveTo:96, evolveLevel:25, catchRate:160, expYield:88, rarity:"common",
     desc:"A dusty rhino calf the size of a small dog. Stomps about arid plains, sometimes shedding tiny static crackles from its budding horn.",
-    lore:"Dustkin is a stout rhino calf about 50 centimetres at the shoulder, the early form of a lineage of seismic earth-shakers. Its grey-brown hide is already beginning to thicken into proto-armour plates across its shoulders and broad chest, and a small ridged horn-bud crowns its snout — sometimes shedding tiny crackles of static when the calf scuffs the dry earth in play. It inhabits arid plains and digs shallow burrows to escape midday heat, drinking from rain pools that gather in the depressions left by its passing herd. Calves are sometimes seen flinching at faint thunder from distant storms — a premonition of the conductive iron-veined hide their adult form will grow into, when storms will follow them across the plains rather than the other way around." },
+    lore:"Dustkin is a stout rhino calf about 50 centimetres at the shoulder, the early form of a lineage of seismic earth-shakers. Its grey-brown hide is already beginning to thicken into proto-armour plates across its shoulders and broad chest, and a small ridged horn-bud crowns its snout — sometimes shedding tiny crackles of static when the calf scuffs the dry earth in play. It inhabits arid plains and digs shallow burrows to escape midday heat, drinking from rain pools that gather in the depressions left by its passing herd. Dustkin calves visibly flinch at faint thunder from distant storms — a premonition of the conductive iron-veined hide their adult form will grow into, when storms will follow them across the plains rather than the other way around." },
 
   96: { id:96, name:"Seismith",  emoji:"🦏", types:["Ground","Electric"],
     base:{hp:104,atk:114,def:97,spa:53,spd:64,spe:70},
@@ -1120,7 +1120,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"scratch",[20,"cyclone_blade"]],[1,"gust"],[8,"quick_attack"],[16,"wing_attack"],[21,"harden"],[24,"air_slash"],[32,"hurricane",[5,"mistveil"]],[36,"thermal_dive"],[3,"zephyr_dance"],[31,"leer"]],
     evolveTo:109, evolveLevel:22, catchRate:200, expYield:70, rarity:"common",
     desc:"A light-footed wind kitten. Jumps and glides on invisible air currents.",
-    lore:"Silvergust is a lion-cub-sized wind-felid about 45 cm at the shoulder with pale silver-grey fur that ruffles constantly in self-generated air currents. Its ears are long and swept back. It moves with uncanny speed across open spaces, leaving a trail of swirling leaves and dust in its wake. Older Silvergust cubs sometimes pause on high outcroppings with ears swept fully back and silver fur ruffling in self-generated wind — bracing, instinctively, against the storm-mane and electric-blue lion-form they have not yet grown into." },
+    lore:"Silvergust is a lion-cub-sized wind-felid about 45 cm at the shoulder with pale silver-grey fur that ruffles constantly in self-generated air currents. Its ears are long and swept back. It moves with uncanny speed across open spaces, leaving a trail of swirling leaves and dust in its wake. On high outcroppings a Silvergust cub will often stop with ears swept fully back and silver fur ruffling in self-generated wind — bracing, instinctively, against the storm-mane and electric-blue lion-form it has not yet grown into." },
 
   109: { id:109, name:"Siroccomane",    emoji:"🦁", types:["Wind","Electric"],
     base:{hp:70,atk:98,def:57,spa:68,spd:74,spe:119},
@@ -1335,7 +1335,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[22,"miasma_cloud"]],[1,"poison_sting"],[9,"bubble_beam"],[17,"sludge_bomb"],[20,"battle_cry"],[25,"toxic"],[33,"venoshock"],[36,"sludge_wave"],[41,"sludge_bomb",[5,"toxic_surge"]],[3,"toxin_bloom"],[31,"leer"]],
     evolveTo:156, evolveLevel:24, catchRate:150, expYield:88, rarity:"common",
     desc:"A toxic toad that drips with powerful venom. Warty and repulsive but deadly.",
-    lore:"Toxirin is a small plump frog about 15 cm long with vivid lime-green skin marked by patterns of yellow and black warning colours. It secretes a sticky toxic slime from its skin that deters predators effectively. It inhabits warm rainforest ponds and amplifies its chirping call to remarkable volume for its size. Some Toxirin leave the bright lily-pads of the rainforest entirely and drift downstream for hours into darker, slower water — early scouts of the murky river backwaters their adult form will eventually settle into." },
+    lore:"Toxirin is a small plump frog about 15 cm long with vivid lime-green skin marked by patterns of yellow and black warning colours. It secretes a sticky toxic slime from its skin that deters predators effectively. It inhabits warm rainforest ponds and amplifies its chirping call to remarkable volume for its size. A few Toxirin abandon the bright lily-pads of the rainforest entirely and drift downstream for hours into darker, slower water — early scouts of the murky river backwaters their adult form will eventually settle into." },
 
   156: { id:156, name:"Venekon",   emoji:"🐸", types:["Poison","Water"],
     base:{hp:98,atk:72,def:65,spa:113,spd:87,spe:56},
@@ -1363,7 +1363,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"poison_sting",[22,"acid_rain"]],[1,"gust"],[10,"sludge_bomb"],[16,"vital_pulse"],[18,"air_slash"],[26,"toxic"],[29,"miasma_cloud"],[34,"hurricane"],[40,"plague_burst"],[42,"venoshock",[5,"toxic_surge"]],[3,"toxin_bloom"],[32,"sludge_wave"]],
     evolveTo:161, evolveLevel:30, catchRate:140, expYield:88, rarity:"common",
     desc:"A miasma fly that leaves toxic trails in its wake. Spreads pestilence.",
-    lore:"Miasmafly is a large winged insect creature with a 60 cm wingspan, resembling a crane fly but with a bloated poisonous abdomen. Its wings are translucent, tinted sickly yellow-green. It creates toxic air currents with its wings as it flies, leaving a drift of suspended poisonous particles in its wake. Mature Miasmafly grow increasingly drawn to stagnant water at the close of their lifespan — instinctively returning to the marsh-pools where their bodies will eventually fracture into the countless offspring-flies of the Mistbane swarm." },
+    lore:"Miasmafly is a large winged insect creature with a 60 cm wingspan, resembling a crane fly but with a bloated poisonous abdomen. Its wings are translucent, tinted sickly yellow-green. It creates toxic air currents with its wings as it flies, leaving a drift of suspended poisonous particles in its wake. At the close of its lifespan a Miasmafly drifts back to stagnant water — instinctively returning to the marsh-pools where their bodies will eventually fracture into the countless offspring-flies of the Mistbane swarm." },
 
   // ===== PSYCHIC =====
   166: { id:166, name:"Projectery",     emoji:"🐩", types:["Psychic"],
@@ -1506,7 +1506,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[22,"wild_tumble"]],[1,"gust"],[8,"quick_attack"],[14,"harden"],[16,"wing_attack"],[24,"air_slash"],[25,"vortex_trap"],[32,"body_slam",[5,"growl"]],[34,"instinct_slash"],[42,"skyfall"],[3,"tail_whip"],[33,"feral_swipe"]],
     evolveTo:186, evolveLevel:28, catchRate:180, expYield:72, rarity:"common",
     desc:"A pudgy bird that barely fits in trees. Better at fighting than flying.",
-    lore:"Airellin is a small sparrow-like wind bird 15 cm long with pale cream feathers and a round body. It perpetually hovers 30 cm above surfaces rather than perching, even when sleeping. Its feet have atrophied from disuse. It navigates entirely by air current and maintains a mental map of all wind patterns in its territory. Hoverrow's atrophied feet make the rare necessary landings painful and clumsy — yet the bird seems unconcerned, as if its body already understands its evolved form will spend continents in the air without ever needing to perch." },
+    lore:"Hoverrow is a small sparrow-like wind bird 15 cm long with pale cream feathers and a round body. It perpetually hovers 30 cm above surfaces rather than perching, even when sleeping. Its feet have atrophied from disuse. It navigates entirely by air current and maintains a mental map of all wind patterns in its territory. Hoverrow's atrophied feet make the rare necessary landings painful and clumsy — yet the bird seems unconcerned, as if its body already understands its evolved form will spend continents in the air without ever needing to perch." },
 
   187: { id:187, name:"Norindel",     emoji:"🐷", types:["Normal"],
     base:{hp:65,atk:66,def:62,spa:42,spd:44,spe:30},
@@ -1542,7 +1542,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"rock_throw",[25,"crystal_lance"]],[1,"powder_snow"],[12,"harden"],[17,"swords_dance"],[20,"rock_slide"],[28,"ice_beam"],[31,"stalactite_drop"],[36,"stone_edge"],[43,"icicle_crash"],[44,"blizzard",[5,"granite_wall"]],[3,"petrify_gaze"],[33,"quarry_crush"]],
     evolveTo:196, evolveLevel:40, catchRate:70, expYield:172, rarity:"uncommon",
     desc:"A crystal of ice and stone. Formed under tremendous pressure underground.",
-    lore:"Prismolith is a faceted crystal-rock creature 80 cm tall shaped like a natural geode that has grown legs. Its body is a rough dark matrix on the outside, but gaps reveal brilliant purple amethyst crystals within. It moves very slowly and is prized by miners for the high-quality crystals it sheds during moulting. Older Prismolith move with increasing slowness each year, occasionally pausing where their feet sink slightly into frozen ground — early signs of the permafrost rooting their evolved form will fully commit to." },
+    lore:"Prismolith is a faceted crystal-rock creature 80 cm tall shaped like a natural geode that has grown legs. Its body is a rough dark matrix on the outside, but gaps reveal brilliant purple amethyst crystals within. It moves very slowly and is prized by miners for the high-quality crystals it sheds during moulting. Each year a Prismolith moves more slowly than the last, and its feet begin to sink slightly into frozen ground where it pauses — early signs of the permafrost rooting its evolved form will fully commit to." },
 
   // ===== BUG =====
   197: { id:197, name:"Photoworm",   emoji:"🐛", types:["Bug"],
@@ -1658,7 +1658,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"confusion"],[1,"psybeam"],[12,"calm_mind"],[20,"psychic_move"],[28,"moonblast"],[36,"psystrike"],[44,"neural_storm"],[52,"astral_rend"]],
     evolveTo:216, evolveLevel:26, catchRate:175, expYield:68, rarity:"common",
     desc:"A wisp of pure psychic energy. Drifts through reality reading the thoughts of every living thing nearby.",
-    lore:"Veilwisp is a floating psychic orb 20 cm across made of condensed translucent violet energy. Its form shifts between a perfect sphere and a wispy irregularity as its thoughts wander. It drifts through solid objects as if they do not exist and leaves a brief afterimage wherever it passes. Older Veilwisp spend longer and longer stretches in the irregular wispy state and shorter intervals as a perfect sphere — early dissolution toward the bodiless distortion of its adult form." },
+    lore:"Veilwisp is a floating psychic orb 20 cm across made of condensed translucent violet energy. Its form shifts between a perfect sphere and a wispy irregularity as its thoughts wander. It drifts through solid objects as if they do not exist and leaves a brief afterimage wherever it passes. With age a Veilwisp spends longer and longer stretches in the irregular wispy state, shorter intervals as a perfect sphere — early dissolution toward the bodiless distortion of its adult form." },
 
   216: { id:216, name:"Mindrift", emoji:"🌫️", types:["Psychic"],
     base:{hp:65,atk:65,def:52,spa:102,spd:80,spe:88},
@@ -1844,7 +1844,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"powder_snow"],[1,"tackle"],[10,"frost_breath"],[18,"cryo_lance"],[26,"ice_beam"],[36,"blizzard"],[46,"avalanche_drive"],[56,"hyper_beam"]],
     evolveTo:239, evolveLevel:28, catchRate:175, expYield:72, rarity:"common",
     desc:"A self-rolling snowball that grows larger with every tumble across fresh snow. Tiny dark coal-eyes peek from a perfectly round body, and faint bumps mark where stick-limbs will eventually emerge.",
-    lore:"Snowble is a small Ice creature 20 centimetres across, shaped exactly like a perfectly round snowball with two small dark coal-eyes peeking from its surface. Beneath its smooth white shell, traces of stick-limbs and a small carrot-shaped nose are already forming — barely-visible bumps that will emerge when it grows large enough. It rolls effortlessly across snowfields, gathering more snow with every revolution, and groups of Snowble combine into single enormous boulders during heavy blizzards as they pack together for warmth. Some individuals pause occasionally in deep shadow rather than rolling on, and their dense inner cores catch darkness more readily than the fresh snow around them — the first stir of the corruption its final form will succumb to during the long polar dark." },
+    lore:"Snowble is a small Ice creature 20 centimetres across, shaped exactly like a perfectly round snowball with two small dark coal-eyes peeking from its surface. Beneath its smooth white shell, traces of stick-limbs and a small carrot-shaped nose are already forming — barely-visible bumps that will emerge when it grows large enough. It rolls effortlessly across snowfields, gathering more snow with every revolution, and groups of Snowble combine into single enormous boulders during heavy blizzards as they pack together for warmth. A few Snowble pause in deep shadow rather than rolling on, and their dense inner cores catch darkness more readily than the fresh snow around them — the first stir of the corruption its final form will succumb to during the long polar dark." },
 
   239: { id:239, name:"Blizzariel", emoji:"☃️", types:["Ice"],
     base:{hp:68,atk:62,def:65,spa:100,spd:82,spe:90},
@@ -1968,7 +1968,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"water_gun"],[1,"confusion"],[10,"bubble_beam"],[20,"psybeam"],[30,"surf"],[40,"psychic_move"],[50,"hydro_pump"],[60,"hyper_beam"]],
     evolveTo:255, evolveLevel:28, catchRate:165, expYield:76, rarity:"common",
     desc:"A bubble of water with psychic intelligence. Floats using mental energy as much as buoyancy.",
-    lore:"Bubblepuff is a round water-psychic creature 25 cm across resembling a translucent bubble of water with two bright eyes and a dreamy expression. It floats just above water surfaces and can drift through the air for short distances. It projects thoughts as visible coloured ripples across any water surface it contacts. Older Bubblepuff produce ripples that grow more complex and start to anticipate the water's own movements — early sign of the perfect tide-and-current prediction Psychotide adults perform across millennia." },
+    lore:"Bubblepuff is a round water-psychic creature 25 cm across resembling a translucent bubble of water with two bright eyes and a dreamy expression. It floats just above water surfaces and can drift through the air for short distances. It projects thoughts as visible coloured ripples across any water surface it contacts. Late in a Bubblepuff's life its ripples grow more complex and begin to anticipate the water's own movements — early sign of the perfect tide-and-current prediction Psychotide adults perform across millennia." },
 
   255: { id:255, name:"Psychotide", emoji:"🌊", types:["Water","Psychic"],
     base:{hp:82,atk:70,def:78,spa:120,spd:102,spe:92},
@@ -1983,7 +1983,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"water_gun"],[1,"powder_snow"],[12,"bubble_beam"],[22,"ice_beam"],[32,"surf"],[42,"blizzard"],[52,"hydro_pump"],[60,"hyper_beam"]],
     evolveTo:257, evolveLevel:26, catchRate:170, expYield:74, rarity:"common",
     desc:"A crab-like creature with frozen shell. Moves between sea and frozen tundra with ease.",
-    lore:"Waveling is a water-ice creature 30 cm long resembling a small dolphin made of ice-blue water. Its body is semi-solid — more ice than liquid in cold conditions and more liquid in warmth. It schools in large groups in cold coastal waters and leaps collectively in synchronised arcing patterns. Younger Scolphin's body is roughly 60% liquid water and 40% ice, but the ratio reverses with age toward the dense solid form their narwhal and orca-calf adult stages adopt. Their tail-half is consistently denser and colder than their head-half — the body already pre-shaped along the axis Torrentox's armoured-dorsal will eventually establish — and their school-communication chirps narrow with each year into the directional precision-hunting echolocation Torrentox uses to map prey through frozen water." },
+    lore:"Scolphin is a water-ice creature 30 cm long resembling a small dolphin made of ice-blue water. Its body is semi-solid — more ice than liquid in cold conditions and more liquid in warmth. It schools in large groups in cold coastal waters and leaps collectively in synchronised arcing patterns. Younger Scolphin's body is roughly 60% liquid water and 40% ice, but the ratio reverses with age toward the dense solid form their narwhal and orca-calf adult stages adopt. Their tail-half is consistently denser and colder than their head-half — the body already pre-shaped along the axis Torrentox's armoured-dorsal will eventually establish — and their school-communication chirps narrow with each year into the directional precision-hunting echolocation Torrentox uses to map prey through frozen water." },
 
   257: { id:257, name:"Reefhorn", emoji:"🦞", types:["Water","Ice"],
     base:{hp:72,atk:80,def:88,spa:90,spd:78,spe:65},
@@ -2028,7 +2028,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"vine_whip"],[1,"poison_sting"],[10,"razor_leaf"],[20,"sludge_bomb"],[30,"energy_ball"],[40,"toxic"],[50,"petal_blitz"],[60,"hyper_beam"]],
     evolveTo:263, evolveLevel:24, catchRate:180, expYield:68, rarity:"common",
     desc:"A seed creature wrapped in poisoned vines. It plants itself to absorb nutrients then walks away.",
-    lore:"Seedling is a small grass-poison creature 20 cm tall resembling a germinating seed that has grown a face and legs. Its body is pale green and slightly translucent. It releases spores from its open seed-pod head that fertilise nearby soil while delivering a mild deterrent toxin to grazing animals. Transluceed cannot absorb the spores it releases — they only fertilise the soil around it, building unseen reserves the lineage will later draw on to grow into the towering thorn-bush of its final form." },
+    lore:"Transluceed is a small grass-poison creature 20 cm tall resembling a germinating seed that has grown a face and legs. Its body is pale green and slightly translucent. It releases spores from its open seed-pod head that fertilise nearby soil while delivering a mild deterrent toxin to grazing animals. Transluceed cannot absorb the spores it releases — they only fertilise the soil around it, building unseen reserves the lineage will later draw on to grow into the towering thorn-bush of its final form." },
 
   263: { id:263, name:"Tendrilisk", emoji:"🌵", types:["Grass","Poison"],
     base:{hp:70,atk:80,def:68,spa:98,spd:80,spe:72},
@@ -2122,7 +2122,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"ember"],[1,"rock_throw"],[10,"rock_slide"],[20,"flamethrower"],[30,"stone_edge"],[40,"fire_blast"],[50,"magma_rock"],[60,"hyper_beam"]],
     evolveTo:275, evolveLevel:28, catchRate:170, expYield:74, rarity:"common",
     desc:"A coal-like creature that ignites when rolling downhill. Leaves scorch marks on stone paths.",
-    lore:"Cindling is a fire-rock creature 30 cm long resembling a small lizard made of dark basalt with glowing cinders embedded in its skin. It collects small pebbles and packs them into its cinder-body over time, growing heavier and slower with age. The hottest cinders in its body mark its most active thinking. Old Cindling's surface cinders glow steadily hotter and oranger with each year, the body's heat-storage capacity slowly approaching the magma-pool levels Infernox sustains across every joint. Their faint heat-shimmer extends further with each successive moult, anticipating the eruption-radius their titanic final form maintains constantly — and when agitated their bodies produce a small but distinct ground-tremor that propagates further than their tiny mass should allow." },
+    lore:"Cindling is a fire-rock creature 30 cm long resembling a small lizard made of dark basalt with glowing cinders embedded in its skin. It collects small pebbles and packs them into its cinder-body over time, growing heavier and slower with age. The hottest cinders in its body mark its most active thinking. As a Cindling ages its surface cinders glow steadily hotter and oranger, the body's heat-storage capacity slowly approaching the magma-pool levels Infernox sustains across every joint. Their faint heat-shimmer extends further with each successive moult, anticipating the eruption-radius their titanic final form maintains constantly — and when agitated their bodies produce a small but distinct ground-tremor that propagates further than their tiny mass should allow." },
 
   275: { id:275, name:"Infernox", emoji:"🌋", types:["Fire","Rock"],
     base:{hp:72,atk:92,def:95,spa:82,spd:68,spe:62},
@@ -2732,7 +2732,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"ember",[20,"cinderwhirl"]],[1,"confusion"],[9,"psybeam"],[17,"flamethrower"],[21,"recover"],[25,"psychic_move"],[33,"fire_blast",[5,"scorch_veil"]],[36,"magma_surge"],[3,"embercloak"],[31,"inferno"]],
     evolveTo:23, evolveLevel:28, catchRate:150, expYield:88, rarity:"common",
     desc:"A psychic flame sprite. Its fire burns hotter when it concentrates its mind.",
-    lore:"Scorchorin is a lightly built snake-headed lizard about 1 metre long with bright amber scales marked by psychic-violet patterns along the flanks. Its eyes glow purple when focusing energy. It preys on animals much larger than itself by implanting sensory illusions that disorient them before striking. Its own hallucinations sometimes show it walking upright on heavy hindlegs with a great mane of fire — visions it treats with reverence, half-prophecy and half-memory of a form to come." },
+    lore:"Hallucigaze is a lightly built snake-headed lizard about 1 metre long with bright amber scales marked by psychic-violet patterns along the flanks. Its eyes glow purple when focusing energy. It preys on animals much larger than itself by implanting sensory illusions that disorient them before striking. Its own hallucinations sometimes show it walking upright on heavy hindlegs with a great mane of fire — visions it treats with reverence, half-prophecy and half-memory of a form to come." },
 
   23: { id:23, name:"Pyraxis", emoji:"🦎", types:["Fire","Psychic"],
     base:{hp:68,atk:64,def:68,spa:103,spd:81,spe:98},

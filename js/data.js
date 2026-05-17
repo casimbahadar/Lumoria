@@ -854,7 +854,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[20,"frost_current"]],[1,"tail_whip"],[4,"water_gun"],[8,"bubble_beam"],[13,"aqua_tail"],[19,"recover"],[27,"surf"],[38,"hydro_pump",[5,"tidecaller"]]],
     evolveTo:5, evolveLevel:16, catchRate:45, expYield:59, rarity:"starter",
     desc:"A water sprite that lives near ponds. Its skin is always cool and moist.",
-    lore:"Aquilin is a slender otter-like creature about 60 cm long with bright teal fur and large silver-rimmed eyes. A ridged fin runs from its neck to the base of its tail for steering underwater. It inhabits clear mountain streams and wedges smooth pebbles together to form small dams as nesting sites." },
+    lore:"Aquatter is a slender otter-like creature about 60 cm long with bright teal fur and large silver-rimmed eyes. A ridged fin runs from its neck to the base of its tail for steering underwater. It inhabits clear mountain streams and wedges smooth pebbles together to form small dams as nesting sites." },
 
   5: { id:5, name:"Cobaleap",    emoji:"🦦", types:["Water"],
     base:{hp:60,atk:66,def:79,spa:64,spd:85,spe:64},
@@ -898,7 +898,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[20,"cinderwhirl"]],[1,"ember"],[8,"bug_bite"],[15,"flame_fang"],[17,"swords_dance"],[22,"x_scissor",[5,"scorch_veil"]],[29,"venom_drool"],[39,"stinger_volley"]],
     evolveTo:11, evolveLevel:18, catchRate:255, expYield:56, rarity:"common",
     desc:"A fire beetle larva. Leaves scorch marks wherever it walks.",
-    lore:"Embrix is a chubby flame-patterned caterpillar about 20 cm long. Its body segments alternate vivid orange and smoky black, with two antennae that glow orange at the tips. It feeds on dried bark near volcanic soil, and its silk threads are heat-resistant enough to be woven into flame-proof cloth." },
+    lore:"Scorchlarva is a chubby flame-patterned caterpillar about 20 cm long. Its body segments alternate vivid orange and smoky black, with two antennae that glow orange at the tips. It feeds on dried bark near volcanic soil, and its silk threads are heat-resistant enough to be woven into flame-proof cloth." },
 
   11: { id:11, name:"Heliocoon",  emoji:"🥚", types:["Fire","Wind"],
     base:{hp:80,atk:40,def:130,spa:60,spd:110,spe:56},
@@ -1163,7 +1163,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"scratch",[22,"glacial_shard"]],[1,"powder_snow"],[8,"quick_attack"],[16,"icicle_crash"],[24,"ice_beam"],[29,"recover"],[32,"ice_punch"],[40,"blizzard",[5,"permafrost"]],[3,"winter_shroud"],[31,"leer"]],
     evolveTo:48, evolveLevel:28, catchRate:120, expYield:90, rarity:"common",
     desc:"An ice wolf pup with fur as white as fresh snow. Very loyal and fierce.",
-    lore:"Sleetkin is a lean wolf-like creature about 70 cm at the shoulder with short grey-white fur overlaid by a thin shell of constantly renewing ice crystals. Its paws leave perfectly hexagonal imprints in snow. It hunts in packs across tundra, using coordinated flanking manoeuvres to drive prey toward waiting ambushers." },
+    lore:"Hexaprowl is a lean wolf-like creature about 70 cm at the shoulder with short grey-white fur overlaid by a thin shell of constantly renewing ice crystals. Its paws leave perfectly hexagonal imprints in snow. It hunts in packs across tundra, using coordinated flanking manoeuvres to drive prey toward waiting ambushers." },
 
   48: { id:48, name:"Hailgorge",emoji:"🐺", types:["Ice"],
     base:{hp:89,atk:85,def:55,spa:81,spd:76,spe:94},
@@ -1213,7 +1213,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"scratch",[22,"shadowstep"]],[1,"bite"],[8,"quick_attack"],[16,"night_slash"],[24,"crunch"],[29,"recover"],[32,"dark_pulse"],[40,"shadow_ball",[5,"eclipse_shroud"]],[3,"dread_howl"],[31,"leer"]],
     evolveTo:119, evolveLevel:25, catchRate:150, expYield:88, rarity:"common",
     desc:"A shadow puppy that hides in darkness. Its eyes glow red at night.",
-    lore:"Umbrakin is a small dark-coloured dog about 40 cm at the shoulder with jet-black fur that absorbs nearby light, creating a subtle darkening effect around it. Its eyes glow a faint amber. It is skittish and secretive, hiding in shadows and emerging only at dusk to scavenge in settlements." },
+    lore:"Eclipsehound is a small dark-coloured dog about 40 cm at the shoulder with jet-black fur that absorbs nearby light, creating a subtle darkening effect around it. Its eyes glow a faint amber. It is skittish and secretive, hiding in shadows and emerging only at dusk to scavenge in settlements." },
 
   119: { id:119, name:"Dreadmaw",  emoji:"🐕", types:["Dark"],
     base:{hp:81,atk:90,def:57,spa:83,spd:77,spe:92},
@@ -1227,7 +1227,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"bite",[22,"shadowstep"]],[1,"gust"],[9,"wing_attack"],[17,"dark_pulse"],[25,"air_slash"],[29,"soul_rend"],[33,"shadow_ball"],[41,"hurricane",[5,"eclipse_shroud"]],[3,"dread_howl"],[32,"void_rend"]],
     evolveTo:122, evolveLevel:28, catchRate:130, expYield:85, rarity:"common",
     desc:"A dark bat that absorbs light. Creates zones of absolute darkness.",
-    lore:"Noxalin is a medium-sized bat 60 cm long with dark grey-black fur and long narrow wings. Its face is flat with a broad wrinkled nose-leaf for echolocation. It roosts in enormous colonies inside cave systems and emerges at dusk in spiralling columns that can darken the sky for minutes." },
+    lore:"Spiraloom is a medium-sized bat 60 cm long with dark grey-black fur and long narrow wings. Its face is flat with a broad wrinkled nose-leaf for echolocation. It roosts in enormous colonies inside cave systems and emerges at dusk in spiralling columns that can darken the sky for minutes." },
 
   122: { id:122, name:"Caveshroud", emoji:"🦇", types:["Dark","Wind"],
     base:{hp:63,atk:78,def:48,spa:116,spd:78,spe:119},
@@ -1256,7 +1256,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[22,"pixie_bolt"]],[1,"fairy_wind"],[8,"sweet_kiss"],[16,"dazzling_gleam"],[20,"vital_pulse"],[24,"moonblast"],[32,"recover",[5,"stardust_veil"]],[36,"glitter_storm"],[3,"charm_bloom"],[31,"leer"]],
     evolveTo:138, evolveLevel:25, catchRate:190, expYield:78, rarity:"common",
     desc:"A glowing puppy surrounded by fairy light. Brings luck wherever it goes.",
-    lore:"Lumkin is a small, round fairy dog about 30 cm at the shoulder with pure white fluffy fur that radiates a warm golden glow. Its eyes are bright violet. It bounces energetically and its glow intensifies when it is happy. It is attracted to places of celebration and is considered to bring good fortune." },
+    lore:"Goldefluff is a small, round fairy dog about 30 cm at the shoulder with pure white fluffy fur that radiates a warm golden glow. Its eyes are bright violet. It bounces energetically and its glow intensifies when it is happy. It is attracted to places of celebration and is considered to bring good fortune." },
 
   138: { id:138, name:"Aetherael", emoji:"🐕", types:["Fairy"],
     base:{hp:71,atk:67,def:68,spa:100,spd:90,spe:77},
@@ -1299,7 +1299,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"scratch",[22,"alloy_edge"]],[1,"metal_claw"],[9,"harden"],[17,"flash_cannon"],[25,"steel_wing"],[29,"leer"],[33,"iron_tail"],[41,"body_slam",[5,"magnetize"]],[3,"ironskin"],[32,"tail_whip"]],
     evolveTo:148, evolveLevel:28, catchRate:120, expYield:90, rarity:"common",
     desc:"A puppy encased in iron armor. Slow but incredibly tough.",
-    lore:"Ferrokin is a small humanoid steel creature 50 cm tall with a compact body of dark grey steel plates with visible bolts and seams. Its eyes are small yellow optical lenses. It collects metal scraps and incorporates them into its own body, slowly growing more elaborate and patched over time." },
+    lore:"Scrapsapien is a small humanoid steel creature 50 cm tall with a compact body of dark grey steel plates with visible bolts and seams. Its eyes are small yellow optical lenses. It collects metal scraps and incorporates them into its own body, slowly growing more elaborate and patched over time." },
 
   148: { id:148, name:"Stoicguard",  emoji:"🦾", types:["Steel"],
     base:{hp:90,atk:107,def:111,spa:65,spd:83,spe:37},
@@ -1371,7 +1371,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[22,"mind_shatter"]],[1,"confusion"],[8,"quick_attack"],[16,"psybeam"],[24,"psychic_move"],[29,"leer"],[32,"calm_mind"],[40,"psystrike",[5,"prism_ward"]],[3,"mind_reader"],[31,"recover"]],
     evolveTo:167, evolveLevel:25, catchRate:165, expYield:86, rarity:"common",
     desc:"A psychic puppy that reads minds. Can predict attacks before they happen.",
-    lore:"Novakin is a small psychic dog about 30 cm at the shoulder with smooth lavender-grey fur and a large domed forehead that glows softly when focusing. Its eyes are bright blue-silver. It reads emotions effortlessly and communicates its own feelings through projected imagery rather than vocalisation." },
+    lore:"Projectery is a small psychic dog about 30 cm at the shoulder with smooth lavender-grey fur and a large domed forehead that glows softly when focusing. Its eyes are bright blue-silver. It reads emotions effortlessly and communicates its own feelings through projected imagery rather than vocalisation." },
 
   167: { id:167, name:"Psychovast",   emoji:"🐩", types:["Psychic"],
     base:{hp:78,atk:58,def:54,spa:108,spd:100,spe:107},
@@ -1442,21 +1442,21 @@ const MONSTERS_DATA = {
     learnset:[[1,"water_gun",[28,"eon_crash"]],[1,"dragon_breath"],[14,"surf"],[17,"harden"],[22,"dragon_claw"],[30,"hydro_pump"],[31,"coral_barrage"],[38,"dragon_pulse"],[43,"tidal_crush"],[46,"outrage",[5,"tidecaller"]],[3,"deepwater_hymn"],[34,"ocean_tempest"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:318, rarity:"uncommon",
     desc:"A sea dragon that rules the ocean floor. Massive and aquatic.",
-    lore:"Neruveth is a serpentine water-dragon 5 metres long with fluid blue-green scales and a flowing fin-crest from snout to tail. Its underbelly glows with bioluminescent blue. It inhabits deep ocean trenches and ascends to shallower water only to feed, drawing vast schools of fish upward with its bioluminescence." },
+    lore:"Biolumal is a serpentine water-dragon 5 metres long with fluid blue-green scales and a flowing fin-crest from snout to tail. Its underbelly glows with bioluminescent blue. It inhabits deep ocean trenches and ascends to shallower water only to feed, drawing vast schools of fish upward with its bioluminescence." },
 
   176: { id:176, name:"Chromena",   emoji:"⚡", types:["Electric","Dragon"],
     base:{hp:68,atk:82,def:62,spa:117,spd:78,spe:113},
     learnset:[[1,"thunder_shock",[28,"wyrm_strike"]],[1,"dragon_breath"],[12,"thunderbolt"],[17,"harden"],[20,"dragon_claw"],[28,"thunder"],[30,"dynamo_whip"],[36,"dragon_pulse"],[42,"eon_crash"],[44,"outrage",[5,"thunder_wave"]],[3,"static_cage"],[33,"ion_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
     desc:"A dragon of lightning storms. Calls down thunder with each roar.",
-    lore:"Tempyroth is a sleek electric-dragon 4 metres long with chrome-yellow and black scales that crackle with electrical charge. Its wing membranes are translucent yellow. It creates a continuous corona of electricity around its body while flying, visible at night as a moving chain of lightning." },
+    lore:"Chromena is a sleek electric-dragon 4 metres long with chrome-yellow and black scales that crackle with electrical charge. Its wing membranes are translucent yellow. It creates a continuous corona of electricity around its body while flying, visible at night as a moving chain of lightning." },
 
   177: { id:177, name:"Sapphier",emoji:"💠", types:["Ice","Dragon"],
     base:{hp:73,atk:96,def:79,spa:115,spd:100,spe:74},
     learnset:[[1,"powder_snow",[28,"scale_storm"]],[1,"dragon_breath"],[13,"ice_beam"],[21,"dragon_claw"],[24,"recover"],[29,"blizzard"],[37,"dragon_pulse"],[44,"cryo_lance"],[45,"outrage"],[53,"ice_punch",[5,"permafrost"]],[3,"winter_shroud"],[38,"glacial_tomb"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
     desc:"A crystal dragon of ice. Its scales deflect nearly any attack.",
-    lore:"Glaciroth is a magnificent ice-dragon 6 metres long with deep sapphire-blue scales and a crest of crystal ice spines along its neck. Its underbelly is pale white. Its breath produces a stream of sub-zero air that flash-freezes anything within 20 metres. It sleeps buried under glacier ice for decades." },
+    lore:"Sapphier is a magnificent ice-dragon 6 metres long with deep sapphire-blue scales and a crest of crystal ice spines along its neck. Its underbelly is pale white. Its breath produces a stream of sub-zero air that flash-freezes anything within 20 metres. It sleeps buried under glacier ice for decades." },
 
   // ===== NORMAL =====
   178: { id:178, name:"Fluffen",     emoji:"🐱", types:["Normal"],
@@ -1478,7 +1478,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[20,"wild_tumble"]],[1,"tail_whip"],[8,"quick_attack"],[16,"headbutt"],[17,"recover"],[24,"body_slam",[5,"growl"]],[29,"harden"],[39,"vital_pulse"]],
     evolveTo:181, evolveLevel:18, catchRate:255, expYield:55, rarity:"common",
     desc:"A swift rabbit with huge ears. Can hear predators from far away.",
-    lore:"Lopikin is a small rabbit 25 cm long with oversized hind legs and soft white-grey fur. Its long ears pivot independently in different directions. It can leap 3 metres horizontally from standing still. It lives in warrens on open plains and maintains elaborate underground tunnel networks as escape routes." },
+    lore:"Leapbun is a small rabbit 25 cm long with oversized hind legs and soft white-grey fur. Its long ears pivot independently in different directions. It can leap 3 metres horizontally from standing still. It lives in warrens on open plains and maintains elaborate underground tunnel networks as escape routes." },
 
   181: { id:181, name:"Racehare",  emoji:"🐇", types:["Normal"],
     base:{hp:88,atk:74,def:49,spa:71,spd:59,spe:117},
@@ -1528,7 +1528,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"rock_throw"],[2,"headbutt"],[3,"harden"],[4,"rock_slide"],[5,"granite_wall"],[29,"stone_edge"],[33,"tremor_stomp"],[37,"body_slam"],[41,"earth_power"],[49,"crystal_lance"],[57,"landslide"],[65,"earthquake"],[6,"petrify_gaze"],[44,"magnitude"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:222, rarity:"uncommon",
     desc:"A boulder hound encrusted with stones. Can cause landslides by running.",
-    lore:"Boulderoll is a large rock-ground creature 1.5 metres tall shaped like a roughly humanoid boulder — Pebblet's round river-pebble silhouette has grown and squared into a rough humanoid shape, the small surprised face of its kit form barely defined now but still clearly present, and the current-rolling travel habit has matured into a rolling shift of its own mass overland. It moves by rolling and shifting its own mass. Groups of Lithavast arrange themselves in formations that geologists initially mistake for natural rock outcroppings." },
+    lore:"Boulderoll is a large rock-ground creature 1.5 metres tall shaped like a roughly humanoid boulder — Pebblet's round river-pebble silhouette has grown and squared into a rough humanoid shape, the small surprised face of its kit form barely defined now but still clearly present, and the current-rolling travel habit has matured into a rolling shift of its own mass overland. It moves by rolling and shifting its own mass. Groups of Boulderoll arrange themselves in formations that geologists initially mistake for natural rock outcroppings." },
 
   193: { id:193, name:"Rugothon",    emoji:"🦞", types:["Rock","Water"],
     base:{hp:71,atk:78,def:89,spa:52,spd:63,spe:68},
@@ -1550,7 +1550,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[5,"silk_bind"]],[1,"string_shot"],[5,"bug_bite",[6,"chitin_guard"]],[13,"growl"],[20,"swords_dance"],[27,"scratch"],[34,"venom_drool"],[41,"mandible_crush"]],
     evolveTo:198, evolveLevel:7, catchRate:255, expYield:39, rarity:"common",
     desc:"A cute caterpillar. Harmless and curious, though it spins strong silk.",
-    lore:"Vermelin is a small, worm-like bug creature 8 cm long with a pale green segmented body and a round head with two tiny antennae. It lives entirely underground in loose soil, aerating it as it tunnels. It photosynthesises weakly through thin translucent sections of its skin even below the surface." },
+    lore:"Photoworm is a small, worm-like bug creature 8 cm long with a pale green segmented body and a round head with two tiny antennae. It lives entirely underground in loose soil, aerating it as it tunnels. It photosynthesises weakly through thin translucent sections of its skin even below the surface." },
 
   198: { id:198, name:"Chrysalix",  emoji:"🫙", types:["Bug"],
     base:{hp:46,atk:30,def:58,spa:30,spd:30,spe:30},
@@ -1571,7 +1571,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"bug_bite",[22,"mandible_crush"]],[1,"rock_throw"],[10,"headbutt"],[18,"x_scissor"],[20,"leer"],[26,"rock_slide"],[34,"stone_edge",[5,"string_shot"]],[36,"swarm_dive"],[3,"chitin_guard"],[31,"magma_rock"]],
     evolveTo:201, evolveLevel:25, catchRate:130, expYield:95, rarity:"common",
     desc:"A heavily armored beetle. Its rock-hard shell is practically indestructible.",
-    lore:"Colerix is a beetle 12 cm long with a hard iridescent wing-case that shifts between emerald and sapphire depending on viewing angle. Its underside is pale gold. It lives in old-growth forest canopy and cuts precise circular holes in leaves that it then rolls into tubes for egg-laying." },
+    lore:"Iridibeetle is a beetle 12 cm long with a hard iridescent wing-case that shifts between emerald and sapphire depending on viewing angle. Its underside is pale gold. It lives in old-growth forest canopy and cuts precise circular holes in leaves that it then rolls into tubes for egg-laying." },
 
   201: { id:201, name:"Scarabion",  emoji:"🪲", types:["Bug","Steel"],
     base:{hp:88,atk:124,def:94,spa:64,spd:69,spe:46},
@@ -1737,7 +1737,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"fairy_wind"],[1,"confusion"],[15,"dazzling_gleam"],[25,"moonblast"],[35,"psybeam"],[45,"psychic_move"],[55,"celestial_wave"],[65,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:210, rarity:"uncommon",
     desc:"A crystalline fairy of pure mental energy. Its body refracts light into impossible colors.",
-    lore:"Glimmerkin is a small psychic-fairy creature 30 cm tall with a rounded glowing body of warm pink-gold light. It leaves a trail of glimmer-dust wherever it floats. It inhabits libraries, art studios, and places of quiet human creativity, feeding on the ambient ambient creative energy generated there." },
+    lore:"Crealight is a small psychic-fairy creature 30 cm tall with a rounded glowing body of warm pink-gold light. It leaves a trail of glimmer-dust wherever it floats. It inhabits libraries, art studios, and places of quiet human creativity, feeding on the ambient creative energy generated there." },
 
   // Split evolution family: Prismoo → 3 forms via stones
   // Spectroo (base, Normal/Psychic) → Prismace (Fire Stone), Prismoon (Moon Stone), Prismolt (Thunder Stone)
@@ -1874,7 +1874,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"thunder_shock"],[1,"bug_buzz"],[12,"spark"],[22,"thunderbolt"],[32,"discharge"],[42,"x_scissor"],[52,"thunder"],[60,"hyper_beam"]],
     evolveTo:243, evolveLevel:30, catchRate:170, expYield:75, rarity:"common",
     desc:"A ladybug-like creature that stores electricity in its shell spots. Releases it when threatened.",
-    lore:"Zappling is a tiny electric-bug creature 5 cm long resembling a glowing firefly. Its abdomen pulses with yellow-white electric light at regular intervals. Huge swarms congregate in summer nights over open water, and the coordinated light patterns of the swarm are a complex form of collective communication." },
+    lore:"Pulseglow is a tiny electric-bug creature 5 cm long resembling a glowing firefly. Its abdomen pulses with yellow-white electric light at regular intervals. Huge swarms congregate in summer nights over open water, and the coordinated light patterns of the swarm are a complex form of collective communication." },
 
   243: { id:243, name:"Stuntrap", emoji:"🪲", types:["Electric","Bug"],
     base:{hp:72,atk:82,def:68,spa:110,spd:78,spe:98},
@@ -2512,7 +2512,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"water_gun",[24,"tidal_crush"]],[1,"gust"],[12,"bubble_beam"],[20,"wing_attack"],[25,"swords_dance"],[28,"surf"],[36,"air_slash"],[44,"hydro_pump"],[45,"riptide_slam"],[52,"hurricane",[5,"tidecaller"]],[3,"deepwater_hymn"],[37,"storm_surge"]],
     evolveTo:40, evolveLevel:42, catchRate:60, expYield:185, rarity:"uncommon",
     desc:"A dolphin that leaps between ocean waves and sea winds. Its song calms storms.",
-    lore:"Depthveth is a sleek manta-ray-like creature with a 3-metre wingspan and gossamer trailing fins that ripple like silk in underwater currents. Its body is midnight blue above and pale silver beneath. It glides silently through cold deep-water channels, guided by a keen sense of electromagnetic fields." },
+    lore:"Gossafin is a sleek manta-ray-like creature with a 3-metre wingspan and gossamer trailing fins that ripple like silk in underwater currents. Its body is midnight blue above and pale silver beneath. It glides silently through cold deep-water channels, guided by a keen sense of electromagnetic fields." },
 
   // ===== WIND/PSYCHIC =====
   116: { id:116, name:"Zephyrin", emoji:"🌀", types:["Wind","Psychic"],
@@ -2576,7 +2576,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"string_shot",[22,"silk_bind"]],[1,"fairy_wind"],[9,"bug_bite"],[17,"dazzling_gleam"],[20,"recover"],[25,"x_scissor"],[33,"moonblast",[5,"chitin_guard"]],[36,"swarm_dive"],[3,"compound_glare"],[31,"bug_buzz"]],
     evolveTo:203, evolveLevel:26, catchRate:160, expYield:84, rarity:"common",
     desc:"A spider that weaves silk infused with fairy dust. Its webs shimmer like spun moonlight.",
-    lore:"Sericrix is a spider 15 cm across with a pale cream body and legs banded in rose-gold. Its silk is exceptionally strong and has a faint iridescent sheen. It weaves elaborate three-dimensional web sculptures rather than flat sheets, incorporating fairy-touched strands that glow at dawn and dusk." },
+    lore:"Sculptweave is a spider 15 cm across with a pale cream body and legs banded in rose-gold. Its silk is exceptionally strong and has a faint iridescent sheen. It weaves elaborate three-dimensional web sculptures rather than flat sheets, incorporating fairy-touched strands that glow at dawn and dusk." },
 
   // ===== ICE/STEEL =====
   55: { id:55, name:"Rimeling", emoji:"🗡️", types:["Ice","Crystal"],
@@ -2762,7 +2762,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"rock_throw",[22,"obsidian_crash"]],[1,"bite"],[10,"headbutt"],[18,"crunch"],[26,"rock_slide"],[30,"landslide"],[34,"dark_pulse"],[42,"stone_edge",[5,"granite_wall"]],[3,"petrify_gaze"],[32,"quarry_crush"]],
     evolveTo:133, evolveLevel:30, catchRate:130, expYield:97, rarity:"common",
     desc:"A rock monster that absorbs shadow energy. Moves imperceptibly slow but hits with shattering force.",
-    lore:"Obsidrix is a spiny rock-dark creature 60 cm long resembling a horned lizard made of volcanic obsidian. Its body is jet black with razor-sharp ridges. It reflects almost no light. It inhabits old lava tubes and volcanic glass fields, and its presence is detected mainly by the sound of its obsidian scales clicking together." },
+    lore:"Volcascale is a spiny rock-dark creature 60 cm long resembling a horned lizard made of volcanic obsidian. Its body is jet black with razor-sharp ridges. It reflects almost no light. It inhabits old lava tubes and volcanic glass fields, and its presence is detected mainly by the sound of its obsidian scales clicking together." },
 
   133: { id:133, name:"Monolithox", emoji:"🗿", types:["Rock","Dark"],
     base:{hp:102,atk:114,def:103,spa:62,spd:70,spe:39},
@@ -2822,7 +2822,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[22,"future_echo"]],[1,"confusion"],[9,"growl"],[17,"psybeam"],[25,"recover"],[29,"dreamweave"],[33,"psychic_move"],[41,"calm_mind",[5,"tail_whip"]],[3,"leer"],[32,"psycho_cut"]],
     evolveTo:190, evolveLevel:24, catchRate:180, expYield:78, rarity:"common",
     desc:"A woolly psychic creature that reads emotional auras. Very empathetic and gentle.",
-    lore:"Quirelin is a small psychic sheep about 40 cm at the shoulder with soft white wool and calm violet eyes. Its wool carries a faint static charge from accumulated psychic energy. It grazes peacefully in highland meadows and the simple act of standing near it produces a remarkable sense of mental clarity." },
+    lore:"Woolcalm is a small psychic sheep about 40 cm at the shoulder with soft white wool and calm violet eyes. Its wool carries a faint static charge from accumulated psychic energy. It grazes peacefully in highland meadows and the simple act of standing near it produces a remarkable sense of mental clarity." },
 
   190: { id:190, name:"Aetherflock", emoji:"🐏", types:["Normal","Psychic"],
     base:{hp:88,atk:57,def:67,spa:110,spd:103,spe:75},

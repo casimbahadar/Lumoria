@@ -70,11 +70,28 @@
 
 ## Walkthrough cursor
 
-**Currently in Borderline triage of MINOR-vs-BREAKING upgrades.** Borderline cases 1-7 done. Next up: **Borderline 8 (#128-129 Cranivade → Voidaxis)**.
+**Borderline triage complete.** All 19 borderline cases resolved as MINOR (decision: MINOR tweaks sufficient, no BREAKING pivots needed). Cases 1-7 done in prior session; 8-19 resolved as follows:
 
-Remaining borderline cases: 8 (#128-129), 9 (#142-144), 10 (#157-159), 11 (#162-163), 12 (#172-174), 13 (#220-221), 14 (#222-224), 15 (#236-237), 16 (#242-243), 17 (#260-261), 18 (#262-264), 19 (#308-309).
+- Case 8 (#128-129 Cranivade→Voidaxis) — MINOR applied in PR #47.
+- Case 9 (#142-144 Dawnirel→Lunarael→Celestarch) — MINOR applied in PR #47.
+- Case 10 (#157-159 Acidelix→Corrodisc→Dissotoad) — MINOR applied in PR #47.
+- Case 11 (#162-163 Marlix→Blightalis) — MINOR applied in PR #47.
+- Case 12 (#172-174 Scalurin→Serpenthos→Scalevorn) — resolved by PR #48 bridge work (Scalevorn←Serpenthos in Batch 5; Serpenthos←Scalurin in IMPLICIT sub-batch 3).
+- Case 13 (#220-221 Umbrajest→Shadowveil) — MINOR applied in PR #47.
+- Case 14 (#222-224 Mindpuff→Recallum→Psytheon) — MINOR applied in PR #47.
+- Case 15 (#236-237 Frostick→Icevault) — MINOR applied in PR #47.
+- Case 16 (#242-243 Pulseglow→Stuntrap) — MINOR applied in PR #47.
+- Case 17 (#260-261 Sproutix→Leafhorn) — MINOR applied in PR #47.
+- Case 18 (#262-264 Transluceed→Tendrilisk→Impenezard) — MINOR applied in PR #47 + reinforced by PR #48 bridges.
+- Case 19 (#308-309 Seafraith→Tidephant) — MINOR applied in PR #47.
 
-After borderline triage: 5 NEW BREAKING items (#84-86, #104-105, #296-298, #299-300, #302-303) → bulk name-leak fix (22+ identified in taxonomy.md) → resume MINOR tweaks → Solo audit → typing audit → archetype trim → renaming → stat review.
+**Pipeline status (post PR #47 + PR #48):**
+- ✅ Borderline triage (all 19 cases)
+- ✅ 5 NEW BREAKING items (#84-86, #104-105 done in earlier sessions; #296-298, #299-300, #302-303 done in PR #47)
+- ✅ MINOR tweaks (PR #47)
+- ✅ Bridge-lore sweep (PR #48: 98 BRIDGE_NEEDED bridges + 33 foreshadows + 61 IMPLICIT polish + 29 name-leak fixes; comprehensive name-leak scan confirmed 0 leaks remain)
+
+**Next up:** Solo desc/lore/emoji consistency audit (this section below), then typing audit → archetype trim → renaming → stat review.
 
 The original walkthrough through ids 7-446 (paused at #13 Taurcin "keep" decision) is on hold until all the audit phases above complete.
 
@@ -555,6 +572,26 @@ Add cross-references between Lumori in lore/description text to give the world e
 - [ ] Per grouping, decide which side(s) get the lore reference and what shape it takes (one-line behavioural reference vs. embedded ecological note).
 - [ ] Draft + apply edits in batches (propose-and-approve per batch, batched commits).
 - [ ] Audit for confusing circular references (avoid A→B→C→A loops unless thematically intentional).
+
+# 🎮 NG+ / Forgotten gating separation — RUN BEFORE LUMINEX REORDER
+
+`js/data.js` currently classifies ids 322-421 as NG+-exclusive and ids 408-446 as Forgotten Lumori, creating an unintended dual-classification at ids 408-421. **These two ranges must be separate.**
+
+**Decision:**
+- **NG+ range stops before 408.** NG+-available Lumori are ids 322-407 only.
+- **Forgotten Lumori (ids 408-446) are NOT included in the NG+ available roster.** They do not spawn in NG+ encounter tables, even as rare encounters, until a separate condition is met.
+- **Forgotten Lumori unlock** only after the player has completed the Forgotten Lumori quest line and a corresponding gameplay flag is set. Once unlocked, they appear in secret/late-game post-quest locations distinct from NG+ encounter zones.
+
+**Implementation tasks:**
+- [ ] Update `js/data.js` NG+-EXCLUSIVE comment from "(IDs 322–421)" to "(IDs 322–407)".
+- [ ] Verify no id in 408-446 appears in any NG+ encounter table, wild-spawn list, or trainer team that is reachable in standard NG+.
+- [ ] Add a "forgotten_quests_complete" gameplay flag to save data (or repurpose an existing milestone flag if one fits).
+- [ ] Gate spawn-eligibility of ids 408-446 behind that flag — they appear only after the flag is set, in dedicated post-quest secret locations.
+- [ ] Design secret-location placements for the 39 Forgotten Lumori (which routes/areas they appear in post-flag).
+- [ ] Audit any existing encounter tables / wild-spawn lists for accidental 408-446 entries reachable before flag.
+- [ ] Update README / player-facing documentation to mention NG+ ends at 407 and Forgotten quest is the gate to 408-446.
+
+This work should run BEFORE the Luminex reorder (renumber pass) so that the reorder respects the new NG+/Forgotten boundary at id 407/408.
 
 ---
 

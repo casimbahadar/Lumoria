@@ -839,7 +839,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle"],[2,"ember"],[3,"quick_attack"],[4,"flame_fang"],[5,"scorch_veil"],[24,"flamethrower"],[25,"blazing_rush"],[34,"heat_wave"],[35,"fire_blast"],[43,"inferno"],[6,"embercloak"],[32,"recover"]],
     evolveTo:3, evolveLevel:36, catchRate:25, expYield:142, rarity:"uncommon",
     desc:"A blazing fox with a fiery mane. Rivals fear its flaming charge.",
-    lore:"Pyrevix is a mid-sized fox standing 90 cm tall with a broad chest and a flowing mane of orange flame that streams behind it when running. Its paws leave faint scorch marks on soft ground. It patrols wide territories each night, marking boundaries by igniting patches of dry grass in small controlled rings." },
+    lore:"Pyrevix is a mid-sized fox standing 90 cm tall — Solkin's candle-bright tail-flame has spread up the body into a flowing mane of orange flame that streams behind it when running, framed by a broader chest. Its paws leave faint scorch marks on soft ground. It patrols wide territories each night, marking boundaries by igniting patches of dry grass in small controlled rings." },
 
   3: { id:3, name:"Calderaeth",  emoji:"🐲", types:["Fire","Dragon"],
     base:{hp:70,atk:88,def:80,spa:105,spd:79,spe:105},
@@ -883,7 +883,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"vine_whip"],[2,"razor_leaf"],[3,"seed_bomb"],[4,"tackle"],[5,"sleep_powder"],[16,"swords_dance"],[24,"energy_ball"],[30,"canopy_crash"],[35,"petal_blitz"],[44,"verdant_surge"],[6,"spore_burst"],[33,"recover"]],
     evolveTo:9, evolveLevel:36, catchRate:25, expYield:142, rarity:"uncommon",
     desc:"A thorny dinosaur with bark-like skin. Each spine is razor sharp.",
-    lore:"Barknell is a stout quadrupedal reptile roughly the size of a large dog. Its hide is textured like bark and varies from grey-green to deep brown, blending with forest undergrowth. Rows of leaf-shaped protrusions line its spine. It sleeps pressed against tree trunks, becoming nearly invisible to passing predators." },
+    lore:"Barknell is a stout quadrupedal reptile roughly the size of a large dog — Verdkin's stubby leg-roots have lengthened into true legs and its leaf-shaped ears have multiplied into rows of leaf-shaped protrusions along its spine. Its hide is textured like bark and varies from grey-green to deep brown, blending with forest undergrowth. It sleeps pressed against tree trunks, becoming nearly invisible to passing predators." },
 
   9: { id:9, name:"Garlawarden",   emoji:"🌸", types:["Grass","Fairy"],
     base:{hp:82,atk:75,def:80,spa:101,spd:110,spe:84},
@@ -905,7 +905,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"harden"],[1,"ember"],[4,"bug_bite"],[8,"chitin_guard"],[14,"scorch_veil"],[20,"recover"],[26,"harden"],[32,"embercloak"],[36,"heat_wave"],[5,"embercloak"],[39,"inferno"]],
     evolveTo:12, evolveLevel:40, catchRate:75, expYield:158, rarity:"uncommon",
     desc:"A motionless flame-veined chrysalis hanging from charred branches. Sealed within, a future winged form slowly takes shape.",
-    lore:"Heliocoon is a 30-centimetre teardrop-shaped chrysalis spun from heat-resistant silk and anchored by a single dark thread to the underside of a charred branch. Its outer casing is layered tan and charcoal-grey, threaded with thin orange veins that pulse faintly with internal warmth as the larva continues to develop inside. It does not feed and rarely shifts — only the casing's surface trembles when the body within turns. Heat radiates from the shell strongly enough to discourage most predators, and it can hang motionless for weeks on end while it waits to emerge into its winged final form." },
+    lore:"Heliocoon is a 30-centimetre teardrop-shaped chrysalis spun from Scorchlarva's heat-resistant silk and anchored by a single dark thread to the underside of a charred branch. Its outer casing is layered tan and charcoal-grey, threaded with thin orange veins that pulse faintly with internal warmth as the larva continues to develop inside. It does not feed and rarely shifts — only the casing's surface trembles when the body within turns. Heat radiates from the shell strongly enough to discourage most predators, and it can hang motionless for weeks on end while it waits to emerge into its winged final form." },
 
   13: { id:13, name:"Taurcin",    emoji:"🐂", types:["Fire"],
     base:{hp:67,atk:69,def:56,spa:52,spd:37,spe:43},
@@ -948,7 +948,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"scratch"],[2,"water_gun"],[3,"tidecaller"],[23,"aqua_tail"],[27,"swords_dance"],[31,"surf"],[33,"hydro_pump"],[34,"stalactite_drop"],[41,"rock_slide"],[48,"crystal_lance"],[55,"tidal_crush"],[62,"stone_edge"],[4,"deepwater_hymn"],[42,"quarry_crush"]],
     evolveTo:27, evolveLevel:44, catchRate:60, expYield:188, rarity:"uncommon",
     desc:"A massive sea claw with rock-hard shell. Few can match its raw strength.",
-    lore:"Aquidon is a broad-bodied rock lobster about 50 cm long with a stone-grey carapace reinforced by calcified mineral deposits. Its crushing claws can crack thick coral. It dwells in rocky sea caves along the coastline, guarding its territory fiercely against any intruder." },
+    lore:"Aquidon is a broad-bodied rock lobster about 50 cm long — Reefling's pale blue-green coral-polyp shell has hardened and stilled into a stone-grey carapace reinforced by calcified mineral deposits, and its tiny defensive pincers have grown into crushing claws that can crack thick coral. It dwells in rocky sea caves along the coastline, guarding its territory fiercely against any intruder." },
 
   42: { id:42, name:"Cryonik",    emoji:"🦭", types:["Ice","Water"],
     base:{hp:54,atk:56,def:64,spa:73,spd:75,spe:31},
@@ -962,7 +962,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"powder_snow"],[2,"water_gun"],[3,"ice_beam"],[4,"permafrost"],[31,"blizzard"],[33,"harden"],[38,"abyssal_jet"],[43,"hoarfrost_bite"],[48,"icicle_crash"],[53,"surf"],[58,"glacial_tomb"],[63,"hydro_pump"],[5,"winter_shroud"],[41,"aqua_tail"]],
     evolveTo:44, evolveLevel:44, catchRate:40, expYield:217, rarity:"uncommon",
     desc:"A regal glacial seal. It can freeze oceans with a single breath.",
-    lore:"Boreon is a larger muscular seal with slate-blue fur and a thick neck mane of frosted white hair. Bands of ice spontaneously form around its flippers when it rears up. Its bark echoes across frozen bays, audible several kilometres away. It is highly territorial during breeding season on ice shelves." },
+    lore:"Boreon is a larger muscular seal — Cryonik's powder-blue fur has deepened to slate-blue and its perpetually crackling ice-coat has thickened into a frosted white neck-mane. Bands of ice spontaneously form around its flippers when it rears up. Its bark echoes across frozen bays, audible several kilometres away. It is highly territorial during breeding season on ice shelves." },
 
   28: { id:28, name:"Corelin",   emoji:"🐠", types:["Water"],
     base:{hp:49,atk:34,def:58,spa:59,spd:52,spe:62},
@@ -1005,7 +1005,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"razor_leaf"],[2,"seed_bomb"],[3,"sleep_powder"],[22,"energy_ball"],[27,"growl"],[32,"tackle"],[37,"sandstrike"],[42,"sand_geyser"],[47,"root_lance"],[52,"earth_power"],[57,"earthquake"],[62,"petal_blitz"],[4,"spore_burst"],[40,"scorched_earth"]],
     evolveTo:68, evolveLevel:42, catchRate:55, expYield:195, rarity:"uncommon",
     desc:"A 1-metre forest snail whose massive curled shell is encrusted with bark, moss, and trailing vines. Walks slow circuits between damp glades over years.",
-    lore:"Loamvin is a substantial forest snail roughly 1 metre across at the shell's widest curl, with a body 1.2 metres long when fully extended. Its great spiral shell is so heavily overgrown with bark plates, mossy patches, and trailing vines that the underlying calcified spiral is barely visible — small ferns even sprout from cracks where the shell meets the body. Two thick sensory eyestalks rise above its head, each ending in a glowing amber-green eye, and its broad muscular foot leaves a wide damp trail through the leaf-litter as it moves. It walks slow circuits between damp forest glades over years, and the small ecosystems carried on its shell shed seeds and spores wherever it goes." },
+    lore:"Loamvin is a substantial forest snail roughly 1 metre across at the shell's widest curl, with a body 1.2 metres long when fully extended — Viridix's small lime-green leaf-patterned shell has grown massive and so heavily overgrown with bark plates, mossy patches, and trailing vines that the underlying calcified spiral is barely visible — small ferns even sprout from cracks where the shell meets the body. Two thick sensory eyestalks rise above its head, each ending in a glowing amber-green eye, and its broad muscular foot leaves a wide damp trail through the leaf-litter as it moves. It walks slow circuits between damp forest glades over years, and the small ecosystems carried on its shell shed seeds and spores wherever it goes." },
 
   69: { id:69, name:"Germix",     emoji:"🫘", types:["Grass"],
     base:{hp:38,atk:41,def:49,spa:62,spd:55,spe:52},
@@ -1198,7 +1198,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"powder_snow"],[2,"ice_beam"],[3,"permafrost"],[30,"glacial_tomb"],[33,"blizzard"],[35,"battle_cry"],[40,"scratch"],[45,"glacial_shard"],[50,"icicle_crash"],[55,"storm_surge"],[60,"avalanche_drive"],[65,"hurricane"],[4,"winter_shroud"],[42,"cyclone_blade"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:228, rarity:"uncommon",
     desc:"A massive snowy owl whose silent flight makes it the apex watcher of the polar dusk. Its talons can crack frozen earth.",
-    lore:"Arcturex is an enormous snowy owl 1.2 metres tall and over 2.5 metres in wingspan, sheathed in dense layers of pale silver-white feathers that absorb sound completely — its hunting flight is so silent that prey hears only the moment of strike. Its broad disc-like face is bordered in pearl-grey edge feathers, and two large amber-gold eyes catch and reflect what little light reaches the polar dusk it patrols. Its talons are long and powerful enough to crack frozen earth crust on landing, and like its Boötes-watcher namesake it rules a fixed circuit of sky each night, watching all that passes beneath. Hunters in the high north consider its silhouette across the moon a sign of clear hunting ahead — or, when it stoops, a warning that the next storm is already rolling in." },
+    lore:"Arcturex is an enormous snowy owl 1.2 metres tall and over 2.5 metres in wingspan — Mistwhirl's soft white-and-silver owlet down has hardened and layered into dense pale silver-white feathers that absorb sound completely — its hunting flight is so silent that prey hears only the moment of strike. Its broad disc-like face is bordered in pearl-grey edge feathers, and two large amber-gold eyes catch and reflect what little light reaches the polar dusk it patrols. Its talons are long and powerful enough to crack frozen earth crust on landing, and like its Boötes-watcher namesake it rules a fixed circuit of sky each night, watching all that passes beneath. Hunters in the high north consider its silhouette across the moon a sign of clear hunting ahead — or, when it stoops, a warning that the next storm is already rolling in." },
 
   45: { id:45, name:"Slatis",   emoji:"🌨️", types:["Ice","Water"],
     base:{hp:51,atk:39,def:49,spa:74,spd:64,spe:45},
@@ -2722,7 +2722,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"ice_beam"],[2,"dragon_pulse"],[3,"icicle_crash"],[4,"permafrost"],[41,"blizzard"],[44,"swords_dance"],[48,"dragon_dance"],[49,"outrage"],[52,"glacial_shard"],[56,"avalanche_drive"],[60,"ancient_breath"],[64,"hyper_beam"],[5,"winter_shroud"],[38,"drake_rush"]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:285, rarity:"rare",
     desc:"A dragon cloaked in the aurora. Its roar scatters ribbons of colored ice across the sky.",
-    lore:"Boreadrake is an imposing ice dragon 7 metres long with broad wings that span 10 metres. Its thick scales are blue-white, edged in darker navy, and its underbelly is pale silver. Ancient artwork shows it guarding the northern glaciers for millennia. When it exhales, the air solidifies into ice shards that rain down for hundreds of metres." },
+    lore:"Boreadrake is an imposing ice dragon 7 metres long — Lunaveris's serpentine 5-metre body has thickened and broadened into a 10-metre wingspan, and the blue-and-silver scales of its juvenile form have darkened to thick blue-white edged in navy with a pale silver underbelly. Ancient artwork shows it guarding the northern glaciers for millennia. When it exhales, the air solidifies into ice shards that rain down for hundreds of metres." },
 
   // ===== ADDITIONAL COMMON/UNCOMMON/RARE LUMOS =====
 
@@ -2859,7 +2859,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"poison_sting"],[2,"venom_lance"],[3,"mistveil"],[29,"ice_beam"],[31,"battle_cry"],[36,"sleet_barrage"],[37,"putrid_pulse"],[41,"stinger_volley"],[46,"icicle_crash"],[51,"avalanche_drive"],[56,"blizzard"],[61,"hyper_beam"],[4,"toxic"],[40,"sludge_bomb"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
     desc:"A large ice-porcupine whose blade-quills carry a paralytic frost-venom. Launches volleys of toxic spines and tucks into a wind-borne ball of poisoned ice when threatened.",
-    lore:"Gelwing is a large adult ice-porcupine roughly 1.2 metres long and 70 cm at the shoulder. Its dense undercoat is sleek pale white, but the long blade-quills along its back, flanks, and tail are translucent ice tipped in pale blue, the longest reaching nearly 40 centimetres — and each one weeps a slow bead of paralytic frost-venom that freezes solid on whatever flesh it pierces. It hunts mountain prey by detecting their breath on the wind and launching volleys of envenomed quills with sharp shrugs of its haunches; in flight or pursuit it folds entirely into a wind-borne rolling sphere, picked up by glacial gusts and rocketed across frozen passes leaving a thin trail of toxic mist in its wake. Spent quills regrow within hours from its constantly forming inner frost." },
+    lore:"Gelwing is a large adult ice-porcupine roughly 1.2 metres long and 70 cm at the shoulder — Gelspike's pale ice-blue hedgehog body has lengthened and its short translucent spines have grown into long blade-quills along its back, flanks, and tail — translucent ice tipped in pale blue, the longest reaching nearly 40 centimetres — and each one weeps a slow bead of paralytic frost-venom that freezes solid on whatever flesh it pierces. It hunts mountain prey by detecting their breath on the wind and launching volleys of envenomed quills with sharp shrugs of its haunches; in flight or pursuit it folds entirely into a wind-borne rolling sphere, picked up by glacial gusts and rocketed across frozen passes leaving a thin trail of toxic mist in its wake. Spent quills regrow within hours from its constantly forming inner frost." },
 
   // ===== FAIRY/STEEL =====
   145: { id:145, name:"Faerrin", emoji:"📌", types:["Fairy","Steel"],
@@ -2918,7 +2918,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"powder_snow"],[1,"thunder_shock"],[2,"ice_beam"],[3,"permafrost"],[4,"winter_shroud"],[33,"blizzard"],[38,"voltaic_fang"],[42,"hoarfrost_bite"],[46,"icicle_crash"],[50,"ion_cannon"],[54,"glacial_tomb"],[58,"ball_lightning"],[5,"cryo_lance"],[43,"harden"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:205, rarity:"uncommon",
     desc:"A gelatinous pinniped of compacted living frost. Bioluminescent pulses ripple through its translucent body, mapping prey by their electric fields.",
-    lore:"Frostmere is a gelatinous deep-ocean creature 1.5 metres long that has condensed its drifting medusa form into a more solid, seal-shaped silhouette. Its translucent body — once a free-floating bell — is now packed into a streamlined pinniped outline of bluish-white frozen jelly, sheathed in a fine layer of silver-white frost crystals that mimic the look of fur. Pale eyes the colour of deep glacier melt sit forward in its head, and the trailing tendrils of its base form persist as faint translucent streamers behind its flippers. Subtle bioluminescent pulses ripple through its gel-body in slow waves, illuminating it from within and serving as the visible discharge of an internal organ that maps the electric fields of every living thing nearby — its entire body functions as a single conductive sensor, hunting through polar water channels by reading prey's heartbeats from metres away rather than relying on sight." },
+    lore:"Frostmere is a gelatinous deep-ocean creature 1.5 metres long that has condensed its drifting medusa form into a more solid, seal-shaped silhouette. Its translucent body — Slatis's free-floating jellyfish bell — is now packed into a streamlined pinniped outline of bluish-white frozen jelly, sheathed in a fine layer of silver-white frost crystals that mimic the look of fur. Pale eyes the colour of deep glacier melt sit forward in its head, and the trailing tendrils of its base form persist as faint translucent streamers behind its flippers. Subtle bioluminescent pulses ripple through its gel-body in slow waves, illuminating it from within and serving as the visible discharge of an internal organ that maps the electric fields of every living thing nearby — its entire body functions as a single conductive sensor, hunting through polar water channels by reading prey's heartbeats from metres away rather than relying on sight." },
 
   161: { id:161, name:"Mistbane", emoji:"🦠", types:["Poison","Wind"],
     base:{hp:70,atk:75,def:54,spa:102,spd:80,spe:105},
@@ -2960,7 +2960,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"surf"],[1,"downdraft"],[2,"aqua_tail"],[3,"air_slash"],[4,"tidecaller"],[43,"hydro_pump"],[47,"hurricane"],[51,"tidal_crush"],[55,"tempest_wrath"],[59,"sea_serpent_strike"],[63,"ocean_tempest"],[67,"whirlpool_dive"],[5,"deepwater_hymn"],[48,"recover"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A sovereign of sky and sea. It breaches into storm clouds and dives into ocean trenches with equal majesty.",
-    lore:"Marevanos is a winged cetacean 6 metres long whose flat broad head and pectoral wing-fins retain the manta silhouette of its earlier stage; its streamlined blue-grey body trails into a powerful tail, and its wing-fins catch both wind and water. It breaches spectacularly, launching fully airborne and gliding long distances. Sailors consider spotting it a good-weather omen." },
+    lore:"Marevanos is a winged cetacean 6 metres long whose flat broad head and pectoral wing-fins retain the manta silhouette of Gossafin's juvenile form; its streamlined blue-grey body trails into a powerful tail, and its wing-fins catch both wind and water. It breaches spectacularly, launching fully airborne and gliding long distances. Sailors consider spotting it a good-weather omen." },
 
   131: { id:131, name:"Necrothon", emoji:"🌑", types:["Dark","Grass"],
     base:{hp:94,atk:89,def:99,spa:104,spd:90,spe:74},
@@ -3000,7 +3000,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"ember"],[1,"flamethrower"],[2,"dragon_breath"],[3,"cinderwhirl"],[4,"scorch_veil"],[38,"dragon_claw"],[42,"heat_wave"],[46,"fire_blast"],[50,"dragon_pulse"],[54,"solar_flare"],[58,"outrage"],[62,"inferno"],[5,"embercloak"],[44,"eon_crash"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
     desc:"An ancient serpent of celestial fire that coils around mountaintops. Legends say its breath forged the first volcanoes.",
-    lore:"Bahamber is a serpentine fire dragon 6 metres long that coils tightly around rocky spires to sleep. Vast wings fold along its serpentine length when at rest, almost invisible against its scales but capable of sweeping fire across a hillside when unfurled. Its amber-and-black scales overlap like armour, and twin crests of blue-tipped flame crown its narrow skull. It breathes a spiralling helix of fire able to bore through solid stone." },
+    lore:"Bahamber is a serpentine fire dragon 6 metres long that coils tightly around rocky spires to sleep — Searburn's scarlet-and-black scales have darkened further to amber-and-black overlapping like armour, and the backward-swept horns of its juvenile form have grown forward into twin crests of blue-tipped flame crowning its narrow skull. Vast wings fold along its serpentine length when at rest, almost invisible against its scales but capable of sweeping fire across a hillside when unfurled. It breathes a spiralling helix of fire able to bore through solid stone." },
 
   // 181: Terravore - Fire/Ground (Magmaurin→Pyroterrath→Terravore)
   21: { id:21, name:"Terravore", emoji:"🦎", types:["Fire","Ground"],
@@ -3016,7 +3016,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"flamethrower"],[1,"psychic_move"],[2,"scorch_veil"],[3,"psystrike"],[4,"heat_wave"],[38,"fire_blast"],[42,"calm_mind"],[46,"solar_flare"],[50,"thought_crush"],[54,"inferno"],[58,"mind_shatter"],[62,"neural_storm"],[5,"embercloak"],[44,"astral_rend"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
     desc:"An oracle of living flame. It reads the minds of its foes and burns their deepest fears into reality.",
-    lore:"Ignitheon is a regal lion-like psychic-fire creature 2 metres long. Its mane is living fire that changes colour with its emotional state — gold when calm, white when enraged. Violet markings pulse along its flanks. It guards ancient flame temples and is said to judge challengers before allowing passage." },
+    lore:"Ignitheon is a regal lion-like psychic-fire creature 2 metres long — Pyraxis's stiff feathered ruff has bloomed into a full mane of living fire that changes colour with its emotional state (gold when calm, white when enraged), and the violet psychic markings of its juvenile flanks still pulse along its sides. It guards ancient flame temples and is said to judge challengers before allowing passage." },
 
   // 183: Tidalossus - Water/Rock (Coralix→Aquidon→Tidalossus)
   27: { id:27, name:"Tidalossus", emoji:"🦞", types:["Water","Rock"],
@@ -3024,7 +3024,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"scratch"],[1,"surf"],[2,"tidecaller"],[3,"stalactite_drop"],[4,"rock_slide"],[38,"aqua_tail"],[42,"stone_edge"],[46,"tidal_crush"],[50,"crystal_lance"],[54,"hydro_pump"],[58,"quarry_crush"],[62,"sea_serpent_strike"],[5,"deepwater_hymn"],[44,"coral_barrage"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
     desc:"A colossus of tide and stone that rules coastal shallows. Its claws can shear cliff faces clean through.",
-    lore:"Tidalossus is a massive crustacean predator 4 metres across, with a dome-shaped granite-grey shell etched by centuries of wave erosion. Its six limbs end in serrated crushing claws. It prowls coastal shallows at night and generates a localised tidal surge by rapidly displacing water with its body." },
+    lore:"Tidalossus is a massive crustacean predator 4 metres across — Aquidon's stone-grey carapace has expanded into a dome-shaped granite-grey shell etched by centuries of wave erosion, and its two crushing claws have multiplied across six serrated limbs. It prowls coastal shallows at night and generates a localised tidal surge by rapidly displacing water with its body." },
 
   // 184: Polarveth - Ice/Water (Cryonik→Boreon→Polarveth)
   44: { id:44, name:"Nagislither", emoji:"🧊", types:["Ice","Water"],
@@ -3032,7 +3032,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"powder_snow"],[1,"surf"],[2,"ice_beam"],[3,"permafrost"],[4,"winter_shroud"],[38,"blizzard"],[42,"hoarfrost_bite"],[46,"icicle_crash"],[50,"hydro_pump"],[54,"glacial_tomb"],[58,"cryo_lance"],[62,"abyssal_jet"],[5,"tidecaller"],[44,"frost_current"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A titan of polar seas whose body is half glacier and half deep ocean. Its roar shatters icebergs for miles around.",
-    lore:"Nagislither is an elongated mature seal-form 3 metres long, sleek and powerfully muscled, with translucent blue-white fur over a long pinniped body and broad front flippers. Its whiskered face and dark amber eyes match the Cryonik lineage, but its tail has lengthened into a sweeping rudder that breaks through thin ice sheets in wide arcs. It hunts beneath pack ice, surfacing through cracks to catch prey venturing near the frozen edge." },
+    lore:"Nagislither is an elongated mature seal-form 3 metres long, sleek and powerfully muscled, with translucent blue-white fur over a long pinniped body and broad front flippers. Its whiskered face and dark amber eyes match the Boreon-and-Cryonik lineage, but its tail has lengthened into a sweeping rudder that breaks through thin ice sheets in wide arcs. It hunts beneath pack ice, surfacing through cracks to catch prey venturing near the frozen edge." },
 
   // 185: Nepturix - Water (Corelin→Neraxis→Nepturix)
   30: { id:30, name:"Nepturix", emoji:"🐟", types:["Water"],
@@ -3072,7 +3072,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"razor_leaf"],[1,"earthquake"],[2,"seed_bomb"],[3,"root_lance"],[4,"sleep_powder"],[38,"energy_ball"],[42,"earth_power"],[46,"petal_blitz"],[50,"verdant_surge"],[54,"sand_geyser"],[58,"canopy_crash"],[62,"scorched_earth"],[5,"spore_burst"],[44,"briar_lash"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A 3-metre ancient garden snail whose colossal shell has become a rooted bonsai forest. Reorganises woodland over centuries simply by walking through it.",
-    lore:"Rootvorn is a colossal ancient snail nearly 3 metres tall at the shell's apex, with a body that extends another 4 metres when fully out of the shell. Its great calcified spiral has been so deeply colonised over centuries that it now resembles a mossy hill — thick roots from full-grown saplings have driven down through the shell's surface and clutched it like a living crown, and a complete miniature canopy of broad leaves shades the back of its body. Its eyestalks are 1-metre wood-coloured stalks tipped in twin amber gleams, raised cautiously above the canopy when it senses motion. It uproots itself only at night, dragging its forested shell to a new location before dawn, and is believed to reorganise the layout of entire woodlands over decades — wherever it has travelled, new groves take root from the seeds shed by its passing." },
+    lore:"Rootvorn is a colossal ancient snail nearly 3 metres tall at the shell's apex, with a body that extends another 4 metres when fully out of the shell — Loamvin's bark-and-moss-overgrown shell has expanded and been so deeply colonised over centuries that it now resembles a mossy hill — thick roots from full-grown saplings have driven down through the shell's surface and clutched it like a living crown, and a complete miniature canopy of broad leaves shades the back of its body. Its eyestalks are 1-metre wood-coloured stalks tipped in twin amber gleams, raised cautiously above the canopy when it senses motion. It uproots itself only at night, dragging its forested shell to a new location before dawn, and is believed to reorganise the layout of entire woodlands over decades — wherever it has travelled, new groves take root from the seeds shed by its passing." },
 
   // 190: Verdovast - Grass (Germix→Verdurus→Verdovast)
   71: { id:71, name:"Verdovast", emoji:"🌳", types:["Grass"],
@@ -3080,7 +3080,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle"],[1,"vine_whip"],[2,"energy_ball"],[3,"sleep_powder"],[4,"seed_bomb"],[38,"petal_blitz"],[42,"swords_dance"],[46,"canopy_crash"],[50,"verdant_surge"],[54,"body_slam"],[58,"briar_lash"],[62,"photon_leaf"],[5,"spore_burst"],[44,"root_lance"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A colossal ancient seed-pod 2.5 metres tall whose surface is overgrown with saplings, vines, and a small ecosystem. Walks slowly across forests, dropping fertile seeds with each step.",
-    lore:"Verdovast is a colossal ancient seed-pod 2.5 metres tall, its surface so deeply grown over with saplings, vines, blossoms, and a small ecosystem of moss and tendrils that the original seed-husk is barely visible. Older Verdovast resemble walking gardens, with tiny trees growing from their shoulders and back, fruit ripening among the branches, and small creatures nesting in the foliage they carry. It walks slowly across forests on broad root-feet, dropping fertile seeds at every step, and patches of new growth — eventually entire grove ecosystems — spring up wherever it has lingered." },
+    lore:"Verdovast is a colossal ancient seed-pod 2.5 metres tall — Verdurus's split walking seed-pod has grown enormous and its surface is now so deeply grown over with saplings, vines, blossoms, and a small ecosystem of moss and tendrils that the original seed-husk is barely visible. Older Verdovast resemble walking gardens, with tiny trees growing from their shoulders and back, fruit ripening among the branches, and small creatures nesting in the foliage they carry. It walks slowly across forests on broad root-feet, dropping fertile seeds at every step, and patches of new growth — eventually entire grove ecosystems — spring up wherever it has lingered." },
 
   // 191: Morralyn - Grass/Dark (Sylvnox→Morraveth→Morralyn)
   80: { id:80, name:"Morralyn", emoji:"🪵", types:["Grass","Dark"],
@@ -3184,7 +3184,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"powder_snow"],[1,"ice_beam"],[2,"icicle_crash"],[3,"blizzard"],[4,"permafrost"],[38,"hoarfrost_bite"],[42,"cryo_lance"],[46,"glacial_tomb"],[50,"avalanche_drive"],[54,"winter_shroud"],[58,"body_slam"],[62,"quick_attack"],[5,"frostfire_veil"],[44,"instinct_slash"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A wolf of absolute zero whose howl flash-freezes the air for miles. Entire mountain valleys have become permanent glacier fields where it hunts.",
-    lore:"Frigidvorn is a heavy-shouldered, shaggy ice-wolf 2 metres at the shoulder, covered in thick grey-white fur matted with ice crystals. Its breath freezes solid on contact with open air, producing a permanent mist cloud around its face. It excavates dens deep in glacier ice and hibernates for years between active periods." },
+    lore:"Frigidvorn is a heavy-shouldered, shaggy ice-wolf 2 metres at the shoulder — Hailgorge's white fur and ice-spine hackles have lengthened and matted into thick grey-white fur and a permanent armoured ice-coat across its shoulders. Its breath freezes solid on contact with open air, producing a permanent mist cloud around its face. It excavates dens deep in glacier ice and hibernates for years between active periods." },
 
   // 204: Glaciovast - Ice/Normal (Nivelin→Glacivern→Glaciovast)
   52: { id:52, name:"Permavast", emoji:"🐃", types:["Ice","Normal"],
@@ -3192,7 +3192,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"powder_snow"],[1,"body_slam"],[2,"ice_beam"],[3,"harden"],[4,"blizzard"],[38,"headbutt"],[42,"hoarfrost_bite"],[46,"icicle_crash"],[50,"glacial_tomb"],[54,"recover"],[58,"cryo_lance"],[62,"hyper_beam"],[5,"winter_shroud"],[44,"vital_pulse"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:260, rarity:"rare",
     desc:"An immovable mountain-auroch armored in ancient glacier ice. When it wakes from a long slumber, the ice age returns.",
-    lore:"Permavast is a colossal mountain auroch around 2.5 metres at the shoulder and over 4 metres long. Its body is sheathed in dense white fur streaked with grey, and slabs of ancient glacier ice have fused to its flanks, shoulders, and along its spine into a near-armoured shell. Two massive curled horns layered in old ice sweep low and wide from its broad skull, ringed in faint hoarfrost. It does not hibernate but roams frozen tundra year-round, breaking through wind-packed snowdrifts with its broad chest while the ice plates along its flanks grind audibly against one another with each measured step." },
+    lore:"Permavast is a colossal mountain auroch around 2.5 metres at the shoulder and over 4 metres long — Shiverling's growing shoulder ice-plates have fused into a near-armoured shell of ancient glacier ice across its flanks and spine, and its woolly yak-coat has thickened into dense white fur streaked with grey. Two massive curled horns layered in old ice sweep low and wide from its broad skull, ringed in faint hoarfrost. It does not hibernate but roams frozen tundra year-round, breaking through wind-packed snowdrifts with its broad chest while the ice plates along its flanks grind audibly against one another with each measured step." },
 
   // 205: Noctovast - Dark (Umbrakin→Noctivast→Noctovast)
   120: { id:120, name:"Nightwolf", emoji:"🐕", types:["Dark"],

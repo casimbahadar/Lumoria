@@ -390,6 +390,36 @@ After all coherence fixes are committed, run a type-combination audit of the ful
 
 **Run order:** BREAKING fixes → MINOR fixes → this typing audit → archetype trim → renaming queue resumes.
 
+## Cap rules & progress (clarified during PR #50 session, 2026-05-17)
+
+**Cap rules (user-decided):**
+- **Ordinary combos:** 2 families + 1 standalone (max 3 entries)
+- **Flagship combos:** 4 families + 2 standalones (max 6 entries)
+- **Forgotten range (id ≥ 408):** included in cap (no exemption)
+
+**Flagship typings (TENTATIVE — user to finalize in separate session):**
+- Fairy / Psychic
+- Dragon / Fire
+- Dragon / Psychic
+- mono Normal
+
+(List is provisional; do not treat as authoritative until user confirms. Tentative basis: starter/legendary signatures + the mono-Normal "everyman" niche.)
+
+**Counting rules:**
+- A "family" = the final-stage member of an evolution chain (one tally per family regardless of stage count).
+- A "standalone" = a non-evolving Lumori (one tally each).
+
+**Progress state (post-PR #50):**
+- Initial audit: **40 over-cap combos** identified.
+- **Batch 1 (PR #50):** 8 retypes complete → **32 violations remaining**.
+- Severity of remaining 32: 8 over by 1, 16 over by 2, 6 over by 3, 2 over by 4 (Dark/Fairy, Dark/Fire), 1 over by 5 (Dark/Psychic).
+- The Dark cluster is the most affected — partly inherited from the 11 pre-408 post-game-typing retypes in PR #49.
+
+**Process notes for future sessions:**
+- Always run pre-flight target-combo verification before each retype (string-sort consistency matters — e.g. "Dark/Ice" not "Ice/Dark" in tallies).
+- Validate combo counts post-batch — a retype that lands in another over-cap combo doesn't help.
+- Commit per batch, present full table for user approval before next batch.
+
 # 🐺 Archetype oversaturation — common animals (cap = 3 families)
 
 Address after BREAKING + MINOR. Plan: rebuild a few standalone or weaker family-final lores into different creature types.
@@ -499,7 +529,7 @@ Per user instruction: leave these for late discussion before any consolidation.
 - [ ] **humanoid (non-armoured elemental)** — 6+ families.
 - [ ] **phoenix / solar-bird** — 3-4 families (borderline).
 
-# 🏷️ Luminex Renaming Pass
+# 🏷️ Luminex Renaming + Final Lore/Description Adjustments/Audit
 
 **Working branch:** `claude/complete-task-FkreZ` (PR: https://github.com/casimbahadar/Lumoria/pull/35 — draft)
 

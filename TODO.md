@@ -623,6 +623,17 @@ Add cross-references between Lumori in lore/description text to give the world e
 
 This work should run BEFORE the Luminex reorder (renumber pass) so that the reorder respects the new NG+/Forgotten boundary at id 407/408.
 
+# 🚀 Pre-launch features, assets, and release process
+
+Higher-level work remaining beyond the lore / typing / stats audits.
+
+- [ ] Check what each Lumori is creature wise so can make adjustments if needed.
+- [ ] Analyze and adjust the UI/appearance of the game screens, etc as much as possible.
+- [ ] Brainstorm and code in what different typings and differences in lore/description the Variants of each Lumori will be.
+- [ ] Add sprites or models for each Lumori (variant and radiant also) from sources.
+- [ ] Generate or find quality music for battles, map, online, other features and aspects.
+- [ ] Develop the process or steps to successfully launch the game.
+
 ---
 
 ## How to resume in a new session

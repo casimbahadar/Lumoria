@@ -378,6 +378,45 @@ For each over-cap common archetype, we can convert some members into one of thes
 
 **Run order placement:** before the existing "Archetype oversaturation — common animals" trim section below. The inventory + exemption list **defines** what counts toward the trim, then the trim runs against that updated list.
 
+# 🔀 Typing system overhaul — RUN BEFORE the type-combination audit cap re-analysis
+
+Active work as of 2026-05-21: differentiate Lumoria's typing system from Pokemon's, then re-tally combo caps under the new types.
+
+## Pre-step decisions (locked 2026-05-21)
+
+**Type renames (single → single):**
+- Water → Aquatic
+- Psychic → Mental
+- Dragon → Draconic
+- Steel → Metal
+- Ghost → Spectral
+
+**Type fusions (two → one):**
+- Grass + Bug → Nature
+- Rock + Ground → Earth
+
+**Rule change:** Fighting moves from post-game (id ≥ 408) to pre-408 available. CLAUDE.md post-408 restricted list shrinks to: Aether, Crystal, Primal. (Ghost is renamed Spectral; Fighting becomes general roster.)
+
+Net type count: 21 → 19 (six renames + two fusions).
+
+## Step plan (from handwritten note, 2026-05-21)
+
+- [x] Setup: lock renames + fusions + Fighting rule-change (above).
+- [~] **Step 1:** Suggest additional unique Lumoria-distinctive typings.
+  - Round 1 (20 candidates) presented; user picked: Sonic (general), Vapor (general), Mineral (general), Toxin (general), Chrono (408+), Stellar (408+).
+  - Round 2 (30 candidates) presented; user picks TBD.
+  - Further rounds possible if user wants more candidates.
+- [ ] **Step 2:** Create new type-effectiveness chart with surprise twists — needs approval before applying.
+- [ ] **Step 3:** Adjust moves + move names to reflect typing changes.
+- [ ] **Step 4:** Adjust per-Lumori typings to remove old-type references for pre-408 ids (id < 408 only).
+- [ ] **Step 5:** Redo the type-combo cap analysis under the new type system. Supersedes the locked-flagship work that PR #51 deliberation was approaching.
+
+## Notes
+
+- The existing `🧪 Type-combination audit` section's "Cap rules & progress" subsection (tentative-flagship draft) is superseded by Step 5 and will be rewritten after Step 5 completes.
+- **Step 4/5 process rule:** when proposing per-Lumori typing adjustments, ground each recommendation in the Lumori's existing lore/desc so the new typing makes narrative sense.
+- Branch: `claude/typing-combo-audit-2-JUGMH` (PR #51 — re-titled + re-described to reflect new scope on next commit).
+
 # 🧪 Type-combination audit — RUN AFTER BREAKING + MINOR, BEFORE THE RENAMING PART
 
 After all coherence fixes are committed, run a type-combination audit of the full roster:

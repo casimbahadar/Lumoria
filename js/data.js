@@ -69,27 +69,25 @@ function generateIVs() {
 // TYPE EFFECTIVENESS CHART
 // [attackType][defenseType] = multiplier
 const TYPE_CHART = {
-  Fire:     { Fire:0.5, Aquatic:0.5, Grass:2,   Electric:1,   Ground:1,   Wind:1,   Ice:2,   Dark:1,   Fairy:1,   Metal:2,   Poison:1,   Mental:1,   Draconic:0.5, Normal:1,   Rock:0.5, Bug:2,   Spectral:1,   Fighting:1,   Aether:1,   Crystal:2,   Primal:1   },
-  Aquatic:    { Fire:2,   Aquatic:0.5, Grass:0.5, Electric:1,   Ground:2,   Wind:1,   Ice:1,   Dark:1,   Fairy:1,   Metal:1,   Poison:1,   Mental:1,   Draconic:0.5, Normal:1,   Rock:2,   Bug:1,   Spectral:1,   Fighting:1,   Aether:1,   Crystal:1,   Primal:1   },
-  Grass:    { Fire:0.5, Aquatic:2,   Grass:0.5, Electric:1,   Ground:2,   Wind:0.5, Ice:0.5, Dark:1,   Fairy:1,   Metal:0.5, Poison:0.5, Mental:1,   Draconic:0.5, Normal:1,   Rock:2,   Bug:0.5, Spectral:1,   Fighting:1,   Aether:1,   Crystal:1,   Primal:1   },
-  Electric: { Fire:1,   Aquatic:2,   Grass:0.5, Electric:0.5, Ground:0,   Wind:2,   Ice:1,   Dark:1,   Fairy:1,   Metal:1,   Poison:1,   Mental:1,   Draconic:0.5, Normal:1,   Rock:1,   Bug:1,   Spectral:1,   Fighting:1,   Aether:0.5, Crystal:0.5, Primal:1   },
-  Ground:   { Fire:2,   Aquatic:1,   Grass:0.5, Electric:2,   Ground:1,   Wind:0,   Ice:1,   Dark:1,   Fairy:1,   Metal:2,   Poison:2,   Mental:1,   Draconic:1,   Normal:1,   Rock:2,   Bug:0.5, Spectral:1,   Fighting:1,   Aether:1,   Crystal:1,   Primal:0.5 },
-  Wind:     { Fire:1,   Aquatic:1,   Grass:2,   Electric:0.5, Ground:1,   Wind:1,   Ice:1,   Dark:1,   Fairy:1,   Metal:0.5, Poison:1,   Mental:1,   Draconic:1,   Normal:1,   Rock:0.5, Bug:2,   Spectral:1,   Fighting:1,   Aether:1,   Crystal:1,   Primal:1   },
-  Ice:      { Fire:0.5, Aquatic:0.5, Grass:2,   Electric:1,   Ground:2,   Wind:2,   Ice:0.5, Dark:1,   Fairy:1,   Metal:0.5, Poison:1,   Mental:1,   Draconic:2,   Normal:1,   Rock:1,   Bug:1,   Spectral:1,   Fighting:1,   Aether:1,   Crystal:0.5, Primal:2   },
-  Dark:     { Fire:1,   Aquatic:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:0.5, Fairy:0.5, Metal:1,   Poison:1,   Mental:2,   Draconic:1,   Normal:1,   Rock:1,   Bug:1,   Spectral:2,   Fighting:0.5, Aether:2,   Crystal:1,   Primal:0.5 },
-  Fairy:    { Fire:1,   Aquatic:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:2,   Fairy:1,   Metal:0.5, Poison:0.5, Mental:1,   Draconic:2,   Normal:1,   Rock:1,   Bug:1,   Spectral:1,   Fighting:2,   Aether:0.5, Crystal:1,   Primal:1   },
-  Metal:    { Fire:0.5, Aquatic:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:2,   Dark:1,   Fairy:2,   Metal:0.5, Poison:1,   Mental:1,   Draconic:1,   Normal:1,   Rock:2,   Bug:1,   Spectral:1,   Fighting:1,   Aether:1,   Crystal:2,   Primal:1   },
-  Poison:   { Fire:1,   Aquatic:1,   Grass:2,   Electric:1,   Ground:0.5, Wind:1,   Ice:1,   Dark:1,   Fairy:2,   Metal:0,   Poison:0.5, Mental:1,   Draconic:1,   Normal:1,   Rock:0.5, Bug:1,   Spectral:0.5, Fighting:1,   Aether:2,   Crystal:0.5, Primal:1   },
-  Mental:  { Fire:1,   Aquatic:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:0,   Fairy:1,   Metal:1,   Poison:2,   Mental:0.5, Draconic:1,   Normal:1,   Rock:1,   Bug:0.5, Spectral:1,   Fighting:2,   Aether:0.5, Crystal:1,   Primal:2   },
-  Draconic:   { Fire:1,   Aquatic:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:1,   Fairy:0,   Metal:0.5, Poison:1,   Mental:1,   Draconic:2,   Normal:1,   Rock:1,   Bug:1,   Spectral:1,   Fighting:1,   Aether:1,   Crystal:1,   Primal:2   },
-  Normal:   { Fire:1,   Aquatic:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:1,   Fairy:1,   Metal:0.5, Poison:1,   Mental:1,   Draconic:1,   Normal:1,   Rock:0.5, Bug:1,   Spectral:0,   Fighting:1,   Aether:1,   Crystal:1,   Primal:0.5 },
-  Rock:     { Fire:2,   Aquatic:0.5, Grass:1,   Electric:1,   Ground:0.5, Wind:2,   Ice:2,   Dark:1,   Fairy:1,   Metal:0.5, Poison:1,   Mental:1,   Draconic:1,   Normal:1,   Rock:1,   Bug:2,   Spectral:1,   Fighting:0.5, Aether:1,   Crystal:1,   Primal:1   },
-  Bug:      { Fire:0.5, Aquatic:1,   Grass:2,   Electric:1,   Ground:0.5, Wind:0.5, Ice:1,   Dark:2,   Fairy:0.5, Metal:0.5, Poison:0.5, Mental:2,   Draconic:1,   Normal:1,   Rock:1,   Bug:1,   Spectral:0.5, Fighting:0.5, Aether:1,   Crystal:1,   Primal:1   },
-  Spectral:    { Fire:1,   Aquatic:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:0.5, Fairy:1,   Metal:1,   Poison:1,   Mental:2,   Draconic:1,   Normal:0,   Rock:1,   Bug:1,   Spectral:2,   Fighting:0,   Aether:2,   Crystal:1,   Primal:1   },
-  Fighting: { Fire:1,   Aquatic:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:2,   Dark:2,   Fairy:0.5, Metal:2,   Poison:0.5, Mental:0.5, Draconic:1,   Normal:2,   Rock:2,   Bug:0.5, Spectral:0,   Fighting:1,   Aether:1,   Crystal:2,   Primal:1   },
-  Aether:   { Fire:1,   Aquatic:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:2,   Fairy:0.5, Metal:1,   Poison:1,   Mental:2,   Draconic:2,   Normal:0.5, Rock:1,   Bug:1,   Spectral:0.5, Fighting:1,   Aether:0.5, Crystal:1,   Primal:1   },
-  Crystal:  { Fire:1,   Aquatic:0.5, Grass:1,   Electric:1,   Ground:2,   Wind:1,   Ice:2,   Dark:1,   Fairy:1,   Metal:0.5, Poison:1,   Mental:1,   Draconic:1,   Normal:2,   Rock:1,   Bug:1,   Spectral:1,   Fighting:1,   Aether:1,   Crystal:0.5, Primal:1   },
-  Primal:   { Fire:1,   Aquatic:1,   Grass:1,   Electric:1,   Ground:1,   Wind:1,   Ice:1,   Dark:1,   Fairy:2,   Metal:2,   Poison:1,   Mental:1,   Draconic:0.5, Normal:2,   Rock:0.5, Bug:1,   Spectral:1,   Fighting:1,   Aether:1,   Crystal:1,   Primal:0.5 }
+  Fire    : { Fire:0.5,     Aquatic:0.5,  Nature:2,     Electric:1,   Earth:1,      Wind:1,       Ice:2,        Dark:1,       Fairy:1,      Metal:2,      Poison:1,     Mental:1,     Draconic:0.5, Normal:1,     Spectral:1,   Fighting:1,   Aether:1,     Crystal:2,    Primal:1 },
+  Aquatic : { Fire:2,       Aquatic:0.5,  Nature:0,     Electric:1,   Earth:2,      Wind:1,       Ice:1,        Dark:1,       Fairy:1,      Metal:1,      Poison:1,     Mental:1,     Draconic:0.5, Normal:1,     Spectral:1,   Fighting:1,   Aether:1,     Crystal:1,    Primal:1 },
+  Nature  : { Fire:0.5,     Aquatic:2,    Nature:1,     Electric:1,   Earth:2,      Wind:0.5,     Ice:0.5,      Dark:1,       Fairy:1,      Metal:0.5,    Poison:0.5,   Mental:2,     Draconic:1,   Normal:1,     Spectral:1,   Fighting:1,   Aether:1,     Crystal:0.5,  Primal:1 },
+  Electric: { Fire:1,       Aquatic:2,    Nature:0.5,   Electric:0.5, Earth:0,      Wind:2,       Ice:1,        Dark:1,       Fairy:1,      Metal:1,      Poison:1,     Mental:1,     Draconic:0.5, Normal:1,     Spectral:1,   Fighting:1,   Aether:0.5,   Crystal:0.5,  Primal:1 },
+  Earth   : { Fire:2,       Aquatic:0.5,  Nature:0.5,   Electric:1,   Earth:0.5,    Wind:0,       Ice:2,        Dark:1,       Fairy:1,      Metal:2,      Poison:1,     Mental:1,     Draconic:1,   Normal:1,     Spectral:0,   Fighting:0.5, Aether:1,     Crystal:2,    Primal:1 },
+  Wind    : { Fire:1,       Aquatic:1,    Nature:2,     Electric:0.5, Earth:0,      Wind:1,       Ice:1,        Dark:1,       Fairy:1,      Metal:0.5,    Poison:1,     Mental:1,     Draconic:1,   Normal:1,     Spectral:1,   Fighting:1,   Aether:1,     Crystal:1,    Primal:1 },
+  Ice     : { Fire:0.5,     Aquatic:0.5,  Nature:2,     Electric:1,   Earth:2,      Wind:2,       Ice:0.5,      Dark:1,       Fairy:1,      Metal:0.5,    Poison:1,     Mental:1,     Draconic:2,   Normal:1,     Spectral:1,   Fighting:1,   Aether:1,     Crystal:0.5,  Primal:2 },
+  Dark    : { Fire:1,       Aquatic:1,    Nature:1,     Electric:1,   Earth:0.5,    Wind:1,       Ice:1,        Dark:0.5,     Fairy:0.5,    Metal:1,      Poison:1,     Mental:2,     Draconic:1,   Normal:1,     Spectral:2,   Fighting:0.5, Aether:2,     Crystal:1,    Primal:0.5 },
+  Fairy   : { Fire:1,       Aquatic:1,    Nature:1,     Electric:1,   Earth:1,      Wind:1,       Ice:1,        Dark:2,       Fairy:1,      Metal:0.5,    Poison:0.5,   Mental:1,     Draconic:2,   Normal:1,     Spectral:1,   Fighting:2,   Aether:0.5,   Crystal:1,    Primal:1 },
+  Metal   : { Fire:0.5,     Aquatic:1,    Nature:1,     Electric:1,   Earth:0.5,    Wind:1,       Ice:2,        Dark:1,       Fairy:2,      Metal:0.5,    Poison:1,     Mental:1,     Draconic:1,   Normal:1,     Spectral:1,   Fighting:1,   Aether:1,     Crystal:2,    Primal:1 },
+  Poison  : { Fire:1,       Aquatic:1,    Nature:2,     Electric:1,   Earth:1,      Wind:1,       Ice:1,        Dark:1,       Fairy:2,      Metal:0,      Poison:0.5,   Mental:1,     Draconic:1,   Normal:1,     Spectral:0.5, Fighting:1,   Aether:2,     Crystal:0.5,  Primal:1 },
+  Mental  : { Fire:1,       Aquatic:1,    Nature:0.5,   Electric:1,   Earth:0.5,    Wind:1,       Ice:1,        Dark:0,       Fairy:1,      Metal:1,      Poison:2,     Mental:0.5,   Draconic:1,   Normal:1,     Spectral:1,   Fighting:2,   Aether:0.5,   Crystal:1,    Primal:2 },
+  Draconic: { Fire:1,       Aquatic:1,    Nature:2,     Electric:1,   Earth:1,      Wind:1,       Ice:1,        Dark:1,       Fairy:0,      Metal:0.5,    Poison:1,     Mental:1,     Draconic:2,   Normal:1,     Spectral:1,   Fighting:1,   Aether:1,     Crystal:1,    Primal:2 },
+  Normal  : { Fire:1,       Aquatic:1,    Nature:1,     Electric:1,   Earth:1,      Wind:1,       Ice:1,        Dark:1,       Fairy:1,      Metal:0.5,    Poison:1,     Mental:1,     Draconic:1,   Normal:1,     Spectral:0,   Fighting:1,   Aether:1,     Crystal:1,    Primal:0.5 },
+  Spectral: { Fire:1,       Aquatic:1,    Nature:0,     Electric:1,   Earth:0,      Wind:1,       Ice:1,        Dark:0.5,     Fairy:1,      Metal:1,      Poison:1,     Mental:2,     Draconic:1,   Normal:0,     Spectral:2,   Fighting:0,   Aether:2,     Crystal:1,    Primal:1 },
+  Fighting: { Fire:1,       Aquatic:1,    Nature:1,     Electric:1,   Earth:2,      Wind:1,       Ice:2,        Dark:2,       Fairy:0.5,    Metal:2,      Poison:0.5,   Mental:0.5,   Draconic:1,   Normal:2,     Spectral:0,   Fighting:1,   Aether:1,     Crystal:2,    Primal:1 },
+  Aether  : { Fire:1,       Aquatic:1,    Nature:1,     Electric:1,   Earth:1,      Wind:1,       Ice:1,        Dark:2,       Fairy:0.5,    Metal:1,      Poison:1,     Mental:2,     Draconic:2,   Normal:0.5,   Spectral:0.5, Fighting:1,   Aether:0.5,   Crystal:1,    Primal:1 },
+  Crystal : { Fire:1,       Aquatic:0.5,  Nature:1,     Electric:1,   Earth:1,      Wind:1,       Ice:2,        Dark:1,       Fairy:1,      Metal:0.5,    Poison:1,     Mental:1,     Draconic:1,   Normal:2,     Spectral:1,   Fighting:1,   Aether:1,     Crystal:0.5,  Primal:1 },
+  Primal  : { Fire:1,       Aquatic:1,    Nature:1,     Electric:1,   Earth:1,      Wind:1,       Ice:1,        Dark:1,       Fairy:2,      Metal:2,      Poison:1,     Mental:1,     Draconic:0.5, Normal:2,     Spectral:1,   Fighting:1,   Aether:1,     Crystal:1,    Primal:0.5 }
 };
 
 function getTypeEffectiveness(moveType, defenderTypes) {
@@ -151,19 +149,19 @@ const MOVES_DATA = {
   coral_barrage:{ name:"Coral Barrage", type:"Aquatic",    power:75,  acc:90,  pp:15, cat:"physical", effect:"flinch",    ec:20,  desc:"Hurls a barrage of razor-sharp coral fragments at the foe." },
   sea_serpent_strike:{ name:"Sea Serpent Strike",type:"Aquatic",power:95,acc:90,pp:10,cat:"physical",effect:null,        ec:0,   desc:"A coiling strike mimicking the legendary sea serpent's lethal lunge." },
   tidecaller:   { name:"Tidecaller",    type:"Aquatic",    power:0,   acc:100, pp:15, cat:"status",   effect:"calmup",    ec:100, desc:"Calls upon the tides to bolster the user's special power and resilience." },
-  // --- Grass ---
-  vine_whip:    { name:"Vine Whip",     type:"Grass",    power:45,  acc:100, pp:25, cat:"physical", effect:null,        ec:0,   desc:"Strikes with long, slender vines." },
-  razor_leaf:   { name:"Razor Leaf",    type:"Grass",    power:55,  acc:95,  pp:25, cat:"physical", effect:"crit",      ec:100, desc:"Slices with razor-edged leaves. High crit." },
-  seed_bomb:    { name:"Pod Blast",     type:"Grass",    power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Drops a giant seed bomb on the foe." },
-  energy_ball:  { name:"Verdant Orb",   type:"Grass",    power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"A ball of energy drawn from nature." },
-  petal_blitz:  { name:"Petal Blitz",   type:"Grass",    power:100, acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Strikes with a furious petal storm." },
-  sleep_powder: { name:"Slumber Dust",  type:"Grass",    power:0,   acc:75,  pp:15, cat:"status",   effect:"sleep",     ec:100, desc:"Scatters a powder that induces sleep." },
-  root_lance:   { name:"Root Lance",    type:"Grass",    power:85,  acc:95,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Drives an enormous root spear through the ground and up into the foe." },
-  canopy_crash: { name:"Canopy Crash",  type:"Grass",    power:90,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Drops a massive section of forest canopy onto the opponent." },
-  spore_burst:  { name:"Spore Burst",   type:"Grass",    power:0,   acc:80,  pp:15, cat:"status",   effect:"sleep",     ec:100, desc:"Releases an explosive burst of sleep-inducing spores." },
-  thornwall:    { name:"Thornwall",     type:"Grass",    power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Grows a wall of thorns around the user, raising its Defense." },
-  verdant_surge:{ name:"Verdant Surge", type:"Grass",    power:110, acc:85,  pp:5,  cat:"special",  effect:null,        ec:0,   desc:"Surges with the full power of living nature in a devastating burst." },
-  photon_leaf:  { name:"Photon Leaf",   type:"Grass",    power:70,  acc:100, pp:15, cat:"special",  effect:"crit",      ec:100, desc:"A leaf sharpened by concentrated sunlight that always finds weak points." },
+  // --- Nature ---
+  vine_whip:    { name:"Vine Whip",     type:"Nature",    power:45,  acc:100, pp:25, cat:"physical", effect:null,        ec:0,   desc:"Strikes with long, slender vines." },
+  razor_leaf:   { name:"Razor Leaf",    type:"Nature",    power:55,  acc:95,  pp:25, cat:"physical", effect:"crit",      ec:100, desc:"Slices with razor-edged leaves. High crit." },
+  seed_bomb:    { name:"Pod Blast",     type:"Nature",    power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Drops a giant seed bomb on the foe." },
+  energy_ball:  { name:"Verdant Orb",   type:"Nature",    power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"A ball of energy drawn from nature." },
+  petal_blitz:  { name:"Petal Blitz",   type:"Nature",    power:100, acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Strikes with a furious petal storm." },
+  sleep_powder: { name:"Slumber Dust",  type:"Nature",    power:0,   acc:75,  pp:15, cat:"status",   effect:"sleep",     ec:100, desc:"Scatters a powder that induces sleep." },
+  root_lance:   { name:"Root Lance",    type:"Nature",    power:85,  acc:95,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Drives an enormous root spear through the ground and up into the foe." },
+  canopy_crash: { name:"Canopy Crash",  type:"Nature",    power:90,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Drops a massive section of forest canopy onto the opponent." },
+  spore_burst:  { name:"Spore Burst",   type:"Nature",    power:0,   acc:80,  pp:15, cat:"status",   effect:"sleep",     ec:100, desc:"Releases an explosive burst of sleep-inducing spores." },
+  thornwall:    { name:"Thornwall",     type:"Nature",    power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Grows a wall of thorns around the user, raising its Defense." },
+  verdant_surge:{ name:"Verdant Surge", type:"Nature",    power:110, acc:85,  pp:5,  cat:"special",  effect:null,        ec:0,   desc:"Surges with the full power of living nature in a devastating burst." },
+  photon_leaf:  { name:"Photon Leaf",   type:"Nature",    power:70,  acc:100, pp:15, cat:"special",  effect:"crit",      ec:100, desc:"A leaf sharpened by concentrated sunlight that always finds weak points." },
   // --- Electric ---
   thunder_shock:{ name:"Thunder Shock", type:"Electric", power:40,  acc:100, pp:30, cat:"special",  effect:"paralyze",  ec:10,  desc:"A jolt of electricity. May paralyze." },
   thunderbolt:  { name:"Volt Jet",   type:"Electric", power:90,  acc:100, pp:15, cat:"special",  effect:"paralyze",  ec:10,  desc:"A strong thunderbolt. May paralyze." },
@@ -176,16 +174,16 @@ const MOVES_DATA = {
   overcharge:   { name:"Overcharge",    type:"Electric", power:120, acc:85,  pp:5,  cat:"special",  effect:"recharge",  ec:100, desc:"Releases a catastrophic overcharge of electricity, requiring rest afterward." },
   plasma_strike:{ name:"Plasma Strike", type:"Electric", power:80,  acc:100, pp:10, cat:"physical", effect:"paralyze",  ec:30,  desc:"Surrounds the user's fist in superheated plasma for a shocking punch." },
   charge_burst: { name:"Charge Burst",  type:"Electric", power:0,   acc:100, pp:20, cat:"status",   effect:"atkup",     ec:100, desc:"Charges the body with electric potential, raising the next physical hit's power." },
-  // --- Ground ---
-  mud_shot:     { name:"Mud Shot",      type:"Ground",   power:55,  acc:95,  pp:15, cat:"special",  effect:"spedown",   ec:100, desc:"Hurls mud at the foe, lowering Speed." },
-  earthquake:   { name:"Earthquake",    type:"Ground",   power:100, acc:100, pp:10, cat:"physical", effect:null,        ec:0,   desc:"A massive earthquake rattles the field." },
-  earth_power:  { name:"Earth Power",   type:"Ground",   power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"The ground heaves beneath the foe." },
-  sandstrike:   { name:"Sandstrike",    type:"Ground",   power:60,  acc:100, pp:20, cat:"physical", effect:"spedown",   ec:30,  desc:"Hurls a concentrated blast of cutting sand that slows the foe." },
-  fissure_slam: { name:"Fissure Slam",  type:"Ground",   power:100, acc:85,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Slams the ground so hard it opens a fissure beneath the foe." },
-  terra_spike:  { name:"Terra Spike",   type:"Ground",   power:80,  acc:95,  pp:15, cat:"physical", effect:"flinch",    ec:20,  desc:"Drives a spike of compressed earth up through the ground at the foe." },
-  dust_veil:    { name:"Dust Veil",     type:"Ground",   power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Surrounds the user in swirling dust that deflects incoming blows." },
-  boulder_roll: { name:"Boulder Roll",  type:"Ground",   power:75,  acc:90,  pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"Curls into a ball and rolls into the foe with terrifying momentum." },
-  quicksand_pull:{ name:"Quicksand Pull",type:"Ground",  power:65,  acc:90,  pp:15, cat:"special",  effect:"spedown2",  ec:100, desc:"Conjures a patch of quicksand that drags the foe's legs down." },
+  // --- Earth ---
+  mud_shot:     { name:"Mud Shot",      type:"Earth",   power:55,  acc:95,  pp:15, cat:"special",  effect:"spedown",   ec:100, desc:"Hurls mud at the foe, lowering Speed." },
+  earthquake:   { name:"Earthquake",    type:"Earth",   power:100, acc:100, pp:10, cat:"physical", effect:null,        ec:0,   desc:"A massive earthquake rattles the field." },
+  earth_power:  { name:"Earth Power",   type:"Earth",   power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"The ground heaves beneath the foe." },
+  sandstrike:   { name:"Sandstrike",    type:"Earth",   power:60,  acc:100, pp:20, cat:"physical", effect:"spedown",   ec:30,  desc:"Hurls a concentrated blast of cutting sand that slows the foe." },
+  fissure_slam: { name:"Fissure Slam",  type:"Earth",   power:100, acc:85,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Slams the ground so hard it opens a fissure beneath the foe." },
+  terra_spike:  { name:"Terra Spike",   type:"Earth",   power:80,  acc:95,  pp:15, cat:"physical", effect:"flinch",    ec:20,  desc:"Drives a spike of compressed earth up through the ground at the foe." },
+  dust_veil:    { name:"Dust Veil",     type:"Earth",   power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Surrounds the user in swirling dust that deflects incoming blows." },
+  boulder_roll: { name:"Boulder Roll",  type:"Earth",   power:75,  acc:90,  pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"Curls into a ball and rolls into the foe with terrifying momentum." },
+  quicksand_pull:{ name:"Quicksand Pull",type:"Earth",  power:65,  acc:90,  pp:15, cat:"special",  effect:"spedown2",  ec:100, desc:"Conjures a patch of quicksand that drags the foe's legs down." },
   // --- Wind ---
   gust:         { name:"Gust",          type:"Wind",     power:40,  acc:100, pp:35, cat:"special",  effect:null,        ec:0,   desc:"Blows the foe with a gust of wind." },
   air_slash:    { name:"Air Slash",     type:"Wind",     power:75,  acc:95,  pp:15, cat:"special",  effect:"flinch",    ec:30,  desc:"Slices with a blade of air. May flinch." },
@@ -275,26 +273,26 @@ const MOVES_DATA = {
   scale_storm:  { name:"Scale Storm",   type:"Draconic",   power:95,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Whips a storm of razor-edged dragon scales across the battlefield." },
   ancient_breath:{ name:"Ancient Breath",type:"Draconic",  power:110, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:30,  desc:"Exhales flame from the lungs of an ancient dragon lineage." },
   eon_crash:    { name:"Eon Crash",     type:"Draconic",   power:100, acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Crashes down with the timeless weight of dragonkind." },
-  // --- Rock ---
-  rock_throw:   { name:"Rock Throw",    type:"Rock",     power:50,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Hurls a small rock at the foe." },
-  rock_slide:   { name:"Rock Slide",    type:"Rock",     power:75,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:30,  desc:"Large boulders fall on the foe. May flinch." },
-  stone_edge:   { name:"Crag Strike",    type:"Rock",     power:100, acc:80,  pp:5,  cat:"physical", effect:"crit",      ec:100, desc:"Stabs with sharp stones. High critical." },
-  obsidian_crash:{ name:"Obsidian Crash",type:"Rock",    power:85,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:30,  desc:"Crashes an enormous slab of obsidian onto the foe." },
-  geode_burst:  { name:"Geode Burst",   type:"Rock",     power:80,  acc:95,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Hurls a hollow geode that shatters on impact, scattering crystal shards." },
-  crystal_lance:{ name:"Crystal Lance", type:"Rock",     power:90,  acc:90,  pp:10, cat:"physical", effect:"crit",      ec:100, desc:"Drives a lance of perfectly formed crystal at the foe with perfect accuracy." },
-  granite_wall: { name:"Granite Wall",  type:"Rock",     power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Erects a wall of granite around the user, massively raising Defense." },
-  landslide:    { name:"Landslide",     type:"Rock",     power:95,  acc:85,  pp:10, cat:"physical", effect:"spedown",   ec:100, desc:"Triggers a devastating landslide that buries the foe under rubble." },
-  // --- Bug ---
-  bug_bite:     { name:"Bug Bite",      type:"Bug",      power:60,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"Bites the foe with bug mandibles." },
-  bug_buzz:     { name:"Resonance Hum",      type:"Bug",      power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"Emits a harsh buzzing sound." },
-  x_scissor:    { name:"Shear Strike",     type:"Bug",      power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Slashes the foe in an X shape." },
-  string_shot:  { name:"String Shot",   type:"Bug",      power:0,   acc:95,  pp:40, cat:"status",   effect:"spedown2",  ec:100, desc:"Binds the foe with string, slowing them." },
-  silk_bind:    { name:"Silk Bind",     type:"Bug",      power:55,  acc:95,  pp:20, cat:"physical", effect:"spedown",   ec:100, desc:"Wraps the foe in strong silk threads that bind and slow their movement." },
-  mandible_crush:{ name:"Mandible Crush",type:"Bug",     power:85,  acc:95,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Crushes the foe between massive mandibles with bone-cracking force." },
-  swarm_dive:   { name:"Swarm Dive",    type:"Bug",      power:80,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Dives into the foe alongside a swarm of allies in a coordinated assault." },
-  venom_drool:  { name:"Venom Drool",   type:"Bug",      power:65,  acc:100, pp:15, cat:"special",  effect:"poison",    ec:30,  desc:"Drools corrosive bug venom that seeps through the foe's defenses." },
-  chitin_guard: { name:"Chitin Guard",  type:"Bug",      power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Hardens the chitin exoskeleton to deflect incoming attacks." },
-  sonic_buzz:   { name:"Sonic Buzz",    type:"Bug",      power:75,  acc:100, pp:15, cat:"special",  effect:"confuse",   ec:20,  desc:"Produces a disorienting high-frequency buzz that rattles the foe's mind." },
+  // --- Earth ---
+  rock_throw:   { name:"Rock Throw",    type:"Earth",     power:50,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Hurls a small rock at the foe." },
+  rock_slide:   { name:"Rock Slide",    type:"Earth",     power:75,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:30,  desc:"Large boulders fall on the foe. May flinch." },
+  stone_edge:   { name:"Crag Strike",    type:"Earth",     power:100, acc:80,  pp:5,  cat:"physical", effect:"crit",      ec:100, desc:"Stabs with sharp stones. High critical." },
+  obsidian_crash:{ name:"Obsidian Crash",type:"Earth",    power:85,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:30,  desc:"Crashes an enormous slab of obsidian onto the foe." },
+  geode_burst:  { name:"Geode Burst",   type:"Earth",     power:80,  acc:95,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Hurls a hollow geode that shatters on impact, scattering crystal shards." },
+  crystal_lance:{ name:"Crystal Lance", type:"Earth",     power:90,  acc:90,  pp:10, cat:"physical", effect:"crit",      ec:100, desc:"Drives a lance of perfectly formed crystal at the foe with perfect accuracy." },
+  granite_wall: { name:"Granite Wall",  type:"Earth",     power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Erects a wall of granite around the user, massively raising Defense." },
+  landslide:    { name:"Landslide",     type:"Earth",     power:95,  acc:85,  pp:10, cat:"physical", effect:"spedown",   ec:100, desc:"Triggers a devastating landslide that buries the foe under rubble." },
+  // --- Nature ---
+  bug_bite:     { name:"Bug Bite",      type:"Nature",      power:60,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"Bites the foe with bug mandibles." },
+  bug_buzz:     { name:"Resonance Hum",      type:"Nature",      power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"Emits a harsh buzzing sound." },
+  x_scissor:    { name:"Shear Strike",     type:"Nature",      power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Slashes the foe in an X shape." },
+  string_shot:  { name:"String Shot",   type:"Nature",      power:0,   acc:95,  pp:40, cat:"status",   effect:"spedown2",  ec:100, desc:"Binds the foe with string, slowing them." },
+  silk_bind:    { name:"Silk Bind",     type:"Nature",      power:55,  acc:95,  pp:20, cat:"physical", effect:"spedown",   ec:100, desc:"Wraps the foe in strong silk threads that bind and slow their movement." },
+  mandible_crush:{ name:"Mandible Crush",type:"Nature",     power:85,  acc:95,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Crushes the foe between massive mandibles with bone-cracking force." },
+  swarm_dive:   { name:"Swarm Dive",    type:"Nature",      power:80,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Dives into the foe alongside a swarm of allies in a coordinated assault." },
+  venom_drool:  { name:"Venom Drool",   type:"Nature",      power:65,  acc:100, pp:15, cat:"special",  effect:"poison",    ec:30,  desc:"Drools corrosive bug venom that seeps through the foe's defenses." },
+  chitin_guard: { name:"Chitin Guard",  type:"Nature",      power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Hardens the chitin exoskeleton to deflect incoming attacks." },
+  sonic_buzz:   { name:"Sonic Buzz",    type:"Nature",      power:75,  acc:100, pp:15, cat:"special",  effect:"confuse",   ec:20,  desc:"Produces a disorienting high-frequency buzz that rattles the foe's mind." },
 
   // --- NEW: Fire (2 more → 15) ---
   ashfall:      { name:"Ashfall",       type:"Fire",     power:70,  acc:100, pp:15, cat:"special",  effect:"spedown",   ec:30,  desc:"Rains superheated volcanic ash that chokes and slows the target." },
@@ -305,10 +303,10 @@ const MOVES_DATA = {
   geyser_burst: { name:"Geyser Burst",  type:"Aquatic",    power:110, acc:80,  pp:5,  cat:"special",  effect:"burn",      ec:20,  desc:"Erupts a scalding geyser from deep underground that may scald the foe." },
   deepwater_hymn:{ name:"Deepwater Hymn",type:"Aquatic",   power:0,   acc:100, pp:15, cat:"status",   effect:"calmup",    ec:100, desc:"Sings the ancient song of the ocean depths to bolster special power." },
 
-  // --- NEW: Grass (3 more → 15) ---
-  briar_lash:   { name:"Briar Lash",    type:"Grass",    power:75,  acc:100, pp:15, cat:"physical", effect:"poison",    ec:20,  desc:"Lashes the foe with thorny briars coated in natural toxin." },
-  mycelia_net:  { name:"Mycelia Net",   type:"Grass",    power:0,   acc:90,  pp:15, cat:"status",   effect:"spedown2",  ec:100, desc:"Spreads a web of fungal threads that entangles and drastically slows the target." },
-  grove_wrath:  { name:"Grove Wrath",   type:"Grass",    power:100, acc:85,  pp:5,  cat:"physical", effect:"flinch",    ec:30,  desc:"Channels the fury of an ancient forest into a devastating trunk-shattering strike." },
+  // --- NEW: Nature (3 more → 15) ---
+  briar_lash:   { name:"Briar Lash",    type:"Nature",    power:75,  acc:100, pp:15, cat:"physical", effect:"poison",    ec:20,  desc:"Lashes the foe with thorny briars coated in natural toxin." },
+  mycelia_net:  { name:"Mycelia Net",   type:"Nature",    power:0,   acc:90,  pp:15, cat:"status",   effect:"spedown2",  ec:100, desc:"Spreads a web of fungal threads that entangles and drastically slows the target." },
+  grove_wrath:  { name:"Grove Wrath",   type:"Nature",    power:100, acc:85,  pp:5,  cat:"physical", effect:"flinch",    ec:30,  desc:"Channels the fury of an ancient forest into a devastating trunk-shattering strike." },
 
   // --- NEW: Electric (4 more → 15) ---
   dynamo_whip:  { name:"Dynamo Whip",   type:"Electric", power:70,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Cracks a whip of concentrated lightning across the opponent." },
@@ -316,13 +314,13 @@ const MOVES_DATA = {
   voltaic_fang: { name:"Voltaic Fang",  type:"Electric", power:85,  acc:95,  pp:10, cat:"physical", effect:"paralyze",  ec:20,  desc:"Bites with electrified fangs that discharge thousands of volts." },
   ball_lightning:{ name:"Ball Lightning",type:"Electric", power:95,  acc:90,  pp:10, cat:"special",  effect:"paralyze",  ec:20,  desc:"Conjures a sphere of rogue lightning that drifts toward the foe and detonates." },
 
-  // --- NEW: Ground (6 more → 15) ---
-  sinkhole_maw: { name:"Sinkhole Maw",  type:"Ground",   power:85,  acc:90,  pp:10, cat:"physical", effect:"spedown",   ec:30,  desc:"Opens a gaping sinkhole beneath the foe that swallows them briefly." },
-  tremor_stomp: { name:"Tremor Stomp",  type:"Ground",   power:70,  acc:100, pp:15, cat:"physical", effect:"flinch",    ec:20,  desc:"Stomps the earth with enough force to send shockwaves through the foe's bones." },
-  clay_armor:   { name:"Clay Armor",    type:"Ground",   power:0,   acc:100, pp:15, cat:"status",   effect:"defup",     ec:100, desc:"Packs the body in layers of hardened clay, sharply raising Defense." },
-  sand_geyser:  { name:"Sand Geyser",   type:"Ground",   power:80,  acc:95,  pp:10, cat:"special",  effect:"confuse",   ec:20,  desc:"Blasts the foe with a high-pressure jet of superheated sand." },
-  tectonic_slam:{ name:"Tectonic Slam", type:"Ground",   power:110, acc:85,  pp:5,  cat:"physical", effect:"defdown",   ec:20,  desc:"Shifts the tectonic plates beneath the foe with catastrophic force." },
-  loam_leech:   { name:"Loam Leech",    type:"Ground",   power:60,  acc:100, pp:15, cat:"special",  effect:"drain",     ec:100, desc:"Drains the foe's energy through the soil, restoring the user's vitality." },
+  // --- NEW: Earth (6 more → 15) ---
+  sinkhole_maw: { name:"Sinkhole Maw",  type:"Earth",   power:85,  acc:90,  pp:10, cat:"physical", effect:"spedown",   ec:30,  desc:"Opens a gaping sinkhole beneath the foe that swallows them briefly." },
+  tremor_stomp: { name:"Tremor Stomp",  type:"Earth",   power:70,  acc:100, pp:15, cat:"physical", effect:"flinch",    ec:20,  desc:"Stomps the earth with enough force to send shockwaves through the foe's bones." },
+  clay_armor:   { name:"Clay Armor",    type:"Earth",   power:0,   acc:100, pp:15, cat:"status",   effect:"defup",     ec:100, desc:"Packs the body in layers of hardened clay, sharply raising Defense." },
+  sand_geyser:  { name:"Sand Geyser",   type:"Earth",   power:80,  acc:95,  pp:10, cat:"special",  effect:"confuse",   ec:20,  desc:"Blasts the foe with a high-pressure jet of superheated sand." },
+  tectonic_slam:{ name:"Tectonic Slam", type:"Earth",   power:110, acc:85,  pp:5,  cat:"physical", effect:"defdown",   ec:20,  desc:"Shifts the tectonic plates beneath the foe with catastrophic force." },
+  loam_leech:   { name:"Loam Leech",    type:"Earth",   power:60,  acc:100, pp:15, cat:"special",  effect:"drain",     ec:100, desc:"Drains the foe's energy through the soil, restoring the user's vitality." },
 
   // --- NEW: Wind (5 more → 15) ---
   downdraft:    { name:"Downdraft",     type:"Wind",     power:65,  acc:100, pp:20, cat:"special",  effect:"spedown",   ec:30,  desc:"Forces a column of heavy air down on the foe, crushing their momentum." },
@@ -379,27 +377,27 @@ const MOVES_DATA = {
   drake_rush:   { name:"Drake Rush",    type:"Draconic",   power:90,  acc:95,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Charges forward with draconic speed and slams the foe with full momentum." },
   cataclysm_breath:{ name:"Cataclysm Breath",type:"Draconic",power:130,acc:75, pp:5,  cat:"special",  effect:"burn",      ec:20,  desc:"Exhales a breath of world-ending dragonfire that incinerates everything." },
 
-  // --- NEW: Rock (7 more → 15) ---
-  stalactite_drop:{ name:"Stalactite Drop",type:"Rock",   power:70,  acc:95,  pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"Drops massive stalactites from above that crash down on the foe." },
-  fossil_rush:  { name:"Fossil Rush",   type:"Rock",     power:80,  acc:100, pp:10, cat:"physical", effect:null,        ec:0,   desc:"Charges with the hardened force of an ancient fossil embedded in the body." },
-  gem_scatter:  { name:"Gem Scatter",   type:"Rock",     power:65,  acc:90,  pp:15, cat:"special",  effect:"spdefdown", ec:20,  desc:"Shatters gemstones and scatters razor-sharp fragments at the foe." },
-  bedrock_slam: { name:"Bedrock Slam",  type:"Rock",     power:110, acc:80,  pp:5,  cat:"physical", effect:"recharge",  ec:100, desc:"Slams with the weight of pure bedrock. Must recharge afterward." },
-  petrify_gaze: { name:"Petrify Gaze",  type:"Rock",     power:0,   acc:80,  pp:15, cat:"status",   effect:"paralyze",  ec:100, desc:"Fixes the foe with a stony gaze that locks their body in place." },
-  sandstone_rush:{ name:"Sandstone Rush",type:"Rock",     power:75,  acc:95,  pp:15, cat:"physical", effect:"spedown",   ec:30,  desc:"Grinds through the foe with a body hardened into rough sandstone." },
-  magma_rock:   { name:"Magma Rock",    type:"Rock",     power:85,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:20,  desc:"Hurls a boulder of still-molten magma rock that scorches on impact." },
+  // --- NEW: Earth (7 more → 15) ---
+  stalactite_drop:{ name:"Stalactite Drop",type:"Earth",   power:70,  acc:95,  pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"Drops massive stalactites from above that crash down on the foe." },
+  fossil_rush:  { name:"Fossil Rush",   type:"Earth",     power:80,  acc:100, pp:10, cat:"physical", effect:null,        ec:0,   desc:"Charges with the hardened force of an ancient fossil embedded in the body." },
+  gem_scatter:  { name:"Gem Scatter",   type:"Earth",     power:65,  acc:90,  pp:15, cat:"special",  effect:"spdefdown", ec:20,  desc:"Shatters gemstones and scatters razor-sharp fragments at the foe." },
+  bedrock_slam: { name:"Bedrock Slam",  type:"Earth",     power:110, acc:80,  pp:5,  cat:"physical", effect:"recharge",  ec:100, desc:"Slams with the weight of pure bedrock. Must recharge afterward." },
+  petrify_gaze: { name:"Petrify Gaze",  type:"Earth",     power:0,   acc:80,  pp:15, cat:"status",   effect:"paralyze",  ec:100, desc:"Fixes the foe with a stony gaze that locks their body in place." },
+  sandstone_rush:{ name:"Sandstone Rush",type:"Earth",     power:75,  acc:95,  pp:15, cat:"physical", effect:"spedown",   ec:30,  desc:"Grinds through the foe with a body hardened into rough sandstone." },
+  magma_rock:   { name:"Magma Rock",    type:"Earth",     power:85,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:20,  desc:"Hurls a boulder of still-molten magma rock that scorches on impact." },
 
-  // --- NEW: Bug (5 more → 15) ---
-  compound_glare:{ name:"Compound Glare",type:"Bug",     power:0,   acc:100, pp:20, cat:"status",   effect:"spatkdown", ec:100, desc:"Fixes the foe with thousands of compound eyes, unnerving their focus." },
-  pheromone_rush:{ name:"Pheromone Rush",type:"Bug",      power:60,  acc:100, pp:20, cat:"physical", effect:"priority",  ec:0,   desc:"Releases attack pheromones and charges with insectile speed." },
-  cocoon_burst: { name:"Cocoon Burst",  type:"Bug",      power:85,  acc:95,  pp:10, cat:"special",  effect:null,        ec:0,   desc:"Shatters its cocoon in an explosive burst of metamorphic energy." },
-  stinger_volley:{ name:"Stinger Volley",type:"Bug",     power:90,  acc:85,  pp:10, cat:"physical", effect:"poison",    ec:30,  desc:"Fires a volley of venomous stingers in rapid succession." },
-  moth_dust:    { name:"Moth Dust",     type:"Bug",      power:0,   acc:85,  pp:15, cat:"status",   effect:"sleep",     ec:100, desc:"Scatters iridescent scales from moth wings that induce deep sleep." },
+  // --- NEW: Nature (5 more → 15) ---
+  compound_glare:{ name:"Compound Glare",type:"Nature",     power:0,   acc:100, pp:20, cat:"status",   effect:"spatkdown", ec:100, desc:"Fixes the foe with thousands of compound eyes, unnerving their focus." },
+  pheromone_rush:{ name:"Pheromone Rush",type:"Nature",      power:60,  acc:100, pp:20, cat:"physical", effect:"priority",  ec:0,   desc:"Releases attack pheromones and charges with insectile speed." },
+  cocoon_burst: { name:"Cocoon Burst",  type:"Nature",      power:85,  acc:95,  pp:10, cat:"special",  effect:null,        ec:0,   desc:"Shatters its cocoon in an explosive burst of metamorphic energy." },
+  stinger_volley:{ name:"Stinger Volley",type:"Nature",     power:90,  acc:85,  pp:10, cat:"physical", effect:"poison",    ec:30,  desc:"Fires a volley of venomous stingers in rapid succession." },
+  moth_dust:    { name:"Moth Dust",     type:"Nature",      power:0,   acc:85,  pp:15, cat:"status",   effect:"sleep",     ec:100, desc:"Scatters iridescent scales from moth wings that induce deep sleep." },
 
   // --- SIGNATURE MOVES for remaining legendaries ---
   tempest_wrath:{ name:"Tempest Wrath", type:"Wind",     power:120, acc:85,  pp:5,  cat:"special",  effect:"confuse",   ec:50,  desc:"Signature move of Tempestia. Unleashes the fury of a divine storm that shatters the foe's composure." },
   caldera_meltdown:{ name:"Caldera Meltdown",type:"Fire", power:130, acc:80, pp:5,  cat:"special",  effect:"burn",      ec:100, desc:"Signature move of Volcanox. Triggers a volcanic caldera collapse of apocalyptic heat." },
   temporal_rift:{ name:"Temporal Rift",  type:"Mental",  power:110, acc:90,  pp:5,  cat:"special",  effect:"confuse",   ec:50,  desc:"Signature move of Chronoveil. Tears a rift in time that disorients the foe completely." },
-  worldseed_quake:{ name:"Worldseed Quake",type:"Ground", power:120, acc:85, pp:5,  cat:"physical", effect:"defdown",   ec:50,  desc:"Signature move of Terranova. Cracks the earth with the force of a continental seed germinating." },
+  worldseed_quake:{ name:"Worldseed Quake",type:"Earth", power:120, acc:85, pp:5,  cat:"physical", effect:"defdown",   ec:50,  desc:"Signature move of Terranova. Cracks the earth with the force of a continental seed germinating." },
 
   // --- ROUND 3: Expanding all types to 22 ---
 
@@ -428,13 +426,13 @@ const MOVES_DATA = {
   tidal_blessing:{ name:"Tidal Blessing",type:"Aquatic",    power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Draws on the ocean's grace to restore the user's vitality." },
 
   // Grass (+7 → 22)
-  leaf_blade:    { name:"Leaf Blade",    type:"Grass",    power:90,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes with a blade-sharp leaf. High crit rate." },
-  synthesis:     { name:"Synthesis",     type:"Grass",    power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Absorbs sunlight to restore the user's health." },
-  thorn_barrage: { name:"Thorn Barrage", type:"Grass",    power:70,  acc:95,  pp:15, cat:"physical", effect:"poison",    ec:20,  desc:"Fires a barrage of poisoned thorns at the target." },
-  jungle_hammer: { name:"Jungle Hammer",type:"Grass",    power:110, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100, desc:"Slams with a massive jungle root. The impact recoils on the user." },
-  pollen_storm:  { name:"Pollen Storm",  type:"Grass",    power:85,  acc:90,  pp:10, cat:"special",  effect:"sleep",     ec:20,  desc:"Whips up a storm of sleep-inducing pollen." },
-  root_drain:    { name:"Root Drain",    type:"Grass",    power:75,  acc:100, pp:15, cat:"special",  effect:"drain",     ec:100, desc:"Sends roots into the foe to drain their energy and heal the user." },
-  bark_shield:   { name:"Bark Shield",   type:"Grass",    power:0,   acc:100, pp:15, cat:"status",   effect:"defup",     ec:100, desc:"Grows a thick bark shield that raises the user's defense." },
+  leaf_blade:    { name:"Leaf Blade",    type:"Nature",    power:90,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes with a blade-sharp leaf. High crit rate." },
+  synthesis:     { name:"Synthesis",     type:"Nature",    power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Absorbs sunlight to restore the user's health." },
+  thorn_barrage: { name:"Thorn Barrage", type:"Nature",    power:70,  acc:95,  pp:15, cat:"physical", effect:"poison",    ec:20,  desc:"Fires a barrage of poisoned thorns at the target." },
+  jungle_hammer: { name:"Jungle Hammer",type:"Nature",    power:110, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100, desc:"Slams with a massive jungle root. The impact recoils on the user." },
+  pollen_storm:  { name:"Pollen Storm",  type:"Nature",    power:85,  acc:90,  pp:10, cat:"special",  effect:"sleep",     ec:20,  desc:"Whips up a storm of sleep-inducing pollen." },
+  root_drain:    { name:"Root Drain",    type:"Nature",    power:75,  acc:100, pp:15, cat:"special",  effect:"drain",     ec:100, desc:"Sends roots into the foe to drain their energy and heal the user." },
+  bark_shield:   { name:"Bark Shield",   type:"Nature",    power:0,   acc:100, pp:15, cat:"status",   effect:"defup",     ec:100, desc:"Grows a thick bark shield that raises the user's defense." },
 
   // Electric (+7 → 22)
   wild_charge:   { name:"Wild Charge",   type:"Electric", power:90,  acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"An electrified reckless tackle that also hurts the user." },
@@ -446,12 +444,12 @@ const MOVES_DATA = {
   discharge:     { name:"Discharge",     type:"Electric", power:80,  acc:100, pp:15, cat:"special",  effect:"paralyze",  ec:30,  desc:"Releases a massive electrical discharge in all directions." },
 
   // Ground (+6 → 22)
-  drill_run:     { name:"Drill Run",     type:"Ground",   power:80,  acc:95,  pp:10, cat:"physical", effect:"crit",      ec:100, desc:"Spins like a drill and crashes into the foe. High crit rate." },
-  mud_bomb:      { name:"Mud Bomb",      type:"Ground",   power:65,  acc:85,  pp:10, cat:"special",  effect:"spdefdown", ec:30,  desc:"Hurls a large ball of mud that may lower accuracy." },
-  scorched_earth:{ name:"Scorched Earth",type:"Ground",   power:90,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:20,  desc:"Superheats the ground beneath the foe until it scorches." },
-  magnitude:     { name:"Magnitude",     type:"Ground",   power:85,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Shakes the ground with varying intensity." },
-  sand_tomb:     { name:"Sand Tomb",     type:"Ground",   power:55,  acc:85,  pp:15, cat:"physical", effect:"spedown",   ec:100, desc:"Traps the foe in a swirling sand tomb." },
-  earthen_wall:  { name:"Earthen Wall",  type:"Ground",   power:0,   acc:100, pp:10, cat:"status",   effect:"defup",     ec:100, desc:"Raises a massive wall of packed earth to shield the user." },
+  drill_run:     { name:"Drill Run",     type:"Earth",   power:80,  acc:95,  pp:10, cat:"physical", effect:"crit",      ec:100, desc:"Spins like a drill and crashes into the foe. High crit rate." },
+  mud_bomb:      { name:"Mud Bomb",      type:"Earth",   power:65,  acc:85,  pp:10, cat:"special",  effect:"spdefdown", ec:30,  desc:"Hurls a large ball of mud that may lower accuracy." },
+  scorched_earth:{ name:"Scorched Earth",type:"Earth",   power:90,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:20,  desc:"Superheats the ground beneath the foe until it scorches." },
+  magnitude:     { name:"Magnitude",     type:"Earth",   power:85,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Shakes the ground with varying intensity." },
+  sand_tomb:     { name:"Sand Tomb",     type:"Earth",   power:55,  acc:85,  pp:15, cat:"physical", effect:"spedown",   ec:100, desc:"Traps the foe in a swirling sand tomb." },
+  earthen_wall:  { name:"Earthen Wall",  type:"Earth",   power:0,   acc:100, pp:10, cat:"status",   effect:"defup",     ec:100, desc:"Raises a massive wall of packed earth to shield the user." },
 
   // Wind (+6 → 22)
   razor_wind:    { name:"Razor Wind",    type:"Wind",     power:80,  acc:100, pp:10, cat:"special",  effect:"crit",      ec:100, desc:"Fires blades of razor-sharp wind. High crit rate." },
@@ -524,22 +522,22 @@ const MOVES_DATA = {
   wyrm_breath:   { name:"Wyrm Breath",   type:"Draconic",   power:80,  acc:95,  pp:15, cat:"special",  effect:"paralyze",  ec:20,  desc:"Breathes the ancient miasma of a primordial wyrm." },
 
   // Rock (+7 → 22)
-  ancient_power: { name:"Ancient Power",  type:"Rock",    power:60,  acc:100, pp:5,  cat:"special",  effect:"atkup",     ec:10,  desc:"Attacks with prehistoric power that may raise all stats." },
-  power_gem:     { name:"Power Gem",     type:"Rock",     power:80,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Fires a ray of light formed from gemstones." },
-  rock_blast:    { name:"Rock Blast",    type:"Rock",     power:70,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Hurls multiple rocks at the foe in rapid succession." },
-  smack_down:    { name:"Smack Down",    type:"Rock",     power:50,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Hurls a stone to knock the foe down to earth." },
-  diamond_storm: { name:"Diamond Storm", type:"Rock",     power:100, acc:95,  pp:5,  cat:"physical", effect:"defup",     ec:50,  desc:"Whips up a storm of diamonds that may raise Defense." },
-  erosion_wave:  { name:"Erosion Wave",  type:"Rock",     power:75,  acc:95,  pp:10, cat:"special",  effect:"defdown",   ec:30,  desc:"Sends a wave of eroding stone particles that wear down defenses." },
-  quarry_crush:  { name:"Quarry Crush",  type:"Rock",     power:90,  acc:85,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Crushes the foe with the force of a collapsing quarry." },
+  ancient_power: { name:"Ancient Power",  type:"Earth",    power:60,  acc:100, pp:5,  cat:"special",  effect:"atkup",     ec:10,  desc:"Attacks with prehistoric power that may raise all stats." },
+  power_gem:     { name:"Power Gem",     type:"Earth",     power:80,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Fires a ray of light formed from gemstones." },
+  rock_blast:    { name:"Rock Blast",    type:"Earth",     power:70,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Hurls multiple rocks at the foe in rapid succession." },
+  smack_down:    { name:"Smack Down",    type:"Earth",     power:50,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Hurls a stone to knock the foe down to earth." },
+  diamond_storm: { name:"Diamond Storm", type:"Earth",     power:100, acc:95,  pp:5,  cat:"physical", effect:"defup",     ec:50,  desc:"Whips up a storm of diamonds that may raise Defense." },
+  erosion_wave:  { name:"Erosion Wave",  type:"Earth",     power:75,  acc:95,  pp:10, cat:"special",  effect:"defdown",   ec:30,  desc:"Sends a wave of eroding stone particles that wear down defenses." },
+  quarry_crush:  { name:"Quarry Crush",  type:"Earth",     power:90,  acc:85,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Crushes the foe with the force of a collapsing quarry." },
 
   // Bug (+7 → 22)
-  fury_cutter:   { name:"Fury Cutter",   type:"Bug",      power:40,  acc:95,  pp:20, cat:"physical", effect:null,        ec:0,   desc:"Slashes with scythe-like claws in a fury." },
-  signal_beam:   { name:"Signal Beam",   type:"Bug",      power:75,  acc:100, pp:15, cat:"special",  effect:"confuse",   ec:10,  desc:"Fires a peculiar signal beam that confuses." },
-  leech_life:    { name:"Leech Life",    type:"Bug",      power:80,  acc:100, pp:10, cat:"physical", effect:"drain",     ec:100, desc:"Drains the foe's blood to restore the user's HP." },
-  pin_missile:   { name:"Pin Missile",   type:"Bug",      power:55,  acc:95,  pp:20, cat:"physical", effect:null,        ec:0,   desc:"Fires sharp pins at the foe in rapid succession." },
-  lunge:         { name:"Lunge",         type:"Bug",      power:80,  acc:100, pp:15, cat:"physical", effect:"atkdown",   ec:100, desc:"Lunges at the foe, lowering their Attack on contact." },
-  infestation:   { name:"Infestation",   type:"Bug",      power:50,  acc:100, pp:20, cat:"special",  effect:"spedown",   ec:30,  desc:"Infests the foe with parasitic bugs that slow them down." },
-  metamorphosis: { name:"Metamorphosis", type:"Bug",      power:0,   acc:100, pp:10, cat:"status",   effect:"calmup",    ec:100, desc:"Undergoes a transformation that sharpens special power and resilience." },
+  fury_cutter:   { name:"Fury Cutter",   type:"Nature",      power:40,  acc:95,  pp:20, cat:"physical", effect:null,        ec:0,   desc:"Slashes with scythe-like claws in a fury." },
+  signal_beam:   { name:"Signal Beam",   type:"Nature",      power:75,  acc:100, pp:15, cat:"special",  effect:"confuse",   ec:10,  desc:"Fires a peculiar signal beam that confuses." },
+  leech_life:    { name:"Leech Life",    type:"Nature",      power:80,  acc:100, pp:10, cat:"physical", effect:"drain",     ec:100, desc:"Drains the foe's blood to restore the user's HP." },
+  pin_missile:   { name:"Pin Missile",   type:"Nature",      power:55,  acc:95,  pp:20, cat:"physical", effect:null,        ec:0,   desc:"Fires sharp pins at the foe in rapid succession." },
+  lunge:         { name:"Lunge",         type:"Nature",      power:80,  acc:100, pp:15, cat:"physical", effect:"atkdown",   ec:100, desc:"Lunges at the foe, lowering their Attack on contact." },
+  infestation:   { name:"Infestation",   type:"Nature",      power:50,  acc:100, pp:20, cat:"special",  effect:"spedown",   ec:30,  desc:"Infests the foe with parasitic bugs that slow them down." },
+  metamorphosis: { name:"Metamorphosis", type:"Nature",      power:0,   acc:100, pp:10, cat:"status",   effect:"calmup",    ec:100, desc:"Undergoes a transformation that sharpens special power and resilience." },
 
   // ============================================================
   // BATCH 2 — 125 NEW MOVES
@@ -574,13 +572,13 @@ const MOVES_DATA = {
   ocean_crash:      { name:"Ocean Crash",       type:"Aquatic",    power:120, acc:85,  pp:5,  cat:"physical", effect:"defdown",   ec:30,  desc:"Crashes into the foe with the full force of a collapsing ocean wave." },
 
   // --- Grass (+7) ---
-  bullet_seed:      { name:"Bullet Seed",       type:"Grass",    power:65,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"Forcefully shoots seeds in rapid bursts at the target." },
-  magical_leaf:     { name:"Magical Leaf",      type:"Grass",    power:60,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Scatters leaves imbued with magical energy that never miss." },
-  leech_seed:       { name:"Leech Seed",        type:"Grass",    power:0,   acc:90,  pp:10, cat:"status",   effect:"drain",     ec:100, desc:"Plants a parasitic seed on the foe that saps HP each turn." },
-  leaf_storm:       { name:"Leaf Storm",        type:"Grass",    power:130, acc:90,  pp:5,  cat:"special",  effect:"spatkdown", ec:100, desc:"A savage storm of razor leaves that sharply lowers the user's Sp. Atk." },
-  petal_dance:      { name:"Petal Dance",       type:"Grass",    power:120, acc:100, pp:10, cat:"special",  effect:"confuse",   ec:100, desc:"A whirling dance of petals for several turns, then confuses the user." },
-  solar_beam:       { name:"Solar Beam",        type:"Grass",    power:120, acc:100, pp:10, cat:"special",  effect:"recharge",  ec:100, desc:"Absorbs sunlight on the first turn, then unleashes a powerful beam." },
-  spore_shield:     { name:"Spore Shield",      type:"Grass",    power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Grows a coating of hardened spores over the body, raising Defense." },
+  bullet_seed:      { name:"Bullet Seed",       type:"Nature",    power:65,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"Forcefully shoots seeds in rapid bursts at the target." },
+  magical_leaf:     { name:"Magical Leaf",      type:"Nature",    power:60,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Scatters leaves imbued with magical energy that never miss." },
+  leech_seed:       { name:"Leech Seed",        type:"Nature",    power:0,   acc:90,  pp:10, cat:"status",   effect:"drain",     ec:100, desc:"Plants a parasitic seed on the foe that saps HP each turn." },
+  leaf_storm:       { name:"Leaf Storm",        type:"Nature",    power:130, acc:90,  pp:5,  cat:"special",  effect:"spatkdown", ec:100, desc:"A savage storm of razor leaves that sharply lowers the user's Sp. Atk." },
+  petal_dance:      { name:"Petal Dance",       type:"Nature",    power:120, acc:100, pp:10, cat:"special",  effect:"confuse",   ec:100, desc:"A whirling dance of petals for several turns, then confuses the user." },
+  solar_beam:       { name:"Solar Beam",        type:"Nature",    power:120, acc:100, pp:10, cat:"special",  effect:"recharge",  ec:100, desc:"Absorbs sunlight on the first turn, then unleashes a powerful beam." },
+  spore_shield:     { name:"Spore Shield",      type:"Nature",    power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Grows a coating of hardened spores over the body, raising Defense." },
 
   // --- Electric (+7) ---
   nuzzle:           { name:"Nuzzle",            type:"Electric", power:20,  acc:100, pp:20, cat:"physical", effect:"paralyze",  ec:100, desc:"Rubs cheeks against the target, delivering a jolt that always paralyzes." },
@@ -592,14 +590,14 @@ const MOVES_DATA = {
   thunder_cage:     { name:"Thunder Cage",      type:"Electric", power:80,  acc:90,  pp:15, cat:"special",  effect:"spedown",   ec:30,  desc:"Imprisons the foe in a cage of crackling lightning that slows movement." },
 
   // --- Ground (+8) ---
-  bulldoze:         { name:"Bulldoze",          type:"Ground",   power:60,  acc:100, pp:20, cat:"physical", effect:"spedown",   ec:100, desc:"Stomps the ground heavily, shaking the area and lowering the foe's Speed." },
-  sand_attack:      { name:"Sand Attack",       type:"Ground",   power:0,   acc:100, pp:15, cat:"status",   effect:"atkdown",   ec:100, desc:"Kicks sand into the foe's face, impairing its offensive precision." },
-  bone_rush:        { name:"Bone Rush",         type:"Ground",   power:65,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Strikes the foe 2–5 times in rapid succession with a hard bone." },
-  scorched_sand:    { name:"Scorched Sand",     type:"Ground",   power:70,  acc:100, pp:15, cat:"special",  effect:"burn",      ec:30,  desc:"Fires scorching superheated sand that may leave burns on contact." },
-  tectonic_wrath:   { name:"Tectonic Wrath",    type:"Ground",   power:110, acc:90,  pp:10, cat:"physical", effect:"recoil",    ec:100, desc:"Channels seismic fury into a devastating blow that rattles the user too." },
-  underground_slam: { name:"Underground Slam",  type:"Ground",   power:80,  acc:100, pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"Burrows underground and erupts beneath the foe for a bone-crunching slam." },
-  quicksand_trap:   { name:"Quicksand Trap",    type:"Ground",   power:0,   acc:90,  pp:15, cat:"status",   effect:"spedown2",  ec:100, desc:"Sucks the foe into quicksand, drastically reducing its Speed." },
-  bone_club:        { name:"Bone Club",         type:"Ground",   power:65,  acc:85,  pp:20, cat:"physical", effect:"flinch",    ec:10,  desc:"Strikes the foe with a club-like bone. May cause flinching." },
+  bulldoze:         { name:"Bulldoze",          type:"Earth",   power:60,  acc:100, pp:20, cat:"physical", effect:"spedown",   ec:100, desc:"Stomps the ground heavily, shaking the area and lowering the foe's Speed." },
+  sand_attack:      { name:"Sand Attack",       type:"Earth",   power:0,   acc:100, pp:15, cat:"status",   effect:"atkdown",   ec:100, desc:"Kicks sand into the foe's face, impairing its offensive precision." },
+  bone_rush:        { name:"Bone Rush",         type:"Earth",   power:65,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Strikes the foe 2–5 times in rapid succession with a hard bone." },
+  scorched_sand:    { name:"Scorched Sand",     type:"Earth",   power:70,  acc:100, pp:15, cat:"special",  effect:"burn",      ec:30,  desc:"Fires scorching superheated sand that may leave burns on contact." },
+  tectonic_wrath:   { name:"Tectonic Wrath",    type:"Earth",   power:110, acc:90,  pp:10, cat:"physical", effect:"recoil",    ec:100, desc:"Channels seismic fury into a devastating blow that rattles the user too." },
+  underground_slam: { name:"Underground Slam",  type:"Earth",   power:80,  acc:100, pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"Burrows underground and erupts beneath the foe for a bone-crunching slam." },
+  quicksand_trap:   { name:"Quicksand Trap",    type:"Earth",   power:0,   acc:90,  pp:15, cat:"status",   effect:"spedown2",  ec:100, desc:"Sucks the foe into quicksand, drastically reducing its Speed." },
+  bone_club:        { name:"Bone Club",         type:"Earth",   power:65,  acc:85,  pp:20, cat:"physical", effect:"flinch",    ec:10,  desc:"Strikes the foe with a club-like bone. May cause flinching." },
 
   // --- Wind (+7) ---
   breeze_blade:     { name:"Breeze Blade",      type:"Wind",     power:50,  acc:100, pp:20, cat:"physical", effect:"crit",      ec:100, desc:"Slices with focused wind so precisely it always finds a critical spot." },
@@ -677,23 +675,23 @@ const MOVES_DATA = {
   dragon_maw:       { name:"Draconic Maw",        type:"Draconic",   power:85,  acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Snaps with powerful dragon jaws. The sheer force may cause flinching." },
 
   // --- Rock (+8) ---
-  stealth_rock:     { name:"Stealth Rock",      type:"Rock",     power:0,   acc:100, pp:20, cat:"status",   effect:"atkdown",   ec:100, desc:"Lays a trap of razor-sharp rocks that weakens foes as they enter battle." },
-  rock_polish:      { name:"Rock Polish",       type:"Rock",     power:0,   acc:100, pp:20, cat:"status",   effect:"speup",     ec:100, desc:"Polishes the body's rocky surface until frictionless, sharply raising Speed." },
-  diamond_crash:    { name:"Diamond Crash",     type:"Rock",     power:100, acc:95,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Crashes into the foe with crystalline diamond hardness." },
-  ancient_tide:     { name:"Ancient Tide",      type:"Rock",     power:75,  acc:95,  pp:15, cat:"special",  effect:"defdown",   ec:20,  desc:"Unleashes a wave of ancient stone energy that may erode the foe's defenses." },
-  meteor_strike:    { name:"Meteor Strike",     type:"Rock",     power:140, acc:85,  pp:5,  cat:"special",  effect:"recharge",  ec:100, desc:"Calls down a meteorite from above. Must rest on the following turn." },
-  stone_axe:        { name:"Rock Cleave",         type:"Rock",     power:65,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Strikes with the cleaving force of a stone axe, splitting through armor." },
-  rock_wrecker:     { name:"Rock Wrecker",      type:"Rock",     power:150, acc:90,  pp:5,  cat:"physical", effect:"recharge",  ec:100, desc:"A devastating rock-shattering blow that requires rest on the next turn." },
-  crystal_spear:    { name:"Crystal Spear",     type:"Rock",     power:80,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"A spear of pure crystal that always strikes a critical point." },
+  stealth_rock:     { name:"Stealth Rock",      type:"Earth",     power:0,   acc:100, pp:20, cat:"status",   effect:"atkdown",   ec:100, desc:"Lays a trap of razor-sharp rocks that weakens foes as they enter battle." },
+  rock_polish:      { name:"Rock Polish",       type:"Earth",     power:0,   acc:100, pp:20, cat:"status",   effect:"speup",     ec:100, desc:"Polishes the body's rocky surface until frictionless, sharply raising Speed." },
+  diamond_crash:    { name:"Diamond Crash",     type:"Earth",     power:100, acc:95,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Crashes into the foe with crystalline diamond hardness." },
+  ancient_tide:     { name:"Ancient Tide",      type:"Earth",     power:75,  acc:95,  pp:15, cat:"special",  effect:"defdown",   ec:20,  desc:"Unleashes a wave of ancient stone energy that may erode the foe's defenses." },
+  meteor_strike:    { name:"Meteor Strike",     type:"Earth",     power:140, acc:85,  pp:5,  cat:"special",  effect:"recharge",  ec:100, desc:"Calls down a meteorite from above. Must rest on the following turn." },
+  stone_axe:        { name:"Rock Cleave",         type:"Earth",     power:65,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Strikes with the cleaving force of a stone axe, splitting through armor." },
+  rock_wrecker:     { name:"Rock Wrecker",      type:"Earth",     power:150, acc:90,  pp:5,  cat:"physical", effect:"recharge",  ec:100, desc:"A devastating rock-shattering blow that requires rest on the next turn." },
+  crystal_spear:    { name:"Crystal Spear",     type:"Earth",     power:80,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"A spear of pure crystal that always strikes a critical point." },
 
   // --- Bug (+7) ---
-  quiver_dance:     { name:"Quiver Dance",      type:"Bug",      power:0,   acc:100, pp:20, cat:"status",   effect:"calmup",    ec:100, desc:"A mystical dance that raises the user's special power, resilience, and Speed." },
-  sticky_web:       { name:"Sticky Web",        type:"Bug",      power:0,   acc:100, pp:20, cat:"status",   effect:"spedown",   ec:100, desc:"Shoots a sticky web that significantly slows the target." },
-  twineedle:        { name:"Twineedle",         type:"Bug",      power:50,  acc:100, pp:20, cat:"physical", effect:"poison",    ec:20,  desc:"Stings the foe twice with a sharp stinger. May poison." },
-  attack_order:     { name:"Swarm Strike",      type:"Bug",      power:90,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Commands bug allies to swarm the foe — their unified assault always finds weak points." },
-  swarm_fury:       { name:"Swarm Fury",        type:"Bug",      power:80,  acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"An unrelenting swarming assault that exhausts the user as well." },
-  cocoon_guard:     { name:"Cocoon Guard",      type:"Bug",      power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Wraps the body in a hardened cocoon shell, dramatically raising Defense." },
-  hivemind_surge:   { name:"Hivemind Surge",    type:"Bug",      power:110, acc:90,  pp:10, cat:"special",  effect:null,        ec:0,   desc:"Channels the collective power of a hivemind into a single devastating burst." },
+  quiver_dance:     { name:"Quiver Dance",      type:"Nature",      power:0,   acc:100, pp:20, cat:"status",   effect:"calmup",    ec:100, desc:"A mystical dance that raises the user's special power, resilience, and Speed." },
+  sticky_web:       { name:"Sticky Web",        type:"Nature",      power:0,   acc:100, pp:20, cat:"status",   effect:"spedown",   ec:100, desc:"Shoots a sticky web that significantly slows the target." },
+  twineedle:        { name:"Twineedle",         type:"Nature",      power:50,  acc:100, pp:20, cat:"physical", effect:"poison",    ec:20,  desc:"Stings the foe twice with a sharp stinger. May poison." },
+  attack_order:     { name:"Swarm Strike",      type:"Nature",      power:90,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Commands bug allies to swarm the foe — their unified assault always finds weak points." },
+  swarm_fury:       { name:"Swarm Fury",        type:"Nature",      power:80,  acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"An unrelenting swarming assault that exhausts the user as well." },
+  cocoon_guard:     { name:"Cocoon Guard",      type:"Nature",      power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Wraps the body in a hardened cocoon shell, dramatically raising Defense." },
+  hivemind_surge:   { name:"Hivemind Surge",    type:"Nature",      power:110, acc:90,  pp:10, cat:"special",  effect:null,        ec:0,   desc:"Channels the collective power of a hivemind into a single devastating burst." },
 
   // ============================================================
   // LEGENDARY SIGNATURE MOVES (+7)
@@ -708,7 +706,7 @@ const MOVES_DATA = {
   // Abyssovex — Aquatic/Dark abyss drake
   abyssal_dominion:       { name:"Abyssal Dominion",       type:"Dark",     power:130, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50,  desc:"Thalassovex asserts dominion over the deep abyss, crushing the target's psychic defenses." },
   // Gaiavorn — Ground/Grass land spirit
-  world_root_bind:        { name:"World Root Bind",        type:"Ground",   power:130, acc:90,  pp:5,  cat:"physical", effect:"spedown",   ec:100, desc:"Gaiavorn erupts roots from the world's core to bind and crush the target." },
+  world_root_bind:        { name:"World Root Bind",        type:"Earth",   power:130, acc:90,  pp:5,  cat:"physical", effect:"spedown",   ec:100, desc:"Gaiavorn erupts roots from the world's core to bind and crush the target." },
   // Voidraxis — Dark/Fairy void star
   starlight_obliteration: { name:"Starlight Obliteration", type:"Dark",     power:150, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Voidraxis extinguishes entire stars and channels their death into a single point of annihilation." },
   // Dragemian — Draconic/Fire emperor
@@ -720,7 +718,7 @@ const MOVES_DATA = {
   // Eondrake (392) — Draconic/Mental time fracture
   time_fracture:    { name:"Time Fracture",   type:"Draconic",  power:130, acc:90,  pp:5,  cat:"special",  effect:"spedown2",  ec:50, desc:"Eondrake shatters the flow of time around the target, massively reducing its speed." },
   // Primordiax (400) — Fire/Ground mantle surge
-  mantle_surge:     { name:"Mantle Surge",    type:"Ground",  power:135, acc:85,  pp:5,  cat:"physical", effect:"defdown",   ec:50, desc:"Primordiax channels the planet's mantle into a cataclysmic ground surge that weakens all defenses." },
+  mantle_surge:     { name:"Mantle Surge",    type:"Earth",  power:135, acc:85,  pp:5,  cat:"physical", effect:"defdown",   ec:50, desc:"Primordiax channels the planet's mantle into a cataclysmic ground surge that weakens all defenses." },
   // Voidcrown (398) — Dark/Fairy void dominion
   void_dominion:    { name:"Void Dominion",   type:"Dark",    power:135, acc:90,  pp:5,  cat:"special",  effect:"atkdown",   ec:50, desc:"Voidcrown exerts absolute dominion over the void, draining the target's will to fight." },
   // Veildrak (404) — Draconic/Mental pseudo signature
@@ -748,7 +746,7 @@ const MOVES_DATA = {
   star_cannon:      { name:"Star Cannon",      type:"Aether",  power:55,  acc:100, pp:10, cat:"special",  effect:"defdown",   ec:30, hits:2, desc:"Celestrix fires two concentrated bolts of compressed starlight that punch through defenses on impact." },
 
   // --- Bug (signature moves for Forgotten Lumori) ---
-  swarm_tide:       { name:"Swarm Tide",       type:"Bug",     power:40,  acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30, hits:3, desc:"Fulgureis summons a torrent of charged insects in three cascading waves, each slowing the target further." },
+  swarm_tide:       { name:"Swarm Tide",       type:"Nature",     power:40,  acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30, hits:3, desc:"Fulgureis summons a torrent of charged insects in three cascading waves, each slowing the target further." },
 
   // --- Aquatic (signature moves for Forgotten Lumori) ---
   torrent_shell:    { name:"Torrent Shell",    type:"Aquatic",   power:150, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Fulgureis condenses an ocean's worth of pressure into a single catastrophic blast. The backlash is immense." },
@@ -756,10 +754,10 @@ const MOVES_DATA = {
   moonlit_surge:    { name:"Moonlit Surge",    type:"Fairy",   power:100, acc:95,  pp:10, cat:"special",  effect:"spatkdown", ec:30, desc:"Luneveth channels concentrated moonlight into a surge of lunar energy that dims the opponent's special power." },
 
   // --- Ground (signature moves for Forgotten Lumori) ---
-  luma_quake:       { name:"Luma Quake",       type:"Ground",  power:100, acc:95,  pp:10, cat:"physical", effect:"atkup",     ec:30, desc:"Lumarix strikes the earth with radiant force, the impact reverberating through its body and sharpening its resolve." },
-  tectonic_wrath:   { name:"Tectonic Wrath",   type:"Ground",  power:145, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Gaiasurge ruptures the continental shelf beneath the opponent. The shockwave tears back through Gaiasurge's limbs." },
+  luma_quake:       { name:"Luma Quake",       type:"Earth",  power:100, acc:95,  pp:10, cat:"physical", effect:"atkup",     ec:30, desc:"Lumarix strikes the earth with radiant force, the impact reverberating through its body and sharpening its resolve." },
+  tectonic_wrath:   { name:"Tectonic Wrath",   type:"Earth",  power:145, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Gaiasurge ruptures the continental shelf beneath the opponent. The shockwave tears back through Gaiasurge's limbs." },
   quake_barrage:    { name:"Quake Barrage",    type:"Fighting",power:40,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20, hits:3, desc:"Gaiasurge delivers three earth-shaking blows in rapid succession, each strike rattling the opponent's footing." },
-  smoldering_abyss: { name:"Smoldering Abyss", type:"Ground", power:95,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:30, desc:"Emberon opens a rift to magmatic depths beneath the opponent's feet. Superheated gases scorch what survives the impact." },
+  smoldering_abyss: { name:"Smoldering Abyss", type:"Earth", power:95,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:30, desc:"Emberon opens a rift to magmatic depths beneath the opponent's feet. Superheated gases scorch what survives the impact." },
   nihil_quake:      { name:"Nihil Quake",      type:"Primal",  power:90,  acc:95,  pp:10, cat:"physical", effect:"spedown",   ec:30, desc:"Nihilax tears apart the ground itself with nihilistic force, disrupting the target's footing and momentum." },
 
   // --- Ice (signature moves for Forgotten Lumori) ---
@@ -773,7 +771,7 @@ const MOVES_DATA = {
   // --- Dark (signature moves for Forgotten Lumori) ---
   nyx_fang:         { name:"Nyx Fang",         type:"Dark",    power:85,  acc:100, pp:15, cat:"physical", effect:"spedown",   ec:30, desc:"Nyxviper strikes from absolute darkness with fangs that leave a numbing venom slowing the target's reflexes." },
   dark_corrosion:   { name:"Dark Corrosion",   type:"Dark",    power:95,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:30, desc:"Bathykor releases a wave of corrosive dark energy that eats through the target's mental defenses." },
-  cryo_shatter:     { name:"Cryo Shatter",     type:"Rock",    power:110, acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:30, desc:"Cryvorn superheats then instantly flash-freezes stone before detonating it into the opponent, cracking their defenses." },
+  cryo_shatter:     { name:"Cryo Shatter",     type:"Earth",    power:110, acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:30, desc:"Cryvorn superheats then instantly flash-freezes stone before detonating it into the opponent, cracking their defenses." },
   forge_blast:      { name:"Forge Blast",      type:"Fire",    power:105, acc:90,  pp:10, cat:"special",  effect:"burn",      ec:30, desc:"Forgerak channels forge-fire intensified beyond metal's tolerance and releases it in a shaped detonation." },
 
   // --- Poison (signature moves for Forgotten Lumori) ---
@@ -792,7 +790,7 @@ const MOVES_DATA = {
 
   // --- Rock (signature moves for Forgotten Lumori) ---
   arc_strike:       { name:"Arc Strike",       type:"Normal",  power:110, acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20, desc:"Arcvolt concentrates its electromagnetic force into a normal-type shockwave of pure concussive energy that stuns on impact." },
-  mineral_lance:    { name:"Mineral Lance",    type:"Rock",    power:105, acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:30, desc:"Tellurak fires a dense spike of compressed minerals at hypersonic velocity that pierces through the target's defenses." },
+  mineral_lance:    { name:"Mineral Lance",    type:"Earth",    power:105, acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:30, desc:"Tellurak fires a dense spike of compressed minerals at hypersonic velocity that pierces through the target's defenses." },
 
   // --- Metal (signature moves for Forgotten Lumori) ---
   pyro_alloy:       { name:"Pyro Alloy",       type:"Metal",   power:85,  acc:100, pp:10, cat:"physical", effect:"burn",      ec:20, desc:"Pyraeon fuses its superheated alloy scales into an edge and strikes, leaving a burning brand on contact." },
@@ -815,7 +813,7 @@ const MOVES_DATA = {
 
   // --- Flying (signature moves for Forgotten Lumori) ---
   canopy_strike:    { name:"Canopy Strike",    type:"Wind",  power:130, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Thunderax dives from maximum altitude and slams into the target like a falling sky. It pulls up hard but the landing hurts." },
-  sky_harvest:      { name:"Sky Harvest",      type:"Grass",   power:90,  acc:95,  pp:10, cat:"special",  effect:"drain",     ec:100,desc:"Thunderax converts solar energy it has absorbed during flight directly into a beam attack, restoring its health as it strikes." },
+  sky_harvest:      { name:"Sky Harvest",      type:"Nature",   power:90,  acc:95,  pp:10, cat:"special",  effect:"drain",     ec:100,desc:"Thunderax converts solar energy it has absorbed during flight directly into a beam attack, restoring its health as it strikes." },
 
   // --- Normal (signature moves for Forgotten Lumori) ---
   stellar_collapse: { name:"Stellar Collapse", type:"Normal",  power:150, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Stellarion implodes its own normal-type presence into a gravitational singularity and releases it on impact. Survivable, barely." }
@@ -863,7 +861,7 @@ const MONSTERS_DATA = {
     desc:"A sleek long-bodied otter-cousin with cobalt fur. Streaks through water in graceful leaping bounds, surfacing in a quick arc each stroke.",
     lore:"Cobaleap is a long-bodied mustelid roughly 2 metres from nose to tail, more elongated and slender than its base form. Its juvenile teal kit-fur has deepened to a glossy cobalt, and Aquatter's neck-to-tail steering fin has flattened and fused into its denser, sleeker body. Its short cobalt-blue fur is so dense it appears to gleam like polished glass when wet, and a pale turquoise stripe runs from the crown of its head to the tip of its powerful tail. A small ruff of stiffer guard-hairs flares behind its head when threatened — mistaken at a distance for a fin or crest. It hunts in shallow coastal waters by leaping between wave crests in long bounding arcs, and can sustain speeds that outpace most sailing vessels for hours at a time." },
 
-  6: { id:6, name:"Banksnout",    emoji:"🦦", types:["Aquatic","Ground"],
+  6: { id:6, name:"Banksnout",    emoji:"🦦", types:["Aquatic","Earth"],
     base:{hp:72,atk:90,def:97,spa:89,spd:105,spe:75},
     learnset:[[1,"surf"],[2,"aqua_tail"],[3,"harden"],[4,"tidecaller"],[37,"hydro_pump"],[40,"abyssal_jet"],[44,"mud_shot"],[48,"coral_barrage"],[52,"drill_run"],[56,"earth_power"],[60,"fissure_slam"],[64,"tectonic_slam"],[5,"deepwater_hymn"],[39,"ocean_tempest"]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:265, rarity:"rare",
@@ -871,21 +869,21 @@ const MONSTERS_DATA = {
     lore:"Banksnout is a powerfully built otter just over 2 metres from snout to tail-tip. Where Cobaleap spends almost all its life submerged, this final form has gradually grown into a true land-thriver: its limbs have stretched and thickened, Cobaleap's gleaming cobalt-blue coat has darkened to a glossy umber and gained a coarser overcoat that sheds water and sun alike, and its broad webbed forepaws have developed stout digging claws strong enough to carve deep tunnels straight into riverbanks. It still chases trout and crustaceans through submerged channels, but increasingly it patrols the surrounding grasslands as well — ambushing rodents and ground-nesting birds, then resting in long burrows whose chambers open well above the waterline. Long mud slides worn into embankments mark its preferred travel routes between water and land." },
 
   // Grass Starters
-  7: { id:7, name:"Verdkin",  emoji:"🌱", types:["Grass"],
+  7: { id:7, name:"Verdkin",  emoji:"🌱", types:["Nature"],
     base:{hp:49,atk:42,def:55,spa:61,spd:70,spe:47},
     learnset:[[1,"tackle",[20,"root_lance"]],[1,"growl"],[4,"vine_whip"],[8,"razor_leaf"],[13,"seed_bomb"],[19,"swords_dance"],[27,"energy_ball"],[38,"petal_blitz",[5,"sleep_powder"]]],
     evolveTo:8, evolveLevel:16, catchRate:45, expYield:64, rarity:"starter",
     desc:"A little plant seedling that walks on root-legs. Very curious and brave.",
     lore:"Verdkin is a small round herbivore about 35 cm tall with smooth lime-green skin, stubby leg-roots and a small reptilian tail beneath its leafy lower body, and two leaf-shaped ears that absorb sunlight. A single bud sprouts from the crown of its head. It grazes in meadows during morning light and huddles with others in dense thickets at night, pressing leaves together to share warmth." },
 
-  8: { id:8, name:"Barknell",   emoji:"🦕", types:["Grass"],
+  8: { id:8, name:"Barknell",   emoji:"🦕", types:["Nature"],
     base:{hp:57,atk:68,def:63,spa:75,spd:74,spe:70},
     learnset:[[1,"vine_whip"],[2,"razor_leaf"],[3,"seed_bomb"],[4,"tackle"],[5,"sleep_powder"],[16,"swords_dance"],[24,"energy_ball"],[30,"canopy_crash"],[35,"petal_blitz"],[44,"verdant_surge"],[6,"spore_burst"],[33,"recover"]],
     evolveTo:9, evolveLevel:36, catchRate:25, expYield:142, rarity:"uncommon",
     desc:"A thorny dinosaur with bark-like skin. Each spine is razor sharp.",
     lore:"Barknell is a stout quadrupedal reptile roughly the size of a large dog — Verdkin's stubby leg-roots have lengthened into true legs and its leaf-shaped ears have multiplied into rows of leaf-shaped protrusions along its spine. Its hide is textured like bark and varies from grey-green to deep brown, blending with forest undergrowth. It sleeps pressed against tree trunks, becoming nearly invisible to passing predators." },
 
-  9: { id:9, name:"Garlawarden",   emoji:"🌸", types:["Grass","Fairy"],
+  9: { id:9, name:"Garlawarden",   emoji:"🌸", types:["Nature","Fairy"],
     base:{hp:82,atk:75,def:80,spa:101,spd:110,spe:84},
     learnset:[[1,"seed_bomb"],[2,"energy_ball"],[3,"vine_whip"],[4,"sleep_powder"],[40,"verdant_surge"],[41,"tail_whip"],[44,"fairy_wind"],[47,"petal_blitz"],[48,"scratch"],[52,"dazzling_gleam"],[56,"root_lance"],[60,"moonblast"],[5,"spore_burst"],[36,"celestial_wave"]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:265, rarity:"rare",
@@ -893,7 +891,7 @@ const MONSTERS_DATA = {
     lore:"Garlawarden is a powerfully built quadrupedal reptile about 2 metres at the shoulder — the fully grown form of the Barknell lineage. Its hide of tightly fused bark plates is overgrown with living petals and small white-and-pink blossoms that bloom year-round regardless of season. A garland of larger flowers crowns its broad skull, and pollen drifts from its flanks as it walks. It moves slowly through old-growth forest, grazing on understory ferns and emitting a faint floral musk that calms nearby wildlife and draws pollinators to congregate in its wake." },
 
   // ===== ADDITIONAL FIRE =====
-  10: { id:10, name:"Scorchlarva",  emoji:"🐛", types:["Fire","Bug"],
+  10: { id:10, name:"Scorchlarva",  emoji:"🐛", types:["Fire","Nature"],
     base:{hp:54,atk:68,def:37,spa:43,spd:43,spe:48},
     learnset:[[1,"tackle",[20,"cinderwhirl"]],[1,"ember"],[8,"bug_bite"],[15,"flame_fang"],[17,"swords_dance"],[22,"x_scissor",[5,"scorch_veil"]],[29,"venom_drool"],[39,"stinger_volley"]],
     evolveTo:11, evolveLevel:18, catchRate:255, expYield:56, rarity:"common",
@@ -914,7 +912,7 @@ const MONSTERS_DATA = {
     desc:"A powerful bull with lava dripping from its hooves. Incredibly stubborn.",
     lore:"Taurcin is a bulky bull-like creature standing 1.5 metres at the shoulder. Its rust-red hide is thick as leather armour, and two forward-curving horns glow orange at the tips from retained heat. It stamps and snorts before charging, and the impact of its body can crack stone walls. Veteran Taurcin will stamp their hooves into bare soil until faint magma-glow rises through the cracks; the instinct comes from further down the bloodline, where Pyroclasm walks across pools of cooling lava without harm." },
 
-  14: { id:14, name:"Molteroth",    emoji:"🐃", types:["Fire","Rock"],
+  14: { id:14, name:"Molteroth",    emoji:"🐃", types:["Fire","Earth"],
     base:{hp:94,atk:111,def:97,spa:78,spd:64,spe:63},
     learnset:[[1,"headbutt"],[2,"magma_surge"],[3,"ember"],[4,"flamethrower"],[5,"scorch_veil"],[30,"battle_cry"],[32,"heat_wave"],[37,"fire_blast"],[38,"stalactite_drop"],[46,"rock_slide"],[54,"stone_edge"],[62,"inferno"],[6,"embercloak"],[42,"quarry_crush"]],
     evolveTo:15, evolveLevel:42, catchRate:45, expYield:235, rarity:"uncommon",
@@ -943,7 +941,7 @@ const MONSTERS_DATA = {
     desc:"A crab that blows iridescent bubbles. Very territorial near shorelines.",
     lore:"Reefling is a small crab-like creature only 15 cm across. Its shell is pale blue-green studded with tiny polyps that filter nutrients from the water. It scuttles across coral formations in shallow warm seas, using its patterned shell for camouflage, and hides inside anemones when threatened." },
 
-  26: { id:26, name:"Aquidon",    emoji:"🦞", types:["Aquatic","Rock"],
+  26: { id:26, name:"Aquidon",    emoji:"🦞", types:["Aquatic","Earth"],
     base:{hp:75,atk:102,def:110,spa:59,spd:68,spe:81},
     learnset:[[1,"scratch"],[2,"water_gun"],[3,"tidecaller"],[23,"aqua_tail"],[27,"swords_dance"],[31,"surf"],[33,"hydro_pump"],[34,"stalactite_drop"],[41,"rock_slide"],[48,"crystal_lance"],[55,"tidal_crush"],[62,"stone_edge"],[4,"deepwater_hymn"],[42,"quarry_crush"]],
     evolveTo:27, evolveLevel:44, catchRate:60, expYield:188, rarity:"uncommon",
@@ -979,42 +977,42 @@ const MONSTERS_DATA = {
     lore:"Neraxis is a rotund puffer fish about 30 cm in diameter when deflated — Corelin's vivid orange-and-white reef stripes have muted to sandy yellow with dark brown spots as it migrated from coral to lagoon, but its scales still refract faint rainbows in shallow sunlight. When startled it inflates to three times its size, erecting short sharp quills. It dwells in sandy lagoons and buries itself to ambush worms and molluscs." },
 
   // ===== ADDITIONAL GRASS =====
-  63: { id:63, name:"Sporix",    emoji:"🍄", types:["Grass","Poison"],
+  63: { id:63, name:"Sporix",    emoji:"🍄", types:["Nature","Poison"],
     base:{hp:60,atk:58,def:57,spa:66,spd:70,spe:38},
     learnset:[[1,"tackle"],[1,"vine_whip"],[8,"poison_sting"],[16,"energy_ball"],[20,"leer"],[22,"spore_burst"],[24,"sludge_bomb"],[32,"sleep_powder",[5,"thornwall"]],[36,"seed_bomb"],[3,"mycelia_net"],[31,"leaf_blade"]],
     evolveTo:64, evolveLevel:25, catchRate:135, expYield:98, rarity:"common",
     desc:"A mushroom Lumori that releases paralyzing spores when threatened.",
     lore:"Sporix is a small mushroom-topped creature about 20 cm tall with a soft, spongy white body and a broad purple-spotted cap. It releases clouds of glittering green spores when disturbed. It grows in dense clusters in dark, damp forest floors and uses spore clouds to communicate danger between neighbouring clusters." },
 
-  64: { id:64, name:"Myceloth",   emoji:"🍄", types:["Grass","Poison"],
+  64: { id:64, name:"Myceloth",   emoji:"🍄", types:["Nature","Poison"],
     base:{hp:77,atk:87,def:85,spa:93,spd:73,spe:69},
     learnset:[[1,"energy_ball"],[2,"sludge_bomb"],[29,"sleep_powder"],[30,"tail_whip"],[33,"seed_bomb"],[35,"toxic"],[40,"scratch"],[45,"razor_leaf"],[50,"venoshock"],[55,"corrosion_fang"],[60,"petal_blitz"],[65,"verdant_surge"],[3,"spore_burst"],[42,"canopy_crash"]],
     evolveTo:65, evolveLevel:42, catchRate:45, expYield:317, rarity:"uncommon",
     desc:"A spore king that commands an army of fungal creatures. Reeks of poison.",
     lore:"Myceloth is a taller, humanoid-shaped fungal creature 80 cm tall — Sporix's purple-spotted cap has lifted onto a humanoid stalk and its spongy juvenile body has reorganised into interwoven mycelium threads visible through a translucent outer membrane. A wide flat cap sits on its rounded head. It walks slowly through forest undergrowth, trailing filaments that connect to the underground fungal network of the forest." },
 
-  66: { id:66, name:"Viridix",    emoji:"🐌", types:["Grass"],
+  66: { id:66, name:"Viridix",    emoji:"🐌", types:["Nature"],
     base:{hp:39,atk:60,def:39,spa:52,spd:40,spe:86},
     learnset:[[1,"vine_whip",[20,"photon_leaf"]],[1,"leer"],[8,"razor_leaf"],[16,"seed_bomb"],[17,"recover"],[24,"energy_ball",[5,"sleep_powder"]],[29,"scratch"],[39,"canopy_crash"],[3,"spore_burst"],[32,"swords_dance"]],
     evolveTo:67, evolveLevel:22, catchRate:180, expYield:78, rarity:"common",
     desc:"A bright green leaf-snail whose curled shell mimics a young rolled fern. Glides slowly across forest floors leaving a faintly luminescent slime trail.",
     lore:"Viridix is a small terrestrial mollusk about 30 centimetres long including its curled spiral shell, which is lime-green and patterned like a rolled fern frond — perfect camouflage among forest undergrowth. Two long sensory tentacles rise from its head, tipped with tiny golden dots that twist toward sunlight, and its soft body is bright green with darker scale-like ripples along its mantle. It glides slowly across the forest floor on a single muscular foot, feeding on tender leaf shoots and fungi, and leaves behind a faintly luminescent slime trail that lingers for hours after sundown." },
 
-  67: { id:67, name:"Loamvin", emoji:"🐌", types:["Grass","Ground"],
+  67: { id:67, name:"Loamvin", emoji:"🐌", types:["Nature","Earth"],
     base:{hp:83,atk:93,def:80,spa:80,spd:75,spe:76},
     learnset:[[1,"razor_leaf"],[2,"seed_bomb"],[3,"sleep_powder"],[22,"energy_ball"],[27,"growl"],[32,"tackle"],[37,"sandstrike"],[42,"sand_geyser"],[47,"root_lance"],[52,"earth_power"],[57,"earthquake"],[62,"petal_blitz"],[4,"spore_burst"],[40,"scorched_earth"]],
     evolveTo:68, evolveLevel:42, catchRate:55, expYield:195, rarity:"uncommon",
     desc:"A 1-metre forest snail whose massive curled shell is encrusted with bark, moss, and trailing vines. Walks slow circuits between damp glades over years.",
     lore:"Loamvin is a substantial forest snail roughly 1 metre across at the shell's widest curl, with a body 1.2 metres long when fully extended — Viridix's small lime-green leaf-patterned shell has grown massive and so heavily overgrown with bark plates, mossy patches, and trailing vines that the underlying calcified spiral is barely visible — small ferns even sprout from cracks where the shell meets the body. Two thick sensory eyestalks rise above its head, each ending in a glowing amber-green eye, and its broad muscular foot leaves a wide damp trail through the leaf-litter as it moves. It walks slow circuits between damp forest glades over years, and the small ecosystems carried on its shell shed seeds and spores wherever it goes." },
 
-  69: { id:69, name:"Germix",     emoji:"🫘", types:["Grass"],
+  69: { id:69, name:"Germix",     emoji:"🫘", types:["Nature"],
     base:{hp:38,atk:41,def:49,spa:62,spd:55,spe:52},
     learnset:[[1,"tackle",[22,"spore_burst"]],[1,"vine_whip"],[10,"energy_ball"],[16,"leer"],[18,"sleep_powder"],[26,"seed_bomb",[5,"thornwall"]],[29,"scratch"],[39,"canopy_crash"]],
     evolveTo:70, evolveLevel:18, catchRate:255, expYield:58, rarity:"common",
     desc:"A living seed pod that rolls around. Harmless but quick to flee.",
     lore:"Germix is a round, seed-shaped creature about 15 cm tall. Its smooth green body has two tiny sprout-legs and a small face framed by curling leaf tendrils. It buries itself in rich soil during the day to photosynthesize through root-hairs. When threatened it releases a burst of accelerated growth, sprouting a tangle of vines around attackers." },
 
-  70: { id:70, name:"Verdurus",    emoji:"🌱", types:["Grass"],
+  70: { id:70, name:"Verdurus",    emoji:"🌱", types:["Nature"],
     base:{hp:90,atk:102,def:71,spa:95,spd:73,spe:61},
     learnset:[[1,"tackle"],[2,"vine_whip"],[3,"leer"],[4,"energy_ball"],[5,"sleep_powder"],[23,"seed_bomb"],[27,"swords_dance"],[36,"canopy_crash"],[37,"quick_attack"],[45,"briar_lash"],[54,"body_slam"],[63,"petal_blitz"],[6,"spore_burst"],[43,"tail_whip"]],
     evolveTo:71, evolveLevel:40, catchRate:75, expYield:186, rarity:"uncommon",
@@ -1036,14 +1034,14 @@ const MONSTERS_DATA = {
     desc:"An electric horse that gallops faster than lightning. Its mane crackles.",
     lore:"Galvanos is a horse-like creature 1.2 metres at the shoulder — Joltan's yellow pony-foal coat has grown into a sleek golden-yellow hide crisscrossed by electric-blue markings. Its flowing mane crackles with constant static. It can sustain a gallop at extraordinary speed for hours by converting its own electrical energy into kinetic force." },
 
-  84: { id:84, name:"Electrix",      emoji:"🐛", types:["Electric","Bug"],
+  84: { id:84, name:"Electrix",      emoji:"🐛", types:["Electric","Nature"],
     base:{hp:34,atk:48,def:43,spa:50,spd:43,spe:94},
     learnset:[[1,"bug_bite",[22,"arc_flash"]],[1,"thunder_shock"],[10,"spark"],[18,"string_shot"],[20,"recover"],[26,"thunderbolt"],[34,"bug_buzz",[5,"thunder_wave"]],[36,"x_scissor"],[3,"static_cage"],[31,"cocoon_burst"]],
     evolveTo:85, evolveLevel:22, catchRate:200, expYield:74, rarity:"common",
     desc:"An electric beetle that emits charged buzzing sounds. Very energetic.",
     lore:"Electrix is a small dragonfly nymph 8 cm long, the aquatic juvenile stage of the lineage. Its body is segmented and dark with metallic gold-edged plates, and small gilled abdomen-tufts trail behind it as it crawls along stream beds. It already generates faint electrical sparks from its rudimentary wing-buds when threatened. It hunts smaller aquatic insects with its hooked predatory mandibles, and lives in colonies in slow-moving water near decaying wood, where it processes organic material into bioelectric energy." },
 
-  85: { id:85, name:"Shockharpe",  emoji:"🪰", types:["Electric","Bug"],
+  85: { id:85, name:"Shockharpe",  emoji:"🪰", types:["Electric","Nature"],
     base:{hp:81,atk:68,def:53,spa:107,spd:67,spe:101},
     learnset:[[1,"thunder_shock"],[2,"bug_bite"],[3,"thunder_wave"],[23,"thunderbolt"],[29,"tail_whip"],[31,"bug_buzz"],[33,"x_scissor"],[36,"scratch"],[43,"silk_bind"],[50,"swarm_dive"],[57,"volt_surge"],[64,"thunder"],[4,"static_cage"],[42,"mandible_crush"]],
     evolveTo:86, evolveLevel:42, catchRate:75, expYield:180, rarity:"uncommon",
@@ -1072,42 +1070,42 @@ const MONSTERS_DATA = {
     lore:"Zephyrel is a compact, sparrow-sized electric-wind bird with bright yellow feathers edged in white. Its wingtips arc with blue electricity when it dives at high speed. It rides storm fronts across open plains, using the updrafts generated by thunderstorm anvil clouds to reach extraordinary altitudes." },
 
   // ===== GROUND =====
-  95: { id:95, name:"Dustkin",     emoji:"🦏", types:["Ground"],
+  95: { id:95, name:"Dustkin",     emoji:"🦏", types:["Earth"],
     base:{hp:61,atk:71,def:58,spa:40,spd:40,spe:68},
     learnset:[[1,"scratch",[22,"sandstrike"]],[1,"growl"],[8,"mud_shot"],[16,"headbutt"],[24,"earthquake"],[29,"tail_whip"],[32,"earth_power"],[40,"body_slam",[5,"dust_veil"]],[3,"clay_armor"],[31,"leer"]],
     evolveTo:96, evolveLevel:25, catchRate:160, expYield:88, rarity:"common",
     desc:"A dusty rhino calf the size of a small dog. Stomps about arid plains, sometimes shedding tiny static crackles from its budding horn.",
     lore:"Dustkin is a stout rhino calf about 50 centimetres at the shoulder, the early form of a lineage of seismic earth-shakers. Its grey-brown hide is already beginning to thicken into proto-armour plates across its shoulders and broad chest, and a small ridged horn-bud crowns its snout — sometimes shedding tiny crackles of static when the calf scuffs the dry earth in play. It inhabits arid plains and digs shallow burrows to escape midday heat, drinking from rain pools that gather in the depressions left by its passing herd. Dustkin calves visibly flinch at faint thunder from distant storms; an unconscious recognition of the conductive iron-veined Tectonvast hide they will grow into, when storms follow rather than precede them across the plains." },
 
-  96: { id:96, name:"Seismith",  emoji:"🦏", types:["Ground","Electric"],
+  96: { id:96, name:"Seismith",  emoji:"🦏", types:["Earth","Electric"],
     base:{hp:104,atk:114,def:97,spa:53,spd:64,spe:70},
     learnset:[[1,"mud_shot"],[2,"headbutt"],[3,"earthquake"],[4,"dust_veil"],[29,"earth_power"],[31,"harden"],[37,"body_slam"],[38,"spark"],[43,"rock_slide"],[49,"crystal_lance"],[55,"fissure_slam"],[61,"wild_charge"],[5,"clay_armor"],[41,"magma_rock"]],
     evolveTo:97, evolveLevel:44, catchRate:50, expYield:218, rarity:"uncommon",
     desc:"A mid-sized rhino with conductive earthen plates fused to its hide. Each footfall sends crackling static through the surrounding ground.",
     lore:"Seismith is a medium-sized rhino around 1 metre at the shoulder, broad-chested and powerful — Dustkin's proto-armour plates have hardened into mineral-rich earth flecked with iron and copper veins, now spanning its shoulders, haunches, and along the ridges of its skull, channelling subterranean electrical currents up through its body. Its single thickening horn glows faintly amber when it lowers its head to listen for water or prey, and small arcs of static dance between its hooves and the ground with each measured step. It detects underground deposits and tremors by sensing the shifting electrical field they produce, and packs of Seismith are sometimes followed by storms drawn to the conductive metal in their hides." },
 
-  98: { id:98, name:"Aridix",   emoji:"🦂", types:["Ground","Poison"],
+  98: { id:98, name:"Aridix",   emoji:"🦂", types:["Earth","Poison"],
     base:{hp:53,atk:56,def:60,spa:57,spd:47,spe:76},
     learnset:[[1,"scratch",[22,"terra_spike"]],[1,"poison_sting"],[10,"mud_shot"],[18,"venoshock"],[26,"earthquake"],[30,"fissure_slam"],[34,"sludge_bomb"],[42,"toxic",[5,"dust_veil"]],[3,"clay_armor"],[32,"earth_power"]],
     evolveTo:99, evolveLevel:30, catchRate:100, expYield:95, rarity:"common",
     desc:"A desert scorpion with a venomous stinger. Buries itself in sand to ambush.",
     lore:"Aridix is a scorpion about 30 cm long with pale sandstone-coloured exoskeleton and a slender venomous stinger tail. Its pincers are wide and flat for digging. It inhabits deep desert dunes, burrowing down by day and emerging at night to hunt insects attracted by its faint phosphorescent glow." },
 
-  99: { id:99, name:"Toxivenoth",  emoji:"🦂", types:["Ground","Poison"],
+  99: { id:99, name:"Toxivenoth",  emoji:"🦂", types:["Earth","Poison"],
     base:{hp:64,atk:90,def:71,spa:77,spd:85,spe:88},
     learnset:[[1,"poison_sting"],[2,"fissure_slam"],[3,"mud_shot"],[4,"earthquake"],[5,"venoshock"],[6,"dust_veil"],[31,"sludge_bomb"],[38,"vital_pulse"],[39,"toxic"],[46,"miasma_cloud"],[54,"earth_power"],[62,"plague_burst"],[7,"clay_armor"],[42,"venom_lance"]],
     evolveTo:100, evolveLevel:42, catchRate:35, expYield:321, rarity:"uncommon",
     desc:"A great venom scorpion. Its tail sting causes hallucinations in victims.",
     lore:"Toxivenoth is a large scorpion 70 cm long — Aridix's pale sandstone-coloured exoskeleton has darkened to dark teal-green mottled with warning-yellow patches. Its stinger delivers a complex venom that causes progressive numbness. It inhabits poison-laced desert ravines and is territorial, using its stinger to mark the boundaries of its hunting range in the ground." },
 
-  101: { id:101, name:"Limoux",     emoji:"🐊", types:["Ground","Aquatic"],
+  101: { id:101, name:"Limoux",     emoji:"🐊", types:["Earth","Aquatic"],
     base:{hp:69,atk:60,def:59,spa:48,spd:52,spe:42},
     learnset:[[1,"scratch",[22,"sandstrike"]],[1,"mud_shot"],[10,"water_gun"],[18,"bubble_beam"],[20,"tail_whip"],[26,"earthquake"],[34,"surf",[5,"dust_veil"]],[36,"whirlpool_dive"],[3,"clay_armor"],[31,"sea_serpent_strike"]],
     evolveTo:102, evolveLevel:22, catchRate:140, expYield:88, rarity:"common",
     desc:"A mud-crawling amphibian. Slides through swamps with ease.",
     lore:"Limoux is a compact crocodile-like creature 80 cm long with muddy olive-green hide and a wide flat head. Its underbelly is pale cream. It half-buries itself in shallow murky water with only its nostrils and eyes visible above the surface, waiting motionless for hours until prey ventures within snapping range." },
 
-  102: { id:102, name:"Dunoloth",   emoji:"🐊", types:["Ground","Aquatic"],
+  102: { id:102, name:"Dunoloth",   emoji:"🐊", types:["Earth","Aquatic"],
     base:{hp:93,atk:97,def:77,spa:91,spd:78,spe:66},
     learnset:[[1,"mud_shot"],[2,"water_gun"],[3,"dust_veil"],[23,"earthquake"],[28,"battle_cry"],[31,"surf"],[34,"frost_current"],[40,"boulder_roll"],[46,"body_slam"],[52,"earth_power"],[58,"tidal_crush"],[64,"hydro_pump"],[4,"clay_armor"],[42,"aqua_tail"]],
     evolveTo:103, evolveLevel:44, catchRate:45, expYield:205, rarity:"uncommon",
@@ -1265,7 +1263,7 @@ const MONSTERS_DATA = {
     desc:"A luminous hound of fairy power. Its radiance can banish dark spirits.",
     lore:"Aetherael is a sleek fairy hound 70 cm at the shoulder — Goldefluff's pure white fluffy puppy fur has lengthened into luminous adult fur, the warm golden glow has matured into a soft gold-pink aura surrounding it constantly, and the bright violet pup-eyes have deepened to amethyst. It moves with effortless grace and seeks out beings in distress, projecting a calming field of fairy light to soothe emotional pain." },
 
-  140: { id:140, name:"Faeling",    emoji:"🦋", types:["Fairy","Bug"],
+  140: { id:140, name:"Faeling",    emoji:"🦋", types:["Fairy","Nature"],
     base:{hp:35,atk:44,def:33,spa:79,spd:71,spe:78},
     learnset:[[1,"fairy_wind",[22,"wish_spark"]],[1,"bug_bite"],[10,"sweet_kiss"],[18,"dazzling_gleam"],[20,"recover"],[26,"moonblast"],[34,"bug_buzz",[5,"stardust_veil"]],[36,"gossamer_lance"],[3,"charm_bloom"],[31,"cocoon_burst"]],
     evolveTo:141, evolveLevel:22, catchRate:160, expYield:82, rarity:"common",
@@ -1322,7 +1320,7 @@ const MONSTERS_DATA = {
     desc:"A mechanical warrior powered by electric cores. Feared on every battlefield.",
     lore:"Alloytron is a larger electric-steel automaton 1.2 metres tall — Gearon's spinning cog-wheels have consolidated into an assembly of interlocked alloy panels with exposed wiring running between them, and the mechanical-motion sparks of its juvenile form have organised into a glowing power core visible through a transparent casing in its chest. Its chest houses a glowing power core visible through a transparent casing. It can interface with electrical infrastructure and draw power directly from city grid lines." },
 
-  152: { id:152, name:"Imperion",  emoji:"🐢", types:["Metal","Rock"],
+  152: { id:152, name:"Imperion",  emoji:"🐢", types:["Metal","Earth"],
     base:{hp:108,atk:61,def:138,spa:59,spd:105,spe:30},
     learnset:[[1,"tackle",[25,"ironskin"]],[1,"rock_throw"],[12,"harden"],[20,"flash_cannon"],[24,"growl"],[28,"rock_slide"],[36,"iron_tail"],[44,"stone_edge"],[45,"temper_edge"],[52,"body_slam",[5,"magnetize"]],[3,"slag_shield"],[37,"crystal_lance"]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:318, rarity:"uncommon",
@@ -1351,7 +1349,7 @@ const MONSTERS_DATA = {
     desc:"A blob of acid that oozes across the ground. Dissolves things with its body.",
     lore:"Acidelix is a floating translucent orb about 20 cm in diameter filled with slowly swirling acid-green liquid. Its outer membrane is barely visible. It drifts through damp cave systems, dissolving organic material it contacts and absorbing the resulting nutrients through its outer surface." },
 
-  158: { id:158, name:"Corrodisc",  emoji:"🫧", types:["Poison","Ground"],
+  158: { id:158, name:"Corrodisc",  emoji:"🫧", types:["Poison","Earth"],
     base:{hp:98,atk:70,def:86,spa:110,spd:86,spe:30},
     learnset:[[1,"toxic"],[2,"tackle"],[3,"venoshock"],[4,"toxic_surge"],[32,"growl"],[35,"sludge_wave"],[38,"mud_shot"],[39,"sludge_bomb"],[44,"loam_leech"],[50,"terra_spike"],[56,"earth_power"],[62,"earthquake"],[5,"toxin_bloom"],[41,"magnitude"]],
     evolveTo:159, evolveLevel:44, catchRate:45, expYield:318, rarity:"uncommon",
@@ -1516,28 +1514,28 @@ const MONSTERS_DATA = {
     lore:"Norindel is a plump pink pig 40 cm at the shoulder with a curly tail and a perpetually contented expression. It roots in rich soil with its broad sensitive snout and locates buried tubers, truffles, and underground water sources with remarkable accuracy. Farmers prize it as a living divining rod." },
 
   // ===== ROCK =====
-  191: { id:191, name:"Pebblet",   emoji:"🪨", types:["Rock"],
+  191: { id:191, name:"Pebblet",   emoji:"🪨", types:["Earth"],
     base:{hp:60,atk:63,def:73,spa:46,spd:31,spe:45},
     learnset:[[1,"tackle",[22,"obsidian_crash"]],[1,"rock_throw"],[8,"harden"],[16,"headbutt"],[24,"rock_slide"],[29,"tail_whip"],[32,"stone_edge"],[40,"body_slam",[5,"granite_wall"]],[3,"petrify_gaze"],[31,"growl"]],
     evolveTo:192, evolveLevel:25, catchRate:160, expYield:88, rarity:"common",
     desc:"A rock puppy with pebble-studded fur. Loves rolling into a ball.",
     lore:"Pebblet is a small rock creature 20 cm tall shaped like a round pebble with two tiny legs and a somewhat surprised-looking face embedded in the stone. It is almost indistinguishable from an ordinary river pebble when still. It lives in streambeds and rolls with the current when travelling. Pebblet cluster in tight streambank groupings that mimic natural rock outcroppings. From within each cluster, individuals occasionally rear briefly upright on their two tiny legs before tumbling back, rehearsing both the awkward humanoid stance and the geologist-fooling formation Boulderoll and Megalith will maintain together at much greater scale." },
 
-  192: { id:192, name:"Boulderoll",emoji:"🪨", types:["Rock","Ground"],
+  192: { id:192, name:"Boulderoll",emoji:"🪨", types:["Earth"],
     base:{hp:82,atk:108,def:112,spa:50,spd:57,spe:69},
     learnset:[[1,"rock_throw"],[2,"headbutt"],[3,"harden"],[4,"rock_slide"],[5,"granite_wall"],[29,"stone_edge"],[33,"tremor_stomp"],[37,"body_slam"],[41,"earth_power"],[49,"crystal_lance"],[57,"landslide"],[65,"earthquake"],[6,"petrify_gaze"],[44,"magnitude"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:222, rarity:"uncommon",
     desc:"A boulder hound encrusted with stones. Can cause landslides by running.",
     lore:"Boulderoll is a large rock-ground creature 1.5 metres tall shaped like a roughly humanoid boulder — Pebblet's round river-pebble silhouette has grown and squared into a rough humanoid shape, the small surprised face of its kit form barely defined now but still clearly present, and the current-rolling travel habit has matured into a rolling shift of its own mass overland. It moves by rolling and shifting its own mass. Groups of Boulderoll arrange themselves in formations that geologists initially mistake for natural rock outcroppings." },
 
-  193: { id:193, name:"Rugothon",    emoji:"🦞", types:["Rock","Aquatic"],
+  193: { id:193, name:"Rugothon",    emoji:"🦞", types:["Earth","Aquatic"],
     base:{hp:71,atk:78,def:89,spa:52,spd:63,spe:68},
     learnset:[[1,"scratch",[25,"geode_burst"]],[1,"rock_throw"],[11,"water_gun"],[16,"swords_dance"],[19,"rock_slide"],[27,"aqua_tail"],[29,"sandstone_rush"],[35,"stone_edge"],[40,"sea_serpent_strike"],[43,"surf",[5,"granite_wall"]],[3,"petrify_gaze"],[33,"landslide"]],
     evolveTo:194, evolveLevel:38, catchRate:75, expYield:168, rarity:"uncommon",
     desc:"A crag claw crab that lives on rocky sea cliffs. Fiercely territorial.",
     lore:"Rugothon is a massive rock-water crustacean 2 metres long with a heavily encrusted shell of barnacles and embedded pebbles. Its eight wide legs are each tipped with flat digging pads. It inhabits rocky coastlines where it is mistaken for a tide-pool feature until it suddenly moves. Rugothon spend long hours wedging themselves into rock crevices much smaller than their 2-metre bodies, packing their bulk inward. Older individuals also eat noticeably less in each successive moult cycle, then less again, slowly withdrawing into themselves. Both habits compound across generations into the smaller, denser rock-crab Lithomere becomes — the only Lumori evolution known to scale downward in size while gaining density." },
 
-  195: { id:195, name:"Prismolith",  emoji:"💎", types:["Rock","Ice"],
+  195: { id:195, name:"Prismolith",  emoji:"💎", types:["Earth","Ice"],
     base:{hp:70,atk:66,def:101,spa:77,spd:87,spe:38},
     learnset:[[1,"rock_throw",[25,"crystal_lance"]],[1,"powder_snow"],[12,"harden"],[17,"swords_dance"],[20,"rock_slide"],[28,"ice_beam"],[31,"stalactite_drop"],[36,"stone_edge"],[43,"icicle_crash"],[44,"blizzard",[5,"granite_wall"]],[3,"petrify_gaze"],[33,"quarry_crush"]],
     evolveTo:196, evolveLevel:40, catchRate:70, expYield:172, rarity:"uncommon",
@@ -1545,35 +1543,35 @@ const MONSTERS_DATA = {
     lore:"Prismolith is a faceted crystal-rock creature 80 cm tall shaped like a natural geode that has grown legs. Its body is a rough dark matrix on the outside, but gaps reveal brilliant purple amethyst crystals within. It moves very slowly and is prized by miners for the high-quality crystals it sheds during moulting. Each year a Prismolith moves more slowly than the last, and where it pauses too long its feet sink slightly into the frozen ground beneath: these are the first signs of the permafrost rooting Frigolith commits to fully." },
 
   // ===== BUG =====
-  197: { id:197, name:"Photoworm",   emoji:"🐛", types:["Bug"],
+  197: { id:197, name:"Photoworm",   emoji:"🐛", types:["Nature"],
     base:{hp:42,atk:30,def:35,spa:30,spd:30,spe:39},
     learnset:[[1,"tackle",[5,"silk_bind"]],[1,"string_shot"],[5,"bug_bite",[6,"chitin_guard"]],[13,"growl"],[20,"swords_dance"],[27,"scratch"],[34,"venom_drool"],[41,"mandible_crush"]],
     evolveTo:198, evolveLevel:7, catchRate:255, expYield:39, rarity:"common",
     desc:"A cute caterpillar. Harmless and curious, though it spins strong silk.",
     lore:"Photoworm is a small, worm-like bug creature 8 cm long with a pale green segmented body and a round head with two tiny antennae. It lives entirely underground in loose soil, aerating it as it tunnels. It photosynthesises weakly through thin translucent sections of its skin even below the surface." },
 
-  198: { id:198, name:"Chrysalix",  emoji:"🫙", types:["Bug"],
+  198: { id:198, name:"Chrysalix",  emoji:"🫙", types:["Nature"],
     base:{hp:46,atk:30,def:58,spa:30,spd:30,spe:30},
     learnset:[[17,"harden"]],
     evolveTo:199, evolveLevel:10, catchRate:120, expYield:72, rarity:"common",
     desc:"A shimmering cocoon. Inside, something remarkable is taking shape.",
     lore:"Chrysalix is a pupating bug creature 12 cm long encased in a hard metallic-green chrysalis shell — Photoworm's pale-green segmented body has surfaced from its underground burrow and spun its weak-photosynthesis skin into the hardened metallic-green casing, the body within now completely liquefied in the process of transformation. The chrysalis vibrates at a frequency inaudible to humans but felt by nearby insects as a call to gather and guard the emerging adult." },
 
-  199: { id:199, name:"Aeridaleth",emoji:"🦋", types:["Bug","Wind"],
+  199: { id:199, name:"Aeridaleth",emoji:"🦋", types:["Nature","Wind"],
     base:{hp:73,atk:39,def:53,spa:104,spd:85,spe:93},
     learnset:[[14,"leer"],[18,"string_shot"],[22,"gust"],[26,"scratch"],[30,"silk_bind"],[34,"sonic_buzz"],[38,"air_slash"],[42,"dazzling_gleam"],[46,"x_scissor"],[50,"bug_buzz"],[54,"stinger_volley"],[58,"hurricane"],[3,"chitin_guard"],[39,"cocoon_burst"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:170, rarity:"uncommon",
     desc:"A glorious butterfly of wind and beauty. Its wing patterns mesmerize foes.",
     lore:"Aeridaleth is a large butterfly 60 cm wingspan with wings displaying intricate patterns in deep teal, gold, and black. It emerged from Chrysalix through a dramatic transformation. It undertakes migrations of thousands of kilometres, navigating by magnetic fields and producing a floral scent that persists in its wake for hours." },
 
-  200: { id:200, name:"Iridibeetle",  emoji:"🪲", types:["Bug","Rock"],
+  200: { id:200, name:"Iridibeetle",  emoji:"🪲", types:["Nature","Earth"],
     base:{hp:61,atk:73,def:71,spa:43,spd:51,spe:30},
     learnset:[[1,"bug_bite",[22,"mandible_crush"]],[1,"rock_throw"],[10,"headbutt"],[18,"x_scissor"],[20,"leer"],[26,"rock_slide"],[34,"stone_edge",[5,"string_shot"]],[36,"swarm_dive"],[3,"chitin_guard"],[31,"magma_rock"]],
     evolveTo:201, evolveLevel:25, catchRate:130, expYield:95, rarity:"common",
     desc:"A heavily armored beetle. Its rock-hard shell is practically indestructible.",
     lore:"Iridibeetle is a beetle 12 cm long with a hard iridescent wing-case that shifts between emerald and sapphire depending on viewing angle. Its underside is pale gold. It lives in old-growth forest canopy and cuts precise circular holes in leaves that it then rolls into tubes for egg-laying." },
 
-  201: { id:201, name:"Scarabion",  emoji:"🪲", types:["Bug","Metal"],
+  201: { id:201, name:"Scarabion",  emoji:"🪲", types:["Nature","Metal"],
     base:{hp:88,atk:124,def:94,spa:64,spd:69,spe:46},
     learnset:[[1,"x_scissor"],[2,"string_shot"],[25,"rock_slide"],[30,"harden"],[31,"stone_edge"],[33,"swarm_dive"],[35,"pheromone_rush"],[40,"flash_cannon"],[45,"bug_buzz"],[50,"stinger_volley"],[55,"iron_tail"],[60,"hyper_beam"],[3,"chitin_guard"],[39,"cocoon_burst"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:220, rarity:"uncommon",
@@ -1643,7 +1641,7 @@ const MONSTERS_DATA = {
     lore:"Infriglace is a colossal fire-ice titan 3 metres long — Frostscorch's crimson and ice-blue halves have intensified into volcanic orange-red and never-melting glacial ice, and the brief steam eruptions of its juvenile midline have grown into a permanent crackling storm between the two sides. The boundary between its natures is a permanent crackling storm of steam. Its very presence disrupts local climate in a radius of several kilometres." },
 
   // Standalone Aquatic/Rock: Coralstone
-  214: { id:214, name:"Petrwave", emoji:"🪸", types:["Aquatic","Rock"],
+  214: { id:214, name:"Petrwave", emoji:"🪸", types:["Aquatic","Earth"],
     base:{hp:101,atk:96,def:117,spa:83,spd:99,spe:54},
     learnset:[[1,"water_gun"],[1,"rock_throw"],[18,"surf"],[28,"stone_edge"],[38,"hydro_pump"],[48,"rock_slide"],[58,"bedrock_slam"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:48, expYield:212, rarity:"uncommon",
@@ -1757,7 +1755,7 @@ const MONSTERS_DATA = {
     lore:"Spectrace is a fire-psychic creature 50 cm long — Spectroo's translucent white-light kangaroo silhouette has ignited under firestone touch into streaking flame, hindquarters trailing off into fire and forelimbs barely visible through the heat-haze. Its body is heat and psychic energy intertwined. It moves so rapidly its form appears as a blurred streak. Ancient texts describe it arriving at prophetic moments as an omen of transformation." },
 
   // Spectroon: Moon Stone evolution (Ice/Mental)
-  228: { id:228, name:"Lunaroon", emoji:"🌙", types:["Grass","Mental"],
+  228: { id:228, name:"Lunaroon", emoji:"🌙", types:["Nature","Mental"],
     base:{hp:82,atk:72,def:88,spa:122,spd:108,spe:78},
     learnset:[[1,"energy_ball"],[1,"psychic_move"],[28,"petal_blitz"],[36,"psystrike"],[44,"astral_rend"],[52,"spore_burst"],[60,"neural_storm"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:225, rarity:"rare",
@@ -1790,21 +1788,21 @@ const MONSTERS_DATA = {
     lore:"Wyvaxis is a water-dragon 2 metres long — Scaleling's copper-red basking-scales have fully darkened to streamlined aqua-blue and emerald, and a broad flat tail has emerged optimised for powerful swimming strokes. It is more fish than lizard in movement, rarely leaving water except to bask on rocks. Its wings are vestigial fins that aid steering underwater." },
 
   // 3-stage Draconic/Ground chain: Draxon → Serpenthorn → Wyvernak
-  232: { id:232, name:"Serphaxon", emoji:"🦎", types:["Draconic","Ground"],
+  232: { id:232, name:"Serphaxon", emoji:"🦎", types:["Draconic","Earth"],
     base:{hp:52,atk:68,def:65,spa:45,spd:50,spe:55},
     learnset:[[1,"tackle"],[1,"mud_shot"],[14,"dragon_breath"],[24,"earthquake"],[34,"dragon_claw"],[44,"dragon_pulse"],[54,"outrage"],[64,"hyper_beam"]],
     evolveTo:233, evolveLevel:32, catchRate:160, expYield:82, rarity:"common",
     desc:"A ground-burrowing young dragon. Its thick hide absorbs punishment like bedrock.",
     lore:"Serphaxon is a ground-dragon 2.5 metres long with earthy brown-bronze scales and four short powerful legs. Its blunt snout and heavy claws make it a capable excavator. It digs extensive underground lairs in rocky hillsides and uses its weight to collapse cave ceilings onto trespassers." },
 
-  233: { id:233, name:"Serpenthorn", emoji:"🐍", types:["Draconic","Ground"],
+  233: { id:233, name:"Serpenthorn", emoji:"🐍", types:["Draconic","Earth"],
     base:{hp:78,atk:98,def:90,spa:65,spd:72,spe:68},
     learnset:[[1,"dragon_claw"],[1,"earthquake"],[26,"earth_power"],[34,"dragon_pulse"],[42,"dragon_dance"],[50,"outrage"],[58,"bedrock_slam"],[66,"hyper_beam"]],
     evolveTo:234, evolveLevel:52, catchRate:75, expYield:165, rarity:"uncommon",
     desc:"A horned serpent that tunnels through mountain roots. Its charge creates fissures in bedrock.",
     lore:"Serpenthorn is a long-bodied four-legged ground-dragon 3 metres long — Serphaxon's earthy brown-bronze scales have thickened to rust-brown and its blunt-snout digger frame has elongated into a body that drags its belly low, almost serpentine in motion, with numerous backward-curved spines now lining its back. Its short legs fold tightly against its body when it rolls along rocky terrain, using its spine-ring as a natural wheel. It inhabits ravine systems and is capable of reaching high speed on smooth stone surfaces." },
 
-  234: { id:234, name:"Wyvernak", emoji:"🐉", types:["Draconic","Ground"],
+  234: { id:234, name:"Wyvernak", emoji:"🐉", types:["Draconic","Earth"],
     base:{hp:100,atk:125,def:104,spa:72,spd:83,spe:66},
     learnset:[[1,"outrage"],[1,"earthquake"],[36,"dragon_dance"],[44,"earth_power"],[52,"dragon_pulse"],[60,"bedrock_slam"],[68,"ancient_breath"],[76,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:20, expYield:275, rarity:"rare",
@@ -1831,7 +1829,7 @@ const MONSTERS_DATA = {
     desc:"A porcupine of solid ice. Its quills are natural ice needles that regenerate after use.",
     lore:"Frostick is a very small ice creature 10 cm tall shaped like an icicle with two tiny arms. Its body is pure transparent ice. It forms spontaneously in sub-zero environments and clusters in large groups on cave ceilings, combining into lattice structures for warmth. Individual ones melt quickly in warm hands." },
 
-  237: { id:237, name:"Icevault", emoji:"❄️", types:["Ice","Rock"],
+  237: { id:237, name:"Icevault", emoji:"❄️", types:["Ice","Earth"],
     base:{hp:92,atk:102,def:112,spa:78,spd:88,spe:48},
     learnset:[[1,"ice_beam"],[1,"rock_slide"],[24,"blizzard"],[32,"stone_edge"],[40,"cryo_lance"],[48,"icicle_crash"],[56,"avalanche_drive"],[64,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:215, rarity:"uncommon",
@@ -1869,14 +1867,14 @@ const MONSTERS_DATA = {
     lore:"Shardlix is a psychic-ice creature 40 cm tall resembling a bipedal figure made entirely of precision-cut ice crystals fitted together without gaps. Its eyes are two flawless prismatic lenses. It transmits thoughts through vibrations in its crystalline body and can read psychic impressions left on ice surfaces." },
 
   // 2-stage Electric/Bug chain: Zappling → Voltrix (level 30)
-  242: { id:242, name:"Pulseglow", emoji:"🐞", types:["Electric","Bug"],
+  242: { id:242, name:"Pulseglow", emoji:"🐞", types:["Electric","Nature"],
     base:{hp:46,atk:55,def:42,spa:68,spd:50,spe:78},
     learnset:[[1,"thunder_shock"],[1,"bug_buzz"],[12,"spark"],[22,"thunderbolt"],[32,"discharge"],[42,"x_scissor"],[52,"thunder"],[60,"hyper_beam"]],
     evolveTo:243, evolveLevel:30, catchRate:170, expYield:75, rarity:"common",
     desc:"A firefly-like creature that stores electricity in its abdomen-light. Releases it when threatened.",
     lore:"Pulseglow is a tiny electric-bug creature 5 cm long resembling a glowing firefly. Its abdomen pulses with yellow-white electric light at regular intervals. Huge swarms congregate in summer nights over open water, and the coordinated light patterns of the swarm are a complex form of collective communication." },
 
-  243: { id:243, name:"Stuntrap", emoji:"🪲", types:["Electric","Bug"],
+  243: { id:243, name:"Stuntrap", emoji:"🪲", types:["Electric","Nature"],
     base:{hp:72,atk:82,def:68,spa:110,spd:78,spe:98},
     learnset:[[1,"thunderbolt"],[1,"x_scissor"],[24,"discharge"],[32,"bug_buzz"],[40,"thunder"],[48,"volt_surge"],[56,"ball_lightning"],[64,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:215, rarity:"uncommon",
@@ -1906,7 +1904,7 @@ const MONSTERS_DATA = {
     lore:"Megavolt is a massive thunder-wolverine 1 metre at the shoulder, the apex form of the Staticlaw→Thundravex lineage. Its body is heavily muscled with chrome-yellow fur and a thick collar of crackling electric coils running from the back of its neck down both shoulders, mistaken at distance for a felid mane. It is fearless to the point of recklessness, attacking creatures many times its size to defend its territory, and the visible electrical shockwave that accompanies its roar temporarily blinds and deafens those nearby. It is considered the apex electric predator of any region it claims." },
 
   // Standalone Electric/Bug: Sparkeen
-  247: { id:247, name:"Sparkeen", emoji:"🦋", types:["Bug","Fairy"],
+  247: { id:247, name:"Sparkeen", emoji:"🦋", types:["Nature","Fairy"],
     base:{hp:72,atk:68,def:65,spa:102,spd:88,spe:115},
     learnset:[[1,"thunderbolt"],[1,"bug_buzz"],[18,"discharge"],[28,"x_scissor"],[38,"thunder"],[48,"volt_surge"],[58,"ball_lightning"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:210, rarity:"uncommon",
@@ -1914,21 +1912,21 @@ const MONSTERS_DATA = {
     lore:"Sparkeen is a small electric-bug creature 10 cm long resembling a glowing green beetle. Its carapace generates a localised electric field that is pleasant to the touch at low intensity but painful if the creature is threatened. It inhabits electrical substations and inside lightning-rod structures." },
 
   // 3-stage Rock/Ground chain: Pebblard → Boulderax → Megalith
-  248: { id:248, name:"Pebblard", emoji:"🪨", types:["Rock"],
+  248: { id:248, name:"Pebblard", emoji:"🪨", types:["Earth"],
     base:{hp:52,atk:60,def:72,spa:38,spd:52,spe:42},
     learnset:[[1,"rock_throw"],[1,"tackle"],[12,"rock_slide"],[22,"earth_power"],[32,"stone_edge"],[42,"earthquake"],[52,"bedrock_slam"],[60,"hyper_beam"]],
     evolveTo:249, evolveLevel:28, catchRate:175, expYield:72, rarity:"common",
     desc:"A living pebble with stubby limbs. Rolls into enemies to deal surprisingly heavy blows.",
     lore:"Pebblard is a small round rock creature 15 cm in diameter that is essentially a smooth river pebble with two tiny eyes. It camouflages perfectly among ordinary rocks. It communicates with others by clicking against nearby stone. Geologists have placed Pebblard specimens in their sample bags by mistake." },
 
-  249: { id:249, name:"Boulderax", emoji:"⛰️", types:["Rock","Ground"],
+  249: { id:249, name:"Boulderax", emoji:"⛰️", types:["Earth"],
     base:{hp:80,atk:95,def:108,spa:52,spd:70,spe:52},
     learnset:[[1,"rock_slide"],[1,"earth_power"],[22,"stone_edge"],[30,"earthquake"],[38,"bedrock_slam"],[46,"mud_shot"],[54,"clay_armor"],[62,"hyper_beam"]],
     evolveTo:250, evolveLevel:46, catchRate:80, expYield:155, rarity:"uncommon",
     desc:"A boulder-bodied titan that rolls through terrain like a wrecking ball. Nothing stops its charge.",
     lore:"Boulderax is a medium rock-ground creature 60 cm tall — Pebblard's smooth river-pebble silhouette has grown squat and boulder-shaped, sprouting thick arm-stubs and two flat feet, and the camouflage that once hid it among ordinary rocks now matches local geological formations at a much larger scale. It rolls itself into a perfect sphere for travel and unfurls only when it finds suitable terrain to defend." },
 
-  250: { id:250, name:"Megalith", emoji:"🗿", types:["Rock","Ground"],
+  250: { id:250, name:"Megalith", emoji:"🗿", types:["Earth"],
     base:{hp:110,atk:120,def:134,spa:55,spd:88,spe:43},
     learnset:[[1,"stone_edge"],[1,"earthquake"],[32,"bedrock_slam"],[40,"clay_armor"],[48,"earth_power"],[56,"rock_slide"],[64,"worldseed_quake"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:20, expYield:280, rarity:"rare",
@@ -1940,14 +1938,14 @@ const MONSTERS_DATA = {
   // ===== BATCH 4: ROCK / WATER / GRASS / DARK (IDs 251-265) =====
 
   // 2-stage Rock/Metal chain: Crumblite → Stonegrip (Metal Coat item)
-  251: { id:251, name:"Crumblite", emoji:"🪨", types:["Rock","Metal"],
+  251: { id:251, name:"Crumblite", emoji:"🪨", types:["Earth","Metal"],
     base:{hp:60,atk:75,def:85,spa:42,spd:60,spe:45},
     learnset:[[1,"rock_throw"],[1,"metal_claw"],[14,"rock_slide"],[24,"flash_cannon"],[34,"stone_edge"],[44,"iron_tail"],[54,"forge_strike"],[60,"hyper_beam"]],
     evolveTo:252, evolveLevel:null, evolveItem:"metalCoat", evolveMethod:"item", catchRate:140, expYield:98, rarity:"common",
     desc:"A ore-encrusted creature that upgrades itself by absorbing metallic minerals from cave walls.",
     lore:"Crumblite is a rock-steel creature 40 cm tall whose body appears to be crumbling stone held together by thin steel rebar-like structures growing through it. Chunks occasionally fall away and are immediately replaced by new growth. It inhabits construction sites and ruined architecture, instinctively reinforcing damaged structures. A Crumblite constantly loses and regrows chunks of its crumbling stone-body, but each replaced piece sets slightly more permanently than the last. This gradual stabilisation is the slow approach toward the bolted-steel-plate compactness Stonegrip exhibits once metalCoat fully reinforces it." },
 
-  252: { id:252, name:"Stonegrip", emoji:"🛡️", types:["Rock","Metal"],
+  252: { id:252, name:"Stonegrip", emoji:"🛡️", types:["Earth","Metal"],
     base:{hp:95,atk:110,def:135,spa:58,spd:88,spe:52},
     learnset:[[1,"stone_edge"],[1,"flash_cannon"],[28,"iron_tail"],[36,"forge_strike"],[44,"earthquake"],[52,"bedrock_slam"],[60,"heavy_slam"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"rare",
@@ -1955,7 +1953,7 @@ const MONSTERS_DATA = {
     lore:"Stonegrip is a rock-steel creature 80 cm tall — Crumblite's crumbling stone-body has been stabilised under metalCoat's influence into a compact frame of grey granite, the thin rebar-structures of its juvenile form now visible steel plating bolted to its surface. Its broad hands can crush stone to powder. It works obsessively to compress and compact loose rock around it, creating denser stone formations wherever it dwells." },
 
   // Standalone Rock/Fire: Ashrock (location evo near volcano area)
-  253: { id:253, name:"Ashrock", emoji:"🌋", types:["Rock","Fire"],
+  253: { id:253, name:"Ashrock", emoji:"🌋", types:["Earth","Fire"],
     base:{hp:90,atk:105,def:100,spa:88,spd:75,spe:55},
     learnset:[[1,"rock_throw"],[1,"ember"],[18,"rock_slide"],[28,"flamethrower"],[38,"stone_edge"],[48,"magma_rock"],[58,"fire_blast"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, evolveLocation:"forge_ruins", evolveMethod:"location", catchRate:55, expYield:215, rarity:"uncommon",
@@ -2008,14 +2006,14 @@ const MONSTERS_DATA = {
     lore:"Lumejell is a water-psychic jellyfish 45 cm in diameter with a pale blue bioluminescent bell and long trailing psychic-charged tendrils. Its pulsing light patterns encode complex emotional information. Deep-sea researchers have documented Lumejell performing what appears to be coordinated light-art displays at night." },
 
   // 2-stage Grass/Fairy chain: Sproutix → Leafhorn (level 26)
-  260: { id:260, name:"Sproutix", emoji:"🌱", types:["Grass","Fairy"],
+  260: { id:260, name:"Sproutix", emoji:"🌱", types:["Nature","Fairy"],
     base:{hp:48,atk:50,def:48,spa:72,spd:58,spe:65},
     learnset:[[1,"vine_whip"],[1,"fairy_wind"],[12,"razor_leaf"],[22,"moonblast"],[32,"energy_ball"],[42,"petal_blitz"],[52,"dazzling_gleam"],[60,"hyper_beam"]],
     evolveTo:261, evolveLevel:26, catchRate:175, expYield:72, rarity:"common",
     desc:"A fairy sprout that blooms with magical flowers. Its pollen causes drowsiness in those it trusts.",
     lore:"Sproutix is a small grass-fairy creature 15 cm tall resembling a tiny sapling with two leaf-hands and round fairy-light eyes. It sprouts from the ground in spring meadows and can take root again if it stays still long enough. It leaves a trail of tiny flowers wherever it walks." },
 
-  261: { id:261, name:"Leafhorn", emoji:"🌺", types:["Grass","Fairy"],
+  261: { id:261, name:"Leafhorn", emoji:"🌺", types:["Nature","Fairy"],
     base:{hp:82,atk:78,def:75,spa:115,spd:100,spe:88},
     learnset:[[1,"moonblast"],[1,"energy_ball"],[20,"petal_blitz"],[28,"dazzling_gleam"],[36,"grove_wrath"],[44,"celestial_wave"],[52,"briar_lash"],[60,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:218, rarity:"uncommon",
@@ -2023,21 +2021,21 @@ const MONSTERS_DATA = {
     lore:"Leafhorn is a medium grass-fairy creature 50 cm tall resembling a deer-faun with leaf-antlers and a body covered in overlapping leaf-scales of vivid green. As it matured from Sproutix, its trunk-body split into four leaf-clad limbs and its head-leaves hardened into antlers. Fairy energy causes the leaves to shimmer gold at dawn. It inhabits enchanted forests and its passage encourages dormant seeds to germinate." },
 
   // 3-stage Grass/Poison chain: Seedling → Vinrix → Thornvast
-  262: { id:262, name:"Transluceed", emoji:"🌿", types:["Grass","Poison"],
+  262: { id:262, name:"Transluceed", emoji:"🌿", types:["Nature","Poison"],
     base:{hp:46,atk:52,def:45,spa:65,spd:55,spe:60},
     learnset:[[1,"vine_whip"],[1,"poison_sting"],[10,"razor_leaf"],[20,"sludge_bomb"],[30,"energy_ball"],[40,"toxic"],[50,"petal_blitz"],[60,"hyper_beam"]],
     evolveTo:263, evolveLevel:24, catchRate:180, expYield:68, rarity:"common",
     desc:"A seed creature wrapped in poisoned vines. It plants itself to absorb nutrients then walks away.",
     lore:"Transluceed is a small grass-poison creature 20 cm tall resembling a germinating seed that has grown a face and legs. Its body is pale green and slightly translucent. It releases spores from its open seed-pod head that fertilise nearby soil while delivering a mild deterrent toxin to grazing animals. A Transluceed cannot absorb the spores it releases; they only fertilise the soil around it. Those unseen nutrient reserves will eventually feed the towering thorn-bush Impenezard rises as decades later." },
 
-  263: { id:263, name:"Tendrilisk", emoji:"🌵", types:["Grass","Poison"],
+  263: { id:263, name:"Tendrilisk", emoji:"🌵", types:["Nature","Poison"],
     base:{hp:70,atk:80,def:68,spa:98,spd:80,spe:72},
     learnset:[[1,"razor_leaf"],[1,"sludge_bomb"],[18,"energy_ball"],[28,"toxic"],[36,"petal_blitz"],[44,"venom_lance"],[52,"grove_wrath"],[60,"hyper_beam"]],
     evolveTo:264, evolveLevel:42, catchRate:90, expYield:145, rarity:"uncommon",
     desc:"A cactus warrior of venomous thorns. Its spines can inject toxins from up to three meters away.",
     lore:"Tendrilisk is a grass-poison creature 60 cm long whose vine-tendrils still wrap Transluceed's pale-green translucent seed-pod at its core — the lizard silhouette is camouflage from outside, all plant within. Its body is covered in climbing vine tendrils that it can extend rapidly. The vines secrete a contact irritant. It inhabits jungle undergrowth and creates elaborate vine-trap networks around its territory that snare careless prey." },
 
-  264: { id:264, name:"Impenezard", emoji:"🌳", types:["Grass","Poison"],
+  264: { id:264, name:"Impenezard", emoji:"🌳", types:["Nature","Poison"],
     base:{hp:95,atk:102,def:86,spa:111,spd:93,spe:63},
     learnset:[[1,"petal_blitz"],[1,"venom_lance"],[30,"grove_wrath"],[38,"toxic"],[46,"energy_ball"],[54,"sludge_wave"],[62,"briar_lash"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:260, rarity:"rare",
@@ -2045,7 +2043,7 @@ const MONSTERS_DATA = {
     lore:"Impenezard is a massive grass-poison creature 2 metres tall resembling a walking thorn-bush — Tendrilisk's climbing vine-tendrils have hardened into 15-cm thorns coated in the same irritant sap, and the lizard-camouflage of its juvenile form has dropped away to reveal the bristling plant-mass beneath. Its broad body is impenetrable. It moves slowly through dense jungle, and other creatures create well-worn trails specifically to avoid contact with it." },
 
   // Standalone Grass/Bug: Mosswing
-  265: { id:265, name:"Mosswing", emoji:"🦗", types:["Grass","Bug"],
+  265: { id:265, name:"Mosswing", emoji:"🦗", types:["Nature"],
     base:{hp:78,atk:82,def:70,spa:95,spd:88,spe:108},
     learnset:[[1,"bug_buzz"],[1,"vine_whip"],[18,"x_scissor"],[28,"energy_ball"],[38,"razor_leaf"],[48,"petal_blitz"],[58,"bug_buzz"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:210, rarity:"uncommon",
@@ -2117,21 +2115,21 @@ const MONSTERS_DATA = {
     lore:"Blazeon is a fire-dragon 1.5 metres long with deep crimson-orange scales and a fully developed wing-span of 2 metres. Its breath weapon is now a sustained stream of fire rather than fireballs. It inhabits volcanic hillsides and defends a territory of several square kilometres from other fire-types." },
 
   // 3-stage Fire/Rock chain: Cindling → Infernox → Pyrovast
-  274: { id:274, name:"Cindling", emoji:"🪨", types:["Fire","Rock"],
+  274: { id:274, name:"Cindling", emoji:"🪨", types:["Fire","Earth"],
     base:{hp:46,atk:60,def:65,spa:55,spd:50,spe:52},
     learnset:[[1,"ember"],[1,"rock_throw"],[10,"rock_slide"],[20,"flamethrower"],[30,"stone_edge"],[40,"fire_blast"],[50,"magma_rock"],[60,"hyper_beam"]],
     evolveTo:275, evolveLevel:28, catchRate:170, expYield:74, rarity:"common",
     desc:"A coal-like creature that ignites when rolling downhill. Leaves scorch marks on stone paths.",
     lore:"Cindling is a fire-rock creature 30 cm long resembling a small lizard made of dark basalt with glowing cinders embedded in its skin. It collects small pebbles and packs them into its cinder-body over time, growing heavier and slower with age. The hottest cinders in its body mark its most active thinking. A Cindling's surface cinders glow steadily hotter and oranger as the creature ages, the body's heat-storage capacity inching toward the magma-pool levels Infernox sustains across every joint. Faint heat-shimmer extends further outward with each successive moult, approaching the eruption-radius Scorchvast maintains constantly. Provoke a fully-grown Cindling and its body will produce a small but distinct ground-tremor that propagates further than its tiny mass should allow." },
 
-  275: { id:275, name:"Infernox", emoji:"🌋", types:["Fire","Rock"],
+  275: { id:275, name:"Infernox", emoji:"🌋", types:["Fire","Earth"],
     base:{hp:72,atk:92,def:95,spa:82,spd:68,spe:62},
     learnset:[[1,"flamethrower"],[1,"stone_edge"],[22,"fire_blast"],[30,"magma_rock"],[38,"rock_slide"],[46,"earthquake"],[54,"caldera_meltdown"],[62,"hyper_beam"]],
     evolveTo:276, evolveLevel:46, catchRate:75, expYield:158, rarity:"uncommon",
     desc:"A volcanic rock beast that erupts periodically. Carries magma inside its carapace like a pressure cooker.",
     lore:"Infernox is a fire-rock creature 80 cm long — Cindling's basalt-and-cinder juvenile body has thickened into volcanic plate armour resembling a larger armoured lizard, the embedded cinders of its early form now pooled magma glowing through every joint. Its footsteps leave brief glowing prints. It inhabits lava fields and uses its rock-hard body to deflect predator strikes while retaliating with blasts of focused fire." },
 
-  276: { id:276, name:"Scorchvast", emoji:"🏔️", types:["Fire","Rock"],
+  276: { id:276, name:"Scorchvast", emoji:"🏔️", types:["Fire","Earth"],
     base:{hp:102,atk:118,def:109,spa:90,spd:78,spe:53},
     learnset:[[1,"fire_blast"],[1,"magma_rock"],[32,"caldera_meltdown"],[40,"earthquake"],[48,"stone_edge"],[56,"bedrock_slam"],[64,"ashfall"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:272, rarity:"rare",
@@ -2139,7 +2137,7 @@ const MONSTERS_DATA = {
     lore:"Scorchvast is a massive fire-rock creature 2 metres long — Infernox's volcanic plate armour has thickened and fused into natural stone armour entirely encasing a very large igneous lizard, and the joint-magma of its juvenile form has rerouted into fountains of fire that erupt from vents on its back when it is agitated. Its body temperature is sufficient to melt most metals on contact." },
 
   // Standalone Fire/Ground: Magmite (location evo near forge area)
-  277: { id:277, name:"Magmite", emoji:"🌶️", types:["Fire","Ground"],
+  277: { id:277, name:"Magmite", emoji:"🌶️", types:["Fire","Earth"],
     base:{hp:92,atk:110,def:96,spa:98,spd:80,spe:62},
     learnset:[[1,"ember"],[1,"mud_shot"],[18,"flamethrower"],[28,"earth_power"],[38,"fire_blast"],[48,"earthquake"],[58,"magma_surge"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, evolveLocation:"ironforge", evolveMethod:"location", catchRate:50, expYield:215, rarity:"uncommon",
@@ -2162,7 +2160,7 @@ const MONSTERS_DATA = {
     lore:"Steelhorn is a medium steel-fairy creature 70 cm tall — Ironling's silver-grey fairy-crafted iron armour has been refined under metalCoat's influence into a humanoid body of polished silver steel, and a single straight horn of fairy-charged metal has emerged from its forehead, channelling and purifying energy. It inhabits ancient forge-temples and stands watch over sacred metalworking sites." },
 
   // 3-stage Metal/Ground chain: Gearbit → Cogvex → Mechavast
-  280: { id:280, name:"Gearbit", emoji:"🔩", types:["Metal","Ground"],
+  280: { id:280, name:"Gearbit", emoji:"🔩", types:["Metal","Earth"],
     base:{hp:50,atk:62,def:72,spa:40,spd:52,spe:48},
     learnset:[[1,"metal_claw"],[1,"mud_shot"],[12,"flash_cannon"],[22,"earth_power"],[32,"iron_tail"],[42,"earthquake"],[52,"forge_strike"],[60,"hyper_beam"]],
     evolveTo:281, evolveLevel:28, catchRate:165, expYield:76, rarity:"common",
@@ -2174,14 +2172,14 @@ const MONSTERS_DATA = {
   // ===== BATCH 6: STEEL / NORMAL / WIND / POISON / BUG (IDs 281-295) =====
 
   // Cogvex and Mechavast (continuing Gearbit chain from 280)
-  281: { id:281, name:"Cogvex", emoji:"⚙️", types:["Metal","Ground"],
+  281: { id:281, name:"Cogvex", emoji:"⚙️", types:["Metal","Earth"],
     base:{hp:78,atk:98,def:108,spa:58,spd:75,spe:60},
     learnset:[[1,"flash_cannon"],[1,"earth_power"],[22,"iron_tail"],[30,"earthquake"],[38,"forge_strike"],[46,"bedrock_slam"],[54,"heavy_slam"],[62,"hyper_beam"]],
     evolveTo:282, evolveLevel:46, catchRate:80, expYield:155, rarity:"uncommon",
     desc:"A complex gear-machine creature that absorbs underground minerals to repair itself.",
     lore:"Cogvex is a medium steel-ground automaton 60 cm tall — Gearbit's stubby gear-work frame has elaborated into a more complex body, and the metals it absorbed underground have crystallised into an exposed chest mechanism of dozens of interlocking cogs and pistons. It constructs complex gear-driven tools from found materials and leaves functional mechanical devices scattered across its territory." },
 
-  282: { id:282, name:"Mechavast", emoji:"🤖", types:["Metal","Ground"],
+  282: { id:282, name:"Mechavast", emoji:"🤖", types:["Metal","Earth"],
     base:{hp:105,atk:122,def:124,spa:63,spd:85,spe:51},
     learnset:[[1,"forge_strike"],[1,"earthquake"],[32,"heavy_slam"],[40,"bedrock_slam"],[48,"iron_tail"],[56,"earth_power"],[64,"flash_cannon"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:278, rarity:"rare",
@@ -2291,21 +2289,21 @@ const MONSTERS_DATA = {
   // ===== BATCH 7: POISON / BUG / MIXED FILLS (IDs 296-313) =====
 
   // 3-stage Poison/Bug chain: Toxifly → Venomwing → Plagueoth (lv26, lv44)
-  296: { id:296, name:"Plaguefly", emoji:"🦟", types:["Poison","Bug"],
+  296: { id:296, name:"Plaguefly", emoji:"🦟", types:["Poison","Nature"],
     base:{hp:44,atk:52,def:40,spa:68,spd:52,spe:80},
     learnset:[[1,"poison_sting"],[1,"bug_buzz"],[10,"sludge_bomb"],[20,"x_scissor"],[30,"toxic"],[40,"venoshock"],[50,"venom_lance"],[60,"hyper_beam"]],
     evolveTo:297, evolveLevel:26, catchRate:178, expYield:70, rarity:"common",
     desc:"A mosquito-like creature with toxic saliva. A single bite can poison most Lumori instantly.",
     lore:"Plaguefly is a large poison-bug insect with a 30 cm wingspan. Its wings are translucent grey with poison-green venation. Its body is a bloated sack of toxic fluid. It breeds in stagnant water and its larval masses are visible as roiling dark clouds beneath the surface of contaminated ponds." },
 
-  297: { id:297, name:"Blightwing", emoji:"🦟", types:["Poison","Bug"],
+  297: { id:297, name:"Blightwing", emoji:"🦟", types:["Poison","Nature"],
     base:{hp:68,atk:78,def:62,spa:98,spd:78,spe:100},
     learnset:[[1,"x_scissor"],[1,"sludge_bomb"],[20,"toxic"],[28,"venoshock"],[36,"bug_buzz"],[44,"venom_lance"],[52,"sludge_wave"],[60,"hyper_beam"]],
     evolveTo:298, evolveLevel:44, catchRate:85, expYield:148, rarity:"uncommon",
     desc:"A blight mosquito whose extended proboscis can drain entire forests of vitality. Its bite spreads withering pestilence.",
     lore:"Blightwing is a medium poison-bug mosquito with 40 cm wingspan — Plaguefly's translucent grey wings have darkened to dark purple with the same poison-green venation now glowing faintly across them. Its elongated proboscis can pierce thick bark to drain plant sap, leaving withered scars in its wake. It inhabits areas of environmental decay, flourishing where other life struggles." },
 
-  298: { id:298, name:"Plagueoth", emoji:"🦟", types:["Poison","Bug"],
+  298: { id:298, name:"Plagueoth", emoji:"🦟", types:["Poison","Nature"],
     base:{hp:82,atk:89,def:73,spa:116,spd:95,spe:95},
     learnset:[[1,"venom_lance"],[1,"bug_buzz"],[30,"sludge_wave"],[38,"toxic"],[46,"venoshock"],[54,"mycelia_net"],[62,"corrosion_fang"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
@@ -2313,14 +2311,14 @@ const MONSTERS_DATA = {
     lore:"Plagueoth is a large poison-bug mosquito 60 cm long — Blightwing's elongated bark-piercing proboscis has lengthened further into a needle as long as its body, and the slim juvenile abdomen has bloated into a venom-sac. Its ragged dark wings have a 1.5 m span. It inhabits abandoned buildings and decaying swampland, draining the vital fluids of any creature unfortunate enough to be caught alone at dusk." },
 
   // 2-stage Bug/Poison chain: Stinglet → Nettleclaw (level 28)
-  299: { id:299, name:"Stinglet", emoji:"🐝", types:["Bug","Poison"],
+  299: { id:299, name:"Stinglet", emoji:"🐝", types:["Nature","Poison"],
     base:{hp:50,atk:65,def:52,spa:58,spd:55,spe:78},
     learnset:[[1,"bug_buzz"],[1,"poison_sting"],[12,"x_scissor"],[22,"sludge_bomb"],[32,"toxic"],[42,"venoshock"],[52,"venom_lance"],[60,"hyper_beam"]],
     evolveTo:300, evolveLevel:28, catchRate:162, expYield:78, rarity:"common",
     desc:"A bee-like stinger creature with a massive venomous barb. Builds hives from toxic resin.",
     lore:"Stinglet is a small bug-poison bee 8 cm long with a bright yellow-and-black striped abdomen. Its stinger contains a venom that causes localised swelling and intense pain. It is fiercely territorial around its nest and coordinates with colony-mates using chemical signals to perform coordinated defence responses." },
 
-  300: { id:300, name:"Nettleclaw", emoji:"🐝", types:["Bug","Poison"],
+  300: { id:300, name:"Nettleclaw", emoji:"🐝", types:["Nature","Poison"],
     base:{hp:80,atk:105,def:80,spa:88,spd:80,spe:95},
     learnset:[[1,"x_scissor"],[1,"venom_lance"],[22,"toxic"],[30,"venoshock"],[38,"sludge_bomb"],[46,"bug_buzz"],[54,"sludge_wave"],[62,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:218, rarity:"uncommon",
@@ -2351,21 +2349,21 @@ const MONSTERS_DATA = {
     lore:"Lumivane is a fairy-psychic creature 50 cm across — Lightpuff's warm-golden 20 cm orb has grown under moonStone influence into a brilliant luminous sphere haloed by rudimentary limb-extensions of condensed light — translucent arm-rays and trailing tendril-legs that emerge from the central sphere but do not sever from it. Its body shifts between solid and luminous depending on its concentration. It inhabits high mountain observatories and archives astronomical data in a crystalline psychic memory at the core of its orb-body." },
 
   // 3-stage Rock/Ice chain: Crysthorn → Geoshard → Crystallon (location: cold area, lv28, lv48)
-  304: { id:304, name:"Icethorn", emoji:"💎", types:["Rock","Ice"],
+  304: { id:304, name:"Icethorn", emoji:"💎", types:["Earth","Ice"],
     base:{hp:52,atk:62,def:75,spa:58,spd:60,spe:50},
     learnset:[[1,"rock_throw"],[1,"powder_snow"],[12,"rock_slide"],[22,"ice_beam"],[32,"stone_edge"],[42,"cryo_lance"],[52,"blizzard"],[60,"hyper_beam"]],
     evolveTo:305, evolveLevel:28, catchRate:162, expYield:78, rarity:"common",
     desc:"A crystal thorn creature that grows in frozen caves. Its crystalline spines shatter on impact then regrow.",
     lore:"Icethorn is a rock-ice creature 40 cm tall resembling a cactus-like formation of grey rock studded with ice-crystal spines. Its ice spines regrow within hours if broken off. It inhabits frozen rocky highlands and uses its spines both to collect water from passing fog and to deter large herbivores." },
 
-  305: { id:305, name:"Geoshard", emoji:"🗻", types:["Rock","Ice"],
+  305: { id:305, name:"Geoshard", emoji:"🗻", types:["Earth","Ice"],
     base:{hp:78,atk:92,def:105,spa:78,spd:82,spe:58},
     learnset:[[1,"ice_beam"],[1,"stone_edge"],[22,"cryo_lance"],[30,"blizzard"],[38,"bedrock_slam"],[46,"icicle_crash"],[54,"avalanche_drive"],[62,"hyper_beam"]],
     evolveTo:306, evolveLevel:48, catchRate:75, expYield:158, rarity:"uncommon",
     desc:"A rock and ice giant with shard weapons. Lives on the highest frozen peaks of the Lumoria mountain range.",
     lore:"Geoshard is a rock-ice creature 80 cm tall — Icethorn's grey rock body has expanded and crystallised into a jagged cluster of natural rock and ice that has grown into a vaguely bipedal shape, the ice-crystal spines of its juvenile form now reorganised into brilliant ice formations visible through large natural gaps in its dark stone frame. It moves rarely and is often mistaken for a natural geological feature." },
 
-  306: { id:306, name:"Crystallon", emoji:"🏔️", types:["Rock","Ice"],
+  306: { id:306, name:"Crystallon", emoji:"🏔️", types:["Earth","Ice"],
     base:{hp:101,atk:108,def:117,spa:83,spd:91,spe:50},
     learnset:[[1,"blizzard"],[1,"bedrock_slam"],[32,"avalanche_drive"],[40,"icicle_crash"],[48,"stone_edge"],[56,"glacial_tomb"],[64,"worldseed_quake"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:275, rarity:"rare",
@@ -2396,14 +2394,14 @@ const MONSTERS_DATA = {
     lore:"Tidephant is a large water-dark creature 2 metres long resembling a cetacean with dark blue-black hide and a broad flat head. As it matured from Seafraith, its fins broadened into flippers and its skeleton calcified into a whale-like frame — a fish-to-leviathan apotheosis. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },
 
   // 2-stage Ground/Aquatic chain: Mudpump → Marshix (level 28)
-  310: { id:310, name:"Mudpump", emoji:"🦛", types:["Ground","Aquatic"],
+  310: { id:310, name:"Mudpump", emoji:"🦛", types:["Earth","Aquatic"],
     base:{hp:58,atk:68,def:62,spa:58,spd:55,spe:55},
     learnset:[[1,"mud_shot"],[1,"water_gun"],[12,"earth_power"],[22,"surf"],[32,"earthquake"],[42,"hydro_pump"],[52,"clay_armor"],[60,"hyper_beam"]],
     evolveTo:311, evolveLevel:28, catchRate:155, expYield:80, rarity:"common",
     desc:"A small hippo calf perpetually slick with mud. Wallows in shallow tidal mudflats and digs out cool burrow-chambers with its broad snout.",
     lore:"Mudpump is a small hippo calf about 50 centimetres long with a broad rounded body coated in slick wet mud and a short blunt snout perfectly suited to scooping muddy water. It is too small to fully submerge in deep water, so it wallows in shallow tidal mudflats and shallow lagoons where it builds dome-shaped mud-and-reed homes by piling clay around itself with a suction-pump motion of its wide mouth. Small herds of Mudpump dig out vast networks of cool burrow-chambers connecting their wallows beneath the soft surface." },
 
-  311: { id:311, name:"Marshix", emoji:"🦛", types:["Ground","Aquatic"],
+  311: { id:311, name:"Marshix", emoji:"🦛", types:["Earth","Aquatic"],
     base:{hp:105,atk:118,def:100,spa:78,spd:82,spe:62},
     learnset:[[1,"earthquake"],[1,"surf"],[22,"earth_power"],[30,"hydro_pump"],[38,"clay_armor"],[46,"bedrock_slam"],[54,"aqua_tail"],[62,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:222, rarity:"uncommon",
@@ -2411,14 +2409,14 @@ const MONSTERS_DATA = {
     lore:"Marshix is a large ground-water hippo-like creature 1.5 metres at the shoulder — Mudpump's slick mud-coating has set and hardened into a broad pale grey body with mud-brown legs, and the suction-pump snout of its calf form has widened for adult marsh-feeding. It spends most of its time submerged in shallow marsh water with only its eyes and nostrils above the surface. Its movements churn the marsh bottom, aerating the sediment beneficially." },
 
   // 2-stage Ground/Dark chain: Dunecrawl → Sandrix (level 32)
-  312: { id:312, name:"Dunecrawl", emoji:"🪨", types:["Ground","Dark"],
+  312: { id:312, name:"Dunecrawl", emoji:"🪨", types:["Earth","Dark"],
     base:{hp:55,atk:72,def:60,spa:52,spd:55,spe:70},
     learnset:[[1,"mud_shot"],[1,"bite"],[14,"earth_power"],[24,"night_slash"],[34,"earthquake"],[44,"dark_pulse"],[54,"eclipse_shroud"],[60,"hyper_beam"]],
     evolveTo:313, evolveLevel:32, catchRate:148, expYield:85, rarity:"common",
     desc:"A medium armadillo whose dark sand-coloured armour rolls into a perfect sphere. Buries itself under a thin layer of sand at dawn to disappear from view.",
     lore:"Dunecrawl is a medium armadillo 70 centimetres long with overlapping plates of dark sand-coloured armour that fit together perfectly when it rolls into a sphere — small enough to nest in the palm of a giant's hand. At night it unfurls and hunts insects and small reptiles across the dunes, and at dawn it rolls back into a ball and buries itself under a thin layer of sand, becoming indistinguishable from a dark stone among many." },
 
-  313: { id:313, name:"Sandrix", emoji:"🪨", types:["Ground","Dark"],
+  313: { id:313, name:"Sandrix", emoji:"🪨", types:["Earth","Dark"],
     base:{hp:88,atk:112,def:88,spa:75,spd:80,spe:98},
     learnset:[[1,"earthquake"],[1,"dark_pulse"],[26,"night_slash"],[34,"earth_power"],[42,"eclipse_shroud"],[50,"bedrock_slam"],[58,"soul_rend"],[66,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:225, rarity:"uncommon",
@@ -2434,7 +2432,7 @@ const MONSTERS_DATA = {
     desc:"The Legendary Storm Bird. Said to control all weather in Lumoria.",
     lore:"Galeaxis is a wind-electric creature 1 metre at the shoulder resembling a sleek greyhound whose pale grey body constantly trails streamers of compressed air and electric sparks. It runs at extraordinary speeds across open plains and its passage creates brief localised sonic booms as it exceeds natural air displacement limits." },
 
-  315: { id:315, name:"Ashvanus",   emoji:"🌋", types:["Fire","Rock"],
+  315: { id:315, name:"Ashvanus",   emoji:"🌋", types:["Fire","Earth"],
     base:{hp:113,atk:145,def:111,spa:102,spd:89,spe:50},
     learnset:[[1,"ember"],[1,"rock_throw"],[7,"flame_fang"],[14,"rock_slide"],[21,"magma_surge"],[28,"stone_edge"],[35,"ashfall"],[42,"flamethrower"],[49,"magma_rock"],[56,"fire_blast"],[63,"caldera_meltdown"],[70,"bedrock_slam"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
@@ -2451,7 +2449,7 @@ const MONSTERS_DATA = {
   // ===== NEW LUMOS IDs 108-167 =====
 
   // ===== ELECTRIC/ROCK =====
-  92: { id:92, name:"Arcspine", emoji:"⚡", types:["Electric","Rock"],
+  92: { id:92, name:"Arcspine", emoji:"⚡", types:["Electric","Earth"],
     base:{hp:62,atk:68,def:75,spa:48,spd:55,spe:41},
     learnset:[[1,"rock_throw",[22,"arc_flash"]],[1,"thunder_shock"],[10,"spark"],[18,"rock_slide"],[20,"recover"],[26,"thunderbolt"],[34,"stone_edge",[5,"thunder_wave"]],[36,"volt_surge"],[3,"static_cage"],[31,"ball_lightning"]],
     evolveTo:93, evolveLevel:30, catchRate:130, expYield:96, rarity:"common",
@@ -2467,7 +2465,7 @@ const MONSTERS_DATA = {
     lore:"Aeronyx is a sleek steel-dark bat 80 cm long with wings made of thin flexible metal alloy rather than membrane. Its body is dark gunmetal grey with blue-tinted metal plating. It slices through the air with minimal noise and can fold its metal wings to act as shields. It roosts on steel structures. Aeronyx will hold the wing-shield position for minutes at a time even with no apparent threat: an autonomic drill, written into the body, for the chrome-black armour Steelvex wears continuously." },
 
   // ===== FIRE/GROUND =====
-  19: { id:19, name:"Magmaurin", emoji:"🐾", types:["Fire","Ground"],
+  19: { id:19, name:"Magmaurin", emoji:"🐾", types:["Fire","Earth"],
     base:{hp:68,atk:70,def:59,spa:51,spd:43,spe:49},
     learnset:[[1,"ember",[22,"magma_surge"]],[1,"scratch"],[9,"mud_shot"],[17,"flame_fang"],[20,"leer"],[25,"earthquake"],[33,"flamethrower",[5,"scorch_veil"]],[36,"cinderwhirl"],[3,"embercloak"],[31,"wildfire_surge"]],
     evolveTo:20, evolveLevel:26, catchRate:150, expYield:92, rarity:"common",
@@ -2475,7 +2473,7 @@ const MONSTERS_DATA = {
     lore:"Magmaurin is a bear-sized stocky saurian with a rounded body half-coated in cooling lava plates. Its fur beneath the stone armour is singed brown. It lumbers through volcanic badlands, digging up mineral veins with massive clawed forearms, and rolls into a ball of cooled rock when threatened." },
 
   // ===== FAIRY/GRASS =====
-  72: { id:72, name:"Floralin", emoji:"🌸", types:["Fairy","Grass"],
+  72: { id:72, name:"Floralin", emoji:"🌸", types:["Fairy","Nature"],
     base:{hp:39,atk:35,def:40,spa:63,spd:65,spe:59},
     learnset:[[1,"tackle",[20,"stardust_veil"]],[1,"fairy_wind"],[8,"vine_whip"],[16,"dazzling_gleam"],[21,"leer"],[24,"razor_leaf"],[32,"moonblast",[5,"sweet_kiss"]],[36,"seed_bomb"],[3,"charm_bloom"],[31,"leaf_blade"]],
     evolveTo:73, evolveLevel:20, catchRate:220, expYield:70, rarity:"common",
@@ -2483,7 +2481,7 @@ const MONSTERS_DATA = {
     lore:"Floralin is a slender fairy-grass creature 70 cm tall resembling a humanoid formed from intertwined flower stems. Its body is pale green with pink blossoms open along its arms and crown. A trail of petals falls wherever it walks. It inhabits enchanted glades and dances in slow patterns that mirror the movement of the wind." },
 
   // ===== NORMAL/GROUND =====
-  104: { id:104, name:"Arenikin", emoji:"🐾", types:["Normal","Ground"],
+  104: { id:104, name:"Arenikin", emoji:"🐾", types:["Normal","Earth"],
     base:{hp:47,atk:63,def:55,spa:46,spd:32,spe:64},
     learnset:[[1,"tackle",[22,"sandstrike"]],[1,"growl"],[8,"mud_shot"],[16,"quick_attack"],[20,"clay_armor"],[24,"headbutt"],[32,"earthquake",[5,"tail_whip"]],[36,"boulder_roll"],[3,"leer"],[31,"mud_bomb"]],
     evolveTo:105, evolveLevel:22, catchRate:180, expYield:78, rarity:"common",
@@ -2531,7 +2529,7 @@ const MONSTERS_DATA = {
     lore:"Pearlith is a tiny pearl-mermaid fry about 12 centimetres long, curled comfortably inside a 20-centimetre barnacle-encrusted oyster shell that serves as both nursery and shelter. Its tiny pale-violet body has a soft humanoid torso and a stubby pearl-coloured tail tipped in delicate translucent fins; rose-gold luminescence pulses gently from its core, illuminating the shell from within. When threatened it tucks fully inside and snaps the shell closed with surprising force, becoming indistinguishable from an ordinary oyster among reef rocks. As it grows, fairy energy concentrates in its body until the shell can no longer contain it, and it emerges into the open sea as Undirael." },
 
   // ===== GRASS/DARK =====
-  78: { id:78, name:"Sylvnox", emoji:"🌿", types:["Grass","Dark"],
+  78: { id:78, name:"Sylvnox", emoji:"🌿", types:["Nature","Dark"],
     base:{hp:61,atk:62,def:48,spa:59,spd:54,spe:69},
     learnset:[[1,"vine_whip",[22,"root_lance"]],[1,"bite"],[10,"razor_leaf"],[18,"night_slash"],[26,"energy_ball"],[30,"grove_wrath"],[34,"crunch"],[42,"dark_pulse",[5,"sleep_powder"]],[3,"spore_burst"],[32,"void_rend"]],
     evolveTo:79, evolveLevel:30, catchRate:110, expYield:98, rarity:"common",
@@ -2539,7 +2537,7 @@ const MONSTERS_DATA = {
     lore:"Sylvnox is a small bark-skinned forest-sprite 60 cm tall, the youngest stage of the leshy lineage. Its body is bipedal and humanoid, wrapped in a fringed cloak of dark leaves and shadow-moss with two short twig-horns curling from its brow. Its amber eyes glow through the foliage-hood as it skitters through the undergrowth at twilight, drawing shadow-camouflage from the corrupted plants it touches. Travellers who hear its faint giggling among the trees rarely see it before it is gone." },
 
   // ===== POISON/GRASS =====
-  162: { id:162, name:"Marlix", emoji:"🌾", types:["Poison","Grass"],
+  162: { id:162, name:"Marlix", emoji:"🌾", types:["Poison","Nature"],
     base:{hp:55,atk:56,def:53,spa:59,spd:48,spe:66},
     learnset:[[1,"poison_sting",[22,"miasma_cloud"]],[1,"vine_whip"],[10,"sludge_bomb"],[18,"razor_leaf"],[26,"toxic"],[30,"petal_blitz"],[34,"energy_ball"],[42,"venoshock",[5,"toxic_surge"]],[3,"toxin_bloom"],[32,"sludge_wave"]],
     evolveTo:163, evolveLevel:28, catchRate:120, expYield:94, rarity:"common",
@@ -2563,7 +2561,7 @@ const MONSTERS_DATA = {
     lore:"Cranivade is a tall psychic-dark biped 1.3 metres tall with a smooth lavender-grey body and an oversized cranium that pulses with light when it concentrates. Its small hands trail crackling dark energy. It dredges suppressed memories from others without consent and catalogues them in its own vast mental archive. During its deepest archiving trances, the lavender-grey cranium of a Cranivade briefly turns translucent at the edges and flickers between dimensions; this momentary phase-shift is exactly the half-dimensional state Voidaxis inhabits permanently." },
 
   // ===== DARK/GRASS =====
-  130: { id:130, name:"Necralia", emoji:"🌿", types:["Dark","Grass"],
+  130: { id:130, name:"Necralia", emoji:"🌿", types:["Dark","Nature"],
     base:{hp:76,atk:72,def:79,spa:86,spd:74,spe:63},
     learnset:[[1,"bite",[24,"obsidian_fang"]],[1,"vine_whip"],[11,"night_slash"],[19,"razor_leaf"],[23,"recover"],[27,"crunch"],[35,"energy_ball"],[42,"nightmare_pulse"],[43,"dark_pulse"],[51,"shadow_ball",[5,"eclipse_shroud"]],[3,"dread_howl"],[37,"wicked_blow"]],
     evolveTo:131, evolveLevel:40, catchRate:65, expYield:178, rarity:"uncommon",
@@ -2571,7 +2569,7 @@ const MONSTERS_DATA = {
     lore:"Necralia is a plant-dark creature resembling a thorned bush 80 cm tall that has achieved mobility. Its branches are dark as charcoal and its leaves are deep burgundy-black with serrated edges. It creeps silently through forests, uprooting itself and relocating, and consumes fallen creatures to fuel its growth." },
 
   // ===== BUG/FAIRY =====
-  202: { id:202, name:"Sculptweave", emoji:"🕷️", types:["Bug","Fairy"],
+  202: { id:202, name:"Sculptweave", emoji:"🕷️", types:["Nature","Fairy"],
     base:{hp:34,atk:52,def:63,spa:58,spd:49,spe:85},
     learnset:[[1,"string_shot",[22,"silk_bind"]],[1,"fairy_wind"],[9,"bug_bite"],[17,"dazzling_gleam"],[20,"recover"],[25,"x_scissor"],[33,"moonblast",[5,"chitin_guard"]],[36,"swarm_dive"],[3,"compound_glare"],[31,"bug_buzz"]],
     evolveTo:203, evolveLevel:26, catchRate:160, expYield:84, rarity:"common",
@@ -2612,7 +2610,7 @@ const MONSTERS_DATA = {
 
   // ===== EVOLUTIONS (108+ referenced above) =====
 
-  93: { id:93, name:"Stonebolt", emoji:"🪨", types:["Electric","Rock"],
+  93: { id:93, name:"Stonebolt", emoji:"🪨", types:["Electric","Earth"],
     base:{hp:81,atk:98,def:92,spa:69,spd:57,spe:83},
     learnset:[[1,"rock_slide"],[2,"thunderbolt"],[3,"spark"],[4,"thunder_wave"],[31,"stone_edge"],[33,"volt_surge"],[35,"vital_pulse"],[40,"geode_burst"],[45,"earthquake"],[50,"thunder"],[55,"overcharge"],[60,"hyper_beam"],[5,"static_cage"],[39,"wild_charge"]],
     evolveTo:94, evolveLevel:44, catchRate:45, expYield:220, rarity:"uncommon",
@@ -2626,21 +2624,21 @@ const MONSTERS_DATA = {
     desc:"An iron-clad wraith bat. Its metallic screech disorients enemies from great distances.",
     lore:"Steelvex is a larger dark-steel bat 1.2 metres long — Aeronyx's gunmetal-grey alloy wings have broadened into the metallic shields that now catch and reflect light strangely, and the blue-tinted plating of its juvenile form has darkened to a chrome-black body. It has the habit of dismantling mechanical objects it finds — gears, clockwork, small machines — studying each component before reassembling them incorrectly." },
 
-  20: { id:20, name:"Embrath", emoji:"🦔", types:["Fire","Ground"],
+  20: { id:20, name:"Embrath", emoji:"🦔", types:["Fire","Earth"],
     base:{hp:97,atk:121,def:76,spa:69,spd:62,spe:64},
     learnset:[[1,"flame_fang"],[2,"mud_shot"],[3,"earthquake"],[4,"scorch_veil"],[30,"flamethrower"],[31,"battle_cry"],[36,"ashfall"],[41,"earth_power"],[46,"fissure_slam"],[51,"inferno"],[56,"fire_blast"],[61,"tectonic_slam"],[5,"embercloak"],[40,"scorched_earth"]],
     evolveTo:21, evolveLevel:44, catchRate:45, expYield:218, rarity:"uncommon",
     desc:"A lava-boring behemoth that carves tunnels with molten precision. Its spines erupt flame.",
     lore:"Embrath is a medium-sized spined lizard about 80 cm long — Magmaurin's stocky saurian frame has slimmed and lengthened for hunting, the lava-plate armour shed in favour of scales that still retain the charcoal grey and deep rust of its juvenile rock-coat. Heat-sensing pits line its snout. It hunts underground prey by detecting body heat through soil, then erupts from the ground in a burst of superheated air to stun its catch." },
 
-  73: { id:73, name:"Faelomis", emoji:"🌺", types:["Fairy","Grass"],
+  73: { id:73, name:"Faelomis", emoji:"🌺", types:["Fairy","Nature"],
     base:{hp:78,atk:60,def:65,spa:115,spd:89,spe:93},
     learnset:[[1,"fairy_wind"],[2,"dazzling_gleam"],[3,"vine_whip"],[4,"sweet_kiss"],[21,"razor_leaf"],[27,"tail_whip"],[29,"moonblast"],[34,"scratch"],[41,"moonveil"],[48,"celestial_wave"],[55,"energy_ball"],[62,"petal_blitz"],[5,"stardust_veil"],[42,"leaf_blade"]],
     evolveTo:74, evolveLevel:44, catchRate:60, expYield:195, rarity:"uncommon",
     desc:"A bloom fairy of extraordinary grace. Its petals carry healing magic on the breeze.",
     lore:"Faelomis is a tall graceful fairy-grass creature 1.2 metres tall — Floralin's pale-green stem-body has woven into interlocking flowering vines over a luminous inner core, and its pink arm-blossoms have unfurled into large bloom-wings that trail from its back, their petals reshaping continuously. It is drawn to locations where multiple ley lines intersect, feeding on ambient magical energy." },
 
-  105: { id:105, name:"Dravanas", emoji:"🐾", types:["Normal","Ground"],
+  105: { id:105, name:"Dravanas", emoji:"🐾", types:["Normal","Earth"],
     base:{hp:91,atk:108,def:71,spa:50,spd:62,spe:112},
     learnset:[[1,"mud_shot"],[2,"growl"],[22,"headbutt"],[28,"vital_pulse"],[29,"earthquake"],[33,"boulder_roll"],[34,"swords_dance"],[40,"wild_tumble"],[46,"momentum_rush"],[52,"body_slam"],[58,"earth_power"],[64,"hyper_beam"],[3,"tail_whip"],[42,"loam_leech"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:200, rarity:"uncommon",
@@ -2668,14 +2666,14 @@ const MONSTERS_DATA = {
     desc:"A sea nymph radiating both water and fairy energy. Said to protect lost sailors.",
     lore:"Undirael is a mermaid-like creature 1.5 metres tall — Pearlith's tiny pale-violet body has grown to full mermaid stature now that the oyster shell can no longer contain it, the lower half lengthened into a deep-sea fish-tail shimmering violet and the upper retaining the humanoid torso with rose-gold core-luminescence still pulsing faintly beneath the skin. Its flowing hair is made of water-weed adorned with living sea-stars. It guides lost sailors away from dangerous reefs by projecting alluring visions of safe harbours." },
 
-  79: { id:79, name:"Morraveth", emoji:"🌳", types:["Grass","Dark"],
+  79: { id:79, name:"Morraveth", emoji:"🌳", types:["Nature","Dark"],
     base:{hp:84,atk:101,def:80,spa:100,spd:72,spe:67},
     learnset:[[1,"razor_leaf"],[2,"energy_ball"],[3,"night_slash"],[4,"sleep_powder"],[31,"crunch"],[35,"harden"],[39,"dark_pulse"],[40,"photon_leaf"],[45,"shadow_ball"],[50,"blackout_bomb"],[55,"void_rend"],[60,"petal_blitz"],[5,"spore_burst"],[38,"leaf_blade"]],
     evolveTo:80, evolveLevel:44, catchRate:40, expYield:218, rarity:"uncommon",
     desc:"A dark vine predator that ensnares prey in shadow-infused tendrils. Ancient and cunning.",
     lore:"Morraveth is a mid-stage leshy 1 metre tall — Sylvnox's bark-skin has thickened into shoulder-plates of dark wood, and the twig-horns of its sprite-form have elongated into branching antler-buds. Withered vines coil around its forearms and its leaf-cloak has deepened to midnight green and black. It hunts by corrupting the plant growth around its prey into thorny barriers, gradually encircling the target before closing in from the shadows." },
 
-  163: { id:163, name:"Blightalis", emoji:"🪷", types:["Poison","Grass"],
+  163: { id:163, name:"Blightalis", emoji:"🪷", types:["Poison","Nature"],
     base:{hp:88,atk:80,def:60,spa:116,spd:83,spe:58},
     learnset:[[1,"sludge_bomb"],[2,"toxic"],[3,"poison_sting"],[4,"toxic_surge"],[28,"petal_blitz"],[31,"energy_ball"],[35,"growl"],[39,"venoshock"],[42,"battle_cry"],[49,"photon_leaf"],[56,"venom_lance"],[63,"root_lance"],[5,"toxin_bloom"],[43,"leaf_blade"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
@@ -2696,7 +2694,7 @@ const MONSTERS_DATA = {
     desc:"A void being of psychic and dark power. Consumes light and thought with equal ease.",
     lore:"Voidaxis is a large psychic-dark entity 1.5 metres tall whose body appears to exist partially in another dimension — Cranivade's lavender-grey biped silhouette persists at the form's centre with its oversized cranium still pulsing dimly, but its edges are blurred and its outline shifts when viewed peripherally, dissolving into half-dimensional shadow. Its presence makes nearby electronic devices malfunction. It communicates only through psychic projection and has never been heard to vocalise." },
 
-  203: { id:203, name:"Arachnalis", emoji:"🕸️", types:["Bug","Fairy"],
+  203: { id:203, name:"Arachnalis", emoji:"🕸️", types:["Nature","Fairy"],
     base:{hp:76,atk:64,def:73,spa:101,spd:89,spe:74},
     learnset:[[1,"dazzling_gleam"],[2,"x_scissor"],[3,"string_shot"],[30,"moonblast"],[31,"charm_bloom"],[34,"harden"],[38,"pheromone_rush"],[42,"wild_tumble"],[46,"gossamer_lance"],[50,"moonveil"],[54,"bug_buzz"],[58,"fae_requiem"],[4,"chitin_guard"],[37,"mandible_crush"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:318, rarity:"uncommon",
@@ -2742,14 +2740,14 @@ const MONSTERS_DATA = {
     lore:"Pyraxis is a tall bipedal saurian about 1.5 metres at the shoulder, walking upright on heavy hindlegs while its long upper limbs swing free or sweep forward to claw at prey. Hallucigaze's snake-headed silhouette is gone, but the violet psychic markings that pulsed along its flanks have spread to its underside, and its eyes still glow violet when focusing energy. Its scaled hide is flame-red across the back and deepens to violet down the underside; a stiff feathered ruff has begun to grow around its broadening jaw — the first hint of the leonine final form to come. Slitted pupils glow violet when it focuses, and its forelimbs leave faint heat shimmers in the air as it channels both thermal and psychic energy along their length. It stalks arid ruins on near-silent footfalls, locking prey in a brief telepathic shock before incinerating it with a concentrated jet of flame from the throat." },
 
   // ===== GRASS/ELECTRIC =====
-  75: { id:75, name:"Sylvolt", emoji:"🦌", types:["Grass","Electric"],
+  75: { id:75, name:"Sylvolt", emoji:"🦌", types:["Nature","Electric"],
     base:{hp:40,atk:63,def:39,spa:60,spd:54,spe:59},
     learnset:[[1,"vine_whip",[22,"volt_surge"]],[1,"thunder_shock"],[8,"razor_leaf"],[16,"spark"],[20,"recover"],[24,"energy_ball"],[32,"thunderbolt",[5,"sleep_powder"]],[36,"plasma_strike"],[3,"spore_burst"],[31,"petal_blitz"]],
     evolveTo:76, evolveLevel:22, catchRate:190, expYield:78, rarity:"common",
     desc:"A bright-green fawn with leaf-tipped antler buds that crackle with static. Bounds through underbrush leaving a faint trail of leaf-shed and sparks.",
     lore:"Sylvolt is a lithe forest fawn about 70 centimetres at the shoulder, with a coat of vivid green that shades into pale moss-yellow along its underbelly. Its short stubby antler-buds have not yet hardened into wood — instead, each is tipped with a small cluster of broad photosynthetic leaves striped in electric yellow, which crackle with static whenever they catch sunlight. It bounds through forest underbrush at remarkable speed, charging the leaf-buds in storm-laden afternoons and discharging tiny sparks into the soil along its trails." },
 
-  76: { id:76, name:"Sparkwood", emoji:"🌳", types:["Grass","Electric"],
+  76: { id:76, name:"Sparkwood", emoji:"🌳", types:["Nature","Electric"],
     base:{hp:81,atk:78,def:68,spa:111,spd:84,spe:68},
     learnset:[[1,"razor_leaf"],[2,"recover"],[3,"vine_whip"],[4,"volt_surge"],[5,"sleep_powder"],[22,"energy_ball"],[29,"thunderbolt"],[30,"swords_dance"],[38,"petal_blitz"],[46,"verdant_surge"],[54,"thunder"],[62,"hyper_beam"],[6,"spore_burst"],[42,"canopy_crash"]],
     evolveTo:77, evolveLevel:44, catchRate:45, expYield:318, rarity:"uncommon",
@@ -2757,14 +2755,14 @@ const MONSTERS_DATA = {
     lore:"Sparkwood is a 1.3-metre adolescent stag whose Sylvolt antler-buds have grown into a full crown of branching, bark-covered antlers — each rack 60 centimetres across, rough as old wood and shot through with crackling yellow electric veins. Its body has darkened into a rich forest-green coat with brown bark-textured plates along its shoulders and flanks. During storms it acts as a roaming lightning rod, absorbing strikes through the antlers and channelling the charge down through its hooves into the forest roots beneath, fertilising entire hillsides." },
 
   // ===== ROCK/DARK =====
-  132: { id:132, name:"Volcascale", emoji:"🪨", types:["Rock","Dark"],
+  132: { id:132, name:"Volcascale", emoji:"🪨", types:["Earth","Dark"],
     base:{hp:73,atk:69,def:75,spa:48,spd:62,spe:32},
     learnset:[[1,"rock_throw",[22,"obsidian_crash"]],[1,"bite"],[10,"headbutt"],[18,"crunch"],[26,"rock_slide"],[30,"landslide"],[34,"dark_pulse"],[42,"stone_edge",[5,"granite_wall"]],[3,"petrify_gaze"],[32,"quarry_crush"]],
     evolveTo:133, evolveLevel:30, catchRate:130, expYield:97, rarity:"common",
     desc:"A rock monster that absorbs shadow energy. Moves imperceptibly slow but hits with shattering force.",
     lore:"Volcascale is a spiny rock-dark creature 60 cm long resembling a horned lizard made of volcanic obsidian. Its body is jet black with razor-sharp ridges. It reflects almost no light. It inhabits old lava tubes and volcanic glass fields, and its presence is detected mainly by the sound of its obsidian scales clicking together." },
 
-  133: { id:133, name:"Monolithox", emoji:"🗿", types:["Rock","Dark"],
+  133: { id:133, name:"Monolithox", emoji:"🗿", types:["Earth","Dark"],
     base:{hp:102,atk:114,def:103,spa:62,spd:70,spe:39},
     learnset:[[1,"rock_slide"],[2,"landslide"],[3,"crunch"],[4,"granite_wall"],[31,"dark_pulse"],[35,"battle_cry"],[39,"stone_edge"],[40,"abyssal_snare"],[45,"shadow_ball"],[50,"blackout_bomb"],[55,"earthquake"],[60,"hyper_beam"],[5,"petrify_gaze"],[38,"malice_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:230, rarity:"uncommon",
@@ -2772,14 +2770,14 @@ const MONSTERS_DATA = {
     lore:"Monolithox is a hulking obsidian saurian 3 metres tall — Volcascale's obsidian horned-lizard frame has grown massive and its sharp-ridged back has fused into a towering monolithic plate-shell. It appears to be a standing stone until it moves; the basalt-dark plate is nearly featureless except for two deep-set glowing red eyes set in a low-slung saurian skull. It moves extremely slowly but is virtually indestructible, its body having the hardness of natural obsidian." },
 
   // ===== POISON/BUG =====
-  164: { id:164, name:"Blightmite", emoji:"🐛", types:["Poison","Bug"],
+  164: { id:164, name:"Blightmite", emoji:"🐛", types:["Poison","Nature"],
     base:{hp:56,atk:37,def:55,spa:65,spd:52,spe:30},
     learnset:[[1,"poison_sting",[20,"venom_lance"]],[1,"string_shot"],[8,"bug_bite"],[16,"sludge_bomb"],[21,"recover"],[24,"x_scissor"],[32,"toxic",[5,"toxic_surge"]],[36,"sonic_buzz"],[3,"toxin_bloom"],[31,"mandible_crush"]],
     evolveTo:165, evolveLevel:20, catchRate:220, expYield:65, rarity:"common",
     desc:"A larva coated in toxic slime. Leaves a trail of venom wherever it crawls.",
     lore:"Blightmite is a small caterpillar-like poison-bug creature 10 cm long. Its body is dark purple-black with short bristle-hairs that release toxins on contact. It feeds on the toxic leaves that other creatures avoid, sequestering their poisons into its own body and becoming increasingly dangerous as it eats." },
 
-  165: { id:165, name:"Venowarn", emoji:"🦋", types:["Poison","Bug"],
+  165: { id:165, name:"Venowarn", emoji:"🦋", types:["Poison","Nature"],
     base:{hp:77,atk:69,def:57,spa:106,spd:84,spe:92},
     learnset:[[1,"sludge_bomb"],[2,"toxic_surge"],[20,"recover"],[25,"quick_attack"],[29,"toxic"],[30,"nerve_agent"],[35,"venoshock"],[40,"air_slash"],[45,"putrid_pulse"],[50,"acid_rain"],[55,"cocoon_burst"],[60,"bug_buzz"],[3,"toxin_bloom"],[39,"leech_life"]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:185, rarity:"uncommon",
@@ -2787,14 +2785,14 @@ const MONSTERS_DATA = {
     lore:"Venowarn is a large poison-bug butterfly with a 50 cm wingspan — Blightmite's dark purple-black caterpillar body has metamorphosed into deep black wings, with the bristle-hair toxin now sequestered into vivid purple warning patterns. It releases a cloud of toxic scales when startled, and the scales cause skin irritation and respiratory distress in creatures that inhale them. It inhabits dense poisonous forest regions." },
 
   // ===== STEEL/GROUND =====
-  153: { id:153, name:"Dentshaft", emoji:"⚙️", types:["Metal","Ground"],
+  153: { id:153, name:"Dentshaft", emoji:"⚙️", types:["Metal","Earth"],
     base:{hp:60,atk:63,def:85,spa:30,spd:50,spe:35},
     learnset:[[1,"metal_claw",[22,"forge_strike"]],[1,"mud_shot"],[9,"harden"],[17,"flash_cannon"],[20,"tail_whip"],[25,"earthquake"],[33,"iron_tail",[5,"magnetize"]],[36,"boulder_roll"],[3,"ironskin"],[31,"scorched_earth"]],
     evolveTo:154, evolveLevel:26, catchRate:160, expYield:90, rarity:"common",
     desc:"A small ore elemental born in deep mine shafts. Tough as iron and twice as stubborn.",
     lore:"Dentshaft is a compact steel-ground creature 60 cm tall shaped like a short humanoid miner. Its steel body is scuffed and dented from constant digging. It uses its broad flat hands as shovels to excavate ore veins. It never stops working — even while dormant it taps at nearby rock surfaces reflexively. Every handful of ore a Dentshaft processes leaves a microscopic amount of metal and earth bonded into its body. The slow accretion compounds across years of mine-work into the 2.5-metre golem frame Terragolem eventually attains." },
 
-  154: { id:154, name:"Terragolem", emoji:"🤖", types:["Metal","Ground"],
+  154: { id:154, name:"Terragolem", emoji:"🤖", types:["Metal","Earth"],
     base:{hp:95,atk:108,def:116,spa:52,spd:79,spe:30},
     learnset:[[1,"flash_cannon"],[2,"earthquake"],[3,"magnetize"],[30,"iron_tail"],[31,"battle_cry"],[34,"loam_leech"],[38,"rock_slide"],[42,"temper_edge"],[46,"body_slam"],[50,"earth_power"],[54,"tungsten_ram"],[58,"anvil_drop"],[4,"ironskin"],[37,"magnitude"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:222, rarity:"uncommon",
@@ -2802,14 +2800,14 @@ const MONSTERS_DATA = {
     lore:"Terragolem is a massive steel-ground golem 2.5 metres tall — Dentshaft's dented-and-scuffed humanoid miner-frame has expanded into a tremendous assembly of metal and compressed earth, and the reflexive surface-tapping of its juvenile form has become a deep tremor through the ground with every step. The ground trembles slightly with each of its steps. It is largely indifferent to the world around it and moves at its own slow pace, but obstacles that cannot be sidestepped are simply absorbed." },
 
   // ===== DRAGON/GROUND =====
-  106: { id:106, name:"Geodrak", emoji:"🐣", types:["Draconic","Ground"],
+  106: { id:106, name:"Geodrak", emoji:"🐣", types:["Draconic","Earth"],
     base:{hp:40,atk:59,def:63,spa:57,spd:42,spe:64},
     learnset:[[1,"scratch",[22,"terra_spike"]],[1,"dragon_breath"],[10,"mud_shot"],[18,"dragon_claw"],[20,"tail_whip"],[26,"earthquake"],[34,"dragon_pulse",[5,"dragon_dance"]],[36,"sinkhole_maw"],[3,"draconic_roar"],[31,"dragon_rush"]],
     evolveTo:107, evolveLevel:32, catchRate:80, expYield:94, rarity:"uncommon",
     desc:"A burrowing dragon hatchling. Digs deep tunnels and breathes sand-laden gusts.",
     lore:"Geodrak is a hatchling dragon about 40 cm long with rough grey-brown scales and two stumpy wing-buds on its back. Its small claws are already powerful diggers. It hatches from eggs buried in volcanic soil and immediately begins tunnelling to locate its first mineral meal. Newly-hatched Geodrak often gather at cave mouths and spread their stumpy wing-buds toward the open sky. The preparation is futile; Quakeon, the mature ground-dragon they grow into, only ever achieves short downhill glides. True flight remains a hereditary aspiration this evolution will never fulfil." },
 
-  107: { id:107, name:"Quakeon", emoji:"🐲", types:["Draconic","Ground"],
+  107: { id:107, name:"Quakeon", emoji:"🐲", types:["Draconic","Earth"],
     base:{hp:86,atk:108,def:96,spa:94,spd:64,spe:69},
     learnset:[[1,"dragon_claw"],[2,"earthquake"],[3,"dragon_dance"],[32,"dragon_pulse"],[36,"battle_cry"],[40,"draconic_roar"],[44,"tremor_stomp"],[48,"earth_power"],[52,"eon_crash"],[56,"ancient_breath"],[60,"outrage"],[64,"hyper_beam"],[4,"primordial_roar"],[39,"scale_storm"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:260, rarity:"rare",
@@ -2832,14 +2830,14 @@ const MONSTERS_DATA = {
     lore:"Aetherflock is a medium psychic sheep 70 cm at the shoulder — Woolcalm's soft white wool has thickened and lightened to silvery-white that drifts gently in an invisible wind even in still air, and the faint static charge of its juvenile fleece now manifests as a soft night-glow. Entire flocks graze on isolated mountain plateaux and are said to collectively generate powerful psychic fields." },
 
   // ===== BUG/GROUND =====
-  204: { id:204, name:"Muddite", emoji:"🪲", types:["Bug","Ground"],
+  204: { id:204, name:"Muddite", emoji:"🪲", types:["Nature","Earth"],
     base:{hp:62,atk:68,def:73,spa:34,spd:35,spe:45},
     learnset:[[1,"bug_bite",[22,"chitin_guard"]],[1,"mud_shot"],[10,"string_shot"],[18,"x_scissor"],[20,"leer"],[26,"earthquake"],[34,"bug_buzz",[5,"compound_glare"]],[36,"swarm_dive"],[3,"moth_dust"],[31,"magnitude"]],
     evolveTo:205, evolveLevel:24, catchRate:170, expYield:88, rarity:"common",
     desc:"A burrowing beetle that lives in dry earth. Its mandibles can crack solid rock.",
     lore:"Muddite is a small grub-like bug creature 6 cm long with a soft muddy-brown body and short digging limbs. It lives entirely in clay-rich soil and packs mud around itself to form a protective case when threatened. It is an important aerator of heavy clay soils and supports plant root growth." },
 
-  205: { id:205, name:"Quarrix", emoji:"🪲", types:["Bug","Ground"],
+  205: { id:205, name:"Quarrix", emoji:"🪲", types:["Nature","Earth"],
     base:{hp:90,atk:108,def:93,spa:68,spd:58,spe:65},
     learnset:[[1,"x_scissor"],[2,"string_shot"],[24,"earthquake"],[29,"swords_dance"],[31,"bug_buzz"],[34,"sandstrike"],[39,"rock_slide"],[44,"mandible_crush"],[49,"cocoon_burst"],[54,"earth_power"],[59,"stone_edge"],[64,"hyper_beam"],[3,"chitin_guard"],[41,"drill_run"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
@@ -2883,7 +2881,7 @@ const MONSTERS_DATA = {
     desc:"The Legendary Veil of Time. Said to exist at the crossing point of past and future.",
     lore:"Temporith is a psychic-dragon 3 metres long whose scales appear to flicker between states of existence — slightly out of phase with the present moment. Its outline is never quite sharp. It inhabits places where history is dense — ancient battlefields, old libraries — feeding on residual temporal energy." },
 
-  318: { id:318, name:"Gaiavorn", emoji:"🌍", types:["Ground","Grass"],
+  318: { id:318, name:"Gaiavorn", emoji:"🌍", types:["Earth","Nature"],
     base:{hp:103,atk:125,def:104,spa:92,spd:89,spe:75},
     learnset:[[1,"mud_shot"],[1,"vine_whip"],[7,"sandstrike"],[14,"razor_leaf"],[21,"earth_power"],[28,"seed_bomb"],[35,"clay_armor"],[42,"briar_lash"],[49,"earthquake"],[56,"grove_wrath"],[63,"worldseed_quake"],[70,"verdant_surge"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
@@ -2941,14 +2939,14 @@ const MONSTERS_DATA = {
     desc:"A heavyset wild boar whose back-bristles have hardened into a ridge of quill-like spines. Constantly forages, scattering seeds wherever its winter caches are forgotten.",
     lore:"Plentorus is a heavyset wild boar around 90 cm at the shoulder, the fully grown form of the Norindel lineage. Its broad chest and broad sensitive snout still recognise it as a true suidae, but the soft pink hide of its juvenile stage has darkened to a coarse pale-brown coat — and the bristles along its spine, shoulders, and rump have stiffened over the seasons into rows of sharp quill-like spines tipped in cream. It forages constantly through forest underbrush and builds elaborate winter larders, hiding food in dozens of separate caches; it rarely remembers them all, and the forgotten ones germinate the following spring into thickets that mark its old territories." },
 
-  194: { id:194, name:"Lithomere", emoji:"🦀", types:["Rock","Aquatic"],
+  194: { id:194, name:"Lithomere", emoji:"🦀", types:["Earth","Aquatic"],
     base:{hp:95,atk:100,def:115,spa:72,spd:85,spe:75},
     learnset:[[1,"scratch"],[1,"water_gun"],[2,"aqua_tail"],[3,"stalactite_drop"],[4,"harden"],[39,"rock_slide"],[43,"hydro_pump"],[47,"stone_edge"],[52,"tidal_crush"],[56,"crystal_lance"],[60,"sea_serpent_strike"],[64,"quarry_crush"],[5,"tidecaller"],[42,"swords_dance"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:248, rarity:"rare",
     desc:"A colossal ancient shore titan. Its shell is older than recorded history, layered with oceanic minerals.",
     lore:"Lithomere is a crab-like rock-water creature 60 cm across with a shell of compressed coastal rock — Rugothon's massive barnacle-encrusted carapace has compressed down through dense mineral deposition into a smaller but far denser shell, and the eight digging legs have shortened into wedge-shaped braces that lock its body into rock crevices during low tide, sealing gaps with a secreted mineral cement. Its shell grows thicker with each passing year." },
 
-  196: { id:196, name:"Frigolith", emoji:"💎", types:["Rock","Ice"],
+  196: { id:196, name:"Frigolith", emoji:"💎", types:["Earth","Ice"],
     base:{hp:87,atk:77,def:127,spa:103,spd:108,spe:48},
     learnset:[[1,"powder_snow"],[1,"stalactite_drop"],[2,"ice_beam"],[3,"rock_slide"],[4,"harden"],[41,"blizzard"],[45,"stone_edge"],[49,"crystal_lance"],[53,"icicle_crash"],[57,"glacial_tomb"],[61,"quarry_crush"],[65,"cryo_lance"],[5,"permafrost"],[43,"harden"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:258, rarity:"rare",
@@ -2962,7 +2960,7 @@ const MONSTERS_DATA = {
     desc:"A sovereign of sky and sea. It breaches into storm clouds and dives into ocean trenches with equal majesty.",
     lore:"Marevanos is a winged cetacean 6 metres long whose flat broad head and pectoral wing-fins retain the manta silhouette of Gossafin's juvenile form; its streamlined blue-grey body trails into a powerful tail, and its wing-fins catch both wind and water. It breaches spectacularly, launching fully airborne and gliding long distances. Sailors consider spotting it a good-weather omen." },
 
-  131: { id:131, name:"Necrothon", emoji:"🌑", types:["Dark","Grass"],
+  131: { id:131, name:"Necrothon", emoji:"🌑", types:["Dark","Nature"],
     base:{hp:94,atk:89,def:99,spa:104,spd:90,spe:74},
     learnset:[[1,"bite"],[1,"vine_whip"],[2,"dark_pulse"],[3,"seed_bomb"],[4,"eclipse_shroud"],[41,"shadow_ball"],[45,"petal_blitz"],[49,"night_slash"],[53,"verdant_surge"],[57,"abyssal_snare"],[61,"soul_rend"],[65,"dread_howl"],[5,"mycelia_net"],[46,"swords_dance"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:262, rarity:"rare",
@@ -2987,7 +2985,7 @@ const MONSTERS_DATA = {
     lore:"Inferarch is an enormous fire-moth nearly 1.5 metres across the wings — the imago that finally splits Heliocoon's shell. Its slender body is banded in deep black; the upper wings flare with crimson, gold, and ash-rimmed eyespots that catch firelight when it rests, while the undersides shed a constant powder of ember-grey scales. Each broad wingbeat draws in cool air and releases it as a column of superheated wind that becomes its own thermal — Inferarch can drift silently above caldera fields for hours without descending. It feeds at night on the nectar of fire-blossoms that bloom only in geothermal soil, and the smouldering pollen it carries between flowers is responsible for the rapid spread of those heat-loving plants." },
 
   // 179: Pyroclasm - Fire/Rock (Taurcin→Molteroth→Pyroclasm)
-  15: { id:15, name:"Pyroclasm", emoji:"🌋", types:["Fire","Rock"],
+  15: { id:15, name:"Pyroclasm", emoji:"🌋", types:["Fire","Earth"],
     base:{hp:102,atk:126,def:107,spa:86,spd:72,spe:57},
     learnset:[[1,"headbutt"],[1,"magma_surge"],[2,"flamethrower"],[3,"scorch_veil"],[4,"rock_slide"],[38,"heat_wave"],[42,"stone_edge"],[46,"fire_blast"],[50,"stalactite_drop"],[54,"inferno"],[58,"quarry_crush"],[62,"solar_flare"],[5,"embercloak"],[44,"ashfall"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
@@ -3003,7 +3001,7 @@ const MONSTERS_DATA = {
     lore:"Bahamber is a serpentine fire dragon 6 metres long that coils tightly around rocky spires to sleep — Searburn's scarlet-and-black scales have darkened further to amber-and-black overlapping like armour, and the backward-swept horns of its juvenile form have grown forward into twin crests of blue-tipped flame crowning its narrow skull. Vast wings fold along its serpentine length when at rest, almost invisible against its scales but capable of sweeping fire across a hillside when unfurled. It breathes a spiralling helix of fire able to bore through solid stone." },
 
   // 181: Terravore - Fire/Ground (Magmaurin→Pyroterrath→Terravore)
-  21: { id:21, name:"Terravore", emoji:"🦎", types:["Fire","Ground"],
+  21: { id:21, name:"Terravore", emoji:"🦎", types:["Fire","Earth"],
     base:{hp:100,atk:134,def:89,spa:79,spd:74,spe:74},
     learnset:[[1,"flame_fang"],[1,"earthquake"],[2,"magma_surge"],[3,"scorched_earth"],[4,"scorch_veil"],[38,"flamethrower"],[42,"earth_power"],[46,"fire_blast"],[50,"ashfall"],[54,"inferno"],[58,"sand_geyser"],[62,"solar_flare"],[5,"embercloak"],[44,"blazing_rush"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:260, rarity:"rare",
@@ -3019,7 +3017,7 @@ const MONSTERS_DATA = {
     lore:"Ignitheon is a regal lion-like psychic-fire creature 2 metres long — Pyraxis's stiff feathered ruff has bloomed into a full mane of living fire that changes colour with its emotional state (gold when calm, white when enraged), and the violet psychic markings of its juvenile flanks still pulse along its sides. It guards ancient flame temples and is said to judge challengers before allowing passage." },
 
   // 183: Tidalossus - Aquatic/Rock (Coralix→Aquidon→Tidalossus)
-  27: { id:27, name:"Tidalossus", emoji:"🦞", types:["Aquatic","Rock"],
+  27: { id:27, name:"Tidalossus", emoji:"🦞", types:["Aquatic","Earth"],
     base:{hp:92,atk:121,def:126,spa:67,spd:82,spe:62},
     learnset:[[1,"scratch"],[1,"surf"],[2,"tidecaller"],[3,"stalactite_drop"],[4,"rock_slide"],[38,"aqua_tail"],[42,"stone_edge"],[46,"tidal_crush"],[50,"crystal_lance"],[54,"hydro_pump"],[58,"quarry_crush"],[62,"sea_serpent_strike"],[5,"deepwater_hymn"],[44,"coral_barrage"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
@@ -3059,7 +3057,7 @@ const MONSTERS_DATA = {
     lore:"Thalassira is the radiant sovereign of the world's oceans, a regal sea-fairy queen 4 metres from crown to tail-tip with the upper body of a tall ethereal humanoid and a long sweeping fin-tail of iridescent ocean-blue and silver. From her shoulders unfurl two pairs of translucent fairy wings — gossamer in air and webbed for swift propulsion underwater. Strands of her flowing water-weed hair are woven with constellations of living sea-stars, and her crown is a single colossal pearl-fragment formed from the same fairy energy that quickened her in her Pearlith stage. She guards hidden underwater groves where rare magical plants grow undisturbed, and sailors who see her are blessed with eternal safe passage." },
 
   // 188: Mycovast - Grass/Poison (Sporix→Myceloth→Mycovast)
-  65: { id:65, name:"Mycovast", emoji:"🍄", types:["Grass","Poison"],
+  65: { id:65, name:"Mycovast", emoji:"🍄", types:["Nature","Poison"],
     base:{hp:98,atk:109,def:103,spa:108,spd:88,spe:44},
     learnset:[[1,"energy_ball"],[1,"sludge_bomb"],[2,"spore_burst"],[3,"toxic"],[4,"sleep_powder"],[38,"petal_blitz"],[42,"venom_lance"],[46,"verdant_surge"],[50,"sludge_wave"],[54,"venoshock"],[58,"canopy_crash"],[62,"acid_rain"],[5,"mycelia_net"],[44,"corrosion_fang"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
@@ -3067,7 +3065,7 @@ const MONSTERS_DATA = {
     lore:"Mycovast is a hulking fungal creature 2 metres tall — Myceloth's translucent humanoid frame has thickened into a thick, barrel-like body and the wide flat cap of its earlier form has multiplied into overlapping shelf-fungus plates. Purple, green, and white tones mottle its surface. It generates a continuous cloud of toxic spores around itself and moves with surprising speed for its size when defending its spore territory." },
 
   // 189: Rootvorn - Grass/Ground (Viridix→Terravin→Rootvorn)
-  68: { id:68, name:"Rootvorn", emoji:"🐌", types:["Grass","Ground"],
+  68: { id:68, name:"Rootvorn", emoji:"🐌", types:["Nature","Earth"],
     base:{hp:98,atk:118,def:104,spa:93,spd:88,spe:49},
     learnset:[[1,"razor_leaf"],[1,"earthquake"],[2,"seed_bomb"],[3,"root_lance"],[4,"sleep_powder"],[38,"energy_ball"],[42,"earth_power"],[46,"petal_blitz"],[50,"verdant_surge"],[54,"sand_geyser"],[58,"canopy_crash"],[62,"scorched_earth"],[5,"spore_burst"],[44,"briar_lash"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
@@ -3075,7 +3073,7 @@ const MONSTERS_DATA = {
     lore:"Rootvorn is a colossal ancient snail nearly 3 metres tall at the shell's apex, with a body that extends another 4 metres when fully out of the shell — Loamvin's bark-and-moss-overgrown shell has expanded and been so deeply colonised over centuries that it now resembles a mossy hill — thick roots from full-grown saplings have driven down through the shell's surface and clutched it like a living crown, and a complete miniature canopy of broad leaves shades the back of its body. Its eyestalks are 1-metre wood-coloured stalks tipped in twin amber gleams, raised cautiously above the canopy when it senses motion. It uproots itself only at night, dragging its forested shell to a new location before dawn, and is believed to reorganise the layout of entire woodlands over decades — wherever it has travelled, new groves take root from the seeds shed by its passing." },
 
   // 190: Verdovast - Grass (Germix→Verdurus→Verdovast)
-  71: { id:71, name:"Verdovast", emoji:"🌳", types:["Grass"],
+  71: { id:71, name:"Verdovast", emoji:"🌳", types:["Nature"],
     base:{hp:109,atk:123,def:88,spa:113,spd:88,spe:29},
     learnset:[[1,"tackle"],[1,"vine_whip"],[2,"energy_ball"],[3,"sleep_powder"],[4,"seed_bomb"],[38,"petal_blitz"],[42,"swords_dance"],[46,"canopy_crash"],[50,"verdant_surge"],[54,"body_slam"],[58,"briar_lash"],[62,"photon_leaf"],[5,"spore_burst"],[44,"root_lance"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
@@ -3083,7 +3081,7 @@ const MONSTERS_DATA = {
     lore:"Verdovast is a colossal ancient seed-pod 2.5 metres tall — Verdurus's split walking seed-pod has grown enormous and its surface is now so deeply grown over with saplings, vines, blossoms, and a small ecosystem of moss and tendrils that the original seed-husk is barely visible. Older Verdovast resemble walking gardens, with tiny trees growing from their shoulders and back, fruit ripening among the branches, and small creatures nesting in the foliage they carry. It walks slowly across forests on broad root-feet, dropping fertile seeds at every step, and patches of new growth — eventually entire grove ecosystems — spring up wherever it has lingered." },
 
   // 191: Morralyn - Grass/Dark (Sylvnox→Morraveth→Morralyn)
-  80: { id:80, name:"Morralyn", emoji:"🪵", types:["Grass","Dark"],
+  80: { id:80, name:"Morralyn", emoji:"🪵", types:["Nature","Dark"],
     base:{hp:98,atk:122,def:97,spa:117,spd:87,spe:29},
     learnset:[[1,"razor_leaf"],[1,"night_slash"],[2,"energy_ball"],[3,"dark_pulse"],[4,"sleep_powder"],[38,"petal_blitz"],[42,"shadow_ball"],[46,"void_rend"],[50,"verdant_surge"],[54,"soul_rend"],[58,"canopy_crash"],[62,"eclipse_shroud"],[5,"spore_burst"],[44,"abyssal_snare"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
@@ -3091,7 +3089,7 @@ const MONSTERS_DATA = {
     lore:"Morralyn is the ancient leshy-lord of corrupted groves, a towering 1.8-metre bark-skinned forest-spirit — Morraveth's branching antler-buds have grown into a full crown of branching black antlers, and a long vine-beard hung with hollow seedpods has matured below. Dead foliage and dark moss cover the heavy bark-armour plates of its body, and a faint aura of decay accelerates the decomposition of fallen material around it, enriching the soil it walks upon. It is said that the deepest, most shadow-tangled groves of Lumoria are still ruled by patriarchal Morralyn who have not been seen by human eyes in centuries." },
 
   // 192: Faevernal - Fairy/Grass (Floralin→Faelomis→Faevernal)
-  74: { id:74, name:"Faevernal", emoji:"🌸", types:["Fairy","Grass"],
+  74: { id:74, name:"Faevernal", emoji:"🌸", types:["Fairy","Nature"],
     base:{hp:93,atk:77,def:82,spa:137,spd:108,spe:53},
     learnset:[[1,"fairy_wind"],[1,"vine_whip"],[2,"dazzling_gleam"],[3,"moonblast"],[4,"sweet_kiss"],[38,"celestial_wave"],[42,"petal_blitz"],[46,"glitter_storm"],[50,"verdant_surge"],[54,"fae_requiem"],[58,"energy_ball"],[62,"moonveil"],[5,"stardust_veil"],[44,"sleep_powder"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
@@ -3099,7 +3097,7 @@ const MONSTERS_DATA = {
     lore:"Faevernal is a regal fairy-grass entity 1.8 metres tall — Faelomis's interlocking flowering vines have given way to a humanoid wreathed in cascading blossoms, the bloom-wings expanded into flowing cape-wings of enormous tropical petals, and the inner core crowned by living golden flowers. Ancient nature spirits are believed to incarnate within it during spring equinox festivals." },
 
   // 193: Junglevolt - Grass/Electric (Sylvolt→Arborvolt→Junglevolt)
-  77: { id:77, name:"Thorncharge", emoji:"⚡", types:["Grass","Electric"],
+  77: { id:77, name:"Thorncharge", emoji:"⚡", types:["Nature","Electric"],
     base:{hp:92,atk:98,def:82,spa:132,spd:98,spe:48},
     learnset:[[1,"razor_leaf"],[1,"thunderbolt"],[2,"energy_ball"],[3,"volt_surge"],[4,"sleep_powder"],[38,"thunder"],[42,"petal_blitz"],[46,"verdant_surge"],[50,"plasma_strike"],[54,"canopy_crash"],[58,"ion_cannon"],[62,"arc_flash"],[5,"spore_burst"],[44,"charge_burst"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
@@ -3115,7 +3113,7 @@ const MONSTERS_DATA = {
     lore:"Voltanox is a powerful electric stallion 1.6 metres at the shoulder — Galvanos's golden-yellow hide has darkened to dark charcoal marked by bright yellow lightning-bolt patterns along each flank and shoulder. Its broad chest and heavy musculature suggest a destrier or clydesdale-sized warhorse, and its long mane and tail crackle constantly with stored electrical charge. Two short forward-curving forehead-spurs act as capacitor tips, building enormous charges that release in arcs when it lowers its head and charges; the impact of its hooves on the ground can send visible shockwaves through metal surfaces nearby. Cities through which it briefly gallops are lit as bright as day for the moments of its passing." },
 
   // 195: Zapoveth - Electric/Bug (Electrix→Voltharpe→Zapoveth)
-  86: { id:86, name:"Galvaglide", emoji:"🪰", types:["Electric","Bug"],
+  86: { id:86, name:"Galvaglide", emoji:"🪰", types:["Electric","Nature"],
     base:{hp:84,atk:89,def:69,spa:129,spd:84,spe:95},
     learnset:[[1,"thunder_shock"],[1,"bug_buzz"],[2,"thunderbolt"],[3,"x_scissor"],[4,"thunder_wave"],[38,"thunder"],[42,"volt_surge"],[46,"swarm_dive"],[50,"plasma_strike"],[54,"mandible_crush"],[58,"ion_cannon"],[62,"stinger_volley"],[5,"static_cage"],[44,"silk_bind"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
@@ -3131,7 +3129,7 @@ const MONSTERS_DATA = {
     lore:"Surgolith is a colossal electric eel-like leviathan over 4 metres long — Sparkrel's silver-blue developing form has darkened to a dark blue-black body marked by bands of bright yellow that pulse with stored electricity along its full length. Two long whiskers below its jaw act as ultra-sensitive electroreceptors, mapping every fish in the deep waters around it. It lives perched coiled around deep-sea volcanic thermal vents, drawing on the differential between hot and cold water to power its movements without needing to hunt for energy. When threatened, it discharges columns of electrified water in any direction, and the surrounding sea briefly glows with cascading currents." },
 
   // 197: Petrovast - Electric/Rock (Voltrix→Petravolt→Petrovast)
-  94: { id:94, name:"Petrovast", emoji:"⛰️", types:["Electric","Rock"],
+  94: { id:94, name:"Petrovast", emoji:"⛰️", types:["Electric","Earth"],
     base:{hp:98,atk:117,def:112,spa:82,spd:73,spe:68},
     learnset:[[1,"rock_slide"],[1,"thunderbolt"],[2,"spark"],[3,"stone_edge"],[4,"thunder_wave"],[38,"thunder"],[42,"earthquake"],[46,"volt_surge"],[50,"crystal_lance"],[54,"stalactite_drop"],[58,"ion_cannon"],[62,"quarry_crush"],[5,"static_cage"],[44,"temper_edge"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
@@ -3139,7 +3137,7 @@ const MONSTERS_DATA = {
     lore:"Petrovast is a colossal ancient rock-echidna 2 metres at the shoulder — Stonebolt's stone-grey plate-quills have thickened further into a body entirely encased in interlocking basalt-coloured plates between which vivid electrical arcs constantly discharge. Its forelimbs end in massive blunt digging claws capable of carving through bedrock, and the row of plate-spurs along its back crackles with the stored charge of years of weathered storms. Its weight builds up so much ground contact that it is almost impossible to move once it has settled into a position; herds of Petrovast are rarely seen — most are encountered as solitary sentinels guarding the same mountain pass for decades." },
 
   // 198: Tectonvast - Ground/Rock (Terrakin→Seismith→Tectonvast)
-  97: { id:97, name:"Tectonvast", emoji:"🦏", types:["Ground","Electric"],
+  97: { id:97, name:"Tectonvast", emoji:"🦏", types:["Earth","Electric"],
     base:{hp:111,atk:136,def:116,spa:57,spd:73,spe:57},
     learnset:[[1,"earthquake"],[1,"thunderbolt"],[2,"headbutt"],[3,"earth_power"],[4,"stone_edge"],[38,"ball_lightning"],[42,"crystal_lance"],[46,"sand_geyser"],[50,"overcharge"],[54,"scorched_earth"],[58,"fissure_slam"],[62,"body_slam"],[5,"clay_armor"],[44,"temper_edge"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
@@ -3147,7 +3145,7 @@ const MONSTERS_DATA = {
     lore:"Tectonvast is a massive rhino-titan 2 metres at the shoulder — Seismith's iron-and-copper-veined plates have grown across its grey-brown hide into heavy sheathing-armour of iron-veined earth, deeply furrowed and crackling with static potential built up over decades of seismic march. Its single horn — a column of compressed mineral over 40 centimetres long — glows white-hot at the tip when it lowers its head to charge, releasing the stored charge through whatever it strikes in a clap of grounded thunder. Seismic activity follows it wherever it walks, but unlike its ancestors the air around it carries the metallic tang of ozone, and skies darken overhead as storms are drawn to the metal in its hide." },
 
   // 199: Geovenomvast - Ground/Poison (Aridix→Geovenoth→Geovenomvast)
-  100: { id:100, name:"Craterlurk", emoji:"🦂", types:["Ground","Poison"],
+  100: { id:100, name:"Craterlurk", emoji:"🦂", types:["Earth","Poison"],
     base:{hp:89,atk:119,def:89,spa:105,spd:99,spe:49},
     learnset:[[1,"poison_sting"],[1,"earthquake"],[2,"venom_lance"],[3,"earth_power"],[4,"toxic"],[38,"sludge_wave"],[42,"miasma_cloud"],[46,"scorched_earth"],[50,"acid_rain"],[54,"sand_geyser"],[58,"stinger_volley"],[62,"toxic_surge"],[5,"clay_armor"],[44,"corrosion_fang"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
@@ -3155,7 +3153,7 @@ const MONSTERS_DATA = {
     lore:"Craterlurk is a colossal scorpion nearly 2 metres long — Toxivenoth's teal-green exoskeleton has darkened to dark purple-black chitin across an enormous broad carapace. Its eight legs move with disturbing silence. The stinger at the end of its tail stores enough venom to incapacitate a creature ten times its size. It is rarely seen during daylight hours." },
 
   // 200: Geovast - Ground/Aquatic (Limoux→Geoloth→Geovast)
-  103: { id:103, name:"Calciderm", emoji:"🐊", types:["Ground","Aquatic"],
+  103: { id:103, name:"Calciderm", emoji:"🐊", types:["Earth","Aquatic"],
     base:{hp:109,atk:118,def:98,spa:103,spd:83,spe:39},
     learnset:[[1,"earthquake"],[1,"surf"],[2,"earth_power"],[3,"tidal_crush"],[4,"mud_shot"],[38,"hydro_pump"],[42,"sand_geyser"],[46,"aqua_tail"],[50,"scorched_earth"],[54,"sea_serpent_strike"],[58,"boulder_roll"],[62,"abyssal_jet"],[5,"clay_armor"],[44,"frost_current"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:260, rarity:"rare",
@@ -3243,7 +3241,7 @@ const MONSTERS_DATA = {
     lore:"Metalibat is a massive dark-steel bat with a 2.5-metre wingspan — Steelvex's chrome-black wing-shields have thickened into overlapping dark steel plates that now armour its entire body, and the mechanical-object obsession of its juvenile form has matured into a 500-metre metallic drone audible from the industrial structures it nests within. In flight it produces a distinctive metallic drone audible from 500 metres. It nests inside abandoned industrial structures and hollowed-out ore deposits." },
 
   // 211: Acidovast - Poison/Ground (Acidelix→Toxoloth→Acidovast)
-  159: { id:159, name:"Dissotoad", emoji:"🐸", types:["Poison","Ground"],
+  159: { id:159, name:"Dissotoad", emoji:"🐸", types:["Poison","Earth"],
     base:{hp:111,atk:86,def:102,spa:136,spd:96,spe:19},
     learnset:[[1,"toxic"],[1,"earthquake"],[2,"sludge_wave"],[3,"earth_power"],[4,"toxic_surge"],[38,"acid_rain"],[42,"venom_lance"],[46,"sand_geyser"],[50,"sludge_bomb"],[54,"venoshock"],[58,"scorched_earth"],[62,"putrid_pulse"],[5,"miasma_cloud"],[44,"corrosion_fang"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
@@ -3277,28 +3275,28 @@ const MONSTERS_DATA = {
     desc:"An alchemical horror born in Miasma City's toxic reactors. Its core burns with caustic plasma.",
     lore:"Toxicore is a compact fire-poison creature 1.2 metres tall resembling a living flask of boiling acid. Its core chamber glows a violent orange-green." },
 
-  324: { id:324, name:"Chittering", emoji:"🦗", types:["Bug","Dark"],
+  324: { id:324, name:"Chittering", emoji:"🦗", types:["Nature","Dark"],
     base:{hp:54,atk:84,def:62,spa:58,spd:65,spe:77}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"bug_bite"],[12,"shadowstep"],[22,"bug_buzz"],[32,"umbral_claw"],[42,"phantom_claw"],[52,"shadow_ball"],[62,"bug_buzz"],[5,"shadow_sneak"],[38,"void_rend"]],
     catchRate:25, expYield:248, rarity:"rare",
     desc:"A razor-limbed predator insect that hunts in absolute darkness. It clicks its mandibles as it circles prey.",
     lore:"Chittering is a sleek dark-coloured insect 1.3 metres long with six blade-like limbs and multi-faceted crimson eyes that see perfectly in darkness." },
 
-  325: { id:325, name:"Dunespike", emoji:"🏜️", types:["Ground","Poison"],
+  325: { id:325, name:"Dunespike", emoji:"🏜️", types:["Earth","Poison"],
     base:{hp:70,atk:81,def:69,spa:56,spd:61,spe:68}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"earth_power"],[10,"poison_sting"],[22,"terra_spike"],[32,"sludge_bomb"],[42,"fissure_slam"],[52,"acid_rain"],[62,"earth_power"],[5,"toxic"],[35,"venom_lance"]],
     catchRate:28, expYield:252, rarity:"rare",
     desc:"A burrowing predator that injects venom through bone spikes as it erupts from the sand.",
     lore:"Dunespike is a powerful ground-poison creature 1.6 metres long resembling an armoured mole-rat with elongated venom spines along its spine and snout." },
 
-  326: { id:326, name:"Silthorn", emoji:"🌿", types:["Grass","Poison"],
+  326: { id:326, name:"Silthorn", emoji:"🌿", types:["Nature","Poison"],
     base:{hp:66,atk:69,def:72,spa:77,spd:69,spe:52}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"vine_whip"],[12,"poison_sting"],[22,"energy_ball"],[32,"sludge_bomb"],[42,"root_lance"],[52,"verdant_surge"],[62,"acid_rain"],[5,"toxic"],[38,"sleep_powder"]],
     catchRate:30, expYield:250, rarity:"rare",
     desc:"A carnivorous marsh plant that lures prey with sweet-smelling nectar before paralysing them with venom.",
     lore:"Silthorn is a large ambulatory plant 1.8 metres tall with glossy dark-green leaves edged with translucent purple poison sacs. Its roots move like fingers." },
 
-  327: { id:327, name:"Quarrex", emoji:"⛏️", types:["Rock","Ground"],
+  327: { id:327, name:"Quarrex", emoji:"⛏️", types:["Earth"],
     base:{hp:77,atk:93,def:89,spa:48,spd:61,spe:52}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"rock_throw"],[10,"earth_power"],[20,"rock_slide"],[30,"terra_spike"],[40,"fissure_slam"],[50,"fossil_rush"],[60,"rock_slide"],[5,"harden"],[35,"iron_tail"]],
     catchRate:25, expYield:258, rarity:"rare",
@@ -3312,7 +3310,7 @@ const MONSTERS_DATA = {
     desc:"A drifting toxic cloud given form. Entire towns have been evacuated when a Smogveil settled overhead.",
     lore:"Smogveil is an amorphous poison-wind creature 3 metres across that resembles a dense yellow-green storm cloud. It has no fixed shape but two amber luminescent eye-spots drift within it." },
 
-  329: { id:329, name:"Skullmite", emoji:"💀", types:["Bug","Rock"],
+  329: { id:329, name:"Skullmite", emoji:"💀", types:["Nature","Earth"],
     base:{hp:65,atk:81,def:84,spa:52,spd:65,spe:73}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"bug_bite"],[10,"rock_throw"],[20,"metal_claw"],[30,"rock_slide"],[40,"fossil_rush"],[50,"bug_buzz"],[60,"iron_tail"],[5,"harden"],[38,"venom_drool"]],
     catchRate:26, expYield:256, rarity:"rare",
@@ -3326,7 +3324,7 @@ const MONSTERS_DATA = {
     desc:"A swamp crocodilian with acid-laced saliva. Prey dissolves within minutes of a bite.",
     lore:"Blistermaw is a water-poison reptile 2.8 metres long resembling a heavily built crocodile with blistered, acid-weeping skin and rows of hollow venom-conducting teeth." },
 
-  331: { id:331, name:"Thornmoth", emoji:"🦋", types:["Bug","Grass"],
+  331: { id:331, name:"Thornmoth", emoji:"🦋", types:["Nature"],
     base:{hp:55,atk:63,def:58,spa:78,spd:68,spe:78}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"gust"],[8,"vine_whip"],[18,"bug_bite"],[28,"razor_leaf"],[38,"bug_buzz"],[48,"canopy_crash"],[58,"verdant_surge"],[5,"sleep_powder"],[35,"spore_burst"]],
     catchRate:28, expYield:248, rarity:"rare",
@@ -3348,7 +3346,7 @@ const MONSTERS_DATA = {
     desc:"A storm wolf that channels voltage through its dark fur. Its howl triggers localised lightning strikes.",
     lore:"Voltfang is an electric-dark wolf 1.4 metres at the shoulder with jet-black fur shot through with crackling yellow lightning. Its eyes glow violet." },
 
-  334: { id:334, name:"Ferrocrush", emoji:"⚙️", types:["Metal","Ground"],
+  334: { id:334, name:"Ferrocrush", emoji:"⚙️", types:["Metal","Earth"],
     base:{hp:83,atk:104,def:100,spa:52,spd:70,spe:61}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"metal_claw"],[10,"earth_power"],[20,"iron_tail"],[30,"fissure_slam"],[40,"flash_cannon"],[50,"terra_spike"],[60,"fossil_rush"],[5,"harden"],[38,"alloy_edge"]],
     catchRate:22, expYield:268, rarity:"rare",
@@ -3369,7 +3367,7 @@ const MONSTERS_DATA = {
     desc:"A serpent that generates electricity through its venom glands. A single bite delivers both poison and paralysis.",
     lore:"Coilstrike is a sleek electric-poison snake 2.5 metres long with alternating bands of bright yellow and dark purple scales. Electrical discharge is visible along its spine." },
 
-  337: { id:337, name:"Ashgolem", emoji:"🔥", types:["Fire","Rock"],
+  337: { id:337, name:"Ashgolem", emoji:"🔥", types:["Fire","Earth"],
     base:{hp:87,atk:97,def:91,spa:77,spd:68,spe:50}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ember"],[10,"rock_throw"],[20,"flamethrower"],[30,"rock_slide"],[40,"heat_wave"],[50,"fossil_rush"],[60,"fire_blast"],[5,"harden"],[40,"magma_surge"]],
     catchRate:24, expYield:265, rarity:"rare",
@@ -3383,7 +3381,7 @@ const MONSTERS_DATA = {
     desc:"A hawk that nests on storm-capped peaks. Its talons are perpetually coated in razor-sharp ice.",
     lore:"Rimeclaw is an ice-flying raptor with a 2.4-metre wingspan and talons of permanent glacial ice that never melt. Its primary feathers cut like edged weapons." },
 
-  339: { id:339, name:"Voltbeetle", emoji:"⚡", types:["Bug","Electric"],
+  339: { id:339, name:"Voltbeetle", emoji:"⚡", types:["Nature","Electric"],
     base:{hp:66,atk:81,def:86,spa:75,spd:72,spe:80}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"bug_bite"],[10,"thunder_shock"],[20,"metal_claw"],[30,"thunderbolt"],[40,"bug_buzz"],[50,"volt_surge"],[60,"thunder"],[5,"harden"],[38,"alloy_edge"]],
     catchRate:26, expYield:257, rarity:"rare",
@@ -3397,7 +3395,7 @@ const MONSTERS_DATA = {
     desc:"A sentient crystal of psychically-active ice. Its facets reflect possible futures.",
     lore:"Cryoshard is a floating ice-psychic crystal 1 metre across with an irregular faceted form that constantly shifts. Each face reflects a different perceived future of whoever looks into it." },
 
-  341: { id:341, name:"Mirestone", emoji:"🪨", types:["Rock","Mental"],
+  341: { id:341, name:"Mirestone", emoji:"🪨", types:["Earth","Mental"],
     base:{hp:72,atk:70,def:93,spa:89,spd:83,spe:53}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"rock_throw"],[10,"psychic_move"],[20,"rock_slide"],[30,"psystrike"],[40,"fossil_rush"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"harden"]],
     catchRate:24, expYield:263, rarity:"rare",
@@ -3454,14 +3452,14 @@ const MONSTERS_DATA = {
     desc:"A dragon that rides perpetual cyclones of its own creation. It cannot stop flying or the storm dies.",
     lore:"Galedrake is a dragon-wind creature 3.5 metres long with broad swept-back wings that generate a constant personal cyclone. The air around it is always in violent circular motion." },
 
-  349: { id:349, name:"Crystavault", emoji:"💠", types:["Ice","Rock"],
+  349: { id:349, name:"Crystavault", emoji:"💠", types:["Ice","Earth"],
     base:{hp:80,atk:91,def:109,spa:74,spd:87,spe:54}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ice_punch"],[10,"rock_throw"],[20,"ice_beam"],[30,"rock_slide"],[40,"cryo_lance"],[50,"fossil_rush"],[60,"blizzard"],[5,"harden"],[38,"winter_shroud"]],
     catchRate:16, expYield:292, rarity:"rare",
     desc:"A fortress of living glacier-stone. Its outer shell has never been successfully breached in recorded history.",
     lore:"Crystavault is an ice-rock creature 2.5 metres tall resembling a fortified tower of layered glacial ice and granite. Ancient siege equipment has been found bent and broken around specimens." },
 
-  350: { id:350, name:"Fernwrath", emoji:"🌿", types:["Grass","Draconic"],
+  350: { id:350, name:"Fernwrath", emoji:"🌿", types:["Nature","Draconic"],
     base:{hp:73,atk:95,def:75,spa:92,spd:79,spe:81}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"vine_whip"],[10,"dragon_breath"],[20,"root_lance"],[30,"dragon_pulse"],[40,"canopy_crash"],[50,"wyrm_strike"],[60,"verdant_surge"],[5,"dragon_dance"],[38,"ancient_breath"]],
     catchRate:15, expYield:292, rarity:"rare",
@@ -3511,7 +3509,7 @@ const MONSTERS_DATA = {
     desc:"A dragon that calls down storms across entire regions. It is the living embodiment of a thunderhead.",
     lore:"Stormlord is an electric-dragon 5 metres long with scales of polished chrome-blue and wing membranes of crackling electricity. The sky darkens for 100 kilometres when it takes flight." },
 
-  357: { id:357, name:"Thornspire", emoji:"🌳", types:["Grass","Metal"],
+  357: { id:357, name:"Thornspire", emoji:"🌳", types:["Nature","Metal"],
     base:{hp:83,atk:91,def:108,spa:83,spd:90,spe:60}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"vine_whip"],[10,"metal_claw"],[20,"root_lance"],[30,"iron_tail"],[40,"canopy_crash"],[50,"flash_cannon"],[60,"verdant_surge"],[5,"thornwall"],[38,"alloy_edge"]],
     catchRate:10, expYield:316, rarity:"rare",
@@ -3539,7 +3537,7 @@ const MONSTERS_DATA = {
     desc:"A twilight sovereign that rules the threshold between day and night. It is neither fully light nor dark.",
     lore:"Duskmantle is a dark-fairy entity 1.8 metres tall that appears different from each angle — from one side it is a radiant fairy, from the other a creature of shadow. Both states are equally real." },
 
-  361: { id:361, name:"Tectolith", emoji:"🌍", types:["Ground","Draconic"],
+  361: { id:361, name:"Tectolith", emoji:"🌍", types:["Earth","Draconic"],
     base:{hp:92,atk:104,def:94,spa:78,spd:82,spe:70}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"earth_power"],[10,"dragon_claw"],[20,"fissure_slam"],[30,"dragon_pulse"],[40,"terra_spike"],[50,"wyrm_strike"],[60,"eon_crash"],[5,"dragon_dance"],[38,"primordial_roar"]],
     catchRate:10, expYield:320, rarity:"rare",
@@ -3596,7 +3594,7 @@ const MONSTERS_DATA = {
     desc:"An ancient will-o-the-wisp grown to monstrous power. It leads the living into the realm of flame.",
     lore:"Willowisp is a ghost-fire entity resembling a human-sized floating flame with a faint spectral face visible in its core. Its fire burns without fuel and consumes nothing physical." },
 
-  369: { id:369, name:"Gravithorn", emoji:"🔮", types:["Mental","Ground"],
+  369: { id:369, name:"Gravithorn", emoji:"🔮", types:["Mental","Earth"],
     base:{hp:80,atk:94,def:88,spa:100,spd:84,spe:74}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"earth_power"],[10,"psychic_move"],[20,"terra_spike"],[30,"psystrike"],[40,"fissure_slam"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"dreamweave"]],
     catchRate:9, expYield:320, rarity:"rare",
@@ -3710,7 +3708,7 @@ const MONSTERS_DATA = {
     desc:"The embodiment of solar noon — a psychic sun that walks the earth and has never known night.",
     lore:"Solarcrown is a fire-psychic entity 2.5 metres tall composed of compressed solar plasma. Its crown is a permanent coronal loop. Astronomers debate whether the sun responds to it or vice versa." },
 
-  385: { id:385, name:"Permafrost", emoji:"🧊", types:["Ice","Ground"],
+  385: { id:385, name:"Permafrost", emoji:"🧊", types:["Ice","Earth"],
     base:{hp:87,atk:102,def:104,spa:75,spd:87,spe:70}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ice_punch"],[10,"earth_power"],[20,"cryo_lance"],[30,"fissure_slam"],[40,"blizzard"],[50,"terra_spike"],[60,"ice_beam"],[5,"winter_shroud"],[52,"harden"]],
     catchRate:5, expYield:355, rarity:"rare",
@@ -3731,7 +3729,7 @@ const MONSTERS_DATA = {
     desc:"Something pulled up from a depth so great that light has never touched it. It is the dark of absolute abyss.",
     lore:"Deepvoid is a dark-water creature 6 metres long with a featureless body of absolute black. No light reflects from it. It was first encountered when it breached from a trench 12 kilometres deep." },
 
-  388: { id:388, name:"Chronolith", emoji:"⏳", types:["Rock","Mental"],
+  388: { id:388, name:"Chronolith", emoji:"⏳", types:["Earth","Mental"],
     base:{hp:85,atk:86,def:103,spa:100,spd:90,spe:61}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"rock_slide"],[10,"psychic_move"],[20,"fossil_rush"],[30,"psystrike"],[40,"rock_slide"],[50,"mind_shatter"],[60,"neural_storm"],[5,"prism_ward"],[52,"cortex_spike"]],
     catchRate:5, expYield:358, rarity:"rare",
@@ -3809,7 +3807,7 @@ const MONSTERS_DATA = {
     desc:"The sovereign of corrupted fae — a ruler that bridges the beautiful and the terrible without apology.",
     lore:"Voidcrown is a dark-fairy entity 2.5 metres tall wearing a permanent crown of void-matter and fairy-light. Half of its face is radiant and warm; the other half is an absolute darkness that swallows sight." },
 
-  399: { id:399, name:"Stonekeeper", emoji:"⛰️", types:["Rock","Metal"],
+  399: { id:399, name:"Stonekeeper", emoji:"⛰️", types:["Earth","Metal"],
     base:{hp:83,atk:89,def:103,spa:89,spd:89,spe:72}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"rock_slide"],[10,"shadow_ball"],[20,"fossil_rush"],[30,"phantom_claw"],[40,"rock_slide"],[50,"void_rend"],[60,"neural_storm"],[5,"harden"],[55,"prism_ward"]],
     catchRate:4, expYield:370, rarity:"rare",
@@ -3897,7 +3895,7 @@ const MONSTERS_DATA = {
     desc:"Messengers of the sacred temples of a lost land, Auravian carry the resonance of ancient prayers on crystalline wings.",
     lore:"Auravian are the divine messengers of Vaeldris. They appear to those who have lost something precious and are said to carry the voices of the departed on their wings." },
 
-  409: { id:409, name:"Forgotten Lumarix", emoji:"🦢", types:["Fairy","Ground"],
+  409: { id:409, name:"Forgotten Lumarix", emoji:"🦢", types:["Fairy","Earth"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:120,atk:100,def:115,spa:155,spd:135,spe:125},
     learnset:[[1,"fairy_wind"],[20,"earth_power"],[35,"dazzling_gleam"],[50,"moonblast"],[65,"fissure_slam"],[70,"celestial_wave"],[80,"luma_quake"]],
@@ -3947,7 +3945,7 @@ const MONSTERS_DATA = {
     desc:"Electrak surf electromagnetic currents at speeds that blur their outline. Their charged steel scales can discharge enough power to fuel a city for hours.",
     lore:"The steel in Electrak's scales is a natural alloy produced by their bodies — a material that conducts electricity with zero resistance that Vaeldrian engineers failed to replicate." },
 
-  415: { id:415, name:"Forgotten Arcvolt", emoji:"⚡", types:["Normal","Rock"],
+  415: { id:415, name:"Forgotten Arcvolt", emoji:"⚡", types:["Normal","Earth"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:140,def:95,spa:155,spd:100,spe:165},
     learnset:[[1,"dragon_breath"],[20,"stone_edge"],[35,"dragon_claw"],[50,"dragon_pulse"],[65,"obsidian_crash"],[70,"time_fracture"],[80,"arc_strike"]],
@@ -3955,7 +3953,7 @@ const MONSTERS_DATA = {
     desc:"Arcvolt stores massive charges within draconic stone-scale formations before releasing them in a single arc. The discharge leaves glass where the lightning lands.",
     lore:"Arcvolt's scales form geological strata within their bodies over time — geologists from Vaeldris once found evidence of strikes dating back sixty thousand years in a single Arcvolt's hide." },
 
-  416: { id:416, name:"Forgotten Fulgureis", emoji:"🌪️", types:["Bug","Aquatic"],
+  416: { id:416, name:"Forgotten Fulgureis", emoji:"🌪️", types:["Nature","Aquatic"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:100,atk:155,def:100,spa:165,spd:110,spe:170},
     learnset:[[1,"gust"],[20,"surf"],[35,"hurricane"],[50,"hydro_pump"],[65,"tidal_crush"],[70,"time_fracture"],[80,"torrent_shell"],[90,"swarm_tide"]],
@@ -3964,7 +3962,7 @@ const MONSTERS_DATA = {
     lore:"Kael refuses to call Fulgureis by any title. He says if you need a title to respect something, you haven't understood it yet." },
 
   // --- Wielder: Thessaly (Ancient Root Cavern) ---
-  417: { id:417, name:"Forgotten Rootborn", emoji:"🌿", types:["Grass","Poison"],
+  417: { id:417, name:"Forgotten Rootborn", emoji:"🌿", types:["Nature","Poison"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:155,atk:135,def:130,spa:90,spd:120,spe:90},
     learnset:[[1,"vine_whip"],[20,"sludge_bomb"],[35,"seed_bomb"],[50,"energy_ball"],[65,"toxic_surge"],[70,"verdant_surge"],[80,"root_toxin"]],
@@ -3972,7 +3970,7 @@ const MONSTERS_DATA = {
     desc:"Rootborn grew from ancient seed-stones buried beneath Vaeldris's mountains for ten thousand years. Their roots crack bedrock and draw nutrients from bare stone.",
     lore:"A single Rootborn can undermine a mountain's foundation in a century. Thessaly meditates beside hers every morning and says it tells her things the mountains are thinking." },
 
-  418: { id:418, name:"Forgotten Tellurak", emoji:"🗻", types:["Rock","Metal"],
+  418: { id:418, name:"Forgotten Tellurak", emoji:"🗻", types:["Earth","Metal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:160,atk:145,def:140,spa:95,spd:125,spe:85},
     learnset:[[1,"rock_slide"],[20,"iron_tail"],[35,"stone_edge"],[50,"flash_cannon"],[65,"obsidian_crash"],[70,"warden_strike"],[80,"mineral_lance"]],
@@ -3980,7 +3978,7 @@ const MONSTERS_DATA = {
     desc:"Tellurak has absorbed millennia of geological pressure. Eruptions and earthquakes do not faze it. It once held a mountain together for a week through sheer will.",
     lore:"Vaeldrian stonecutters believed Tellurak were mountains that decided to walk. Thessaly has never corrected this belief." },
 
-  419: { id:419, name:"Forgotten Gaiasurge", emoji:"🌋", types:["Ground","Fighting"],
+  419: { id:419, name:"Forgotten Gaiasurge", emoji:"🌋", types:["Earth","Fighting"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:170,atk:160,def:150,spa:105,spd:130,spe:85},
     learnset:[[1,"earthquake"],[20,"power_drive"],[35,"earth_power"],[50,"iron_cleave"],[65,"fissure_slam"],[70,"mantle_surge"],[80,"tectonic_wrath"],[90,"quake_barrage"]],
@@ -4047,7 +4045,7 @@ const MONSTERS_DATA = {
     desc:"Pyraeon's body is a living alloy — bone-steel fused with molten cores. Their claws can cut through solid iron with a single stroke.",
     lore:"Dravek sharpens Pyraeon's claws on volcanic rock every morning. He says the ritual keeps them both sharp." },
 
-  427: { id:427, name:"Forgotten Emberon", emoji:"🐯", types:["Primal","Ground"],
+  427: { id:427, name:"Forgotten Emberon", emoji:"🐯", types:["Primal","Earth"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:165,def:115,spa:135,spd:100,spe:140},
     learnset:[[1,"rock_slide"],[20,"earthquake"],[35,"fire_blast"],[50,"earth_power"],[65,"dragon_claw"],[70,"stone_edge"],[80,"smoldering_abyss"]],
@@ -4114,7 +4112,7 @@ const MONSTERS_DATA = {
     lore:"Solenne says Psydrak has been trying to show her a timeline where Vaeldris still exists. She says she can feel it almost finding one, night after night." },
 
   // --- Wielder: Rax (The Iron Sanctum) ---
-  435: { id:435, name:"Forgotten Ironvast", emoji:"🦾", types:["Crystal","Rock"],
+  435: { id:435, name:"Forgotten Ironvast", emoji:"🦾", types:["Crystal","Earth"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:130,atk:145,def:175,spa:75,spd:130,spe:65},
     learnset:[[1,"rock_throw"],[20,"rock_slide"],[35,"rock_blast"],[50,"stone_edge"],[65,"obsidian_crash"],[70,"earthquake"],[80,"iron_fortress"]],
@@ -4155,7 +4153,7 @@ const MONSTERS_DATA = {
     desc:"Sparkeis are living power grids — their steel chassis stores charges that could power a city for months. They convert all kinetic energy into electricity passively.",
     lore:"Tempris installed a small meter on Sparkeis to measure output. It broke after three days. He has not replaced it." },
 
-  440: { id:440, name:"Forgotten Thunderax", emoji:"🌩️", types:["Wind","Grass"],
+  440: { id:440, name:"Forgotten Thunderax", emoji:"🌩️", types:["Wind","Nature"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:135,def:110,spa:180,spd:135,spe:135},
     learnset:[[1,"aerial_assault"],[20,"energy_ball"],[35,"sky_dive"],[50,"verdant_surge"],[65,"gale_cannon"],[70,"hurricane"],[80,"canopy_strike"],[90,"sky_harvest"]],
@@ -4172,7 +4170,7 @@ const MONSTERS_DATA = {
     desc:"Nihilax emit a field that suppresses all energy signatures within range. In their presence, lights dim, sound muffles, and time seems to hesitate.",
     lore:"Vayne says Nihilax was the first Lumori she saw after the Sundering began. She has never been sure if it was trying to help or simply watching." },
 
-  442: { id:442, name:"Forgotten Vantarix", emoji:"🌌", types:["Mental","Bug"],
+  442: { id:442, name:"Forgotten Vantarix", emoji:"🌌", types:["Mental","Nature"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:80,atk:155,def:85,spa:170,spd:95,spe:165},
     learnset:[[1,"confusion"],[20,"bug_bite"],[35,"psychic_move"],[50,"x_scissor"],[65,"psystrike"],[70,"signal_beam"],[80,"venom_mind"]],
@@ -5726,7 +5724,7 @@ const GYM_LEADERS = {
   },
   // ---- 8 NEW GYM LEADERS (badges 8-15) ----
   thorne: {
-    id:"thorne", name:"Leader Thorne", emoji:"🌿", type:"Grass",
+    id:"thorne", name:"Leader Thorne", emoji:"🌿", type:"Nature",
     badge:"Canopy Badge", badgeEmoji:"🌿",
     quote:"The forest speaks to me. Let its vines entangle your hopes!",
     winQuote:"Your spirit is as resilient as ancient oak. The Canopy Badge is yours.",
@@ -5776,7 +5774,7 @@ const GYM_LEADERS = {
     }
   },
   atlas: {
-    id:"atlas", name:"Leader Atlas", emoji:"🏔️", type:"Ground",
+    id:"atlas", name:"Leader Atlas", emoji:"🏔️", type:"Earth",
     badge:"Tectonic Badge", badgeEmoji:"🏔️",
     quote:"I am the earth itself. Unshakable. Unyielding. Unstoppable!",
     winQuote:"The ground trembles in respect. The Tectonic Badge is yours.",
@@ -5801,7 +5799,7 @@ const GYM_LEADERS = {
     }
   },
   mantis: {
-    id:"mantis", name:"Leader Mantis", emoji:"🦗", type:"Bug",
+    id:"mantis", name:"Leader Mantis", emoji:"🦗", type:"Nature",
     badge:"Chitin Badge", badgeEmoji:"🦗",
     quote:"Bugs are nature's perfect warriors. Swift, sharp, and relentless!",
     winQuote:"Your reflexes rival even my bugs. The Chitin Badge is yours!",
@@ -5879,7 +5877,7 @@ const GYM_LEADERS = {
     }
   },
   boulder: {
-    id:"boulder", name:"Leader Boulder", emoji:"🪨", type:"Rock",
+    id:"boulder", name:"Leader Boulder", emoji:"🪨", type:"Earth",
     badge:"Geode Badge", badgeEmoji:"🪨",
     battleMode:"double",
     quote:"Solid as stone, heavy as mountains. My Lumori are unbreakable!",
@@ -5983,7 +5981,7 @@ const ITEMS_DATA = {
   vitalSeed:     { name:"Vital Seed",     emoji:"🌱", desc:"Boosts max HP by 15% when held.",           type:"held", held:{ stat:"hp",  mult:1.15 } },
   charcoal:      { name:"Charcoal",       emoji:"🔥", desc:"Powers up Fire-type moves by 20%.",         type:"held", held:{ typeBoost:"Fire", mult:1.2 } },
   mysticDew:     { name:"Mystic Dew",     emoji:"💧", desc:"Powers up Aquatic-type moves by 20%.",        type:"held", held:{ typeBoost:"Aquatic", mult:1.2 } },
-  miracleSeed:   { name:"Miracle Seed",   emoji:"🌿", desc:"Powers up Grass-type moves by 20%.",        type:"held", held:{ typeBoost:"Grass", mult:1.2 } },
+  miracleSeed:   { name:"Miracle Seed",   emoji:"🌿", desc:"Powers up Grass-type moves by 20%.",        type:"held", held:{ typeBoost:"Nature", mult:1.2 } },
   magnet:        { name:"Magnet",         emoji:"🧲", desc:"Powers up Electric-type moves by 20%.",     type:"held", held:{ typeBoost:"Electric", mult:1.2 } },
   blackBelt:     { name:"Black Belt",     emoji:"🥋", desc:"Powers up physical moves by 10%.",           type:"held", held:{ catBoost:"physical", mult:1.1 } },
   wiseGlasses:   { name:"Wise Glasses",   emoji:"👓", desc:"Powers up special moves by 10%.",            type:"held", held:{ catBoost:"special", mult:1.1 } },
@@ -6001,10 +5999,10 @@ const ITEMS_DATA = {
   xSpeed:        { name:"Swift Charge",       emoji:"💨", desc:"Raises Speed in battle.", catchMult:0, healAmt:0, type:"battle", battleEffect:{ stat:"spe", stages:1 } },
   // Additional held items
   poisonBarb:    { name:"Venom Thorn",   emoji:"🗡️", desc:"Boosts Poison-type moves by 20% when held.", type:"held", held:{ typeBoost:"Poison", mult:1.2 } },
-  softSand:      { name:"Coarse Sand",     emoji:"🏖️", desc:"Boosts Ground-type moves by 20% when held.", type:"held", held:{ typeBoost:"Ground", mult:1.2 } },
-  silverPowder:  { name:"Carapace Dust", emoji:"✨", desc:"Boosts Bug-type moves by 20% when held.", type:"held", held:{ typeBoost:"Bug", mult:1.2 } },
+  softSand:      { name:"Coarse Sand",     emoji:"🏖️", desc:"Boosts Ground-type moves by 20% when held.", type:"held", held:{ typeBoost:"Earth", mult:1.2 } },
+  silverPowder:  { name:"Carapace Dust", emoji:"✨", desc:"Boosts Bug-type moves by 20% when held.", type:"held", held:{ typeBoost:"Nature", mult:1.2 } },
   metalCoat:     { name:"Iron Shell",    emoji:"🔩", desc:"Boosts Metal-type moves by 20% when held.", type:"held", held:{ typeBoost:"Metal", mult:1.2 } },
-  hardStone:     { name:"Crag Shard",    emoji:"🪨", desc:"Boosts Rock-type moves by 20% when held.", type:"held", held:{ typeBoost:"Rock", mult:1.2 } },
+  hardStone:     { name:"Crag Shard",    emoji:"🪨", desc:"Boosts Rock-type moves by 20% when held.", type:"held", held:{ typeBoost:"Earth", mult:1.2 } },
   pixieDust:     { name:"Fairy Essence",    emoji:"🧚", desc:"Boosts Fairy-type moves by 20% when held.", type:"held", held:{ typeBoost:"Fairy", mult:1.2 } },
   blackGlasses:  { name:"Black Glasses", emoji:"🕶️", desc:"Boosts Dark-type moves by 20% when held.", type:"held", held:{ typeBoost:"Dark", mult:1.2 } },
   neverMeltIce:  { name:"Eternal Ice",emoji:"🧊", desc:"Boosts Ice-type moves by 20% when held.", type:"held", held:{ typeBoost:"Ice", mult:1.2 } },

@@ -408,8 +408,8 @@ Net type count: 21 → 19 (six renames + two fusions).
   - Further rounds possible if user wants more candidates.
 - [ ] **Step 2:** Create new type-effectiveness chart with surprise twists — needs approval before applying.
   - **Phase A (done 2026-05-21):** label rename in `js/data.js` only (A1 scope) — Water→Aquatic, Psychic→Mental, Dragon→Draconic, Steel→Metal, Ghost→Spectral. 519 line changes; verified zero bareword stragglers.
-  - **Phase B (next):** fusion-merge for Grass+Bug→Nature and Rock+Ground→Earth — per-row interactive B1-vs-B2 review (B1 = max-attack / min-defense default).
-  - **Phase C (later):** propose row+column for each of the 7 new types (Sonic, Vapor, Mineral, Toxin, Chrono, Stellar, Dream).
+  - **Phase B (done 2026-05-21):** Grass+Bug→Nature and Rock+Ground→Earth fusions applied. Per-row B1/B2/custom decisions collected via 4 interactive sub-phases. TYPE_CHART rebuilt as 19-type structure; `type:"X"` fields in MOVES_DATA and `types:[...]` arrays in MONSTERS_DATA relabeled; 6 dual-fused Lumori auto-collapsed to mono (#192 Boulderoll, #249 Boulderax, #250 Megalith, #327 Quarrex → mono Earth; #265 Mosswing, #331 Thornmoth → mono Nature) — **flagged for Step 4 review** to optionally re-dual with a lore-justified second type. Move display names like "Bug Bite"/"Rock Slide" deliberately untouched (Step 3). Area descriptions referencing old types untouched (Step 4 cleanup).
+  - **Phase C (next):** propose row+column for each of the 7 new types (Sonic, Vapor, Mineral, Toxin, Chrono, Stellar, Dream).
   - **Phase D (last):** surprise twists. Confirmed so far: Sonic 2× vs Crystal+Mineral, Dream 2× vs Spectral, Toxin 0× vs Metal, Stellar 2× vs Aether. **Dropped:** Chrono super-defensive resistance. More twists open for menu in Phase D.
 - [ ] **Step 3:** Adjust moves + move names to reflect typing changes.
 - [ ] **Step 4:** Adjust per-Lumori typings to remove old-type references for pre-408 ids (id < 408 only).

@@ -407,6 +407,10 @@ Net type count: 21 → 19 (six renames + two fusions).
   - Round 2 (30 candidates) presented; user picks TBD.
   - Further rounds possible if user wants more candidates.
 - [ ] **Step 2:** Create new type-effectiveness chart with surprise twists — needs approval before applying.
+  - **Phase A (done 2026-05-21):** label rename in `js/data.js` only (A1 scope) — Water→Aquatic, Psychic→Mental, Dragon→Draconic, Steel→Metal, Ghost→Spectral. 519 line changes; verified zero bareword stragglers.
+  - **Phase B (next):** fusion-merge for Grass+Bug→Nature and Rock+Ground→Earth — per-row interactive B1-vs-B2 review (B1 = max-attack / min-defense default).
+  - **Phase C (later):** propose row+column for each of the 7 new types (Sonic, Vapor, Mineral, Toxin, Chrono, Stellar, Dream).
+  - **Phase D (last):** surprise twists. Confirmed so far: Sonic 2× vs Crystal+Mineral, Dream 2× vs Spectral, Toxin 0× vs Metal, Stellar 2× vs Aether. **Dropped:** Chrono super-defensive resistance. More twists open for menu in Phase D.
 - [ ] **Step 3:** Adjust moves + move names to reflect typing changes.
 - [ ] **Step 4:** Adjust per-Lumori typings to remove old-type references for pre-408 ids (id < 408 only).
 - [ ] **Step 5:** Redo the type-combo cap analysis under the new type system. Supersedes the locked-flagship work that PR #51 deliberation was approaching.

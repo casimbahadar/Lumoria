@@ -676,7 +676,9 @@ Higher-level work remaining beyond the lore / typing / stats audits.
 - [ ] Brainstorm and code in what different typings and differences in lore/description the Variants of each Lumori will be.
 - [ ] Add sprites or models for each Lumori (variant and radiant also) from sources.
 - [ ] Generate or find quality music for battles, map, online, other features and aspects.
+- [ ] Audit move display names for Pokemon-derived names (Tackle, Scratch, Hyper Beam, Ember, etc.) and propose renames to differentiate Lumoria's move catalogue from Pokemon's. Run in batches with per-move approval; preserve move-effect clarity. Covers all 596 moves in MOVES_DATA. Runs after Step 3 of the typing-system overhaul (basic typing-driven move renames done first).
 - [ ] Develop the process or steps to successfully launch the game.
+- [ ] Final code review — joint user + Claude review of all important code files (js/data.js, game logic, UI, etc.). Assess whether code is optimal, effective, and as simple as possible while still functional. Look for opportunities to apply good programming practices (more use of classes, objects, modular structure, separation of concerns, etc.) and refactor where it improves maintainability and clarity. Also catch syntax errors, broken references, dangling old-type names. **Last task before release.**
 
 ---
 

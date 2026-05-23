@@ -823,7 +823,49 @@ const MOVES_DATA = {
   sky_harvest:      { name:"Sky Harvest",      type:"Nature",   power:90,  acc:95,  pp:10, cat:"special",  effect:"drain",     ec:100,desc:"Thunderax converts solar energy it has absorbed during flight directly into a beam attack, restoring its health as it strikes." },
 
   // --- Normal (signature moves for Forgotten Lumori) ---
-  stellar_collapse: { name:"Stellar Collapse", type:"Normal",  power:150, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Stellarion implodes its own normal-type presence into a gravitational singularity and releases it on impact. Survivable, barely." }
+  stellar_collapse: { name:"Stellar Collapse", type:"Normal",  power:150, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Stellarion implodes its own normal-type presence into a gravitational singularity and releases it on impact. Survivable, barely." },
+
+
+  // ============================================================
+  // STEP 3B ADDITIONS — REGULAR MOVES (Sonic)
+  // ============================================================
+
+  // --- Sonic (regular) ---
+  shake_strike:            { name:"Shake Strike", type:"Sonic", power:50, acc:100, pp:30, cat:"physical", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Body-vibration impact; always lands a critical hit." },
+  echo_strike:             { name:"Echo Strike", type:"Sonic", power:30, acc:100, pp:20, cat:"physical", effect:null, ec:0, target:"single", hits:2, desc:"Strikes twice with echoing impact." },
+  silent_strike:           { name:"Silent Strike", type:"Sonic", power:70, acc:100, pp:15, cat:"physical", effect:"priority", ec:0, target:"single", desc:"Sonic surprise strikes first." },
+  sound_rush:              { name:"Sound Rush", type:"Sonic", power:60, acc:100, pp:25, cat:"physical", effect:"speup", ec:50, target:"single", desc:"Rush with audible boom; may sharply raise Speed." },
+  rumble_smash:            { name:"Rumble Smash", type:"Sonic", power:75, acc:95, pp:15, cat:"physical", effect:"defdown", ec:30, target:"single", desc:"Ground-rumbling impact; may lower foe's Def." },
+  drumstroke:              { name:"Drumstroke", type:"Sonic", power:55, acc:100, pp:25, cat:"physical", effect:null, ec:0, target:"single", hits:2, desc:"Two-hit resonant percussion." },
+  skyboom_strike:          { name:"Skyboom Strike", type:"Sonic", dualType:["Sonic","Wind"], power:85, acc:95, pp:10, cat:"physical", effect:"sluggish", ec:30, target:"wide", desc:"Air-pressure boom striking all foes; may inflict Sluggish." },
+  resonance_quake:         { name:"Resonance Quake", type:"Sonic", power:120, acc:85, pp:5, cat:"physical", effect:"atkup", ec:100, target:"single", desc:"Body-vibration empowerment; guaranteed +1 Atk after damage." },
+  sonic_pulse:             { name:"Echo Pulse", type:"Sonic", power:35, acc:100, pp:40, cat:"special", effect:null, ec:0, target:"single", desc:"Single resonating pulse." },
+  wave_cry:                { name:"Wave Cry", type:"Sonic", power:50, acc:95, pp:30, cat:"special", effect:null, ec:0, target:"wide", desc:"Focused sound wave hitting all foes." },
+  resonate:                { name:"Resonate", type:"Sonic", power:75, acc:95, pp:15, cat:"special", effect:"spaup", ec:30, target:"single", desc:"Resonant attack; may raise own SpA." },
+  discord:                 { name:"Discord", type:"Sonic", power:60, acc:100, pp:20, cat:"special", effect:"confuse", ec:30, target:"wide", desc:"Discordant noise spreading to all foes; may confuse." },
+  pulse_wave:              { name:"Pulse Wave", type:"Sonic", power:65, acc:100, pp:20, cat:"special", effect:null, ec:0, target:"single", breakerVs:"Vapor", desc:"Compressed shockwave that resonates devastatingly through Vapor." },
+  prism_resonance:         { name:"Prism Resonance", type:"Sonic", dualType:["Sonic","Crystal"], power:90, acc:95, pp:10, cat:"special", effect:"echolocation", ec:20, target:"wide", desc:"Crystalline resonance burst; may lock Echolocation on the target." },
+  wail:                    { name:"Wail", type:"Sonic", power:80, acc:100, pp:10, cat:"special", effect:"atkdown", ec:30, target:"single", desc:"Mournful wail; may lower foe's Atk." },
+  harmonic_burst:          { name:"Harmonic Burst", type:"Sonic", power:100, acc:90, pp:5, cat:"special", effect:null, ec:0, target:"wide", desc:"Tremendous harmonic blast across the battlefield." },
+  bass_blast:              { name:"Bass Blast", type:"Sonic", power:95, acc:100, pp:5, cat:"special", effect:"deafen", ec:30, target:"single", desc:"Body-rattling deep tone; may inflict Deafen." },
+  decibel_burst:           { name:"Decibel Burst", type:"Sonic", power:85, acc:100, pp:10, cat:"special", effect:"flinch", ec:20, target:"wide", desc:"Loud burst hitting all foes; may cause flinch." },
+  threnody:                { name:"Threnody", type:"Sonic", power:130, acc:90, pp:5, cat:"special", effect:"recharge", ec:100, target:"single", desc:"Final dirge requiring rest after use." },
+  chirp:                   { name:"Chirp", type:"Sonic", power:0, acc:100, pp:25, cat:"status", effect:"atkdown", ec:100, target:"single", desc:"Sharp chirp guaranteed to lower foe's Atk." },
+  earsplit:                { name:"Earsplit", type:"Sonic", power:0, acc:90, pp:15, cat:"status", effect:"defdown2", ec:100, target:"single", desc:"Piercing screech sharply lowers foe's Def." },
+  siren_song:              { name:"Siren Song", type:"Sonic", power:0, acc:55, pp:10, cat:"status", effect:"sleep", ec:100, target:"single", desc:"Lulling song puts foe to sleep when it connects." },
+  soundproof:              { name:"Soundproof", type:"Sonic", power:0, acc:100, pp:20, cat:"status", effect:"defup", ec:100, target:"self", desc:"Sound-dampening posture raises own Def." },
+  echo_chamber:            { name:"Echo Chamber", type:"Sonic", power:0, acc:100, pp:15, cat:"status", effect:"accup", ec:100, target:"self", desc:"Echo-locked acoustic focus raises own Accuracy." },
+
+  // ============================================================
+  // STEP 3B ADDITIONS — EXCLUSIVE MOVES
+  // Each move has rarity:"exclusive" — assigned to specific
+  // legendary/signature Lumori in Step 4. To be audited as a
+  // separate group per the typing-system overhaul plan.
+  // ============================================================
+
+  // --- Sonic (exclusive) ---
+  perfect_pitch:           { name:"Perfect Pitch", type:"Sonic", power:0, acc:100, pp:5, cat:"status", effect:"echolocation_and_deafen", ec:100, target:"single", rarity:"exclusive", desc:"Pitch-perfect tone locks Echolocation AND Deafen on the target. Signature." },
+  infrasonic_apocalypse:   { name:"Infrasonic Apocalypse", type:"Sonic", power:150, acc:85, pp:5, cat:"special", effect:"recharge_and_burnt_out", ec:100, target:"wide", rarity:"exclusive", desc:"Devastating infrasound across all foes; inflicts Burnt-out and requires rest after." },
 };
 
 

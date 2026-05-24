@@ -132,11 +132,11 @@ const MOVES_DATA = {
   // --- Fire ---
   ember:        { name:"Ember",         type:"Fire",     power:40,  acc:100, pp:25, cat:"special",  effect:"burn",      ec:10,  desc:"A weak fire attack that may burn." },
   flame_fang:   { name:"Flame Fang",    type:"Fire",     power:65,  acc:95,  pp:15, cat:"physical", effect:"burn",      ec:10,  desc:"Bites with flaming fangs. May burn." },
-  flamethrower: { name:"Inferno Jet",  type:"Fire",     power:90,  acc:100, pp:15, cat:"special",  effect:"burn",      ec:10,  desc:"Shoots a stream of intense fire. May burn." },
+  flamethrower: { name:"Inferno Jet",  type:"Fire",     power:90,  acc:100, pp:15, cat:"special",  effect:"atkup",      ec:30,  desc:"Shoots a stream of intense fire. May burn." },
   fire_blast:   { name:"Fire Blast",    type:"Fire",     power:110, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:10,  desc:"A massive fireball. May burn the target." },
   heat_wave:    { name:"Heat Wave",     type:"Fire",     power:95,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:10,  desc:"Exhales a wave of scorching heat." },
   inferno:      { name:"Inferno",       type:"Fire",     power:100, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:100, desc:"A raging inferno that always burns." },
-  cinderwhirl:  { name:"Cinderwhirl",   type:"Fire",     power:85,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:20,  desc:"Unleashes a spinning tornado of cinders that scorches everything in its path." },
+  cinderwhirl:  { name:"Cinderwhirl",   type:"Fire",     power:85,  acc:90,  pp:10, cat:"special",  effect:"spedown",      ec:30,  desc:"Unleashes a spinning tornado of cinders that scorches everything in its path." },
   scorch_veil:  { name:"Scorch Veil",   type:"Fire",     power:0,   acc:100, pp:15, cat:"status",   effect:"burn",      ec:100, desc:"Wraps the user in a veil of burning ash that singes any foe that makes contact." },
   magma_surge:  { name:"Magma Surge",   type:"Fire",     power:90,  acc:85,  pp:10, cat:"special",  effect:"burn",      ec:30,  desc:"Erupts scalding magma from the ground beneath the foe." },
   embercloak:   { name:"Embercloak",    type:"Fire",     power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Cloaks the user in a shell of compressed flame that hardens the body." },
@@ -303,7 +303,7 @@ const MOVES_DATA = {
 
   // --- NEW: Fire (2 more → 15) ---
   ashfall:      { name:"Ashfall",       type:"Fire",     power:70,  acc:100, pp:15, cat:"special",  effect:"spedown",   ec:30,  desc:"Rains superheated volcanic ash that chokes and slows the target." },
-  pyre_fang:    { name:"Pyre Fang",     type:"Fire",     power:85,  acc:95,  pp:10, cat:"physical", effect:"burn",      ec:20,  desc:"Sinks incandescent fangs deep into the foe, leaving smoldering wounds." },
+  pyre_fang:    { name:"Pyre Fang",     type:"Fire",     power:85,  acc:95,  pp:10, cat:"physical", effect:"burn",      ec:20,  desc:"Sinks incandescent fangs deep into the foe, leaving smoldering wounds.", rarity:"exclusive" },
 
   // --- NEW: Aquatic (3 more → 15) ---
   riptide_slam: { name:"Riptide Slam",  type:"Aquatic",    power:85,  acc:95,  pp:10, cat:"physical", effect:"spedown",   ec:30,  desc:"Catches the foe in a violent riptide and slams them into the seabed." },
@@ -402,7 +402,7 @@ const MOVES_DATA = {
 
   // --- SIGNATURE MOVES for remaining legendaries ---
   tempest_wrath:{ name:"Tempest Wrath", type:"Wind",     power:120, acc:85,  pp:5,  cat:"special",  effect:"confuse",   ec:50,  desc:"Signature move of Tempestia. Unleashes the fury of a divine storm that shatters the foe's composure." },
-  caldera_meltdown:{ name:"Caldera Meltdown",type:"Fire", power:130, acc:80, pp:5,  cat:"special",  effect:"burn",      ec:100, desc:"Signature move of Volcanox. Triggers a volcanic caldera collapse of apocalyptic heat." },
+  caldera_meltdown:{ name:"Caldera Meltdown",type:"Fire", power:130, acc:80, pp:5,  cat:"special",  effect:"recharge_and_burnt_out",      ec:100, desc:"Signature move of Volcanox. Triggers a volcanic caldera collapse of apocalyptic heat." },
   temporal_rift:{ name:"Temporal Rift",  type:"Mental",  power:110, acc:90,  pp:5,  cat:"special",  effect:"confuse",   ec:50,  desc:"Signature move of Chronoveil. Tears a rift in time that disorients the foe completely." },
   worldseed_quake:{ name:"Worldseed Quake",type:"Earth", power:120, acc:85, pp:5,  cat:"physical", effect:"defdown",   ec:50,  desc:"Signature move of Terranova. Cracks the earth with the force of a continental seed germinating." },
 
@@ -416,11 +416,11 @@ const MOVES_DATA = {
   feral_swipe:   { name:"Feral Swipe",   type:"Normal",   power:65,  acc:100, pp:20, cat:"physical", effect:"atkup",     ec:20,  desc:"A savage swipe driven by primal instinct that may power up the user." },
 
   // Fire (+6 → 22)
-  flash_fire:    { name:"Flash Fire",    type:"Fire",     power:50,  acc:100, pp:25, cat:"special",  effect:null,        ec:0,   desc:"A quick burst of concentrated flame." },
+  flash_fire:    { name:"Flash Fire",    type:"Fire",     power:50,  acc:100, pp:25, cat:"special",  effect:"spaup",        ec:30,   desc:"A quick burst of concentrated flame." },
   lava_plume:    { name:"Lava Plume",    type:"Fire",     power:80,  acc:100, pp:15, cat:"special",  effect:"burn",      ec:30,  desc:"Erupts lava in all directions, likely to burn." },
   smolder_trap:  { name:"Smolder Trap",  type:"Fire",     power:0,   acc:90,  pp:15, cat:"status",   effect:"burn",      ec:100, desc:"Lays a trap of smoldering coals that burns the foe." },
   ignition_kick: { name:"Ignition Kick", type:"Fire",     power:90,  acc:95,  pp:10, cat:"physical", effect:"burn",      ec:20,  desc:"Delivers a combustion-powered kick wreathed in ignited air." },
-  wildfire_surge:{ name:"Wildfire Surge",type:"Fire",     power:95,  acc:85,  pp:10, cat:"special",  effect:"burn",      ec:30,  desc:"Unleashes an uncontrollable wildfire that sweeps across the field." },
+  wildfire_surge:{ name:"Wildfire Surge",type:"Fire",     power:95,  acc:85,  pp:10, cat:"special",  effect:"spedown",      ec:30,  desc:"Unleashes an uncontrollable wildfire that sweeps across the field.", rarity:"exclusive" },
   cinder_lance:  { name:"Cinder Lance",  type:"Fire",     power:75,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Thrusts a lance of compressed cinder at a vital point. High crit rate." },
 
   // Aquatic (+7 → 22)
@@ -563,7 +563,7 @@ const MOVES_DATA = {
   // --- Fire (+7) ---
   will_o_wisp:      { name:"Will-O-Wisp",       type:"Fire",     power:0,   acc:85,  pp:15, cat:"status",   effect:"burn",      ec:100, desc:"Shoots a sinister flame that reliably burns the target." },
   flame_charge:     { name:"Flame Charge",      type:"Fire",     power:50,  acc:100, pp:20, cat:"physical", effect:"speup",     ec:100, desc:"Cloaks the user in flame and charges forward, raising Speed." },
-  sun_burst:        { name:"Sun Burst",         type:"Fire",     power:80,  acc:100, pp:15, cat:"special",  effect:"burn",      ec:30,  desc:"Concentrates solar energy into a burst of searing heat that may burn." },
+  sun_burst:        { name:"Sun Burst",         type:"Fire",     power:80,  acc:100, pp:15, cat:"special",  effect:"spaup",      ec:30,  desc:"Concentrates solar energy into a burst of searing heat that may burn." },
   molten_tide:      { name:"Molten Tide",       type:"Fire",     power:95,  acc:90,  pp:10, cat:"special",  effect:"spdefdown", ec:30,  desc:"A wave of molten rock that may erode the target's special resistance." },
   eruption:         { name:"Eruption",          type:"Fire",     power:140, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Erupts with volcanic force, dealing immense damage at a cost to the user." },
   infernal_roar:    { name:"Infernal Roar",     type:"Fire",     power:0,   acc:100, pp:15, cat:"status",   effect:"spatkup",   ec:100, desc:"A roar blazing with inner fire, sharply raising the user's Special Attack." },
@@ -779,10 +779,10 @@ const MOVES_DATA = {
   nyx_fang:         { name:"Nyx Fang",         type:"Dark",    power:85,  acc:100, pp:15, cat:"physical", effect:"spedown",   ec:30, desc:"Nyxviper strikes from absolute darkness with fangs that leave a numbing venom slowing the target's reflexes." },
   dark_corrosion:   { name:"Dark Corrosion",   type:"Dark",    power:95,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:30, desc:"Bathykor releases a wave of corrosive dark energy that eats through the target's mental defenses." },
   cryo_shatter:     { name:"Cryo Shatter",     type:"Earth",    power:110, acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:30, desc:"Cryvorn superheats then instantly flash-freezes stone before detonating it into the opponent, cracking their defenses." },
-  forge_blast:      { name:"Forge Blast",      type:"Fire",    power:105, acc:90,  pp:10, cat:"special",  effect:"burn",      ec:30, desc:"Forgerak channels forge-fire intensified beyond metal's tolerance and releases it in a shaped detonation." },
+  forge_blast:      { name:"Forge Blast",      type:"Fire",    power:105, acc:90,  pp:10, cat:"special",  effect:"atkup",      ec:30, desc:"Forgerak channels forge-fire intensified beyond metal's tolerance and releases it in a shaped detonation." },
 
   // --- Poison (signature moves for Forgotten Lumori) ---
-  toxic_blaze:      { name:"Toxic Blaze",      type:"Fire",    power:95,  acc:100, pp:10, cat:"special",  effect:"burn",      ec:20, desc:"Morrath ignites its toxins into a poisonous firestorm. The heat is almost secondary to the burning residue it leaves." },
+  toxic_blaze:      { name:"Toxic Blaze",      type:"Fire",    power:95,  acc:100, pp:10, cat:"special",  effect:"poison",      ec:30, desc:"Morrath ignites its toxins into a poisonous firestorm. The heat is almost secondary to the burning residue it leaves." },
   root_toxin:       { name:"Root Toxin",       type:"Poison",  power:85,  acc:100, pp:15, cat:"physical", effect:"poison",    ec:100,desc:"Rootborn drives toxin-saturated vines into the target, delivering a full dose of its most potent venom on contact." },
   venom_surge:      { name:"Venom Surge",      type:"Draconic",  power:145, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Dracofire condenses venom and dragonfire into a single explosive charge and detonates it on contact. The explosion damages both." },
   acid_burst:       { name:"Acid Burst",       type:"Poison",  power:40,  acc:90,  pp:10, cat:"special",  effect:"poison",    ec:30, hits:3, desc:"Dracofire erupts with three blasts of concentrated acid in rapid succession, each carrying a chance to poison." },
@@ -856,6 +856,22 @@ const MOVES_DATA = {
   soundproof:              { name:"Soundproof", type:"Sonic", power:0, acc:100, pp:20, cat:"status", effect:"defup", ec:100, target:"self", desc:"Sound-dampening posture raises own Def." },
   echo_chamber:            { name:"Echo Chamber", type:"Sonic", power:0, acc:100, pp:15, cat:"status", effect:"accup", ec:100, target:"self", desc:"Echo-locked acoustic focus raises own Accuracy." },
 
+  // --- Fire (regular) ---
+  pyre_strike:             { name:"Pyre Strike", type:"Fire", power:40, acc:100, pp:30, cat:"physical", effect:null, ec:0, target:"single", breakerVs:"Spectral", desc:"Funeral-pyre strike that banishes spectral foes; super-effective vs Spectral." },
+  inferno_charge:          { name:"Inferno Charge", type:"Fire", power:70, acc:100, pp:15, cat:"physical", effect:"speup", ec:30, target:"single", desc:"Charging fire-rush; may raise own Speed." },
+  molten_claw:             { name:"Molten Claw", type:"Fire", power:65, acc:100, pp:20, cat:"physical", effect:"burnt_out", ec:20, target:"single", desc:"Searing claw; may inflict Burnt-out." },
+  coal_smash:              { name:"Coal Smash", type:"Fire", power:80, acc:95, pp:10, cat:"physical", effect:"strained", ec:30, target:"single", desc:"Coal-fist slam; may inflict Strained." },
+  magma_strike:            { name:"Magma Strike", type:"Fire", power:75, acc:95, pp:10, cat:"physical", effect:"burn", ec:20, target:"single", desc:"Molten body slam; may burn." },
+  firebrand:               { name:"Firebrand", type:"Fire", power:90, acc:100, pp:10, cat:"physical", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Branding-iron strike; always lands a critical hit." },
+  inferno_chop:            { name:"Inferno Chop", type:"Fire", power:60, acc:100, pp:15, cat:"physical", effect:"burn", ec:30, target:"single", desc:"Karate-chop wreathed in flame; may burn." },
+  scorch_kick:             { name:"Scorch Kick", type:"Fire", dualType:["Fire","Earth"], power:95, acc:85, pp:10, cat:"physical", effect:"marked", ec:30, target:"wide", desc:"Earth-scorching kick across all foes; may inflict Marked." },
+  flare_uppercut:          { name:"Flare Uppercut", type:"Fire", power:85, acc:100, pp:10, cat:"physical", effect:"flinch", ec:20, target:"single", desc:"Upward flare-uppercut; may flinch." },
+  lava_drop:               { name:"Lava Drop", type:"Fire", power:130, acc:85, pp:5, cat:"physical", effect:"recharge", ec:100, target:"wide", desc:"Drops as molten lava across all foes; requires rest." },
+  flame_focus:             { name:"Flame Focus", type:"Fire", power:0, acc:100, pp:15, cat:"status", effect:"focus", ec:100, target:"self", desc:"Sharpens flame for high critical-hit ratio." },
+  searing_glare:           { name:"Searing Glare", type:"Fire", power:0, acc:100, pp:15, cat:"status", effect:"spdefdown", ec:100, target:"single", desc:"Intense gaze lowers foe's SpDef." },
+  molten_armor:            { name:"Molten Armor", type:"Fire", power:0, acc:100, pp:15, cat:"status", effect:"defup2", ec:100, target:"self", desc:"Hardens molten skin (+2 Def)." },
+  kindle:                  { name:"Kindle", type:"Fire", power:0, acc:100, pp:10, cat:"status", effect:"atkup", ec:100, target:"self", desc:"Kindles inner flame (+1 Atk)." },
+
   // ============================================================
   // STEP 3B ADDITIONS — EXCLUSIVE MOVES
   // Each move has rarity:"exclusive" — assigned to specific
@@ -866,6 +882,11 @@ const MOVES_DATA = {
   // --- Sonic (exclusive) ---
   perfect_pitch:           { name:"Perfect Pitch", type:"Sonic", power:0, acc:100, pp:5, cat:"status", effect:"echolocation_and_deafen", ec:100, target:"single", rarity:"exclusive", desc:"Pitch-perfect tone locks Echolocation AND Deafen on the target. Signature." },
   infrasonic_apocalypse:   { name:"Infrasonic Apocalypse", type:"Sonic", power:150, acc:85, pp:5, cat:"special", effect:"recharge_and_burnt_out", ec:100, target:"wide", rarity:"exclusive", desc:"Devastating infrasound across all foes; inflicts Burnt-out and requires rest after." },
+
+  // --- Fire (exclusive) ---
+  solar_zenith:            { name:"Solar Zenith", type:"Fire", dualType:["Fire","Stellar"], power:130, acc:90, pp:5, cat:"special", effect:"recharge_and_spatkup_self", ec:100, target:"single", rarity:"exclusive", desc:"Signature solar-zenith blast; requires rest but guarantees +1 SpA. Dual Fire+Stellar." },
+  infernos_grasp:          { name:"Inferno's Grasp", type:"Fire", power:120, acc:85, pp:5, cat:"physical", effect:"burn", ec:100, target:"single", rarity:"exclusive", desc:"Guaranteed-burn physical grip — signature legendary move." },
+  magma_baptism:           { name:"Magma Baptism", type:"Fire", power:150, acc:85, pp:5, cat:"special", effect:"recharge_and_bleed_target", ec:100, target:"wide", rarity:"exclusive", desc:"Devastating wide magma wave; inflicts Bleed on all foes and requires rest." },
 };
 
 

@@ -279,6 +279,47 @@ Resolves the 27 ambiguous-keyword-match pre-408 families surfaced by `scripts/cl
 **New pristine mythical-exempt archetype claimed:**
 - void-warden / boundary-sentinel +1: Voidwarden #407 *(per BREAKING #405-407 — corrupted-canine final-stage transforms into bipedal warden; pristine archetype already noted in (b))*
 
+### Classified this session (batch 2 of 3: 38 unclassified→fits-existing 2026-05-24)
+
+Resolves the unclassified-keyword-match pre-408 families that fit existing archetypes from (a) or (b). Each assignment grounded in the final-stage's lore. Unclassified count reduces: 81 → 43.
+
+**Common-animal additions:**
+- lizard/saurian +2: Garlawarden #9, Terravore #21 *("quadrupedal reptile" / "dinosaur-like creature")*
+- crocodilian +1: Calciderm #103 *("massive freshwater crocodilian")*
+- bovid (sheep variant) +1: Aetherflock #190 *("medium psychic sheep" — bovid taxonomic family)*
+
+**Mythical-exempt additions:**
+- treant/ent +3: Necrothon #131 *(confirms (b))*, Silthorn #326, Thornspire #357
+- faerie sprite / winged-fairy humanoid +1: Blightalis #163 *("flower-headed humanoid" — flora-fae)*
+- shadow/wraith/ghost-spectral +2: Shadowveil #221, Shadowreave #343
+- crystalline-prism/gem (ice-statue variant) +1: Glaciarch #359 *("humanoid carved entirely from deep blue glacial ice")*
+- orb/wisp/cloud-formless +2: Cloudrift #285 *("compact cloud with face")*, Chromavast #363 *("ovoid body cycling colors")*
+- void/cosmic/abstract +2: Nullform #371 *("matte black, no light reflects")*, Deepvoid #387 *("featureless absolute black")*
+- golem (humanoid metal/stone) +5: Eternarmor #149, Stonegrip #252, Galvathon #320, Ashgolem #337, Abyssforge #377 *(over cap — flagged below for UNIFIED step 3 subdivision)*
+- phoenix/solar-bird +1: Solarcrown #384 *(confirms (b))*
+- seed-pod / walking-garden +1: Verdovast #71 *(confirms (b) pristine per BREAKING #69-71)*
+
+**Elemental subsection additions (cap = 1 family + 1 standalone per element):**
+- wind-elemental: Pneumathos #117 *(confirms (a) — already counted; no new tally)*
+- water-elemental +1 (NEW slot): Psychotide #255 *("flowing water-psychic creature... uncoiled and stretched")*
+- fire-elemental +1 (NEW slot): Magmite #277 *("lava droplet that has cooled enough to walk")*
+
+**Natural-disaster subsection additions:**
+- storm-elemental / thunderstorm +3: Vortexwing #370, Tempestborn #380, Nullstorm #393 *(matches the 3-family enumeration already in the 🐺 Natural-disaster subsection — confirming, not adding new)*
+
+**Rock/architectural additions (over cap; flagged for UNIFIED step 3 subdivision):**
+- rock-monolith / standing-stone +9: Megalith #250, Ashrock #253, Ashvanus #315, Quarrex #327, Mirestone #341 *(reassign from (b) crystalline)*, Bouldertide #367, Gravithorn #369, Permafrost #385 *(ice-monolith variant)*, Chronolith #388 *(reassign from (b) crystalline)*
+
+**Confirmations (already classified elsewhere — no new tally):**
+- mosquito: Plagueoth #298 *(per BREAKING #296-298; whole Plaguefly line)*
+- armadillo: Sandrix #313 *(per BREAKING #312-313; pristine, whole Dunecrawl line)*
+
+**Over-cap flags surfacing in this batch (UNIFIED step 3 to resolve):**
+- **golem** at ~13+ after batch 1+2 — needs subdivision (mech vs stone-construct vs alloy-humanoid) or trim
+- **rock-monolith / standing-stone** at ~10+ — needs subdivision (volcanic vs ice vs ancient-megalith) or trim; also affects (b) crystalline tally (Mirestone + Chronolith moving out)
+- **void/cosmic/abstract** at ~7+ — borderline; may need subdivision (matte-black variant vs space-bending variant)
+- **shadow/wraith/ghost-spectral** at ~11+ — borderline; mythical-exempt but expanding
+
 ## (b) Mythological / special / unique exemptions currently in dex (exempt from cap-of-3)
 
 These archetypes have strong folkloric / mythical / unique status and warrant > 3 families. The cap-of-3 should NOT apply.

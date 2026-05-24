@@ -414,7 +414,7 @@ Net type count: 21 → 19 (six renames + two fusions).
   - **Phase E (done 2026-05-21):** strength audit complete. 13 types read as balanced (4-7/4-7/4-7 profile). Outliers Chrono/Stellar/Dream/Spectral/Normal all narratively-justified. Mental had 10 weaknesses initially → dialed down via three twists (Sonic→Mental:2→1, Ice→Mental:2→1, Crystal→Mental:1→0.5), landing at 8 weaknesses + 4 resists — still fragile but acceptable. Chart deemed shippable.
 - [ ] **Step 3:** Adjust moves + move names to reflect typing changes.
 - [x] **Step 4 (flag-only, 2026-05-24):** Pre-408 rule violations = 0 (Phase A/B/C/D + PR #49 already migrated cleanly). Per-Lumori retypes deferred to the upcoming lore/description → typing audit; this step instead places inline `LORE-AUDIT FLAG (Step 4)` comments on 46 entries so the audit catches them. See "Step 4 deferred — lore audit follow-ups" below.
-- [ ] **Step 5:** Redo the type-combo cap analysis under the new type system. Supersedes the locked-flagship work that PR #51 deliberation was approaching.
+- [ ] **Step 5 (merged with upcoming lore/desc/archetype audit, 2026-05-24):** The type-combo cap re-analysis under the new 26-type chart no longer runs as a separate pass. Instead, it happens **per-Lumori inside the lore/desc/archetype audit**: once each Lumori's lore + desc + archetype is locked, the cap-tally check happens at that point and the type may be adjusted in the same approval. See "🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED)" below for the workflow, and "🧪 Type-combination audit" below that for cap rules + counting rules (still authoritative).
 
 ## Step 4 deferred — lore audit follow-ups (added 2026-05-24)
 
@@ -431,6 +431,46 @@ Inline `LORE-AUDIT FLAG (Step 4)` comments placed above 46 Lumori entries in `js
 - **Step 4/5 process rule:** when proposing per-Lumori typing adjustments, ground each recommendation in the Lumori's existing lore/desc so the new typing makes narrative sense.
 - Branch: `claude/typing-combo-audit-2-JUGMH` (PR #51 — re-titled + re-described to reflect new scope on next commit).
 
+# 🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED) — added 2026-05-24
+
+Single per-Lumori audit pass that merges what were previously four separate workflows:
+- Step 5 of the typing-system overhaul (type-combo cap re-analysis under the new 26-type chart)
+- 🧪 Type-combination audit (below — kept for cap rules + counting rules reference only)
+- 🔍 Solo desc/lore/emoji consistency audit (line ~202)
+- 🐺 Archetype oversaturation — common animals (line ~476)
+
+## Why merge
+
+Doing these as separate passes meant a Lumori could be re-typed for cap reasons, then re-archetyped for trim reasons, then re-lore'd for consistency — three touches and three reviews. Merging means one decision per Lumori: lock the lore + desc + archetype + types together, in one approval, in one commit batch.
+
+## Per-Lumori workflow
+
+For each Lumori (walking the dex in some order TBD):
+1. **Read** current `name`, `types`, `desc`, `lore`, `emoji`, and any inline `LORE-AUDIT FLAG` comment.
+2. **Audit lore/desc/emoji consistency** — surface emoji-vs-body mismatches, desc-vs-lore contradictions, name leaks, stat-vs-body conflicts (flag-only for stats; full stat pass is later).
+3. **Decide archetype** — confirm or change body plan; if change, follow the cap rules from `🐺 Archetype oversaturation`.
+4. **Decide typing** — confirm or change types; if change, run cap tally under new 26-type chart + cap rules in `🧪 Type-combination audit`.
+5. **Resolve any `LORE-AUDIT FLAG (Step 4)`** comment on this entry (29 forgotten + 6 auto-collapsed + 11 PR #49 — remove flag once addressed).
+6. **Propose** the full change set in writing — present a table row with before/after. Wait for approval.
+7. **Apply** + `node --check js/data.js` + commit (batch multiple Lumori per commit at user's discretion).
+
+## Cap-tally tracking
+
+After each batch of approvals, re-tally the dex-wide type-combo counts to confirm no batch lands the same combo into a new over-cap state. Use the script pattern from `scripts/full_collision_check.py` / `scripts/full_analysis.py`.
+
+## Cross-references
+
+- **Cap rules + counting rules:** see `🧪 Type-combination audit` § Cap rules & progress (line ~446). The flagship-typing list there is **stale** under the new 26-type chart — re-decide flagship combos during this audit.
+- **Archetype caps + mythical exemptions:** see `🦄 Creature inventory + mythological exemptions` (line ~225) and `🐺 Archetype oversaturation` (line ~476).
+- **The 46 inline flags** from Step 4 (ids listed in `## Step 4 deferred — lore audit follow-ups` above) are the highest-priority entries to address.
+- **7 currently-unused pre-408 types** (Sonic/Vapor/Mineral/Toxin/Dream/Fighting/Spectral) — distribute during this pass where lore fits.
+
+## Open scoping questions (to decide before starting)
+
+- [ ] Walk order: by id ascending? by archetype cluster? by flagged-first (the 46) then rest?
+- [ ] Batch size: 1 Lumori per approval (slow but safe) or N per approval (faster, table-based)?
+- [ ] Flagship typing list (4 combos pre-overhaul, stale) — re-decide before or during the walk?
+
 # 🧪 Type-combination audit — RUN AFTER BREAKING + MINOR, BEFORE THE RENAMING PART
 
 After all coherence fixes are committed, run a type-combination audit of the full roster:
@@ -441,7 +481,7 @@ After all coherence fixes are committed, run a type-combination audit of the ful
 - [ ] Output: list of over-cap combos with member ids, plus a separate "special / preserve" list for user review.
 - [ ] Adjust types on selected mons to bring ordinary combos under cap, leaving the special ones intact.
 
-**Run order:** BREAKING fixes → MINOR fixes → this typing audit → archetype trim → renaming queue resumes.
+**Run order (updated 2026-05-24):** This audit is **no longer a standalone pass**. It's merged into the `🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED)` section above — cap-tally checks happen per-Lumori at the moment each one's lore + desc + archetype is finalized. The cap rules + counting rules below remain authoritative.
 
 ## Cap rules & progress (clarified during PR #50 session, 2026-05-17)
 

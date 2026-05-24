@@ -364,9 +364,11 @@ function calcDamage(attacker, defender, move, opts = {}) {
 // ---- Apply Move Effects ----
 
 // Data-driven single-stat stage changes { who:'a'=attacker/'d'=defender, stat, delta, msg }
+// `who` is overridable: target:"self" moves coerce 'd' → 'a' in applySubEffect.
 const STAGE_FX = {
   atkdown:   { who:'d', stat:'atk', delta:-1, msg:'Attack fell' },
   defdown:   { who:'d', stat:'def', delta:-1, msg:'Defense fell' },
+  defdown2:  { who:'d', stat:'def', delta:-2, msg:'Defense fell sharply' },
   spdefdown: { who:'d', stat:'spd', delta:-1, msg:'Sp.Def fell' },
   spedown:   { who:'d', stat:'spe', delta:-1, msg:'Speed fell' },
   spedown2:  { who:'d', stat:'spe', delta:-2, msg:'Speed fell sharply' },
@@ -374,6 +376,13 @@ const STAGE_FX = {
   atkup:     { who:'a', stat:'atk', delta:+1, msg:'Attack rose' },
   atkup2:    { who:'a', stat:'atk', delta:+2, msg:'Attack rose sharply' },
   defup:     { who:'a', stat:'def', delta:+1, msg:'Defense rose' },
+  defup2:    { who:'a', stat:'def', delta:+2, msg:'Defense rose sharply' },
+  speup:     { who:'a', stat:'spe', delta:+1, msg:'Speed rose' },
+  spaup:     { who:'a', stat:'spa', delta:+1, msg:'Sp.Atk rose' },
+  spaup2:    { who:'a', stat:'spa', delta:+2, msg:'Sp.Atk rose sharply' },
+  spatkup:   { who:'a', stat:'spa', delta:+1, msg:'Sp.Atk rose' }, // synonym for spaup
+  spdefup:   { who:'a', stat:'spd', delta:+1, msg:'Sp.Def rose' },
+  spdefup2:  { who:'a', stat:'spd', delta:+2, msg:'Sp.Def rose sharply' },
 };
 // Multi-stat stage changes
 const MULTI_STAGE_FX = {
@@ -389,18 +398,49 @@ function applyStageChange(mon, stat, delta) {
   return true;
 }
 
+// Phase 5 — Compound effect dispatcher.
+// Compound tags like "echolocation_and_deafen" / "recharge_and_burn_target" /
+// "atkup2_and_spaup2_self" are split on "_and_". Each segment may carry an
+// optional "_self" or "_target" suffix that overrides routing for that segment;
+// segments without a suffix inherit the parent move's target routing.
+// Per TODO 821, this is a transitional dispatcher — the long-term migration is
+// to an `effects:[{effect, ec}, ...]` array schema on the move. Until then,
+// compound tags share the parent's ec roll (all-or-nothing).
 function applyMoveEffect(move, attacker, defender) {
   if (!move.effect || move.ec === 0) return [];
-  const messages = [];
-  if (!rollPercent(move.ec)) return messages;
+  if (!rollPercent(move.ec)) return [];
   const fx = move.effect;
-  // For target:"self" moves, redirect secondary effects to the user.
-  // STAGE_FX entries with who:'a' stay on attacker regardless; who:'d' routes via target.
-  const target = (move.target === "self") ? attacker : defender;
+  const defaultTarget = (move.target === "self") ? attacker : defender;
+
+  if (fx.includes("_and_")) {
+    const messages = [];
+    for (const part of fx.split("_and_")) {
+      let baseFx = part;
+      let subTarget = defaultTarget;
+      if (part.endsWith("_self")) {
+        baseFx = part.slice(0, -5);
+        subTarget = attacker;
+      } else if (part.endsWith("_target")) {
+        baseFx = part.slice(0, -7);
+        subTarget = defender;
+      }
+      messages.push(...applySubEffect(baseFx, attacker, subTarget));
+    }
+    return messages;
+  }
+
+  return applySubEffect(fx, attacker, defaultTarget);
+}
+
+// Single-effect application. `target` already reflects move.target / suffix routing.
+function applySubEffect(fx, attacker, target) {
+  const messages = [];
 
   // Single-stat stage changes
   if (STAGE_FX[fx]) {
     const { who, stat, delta, msg } = STAGE_FX[fx];
+    // who:'a' is always self-buff/self-debuff; who:'d' routes via target (which
+    // already accounts for the move's target field and any compound-tag suffix).
     const mon = who === 'a' ? attacker : target;
     if (applyStageChange(mon, stat, delta)) {
       const arrow = delta > 0 ? '📈' : '📉';
@@ -409,29 +449,27 @@ function applyMoveEffect(move, attacker, defender) {
     return messages;
   }
 
-  // Multi-stat stage changes
+  // Multi-stat stage changes (always self-buffs in current data)
   if (MULTI_STAGE_FX[fx]) {
     const { changes, msg } = MULTI_STAGE_FX[fx];
-    const mon = attacker; // multi-stage effects are self-buffs
     let changed = false;
-    for (const c of changes) changed = applyStageChange(mon, c.stat, c.delta) || changed;
-    if (changed) messages.push(`📈 ${mon.name}'s ${msg}!`);
+    for (const c of changes) changed = applyStageChange(attacker, c.stat, c.delta) || changed;
+    if (changed) messages.push(`📈 ${attacker.name}'s ${msg}!`);
     return messages;
   }
 
+  // Status applications (registry-driven). Phase 1: single-status guard preserved
+  // so only one of the 6 registered statuses sticks at a time. Phase 3 will
+  // register the remaining 19 status types and remove the guard for stacking.
+  if (STATUS_REGISTRY[fx]) {
+    if (!hasAnyStatus(target) && addStatus(target, fx)) {
+      messages.push(STATUS_REGISTRY[fx].applyMsg(target.name));
+    }
+    return messages;
+  }
+
+  // Special-case effects
   switch (fx) {
-    case "burn":
-    case "paralyze":
-    case "poison":
-    case "badpoison":
-    case "freeze":
-    case "sleep":
-      // Phase 1: preserve single-status rule (one persistent status at a time).
-      // Phase 3 removes this guard when the 19 new statuses are introduced.
-      if (!hasAnyStatus(target) && addStatus(target, fx)) {
-        messages.push(STATUS_REGISTRY[fx].applyMsg(target.name));
-      }
-      break;
     case "confuse":
       if (!target.isConfused) {
         target.isConfused = true;
@@ -443,12 +481,19 @@ function applyMoveEffect(move, attacker, defender) {
       target._flinched = true;
       break;
     case "heal50": {
-      // heal50 is always self-targeting (it's a recovery move)
+      // Always self-targeting (it's a recovery move)
       const healAmt = Math.floor(attacker.maxHP * 0.5);
       attacker.currentHP = Math.min(attacker.maxHP, attacker.currentHP + healAmt);
       messages.push(`💚 ${attacker.name} restored ${healAmt} HP!`);
       break;
     }
+    case "recharge":
+      // Phase 6: attacker must skip its next turn
+      attacker.mustRecharge = true;
+      break;
+    // Effects handled outside applyMoveEffect (silenced here):
+    //   crit (calcDamage), drain/recoil/hits (damage application),
+    //   priority (turn ordering), leftovers/focus (passive)
   }
   return messages;
 }
@@ -496,8 +541,13 @@ function checkQuickClaw(mon) {
   return getHeldData(mon)?.effect === "quickClaw" && rollPercent(30);
 }
 
-// Check if mon can move this turn (handles sleep/freeze/paralyze/confusion)
+// Check if mon can move this turn (handles recharge/sleep/freeze/paralyze/confusion)
 function canMove(mon) {
+  // Phase 6: recharge — mon must skip the turn after using a recharge-flagged move
+  if (mon.mustRecharge) {
+    mon.mustRecharge = false;
+    return { can: false, msg: `💤 ${mon.name} must recharge!` };
+  }
   if (!mon.statuses) mon.statuses = [];
   // Status-driven movement blockers (iterate a snapshot so callbacks can remove safely)
   for (const entry of [...mon.statuses]) {

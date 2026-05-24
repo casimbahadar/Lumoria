@@ -120,7 +120,7 @@ Becoming Champion is only the beginning.
 
 Lumoria's post-game is substantial — rematches, new adversaries, hidden areas, and challenges that push your team far beyond what the main story demands. Some content is only accessible after you've proven yourself as Champion. Pursuing it all will take considerably longer than the main journey.
 
-Among the post-game's content: a set of thirteen distinct adversaries, each with a hand-crafted team of rare Lumori found nowhere else in the game. These Lumori carry moves exclusive to them — designed around their typings and built to be felt. Seek them out if you want the most demanding battles Lumoria has to offer.
+Among the post-game's content: a set of thirteen distinct adversaries, each with a hand-crafted team of rare Lumori found nowhere else in the game. These Lumori carry moves exclusive to them — designed around their typings and built to be felt. Seek them out if you want the most demanding battles Lumoria has to offer. After every one of these thirteen adversaries falls, each will reappear once at their stronghold to give you a chance to catch the rare Lumori at the heart of their bond — a one-time encounter, so come prepared.
 
 For those who have seen everything the post-game has to offer, there is one more layer still waiting.
 
@@ -128,7 +128,7 @@ For those who have seen everything the post-game has to offer, there is one more
 
 ## New Game Plus
 
-Completing the game unlocks **New Game+**, a second run of Lumoria with the challenge turned up significantly. Enemy trainers are stronger, new Lumori appear in the wild, new areas of the region open up, and the stakes of every encounter are higher. Your Lumori carry over — use that advantage wisely. NG+ is designed for players who want a true test of mastery.
+Completing the game unlocks **New Game+**, a second run of Lumoria with the challenge turned up significantly. Enemy trainers are stronger, new Lumori appear in the wild, new areas of the region open up, and the stakes of every encounter are higher. Your Lumori carry over — use that advantage wisely. NG+ is designed for players who want a true test of mastery. Note: New Game+ and the Forgotten Lumori post-quest are independent layers — neither requires the other, and the Lumori from each pool stay distinct.
 
 ---
 

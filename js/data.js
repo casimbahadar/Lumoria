@@ -872,6 +872,108 @@ const MOVES_DATA = {
   molten_armor:            { name:"Molten Armor", type:"Fire", power:0, acc:100, pp:15, cat:"status", effect:"defup2", ec:100, target:"self", desc:"Hardens molten skin (+2 Def)." },
   kindle:                  { name:"Kindle", type:"Fire", power:0, acc:100, pp:10, cat:"status", effect:"atkup", ec:100, target:"self", desc:"Kindles inner flame (+1 Atk)." },
 
+
+  // --- Nature (regular) ---
+  nature_pulse:            { name:"Nature Pulse", type:"Nature", power:40, acc:100, pp:30, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Pulse of life-energy; always lands a critical hit." },
+  leafblade_swirl:         { name:"Leafblade Swirl", type:"Nature", power:65, acc:95, pp:20, cat:"special", effect:"atkdown", ec:20, target:"single", desc:"Swirling leaf-blades; may lower foe's Atk." },
+  sporecloud_burst:        { name:"Sporecloud Burst", type:"Nature", power:70, acc:100, pp:15, cat:"special", effect:"sleep", ec:10, target:"wide", desc:"Burst of spores across all foes; may sleep them." },
+  verdant_radiance:        { name:"Verdant Radiance", type:"Nature", dualType:["Nature","Stellar"], power:85, acc:90, pp:10, cat:"special", effect:"crit", ec:100, target:"single", desc:"Bright life-radiance with high crit ratio. Dual Nature+Stellar." },
+  swarm_assault:           { name:"Swarm Assault", type:"Nature", power:95, acc:90, pp:10, cat:"special", effect:"flinch", ec:20, target:"wide", desc:"Insect-swarm assault on all foes; may flinch." },
+  primordial_growth:       { name:"Primordial Growth", type:"Nature", dualType:["Nature","Earth"], power:110, acc:85, pp:5, cat:"special", effect:null, ec:0, target:"single", desc:"Primordial growth-burst. Dual Nature+Earth." },
+
+  // --- Electric (regular) ---
+  thunder_jab:             { name:"Thunder Jab", type:"Electric", power:40, acc:100, pp:30, cat:"physical", effect:null, ec:0, target:"single", desc:"Quick electric jab." },
+  spark_claw:              { name:"Spark Claw", type:"Electric", power:60, acc:100, pp:20, cat:"physical", effect:"paralyze", ec:30, target:"single", breakerVs:"Earth", desc:"Electrified claw; bypasses Earth's normal immunity." },
+  coil_strike:             { name:"Coil Strike", type:"Electric", power:75, acc:100, pp:15, cat:"physical", effect:null, ec:0, target:"single", desc:"Electromagnetic coil-strike." },
+  bolt_smash:              { name:"Bolt Smash", type:"Electric", dualType:["Electric","Metal"], power:85, acc:95, pp:10, cat:"physical", effect:"flinch", ec:20, target:"wide", desc:"Bolt-charged smash. Dual Electric+Metal; may flinch all foes." },
+  plasma_punch:            { name:"Plasma Punch", type:"Electric", power:95, acc:90, pp:10, cat:"physical", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Plasma-fist; always lands a critical hit." },
+  lightning_rush:          { name:"Lightning Rush", type:"Electric", dualType:["Electric","Sonic"], power:110, acc:85, pp:10, cat:"physical", effect:"sluggish", ec:30, target:"wide", desc:"Sonic-boom-fast rush. Dual Electric+Sonic; may inflict Sluggish." },
+  magnet_field:            { name:"Magnet Field", type:"Electric", power:0, acc:100, pp:15, cat:"status", effect:"defup", ec:100, target:"self", desc:"Magnetic field hardens body (+1 Def)." },
+  static_charge:           { name:"Static Charge", type:"Electric", power:0, acc:100, pp:15, cat:"status", effect:"atkup2", ec:100, target:"self", desc:"Builds static (+2 Atk)." },
+  overcharge_status:       { name:"Overcharge Coil", type:"Electric", power:0, acc:100, pp:10, cat:"status", effect:"spaup2", ec:100, target:"self", desc:"Floods circuits (+2 SpA)." },
+  capacitor_drain:         { name:"Capacitor Drain", type:"Electric", power:0, acc:100, pp:10, cat:"status", effect:"heal50", ec:100, target:"self", desc:"Drains stored charge; restores half HP." },
+  ground_circuit:          { name:"Ground Circuit", type:"Electric", power:0, acc:100, pp:15, cat:"status", effect:"spdefup", ec:100, target:"self", desc:"Grounds circuits (+1 SpDef)." },
+
+  // --- Earth (regular) ---
+  quake_pulse:             { name:"Quake Pulse", type:"Earth", power:50, acc:100, pp:30, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Seismic pulse; always lands a critical hit." },
+  tectonic_wave:           { name:"Tectonic Wave", type:"Earth", power:75, acc:95, pp:15, cat:"special", effect:"spedown", ec:30, target:"wide", breakerVs:"Aether", desc:"Plate-shift wave; super vs Aether; may slow all foes." },
+  mineral_blast:           { name:"Mineral Blast", type:"Earth", dualType:["Earth","Mineral"], power:85, acc:90, pp:10, cat:"special", effect:"spdefdown", ec:30, target:"single", desc:"Mineral-shard burst. Dual Earth+Mineral; may lower SpDef." },
+  continental_shift:       { name:"Continental Shift", type:"Earth", dualType:["Earth","Wind"], power:110, acc:85, pp:5, cat:"special", effect:null, ec:0, target:"wide", desc:"Continental upheaval driven by wind erosion. Dual Earth+Wind." },
+  sand_polish_v2:          { name:"Sand Storm Polish", type:"Earth", power:0, acc:100, pp:15, cat:"status", effect:"atkup", ec:100, target:"self", desc:"Sand-grinding sharpens claws (+1 Atk)." },
+
+  // --- Wind (regular) ---
+  gust_jab:                { name:"Gust Jab", type:"Wind", power:50, acc:100, pp:25, cat:"physical", effect:null, ec:0, target:"single", desc:"Quick gust-driven jab." },
+  windshear:               { name:"Windshear", type:"Wind", power:75, acc:100, pp:15, cat:"physical", effect:"crit", ec:100, target:"single", desc:"Sharp wind-blade with high crit ratio." },
+  tornado_kick:            { name:"Tornado Kick", type:"Wind", power:80, acc:95, pp:10, cat:"physical", effect:"spedown", ec:30, target:"single", desc:"Spinning wind-kick; may slow." },
+  cyclone_smash:           { name:"Cyclone Smash", type:"Wind", dualType:["Wind","Sonic"], power:100, acc:90, pp:10, cat:"physical", effect:"flinch", ec:30, target:"wide", desc:"Cyclonic slam producing a sonic-boom. Dual Wind+Sonic; may flinch all foes." },
+  breeze_blast:            { name:"Breeze Blast", type:"Wind", power:45, acc:100, pp:30, cat:"special", effect:null, ec:0, target:"single", desc:"Soft breeze; reliable damage." },
+  zephyr_arrow:            { name:"Zephyr Arrow", type:"Wind", power:70, acc:100, pp:20, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Wind-arrow; always lands a critical hit." },
+  air_resonance:           { name:"Air Resonance", type:"Wind", power:65, acc:95, pp:20, cat:"special", effect:"spatkdown", ec:30, target:"single", desc:"Resonant air; may lower foe's SpA." },
+  tempest_wave:            { name:"Tempest Wave", type:"Wind", power:80, acc:95, pp:15, cat:"special", effect:"atkdown", ec:20, target:"single", desc:"Tempest-condensed wave; may lower foe's Atk." },
+  squall:                  { name:"Squall", type:"Wind", power:75, acc:90, pp:15, cat:"special", effect:"deafen", ec:20, target:"wide", desc:"Sudden squall on all foes; may inflict Deafen." },
+  hurricane_blast:         { name:"Hurricane Blast", type:"Wind", power:110, acc:80, pp:5, cat:"special", effect:"confuse", ec:30, target:"wide", breakerVs:"Spectral", desc:"Wild hurricane; super vs Spectral; may confuse all foes." },
+  windstorm_eruption:      { name:"Thunderstorm Eruption", type:"Wind", dualType:["Wind","Electric"], power:130, acc:85, pp:5, cat:"special", effect:"strained", ec:30, target:"wide", desc:"Lightning-laced windstorm. Dual Wind+Electric; may inflict Strained on all foes." },
+  updraft:                 { name:"Updraft", type:"Wind", power:0, acc:100, pp:15, cat:"status", effect:"spdefup", ec:100, target:"self", desc:"Updraft cushion (+1 SpDef)." },
+  gale_focus:              { name:"Gale Focus", type:"Wind", power:0, acc:100, pp:15, cat:"status", effect:"accup", ec:100, target:"self", desc:"Reads wind currents; raises own Accuracy." },
+  air_barrier:             { name:"Air Barrier", type:"Wind", power:0, acc:100, pp:10, cat:"status", effect:"heal50", ec:100, target:"self", desc:"Air-current bath restores half HP." },
+
+  // --- Ice (regular) ---
+  frost_jab:               { name:"Frost Jab", type:"Ice", power:45, acc:100, pp:30, cat:"physical", effect:null, ec:0, target:"single", breakerVs:"Aquatic", desc:"Quick frost-jab; super vs Aquatic (Freeze-Dry analogue)." },
+  ice_claw:                { name:"Ice Claw", type:"Ice", power:60, acc:100, pp:20, cat:"physical", effect:"freeze", ec:10, target:"single", desc:"Iced claw; may freeze." },
+  blizzard_charge:         { name:"Blizzard Charge", type:"Ice", power:75, acc:95, pp:15, cat:"physical", effect:"sluggish", ec:30, target:"single", desc:"Charging blizzard; may inflict Sluggish." },
+  icicle_smash:            { name:"Icicle Smash", type:"Ice", power:80, acc:100, pp:10, cat:"physical", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Icicle slam; always lands a critical hit." },
+  frostbite_strike:        { name:"Frostbite Strike", type:"Ice", power:95, acc:90, pp:10, cat:"physical", effect:"freeze", ec:30, target:"single", desc:"Deep-cold strike; may freeze." },
+  avalanche_smash:         { name:"Avalanche Smash", type:"Ice", dualType:["Ice","Earth"], power:120, acc:85, pp:5, cat:"physical", effect:null, ec:0, target:"wide", desc:"Avalanche-scale slam. Dual Ice+Earth." },
+  ice_resonance:           { name:"Ice Resonance", type:"Ice", dualType:["Ice","Sonic"], power:85, acc:95, pp:10, cat:"special", effect:"brittle", ec:30, target:"wide", desc:"Resonant cold. Dual Ice+Sonic; may inflict Brittle." },
+  frost_armor:             { name:"Frost Armor", type:"Ice", power:0, acc:100, pp:15, cat:"status", effect:"defup2", ec:100, target:"self", desc:"Frost-armor (+2 Def)." },
+  cold_focus:              { name:"Cold Focus", type:"Ice", power:0, acc:100, pp:15, cat:"status", effect:"focus", ec:100, target:"self", desc:"Frigid focus raises crit chance." },
+  arctic_calm:             { name:"Arctic Calm", type:"Ice", power:0, acc:100, pp:10, cat:"status", effect:"heal50", ec:100, target:"self", desc:"Deep calm restores half HP." },
+  cryogenic_field:         { name:"Cryogenic Field", type:"Ice", power:0, acc:100, pp:15, cat:"status", effect:"spdefup2", ec:100, target:"self", desc:"Freezing field (+2 SpDef)." },
+  glacial_swift:           { name:"Glacial Swift", type:"Ice", power:0, acc:100, pp:15, cat:"status", effect:"speup", ec:100, target:"self", desc:"Smooths surface like ice (+1 Speed)." },
+
+  // --- Dark (regular) ---
+  shadow_jab:              { name:"Shadow Jab", type:"Dark", power:60, acc:100, pp:20, cat:"physical", effect:"spedown", ec:20, target:"single", breakerVs:"Fairy", desc:"Shadow-strike pierces fairy-light; may slow." },
+  nightmare_smash:         { name:"Nightmare Smash", type:"Dark", dualType:["Dark","Dream"], power:90, acc:90, pp:10, cat:"physical", effect:"flinch", ec:20, target:"single", desc:"Nightmarish slam. Dual Dark+Dream; may flinch." },
+  umbral_pulse:            { name:"Umbral Pulse", type:"Dark", power:65, acc:100, pp:25, cat:"special", effect:"flinch", ec:20, target:"single", desc:"Umbral burst; may flinch." },
+  shadow_lance:            { name:"Shadow Lance", type:"Dark", power:80, acc:95, pp:15, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Piercing shadow-lance; always lands a critical hit." },
+  void_whisper:            { name:"Void Whisper", type:"Dark", power:50, acc:100, pp:25, cat:"special", effect:"confuse", ec:20, target:"wide", desc:"Disturbing whispers on all foes; may confuse." },
+  shadowstorm:             { name:"Shadowstorm", type:"Dark", dualType:["Dark","Wind"], power:95, acc:90, pp:10, cat:"special", effect:null, ec:0, target:"wide", desc:"Whirling shadow-storm. Dual Dark+Wind." },
+  eclipse_burst:           { name:"Eclipse Burst", type:"Dark", power:110, acc:80, pp:5, cat:"special", effect:"atkdown", ec:30, target:"wide", desc:"Blinding eclipse-burst on all foes; may lower Atk." },
+  abyssal_wave:            { name:"Abyssal Wave", type:"Dark", power:130, acc:85, pp:5, cat:"special", effect:"bleed", ec:30, target:"single", desc:"Abyssal wave; may inflict Bleed." },
+  shadow_cloak:            { name:"Shadow Cloak", type:"Dark", power:0, acc:100, pp:15, cat:"status", effect:"defup", ec:100, target:"self", desc:"Cloak of shadow (+1 Def)." },
+  dark_focus:              { name:"Dark Focus", type:"Dark", power:0, acc:100, pp:15, cat:"status", effect:"focus", ec:100, target:"self", desc:"Shadowed focus raises crit chance." },
+  fear_aura:               { name:"Fear Aura", type:"Dark", power:0, acc:100, pp:15, cat:"status", effect:"defdown", ec:100, target:"single", desc:"Aura of fear lowers foe's Def." },
+
+  // --- Fairy (regular) ---
+  fairy_jab:               { name:"Fairy Jab", type:"Fairy", power:60, acc:100, pp:20, cat:"physical", effect:"crit", ec:100, target:"single", desc:"Fairy-fist jab with high crit ratio." },
+  enchanted_smash:         { name:"Enchanted Smash", type:"Fairy", power:90, acc:95, pp:10, cat:"physical", effect:"flinch", ec:30, target:"single", desc:"Enchanted slam; may flinch." },
+  fairy_mist:              { name:"Fairy Mist", type:"Fairy", power:45, acc:100, pp:30, cat:"special", effect:"atkdown", ec:20, target:"wide", breakerVs:"Metal", desc:"Corrosive fairy-mist; super vs Metal; may lower Atk." },
+  sparkle_shot:            { name:"Sparkle Shot", type:"Fairy", power:65, acc:100, pp:20, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Sparkle pellet; always lands a critical hit." },
+  moonlight_beam:          { name:"Moonlight Beam", type:"Fairy", power:75, acc:100, pp:15, cat:"special", effect:"flinch", ec:20, target:"wide", desc:"Moonlight beam on all foes; may flinch." },
+  charm_pulse:             { name:"Charm Pulse", type:"Fairy", power:60, acc:95, pp:20, cat:"special", effect:"confuse", ec:30, target:"wide", desc:"Charming pulse on all foes; may confuse." },
+  faewind:                 { name:"Faewind", type:"Fairy", dualType:["Fairy","Wind"], power:80, acc:95, pp:15, cat:"special", effect:"spedown", ec:30, target:"single", desc:"Sweeping fae-wind. Dual Fairy+Wind; may slow." },
+  starlit_radiance:        { name:"Starlit Radiance", type:"Fairy", dualType:["Fairy","Stellar"], power:110, acc:85, pp:5, cat:"special", effect:null, ec:0, target:"wide", desc:"Starlit radiance on all foes. Dual Fairy+Stellar." },
+  supernova_glow:          { name:"Supernova Glow", type:"Fairy", power:130, acc:85, pp:5, cat:"special", effect:"smothered", ec:30, target:"single", desc:"Blinding supernova; may inflict Smothered." },
+  fairy_focus:             { name:"Fairy Focus", type:"Fairy", power:0, acc:100, pp:15, cat:"status", effect:"accup", ec:100, target:"self", desc:"Focused fairy-sense (+1 Accuracy)." },
+  enchant:                 { name:"Enchant", type:"Fairy", power:0, acc:100, pp:15, cat:"status", effect:"spaup", ec:100, target:"self", desc:"Enchants self (+1 SpA)." },
+  healing_circle:          { name:"Healing Circle", type:"Fairy", power:0, acc:100, pp:10, cat:"status", effect:"defup2", ec:100, target:"self", desc:"Fairy circle (+2 Def)." },
+
+  // --- Metal (regular) ---
+  metal_pulse:             { name:"Metal Pulse", type:"Metal", power:45, acc:100, pp:30, cat:"special", effect:null, ec:0, target:"single", desc:"Resonant metal pulse." },
+  iron_shockwave:          { name:"Iron Shockwave", type:"Metal", power:60, acc:100, pp:20, cat:"special", effect:"defdown", ec:30, target:"wide", desc:"Iron-density shockwave on all foes; may lower Def." },
+  magnet_burst:            { name:"Magnet Burst", type:"Metal", power:70, acc:95, pp:15, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Magnetic-field burst; always lands a critical hit." },
+  chromium_ray:            { name:"Chromium Ray", type:"Metal", power:75, acc:100, pp:15, cat:"special", effect:"crit", ec:100, target:"single", breakerVs:"Mental", desc:"Chromium-light ray; super vs Mental; high crit ratio." },
+  titanic_beam:            { name:"Titanic Beam", type:"Metal", dualType:["Metal","Mineral"], power:90, acc:95, pp:10, cat:"special", effect:"spdefdown", ec:30, target:"wide", desc:"Titanium beam on all foes. Dual Metal+Mineral; may lower SpDef." },
+  smelter_surge:           { name:"Smelter Surge", type:"Metal", power:95, acc:90, pp:10, cat:"special", effect:"flinch", ec:20, target:"single", desc:"Forge-energy surge; may flinch." },
+  mercurial_torrent:       { name:"Mercurial Torrent", type:"Metal", power:80, acc:90, pp:15, cat:"special", effect:"confuse", ec:30, target:"single", desc:"Quicksilver torrent; may confuse." },
+  iron_storm:              { name:"Iron Storm", type:"Metal", power:110, acc:80, pp:5, cat:"special", effect:"atkdown", ec:30, target:"wide", desc:"Iron-shard storm on all foes; may lower Atk." },
+  tungsten_wrath:          { name:"Tungsten Wrath", type:"Metal", dualType:["Metal","Earth"], power:130, acc:85, pp:5, cat:"special", effect:"bleed", ec:30, target:"single", desc:"Devastating tungsten-blast. Dual Metal+Earth; may inflict Bleed." },
+  plasma_smelt:            { name:"Plasma Smelt", type:"Metal", power:100, acc:85, pp:10, cat:"special", effect:"burn", ec:20, target:"single", desc:"Plasma-hot metal; may burn." },
+  iron_bulwark:            { name:"Iron Bulwark", type:"Metal", power:0, acc:100, pp:15, cat:"status", effect:"defup2", ec:100, target:"self", desc:"Iron-rigid stance (+2 Def)." },
+  mirror_polish:           { name:"Mirror Polish", type:"Metal", power:0, acc:100, pp:15, cat:"status", effect:"speup", ec:100, target:"self", desc:"Polished surface (+1 Speed)." },
+  armor_meld:              { name:"Armor Meld", type:"Metal", power:0, acc:100, pp:15, cat:"status", effect:"spdefup2", ec:100, target:"self", desc:"Welds plating (+2 SpDef)." },
+  corrosion_proof:         { name:"Corrosion-Proof", type:"Metal", power:0, acc:100, pp:10, cat:"status", effect:"heal50", ec:100, target:"self", desc:"Resists rot; restores half HP." },
+
   // ============================================================
   // STEP 3B ADDITIONS — EXCLUSIVE MOVES
   // Each move has rarity:"exclusive" — assigned to specific
@@ -887,6 +989,46 @@ const MOVES_DATA = {
   solar_zenith:            { name:"Solar Zenith", type:"Fire", dualType:["Fire","Stellar"], power:130, acc:90, pp:5, cat:"special", effect:"recharge_and_spatkup_self", ec:100, target:"single", rarity:"exclusive", desc:"Signature solar-zenith blast; requires rest but guarantees +1 SpA. Dual Fire+Stellar." },
   infernos_grasp:          { name:"Inferno's Grasp", type:"Fire", power:120, acc:85, pp:5, cat:"physical", effect:"burn", ec:100, target:"single", rarity:"exclusive", desc:"Guaranteed-burn physical grip — signature legendary move." },
   magma_baptism:           { name:"Magma Baptism", type:"Fire", power:150, acc:85, pp:5, cat:"special", effect:"recharge_and_bleed_target", ec:100, target:"wide", rarity:"exclusive", desc:"Devastating wide magma wave; inflicts Bleed on all foes and requires rest." },
+
+  // --- Nature (exclusive) ---
+  apocalypse_bloom:        { name:"Apocalypse Bloom", type:"Nature", power:130, acc:85, pp:5, cat:"special", effect:"bleed", ec:100, target:"wide", rarity:"exclusive", desc:"Wide bleed-blooming wave — signature." },
+  parasitic_drain:         { name:"Parasitic Drain", type:"Nature", power:90, acc:100, pp:10, cat:"special", effect:"drain", ec:100, target:"single", rarity:"exclusive", desc:"Powerful drain-channel — signature." },
+  ancient_grove:           { name:"Ancient Grove", type:"Nature", power:150, acc:80, pp:5, cat:"special", effect:"recharge_and_tainted_target", ec:100, target:"wide", rarity:"exclusive", desc:"Ancient grove-energy releases Tainted on all foes; requires rest." },
+
+  // --- Electric (exclusive) ---
+  tesla_overload:          { name:"Tesla Overload", type:"Electric", power:130, acc:90, pp:5, cat:"special", effect:"paralyze", ec:30, target:"wide", rarity:"exclusive", desc:"Wide overload — may paralyze all foes." },
+  eye_of_storm:            { name:"Eye of the Storm", type:"Electric", power:0, acc:100, pp:5, cat:"status", effect:"echolocation_and_speup_self", ec:100, target:"single", rarity:"exclusive", desc:"Locks Echolocation on target AND raises own Speed." },
+  plasma_judgement:        { name:"Plasma Judgement", type:"Electric", power:150, acc:85, pp:5, cat:"special", effect:"recharge_and_burn_target", ec:100, target:"single", rarity:"exclusive", desc:"Searing plasma-bolt; guaranteed burn; requires rest." },
+
+  // --- Earth (exclusive) ---
+  terra_lock:              { name:"Terra Lock", type:"Earth", power:0, acc:100, pp:5, cat:"status", effect:"petrify", ec:100, target:"single", rarity:"exclusive", desc:"Locks the target in stone — signature Petrify status." },
+  world_rend:              { name:"World Rend", type:"Earth", power:130, acc:85, pp:5, cat:"physical", effect:"defdown", ec:100, target:"wide", rarity:"exclusive", desc:"Earth-rending impact; guaranteed Def-down on all foes." },
+  gaia_judgement:          { name:"Gaia Judgement", type:"Earth", power:150, acc:80, pp:5, cat:"special", effect:"recharge_and_statue_target", ec:30, target:"single", rarity:"exclusive", desc:"Geomantic judgement; may directly inflict Statue; requires rest." },
+
+  // --- Wind (exclusive) ---
+  gale_force:              { name:"Gale Force", type:"Wind", power:130, acc:95, pp:5, cat:"special", effect:"smothered", ec:100, target:"wide", rarity:"exclusive", desc:"Smothering wide gust — signature." },
+  stratos_pierce:          { name:"Stratosphere Pierce", type:"Wind", power:150, acc:80, pp:5, cat:"physical", effect:"recharge_and_marked_target", ec:100, target:"single", rarity:"exclusive", desc:"Sky-diving pierce; locks Marked; requires rest." },
+  sky_dominion:            { name:"Sky Dominion", type:"Wind", power:0, acc:100, pp:5, cat:"status", effect:"speup2_and_atkup_self", ec:100, target:"self", rarity:"exclusive", desc:"Total sky command: +2 Speed AND +1 Atk." },
+
+  // --- Ice (exclusive) ---
+  eternal_winter:          { name:"Eternal Winter", type:"Ice", power:0, acc:100, pp:5, cat:"status", effect:"sluggish_and_spdefup_self", ec:100, target:"wide", rarity:"exclusive", desc:"Locks Sluggish on all foes AND raises own SpDef." },
+  glaciation:              { name:"Glaciation", type:"Ice", power:130, acc:85, pp:5, cat:"special", effect:"freeze", ec:100, target:"wide", rarity:"exclusive", desc:"Guaranteed freeze on all foes — signature." },
+  permafrost_lock:         { name:"Permafrost Lock", type:"Ice", power:150, acc:80, pp:5, cat:"physical", effect:"recharge_and_petrify_target", ec:30, target:"single", rarity:"exclusive", desc:"Permafrost binds the target; may inflict Petrify; requires rest." },
+
+  // --- Dark (exclusive) ---
+  eternal_night:           { name:"Eternal Night", type:"Dark", power:0, acc:100, pp:5, cat:"status", effect:"marked_and_atkdown_target", ec:100, target:"wide", rarity:"exclusive", desc:"Locks Marked on all foes AND lowers their Atk." },
+  soul_devour:             { name:"Soul Devour", type:"Dark", power:130, acc:85, pp:5, cat:"physical", effect:"bleed_and_drain", ec:100, target:"single", rarity:"exclusive", desc:"Guaranteed Bleed-drain physical — signature." },
+  abyssal_eclipse:         { name:"Abyssal Eclipse", type:"Dark", power:150, acc:80, pp:5, cat:"special", effect:"recharge_and_petrify_target", ec:30, target:"wide", rarity:"exclusive", desc:"Wide abyssal eclipse; may inflict Petrify; requires rest." },
+
+  // --- Fairy (exclusive) ---
+  wish_grant:              { name:"Wish Grant", type:"Fairy", power:0, acc:100, pp:5, cat:"status", effect:"heal50_and_echolocation_self", ec:100, target:"self", rarity:"exclusive", desc:"Restores half HP AND locks Echolocation on self." },
+  ethereal_judgement:      { name:"Ethereal Judgement", type:"Fairy", power:130, acc:90, pp:5, cat:"special", effect:"atkdown", ec:100, target:"wide", rarity:"exclusive", desc:"Wide ethereal judgement; guaranteed atkdown on all foes." },
+  dreamscape:              { name:"Dreamscape", type:"Fairy", power:150, acc:80, pp:5, cat:"special", effect:"recharge_and_sleep_target", ec:100, target:"wide", rarity:"exclusive", desc:"Dreamscape envelopes all foes; guaranteed sleep; requires rest." },
+
+  // --- Metal (exclusive) ---
+  supernova_forge:         { name:"Supernova Forge", type:"Metal", power:130, acc:95, pp:5, cat:"special", effect:"brittle", ec:100, target:"wide", rarity:"exclusive", desc:"Wide brittle-inducing forge-blast — signature." },
+  tungsten_titan:          { name:"Tungsten Titan", type:"Metal", power:150, acc:80, pp:5, cat:"physical", effect:"recharge_and_petrify_target", ec:30, target:"single", rarity:"exclusive", desc:"Titan-grade tungsten strike; may inflict Petrify; requires rest." },
+  ironheart:               { name:"Ironheart", type:"Metal", power:0, acc:100, pp:5, cat:"status", effect:"defup2_and_spdefup2_self", ec:100, target:"self", rarity:"exclusive", desc:"Iron-heart resolve: +2 Def AND +2 SpDef." },
 };
 
 

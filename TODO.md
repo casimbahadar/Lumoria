@@ -248,7 +248,36 @@ Goal: complete inventory of every creature/animal/thing represented in the dex (
 - 1-family slots: bird, boar/pig, coral-titan, crocodilian, dog (non-wolf), echidna, frog/toad, hedgehog/porcupine, hippo, horse/equine, insect-swarm, **kitsune**, mushroom/fungus, mustelid, owl, plant-sapling, rabbit/hare, rhino, scorpion, sea-fairy queen, **seed-pod / walking-garden**, slime/blob, snail/mollusk, spider, stag/elk/deer, **tanuki**, wolf
 
 ### Unclassified (108) — manual classification needed
-Many are Forgotten/postgame (id ≥ 408) with abstract/legendary names that don't match real-creature keywords. Some pre-408 lines also need manual review (e.g. Pyroclasm, Tundrafox now snowman, Nimbusel-Aetherworn cloud-fairy). **Recommended**: do a manual classification pass before running the archetype trim.
+Many are Forgotten/postgame (id ≥ 408) with abstract/legendary names that don't match real-keyword. Some pre-408 lines also need manual review (e.g. Pyroclasm, Tundrafox now snowman, Nimbusel-Aetherworn cloud-fairy). **Recommended**: do a manual classification pass before running the archetype trim.
+
+### Classified this session (batch 1 of 3: 27 ambiguous resolved 2026-05-24)
+
+Resolves the 27 ambiguous-keyword-match pre-408 families surfaced by `scripts/classify_pre408_archetypes.py`. Newly-assigned archetypes below are authoritative; they override any stale (a) auto-keyword tally above where conflicts exist. Unclassified count reduces: 108 → 81.
+
+**Existing archetypes +N (assignments from lore reading):**
+- otter/mustelid +1: Banksnout #6
+- lion / big-cat +1: Ignitheon #24
+- fish (non-eel) +1: Nepturix #30
+- cephalopod +1: Septanemone #33 *(supersedes auto "fish" keyword hit)*
+- cetacean +2: Marevanos #40, Tidephant #309
+- seal/pinniped +1: Frostmere #46 *(supersedes (a) "jellyfish/cnidarian" — gelatinous seal-silhouette per BREAKING #46)*
+- dragonfly +2: Galvaglide #86, Stuntrap #243
+- shark/eel +1: Surgolith #89
+- bird-of-prey +1: Cyclavorn #113
+- bat +1: Caveshroud #122
+- serpent (non-dragon) +1: Venotitan #125
+- golem (humanoid metal/stone) +2: Alloytron #151, Boulderoll #192
+- frog/toad +2: Venekon #156, Dissotoad #159
+- rabbit/hare +2: Racehare #181, Thundermane #210 *(Thundermane was auto-listed as lion in (a); corrected per BREAKING #209-210 maned-storm-hare lore)*
+- kangaroo/marsupial +1: Spectrace #227 *(per BREAKING #226-229 split-evo)*
+- crystalline-prism/gem +1: Shardlix #241
+- beetle +1: Sparkeen #247
+- cat (small felid) +2: Emberveil #301, Frostprowl #335
+- orb/wisp/will-o-wisp +1: Willowisp #368 *(confirms (b) listing)*
+- void/cosmic/abstract +1: Voidrend #373 *(confirms (b); resolves dual-listing with wraith)*
+
+**New pristine mythical-exempt archetype claimed:**
+- void-warden / boundary-sentinel +1: Voidwarden #407 *(per BREAKING #405-407 — corrupted-canine final-stage transforms into bipedal warden; pristine archetype already noted in (b))*
 
 ## (b) Mythological / special / unique exemptions currently in dex (exempt from cap-of-3)
 

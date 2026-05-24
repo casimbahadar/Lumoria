@@ -28,6 +28,109 @@ function stageMultiplier(stage) {
   return [0.25,0.29,0.33,0.4,0.5,0.67,1,1.5,2,2.5,3,3.5,4][stage + 6];
 }
 
+// ---- Status System (multi-status capable; backward-compat shim for legacy slot.status) ----
+//
+// Each mon carries `statuses: [{type, turns, ...}]`. Old saves with `slot.status` (string)
+// are migrated via `migrateStatuses(slot)` at every read entry point.
+//
+// STATUS_REGISTRY is data-driven: Phase 3 adds the 19 new status types by appending rows.
+
+const STATUS_REGISTRY = {
+  burn: {
+    emoji: "🔥", label: "BURN", cssClass: "status-burn", immuneTypes: ["Fire"],
+    applyMsg: name => `🔥 ${name} was burned!`,
+    tickDamage: mon => Math.max(1, Math.floor(mon.maxHP / 8)),
+    tickMsg: (name, dmg) => `🔥 ${name} is hurt by burn! (-${dmg})`,
+  },
+  poison: {
+    emoji: "☠️", label: "POISON", cssClass: "status-poison", immuneTypes: ["Poison","Steel"],
+    applyMsg: name => `☠️ ${name} was poisoned!`,
+    tickDamage: mon => Math.max(1, Math.floor(mon.maxHP / 8)),
+    tickMsg: (name, dmg) => `☠️ ${name} is hurt by poison! (-${dmg})`,
+  },
+  badpoison: {
+    emoji: "☠️", label: "TOXIC", cssClass: "status-poison", immuneTypes: ["Poison","Steel"],
+    applyMsg: name => `☠️ ${name} was badly poisoned!`,
+    initialTurns: 1,
+    tickDamage: (mon, entry) => Math.max(1, Math.floor(mon.maxHP * (entry.turns || 1) / 16)),
+    tickMsg: (name, dmg) => `☠️ ${name} is hurt by bad poison! (-${dmg})`,
+    tickAfter: entry => { entry.turns = (entry.turns || 1) + 1; },
+  },
+  paralyze: {
+    emoji: "⚡", label: "PARALYZE", cssClass: "status-paralyze", immuneTypes: ["Electric"],
+    applyMsg: name => `⚡ ${name} was paralyzed!`,
+    blocksMove: mon => rollPercent(25)
+      ? { can: false, msg: `⚡ ${mon.name} is paralyzed and can't move!` }
+      : null,
+  },
+  freeze: {
+    emoji: "🧊", label: "FREEZE", cssClass: "status-freeze", immuneTypes: ["Ice"],
+    applyMsg: name => `🧊 ${name} was frozen solid!`,
+    blocksMove: (mon, entry) => {
+      if (rollPercent(20)) { removeStatus(mon, "freeze"); return { can: true, msg: `${mon.name} thawed out!` }; }
+      return { can: false, msg: `🧊 ${mon.name} is frozen solid!` };
+    },
+  },
+  sleep: {
+    emoji: "💤", label: "SLEEP", cssClass: "status-sleep", immuneTypes: [],
+    applyMsg: name => `💤 ${name} fell asleep!`,
+    initialTurns: () => 2 + Math.floor(Math.random() * 3),
+    blocksMove: (mon, entry) => {
+      if (--entry.turns <= 0) { removeStatus(mon, "sleep"); return { can: true, msg: `${mon.name} woke up!` }; }
+      return { can: false, msg: `💤 ${mon.name} is fast asleep!` };
+    },
+  },
+};
+
+function getStatusEntry(mon, type) {
+  return mon.statuses?.find(s => s.type === type);
+}
+function hasStatus(mon, type) {
+  return !!getStatusEntry(mon, type);
+}
+function hasAnyStatus(mon) {
+  return !!(mon.statuses && mon.statuses.length > 0);
+}
+function addStatus(mon, type, opts = {}) {
+  if (!mon.statuses) mon.statuses = [];
+  if (hasStatus(mon, type)) return false;
+  const reg = STATUS_REGISTRY[type];
+  if (!reg) return false;
+  if (reg.immuneTypes && reg.immuneTypes.some(t => mon.types?.includes(t))) return false;
+  const turns = typeof reg.initialTurns === "function" ? reg.initialTurns()
+              : (reg.initialTurns ?? 0);
+  mon.statuses.push({ type, turns, ...opts });
+  return true;
+}
+function removeStatus(mon, type) {
+  if (!mon.statuses) return false;
+  const idx = mon.statuses.findIndex(s => s.type === type);
+  if (idx >= 0) { mon.statuses.splice(idx, 1); return true; }
+  return false;
+}
+
+// Migrate legacy single-string status format -> statuses array. Idempotent.
+function migrateStatuses(obj) {
+  if (!obj) return;
+  if (Array.isArray(obj.statuses)) {
+    delete obj.status; delete obj.poisonTurns; delete obj.sleepTurns;
+    return;
+  }
+  obj.statuses = [];
+  if (obj.status) {
+    const entry = { type: obj.status, turns: 0 };
+    if (obj.status === "sleep" && obj.sleepTurns) entry.turns = obj.sleepTurns;
+    if (obj.status === "badpoison" && obj.poisonTurns) entry.turns = obj.poisonTurns;
+    obj.statuses.push(entry);
+  }
+  delete obj.status; delete obj.poisonTurns; delete obj.sleepTurns;
+}
+
+function clearStatuses(obj) {
+  obj.statuses = [];
+  delete obj.status; delete obj.poisonTurns; delete obj.sleepTurns;
+}
+
 function calcMaxHP(baseHP, level, iv) {
   return Math.floor(((2 * baseHP + (iv||0)) * level) / 100) + level + 10;
 }
@@ -55,7 +158,7 @@ function buildMonBase(def, lv, ivs, nature) {
     spa: applyNatureToStat("spa", calcStat(def.base.spa, lv, ivs.spa), np),
     spd: applyNatureToStat("spd", calcStat(def.base.spd, lv, ivs.spd), np),
     spe: applyNatureToStat("spe", calcStat(def.base.spe, lv, ivs.spe), np),
-    status: null, poisonTurns: 0, sleepTurns: 0,
+    statuses: [],
     stages: { atk:0, def:0, spa:0, spd:0, spe:0 },
     isConfused: false, confuseTurns: 0, fainted: false,
   };
@@ -63,6 +166,7 @@ function buildMonBase(def, lv, ivs, nature) {
 
 // Build a live battle copy from a party slot (levelCap optional)
 function buildBattleMon(partySlot, levelCap) {
+  migrateStatuses(partySlot);
   const def = MONSTERS_DATA[partySlot.monsterId];
   const lv = (levelCap && partySlot.level > levelCap) ? levelCap : partySlot.level;
   const ivs = partySlot.ivs || { hp:0, atk:0, def:0, spa:0, spd:0, spe:0 };
@@ -74,7 +178,7 @@ function buildBattleMon(partySlot, levelCap) {
     monsterId: partySlot.monsterId,
     name: partySlot.nickname || def.name,
     moves: buildMoveArr(partySlot.moves),
-    status: partySlot.status || null,
+    statuses: partySlot.statuses.map(s => ({ ...s })),
     fainted: partySlot.currentHP === 0,
     heldItem: heldItemId,
     focusSashUsed: false,
@@ -211,7 +315,7 @@ function calcDamage(attacker, defender, move) {
     ? defender.def * stageMultiplier(defender.stages.def)
     : defender.spd * stageMultiplier(defender.stages.spd);
 
-  const burnMod = (attacker.status === "burn" && move.cat === "physical") ? 0.5 : 1;
+  const burnMod = (hasStatus(attacker, "burn") && move.cat === "physical") ? 0.5 : 1;
   let dmg = Math.floor(((2 * attacker.level / 5 + 2) * move.power * atk / def) / 50 + 2);
   dmg = Math.floor(dmg * burnMod * (0.85 + Math.random() * 0.15));
   if (attacker.types.includes(move.type)) dmg = Math.floor(dmg * 1.5);
@@ -289,41 +393,15 @@ function applyMoveEffect(move, attacker, defender) {
 
   switch (fx) {
     case "burn":
-      if (!defender.status && !defender.types.includes("Fire")) {
-        defender.status = "burn";
-        messages.push(`🔥 ${defender.name} was burned!`);
-      }
-      break;
     case "paralyze":
-      if (!defender.status && !defender.types.includes("Electric")) {
-        defender.status = "paralyze";
-        messages.push(`⚡ ${defender.name} was paralyzed!`);
-      }
-      break;
     case "poison":
-      if (!defender.status && !defender.types.includes("Poison") && !defender.types.includes("Steel")) {
-        defender.status = "poison";
-        messages.push(`☠️ ${defender.name} was poisoned!`);
-      }
-      break;
     case "badpoison":
-      if (!defender.status && !defender.types.includes("Poison") && !defender.types.includes("Steel")) {
-        defender.status = "badpoison";
-        defender.poisonTurns = 1;
-        messages.push(`☠️ ${defender.name} was badly poisoned!`);
-      }
-      break;
     case "freeze":
-      if (!defender.status && !defender.types.includes("Ice")) {
-        defender.status = "freeze";
-        messages.push(`🧊 ${defender.name} was frozen solid!`);
-      }
-      break;
     case "sleep":
-      if (!defender.status) {
-        defender.status = "sleep";
-        defender.sleepTurns = 2 + Math.floor(Math.random() * 3);
-        messages.push(`💤 ${defender.name} fell asleep!`);
+      // Phase 1: preserve single-status rule (one persistent status at a time).
+      // Phase 3 removes this guard when the 19 new statuses are introduced.
+      if (!hasAnyStatus(defender) && addStatus(defender, fx)) {
+        messages.push(STATUS_REGISTRY[fx].applyMsg(defender.name));
       }
       break;
     case "confuse":
@@ -350,17 +428,17 @@ function applyMoveEffect(move, attacker, defender) {
 
 function tickStatus(mon) {
   const msgs = [];
-  if (mon.status === "burn" || mon.status === "poison") {
-    const dmg = Math.max(1, Math.floor(mon.maxHP / 8));
-    mon.currentHP = Math.max(0, mon.currentHP - dmg);
-    msgs.push(mon.status === "burn"
-      ? `🔥 ${mon.name} is hurt by burn! (-${dmg})`
-      : `☠️ ${mon.name} is hurt by poison! (-${dmg})`);
-  } else if (mon.status === "badpoison") {
-    const dmg = Math.max(1, Math.floor(mon.maxHP * mon.poisonTurns / 16));
-    mon.currentHP = Math.max(0, mon.currentHP - dmg);
-    mon.poisonTurns++;
-    msgs.push(`☠️ ${mon.name} is hurt by bad poison! (-${dmg})`);
+  if (!mon.statuses) mon.statuses = [];
+  // Iterate a snapshot so tickAfter callbacks (or future evolves) can mutate safely
+  for (const entry of [...mon.statuses]) {
+    const reg = STATUS_REGISTRY[entry.type];
+    if (!reg) continue;
+    if (reg.tickDamage) {
+      const dmg = reg.tickDamage(mon, entry);
+      mon.currentHP = Math.max(0, mon.currentHP - dmg);
+      if (reg.tickMsg) msgs.push(reg.tickMsg(mon.name, dmg));
+    }
+    if (reg.tickAfter) reg.tickAfter(entry);
   }
   if (mon.currentHP <= 0) mon.fainted = true;
 
@@ -391,16 +469,14 @@ function checkQuickClaw(mon) {
 
 // Check if mon can move this turn (handles sleep/freeze/paralyze/confusion)
 function canMove(mon) {
-  if (mon.status === "sleep") {
-    if (--mon.sleepTurns <= 0) { mon.status = null; return { can: true,  msg: `${mon.name} woke up!` }; }
-    return { can: false, msg: `💤 ${mon.name} is fast asleep!` };
-  }
-  if (mon.status === "freeze") {
-    if (rollPercent(20)) { mon.status = null; return { can: true,  msg: `${mon.name} thawed out!` }; }
-    return { can: false, msg: `🧊 ${mon.name} is frozen solid!` };
-  }
-  if (mon.status === "paralyze" && rollPercent(25)) {
-    return { can: false, msg: `⚡ ${mon.name} is paralyzed and can't move!` };
+  if (!mon.statuses) mon.statuses = [];
+  // Status-driven movement blockers (iterate a snapshot so callbacks can remove safely)
+  for (const entry of [...mon.statuses]) {
+    const reg = STATUS_REGISTRY[entry.type];
+    if (!reg || !reg.blocksMove) continue;
+    const result = reg.blocksMove(mon, entry);
+    if (result === null) continue;      // didn't block this turn
+    return result;                       // blocked OR wake-up message
   }
   if (mon.isConfused) {
     if (--mon.confuseTurns <= 0) {
@@ -432,7 +508,7 @@ function aiChooseMove(ai, target) {
     } else {
       if (move.effect === "heal50" && ai.currentHP < ai.maxHP * 0.5) score = 80;
       else if (move.effect === "atkup2" || move.effect === "dragondance") score = 60;
-      else score = target.status ? 10 : 50;
+      else score = hasAnyStatus(target) ? 10 : 50;
     }
     return score > best.score ? { m, score } : best;
   }, { m: usableMoves[0], score: -1 }).m;
@@ -446,7 +522,7 @@ function attemptCapture(wildMon, orbType) {
   if (item.catchMult >= 255) return true;
   const catchVal = (wildMon.catchRate || 45)
     * ((3 * wildMon.maxHP - 2 * wildMon.currentHP) / (3 * wildMon.maxHP))
-    * item.catchMult * (wildMon.status ? 2 : 1) / 255;
+    * item.catchMult * (hasAnyStatus(wildMon) ? 2 : 1) / 255;
   return Math.random() < catchVal;
 }
 

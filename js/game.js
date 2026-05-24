@@ -47,7 +47,7 @@ function createPartySlot(monsterId, level) {
   if (moves.length === 0) moves.push("tackle");
   return {
     monsterId, nickname: null, level, xp: xpForLevel(level),
-    maxHP, currentHP: maxHP, moves, status: null, heldItem: null,
+    maxHP, currentHP: maxHP, moves, statuses: [], heldItem: null,
     nature: getRandomNature(), ivs,
     shiny: false, variant: false, variantTypes: null
   };
@@ -1084,10 +1084,11 @@ function updateBattleUI() {
   enemyFill.className = "hp-fill" + (enemyHPPct < 25 ? " red" : enemyHPPct < 50 ? " yellow" : "");
 
   const enemyStatus = document.getElementById("enemy-status-badge");
-  if (enemy.status) {
+  if (hasAnyStatus(enemy)) {
     enemyStatus.classList.remove("hidden");
-    enemyStatus.textContent = enemy.status.toUpperCase();
-    enemyStatus.className = `status-badge status-${enemy.status}`;
+    enemyStatus.textContent = enemy.statuses.map(s => STATUS_REGISTRY[s.type]?.label || s.type.toUpperCase()).join(" ");
+    const firstClass = STATUS_REGISTRY[enemy.statuses[0].type]?.cssClass || `status-${enemy.statuses[0].type}`;
+    enemyStatus.className = `status-badge ${firstClass}`;
   } else {
     enemyStatus.classList.add("hidden");
   }
@@ -1134,10 +1135,11 @@ function updateBattleUI() {
   document.getElementById("player-hp-text").textContent = `${player.currentHP} / ${player.maxHP}`;
 
   const playerStatus = document.getElementById("player-status-badge");
-  if (player.status) {
+  if (hasAnyStatus(player)) {
     playerStatus.classList.remove("hidden");
-    playerStatus.textContent = player.status.toUpperCase();
-    playerStatus.className = `status-badge status-${player.status}`;
+    playerStatus.textContent = player.statuses.map(s => STATUS_REGISTRY[s.type]?.label || s.type.toUpperCase()).join(" ");
+    const firstClass = STATUS_REGISTRY[player.statuses[0].type]?.cssClass || `status-${player.statuses[0].type}`;
+    playerStatus.className = `status-badge ${firstClass}`;
   } else {
     playerStatus.classList.add("hidden");
   }
@@ -1346,7 +1348,7 @@ async function playerUseBattleItem(itemId, monIdx) {
   } else if (item.type === "revive") {
     if (slot.currentHP > 0) { showNotification("That Lumori isn't fainted!"); return; }
     slot.currentHP = Math.floor(slot.maxHP * 0.5);
-    slot.status = null;
+    clearStatuses(slot);
     G.bag[itemId]--;
     logMsg(`${slot.nickname || MONSTERS_DATA[slot.monsterId].name} was revived!`);
   } else if (item.type === "battle") {
@@ -1548,7 +1550,7 @@ function createCaughtSlot(battleMon) {
     xp: xpForLevel(battleMon.level),
     maxHP: battleMon.maxHP, currentHP: battleMon.currentHP,
     moves: battleMon.moves.map(m => m.id),
-    status: battleMon.status,
+    statuses: (battleMon.statuses || []).map(s => ({ ...s })),
     nature: battleMon.nature || getRandomNature(),
     ivs: battleMon.ivs || generateIVs(),
     shiny: !!battleMon.shiny, variant: !!battleMon.variant,
@@ -1784,7 +1786,8 @@ function syncPlayerMonHP() {
   const slot = G.team[battleContext.playerTeamIdx];
   if (slot && playerActiveMon) {
     slot.currentHP = Math.max(0, playerActiveMon.currentHP);
-    slot.status = playerActiveMon.status;
+    slot.statuses = (playerActiveMon.statuses || []).map(s => ({ ...s }));
+    delete slot.status; delete slot.poisonTurns; delete slot.sleepTurns;
   }
 }
 
@@ -1879,7 +1882,7 @@ function endBattle(outcome, slot, levelUps) {
     // Blackout: heal team to 100% HP, lose 5% money
     const moneyLost = Math.floor(G.money * 0.05);
     G.money -= moneyLost;
-    for (const m of G.team) { m.currentHP = m.maxHP; m.status = null; }
+    for (const m of G.team) { m.currentHP = m.maxHP; clearStatuses(m); }
     showScreen("screen-gameover");
     const lostMsg = moneyLost > 0 ? ` You lost 💰${moneyLost} in the confusion.` : "";
     document.getElementById("gameover-text").textContent =
@@ -2207,10 +2210,11 @@ function updateMultiBattleUI() {
       fill.style.width = hpPct + "%";
       fill.className = "hp-fill" + (hpPct < 25 ? " red" : hpPct < 50 ? " yellow" : "");
       const statusEl = document.getElementById(`enemy-status-badge-${i + 1}`);
-      if (e.status) {
+      if (hasAnyStatus(e)) {
         statusEl.classList.remove("hidden");
-        statusEl.textContent = e.status.toUpperCase();
-        statusEl.className = `status-badge status-${e.status}`;
+        statusEl.textContent = e.statuses.map(s => STATUS_REGISTRY[s.type]?.label || s.type.toUpperCase()).join(" ");
+        const firstClass = STATUS_REGISTRY[e.statuses[0].type]?.cssClass || `status-${e.statuses[0].type}`;
+        statusEl.className = `status-badge ${firstClass}`;
       } else {
         statusEl.classList.add("hidden");
       }
@@ -2249,10 +2253,11 @@ function updateMultiBattleUI() {
       fill.className = "hp-fill" + (hpPct < 25 ? " red" : hpPct < 50 ? " yellow" : "");
       document.getElementById(`player-hp-text-${i + 1}`).textContent = `${p.currentHP} / ${p.maxHP}`;
       const statusEl = document.getElementById(`player-status-badge-${i + 1}`);
-      if (p.status) {
+      if (hasAnyStatus(p)) {
         statusEl.classList.remove("hidden");
-        statusEl.textContent = p.status.toUpperCase();
-        statusEl.className = `status-badge status-${p.status}`;
+        statusEl.textContent = p.statuses.map(s => STATUS_REGISTRY[s.type]?.label || s.type.toUpperCase()).join(" ");
+        const firstClass = STATUS_REGISTRY[p.statuses[0].type]?.cssClass || `status-${p.statuses[0].type}`;
+        statusEl.className = `status-badge ${firstClass}`;
       } else {
         statusEl.classList.add("hidden");
       }
@@ -2447,7 +2452,8 @@ async function executeMultiTurn() {
         const slot = G.team[playerTeamIdxs[i]];
         if (slot) {
           slot.currentHP = Math.max(0, playerActiveMons[i].currentHP);
-          slot.status = playerActiveMons[i].status;
+          slot.statuses = (playerActiveMons[i].statuses || []).map(s => ({ ...s }));
+          delete slot.status; delete slot.poisonTurns; delete slot.sleepTurns;
         }
       }
     }
@@ -2470,7 +2476,8 @@ async function executeMultiTurn() {
       const slot = G.team[playerTeamIdxs[i]];
       if (slot) {
         slot.currentHP = Math.max(0, playerActiveMons[i].currentHP);
-        slot.status = playerActiveMons[i].status;
+        slot.statuses = (playerActiveMons[i].statuses || []).map(s => ({ ...s }));
+        delete slot.status; delete slot.poisonTurns; delete slot.sleepTurns;
       }
     }
   }
@@ -3685,7 +3692,7 @@ function initEventListeners() {
   // Game over
   document.getElementById("btn-gameover-heal").addEventListener("click", () => {
     // Team already healed to 100% in battle outcome handler
-    for (const m of G.team) { m.currentHP = m.maxHP; m.status = null; }
+    for (const m of G.team) { m.currentHP = m.maxHP; clearStatuses(m); }
     showScreen("screen-main");
     renderHUD();
     renderWorldMap();
@@ -4057,9 +4064,10 @@ function healTeam() {
   }
   let healed = false;
   for (const mon of G.team) {
-    if (mon.currentHP < mon.maxHP || mon.status) {
+    migrateStatuses(mon);
+    if (mon.currentHP < mon.maxHP || hasAnyStatus(mon)) {
       mon.currentHP = mon.maxHP;
-      mon.status = null;
+      clearStatuses(mon);
       healed = true;
     }
   }

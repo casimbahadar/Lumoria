@@ -320,6 +320,35 @@ Resolves the unclassified-keyword-match pre-408 families that fit existing arche
 - **void/cosmic/abstract** at ~7+ — borderline; may need subdivision (matte-black variant vs space-bending variant)
 - **shadow/wraith/ghost-spectral** at ~11+ — borderline; mythical-exempt but expanding
 
+### Classified this session (batch 3 of 3: 11 unclassified→new-archetype-slots 2026-05-24)
+
+Resolves the final 11 unclassified pre-408 families that don't fit any existing (a) common-animal or (b) mythical-exempt archetype. Each opens a new archetype slot (mostly mythical-exempt; one common-animal pristine). UNIFIED audit will revisit folding/consolidating these in its per-Lumori pass. Unclassified count reduces: 43 → 32 *(the remaining 32 = 6 auto-collapsed mono from Phase B + 11 PR #49 forced retypes + ~15 multi-stage families whose final stage was already classified but whose mid-stage classifications haven't been written here yet — all of those are pre-classified or get reviewed in UNIFIED)*.
+
+**New mythical-exempt archetype slots (8):**
+- **elemental titan / geological-colossus** +2: Infriglace #213 *("colossal fire-ice titan")*, Primordiax #400 *("primordial titan of cooling lava and deep rock; 500-million-year footprints")*
+- **disembodied psychic intelligence** +1 (pristine): Distorsion #217 *("vast psychic intelligence that lacks a physical body... shimmering distortion in the air")*
+- **alchemical flask-being / living vessel** +1 (pristine): Toxicore #323 *("living flask of boiling acid... core chamber glows violent orange-green")*
+- **astral humanoid / psychic-wing being** +1: Astralwing #346 *("luminous humanoid shape with feathers made of thought-light")* — UNIFIED may fold into 🔮 humanoid late-discussion bucket
+- **architectural / fortified tower** +2: Crystavault #349 *("fortified tower of layered glacial ice and granite; ancient siege equipment bent and broken")*, Icevault *(already classified per BREAKING #236-237 — tower-like silhouette via Frostick + cave bedrock fusion)*
+- **demon-king / regal flame-ruler** +1 (pristine): Cinderking #365 *("regal bipedal form with crown of black fire. Rules fire-type territory through dominance displays")* — UNIFIED may fold into 🔮 humanoid late-discussion bucket
+- **weapon-being / animate-construct** +2: Starlance #366 *("elongated lance of alien metal... moves by telekinesis")*, Thunderpeak #396 *("stylised lightning bolt in living metal; near-perfect conductor")*
+
+**New common-animal pristine slot (1; cap 3):**
+- **mantis / blade-insect** +1: Chittering #324 *("sleek dark-coloured insect with six blade-like limbs and multi-faceted crimson eyes")*
+
+**Flagged for UNIFIED step 3 subdivision (not a new slot):**
+- Nightmont #219 — "perfectly black mountain, absolute darkness" — assigned to rock-monolith as the **dark-shadow variant**. UNIFIED's rock-monolith subdivision (volcanic / ice / ancient-megalith / dark-shadow) will decide the final split.
+
+### Classification pass complete — handoff to UNIFIED audit
+
+After batches 1-3, all 77 pre-408 ambiguous + unclassified families have a preliminary archetype assignment. The UNIFIED per-Lumori audit (next workflow) will:
+1. Revisit each Lumori in context of its full lore + desc + emoji + typing
+2. Confirm or revise the archetype assignment proposed here
+3. Apply the cap rules from 🐺 / 🧪 / 🦄 at decision time
+4. Resolve any of the new slots that should fold into existing buckets
+
+This batch's purpose was to give UNIFIED useful pre-classified data so per-Lumori decisions go faster — not to lock in final archetypes. Treat all batch-1/2/3 assignments as **defaults the UNIFIED audit can override**.
+
 ## (b) Mythological / special / unique exemptions currently in dex (exempt from cap-of-3)
 
 These archetypes have strong folkloric / mythical / unique status and warrant > 3 families. The cap-of-3 should NOT apply.
@@ -422,7 +451,7 @@ For each over-cap common archetype, we can convert some members into one of thes
 
 ## (d) Tasks remaining
 
-- [ ] **Manual classification pass** on the 108 unclassified families (especially Forgotten/postgame mons) — assign each to an archetype.
+- [x] **Manual classification pass** on the 108 unclassified families (especially Forgotten/postgame mons) — assign each to an archetype. *(pre-408 portion done 2026-05-24 in 3 batches: 27 ambiguous + 38 unclassified-fits-existing + 11 unclassified-new-slots = 77 families. Forgotten/postgame (id ≥ 408) portion (~31 families) deferred to UNIFIED audit since those have inline LORE-AUDIT FLAGs from Step 4 and will get per-Lumori attention there. See "Classified this session (batches 1-3)" subsections in (a) above.)*
 - [ ] **Verify (b) exemption list** with user once full inventory is clean.
 - [ ] **Pair (c) candidates** with specific over-cap common-archetype members to pivot during the renaming phase.
 - [ ] **Output the final cap-trim list** reflecting (a)+(b)+(c). This becomes the input to the existing "Archetype oversaturation" section below.

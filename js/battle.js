@@ -306,8 +306,30 @@ function getHeldData(mon) {
   return item?.held ?? null;
 }
 
-function calcDamage(attacker, defender, move) {
+// Effectiveness for a move against a defender, honoring:
+//   - move.dualType:[A,B]  → product of both types' effectiveness (Flying-Press style)
+//   - move.breakerVs:"X"   → if defender has type X, that cell is forced to 2× regardless of chart (Freeze-Dry style)
+// Falls back to the single-type chart lookup for normal moves.
+function getMoveEffectiveness(move, defenderTypes) {
+  const moveTypes = move.dualType || [move.type];
+  let total = 1;
+  for (const mt of moveTypes) {
+    let eff = 1;
+    for (const dt of defenderTypes) {
+      if (move.breakerVs && dt === move.breakerVs) {
+        eff *= 2;
+      } else if (TYPE_CHART[mt] && TYPE_CHART[mt][dt] !== undefined) {
+        eff *= TYPE_CHART[mt][dt];
+      }
+    }
+    total *= eff;
+  }
+  return total;
+}
+
+function calcDamage(attacker, defender, move, opts = {}) {
   if (move.power === 0) return 0;
+  const targetCount = opts.targetCount || 1;
   const atk = move.cat === "physical"
     ? attacker.atk * stageMultiplier(attacker.stages.atk)
     : attacker.spa * stageMultiplier(attacker.stages.spa);
@@ -316,8 +338,11 @@ function calcDamage(attacker, defender, move) {
     : defender.spd * stageMultiplier(defender.stages.spd);
 
   const burnMod = (hasStatus(attacker, "burn") && move.cat === "physical") ? 0.5 : 1;
+  // Wide-spread modifier: 0.75× when a wide move actually hits more than one target.
+  // For 1v1 (default targetCount=1) this is a no-op.
+  const spreadMod = (move.target === "wide" && targetCount > 1) ? 0.75 : 1;
   let dmg = Math.floor(((2 * attacker.level / 5 + 2) * move.power * atk / def) / 50 + 2);
-  dmg = Math.floor(dmg * burnMod * (0.85 + Math.random() * 0.15));
+  dmg = Math.floor(dmg * burnMod * spreadMod * (0.85 + Math.random() * 0.15));
   if (attacker.types.includes(move.type)) dmg = Math.floor(dmg * 1.5);
 
   const atkHeld = getHeldData(attacker);
@@ -325,12 +350,12 @@ function calcDamage(attacker, defender, move) {
   if (atkHeld?.catBoost === move.cat)   dmg = Math.floor(dmg * atkHeld.mult);
   if (atkHeld?.typeBoostDual?.includes(move.type)) dmg = Math.floor(dmg * atkHeld.mult);
 
-  const eff = getTypeEffectiveness(move.type, defender.types);
+  const eff = getMoveEffectiveness(move, defender.types);
   dmg = Math.floor(dmg * eff);
 
   let critRate = move.effect === "crit" ? 25 : 6.25;
   if (atkHeld?.effect === "critUp") critRate = Math.min(50, critRate * 2);
-  const isCrit = rollPercent(critRate);
+  const isCrit = move.alwaysCrit === true || rollPercent(critRate);
   if (isCrit) dmg = Math.floor(dmg * 1.5);
 
   return { damage: Math.max(1, dmg), effectiveness: eff, crit: isCrit };
@@ -369,11 +394,14 @@ function applyMoveEffect(move, attacker, defender) {
   const messages = [];
   if (!rollPercent(move.ec)) return messages;
   const fx = move.effect;
+  // For target:"self" moves, redirect secondary effects to the user.
+  // STAGE_FX entries with who:'a' stay on attacker regardless; who:'d' routes via target.
+  const target = (move.target === "self") ? attacker : defender;
 
   // Single-stat stage changes
   if (STAGE_FX[fx]) {
     const { who, stat, delta, msg } = STAGE_FX[fx];
-    const mon = who === 'a' ? attacker : defender;
+    const mon = who === 'a' ? attacker : target;
     if (applyStageChange(mon, stat, delta)) {
       const arrow = delta > 0 ? '📈' : '📉';
       messages.push(`${arrow} ${mon.name}'s ${msg}!`);
@@ -384,7 +412,7 @@ function applyMoveEffect(move, attacker, defender) {
   // Multi-stat stage changes
   if (MULTI_STAGE_FX[fx]) {
     const { changes, msg } = MULTI_STAGE_FX[fx];
-    const mon = attacker; // all multi-stage effects target attacker
+    const mon = attacker; // multi-stage effects are self-buffs
     let changed = false;
     for (const c of changes) changed = applyStageChange(mon, c.stat, c.delta) || changed;
     if (changed) messages.push(`📈 ${mon.name}'s ${msg}!`);
@@ -400,21 +428,22 @@ function applyMoveEffect(move, attacker, defender) {
     case "sleep":
       // Phase 1: preserve single-status rule (one persistent status at a time).
       // Phase 3 removes this guard when the 19 new statuses are introduced.
-      if (!hasAnyStatus(defender) && addStatus(defender, fx)) {
-        messages.push(STATUS_REGISTRY[fx].applyMsg(defender.name));
+      if (!hasAnyStatus(target) && addStatus(target, fx)) {
+        messages.push(STATUS_REGISTRY[fx].applyMsg(target.name));
       }
       break;
     case "confuse":
-      if (!defender.isConfused) {
-        defender.isConfused = true;
-        defender.confuseTurns = 2 + Math.floor(Math.random() * 3);
-        messages.push(`😵 ${defender.name} became confused!`);
+      if (!target.isConfused) {
+        target.isConfused = true;
+        target.confuseTurns = 2 + Math.floor(Math.random() * 3);
+        messages.push(`😵 ${target.name} became confused!`);
       }
       break;
     case "flinch":
-      defender._flinched = true;
+      target._flinched = true;
       break;
     case "heal50": {
+      // heal50 is always self-targeting (it's a recovery move)
       const healAmt = Math.floor(attacker.maxHP * 0.5);
       attacker.currentHP = Math.min(attacker.maxHP, attacker.currentHP + healAmt);
       messages.push(`💚 ${attacker.name} restored ${healAmt} HP!`);
@@ -502,7 +531,7 @@ function aiChooseMove(ai, target) {
     if (!move) return best;
     let score = 0;
     if (move.power > 0) {
-      score = move.power * getTypeEffectiveness(move.type, target.types);
+      score = move.power * getMoveEffectiveness(move, target.types);
       if (ai.types.includes(move.type)) score *= 1.5;
       if (calcDamage(ai, target, move).damage >= target.currentHP) score += 1000;
     } else {

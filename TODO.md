@@ -505,15 +505,15 @@ Per-archetype trim decisions happen per-Lumori inside the UNIFIED audit (Step 3 
 
 One per type, 19 elementals total (all 21 types except Fighting and Primal). An "elemental" is a formless being literally made of an element. Each cap = 1 family + 1 standalone.
 
-- [ ] **wind-elemental** — 1 family (Pneumathos line #116-117 "swirling pillar of concentrated air with humanoid core"). At cap.
-- [ ] *(Other 18 elemental archetypes — full audit pending; see below.)*
+- **wind-elemental** — 1 family (Pneumathos line #116-117 "swirling pillar of concentrated air with humanoid core"). At cap.
+- *(Other 18 elemental archetypes — tallies pending; surface during UNIFIED audit.)*
 
 ## Natural-disaster-inspired (cap = 1 family + 1 standalone per disaster subtype)
 
 Umbrella archetype with per-disaster subtypes (thunderstorm, tornado, tsunami, wildfire, earthquake, blizzard, eruption, flood, etc.). A natural-disaster-inspired creature is shaped like / themed after the disaster regardless of element. Each subtype cap = 1 family + 1 standalone.
 
-- [ ] **thunderstorm** — 3 families (Vortexwing #370, Tempestborn #380, Nullstorm #393 — all formless lightning-vortex with electromagnetic nucleus). Cap 1+1. Trim ~1-2. Tempestborn explicitly "tracked as both a storm and a living creature" — strongest disaster framing, prime keep candidate.
-- [ ] *(Other disaster subtypes — full audit pending.)*
+- **thunderstorm** — 3 families (Vortexwing #370, Tempestborn #380, Nullstorm #393 — all formless lightning-vortex with electromagnetic nucleus). Cap 1+1. Over cap by 1-2. Tempestborn explicitly "tracked as both a storm and a living creature" — strongest disaster framing, prime keep candidate.
+- *(Other disaster subtypes — tallies pending; surface during UNIFIED audit.)*
 
 *(Wraithstorm #386 reclassified out of storm group → wraith archetype: "translucent humanoid wraith inside lightning bolts". Galeaxis/Vortexathos/Stormcrown stay in their animal archetypes.)*
 
@@ -530,7 +530,7 @@ Umbrella archetype with per-disaster subtypes (thunderstorm, tornado, tsunami, w
 - [ ] **Target ratio.** Aim for ~70-75 solos remaining (down from 151), with the remainder absorbed/retired. Approximate target: 75 multi-stage + 70 solo = ~145 families, more comparable to mainline Pokémon density.
 - [ ] **Output:** a merger plan with **(a)** solos to absorb (with target chain + stage placement), **(b)** solos to retire (with replacement coverage if needed), **(c)** solos kept standalone (mythical-exempt or unique-niche).
 
-**Run order:** after BREAKING + MINOR + solo desc/lore audit + creature inventory + typing audits, **but before the renaming queue resumes** — because consolidating solos into chains affects names (new evolution-name relationships) and the rename pass should work on the post-consolidation roster.
+**Run order:** after BREAKING + MINOR + creature inventory + 🕯 UNIFIED audit (which now contains the merged solo desc/lore + typing + archetype-trim workflow), **but before the renaming queue resumes** — because consolidating solos into chains affects names (new evolution-name relationships) and the rename pass should work on the post-consolidation roster.
 
 # 🎯 Per-archetype typing-combo diversity audit — RUN BEFORE STAT REVIEW
 

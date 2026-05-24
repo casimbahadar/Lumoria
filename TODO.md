@@ -710,13 +710,16 @@ Add cross-references between Lumori in lore/description text to give the world e
 - **Forgotten Lumori unlock** only after the player has completed the Forgotten Lumori quest line and a corresponding gameplay flag is set. Once unlocked, they appear in secret/late-game post-quest locations distinct from NG+ encounter zones.
 
 **Implementation tasks:**
-- [ ] Update `js/data.js` NG+-EXCLUSIVE comment from "(IDs 322–421)" to "(IDs 322–407)".
-- [ ] Verify no id in 408-446 appears in any NG+ encounter table, wild-spawn list, or trainer team that is reachable in standard NG+.
-- [ ] Add a "forgotten_quests_complete" gameplay flag to save data (or repurpose an existing milestone flag if one fits).
-- [ ] Gate spawn-eligibility of ids 408-446 behind that flag — they appear only after the flag is set, in dedicated post-quest secret locations.
-- [ ] Design secret-location placements for the 39 Forgotten Lumori (which routes/areas they appear in post-flag).
-- [ ] Audit any existing encounter tables / wild-spawn lists for accidental 408-446 entries reachable before flag.
-- [ ] Update README / player-facing documentation to mention NG+ ends at 407 and Forgotten quest is the gate to 408-446.
+- [x] Update `js/data.js` NG+-EXCLUSIVE comment from "(IDs 322–421)" to "(IDs 322–407)". *(commit a925c4a)*
+- [x] Verify no id in 408-446 appears in any NG+ encounter table, wild-spawn list, or trainer team reachable in standard NG+. *(audit confirmed 0 refs outside VAELDRIS_WIELDERS)*
+- [x] Add a "forgotten_quests_complete" gameplay flag to save data (or repurpose an existing milestone flag if one fits). *(no new flag needed — derived from existing `defeatedWielders` via `isForgottenUnlocked()`; commit 787c872)*
+- [x] Gate spawn-eligibility of ids 408-446 behind that flag — they appear only after the flag is set, in dedicated post-quest secret locations. *(scope narrowed: only the 13 BST-720 forgotten Lumori become catchable, via one-time legendary-style encounters; 26 BST-750/800 stay encounter-only via the wielder battles. Batch 4a)*
+- [x] Design secret-location placements for the 39 Forgotten Lumori (which routes/areas they appear in post-flag). *(derived from existing `VAELDRIS_WIELDERS[w].location` — each wielder's location hosts that wielder's BST-720 Lumori; Batch 4a `getForgottenLegendaryForArea`)*
+- [x] Audit any existing encounter tables / wild-spawn lists for accidental 408-446 entries reachable before flag. *(none — Batch 1 audit clean)*
+- [ ] Update README / player-facing documentation to mention NG+ ends at 407 and Forgotten quest is the gate to 408-446. *(pending — Batch 5)*
+
+**Forgotten legendary cutscenes (deferred — run after stat-spread review):**
+- [ ] Draft 13 hand-authored wielder cutscenes (one per BST-720 Forgotten Lumori) to replace the templated placeholder dialogue. Each cutscene should reference the wielder's `lumoriLore` / `vaeldrisLore` and the catchable Lumori's lore. Add as a new `forgottenLegendaryCutscene:["line1", "line2", ...]` field on each VAELDRIS_WIELDERS entry; `triggerForgottenLegendaryEncounter()` reads this field when present and falls back to the templated lines otherwise. Runs after `📊 Final-pass stat spread review` because some BST-720 stats may shift during stat balancing and the cutscenes can speak to the final stat identity.
 
 This work should run BEFORE the Luminex reorder (renumber pass) so that the reorder respects the new NG+/Forgotten boundary at id 407/408.
 

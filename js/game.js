@@ -2013,9 +2013,7 @@ function endBattle(outcome, slot, levelUps) {
         const wielder = typeof VAELDRIS_WIELDERS !== "undefined" ? VAELDRIS_WIELDERS[battleContext.wielderId] : null;
         const wq = typeof QUESTS_DATA !== "undefined" ? QUESTS_DATA.find(q => q.id === battleContext.wielderId) : null;
         if (wq) completeQuest(wq);
-        const allDefeated = typeof VAELDRIS_WIELDERS !== "undefined" &&
-          Object.keys(VAELDRIS_WIELDERS).every(id => G.defeatedWielders.includes(id));
-        if (allDefeated) {
+        if (isForgottenUnlocked()) {
           G.vaeldrisPartyLock = null;
         }
         const wMsg = wielder ? `${wielder.emoji} <strong>${wielder.name}</strong>:<br>"${wielder.winQuote}"` : "⚔️ Wielder defeated!";
@@ -3004,6 +3002,11 @@ function hideTutorial() {
 
 const NG_PLUS_DEX_START = 322; // IDs 322-407 are NG+-exclusive (upper bound = FORGOTTEN_DEX_START - 1)
 const FORGOTTEN_DEX_START = 408; // IDs >= this are Forgotten Lumori, gated behind Vaeldris-quest completion (not NG+-exclusive)
+
+function isForgottenUnlocked() {
+  if (!G || !G.defeatedWielders || typeof VAELDRIS_WIELDERS === "undefined") return false;
+  return Object.keys(VAELDRIS_WIELDERS).every(id => G.defeatedWielders.includes(id));
+}
 
 function renderDexGrid(filter, search) {
   const grid = document.getElementById("dex-grid");

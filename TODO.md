@@ -91,7 +91,7 @@
 - ✅ MINOR tweaks (PR #47)
 - ✅ Bridge-lore sweep (PR #48: 98 BRIDGE_NEEDED bridges + 33 foreshadows + 61 IMPLICIT polish + 29 name-leak fixes; comprehensive name-leak scan confirmed 0 leaks remain)
 
-**Next up:** Solo desc/lore/emoji consistency audit (this section below), then typing audit → archetype trim → renaming → stat review.
+**Next up:** 🕯 UNIFIED audit (solo desc/lore/emoji + typing + archetype trim merged into per-Lumori workflow) → renaming → stat review.
 
 The original walkthrough through ids 7-446 (paused at #13 Taurcin "keep" decision) is on hold until all the audit phases above complete.
 
@@ -199,28 +199,9 @@ Batch these together once BREAKING is done. Each fix is a single-sentence wordin
 - [x] **#220-221** Shadowveil (#221) lore opener extended with "Umbrajest's wispy smoke-body has solidified into a cloaked humanoid form" — bridges the smoke-trickster → cloaked-humanoid silhouette shift (tangibility unchanged: hands still pass through its shadow-substance).
 - [x] **#226-229** *(resolved by BREAKING #226-229 split-evo work — both #228 Lunaroon (retyped Grass/Psychic moonlit-kangaroo) and #229 Radiafish (kangaroo-pivot from fish) handled.)*
 
-# 🔍 Solo desc/lore/emoji consistency audit — RUN AFTER MINOR
+# 🔍 Solo desc/lore/emoji consistency audit — MERGED INTO 🕯 UNIFIED AUDIT
 
-Goal: every standalone (single-stage) mon currently has no body-plan-coherence audit because solos can't have multi-stage breaks. But solos can have other internal inconsistencies — descriptions that contradict lore, emojis that fight body plans, name leaks, stat profiles that mismatch creature framing.
-
-## What to scan for (across all 200+ standalone mons + each stage of multi-stage families that wasn't already touched)
-
-- [ ] **Emoji vs body plan mismatches** — e.g. Grimshade had 🦇 bat emoji + lore saying panther.
-- [ ] **Desc vs lore contradictions** — e.g. Sparkrel's desc said "electric eel" while lore said "pufferfish"; Staticlaw's desc said "lion pup" while lore said "weasel"; Megavolt's desc said "thunder lion" while lore matched.
-- [ ] **Name leaks in lore opener** — e.g. "Vexakin is..." for Impefurr; "Permafrix is..." for Tundrafox; "Miasoveth is..." for Miasmafly. Any stage whose lore opens with a different name than `name:` field.
-- [ ] **Stat profiles that fight body plan** — e.g. a heavy tank with Spe 120, a fast bird with Spe 30. (Note: full stat audit is the very last task — solo audit just flags obvious cases.)
-- [ ] **Same-archetype × typing-combo collisions** — solos may overlap with each other or with multi-stage families on the strict per-archetype rule.
-- [ ] **Pre-408 creatures with post-game typings** (Aether, Fighting, Crystal, Primal, Ghost) — flag for user discussion per CLAUDE.md (e.g. Lunaspectre #362 has Ghost on a pre-408 mon).
-
-## Approach
-
-- Walk every standalone mon (about 200 in the dex, especially the Forgotten 408+ range and the 314-404 mid-range).
-- For multi-stage families touched in BREAKING/MINOR, spot-check the unmodified stages for the same issues.
-- Output: a list per category (emoji-mismatch, desc-vs-lore, name-leak, stat-mismatch, archetype-typing-collision, pre-408-postgame-type).
-- For each finding, propose a single-line fix.
-- Apply fixes batched and committed once user approves the batch.
-
-**Run order:** BREAKING → MINOR → **solo desc/lore/emoji audit (this section)** → typing-combination audit → archetype trim → renaming → stat spread review.
+Workflow merged into the per-Lumori UNIFIED audit (Step 2). The original scan categories — emoji vs body plan, desc vs lore, name leaks, stat-vs-body conflicts, same-archetype × typing-combo collisions, pre-408 post-game typings — are surfaced per Lumori as the audit walks the dex. See "🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED)" below.
 
 # 🦄 Creature inventory + mythological exemptions — RUN BEFORE archetype trim
 
@@ -471,17 +452,9 @@ After each batch of approvals, re-tally the dex-wide type-combo counts to confir
 - [ ] Batch size: 1 Lumori per approval (slow but safe) or N per approval (faster, table-based)?
 - [ ] Flagship typing list (4 combos pre-overhaul, stale) — re-decide before or during the walk?
 
-# 🧪 Type-combination audit — RUN AFTER BREAKING + MINOR, BEFORE THE RENAMING PART
+# 🧪 Type-combination audit — REFERENCE ONLY (workflow merged into 🕯 UNIFIED AUDIT)
 
-After all coherence fixes are committed, run a type-combination audit of the full roster:
-
-- [ ] Tally how many Lumori use each `[type1, type2]` (unordered) combination across the dex.
-- [ ] Devise a cap (e.g. 3-5 per combination) for "ordinary" typing pairs.
-- [ ] Flag any combo over the cap for redistribution OR mark as **"interesting / special typing combo"** if it's a deliberate flagship pairing (e.g. starter dual-types, signature legendary pairs, narratively distinctive combinations like Aether/Crystal).
-- [ ] Output: list of over-cap combos with member ids, plus a separate "special / preserve" list for user review.
-- [ ] Adjust types on selected mons to bring ordinary combos under cap, leaving the special ones intact.
-
-**Run order (updated 2026-05-24):** This audit is **no longer a standalone pass**. It's merged into the `🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED)` section above — cap-tally checks happen per-Lumori at the moment each one's lore + desc + archetype is finalized. The cap rules + counting rules below remain authoritative.
+Workflow merged into the per-Lumori UNIFIED audit (Step 4). Cap-tally checks happen per-Lumori at the moment each Lumori's lore + desc + archetype is finalized. The cap rules + counting rules + progress state below remain authoritative reference.
 
 ## Cap rules & progress (clarified during PR #50 session, 2026-05-17)
 
@@ -513,18 +486,20 @@ After all coherence fixes are committed, run a type-combination audit of the ful
 - Validate combo counts post-batch — a retype that lands in another over-cap combo doesn't help.
 - Commit per batch, present full table for user approval before next batch.
 
-# 🐺 Archetype oversaturation — common animals (cap = 3 families)
+# 🐺 Archetype oversaturation — REFERENCE TALLIES (workflow merged into 🕯 UNIFIED AUDIT)
 
-Address after BREAKING + MINOR. Plan: rebuild a few standalone or weaker family-final lores into different creature types.
+Per-archetype trim decisions happen per-Lumori inside the UNIFIED audit (Step 3 "Decide archetype"). The cap rules + current family counts below remain authoritative reference.
 
-- [ ] **wolf** — 5 families (Hexaprowl, Eclipsehound, Shadowpup, Voltfang, Cryvorn). Trim ~2. *(Mirkling line → bipedal warden via Voidwarden #405-407; Morraveth line → leshy #78-80.)*
-- [ ] **lion / big-cat** — 6 families (Siroccomane, Dravanas, Ignitheon, Thundermane, Megavolt, Majesticore). Trim ~3.
-- [ ] **dog (non-wolf canine)** — 5 families (Dustkin, Goldefluff, Arenikin, Projectery, Galeaxis). Trim ~2.
-- [ ] **bear** — 3 families (Frigidvorn, Permavast, Rotunden). At cap. *(Verdurus → seed-pod #69-71; Cuddrix-line → kirin #286-288; Arcturex → owl #53-54.)*
-- [ ] **bird-of-prey** — 5 families (Vortexathos, Swirlavel, Gelwing, Rimeclaw, Zephyrak). Trim ~2.
-- [ ] **golem (humanoid metal/stone)** — 10+ families. Trim to 3.
-- [ ] **crystalline / gem creature** — 8 families. Trim to 3.
-- [ ] **rock-monolith / standing-stone** — 5 families. Trim to 3.
+**Common-animal cap = 3 families per archetype.** Current counts of over-cap archetypes:
+
+- **wolf** — 5 families (Hexaprowl, Eclipsehound, Shadowpup, Voltfang, Cryvorn). Over cap by 2. *(Mirkling line → bipedal warden via Voidwarden #405-407; Morraveth line → leshy #78-80.)*
+- **lion / big-cat** — 6 families (Siroccomane, Dravanas, Ignitheon, Thundermane, Megavolt, Majesticore). Over cap by 3.
+- **dog (non-wolf canine)** — 5 families (Dustkin, Goldefluff, Arenikin, Projectery, Galeaxis). Over cap by 2.
+- **bear** — 3 families (Frigidvorn, Permavast, Rotunden). At cap. *(Verdurus → seed-pod #69-71; Cuddrix-line → kirin #286-288; Arcturex → owl #53-54.)*
+- **bird-of-prey** — 5 families (Vortexathos, Swirlavel, Gelwing, Rimeclaw, Zephyrak). Over cap by 2.
+- **golem (humanoid metal/stone)** — 10+ families. Over cap.
+- **crystalline / gem creature** — 8 families. Over cap.
+- **rock-monolith / standing-stone** — 5 families. Over cap by 2.
 
 ## Elementals (cap = 1 family + 1 standalone per element)
 

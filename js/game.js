@@ -57,8 +57,19 @@ function saveGame() {
   if (!G) return;
   G.saveTimestamp = Date.now();
   const save = { ...G, seenMonsters: [...G.seenMonsters], caughtMonsters: [...G.caughtMonsters] };
-  localStorage.setItem(getSaveKey(G.saveSlot || 0), JSON.stringify(save));
-  showNotification("Game saved! ✅");
+  try {
+    localStorage.setItem(getSaveKey(G.saveSlot || 0), JSON.stringify(save));
+    showNotification("Game saved! ✅");
+  } catch (e) {
+    // QuotaExceededError name varies by browser; code 22 is the DOMException value
+    const isQuota = e && (e.name === "QuotaExceededError" || e.name === "NS_ERROR_DOM_QUOTA_REACHED" || e.code === 22);
+    if (isQuota) {
+      showNotification("❌ Save failed: browser storage is full. Delete an unused save slot or clear other site data, then try saving again.");
+    } else {
+      showNotification("❌ Save failed: " + (e && e.message ? e.message : "unknown error") + ". Your progress was not stored.");
+    }
+    console.error("saveGame failed:", e);
+  }
 }
 
 function loadGame(slot) {
@@ -2991,7 +3002,8 @@ function hideTutorial() {
   document.getElementById("tutorial-overlay").classList.add("hidden");
 }
 
-const NG_PLUS_DEX_START = 322; // IDs >= this are NG+-exclusive
+const NG_PLUS_DEX_START = 322; // IDs 322-407 are NG+-exclusive (upper bound = FORGOTTEN_DEX_START - 1)
+const FORGOTTEN_DEX_START = 408; // IDs >= this are Forgotten Lumori, gated behind Vaeldris-quest completion (not NG+-exclusive)
 
 function renderDexGrid(filter, search) {
   const grid = document.getElementById("dex-grid");

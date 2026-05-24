@@ -413,8 +413,17 @@ Net type count: 21 → 19 (six renames + two fusions).
   - **Phase D (done 2026-05-21):** surprise twists applied. Locked Phase D twists baked into Phase C: Sonic 2× vs Crystal+Mineral, Dream 2× vs Spectral, Toxin 0× vs Metal, Stellar 2× vs Aether. Phase D twist #1: Aether 2× vs Spectral (committed 9c3ca3b). Bulk user tweaks from handwritten notes: 54 cell edits across Fire/Aquatic/Nature/Electric/Wind/Ice/Dark/Fairy/Metal/Poison/Mental/Draconic/Normal/Spectral/Fighting/Aether (Primal repositioned as major pivot type — many types now 2× weak to Primal). Plus 1 conservative balance fix: Sonic→Mental 2 → 1 (dialed back Mental's fragility from 10 to 9 weaknesses). **Dropped:** Chrono super-defensive resistance (per earlier session).
   - **Phase E (done 2026-05-21):** strength audit complete. 13 types read as balanced (4-7/4-7/4-7 profile). Outliers Chrono/Stellar/Dream/Spectral/Normal all narratively-justified. Mental had 10 weaknesses initially → dialed down via three twists (Sonic→Mental:2→1, Ice→Mental:2→1, Crystal→Mental:1→0.5), landing at 8 weaknesses + 4 resists — still fragile but acceptable. Chart deemed shippable.
 - [ ] **Step 3:** Adjust moves + move names to reflect typing changes.
-- [ ] **Step 4:** Adjust per-Lumori typings to remove old-type references for pre-408 ids (id < 408 only).
+- [x] **Step 4 (flag-only, 2026-05-24):** Pre-408 rule violations = 0 (Phase A/B/C/D + PR #49 already migrated cleanly). Per-Lumori retypes deferred to the upcoming lore/description → typing audit; this step instead places inline `LORE-AUDIT FLAG (Step 4)` comments on 46 entries so the audit catches them. See "Step 4 deferred — lore audit follow-ups" below.
 - [ ] **Step 5:** Redo the type-combo cap analysis under the new type system. Supersedes the locked-flagship work that PR #51 deliberation was approaching.
+
+## Step 4 deferred — lore audit follow-ups (added 2026-05-24)
+
+Inline `LORE-AUDIT FLAG (Step 4)` comments placed above 46 Lumori entries in `js/data.js`. The future lore/description → typing audit must address each. Grep `LORE-AUDIT FLAG (Step 4)` to locate.
+
+- **29 forgotten Lumori (id ≥ 408) missing a 408+-only type** — Aether/Crystal/Primal/Chrono/Stellar are reserved for 408+ but currently used by only 10/39 forgotten. Notably **Chrono and Stellar have 0 dex-wide usage**. IDs: 409, 411-421, 424-426, 428, 430-434, 436-438, 440, 442-443, 445-446.
+- **6 auto-collapsed mono (Phase B)** — possibly re-dual with a lore-justified 2nd type, or keep mono if lore supports: 192 Boulderoll, 249 Boulderax, 250 Megalith, 265 Mosswing, 327 Quarrex, 331 Thornmoth.
+- **11 PR #49 forced retypes** — 9 lost Ghost (now renamed Spectral, available pre-408); audit may restore Spectral on lore-fit names like "Wraith*"/"Willowisp". 2 lost Crystal (still 408+-restricted, stay as-is): 55, 152, 322, 342, 344, 362, 368, 373, 386, 397, 399.
+- **7 currently-unused pre-408 types** — Sonic, Vapor, Mineral, Toxin, Dream, Fighting, Spectral. Pre-408 usage count = 0 for each. Audit should distribute these onto lore-fit Lumori during the typing pass. (Not tied to specific ids — no inline flag.)
 
 ## Notes
 

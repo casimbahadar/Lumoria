@@ -1996,6 +1996,7 @@ const MONSTERS_DATA = {
     desc:"A mechanical warrior powered by electric cores. Feared on every battlefield.",
     lore:"Alloytron is a larger electric-steel automaton 1.2 metres tall — Gearon's spinning cog-wheels have consolidated into an assembly of interlocked alloy panels with exposed wiring running between them, and the mechanical-motion sparks of its juvenile form have organised into a glowing power core visible through a transparent casing in its chest. Its chest houses a glowing power core visible through a transparent casing. It can interface with electrical infrastructure and draw power directly from city grid lines." },
 
+  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   152: { id:152, name:"Imperion",  emoji:"🐢", types:["Metal","Earth"],
     base:{hp:108,atk:61,def:138,spa:59,spd:105,spe:30},
     learnset:[[1,"tackle",[25,"ironskin"]],[1,"rock_throw"],[12,"harden"],[20,"flash_cannon"],[24,"growl"],[28,"rock_slide"],[36,"iron_tail"],[44,"stone_edge"],[45,"temper_edge"],[52,"body_slam",[5,"magnetize"]],[3,"slag_shield"],[37,"crystal_lance"]],
@@ -2197,6 +2198,7 @@ const MONSTERS_DATA = {
     desc:"A rock puppy with pebble-studded fur. Loves rolling into a ball.",
     lore:"Pebblet is a small rock creature 20 cm tall shaped like a round pebble with two tiny legs and a somewhat surprised-looking face embedded in the stone. It is almost indistinguishable from an ordinary river pebble when still. It lives in streambeds and rolls with the current when travelling. Pebblet cluster in tight streambank groupings that mimic natural rock outcroppings. From within each cluster, individuals occasionally rear briefly upright on their two tiny legs before tumbling back, rehearsing both the awkward humanoid stance and the geologist-fooling formation Boulderoll and Megalith will maintain together at much greater scale." },
 
+  // LORE-AUDIT FLAG (Step 4): auto-collapsed to mono in Phase B — review for re-dual
   192: { id:192, name:"Boulderoll",emoji:"🪨", types:["Earth"],
     base:{hp:82,atk:108,def:112,spa:50,spd:57,spe:69},
     learnset:[[1,"rock_throw"],[2,"headbutt"],[3,"harden"],[4,"rock_slide"],[5,"granite_wall"],[29,"stone_edge"],[33,"tremor_stomp"],[37,"body_slam"],[41,"earth_power"],[49,"crystal_lance"],[57,"landslide"],[65,"earthquake"],[6,"petrify_gaze"],[44,"magnitude"]],
@@ -2595,6 +2597,7 @@ const MONSTERS_DATA = {
     desc:"A living pebble with stubby limbs. Rolls into enemies to deal surprisingly heavy blows.",
     lore:"Pebblard is a small round rock creature 15 cm in diameter that is essentially a smooth river pebble with two tiny eyes. It camouflages perfectly among ordinary rocks. It communicates with others by clicking against nearby stone. Geologists have placed Pebblard specimens in their sample bags by mistake." },
 
+  // LORE-AUDIT FLAG (Step 4): auto-collapsed to mono in Phase B — review for re-dual
   249: { id:249, name:"Boulderax", emoji:"⛰️", types:["Earth"],
     base:{hp:80,atk:95,def:108,spa:52,spd:70,spe:52},
     learnset:[[1,"rock_slide"],[1,"earth_power"],[22,"stone_edge"],[30,"earthquake"],[38,"bedrock_slam"],[46,"mud_shot"],[54,"clay_armor"],[62,"hyper_beam"]],
@@ -2602,6 +2605,7 @@ const MONSTERS_DATA = {
     desc:"A boulder-bodied titan that rolls through terrain like a wrecking ball. Nothing stops its charge.",
     lore:"Boulderax is a medium rock-ground creature 60 cm tall — Pebblard's smooth river-pebble silhouette has grown squat and boulder-shaped, sprouting thick arm-stubs and two flat feet, and the camouflage that once hid it among ordinary rocks now matches local geological formations at a much larger scale. It rolls itself into a perfect sphere for travel and unfurls only when it finds suitable terrain to defend." },
 
+  // LORE-AUDIT FLAG (Step 4): auto-collapsed to mono in Phase B — review for re-dual
   250: { id:250, name:"Megalith", emoji:"🗿", types:["Earth"],
     base:{hp:110,atk:120,def:134,spa:55,spd:88,spe:43},
     learnset:[[1,"stone_edge"],[1,"earthquake"],[32,"bedrock_slam"],[40,"clay_armor"],[48,"earth_power"],[56,"rock_slide"],[64,"worldseed_quake"],[72,"hyper_beam"]],
@@ -2719,6 +2723,7 @@ const MONSTERS_DATA = {
     lore:"Impenezard is a massive grass-poison creature 2 metres tall resembling a walking thorn-bush — Tendrilisk's climbing vine-tendrils have hardened into 15-cm thorns coated in the same irritant sap, and the lizard-camouflage of its juvenile form has dropped away to reveal the bristling plant-mass beneath. Its broad body is impenetrable. It moves slowly through dense jungle, and other creatures create well-worn trails specifically to avoid contact with it." },
 
   // Standalone Grass/Bug: Mosswing
+  // LORE-AUDIT FLAG (Step 4): auto-collapsed to mono in Phase B — review for re-dual
   265: { id:265, name:"Mosswing", emoji:"🦗", types:["Nature"],
     base:{hp:78,atk:82,def:70,spa:95,spd:88,spe:108},
     learnset:[[1,"bug_buzz"],[1,"vine_whip"],[18,"x_scissor"],[28,"energy_ball"],[38,"razor_leaf"],[48,"petal_blitz"],[58,"bug_buzz"],[68,"hyper_beam"]],
@@ -3253,6 +3258,7 @@ const MONSTERS_DATA = {
     lore:"Sculptweave is a spider 15 cm across with a pale cream body and legs banded in rose-gold. Its silk is exceptionally strong and has a faint iridescent sheen. It weaves elaborate three-dimensional web sculptures rather than flat sheets, incorporating fairy-touched strands that glow at dawn and dusk." },
 
   // ===== ICE/STEEL =====
+  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   55: { id:55, name:"Rimeling", emoji:"🗡️", types:["Ice","Metal"],
     base:{hp:46,atk:73,def:66,spa:56,spd:52,spe:76},
     learnset:[[1,"powder_snow",[25,"cryo_lance"]],[1,"metal_claw"],[11,"ice_punch"],[19,"flash_cannon"],[27,"icicle_crash"],[30,"smelt_crush"],[35,"iron_tail"],[43,"blizzard",[5,"permafrost"]],[3,"winter_shroud"],[33,"forge_strike"]],
@@ -3937,6 +3943,7 @@ const MONSTERS_DATA = {
   // =====================================================================
 
   // ---- Tier 1a: Mid-game NG+ (badges 8–11 areas) BST ~490–540 ----
+  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   322: { id:322, name:"Venomwraith", emoji:"☠️", types:["Poison","Dark"],
     base:{hp:60,atk:65,def:54,spa:81,spd:69,spe:71}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"poison_sting"],[10,"shadow_ball"],[20,"sludge_bomb"],[30,"miasma_cloud"],[40,"void_rend"],[50,"sludge_wave"],[60,"toxic_surge"],[5,"toxic"],[45,"venom_lance"]],
@@ -3972,6 +3979,7 @@ const MONSTERS_DATA = {
     desc:"A carnivorous marsh plant that lures prey with sweet-smelling nectar before paralysing them with venom.",
     lore:"Silthorn is a large ambulatory plant 1.8 metres tall with glossy dark-green leaves edged with translucent purple poison sacs. Its roots move like fingers." },
 
+  // LORE-AUDIT FLAG (Step 4): auto-collapsed to mono in Phase B — review for re-dual
   327: { id:327, name:"Quarrex", emoji:"⛏️", types:["Earth"],
     base:{hp:77,atk:93,def:89,spa:48,spd:61,spe:52}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"rock_throw"],[10,"earth_power"],[20,"rock_slide"],[30,"terra_spike"],[40,"fissure_slam"],[50,"fossil_rush"],[60,"rock_slide"],[5,"harden"],[35,"iron_tail"]],
@@ -4000,6 +4008,7 @@ const MONSTERS_DATA = {
     desc:"A swamp crocodilian with acid-laced saliva. Prey dissolves within minutes of a bite.",
     lore:"Blistermaw is a water-poison reptile 2.8 metres long resembling a heavily built crocodile with blistered, acid-weeping skin and rows of hollow venom-conducting teeth." },
 
+  // LORE-AUDIT FLAG (Step 4): auto-collapsed to mono in Phase B — review for re-dual
   331: { id:331, name:"Thornmoth", emoji:"🦋", types:["Nature"],
     base:{hp:55,atk:63,def:58,spa:78,spd:68,spe:78}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"gust"],[8,"vine_whip"],[18,"bug_bite"],[28,"razor_leaf"],[38,"bug_buzz"],[48,"canopy_crash"],[58,"verdant_surge"],[5,"sleep_powder"],[35,"spore_burst"]],
@@ -4079,6 +4088,7 @@ const MONSTERS_DATA = {
     lore:"Mirestone is a floating rock-psychic entity resembling a worn monolith 1.5 metres tall. Ancient carvings on its surface glow when it uses psychic powers." },
 
   // ---- Tier 2: Late-game NG+ (badges 12–16 areas) BST ~545–590 ----
+  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   342: { id:342, name:"Wraithking", emoji:"👑", types:["Dark"],
     base:{hp:69,atk:94,def:71,spa:92,spd:79,spe:90}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"shadow_ball"],[10,"void_rend"],[20,"umbral_claw"],[30,"phantom_claw"],[40,"shadow_sneak"],[50,"shadowstep"],[60,"neural_storm"],[5,"toxic"],[38,"mind_shatter"]],
@@ -4093,6 +4103,7 @@ const MONSTERS_DATA = {
     desc:"A being that exists simultaneously in darkness and thought. It reads minds to hunt more efficiently.",
     lore:"Shadowreave is a dark-psychic entity 1.6 metres tall with a body composed of living shadow and two luminous violet eyes. Its silhouette is never quite the same shape twice." },
 
+  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   344: { id:344, name:"Glimmeritch", emoji:"🧚", types:["Fairy","Dark"],
     base:{hp:63,atk:69,def:68,spa:102,spd:91,spe:97}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"fairy_wind"],[10,"shadow_ball"],[20,"fae_requiem"],[30,"psystrike"],[40,"phantom_claw"],[50,"void_rend"],[60,"fae_requiem"],[5,"dreamweave"],[38,"prism_ward"]],
@@ -4221,6 +4232,7 @@ const MONSTERS_DATA = {
     lore:"Tectolith is a ground-dragon 7 metres long with a body of compacted tectonic plates and continents of moss and stone across its back. It is older than most mountain ranges." },
 
   // ---- Tier 3b: More post-game NG+ BST ~590–640 ----
+  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   362: { id:362, name:"Lunaspectre", emoji:"🌕", types:["Mental","Dark"],
     base:{hp:70,atk:78,def:74,spa:110,spd:94,spe:94}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"psychic_move"],[10,"shadow_ball"],[20,"psystrike"],[30,"void_rend"],[40,"mind_shatter"],[50,"phantom_claw"],[60,"neural_storm"],[5,"dreamweave"],[38,"prism_ward"]],
@@ -4263,6 +4275,7 @@ const MONSTERS_DATA = {
     desc:"A creature that is half ocean, half cliff-face. It creates tsunamis as a side effect of moving.",
     lore:"Bouldertide is a water-rock creature 4 metres tall resembling a tide-carved sea stack that walks. Aquatic constantly flows through channels in its stone body." },
 
+  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   368: { id:368, name:"Willowisp", emoji:"🕯️", types:["Fire","Dark"],
     base:{hp:67,atk:80,def:69,spa:110,spd:93,spe:101}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ember"],[10,"shadow_ball"],[20,"flamethrower"],[30,"void_rend"],[40,"solar_flare"],[50,"phantom_claw"],[60,"inferno"],[5,"shadowstep"],[38,"shadow_sneak"]],
@@ -4299,6 +4312,7 @@ const MONSTERS_DATA = {
     desc:"A dragon born from a rift in the visible spectrum. Its scales cycle through every wavelength of light.",
     lore:"Prismancer is a psychic-dragon 4 metres long whose scales shift through every colour of visible light in a constant slow cycle. The air around it refracts into rainbow halos." },
 
+  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   373: { id:373, name:"Voidrend", emoji:"🌌", types:["Dark","Mental"],
     base:{hp:69,atk:103,def:74,spa:92,spd:82,spe:100}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"void_rend"],[10,"phantom_claw"],[20,"shadow_ball"],[30,"shadowstep"],[40,"umbral_claw"],[50,"mind_shatter"],[60,"neural_storm"],[5,"shadow_sneak"],[48,"cataclysm_breath"]],
@@ -4391,6 +4405,7 @@ const MONSTERS_DATA = {
     desc:"A creature so cold it freezes the ground beneath it permanently. It has never melted.",
     lore:"Permafrost is an ice-ground creature 3 metres tall resembling a glacial boulder with limbs. The ground beneath it freezes to a depth of 50 metres and does not thaw for decades after it leaves." },
 
+  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   386: { id:386, name:"Wraithstorm", emoji:"💀", types:["Electric","Dark"],
     base:{hp:68,atk:92,def:70,spa:106,spd:84,spe:105}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"shadow_ball"],[10,"thunder_shock"],[20,"phantom_claw"],[30,"thunderbolt"],[40,"void_rend"],[50,"volt_surge"],[60,"thunder"],[5,"shadow_sneak"],[52,"neural_storm"]],
@@ -4469,6 +4484,7 @@ const MONSTERS_DATA = {
     desc:"A living lightning rod of steel. Every bolt from every storm in Lumoria eventually passes through it.",
     lore:"Thunderpeak is an electric-steel creature 3 metres tall resembling a stylised lightning bolt in living metal. It has a near-perfect conductor rating and can absorb, store, and release planet-scale electrical charge." },
 
+  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   397: { id:397, name:"Abyssalord", emoji:"🌊", types:["Aquatic","Dark"],
     base:{hp:79,atk:92,def:81,spa:101,spd:87,spe:85}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"surf"],[10,"shadow_ball"],[20,"tidal_crush"],[30,"phantom_claw"],[40,"hydro_pump"],[50,"void_rend"],[60,"neural_storm"],[5,"shadowstep"],[55,"sea_serpent_strike"]],
@@ -4483,6 +4499,7 @@ const MONSTERS_DATA = {
     desc:"The sovereign of corrupted fae — a ruler that bridges the beautiful and the terrible without apology.",
     lore:"Voidcrown is a dark-fairy entity 2.5 metres tall wearing a permanent crown of void-matter and fairy-light. Half of its face is radiant and warm; the other half is an absolute darkness that swallows sight." },
 
+  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   399: { id:399, name:"Stonekeeper", emoji:"⛰️", types:["Earth","Metal"],
     base:{hp:83,atk:89,def:103,spa:89,spd:89,spe:72}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"rock_slide"],[10,"shadow_ball"],[20,"fossil_rush"],[30,"phantom_claw"],[40,"rock_slide"],[50,"void_rend"],[60,"neural_storm"],[5,"harden"],[55,"prism_ward"]],
@@ -4571,6 +4588,7 @@ const MONSTERS_DATA = {
     desc:"Messengers of the sacred temples of a lost land, Auravian carry the resonance of ancient prayers on crystalline wings.",
     lore:"Auravian are the divine messengers of Vaeldris. They appear to those who have lost something precious and are said to carry the voices of the departed on their wings." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   409: { id:409, name:"Forgotten Lumarix", emoji:"🦢", types:["Fairy","Earth"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:120,atk:100,def:115,spa:155,spd:135,spe:125},
@@ -4588,6 +4606,7 @@ const MONSTERS_DATA = {
     lore:"Lysara wept on the day Celestrix became the last of its kind. She has never spoken of the Sundering to anyone, but those who watch her battle claim they can see it in her eyes." },
 
   // --- Wielder: Morrigan (The Shadowfen) ---
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   411: { id:411, name:"Forgotten Nyxviper", emoji:"🦇", types:["Dark","Spectral"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:80,atk:150,def:80,spa:120,spd:90,spe:200},
@@ -4596,6 +4615,7 @@ const MONSTERS_DATA = {
     desc:"Nyxviper phase through solid matter and strike from the space between moments. Their venom erases memories rather than dealing damage.",
     lore:"Vaeldrian scholars debated whether Nyxviper were truly physical beings or manifestations of collective nightmares. The debate was never resolved." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   412: { id:412, name:"Forgotten Morrath", emoji:"🌑", types:["Poison","Fire"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:85,atk:145,def:90,spa:135,spd:95,spe:200},
@@ -4604,6 +4624,7 @@ const MONSTERS_DATA = {
     desc:"Ancient Vaeldrians believed Morrath were warriors who refused to pass on. Their dark flames absorb light and burn without producing warmth.",
     lore:"The flames Morrath produce are called darkfire — they are technically fire in every measurable sense, yet a room lit only by darkfire grows darker the longer they burn." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   413: { id:413, name:"Forgotten Duskmourn", emoji:"🕷️", types:["Ice","Mental"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:155,def:95,spa:155,spd:100,spe:200},
@@ -4613,6 +4634,7 @@ const MONSTERS_DATA = {
     lore:"Morrigan found Duskmourn three days after the Sundering, standing perfectly still at the edge of the collapse. She has never been able to explain why it chose to follow her." },
 
   // --- Wielder: Kael (Stormpeak Ridge) ---
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   414: { id:414, name:"Forgotten Electrak", emoji:"🌩️", types:["Electric","Metal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:130,def:90,spa:150,spd:90,spe:170},
@@ -4621,6 +4643,7 @@ const MONSTERS_DATA = {
     desc:"Electrak surf electromagnetic currents at speeds that blur their outline. Their charged steel scales can discharge enough power to fuel a city for hours.",
     lore:"The steel in Electrak's scales is a natural alloy produced by their bodies — a material that conducts electricity with zero resistance that Vaeldrian engineers failed to replicate." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   415: { id:415, name:"Forgotten Arcvolt", emoji:"⚡", types:["Normal","Earth"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:140,def:95,spa:155,spd:100,spe:165},
@@ -4629,6 +4652,7 @@ const MONSTERS_DATA = {
     desc:"Arcvolt stores massive charges within draconic stone-scale formations before releasing them in a single arc. The discharge leaves glass where the lightning lands.",
     lore:"Arcvolt's scales form geological strata within their bodies over time — geologists from Vaeldris once found evidence of strikes dating back sixty thousand years in a single Arcvolt's hide." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   416: { id:416, name:"Forgotten Fulgureis", emoji:"🌪️", types:["Nature","Aquatic"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:100,atk:155,def:100,spa:165,spd:110,spe:170},
@@ -4638,6 +4662,7 @@ const MONSTERS_DATA = {
     lore:"Kael refuses to call Fulgureis by any title. He says if you need a title to respect something, you haven't understood it yet." },
 
   // --- Wielder: Thessaly (Ancient Root Cavern) ---
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   417: { id:417, name:"Forgotten Rootborn", emoji:"🌿", types:["Nature","Poison"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:155,atk:135,def:130,spa:90,spd:120,spe:90},
@@ -4646,6 +4671,7 @@ const MONSTERS_DATA = {
     desc:"Rootborn grew from ancient seed-stones buried beneath Vaeldris's mountains for ten thousand years. Their roots crack bedrock and draw nutrients from bare stone.",
     lore:"A single Rootborn can undermine a mountain's foundation in a century. Thessaly meditates beside hers every morning and says it tells her things the mountains are thinking." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   418: { id:418, name:"Forgotten Tellurak", emoji:"🗻", types:["Earth","Metal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:160,atk:145,def:140,spa:95,spd:125,spe:85},
@@ -4654,6 +4680,7 @@ const MONSTERS_DATA = {
     desc:"Tellurak has absorbed millennia of geological pressure. Eruptions and earthquakes do not faze it. It once held a mountain together for a week through sheer will.",
     lore:"Vaeldrian stonecutters believed Tellurak were mountains that decided to walk. Thessaly has never corrected this belief." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   419: { id:419, name:"Forgotten Gaiasurge", emoji:"🌋", types:["Earth","Fighting"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:170,atk:160,def:150,spa:105,spd:130,spe:85},
@@ -4663,6 +4690,7 @@ const MONSTERS_DATA = {
     lore:"Thessaly never speaks of what she saw Gaiasurge do during the Sundering. She says some things are too large for language." },
 
   // --- Wielder: Nereus (The Hadal Depths) ---
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   420: { id:420, name:"Forgotten Pelagor", emoji:"🐬", types:["Aquatic","Mental"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:110,atk:110,def:100,spa:145,spd:115,spe:140},
@@ -4671,6 +4699,7 @@ const MONSTERS_DATA = {
     desc:"Pelagor perceive the emotional currents of the ocean and can sense fear, joy, and hunger across miles of open water.",
     lore:"Nereus claims Pelagor told him about the Sundering before it happened. He was three days' sail from Vaeldris and turned back because of it. He has never decided if that was the right choice." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   421: { id:421, name:"Forgotten Bathykor", emoji:"🦈", types:["Dark","Poison"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:120,def:105,spa:155,spd:120,spe:135},
@@ -4696,6 +4725,7 @@ const MONSTERS_DATA = {
     desc:"Aetherveil are the songs of the wind given form. Their calls travel across mountain ranges in seconds, carrying the voices of the lost to where they are needed.",
     lore:"Caelia says Aetherveil don't fly so much as they remind the air where it wants to go." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   424: { id:424, name:"Forgotten Zephyrak", emoji:"🦅", types:["Wind","Metal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:105,def:95,spa:165,spd:115,spe:180},
@@ -4704,6 +4734,7 @@ const MONSTERS_DATA = {
     desc:"Zephyrak navigate by the electromagnetic signatures of all living things below, seeing the world as a tapestry of pulsing lights from miles in the clouds.",
     lore:"A Zephyrak's steel-feathers vibrate at frequencies that predict weather systems days in advance. Vaeldrian navigators once paid fortunes to travel with one." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   425: { id:425, name:"Forgotten Skydrak", emoji:"🌬️", types:["Wind","Spectral"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:100,atk:115,def:100,spa:180,spd:125,spe:180},
@@ -4713,6 +4744,7 @@ const MONSTERS_DATA = {
     lore:"Caelia refuses to let Skydrak land. She says it belongs in the sky and the day it touches the ground again is the day she'll know it has given up." },
 
   // --- Wielder: Dravek (Magma Forge) ---
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   426: { id:426, name:"Forgotten Pyraeon", emoji:"🦁", types:["Fire","Metal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:155,def:110,spa:130,spd:95,spe:140},
@@ -4729,6 +4761,7 @@ const MONSTERS_DATA = {
     desc:"Emberon hunts in volcanic shadow. Its strikes leave wounds that refuse to stop burning, channeled through volcanic earth energy into something darker.",
     lore:"Every general in Vaeldris's history tried to recruit Dravek. He refused every one of them. Emberon, he said, fights for itself — he just happens to agree with it." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   428: { id:428, name:"Forgotten Dracofire", emoji:"🔥", types:["Draconic","Poison"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:185,def:120,spa:145,spd:105,spe:140},
@@ -4746,6 +4779,7 @@ const MONSTERS_DATA = {
     desc:"Frigalum are armored in ice-steel — a material unique to Vaeldris that never melts and deflects dragonfire. Vaeldrian smiths spent centuries failing to replicate it.",
     lore:"The only sample of Frigalum ice-steel that made it out of Vaeldris is the pauldron on Nylara's left shoulder. She refuses to explain how she acquired it." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   430: { id:430, name:"Forgotten Cryvorn", emoji:"🐺", types:["Dark","Ice"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:130,def:140,spa:125,spd:135,spe:95},
@@ -4754,6 +4788,7 @@ const MONSTERS_DATA = {
     desc:"Cryvorn lurk beneath glacial ice, rising to drag prey into the frozen depths. Their dark aura prevents victims from feeling the cold — until it is already fatal.",
     lore:"Nylara says Cryvorn don't hunt so much as they remind prey that warmth was always temporary." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   431: { id:431, name:"Forgotten Frostdrax", emoji:"❄️", types:["Spectral","Fairy"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:135,atk:145,def:150,spa:135,spd:145,spe:90},
@@ -4763,6 +4798,7 @@ const MONSTERS_DATA = {
     lore:"Frostdrax is the only one of the 39 that Nylara says chose to come with her. She did not command it. It simply followed." },
 
   // --- Wielder: Solenne (Moonhaven Ruins) ---
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   432: { id:432, name:"Forgotten Dreamaith", emoji:"🦉", types:["Mental","Aquatic"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:100,atk:75,def:105,spa:175,spd:150,spe:115},
@@ -4771,6 +4807,7 @@ const MONSTERS_DATA = {
     desc:"Dreamaith drift through walls and minds alike, leaving vivid impressions of Vaeldris in their wake. Those who encounter one report dreaming of a lost land for weeks afterward.",
     lore:"Solenne says Dreamaith don't know Vaeldris is gone. Every night, in the dream they share with her, it still stands." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   433: { id:433, name:"Forgotten Luneveth", emoji:"🌙", types:["Fairy","Aquatic"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:80,def:110,spa:185,spd:155,spe:115},
@@ -4779,6 +4816,7 @@ const MONSTERS_DATA = {
     desc:"Luneveth absorb moonlight and convert it into tidal energy. On full moon nights their power doubles. They are drawn to places that remember the sea.",
     lore:"There is a pool in Moonhaven Ruins that Luneveth fills each night with reflected moonlight. By morning it is dry again. Solenne has watched this every night for fifteen years." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   434: { id:434, name:"Forgotten Psydrak", emoji:"💭", types:["Draconic","Electric"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:90,def:115,spa:200,spd:165,spe:115},
@@ -4796,6 +4834,7 @@ const MONSTERS_DATA = {
     desc:"Ironvast's carapace has never been cracked in recorded Vaeldrian history. Engineers once used shed Ironvast shells as building material — with their full consent.",
     lore:"Rax says Ironvast has only ever been afraid once. He doesn't say when." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   436: { id:436, name:"Forgotten Forgerak", emoji:"⚔️", types:["Fire","Dark"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:135,atk:155,def:185,spa:80,spd:135,spe:60},
@@ -4804,6 +4843,7 @@ const MONSTERS_DATA = {
     desc:"Forgerak can heat their core to temperatures that liquefy ore. Vaeldrian smiths once worked alongside them to craft legendary weapons. Those weapons are all gone now.",
     lore:"Rax carries one of those weapons — a blade forged by Forgerak before the Sundering. He has never used it in battle. He says it isn't meant for fighting." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   437: { id:437, name:"Forgotten Alloydrax", emoji:"🛡️", types:["Draconic","Fighting"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:145,atk:170,def:200,spa:90,spd:145,spe:50},
@@ -4813,6 +4853,7 @@ const MONSTERS_DATA = {
     lore:"Rax does not speak of Alloydrax's battle during the Sundering. He only says that it did its job — and that doing your job perfectly is not always enough." },
 
   // --- Wielder: Tempris (The Arc Station) ---
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   438: { id:438, name:"Forgotten Volteon", emoji:"🔋", types:["Electric","Mental"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:110,def:95,spa:160,spd:120,spe:145},
@@ -4829,6 +4870,7 @@ const MONSTERS_DATA = {
     desc:"Sparkeis are living power grids — their steel chassis stores charges that could power a city for months. They convert all kinetic energy into electricity passively.",
     lore:"Tempris installed a small meter on Sparkeis to measure output. It broke after three days. He has not replaced it." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   440: { id:440, name:"Forgotten Thunderax", emoji:"🌩️", types:["Wind","Nature"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:135,def:110,spa:180,spd:135,spe:135},
@@ -4846,6 +4888,7 @@ const MONSTERS_DATA = {
     desc:"Nihilax emit a field that suppresses all energy signatures within range. In their presence, lights dim, sound muffles, and time seems to hesitate.",
     lore:"Vayne says Nihilax was the first Lumori she saw after the Sundering began. She has never been sure if it was trying to help or simply watching." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   442: { id:442, name:"Forgotten Vantarix", emoji:"🌌", types:["Mental","Nature"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:80,atk:155,def:85,spa:170,spd:95,spe:165},
@@ -4854,6 +4897,7 @@ const MONSTERS_DATA = {
     desc:"Vantarix absorb light across all spectrums, appearing as a perfect silhouette even in total darkness. They are the only known Lumori visible inside the dimensional collapse itself.",
     lore:"Vayne has a drawing of Vantarix she made the first night she was safe. She has never looked at it again." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   443: { id:443, name:"Forgotten Abysdrak", emoji:"💠", types:["Wind","Draconic"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:170,def:90,spa:185,spd:100,spe:165},
@@ -4871,6 +4915,7 @@ const MONSTERS_DATA = {
     desc:"Cosmolith serve as living star maps — their scales reflect the night sky of Vaeldris exactly as it existed the moment before the Sundering. They are the only record those stars ever existed.",
     lore:"Azura detected the Sundering three days before it happened by reading a change in Cosmolith's scale patterns. She had not understood what she was seeing until it was too late." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   445: { id:445, name:"Forgotten Stardrax", emoji:"✨", types:["Draconic","Fire"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:100,def:115,spa:195,spd:135,spe:90},
@@ -4879,6 +4924,7 @@ const MONSTERS_DATA = {
     desc:"Stardrax's power surges like a dying star — quiet and vast until catastrophically sudden. Azura kept its egg safe for twelve years before it hatched the day the Sundering began.",
     lore:"The egg hatched the exact moment the Sundering started. Azura has spent fifteen years deciding what that means." },
 
+  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   446: { id:446, name:"Forgotten Stellarion", emoji:"🔭", types:["Normal","Spectral"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:115,def:125,spa:210,spd:145,spe:80},

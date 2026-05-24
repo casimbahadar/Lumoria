@@ -378,6 +378,99 @@ For each over-cap common archetype, we can convert some members into one of thes
 
 **Run order placement:** before the existing "Archetype oversaturation — common animals" trim section below. The inventory + exemption list **defines** what counts toward the trim, then the trim runs against that updated list.
 
+# 🔀 Typing system overhaul — RUN BEFORE the type-combination audit cap re-analysis
+
+Active work as of 2026-05-21: differentiate Lumoria's typing system from Pokemon's, then re-tally combo caps under the new types.
+
+## Pre-step decisions (locked 2026-05-21)
+
+**Type renames (single → single):**
+- Water → Aquatic
+- Psychic → Mental
+- Dragon → Draconic
+- Steel → Metal
+- Ghost → Spectral
+
+**Type fusions (two → one):**
+- Grass + Bug → Nature
+- Rock + Ground → Earth
+
+**Rule change:** Fighting moves from post-game (id ≥ 408) to pre-408 available. CLAUDE.md post-408 restricted list shrinks to: Aether, Crystal, Primal. (Ghost is renamed Spectral; Fighting becomes general roster.)
+
+Net type count: 21 → 19 (six renames + two fusions).
+
+## Step plan (from handwritten note, 2026-05-21)
+
+- [x] Setup: lock renames + fusions + Fighting rule-change (above).
+- [~] **Step 1:** Suggest additional unique Lumoria-distinctive typings.
+  - Round 1 (20 candidates) presented; user picked: Sonic (general), Vapor (general), Mineral (general), Toxin (general), Chrono (408+), Stellar (408+).
+  - Round 2 (30 candidates) presented; user picks TBD.
+  - Further rounds possible if user wants more candidates.
+- [ ] **Step 2:** Create new type-effectiveness chart with surprise twists — needs approval before applying.
+  - **Phase A (done 2026-05-21):** label rename in `js/data.js` only (A1 scope) — Water→Aquatic, Psychic→Mental, Dragon→Draconic, Steel→Metal, Ghost→Spectral. 519 line changes; verified zero bareword stragglers.
+  - **Phase B (done 2026-05-21):** Grass+Bug→Nature and Rock+Ground→Earth fusions applied. Per-row B1/B2/custom decisions collected via 4 interactive sub-phases. TYPE_CHART rebuilt as 19-type structure; `type:"X"` fields in MOVES_DATA and `types:[...]` arrays in MONSTERS_DATA relabeled; 6 dual-fused Lumori auto-collapsed to mono (#192 Boulderoll, #249 Boulderax, #250 Megalith, #327 Quarrex → mono Earth; #265 Mosswing, #331 Thornmoth → mono Nature) — **flagged for Step 4 review** to optionally re-dual with a lore-justified second type. Move display names like "Bug Bite"/"Rock Slide" deliberately untouched (Step 3). Area descriptions referencing old types untouched (Step 4 cleanup).
+  - **Phase C (done 2026-05-21):** added 7 new types (Sonic, Vapor, Mineral, Toxin, Chrono, Stellar, Dream) — each with full attacking row + defending column designed interactively per-cell. Chart now 26 types (19 + 7); locked Phase D twists baked in (Sonic 2× vs Crystal/Mineral, Dream 2× vs Spectral, Toxin 0× vs Metal, Stellar 2× vs Aether). JS syntax validated. `type:` field in MOVES_DATA and `types:[]` arrays in MONSTERS_DATA do not yet use the new types — Lumori retypes to use new typings happens in Step 4.
+  - **Phase D (done 2026-05-21):** surprise twists applied. Locked Phase D twists baked into Phase C: Sonic 2× vs Crystal+Mineral, Dream 2× vs Spectral, Toxin 0× vs Metal, Stellar 2× vs Aether. Phase D twist #1: Aether 2× vs Spectral (committed 9c3ca3b). Bulk user tweaks from handwritten notes: 54 cell edits across Fire/Aquatic/Nature/Electric/Wind/Ice/Dark/Fairy/Metal/Poison/Mental/Draconic/Normal/Spectral/Fighting/Aether (Primal repositioned as major pivot type — many types now 2× weak to Primal). Plus 1 conservative balance fix: Sonic→Mental 2 → 1 (dialed back Mental's fragility from 10 to 9 weaknesses). **Dropped:** Chrono super-defensive resistance (per earlier session).
+  - **Phase E (done 2026-05-21):** strength audit complete. 13 types read as balanced (4-7/4-7/4-7 profile). Outliers Chrono/Stellar/Dream/Spectral/Normal all narratively-justified. Mental had 10 weaknesses initially → dialed down via three twists (Sonic→Mental:2→1, Ice→Mental:2→1, Crystal→Mental:1→0.5), landing at 8 weaknesses + 4 resists — still fragile but acceptable. Chart deemed shippable.
+- [ ] **Step 3:** Adjust moves + move names to reflect typing changes.
+- [x] **Step 4 (flag-only, 2026-05-24):** Pre-408 rule violations = 0 (Phase A/B/C/D + PR #49 already migrated cleanly). Per-Lumori retypes deferred to the upcoming lore/description → typing audit; this step instead places inline `LORE-AUDIT FLAG (Step 4)` comments on 46 entries so the audit catches them. See "Step 4 deferred — lore audit follow-ups" below.
+- [ ] **Step 5 (merged with upcoming lore/desc/archetype audit, 2026-05-24):** The type-combo cap re-analysis under the new 26-type chart no longer runs as a separate pass. Instead, it happens **per-Lumori inside the lore/desc/archetype audit**: once each Lumori's lore + desc + archetype is locked, the cap-tally check happens at that point and the type may be adjusted in the same approval. See "🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED)" below for the workflow, and "🧪 Type-combination audit" below that for cap rules + counting rules (still authoritative).
+
+## Step 4 deferred — lore audit follow-ups (added 2026-05-24)
+
+Inline `LORE-AUDIT FLAG (Step 4)` comments placed above 46 Lumori entries in `js/data.js`. The future lore/description → typing audit must address each. Grep `LORE-AUDIT FLAG (Step 4)` to locate.
+
+- **29 forgotten Lumori (id ≥ 408) missing a 408+-only type** — Aether/Crystal/Primal/Chrono/Stellar are reserved for 408+ but currently used by only 10/39 forgotten. Notably **Chrono and Stellar have 0 dex-wide usage**. IDs: 409, 411-421, 424-426, 428, 430-434, 436-438, 440, 442-443, 445-446.
+- **6 auto-collapsed mono (Phase B)** — possibly re-dual with a lore-justified 2nd type, or keep mono if lore supports: 192 Boulderoll, 249 Boulderax, 250 Megalith, 265 Mosswing, 327 Quarrex, 331 Thornmoth.
+- **11 PR #49 forced retypes** — 9 lost Ghost (now renamed Spectral, available pre-408); audit may restore Spectral on lore-fit names like "Wraith*"/"Willowisp". 2 lost Crystal (still 408+-restricted, stay as-is): 55, 152, 322, 342, 344, 362, 368, 373, 386, 397, 399.
+- **7 currently-unused pre-408 types** — Sonic, Vapor, Mineral, Toxin, Dream, Fighting, Spectral. Pre-408 usage count = 0 for each. Audit should distribute these onto lore-fit Lumori during the typing pass. (Not tied to specific ids — no inline flag.)
+
+## Notes
+
+- The existing `🧪 Type-combination audit` section's "Cap rules & progress" subsection (tentative-flagship draft) is superseded by Step 5 and will be rewritten after Step 5 completes.
+- **Step 4/5 process rule:** when proposing per-Lumori typing adjustments, ground each recommendation in the Lumori's existing lore/desc so the new typing makes narrative sense.
+- Branch: `claude/typing-combo-audit-2-JUGMH` (PR #51 — re-titled + re-described to reflect new scope on next commit).
+
+# 🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED) — added 2026-05-24
+
+Single per-Lumori audit pass that merges what were previously four separate workflows:
+- Step 5 of the typing-system overhaul (type-combo cap re-analysis under the new 26-type chart)
+- 🧪 Type-combination audit (below — kept for cap rules + counting rules reference only)
+- 🔍 Solo desc/lore/emoji consistency audit (line ~202)
+- 🐺 Archetype oversaturation — common animals (line ~476)
+
+## Why merge
+
+Doing these as separate passes meant a Lumori could be re-typed for cap reasons, then re-archetyped for trim reasons, then re-lore'd for consistency — three touches and three reviews. Merging means one decision per Lumori: lock the lore + desc + archetype + types together, in one approval, in one commit batch.
+
+## Per-Lumori workflow
+
+For each Lumori (walking the dex in some order TBD):
+1. **Read** current `name`, `types`, `desc`, `lore`, `emoji`, and any inline `LORE-AUDIT FLAG` comment.
+2. **Audit lore/desc/emoji consistency** — surface emoji-vs-body mismatches, desc-vs-lore contradictions, name leaks, stat-vs-body conflicts (flag-only for stats; full stat pass is later).
+3. **Decide archetype** — confirm or change body plan; if change, follow the cap rules from `🐺 Archetype oversaturation`.
+4. **Decide typing** — confirm or change types; if change, run cap tally under new 26-type chart + cap rules in `🧪 Type-combination audit`.
+5. **Resolve any `LORE-AUDIT FLAG (Step 4)`** comment on this entry (29 forgotten + 6 auto-collapsed + 11 PR #49 — remove flag once addressed).
+6. **Propose** the full change set in writing — present a table row with before/after. Wait for approval.
+7. **Apply** + `node --check js/data.js` + commit (batch multiple Lumori per commit at user's discretion).
+
+## Cap-tally tracking
+
+After each batch of approvals, re-tally the dex-wide type-combo counts to confirm no batch lands the same combo into a new over-cap state. Use the script pattern from `scripts/full_collision_check.py` / `scripts/full_analysis.py`.
+
+## Cross-references
+
+- **Cap rules + counting rules:** see `🧪 Type-combination audit` § Cap rules & progress (line ~446). The flagship-typing list there is **stale** under the new 26-type chart — re-decide flagship combos during this audit.
+- **Archetype caps + mythical exemptions:** see `🦄 Creature inventory + mythological exemptions` (line ~225) and `🐺 Archetype oversaturation` (line ~476).
+- **The 46 inline flags** from Step 4 (ids listed in `## Step 4 deferred — lore audit follow-ups` above) are the highest-priority entries to address.
+- **7 currently-unused pre-408 types** (Sonic/Vapor/Mineral/Toxin/Dream/Fighting/Spectral) — distribute during this pass where lore fits.
+
+## Open scoping questions (to decide before starting)
+
+- [ ] Walk order: by id ascending? by archetype cluster? by flagged-first (the 46) then rest?
+- [ ] Batch size: 1 Lumori per approval (slow but safe) or N per approval (faster, table-based)?
+- [ ] Flagship typing list (4 combos pre-overhaul, stale) — re-decide before or during the walk?
+
 # 🧪 Type-combination audit — RUN AFTER BREAKING + MINOR, BEFORE THE RENAMING PART
 
 After all coherence fixes are committed, run a type-combination audit of the full roster:
@@ -388,7 +481,7 @@ After all coherence fixes are committed, run a type-combination audit of the ful
 - [ ] Output: list of over-cap combos with member ids, plus a separate "special / preserve" list for user review.
 - [ ] Adjust types on selected mons to bring ordinary combos under cap, leaving the special ones intact.
 
-**Run order:** BREAKING fixes → MINOR fixes → this typing audit → archetype trim → renaming queue resumes.
+**Run order (updated 2026-05-24):** This audit is **no longer a standalone pass**. It's merged into the `🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED)` section above — cap-tally checks happen per-Lumori at the moment each one's lore + desc + archetype is finalized. The cap rules + counting rules below remain authoritative.
 
 ## Cap rules & progress (clarified during PR #50 session, 2026-05-17)
 
@@ -562,6 +655,10 @@ Per user instruction: leave these for late discussion before any consolidation.
 - [x] **#11** Helioveth → **Heliocoon** (Fire/Wind; chrysalis lore, defensive stats, 🥚 emoji)
 - [x] **#12** Inferarch (kept name, retyped Fire/Dragon → Fire/Wind, butterfly lore + 🦋 emoji + 5 dragon moves swapped for Wind/Bug)
 
+# 🎯 Moveset utilization audit — RUN BEFORE stat spread review
+
+For each of the 26 types, calculate the ratio of moves actually assigned to at least one Lumori vs total move count of that type. Identify **orphan moves** (0 current learners — many such moves exist; Fire alone has 13+ orphans like Lava Plume, Cinder Lance, Smolder Trap, Eruption, Will-O-Wisp, etc.). For each orphan: decide whether to (a) **assign** to specific Lumori via learnset additions, (b) **promote** to `rarity:"exclusive"` and earmark for a future legendary, or (c) **remove** from MOVES_DATA as dead code. Also identify **near-orphan moves** (1-2 learners) and decide if those moves are intentionally signature/exclusive (mark them) or should have wider distribution. Goal: every move in MOVES_DATA serves a clear purpose, and no Lumori is missing access to type-appropriate moves it should reasonably have.
+
 # 📊 Final-pass stat spread review — RUN LAST (after all renaming complete)
 
 After every coherence fix, type adjustment, and rename is committed, do a final pass over **every Lumori's base stat spread** across the whole dex. This is the last item in the entire workflow.
@@ -622,6 +719,21 @@ Add cross-references between Lumori in lore/description text to give the world e
 - [ ] Update README / player-facing documentation to mention NG+ ends at 407 and Forgotten quest is the gate to 408-446.
 
 This work should run BEFORE the Luminex reorder (renumber pass) so that the reorder respects the new NG+/Forgotten boundary at id 407/408.
+
+# 🚀 Pre-launch features, assets, and release process
+
+Higher-level work remaining beyond the lore / typing / stats audits.
+
+- [ ] Check what each Lumori is creature wise so can make adjustments if needed.
+- [ ] Analyze and adjust the UI/appearance of the game screens, etc as much as possible.
+- [ ] Brainstorm and code in what different typings and differences in lore/description the Variants of each Lumori will be.
+- [ ] Add sprites or models for each Lumori (variant and radiant also) from sources.
+- [ ] Generate or find quality music for battles, map, online, other features and aspects.
+- [ ] Multi-status battle system: implement the new status conditions added during Step 3b of the typing-system overhaul (initial set of 19: Deafen, Petrify, Bleed, Drenched, Weighed Down, Crystallize, Echolocation, Smothered, Marked, Burnt-out, Faded, Strained, Sluggish, Soaked, Brittle, Tainted, Hexed, Severe Bleed, Statue — list may grow) with their gameplay mechanics; allow multiple persistent statuses on a single Lumori at once (unlike Pokemon's single-major rule); add UI status tags to show all active statuses on the battle info panel. Move data already references these effect strings; battle/UI code needs implementation to make them functional. ALSO support evolving statuses (initial pairs: Drenched→Soaked at 2 turns, Bleed→Severe Bleed at 3 turns, Petrify→Statue at 2 turns) where evolution REPLACES the original status. **Sub-task:** support new `target` field on moves (single / wide / self) for double/triple battle targeting — wide moves hit all opposing Lumori; self moves only affect user. Default for moves without a target field is single. **Sub-task:** support unique move mechanics introduced in Step 3b: `dualType:["X","Y"]` (move's effectiveness = product of both type multipliers — Pokemon Flying Press style; max 2 per type, all >60 power); `breakerVs:"TypeName"` (move treats one defending type as 2× regardless of chart — Freeze-Dry style; no power minimum); `alwaysCrit:true` (guaranteed critical hit — Frost Breath / Storm Throw style; no power minimum). **Sub-task:** multi-effect schema — replace/extend the single `effect` string field with an array form `effects:[{effect:"X", ec:Y}, {effect:"Z", ec:W}]` so a move can apply multiple secondary effects on a single hit (e.g. priority + atkup self, or echolocation + deafen). For now, multi-effect moves use a combined string tag (e.g. "echolocation_and_deafen") with battle code handling the combination; future schema migration replaces those tags with the array form.
+- [ ] Consider additional evolving status pairs beyond Drenched→Soaked, Bleed→Severe Bleed, Petrify→Statue. Examples to discuss: Crystallize→Encased, Burnt-out→Crippled, Frostbite→Frozen-stiff, Tainted→Corroded, etc. Each pair: initial status persists N turns, then auto-evolves to a more severe variant that replaces the original. Add approved new pairs to the multi-status battle system. Runs BEFORE the full move audit so any new conditions can be folded into the audit.
+- [ ] Full move audit — review each of the 596 moves in MOVES_DATA: present current info (name, type, power, accuracy, PP, category, effect, description) and decide per move whether to rename (if Pokemon-derived: Tackle, Scratch, Hyper Beam, etc.), rebalance (power/acc/PP/effect), reflavor (description), or keep as-is. Run in batches with per-move approval. Goal: differentiate Lumoria's move catalogue from Pokemon's while ensuring balance, clarity, and per-type variety. Runs after Step 3 of the typing-system overhaul. **Sub-task:** audit move names for similar prefixes and suffixes (e.g. multiple moves starting with "Frost-", "Storm-", or ending in "-Strike", "-Blast") and rename for variety so players can distinguish moves at a glance.
+- [ ] Develop the process or steps to successfully launch the game.
+- [ ] Final code review — joint user + Claude review of all important code files (js/data.js, game logic, UI, etc.). Assess whether code is optimal, effective, and as simple as possible while still functional. Look for opportunities to apply good programming practices (more use of classes, objects, modular structure, separation of concerns, etc.) and refactor where it improves maintainability and clarity. Also catch syntax errors, broken references, dangling old-type names. **Last task before release.**
 
 ---
 

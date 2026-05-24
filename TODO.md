@@ -374,11 +374,23 @@ These archetypes have strong folkloric / mythical / unique status and warrant > 
 - **Leshy / forest-spirit (Slavic folkloric)** (Sylvnox line, just added) — bark-skinned forest-guardian/trickster spirit
 - **Insect-swarm collective** (Mistbane line, just added) — quasi-mythical (Pokémon's Vespiquen-style)
 
+### New exemptions confirmed 2026-05-24 (classification batches 1-3)
+- **Void-warden / boundary-sentinel** (Voidwarden #405-407, pristine) — folkloric guardian of dimensional boundaries; corrupted-canine final-stage transforms into upright warden per BREAKING #405-407
+- **Elemental titan / geological-colossus** (Infriglace #213, Primordiax #400) — titan-tier dual-element/geological beings; "primordial titan", "500-million-year footprints"
+- **Disembodied psychic intelligence** (Distorsion #217, pristine) — abstract being lacking physical body; "shimmering distortion in the air"
+- **Alchemical flask-being / living vessel** (Toxicore #323, pristine) — homunculus/alchemical-vessel archetype; "living flask of boiling acid"
+- **Architectural / fortified tower** (Crystavault #349, Icevault #237) — folkloric "living-fortress" archetype (Pokemon Stakataka analog); both explicitly tower-silhouette in lore
+- **Weapon-being / animate-construct** (Starlance #366, Thunderpeak #396) — animate-weapon archetype (Pokemon Honedge analog); distinct from golem (weapons not bodies)
+
 *(Storm-elemental / lightning-vortex moved out of mythical-exempt — see archetype trim list, capped at 1-2 families.)*
 
-### Borderline (could go either way)
-- **Echidna** (1, Arcspine line) — real animal, but rare in dex/folklore both. Keep cap-3 unless trim forces.
-- **Owl** (1, Mistwhirl line) — real animal but folkloric (wisdom, watcher). Borderline cap-3.
+### Borderline resolved 2026-05-24 (kept as common cap-3, not exempt)
+- **Echidna** (1, Arcspine line) — real animal, rare in dex/folklore both. **Resolution: common cap-3.**
+- **Owl** (1, Mistwhirl line) — real animal, folkloric (wisdom/watcher) but not mythical-creature tier. **Resolution: common cap-3.**
+
+### Folded into 🔮 humanoid late-discussion bucket
+- **Astral humanoid / psychic-wing being** (Astralwing #346) — "luminous humanoid shape with feathers of thought-light" → tracked with other humanoids
+- **Demon-king / regal flame-ruler** (Cinderking #365) — "regal bipedal form" → tracked with other humanoids
 
 ## (c) Mythological creatures NOT yet in dex (diversification candidates for renaming phase)
 
@@ -452,7 +464,7 @@ For each over-cap common archetype, we can convert some members into one of thes
 ## (d) Tasks remaining
 
 - [x] **Manual classification pass** on the 108 unclassified families (especially Forgotten/postgame mons) — assign each to an archetype. *(pre-408 portion done 2026-05-24 in 3 batches: 27 ambiguous + 38 unclassified-fits-existing + 11 unclassified-new-slots = 77 families. Forgotten/postgame (id ≥ 408) portion (~31 families) deferred to UNIFIED audit since those have inline LORE-AUDIT FLAGs from Step 4 and will get per-Lumori attention there. See "Classified this session (batches 1-3)" subsections in (a) above.)*
-- [ ] **Verify (b) exemption list** with user once full inventory is clean.
+- [x] **Verify (b) exemption list** with user once full inventory is clean. *(done 2026-05-24 — 19 established exemptions confirmed authoritative; 6 new exemptions added from this session's batches 1+3 (void-warden, elemental-titan, disembodied-psychic-intelligence, alchemical-flask-being, architectural/fortified-tower, weapon-being); 2 borderlines (echidna, owl) resolved as common cap-3; 2 new entries (Astralwing, Cinderking) folded into 🔮 humanoid late-discussion bucket rather than getting standalone exempt slots. See "(b) → New exemptions confirmed" / "Borderline resolved" / "Folded into 🔮 humanoid" subsections above.)*
 - [ ] **Pair (c) candidates** with specific over-cap common-archetype members to pivot during the renaming phase.
 - [ ] **Output the final cap-trim list** reflecting (a)+(b)+(c). This becomes the input to the existing "Archetype oversaturation" section below.
 

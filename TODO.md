@@ -91,7 +91,7 @@
 - ✅ MINOR tweaks (PR #47)
 - ✅ Bridge-lore sweep (PR #48: 98 BRIDGE_NEEDED bridges + 33 foreshadows + 61 IMPLICIT polish + 29 name-leak fixes; comprehensive name-leak scan confirmed 0 leaks remain)
 
-**Next up:** Solo desc/lore/emoji consistency audit (this section below), then typing audit → archetype trim → renaming → stat review.
+**Next up:** 🕯 UNIFIED audit (solo desc/lore/emoji + typing + archetype trim merged into per-Lumori workflow) → renaming → stat review.
 
 The original walkthrough through ids 7-446 (paused at #13 Taurcin "keep" decision) is on hold until all the audit phases above complete.
 
@@ -199,28 +199,9 @@ Batch these together once BREAKING is done. Each fix is a single-sentence wordin
 - [x] **#220-221** Shadowveil (#221) lore opener extended with "Umbrajest's wispy smoke-body has solidified into a cloaked humanoid form" — bridges the smoke-trickster → cloaked-humanoid silhouette shift (tangibility unchanged: hands still pass through its shadow-substance).
 - [x] **#226-229** *(resolved by BREAKING #226-229 split-evo work — both #228 Lunaroon (retyped Grass/Psychic moonlit-kangaroo) and #229 Radiafish (kangaroo-pivot from fish) handled.)*
 
-# 🔍 Solo desc/lore/emoji consistency audit — RUN AFTER MINOR
+# 🔍 Solo desc/lore/emoji consistency audit — MERGED INTO 🕯 UNIFIED AUDIT
 
-Goal: every standalone (single-stage) mon currently has no body-plan-coherence audit because solos can't have multi-stage breaks. But solos can have other internal inconsistencies — descriptions that contradict lore, emojis that fight body plans, name leaks, stat profiles that mismatch creature framing.
-
-## What to scan for (across all 200+ standalone mons + each stage of multi-stage families that wasn't already touched)
-
-- [ ] **Emoji vs body plan mismatches** — e.g. Grimshade had 🦇 bat emoji + lore saying panther.
-- [ ] **Desc vs lore contradictions** — e.g. Sparkrel's desc said "electric eel" while lore said "pufferfish"; Staticlaw's desc said "lion pup" while lore said "weasel"; Megavolt's desc said "thunder lion" while lore matched.
-- [ ] **Name leaks in lore opener** — e.g. "Vexakin is..." for Impefurr; "Permafrix is..." for Tundrafox; "Miasoveth is..." for Miasmafly. Any stage whose lore opens with a different name than `name:` field.
-- [ ] **Stat profiles that fight body plan** — e.g. a heavy tank with Spe 120, a fast bird with Spe 30. (Note: full stat audit is the very last task — solo audit just flags obvious cases.)
-- [ ] **Same-archetype × typing-combo collisions** — solos may overlap with each other or with multi-stage families on the strict per-archetype rule.
-- [ ] **Pre-408 creatures with post-game typings** (Aether, Fighting, Crystal, Primal, Ghost) — flag for user discussion per CLAUDE.md (e.g. Lunaspectre #362 has Ghost on a pre-408 mon).
-
-## Approach
-
-- Walk every standalone mon (about 200 in the dex, especially the Forgotten 408+ range and the 314-404 mid-range).
-- For multi-stage families touched in BREAKING/MINOR, spot-check the unmodified stages for the same issues.
-- Output: a list per category (emoji-mismatch, desc-vs-lore, name-leak, stat-mismatch, archetype-typing-collision, pre-408-postgame-type).
-- For each finding, propose a single-line fix.
-- Apply fixes batched and committed once user approves the batch.
-
-**Run order:** BREAKING → MINOR → **solo desc/lore/emoji audit (this section)** → typing-combination audit → archetype trim → renaming → stat spread review.
+Workflow merged into the per-Lumori UNIFIED audit (Step 2). The original scan categories — emoji vs body plan, desc vs lore, name leaks, stat-vs-body conflicts, same-archetype × typing-combo collisions, pre-408 post-game typings — are surfaced per Lumori as the audit walks the dex. See "🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED)" below.
 
 # 🦄 Creature inventory + mythological exemptions — RUN BEFORE archetype trim
 
@@ -267,7 +248,106 @@ Goal: complete inventory of every creature/animal/thing represented in the dex (
 - 1-family slots: bird, boar/pig, coral-titan, crocodilian, dog (non-wolf), echidna, frog/toad, hedgehog/porcupine, hippo, horse/equine, insect-swarm, **kitsune**, mushroom/fungus, mustelid, owl, plant-sapling, rabbit/hare, rhino, scorpion, sea-fairy queen, **seed-pod / walking-garden**, slime/blob, snail/mollusk, spider, stag/elk/deer, **tanuki**, wolf
 
 ### Unclassified (108) — manual classification needed
-Many are Forgotten/postgame (id ≥ 408) with abstract/legendary names that don't match real-creature keywords. Some pre-408 lines also need manual review (e.g. Pyroclasm, Tundrafox now snowman, Nimbusel-Aetherworn cloud-fairy). **Recommended**: do a manual classification pass before running the archetype trim.
+Many are Forgotten/postgame (id ≥ 408) with abstract/legendary names that don't match real-keyword. Some pre-408 lines also need manual review (e.g. Pyroclasm, Tundrafox now snowman, Nimbusel-Aetherworn cloud-fairy). **Recommended**: do a manual classification pass before running the archetype trim.
+
+### Classified this session (batch 1 of 3: 27 ambiguous resolved 2026-05-24)
+
+Resolves the 27 ambiguous-keyword-match pre-408 families surfaced by `scripts/classify_pre408_archetypes.py`. Newly-assigned archetypes below are authoritative; they override any stale (a) auto-keyword tally above where conflicts exist. Unclassified count reduces: 108 → 81.
+
+**Existing archetypes +N (assignments from lore reading):**
+- otter/mustelid +1: Banksnout #6
+- lion / big-cat +1: Ignitheon #24
+- fish (non-eel) +1: Nepturix #30
+- cephalopod +1: Septanemone #33 *(supersedes auto "fish" keyword hit)*
+- cetacean +2: Marevanos #40, Tidephant #309
+- seal/pinniped +1: Frostmere #46 *(supersedes (a) "jellyfish/cnidarian" — gelatinous seal-silhouette per BREAKING #46)*
+- dragonfly +2: Galvaglide #86, Stuntrap #243
+- shark/eel +1: Surgolith #89
+- bird-of-prey +1: Cyclavorn #113
+- bat +1: Caveshroud #122
+- serpent (non-dragon) +1: Venotitan #125
+- golem (humanoid metal/stone) +2: Alloytron #151, Boulderoll #192
+- frog/toad +2: Venekon #156, Dissotoad #159
+- rabbit/hare +2: Racehare #181, Thundermane #210 *(Thundermane was auto-listed as lion in (a); corrected per BREAKING #209-210 maned-storm-hare lore)*
+- kangaroo/marsupial +1: Spectrace #227 *(per BREAKING #226-229 split-evo)*
+- crystalline-prism/gem +1: Shardlix #241
+- beetle +1: Sparkeen #247
+- cat (small felid) +2: Emberveil #301, Frostprowl #335
+- orb/wisp/will-o-wisp +1: Willowisp #368 *(confirms (b) listing)*
+- void/cosmic/abstract +1: Voidrend #373 *(confirms (b); resolves dual-listing with wraith)*
+
+**New pristine mythical-exempt archetype claimed:**
+- void-warden / boundary-sentinel +1: Voidwarden #407 *(per BREAKING #405-407 — corrupted-canine final-stage transforms into bipedal warden; pristine archetype already noted in (b))*
+
+### Classified this session (batch 2 of 3: 38 unclassified→fits-existing 2026-05-24)
+
+Resolves the unclassified-keyword-match pre-408 families that fit existing archetypes from (a) or (b). Each assignment grounded in the final-stage's lore. Unclassified count reduces: 81 → 43.
+
+**Common-animal additions:**
+- lizard/saurian +2: Garlawarden #9, Terravore #21 *("quadrupedal reptile" / "dinosaur-like creature")*
+- crocodilian +1: Calciderm #103 *("massive freshwater crocodilian")*
+- bovid (sheep variant) +1: Aetherflock #190 *("medium psychic sheep" — bovid taxonomic family)*
+
+**Mythical-exempt additions:**
+- treant/ent +3: Necrothon #131 *(confirms (b))*, Silthorn #326, Thornspire #357
+- faerie sprite / winged-fairy humanoid +1: Blightalis #163 *("flower-headed humanoid" — flora-fae)*
+- shadow/wraith/ghost-spectral +2: Shadowveil #221, Shadowreave #343
+- crystalline-prism/gem (ice-statue variant) +1: Glaciarch #359 *("humanoid carved entirely from deep blue glacial ice")*
+- orb/wisp/cloud-formless +2: Cloudrift #285 *("compact cloud with face")*, Chromavast #363 *("ovoid body cycling colors")*
+- void/cosmic/abstract +2: Nullform #371 *("matte black, no light reflects")*, Deepvoid #387 *("featureless absolute black")*
+- golem (humanoid metal/stone) +5: Eternarmor #149, Stonegrip #252, Galvathon #320, Ashgolem #337, Abyssforge #377 *(over cap — flagged below for UNIFIED step 3 subdivision)*
+- phoenix/solar-bird +1: Solarcrown #384 *(confirms (b))*
+- seed-pod / walking-garden +1: Verdovast #71 *(confirms (b) pristine per BREAKING #69-71)*
+
+**Elemental subsection additions (cap = 1 family + 1 standalone per element):**
+- wind-elemental: Pneumathos #117 *(confirms (a) — already counted; no new tally)*
+- water-elemental +1 (NEW slot): Psychotide #255 *("flowing water-psychic creature... uncoiled and stretched")*
+- fire-elemental +1 (NEW slot): Magmite #277 *("lava droplet that has cooled enough to walk")*
+
+**Natural-disaster subsection additions:**
+- storm-elemental / thunderstorm +3: Vortexwing #370, Tempestborn #380, Nullstorm #393 *(matches the 3-family enumeration already in the 🐺 Natural-disaster subsection — confirming, not adding new)*
+
+**Rock/architectural additions (over cap; flagged for UNIFIED step 3 subdivision):**
+- rock-monolith / standing-stone +9: Megalith #250, Ashrock #253, Ashvanus #315, Quarrex #327, Mirestone #341 *(reassign from (b) crystalline)*, Bouldertide #367, Gravithorn #369, Permafrost #385 *(ice-monolith variant)*, Chronolith #388 *(reassign from (b) crystalline)*
+
+**Confirmations (already classified elsewhere — no new tally):**
+- mosquito: Plagueoth #298 *(per BREAKING #296-298; whole Plaguefly line)*
+- armadillo: Sandrix #313 *(per BREAKING #312-313; pristine, whole Dunecrawl line)*
+
+**Over-cap flags surfacing in this batch (UNIFIED step 3 to resolve):**
+- **golem** at ~13+ after batch 1+2 — needs subdivision (mech vs stone-construct vs alloy-humanoid) or trim
+- **rock-monolith / standing-stone** at ~10+ — needs subdivision (volcanic vs ice vs ancient-megalith) or trim; also affects (b) crystalline tally (Mirestone + Chronolith moving out)
+- **void/cosmic/abstract** at ~7+ — borderline; may need subdivision (matte-black variant vs space-bending variant)
+- **shadow/wraith/ghost-spectral** at ~11+ — borderline; mythical-exempt but expanding
+
+### Classified this session (batch 3 of 3: 11 unclassified→new-archetype-slots 2026-05-24)
+
+Resolves the final 11 unclassified pre-408 families that don't fit any existing (a) common-animal or (b) mythical-exempt archetype. Each opens a new archetype slot (mostly mythical-exempt; one common-animal pristine). UNIFIED audit will revisit folding/consolidating these in its per-Lumori pass. Unclassified count reduces: 43 → 32 *(the remaining 32 = 6 auto-collapsed mono from Phase B + 11 PR #49 forced retypes + ~15 multi-stage families whose final stage was already classified but whose mid-stage classifications haven't been written here yet — all of those are pre-classified or get reviewed in UNIFIED)*.
+
+**New mythical-exempt archetype slots (8):**
+- **elemental titan / geological-colossus** +2: Infriglace #213 *("colossal fire-ice titan")*, Primordiax #400 *("primordial titan of cooling lava and deep rock; 500-million-year footprints")*
+- **disembodied psychic intelligence** +1 (pristine): Distorsion #217 *("vast psychic intelligence that lacks a physical body... shimmering distortion in the air")*
+- **alchemical flask-being / living vessel** +1 (pristine): Toxicore #323 *("living flask of boiling acid... core chamber glows violent orange-green")*
+- **astral humanoid / psychic-wing being** +1: Astralwing #346 *("luminous humanoid shape with feathers made of thought-light")* — UNIFIED may fold into 🔮 humanoid late-discussion bucket
+- **architectural / fortified tower** +2: Crystavault #349 *("fortified tower of layered glacial ice and granite; ancient siege equipment bent and broken")*, Icevault *(already classified per BREAKING #236-237 — tower-like silhouette via Frostick + cave bedrock fusion)*
+- **demon-king / regal flame-ruler** +1 (pristine): Cinderking #365 *("regal bipedal form with crown of black fire. Rules fire-type territory through dominance displays")* — UNIFIED may fold into 🔮 humanoid late-discussion bucket
+- **weapon-being / animate-construct** +2: Starlance #366 *("elongated lance of alien metal... moves by telekinesis")*, Thunderpeak #396 *("stylised lightning bolt in living metal; near-perfect conductor")*
+
+**New common-animal pristine slot (1; cap 3):**
+- **mantis / blade-insect** +1: Chittering #324 *("sleek dark-coloured insect with six blade-like limbs and multi-faceted crimson eyes")*
+
+**Flagged for UNIFIED step 3 subdivision (not a new slot):**
+- Nightmont #219 — "perfectly black mountain, absolute darkness" — assigned to rock-monolith as the **dark-shadow variant**. UNIFIED's rock-monolith subdivision (volcanic / ice / ancient-megalith / dark-shadow) will decide the final split.
+
+### Classification pass complete — handoff to UNIFIED audit
+
+After batches 1-3, all 77 pre-408 ambiguous + unclassified families have a preliminary archetype assignment. The UNIFIED per-Lumori audit (next workflow) will:
+1. Revisit each Lumori in context of its full lore + desc + emoji + typing
+2. Confirm or revise the archetype assignment proposed here
+3. Apply the cap rules from 🐺 / 🧪 / 🦄 at decision time
+4. Resolve any of the new slots that should fold into existing buckets
+
+This batch's purpose was to give UNIFIED useful pre-classified data so per-Lumori decisions go faster — not to lock in final archetypes. Treat all batch-1/2/3 assignments as **defaults the UNIFIED audit can override**.
 
 ## (b) Mythological / special / unique exemptions currently in dex (exempt from cap-of-3)
 
@@ -294,11 +374,23 @@ These archetypes have strong folkloric / mythical / unique status and warrant > 
 - **Leshy / forest-spirit (Slavic folkloric)** (Sylvnox line, just added) — bark-skinned forest-guardian/trickster spirit
 - **Insect-swarm collective** (Mistbane line, just added) — quasi-mythical (Pokémon's Vespiquen-style)
 
+### New exemptions confirmed 2026-05-24 (classification batches 1-3)
+- **Void-warden / boundary-sentinel** (Voidwarden #405-407, pristine) — folkloric guardian of dimensional boundaries; corrupted-canine final-stage transforms into upright warden per BREAKING #405-407
+- **Elemental titan / geological-colossus** (Infriglace #213, Primordiax #400) — titan-tier dual-element/geological beings; "primordial titan", "500-million-year footprints"
+- **Disembodied psychic intelligence** (Distorsion #217, pristine) — abstract being lacking physical body; "shimmering distortion in the air"
+- **Alchemical flask-being / living vessel** (Toxicore #323, pristine) — homunculus/alchemical-vessel archetype; "living flask of boiling acid"
+- **Architectural / fortified tower** (Crystavault #349, Icevault #237) — folkloric "living-fortress" archetype (Pokemon Stakataka analog); both explicitly tower-silhouette in lore
+- **Weapon-being / animate-construct** (Starlance #366, Thunderpeak #396) — animate-weapon archetype (Pokemon Honedge analog); distinct from golem (weapons not bodies)
+
 *(Storm-elemental / lightning-vortex moved out of mythical-exempt — see archetype trim list, capped at 1-2 families.)*
 
-### Borderline (could go either way)
-- **Echidna** (1, Arcspine line) — real animal, but rare in dex/folklore both. Keep cap-3 unless trim forces.
-- **Owl** (1, Mistwhirl line) — real animal but folkloric (wisdom, watcher). Borderline cap-3.
+### Borderline resolved 2026-05-24 (kept as common cap-3, not exempt)
+- **Echidna** (1, Arcspine line) — real animal, rare in dex/folklore both. **Resolution: common cap-3.**
+- **Owl** (1, Mistwhirl line) — real animal, folkloric (wisdom/watcher) but not mythical-creature tier. **Resolution: common cap-3.**
+
+### Folded into 🔮 humanoid late-discussion bucket
+- **Astral humanoid / psychic-wing being** (Astralwing #346) — "luminous humanoid shape with feathers of thought-light" → tracked with other humanoids
+- **Demon-king / regal flame-ruler** (Cinderking #365) — "regal bipedal form" → tracked with other humanoids
 
 ## (c) Mythological creatures NOT yet in dex (diversification candidates for renaming phase)
 
@@ -371,10 +463,10 @@ For each over-cap common archetype, we can convert some members into one of thes
 
 ## (d) Tasks remaining
 
-- [ ] **Manual classification pass** on the 108 unclassified families (especially Forgotten/postgame mons) — assign each to an archetype.
-- [ ] **Verify (b) exemption list** with user once full inventory is clean.
-- [ ] **Pair (c) candidates** with specific over-cap common-archetype members to pivot during the renaming phase.
-- [ ] **Output the final cap-trim list** reflecting (a)+(b)+(c). This becomes the input to the existing "Archetype oversaturation" section below.
+- [x] **Manual classification pass** on the 108 unclassified families (especially Forgotten/postgame mons) — assign each to an archetype. *(pre-408 portion done 2026-05-24 in 3 batches: 27 ambiguous + 38 unclassified-fits-existing + 11 unclassified-new-slots = 77 families. Forgotten/postgame (id ≥ 408) portion (~31 families) deferred to UNIFIED audit since those have inline LORE-AUDIT FLAGs from Step 4 and will get per-Lumori attention there. See "Classified this session (batches 1-3)" subsections in (a) above.)*
+- [x] **Verify (b) exemption list** with user once full inventory is clean. *(done 2026-05-24 — 19 established exemptions confirmed authoritative; 6 new exemptions added from this session's batches 1+3 (void-warden, elemental-titan, disembodied-psychic-intelligence, alchemical-flask-being, architectural/fortified-tower, weapon-being); 2 borderlines (echidna, owl) resolved as common cap-3; 2 new entries (Astralwing, Cinderking) folded into 🔮 humanoid late-discussion bucket rather than getting standalone exempt slots. See "(b) → New exemptions confirmed" / "Borderline resolved" / "Folded into 🔮 humanoid" subsections above.)*
+- [~] **Pair (c) candidates** with specific over-cap common-archetype members to pivot during the renaming phase. *(deferred to UNIFIED step 3 — pairings are per-Lumori design decisions and need to happen alongside lore/desc review, not in isolation. The cap-trim list at `cap_trim_list.txt` enumerates the 11 over-cap common archetypes that UNIFIED will pair against (c) candidates as it walks the dex.)*
+- [x] **Output the final cap-trim list** reflecting (a)+(b)+(c). This becomes the input to the existing "Archetype oversaturation" section below. *(done 2026-05-24 — saved as `cap_trim_list.txt` at repo root, generated by `scripts/output_cap_trim_list.py`. Combines keyword auto-classification + manual overrides from this session's batches 1-3. Aggregates all 230 pre-408 final-stage families across 71 archetypes. Surfaces 11 over-cap common archetypes: rock-monolith (11 → trim 8), butterfly/moth (6→3), lizard/saurian (5→2), cetacean (5→2), cat (5→2), beetle (5→2), bovid/crab/wolf/bird-of-prey/kangaroo (4→1 each). Mythical-exempt over-counts (dragon 35, faerie 20, golem 13) flagged for 🔮 late-discussion. Regenerate by re-running the script after future BREAKING fixes.)*
 
 **Run order placement:** before the existing "Archetype oversaturation — common animals" trim section below. The inventory + exemption list **defines** what counts toward the trim, then the trim runs against that updated list.
 
@@ -471,17 +563,9 @@ After each batch of approvals, re-tally the dex-wide type-combo counts to confir
 - [ ] Batch size: 1 Lumori per approval (slow but safe) or N per approval (faster, table-based)?
 - [ ] Flagship typing list (4 combos pre-overhaul, stale) — re-decide before or during the walk?
 
-# 🧪 Type-combination audit — RUN AFTER BREAKING + MINOR, BEFORE THE RENAMING PART
+# 🧪 Type-combination audit — REFERENCE ONLY (workflow merged into 🕯 UNIFIED AUDIT)
 
-After all coherence fixes are committed, run a type-combination audit of the full roster:
-
-- [ ] Tally how many Lumori use each `[type1, type2]` (unordered) combination across the dex.
-- [ ] Devise a cap (e.g. 3-5 per combination) for "ordinary" typing pairs.
-- [ ] Flag any combo over the cap for redistribution OR mark as **"interesting / special typing combo"** if it's a deliberate flagship pairing (e.g. starter dual-types, signature legendary pairs, narratively distinctive combinations like Aether/Crystal).
-- [ ] Output: list of over-cap combos with member ids, plus a separate "special / preserve" list for user review.
-- [ ] Adjust types on selected mons to bring ordinary combos under cap, leaving the special ones intact.
-
-**Run order (updated 2026-05-24):** This audit is **no longer a standalone pass**. It's merged into the `🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED)` section above — cap-tally checks happen per-Lumori at the moment each one's lore + desc + archetype is finalized. The cap rules + counting rules below remain authoritative.
+Workflow merged into the per-Lumori UNIFIED audit (Step 4). Cap-tally checks happen per-Lumori at the moment each Lumori's lore + desc + archetype is finalized. The cap rules + counting rules + progress state below remain authoritative reference.
 
 ## Cap rules & progress (clarified during PR #50 session, 2026-05-17)
 
@@ -513,32 +597,34 @@ After all coherence fixes are committed, run a type-combination audit of the ful
 - Validate combo counts post-batch — a retype that lands in another over-cap combo doesn't help.
 - Commit per batch, present full table for user approval before next batch.
 
-# 🐺 Archetype oversaturation — common animals (cap = 3 families)
+# 🐺 Archetype oversaturation — REFERENCE TALLIES (workflow merged into 🕯 UNIFIED AUDIT)
 
-Address after BREAKING + MINOR. Plan: rebuild a few standalone or weaker family-final lores into different creature types.
+Per-archetype trim decisions happen per-Lumori inside the UNIFIED audit (Step 3 "Decide archetype"). The cap rules + current family counts below remain authoritative reference.
 
-- [ ] **wolf** — 5 families (Hexaprowl, Eclipsehound, Shadowpup, Voltfang, Cryvorn). Trim ~2. *(Mirkling line → bipedal warden via Voidwarden #405-407; Morraveth line → leshy #78-80.)*
-- [ ] **lion / big-cat** — 6 families (Siroccomane, Dravanas, Ignitheon, Thundermane, Megavolt, Majesticore). Trim ~3.
-- [ ] **dog (non-wolf canine)** — 5 families (Dustkin, Goldefluff, Arenikin, Projectery, Galeaxis). Trim ~2.
-- [ ] **bear** — 3 families (Frigidvorn, Permavast, Rotunden). At cap. *(Verdurus → seed-pod #69-71; Cuddrix-line → kirin #286-288; Arcturex → owl #53-54.)*
-- [ ] **bird-of-prey** — 5 families (Vortexathos, Swirlavel, Gelwing, Rimeclaw, Zephyrak). Trim ~2.
-- [ ] **golem (humanoid metal/stone)** — 10+ families. Trim to 3.
-- [ ] **crystalline / gem creature** — 8 families. Trim to 3.
-- [ ] **rock-monolith / standing-stone** — 5 families. Trim to 3.
+**Common-animal cap = 3 families per archetype.** Current counts of over-cap archetypes:
+
+- **wolf** — 5 families (Hexaprowl, Eclipsehound, Shadowpup, Voltfang, Cryvorn). Over cap by 2. *(Mirkling line → bipedal warden via Voidwarden #405-407; Morraveth line → leshy #78-80.)*
+- **lion / big-cat** — 6 families (Siroccomane, Dravanas, Ignitheon, Thundermane, Megavolt, Majesticore). Over cap by 3.
+- **dog (non-wolf canine)** — 5 families (Dustkin, Goldefluff, Arenikin, Projectery, Galeaxis). Over cap by 2.
+- **bear** — 3 families (Frigidvorn, Permavast, Rotunden). At cap. *(Verdurus → seed-pod #69-71; Cuddrix-line → kirin #286-288; Arcturex → owl #53-54.)*
+- **bird-of-prey** — 5 families (Vortexathos, Swirlavel, Gelwing, Rimeclaw, Zephyrak). Over cap by 2.
+- **golem (humanoid metal/stone)** — 10+ families. Over cap.
+- **crystalline / gem creature** — 8 families. Over cap.
+- **rock-monolith / standing-stone** — 5 families. Over cap by 2.
 
 ## Elementals (cap = 1 family + 1 standalone per element)
 
 One per type, 19 elementals total (all 21 types except Fighting and Primal). An "elemental" is a formless being literally made of an element. Each cap = 1 family + 1 standalone.
 
-- [ ] **wind-elemental** — 1 family (Pneumathos line #116-117 "swirling pillar of concentrated air with humanoid core"). At cap.
-- [ ] *(Other 18 elemental archetypes — full audit pending; see below.)*
+- **wind-elemental** — 1 family (Pneumathos line #116-117 "swirling pillar of concentrated air with humanoid core"). At cap.
+- *(Other 18 elemental archetypes — tallies pending; surface during UNIFIED audit.)*
 
 ## Natural-disaster-inspired (cap = 1 family + 1 standalone per disaster subtype)
 
 Umbrella archetype with per-disaster subtypes (thunderstorm, tornado, tsunami, wildfire, earthquake, blizzard, eruption, flood, etc.). A natural-disaster-inspired creature is shaped like / themed after the disaster regardless of element. Each subtype cap = 1 family + 1 standalone.
 
-- [ ] **thunderstorm** — 3 families (Vortexwing #370, Tempestborn #380, Nullstorm #393 — all formless lightning-vortex with electromagnetic nucleus). Cap 1+1. Trim ~1-2. Tempestborn explicitly "tracked as both a storm and a living creature" — strongest disaster framing, prime keep candidate.
-- [ ] *(Other disaster subtypes — full audit pending.)*
+- **thunderstorm** — 3 families (Vortexwing #370, Tempestborn #380, Nullstorm #393 — all formless lightning-vortex with electromagnetic nucleus). Cap 1+1. Over cap by 1-2. Tempestborn explicitly "tracked as both a storm and a living creature" — strongest disaster framing, prime keep candidate.
+- *(Other disaster subtypes — tallies pending; surface during UNIFIED audit.)*
 
 *(Wraithstorm #386 reclassified out of storm group → wraith archetype: "translucent humanoid wraith inside lightning bolts". Galeaxis/Vortexathos/Stormcrown stay in their animal archetypes.)*
 
@@ -555,7 +641,7 @@ Umbrella archetype with per-disaster subtypes (thunderstorm, tornado, tsunami, w
 - [ ] **Target ratio.** Aim for ~70-75 solos remaining (down from 151), with the remainder absorbed/retired. Approximate target: 75 multi-stage + 70 solo = ~145 families, more comparable to mainline Pokémon density.
 - [ ] **Output:** a merger plan with **(a)** solos to absorb (with target chain + stage placement), **(b)** solos to retire (with replacement coverage if needed), **(c)** solos kept standalone (mythical-exempt or unique-niche).
 
-**Run order:** after BREAKING + MINOR + solo desc/lore audit + creature inventory + typing audits, **but before the renaming queue resumes** — because consolidating solos into chains affects names (new evolution-name relationships) and the rename pass should work on the post-consolidation roster.
+**Run order:** after BREAKING + MINOR + creature inventory + 🕯 UNIFIED audit (which now contains the merged solo desc/lore + typing + archetype-trim workflow), **but before the renaming queue resumes** — because consolidating solos into chains affects names (new evolution-name relationships) and the rename pass should work on the post-consolidation roster.
 
 # 🎯 Per-archetype typing-combo diversity audit — RUN BEFORE STAT REVIEW
 
@@ -710,13 +796,16 @@ Add cross-references between Lumori in lore/description text to give the world e
 - **Forgotten Lumori unlock** only after the player has completed the Forgotten Lumori quest line and a corresponding gameplay flag is set. Once unlocked, they appear in secret/late-game post-quest locations distinct from NG+ encounter zones.
 
 **Implementation tasks:**
-- [ ] Update `js/data.js` NG+-EXCLUSIVE comment from "(IDs 322–421)" to "(IDs 322–407)".
-- [ ] Verify no id in 408-446 appears in any NG+ encounter table, wild-spawn list, or trainer team that is reachable in standard NG+.
-- [ ] Add a "forgotten_quests_complete" gameplay flag to save data (or repurpose an existing milestone flag if one fits).
-- [ ] Gate spawn-eligibility of ids 408-446 behind that flag — they appear only after the flag is set, in dedicated post-quest secret locations.
-- [ ] Design secret-location placements for the 39 Forgotten Lumori (which routes/areas they appear in post-flag).
-- [ ] Audit any existing encounter tables / wild-spawn lists for accidental 408-446 entries reachable before flag.
-- [ ] Update README / player-facing documentation to mention NG+ ends at 407 and Forgotten quest is the gate to 408-446.
+- [x] Update `js/data.js` NG+-EXCLUSIVE comment from "(IDs 322–421)" to "(IDs 322–407)". *(commit a925c4a)*
+- [x] Verify no id in 408-446 appears in any NG+ encounter table, wild-spawn list, or trainer team reachable in standard NG+. *(audit confirmed 0 refs outside VAELDRIS_WIELDERS)*
+- [x] Add a "forgotten_quests_complete" gameplay flag to save data (or repurpose an existing milestone flag if one fits). *(no new flag needed — derived from existing `defeatedWielders` via `isForgottenUnlocked()`; commit 787c872)*
+- [x] Gate spawn-eligibility of ids 408-446 behind that flag — they appear only after the flag is set, in dedicated post-quest secret locations. *(scope narrowed: only the 13 BST-720 forgotten Lumori become catchable, via one-time legendary-style encounters; 26 BST-750/800 stay encounter-only via the wielder battles. Batch 4a)*
+- [x] Design secret-location placements for the 39 Forgotten Lumori (which routes/areas they appear in post-flag). *(derived from existing `VAELDRIS_WIELDERS[w].location` — each wielder's location hosts that wielder's BST-720 Lumori; Batch 4a `getForgottenLegendaryForArea`)*
+- [x] Audit any existing encounter tables / wild-spawn lists for accidental 408-446 entries reachable before flag. *(none — Batch 1 audit clean)*
+- [x] Update README / player-facing documentation to mention NG+ ends at 407 and Forgotten quest is the gate to 408-446. *(Batch 5 — README Post-Game + NG+ sections updated with player-facing copy; no internal id numbers leaked)*
+
+**Forgotten legendary cutscenes (deferred — run after stat-spread review):**
+- [ ] Draft 13 hand-authored wielder cutscenes (one per BST-720 Forgotten Lumori) to replace the templated placeholder dialogue. Each cutscene should reference the wielder's `lumoriLore` / `vaeldrisLore` and the catchable Lumori's lore. Add as a new `forgottenLegendaryCutscene:["line1", "line2", ...]` field on each VAELDRIS_WIELDERS entry; `triggerForgottenLegendaryEncounter()` reads this field when present and falls back to the templated lines otherwise. Runs after `📊 Final-pass stat spread review` because some BST-720 stats may shift during stat balancing and the cutscenes can speak to the final stat identity.
 
 This work should run BEFORE the Luminex reorder (renumber pass) so that the reorder respects the new NG+/Forgotten boundary at id 407/408.
 

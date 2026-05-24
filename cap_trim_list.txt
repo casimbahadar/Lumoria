@@ -1,0 +1,103 @@
+==========================================================================================
+POST-BREAKING CAP-TRIM LIST (pre-408 only, post batches 1-3)
+Generated 2026-05-24. Source: scripts/output_cap_trim_list.py
+==========================================================================================
+Total pre-408 families: 230
+Total archetypes:       71
+
+==========================================================================================
+OVER-CAP ARCHETYPES (cap 3 for common; mythical-exempt have varying caps)
+==========================================================================================
+        dragon                                             [exempt]   count=35  Calderaeth#3, Bahamber#18, Boreadrake#60, Quakeon#107, Drakorius#171, Scalevorn#174, Biolumal#175, Chromena#176, Sapphier#177, Wyrmvenom#208, Wyvaxis#231, Wyvernak#234, Glintscale#235, Blazeon#273, Majesticore#288, Cyclonax#295, Temporith#317, Dragemian#321, Voidcoil#345, Galedrake#348, Fernwrath#350, Infernotitan#353, Stormlord#356, Tectolith#361, Prismancer#372, Auroradrake#374, Riftscale#379, Oblivionwing#382, Apexblade#383, Stormcrown#389, Titanfang#391, Eondrake#392, Solarvast#394, Glacierend#395, Veildrak#404
+        faerie sprite / winged-fairy humanoid              [exempt]   count=20  Thalassira#36, Irisarael#58, Faevernal#74, Aetherworn#115, Celestarch#144, Shinarith#146, Blightalis#163, Arachnalis#203, Psytheon#224, Crealight#225, Steelhorn#279, Lumivane#303, Voidraxis#319, Glimmeritch#344, Duskmantle#360, Solarwrath#376, Dreamweald#378, Voidgarden#390, Voidcrown#398, Cosmoveil#401
+        golem (humanoid metal/stone)                       [exempt]   count=13  Deepfreeze#56, Eternarmor#149, Alloytron#151, Terragolem#154, Boulderoll#192, Stonegrip#252, Mechavast#282, Galvathon#320, Glacicore#332, Ferrocrush#334, Ashgolem#337, Embersteel#347, Abyssforge#377
+  OVER  rock-monolith / standing-stone                     [cap 3]    count=11  Frigolith#196, Nightmont#219, Megalith#250, Ashrock#253, Ashvanus#315, Quarrex#327, Mirestone#341, Bouldertide#367, Gravithorn#369, Permafrost#385, Chronolith#388
+        shadow/wraith/ghost-spectral                       [exempt]   count= 8  Shadowveil#221, Venomwraith#322, Wraithking#342, Shadowreave#343, Lunaspectre#362, Wraithstorm#386, Abyssalord#397, Stonekeeper#399
+  OVER  butterfly/moth                                     [cap 3]    count= 6  Inferarch#12, Iridesoar#141, Venowarn#165, Aeridaleth#199, Mosswing#265, Thornmoth#331
+        crystalline-prism/gem                              [exempt]   count= 6  Aurarael#169, Shardlix#241, Crystallon#306, Cryoshard#340, Glaciarch#359, Crystalmind#381
+  OVER  lizard/saurian (non-dragon)                        [cap 3]    count= 5  Garlawarden#9, Terravore#21, Monolithox#133, Impenezard#264, Scorchvast#276
+  OVER  cetacean                                           [cap 3]    count= 5  Marevanos#40, Titanomare#41, Torrentox#258, Tidephant#309, Riftwhale#354
+        void/cosmic/abstract                               [exempt]   count= 5  Voidaxis#129, Voidlord#352, Nullform#371, Voidrend#373, Deepvoid#387
+        orb/wisp/cloud-formless                            [exempt]   count= 5  Oneiron#170, Cloudrift#285, Smogveil#328, Chromavast#363, Willowisp#368
+  OVER  cat (small felid)                                  [cap 3]    count= 5  Velvetine#179, Mimiclaw#290, Emberveil#301, Cinderpaw#307, Frostprowl#335
+  OVER  beetle                                             [cap 3]    count= 5  Scarabion#201, Quarrix#205, Sparkeen#247, Skullmite#329, Voltbeetle#339
+  OVER  bovid                                              [cap 3]    count= 4  Pyroclasm#15, Permavast#52, Aetherflock#190, Galehorn#292
+  OVER  crab/lobster                                       [cap 3]    count= 4  Tidalossus#27, Lithomere#194, Petrwave#214, Deepcrawler#364
+  OVER  wolf                                               [cap 3]    count= 4  Frigidvorn#49, Nightwolf#120, Darkfang#268, Voltfang#333
+  OVER  bird-of-prey                                       [cap 3]    count= 4  Vortexathos#91, Cyclavorn#113, Continemic#186, Rimeclaw#338
+  OVER  kangaroo/marsupial                                 [cap 3]    count= 4  Spectrace#227, Lunaroon#228, Radiafish#229, Spectravore#351
+
+==========================================================================================
+AT/UNDER CAP COMMON ARCHETYPES (cap 3, count ≤ 3)
+==========================================================================================
+  serpent (non-dragon)                               count= 3  Venotitan#125, Coilstrike#336, Fluxserpent#375
+  dog (non-wolf canine)                              count= 3  Lumiarch#139, Psychovast#167, Galeaxis#314
+  otter/mustelid                                     count= 2  Banksnout#6, Megavolt#246
+  lion / big-cat                                     count= 2  Ignitheon#24, Aeolarch#110
+  fish (non-eel)                                     count= 2  Nepturix#30, Rustpike#283
+  cephalopod                                         count= 2  Septanemone#33, Abyssovex#316
+  seal/pinniped                                      count= 2  Nagislither#44, Frostmere#46
+  stag/elk/deer                                      count= 2  Thorncharge#77, Leafhorn#261
+  dragonfly                                          count= 2  Galvaglide#86, Stuntrap#243
+  shark/eel                                          count= 2  Surgolith#89, Abyssalith#355
+  scorpion                                           count= 2  Craterlurk#100, Nettleclaw#300
+  crocodilian                                        count= 2  Calciderm#103, Blistermaw#330
+  bat                                                count= 2  Caveshroud#122, Metalibat#136
+  frog/toad                                          count= 2  Venekon#156, Dissotoad#159
+  rabbit/hare                                        count= 2  Racehare#181, Thundermane#210
+  mouse/rat (rodent)                                 count= 2  Murkrat#271, Dunespike#325
+  owl                                                count= 1  Arcturex#54
+  hedgehog/porcupine                                 count= 1  Gelwing#62
+  mushroom/fungus                                    count= 1  Mycovast#65
+  snail/mollusk                                      count= 1  Rootvorn#68
+  seed-pod / walking-garden                          count= 1  Verdovast#71
+  horse/equine                                       count= 1  Voltanox#83
+  echidna                                            count= 1  Petrovast#94
+  rhino                                              count= 1  Tectonvast#97
+  hyena                                              count= 1  Dravanas#105
+  turtle/tortoise                                    count= 1  Imperion#152
+  bear                                               count= 1  Behemovast#184
+  pig/boar                                           count= 1  Plentorus#188
+  jellyfish/cnidarian                                count= 1  Lumejell#259
+  mosquito                                           count= 1  Plagueoth#298
+  hippo                                              count= 1  Marshix#311
+  armadillo                                          count= 1  Sandrix#313
+  mantis / blade-insect                              count= 1  Chittering#324
+
+==========================================================================================
+MYTHICAL-EXEMPT ARCHETYPES (cap varies; full count for reference)
+==========================================================================================
+  dragon                                             count=35  Calderaeth#3, Bahamber#18, Boreadrake#60, Quakeon#107, Drakorius#171, Scalevorn#174, Biolumal#175, Chromena#176, Sapphier#177, Wyrmvenom#208, Wyvaxis#231, Wyvernak#234, Glintscale#235, Blazeon#273, Majesticore#288, Cyclonax#295, Temporith#317, Dragemian#321, Voidcoil#345, Galedrake#348, Fernwrath#350, Infernotitan#353, Stormlord#356, Tectolith#361, Prismancer#372, Auroradrake#374, Riftscale#379, Oblivionwing#382, Apexblade#383, Stormcrown#389, Titanfang#391, Eondrake#392, Solarvast#394, Glacierend#395, Veildrak#404
+  faerie sprite / winged-fairy humanoid              count=20  Thalassira#36, Irisarael#58, Faevernal#74, Aetherworn#115, Celestarch#144, Shinarith#146, Blightalis#163, Arachnalis#203, Psytheon#224, Crealight#225, Steelhorn#279, Lumivane#303, Voidraxis#319, Glimmeritch#344, Duskmantle#360, Solarwrath#376, Dreamweald#378, Voidgarden#390, Voidcrown#398, Cosmoveil#401
+  golem (humanoid metal/stone)                       count=13  Deepfreeze#56, Eternarmor#149, Alloytron#151, Terragolem#154, Boulderoll#192, Stonegrip#252, Mechavast#282, Galvathon#320, Glacicore#332, Ferrocrush#334, Ashgolem#337, Embersteel#347, Abyssforge#377
+  shadow/wraith/ghost-spectral                       count= 8  Shadowveil#221, Venomwraith#322, Wraithking#342, Shadowreave#343, Lunaspectre#362, Wraithstorm#386, Abyssalord#397, Stonekeeper#399
+  crystalline-prism/gem                              count= 6  Aurarael#169, Shardlix#241, Crystallon#306, Cryoshard#340, Glaciarch#359, Crystalmind#381
+  void/cosmic/abstract                               count= 5  Voidaxis#129, Voidlord#352, Nullform#371, Voidrend#373, Deepvoid#387
+  orb/wisp/cloud-formless                            count= 5  Oneiron#170, Cloudrift#285, Smogveil#328, Chromavast#363, Willowisp#368
+  treant/ent                                         count= 3  Necrothon#131, Silthorn#326, Thornspire#357
+  elemental titan / geological-colossus              count= 3  Infriglace#213, Gaiavorn#318, Primordiax#400
+  storm-elemental                                    count= 3  Vortexwing#370, Tempestborn#380, Nullstorm#393
+  architectural / fortified tower                    count= 2  Icevault#237, Crystavault#349
+  humanoid (folded into 🔮 bucket)                    count= 2  Astralwing#346, Cinderking#365
+  phoenix/solar-bird                                 count= 2  Pyrocrown#358, Solarcrown#384
+  weapon-being / animate-construct                   count= 2  Starlance#366, Thunderpeak#396
+  coral-titan                                        count= 1  Titanariel#38
+  leshy/forest-spirit                                count= 1  Morralyn#80
+  wind-elemental                                     count= 1  Pneumathos#117
+  kitsune                                            count= 1  Specraxis#127
+  insect-swarm                                       count= 1  Mistbane#161
+  disembodied psychic intelligence                   count= 1  Distorsion#217
+  snowman                                            count= 1  Tundrafox#240
+  water-elemental                                    count= 1  Psychotide#255
+  tanuki                                             count= 1  Eclipsoon#270
+  fire-elemental                                     count= 1  Magmite#277
+  slime/blob/amorphous                               count= 1  Bouncyblob#289
+  alchemical flask-being / living vessel             count= 1  Toxicore#323
+  void-warden / boundary-sentinel                    count= 1  Voidwarden#407
+
+
+==========================================================================================
+FOLDED INTO 🔮 humanoid late-discussion bucket (2)
+==========================================================================================
+  #346 Astralwing
+  #365 Cinderking

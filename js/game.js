@@ -32,7 +32,8 @@ function newGameState(playerName, starterMonsterId) {
     saveSlot: 0,
     ngPlusCount: 0,
     vaeldrisPartyLock: null,
-    defeatedWielders: []
+    defeatedWielders: [],
+    forgottenLegendaryAttempted: []
   };
 }
 
@@ -57,8 +58,19 @@ function saveGame() {
   if (!G) return;
   G.saveTimestamp = Date.now();
   const save = { ...G, seenMonsters: [...G.seenMonsters], caughtMonsters: [...G.caughtMonsters] };
-  localStorage.setItem(getSaveKey(G.saveSlot || 0), JSON.stringify(save));
-  showNotification("Game saved! ✅");
+  try {
+    localStorage.setItem(getSaveKey(G.saveSlot || 0), JSON.stringify(save));
+    showNotification("Game saved! ✅");
+  } catch (e) {
+    // QuotaExceededError name varies by browser; code 22 is the DOMException value
+    const isQuota = e && (e.name === "QuotaExceededError" || e.name === "NS_ERROR_DOM_QUOTA_REACHED" || e.code === 22);
+    if (isQuota) {
+      showNotification("❌ Save failed: browser storage is full. Delete an unused save slot or clear other site data, then try saving again.");
+    } else {
+      showNotification("❌ Save failed: " + (e && e.message ? e.message : "unknown error") + ". Your progress was not stored.");
+    }
+    console.error("saveGame failed:", e);
+  }
 }
 
 function loadGame(slot) {
@@ -97,6 +109,7 @@ function loadGame(slot) {
     if (data.ngPlusCount === undefined) data.ngPlusCount = 0;
     if (data.vaeldrisPartyLock === undefined) data.vaeldrisPartyLock = null;
     if (!data.defeatedWielders) data.defeatedWielders = [];
+    if (!data.forgottenLegendaryAttempted) data.forgottenLegendaryAttempted = [];
     data.saveSlot = slot;
     G = data;
     return true;
@@ -725,6 +738,7 @@ function travelTo(areaId) {
   trackLocationVisit(areaId);
   renderWorldMap();
   renderAreaPanel();
+  maybeTriggerForgottenLegendaryEncounter(areaId);
 }
 
 function renderAreaPanel() {
@@ -1830,6 +1844,16 @@ async function handlePlayerFainted() {
 function endBattle(outcome, slot, levelUps) {
   battleContext.battleEnded = true;
   syncPlayerMonHP();
+
+  // Consume one-time legendary forgotten encounter on any resolution (caught,
+  // ran, lost, won). Once marked, the area-entry hook won't re-trigger it.
+  if (battleContext.isLegendaryForgotten && battleContext.legendaryForgottenMonId) {
+    if (!G.forgottenLegendaryAttempted) G.forgottenLegendaryAttempted = [];
+    if (!G.forgottenLegendaryAttempted.includes(battleContext.legendaryForgottenMonId)) {
+      G.forgottenLegendaryAttempted.push(battleContext.legendaryForgottenMonId);
+      saveGame();
+    }
+  }
   if (typeof MusicEngine !== "undefined") {
     MusicEngine.stop();
     // Resume overworld music after a short delay
@@ -2002,9 +2026,7 @@ function endBattle(outcome, slot, levelUps) {
         const wielder = typeof VAELDRIS_WIELDERS !== "undefined" ? VAELDRIS_WIELDERS[battleContext.wielderId] : null;
         const wq = typeof QUESTS_DATA !== "undefined" ? QUESTS_DATA.find(q => q.id === battleContext.wielderId) : null;
         if (wq) completeQuest(wq);
-        const allDefeated = typeof VAELDRIS_WIELDERS !== "undefined" &&
-          Object.keys(VAELDRIS_WIELDERS).every(id => G.defeatedWielders.includes(id));
-        if (allDefeated) {
+        if (isForgottenUnlocked()) {
           G.vaeldrisPartyLock = null;
         }
         const wMsg = wielder ? `${wielder.emoji} <strong>${wielder.name}</strong>:<br>"${wielder.winQuote}"` : "⚔️ Wielder defeated!";
@@ -2991,7 +3013,57 @@ function hideTutorial() {
   document.getElementById("tutorial-overlay").classList.add("hidden");
 }
 
-const NG_PLUS_DEX_START = 322; // IDs >= this are NG+-exclusive
+const NG_PLUS_DEX_START = 322; // IDs 322-407 are NG+-exclusive (upper bound = FORGOTTEN_DEX_START - 1)
+const FORGOTTEN_DEX_START = 408; // IDs >= this are Forgotten Lumori, gated behind Vaeldris-quest completion (not NG+-exclusive)
+
+function isForgottenUnlocked() {
+  if (!G || !G.defeatedWielders || typeof VAELDRIS_WIELDERS === "undefined") return false;
+  return Object.keys(VAELDRIS_WIELDERS).every(id => G.defeatedWielders.includes(id));
+}
+
+// Each wielder's team[0] is by convention the BST-720 Forgotten Lumori catchable
+// once the player has finished the full Vaeldris quest. team[1]/team[2] (BST 750/800)
+// stay encounter-only via the wielder battles themselves.
+function getForgottenLegendaryForArea(areaId) {
+  if (typeof VAELDRIS_WIELDERS === "undefined") return null;
+  for (const wielder of Object.values(VAELDRIS_WIELDERS)) {
+    if (wielder.location === areaId && wielder.team && wielder.team[0]) {
+      return { wielder, monId: wielder.team[0].monsterId, level: wielder.team[0].level };
+    }
+  }
+  return null;
+}
+
+function maybeTriggerForgottenLegendaryEncounter(areaId) {
+  if (!isForgottenUnlocked()) return false;
+  const enc = getForgottenLegendaryForArea(areaId);
+  if (!enc) return false;
+  if (!G.forgottenLegendaryAttempted) G.forgottenLegendaryAttempted = [];
+  if (G.forgottenLegendaryAttempted.includes(enc.monId)) return false;
+  if (!G.team || G.team.every(m => m.currentHP <= 0)) return false;
+  triggerForgottenLegendaryEncounter(enc);
+  return true;
+}
+
+function triggerForgottenLegendaryEncounter(enc) {
+  const w = enc.wielder;
+  const def = MONSTERS_DATA[enc.monId];
+  if (!def) return;
+  // Placeholder cutscene — to be replaced with 13 hand-authored scripts
+  // after the stat-spread review (see TODO.md "Forgotten legendary cutscenes").
+  const areaName = WORLD_DATA[w.location]?.name || w.location;
+  const lines = [
+    `${w.emoji || "🌌"} <strong>${w.name}</strong> reappears as you enter ${areaName}.`,
+    `${w.emoji || "🌌"} <strong>${w.name}</strong>: "Our duel awakened something in the bond between us and our Lumori. ${def.name} has chosen to test you. Make this chance count — it will not come again."`,
+    `🌌 A wild <strong>${def.name}</strong> appears!`
+  ];
+  showStoryMessage(lines, 0, () => {
+    const wildMon = buildWildMon(enc.monId, enc.level);
+    startWildBattle(wildMon);
+    battleContext.isLegendaryForgotten = true;
+    battleContext.legendaryForgottenMonId = enc.monId;
+  });
+}
 
 function renderDexGrid(filter, search) {
   const grid = document.getElementById("dex-grid");
@@ -3018,12 +3090,14 @@ function renderDexGrid(filter, search) {
     const isNGPlus = mid >= NG_PLUS_DEX_START;
     const isForeign = !!def.foreignRegion;
 
-    // Vaeldris filter: only show foreignRegion mons (mystery display)
+    // Vaeldris filter: only show foreignRegion mons (mystery display).
+    // Caught mons (the 13 BST-720 legendaries the player can catch post-quest)
+    // reveal their real name; otherwise show "Forgotten Lumori N" placeholder.
     if (filter === "vaeldris") {
       if (!isForeign) continue;
       const num = mid - 407;
-      const displayName = seen ? `Forgotten Lumori ${num}` : "???";
-      const emojiHTML = seen ? `<div class="dex-emoji">${def.emoji}</div>` : `<div class="dex-emoji">❓</div>`;
+      const displayName = caught ? def.name : (seen ? `Forgotten Lumori ${num}` : "???");
+      const emojiHTML = (seen || caught) ? `<div class="dex-emoji">${def.emoji}</div>` : `<div class="dex-emoji">❓</div>`;
       const card = document.createElement("div");
       card.className = "dex-card vaeldris-card" + (seen ? " seen" : " unseen");
       card.innerHTML = `
@@ -3957,10 +4031,10 @@ function triggerStorySequence(eventKey) {
   showStoryMessage(messages, 0);
 }
 
-function showStoryMessage(messages, idx) {
-  if (idx >= messages.length) return;
+function showStoryMessage(messages, idx, onComplete) {
+  if (idx >= messages.length) { if (onComplete) onComplete(); return; }
   showNotification(messages[idx], () => {
-    showStoryMessage(messages, idx + 1);
+    showStoryMessage(messages, idx + 1, onComplete);
   });
 }
 

@@ -990,6 +990,12 @@ function exploreArea() {
     pool = pool.concat(area.ngPlusWildMonsters.filter(wm => getMonBST(wm.id) > 0));
   }
 
+  // Inject Forgotten Lumori spawns once the Vaeldris quest line is complete.
+  // Independent of NG+ — players encounter them in vanilla post-game too.
+  if (isForgottenUnlocked() && area.forgottenWildMonsters?.length) {
+    pool = pool.concat(area.forgottenWildMonsters.filter(wm => getMonBST(wm.id) > 0));
+  }
+
   // Inject event-exclusive spawns if active
   if (typeof getEventExclusiveMons === "function") {
     const extras = getEventExclusiveMons(area.id);

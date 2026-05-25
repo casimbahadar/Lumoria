@@ -73,6 +73,45 @@ def defense_score(combo, chart, types):
     return total
 
 
+def offense_counts(combo, chart, types):
+    """Per-defender-type matchup counts when this combo is the attacker.
+    Best STAB applies for dual: max(mult_A, mult_B). Returns counts of
+    SE (>1), Neutral (==1), Resisted (<1, >0), Immune (==0)."""
+    se = ne = res = imm = 0
+    for d in types:
+        mults = [chart[c].get(d, 1) for c in combo]
+        mult = max(mults) if len(combo) > 1 else mults[0]
+        if mult == 0:
+            imm += 1
+        elif mult < 1:
+            res += 1
+        elif mult == 1:
+            ne += 1
+        else:
+            se += 1
+    return {"se": se, "ne": ne, "res": res, "imm": imm}
+
+
+def defense_counts(combo, chart, types):
+    """Per-attacker-type matchup counts when this combo is the defender.
+    Dual stacks multiplicatively: mult_A × mult_B. Returns counts of
+    Weak (>1), Neutral (==1), Resisted (<1, >0), Immune (==0)."""
+    wk = ne = res = imm = 0
+    for x in types:
+        incoming = 1.0
+        for d in combo:
+            incoming *= chart[x].get(d, 1)
+        if incoming == 0:
+            imm += 1
+        elif incoming < 1:
+            res += 1
+        elif incoming == 1:
+            ne += 1
+        else:
+            wk += 1
+    return {"wk": wk, "ne": ne, "res": res, "imm": imm}
+
+
 def fmt(combo):
     return "/".join(combo) if len(combo) > 1 else combo[0] + " (mono)"
 
@@ -97,13 +136,23 @@ def rank_with_ties(rows, key_name, top_n=TOP_N, reverse=True):
 
 
 def print_table(title, rows):
-    print("=" * 84)
+    # Columns: # | Combo | Off SE/Res/Imm | Def Wk/Res/Imm | Off-Score | Def-Score
+    # Scores retained as the ranking key; counts surfaced as the readable signal.
+    print("=" * 96)
     print(title)
-    print("=" * 84)
-    print(f"{'#':>3}  {'Combo':30}  {'Off':>8}  {'Def':>8}  {'Total':>8}")
-    print("-" * 84)
+    print("=" * 96)
+    print(f"{'#':>3}  {'Combo':28}  "
+          f"{'O-SE':>5} {'O-Res':>5} {'O-Imm':>5}  "
+          f"{'D-Wk':>5} {'D-Res':>5} {'D-Imm':>5}  "
+          f"{'OffSc':>6} {'DefSc':>6}")
+    print("-" * 96)
     for i, r in enumerate(rows, 1):
-        print(f"{i:>3}  {fmt(r['combo']):30}  {r['off']:>8.2f}  {r['def']:>8.2f}  {r['total']:>8.2f}")
+        oc = r["off_counts"]
+        dc = r["def_counts"]
+        print(f"{i:>3}  {fmt(r['combo']):28}  "
+              f"{oc['se']:>5} {oc['res']:>5} {oc['imm']:>5}  "
+              f"{dc['wk']:>5} {dc['res']:>5} {dc['imm']:>5}  "
+              f"{r['off']:>6.2f} {r['def']:>6.2f}")
     print()
 
 
@@ -121,7 +170,11 @@ def main():
     for c in combos:
         off = offense_score(c, chart, types)
         defn = defense_score(c, chart, types)
-        rows.append({"combo": c, "off": off, "def": defn, "total": off + defn})
+        rows.append({
+            "combo": c, "off": off, "def": defn, "total": off + defn,
+            "off_counts": offense_counts(c, chart, types),
+            "def_counts": defense_counts(c, chart, types),
+        })
 
     flagship_rows = [r for r in rows if is_flagship_eligible(r["combo"])]
     print(f"Flagship-eligible combos (no postgame types): {len(flagship_rows)}\n")

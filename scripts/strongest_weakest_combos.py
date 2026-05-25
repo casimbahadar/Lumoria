@@ -13,6 +13,12 @@ Scoring (user spec 2026-05-24):
 - Dual defense: per attacker, types stack multiplicatively → mult_A × mult_B
 - Tiebreak: list all combos tied with the cutoff entry
 
+Postgame-type filter (user spec 2026-05-24): combos containing any postgame
+type (Aether, Crystal, Primal, Chrono, Stellar) are excluded from the
+flagship-eligible tables, because every postgame combo lands at most 2
+Forgotten Lumori standalones (max 2 entries; well under the ordinary
+2-families-+-1-standalone = 3-entries cap, so flagship status is moot).
+
 Reads TYPE_CHART from js/data.js. Re-run after chart changes.
 """
 import re
@@ -22,6 +28,7 @@ from pathlib import Path
 CHART_FILE = Path(__file__).resolve().parent.parent / "js" / "data.js"
 TOP_N = 20
 IMMUNITY_DEF_WEIGHT = 8.0
+POSTGAME_TYPES = {"Aether", "Crystal", "Primal", "Chrono", "Stellar"}
 
 
 def parse_chart():
@@ -70,6 +77,11 @@ def fmt(combo):
     return "/".join(combo) if len(combo) > 1 else combo[0] + " (mono)"
 
 
+def is_flagship_eligible(combo):
+    """A combo is flagship-eligible only if none of its types are postgame-restricted."""
+    return not any(t in POSTGAME_TYPES for t in combo)
+
+
 def rank_with_ties(rows, key_name, top_n=TOP_N, reverse=True):
     rows_sorted = sorted(rows, key=lambda r: r[key_name], reverse=reverse)
     if len(rows_sorted) <= top_n:
@@ -100,9 +112,10 @@ def main():
     types = sorted(chart.keys())
     print(f"Loaded {len(types)} types from {CHART_FILE}")
     print(f"Types: {', '.join(types)}\n")
+    print(f"Postgame-restricted (excluded from flagship-eligible tables): {', '.join(sorted(POSTGAME_TYPES))}\n")
 
     combos = [(t,) for t in types] + [tuple(sorted(c)) for c in combinations(types, 2)]
-    print(f"Total combos analyzed: {len(combos)} ({len(types)} mono + {len(combos) - len(types)} dual)\n")
+    print(f"Total combos analyzed: {len(combos)} ({len(types)} mono + {len(combos) - len(types)} dual)")
 
     rows = []
     for c in combos:
@@ -110,22 +123,25 @@ def main():
         defn = defense_score(c, chart, types)
         rows.append({"combo": c, "off": off, "def": defn, "total": off + defn})
 
-    avg_off = sum(r["off"] for r in rows) / len(rows)
-    avg_def = sum(r["def"] for r in rows) / len(rows)
-    print(f"Mean offense score: {avg_off:.2f}  |  Mean defense score: {avg_def:.2f}\n")
+    flagship_rows = [r for r in rows if is_flagship_eligible(r["combo"])]
+    print(f"Flagship-eligible combos (no postgame types): {len(flagship_rows)}\n")
 
-    print_table(f"STRONGEST OFFENSE (top {TOP_N}, ties included)",
-                rank_with_ties(rows, "off", TOP_N, reverse=True))
-    print_table(f"WEAKEST OFFENSE (bottom {TOP_N}, ties included)",
-                rank_with_ties(rows, "off", TOP_N, reverse=False))
-    print_table(f"STRONGEST DEFENSE (top {TOP_N}, ties included)",
-                rank_with_ties(rows, "def", TOP_N, reverse=True))
-    print_table(f"WEAKEST DEFENSE (bottom {TOP_N}, ties included)",
-                rank_with_ties(rows, "def", TOP_N, reverse=False))
-    print_table(f"STRONGEST COMBINED off+def (top {TOP_N}, ties included)",
-                rank_with_ties(rows, "total", TOP_N, reverse=True))
-    print_table(f"WEAKEST COMBINED off+def (bottom {TOP_N}, ties included)",
-                rank_with_ties(rows, "total", TOP_N, reverse=False))
+    avg_off = sum(r["off"] for r in flagship_rows) / len(flagship_rows)
+    avg_def = sum(r["def"] for r in flagship_rows) / len(flagship_rows)
+    print(f"Mean offense score (eligible): {avg_off:.2f}  |  Mean defense score (eligible): {avg_def:.2f}\n")
+
+    print_table(f"FLAGSHIP-ELIGIBLE — STRONGEST OFFENSE (top {TOP_N}, ties included)",
+                rank_with_ties(flagship_rows, "off", TOP_N, reverse=True))
+    print_table(f"FLAGSHIP-ELIGIBLE — WEAKEST OFFENSE (bottom {TOP_N}, ties included)",
+                rank_with_ties(flagship_rows, "off", TOP_N, reverse=False))
+    print_table(f"FLAGSHIP-ELIGIBLE — STRONGEST DEFENSE (top {TOP_N}, ties included)",
+                rank_with_ties(flagship_rows, "def", TOP_N, reverse=True))
+    print_table(f"FLAGSHIP-ELIGIBLE — WEAKEST DEFENSE (bottom {TOP_N}, ties included)",
+                rank_with_ties(flagship_rows, "def", TOP_N, reverse=False))
+    print_table(f"FLAGSHIP-ELIGIBLE — STRONGEST COMBINED off+def (top {TOP_N}, ties included)",
+                rank_with_ties(flagship_rows, "total", TOP_N, reverse=True))
+    print_table(f"FLAGSHIP-ELIGIBLE — WEAKEST COMBINED off+def (bottom {TOP_N}, ties included)",
+                rank_with_ties(flagship_rows, "total", TOP_N, reverse=False))
 
 
 if __name__ == "__main__":

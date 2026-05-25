@@ -136,22 +136,22 @@ def rank_with_ties(rows, key_name, top_n=TOP_N, reverse=True):
 
 
 def print_table(title, rows):
-    # Columns: # | Combo | Off SE/Res/Imm | Def Wk/Res/Imm | Off-Score | Def-Score
+    # Columns: # | Combo | Off SE/NE/Res/Imm | Def Wk/NE/Res/Imm | Off-Score | Def-Score
     # Scores retained as the ranking key; counts surfaced as the readable signal.
-    print("=" * 96)
+    print("=" * 108)
     print(title)
-    print("=" * 96)
+    print("=" * 108)
     print(f"{'#':>3}  {'Combo':28}  "
-          f"{'O-SE':>5} {'O-Res':>5} {'O-Imm':>5}  "
-          f"{'D-Wk':>5} {'D-Res':>5} {'D-Imm':>5}  "
+          f"{'O-SE':>5} {'O-NE':>5} {'O-Res':>5} {'O-Imm':>5}  "
+          f"{'D-Wk':>5} {'D-NE':>5} {'D-Res':>5} {'D-Imm':>5}  "
           f"{'OffSc':>6} {'DefSc':>6}")
-    print("-" * 96)
+    print("-" * 108)
     for i, r in enumerate(rows, 1):
         oc = r["off_counts"]
         dc = r["def_counts"]
         print(f"{i:>3}  {fmt(r['combo']):28}  "
-              f"{oc['se']:>5} {oc['res']:>5} {oc['imm']:>5}  "
-              f"{dc['wk']:>5} {dc['res']:>5} {dc['imm']:>5}  "
+              f"{oc['se']:>5} {oc['ne']:>5} {oc['res']:>5} {oc['imm']:>5}  "
+              f"{dc['wk']:>5} {dc['ne']:>5} {dc['res']:>5} {dc['imm']:>5}  "
               f"{r['off']:>6.2f} {r['def']:>6.2f}")
     print()
 

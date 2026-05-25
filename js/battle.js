@@ -36,6 +36,7 @@ function stageMultiplier(stage) {
 // STATUS_REGISTRY is data-driven: Phase 3 adds the 19 new status types by appending rows.
 
 const STATUS_REGISTRY = {
+  // ===== PHASE 1: the original 6 =====
   burn: {
     emoji: "🔥", label: "BURN", cssClass: "status-burn", immuneTypes: ["Fire"],
     applyMsg: name => `🔥 ${name} was burned!`,
@@ -80,6 +81,442 @@ const STATUS_REGISTRY = {
       return { can: false, msg: `💤 ${mon.name} is fast asleep!` };
     },
   },
+
+  // ===== PHASE 3: TODO 821 locked statuses (13) =====
+  bleed: {
+    emoji: "🩸", label: "BLEED", cssClass: "status-bleed",
+    immuneTypes: ["Metal", "Crystal", "Spectral"],
+    applyMsg: name => `🩸 ${name} started bleeding!`,
+    tickDamage: mon => Math.max(1, Math.floor(mon.maxHP / 16)),
+    tickMsg: (name, dmg) => `🩸 ${name} loses blood! (-${dmg})`,
+    evolvesTo: "severe_bleed", evolveAt: 3,
+  },
+  severe_bleed: {
+    emoji: "🩸", label: "SEVERE BLEED", cssClass: "status-severe-bleed",
+    immuneTypes: ["Metal", "Crystal", "Spectral"],
+    applyMsg: name => `🩸 ${name} is hemorrhaging!`,
+    tickDamage: mon => Math.max(1, Math.floor(mon.maxHP / 8)),
+    tickMsg: (name, dmg) => `🩸 ${name} hemorrhages! (-${dmg})`,
+  },
+  petrify: {
+    emoji: "🗿", label: "PETRIFY", cssClass: "status-petrify",
+    immuneTypes: ["Mineral", "Crystal", "Metal"],
+    applyMsg: name => `🗿 ${name} is petrifying!`,
+    statMod: () => ({ spe: -1 }),
+    blocksMove: mon => rollPercent(25)
+      ? { can: false, msg: `🗿 ${mon.name} can't move — petrified!` }
+      : null,
+    evolvesTo: "statue", evolveAt: 2,
+  },
+  statue: {
+    emoji: "🗿", label: "STATUE", cssClass: "status-statue",
+    immuneTypes: ["Mineral", "Crystal", "Metal"],
+    applyMsg: name => `🗿 ${name} turned to stone!`,
+    statMod: () => ({ def: +2 }),
+    blocksMove: mon => ({ can: false, msg: `🗿 ${mon.name} is a statue and can't move!` }),
+  },
+  drenched: {
+    emoji: "💧", label: "DRENCHED", cssClass: "status-drenched",
+    immuneTypes: ["Aquatic", "Vapor"],
+    applyMsg: name => `💧 ${name} was drenched!`,
+    statMod: () => ({ spe: -1 }),
+    incomingDmgMod: (_d, _e, move) =>
+      move.type === "Fire" ? 0.5 : (move.type === "Electric" ? 2 : 1),
+    evolvesTo: "soaked", evolveAt: 2,
+  },
+  soaked: {
+    emoji: "💦", label: "SOAKED", cssClass: "status-soaked",
+    immuneTypes: ["Aquatic", "Vapor"],
+    applyMsg: name => `💦 ${name} is fully soaked!`,
+    statMod: () => ({ spe: -2 }),
+    incomingDmgMod: (_d, _e, move) =>
+      move.type === "Fire" ? 0.5 : (move.type === "Electric" ? 2 : 1),
+    tickDamage: mon => Math.max(1, Math.floor(mon.maxHP / 16)),
+    tickMsg: (name, dmg) => `💦 ${name} shivers from the soak! (-${dmg})`,
+  },
+  weighed_down: {
+    emoji: "🪨", label: "WEIGHED DOWN", cssClass: "status-weighed",
+    immuneTypes: ["Wind", "Spectral"],
+    applyMsg: name => `🪨 ${name} is weighed down!`,
+    statMod: () => ({ spe: -2 }),
+    blocksSwitch: () => true,
+  },
+  crystallize: {
+    emoji: "💎", label: "CRYSTALLIZE", cssClass: "status-crystallize",
+    immuneTypes: ["Aquatic"],
+    applyMsg: name => `💎 ${name} is crystallizing!`,
+    statMod: () => ({ def: +1, spd: +1, spe: -2 }),
+  },
+  echolocation: {
+    emoji: "📡", label: "ECHOLOCATION", cssClass: "status-echolocation",
+    immuneTypes: [],
+    applyMsg: name => `📡 ${name} locked onto sound!`,
+    forceHit: (_m, _e, isAtk) => isAtk,
+    maxTurns: 3,
+  },
+  smothered: {
+    emoji: "😶", label: "SMOTHERED", cssClass: "status-smothered",
+    immuneTypes: ["Sonic", "Wind"],
+    applyMsg: name => `😶 ${name} is smothered!`,
+    accuracyMod: (_m, _e, isAtk) => isAtk ? 0.5 : 1,
+  },
+  marked: {
+    emoji: "🎯", label: "MARKED", cssClass: "status-marked",
+    immuneTypes: [],
+    applyMsg: name => `🎯 ${name} was marked!`,
+    incomingDmgMod: () => 1.5,
+    evolvesTo: "hunted", evolveAt: 2,
+  },
+  burnt_out: {
+    emoji: "🧯", label: "BURNT-OUT", cssClass: "status-burnt-out",
+    immuneTypes: ["Fire"],
+    applyMsg: name => `🧯 ${name} is burnt out!`,
+    statMod: () => ({ atk: -1 }),
+    evolvesTo: "crippled", evolveAt: 2,
+  },
+  faded: {
+    emoji: "👻", label: "FADED", cssClass: "status-faded",
+    immuneTypes: ["Spectral"],
+    applyMsg: name => `👻 ${name} is fading!`,
+    statMod: () => ({ spe: -1 }),
+    accuracyMod: (_m, _e, isAtk) => isAtk ? 0.75 : 1,
+  },
+  strained: {
+    emoji: "💪", label: "STRAINED", cssClass: "status-strained",
+    immuneTypes: [],
+    applyMsg: name => `💪 ${name} is strained!`,
+    outgoingPowerMod: (_m, _e, move) => move.cat === "physical" ? 0.75 : 1,
+    evolvesTo: "exhausted", evolveAt: 3,
+  },
+  sluggish: {
+    emoji: "🐌", label: "SLUGGISH", cssClass: "status-sluggish",
+    immuneTypes: ["Sonic"],
+    applyMsg: name => `🐌 ${name} feels sluggish!`,
+    statMod: () => ({ spe: -2 }),
+    blocksMove: mon => rollPercent(25)
+      ? { can: false, msg: `🐌 ${mon.name} is too sluggish to act!` }
+      : null,
+  },
+  brittle: {
+    emoji: "🥶", label: "BRITTLE", cssClass: "status-brittle",
+    immuneTypes: ["Aquatic", "Spectral"],
+    applyMsg: name => `🥶 ${name} became brittle!`,
+    incomingDmgMod: (_d, _e, move) => move.cat === "physical" ? 1.5 : 1,
+  },
+  tainted: {
+    emoji: "🦠", label: "TAINTED", cssClass: "status-tainted",
+    immuneTypes: ["Toxin", "Poison", "Metal"],
+    applyMsg: name => `🦠 ${name} was tainted!`,
+    tickDamage: mon => Math.max(1, Math.floor(mon.maxHP / 16)),
+    tickMsg: (name, dmg) => `🦠 ${name} is tainted! (-${dmg})`,
+    healMod: () => 0.5,
+    evolvesTo: "corroded", evolveAt: 3,
+  },
+  hexed: {
+    emoji: "🔮", label: "HEXED", cssClass: "status-hexed",
+    immuneTypes: ["Spectral", "Dream"],
+    applyMsg: name => `🔮 ${name} was hexed!`,
+    tickEffect: (mon) => {
+      const stats = ["atk", "def", "spa", "spd", "spe"];
+      const stat = stats[Math.floor(Math.random() * stats.length)];
+      if (applyStageChange(mon, stat, -1)) {
+        return [`🔮 ${mon.name}'s ${stat.toUpperCase()} fell from the hex!`];
+      }
+      return [];
+    },
+  },
+  deafen: {
+    emoji: "🔇", label: "DEAFEN", cssClass: "status-deafen",
+    immuneTypes: ["Spectral", "Mineral"],
+    applyMsg: name => `🔇 ${name} was deafened!`,
+    incomingDmgMod: (_d, _e, move) => move.type === "Sonic" ? 0 : 1,
+  },
+
+  // ===== PHASE 3: new pure-statuses (16) =====
+  hypothermia: {
+    emoji: "🧊", label: "HYPOTHERMIA", cssClass: "status-hypothermia",
+    immuneTypes: ["Ice", "Fire"],
+    applyMsg: name => `🧊 ${name} has hypothermia!`,
+    statMod: () => ({ atk: -1, spe: -1 }),
+  },
+  disoriented: {
+    emoji: "🌀", label: "DISORIENTED", cssClass: "status-disoriented",
+    immuneTypes: ["Mental"],
+    applyMsg: name => `🌀 ${name} is disoriented!`,
+    interceptMove: (_m, _e, chosenMove, moveset) => {
+      if (rollPercent(30) && moveset.length > 1) {
+        const others = moveset.filter(m => m.id !== chosenMove.id);
+        return others.length ? others[Math.floor(Math.random() * others.length)] : chosenMove;
+      }
+      return chosenMove;
+    },
+    interceptMsg: (mon, sub) =>
+      `🌀 ${mon.name} is disoriented — used ${MOVES_DATA[sub.id]?.name || sub.id} instead!`,
+    evolvesTo: "comatose", evolveAt: 3,
+  },
+  migraine: {
+    emoji: "🤕", label: "MIGRAINE", cssClass: "status-migraine",
+    immuneTypes: [],
+    applyMsg: name => `🤕 ${name} has a migraine!`,
+    outgoingPowerMod: (_a, _e, move) => move.cat === "special" ? 0.75 : 1,
+    evolvesTo: "concussion", evolveAt: 2,
+  },
+  mind_numb: {
+    emoji: "🧠", label: "MIND-NUMB", cssClass: "status-mind-numb",
+    immuneTypes: [],
+    applyMsg: name => `🧠 ${name}'s mind is numb!`,
+    blocksOutgoingMove: (mon, _e, move) =>
+      move.cat === "status" ? { msg: `🧠 ${mon.name}'s mind is too numb for status moves!` } : null,
+  },
+  adrenaline: {
+    emoji: "💪", label: "ADRENALINE", cssClass: "status-adrenaline",
+    immuneTypes: [],
+    applyMsg: name => `💪 ${name}'s adrenaline surged!`,
+    statMod: () => ({ atk: +1, spe: +1, def: -1, spd: -1 }),
+    maxTurns: 3,
+  },
+  inspired: {
+    emoji: "✨", label: "INSPIRED", cssClass: "status-inspired",
+    immuneTypes: [],
+    applyMsg: name => `✨ ${name} is inspired!`,
+    tickEffect: (mon) => {
+      const stats = ["atk", "def", "spa", "spd", "spe"];
+      const stat = stats[Math.floor(Math.random() * stats.length)];
+      if (applyStageChange(mon, stat, +1)) {
+        return [`✨ ${mon.name}'s ${stat.toUpperCase()} rose from inspiration!`];
+      }
+      return [];
+    },
+    maxTurns: 3,
+  },
+  tangled: {
+    emoji: "🌿", label: "TANGLED", cssClass: "status-tangled",
+    immuneTypes: ["Spectral"],
+    applyMsg: name => `🌿 ${name} got tangled!`,
+    blocksOutgoingMove: (mon, _e, move) => {
+      const fx = move.effect || "";
+      const speMods = ["speup","spedown","spedown2","dragondance"];
+      if (speMods.includes(fx) || fx.includes("speup_self") || fx.includes("spedown")) {
+        return { msg: `🌿 ${mon.name} is too tangled to use speed-altering moves!` };
+      }
+      return null;
+    },
+    evolvesTo: "bound", evolveAt: 2,
+  },
+  tethered: {
+    emoji: "⛓️", label: "TETHERED", cssClass: "status-tethered",
+    immuneTypes: ["Spectral"],
+    applyMsg: name => `⛓️ ${name} is tethered!`,
+    switchCost: () => 0.5,
+    evolvesTo: "anchored", evolveAt: 2,
+  },
+  necrosis: {
+    emoji: "💀", label: "NECROSIS", cssClass: "status-necrosis",
+    immuneTypes: ["Toxin", "Poison"],
+    applyMsg: name => `💀 ${name} suffers necrosis!`,
+    tickDamage: mon => Math.max(1, Math.floor(mon.maxHP / 16)),
+    tickMsg: (name, dmg) => `💀 ${name}'s flesh rots! (-${dmg})`,
+    healMod: () => 0,
+  },
+  plague: {
+    emoji: "🦟", label: "PLAGUE", cssClass: "status-plague",
+    immuneTypes: ["Toxin"],
+    applyMsg: name => `🦟 ${name} contracted the plague!`,
+    tickDamage: mon => Math.max(1, Math.floor(mon.maxHP / 16)),
+    tickMsg: (name, dmg) => `🦟 ${name} is plagued! (-${dmg})`,
+    // Note: multi-battle spread-to-allies deferred (needs per-turn cross-mon hook)
+  },
+  mirrored: {
+    emoji: "🪞", label: "MIRRORED", cssClass: "status-mirrored",
+    immuneTypes: [],
+    applyMsg: name => `🪞 ${name} is mirrored!`,
+    onHitReflect: (_d, entry, move, dmgTaken, attacker) => {
+      if (entry._reflectedThisTurn) return null;
+      if (move.cat !== "physical") return null;
+      if (!rollPercent(30)) return null;
+      entry._reflectedThisTurn = true;
+      const reflect = Math.max(1, Math.floor(dmgTaken * 0.3));
+      return { reflectDmg: reflect, msg: `🪞 ${attacker.name} took ${reflect} reflected damage!` };
+    },
+    tickAfter: entry => { delete entry._reflectedThisTurn; },
+  },
+  possessed: {
+    emoji: "👹", label: "POSSESSED", cssClass: "status-possessed",
+    immuneTypes: ["Spectral"],
+    applyMsg: name => `👹 ${name} is possessed!`,
+    interceptMove: (_m, _e, chosenMove, moveset) => {
+      if (rollPercent(30) && moveset.length > 1) {
+        return moveset[Math.floor(Math.random() * moveset.length)];
+      }
+      return chosenMove;
+    },
+    interceptMsg: (mon, sub) =>
+      `👹 ${mon.name} is possessed — forced to use ${MOVES_DATA[sub.id]?.name || sub.id}!`,
+  },
+  muted: {
+    emoji: "🔕", label: "MUTED", cssClass: "status-muted",
+    immuneTypes: ["Mineral"],
+    applyMsg: name => `🔕 ${name} was muted!`,
+    blocksOutgoingMove: (mon, _e, move) =>
+      move.type === "Sonic" ? { msg: `🔕 ${mon.name} is muted — can't use Sonic moves!` } : null,
+  },
+  sealed: {
+    emoji: "🪶", label: "SEALED", cssClass: "status-sealed",
+    immuneTypes: [],
+    applyMsg: name => `🪶 ${name} was sealed!`,
+    onApply: (mon, entry) => {
+      // Pick a type the mon currently has (most punishing); fallback to random type
+      const pool = mon.types && mon.types.length ? mon.types : Object.keys(TYPE_CHART);
+      entry.sealedType = pool[Math.floor(Math.random() * pool.length)];
+    },
+    blocksOutgoingMove: (mon, entry, move) =>
+      move.type === entry.sealedType
+        ? { msg: `🪶 ${mon.name} is sealed — can't use ${entry.sealedType} moves!` }
+        : null,
+  },
+  bonded: {
+    emoji: "💞", label: "BONDED", cssClass: "status-bonded",
+    immuneTypes: [],
+    applyMsg: name => `💞 ${name} is bonded!`,
+    // Note: multi-battle dmg-share-with-ally deferred (needs cross-mon hook)
+  },
+  type_distorted: {
+    emoji: "🔀", label: "TYPE DISTORTED", cssClass: "status-type-distorted",
+    immuneTypes: [],
+    applyMsg: name => `🔀 ${name}'s types are distorted!`,
+    onApply: (mon, entry) => {
+      const allTypes = Object.keys(TYPE_CHART);
+      entry.originalTypes = [...mon.types];
+      const changeBoth = rollPercent(50);
+      const newTypes = [...mon.types];
+      newTypes[0] = allTypes[Math.floor(Math.random() * allTypes.length)];
+      if (changeBoth && newTypes.length > 1) {
+        newTypes[1] = allTypes[Math.floor(Math.random() * allTypes.length)];
+      }
+      mon.types = newTypes;
+    },
+    evolvesTo: "type_shattered", evolveAt: 3,
+  },
+
+  // ===== PHASE 3: dual-pool statuses (3) — also seed the abilities pool =====
+  bouncy: {
+    emoji: "🟢", label: "BOUNCY", cssClass: "status-bouncy",
+    immuneTypes: ["Spectral"],
+    applyMsg: name => `🟢 ${name} is bouncy!`,
+    onHitReflect: (_d, _e, move, dmgTaken, attacker) => {
+      if (move.cat !== "physical") return null;
+      const reflect = Math.max(1, Math.floor(dmgTaken * 0.4));
+      return { reflectDmg: reflect, msg: `🟢 ${attacker.name} bounced back ${reflect} damage!` };
+    },
+  },
+  refracted: {
+    emoji: "🌈", label: "REFRACTED", cssClass: "status-refracted",
+    immuneTypes: ["Spectral"],
+    applyMsg: name => `🌈 ${name} is refracted!`,
+    onHitReflect: (_d, _e, move, dmgTaken, attacker) => {
+      if (move.cat !== "special") return null;
+      const reflect = Math.max(1, Math.floor(dmgTaken * 0.4));
+      return { reflectDmg: reflect, msg: `🌈 ${attacker.name} was refracted for ${reflect} damage!` };
+    },
+  },
+  phase_shifted: {
+    emoji: "👁️", label: "PHASE-SHIFTED", cssClass: "status-phase-shifted",
+    immuneTypes: ["Spectral"],
+    applyMsg: name => `👁️ ${name} is phase-shifted!`,
+    // 0.75× incoming dmg on every 2nd turn (turnsActive 1, 3, 5... since we increment after the tick)
+    incomingDmgMod: (_d, entry) => ((entry.turnsActive || 0) % 2 === 1) ? 0.75 : 1,
+  },
+
+  // ===== PHASE 3: evolved forms (9) =====
+  crippled: {
+    emoji: "🩼", label: "CRIPPLED", cssClass: "status-crippled",
+    immuneTypes: ["Fire"],
+    applyMsg: name => `🩼 ${name} is crippled!`,
+    statMod: () => ({ atk: -2 }),
+    blocksOutgoingMove: (mon, _e, move) =>
+      move.cat === "physical"
+        ? { msg: `🩼 ${mon.name} is crippled — can't use physical moves!` }
+        : null,
+  },
+  corroded: {
+    emoji: "🪤", label: "CORRODED", cssClass: "status-corroded",
+    immuneTypes: ["Toxin", "Poison", "Metal"],
+    applyMsg: name => `🪤 ${name} is corroded!`,
+    tickDamage: mon => Math.max(1, Math.floor(mon.maxHP / 8)),
+    tickMsg: (name, dmg) => `🪤 ${name} corrodes deeper! (-${dmg})`,
+    healMod: () => 0,
+    statMod: () => ({ def: -1 }),
+  },
+  bound: {
+    emoji: "🪢", label: "BOUND", cssClass: "status-bound",
+    immuneTypes: ["Spectral"],
+    applyMsg: name => `🪢 ${name} is bound!`,
+    blocksOutgoingMove: (mon, _e, move) =>
+      move.cat === "physical"
+        ? { msg: `🪢 ${mon.name} is bound — physical moves blocked!` }
+        : null,
+  },
+  anchored: {
+    emoji: "⚓", label: "ANCHORED", cssClass: "status-anchored",
+    immuneTypes: ["Spectral"],
+    applyMsg: name => `⚓ ${name} is anchored!`,
+    blocksSwitch: () => true,
+    tickDamage: mon => Math.max(1, Math.floor(mon.maxHP / 16)),
+    tickMsg: (name, dmg) => `⚓ ${name} strains against the anchor! (-${dmg})`,
+  },
+  comatose: {
+    emoji: "😵", label: "COMATOSE", cssClass: "status-comatose",
+    immuneTypes: ["Mental"],
+    applyMsg: name => `😵 ${name} is comatose!`,
+    blocksMove: mon => rollPercent(50)
+      ? { can: false, msg: `😵 ${mon.name} is unconscious!` }
+      : null,
+  },
+  hunted: {
+    emoji: "🏹", label: "HUNTED", cssClass: "status-hunted",
+    immuneTypes: [],
+    applyMsg: name => `🏹 ${name} is being hunted!`,
+    incomingDmgMod: () => 2.0,
+    opponentCritBonus: () => 6.25, // doubles default base crit (6.25 + 6.25 = 12.5)
+  },
+  exhausted: {
+    emoji: "😮‍💨", label: "EXHAUSTED", cssClass: "status-exhausted",
+    immuneTypes: [],
+    applyMsg: name => `😮‍💨 ${name} is exhausted!`,
+    outgoingPowerMod: () => 0.5,
+  },
+  concussion: {
+    emoji: "🤕", label: "CONCUSSION", cssClass: "status-concussion",
+    immuneTypes: [],
+    applyMsg: name => `🤕 ${name} has a concussion!`,
+    outgoingPowerMod: (_a, _e, move) => move.cat === "special" ? 0.5 : 1,
+    onMoveAttempt: (mon) => {
+      if (rollPercent(30)) {
+        const selfDmg = Math.max(1, Math.floor(mon.maxHP / 8));
+        mon.currentHP = Math.max(0, mon.currentHP - selfDmg);
+        if (mon.currentHP <= 0) mon.fainted = true;
+        return { selfHit: true, dmg: selfDmg, msg: `🤕 ${mon.name} hurt itself in concussion! (-${selfDmg})` };
+      }
+      return null;
+    },
+  },
+  type_shattered: {
+    emoji: "🌀", label: "TYPE SHATTERED", cssClass: "status-type-shattered",
+    immuneTypes: [],
+    applyMsg: name => `🌀 ${name}'s types are shattered!`,
+    onApply: (mon, entry) => {
+      const allTypes = Object.keys(TYPE_CHART);
+      entry.originalTypes = entry.originalTypes || [...mon.types];
+      const newTypes = [...mon.types];
+      newTypes[0] = allTypes[Math.floor(Math.random() * allTypes.length)];
+      if (newTypes.length > 1) {
+        newTypes[1] = allTypes[Math.floor(Math.random() * allTypes.length)];
+      }
+      mon.types = newTypes;
+    },
+    // Flat 1.33× incoming damage, overriding the chart for the new (random) types
+    effectivenessOverride: () => 1.33,
+  },
 };
 
 function getStatusEntry(mon, type) {
@@ -99,7 +536,9 @@ function addStatus(mon, type, opts = {}) {
   if (reg.immuneTypes && reg.immuneTypes.some(t => mon.types?.includes(t))) return false;
   const turns = typeof reg.initialTurns === "function" ? reg.initialTurns()
               : (reg.initialTurns ?? 0);
-  mon.statuses.push({ type, turns, ...opts });
+  const entry = { type, turns, turnsActive: 0, ...opts };
+  mon.statuses.push(entry);
+  if (reg.onApply) reg.onApply(mon, entry);
   return true;
 }
 function removeStatus(mon, type) {
@@ -129,6 +568,188 @@ function migrateStatuses(obj) {
 function clearStatuses(obj) {
   obj.statuses = [];
   delete obj.status; delete obj.poisonTurns; delete obj.sleepTurns;
+}
+
+// ---- Status-aggregator helpers (Phase 3) ----
+// Each iterates a mon's active statuses, querying the registry for the
+// matching hook and combining results across all entries.
+
+function getStatMod(mon) {
+  const mods = { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 };
+  if (!mon.statuses) return mods;
+  for (const e of mon.statuses) {
+    const reg = STATUS_REGISTRY[e.type];
+    if (reg?.statMod) {
+      const m = reg.statMod(mon, e);
+      for (const [k, v] of Object.entries(m)) mods[k] = (mods[k] || 0) + v;
+    }
+  }
+  return mods;
+}
+
+function getEffectiveStage(mon, stat) {
+  const base = (mon.stages && mon.stages[stat]) || 0;
+  const mod = getStatMod(mon)[stat] || 0;
+  return clamp(base + mod, -6, 6);
+}
+
+function getEffectiveSpeed(mon) {
+  return mon.spe * stageMultiplier(getEffectiveStage(mon, "spe"));
+}
+
+function getIncomingDmgMod(defender, move, attacker) {
+  if (!defender.statuses) return 1;
+  let m = 1;
+  for (const e of defender.statuses) {
+    const reg = STATUS_REGISTRY[e.type];
+    if (reg?.incomingDmgMod) m *= (reg.incomingDmgMod(defender, e, move, attacker) ?? 1);
+  }
+  return m;
+}
+
+function getOutgoingPowerMod(attacker, move) {
+  if (!attacker.statuses) return 1;
+  let m = 1;
+  for (const e of attacker.statuses) {
+    const reg = STATUS_REGISTRY[e.type];
+    if (reg?.outgoingPowerMod) m *= (reg.outgoingPowerMod(attacker, e, move) ?? 1);
+  }
+  return m;
+}
+
+function getAccuracyMod(mon, isAttacking) {
+  if (!mon.statuses) return 1;
+  let m = 1;
+  for (const e of mon.statuses) {
+    const reg = STATUS_REGISTRY[e.type];
+    if (reg?.accuracyMod) m *= (reg.accuracyMod(mon, e, isAttacking) ?? 1);
+  }
+  return m;
+}
+
+function shouldForceHit(attacker) {
+  if (!attacker.statuses) return false;
+  for (const e of attacker.statuses) {
+    const reg = STATUS_REGISTRY[e.type];
+    if (reg?.forceHit && reg.forceHit(attacker, e, true)) return true;
+  }
+  return false;
+}
+
+function getHealMod(mon) {
+  if (!mon.statuses) return 1;
+  let m = 1;
+  for (const e of mon.statuses) {
+    const reg = STATUS_REGISTRY[e.type];
+    if (reg?.healMod) m *= (reg.healMod(mon, e) ?? 1);
+  }
+  return m;
+}
+
+function getOpponentCritBonus(defender) {
+  if (!defender.statuses) return 0;
+  let b = 0;
+  for (const e of defender.statuses) {
+    const reg = STATUS_REGISTRY[e.type];
+    if (reg?.opponentCritBonus) b += (reg.opponentCritBonus(defender, e) ?? 0);
+  }
+  return b;
+}
+
+function getEffectivenessOverride(defender, move) {
+  if (!defender.statuses) return null;
+  for (const e of defender.statuses) {
+    const reg = STATUS_REGISTRY[e.type];
+    if (reg?.effectivenessOverride) {
+      const v = reg.effectivenessOverride(defender, e, move);
+      if (v !== null && v !== undefined) return v;
+    }
+  }
+  return null;
+}
+
+function checkBlocksOutgoingMove(attacker, move) {
+  if (!attacker.statuses) return null;
+  for (const e of attacker.statuses) {
+    const reg = STATUS_REGISTRY[e.type];
+    if (reg?.blocksOutgoingMove) {
+      const block = reg.blocksOutgoingMove(attacker, e, move);
+      if (block) return block;
+    }
+  }
+  return null;
+}
+
+function checkBlocksSwitch(mon) {
+  if (!mon.statuses) return null;
+  for (const e of mon.statuses) {
+    const reg = STATUS_REGISTRY[e.type];
+    if (reg?.blocksSwitch && reg.blocksSwitch(mon, e)) {
+      return { msg: `${reg.emoji} ${mon.name} can't switch out — ${reg.label}!` };
+    }
+  }
+  return null;
+}
+
+function getSwitchCost(mon) {
+  if (!mon.statuses) return 0;
+  let cost = 0;
+  for (const e of mon.statuses) {
+    const reg = STATUS_REGISTRY[e.type];
+    if (reg?.switchCost) cost = Math.max(cost, reg.switchCost(mon, e) ?? 0);
+  }
+  return cost;
+}
+
+function interceptMove(attacker, chosenMove, moveset) {
+  if (!attacker.statuses) return { move: chosenMove, msg: null };
+  for (const e of attacker.statuses) {
+    const reg = STATUS_REGISTRY[e.type];
+    if (reg?.interceptMove) {
+      const sub = reg.interceptMove(attacker, e, chosenMove, moveset);
+      if (sub && sub !== chosenMove && sub.id !== chosenMove.id) {
+        return { move: sub, msg: reg.interceptMsg ? reg.interceptMsg(attacker, sub) : null };
+      }
+    }
+  }
+  return { move: chosenMove, msg: null };
+}
+
+function checkOnMoveAttempt(attacker, move) {
+  if (!attacker.statuses) return null;
+  for (const e of attacker.statuses) {
+    const reg = STATUS_REGISTRY[e.type];
+    if (reg?.onMoveAttempt) {
+      const result = reg.onMoveAttempt(attacker, e, move);
+      if (result) return result;
+    }
+  }
+  return null;
+}
+
+// Apply reflect-on-hit effects; mutates attacker.currentHP. Returns first match's msg (or null).
+function applyOnHitReflect(defender, attacker, move, dmgTaken) {
+  if (!defender.statuses) return null;
+  for (const e of defender.statuses) {
+    const reg = STATUS_REGISTRY[e.type];
+    if (reg?.onHitReflect) {
+      const result = reg.onHitReflect(defender, e, move, dmgTaken, attacker);
+      if (result) {
+        attacker.currentHP = Math.max(0, attacker.currentHP - result.reflectDmg);
+        if (attacker.currentHP <= 0) attacker.fainted = true;
+        return result;
+      }
+    }
+  }
+  return null;
+}
+
+// Effective accuracy for an attack; respects forceHit + attacker/defender modifiers.
+function getEffectiveAccuracy(attacker, defender, move) {
+  if (shouldForceHit(attacker)) return 100;
+  const accAtk = getAccuracyMod(attacker, true);
+  const accDef = getAccuracyMod(defender, false);
+  return Math.min(100, move.acc * accAtk * accDef);
 }
 
 function calcMaxHP(baseHP, level, iv) {
@@ -330,19 +951,26 @@ function getMoveEffectiveness(move, defenderTypes) {
 function calcDamage(attacker, defender, move, opts = {}) {
   if (move.power === 0) return 0;
   const targetCount = opts.targetCount || 1;
+  // Effective stages combine mon.stages + passive statMod from active statuses.
+  const aAtkStage = getEffectiveStage(attacker, "atk");
+  const aSpaStage = getEffectiveStage(attacker, "spa");
+  const dDefStage = getEffectiveStage(defender, "def");
+  const dSpdStage = getEffectiveStage(defender, "spd");
   const atk = move.cat === "physical"
-    ? attacker.atk * stageMultiplier(attacker.stages.atk)
-    : attacker.spa * stageMultiplier(attacker.stages.spa);
+    ? attacker.atk * stageMultiplier(aAtkStage)
+    : attacker.spa * stageMultiplier(aSpaStage);
   const def = move.cat === "physical"
-    ? defender.def * stageMultiplier(defender.stages.def)
-    : defender.spd * stageMultiplier(defender.stages.spd);
+    ? defender.def * stageMultiplier(dDefStage)
+    : defender.spd * stageMultiplier(dSpdStage);
 
   const burnMod = (hasStatus(attacker, "burn") && move.cat === "physical") ? 0.5 : 1;
   // Wide-spread modifier: 0.75× when a wide move actually hits more than one target.
   // For 1v1 (default targetCount=1) this is a no-op.
   const spreadMod = (move.target === "wide" && targetCount > 1) ? 0.75 : 1;
+  // Outgoing power mod from attacker's active statuses (Strained/Exhausted/Migraine/Concussion).
+  const powerMod = getOutgoingPowerMod(attacker, move);
   let dmg = Math.floor(((2 * attacker.level / 5 + 2) * move.power * atk / def) / 50 + 2);
-  dmg = Math.floor(dmg * burnMod * spreadMod * (0.85 + Math.random() * 0.15));
+  dmg = Math.floor(dmg * burnMod * spreadMod * powerMod * (0.85 + Math.random() * 0.15));
   if (attacker.types.includes(move.type)) dmg = Math.floor(dmg * 1.5);
 
   const atkHeld = getHeldData(attacker);
@@ -350,11 +978,19 @@ function calcDamage(attacker, defender, move, opts = {}) {
   if (atkHeld?.catBoost === move.cat)   dmg = Math.floor(dmg * atkHeld.mult);
   if (atkHeld?.typeBoostDual?.includes(move.type)) dmg = Math.floor(dmg * atkHeld.mult);
 
-  const eff = getMoveEffectiveness(move, defender.types);
+  // Type effectiveness: respect any status-driven chart override (Type Shattered → 1.33×).
+  const override = getEffectivenessOverride(defender, move);
+  const eff = override !== null ? override : getMoveEffectiveness(move, defender.types);
   dmg = Math.floor(dmg * eff);
+
+  // Incoming dmg multiplier from defender's active statuses (Drenched/Soaked type mods,
+  // Brittle physical-amp, Marked/Hunted dmg-amp, Phase-shifted alternating, Deafen Sonic-immune).
+  const incomingMod = getIncomingDmgMod(defender, move, attacker);
+  dmg = Math.floor(dmg * incomingMod);
 
   let critRate = move.effect === "crit" ? 25 : 6.25;
   if (atkHeld?.effect === "critUp") critRate = Math.min(50, critRate * 2);
+  critRate += getOpponentCritBonus(defender); // Hunted etc. amplify attacker's crit rate
   const isCrit = move.alwaysCrit === true || rollPercent(critRate);
   if (isCrit) dmg = Math.floor(dmg * 1.5);
 
@@ -458,11 +1094,12 @@ function applySubEffect(fx, attacker, target) {
     return messages;
   }
 
-  // Status applications (registry-driven). Phase 1: single-status guard preserved
-  // so only one of the 6 registered statuses sticks at a time. Phase 3 will
-  // register the remaining 19 status types and remove the guard for stacking.
+  // Status applications (registry-driven). Phase 3: multi-status stacking is live
+  // (per TODO 821 "allow multiple persistent statuses on a single Lumori at once").
+  // addStatus internally rejects re-applying the same status type or applying a
+  // status the mon is type-immune to; cross-type stacking is allowed.
   if (STATUS_REGISTRY[fx]) {
-    if (!hasAnyStatus(target) && addStatus(target, fx)) {
+    if (addStatus(target, fx)) {
       messages.push(STATUS_REGISTRY[fx].applyMsg(target.name));
     }
     return messages;
@@ -481,10 +1118,16 @@ function applySubEffect(fx, attacker, target) {
       target._flinched = true;
       break;
     case "heal50": {
-      // Always self-targeting (it's a recovery move)
-      const healAmt = Math.floor(attacker.maxHP * 0.5);
-      attacker.currentHP = Math.min(attacker.maxHP, attacker.currentHP + healAmt);
-      messages.push(`💚 ${attacker.name} restored ${healAmt} HP!`);
+      // Always self-targeting (it's a recovery move). healMod from active statuses
+      // (Tainted halves, Necrosis/Corroded fully block) is applied here.
+      const baseHeal = Math.floor(attacker.maxHP * 0.5);
+      const healAmt = Math.floor(baseHeal * getHealMod(attacker));
+      if (healAmt > 0) {
+        attacker.currentHP = Math.min(attacker.maxHP, attacker.currentHP + healAmt);
+        messages.push(`💚 ${attacker.name} restored ${healAmt} HP!`);
+      } else {
+        messages.push(`💚 ${attacker.name}'s healing was blocked!`);
+      }
       break;
     }
     case "recharge":
@@ -503,16 +1146,40 @@ function applySubEffect(fx, attacker, target) {
 function tickStatus(mon) {
   const msgs = [];
   if (!mon.statuses) mon.statuses = [];
-  // Iterate a snapshot so tickAfter callbacks (or future evolves) can mutate safely
+  // Iterate a snapshot so tickAfter callbacks / removeStatus on evolve / expire are safe.
   for (const entry of [...mon.statuses]) {
     const reg = STATUS_REGISTRY[entry.type];
     if (!reg) continue;
+    // 1. DOT
     if (reg.tickDamage) {
       const dmg = reg.tickDamage(mon, entry);
       mon.currentHP = Math.max(0, mon.currentHP - dmg);
       if (reg.tickMsg) msgs.push(reg.tickMsg(mon.name, dmg));
     }
+    // 2. Per-turn side effects (Hexed random debuff, Inspired random buff, etc.)
+    if (reg.tickEffect) {
+      const tickMsgs = reg.tickEffect(mon, entry);
+      if (Array.isArray(tickMsgs)) msgs.push(...tickMsgs);
+    }
+    // 3. Per-status custom turn-counter mutation (e.g. badpoison turns++)
     if (reg.tickAfter) reg.tickAfter(entry);
+    // 4. Generic active-turn counter — drives evolution + maxTurns expiration
+    entry.turnsActive = (entry.turnsActive || 0) + 1;
+    // 5. Evolution (parent → evolved replaces parent; evolved's onApply fires via addStatus)
+    if (reg.evolvesTo && reg.evolveAt && entry.turnsActive >= reg.evolveAt) {
+      removeStatus(mon, entry.type);
+      const parentLabel = reg.label;
+      if (addStatus(mon, reg.evolvesTo)) {
+        const evolved = STATUS_REGISTRY[reg.evolvesTo];
+        msgs.push(`⚠️ ${mon.name}'s ${parentLabel} worsened into ${evolved.label}!`);
+      }
+      continue;
+    }
+    // 6. Plain expiration (no evolution)
+    if (reg.maxTurns && entry.turnsActive >= reg.maxTurns) {
+      removeStatus(mon, entry.type);
+      msgs.push(`${reg.label} on ${mon.name} wore off.`);
+    }
   }
   if (mon.currentHP <= 0) mon.fainted = true;
 

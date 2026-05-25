@@ -1560,6 +1560,22 @@ function createCaughtSlot(battleMon) {
 
 async function playerSwitch(idx) {
   if (G.team[idx].currentHP <= 0) return;
+  // Phase 3: blocksSwitch (Weighed Down, Anchored) + switchCost (Tethered) on active mon.
+  // Forced switches (post-faint) bypass these.
+  if (playerActiveMon && !battleContext.forcedSwitch && playerActiveMon.currentHP > 0) {
+    const blocked = checkBlocksSwitch(playerActiveMon);
+    if (blocked) {
+      logMsg(blocked.msg, "log-status");
+      return;
+    }
+    const costFrac = getSwitchCost(playerActiveMon);
+    if (costFrac > 0) {
+      const hpCost = Math.max(1, Math.floor(playerActiveMon.maxHP * costFrac));
+      playerActiveMon.currentHP = Math.max(0, playerActiveMon.currentHP - hpCost);
+      logMsg(`⛓️ ${playerActiveMon.name} lost ${hpCost} HP from switching while tethered!`, "log-damage");
+      if (playerActiveMon.currentHP <= 0) playerActiveMon.fainted = true;
+    }
+  }
   showBattleMainActions();
   // Sync current HP back
   syncPlayerMonHP();
@@ -1581,8 +1597,8 @@ async function playerRun() {
     return;
   }
   // Escape chance
-  const playerSpe = playerActiveMon.spe * stageMultiplier(playerActiveMon.stages.spe);
-  const enemySpe  = enemyActiveMon.spe  * stageMultiplier(enemyActiveMon.stages.spe);
+  const playerSpe = getEffectiveSpeed(playerActiveMon);
+  const enemySpe  = getEffectiveSpeed(enemyActiveMon);
   const escapeChance = (playerSpe * 128 / (enemySpe + 1)) + 30;
   if (rollPercent(Math.min(100, escapeChance))) {
     logMsg("Got away safely!");
@@ -1604,8 +1620,8 @@ async function executeTurn(playerMoveId, _unused) {
   if (!move) return;
 
   // Determine turn order by speed (priority moves go first, Quick Claw may override)
-  const playerSpe = playerActiveMon.spe * stageMultiplier(playerActiveMon.stages.spe);
-  const enemySpe  = enemyActiveMon.spe  * stageMultiplier(enemyActiveMon.stages.spe);
+  const playerSpe = getEffectiveSpeed(playerActiveMon);
+  const enemySpe  = getEffectiveSpeed(enemyActiveMon);
   const playerQuickClaw = checkQuickClaw(playerActiveMon);
   const enemyQuickClaw = checkQuickClaw(enemyActiveMon);
   if (playerQuickClaw && !enemyQuickClaw) logMsg(`${playerActiveMon.name}'s Quick Claw let it move first!`);
@@ -1647,13 +1663,13 @@ async function executeTurn(playerMoveId, _unused) {
 }
 
 async function doAttack(attacker, defender, moveId, isPlayer) {
-  const move = MOVES_DATA[moveId];
+  let move = MOVES_DATA[moveId];
   if (!move) return;
 
   logMsg(`${attacker.name} used ${move.name}!`);
   await delay(500);
 
-  // Check if can move
+  // Check if can move (paralyze/sleep/freeze/recharge/petrify/sluggish/comatose/statue)
   const canMoveResult = canMove(attacker);
   if (!canMoveResult.can) {
     logMsg(canMoveResult.msg);
@@ -1661,6 +1677,35 @@ async function doAttack(attacker, defender, moveId, isPlayer) {
     return;
   }
   if (canMoveResult.msg) logMsg(canMoveResult.msg);
+
+  // Phase 3: intercept (Disoriented / Possessed may substitute a different move)
+  const chosenSlot = attacker.moves.find(m => m.id === moveId) || { id: moveId };
+  const intercepted = interceptMove(attacker, chosenSlot, attacker.moves);
+  if (intercepted.move.id !== moveId) {
+    const subMove = MOVES_DATA[intercepted.move.id];
+    if (subMove) {
+      if (intercepted.msg) logMsg(intercepted.msg, "log-status");
+      move = subMove;
+    }
+  }
+
+  // Phase 3: outgoing-move block (Mind-numb / Crippled / Bound / Muted / Sealed / Tangled)
+  const block = checkBlocksOutgoingMove(attacker, move);
+  if (block) {
+    logMsg(block.msg, "log-status");
+    await delay(400);
+    return;
+  }
+
+  // Phase 3: move-attempt hook (Concussion 30% self-hit)
+  const attempt = checkOnMoveAttempt(attacker, move);
+  if (attempt && attempt.selfHit) {
+    logMsg(attempt.msg, "log-damage");
+    if (isPlayer) syncPlayerMonHP();
+    updateBattleUI();
+    await delay(400);
+    return;
+  }
 
   if (move.power === 0) {
     // Status move
@@ -1678,8 +1723,8 @@ async function doAttack(attacker, defender, moveId, isPlayer) {
     return;
   }
 
-  // Accuracy check
-  if (!rollPercent(move.acc)) {
+  // Accuracy check — Phase 3: respects forceHit (Echolocation) + accuracyMod (Smothered/Faded/Mirage)
+  if (!rollPercent(getEffectiveAccuracy(attacker, defender, move))) {
     logMsg(`${attacker.name}'s attack missed!`);
     return;
   }
@@ -1710,6 +1755,15 @@ async function doAttack(attacker, defender, moveId, isPlayer) {
 
     totalDamage += result.damage;
     lastResult = result;
+
+    // Phase 3: reflect (Bouncy / Refracted / Mirrored). Fires per-hit; the per-status
+    // _reflectedThisTurn guard (Mirrored) is reset in tickAfter at end of turn.
+    const reflect = applyOnHitReflect(defender, attacker, move, result.damage);
+    if (reflect) {
+      logMsg(reflect.msg, "log-status");
+      if (!isPlayer) syncPlayerMonHP();
+      updateBattleUI();
+    }
 
     // Animations
     if (isPlayer) {
@@ -2396,7 +2450,7 @@ async function executeMultiTurn() {
     actions.push({
       mon, moveId: pm.moveId, targetIdx: pm.targetIndex, isPlayer: true,
       monIdx: pm.monIndex,
-      spe: mon.spe * stageMultiplier(mon.stages.spe)
+      spe: getEffectiveSpeed(mon)
     });
   }
 
@@ -2414,7 +2468,7 @@ async function executeMultiTurn() {
     actions.push({
       mon: e, moveId: moveSlot.id, targetIdx: target.idx, isPlayer: false,
       monIdx: i,
-      spe: e.spe * stageMultiplier(e.stages.spe)
+      spe: getEffectiveSpeed(e)
     });
   }
 

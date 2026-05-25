@@ -745,11 +745,18 @@ function applyOnHitReflect(defender, attacker, move, dmgTaken) {
 }
 
 // Effective accuracy for an attack; respects forceHit + attacker/defender modifiers.
+// Combines: attacker's stages.acc + defender's stages.eva (Pokemon-style accuracy stages)
+// with passive accuracyMod hooks from active statuses (Smothered, Faded, Mirage, etc.).
 function getEffectiveAccuracy(attacker, defender, move) {
   if (shouldForceHit(attacker)) return 100;
+  const accStage = (attacker.stages && attacker.stages.acc) || 0;
+  const evaStage = (defender.stages && defender.stages.eva) || 0;
+  // stageMultiplier curve: 0→1.0, +1→1.5, -1→0.67, +6→4.0, -6→0.25
+  const stageAccMult = stageMultiplier(accStage);
+  const stageEvaMult = stageMultiplier(evaStage);
   const accAtk = getAccuracyMod(attacker, true);
   const accDef = getAccuracyMod(defender, false);
-  return Math.min(100, move.acc * accAtk * accDef);
+  return Math.min(100, move.acc * stageAccMult / stageEvaMult * accAtk * accDef);
 }
 
 function calcMaxHP(baseHP, level, iv) {
@@ -780,7 +787,7 @@ function buildMonBase(def, lv, ivs, nature) {
     spd: applyNatureToStat("spd", calcStat(def.base.spd, lv, ivs.spd), np),
     spe: applyNatureToStat("spe", calcStat(def.base.spe, lv, ivs.spe), np),
     statuses: [],
-    stages: { atk:0, def:0, spa:0, spd:0, spe:0 },
+    stages: { atk:0, def:0, spa:0, spd:0, spe:0, acc:0, eva:0 },
     isConfused: false, confuseTurns: 0, fainted: false,
   };
 }
@@ -1019,6 +1026,12 @@ const STAGE_FX = {
   spatkup:   { who:'a', stat:'spa', delta:+1, msg:'Sp.Atk rose' }, // synonym for spaup
   spdefup:   { who:'a', stat:'spd', delta:+1, msg:'Sp.Def rose' },
   spdefup2:  { who:'a', stat:'spd', delta:+2, msg:'Sp.Def rose sharply' },
+  accup:     { who:'a', stat:'acc', delta:+1, msg:'Accuracy rose' },
+  accup2:    { who:'a', stat:'acc', delta:+2, msg:'Accuracy rose sharply' },
+  accdown:   { who:'d', stat:'acc', delta:-1, msg:'Accuracy fell' },
+  accdown2:  { who:'d', stat:'acc', delta:-2, msg:'Accuracy fell sharply' },
+  evup:      { who:'a', stat:'eva', delta:+1, msg:'Evasion rose' },
+  evdown:    { who:'d', stat:'eva', delta:-1, msg:'Evasion fell' },
 };
 // Multi-stat stage changes
 const MULTI_STAGE_FX = {

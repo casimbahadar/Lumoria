@@ -744,6 +744,41 @@ function applyOnHitReflect(defender, attacker, move, dmgTaken) {
   return null;
 }
 
+// Multi-battle: cross-mon status hooks (Phase 3 follow-up).
+
+// Bonded share: when a defender with Bonded takes damage, redirect 25% to a
+// random alive teammate (excluding self). No-op if no allies or no Bonded.
+function applyBondedShare(defender, allies, totalDamage) {
+  if (totalDamage <= 0 || !hasStatus(defender, "bonded") || !Array.isArray(allies)) return null;
+  const valid = allies.filter(m => m && m !== defender && !m.fainted && m.currentHP > 0);
+  if (valid.length === 0) return null;
+  const ally = valid[Math.floor(Math.random() * valid.length)];
+  const shareDmg = Math.max(1, Math.floor(totalDamage * 0.25));
+  ally.currentHP = Math.max(0, ally.currentHP - shareDmg);
+  if (ally.currentHP <= 0) ally.fainted = true;
+  return { ally, dmg: shareDmg, msg: `💞 ${ally.name} took ${shareDmg} bonded damage!` };
+}
+
+// Plague spread: each turn, every plagued mon on the field has a 30% chance
+// to spread the plague to a random non-plagued, non-immune field-ally.
+function applyPlagueSpread(fieldMons) {
+  const msgs = [];
+  if (!Array.isArray(fieldMons)) return msgs;
+  for (const mon of fieldMons) {
+    if (!mon || mon.fainted || mon.currentHP <= 0) continue;
+    if (!hasStatus(mon, "plague")) continue;
+    if (!rollPercent(30)) continue;
+    const candidates = fieldMons.filter(m =>
+      m && m !== mon && !m.fainted && m.currentHP > 0 && !hasStatus(m, "plague"));
+    if (candidates.length === 0) continue;
+    const target = candidates[Math.floor(Math.random() * candidates.length)];
+    if (addStatus(target, "plague")) {
+      msgs.push(`🦟 Plague spread from ${mon.name} to ${target.name}!`);
+    }
+  }
+  return msgs;
+}
+
 // Effective accuracy for an attack; respects forceHit + attacker/defender modifiers.
 // Combines: attacker's stages.acc + defender's stages.eva (Pokemon-style accuracy stages)
 // with passive accuracyMod hooks from active statuses (Smothered, Faded, Mirage, etc.).

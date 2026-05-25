@@ -1662,11 +1662,16 @@ async function executeTurn(playerMoveId, _unused) {
   }
 }
 
-async function doAttack(attacker, defender, moveId, isPlayer) {
+async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
   let move = MOVES_DATA[moveId];
   if (!move) return;
 
-  logMsg(`${attacker.name} used ${move.name}!`);
+  // Wide-spread support: opts.targetCount feeds calcDamage's 0.75× modifier.
+  // opts.suppressIntro skips the "used X!" log on follow-up wide-hit targets.
+  // opts.allies: defender's team (for Bonded share); single-battle leaves it undefined.
+  if (!opts.suppressIntro) {
+    logMsg(`${attacker.name} used ${move.name}!`);
+  }
   await delay(500);
 
   // Check if can move (paralyze/sleep/freeze/recharge/petrify/sluggish/comatose/statue)
@@ -1738,7 +1743,7 @@ async function doAttack(attacker, defender, moveId, isPlayer) {
   for (let h = 0; h < hitCount; h++) {
     if (defender.fainted) break;
 
-    const result = calcDamage(attacker, defender, move);
+    const result = calcDamage(attacker, defender, move, { targetCount: opts.targetCount || 1 });
 
     // Focus Sash only activates on the first hit
     if (h === 0) {
@@ -1789,6 +1794,10 @@ async function doAttack(attacker, defender, moveId, isPlayer) {
 
   logMsg(`${defender.name} took ${totalDamage} damage!`, "log-damage");
   if (sashTriggered) logMsg(`${defender.name}'s Focus Sash kept it standing!`, "log-status");
+
+  // Phase 3 follow-up: Bonded ally-share (multi-battle only — opts.allies undefined in 1v1)
+  const bondedShare = applyBondedShare(defender, opts.allies, totalDamage);
+  if (bondedShare) logMsg(bondedShare.msg, "log-status");
 
   // Recoil damage
   if (move.effect === "recoil" && totalDamage > 0 && !attacker.fainted) {
@@ -2486,18 +2495,36 @@ async function executeMultiTurn() {
     if (battleContext.battleEnded) break;
     if (action.mon.fainted || action.mon.currentHP <= 0) continue;
 
-    const target = action.isPlayer
-      ? enemyActiveMons[action.targetIdx]
-      : playerActiveMons[action.targetIdx];
+    const moveData = MOVES_DATA[action.moveId];
+    const opposingTeam = action.isPlayer ? enemyActiveMons : playerActiveMons;
 
-    if (!target || target.fainted || target.currentHP <= 0) {
-      // Retarget to another alive target
-      const pool = action.isPlayer ? enemyActiveMons : playerActiveMons;
-      const alive = pool.find(m => m && !m.fainted && m.currentHP > 0);
-      if (!alive) continue;
-      await doAttack(action.mon, alive, action.moveId, action.isPlayer);
+    // Phase 3 follow-up: wide-spread targets all alive opposing mons (0.75× per-hit)
+    if (moveData && moveData.target === "wide") {
+      const targets = opposingTeam.filter(m => m && !m.fainted && m.currentHP > 0);
+      if (targets.length === 0) continue;
+      let first = true;
+      for (const t of targets) {
+        if (battleContext.battleEnded) break;
+        if (action.mon.fainted || action.mon.currentHP <= 0) break;
+        await doAttack(action.mon, t, action.moveId, action.isPlayer, {
+          targetCount: targets.length,
+          suppressIntro: !first,
+          allies: opposingTeam,
+        });
+        first = false;
+      }
     } else {
-      await doAttack(action.mon, target, action.moveId, action.isPlayer);
+      // Single-target (existing logic, plus opts.allies for Bonded)
+      let target = action.isPlayer
+        ? enemyActiveMons[action.targetIdx]
+        : playerActiveMons[action.targetIdx];
+      if (!target || target.fainted || target.currentHP <= 0) {
+        target = opposingTeam.find(m => m && !m.fainted && m.currentHP > 0);
+        if (!target) continue;
+      }
+      await doAttack(action.mon, target, action.moveId, action.isPlayer, {
+        allies: opposingTeam,
+      });
     }
 
     // Sync HP for player mons
@@ -2523,6 +2550,11 @@ async function executeMultiTurn() {
       for (const msg of msgs) logMsg(msg);
     }
   }
+
+  // Phase 3 follow-up: Plague intra-team spread (per team, not cross-team)
+  const playerSpread = applyPlagueSpread(playerActiveMons);
+  const enemySpread = applyPlagueSpread(enemyActiveMons);
+  for (const msg of [...playerSpread, ...enemySpread]) logMsg(msg, "log-status");
 
   // Sync HP again
   for (let i = 0; i < playerActiveMons.length; i++) {

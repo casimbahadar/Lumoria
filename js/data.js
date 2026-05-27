@@ -2365,25 +2365,25 @@ const MONSTERS_DATA = {
     desc:"A mountain of absolute darkness. Creates a shadow zone where no light can penetrate for hundreds of meters.",
     lore:"Nightmont is a massive dark creature 3 metres tall — Duskmist's small shadow-patch has condensed and grown vertical into the silhouette of a perfectly black mountain. Its form is absolute darkness with only two dim red pinpoints for eyes. The shadow it casts in artificial light has no clear edges, as if the shadow itself is also alive. It moves only when unobserved." },
 
-  // 2-stage Spectral/Normal chain: Hauntrix → Grimveil (level 34)
-  220: { id:220, name:"Umbrajest", emoji:"🎭", types:["Dark","Mental"],
+  // 2-stage Dark/Vapor chain: Umbrajest → Shadowveil (level 34)
+  220: { id:220, name:"Umbrajest", emoji:"🎭", types:["Dark","Vapor"],
     base:{hp:62,atk:58,def:55,spa:78,spd:62,spe:82},
     learnset:[[1,"bite"],[1,"confusion"],[12,"dark_pulse"],[22,"psybeam"],[32,"night_slash"],[42,"psychic_move"],[52,"eclipse_shroud"],[60,"hyper_beam"]],
     evolveTo:221, evolveLevel:34, catchRate:145, expYield:92, rarity:"common",
-    desc:"A trickster in a dark jester's mask. Uses psychic illusions and dark energy to confuse and terrify.",
-    lore:"Umbrajest is a dark-psychic trickster creature 60 cm tall with a wispy smoke-black body and a permanent wide grin formed by luminescent patches. Its eyes are bright and mischievous. It delights in rearranging objects in darkened rooms and projecting images of feared things into the peripheral vision of passers-by." },
+    desc:"A trickster in a dark jester's mask. Uses vaporous illusions and dark energy to confuse and terrify.",
+    lore:"Umbrajest is a dark-vapor trickster creature 60 cm tall with a wispy smoke-black body and a permanent wide grin formed by luminescent patches. Its eyes are bright and mischievous. It delights in rearranging objects in darkened rooms and projecting images of feared things into the peripheral vision of passers-by." },
 
 
 
   // ===== BATCH 2: GHOST/PSYCHIC/DRAGON (IDs 221-235) =====
 
-  // Grimveil (evolves from Hauntrix 220)
-  221: { id:221, name:"Shadowveil", emoji:"🎪", types:["Dark","Mental"],
+  // Shadowveil (evolves from Umbrajest 220)
+  221: { id:221, name:"Shadowveil", emoji:"🎪", types:["Dark","Vapor"],
     base:{hp:91,atk:84,def:78,spa:109,spd:91,spe:97},
     learnset:[[1,"dark_pulse"],[1,"psychic_move"],[26,"night_slash"],[34,"eclipse_shroud"],[42,"soul_rend"],[50,"dread_howl"],[58,"moonblast"],[66,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:220, rarity:"uncommon",
-    desc:"A master of dark illusions. Those who witness its act lose themselves in psychic nightmares for days.",
-    lore:"Shadowveil is a dark-psychic creature 90 cm tall resembling a tall humanoid draped in a cloak of living shadow — Umbrajest's wispy smoke-body has solidified into a cloaked humanoid form. Its face is blank except for two silver eyes. It is impossible to touch directly — hands pass through its shadow-substance — but it can interact physically by will. It observes from darkened doorways." },
+    desc:"A master of dark illusions. Those who witness its act lose themselves in vaporous nightmares for days.",
+    lore:"Shadowveil is a dark-vapor creature 90 cm tall resembling a tall humanoid draped in a cloak of living shadow — Umbrajest's wispy smoke-body has solidified into a cloaked humanoid form. Its face is blank except for two silver eyes. It is impossible to touch directly — hands pass through its shadow-substance — but it can interact physically by will. It observes from darkened doorways." },
 
   // 3-stage Mental chain: Mindpuff → Cerebrix → Psytheon
   222: { id:222, name:"Mindpuff", emoji:"🫧", types:["Mental"],

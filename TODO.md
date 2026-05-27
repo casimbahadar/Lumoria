@@ -691,6 +691,17 @@ This audit specifically catches the cross-product: same creature **and** same ty
 
 For every BREAKING/MINOR proposal going forward, include a **same-archetype peer typings** section so we catch new collisions before they go in. Format: list other families with the same archetype and their typing combos, flag any cell-collision the proposal would create.
 
+# 🎲 Encounter rate audit — RUN AFTER over-cap audit completes
+
+After the over-cap pre-408 type-combo audit lands (PR #55, branch `claude/lumoria-overcap-audit-2kkDV`), walk every encounter zone in `js/data.js` and audit `rate:` distributions.
+
+- [ ] Verify every zone's `wildMonsters[].rate` values sum to 100.
+- [ ] Check rates against BST tiers — weaker mons should be more common (higher rate), stronger/rarer mons less common. Some zones currently have arbitrary uniform rates ignoring BST gaps.
+- [ ] **Route 8 — Sky Corridors specifically:** Silvergust (BST 308), Swirlavel (485), Drakorius (521), Sapphier (537) all at or near rate 25 despite 230-BST spread. Doesn't follow a clean weakest-to-strongest curve. Rebalance using the Spirit Canyon pattern (35/30/25/10 weakest-to-strongest) or similar, while preserving Cranivade's rate 3 from the over-cap retype.
+- [ ] Stale encounter-table comments: Spirit Canyon and Route 8 cleaned inline during the Cranivade retype, but the rest of the dex likely has more stale names (pattern: old rename targets — e.g. "Psyshade" was an earlier name for Cranivade). Sweep with `grep` against current `MONSTERS_DATA[id].name`.
+
+**Run order:** after 🕯 UNIFIED audit / over-cap PR lands, before stat spread review.
+
 # 💡 Concept parking — future family ideas to use later
 
 - **"Whirlpool of light" — Water/Psychic family.** The original Aurarael flavor (a flowing psychic entity that resembles a whirlpool of blue-violet light given form, no solid body, continuously cycling vortex, inhabits locations of high psychic resonance, absorbs ambient thought energy) is being preserved here. Reuse for a new Water/Psychic family — possibly a deep-ocean meditation-shrine guardian, or a tidal-current spirit. Keep in mind during the renaming/typing pass.

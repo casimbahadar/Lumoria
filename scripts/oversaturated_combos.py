@@ -11,7 +11,7 @@ import re
 from pathlib import Path
 from collections import defaultdict
 
-DATA_JS = Path("/home/user/Lumoria/js/data.js")
+DATA_JS = Path(__file__).resolve().parent.parent / "js" / "data.js"
 ORDINARY_CAP_TOTAL = 3
 ORDINARY_CAP_FAM = 2
 ORDINARY_CAP_STD = 1

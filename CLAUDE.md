@@ -81,7 +81,7 @@ At the 90% warning, also surface a brief preview of the 98% options so the user 
 
 ## Post-game typing restriction
 
-**Aether, Fighting, Crystal, Primal, and Ghost are post-game typings reserved for Forgotten Lumori (id ≥ 408).** When proposing typings for any Lumori with id < 408, never recommend or include any of these five types — they belong to the Forgotten/post-game roster only.
+**Aether, Crystal, Primal, Chrono, and Stellar are post-game typings reserved for Forgotten Lumori (id ≥ 408).** When proposing typings for any Lumori with id < 408, never recommend or include any of these five types — they belong to the Forgotten/post-game roster only.
 
 Suggestion lists, type-pivot proposals, and "pristine combo" recommendations for non-Forgotten ids must exclude all five.
 

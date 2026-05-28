@@ -2069,12 +2069,12 @@ const MONSTERS_DATA = {
     desc:"A levitating psychic core surrounded by orbiting prism shards, held together by a luminous mind-field. Its serene face still gleams from the central crystal.",
     lore:"Aurarael is a 60-centimetre crystalline entity whose violet prism body has fractured upward into a slowly orbiting cluster of seven smaller shards, held in formation by the visible blue-violet psychic field that radiates between them. The serene humanoid face from its Espelith juvenile stage still shimmers at the centre of the largest core shard, watching outward through every angle of the rotating crown. It inhabits locations with high psychic resonance — ancient meditation sites, mystical crossroads — and the constant low chime of its orbiting shards announces its presence well before it drifts into view." },
 
-  170: { id:170, name:"Oneiron",   emoji:"💫", types:["Mental","Dark"],
+  170: { id:170, name:"Oneiron",   emoji:"💫", types:["Mental","Dream"],
     base:{hp:75,atk:69,def:52,spa:125,spd:94,spe:84},
     learnset:[[1,"confusion",[25,"future_echo"]],[1,"bite"],[11,"psybeam"],[19,"dark_pulse"],[23,"swords_dance"],[27,"psychic_move"],[35,"shadow_ball"],[42,"nightmare_pulse"],[43,"night_slash"],[51,"psystrike",[5,"calm_mind"]],[3,"prism_ward"],[37,"void_rend"]],
     evolveTo:null, evolveLevel:null, catchRate:70, expYield:185, rarity:"uncommon",
     desc:"A dreamrift that exists between sleep and waking. It draws power from nightmares.",
-    lore:"Oneiron is a dark-psychic dream entity 70 cm tall with a wisp-like body of deep indigo and silver. Its limbs dissolve at the edges into drifting motes of light. It inhabits the boundary between waking and sleep, entering dreams of nearby sleeping creatures and exploring their symbolic landscapes." },
+    lore:"Oneiron is a mental-dream entity 70 cm tall with a wisp-like body of deep indigo and silver. Its limbs dissolve at the edges into drifting motes of light. It inhabits the boundary between waking and sleep, entering dreams of nearby sleeping creatures and exploring their symbolic landscapes." },
 
   171: { id:171, name:"Drakorius",    emoji:"🐲", types:["Mental","Draconic"],
     base:{hp:75,atk:88,def:74,spa:112,spd:82,spe:90},
@@ -5088,8 +5088,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:118, minLv:42, maxLv:46, rate:30}, // Shadowpup
       {id:121, minLv:42, maxLv:46, rate:25}, // Voidbat
-      {id:123, minLv:43, maxLv:46, rate:25}, // Umbralisard
-      {id:170, minLv:43, maxLv:46, rate:20}  // Dreamrift
+      {id:123, minLv:43, maxLv:46, rate:25}  // Umbralisard
     ],
     hasGym:true, gymLeader:"nyx", requiredBadges:5, mapPos:{x:15, y:35}
   },
@@ -5183,7 +5182,6 @@ const WORLD_DATA = {
     connections:["lumoria_jungle","bug_forest_east","reef_ruins"],
     wildMonsters:[
       {id:142, minLv:12, maxLv:16, rate:25},  // Dawnsprite
-      {id:170, minLv:12, maxLv:16, rate:25},  // Dreamrift
       {id:124, minLv:13, maxLv:17, rate:20},  // Phantomfang
       {id:168, minLv:14, maxLv:17, rate:20},  // Esperia
       {id:166, minLv:14, maxLv:17, rate:10}   // Mindpup
@@ -5255,11 +5253,12 @@ const WORLD_DATA = {
     desc:"A forest where the boundary between worlds is thin. Fairy and Mental creatures drift between the trees. The Umbra Order's hideout is rumoured to be nearby.",
     connections:["route7","skyvault","sky_harbor","umbra_base"],
     wildMonsters:[
-      {id:143, minLv:46, maxLv:52, rate:25},  // Celestara
-      {id:141, minLv:46, maxLv:52, rate:25},  // Radiantfly
-      {id:169, minLv:47, maxLv:52, rate:20},  // Telepathy
-      {id:115, minLv:48, maxLv:52, rate:20},  // Mistwalker
-      {id:122, minLv:48, maxLv:52, rate:10}   // Spectrewing
+      {id:143, minLv:46, maxLv:52, rate:15},  // Lunarael
+      {id:141, minLv:46, maxLv:52, rate:25},  // Iridesoar
+      {id:169, minLv:47, maxLv:52, rate:20},  // Aurarael
+      {id:115, minLv:48, maxLv:52, rate:20},  // Aetherworn
+      {id:122, minLv:48, maxLv:52, rate:10},  // Caveshroud
+      {id:170, minLv:46, maxLv:52, rate:10}   // Oneiron
     ],
     hasGym:false, requiredBadges:6, mapPos:{x:25, y:62},
     storyLocation:true, hasUmbraEncounter:true
@@ -5470,10 +5469,9 @@ const WORLD_DATA = {
     desc:"A deep chasm where psychic resonance amplifies every thought and memory. The walls seem to shift and breathe.",
     connections:["haunted_grove","fairy_meadow_south","dark_canyon"],
     wildMonsters:[
-      {id:166, minLv:44, maxLv:50, rate:30},   // Projectery
-      {id:170, minLv:44, maxLv:50, rate:25},   // Oneiron
-      {id:123, minLv:46, maxLv:51, rate:35},   // Nocturil
-      {id:167, minLv:47, maxLv:52, rate:10}    // Psychovast
+      {id:166, minLv:44, maxLv:50, rate:35},   // Projectery
+      {id:123, minLv:46, maxLv:51, rate:50},   // Nocturil
+      {id:167, minLv:47, maxLv:52, rate:15}    // Psychovast
     ],
     hasGym:false, requiredBadges:5, mapPos:{x:6, y:52}
   },

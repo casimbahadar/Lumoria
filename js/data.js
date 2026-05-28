@@ -4163,12 +4163,12 @@ const MONSTERS_DATA = {
     lore:"Spectravore is a fairy-psychic entity 1 metre tall — Spectroo's translucent white-light kangaroo silhouette has fractured under prism-stone exposure into a floating iridescent humanoid, the pouch's concentrated psychic energy now dispersed as a shifting aura of all visible colours surrounding it." },
 
   // ---- Tier 3: Post-game NG+ (requiresChampion areas) BST ~580–630 ----
-  352: { id:352, name:"Voidlord", emoji:"🕳️", types:["Dark","Mental"],
+  352: { id:352, name:"Voidlord", emoji:"🕳️", types:["Mental","Spectral"],
     base:{hp:72,atk:94,def:76,spa:100,spd:84,spe:89}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"void_rend"],[10,"mind_shatter"],[20,"phantom_claw"],[30,"neural_storm"],[40,"shadowstep"],[50,"psystrike"],[60,"cataclysm_breath"],[5,"dreamweave"],[45,"prism_ward"]],
     catchRate:12, expYield:308, rarity:"rare",
     desc:"The sovereign of all void-touched creatures. Its mind is a labyrinth with no exit.",
-    lore:"Voidlord is a dark-psychic entity 2.2 metres tall with a body of solidified void-matter and a crown of hovering psychic fragments. No one who has entered its mindscape has returned unchanged." },
+    lore:"Voidlord is a mental-spectral entity 2.2 metres tall with a body of solidified void-matter and a crown of hovering psychic fragments. No one who has entered its mindscape has returned unchanged." },
 
   353: { id:353, name:"Infernotitan", emoji:"🌋", types:["Fire","Draconic"],
     base:{hp:78,atk:106,def:82,spa:98,spd:74,spe:82}, evolveTo:null, evolveLevel:null,

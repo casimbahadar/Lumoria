@@ -2055,18 +2055,18 @@ const MONSTERS_DATA = {
     desc:"A psychic hound whose mind burns with power. Can levitate small objects.",
     lore:"Psychovast is a larger psychic dog 75 cm at the shoulder — Projectery's smooth lavender-grey fur has darkened to sleek indigo-grey, and the domed glowing forehead of its juvenile form has hardened into a prominent cranial ridge. Concentric rings of faint blue light appear around its head when it concentrates. It can project full sensory experiences into nearby minds and uses this ability to test the character of strangers." },
 
-  168: { id:168, name:"Espelith",     emoji:"🔮", types:["Mental","Fairy"],
+  168: { id:168, name:"Espelith",     emoji:"🔮", types:["Mental","Mineral"],
     base:{hp:46,atk:51,def:57,spa:80,spd:79,spe:62},
     learnset:[[1,"confusion",[22,"insight_flare"]],[1,"fairy_wind"],[10,"psybeam"],[18,"dazzling_gleam"],[26,"psychic_move"],[34,"moonblast"],[42,"calm_mind"],[50,"psystrike",[5,"prism_ward"]],[3,"mind_reader"],[36,"glitter_storm"]],
     evolveTo:169, evolveLevel:32, catchRate:90, expYield:100, rarity:"common",
-    desc:"A mystical esper being. Bridges the worlds of psychic and fairy magic.",
-    lore:"Espelith is a psychic-fairy gem creature 50 cm tall resembling a rounded prism of violet crystal with short limbs and a serene humanoid face embedded in the front face of the crystal. It refracts nearby psychic energy into visible light, producing beautiful patterns on surrounding surfaces." },
+    desc:"A serene gem-being. Bridges the worlds of mind and matter, refracting psychic energy through its violet prism body into patterns of light.",
+    lore:"Espelith is a mental-mineral gem creature 50 cm tall resembling a rounded prism of violet crystal with short limbs and a serene humanoid face embedded in the front face of the crystal. It refracts nearby psychic energy into visible light, producing beautiful patterns on surrounding surfaces." },
 
-  169: { id:169, name:"Aurarael",   emoji:"💫", types:["Mental","Fairy"],
+  169: { id:169, name:"Aurarael",   emoji:"💫", types:["Mental","Mineral"],
     base:{hp:83,atk:62,def:59,spa:119,spd:98,spe:104},
     learnset:[[1,"psybeam"],[2,"psychic_move"],[3,"prism_ward"],[36,"harden"],[39,"calm_mind"],[40,"recover"],[44,"quick_attack"],[47,"psystrike"],[48,"telepathic_slam"],[52,"thought_crush"],[56,"temporal_rift"],[60,"hyper_beam"],[4,"mind_reader"],[35,"leer"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:245, rarity:"rare",
-    desc:"A levitating psychic core surrounded by orbiting prism shards, held together by a luminous mind-field. Its serene face still gleams from the central crystal.",
+    desc:"A levitating psychic core orbited by seven prism shards, held in formation by a luminous mind-field. Its serene face gleams from the central crystal.",
     lore:"Aurarael is a 60-centimetre crystalline entity whose violet prism body has fractured upward into a slowly orbiting cluster of seven smaller shards, held in formation by the visible blue-violet psychic field that radiates between them. The serene humanoid face from its Espelith juvenile stage still shimmers at the centre of the largest core shard, watching outward through every angle of the rotating crown. It inhabits locations with high psychic resonance — ancient meditation sites, mystical crossroads — and the constant low chime of its orbiting shards announces its presence well before it drifts into view." },
 
   170: { id:170, name:"Oneiron",   emoji:"💫", types:["Mental","Dream"],

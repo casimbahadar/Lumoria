@@ -702,6 +702,23 @@ After the over-cap pre-408 type-combo audit lands (PR #55, branch `claude/lumori
 
 **Run order:** after 🕯 UNIFIED audit / over-cap PR lands, before stat spread review.
 
+# 🎯 Lumori obtainability audit — RUN AFTER over-cap audit completes
+
+After the over-cap pre-408 type-combo audit lands (PR #55, branch `claude/lumoria-overcap-audit-2kkDV`), walk every Lumori in `MONSTERS_DATA` and verify each has at least one obtainability path. Acceptable paths: wild area encounter, NG+ rotation, one-off static encounter, quest reward, in-game trade, evolution from another obtainable Lumori, special event, etc.
+
+- [ ] Cross-reference every `MONSTERS_DATA[id]` against:
+  - All `wildMonsters[]` and `ngPlusWildMonsters[]` arrays in `WORLD_DATA`
+  - All `legendaryEncounter`, story-encounter, quest-reward references
+  - Evolution chain (`evolveTo` from another obtainable Lumori)
+- [ ] Flag any Lumori with zero obtainability paths. Decide for each:
+  - Add to a suitable wild area or static encounter
+  - Designate as quest-only and add the quest
+  - Confirm intentionally unobtainable (only valid for the **26 Forgotten Lumori** explicitly designated as such — verify against the canonical list)
+- [ ] **Known cases from over-cap audit:**
+  - #362 Lunaspectre — has no encounter entries dex-wide (surfaced during Dark/Mental retype). Needs assignment.
+
+**Run order:** after 🕯 UNIFIED audit / over-cap PR lands, parallel with 🎲 Encounter rate audit, before stat spread review.
+
 # 💡 Concept parking — future family ideas to use later
 
 - **"Whirlpool of light" — Water/Psychic family.** The original Aurarael flavor (a flowing psychic entity that resembles a whirlpool of blue-violet light given form, no solid body, continuously cycling vortex, inhabits locations of high psychic resonance, absorbs ambient thought energy) is being preserved here. Reuse for a new Water/Psychic family — possibly a deep-ocean meditation-shrine guardian, or a tidal-current spirit. Keep in mind during the renaming/typing pass.

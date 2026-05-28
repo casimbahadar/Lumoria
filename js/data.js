@@ -4098,12 +4098,12 @@ const MONSTERS_DATA = {
     desc:"The apex ghost predator — a crowned wraith that rules over all lesser ghost-types in its domain.",
     lore:"Wraithking is a ghost-dark entity 2 metres tall with a spectral crown of black flame. It commands lesser ghost-types and its presence causes all light sources within 50 metres to dim." },
 
-  343: { id:343, name:"Shadowreave", emoji:"🌑", types:["Dark","Mental"],
+  343: { id:343, name:"Shadowreave", emoji:"🌑", types:["Dark","Spectral"],
     base:{hp:66,atk:81,def:66,spa:103,spd:85,spe:89}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"shadowstep"],[10,"psychic_move"],[20,"void_rend"],[30,"psystrike"],[40,"phantom_claw"],[50,"mind_shatter"],[60,"neural_storm"],[5,"shadow_sneak"],[38,"dreamweave"]],
     catchRate:18, expYield:283, rarity:"rare",
-    desc:"A being that exists simultaneously in darkness and thought. It reads minds to hunt more efficiently.",
-    lore:"Shadowreave is a dark-psychic entity 1.6 metres tall with a body composed of living shadow and two luminous violet eyes. Its silhouette is never quite the same shape twice." },
+    desc:"A being of living shadow that exists simultaneously in darkness and the spectral realm. It phases through walls to hunt, its constantly shifting silhouette making it nearly impossible to track.",
+    lore:"Shadowreave is a dark-spectral entity 1.6 metres tall with a body composed of living shadow and two luminous violet eyes. Its silhouette is never quite the same shape twice." },
 
   // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   344: { id:344, name:"Glimmeritch", emoji:"🧚", types:["Fairy","Dark"],

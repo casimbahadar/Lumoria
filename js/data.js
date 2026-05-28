@@ -4155,12 +4155,12 @@ const MONSTERS_DATA = {
     desc:"A dragon grown from the world's oldest forest. Its scales are living wood; vines sprout from its wounds.",
     lore:"Fernwrath is a grass-dragon 4 metres long with scales of polished dark wood and a mane of living ferns. Where it walks, plants accelerate through their entire life cycle in hours." },
 
-  351: { id:351, name:"Spectravore", emoji:"🌈", types:["Fairy","Mental"],
+  351: { id:351, name:"Spectravore", emoji:"🌈", types:["Mental","Mineral"],
     base:{hp:65,atk:71,def:68,spa:104,spd:92,spe:90}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[30,"psystrike"],[40,"mind_shatter"],[50,"neural_storm"],[60,"fae_requiem"],[5,"dreamweave"],[38,"prism_ward"]],
     catchRate:15, expYield:288, rarity:"rare",
     desc:"A being of pure prismatic thought that feeds on raw psychic energy. It is invariably found near psychic Lumori.",
-    lore:"Spectravore is a fairy-psychic entity 1 metre tall — Spectroo's translucent white-light kangaroo silhouette has fractured under prism-stone exposure into a floating iridescent humanoid, the pouch's concentrated psychic energy now dispersed as a shifting aura of all visible colours surrounding it." },
+    lore:"Spectravore is a mental-mineral entity 1 metre tall — Spectroo's translucent white-light kangaroo silhouette has fractured under prism-stone exposure into a floating iridescent humanoid, the pouch's concentrated psychic energy now dispersed as a shifting aura of all visible colours surrounding it." },
 
   // ---- Tier 3: Post-game NG+ (requiresChampion areas) BST ~580–630 ----
   352: { id:352, name:"Voidlord", emoji:"🕳️", types:["Mental","Spectral"],

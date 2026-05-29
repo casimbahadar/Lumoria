@@ -2796,26 +2796,26 @@ const MONSTERS_DATA = {
     lore:"Blazeon is a fire-dragon 1.5 metres long with deep crimson-orange scales and a fully developed wing-span of 2 metres. Its breath weapon is now a sustained stream of fire rather than fireballs. It inhabits volcanic hillsides and defends a territory of several square kilometres from other fire-types." },
 
   // 3-stage Fire/Rock chain: Cindling → Infernox → Pyrovast
-  274: { id:274, name:"Cindling", emoji:"🪨", types:["Fire","Earth"],
+  274: { id:274, name:"Cindling", emoji:"🪨", types:["Fire","Mineral"],
     base:{hp:46,atk:60,def:65,spa:55,spd:50,spe:52},
     learnset:[[1,"ember"],[1,"rock_throw"],[10,"rock_slide"],[20,"flamethrower"],[30,"stone_edge"],[40,"fire_blast"],[50,"magma_rock"],[60,"hyper_beam"]],
     evolveTo:275, evolveLevel:28, catchRate:170, expYield:74, rarity:"common",
     desc:"A coal-like creature that ignites when rolling downhill. Leaves scorch marks on stone paths.",
-    lore:"Cindling is a fire-rock creature 30 cm long resembling a small lizard made of dark basalt with glowing cinders embedded in its skin. It collects small pebbles and packs them into its cinder-body over time, growing heavier and slower with age. The hottest cinders in its body mark its most active thinking. A Cindling's surface cinders glow steadily hotter and oranger as the creature ages, the body's heat-storage capacity inching toward the magma-pool levels Infernox sustains across every joint. Faint heat-shimmer extends further outward with each successive moult, approaching the eruption-radius Scorchvast maintains constantly. Provoke a fully-grown Cindling and its body will produce a small but distinct ground-tremor that propagates further than its tiny mass should allow." },
+    lore:"Cindling is a fire-mineral creature 30 cm long resembling a small lizard made of dark basalt with glowing cinders embedded in its skin. It collects small pebbles and packs them into its cinder-body over time, growing heavier and slower with age. The hottest cinders in its body mark its most active thinking. A Cindling's surface cinders glow steadily hotter and oranger as the creature ages, the body's heat-storage capacity inching toward the magma-pool levels Infernox sustains across every joint. Faint heat-shimmer extends further outward with each successive moult, approaching the eruption-radius Scorchvast maintains constantly. Provoke a fully-grown Cindling and its body will produce a small but distinct ground-tremor that propagates further than its tiny mass should allow." },
 
-  275: { id:275, name:"Infernox", emoji:"🌋", types:["Fire","Earth"],
+  275: { id:275, name:"Infernox", emoji:"🌋", types:["Fire","Mineral"],
     base:{hp:72,atk:92,def:95,spa:82,spd:68,spe:62},
     learnset:[[1,"flamethrower"],[1,"stone_edge"],[22,"fire_blast"],[30,"magma_rock"],[38,"rock_slide"],[46,"earthquake"],[54,"caldera_meltdown"],[62,"hyper_beam"]],
     evolveTo:276, evolveLevel:46, catchRate:75, expYield:158, rarity:"uncommon",
     desc:"A volcanic rock beast that erupts periodically. Carries magma inside its carapace like a pressure cooker.",
-    lore:"Infernox is a fire-rock creature 80 cm long — Cindling's basalt-and-cinder juvenile body has thickened into volcanic plate armour resembling a larger armoured lizard, the embedded cinders of its early form now pooled magma glowing through every joint. Its footsteps leave brief glowing prints. It inhabits lava fields and uses its rock-hard body to deflect predator strikes while retaliating with blasts of focused fire." },
+    lore:"Infernox is a fire-mineral creature 80 cm long — Cindling's basalt-and-cinder juvenile body has thickened into volcanic plate armour resembling a larger armoured lizard, the embedded cinders of its early form now pooled magma glowing through every joint. Its footsteps leave brief glowing prints. It inhabits lava fields and uses its rock-hard body to deflect predator strikes while retaliating with blasts of focused fire." },
 
-  276: { id:276, name:"Scorchvast", emoji:"🏔️", types:["Fire","Earth"],
+  276: { id:276, name:"Scorchvast", emoji:"🏔️", types:["Fire","Mineral"],
     base:{hp:102,atk:118,def:109,spa:90,spd:78,spe:53},
     learnset:[[1,"fire_blast"],[1,"magma_rock"],[32,"caldera_meltdown"],[40,"earthquake"],[48,"stone_edge"],[56,"bedrock_slam"],[64,"ashfall"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:272, rarity:"rare",
     desc:"A living volcano of immense destructive power. When it battles, the sky fills with ash and the earth splits.",
-    lore:"Scorchvast is a massive fire-rock creature 2 metres long — Infernox's volcanic plate armour has thickened and fused into natural stone armour entirely encasing a very large igneous lizard, and the joint-magma of its juvenile form has rerouted into fountains of fire that erupt from vents on its back when it is agitated. Its body temperature is sufficient to melt most metals on contact." },
+    lore:"Scorchvast is a massive fire-mineral creature 2 metres long — Infernox's volcanic plate armour has thickened and fused into natural stone armour entirely encasing a very large igneous lizard, and the joint-magma of its juvenile form has rerouted into fountains of fire that erupt from vents on its back when it is agitated. Its body temperature is sufficient to melt most metals on contact." },
 
   // Standalone Fire/Ground: Magmite (location evo near forge area)
   277: { id:277, name:"Magmite", emoji:"🌶️", types:["Fire","Earth"],

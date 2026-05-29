@@ -4514,12 +4514,12 @@ const MONSTERS_DATA = {
     desc:"A creature born when the planet's crust cracked and the mantle met the surface. It predates all others.",
     lore:"Primordiax is a fire-ground creature 5 metres tall resembling a primordial titan of cooling lava and deep rock. Geologists have identified its footprints in geological formations 500 million years old." },
 
-  401: { id:401, name:"Cosmoveil", emoji:"🌠", types:["Mental","Fairy"],
+  401: { id:401, name:"Cosmoveil", emoji:"🌠", types:["Mental","Stellar"],
     base:{hp:89,atk:94,def:94,spa:146,spd:121,spe:121}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
     learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[30,"psystrike"],[40,"mind_shatter"],[50,"neural_storm"],[60,"cosmic_veil"],[5,"prism_ward"],[55,"cosmic_veil"]],
     catchRate:3, expYield:380, rarity:"legendary",
     desc:"A being from beyond the known world. It arrived as a point of light that grew into something impossible.",
-    lore:"Cosmoveil is a psychic-fairy entity 2 metres tall composed of condensed starlight and cosmic fairy magic. It arrived from outside the known Lumoria region and has not yet been placed in any evolutionary lineage. Its biology resembles nothing previously recorded." },
+    lore:"Cosmoveil is a mental-stellar entity 2 metres tall composed of condensed starlight and cosmic stellar magic. It arrived from outside the known Lumoria region and has not yet been placed in any evolutionary lineage. Its biology resembles nothing previously recorded." },
 
   // ---- Pseudo-legendary Family 1: Draconic/Mental (Dracoveil line) BST 310→470→600 ----
   402: { id:402, name:"Scalit", emoji:"🐣", types:["Draconic","Mental"],

@@ -4514,7 +4514,7 @@ const MONSTERS_DATA = {
     desc:"A creature born when the planet's crust cracked and the mantle met the surface. It predates all others.",
     lore:"Primordiax is a fire-ground creature 5 metres tall resembling a primordial titan of cooling lava and deep rock. Geologists have identified its footprints in geological formations 500 million years old." },
 
-  401: { id:401, name:"Cosmoveil", emoji:"🌠", types:["Mental","Stellar"],
+  401: { id:401, name:"Cosmoveil", emoji:"🌠", types:["Stellar","Mental"],
     base:{hp:89,atk:94,def:94,spa:146,spd:121,spe:121}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
     learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[30,"psystrike"],[40,"mind_shatter"],[50,"neural_storm"],[60,"cosmic_veil"],[5,"prism_ward"],[55,"cosmic_veil"]],
     catchRate:3, expYield:380, rarity:"legendary",

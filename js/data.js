@@ -3570,12 +3570,12 @@ const MONSTERS_DATA = {
     desc:"The Legendary Spirit of the Land. Every continent in Lumoria trembles at its footfall.",
     lore:"Gaiavorn is a ground-grass titan 4 metres tall resembling a towering elemental figure whose lower body is packed earth and roots and whose upper body is a living forest canopy. Trees grow from its shoulders. It moves once per decade at most and its displacement creates new valleys and ridges." },
 
-  319: { id:319, name:"Voidraxis", emoji:"🌌", types:["Dark","Fairy"],
+  319: { id:319, name:"Voidraxis", emoji:"🌌", types:["Dark","Stellar"],
     base:{hp:95,atk:93,def:89,spa:131,spd:113,spe:88},
     learnset:[[1,"fairy_wind"],[1,"bite"],[7,"dark_pulse"],[14,"dazzling_gleam"],[21,"eclipse_shroud"],[28,"moonblast"],[35,"abyssal_snare"],[42,"shadow_ball"],[49,"dread_howl"],[56,"glitter_storm"],[63,"soul_rend"],[70,"fae_requiem"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
-    desc:"The Legendary Void Star. A being of absolute darkness ringed by fairy light. Where it passes, stars blink out.",
-    lore:"Voidraxis is a dark-fairy creature 1 metre at the shoulder with a body that appears as a perfectly shaped void in reality — an absence of light surrounded by a rim of pale fairy luminescence. It inhabits boundary spaces between light and dark and feeds on ambient emotional energy at dawn and dusk." },
+    desc:"The Legendary Void Star. A being of absolute darkness ringed by stellar light. Where it passes, stars blink out.",
+    lore:"Voidraxis is a dark-stellar creature 1 metre at the shoulder with a body that appears as a perfectly shaped void in reality — an absence of light surrounded by a rim of pale stellar luminescence. It inhabits boundary spaces between light and dark and feeds on ambient emotional energy at dawn and dusk." },
 
   320: { id:320, name:"Galvathon", emoji:"⚡", types:["Metal","Electric"],
     base:{hp:91,atk:120,def:108,spa:103,spd:84,spe:93},
@@ -4106,12 +4106,12 @@ const MONSTERS_DATA = {
     lore:"Shadowreave is a dark-spectral entity 1.6 metres tall with a body composed of living shadow and two luminous violet eyes. Its silhouette is never quite the same shape twice." },
 
   // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
-  344: { id:344, name:"Glimmeritch", emoji:"🧚", types:["Fairy","Dark"],
+  344: { id:344, name:"Glimmeritch", emoji:"🧚", types:["Fairy","Spectral"],
     base:{hp:63,atk:69,def:68,spa:102,spd:91,spe:97}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"fairy_wind"],[10,"shadow_ball"],[20,"fae_requiem"],[30,"psystrike"],[40,"phantom_claw"],[50,"void_rend"],[60,"fae_requiem"],[5,"dreamweave"],[38,"prism_ward"]],
     catchRate:18, expYield:280, rarity:"rare",
     desc:"A corrupted fairy that has passed through death and returned. Its glow is beautiful and deeply unsettling.",
-    lore:"Glimmeritch is a fairy-ghost creature resembling a 0.6-metre glowing humanoid with translucent wings and a body that flickers between solid and spectral forms." },
+    lore:"Glimmeritch is a fairy-spectral creature resembling a 0.6-metre glowing humanoid with translucent wings and a body that flickers between solid and spectral forms." },
 
   345: { id:345, name:"Voidcoil", emoji:"🌀", types:["Dark","Draconic"],
     base:{hp:73,atk:99,def:75,spa:90,spd:77,spe:81}, evolveTo:null, evolveLevel:null,
@@ -4219,12 +4219,12 @@ const MONSTERS_DATA = {
     desc:"The sovereign of all ice-bound psychics. Its mind is as cold and clear as absolute zero.",
     lore:"Glaciarch is an ice-psychic entity 2 metres tall resembling an idealised humanoid carved entirely from deep blue glacial ice. Its eyes are voids of total blue-white." },
 
-  360: { id:360, name:"Duskmantle", emoji:"🌙", types:["Dark","Fairy"],
+  360: { id:360, name:"Duskmantle", emoji:"🌙", types:["Dark","Mental"],
     base:{hp:68,atk:83,def:73,spa:105,spd:98,spe:93}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"fairy_wind"],[10,"void_rend"],[20,"fae_requiem"],[30,"shadow_ball"],[40,"phantom_claw"],[50,"mind_shatter"],[60,"neural_storm"],[5,"shadowstep"],[38,"dreamweave"]],
     catchRate:10, expYield:318, rarity:"rare",
     desc:"A twilight sovereign that rules the threshold between day and night. It is neither fully light nor dark.",
-    lore:"Duskmantle is a dark-fairy entity 1.8 metres tall that appears different from each angle — from one side it is a radiant fairy, from the other a creature of shadow. Both states are equally real." },
+    lore:"Duskmantle is a dark-mental entity 1.8 metres tall that appears different from each angle — from one side it is a being of radiant thought, from the other a creature of shadow. Both states are equally real." },
 
   361: { id:361, name:"Tectolith", emoji:"🌍", types:["Earth","Draconic"],
     base:{hp:92,atk:104,def:94,spa:78,spd:82,spe:70}, evolveTo:null, evolveLevel:null,
@@ -4434,12 +4434,12 @@ const MONSTERS_DATA = {
     desc:"The apex predator of electric dragons. Every storm in Lumoria eventually reports to it.",
     lore:"Stormcrown is an electric-dragon 5.5 metres long with a permanent crown of crackling lightning. It is the dominant electric-type in any region it inhabits and other electric creatures defer to it instinctively." },
 
-  390: { id:390, name:"Voidgarden", emoji:"🌸", types:["Fairy","Dark"],
+  390: { id:390, name:"Voidgarden", emoji:"🌸", types:["Nature","Poison"],
     base:{hp:71,atk:81,def:77,spa:112,spd:93,spe:91}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"fairy_wind"],[10,"shadow_ball"],[20,"fae_requiem"],[30,"void_rend"],[40,"mind_shatter"],[50,"phantom_claw"],[60,"neural_storm"],[5,"dreamweave"],[52,"umbral_claw"]],
     catchRate:5, expYield:360, rarity:"rare",
-    desc:"A garden of beautiful but corrupted fae life. Its flowers are as poisonous as they are gorgeous.",
-    lore:"Voidgarden is a fairy-dark entity 2 metres tall resembling a humanoid composed of luminous flowers and dark thorned vines growing simultaneously. The flowers glow with a light that induces euphoria." },
+    desc:"A garden of beautiful but corrupted plant life. Its flowers are as poisonous as they are gorgeous.",
+    lore:"Voidgarden is a nature-poison entity 2 metres tall resembling a humanoid composed of venomous flowers and dark thorned vines growing simultaneously. The flowers glow with a light that induces euphoria." },
 
   391: { id:391, name:"Titanfang", emoji:"🦷", types:["Normal","Draconic"],
     base:{hp:88,atk:111,def:86,spa:77,spd:80,spe:83}, evolveTo:null, evolveLevel:null,

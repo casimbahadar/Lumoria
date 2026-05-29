@@ -2632,13 +2632,13 @@ const MONSTERS_DATA = {
     desc:"An iron-clad rock titan. Its exterior is half-rock, half-steel, forming impenetrable natural armor.",
     lore:"Stonegrip is a rock-steel creature 80 cm tall — Crumblite's crumbling stone-body has been stabilised under metalCoat's influence into a compact frame of grey granite, the thin rebar-structures of its juvenile form now visible steel plating bolted to its surface. Its broad hands can crush stone to powder. It works obsessively to compress and compact loose rock around it, creating denser stone formations wherever it dwells." },
 
-  // Standalone Rock/Fire: Ashrock (location evo near volcano area)
-  253: { id:253, name:"Ashrock", emoji:"🌋", types:["Earth","Fire"],
+  // Standalone Fire/Mineral: Ashrock (location evo near volcano area)
+  253: { id:253, name:"Ashrock", emoji:"🌋", types:["Fire","Mineral"],
     base:{hp:90,atk:105,def:100,spa:88,spd:75,spe:55},
     learnset:[[1,"rock_throw"],[1,"ember"],[18,"rock_slide"],[28,"flamethrower"],[38,"stone_edge"],[48,"magma_rock"],[58,"fire_blast"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, evolveLocation:"forge_ruins", evolveMethod:"location", catchRate:55, expYield:215, rarity:"uncommon",
     desc:"Volcanic rock infused with fire. Found only near ancient forge sites where magma once flowed freely.",
-    lore:"Ashrock is a fire-rock creature 60 cm tall resembling a chunk of volcanic basalt with glowing orange cracks running through it like veins of magma. Its surface radiates intense heat. It inhabits volcanic crater rims and lava tube exits, cooling slowly over centuries until its glow dims and it becomes dormant." },
+    lore:"Ashrock is a fire-mineral creature 60 cm tall resembling a chunk of volcanic basalt with glowing orange cracks running through it like veins of magma. Its surface radiates intense heat. It inhabits volcanic crater rims and lava tube exits, cooling slowly over centuries until its glow dims and it becomes dormant." },
 
   // 2-stage Aquatic/Mental chain: Aquapuff → Wavrix (level 28)
   254: { id:254, name:"Bubblepuff", emoji:"🫧", types:["Aquatic","Mental"],
@@ -2817,13 +2817,13 @@ const MONSTERS_DATA = {
     desc:"A living volcano of immense destructive power. When it battles, the sky fills with ash and the earth splits.",
     lore:"Scorchvast is a massive fire-mineral creature 2 metres long — Infernox's volcanic plate armour has thickened and fused into natural stone armour entirely encasing a very large igneous lizard, and the joint-magma of its juvenile form has rerouted into fountains of fire that erupt from vents on its back when it is agitated. Its body temperature is sufficient to melt most metals on contact." },
 
-  // Standalone Fire/Ground: Magmite (location evo near forge area)
-  277: { id:277, name:"Magmite", emoji:"🌶️", types:["Fire","Earth"],
+  // Standalone mono Fire: Magmite (location evo near forge area)
+  277: { id:277, name:"Magmite", emoji:"🌶️", types:["Fire"],
     base:{hp:92,atk:110,def:96,spa:98,spd:80,spe:62},
     learnset:[[1,"ember"],[1,"mud_shot"],[18,"flamethrower"],[28,"earth_power"],[38,"fire_blast"],[48,"earthquake"],[58,"magma_surge"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, evolveLocation:"ironforge", evolveMethod:"location", catchRate:50, expYield:215, rarity:"uncommon",
     desc:"Found only in volcanic forge areas where earth meets fire. Its body is half-molten rock, half-flame.",
-    lore:"Magmite is a small fire-ground creature 20 cm tall resembling a lava droplet that has cooled enough to walk. Its body is glossy dark basalt with an interior glow. It inhabits active volcanic vents and feeds by filtering mineral nutrients from magma, which passes harmlessly through its heat-adapted body." },
+    lore:"Magmite is a small fire creature 20 cm tall resembling a lava droplet that has cooled enough to walk. Its body is glossy dark basalt with an interior glow. It inhabits active volcanic vents and feeds by filtering mineral nutrients from magma, which passes harmlessly through its heat-adapted body." },
 
   // 2-stage Metal/Fairy chain: Ironling → Steelhorn (Metal Coat item)
   278: { id:278, name:"Ironling", emoji:"⚙️", types:["Metal","Fairy"],
@@ -4054,12 +4054,12 @@ const MONSTERS_DATA = {
     desc:"A serpent that generates electricity through its venom glands. A single bite delivers both poison and paralysis.",
     lore:"Coilstrike is a sleek electric-poison snake 2.5 metres long with alternating bands of bright yellow and dark purple scales. Electrical discharge is visible along its spine." },
 
-  337: { id:337, name:"Ashgolem", emoji:"🔥", types:["Fire","Earth"],
+  337: { id:337, name:"Ashgolem", emoji:"🔥", types:["Fire","Mineral"],
     base:{hp:87,atk:97,def:91,spa:77,spd:68,spe:50}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ember"],[10,"rock_throw"],[20,"flamethrower"],[30,"rock_slide"],[40,"heat_wave"],[50,"fossil_rush"],[60,"fire_blast"],[5,"harden"],[40,"magma_surge"]],
     catchRate:24, expYield:265, rarity:"rare",
     desc:"A creature born from a volcanic eruption, its body is a walking magma chamber encased in basalt.",
-    lore:"Ashgolem is a fire-rock creature 2 metres tall with a body of cooling basalt cracked to reveal glowing magma beneath. Ash and cinders constantly drift from its surface." },
+    lore:"Ashgolem is a fire-mineral creature 2 metres tall with a body of cooling basalt cracked to reveal glowing magma beneath. Ash and cinders constantly drift from its surface." },
 
   338: { id:338, name:"Rimeclaw", emoji:"🦅", types:["Ice"],
     base:{hp:64,atk:88,def:61,spa:76,spd:69,spe:97}, evolveTo:null, evolveLevel:null,

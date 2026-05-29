@@ -606,6 +606,16 @@ The following type combos have explicit user-approved cap-drift exceptions:
 
 These exceptions are per-combo and explicit — they do NOT generalize to other combos without separate user approval.
 
+## Deferred — END-OF-AUDIT starter batch (decide all together, do not close audit until resolved)
+
+The 3 starter-line FINAL evolutions are deferred to a single end-of-audit decision (their typing is a deliberate design triad and should be settled as a set). Each currently sits in an over-cap combo:
+
+- **#6 Banksnout** (Aquatic starter final) — currently Aquatic/Earth. Plan A intent: → **Aquatic/Normal** (semi-aquatic mammal). **Aquatic/Earth is held at an interim 3F+1S** (Banksnout + Tidalossus + Calciderm + Petrwave) and only reaches the ordinary 2F+1S cap once Banksnout moves. ⚠️ Broken-strong combo — must resolve.
+- **#3 Calderaeth** (Fire starter final) — Fire/Draconic. In the Draconic/Fire over-cap cluster (+3). Likely a keeper (starter signature).
+- **#9 Garlawarden** (Nature starter final) — Nature/Fairy. In the Fairy/Nature over-cap cluster (+2). Likely a keeper (starter signature).
+
+Current starter type triad: Fire/Draconic, Aquatic/Earth, Nature/Fairy (base element + signature secondary). Decide whether to preserve the triad as-is (and trim other cluster members around them) or adjust — as one batch at the end.
+
 # 🐺 Archetype oversaturation — REFERENCE TALLIES (workflow merged into 🕯 UNIFIED AUDIT)
 
 Per-archetype trim decisions happen per-Lumori inside the UNIFIED audit (Step 3 "Decide archetype"). The cap rules + current family counts below remain authoritative reference.

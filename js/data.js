@@ -2206,12 +2206,12 @@ const MONSTERS_DATA = {
     desc:"A boulder hound encrusted with stones. Can cause landslides by running.",
     lore:"Boulderoll is a large rock-ground creature 1.5 metres tall shaped like a roughly humanoid boulder — Pebblet's round river-pebble silhouette has grown and squared into a rough humanoid shape, the small surprised face of its kit form barely defined now but still clearly present, and the current-rolling travel habit has matured into a rolling shift of its own mass overland. It moves by rolling and shifting its own mass. Groups of Boulderoll arrange themselves in formations that geologists initially mistake for natural rock outcroppings." },
 
-  193: { id:193, name:"Rugothon",    emoji:"🦞", types:["Earth","Aquatic"],
+  193: { id:193, name:"Rugothon",    emoji:"🦞", types:["Aquatic","Mineral"],
     base:{hp:71,atk:78,def:89,spa:52,spd:63,spe:68},
     learnset:[[1,"scratch",[25,"geode_burst"]],[1,"rock_throw"],[11,"water_gun"],[16,"swords_dance"],[19,"rock_slide"],[27,"aqua_tail"],[29,"sandstone_rush"],[35,"stone_edge"],[40,"sea_serpent_strike"],[43,"surf",[5,"granite_wall"]],[3,"petrify_gaze"],[33,"landslide"]],
     evolveTo:194, evolveLevel:38, catchRate:75, expYield:168, rarity:"uncommon",
     desc:"A crag claw crab that lives on rocky sea cliffs. Fiercely territorial.",
-    lore:"Rugothon is a massive rock-water crustacean 2 metres long with a heavily encrusted shell of barnacles and embedded pebbles. Its eight wide legs are each tipped with flat digging pads. It inhabits rocky coastlines where it is mistaken for a tide-pool feature until it suddenly moves. Rugothon spend long hours wedging themselves into rock crevices much smaller than their 2-metre bodies, packing their bulk inward. Older individuals also eat noticeably less in each successive moult cycle, then less again, slowly withdrawing into themselves. Both habits compound across generations into the smaller, denser rock-crab Lithomere becomes — the only Lumori evolution known to scale downward in size while gaining density." },
+    lore:"Rugothon is a massive water-mineral crustacean 2 metres long with a heavily encrusted shell of barnacles and embedded pebbles. Its eight wide legs are each tipped with flat digging pads. It inhabits rocky coastlines where it is mistaken for a tide-pool feature until it suddenly moves. Rugothon spend long hours wedging themselves into rock crevices much smaller than their 2-metre bodies, packing their bulk inward. Older individuals also eat noticeably less in each successive moult cycle, then less again, slowly withdrawing into themselves. Both habits compound across generations into the smaller, denser rock-crab Lithomere becomes — the only Lumori evolution known to scale downward in size while gaining density." },
 
   195: { id:195, name:"Prismolith",  emoji:"💎", types:["Earth","Ice"],
     base:{hp:70,atk:66,def:101,spa:77,spd:87,spe:38},
@@ -3074,20 +3074,20 @@ const MONSTERS_DATA = {
     desc:"A spectral sea leviathan that capsizes ships. Half water, half ghost—completely terrifying.",
     lore:"Tidephant is a large water-dark creature 2 metres long resembling a cetacean with dark blue-black hide and a broad flat head. As it matured from Seafraith, its fins broadened into flippers and its skeleton calcified into a whale-like frame — a fish-to-leviathan apotheosis. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },
 
-  // 2-stage Ground/Aquatic chain: Mudpump → Marshix (level 28)
-  310: { id:310, name:"Mudpump", emoji:"🦛", types:["Earth","Aquatic"],
+  // 2-stage Aquatic/Nature chain: Mudpump → Marshix (level 28)
+  310: { id:310, name:"Mudpump", emoji:"🦛", types:["Aquatic","Nature"],
     base:{hp:58,atk:68,def:62,spa:58,spd:55,spe:55},
     learnset:[[1,"mud_shot"],[1,"water_gun"],[12,"earth_power"],[22,"surf"],[32,"earthquake"],[42,"hydro_pump"],[52,"clay_armor"],[60,"hyper_beam"]],
     evolveTo:311, evolveLevel:28, catchRate:155, expYield:80, rarity:"common",
     desc:"A small hippo calf perpetually slick with mud. Wallows in shallow tidal mudflats and digs out cool burrow-chambers with its broad snout.",
     lore:"Mudpump is a small hippo calf about 50 centimetres long with a broad rounded body coated in slick wet mud and a short blunt snout perfectly suited to scooping muddy water. It is too small to fully submerge in deep water, so it wallows in shallow tidal mudflats and shallow lagoons where it builds dome-shaped mud-and-reed homes by piling clay around itself with a suction-pump motion of its wide mouth. Small herds of Mudpump dig out vast networks of cool burrow-chambers connecting their wallows beneath the soft surface." },
 
-  311: { id:311, name:"Marshix", emoji:"🦛", types:["Earth","Aquatic"],
+  311: { id:311, name:"Marshix", emoji:"🦛", types:["Aquatic","Nature"],
     base:{hp:105,atk:118,def:100,spa:78,spd:82,spe:62},
     learnset:[[1,"earthquake"],[1,"surf"],[22,"earth_power"],[30,"hydro_pump"],[38,"clay_armor"],[46,"bedrock_slam"],[54,"aqua_tail"],[62,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:222, rarity:"uncommon",
     desc:"A hippo-like swamp titan that commands both mud and water. Creates marshy terrain wherever it settles.",
-    lore:"Marshix is a large ground-water hippo-like creature 1.5 metres at the shoulder — Mudpump's slick mud-coating has set and hardened into a broad pale grey body with mud-brown legs, and the suction-pump snout of its calf form has widened for adult marsh-feeding. It spends most of its time submerged in shallow marsh water with only its eyes and nostrils above the surface. Its movements churn the marsh bottom, aerating the sediment beneficially." },
+    lore:"Marshix is a large marshland hippo-like creature 1.5 metres at the shoulder — Mudpump's slick mud-coating has set and hardened into a broad pale grey body with mud-brown legs, and the suction-pump snout of its calf form has widened for adult marsh-feeding. It spends most of its time submerged in shallow marsh water with only its eyes and nostrils above the surface. Its movements churn the marsh bottom, aerating the sediment beneficially." },
 
   // 2-stage Ground/Dark chain: Dunecrawl → Sandrix (level 32)
   312: { id:312, name:"Dunecrawl", emoji:"🪨", types:["Earth","Dark"],
@@ -3621,12 +3621,12 @@ const MONSTERS_DATA = {
     desc:"A heavyset wild boar whose back-bristles have hardened into a ridge of quill-like spines. Constantly forages, scattering seeds wherever its winter caches are forgotten.",
     lore:"Plentorus is a heavyset wild boar around 90 cm at the shoulder, the fully grown form of the Norindel lineage. Its broad chest and broad sensitive snout still recognise it as a true suidae, but the soft pink hide of its juvenile stage has darkened to a coarse pale-brown coat — and the bristles along its spine, shoulders, and rump have stiffened over the seasons into rows of sharp quill-like spines tipped in cream. It forages constantly through forest underbrush and builds elaborate winter larders, hiding food in dozens of separate caches; it rarely remembers them all, and the forgotten ones germinate the following spring into thickets that mark its old territories." },
 
-  194: { id:194, name:"Lithomere", emoji:"🦀", types:["Earth","Aquatic"],
+  194: { id:194, name:"Lithomere", emoji:"🦀", types:["Aquatic","Mineral"],
     base:{hp:95,atk:100,def:115,spa:72,spd:85,spe:75},
     learnset:[[1,"scratch"],[1,"water_gun"],[2,"aqua_tail"],[3,"stalactite_drop"],[4,"harden"],[39,"rock_slide"],[43,"hydro_pump"],[47,"stone_edge"],[52,"tidal_crush"],[56,"crystal_lance"],[60,"sea_serpent_strike"],[64,"quarry_crush"],[5,"tidecaller"],[42,"swords_dance"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:248, rarity:"rare",
     desc:"A colossal ancient shore titan. Its shell is older than recorded history, layered with oceanic minerals.",
-    lore:"Lithomere is a crab-like rock-water creature 60 cm across with a shell of compressed coastal rock — Rugothon's massive barnacle-encrusted carapace has compressed down through dense mineral deposition into a smaller but far denser shell, and the eight digging legs have shortened into wedge-shaped braces that lock its body into rock crevices during low tide, sealing gaps with a secreted mineral cement. Its shell grows thicker with each passing year." },
+    lore:"Lithomere is a crab-like water-mineral creature 60 cm across with a shell of compressed coastal rock — Rugothon's massive barnacle-encrusted carapace has compressed down through dense mineral deposition into a smaller but far denser shell, and the eight digging legs have shortened into wedge-shaped braces that lock its body into rock crevices during low tide, sealing gaps with a secreted mineral cement. Its shell grows thicker with each passing year." },
 
   196: { id:196, name:"Frigolith", emoji:"💎", types:["Earth","Ice"],
     base:{hp:87,atk:77,def:127,spa:103,spd:108,spe:48},

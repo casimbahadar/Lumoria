@@ -3666,7 +3666,7 @@ const MONSTERS_DATA = {
     desc:"A regal fire-moth of vast wingspan. Heat shed by its wings rises into thermals it can ride for hours.",
     lore:"Inferarch is an enormous fire-moth nearly 1.5 metres across the wings — the imago that finally splits Heliocoon's shell. Its slender body is banded in deep black; the upper wings flare with crimson, gold, and ash-rimmed eyespots that catch firelight when it rests, while the undersides shed a constant powder of ember-grey scales. Each broad wingbeat draws in cool air and releases it as a column of superheated wind that becomes its own thermal — Inferarch can drift silently above caldera fields for hours without descending. It feeds at night on the nectar of fire-blossoms that bloom only in geothermal soil, and the smouldering pollen it carries between flowers is responsible for the rapid spread of those heat-loving plants." },
 
-  // 179: Pyroclasm - Fire/Rock (Taurcin→Molteroth→Pyroclasm)
+  // 15: Pyroclasm - Fire/Earth (Taurcin→Molteroth→Pyroclasm)
   15: { id:15, name:"Pyroclasm", emoji:"🌋", types:["Fire","Earth"],
     base:{hp:102,atk:126,def:107,spa:86,spd:72,spe:57},
     learnset:[[1,"headbutt"],[1,"magma_surge"],[2,"flamethrower"],[3,"scorch_veil"],[4,"rock_slide"],[38,"heat_wave"],[42,"stone_edge"],[46,"fire_blast"],[50,"stalactite_drop"],[54,"inferno"],[58,"quarry_crush"],[62,"solar_flare"],[5,"embercloak"],[44,"ashfall"]],

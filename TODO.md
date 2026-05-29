@@ -604,6 +604,7 @@ The following type combos have explicit user-approved cap-drift exceptions:
 - **Mental/Spectral:** 1F+2S=3 entries permitted (over standalone-limit by 1). Lore cohesion + uniformly NG+/late-game encounter gating justify the immunity-stacking drift.
 - **Mental/Fairy (Fairy/Mental):** up to 3F+1S=4 entries permitted (over family-limit by 1, over standalone-limit by 1). Future Lumori with strong Mental/Fairy lore fit may take the open 1S slot — particularly iconic creative-muse / celestial-fairy / cosmic-fairy standalones.
 - **Nature/Poison:** 2F+2S=4 entries permitted (over standalone-limit by 1). Voidgarden (corrupted poisonous plant-garden) added during the Dark/Fairy trim — Nature/Poison was its truest lore home (a poisonous garden), justifying the drift over routing it to a worse-fitting pristine combo.
+- **Draconic/Earth:** 3F+1S=4 entries permitted (over family-limit by 1). Bahamber line ("forged the first volcanoes, bores through solid stone, coils rocky spires") added during the Draconic/Fire trim — Draconic/Earth was its truest geological-dragon home. Below flagship-level despite rule 8's "Draconic combos trim, no flagship" — explicit one-step drift, not a flagship promotion.
 
 These exceptions are per-combo and explicit — they do NOT generalize to other combos without separate user approval.
 

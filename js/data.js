@@ -3452,12 +3452,12 @@ const MONSTERS_DATA = {
     lore:"Monolithox is a hulking obsidian saurian 3 metres tall — Volcascale's obsidian horned-lizard frame has grown massive and its sharp-ridged back has fused into a towering monolithic plate-shell. It appears to be a standing stone until it moves; the basalt-dark plate is nearly featureless except for two deep-set glowing red eyes set in a low-slung saurian skull. It moves extremely slowly but is virtually indestructible, its body having the hardness of natural obsidian." },
 
   // ===== POISON/BUG =====
-  164: { id:164, name:"Blightmite", emoji:"🐛", types:["Poison","Wind"],
+  164: { id:164, name:"Blightmite", emoji:"🐛", types:["Poison"],
     base:{hp:56,atk:37,def:55,spa:65,spd:52,spe:30},
     learnset:[[1,"poison_sting",[20,"venom_lance"]],[1,"string_shot"],[8,"bug_bite"],[16,"sludge_bomb"],[21,"recover"],[24,"x_scissor"],[32,"toxic",[5,"toxic_surge"]],[36,"sonic_buzz"],[3,"toxin_bloom"],[31,"mandible_crush"]],
     evolveTo:165, evolveLevel:20, catchRate:220, expYield:65, rarity:"common",
     desc:"A larva coated in toxic slime. Leaves a trail of venom wherever it crawls.",
-    lore:"Blightmite is a small caterpillar-like poison-wind creature 10 cm long. Its body is dark purple-black with short bristle-hairs that release toxins on contact. It feeds on the toxic leaves that other creatures avoid, sequestering their poisons into its own body and becoming increasingly dangerous as it eats." },
+    lore:"Blightmite is a small caterpillar-like poison creature 10 cm long. Its body is dark purple-black with short bristle-hairs that release toxins on contact. It feeds on the toxic leaves that other creatures avoid, sequestering their poisons into its own body and becoming increasingly dangerous as it eats." },
 
   165: { id:165, name:"Venowarn", emoji:"🦋", types:["Poison","Wind"],
     base:{hp:77,atk:69,def:57,spa:106,spd:84,spe:92},

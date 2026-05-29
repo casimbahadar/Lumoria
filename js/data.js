@@ -2002,7 +2002,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"tackle",[25,"ironskin"]],[1,"rock_throw"],[12,"harden"],[20,"flash_cannon"],[24,"growl"],[28,"rock_slide"],[36,"iron_tail"],[44,"stone_edge"],[45,"temper_edge"],[52,"body_slam",[5,"magnetize"]],[3,"slag_shield"],[37,"crystal_lance"]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:318, rarity:"uncommon",
     desc:"A colossal steel-rock turtle. Nigh indestructible but very slow.",
-    lore:"Imperion is a heavily built steel-rock tortoise 1.5 metres long with a thick dome shell of laminated steel plates fused over natural rock. It moves with glacial slowness but is nearly impossible to harm. It is said to carry small ecosystems on its shell — moss, insects, and even small plants grow undisturbed there." },
+    lore:"Imperion is a heavily built metal-earth tortoise 1.5 metres long with a thick dome shell of laminated steel plates fused over natural rock. It moves with glacial slowness but is nearly impossible to harm. It is said to carry small ecosystems on its shell — moss, insects, and even small plants grow undisturbed there." },
 
   // ===== POISON =====
   155: { id:155, name:"Toxirin",    emoji:"🐸", types:["Poison"],
@@ -2623,14 +2623,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"rock_throw"],[1,"metal_claw"],[14,"rock_slide"],[24,"flash_cannon"],[34,"stone_edge"],[44,"iron_tail"],[54,"forge_strike"],[60,"hyper_beam"]],
     evolveTo:252, evolveLevel:null, evolveItem:"metalCoat", evolveMethod:"item", catchRate:140, expYield:98, rarity:"common",
     desc:"A ore-encrusted creature that upgrades itself by absorbing metallic minerals from cave walls.",
-    lore:"Crumblite is a rock-steel creature 40 cm tall whose body appears to be crumbling stone held together by thin steel rebar-like structures growing through it. Chunks occasionally fall away and are immediately replaced by new growth. It inhabits construction sites and ruined architecture, instinctively reinforcing damaged structures. A Crumblite constantly loses and regrows chunks of its crumbling stone-body, but each replaced piece sets slightly more permanently than the last. This gradual stabilisation is the slow approach toward the bolted-steel-plate compactness Stonegrip exhibits once metalCoat fully reinforces it." },
+    lore:"Crumblite is an earth-metal creature 40 cm tall whose body appears to be crumbling stone held together by thin steel rebar-like structures growing through it. Chunks occasionally fall away and are immediately replaced by new growth. It inhabits construction sites and ruined architecture, instinctively reinforcing damaged structures. A Crumblite constantly loses and regrows chunks of its crumbling stone-body, but each replaced piece sets slightly more permanently than the last. This gradual stabilisation is the slow approach toward the bolted-steel-plate compactness Stonegrip exhibits once metalCoat fully reinforces it." },
 
   252: { id:252, name:"Stonegrip", emoji:"🛡️", types:["Earth","Metal"],
     base:{hp:95,atk:110,def:135,spa:58,spd:88,spe:52},
     learnset:[[1,"stone_edge"],[1,"flash_cannon"],[28,"iron_tail"],[36,"forge_strike"],[44,"earthquake"],[52,"bedrock_slam"],[60,"heavy_slam"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"rare",
     desc:"An iron-clad rock titan. Its exterior is half-rock, half-steel, forming impenetrable natural armor.",
-    lore:"Stonegrip is a rock-steel creature 80 cm tall — Crumblite's crumbling stone-body has been stabilised under metalCoat's influence into a compact frame of grey granite, the thin rebar-structures of its juvenile form now visible steel plating bolted to its surface. Its broad hands can crush stone to powder. It works obsessively to compress and compact loose rock around it, creating denser stone formations wherever it dwells." },
+    lore:"Stonegrip is an earth-metal creature 80 cm tall — Crumblite's crumbling stone-body has been stabilised under metalCoat's influence into a compact frame of grey granite, the thin rebar-structures of its juvenile form now visible steel plating bolted to its surface. Its broad hands can crush stone to powder. It works obsessively to compress and compact loose rock around it, creating denser stone formations wherever it dwells." },
 
   // Standalone Fire/Mineral: Ashrock (location evo near volcano area)
   253: { id:253, name:"Ashrock", emoji:"🌋", types:["Fire","Mineral"],
@@ -2840,32 +2840,32 @@ const MONSTERS_DATA = {
     desc:"A horned steel fairy of regal bearing. Its horn channels both fairy magic and forged steel energy.",
     lore:"Steelhorn is a medium steel-fairy creature 70 cm tall — Ironling's silver-grey fairy-crafted iron armour has been refined under metalCoat's influence into a humanoid body of polished silver steel, and a single straight horn of fairy-charged metal has emerged from its forehead, channelling and purifying energy. It inhabits ancient forge-temples and stands watch over sacred metalworking sites." },
 
-  // 3-stage Metal/Ground chain: Gearbit → Cogvex → Mechavast
-  280: { id:280, name:"Gearbit", emoji:"🔩", types:["Metal","Earth"],
+  // 3-stage Metal/Fighting chain: Gearbit → Cogvex → Mechavast
+  280: { id:280, name:"Gearbit", emoji:"🔩", types:["Metal","Fighting"],
     base:{hp:50,atk:62,def:72,spa:40,spd:52,spe:48},
     learnset:[[1,"metal_claw"],[1,"mud_shot"],[12,"flash_cannon"],[22,"earth_power"],[32,"iron_tail"],[42,"earthquake"],[52,"forge_strike"],[60,"hyper_beam"]],
     evolveTo:281, evolveLevel:28, catchRate:165, expYield:76, rarity:"common",
-    desc:"A mechanical gear creature that burrows through ore deposits. Powered by geothermal energy.",
-    lore:"Gearbit is a small steel-ground creature 20 cm tall shaped like a round gear-work automaton with stubby legs. Its body is a collection of interlocked cogs that rotate slowly. It digs through soil to locate metal deposits and incorporates found metals into its growing gear-body. A Gearbit's slow-rotating juvenile cogs are visibly oversized for the small frame that houses them. They were forged at a scale meant for a far heavier Cogvex chassis, and the body still awaits years of mineral-absorption before it grows large enough to put them properly to work." },
+    desc:"A gear-driven sparring automaton that grapples with found scrap to build strength. Restless and combative.",
+    lore:"Gearbit is a small metal-fighting creature 20 cm tall shaped like a round gear-work automaton with stubby legs. Its body is a collection of interlocked cogs that rotate slowly. It spars constantly with found scrap and rival Gearbits, incorporating useful metals into its growing combat-frame. A Gearbit's slow-rotating juvenile cogs are visibly oversized for the small frame that houses them. They were forged at a scale meant for a far heavier Cogvex chassis, and the body still awaits years of martial conditioning before it grows large enough to put them properly to work." },
 
 
 
   // ===== BATCH 6: STEEL / NORMAL / WIND / POISON / BUG (IDs 281-295) =====
 
   // Cogvex and Mechavast (continuing Gearbit chain from 280)
-  281: { id:281, name:"Cogvex", emoji:"⚙️", types:["Metal","Earth"],
+  281: { id:281, name:"Cogvex", emoji:"⚙️", types:["Metal","Fighting"],
     base:{hp:78,atk:98,def:108,spa:58,spd:75,spe:60},
     learnset:[[1,"flash_cannon"],[1,"earth_power"],[22,"iron_tail"],[30,"earthquake"],[38,"forge_strike"],[46,"bedrock_slam"],[54,"heavy_slam"],[62,"hyper_beam"]],
     evolveTo:282, evolveLevel:46, catchRate:80, expYield:155, rarity:"uncommon",
-    desc:"A complex gear-machine creature that absorbs underground minerals to repair itself.",
-    lore:"Cogvex is a medium steel-ground automaton 60 cm tall — Gearbit's stubby gear-work frame has elaborated into a more complex body, and the metals it absorbed underground have crystallised into an exposed chest mechanism of dozens of interlocking cogs and pistons. It constructs complex gear-driven tools from found materials and leaves functional mechanical devices scattered across its territory." },
+    desc:"A complex gear-machine combatant that builds practice rigs from scavenged parts and trains alone for hours.",
+    lore:"Cogvex is a medium metal-fighting automaton 60 cm tall — Gearbit's stubby gear-work frame has elaborated into a more complex body, and the metals it absorbed in countless sparring matches have crystallised into an exposed chest mechanism of dozens of interlocking cogs and pistons. It constructs gear-driven training apparatus from found materials and leaves functional practice rigs scattered across its territory." },
 
-  282: { id:282, name:"Mechavast", emoji:"🤖", types:["Metal","Earth"],
+  282: { id:282, name:"Mechavast", emoji:"🤖", types:["Metal","Fighting"],
     base:{hp:105,atk:122,def:124,spa:63,spd:85,spe:51},
     learnset:[[1,"forge_strike"],[1,"earthquake"],[32,"heavy_slam"],[40,"bedrock_slam"],[48,"iron_tail"],[56,"earth_power"],[64,"flash_cannon"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:278, rarity:"rare",
-    desc:"The ultimate mechanical titan. Its body is a perfect fusion of steel and compressed earth.",
-    lore:"Mechavast is a large steel-ground automaton 1.5 metres tall — Cogvex's exposed chest-mechanism of interlocking cogs and pistons has been enclosed within a heavy industrial chassis, and the gear-driven tools its juvenile form constructed are now built directly into its body: thick piston-driven legs, a drill-bit hand, and a hydraulic claw. Its internal mechanisms grind audibly. It excavates ore deposits with mechanical precision and stacks sorted mineral samples in neat geometric arrangements." },
+    desc:"The ultimate combat titan. Its body is a perfect fusion of steel and martial precision.",
+    lore:"Mechavast is a large metal-fighting automaton 1.5 metres tall — Cogvex's exposed chest-mechanism of interlocking cogs and pistons has been enclosed within a heavy combat chassis, and the gear-driven training apparatus its juvenile form constructed are now built directly into its body as weapons: thick piston-driven legs, a drill-bit gauntlet, and a hydraulic combat-claw. Its internal mechanisms grind audibly. It drills opponents into submission with mechanical precision and marks vanquished rivals' stations in neat geometric formations." },
 
   // Standalone Metal/Ground: Rustpike
   283: { id:283, name:"Rustpike", emoji:"🗡️", types:["Metal","Poison"],
@@ -3472,14 +3472,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"metal_claw",[22,"forge_strike"]],[1,"mud_shot"],[9,"harden"],[17,"flash_cannon"],[20,"tail_whip"],[25,"earthquake"],[33,"iron_tail",[5,"magnetize"]],[36,"boulder_roll"],[3,"ironskin"],[31,"scorched_earth"]],
     evolveTo:154, evolveLevel:26, catchRate:160, expYield:90, rarity:"common",
     desc:"A small ore elemental born in deep mine shafts. Tough as iron and twice as stubborn.",
-    lore:"Dentshaft is a compact steel-ground creature 60 cm tall shaped like a short humanoid miner. Its steel body is scuffed and dented from constant digging. It uses its broad flat hands as shovels to excavate ore veins. It never stops working — even while dormant it taps at nearby rock surfaces reflexively. Every handful of ore a Dentshaft processes leaves a microscopic amount of metal and earth bonded into its body. The slow accretion compounds across years of mine-work into the 2.5-metre golem frame Terragolem eventually attains." },
+    lore:"Dentshaft is a compact metal-earth creature 60 cm tall shaped like a short humanoid miner. Its steel body is scuffed and dented from constant digging. It uses its broad flat hands as shovels to excavate ore veins. It never stops working — even while dormant it taps at nearby rock surfaces reflexively. Every handful of ore a Dentshaft processes leaves a microscopic amount of metal and earth bonded into its body. The slow accretion compounds across years of mine-work into the 2.5-metre golem frame Terragolem eventually attains." },
 
   154: { id:154, name:"Terragolem", emoji:"🤖", types:["Metal","Earth"],
     base:{hp:95,atk:108,def:116,spa:52,spd:79,spe:30},
     learnset:[[1,"flash_cannon"],[2,"earthquake"],[3,"magnetize"],[30,"iron_tail"],[31,"battle_cry"],[34,"loam_leech"],[38,"rock_slide"],[42,"temper_edge"],[46,"body_slam"],[50,"earth_power"],[54,"tungsten_ram"],[58,"anvil_drop"],[4,"ironskin"],[37,"magnitude"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:222, rarity:"uncommon",
     desc:"A forged golem of steel and compressed earth. Was created to guard ancient mines.",
-    lore:"Terragolem is a massive steel-ground golem 2.5 metres tall — Dentshaft's dented-and-scuffed humanoid miner-frame has expanded into a tremendous assembly of metal and compressed earth, and the reflexive surface-tapping of its juvenile form has become a deep tremor through the ground with every step. The ground trembles slightly with each of its steps. It is largely indifferent to the world around it and moves at its own slow pace, but obstacles that cannot be sidestepped are simply absorbed." },
+    lore:"Terragolem is a massive metal-earth golem 2.5 metres tall — Dentshaft's dented-and-scuffed humanoid miner-frame has expanded into a tremendous assembly of metal and compressed earth, and the reflexive surface-tapping of its juvenile form has become a deep tremor through the ground with every step. The ground trembles slightly with each of its steps. It is largely indifferent to the world around it and moves at its own slow pace, but obstacles that cannot be sidestepped are simply absorbed." },
 
   // ===== DRAGON/GROUND =====
   106: { id:106, name:"Geodrak", emoji:"🐣", types:["Draconic","Earth"],
@@ -4033,12 +4033,12 @@ const MONSTERS_DATA = {
     desc:"A storm wolf that channels voltage through its dark fur. Its howl triggers localised lightning strikes.",
     lore:"Voltfang is an electric-dark wolf 1.4 metres at the shoulder with jet-black fur shot through with crackling yellow lightning. Its eyes glow violet." },
 
-  334: { id:334, name:"Ferrocrush", emoji:"⚙️", types:["Metal","Earth"],
+  334: { id:334, name:"Ferrocrush", emoji:"⚙️", types:["Metal","Fire"],
     base:{hp:83,atk:104,def:100,spa:52,spd:70,spe:61}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"metal_claw"],[10,"earth_power"],[20,"iron_tail"],[30,"fissure_slam"],[40,"flash_cannon"],[50,"terra_spike"],[60,"fossil_rush"],[5,"harden"],[38,"alloy_edge"]],
     catchRate:22, expYield:268, rarity:"rare",
     desc:"A mechanical behemoth forged in Ironforge's deepest furnaces. It was never meant to leave.",
-    lore:"Ferrocrush is a 2.5-metre steel-ground golem with a body of smelted iron and a core of compressed ore. Its joints run at thousands of atmospheres of pressure." },
+    lore:"Ferrocrush is a 2.5-metre metal-fire golem with a body of smelted iron and a core of compressed ore. Its joints run at thousands of atmospheres of pressure." },
 
   335: { id:335, name:"Frostprowl", emoji:"🐆", types:["Ice","Wind"],
     base:{hp:63,atk:86,def:59,spa:74,spd:67,spe:106}, evolveTo:null, evolveLevel:null,
@@ -4500,12 +4500,12 @@ const MONSTERS_DATA = {
     lore:"Voidcrown is a dark-fairy entity 2.5 metres tall wearing a permanent crown of void-matter and fairy-light. Half of its face is radiant and warm; the other half is an absolute darkness that swallows sight." },
 
   // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
-  399: { id:399, name:"Stonekeeper", emoji:"⛰️", types:["Earth","Metal"],
+  399: { id:399, name:"Stonekeeper", emoji:"⛰️", types:["Earth","Spectral"],
     base:{hp:83,atk:89,def:103,spa:89,spd:89,spe:72}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"rock_slide"],[10,"shadow_ball"],[20,"fossil_rush"],[30,"phantom_claw"],[40,"rock_slide"],[50,"void_rend"],[60,"neural_storm"],[5,"harden"],[55,"prism_ward"]],
     catchRate:4, expYield:370, rarity:"rare",
     desc:"The ghost of a mountain that refused to erode. It guards the summit as it always has.",
-    lore:"Stonekeeper is a rock-ghost entity 4 metres tall resembling a craggy mountain peak with a translucent interior. It is the spirit of a specific peak that was destroyed in an ancient cataclysm. It still performs the same patrol it did 10,000 years ago." },
+    lore:"Stonekeeper is an earth-spectral entity 4 metres tall resembling a craggy mountain peak with a translucent interior. It is the spirit of a specific peak that was destroyed in an ancient cataclysm. It still performs the same patrol it did 10,000 years ago." },
 
   400: { id:400, name:"Primordiax", emoji:"🔥", types:["Fire"],
     base:{hp:102,atk:136,def:110,spa:110,spd:101,spe:101}, evolveTo:null, evolveLevel:null, ngPlusTier:4,

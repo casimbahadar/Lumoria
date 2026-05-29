@@ -1602,12 +1602,12 @@ const MONSTERS_DATA = {
     desc:"A small worm that breathes tiny flames. Very shy and avoids conflict.",
     lore:"Cindercula is a sinuous fire-serpent about 1.8 metres long with iridescent scales shading from copper at the head to charcoal at the tail. A thin crest of flame-coloured feathers runs from its neck to mid-body. It slithers through ash fields and hunts by sensing heat signatures with specialised pit organs. Despite having no limbs at all, Cindercula sometimes rear upright along thermal columns and flare their feathered crests outward — a rehearsal of the great wings Searburn unfurls at metamorphosis and Bahamber spreads at maturity." },
 
-  17: { id:17, name:"Searburn",   emoji:"🐉", types:["Fire","Draconic"],
+  17: { id:17, name:"Searburn",   emoji:"🐉", types:["Draconic","Earth"],
     base:{hp:78,atk:97,def:61,spa:101,spd:75,spe:92},
     learnset:[[1,"ember"],[2,"flamethrower"],[3,"cinderwhirl"],[4,"scorch_veil"],[21,"vital_pulse"],[26,"char_dance"],[32,"dragon_breath"],[38,"dragon_claw"],[44,"heat_wave"],[50,"inferno"],[56,"outrage"],[62,"solar_flare"],[5,"embercloak"],[41,"dragon_rush"]],
     evolveTo:18, evolveLevel:42, catchRate:45, expYield:198, rarity:"uncommon",
-    desc:"A serpentine fire dragon. Coils around prey before unleashing flame.",
-    lore:"Searburn is a powerful fire dragon 4 metres long — Cindercula's serpentine length has thickened and reared upward, its copper-to-charcoal scales darkened to scarlet-and-black and the flame-coloured feathered crest hardened into a pair of backward-swept horns framing its angular head. Its broad wings generate intense heat when flapping, scorching the air in wide arcs. It roosts in mountain crags above the treeline and uses updrafts to glide effortlessly for hours." },
+    desc:"A serpentine crag dragon. Coils around prey before unleashing flame.",
+    lore:"Searburn is a powerful earth-dragon 4 metres long — Cindercula's serpentine length has thickened and reared upward, its copper-to-charcoal scales darkened to scarlet-and-black and the flame-coloured feathered crest hardened into a pair of backward-swept horns framing its angular head. Its broad wings generate intense heat when flapping, scorching the air in wide arcs. It roosts in mountain crags above the treeline and uses updrafts to glide effortlessly for hours; years among the granite spires harden its scales toward the colour and density of the cliffs it claims as territory." },
 
   // ===== ADDITIONAL WATER =====
   25: { id:25, name:"Reefling",  emoji:"🦀", types:["Aquatic"],
@@ -3675,12 +3675,12 @@ const MONSTERS_DATA = {
     lore:"Pyroclasm is a jagged bipedal volcanic bull-titan 2.5 metres tall that has reared up onto two legs since its Molteroth stage, its body a mass of dark basalt encrusted with glowing magma veins. When agitated it hurls chunks of its own burning body as projectiles. It forms in the wake of eruptions and is considered a manifestation of volcanic rage." },
 
   // 180: Helixareth - Fire/Draconic (Ignicula→Pyroveth→Helixareth)
-  18: { id:18, name:"Bahamber", emoji:"🐉", types:["Fire","Draconic"],
+  18: { id:18, name:"Bahamber", emoji:"🐉", types:["Draconic","Earth"],
     base:{hp:87,atk:111,def:72,spa:121,spd:82,spe:77},
     learnset:[[1,"ember"],[1,"flamethrower"],[2,"dragon_breath"],[3,"cinderwhirl"],[4,"scorch_veil"],[38,"dragon_claw"],[42,"heat_wave"],[46,"fire_blast"],[50,"dragon_pulse"],[54,"solar_flare"],[58,"outrage"],[62,"inferno"],[5,"embercloak"],[44,"eon_crash"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
     desc:"An ancient serpent of celestial fire that coils around mountaintops. Legends say its breath forged the first volcanoes.",
-    lore:"Bahamber is a serpentine fire dragon 6 metres long that coils tightly around rocky spires to sleep — Searburn's scarlet-and-black scales have darkened further to amber-and-black overlapping like armour, and the backward-swept horns of its juvenile form have grown forward into twin crests of blue-tipped flame crowning its narrow skull. Vast wings fold along its serpentine length when at rest, almost invisible against its scales but capable of sweeping fire across a hillside when unfurled. It breathes a spiralling helix of fire able to bore through solid stone." },
+    lore:"Bahamber is a serpentine earth-dragon 6 metres long that coils tightly around rocky spires to sleep — Searburn's scarlet-and-black scales have darkened further to amber-and-black overlapping like armour, and the backward-swept horns of its juvenile form have grown forward into twin crests of blue-tipped flame crowning its narrow skull. Vast wings fold along its serpentine length when at rest, almost invisible against its scales but capable of sweeping fire across a hillside when unfurled. It breathes a spiralling helix of fire able to bore through solid stone." },
 
   // 21: Terravore - Fire/Earth (Magmaurin→Embrath→Terravore)
   21: { id:21, name:"Terravore", emoji:"🦎", types:["Fire","Earth"],
@@ -4170,12 +4170,12 @@ const MONSTERS_DATA = {
     desc:"The sovereign of all void-touched creatures. Its mind is a labyrinth with no exit.",
     lore:"Voidlord is a mental-spectral entity 2.2 metres tall with a body of solidified void-matter and a crown of hovering psychic fragments. No one who has entered its mindscape has returned unchanged." },
 
-  353: { id:353, name:"Infernotitan", emoji:"🌋", types:["Fire","Draconic"],
+  353: { id:353, name:"Infernotitan", emoji:"🌋", types:["Draconic","Mineral"],
     base:{hp:78,atk:106,def:82,spa:98,spd:74,spe:82}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"flamethrower"],[10,"dragon_claw"],[20,"fire_blast"],[30,"dragon_pulse"],[40,"solar_flare"],[50,"cataclysm_breath"],[60,"ancient_breath"],[5,"char_dance"],[38,"primordial_roar"]],
     catchRate:10, expYield:318, rarity:"rare",
     desc:"A volcanic dragon that erupts when enraged. Continents have shifted from its ancient battles.",
-    lore:"Infernotitan is a fire-dragon 6 metres long with scales of hardened magma and breath hot enough to liquefy stone. Ancient geological surveys attribute certain canyon formations to its rampages." },
+    lore:"Infernotitan is a mineral-dragon 6 metres long with scales of hardened magma and breath hot enough to liquefy stone. Ancient geological surveys attribute certain canyon formations to its rampages." },
 
   354: { id:354, name:"Riftwhale", emoji:"🐋", types:["Aquatic","Mental"],
     base:{hp:105,atk:77,def:88,spa:99,spd:93,spe:53}, evolveTo:null, evolveLevel:null,
@@ -4463,12 +4463,12 @@ const MONSTERS_DATA = {
     desc:"A dark electromagnetic storm given will. It communicates by interrupting every electrical device within range.",
     lore:"Nullstorm is a dark-electric entity 5 metres across that resembles a contained electromagnetic storm with a dark nucleus. Every electronic device within a kilometre malfunctions in its presence." },
 
-  394: { id:394, name:"Solarvast", emoji:"🌟", types:["Fire","Draconic"],
+  394: { id:394, name:"Solarvast", emoji:"🌟", types:["Draconic","Stellar"],
     base:{hp:86,atk:120,def:92,spa:117,spd:92,spe:101}, evolveTo:null, evolveLevel:null, ngPlusTier:3,
     learnset:[[1,"flamethrower"],[10,"dragon_breath"],[20,"solar_flare"],[30,"dragon_pulse"],[40,"fire_blast"],[50,"cataclysm_breath"],[60,"ancient_breath"],[5,"char_dance"],[55,"primordial_roar"]],
     catchRate:4, expYield:370, rarity:"legendary",
-    desc:"A fire dragon born from the sun itself. The corona of its home star still wraps its body.",
-    lore:"Solarvast is a fire-dragon 7 metres long whose scales burn with the surface temperature of a star. It was first recorded appearing from a solar flare. Its breath weapon reaches temperatures measurable only in solar physics." },
+    desc:"A stellar dragon born from the sun itself. The corona of its home star still wraps its body.",
+    lore:"Solarvast is a stellar-dragon 7 metres long whose scales burn with the surface temperature of a star. It was first recorded appearing from a solar flare. Its breath weapon reaches temperatures measurable only in solar physics." },
 
   395: { id:395, name:"Glacierend", emoji:"❄️", types:["Ice","Draconic"],
     base:{hp:97,atk:124,def:110,spa:115,spd:103,spe:99}, evolveTo:null, evolveLevel:null, ngPlusTier:4,

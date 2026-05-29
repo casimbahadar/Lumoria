@@ -2969,42 +2969,42 @@ const MONSTERS_DATA = {
 
   // ===== BATCH 7: POISON / BUG / MIXED FILLS (IDs 296-313) =====
 
-  // 3-stage Poison/Bug chain: Toxifly → Venomwing → Plagueoth (lv26, lv44)
-  296: { id:296, name:"Plaguefly", emoji:"🦟", types:["Poison","Nature"],
+  // 3-stage Poison/Toxin chain: Plaguefly → Blightwing → Plagueoth (lv26, lv44)
+  296: { id:296, name:"Plaguefly", emoji:"🦟", types:["Poison","Toxin"],
     base:{hp:44,atk:52,def:40,spa:68,spd:52,spe:80},
     learnset:[[1,"poison_sting"],[1,"bug_buzz"],[10,"sludge_bomb"],[20,"x_scissor"],[30,"toxic"],[40,"venoshock"],[50,"venom_lance"],[60,"hyper_beam"]],
     evolveTo:297, evolveLevel:26, catchRate:178, expYield:70, rarity:"common",
     desc:"A mosquito-like creature with toxic saliva. A single bite can poison most Lumori instantly.",
-    lore:"Plaguefly is a large poison-bug insect with a 30 cm wingspan. Its wings are translucent grey with poison-green venation. Its body is a bloated sack of toxic fluid. It breeds in stagnant water and its larval masses are visible as roiling dark clouds beneath the surface of contaminated ponds." },
+    lore:"Plaguefly is a large poison-toxin insect with a 30 cm wingspan. Its wings are translucent grey with poison-green venation. Its body is a bloated sack of toxic fluid. It breeds in stagnant water and its larval masses are visible as roiling dark clouds beneath the surface of contaminated ponds." },
 
-  297: { id:297, name:"Blightwing", emoji:"🦟", types:["Poison","Nature"],
+  297: { id:297, name:"Blightwing", emoji:"🦟", types:["Poison","Toxin"],
     base:{hp:68,atk:78,def:62,spa:98,spd:78,spe:100},
     learnset:[[1,"x_scissor"],[1,"sludge_bomb"],[20,"toxic"],[28,"venoshock"],[36,"bug_buzz"],[44,"venom_lance"],[52,"sludge_wave"],[60,"hyper_beam"]],
     evolveTo:298, evolveLevel:44, catchRate:85, expYield:148, rarity:"uncommon",
     desc:"A blight mosquito whose extended proboscis can drain entire forests of vitality. Its bite spreads withering pestilence.",
-    lore:"Blightwing is a medium poison-bug mosquito with 40 cm wingspan — Plaguefly's translucent grey wings have darkened to dark purple with the same poison-green venation now glowing faintly across them. Its elongated proboscis can pierce thick bark to drain plant sap, leaving withered scars in its wake. It inhabits areas of environmental decay, flourishing where other life struggles." },
+    lore:"Blightwing is a medium poison-toxin mosquito with 40 cm wingspan — Plaguefly's translucent grey wings have darkened to dark purple with the same poison-green venation now glowing faintly across them. Its elongated proboscis can pierce thick bark to drain plant sap, leaving withered scars in its wake. It inhabits areas of environmental decay, flourishing where other life struggles." },
 
-  298: { id:298, name:"Plagueoth", emoji:"🦟", types:["Poison","Nature"],
+  298: { id:298, name:"Plagueoth", emoji:"🦟", types:["Poison","Toxin"],
     base:{hp:82,atk:89,def:73,spa:116,spd:95,spe:95},
     learnset:[[1,"venom_lance"],[1,"bug_buzz"],[30,"sludge_wave"],[38,"toxic"],[46,"venoshock"],[54,"mycelia_net"],[62,"corrosion_fang"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
     desc:"The plague mosquito. Ancient texts describe its awakening as an omen of great pestilence. A single drain leaves victims hollowed.",
-    lore:"Plagueoth is a large poison-bug mosquito 60 cm long — Blightwing's elongated bark-piercing proboscis has lengthened further into a needle as long as its body, and the slim juvenile abdomen has bloated into a venom-sac. Its ragged dark wings have a 1.5 m span. It inhabits abandoned buildings and decaying swampland, draining the vital fluids of any creature unfortunate enough to be caught alone at dusk." },
+    lore:"Plagueoth is a large poison-toxin mosquito 60 cm long — Blightwing's elongated bark-piercing proboscis has lengthened further into a needle as long as its body, and the slim juvenile abdomen has bloated into a venom-sac. Its ragged dark wings have a 1.5 m span. It inhabits abandoned buildings and decaying swampland, draining the vital fluids of any creature unfortunate enough to be caught alone at dusk." },
 
-  // 2-stage Bug/Poison chain: Stinglet → Nettleclaw (level 28)
-  299: { id:299, name:"Stinglet", emoji:"🐝", types:["Nature","Poison"],
+  // 2-stage Toxin/Sonic chain: Stinglet → Nettleclaw (level 28)
+  299: { id:299, name:"Stinglet", emoji:"🐝", types:["Toxin","Sonic"],
     base:{hp:50,atk:65,def:52,spa:58,spd:55,spe:78},
     learnset:[[1,"bug_buzz"],[1,"poison_sting"],[12,"x_scissor"],[22,"sludge_bomb"],[32,"toxic"],[42,"venoshock"],[52,"venom_lance"],[60,"hyper_beam"]],
     evolveTo:300, evolveLevel:28, catchRate:162, expYield:78, rarity:"common",
     desc:"A bee-like stinger creature with a massive venomous barb. Builds hives from toxic resin.",
-    lore:"Stinglet is a small bug-poison bee 8 cm long with a bright yellow-and-black striped abdomen. Its stinger contains a venom that causes localised swelling and intense pain. It is fiercely territorial around its nest and coordinates with colony-mates using chemical signals to perform coordinated defence responses." },
+    lore:"Stinglet is a small toxin-sonic bee 8 cm long with a bright yellow-and-black striped abdomen. Its stinger contains a venom that causes localised swelling and intense pain. It is fiercely territorial around its nest and coordinates with colony-mates using chemical signals to perform coordinated defence responses." },
 
-  300: { id:300, name:"Nettleclaw", emoji:"🐝", types:["Nature","Poison"],
+  300: { id:300, name:"Nettleclaw", emoji:"🐝", types:["Toxin","Sonic"],
     base:{hp:80,atk:105,def:80,spa:88,spd:80,spe:95},
     learnset:[[1,"x_scissor"],[1,"venom_lance"],[22,"toxic"],[30,"venoshock"],[38,"sludge_bomb"],[46,"bug_buzz"],[54,"sludge_wave"],[62,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:218, rarity:"uncommon",
     desc:"A great venom-bee with an elongated stinger-tail. The whip-stinger arches scorpion-like over its back but is true bee anatomy, parallel-evolved from the standard sting.",
-    lore:"Nettleclaw is a large bug-poison bee 25 cm long — Stinglet's bright yellow-and-black striped abdomen has matured across an entire body still bee-striped yellow-and-black, with four membranous wings and an elongated segmented stinger-tail that arches scorpion-like over its back. The whip-stinger is parallel-evolved from the bee's standard sting, not arachnid heritage. It is solitary and aggressive — unusual for Hymenoptera — marking territory with scent-trails that it defends vigorously against any trespasser regardless of size." },
+    lore:"Nettleclaw is a large toxin-sonic bee 25 cm long — Stinglet's bright yellow-and-black striped abdomen has matured across an entire body still bee-striped yellow-and-black, with four membranous wings and an elongated segmented stinger-tail that arches scorpion-like over its back. The whip-stinger is parallel-evolved from the bee's standard sting, not arachnid heritage. It is solitary and aggressive — unusual for Hymenoptera — marking territory with scent-trails that it defends vigorously against any trespasser regardless of size." },
 
   // Standalone Fire/Spectral: Emberveil
   301: { id:301, name:"Emberveil", emoji:"🔥", types:["Fire","Dark"],
@@ -3218,12 +3218,12 @@ const MONSTERS_DATA = {
     lore:"Sylvnox is a small bark-skinned forest-sprite 60 cm tall, the youngest stage of the leshy lineage. Its body is bipedal and humanoid, wrapped in a fringed cloak of dark leaves and shadow-moss with two short twig-horns curling from its brow. Its amber eyes glow through the foliage-hood as it skitters through the undergrowth at twilight, drawing shadow-camouflage from the corrupted plants it touches. Travellers who hear its faint giggling among the trees rarely see it before it is gone." },
 
   // ===== POISON/GRASS =====
-  162: { id:162, name:"Marlix", emoji:"🌾", types:["Poison","Nature"],
+  162: { id:162, name:"Marlix", emoji:"🌾", types:["Nature","Toxin"],
     base:{hp:55,atk:56,def:53,spa:59,spd:48,spe:66},
     learnset:[[1,"poison_sting",[22,"miasma_cloud"]],[1,"vine_whip"],[10,"sludge_bomb"],[18,"razor_leaf"],[26,"toxic"],[30,"petal_blitz"],[34,"energy_ball"],[42,"venoshock",[5,"toxic_surge"]],[3,"toxin_bloom"],[32,"sludge_wave"]],
     evolveTo:163, evolveLevel:28, catchRate:120, expYield:94, rarity:"common",
     desc:"A bog plant with razor-edged thorns dripping toxic sap. Thrives in poisoned swamps.",
-    lore:"Marlix is a slender poison-grass creature 80 cm tall resembling a humanoid made of dense marsh reeds. Its stalk-body is pale green with brown banding, and it moves by bending and straightening its reed-limbs. It inhabits shallow wetlands and disguises itself as ordinary marsh vegetation between encounters." },
+    lore:"Marlix is a slender grass-toxin creature 80 cm tall resembling a humanoid made of dense marsh reeds. Its stalk-body is pale green with brown banding, and it moves by bending and straightening its reed-limbs. It inhabits shallow wetlands and disguises itself as ordinary marsh vegetation between encounters." },
 
   // ===== DARK =====
   126: { id:126, name:"Impefurr", emoji:"🦊", types:["Dark"],
@@ -3355,12 +3355,12 @@ const MONSTERS_DATA = {
     desc:"A dark vine predator that ensnares prey in shadow-infused tendrils. Ancient and cunning.",
     lore:"Morraveth is a mid-stage leshy 1 metre tall — Sylvnox's bark-skin has thickened into shoulder-plates of dark wood, and the twig-horns of its sprite-form have elongated into branching antler-buds. Withered vines coil around its forearms and its leaf-cloak has deepened to midnight green and black. It hunts by corrupting the plant growth around its prey into thorny barriers, gradually encircling the target before closing in from the shadows." },
 
-  163: { id:163, name:"Blightalis", emoji:"🪷", types:["Poison","Nature"],
+  163: { id:163, name:"Blightalis", emoji:"🪷", types:["Nature","Toxin"],
     base:{hp:88,atk:80,def:60,spa:116,spd:83,spe:58},
     learnset:[[1,"sludge_bomb"],[2,"toxic"],[3,"poison_sting"],[4,"toxic_surge"],[28,"petal_blitz"],[31,"energy_ball"],[35,"growl"],[39,"venoshock"],[42,"battle_cry"],[49,"photon_leaf"],[56,"venom_lance"],[63,"root_lance"],[5,"toxin_bloom"],[43,"leaf_blade"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
     desc:"A carnivorous flower of potent venom. Its blooms lure in prey before injecting toxins.",
-    lore:"Blightalis is a poison-grass creature 1.2 metres tall whose Marlix reed-stalk body has bloomed into a flower-headed humanoid. Its petals are deep crimson-purple and droop downward like a wilting bloom around its head. Its stem-body is hollow and filled with toxic nectar. It lures insects and small creatures into its central chamber, trapping and dissolving them." },
+    lore:"Blightalis is a grass-toxin creature 1.2 metres tall whose Marlix reed-stalk body has bloomed into a flower-headed humanoid. Its petals are deep crimson-purple and droop downward like a wilting bloom around its head. Its stem-body is hollow and filled with toxic nectar. It lures insects and small creatures into its central chamber, trapping and dissolving them." },
 
   127: { id:127, name:"Specraxis", emoji:"👻", types:["Dark","Mental"],
     base:{hp:78,atk:68,def:54,spa:107,spd:90,spe:91},
@@ -3452,19 +3452,19 @@ const MONSTERS_DATA = {
     lore:"Monolithox is a hulking obsidian saurian 3 metres tall — Volcascale's obsidian horned-lizard frame has grown massive and its sharp-ridged back has fused into a towering monolithic plate-shell. It appears to be a standing stone until it moves; the basalt-dark plate is nearly featureless except for two deep-set glowing red eyes set in a low-slung saurian skull. It moves extremely slowly but is virtually indestructible, its body having the hardness of natural obsidian." },
 
   // ===== POISON/BUG =====
-  164: { id:164, name:"Blightmite", emoji:"🐛", types:["Poison","Nature"],
+  164: { id:164, name:"Blightmite", emoji:"🐛", types:["Poison","Wind"],
     base:{hp:56,atk:37,def:55,spa:65,spd:52,spe:30},
     learnset:[[1,"poison_sting",[20,"venom_lance"]],[1,"string_shot"],[8,"bug_bite"],[16,"sludge_bomb"],[21,"recover"],[24,"x_scissor"],[32,"toxic",[5,"toxic_surge"]],[36,"sonic_buzz"],[3,"toxin_bloom"],[31,"mandible_crush"]],
     evolveTo:165, evolveLevel:20, catchRate:220, expYield:65, rarity:"common",
     desc:"A larva coated in toxic slime. Leaves a trail of venom wherever it crawls.",
-    lore:"Blightmite is a small caterpillar-like poison-bug creature 10 cm long. Its body is dark purple-black with short bristle-hairs that release toxins on contact. It feeds on the toxic leaves that other creatures avoid, sequestering their poisons into its own body and becoming increasingly dangerous as it eats." },
+    lore:"Blightmite is a small caterpillar-like poison-wind creature 10 cm long. Its body is dark purple-black with short bristle-hairs that release toxins on contact. It feeds on the toxic leaves that other creatures avoid, sequestering their poisons into its own body and becoming increasingly dangerous as it eats." },
 
-  165: { id:165, name:"Venowarn", emoji:"🦋", types:["Poison","Nature"],
+  165: { id:165, name:"Venowarn", emoji:"🦋", types:["Poison","Wind"],
     base:{hp:77,atk:69,def:57,spa:106,spd:84,spe:92},
     learnset:[[1,"sludge_bomb"],[2,"toxic_surge"],[20,"recover"],[25,"quick_attack"],[29,"toxic"],[30,"nerve_agent"],[35,"venoshock"],[40,"air_slash"],[45,"putrid_pulse"],[50,"acid_rain"],[55,"cocoon_burst"],[60,"bug_buzz"],[3,"toxin_bloom"],[39,"leech_life"]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:185, rarity:"uncommon",
     desc:"A venomous moth that releases toxic scales on the wind. A cloud of them can fell a Lumori quickly.",
-    lore:"Venowarn is a large poison-bug butterfly with a 50 cm wingspan — Blightmite's dark purple-black caterpillar body has metamorphosed into deep black wings, with the bristle-hair toxin now sequestered into vivid purple warning patterns. It releases a cloud of toxic scales when startled, and the scales cause skin irritation and respiratory distress in creatures that inhale them. It inhabits dense poisonous forest regions." },
+    lore:"Venowarn is a large poison-wind butterfly with a 50 cm wingspan — Blightmite's dark purple-black caterpillar body has metamorphosed into deep black wings, with the bristle-hair toxin now sequestered into vivid purple warning patterns. It releases a cloud of toxic scales when startled, and the scales cause skin irritation and respiratory distress in creatures that inhale them. It inhabits dense poisonous forest regions." },
 
   // ===== STEEL/GROUND =====
   153: { id:153, name:"Dentshaft", emoji:"⚙️", types:["Metal","Earth"],

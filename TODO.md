@@ -597,6 +597,15 @@ Workflow merged into the per-Lumori UNIFIED audit (Step 4). Cap-tally checks hap
 - Validate combo counts post-batch — a retype that lands in another over-cap combo doesn't help.
 - Commit per batch, present full table for user approval before next batch.
 
+## Accepted cap-drift exceptions (added during over-cap audit 2026-05-29)
+
+The following type combos have explicit user-approved cap-drift exceptions:
+
+- **Mental/Spectral:** 1F+2S=3 entries permitted (over standalone-limit by 1). Lore cohesion + uniformly NG+/late-game encounter gating justify the immunity-stacking drift.
+- **Mental/Fairy (Fairy/Mental):** up to 3F+1S=4 entries permitted (over family-limit by 1, over standalone-limit by 1). Future Lumori with strong Mental/Fairy lore fit may take the open 1S slot — particularly iconic creative-muse / celestial-fairy / cosmic-fairy standalones.
+
+These exceptions are per-combo and explicit — they do NOT generalize to other combos without separate user approval.
+
 # 🐺 Archetype oversaturation — REFERENCE TALLIES (workflow merged into 🕯 UNIFIED AUDIT)
 
 Per-archetype trim decisions happen per-Lumori inside the UNIFIED audit (Step 3 "Decide archetype"). The cap rules + current family counts below remain authoritative reference.

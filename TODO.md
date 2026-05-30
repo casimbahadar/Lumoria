@@ -567,50 +567,47 @@ After each batch of approvals, re-tally the dex-wide type-combo counts to confir
 
 Workflow merged into the per-Lumori UNIFIED audit (Step 4). Cap-tally checks happen per-Lumori at the moment each Lumori's lore + desc + archetype is finalized. The cap rules + counting rules + progress state below remain authoritative reference.
 
-## Cap rules & progress (clarified during PR #50 session, 2026-05-17)
+## Cap rules & counting (updated 2026-05-30 — see commit history for full context)
+
+**Counting rule (ID-tally — current):**
+- For each type combo, count **every Lumori in the dex** whose `types` array matches that combo, regardless of evolution stage. All pre-stages, mid-stages, finals, and standalones count.
+- A pre-stage with a *different* `types` array counts for its own combo, not the final's. Example: Mindpuff (mono Mental) → Recallum (mono Mental) → Psytheon (Mental/Fairy): Mental/Fairy gets **1 ID** (just Psytheon), mono Mental gets **+2** from the pre-stages.
+- Two-stage chains where both members share the same combo contribute 2 IDs (e.g. Crumblite + Stonegrip both Earth/Metal = 2 IDs in Earth/Metal).
+
+*Earlier "family + standalone" tally rule from prior sessions has been superseded by ID-tally — see commit history.*
 
 **Cap rules (user-decided):**
-- **Ordinary combos:** 2 families + 1 standalone (max 3 entries)
-- **Flagship combos:** 4 families + 2 standalones (max 6 entries)
+- **Ordinary dual combos:** soft cap of **6 IDs**
+- **Flagship dual combos:** soft cap of **12 IDs** (double ordinary)
+- **All mono-type combos:** automatic flagship status (12-ID cap)
 - **Forgotten range (id ≥ 408):** included in cap (no exemption)
+- **Soft-cap policy:** Caps are guidelines, not hard limits. Drift above cap is acceptable when justified by all of:
+  1. All combo members have intrinsic lore-fit (no comparable pre-408 alternative typing)
+  2. The combo is not defensively broken-strong (avoid immunity-stacking)
+  3. Drift is per-Lumori justified, not blanket
 
-**Flagship typings (TENTATIVE — user to finalize in separate session):**
-- Fairy / Psychic
-- Dragon / Fire
-- Dragon / Psychic
-- mono Normal
+**Flagship designation:** Implicit for monos. For duals, flagship is per-cluster on case-by-case basis — surfaced during the per-combo audit when warranted. Stale tentative list ("Fairy/Psychic, Dragon/Fire, Dragon/Psychic, mono Normal" from PR #50) no longer applies — the new ID-tally + soft-cap framework supersedes it.
 
-(List is provisional; do not treat as authoritative until user confirms. Tentative basis: starter/legendary signatures + the mono-Normal "everyman" niche.)
+**Progress state (under ID-tally as of 2026-05-30):**
+- Pre-408 dex: **407 Lumori across 113 occupied type combos** (out of 351 possible, 121 pre-408-eligible duals still pristine).
+- **Distribution:** 21 combos at 1 ID, 22 at 2, 25 at 3, 12 at 4, 12 at 5, 5 at 6, 12 at 7-8, 2 at 9-10, 2 at 11+.
+- **Over ordinary cap (7+ IDs):** 14 dual combos + 5 monos (monos auto-flagship-OK).
+- Dual over-cap dual combos to address: Electric/Nature (9), Draconic/Earth (8), Fairy/Nature (8), Nature/Poison (8), Aquatic/Earth (7), Aquatic/Ice (7), Dark/Metal (7), Earth/Nature (7).
 
-**Counting rules:**
-- A "family" = the final-stage member of an evolution chain (one tally per family regardless of stage count).
-- A "standalone" = a non-evolving Lumori (one tally each).
-
-**Progress state (post-PR #50):**
-- Initial audit: **40 over-cap combos** identified.
-- **Batch 1 (PR #50):** 8 retypes complete → **32 violations remaining**.
-- Severity of remaining 32: 8 over by 1, 16 over by 2, 6 over by 3, 2 over by 4 (Dark/Fairy, Dark/Fire), 1 over by 5 (Dark/Psychic).
-- The Dark cluster is the most affected — partly inherited from the 11 pre-408 post-game-typing retypes in PR #49.
-
-**Process notes for future sessions:**
-- Always run pre-flight target-combo verification before each retype (string-sort consistency matters — e.g. "Dark/Ice" not "Ice/Dark" in tallies).
+**Process notes:**
+- Run a fresh ID-tally before each cluster decision so retype impact is accurate.
 - Validate combo counts post-batch — a retype that lands in another over-cap combo doesn't help.
 - Commit per batch, present full table for user approval before next batch.
 
-## Accepted cap-drift exceptions (added during over-cap audit 2026-05-29)
+## Accepted cap-drift exceptions (re-evaluated 2026-05-30 under ID-tally)
 
-The following type combos have explicit user-approved cap-drift exceptions:
+Under the updated ID-tally + 6/12 soft-cap rules, **most prior drift exceptions auto-resolved** (combos that were "over" under family-tally are now within ordinary 6-ID cap). The few that remain over and need either further trim or formal drift acceptance:
 
-- **Mental/Spectral:** 1F+2S=3 entries permitted (over standalone-limit by 1). Lore cohesion + uniformly NG+/late-game encounter gating justify the immunity-stacking drift.
-- **Mental/Fairy (Fairy/Mental):** up to 3F+1S=4 entries permitted (over family-limit by 1, over standalone-limit by 1). Future Lumori with strong Mental/Fairy lore fit may take the open 1S slot — particularly iconic creative-muse / celestial-fairy / cosmic-fairy standalones.
-- **Nature/Poison:** 2F+2S=4 entries permitted (over standalone-limit by 1). Voidgarden (corrupted poisonous plant-garden) added during the Dark/Fairy trim — Nature/Poison was its truest lore home (a poisonous garden), justifying the drift over routing it to a worse-fitting pristine combo.
-- **Draconic/Earth:** 3F+1S=4 entries permitted (over family-limit by 1). Bahamber line ("forged the first volcanoes, bores through solid stone, coils rocky spires") added during the Draconic/Fire trim — Draconic/Earth was its truest geological-dragon home. Below flagship-level despite rule 8's "Draconic combos trim, no flagship" — explicit one-step drift, not a flagship promotion.
-- **Aquatic/Dark:** 0F+2S=2 entries permitted (over standalone-limit by 1). Abyssovex (legendary Abyss Drake) + Deepvoid (purest Dark body in the dex — "no light reflects from it") both kept during the Aquatic/Dark trim — both intrinsically Aquatic/Dark with no alternative typing offering comparable lore fit.
-- **Mental/Draconic:** 1F+2S=3 entries permitted (over standalone-limit by 1). Veildrak family (NG+ pseudolegendary apex) + Temporith and Eondrake (both legendaries) all heavily "time-perception" coded — Chrono would be ideal but is strict-Forgotten-only with no legendary exception, leaving Mental/Draconic as the only honest pre-408 home for all three.
-- **Draconic/Mineral:** 0F+2S=2 entries permitted (over standalone-limit by 1). Infernotitan (Earth/Metal trim) + Prismancer (Draconic/Mental trim) — both genuinely mineral-bodied dragons (hardened magma scales / prismatic crystal scales); the two arrivals happen to land in the same cell with distinct body language.
-- **Fairy/Nature:** 3F+0S=3 entries permitted (over family-limit by 1). Garlawarden (starter, locked keep) + Faevernal (apex spring-equinox fairy) + Arachnalis (unique spider-fairy) all lore-locked with weak alt-type paths. Same shape as Mental/Fairy precedent; below flagship-level despite rule 8's "Fairy combos trim, no flagship".
+- **Nature/Poison: 8 IDs (+2 over).** Voidgarden was added during the Dark/Fairy trim as best-fit (corrupted poisonous garden). Original cluster trim left 2F+2S=4 entries family-tally = 8 IDs because the Tendrilisk and Plaguefly chains both pre-stage in Nature/Poison. **Still over under new tally — pending re-evaluation in the redo pass.**
+- **Draconic/Earth: 8 IDs (+2 over).** Bahamber line ("forged the first volcanoes") added during Draconic/Fire trim. Both Searburn and Bahamber count under ID-tally. **Pending re-evaluation.**
+- **Fairy/Nature: 8 IDs (+2 over).** Garlawarden/Faevernal/Arachnalis chains all multi-stage with shared typing. Locked-in starter (Garlawarden) plus apex spring-fairy (Faevernal) plus unique spider-fairy (Arachnalis). **Pending re-evaluation in the redo pass.**
 
-These exceptions are per-combo and explicit — they do NOT generalize to other combos without separate user approval.
+**Auto-resolved under ID-tally (no longer drifts):** Mental/Spectral (4 IDs ✓), Mental/Fairy (5 ✓), Aquatic/Dark (2 ✓), Mental/Draconic (5 ✓), Draconic/Mineral (2 ✓).
 
 ## Deferred — END-OF-AUDIT starter batch (decide all together, do not close audit until resolved)
 

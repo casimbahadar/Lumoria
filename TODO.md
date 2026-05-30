@@ -608,18 +608,19 @@ The following type combos have explicit user-approved cap-drift exceptions:
 - **Aquatic/Dark:** 0F+2S=2 entries permitted (over standalone-limit by 1). Abyssovex (legendary Abyss Drake) + Deepvoid (purest Dark body in the dex — "no light reflects from it") both kept during the Aquatic/Dark trim — both intrinsically Aquatic/Dark with no alternative typing offering comparable lore fit.
 - **Mental/Draconic:** 1F+2S=3 entries permitted (over standalone-limit by 1). Veildrak family (NG+ pseudolegendary apex) + Temporith and Eondrake (both legendaries) all heavily "time-perception" coded — Chrono would be ideal but is strict-Forgotten-only with no legendary exception, leaving Mental/Draconic as the only honest pre-408 home for all three.
 - **Draconic/Mineral:** 0F+2S=2 entries permitted (over standalone-limit by 1). Infernotitan (Earth/Metal trim) + Prismancer (Draconic/Mental trim) — both genuinely mineral-bodied dragons (hardened magma scales / prismatic crystal scales); the two arrivals happen to land in the same cell with distinct body language.
+- **Fairy/Nature:** 3F+0S=3 entries permitted (over family-limit by 1). Garlawarden (starter, locked keep) + Faevernal (apex spring-equinox fairy) + Arachnalis (unique spider-fairy) all lore-locked with weak alt-type paths. Same shape as Mental/Fairy precedent; below flagship-level despite rule 8's "Fairy combos trim, no flagship".
 
 These exceptions are per-combo and explicit — they do NOT generalize to other combos without separate user approval.
 
 ## Deferred — END-OF-AUDIT starter batch (decide all together, do not close audit until resolved)
 
-The 3 starter-line FINAL evolutions are deferred to a single end-of-audit decision (their typing is a deliberate design triad and should be settled as a set). Each currently sits in an over-cap combo:
+The remaining starter-line FINAL evolutions still need their end-of-audit decision. The third (Garlawarden) was locked-in during the Fairy/Nature trim (KEEPS Nature/Fairy).
 
 - **#6 Banksnout** (Aquatic starter final) — currently Aquatic/Earth. Plan A intent: → **Aquatic/Normal** (semi-aquatic mammal). **Aquatic/Earth is held at an interim 3F+1S** (Banksnout + Tidalossus + Calciderm + Petrwave) and only reaches the ordinary 2F+1S cap once Banksnout moves. ⚠️ Broken-strong combo — must resolve.
-- **#3 Calderaeth** (Fire starter final) — Fire/Draconic. In the Draconic/Fire over-cap cluster (+3). Likely a keeper (starter signature).
-- **#9 Garlawarden** (Nature starter final) — Nature/Fairy. In the Fairy/Nature over-cap cluster (+2). Likely a keeper (starter signature).
+- **#3 Calderaeth** (Fire starter final) — Fire/Draconic. In the Draconic/Fire cluster, already trimmed (kept as 1 of 2F + Blazeon; Calderaeth's status determines whether Fire/Draconic stays at 2F+1S or shifts to 1F+1S).
+- ~~**#9 Garlawarden** (Nature starter final)~~ — **LOCKED to Nature/Fairy** during Fairy/Nature cluster trim (no longer deferred).
 
-Current starter type triad: Fire/Draconic, Aquatic/Earth, Nature/Fairy (base element + signature secondary). Decide whether to preserve the triad as-is (and trim other cluster members around them) or adjust — as one batch at the end.
+Current starter type triad: Fire/Draconic (pending), Aquatic/Earth (pending → Aquatic/Normal proposed), **Nature/Fairy ✓**. Decide whether to preserve the rest of the triad as-is or adjust — as one batch at audit's end.
 
 # 🐺 Archetype oversaturation — REFERENCE TALLIES (workflow merged into 🕯 UNIFIED AUDIT)
 

@@ -2076,12 +2076,12 @@ const MONSTERS_DATA = {
     desc:"A dreamrift that exists between sleep and waking. It draws power from nightmares.",
     lore:"Oneiron is a mental-dream entity 70 cm tall with a wisp-like body of deep indigo and silver. Its limbs dissolve at the edges into drifting motes of light. It inhabits the boundary between waking and sleep, entering dreams of nearby sleeping creatures and exploring their symbolic landscapes." },
 
-  171: { id:171, name:"Drakorius",    emoji:"🐲", types:["Mental","Draconic"],
+  171: { id:171, name:"Drakorius",    emoji:"🐲", types:["Draconic"],
     base:{hp:75,atk:88,def:74,spa:112,spd:82,spe:90},
     learnset:[[1,"dragon_breath",[28,"mind_shatter"]],[1,"confusion"],[13,"psybeam"],[21,"dragon_claw"],[24,"swords_dance"],[29,"psychic_move"],[37,"dragon_pulse"],[44,"astral_rend"],[45,"psystrike"],[53,"outrage",[5,"calm_mind"]],[3,"prism_ward"],[38,"eon_crash"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
-    desc:"A psychic dragon that manipulates reality with its mind. Ancient and mysterious.",
-    lore:"Drakorius is a psychic dragon 2 metres long with sleek violet-blue scales and a broad intelligent forehead. Its wings are translucent membranes showing internal structure like stained glass. It is uniquely capable of reading the intent of other dragons and has historically served as a mediator between rival dragon clans." },
+    desc:"A wise mediator dragon, fluent in the territorial calls of every clan. Ancient and mysterious.",
+    lore:"Drakorius is a dragon 2 metres long with sleek violet-blue scales and a broad intelligent forehead. Its wings are translucent membranes showing internal structure like stained glass. It is uniquely fluent in the territorial calls and posture-language of every dragon species, and has historically served as a mediator between rival dragon clans." },
 
   // ===== DRAGON =====
   172: { id:172, name:"Scalurin",    emoji:"🐣", types:["Draconic"],
@@ -4306,12 +4306,12 @@ const MONSTERS_DATA = {
     lore:"Nullform is a dark-normal creature 2 metres tall with a body of perfect matte black that reflects no light at all. It has no fixed features but rearranges its form to match whatever it has most recently defeated." },
 
   // ---- Tier 4: Prismatic Rift exclusives BST ~630–670 ----
-  372: { id:372, name:"Prismancer", emoji:"🌈", types:["Mental","Draconic"],
+  372: { id:372, name:"Prismancer", emoji:"🌈", types:["Draconic","Mineral"],
     base:{hp:69,atk:89,def:77,spa:107,spd:89,spe:89}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"psychic_move"],[10,"dragon_pulse"],[20,"psystrike"],[30,"dragon_claw"],[40,"mind_shatter"],[50,"wyrm_strike"],[60,"neural_storm"],[5,"dragon_dance"],[48,"cataclysm_breath"]],
     catchRate:8, expYield:335, rarity:"rare",
     desc:"A dragon born from a rift in the visible spectrum. Its scales cycle through every wavelength of light.",
-    lore:"Prismancer is a psychic-dragon 4 metres long whose scales shift through every colour of visible light in a constant slow cycle. The air around it refracts into rainbow halos." },
+    lore:"Prismancer is a mineral-dragon 4 metres long whose scales shift through every colour of visible light in a constant slow cycle. The air around it refracts into rainbow halos." },
 
   373: { id:373, name:"Voidrend", emoji:"🌌", types:["Dark","Spectral"],
     base:{hp:69,atk:103,def:74,spa:92,spd:82,spe:100}, evolveTo:null, evolveLevel:null,

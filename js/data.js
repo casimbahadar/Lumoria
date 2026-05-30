@@ -2656,12 +2656,12 @@ const MONSTERS_DATA = {
     lore:"Psychotide is a flowing water-psychic creature 50 cm tall — Bubblepuff's round bubble-body has uncoiled and stretched into a wave frozen in mid-curl with a face in its crest, the dreamy expression of its juvenile form preserved as the wave's central feature. Its body is continuously cycling water that maintains its wave-form through psychic concentration. It inhabits ocean shores and is particularly active at high tide, growing taller with stronger waves." },
 
   // 3-stage Aquatic/Ice chain: Tideling → Coralhorn → Torrentox
-  256: { id:256, name:"Scolphin", emoji:"🦀", types:["Aquatic","Ice"],
+  256: { id:256, name:"Scolphin", emoji:"🦀", types:["Aquatic"],
     base:{hp:48,atk:52,def:58,spa:65,spd:55,spe:52},
     learnset:[[1,"water_gun"],[1,"powder_snow"],[12,"bubble_beam"],[22,"ice_beam"],[32,"surf"],[42,"blizzard"],[52,"hydro_pump"],[60,"hyper_beam"]],
     evolveTo:257, evolveLevel:26, catchRate:170, expYield:74, rarity:"common",
     desc:"A crab-like creature with frozen shell. Moves between sea and frozen tundra with ease.",
-    lore:"Scolphin is a water-ice creature 30 cm long resembling a small dolphin made of ice-blue water. Its body is semi-solid — more ice than liquid in cold conditions and more liquid in warmth. It schools in large groups in cold coastal waters and leaps collectively in synchronised arcing patterns. Younger Scolphin's body is roughly 60% liquid water and 40% ice, but the ratio reverses with age toward the dense solid form their narwhal and orca-calf adult stages adopt. Their tail-half is consistently denser and colder than their head-half — the body already pre-shaped along the axis Torrentox's armoured-dorsal will eventually establish — and their school-communication chirps narrow with each year into the directional precision-hunting echolocation Torrentox uses to map prey through frozen water." },
+    lore:"Scolphin is a water creature 30 cm long resembling a small dolphin made of ice-blue water. Its body is semi-solid — more ice than liquid in cold conditions and more liquid in warmth. It schools in large groups in cold coastal waters and leaps collectively in synchronised arcing patterns. Younger Scolphin's body is roughly 60% liquid water and 40% ice, but the ratio reverses with age toward the dense solid form their narwhal and orca-calf adult stages adopt. Their tail-half is consistently denser and colder than their head-half — the body already pre-shaped along the axis Torrentox's armoured-dorsal will eventually establish — and their school-communication chirps narrow with each year into the directional precision-hunting echolocation Torrentox uses to map prey through frozen water." },
 
   257: { id:257, name:"Reefhorn", emoji:"🦞", types:["Aquatic","Ice"],
     base:{hp:72,atk:80,def:88,spa:90,spd:78,spe:65},

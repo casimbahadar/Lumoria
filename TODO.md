@@ -609,6 +609,10 @@ Under the updated ID-tally + 6/12 soft-cap rules, **most prior drift exceptions 
 
 **Auto-resolved under ID-tally (no longer drifts):** Mental/Spectral (4 IDs ✓), Mental/Fairy (5 ✓), Aquatic/Dark (2 ✓), Mental/Draconic (5 ✓), Draconic/Mineral (2 ✓).
 
+### New drifts surfaced under ID-tally:
+
+- **mono Nature: 14 IDs (+2 over flagship cap 12).** Largest plant-creature category in the dex. Members are all genuinely plant/fungus/insect-aligned: Verdkin + Barknell (Nature starter pre-stages), Germix→Verdurus, Photoworm→Chrysalix, Viridix, Sporix→Myceloth (former Nature/Poison pre-stages moved during ID-tally redo), Sproutix (former Fairy/Nature pre-stage moved during ID-tally redo), Leafhorn (moved during Fairy/Nature trim), Mosswing, Verdovast, Thornmoth. Drift accepted under soft-cap rule — peer cohesion is genuine, no forced inclusions, +2 over flagship is minimal.
+
 ## Deferred — END-OF-AUDIT starter batch (decide all together, do not close audit until resolved)
 
 The remaining starter-line FINAL evolutions still need their end-of-audit decision. The third (Garlawarden) was locked-in during the Fairy/Nature trim (KEEPS Nature/Fairy).

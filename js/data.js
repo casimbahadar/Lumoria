@@ -2936,12 +2936,12 @@ const MONSTERS_DATA = {
     desc:"A small wind-antelope fawn whose flowing mane streams perpetually in an invisible breeze. Bounds at remarkable speed across open plains.",
     lore:"Breezekin is a compact wind-antelope fawn 35 centimetres at the shoulder, slender-legged and graceful, with a sleek pale-grey coat and a long flowing mane that streams perpetually as if caught in a constant breeze — even indoors. Its movements are fluid and almost silent, and it bounds at speeds far above what its size suggests, navigating open plains and coastal grasslands primarily by smell carried on wind currents." },
 
-  292: { id:292, name:"Galehorn", emoji:"🌪️", types:["Wind","Electric"],
+  292: { id:292, name:"Galehorn", emoji:"🌪️", types:["Wind","Sonic"],
     base:{hp:78,atk:85,def:70,spa:108,spd:88,spe:115},
     learnset:[[1,"air_slash"],[1,"thunderbolt"],[22,"hurricane"],[30,"thunder"],[38,"tempest_wrath"],[46,"gale_cannon"],[54,"squall_slash"],[62,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:220, rarity:"uncommon",
-    desc:"A swift wind-antelope crowned with spiralling horns that hum and crackle in high winds. Faces gales head-on to charge its piezoelectric horns.",
-    lore:"Galehorn is a large wind-antelope 1.2 metres at the shoulder, the matured form of the Breezekin lineage. Its slender muscular body is grey-white with a long flowing mane down its neck and shoulders, and its head bears a pair of long spiralling horns that generate electrical charge through the piezoelectric effect when they vibrate in high winds. During storms it faces directly into the gale and absorbs the energy through these horns. It is one of the swiftest land creatures in any region it claims, and its passage through open plains leaves a faint static charge in its wake that can be felt by other Lumori for hours." },
+    desc:"A swift wind-antelope crowned with spiralling horns that hum and resonate in high winds. Faces gales head-on to set its horns ringing in low, carrying tones.",
+    lore:"Galehorn is a large wind-antelope 1.2 metres at the shoulder, the matured form of the Breezekin lineage. Its slender muscular body is grey-white with a long flowing mane down its neck and shoulders, and its head bears a pair of long spiralling horns that hum at a resonant pitch when they vibrate in high winds, producing a low ringing tone audible for kilometres. During storms it faces directly into the gale and amplifies the wind through these horns. It is one of the swiftest land creatures in any region it claims, and its passage through open plains leaves a faint resonant ringing in the air that can be heard by other Lumori for hours." },
 
   // 3-stage Wind chain: Zephyrpuff → Stormwing → Cyclonax
   293: { id:293, name:"Gustpuff", emoji:"💨", types:["Wind"],
@@ -4291,12 +4291,12 @@ const MONSTERS_DATA = {
     desc:"A psychic that has learned to manipulate gravity. It walks on any surface, including the sky.",
     lore:"Gravithorn is a psychic-ground entity 1.8 metres tall with a body of psychically compressed stone. It can reverse gravity in a 30-metre radius and routinely walks on vertical surfaces." },
 
-  370: { id:370, name:"Vortexwing", emoji:"🌪️", types:["Wind","Electric"],
+  370: { id:370, name:"Vortexwing", emoji:"🌪️", types:["Electric","Sonic"],
     base:{hp:70,atk:90,def:68,spa:101,spd:81,spe:110}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"gust"],[10,"thunder_shock"],[20,"air_slash"],[30,"thunderbolt"],[40,"tailwind_strike"],[50,"volt_surge"],[60,"thunder"],[5,"zephyr_dance"],[38,"thunder_wave"]],
     catchRate:9, expYield:322, rarity:"rare",
     desc:"A living tornado that generates electricity from its rotation. Anything inside it is shredded and electrocuted simultaneously.",
-    lore:"Vortexwing is a wind-electric entity 3 metres tall that exists as a permanent self-sustaining vortex. At its core is a dense electromagnetic nucleus visible as a crackling violet sphere." },
+    lore:"Vortexwing is an electric-sonic entity 3 metres tall that exists as a permanent self-sustaining vortex. At its core is a dense electromagnetic nucleus visible as a crackling violet sphere." },
 
   371: { id:371, name:"Nullform", emoji:"⬛", types:["Dark","Normal"],
     base:{hp:82,atk:95,def:82,spa:94,spd:86,spe:86}, evolveTo:null, evolveLevel:null,

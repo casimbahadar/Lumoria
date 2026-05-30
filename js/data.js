@@ -3059,20 +3059,20 @@ const MONSTERS_DATA = {
     desc:"A dark flame cat that stalks targets silently before unleashing explosive fire attacks. Unpredictable and cunning.",
     lore:"Cinderpaw is a fire-dark cat 45 cm at the shoulder with glossy black fur overlaid with faintly glowing ember-orange markings on its paws, ears, and tail tip. It moves silently and blends into shadow easily. It inhabits ancient forge-ruins and warm building interiors, drawn to residual warmth in stone." },
 
-  // 2-stage Aquatic/Spectral chain: Tidewraith → Aquaphant (Aquatic Stone item)
-  308: { id:308, name:"Seafraith", emoji:"🌊", types:["Aquatic","Dark"],
+  // 2-stage Aquatic/Spectral chain: Seafraith → Tidephant (Water Stone item)
+  308: { id:308, name:"Seafraith", emoji:"🌊", types:["Aquatic","Spectral"],
     base:{hp:58,atk:62,def:58,spa:88,spd:75,spe:80},
     learnset:[[1,"water_gun"],[1,"shadow_ball"],[14,"surf"],[24,"phantom_claw"],[34,"hydro_pump"],[44,"eclipse_shroud"],[54,"soul_rend"],[60,"hyper_beam"]],
     evolveTo:309, evolveLevel:null, evolveItem:"waterStone", evolveMethod:"item", catchRate:135, expYield:98, rarity:"common",
     desc:"A ghost that drowned and merged with ocean tides. Haunts coastal routes, pulling travelers into the surf.",
-    lore:"Seafraith is a water-dark creature 60 cm long resembling a deep-sea fish with a translucent dark body through which dim bioluminescent organs are visible. Its eyes are white and sightless — it navigates by sensing water displacement. It inhabits sunken ruins at depths where light never reaches." },
+    lore:"Seafraith is a water-spectral creature 60 cm long resembling a deep-sea fish with a translucent dark body through which dim bioluminescent organs are visible. Its eyes are white and sightless — it navigates by sensing water displacement. It inhabits sunken ruins at depths where light never reaches." },
 
-  309: { id:309, name:"Tidephant", emoji:"🐋", types:["Aquatic","Dark"],
+  309: { id:309, name:"Tidephant", emoji:"🐋", types:["Aquatic","Spectral"],
     base:{hp:94,atk:82,def:86,spa:113,spd:102,spe:73},
     learnset:[[1,"hydro_pump"],[1,"eclipse_shroud"],[28,"soul_rend"],[36,"phantom_claw"],[44,"geyser_burst"],[52,"shadow_ball"],[60,"dark_pulse"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:232, rarity:"rare",
     desc:"A spectral sea leviathan that capsizes ships. Half water, half ghost—completely terrifying.",
-    lore:"Tidephant is a large water-dark creature 2 metres long resembling a cetacean with dark blue-black hide and a broad flat head. As it matured from Seafraith, its fins broadened into flippers and its skeleton calcified into a whale-like frame — a fish-to-leviathan apotheosis. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },
+    lore:"Tidephant is a large water-spectral creature 2 metres long resembling a cetacean with dark blue-black hide and a broad flat head. As it matured from Seafraith, its fins broadened into flippers and its skeleton calcified into a whale-like frame — a fish-to-leviathan apotheosis. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },
 
   // 2-stage Aquatic/Nature chain: Mudpump → Marshix (level 28)
   310: { id:310, name:"Mudpump", emoji:"🦛", types:["Aquatic","Nature"],
@@ -4485,12 +4485,12 @@ const MONSTERS_DATA = {
     lore:"Thunderpeak is an electric-steel creature 3 metres tall resembling a stylised lightning bolt in living metal. It has a near-perfect conductor rating and can absorb, store, and release planet-scale electrical charge." },
 
   // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
-  397: { id:397, name:"Abyssalord", emoji:"🌊", types:["Aquatic","Dark"],
+  397: { id:397, name:"Abyssalord", emoji:"🌊", types:["Aquatic","Spectral"],
     base:{hp:79,atk:92,def:81,spa:101,spd:87,spe:85}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"surf"],[10,"shadow_ball"],[20,"tidal_crush"],[30,"phantom_claw"],[40,"hydro_pump"],[50,"void_rend"],[60,"neural_storm"],[5,"shadowstep"],[55,"sea_serpent_strike"]],
     catchRate:4, expYield:372, rarity:"rare",
     desc:"The lord of all drowned things. Sailors who die at sea answer to it now.",
-    lore:"Abyssalord is a water-ghost creature 9 metres long resembling a massive spectral leviathan trailing ghostly sea-wrack. It is invisible underwater — its presence is detected only by a sudden drop in water temperature and the silencing of all sea life." },
+    lore:"Abyssalord is a water-spectral creature 9 metres long resembling a massive spectral leviathan trailing ghostly sea-wrack. It is invisible underwater — its presence is detected only by a sudden drop in water temperature and the silencing of all sea life." },
 
   398: { id:398, name:"Voidcrown", emoji:"🌌", types:["Dark","Fairy"],
     base:{hp:87,atk:103,def:96,spa:137,spd:112,spe:117}, evolveTo:null, evolveLevel:null, ngPlusTier:4,

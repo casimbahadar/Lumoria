@@ -3106,12 +3106,12 @@ const MONSTERS_DATA = {
 
 
   // ===== LEGENDARIES (IDs 314-321) =====
-  314: { id:314, name:"Galeaxis",  emoji:"🌪️", types:["Wind","Electric"],
+  314: { id:314, name:"Galeaxis",  emoji:"🌪️", types:["Wind","Sonic"],
     base:{hp:102,atk:84,def:93,spa:125,spd:96,spe:100},
     learnset:[[1,"air_slash"],[1,"thunder_shock"],[7,"gust"],[14,"spark"],[21,"zephyr_dance"],[28,"thunderbolt"],[35,"downdraft"],[42,"hurricane"],[49,"squall_slash"],[56,"overcharge"],[63,"tempest_wrath"],[70,"gale_cannon"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
-    desc:"The Legendary Storm Bird. Said to control all weather in Lumoria.",
-    lore:"Galeaxis is a wind-electric creature 1 metre at the shoulder resembling a sleek greyhound whose pale grey body constantly trails streamers of compressed air and electric sparks. It runs at extraordinary speeds across open plains and its passage creates brief localised sonic booms as it exceeds natural air displacement limits." },
+    desc:"The Legendary Skybreaker. Said to control all weather in Lumoria.",
+    lore:"Galeaxis is a wind-sonic creature with a 1-metre wingspan, a sleek pale-grey raptor body trailing streamers of compressed air. From cruising altitude it folds its wings and dives faster than sound, and each plunge ends in a localised sonic boom as it exceeds natural air displacement limits. Hunters claim the shockwave can be felt before the bird itself is seen." },
 
   315: { id:315, name:"Ashvanus",   emoji:"🌋", types:["Fire","Earth"],
     base:{hp:113,atk:145,def:111,spa:102,spd:89,spe:50},

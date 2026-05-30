@@ -1710,7 +1710,7 @@ const MONSTERS_DATA = {
     desc:"An electric horse that gallops faster than lightning. Its mane crackles.",
     lore:"Galvanos is a horse-like creature 1.2 metres at the shoulder — Joltan's yellow pony-foal coat has grown into a sleek golden-yellow hide crisscrossed by electric-blue markings. Its flowing mane crackles with constant static. It can sustain a gallop at extraordinary speed for hours by converting its own electrical energy into kinetic force." },
 
-  84: { id:84, name:"Electrix",      emoji:"🐛", types:["Electric","Nature"],
+  84: { id:84, name:"Electrix",      emoji:"🐛", types:["Electric","Aquatic"],
     base:{hp:34,atk:48,def:43,spa:50,spd:43,spe:94},
     learnset:[[1,"bug_bite",[22,"arc_flash"]],[1,"thunder_shock"],[10,"spark"],[18,"string_shot"],[20,"recover"],[26,"thunderbolt"],[34,"bug_buzz",[5,"thunder_wave"]],[36,"x_scissor"],[3,"static_cage"],[31,"cocoon_burst"]],
     evolveTo:85, evolveLevel:22, catchRate:200, expYield:74, rarity:"common",
@@ -2545,12 +2545,12 @@ const MONSTERS_DATA = {
     lore:"Shardlix is a psychic-ice creature 40 cm tall resembling a bipedal figure made entirely of precision-cut ice crystals fitted together without gaps. Its eyes are two flawless prismatic lenses. It transmits thoughts through vibrations in its crystalline body and can read psychic impressions left on ice surfaces." },
 
   // 2-stage Electric/Bug chain: Zappling → Voltrix (level 30)
-  242: { id:242, name:"Pulseglow", emoji:"🐞", types:["Electric","Nature"],
+  242: { id:242, name:"Pulseglow", emoji:"🐞", types:["Electric"],
     base:{hp:46,atk:55,def:42,spa:68,spd:50,spe:78},
     learnset:[[1,"thunder_shock"],[1,"bug_buzz"],[12,"spark"],[22,"thunderbolt"],[32,"discharge"],[42,"x_scissor"],[52,"thunder"],[60,"hyper_beam"]],
     evolveTo:243, evolveLevel:30, catchRate:170, expYield:75, rarity:"common",
     desc:"A firefly-like creature that stores electricity in its abdomen-light. Releases it when threatened.",
-    lore:"Pulseglow is a tiny electric-bug creature 5 cm long resembling a glowing firefly. Its abdomen pulses with yellow-white electric light at regular intervals. Huge swarms congregate in summer nights over open water, and the coordinated light patterns of the swarm are a complex form of collective communication." },
+    lore:"Pulseglow is a tiny electric creature 5 cm long resembling a glowing firefly. Its abdomen pulses with yellow-white electric light at regular intervals. Huge swarms congregate in summer nights over open water, and the coordinated light patterns of the swarm are a complex form of collective communication." },
 
   243: { id:243, name:"Stuntrap", emoji:"🪲", types:["Electric","Nature"],
     base:{hp:72,atk:82,def:68,spa:110,spd:78,spe:98},
@@ -4068,7 +4068,7 @@ const MONSTERS_DATA = {
     desc:"A hawk that nests on storm-capped peaks. Its talons are perpetually coated in razor-sharp ice.",
     lore:"Rimeclaw is an ice-flying raptor with a 2.4-metre wingspan and talons of permanent glacial ice that never melt. Its primary feathers cut like edged weapons." },
 
-  339: { id:339, name:"Voltbeetle", emoji:"⚡", types:["Nature","Electric"],
+  339: { id:339, name:"Voltbeetle", emoji:"⚡", types:["Electric","Sonic"],
     base:{hp:66,atk:81,def:86,spa:75,spd:72,spe:80}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"bug_bite"],[10,"thunder_shock"],[20,"metal_claw"],[30,"thunderbolt"],[40,"bug_buzz"],[50,"volt_surge"],[60,"thunder"],[5,"harden"],[38,"alloy_edge"]],
     catchRate:26, expYield:257, rarity:"rare",

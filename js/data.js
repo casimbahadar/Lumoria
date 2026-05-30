@@ -2242,7 +2242,7 @@ const MONSTERS_DATA = {
     desc:"A glorious butterfly of wind and beauty. Its wing patterns mesmerize foes.",
     lore:"Aeridaleth is a large butterfly 60 cm wingspan with wings displaying intricate patterns in deep teal, gold, and black. It emerged from Chrysalix through a dramatic transformation. It undertakes migrations of thousands of kilometres, navigating by magnetic fields and producing a floral scent that persists in its wake for hours." },
 
-  200: { id:200, name:"Iridibeetle",  emoji:"🪲", types:["Nature","Earth"],
+  200: { id:200, name:"Iridibeetle",  emoji:"🪲", types:["Nature","Metal"],
     base:{hp:61,atk:73,def:71,spa:43,spd:51,spe:30},
     learnset:[[1,"bug_bite",[22,"mandible_crush"]],[1,"rock_throw"],[10,"headbutt"],[18,"x_scissor"],[20,"leer"],[26,"rock_slide"],[34,"stone_edge",[5,"string_shot"]],[36,"swarm_dive"],[3,"chitin_guard"],[31,"magma_rock"]],
     evolveTo:201, evolveLevel:25, catchRate:130, expYield:95, rarity:"common",
@@ -3996,12 +3996,12 @@ const MONSTERS_DATA = {
     desc:"A drifting toxic cloud given form. Entire towns have been evacuated when a Smogveil settled overhead.",
     lore:"Smogveil is an amorphous poison-wind creature 3 metres across that resembles a dense yellow-green storm cloud. It has no fixed shape but two amber luminescent eye-spots drift within it." },
 
-  329: { id:329, name:"Skullmite", emoji:"💀", types:["Nature","Earth"],
+  329: { id:329, name:"Skullmite", emoji:"💀", types:["Nature","Mineral"],
     base:{hp:65,atk:81,def:84,spa:52,spd:65,spe:73}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"bug_bite"],[10,"rock_throw"],[20,"metal_claw"],[30,"rock_slide"],[40,"fossil_rush"],[50,"bug_buzz"],[60,"iron_tail"],[5,"harden"],[38,"venom_drool"]],
     catchRate:26, expYield:256, rarity:"rare",
     desc:"An armoured beetle with a fossilised shell harder than most metals. Ancient specimens are sold as armour.",
-    lore:"Skullmite is a beetle-like rock-bug creature 1.1 metres long with a helmet-shaped carapace of fossilised mineral. Its mandibles can crack geodes." },
+    lore:"Skullmite is a beetle-like mineral creature 1.1 metres long with a helmet-shaped carapace of fossilised mineral. Its mandibles can crack geodes." },
 
   330: { id:330, name:"Blistermaw", emoji:"🐊", types:["Aquatic","Poison"],
     base:{hp:71,atk:80,def:66,spa:77,spd:69,spe:57}, evolveTo:null, evolveLevel:null,

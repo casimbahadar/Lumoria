@@ -4184,12 +4184,12 @@ const MONSTERS_DATA = {
     desc:"A leviathan that travels between dimensions using psychic rift gates. Islands vanish when it surfaces.",
     lore:"Riftwhale is a water-psychic creature 12 metres long resembling a colossal whale with flanks covered in luminous psychic sigils. It navigates by warping local space." },
 
-  355: { id:355, name:"Abyssalith", emoji:"🌊", types:["Aquatic","Dark"],
+  355: { id:355, name:"Abyssalith", emoji:"🌊", types:["Aquatic","Toxin"],
     base:{hp:81,atk:99,def:88,spa:89,spd:81,spe:77}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"surf"],[10,"void_rend"],[20,"tidal_crush"],[30,"shadow_ball"],[40,"hydro_pump"],[50,"sea_serpent_strike"],[60,"sludge_wave"],[5,"shadowstep"],[38,"phantom_claw"]],
     catchRate:10, expYield:318, rarity:"rare",
     desc:"A hunter from the deepest abyss. Light physically bends around it as though avoiding contact.",
-    lore:"Abyssalith is a water-dark creature 5 metres long resembling an armoured eel with bioluminescent lures. Its black scales have a refractive property that makes it nearly invisible underwater." },
+    lore:"Abyssalith is a water-toxin creature 5 metres long resembling an armoured eel with bioluminescent lures. Its black scales have a refractive property that makes it nearly invisible underwater." },
 
   356: { id:356, name:"Stormlord", emoji:"⛈️", types:["Electric","Draconic"],
     base:{hp:72,atk:92,def:72,spa:104,spd:82,spe:98}, evolveTo:null, evolveLevel:null,

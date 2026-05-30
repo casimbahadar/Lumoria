@@ -2213,12 +2213,12 @@ const MONSTERS_DATA = {
     desc:"A crag claw crab that lives on rocky sea cliffs. Fiercely territorial.",
     lore:"Rugothon is a massive water-mineral crustacean 2 metres long with a heavily encrusted shell of barnacles and embedded pebbles. Its eight wide legs are each tipped with flat digging pads. It inhabits rocky coastlines where it is mistaken for a tide-pool feature until it suddenly moves. Rugothon spend long hours wedging themselves into rock crevices much smaller than their 2-metre bodies, packing their bulk inward. Older individuals also eat noticeably less in each successive moult cycle, then less again, slowly withdrawing into themselves. Both habits compound across generations into the smaller, denser rock-crab Lithomere becomes — the only Lumori evolution known to scale downward in size while gaining density." },
 
-  195: { id:195, name:"Prismolith",  emoji:"💎", types:["Earth","Ice"],
+  195: { id:195, name:"Prismolith",  emoji:"💎", types:["Ice","Mineral"],
     base:{hp:70,atk:66,def:101,spa:77,spd:87,spe:38},
     learnset:[[1,"rock_throw",[25,"crystal_lance"]],[1,"powder_snow"],[12,"harden"],[17,"swords_dance"],[20,"rock_slide"],[28,"ice_beam"],[31,"stalactite_drop"],[36,"stone_edge"],[43,"icicle_crash"],[44,"blizzard",[5,"granite_wall"]],[3,"petrify_gaze"],[33,"quarry_crush"]],
     evolveTo:196, evolveLevel:40, catchRate:70, expYield:172, rarity:"uncommon",
     desc:"A crystal of ice and stone. Formed under tremendous pressure underground.",
-    lore:"Prismolith is a faceted crystal-rock creature 80 cm tall shaped like a natural geode that has grown legs. Its body is a rough dark matrix on the outside, but gaps reveal brilliant purple amethyst crystals within. It moves very slowly and is prized by miners for the high-quality crystals it sheds during moulting. Each year a Prismolith moves more slowly than the last, and where it pauses too long its feet sink slightly into the frozen ground beneath: these are the first signs of the permafrost rooting Frigolith commits to fully." },
+    lore:"Prismolith is a faceted ice-mineral creature 80 cm tall shaped like a natural geode that has grown legs. Its body is a rough dark matrix on the outside, but gaps reveal brilliant purple amethyst crystals within. It moves very slowly and is prized by miners for the high-quality crystals it sheds during moulting. Each year a Prismolith moves more slowly than the last, and where it pauses too long its feet sink slightly into the frozen ground beneath: these are the first signs of the permafrost rooting Frigolith commits to fully." },
 
   // ===== BUG =====
   197: { id:197, name:"Photoworm",   emoji:"🐛", types:["Nature"],
@@ -3628,12 +3628,12 @@ const MONSTERS_DATA = {
     desc:"A colossal ancient shore titan. Its shell is older than recorded history, layered with oceanic minerals.",
     lore:"Lithomere is a crab-like water-mineral creature 60 cm across with a shell of compressed coastal rock — Rugothon's massive barnacle-encrusted carapace has compressed down through dense mineral deposition into a smaller but far denser shell, and the eight digging legs have shortened into wedge-shaped braces that lock its body into rock crevices during low tide, sealing gaps with a secreted mineral cement. Its shell grows thicker with each passing year." },
 
-  196: { id:196, name:"Frigolith", emoji:"💎", types:["Earth","Ice"],
+  196: { id:196, name:"Frigolith", emoji:"💎", types:["Ice","Mineral"],
     base:{hp:87,atk:77,def:127,spa:103,spd:108,spe:48},
     learnset:[[1,"powder_snow"],[1,"stalactite_drop"],[2,"ice_beam"],[3,"rock_slide"],[4,"harden"],[41,"blizzard"],[45,"stone_edge"],[49,"crystal_lance"],[53,"icicle_crash"],[57,"glacial_tomb"],[61,"quarry_crush"],[65,"cryo_lance"],[5,"permafrost"],[43,"harden"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:258, rarity:"rare",
     desc:"A titanic crystal colossus forged from eons of glacial pressure. Its body refracts light into blinding aurora beams.",
-    lore:"Frigolith is a rock-ice creature 1 metre long resembling a boulder partially submerged in permafrost — Prismolith's purple amethyst crystals have darkened and refrozen into crystalline ice formations that have grown through cracks in its rock body over centuries, and its mobile legs have rooted into the tundra it must now remain in to survive. In winter it becomes nearly invisible against frozen tundra. Warming weather causes it distress as its ice components begin to melt." },
+    lore:"Frigolith is an ice-mineral creature 1 metre long resembling a boulder partially submerged in permafrost — Prismolith's purple amethyst crystals have darkened and refrozen into crystalline ice formations that have grown through cracks in its rock body over centuries, and its mobile legs have rooted into the tundra it must now remain in to survive. In winter it becomes nearly invisible against frozen tundra. Warming weather causes it distress as its ice components begin to melt." },
 
   40: { id:40, name:"Marevanos", emoji:"🐋", types:["Aquatic","Wind"],
     base:{hp:84,atk:87,def:80,spa:108,spd:90,spe:101},
@@ -4141,12 +4141,12 @@ const MONSTERS_DATA = {
     desc:"A dragon that rides perpetual cyclones of its own creation. It cannot stop flying or the storm dies.",
     lore:"Galedrake is a dragon-wind creature 3.5 metres long with broad swept-back wings that generate a constant personal cyclone. The air around it is always in violent circular motion." },
 
-  349: { id:349, name:"Crystavault", emoji:"💠", types:["Ice","Earth"],
+  349: { id:349, name:"Crystavault", emoji:"💠", types:["Ice","Mineral"],
     base:{hp:80,atk:91,def:109,spa:74,spd:87,spe:54}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"ice_punch"],[10,"rock_throw"],[20,"ice_beam"],[30,"rock_slide"],[40,"cryo_lance"],[50,"fossil_rush"],[60,"blizzard"],[5,"harden"],[38,"winter_shroud"]],
     catchRate:16, expYield:292, rarity:"rare",
     desc:"A fortress of living glacier-stone. Its outer shell has never been successfully breached in recorded history.",
-    lore:"Crystavault is an ice-rock creature 2.5 metres tall resembling a fortified tower of layered glacial ice and granite. Ancient siege equipment has been found bent and broken around specimens." },
+    lore:"Crystavault is an ice-mineral creature 2.5 metres tall resembling a fortified tower of layered glacial ice and granite. Ancient siege equipment has been found bent and broken around specimens." },
 
   350: { id:350, name:"Fernwrath", emoji:"🌿", types:["Nature","Draconic"],
     base:{hp:73,atk:95,def:75,spa:92,spd:79,spe:81}, evolveTo:null, evolveLevel:null,

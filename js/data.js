@@ -1972,7 +1972,7 @@ const MONSTERS_DATA = {
     base:{hp:47,atk:60,def:72,spa:37,spd:45,spe:54},
     learnset:[[1,"scratch",[22,"alloy_edge"]],[1,"metal_claw"],[9,"harden"],[17,"flash_cannon"],[25,"steel_wing"],[29,"leer"],[33,"iron_tail"],[41,"body_slam",[5,"magnetize"]],[3,"ironskin"],[32,"tail_whip"]],
     evolveTo:148, evolveLevel:28, catchRate:120, expYield:90, rarity:"common",
-    desc:"A puppy encased in iron armor. Slow but incredibly tough.",
+    desc:"A small steel humanoid armored in iron plates. Slow but incredibly tough.",
     lore:"Scrapsapien is a small humanoid steel creature 50 cm tall with a compact body of dark grey steel plates with visible bolts and seams. Its eyes are small yellow optical lenses. It collects metal scraps and incorporates them into its own body, slowly growing more elaborate and patched over time." },
 
   148: { id:148, name:"Stoicguard",  emoji:"🦾", types:["Metal"],
@@ -2195,7 +2195,7 @@ const MONSTERS_DATA = {
     base:{hp:60,atk:63,def:73,spa:46,spd:31,spe:45},
     learnset:[[1,"tackle",[22,"obsidian_crash"]],[1,"rock_throw"],[8,"harden"],[16,"headbutt"],[24,"rock_slide"],[29,"tail_whip"],[32,"stone_edge"],[40,"body_slam",[5,"granite_wall"]],[3,"petrify_gaze"],[31,"growl"]],
     evolveTo:192, evolveLevel:25, catchRate:160, expYield:88, rarity:"common",
-    desc:"A rock puppy with pebble-studded fur. Loves rolling into a ball.",
+    desc:"A rock creature shaped like a small pebble with tiny legs. Almost indistinguishable from an ordinary river stone when still.",
     lore:"Pebblet is a small rock creature 20 cm tall shaped like a round pebble with two tiny legs and a somewhat surprised-looking face embedded in the stone. It is almost indistinguishable from an ordinary river pebble when still. It lives in streambeds and rolls with the current when travelling. Pebblet cluster in tight streambank groupings that mimic natural rock outcroppings. From within each cluster, individuals occasionally rear briefly upright on their two tiny legs before tumbling back, rehearsing both the awkward humanoid stance and the geologist-fooling formation Boulderoll and Megalith will maintain together at much greater scale." },
 
   // LORE-AUDIT FLAG (Step 4): auto-collapsed to mono in Phase B — review for re-dual
@@ -2656,11 +2656,11 @@ const MONSTERS_DATA = {
     lore:"Psychotide is a flowing water-psychic creature 50 cm tall — Bubblepuff's round bubble-body has uncoiled and stretched into a wave frozen in mid-curl with a face in its crest, the dreamy expression of its juvenile form preserved as the wave's central feature. Its body is continuously cycling water that maintains its wave-form through psychic concentration. It inhabits ocean shores and is particularly active at high tide, growing taller with stronger waves." },
 
   // 3-stage Aquatic/Ice chain: Tideling → Coralhorn → Torrentox
-  256: { id:256, name:"Scolphin", emoji:"🦀", types:["Aquatic"],
+  256: { id:256, name:"Scolphin", emoji:"🐬", types:["Aquatic"],
     base:{hp:48,atk:52,def:58,spa:65,spd:55,spe:52},
     learnset:[[1,"water_gun"],[1,"powder_snow"],[12,"bubble_beam"],[22,"ice_beam"],[32,"surf"],[42,"blizzard"],[52,"hydro_pump"],[60,"hyper_beam"]],
     evolveTo:257, evolveLevel:26, catchRate:170, expYield:74, rarity:"common",
-    desc:"A crab-like creature with frozen shell. Moves between sea and frozen tundra with ease.",
+    desc:"A dolphin-like creature of ice-blue water. Schools in cold coastal seas and leaps in synchronised arcing patterns.",
     lore:"Scolphin is a water creature 30 cm long resembling a small dolphin made of ice-blue water. Its body is semi-solid — more ice than liquid in cold conditions and more liquid in warmth. It schools in large groups in cold coastal waters and leaps collectively in synchronised arcing patterns. Younger Scolphin's body is roughly 60% liquid water and 40% ice, but the ratio reverses with age toward the dense solid form their narwhal and orca-calf adult stages adopt. Their tail-half is consistently denser and colder than their head-half — the body already pre-shaped along the axis Torrentox's armoured-dorsal will eventually establish — and their school-communication chirps narrow with each year into the directional precision-hunting echolocation Torrentox uses to map prey through frozen water." },
 
   257: { id:257, name:"Reefhorn", emoji:"🦄", types:["Aquatic","Ice"],
@@ -3512,11 +3512,11 @@ const MONSTERS_DATA = {
     lore:"Aetherflock is a medium psychic sheep 70 cm at the shoulder — Woolcalm's soft white wool has thickened and lightened to silvery-white that drifts gently in an invisible wind even in still air, and the faint static charge of its juvenile fleece now manifests as a soft night-glow. Entire flocks graze on isolated mountain plateaux and are said to collectively generate powerful psychic fields." },
 
   // ===== BUG/GROUND =====
-  204: { id:204, name:"Muddite", emoji:"🪲", types:["Nature","Earth"],
+  204: { id:204, name:"Muddite", emoji:"🐛", types:["Nature","Earth"],
     base:{hp:62,atk:68,def:73,spa:34,spd:35,spe:45},
     learnset:[[1,"bug_bite",[22,"chitin_guard"]],[1,"mud_shot"],[10,"string_shot"],[18,"x_scissor"],[20,"leer"],[26,"earthquake"],[34,"bug_buzz",[5,"compound_glare"]],[36,"swarm_dive"],[3,"moth_dust"],[31,"magnitude"]],
     evolveTo:205, evolveLevel:24, catchRate:170, expYield:88, rarity:"common",
-    desc:"A burrowing beetle that lives in dry earth. Its mandibles can crack solid rock.",
+    desc:"A burrowing grub-bug that aerates clay soil. Packs mud around itself for protection when threatened.",
     lore:"Muddite is a small grub-like bug creature 6 cm long with a soft muddy-brown body and short digging limbs. It lives entirely in clay-rich soil and packs mud around itself to form a protective case when threatened. It is an important aerator of heavy clay soils and supports plant root growth." },
 
   205: { id:205, name:"Quarrix", emoji:"🪲", types:["Nature","Earth"],

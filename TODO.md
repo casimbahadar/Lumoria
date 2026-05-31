@@ -613,15 +613,17 @@ Under the updated ID-tally + 6/12 soft-cap rules, **most prior drift exceptions 
 
 - **mono Nature: 14 IDs (+2 over flagship cap 12).** Largest plant-creature category in the dex. Members are all genuinely plant/fungus/insect-aligned: Verdkin + Barknell (Nature starter pre-stages), Germix→Verdurus, Photoworm→Chrysalix, Viridix, Sporix→Myceloth (former Nature/Poison pre-stages moved during ID-tally redo), Sproutix (former Fairy/Nature pre-stage moved during ID-tally redo), Leafhorn (moved during Fairy/Nature trim), Mosswing, Verdovast, Thornmoth. Drift accepted under soft-cap rule — peer cohesion is genuine, no forced inclusions, +2 over flagship is minimal.
 
-## Deferred — END-OF-AUDIT starter batch (decide all together, do not close audit until resolved)
+## Starter triad — RESOLVED (2026-05-31, type-triangle effectiveness analysis)
 
-The remaining starter-line FINAL evolutions still need their end-of-audit decision. The third (Garlawarden) was locked-in during the Fairy/Nature trim (KEEPS Nature/Fairy).
+All 3 starter-line FINAL evolutions are now locked. Triangle rebalanced from
+score 14.00 (near-broken) → 2.00 (clean 2:1 ratios in each matchup) via the
+Banksnout adjustment.
 
-- **#6 Banksnout** (Aquatic starter final) — currently Aquatic/Earth. Plan A intent: → **Aquatic/Normal** (semi-aquatic mammal). **Aquatic/Earth is held at an interim 3F+1S** (Banksnout + Tidalossus + Calciderm + Petrwave) and only reaches the ordinary 2F+1S cap once Banksnout moves. ⚠️ Broken-strong combo — must resolve.
-- **#3 Calderaeth** (Fire starter final) — Fire/Draconic. In the Draconic/Fire cluster, already trimmed (kept as 1 of 2F + Blazeon; Calderaeth's status determines whether Fire/Draconic stays at 2F+1S or shifts to 1F+1S).
-- ~~**#9 Garlawarden** (Nature starter final)~~ — **LOCKED to Nature/Fairy** during Fairy/Nature cluster trim (no longer deferred).
+- ~~**#3 Calderaeth** (Fire starter)~~ — **LOCKED Fire/Draconic** (kept current; dragon-fox lore intact).
+- ~~**#6 Banksnout** (Aquatic starter)~~ — **LOCKED Aquatic/Dark** (changed from Aquatic/Earth; the type-triangle analysis identified Aquatic/Dark as best balance + lore-honest; existing predator-ambush body language was already Dark-adjacent, minor lore touch added "dusk and dawn" + "silent stalk" hooks).
+- ~~**#9 Garlawarden** (Nature starter)~~ — **LOCKED Nature/Fairy** (locked during Fairy/Nature cluster trim).
 
-Current starter type triad: Fire/Draconic (pending), Aquatic/Earth (pending → Aquatic/Normal proposed), **Nature/Fairy ✓**. Decide whether to preserve the rest of the triad as-is or adjust — as one batch at audit's end.
+Final triad: **Fire/Draconic + Aquatic/Dark + Nature/Fairy.** All 3 matchups are clean 2:1 ratios; no more 4x/0.25x extremes.
 
 # 🐺 Archetype oversaturation — REFERENCE TALLIES (workflow merged into 🕯 UNIFIED AUDIT)
 

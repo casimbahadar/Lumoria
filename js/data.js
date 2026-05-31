@@ -3960,7 +3960,7 @@ const MONSTERS_DATA = {
     desc:"An alchemical horror born in Miasma City's toxic reactors. Its core burns with caustic plasma.",
     lore:"Toxicore is a compact fire-poison creature 1.2 metres tall resembling a living flask of boiling acid. Its core chamber glows a violent orange-green." },
 
-  324: { id:324, name:"Chittering", emoji:"🦗", types:["Nature","Dark"],
+  324: { id:324, name:"Chittering", emoji:"🦂", types:["Nature","Dark"],
     base:{hp:54,atk:84,def:62,spa:58,spd:65,spe:77}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"bug_bite"],[12,"shadowstep"],[22,"bug_buzz"],[32,"umbral_claw"],[42,"phantom_claw"],[52,"shadow_ball"],[62,"bug_buzz"],[5,"shadow_sneak"],[38,"void_rend"]],
     catchRate:25, expYield:248, rarity:"rare",

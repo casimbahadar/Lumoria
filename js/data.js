@@ -2451,7 +2451,7 @@ const MONSTERS_DATA = {
   // ===== DRAGON TYPES (IDs 230-235) =====
 
   // 2-stage Draconic chain: Scaleling → Wyvaxis
-  230: { id:230, name:"Scaleling", emoji:"🐊", types:["Draconic"],
+  230: { id:230, name:"Scaleling", emoji:"🐲", types:["Draconic"],
     base:{hp:58,atk:72,def:62,spa:60,spd:55,spe:58},
     learnset:[[1,"tackle"],[1,"dragon_breath"],[16,"dragon_claw"],[26,"dragon_pulse"],[36,"dragon_dance"],[46,"outrage"],[56,"hyper_beam"]],
     evolveTo:231, evolveLevel:36, catchRate:150, expYield:90, rarity:"common",
@@ -2466,7 +2466,7 @@ const MONSTERS_DATA = {
     lore:"Wyvaxis is a water-dragon 2 metres long — Scaleling's copper-red basking-scales have fully darkened to streamlined aqua-blue and emerald, and a broad flat tail has emerged optimised for powerful swimming strokes. It is more fish than lizard in movement, rarely leaving water except to bask on rocks. Its wings are vestigial fins that aid steering underwater." },
 
   // 3-stage Draconic/Ground chain: Draxon → Serpenthorn → Wyvernak
-  232: { id:232, name:"Serphaxon", emoji:"🦎", types:["Draconic"],
+  232: { id:232, name:"Serphaxon", emoji:"🐲", types:["Draconic"],
     base:{hp:52,atk:68,def:65,spa:45,spd:50,spe:55},
     learnset:[[1,"tackle"],[1,"mud_shot"],[14,"dragon_breath"],[24,"earthquake"],[34,"dragon_claw"],[44,"dragon_pulse"],[54,"outrage"],[64,"hyper_beam"]],
     evolveTo:233, evolveLevel:32, catchRate:160, expYield:82, rarity:"common",
@@ -2663,7 +2663,7 @@ const MONSTERS_DATA = {
     desc:"A crab-like creature with frozen shell. Moves between sea and frozen tundra with ease.",
     lore:"Scolphin is a water creature 30 cm long resembling a small dolphin made of ice-blue water. Its body is semi-solid — more ice than liquid in cold conditions and more liquid in warmth. It schools in large groups in cold coastal waters and leaps collectively in synchronised arcing patterns. Younger Scolphin's body is roughly 60% liquid water and 40% ice, but the ratio reverses with age toward the dense solid form their narwhal and orca-calf adult stages adopt. Their tail-half is consistently denser and colder than their head-half — the body already pre-shaped along the axis Torrentox's armoured-dorsal will eventually establish — and their school-communication chirps narrow with each year into the directional precision-hunting echolocation Torrentox uses to map prey through frozen water." },
 
-  257: { id:257, name:"Reefhorn", emoji:"🦞", types:["Aquatic","Ice"],
+  257: { id:257, name:"Reefhorn", emoji:"🦄", types:["Aquatic","Ice"],
     base:{hp:72,atk:80,def:88,spa:90,spd:78,spe:65},
     learnset:[[1,"ice_beam"],[1,"surf"],[20,"blizzard"],[28,"aqua_tail"],[36,"cryo_lance"],[44,"hydro_pump"],[52,"icicle_crash"],[60,"hyper_beam"]],
     evolveTo:258, evolveLevel:44, catchRate:80, expYield:155, rarity:"uncommon",
@@ -3683,7 +3683,7 @@ const MONSTERS_DATA = {
     lore:"Bahamber is a serpentine earth-dragon 6 metres long that coils tightly around rocky spires to sleep — Searburn's scarlet-and-black scales have darkened further to amber-and-black overlapping like armour, and the backward-swept horns of its juvenile form have grown forward into twin crests of blue-tipped flame crowning its narrow skull. Vast wings fold along its serpentine length when at rest, almost invisible against its scales but capable of sweeping fire across a hillside when unfurled. It breathes a spiralling helix of fire able to bore through solid stone." },
 
   // 21: Terravore - Fire/Earth (Magmaurin→Embrath→Terravore)
-  21: { id:21, name:"Terravore", emoji:"🦎", types:["Fire","Earth"],
+  21: { id:21, name:"Terravore", emoji:"🦖", types:["Fire","Earth"],
     base:{hp:100,atk:134,def:89,spa:79,spd:74,spe:74},
     learnset:[[1,"flame_fang"],[1,"earthquake"],[2,"magma_surge"],[3,"scorched_earth"],[4,"scorch_veil"],[38,"flamethrower"],[42,"earth_power"],[46,"fire_blast"],[50,"ashfall"],[54,"inferno"],[58,"sand_geyser"],[62,"solar_flare"],[5,"embercloak"],[44,"blazing_rush"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:260, rarity:"rare",
@@ -3883,7 +3883,7 @@ const MONSTERS_DATA = {
     lore:"Nightwolf is a massive black-furred predator 1.4 metres at the shoulder — Dreadmaw's pure black fur and powerful chest have grown into a great-dane-and-wolf hybrid frame. Its form is surrounded by a subtle shadow-haze. It hunts large prey by pursuing it into darkness where it has absolute advantage, wearing it down over long relentless chases." },
 
   // 206: Phantomvast - Dark/Poison (Nocturil→Phantorvex→Phantomvast)
-  125: { id:125, name:"Venotitan", emoji:"🦎", types:["Dark","Poison"],
+  125: { id:125, name:"Venotitan", emoji:"🐍", types:["Dark","Poison"],
     base:{hp:92,atk:121,def:87,spa:111,spd:86,spe:53},
     learnset:[[1,"bite"],[1,"venom_lance"],[2,"dark_pulse"],[3,"sludge_wave"],[4,"eclipse_shroud"],[38,"void_rend"],[42,"acid_rain"],[46,"shadow_ball"],[50,"soul_rend"],[54,"toxic_surge"],[58,"corrosion_fang"],[62,"dread_howl"],[5,"shadowstep"],[44,"abyssal_snare"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
@@ -3946,12 +3946,12 @@ const MONSTERS_DATA = {
 
   // ---- Tier 1a: Mid-game NG+ (badges 8–11 areas) BST ~490–540 ----
   // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
-  322: { id:322, name:"Venomwraith", emoji:"☠️", types:["Poison","Dark"],
+  322: { id:322, name:"Venomwraith", emoji:"☠️", types:["Poison","Spectral"],
     base:{hp:60,atk:65,def:54,spa:81,spd:69,spe:71}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"poison_sting"],[10,"shadow_ball"],[20,"sludge_bomb"],[30,"miasma_cloud"],[40,"void_rend"],[50,"sludge_wave"],[60,"toxic_surge"],[5,"toxic"],[45,"venom_lance"]],
     catchRate:30, expYield:255, rarity:"rare",
     desc:"A wraith of pure venom that haunts poison-soaked ruins. Its touch corrupts everything.",
-    lore:"Venomwraith is a spectral poison-type 1.5 metres tall with a translucent body that glows sickly green. Corrosive vapour constantly seeps from its form." },
+    lore:"Venomwraith is a poison-spectral entity 1.5 metres tall with a translucent body that glows sickly green. Corrosive vapour constantly seeps from its form." },
 
   323: { id:323, name:"Toxicore", emoji:"🧪", types:["Poison","Fire"],
     base:{hp:63,atk:73,def:58,spa:84,spd:62,spe:60}, evolveTo:null, evolveLevel:null,
@@ -4248,12 +4248,12 @@ const MONSTERS_DATA = {
     desc:"A colossal entity that shifts colour with its mood. When all colours appear simultaneously, it is enraged.",
     lore:"Chromavast is a normal-psychic creature 3 metres tall with a smooth ovoid body that cycles through every colour in the visible spectrum. Its form is constantly, slowly shifting." },
 
-  364: { id:364, name:"Deepcrawler", emoji:"🦀", types:["Aquatic"],
+  364: { id:364, name:"Deepcrawler", emoji:"🦀", types:["Aquatic","Metal"],
     base:{hp:85,atk:100,def:107,spa:75,spd:85,spe:68}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"water_gun"],[10,"metal_claw"],[20,"tidal_crush"],[30,"iron_tail"],[40,"hydro_pump"],[50,"flash_cannon"],[60,"sea_serpent_strike"],[5,"harden"],[38,"alloy_edge"]],
     catchRate:9, expYield:320, rarity:"rare",
     desc:"An armoured crustacean from the ocean floor. Its shell is composed of self-reinforcing bio-steel alloy.",
-    lore:"Deepcrawler is a water-steel crustacean 2.5 metres across with a carapace of bio-synthesised steel alloy. Deep-sea pressure sensors have detected it moving at depths of 11 kilometres." },
+    lore:"Deepcrawler is an aquatic-metal crustacean 2.5 metres across with a carapace of bio-synthesised steel alloy. Deep-sea pressure sensors have detected it moving at depths of 11 kilometres." },
 
   365: { id:365, name:"Cinderking", emoji:"🔥", types:["Fire","Dark"],
     base:{hp:75,atk:105,def:79,spa:94,spd:77,spe:90}, evolveTo:null, evolveLevel:null,
@@ -4355,12 +4355,12 @@ const MONSTERS_DATA = {
     desc:"A being that exists only in the shared dreamspace of nearby creatures. Physical contact wakes it permanently.",
     lore:"Dreamweald is a mental-dream entity visible only to those who are half-asleep. In full wakefulness it appears as a translucent shimmer, but in dreams it takes whatever form the dreamer most desires." },
 
-  379: { id:379, name:"Riftscale", emoji:"🔮", types:["Wind","Draconic"],
+  379: { id:379, name:"Riftscale", emoji:"🔮", types:["Draconic","Spectral"],
     base:{hp:78,atk:105,def:87,spa:111,spd:94,spe:105}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
     learnset:[[1,"dragon_breath"],[10,"shadow_ball"],[20,"dragon_claw"],[30,"phantom_claw"],[40,"wyrm_strike"],[50,"void_rend"],[60,"cataclysm_breath"],[5,"dragon_dance"],[48,"eon_crash"]],
     catchRate:6, expYield:342, rarity:"legendary",
     desc:"A dragon that phases between worlds. Its scales exist in multiple realities simultaneously.",
-    lore:"Riftscale is a dragon-ghost 4.5 metres long whose scales shimmer with a translucent quality — half of them appear solid and half ghostly. It can phase through solid matter at will." },
+    lore:"Riftscale is a draconic-spectral 4.5 metres long whose scales shimmer with a translucent quality — half of them appear solid and half ghostly. It can phase through solid matter at will." },
 
   380: { id:380, name:"Tempestborn", emoji:"⛈️", types:["Electric","Wind"],
     base:{hp:77,atk:98,def:77,spa:116,spd:94,spe:116}, evolveTo:null, evolveLevel:null, ngPlusTier:2,

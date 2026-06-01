@@ -5445,6 +5445,7 @@ const WORLD_DATA = {
     desc:"A town on the electric plains. Gym Leader Zara harnesses lightning power.",
     connections:["route4","route5","storm_plateau","thunder_cliffs"],
     wildMonsters:[
+      {id:242, minLv:26, maxLv:30, rate:18}, // Pulseglow (obtainability fix)
       {id:81, minLv:26, maxLv:30, rate:30}, // Sparklet
       {id:84, minLv:26, maxLv:30, rate:25}, // Zapbug
       {id:90, minLv:27, maxLv:30, rate:25}, // Stormchick
@@ -5458,6 +5459,7 @@ const WORLD_DATA = {
     desc:"A wide open plain where storms are constant and Electric types roam freely.",
     connections:["sparkmoor","frostpeak","mirror_lake"],
     wildMonsters:[
+      {id:209, minLv:30, maxLv:34, rate:20}, // Boltfur (obtainability fix)
       {id:81, minLv:30, maxLv:34, rate:25},
       {id:90, minLv:30, maxLv:34, rate:25},
       {id:111, minLv:31, maxLv:34, rate:25}, // Draftfinch
@@ -5484,6 +5486,7 @@ const WORLD_DATA = {
     desc:"An icy cave system glittering with crystals. Ice and Rock types dwell here.",
     connections:["frostpeak","shadowmere"],
     wildMonsters:[
+      {id:289, minLv:38, maxLv:42, rate:12}, // Bouncyblob (obtainability fix)
       {id:47, minLv:38, maxLv:42, rate:25},
       {id:51, minLv:38, maxLv:42, rate:25}, // Icecrystal
       {id:195, minLv:39, maxLv:42, rate:25}, // Crystalrock
@@ -5547,6 +5550,7 @@ const WORLD_DATA = {
     desc:"The highest peak in Lumoria. Draconic Gym Leader Drake commands ancient power.",
     connections:["route8","route9"],
     wildMonsters:[
+      {id:235, minLv:58, maxLv:62, rate:10}, // Glintscale (obtainability fix)
       {id:172, minLv:58, maxLv:62, rate:30}, // Drakling
       {id:175, minLv:58, maxLv:62, rate:25}, // Seadrake
       {id:176, minLv:59, maxLv:62, rate:25}, // Stormwyrm
@@ -5581,6 +5585,7 @@ const WORLD_DATA = {
     desc:"A dense, humid jungle teeming with Grass, Poison and Bug types. Ancient ruins peek through the canopy.",
     connections:["route2","ancient_ruins","bug_forest_west","poison_swamp_lower"],
     wildMonsters:[
+      {id:260, minLv:10, maxLv:13, rate:18}, // Sproutix (obtainability fix)
       {id:63, minLv:8, maxLv:12, rate:25},   // Mushrump
       {id:66, minLv:8, maxLv:12, rate:25},   // Fernwhip
       {id:140, minLv:9, maxLv:12, rate:20},   // Prismfly
@@ -5595,6 +5600,7 @@ const WORLD_DATA = {
     desc:"Crumbling temples from a forgotten civilization. Mental and Dark energies fill the air. The Umbra Order has been spotted here.",
     connections:["lumoria_jungle","bug_forest_east","reef_ruins"],
     wildMonsters:[
+      {id:22, minLv:13, maxLv:17, rate:15}, // Hallucigaze (obtainability fix)
       {id:142, minLv:12, maxLv:16, rate:25},  // Dawnsprite
       {id:124, minLv:13, maxLv:17, rate:20},  // Phantomfang
       {id:168, minLv:14, maxLv:17, rate:20},  // Esperia
@@ -5610,6 +5616,7 @@ const WORLD_DATA = {
     desc:"The deepest part of Lumoria's ocean. Aquatic and Draconic types of terrifying power lurk here. The Umbra Order seeks something ancient in these depths.",
     connections:["tidewatch","coral_reef","sunken_temple"],
     wildMonsters:[
+      {id:230, minLv:20, maxLv:24, rate:12}, // Scaleling (obtainability fix)
       {id:85, minLv:18, maxLv:24, rate:25},  // Seadrake
       {id:33, minLv:18, maxLv:24, rate:25},  // Surgeeel
       {id:19, minLv:19, maxLv:24, rate:25},  // Glaciaseal
@@ -5625,6 +5632,7 @@ const WORLD_DATA = {
     desc:"The scorching heart of the volcano beneath Emberveil. Only the most fearless trainers descend here. Legendary energies stir within.",
     connections:["emberveil","iron_canyon","lava_fields"],
     wildMonsters:[
+      {id:277, minLv:24, maxLv:29, rate:12}, // Magmite (obtainability fix)
       {id:15, minLv:22, maxLv:28, rate:25},  // Flamewyrm
       {id:13, minLv:22, maxLv:28, rate:25},  // Magmacow
       {id:38, minLv:23, maxLv:28, rate:20},  // Venomscorp
@@ -5655,6 +5663,7 @@ const WORLD_DATA = {
     desc:"An underground crystal cavern with walls of pure ice and steel. Rare mineral-type Lumori call this glittering place home.",
     connections:["frostpeak","shadowmere","crystal_spire"],
     wildMonsters:[
+      {id:211, minLv:34, maxLv:38, rate:15}, // Cinderfrost (obtainability fix)
       {id:177, minLv:34, maxLv:40, rate:25},  // Crystaldrake
       {id:195, minLv:34, maxLv:40, rate:25},  // Crystalrock
       {id:152, minLv:35, maxLv:40, rate:20},  // Titanshell
@@ -5701,6 +5710,8 @@ const WORLD_DATA = {
     desc:"A stunning underwater coral garden teeming with colorful Aquatic and Poison types. Sunlight filters through the shimmering water above.",
     connections:["deep_trench","reef_ruins","sunken_temple"],
     wildMonsters:[
+      {id:256, minLv:24, maxLv:28, rate:18}, // Scolphin (obtainability fix)
+      {id:34, minLv:22, maxLv:26, rate:18}, // Pearlith (obtainability fix)
       {id:28, minLv:22, maxLv:28, rate:25},   // Coralfish
       {id:25, minLv:22, maxLv:28, rate:25},   // Bubblecrab
       {id:31, minLv:23, maxLv:28, rate:20},  // Polykling
@@ -5715,6 +5726,7 @@ const WORLD_DATA = {
     desc:"A twisted forest where ancient trees whisper in the dark. Spectral-like shadows drift between the gnarled branches.",
     connections:["shadowmere","spirit_canyon"],
     wildMonsters:[
+      {id:78, minLv:42, maxLv:46, rate:15}, // Sylvnox (obtainability fix)
       {id:118, minLv:42, maxLv:47, rate:25},   // Shadowpup
       {id:121, minLv:42, maxLv:47, rate:25},   // Voidbat
       {id:126, minLv:43, maxLv:48, rate:20},  // Wraithling
@@ -5742,6 +5754,7 @@ const WORLD_DATA = {
     desc:"Sheer cliff faces perpetually struck by lightning. Electric energy crackles through every rock and stone here.",
     connections:["sparkmoor","storm_plateau"],
     wildMonsters:[
+      {id:247, minLv:30, maxLv:36, rate:10}, // Sparkeen (obtainability fix)
       {id:81, minLv:28, maxLv:34, rate:25},   // Sparklet
       {id:90, minLv:28, maxLv:34, rate:25},   // Stormchick
       {id:92, minLv:29, maxLv:34, rate:20},  // Thunderock
@@ -5819,6 +5832,7 @@ const WORLD_DATA = {
     desc:"The northern stretch of Fairy Meadow leading toward the Poison Marshes. Stronger Fairy types guard this path.",
     connections:["fairy_meadow_south","route7"],
     wildMonsters:[
+      {id:286, minLv:8, maxLv:11, rate:18}, // Fuzzlet (obtainability fix)
       {id:137, minLv:6, maxLv:10, rate:25},    // Glowpup
       {id:140, minLv:7, maxLv:11, rate:35},   // Faeling
       {id:111, minLv:7, maxLv:11, rate:40}    // Aeolin
@@ -5866,6 +5880,7 @@ const WORLD_DATA = {
     desc:"A perfectly still alpine lake with a surface like polished glass. The reflected sky makes it impossible to tell up from down.",
     connections:["route5","storm_plateau"],
     wildMonsters:[
+      {id:189, minLv:30, maxLv:34, rate:18}, // Woolcalm (obtainability fix)
       {id:45, minLv:30, maxLv:36, rate:25},   // Sleetling
       {id:50, minLv:30, maxLv:36, rate:25},   // Snowfluff
       {id:137, minLv:31, maxLv:36, rate:20},   // Glowpup
@@ -5880,6 +5895,7 @@ const WORLD_DATA = {
     desc:"A smoldering expanse of hardened lava and glowing fissures. The ground cracks underfoot and fire vents belch superheated air.",
     connections:["volcano_core","iron_canyon"],
     wildMonsters:[
+      {id:253, minLv:28, maxLv:34, rate:12}, // Ashrock (obtainability fix)
       {id:13, minLv:26, maxLv:32, rate:25},   // Lavabull
       {id:17, minLv:26, maxLv:32, rate:25},   // Flamewyrm
       {id:19, minLv:27, maxLv:33, rate:20},  // Cindermole
@@ -5904,6 +5920,7 @@ const WORLD_DATA = {
     desc:"Ancient steel structures submerged beneath the sea, overgrown with coral. A forgotten civilization once thrived here beneath the waves.",
     connections:["coral_reef","ancient_ruins"],
     wildMonsters:[
+      {id:214, minLv:36, maxLv:42, rate:10}, // Petrwave (obtainability fix)
       {id:26, minLv:28, maxLv:35, rate:25},   // Waveclaw
       {id:193, minLv:28, maxLv:35, rate:25},   // Cragclaw
       {id:37, minLv:29, maxLv:36, rate:20},  // Coralgolem
@@ -6391,6 +6408,7 @@ const WORLD_DATA = {
       {id:299, minLv:58, maxLv:63, rate:10},  // Stinglet (base Bug/Poi, also on route10)
       {id:218, minLv:59, maxLv:64, rate:10}   // Mistwraith (base Spectral/Dark, item evo)
     ],
+    legendaryEncounter:{monsterId:316, level:62}, // static legendary (obtainability fix)
     hasGym:false, requiredBadges:9, mapPos:{x:41, y:67}
   },
   magma_vent: {
@@ -6433,6 +6451,7 @@ const WORLD_DATA = {
       {id:273, minLv:63, maxLv:68, rate:10},  // Blazeon (mid → Embrix 272 on fungal_cavern ✓)
       {id:290, minLv:63, maxLv:68, rate:10}   // Mimiclaw (location evo cobweb_gully nearby)
     ],
+    legendaryEncounter:{monsterId:318, level:69}, // static legendary (obtainability fix)
     hasGym:false, requiredBadges:11, mapPos:{x:14, y:86}
   },
   wind_hollow: {
@@ -6447,6 +6466,7 @@ const WORLD_DATA = {
       {id:238, minLv:63, maxLv:68, rate:10},  // Snowble (base Ice/Wind)
       {id:284, minLv:63, maxLv:68, rate:10}   // Fluffkin (base Normal/Wind)
     ],
+    legendaryEncounter:{monsterId:314, level:66}, // static legendary (obtainability fix)
     hasGym:false, requiredBadges:12, mapPos:{x:8, y:93}
   },
   tempest_cliffs: {
@@ -6468,6 +6488,7 @@ const WORLD_DATA = {
     desc:"A barren expanse of volcanic ash fields between Gusthaven and the Forge Ruins. Fire types scorch the ashen ground, and Metal types scavenge the slag.",
     connections:["route14","forge_ruins"],
     wildMonsters:[
+      {id:301, minLv:66, maxLv:71, rate:10}, // Emberveil (obtainability fix)
       {id:245, minLv:66, maxLv:71, rate:25},  // Thundravex (mid Electric → 244 ✓)
       {id:275, minLv:66, maxLv:71, rate:25},  // Infernox (mid → 274 Cindling on magma_vent ✓)
       {id:266, minLv:65, maxLv:70, rate:20},  // Shadowpup (base Dark, also route10)
@@ -6517,6 +6538,7 @@ const WORLD_DATA = {
       {id:313, minLv:69, maxLv:74, rate:15},  // Sandrix (mid → 312 Dunecrawl on magma_vent ✓)
       {id:241, minLv:70, maxLv:75, rate:10}   // Shardlix (location evo from cosmic_cavern energy)
     ],
+    legendaryEncounter:{monsterId:317, level:73}, // static legendary (obtainability fix)
     hasGym:false, requiredBadges:14, mapPos:{x:53, y:83}
   },
   nebula_gorge: {

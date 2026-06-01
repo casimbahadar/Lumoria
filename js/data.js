@@ -5387,6 +5387,7 @@ const WORLD_DATA = {
       {id:69, minLv:6, maxLv:9, rate:20},  // Seedpod
       {id:84, minLv:7, maxLv:9, rate:10}   // Zapbug
     ],
+    ngPlusWildMonsters:[{id:446, minLv:6, maxLv:9, rate:12}], // NG+ family base: Sporelet
     hasGym:false, requiredBadges:1, mapPos:{x:50, y:58}
   },
   tidewatch: {
@@ -5411,6 +5412,7 @@ const WORLD_DATA = {
       {id:101, minLv:14, maxLv:16, rate:25},
       {id:42, minLv:15, maxLv:17, rate:25}
     ],
+    ngPlusWildMonsters:[{id:456, minLv:14, maxLv:17, rate:12}], // NG+ family base: Mistgill
     hasGym:false, requiredBadges:2, mapPos:{x:70, y:45}
   },
   emberveil: {
@@ -5435,6 +5437,7 @@ const WORLD_DATA = {
       {id:191, minLv:23, maxLv:26, rate:25},
       {id:98, minLv:23, maxLv:26, rate:25}
     ],
+    ngPlusWildMonsters:[{id:414, minLv:22, maxLv:25, rate:12}], // NG+ family base: Grublurk
     hasGym:false, requiredBadges:3, mapPos:{x:65, y:28}
   },
   sparkmoor: {
@@ -5447,6 +5450,7 @@ const WORLD_DATA = {
       {id:90, minLv:27, maxLv:30, rate:25}, // Stormchick
       {id:87, minLv:27, maxLv:30, rate:20}  // Voltfin
     ],
+    ngPlusWildMonsters:[{id:440, minLv:26, maxLv:29, rate:12}], // NG+ family base: Rustmite
     hasGym:true, gymLeader:"zara", requiredBadges:3, mapPos:{x:52, y:25}
   },
   route5: {
@@ -5459,6 +5463,7 @@ const WORLD_DATA = {
       {id:111, minLv:31, maxLv:34, rate:25}, // Draftfinch
       {id:182, minLv:31, maxLv:34, rate:25}  // Roundbear
     ],
+    ngPlusWildMonsters:[{id:444, minLv:30, maxLv:33, rate:12}], // NG+ family base: Squeaklet
     hasGym:false, requiredBadges:4, mapPos:{x:42, y:22}
   },
   frostpeak: {
@@ -5471,6 +5476,7 @@ const WORLD_DATA = {
       {id:45, minLv:35, maxLv:38, rate:25}, // Sleetling
       {id:53, minLv:35, maxLv:38, rate:20}  // Glaciawing
     ],
+    ngPlusWildMonsters:[{id:432, minLv:34, maxLv:37, rate:6}], // NG+ family base: Tusklet
     hasGym:true, gymLeader:"glacier", requiredBadges:4, mapPos:{x:32, y:18}
   },
   route6: {
@@ -5483,6 +5489,7 @@ const WORLD_DATA = {
       {id:195, minLv:39, maxLv:42, rate:25}, // Crystalrock
       {id:53, minLv:39, maxLv:42, rate:25}
     ],
+    ngPlusWildMonsters:[{id:435, minLv:38, maxLv:41, rate:12}], // NG+ family base: Knucklite
     hasGym:false, requiredBadges:5, mapPos:{x:22, y:25}
   },
   shadowmere: {
@@ -5494,6 +5501,7 @@ const WORLD_DATA = {
       {id:121, minLv:42, maxLv:46, rate:25}, // Voidbat
       {id:123, minLv:43, maxLv:46, rate:25}  // Umbralisard
     ],
+    ngPlusWildMonsters:[{id:417, minLv:42, maxLv:45, rate:12}], // NG+ family base: Glacigeist
     hasGym:true, gymLeader:"nyx", requiredBadges:5, mapPos:{x:15, y:35}
   },
   route7: {
@@ -5518,6 +5526,7 @@ const WORLD_DATA = {
       {id:114, minLv:51, maxLv:54, rate:25}, // Cloudpuff
       {id:168, minLv:51, maxLv:54, rate:20}  // Esperia
     ],
+    ngPlusWildMonsters:[{id:460, minLv:50, maxLv:53, rate:12}], // NG+ family base: Gongling
     hasGym:true, gymLeader:"oracle", requiredBadges:6, mapPos:{x:30, y:55}
   },
   route8: {
@@ -5578,6 +5587,7 @@ const WORLD_DATA = {
       {id:155, minLv:9, maxLv:13, rate:20},   // Toxitoad
       {id:160, minLv:10, maxLv:13, rate:10}   // Miasmafly
     ],
+    ngPlusWildMonsters:[{id:411, minLv:9, maxLv:12, rate:12}], // NG+ family base: Thrumquill
     hasGym:false, requiredBadges:1, mapPos:{x:56, y:68}
   },
   ancient_ruins: {
@@ -5590,6 +5600,7 @@ const WORLD_DATA = {
       {id:168, minLv:14, maxLv:17, rate:20},  // Esperia
       {id:166, minLv:14, maxLv:17, rate:10}   // Mindpup
     ],
+    ngPlusWildMonsters:[{id:448, minLv:12, maxLv:16, rate:12}], // NG+ family base: Cobblepup
     hasGym:false, requiredBadges:1, mapPos:{x:64, y:76},
     storyLocation:true, hasUmbraEncounter:true,
     legendaryEncounter:{monsterId:165, level:55}
@@ -5650,6 +5661,7 @@ const WORLD_DATA = {
       {id:201, minLv:36, maxLv:41, rate:20}, // Hardbeetle
       {id:54, minLv:36, maxLv:41, rate:10}   // Polarex
     ],
+    ngPlusWildMonsters:[{id:408, minLv:36, maxLv:40, rate:6}], // NG+ family base: Glimmerling
     hasGym:false, requiredBadges:5, mapPos:{x:10, y:28}
   },
   mystic_forest: {
@@ -5664,6 +5676,7 @@ const WORLD_DATA = {
       {id:122, minLv:48, maxLv:52, rate:10},  // Caveshroud
       {id:170, minLv:46, maxLv:52, rate:10}   // Oneiron
     ],
+    ngPlusWildMonsters:[{id:429, minLv:46, maxLv:49, rate:12}], // NG+ family base: Lullasnout
     hasGym:false, requiredBadges:6, mapPos:{x:25, y:62},
     storyLocation:true, hasUmbraEncounter:true
   },
@@ -5694,6 +5707,7 @@ const WORLD_DATA = {
       {id:155, minLv:24, maxLv:29, rate:20},   // Toxitoad
       {id:39, minLv:25, maxLv:30, rate:10}   // Tidalwing
     ],
+    ngPlusWildMonsters:[{id:450, minLv:22, maxLv:26, rate:12}], // NG+ family base: Jabshell
     hasGym:false, requiredBadges:2, mapPos:{x:84, y:72}
   },
   haunted_grove: {
@@ -5707,6 +5721,7 @@ const WORLD_DATA = {
       {id:123, minLv:44, maxLv:48, rate:20},   // Umbralisard
       {id:130, minLv:45, maxLv:50, rate:10}   // Gravemoss
     ],
+    ngPlusWildMonsters:[{id:454, minLv:43, maxLv:47, rate:12}], // NG+ family base: Tollwisp
     hasGym:false, requiredBadges:5, mapPos:{x:8, y:42}
   },
   sky_harbor: {
@@ -5744,6 +5759,7 @@ const WORLD_DATA = {
       {id:73, minLv:44, maxLv:49, rate:35},   // Acidblob
       {id:75, minLv:45, maxLv:50, rate:35}    // Miasmafly
     ],
+    ngPlusWildMonsters:[{id:442, minLv:44, maxLv:48, rate:12}], // NG+ family base: Bloatleech
     hasGym:false, requiredBadges:6, mapPos:{x:30, y:56}
   },
   poison_swamp_lower: {
@@ -5782,6 +5798,7 @@ const WORLD_DATA = {
       {id:150, minLv:27, maxLv:32, rate:20},   // Gearbot
       {id:152, minLv:28, maxLv:33, rate:10}    // Titanshell
     ],
+    ngPlusWildMonsters:[{id:423, minLv:25, maxLv:29, rate:12}], // NG+ family base: Pebblite
     hasGym:false, requiredBadges:3, mapPos:{x:88, y:30},
     legendaryEncounter:{monsterId:167, level:55}
   },
@@ -5794,6 +5811,7 @@ const WORLD_DATA = {
       {id:69, minLv:4, maxLv:7, rate:35},     // Germix
       {id:111, minLv:5, maxLv:8, rate:35}     // Aeolin
     ],
+    ngPlusWildMonsters:[{id:438, minLv:5, maxLv:8, rate:12}], // NG+ family base: Chimelet
     hasGym:false, requiredBadges:0, mapPos:{x:8, y:68}
   },
   fairy_meadow_north: {
@@ -5829,6 +5847,7 @@ const WORLD_DATA = {
       {id:200, minLv:10, maxLv:14, rate:30},  // Colerix
       {id:84, minLv:11, maxLv:15, rate:40}    // Electrix
     ],
+    ngPlusWildMonsters:[{id:426, minLv:10, maxLv:14, rate:12}], // NG+ family base: Pummelo
     hasGym:false, requiredBadges:1, mapPos:{x:50, y:74}
   },
   bug_forest_east: {
@@ -5853,6 +5872,7 @@ const WORLD_DATA = {
       {id:57, minLv:32, maxLv:38, rate:20},  // Mirrorfish
       {id:43, minLv:34, maxLv:39, rate:10}    // Glaciaseal
     ],
+    ngPlusWildMonsters:[{id:420, minLv:30, maxLv:34, rate:12}], // NG+ family base: Mistling
     hasGym:false, requiredBadges:4, mapPos:{x:48, y:14}
   },
   lava_fields: {
@@ -5904,6 +5924,7 @@ const WORLD_DATA = {
       {id:116, minLv:50, maxLv:55, rate:20},  // Zephyrling
       {id:109, minLv:51, maxLv:56, rate:10}    // Galemane
     ],
+    ngPlusWildMonsters:[{id:458, minLv:48, maxLv:52, rate:12}], // NG+ family base: Gustling
     hasGym:false, requiredBadges:6, mapPos:{x:36, y:40}
   },
   crystal_spire: {
@@ -5960,6 +5981,7 @@ const WORLD_DATA = {
       {id:73, minLv:57, maxLv:61, rate:20},
       {id:75, minLv:58, maxLv:62, rate:20}
     ],
+    ngPlusWildMonsters:[{id:452, minLv:56, maxLv:60, rate:12}], // NG+ family base: Dozit
     hasGym:true, gymLeader:"thorne", requiredBadges:8, mapPos:{x:55, y:55}
   },
   route10: {

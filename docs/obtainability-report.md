@@ -30,7 +30,7 @@ Catchable (Vaeldris wielder leads, post-quest): #462, #465, #468, #471, #474, #4
 
 | ID | Name | Types | Paths |
 |---|---|---|---|
-| #1 | Solkin | Fire | Starter<br>Wild (1: Apex Summit) |
+| #1 | Solkin | Fire | Starter<br>NG+ Wild (1: Emberveil City) |
 | #2 | Pyrevix | Fire | Evolves from #1 Solkin |
 | #3 | Calderaeth | Fire/Draconic | Evolves from #2 Pyrevix |
 | #4 | Aquatter | Aquatic | Starter |
@@ -159,7 +159,7 @@ Catchable (Vaeldris wielder leads, post-quest): #462, #465, #468, #471, #474, #4
 | #127 | Specraxis | Dark/Mental | Evolves from #126 Impefurr |
 | #128 | Cranivade | Mental/Spectral | Wild (1: Route 8 - Sky Corridors) |
 | #129 | Voidaxis | Mental/Spectral | Evolves from #128 Cranivade |
-| #130 | Necralia | Dark/Nature | Wild (4: Haunted Grove, Dark Canyon, Prismatic Rift…) |
+| #130 | Necralia | Dark/Nature | Wild (2: Haunted Grove, Dark Canyon) |
 | #131 | Necrothon | Dark/Nature | Wild (2: The Void Rift, Shadow Archive)<br>Evolves from #130 Necralia |
 | #132 | Volcascale | Earth/Dark | Wild (1: Route 15 - Granite Pass) |
 | #133 | Monolithox | Earth/Dark | Wild (4: Route 15 - Granite Pass, Quarryville Town, Stone Plateau…)<br>Evolves from #132 Volcascale |
@@ -350,7 +350,7 @@ Catchable (Vaeldris wielder leads, post-quest): #462, #465, #468, #471, #474, #4
 | #318 | Gaiavorn | Earth/Nature | Static legendary (Ancient Grove) |
 | #319 | Voidraxis | Dark/Stellar | Wild (1: Void Nexus) |
 | #320 | Galvathon | Metal/Electric | Wild (1: Void Nexus) |
-| #321 | Dragemian | Draconic/Fire | Wild (2: Prismatic Rift, Apex Summit) |
+| #321 | Dragemian | Draconic/Fire | Static legendary (Magma Vent) |
 | #322 | Venomwraith | Poison/Spectral | NG+ Wild (2: Route 10 - Toxic Passage, Miasma City) |
 | #323 | Toxicore | Poison/Fire | NG+ Wild (1: Route 10 - Toxic Passage) |
 | #324 | Chittering | Nature/Dark | NG+ Wild (2: Miasma City, Route 12 - Silk Road) |

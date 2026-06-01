@@ -5425,6 +5425,7 @@ const WORLD_DATA = {
       {id:10, minLv:18, maxLv:21, rate:25}, // Cinderling
       {id:191, minLv:19, maxLv:22, rate:20}  // Pebblepup
     ],
+    ngPlusWildMonsters:[{id:1, minLv:18, maxLv:22, rate:10}], // NG+-only: Solkin (fire starter line)
     hasGym:true, gymLeader:"pyros", requiredBadges:2, mapPos:{x:75, y:35}
   },
   route4: {
@@ -6432,6 +6433,7 @@ const WORLD_DATA = {
       {id:312, minLv:60, maxLv:65, rate:10}   // Dunecrawl (base Ground/Dark)
     ],
     ngPlusWildMonsters:[{id:368, minLv:61, maxLv:66, rate:9}], // NG+ standalone: Willowisp
+    legendaryEncounter:{monsterId:321, level:63}, // base-game legendary (relocated from NG+ mega-areas)
     hasGym:false, requiredBadges:10, mapPos:{x:28, y:74}
   },
   fungal_cavern: {
@@ -6658,9 +6660,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:300, minLv:82, maxLv:88, rate:20},
       {id:150, minLv:83, maxLv:88, rate:15},
-      {id:130, minLv:84, maxLv:90, rate:10},
       {id:310, minLv:84, maxLv:90, rate:10},
-      {id:321, minLv:85, maxLv:92, rate:5},
       {id:372, minLv:84, maxLv:90, rate:10},
       {id:378, minLv:86, maxLv:92, rate:7},
       {id:379, minLv:86, maxLv:92, rate:6},
@@ -6677,9 +6677,6 @@ const WORLD_DATA = {
     desc:"The highest point in all of Lumoria, accessible only to trainers who have already stood as Champion. A legendary Lumori of pure light waits here for someone worthy of a second journey.",
     connections:["prismatic_rift"],
     wildMonsters:[
-      {id:1,   minLv:85, maxLv:90, rate:20},
-      {id:130, minLv:86, maxLv:92, rate:15},
-      {id:321, minLv:88, maxLv:95, rate:5},
       {id:384, minLv:88, maxLv:94, rate:8},
       {id:389, minLv:89, maxLv:95, rate:5},
       {id:392, minLv:90, maxLv:96, rate:3},

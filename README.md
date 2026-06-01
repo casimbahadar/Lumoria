@@ -20,7 +20,7 @@ Open `index.html` in any modern browser. No build step, no dependencies — runs
 ### Lumori
 
 - **446 Lumori** in the game — 407 available to catch and train, with others that can only be encountered under specific circumstances
-- **21 types:** Fire, Water, Grass, Electric, Ground, Wind, Ice, Dark, Fairy, Steel, Poison, Psychic, Dragon, Normal, Rock, Bug, Ghost, Fighting, Crystal, Primal, Aether
+- **26 types** spanning elemental, exotic, and post-game: Fire, Aquatic, Nature, Electric, Earth, Wind, Ice, Dark, Fairy, Metal, Poison, Mental, Draconic, Normal, Spectral, Fighting, Sonic, Vapor, Mineral, Toxin, Dream — plus Aether, Crystal, Primal, Chrono, and Stellar reserved for the post-game Forgotten Lumori
 - Full **type effectiveness chart** with dual-type support and immunities
 - **Natures** — 25 Lumoria-themed natures that each boost one stat and lower another, affecting every encounter
 - **Individual Values (IVs)** — hidden per-stat values that make every Lumori unique; visible in battle and on the team screen
@@ -33,11 +33,23 @@ Open `index.html` in any modern browser. No build step, no dependencies — runs
 
 ### Battle System
 
-- Turn-based battles with **544 moves** across all 21 types
+- Turn-based battles with **1,100+ moves** across all 26 types
 - **Physical, Special, and Status** move categories with accurate damage formulas
-- **Status effects:** Burn, Paralyze, Poison, Sleep, Freeze, Confusion, Flinch
-- Critical hits, priority moves, recharge mechanics, and stat stage modifiers
+- **Multi-status battle system** — 47 distinct status conditions, and a Lumori can suffer multiple at once. Beyond the classics (Burn, Paralyze, Poison, Sleep, Freeze, Confusion, Flinch), Lumori can be afflicted with Bleed, Petrify, Drenched, Crystallize, Marked, Burnt-out, Faded, Strained, Sluggish, Brittle, Tainted, Hexed, Deafen, Echolocation, Smothered, Weighed Down, Soaked, Severe Bleed, Statue, Hypothermia, Disoriented, Migraine, Mind-numb, Adrenaline, Inspired, Tangled, Tethered, Necrosis, Plague, Mirrored, Possessed, Muted, Sealed, Bonded, Type Distorted, Bouncy, Refracted, Phase-shifted, Crippled, Corroded, Bound, Anchored, Comatose, Hunted, Exhausted, Concussion, and Type Shattered. Type-based immunities apply throughout — Metal/Crystal/Spectral resist Bleed; Aquatic/Vapor resist Drench; Mineral/Crystal/Metal resist Petrify; Spectral resists most curse-type statuses; and so on
+- **Evolving statuses** — 12 status pairs where the lighter form auto-escalates after a few turns if not cured (Bleed → Severe Bleed, Petrify → Statue, Drenched → Soaked, Burnt-out → Crippled, Tainted → Corroded, Tangled → Bound, Tethered → Anchored, Disoriented → Comatose, Marked → Hunted, Strained → Exhausted, Migraine → Concussion, Type Distorted → Type Shattered)
+- **Reactive statuses** — Mirrored, Bouncy, and Refracted reflect damage back at attackers (Bouncy hits physical attackers, Refracted hits special attackers)
+- **Multi-battle cross-mon hooks** — Plague spreads between teammates each turn; Bonded redirects 25% of damage taken to a random teammate
+- **Advanced move mechanics:**
+  - `dualType` moves compute effectiveness against two attack types simultaneously (Flying-Press style)
+  - `breakerVs` moves force a specific defending type to take 2× damage regardless of chart (Freeze-Dry style)
+  - `alwaysCrit` moves guarantee critical hits (Frost Breath / Storm Throw style)
+  - Wide-target moves hit all opposing Lumori at a 0.75× spread modifier
+  - Self-target moves route secondary effects back to the attacker
+  - Compound effects let moves apply multiple secondary effects in a single hit (e.g. `recharge_and_burn_target`, `echolocation_and_deafen`)
+  - Recharge mechanics force a downtime turn after high-power moves
+- Critical hits, priority moves, accuracy/evasion stages, and full stat stage modifiers
 - Multi-hit moves, recoil, and drain mechanics
+- **Status badges UI** — every active status displays on the battle info panel with a color-coded tag
 - **Battle format selection** — choose Single, Double, or Triple format before every major battle; each format uses a distinct opponent team and strategy
 - **Held items** that affect battle — type boosters, Focus Sash, Leftovers, Quick Claw, Scope Lens, and more
 - **In-battle item use** — open your bag mid-battle to use Potions, Revives, or stat items at the cost of your turn
@@ -49,20 +61,20 @@ Open `index.html` in any modern browser. No build step, no dependencies — runs
   | # | Leader | Type | Badge |
   |---|---|---|---|
   | 1 | Rex | Normal | Foundation Badge |
-  | 2 | Marina | Water | Wave Badge |
+  | 2 | Marina | Aquatic | Wave Badge |
   | 3 | Pyros | Fire | Forge Badge |
   | 4 | Zara | Electric | Current Badge |
   | 5 | Glacier | Ice | Frost Badge |
   | 6 | Nyx | Dark | Dusk Badge |
-  | 7 | Oracle | Psychic | Foresight Badge |
-  | 8 | Drake | Dragon | Wyrm Badge |
-  | 9 | Thorne | Grass | Canopy Badge |
+  | 7 | Oracle | Mental | Foresight Badge |
+  | 8 | Drake | Draconic | Wyrm Badge |
+  | 9 | Thorne | Nature | Canopy Badge |
   | 10 | Viper | Poison | Venom Badge |
-  | 11 | Atlas | Ground | Tectonic Badge |
-  | 12 | Mantis | Bug | Chitin Badge |
+  | 11 | Atlas | Earth | Tectonic Badge |
+  | 12 | Mantis | Nature | Chitin Badge |
   | 13 | Zephyra | Wind | Tempest Badge |
-  | 14 | Ferro | Steel | Alloy Badge |
-  | 15 | Boulder | Rock | Geode Badge |
+  | 14 | Ferro | Metal | Alloy Badge |
+  | 15 | Boulder | Earth | Geode Badge |
   | 16 | Seraphina | Fairy | Aurora Badge |
 
 - **The Vanguard** — four elite trainers guard the path to Victory Summit

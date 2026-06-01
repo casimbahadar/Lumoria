@@ -811,7 +811,7 @@ function buildMoveArr(moveIds) {
 function buildMonBase(def, lv, ivs, nature) {
   const np = nature || "Balanced";
   const maxHP = calcMaxHP(def.base.hp, lv, ivs.hp);
-  const displayName = def.foreignRegion ? `Forgotten Lumori ${def.id - 407}` : def.name;
+  const displayName = def.foreignRegion ? `Forgotten Lumori ${def.id - 461}` : def.name;
   return {
     name: displayName, emoji: def.emoji,
     types: [...def.types], level: lv, nature: np, ivs,

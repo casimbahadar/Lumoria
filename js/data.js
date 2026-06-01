@@ -4572,7 +4572,145 @@ const MONSTERS_DATA = {
     lore:"Voidwarden is a dark-steel creature 3 metres tall with a body of condensed void-matter reinforced with an exoskeleton of ultra-dense steel. Its transformation begins when an Umbrasteel proves itself worthy of guarding the boundary between worlds — at that moment, the canine body it carried as juvenile and adolescent re-forges itself upright: the four legs reconstitute as two heavy hindlimbs and two long arms tipped in steel claws, and the shadow-filaments of its body re-weave into a humanoid silhouette better suited to wielding darkness and steel as tools. Ancient legends name Voidwarden the Warden of the Boundary Between Worlds, and it is rarely seen — its post is a fixed point in the lattice that separates one reality from another, and it leaves only at the call of catastrophic incursion." },
 
   // ============================================================
-  // FORGOTTEN LUMORI — IDs 408–446 (Vaeldrian Region)
+  // NG+ EXCLUSIVE FAMILIES — IDs 408–461
+  // 22 evolution-only families with pristine type combos. NG+ only
+  // (id >= NG_PLUS_DEX_START). Scattered into ngPlusWildMonsters overlays.
+  // ============================================================
+
+  // --- F1: gem-shelled tortoise (Crystal / Crystal-Fairy) — LEGENDARY line ---
+  408: { id:408, name:"Glimmerling", emoji:"💎", types:["Crystal"],
+    evolveTo:409, evolveLevel:18, catchRate:30, expYield:70, rarity:"legendary",
+    base:{hp:55,atk:45,def:80,spa:65,spd:75,spe:40}, // BST 360
+    learnset:[[1,"tackle"],[1,"harden"],[5,"crystal_jab"],[9,"shard_strike"],[14,"fairy_wind"],[19,"crystal_pulse"],[25,"crystal_charge"],[31,"prism_ray"]],
+    desc:"A hatchling tortoise no bigger than a thumb, its domed shell a cluster of cloudy raw quartz.",
+    lore:"Glimmerling is born when a vein of dormant gem-crystal absorbs enough ambient ley-light to quicken into life. The cloudy quartz of its shell clears a little more each season as it basks, and hatchlings instinctively gather in sunlit hollows where the refracted glow keeps predators wary. Folk who find a Glimmerling sunning itself speak of a faint chiming hum that rises from the shell at dawn." },
+
+  409: { id:409, name:"Facetite", emoji:"💎", types:["Crystal","Fairy"],
+    evolveTo:410, evolveLevel:42, catchRate:15, expYield:150, rarity:"legendary",
+    base:{hp:80,atk:65,def:115,spa:95,spd:100,spe:50}, // BST 505
+    learnset:[[1,"tackle"],[1,"harden"],[5,"crystal_jab"],[14,"fairy_wind"],[19,"crystal_pulse"],[27,"prism_ray"],[33,"dazzling_gleam"],[39,"crystalline_beam"],[45,"crystal_lattice"]],
+    desc:"Its shell has cleared into faceted gemstone planes that split sunlight into drifting fairy-glimmer.",
+    lore:"As a Glimmerling matures into Facetite, the quartz of its shell anneals into true gemstone, each plate cut into geometric facets that scatter light in shifting rainbows. The drifting motes of glimmer it sheds are warm to the touch and pacify nearby Lumori, and Facetite is often found guarding spring-fed grottoes where the light dances brightest." },
+
+  410: { id:410, name:"Prismarch", emoji:"💎", types:["Crystal","Fairy"],
+    evolveTo:null, evolveLevel:null, catchRate:5, expYield:320, rarity:"legendary",
+    base:{hp:110,atk:85,def:145,spa:125,spd:130,spe:30}, // BST 625
+    learnset:[[1,"crystal_pulse"],[1,"dazzling_gleam"],[1,"recover"],[33,"crystalline_beam"],[42,"prism_armor"],[48,"gemstone_blast"],[54,"moonblast"],[60,"starlight_prism"],[66,"prism_apocalypse"]],
+    desc:"An ancient gem-tortoise whose vast domed shell has grown into a living cathedral of prisms.",
+    lore:"Prismarch is reckoned a legendary among gem-Lumori — a colossal tortoise that has carried its crystal shell for centuries until the facets fused into a single radiant dome that bends daylight into standing rainbows for leagues around. It moves perhaps once a generation, and where it finally settles, gardens of luminous crystal bloom from the soil. Pilgrims claim the light beneath its shell can mend a fractured spirit." },
+
+  // --- F2: booming ratite / cassowary (Sonic / Draconic-Sonic) ---
+  411: { id:411, name:"Thrumquill", emoji:"🐤", types:["Sonic"],
+    evolveTo:412, evolveLevel:16, catchRate:150, expYield:64, rarity:"common",
+    base:{hp:50,atk:62,def:45,spa:50,spd:48,spe:50}, // BST 305
+    learnset:[[1,"tackle"],[1,"chirp"],[5,"echo_strike"],[9,"quick_attack"],[14,"sound_rush"],[19,"draco_jab"],[25,"rumble_smash"]],
+    desc:"A flightless chick whose stiff quill-feathers buzz with a low, constant thrum.",
+    lore:"Thrumquill cannot fly, but the hollow quills along its back vibrate when it runs, throwing a buzzing wake of sound that startles insects into the open. Chicks travel in noisy crashes through the undergrowth, and the collective thrum of a brood can be felt in the chest before they are ever seen." },
+
+  412: { id:412, name:"Echostride", emoji:"🦤", types:["Draconic","Sonic"],
+    evolveTo:413, evolveLevel:36, catchRate:70, expYield:145, rarity:"uncommon",
+    base:{hp:70,atk:92,def:62,spa:66,spd:60,spe:60}, // BST 410
+    learnset:[[1,"tackle"],[5,"echo_strike"],[14,"sound_rush"],[19,"dragon_breath"],[24,"rumble_smash"],[30,"skyboom_strike"],[36,"dragon_claw"],[42,"resonance_quake"]],
+    desc:"A long-legged runner that kicks with reptilian talons and booms to stun its rivals.",
+    lore:"Echostride has shed the last of its down for a scaled, draconic hide, and its legs have lengthened into powerful runners tipped with dagger-claws. It defends territory by lowering its head and loosing a chest-deep boom that rattles the ground; rivals that do not flee are met with a slashing kick. Its call carries far enough that whole valleys learn to give its nesting-grounds a wide berth." },
+
+  413: { id:413, name:"Resonadon", emoji:"🦤", types:["Draconic","Sonic"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:255, rarity:"rare",
+    base:{hp:85,atk:120,def:78,spa:82,spd:75,spe:90}, // BST 530
+    learnset:[[1,"sound_rush"],[1,"dragon_breath"],[24,"rumble_smash"],[36,"dragon_claw"],[42,"skyboom_strike"],[48,"bass_blast"],[54,"outrage"],[60,"resonance_quake"],[66,"threnody"]],
+    desc:"A towering ratite crowned with a hollow draconic casque that channels world-shaking infrasound.",
+    lore:"Resonadon stands taller than a mounted rider, its head capped by a hollow keratin casque that amplifies the infrasonic booms of its ancestors into pressure waves felt rather than heard. A charging Resonadon precedes itself with a wall of silent sound that buckles knees and scatters herds, and only then does it close with talon and crest. Old herders read the trembling of still water as warning that one is near." },
+
+  // --- F3: burrowing sandworm / annelid (Toxin / Earth-Toxin) ---
+  414: { id:414, name:"Grublurk", emoji:"🪱", types:["Toxin"],
+    evolveTo:415, evolveLevel:16, catchRate:160, expYield:62, rarity:"common",
+    base:{hp:60,atk:55,def:58,spa:42,spd:45,spe:40}, // BST 300
+    learnset:[[1,"tackle"],[1,"tox_sting"],[5,"mud_shot"],[10,"tox_jab"],[15,"harden"],[20,"sandstrike"],[26,"tox_acid_strike"]],
+    desc:"A pale, finger-thick grub that sweats an acrid slime as it inches through loose soil.",
+    lore:"Grublurk spends its larval life just beneath the surface, ploughing slow furrows and digesting the toxins other creatures leave behind. The acrid film coating its skin deters most predators, and gardeners both curse the burrows it leaves and prize the rich, detoxified earth it leaves in its wake." },
+
+  415: { id:415, name:"Tunnelmaw", emoji:"🪱", types:["Earth","Toxin"],
+    evolveTo:416, evolveLevel:36, catchRate:75, expYield:142, rarity:"uncommon",
+    base:{hp:80,atk:78,def:80,spa:52,spd:60,spe:45}, // BST 395
+    learnset:[[1,"tackle"],[5,"mud_shot"],[15,"tox_jab"],[20,"sandstrike"],[26,"tox_acid_strike"],[32,"bulldoze"],[38,"tox_venom_thrust"],[44,"earthquake"]],
+    desc:"A segmented burrower ringed with grinding mineral teeth at the front of its tunnel-boring maw.",
+    lore:"Tunnelmaw bores through hardpan and stone alike, its leading segment fused into a rotating ring of mineral teeth that grind rock to swallowable grit. It floods its tunnels with caustic mucus to soften the way and to drown anything that follows it down. Mining camps learn to recognise the faint hiss of acid that precedes a Tunnelmaw breaking through a wall." },
+
+  416: { id:416, name:"Sandscourge", emoji:"🪱", types:["Earth","Toxin"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:250, rarity:"rare",
+    base:{hp:105,atk:110,def:100,spa:60,spd:80,spe:60}, // BST 515
+    learnset:[[1,"sandstrike"],[1,"tox_acid_strike"],[26,"tox_venom_thrust"],[38,"earthquake"],[44,"tox_smash"],[50,"sand_tomb"],[56,"tox_storm_phy"],[62,"tectonic_slam"],[68,"tox_finish"]],
+    desc:"A colossal dune-worm that erupts from beneath the sand to drag down anything crossing its territory.",
+    lore:"Sandscourge is the apex of its line, a leviathan of the deep desert long enough to encircle a caravan. It senses footfalls through kilometres of sand and surfaces in a spray of grit and venom, collapsing dunes to mire its prey before it strikes. Nomads mark its hunting-grounds on their maps in red and cross them only by night, when the cold drives it deep." },
+
+  // --- F4: haunted ice-marionette (Spectral / Ice-Spectral) ---
+  417: { id:417, name:"Glacigeist", emoji:"👻", types:["Spectral"],
+    evolveTo:418, evolveLevel:18, catchRate:150, expYield:65, rarity:"common",
+    base:{hp:48,atk:40,def:52,spa:72,spd:58,spe:25}, // BST 295
+    learnset:[[1,"ghost_jab"],[1,"powder_snow"],[6,"ghost_pulse"],[11,"frost_breath"],[16,"specter_pulse"],[22,"aurora_beam"],[28,"phantom_beam"]],
+    desc:"A small, lonely haunt that has crept inside a cracked porcelain joint to give itself a body.",
+    lore:"Glacigeist is a houseless spirit drawn to abandoned, cold places, where it slips into a discarded fragment of carved wood or porcelain to anchor itself to the world. The object frosts over wherever the spirit touches it, and a faint chill marks the rooms it has chosen to haunt. Left undisturbed, it begins to gather more pieces to itself." },
+
+  418: { id:418, name:"Frostmarion", emoji:"❄️", types:["Ice","Spectral"],
+    evolveTo:419, evolveLevel:38, catchRate:70, expYield:148, rarity:"uncommon",
+    base:{hp:62,atk:52,def:70,spa:95,spd:76,spe:30}, // BST 385
+    learnset:[[1,"ghost_jab"],[6,"ghost_pulse"],[16,"specter_pulse"],[22,"aurora_beam"],[28,"phantom_beam"],[34,"ice_beam"],[40,"soul_lance"],[46,"glacial_shard"]],
+    desc:"A puppet of frost-lacquered wood, worked by an unseen ghost through threads of icy thread.",
+    lore:"Having gathered enough cast-off pieces, the spirit assembles Frostmarion: a jointed marionette of pale wood glazed in frost, dangling from strings of frozen filament that it manipulates itself. It moves with the eerie, hitching grace of a puppet whose puppeteer is hidden, and the air around its strings rings faintly cold. Those who cut the threads find them re-formed by morning." },
+
+  419: { id:419, name:"Pallidoll", emoji:"🎎", types:["Ice","Spectral"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:250, rarity:"rare",
+    base:{hp:80,atk:60,def:88,spa:125,spd:97,spe:55}, // BST 505
+    learnset:[[1,"specter_pulse"],[1,"aurora_beam"],[28,"phantom_beam"],[40,"soul_lance"],[46,"ice_beam"],[52,"phantom_force"],[58,"blizzard"],[64,"soul_burst"],[70,"winter_shade"]],
+    desc:"A life-size haunted doll wreathed in freezing mist, its painted eyes following anyone who lingers.",
+    lore:"Pallidoll is the spirit fully realised — a doll the size of a child, porcelain-faced and immaculate, drifting through silent winter halls on a low bank of freezing fog. It is gentle to those who treat it kindly and merciless to those who would break it, sealing intruders in sudden rime. Estates that house a Pallidoll are always cold, and always, somehow, perfectly clean." },
+
+  // --- F5: hot-spring capybara (Vapor / Fire-Vapor) ---
+  420: { id:420, name:"Mistling", emoji:"♨️", types:["Vapor"],
+    evolveTo:421, evolveLevel:18, catchRate:150, expYield:66, rarity:"common",
+    base:{hp:62,atk:48,def:52,spa:60,spd:58,spe:30}, // BST 310
+    learnset:[[1,"tackle"],[1,"mist_s"],[5,"vapor_jab"],[10,"ember"],[15,"fog_beam"],[20,"steam_burst"],[26,"mist_pulse"]],
+    desc:"A round, downy pup that breathes out little curls of warm fog when it dozes.",
+    lore:"Mistling are gregarious and famously placid, huddling together at the edges of warm springs and exhaling soft fog that pools around them like a blanket. The warm haze keeps their fur from freezing in cold country and soothes wounds, so injured Lumori often shelter among a Mistling colony until they mend." },
+
+  421: { id:421, name:"Geyserook", emoji:"♨️", types:["Fire","Vapor"],
+    evolveTo:422, evolveLevel:38, catchRate:70, expYield:150, rarity:"uncommon",
+    base:{hp:85,atk:62,def:70,spa:82,spd:76,spe:35}, // BST 410
+    learnset:[[1,"tackle"],[5,"vapor_jab"],[10,"ember"],[20,"steam_burst"],[26,"flame_charge"],[32,"boil_v"],[38,"flamethrower"],[44,"vapor_eruption"]],
+    desc:"A barrel-bodied beast that nests against thermal vents and vents scalding spray when alarmed.",
+    lore:"Geyserook makes its home where geothermal heat meets water, lounging in mineral pools heated from below. The fat it stores insulates a furnace-warm core, and when threatened it arches its back and jets superheated spray from glands along its spine. Bath-keepers in volcanic country consider a resident Geyserook a sign that the springs run hot and clean." },
+
+  422: { id:422, name:"Tempesteam", emoji:"♨️", types:["Fire","Vapor"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:258, rarity:"rare",
+    base:{hp:115,atk:80,def:88,spa:108,spd:96,spe:48}, // BST 535
+    learnset:[[1,"steam_burst"],[1,"flamethrower"],[1,"recover"],[26,"boil_v"],[38,"vapor_eruption"],[44,"heat_wave"],[50,"steam_storm"],[56,"lava_plume"],[62,"miasma_apocalypse"]],
+    desc:"A massive, placid behemoth that wears a permanent cloak of scalding steam from its furnace-hot hide.",
+    lore:"Tempesteam is the elder of the line, a ponderous mountain of warm flesh whose hide runs hot enough to flash spring-water into a rolling shroud of steam that hides it from sight. It is slow to anger and slower to move, but a roused Tempesteam can fill a whole valley with blinding, scalding fog. Travellers lost in such a cloud are wise to walk toward the heat, not away, for it has been known to shelter the freezing within its steam." },
+
+  // --- F6: armored pangolin (Mineral / Metal-Mineral) ---
+  423: { id:423, name:"Pebblite", emoji:"🪨", types:["Mineral"],
+    evolveTo:424, evolveLevel:16, catchRate:160, expYield:60, rarity:"common",
+    base:{hp:52,atk:55,def:78,spa:38,spd:47,spe:30}, // BST 300
+    learnset:[[1,"tackle"],[1,"harden"],[5,"mineral_jab"],[10,"shard_volley"],[16,"ore_punch"],[22,"mineral_strike"],[28,"mineral_smash"]],
+    desc:"A pebble-scaled pup that tucks into a tight ball at the first sign of trouble.",
+    lore:"Pebblite is plated head to tail in overlapping scales of raw mineral that it grows by ingesting grit and ore. At rest it forages for hard nodules to wear down its ever-growing scales; at the first alarm it rolls into an armoured sphere that even larger predators give up on. Its scales, shed as it grows, are collected by jewelers for their natural polish." },
+
+  424: { id:424, name:"Geodon", emoji:"🦔", types:["Metal","Mineral"],
+    evolveTo:425, evolveLevel:38, catchRate:75, expYield:145, rarity:"uncommon",
+    base:{hp:70,atk:80,def:105,spa:48,spd:62,spe:35}, // BST 400
+    learnset:[[1,"tackle"],[5,"mineral_jab"],[16,"ore_punch"],[22,"metal_claw"],[28,"mineral_smash"],[34,"iron_defense"],[40,"ore_smash"],[46,"heavy_slam"]],
+    desc:"Its mineral scales have hardened with veins of native metal into a near-impervious armour.",
+    lore:"As it matures, Geodon begins smelting trace metals from the ore it eats, threading its mineral scales with veins of iron and copper until they ring like struck plate. It uses its bladed foreclaws to tear open termite mounds and ore seams alike, and a curled Geodon has turned the teeth of more than one predator. The metallic sheen of its armour deepens with age." },
+
+  425: { id:425, name:"Strataclaw", emoji:"⛏️", types:["Metal","Mineral"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:252, rarity:"rare",
+    base:{hp:90,atk:115,def:140,spa:55,spd:75,spe:45}, // BST 520
+    learnset:[[1,"ore_punch"],[1,"metal_claw"],[1,"iron_defense"],[28,"mineral_smash"],[40,"ore_smash"],[46,"iron_tail"],[52,"obsidian_strike"],[58,"anvil_drop"],[64,"tungsten_ram"]],
+    desc:"A great pangolin whose scales are layered like strata of tempered metal and stone over a digging titan.",
+    lore:"Strataclaw is a digging titan whose every scale is a laminate of stone and tempered metal laid down in visible strata, each band a record of the ground it has eaten through. Its forelimbs end in pick-like claws that quarry through bedrock as easily as soil, and it carves the deep dens that whole communities of smaller Lumori later inhabit. Miners who find its abandoned tunnels follow them gratefully toward the richest seams." },
+
+  // ============================================================
+  // FORGOTTEN LUMORI — IDs 462–500 (Vaeldrian Region)
   // These Lumori are not catchable and not named to the player.
   // In battle: "Forgotten Lumori X came in to battle."
   // In Luminex Vaeldris tab: shows only emoji + "Forgotten Lumori X"

@@ -1921,6 +1921,12 @@ function endBattle(outcome, slot, levelUps) {
   battleContext.battleEnded = true;
   syncPlayerMonHP();
 
+  // Clear all statuses from the entire team — fresh slate when returning to the overworld.
+  // Statuses do not persist outside of battle, regardless of how the battle ended
+  // (won, lost, ran, caught).
+  for (const mon of G.team) {
+    if (mon) clearStatuses(mon);
+  }
   // Consume one-time legendary forgotten encounter on any resolution (caught,
   // ran, lost, won). Once marked, the area-entry hook won't re-trigger it.
   if (battleContext.isLegendaryForgotten && battleContext.legendaryForgottenMonId) {

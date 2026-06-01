@@ -4709,6 +4709,124 @@ const MONSTERS_DATA = {
     desc:"A great pangolin whose scales are layered like strata of tempered metal and stone over a digging titan.",
     lore:"Strataclaw is a digging titan whose every scale is a laminate of stone and tempered metal laid down in visible strata, each band a record of the ground it has eaten through. Its forelimbs end in pick-like claws that quarry through bedrock as easily as soil, and it carves the deep dens that whole communities of smaller Lumori later inhabit. Miners who find its abandoned tunnels follow them gratefully toward the richest seams." },
 
+  // --- F7: martial mantis (Fighting / Fighting-Mental) ---
+  426: { id:426, name:"Pummelo", emoji:"🦗", types:["Fighting"],
+    evolveTo:427, evolveLevel:16, catchRate:150, expYield:64, rarity:"common",
+    base:{hp:48,atk:68,def:50,spa:52,spd:47,spe:40}, // BST 305
+    learnset:[[1,"quick_punch"],[1,"battle_cry"],[5,"straight_jab"],[9,"low_sweep_f"],[14,"body_check"],[19,"confusion"],[25,"roundhouse"]],
+    desc:"A palm-sized mantis nymph that drills its strikes against stones for hours on end.",
+    lore:"Pummelo hatches already pugnacious, sparring with its broodmates and battering pebbles with its raptorial forelimbs to harden them. The faint hum it gives off while training is the first stirring of the focused mind its line is known for, and trainers prize the discipline a young Pummelo shows even at this size." },
+
+  427: { id:427, name:"Brawlith", emoji:"🦗", types:["Fighting","Mental"],
+    evolveTo:428, evolveLevel:36, catchRate:70, expYield:145, rarity:"uncommon",
+    base:{hp:62,atk:95,def:66,spa:70,spd:62,spe:55}, // BST 410
+    learnset:[[1,"quick_punch"],[5,"straight_jab"],[14,"body_check"],[19,"confusion"],[25,"roundhouse"],[31,"psybeam"],[37,"iron_fist"],[43,"zen_headbutt"]],
+    desc:"A mantis warrior whose meditation has woken a focused psychic edge to its strikes.",
+    lore:"Brawlith fights with an eerie calm, reading an opponent's intent a breath before they move and answering with bladed forelimbs guided by foresight. Between bouts it holds long, motionless vigils that sharpen its mind as surely as its sparring sharpens its claws, and rival Brawlith settle disputes in silent, lightning-fast duels." },
+
+  428: { id:428, name:"Zenkaiser", emoji:"🦗", types:["Fighting","Mental"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:255, rarity:"rare",
+    base:{hp:78,atk:125,def:78,spa:88,spd:81,spe:80}, // BST 530
+    learnset:[[1,"roundhouse"],[1,"confusion"],[25,"zen_headbutt"],[37,"iron_fist"],[43,"psycho_cut"],[49,"close_combat"],[55,"psychic_move"],[61,"focus_punch_f"],[67,"expanding_force"]],
+    desc:"A master mantis that strikes faster than thought, its mind and blades moving as one.",
+    lore:"Zenkaiser is the culmination of its line's discipline — a duelist whose perception runs so far ahead of its blows that it seems to parry attacks before they are thrown. It seeks out the strongest fighters not from aggression but from a need to test the edge of its own focus, and bows to a worthy foe whether it wins or loses. Monasteries in the high passes are said to keep one as an instructor." },
+
+  // --- F8: dream-eating baku / tapir (Dream / Dark-Dream) ---
+  429: { id:429, name:"Lullasnout", emoji:"🌙", types:["Dream"],
+    evolveTo:430, evolveLevel:18, catchRate:150, expYield:63, rarity:"common",
+    base:{hp:62,atk:45,def:52,spa:58,spd:53,spe:30}, // BST 300
+    learnset:[[1,"tackle"],[1,"lullaby_song"],[5,"dream_jab"],[10,"dream_pulse"],[15,"somnia_ray"],[20,"bite"],[26,"dream_beam"]],
+    desc:"A drowsy, snouted cub that snuffles through the air for the scent of dreams.",
+    lore:"Lullasnout drifts half-asleep even while awake, its long flexible snout twitching toward the dreams of nearby sleepers. It nibbles only at idle daydreams and bad moods, leaving those it visits a little lighter of heart, and parents in some regions welcome a Lullasnout into the nursery to keep nightmares at bay." },
+
+  430: { id:430, name:"Drowsetapir", emoji:"🌙", types:["Dark","Dream"],
+    evolveTo:431, evolveLevel:38, catchRate:70, expYield:145, rarity:"uncommon",
+    base:{hp:82,atk:60,def:70,spa:78,spd:70,spe:35}, // BST 395
+    learnset:[[1,"tackle"],[5,"dream_jab"],[15,"somnia_ray"],[20,"bite"],[26,"dream_beam"],[32,"dark_pulse"],[38,"nightmare_burst"],[44,"nightmare_storm"]],
+    desc:"A heavy-shouldered dream-eater that now draws nourishment from nightmares as well.",
+    lore:"As it matures, Drowsetapir develops a taste for the darker dreams its gentler youth avoided, wading into nightmares to devour the fear within. The sleepers it feeds upon wake unsettled but unharmed, their terrors gone, and a Drowsetapir grown bold will follow a troubled mind for nights on end until the nightmare is consumed." },
+
+  431: { id:431, name:"Nocturnbaku", emoji:"🌙", types:["Dark","Dream"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:250, rarity:"rare",
+    base:{hp:110,atk:75,def:88,spa:105,spd:92,spe:40}, // BST 510
+    learnset:[[1,"dream_beam"],[1,"dark_pulse"],[26,"somnia_blast"],[38,"nightmare_storm"],[44,"shadow_ball"],[50,"dream_devourer"],[56,"nightmare_calamity"],[62,"soul_rend"],[66,"dream_apocalypse_spec"]],
+    desc:"A great baku wreathed in stolen dreams, able to walk into sleep and reshape it at will.",
+    lore:"Nocturnbaku is the dream-eater grown vast and deliberate, a creature that steps fully into a sleeper's mind and walks their dreamscape as easily as a meadow. It can soothe a haunted soul into untroubled rest or, provoked, trap a foe in an endless looping nightmare. Folk leave offerings at the edge of forests where one is known to den, asking for a single dreamless night." },
+
+  // --- F9: mossy mammoth (Primal / Nature-Primal) — LEGENDARY line ---
+  432: { id:432, name:"Tusklet", emoji:"🦣", types:["Primal"],
+    evolveTo:433, evolveLevel:20, catchRate:30, expYield:72, rarity:"legendary",
+    base:{hp:75,atk:70,def:68,spa:45,spd:57,spe:50}, // BST 365
+    learnset:[[1,"tackle"],[1,"primal_roar"],[5,"primal_jab"],[10,"feral_claw"],[16,"savage_bite"],[22,"wild_strike"],[28,"beast_charge"]],
+    desc:"A shaggy calf with stubby tusks, already strong enough to topple a grown traveller.",
+    lore:"Tusklet are born of a bloodline so ancient it predates the region's other Lumori, and even as calves they carry the deep, unhurried strength of their kind. A herd guards its young in a wall of bodies, and a lost Tusklet will trumpet a call that grown Primammoth answer from valleys away. The moss already creeping along its back marks the living mountain it will become." },
+
+  433: { id:433, name:"Verdantusk", emoji:"🦣", types:["Nature","Primal"],
+    evolveTo:434, evolveLevel:44, catchRate:15, expYield:155, rarity:"legendary",
+    base:{hp:105,atk:100,def:95,spa:60,spd:80,spe:70}, // BST 510
+    learnset:[[1,"tackle"],[5,"primal_jab"],[16,"savage_bite"],[22,"vine_whip"],[28,"beast_charge"],[34,"seed_bomb"],[40,"crushing_jaws"],[46,"primal_smash"]],
+    desc:"A great tusker whose hide has become a hanging garden of moss, fern and clinging vine.",
+    lore:"Verdantusk moves slowly enough that whole ecosystems take root upon it — moss carpets its flanks, ferns nod between its shoulders, and small Lumori shelter in the living thicket of its hide. Where it walks, it tramples seed into soil and fertilises the ground, and old forests trace their first saplings to the passage of one of these wandering groves." },
+
+  434: { id:434, name:"Primammoth", emoji:"🦣", types:["Nature","Primal"],
+    evolveTo:null, evolveLevel:null, catchRate:5, expYield:325, rarity:"legendary",
+    base:{hp:140,atk:130,def:118,spa:70,spd:102,spe:70}, // BST 630
+    learnset:[[1,"beast_charge"],[1,"seed_bomb"],[28,"crushing_jaws"],[40,"primal_smash"],[46,"energy_ball"],[52,"ancient_strike"],[58,"jungle_hammer"],[64,"primal_eruption"],[70,"world_devour"]],
+    desc:"A living mountain of the elder world, a moss-mantled mammoth that forests follow like a wake.",
+    lore:"Primammoth is reckoned legendary — a titan that has carried the first forest on its back since before the gyms were built, so vast and slow that a grove matures and dies between its footfalls. It remembers the land as it was and steers great migrations of Lumori by instinct older than memory. To stand in its shadow is to feel the weight of every age it has walked through, and the deep green hush of the world before names." },
+
+  // --- F10: stone-fist gorilla (Mineral / Fighting-Mineral) ---
+  435: { id:435, name:"Knucklite", emoji:"🦍", types:["Mineral"],
+    evolveTo:436, evolveLevel:16, catchRate:160, expYield:62, rarity:"common",
+    base:{hp:55,atk:62,def:70,spa:40,spd:48,spe:45}, // BST 320
+    learnset:[[1,"tackle"],[1,"harden"],[5,"mineral_jab"],[10,"ore_punch"],[15,"quick_punch"],[20,"mineral_strike"],[26,"body_check"]],
+    desc:"A stocky ape-pup that hardens its knuckles by drumming them against cave walls.",
+    lore:"Knucklite grows up in rocky highlands, where it toughens its fists by pounding stone until thick mineral calluses form across its knuckles. Troops communicate by drumming these stony fists against boulders, and the booming knuckle-rhythm of a Knucklite band rolls for miles through the canyons they call home." },
+
+  436: { id:436, name:"Cragfist", emoji:"🦍", types:["Fighting","Mineral"],
+    evolveTo:437, evolveLevel:38, catchRate:75, expYield:145, rarity:"uncommon",
+    base:{hp:75,atk:95,def:88,spa:48,spd:62,spe:52}, // BST 420
+    learnset:[[1,"tackle"],[5,"mineral_jab"],[15,"quick_punch"],[20,"ore_punch"],[26,"body_check"],[32,"mineral_smash"],[38,"iron_fist"],[44,"seismic_force"]],
+    desc:"A powerful ape whose forearms are sheathed in plates of grown-in rock.",
+    lore:"Cragfist has encased its forearms in slabs of accreted mineral that it cracks and regrows after every brawl, turning each punch into a falling boulder. Troops are led by the Cragfist whose stone gauntlets are thickest and most scarred, and a challenge for leadership is decided by a single thunderous exchange of blows that splits the very ground." },
+
+  437: { id:437, name:"Goliathon", emoji:"🦍", types:["Fighting","Mineral"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:252, rarity:"rare",
+    base:{hp:95,atk:128,def:110,spa:55,spd:77,spe:60}, // BST 525
+    learnset:[[1,"ore_punch"],[1,"iron_fist"],[26,"mineral_smash"],[38,"seismic_force"],[44,"obsidian_strike"],[50,"close_combat"],[56,"quarry_crush"],[62,"quake_barrage"],[68,"mineral_eruption"]],
+    desc:"A colossal silverback whose stone-clad fists can shatter a cliff face in a single blow.",
+    lore:"Goliathon is the undisputed patriarch of the highland troops, a mountain of muscle armoured in living rock that it can shrug off avalanches. It rarely needs to fight — its mere knuckle-drum, felt as a tremor through the stone, is enough to send challengers away — but when it does, the landscape itself is rearranged. Old quarries in gorilla country are said to be the work of feuding Goliathon." },
+
+  // --- F11: cicada bard-fae (Sonic / Fairy-Sonic) ---
+  438: { id:438, name:"Chimelet", emoji:"🎐", types:["Sonic"],
+    evolveTo:439, evolveLevel:24, catchRate:190, expYield:68, rarity:"common",
+    base:{hp:52,atk:45,def:48,spa:70,spd:60,spe:45}, // BST 320
+    learnset:[[1,"chirp"],[1,"echo_strike"],[5,"sonic_pulse"],[10,"sound_rush"],[15,"resonate"],[20,"pulse_wave"],[26,"wave_cry"]],
+    desc:"A tiny winged cicada-sprite whose translucent wings ring like struck glass.",
+    lore:"Chimelet spends its long nymphhood underground and emerges already singing, its glassy wings chiming in the breeze like a hung windchime. Swarms tune their songs to one another until a whole grove rings in harmony, and travellers say a chorus of Chimelet at dusk is among the gentlest sounds in all Lumoria." },
+
+  439: { id:439, name:"Seraphene", emoji:"🎐", types:["Fairy","Sonic"],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:200, rarity:"uncommon",
+    base:{hp:75,atk:60,def:68,spa:118,spd:92,spe:72}, // BST 485
+    learnset:[[1,"sonic_pulse"],[1,"fairy_wind"],[15,"resonate"],[20,"pulse_wave"],[26,"dazzling_gleam"],[32,"harmonic_burst"],[38,"moonblast"],[44,"siren_song"],[50,"prism_resonance"]],
+    desc:"A radiant cicada-fae whose layered song can soothe a raging Lumori or shatter stone.",
+    lore:"Seraphene's chime has matured into true music — chords woven from fairy-light and sound that it conducts with sweeps of its luminous wings. Its harmonies can lull the most savage Lumori into calm or, focused to a single piercing note, crack stone and scatter foes. Bards travel for weeks to record the song of a Seraphene, though no instrument has ever truly captured it." },
+
+  // --- F12: charged centipede (Toxin / Electric-Toxin) ---
+  440: { id:440, name:"Rustmite", emoji:"🐛", types:["Toxin"],
+    evolveTo:441, evolveLevel:26, catchRate:190, expYield:70, rarity:"common",
+    base:{hp:50,atk:60,def:52,spa:48,spd:45,spe:55}, // BST 310
+    learnset:[[1,"tox_sting"],[1,"tox_jab"],[5,"thunder_shock"],[10,"tox_bite"],[15,"spark"],[20,"tox_acid_strike"],[26,"tox_fang"]],
+    desc:"A many-legged grub whose corrosive secretions pit and rust whatever it crawls across.",
+    lore:"Rustmite oozes a caustic film that eats at metal and stone alike, leaving a telltale trail of pitted rust wherever it travels. It nests in damp ironwork and decaying machinery, feeding on the corrosion it creates, and a colony can reduce an abandoned forge to flaking ruin in a single season." },
+
+  441: { id:441, name:"Corrodon", emoji:"🐛", types:["Electric","Toxin"],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:205, rarity:"uncommon",
+    base:{hp:72,atk:98,def:70,spa:78,spd:62,spe:90}, // BST 470
+    learnset:[[1,"tox_jab"],[5,"thunder_shock"],[15,"spark"],[20,"tox_acid_strike"],[26,"volt_fang"],[32,"tox_venom_thrust"],[38,"discharge"],[44,"tox_storm_phy"],[50,"plasma_strike"]],
+    desc:"A fast, armoured centipede that pairs corrosive venom with a stored electric charge.",
+    lore:"Corrodon's many segments each hold a tiny store of charge drawn from the corrosion it feeds on, so a bite delivers acid and a jolt at once. It races along power-lines and pipework with unnerving speed, shorting machinery and dissolving the housings, and engineers in the foundry cities wage a constant quiet war against the colonies that infest their conduits." },
+
   // ============================================================
   // FORGOTTEN LUMORI — IDs 462–500 (Vaeldrian Region)
   // These Lumori are not catchable and not named to the player.

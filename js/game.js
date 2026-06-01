@@ -18,6 +18,7 @@ function newGameState(playerName, starterMonsterId) {
     location: "seedvale",
     seenMonsters: new Set([starterMonsterId]),
     caughtMonsters: new Set([starterMonsterId]),
+    seenInArea: {},
     championDefeated: false,
     questsCompleted: [],
     questsActive: [],
@@ -57,7 +58,12 @@ function createPartySlot(monsterId, level) {
 function saveGame() {
   if (!G) return;
   G.saveTimestamp = Date.now();
-  const save = { ...G, seenMonsters: [...G.seenMonsters], caughtMonsters: [...G.caughtMonsters] };
+  const save = {
+    ...G,
+    seenMonsters: [...G.seenMonsters],
+    caughtMonsters: [...G.caughtMonsters],
+    seenInArea: Object.fromEntries(Object.entries(G.seenInArea || {}).map(([k, v]) => [k, [...v]]))
+  };
   try {
     localStorage.setItem(getSaveKey(G.saveSlot || 0), JSON.stringify(save));
     showNotification("Game saved! ✅");
@@ -81,6 +87,8 @@ function loadGame(slot) {
     const data = JSON.parse(raw);
     data.seenMonsters = new Set(data.seenMonsters);
     data.caughtMonsters = new Set(data.caughtMonsters);
+    if (!data.seenInArea) data.seenInArea = {};
+    for (const k of Object.keys(data.seenInArea)) data.seenInArea[k] = new Set(data.seenInArea[k]);
     // Ensure new fields exist for old saves
     if (!data.questsCompleted) data.questsCompleted = [];
     if (!data.questsActive) data.questsActive = [];
@@ -763,8 +771,8 @@ function renderAreaPanel() {
       const def = MONSTERS_DATA[wm.id];
       const chip = document.createElement("div");
       chip.className = "wild-mon-chip";
-      const seen = G.seenMonsters.has(wm.id);
-      chip.textContent = seen ? `${def.emoji} ${def.name}` : "???";
+      const seenHere = G.seenInArea[area.id]?.has(wm.id);
+      chip.textContent = seenHere ? `${def.emoji} ${def.name}` : "???";
       wildList.appendChild(chip);
     }
   } else {
@@ -1018,6 +1026,8 @@ function exploreArea() {
 
   const level = ngPlusScale(chosen.minLv + Math.floor(Math.random() * (chosen.maxLv - chosen.minLv + 1)), area);
   G.seenMonsters.add(chosen.id);
+  if (!G.seenInArea[area.id]) G.seenInArea[area.id] = new Set();
+  G.seenInArea[area.id].add(chosen.id);
   if (typeof incrementCommunityProgress === "function") incrementCommunityProgress();
   startWildBattle(buildWildMon(chosen.id, level));
 }

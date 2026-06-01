@@ -772,6 +772,55 @@ html, body {
 .status-sleep   { background: #5a4a6e; }
 .status-freeze  { background: #96d5d5; color: #333; }
 
+/* Phase 3: new status badges */
+.status-bleed          { background: #c62828; }
+.status-severe-bleed   { background: #8e0000; }
+.status-petrify        { background: #757575; }
+.status-statue         { background: #424242; }
+.status-drenched       { background: #29b6f6; color: #333; }
+.status-soaked         { background: #0277bd; }
+.status-weighed        { background: #6d4c41; }
+.status-crystallize    { background: #80deea; color: #333; }
+.status-echolocation   { background: #009688; }
+.status-smothered      { background: #455a64; }
+.status-marked         { background: #ef5350; }
+.status-burnt-out      { background: #ff8a65; color: #333; }
+.status-faded          { background: #9e9d24; }
+.status-strained       { background: #ff7043; }
+.status-sluggish       { background: #795548; }
+.status-brittle        { background: #b3e5fc; color: #333; }
+.status-tainted        { background: #689f38; }
+.status-hexed          { background: #6a1b9a; }
+.status-deafen         { background: #5e35b1; }
+.status-hypothermia    { background: #4fc3f7; color: #333; }
+.status-disoriented    { background: #ec407a; }
+.status-migraine       { background: #ad1457; }
+.status-mind-numb      { background: #5d4037; }
+.status-adrenaline     { background: #ffa726; color: #333; }
+.status-inspired       { background: #ffd54f; color: #333; }
+.status-tangled        { background: #558b2f; }
+.status-tethered       { background: #4e342e; }
+.status-necrosis       { background: #3e2723; }
+.status-plague         { background: #33691e; }
+.status-mirrored       { background: #b0bec5; color: #333; }
+.status-possessed      { background: #4a148c; }
+.status-muted          { background: #7e57c2; }
+.status-sealed         { background: #311b92; }
+.status-bonded         { background: #f06292; color: #333; }
+.status-type-distorted { background: #d81b60; }
+.status-bouncy         { background: #66bb6a; color: #333; }
+.status-refracted      { background: linear-gradient(90deg, #7e57c2 0%, #ec407a 50%, #ffa726 100%); }
+.status-phase-shifted  { background: #5c6bc0; }
+.status-crippled       { background: #d84315; }
+.status-corroded       { background: #1b5e20; }
+.status-bound          { background: #2e7d32; }
+.status-anchored       { background: #263238; }
+.status-comatose       { background: #1a237e; }
+.status-hunted         { background: #b71c1c; }
+.status-exhausted      { background: #6d4c41; }
+.status-concussion     { background: #c2185b; }
+.status-type-shattered { background: linear-gradient(45deg, #c62828 0%, #d81b60 100%); }
+
 /* Sprites */
 .battle-sprite {
   font-size: 3.5rem;

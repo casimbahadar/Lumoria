@@ -48,7 +48,7 @@ function createPartySlot(monsterId, level) {
   if (moves.length === 0) moves.push("tackle");
   return {
     monsterId, nickname: null, level, xp: xpForLevel(level),
-    maxHP, currentHP: maxHP, moves, status: null, heldItem: null,
+    maxHP, currentHP: maxHP, moves, statuses: [], heldItem: null,
     nature: getRandomNature(), ivs,
     shiny: false, variant: false, variantTypes: null
   };
@@ -1094,10 +1094,11 @@ function updateBattleUI() {
   enemyFill.className = "hp-fill" + (enemyHPPct < 25 ? " red" : enemyHPPct < 50 ? " yellow" : "");
 
   const enemyStatus = document.getElementById("enemy-status-badge");
-  if (enemy.status) {
+  if (hasAnyStatus(enemy)) {
     enemyStatus.classList.remove("hidden");
-    enemyStatus.textContent = enemy.status.toUpperCase();
-    enemyStatus.className = `status-badge status-${enemy.status}`;
+    enemyStatus.textContent = enemy.statuses.map(s => STATUS_REGISTRY[s.type]?.label || s.type.toUpperCase()).join(" ");
+    const firstClass = STATUS_REGISTRY[enemy.statuses[0].type]?.cssClass || `status-${enemy.statuses[0].type}`;
+    enemyStatus.className = `status-badge ${firstClass}`;
   } else {
     enemyStatus.classList.add("hidden");
   }
@@ -1144,10 +1145,11 @@ function updateBattleUI() {
   document.getElementById("player-hp-text").textContent = `${player.currentHP} / ${player.maxHP}`;
 
   const playerStatus = document.getElementById("player-status-badge");
-  if (player.status) {
+  if (hasAnyStatus(player)) {
     playerStatus.classList.remove("hidden");
-    playerStatus.textContent = player.status.toUpperCase();
-    playerStatus.className = `status-badge status-${player.status}`;
+    playerStatus.textContent = player.statuses.map(s => STATUS_REGISTRY[s.type]?.label || s.type.toUpperCase()).join(" ");
+    const firstClass = STATUS_REGISTRY[player.statuses[0].type]?.cssClass || `status-${player.statuses[0].type}`;
+    playerStatus.className = `status-badge ${firstClass}`;
   } else {
     playerStatus.classList.add("hidden");
   }
@@ -1356,7 +1358,7 @@ async function playerUseBattleItem(itemId, monIdx) {
   } else if (item.type === "revive") {
     if (slot.currentHP > 0) { showNotification("That Lumori isn't fainted!"); return; }
     slot.currentHP = Math.floor(slot.maxHP * 0.5);
-    slot.status = null;
+    clearStatuses(slot);
     G.bag[itemId]--;
     logMsg(`${slot.nickname || MONSTERS_DATA[slot.monsterId].name} was revived!`);
   } else if (item.type === "battle") {
@@ -1558,7 +1560,7 @@ function createCaughtSlot(battleMon) {
     xp: xpForLevel(battleMon.level),
     maxHP: battleMon.maxHP, currentHP: battleMon.currentHP,
     moves: battleMon.moves.map(m => m.id),
-    status: battleMon.status,
+    statuses: (battleMon.statuses || []).map(s => ({ ...s })),
     nature: battleMon.nature || getRandomNature(),
     ivs: battleMon.ivs || generateIVs(),
     shiny: !!battleMon.shiny, variant: !!battleMon.variant,
@@ -1568,6 +1570,22 @@ function createCaughtSlot(battleMon) {
 
 async function playerSwitch(idx) {
   if (G.team[idx].currentHP <= 0) return;
+  // Phase 3: blocksSwitch (Weighed Down, Anchored) + switchCost (Tethered) on active mon.
+  // Forced switches (post-faint) bypass these.
+  if (playerActiveMon && !battleContext.forcedSwitch && playerActiveMon.currentHP > 0) {
+    const blocked = checkBlocksSwitch(playerActiveMon);
+    if (blocked) {
+      logMsg(blocked.msg, "log-status");
+      return;
+    }
+    const costFrac = getSwitchCost(playerActiveMon);
+    if (costFrac > 0) {
+      const hpCost = Math.max(1, Math.floor(playerActiveMon.maxHP * costFrac));
+      playerActiveMon.currentHP = Math.max(0, playerActiveMon.currentHP - hpCost);
+      logMsg(`⛓️ ${playerActiveMon.name} lost ${hpCost} HP from switching while tethered!`, "log-damage");
+      if (playerActiveMon.currentHP <= 0) playerActiveMon.fainted = true;
+    }
+  }
   showBattleMainActions();
   // Sync current HP back
   syncPlayerMonHP();
@@ -1589,8 +1607,8 @@ async function playerRun() {
     return;
   }
   // Escape chance
-  const playerSpe = playerActiveMon.spe * stageMultiplier(playerActiveMon.stages.spe);
-  const enemySpe  = enemyActiveMon.spe  * stageMultiplier(enemyActiveMon.stages.spe);
+  const playerSpe = getEffectiveSpeed(playerActiveMon);
+  const enemySpe  = getEffectiveSpeed(enemyActiveMon);
   const escapeChance = (playerSpe * 128 / (enemySpe + 1)) + 30;
   if (rollPercent(Math.min(100, escapeChance))) {
     logMsg("Got away safely!");
@@ -1612,8 +1630,8 @@ async function executeTurn(playerMoveId, _unused) {
   if (!move) return;
 
   // Determine turn order by speed (priority moves go first, Quick Claw may override)
-  const playerSpe = playerActiveMon.spe * stageMultiplier(playerActiveMon.stages.spe);
-  const enemySpe  = enemyActiveMon.spe  * stageMultiplier(enemyActiveMon.stages.spe);
+  const playerSpe = getEffectiveSpeed(playerActiveMon);
+  const enemySpe  = getEffectiveSpeed(enemyActiveMon);
   const playerQuickClaw = checkQuickClaw(playerActiveMon);
   const enemyQuickClaw = checkQuickClaw(enemyActiveMon);
   if (playerQuickClaw && !enemyQuickClaw) logMsg(`${playerActiveMon.name}'s Quick Claw let it move first!`);
@@ -1654,14 +1672,19 @@ async function executeTurn(playerMoveId, _unused) {
   }
 }
 
-async function doAttack(attacker, defender, moveId, isPlayer) {
-  const move = MOVES_DATA[moveId];
+async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
+  let move = MOVES_DATA[moveId];
   if (!move) return;
 
-  logMsg(`${attacker.name} used ${move.name}!`);
+  // Wide-spread support: opts.targetCount feeds calcDamage's 0.75× modifier.
+  // opts.suppressIntro skips the "used X!" log on follow-up wide-hit targets.
+  // opts.allies: defender's team (for Bonded share); single-battle leaves it undefined.
+  if (!opts.suppressIntro) {
+    logMsg(`${attacker.name} used ${move.name}!`);
+  }
   await delay(500);
 
-  // Check if can move
+  // Check if can move (paralyze/sleep/freeze/recharge/petrify/sluggish/comatose/statue)
   const canMoveResult = canMove(attacker);
   if (!canMoveResult.can) {
     logMsg(canMoveResult.msg);
@@ -1669,6 +1692,35 @@ async function doAttack(attacker, defender, moveId, isPlayer) {
     return;
   }
   if (canMoveResult.msg) logMsg(canMoveResult.msg);
+
+  // Phase 3: intercept (Disoriented / Possessed may substitute a different move)
+  const chosenSlot = attacker.moves.find(m => m.id === moveId) || { id: moveId };
+  const intercepted = interceptMove(attacker, chosenSlot, attacker.moves);
+  if (intercepted.move.id !== moveId) {
+    const subMove = MOVES_DATA[intercepted.move.id];
+    if (subMove) {
+      if (intercepted.msg) logMsg(intercepted.msg, "log-status");
+      move = subMove;
+    }
+  }
+
+  // Phase 3: outgoing-move block (Mind-numb / Crippled / Bound / Muted / Sealed / Tangled)
+  const block = checkBlocksOutgoingMove(attacker, move);
+  if (block) {
+    logMsg(block.msg, "log-status");
+    await delay(400);
+    return;
+  }
+
+  // Phase 3: move-attempt hook (Concussion 30% self-hit)
+  const attempt = checkOnMoveAttempt(attacker, move);
+  if (attempt && attempt.selfHit) {
+    logMsg(attempt.msg, "log-damage");
+    if (isPlayer) syncPlayerMonHP();
+    updateBattleUI();
+    await delay(400);
+    return;
+  }
 
   if (move.power === 0) {
     // Status move
@@ -1686,8 +1738,8 @@ async function doAttack(attacker, defender, moveId, isPlayer) {
     return;
   }
 
-  // Accuracy check
-  if (!rollPercent(move.acc)) {
+  // Accuracy check — Phase 3: respects forceHit (Echolocation) + accuracyMod (Smothered/Faded/Mirage)
+  if (!rollPercent(getEffectiveAccuracy(attacker, defender, move))) {
     logMsg(`${attacker.name}'s attack missed!`);
     return;
   }
@@ -1701,7 +1753,7 @@ async function doAttack(attacker, defender, moveId, isPlayer) {
   for (let h = 0; h < hitCount; h++) {
     if (defender.fainted) break;
 
-    const result = calcDamage(attacker, defender, move);
+    const result = calcDamage(attacker, defender, move, { targetCount: opts.targetCount || 1 });
 
     // Focus Sash only activates on the first hit
     if (h === 0) {
@@ -1718,6 +1770,15 @@ async function doAttack(attacker, defender, moveId, isPlayer) {
 
     totalDamage += result.damage;
     lastResult = result;
+
+    // Phase 3: reflect (Bouncy / Refracted / Mirrored). Fires per-hit; the per-status
+    // _reflectedThisTurn guard (Mirrored) is reset in tickAfter at end of turn.
+    const reflect = applyOnHitReflect(defender, attacker, move, result.damage);
+    if (reflect) {
+      logMsg(reflect.msg, "log-status");
+      if (!isPlayer) syncPlayerMonHP();
+      updateBattleUI();
+    }
 
     // Animations
     if (isPlayer) {
@@ -1743,6 +1804,10 @@ async function doAttack(attacker, defender, moveId, isPlayer) {
 
   logMsg(`${defender.name} took ${totalDamage} damage!`, "log-damage");
   if (sashTriggered) logMsg(`${defender.name}'s Focus Sash kept it standing!`, "log-status");
+
+  // Phase 3 follow-up: Bonded ally-share (multi-battle only — opts.allies undefined in 1v1)
+  const bondedShare = applyBondedShare(defender, opts.allies, totalDamage);
+  if (bondedShare) logMsg(bondedShare.msg, "log-status");
 
   // Recoil damage
   if (move.effect === "recoil" && totalDamage > 0 && !attacker.fainted) {
@@ -1794,7 +1859,8 @@ function syncPlayerMonHP() {
   const slot = G.team[battleContext.playerTeamIdx];
   if (slot && playerActiveMon) {
     slot.currentHP = Math.max(0, playerActiveMon.currentHP);
-    slot.status = playerActiveMon.status;
+    slot.statuses = (playerActiveMon.statuses || []).map(s => ({ ...s }));
+    delete slot.status; delete slot.poisonTurns; delete slot.sleepTurns;
   }
 }
 
@@ -1889,7 +1955,7 @@ function endBattle(outcome, slot, levelUps) {
     // Blackout: heal team to 100% HP, lose 5% money
     const moneyLost = Math.floor(G.money * 0.05);
     G.money -= moneyLost;
-    for (const m of G.team) { m.currentHP = m.maxHP; m.status = null; }
+    for (const m of G.team) { m.currentHP = m.maxHP; clearStatuses(m); }
     showScreen("screen-gameover");
     const lostMsg = moneyLost > 0 ? ` You lost 💰${moneyLost} in the confusion.` : "";
     document.getElementById("gameover-text").textContent =
@@ -2217,10 +2283,11 @@ function updateMultiBattleUI() {
       fill.style.width = hpPct + "%";
       fill.className = "hp-fill" + (hpPct < 25 ? " red" : hpPct < 50 ? " yellow" : "");
       const statusEl = document.getElementById(`enemy-status-badge-${i + 1}`);
-      if (e.status) {
+      if (hasAnyStatus(e)) {
         statusEl.classList.remove("hidden");
-        statusEl.textContent = e.status.toUpperCase();
-        statusEl.className = `status-badge status-${e.status}`;
+        statusEl.textContent = e.statuses.map(s => STATUS_REGISTRY[s.type]?.label || s.type.toUpperCase()).join(" ");
+        const firstClass = STATUS_REGISTRY[e.statuses[0].type]?.cssClass || `status-${e.statuses[0].type}`;
+        statusEl.className = `status-badge ${firstClass}`;
       } else {
         statusEl.classList.add("hidden");
       }
@@ -2259,10 +2326,11 @@ function updateMultiBattleUI() {
       fill.className = "hp-fill" + (hpPct < 25 ? " red" : hpPct < 50 ? " yellow" : "");
       document.getElementById(`player-hp-text-${i + 1}`).textContent = `${p.currentHP} / ${p.maxHP}`;
       const statusEl = document.getElementById(`player-status-badge-${i + 1}`);
-      if (p.status) {
+      if (hasAnyStatus(p)) {
         statusEl.classList.remove("hidden");
-        statusEl.textContent = p.status.toUpperCase();
-        statusEl.className = `status-badge status-${p.status}`;
+        statusEl.textContent = p.statuses.map(s => STATUS_REGISTRY[s.type]?.label || s.type.toUpperCase()).join(" ");
+        const firstClass = STATUS_REGISTRY[p.statuses[0].type]?.cssClass || `status-${p.statuses[0].type}`;
+        statusEl.className = `status-badge ${firstClass}`;
       } else {
         statusEl.classList.add("hidden");
       }
@@ -2401,7 +2469,7 @@ async function executeMultiTurn() {
     actions.push({
       mon, moveId: pm.moveId, targetIdx: pm.targetIndex, isPlayer: true,
       monIdx: pm.monIndex,
-      spe: mon.spe * stageMultiplier(mon.stages.spe)
+      spe: getEffectiveSpeed(mon)
     });
   }
 
@@ -2419,7 +2487,7 @@ async function executeMultiTurn() {
     actions.push({
       mon: e, moveId: moveSlot.id, targetIdx: target.idx, isPlayer: false,
       monIdx: i,
-      spe: e.spe * stageMultiplier(e.stages.spe)
+      spe: getEffectiveSpeed(e)
     });
   }
 
@@ -2437,18 +2505,36 @@ async function executeMultiTurn() {
     if (battleContext.battleEnded) break;
     if (action.mon.fainted || action.mon.currentHP <= 0) continue;
 
-    const target = action.isPlayer
-      ? enemyActiveMons[action.targetIdx]
-      : playerActiveMons[action.targetIdx];
+    const moveData = MOVES_DATA[action.moveId];
+    const opposingTeam = action.isPlayer ? enemyActiveMons : playerActiveMons;
 
-    if (!target || target.fainted || target.currentHP <= 0) {
-      // Retarget to another alive target
-      const pool = action.isPlayer ? enemyActiveMons : playerActiveMons;
-      const alive = pool.find(m => m && !m.fainted && m.currentHP > 0);
-      if (!alive) continue;
-      await doAttack(action.mon, alive, action.moveId, action.isPlayer);
+    // Phase 3 follow-up: wide-spread targets all alive opposing mons (0.75× per-hit)
+    if (moveData && moveData.target === "wide") {
+      const targets = opposingTeam.filter(m => m && !m.fainted && m.currentHP > 0);
+      if (targets.length === 0) continue;
+      let first = true;
+      for (const t of targets) {
+        if (battleContext.battleEnded) break;
+        if (action.mon.fainted || action.mon.currentHP <= 0) break;
+        await doAttack(action.mon, t, action.moveId, action.isPlayer, {
+          targetCount: targets.length,
+          suppressIntro: !first,
+          allies: opposingTeam,
+        });
+        first = false;
+      }
     } else {
-      await doAttack(action.mon, target, action.moveId, action.isPlayer);
+      // Single-target (existing logic, plus opts.allies for Bonded)
+      let target = action.isPlayer
+        ? enemyActiveMons[action.targetIdx]
+        : playerActiveMons[action.targetIdx];
+      if (!target || target.fainted || target.currentHP <= 0) {
+        target = opposingTeam.find(m => m && !m.fainted && m.currentHP > 0);
+        if (!target) continue;
+      }
+      await doAttack(action.mon, target, action.moveId, action.isPlayer, {
+        allies: opposingTeam,
+      });
     }
 
     // Sync HP for player mons
@@ -2457,7 +2543,8 @@ async function executeMultiTurn() {
         const slot = G.team[playerTeamIdxs[i]];
         if (slot) {
           slot.currentHP = Math.max(0, playerActiveMons[i].currentHP);
-          slot.status = playerActiveMons[i].status;
+          slot.statuses = (playerActiveMons[i].statuses || []).map(s => ({ ...s }));
+          delete slot.status; delete slot.poisonTurns; delete slot.sleepTurns;
         }
       }
     }
@@ -2474,13 +2561,19 @@ async function executeMultiTurn() {
     }
   }
 
+  // Phase 3 follow-up: Plague intra-team spread (per team, not cross-team)
+  const playerSpread = applyPlagueSpread(playerActiveMons);
+  const enemySpread = applyPlagueSpread(enemyActiveMons);
+  for (const msg of [...playerSpread, ...enemySpread]) logMsg(msg, "log-status");
+
   // Sync HP again
   for (let i = 0; i < playerActiveMons.length; i++) {
     if (playerActiveMons[i]) {
       const slot = G.team[playerTeamIdxs[i]];
       if (slot) {
         slot.currentHP = Math.max(0, playerActiveMons[i].currentHP);
-        slot.status = playerActiveMons[i].status;
+        slot.statuses = (playerActiveMons[i].statuses || []).map(s => ({ ...s }));
+        delete slot.status; delete slot.poisonTurns; delete slot.sleepTurns;
       }
     }
   }
@@ -3695,7 +3788,7 @@ function initEventListeners() {
   // Game over
   document.getElementById("btn-gameover-heal").addEventListener("click", () => {
     // Team already healed to 100% in battle outcome handler
-    for (const m of G.team) { m.currentHP = m.maxHP; m.status = null; }
+    for (const m of G.team) { m.currentHP = m.maxHP; clearStatuses(m); }
     showScreen("screen-main");
     renderHUD();
     renderWorldMap();
@@ -4067,9 +4160,10 @@ function healTeam() {
   }
   let healed = false;
   for (const mon of G.team) {
-    if (mon.currentHP < mon.maxHP || mon.status) {
+    migrateStatuses(mon);
+    if (mon.currentHP < mon.maxHP || hasAnyStatus(mon)) {
       mon.currentHP = mon.maxHP;
-      mon.status = null;
+      clearStatuses(mon);
       healed = true;
     }
   }

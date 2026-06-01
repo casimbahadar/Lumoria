@@ -4827,6 +4827,156 @@ const MONSTERS_DATA = {
     desc:"A fast, armoured centipede that pairs corrosive venom with a stored electric charge.",
     lore:"Corrodon's many segments each hold a tiny store of charge drawn from the corrosion it feeds on, so a bite delivers acid and a jolt at once. It races along power-lines and pipework with unnerving speed, shorting machinery and dissolving the housings, and engineers in the foundry cities wage a constant quiet war against the colonies that infest their conduits." },
 
+  // --- F13: miasma leech (Vapor / Poison-Vapor) ---
+  442: { id:442, name:"Bloatleech", emoji:"🩸", types:["Vapor"],
+    evolveTo:443, evolveLevel:26, catchRate:190, expYield:66, rarity:"common",
+    base:{hp:65,atk:45,def:55,spa:58,spd:52,spe:30}, // BST 305
+    learnset:[[1,"vapor_jab"],[1,"mist_s"],[5,"poison_sting"],[10,"fog_beam"],[15,"acid_spray"],[20,"mist_pulse"],[26,"venoshock"]],
+    desc:"A swollen, translucent leech that exhales a faint sour fog as it feeds.",
+    lore:"Bloatleech haunts stagnant fens, bloating itself on the vital warmth of larger Lumori and venting the excess as a sour, low-hanging mist. The fog it breathes out dulls the senses of its host, so a feeding Bloatleech often goes unnoticed until it drops away, fat and sluggish, into the murk." },
+
+  443: { id:443, name:"Miasmire", emoji:"🩸", types:["Poison","Vapor"],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:200, rarity:"uncommon",
+    base:{hp:95,atk:60,def:78,spa:92,spd:85,spe:50}, // BST 460
+    learnset:[[1,"vapor_jab"],[5,"poison_sting"],[15,"acid_spray"],[20,"mist_pulse"],[26,"venoshock"],[32,"miasma_cloud"],[38,"sludge_bomb"],[44,"miasma_wave"],[50,"corrosive_fog"]],
+    desc:"A bloated bog-horror that drags a permanent cloud of toxic mist wherever it oozes.",
+    lore:"Miasmire has grown into a slow, swollen mass that no longer needs to attach to feed — it simply exhales a creeping fog of toxin and waits for weakened prey to fall. Whole stretches of marsh die back where one settles, the reeds blackening in the haze, and bog-guides mark a Miasmire's territory by the silence and the smell long before they see it." },
+
+  // --- F14: meerkat sentinel (Sonic / Normal-Sonic) ---
+  444: { id:444, name:"Squeaklet", emoji:"🐿️", types:["Sonic"],
+    evolveTo:445, evolveLevel:24, catchRate:190, expYield:68, rarity:"common",
+    base:{hp:52,atk:55,def:48,spa:55,spd:50,spe:55}, // BST 315
+    learnset:[[1,"chirp"],[1,"echo_strike"],[5,"quick_attack"],[10,"sonic_pulse"],[15,"sound_rush"],[20,"shake_strike"],[26,"pulse_wave"]],
+    desc:"A bright-eyed burrow-pup that pops upright to give a piercing alarm-squeak.",
+    lore:"Squeaklet live in chattering colonies riddled with tunnels, and every pup learns the watch-calls before it learns to forage. A sentinel will stand on its hind legs atop the highest mound and loose a squeak so sharp it stops a hawk mid-stoop, sending the whole colony underground in a heartbeat." },
+
+  445: { id:445, name:"Sentrike", emoji:"🐿️", types:["Normal","Sonic"],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:205, rarity:"uncommon",
+    base:{hp:78,atk:88,def:68,spa:78,spd:73,spe:90}, // BST 475
+    learnset:[[1,"echo_strike"],[5,"quick_attack"],[15,"sound_rush"],[20,"shake_strike"],[26,"pulse_wave"],[32,"body_slam"],[38,"decibel_burst"],[44,"earsplit"],[50,"skyboom_strike"]],
+    desc:"A vigilant sentinel whose focused shriek can stagger an attacker from across the dunes.",
+    lore:"Sentrike is the colony's standing guard, grown swift and strong enough to back its alarm-calls with action. Its shriek has sharpened into a weapon — a focused blast of sound that buckles a predator's stance and buys the burrow precious seconds. A colony with a seasoned Sentrike on watch is almost impossible to surprise." },
+
+  // --- F15: spore myconid (Vapor / Nature-Vapor) ---
+  446: { id:446, name:"Sporelet", emoji:"🍄", types:["Vapor"],
+    evolveTo:447, evolveLevel:26, catchRate:190, expYield:66, rarity:"common",
+    base:{hp:60,atk:45,def:58,spa:62,spd:55,spe:30}, // BST 310
+    learnset:[[1,"tackle"],[1,"mist_s"],[5,"vapor_jab"],[10,"sleep_powder"],[15,"fog_beam"],[20,"mist_pulse"],[26,"seed_bomb"]],
+    desc:"A capped sprout that puffs a fine drowsy haze of spores when nudged.",
+    lore:"Sporelet pushes up overnight in damp, shaded hollows, releasing a soft haze of spores at the first disturbance to ward off grazers. The mist is harmless but soporific, and small Lumori that bed down near a cluster of Sporelet sleep deep and wake to find the sprouts have quietly multiplied around them." },
+
+  447: { id:447, name:"Fumycet", emoji:"🍄", types:["Nature","Vapor"],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:200, rarity:"uncommon",
+    base:{hp:92,atk:62,def:80,spa:95,spd:84,spe:55}, // BST 468
+    learnset:[[1,"tackle"],[5,"vapor_jab"],[15,"fog_beam"],[20,"seed_bomb"],[26,"mist_pulse"],[32,"mycelia_net"],[38,"energy_ball"],[44,"corrosive_fog"],[50,"spore_burst"]],
+    desc:"A towering fungal myconid that breathes living spore-fog and seeds the soil as it walks.",
+    lore:"Fumycet is a walking fungus the height of a person, its cap venting a slow fog thick with spores that take root wherever they settle. It cultivates the ground it passes over, leaving trails of fresh mushroom-growth, and the deep mycelial network beneath a Fumycet's range lets it sense every footfall pressing the soil for miles." },
+
+  // --- F16: burrowing mole (Mineral / Dark-Mineral) ---
+  448: { id:448, name:"Cobblepup", emoji:"🦡", types:["Mineral"],
+    evolveTo:449, evolveLevel:24, catchRate:190, expYield:64, rarity:"common",
+    base:{hp:54,atk:60,def:62,spa:40,spd:44,spe:45}, // BST 305
+    learnset:[[1,"tackle"],[1,"harden"],[5,"mineral_jab"],[10,"shard_volley"],[15,"ore_punch"],[20,"mineral_strike"],[26,"mineral_smash"]],
+    desc:"A snub-nosed digger with spade-claws that shovel through gravel as if it were sand.",
+    lore:"Cobblepup is born blind in deep burrows and reads the world through the grit it shoves aside, its spade-claws breaking cobbles to swallow the mineral-rich shards within. Pups dig constantly, and a single litter can honeycomb a hillside in a season, sieving the soil for the ore-pebbles that strengthen their claws." },
+
+  449: { id:449, name:"Oredigger", emoji:"🦡", types:["Dark","Mineral"],
+    evolveTo:null, evolveLevel:null, catchRate:65, expYield:198, rarity:"uncommon",
+    base:{hp:80,atk:100,def:88,spa:50,spd:62,spe:75}, // BST 455
+    learnset:[[1,"tackle"],[5,"mineral_jab"],[15,"ore_punch"],[20,"bite"],[26,"mineral_smash"],[32,"night_slash"],[38,"obsidian_strike"],[44,"crunch"],[50,"shadowstep"]],
+    desc:"A lightless-eyed tunneler that ambushes from below, dragging prey down into the dark.",
+    lore:"Oredigger has abandoned the surface entirely, hunting in the lightless deep where its sense of vibration and its obsidian claws make it lord of the tunnels. It strikes upward without warning, hauling unwary Lumori beneath the soil before they can struggle, and miners who hear claws scraping the far side of a rock wall know to dig elsewhere." },
+
+  // --- F17: mantis shrimp (Fighting / Fighting-Fire) ---
+  450: { id:450, name:"Jabshell", emoji:"🦐", types:["Fighting"],
+    evolveTo:451, evolveLevel:28, catchRate:180, expYield:70, rarity:"common",
+    base:{hp:55,atk:72,def:58,spa:48,spd:47,spe:45}, // BST 325
+    learnset:[[1,"quick_punch"],[1,"battle_cry"],[5,"straight_jab"],[10,"body_check"],[15,"low_sweep_f"],[20,"power_drive"],[26,"roundhouse"]],
+    desc:"A small reef-shrimp whose club-arms strike fast enough to crack a shell with a snap.",
+    lore:"Jabshell hammers at snails and stones from the moment it can lift its club-like forelimbs, and the snap of its strike comes faster than the eye can follow. The percussive crack it makes echoes through tide-pools, and rivals settle territorial disputes in flurries of blows that leave the water briefly boiling with tiny bubbles." },
+
+  451: { id:451, name:"Smashclaw", emoji:"🦐", types:["Fighting","Fire"],
+    evolveTo:null, evolveLevel:null, catchRate:55, expYield:210, rarity:"uncommon",
+    base:{hp:80,atk:128,def:78,spa:68,spd:66,spe:70}, // BST 490
+    learnset:[[1,"quick_punch"],[5,"straight_jab"],[15,"body_check"],[20,"power_drive"],[26,"flame_charge"],[32,"iron_fist"],[38,"ignition_kick"],[44,"close_combat"],[50,"flare_uppercut"]],
+    desc:"A reef-brawler whose club-strike moves so fast the water flashes to steam on impact.",
+    lore:"Smashclaw's strike is among the fastest blows in all Lumoria — its club-arms accelerate so violently that the water ahead of them boils into a flash of scalding vapour, doubling the force as the bubble collapses. It cracks open the toughest shells and the hardest stones with ease, and challengers who underestimate the little brawler are met with a punch that lands like a thrown coal." },
+
+  // --- F18: dream sloth (Dream / Dream-Fairy) ---
+  452: { id:452, name:"Dozit", emoji:"🦥", types:["Dream"],
+    evolveTo:453, evolveLevel:28, catchRate:190, expYield:64, rarity:"common",
+    base:{hp:68,atk:42,def:55,spa:58,spd:57,spe:20}, // BST 300
+    learnset:[[1,"tackle"],[1,"lullaby_song"],[5,"dream_jab"],[10,"dream_pulse"],[15,"somnia_ray"],[20,"dream_beam"],[26,"lullaby_aura"]],
+    desc:"A perpetually half-asleep sloth that drifts through its own slow daydreams.",
+    lore:"Dozit spends nearly all its life adrift between waking and sleep, moving so slowly that moss and small Lumori take up residence in its fur. Its dreams leak gently into the air as a calming drowse, and creatures that doze beneath a hanging Dozit share in its mild, wandering reveries." },
+
+  453: { id:453, name:"Lullavoir", emoji:"🦥", types:["Dream","Fairy"],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:196, rarity:"uncommon",
+    base:{hp:100,atk:55,def:80,spa:90,spd:95,spe:30}, // BST 450
+    learnset:[[1,"dream_pulse"],[1,"fairy_wind"],[15,"somnia_ray"],[20,"dream_beam"],[26,"draining_kiss"],[32,"dazzling_gleam"],[38,"somnia_blast"],[44,"moonblast"],[50,"lullaby_song"]],
+    desc:"A serene, slow-moving sloth-fae that spins waking dreams of soft light around itself.",
+    lore:"Lullavoir drifts through the high canopy wrapped in a haze of luminous, gentle dreams, and to wander into its aura is to feel one's worries dissolve into a pleasant drowse. It means no harm — those it lulls wake rested and content — but enemies caught in its dreamscape simply forget why they came to fight. Forest-folk consider a resident Lullavoir a blessing on the grove." },
+
+  // --- F19: haunted bell (Spectral / Metal-Spectral) ---
+  454: { id:454, name:"Tollwisp", emoji:"🔔", types:["Spectral"],
+    evolveTo:455, evolveLevel:30, catchRate:180, expYield:68, rarity:"common",
+    base:{hp:50,atk:42,def:62,spa:72,spd:62,spe:24}, // BST 312
+    learnset:[[1,"ghost_jab"],[1,"haunting_cry"],[5,"ghost_pulse"],[10,"specter_pulse"],[15,"void_wail"],[20,"phantom_beam"],[26,"spirit_drain"]],
+    desc:"A small spirit that has taken up residence inside a cracked, tarnished handbell.",
+    lore:"Tollwisp is a lonely haunt nesting within a discarded bell, ringing itself softly at odd hours to announce a presence no one can see. The sound carries an unmistakable mournful note, and old chapels where a Tollwisp has settled are said to toll on their own on the anniversaries of those once mourned there." },
+
+  455: { id:455, name:"Knellgeist", emoji:"🔔", types:["Metal","Spectral"],
+    evolveTo:null, evolveLevel:null, catchRate:55, expYield:205, rarity:"uncommon",
+    base:{hp:72,atk:60,def:105,spa:100,spd:95,spe:40}, // BST 472
+    learnset:[[1,"ghost_pulse"],[1,"specter_pulse"],[15,"void_wail"],[20,"phantom_beam"],[26,"flash_cannon"],[32,"metal_sound"],[38,"soul_burst"],[44,"chromium_ray"],[50,"phantom_force"]],
+    desc:"A great cast-iron tower-bell possessed by a host of spirits, its toll heavy with dread.",
+    lore:"Knellgeist is a massive bronze-and-iron bell grown thick with the spirits drawn to its resonance, and its toll is a physical force — a wave of sound and dread that buckles the will of any who hear it. It rings of its own accord before calamities, and townsfolk who hear an unmanned Knellgeist sound at midnight bar their doors and wait for dawn." },
+
+  // --- F20: axolotl (Vapor / Aquatic-Vapor) ---
+  456: { id:456, name:"Mistgill", emoji:"🦎", types:["Vapor"],
+    evolveTo:457, evolveLevel:26, catchRate:190, expYield:68, rarity:"common",
+    base:{hp:65,atk:50,def:55,spa:58,spd:55,spe:35}, // BST 318
+    learnset:[[1,"tackle"],[1,"mist_s"],[5,"vapor_jab"],[10,"water_gun"],[15,"fog_beam"],[20,"mist_pulse"],[26,"bubble_beam"]],
+    desc:"A frilled, perpetually smiling amphibian whose feathery gills trail wisps of warm mist.",
+    lore:"Mistgill lives in mineral springs where warm water meets cool air, and the feathery external gills it waves to breathe leave little curls of mist drifting behind it. It regenerates lost limbs in days and never fully matures away from the water, keeping its juvenile frills and its placid, eternal smile throughout its life." },
+
+  457: { id:457, name:"Vaporlotl", emoji:"🦎", types:["Aquatic","Vapor"],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:205, rarity:"uncommon",
+    base:{hp:100,atk:72,def:78,spa:92,spd:86,spe:50}, // BST 478
+    learnset:[[1,"water_gun"],[1,"mist_s"],[15,"fog_beam"],[20,"bubble_beam"],[26,"mist_pulse"],[32,"aqua_tail"],[38,"steam_burst"],[44,"surf"],[50,"vapor_eruption"]],
+    desc:"A large spring-dwelling amphibian wreathed in warm vapour, able to heal its own wounds in moments.",
+    lore:"Vaporlotl rules the deep thermal pools, its broad gills exhaling a constant warm fog across the water's surface. Its regenerative powers are the stuff of legend — it can knit a severed limb whole within an afternoon — and injured Lumori that reach a Vaporlotl's spring and rest in its mist often recover from wounds that should have been mortal." },
+
+  // --- F21: tengu (Fighting / Fighting-Wind) ---
+  458: { id:458, name:"Gustling", emoji:"👺", types:["Fighting"],
+    evolveTo:459, evolveLevel:28, catchRate:180, expYield:72, rarity:"common",
+    base:{hp:55,atk:68,def:52,spa:55,spd:50,spe:50}, // BST 330
+    learnset:[[1,"quick_punch"],[1,"battle_cry"],[5,"gust"],[10,"straight_jab"],[15,"low_sweep_f"],[20,"body_check"],[26,"roundhouse"]],
+    desc:"A red-faced mountain imp that practices its fist-forms atop wind-blasted crags.",
+    lore:"Gustling are mischievous spirits of the high peaks, drilling endless martial forms against the mountain gales and snatching the hats of travellers who climb too proudly. The wind they train against has taught them footwork no still-air fighter can match, and a humbled climber who bows respectfully may find a Gustling willing to guide them down." },
+
+  459: { id:459, name:"Tengrath", emoji:"👺", types:["Fighting","Wind"],
+    evolveTo:null, evolveLevel:null, catchRate:55, expYield:212, rarity:"uncommon",
+    base:{hp:82,atk:115,def:72,spa:80,spd:71,spe:75}, // BST 495
+    learnset:[[1,"gust"],[5,"straight_jab"],[15,"body_check"],[20,"air_slash"],[26,"roundhouse"],[32,"tornado_kick"],[38,"iron_fist"],[44,"close_combat"],[50,"hurricane"]],
+    desc:"A long-nosed tengu master that rides the gale and strikes from the heart of a whirlwind.",
+    lore:"Tengrath is a tengu in its full power — a martial spirit that summons the mountain wind to its fists and feet, closing the distance on a gust to land blows that arrive from impossible angles. It tests warriors who climb to its peak, demanding humility as fiercely as skill, and the rare student it deems worthy is taught wind-walking forms found in no dojo below." },
+
+  // --- F22: singing-bowl construct (Sonic / Mental-Sonic) ---
+  460: { id:460, name:"Gongling", emoji:"🎵", types:["Sonic"],
+    evolveTo:461, evolveLevel:30, catchRate:180, expYield:68, rarity:"common",
+    base:{hp:55,atk:45,def:58,spa:68,spd:54,spe:35}, // BST 315
+    learnset:[[1,"echo_strike"],[1,"resonate"],[5,"sonic_pulse"],[10,"sound_rush"],[15,"confusion"],[20,"pulse_wave"],[26,"wave_cry"]],
+    desc:"A small hovering singing-bowl that hums a steady, calming tone of its own accord.",
+    lore:"Gongling is a votive bowl given a faint will by generations of meditation rung into its metal. It drifts a hand's breadth above the ground, humming a low tone that steadies racing thoughts, and temples treasure one as a tireless aid to focus — though a startled Gongling will clang a discordant note that scatters concentration just as easily." },
+
+  461: { id:461, name:"Resonethe", emoji:"🎵", types:["Mental","Sonic"],
+    evolveTo:null, evolveLevel:null, catchRate:55, expYield:208, rarity:"uncommon",
+    base:{hp:82,atk:58,def:80,spa:115,spd:92,spe:55}, // BST 482
+    learnset:[[1,"sonic_pulse"],[1,"confusion"],[15,"pulse_wave"],[20,"psybeam"],[26,"harmonic_burst"],[32,"resonance_quake"],[38,"psychic_move"],[44,"threnody"],[50,"mind_shatter"]],
+    desc:"A great resonating bowl-construct whose layered tones tune the very thoughts of those nearby.",
+    lore:"Resonethe is a towering construct of nested singing-bowls, each ringing a different note, that has accumulated enough meditative resonance to touch the minds around it. Its harmonies can lift a clouded mind to perfect clarity or, struck in anger, shatter concentration and will alike with a single dissonant chord. Oracles seat themselves within its rings to think thoughts they could not hold alone." },
+
   // ============================================================
   // FORGOTTEN LUMORI — IDs 462–500 (Vaeldrian Region)
   // These Lumori are not catchable and not named to the player.

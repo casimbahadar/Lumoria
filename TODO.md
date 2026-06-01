@@ -567,35 +567,63 @@ After each batch of approvals, re-tally the dex-wide type-combo counts to confir
 
 Workflow merged into the per-Lumori UNIFIED audit (Step 4). Cap-tally checks happen per-Lumori at the moment each Lumori's lore + desc + archetype is finalized. The cap rules + counting rules + progress state below remain authoritative reference.
 
-## Cap rules & progress (clarified during PR #50 session, 2026-05-17)
+## Cap rules & counting (updated 2026-05-30 — see commit history for full context)
+
+**Counting rule (ID-tally — current):**
+- For each type combo, count **every Lumori in the dex** whose `types` array matches that combo, regardless of evolution stage. All pre-stages, mid-stages, finals, and standalones count.
+- A pre-stage with a *different* `types` array counts for its own combo, not the final's. Example: Mindpuff (mono Mental) → Recallum (mono Mental) → Psytheon (Mental/Fairy): Mental/Fairy gets **1 ID** (just Psytheon), mono Mental gets **+2** from the pre-stages.
+- Two-stage chains where both members share the same combo contribute 2 IDs (e.g. Crumblite + Stonegrip both Earth/Metal = 2 IDs in Earth/Metal).
+
+*Earlier "family + standalone" tally rule from prior sessions has been superseded by ID-tally — see commit history.*
 
 **Cap rules (user-decided):**
-- **Ordinary combos:** 2 families + 1 standalone (max 3 entries)
-- **Flagship combos:** 4 families + 2 standalones (max 6 entries)
+- **Ordinary dual combos:** soft cap of **6 IDs**
+- **Flagship dual combos:** soft cap of **12 IDs** (double ordinary)
+- **All mono-type combos:** automatic flagship status (12-ID cap)
 - **Forgotten range (id ≥ 408):** included in cap (no exemption)
+- **Soft-cap policy:** Caps are guidelines, not hard limits. Drift above cap is acceptable when justified by all of:
+  1. All combo members have intrinsic lore-fit (no comparable pre-408 alternative typing)
+  2. The combo is not defensively broken-strong (avoid immunity-stacking)
+  3. Drift is per-Lumori justified, not blanket
 
-**Flagship typings (TENTATIVE — user to finalize in separate session):**
-- Fairy / Psychic
-- Dragon / Fire
-- Dragon / Psychic
-- mono Normal
+**Flagship designation:** Implicit for monos. For duals, flagship is per-cluster on case-by-case basis — surfaced during the per-combo audit when warranted. Stale tentative list ("Fairy/Psychic, Dragon/Fire, Dragon/Psychic, mono Normal" from PR #50) no longer applies — the new ID-tally + soft-cap framework supersedes it.
 
-(List is provisional; do not treat as authoritative until user confirms. Tentative basis: starter/legendary signatures + the mono-Normal "everyman" niche.)
+**Progress state (under ID-tally as of 2026-05-30):**
+- Pre-408 dex: **407 Lumori across 113 occupied type combos** (out of 351 possible, 121 pre-408-eligible duals still pristine).
+- **Distribution:** 21 combos at 1 ID, 22 at 2, 25 at 3, 12 at 4, 12 at 5, 5 at 6, 12 at 7-8, 2 at 9-10, 2 at 11+.
+- **Over ordinary cap (7+ IDs):** 14 dual combos + 5 monos (monos auto-flagship-OK).
+- Dual over-cap dual combos to address: Electric/Nature (9), Draconic/Earth (8), Fairy/Nature (8), Nature/Poison (8), Aquatic/Earth (7), Aquatic/Ice (7), Dark/Metal (7), Earth/Nature (7).
 
-**Counting rules:**
-- A "family" = the final-stage member of an evolution chain (one tally per family regardless of stage count).
-- A "standalone" = a non-evolving Lumori (one tally each).
-
-**Progress state (post-PR #50):**
-- Initial audit: **40 over-cap combos** identified.
-- **Batch 1 (PR #50):** 8 retypes complete → **32 violations remaining**.
-- Severity of remaining 32: 8 over by 1, 16 over by 2, 6 over by 3, 2 over by 4 (Dark/Fairy, Dark/Fire), 1 over by 5 (Dark/Psychic).
-- The Dark cluster is the most affected — partly inherited from the 11 pre-408 post-game-typing retypes in PR #49.
-
-**Process notes for future sessions:**
-- Always run pre-flight target-combo verification before each retype (string-sort consistency matters — e.g. "Dark/Ice" not "Ice/Dark" in tallies).
+**Process notes:**
+- Run a fresh ID-tally before each cluster decision so retype impact is accurate.
 - Validate combo counts post-batch — a retype that lands in another over-cap combo doesn't help.
 - Commit per batch, present full table for user approval before next batch.
+
+## Accepted cap-drift exceptions (re-evaluated 2026-05-30 under ID-tally)
+
+Under the updated ID-tally + 6/12 soft-cap rules, **most prior drift exceptions auto-resolved** (combos that were "over" under family-tally are now within ordinary 6-ID cap). The few that remain over and need either further trim or formal drift acceptance:
+
+- **Nature/Poison: 8 IDs (+2 over).** Voidgarden was added during the Dark/Fairy trim as best-fit (corrupted poisonous garden). Original cluster trim left 2F+2S=4 entries family-tally = 8 IDs because the Tendrilisk and Plaguefly chains both pre-stage in Nature/Poison. **Still over under new tally — pending re-evaluation in the redo pass.**
+- **Draconic/Earth: 8 IDs (+2 over).** Bahamber line ("forged the first volcanoes") added during Draconic/Fire trim. Both Searburn and Bahamber count under ID-tally. **Pending re-evaluation.**
+- **Fairy/Nature: 8 IDs (+2 over).** Garlawarden/Faevernal/Arachnalis chains all multi-stage with shared typing. Locked-in starter (Garlawarden) plus apex spring-fairy (Faevernal) plus unique spider-fairy (Arachnalis). **Pending re-evaluation in the redo pass.**
+
+**Auto-resolved under ID-tally (no longer drifts):** Mental/Spectral (4 IDs ✓), Mental/Fairy (5 ✓), Aquatic/Dark (2 ✓), Mental/Draconic (5 ✓), Draconic/Mineral (2 ✓).
+
+### New drifts surfaced under ID-tally:
+
+- **mono Nature: 14 IDs (+2 over flagship cap 12).** Largest plant-creature category in the dex. Members are all genuinely plant/fungus/insect-aligned: Verdkin + Barknell (Nature starter pre-stages), Germix→Verdurus, Photoworm→Chrysalix, Viridix, Sporix→Myceloth (former Nature/Poison pre-stages moved during ID-tally redo), Sproutix (former Fairy/Nature pre-stage moved during ID-tally redo), Leafhorn (moved during Fairy/Nature trim), Mosswing, Verdovast, Thornmoth. Drift accepted under soft-cap rule — peer cohesion is genuine, no forced inclusions, +2 over flagship is minimal.
+
+## Starter triad — RESOLVED (2026-05-31, type-triangle effectiveness analysis)
+
+All 3 starter-line FINAL evolutions are now locked. Triangle rebalanced from
+score 14.00 (near-broken) → 2.00 (clean 2:1 ratios in each matchup) via the
+Banksnout adjustment.
+
+- ~~**#3 Calderaeth** (Fire starter)~~ — **LOCKED Fire/Draconic** (kept current; dragon-fox lore intact).
+- ~~**#6 Banksnout** (Aquatic starter)~~ — **LOCKED Aquatic/Dark** (changed from Aquatic/Earth; the type-triangle analysis identified Aquatic/Dark as best balance + lore-honest; existing predator-ambush body language was already Dark-adjacent, minor lore touch added "dusk and dawn" + "silent stalk" hooks).
+- ~~**#9 Garlawarden** (Nature starter)~~ — **LOCKED Nature/Fairy** (locked during Fairy/Nature cluster trim).
+
+Final triad: **Fire/Draconic + Aquatic/Dark + Nature/Fairy.** All 3 matchups are clean 2:1 ratios; no more 4x/0.25x extremes.
 
 # 🐺 Archetype oversaturation — REFERENCE TALLIES (workflow merged into 🕯 UNIFIED AUDIT)
 
@@ -690,6 +718,34 @@ This audit specifically catches the cross-product: same creature **and** same ty
 ## Per-proposal hook
 
 For every BREAKING/MINOR proposal going forward, include a **same-archetype peer typings** section so we catch new collisions before they go in. Format: list other families with the same archetype and their typing combos, flag any cell-collision the proposal would create.
+
+# 🎲 Encounter rate audit — RUN AFTER over-cap audit completes
+
+After the over-cap pre-408 type-combo audit lands (PR #55, branch `claude/lumoria-overcap-audit-2kkDV`), walk every encounter zone in `js/data.js` and audit `rate:` distributions.
+
+- [ ] Verify every zone's `wildMonsters[].rate` values sum to 100.
+- [ ] Check rates against BST tiers — weaker mons should be more common (higher rate), stronger/rarer mons less common. Some zones currently have arbitrary uniform rates ignoring BST gaps.
+- [ ] **Route 8 — Sky Corridors specifically:** Silvergust (BST 308), Swirlavel (485), Drakorius (521), Sapphier (537) all at or near rate 25 despite 230-BST spread. Doesn't follow a clean weakest-to-strongest curve. Rebalance using the Spirit Canyon pattern (35/30/25/10 weakest-to-strongest) or similar, while preserving Cranivade's rate 3 from the over-cap retype.
+- [ ] Stale encounter-table comments: Spirit Canyon and Route 8 cleaned inline during the Cranivade retype, but the rest of the dex likely has more stale names (pattern: old rename targets — e.g. "Psyshade" was an earlier name for Cranivade). Sweep with `grep` against current `MONSTERS_DATA[id].name`.
+
+**Run order:** after 🕯 UNIFIED audit / over-cap PR lands, before stat spread review.
+
+# 🎯 Lumori obtainability audit — RUN AFTER over-cap audit completes
+
+After the over-cap pre-408 type-combo audit lands (PR #55, branch `claude/lumoria-overcap-audit-2kkDV`), walk every Lumori in `MONSTERS_DATA` and verify each has at least one obtainability path. Acceptable paths: wild area encounter, NG+ rotation, one-off static encounter, quest reward, in-game trade, evolution from another obtainable Lumori, special event, etc.
+
+- [ ] Cross-reference every `MONSTERS_DATA[id]` against:
+  - All `wildMonsters[]` and `ngPlusWildMonsters[]` arrays in `WORLD_DATA`
+  - All `legendaryEncounter`, story-encounter, quest-reward references
+  - Evolution chain (`evolveTo` from another obtainable Lumori)
+- [ ] Flag any Lumori with zero obtainability paths. Decide for each:
+  - Add to a suitable wild area or static encounter
+  - Designate as quest-only and add the quest
+  - Confirm intentionally unobtainable (only valid for the **26 Forgotten Lumori** explicitly designated as such — verify against the canonical list)
+- [ ] **Known cases from over-cap audit:**
+  - #362 Lunaspectre — has no encounter entries dex-wide (surfaced during Dark/Mental retype). Needs assignment.
+
+**Run order:** after 🕯 UNIFIED audit / over-cap PR lands, parallel with 🎲 Encounter rate audit, before stat spread review.
 
 # 💡 Concept parking — future family ideas to use later
 

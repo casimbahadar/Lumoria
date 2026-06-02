@@ -18,6 +18,9 @@ function newGameState(playerName, starterMonsterId) {
     location: "seedvale",
     seenMonsters: new Set([starterMonsterId]),
     caughtMonsters: new Set([starterMonsterId]),
+    shinyDexSeen: new Set(), shinyDexCaught: new Set(),
+    variantDexSeen: new Set(), variantDexCaught: new Set(),
+    variantLog: {},
     seenInArea: {},
     championDefeated: false,
     questsCompleted: [],
@@ -50,7 +53,7 @@ function createPartySlot(monsterId, level) {
     monsterId, nickname: null, level, xp: xpForLevel(level),
     maxHP, currentHP: maxHP, moves, statuses: [], heldItem: null,
     nature: getRandomNature(), ivs,
-    shiny: false, variant: false, variantTypes: null
+    shiny: false, variant: false, variantTypes: null, variantBase: null, variantImmune: null
   };
 }
 
@@ -62,6 +65,10 @@ function saveGame() {
     ...G,
     seenMonsters: [...G.seenMonsters],
     caughtMonsters: [...G.caughtMonsters],
+    shinyDexSeen: [...(G.shinyDexSeen || [])],
+    shinyDexCaught: [...(G.shinyDexCaught || [])],
+    variantDexSeen: [...(G.variantDexSeen || [])],
+    variantDexCaught: [...(G.variantDexCaught || [])],
     seenInArea: Object.fromEntries(Object.entries(G.seenInArea || {}).map(([k, v]) => [k, [...v]]))
   };
   try {
@@ -87,6 +94,11 @@ function loadGame(slot) {
     const data = JSON.parse(raw);
     data.seenMonsters = new Set(data.seenMonsters);
     data.caughtMonsters = new Set(data.caughtMonsters);
+    data.shinyDexSeen = new Set(data.shinyDexSeen || []);
+    data.shinyDexCaught = new Set(data.shinyDexCaught || []);
+    data.variantDexSeen = new Set(data.variantDexSeen || []);
+    data.variantDexCaught = new Set(data.variantDexCaught || []);
+    if (!data.variantLog) data.variantLog = {};
     if (!data.seenInArea) data.seenInArea = {};
     for (const k of Object.keys(data.seenInArea)) data.seenInArea[k] = new Set(data.seenInArea[k]);
     // Ensure new fields exist for old saves
@@ -110,6 +122,8 @@ function loadGame(slot) {
       if (mon.shiny === undefined) mon.shiny = false;
       if (mon.variant === undefined) mon.variant = false;
       if (mon.variantTypes === undefined) mon.variantTypes = null;
+      if (mon.variantBase === undefined) mon.variantBase = null;
+      if (mon.variantImmune === undefined) mon.variantImmune = null;
     }
     if (!data.achievements) data.achievements = [];
     if (!data.roamingCaught) data.roamingCaught = [];
@@ -1074,6 +1088,7 @@ function clearBattleLog() {
 function updateBattleUI() {
   const player = playerActiveMon;
   const enemy = enemyActiveMon;
+  trackEncounterFlags(enemy);
 
   // Enemy sprite (SVG illustration)
   const enemySpriteEl = document.getElementById("enemy-sprite");
@@ -1511,6 +1526,8 @@ async function playerUseBall(orbId) {
     logMsg(`✅ Gotcha! ${enemyActiveMon.name} was caught!`, "log-catch");
     G.caughtMonsters.add(enemyActiveMon.monsterId);
     if (enemyActiveMon.shiny) G.shinyCaught = (G.shinyCaught || 0) + 1;
+    if (enemyActiveMon.shiny) (G.shinyDexCaught ||= new Set()).add(enemyActiveMon.monsterId);
+    if (enemyActiveMon.variant) { (G.variantDexCaught ||= new Set()).add(enemyActiveMon.monsterId); recordVariantLog(enemyActiveMon, true); }
     if (typeof onLumoriCaught === "function") onLumoriCaught(!!enemyActiveMon.shiny);
     if (enemyActiveMon.shiny)   checkAchievement("catch_shiny");
     if (enemyActiveMon.variant) checkAchievement("catch_variant");
@@ -1564,8 +1581,38 @@ function createCaughtSlot(battleMon) {
     nature: battleMon.nature || getRandomNature(),
     ivs: battleMon.ivs || generateIVs(),
     shiny: !!battleMon.shiny, variant: !!battleMon.variant,
-    variantTypes: battleMon.variantTypes || null
+    variantTypes: battleMon.variantTypes || null,
+    variantBase: battleMon.variantBase || null,
+    variantImmune: battleMon.variantImmune || null
   };
+}
+
+// ===== Shiny / variant dex tracking (see docs/variant-system-spec.md §F) =====
+// Records a variant instance (caught or merely encountered) for the Luminex 🔀 tracker.
+function recordVariantLog(mon, caught) {
+  if (!mon || !mon.variant || !G) return;
+  if (!G.variantLog) G.variantLog = {};
+  const arr = (G.variantLog[mon.monsterId] ||= []);
+  arr.push({
+    types: mon.variantTypes ? [...mon.variantTypes] : null,
+    base: mon.variantBase ? { ...mon.variantBase } : null,
+    immune: mon.variantImmune || null,
+    caught: !!caught,
+    shiny: !!mon.shiny
+  });
+  if (arr.length > 30) arr.shift(); // cap log per species
+}
+
+// Called as enemy/wild mons appear so shinies/variants register even when
+// they can't be caught (trainer/Umbra/wielder enemies, fled wilds).
+function trackEncounterFlags(mon) {
+  if (!mon || !G) return;
+  if (mon.shiny) (G.shinyDexSeen ||= new Set()).add(mon.monsterId);
+  if (mon.variant && !mon._variantLogged) {
+    (G.variantDexSeen ||= new Set()).add(mon.monsterId);
+    recordVariantLog(mon, false);
+    mon._variantLogged = true;
+  }
 }
 
 async function playerSwitch(idx) {
@@ -2280,6 +2327,7 @@ function updateMultiBattleUI() {
     const spriteEl = document.getElementById(`enemy-sprite-${i + 1}`);
     if (i < enemyActiveMons.length && enemyActiveMons[i] && !enemyActiveMons[i].fainted) {
       const e = enemyActiveMons[i];
+      trackEncounterFlags(e);
       infoEl.classList.remove("hidden");
       spriteEl.classList.remove("hidden");
       document.getElementById(`enemy-name-${i + 1}`).textContent = e.name;

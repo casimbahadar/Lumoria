@@ -4987,10 +4987,10 @@ const MONSTERS_DATA = {
 
   // --- Wielder: Lysara (Celestial Plateau) ---
   462: { id:462, name:"Forgotten Auravian", emoji:"🕊️", types:["Aether","Primal"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:115,atk:95,def:110,spa:145,spd:130,spe:125},
     learnset:[[1,"confusion"],[20,"psybeam"],[35,"earth_power"],[50,"psychic_move"],[65,"moonblast"],[70,"cosmic_veil"],[80,"aura_veil_strike"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Messengers of the sacred temples of a lost land, Auravian carry the resonance of ancient prayers on crystalline wings.",
     lore:"Auravian are the divine messengers of Vaeldris. They appear to those who have lost something precious and are said to carry the voices of the departed on their wings." },
 
@@ -5014,10 +5014,10 @@ const MONSTERS_DATA = {
   // --- Wielder: Morrigan (The Shadowfen) ---
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   465: { id:465, name:"Forgotten Nyxviper", emoji:"🦇", types:["Dark","Spectral"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:80,atk:150,def:80,spa:120,spd:90,spe:200},
     learnset:[[1,"night_slash"],[20,"shadow_ball"],[35,"dark_pulse"],[50,"void_rend"],[65,"shadowstep"],[70,"eclipse_shroud"],[80,"nyx_fang"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Nyxviper phase through solid matter and strike from the space between moments. Their venom erases memories rather than dealing damage.",
     lore:"Vaeldrian scholars debated whether Nyxviper were truly physical beings or manifestations of collective nightmares. The debate was never resolved." },
 
@@ -5042,10 +5042,10 @@ const MONSTERS_DATA = {
   // --- Wielder: Kael (Stormpeak Ridge) ---
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   468: { id:468, name:"Forgotten Electrak", emoji:"🌩️", types:["Electric","Metal"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:90,atk:130,def:90,spa:150,spd:90,spe:170},
     learnset:[[1,"thunder_shock"],[20,"flash_cannon"],[35,"thunderbolt"],[50,"volt_surge"],[65,"alloy_edge"],[70,"overcharge"],[80,"volt_rail"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Electrak surf electromagnetic currents at speeds that blur their outline. Their charged steel scales can discharge enough power to fuel a city for hours.",
     lore:"The steel in Electrak's scales is a natural alloy produced by their bodies — a material that conducts electricity with zero resistance that Vaeldrian engineers failed to replicate." },
 
@@ -5070,10 +5070,10 @@ const MONSTERS_DATA = {
   // --- Wielder: Thessaly (Ancient Root Cavern) ---
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   471: { id:471, name:"Forgotten Rootborn", emoji:"🌿", types:["Nature","Poison"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:155,atk:135,def:130,spa:90,spd:120,spe:90},
     learnset:[[1,"vine_whip"],[20,"sludge_bomb"],[35,"seed_bomb"],[50,"energy_ball"],[65,"toxic_surge"],[70,"verdant_surge"],[80,"root_toxin"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Rootborn grew from ancient seed-stones buried beneath Vaeldris's mountains for ten thousand years. Their roots crack bedrock and draw nutrients from bare stone.",
     lore:"A single Rootborn can undermine a mountain's foundation in a century. Thessaly meditates beside hers every morning and says it tells her things the mountains are thinking." },
 
@@ -5098,10 +5098,10 @@ const MONSTERS_DATA = {
   // --- Wielder: Nereus (The Hadal Depths) ---
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   474: { id:474, name:"Forgotten Pelagor", emoji:"🐬", types:["Aquatic","Mental"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:110,atk:110,def:100,spa:145,spd:115,spe:140},
     learnset:[[1,"water_gun"],[20,"confusion"],[35,"surf"],[50,"psychic_move"],[65,"hydro_pump"],[70,"telepathic_slam"],[80,"thought_stream"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Pelagor perceive the emotional currents of the ocean and can sense fear, joy, and hunger across miles of open water.",
     lore:"Nereus claims Pelagor told him about the Sundering before it happened. He was three days' sail from Vaeldris and turned back because of it. He has never decided if that was the right choice." },
 
@@ -5124,10 +5124,10 @@ const MONSTERS_DATA = {
 
   // --- Wielder: Caelia (Cloudspire) ---
   477: { id:477, name:"Forgotten Aetherveil", emoji:"🦋", types:["Aether","Electric"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:85,atk:100,def:90,spa:155,spd:110,spe:180},
     learnset:[[1,"confusion"],[20,"thunder_shock"],[35,"dazzling_gleam"],[50,"thunderbolt"],[65,"moonblast"],[70,"discharge"],[80,"aether_shock"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Aetherveil are the songs of the wind given form. Their calls travel across mountain ranges in seconds, carrying the voices of the lost to where they are needed.",
     lore:"Caelia says Aetherveil don't fly so much as they remind the air where it wants to go." },
 
@@ -5152,10 +5152,10 @@ const MONSTERS_DATA = {
   // --- Wielder: Dravek (Magma Forge) ---
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   480: { id:480, name:"Forgotten Pyraeon", emoji:"🦁", types:["Fire","Metal"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:90,atk:155,def:110,spa:130,spd:95,spe:140},
     learnset:[[1,"ember"],[20,"metal_claw"],[35,"fire_blast"],[50,"flash_cannon"],[65,"solar_flare"],[70,"forge_strike"],[80,"pyro_alloy"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Pyraeon's body is a living alloy — bone-steel fused with molten cores. Their claws can cut through solid iron with a single stroke.",
     lore:"Dravek sharpens Pyraeon's claws on volcanic rock every morning. He says the ritual keeps them both sharp." },
 
@@ -5178,10 +5178,10 @@ const MONSTERS_DATA = {
 
   // --- Wielder: Nylara (Glacial Abyss) ---
   483: { id:483, name:"Forgotten Frigalum", emoji:"🦊", types:["Ice","Crystal"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:120,atk:120,def:130,spa:120,spd:130,spe:100},
     learnset:[[1,"ice_punch"],[20,"blizzard"],[35,"ice_beam"],[50,"rock_slide"],[65,"permafrost"],[70,"stone_edge"],[80,"cryo_plate"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Frigalum are armored in ice-steel — a material unique to Vaeldris that never melts and deflects dragonfire. Vaeldrian smiths spent centuries failing to replicate it.",
     lore:"The only sample of Frigalum ice-steel that made it out of Vaeldris is the pauldron on Nylara's left shoulder. She refuses to explain how she acquired it." },
 
@@ -5206,10 +5206,10 @@ const MONSTERS_DATA = {
   // --- Wielder: Solenne (Moonhaven Ruins) ---
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   486: { id:486, name:"Forgotten Dreamaith", emoji:"🦉", types:["Mental","Aquatic"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:100,atk:75,def:105,spa:175,spd:150,spe:115},
     learnset:[[1,"confusion"],[20,"shadow_ball"],[35,"psychic_move"],[50,"void_rend"],[65,"psystrike"],[70,"veil_collapse"],[80,"dream_torrent"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Dreamaith drift through walls and minds alike, leaving vivid impressions of Vaeldris in their wake. Those who encounter one report dreaming of a lost land for weeks afterward.",
     lore:"Solenne says Dreamaith don't know Vaeldris is gone. Every night, in the dream they share with her, it still stands." },
 
@@ -5233,10 +5233,10 @@ const MONSTERS_DATA = {
 
   // --- Wielder: Rax (The Iron Sanctum) ---
   489: { id:489, name:"Forgotten Ironvast", emoji:"🦾", types:["Crystal","Earth"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:130,atk:145,def:175,spa:75,spd:130,spe:65},
     learnset:[[1,"rock_throw"],[20,"rock_slide"],[35,"rock_blast"],[50,"stone_edge"],[65,"obsidian_crash"],[70,"earthquake"],[80,"iron_fortress"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Ironvast's carapace has never been cracked in recorded Vaeldrian history. Engineers once used shed Ironvast shells as building material — with their full consent.",
     lore:"Rax says Ironvast has only ever been afraid once. He doesn't say when." },
 
@@ -5261,10 +5261,10 @@ const MONSTERS_DATA = {
   // --- Wielder: Tempris (The Arc Station) ---
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
   492: { id:492, name:"Forgotten Volteon", emoji:"🔋", types:["Electric","Mental"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:90,atk:110,def:95,spa:160,spd:120,spe:145},
     learnset:[[1,"thunder_shock"],[20,"confusion"],[35,"thunderbolt"],[50,"psychic_move"],[65,"volt_surge"],[70,"overcharge"],[80,"psycho_surge"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Volteon processes battle outcomes in microseconds using electric-psychic predictive modeling. By the time you have decided to act, Volteon has already chosen its counter.",
     lore:"Tempris designed the predictive model that Volteon runs. He says it's 94.7% accurate. Volteon disagrees with the 5.3% margin of error." },
 
@@ -5287,10 +5287,10 @@ const MONSTERS_DATA = {
 
   // --- Wielder: Vayne (The Void Gate) ---
   495: { id:495, name:"Forgotten Nihilax", emoji:"🕳️", types:["Primal","Spectral"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:75,atk:145,def:80,spa:160,spd:90,spe:170},
     learnset:[[1,"night_slash"],[20,"earth_power"],[35,"dark_pulse"],[50,"earthquake"],[65,"specter_pulse"],[70,"void_dominion"],[80,"nihil_quake"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Nihilax emit a field that suppresses all energy signatures within range. In their presence, lights dim, sound muffles, and time seems to hesitate.",
     lore:"Vayne says Nihilax was the first Lumori she saw after the Sundering began. She has never been sure if it was trying to help or simply watching." },
 
@@ -5314,10 +5314,10 @@ const MONSTERS_DATA = {
 
   // --- Wielder: Azura (Observatory Peak) ---
   498: { id:498, name:"Forgotten Cosmolith", emoji:"🌠", types:["Aether","Fairy"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:110,atk:90,def:110,spa:185,spd:130,spe:95},
     learnset:[[1,"confusion"],[20,"fairy_wind"],[35,"dazzling_gleam"],[50,"moonblast"],[65,"psystrike"],[70,"cosmic_veil"],[80,"cosmic_dust"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Cosmolith serve as living star maps — their scales reflect the night sky of Vaeldris exactly as it existed the moment before the Sundering. They are the only record those stars ever existed.",
     lore:"Azura detected the Sundering three days before it happened by reading a change in Cosmolith's scale patterns. She had not understood what she was seeing until it was too late." },
 

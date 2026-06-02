@@ -754,18 +754,21 @@ After the over-cap pre-408 type-combo audit lands (PR #55, branch `claude/lumori
 
 After the over-cap pre-408 type-combo audit lands (PR #55, branch `claude/lumoria-overcap-audit-2kkDV`), walk every Lumori in `MONSTERS_DATA` and verify each has at least one obtainability path. Acceptable paths: wild area encounter, NG+ rotation, one-off static encounter, quest reward, in-game trade, evolution from another obtainable Lumori, special event, etc.
 
-- [ ] Cross-reference every `MONSTERS_DATA[id]` against:
+- [x] Cross-reference every `MONSTERS_DATA[id]` against:
   - All `wildMonsters[]` and `ngPlusWildMonsters[]` arrays in `WORLD_DATA`
   - All `legendaryEncounter`, story-encounter, quest-reward references
   - Evolution chain (`evolveTo` from another obtainable Lumori)
-- [ ] Flag any Lumori with zero obtainability paths. Decide for each:
+  *(Built full obtainability graph: starters + all wild/NG+ encounters + 13 legendaryEncounters + 13 Forgotten wielder-team[0] legendaries, closed over evolveTo/evolveAlt. Result: **474/500 obtainable**, matching the 500-dex placement pass. PR for this audit.)*
+- [x] Flag any Lumori with zero obtainability paths. Decide for each:
   - Add to a suitable wild area or static encounter
   - Designate as quest-only and add the quest
   - Confirm intentionally unobtainable (only valid for the **26 Forgotten Lumori** explicitly designated as such — verify against the canonical list)
-- [ ] **Known cases from over-cap audit:**
-  - #362 Lunaspectre — has no encounter entries dex-wide (surfaced during Dark/Mental retype). Needs assignment.
+  *(**0 real gaps.** The 26 unobtainable = exactly the encounter-only Forgotten (wielder team[1]/team[2]); verified they carry `uncatchable:true` and have no encounter/evo path.)*
+- [x] **Known cases from over-cap audit:**
+  - #362 Lunaspectre — has no encounter entries dex-wide (surfaced during Dark/Mental retype). Needs assignment. *(RESOLVED — now obtainable via the Starbloom NG+ overlay.)*
+- [x] **Latent data-hygiene fixes (found during this audit):** the 13 catchable Forgotten (wielder team[0]) had `catchRate:0` (only "worked" via the `(catchRate || 45)` fallback) and a misleading `uncatchable:true`. → set them to legendary `catchRate:3` and removed `uncatchable:true`; the 26 encounter-only Forgotten keep both. `uncatchable` is otherwise unused by code (display gating uses `foreignRegion`).
 
-**Run order:** after 🕯 UNIFIED audit / over-cap PR lands, parallel with 🎲 Encounter rate audit, before stat spread review.
+**Run order:** after 🕯 UNIFIED audit / over-cap PR lands, parallel with 🎲 Encounter rate audit, before stat spread review. ✅ **DONE.**
 
 # 💡 Concept parking — future family ideas to use later
 

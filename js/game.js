@@ -1053,7 +1053,7 @@ function getDisplayName(mon) {
   const def = MONSTERS_DATA[mon.monsterId];
   if (def && def.foreignRegion) {
     G.seenMonsters.add(mon.monsterId);
-    return `Forgotten Lumori ${mon.monsterId - 407}`;
+    return `Forgotten Lumori ${mon.monsterId - 461}`;
   }
   return mon.name;
 }
@@ -3122,8 +3122,8 @@ function hideTutorial() {
   document.getElementById("tutorial-overlay").classList.add("hidden");
 }
 
-const NG_PLUS_DEX_START = 322; // IDs 322-407 are NG+-exclusive (upper bound = FORGOTTEN_DEX_START - 1)
-const FORGOTTEN_DEX_START = 408; // IDs >= this are Forgotten Lumori, gated behind Vaeldris-quest completion (not NG+-exclusive)
+const NG_PLUS_DEX_START = 322; // IDs 322-461 are NG+-exclusive (upper bound = FORGOTTEN_DEX_START - 1)
+const FORGOTTEN_DEX_START = 462; // IDs >= this are Forgotten Lumori, gated behind Vaeldris-quest completion (not NG+-exclusive)
 
 function isForgottenUnlocked() {
   if (!G || !G.defeatedWielders || typeof VAELDRIS_WIELDERS === "undefined") return false;
@@ -3204,7 +3204,7 @@ function renderDexGrid(filter, search) {
     // reveal their real name; otherwise show "Forgotten Lumori N" placeholder.
     if (filter === "vaeldris") {
       if (!isForeign) continue;
-      const num = mid - 407;
+      const num = mid - 461;
       const displayName = caught ? def.name : (seen ? `Forgotten Lumori ${num}` : "???");
       const emojiHTML = (seen || caught) ? `<div class="dex-emoji">${def.emoji}</div>` : `<div class="dex-emoji">❓</div>`;
       const card = document.createElement("div");
@@ -3252,7 +3252,7 @@ function renderDexGrid(filter, search) {
 
 function showForgottenDetail(monsterId) {
   const def = MONSTERS_DATA[monsterId];
-  const num = monsterId - 407;
+  const num = monsterId - 461;
   document.getElementById("dex-detail").classList.remove("hidden");
   document.getElementById("dex-grid").style.display = "none";
   document.getElementById("dex-detail-content").innerHTML = `

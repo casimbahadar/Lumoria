@@ -54,6 +54,21 @@
 - Toggle mute via nav bar music button
 - No external audio files needed (all synthesized in-browser)
 
+### 11. Variant Luminex pages + Shiny showcase UI 🔲 TODO
+- **Per-id variant Luminex page:** build a Luminex detail view for each id's variant form (its own page/tab alongside the standard form), surfacing the variant's stats, types, lore, description, learnset and sprite.
+- **Shiny showcase page:** add a gallery page where players can browse the shiny sprites of every Lumori they have **seen or caught** so far (locked/silhouette for unseen). Filterable like the main Luminex.
+- **Shiny chance beyond wild battles:** today shiny rolls only fire on wild encounters — extend the shiny roll to non-wild battles too (gym, trainer/rival, champion, Umbra, Vaeldris wielder, quest-boss) so shinies encountered/caught in those contexts register and display.
+- **All 500 ids can be shiny.**
+- **Variant + shiny simultaneity:** pre-462 ids (1–461) and the 13 obtainable Forgotten Lumori (the BST-720 wielder-catchables) can be **both a variant form AND shiny at the same time** — treat variant and shiny as independent flags so the two states stack. (The 26 non-catchable Forgotten ids are out of scope for variants; confirm shiny scope for them.)
+- **Storage + indicators:** persist seen/caught shiny and variant state in the save; show variant/shiny badges in Luminex and team views.
+
+### 12. Design + implement variant forms for the 474 obtainable Lumori 🔲 TODO
+- Brainstorm and author a **variant form** for each of the **474 obtainable ids** (461 in the pre-462 range + the 13 obtainable Forgotten = 474).
+- Each variant gets its own **stats (base spread), types, learnset/moveset, lore, description, and emoji/sprite hint** — a meaningful alternate take, not a recolor (that is what shiny is for).
+- **Data model decision first:** variant block embedded per Lumori (e.g. `variant:{ types, base, learnset, desc, lore, emoji }`) vs. a parallel variant table keyed by id. Pick one before authoring.
+- **Rules still apply:** variant types must respect the pristine-combo intent and the post-game/legendary typing reservations (Aether/Chrono Forgotten-only; Crystal/Primal/Stellar legendary-only pre-462); watch archetype duplication.
+- **Batch the authoring** the same way as the new NG+ families (≈6 families/ids per commit), validating types + move keys per batch.
+
 ---
 
 # 📋 ACTIVE WORK — Phase 1 Coherence Pass

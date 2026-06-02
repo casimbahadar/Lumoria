@@ -808,19 +808,20 @@ function buildMoveArr(moveIds) {
 }
 
 // Shared battle-mon base (common fields for all 3 build functions)
-function buildMonBase(def, lv, ivs, nature) {
+function buildMonBase(def, lv, ivs, nature, baseOverride) {
   const np = nature || "Balanced";
-  const maxHP = calcMaxHP(def.base.hp, lv, ivs.hp);
+  const base = baseOverride || def.base;
+  const maxHP = calcMaxHP(base.hp, lv, ivs.hp);
   const displayName = def.foreignRegion ? `Forgotten Lumori ${def.id - 461}` : def.name;
   return {
     name: displayName, emoji: def.emoji,
     types: [...def.types], level: lv, nature: np, ivs,
     maxHP, currentHP: maxHP,
-    atk: applyNatureToStat("atk", calcStat(def.base.atk, lv, ivs.atk), np),
-    def: applyNatureToStat("def", calcStat(def.base.def, lv, ivs.def), np),
-    spa: applyNatureToStat("spa", calcStat(def.base.spa, lv, ivs.spa), np),
-    spd: applyNatureToStat("spd", calcStat(def.base.spd, lv, ivs.spd), np),
-    spe: applyNatureToStat("spe", calcStat(def.base.spe, lv, ivs.spe), np),
+    atk: applyNatureToStat("atk", calcStat(base.atk, lv, ivs.atk), np),
+    def: applyNatureToStat("def", calcStat(base.def, lv, ivs.def), np),
+    spa: applyNatureToStat("spa", calcStat(base.spa, lv, ivs.spa), np),
+    spd: applyNatureToStat("spd", calcStat(base.spd, lv, ivs.spd), np),
+    spe: applyNatureToStat("spe", calcStat(base.spe, lv, ivs.spe), np),
     statuses: [],
     stages: { atk:0, def:0, spa:0, spd:0, spe:0, acc:0, eva:0 },
     isConfused: false, confuseTurns: 0, fainted: false,
@@ -837,7 +838,7 @@ function buildBattleMon(partySlot, levelCap) {
   const heldData = heldItemId ? ITEMS_DATA[heldItemId] : null;
 
   const mon = {
-    ...buildMonBase(def, lv, ivs, partySlot.nature),
+    ...buildMonBase(def, lv, ivs, partySlot.nature, partySlot.variant ? partySlot.variantBase : null),
     monsterId: partySlot.monsterId,
     name: partySlot.nickname || def.name,
     moves: buildMoveArr(partySlot.moves),
@@ -849,6 +850,7 @@ function buildBattleMon(partySlot, levelCap) {
     shiny: !!partySlot.shiny,
     variant: !!partySlot.variant,
     variantTypes: partySlot.variantTypes || null,
+    variantImmune: partySlot.variantImmune || null,
   };
 
   // Vital Seed: boost maxHP by 15%
@@ -901,13 +903,79 @@ function buildBattleMon(partySlot, levelCap) {
   return mon;
 }
 
-// Deterministic variant typing for a monster (completely different from original)
-const ALL_TYPES = ["Fire","Water","Grass","Electric","Ground","Wind","Ice","Dark","Fairy","Steel","Poison","Psychic","Dragon","Normal","Rock","Bug"];
-function getVariantTypes(monsterId, origTypes) {
-  const pool = ALL_TYPES.filter(t => !origTypes.includes(t));
-  const t1 = pool[monsterId % pool.length];
-  const t2 = pool[(monsterId * 3 + 7) % pool.length];
-  return t1 !== t2 ? [t1, t2] : [t1, pool[(pool.indexOf(t1) + 1) % pool.length]];
+// ===== Procedural variant system (see docs/variant-system-spec.md) =====
+// 24 variant-usable types: all current types EXCEPT the Forgotten-locked
+// Aether and Chrono. Crystal/Primal/Stellar are allowed but rare (1/500 each).
+const VARIANT_TYPE_POOL = ["Fire","Aquatic","Nature","Electric","Earth","Wind","Ice","Dark","Fairy","Metal","Poison","Mental","Draconic","Normal","Spectral","Fighting","Crystal","Primal","Sonic","Vapor","Mineral","Toxin","Stellar","Dream"];
+const VARIANT_RARE_TYPES = ["Crystal","Primal","Stellar"];
+const VARIANT_COMMON_TYPES = VARIANT_TYPE_POOL.filter(t => !VARIANT_RARE_TYPES.includes(t)); // 21
+
+function pickVariantType() {
+  // Each rare type independently 1/500; otherwise uniform among the 21 commons.
+  for (const rt of VARIANT_RARE_TYPES) if (Math.random() < 1/500) return rt;
+  return VARIANT_COMMON_TYPES[Math.floor(Math.random() * VARIANT_COMMON_TYPES.length)];
+}
+
+// 85% random 2-distinct · 10% mono · 5% original combo (maybe order-swapped).
+function rollVariantTypes(origTypes) {
+  const safeOrig = (origTypes || []).filter(t => t !== "Aether" && t !== "Chrono");
+  const r = Math.random();
+  if (r < 0.05 && safeOrig.length) {
+    if (safeOrig.length === 2 && Math.random() < 0.5) return [safeOrig[1], safeOrig[0]];
+    return [...safeOrig];
+  }
+  if (r < 0.15) return [pickVariantType()];
+  const a = pickVariantType();
+  let b = pickVariantType(), guard = 0;
+  while (b === a && guard++ < 30) b = pickVariantType();
+  if (b === a) { const alt = VARIANT_TYPE_POOL.filter(t => t !== a); b = alt[Math.floor(Math.random()*alt.length)]; }
+  return [a, b];
+}
+
+// Variant takes 0x damage from one random type of the 24 (independent of typing).
+function rollVariantImmune() {
+  return VARIANT_TYPE_POOL[Math.floor(Math.random() * VARIANT_TYPE_POOL.length)];
+}
+
+// Permute the 6 base values, then 3 independent gates (Large 20% / Medium 20% /
+// Small 40%). See spec §E. Returns a new {hp,atk,def,spa,spd,spe} base object.
+function rollVariantBase(baseObj) {
+  const keys = ["hp","atk","def","spa","spd","spe"];
+  const values = keys.map(k => baseObj[k]);
+  for (let i = values.length - 1; i > 0; i--) { const j = Math.floor(Math.random()*(i+1)); [values[i], values[j]] = [values[j], values[i]]; }
+  const out = {}; keys.forEach((k, i) => out[k] = values[i]);
+  const claimed = new Set();
+  const unclaimed = () => keys.filter(k => !claimed.has(k));
+  const drift = (k, capPct) => {
+    const pct = 1 + Math.floor(Math.random() * capPct);      // 1..cap
+    const mag = Math.ceil(out[k] * pct / 100);
+    out[k] = Math.max(1, out[k] + (Math.random() < 0.5 ? -mag : mag));
+    claimed.add(k);
+  };
+  const pick = pool => pool[Math.floor(Math.random() * pool.length)];
+  // Large gate 20% -> 1 random stat (<=15%)
+  if (Math.random() < 0.20) drift(pick(unclaimed()), 15);
+  // Medium gate 20% -> count 0/1/2 at 30/50/20 (<=10% each)
+  if (Math.random() < 0.20) {
+    const cr = Math.random();
+    const count = cr < 0.30 ? 0 : (cr < 0.80 ? 1 : 2);
+    for (let i = 0; i < count; i++) { const p = unclaimed(); if (!p.length) break; drift(pick(p), 10); }
+  }
+  // Small gate 40% -> each leftover stat independently 40% (<=5%)
+  if (Math.random() < 0.40) for (const k of unclaimed()) if (Math.random() < 0.40) drift(k, 5);
+  return out;
+}
+
+// Roll the full variant payload for a monster (or no-variant). rate 1/200.
+function rollVariant(def, forceVariant) {
+  const isVar = forceVariant !== undefined ? forceVariant : (Math.random() < 1/200);
+  if (!isVar) return { variant:false, variantTypes:null, variantBase:null, variantImmune:null };
+  return {
+    variant: true,
+    variantTypes: rollVariantTypes(def.types),
+    variantBase: rollVariantBase(def.base),
+    variantImmune: rollVariantImmune()
+  };
 }
 
 // Build a wild monster battle object
@@ -922,29 +990,26 @@ function buildWildMon(monsterId, level, forceShiny, forceVariant) {
   if (typeof getTimeShinyMult  === "function") shinyRate *= getTimeShinyMult();
   if (typeof getEventShinyBoost === "function") shinyRate *= getEventShinyBoost();
   if (typeof NG_PLUS_DEX_START !== "undefined" && monsterId >= NG_PLUS_DEX_START) shinyRate *= 4;
-  const shiny   = forceShiny   !== undefined ? forceShiny   : (Math.random() < shinyRate);
-  const variant = forceVariant !== undefined ? forceVariant : (!shiny && Math.random() < 1/100);
-  const variantTypes = variant ? getVariantTypes(monsterId, def.types) : null;
+  const shiny = forceShiny !== undefined ? forceShiny : (Math.random() < shinyRate);
+  const v = rollVariant(def, forceVariant); // 1/200; independent of shiny (they stack)
 
   const mon = {
-    ...buildMonBase(def, level, ivs, nature),
+    ...buildMonBase(def, level, ivs, nature, v.variant ? v.variantBase : null),
     monsterId,
     moves: buildMoveArr(knownMoves),
     catchRate: def.catchRate,
     expYield: def.expYield,
-    shiny, variant, variantTypes,
+    shiny, variant: v.variant, variantTypes: v.variantTypes, variantBase: v.variantBase, variantImmune: v.variantImmune,
   };
-
-  // Shiny: 10% higher stats across the board
+  // Variant: override typing
+  if (v.variant && v.variantTypes) mon.types = [...v.variantTypes];
+  // Shiny: +10% stats (applied last, on top of any variant base)
   if (shiny) {
     const boost = x => Math.floor(x * 1.1);
     mon.maxHP = boost(mon.maxHP); mon.currentHP = mon.maxHP;
     mon.atk = boost(mon.atk); mon.def = boost(mon.def);
     mon.spa = boost(mon.spa); mon.spd = boost(mon.spd); mon.spe = boost(mon.spe);
   }
-  // Variant: different typing
-  if (variant && variantTypes) mon.types = [...variantTypes];
-
   return mon;
 }
 
@@ -952,13 +1017,29 @@ function buildWildMon(monsterId, level, forceShiny, forceVariant) {
 function buildGymMon(slot) {
   const def = MONSTERS_DATA[slot.monsterId];
   const ivs31 = { hp:31, atk:31, def:31, spa:31, spd:31, spe:31 };
-  return {
-    ...buildMonBase(def, slot.level, ivs31, "Balanced"),
+  // Shiny + variant can appear on any non-wild enemy team too.
+  let shinyRate = 1/2048;
+  if (typeof getTimeShinyMult  === "function") shinyRate *= getTimeShinyMult();
+  if (typeof getEventShinyBoost === "function") shinyRate *= getEventShinyBoost();
+  if (typeof NG_PLUS_DEX_START !== "undefined" && slot.monsterId >= NG_PLUS_DEX_START) shinyRate *= 4;
+  const shiny = Math.random() < shinyRate;
+  const v = rollVariant(def);
+  const mon = {
+    ...buildMonBase(def, slot.level, ivs31, "Balanced", v.variant ? v.variantBase : null),
     monsterId: slot.monsterId,
     moves: buildMoveArr(slot.moves),
     catchRate: 0,
     expYield: def.expYield,
+    shiny, variant: v.variant, variantTypes: v.variantTypes, variantBase: v.variantBase, variantImmune: v.variantImmune,
   };
+  if (v.variant && v.variantTypes) mon.types = [...v.variantTypes];
+  if (shiny) {
+    const boost = x => Math.floor(x * 1.1);
+    mon.maxHP = boost(mon.maxHP); mon.currentHP = mon.maxHP;
+    mon.atk = boost(mon.atk); mon.def = boost(mon.def);
+    mon.spa = boost(mon.spa); mon.spd = boost(mon.spd); mon.spe = boost(mon.spe);
+  }
+  return mon;
 }
 
 // ---- Damage Calculation ----
@@ -1023,6 +1104,10 @@ function calcDamage(attacker, defender, move, opts = {}) {
   // Type effectiveness: respect any status-driven chart override (Type Shattered → 1.33×).
   const override = getEffectivenessOverride(defender, move);
   const eff = override !== null ? override : getMoveEffectiveness(move, defender.types);
+  // Variant immunity: a variant takes 0x damage from its rolled immune type.
+  if (defender.variantImmune && (move.type === defender.variantImmune || (move.dualType || []).includes(defender.variantImmune))) {
+    return { damage: 0, effectiveness: 0, crit: false };
+  }
   dmg = Math.floor(dmg * eff);
 
   // Incoming dmg multiplier from defender's active statuses (Drenched/Soaked type mods,

@@ -290,7 +290,139 @@
     };
   }
 
-  const API = { generate, statProfile, variantSignature, _hashStr: hashStr };
+  /* ===========================================================================
+   * LEARNSET / MOVESET generation
+   * Rules (locked with design):
+   *  - move COUNT = round(N × (1 ± random 0–20%)), 50/50 direction (N = original count)
+   *  - per-move LEVEL = original level × (1 ± random 0–30%), per-move 50/50; Lv1 stays 1;
+   *    sorted ascending and forced strictly-increasing
+   *  - extra moves (M>N): appended past the last level with RANDOMISED gaps
+   *  - fewer moves (M<N): RANDOM moves dropped (not just the top)
+   *  - move pool: 2/3 in-type, 1/3 off-type; ordered weak→strong; ≥1 damaging move;
+   *    excludes legendary/signature moves and ultimate nukes
+   *  - all deterministic from the same seed as the flavour text
+   * =========================================================================*/
+  const BATTLE_TYPES = ['Normal','Fire','Aquatic','Nature','Electric','Ice','Fighting','Poison',
+    'Earth','Wind','Mental','Bug','Rock','Spectral','Draconic','Dark','Metal','Fairy','Toxin',
+    'Vapor','Mineral','Dream','Sonic','Stellar','Crystal','Primal'];
+
+  let _pools = null; // { byType:{Type:[ids]}, allowed:Set }
+  function buildPools() {
+    if (_pools) return _pools;
+    const MD = (typeof MOVES_DATA !== 'undefined') ? MOVES_DATA : {};
+    const MON = (typeof MONSTERS_DATA !== 'undefined') ? MONSTERS_DATA : {};
+    // learners per move + their rarities
+    const learners = {};
+    for (const id in MON) {
+      const def = MON[id]; if (!def.learnset) continue;
+      const seen = new Set();
+      for (const e of def.learnset) {
+        if (typeof e[1] === 'string') seen.add(e[1]);
+        if (e.length >= 3 && Array.isArray(e[2])) seen.add(e[2][1]);
+      }
+      for (const mv of seen) (learners[mv] = learners[mv] || []).push(def.rarity || 'common');
+    }
+    const RESTRICTED = new Set(['legendary', 'mythical']);
+    const allowed = new Set();
+    const byType = {};
+    for (const mv in MD) {
+      const m = MD[mv];
+      if (!m || !BATTLE_TYPES.includes(m.type)) continue;          // real creature-type moves only
+      if (m.effect === 'recharge' || (m.power || 0) >= 130) continue; // ultimate nukes
+      const rs = learners[mv];
+      if (rs && rs.length && rs.every(r => RESTRICTED.has(r))) continue; // legendary signatures
+      allowed.add(mv);
+      (byType[m.type] = byType[m.type] || []).push(mv);
+    }
+    _pools = { byType, allowed, MD };
+    return _pools;
+  }
+
+  function origLevelPairs(def) {
+    const pairs = [];
+    const seen = new Set();
+    for (const e of def.learnset || []) {
+      if (typeof e[0] === 'number' && typeof e[1] === 'string' && !seen.has(e[1])) { seen.add(e[1]); pairs.push(e[0]); }
+      if (e.length >= 3 && Array.isArray(e[2]) && !seen.has(e[2][1])) { seen.add(e[2][1]); pairs.push(e[2][0]); }
+    }
+    return pairs.sort((a, b) => a - b);
+  }
+
+  function shuffle(rng, arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rng() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  }
+
+  function generateLearnset(def, v) {
+    const rng = makeRng(v, def);
+    const pools = buildPools();
+    const MD = pools.MD;
+    const types = (v.variantTypes && v.variantTypes.length) ? v.variantTypes : def.types;
+    const baseLevels = origLevelPairs(def);
+    const N = baseLevels.length || 1;
+
+    // 1. target count M = N × (1 ± 0–20%)
+    const dirC = rng() < 0.5 ? -1 : 1;
+    const M = Math.max(1, Math.round(N * (1 + dirC * rng() * 0.20)));
+
+    // 2. choose which levels structure to use
+    let levels;
+    if (M <= N) {
+      const keep = shuffle(rng, baseLevels.map((_, i) => i)).slice(0, M).sort((a, b) => a - b);
+      levels = keep.map(i => baseLevels[i]);
+    } else {
+      levels = baseLevels.slice();
+      let last = baseLevels[N - 1];
+      const avgGap = N > 1 ? (baseLevels[N - 1] - baseLevels[0]) / (N - 1) : 6;
+      for (let k = 0; k < M - N; k++) {
+        last += Math.max(2, Math.round(avgGap * (0.5 + rng()))); // 0.5×–1.5× avg, randomised
+        levels.push(last);
+      }
+    }
+
+    // 3. scale each level ±0–30% (Lv1 anchored), then sort + force strictly increasing
+    levels = levels.map(lv => {
+      if (lv <= 1) return 1;
+      const d = rng() < 0.5 ? -1 : 1;
+      return Math.max(2, Math.round(lv * (1 + d * rng() * 0.30)));
+    }).sort((a, b) => a - b);
+    for (let i = 1; i < levels.length; i++) if (levels[i] <= levels[i - 1]) levels[i] = levels[i - 1] + 1;
+
+    // 4. pick moves: 2/3 in-type, 1/3 off-type, ≥1 damaging, weak→strong
+    const inPool = [];
+    const inSeen = new Set();
+    for (const t of types) for (const mv of (pools.byType[t] || [])) if (!inSeen.has(mv)) { inSeen.add(mv); inPool.push(mv); }
+    const offPool = [...pools.allowed].filter(mv => !inSeen.has(mv));
+    const nIn = Math.min(inPool.length, Math.round(M * 2 / 3));
+    const nOff = M - nIn;
+    let chosen = shuffle(rng, inPool).slice(0, nIn).concat(shuffle(rng, offPool).slice(0, nOff));
+    // top up if pools were short
+    if (chosen.length < M) {
+      const rest = shuffle(rng, [...pools.allowed].filter(mv => !chosen.includes(mv)));
+      chosen = chosen.concat(rest.slice(0, M - chosen.length));
+    }
+    chosen = chosen.slice(0, levels.length);
+    // guarantee ≥1 damaging move
+    if (!chosen.some(mv => (MD[mv] && MD[mv].power > 0))) {
+      const dmgIn = shuffle(rng, inPool).find(mv => MD[mv] && MD[mv].power > 0);
+      if (dmgIn) chosen[chosen.length - 1] = dmgIn;
+    }
+    // order weak→strong (status power 0 sorts early, mimicking a natural curve)
+    chosen.sort((a, b) => (MD[a].power || 0) - (MD[b].power || 0));
+
+    return levels.map((lv, i) => [lv, chosen[i]]).filter(p => p[1]);
+  }
+
+  // 4 moves known at a given level — same rule the base game uses (last-4 of learnt moves)
+  function generateBattleMoves(def, v, level) {
+    const ls = generateLearnset(def, v);
+    const known = ls.filter(p => p[0] <= level).map(p => p[1]);
+    const out = (known.length ? known : [ls[0] && ls[0][1]]).slice(-4).filter(Boolean);
+    return out.length ? out : ['tackle'];
+  }
+
+  const API = { generate, statProfile, variantSignature, generateLearnset, generateBattleMoves, _hashStr: hashStr };
   global.VariantContent = API;
   if (typeof module !== 'undefined' && module.exports) module.exports = API;
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -2787,16 +2787,24 @@ function showTeamDetail(slot, idx) {
   const nature = slot.nature || "Balanced";
   const natureData = typeof NATURES_DATA !== "undefined" ? NATURES_DATA[nature] : null;
   const ivs = slot.ivs || { hp:0, atk:0, def:0, spa:0, spd:0, spe:0 };
+  // Variants use their permuted+drifted base values and rolled typing.
+  const base = (slot.variant && slot.variantBase) ? slot.variantBase : def.base;
+  const dispTypes = (slot.variant && slot.variantTypes) ? slot.variantTypes : def.types;
   const stats = [
-    ["HP",  calcMaxHP(def.base.hp, lv, ivs.hp),                                250],
-    ["ATK", applyNatureToStat("atk", calcStat(def.base.atk, lv, ivs.atk), nature), 200],
-    ["DEF", applyNatureToStat("def", calcStat(def.base.def, lv, ivs.def), nature), 200],
-    ["SPA", applyNatureToStat("spa", calcStat(def.base.spa, lv, ivs.spa), nature), 200],
-    ["SPD", applyNatureToStat("spd", calcStat(def.base.spd, lv, ivs.spd), nature), 200],
-    ["SPE", applyNatureToStat("spe", calcStat(def.base.spe, lv, ivs.spe), nature), 200]
+    ["HP",  calcMaxHP(base.hp, lv, ivs.hp),                                250],
+    ["ATK", applyNatureToStat("atk", calcStat(base.atk, lv, ivs.atk), nature), 200],
+    ["DEF", applyNatureToStat("def", calcStat(base.def, lv, ivs.def), nature), 200],
+    ["SPA", applyNatureToStat("spa", calcStat(base.spa, lv, ivs.spa), nature), 200],
+    ["SPD", applyNatureToStat("spd", calcStat(base.spd, lv, ivs.spd), nature), 200],
+    ["SPE", applyNatureToStat("spe", calcStat(base.spe, lv, ivs.spe), nature), 200]
   ];
   const statKeyMap = { ATK:"atk", DEF:"def", SPA:"spa", SPD:"spd", SPE:"spe" };
-  const typeHTML = def.types.map(t => `<span class="type-badge type-${t}">${t}</span>`).join(" ");
+  const typeHTML = dispTypes.map(t => `<span class="type-badge type-${t}">${t}</span>`).join(" ");
+  const variantBadge = slot.variant ? `<span class="variant-name" style="margin-left:6px">Variant</span>` : "";
+  const shinyBadge = slot.shiny ? `<span class="shiny-name" style="margin-left:6px">Radiant</span>` : "";
+  const immuneRow = (slot.variant && slot.variantImmune)
+    ? `<div class="detail-immune-row" style="margin:6px 0;color:var(--text-muted)">🛡️ Immune to <span class="type-badge type-${slot.variantImmune}">${slot.variantImmune}</span></div>`
+    : "";
   const statsHTML = stats.map(([n, v, max]) => {
     const key = statKeyMap[n];
     let color = n === "HP" ? "#3fb950" : "#58a6ff";
@@ -2862,11 +2870,12 @@ function showTeamDetail(slot, idx) {
     ? `<img src="${getMonsterSpriteURL(def, 100)}" width="100" height="100" alt="${def.name}" style="border-radius:12px">`
     : `<span class="detail-sprite">${def.emoji}</span>`;
   document.getElementById("team-detail-content").innerHTML = `
-    <div style="text-align:center;margin-bottom:1rem">
+    <div class="${slot.shiny ? "shiny-sprite" : ""} ${slot.variant ? "variant-sprite" : ""}" style="text-align:center;margin-bottom:1rem">
       ${detailSpriteHTML}
-      <h3>${slot.nickname || def.name} ${typeHTML}</h3>
+      <h3>${slot.nickname || def.name} ${typeHTML}${variantBadge}${shinyBadge}</h3>
       <p style="color:var(--text-secondary);font-size:0.8rem">Lv.${lv} | XP to next: ${xpToNext}</p>
       <p style="font-size:0.8rem;color:#c9a0dc;margin:0.2rem 0"><strong>${nature}</strong> nature${natureData ? ` — ${natureData.desc}` : ""}</p>
+      ${immuneRow}
       <p style="font-size:0.8rem;color:var(--text-muted)">${def.desc}</p>
     </div>
     <div class="detail-section"><h4>Stats</h4>${statsHTML}

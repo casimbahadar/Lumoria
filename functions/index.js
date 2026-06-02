@@ -26,6 +26,7 @@ const ALLOWED_MODELS = { 'claude-haiku-4-5': 1, 'claude-sonnet-4-6': 1 };
 const SYSTEM = `You write a single creature's "variant" dex entry for the monster-collecting game Lumoria.
 A variant is a Rift-distorted version of a base species: it keeps the species' core identity but is reshaped by a new elemental typing, a drifted stat profile, and an elemental immunity.
 Write in-world, coherent, evocative prose — never a template, never a bland list. Transform the SPECIES' OWN described features (use its lore/desc) according to the variant's typing, stat shape, and immunity. Give the immunity a diegetic explanation. Let the stat profile imply the creature's fighting temperament.
+Explicitly CONTRAST it with an ordinary (non-variant) member of the same species — how its typing, build, and the way it fights differ from the normal creature — woven naturally into the lore and reflected in the behaviour line.
 Return STRICT JSON only, no markdown, with exactly:
 {"desc": "<=140 chars, one sentence", "lore": "70-120 words, 3-4 sentences", "behaviour": "one sentence on how it fights"}`;
 

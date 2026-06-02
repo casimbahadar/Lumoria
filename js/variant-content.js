@@ -270,6 +270,25 @@
     frailer: 'It is thinner and more fragile than its unaltered kin.',
     comparable: ''
   };
+  // Explicit contrast with the ordinary (non-variant) species — the "how it compares
+  // to its normal self" flavour. Builds from the baseline typing + baseline build.
+  const SHAPE_NOUN = {
+    swift: 'a quick skirmisher', brute: 'a physical bruiser', caster: 'a ranged attacker',
+    bulwark: 'a stubborn wall', even: 'an all-rounder'
+  };
+  function comparisonClause(def, v, rng) {
+    const normT = (def.types || []).join('/');
+    const varT = ((v.variantTypes && v.variantTypes.length) ? v.variantTypes : def.types).join('/');
+    const np = SHAPE_NOUN[statProfile(def, def.base).label];
+    const vp = SHAPE_NOUN[statProfile(def, v.variantBase).label];
+    const sameShape = np === vp;
+    const frames = [
+      `Set beside an ordinary ${def.name} — ${normT} by nature, ${np} in a fight — this one answers to ${varT}${sameShape ? ', still ' + vp : ' and fights as ' + vp}.`,
+      `Where a true ${def.name} stays ${normT} and plays ${np}, this distortion has turned ${varT}${sameShape ? ', the same ' + vp + ' underneath' : ', ' + vp + ' instead'}.`,
+      `It shares little with a wild ${def.name}: that one is ${normT} and ${np}; this is ${varT}, ${vp}.`
+    ];
+    return pick(rng, frames);
+  }
 
   /* ---- per-species identity anchors (BATCHED content; fallback auto-derives) ---- */
   const ANCHORS = {
@@ -335,10 +354,8 @@
       pick(rng, openFrames),
       pick(rng, featureFrames),
       a.coreLine,
+      comparisonClause(def, v, rng),   // explicit contrast with its ordinary self
     ];
-    const heft = HEFT_CLAUSE[prof.heft];
-    if (heft) sentences.push(heft);
-    sentences.push(pick(rng, DRIFT_LORE[prof.label]));
     if (tellClause(types, rng)) sentences.push(tellClause(types, rng));
     if (v.variantImmune) sentences.push(immuneClause(types, v.variantImmune, rng));
     return sentences.filter(Boolean).join(' ');

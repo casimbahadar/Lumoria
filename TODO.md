@@ -743,12 +743,12 @@ For every BREAKING/MINOR proposal going forward, include a **same-archetype peer
 
 After the over-cap pre-408 type-combo audit lands (PR #55, branch `claude/lumoria-overcap-audit-2kkDV`), walk every encounter zone in `js/data.js` and audit `rate:` distributions.
 
-- [ ] Verify every zone's `wildMonsters[].rate` values sum to 100.
-- [ ] Check rates against BST tiers — weaker mons should be more common (higher rate), stronger/rarer mons less common. Some zones currently have arbitrary uniform rates ignoring BST gaps.
-- [ ] **Route 8 — Sky Corridors specifically:** Silvergust (BST 308), Swirlavel (485), Drakorius (521), Sapphier (537) all at or near rate 25 despite 230-BST spread. Doesn't follow a clean weakest-to-strongest curve. Rebalance using the Spirit Canyon pattern (35/30/25/10 weakest-to-strongest) or similar, while preserving Cranivade's rate 3 from the over-cap retype.
-- [ ] Stale encounter-table comments: Spirit Canyon and Route 8 cleaned inline during the Cranivade retype, but the rest of the dex likely has more stale names (pattern: old rename targets — e.g. "Psyshade" was an earlier name for Cranivade). Sweep with `grep` against current `MONSTERS_DATA[id].name`.
+- [x] Verify every zone's `wildMonsters[].rate` values sum to 100. *(all 90 non-empty base zones now sum to 100; 31 drifted zones fixed — PR #58)*
+- [x] Check rates against BST tiers — weaker mons should be more common (higher rate), stronger/rarer mons less common. Some zones currently have arbitrary uniform rates ignoring BST gaps. *(65 BST-inversion zones rebalanced to monotonic weakest→strongest curve via Spirit-Canyon 35/30/25/10 templates; pinned rares preserved; endgame mega-zones scaled to 100 keeping curve. PR #58)*
+- [x] **Route 8 — Sky Corridors specifically:** Silvergust (BST 308), Swirlavel (485), Drakorius (521), Sapphier (537) all at or near rate 25 despite 230-BST spread. Doesn't follow a clean weakest-to-strongest curve. Rebalance using the Spirit Canyon pattern (35/30/25/10 weakest-to-strongest) or similar, while preserving Cranivade's rate 3 from the over-cap retype. *(→ 34/29/24/10, Cranivade pinned at 3. PR #58)*
+- [x] Stale encounter-table comments: Spirit Canyon and Route 8 cleaned inline during the Cranivade retype, but the rest of the dex likely has more stale names (pattern: old rename targets — e.g. "Psyshade" was an earlier name for Cranivade). Sweep with `grep` against current `MONSTERS_DATA[id].name`. *(214 stale name comments fixed across base wildMonsters tables. NG+ `ngPlusWildMonsters` overlays audited separately — freshly authored, correctly named, left as-is. PR #58)*
 
-**Run order:** after 🕯 UNIFIED audit / over-cap PR lands, before stat spread review.
+**Run order:** after 🕯 UNIFIED audit / over-cap PR lands, before stat spread review. ✅ **DONE — PR #58.**
 
 # 🎯 Lumori obtainability audit — RUN AFTER over-cap audit completes
 

@@ -2420,7 +2420,7 @@ const MONSTERS_DATA = {
   226: { id:226, name:"Spectroo", emoji:"🌈", types:["Normal","Mental"],
     base:{hp:60,atk:55,def:55,spa:68,spd:60,spe:62},
     learnset:[[1,"tackle"],[1,"confusion"],[14,"psybeam"],[22,"fairy_wind"],[30,"moonblast"],[40,"psychic_move"],[50,"hyper_beam"]],
-    evolveTo:227, evolveLevel:null, evolveItem:"firestone", evolveMethod:"item", catchRate:140, expYield:88, rarity:"common",
+    evolveTo:227, evolveLevel:null, evolveItem:"fireStone", evolveMethod:"item", catchRate:140, expYield:88, rarity:"common",
     desc:"A prism-shaped creature full of untapped potential. Exposure to different energies changes its form entirely.",
     lore:"Spectroo is a normal-psychic creature 40 cm long resembling a kangaroo made of translucent white light. Its pouch holds concentrated psychic energy. It hops through open fields and its presence makes detailed hallucinations of past events visible in the area — a form of psychic archaeology. Spectroo cradle their psychic-pouch with their forelimbs whenever they pause, instinctively shielding something not yet ready to manifest. By adolescence, individuals from the same litter develop diverging sleeping postures: some tuck toward warmth, others face the moon, others curl around the pouch like a battery, others spread under prismatic light. All become unusually attentive in the presence of evolution-stones at distances where other Lumori show no awareness — four temperaments for the four stone-bound paths the lineage may take, with individuals eventually crystallising into Spectrace, Lunaroon, Radiafish, or Spectravore." },
 

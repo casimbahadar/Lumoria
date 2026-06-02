@@ -188,3 +188,17 @@ _Auto-generated analysis (read-only). Archetype = apex body-plan token derived f
 - **warden** (1): Voidwarden [Dark/Metal]
 - **whale** (1): Riftwhale [Aquatic/Mental]
 - **wonder** (1): Forgotten Stellarion [Normal/Spectral]
+
+## D. Findings flagged for the UNIFIED audit (2026-06)
+
+Verified against `desc`/`lore` (matrix archetype tokens alone produced false positives):
+
+**Genuine collisions (cap-verified; resolve by typing pivot to an empty cell):**
+- **canine × Dark** — Nightwolf (#118-120) vs Darkfang (#266-268) → pivot **Darkfang apex #268 → Dark/Spectral** (Dark/Spectral 4→5 species ≤6). Lore fit: cross-dimensional howl.
+- **cat × Fire/Dark** — Emberveil (#301) vs Cinderpaw (#307) → pivot **Emberveil → Fire/Spectral** (1→2). Lore fit: "fire specter".
+
+**False positives (desc↔lore body-plan inconsistencies — reconcile, no typing change needed):**
+- **#243 Stuntrap** — desc "beetle warrior" vs lore "dragonfly form". (Beetle differentiates it from Galvaglide #84-86 dragonfly line.)
+- **#265 Mosswing** — desc "grasshopper" vs lore "moth". (Grasshopper avoids a lepidopteran×Nature collision with Thornmoth #331.)
+
+**Method caveat:** every other flagged cell in §B must likewise be re-checked against desc/lore before acting; dragon (§A, 36) is deferred as mythical.

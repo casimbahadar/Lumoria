@@ -577,6 +577,17 @@ After each batch of approvals, re-tally the dex-wide type-combo counts to confir
 - **The 46 inline flags** from Step 4 (ids listed in `## Step 4 deferred — lore audit follow-ups` above) are the highest-priority entries to address.
 - **7 currently-unused pre-408 types** (Sonic/Vapor/Mineral/Toxin/Dream/Fighting/Spectral) — distribute during this pass where lore fits.
 
+## Pre-surfaced findings (from the archetype × type-combo diversity matrix, 2026-06)
+
+Reference doc: `docs/archetype-diversity-matrix.md` (291 families; archetype tokens are anchor-noun-derived and **must be cross-checked against each Lumori's `desc`/`lore`** during the walk — several flagged "collisions" turned out to be false positives once body-plan was verified). Surface these when the relevant Lumori come up:
+
+- [ ] **Genuine archetype × type-combo collisions to resolve** (cap-verified safe; resolve by pivoting one family's typing to an empty cell, ≤6 non-flagship / ≤12 flagship):
+  - **canine × Dark** — Nightwolf (#118-120) vs Darkfang (#266-268). Proposed: pivot **Darkfang apex (#268) → Dark/Spectral** (lore: "howl resonates across dimensions / heard in the land of the dead"); Dark/Spectral 4→5 species. + Spectral-STAB learnset swap.
+  - **cat × Fire/Dark** — Emberveil (#301) vs Cinderpaw (#307). Proposed: pivot **Emberveil → Fire/Spectral** (lore: "fire **specter**... phantom footprints"); Fire/Spectral 1→2. + Spectral-STAB swap.
+- [ ] **desc↔lore body-plan inconsistencies to reconcile** (these caused false-positive collisions in the matrix):
+  - **#243 Stuntrap** — desc says "beetle warrior", lore says "moulted into an elongated **dragonfly** form". Pick one (desc=beetle differentiates it from Galvaglide's dragonfly line — likely the intent).
+  - **#265 Mosswing** — desc says "mossy **grasshopper**", lore says "resembling a **moth**". Pick one (grasshopper avoids a lepidopteran×Nature collision with Thornmoth #331).
+
 ## Open scoping questions (to decide before starting)
 
 - [ ] Walk order: by id ascending? by archetype cluster? by flagged-first (the 46) then rest?

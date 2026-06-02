@@ -4,6 +4,8 @@
 
 _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress · ⏳ not started · 📎 reference/parking. Section headers carry the same tag inline._
 
+> **Status = the TODO task, not the PR.** The only **open (unmerged) PRs** are **#60 (Online PvP)** and **#52 (launch plan)** — both drafts. Every other PR (incl. #63) is **already merged**; a 🚧/⏳ next to a merged-PR row means the *task* is partly/not done, not that the PR is open.
+
 | Area | Status | Evidence |
 |---|---|---|
 | Bugs #1–4, Features #5–10 | ✅ done | early PRs |
@@ -21,7 +23,7 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 | 🎲 Encounter-rate audit | ✅ done | PR #58 |
 | 🎯 Obtainability audit (474/500) | ✅ done | PR #62 |
 | 🎮 NG+/Forgotten gating + legendary encounters | ✅ done | PR #53 |
-| 🎯 Archetype × type-combo diversity matrix | 🚧 partial (analysis only) | PR #63 |
+| 🎯 Archetype × type-combo diversity **audit** | ✅ analysis shipped · ⏳ full audit pending | PR #63 **merged** (matrix doc only); full pass folded into 🕯 UNIFIED |
 | 🕯 UNIFIED per-Lumori audit | ⏳ not started | next major phase |
 | 📉 Standalone count reduction | ⏳ not started | — |
 | 🏷️ Luminex renaming + final lore | ⏳ partial/paused | PRs #34–35; resumes after UNIFIED |

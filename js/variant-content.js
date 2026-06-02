@@ -276,16 +276,31 @@
     swift: 'a quick skirmisher', brute: 'a physical bruiser', caster: 'a ranged attacker',
     bulwark: 'a stubborn wall', even: 'an all-rounder'
   };
-  function comparisonClause(def, v, rng) {
+  const SHAPE_BARE = {
+    swift: 'skirmisher', brute: 'bruiser', caster: 'ranged attacker', bulwark: 'wall', even: 'all-rounder'
+  };
+  const TACTIC = { // 3rd-person singular — always used with a singular subject
+    swift: 'darts in and slips away', brute: 'trades blows up close', caster: 'strikes from a distance',
+    bulwark: 'grinds out long fights', even: 'reads the fight and adapts'
+  };
+  // Shared baseline-vs-variant comparison parts (drives the contrast woven into
+  // lore, description AND behaviour — generated, varied, never a fixed line).
+  function compareParts(def, v) {
     const normT = (def.types || []).join('/');
     const varT = ((v.variantTypes && v.variantTypes.length) ? v.variantTypes : def.types).join('/');
-    const np = SHAPE_NOUN[statProfile(def, def.base).label];
-    const vp = SHAPE_NOUN[statProfile(def, v.variantBase).label];
-    const sameShape = np === vp;
+    const nl = statProfile(def, def.base).label, vl = statProfile(def, v.variantBase).label;
+    return { normT, varT, nl, vl, np: SHAPE_NOUN[nl], vp: SHAPE_NOUN[vl],
+             npB: SHAPE_BARE[nl], vpB: SHAPE_BARE[vl],
+             nt: TACTIC[nl], vt: TACTIC[vl], same: nl === vl, sameType: normT === varT };
+  }
+  function comparisonClause(def, v, rng) {
+    const c = compareParts(def, v);
     const frames = [
-      `Set beside an ordinary ${def.name} — ${normT} by nature, ${np} in a fight — this one answers to ${varT}${sameShape ? ', still ' + vp : ' and fights as ' + vp}.`,
-      `Where a true ${def.name} stays ${normT} and plays ${np}, this distortion has turned ${varT}${sameShape ? ', the same ' + vp + ' underneath' : ', ' + vp + ' instead'}.`,
-      `It shares little with a wild ${def.name}: that one is ${normT} and ${np}; this is ${varT}, ${vp}.`
+      `Set beside an ordinary ${def.name} — ${c.normT} by nature, ${c.np} in a fight — this one answers to ${c.varT}${c.same ? ', still ' + c.vp : ' and fights as ' + c.vp}.`,
+      `Where a true ${def.name} stays ${c.normT} and plays ${c.np}, this distortion has turned ${c.varT}${c.same ? ', the same ' + c.vp + ' underneath' : ', ' + c.vp + ' instead'}.`,
+      `It shares little with a wild ${def.name}: that one is ${c.normT} and ${c.np}; this is ${c.varT}, ${c.vp}.`,
+      `A wild ${def.name} would be ${c.normT}, ${c.np}; the Rift left this one ${c.varT} and ${c.vp}.`,
+      `Hold it against its unaltered kin and the gap shows — a ${c.normT} ${c.npB} made over into a ${c.varT} ${c.vpB}.`
     ];
     return pick(rng, frames);
   }
@@ -361,24 +376,38 @@
     return sentences.filter(Boolean).join(' ');
   }
 
+  const DESC_ADJ = {
+    swift: 'flickering, restless', brute: 'hard-knuckled, graceless', caster: 'simmering, stand-off',
+    bulwark: 'swollen, obdurate', even: 'subtly wrong'
+  };
   function buildDesc(def, v, rng) {
-    const types = v.variantTypes || def.types;
-    const prof = statProfile(def, v.variantBase);
-    const adj = {
-      swift: 'A flickering, restless', brute: 'A hard-knuckled, graceless',
-      caster: 'A simmering, stand-off', bulwark: 'A swollen, obdurate', even: 'A subtly wrong'
-    }[prof.label];
-    const tail = {
-      swift: 'that moves before the eye can follow', brute: 'that would rather hit than think',
-      caster: 'that fights from a wary distance', bulwark: 'that endures almost anything',
-      even: 'whose nature refuses to settle'
-    }[prof.label];
-    return `${adj} ${typeWord(types)} ${def.name} ${tail}.`;
+    const c = compareParts(def, v);
+    const adj = DESC_ADJ[c.vl];
+    const frames = c.same ? [
+      `A ${adj} ${c.varT} ${def.name} — its kin's ${c.npB} build kept, but recoloured from ${c.normT}.`,
+      `Still ${c.vp} like any ${def.name}, yet ${c.varT} where its kin run ${c.normT}.`
+    ] : [
+      `A ${adj} ${c.varT} ${def.name} where its kin run ${c.normT} — a ${c.vpB} now, not a ${c.npB}.`,
+      `Unlike the usual ${c.normT} ${def.name}, this one is ${c.varT} and fights as ${c.vp}.`,
+      `A ${def.name} remade from a ${c.normT} ${c.npB} into a ${adj} ${c.varT} ${c.vpB}.`,
+      `This ${def.name} trades a ${c.normT} ${c.npB} frame for a ${c.varT} ${c.vpB} one.`
+    ];
+    return pick(rng, frames);
   }
 
   function buildBehaviour(def, v, rng) {
-    const prof = statProfile(def, v.variantBase);
-    return pick(rng, DRIFT_BEHAVIOUR[prof.label]);
+    const c = compareParts(def, v);
+    const base = pick(rng, DRIFT_BEHAVIOUR[c.vl]);
+    const frames = c.same ? [
+      `Like a normal ${def.name} it ${c.vt}, but with the Rift's edge behind every move.`,
+      `${base} — much as an ordinary ${def.name} would, only sharper.`
+    ] : [
+      `Where an ordinary ${def.name} ${c.nt}, this one ${c.vt}.`,
+      `A normal ${def.name} ${c.nt}; this one ${c.vt} instead.`,
+      `Forget how a normal ${def.name} ${c.nt} — this one ${c.vt}.`,
+      `${base} A wild ${def.name} ${c.nt} instead.`
+    ];
+    return pick(rng, frames);
   }
 
   function generate(def, v) {

@@ -125,6 +125,76 @@
       'left a perpetual pressure radiating from it that sets teeth on edge',
       'sharpened it to a quiet, watchful stillness',
       'hung a faint distortion around it, as if the air itself were thinking'
+    ],
+    Normal: [
+      'bleached it to a plain, unsettling ordinariness',
+      'pared away every exotic trait until only blunt, common flesh remains',
+      'left it deceptively unremarkable, its danger easy to miss'
+    ],
+    Fighting: [
+      'corded it with dense, overdeveloped muscle that strains against its old shape',
+      'hardened its limbs into blunt instruments built for close work',
+      'rebuilt it heavier and broader, weighted toward the strike'
+    ],
+    Poison: [
+      'suffused it with seeping, blistering toxins that bead along its surface',
+      'turned its fluids caustic, hissing faintly where they drip',
+      'left it slick with a corrosive sheen that pits whatever it touches'
+    ],
+    Earth: [
+      'packed it over with dense clods of soil and grit that shed as it moves',
+      'rooted a heavy, earthen solidity through its frame',
+      'caked it in dry, cracking earth that flakes away and reforms'
+    ],
+    Bug: [
+      'plated it in chitinous segments that click as it shifts',
+      'sprouted twitching antennae and a glassy carapace across it',
+      'compounded its surface into the faceted armour of an insect'
+    ],
+    Rock: [
+      'sheathed it in jagged, weather-worn stone',
+      'fused crude boulders onto its frame that grind as they settle',
+      'petrified its outer layer into rough, fractured rock'
+    ],
+    Draconic: [
+      'scaled it over with overlapping draconic plates and a low, ancient menace',
+      'lengthened it into something serpentine and imperious',
+      'kindled an old, reptilian power beneath armoured scales'
+    ],
+    Metal: [
+      'cased it in seamless, cold alloy that rings when struck',
+      'replaced its surface with riveted plates of dull metal',
+      'forged its edges into burnished, unyielding steel'
+    ],
+    Vapor: [
+      'half-dissolved it into a curling body of hot mist',
+      'blurred its boundaries into drifting steam that reforms slowly',
+      'rendered it more vapour than flesh, condensing and thinning by turns'
+    ],
+    Dream: [
+      'softened it into something hazy and oneiric, hard to hold in the eye',
+      'wrapped it in a drowsy shimmer that sets the mind adrift',
+      'unfixed it from waking logic, its shape shifting like a half-remembered dream'
+    ],
+    Sonic: [
+      'set a constant resonance thrumming through it that blurs its edges',
+      'tuned it to a piercing hum that rattles loose objects nearby',
+      'rebuilt it around sound, its form shuddering with standing waves'
+    ],
+    Stellar: [
+      'studded it with points of cold starlight beneath a darkened surface',
+      'hollowed it into a vessel for distant, glittering constellations',
+      'lit it from within by a slow, stellar radiance'
+    ],
+    Crystal: [
+      'grew sharp, translucent crystal facets across it that refract the light',
+      'lattice-locked its surface into gleaming prismatic planes',
+      'replaced its hide with clear, faceted crystal that chimes softly'
+    ],
+    Primal: [
+      'reverted it to something older and rawer, all instinct and heavy bone',
+      'thickened it with ancient, untamed vitality',
+      'stripped away the refined and left only primal, brute essence'
     ]
   };
 
@@ -141,7 +211,21 @@
     Electric: 'It makes nearby hair stand and small devices stutter.',
     Spectral: 'Cold spots linger in the rooms it has drifted through.',
     Wind: 'Loose dust and leaves spiral in its wake.',
-    Mental: 'Those near it report half-heard whispers afterward.'
+    Mental: 'Those near it report half-heard whispers afterward.',
+    Normal: 'Nothing about its passing seems strange — which is the strangest thing of all.',
+    Fighting: 'The ground shows the deep prints of something that hits hard.',
+    Poison: 'A faint chemical reek lingers wherever it has been.',
+    Earth: 'Loose soil and dust trail from it constantly.',
+    Bug: 'A dry, chittering sound precedes it.',
+    Rock: 'Chips of stone flake off in its wake.',
+    Draconic: 'The air carries a heavy, primordial weight around it.',
+    Metal: 'It leaves faint scrapes of bright metal on hard surfaces.',
+    Vapor: 'A warm fog clings to the air where it lingers.',
+    Dream: 'Those nearby grow inexplicably drowsy.',
+    Sonic: 'A faint ringing lingers in the ears after it passes.',
+    Stellar: 'Faint motes of light wink in and out around it.',
+    Crystal: 'Scattered rainbows flicker across nearby surfaces.',
+    Primal: 'A heavy, animal musk hangs around it.'
   };
 
   /* ---- immunity clauses (diegetic), with synergy overrides keyed by body type ---- */

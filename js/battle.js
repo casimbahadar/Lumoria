@@ -939,42 +939,51 @@ function rollVariantImmune() {
 
 // Permute the 6 base values, then 3 independent gates (Large 20% / Medium 20% /
 // Small 40%). See spec §E. Returns a new {hp,atk,def,spa,spd,spe} base object.
-function rollVariantBase(baseObj) {
-  const keys = ["hp","atk","def","spa","spd","spe"];
-  const values = keys.map(k => baseObj[k]);
-  for (let i = values.length - 1; i > 0; i--) { const j = Math.floor(Math.random()*(i+1)); [values[i], values[j]] = [values[j], values[i]]; }
-  const out = {}; keys.forEach((k, i) => out[k] = values[i]);
+const VARIANT_STAT_KEYS = ["hp","atk","def","spa","spd","spe"];
+
+// Roll a variant STAT TRANSFORM: a permutation of the 6 stat slots + a signed
+// per-slot drift fraction. Stored on the variant so EVOLUTION can re-apply the
+// same transform to the evolved species' base (shape preserved, scaled up).
+// Gates match the spec: Large 20% (<=15%), Medium 20% (0/1/2 @ <=10%), Small 40% (each <=5%).
+function rollVariantTransform() {
+  const perm = VARIANT_STAT_KEYS.map((_, i) => i);
+  for (let i = perm.length - 1; i > 0; i--) { const j = Math.floor(Math.random()*(i+1)); [perm[i], perm[j]] = [perm[j], perm[i]]; }
+  const drift = [0,0,0,0,0,0];
   const claimed = new Set();
-  const unclaimed = () => keys.filter(k => !claimed.has(k));
-  const drift = (k, capPct) => {
-    const pct = 1 + Math.floor(Math.random() * capPct);      // 1..cap
-    const mag = Math.ceil(out[k] * pct / 100);
-    out[k] = Math.max(1, out[k] + (Math.random() < 0.5 ? -mag : mag));
-    claimed.add(k);
-  };
+  const unclaimed = () => [0,1,2,3,4,5].filter(s => !claimed.has(s));
   const pick = pool => pool[Math.floor(Math.random() * pool.length)];
-  // Large gate 20% -> 1 random stat (<=15%)
-  if (Math.random() < 0.20) drift(pick(unclaimed()), 15);
-  // Medium gate 20% -> count 0/1/2 at 30/50/20 (<=10% each)
+  const doDrift = (slot, capPct) => { const pct = 1 + Math.floor(Math.random()*capPct); drift[slot] = (Math.random() < 0.5 ? -1 : 1) * pct / 100; claimed.add(slot); };
+  if (Math.random() < 0.20) doDrift(pick(unclaimed()), 15);
   if (Math.random() < 0.20) {
-    const cr = Math.random();
-    const count = cr < 0.30 ? 0 : (cr < 0.80 ? 1 : 2);
-    for (let i = 0; i < count; i++) { const p = unclaimed(); if (!p.length) break; drift(pick(p), 10); }
+    const cr = Math.random(); const count = cr < 0.30 ? 0 : (cr < 0.80 ? 1 : 2);
+    for (let i = 0; i < count; i++) { const p = unclaimed(); if (!p.length) break; doDrift(pick(p), 10); }
   }
-  // Small gate 40% -> each leftover stat independently 40% (<=5%)
-  if (Math.random() < 0.40) for (const k of unclaimed()) if (Math.random() < 0.40) drift(k, 5);
+  if (Math.random() < 0.40) for (const s of unclaimed()) if (Math.random() < 0.40) doDrift(s, 5);
+  return { perm, drift };
+}
+
+// Apply a stored transform to ANY species base -> permuted + drifted stat block.
+function applyVariantTransform(baseObj, mods) {
+  const values = VARIANT_STAT_KEYS.map(k => baseObj[k]);
+  const out = {};
+  VARIANT_STAT_KEYS.forEach((k, s) => {
+    const src = values[(mods.perm && mods.perm[s] != null) ? mods.perm[s] : s];
+    out[k] = Math.max(1, Math.round(src * (1 + ((mods.drift && mods.drift[s]) || 0))));
+  });
   return out;
 }
 
 // Roll the full variant payload for a monster (or no-variant). rate 1/200.
 function rollVariant(def, forceVariant) {
   const isVar = forceVariant !== undefined ? forceVariant : (Math.random() < 1/200);
-  if (!isVar) return { variant:false, variantTypes:null, variantBase:null, variantImmune:null };
+  if (!isVar) return { variant:false, variantTypes:null, variantBase:null, variantImmune:null, variantMods:null };
+  const mods = rollVariantTransform();
   return {
     variant: true,
     variantTypes: rollVariantTypes(def.types),
-    variantBase: rollVariantBase(def.base),
-    variantImmune: rollVariantImmune()
+    variantBase: applyVariantTransform(def.base, mods),
+    variantImmune: rollVariantImmune(),
+    variantMods: mods
   };
 }
 
@@ -1002,7 +1011,7 @@ function buildWildMon(monsterId, level, forceShiny, forceVariant) {
     moves: buildMoveArr(wildMoves),
     catchRate: def.catchRate,
     expYield: def.expYield,
-    shiny, variant: v.variant, variantTypes: v.variantTypes, variantBase: v.variantBase, variantImmune: v.variantImmune,
+    shiny, variant: v.variant, variantTypes: v.variantTypes, variantBase: v.variantBase, variantImmune: v.variantImmune, variantMods: v.variantMods,
   };
   // Variant: override typing
   if (v.variant && v.variantTypes) mon.types = [...v.variantTypes];
@@ -1035,7 +1044,7 @@ function buildGymMon(slot) {
     moves: buildMoveArr(gymMoves),
     catchRate: 0,
     expYield: def.expYield,
-    shiny, variant: v.variant, variantTypes: v.variantTypes, variantBase: v.variantBase, variantImmune: v.variantImmune,
+    shiny, variant: v.variant, variantTypes: v.variantTypes, variantBase: v.variantBase, variantImmune: v.variantImmune, variantMods: v.variantMods,
   };
   if (v.variant && v.variantTypes) mon.types = [...v.variantTypes];
   if (shiny) {
@@ -1451,14 +1460,40 @@ function evolveMonster(partySlot) {
   const targetId = checkEvolution(partySlot);
   if (!targetId) return null;
   const oldId = partySlot.monsterId;
+  const oldDef = MONSTERS_DATA[oldId];
   const newDef = MONSTERS_DATA[targetId];
   partySlot.monsterId = targetId;
-  const newMax = calcMaxHP(newDef.base.hp, partySlot.level);
+
+  // Variants keep their rolled typing + immunity, and re-derive their permuted/
+  // drifted stats onto the evolved species' base via the stored transform — so a
+  // bruiser stays a bruiser, scaled up. (Legacy variants w/o a stored transform
+  // fall back to proportional per-slot scaling.)
+  if (partySlot.variant && partySlot.variantBase) {
+    if (partySlot.variantMods && typeof applyVariantTransform === "function") {
+      partySlot.variantBase = applyVariantTransform(newDef.base, partySlot.variantMods);
+    } else if (oldDef) {
+      const nb = {};
+      for (const k of ["hp","atk","def","spa","spd","spe"]) nb[k] = Math.max(1, Math.round(newDef.base[k] * (partySlot.variantBase[k] / (oldDef.base[k] || 1))));
+      partySlot.variantBase = nb;
+    }
+  }
+
+  const hpBase = (partySlot.variant && partySlot.variantBase) ? partySlot.variantBase.hp : newDef.base.hp;
+  const newMax = calcMaxHP(hpBase, partySlot.level);
   partySlot.currentHP = Math.max(1, Math.floor(newMax * (partySlot.currentHP / partySlot.maxHP)));
   partySlot.maxHP = newMax;
-  const existingMoves = new Set(partySlot.moves);
-  for (const m of newDef.learnset.filter(e => e[0] <= partySlot.level).map(e => e[1]).filter(m => !existingMoves.has(m))) {
-    if (partySlot.moves.length < 4) partySlot.moves.push(m);
+
+  if (partySlot.variant && typeof VariantContent !== "undefined" && VariantContent.generateBattleMoves) {
+    // Regenerate a type-derived moveset for the evolved variant.
+    partySlot.moves = VariantContent.generateBattleMoves(newDef, {
+      variant: true, variantTypes: partySlot.variantTypes,
+      variantBase: partySlot.variantBase, variantImmune: partySlot.variantImmune
+    }, partySlot.level);
+  } else {
+    const existingMoves = new Set(partySlot.moves);
+    for (const m of newDef.learnset.filter(e => e[0] <= partySlot.level).map(e => e[1]).filter(m => !existingMoves.has(m))) {
+      if (partySlot.moves.length < 4) partySlot.moves.push(m);
+    }
   }
   return { oldId, newId: targetId };
 }

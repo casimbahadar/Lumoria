@@ -1593,7 +1593,8 @@ function createCaughtSlot(battleMon) {
     shiny: !!battleMon.shiny, variant: !!battleMon.variant,
     variantTypes: battleMon.variantTypes || null,
     variantBase: battleMon.variantBase || null,
-    variantImmune: battleMon.variantImmune || null
+    variantImmune: battleMon.variantImmune || null,
+    variantMods: battleMon.variantMods || null
   };
 }
 

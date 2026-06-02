@@ -5357,10 +5357,10 @@ const WORLD_DATA = {
     desc:"A gentle grassy path with mild wild Lumori. Perfect for beginners.",
     connections:["seedvale","ashford"],
     wildMonsters:[
-      {id:178, minLv:2, maxLv:4, rate:25},  // Furball
-      {id:180, minLv:2, maxLv:4, rate:25},  // Longear
-      {id:197, minLv:2, maxLv:5, rate:30}, // Caterpet
-      {id:185, minLv:3, maxLv:5, rate:20}   // Pudgeling
+      {id:178, minLv:2, maxLv:4, rate:25},  // Fluffen
+      {id:180, minLv:2, maxLv:4, rate:25},  // Leapbun
+      {id:197, minLv:2, maxLv:5, rate:30}, // Photoworm
+      {id:185, minLv:3, maxLv:5, rate:20}   // Hoverrow
     ],
     hasGym:false, requiredBadges:0, mapPos:{x:25, y:68}
   },
@@ -5381,11 +5381,11 @@ const WORLD_DATA = {
     desc:"A dense forest teeming with Bug and Grass type Lumori.",
     connections:["ashford","tidewatch","lumoria_jungle"],
     wildMonsters:[
-      {id:197, minLv:6, maxLv:9, rate:25}, // Caterpet
-      {id:200, minLv:6, maxLv:9, rate:20}, // Beetleback
-      {id:66, minLv:6, maxLv:9, rate:25},  // Fernwhip
-      {id:69, minLv:6, maxLv:9, rate:20},  // Seedpod
-      {id:84, minLv:7, maxLv:9, rate:10}   // Zapbug
+      {id:197, minLv:6, maxLv:9, rate:25}, // Photoworm
+      {id:200, minLv:6, maxLv:9, rate:20}, // Iridibeetle
+      {id:66, minLv:6, maxLv:9, rate:25},  // Viridix
+      {id:69, minLv:6, maxLv:9, rate:20},  // Germix
+      {id:84, minLv:7, maxLv:9, rate:10}   // Electrix
     ],
     ngPlusWildMonsters:[{id:446, minLv:6, maxLv:9, rate:12}], // NG+ family base: Sporelet
     hasGym:false, requiredBadges:1, mapPos:{x:50, y:58}
@@ -5395,10 +5395,10 @@ const WORLD_DATA = {
     desc:"A bustling port city on the coast. Gym Leader Marina commands the waves.",
     connections:["route2","route3","deep_trench"],
     wildMonsters:[
-      {id:25, minLv:10, maxLv:13, rate:30}, // Bubblecrab
-      {id:28, minLv:10, maxLv:13, rate:30}, // Coralfish
-      {id:87, minLv:10, maxLv:12, rate:20}, // Voltfin
-      {id:42, minLv:11, maxLv:13, rate:20}  // Frosteel
+      {id:25, minLv:10, maxLv:13, rate:30}, // Reefling
+      {id:28, minLv:10, maxLv:13, rate:30}, // Corelin
+      {id:87, minLv:10, maxLv:12, rate:20}, // Amperix
+      {id:42, minLv:11, maxLv:13, rate:20}  // Cryonik
     ],
     hasGym:true, gymLeader:"marina", requiredBadges:1, mapPos:{x:62, y:52}
   },
@@ -5420,10 +5420,10 @@ const WORLD_DATA = {
     desc:"Built near an active volcano. The fiery Gym Leader Pyros waits within.",
     connections:["route3","route4","volcano_core","iron_canyon"],
     wildMonsters:[
-      {id:16, minLv:18, maxLv:22, rate:30}, // Emberworm
-      {id:13, minLv:18, maxLv:22, rate:25}, // Lavabull
-      {id:10, minLv:18, maxLv:21, rate:25}, // Cinderling
-      {id:191, minLv:19, maxLv:22, rate:20}  // Pebblepup
+      {id:16, minLv:18, maxLv:22, rate:30}, // Cindercula
+      {id:13, minLv:18, maxLv:22, rate:25}, // Taurcin
+      {id:10, minLv:18, maxLv:21, rate:25}, // Scorchlarva
+      {id:191, minLv:19, maxLv:22, rate:20}  // Pebblet
     ],
     ngPlusWildMonsters:[{id:1, minLv:18, maxLv:22, rate:10}], // NG+-only: Solkin (fire starter line)
     hasGym:true, gymLeader:"pyros", requiredBadges:2, mapPos:{x:75, y:35}
@@ -5447,10 +5447,10 @@ const WORLD_DATA = {
     connections:["route4","route5","storm_plateau","thunder_cliffs"],
     wildMonsters:[
       {id:242, minLv:26, maxLv:30, rate:18}, // Pulseglow (obtainability fix)
-      {id:81, minLv:26, maxLv:30, rate:30}, // Sparklet
-      {id:84, minLv:26, maxLv:30, rate:25}, // Zapbug
-      {id:90, minLv:27, maxLv:30, rate:25}, // Stormchick
-      {id:87, minLv:27, maxLv:30, rate:20}  // Voltfin
+      {id:81, minLv:26, maxLv:30, rate:30}, // Joltan
+      {id:84, minLv:26, maxLv:30, rate:25}, // Electrix
+      {id:90, minLv:27, maxLv:30, rate:25}, // Zephyrel
+      {id:87, minLv:27, maxLv:30, rate:20}  // Amperix
     ],
     ngPlusWildMonsters:[{id:440, minLv:26, maxLv:29, rate:12}], // NG+ family base: Rustmite
     hasGym:true, gymLeader:"zara", requiredBadges:3, mapPos:{x:52, y:25}
@@ -5463,8 +5463,8 @@ const WORLD_DATA = {
       {id:209, minLv:30, maxLv:34, rate:20}, // Boltfur (obtainability fix)
       {id:81, minLv:30, maxLv:34, rate:25},
       {id:90, minLv:30, maxLv:34, rate:25},
-      {id:111, minLv:31, maxLv:34, rate:25}, // Draftfinch
-      {id:182, minLv:31, maxLv:34, rate:25}  // Roundbear
+      {id:111, minLv:31, maxLv:34, rate:25}, // Aeolin
+      {id:182, minLv:31, maxLv:34, rate:25}  // Rotunden
     ],
     ngPlusWildMonsters:[{id:444, minLv:30, maxLv:33, rate:12}], // NG+ family base: Squeaklet
     hasGym:false, requiredBadges:4, mapPos:{x:42, y:22}
@@ -5474,10 +5474,10 @@ const WORLD_DATA = {
     desc:"A snow-covered village atop a frozen mountain. Ice Gym Leader Glacier awaits.",
     connections:["route5","route6","storm_plateau","crystal_depths","lunar_peak"],
     wildMonsters:[
-      {id:47, minLv:34, maxLv:38, rate:30}, // Frostpup
-      {id:50, minLv:34, maxLv:38, rate:25}, // Snowfluff
-      {id:45, minLv:35, maxLv:38, rate:25}, // Sleetling
-      {id:53, minLv:35, maxLv:38, rate:20}  // Glaciawing
+      {id:47, minLv:34, maxLv:38, rate:30}, // Hexaprowl
+      {id:50, minLv:34, maxLv:38, rate:25}, // Tundram
+      {id:45, minLv:35, maxLv:38, rate:25}, // Slatis
+      {id:53, minLv:35, maxLv:38, rate:20}  // Mistwhirl
     ],
     ngPlusWildMonsters:[{id:432, minLv:34, maxLv:37, rate:6}], // NG+ family base: Tusklet
     hasGym:true, gymLeader:"glacier", requiredBadges:4, mapPos:{x:32, y:18}
@@ -5489,8 +5489,8 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:289, minLv:38, maxLv:42, rate:12}, // Bouncyblob (obtainability fix)
       {id:47, minLv:38, maxLv:42, rate:25},
-      {id:51, minLv:38, maxLv:42, rate:25}, // Icecrystal
-      {id:195, minLv:39, maxLv:42, rate:25}, // Crystalrock
+      {id:51, minLv:38, maxLv:42, rate:25}, // Shiverling
+      {id:195, minLv:39, maxLv:42, rate:25}, // Prismolith
       {id:53, minLv:39, maxLv:42, rate:25}
     ],
     ngPlusWildMonsters:[{id:435, minLv:38, maxLv:41, rate:12}], // NG+ family base: Knucklite
@@ -5501,9 +5501,9 @@ const WORLD_DATA = {
     desc:"A city forever shrouded in shadow. Dark Gym Leader Nyx commands the night.",
     connections:["route6","route7","crystal_depths","haunted_grove"],
     wildMonsters:[
-      {id:118, minLv:42, maxLv:46, rate:30}, // Shadowpup
-      {id:121, minLv:42, maxLv:46, rate:25}, // Voidbat
-      {id:123, minLv:43, maxLv:46, rate:25}  // Umbralisard
+      {id:118, minLv:42, maxLv:46, rate:30}, // Eclipsehound
+      {id:121, minLv:42, maxLv:46, rate:25}, // Spiraloom
+      {id:123, minLv:43, maxLv:46, rate:25}  // Nocturil
     ],
     ngPlusWildMonsters:[{id:417, minLv:42, maxLv:45, rate:12}], // NG+ family base: Glacigeist
     hasGym:true, gymLeader:"nyx", requiredBadges:5, mapPos:{x:15, y:35}
@@ -5513,10 +5513,10 @@ const WORLD_DATA = {
     desc:"A fetid swamp full of poison. Dark and Poison types are found in abundance.",
     connections:["shadowmere","skyvault","mystic_forest","fairy_meadow_north","poison_swamp_upper","wind_bridge"],
     wildMonsters:[
-      {id:157, minLv:46, maxLv:50, rate:25}, // Acidblob
-      {id:155, minLv:46, maxLv:50, rate:25}, // Toxitoad
+      {id:157, minLv:46, maxLv:50, rate:25}, // Acidelix
+      {id:155, minLv:46, maxLv:50, rate:25}, // Toxirin
       {id:160, minLv:47, maxLv:50, rate:25}, // Miasmafly
-      {id:121, minLv:47, maxLv:50, rate:25}  // Voidbat
+      {id:121, minLv:47, maxLv:50, rate:25}  // Spiraloom
     ],
     hasGym:false, requiredBadges:6, mapPos:{x:20, y:48}
   },
@@ -5525,10 +5525,10 @@ const WORLD_DATA = {
     desc:"A city floating on clouds. Mental Gym Leader Oracle sees all futures.",
     connections:["route7","route8","mystic_forest","sky_harbor","wind_bridge"],
     wildMonsters:[
-      {id:166, minLv:50, maxLv:54, rate:30}, // Mindpup
-      {id:142, minLv:50, maxLv:54, rate:25}, // Dawnsprite
-      {id:114, minLv:51, maxLv:54, rate:25}, // Cloudpuff
-      {id:168, minLv:51, maxLv:54, rate:20}  // Esperia
+      {id:166, minLv:50, maxLv:54, rate:30}, // Projectery
+      {id:142, minLv:50, maxLv:54, rate:25}, // Dawnirel
+      {id:114, minLv:51, maxLv:54, rate:25}, // Nimbusel
+      {id:168, minLv:51, maxLv:54, rate:20}  // Espelith
     ],
     ngPlusWildMonsters:[{id:460, minLv:50, maxLv:53, rate:12}], // NG+ family base: Gongling
     hasGym:true, gymLeader:"oracle", requiredBadges:6, mapPos:{x:30, y:55}
@@ -5552,10 +5552,10 @@ const WORLD_DATA = {
     connections:["route8","route9"],
     wildMonsters:[
       {id:235, minLv:58, maxLv:62, rate:10}, // Glintscale (obtainability fix)
-      {id:172, minLv:58, maxLv:62, rate:30}, // Drakling
-      {id:175, minLv:58, maxLv:62, rate:25}, // Seadrake
-      {id:176, minLv:59, maxLv:62, rate:25}, // Stormwyrm
-      {id:177, minLv:59, maxLv:62, rate:20}  // Crystaldrake
+      {id:172, minLv:58, maxLv:62, rate:30}, // Scalurin
+      {id:175, minLv:58, maxLv:62, rate:25}, // Biolumal
+      {id:176, minLv:59, maxLv:62, rate:25}, // Chromena
+      {id:177, minLv:59, maxLv:62, rate:20}  // Sapphier
     ],
     hasGym:true, gymLeader:"drake", requiredBadges:7, mapPos:{x:55, y:42},
     legendaryEncounter:{monsterId:84, level:60}
@@ -5565,10 +5565,10 @@ const WORLD_DATA = {
     desc:"The final gauntlet. Only trainers with all 16 badges may pass.",
     connections:["starbloom","summit"],
     wildMonsters:[
-      {id:173, minLv:62, maxLv:66, rate:25}, // Wyrmsire
-      {id:124, minLv:62, maxLv:66, rate:25}, // Phantomfang
-      {id:143, minLv:62, maxLv:66, rate:25}, // Celestara
-      {id:151, minLv:63, maxLv:66, rate:25}  // Mecharon
+      {id:173, minLv:62, maxLv:66, rate:25}, // Serpenthos
+      {id:124, minLv:62, maxLv:66, rate:25}, // Phantorvex
+      {id:143, minLv:62, maxLv:66, rate:25}, // Lunarael
+      {id:151, minLv:63, maxLv:66, rate:25}  // Alloytron
     ],
     ngPlusWildMonsters:[{id:382, minLv:63, maxLv:66, rate:8}], // thinned from mega-area
     hasGym:false, requiredBadges:16, mapPos:{x:62, y:35}
@@ -5588,10 +5588,10 @@ const WORLD_DATA = {
     connections:["route2","ancient_ruins","bug_forest_west","poison_swamp_lower"],
     wildMonsters:[
       {id:260, minLv:10, maxLv:13, rate:18}, // Sproutix (obtainability fix)
-      {id:63, minLv:8, maxLv:12, rate:25},   // Mushrump
-      {id:66, minLv:8, maxLv:12, rate:25},   // Fernwhip
-      {id:140, minLv:9, maxLv:12, rate:20},   // Prismfly
-      {id:155, minLv:9, maxLv:13, rate:20},   // Toxitoad
+      {id:63, minLv:8, maxLv:12, rate:25},   // Sporix
+      {id:66, minLv:8, maxLv:12, rate:25},   // Viridix
+      {id:140, minLv:9, maxLv:12, rate:20},   // Faeling
+      {id:155, minLv:9, maxLv:13, rate:20},   // Toxirin
       {id:160, minLv:10, maxLv:13, rate:10}   // Miasmafly
     ],
     ngPlusWildMonsters:[{id:411, minLv:9, maxLv:12, rate:12}], // NG+ family base: Thrumquill
@@ -5603,10 +5603,10 @@ const WORLD_DATA = {
     connections:["lumoria_jungle","bug_forest_east","reef_ruins"],
     wildMonsters:[
       {id:22, minLv:13, maxLv:17, rate:15}, // Hallucigaze (obtainability fix)
-      {id:142, minLv:12, maxLv:16, rate:25},  // Dawnsprite
-      {id:124, minLv:13, maxLv:17, rate:20},  // Phantomfang
-      {id:168, minLv:14, maxLv:17, rate:20},  // Esperia
-      {id:166, minLv:14, maxLv:17, rate:10}   // Mindpup
+      {id:142, minLv:12, maxLv:16, rate:25},  // Dawnirel
+      {id:124, minLv:13, maxLv:17, rate:20},  // Phantorvex
+      {id:168, minLv:14, maxLv:17, rate:20},  // Espelith
+      {id:166, minLv:14, maxLv:17, rate:10}   // Projectery
     ],
     ngPlusWildMonsters:[{id:448, minLv:12, maxLv:16, rate:12}], // NG+ family base: Cobblepup
     hasGym:false, requiredBadges:1, mapPos:{x:64, y:76},
@@ -5619,11 +5619,11 @@ const WORLD_DATA = {
     connections:["tidewatch","coral_reef","sunken_temple"],
     wildMonsters:[
       {id:230, minLv:20, maxLv:24, rate:12}, // Scaleling (obtainability fix)
-      {id:85, minLv:18, maxLv:24, rate:25},  // Seadrake
-      {id:33, minLv:18, maxLv:24, rate:25},  // Surgeeel
-      {id:19, minLv:19, maxLv:24, rate:25},  // Glaciaseal
-      {id:17, minLv:20, maxLv:25, rate:15},  // Waveclaw
-      {id:98, minLv:20, maxLv:25, rate:10}   // Cragclaw
+      {id:85, minLv:18, maxLv:24, rate:25},  // Shockharpe
+      {id:33, minLv:18, maxLv:24, rate:25},  // Septanemone
+      {id:19, minLv:19, maxLv:24, rate:25},  // Magmaurin
+      {id:17, minLv:20, maxLv:25, rate:15},  // Searburn
+      {id:98, minLv:20, maxLv:25, rate:10}   // Aridix
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:78, y:60},
     storyLocation:true, hasUmbraEncounter:true,
@@ -5635,11 +5635,11 @@ const WORLD_DATA = {
     connections:["emberveil","iron_canyon","lava_fields"],
     wildMonsters:[
       {id:277, minLv:24, maxLv:29, rate:12}, // Magmite (obtainability fix)
-      {id:15, minLv:22, maxLv:28, rate:25},  // Flamewyrm
-      {id:13, minLv:22, maxLv:28, rate:25},  // Magmacow
-      {id:38, minLv:23, maxLv:28, rate:20},  // Venomscorp
-      {id:97, minLv:24, maxLv:29, rate:20},  // Boulderhound
-      {id:15, minLv:24, maxLv:29, rate:10}   // Flamewyrm
+      {id:15, minLv:22, maxLv:28, rate:25},  // Pyroclasm
+      {id:13, minLv:22, maxLv:28, rate:25},  // Taurcin
+      {id:38, minLv:23, maxLv:28, rate:20},  // Titanariel
+      {id:97, minLv:24, maxLv:29, rate:20},  // Tectonvast
+      {id:15, minLv:24, maxLv:29, rate:10}   // Pyroclasm
     ],
     hasGym:false, requiredBadges:3, mapPos:{x:82, y:42},
     storyLocation:true, hasUmbraEncounter:true,
@@ -5650,11 +5650,11 @@ const WORLD_DATA = {
     desc:"A high plateau perpetually wracked by storms. Electric and Draconic types are drawn to its crackling energy.",
     connections:["sparkmoor","frostpeak","lunar_peak","mirror_lake","thunder_cliffs"],
     wildMonsters:[
-      {id:86, minLv:28, maxLv:34, rate:25},  // Stormwyrm
-      {id:42, minLv:28, maxLv:34, rate:25},  // Galemane
-      {id:31, minLv:29, maxLv:34, rate:25},  // Thunderfly
-      {id:44, minLv:29, maxLv:34, rate:15},  // Cyclobird
-      {id:33, minLv:30, maxLv:35, rate:10}   // Surgeeel
+      {id:86, minLv:28, maxLv:34, rate:25},  // Galvaglide
+      {id:42, minLv:28, maxLv:34, rate:25},  // Cryonik
+      {id:31, minLv:29, maxLv:34, rate:25},  // Toxaquil
+      {id:44, minLv:29, maxLv:34, rate:15},  // Nagislither
+      {id:33, minLv:30, maxLv:35, rate:10}   // Septanemone
     ],
     hasGym:false, requiredBadges:4, mapPos:{x:36, y:12},
     storyLocation:true, hasUmbraEncounter:true,
@@ -5666,11 +5666,11 @@ const WORLD_DATA = {
     connections:["frostpeak","shadowmere","crystal_spire"],
     wildMonsters:[
       {id:211, minLv:34, maxLv:38, rate:15}, // Cinderfrost (obtainability fix)
-      {id:177, minLv:34, maxLv:40, rate:25},  // Crystaldrake
-      {id:195, minLv:34, maxLv:40, rate:25},  // Crystalrock
-      {id:152, minLv:35, maxLv:40, rate:20},  // Titanshell
-      {id:201, minLv:36, maxLv:41, rate:20}, // Hardbeetle
-      {id:54, minLv:36, maxLv:41, rate:10}   // Polarex
+      {id:177, minLv:34, maxLv:40, rate:25},  // Sapphier
+      {id:195, minLv:34, maxLv:40, rate:25},  // Prismolith
+      {id:152, minLv:35, maxLv:40, rate:20},  // Imperion
+      {id:201, minLv:36, maxLv:41, rate:20}, // Scarabion
+      {id:54, minLv:36, maxLv:41, rate:10}   // Arcturex
     ],
     ngPlusWildMonsters:[{id:408, minLv:36, maxLv:40, rate:6}], // NG+ family base: Glimmerling
     hasGym:false, requiredBadges:5, mapPos:{x:10, y:28}
@@ -5696,10 +5696,10 @@ const WORLD_DATA = {
     desc:"The hidden fortress of The Umbra Order. Their leader, Commander Shade, awaits you here. This is your chance to stop their plan to awaken the three Legendaries.",
     connections:["mystic_forest","dark_canyon"],
     wildMonsters:[
-      {id:119, minLv:50, maxLv:55, rate:25},  // Nighthound
-      {id:124, minLv:50, maxLv:55, rate:25},  // Phantomfang
-      {id:122, minLv:51, maxLv:55, rate:25},  // Spectrewing
-      {id:158, minLv:51, maxLv:55, rate:25}   // Sludgebeast
+      {id:119, minLv:50, maxLv:55, rate:25},  // Dreadmaw
+      {id:124, minLv:50, maxLv:55, rate:25},  // Phantorvex
+      {id:122, minLv:51, maxLv:55, rate:25},  // Caveshroud
+      {id:158, minLv:51, maxLv:55, rate:25}   // Corrodisc
     ],
     hasGym:false, requiredBadges:6,
     hasUmbraBase:true,
@@ -5714,11 +5714,11 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:256, minLv:24, maxLv:28, rate:18}, // Scolphin (obtainability fix)
       {id:34, minLv:22, maxLv:26, rate:18}, // Pearlith (obtainability fix)
-      {id:28, minLv:22, maxLv:28, rate:25},   // Coralfish
-      {id:25, minLv:22, maxLv:28, rate:25},   // Bubblecrab
-      {id:31, minLv:23, maxLv:28, rate:20},  // Polykling
-      {id:155, minLv:24, maxLv:29, rate:20},   // Toxitoad
-      {id:39, minLv:25, maxLv:30, rate:10}   // Tidalwing
+      {id:28, minLv:22, maxLv:28, rate:25},   // Corelin
+      {id:25, minLv:22, maxLv:28, rate:25},   // Reefling
+      {id:31, minLv:23, maxLv:28, rate:20},  // Toxaquil
+      {id:155, minLv:24, maxLv:29, rate:20},   // Toxirin
+      {id:39, minLv:25, maxLv:30, rate:10}   // Gossafin
     ],
     ngPlusWildMonsters:[{id:450, minLv:22, maxLv:26, rate:12}], // NG+ family base: Jabshell
     hasGym:false, requiredBadges:2, mapPos:{x:84, y:72}
@@ -5729,11 +5729,11 @@ const WORLD_DATA = {
     connections:["shadowmere","spirit_canyon"],
     wildMonsters:[
       {id:78, minLv:42, maxLv:46, rate:15}, // Sylvnox (obtainability fix)
-      {id:118, minLv:42, maxLv:47, rate:25},   // Shadowpup
-      {id:121, minLv:42, maxLv:47, rate:25},   // Voidbat
-      {id:126, minLv:43, maxLv:48, rate:20},  // Wraithling
-      {id:123, minLv:44, maxLv:48, rate:20},   // Umbralisard
-      {id:130, minLv:45, maxLv:50, rate:10}   // Gravemoss
+      {id:118, minLv:42, maxLv:47, rate:25},   // Eclipsehound
+      {id:121, minLv:42, maxLv:47, rate:25},   // Spiraloom
+      {id:126, minLv:43, maxLv:48, rate:20},  // Impefurr
+      {id:123, minLv:44, maxLv:48, rate:20},   // Nocturil
+      {id:130, minLv:45, maxLv:50, rate:10}   // Necralia
     ],
     ngPlusWildMonsters:[{id:454, minLv:43, maxLv:47, rate:12}], // NG+ family base: Tollwisp
     hasGym:false, requiredBadges:5, mapPos:{x:8, y:42}
@@ -5743,11 +5743,11 @@ const WORLD_DATA = {
     desc:"A floating dock tethered to the clouds. Wind traders and Mental navigators pass through this breezy waystation.",
     connections:["skyvault","mystic_forest"],
     wildMonsters:[
-      {id:108, minLv:48, maxLv:53, rate:25},   // Breezekit
-      {id:114, minLv:48, maxLv:53, rate:25},   // Cloudpuff
-      {id:116, minLv:49, maxLv:54, rate:20},  // Zephyrling
-      {id:141, minLv:50, maxLv:54, rate:20},   // Radiantfly
-      {id:111, minLv:49, maxLv:53, rate:10}    // Draftfinch
+      {id:108, minLv:48, maxLv:53, rate:25},   // Silvergust
+      {id:114, minLv:48, maxLv:53, rate:25},   // Nimbusel
+      {id:116, minLv:49, maxLv:54, rate:20},  // Zephyrin
+      {id:141, minLv:50, maxLv:54, rate:20},   // Iridesoar
+      {id:111, minLv:49, maxLv:53, rate:10}    // Aeolin
     ],
     hasGym:false, requiredBadges:6, mapPos:{x:18, y:62}
   },
@@ -5757,11 +5757,11 @@ const WORLD_DATA = {
     connections:["sparkmoor","storm_plateau"],
     wildMonsters:[
       {id:247, minLv:30, maxLv:36, rate:10}, // Sparkeen (obtainability fix)
-      {id:81, minLv:28, maxLv:34, rate:25},   // Sparklet
-      {id:90, minLv:28, maxLv:34, rate:25},   // Stormchick
-      {id:92, minLv:29, maxLv:34, rate:20},  // Thunderock
-      {id:85, minLv:30, maxLv:35, rate:20},   // Thunderfly
-      {id:176, minLv:31, maxLv:36, rate:10}    // Stormwyrm
+      {id:81, minLv:28, maxLv:34, rate:25},   // Joltan
+      {id:90, minLv:28, maxLv:34, rate:25},   // Zephyrel
+      {id:92, minLv:29, maxLv:34, rate:20},  // Arcspine
+      {id:85, minLv:30, maxLv:35, rate:20},   // Shockharpe
+      {id:176, minLv:31, maxLv:36, rate:10}    // Chromena
     ],
     hasGym:false, requiredBadges:4, mapPos:{x:60, y:16}
   },
@@ -5770,9 +5770,9 @@ const WORLD_DATA = {
     desc:"The upper reaches of the Poison Swamp, where toxic fumes seep from cracks in the earth near the marshes of Route 7.",
     connections:["route7","poison_swamp_lower"],
     wildMonsters:[
-      {id:71, minLv:44, maxLv:49, rate:30},   // Toxitoad
-      {id:73, minLv:44, maxLv:49, rate:35},   // Acidblob
-      {id:75, minLv:45, maxLv:50, rate:35}    // Miasmafly
+      {id:71, minLv:44, maxLv:49, rate:30},   // Verdovast
+      {id:73, minLv:44, maxLv:49, rate:35},   // Faelomis
+      {id:75, minLv:45, maxLv:50, rate:35}    // Sylvolt
     ],
     ngPlusWildMonsters:[{id:442, minLv:44, maxLv:48, rate:12}], // NG+ family base: Bloatleech
     hasGym:false, requiredBadges:6, mapPos:{x:30, y:56}
@@ -5782,9 +5782,9 @@ const WORLD_DATA = {
     desc:"The deeper, fouler reaches of the Poison Swamp. The air is thick with noxious miasma and stronger Poison types lurk in the muck.",
     connections:["poison_swamp_upper","lumoria_jungle"],
     wildMonsters:[
-      {id:75, minLv:46, maxLv:51, rate:25},   // Miasmafly
-      {id:119, minLv:47, maxLv:52, rate:35},  // Bogthorn
-      {id:74, minLv:48, maxLv:53, rate:40}    // Sludgebeast
+      {id:75, minLv:46, maxLv:51, rate:25},   // Sylvolt
+      {id:119, minLv:47, maxLv:52, rate:35},  // Dreadmaw
+      {id:74, minLv:48, maxLv:53, rate:40}    // Faevernal
     ],
     ngPlusWildMonsters:[{id:336, minLv:48, maxLv:53, rate:10}], // NG+ standalone: Coilstrike
     hasGym:false, requiredBadges:6, mapPos:{x:42, y:70}
@@ -5794,11 +5794,11 @@ const WORLD_DATA = {
     desc:"An ancient temple half-submerged beneath the ocean. Mental inscriptions glow on the walls. Something powerful sleeps in the inner sanctum.",
     connections:["deep_trench","coral_reef"],
     wildMonsters:[
-      {id:175, minLv:25, maxLv:32, rate:25},   // Seadrake
-      {id:166, minLv:25, maxLv:32, rate:25},   // Mindpup
-      {id:37, minLv:26, maxLv:33, rate:20},  // Coralgolem
-      {id:168, minLv:27, maxLv:33, rate:15},   // Esperia
-      {id:169, minLv:35, maxLv:40, rate:10}    // Telepathy (rare!)
+      {id:175, minLv:25, maxLv:32, rate:25},   // Biolumal
+      {id:166, minLv:25, maxLv:32, rate:25},   // Projectery
+      {id:37, minLv:26, maxLv:33, rate:20},  // Coralossus
+      {id:168, minLv:27, maxLv:33, rate:15},   // Espelith
+      {id:169, minLv:35, maxLv:40, rate:10}    // Aurarael (rare!)
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:88, y:52},
     storyLocation:true, hasUmbraEncounter:true
@@ -5808,11 +5808,11 @@ const WORLD_DATA = {
     desc:"A deep canyon carved by centuries of volcanic flow. The walls glint with veins of metal ore. Metal and Ground types dominate this harsh terrain.",
     connections:["volcano_core","emberveil","lava_fields"],
     wildMonsters:[
-      {id:147, minLv:25, maxLv:31, rate:25},   // Ironpup
-      {id:191, minLv:25, maxLv:31, rate:25},   // Pebblepup
-      {id:134, minLv:26, maxLv:32, rate:20},  // Scrapbat
-      {id:150, minLv:27, maxLv:32, rate:20},   // Gearbot
-      {id:152, minLv:28, maxLv:33, rate:10}    // Titanshell
+      {id:147, minLv:25, maxLv:31, rate:25},   // Scrapsapien
+      {id:191, minLv:25, maxLv:31, rate:25},   // Pebblet
+      {id:134, minLv:26, maxLv:32, rate:20},  // Aeronyx
+      {id:150, minLv:27, maxLv:32, rate:20},   // Gearon
+      {id:152, minLv:28, maxLv:33, rate:10}    // Imperion
     ],
     ngPlusWildMonsters:[{id:423, minLv:25, maxLv:29, rate:12}], // NG+ family base: Pebblite
     hasGym:false, requiredBadges:3, mapPos:{x:88, y:30},
@@ -5823,7 +5823,7 @@ const WORLD_DATA = {
     desc:"The southern stretch of Fairy Meadow, where gentle flowers bloom near Seedvale. Fairy and Grass types play in the warm breeze.",
     connections:["seedvale","fairy_meadow_north","spirit_canyon"],
     wildMonsters:[
-      {id:137, minLv:4, maxLv:7, rate:30},     // Glowpup
+      {id:137, minLv:4, maxLv:7, rate:30},     // Goldefluff
       {id:69, minLv:4, maxLv:7, rate:35},     // Germix
       {id:111, minLv:5, maxLv:8, rate:35}     // Aeolin
     ],
@@ -5836,7 +5836,7 @@ const WORLD_DATA = {
     connections:["fairy_meadow_south","route7"],
     wildMonsters:[
       {id:286, minLv:8, maxLv:11, rate:18}, // Fuzzlet (obtainability fix)
-      {id:137, minLv:6, maxLv:10, rate:25},    // Glowpup
+      {id:137, minLv:6, maxLv:10, rate:25},    // Goldefluff
       {id:140, minLv:7, maxLv:11, rate:35},   // Faeling
       {id:111, minLv:7, maxLv:11, rate:40}    // Aeolin
     ],
@@ -5847,11 +5847,11 @@ const WORLD_DATA = {
     desc:"A remote mountain summit bathed in perpetual moonlight. Ice and Draconic types roam freely under the silver glow.",
     connections:["frostpeak","storm_plateau","crystal_spire"],
     wildMonsters:[
-      {id:47, minLv:36, maxLv:42, rate:25},   // Frostpup
-      {id:177, minLv:36, maxLv:42, rate:25},   // Crystaldrake
-      {id:53, minLv:37, maxLv:43, rate:20},   // Glaciawing
-      {id:59, minLv:38, maxLv:44, rate:20},  // Lunaveil
-      {id:54, minLv:40, maxLv:46, rate:10}    // Polarex
+      {id:47, minLv:36, maxLv:42, rate:25},   // Hexaprowl
+      {id:177, minLv:36, maxLv:42, rate:25},   // Sapphier
+      {id:53, minLv:37, maxLv:43, rate:20},   // Mistwhirl
+      {id:59, minLv:38, maxLv:44, rate:20},  // Lunaveris
+      {id:54, minLv:40, maxLv:46, rate:10}    // Arcturex
     ],
     hasGym:false, requiredBadges:5, mapPos:{x:20, y:10}
   },
@@ -5860,8 +5860,8 @@ const WORLD_DATA = {
     desc:"The western edge of the Bug Forest, thick with webs and buzzing wings. Connects to the Lumoria Jungle.",
     connections:["lumoria_jungle","bug_forest_east"],
     wildMonsters:[
-      {id:197, minLv:10, maxLv:14, rate:30},  // Vermelin
-      {id:200, minLv:10, maxLv:14, rate:30},  // Colerix
+      {id:197, minLv:10, maxLv:14, rate:30},  // Photoworm
+      {id:200, minLv:10, maxLv:14, rate:30},  // Iridibeetle
       {id:84, minLv:11, maxLv:15, rate:40}    // Electrix
     ],
     ngPlusWildMonsters:[{id:426, minLv:10, maxLv:14, rate:12}], // NG+ family base: Pummelo
@@ -5872,9 +5872,9 @@ const WORLD_DATA = {
     desc:"The deeper eastern reaches of the Bug Forest. Stronger bugs and rare species inhabit the ancient trees near the ruins.",
     connections:["bug_forest_west","ancient_ruins"],
     wildMonsters:[
-      {id:200, minLv:12, maxLv:17, rate:25},  // Colerix
+      {id:200, minLv:12, maxLv:17, rate:25},  // Iridibeetle
       {id:123, minLv:13, maxLv:18, rate:35},  // Nocturil
-      {id:10, minLv:14, maxLv:19, rate:40}    // Embrix
+      {id:10, minLv:14, maxLv:19, rate:40}    // Scorchlarva
     ],
     hasGym:false, requiredBadges:1, mapPos:{x:56, y:76}
   },
@@ -5884,11 +5884,11 @@ const WORLD_DATA = {
     connections:["route5","storm_plateau"],
     wildMonsters:[
       {id:189, minLv:30, maxLv:34, rate:18}, // Woolcalm (obtainability fix)
-      {id:45, minLv:30, maxLv:36, rate:25},   // Sleetling
-      {id:50, minLv:30, maxLv:36, rate:25},   // Snowfluff
-      {id:137, minLv:31, maxLv:36, rate:20},   // Glowpup
-      {id:57, minLv:32, maxLv:38, rate:20},  // Mirrorfish
-      {id:43, minLv:34, maxLv:39, rate:10}    // Glaciaseal
+      {id:45, minLv:30, maxLv:36, rate:25},   // Slatis
+      {id:50, minLv:30, maxLv:36, rate:25},   // Tundram
+      {id:137, minLv:31, maxLv:36, rate:20},   // Goldefluff
+      {id:57, minLv:32, maxLv:38, rate:20},  // Speculith
+      {id:43, minLv:34, maxLv:39, rate:10}    // Boreon
     ],
     ngPlusWildMonsters:[{id:420, minLv:30, maxLv:34, rate:12}], // NG+ family base: Mistling
     hasGym:false, requiredBadges:4, mapPos:{x:48, y:14}
@@ -5899,11 +5899,11 @@ const WORLD_DATA = {
     connections:["volcano_core","iron_canyon"],
     wildMonsters:[
       {id:253, minLv:28, maxLv:34, rate:12}, // Ashrock (obtainability fix)
-      {id:13, minLv:26, maxLv:32, rate:25},   // Lavabull
-      {id:17, minLv:26, maxLv:32, rate:25},   // Flamewyrm
-      {id:19, minLv:27, maxLv:33, rate:20},  // Cindermole
-      {id:14, minLv:28, maxLv:34, rate:20},   // Magmacow
-      {id:192, minLv:29, maxLv:34, rate:10}    // Boulderhound
+      {id:13, minLv:26, maxLv:32, rate:25},   // Taurcin
+      {id:17, minLv:26, maxLv:32, rate:25},   // Searburn
+      {id:19, minLv:27, maxLv:33, rate:20},  // Magmaurin
+      {id:14, minLv:28, maxLv:34, rate:20},   // Molteroth
+      {id:192, minLv:29, maxLv:34, rate:10}    // Boulderoll
     ],
     hasGym:false, requiredBadges:3, mapPos:{x:82, y:26}
   },
@@ -5924,11 +5924,11 @@ const WORLD_DATA = {
     connections:["coral_reef","ancient_ruins"],
     wildMonsters:[
       {id:214, minLv:36, maxLv:42, rate:10}, // Petrwave (obtainability fix)
-      {id:26, minLv:28, maxLv:35, rate:25},   // Waveclaw
-      {id:193, minLv:28, maxLv:35, rate:25},   // Cragclaw
-      {id:37, minLv:29, maxLv:36, rate:20},  // Coralgolem
-      {id:152, minLv:30, maxLv:36, rate:20},   // Titanshell
-      {id:41, minLv:35, maxLv:42, rate:10}   // Rustleviathan
+      {id:26, minLv:28, maxLv:35, rate:25},   // Aquidon
+      {id:193, minLv:28, maxLv:35, rate:25},   // Rugothon
+      {id:37, minLv:29, maxLv:36, rate:20},  // Coralossus
+      {id:152, minLv:30, maxLv:36, rate:20},   // Imperion
+      {id:41, minLv:35, maxLv:42, rate:10}   // Titanomare
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:76, y:76},
     storyLocation:true, hasUmbraEncounter:true
@@ -5938,11 +5938,11 @@ const WORLD_DATA = {
     desc:"A series of ancient stone arches bridging floating islands in the sky. Powerful updrafts make travel treacherous but the view is breathtaking.",
     connections:["route7","route8","skyvault"],
     wildMonsters:[
-      {id:111, minLv:48, maxLv:54, rate:25},   // Draftfinch
-      {id:108, minLv:48, maxLv:54, rate:25},   // Breezekit
-      {id:112, minLv:49, maxLv:55, rate:20},   // Cyclobird
-      {id:116, minLv:50, maxLv:55, rate:20},  // Zephyrling
-      {id:109, minLv:51, maxLv:56, rate:10}    // Galemane
+      {id:111, minLv:48, maxLv:54, rate:25},   // Aeolin
+      {id:108, minLv:48, maxLv:54, rate:25},   // Silvergust
+      {id:112, minLv:49, maxLv:55, rate:20},   // Swirlavel
+      {id:116, minLv:50, maxLv:55, rate:20},  // Zephyrin
+      {id:109, minLv:51, maxLv:56, rate:10}    // Siroccomane
     ],
     ngPlusWildMonsters:[{id:458, minLv:48, maxLv:52, rate:12}], // NG+ family base: Gustling
     hasGym:false, requiredBadges:6, mapPos:{x:36, y:40}
@@ -5952,11 +5952,11 @@ const WORLD_DATA = {
     desc:"A towering spire of pure crystal ice and steel that catches the moonlight. Few trainers have ever climbed to its pinnacle.",
     connections:["crystal_depths","lunar_peak"],
     wildMonsters:[
-      {id:51, minLv:38, maxLv:45, rate:25},   // Icecrystal
-      {id:195, minLv:38, maxLv:45, rate:25},   // Crystalrock
-      {id:148, minLv:39, maxLv:46, rate:20},   // Steelhound
-      {id:55, minLv:40, maxLv:47, rate:20},  // Frostblade
-      {id:201, minLv:42, maxLv:48, rate:10}   // Hardbeetle
+      {id:51, minLv:38, maxLv:45, rate:25},   // Shiverling
+      {id:195, minLv:38, maxLv:45, rate:25},   // Prismolith
+      {id:148, minLv:39, maxLv:46, rate:20},   // Stoicguard
+      {id:55, minLv:40, maxLv:47, rate:20},  // Rimeling
+      {id:201, minLv:42, maxLv:48, rate:10}   // Scarabion
     ],
     hasGym:false, requiredBadges:5, mapPos:{x:16, y:18},
     storyLocation:true, hasUmbraEncounter:true,
@@ -5967,11 +5967,11 @@ const WORLD_DATA = {
     desc:"A pitch-black gorge where no light penetrates. Dark type Lumori have claimed every shadowed corner, and even the rocks seem to absorb light.",
     connections:["spirit_canyon","umbra_base"],
     wildMonsters:[
-      {id:119, minLv:50, maxLv:56, rate:25},   // Nighthound
-      {id:122, minLv:50, maxLv:56, rate:25},   // Spectrewing
-      {id:126, minLv:51, maxLv:57, rate:20},  // Wraithling
-      {id:124, minLv:52, maxLv:57, rate:20},   // Phantomfang
-      {id:130, minLv:53, maxLv:58, rate:10}   // Gravemoss
+      {id:119, minLv:50, maxLv:56, rate:25},   // Dreadmaw
+      {id:122, minLv:50, maxLv:56, rate:25},   // Caveshroud
+      {id:126, minLv:51, maxLv:57, rate:20},  // Impefurr
+      {id:124, minLv:52, maxLv:57, rate:20},   // Phantorvex
+      {id:130, minLv:53, maxLv:58, rate:10}   // Necralia
     ],
     ngPlusWildMonsters:[{id:371, minLv:52, maxLv:58, rate:10}], // NG+ standalone: Nullform
     hasGym:false, requiredBadges:6, mapPos:{x:4, y:60},
@@ -6012,7 +6012,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:155, minLv:57, maxLv:62, rate:15},  // Toxirin (base)
       {id:157, minLv:57, maxLv:62, rate:15},  // Acidelix (base)
-      {id:160, minLv:58, maxLv:63, rate:15},  // Miasoveth (base)
+      {id:160, minLv:58, maxLv:63, rate:15},  // Miasmafly (base)
       {id:161, minLv:59, maxLv:64, rate:10},  // Mistbane (mid → after base ✓)
       {id:162, minLv:58, maxLv:63, rate:10},  // Marlix (base)
       {id:163, minLv:59, maxLv:64, rate:10},  // Blightalis (mid → after base ✓)
@@ -6029,9 +6029,9 @@ const WORLD_DATA = {
     connections:["toxic_bog","route11"],
     wildMonsters:[
       {id:156, minLv:58, maxLv:63, rate:25},  // Venekon (mid)
-      {id:159, minLv:60, maxLv:65, rate:25},  // Acidovast (final, 158 on murk_crossing ✓)
+      {id:159, minLv:60, maxLv:65, rate:25},  // Dissotoad (final, 158 on murk_crossing ✓)
       {id:163, minLv:59, maxLv:64, rate:25},  // Blightalis (mid, 162 on route10 ✓)
-      {id:165, minLv:59, maxLv:64, rate:25}   // Noxoveth (mid, 164 on murk_crossing ✓)
+      {id:165, minLv:59, maxLv:64, rate:25}   // Venowarn (mid, 164 on murk_crossing ✓)
     ],
     hasGym:true, gymLeader:"viper", requiredBadges:9, mapPos:{x:42, y:65},
     ngPlusWildMonsters:[{id:322,minLv:65,maxLv:70,rate:25},{id:324,minLv:65,maxLv:70,rate:15}]
@@ -6059,8 +6059,8 @@ const WORLD_DATA = {
     connections:["tremor_summit","route12"],
     wildMonsters:[
       {id:97,  minLv:61, maxLv:66, rate:25},  // Tectonvast (final, 96 on quake_foothills ✓)
-      {id:100, minLv:61, maxLv:66, rate:25},  // Venomvast (final, 99 on quake_foothills ✓)
-      {id:103, minLv:61, maxLv:66, rate:25},  // Crustvast (final, 102 on quake_foothills ✓)
+      {id:100, minLv:61, maxLv:66, rate:25},  // Craterlurk (final, 99 on quake_foothills ✓)
+      {id:103, minLv:61, maxLv:66, rate:25},  // Calciderm (final, 102 on quake_foothills ✓)
       {id:105, minLv:61, maxLv:66, rate:15},  // Dravanas (final, 104 on route11 ✓)
       {id:107, minLv:62, maxLv:67, rate:10}   // Quakeon (final, 106 on route11 ✓)
     ],
@@ -6072,13 +6072,13 @@ const WORLD_DATA = {
     desc:"A path threaded with giant webs. Bug types ambush travelers at every turn.",
     connections:["terravault","fungal_cavern"],
     wildMonsters:[
-      {id:197, minLv:61, maxLv:66, rate:20},  // Vermelin (base)
+      {id:197, minLv:61, maxLv:66, rate:20},  // Photoworm (base)
       {id:198, minLv:62, maxLv:67, rate:20},  // Chrysalix (mid → after 197 ✓)
-      {id:200, minLv:61, maxLv:66, rate:20},  // Colerix (base)
-      {id:202, minLv:62, maxLv:67, rate:20},  // Sericrix (base)
+      {id:200, minLv:61, maxLv:66, rate:20},  // Iridibeetle (base)
+      {id:202, minLv:62, maxLv:67, rate:20},  // Sculptweave (base)
       {id:204, minLv:63, maxLv:68, rate:15},  // Muddite (base)
       {id:215, minLv:62, maxLv:67, rate:10},  // Veilwisp (base Mental)
-      {id:262, minLv:62, maxLv:67, rate:10}   // Seedling (base Grass/Poi)
+      {id:262, minLv:62, maxLv:67, rate:10}   // Transluceed (base Grass/Poi)
     ],
     hasGym:false, requiredBadges:11, mapPos:{x:22, y:82},
     ngPlusWildMonsters:[{id:391, minLv:64, maxLv:68, rate:8}, {id:324,minLv:68,maxLv:74,rate:20},{id:329,minLv:68,maxLv:74,rate:15},{id:339,minLv:69,maxLv:75,rate:10},{id:402,minLv:68,maxLv:74,rate:8},{id:405,minLv:68,maxLv:74,rate:8}]
@@ -6101,7 +6101,7 @@ const WORLD_DATA = {
     desc:"The western arm of Gale Ridge, where howling winds funnel through a narrow canyon toward the furthest point of the region.",
     connections:["silkwood","wind_hollow"],
     wildMonsters:[
-      {id:108, minLv:63, maxLv:68, rate:20},  // Gustkin (base)
+      {id:108, minLv:63, maxLv:68, rate:20},  // Silvergust (base)
       {id:109, minLv:64, maxLv:69, rate:20},  // Siroccomane (mid → after 108 ✓)
       {id:111, minLv:63, maxLv:68, rate:20},  // Aeolin (base)
       {id:114, minLv:64, maxLv:69, rate:15},  // Nimbusel (base)
@@ -6133,11 +6133,11 @@ const WORLD_DATA = {
     desc:"A path lined with abandoned machinery. Metal types have claimed the ruins as their territory.",
     connections:["gusthaven","ash_fields"],
     wildMonsters:[
-      {id:147, minLv:65, maxLv:70, rate:20},  // Ferrokin (base)
-      {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid → after 147 ✓)
+      {id:147, minLv:65, maxLv:70, rate:20},  // Scrapsapien (base)
+      {id:148, minLv:66, maxLv:71, rate:20},  // Stoicguard (mid → after 147 ✓)
       {id:150, minLv:65, maxLv:70, rate:20},  // Gearon (base)
       {id:134, minLv:66, maxLv:71, rate:20},  // Aeronyx (base)
-      {id:153, minLv:66, maxLv:71, rate:10},  // Forgekin (base)
+      {id:153, minLv:66, maxLv:71, rate:10},  // Dentshaft (base)
       {id:55,  minLv:67, maxLv:72, rate:10},  // standalone steel
       {id:278, minLv:65, maxLv:70, rate:10},  // Ironling (base Metal/Fairy)
       {id:244, minLv:65, maxLv:70, rate:10},  // Staticlaw (base Electric)
@@ -6151,11 +6151,11 @@ const WORLD_DATA = {
     desc:"A city of foundries and forges. Home to Gym Leader Ferro, master of Metal types.",
     connections:["forge_approach","route15"],
     wildMonsters:[
-      {id:149, minLv:67, maxLv:72, rate:25},  // Adamovast (final)
+      {id:149, minLv:67, maxLv:72, rate:25},  // Eternarmor (final)
       {id:151, minLv:66, maxLv:71, rate:20},  // Alloytron (mid)
       {id:152, minLv:67, maxLv:72, rate:20},  // Imperion (Metal/Rock)
       {id:135, minLv:67, maxLv:72, rate:20},  // Steelvex (mid, 134 on route14 ✓)
-      {id:136, minLv:68, maxLv:73, rate:15}   // Ferrovast (final → after 135 ✓)
+      {id:136, minLv:68, maxLv:73, rate:15}   // Metalibat (final → after 135 ✓)
     ],
     hasGym:true, gymLeader:"ferro", requiredBadges:13, mapPos:{x:38, y:88},
     ngPlusWildMonsters:[{id:377, minLv:67, maxLv:73, rate:8}, {id:334,minLv:73,maxLv:78,rate:25},{id:347,minLv:73,maxLv:78,rate:20},{id:377,minLv:73,maxLv:79,rate:8}]
@@ -6165,10 +6165,10 @@ const WORLD_DATA = {
     desc:"A narrow mountain pass strewn with boulders. Rock types dominate.",
     connections:["ironforge","granite_tunnels"],
     wildMonsters:[
-      {id:191, minLv:67, maxLv:72, rate:20},  // Petrikin (base)
-      {id:192, minLv:68, maxLv:73, rate:20},  // Lithavast (mid → after 191 ✓)
+      {id:191, minLv:67, maxLv:72, rate:20},  // Pebblet (base)
+      {id:192, minLv:68, maxLv:73, rate:20},  // Boulderoll (mid → after 191 ✓)
       {id:193, minLv:67, maxLv:72, rate:20},  // Rugothon (base)
-      {id:132, minLv:68, maxLv:73, rate:20},  // Obsidrix (base)
+      {id:132, minLv:68, maxLv:73, rate:20},  // Volcascale (base)
       {id:133, minLv:69, maxLv:74, rate:10},  // Monolithox (mid → after 132 ✓)
       {id:93,  minLv:69, maxLv:74, rate:10},  // standalone rock
       {id:251, minLv:67, maxLv:72, rate:10},  // Crumblite (base Rock/Metal)
@@ -6183,7 +6183,7 @@ const WORLD_DATA = {
     desc:"A mining town carved from solid rock. Home to Gym Leader Boulder, master of Rock types.",
     connections:["crystal_mine","route16"],
     wildMonsters:[
-      {id:192, minLv:68, maxLv:73, rate:20},  // Lithavast (mid)
+      {id:192, minLv:68, maxLv:73, rate:20},  // Boulderoll (mid)
       {id:195, minLv:69, maxLv:74, rate:20},  // Prismolith (195 on stone_plateau ✓)
       {id:196, minLv:70, maxLv:75, rate:20},  // Frigolith (mid → after 195 ✓)
       {id:133, minLv:69, maxLv:74, rate:25},  // Monolithox (mid)
@@ -6197,12 +6197,12 @@ const WORLD_DATA = {
     desc:"A magical path where starlight dances on every surface. Fairy types float among the luminescent flowers.",
     connections:["quarryville","nebula_gorge"],
     wildMonsters:[
-      {id:137, minLv:69, maxLv:74, rate:20},  // Lumkin (base)
+      {id:137, minLv:69, maxLv:74, rate:20},  // Goldefluff (base)
       {id:72,  minLv:69, maxLv:74, rate:20},  // fairy-type (base)
       {id:73,  minLv:70, maxLv:75, rate:20},  // fairy-type (evo → after 72 ✓)
       {id:142, minLv:69, maxLv:74, rate:20},  // Dawnirel (base, new)
       {id:145, minLv:70, maxLv:75, rate:15},  // Faerrin (base)
-      {id:225, minLv:69, maxLv:74, rate:10},  // Glimmerkin (standalone Psy/Fairy)
+      {id:225, minLv:69, maxLv:74, rate:10},  // Crealight (standalone Psy/Fairy)
       {id:226, minLv:69, maxLv:74, rate:10},  // Spectroo (base split-evo)
       {id:254, minLv:69, maxLv:74, rate:10},  // Bubblepuff (base Aquatic/Psy)
       {id:302, minLv:69, maxLv:74, rate:5}    // Lightpuff (base Fairy, item evo)
@@ -6222,7 +6222,7 @@ const WORLD_DATA = {
       {id:146, minLv:71, maxLv:76, rate:20},  // Shinarith (mid, 145 on route16 ✓)
       {id:203, minLv:72, maxLv:76, rate:10},  // Arachnalis (mid)
       {id:224, minLv:72, maxLv:76, rate:10},  // Psytheon (final → 223 on cosmic_cavern ✓)
-      {id:217, minLv:73, maxLv:77, rate:5}    // Mentovast (final Mental)
+      {id:217, minLv:73, maxLv:77, rate:5}    // Distorsion (final Mental)
     ],
     hasGym:true, gymLeader:"seraphina", requiredBadges:15, mapPos:{x:68, y:72},
     ngPlusWildMonsters:[{id:362, minLv:70, maxLv:77, rate:9}, {id:344,minLv:77,maxLv:82,rate:25},{id:351,minLv:77,maxLv:82,rate:20},{id:360,minLv:78,maxLv:83,rate:8}]
@@ -6235,10 +6235,10 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:155, minLv:57, maxLv:62, rate:15},  // Toxirin (base)
       {id:156, minLv:58, maxLv:63, rate:20},  // Venekon (mid → after base ✓)
-      {id:158, minLv:58, maxLv:63, rate:20},  // Acidoloth (mid, base Acidelix on route10 ✓)
-      {id:159, minLv:60, maxLv:65, rate:20},  // Acidovast (final → after 158 ✓)
+      {id:158, minLv:58, maxLv:63, rate:20},  // Corrodisc (mid, base Acidelix on route10 ✓)
+      {id:159, minLv:60, maxLv:65, rate:20},  // Dissotoad (final → after 158 ✓)
       {id:164, minLv:58, maxLv:63, rate:15},  // Blightmite (base, new)
-      {id:165, minLv:59, maxLv:64, rate:10}   // Noxoveth (mid → after 164 ✓)
+      {id:165, minLv:59, maxLv:64, rate:10}   // Venowarn (mid → after 164 ✓)
     ],
     ngPlusWildMonsters:[{id:355, minLv:58, maxLv:65, rate:10}], // NG+ standalone: Abyssalith
     hasGym:false, requiredBadges:9, mapPos:{x:42, y:60}
@@ -6264,7 +6264,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:198, minLv:62, maxLv:67, rate:15},  // Chrysalix (mid, 197 on route12 ✓)
       {id:199, minLv:63, maxLv:68, rate:15},  // Aeridaleth (final → after 198 ✓)
-      {id:200, minLv:61, maxLv:66, rate:15},  // Colerix (base)
+      {id:200, minLv:61, maxLv:66, rate:15},  // Iridibeetle (base)
       {id:201, minLv:62, maxLv:67, rate:20},  // Scarabion (mid → after 200 ✓)
       {id:204, minLv:63, maxLv:68, rate:15},  // Muddite (base)
       {id:205, minLv:64, maxLv:69, rate:20}   // Quarrix (mid → after 204 ✓)
@@ -6291,12 +6291,12 @@ const WORLD_DATA = {
     desc:"The rusted outer edge of Ironforge's industrial sprawl. Abandoned conveyor lines and slag heaps attract Metal-type Lumori who claim the metal as their own.",
     connections:["smelter_pass","ironforge"],
     wildMonsters:[
-      {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid)
-      {id:149, minLv:67, maxLv:72, rate:15},  // Adamovast (final → after 148 ✓)
+      {id:148, minLv:66, maxLv:71, rate:20},  // Stoicguard (mid)
+      {id:149, minLv:67, maxLv:72, rate:15},  // Eternarmor (final → after 148 ✓)
       {id:150, minLv:65, maxLv:70, rate:15},  // Gearon (base)
       {id:151, minLv:66, maxLv:71, rate:20},  // Alloytron (mid → after 150 ✓)
-      {id:153, minLv:66, maxLv:71, rate:15},  // Forgekin (base)
-      {id:154, minLv:67, maxLv:72, rate:15}   // Titanolith (mid → after 153 ✓)
+      {id:153, minLv:66, maxLv:71, rate:15},  // Dentshaft (base)
+      {id:154, minLv:67, maxLv:72, rate:15}   // Terragolem (mid → after 153 ✓)
     ],
     hasGym:false, requiredBadges:13, mapPos:{x:38, y:92}
   },
@@ -6305,7 +6305,7 @@ const WORLD_DATA = {
     desc:"A windswept expanse of exposed bedrock leading into Quarryville. Ancient monoliths dot the plateau and Rock and Dark types claim each one as territory.",
     connections:["granite_tunnels","crystal_mine"],
     wildMonsters:[
-      {id:192, minLv:68, maxLv:73, rate:20},  // Lithavast (mid, 191 on route15 ✓)
+      {id:192, minLv:68, maxLv:73, rate:20},  // Boulderoll (mid, 191 on route15 ✓)
       {id:193, minLv:67, maxLv:72, rate:15},  // Rugothon (base)
       {id:194, minLv:68, maxLv:73, rate:20},  // Lithomere (mid → after 193 ✓)
       {id:133, minLv:69, maxLv:74, rate:20},  // Monolithox (mid)
@@ -6320,15 +6320,15 @@ const WORLD_DATA = {
     desc:"A glittering cavern lit by bioluminescent crystals on the approach to Starbloom. Fairy types dance in the starlight, but dark shadows hint at lurking Umbra agents.",
     connections:["nebula_gorge","astral_plateau"],
     wildMonsters:[
-      {id:137, minLv:69, maxLv:74, rate:15},  // Lumkin (base)
+      {id:137, minLv:69, maxLv:74, rate:15},  // Goldefluff (base)
       {id:138, minLv:70, maxLv:75, rate:20},  // Aetherael (mid → after 137 ✓)
       {id:143, minLv:70, maxLv:75, rate:15},  // Lunarael (mid, 142 on route16 ✓)
       {id:144, minLv:71, maxLv:76, rate:20},  // Celestarch (final → after 143 ✓)
       {id:145, minLv:70, maxLv:75, rate:15},  // Faerrin (base)
-      {id:119, minLv:70, maxLv:74, rate:10},  // Nighthound (Dark/Umbra)
+      {id:119, minLv:70, maxLv:74, rate:10},  // Dreadmaw (Dark/Umbra)
       {id:222, minLv:70, maxLv:74, rate:10},  // Mindpuff (base, for Psytheon chain)
-      {id:223, minLv:70, maxLv:74, rate:10},  // Cerebrix (mid → after 222 ✓)
-      {id:255, minLv:71, maxLv:75, rate:10}   // Wavrix (mid → Aquapuff on route16 ✓)
+      {id:223, minLv:70, maxLv:74, rate:10},  // Recallum (mid → after 222 ✓)
+      {id:255, minLv:71, maxLv:75, rate:10}   // Psychotide (mid → Aquapuff on route16 ✓)
     ],
     ngPlusWildMonsters:[{id:397, minLv:70, maxLv:76, rate:8}], // thinned from mega-area
     hasGym:false, requiredBadges:15, mapPos:{x:68, y:78}
@@ -6338,8 +6338,8 @@ const WORLD_DATA = {
     desc:"A tear in reality pulsing with dark energy near Route 16. The Umbra Order's experiments cracked open this rift, and within its swirling darkness, Voidraxis — the Void Star — awaits any trainer bold enough to enter.",
     connections:["starbloom","umbra_lab"],
     wildMonsters:[
-      {id:119, minLv:72, maxLv:77, rate:30},  // Nighthound (Dark)
-      {id:122, minLv:72, maxLv:77, rate:30},  // Spectrewing (Dark)
+      {id:119, minLv:72, maxLv:77, rate:30},  // Dreadmaw (Dark)
+      {id:122, minLv:72, maxLv:77, rate:30},  // Caveshroud (Dark)
       {id:120, minLv:73, maxLv:78, rate:25},  // dark-type
       {id:131, minLv:73, maxLv:78, rate:15}   // Necrothon (Dark/Grass)
     ],
@@ -6353,10 +6353,10 @@ const WORLD_DATA = {
     connections:["murk_crossing","mire_depths"],
     wildMonsters:[
       {id:156, minLv:58, maxLv:63, rate:20},  // Venekon (mid)
-      {id:158, minLv:58, maxLv:63, rate:20},  // Acidoloth (mid)
-      {id:159, minLv:60, maxLv:65, rate:20},  // Acidovast (final)
+      {id:158, minLv:58, maxLv:63, rate:20},  // Corrodisc (mid)
+      {id:159, minLv:60, maxLv:65, rate:20},  // Dissotoad (final)
       {id:164, minLv:58, maxLv:63, rate:20},  // Blightmite (base)
-      {id:165, minLv:59, maxLv:64, rate:20}   // Noxoveth (mid → after 164 ✓)
+      {id:165, minLv:59, maxLv:64, rate:20}   // Venowarn (mid → after 164 ✓)
     ],
     hasGym:false, requiredBadges:9, mapPos:{x:42, y:63}
   },
@@ -6366,8 +6366,8 @@ const WORLD_DATA = {
     connections:["quake_foothills","terravault"],
     wildMonsters:[
       {id:97,  minLv:62, maxLv:67, rate:25},  // Tectonvast (final, 96 on quake_foothills ✓)
-      {id:100, minLv:62, maxLv:67, rate:25},  // Venomvast (final, 99 on quake_foothills ✓)
-      {id:103, minLv:62, maxLv:67, rate:25},  // Crustvast (final, 102 on quake_foothills ✓)
+      {id:100, minLv:62, maxLv:67, rate:25},  // Craterlurk (final, 99 on quake_foothills ✓)
+      {id:103, minLv:62, maxLv:67, rate:25},  // Calciderm (final, 102 on quake_foothills ✓)
       {id:105, minLv:63, maxLv:68, rate:15},  // Dravanas (final, 104 on route11 ✓)
       {id:107, minLv:63, maxLv:68, rate:10}   // Quakeon (final, 106 on route11 ✓)
     ],
@@ -6378,7 +6378,7 @@ const WORLD_DATA = {
     desc:"The westernmost tip of the region — where Gale Ridge reaches its farthest point before turning sharply east. The wind here changes direction mid-step.",
     connections:["wind_hollow","gale_ridge_east"],
     wildMonsters:[
-      {id:108, minLv:63, maxLv:68, rate:15},  // Gustkin (base)
+      {id:108, minLv:63, maxLv:68, rate:15},  // Silvergust (base)
       {id:109, minLv:64, maxLv:69, rate:20},  // Siroccomane (mid → after 108 ✓)
       {id:111, minLv:63, maxLv:68, rate:15},  // Aeolin (base)
       {id:112, minLv:64, maxLv:69, rate:20},  // Swirlavel (mid → after 111 ✓)
@@ -6392,8 +6392,8 @@ const WORLD_DATA = {
     desc:"Collapsed factory halls stretching east from the old Ironwork Path. Metal-type Lumori nest in the rusted machinery, and mid-stage chains are common sightings.",
     connections:["ash_fields","smelter_pass"],
     wildMonsters:[
-      {id:147, minLv:65, maxLv:70, rate:15},  // Ferrokin (base)
-      {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid → after 147 ✓)
+      {id:147, minLv:65, maxLv:70, rate:15},  // Scrapsapien (base)
+      {id:148, minLv:66, maxLv:71, rate:20},  // Stoicguard (mid → after 147 ✓)
       {id:150, minLv:65, maxLv:70, rate:15},  // Gearon (base)
       {id:151, minLv:66, maxLv:71, rate:20},  // Alloytron (mid → after 150 ✓)
       {id:134, minLv:66, maxLv:71, rate:15},  // Aeronyx (base)
@@ -6412,10 +6412,10 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:156, minLv:59, maxLv:64, rate:20},  // Venekon (mid, base 155 on route10 ✓)
       {id:297, minLv:58, maxLv:63, rate:20},  // Blightwing (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
-      {id:165, minLv:59, maxLv:64, rate:20},  // Noxoveth (mid, 164 on murk_crossing ✓)
+      {id:165, minLv:59, maxLv:64, rate:20},  // Venowarn (mid, 164 on murk_crossing ✓)
       {id:296, minLv:58, maxLv:63, rate:20},  // Plaguefly (base Poi/Bug)
       {id:299, minLv:58, maxLv:63, rate:10},  // Stinglet (base Bug/Poi, also on route10)
-      {id:218, minLv:59, maxLv:64, rate:10}   // Mistwraith (base Spectral/Dark, item evo)
+      {id:218, minLv:59, maxLv:64, rate:10}   // Duskmist (base Spectral/Dark, item evo)
     ],
     legendaryEncounter:{monsterId:316, level:62}, // static legendary (obtainability fix)
     hasGym:false, requiredBadges:9, mapPos:{x:41, y:67}
@@ -6441,11 +6441,11 @@ const WORLD_DATA = {
     desc:"An underground cavern lit by bioluminescent fungi on the route to Cobweb Gully. Grass and Bug types thrive in the moist, glowing dark.",
     connections:["route12","cobweb_gully"],
     wildMonsters:[
-      {id:197, minLv:62, maxLv:67, rate:15},  // Vermelin (base Bug)
+      {id:197, minLv:62, maxLv:67, rate:15},  // Photoworm (base Bug)
       {id:215, minLv:62, maxLv:67, rate:20},  // Veilwisp (base Mental)
       {id:216, minLv:63, maxLv:68, rate:15},  // Mindrift (mid → Psywisp 215 ✓)
-      {id:262, minLv:62, maxLv:67, rate:20},  // Seedling (base Grass/Poi)
-      {id:263, minLv:63, maxLv:68, rate:15},  // Vinrix (mid → after 262 ✓)
+      {id:262, minLv:62, maxLv:67, rate:20},  // Transluceed (base Grass/Poi)
+      {id:263, minLv:63, maxLv:68, rate:15},  // Tendrilisk (mid → after 262 ✓)
       {id:272, minLv:62, maxLv:67, rate:15}   // Embrix (base Fire/Draconic)
     ],
     ngPlusWildMonsters:[{id:350, minLv:63, maxLv:68, rate:10}], // NG+ standalone: Fernwrath
@@ -6456,8 +6456,8 @@ const WORLD_DATA = {
     desc:"A sacred forest grove of thousand-year-old trees. The air hums with ancient energy. Grass types here have evolved beyond their usual forms.",
     connections:["cobweb_gully","silkwood"],
     wildMonsters:[
-      {id:221, minLv:64, maxLv:69, rate:20},  // Grimveil (mid → Hauntrix 220 on route13 ✓)
-      {id:264, minLv:64, maxLv:69, rate:20},  // Thornvast (final → Vinrix 263 on fungal_cavern ✓)
+      {id:221, minLv:64, maxLv:69, rate:20},  // Shadowveil (mid → Hauntrix 220 on route13 ✓)
+      {id:264, minLv:64, maxLv:69, rate:20},  // Impenezard (final → Vinrix 263 on fungal_cavern ✓)
       {id:199, minLv:63, maxLv:68, rate:20},  // Aeridaleth (final Bug)
       {id:265, minLv:63, maxLv:68, rate:20},  // Mosswing (standalone Grass/Bug)
       {id:273, minLv:63, maxLv:68, rate:10},  // Blazeon (mid → Embrix 272 on fungal_cavern ✓)
@@ -6475,7 +6475,7 @@ const WORLD_DATA = {
       {id:292, minLv:64, maxLv:69, rate:25},  // Galehorn (mid → 291 Breezekin on route13 ✓)
       {id:293, minLv:63, maxLv:68, rate:20},  // Gustpuff (base Wind)
       {id:222, minLv:63, maxLv:68, rate:20},  // Mindpuff (base Mental)
-      {id:223, minLv:64, maxLv:69, rate:15},  // Cerebrix (mid → after 222 ✓)
+      {id:223, minLv:64, maxLv:69, rate:15},  // Recallum (mid → after 222 ✓)
       {id:238, minLv:63, maxLv:68, rate:10},  // Snowble (base Ice/Wind)
       {id:284, minLv:63, maxLv:68, rate:10}   // Fluffkin (base Normal/Wind)
     ],
@@ -6491,7 +6491,7 @@ const WORLD_DATA = {
       {id:294, minLv:65, maxLv:70, rate:25},  // Stormwing (mid → 293 on gale_peak ✓)
       {id:295, minLv:66, maxLv:71, rate:15},  // Cyclonax (final → after 294 ✓)
       {id:239, minLv:65, maxLv:70, rate:20},  // Blizzariel (mid → 238 on gale_peak ✓)
-      {id:240, minLv:66, maxLv:71, rate:15},  // Permafrix (final → after 239 ✓)
+      {id:240, minLv:66, maxLv:71, rate:15},  // Tundrafox (final → after 239 ✓)
       {id:285, minLv:65, maxLv:70, rate:15},  // Cloudrift (mid → Fluffkin on wind_hollow ✓)
       {id:174, minLv:65, maxLv:70, rate:10}   // Scalevorn (standalone Draconic/Metal)
     ],
@@ -6566,7 +6566,7 @@ const WORLD_DATA = {
     connections:["route16","cosmic_cavern"],
     wildMonsters:[
       {id:254, minLv:70, maxLv:75, rate:20},  // Bubblepuff (base, also on route16)
-      {id:255, minLv:71, maxLv:76, rate:20},  // Wavrix (mid → after 254 ✓)
+      {id:255, minLv:71, maxLv:76, rate:20},  // Psychotide (mid → after 254 ✓)
       {id:215, minLv:70, maxLv:75, rate:15},  // Veilwisp (base Mental)
       {id:216, minLv:71, maxLv:76, rate:15},  // Mindrift (mid → Psywisp 215 ✓)
       {id:259, minLv:70, maxLv:75, rate:15},  // Lumejell (standalone Aquatic/Psy)
@@ -6581,11 +6581,11 @@ const WORLD_DATA = {
     desc:"A high plateau above Cosmic Cavern where the sky seems close enough to touch. Rare Lumori shaped by cosmic energy appear here in the hours around midnight.",
     connections:["cosmic_cavern","starbloom"],
     wildMonsters:[
-      {id:217, minLv:72, maxLv:77, rate:20},  // Mentovast (final Mental)
+      {id:217, minLv:72, maxLv:77, rate:20},  // Distorsion (final Mental)
       {id:224, minLv:72, maxLv:77, rate:20},  // Psytheon (final → 223 on cosmic_cavern ✓)
       {id:303, minLv:72, maxLv:77, rate:15},  // Lumivane (Moon Stone evo, base 302 on route16 ✓)
-      {id:229, minLv:72, maxLv:77, rate:15},  // Prismolt (Thunder Stone evo, base 226 on route16 ✓)
-      {id:228, minLv:72, maxLv:77, rate:10},  // Spectroon (Moon Stone evo, base 226 on route16 ✓)
+      {id:229, minLv:72, maxLv:77, rate:15},  // Radiafish (Thunder Stone evo, base 226 on route16 ✓)
+      {id:228, minLv:72, maxLv:77, rate:10},  // Lunaroon (Moon Stone evo, base 226 on route16 ✓)
       {id:309, minLv:72, maxLv:77, rate:10},  // Tidephant (Aquatic Stone evo, base 308 → Aquatic/Dark)
       {id:308, minLv:71, maxLv:76, rate:10}   // Seafraith (base Aquatic/Dark)
     ],

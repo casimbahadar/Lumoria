@@ -54,20 +54,24 @@
 - Toggle mute via nav bar music button
 - No external audio files needed (all synthesized in-browser)
 
-### 11. Variant Luminex pages + Shiny showcase UI 🔲 TODO
-- **Per-id variant Luminex page:** build a Luminex detail view for each id's variant form (its own page/tab alongside the standard form), surfacing the variant's stats, types, lore, description, learnset and sprite.
-- **Shiny showcase page:** add a gallery page where players can browse the shiny sprites of every Lumori they have **seen or caught** so far (locked/silhouette for unseen). Filterable like the main Luminex.
-- **Shiny chance beyond wild battles:** today shiny rolls only fire on wild encounters — extend the shiny roll to non-wild battles too (gym, trainer/rival, champion, Umbra, Vaeldris wielder, quest-boss) so shinies encountered/caught in those contexts register and display.
-- **All 500 ids can be shiny.**
-- **Variant + shiny simultaneity:** pre-462 ids (1–461) and the 13 obtainable Forgotten Lumori (the BST-720 wielder-catchables) can be **both a variant form AND shiny at the same time** — treat variant and shiny as independent flags so the two states stack. (The 26 non-catchable Forgotten ids are out of scope for variants; confirm shiny scope for them.)
-- **Storage + indicators:** persist seen/caught shiny and variant state in the save; show variant/shiny badges in Luminex and team views.
+### 11. Procedural variant system + shiny showcase 🚧 IN PROGRESS (branch `claude/variant-shiny-ui`)
+**Full design: `docs/variant-system-spec.md`.** Variants are now a *procedural per-instance* system, not hand-authored forms:
+- **Variant roll:** 1/200 per-mon in **every** battle type (either side). Each variant rolls and persists `variantTypes`, `variantBase`, `variantImmune`.
+- **`variantTypes`:** 85% random 2-distinct / 10% mono / 5% original combo; pool = 24 types (never Aether/Chrono); Crystal/Primal/Stellar each 1/500. (Rewrite the stale legacy-type `getVariantTypes`.)
+- **`variantBase`:** permute the 6 base values, then 3 independent gates (Large 20% / Medium 20% / Small 40%; fail-all ≈ 38.4% = no drift); Large → 1 stat ≤15%, Medium → 0/1/2 at 30/50/20 ≤10%, Small → each leftover stat 40% ≤5%; `±ceil(stat×rand1..cap%)`, 50/50 up/down, uniform stat picks. BST drifts.
+- **`variantImmune`:** 1 random of the 24 types, 0× damage; shown in team detail post-catch.
+- **Shiny:** 1/2048 (×4 NG+, × time/event); now rolls in **all** battle types; +10% stats. All 500 shiny-capable. **Variant + shiny stack** for the 474 catchable.
+- **Tracker:** Luminex 🔀 tab logging every **encountered** variant (caught / seen / uncatchable enemy) per species — stat distributions, typings, immunities. Plus ✨ shiny showcase (seen/caught).
+- **Save:** add `shinySeen/shinyCaught/variantSeen/variantCaught` sets + migration.
+- **Online:** variants **and** shinies both usable (trades; future PvP).
 
-### 12. Design + implement variant forms for the 474 obtainable Lumori 🔲 TODO
-- Brainstorm and author a **variant form** for each of the **474 obtainable ids** (461 in the pre-462 range + the 13 obtainable Forgotten = 474).
-- Each variant gets its own **stats (base spread), types, learnset/moveset, lore, description, and emoji/sprite hint** — a meaningful alternate take, not a recolor (that is what shiny is for).
-- **Data model decision first:** variant block embedded per Lumori (e.g. `variant:{ types, base, learnset, desc, lore, emoji }`) vs. a parallel variant table keyed by id. Pick one before authoring.
-- **Rules still apply:** variant types must respect the pristine-combo intent and the post-game/legendary typing reservations (Aether/Chrono Forgotten-only; Crystal/Primal/Stellar legendary-only pre-462); watch archetype duplication.
-- **Batch the authoring** the same way as the new NG+ families (≈6 families/ids per commit), validating types + move keys per batch.
+### 12. Variant content / deeper randomization layer 🔲 TODO
+- The variant *mechanic* (stats/typing/immunity randomization) is handled in #11. #12 is the **content** layer on top: per-Lumori variant **lore, descriptions, movesets** and any deeper randomization.
+- **Batch** the authoring like the NG+ families; validate move keys/types per batch.
+
+### 13. Online PvP battle system 🔲 TODO (new)
+- No PvP exists yet (only leaderboards, trades, events). Build async or real-time online battles (Firebase): challenge/matchmaking, team submission + validation, turn resolution reusing the battle engine, result reporting.
+- Per current ruling, **both variants and shinies are allowed** in PvP (no shiny exclusion).
 
 ---
 

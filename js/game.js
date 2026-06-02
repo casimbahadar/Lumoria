@@ -99,6 +99,8 @@ function loadGame(slot) {
     data.variantDexSeen = new Set(data.variantDexSeen || []);
     data.variantDexCaught = new Set(data.variantDexCaught || []);
     if (!data.variantLog) data.variantLog = {};
+    if (!data.variantLore) data.variantLore = {}; // cached bespoke variant prose (Route 1)
+    if (typeof VariantLLM !== "undefined" && VariantLLM.hydrate) VariantLLM.hydrate(data.variantLore);
     if (!data.seenInArea) data.seenInArea = {};
     for (const k of Object.keys(data.seenInArea)) data.seenInArea[k] = new Set(data.seenInArea[k]);
     // Ensure new fields exist for old saves
@@ -1527,7 +1529,15 @@ async function playerUseBall(orbId) {
     G.caughtMonsters.add(enemyActiveMon.monsterId);
     if (enemyActiveMon.shiny) G.shinyCaught = (G.shinyCaught || 0) + 1;
     if (enemyActiveMon.shiny) (G.shinyDexCaught ||= new Set()).add(enemyActiveMon.monsterId);
-    if (enemyActiveMon.variant) { (G.variantDexCaught ||= new Set()).add(enemyActiveMon.monsterId); recordVariantLog(enemyActiveMon, true); }
+    if (enemyActiveMon.variant) {
+      (G.variantDexCaught ||= new Set()).add(enemyActiveMon.monsterId); recordVariantLog(enemyActiveMon, true);
+      // Route 1 (dormant unless VariantLLM.ENABLED): fetch + cache bespoke prose for this
+      // caught variant. No-op offline/disabled — team detail keeps using the C generator.
+      if (typeof VariantLLM !== "undefined" && VariantLLM.warm) {
+        const cdef = MONSTERS_DATA[enemyActiveMon.monsterId];
+        VariantLLM.warm(cdef, enemyActiveMon, (k, entry) => { (G.variantLore ||= {})[k] = entry; if (typeof saveGame === "function") saveGame(); });
+      }
+    }
     if (typeof onLumoriCaught === "function") onLumoriCaught(!!enemyActiveMon.shiny);
     if (enemyActiveMon.shiny)   checkAchievement("catch_shiny");
     if (enemyActiveMon.variant) checkAchievement("catch_variant");
@@ -1583,7 +1593,8 @@ function createCaughtSlot(battleMon) {
     shiny: !!battleMon.shiny, variant: !!battleMon.variant,
     variantTypes: battleMon.variantTypes || null,
     variantBase: battleMon.variantBase || null,
-    variantImmune: battleMon.variantImmune || null
+    variantImmune: battleMon.variantImmune || null,
+    variantMods: battleMon.variantMods || null
   };
 }
 
@@ -2828,6 +2839,27 @@ function showTeamDetail(slot, idx) {
     </div>`;
   }).join("");
 
+  // Variant distortion block (caught variant only): bespoke/C lore + generated learnset.
+  let variantHTML = "";
+  if (slot.variant && typeof VariantContent !== "undefined") {
+    const vc = (typeof VariantLLM !== "undefined" && VariantLLM.getContent)
+      ? VariantLLM.getContent(def, slot) : VariantContent.generate(def, slot);
+    const ls = VariantContent.generateLearnset ? VariantContent.generateLearnset(def, slot) : [];
+    const lsRows = ls.map(([l, m]) => {
+      const mv = MOVES_DATA[m];
+      return mv ? `<tr><td>Lv${l}</td><td>${mv.name}</td><td><span class="type-badge type-${mv.type}">${mv.type}</span></td><td style="text-align:right">${mv.power || "—"}</td></tr>` : "";
+    }).join("");
+    if (vc) variantHTML = `
+      <div class="detail-section variant-content">
+        <h4>🔀 Variant Distortion</h4>
+        <p class="variant-desc">${vc.desc || ""}</p>
+        <p class="variant-lore">${vc.lore || ""}</p>
+        ${vc.behaviour ? `<p class="variant-behaviour"><strong>In battle:</strong> ${vc.behaviour}</p>` : ""}
+        ${lsRows ? `<h4 style="margin-top:0.7rem">Variant Learnset</h4>
+        <div class="variant-learnset-wrap"><table class="variant-learnset"><tbody>${lsRows}</tbody></table></div>` : ""}
+      </div>`;
+  }
+
   // Held item display
   const currentHeld = slot.heldItem ? ITEMS_DATA[slot.heldItem] : null;
   const heldDisplay = currentHeld
@@ -2886,6 +2918,7 @@ function showTeamDetail(slot, idx) {
       </div>
     </div>
     <div class="detail-section"><h4>Moves</h4><div class="moves-grid">${movesHTML}</div></div>
+    ${variantHTML}
     <div class="detail-section">
       <h4>Held Item</h4>
       ${heldDisplay}
@@ -3354,16 +3387,36 @@ function showVariantDetail(mid) {
   document.getElementById("dex-detail").classList.remove("hidden");
   document.getElementById("dex-grid").style.display = "none";
   const keys = ["hp","atk","def","spa","spd","spe"];
+  const SHAPE = { swift:"swift, fragile", brute:"physical bruiser", caster:"ranged attacker", bulwark:"durable wall", even:"balanced" };
+  const hasVC = typeof VariantContent !== "undefined";
   const rows = log.slice().reverse().map((e, i) => {
     const n = log.length - i;
+    const v = { variant:true, variantTypes:e.types, variantBase:e.base, variantImmune:e.immune };
     const types = e.types ? e.types.map(t => `<span class="type-badge type-${t}">${t}</span>`).join(" ") : "—";
-    const imm = e.immune ? `<span class="type-badge type-${e.immune}">${e.immune}</span>` : "—";
-    const base = e.base ? keys.map(k => `${k.toUpperCase()}&nbsp;${e.base[k]}`).join(" · ") : "—";
+    const prof = (hasVC && e.base) ? VariantContent.statProfile(def, e.base) : null;
+    const head = `<div><strong>#${n}</strong> — ${e.caught ? "🎒 Caught" : "👁 Seen"}${e.shiny ? " ✨ Radiant" : ""}</div>
+      <div style="margin:.2rem 0">Typing: ${types}</div>`;
+    if (e.caught) {
+      // Full reveal: exact stats, immunity, bespoke/C lore + behaviour, generated learnset.
+      const imm = e.immune ? `<span class="type-badge type-${e.immune}">${e.immune}</span>` : "—";
+      const base = e.base ? keys.map(k => `${k.toUpperCase()}&nbsp;${e.base[k]}`).join(" · ") : "—";
+      const vc = hasVC ? ((typeof VariantLLM !== "undefined" && VariantLLM.getContent) ? VariantLLM.getContent(def, v) : VariantContent.generate(def, v)) : null;
+      const ls = (hasVC && VariantContent.generateLearnset) ? VariantContent.generateLearnset(def, v) : [];
+      const lsRows = ls.map(([l, m]) => { const mv = MOVES_DATA[m]; return mv ? `<tr><td>Lv${l}</td><td>${mv.name}</td><td><span class="type-badge type-${mv.type}">${mv.type}</span></td><td style="text-align:right">${mv.power || "—"}</td></tr>` : ""; }).join("");
+      return `<div class="detail-section variant-content" style="text-align:left">
+        ${head}
+        <div style="margin:.2rem 0">🛡️ Immune to: ${imm}</div>
+        <div style="font-size:.72rem;color:var(--text-muted)">Stat spread: ${base}</div>
+        ${vc ? `<p class="variant-desc">${vc.desc || ""}</p><p class="variant-lore">${vc.lore || ""}</p>${vc.behaviour ? `<p class="variant-behaviour"><strong>In battle:</strong> ${vc.behaviour}</p>` : ""}` : ""}
+        ${lsRows ? `<div class="variant-learnset-wrap"><table class="variant-learnset"><tbody>${lsRows}</tbody></table></div>` : ""}
+      </div>`;
+    }
+    // Seen / enemy (uncatchable): observed only — typing + qualitative shape; lore & learnset locked.
     return `<div class="detail-section" style="text-align:left">
-      <div><strong>#${n}</strong> — ${e.caught ? "🎒 Caught" : "👁 Seen"}${e.shiny ? " ✨ Radiant" : ""}</div>
-      <div style="margin:.2rem 0">Typing: ${types}</div>
-      <div style="margin:.2rem 0">🛡️ Immune to: ${imm}</div>
-      <div style="font-size:.72rem;color:var(--text-muted)">Stat spread: ${base}</div>
+      ${head}
+      <div style="font-size:.72rem;color:var(--text-muted)">Observed build: ${prof ? (SHAPE[prof.label] || prof.label) + ", " + prof.heft + " than base" : "unclear"}</div>
+      <div style="font-size:.72rem;color:var(--text-muted)">🛡️ Immune to: ???</div>
+      <div style="font-size:.72rem;color:#c9a0dc;margin-top:.2rem">🔒 Catch this variant to reveal its lore, immunity, and learnset.</div>
     </div>`;
   }).join("") || "<p style='color:var(--text-muted)'>No variants recorded yet.</p>";
   document.getElementById("dex-detail-content").innerHTML = `

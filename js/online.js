@@ -408,6 +408,13 @@ async function cancelTrade(tradeId) {
 // (see buildBattleMon). See docs/pvp-spec.md.
 // ============================================================
 
+// Rating: Elo-based, everyone starts at PVP_BASE_RATING. Two K-factors amplify
+// upsets — beating a higher-rated player (or losing to a lower-rated one) uses
+// K_UPSET; expected results use the smaller K_EXPECTED. See docs/pvp-spec.md.
+const PVP_BASE_RATING = 1000;
+const PVP_K_EXPECTED  = 24;
+const PVP_K_UPSET     = 56;
+
 // Serialize a party mon into a PvP team slot. Level/IVs are normalized at battle
 // time, but variant/shiny/held/moves/nature are carried so the snapshot battles
 // exactly as the owner built it. currentHP/statuses keep buildBattleMon happy.
@@ -508,8 +515,18 @@ async function quickMatch() {
 async function recordPvpResult(won) {
   const ctx = (typeof battleContext !== "undefined" && battleContext) ? battleContext : {};
   const oppName = ctx.pvpOpponentName || "your opponent";
-  const before = G.pvpRating || 0;
-  const delta = won ? 25 : -15;
+
+  // Elo with amplified upsets: a larger K when you beat someone rated above you
+  // (or lose to someone below you), so upsets swing harder than expected results.
+  const before = G.pvpRating || PVP_BASE_RATING;
+  const oppRating = ctx.pvpOpponentRating || PVP_BASE_RATING;
+  const expected = 1 / (1 + 10 ** ((oppRating - before) / 400));
+  const gap = oppRating - before;                       // + means opponent is stronger
+  const upset = (won && gap > 0) || (!won && gap < 0);
+  const K = upset ? PVP_K_UPSET : PVP_K_EXPECTED;
+  let delta = Math.round(K * ((won ? 1 : 0) - expected));
+  if (won && delta < 1) delta = 1;                       // a win always gains ≥1
+  if (!won && delta > -1) delta = -1;                    // a loss always costs ≥1
   G.pvpRating = Math.max(0, before + delta);
   if (won) G.pvpWins = (G.pvpWins || 0) + 1; else G.pvpLosses = (G.pvpLosses || 0) + 1;
   saveGame();
@@ -539,7 +556,21 @@ async function recordPvpResult(won) {
 async function showPvPScreen() {
   if (!requireOnline()) return;
   showScreen("screen-pvp");
+  renderPvpRatingBanner();
   loadOpenChallenges();
+}
+
+// "Your rating: ⭐ N · W–L" header so the player sees standing without opening
+// the leaderboard.
+function renderPvpRatingBanner() {
+  const el = document.getElementById("pvp-rating-banner");
+  if (!el || !G) return;
+  const rating = G.pvpRating || PVP_BASE_RATING;
+  const w = G.pvpWins || 0, l = G.pvpLosses || 0;
+  const played = (G.pvpRating !== undefined) || w || l;
+  el.innerHTML = played
+    ? `Your rating: <strong>⭐ ${rating}</strong> · <span class="pvp-record">${w}W–${l}L</span>`
+    : `Your rating: <strong>⭐ ${PVP_BASE_RATING}</strong> · <span class="pvp-record">unranked — play your first match!</span>`;
 }
 
 async function loadOpenChallenges() {

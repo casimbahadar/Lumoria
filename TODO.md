@@ -76,8 +76,12 @@
 - **Matchmaking:** browsable board + one-tap random/rating queue + **passcode rooms** (private by default, flippable to public spectating — Showdown-style).
 - Variants **and** shinies both allowed. Rating → `/leaderboards/pvp`.
 - ⚠️ Untestable here (placeholder `FIREBASE_CONFIG`, no browser/2nd client) — write correct-by-inspection, playtest after real credentials.
-- **Phase A ✅ (done, unverified):** Lv-50 normalization in `buildBattleMon` (force Lv 50 + perfect IVs + full HP when `battleContext.isPvP`); `startPvpBattle()` plays the opponent's snapshot for real vs the AI (single mode, snapshots/restores party HP so PvP neither damages nor heals); `endBattle` PvP branch → `recordPvpResult()` (Elo-ish ±25/−15 → `pvp_rating` leaderboard, no XP/blackout/gym rewards); `quickMatch()` (near-rating pick) + browsable board now launch real battles; full team serialization (`pvpSerializeMon`: moves/nature/held/shiny/variant); Quick Match button; fixed a latent crash (`GYM_LEADERS[undefined]`) for multi-mon opponents. Retired the old power-score `simulatePvPBattle`.
-- **Phase B (TODO, fresh session):** passcode rooms public/private + host-authoritative live turn-sync + public spectating (live skeleton already exists in `online.js`: `createLiveRoom`/`watchLiveRoom`/`resolveLiveTurn`).
+- **Phase A ✅ (done, unverified):** Lv-50 normalization in `buildBattleMon` (force Lv 50 + perfect IVs + full HP when `battleContext.isPvP`); `startPvpBattle()` plays the opponent's snapshot for real vs the AI (single mode, snapshots/restores party HP so PvP neither damages nor heals); `endBattle` PvP branch → `recordPvpResult()`; `quickMatch()` (near-rating pick) + browsable board now launch real battles; full team serialization (`pvpSerializeMon`: moves/nature/held/shiny/variant); Quick Match button; fixed a latent crash (`GYM_LEADERS[undefined]`) for multi-mon opponents. Retired the old power-score `simulatePvPBattle`.
+- **Rating ✅ (done, unverified):** Elo with **amplified upsets** (two-K: `PVP_K_UPSET=56` / `PVP_K_EXPECTED=24`, base 1000) → `pvp_rating` leaderboard; no XP/blackout/gym rewards. PvP screen shows a rating banner (`renderPvpRatingBanner`: "Your rating: ⭐ N · W–L"). Acceptor-only for now; challenger mailbox deferred.
+- **Phase B (TODO, fresh session):** async **Doubles (2v2)** + **Gauntlet** (sequential snapshots); challenger rating **mailbox** (`/pvpMailbox/{uid}`). Doubles must add the no-XP / opponent-name guards to the multi-battle faint path (`game.js` ~2640-2712), mirroring the single-path fix.
+- **Phase C (TODO):** async **FFA Royale** — engine must support **>2 sides**.
+- **Phase D (TODO):** real-time — passcode rooms public/private + host-authoritative live turn-sync + public spectating + **live 2v2 / live FFA** (live skeleton already exists in `online.js`: `createLiveRoom`/`watchLiveRoom`/`resolveLiveTurn`).
+- See `docs/pvp-spec.md` for the rating formula + full modes roadmap.
 
 ---
 

@@ -51,8 +51,46 @@ variant fields (variantBase/types/immune). Reuse `buildMonBase(def,50,ivs,nature
   "Create Room" (passcode + public toggle), "Join Room" (id + passcode), rating display.
 - Reuse trade-board card styling; reuse battle screen for the actual fights.
 
+## Rating (Elo with amplified upsets)
+Everyone starts at `PVP_BASE_RATING = 1000`. Standard Elo expectation, but a
+**two-K** scheme so upsets swing harder than expected results:
+```
+expected = 1 / (1 + 10^((oppRating - myRating) / 400))
+gap      = oppRating - myRating            // + means opponent stronger
+upset    = (won && gap > 0) || (!won && gap < 0)
+K        = upset ? PVP_K_UPSET(56) : PVP_K_EXPECTED(24)
+delta    = round(K * ((won ? 1 : 0) - expected))   // floored to ±1 minimum
+```
+Swings @1000: equal ±12; beat +300 → +48, lose to it → −4; beat −300 → +4,
+lose to it → −48. Tune via `PVP_K_*` constants in `online.js`.
+
+**Async two-sided caveat:** only the acceptor is online, so only their rating
+updates immediately (using the opponent's rating stored on the challenge). The
+challenger's rating reconciliation needs a **pending-result mailbox** (`/pvpMailbox/{uid}`)
+their client drains on next login — deferred to a later phase.
+
+**Where it's shown:** ⭐ PvP Rating leaderboard tab; post-battle popup
+("Rating +48 → 1048"); and a rating banner header on the PvP screen
+(`renderPvpRatingBanner` → "Your rating: ⭐ N · W–L").
+
+## Modes roadmap (decided "both eventually")
+- **1v1** — shipped (Phase A, async vs AI).
+- **2v2** — *async Doubles vs AI* first (reuse `startMultiBattle` "double" + the
+  `isPvP` Lv-50 normalization; must add the same no-XP / opponent-name guards the
+  single path got in `handleEnemyFainted`, in the multi-battle faint path ~`game.js:2640-2712`).
+  Then *live 2-human tag* in the live phase.
+- **FFA** — *async Royale vs AI snapshots* (3–4 teams, last team standing; requires
+  teaching the engine to handle **>2 sides** — the real work). Then *live multiplayer FFA*.
+- **Gauntlet** (near-term, light) — fight several players' snapshots back-to-back,
+  ranked by clears; mostly reuses the 1v1 path.
+
 ## Build phases
-- **Phase A:** data layer + Lv-50 normalization + async battle (post/board/quick-match/challenge) + PvP rating/leaderboard + screen.
-- **Phase B:** passcode room create/join + host-authoritative live turn-sync + public spectating.
+- **Phase A:** ✅ Lv-50 normalization + async 1v1 (post/board/quick-match/accept) +
+  Elo rating (two-K, amplified upsets) + `pvp_rating` leaderboard + PvP screen with
+  rating banner. *Unverified pending real Firebase + playtest.*
+- **Phase B:** async **Doubles (2v2)** + **Gauntlet**; challenger rating **mailbox**.
+- **Phase C:** async **FFA Royale** (>2-side engine).
+- **Phase D:** real-time — passcode rooms (private/public) + host-authoritative live
+  turn-sync + public spectating + **live 2v2 / live FFA**.
 
 Each phase committed incrementally; flagged UNVERIFIED until real Firebase + playtest.

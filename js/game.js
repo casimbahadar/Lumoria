@@ -4112,6 +4112,7 @@ function startPvpBattle(oppSlots, oppName, meta) {
     pvpChallengeId: meta.challengeId || null,
     pvpOpponentName: name,
     pvpOpponentUID: meta.opponentUID || null,
+    pvpOpponentRating: meta.opponentRating || 0,
     battleMode: "single",
     enemyTeamIdx: 0,
   };

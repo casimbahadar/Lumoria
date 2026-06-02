@@ -2520,6 +2520,13 @@ button, a, [role="button"] {
 .nav-btn-online { background: linear-gradient(135deg, #1a3a6b 0%, #1e6bb8 100%); color: #fff; }
 
 /* ===== PvP MODE TABS ===== */
+.pvp-rating-banner {
+  margin:0.5rem 1rem 0; padding:0.5rem 0.9rem; border-radius:8px;
+  background:var(--bg-panel); border:1px solid var(--border);
+  color:var(--text-secondary); font-size:0.9rem;
+}
+.pvp-rating-banner strong { color:var(--text-primary); }
+.pvp-rating-banner .pvp-record { color:var(--text-secondary); }
 .pvp-mode-tabs { display:flex; gap:0.5rem; padding:0.75rem 1rem 0; }
 .pvp-tab {
   padding:0.4rem 1.2rem; border-radius:6px 6px 0 0; border:1px solid var(--border);

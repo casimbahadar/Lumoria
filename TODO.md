@@ -76,7 +76,8 @@
 - **Matchmaking:** browsable board + one-tap random/rating queue + **passcode rooms** (private by default, flippable to public spectating — Showdown-style).
 - Variants **and** shinies both allowed. Rating → `/leaderboards/pvp`.
 - ⚠️ Untestable here (placeholder `FIREBASE_CONFIG`, no browser/2nd client) — write correct-by-inspection, playtest after real credentials.
-- **Phase A:** data layer + Lv-50 + async battle + rating + screen. **Phase B:** rooms + live turn-sync + spectating.
+- **Phase A ✅ (done, unverified):** Lv-50 normalization in `buildBattleMon` (force Lv 50 + perfect IVs + full HP when `battleContext.isPvP`); `startPvpBattle()` plays the opponent's snapshot for real vs the AI (single mode, snapshots/restores party HP so PvP neither damages nor heals); `endBattle` PvP branch → `recordPvpResult()` (Elo-ish ±25/−15 → `pvp_rating` leaderboard, no XP/blackout/gym rewards); `quickMatch()` (near-rating pick) + browsable board now launch real battles; full team serialization (`pvpSerializeMon`: moves/nature/held/shiny/variant); Quick Match button; fixed a latent crash (`GYM_LEADERS[undefined]`) for multi-mon opponents. Retired the old power-score `simulatePvPBattle`.
+- **Phase B (TODO, fresh session):** passcode rooms public/private + host-authoritative live turn-sync + public spectating (live skeleton already exists in `online.js`: `createLiveRoom`/`watchLiveRoom`/`resolveLiveTurn`).
 
 ---
 

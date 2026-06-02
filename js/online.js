@@ -59,6 +59,7 @@ const LB_CATEGORIES = [
   { id:"dex",         label:"Lumori Caught",   icon:"📖", getValue: g => (g.caughtMonsters?.size || [...(g.caughtMonsters||[])].length) },
   { id:"shiny_caught",label:"Radiant Caught",  icon:"✨", getValue: g => g.shinyCaught || 0 },
   { id:"event_pts",   label:"Event Points",    icon:"🎉", getValue: g => g.eventPoints || 0 },
+  { id:"pvp_rating",  label:"PvP Rating",      icon:"⭐", getValue: g => g.pvpRating || 0 },
 ];
 
 async function submitLeaderboardScore(category) {
@@ -402,28 +403,53 @@ async function cancelTrade(tradeId) {
 }
 
 // ============================================================
-// PvP BATTLES (auto-resolve, challenge code system)
+// PvP BATTLES (async — play a snapshot of another player's team for real vs the AI)
+// All battlers are normalized to Lv PVP_LEVEL_CAP with perfect IVs at battle time
+// (see buildBattleMon). See docs/pvp-spec.md.
 // ============================================================
+
+// Serialize a party mon into a PvP team slot. Level/IVs are normalized at battle
+// time, but variant/shiny/held/moves/nature are carried so the snapshot battles
+// exactly as the owner built it. currentHP/statuses keep buildBattleMon happy.
+function pvpSerializeMon(m) {
+  return {
+    monsterId: m.monsterId,
+    level: m.level,
+    moves: (m.moves || []).map(mv => mv.id),
+    nature: m.nature || "Balanced",
+    ivs: { hp:31, atk:31, def:31, spa:31, spd:31, spe:31 },
+    heldItem: m.heldItem || null,
+    shiny: !!m.shiny,
+    variant: !!m.variant,
+    variantTypes: m.variantTypes || null,
+    variantBase: m.variantBase || null,
+    variantImmune: m.variantImmune || null,
+    statuses: [],
+    currentHP: 999999
+  };
+}
+
 async function postBattleChallenge() {
   if (!requireOnline() || !G) return;
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before challenging!"); return; }
 
-  const challengerTeam = G.team.filter(m => m.currentHP > 0).slice(0, 3).map(m => ({
-    monsterId: m.monsterId, level: m.level, moves: m.moves.map(mv => mv.id),
-    nature: m.nature, shiny: m.shiny
-  }));
+  const challengerTeam = G.team.filter(m => m.currentHP > 0).slice(0, 3).map(pvpSerializeMon);
 
   const challenge = {
     challengerUID: firebaseUID,
     challengerName: G.playerName,
     challengerBadges: G.badges.length,
+    rating: G.pvpRating || 0,
     team: JSON.stringify(challengerTeam),
     status: "open",
     ts: Date.now()
   };
   const ref = await firebaseDB.ref("battles").push(challenge);
   const code = ref.key.slice(-6).toUpperCase();
-  showNotification(`⚔️ Challenge posted! Share code: <strong>${code}</strong> — tell your opponent to enter it in PvP.`);
+  const codeEl = document.getElementById("pvp-my-code");
+  if (codeEl) { codeEl.textContent = `Your challenge code: ${code}`; codeEl.classList.remove("hidden"); }
+  showNotification(`⚔️ Challenge posted! Share code <strong>${code}</strong>, or wait for someone to accept it.`);
+  loadOpenChallenges();
   return code;
 }
 
@@ -441,48 +467,73 @@ async function acceptBattleChallenge(code) {
     }
   });
   if (!challenge) { showNotification("Challenge code not found or already completed."); return; }
-
-  // Auto-resolve battle
-  let challengerTeam, defenderTeam;
-  try { challengerTeam = JSON.parse(challenge.team); } catch(e) { showNotification("Invalid challenge data."); return; }
-  defenderTeam = G.team.filter(m => m.currentHP > 0).slice(0, 3).map(m => ({
-    monsterId: m.monsterId, level: m.level, moves: m.moves.map(mv => mv.id), nature: m.nature
-  }));
-
-  const result = simulatePvPBattle(challengerTeam, defenderTeam);
-  const won = result.winner === "defender";
-
-  await firebaseDB.ref(`battles/${challengeId}`).update({
-    status: "completed",
-    defenderUID: firebaseUID,
-    defenderName: G.playerName,
-    result: result.winner,
-    completedTs: Date.now()
-  });
-
-  const prize = won ? 500 : 100;
-  G.money += prize;
-  saveGame();
-  showNotification(
-    won
-      ? `🏆 You won the PvP battle vs ${escapeHtml(challenge.challengerName)}! +${prize} coins`
-      : `😞 You lost to ${escapeHtml(challenge.challengerName)}. +${prize} coins for participating.`
-  );
+  launchPvpChallenge(challengeId, challenge);
 }
 
-function simulatePvPBattle(teamA, teamB) {
-  // Simple simulation: compare team power scores
-  function teamScore(team) {
-    return team.reduce((sum, m) => {
-      const def = MONSTERS_DATA[m.monsterId];
-      if (!def) return sum;
-      const statTotal = Object.values(def.baseStats || {}).reduce((a,b) => a+b, 0);
-      return sum + (statTotal * m.level / 100);
-    }, 0);
+// Launch a real, playable battle against a challenge's submitted team (vs the AI).
+function launchPvpChallenge(id, challenge) {
+  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before battling!"); return; }
+  let team;
+  try { team = JSON.parse(challenge.team); } catch(e) { showNotification("Invalid challenge data."); return; }
+  if (!Array.isArray(team) || !team.length) { showNotification("That challenge has no team."); return; }
+  if (typeof startPvpBattle !== "function") { showNotification("Battle engine unavailable."); return; }
+  startPvpBattle(team, challenge.challengerName || "Rival", {
+    challengeId: id,
+    opponentUID: challenge.challengerUID || null,
+    opponentRating: challenge.rating || 0
+  });
+}
+
+// One-tap matchmaking: pick an open challenge near your rating (random among the
+// closest few) and battle it.
+async function quickMatch() {
+  if (!requireOnline() || !G) return;
+  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before battling!"); return; }
+  const snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").limitToFirst(50).once("value");
+  const pool = [];
+  snap.forEach(child => {
+    if (child.val().challengerUID !== firebaseUID) pool.push({ id: child.key, ...child.val() });
+  });
+  if (!pool.length) { showNotification("No open challenges to match against yet. Post one and wait, or invite a friend!"); return; }
+  const myRating = G.pvpRating || 0;
+  pool.sort((a, b) => Math.abs((a.rating || 0) - myRating) - Math.abs((b.rating || 0) - myRating));
+  const near = pool.slice(0, Math.min(5, pool.length));
+  const pick = near[Math.floor(Math.random() * near.length)];
+  launchPvpChallenge(pick.id, pick);
+}
+
+// Apply the outcome of an async PvP battle: adjust rating, push it to the
+// leaderboard, mark the challenge completed, and return to the PvP screen.
+// Called from endBattle() in game.js when battleContext.isPvP.
+async function recordPvpResult(won) {
+  const ctx = (typeof battleContext !== "undefined" && battleContext) ? battleContext : {};
+  const oppName = ctx.pvpOpponentName || "your opponent";
+  const before = G.pvpRating || 0;
+  const delta = won ? 25 : -15;
+  G.pvpRating = Math.max(0, before + delta);
+  if (won) G.pvpWins = (G.pvpWins || 0) + 1; else G.pvpLosses = (G.pvpLosses || 0) + 1;
+  saveGame();
+
+  // Record the outcome on the challenge so its poster can see it later.
+  if (onlineReady && ctx.pvpChallengeId) {
+    try {
+      await firebaseDB.ref(`battles/${ctx.pvpChallengeId}`).update({
+        status: "completed",
+        defenderUID: firebaseUID,
+        defenderName: G.playerName,
+        result: won ? "defender" : "challenger",
+        completedTs: Date.now()
+      });
+    } catch(e) { /* non-fatal; rating already saved locally */ }
   }
-  const scoreA = teamScore(teamA) * (0.85 + Math.random() * 0.3);
-  const scoreB = teamScore(teamB) * (0.85 + Math.random() * 0.3);
-  return { winner: scoreA >= scoreB ? "challenger" : "defender", scoreA, scoreB };
+  if (typeof submitLeaderboardScore === "function") submitLeaderboardScore("pvp_rating");
+
+  const sign = delta >= 0 ? "+" : "";
+  showNotification(
+    (won ? `🏆 You won vs ${escapeHtml(oppName)}!` : `😞 You lost to ${escapeHtml(oppName)}.`) +
+    ` Rating ${sign}${delta} → <strong>${G.pvpRating}</strong>.`,
+    () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); }
+  );
 }
 
 async function showPvPScreen() {
@@ -503,15 +554,18 @@ async function loadOpenChallenges() {
         battles.push({ id: child.key, ...child.val() });
     });
     if (!battles.length) { container.innerHTML = '<div class="pvp-empty">No open challenges. Post one!</div>'; return; }
-    container.innerHTML = battles.map(b => `
+    container.innerHTML = battles.map((b, i) => `
       <div class="pvp-card">
         <span class="pvp-challenger">${escapeHtml(b.challengerName)}</span>
-        <span class="pvp-badges">🏅 ${b.challengerBadges}</span>
+        <span class="pvp-badges">🏅 ${b.challengerBadges} · ⭐ ${b.rating || 0}</span>
         <span class="pvp-code">Code: ${b.id.slice(-6).toUpperCase()}</span>
-        <button class="btn-primary pvp-accept" data-code="${b.id.slice(-6)}">⚔️ Accept</button>
+        <button class="btn-primary pvp-accept" data-idx="${i}">⚔️ Battle</button>
       </div>`).join("");
     container.querySelectorAll(".pvp-accept").forEach(btn => {
-      btn.addEventListener("click", () => acceptBattleChallenge(btn.dataset.code));
+      btn.addEventListener("click", () => {
+        const b = battles[parseInt(btn.dataset.idx, 10)];
+        if (b) launchPvpChallenge(b.id, b);
+      });
     });
   } catch(e) {
     container.innerHTML = '<div class="pvp-error">Failed to load challenges.</div>';

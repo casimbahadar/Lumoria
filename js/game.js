@@ -1925,20 +1925,25 @@ async function handleEnemyFainted() {
     await delay(500);
     endBattle("won", slot, levelUps);
   } else {
-    // Gym battle - next enemy
+    // Gym / trainer / PvP — bring in the opponent's next mon.
     battleContext.enemyTeamIdx++;
+    const slot = G.team[battleContext.playerTeamIdx];
     if (battleContext.enemyTeamIdx >= battleContext.enemyTeam.length) {
+      // PvP grants no XP (normalized match) — resolve straight to the result.
+      if (battleContext.isPvP) { endBattle("won"); return; }
       // Give XP to all team members
       const xpGain = calcXPGain(enemyActiveMon, false);
-      const slot = G.team[battleContext.playerTeamIdx];
       const levelUps = giveXP(slot, xpGain);
       endBattle("won", slot, levelUps);
     } else {
-      const xpGain = calcXPGain(enemyActiveMon, false);
-      const slot = G.team[battleContext.playerTeamIdx];
-      giveXP(slot, xpGain);
+      if (!battleContext.isPvP) {
+        const xpGain = calcXPGain(enemyActiveMon, false);
+        giveXP(slot, xpGain);
+      }
       enemyActiveMon = battleContext.enemyTeam[battleContext.enemyTeamIdx];
-      const leaderName = GYM_LEADERS[battleContext.leaderId].name;
+      const leaderName = battleContext.isPvP
+        ? (battleContext.pvpOpponentName || "Rival")
+        : GYM_LEADERS[battleContext.leaderId].name;
       logMsg(`${leaderName} sent out ${getDisplayName(enemyActiveMon)}!`);
       updateBattleUI();
       await delay(600);
@@ -1987,6 +1992,24 @@ function endBattle(outcome, slot, levelUps) {
     MusicEngine.stop();
     // Resume overworld music after a short delay
     setTimeout(() => { if (typeof MusicEngine !== "undefined" && !MusicEngine.isMuted()) MusicEngine.playOverworld(); }, 1500);
+  }
+
+  // PvP resolves to a rating change and returns to the PvP screen — no wild/gym/
+  // trainer rewards, no blackout penalty. The real team's pre-match HP is restored
+  // so a PvP match neither damages nor heals your party.
+  if (battleContext.isPvP) {
+    if (Array.isArray(battleContext.pvpHpSnapshot)) {
+      G.team.forEach((m, i) => {
+        if (m) m.currentHP = Math.min(m.maxHP, battleContext.pvpHpSnapshot[i] ?? m.maxHP);
+      });
+    }
+    if ((outcome === "won" || outcome === "lost") && typeof recordPvpResult === "function") {
+      recordPvpResult(outcome === "won");
+    } else {
+      showScreen("screen-pvp");
+    }
+    saveGame();
+    return;
   }
 
   if (outcome === "ran" || outcome === "caught") {
@@ -3686,6 +3709,9 @@ function initEventListeners() {
     const code = document.getElementById("pvp-code-input")?.value.trim();
     if (code && typeof acceptBattleChallenge === "function") acceptBattleChallenge(code);
   });
+  document.getElementById("btn-pvp-quickmatch")?.addEventListener("click", () => {
+    if (typeof quickMatch === "function") quickMatch();
+  });
 
   // Quest filter buttons
   document.querySelectorAll(".quest-filter-btn").forEach(btn => {
@@ -4068,6 +4094,42 @@ function startTrainerBattle(trainerId, trainer) {
   clearBattleLog();
   logMsg(`${trainer.emoji} ${trainer.name} wants to battle!`);
   logMsg(`${trainer.name} sent out ${getDisplayName(enemyActiveMon)}!`);
+  updateBattleUI();
+  showBattleMainActions();
+  document.getElementById("btn-catch").disabled = true;
+  if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+}
+
+// Async PvP: battle a snapshot of another player's submitted team, played for real
+// against the AI. Both sides are normalized to Lv PVP_LEVEL_CAP with perfect IVs
+// (handled in buildBattleMon when battleContext.isPvP is set). See docs/pvp-spec.md.
+function startPvpBattle(oppSlots, oppName, meta) {
+  meta = meta || {};
+  const name = oppName || "Rival Trainer";
+  battleContext = {
+    isWild: false, isGym: false, isChampion: false, isTrainer: false,
+    isPvP: true,
+    pvpChallengeId: meta.challengeId || null,
+    pvpOpponentName: name,
+    pvpOpponentUID: meta.opponentUID || null,
+    battleMode: "single",
+    enemyTeamIdx: 0,
+  };
+  // Snapshot real team HP so a PvP match neither damages nor heals your party.
+  battleContext.pvpHpSnapshot = G.team.map(m => m ? m.currentHP : 0);
+  battleContext.enemyTeam = oppSlots.map(s => buildBattleMon(s));
+  battleContext.playerTeamIdx = G.team.findIndex(m => m && m.currentHP > 0);
+  if (battleContext.playerTeamIdx < 0) battleContext.playerTeamIdx = 0;
+  playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx]);
+  enemyActiveMon = battleContext.enemyTeam[0];
+  hideMultiBattleSlots();
+  showScreen("screen-battle");
+  clearBattleLog();
+  const safeName = (typeof escapeHtml === "function") ? escapeHtml(name) : name;
+  const cap = (typeof PVP_LEVEL_CAP !== "undefined") ? PVP_LEVEL_CAP : 50;
+  logMsg(`⚔️ PvP! ${safeName} wants to battle!`);
+  logMsg(`⚖️ Level-capped to ${cap} with perfect IVs for both sides.`);
+  logMsg(`${safeName} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;

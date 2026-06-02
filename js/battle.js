@@ -999,7 +999,7 @@ function buildWildMon(monsterId, level, forceShiny, forceVariant) {
     moves: buildMoveArr(knownMoves),
     catchRate: def.catchRate,
     expYield: def.expYield,
-    shiny, variant: v.variant, variantTypes: v.variantTypes, variantImmune: v.variantImmune,
+    shiny, variant: v.variant, variantTypes: v.variantTypes, variantBase: v.variantBase, variantImmune: v.variantImmune,
   };
   // Variant: override typing
   if (v.variant && v.variantTypes) mon.types = [...v.variantTypes];
@@ -1030,7 +1030,7 @@ function buildGymMon(slot) {
     moves: buildMoveArr(slot.moves),
     catchRate: 0,
     expYield: def.expYield,
-    shiny, variant: v.variant, variantTypes: v.variantTypes, variantImmune: v.variantImmune,
+    shiny, variant: v.variant, variantTypes: v.variantTypes, variantBase: v.variantBase, variantImmune: v.variantImmune,
   };
   if (v.variant && v.variantTypes) mon.types = [...v.variantTypes];
   if (shiny) {

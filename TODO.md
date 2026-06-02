@@ -69,9 +69,14 @@
 - The variant *mechanic* (stats/typing/immunity randomization) is handled in #11. #12 is the **content** layer on top: per-Lumori variant **lore, descriptions, movesets** and any deeper randomization.
 - **Batch** the authoring like the NG+ families; validate move keys/types per batch.
 
-### 13. Online PvP battle system 🔲 TODO (new)
-- No PvP exists yet (only leaderboards, trades, events). Build async or real-time online battles (Firebase): challenge/matchmaking, team submission + validation, turn resolution reusing the battle engine, result reporting.
-- Per current ruling, **both variants and shinies are allowed** in PvP (no shiny exclusion).
+### 13. Online PvP battle system 🚧 IN PROGRESS (branch `claude/online-pvp`)
+**Full design: `docs/pvp-spec.md`.** Two player-chosen modes on the existing Firebase RTDB layer:
+- **Async** — battle a snapshot of another player's team locally vs the AI (reuses the battle engine). **Real-time** — host-authoritative live turn-sync between two online players.
+- **Lv 50 cap** for all PvP mons (IVs 31; variant fields preserved).
+- **Matchmaking:** browsable board + one-tap random/rating queue + **passcode rooms** (private by default, flippable to public spectating — Showdown-style).
+- Variants **and** shinies both allowed. Rating → `/leaderboards/pvp`.
+- ⚠️ Untestable here (placeholder `FIREBASE_CONFIG`, no browser/2nd client) — write correct-by-inspection, playtest after real credentials.
+- **Phase A:** data layer + Lv-50 + async battle + rating + screen. **Phase B:** rooms + live turn-sync + spectating.
 
 ---
 

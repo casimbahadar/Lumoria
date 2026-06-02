@@ -2299,21 +2299,21 @@ const MONSTERS_DATA = {
   // 3-stage Fire/Ice chain: Cinderfrost → Glaciblaze → Pyroglacier
   211: { id:211, name:"Cinderfrost", emoji:"🔥", types:["Fire","Ice"],
     base:{hp:48,atk:58,def:45,spa:72,spd:55,spe:68},
-    learnset:[[1,"ember"],[1,"powder_snow"],[12,"flamethrower"],[22,"ice_beam"],[32,"fire_blast"],[42,"blizzard"],[52,"overheat"],[62,"hyper_beam"]],
+    learnset:[[1,"ember"],[1,"powder_snow"],[12,"flamethrower"],[22,"ice_beam"],[32,"fire_blast"],[42,"blizzard"],[52,"solar_flare"],[62,"hyper_beam"]],
     evolveTo:212, evolveLevel:28, catchRate:175, expYield:72, rarity:"common",
     desc:"A creature born where volcanic vents meet glacial ice. Its body perpetually cycles between fire and frost.",
     lore:"Cinderfrost is a small fire-ice creature 40 cm long resembling a lizard with the left half of its body covered in warm orange fire-scales and the right half in cold blue ice-scales. A visible boundary of crackling energy runs down its midline. Where its two natures meet, brief steam eruptions occur. In deep sleep, the steam eruptions along a Cinderfrost's midline grow louder and more frequent: distant echoes of the permanent crackling steam-storm Infriglace hosts between its halves at colossal scale." },
 
   212: { id:212, name:"Frostscorch", emoji:"🌡️", types:["Fire","Ice"],
     base:{hp:74,atk:82,def:68,spa:108,spd:88,spe:88},
-    learnset:[[1,"flamethrower"],[1,"ice_beam"],[22,"fire_blast"],[30,"blizzard"],[38,"frost_breath"],[46,"overheat"],[54,"glacial_tomb"],[62,"hyper_beam"]],
+    learnset:[[1,"flamethrower"],[1,"ice_beam"],[22,"fire_blast"],[30,"blizzard"],[38,"frost_breath"],[46,"solar_flare"],[54,"glacial_tomb"],[62,"hyper_beam"]],
     evolveTo:213, evolveLevel:46, catchRate:88, expYield:155, rarity:"uncommon",
     desc:"A dual-natured creature of perfect thermal balance. Its left side blazes while its right side freezes.",
     lore:"Frostscorch is a medium fire-ice creature 80 cm long — Cinderfrost's orange-and-blue lizard halves have intensified into a perfectly equal split, one half brilliant crimson and one half ice-blue, and the crackling midline-boundary has matured into mismatched eyes (one amber, one pale blue) anchoring either side of its dual nature. It inhabits the specific boundary zones between volcanic and glacial terrain, the only creature perfectly adapted for that harsh transition." },
 
   213: { id:213, name:"Infriglace", emoji:"🌋", types:["Fire","Ice"],
     base:{hp:89,atk:93,def:81,spa:120,spd:95,spe:72},
-    learnset:[[1,"fire_blast"],[1,"blizzard"],[32,"overheat"],[40,"glacial_tomb"],[48,"heat_wave"],[56,"icicle_crash"],[64,"caldera_meltdown"],[72,"hyper_beam"]],
+    learnset:[[1,"fire_blast"],[1,"blizzard"],[32,"solar_flare"],[40,"glacial_tomb"],[48,"heat_wave"],[56,"icicle_crash"],[64,"caldera_meltdown"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:268, rarity:"rare",
     desc:"A cataclysmic being that collapses the boundary between fire and ice. Superheated geysers and flash-freezes occur in its wake.",
     lore:"Infriglace is a colossal fire-ice titan 3 metres long — Frostscorch's crimson and ice-blue halves have intensified into volcanic orange-red and never-melting glacial ice, and the brief steam eruptions of its juvenile midline have grown into a permanent crackling storm between the two sides. The boundary between its natures is a permanent crackling storm of steam. Its very presence disrupts local climate in a radius of several kilometres." },
@@ -2427,7 +2427,7 @@ const MONSTERS_DATA = {
   // Spectrace: Fire Stone evolution (Fire/Mental)
   227: { id:227, name:"Spectrace", emoji:"🔥", types:["Fire","Mental"],
     base:{hp:78,atk:95,def:65,spa:118,spd:72,spe:92},
-    learnset:[[1,"flamethrower"],[1,"psychic_move"],[28,"fire_blast"],[36,"psystrike"],[44,"astral_rend"],[52,"overheat"],[60,"neural_storm"],[68,"hyper_beam"]],
+    learnset:[[1,"flamethrower"],[1,"psychic_move"],[28,"fire_blast"],[36,"psystrike"],[44,"astral_rend"],[52,"solar_flare"],[60,"neural_storm"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:225, rarity:"rare",
     desc:"A blazing prism warrior. Its psychic fire burns away illusions and exposes hidden truths.",
     lore:"Spectrace is a fire-psychic creature 50 cm long — Spectroo's translucent white-light kangaroo silhouette has ignited under firestone touch into streaking flame, hindquarters trailing off into fire and forelimbs barely visible through the heat-haze. Its body is heat and psychic energy intertwined. It moves so rapidly its form appears as a blurred streak. Ancient texts describe it arriving at prophetic moments as an omen of transformation." },
@@ -7546,20 +7546,20 @@ const UMBRA_BATTLES = {
     reward:{ ultraOrb:3, maxPotion:3 },
     teams:{
       single:[
-        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","overheat","smog"]},
+        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","solar_flare","sludge_bomb"]},
         {monsterId:159, level:70, moves:["sludge_bomb","venoshock","gunk_shot","toxic"]},
         {monsterId:315, level:72, moves:["magma_rock","fire_blast","stone_edge","caldera_meltdown"]}
       ],
       double:[
-        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","overheat","smog"]},
-        {monsterId:55,  level:69, moves:["fire_blast","flamethrower","heat_wave","smog"]},
+        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","solar_flare","sludge_bomb"]},
+        {monsterId:55,  level:69, moves:["fire_blast","flamethrower","heat_wave","sludge_bomb"]},
         {monsterId:159, level:70, moves:["sludge_bomb","venoshock","gunk_shot","toxic"]},
         {monsterId:315, level:72, moves:["magma_rock","fire_blast","stone_edge","caldera_meltdown"]}
       ],
       triple:[
-        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","overheat","smog"]},
-        {monsterId:55,  level:69, moves:["fire_blast","flamethrower","heat_wave","smog"]},
-        {monsterId:156, level:69, moves:["venoshock","sludge_bomb","toxic","poison_fang"]},
+        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","solar_flare","sludge_bomb"]},
+        {monsterId:55,  level:69, moves:["fire_blast","flamethrower","heat_wave","sludge_bomb"]},
+        {monsterId:156, level:69, moves:["venoshock","sludge_bomb","toxic","corrosion_fang"]},
         {monsterId:159, level:70, moves:["sludge_bomb","venoshock","gunk_shot","toxic"]},
         {monsterId:315, level:72, moves:["magma_rock","fire_blast","stone_edge","caldera_meltdown"]}
       ]
@@ -7584,7 +7584,7 @@ const UMBRA_BATTLES = {
         {monsterId:320, level:75, moves:["thunder","flash_cannon","forge_strike","anvil_drop"]}
       ],
       triple:[
-        {monsterId:131, level:70, moves:["shadow_ball","dark_pulse","giga_drain","energy_ball"]},
+        {monsterId:131, level:70, moves:["shadow_ball","dark_pulse","verdant_surge","energy_ball"]},
         {monsterId:136, level:71, moves:["flash_cannon","iron_tail","forge_strike","dark_pulse"]},
         {monsterId:122, level:72, moves:["dark_pulse","air_slash","shadow_ball","wing_attack"]},
         {monsterId:133, level:73, moves:["crunch","stone_edge","shadow_ball","dark_pulse"]},

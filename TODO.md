@@ -622,9 +622,12 @@ Reference doc: `docs/archetype-diversity-matrix.md` (291 families; archetype tok
 - [ ] **Genuine archetype × type-combo collisions to resolve** (cap-verified safe; resolve by pivoting one family's typing to an empty cell, ≤6 non-flagship / ≤12 flagship):
   - **canine × Dark** — Nightwolf (#118-120) vs Darkfang (#266-268). Proposed: pivot **Darkfang apex (#268) → Dark/Spectral** (lore: "howl resonates across dimensions / heard in the land of the dead"); Dark/Spectral 4→5 species. + Spectral-STAB learnset swap.
   - **cat × Fire/Dark** — Emberveil (#301) vs Cinderpaw (#307). Proposed: pivot **Emberveil → Fire/Spectral** (lore: "fire **specter**... phantom footprints"); Fire/Spectral 1→2. + Spectral-STAB swap.
-- [ ] **desc↔lore body-plan inconsistencies to reconcile** (these caused false-positive collisions in the matrix):
-  - **#243 Stuntrap** — desc says "beetle warrior", lore says "moulted into an elongated **dragonfly** form". Pick one (desc=beetle differentiates it from Galvaglide's dragonfly line — likely the intent).
-  - **#265 Mosswing** — desc says "mossy **grasshopper**", lore says "resembling a **moth**". Pick one (grasshopper avoids a lepidopteran×Nature collision with Thornmoth #331).
+- [ ] **desc↔lore body-plan inconsistencies to reconcile** (found via the matrix + the data-integrity sweep; pick one side per Lumori):
+  - **#84 Electrix** — desc "electric **beetle**" vs lore "**dragonfly nymph**" (stale desc; the BREAKING #84-86 reframe made this a dragonfly line — desc likely just needs updating to dragonfly nymph).
+  - **#243 Stuntrap** — desc "beetle warrior" vs lore "moulted into an elongated **dragonfly** form". (desc=beetle differentiates it from Galvaglide's dragonfly line — likely the intent.)
+  - **#265 Mosswing** — desc "mossy **grasshopper**" vs lore "resembling a **moth**". (grasshopper avoids a lepidopteran×Nature collision with Thornmoth #331.)
+  - **#316 Abyssovex** — desc "The Legendary Abyss **Drake**" vs lore "enormous deep-sea **squid** leviathan". Pick one (squid matches the cephalopod body in lore).
+  - *(#18 Bahamber, #233 Serpenthorn flagged by the heuristic but are valid serpent-dragons — no action.)*
 
 ## Open scoping questions (to decide before starting)
 

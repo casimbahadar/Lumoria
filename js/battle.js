@@ -992,11 +992,14 @@ function buildWildMon(monsterId, level, forceShiny, forceVariant) {
   if (typeof NG_PLUS_DEX_START !== "undefined" && monsterId >= NG_PLUS_DEX_START) shinyRate *= 4;
   const shiny = forceShiny !== undefined ? forceShiny : (Math.random() < shinyRate);
   const v = rollVariant(def, forceVariant); // 1/200; independent of shiny (they stack)
+  // Variants fight with a type-derived generated moveset (see variant-content.js).
+  const wildMoves = (v.variant && typeof VariantContent !== "undefined" && VariantContent.generateBattleMoves)
+    ? VariantContent.generateBattleMoves(def, v, level) : knownMoves;
 
   const mon = {
     ...buildMonBase(def, level, ivs, nature, v.variant ? v.variantBase : null),
     monsterId,
-    moves: buildMoveArr(knownMoves),
+    moves: buildMoveArr(wildMoves),
     catchRate: def.catchRate,
     expYield: def.expYield,
     shiny, variant: v.variant, variantTypes: v.variantTypes, variantBase: v.variantBase, variantImmune: v.variantImmune,
@@ -1024,10 +1027,12 @@ function buildGymMon(slot) {
   if (typeof NG_PLUS_DEX_START !== "undefined" && slot.monsterId >= NG_PLUS_DEX_START) shinyRate *= 4;
   const shiny = Math.random() < shinyRate;
   const v = rollVariant(def);
+  const gymMoves = (v.variant && typeof VariantContent !== "undefined" && VariantContent.generateBattleMoves)
+    ? VariantContent.generateBattleMoves(def, v, slot.level) : slot.moves;
   const mon = {
     ...buildMonBase(def, slot.level, ivs31, "Balanced", v.variant ? v.variantBase : null),
     monsterId: slot.monsterId,
-    moves: buildMoveArr(slot.moves),
+    moves: buildMoveArr(gymMoves),
     catchRate: 0,
     expYield: def.expYield,
     shiny, variant: v.variant, variantTypes: v.variantTypes, variantBase: v.variantBase, variantImmune: v.variantImmune,

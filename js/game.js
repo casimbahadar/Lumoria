@@ -3276,6 +3276,47 @@ function renderDexGrid(filter, search) {
       continue;
     }
 
+    // ✨ Shiny showcase: reveal shiny art for species whose shiny you've seen/caught.
+    if (filter === "shiny") {
+      if (isForeign) continue;
+      const sCaught = G.shinyDexCaught && G.shinyDexCaught.has(mid);
+      const sSeen = G.shinyDexSeen && G.shinyDexSeen.has(mid);
+      if (search && !def.name.toLowerCase().includes(search.toLowerCase()) && !(sCaught || sSeen)) continue;
+      const card = document.createElement("div");
+      card.className = "dex-card" + (sCaught ? " caught" : sSeen ? " seen" : " unseen");
+      const spriteHTML = (sCaught || sSeen) && typeof getMonsterSpriteURL === "function"
+        ? `<div class="shiny-sprite"${sSeen && !sCaught ? ' style="opacity:.55"' : ''}><img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" style="border-radius:6px"></div>`
+        : `<div class="dex-emoji">❓</div>`;
+      card.innerHTML = `
+        <div class="dex-num">✨#${String(mid).padStart(3,"0")}</div>
+        ${spriteHTML}
+        <div class="dex-name">${(sCaught || sSeen) ? def.name : "???"}</div>`;
+      grid.appendChild(card);
+      continue;
+    }
+    // 🔀 Variant tracker: species you've encountered variants of; click for the log.
+    if (filter === "variant") {
+      if (isForeign) continue;
+      const log = (G.variantLog && G.variantLog[mid]) || [];
+      const known = log.length || (G.variantDexSeen && G.variantDexSeen.has(mid)) || (G.variantDexCaught && G.variantDexCaught.has(mid));
+      if (!known) continue;
+      if (search && !def.name.toLowerCase().includes(search.toLowerCase())) continue;
+      const vCaught = G.variantDexCaught && G.variantDexCaught.has(mid);
+      const card = document.createElement("div");
+      card.className = "dex-card" + (vCaught ? " caught" : " seen");
+      const spriteHTML = typeof getMonsterSpriteURL === "function"
+        ? `<div class="variant-sprite"><img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" style="border-radius:6px"></div>`
+        : `<div class="dex-emoji">${def.emoji}</div>`;
+      card.innerHTML = `
+        <div class="dex-num">🔀#${String(mid).padStart(3,"0")}</div>
+        ${spriteHTML}
+        <div class="dex-name">${def.name}</div>
+        <div class="dex-name" style="font-size:.65rem;color:var(--text-muted)">${log.length} logged</div>`;
+      card.addEventListener("click", () => showVariantDetail(mid));
+      grid.appendChild(card);
+      continue;
+    }
+
     // All other filters: skip foreignRegion mons entirely
     if (isForeign) continue;
     if (isNGPlus && !(G.ngPlusCount > 0) && !seen) continue;
@@ -3305,6 +3346,32 @@ function renderDexGrid(filter, search) {
     if (seen) card.addEventListener("click", () => showDexDetail(mid));
     grid.appendChild(card);
   }
+}
+
+function showVariantDetail(mid) {
+  const def = MONSTERS_DATA[mid];
+  const log = (G.variantLog && G.variantLog[mid]) || [];
+  document.getElementById("dex-detail").classList.remove("hidden");
+  document.getElementById("dex-grid").style.display = "none";
+  const keys = ["hp","atk","def","spa","spd","spe"];
+  const rows = log.slice().reverse().map((e, i) => {
+    const n = log.length - i;
+    const types = e.types ? e.types.map(t => `<span class="type-badge type-${t}">${t}</span>`).join(" ") : "—";
+    const imm = e.immune ? `<span class="type-badge type-${e.immune}">${e.immune}</span>` : "—";
+    const base = e.base ? keys.map(k => `${k.toUpperCase()}&nbsp;${e.base[k]}`).join(" · ") : "—";
+    return `<div class="detail-section" style="text-align:left">
+      <div><strong>#${n}</strong> — ${e.caught ? "🎒 Caught" : "👁 Seen"}${e.shiny ? " ✨ Radiant" : ""}</div>
+      <div style="margin:.2rem 0">Typing: ${types}</div>
+      <div style="margin:.2rem 0">🛡️ Immune to: ${imm}</div>
+      <div style="font-size:.72rem;color:var(--text-muted)">Stat spread: ${base}</div>
+    </div>`;
+  }).join("") || "<p style='color:var(--text-muted)'>No variants recorded yet.</p>";
+  document.getElementById("dex-detail-content").innerHTML = `
+    <div style="text-align:center;margin-bottom:.5rem">
+      <h2 style="color:var(--accent-purple)">🔀 ${def.name} — Variant log</h2>
+      <p style="color:var(--text-muted);font-size:.8rem">${log.length} variant${log.length === 1 ? "" : "s"} recorded (newest first, last 30 kept)</p>
+    </div>
+    ${rows}`;
 }
 
 function showForgottenDetail(monsterId) {

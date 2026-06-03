@@ -274,9 +274,9 @@ const MOVES_DATA = {
   dragon_claw:  { name:"Draconic Claw",   type:"Draconic",   power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Slashes with razor-sharp dragon claws." },
   dragon_pulse: { name:"Draconic Pulse",  type:"Draconic",   power:85,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Fires a shockwave of dragon energy." },
   outrage:      { name:"Rampage",       type:"Draconic",   power:120, acc:100, pp:10, cat:"physical", effect:"confuse",   ec:100, desc:"A 2-3 turn rampage. Confuses user after." },
-  dragon_dance: { name:"Wyrm Dance",  type:"Draconic",   power:0,   acc:100, pp:20, cat:"status",   effect:"dragondance",ec:100,desc:"A ritualistic dance that raises Atk and Speed." },
+  dragon_dance: { name:"Hydra Dance",  type:"Draconic",   power:0,   acc:100, pp:20, cat:"status",   effect:"dragondance",ec:100,desc:"A ritualistic dance that raises Atk and Speed." },
   wyrm_strike:  { name:"Wyrm Strike",   type:"Draconic",   power:90,  acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Strikes with the coiled force of an ancient wyrm's tail." },
-  draconic_roar:{ name:"Draconic Roar", type:"Draconic",   power:0,   acc:100, pp:15, cat:"status",   effect:"atkdown",   ec:100, desc:"Unleashes a terrifying draconic roar that withers the foe's fighting spirit." },
+  draconic_roar:{ name:"Saurian Roar", type:"Draconic",   power:0,   acc:100, pp:15, cat:"status",   effect:"atkdown",   ec:100, desc:"Unleashes a terrifying Saurian Roar that withers the foe's fighting spirit." },
   scale_storm:  { name:"Scale Storm",   type:"Draconic",   power:95,  acc:90,  pp:10, cat:"physical", effect:"flinch",        ec:30,   desc:"Whips a storm of razor-edged dragon scales across the battlefield." },
   ancient_breath:{ name:"Ancient Breath",type:"Draconic",  power:110, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:30,  desc:"Exhales flame from the lungs of an ancient dragon lineage." },
   eon_crash:    { name:"Eon Crash",     type:"Draconic",   power:100, acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Crashes down with the timeless weight of dragonkind." },
@@ -520,13 +520,13 @@ const MOVES_DATA = {
   extrasensory:  { name:"Sixth Sense",  type:"Mental",  power:80,  acc:100, pp:20, cat:"special",  effect:"flinch",    ec:10,  desc:"Attacks with an odd psychic power that may cause flinching." },
 
   // Draconic (+7 → 22)
-  dragon_tail:   { name:"Draconic Tail",   type:"Draconic",   power:60,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Slaps the foe with a powerful dragon tail." },
+  dragon_tail:   { name:"Drake Tail",   type:"Draconic",   power:60,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Slaps the foe with a powerful dragon tail." },
   draco_meteor:  { name:"Comet Crash",  type:"Draconic",   power:130, acc:90,  pp:5,  cat:"special",  effect:"spatkdown", ec:100, desc:"Calls down meteors with draconic power. Lowers user's Sp.Atk." },
-  dragon_rush:   { name:"Draconic Rush",   type:"Draconic",   power:100, acc:75,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Charges the foe with menacing draconic energy." },
+  dragon_rush:   { name:"Leviathan Rush",   type:"Draconic",   power:100, acc:75,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Charges the foe with menacing draconic energy." },
   twister:       { name:"Wyrm Gale",       type:"Draconic",   power:40,  acc:100, pp:20, cat:"special",  effect:"confuse",    ec:30,  desc:"Whips up a vicious twister of draconic wind." },
-  dragon_rage:   { name:"Draconic Rage",   type:"Draconic",   power:55,  acc:100, pp:15, cat:"special",  effect:null,        ec:0,   desc:"Blasts the foe with an ancient draconic fury." },
+  dragon_rage:   { name:"Serpent Rage",   type:"Draconic",   power:55,  acc:100, pp:15, cat:"special",  effect:null,        ec:0,   desc:"Blasts the foe with an ancient draconic fury." },
   serpent_coil:  { name:"Serpent Coil",   type:"Draconic",   power:0,   acc:100, pp:15, cat:"status",   effect:"atkup",     ec:100, desc:"Coils like a dragon serpent, building power for the next strike." },
-  wyrm_breath:   { name:"Wyrm Breath",   type:"Draconic",   power:80,  acc:95,  pp:15, cat:"special",  effect:"paralyze",  ec:20,  desc:"Breathes the ancient miasma of a primordial wyrm." },
+  wyrm_breath:   { name:"Reptilian Gust",   type:"Draconic",   power:80,  acc:95,  pp:15, cat:"special",  effect:"paralyze",  ec:20,  desc:"Breathes the ancient miasma of a primordial wyrm." },
 
   // Rock (+7 → 22)
   ancient_power: { name:"Primeval Force", type:"Earth",    power:60,  acc:100, pp:5,  cat:"special",  effect:"atkup",     ec:10,  desc:"Attacks with prehistoric power that may raise all stats." },
@@ -679,7 +679,7 @@ const MOVES_DATA = {
   clanging_scales:  { name:"Scale Crash",   type:"Draconic",   power:110, acc:100, pp:5,  cat:"special",  effect:"spdefdown", ec:100, desc:"Clashes the user's scales to release a deafening sound that lowers Sp. Def." },
   eternabeam:       { name:"Abyss Ray",        type:"Draconic",   power:160, acc:90,  pp:5,  cat:"special",  effect:"recharge",  ec:100, desc:"The most powerful attack a dragon can use — must rest on the following turn." },
   dragon_ascent:    { name:"Sky Surge",     type:"Draconic",   power:120, acc:100, pp:5,  cat:"physical", effect:"defdown",   ec:100, desc:"Ascends with dragon power and crashes down, lowering the user's defenses." },
-  dragon_maw:       { name:"Draconic Maw",        type:"Draconic",   power:85,  acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Snaps with powerful dragon jaws. The sheer force may cause flinching." },
+  dragon_maw:       { name:"Wyvern Maw",        type:"Draconic",   power:85,  acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Snaps with powerful dragon jaws. The sheer force may cause flinching." },
 
   // --- Rock (+8) ---
   stealth_rock:     { name:"Embedded Spike",      type:"Earth",     power:0,   acc:100, pp:20, cat:"status",   effect:"atkdown",   ec:100, desc:"Lays a trap of razor-sharp rocks that weakens foes as they enter battle." },
@@ -1001,9 +1001,9 @@ const MOVES_DATA = {
   wyrm_breath:                 { name:"Wyrm Breath", type:"Draconic", dualType:["Draconic","Wind"], power:90, acc:90, pp:10, cat:"special", effect:null, ec:0, target:"wide", desc:"Wide wyrm-breath. Dual Draconic+Wind." },
   dragon_focus:                { name:"Dragon Focus", type:"Draconic", power:0, acc:100, pp:15, cat:"status", effect:"focus", ec:100, target:"self", desc:"Dragon's focus; high crit." },
   ancient_meditation:          { name:"Ancient Meditation", type:"Draconic", power:0, acc:100, pp:10, cat:"status", effect:"calmup", ec:100, target:"self", desc:"Calm-up self." },
-  wyrm_armor:                  { name:"Wyrm Armor", type:"Draconic", power:0, acc:100, pp:15, cat:"status", effect:"defup2", ec:100, target:"self", desc:"+2 Def." },
-  draconic_might:              { name:"Draconic Might", type:"Draconic", power:0, acc:100, pp:15, cat:"status", effect:"atkup", ec:100, target:"self", desc:"+1 Atk." },
-  arcane_breath:               { name:"Arcane Breath", type:"Draconic", power:0, acc:100, pp:15, cat:"status", effect:"spaup", ec:100, target:"self", desc:"+1 SpA." },
+  wyrm_armor:                  { name:"Drake Armor", type:"Draconic", power:0, acc:100, pp:15, cat:"status", effect:"defup2", ec:100, target:"self", desc:"+2 Def." },
+  draconic_might:              { name:"Basilisk Might", type:"Draconic", power:0, acc:100, pp:15, cat:"status", effect:"atkup", ec:100, target:"self", desc:"+1 Atk." },
+  arcane_breath:               { name:"Arcane Roar", type:"Draconic", power:0, acc:100, pp:15, cat:"status", effect:"spaup", ec:100, target:"self", desc:"+1 SpA." },
   dragon_calm:                 { name:"Dragon Calm", type:"Draconic", power:0, acc:100, pp:10, cat:"status", effect:"heal50", ec:100, target:"self", desc:"Restores half HP." },
 
   // --- Normal (regular, batch3) ---

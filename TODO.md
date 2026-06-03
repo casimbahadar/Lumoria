@@ -872,9 +872,25 @@ Per user instruction: leave these for late discussion before any consolidation.
 - [x] **#11** Helioveth → **Heliocoon** (Fire/Wind; chrysalis lore, defensive stats, 🥚 emoji)
 - [x] **#12** Inferarch (kept name, retyped Fire/Dragon → Fire/Wind, butterfly lore + 🦋 emoji + 5 dragon moves swapped for Wind/Bug)
 
-# 🎯 Moveset utilization audit — RUN BEFORE stat spread review  `[⏳ NOT STARTED]`
+# 🎯 Moveset utilization audit — RUN BEFORE stat spread review  `[🚧 IN PROGRESS — PR #68, branch claude/move-utilization-audit-2kkDV]`
 
 For each of the 26 types, calculate the ratio of moves actually assigned to at least one Lumori vs total move count of that type. Identify **orphan moves** (0 current learners — many such moves exist; Fire alone has 13+ orphans like Lava Plume, Cinder Lance, Smolder Trap, Eruption, Will-O-Wisp, etc.). For each orphan: decide whether to (a) **assign** to specific Lumori via learnset additions, (b) **promote** to `rarity:"exclusive"` and earmark for a future legendary, or (c) **remove** from MOVES_DATA as dead code. Also identify **near-orphan moves** (1-2 learners) and decide if those moves are intentionally signature/exclusive (mark them) or should have wider distribution. Goal: every move in MOVES_DATA serves a clear purpose, and no Lumori is missing access to type-appropriate moves it should reasonably have.
+
+## Discovery + batching
+
+Discovery script: `scripts/move_utilization.py` — read-only stats tool, parses MOVES_DATA + every learnset + trainer-hardcoded moves:[]. Baseline report committed at `docs/move-utilization-report.md`.
+
+**Baseline (2026-06-03):** 1093 moves / 26 types / **641 orphans (59%)** / 172 near-orphans / 41% used.
+
+**Grouped batch plan (8 batches):**
+- [x] **Batch 1 — Stellar + Chrono.** Stellar: 16 assigned across the 4 existing Stellar Lumori (#319 Voidraxis, #384 Solarcrown, #394 Solarvast, #401 Cosmoveil) at 4 moves each + 17 newly tagged `rarity:"exclusive"` (total 20 exclusive reserved for future Forgotten Stellar adds). Chrono: 33 deferred per user decision — to handle when Forgotten/Chrono Lumori expand.
+- [ ] Batch 2 — Aether, Vapor (56 orphans)
+- [ ] Batch 3 — Toxin, Crystal, Mineral, Primal (83 orphans)
+- [ ] Batch 4 — Fire, Ice, Wind (82 orphans)
+- [ ] Batch 5 — Earth, Nature (64 orphans)
+- [ ] Batch 6 — Dark, Spectral, Dream (68 orphans)
+- [ ] Batch 7 — Electric, Metal, Mental (77 orphans)
+- [ ] Batch 8 — Normal, Aquatic, Fairy, Draconic, Fighting, Poison, Sonic (134 orphans)
 
 # 📊 Final-pass stat spread review — RUN LAST (after all renaming complete)  `[⏳ NOT STARTED — RUN LAST]`
 

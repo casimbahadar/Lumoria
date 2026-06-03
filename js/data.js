@@ -192,10 +192,10 @@ const MOVES_DATA = {
   boulder_roll: { name:"Boulder Roll",  type:"Earth",   power:75,  acc:90,  pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"Curls into a ball and rolls into the foe with terrifying momentum." },
   quicksand_pull:{ name:"Quicksand Pull",type:"Earth",  power:65,  acc:90,  pp:15, cat:"special",  effect:"spedown2",  ec:100, desc:"Conjures a patch of quicksand that drags the foe's legs down." },
   // --- Wind ---
-  gust:         { name:"Gust",          type:"Wind",     power:40,  acc:100, pp:35, cat:"special",  effect:null,        ec:0,   desc:"Blows the foe with a gust of wind." },
-  air_slash:    { name:"Air Slash",     type:"Wind",     power:75,  acc:95,  pp:15, cat:"special",  effect:"flinch",    ec:30,  desc:"Slices with a blade of air. May flinch." },
-  hurricane:    { name:"Hurricane",     type:"Wind",     power:110, acc:70,  pp:10, cat:"special",  effect:"confuse",   ec:30,  desc:"Slams the foe into a violent hurricane." },
-  wing_attack:  { name:"Wing Attack",   type:"Wind",     power:60,  acc:100, pp:35, cat:"physical", effect:null,        ec:0,   desc:"Strikes with powerful wings." },
+  gust:         { name:"Breeze",        type:"Wind",     power:40,  acc:100, pp:35, cat:"special",  effect:null,        ec:0,   desc:"Blows the foe with a gust of wind." },
+  air_slash:    { name:"Wind Scythe",   type:"Wind",     power:75,  acc:95,  pp:15, cat:"special",  effect:"flinch",    ec:30,  desc:"Slices with a blade of air. May flinch." },
+  hurricane:    { name:"Typhoon",       type:"Wind",     power:110, acc:70,  pp:10, cat:"special",  effect:"confuse",   ec:30,  desc:"Slams the foe into a violent hurricane." },
+  wing_attack:  { name:"Wingbeat",      type:"Wind",     power:60,  acc:100, pp:35, cat:"physical", effect:null,        ec:0,   desc:"Strikes with powerful wings." },
   jetstream:    { name:"Jetstream",     type:"Wind",     power:80,  acc:95,  pp:15, cat:"special",  effect:"spdefdown",   ec:30,  desc:"Fires a focused stream of high-speed air that batters the foe's footing." },
   skyfall:      { name:"Skyfall",       type:"Wind",     power:90,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:30,  desc:"Ascends to great height and plummets with crushing momentum." },
   cyclone_blade:{ name:"Cyclone Blade", type:"Wind",     power:85,  acc:95,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Spins to form a blade of compressed air and slashes the foe." },
@@ -459,10 +459,10 @@ const MOVES_DATA = {
   earthen_wall:  { name:"Earthen Wall",  type:"Earth",   power:0,   acc:100, pp:10, cat:"status",   effect:"defup",     ec:100, desc:"Raises a massive wall of packed earth to shield the user." },
 
   // Wind (+6 → 22)
-  razor_wind:    { name:"Razor Wind",    type:"Wind",     power:80,  acc:100, pp:10, cat:"special",  effect:"crit",      ec:100, desc:"Fires blades of razor-sharp wind. High crit rate." },
-  aerial_ace:    { name:"Aerial Ace",    type:"Wind",     power:60,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"A swift aerial strike that never misses." },
+  razor_wind:    { name:"Slicing Gale",  type:"Wind",     power:80,  acc:100, pp:10, cat:"special",  effect:"crit",      ec:100, desc:"Fires blades of razor-sharp wind. High crit rate." },
+  aerial_ace:    { name:"Falcon Dive",   type:"Wind",     power:60,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"A swift aerial strike that never misses." },
   storm_surge:   { name:"Storm Surge",   type:"Wind",     power:95,  acc:90,  pp:10, cat:"special",  effect:"spedown",   ec:30,  desc:"Unleashes a concentrated surge of storm energy." },
-  feather_dance: { name:"Feather Dance", type:"Wind",     power:0,   acc:100, pp:15, cat:"status",   effect:"atkdown",   ec:100, desc:"Scatters feathers that distract and weaken the foe's attacks." },
+  feather_dance: { name:"Plume Veil",    type:"Wind",     power:0,   acc:100, pp:15, cat:"status",   effect:"atkdown",   ec:100, desc:"Scatters feathers that distract and weaken the foe's attacks." },
   slipstream:    { name:"Slipstream",    type:"Wind",     power:0,   acc:100, pp:15, cat:"status",   effect:"speup",     ec:100, desc:"Rides the slipstream to dramatically boost speed." },
   tornado_slam:  { name:"Tornado Slam",  type:"Wind",     power:100, acc:85,  pp:5,  cat:"physical", effect:"confuse",   ec:30,  desc:"Catches the foe in a tornado and slams them into the ground." },
 
@@ -609,7 +609,7 @@ const MOVES_DATA = {
   // --- Wind (+7) ---
   breeze_blade:     { name:"Breeze Blade",      type:"Wind",     power:50,  acc:100, pp:20, cat:"physical", effect:"crit",      ec:100, desc:"Slices with focused wind so precisely it always finds a critical spot." },
   gale_strike:      { name:"Gale Strike",       type:"Wind",     power:70,  acc:100, pp:20, cat:"physical", effect:"speup",    ec:30,  desc:"A powerful strike backed by gale-force winds that may cause flinching." },
-  vacuum_wave:      { name:"Vacuum Wave",       type:"Wind",     power:40,  acc:100, pp:30, cat:"special",  effect:"priority",  ec:0,   desc:"Creates a vacuum wave that strikes before the foe can react." },
+  vacuum_wave:      { name:"Suction Wave",      type:"Wind",     power:40,  acc:100, pp:30, cat:"special",  effect:"priority",  ec:0,   desc:"Creates a vacuum wave that strikes before the foe can react." },
   aerial_slam:      { name:"Aerial Slam",       type:"Wind",     power:90,  acc:95,  pp:10, cat:"physical", effect:"defdown",    ec:30,  desc:"Soars high then slams the foe with the full force of a high-altitude dive." },
   stratosphere_drop:{ name:"Stratosphere Drop", type:"Wind",     power:120, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Ascends to the stratosphere and releases a shockwave of compressed air." },
   whirlwind_force:  { name:"Whirlwind Force",   type:"Wind",     power:0,   acc:100, pp:20, cat:"status",   effect:"defdown",   ec:100, desc:"A relentless whirlwind that shreds through the target's guard." },

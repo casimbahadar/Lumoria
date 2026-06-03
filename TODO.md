@@ -968,3 +968,12 @@ Higher-level work remaining beyond the lore / typing / stats audits.
 3. Continue from "Walkthrough cursor" or pick up the next unchecked BREAKING family
 4. Run `python3 scripts/analyze_current.py` after each change to confirm cap-2 stays clean
 5. Commit + push each change with `https://claude.ai/code/session_…` footer
+
+# 🧹 Data-integrity backlog (from the extended sweep, 2026-06)  `[⏳ NOT STARTED — bounded cleanup; no broken refs, lower severity]`
+
+Surfaced by the reference/hygiene sweep (the broken-reference bugs — 14 dangling move keys + Spectroo fireStone — are already FIXED in PRs #65/#66). Remaining lower-severity items:
+
+- [ ] **One-way area connections (4)** — verify each is intentional or add the reverse edge: `miasmacity -> toxic_bog`, `tremor_summit -> quake_foothills`, `mire_depths -> miasmacity`, `magma_vent -> tremor_summit` (the area lists the neighbor in `connections` but the neighbor does not list it back).
+- [ ] **Learnset internal duplicate moves (21 families)** — the same move key appears twice in one learnset (dedup, keep earliest level): #11, #150, #155, #157, #188, #196, #219, #239, #265, #290, #324, #325, #327, #344, #351, #376, #388, #398, #399, #400, #401.
+- [ ] **No level-1 move (2)** — #198 Chrysalix, #199 Aeridaleth (currently fall back to `tackle`; consider an explicit Lv1 move).
+- [ ] **(Tooling note)** a proper move-effect validity check must parse compound effects (split on `_and_`) and cross-reference battle.js effect handlers — the naive literal-match heuristic gives false positives.

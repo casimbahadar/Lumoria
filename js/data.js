@@ -248,10 +248,10 @@ const MOVES_DATA = {
   alloy_edge:   { name:"Alloy Edge",    type:"Metal",    power:65,  acc:100, pp:20, cat:"physical", effect:"crit",      ec:100, desc:"Slices with a blade of impossibly sharp layered alloy, always finding weak spots." },
   ironskin:     { name:"Ironskin",      type:"Metal",    power:0,   acc:100, pp:15, cat:"status",   effect:"atkup",     ec:100, desc:"Hardens the surface of the body to the density of pure iron." },
   // --- Poison ---
-  poison_sting: { name:"Venom Prick",  type:"Poison",   power:15,  acc:100, pp:35, cat:"physical", effect:"poison",    ec:30,  desc:"Stings with a poisonous stinger." },
+  poison_sting: { name:"Septic Prick",  type:"Poison",   power:15,  acc:100, pp:35, cat:"physical", effect:"poison",    ec:30,  desc:"Stings with a poisonous stinger." },
   sludge_bomb:  { name:"Ooze Bomb",   type:"Poison",   power:90,  acc:100, pp:10, cat:"special",  effect:"poison",    ec:30,  desc:"Hurls a sludge bomb. May poison." },
   toxic:        { name:"Toxify",         type:"Poison",   power:0,   acc:90,  pp:10, cat:"status",   effect:"badpoison", ec:100, desc:"Badly poisons the foe. Damage worsens each turn." },
-  venoshock:    { name:"Venom Burst",     type:"Poison",   power:65,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Doubles damage if target is poisoned." },
+  venoshock:    { name:"Virulent Surge",     type:"Poison",   power:65,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Doubles damage if target is poisoned." },
   miasma_cloud: { name:"Miasma Cloud",  type:"Poison",   power:70,  acc:90,  pp:15, cat:"special",  effect:"badpoison", ec:30,  desc:"Releases a dense toxic cloud that seeps into wounds and worsens over time." },
   acid_rain:    { name:"Acid Rain",     type:"Poison",   power:80,  acc:90,  pp:10, cat:"special",  effect:"spdefdown",    ec:30,  desc:"Summons a rain of burning acid that corrodes the foe's body." },
   venom_lance:  { name:"Venom Lance",   type:"Poison",   power:85,  acc:95,  pp:10, cat:"physical", effect:"badpoison", ec:20,  desc:"Drives a concentrated venom spike deep into the foe." },
@@ -504,11 +504,11 @@ const MOVES_DATA = {
 
   // Poison (+7 → 22)
   acid_spray:    { name:"Acid Spray",    type:"Poison",   power:40,  acc:100, pp:20, cat:"special",  effect:"spdefdown", ec:100, desc:"Sprays a corrosive acid that sharply lowers special defense." },
-  cross_poison:  { name:"Venom Cross",  type:"Poison",   power:70,  acc:100, pp:20, cat:"physical", effect:"poison",    ec:10,  desc:"Slashes with a poisonous blade in a cross pattern." },
+  cross_poison:  { name:"Vile Cross",  type:"Poison",   power:70,  acc:100, pp:20, cat:"physical", effect:"poison",    ec:10,  desc:"Slashes with a poisonous blade in a cross pattern." },
   poison_jab:    { name:"Barb Jab",    type:"Poison",   power:80,  acc:100, pp:20, cat:"physical", effect:"poison",    ec:30,  desc:"Jabs with a toxin-coated appendage." },
-  toxic_spikes:  { name:"Venom Caltrops",  type:"Poison",   power:0,   acc:100, pp:15, cat:"status",   effect:"poison",    ec:100, desc:"Lays a trap of toxic spikes that poisons on contact." },
+  toxic_spikes:  { name:"Bane Caltrops",  type:"Poison",   power:0,   acc:100, pp:15, cat:"status",   effect:"poison",    ec:100, desc:"Lays a trap of toxic spikes that poisons on contact." },
   gunk_shot:     { name:"Sludge Cannon",     type:"Poison",   power:120, acc:80,  pp:5,  cat:"physical", effect:"poison",    ec:30,  desc:"Hurls a massive blob of toxic gunk at the foe." },
-  venom_shock:   { name:"Venom Shock",   type:"Poison",   power:65,  acc:100, pp:15, cat:"special",  effect:"paralyze",  ec:20,  desc:"Shocks the foe with venomous electricity." },
+  venom_shock:   { name:"Caustic Shock",   type:"Poison",   power:65,  acc:100, pp:15, cat:"special",  effect:"paralyze",  ec:20,  desc:"Shocks the foe with venomous electricity." },
   noxious_gas:   { name:"Noxious Gas",   type:"Poison",   power:0,   acc:85,  pp:15, cat:"status",   effect:"badpoison", ec:100, desc:"Releases a cloud of noxious gas that severely poisons." },
 
   // Mental (+6 → 22)
@@ -654,7 +654,7 @@ const MOVES_DATA = {
   steel_roller:     { name:"Metal Roller",      type:"Metal",    power:130, acc:90,  pp:5,  cat:"physical", effect:"defdown",   ec:30,  desc:"Rolls over the foe with massive steel momentum, crushing through their guard." },
 
   // --- Poison (+7) ---
-  poison_powder:    { name:"Venom Dust",     type:"Poison",   power:0,   acc:75,  pp:35, cat:"status",   effect:"poison",    ec:100, desc:"Scatters toxic powder that poisons the target on contact." },
+  poison_powder:    { name:"Pestilent Dust",     type:"Poison",   power:0,   acc:75,  pp:35, cat:"status",   effect:"poison",    ec:100, desc:"Scatters toxic powder that poisons the target on contact." },
   toxic_thread:     { name:"Toxic Thread",      type:"Poison",   power:0,   acc:100, pp:20, cat:"status",   effect:"poison",    ec:100, desc:"Shoots a thread laced with venom that poisons and entangles the foe." },
   coil:             { name:"Coil",              type:"Poison",   power:0,   acc:100, pp:20, cat:"status",   effect:"atkup",     ec:100, desc:"Coils up tightly, raising Attack and focus for the coming battle." },
   gunk_blast:       { name:"Gunk Blast",        type:"Poison",   power:120, acc:85,  pp:5,  cat:"special",  effect:"spdefdown",    ec:30,  desc:"Blasts the foe with a surge of concentrated toxins that may poison." },

@@ -304,7 +304,363 @@ const ABILITY_REGISTRY = {
     },
   },
 
-  // ====== Phase 2 will add ~180-220 more traits below this line ======
+  // ====== Phase 2 batch 1 — locked traits (27) ======
+
+  // --- A. Type-immunity absorbers (10) ---
+  one_with_the_sea: {
+    name: "One with the Sea",
+    emoji: "💧",
+    cssClass: "trait-one-with-the-sea",
+    description: "Aquatic moves heal 25% max HP and deal no damage to this Lumori.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Aquatic" ? 0 : 1,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Aquatic") return null;
+      const heal = Math.max(1, Math.floor(mon.maxHP * 0.25));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return { msg: `💧 One with the Sea: ${mon.name} healed ${heal} HP!` };
+    },
+  },
+
+  flare_absorption: {
+    name: "Flare Absorption",
+    emoji: "🔥",
+    cssClass: "trait-flare-absorption",
+    description: "Fire moves grant +1 Attack on hit; immune to Fire damage.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Fire" ? 0 : 1,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Fire") return null;
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "atk", 1)) {
+        return { msg: `🔥 Flare Absorption: ${mon.name}'s Attack rose!` };
+      }
+      return null;
+    },
+  },
+
+  verdant_feast: {
+    name: "Verdant Feast",
+    emoji: "🌿",
+    cssClass: "trait-verdant-feast",
+    description: "Nature moves grant +1 Attack on hit; immune to Nature damage.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Nature" ? 0 : 1,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Nature") return null;
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "atk", 1)) {
+        return { msg: `🌿 Verdant Feast: ${mon.name}'s Attack rose!` };
+      }
+      return null;
+    },
+  },
+
+  conductor: {
+    name: "Conductor",
+    emoji: "⚡",
+    cssClass: "trait-conductor",
+    description: "Electric moves restore PP to a move; immune to Electric damage.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Electric" ? 0 : 1,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Electric") return null;
+      const slot = mon.moves?.find(mv => mv.pp < mv.maxPP);
+      if (slot) {
+        slot.pp = Math.min(slot.maxPP, slot.pp + 3);
+        const mvName = (typeof MOVES_DATA !== "undefined" ? MOVES_DATA[slot.id]?.name : null) || slot.id;
+        return { msg: `⚡ Conductor: ${mon.name} regained 3 PP for ${mvName}!` };
+      }
+      return null;
+    },
+  },
+
+  mind_feast: {
+    name: "Mind-feast",
+    emoji: "🧠",
+    cssClass: "trait-mind-feast",
+    description: "Mental moves heal 25% max HP; immune to Mental damage.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Mental" ? 0 : 1,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Mental") return null;
+      const heal = Math.max(1, Math.floor(mon.maxHP * 0.25));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return { msg: `🧠 Mind-feast: ${mon.name} healed ${heal} HP!` };
+    },
+  },
+
+  purge: {
+    name: "Purge",
+    emoji: "☠️",
+    cssClass: "trait-purge",
+    description: "Poison and Toxin moves heal 25% max HP; immune to both.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) =>
+      (move.type === "Poison" || move.type === "Toxin") ? 0 : 1,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Poison" && move.type !== "Toxin") return null;
+      const heal = Math.max(1, Math.floor(mon.maxHP * 0.25));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return { msg: `☠️ Purge: ${mon.name} healed ${heal} HP!` };
+    },
+  },
+
+  floating: {
+    name: "Floating",
+    emoji: "🪂",
+    cssClass: "trait-floating",
+    description: "Earth moves do nothing; Speed rises +1 stage on Earth-move hit.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Earth" ? 0 : 1,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Earth") return null;
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "spe", 1)) {
+        return { msg: `🪂 Floating: ${mon.name}'s Speed rose!` };
+      }
+      return null;
+    },
+  },
+
+  echo_chamber: {
+    name: "Echo Chamber",
+    emoji: "🔇",
+    cssClass: "trait-echo-chamber",
+    description: "Sonic moves heal 25% max HP; immune to Sonic damage.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Sonic" ? 0 : 1,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Sonic") return null;
+      const heal = Math.max(1, Math.floor(mon.maxHP * 0.25));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return { msg: `🔇 Echo Chamber: ${mon.name} healed ${heal} HP!` };
+    },
+  },
+
+  vapor_vent: {
+    name: "Vapor-vent",
+    emoji: "💨",
+    cssClass: "trait-vapor-vent",
+    description: "Vapor moves grant +1 Sp.Def on hit; immune to Vapor damage.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Vapor" ? 0 : 1,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Vapor") return null;
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "spd", 1)) {
+        return { msg: `💨 Vapor-vent: ${mon.name}'s Sp.Def rose!` };
+      }
+      return null;
+    },
+  },
+
+  wont_dream: {
+    name: "Won't Dream",
+    emoji: "💭",
+    cssClass: "trait-wont-dream",
+    description: "Dream moves heal 50% max HP; immune to Dream damage.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Dream" ? 0 : 1,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Dream") return null;
+      const heal = Math.max(1, Math.floor(mon.maxHP * 0.5));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return { msg: `💭 Won't Dream: ${mon.name} healed ${heal} HP!` };
+    },
+  },
+
+  // --- B. Stat-on-entry (5; #34 Scout dropped) ---
+  intimidating_glare: {
+    name: "Intimidating Glare",
+    emoji: "😤",
+    cssClass: "trait-intimidating-glare",
+    description: "Lowers the opposing Lumori's Attack by 1 stage on entry.",
+    ngPlusOnly: false,
+    onEntry: (mon, _e, foe) => {
+      if (!foe) return null;
+      if (typeof applyStageChange === "function" && applyStageChange(foe, "atk", -1)) {
+        return { msg: `😤 Intimidating Glare: ${foe.name}'s Attack fell!` };
+      }
+      return null;
+    },
+  },
+
+  calming_presence: {
+    name: "Calming Presence",
+    emoji: "🧘",
+    cssClass: "trait-calming-presence",
+    description: "Lowers the opposing Lumori's Sp.Atk by 1 stage on entry.",
+    ngPlusOnly: false,
+    onEntry: (mon, _e, foe) => {
+      if (!foe) return null;
+      if (typeof applyStageChange === "function" && applyStageChange(foe, "spa", -1)) {
+        return { msg: `🧘 Calming Presence: ${foe.name}'s Sp.Atk fell!` };
+      }
+      return null;
+    },
+  },
+
+  surge_of_power: {
+    name: "Surge of Power",
+    emoji: "💪",
+    cssClass: "trait-surge-of-power",
+    description: "Raises own Attack by 1 stage on entry.",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "atk", 1)) {
+        return { msg: `💪 Surge of Power: ${mon.name}'s Attack rose!` };
+      }
+      return null;
+    },
+  },
+
+  zoomer: {
+    name: "Zoomer",
+    emoji: "🏃",
+    cssClass: "trait-zoomer",
+    description: "Raises own Speed by 1 stage on entry.",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "spe", 1)) {
+        return { msg: `🏃 Zoomer: ${mon.name}'s Speed rose!` };
+      }
+      return null;
+    },
+  },
+
+  ironbound: {
+    name: "Ironbound",
+    emoji: "⚙️",
+    cssClass: "trait-ironbound",
+    description: "Raises own Defense by 1 stage on entry.",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "def", 1)) {
+        return { msg: `⚙️ Ironbound: ${mon.name}'s Defense rose!` };
+      }
+      return null;
+    },
+  },
+
+  // --- C. Status immunities (7) ---
+  immune_system: {
+    name: "Immune System",
+    emoji: "🧬",
+    cssClass: "trait-immune-system",
+    description: "Cannot be afflicted with Poison, Bad Poison, Tainted, or Plague.",
+    ngPlusOnly: false,
+    immuneToStatus: ["poison", "badpoison", "tainted", "plague"],
+  },
+
+  frostproof: {
+    name: "Frostproof",
+    emoji: "❄️",
+    cssClass: "trait-frostproof",
+    description: "Cannot be Frozen or suffer Hypothermia.",
+    ngPlusOnly: false,
+    immuneToStatus: ["freeze", "hypothermia"],
+  },
+
+  pyroguard: {
+    name: "Pyroguard",
+    emoji: "🔥",
+    cssClass: "trait-pyroguard",
+    description: "Cannot be Burned or Burnt-out.",
+    ngPlusOnly: false,
+    immuneToStatus: ["burn", "burnt_out"],
+  },
+
+  insomniac: {
+    name: "Insomniac",
+    emoji: "👁️",
+    cssClass: "trait-insomniac",
+    description: "Cannot fall asleep.",
+    ngPlusOnly: false,
+    immuneToStatus: ["sleep"],
+  },
+
+  steel_nerves: {
+    name: "Steel Nerves",
+    emoji: "🪨",
+    cssClass: "trait-steel-nerves",
+    description: "Cannot be flinched.",
+    ngPlusOnly: false,
+    flinchImmune: true,
+  },
+
+  mind_fortress: {
+    name: "Mind-fortress",
+    emoji: "🛡️",
+    cssClass: "trait-mind-fortress",
+    description: "Immune to Confused, Disoriented, and Hexed.",
+    ngPlusOnly: false,
+    immuneToStatus: ["hexed", "disoriented"],
+    confuseImmune: true,
+  },
+
+  wide_awake: {
+    name: "Wide-awake",
+    emoji: "☀️",
+    cssClass: "trait-wide-awake",
+    description: "Wakes from Sleep instantly; immune to Comatose.",
+    ngPlusOnly: false,
+    immuneToStatus: ["comatose"],
+    instantWake: true,
+  },
+
+  // --- D. Speed-conditional (5; mechanics retuned to stage-based) ---
+  adrenaline_burst: {
+    name: "Adrenaline Burst",
+    emoji: "💉",
+    cssClass: "trait-adrenaline-burst",
+    description: "Speed +1 stage while HP is below 30%.",
+    ngPlusOnly: false,
+    statMod: (mon) =>
+      mon.currentHP < mon.maxHP * 0.3 ? { spe: 1 } : {},
+  },
+
+  bulkyness: {
+    name: "Bulkyness",
+    emoji: "🦏",
+    cssClass: "trait-bulkyness",
+    description: "Attack +1 stage and Speed -2 stages permanently — heavy and hard-hitting.",
+    ngPlusOnly: false,
+    statMod: () => ({ spe: -2, atk: 1 }),
+  },
+
+  wind_runner: {
+    name: "Wind-runner",
+    emoji: "🌬️",
+    cssClass: "trait-wind-runner",
+    description: "Speed rises +1 stage when hit by a Wind-type move.",
+    ngPlusOnly: false,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Wind") return null;
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "spe", 1)) {
+        return { msg: `🌬️ Wind-runner: ${mon.name}'s Speed rose from the gust!` };
+      }
+      return null;
+    },
+  },
+
+  heated_sprint: {
+    name: "Heated Sprint",
+    emoji: "🔥",
+    cssClass: "trait-heated-sprint",
+    description: "Speed +2 stages while Burned — turning weakness into strength.",
+    ngPlusOnly: false,
+    statMod: (mon) =>
+      (typeof hasStatus === "function" && hasStatus(mon, "burn")) ? { spe: 2 } : {},
+  },
+
+  energized: {
+    name: "Energized",
+    emoji: "🔋",
+    cssClass: "trait-energized",
+    description: "Speed +2 stages while own HP is above 50%.",
+    ngPlusOnly: false,
+    statMod: (mon) =>
+      mon.currentHP > mon.maxHP * 0.5 ? { spe: 2 } : {},
+  },
+
+  // ====== Phase 2 will add ~110-160 more traits below this line ======
 };
 
 

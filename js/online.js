@@ -408,12 +408,46 @@ async function cancelTrade(tradeId) {
 // (see buildBattleMon). See docs/pvp-spec.md.
 // ============================================================
 
-// Rating: Elo-based, everyone starts at PVP_BASE_RATING. Two K-factors amplify
-// upsets — beating a higher-rated player (or losing to a lower-rated one) uses
-// K_UPSET; expected results use the smaller K_EXPECTED. See docs/pvp-spec.md.
+// Rating: everyone starts at PVP_BASE_RATING. The amount a result moves your
+// rating is a single continuous curve driven by the gap between your rating and
+// your opponent's — no flat tiers, no "upset" special-casing. Close matches move
+// you a little (±10–22), and the further apart the ratings, the more a result in
+// the "harder" direction swings (up to ±80). See docs/pvp-spec.md.
 const PVP_BASE_RATING = 1000;
-const PVP_K_EXPECTED  = 24;
-const PVP_K_UPSET     = 56;
+
+// Magnitude of a WIN as a function of gap = oppRating - myRating (+ = opponent
+// rated higher). Defined by (gap, delta) breakpoints, linearly interpolated:
+// beating a much weaker player floors at +10, an even match is +16, and beating
+// progressively stronger players ramps continuously up to a +80 cap. Each band's
+// start equals the previous band's end, so the curve is seamless.
+const PVP_WIN_CURVE = [
+  [-49, 10], [0, 16], [49, 22], [100, 30], [200, 36], [300, 42],
+  [449, 48], [599, 58], [799, 68], [999, 75], [1199, 80]
+];
+
+// Rating delta for a result. A loss is the mirror of a win against the opposite
+// gap (L(gap) = -W(-gap)): losing to a much weaker player swings as hard as
+// beating a much stronger one, while losing to someone far above you floors at -10.
+function pvpRatingDelta(myRating, oppRating, won) {
+  const gap = won ? (oppRating - myRating) : (myRating - oppRating);
+  const pts = PVP_WIN_CURVE;
+  let mag;
+  if (gap <= pts[0][0]) {
+    mag = pts[0][1];
+  } else if (gap >= pts[pts.length - 1][0]) {
+    mag = pts[pts.length - 1][1];
+  } else {
+    mag = pts[pts.length - 1][1];
+    for (let i = 1; i < pts.length; i++) {
+      if (gap <= pts[i][0]) {
+        const [g0, d0] = pts[i - 1], [g1, d1] = pts[i];
+        mag = d0 + (d1 - d0) * (gap - g0) / (g1 - g0);
+        break;
+      }
+    }
+  }
+  return won ? Math.round(mag) : -Math.round(mag);
+}
 
 // Serialize a party mon into a PvP team slot. Level/IVs are normalized at battle
 // time, but variant/shiny/held/moves/nature are carried so the snapshot battles
@@ -516,17 +550,12 @@ async function recordPvpResult(won) {
   const ctx = (typeof battleContext !== "undefined" && battleContext) ? battleContext : {};
   const oppName = ctx.pvpOpponentName || "your opponent";
 
-  // Elo with amplified upsets: a larger K when you beat someone rated above you
-  // (or lose to someone below you), so upsets swing harder than expected results.
+  // Gap-driven rating change: close matches move ±10–22, larger gaps in the
+  // "harder" direction (winning vs a higher rating / losing to a lower one) ramp
+  // continuously up to ±80. See pvpRatingDelta / PVP_WIN_CURVE.
   const before = G.pvpRating || PVP_BASE_RATING;
   const oppRating = ctx.pvpOpponentRating || PVP_BASE_RATING;
-  const expected = 1 / (1 + 10 ** ((oppRating - before) / 400));
-  const gap = oppRating - before;                       // + means opponent is stronger
-  const upset = (won && gap > 0) || (!won && gap < 0);
-  const K = upset ? PVP_K_UPSET : PVP_K_EXPECTED;
-  let delta = Math.round(K * ((won ? 1 : 0) - expected));
-  if (won && delta < 1) delta = 1;                       // a win always gains ≥1
-  if (!won && delta > -1) delta = -1;                    // a loss always costs ≥1
+  const delta = pvpRatingDelta(before, oppRating, won);
   G.pvpRating = Math.max(0, before + delta);
   if (won) G.pvpWins = (G.pvpWins || 0) + 1; else G.pvpLosses = (G.pvpLosses || 0) + 1;
   saveGame();

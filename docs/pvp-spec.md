@@ -51,18 +51,26 @@ variant fields (variantBase/types/immune). Reuse `buildMonBase(def,50,ivs,nature
   "Create Room" (passcode + public toggle), "Join Room" (id + passcode), rating display.
 - Reuse trade-board card styling; reuse battle screen for the actual fights.
 
-## Rating (Elo with amplified upsets)
-Everyone starts at `PVP_BASE_RATING = 1000`. Standard Elo expectation, but a
-**two-K** scheme so upsets swing harder than expected results:
+## Rating (gap-driven curve)
+Everyone starts at `PVP_BASE_RATING = 1000`. The amount a result moves your
+rating is a **single continuous curve** of the rating gap — no flat tiers and no
+"upset" special-casing. Close matches move you a little; the further apart the
+ratings, the more a result in the *harder* direction swings.
 ```
-expected = 1 / (1 + 10^((oppRating - myRating) / 400))
-gap      = oppRating - myRating            // + means opponent stronger
-upset    = (won && gap > 0) || (!won && gap < 0)
-K        = upset ? PVP_K_UPSET(56) : PVP_K_EXPECTED(24)
-delta    = round(K * ((won ? 1 : 0) - expected))   // floored to ±1 minimum
+// Magnitude of a WIN by gap = oppRating - myRating (+ = opponent rated higher),
+// (gap, delta) breakpoints linearly interpolated (PVP_WIN_CURVE in online.js):
+[-49,10] [0,16] [49,22] [100,30] [200,36] [300,42] [449,48] [599,58] [799,68] [999,75] [1199,80]
+// A loss is the mirror against the opposite gap:  L(gap) = -W(-gap)
+delta = pvpRatingDelta(myRating, oppRating, won)   // online.js
 ```
-Swings @1000: equal ±12; beat +300 → +48, lose to it → −4; beat −300 → +4,
-lose to it → −48. Tune via `PVP_K_*` constants in `online.js`.
+Swings @1000 (gap = opp − me):
+- **Win:** beat much weaker → +10 · even → +16 · slightly higher (gap 49) → +22 ·
+  +100 → +30 · +300 → +42 · +500 → +51 · +1000 → +75 · capped at +80.
+- **Loss (mirror):** lose to much stronger → −10 · even → −16 · lose to someone
+  100 below → −30 · 300 below → −42 · 1000 below → −75 · capped at −80.
+
+Beating a higher-rated player is **not** treated as a special "upset" — it just
+sits further along the same curve. Tune by editing `PVP_WIN_CURVE` in `online.js`.
 
 **Async two-sided caveat:** only the acceptor is online, so only their rating
 updates immediately (using the opponent's rating stored on the challenge). The
@@ -86,7 +94,7 @@ their client drains on next login — deferred to a later phase.
 
 ## Build phases
 - **Phase A:** ✅ Lv-50 normalization + async 1v1 (post/board/quick-match/accept) +
-  Elo rating (two-K, amplified upsets) + `pvp_rating` leaderboard + PvP screen with
+  gap-driven rating curve + `pvp_rating` leaderboard + PvP screen with
   rating banner. *Unverified pending real Firebase + playtest.*
 - **Phase B:** async **Doubles (2v2)** + **Gauntlet**; challenger rating **mailbox**.
 - **Phase C:** async **FFA Royale** (>2-side engine).

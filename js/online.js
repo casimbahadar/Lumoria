@@ -61,6 +61,7 @@ const LB_CATEGORIES = [
   { id:"shiny_caught",label:"Radiant Caught",  icon:"✨", getValue: g => g.shinyCaught || 0 },
   { id:"event_pts",   label:"Event Points",    icon:"🎉", getValue: g => g.eventPoints || 0 },
   { id:"pvp_rating",  label:"PvP Rating",      icon:"⭐", getValue: g => g.pvpRating || 0 },
+  { id:"pvp_gauntlet",label:"Gauntlet Clears", icon:"🏟️", getValue: g => g.pvpGauntletBest || 0 },
 ];
 
 async function submitLeaderboardScore(category) {
@@ -635,6 +636,73 @@ async function drainPvpMailbox() {
   );
 }
 
+// ---- Gauntlet: battle several posted teams back-to-back; score = clears ----
+// A survival ladder that reuses the 1v1 battle path but deliberately does NOT
+// touch ladder rating or the mailbox — it's a separate "best clears" track so a
+// long run can't farm rating off other players who aren't choosing to fight.
+let gauntletRun = null;
+const GAUNTLET_MAX = 8;
+
+async function startGauntlet() {
+  if (!requireOnline() || !G) return;
+  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before the gauntlet!"); return; }
+  const snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").limitToFirst(50).once("value");
+  const pool = [];
+  snap.forEach(child => {
+    const v = child.val();
+    if (v.challengerUID !== firebaseUID) pool.push({ id: child.key, ...v });
+  });
+  if (!pool.length) { showNotification("No open challenges to run a gauntlet against yet. Post one or invite friends!"); return; }
+  // Shuffle, then take up to GAUNTLET_MAX as the run queue.
+  for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+  gauntletRun = { queue: pool.slice(0, GAUNTLET_MAX), idx: 0, clears: 0 };
+  showNotification(`🏟️ Gauntlet begins! Beat as many teams as you can — ${gauntletRun.queue.length} waiting.`);
+  gauntletLaunchNext();
+}
+
+function gauntletLaunchNext() {
+  if (!gauntletRun) return;
+  const next = gauntletRun.queue[gauntletRun.idx];
+  if (!next) { finishGauntlet(true); return; }   // cleared everyone available
+  let team;
+  try { team = JSON.parse(next.team); } catch(e) { team = null; }
+  if (!Array.isArray(team) || !team.length) {    // skip a malformed entry
+    gauntletRun.idx++;
+    gauntletLaunchNext();
+    return;
+  }
+  if (typeof startPvpBattle !== "function") { showNotification("Battle engine unavailable."); gauntletRun = null; return; }
+  startPvpBattle(team, next.challengerName || "Challenger", { gauntlet: true });
+}
+
+// Called from endBattle's PvP branch when battleContext.pvpGauntlet is set.
+function advanceGauntlet(outcome) {
+  if (!gauntletRun) { showScreen("screen-pvp"); return; }
+  if (outcome === "won") {
+    gauntletRun.clears++;
+    gauntletRun.idx++;
+    gauntletLaunchNext();
+  } else {
+    finishGauntlet(false);
+  }
+}
+
+function finishGauntlet(clearedAll) {
+  const clears = gauntletRun ? gauntletRun.clears : 0;
+  gauntletRun = null;
+  const prevBest = G.pvpGauntletBest || 0;
+  const isRecord = clears > prevBest;
+  if (isRecord) G.pvpGauntletBest = clears;
+  saveGame();
+  if (typeof submitLeaderboardScore === "function") submitLeaderboardScore("pvp_gauntlet");
+  const head = clearedAll
+    ? `🏟️ Gauntlet cleared! You beat all ${clears} team${clears === 1 ? "" : "s"}!`
+    : `🏟️ Gauntlet over — ${clears} clear${clears === 1 ? "" : "s"}.`;
+  const tail = isRecord ? " 🏆 New best!" : ` (Best: ${G.pvpGauntletBest || 0}.)`;
+  showNotification(head + tail,
+    () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); });
+}
+
 async function showPvPScreen() {
   if (!requireOnline()) return;
   showScreen("screen-pvp");
@@ -651,9 +719,13 @@ function renderPvpRatingBanner() {
   const rating = G.pvpRating || PVP_BASE_RATING;
   const w = G.pvpWins || 0, l = G.pvpLosses || 0;
   const played = (G.pvpRating !== undefined) || w || l;
-  el.innerHTML = played
+  const gauntlet = (G.pvpGauntletBest || 0) > 0
+    ? ` · <span class="pvp-record">🏟️ best ${G.pvpGauntletBest}</span>`
+    : "";
+  el.innerHTML = (played
     ? `Your rating: <strong>⭐ ${rating}</strong> · <span class="pvp-record">${w}W–${l}L</span>`
-    : `Your rating: <strong>⭐ ${PVP_BASE_RATING}</strong> · <span class="pvp-record">unranked — play your first match!</span>`;
+    : `Your rating: <strong>⭐ ${PVP_BASE_RATING}</strong> · <span class="pvp-record">unranked — play your first match!</span>`)
+    + gauntlet;
 }
 
 async function loadOpenChallenges() {

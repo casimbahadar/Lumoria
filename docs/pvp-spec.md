@@ -57,7 +57,8 @@ variant fields (variantBase/types/immune). Reuse `buildMonBase(def,50,ivs,nature
 
 ## UI
 - New **PvP** screen/tab: mode toggle (Async / Live Room), board list, "Quick Match",
-  "Create Room" (passcode + public toggle), "Join Room" (id + passcode), rating display.
+  "Gauntlet", "Create Room" (passcode + public toggle), "Join Room" (id + passcode),
+  rating display (also shows 🏟️ gauntlet best).
 - Reuse trade-board card styling; reuse battle screen for the actual fights.
 
 ## Rating (gap-driven curve)
@@ -100,15 +101,19 @@ curve mirror is `L(gap) = −W(−gap)`, the exchange is exactly zero-sum.
   Then *live 2-human tag* in the live phase.
 - **FFA** — *async Royale vs AI snapshots* (3–4 teams, last team standing; requires
   teaching the engine to handle **>2 sides** — the real work). Then *live multiplayer FFA*.
-- **Gauntlet** (near-term, light) — fight several players' snapshots back-to-back,
-  ranked by clears; mostly reuses the 1v1 path.
+- **Gauntlet** ✅ — fight up to `GAUNTLET_MAX` (8) posted teams back-to-back; the run
+  ends on your first loss and scores the number of consecutive **clears**. Reuses the
+  1v1 battle path (`startGauntlet` → `gauntletLaunchNext` → `startPvpBattle({gauntlet:true})`
+  → `advanceGauntlet` from `endBattle` → `finishGauntlet`). Deliberately **does not**
+  touch ladder rating or the mailbox — it's a separate survival track stored as
+  `G.pvpGauntletBest` with its own `pvp_gauntlet` leaderboard.
 
 ## Build phases
 - **Phase A:** ✅ Lv-50 normalization + async 1v1 (post/board/quick-match/accept) +
   gap-driven rating curve + challenger rating **mailbox** (two-sided reconciliation) +
-  `pvp_rating` leaderboard + PvP screen with rating banner. *Unverified pending real
-  Firebase + playtest.*
-- **Phase B:** async **Doubles (2v2)** + **Gauntlet**.
+  `pvp_rating` leaderboard + PvP screen with rating banner + **Gauntlet** survival mode
+  (`pvp_gauntlet` leaderboard). *Unverified pending real Firebase + playtest.*
+- **Phase B:** async **Doubles (2v2)**.
 - **Phase C:** async **FFA Royale** (>2-side engine).
 - **Phase D:** real-time — passcode rooms (private/public) + host-authoritative live
   turn-sync + public spectating + **live 2v2 / live FFA**.

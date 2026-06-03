@@ -2003,7 +2003,9 @@ function endBattle(outcome, slot, levelUps) {
         if (m) m.currentHP = Math.min(m.maxHP, battleContext.pvpHpSnapshot[i] ?? m.maxHP);
       });
     }
-    if ((outcome === "won" || outcome === "lost") && typeof recordPvpResult === "function") {
+    if (battleContext.pvpGauntlet && typeof advanceGauntlet === "function") {
+      advanceGauntlet(outcome);   // gauntlet runs don't touch ladder rating/mailbox
+    } else if ((outcome === "won" || outcome === "lost") && typeof recordPvpResult === "function") {
       recordPvpResult(outcome === "won");
     } else {
       showScreen("screen-pvp");
@@ -3712,6 +3714,9 @@ function initEventListeners() {
   document.getElementById("btn-pvp-quickmatch")?.addEventListener("click", () => {
     if (typeof quickMatch === "function") quickMatch();
   });
+  document.getElementById("btn-pvp-gauntlet")?.addEventListener("click", () => {
+    if (typeof startGauntlet === "function") startGauntlet();
+  });
 
   // Quest filter buttons
   document.querySelectorAll(".quest-filter-btn").forEach(btn => {
@@ -4109,6 +4114,7 @@ function startPvpBattle(oppSlots, oppName, meta) {
   battleContext = {
     isWild: false, isGym: false, isChampion: false, isTrainer: false,
     isPvP: true,
+    pvpGauntlet: !!meta.gauntlet,
     pvpChallengeId: meta.challengeId || null,
     pvpOpponentName: name,
     pvpOpponentUID: meta.opponentUID || null,

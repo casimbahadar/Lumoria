@@ -430,7 +430,7 @@ const MOVES_DATA = {
   whirlpool:     { name:"Maelstrom",     type:"Aquatic",    power:70,  acc:85,  pp:15, cat:"special",  effect:"spedown",   ec:30,  desc:"Traps the foe in a churning whirlpool that slows their escape." },
   ocean_tempest: { name:"Ocean Tempest", type:"Aquatic",    power:100, acc:80,  pp:5,  cat:"special",  effect:"confuse",   ec:30,  desc:"Summons a furious ocean tempest that batters and confuses." },
   brine_slash:   { name:"Brine Slash",   type:"Aquatic",    power:65,  acc:100, pp:20, cat:"physical", effect:"crit",      ec:100, desc:"Slashes with a blade of crystallized brine. High crit rate." },
-  tidal_blessing:{ name:"Tidal Blessing",type:"Aquatic",    power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Draws on the ocean's grace to restore the user's vitality." },
+  tidal_blessing:{ name:"Marine Blessing",type:"Aquatic",    power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Draws on the ocean's grace to restore the user's vitality." },
 
   // Grass (+7 → 22)
   leaf_blade:    { name:"Verdant Edge",  type:"Nature",    power:90,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes with a blade-sharp leaf. High crit rate." },

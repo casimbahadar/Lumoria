@@ -157,8 +157,8 @@ const MOVES_DATA = {
   sea_serpent_strike:{ name:"Sea Serpent Strike",type:"Aquatic",power:95,acc:90,pp:10,cat:"physical",effect:null,        ec:0,   desc:"A coiling strike mimicking the legendary sea serpent's lethal lunge." },
   tidecaller:   { name:"Tidecaller",    type:"Aquatic",    power:0,   acc:100, pp:15, cat:"status",   effect:"calmup",    ec:100, desc:"Calls upon the tides to bolster the user's special power and resilience." },
   // --- Nature ---
-  vine_whip:    { name:"Vine Whip",     type:"Nature",    power:45,  acc:100, pp:25, cat:"physical", effect:null,        ec:0,   desc:"Strikes with long, slender vines." },
-  razor_leaf:   { name:"Razor Leaf",    type:"Nature",    power:55,  acc:95,  pp:25, cat:"physical", effect:"crit",      ec:100, desc:"Slices with razor-edged leaves. High crit." },
+  vine_whip:    { name:"Vine Lash",     type:"Nature",    power:45,  acc:100, pp:25, cat:"physical", effect:null,        ec:0,   desc:"Strikes with long, slender vines." },
+  razor_leaf:   { name:"Sharp Leaves",  type:"Nature",    power:55,  acc:95,  pp:25, cat:"physical", effect:"crit",      ec:100, desc:"Slices with razor-edged leaves. High crit." },
   seed_bomb:    { name:"Pod Blast",     type:"Nature",    power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Drops a giant seed bomb on the foe." },
   energy_ball:  { name:"Verdant Orb",   type:"Nature",    power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"A ball of energy drawn from nature." },
   petal_blitz:  { name:"Petal Blitz",   type:"Nature",    power:100, acc:90,  pp:10, cat:"physical", effect:"flinch",        ec:30,   desc:"Strikes with a furious petal storm." },
@@ -293,7 +293,7 @@ const MOVES_DATA = {
   bug_bite:     { name:"Mandible Bite",      type:"Nature",      power:60,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"Bites the foe with bug mandibles." },
   bug_buzz:     { name:"Resonance Hum",      type:"Nature",      power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"Emits a harsh buzzing sound." },
   x_scissor:    { name:"Shear Strike",     type:"Nature",      power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Slashes the foe in an X shape." },
-  string_shot:  { name:"String Shot",   type:"Nature",      power:0,   acc:95,  pp:40, cat:"status",   effect:"spedown2",  ec:100, desc:"Binds the foe with string, slowing them." },
+  string_shot:  { name:"Silk Spray",    type:"Nature",      power:0,   acc:95,  pp:40, cat:"status",   effect:"spedown2",  ec:100, desc:"Binds the foe with string, slowing them." },
   silk_bind:    { name:"Silk Bind",     type:"Nature",      power:55,  acc:95,  pp:20, cat:"physical", effect:"spedown",   ec:100, desc:"Wraps the foe in strong silk threads that bind and slow their movement." },
   mandible_crush:{ name:"Mandible Crush",type:"Nature",     power:85,  acc:95,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Crushes the foe between massive mandibles with bone-cracking force." },
   swarm_dive:   { name:"Swarm Dive",    type:"Nature",      power:80,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Dives into the foe alongside a swarm of allies in a coordinated assault." },
@@ -433,8 +433,8 @@ const MOVES_DATA = {
   tidal_blessing:{ name:"Tidal Blessing",type:"Aquatic",    power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Draws on the ocean's grace to restore the user's vitality." },
 
   // Grass (+7 → 22)
-  leaf_blade:    { name:"Leaf Blade",    type:"Nature",    power:90,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes with a blade-sharp leaf. High crit rate." },
-  synthesis:     { name:"Synthesis",     type:"Nature",    power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Absorbs sunlight to restore the user's health." },
+  leaf_blade:    { name:"Verdant Edge",  type:"Nature",    power:90,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes with a blade-sharp leaf. High crit rate." },
+  synthesis:     { name:"Regrow",        type:"Nature",    power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Absorbs sunlight to restore the user's health." },
   thorn_barrage: { name:"Thorn Barrage", type:"Nature",    power:70,  acc:95,  pp:15, cat:"physical", effect:"poison",    ec:20,  desc:"Fires a barrage of poisoned thorns at the target." },
   jungle_hammer: { name:"Jungle Hammer",type:"Nature",    power:110, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100, desc:"Slams with a massive jungle root. The impact recoils on the user." },
   pollen_storm:  { name:"Pollen Storm",  type:"Nature",    power:85,  acc:90,  pp:10, cat:"special",  effect:"sleep",     ec:20,  desc:"Whips up a storm of sleep-inducing pollen." },
@@ -538,11 +538,11 @@ const MOVES_DATA = {
   quarry_crush:  { name:"Quarry Crush",  type:"Earth",     power:90,  acc:85,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Crushes the foe with the force of a collapsing quarry." },
 
   // Bug (+7 → 22)
-  fury_cutter:   { name:"Fury Cutter",   type:"Nature",      power:40,  acc:95,  pp:20, cat:"physical", effect:"crit",        ec:100,   desc:"Slashes with scythe-like claws in a fury." },
-  signal_beam:   { name:"Signal Beam",   type:"Nature",      power:75,  acc:100, pp:15, cat:"special",  effect:"confuse",   ec:10,  desc:"Fires a peculiar signal beam that confuses." },
-  leech_life:    { name:"Leech Life",    type:"Nature",      power:80,  acc:100, pp:10, cat:"physical", effect:"drain",     ec:100, desc:"Drains the foe's blood to restore the user's HP." },
-  pin_missile:   { name:"Pin Missile",   type:"Nature",      power:55,  acc:95,  pp:20, cat:"physical", effect:"hits",        ec:0,   desc:"Fires sharp pins at the foe in rapid succession." },
-  lunge:         { name:"Lunge",         type:"Nature",      power:80,  acc:100, pp:15, cat:"physical", effect:"atkdown",   ec:100, desc:"Lunges at the foe, lowering their Attack on contact." },
+  fury_cutter:   { name:"Mantis Slash",  type:"Nature",      power:40,  acc:95,  pp:20, cat:"physical", effect:"crit",        ec:100,   desc:"Slashes with scythe-like claws in a fury." },
+  signal_beam:   { name:"Lumen Pulse",   type:"Nature",      power:75,  acc:100, pp:15, cat:"special",  effect:"confuse",   ec:10,  desc:"Fires a peculiar signal beam that confuses." },
+  leech_life:    { name:"Sap Bite",      type:"Nature",      power:80,  acc:100, pp:10, cat:"physical", effect:"drain",     ec:100, desc:"Drains the foe's blood to restore the user's HP." },
+  pin_missile:   { name:"Quill Barrage", type:"Nature",      power:55,  acc:95,  pp:20, cat:"physical", effect:"hits",        ec:0,   desc:"Fires sharp pins at the foe in rapid succession." },
+  lunge:         { name:"Maul",          type:"Nature",      power:80,  acc:100, pp:15, cat:"physical", effect:"atkdown",   ec:100, desc:"Lunges at the foe, lowering their Attack on contact." },
   infestation:   { name:"Infestation",   type:"Nature",      power:50,  acc:100, pp:20, cat:"special",  effect:"spedown",   ec:30,  desc:"Infests the foe with parasitic bugs that slow them down." },
   metamorphosis: { name:"Metamorphosis", type:"Nature",      power:0,   acc:100, pp:10, cat:"status",   effect:"calmup",    ec:100, desc:"Undergoes a transformation that sharpens special power and resilience." },
 
@@ -579,12 +579,12 @@ const MOVES_DATA = {
   ocean_crash:      { name:"Ocean Crash",       type:"Aquatic",    power:120, acc:85,  pp:5,  cat:"physical", effect:"defdown",   ec:30,  desc:"Crashes into the foe with the full force of a collapsing ocean wave." },
 
   // --- Grass (+7) ---
-  bullet_seed:      { name:"Bullet Seed",       type:"Nature",    power:65,  acc:100, pp:20, cat:"physical", effect:"hits",        ec:0,   desc:"Forcefully shoots seeds in rapid bursts at the target." },
-  magical_leaf:     { name:"Magical Leaf",      type:"Nature",    power:60,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Scatters leaves imbued with magical energy that never miss." },
-  leech_seed:       { name:"Leech Seed",        type:"Nature",    power:0,   acc:90,  pp:10, cat:"status",   effect:"drain",     ec:100, desc:"Plants a parasitic seed on the foe that saps HP each turn." },
-  leaf_storm:       { name:"Leaf Storm",        type:"Nature",    power:130, acc:90,  pp:5,  cat:"special",  effect:"spatkdown", ec:100, desc:"A savage storm of razor leaves that sharply lowers the user's Sp. Atk." },
-  petal_dance:      { name:"Petal Dance",       type:"Nature",    power:120, acc:100, pp:10, cat:"special",  effect:"confuse",   ec:100, desc:"A whirling dance of petals for several turns, then confuses the user." },
-  solar_beam:       { name:"Solar Beam",        type:"Nature",    power:120, acc:100, pp:10, cat:"special",  effect:"recharge",  ec:100, desc:"Absorbs sunlight on the first turn, then unleashes a powerful beam." },
+  bullet_seed:      { name:"Seed Volley",       type:"Nature",    power:65,  acc:100, pp:20, cat:"physical", effect:"hits",        ec:0,   desc:"Forcefully shoots seeds in rapid bursts at the target." },
+  magical_leaf:     { name:"Fae Petals",        type:"Nature",    power:60,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Scatters leaves imbued with magical energy that never miss." },
+  leech_seed:       { name:"Sap Seed",          type:"Nature",    power:0,   acc:90,  pp:10, cat:"status",   effect:"drain",     ec:100, desc:"Plants a parasitic seed on the foe that saps HP each turn." },
+  leaf_storm:       { name:"Foliage Tempest",   type:"Nature",    power:130, acc:90,  pp:5,  cat:"special",  effect:"spatkdown", ec:100, desc:"A savage storm of razor leaves that sharply lowers the user's Sp. Atk." },
+  petal_dance:      { name:"Blossom Frenzy",    type:"Nature",    power:120, acc:100, pp:10, cat:"special",  effect:"confuse",   ec:100, desc:"A whirling dance of petals for several turns, then confuses the user." },
+  solar_beam:       { name:"Sun Ray",           type:"Nature",    power:120, acc:100, pp:10, cat:"special",  effect:"recharge",  ec:100, desc:"Absorbs sunlight on the first turn, then unleashes a powerful beam." },
   spore_shield:     { name:"Spore Shield",      type:"Nature",    power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Grows a coating of hardened spores over the body, raising Defense." },
 
   // --- Electric (+7) ---
@@ -694,7 +694,7 @@ const MOVES_DATA = {
   // --- Bug (+7) ---
   quiver_dance:     { name:"Quiver Dance",      type:"Nature",      power:0,   acc:100, pp:20, cat:"status",   effect:"calmup",    ec:100, desc:"A mystical dance that raises the user's special power, resilience, and Speed." },
   sticky_web:       { name:"Sticky Web",        type:"Nature",      power:0,   acc:100, pp:20, cat:"status",   effect:"spedown",   ec:100, desc:"Shoots a sticky web that significantly slows the target." },
-  twineedle:        { name:"Twineedle",         type:"Nature",      power:50,  acc:100, pp:20, cat:"physical", effect:"poison",    ec:20,  desc:"Stings the foe twice with a sharp stinger. May poison." },
+  twineedle:        { name:"Twin Sting",        type:"Nature",      power:50,  acc:100, pp:20, cat:"physical", effect:"poison",    ec:20,  desc:"Stings the foe twice with a sharp stinger. May poison." },
   attack_order:     { name:"Swarm Strike",      type:"Nature",      power:90,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Commands bug allies to swarm the foe — their unified assault always finds weak points." },
   swarm_fury:       { name:"Swarm Fury",        type:"Nature",      power:80,  acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"An unrelenting swarming assault that exhausts the user as well." },
   cocoon_guard:     { name:"Cocoon Guard",      type:"Nature",      power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Wraps the body in a hardened cocoon shell, dramatically raising Defense." },

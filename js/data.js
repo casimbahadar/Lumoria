@@ -831,7 +831,7 @@ const MOVES_DATA = {
   // ============================================================
 
   // --- Sonic (regular) ---
-  shake_strike:            { name:"Shake Strike", type:"Sonic", power:50, acc:100, pp:30, cat:"physical", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Body-vibration impact; always lands a critical hit." },
+  shake_strike:            { name:"Shake Smash", type:"Sonic", power:50, acc:100, pp:30, cat:"physical", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Body-vibration impact; always lands a critical hit." },
   echo_strike:             { name:"Echo Strike", type:"Sonic", power:30, acc:100, pp:20, cat:"physical", effect:null, ec:0, target:"single", hits:2, desc:"Strikes twice with echoing impact." },
   silent_strike:           { name:"Silent Strike", type:"Sonic", power:70, acc:100, pp:15, cat:"physical", effect:"priority", ec:0, target:"single", desc:"Sonic surprise strikes first." },
   sound_rush:              { name:"Sound Rush", type:"Sonic", power:60, acc:100, pp:25, cat:"physical", effect:"speup", ec:50, target:"single", desc:"Rush with audible boom; may sharply raise Speed." },

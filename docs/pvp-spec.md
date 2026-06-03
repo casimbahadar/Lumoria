@@ -24,7 +24,12 @@ Branch `claude/online-pvp`. Builds on the existing Firebase RTDB online layer
                         status:"open|active|done",
                         state:{...}, turn:{...}, created }
 /leaderboards/pvp/{uid} { name, value:rating }                     // reuse leaderboard system
+/pvpMailbox/{uid}/{challengeId} { opponentName, opponentRating,    // async result notes for the
+                        challengerRatingAtPost, challengerWon, ts } // offline challenger to drain
 ```
+**Security rules note:** the acceptor (defender) writes to the *challenger's*
+`/pvpMailbox/{uid}` node, so RTDB rules must allow any authed user to write there
+(read/delete restricted to the owner uid). Apply console-side.
 A PvP team slot stores `{ monsterId, level:50, moves, nature, ivs(31), shiny, variant, variantTypes, variantBase, variantImmune }` so variants battle correctly.
 
 ## Lv-50 normalization
@@ -36,7 +41,11 @@ variant fields (variantBase/types/immune). Reuse `buildMonBase(def,50,ivs,nature
 2. `loadPvpBoard()` — list other entries (browsable, like trade board).
 3. `quickMatch()` — pick a random entry near your rating.
 4. Challenge → reconstruct opponent slots → `startMultiBattle(theirTeam, theirName, mode)` (existing engine, AI-driven), with PvP flag.
-5. On result → `recordPvpResult(win)` updates Elo-ish rating + `/leaderboards/pvp`.
+5. On result → `recordPvpResult(win)` updates the acceptor's rating + `/leaderboards/pvp`,
+   and deposits a `/pvpMailbox/{challengerUID}/{challengeId}` note for the offline poster.
+6. `drainPvpMailbox()` (on login + when opening the PvP screen) mirrors each pending
+   note onto the challenger's own rating/record (zero-sum: their delta = −acceptor's),
+   then clears the note and deletes the finished challenge.
 
 ## Real-time flow (host-authoritative)
 1. `createRoom(passcode, public)` → `/pvpRooms/{id}` with hostTeam; host waits.
@@ -72,10 +81,12 @@ Swings @1000 (gap = opp − me):
 Beating a higher-rated player is **not** treated as a special "upset" — it just
 sits further along the same curve. Tune by editing `PVP_WIN_CURVE` in `online.js`.
 
-**Async two-sided caveat:** only the acceptor is online, so only their rating
+**Async two-sided reconciliation:** only the acceptor is online, so their rating
 updates immediately (using the opponent's rating stored on the challenge). The
-challenger's rating reconciliation needs a **pending-result mailbox** (`/pvpMailbox/{uid}`)
-their client drains on next login — deferred to a later phase.
+acceptor also deposits a **mailbox note** (`/pvpMailbox/{challengerUID}/{challengeId}`)
+holding the inputs the challenger needs; `drainPvpMailbox()` applies the mirrored
+delta on the challenger's next login (and on opening the PvP screen). Because the
+curve mirror is `L(gap) = −W(−gap)`, the exchange is exactly zero-sum.
 
 **Where it's shown:** ⭐ PvP Rating leaderboard tab; post-battle popup
 ("Rating +48 → 1048"); and a rating banner header on the PvP screen
@@ -94,9 +105,10 @@ their client drains on next login — deferred to a later phase.
 
 ## Build phases
 - **Phase A:** ✅ Lv-50 normalization + async 1v1 (post/board/quick-match/accept) +
-  gap-driven rating curve + `pvp_rating` leaderboard + PvP screen with
-  rating banner. *Unverified pending real Firebase + playtest.*
-- **Phase B:** async **Doubles (2v2)** + **Gauntlet**; challenger rating **mailbox**.
+  gap-driven rating curve + challenger rating **mailbox** (two-sided reconciliation) +
+  `pvp_rating` leaderboard + PvP screen with rating banner. *Unverified pending real
+  Firebase + playtest.*
+- **Phase B:** async **Doubles (2v2)** + **Gauntlet**.
 - **Phase C:** async **FFA Royale** (>2-side engine).
 - **Phase D:** real-time — passcode rooms (private/public) + host-authoritative live
   turn-sync + public spectating + **live 2v2 / live FFA**.

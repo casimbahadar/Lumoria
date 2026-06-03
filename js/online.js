@@ -36,6 +36,7 @@ async function initOnline() {
     loadLiveEvent();
     renderOnlineHUD();
     syncPlayerProfile();
+    drainPvpMailbox();   // reconcile async results that landed while offline
   } catch(e) {
     console.warn("Firebase init failed:", e.message);
   }
@@ -560,7 +561,8 @@ async function recordPvpResult(won) {
   if (won) G.pvpWins = (G.pvpWins || 0) + 1; else G.pvpLosses = (G.pvpLosses || 0) + 1;
   saveGame();
 
-  // Record the outcome on the challenge so its poster can see it later.
+  // Record the outcome on the challenge, and leave a mailbox note so the
+  // (offline) challenger can reconcile their own rating on next login.
   if (onlineReady && ctx.pvpChallengeId) {
     try {
       await firebaseDB.ref(`battles/${ctx.pvpChallengeId}`).update({
@@ -570,7 +572,20 @@ async function recordPvpResult(won) {
         result: won ? "defender" : "challenger",
         completedTs: Date.now()
       });
-    } catch(e) { /* non-fatal; rating already saved locally */ }
+      // Only the acceptor (defender) is online, so deposit the inputs the
+      // challenger needs to mirror this result via drainPvpMailbox() when they
+      // next come online. The mirror is zero-sum: their delta = -ours.
+      if (ctx.pvpOpponentUID && ctx.pvpOpponentUID !== firebaseUID) {
+        await firebaseDB.ref(`pvpMailbox/${ctx.pvpOpponentUID}/${ctx.pvpChallengeId}`).set({
+          challengeId: ctx.pvpChallengeId,
+          opponentName: G.playerName,            // the defender, from the challenger's view
+          opponentRating: before,                // defender rating at battle time
+          challengerRatingAtPost: oppRating,     // rating the challenger posted with
+          challengerWon: !won,                   // challenger won iff defender lost
+          ts: Date.now()
+        });
+      }
+    } catch(e) { /* non-fatal; local rating already saved */ }
   }
   if (typeof submitLeaderboardScore === "function") submitLeaderboardScore("pvp_rating");
 
@@ -582,9 +597,48 @@ async function recordPvpResult(won) {
   );
 }
 
+// Reconcile async PvP results that landed on our posted challenges while we were
+// offline. The acceptor (defender) leaves a mailbox note per battle (see
+// recordPvpResult); here we mirror each one onto our own rating/record, then clear
+// the note (apply-once) and delete the now-finished challenge to tidy the board.
+// Called on login (initOnline) and when opening the PvP screen.
+async function drainPvpMailbox() {
+  if (!onlineReady || !firebaseUID || !G) return;
+  const snap = await firebaseDB.ref(`pvpMailbox/${firebaseUID}`).once("value").catch(() => null);
+  if (!snap || !snap.exists()) return;
+  const entries = [];
+  snap.forEach(c => { entries.push({ key: c.key, ...c.val() }); });
+
+  let net = 0, w = 0, l = 0, lastName = "";
+  for (const e of entries) {
+    const base = (typeof e.challengerRatingAtPost === "number") ? e.challengerRatingAtPost : (G.pvpRating || PVP_BASE_RATING);
+    const oppR = (typeof e.opponentRating === "number") ? e.opponentRating : PVP_BASE_RATING;
+    const delta = pvpRatingDelta(base, oppR, !!e.challengerWon);
+    G.pvpRating = Math.max(0, (G.pvpRating || PVP_BASE_RATING) + delta);
+    if (e.challengerWon) { G.pvpWins = (G.pvpWins || 0) + 1; w++; }
+    else { G.pvpLosses = (G.pvpLosses || 0) + 1; l++; }
+    net += delta;
+    lastName = e.opponentName || lastName;
+    // Clear the note first so a result can never be applied twice, then remove
+    // the finished challenge (we own it as the challenger).
+    await firebaseDB.ref(`pvpMailbox/${firebaseUID}/${e.key}`).remove().catch(() => {});
+    if (e.challengeId) await firebaseDB.ref(`battles/${e.challengeId}`).remove().catch(() => {});
+  }
+
+  saveGame();
+  if (typeof submitLeaderboardScore === "function") submitLeaderboardScore("pvp_rating");
+  const sign = net >= 0 ? "+" : "";
+  showNotification(entries.length === 1
+    ? `While you were away, ${escapeHtml(lastName || "someone")} ${w ? "fell to" : "beat"} your team. Rating ${sign}${net} → <strong>${G.pvpRating}</strong>.`
+    : `While you were away: ${entries.length} battles (${w}W–${l}L). Net rating ${sign}${net} → <strong>${G.pvpRating}</strong>.`,
+    () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); }
+  );
+}
+
 async function showPvPScreen() {
   if (!requireOnline()) return;
   showScreen("screen-pvp");
+  await drainPvpMailbox();   // catch results that landed since login, then show fresh standing
   renderPvpRatingBanner();
   loadOpenChallenges();
 }

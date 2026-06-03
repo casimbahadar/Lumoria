@@ -854,6 +854,10 @@ function buildBattleMon(partySlot, levelCap) {
     heldItem: heldItemId,
     focusSashUsed: false,
     partyRef: partySlot,
+    // Forward-compat: no ability battle system exists yet, so this is null today.
+    // Carried here (and in pvpSerializeMon) so abilities will flow through battles —
+    // including PvP snapshots — automatically once the system is implemented.
+    ability: partySlot.ability || (def && def.ability) || null,
     shiny: !!partySlot.shiny,
     variant: !!partySlot.variant,
     variantTypes: partySlot.variantTypes || null,

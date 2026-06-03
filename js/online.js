@@ -454,6 +454,9 @@ function pvpRatingDelta(myRating, oppRating, won) {
 // Serialize a party mon into a PvP team slot. Level/IVs are normalized at battle
 // time, but variant/shiny/held/moves/nature are carried so the snapshot battles
 // exactly as the owner built it. currentHP/statuses keep buildBattleMon happy.
+// `ability` is carried forward-compatibly: there is no ability battle system yet,
+// so it's null today, but once abilities exist on party mons the PvP snapshot will
+// preserve them automatically (buildBattleMon also passes it through).
 function pvpSerializeMon(m) {
   return {
     monsterId: m.monsterId,
@@ -462,6 +465,7 @@ function pvpSerializeMon(m) {
     nature: m.nature || "Balanced",
     ivs: { hp:31, atk:31, def:31, spa:31, spd:31, spe:31 },
     heldItem: m.heldItem || null,
+    ability: m.ability || null,
     shiny: !!m.shiny,
     variant: !!m.variant,
     variantTypes: m.variantTypes || null,
@@ -487,7 +491,13 @@ async function postBattleChallenge() {
     status: "open",
     ts: Date.now()
   };
-  const ref = await firebaseDB.ref("battles").push(challenge);
+  let ref;
+  try {
+    ref = await firebaseDB.ref("battles").push(challenge);
+  } catch(e) {
+    showNotification("Couldn't post your challenge — check your connection and try again.");
+    return;
+  }
   const code = ref.key.slice(-6).toUpperCase();
   const codeEl = document.getElementById("pvp-my-code");
   if (codeEl) { codeEl.textContent = `Your challenge code: ${code}`; codeEl.classList.remove("hidden"); }
@@ -500,8 +510,15 @@ async function acceptBattleChallenge(code) {
   if (!requireOnline() || !G) return;
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before battling!"); return; }
 
+  if (!code || !code.trim()) { showNotification("Enter a battle code first."); return; }
   // Find challenge by last 6 chars of key
-  const snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").once("value");
+  let snap;
+  try {
+    snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").once("value");
+  } catch(e) {
+    showNotification("Couldn't reach the challenge board — check your connection and try again.");
+    return;
+  }
   let challengeId = null, challenge = null;
   snap.forEach(child => {
     if (child.key.slice(-6).toUpperCase() === code.toUpperCase() && child.val().challengerUID !== firebaseUID) {
@@ -532,7 +549,13 @@ function launchPvpChallenge(id, challenge) {
 async function quickMatch() {
   if (!requireOnline() || !G) return;
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before battling!"); return; }
-  const snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").limitToFirst(50).once("value");
+  let snap;
+  try {
+    snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").limitToFirst(50).once("value");
+  } catch(e) {
+    showNotification("Couldn't reach the challenge board — check your connection and try again.");
+    return;
+  }
   const pool = [];
   snap.forEach(child => {
     if (child.val().challengerUID !== firebaseUID) pool.push({ id: child.key, ...child.val() });
@@ -645,8 +668,15 @@ const GAUNTLET_MAX = 8;
 
 async function startGauntlet() {
   if (!requireOnline() || !G) return;
+  if (gauntletRun) { showNotification("A gauntlet run is already in progress!"); return; }
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before the gauntlet!"); return; }
-  const snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").limitToFirst(50).once("value");
+  let snap;
+  try {
+    snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").limitToFirst(50).once("value");
+  } catch(e) {
+    showNotification("Couldn't reach the challenge board — check your connection and try again.");
+    return;
+  }
   const pool = [];
   snap.forEach(child => {
     const v = child.val();
@@ -705,6 +735,7 @@ function finishGauntlet(clearedAll) {
 
 async function showPvPScreen() {
   if (!requireOnline()) return;
+  gauntletRun = null;        // abandon any run orphaned by backing out mid-battle
   showScreen("screen-pvp");
   await drainPvpMailbox();   // catch results that landed since login, then show fresh standing
   renderPvpRatingBanner();

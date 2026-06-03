@@ -30,7 +30,13 @@ Branch `claude/online-pvp`. Builds on the existing Firebase RTDB online layer
 **Security rules note:** the acceptor (defender) writes to the *challenger's*
 `/pvpMailbox/{uid}` node, so RTDB rules must allow any authed user to write there
 (read/delete restricted to the owner uid). Apply console-side.
-A PvP team slot stores `{ monsterId, level:50, moves, nature, ivs(31), shiny, variant, variantTypes, variantBase, variantImmune }` so variants battle correctly.
+A PvP team slot stores `{ monsterId, level:50, moves, nature, ivs(31), heldItem, ability, shiny, variant, variantTypes, variantBase, variantImmune }` so variants battle correctly.
+
+**Abilities (forward-compat):** there is no ability *battle system* yet — `ability`
+is `null` today and nothing consumes it. But `pvpSerializeMon` and `buildBattleMon`
+both pass it through, so once abilities are implemented on party mons they will flow
+into normal **and** PvP battles automatically (the Lv-50 snapshot won't strip them).
+Implementing the ability mechanics themselves is a separate, larger task.
 
 ## Lv-50 normalization
 `buildPvpMon(slot)` = `buildGymMon`-style but force `level:50`, IVs 31, preserving

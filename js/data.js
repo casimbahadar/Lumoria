@@ -170,11 +170,11 @@ const MOVES_DATA = {
   verdant_surge:{ name:"Verdant Surge", type:"Nature",    power:110, acc:85,  pp:5,  cat:"special",  effect:"atkup",        ec:30,   desc:"Surges with the full power of living nature in a devastating burst." },
   photon_leaf:  { name:"Photon Leaf",   type:"Nature",    power:70,  acc:100, pp:15, cat:"special",  effect:"crit",      ec:100, desc:"A leaf sharpened by concentrated sunlight that always finds weak points." },
   // --- Electric ---
-  thunder_shock:{ name:"Thunder Shock", type:"Electric", power:40,  acc:100, pp:30, cat:"special",  effect:"paralyze",  ec:10,  desc:"A jolt of electricity. May paralyze." },
+  thunder_shock:{ name:"Jolt",          type:"Electric", power:40,  acc:100, pp:30, cat:"special",  effect:"paralyze",  ec:10,  desc:"A jolt of electricity. May paralyze." },
   thunderbolt:  { name:"Volt Jet",   type:"Electric", power:90,  acc:100, pp:15, cat:"special",  effect:"paralyze",  ec:10,  desc:"A strong thunderbolt. May paralyze." },
-  thunder:      { name:"Thunder",       type:"Electric", power:110, acc:70,  pp:10, cat:"special",  effect:"paralyze",  ec:30,  desc:"A massive thunderstrike. May paralyze." },
-  thunder_wave: { name:"Thunder Wave",  type:"Electric", power:0,   acc:90,  pp:20, cat:"status",   effect:"paralyze",  ec:100, desc:"A weak electrical charge that paralyzes." },
-  spark:        { name:"Spark",         type:"Electric", power:65,  acc:100, pp:20, cat:"physical", effect:"paralyze",  ec:30,  desc:"Electric tackle. May paralyze." },
+  thunder:      { name:"Stormbolt",     type:"Electric", power:110, acc:70,  pp:10, cat:"special",  effect:"paralyze",  ec:30,  desc:"A massive thunderstrike. May paralyze." },
+  thunder_wave: { name:"Stun Pulse",    type:"Electric", power:0,   acc:90,  pp:20, cat:"status",   effect:"paralyze",  ec:100, desc:"A weak electrical charge that paralyzes." },
+  spark:        { name:"Static Strike", type:"Electric", power:65,  acc:100, pp:20, cat:"physical", effect:"paralyze",  ec:30,  desc:"Electric tackle. May paralyze." },
   volt_surge:   { name:"Volt Surge",    type:"Electric", power:85,  acc:95,  pp:10, cat:"special",  effect:"spaup",  ec:30,  desc:"A surging wave of voltage that overloads the foe's nervous system." },
   arc_flash:    { name:"Arc Flash",     type:"Electric", power:75,  acc:100, pp:15, cat:"special",  effect:"flinch",    ec:30,  desc:"Produces a blinding flash of electric arcing that may startle the foe." },
   static_cage:  { name:"Static Cage",   type:"Electric", power:0,   acc:90,  pp:15, cat:"status",   effect:"paralyze",  ec:100, desc:"Wraps the foe in a cage of crackling static electricity." },
@@ -442,13 +442,13 @@ const MOVES_DATA = {
   bark_shield:   { name:"Bark Shield",   type:"Nature",    power:0,   acc:100, pp:15, cat:"status",   effect:"defup",     ec:100, desc:"Grows a thick bark shield that raises the user's defense." },
 
   // Electric (+7 → 22)
-  wild_charge:   { name:"Wild Charge",   type:"Electric", power:90,  acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"An electrified reckless tackle that also hurts the user." },
-  shock_wave:    { name:"Shock Wave",    type:"Electric", power:60,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"A wave of electricity that never misses." },
-  magnet_rise:   { name:"Magnet Rise",   type:"Electric", power:0,   acc:100, pp:15, cat:"status",   effect:"speup",     ec:100, desc:"Levitates using electromagnetic force, boosting speed." },
+  wild_charge:   { name:"Voltaic Rush",  type:"Electric", power:90,  acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"An electrified reckless tackle that also hurts the user." },
+  shock_wave:    { name:"Shock Pulse",   type:"Electric", power:60,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"A wave of electricity that never misses." },
+  magnet_rise:   { name:"Repulsion Field", type:"Electric", power:0,   acc:100, pp:15, cat:"status",   effect:"speup",     ec:100, desc:"Levitates using electromagnetic force, boosting speed." },
   ion_cannon:    { name:"Ion Cannon",    type:"Electric", power:100, acc:85,  pp:5,  cat:"special",  effect:"spdefdown", ec:30,  desc:"Fires a concentrated beam of ions that shreds special defense." },
   chain_spark:   { name:"Chain Spark",   type:"Electric", power:70,  acc:95,  pp:15, cat:"special",  effect:"paralyze",  ec:20,  desc:"Sparks that chain between targets, likely to paralyze." },
   volt_fang:     { name:"Volt Fang",     type:"Electric", power:75,  acc:95,  pp:15, cat:"physical", effect:"atkdown",  ec:30,  desc:"Bites with electrically charged fangs." },
-  discharge:     { name:"Discharge",     type:"Electric", power:80,  acc:100, pp:15, cat:"special",  effect:"spedown",  ec:30,  desc:"Releases a massive electrical discharge in all directions." },
+  discharge:     { name:"Galvanic Burst", type:"Electric", power:80,  acc:100, pp:15, cat:"special",  effect:"spedown",  ec:30,  desc:"Releases a massive electrical discharge in all directions." },
 
   // Ground (+6 → 22)
   drill_run:     { name:"Drill Run",     type:"Earth",   power:80,  acc:95,  pp:10, cat:"physical", effect:"crit",      ec:100, desc:"Spins like a drill and crashes into the foe. High crit rate." },
@@ -589,9 +589,9 @@ const MOVES_DATA = {
 
   // --- Electric (+7) ---
   nuzzle:           { name:"Nuzzle",            type:"Electric", power:20,  acc:100, pp:20, cat:"physical", effect:"paralyze",  ec:100, desc:"Rubs cheeks against the target, delivering a jolt that always paralyzes." },
-  electroweb:       { name:"Electroweb",        type:"Electric", power:55,  acc:95,  pp:15, cat:"special",  effect:"spedown",   ec:100, desc:"Shoots an electric web that snares and slows the target." },
-  volt_switch:      { name:"Volt Switch",       type:"Electric", power:70,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Jolts the foe with electricity, then retreats with swift momentum." },
-  zap_cannon:       { name:"Zap Cannon",        type:"Electric", power:120, acc:50,  pp:5,  cat:"special",  effect:"paralyze",  ec:100, desc:"An electric cannon blast that always paralyzes but is hard to aim." },
+  electroweb:       { name:"Shock Net",         type:"Electric", power:55,  acc:95,  pp:15, cat:"special",  effect:"spedown",   ec:100, desc:"Shoots an electric web that snares and slows the target." },
+  volt_switch:      { name:"Relay Shock",       type:"Electric", power:70,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Jolts the foe with electricity, then retreats with swift momentum." },
+  zap_cannon:       { name:"Arc Cannon",        type:"Electric", power:120, acc:50,  pp:5,  cat:"special",  effect:"paralyze",  ec:100, desc:"An electric cannon blast that always paralyzes but is hard to aim." },
   plasma_fists:     { name:"Plasma Fists",      type:"Electric", power:100, acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Slams with fists wreathed in crackling plasma for massive damage." },
   rising_voltage:   { name:"Rising Voltage",    type:"Electric", power:70,  acc:100, pp:20, cat:"special",  effect:"burn",      ec:10,  desc:"Charges the air with intensifying voltage that can unpredictably cause burns." },
   thunder_cage:     { name:"Thunder Cage",      type:"Electric", power:80,  acc:90,  pp:15, cat:"special",  effect:"spedown",   ec:30,  desc:"Imprisons the foe in a cage of crackling lightning that slows movement." },

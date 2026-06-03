@@ -264,7 +264,7 @@ const MOVES_DATA = {
   psychic_move: { name:"Mental",       type:"Mental",  power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"A powerful psychic wave. May lower Sp.Def." },
   psystrike:    { name:"Psi Strike",     type:"Mental",  power:100, acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Materializes psychic power to attack." },
   calm_mind:    { name:"Inner Calm",     type:"Mental",  power:0,   acc:100, pp:20, cat:"status",   effect:"calmup",    ec:100, desc:"Raises Sp.Atk and Sp.Def by 1 stage." },
-  mind_shatter: { name:"Mind Shatter",  type:"Mental",  power:100, acc:90,  pp:10, cat:"special",  effect:"spdefdown", ec:30,  desc:"Shatters the foe's mental fortitude with a concentrated psychic burst." },
+  mind_shatter: { name:"Synaptic Shatter",  type:"Mental",  power:100, acc:90,  pp:10, cat:"special",  effect:"spdefdown", ec:30,  desc:"Shatters the foe's mental fortitude with a concentrated psychic burst." },
   telepathic_slam:{ name:"Telepathic Slam",type:"Mental",power:85, acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30,  desc:"Reads the foe's thoughts and strikes using their own fear against them." },
   future_echo:  { name:"Future Echo",   type:"Mental",  power:80,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Sends an echo of future energy that strikes the foe one turn ahead of time." },
   insight_flare:{ name:"Insight Flare", type:"Mental",  power:75,  acc:100, pp:15, cat:"special",  effect:"crit",      ec:100, desc:"Flares with intense mental insight, always finding the critical point." },
@@ -512,7 +512,7 @@ const MOVES_DATA = {
   noxious_gas:   { name:"Noxious Gas",   type:"Poison",   power:0,   acc:85,  pp:15, cat:"status",   effect:"badpoison", ec:100, desc:"Releases a cloud of noxious gas that severely poisons." },
 
   // Mental (+6 → 22)
-  zen_headbutt:  { name:"Psi Ram",  type:"Mental",  power:80,  acc:90,  pp:15, cat:"physical", effect:"flinch",    ec:20,  desc:"Focuses psychic energy into the forehead and rams the foe." },
+  zen_headbutt:  { name:"Cortex Ram",  type:"Mental",  power:80,  acc:90,  pp:15, cat:"physical", effect:"flinch",    ec:20,  desc:"Focuses psychic energy into the forehead and rams the foe." },
   psycho_cut:    { name:"Psi Blade",    type:"Mental",  power:70,  acc:100, pp:20, cat:"physical", effect:"crit",      ec:100, desc:"Slashes with psychically sharpened blades. High crit rate." },
   mind_reader:   { name:"Clairvoyance",   type:"Mental",  power:0,   acc:100, pp:10, cat:"status",   effect:"spatkup",   ec:100, desc:"Reads the foe's mind to sharpen the user's special attack." },
   hypnosis:      { name:"Mesmerize",      type:"Mental",  power:0,   acc:60,  pp:20, cat:"status",   effect:"sleep",     ec:100, desc:"Puts the foe to sleep with hypnotic suggestion." },
@@ -667,7 +667,7 @@ const MOVES_DATA = {
   stored_power:     { name:"Latent Force",      type:"Mental",  power:60,  acc:100, pp:10, cat:"special",  effect:"spatkup",   ec:30,  desc:"Unleashes stored psychic energy — the more the user is powered up, the harder it hits." },
   expanding_force:  { name:"Expanding Force",   type:"Mental",  power:80,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Unleashes a psychic force that expands outward to blanket the target." },
   psy_blast:        { name:"Psy Blast",         type:"Mental",  power:120, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:30,  desc:"A concentrated psychic beam that may crack the target's mental defenses." },
-  mind_burst:       { name:"Mind Burst",        type:"Mental",  power:85,  acc:100, pp:10, cat:"special",  effect:"spaup", ec:30,  desc:"Causes an explosive burst inside the target's mind, weakening special defenses." },
+  mind_burst:       { name:"Noetic Burst",        type:"Mental",  power:85,  acc:100, pp:10, cat:"special",  effect:"spaup", ec:30,  desc:"Causes an explosive burst inside the target's mind, weakening special defenses." },
   future_sight:     { name:"Prophecy",      type:"Mental",  power:120, acc:100, pp:10, cat:"special",  effect:"recharge",  ec:100, desc:"Focuses psychic power that strikes the foe two turns later with tremendous force." },
   gravitational_pull:{ name:"Gravitational Pull",type:"Mental", power:0,   acc:90,  pp:20, cat:"status",   effect:"spedown2",  ec:100, desc:"Warps gravity around the foe, drastically reducing its Speed." },
   thought_wave:     { name:"Thought Wave",      type:"Mental",  power:50,  acc:100, pp:20, cat:"special",  effect:"spaup",   ec:30,  desc:"Sends disruptive thought waves that may leave the target confused." },
@@ -768,7 +768,7 @@ const MOVES_DATA = {
   nihil_quake:      { name:"Nihil Quake",      type:"Primal",  power:90,  acc:95,  pp:10, cat:"physical", effect:"spedown",   ec:30, desc:"Nihilax tears apart the ground itself with nihilistic force, disrupting the target's footing and momentum." },
 
   // --- Ice (signature moves for Forgotten Lumori) ---
-  mind_blizzard:    { name:"Mind Blizzard",    type:"Mental", power:135, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Duskmourn amplifies psychic energy to a destructive extreme, generating a psychic blizzard. The mental strain is brutal." },
+  mind_blizzard:    { name:"Psychic Blizzard",    type:"Mental", power:135, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Duskmourn amplifies psychic energy to a destructive extreme, generating a psychic blizzard. The mental strain is brutal." },
   frost_pulse:      { name:"Frost Pulse",      type:"Ice",     power:50,  acc:95,  pp:10, cat:"special",  effect:"freeze",    ec:20, hits:2, desc:"Duskmourn fires two pulses of absolute-zero energy that can lock the target in ice on contact." },
   glacial_riptide:  { name:"Glacial Riptide",  type:"Ice",     power:140, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Tidecrest summons a riptide flash-frozen to absolute zero and drives it through the target. The backlash chills even Tidecrest." },
   tidal_fang:       { name:"Tidal Fang",       type:"Primal",  power:60,  acc:100, pp:10, cat:"physical", effect:"defdown",   ec:30, hits:2, desc:"Tidecrest bites twice with draconic force backed by tidal momentum, wearing down the target's defenses." },
@@ -989,8 +989,8 @@ const MOVES_DATA = {
   cerebral_punch:              { name:"Cerebral Punch", type:"Mental", power:95, acc:90, pp:10, cat:"physical", effect:"spdefdown", ec:30, target:"single", alwaysCrit:true, desc:"Mind-piercing punch." },
   mind_breaker_phy:            { name:"Mindbreaker", type:"Mental", dualType:["Mental","Sonic"], power:110, acc:85, pp:5, cat:"physical", effect:null, ec:0, target:"wide", desc:"Sonic-laced mind-breaker. Dual Mental+Sonic." },
   mental_pulse_n:              { name:"Mental Pulse", type:"Mental", power:70, acc:100, pp:15, cat:"special", effect:"spdefdown", ec:20, target:"wide", desc:"Pulse on all foes; may lower SpDef." },
-  mind_meld:                   { name:"Mind Meld", type:"Mental", power:90, acc:95, pp:10, cat:"special", effect:null, ec:0, target:"single", breakerVs:"Aether", desc:"Mental fusion strike." },
-  mind_focus_s:                { name:"Mind Focus", type:"Mental", power:0, acc:100, pp:15, cat:"status", effect:"focus", ec:100, target:"self", desc:"Focused mind; high crit." },
+  mind_meld:                   { name:"Cognition Meld", type:"Mental", power:90, acc:95, pp:10, cat:"special", effect:null, ec:0, target:"single", breakerVs:"Aether", desc:"Mental fusion strike." },
+  mind_focus_s:                { name:"Mnemonic Focus", type:"Mental", power:0, acc:100, pp:15, cat:"status", effect:"focus", ec:100, target:"self", desc:"Focused mind; high crit." },
   cerebral_calm:               { name:"Cerebral Calm", type:"Mental", power:0, acc:100, pp:10, cat:"status", effect:"heal50", ec:100, target:"self", desc:"Restores half HP." },
   mental_overflow:             { name:"Mental Overflow", type:"Mental", power:0, acc:100, pp:10, cat:"status", effect:"spaup2", ec:100, target:"self", desc:"+2 SpA." },
   psyche_lock:                 { name:"Psyche Lock", type:"Mental", power:0, acc:100, pp:15, cat:"status", effect:"atkdown", ec:100, target:"single", desc:"Locks foe's Atk (-1)." },

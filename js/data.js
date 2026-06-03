@@ -182,9 +182,9 @@ const MOVES_DATA = {
   plasma_strike:{ name:"Plasma Strike", type:"Electric", power:80,  acc:100, pp:10, cat:"physical", effect:"paralyze",  ec:30,  desc:"Surrounds the user's fist in superheated plasma for a shocking punch." },
   charge_burst: { name:"Charge Burst",  type:"Electric", power:0,   acc:100, pp:20, cat:"status",   effect:"atkup",     ec:100, desc:"Charges the body with electric potential, raising the next physical hit's power." },
   // --- Earth ---
-  mud_shot:     { name:"Mud Shot",      type:"Earth",   power:55,  acc:95,  pp:15, cat:"special",  effect:"spedown",   ec:100, desc:"Hurls mud at the foe, lowering Speed." },
-  earthquake:   { name:"Earthquake",    type:"Earth",   power:100, acc:100, pp:10, cat:"physical", effect:null,        ec:0,   desc:"A massive earthquake rattles the field." },
-  earth_power:  { name:"Earth Power",   type:"Earth",   power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"The ground heaves beneath the foe." },
+  mud_shot:     { name:"Mud Spray",     type:"Earth",   power:55,  acc:95,  pp:15, cat:"special",  effect:"spedown",   ec:100, desc:"Hurls mud at the foe, lowering Speed." },
+  earthquake:   { name:"Tectonic Shift", type:"Earth",   power:100, acc:100, pp:10, cat:"physical", effect:null,        ec:0,   desc:"A massive earthquake rattles the field." },
+  earth_power:  { name:"Geoblast",      type:"Earth",   power:90,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"The ground heaves beneath the foe." },
   sandstrike:   { name:"Sandstrike",    type:"Earth",   power:60,  acc:100, pp:20, cat:"physical", effect:"spedown",   ec:30,  desc:"Hurls a concentrated blast of cutting sand that slows the foe." },
   fissure_slam: { name:"Fissure Slam",  type:"Earth",   power:100, acc:85,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Slams the ground so hard it opens a fissure beneath the foe." },
   terra_spike:  { name:"Terra Spike",   type:"Earth",   power:80,  acc:95,  pp:15, cat:"physical", effect:"flinch",    ec:20,  desc:"Drives a spike of compressed earth up through the ground at the foe." },
@@ -451,11 +451,11 @@ const MOVES_DATA = {
   discharge:     { name:"Galvanic Burst", type:"Electric", power:80,  acc:100, pp:15, cat:"special",  effect:"spedown",  ec:30,  desc:"Releases a massive electrical discharge in all directions." },
 
   // Ground (+6 → 22)
-  drill_run:     { name:"Drill Run",     type:"Earth",   power:80,  acc:95,  pp:10, cat:"physical", effect:"crit",      ec:100, desc:"Spins like a drill and crashes into the foe. High crit rate." },
-  mud_bomb:      { name:"Mud Bomb",      type:"Earth",   power:65,  acc:85,  pp:10, cat:"special",  effect:"spdefdown", ec:30,  desc:"Hurls a large ball of mud that may lower accuracy." },
+  drill_run:     { name:"Auger Strike",  type:"Earth",   power:80,  acc:95,  pp:10, cat:"physical", effect:"crit",      ec:100, desc:"Spins like a drill and crashes into the foe. High crit rate." },
+  mud_bomb:      { name:"Mire Burst",    type:"Earth",   power:65,  acc:85,  pp:10, cat:"special",  effect:"spdefdown", ec:30,  desc:"Hurls a large ball of mud that may lower accuracy." },
   scorched_earth:{ name:"Scorched Earth",type:"Earth",   power:90,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:20,  desc:"Superheats the ground beneath the foe until it scorches." },
-  magnitude:     { name:"Magnitude",     type:"Earth",   power:85,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Shakes the ground with varying intensity." },
-  sand_tomb:     { name:"Sand Tomb",     type:"Earth",   power:55,  acc:85,  pp:15, cat:"physical", effect:"spedown",   ec:100, desc:"Traps the foe in a swirling sand tomb." },
+  magnitude:     { name:"Aftershock",    type:"Earth",   power:85,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Shakes the ground with varying intensity." },
+  sand_tomb:     { name:"Burial Sands",  type:"Earth",   power:55,  acc:85,  pp:15, cat:"physical", effect:"spedown",   ec:100, desc:"Traps the foe in a swirling sand tomb." },
   earthen_wall:  { name:"Earthen Wall",  type:"Earth",   power:0,   acc:100, pp:10, cat:"status",   effect:"defup",     ec:100, desc:"Raises a massive wall of packed earth to shield the user." },
 
   // Wind (+6 → 22)
@@ -529,8 +529,8 @@ const MOVES_DATA = {
   wyrm_breath:   { name:"Wyrm Breath",   type:"Draconic",   power:80,  acc:95,  pp:15, cat:"special",  effect:"paralyze",  ec:20,  desc:"Breathes the ancient miasma of a primordial wyrm." },
 
   // Rock (+7 → 22)
-  ancient_power: { name:"Ancient Power",  type:"Earth",    power:60,  acc:100, pp:5,  cat:"special",  effect:"atkup",     ec:10,  desc:"Attacks with prehistoric power that may raise all stats." },
-  power_gem:     { name:"Power Gem",     type:"Earth",     power:80,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Fires a ray of light formed from gemstones." },
+  ancient_power: { name:"Primeval Force", type:"Earth",    power:60,  acc:100, pp:5,  cat:"special",  effect:"atkup",     ec:10,  desc:"Attacks with prehistoric power that may raise all stats." },
+  power_gem:     { name:"Gemburst",      type:"Earth",     power:80,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Fires a ray of light formed from gemstones." },
   rock_blast:    { name:"Stone Volley",    type:"Earth",     power:70,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Hurls multiple rocks at the foe in rapid succession." },
   smack_down:    { name:"Smack Down",    type:"Earth",     power:50,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Hurls a stone to knock the foe down to earth." },
   diamond_storm: { name:"Diamond Storm", type:"Earth",     power:100, acc:95,  pp:5,  cat:"physical", effect:"defup",     ec:50,  desc:"Whips up a storm of diamonds that may raise Defense." },
@@ -597,14 +597,14 @@ const MOVES_DATA = {
   thunder_cage:     { name:"Thunder Cage",      type:"Electric", power:80,  acc:90,  pp:15, cat:"special",  effect:"spedown",   ec:30,  desc:"Imprisons the foe in a cage of crackling lightning that slows movement." },
 
   // --- Ground (+8) ---
-  bulldoze:         { name:"Bulldoze",          type:"Earth",   power:60,  acc:100, pp:20, cat:"physical", effect:"spedown",   ec:100, desc:"Stomps the ground heavily, shaking the area and lowering the foe's Speed." },
-  sand_attack:      { name:"Sand Attack",       type:"Earth",   power:0,   acc:100, pp:15, cat:"status",   effect:"atkdown",   ec:100, desc:"Kicks sand into the foe's face, impairing its offensive precision." },
-  bone_rush:        { name:"Bone Rush",         type:"Earth",   power:65,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Strikes the foe 2–5 times in rapid succession with a hard bone." },
+  bulldoze:         { name:"Trample",           type:"Earth",   power:60,  acc:100, pp:20, cat:"physical", effect:"spedown",   ec:100, desc:"Stomps the ground heavily, shaking the area and lowering the foe's Speed." },
+  sand_attack:      { name:"Dust Toss",         type:"Earth",   power:0,   acc:100, pp:15, cat:"status",   effect:"atkdown",   ec:100, desc:"Kicks sand into the foe's face, impairing its offensive precision." },
+  bone_rush:        { name:"Bone Barrage",      type:"Earth",   power:65,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Strikes the foe 2–5 times in rapid succession with a hard bone." },
   scorched_sand:    { name:"Scorched Sand",     type:"Earth",   power:70,  acc:100, pp:15, cat:"special",  effect:"atkdown",      ec:30,  desc:"Fires scorching superheated sand that may leave burns on contact." },
   tectonic_wrath:   { name:"Tectonic Wrath",    type:"Earth",   power:110, acc:90,  pp:10, cat:"physical", effect:"recoil",    ec:100, desc:"Channels seismic fury into a devastating blow that rattles the user too." },
   underground_slam: { name:"Underground Slam",  type:"Earth",   power:80,  acc:100, pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"Burrows underground and erupts beneath the foe for a bone-crunching slam." },
   quicksand_trap:   { name:"Quicksand Trap",    type:"Earth",   power:0,   acc:90,  pp:15, cat:"status",   effect:"spedown2",  ec:100, desc:"Sucks the foe into quicksand, drastically reducing its Speed." },
-  bone_club:        { name:"Bone Club",         type:"Earth",   power:65,  acc:85,  pp:20, cat:"physical", effect:"flinch",    ec:10,  desc:"Strikes the foe with a club-like bone. May cause flinching." },
+  bone_club:        { name:"Bone Cudgel",       type:"Earth",   power:65,  acc:85,  pp:20, cat:"physical", effect:"flinch",    ec:10,  desc:"Strikes the foe with a club-like bone. May cause flinching." },
 
   // --- Wind (+7) ---
   breeze_blade:     { name:"Breeze Blade",      type:"Wind",     power:50,  acc:100, pp:20, cat:"physical", effect:"crit",      ec:100, desc:"Slices with focused wind so precisely it always finds a critical spot." },

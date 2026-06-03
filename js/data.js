@@ -208,7 +208,7 @@ const MOVES_DATA = {
   blizzard:     { name:"Whiteout",      type:"Ice",      power:110, acc:70,  pp:5,  cat:"special",  effect:"freeze",    ec:10,  desc:"A howling blizzard. May freeze." },
   ice_punch:    { name:"Glacial Punch", type:"Ice",      power:75,  acc:100, pp:15, cat:"physical", effect:"freeze",    ec:10,  desc:"A punch with an icy fist. May freeze." },
   icicle_crash: { name:"Frost Crash",  type:"Ice",      power:85,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:30,  desc:"Drops icicles on the foe. May flinch." },
-  glacial_shard:{ name:"Glacial Shard", type:"Ice",      power:65,  acc:100, pp:20, cat:"physical", effect:"freeze",    ec:15,  desc:"Fires a razor-sharp shard of glacial ice that may freeze the target." },
+  glacial_shard:{ name:"Rime Shard", type:"Ice",      power:65,  acc:100, pp:20, cat:"physical", effect:"freeze",    ec:15,  desc:"Fires a razor-sharp shard of glacial ice that may freeze the target." },
   frost_breath: { name:"Cold Snap",     type:"Ice",      power:60,  acc:90,  pp:15, cat:"special",  effect:"freeze",    ec:100, desc:"Exhales a breath of supercooled air that always freezes the foe." },
   permafrost:   { name:"Permafrost",    type:"Ice",      power:0,   acc:100, pp:15, cat:"status",   effect:"spedown2",  ec:100, desc:"Encases the foe's feet in permafrost, drastically reducing Speed." },
   avalanche_drive:{ name:"Avalanche Drive",type:"Ice",   power:95,  acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Surges forward with the full weight of a collapsing avalanche." },
@@ -339,7 +339,7 @@ const MOVES_DATA = {
   // --- NEW: Ice (4 more → 15) ---
   hoarfrost_bite:{ name:"Hoarfrost Bite",type:"Ice",     power:70,  acc:100, pp:15, cat:"physical", effect:"atkdown",    ec:30,  desc:"Bites with jaws rimed in hoarfrost that may flash-freeze the wound." },
   sleet_barrage:{ name:"Sleet Barrage", type:"Ice",      power:60,  acc:90,  pp:15, cat:"special",  effect:"spedown",   ec:30,  desc:"Pelts the foe with a rapid barrage of razor-sharp sleet shards." },
-  glacial_tomb: { name:"Glacial Tomb",  type:"Ice",      power:95,  acc:85,  pp:10, cat:"special",  effect:"freeze",    ec:20,  desc:"Encases the foe in a tomb of glacial ice that may leave them frozen." },
+  glacial_tomb: { name:"Tundra Tomb",  type:"Ice",      power:95,  acc:85,  pp:10, cat:"special",  effect:"freeze",    ec:20,  desc:"Encases the foe in a tomb of glacial ice that may leave them frozen." },
   frostfire_veil:{ name:"Frostfire Veil",type:"Ice",     power:0,   acc:100, pp:15, cat:"status",   effect:"calmup",    ec:100, desc:"Wraps the user in a paradoxical veil of freezing flame that sharpens the mind." },
 
   // --- NEW: Dark (5 more → 15) ---
@@ -773,7 +773,7 @@ const MOVES_DATA = {
   glacial_riptide:  { name:"Glacial Riptide",  type:"Ice",     power:140, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Tidecrest summons a riptide flash-frozen to absolute zero and drives it through the target. The backlash chills even Tidecrest." },
   tidal_fang:       { name:"Tidal Fang",       type:"Primal",  power:60,  acc:100, pp:10, cat:"physical", effect:"defdown",   ec:30, hits:2, desc:"Tidecrest bites twice with draconic force backed by tidal momentum, wearing down the target's defenses." },
   cryo_plate:       { name:"Cryo Plate",       type:"Ice",     power:85,  acc:100, pp:10, cat:"physical", effect:"defdown",    ec:30, desc:"Frigalum slams an ice-hardened plate of steel into the target. A thin probability of total freezing lingers." },
-  frost_lattice:    { name:"Frost Lattice",    type:"Ice",     power:100, acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30, desc:"Sparkeis weaves a crystalline lattice of ice energy around the target, restricting their movement and slowing their reactions." },
+  frost_lattice:    { name:"Icebound Lattice",    type:"Ice",     power:100, acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30, desc:"Sparkeis weaves a crystalline lattice of ice energy around the target, restricting their movement and slowing their reactions." },
 
   // --- Dark (signature moves for Forgotten Lumori) ---
   nyx_fang:         { name:"Nyx Fang",         type:"Dark",    power:85,  acc:100, pp:15, cat:"physical", effect:"spedown",   ec:30, desc:"Nyxviper strikes from absolute darkness with fangs that leave a numbing venom slowing the target's reflexes." },
@@ -918,18 +918,18 @@ const MOVES_DATA = {
   air_barrier:             { name:"Air Barrier", type:"Wind", power:0, acc:100, pp:10, cat:"status", effect:"heal50", ec:100, target:"self", desc:"Air-current bath restores half HP." },
 
   // --- Ice (regular) ---
-  frost_jab:               { name:"Frost Jab", type:"Ice", power:45, acc:100, pp:30, cat:"physical", effect:null, ec:0, target:"single", breakerVs:"Aquatic", desc:"Quick frost-jab; super vs Aquatic (Freeze-Dry analogue)." },
+  frost_jab:               { name:"Frigid Jab", type:"Ice", power:45, acc:100, pp:30, cat:"physical", effect:null, ec:0, target:"single", breakerVs:"Aquatic", desc:"Quick Frigid-Jab; super vs Aquatic (Freeze-Dry analogue)." },
   ice_claw:                { name:"Ice Claw", type:"Ice", power:60, acc:100, pp:20, cat:"physical", effect:"freeze", ec:10, target:"single", desc:"Iced claw; may freeze." },
   blizzard_charge:         { name:"Blizzard Charge", type:"Ice", power:75, acc:95, pp:15, cat:"physical", effect:"sluggish", ec:30, target:"single", desc:"Charging blizzard; may inflict Sluggish." },
   icicle_smash:            { name:"Icicle Smash", type:"Ice", power:80, acc:100, pp:10, cat:"physical", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Icicle slam; always lands a critical hit." },
   frostbite_strike:        { name:"Frostbite Strike", type:"Ice", power:95, acc:90, pp:10, cat:"physical", effect:"freeze", ec:30, target:"single", desc:"Deep-cold strike; may freeze." },
   avalanche_smash:         { name:"Avalanche Smash", type:"Ice", dualType:["Ice","Earth"], power:120, acc:85, pp:5, cat:"physical", effect:null, ec:0, target:"wide", desc:"Avalanche-scale slam. Dual Ice+Earth." },
   ice_resonance:           { name:"Ice Resonance", type:"Ice", dualType:["Ice","Sonic"], power:85, acc:95, pp:10, cat:"special", effect:"brittle", ec:30, target:"wide", desc:"Resonant cold. Dual Ice+Sonic; may inflict Brittle." },
-  frost_armor:             { name:"Frost Armor", type:"Ice", power:0, acc:100, pp:15, cat:"status", effect:"defup2", ec:100, target:"self", desc:"Frost-armor (+2 Def)." },
+  frost_armor:             { name:"Boreal Armor", type:"Ice", power:0, acc:100, pp:15, cat:"status", effect:"defup2", ec:100, target:"self", desc:"Boreal-Armor (+2 Def)." },
   cold_focus:              { name:"Cold Focus", type:"Ice", power:0, acc:100, pp:15, cat:"status", effect:"focus", ec:100, target:"self", desc:"Frigid focus raises crit chance." },
   arctic_calm:             { name:"Arctic Calm", type:"Ice", power:0, acc:100, pp:10, cat:"status", effect:"heal50", ec:100, target:"self", desc:"Deep calm restores half HP." },
   cryogenic_field:         { name:"Cryogenic Field", type:"Ice", power:0, acc:100, pp:15, cat:"status", effect:"spdefup2", ec:100, target:"self", desc:"Freezing field (+2 SpDef)." },
-  glacial_swift:           { name:"Glacial Swift", type:"Ice", power:0, acc:100, pp:15, cat:"status", effect:"speup", ec:100, target:"self", desc:"Smooths surface like ice (+1 Speed)." },
+  glacial_swift:           { name:"Polar Swift", type:"Ice", power:0, acc:100, pp:15, cat:"status", effect:"speup", ec:100, target:"self", desc:"Smooths surface like ice (+1 Speed)." },
 
   // --- Dark (regular) ---
   shadow_jab:              { name:"Shadow Jab", type:"Dark", power:60, acc:100, pp:20, cat:"physical", effect:"spedown", ec:20, target:"single", breakerVs:"Fairy", desc:"Shadow-strike pierces fairy-light; may slow." },

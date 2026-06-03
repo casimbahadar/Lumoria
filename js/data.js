@@ -531,7 +531,7 @@ const MOVES_DATA = {
   // Rock (+7 → 22)
   ancient_power: { name:"Primeval Force", type:"Earth",    power:60,  acc:100, pp:5,  cat:"special",  effect:"atkup",     ec:10,  desc:"Attacks with prehistoric power that may raise all stats." },
   power_gem:     { name:"Gemburst",      type:"Earth",     power:80,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Fires a ray of light formed from gemstones." },
-  rock_blast:    { name:"Stone Volley",    type:"Earth",     power:70,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Hurls multiple rocks at the foe in rapid succession." },
+  rock_blast:    { name:"Basalt Volley",    type:"Earth",     power:70,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Hurls multiple rocks at the foe in rapid succession." },
   smack_down:    { name:"Smack Down",    type:"Earth",     power:50,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Hurls a stone to knock the foe down to earth." },
   diamond_storm: { name:"Diamond Storm", type:"Earth",     power:100, acc:95,  pp:5,  cat:"physical", effect:"defup",     ec:50,  desc:"Whips up a storm of diamonds that may raise Defense." },
   erosion_wave:  { name:"Erosion Wave",  type:"Earth",     power:75,  acc:95,  pp:10, cat:"special",  effect:"defdown",   ec:30,  desc:"Sends a wave of eroding stone particles that wear down defenses." },
@@ -602,7 +602,7 @@ const MOVES_DATA = {
   bone_rush:        { name:"Bone Barrage",      type:"Earth",   power:65,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Strikes the foe 2–5 times in rapid succession with a hard bone." },
   scorched_sand:    { name:"Scorched Sand",     type:"Earth",   power:70,  acc:100, pp:15, cat:"special",  effect:"atkdown",      ec:30,  desc:"Fires scorching superheated sand that may leave burns on contact." },
   tectonic_wrath:   { name:"Tectonic Wrath",    type:"Earth",   power:110, acc:90,  pp:10, cat:"physical", effect:"recoil",    ec:100, desc:"Channels seismic fury into a devastating blow that rattles the user too." },
-  underground_slam: { name:"Underground Slam",  type:"Earth",   power:80,  acc:100, pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"Burrows underground and erupts beneath the foe for a bone-crunching slam." },
+  underground_slam: { name:"Underground Crush",  type:"Earth",   power:80,  acc:100, pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"Burrows underground and erupts beneath the foe for a bone-crunching slam." },
   quicksand_trap:   { name:"Quicksand Trap",    type:"Earth",   power:0,   acc:90,  pp:15, cat:"status",   effect:"spedown2",  ec:100, desc:"Sucks the foe into quicksand, drastically reducing its Speed." },
   bone_club:        { name:"Bone Cudgel",       type:"Earth",   power:65,  acc:85,  pp:20, cat:"physical", effect:"flinch",    ec:10,  desc:"Strikes the foe with a club-like bone. May cause flinching." },
 
@@ -896,7 +896,7 @@ const MOVES_DATA = {
 
   // --- Earth (regular) ---
   quake_pulse:             { name:"Quake Pulse", type:"Earth", power:50, acc:100, pp:30, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Seismic pulse; always lands a critical hit." },
-  tectonic_wave:           { name:"Tectonic Wave", type:"Earth", power:75, acc:95, pp:15, cat:"special", effect:"spedown", ec:30, target:"wide", breakerVs:"Aether", desc:"Plate-shift wave; super vs Aether; may slow all foes." },
+  tectonic_wave:           { name:"Telluric Wave", type:"Earth", power:75, acc:95, pp:15, cat:"special", effect:"spedown", ec:30, target:"wide", breakerVs:"Aether", desc:"Plate-shift wave; super vs Aether; may slow all foes." },
   mineral_blast:           { name:"Mineral Blast", type:"Earth", dualType:["Earth","Mineral"], power:85, acc:90, pp:10, cat:"special", effect:"spdefdown", ec:30, target:"single", desc:"Mineral-shard burst. Dual Earth+Mineral; may lower SpDef." },
   continental_shift:       { name:"Continental Shift", type:"Earth", dualType:["Earth","Wind"], power:110, acc:85, pp:5, cat:"special", effect:null, ec:0, target:"wide", desc:"Continental upheaval driven by wind erosion. Dual Earth+Wind." },
   sand_polish_v2:          { name:"Sand Storm Polish", type:"Earth", power:0, acc:100, pp:15, cat:"status", effect:"atkup", ec:100, target:"self", desc:"Sand-grinding sharpens claws (+1 Atk)." },

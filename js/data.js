@@ -1068,7 +1068,7 @@ const MOVES_DATA = {
   iron_will:                   { name:"Iron Will", type:"Fighting", power:0, acc:100, pp:15, cat:"status", effect:"defup", ec:100, target:"self", desc:"+1 Def." },
   fighter_resolve:             { name:"Fighter's Resolve", type:"Fighting", power:0, acc:100, pp:15, cat:"status", effect:"atkup2", ec:100, target:"self", desc:"+2 Atk." },
   swift_form:                  { name:"Swift Form", type:"Fighting", power:0, acc:100, pp:15, cat:"status", effect:"speup", ec:100, target:"self", desc:"+1 Speed." },
-  martial_block:               { name:"Martial Block", type:"Fighting", power:0, acc:100, pp:15, cat:"status", effect:"spdefup", ec:100, target:"self", desc:"+1 SpDef." },
+  martial_block:               { name:"Warrior Block", type:"Fighting", power:0, acc:100, pp:15, cat:"status", effect:"spdefup", ec:100, target:"self", desc:"+1 SpDef." },
   battle_rhythm:               { name:"Battle Rhythm", type:"Fighting", power:0, acc:100, pp:15, cat:"status", effect:"accup", ec:100, target:"self", desc:"+1 Acc." },
   recover_strike:              { name:"Recovery Stance", type:"Fighting", power:0, acc:100, pp:10, cat:"status", effect:"heal50", ec:100, target:"self", desc:"Restores half HP." },
 

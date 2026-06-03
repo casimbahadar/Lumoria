@@ -2299,21 +2299,21 @@ const MONSTERS_DATA = {
   // 3-stage Fire/Ice chain: Cinderfrost → Glaciblaze → Pyroglacier
   211: { id:211, name:"Cinderfrost", emoji:"🔥", types:["Fire","Ice"],
     base:{hp:48,atk:58,def:45,spa:72,spd:55,spe:68},
-    learnset:[[1,"ember"],[1,"powder_snow"],[12,"flamethrower"],[22,"ice_beam"],[32,"fire_blast"],[42,"blizzard"],[52,"overheat"],[62,"hyper_beam"]],
+    learnset:[[1,"ember"],[1,"powder_snow"],[12,"flamethrower"],[22,"ice_beam"],[32,"fire_blast"],[42,"blizzard"],[52,"solar_flare"],[62,"hyper_beam"]],
     evolveTo:212, evolveLevel:28, catchRate:175, expYield:72, rarity:"common",
     desc:"A creature born where volcanic vents meet glacial ice. Its body perpetually cycles between fire and frost.",
     lore:"Cinderfrost is a small fire-ice creature 40 cm long resembling a lizard with the left half of its body covered in warm orange fire-scales and the right half in cold blue ice-scales. A visible boundary of crackling energy runs down its midline. Where its two natures meet, brief steam eruptions occur. In deep sleep, the steam eruptions along a Cinderfrost's midline grow louder and more frequent: distant echoes of the permanent crackling steam-storm Infriglace hosts between its halves at colossal scale." },
 
   212: { id:212, name:"Frostscorch", emoji:"🌡️", types:["Fire","Ice"],
     base:{hp:74,atk:82,def:68,spa:108,spd:88,spe:88},
-    learnset:[[1,"flamethrower"],[1,"ice_beam"],[22,"fire_blast"],[30,"blizzard"],[38,"frost_breath"],[46,"overheat"],[54,"glacial_tomb"],[62,"hyper_beam"]],
+    learnset:[[1,"flamethrower"],[1,"ice_beam"],[22,"fire_blast"],[30,"blizzard"],[38,"frost_breath"],[46,"solar_flare"],[54,"glacial_tomb"],[62,"hyper_beam"]],
     evolveTo:213, evolveLevel:46, catchRate:88, expYield:155, rarity:"uncommon",
     desc:"A dual-natured creature of perfect thermal balance. Its left side blazes while its right side freezes.",
     lore:"Frostscorch is a medium fire-ice creature 80 cm long — Cinderfrost's orange-and-blue lizard halves have intensified into a perfectly equal split, one half brilliant crimson and one half ice-blue, and the crackling midline-boundary has matured into mismatched eyes (one amber, one pale blue) anchoring either side of its dual nature. It inhabits the specific boundary zones between volcanic and glacial terrain, the only creature perfectly adapted for that harsh transition." },
 
   213: { id:213, name:"Infriglace", emoji:"🌋", types:["Fire","Ice"],
     base:{hp:89,atk:93,def:81,spa:120,spd:95,spe:72},
-    learnset:[[1,"fire_blast"],[1,"blizzard"],[32,"overheat"],[40,"glacial_tomb"],[48,"heat_wave"],[56,"icicle_crash"],[64,"caldera_meltdown"],[72,"hyper_beam"]],
+    learnset:[[1,"fire_blast"],[1,"blizzard"],[32,"solar_flare"],[40,"glacial_tomb"],[48,"heat_wave"],[56,"icicle_crash"],[64,"caldera_meltdown"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:268, rarity:"rare",
     desc:"A cataclysmic being that collapses the boundary between fire and ice. Superheated geysers and flash-freezes occur in its wake.",
     lore:"Infriglace is a colossal fire-ice titan 3 metres long — Frostscorch's crimson and ice-blue halves have intensified into volcanic orange-red and never-melting glacial ice, and the brief steam eruptions of its juvenile midline have grown into a permanent crackling storm between the two sides. The boundary between its natures is a permanent crackling storm of steam. Its very presence disrupts local climate in a radius of several kilometres." },
@@ -2427,7 +2427,7 @@ const MONSTERS_DATA = {
   // Spectrace: Fire Stone evolution (Fire/Mental)
   227: { id:227, name:"Spectrace", emoji:"🔥", types:["Fire","Mental"],
     base:{hp:78,atk:95,def:65,spa:118,spd:72,spe:92},
-    learnset:[[1,"flamethrower"],[1,"psychic_move"],[28,"fire_blast"],[36,"psystrike"],[44,"astral_rend"],[52,"overheat"],[60,"neural_storm"],[68,"hyper_beam"]],
+    learnset:[[1,"flamethrower"],[1,"psychic_move"],[28,"fire_blast"],[36,"psystrike"],[44,"astral_rend"],[52,"solar_flare"],[60,"neural_storm"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:225, rarity:"rare",
     desc:"A blazing prism warrior. Its psychic fire burns away illusions and exposes hidden truths.",
     lore:"Spectrace is a fire-psychic creature 50 cm long — Spectroo's translucent white-light kangaroo silhouette has ignited under firestone touch into streaking flame, hindquarters trailing off into fire and forelimbs barely visible through the heat-haze. Its body is heat and psychic energy intertwined. It moves so rapidly its form appears as a blurred streak. Ancient texts describe it arriving at prophetic moments as an omen of transformation." },
@@ -4572,7 +4572,413 @@ const MONSTERS_DATA = {
     lore:"Voidwarden is a dark-steel creature 3 metres tall with a body of condensed void-matter reinforced with an exoskeleton of ultra-dense steel. Its transformation begins when an Umbrasteel proves itself worthy of guarding the boundary between worlds — at that moment, the canine body it carried as juvenile and adolescent re-forges itself upright: the four legs reconstitute as two heavy hindlimbs and two long arms tipped in steel claws, and the shadow-filaments of its body re-weave into a humanoid silhouette better suited to wielding darkness and steel as tools. Ancient legends name Voidwarden the Warden of the Boundary Between Worlds, and it is rarely seen — its post is a fixed point in the lattice that separates one reality from another, and it leaves only at the call of catastrophic incursion." },
 
   // ============================================================
-  // FORGOTTEN LUMORI — IDs 408–446 (Vaeldrian Region)
+  // NG+ EXCLUSIVE FAMILIES — IDs 408–461
+  // 22 evolution-only families with pristine type combos. NG+ only
+  // (id >= NG_PLUS_DEX_START). Scattered into ngPlusWildMonsters overlays.
+  // ============================================================
+
+  // --- F1: gem-shelled tortoise (Crystal / Crystal-Fairy) — LEGENDARY line ---
+  408: { id:408, name:"Glimmerling", emoji:"💎", types:["Crystal"],
+    evolveTo:409, evolveLevel:18, catchRate:30, expYield:70, rarity:"legendary",
+    base:{hp:55,atk:45,def:80,spa:65,spd:75,spe:40}, // BST 360
+    learnset:[[1,"tackle"],[1,"harden"],[5,"crystal_jab"],[9,"shard_strike"],[14,"fairy_wind"],[19,"crystal_pulse"],[25,"crystal_charge"],[31,"prism_ray"]],
+    desc:"A hatchling tortoise no bigger than a thumb, its domed shell a cluster of cloudy raw quartz.",
+    lore:"Glimmerling is born when a vein of dormant gem-crystal absorbs enough ambient ley-light to quicken into life. The cloudy quartz of its shell clears a little more each season as it basks, and hatchlings instinctively gather in sunlit hollows where the refracted glow keeps predators wary. Folk who find a Glimmerling sunning itself speak of a faint chiming hum that rises from the shell at dawn." },
+
+  409: { id:409, name:"Facetite", emoji:"💎", types:["Crystal","Fairy"],
+    evolveTo:410, evolveLevel:42, catchRate:15, expYield:150, rarity:"legendary",
+    base:{hp:80,atk:65,def:115,spa:95,spd:100,spe:50}, // BST 505
+    learnset:[[1,"tackle"],[1,"harden"],[5,"crystal_jab"],[14,"fairy_wind"],[19,"crystal_pulse"],[27,"prism_ray"],[33,"dazzling_gleam"],[39,"crystalline_beam"],[45,"crystal_lattice"]],
+    desc:"Its shell has cleared into faceted gemstone planes that split sunlight into drifting fairy-glimmer.",
+    lore:"As a Glimmerling matures into Facetite, the quartz of its shell anneals into true gemstone, each plate cut into geometric facets that scatter light in shifting rainbows. The drifting motes of glimmer it sheds are warm to the touch and pacify nearby Lumori, and Facetite is often found guarding spring-fed grottoes where the light dances brightest." },
+
+  410: { id:410, name:"Prismarch", emoji:"💎", types:["Crystal","Fairy"],
+    evolveTo:null, evolveLevel:null, catchRate:5, expYield:320, rarity:"legendary",
+    base:{hp:110,atk:85,def:145,spa:125,spd:130,spe:30}, // BST 625
+    learnset:[[1,"crystal_pulse"],[1,"dazzling_gleam"],[1,"recover"],[33,"crystalline_beam"],[42,"prism_armor"],[48,"gemstone_blast"],[54,"moonblast"],[60,"starlight_prism"],[66,"prism_apocalypse"]],
+    desc:"An ancient gem-tortoise whose vast domed shell has grown into a living cathedral of prisms.",
+    lore:"Prismarch is reckoned a legendary among gem-Lumori — a colossal tortoise that has carried its crystal shell for centuries until the facets fused into a single radiant dome that bends daylight into standing rainbows for leagues around. It moves perhaps once a generation, and where it finally settles, gardens of luminous crystal bloom from the soil. Pilgrims claim the light beneath its shell can mend a fractured spirit." },
+
+  // --- F2: booming ratite / cassowary (Sonic / Draconic-Sonic) ---
+  411: { id:411, name:"Thrumquill", emoji:"🐤", types:["Sonic"],
+    evolveTo:412, evolveLevel:16, catchRate:150, expYield:64, rarity:"common",
+    base:{hp:50,atk:62,def:45,spa:50,spd:48,spe:50}, // BST 305
+    learnset:[[1,"tackle"],[1,"chirp"],[5,"echo_strike"],[9,"quick_attack"],[14,"sound_rush"],[19,"draco_jab"],[25,"rumble_smash"]],
+    desc:"A flightless chick whose stiff quill-feathers buzz with a low, constant thrum.",
+    lore:"Thrumquill cannot fly, but the hollow quills along its back vibrate when it runs, throwing a buzzing wake of sound that startles insects into the open. Chicks travel in noisy crashes through the undergrowth, and the collective thrum of a brood can be felt in the chest before they are ever seen." },
+
+  412: { id:412, name:"Echostride", emoji:"🦤", types:["Draconic","Sonic"],
+    evolveTo:413, evolveLevel:36, catchRate:70, expYield:145, rarity:"uncommon",
+    base:{hp:70,atk:92,def:62,spa:66,spd:60,spe:60}, // BST 410
+    learnset:[[1,"tackle"],[5,"echo_strike"],[14,"sound_rush"],[19,"dragon_breath"],[24,"rumble_smash"],[30,"skyboom_strike"],[36,"dragon_claw"],[42,"resonance_quake"]],
+    desc:"A long-legged runner that kicks with reptilian talons and booms to stun its rivals.",
+    lore:"Echostride has shed the last of its down for a scaled, draconic hide, and its legs have lengthened into powerful runners tipped with dagger-claws. It defends territory by lowering its head and loosing a chest-deep boom that rattles the ground; rivals that do not flee are met with a slashing kick. Its call carries far enough that whole valleys learn to give its nesting-grounds a wide berth." },
+
+  413: { id:413, name:"Resonadon", emoji:"🦤", types:["Draconic","Sonic"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:255, rarity:"rare",
+    base:{hp:85,atk:120,def:78,spa:82,spd:75,spe:90}, // BST 530
+    learnset:[[1,"sound_rush"],[1,"dragon_breath"],[24,"rumble_smash"],[36,"dragon_claw"],[42,"skyboom_strike"],[48,"bass_blast"],[54,"outrage"],[60,"resonance_quake"],[66,"threnody"]],
+    desc:"A towering ratite crowned with a hollow draconic casque that channels world-shaking infrasound.",
+    lore:"Resonadon stands taller than a mounted rider, its head capped by a hollow keratin casque that amplifies the infrasonic booms of its ancestors into pressure waves felt rather than heard. A charging Resonadon precedes itself with a wall of silent sound that buckles knees and scatters herds, and only then does it close with talon and crest. Old herders read the trembling of still water as warning that one is near." },
+
+  // --- F3: burrowing sandworm / annelid (Toxin / Earth-Toxin) ---
+  414: { id:414, name:"Grublurk", emoji:"🪱", types:["Toxin"],
+    evolveTo:415, evolveLevel:16, catchRate:160, expYield:62, rarity:"common",
+    base:{hp:60,atk:55,def:58,spa:42,spd:45,spe:40}, // BST 300
+    learnset:[[1,"tackle"],[1,"tox_sting"],[5,"mud_shot"],[10,"tox_jab"],[15,"harden"],[20,"sandstrike"],[26,"tox_acid_strike"]],
+    desc:"A pale, finger-thick grub that sweats an acrid slime as it inches through loose soil.",
+    lore:"Grublurk spends its larval life just beneath the surface, ploughing slow furrows and digesting the toxins other creatures leave behind. The acrid film coating its skin deters most predators, and gardeners both curse the burrows it leaves and prize the rich, detoxified earth it leaves in its wake." },
+
+  415: { id:415, name:"Tunnelmaw", emoji:"🪱", types:["Earth","Toxin"],
+    evolveTo:416, evolveLevel:36, catchRate:75, expYield:142, rarity:"uncommon",
+    base:{hp:80,atk:78,def:80,spa:52,spd:60,spe:45}, // BST 395
+    learnset:[[1,"tackle"],[5,"mud_shot"],[15,"tox_jab"],[20,"sandstrike"],[26,"tox_acid_strike"],[32,"bulldoze"],[38,"tox_venom_thrust"],[44,"earthquake"]],
+    desc:"A segmented burrower ringed with grinding mineral teeth at the front of its tunnel-boring maw.",
+    lore:"Tunnelmaw bores through hardpan and stone alike, its leading segment fused into a rotating ring of mineral teeth that grind rock to swallowable grit. It floods its tunnels with caustic mucus to soften the way and to drown anything that follows it down. Mining camps learn to recognise the faint hiss of acid that precedes a Tunnelmaw breaking through a wall." },
+
+  416: { id:416, name:"Sandscourge", emoji:"🪱", types:["Earth","Toxin"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:250, rarity:"rare",
+    base:{hp:105,atk:110,def:100,spa:60,spd:80,spe:60}, // BST 515
+    learnset:[[1,"sandstrike"],[1,"tox_acid_strike"],[26,"tox_venom_thrust"],[38,"earthquake"],[44,"tox_smash"],[50,"sand_tomb"],[56,"tox_storm_phy"],[62,"tectonic_slam"],[68,"tox_finish"]],
+    desc:"A colossal dune-worm that erupts from beneath the sand to drag down anything crossing its territory.",
+    lore:"Sandscourge is the apex of its line, a leviathan of the deep desert long enough to encircle a caravan. It senses footfalls through kilometres of sand and surfaces in a spray of grit and venom, collapsing dunes to mire its prey before it strikes. Nomads mark its hunting-grounds on their maps in red and cross them only by night, when the cold drives it deep." },
+
+  // --- F4: haunted ice-marionette (Spectral / Ice-Spectral) ---
+  417: { id:417, name:"Glacigeist", emoji:"👻", types:["Spectral"],
+    evolveTo:418, evolveLevel:18, catchRate:150, expYield:65, rarity:"common",
+    base:{hp:48,atk:40,def:52,spa:72,spd:58,spe:25}, // BST 295
+    learnset:[[1,"ghost_jab"],[1,"powder_snow"],[6,"ghost_pulse"],[11,"frost_breath"],[16,"specter_pulse"],[22,"aurora_beam"],[28,"phantom_beam"]],
+    desc:"A small, lonely haunt that has crept inside a cracked porcelain joint to give itself a body.",
+    lore:"Glacigeist is a houseless spirit drawn to abandoned, cold places, where it slips into a discarded fragment of carved wood or porcelain to anchor itself to the world. The object frosts over wherever the spirit touches it, and a faint chill marks the rooms it has chosen to haunt. Left undisturbed, it begins to gather more pieces to itself." },
+
+  418: { id:418, name:"Frostmarion", emoji:"❄️", types:["Ice","Spectral"],
+    evolveTo:419, evolveLevel:38, catchRate:70, expYield:148, rarity:"uncommon",
+    base:{hp:62,atk:52,def:70,spa:95,spd:76,spe:30}, // BST 385
+    learnset:[[1,"ghost_jab"],[6,"ghost_pulse"],[16,"specter_pulse"],[22,"aurora_beam"],[28,"phantom_beam"],[34,"ice_beam"],[40,"soul_lance"],[46,"glacial_shard"]],
+    desc:"A puppet of frost-lacquered wood, worked by an unseen ghost through threads of icy thread.",
+    lore:"Having gathered enough cast-off pieces, the spirit assembles Frostmarion: a jointed marionette of pale wood glazed in frost, dangling from strings of frozen filament that it manipulates itself. It moves with the eerie, hitching grace of a puppet whose puppeteer is hidden, and the air around its strings rings faintly cold. Those who cut the threads find them re-formed by morning." },
+
+  419: { id:419, name:"Pallidoll", emoji:"🎎", types:["Ice","Spectral"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:250, rarity:"rare",
+    base:{hp:80,atk:60,def:88,spa:125,spd:97,spe:55}, // BST 505
+    learnset:[[1,"specter_pulse"],[1,"aurora_beam"],[28,"phantom_beam"],[40,"soul_lance"],[46,"ice_beam"],[52,"phantom_force"],[58,"blizzard"],[64,"soul_burst"],[70,"winter_shade"]],
+    desc:"A life-size haunted doll wreathed in freezing mist, its painted eyes following anyone who lingers.",
+    lore:"Pallidoll is the spirit fully realised — a doll the size of a child, porcelain-faced and immaculate, drifting through silent winter halls on a low bank of freezing fog. It is gentle to those who treat it kindly and merciless to those who would break it, sealing intruders in sudden rime. Estates that house a Pallidoll are always cold, and always, somehow, perfectly clean." },
+
+  // --- F5: hot-spring capybara (Vapor / Fire-Vapor) ---
+  420: { id:420, name:"Mistling", emoji:"♨️", types:["Vapor"],
+    evolveTo:421, evolveLevel:18, catchRate:150, expYield:66, rarity:"common",
+    base:{hp:62,atk:48,def:52,spa:60,spd:58,spe:30}, // BST 310
+    learnset:[[1,"tackle"],[1,"mist_s"],[5,"vapor_jab"],[10,"ember"],[15,"fog_beam"],[20,"steam_burst"],[26,"mist_pulse"]],
+    desc:"A round, downy pup that breathes out little curls of warm fog when it dozes.",
+    lore:"Mistling are gregarious and famously placid, huddling together at the edges of warm springs and exhaling soft fog that pools around them like a blanket. The warm haze keeps their fur from freezing in cold country and soothes wounds, so injured Lumori often shelter among a Mistling colony until they mend." },
+
+  421: { id:421, name:"Geyserook", emoji:"♨️", types:["Fire","Vapor"],
+    evolveTo:422, evolveLevel:38, catchRate:70, expYield:150, rarity:"uncommon",
+    base:{hp:85,atk:62,def:70,spa:82,spd:76,spe:35}, // BST 410
+    learnset:[[1,"tackle"],[5,"vapor_jab"],[10,"ember"],[20,"steam_burst"],[26,"flame_charge"],[32,"boil_v"],[38,"flamethrower"],[44,"vapor_eruption"]],
+    desc:"A barrel-bodied beast that nests against thermal vents and vents scalding spray when alarmed.",
+    lore:"Geyserook makes its home where geothermal heat meets water, lounging in mineral pools heated from below. The fat it stores insulates a furnace-warm core, and when threatened it arches its back and jets superheated spray from glands along its spine. Bath-keepers in volcanic country consider a resident Geyserook a sign that the springs run hot and clean." },
+
+  422: { id:422, name:"Tempesteam", emoji:"♨️", types:["Fire","Vapor"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:258, rarity:"rare",
+    base:{hp:115,atk:80,def:88,spa:108,spd:96,spe:48}, // BST 535
+    learnset:[[1,"steam_burst"],[1,"flamethrower"],[1,"recover"],[26,"boil_v"],[38,"vapor_eruption"],[44,"heat_wave"],[50,"steam_storm"],[56,"lava_plume"],[62,"miasma_apocalypse"]],
+    desc:"A massive, placid behemoth that wears a permanent cloak of scalding steam from its furnace-hot hide.",
+    lore:"Tempesteam is the elder of the line, a ponderous mountain of warm flesh whose hide runs hot enough to flash spring-water into a rolling shroud of steam that hides it from sight. It is slow to anger and slower to move, but a roused Tempesteam can fill a whole valley with blinding, scalding fog. Travellers lost in such a cloud are wise to walk toward the heat, not away, for it has been known to shelter the freezing within its steam." },
+
+  // --- F6: armored pangolin (Mineral / Metal-Mineral) ---
+  423: { id:423, name:"Pebblite", emoji:"🪨", types:["Mineral"],
+    evolveTo:424, evolveLevel:16, catchRate:160, expYield:60, rarity:"common",
+    base:{hp:52,atk:55,def:78,spa:38,spd:47,spe:30}, // BST 300
+    learnset:[[1,"tackle"],[1,"harden"],[5,"mineral_jab"],[10,"shard_volley"],[16,"ore_punch"],[22,"mineral_strike"],[28,"mineral_smash"]],
+    desc:"A pebble-scaled pup that tucks into a tight ball at the first sign of trouble.",
+    lore:"Pebblite is plated head to tail in overlapping scales of raw mineral that it grows by ingesting grit and ore. At rest it forages for hard nodules to wear down its ever-growing scales; at the first alarm it rolls into an armoured sphere that even larger predators give up on. Its scales, shed as it grows, are collected by jewelers for their natural polish." },
+
+  424: { id:424, name:"Geodon", emoji:"🦔", types:["Metal","Mineral"],
+    evolveTo:425, evolveLevel:38, catchRate:75, expYield:145, rarity:"uncommon",
+    base:{hp:70,atk:80,def:105,spa:48,spd:62,spe:35}, // BST 400
+    learnset:[[1,"tackle"],[5,"mineral_jab"],[16,"ore_punch"],[22,"metal_claw"],[28,"mineral_smash"],[34,"iron_defense"],[40,"ore_smash"],[46,"heavy_slam"]],
+    desc:"Its mineral scales have hardened with veins of native metal into a near-impervious armour.",
+    lore:"As it matures, Geodon begins smelting trace metals from the ore it eats, threading its mineral scales with veins of iron and copper until they ring like struck plate. It uses its bladed foreclaws to tear open termite mounds and ore seams alike, and a curled Geodon has turned the teeth of more than one predator. The metallic sheen of its armour deepens with age." },
+
+  425: { id:425, name:"Strataclaw", emoji:"⛏️", types:["Metal","Mineral"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:252, rarity:"rare",
+    base:{hp:90,atk:115,def:140,spa:55,spd:75,spe:45}, // BST 520
+    learnset:[[1,"ore_punch"],[1,"metal_claw"],[1,"iron_defense"],[28,"mineral_smash"],[40,"ore_smash"],[46,"iron_tail"],[52,"obsidian_strike"],[58,"anvil_drop"],[64,"tungsten_ram"]],
+    desc:"A great pangolin whose scales are layered like strata of tempered metal and stone over a digging titan.",
+    lore:"Strataclaw is a digging titan whose every scale is a laminate of stone and tempered metal laid down in visible strata, each band a record of the ground it has eaten through. Its forelimbs end in pick-like claws that quarry through bedrock as easily as soil, and it carves the deep dens that whole communities of smaller Lumori later inhabit. Miners who find its abandoned tunnels follow them gratefully toward the richest seams." },
+
+  // --- F7: martial mantis (Fighting / Fighting-Mental) ---
+  426: { id:426, name:"Pummelo", emoji:"🦗", types:["Fighting"],
+    evolveTo:427, evolveLevel:16, catchRate:150, expYield:64, rarity:"common",
+    base:{hp:48,atk:68,def:50,spa:52,spd:47,spe:40}, // BST 305
+    learnset:[[1,"quick_punch"],[1,"battle_cry"],[5,"straight_jab"],[9,"low_sweep_f"],[14,"body_check"],[19,"confusion"],[25,"roundhouse"]],
+    desc:"A palm-sized mantis nymph that drills its strikes against stones for hours on end.",
+    lore:"Pummelo hatches already pugnacious, sparring with its broodmates and battering pebbles with its raptorial forelimbs to harden them. The faint hum it gives off while training is the first stirring of the focused mind its line is known for, and trainers prize the discipline a young Pummelo shows even at this size." },
+
+  427: { id:427, name:"Brawlith", emoji:"🦗", types:["Fighting","Mental"],
+    evolveTo:428, evolveLevel:36, catchRate:70, expYield:145, rarity:"uncommon",
+    base:{hp:62,atk:95,def:66,spa:70,spd:62,spe:55}, // BST 410
+    learnset:[[1,"quick_punch"],[5,"straight_jab"],[14,"body_check"],[19,"confusion"],[25,"roundhouse"],[31,"psybeam"],[37,"iron_fist"],[43,"zen_headbutt"]],
+    desc:"A mantis warrior whose meditation has woken a focused psychic edge to its strikes.",
+    lore:"Brawlith fights with an eerie calm, reading an opponent's intent a breath before they move and answering with bladed forelimbs guided by foresight. Between bouts it holds long, motionless vigils that sharpen its mind as surely as its sparring sharpens its claws, and rival Brawlith settle disputes in silent, lightning-fast duels." },
+
+  428: { id:428, name:"Zenkaiser", emoji:"🦗", types:["Fighting","Mental"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:255, rarity:"rare",
+    base:{hp:78,atk:125,def:78,spa:88,spd:81,spe:80}, // BST 530
+    learnset:[[1,"roundhouse"],[1,"confusion"],[25,"zen_headbutt"],[37,"iron_fist"],[43,"psycho_cut"],[49,"close_combat"],[55,"psychic_move"],[61,"focus_punch_f"],[67,"expanding_force"]],
+    desc:"A master mantis that strikes faster than thought, its mind and blades moving as one.",
+    lore:"Zenkaiser is the culmination of its line's discipline — a duelist whose perception runs so far ahead of its blows that it seems to parry attacks before they are thrown. It seeks out the strongest fighters not from aggression but from a need to test the edge of its own focus, and bows to a worthy foe whether it wins or loses. Monasteries in the high passes are said to keep one as an instructor." },
+
+  // --- F8: dream-eating baku / tapir (Dream / Dark-Dream) ---
+  429: { id:429, name:"Lullasnout", emoji:"🌙", types:["Dream"],
+    evolveTo:430, evolveLevel:18, catchRate:150, expYield:63, rarity:"common",
+    base:{hp:62,atk:45,def:52,spa:58,spd:53,spe:30}, // BST 300
+    learnset:[[1,"tackle"],[1,"lullaby_song"],[5,"dream_jab"],[10,"dream_pulse"],[15,"somnia_ray"],[20,"bite"],[26,"dream_beam"]],
+    desc:"A drowsy, snouted cub that snuffles through the air for the scent of dreams.",
+    lore:"Lullasnout drifts half-asleep even while awake, its long flexible snout twitching toward the dreams of nearby sleepers. It nibbles only at idle daydreams and bad moods, leaving those it visits a little lighter of heart, and parents in some regions welcome a Lullasnout into the nursery to keep nightmares at bay." },
+
+  430: { id:430, name:"Drowsetapir", emoji:"🌙", types:["Dark","Dream"],
+    evolveTo:431, evolveLevel:38, catchRate:70, expYield:145, rarity:"uncommon",
+    base:{hp:82,atk:60,def:70,spa:78,spd:70,spe:35}, // BST 395
+    learnset:[[1,"tackle"],[5,"dream_jab"],[15,"somnia_ray"],[20,"bite"],[26,"dream_beam"],[32,"dark_pulse"],[38,"nightmare_burst"],[44,"nightmare_storm"]],
+    desc:"A heavy-shouldered dream-eater that now draws nourishment from nightmares as well.",
+    lore:"As it matures, Drowsetapir develops a taste for the darker dreams its gentler youth avoided, wading into nightmares to devour the fear within. The sleepers it feeds upon wake unsettled but unharmed, their terrors gone, and a Drowsetapir grown bold will follow a troubled mind for nights on end until the nightmare is consumed." },
+
+  431: { id:431, name:"Nocturnbaku", emoji:"🌙", types:["Dark","Dream"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:250, rarity:"rare",
+    base:{hp:110,atk:75,def:88,spa:105,spd:92,spe:40}, // BST 510
+    learnset:[[1,"dream_beam"],[1,"dark_pulse"],[26,"somnia_blast"],[38,"nightmare_storm"],[44,"shadow_ball"],[50,"dream_devourer"],[56,"nightmare_calamity"],[62,"soul_rend"],[66,"dream_apocalypse_spec"]],
+    desc:"A great baku wreathed in stolen dreams, able to walk into sleep and reshape it at will.",
+    lore:"Nocturnbaku is the dream-eater grown vast and deliberate, a creature that steps fully into a sleeper's mind and walks their dreamscape as easily as a meadow. It can soothe a haunted soul into untroubled rest or, provoked, trap a foe in an endless looping nightmare. Folk leave offerings at the edge of forests where one is known to den, asking for a single dreamless night." },
+
+  // --- F9: mossy mammoth (Primal / Nature-Primal) — LEGENDARY line ---
+  432: { id:432, name:"Tusklet", emoji:"🦣", types:["Primal"],
+    evolveTo:433, evolveLevel:20, catchRate:30, expYield:72, rarity:"legendary",
+    base:{hp:75,atk:70,def:68,spa:45,spd:57,spe:50}, // BST 365
+    learnset:[[1,"tackle"],[1,"primal_roar"],[5,"primal_jab"],[10,"feral_claw"],[16,"savage_bite"],[22,"wild_strike"],[28,"beast_charge"]],
+    desc:"A shaggy calf with stubby tusks, already strong enough to topple a grown traveller.",
+    lore:"Tusklet are born of a bloodline so ancient it predates the region's other Lumori, and even as calves they carry the deep, unhurried strength of their kind. A herd guards its young in a wall of bodies, and a lost Tusklet will trumpet a call that grown Primammoth answer from valleys away. The moss already creeping along its back marks the living mountain it will become." },
+
+  433: { id:433, name:"Verdantusk", emoji:"🦣", types:["Nature","Primal"],
+    evolveTo:434, evolveLevel:44, catchRate:15, expYield:155, rarity:"legendary",
+    base:{hp:105,atk:100,def:95,spa:60,spd:80,spe:70}, // BST 510
+    learnset:[[1,"tackle"],[5,"primal_jab"],[16,"savage_bite"],[22,"vine_whip"],[28,"beast_charge"],[34,"seed_bomb"],[40,"crushing_jaws"],[46,"primal_smash"]],
+    desc:"A great tusker whose hide has become a hanging garden of moss, fern and clinging vine.",
+    lore:"Verdantusk moves slowly enough that whole ecosystems take root upon it — moss carpets its flanks, ferns nod between its shoulders, and small Lumori shelter in the living thicket of its hide. Where it walks, it tramples seed into soil and fertilises the ground, and old forests trace their first saplings to the passage of one of these wandering groves." },
+
+  434: { id:434, name:"Primammoth", emoji:"🦣", types:["Nature","Primal"],
+    evolveTo:null, evolveLevel:null, catchRate:5, expYield:325, rarity:"legendary",
+    base:{hp:140,atk:130,def:118,spa:70,spd:102,spe:70}, // BST 630
+    learnset:[[1,"beast_charge"],[1,"seed_bomb"],[28,"crushing_jaws"],[40,"primal_smash"],[46,"energy_ball"],[52,"ancient_strike"],[58,"jungle_hammer"],[64,"primal_eruption"],[70,"world_devour"]],
+    desc:"A living mountain of the elder world, a moss-mantled mammoth that forests follow like a wake.",
+    lore:"Primammoth is reckoned legendary — a titan that has carried the first forest on its back since before the gyms were built, so vast and slow that a grove matures and dies between its footfalls. It remembers the land as it was and steers great migrations of Lumori by instinct older than memory. To stand in its shadow is to feel the weight of every age it has walked through, and the deep green hush of the world before names." },
+
+  // --- F10: stone-fist gorilla (Mineral / Fighting-Mineral) ---
+  435: { id:435, name:"Knucklite", emoji:"🦍", types:["Mineral"],
+    evolveTo:436, evolveLevel:16, catchRate:160, expYield:62, rarity:"common",
+    base:{hp:55,atk:62,def:70,spa:40,spd:48,spe:45}, // BST 320
+    learnset:[[1,"tackle"],[1,"harden"],[5,"mineral_jab"],[10,"ore_punch"],[15,"quick_punch"],[20,"mineral_strike"],[26,"body_check"]],
+    desc:"A stocky ape-pup that hardens its knuckles by drumming them against cave walls.",
+    lore:"Knucklite grows up in rocky highlands, where it toughens its fists by pounding stone until thick mineral calluses form across its knuckles. Troops communicate by drumming these stony fists against boulders, and the booming knuckle-rhythm of a Knucklite band rolls for miles through the canyons they call home." },
+
+  436: { id:436, name:"Cragfist", emoji:"🦍", types:["Fighting","Mineral"],
+    evolveTo:437, evolveLevel:38, catchRate:75, expYield:145, rarity:"uncommon",
+    base:{hp:75,atk:95,def:88,spa:48,spd:62,spe:52}, // BST 420
+    learnset:[[1,"tackle"],[5,"mineral_jab"],[15,"quick_punch"],[20,"ore_punch"],[26,"body_check"],[32,"mineral_smash"],[38,"iron_fist"],[44,"seismic_force"]],
+    desc:"A powerful ape whose forearms are sheathed in plates of grown-in rock.",
+    lore:"Cragfist has encased its forearms in slabs of accreted mineral that it cracks and regrows after every brawl, turning each punch into a falling boulder. Troops are led by the Cragfist whose stone gauntlets are thickest and most scarred, and a challenge for leadership is decided by a single thunderous exchange of blows that splits the very ground." },
+
+  437: { id:437, name:"Goliathon", emoji:"🦍", types:["Fighting","Mineral"],
+    evolveTo:null, evolveLevel:null, catchRate:40, expYield:252, rarity:"rare",
+    base:{hp:95,atk:128,def:110,spa:55,spd:77,spe:60}, // BST 525
+    learnset:[[1,"ore_punch"],[1,"iron_fist"],[26,"mineral_smash"],[38,"seismic_force"],[44,"obsidian_strike"],[50,"close_combat"],[56,"quarry_crush"],[62,"quake_barrage"],[68,"mineral_eruption"]],
+    desc:"A colossal silverback whose stone-clad fists can shatter a cliff face in a single blow.",
+    lore:"Goliathon is the undisputed patriarch of the highland troops, a mountain of muscle armoured in living rock that it can shrug off avalanches. It rarely needs to fight — its mere knuckle-drum, felt as a tremor through the stone, is enough to send challengers away — but when it does, the landscape itself is rearranged. Old quarries in gorilla country are said to be the work of feuding Goliathon." },
+
+  // --- F11: cicada bard-fae (Sonic / Fairy-Sonic) ---
+  438: { id:438, name:"Chimelet", emoji:"🎐", types:["Sonic"],
+    evolveTo:439, evolveLevel:24, catchRate:190, expYield:68, rarity:"common",
+    base:{hp:52,atk:45,def:48,spa:70,spd:60,spe:45}, // BST 320
+    learnset:[[1,"chirp"],[1,"echo_strike"],[5,"sonic_pulse"],[10,"sound_rush"],[15,"resonate"],[20,"pulse_wave"],[26,"wave_cry"]],
+    desc:"A tiny winged cicada-sprite whose translucent wings ring like struck glass.",
+    lore:"Chimelet spends its long nymphhood underground and emerges already singing, its glassy wings chiming in the breeze like a hung windchime. Swarms tune their songs to one another until a whole grove rings in harmony, and travellers say a chorus of Chimelet at dusk is among the gentlest sounds in all Lumoria." },
+
+  439: { id:439, name:"Seraphene", emoji:"🎐", types:["Fairy","Sonic"],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:200, rarity:"uncommon",
+    base:{hp:75,atk:60,def:68,spa:118,spd:92,spe:72}, // BST 485
+    learnset:[[1,"sonic_pulse"],[1,"fairy_wind"],[15,"resonate"],[20,"pulse_wave"],[26,"dazzling_gleam"],[32,"harmonic_burst"],[38,"moonblast"],[44,"siren_song"],[50,"prism_resonance"]],
+    desc:"A radiant cicada-fae whose layered song can soothe a raging Lumori or shatter stone.",
+    lore:"Seraphene's chime has matured into true music — chords woven from fairy-light and sound that it conducts with sweeps of its luminous wings. Its harmonies can lull the most savage Lumori into calm or, focused to a single piercing note, crack stone and scatter foes. Bards travel for weeks to record the song of a Seraphene, though no instrument has ever truly captured it." },
+
+  // --- F12: charged centipede (Toxin / Electric-Toxin) ---
+  440: { id:440, name:"Rustmite", emoji:"🐛", types:["Toxin"],
+    evolveTo:441, evolveLevel:26, catchRate:190, expYield:70, rarity:"common",
+    base:{hp:50,atk:60,def:52,spa:48,spd:45,spe:55}, // BST 310
+    learnset:[[1,"tox_sting"],[1,"tox_jab"],[5,"thunder_shock"],[10,"tox_bite"],[15,"spark"],[20,"tox_acid_strike"],[26,"tox_fang"]],
+    desc:"A many-legged grub whose corrosive secretions pit and rust whatever it crawls across.",
+    lore:"Rustmite oozes a caustic film that eats at metal and stone alike, leaving a telltale trail of pitted rust wherever it travels. It nests in damp ironwork and decaying machinery, feeding on the corrosion it creates, and a colony can reduce an abandoned forge to flaking ruin in a single season." },
+
+  441: { id:441, name:"Corrodon", emoji:"🐛", types:["Electric","Toxin"],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:205, rarity:"uncommon",
+    base:{hp:72,atk:98,def:70,spa:78,spd:62,spe:90}, // BST 470
+    learnset:[[1,"tox_jab"],[5,"thunder_shock"],[15,"spark"],[20,"tox_acid_strike"],[26,"volt_fang"],[32,"tox_venom_thrust"],[38,"discharge"],[44,"tox_storm_phy"],[50,"plasma_strike"]],
+    desc:"A fast, armoured centipede that pairs corrosive venom with a stored electric charge.",
+    lore:"Corrodon's many segments each hold a tiny store of charge drawn from the corrosion it feeds on, so a bite delivers acid and a jolt at once. It races along power-lines and pipework with unnerving speed, shorting machinery and dissolving the housings, and engineers in the foundry cities wage a constant quiet war against the colonies that infest their conduits." },
+
+  // --- F13: miasma leech (Vapor / Poison-Vapor) ---
+  442: { id:442, name:"Bloatleech", emoji:"🩸", types:["Vapor"],
+    evolveTo:443, evolveLevel:26, catchRate:190, expYield:66, rarity:"common",
+    base:{hp:65,atk:45,def:55,spa:58,spd:52,spe:30}, // BST 305
+    learnset:[[1,"vapor_jab"],[1,"mist_s"],[5,"poison_sting"],[10,"fog_beam"],[15,"acid_spray"],[20,"mist_pulse"],[26,"venoshock"]],
+    desc:"A swollen, translucent leech that exhales a faint sour fog as it feeds.",
+    lore:"Bloatleech haunts stagnant fens, bloating itself on the vital warmth of larger Lumori and venting the excess as a sour, low-hanging mist. The fog it breathes out dulls the senses of its host, so a feeding Bloatleech often goes unnoticed until it drops away, fat and sluggish, into the murk." },
+
+  443: { id:443, name:"Miasmire", emoji:"🩸", types:["Poison","Vapor"],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:200, rarity:"uncommon",
+    base:{hp:95,atk:60,def:78,spa:92,spd:85,spe:50}, // BST 460
+    learnset:[[1,"vapor_jab"],[5,"poison_sting"],[15,"acid_spray"],[20,"mist_pulse"],[26,"venoshock"],[32,"miasma_cloud"],[38,"sludge_bomb"],[44,"miasma_wave"],[50,"corrosive_fog"]],
+    desc:"A bloated bog-horror that drags a permanent cloud of toxic mist wherever it oozes.",
+    lore:"Miasmire has grown into a slow, swollen mass that no longer needs to attach to feed — it simply exhales a creeping fog of toxin and waits for weakened prey to fall. Whole stretches of marsh die back where one settles, the reeds blackening in the haze, and bog-guides mark a Miasmire's territory by the silence and the smell long before they see it." },
+
+  // --- F14: meerkat sentinel (Sonic / Normal-Sonic) ---
+  444: { id:444, name:"Squeaklet", emoji:"🐿️", types:["Sonic"],
+    evolveTo:445, evolveLevel:24, catchRate:190, expYield:68, rarity:"common",
+    base:{hp:52,atk:55,def:48,spa:55,spd:50,spe:55}, // BST 315
+    learnset:[[1,"chirp"],[1,"echo_strike"],[5,"quick_attack"],[10,"sonic_pulse"],[15,"sound_rush"],[20,"shake_strike"],[26,"pulse_wave"]],
+    desc:"A bright-eyed burrow-pup that pops upright to give a piercing alarm-squeak.",
+    lore:"Squeaklet live in chattering colonies riddled with tunnels, and every pup learns the watch-calls before it learns to forage. A sentinel will stand on its hind legs atop the highest mound and loose a squeak so sharp it stops a hawk mid-stoop, sending the whole colony underground in a heartbeat." },
+
+  445: { id:445, name:"Sentrike", emoji:"🐿️", types:["Normal","Sonic"],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:205, rarity:"uncommon",
+    base:{hp:78,atk:88,def:68,spa:78,spd:73,spe:90}, // BST 475
+    learnset:[[1,"echo_strike"],[5,"quick_attack"],[15,"sound_rush"],[20,"shake_strike"],[26,"pulse_wave"],[32,"body_slam"],[38,"decibel_burst"],[44,"earsplit"],[50,"skyboom_strike"]],
+    desc:"A vigilant sentinel whose focused shriek can stagger an attacker from across the dunes.",
+    lore:"Sentrike is the colony's standing guard, grown swift and strong enough to back its alarm-calls with action. Its shriek has sharpened into a weapon — a focused blast of sound that buckles a predator's stance and buys the burrow precious seconds. A colony with a seasoned Sentrike on watch is almost impossible to surprise." },
+
+  // --- F15: spore myconid (Vapor / Nature-Vapor) ---
+  446: { id:446, name:"Sporelet", emoji:"🍄", types:["Vapor"],
+    evolveTo:447, evolveLevel:26, catchRate:190, expYield:66, rarity:"common",
+    base:{hp:60,atk:45,def:58,spa:62,spd:55,spe:30}, // BST 310
+    learnset:[[1,"tackle"],[1,"mist_s"],[5,"vapor_jab"],[10,"sleep_powder"],[15,"fog_beam"],[20,"mist_pulse"],[26,"seed_bomb"]],
+    desc:"A capped sprout that puffs a fine drowsy haze of spores when nudged.",
+    lore:"Sporelet pushes up overnight in damp, shaded hollows, releasing a soft haze of spores at the first disturbance to ward off grazers. The mist is harmless but soporific, and small Lumori that bed down near a cluster of Sporelet sleep deep and wake to find the sprouts have quietly multiplied around them." },
+
+  447: { id:447, name:"Fumycet", emoji:"🍄", types:["Nature","Vapor"],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:200, rarity:"uncommon",
+    base:{hp:92,atk:62,def:80,spa:95,spd:84,spe:55}, // BST 468
+    learnset:[[1,"tackle"],[5,"vapor_jab"],[15,"fog_beam"],[20,"seed_bomb"],[26,"mist_pulse"],[32,"mycelia_net"],[38,"energy_ball"],[44,"corrosive_fog"],[50,"spore_burst"]],
+    desc:"A towering fungal myconid that breathes living spore-fog and seeds the soil as it walks.",
+    lore:"Fumycet is a walking fungus the height of a person, its cap venting a slow fog thick with spores that take root wherever they settle. It cultivates the ground it passes over, leaving trails of fresh mushroom-growth, and the deep mycelial network beneath a Fumycet's range lets it sense every footfall pressing the soil for miles." },
+
+  // --- F16: burrowing mole (Mineral / Dark-Mineral) ---
+  448: { id:448, name:"Cobblepup", emoji:"🦡", types:["Mineral"],
+    evolveTo:449, evolveLevel:24, catchRate:190, expYield:64, rarity:"common",
+    base:{hp:54,atk:60,def:62,spa:40,spd:44,spe:45}, // BST 305
+    learnset:[[1,"tackle"],[1,"harden"],[5,"mineral_jab"],[10,"shard_volley"],[15,"ore_punch"],[20,"mineral_strike"],[26,"mineral_smash"]],
+    desc:"A snub-nosed digger with spade-claws that shovel through gravel as if it were sand.",
+    lore:"Cobblepup is born blind in deep burrows and reads the world through the grit it shoves aside, its spade-claws breaking cobbles to swallow the mineral-rich shards within. Pups dig constantly, and a single litter can honeycomb a hillside in a season, sieving the soil for the ore-pebbles that strengthen their claws." },
+
+  449: { id:449, name:"Oredigger", emoji:"🦡", types:["Dark","Mineral"],
+    evolveTo:null, evolveLevel:null, catchRate:65, expYield:198, rarity:"uncommon",
+    base:{hp:80,atk:100,def:88,spa:50,spd:62,spe:75}, // BST 455
+    learnset:[[1,"tackle"],[5,"mineral_jab"],[15,"ore_punch"],[20,"bite"],[26,"mineral_smash"],[32,"night_slash"],[38,"obsidian_strike"],[44,"crunch"],[50,"shadowstep"]],
+    desc:"A lightless-eyed tunneler that ambushes from below, dragging prey down into the dark.",
+    lore:"Oredigger has abandoned the surface entirely, hunting in the lightless deep where its sense of vibration and its obsidian claws make it lord of the tunnels. It strikes upward without warning, hauling unwary Lumori beneath the soil before they can struggle, and miners who hear claws scraping the far side of a rock wall know to dig elsewhere." },
+
+  // --- F17: mantis shrimp (Fighting / Fighting-Fire) ---
+  450: { id:450, name:"Jabshell", emoji:"🦐", types:["Fighting"],
+    evolveTo:451, evolveLevel:28, catchRate:180, expYield:70, rarity:"common",
+    base:{hp:55,atk:72,def:58,spa:48,spd:47,spe:45}, // BST 325
+    learnset:[[1,"quick_punch"],[1,"battle_cry"],[5,"straight_jab"],[10,"body_check"],[15,"low_sweep_f"],[20,"power_drive"],[26,"roundhouse"]],
+    desc:"A small reef-shrimp whose club-arms strike fast enough to crack a shell with a snap.",
+    lore:"Jabshell hammers at snails and stones from the moment it can lift its club-like forelimbs, and the snap of its strike comes faster than the eye can follow. The percussive crack it makes echoes through tide-pools, and rivals settle territorial disputes in flurries of blows that leave the water briefly boiling with tiny bubbles." },
+
+  451: { id:451, name:"Smashclaw", emoji:"🦐", types:["Fighting","Fire"],
+    evolveTo:null, evolveLevel:null, catchRate:55, expYield:210, rarity:"uncommon",
+    base:{hp:80,atk:128,def:78,spa:68,spd:66,spe:70}, // BST 490
+    learnset:[[1,"quick_punch"],[5,"straight_jab"],[15,"body_check"],[20,"power_drive"],[26,"flame_charge"],[32,"iron_fist"],[38,"ignition_kick"],[44,"close_combat"],[50,"flare_uppercut"]],
+    desc:"A reef-brawler whose club-strike moves so fast the water flashes to steam on impact.",
+    lore:"Smashclaw's strike is among the fastest blows in all Lumoria — its club-arms accelerate so violently that the water ahead of them boils into a flash of scalding vapour, doubling the force as the bubble collapses. It cracks open the toughest shells and the hardest stones with ease, and challengers who underestimate the little brawler are met with a punch that lands like a thrown coal." },
+
+  // --- F18: dream sloth (Dream / Dream-Fairy) ---
+  452: { id:452, name:"Dozit", emoji:"🦥", types:["Dream"],
+    evolveTo:453, evolveLevel:28, catchRate:190, expYield:64, rarity:"common",
+    base:{hp:68,atk:42,def:55,spa:58,spd:57,spe:20}, // BST 300
+    learnset:[[1,"tackle"],[1,"lullaby_song"],[5,"dream_jab"],[10,"dream_pulse"],[15,"somnia_ray"],[20,"dream_beam"],[26,"lullaby_aura"]],
+    desc:"A perpetually half-asleep sloth that drifts through its own slow daydreams.",
+    lore:"Dozit spends nearly all its life adrift between waking and sleep, moving so slowly that moss and small Lumori take up residence in its fur. Its dreams leak gently into the air as a calming drowse, and creatures that doze beneath a hanging Dozit share in its mild, wandering reveries." },
+
+  453: { id:453, name:"Lullavoir", emoji:"🦥", types:["Dream","Fairy"],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:196, rarity:"uncommon",
+    base:{hp:100,atk:55,def:80,spa:90,spd:95,spe:30}, // BST 450
+    learnset:[[1,"dream_pulse"],[1,"fairy_wind"],[15,"somnia_ray"],[20,"dream_beam"],[26,"draining_kiss"],[32,"dazzling_gleam"],[38,"somnia_blast"],[44,"moonblast"],[50,"lullaby_song"]],
+    desc:"A serene, slow-moving sloth-fae that spins waking dreams of soft light around itself.",
+    lore:"Lullavoir drifts through the high canopy wrapped in a haze of luminous, gentle dreams, and to wander into its aura is to feel one's worries dissolve into a pleasant drowse. It means no harm — those it lulls wake rested and content — but enemies caught in its dreamscape simply forget why they came to fight. Forest-folk consider a resident Lullavoir a blessing on the grove." },
+
+  // --- F19: haunted bell (Spectral / Metal-Spectral) ---
+  454: { id:454, name:"Tollwisp", emoji:"🔔", types:["Spectral"],
+    evolveTo:455, evolveLevel:30, catchRate:180, expYield:68, rarity:"common",
+    base:{hp:50,atk:42,def:62,spa:72,spd:62,spe:24}, // BST 312
+    learnset:[[1,"ghost_jab"],[1,"haunting_cry"],[5,"ghost_pulse"],[10,"specter_pulse"],[15,"void_wail"],[20,"phantom_beam"],[26,"spirit_drain"]],
+    desc:"A small spirit that has taken up residence inside a cracked, tarnished handbell.",
+    lore:"Tollwisp is a lonely haunt nesting within a discarded bell, ringing itself softly at odd hours to announce a presence no one can see. The sound carries an unmistakable mournful note, and old chapels where a Tollwisp has settled are said to toll on their own on the anniversaries of those once mourned there." },
+
+  455: { id:455, name:"Knellgeist", emoji:"🔔", types:["Metal","Spectral"],
+    evolveTo:null, evolveLevel:null, catchRate:55, expYield:205, rarity:"uncommon",
+    base:{hp:72,atk:60,def:105,spa:100,spd:95,spe:40}, // BST 472
+    learnset:[[1,"ghost_pulse"],[1,"specter_pulse"],[15,"void_wail"],[20,"phantom_beam"],[26,"flash_cannon"],[32,"metal_sound"],[38,"soul_burst"],[44,"chromium_ray"],[50,"phantom_force"]],
+    desc:"A great cast-iron tower-bell possessed by a host of spirits, its toll heavy with dread.",
+    lore:"Knellgeist is a massive bronze-and-iron bell grown thick with the spirits drawn to its resonance, and its toll is a physical force — a wave of sound and dread that buckles the will of any who hear it. It rings of its own accord before calamities, and townsfolk who hear an unmanned Knellgeist sound at midnight bar their doors and wait for dawn." },
+
+  // --- F20: axolotl (Vapor / Aquatic-Vapor) ---
+  456: { id:456, name:"Mistgill", emoji:"🦎", types:["Vapor"],
+    evolveTo:457, evolveLevel:26, catchRate:190, expYield:68, rarity:"common",
+    base:{hp:65,atk:50,def:55,spa:58,spd:55,spe:35}, // BST 318
+    learnset:[[1,"tackle"],[1,"mist_s"],[5,"vapor_jab"],[10,"water_gun"],[15,"fog_beam"],[20,"mist_pulse"],[26,"bubble_beam"]],
+    desc:"A frilled, perpetually smiling amphibian whose feathery gills trail wisps of warm mist.",
+    lore:"Mistgill lives in mineral springs where warm water meets cool air, and the feathery external gills it waves to breathe leave little curls of mist drifting behind it. It regenerates lost limbs in days and never fully matures away from the water, keeping its juvenile frills and its placid, eternal smile throughout its life." },
+
+  457: { id:457, name:"Vaporlotl", emoji:"🦎", types:["Aquatic","Vapor"],
+    evolveTo:null, evolveLevel:null, catchRate:60, expYield:205, rarity:"uncommon",
+    base:{hp:100,atk:72,def:78,spa:92,spd:86,spe:50}, // BST 478
+    learnset:[[1,"water_gun"],[1,"mist_s"],[15,"fog_beam"],[20,"bubble_beam"],[26,"mist_pulse"],[32,"aqua_tail"],[38,"steam_burst"],[44,"surf"],[50,"vapor_eruption"]],
+    desc:"A large spring-dwelling amphibian wreathed in warm vapour, able to heal its own wounds in moments.",
+    lore:"Vaporlotl rules the deep thermal pools, its broad gills exhaling a constant warm fog across the water's surface. Its regenerative powers are the stuff of legend — it can knit a severed limb whole within an afternoon — and injured Lumori that reach a Vaporlotl's spring and rest in its mist often recover from wounds that should have been mortal." },
+
+  // --- F21: tengu (Fighting / Fighting-Wind) ---
+  458: { id:458, name:"Gustling", emoji:"👺", types:["Fighting"],
+    evolveTo:459, evolveLevel:28, catchRate:180, expYield:72, rarity:"common",
+    base:{hp:55,atk:68,def:52,spa:55,spd:50,spe:50}, // BST 330
+    learnset:[[1,"quick_punch"],[1,"battle_cry"],[5,"gust"],[10,"straight_jab"],[15,"low_sweep_f"],[20,"body_check"],[26,"roundhouse"]],
+    desc:"A red-faced mountain imp that practices its fist-forms atop wind-blasted crags.",
+    lore:"Gustling are mischievous spirits of the high peaks, drilling endless martial forms against the mountain gales and snatching the hats of travellers who climb too proudly. The wind they train against has taught them footwork no still-air fighter can match, and a humbled climber who bows respectfully may find a Gustling willing to guide them down." },
+
+  459: { id:459, name:"Tengrath", emoji:"👺", types:["Fighting","Wind"],
+    evolveTo:null, evolveLevel:null, catchRate:55, expYield:212, rarity:"uncommon",
+    base:{hp:82,atk:115,def:72,spa:80,spd:71,spe:75}, // BST 495
+    learnset:[[1,"gust"],[5,"straight_jab"],[15,"body_check"],[20,"air_slash"],[26,"roundhouse"],[32,"tornado_kick"],[38,"iron_fist"],[44,"close_combat"],[50,"hurricane"]],
+    desc:"A long-nosed tengu master that rides the gale and strikes from the heart of a whirlwind.",
+    lore:"Tengrath is a tengu in its full power — a martial spirit that summons the mountain wind to its fists and feet, closing the distance on a gust to land blows that arrive from impossible angles. It tests warriors who climb to its peak, demanding humility as fiercely as skill, and the rare student it deems worthy is taught wind-walking forms found in no dojo below." },
+
+  // --- F22: singing-bowl construct (Sonic / Mental-Sonic) ---
+  460: { id:460, name:"Gongling", emoji:"🎵", types:["Sonic"],
+    evolveTo:461, evolveLevel:30, catchRate:180, expYield:68, rarity:"common",
+    base:{hp:55,atk:45,def:58,spa:68,spd:54,spe:35}, // BST 315
+    learnset:[[1,"echo_strike"],[1,"resonate"],[5,"sonic_pulse"],[10,"sound_rush"],[15,"confusion"],[20,"pulse_wave"],[26,"wave_cry"]],
+    desc:"A small hovering singing-bowl that hums a steady, calming tone of its own accord.",
+    lore:"Gongling is a votive bowl given a faint will by generations of meditation rung into its metal. It drifts a hand's breadth above the ground, humming a low tone that steadies racing thoughts, and temples treasure one as a tireless aid to focus — though a startled Gongling will clang a discordant note that scatters concentration just as easily." },
+
+  461: { id:461, name:"Resonethe", emoji:"🎵", types:["Mental","Sonic"],
+    evolveTo:null, evolveLevel:null, catchRate:55, expYield:208, rarity:"uncommon",
+    base:{hp:82,atk:58,def:80,spa:115,spd:92,spe:55}, // BST 482
+    learnset:[[1,"sonic_pulse"],[1,"confusion"],[15,"pulse_wave"],[20,"psybeam"],[26,"harmonic_burst"],[32,"resonance_quake"],[38,"psychic_move"],[44,"threnody"],[50,"mind_shatter"]],
+    desc:"A great resonating bowl-construct whose layered tones tune the very thoughts of those nearby.",
+    lore:"Resonethe is a towering construct of nested singing-bowls, each ringing a different note, that has accumulated enough meditative resonance to touch the minds around it. Its harmonies can lift a clouded mind to perfect clarity or, struck in anger, shatter concentration and will alike with a single dissonant chord. Oracles seat themselves within its rings to think thoughts they could not hold alone." },
+
+  // ============================================================
+  // FORGOTTEN LUMORI — IDs 462–500 (Vaeldrian Region)
   // These Lumori are not catchable and not named to the player.
   // In battle: "Forgotten Lumori X came in to battle."
   // In Luminex Vaeldris tab: shows only emoji + "Forgotten Lumori X"
@@ -4580,16 +4986,16 @@ const MONSTERS_DATA = {
   // ============================================================
 
   // --- Wielder: Lysara (Celestial Plateau) ---
-  408: { id:408, name:"Forgotten Auravian", emoji:"🕊️", types:["Aether","Primal"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+  462: { id:462, name:"Forgotten Auravian", emoji:"🕊️", types:["Aether","Primal"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:115,atk:95,def:110,spa:145,spd:130,spe:125},
     learnset:[[1,"confusion"],[20,"psybeam"],[35,"earth_power"],[50,"psychic_move"],[65,"moonblast"],[70,"cosmic_veil"],[80,"aura_veil_strike"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Messengers of the sacred temples of a lost land, Auravian carry the resonance of ancient prayers on crystalline wings.",
     lore:"Auravian are the divine messengers of Vaeldris. They appear to those who have lost something precious and are said to carry the voices of the departed on their wings." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  409: { id:409, name:"Forgotten Lumarix", emoji:"🦢", types:["Fairy","Earth"],
+  463: { id:463, name:"Forgotten Lumarix", emoji:"🦢", types:["Fairy","Earth"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:120,atk:100,def:115,spa:155,spd:135,spe:125},
     learnset:[[1,"fairy_wind"],[20,"earth_power"],[35,"dazzling_gleam"],[50,"moonblast"],[65,"fissure_slam"],[70,"celestial_wave"],[80,"luma_quake"]],
@@ -4597,7 +5003,7 @@ const MONSTERS_DATA = {
     desc:"Lumarix hold fragments of starlight within their translucent bodies and release blinding radiance when threatened.",
     lore:"The crystalline structures within a Lumarix's body refract light in ways that physicists from Vaeldris spent centuries trying to explain. They never succeeded." },
 
-  410: { id:410, name:"Forgotten Celestrix", emoji:"👼", types:["Aether","Metal"],
+  464: { id:464, name:"Forgotten Celestrix", emoji:"👼", types:["Aether","Metal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:130,atk:105,def:120,spa:170,spd:145,spe:130},
     learnset:[[1,"body_slam"],[20,"flash_cannon"],[35,"psychic_move"],[50,"moonblast"],[65,"alloy_edge"],[70,"cosmic_veil"],[80,"celestial_forge"],[90,"star_cannon"]],
@@ -4607,16 +5013,16 @@ const MONSTERS_DATA = {
 
   // --- Wielder: Morrigan (The Shadowfen) ---
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  411: { id:411, name:"Forgotten Nyxviper", emoji:"🦇", types:["Dark","Spectral"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+  465: { id:465, name:"Forgotten Nyxviper", emoji:"🦇", types:["Dark","Spectral"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:80,atk:150,def:80,spa:120,spd:90,spe:200},
     learnset:[[1,"night_slash"],[20,"shadow_ball"],[35,"dark_pulse"],[50,"void_rend"],[65,"shadowstep"],[70,"eclipse_shroud"],[80,"nyx_fang"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Nyxviper phase through solid matter and strike from the space between moments. Their venom erases memories rather than dealing damage.",
     lore:"Vaeldrian scholars debated whether Nyxviper were truly physical beings or manifestations of collective nightmares. The debate was never resolved." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  412: { id:412, name:"Forgotten Morrath", emoji:"🌑", types:["Poison","Fire"],
+  466: { id:466, name:"Forgotten Morrath", emoji:"🌑", types:["Poison","Fire"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:85,atk:145,def:90,spa:135,spd:95,spe:200},
     learnset:[[1,"shadow_ball"],[20,"fire_blast"],[35,"dark_pulse"],[50,"sludge_wave"],[65,"cinderwhirl"],[70,"nightmare_pulse"],[80,"toxic_blaze"]],
@@ -4625,7 +5031,7 @@ const MONSTERS_DATA = {
     lore:"The flames Morrath produce are called darkfire — they are technically fire in every measurable sense, yet a room lit only by darkfire grows darker the longer they burn." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  413: { id:413, name:"Forgotten Duskmourn", emoji:"🕷️", types:["Ice","Mental"],
+  467: { id:467, name:"Forgotten Duskmourn", emoji:"🕷️", types:["Ice","Mental"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:155,def:95,spa:155,spd:100,spe:200},
     learnset:[[1,"ice_punch"],[20,"psychic_move"],[35,"blizzard"],[50,"psystrike"],[65,"cryo_lance"],[70,"veil_collapse"],[80,"mind_blizzard"],[90,"frost_pulse"]],
@@ -4635,16 +5041,16 @@ const MONSTERS_DATA = {
 
   // --- Wielder: Kael (Stormpeak Ridge) ---
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  414: { id:414, name:"Forgotten Electrak", emoji:"🌩️", types:["Electric","Metal"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+  468: { id:468, name:"Forgotten Electrak", emoji:"🌩️", types:["Electric","Metal"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:90,atk:130,def:90,spa:150,spd:90,spe:170},
     learnset:[[1,"thunder_shock"],[20,"flash_cannon"],[35,"thunderbolt"],[50,"volt_surge"],[65,"alloy_edge"],[70,"overcharge"],[80,"volt_rail"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Electrak surf electromagnetic currents at speeds that blur their outline. Their charged steel scales can discharge enough power to fuel a city for hours.",
     lore:"The steel in Electrak's scales is a natural alloy produced by their bodies — a material that conducts electricity with zero resistance that Vaeldrian engineers failed to replicate." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  415: { id:415, name:"Forgotten Arcvolt", emoji:"⚡", types:["Normal","Earth"],
+  469: { id:469, name:"Forgotten Arcvolt", emoji:"⚡", types:["Normal","Earth"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:140,def:95,spa:155,spd:100,spe:165},
     learnset:[[1,"dragon_breath"],[20,"stone_edge"],[35,"dragon_claw"],[50,"dragon_pulse"],[65,"obsidian_crash"],[70,"time_fracture"],[80,"arc_strike"]],
@@ -4653,7 +5059,7 @@ const MONSTERS_DATA = {
     lore:"Arcvolt's scales form geological strata within their bodies over time — geologists from Vaeldris once found evidence of strikes dating back sixty thousand years in a single Arcvolt's hide." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  416: { id:416, name:"Forgotten Fulgureis", emoji:"🌪️", types:["Nature","Aquatic"],
+  470: { id:470, name:"Forgotten Fulgureis", emoji:"🌪️", types:["Nature","Aquatic"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:100,atk:155,def:100,spa:165,spd:110,spe:170},
     learnset:[[1,"gust"],[20,"surf"],[35,"hurricane"],[50,"hydro_pump"],[65,"tidal_crush"],[70,"time_fracture"],[80,"torrent_shell"],[90,"swarm_tide"]],
@@ -4663,16 +5069,16 @@ const MONSTERS_DATA = {
 
   // --- Wielder: Thessaly (Ancient Root Cavern) ---
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  417: { id:417, name:"Forgotten Rootborn", emoji:"🌿", types:["Nature","Poison"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+  471: { id:471, name:"Forgotten Rootborn", emoji:"🌿", types:["Nature","Poison"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:155,atk:135,def:130,spa:90,spd:120,spe:90},
     learnset:[[1,"vine_whip"],[20,"sludge_bomb"],[35,"seed_bomb"],[50,"energy_ball"],[65,"toxic_surge"],[70,"verdant_surge"],[80,"root_toxin"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Rootborn grew from ancient seed-stones buried beneath Vaeldris's mountains for ten thousand years. Their roots crack bedrock and draw nutrients from bare stone.",
     lore:"A single Rootborn can undermine a mountain's foundation in a century. Thessaly meditates beside hers every morning and says it tells her things the mountains are thinking." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  418: { id:418, name:"Forgotten Tellurak", emoji:"🗻", types:["Earth","Metal"],
+  472: { id:472, name:"Forgotten Tellurak", emoji:"🗻", types:["Earth","Metal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:160,atk:145,def:140,spa:95,spd:125,spe:85},
     learnset:[[1,"rock_slide"],[20,"iron_tail"],[35,"stone_edge"],[50,"flash_cannon"],[65,"obsidian_crash"],[70,"warden_strike"],[80,"mineral_lance"]],
@@ -4681,7 +5087,7 @@ const MONSTERS_DATA = {
     lore:"Vaeldrian stonecutters believed Tellurak were mountains that decided to walk. Thessaly has never corrected this belief." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  419: { id:419, name:"Forgotten Gaiasurge", emoji:"🌋", types:["Earth","Fighting"],
+  473: { id:473, name:"Forgotten Gaiasurge", emoji:"🌋", types:["Earth","Fighting"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:170,atk:160,def:150,spa:105,spd:130,spe:85},
     learnset:[[1,"earthquake"],[20,"power_drive"],[35,"earth_power"],[50,"iron_cleave"],[65,"fissure_slam"],[70,"mantle_surge"],[80,"tectonic_wrath"],[90,"quake_barrage"]],
@@ -4691,16 +5097,16 @@ const MONSTERS_DATA = {
 
   // --- Wielder: Nereus (The Hadal Depths) ---
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  420: { id:420, name:"Forgotten Pelagor", emoji:"🐬", types:["Aquatic","Mental"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+  474: { id:474, name:"Forgotten Pelagor", emoji:"🐬", types:["Aquatic","Mental"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:110,atk:110,def:100,spa:145,spd:115,spe:140},
     learnset:[[1,"water_gun"],[20,"confusion"],[35,"surf"],[50,"psychic_move"],[65,"hydro_pump"],[70,"telepathic_slam"],[80,"thought_stream"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Pelagor perceive the emotional currents of the ocean and can sense fear, joy, and hunger across miles of open water.",
     lore:"Nereus claims Pelagor told him about the Sundering before it happened. He was three days' sail from Vaeldris and turned back because of it. He has never decided if that was the right choice." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  421: { id:421, name:"Forgotten Bathykor", emoji:"🦈", types:["Dark","Poison"],
+  475: { id:475, name:"Forgotten Bathykor", emoji:"🦈", types:["Dark","Poison"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:120,def:105,spa:155,spd:120,spe:135},
     learnset:[[1,"dark_pulse"],[20,"sludge_bomb"],[35,"crunch"],[50,"venom_lance"],[65,"obsidian_fang"],[70,"void_dominion"],[80,"dark_corrosion"]],
@@ -4708,7 +5114,7 @@ const MONSTERS_DATA = {
     desc:"From Vaeldris's lightless deep zones, Bathykor evolved to crush prey under pressures that collapse iron. Its gaze draws enemies toward an unseen void.",
     lore:"The toxin Bathykor produces doesn't cause pain. Victims simply become very still, very calm, and very far from the surface." },
 
-  422: { id:422, name:"Forgotten Tidecrest", emoji:"🌊", types:["Primal","Ice"],
+  476: { id:476, name:"Forgotten Tidecrest", emoji:"🌊", types:["Primal","Ice"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:140,def:110,spa:165,spd:130,spe:130},
     learnset:[[1,"ice_punch"],[20,"ice_beam"],[35,"surf"],[50,"blizzard"],[65,"eon_crash"],[70,"time_fracture"],[80,"glacial_riptide"],[90,"tidal_fang"]],
@@ -4717,16 +5123,16 @@ const MONSTERS_DATA = {
     lore:"In Vaeldrian myth, Tidecrest did not swim the ocean. The ocean flowed around Tidecrest." },
 
   // --- Wielder: Caelia (Cloudspire) ---
-  423: { id:423, name:"Forgotten Aetherveil", emoji:"🦋", types:["Aether","Electric"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+  477: { id:477, name:"Forgotten Aetherveil", emoji:"🦋", types:["Aether","Electric"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:85,atk:100,def:90,spa:155,spd:110,spe:180},
     learnset:[[1,"confusion"],[20,"thunder_shock"],[35,"dazzling_gleam"],[50,"thunderbolt"],[65,"moonblast"],[70,"discharge"],[80,"aether_shock"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Aetherveil are the songs of the wind given form. Their calls travel across mountain ranges in seconds, carrying the voices of the lost to where they are needed.",
     lore:"Caelia says Aetherveil don't fly so much as they remind the air where it wants to go." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  424: { id:424, name:"Forgotten Zephyrak", emoji:"🦅", types:["Wind","Metal"],
+  478: { id:478, name:"Forgotten Zephyrak", emoji:"🦅", types:["Wind","Metal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:105,def:95,spa:165,spd:115,spe:180},
     learnset:[[1,"gust"],[20,"flash_cannon"],[35,"air_slash"],[50,"alloy_edge"],[65,"hurricane"],[70,"warden_strike"],[80,"steel_gale"]],
@@ -4735,7 +5141,7 @@ const MONSTERS_DATA = {
     lore:"A Zephyrak's steel-feathers vibrate at frequencies that predict weather systems days in advance. Vaeldrian navigators once paid fortunes to travel with one." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  425: { id:425, name:"Forgotten Skydrak", emoji:"🌬️", types:["Wind","Spectral"],
+  479: { id:479, name:"Forgotten Skydrak", emoji:"🌬️", types:["Wind","Spectral"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:100,atk:115,def:100,spa:180,spd:125,spe:180},
     learnset:[[1,"gust"],[20,"specter_pulse"],[35,"hurricane"],[50,"spirit_strike"],[65,"gale_cannon"],[70,"haunting_cry"],[80,"phantom_gale"],[90,"void_cyclone"]],
@@ -4745,15 +5151,15 @@ const MONSTERS_DATA = {
 
   // --- Wielder: Dravek (Magma Forge) ---
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  426: { id:426, name:"Forgotten Pyraeon", emoji:"🦁", types:["Fire","Metal"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+  480: { id:480, name:"Forgotten Pyraeon", emoji:"🦁", types:["Fire","Metal"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:90,atk:155,def:110,spa:130,spd:95,spe:140},
     learnset:[[1,"ember"],[20,"metal_claw"],[35,"fire_blast"],[50,"flash_cannon"],[65,"solar_flare"],[70,"forge_strike"],[80,"pyro_alloy"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Pyraeon's body is a living alloy — bone-steel fused with molten cores. Their claws can cut through solid iron with a single stroke.",
     lore:"Dravek sharpens Pyraeon's claws on volcanic rock every morning. He says the ritual keeps them both sharp." },
 
-  427: { id:427, name:"Forgotten Emberon", emoji:"🐯", types:["Primal","Earth"],
+  481: { id:481, name:"Forgotten Emberon", emoji:"🐯", types:["Primal","Earth"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:165,def:115,spa:135,spd:100,spe:140},
     learnset:[[1,"rock_slide"],[20,"earthquake"],[35,"fire_blast"],[50,"earth_power"],[65,"dragon_claw"],[70,"stone_edge"],[80,"smoldering_abyss"]],
@@ -4762,7 +5168,7 @@ const MONSTERS_DATA = {
     lore:"Every general in Vaeldris's history tried to recruit Dravek. He refused every one of them. Emberon, he said, fights for itself — he just happens to agree with it." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  428: { id:428, name:"Forgotten Dracofire", emoji:"🔥", types:["Draconic","Poison"],
+  482: { id:482, name:"Forgotten Dracofire", emoji:"🔥", types:["Draconic","Poison"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:185,def:120,spa:145,spd:105,spe:140},
     learnset:[[1,"dragon_breath"],[20,"sludge_wave"],[35,"dragon_claw"],[50,"venom_lance"],[65,"outrage"],[70,"mantle_surge"],[80,"venom_surge"],[90,"acid_burst"]],
@@ -4771,16 +5177,16 @@ const MONSTERS_DATA = {
     lore:"Dravek bonded Dracofire as a hatchling, when it fit in his palm. He carried it under his armour for two winters. He has never admitted this publicly." },
 
   // --- Wielder: Nylara (Glacial Abyss) ---
-  429: { id:429, name:"Forgotten Frigalum", emoji:"🦊", types:["Ice","Crystal"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+  483: { id:483, name:"Forgotten Frigalum", emoji:"🦊", types:["Ice","Crystal"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:120,atk:120,def:130,spa:120,spd:130,spe:100},
     learnset:[[1,"ice_punch"],[20,"blizzard"],[35,"ice_beam"],[50,"rock_slide"],[65,"permafrost"],[70,"stone_edge"],[80,"cryo_plate"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Frigalum are armored in ice-steel — a material unique to Vaeldris that never melts and deflects dragonfire. Vaeldrian smiths spent centuries failing to replicate it.",
     lore:"The only sample of Frigalum ice-steel that made it out of Vaeldris is the pauldron on Nylara's left shoulder. She refuses to explain how she acquired it." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  430: { id:430, name:"Forgotten Cryvorn", emoji:"🐺", types:["Dark","Ice"],
+  484: { id:484, name:"Forgotten Cryvorn", emoji:"🐺", types:["Dark","Ice"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:130,def:140,spa:125,spd:135,spe:95},
     learnset:[[1,"dark_pulse"],[20,"ice_punch"],[35,"crunch"],[50,"blizzard"],[65,"eclipse_shroud"],[70,"ice_beam"],[80,"cryo_shatter"]],
@@ -4789,7 +5195,7 @@ const MONSTERS_DATA = {
     lore:"Nylara says Cryvorn don't hunt so much as they remind prey that warmth was always temporary." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  431: { id:431, name:"Forgotten Frostdrax", emoji:"❄️", types:["Spectral","Fairy"],
+  485: { id:485, name:"Forgotten Frostdrax", emoji:"❄️", types:["Spectral","Fairy"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:135,atk:145,def:150,spa:135,spd:145,spe:90},
     learnset:[[1,"spirit_strike"],[20,"fairy_wind"],[35,"specter_pulse"],[50,"moonblast"],[65,"celestial_wave"],[70,"haunting_cry"],[80,"winter_shade"],[90,"glacial_spirit"]],
@@ -4799,16 +5205,16 @@ const MONSTERS_DATA = {
 
   // --- Wielder: Solenne (Moonhaven Ruins) ---
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  432: { id:432, name:"Forgotten Dreamaith", emoji:"🦉", types:["Mental","Aquatic"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+  486: { id:486, name:"Forgotten Dreamaith", emoji:"🦉", types:["Mental","Aquatic"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:100,atk:75,def:105,spa:175,spd:150,spe:115},
     learnset:[[1,"confusion"],[20,"shadow_ball"],[35,"psychic_move"],[50,"void_rend"],[65,"psystrike"],[70,"veil_collapse"],[80,"dream_torrent"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Dreamaith drift through walls and minds alike, leaving vivid impressions of Vaeldris in their wake. Those who encounter one report dreaming of a lost land for weeks afterward.",
     lore:"Solenne says Dreamaith don't know Vaeldris is gone. Every night, in the dream they share with her, it still stands." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  433: { id:433, name:"Forgotten Luneveth", emoji:"🌙", types:["Fairy","Aquatic"],
+  487: { id:487, name:"Forgotten Luneveth", emoji:"🌙", types:["Fairy","Aquatic"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:80,def:110,spa:185,spd:155,spe:115},
     learnset:[[1,"fairy_wind"],[20,"water_gun"],[35,"moonblast"],[50,"surf"],[65,"celestial_wave"],[70,"hydro_pump"],[80,"moonlit_surge"]],
@@ -4817,7 +5223,7 @@ const MONSTERS_DATA = {
     lore:"There is a pool in Moonhaven Ruins that Luneveth fills each night with reflected moonlight. By morning it is dry again. Solenne has watched this every night for fifteen years." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  434: { id:434, name:"Forgotten Psydrak", emoji:"💭", types:["Draconic","Electric"],
+  488: { id:488, name:"Forgotten Psydrak", emoji:"💭", types:["Draconic","Electric"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:90,def:115,spa:200,spd:165,spe:115},
     learnset:[[1,"dragon_breath"],[20,"thunderbolt"],[35,"dragon_pulse"],[50,"thunder"],[65,"draconic_roar"],[70,"time_fracture"],[80,"voltaic_fang"],[90,"thunder_chain"]],
@@ -4826,16 +5232,16 @@ const MONSTERS_DATA = {
     lore:"Solenne says Psydrak has been trying to show her a timeline where Vaeldris still exists. She says she can feel it almost finding one, night after night." },
 
   // --- Wielder: Rax (The Iron Sanctum) ---
-  435: { id:435, name:"Forgotten Ironvast", emoji:"🦾", types:["Crystal","Earth"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+  489: { id:489, name:"Forgotten Ironvast", emoji:"🦾", types:["Crystal","Earth"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:130,atk:145,def:175,spa:75,spd:130,spe:65},
     learnset:[[1,"rock_throw"],[20,"rock_slide"],[35,"rock_blast"],[50,"stone_edge"],[65,"obsidian_crash"],[70,"earthquake"],[80,"iron_fortress"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Ironvast's carapace has never been cracked in recorded Vaeldrian history. Engineers once used shed Ironvast shells as building material — with their full consent.",
     lore:"Rax says Ironvast has only ever been afraid once. He doesn't say when." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  436: { id:436, name:"Forgotten Forgerak", emoji:"⚔️", types:["Fire","Dark"],
+  490: { id:490, name:"Forgotten Forgerak", emoji:"⚔️", types:["Fire","Dark"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:135,atk:155,def:185,spa:80,spd:135,spe:60},
     learnset:[[1,"ember"],[20,"night_slash"],[35,"fire_blast"],[50,"dark_pulse"],[65,"solar_flare"],[70,"eclipse_shroud"],[80,"forge_blast"]],
@@ -4844,7 +5250,7 @@ const MONSTERS_DATA = {
     lore:"Rax carries one of those weapons — a blade forged by Forgerak before the Sundering. He has never used it in battle. He says it isn't meant for fighting." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  437: { id:437, name:"Forgotten Alloydrax", emoji:"🛡️", types:["Draconic","Fighting"],
+  491: { id:491, name:"Forgotten Alloydrax", emoji:"🛡️", types:["Draconic","Fighting"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:145,atk:170,def:200,spa:90,spd:145,spe:50},
     learnset:[[1,"dragon_breath"],[20,"body_slam"],[35,"dragon_claw"],[50,"outrage"],[65,"eon_crash"],[70,"mantle_surge"],[80,"dragon_pummels"],[90,"alloy_breaker"]],
@@ -4854,15 +5260,15 @@ const MONSTERS_DATA = {
 
   // --- Wielder: Tempris (The Arc Station) ---
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  438: { id:438, name:"Forgotten Volteon", emoji:"🔋", types:["Electric","Mental"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+  492: { id:492, name:"Forgotten Volteon", emoji:"🔋", types:["Electric","Mental"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:90,atk:110,def:95,spa:160,spd:120,spe:145},
     learnset:[[1,"thunder_shock"],[20,"confusion"],[35,"thunderbolt"],[50,"psychic_move"],[65,"volt_surge"],[70,"overcharge"],[80,"psycho_surge"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Volteon processes battle outcomes in microseconds using electric-psychic predictive modeling. By the time you have decided to act, Volteon has already chosen its counter.",
     lore:"Tempris designed the predictive model that Volteon runs. He says it's 94.7% accurate. Volteon disagrees with the 5.3% margin of error." },
 
-  439: { id:439, name:"Forgotten Sparkeis", emoji:"⚡", types:["Crystal","Ice"],
+  493: { id:493, name:"Forgotten Sparkeis", emoji:"⚡", types:["Crystal","Ice"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:120,def:100,spa:165,spd:125,spe:145},
     learnset:[[1,"powder_snow"],[20,"ice_punch"],[35,"ice_beam"],[50,"blizzard"],[65,"rock_slide"],[70,"stone_edge"],[80,"frost_lattice"]],
@@ -4871,7 +5277,7 @@ const MONSTERS_DATA = {
     lore:"Tempris installed a small meter on Sparkeis to measure output. It broke after three days. He has not replaced it." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  440: { id:440, name:"Forgotten Thunderax", emoji:"🌩️", types:["Wind","Nature"],
+  494: { id:494, name:"Forgotten Thunderax", emoji:"🌩️", types:["Wind","Nature"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:135,def:110,spa:180,spd:135,spe:135},
     learnset:[[1,"aerial_assault"],[20,"energy_ball"],[35,"sky_dive"],[50,"verdant_surge"],[65,"gale_cannon"],[70,"hurricane"],[80,"canopy_strike"],[90,"sky_harvest"]],
@@ -4880,16 +5286,16 @@ const MONSTERS_DATA = {
     lore:"Thunderax is the only one of the 39 that does not seem to remember Vaeldris. Tempris has never decided if that is a tragedy or a mercy." },
 
   // --- Wielder: Vayne (The Void Gate) ---
-  441: { id:441, name:"Forgotten Nihilax", emoji:"🕳️", types:["Primal","Spectral"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+  495: { id:495, name:"Forgotten Nihilax", emoji:"🕳️", types:["Primal","Spectral"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:75,atk:145,def:80,spa:160,spd:90,spe:170},
     learnset:[[1,"night_slash"],[20,"earth_power"],[35,"dark_pulse"],[50,"earthquake"],[65,"specter_pulse"],[70,"void_dominion"],[80,"nihil_quake"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Nihilax emit a field that suppresses all energy signatures within range. In their presence, lights dim, sound muffles, and time seems to hesitate.",
     lore:"Vayne says Nihilax was the first Lumori she saw after the Sundering began. She has never been sure if it was trying to help or simply watching." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  442: { id:442, name:"Forgotten Vantarix", emoji:"🌌", types:["Mental","Nature"],
+  496: { id:496, name:"Forgotten Vantarix", emoji:"🌌", types:["Mental","Nature"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:80,atk:155,def:85,spa:170,spd:95,spe:165},
     learnset:[[1,"confusion"],[20,"bug_bite"],[35,"psychic_move"],[50,"x_scissor"],[65,"psystrike"],[70,"signal_beam"],[80,"venom_mind"]],
@@ -4898,7 +5304,7 @@ const MONSTERS_DATA = {
     lore:"Vayne has a drawing of Vantarix she made the first night she was safe. She has never looked at it again." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  443: { id:443, name:"Forgotten Abysdrak", emoji:"💠", types:["Wind","Draconic"],
+  497: { id:497, name:"Forgotten Abysdrak", emoji:"💠", types:["Wind","Draconic"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:170,def:90,spa:185,spd:100,spe:165},
     learnset:[[1,"dragon_breath"],[20,"air_slash"],[35,"dragon_claw"],[50,"hurricane"],[65,"outrage"],[70,"gale_cannon"],[80,"abyssal_fang"],[90,"void_rend_ex"]],
@@ -4907,16 +5313,16 @@ const MONSTERS_DATA = {
     lore:"Some of the other wielders are afraid of Abysdrak. Vayne considers this the only reasonable response." },
 
   // --- Wielder: Azura (Observatory Peak) ---
-  444: { id:444, name:"Forgotten Cosmolith", emoji:"🌠", types:["Aether","Fairy"],
-    evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
+  498: { id:498, name:"Forgotten Cosmolith", emoji:"🌠", types:["Aether","Fairy"],
+    evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:110,atk:90,def:110,spa:185,spd:130,spe:95},
     learnset:[[1,"confusion"],[20,"fairy_wind"],[35,"dazzling_gleam"],[50,"moonblast"],[65,"psystrike"],[70,"cosmic_veil"],[80,"cosmic_dust"]],
-    catchRate:0, expYield:300, rarity:"legendary",
+    catchRate:3, expYield:300, rarity:"legendary",
     desc:"Cosmolith serve as living star maps — their scales reflect the night sky of Vaeldris exactly as it existed the moment before the Sundering. They are the only record those stars ever existed.",
     lore:"Azura detected the Sundering three days before it happened by reading a change in Cosmolith's scale patterns. She had not understood what she was seeing until it was too late." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  445: { id:445, name:"Forgotten Stardrax", emoji:"✨", types:["Draconic","Fire"],
+  499: { id:499, name:"Forgotten Stardrax", emoji:"✨", types:["Draconic","Fire"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:100,def:115,spa:195,spd:135,spe:90},
     learnset:[[1,"dragon_breath"],[20,"fire_blast"],[35,"dragon_pulse"],[50,"solar_flare"],[65,"ancient_breath"],[70,"time_fracture"],[80,"stellar_flare"]],
@@ -4925,7 +5331,7 @@ const MONSTERS_DATA = {
     lore:"The egg hatched the exact moment the Sundering started. Azura has spent fifteen years deciding what that means." },
 
   // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  446: { id:446, name:"Forgotten Stellarion", emoji:"🔭", types:["Normal","Spectral"],
+  500: { id:500, name:"Forgotten Stellarion", emoji:"🔭", types:["Normal","Spectral"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:115,def:125,spa:210,spd:145,spe:80},
     learnset:[[1,"body_slam"],[20,"shadow_ball"],[35,"psychic_move"],[50,"hyper_beam"],[65,"void_rend"],[70,"cosmic_veil"],[80,"stellar_collapse"],[90,"ghost_radiance"]],
@@ -4951,10 +5357,10 @@ const WORLD_DATA = {
     desc:"A gentle grassy path with mild wild Lumori. Perfect for beginners.",
     connections:["seedvale","ashford"],
     wildMonsters:[
-      {id:178, minLv:2, maxLv:4, rate:25},  // Furball
-      {id:180, minLv:2, maxLv:4, rate:25},  // Longear
-      {id:197, minLv:2, maxLv:5, rate:30}, // Caterpet
-      {id:185, minLv:3, maxLv:5, rate:20}   // Pudgeling
+      {id:178, minLv:2, maxLv:4, rate:10},  // Fluffen
+      {id:180, minLv:2, maxLv:4, rate:30},  // Leapbun
+      {id:197, minLv:2, maxLv:5, rate:35}, // Photoworm
+      {id:185, minLv:3, maxLv:5, rate:25}   // Hoverrow
     ],
     hasGym:false, requiredBadges:0, mapPos:{x:25, y:68}
   },
@@ -4963,10 +5369,10 @@ const WORLD_DATA = {
     desc:"The first city of the journey. Home to Gym Leader Rex who specializes in Normal types.",
     connections:["route1","route2"],
     wildMonsters:[
-      {id:178, minLv:4, maxLv:7, rate:30},
-      {id:187, minLv:4, maxLv:7, rate:30},
-      {id:69, minLv:4, maxLv:6, rate:20},
-      {id:180, minLv:5, maxLv:7, rate:20}
+      {id:178, minLv:4, maxLv:7, rate:25},
+      {id:187, minLv:4, maxLv:7, rate:10},
+      {id:69, minLv:4, maxLv:6, rate:30},
+      {id:180, minLv:5, maxLv:7, rate:35}
     ],
     hasGym:true, gymLeader:"rex", requiredBadges:0, mapPos:{x:38, y:62}
   },
@@ -4975,12 +5381,13 @@ const WORLD_DATA = {
     desc:"A dense forest teeming with Bug and Grass type Lumori.",
     connections:["ashford","tidewatch","lumoria_jungle"],
     wildMonsters:[
-      {id:197, minLv:6, maxLv:9, rate:25}, // Caterpet
-      {id:200, minLv:6, maxLv:9, rate:20}, // Beetleback
-      {id:66, minLv:6, maxLv:9, rate:25},  // Fernwhip
-      {id:69, minLv:6, maxLv:9, rate:20},  // Seedpod
-      {id:84, minLv:7, maxLv:9, rate:10}   // Zapbug
+      {id:197, minLv:6, maxLv:9, rate:30}, // Photoworm
+      {id:200, minLv:6, maxLv:9, rate:10}, // Iridibeetle
+      {id:66, minLv:6, maxLv:9, rate:15},  // Viridix
+      {id:69, minLv:6, maxLv:9, rate:25},  // Germix
+      {id:84, minLv:7, maxLv:9, rate:20}   // Electrix
     ],
+    ngPlusWildMonsters:[{id:446, minLv:6, maxLv:9, rate:12}], // NG+ family base: Sporelet
     hasGym:false, requiredBadges:1, mapPos:{x:50, y:58}
   },
   tidewatch: {
@@ -4988,10 +5395,10 @@ const WORLD_DATA = {
     desc:"A bustling port city on the coast. Gym Leader Marina commands the waves.",
     connections:["route2","route3","deep_trench"],
     wildMonsters:[
-      {id:25, minLv:10, maxLv:13, rate:30}, // Bubblecrab
-      {id:28, minLv:10, maxLv:13, rate:30}, // Coralfish
-      {id:87, minLv:10, maxLv:12, rate:20}, // Voltfin
-      {id:42, minLv:11, maxLv:13, rate:20}  // Frosteel
+      {id:25, minLv:10, maxLv:13, rate:30}, // Reefling
+      {id:28, minLv:10, maxLv:13, rate:30}, // Corelin
+      {id:87, minLv:10, maxLv:12, rate:20}, // Amperix
+      {id:42, minLv:11, maxLv:13, rate:20}  // Cryonik
     ],
     hasGym:true, gymLeader:"marina", requiredBadges:1, mapPos:{x:62, y:52}
   },
@@ -5005,6 +5412,7 @@ const WORLD_DATA = {
       {id:101, minLv:14, maxLv:16, rate:25},
       {id:42, minLv:15, maxLv:17, rate:25}
     ],
+    ngPlusWildMonsters:[{id:456, minLv:14, maxLv:17, rate:12}], // NG+ family base: Mistgill
     hasGym:false, requiredBadges:2, mapPos:{x:70, y:45}
   },
   emberveil: {
@@ -5012,11 +5420,12 @@ const WORLD_DATA = {
     desc:"Built near an active volcano. The fiery Gym Leader Pyros waits within.",
     connections:["route3","route4","volcano_core","iron_canyon"],
     wildMonsters:[
-      {id:16, minLv:18, maxLv:22, rate:30}, // Emberworm
-      {id:13, minLv:18, maxLv:22, rate:25}, // Lavabull
-      {id:10, minLv:18, maxLv:21, rate:25}, // Cinderling
-      {id:191, minLv:19, maxLv:22, rate:20}  // Pebblepup
+      {id:16, minLv:18, maxLv:22, rate:35}, // Cindercula
+      {id:13, minLv:18, maxLv:22, rate:10}, // Taurcin
+      {id:10, minLv:18, maxLv:21, rate:30}, // Scorchlarva
+      {id:191, minLv:19, maxLv:22, rate:25}  // Pebblet
     ],
+    ngPlusWildMonsters:[{id:1, minLv:18, maxLv:22, rate:10}], // NG+-only: Solkin (fire starter line)
     hasGym:true, gymLeader:"pyros", requiredBadges:2, mapPos:{x:75, y:35}
   },
   route4: {
@@ -5029,6 +5438,7 @@ const WORLD_DATA = {
       {id:191, minLv:23, maxLv:26, rate:25},
       {id:98, minLv:23, maxLv:26, rate:25}
     ],
+    ngPlusWildMonsters:[{id:414, minLv:22, maxLv:25, rate:12}], // NG+ family base: Grublurk
     hasGym:false, requiredBadges:3, mapPos:{x:65, y:28}
   },
   sparkmoor: {
@@ -5036,11 +5446,13 @@ const WORLD_DATA = {
     desc:"A town on the electric plains. Gym Leader Zara harnesses lightning power.",
     connections:["route4","route5","storm_plateau","thunder_cliffs"],
     wildMonsters:[
-      {id:81, minLv:26, maxLv:30, rate:30}, // Sparklet
-      {id:84, minLv:26, maxLv:30, rate:25}, // Zapbug
-      {id:90, minLv:27, maxLv:30, rate:25}, // Stormchick
-      {id:87, minLv:27, maxLv:30, rate:20}  // Voltfin
+      {id:242, minLv:26, maxLv:30, rate:15}, // Pulseglow (obtainability fix)
+      {id:81, minLv:26, maxLv:30, rate:25}, // Joltan
+      {id:84, minLv:26, maxLv:30, rate:30}, // Electrix
+      {id:90, minLv:27, maxLv:30, rate:20}, // Zephyrel
+      {id:87, minLv:27, maxLv:30, rate:10}  // Amperix
     ],
+    ngPlusWildMonsters:[{id:440, minLv:26, maxLv:29, rate:12}], // NG+ family base: Rustmite
     hasGym:true, gymLeader:"zara", requiredBadges:3, mapPos:{x:52, y:25}
   },
   route5: {
@@ -5048,11 +5460,13 @@ const WORLD_DATA = {
     desc:"A wide open plain where storms are constant and Electric types roam freely.",
     connections:["sparkmoor","frostpeak","mirror_lake"],
     wildMonsters:[
+      {id:209, minLv:30, maxLv:34, rate:10}, // Boltfur (obtainability fix)
       {id:81, minLv:30, maxLv:34, rate:25},
-      {id:90, minLv:30, maxLv:34, rate:25},
-      {id:111, minLv:31, maxLv:34, rate:25}, // Draftfinch
-      {id:182, minLv:31, maxLv:34, rate:25}  // Roundbear
+      {id:90, minLv:30, maxLv:34, rate:20},
+      {id:111, minLv:31, maxLv:34, rate:30}, // Aeolin
+      {id:182, minLv:31, maxLv:34, rate:15}  // Rotunden
     ],
+    ngPlusWildMonsters:[{id:444, minLv:30, maxLv:33, rate:12}], // NG+ family base: Squeaklet
     hasGym:false, requiredBadges:4, mapPos:{x:42, y:22}
   },
   frostpeak: {
@@ -5060,11 +5474,12 @@ const WORLD_DATA = {
     desc:"A snow-covered village atop a frozen mountain. Ice Gym Leader Glacier awaits.",
     connections:["route5","route6","storm_plateau","crystal_depths","lunar_peak"],
     wildMonsters:[
-      {id:47, minLv:34, maxLv:38, rate:30}, // Frostpup
-      {id:50, minLv:34, maxLv:38, rate:25}, // Snowfluff
-      {id:45, minLv:35, maxLv:38, rate:25}, // Sleetling
-      {id:53, minLv:35, maxLv:38, rate:20}  // Glaciawing
+      {id:47, minLv:34, maxLv:38, rate:25}, // Hexaprowl
+      {id:50, minLv:34, maxLv:38, rate:30}, // Tundram
+      {id:45, minLv:35, maxLv:38, rate:35}, // Slatis
+      {id:53, minLv:35, maxLv:38, rate:10}  // Mistwhirl
     ],
+    ngPlusWildMonsters:[{id:432, minLv:34, maxLv:37, rate:6}], // NG+ family base: Tusklet
     hasGym:true, gymLeader:"glacier", requiredBadges:4, mapPos:{x:32, y:18}
   },
   route6: {
@@ -5072,11 +5487,13 @@ const WORLD_DATA = {
     desc:"An icy cave system glittering with crystals. Ice and Rock types dwell here.",
     connections:["frostpeak","shadowmere"],
     wildMonsters:[
-      {id:47, minLv:38, maxLv:42, rate:25},
-      {id:51, minLv:38, maxLv:42, rate:25}, // Icecrystal
-      {id:195, minLv:39, maxLv:42, rate:25}, // Crystalrock
+      {id:289, minLv:38, maxLv:42, rate:10}, // Bouncyblob (obtainability fix)
+      {id:47, minLv:38, maxLv:42, rate:30},
+      {id:51, minLv:38, maxLv:42, rate:15}, // Shiverling
+      {id:195, minLv:39, maxLv:42, rate:20}, // Prismolith
       {id:53, minLv:39, maxLv:42, rate:25}
     ],
+    ngPlusWildMonsters:[{id:435, minLv:38, maxLv:41, rate:12}], // NG+ family base: Knucklite
     hasGym:false, requiredBadges:5, mapPos:{x:22, y:25}
   },
   shadowmere: {
@@ -5084,10 +5501,11 @@ const WORLD_DATA = {
     desc:"A city forever shrouded in shadow. Dark Gym Leader Nyx commands the night.",
     connections:["route6","route7","crystal_depths","haunted_grove"],
     wildMonsters:[
-      {id:118, minLv:42, maxLv:46, rate:30}, // Shadowpup
-      {id:121, minLv:42, maxLv:46, rate:25}, // Voidbat
-      {id:123, minLv:43, maxLv:46, rate:25}  // Umbralisard
+      {id:118, minLv:42, maxLv:46, rate:45}, // Eclipsehound
+      {id:121, minLv:42, maxLv:46, rate:20}, // Spiraloom
+      {id:123, minLv:43, maxLv:46, rate:35}  // Nocturil
     ],
+    ngPlusWildMonsters:[{id:417, minLv:42, maxLv:45, rate:12}], // NG+ family base: Glacigeist
     hasGym:true, gymLeader:"nyx", requiredBadges:5, mapPos:{x:15, y:35}
   },
   route7: {
@@ -5095,10 +5513,10 @@ const WORLD_DATA = {
     desc:"A fetid swamp full of poison. Dark and Poison types are found in abundance.",
     connections:["shadowmere","skyvault","mystic_forest","fairy_meadow_north","poison_swamp_upper","wind_bridge"],
     wildMonsters:[
-      {id:157, minLv:46, maxLv:50, rate:25}, // Acidblob
-      {id:155, minLv:46, maxLv:50, rate:25}, // Toxitoad
+      {id:157, minLv:46, maxLv:50, rate:25}, // Acidelix
+      {id:155, minLv:46, maxLv:50, rate:25}, // Toxirin
       {id:160, minLv:47, maxLv:50, rate:25}, // Miasmafly
-      {id:121, minLv:47, maxLv:50, rate:25}  // Voidbat
+      {id:121, minLv:47, maxLv:50, rate:25}  // Spiraloom
     ],
     hasGym:false, requiredBadges:6, mapPos:{x:20, y:48}
   },
@@ -5107,11 +5525,12 @@ const WORLD_DATA = {
     desc:"A city floating on clouds. Mental Gym Leader Oracle sees all futures.",
     connections:["route7","route8","mystic_forest","sky_harbor","wind_bridge"],
     wildMonsters:[
-      {id:166, minLv:50, maxLv:54, rate:30}, // Mindpup
-      {id:142, minLv:50, maxLv:54, rate:25}, // Dawnsprite
-      {id:114, minLv:51, maxLv:54, rate:25}, // Cloudpuff
-      {id:168, minLv:51, maxLv:54, rate:20}  // Esperia
+      {id:166, minLv:50, maxLv:54, rate:30}, // Projectery
+      {id:142, minLv:50, maxLv:54, rate:25}, // Dawnirel
+      {id:114, minLv:51, maxLv:54, rate:35}, // Nimbusel
+      {id:168, minLv:51, maxLv:54, rate:10}  // Espelith
     ],
+    ngPlusWildMonsters:[{id:460, minLv:50, maxLv:53, rate:12}], // NG+ family base: Gongling
     hasGym:true, gymLeader:"oracle", requiredBadges:6, mapPos:{x:30, y:55}
   },
   route8: {
@@ -5119,10 +5538,10 @@ const WORLD_DATA = {
     desc:"Aerial paths between floating islands. Wind and Mental types soar here.",
     connections:["skyvault","dragonspire","wind_bridge"],
     wildMonsters:[
-      {id:108, minLv:54, maxLv:58, rate:25}, // Silvergust
-      {id:112, minLv:54, maxLv:58, rate:25}, // Swirlavel
-      {id:171, minLv:55, maxLv:58, rate:25}, // Drakorius
-      {id:177, minLv:55, maxLv:58, rate:22}, // Sapphier
+      {id:108, minLv:54, maxLv:58, rate:34}, // Silvergust
+      {id:112, minLv:54, maxLv:58, rate:29}, // Swirlavel
+      {id:171, minLv:55, maxLv:58, rate:24}, // Drakorius
+      {id:177, minLv:55, maxLv:58, rate:10}, // Sapphier
       {id:128, minLv:55, maxLv:58, rate:3}   // Cranivade
     ],
     hasGym:false, requiredBadges:7, mapPos:{x:42, y:50}
@@ -5132,10 +5551,11 @@ const WORLD_DATA = {
     desc:"The highest peak in Lumoria. Draconic Gym Leader Drake commands ancient power.",
     connections:["route8","route9"],
     wildMonsters:[
-      {id:172, minLv:58, maxLv:62, rate:30}, // Drakling
-      {id:175, minLv:58, maxLv:62, rate:25}, // Seadrake
-      {id:176, minLv:59, maxLv:62, rate:25}, // Stormwyrm
-      {id:177, minLv:59, maxLv:62, rate:20}  // Crystaldrake
+      {id:235, minLv:58, maxLv:62, rate:10}, // Glintscale (obtainability fix)
+      {id:172, minLv:58, maxLv:62, rate:30}, // Scalurin
+      {id:175, minLv:58, maxLv:62, rate:20}, // Biolumal
+      {id:176, minLv:59, maxLv:62, rate:25}, // Chromena
+      {id:177, minLv:59, maxLv:62, rate:15}  // Sapphier
     ],
     hasGym:true, gymLeader:"drake", requiredBadges:7, mapPos:{x:55, y:42},
     legendaryEncounter:{monsterId:84, level:60}
@@ -5145,11 +5565,12 @@ const WORLD_DATA = {
     desc:"The final gauntlet. Only trainers with all 16 badges may pass.",
     connections:["starbloom","summit"],
     wildMonsters:[
-      {id:173, minLv:62, maxLv:66, rate:25}, // Wyrmsire
-      {id:124, minLv:62, maxLv:66, rate:25}, // Phantomfang
-      {id:143, minLv:62, maxLv:66, rate:25}, // Celestara
-      {id:151, minLv:63, maxLv:66, rate:25}  // Mecharon
+      {id:173, minLv:62, maxLv:66, rate:25}, // Serpenthos
+      {id:124, minLv:62, maxLv:66, rate:25}, // Phantorvex
+      {id:143, minLv:62, maxLv:66, rate:25}, // Lunarael
+      {id:151, minLv:63, maxLv:66, rate:25}  // Alloytron
     ],
+    ngPlusWildMonsters:[{id:382, minLv:63, maxLv:66, rate:8}], // thinned from mega-area
     hasGym:false, requiredBadges:16, mapPos:{x:62, y:35}
   },
   summit: {
@@ -5166,12 +5587,14 @@ const WORLD_DATA = {
     desc:"A dense, humid jungle teeming with Grass, Poison and Bug types. Ancient ruins peek through the canopy.",
     connections:["route2","ancient_ruins","bug_forest_west","poison_swamp_lower"],
     wildMonsters:[
-      {id:63, minLv:8, maxLv:12, rate:25},   // Mushrump
-      {id:66, minLv:8, maxLv:12, rate:25},   // Fernwhip
-      {id:140, minLv:9, maxLv:12, rate:20},   // Prismfly
-      {id:155, minLv:9, maxLv:13, rate:20},   // Toxitoad
-      {id:160, minLv:10, maxLv:13, rate:10}   // Miasmafly
+      {id:260, minLv:10, maxLv:13, rate:18}, // Sproutix (obtainability fix)
+      {id:63, minLv:8, maxLv:12, rate:14},   // Sporix
+      {id:66, minLv:8, maxLv:12, rate:28},   // Viridix
+      {id:140, minLv:9, maxLv:12, rate:24},   // Faeling
+      {id:155, minLv:9, maxLv:13, rate:8},   // Toxirin
+      {id:160, minLv:10, maxLv:13, rate:8}   // Miasmafly
     ],
+    ngPlusWildMonsters:[{id:411, minLv:9, maxLv:12, rate:12}], // NG+ family base: Thrumquill
     hasGym:false, requiredBadges:1, mapPos:{x:56, y:68}
   },
   ancient_ruins: {
@@ -5179,11 +5602,13 @@ const WORLD_DATA = {
     desc:"Crumbling temples from a forgotten civilization. Mental and Dark energies fill the air. The Umbra Order has been spotted here.",
     connections:["lumoria_jungle","bug_forest_east","reef_ruins"],
     wildMonsters:[
-      {id:142, minLv:12, maxLv:16, rate:25},  // Dawnsprite
-      {id:124, minLv:13, maxLv:17, rate:20},  // Phantomfang
-      {id:168, minLv:14, maxLv:17, rate:20},  // Esperia
-      {id:166, minLv:14, maxLv:17, rate:10}   // Mindpup
+      {id:22, minLv:13, maxLv:17, rate:30}, // Hallucigaze (obtainability fix)
+      {id:142, minLv:12, maxLv:16, rate:20},  // Dawnirel
+      {id:124, minLv:13, maxLv:17, rate:10},  // Phantorvex
+      {id:168, minLv:14, maxLv:17, rate:15},  // Espelith
+      {id:166, minLv:14, maxLv:17, rate:25}   // Projectery
     ],
+    ngPlusWildMonsters:[{id:448, minLv:12, maxLv:16, rate:12}], // NG+ family base: Cobblepup
     hasGym:false, requiredBadges:1, mapPos:{x:64, y:76},
     storyLocation:true, hasUmbraEncounter:true,
     legendaryEncounter:{monsterId:165, level:55}
@@ -5193,11 +5618,12 @@ const WORLD_DATA = {
     desc:"The deepest part of Lumoria's ocean. Aquatic and Draconic types of terrifying power lurk here. The Umbra Order seeks something ancient in these depths.",
     connections:["tidewatch","coral_reef","sunken_temple"],
     wildMonsters:[
-      {id:85, minLv:18, maxLv:24, rate:25},  // Seadrake
-      {id:33, minLv:18, maxLv:24, rate:25},  // Surgeeel
-      {id:19, minLv:19, maxLv:24, rate:25},  // Glaciaseal
-      {id:17, minLv:20, maxLv:25, rate:15},  // Waveclaw
-      {id:98, minLv:20, maxLv:25, rate:10}   // Cragclaw
+      {id:230, minLv:20, maxLv:24, rate:18}, // Scaleling (obtainability fix)
+      {id:85, minLv:18, maxLv:24, rate:14},  // Shockharpe
+      {id:33, minLv:18, maxLv:24, rate:6},  // Septanemone
+      {id:19, minLv:19, maxLv:24, rate:28},  // Magmaurin
+      {id:17, minLv:20, maxLv:25, rate:10},  // Searburn
+      {id:98, minLv:20, maxLv:25, rate:24}   // Aridix
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:78, y:60},
     storyLocation:true, hasUmbraEncounter:true,
@@ -5208,11 +5634,12 @@ const WORLD_DATA = {
     desc:"The scorching heart of the volcano beneath Emberveil. Only the most fearless trainers descend here. Legendary energies stir within.",
     connections:["emberveil","iron_canyon","lava_fields"],
     wildMonsters:[
-      {id:15, minLv:22, maxLv:28, rate:25},  // Flamewyrm
-      {id:13, minLv:22, maxLv:28, rate:25},  // Magmacow
-      {id:38, minLv:23, maxLv:28, rate:20},  // Venomscorp
-      {id:97, minLv:24, maxLv:29, rate:20},  // Boulderhound
-      {id:15, minLv:24, maxLv:29, rate:10}   // Flamewyrm
+      {id:277, minLv:24, maxLv:29, rate:24}, // Magmite (obtainability fix)
+      {id:15, minLv:22, maxLv:28, rate:12},  // Pyroclasm
+      {id:13, minLv:22, maxLv:28, rate:28},  // Taurcin
+      {id:38, minLv:23, maxLv:28, rate:12},  // Titanariel
+      {id:97, minLv:24, maxLv:29, rate:12},  // Tectonvast
+      {id:15, minLv:24, maxLv:29, rate:12}   // Pyroclasm
     ],
     hasGym:false, requiredBadges:3, mapPos:{x:82, y:42},
     storyLocation:true, hasUmbraEncounter:true,
@@ -5223,11 +5650,11 @@ const WORLD_DATA = {
     desc:"A high plateau perpetually wracked by storms. Electric and Draconic types are drawn to its crackling energy.",
     connections:["sparkmoor","frostpeak","lunar_peak","mirror_lake","thunder_cliffs"],
     wildMonsters:[
-      {id:86, minLv:28, maxLv:34, rate:25},  // Stormwyrm
-      {id:42, minLv:28, maxLv:34, rate:25},  // Galemane
-      {id:31, minLv:29, maxLv:34, rate:25},  // Thunderfly
-      {id:44, minLv:29, maxLv:34, rate:15},  // Cyclobird
-      {id:33, minLv:30, maxLv:35, rate:10}   // Surgeeel
+      {id:86, minLv:28, maxLv:34, rate:25},  // Galvaglide
+      {id:42, minLv:28, maxLv:34, rate:25},  // Cryonik
+      {id:31, minLv:29, maxLv:34, rate:25},  // Toxaquil
+      {id:44, minLv:29, maxLv:34, rate:15},  // Nagislither
+      {id:33, minLv:30, maxLv:35, rate:10}   // Septanemone
     ],
     hasGym:false, requiredBadges:4, mapPos:{x:36, y:12},
     storyLocation:true, hasUmbraEncounter:true,
@@ -5238,12 +5665,14 @@ const WORLD_DATA = {
     desc:"An underground crystal cavern with walls of pure ice and steel. Rare mineral-type Lumori call this glittering place home.",
     connections:["frostpeak","shadowmere","crystal_spire"],
     wildMonsters:[
-      {id:177, minLv:34, maxLv:40, rate:25},  // Crystaldrake
-      {id:195, minLv:34, maxLv:40, rate:25},  // Crystalrock
-      {id:152, minLv:35, maxLv:40, rate:20},  // Titanshell
-      {id:201, minLv:36, maxLv:41, rate:20}, // Hardbeetle
-      {id:54, minLv:36, maxLv:41, rate:10}   // Polarex
+      {id:211, minLv:34, maxLv:38, rate:28}, // Cinderfrost (obtainability fix)
+      {id:177, minLv:34, maxLv:40, rate:6},  // Sapphier
+      {id:195, minLv:34, maxLv:40, rate:24},  // Prismolith
+      {id:152, minLv:35, maxLv:40, rate:10},  // Imperion
+      {id:201, minLv:36, maxLv:41, rate:18}, // Scarabion
+      {id:54, minLv:36, maxLv:41, rate:14}   // Arcturex
     ],
+    ngPlusWildMonsters:[{id:408, minLv:36, maxLv:40, rate:6}], // NG+ family base: Glimmerling
     hasGym:false, requiredBadges:5, mapPos:{x:10, y:28}
   },
   mystic_forest: {
@@ -5251,13 +5680,14 @@ const WORLD_DATA = {
     desc:"A forest where the boundary between worlds is thin. Fairy and Mental creatures drift between the trees. The Umbra Order's hideout is rumoured to be nearby.",
     connections:["route7","skyvault","sky_harbor","umbra_base"],
     wildMonsters:[
-      {id:143, minLv:46, maxLv:52, rate:15},  // Lunarael
-      {id:141, minLv:46, maxLv:52, rate:25},  // Iridesoar
-      {id:169, minLv:47, maxLv:52, rate:20},  // Aurarael
-      {id:115, minLv:48, maxLv:52, rate:20},  // Aetherworn
-      {id:122, minLv:48, maxLv:52, rate:10},  // Caveshroud
-      {id:170, minLv:46, maxLv:52, rate:10}   // Oneiron
+      {id:143, minLv:46, maxLv:52, rate:6},  // Lunarael
+      {id:141, minLv:46, maxLv:52, rate:24},  // Iridesoar
+      {id:169, minLv:47, maxLv:52, rate:10},  // Aurarael
+      {id:115, minLv:48, maxLv:52, rate:28},  // Aetherworn
+      {id:122, minLv:48, maxLv:52, rate:14},  // Caveshroud
+      {id:170, minLv:46, maxLv:52, rate:18}   // Oneiron
     ],
+    ngPlusWildMonsters:[{id:429, minLv:46, maxLv:49, rate:12}], // NG+ family base: Lullasnout
     hasGym:false, requiredBadges:6, mapPos:{x:25, y:62},
     storyLocation:true, hasUmbraEncounter:true
   },
@@ -5266,10 +5696,10 @@ const WORLD_DATA = {
     desc:"The hidden fortress of The Umbra Order. Their leader, Commander Shade, awaits you here. This is your chance to stop their plan to awaken the three Legendaries.",
     connections:["mystic_forest","dark_canyon"],
     wildMonsters:[
-      {id:119, minLv:50, maxLv:55, rate:25},  // Nighthound
-      {id:124, minLv:50, maxLv:55, rate:25},  // Phantomfang
-      {id:122, minLv:51, maxLv:55, rate:25},  // Spectrewing
-      {id:158, minLv:51, maxLv:55, rate:25}   // Sludgebeast
+      {id:119, minLv:50, maxLv:55, rate:25},  // Dreadmaw
+      {id:124, minLv:50, maxLv:55, rate:25},  // Phantorvex
+      {id:122, minLv:51, maxLv:55, rate:25},  // Caveshroud
+      {id:158, minLv:51, maxLv:55, rate:25}   // Corrodisc
     ],
     hasGym:false, requiredBadges:6,
     hasUmbraBase:true,
@@ -5282,12 +5712,15 @@ const WORLD_DATA = {
     desc:"A stunning underwater coral garden teeming with colorful Aquatic and Poison types. Sunlight filters through the shimmering water above.",
     connections:["deep_trench","reef_ruins","sunken_temple"],
     wildMonsters:[
-      {id:28, minLv:22, maxLv:28, rate:25},   // Coralfish
-      {id:25, minLv:22, maxLv:28, rate:25},   // Bubblecrab
-      {id:31, minLv:23, maxLv:28, rate:20},  // Polykling
-      {id:155, minLv:24, maxLv:29, rate:20},   // Toxitoad
-      {id:39, minLv:25, maxLv:30, rate:10}   // Tidalwing
+      {id:256, minLv:24, maxLv:28, rate:13}, // Scolphin (obtainability fix)
+      {id:34, minLv:22, maxLv:26, rate:25}, // Pearlith (obtainability fix)
+      {id:28, minLv:22, maxLv:28, rate:20},   // Corelin
+      {id:25, minLv:22, maxLv:28, rate:11},   // Reefling
+      {id:31, minLv:23, maxLv:28, rate:16},  // Toxaquil
+      {id:155, minLv:24, maxLv:29, rate:9},   // Toxirin
+      {id:39, minLv:25, maxLv:30, rate:6}   // Gossafin
     ],
+    ngPlusWildMonsters:[{id:450, minLv:22, maxLv:26, rate:12}], // NG+ family base: Jabshell
     hasGym:false, requiredBadges:2, mapPos:{x:84, y:72}
   },
   haunted_grove: {
@@ -5295,12 +5728,14 @@ const WORLD_DATA = {
     desc:"A twisted forest where ancient trees whisper in the dark. Spectral-like shadows drift between the gnarled branches.",
     connections:["shadowmere","spirit_canyon"],
     wildMonsters:[
-      {id:118, minLv:42, maxLv:47, rate:25},   // Shadowpup
-      {id:121, minLv:42, maxLv:47, rate:25},   // Voidbat
-      {id:126, minLv:43, maxLv:48, rate:20},  // Wraithling
-      {id:123, minLv:44, maxLv:48, rate:20},   // Umbralisard
-      {id:130, minLv:45, maxLv:50, rate:10}   // Gravemoss
+      {id:78, minLv:42, maxLv:46, rate:10}, // Sylvnox (obtainability fix)
+      {id:118, minLv:42, maxLv:47, rate:24},   // Eclipsehound
+      {id:121, minLv:42, maxLv:47, rate:14},   // Spiraloom
+      {id:126, minLv:43, maxLv:48, rate:28},  // Impefurr
+      {id:123, minLv:44, maxLv:48, rate:18},   // Nocturil
+      {id:130, minLv:45, maxLv:50, rate:6}   // Necralia
     ],
+    ngPlusWildMonsters:[{id:454, minLv:43, maxLv:47, rate:12}], // NG+ family base: Tollwisp
     hasGym:false, requiredBadges:5, mapPos:{x:8, y:42}
   },
   sky_harbor: {
@@ -5308,11 +5743,11 @@ const WORLD_DATA = {
     desc:"A floating dock tethered to the clouds. Wind traders and Mental navigators pass through this breezy waystation.",
     connections:["skyvault","mystic_forest"],
     wildMonsters:[
-      {id:108, minLv:48, maxLv:53, rate:25},   // Breezekit
-      {id:114, minLv:48, maxLv:53, rate:25},   // Cloudpuff
-      {id:116, minLv:49, maxLv:54, rate:20},  // Zephyrling
-      {id:141, minLv:50, maxLv:54, rate:20},   // Radiantfly
-      {id:111, minLv:49, maxLv:53, rate:10}    // Draftfinch
+      {id:108, minLv:48, maxLv:53, rate:25},   // Silvergust
+      {id:114, minLv:48, maxLv:53, rate:15},   // Nimbusel
+      {id:116, minLv:49, maxLv:54, rate:20},  // Zephyrin
+      {id:141, minLv:50, maxLv:54, rate:10},   // Iridesoar
+      {id:111, minLv:49, maxLv:53, rate:30}    // Aeolin
     ],
     hasGym:false, requiredBadges:6, mapPos:{x:18, y:62}
   },
@@ -5321,11 +5756,12 @@ const WORLD_DATA = {
     desc:"Sheer cliff faces perpetually struck by lightning. Electric energy crackles through every rock and stone here.",
     connections:["sparkmoor","storm_plateau"],
     wildMonsters:[
-      {id:81, minLv:28, maxLv:34, rate:25},   // Sparklet
-      {id:90, minLv:28, maxLv:34, rate:25},   // Stormchick
-      {id:92, minLv:29, maxLv:34, rate:20},  // Thunderock
-      {id:85, minLv:30, maxLv:35, rate:20},   // Thunderfly
-      {id:176, minLv:31, maxLv:36, rate:10}    // Stormwyrm
+      {id:247, minLv:30, maxLv:36, rate:10}, // Sparkeen (obtainability fix)
+      {id:81, minLv:28, maxLv:34, rate:28},   // Joltan
+      {id:90, minLv:28, maxLv:34, rate:24},   // Zephyrel
+      {id:92, minLv:29, maxLv:34, rate:18},  // Arcspine
+      {id:85, minLv:30, maxLv:35, rate:14},   // Shockharpe
+      {id:176, minLv:31, maxLv:36, rate:6}    // Chromena
     ],
     hasGym:false, requiredBadges:4, mapPos:{x:60, y:16}
   },
@@ -5334,10 +5770,11 @@ const WORLD_DATA = {
     desc:"The upper reaches of the Poison Swamp, where toxic fumes seep from cracks in the earth near the marshes of Route 7.",
     connections:["route7","poison_swamp_lower"],
     wildMonsters:[
-      {id:71, minLv:44, maxLv:49, rate:30},   // Toxitoad
-      {id:73, minLv:44, maxLv:49, rate:35},   // Acidblob
-      {id:75, minLv:45, maxLv:50, rate:35}    // Miasmafly
+      {id:71, minLv:44, maxLv:49, rate:30},   // Verdovast
+      {id:73, minLv:44, maxLv:49, rate:35},   // Faelomis
+      {id:75, minLv:45, maxLv:50, rate:35}    // Sylvolt
     ],
+    ngPlusWildMonsters:[{id:442, minLv:44, maxLv:48, rate:12}], // NG+ family base: Bloatleech
     hasGym:false, requiredBadges:6, mapPos:{x:30, y:56}
   },
   poison_swamp_lower: {
@@ -5345,10 +5782,11 @@ const WORLD_DATA = {
     desc:"The deeper, fouler reaches of the Poison Swamp. The air is thick with noxious miasma and stronger Poison types lurk in the muck.",
     connections:["poison_swamp_upper","lumoria_jungle"],
     wildMonsters:[
-      {id:75, minLv:46, maxLv:51, rate:25},   // Miasmafly
-      {id:119, minLv:47, maxLv:52, rate:35},  // Bogthorn
-      {id:74, minLv:48, maxLv:53, rate:40}    // Sludgebeast
+      {id:75, minLv:46, maxLv:51, rate:45},   // Sylvolt
+      {id:119, minLv:47, maxLv:52, rate:35},  // Dreadmaw
+      {id:74, minLv:48, maxLv:53, rate:20}    // Faevernal
     ],
+    ngPlusWildMonsters:[{id:336, minLv:48, maxLv:53, rate:10}], // NG+ standalone: Coilstrike
     hasGym:false, requiredBadges:6, mapPos:{x:42, y:70}
   },
   sunken_temple: {
@@ -5356,11 +5794,11 @@ const WORLD_DATA = {
     desc:"An ancient temple half-submerged beneath the ocean. Mental inscriptions glow on the walls. Something powerful sleeps in the inner sanctum.",
     connections:["deep_trench","coral_reef"],
     wildMonsters:[
-      {id:175, minLv:25, maxLv:32, rate:25},   // Seadrake
-      {id:166, minLv:25, maxLv:32, rate:25},   // Mindpup
-      {id:37, minLv:26, maxLv:33, rate:20},  // Coralgolem
-      {id:168, minLv:27, maxLv:33, rate:15},   // Esperia
-      {id:169, minLv:35, maxLv:40, rate:10}    // Telepathy (rare!)
+      {id:175, minLv:25, maxLv:32, rate:9},   // Biolumal
+      {id:166, minLv:25, maxLv:32, rate:31},   // Projectery
+      {id:37, minLv:26, maxLv:33, rate:23},  // Coralossus
+      {id:168, minLv:27, maxLv:33, rate:27},   // Espelith
+      {id:169, minLv:35, maxLv:40, rate:10}    // Aurarael (rare!)
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:88, y:52},
     storyLocation:true, hasUmbraEncounter:true
@@ -5370,12 +5808,13 @@ const WORLD_DATA = {
     desc:"A deep canyon carved by centuries of volcanic flow. The walls glint with veins of metal ore. Metal and Ground types dominate this harsh terrain.",
     connections:["volcano_core","emberveil","lava_fields"],
     wildMonsters:[
-      {id:147, minLv:25, maxLv:31, rate:25},   // Ironpup
-      {id:191, minLv:25, maxLv:31, rate:25},   // Pebblepup
-      {id:134, minLv:26, maxLv:32, rate:20},  // Scrapbat
-      {id:150, minLv:27, maxLv:32, rate:20},   // Gearbot
-      {id:152, minLv:28, maxLv:33, rate:10}    // Titanshell
+      {id:147, minLv:25, maxLv:31, rate:25},   // Scrapsapien
+      {id:191, minLv:25, maxLv:31, rate:25},   // Pebblet
+      {id:134, minLv:26, maxLv:32, rate:20},  // Aeronyx
+      {id:150, minLv:27, maxLv:32, rate:20},   // Gearon
+      {id:152, minLv:28, maxLv:33, rate:10}    // Imperion
     ],
+    ngPlusWildMonsters:[{id:423, minLv:25, maxLv:29, rate:12}], // NG+ family base: Pebblite
     hasGym:false, requiredBadges:3, mapPos:{x:88, y:30},
     legendaryEncounter:{monsterId:167, level:55}
   },
@@ -5384,10 +5823,11 @@ const WORLD_DATA = {
     desc:"The southern stretch of Fairy Meadow, where gentle flowers bloom near Seedvale. Fairy and Grass types play in the warm breeze.",
     connections:["seedvale","fairy_meadow_north","spirit_canyon"],
     wildMonsters:[
-      {id:137, minLv:4, maxLv:7, rate:30},     // Glowpup
+      {id:137, minLv:4, maxLv:7, rate:30},     // Goldefluff
       {id:69, minLv:4, maxLv:7, rate:35},     // Germix
       {id:111, minLv:5, maxLv:8, rate:35}     // Aeolin
     ],
+    ngPlusWildMonsters:[{id:438, minLv:5, maxLv:8, rate:12}], // NG+ family base: Chimelet
     hasGym:false, requiredBadges:0, mapPos:{x:8, y:68}
   },
   fairy_meadow_north: {
@@ -5395,9 +5835,10 @@ const WORLD_DATA = {
     desc:"The northern stretch of Fairy Meadow leading toward the Poison Marshes. Stronger Fairy types guard this path.",
     connections:["fairy_meadow_south","route7"],
     wildMonsters:[
-      {id:137, minLv:6, maxLv:10, rate:25},    // Glowpup
-      {id:140, minLv:7, maxLv:11, rate:35},   // Faeling
-      {id:111, minLv:7, maxLv:11, rate:40}    // Aeolin
+      {id:286, minLv:8, maxLv:11, rate:25}, // Fuzzlet (obtainability fix)
+      {id:137, minLv:6, maxLv:10, rate:30},    // Goldefluff
+      {id:140, minLv:7, maxLv:11, rate:10},   // Faeling
+      {id:111, minLv:7, maxLv:11, rate:35}    // Aeolin
     ],
     hasGym:false, requiredBadges:0, mapPos:{x:8, y:48}
   },
@@ -5406,11 +5847,11 @@ const WORLD_DATA = {
     desc:"A remote mountain summit bathed in perpetual moonlight. Ice and Draconic types roam freely under the silver glow.",
     connections:["frostpeak","storm_plateau","crystal_spire"],
     wildMonsters:[
-      {id:47, minLv:36, maxLv:42, rate:25},   // Frostpup
-      {id:177, minLv:36, maxLv:42, rate:25},   // Crystaldrake
-      {id:53, minLv:37, maxLv:43, rate:20},   // Glaciawing
-      {id:59, minLv:38, maxLv:44, rate:20},  // Lunaveil
-      {id:54, minLv:40, maxLv:46, rate:10}    // Polarex
+      {id:47, minLv:36, maxLv:42, rate:30},   // Hexaprowl
+      {id:177, minLv:36, maxLv:42, rate:10},   // Sapphier
+      {id:53, minLv:37, maxLv:43, rate:25},   // Mistwhirl
+      {id:59, minLv:38, maxLv:44, rate:20},  // Lunaveris
+      {id:54, minLv:40, maxLv:46, rate:15}    // Arcturex
     ],
     hasGym:false, requiredBadges:5, mapPos:{x:20, y:10}
   },
@@ -5419,10 +5860,11 @@ const WORLD_DATA = {
     desc:"The western edge of the Bug Forest, thick with webs and buzzing wings. Connects to the Lumoria Jungle.",
     connections:["lumoria_jungle","bug_forest_east"],
     wildMonsters:[
-      {id:197, minLv:10, maxLv:14, rate:30},  // Vermelin
-      {id:200, minLv:10, maxLv:14, rate:30},  // Colerix
-      {id:84, minLv:11, maxLv:15, rate:40}    // Electrix
+      {id:197, minLv:10, maxLv:14, rate:45},  // Photoworm
+      {id:200, minLv:10, maxLv:14, rate:20},  // Iridibeetle
+      {id:84, minLv:11, maxLv:15, rate:35}    // Electrix
     ],
+    ngPlusWildMonsters:[{id:426, minLv:10, maxLv:14, rate:12}], // NG+ family base: Pummelo
     hasGym:false, requiredBadges:1, mapPos:{x:50, y:74}
   },
   bug_forest_east: {
@@ -5430,9 +5872,9 @@ const WORLD_DATA = {
     desc:"The deeper eastern reaches of the Bug Forest. Stronger bugs and rare species inhabit the ancient trees near the ruins.",
     connections:["bug_forest_west","ancient_ruins"],
     wildMonsters:[
-      {id:200, minLv:12, maxLv:17, rate:25},  // Colerix
-      {id:123, minLv:13, maxLv:18, rate:35},  // Nocturil
-      {id:10, minLv:14, maxLv:19, rate:40}    // Embrix
+      {id:200, minLv:12, maxLv:17, rate:35},  // Iridibeetle
+      {id:123, minLv:13, maxLv:18, rate:20},  // Nocturil
+      {id:10, minLv:14, maxLv:19, rate:45}    // Scorchlarva
     ],
     hasGym:false, requiredBadges:1, mapPos:{x:56, y:76}
   },
@@ -5441,12 +5883,14 @@ const WORLD_DATA = {
     desc:"A perfectly still alpine lake with a surface like polished glass. The reflected sky makes it impossible to tell up from down.",
     connections:["route5","storm_plateau"],
     wildMonsters:[
-      {id:45, minLv:30, maxLv:36, rate:25},   // Sleetling
-      {id:50, minLv:30, maxLv:36, rate:25},   // Snowfluff
-      {id:137, minLv:31, maxLv:36, rate:20},   // Glowpup
-      {id:57, minLv:32, maxLv:38, rate:20},  // Mirrorfish
-      {id:43, minLv:34, maxLv:39, rate:10}    // Glaciaseal
+      {id:189, minLv:30, maxLv:34, rate:16}, // Woolcalm (obtainability fix)
+      {id:45, minLv:30, maxLv:36, rate:24},   // Slatis
+      {id:50, minLv:30, maxLv:36, rate:16},   // Tundram
+      {id:137, minLv:31, maxLv:36, rate:28},   // Goldefluff
+      {id:57, minLv:32, maxLv:38, rate:10},  // Speculith
+      {id:43, minLv:34, maxLv:39, rate:6}    // Boreon
     ],
+    ngPlusWildMonsters:[{id:420, minLv:30, maxLv:34, rate:12}], // NG+ family base: Mistling
     hasGym:false, requiredBadges:4, mapPos:{x:48, y:14}
   },
   lava_fields: {
@@ -5454,11 +5898,12 @@ const WORLD_DATA = {
     desc:"A smoldering expanse of hardened lava and glowing fissures. The ground cracks underfoot and fire vents belch superheated air.",
     connections:["volcano_core","iron_canyon"],
     wildMonsters:[
-      {id:13, minLv:26, maxLv:32, rate:25},   // Lavabull
-      {id:17, minLv:26, maxLv:32, rate:25},   // Flamewyrm
-      {id:19, minLv:27, maxLv:33, rate:20},  // Cindermole
-      {id:14, minLv:28, maxLv:34, rate:20},   // Magmacow
-      {id:192, minLv:29, maxLv:34, rate:10}    // Boulderhound
+      {id:253, minLv:28, maxLv:34, rate:6}, // Ashrock (obtainability fix)
+      {id:13, minLv:26, maxLv:32, rate:28},   // Taurcin
+      {id:17, minLv:26, maxLv:32, rate:14},   // Searburn
+      {id:19, minLv:27, maxLv:33, rate:24},  // Magmaurin
+      {id:14, minLv:28, maxLv:34, rate:10},   // Molteroth
+      {id:192, minLv:29, maxLv:34, rate:18}    // Boulderoll
     ],
     hasGym:false, requiredBadges:3, mapPos:{x:82, y:26}
   },
@@ -5478,11 +5923,12 @@ const WORLD_DATA = {
     desc:"Ancient steel structures submerged beneath the sea, overgrown with coral. A forgotten civilization once thrived here beneath the waves.",
     connections:["coral_reef","ancient_ruins"],
     wildMonsters:[
-      {id:26, minLv:28, maxLv:35, rate:25},   // Waveclaw
-      {id:193, minLv:28, maxLv:35, rate:25},   // Cragclaw
-      {id:37, minLv:29, maxLv:36, rate:20},  // Coralgolem
-      {id:152, minLv:30, maxLv:36, rate:20},   // Titanshell
-      {id:41, minLv:35, maxLv:42, rate:10}   // Rustleviathan
+      {id:214, minLv:36, maxLv:42, rate:8}, // Petrwave (obtainability fix)
+      {id:26, minLv:28, maxLv:35, rate:18},   // Aquidon
+      {id:193, minLv:28, maxLv:35, rate:28},   // Rugothon
+      {id:37, minLv:29, maxLv:36, rate:24},  // Coralossus
+      {id:152, minLv:30, maxLv:36, rate:14},   // Imperion
+      {id:41, minLv:35, maxLv:42, rate:8}   // Titanomare
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:76, y:76},
     storyLocation:true, hasUmbraEncounter:true
@@ -5492,12 +5938,13 @@ const WORLD_DATA = {
     desc:"A series of ancient stone arches bridging floating islands in the sky. Powerful updrafts make travel treacherous but the view is breathtaking.",
     connections:["route7","route8","skyvault"],
     wildMonsters:[
-      {id:111, minLv:48, maxLv:54, rate:25},   // Draftfinch
-      {id:108, minLv:48, maxLv:54, rate:25},   // Breezekit
-      {id:112, minLv:49, maxLv:55, rate:20},   // Cyclobird
-      {id:116, minLv:50, maxLv:55, rate:20},  // Zephyrling
-      {id:109, minLv:51, maxLv:56, rate:10}    // Galemane
+      {id:111, minLv:48, maxLv:54, rate:25},   // Aeolin
+      {id:108, minLv:48, maxLv:54, rate:25},   // Silvergust
+      {id:112, minLv:49, maxLv:55, rate:20},   // Swirlavel
+      {id:116, minLv:50, maxLv:55, rate:20},  // Zephyrin
+      {id:109, minLv:51, maxLv:56, rate:10}    // Siroccomane
     ],
+    ngPlusWildMonsters:[{id:458, minLv:48, maxLv:52, rate:12}], // NG+ family base: Gustling
     hasGym:false, requiredBadges:6, mapPos:{x:36, y:40}
   },
   crystal_spire: {
@@ -5505,11 +5952,11 @@ const WORLD_DATA = {
     desc:"A towering spire of pure crystal ice and steel that catches the moonlight. Few trainers have ever climbed to its pinnacle.",
     connections:["crystal_depths","lunar_peak"],
     wildMonsters:[
-      {id:51, minLv:38, maxLv:45, rate:25},   // Icecrystal
-      {id:195, minLv:38, maxLv:45, rate:25},   // Crystalrock
-      {id:148, minLv:39, maxLv:46, rate:20},   // Steelhound
-      {id:55, minLv:40, maxLv:47, rate:20},  // Frostblade
-      {id:201, minLv:42, maxLv:48, rate:10}   // Hardbeetle
+      {id:51, minLv:38, maxLv:45, rate:15},   // Shiverling
+      {id:195, minLv:38, maxLv:45, rate:25},   // Prismolith
+      {id:148, minLv:39, maxLv:46, rate:10},   // Stoicguard
+      {id:55, minLv:40, maxLv:47, rate:30},  // Rimeling
+      {id:201, minLv:42, maxLv:48, rate:20}   // Scarabion
     ],
     hasGym:false, requiredBadges:5, mapPos:{x:16, y:18},
     storyLocation:true, hasUmbraEncounter:true,
@@ -5520,12 +5967,13 @@ const WORLD_DATA = {
     desc:"A pitch-black gorge where no light penetrates. Dark type Lumori have claimed every shadowed corner, and even the rocks seem to absorb light.",
     connections:["spirit_canyon","umbra_base"],
     wildMonsters:[
-      {id:119, minLv:50, maxLv:56, rate:25},   // Nighthound
-      {id:122, minLv:50, maxLv:56, rate:25},   // Spectrewing
-      {id:126, minLv:51, maxLv:57, rate:20},  // Wraithling
-      {id:124, minLv:52, maxLv:57, rate:20},   // Phantomfang
-      {id:130, minLv:53, maxLv:58, rate:10}   // Gravemoss
+      {id:119, minLv:50, maxLv:56, rate:20},   // Dreadmaw
+      {id:122, minLv:50, maxLv:56, rate:10},   // Caveshroud
+      {id:126, minLv:51, maxLv:57, rate:30},  // Impefurr
+      {id:124, minLv:52, maxLv:57, rate:15},   // Phantorvex
+      {id:130, minLv:53, maxLv:58, rate:25}   // Necralia
     ],
+    ngPlusWildMonsters:[{id:371, minLv:52, maxLv:58, rate:10}], // NG+ standalone: Nullform
     hasGym:false, requiredBadges:6, mapPos:{x:4, y:60},
     legendaryEncounter:{monsterId:166, level:55}
   },
@@ -5535,10 +5983,10 @@ const WORLD_DATA = {
     desc:"A lush overgrown trail leading south from Dragonspire. Grass and Bug types thrive here.",
     connections:["dragonspire","bloomhaven"],
     wildMonsters:[
-      {id:7, minLv:55, maxLv:60, rate:25},
-      {id:66, minLv:55, maxLv:60, rate:25},
-      {id:197, minLv:55, maxLv:60, rate:25},
-      {id:72, minLv:56, maxLv:61, rate:15},
+      {id:7, minLv:55, maxLv:60, rate:15},
+      {id:66, minLv:55, maxLv:60, rate:20},
+      {id:197, minLv:55, maxLv:60, rate:30},
+      {id:72, minLv:56, maxLv:61, rate:25},
       {id:73, minLv:57, maxLv:62, rate:10}
     ],
     hasGym:false, requiredBadges:8, mapPos:{x:60, y:48},
@@ -5550,10 +5998,11 @@ const WORLD_DATA = {
     connections:["route9","route10"],
     wildMonsters:[
       {id:8, minLv:56, maxLv:60, rate:30},
-      {id:70, minLv:56, maxLv:60, rate:30},
-      {id:73, minLv:57, maxLv:61, rate:20},
-      {id:75, minLv:58, maxLv:62, rate:20}
+      {id:70, minLv:56, maxLv:60, rate:25},
+      {id:73, minLv:57, maxLv:61, rate:10},
+      {id:75, minLv:58, maxLv:62, rate:35}
     ],
+    ngPlusWildMonsters:[{id:452, minLv:56, maxLv:60, rate:12}], // NG+ family base: Dozit
     hasGym:true, gymLeader:"thorne", requiredBadges:8, mapPos:{x:55, y:55}
   },
   route10: {
@@ -5561,14 +6010,14 @@ const WORLD_DATA = {
     desc:"A murky swamp path where poisonous fumes rise from the ground.",
     connections:["bloomhaven","murk_crossing"],
     wildMonsters:[
-      {id:155, minLv:57, maxLv:62, rate:15},  // Toxirin (base)
-      {id:157, minLv:57, maxLv:62, rate:15},  // Acidelix (base)
-      {id:160, minLv:58, maxLv:63, rate:15},  // Miasoveth (base)
-      {id:161, minLv:59, maxLv:64, rate:10},  // Mistbane (mid → after base ✓)
-      {id:162, minLv:58, maxLv:63, rate:10},  // Marlix (base)
-      {id:163, minLv:59, maxLv:64, rate:10},  // Blightalis (mid → after base ✓)
-      {id:206, minLv:57, maxLv:62, rate:10},  // Venomscale (base Poison/Draconic)
-      {id:266, minLv:57, maxLv:62, rate:10},  // Shadowpup (base Dark)
+      {id:155, minLv:57, maxLv:62, rate:10},  // Toxirin (base)
+      {id:157, minLv:57, maxLv:62, rate:17},  // Acidelix (base)
+      {id:160, minLv:58, maxLv:63, rate:9},  // Miasmafly (base)
+      {id:161, minLv:59, maxLv:64, rate:5},  // Mistbane (mid → after base ✓)
+      {id:162, minLv:58, maxLv:63, rate:14},  // Marlix (base)
+      {id:163, minLv:59, maxLv:64, rate:7},  // Blightalis (mid → after base ✓)
+      {id:206, minLv:57, maxLv:62, rate:12},  // Venomscale (base Poison/Draconic)
+      {id:266, minLv:57, maxLv:62, rate:21},  // Shadowpup (base Dark)
       {id:299, minLv:57, maxLv:62, rate:5}    // Stinglet (base Bug/Poi)
     ],
     hasGym:false, requiredBadges:9, mapPos:{x:48, y:60},
@@ -5580,9 +6029,9 @@ const WORLD_DATA = {
     connections:["toxic_bog","route11"],
     wildMonsters:[
       {id:156, minLv:58, maxLv:63, rate:25},  // Venekon (mid)
-      {id:159, minLv:60, maxLv:65, rate:25},  // Acidovast (final, 158 on murk_crossing ✓)
+      {id:159, minLv:60, maxLv:65, rate:25},  // Dissotoad (final, 158 on murk_crossing ✓)
       {id:163, minLv:59, maxLv:64, rate:25},  // Blightalis (mid, 162 on route10 ✓)
-      {id:165, minLv:59, maxLv:64, rate:25}   // Noxoveth (mid, 164 on murk_crossing ✓)
+      {id:165, minLv:59, maxLv:64, rate:25}   // Venowarn (mid, 164 on murk_crossing ✓)
     ],
     hasGym:true, gymLeader:"viper", requiredBadges:9, mapPos:{x:42, y:65},
     ngPlusWildMonsters:[{id:322,minLv:65,maxLv:70,rate:25},{id:324,minLv:65,maxLv:70,rate:15}]
@@ -5592,47 +6041,47 @@ const WORLD_DATA = {
     desc:"A rumbling mountain pass where the ground never stops shaking.",
     connections:["miasmacity","quake_foothills"],
     wildMonsters:[
-      {id:95,  minLv:59, maxLv:64, rate:20},  // Dustkin (base)
-      {id:98,  minLv:59, maxLv:64, rate:20},  // Aridix (base)
-      {id:101, minLv:59, maxLv:64, rate:20},  // Limoux (base)
-      {id:104, minLv:60, maxLv:65, rate:20},  // Arenikin (base)
-      {id:105, minLv:61, maxLv:66, rate:10},  // Dravanas (mid → after 104 ✓)
-      {id:106, minLv:60, maxLv:65, rate:10},  // Geodrak (base)
-      {id:236, minLv:59, maxLv:64, rate:10},  // Frostick (base Ice)
-      {id:248, minLv:59, maxLv:64, rate:10}   // Pebblard (base Rock)
+      {id:95,  minLv:59, maxLv:64, rate:11},  // Dustkin (base)
+      {id:98,  minLv:59, maxLv:64, rate:7},  // Aridix (base)
+      {id:101, minLv:59, maxLv:64, rate:13},  // Limoux (base)
+      {id:104, minLv:60, maxLv:65, rate:22},  // Arenikin (base)
+      {id:105, minLv:61, maxLv:66, rate:5},  // Dravanas (mid → after 104 ✓)
+      {id:106, minLv:60, maxLv:65, rate:15},  // Geodrak (base)
+      {id:236, minLv:59, maxLv:64, rate:9},  // Frostick (base Ice)
+      {id:248, minLv:59, maxLv:64, rate:18}   // Pebblard (base Rock)
     ],
     hasGym:false, requiredBadges:10, mapPos:{x:35, y:72},
-    ngPlusWildMonsters:[{id:325,minLv:66,maxLv:72,rate:20},{id:327,minLv:66,maxLv:72,rate:15},{id:329,minLv:67,maxLv:73,rate:10}]
+    ngPlusWildMonsters:[{id:361, minLv:60, maxLv:66, rate:10}, {id:325,minLv:66,maxLv:72,rate:20},{id:327,minLv:66,maxLv:72,rate:15},{id:329,minLv:67,maxLv:73,rate:10}]
   },
   terravault: {
     id:"terravault", name:"Terravault City", icon:"⛏️", type:"city",
     desc:"A city carved into a mountainside, rich with mineral deposits. Home to Gym Leader Atlas.",
     connections:["tremor_summit","route12"],
     wildMonsters:[
-      {id:97,  minLv:61, maxLv:66, rate:25},  // Tectonvast (final, 96 on quake_foothills ✓)
-      {id:100, minLv:61, maxLv:66, rate:25},  // Venomvast (final, 99 on quake_foothills ✓)
-      {id:103, minLv:61, maxLv:66, rate:25},  // Crustvast (final, 102 on quake_foothills ✓)
-      {id:105, minLv:61, maxLv:66, rate:15},  // Dravanas (final, 104 on route11 ✓)
-      {id:107, minLv:62, maxLv:67, rate:10}   // Quakeon (final, 106 on route11 ✓)
+      {id:97,  minLv:61, maxLv:66, rate:15},  // Tectonvast (final, 96 on quake_foothills ✓)
+      {id:100, minLv:61, maxLv:66, rate:15},  // Craterlurk (final, 99 on quake_foothills ✓)
+      {id:103, minLv:61, maxLv:66, rate:15},  // Calciderm (final, 102 on quake_foothills ✓)
+      {id:105, minLv:61, maxLv:66, rate:30},  // Dravanas (final, 104 on route11 ✓)
+      {id:107, minLv:62, maxLv:67, rate:25}   // Quakeon (final, 106 on route11 ✓)
     ],
     hasGym:true, gymLeader:"atlas", requiredBadges:10, mapPos:{x:28, y:78},
-    ngPlusWildMonsters:[{id:327,minLv:67,maxLv:72,rate:25},{id:337,minLv:67,maxLv:72,rate:15}]
+    ngPlusWildMonsters:[{id:353, minLv:63, maxLv:67, rate:9}, {id:327,minLv:67,maxLv:72,rate:25},{id:337,minLv:67,maxLv:72,rate:15}]
   },
   route12: {
     id:"route12", name:"Route 12 - Silk Road", icon:"🕸️", type:"route",
     desc:"A path threaded with giant webs. Bug types ambush travelers at every turn.",
     connections:["terravault","fungal_cavern"],
     wildMonsters:[
-      {id:197, minLv:61, maxLv:66, rate:20},  // Vermelin (base)
+      {id:197, minLv:61, maxLv:66, rate:25},  // Photoworm (base)
       {id:198, minLv:62, maxLv:67, rate:20},  // Chrysalix (mid → after 197 ✓)
-      {id:200, minLv:61, maxLv:66, rate:20},  // Colerix (base)
-      {id:202, minLv:62, maxLv:67, rate:20},  // Sericrix (base)
-      {id:204, minLv:63, maxLv:68, rate:15},  // Muddite (base)
-      {id:215, minLv:62, maxLv:67, rate:10},  // Veilwisp (base Mental)
-      {id:262, minLv:62, maxLv:67, rate:10}   // Seedling (base Grass/Poi)
+      {id:200, minLv:61, maxLv:66, rate:9},  // Iridibeetle (base)
+      {id:202, minLv:62, maxLv:67, rate:6},  // Sculptweave (base)
+      {id:204, minLv:63, maxLv:68, rate:13},  // Muddite (base)
+      {id:215, minLv:62, maxLv:67, rate:16},  // Veilwisp (base Mental)
+      {id:262, minLv:62, maxLv:67, rate:11}   // Transluceed (base Grass/Poi)
     ],
     hasGym:false, requiredBadges:11, mapPos:{x:22, y:82},
-    ngPlusWildMonsters:[{id:324,minLv:68,maxLv:74,rate:20},{id:329,minLv:68,maxLv:74,rate:15},{id:339,minLv:69,maxLv:75,rate:10},{id:402,minLv:68,maxLv:74,rate:8},{id:405,minLv:68,maxLv:74,rate:8}]
+    ngPlusWildMonsters:[{id:391, minLv:64, maxLv:68, rate:8}, {id:324,minLv:68,maxLv:74,rate:20},{id:329,minLv:68,maxLv:74,rate:15},{id:339,minLv:69,maxLv:75,rate:10},{id:402,minLv:68,maxLv:74,rate:8},{id:405,minLv:68,maxLv:74,rate:8}]
   },
   silkwood: {
     id:"silkwood", name:"Silkwood Village", icon:"🌲", type:"city",
@@ -5645,138 +6094,138 @@ const WORLD_DATA = {
       {id:205, minLv:64, maxLv:69, rate:25}   // Quarrix (mid)
     ],
     hasGym:true, gymLeader:"mantis", requiredBadges:11, mapPos:{x:15, y:88},
-    ngPlusWildMonsters:[{id:330,minLv:68,maxLv:74,rate:25},{id:331,minLv:68,maxLv:74,rate:20},{id:326,minLv:68,maxLv:74,rate:10},{id:402,minLv:69,maxLv:75,rate:6},{id:405,minLv:69,maxLv:75,rate:6}]
+    ngPlusWildMonsters:[{id:357, minLv:63, maxLv:69, rate:10}, {id:330,minLv:68,maxLv:74,rate:25},{id:331,minLv:68,maxLv:74,rate:20},{id:326,minLv:68,maxLv:74,rate:10},{id:402,minLv:69,maxLv:75,rate:6},{id:405,minLv:69,maxLv:75,rate:6}]
   },
   route13: {
     id:"route13", name:"Route 13 - Gale Ridge West", icon:"🌬️", type:"route",
     desc:"The western arm of Gale Ridge, where howling winds funnel through a narrow canyon toward the furthest point of the region.",
     connections:["silkwood","wind_hollow"],
     wildMonsters:[
-      {id:108, minLv:63, maxLv:68, rate:20},  // Gustkin (base)
-      {id:109, minLv:64, maxLv:69, rate:20},  // Siroccomane (mid → after 108 ✓)
-      {id:111, minLv:63, maxLv:68, rate:20},  // Aeolin (base)
-      {id:114, minLv:64, maxLv:69, rate:15},  // Nimbusel (base)
-      {id:116, minLv:64, maxLv:69, rate:15},  // Zephyrin (base)
-      {id:61,  minLv:65, maxLv:70, rate:10},  // wind-type standalone
-      {id:291, minLv:63, maxLv:68, rate:10},  // Breezekin (base Wind)
-      {id:222, minLv:63, maxLv:68, rate:10},  // Mindpuff (base Mental)
+      {id:108, minLv:63, maxLv:68, rate:16},  // Silvergust (base)
+      {id:109, minLv:64, maxLv:69, rate:5},  // Siroccomane (mid → after 108 ✓)
+      {id:111, minLv:63, maxLv:68, rate:21},  // Aeolin (base)
+      {id:114, minLv:64, maxLv:69, rate:8},  // Nimbusel (base)
+      {id:116, minLv:64, maxLv:69, rate:10},  // Zephyrin (base)
+      {id:61,  minLv:65, maxLv:70, rate:12},  // wind-type standalone
+      {id:291, minLv:63, maxLv:68, rate:7},  // Breezekin (base Wind)
+      {id:222, minLv:63, maxLv:68, rate:16},  // Mindpuff (base Mental)
       {id:220, minLv:63, maxLv:68, rate:5}    // Umbrajest (base Dark/Mental)
     ],
     hasGym:false, requiredBadges:12, mapPos:{x:10, y:92},
-    ngPlusWildMonsters:[{id:335,minLv:70,maxLv:76,rate:20},{id:348,minLv:70,maxLv:76,rate:15},{id:370,minLv:71,maxLv:77,rate:10}]
+    ngPlusWildMonsters:[{id:356, minLv:64, maxLv:70, rate:9}, {id:335,minLv:70,maxLv:76,rate:20},{id:348,minLv:70,maxLv:76,rate:15},{id:370,minLv:71,maxLv:77,rate:10}]
   },
   gusthaven: {
     id:"gusthaven", name:"Gusthaven Town", icon:"🌀", type:"city",
     desc:"A town of windmills and airships. Home to Gym Leader Zephyra, master of Wind types.",
     connections:["tempest_cliffs","route14"],
     wildMonsters:[
-      {id:110, minLv:65, maxLv:70, rate:25},  // Aeolarch (final)
-      {id:113, minLv:65, maxLv:70, rate:25},  // Cyclavorn (final)
-      {id:115, minLv:65, maxLv:70, rate:20},  // Aetherworn (mid)
+      {id:110, minLv:65, maxLv:70, rate:13},  // Aeolarch (final)
+      {id:113, minLv:65, maxLv:70, rate:12},  // Cyclavorn (final)
+      {id:115, minLv:65, maxLv:70, rate:25},  // Aetherworn (mid)
       {id:117, minLv:65, maxLv:70, rate:20},  // Pneumathos (mid)
-      {id:62,  minLv:66, maxLv:70, rate:10}   // standalone
+      {id:62,  minLv:66, maxLv:70, rate:30}   // standalone
     ],
     hasGym:true, gymLeader:"zephyra", requiredBadges:12, mapPos:{x:18, y:95},
-    ngPlusWildMonsters:[{id:335,minLv:71,maxLv:76,rate:25},{id:370,minLv:71,maxLv:76,rate:15}]
+    ngPlusWildMonsters:[{id:338, minLv:66, maxLv:70, rate:10}, {id:335,minLv:71,maxLv:76,rate:25},{id:370,minLv:71,maxLv:76,rate:15}]
   },
   route14: {
     id:"route14", name:"Route 14 - Ironwork Path", icon:"⚙️", type:"route",
     desc:"A path lined with abandoned machinery. Metal types have claimed the ruins as their territory.",
     connections:["gusthaven","ash_fields"],
     wildMonsters:[
-      {id:147, minLv:65, maxLv:70, rate:20},  // Ferrokin (base)
-      {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid → after 147 ✓)
-      {id:150, minLv:65, maxLv:70, rate:20},  // Gearon (base)
-      {id:134, minLv:66, maxLv:71, rate:20},  // Aeronyx (base)
-      {id:153, minLv:66, maxLv:71, rate:10},  // Forgekin (base)
-      {id:55,  minLv:67, maxLv:72, rate:10},  // standalone steel
+      {id:147, minLv:65, maxLv:70, rate:21},  // Scrapsapien (base)
+      {id:148, minLv:66, maxLv:71, rate:5},  // Stoicguard (mid → after 147 ✓)
+      {id:150, minLv:65, maxLv:70, rate:14},  // Gearon (base)
+      {id:134, minLv:66, maxLv:71, rate:12},  // Aeronyx (base)
+      {id:153, minLv:66, maxLv:71, rate:17},  // Dentshaft (base)
+      {id:55,  minLv:67, maxLv:72, rate:9},  // standalone steel
       {id:278, minLv:65, maxLv:70, rate:10},  // Ironling (base Metal/Fairy)
-      {id:244, minLv:65, maxLv:70, rate:10},  // Staticlaw (base Electric)
+      {id:244, minLv:65, maxLv:70, rate:7},  // Staticlaw (base Electric)
       {id:280, minLv:65, maxLv:70, rate:5}    // Gearbit (base Metal/Ground)
     ],
     hasGym:false, requiredBadges:13, mapPos:{x:28, y:92},
-    ngPlusWildMonsters:[{id:334,minLv:72,maxLv:78,rate:20},{id:347,minLv:72,maxLv:78,rate:15},{id:366,minLv:73,maxLv:79,rate:10}]
+    ngPlusWildMonsters:[{id:383, minLv:66, maxLv:72, rate:8}, {id:334,minLv:72,maxLv:78,rate:20},{id:347,minLv:72,maxLv:78,rate:15},{id:366,minLv:73,maxLv:79,rate:10}]
   },
   ironforge: {
     id:"ironforge", name:"Ironforge City", icon:"🔨", type:"city",
     desc:"A city of foundries and forges. Home to Gym Leader Ferro, master of Metal types.",
     connections:["forge_approach","route15"],
     wildMonsters:[
-      {id:149, minLv:67, maxLv:72, rate:25},  // Adamovast (final)
-      {id:151, minLv:66, maxLv:71, rate:20},  // Alloytron (mid)
+      {id:149, minLv:67, maxLv:72, rate:13},  // Eternarmor (final)
+      {id:151, minLv:66, maxLv:71, rate:25},  // Alloytron (mid)
       {id:152, minLv:67, maxLv:72, rate:20},  // Imperion (Metal/Rock)
-      {id:135, minLv:67, maxLv:72, rate:20},  // Steelvex (mid, 134 on route14 ✓)
-      {id:136, minLv:68, maxLv:73, rate:15}   // Ferrovast (final → after 135 ✓)
+      {id:135, minLv:67, maxLv:72, rate:30},  // Steelvex (mid, 134 on route14 ✓)
+      {id:136, minLv:68, maxLv:73, rate:12}   // Metalibat (final → after 135 ✓)
     ],
     hasGym:true, gymLeader:"ferro", requiredBadges:13, mapPos:{x:38, y:88},
-    ngPlusWildMonsters:[{id:334,minLv:73,maxLv:78,rate:25},{id:347,minLv:73,maxLv:78,rate:20},{id:377,minLv:73,maxLv:79,rate:8}]
+    ngPlusWildMonsters:[{id:377, minLv:67, maxLv:73, rate:8}, {id:334,minLv:73,maxLv:78,rate:25},{id:347,minLv:73,maxLv:78,rate:20},{id:377,minLv:73,maxLv:79,rate:8}]
   },
   route15: {
     id:"route15", name:"Route 15 - Granite Pass", icon:"🪨", type:"route",
     desc:"A narrow mountain pass strewn with boulders. Rock types dominate.",
     connections:["ironforge","granite_tunnels"],
     wildMonsters:[
-      {id:191, minLv:67, maxLv:72, rate:20},  // Petrikin (base)
-      {id:192, minLv:68, maxLv:73, rate:20},  // Lithavast (mid → after 191 ✓)
-      {id:193, minLv:67, maxLv:72, rate:20},  // Rugothon (base)
-      {id:132, minLv:68, maxLv:73, rate:20},  // Obsidrix (base)
-      {id:133, minLv:69, maxLv:74, rate:10},  // Monolithox (mid → after 132 ✓)
-      {id:93,  minLv:69, maxLv:74, rate:10},  // standalone rock
-      {id:251, minLv:67, maxLv:72, rate:10},  // Crumblite (base Rock/Metal)
-      {id:304, minLv:67, maxLv:72, rate:10},  // Icethorn (base Rock/Ice)
+      {id:191, minLv:67, maxLv:72, rate:21},  // Pebblet (base)
+      {id:192, minLv:68, maxLv:73, rate:9},  // Boulderoll (mid → after 191 ✓)
+      {id:193, minLv:67, maxLv:72, rate:10},  // Rugothon (base)
+      {id:132, minLv:68, maxLv:73, rate:14},  // Volcascale (base)
+      {id:133, minLv:69, maxLv:74, rate:5},  // Monolithox (mid → after 132 ✓)
+      {id:93,  minLv:69, maxLv:74, rate:7},  // standalone rock
+      {id:251, minLv:67, maxLv:72, rate:12},  // Crumblite (base Rock/Metal)
+      {id:304, minLv:67, maxLv:72, rate:17},  // Icethorn (base Rock/Ice)
       {id:232, minLv:67, maxLv:72, rate:5}    // Serphaxon (base Draconic/Ground)
     ],
     hasGym:false, requiredBadges:14, mapPos:{x:48, y:85},
-    ngPlusWildMonsters:[{id:332,minLv:74,maxLv:80,rate:20},{id:349,minLv:74,maxLv:80,rate:15},{id:369,minLv:75,maxLv:81,rate:10}]
+    ngPlusWildMonsters:[{id:364, minLv:68, maxLv:74, rate:9}, {id:332,minLv:74,maxLv:80,rate:20},{id:349,minLv:74,maxLv:80,rate:15},{id:369,minLv:75,maxLv:81,rate:10}]
   },
   quarryville: {
     id:"quarryville", name:"Quarryville Town", icon:"🏗️", type:"city",
     desc:"A mining town carved from solid rock. Home to Gym Leader Boulder, master of Rock types.",
     connections:["crystal_mine","route16"],
     wildMonsters:[
-      {id:192, minLv:68, maxLv:73, rate:20},  // Lithavast (mid)
-      {id:195, minLv:69, maxLv:74, rate:20},  // Prismolith (195 on stone_plateau ✓)
-      {id:196, minLv:70, maxLv:75, rate:20},  // Frigolith (mid → after 195 ✓)
-      {id:133, minLv:69, maxLv:74, rate:25},  // Monolithox (mid)
-      {id:92,  minLv:70, maxLv:74, rate:15}   // standalone
+      {id:192, minLv:68, maxLv:73, rate:20},  // Boulderoll (mid)
+      {id:195, minLv:69, maxLv:74, rate:25},  // Prismolith (195 on stone_plateau ✓)
+      {id:196, minLv:70, maxLv:75, rate:10},  // Frigolith (mid → after 195 ✓)
+      {id:133, minLv:69, maxLv:74, rate:15},  // Monolithox (mid)
+      {id:92,  minLv:70, maxLv:74, rate:30}   // standalone
     ],
     hasGym:true, gymLeader:"boulder", requiredBadges:14, mapPos:{x:55, y:82},
-    ngPlusWildMonsters:[{id:327,minLv:74,maxLv:80,rate:25},{id:341,minLv:74,maxLv:80,rate:15},{id:349,minLv:75,maxLv:81,rate:8}]
+    ngPlusWildMonsters:[{id:399, minLv:69, maxLv:75, rate:8}, {id:359, minLv:69, maxLv:75, rate:9}, {id:327,minLv:74,maxLv:80,rate:25},{id:341,minLv:74,maxLv:80,rate:15},{id:349,minLv:75,maxLv:81,rate:8}]
   },
   route16: {
     id:"route16", name:"Route 16 - Starlit Path", icon:"✨", type:"route",
     desc:"A magical path where starlight dances on every surface. Fairy types float among the luminescent flowers.",
     connections:["quarryville","nebula_gorge"],
     wildMonsters:[
-      {id:137, minLv:69, maxLv:74, rate:20},  // Lumkin (base)
-      {id:72,  minLv:69, maxLv:74, rate:20},  // fairy-type (base)
-      {id:73,  minLv:70, maxLv:75, rate:20},  // fairy-type (evo → after 72 ✓)
-      {id:142, minLv:69, maxLv:74, rate:20},  // Dawnirel (base, new)
-      {id:145, minLv:70, maxLv:75, rate:15},  // Faerrin (base)
-      {id:225, minLv:69, maxLv:74, rate:10},  // Glimmerkin (standalone Psy/Fairy)
-      {id:226, minLv:69, maxLv:74, rate:10},  // Spectroo (base split-evo)
-      {id:254, minLv:69, maxLv:74, rate:10},  // Bubblepuff (base Aquatic/Psy)
+      {id:137, minLv:69, maxLv:74, rate:17},  // Goldefluff (base)
+      {id:72,  minLv:69, maxLv:74, rate:21},  // fairy-type (base)
+      {id:73,  minLv:70, maxLv:75, rate:7},  // fairy-type (evo → after 72 ✓)
+      {id:142, minLv:69, maxLv:74, rate:10},  // Dawnirel (base, new)
+      {id:145, minLv:70, maxLv:75, rate:14},  // Faerrin (base)
+      {id:225, minLv:69, maxLv:74, rate:5},  // Crealight (standalone Psy/Fairy)
+      {id:226, minLv:69, maxLv:74, rate:9},  // Spectroo (base split-evo)
+      {id:254, minLv:69, maxLv:74, rate:12},  // Bubblepuff (base Aquatic/Psy)
       {id:302, minLv:69, maxLv:74, rate:5}    // Lightpuff (base Fairy, item evo)
     ],
     hasGym:false, requiredBadges:15, mapPos:{x:62, y:78},
-    ngPlusWildMonsters:[{id:344,minLv:76,maxLv:82,rate:20},{id:351,minLv:76,maxLv:82,rate:15},{id:360,minLv:77,maxLv:83,rate:10}]
+    ngPlusWildMonsters:[{id:363, minLv:71, maxLv:75, rate:9}, {id:344,minLv:76,maxLv:82,rate:20},{id:351,minLv:76,maxLv:82,rate:15},{id:360,minLv:77,maxLv:83,rate:10}]
   },
   starbloom: {
     id:"starbloom", name:"Starbloom City", icon:"🌟", type:"city",
     desc:"A radiant city that glows with fairy magic. Home to Gym Leader Seraphina, the last gym before The Vanguard.",
     connections:["astral_plateau","victoryroad","void_rift"],
     wildMonsters:[
-      {id:138, minLv:70, maxLv:75, rate:20},  // Aetherael (mid)
-      {id:139, minLv:71, maxLv:76, rate:15},  // Lumiarch (final → after 138 ✓)
-      {id:143, minLv:70, maxLv:75, rate:20},  // Lunarael (mid)
-      {id:144, minLv:71, maxLv:76, rate:15},  // Celestarch (final → after 143 ✓)
-      {id:146, minLv:71, maxLv:76, rate:20},  // Shinarith (mid, 145 on route16 ✓)
-      {id:203, minLv:72, maxLv:76, rate:10},  // Arachnalis (mid)
-      {id:224, minLv:72, maxLv:76, rate:10},  // Psytheon (final → 223 on cosmic_cavern ✓)
-      {id:217, minLv:73, maxLv:77, rate:5}    // Mentovast (final Mental)
+      {id:138, minLv:70, maxLv:75, rate:24},  // Aetherael (mid)
+      {id:139, minLv:71, maxLv:76, rate:8},  // Lumiarch (final → after 138 ✓)
+      {id:143, minLv:70, maxLv:75, rate:13},  // Lunarael (mid)
+      {id:144, minLv:71, maxLv:76, rate:8},  // Celestarch (final → after 143 ✓)
+      {id:146, minLv:71, maxLv:76, rate:15},  // Shinarith (mid, 145 on route16 ✓)
+      {id:203, minLv:72, maxLv:76, rate:19},  // Arachnalis (mid)
+      {id:224, minLv:72, maxLv:76, rate:8},  // Psytheon (final → 223 on cosmic_cavern ✓)
+      {id:217, minLv:73, maxLv:77, rate:5}    // Distorsion (final Mental)
     ],
     hasGym:true, gymLeader:"seraphina", requiredBadges:15, mapPos:{x:68, y:72},
-    ngPlusWildMonsters:[{id:344,minLv:77,maxLv:82,rate:25},{id:351,minLv:77,maxLv:82,rate:20},{id:360,minLv:78,maxLv:83,rate:8}]
+    ngPlusWildMonsters:[{id:362, minLv:70, maxLv:77, rate:9}, {id:344,minLv:77,maxLv:82,rate:25},{id:351,minLv:77,maxLv:82,rate:20},{id:360,minLv:78,maxLv:83,rate:8}]
   },
   // ---- ADDITIONAL ROUTES (direction-change splits & mid-gym connectors) ----
   murk_crossing: {
@@ -5784,13 +6233,14 @@ const WORLD_DATA = {
     desc:"A bog-choked crossing where the path turns south through fetid marshland. Toxic vapors hang low and Poison types lurk in every murky puddle.",
     connections:["route10","toxic_bog"],
     wildMonsters:[
-      {id:155, minLv:57, maxLv:62, rate:15},  // Toxirin (base)
-      {id:156, minLv:58, maxLv:63, rate:20},  // Venekon (mid → after base ✓)
-      {id:158, minLv:58, maxLv:63, rate:20},  // Acidoloth (mid, base Acidelix on route10 ✓)
-      {id:159, minLv:60, maxLv:65, rate:20},  // Acidovast (final → after 158 ✓)
-      {id:164, minLv:58, maxLv:63, rate:15},  // Blightmite (base, new)
-      {id:165, minLv:59, maxLv:64, rate:10}   // Noxoveth (mid → after 164 ✓)
+      {id:155, minLv:57, maxLv:62, rate:24},  // Toxirin (base)
+      {id:156, minLv:58, maxLv:63, rate:10},  // Venekon (mid → after base ✓)
+      {id:158, minLv:58, maxLv:63, rate:18},  // Corrodisc (mid, base Acidelix on route10 ✓)
+      {id:159, minLv:60, maxLv:65, rate:6},  // Dissotoad (final → after 158 ✓)
+      {id:164, minLv:58, maxLv:63, rate:28},  // Blightmite (base, new)
+      {id:165, minLv:59, maxLv:64, rate:14}   // Venowarn (mid → after 164 ✓)
     ],
+    ngPlusWildMonsters:[{id:355, minLv:58, maxLv:65, rate:10}], // NG+ standalone: Abyssalith
     hasGym:false, requiredBadges:9, mapPos:{x:42, y:60}
   },
   quake_foothills: {
@@ -5798,12 +6248,12 @@ const WORLD_DATA = {
     desc:"Rolling foothills rocked by constant tremors where Terravault's mountain range begins. Ground-type Lumori burrow through the cracked and heaving earth.",
     connections:["route11","magma_vent"],
     wildMonsters:[
-      {id:95,  minLv:59, maxLv:64, rate:15},  // Dustkin (base)
-      {id:96,  minLv:60, maxLv:65, rate:20},  // Seismith (mid → after 95 ✓)
-      {id:98,  minLv:59, maxLv:64, rate:15},  // Aridix (base)
-      {id:99,  minLv:60, maxLv:65, rate:20},  // Toxivenoth (mid → after 98 ✓)
-      {id:101, minLv:59, maxLv:64, rate:15},  // Limoux (base)
-      {id:102, minLv:60, maxLv:65, rate:15}   // Dunoloth (mid → after 101 ✓)
+      {id:95,  minLv:59, maxLv:64, rate:24},  // Dustkin (base)
+      {id:96,  minLv:60, maxLv:65, rate:8},  // Seismith (mid → after 95 ✓)
+      {id:98,  minLv:59, maxLv:64, rate:18},  // Aridix (base)
+      {id:99,  minLv:60, maxLv:65, rate:14},  // Toxivenoth (mid → after 98 ✓)
+      {id:101, minLv:59, maxLv:64, rate:28},  // Limoux (base)
+      {id:102, minLv:60, maxLv:65, rate:8}   // Dunoloth (mid → after 101 ✓)
     ],
     hasGym:false, requiredBadges:10, mapPos:{x:28, y:72}
   },
@@ -5812,12 +6262,12 @@ const WORLD_DATA = {
     desc:"A sunken gully thick with silken threads where every tree and boulder is wrapped in webs. Bug types in every stage of evolution compete for territory.",
     connections:["fungal_cavern","ancient_grove"],
     wildMonsters:[
-      {id:198, minLv:62, maxLv:67, rate:15},  // Chrysalix (mid, 197 on route12 ✓)
-      {id:199, minLv:63, maxLv:68, rate:15},  // Aeridaleth (final → after 198 ✓)
-      {id:200, minLv:61, maxLv:66, rate:15},  // Colerix (base)
-      {id:201, minLv:62, maxLv:67, rate:20},  // Scarabion (mid → after 200 ✓)
-      {id:204, minLv:63, maxLv:68, rate:15},  // Muddite (base)
-      {id:205, minLv:64, maxLv:69, rate:20}   // Quarrix (mid → after 204 ✓)
+      {id:198, minLv:62, maxLv:67, rate:28},  // Chrysalix (mid, 197 on route12 ✓)
+      {id:199, minLv:63, maxLv:68, rate:14},  // Aeridaleth (final → after 198 ✓)
+      {id:200, minLv:61, maxLv:66, rate:18},  // Iridibeetle (base)
+      {id:201, minLv:62, maxLv:67, rate:6},  // Scarabion (mid → after 200 ✓)
+      {id:204, minLv:63, maxLv:68, rate:24},  // Muddite (base)
+      {id:205, minLv:64, maxLv:69, rate:10}   // Quarrix (mid → after 204 ✓)
     ],
     hasGym:false, requiredBadges:11, mapPos:{x:15, y:82}
   },
@@ -5826,13 +6276,14 @@ const WORLD_DATA = {
     desc:"Where Gale Ridge curves sharply eastward, the winds reverse direction entirely. This turn is notorious for sending unprepared trainers stumbling backward toward Silkwood.",
     connections:["gale_peak","tempest_cliffs"],
     wildMonsters:[
-      {id:109, minLv:64, maxLv:69, rate:15},  // Siroccomane (mid, 108 on route13 ✓)
-      {id:110, minLv:65, maxLv:70, rate:20},  // Aeolarch (final → after 109 ✓)
-      {id:112, minLv:64, maxLv:69, rate:15},  // Swirlavel (mid, 111 on route13 ✓)
-      {id:113, minLv:65, maxLv:70, rate:20},  // Cyclavorn (final → after 112 ✓)
-      {id:115, minLv:65, maxLv:70, rate:15},  // Aetherworn (mid, 114 on route13 ✓)
-      {id:117, minLv:65, maxLv:70, rate:15}   // Pneumathos (mid, 116 on route13 ✓)
+      {id:109, minLv:64, maxLv:69, rate:24},  // Siroccomane (mid, 108 on route13 ✓)
+      {id:110, minLv:65, maxLv:70, rate:8},  // Aeolarch (final → after 109 ✓)
+      {id:112, minLv:64, maxLv:69, rate:28},  // Swirlavel (mid, 111 on route13 ✓)
+      {id:113, minLv:65, maxLv:70, rate:8},  // Cyclavorn (final → after 112 ✓)
+      {id:115, minLv:65, maxLv:70, rate:18},  // Aetherworn (mid, 114 on route13 ✓)
+      {id:117, minLv:65, maxLv:70, rate:14}   // Pneumathos (mid, 116 on route13 ✓)
     ],
+    ngPlusWildMonsters:[{id:393, minLv:65, maxLv:70, rate:8}], // thinned from mega-area
     hasGym:false, requiredBadges:12, mapPos:{x:14, y:95}
   },
   forge_approach: {
@@ -5840,12 +6291,12 @@ const WORLD_DATA = {
     desc:"The rusted outer edge of Ironforge's industrial sprawl. Abandoned conveyor lines and slag heaps attract Metal-type Lumori who claim the metal as their own.",
     connections:["smelter_pass","ironforge"],
     wildMonsters:[
-      {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid)
-      {id:149, minLv:67, maxLv:72, rate:15},  // Adamovast (final → after 148 ✓)
-      {id:150, minLv:65, maxLv:70, rate:15},  // Gearon (base)
-      {id:151, minLv:66, maxLv:71, rate:20},  // Alloytron (mid → after 150 ✓)
-      {id:153, minLv:66, maxLv:71, rate:15},  // Forgekin (base)
-      {id:154, minLv:67, maxLv:72, rate:15}   // Titanolith (mid → after 153 ✓)
+      {id:148, minLv:66, maxLv:71, rate:10},  // Stoicguard (mid)
+      {id:149, minLv:67, maxLv:72, rate:6},  // Eternarmor (final → after 148 ✓)
+      {id:150, minLv:65, maxLv:70, rate:24},  // Gearon (base)
+      {id:151, minLv:66, maxLv:71, rate:14},  // Alloytron (mid → after 150 ✓)
+      {id:153, minLv:66, maxLv:71, rate:28},  // Dentshaft (base)
+      {id:154, minLv:67, maxLv:72, rate:18}   // Terragolem (mid → after 153 ✓)
     ],
     hasGym:false, requiredBadges:13, mapPos:{x:38, y:92}
   },
@@ -5854,13 +6305,14 @@ const WORLD_DATA = {
     desc:"A windswept expanse of exposed bedrock leading into Quarryville. Ancient monoliths dot the plateau and Rock and Dark types claim each one as territory.",
     connections:["granite_tunnels","crystal_mine"],
     wildMonsters:[
-      {id:192, minLv:68, maxLv:73, rate:20},  // Lithavast (mid, 191 on route15 ✓)
-      {id:193, minLv:67, maxLv:72, rate:15},  // Rugothon (base)
-      {id:194, minLv:68, maxLv:73, rate:20},  // Lithomere (mid → after 193 ✓)
-      {id:133, minLv:69, maxLv:74, rate:20},  // Monolithox (mid)
-      {id:195, minLv:69, maxLv:74, rate:15},  // Prismolith (base, new)
-      {id:196, minLv:70, maxLv:75, rate:10}   // Frigolith (mid → after 195 ✓)
+      {id:192, minLv:68, maxLv:73, rate:18},  // Boulderoll (mid, 191 on route15 ✓)
+      {id:193, minLv:67, maxLv:72, rate:28},  // Rugothon (base)
+      {id:194, minLv:68, maxLv:73, rate:10},  // Lithomere (mid → after 193 ✓)
+      {id:133, minLv:69, maxLv:74, rate:14},  // Monolithox (mid)
+      {id:195, minLv:69, maxLv:74, rate:24},  // Prismolith (base, new)
+      {id:196, minLv:70, maxLv:75, rate:6}   // Frigolith (mid → after 195 ✓)
     ],
+    ngPlusWildMonsters:[{id:385, minLv:68, maxLv:75, rate:8}, {id:367, minLv:68, maxLv:75, rate:10}], // NG+ standalone: Bouldertide
     hasGym:false, requiredBadges:14, mapPos:{x:48, y:82}
   },
   cosmic_cavern: {
@@ -5868,16 +6320,17 @@ const WORLD_DATA = {
     desc:"A glittering cavern lit by bioluminescent crystals on the approach to Starbloom. Fairy types dance in the starlight, but dark shadows hint at lurking Umbra agents.",
     connections:["nebula_gorge","astral_plateau"],
     wildMonsters:[
-      {id:137, minLv:69, maxLv:74, rate:15},  // Lumkin (base)
-      {id:138, minLv:70, maxLv:75, rate:20},  // Aetherael (mid → after 137 ✓)
-      {id:143, minLv:70, maxLv:75, rate:15},  // Lunarael (mid, 142 on route16 ✓)
-      {id:144, minLv:71, maxLv:76, rate:20},  // Celestarch (final → after 143 ✓)
-      {id:145, minLv:70, maxLv:75, rate:15},  // Faerrin (base)
-      {id:119, minLv:70, maxLv:74, rate:10},  // Nighthound (Dark/Umbra)
-      {id:222, minLv:70, maxLv:74, rate:10},  // Mindpuff (base, for Psytheon chain)
-      {id:223, minLv:70, maxLv:74, rate:10},  // Cerebrix (mid → after 222 ✓)
-      {id:255, minLv:71, maxLv:75, rate:10}   // Wavrix (mid → Aquapuff on route16 ✓)
+      {id:137, minLv:69, maxLv:74, rate:16},  // Goldefluff (base)
+      {id:138, minLv:70, maxLv:75, rate:11},  // Aetherael (mid → after 137 ✓)
+      {id:143, minLv:70, maxLv:75, rate:7},  // Lunarael (mid, 142 on route16 ✓)
+      {id:144, minLv:71, maxLv:76, rate:5},  // Celestarch (final → after 143 ✓)
+      {id:145, minLv:70, maxLv:75, rate:14},  // Faerrin (base)
+      {id:119, minLv:70, maxLv:74, rate:9},  // Dreadmaw (Dark/Umbra)
+      {id:222, minLv:70, maxLv:74, rate:20},  // Mindpuff (base, for Psytheon chain)
+      {id:223, minLv:70, maxLv:74, rate:12},  // Recallum (mid → after 222 ✓)
+      {id:255, minLv:71, maxLv:75, rate:6}   // Psychotide (mid → Aquapuff on route16 ✓)
     ],
+    ngPlusWildMonsters:[{id:397, minLv:70, maxLv:76, rate:8}], // thinned from mega-area
     hasGym:false, requiredBadges:15, mapPos:{x:68, y:78}
   },
   void_rift: {
@@ -5885,13 +6338,13 @@ const WORLD_DATA = {
     desc:"A tear in reality pulsing with dark energy near Route 16. The Umbra Order's experiments cracked open this rift, and within its swirling darkness, Voidraxis — the Void Star — awaits any trainer bold enough to enter.",
     connections:["starbloom","umbra_lab"],
     wildMonsters:[
-      {id:119, minLv:72, maxLv:77, rate:30},  // Nighthound (Dark)
-      {id:122, minLv:72, maxLv:77, rate:30},  // Spectrewing (Dark)
+      {id:119, minLv:72, maxLv:77, rate:30},  // Dreadmaw (Dark)
+      {id:122, minLv:72, maxLv:77, rate:30},  // Caveshroud (Dark)
       {id:120, minLv:73, maxLv:78, rate:25},  // dark-type
       {id:131, minLv:73, maxLv:78, rate:15}   // Necrothon (Dark/Grass)
     ],
     hasGym:false, requiredBadges:15, mapPos:{x:75, y:72},
-    ngPlusWildMonsters:[{id:342,minLv:78,maxLv:84,rate:20},{id:343,minLv:78,maxLv:84,rate:15},{id:352,minLv:79,maxLv:85,rate:8}]
+    ngPlusWildMonsters:[{id:373, minLv:78, maxLv:84, rate:8}, {id:342,minLv:78,maxLv:84,rate:20},{id:343,minLv:78,maxLv:84,rate:15},{id:352,minLv:79,maxLv:85,rate:8}]
   },
   // ---- ADDITIONAL MID-GYM ROUTES (phase 2) ----
   toxic_bog: {
@@ -5900,10 +6353,10 @@ const WORLD_DATA = {
     connections:["murk_crossing","mire_depths"],
     wildMonsters:[
       {id:156, minLv:58, maxLv:63, rate:20},  // Venekon (mid)
-      {id:158, minLv:58, maxLv:63, rate:20},  // Acidoloth (mid)
-      {id:159, minLv:60, maxLv:65, rate:20},  // Acidovast (final)
+      {id:158, minLv:58, maxLv:63, rate:20},  // Corrodisc (mid)
+      {id:159, minLv:60, maxLv:65, rate:20},  // Dissotoad (final)
       {id:164, minLv:58, maxLv:63, rate:20},  // Blightmite (base)
-      {id:165, minLv:59, maxLv:64, rate:20}   // Noxoveth (mid → after 164 ✓)
+      {id:165, minLv:59, maxLv:64, rate:20}   // Venowarn (mid → after 164 ✓)
     ],
     hasGym:false, requiredBadges:9, mapPos:{x:42, y:63}
   },
@@ -5912,11 +6365,11 @@ const WORLD_DATA = {
     desc:"The crest of the quake-ridden foothills where the shaking is strongest. Only final-stage Ground-type Lumori can hold their footing here.",
     connections:["quake_foothills","terravault"],
     wildMonsters:[
-      {id:97,  minLv:62, maxLv:67, rate:25},  // Tectonvast (final, 96 on quake_foothills ✓)
-      {id:100, minLv:62, maxLv:67, rate:25},  // Venomvast (final, 99 on quake_foothills ✓)
-      {id:103, minLv:62, maxLv:67, rate:25},  // Crustvast (final, 102 on quake_foothills ✓)
-      {id:105, minLv:63, maxLv:68, rate:15},  // Dravanas (final, 104 on route11 ✓)
-      {id:107, minLv:63, maxLv:68, rate:10}   // Quakeon (final, 106 on route11 ✓)
+      {id:97,  minLv:62, maxLv:67, rate:15},  // Tectonvast (final, 96 on quake_foothills ✓)
+      {id:100, minLv:62, maxLv:67, rate:15},  // Craterlurk (final, 99 on quake_foothills ✓)
+      {id:103, minLv:62, maxLv:67, rate:15},  // Calciderm (final, 102 on quake_foothills ✓)
+      {id:105, minLv:63, maxLv:68, rate:30},  // Dravanas (final, 104 on route11 ✓)
+      {id:107, minLv:63, maxLv:68, rate:25}   // Quakeon (final, 106 on route11 ✓)
     ],
     hasGym:false, requiredBadges:10, mapPos:{x:28, y:75}
   },
@@ -5925,12 +6378,12 @@ const WORLD_DATA = {
     desc:"The westernmost tip of the region — where Gale Ridge reaches its farthest point before turning sharply east. The wind here changes direction mid-step.",
     connections:["wind_hollow","gale_ridge_east"],
     wildMonsters:[
-      {id:108, minLv:63, maxLv:68, rate:15},  // Gustkin (base)
-      {id:109, minLv:64, maxLv:69, rate:20},  // Siroccomane (mid → after 108 ✓)
-      {id:111, minLv:63, maxLv:68, rate:15},  // Aeolin (base)
-      {id:112, minLv:64, maxLv:69, rate:20},  // Swirlavel (mid → after 111 ✓)
-      {id:116, minLv:64, maxLv:69, rate:15},  // Zephyrin (base)
-      {id:117, minLv:65, maxLv:70, rate:15}   // Pneumathos (mid → after 116 ✓)
+      {id:108, minLv:63, maxLv:68, rate:24},  // Silvergust (base)
+      {id:109, minLv:64, maxLv:69, rate:10},  // Siroccomane (mid → after 108 ✓)
+      {id:111, minLv:63, maxLv:68, rate:28},  // Aeolin (base)
+      {id:112, minLv:64, maxLv:69, rate:14},  // Swirlavel (mid → after 111 ✓)
+      {id:116, minLv:64, maxLv:69, rate:18},  // Zephyrin (base)
+      {id:117, minLv:65, maxLv:70, rate:6}   // Pneumathos (mid → after 116 ✓)
     ],
     hasGym:false, requiredBadges:12, mapPos:{x:7, y:96}
   },
@@ -5939,13 +6392,14 @@ const WORLD_DATA = {
     desc:"Collapsed factory halls stretching east from the old Ironwork Path. Metal-type Lumori nest in the rusted machinery, and mid-stage chains are common sightings.",
     connections:["ash_fields","smelter_pass"],
     wildMonsters:[
-      {id:147, minLv:65, maxLv:70, rate:15},  // Ferrokin (base)
-      {id:148, minLv:66, maxLv:71, rate:20},  // Adamavast (mid → after 147 ✓)
-      {id:150, minLv:65, maxLv:70, rate:15},  // Gearon (base)
-      {id:151, minLv:66, maxLv:71, rate:20},  // Alloytron (mid → after 150 ✓)
-      {id:134, minLv:66, maxLv:71, rate:15},  // Aeronyx (base)
-      {id:135, minLv:67, maxLv:72, rate:15}   // Steelvex (mid → after 134 ✓)
+      {id:147, minLv:65, maxLv:70, rate:28},  // Scrapsapien (base)
+      {id:148, minLv:66, maxLv:71, rate:6},  // Stoicguard (mid → after 147 ✓)
+      {id:150, minLv:65, maxLv:70, rate:24},  // Gearon (base)
+      {id:151, minLv:66, maxLv:71, rate:10},  // Alloytron (mid → after 150 ✓)
+      {id:134, minLv:66, maxLv:71, rate:18},  // Aeronyx (base)
+      {id:135, minLv:67, maxLv:72, rate:14}   // Steelvex (mid → after 134 ✓)
     ],
+    ngPlusWildMonsters:[{id:396, minLv:66, maxLv:72, rate:8}], // thinned from mega-area
     hasGym:false, requiredBadges:13, mapPos:{x:33, y:92}
   },
 
@@ -5956,13 +6410,14 @@ const WORLD_DATA = {
     desc:"A labyrinthine deep-swamp sector south of Toxic Bog. Venomous Lumori that have shed their pre-evolutions stalk the murky waterways. Umbra scouts use the miasma as cover.",
     connections:["toxic_bog","miasmacity"],
     wildMonsters:[
-      {id:156, minLv:59, maxLv:64, rate:20},  // Venekon (mid, base 155 on route10 ✓)
-      {id:297, minLv:58, maxLv:63, rate:20},  // Blightwing (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
-      {id:165, minLv:59, maxLv:64, rate:20},  // Noxoveth (mid, 164 on murk_crossing ✓)
-      {id:296, minLv:58, maxLv:63, rate:20},  // Plaguefly (base Poi/Bug)
-      {id:299, minLv:58, maxLv:63, rate:10},  // Stinglet (base Bug/Poi, also on route10)
-      {id:218, minLv:59, maxLv:64, rate:10}   // Mistwraith (base Spectral/Dark, item evo)
+      {id:156, minLv:59, maxLv:64, rate:9},  // Venekon (mid, base 155 on route10 ✓)
+      {id:297, minLv:58, maxLv:63, rate:18},  // Blightwing (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
+      {id:165, minLv:59, maxLv:64, rate:13},  // Venowarn (mid, 164 on murk_crossing ✓)
+      {id:296, minLv:58, maxLv:63, rate:27},  // Plaguefly (base Poi/Bug)
+      {id:299, minLv:58, maxLv:63, rate:23},  // Stinglet (base Bug/Poi, also on route10)
+      {id:218, minLv:59, maxLv:64, rate:10}   // Duskmist (base Spectral/Dark, item evo)
     ],
+    legendaryEncounter:{monsterId:316, level:62}, // static legendary (obtainability fix)
     hasGym:false, requiredBadges:9, mapPos:{x:41, y:67}
   },
   magma_vent: {
@@ -5970,13 +6425,15 @@ const WORLD_DATA = {
     desc:"A superheated gorge where magma seeps through rock fissures between the foothills and Tremor Summit. Ground and Fire types bask in the thermal heat.",
     connections:["quake_foothills","tremor_summit"],
     wildMonsters:[
-      {id:96,  minLv:61, maxLv:66, rate:20},  // Seismith (mid, 95 on quake_foothills ✓)
-      {id:99,  minLv:61, maxLv:66, rate:20},  // Toxivenoth (mid, 98 on quake_foothills ✓)
-      {id:102, minLv:61, maxLv:66, rate:20},  // Dunoloth (mid, 101 on quake_foothills ✓)
-      {id:248, minLv:60, maxLv:65, rate:15},  // Pebblard (base Rock, also on route11)
-      {id:274, minLv:60, maxLv:65, rate:15},  // Cindling (base Fire/Rock)
-      {id:312, minLv:60, maxLv:65, rate:10}   // Dunecrawl (base Ground/Dark)
+      {id:96,  minLv:61, maxLv:66, rate:8},  // Seismith (mid, 95 on quake_foothills ✓)
+      {id:99,  minLv:61, maxLv:66, rate:14},  // Toxivenoth (mid, 98 on quake_foothills ✓)
+      {id:102, minLv:61, maxLv:66, rate:8},  // Dunoloth (mid, 101 on quake_foothills ✓)
+      {id:248, minLv:60, maxLv:65, rate:28},  // Pebblard (base Rock, also on route11)
+      {id:274, minLv:60, maxLv:65, rate:24},  // Cindling (base Fire/Rock)
+      {id:312, minLv:60, maxLv:65, rate:18}   // Dunecrawl (base Ground/Dark)
     ],
+    ngPlusWildMonsters:[{id:368, minLv:61, maxLv:66, rate:9}], // NG+ standalone: Willowisp
+    legendaryEncounter:{monsterId:321, level:63}, // base-game legendary (relocated from NG+ mega-areas)
     hasGym:false, requiredBadges:10, mapPos:{x:28, y:74}
   },
   fungal_cavern: {
@@ -5984,13 +6441,14 @@ const WORLD_DATA = {
     desc:"An underground cavern lit by bioluminescent fungi on the route to Cobweb Gully. Grass and Bug types thrive in the moist, glowing dark.",
     connections:["route12","cobweb_gully"],
     wildMonsters:[
-      {id:197, minLv:62, maxLv:67, rate:15},  // Vermelin (base Bug)
-      {id:215, minLv:62, maxLv:67, rate:20},  // Veilwisp (base Mental)
-      {id:216, minLv:63, maxLv:68, rate:15},  // Mindrift (mid → Psywisp 215 ✓)
-      {id:262, minLv:62, maxLv:67, rate:20},  // Seedling (base Grass/Poi)
-      {id:263, minLv:63, maxLv:68, rate:15},  // Vinrix (mid → after 262 ✓)
-      {id:272, minLv:62, maxLv:67, rate:15}   // Embrix (base Fire/Draconic)
+      {id:197, minLv:62, maxLv:67, rate:28},  // Photoworm (base Bug)
+      {id:215, minLv:62, maxLv:67, rate:24},  // Veilwisp (base Mental)
+      {id:216, minLv:63, maxLv:68, rate:10},  // Mindrift (mid → Psywisp 215 ✓)
+      {id:262, minLv:62, maxLv:67, rate:18},  // Transluceed (base Grass/Poi)
+      {id:263, minLv:63, maxLv:68, rate:6},  // Tendrilisk (mid → after 262 ✓)
+      {id:272, minLv:62, maxLv:67, rate:14}   // Embrix (base Fire/Draconic)
     ],
+    ngPlusWildMonsters:[{id:350, minLv:63, maxLv:68, rate:10}], // NG+ standalone: Fernwrath
     hasGym:false, requiredBadges:11, mapPos:{x:20, y:83}
   },
   ancient_grove: {
@@ -5998,13 +6456,15 @@ const WORLD_DATA = {
     desc:"A sacred forest grove of thousand-year-old trees. The air hums with ancient energy. Grass types here have evolved beyond their usual forms.",
     connections:["cobweb_gully","silkwood"],
     wildMonsters:[
-      {id:221, minLv:64, maxLv:69, rate:20},  // Grimveil (mid → Hauntrix 220 on route13 ✓)
-      {id:264, minLv:64, maxLv:69, rate:20},  // Thornvast (final → Vinrix 263 on fungal_cavern ✓)
-      {id:199, minLv:63, maxLv:68, rate:20},  // Aeridaleth (final Bug)
-      {id:265, minLv:63, maxLv:68, rate:20},  // Mosswing (standalone Grass/Bug)
-      {id:273, minLv:63, maxLv:68, rate:10},  // Blazeon (mid → Embrix 272 on fungal_cavern ✓)
+      {id:221, minLv:64, maxLv:69, rate:14},  // Shadowveil (mid → Hauntrix 220 on route13 ✓)
+      {id:264, minLv:64, maxLv:69, rate:13},  // Impenezard (final → Vinrix 263 on fungal_cavern ✓)
+      {id:199, minLv:63, maxLv:68, rate:27},  // Aeridaleth (final Bug)
+      {id:265, minLv:63, maxLv:68, rate:23},  // Mosswing (standalone Grass/Bug)
+      {id:273, minLv:63, maxLv:68, rate:13},  // Blazeon (mid → Embrix 272 on fungal_cavern ✓)
       {id:290, minLv:63, maxLv:68, rate:10}   // Mimiclaw (location evo cobweb_gully nearby)
     ],
+    legendaryEncounter:{monsterId:318, level:69}, // static legendary (obtainability fix)
+    ngPlusWildMonsters:[{id:390, minLv:64, maxLv:69, rate:8}], // thinned from mega-area
     hasGym:false, requiredBadges:11, mapPos:{x:14, y:86}
   },
   wind_hollow: {
@@ -6012,13 +6472,15 @@ const WORLD_DATA = {
     desc:"A sheltered bowl between cliff faces that creates a perfect wind tunnel. Rookie Wind-type Lumori train here before ascending Gale Ridge.",
     connections:["route13","gale_peak"],
     wildMonsters:[
-      {id:292, minLv:64, maxLv:69, rate:25},  // Galehorn (mid → 291 Breezekin on route13 ✓)
-      {id:293, minLv:63, maxLv:68, rate:20},  // Gustpuff (base Wind)
-      {id:222, minLv:63, maxLv:68, rate:20},  // Mindpuff (base Mental)
-      {id:223, minLv:64, maxLv:69, rate:15},  // Cerebrix (mid → after 222 ✓)
-      {id:238, minLv:63, maxLv:68, rate:10},  // Snowble (base Ice/Wind)
-      {id:284, minLv:63, maxLv:68, rate:10}   // Fluffkin (base Normal/Wind)
+      {id:292, minLv:64, maxLv:69, rate:6},  // Galehorn (mid → 291 Breezekin on route13 ✓)
+      {id:293, minLv:63, maxLv:68, rate:18},  // Gustpuff (base Wind)
+      {id:222, minLv:63, maxLv:68, rate:28},  // Mindpuff (base Mental)
+      {id:223, minLv:64, maxLv:69, rate:10},  // Recallum (mid → after 222 ✓)
+      {id:238, minLv:63, maxLv:68, rate:24},  // Snowble (base Ice/Wind)
+      {id:284, minLv:63, maxLv:68, rate:14}   // Fluffkin (base Normal/Wind)
     ],
+    legendaryEncounter:{monsterId:314, level:66}, // static legendary (obtainability fix)
+    ngPlusWildMonsters:[{id:375, minLv:64, maxLv:69, rate:8}], // thinned from mega-area
     hasGym:false, requiredBadges:12, mapPos:{x:8, y:93}
   },
   tempest_cliffs: {
@@ -6026,13 +6488,14 @@ const WORLD_DATA = {
     desc:"Sheer cliff faces battered by perpetual gales where Gale Ridge meets Gusthaven. Only the most powerful Wind types cling to the rockface here.",
     connections:["gale_ridge_east","gusthaven"],
     wildMonsters:[
-      {id:294, minLv:65, maxLv:70, rate:25},  // Stormwing (mid → 293 on gale_peak ✓)
-      {id:295, minLv:66, maxLv:71, rate:15},  // Cyclonax (final → after 294 ✓)
-      {id:239, minLv:65, maxLv:70, rate:20},  // Blizzariel (mid → 238 on gale_peak ✓)
-      {id:240, minLv:66, maxLv:71, rate:15},  // Permafrix (final → after 239 ✓)
-      {id:285, minLv:65, maxLv:70, rate:15},  // Cloudrift (mid → Fluffkin on wind_hollow ✓)
-      {id:174, minLv:65, maxLv:70, rate:10}   // Scalevorn (standalone Draconic/Metal)
+      {id:294, minLv:65, maxLv:70, rate:24},  // Stormwing (mid → 293 on gale_peak ✓)
+      {id:295, minLv:66, maxLv:71, rate:8},  // Cyclonax (final → after 294 ✓)
+      {id:239, minLv:65, maxLv:70, rate:28},  // Blizzariel (mid → 238 on gale_peak ✓)
+      {id:240, minLv:66, maxLv:71, rate:8},  // Tundrafox (final → after 239 ✓)
+      {id:285, minLv:65, maxLv:70, rate:18},  // Cloudrift (mid → Fluffkin on wind_hollow ✓)
+      {id:174, minLv:65, maxLv:70, rate:14}   // Scalevorn (standalone Draconic/Metal)
     ],
+    ngPlusWildMonsters:[{id:386, minLv:66, maxLv:71, rate:8}, {id:333, minLv:66, maxLv:71, rate:10}], // NG+ standalone: Voltfang
     hasGym:false, requiredBadges:12, mapPos:{x:16, y:97}
   },
   ash_fields: {
@@ -6040,13 +6503,15 @@ const WORLD_DATA = {
     desc:"A barren expanse of volcanic ash fields between Gusthaven and the Forge Ruins. Fire types scorch the ashen ground, and Metal types scavenge the slag.",
     connections:["route14","forge_ruins"],
     wildMonsters:[
-      {id:245, minLv:66, maxLv:71, rate:25},  // Thundravex (mid Electric → 244 ✓)
-      {id:275, minLv:66, maxLv:71, rate:25},  // Infernox (mid → 274 Cindling on magma_vent ✓)
-      {id:266, minLv:65, maxLv:70, rate:20},  // Shadowpup (base Dark, also route10)
-      {id:267, minLv:66, maxLv:71, rate:15},  // Nightclaw (mid → after 266 ✓)
-      {id:278, minLv:65, maxLv:70, rate:10},  // Ironling (base, also route14)
+      {id:301, minLv:66, maxLv:71, rate:6}, // Emberveil (obtainability fix)
+      {id:245, minLv:66, maxLv:71, rate:9},  // Thundravex (mid Electric → 244 ✓)
+      {id:275, minLv:66, maxLv:71, rate:13},  // Infernox (mid → 274 Cindling on magma_vent ✓)
+      {id:266, minLv:65, maxLv:70, rate:27},  // Shadowpup (base Dark, also route10)
+      {id:267, minLv:66, maxLv:71, rate:17},  // Nightclaw (mid → after 266 ✓)
+      {id:278, minLv:65, maxLv:70, rate:23},  // Ironling (base, also route14)
       {id:312, minLv:65, maxLv:70, rate:5}    // Dunecrawl (base, also magma_vent)
     ],
+    ngPlusWildMonsters:[{id:376, minLv:67, maxLv:72, rate:8}, {id:358, minLv:66, maxLv:71, rate:9}], // NG+ standalone: Pyrocrown
     hasGym:false, requiredBadges:13, mapPos:{x:30, y:90}
   },
   smelter_pass: {
@@ -6061,6 +6526,7 @@ const WORLD_DATA = {
       {id:268, minLv:67, maxLv:72, rate:10},  // Darkfang (final Dark → 267 ✓)
       {id:307, minLv:66, maxLv:71, rate:10}   // Cinderpaw (standalone Fire/Dark)
     ],
+    ngPlusWildMonsters:[{id:365, minLv:67, maxLv:72, rate:9}], // NG+ standalone: Cinderking
     hasGym:false, requiredBadges:13, mapPos:{x:36, y:91}
   },
   granite_tunnels: {
@@ -6068,13 +6534,14 @@ const WORLD_DATA = {
     desc:"Underground tunnels bored through solid granite linking Ironforge to the Stone Plateau. Rock and Draconic types nest in the crystalline formations.",
     connections:["route15","stone_plateau"],
     wildMonsters:[
-      {id:249, minLv:68, maxLv:73, rate:25},  // Boulderax (mid → 248 on route11/magma_vent ✓)
-      {id:305, minLv:68, maxLv:73, rate:20},  // Geoshard (mid → 304 Crysthorn on route15 ✓)
-      {id:233, minLv:68, maxLv:73, rate:20},  // Serpenthorn (mid → 232 Draxon on route15 ✓)
-      {id:174, minLv:68, maxLv:73, rate:15},  // Scalevorn (standalone Draconic/Metal)
-      {id:251, minLv:67, maxLv:72, rate:10},  // Crumblite (base Rock/Metal, also route15)
-      {id:282, minLv:68, maxLv:73, rate:10}   // Mechavast (final → Cogvex on smelter_pass ✓)
+      {id:249, minLv:68, maxLv:73, rate:24},  // Boulderax (mid → 248 on route11/magma_vent ✓)
+      {id:305, minLv:68, maxLv:73, rate:14},  // Geoshard (mid → 304 Crysthorn on route15 ✓)
+      {id:233, minLv:68, maxLv:73, rate:18},  // Serpenthorn (mid → 232 Draxon on route15 ✓)
+      {id:174, minLv:68, maxLv:73, rate:10},  // Scalevorn (standalone Draconic/Metal)
+      {id:251, minLv:67, maxLv:72, rate:28},  // Crumblite (base Rock/Metal, also route15)
+      {id:282, minLv:68, maxLv:73, rate:6}   // Mechavast (final → Cogvex on smelter_pass ✓)
     ],
+    ngPlusWildMonsters:[{id:374, minLv:68, maxLv:73, rate:8}], // thinned from mega-area
     hasGym:false, requiredBadges:14, mapPos:{x:46, y:84}
   },
   crystal_mine: {
@@ -6082,13 +6549,15 @@ const WORLD_DATA = {
     desc:"An exhausted gem mine between Stone Plateau and Quarryville where crystalline Rock types have colonized the abandoned shafts.",
     connections:["stone_plateau","quarryville"],
     wildMonsters:[
-      {id:250, minLv:70, maxLv:75, rate:20},  // Megalith (final → 249 on granite_tunnels ✓)
-      {id:306, minLv:70, maxLv:75, rate:20},  // Crystallon (final → 305 on granite_tunnels ✓)
-      {id:234, minLv:70, maxLv:75, rate:20},  // Wyvernak (final → 233 on granite_tunnels ✓)
-      {id:237, minLv:69, maxLv:74, rate:15},  // Icevault (mid → 236 Frostick on route11 ✓)
-      {id:313, minLv:69, maxLv:74, rate:15},  // Sandrix (mid → 312 Dunecrawl on magma_vent ✓)
+      {id:250, minLv:70, maxLv:75, rate:14},  // Megalith (final → 249 on granite_tunnels ✓)
+      {id:306, minLv:70, maxLv:75, rate:13},  // Crystallon (final → 305 on granite_tunnels ✓)
+      {id:234, minLv:70, maxLv:75, rate:13},  // Wyvernak (final → 233 on granite_tunnels ✓)
+      {id:237, minLv:69, maxLv:74, rate:27},  // Icevault (mid → 236 Frostick on route11 ✓)
+      {id:313, minLv:69, maxLv:74, rate:23},  // Sandrix (mid → 312 Dunecrawl on magma_vent ✓)
       {id:241, minLv:70, maxLv:75, rate:10}   // Shardlix (location evo from cosmic_cavern energy)
     ],
+    legendaryEncounter:{monsterId:317, level:73}, // static legendary (obtainability fix)
+    ngPlusWildMonsters:[{id:388, minLv:70, maxLv:75, rate:8}, {id:340, minLv:70, maxLv:75, rate:10}], // NG+ standalone: Cryoshard
     hasGym:false, requiredBadges:14, mapPos:{x:53, y:83}
   },
   nebula_gorge: {
@@ -6096,14 +6565,15 @@ const WORLD_DATA = {
     desc:"A star-dusted gorge where cosmic energy from nearby Starbloom saturates the air. Mental and Fairy types commune with the starlight here.",
     connections:["route16","cosmic_cavern"],
     wildMonsters:[
-      {id:254, minLv:70, maxLv:75, rate:20},  // Bubblepuff (base, also on route16)
-      {id:255, minLv:71, maxLv:76, rate:20},  // Wavrix (mid → after 254 ✓)
-      {id:215, minLv:70, maxLv:75, rate:15},  // Veilwisp (base Mental)
-      {id:216, minLv:71, maxLv:76, rate:15},  // Mindrift (mid → Psywisp 215 ✓)
-      {id:259, minLv:70, maxLv:75, rate:15},  // Lumejell (standalone Aquatic/Psy)
+      {id:254, minLv:70, maxLv:75, rate:21},  // Bubblepuff (base, also on route16)
+      {id:255, minLv:71, maxLv:76, rate:13},  // Psychotide (mid → after 254 ✓)
+      {id:215, minLv:70, maxLv:75, rate:26},  // Veilwisp (base Mental)
+      {id:216, minLv:71, maxLv:76, rate:17},  // Mindrift (mid → Psywisp 215 ✓)
+      {id:259, minLv:70, maxLv:75, rate:8},  // Lumejell (standalone Aquatic/Psy)
       {id:269, minLv:70, maxLv:75, rate:10},  // Grimshade (base Dark, item evo)
       {id:271, minLv:70, maxLv:75, rate:5}    // Murkrat (standalone Dark/Normal)
     ],
+    ngPlusWildMonsters:[{id:387, minLv:71, maxLv:76, rate:8}, {id:354, minLv:71, maxLv:76, rate:9}], // NG+ standalone: Riftwhale
     hasGym:false, requiredBadges:15, mapPos:{x:64, y:76}
   },
   astral_plateau: {
@@ -6111,14 +6581,15 @@ const WORLD_DATA = {
     desc:"A high plateau above Cosmic Cavern where the sky seems close enough to touch. Rare Lumori shaped by cosmic energy appear here in the hours around midnight.",
     connections:["cosmic_cavern","starbloom"],
     wildMonsters:[
-      {id:217, minLv:72, maxLv:77, rate:20},  // Mentovast (final Mental)
-      {id:224, minLv:72, maxLv:77, rate:20},  // Psytheon (final → 223 on cosmic_cavern ✓)
+      {id:217, minLv:72, maxLv:77, rate:14},  // Distorsion (final Mental)
+      {id:224, minLv:72, maxLv:77, rate:14},  // Psytheon (final → 223 on cosmic_cavern ✓)
       {id:303, minLv:72, maxLv:77, rate:15},  // Lumivane (Moon Stone evo, base 302 on route16 ✓)
-      {id:229, minLv:72, maxLv:77, rate:15},  // Prismolt (Thunder Stone evo, base 226 on route16 ✓)
-      {id:228, minLv:72, maxLv:77, rate:10},  // Spectroon (Moon Stone evo, base 226 on route16 ✓)
+      {id:229, minLv:72, maxLv:77, rate:15},  // Radiafish (Thunder Stone evo, base 226 on route16 ✓)
+      {id:228, minLv:72, maxLv:77, rate:10},  // Lunaroon (Moon Stone evo, base 226 on route16 ✓)
       {id:309, minLv:72, maxLv:77, rate:10},  // Tidephant (Aquatic Stone evo, base 308 → Aquatic/Dark)
-      {id:308, minLv:71, maxLv:76, rate:10}   // Seafraith (base Aquatic/Dark)
+      {id:308, minLv:71, maxLv:76, rate:22}   // Seafraith (base Aquatic/Dark)
     ],
+    ngPlusWildMonsters:[{id:346, minLv:72, maxLv:77, rate:10}], // NG+ standalone: Astralwing
     hasGym:false, requiredBadges:15, mapPos:{x:67, y:74}
   },
 
@@ -6130,10 +6601,10 @@ const WORLD_DATA = {
     desc:"A concealed laboratory carved into the cliffs near the Void Rift. Umbra scientists who fled justice still experiment here, mutating Lumori with void energy. Fire and Poison types roam the toxic corridors.",
     connections:["void_rift","shadow_archive"],
     wildMonsters:[
-      {id:52,  minLv:65, maxLv:70, rate:20},
-      {id:55,  minLv:65, maxLv:70, rate:20},
-      {id:156, minLv:66, maxLv:71, rate:20},
-      {id:159, minLv:67, maxLv:72, rate:20},
+      {id:52,  minLv:65, maxLv:70, rate:17},
+      {id:55,  minLv:65, maxLv:70, rate:33},
+      {id:156, minLv:66, maxLv:71, rate:28},
+      {id:159, minLv:67, maxLv:72, rate:17},
       {id:315, minLv:68, maxLv:72, rate:5}   // Ashvanus roams the vents
     ],
     hasGym:false, requiredBadges:16, requiresChampion:true,
@@ -6158,9 +6629,9 @@ const WORLD_DATA = {
     desc:"The heart of Umbra's post-defeat operations — a nexus of void energy deep in unmapped territory. Only the strongest trainers reach this place. Ultra-rare Lumori cluster around the residual void energy.",
     connections:["shadow_archive","prismatic_rift","vaeldrian_reaches"],
     wildMonsters:[
-      {id:270, minLv:72, maxLv:78, rate:20},
-      {id:267, minLv:72, maxLv:78, rate:20},
-      {id:269, minLv:73, maxLv:78, rate:15},
+      {id:270, minLv:72, maxLv:78, rate:18},
+      {id:267, minLv:72, maxLv:78, rate:31},
+      {id:269, minLv:73, maxLv:78, rate:41},
       {id:319, minLv:74, maxLv:78, rate:5},
       {id:320, minLv:74, maxLv:78, rate:5}
     ],
@@ -6187,23 +6658,16 @@ const WORLD_DATA = {
     desc:"A fracture in reality shimmering with all colours at once. Only those who have already conquered Lumoria once can perceive its existence. Lumori here have been twisted by exposure to every type simultaneously.",
     connections:["void_nexus","apex_summit"],
     wildMonsters:[
-      {id:300, minLv:82, maxLv:88, rate:20},
-      {id:150, minLv:83, maxLv:88, rate:15},
-      {id:130, minLv:84, maxLv:90, rate:10},
-      {id:310, minLv:84, maxLv:90, rate:10},
-      {id:321, minLv:85, maxLv:92, rate:5},
-      {id:372, minLv:84, maxLv:90, rate:10},
-      {id:373, minLv:84, maxLv:90, rate:8},
-      {id:374, minLv:85, maxLv:91, rate:8},
-      {id:375, minLv:85, maxLv:91, rate:8},
-      {id:376, minLv:85, maxLv:91, rate:7},
-      {id:377, minLv:86, maxLv:92, rate:7},
-      {id:378, minLv:86, maxLv:92, rate:7},
-      {id:379, minLv:86, maxLv:92, rate:6},
-      {id:380, minLv:87, maxLv:93, rate:5},
-      {id:381, minLv:87, maxLv:93, rate:4},
-      {id:403, minLv:85, maxLv:91, rate:5},
-      {id:406, minLv:85, maxLv:91, rate:5}
+      {id:300, minLv:82, maxLv:88, rate:23},
+      {id:150, minLv:83, maxLv:88, rate:17},
+      {id:310, minLv:84, maxLv:90, rate:11},
+      {id:372, minLv:84, maxLv:90, rate:11},
+      {id:378, minLv:86, maxLv:92, rate:8},
+      {id:379, minLv:86, maxLv:92, rate:7},
+      {id:380, minLv:87, maxLv:93, rate:6},
+      {id:381, minLv:87, maxLv:93, rate:5},
+      {id:403, minLv:85, maxLv:91, rate:6},
+      {id:406, minLv:85, maxLv:91, rate:6}
     ],
     hasGym:false, requiredBadges:16, requiresChampion:true, requiresNGPlus:true,
     mapPos:{x:76, y:84}
@@ -6213,31 +6677,16 @@ const WORLD_DATA = {
     desc:"The highest point in all of Lumoria, accessible only to trainers who have already stood as Champion. A legendary Lumori of pure light waits here for someone worthy of a second journey.",
     connections:["prismatic_rift"],
     wildMonsters:[
-      {id:1,   minLv:85, maxLv:90, rate:20},
-      {id:130, minLv:86, maxLv:92, rate:15},
-      {id:321, minLv:88, maxLv:95, rate:5},
-      {id:382, minLv:87, maxLv:93, rate:12},
-      {id:383, minLv:87, maxLv:93, rate:10},
-      {id:384, minLv:88, maxLv:94, rate:8},
-      {id:385, minLv:88, maxLv:94, rate:8},
-      {id:386, minLv:88, maxLv:94, rate:7},
-      {id:387, minLv:89, maxLv:95, rate:6},
-      {id:388, minLv:89, maxLv:95, rate:6},
-      {id:389, minLv:89, maxLv:95, rate:5},
-      {id:390, minLv:90, maxLv:96, rate:4},
-      {id:391, minLv:90, maxLv:96, rate:4},
-      {id:392, minLv:90, maxLv:96, rate:3},
-      {id:393, minLv:91, maxLv:97, rate:3},
-      {id:394, minLv:91, maxLv:97, rate:2},
-      {id:395, minLv:91, maxLv:97, rate:2},
-      {id:396, minLv:92, maxLv:98, rate:2},
-      {id:397, minLv:92, maxLv:98, rate:2},
-      {id:398, minLv:92, maxLv:98, rate:2},
-      {id:399, minLv:93, maxLv:99, rate:1},
-      {id:400, minLv:93, maxLv:99, rate:1},
-      {id:401, minLv:95, maxLv:100, rate:1},
-      {id:404, minLv:90, maxLv:96, rate:3},
-      {id:407, minLv:90, maxLv:96, rate:3}
+      {id:384, minLv:88, maxLv:94, rate:27},
+      {id:389, minLv:89, maxLv:95, rate:16},
+      {id:392, minLv:90, maxLv:96, rate:10},
+      {id:394, minLv:91, maxLv:97, rate:7},
+      {id:395, minLv:91, maxLv:97, rate:7},
+      {id:398, minLv:92, maxLv:98, rate:7},
+      {id:400, minLv:93, maxLv:99, rate:3},
+      {id:401, minLv:95, maxLv:100, rate:3},
+      {id:404, minLv:90, maxLv:96, rate:10},
+      {id:407, minLv:90, maxLv:96, rate:10}
     ],
     hasGym:false, requiredBadges:16, requiresChampion:true, requiresNGPlus:true,
     isApexBoss:true, mapPos:{x:70, y:88}
@@ -7097,20 +7546,20 @@ const UMBRA_BATTLES = {
     reward:{ ultraOrb:3, maxPotion:3 },
     teams:{
       single:[
-        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","overheat","smog"]},
+        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","solar_flare","sludge_bomb"]},
         {monsterId:159, level:70, moves:["sludge_bomb","venoshock","gunk_shot","toxic"]},
         {monsterId:315, level:72, moves:["magma_rock","fire_blast","stone_edge","caldera_meltdown"]}
       ],
       double:[
-        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","overheat","smog"]},
-        {monsterId:55,  level:69, moves:["fire_blast","flamethrower","heat_wave","smog"]},
+        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","solar_flare","sludge_bomb"]},
+        {monsterId:55,  level:69, moves:["fire_blast","flamethrower","heat_wave","sludge_bomb"]},
         {monsterId:159, level:70, moves:["sludge_bomb","venoshock","gunk_shot","toxic"]},
         {monsterId:315, level:72, moves:["magma_rock","fire_blast","stone_edge","caldera_meltdown"]}
       ],
       triple:[
-        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","overheat","smog"]},
-        {monsterId:55,  level:69, moves:["fire_blast","flamethrower","heat_wave","smog"]},
-        {monsterId:156, level:69, moves:["venoshock","sludge_bomb","toxic","poison_fang"]},
+        {monsterId:52,  level:68, moves:["flamethrower","fire_blast","solar_flare","sludge_bomb"]},
+        {monsterId:55,  level:69, moves:["fire_blast","flamethrower","heat_wave","sludge_bomb"]},
+        {monsterId:156, level:69, moves:["venoshock","sludge_bomb","toxic","corrosion_fang"]},
         {monsterId:159, level:70, moves:["sludge_bomb","venoshock","gunk_shot","toxic"]},
         {monsterId:315, level:72, moves:["magma_rock","fire_blast","stone_edge","caldera_meltdown"]}
       ]
@@ -7135,7 +7584,7 @@ const UMBRA_BATTLES = {
         {monsterId:320, level:75, moves:["thunder","flash_cannon","forge_strike","anvil_drop"]}
       ],
       triple:[
-        {monsterId:131, level:70, moves:["shadow_ball","dark_pulse","giga_drain","energy_ball"]},
+        {monsterId:131, level:70, moves:["shadow_ball","dark_pulse","verdant_surge","energy_ball"]},
         {monsterId:136, level:71, moves:["flash_cannon","iron_tail","forge_strike","dark_pulse"]},
         {monsterId:122, level:72, moves:["dark_pulse","air_slash","shadow_ball","wing_attack"]},
         {monsterId:133, level:73, moves:["crunch","stone_edge","shadow_ball","dark_pulse"]},
@@ -7216,14 +7665,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Stellarion appeared during the great centennial alignment — a night when every constellation in Vaeldris locked into perfect geometric relation. It did not emerge from anywhere visible. The temple stones simply parted for it. I had been the temple's keeper for eleven years. It walked to me, looked at me once, and never left. I still do not know if I found it or if it was simply done waiting for me to arrive.",
     vaeldrisLore:"Vaeldris was not like other regions. Its Ley lines ran near enough to the surface that you could feel them if you knew how to listen — a low resonance in the stone, a pressure behind the eyes in certain valleys. The sacred temples I kept were built on convergence points of that energy, built by people who understood it long before any formal study existed. That energy was the reason the 39 came. It was the reason all of this happened.",
     team:[
-      {monsterId:408, level:98, moves:["psychic_move","air_slash","moonblast","aura_veil_strike"]},
-      {monsterId:409, level:99, moves:["moonblast","earth_power","dazzling_gleam","luma_quake"]},
-      {monsterId:410, level:100, moves:["flash_cannon","moonblast","celestial_forge","star_cannon"]}
+      {monsterId:462, level:98, moves:["psychic_move","air_slash","moonblast","aura_veil_strike"]},
+      {monsterId:463, level:99, moves:["moonblast","earth_power","dazzling_gleam","luma_quake"]},
+      {monsterId:464, level:100, moves:["flash_cannon","moonblast","celestial_forge","star_cannon"]}
     ],
     ngTeam:[
-      {monsterId:408, level:100, moves:["psychic_move","air_slash","moonblast","aura_veil_strike"]},
-      {monsterId:409, level:102, moves:["moonblast","earth_power","dazzling_gleam","luma_quake"]},
-      {monsterId:410, level:105, moves:["flash_cannon","moonblast","celestial_forge","star_cannon"]}
+      {monsterId:462, level:100, moves:["psychic_move","air_slash","moonblast","aura_veil_strike"]},
+      {monsterId:463, level:102, moves:["moonblast","earth_power","dazzling_gleam","luma_quake"]},
+      {monsterId:464, level:105, moves:["flash_cannon","moonblast","celestial_forge","star_cannon"]}
     ]
   },
   wielder_morrigan: {
@@ -7233,14 +7682,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Voidwing had been trying to extinguish Vaeldris's coastal fires alone for three days when I found it. Working with its ice and psychic force against blazes it could not possibly stop, exhausted past anything that should have allowed it to keep moving. When I reached it, it looked at me and did not run. That was the only introduction we needed — two things past feeling, deciding without words to face what remained together.",
     vaeldrisLore:"The 39 were not native to Vaeldris. They came from places beyond known maps — older, stranger places — drawn by the Ley resonance into a region that could sustain them. While Vaeldris lived, scholars came from four regions to study them. They were proof that Lumori could be something older, shaped by forces no other region offered. We were proud. After Vaeldris fell, the world forgot they had ever existed at all.",
     team:[
-      {monsterId:411, level:98, moves:["shadow_ball","dark_pulse","void_rend","nyx_fang"]},
-      {monsterId:412, level:99, moves:["fire_blast","sludge_wave","dark_pulse","toxic_blaze"]},
-      {monsterId:413, level:100, moves:["blizzard","psystrike","mind_blizzard","frost_pulse"]}
+      {monsterId:465, level:98, moves:["shadow_ball","dark_pulse","void_rend","nyx_fang"]},
+      {monsterId:466, level:99, moves:["fire_blast","sludge_wave","dark_pulse","toxic_blaze"]},
+      {monsterId:467, level:100, moves:["blizzard","psystrike","mind_blizzard","frost_pulse"]}
     ],
     ngTeam:[
-      {monsterId:411, level:100, moves:["shadow_ball","dark_pulse","void_rend","nyx_fang"]},
-      {monsterId:412, level:102, moves:["fire_blast","sludge_wave","dark_pulse","toxic_blaze"]},
-      {monsterId:413, level:105, moves:["blizzard","psystrike","mind_blizzard","frost_pulse"]}
+      {monsterId:465, level:100, moves:["shadow_ball","dark_pulse","void_rend","nyx_fang"]},
+      {monsterId:466, level:102, moves:["fire_blast","sludge_wave","dark_pulse","toxic_blaze"]},
+      {monsterId:467, level:105, moves:["blizzard","psystrike","mind_blizzard","frost_pulse"]}
     ]
   },
   wielder_kael: {
@@ -7250,14 +7699,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"I was sixteen the first time I saw Stormdrake. A surge had rolled over Vaeldris's northern cliffs without warning and I had climbed to the top to watch it — which was not wise. Stormdrake was already there. It had been watching storms since before my great-grandparents were born. It ignored me for three hours. Then the storm broke and it looked at me and made a sound I have never been able to describe. I consider it the best conversation of my life.",
     vaeldrisLore:"We were not selected. We were recognized. The region had a way of making itself known to certain people — a particular resonance, a quality of light in specific valleys. The 39 came to each of us individually, years apart. When the last of us was found, we had not announced ourselves as a group. We had simply, without planning it, become one. The Ley Network settled the day all 13 bonds were formed. None of us realized it until much later.",
     team:[
-      {monsterId:414, level:98, moves:["thunderbolt","flash_cannon","volt_surge","volt_rail"]},
-      {monsterId:415, level:99, moves:["stone_edge","dragon_pulse","obsidian_crash","arc_strike"]},
-      {monsterId:416, level:100, moves:["hurricane","hydro_pump","torrent_shell","swarm_tide"]}
+      {monsterId:468, level:98, moves:["thunderbolt","flash_cannon","volt_surge","volt_rail"]},
+      {monsterId:469, level:99, moves:["stone_edge","dragon_pulse","obsidian_crash","arc_strike"]},
+      {monsterId:470, level:100, moves:["hurricane","hydro_pump","torrent_shell","swarm_tide"]}
     ],
     ngTeam:[
-      {monsterId:414, level:100, moves:["thunderbolt","flash_cannon","volt_surge","volt_rail"]},
-      {monsterId:415, level:102, moves:["stone_edge","dragon_pulse","obsidian_crash","arc_strike"]},
-      {monsterId:416, level:105, moves:["hurricane","hydro_pump","torrent_shell","swarm_tide"]}
+      {monsterId:468, level:100, moves:["thunderbolt","flash_cannon","volt_surge","volt_rail"]},
+      {monsterId:469, level:102, moves:["stone_edge","dragon_pulse","obsidian_crash","arc_strike"]},
+      {monsterId:470, level:105, moves:["hurricane","hydro_pump","torrent_shell","swarm_tide"]}
     ]
   },
   wielder_thessaly: {
@@ -7267,14 +7716,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"The eastern fault line was shifting the day Gaiasurge came to me — shifting in a way that should have destroyed three villages. Gaiasurge went to the fault and stood there for six hours, legs braced against tectonic forces that could have split a continent. It did not ask for help. It did not acknowledge me until it was done. Then it walked to where I was standing and sat down beside me. I have never found words for what I felt. I have stopped trying.",
     vaeldrisLore:"The Ley Network was Vaeldris's circulatory system — lines of convergent elemental energy running beneath every stone and current and root. A researcher named Solarn mapped it completely for the first time in recorded history. His maps were extraordinary. They showed exactly where every line ran, exactly where they converged, exactly how the energy moved. They were the most accurate document of Vaeldris's internal structure that had ever existed. We should have been more careful about what he did with them afterward.",
     team:[
-      {monsterId:417, level:98, moves:["seed_bomb","sludge_bomb","energy_ball","root_toxin"]},
-      {monsterId:418, level:99, moves:["stone_edge","flash_cannon","obsidian_crash","mineral_lance"]},
-      {monsterId:419, level:100, moves:["earthquake","earth_power","tectonic_wrath","quake_barrage"]}
+      {monsterId:471, level:98, moves:["seed_bomb","sludge_bomb","energy_ball","root_toxin"]},
+      {monsterId:472, level:99, moves:["stone_edge","flash_cannon","obsidian_crash","mineral_lance"]},
+      {monsterId:473, level:100, moves:["earthquake","earth_power","tectonic_wrath","quake_barrage"]}
     ],
     ngTeam:[
-      {monsterId:417, level:100, moves:["seed_bomb","sludge_bomb","energy_ball","root_toxin"]},
-      {monsterId:418, level:102, moves:["stone_edge","flash_cannon","obsidian_crash","mineral_lance"]},
-      {monsterId:419, level:105, moves:["earthquake","earth_power","tectonic_wrath","quake_barrage"]}
+      {monsterId:471, level:100, moves:["seed_bomb","sludge_bomb","energy_ball","root_toxin"]},
+      {monsterId:472, level:102, moves:["stone_edge","flash_cannon","obsidian_crash","mineral_lance"]},
+      {monsterId:473, level:105, moves:["earthquake","earth_power","tectonic_wrath","quake_barrage"]}
     ]
   },
   wielder_nereus: {
@@ -7284,14 +7733,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"My diving equipment failed at four thousand meters. Something enormous caught me in the dark before I hit the trench floor. I woke on the surface with Abyssalon circling beneath me — a silhouette the size of a ship, visible only because the water around it was colder than the deep current. It had carried me up four kilometers without explanation. I have returned to that depth many times since. Each time I am afraid. Each time I know I am exactly where I am supposed to be.",
     vaeldrisLore:"Solarn's maps revealed something none of us had suspected. All the Ley lines converged at a single node — not near the center of Vaeldris but exactly the center, with a mathematical precision that could not be natural. Something had placed them there, long before any recorded history. Solarn spent a year determining what. When he found his answer, he published it in academic journals across three regions. The answer attracted attention. Not the kind he had intended.",
     team:[
-      {monsterId:420, level:98, moves:["surf","psychic_move","hydro_pump","thought_stream"]},
-      {monsterId:421, level:99, moves:["crunch","venom_lance","dark_pulse","dark_corrosion"]},
-      {monsterId:422, level:100, moves:["dragon_claw","blizzard","glacial_riptide","tidal_fang"]}
+      {monsterId:474, level:98, moves:["surf","psychic_move","hydro_pump","thought_stream"]},
+      {monsterId:475, level:99, moves:["crunch","venom_lance","dark_pulse","dark_corrosion"]},
+      {monsterId:476, level:100, moves:["dragon_claw","blizzard","glacial_riptide","tidal_fang"]}
     ],
     ngTeam:[
-      {monsterId:420, level:100, moves:["surf","psychic_move","hydro_pump","thought_stream"]},
-      {monsterId:421, level:102, moves:["crunch","venom_lance","dark_pulse","dark_corrosion"]},
-      {monsterId:422, level:105, moves:["dragon_claw","blizzard","glacial_riptide","tidal_fang"]}
+      {monsterId:474, level:100, moves:["surf","psychic_move","hydro_pump","thought_stream"]},
+      {monsterId:475, level:102, moves:["crunch","venom_lance","dark_pulse","dark_corrosion"]},
+      {monsterId:476, level:105, moves:["dragon_claw","blizzard","glacial_riptide","tidal_fang"]}
     ]
   },
   wielder_caelia: {
@@ -7301,14 +7750,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Skydrak lives at the edge of breathable atmosphere. I reached it once, on borrowed altitude, running out of air. It appeared from nowhere and flew beneath me. I do not know why. I have spent years wondering whether it was instinct, whether it recognized something in me, whether I simply fell in its direction at the right moment. Skydrak has shown no interest in clarifying this. After all our years together, I have come to understand that this is its way of saying the reason should already be obvious.",
     vaeldrisLore:"Within a year of Solarn's publication, something had begun following his work. Not reading it — consuming it. Absorbing the mapped knowledge of the Ley Network the way certain Lumori absorb elemental energy, drawing the information into itself across a vast distance. We did not notice it immediately because it had no body. It was attending to our world with something older and more patient than eyes. By the time Solarn recognized what was happening, it had already found what it came for.",
     team:[
-      {monsterId:423, level:98, moves:["moonblast","thunderbolt","dazzling_gleam","aether_shock"]},
-      {monsterId:424, level:99, moves:["air_slash","flash_cannon","hurricane","steel_gale"]},
-      {monsterId:425, level:100, moves:["hurricane","specter_pulse","phantom_gale","void_cyclone"]}
+      {monsterId:477, level:98, moves:["moonblast","thunderbolt","dazzling_gleam","aether_shock"]},
+      {monsterId:478, level:99, moves:["air_slash","flash_cannon","hurricane","steel_gale"]},
+      {monsterId:479, level:100, moves:["hurricane","specter_pulse","phantom_gale","void_cyclone"]}
     ],
     ngTeam:[
-      {monsterId:423, level:100, moves:["moonblast","thunderbolt","dazzling_gleam","aether_shock"]},
-      {monsterId:424, level:102, moves:["air_slash","flash_cannon","hurricane","steel_gale"]},
-      {monsterId:425, level:105, moves:["hurricane","specter_pulse","phantom_gale","void_cyclone"]}
+      {monsterId:477, level:100, moves:["moonblast","thunderbolt","dazzling_gleam","aether_shock"]},
+      {monsterId:478, level:102, moves:["air_slash","flash_cannon","hurricane","steel_gale"]},
+      {monsterId:479, level:105, moves:["hurricane","specter_pulse","phantom_gale","void_cyclone"]}
     ]
   },
   wielder_dravek: {
@@ -7318,14 +7767,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"I was nineteen and angry at everything when I descended into Vaeldris's volcanic interior, looking for something to prove. Pyralloy was asleep in the magma. It woke when I arrived and regarded me with the expression of someone interrupted during something important. That expression has not meaningfully changed in thirty years. I have come to find it comforting — it is the face of a creature with nothing left to prove, looking at one who has not yet learned that lesson.",
     vaeldrisLore:"The entity fed precisely. It consumed the minor Ley convergence nodes first — dozens of them over months — so slowly that the early tremors seemed like ordinary geological activity. By the time Solarn recognized the pattern, fourteen nodes were already gone. It had been patient. It had been thorough. It understood the Network better than most of us did. Solarn came to the thirteen of us with his analysis. He told us we had perhaps two weeks before the larger nodes began to fall.",
     team:[
-      {monsterId:426, level:98, moves:["fire_blast","flash_cannon","solar_flare","pyro_alloy"]},
-      {monsterId:427, level:99, moves:["dark_pulse","earth_power","obsidian_fang","smoldering_abyss"]},
-      {monsterId:428, level:100, moves:["dragon_claw","venom_lance","venom_surge","acid_burst"]}
+      {monsterId:480, level:98, moves:["fire_blast","flash_cannon","solar_flare","pyro_alloy"]},
+      {monsterId:481, level:99, moves:["dark_pulse","earth_power","obsidian_fang","smoldering_abyss"]},
+      {monsterId:482, level:100, moves:["dragon_claw","venom_lance","venom_surge","acid_burst"]}
     ],
     ngTeam:[
-      {monsterId:426, level:100, moves:["fire_blast","flash_cannon","solar_flare","pyro_alloy"]},
-      {monsterId:427, level:102, moves:["dark_pulse","earth_power","obsidian_fang","smoldering_abyss"]},
-      {monsterId:428, level:105, moves:["dragon_claw","venom_lance","venom_surge","acid_burst"]}
+      {monsterId:480, level:100, moves:["fire_blast","flash_cannon","solar_flare","pyro_alloy"]},
+      {monsterId:481, level:102, moves:["dark_pulse","earth_power","obsidian_fang","smoldering_abyss"]},
+      {monsterId:482, level:105, moves:["dragon_claw","venom_lance","venom_surge","acid_burst"]}
     ]
   },
   wielder_nylara: {
@@ -7335,14 +7784,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"I was sitting in my study the night after the evacuation order, doing nothing, staring at a wall. The door opened. Frostdrax came in, looked at me, and curled up beside my desk. I had not sought it. It had found its way to me across a thousand kilometers of collapsing region and simply decided to stay. I believe it understood something that night that took me years longer to reach: that choosing to remain beside someone who is grieving is its own kind of strength.",
     vaeldrisLore:"Solarn had identified a failsafe. The central convergence node could be deliberately collapsed — it would destroy the Ley Network permanently, but the entity would have nothing left to consume. The window was 37 hours. It required physically destroying the shutdown mechanism at the node itself. It would cost Vaeldris everything it was, but it would stop the entity from reaching any other region. Rax did not hesitate. He said he would go. He left within the hour.",
     team:[
-      {monsterId:429, level:98, moves:["ice_beam","flash_cannon","alloy_edge","cryo_plate"]},
-      {monsterId:430, level:99, moves:["crunch","obsidian_crash","eclipse_shroud","cryo_shatter"]},
-      {monsterId:431, level:100, moves:["specter_pulse","moonblast","winter_shade","glacial_spirit"]}
+      {monsterId:483, level:98, moves:["ice_beam","flash_cannon","alloy_edge","cryo_plate"]},
+      {monsterId:484, level:99, moves:["crunch","obsidian_crash","eclipse_shroud","cryo_shatter"]},
+      {monsterId:485, level:100, moves:["specter_pulse","moonblast","winter_shade","glacial_spirit"]}
     ],
     ngTeam:[
-      {monsterId:429, level:100, moves:["ice_beam","flash_cannon","alloy_edge","cryo_plate"]},
-      {monsterId:430, level:102, moves:["crunch","obsidian_crash","eclipse_shroud","cryo_shatter"]},
-      {monsterId:431, level:105, moves:["specter_pulse","moonblast","winter_shade","glacial_spirit"]}
+      {monsterId:483, level:100, moves:["ice_beam","flash_cannon","alloy_edge","cryo_plate"]},
+      {monsterId:484, level:102, moves:["crunch","obsidian_crash","eclipse_shroud","cryo_shatter"]},
+      {monsterId:485, level:105, moves:["specter_pulse","moonblast","winter_shade","glacial_spirit"]}
     ]
   },
   wielder_solenne: {
@@ -7352,14 +7801,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Psydrak first appeared to me in a dream — not as a symbol but literally, walking through my sleeping mind as if the boundary between sleeping thought and physical reality were a courtesy it had decided not to observe. When I woke, it was outside my window. I asked it over years whether it had been in the dream or whether the dream had taken place within it. Psydrak has never provided a satisfying answer. I have come to suspect it considers the question beside the point.",
     vaeldrisLore:"Rax fought through forty-three hours of entity-warped territory to reach the central node. He arrived with twelve hours remaining in the window. The shutdown mechanism had already been destroyed — physically obliterated, with a precision that required knowing exactly what it was, exactly what it did, and exactly what destroying it would prevent. Someone had been there before him. Not the entity, which consumed rather than destroyed selectively. Someone with knowledge. Someone with purpose. We have never established who.",
     team:[
-      {monsterId:432, level:98, moves:["psychic_move","shadow_ball","psystrike","dream_torrent"]},
-      {monsterId:433, level:99, moves:["moonblast","surf","celestial_wave","moonlit_surge"]},
-      {monsterId:434, level:100, moves:["dragon_pulse","thunder","voltaic_fang","thunder_chain"]}
+      {monsterId:486, level:98, moves:["psychic_move","shadow_ball","psystrike","dream_torrent"]},
+      {monsterId:487, level:99, moves:["moonblast","surf","celestial_wave","moonlit_surge"]},
+      {monsterId:488, level:100, moves:["dragon_pulse","thunder","voltaic_fang","thunder_chain"]}
     ],
     ngTeam:[
-      {monsterId:432, level:100, moves:["psychic_move","shadow_ball","psystrike","dream_torrent"]},
-      {monsterId:433, level:102, moves:["moonblast","surf","celestial_wave","moonlit_surge"]},
-      {monsterId:434, level:105, moves:["dragon_pulse","thunder","voltaic_fang","thunder_chain"]}
+      {monsterId:486, level:100, moves:["psychic_move","shadow_ball","psystrike","dream_torrent"]},
+      {monsterId:487, level:102, moves:["moonblast","surf","celestial_wave","moonlit_surge"]},
+      {monsterId:488, level:105, moves:["dragon_pulse","thunder","voltaic_fang","thunder_chain"]}
     ]
   },
   wielder_rax: {
@@ -7369,14 +7818,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Alloydrax held the line for eleven hours. I had deployed it as a defensive anchor while the evacuation proceeded — the last barrier between the entity's advance and Vaeldris's population centers. It should have lasted two hours at most. I have reviewed the force data many times and have no physical explanation for how it lasted eleven. I believe it knew what was at stake. I believe it chose to hold anyway, past every reasonable threshold, because the alternative was allowing what it guarded against to reach the people behind it.",
     vaeldrisLore:"I reached the central node and I could not stop it. The mechanism was gone. I tried seventeen improvised methods. None worked. I asked the 39 Lumori to hold with me. They held. The other twelve channeled every available Ley energy into a containment field. We bought thirty-one hours. We did not stop it. Someone destroyed that shutdown mechanism before I arrived — deliberately, with full knowledge of what it would mean. I do not know who. I think about it every day. I will think about it every day for the rest of my life.",
     team:[
-      {monsterId:435, level:98, moves:["iron_tail","stone_edge","obsidian_crash","iron_fortress"]},
-      {monsterId:436, level:99, moves:["fire_blast","dark_pulse","solar_flare","forge_blast"]},
-      {monsterId:437, level:100, moves:["dragon_claw","iron_cleave","dragon_pummels","alloy_breaker"]}
+      {monsterId:489, level:98, moves:["iron_tail","stone_edge","obsidian_crash","iron_fortress"]},
+      {monsterId:490, level:99, moves:["fire_blast","dark_pulse","solar_flare","forge_blast"]},
+      {monsterId:491, level:100, moves:["dragon_claw","iron_cleave","dragon_pummels","alloy_breaker"]}
     ],
     ngTeam:[
-      {monsterId:435, level:100, moves:["iron_tail","stone_edge","obsidian_crash","iron_fortress"]},
-      {monsterId:436, level:102, moves:["fire_blast","dark_pulse","solar_flare","forge_blast"]},
-      {monsterId:437, level:105, moves:["dragon_claw","iron_cleave","dragon_pummels","alloy_breaker"]}
+      {monsterId:489, level:100, moves:["iron_tail","stone_edge","obsidian_crash","iron_fortress"]},
+      {monsterId:490, level:102, moves:["fire_blast","dark_pulse","solar_flare","forge_blast"]},
+      {monsterId:491, level:105, moves:["dragon_claw","iron_cleave","dragon_pummels","alloy_breaker"]}
     ]
   },
   wielder_tempris: {
@@ -7386,14 +7835,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Thunderax powered my research station for two years before I understood it was doing so intentionally. I had attributed the anomalous charge readings to atmospheric variance — a reasonable assumption. The day I understood, I walked outside and found Thunderax on the generator array, perfectly still, producing consistent and precisely calibrated output. I asked it why. It looked at me. I made the only non-quantitative notation in twelve years of research logs: it wanted to help. I have not removed that line. I have stopped trying.",
     vaeldrisLore:"The thirteen of us maintained the containment field for thirty-one hours. The 39 Lumori coordinated with us without instruction — they had understood the situation before we finished explaining it, or perhaps before we began. We were running out of time. The entity had adapted to the field's frequency and was beginning to breach. We had bought every hour we could buy. And then Vayne said something none of us had prepared for.",
     team:[
-      {monsterId:438, level:98, moves:["thunderbolt","psychic_move","volt_surge","psycho_surge"]},
-      {monsterId:439, level:99, moves:["flash_cannon","blizzard","alloy_edge","frost_lattice"]},
-      {monsterId:440, level:100, moves:["aerial_assault","verdant_surge","canopy_strike","sky_harvest"]}
+      {monsterId:492, level:98, moves:["thunderbolt","psychic_move","volt_surge","psycho_surge"]},
+      {monsterId:493, level:99, moves:["flash_cannon","blizzard","alloy_edge","frost_lattice"]},
+      {monsterId:494, level:100, moves:["aerial_assault","verdant_surge","canopy_strike","sky_harvest"]}
     ],
     ngTeam:[
-      {monsterId:438, level:100, moves:["thunderbolt","psychic_move","volt_surge","psycho_surge"]},
-      {monsterId:439, level:102, moves:["flash_cannon","blizzard","alloy_edge","frost_lattice"]},
-      {monsterId:440, level:105, moves:["aerial_assault","verdant_surge","canopy_strike","sky_harvest"]}
+      {monsterId:492, level:100, moves:["thunderbolt","psychic_move","volt_surge","psycho_surge"]},
+      {monsterId:493, level:102, moves:["flash_cannon","blizzard","alloy_edge","frost_lattice"]},
+      {monsterId:494, level:105, moves:["aerial_assault","verdant_surge","canopy_strike","sky_harvest"]}
     ]
   },
   wielder_vayne: {
@@ -7403,14 +7852,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Voidcrown was sitting at the edge of the most unstable void rift in Vaeldris when I found it — a place where the boundary between something and nothing had worn thin enough to be dangerous. It was watching the rift with the patience of something that had already seen where the void leads and had decided, with full knowledge, to remain beside it anyway. I understood that patience immediately. It was the only introduction we needed. We have never required anything more from each other.",
     vaeldrisLore:"I told the others I could end it. The entity was, in some fundamental sense, a relative of the void — something that devours rather than contains. I had spent years studying void resonance and believed I could draw it in. I told them the cost was personal and that I had already decided. Voidcrown came with me without being asked. We entered the rift. I cannot describe what happened inside — the physics of that space do not map to language. The entity did not come back out. Voidcrown and I are here. We are not unchanged. I do not consider that a loss.",
     team:[
-      {monsterId:441, level:98, moves:["specter_pulse","earthquake","dark_pulse","nihil_quake"]},
-      {monsterId:442, level:99, moves:["psychic_move","x_scissor","psystrike","venom_mind"]},
-      {monsterId:443, level:100, moves:["dragon_claw","gale_cannon","abyssal_fang","void_rend_ex"]}
+      {monsterId:495, level:98, moves:["specter_pulse","earthquake","dark_pulse","nihil_quake"]},
+      {monsterId:496, level:99, moves:["psychic_move","x_scissor","psystrike","venom_mind"]},
+      {monsterId:497, level:100, moves:["dragon_claw","gale_cannon","abyssal_fang","void_rend_ex"]}
     ],
     ngTeam:[
-      {monsterId:441, level:100, moves:["specter_pulse","earthquake","dark_pulse","nihil_quake"]},
-      {monsterId:442, level:102, moves:["psychic_move","x_scissor","psystrike","venom_mind"]},
-      {monsterId:443, level:105, moves:["dragon_claw","gale_cannon","abyssal_fang","void_rend_ex"]}
+      {monsterId:495, level:100, moves:["specter_pulse","earthquake","dark_pulse","nihil_quake"]},
+      {monsterId:496, level:102, moves:["psychic_move","x_scissor","psystrike","venom_mind"]},
+      {monsterId:497, level:105, moves:["dragon_claw","gale_cannon","abyssal_fang","void_rend_ex"]}
     ]
   },
   wielder_azura: {
@@ -7420,14 +7869,14 @@ const VAELDRIS_WIELDERS = {
     lumoriLore:"Stardrax appeared at my observatory window three days before the Sundering began. I had been reading the stars and they had changed — not physically, but in their relationships to each other, arranged into a configuration that meant catastrophe on a scale I had not witnessed in any prior chart. Stardrax looked at me with the expression it always has: as if it already knows the outcome and is waiting for me to catch up. I have never determined if this is meant to comfort me. I suspect it simply is what it is.",
     vaeldrisLore:"I will tell you what I know, as clearly as I can. A researcher named Solarn spent his life mapping Vaeldris's Ley Network — the lines of convergent elemental energy that ran beneath our region and made it what it was. His maps revealed that all our Ley lines converged at a single artificially placed node at the exact center of Vaeldris, a construction older than any recorded history. Solarn published this discovery across three regions' academic journals. Something read that publication and came for what it described.\n\nThe entity had no conventional form. It was an intelligence that consumed structured energy — Ley networks were its preferred sustenance. It had done this before, in places the old texts called the Dimmed Reaches, which we had assumed were mythology. They were not mythology. They were warning.\n\nSolarn identified a failsafe: deliberately collapsing the central node would starve the entity and stop its spread, at the cost of Vaeldris's Ley Network forever. The window was 37 hours. Rax went to execute it. The shutdown mechanism had already been destroyed when he arrived — deliberately, surgically, by someone with precise knowledge of what it did and what its destruction would prevent. The identity of whoever destroyed it has never been established. I have my suspicions. I have kept them to myself.\n\nWe held for thirty-one hours. All thirteen wielders, all 39 Lumori, channeling everything we had into a containment field. Vayne ended it. He drew the entity into the void rift using resonance techniques I still do not fully understand. He and Voidcrown came back. They are different. He says this is acceptable.\n\nThe 39 Lumori followed us when we left Vaeldris. We did not command them. We did not ask. They came. I have read many things in the stars over the course of my life. I have never read anything that told me why they chose to follow. I have come to believe some things are simply choices — made by creatures old enough to understand exactly what choosing costs — and that the only proper response is to spend the rest of your life being worthy of them.",
     team:[
-      {monsterId:444, level:98, moves:["psychic_move","moonblast","psystrike","cosmic_dust"]},
-      {monsterId:445, level:99, moves:["dragon_pulse","solar_flare","ancient_breath","stellar_flare"]},
-      {monsterId:446, level:100, moves:["shadow_ball","hyper_beam","stellar_collapse","ghost_radiance"]}
+      {monsterId:498, level:98, moves:["psychic_move","moonblast","psystrike","cosmic_dust"]},
+      {monsterId:499, level:99, moves:["dragon_pulse","solar_flare","ancient_breath","stellar_flare"]},
+      {monsterId:500, level:100, moves:["shadow_ball","hyper_beam","stellar_collapse","ghost_radiance"]}
     ],
     ngTeam:[
-      {monsterId:444, level:100, moves:["psychic_move","moonblast","psystrike","cosmic_dust"]},
-      {monsterId:445, level:102, moves:["dragon_pulse","solar_flare","ancient_breath","stellar_flare"]},
-      {monsterId:446, level:105, moves:["shadow_ball","hyper_beam","stellar_collapse","ghost_radiance"]}
+      {monsterId:498, level:100, moves:["psychic_move","moonblast","psystrike","cosmic_dust"]},
+      {monsterId:499, level:102, moves:["dragon_pulse","solar_flare","ancient_breath","stellar_flare"]},
+      {monsterId:500, level:105, moves:["shadow_ball","hyper_beam","stellar_collapse","ghost_radiance"]}
     ]
   }
 };

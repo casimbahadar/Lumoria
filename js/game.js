@@ -18,6 +18,9 @@ function newGameState(playerName, starterMonsterId) {
     location: "seedvale",
     seenMonsters: new Set([starterMonsterId]),
     caughtMonsters: new Set([starterMonsterId]),
+    shinyDexSeen: new Set(), shinyDexCaught: new Set(),
+    variantDexSeen: new Set(), variantDexCaught: new Set(),
+    variantLog: {},
     seenInArea: {},
     championDefeated: false,
     questsCompleted: [],
@@ -50,7 +53,7 @@ function createPartySlot(monsterId, level) {
     monsterId, nickname: null, level, xp: xpForLevel(level),
     maxHP, currentHP: maxHP, moves, statuses: [], heldItem: null,
     nature: getRandomNature(), ivs,
-    shiny: false, variant: false, variantTypes: null
+    shiny: false, variant: false, variantTypes: null, variantBase: null, variantImmune: null
   };
 }
 
@@ -62,6 +65,10 @@ function saveGame() {
     ...G,
     seenMonsters: [...G.seenMonsters],
     caughtMonsters: [...G.caughtMonsters],
+    shinyDexSeen: [...(G.shinyDexSeen || [])],
+    shinyDexCaught: [...(G.shinyDexCaught || [])],
+    variantDexSeen: [...(G.variantDexSeen || [])],
+    variantDexCaught: [...(G.variantDexCaught || [])],
     seenInArea: Object.fromEntries(Object.entries(G.seenInArea || {}).map(([k, v]) => [k, [...v]]))
   };
   try {
@@ -87,6 +94,13 @@ function loadGame(slot) {
     const data = JSON.parse(raw);
     data.seenMonsters = new Set(data.seenMonsters);
     data.caughtMonsters = new Set(data.caughtMonsters);
+    data.shinyDexSeen = new Set(data.shinyDexSeen || []);
+    data.shinyDexCaught = new Set(data.shinyDexCaught || []);
+    data.variantDexSeen = new Set(data.variantDexSeen || []);
+    data.variantDexCaught = new Set(data.variantDexCaught || []);
+    if (!data.variantLog) data.variantLog = {};
+    if (!data.variantLore) data.variantLore = {}; // cached bespoke variant prose (Route 1)
+    if (typeof VariantLLM !== "undefined" && VariantLLM.hydrate) VariantLLM.hydrate(data.variantLore);
     if (!data.seenInArea) data.seenInArea = {};
     for (const k of Object.keys(data.seenInArea)) data.seenInArea[k] = new Set(data.seenInArea[k]);
     // Ensure new fields exist for old saves
@@ -110,6 +124,8 @@ function loadGame(slot) {
       if (mon.shiny === undefined) mon.shiny = false;
       if (mon.variant === undefined) mon.variant = false;
       if (mon.variantTypes === undefined) mon.variantTypes = null;
+      if (mon.variantBase === undefined) mon.variantBase = null;
+      if (mon.variantImmune === undefined) mon.variantImmune = null;
     }
     if (!data.achievements) data.achievements = [];
     if (!data.roamingCaught) data.roamingCaught = [];
@@ -1053,7 +1069,7 @@ function getDisplayName(mon) {
   const def = MONSTERS_DATA[mon.monsterId];
   if (def && def.foreignRegion) {
     G.seenMonsters.add(mon.monsterId);
-    return `Forgotten Lumori ${mon.monsterId - 407}`;
+    return `Forgotten Lumori ${mon.monsterId - 461}`;
   }
   return mon.name;
 }
@@ -1074,6 +1090,7 @@ function clearBattleLog() {
 function updateBattleUI() {
   const player = playerActiveMon;
   const enemy = enemyActiveMon;
+  trackEncounterFlags(enemy);
 
   // Enemy sprite (SVG illustration)
   const enemySpriteEl = document.getElementById("enemy-sprite");
@@ -1511,6 +1528,16 @@ async function playerUseBall(orbId) {
     logMsg(`✅ Gotcha! ${enemyActiveMon.name} was caught!`, "log-catch");
     G.caughtMonsters.add(enemyActiveMon.monsterId);
     if (enemyActiveMon.shiny) G.shinyCaught = (G.shinyCaught || 0) + 1;
+    if (enemyActiveMon.shiny) (G.shinyDexCaught ||= new Set()).add(enemyActiveMon.monsterId);
+    if (enemyActiveMon.variant) {
+      (G.variantDexCaught ||= new Set()).add(enemyActiveMon.monsterId); recordVariantLog(enemyActiveMon, true);
+      // Route 1 (dormant unless VariantLLM.ENABLED): fetch + cache bespoke prose for this
+      // caught variant. No-op offline/disabled — team detail keeps using the C generator.
+      if (typeof VariantLLM !== "undefined" && VariantLLM.warm) {
+        const cdef = MONSTERS_DATA[enemyActiveMon.monsterId];
+        VariantLLM.warm(cdef, enemyActiveMon, (k, entry) => { (G.variantLore ||= {})[k] = entry; if (typeof saveGame === "function") saveGame(); });
+      }
+    }
     if (typeof onLumoriCaught === "function") onLumoriCaught(!!enemyActiveMon.shiny);
     if (enemyActiveMon.shiny)   checkAchievement("catch_shiny");
     if (enemyActiveMon.variant) checkAchievement("catch_variant");
@@ -1564,8 +1591,39 @@ function createCaughtSlot(battleMon) {
     nature: battleMon.nature || getRandomNature(),
     ivs: battleMon.ivs || generateIVs(),
     shiny: !!battleMon.shiny, variant: !!battleMon.variant,
-    variantTypes: battleMon.variantTypes || null
+    variantTypes: battleMon.variantTypes || null,
+    variantBase: battleMon.variantBase || null,
+    variantImmune: battleMon.variantImmune || null,
+    variantMods: battleMon.variantMods || null
   };
+}
+
+// ===== Shiny / variant dex tracking (see docs/variant-system-spec.md §F) =====
+// Records a variant instance (caught or merely encountered) for the Luminex 🔀 tracker.
+function recordVariantLog(mon, caught) {
+  if (!mon || !mon.variant || !G) return;
+  if (!G.variantLog) G.variantLog = {};
+  const arr = (G.variantLog[mon.monsterId] ||= []);
+  arr.push({
+    types: mon.variantTypes ? [...mon.variantTypes] : null,
+    base: mon.variantBase ? { ...mon.variantBase } : null,
+    immune: mon.variantImmune || null,
+    caught: !!caught,
+    shiny: !!mon.shiny
+  });
+  if (arr.length > 30) arr.shift(); // cap log per species
+}
+
+// Called as enemy/wild mons appear so shinies/variants register even when
+// they can't be caught (trainer/Umbra/wielder enemies, fled wilds).
+function trackEncounterFlags(mon) {
+  if (!mon || !G) return;
+  if (mon.shiny) (G.shinyDexSeen ||= new Set()).add(mon.monsterId);
+  if (mon.variant && !mon._variantLogged) {
+    (G.variantDexSeen ||= new Set()).add(mon.monsterId);
+    recordVariantLog(mon, false);
+    mon._variantLogged = true;
+  }
 }
 
 async function playerSwitch(idx) {
@@ -1921,6 +1979,12 @@ function endBattle(outcome, slot, levelUps) {
   battleContext.battleEnded = true;
   syncPlayerMonHP();
 
+  // Clear all statuses from the entire team — fresh slate when returning to the overworld.
+  // Statuses do not persist outside of battle, regardless of how the battle ended
+  // (won, lost, ran, caught).
+  for (const mon of G.team) {
+    if (mon) clearStatuses(mon);
+  }
   // Consume one-time legendary forgotten encounter on any resolution (caught,
   // ran, lost, won). Once marked, the area-entry hook won't re-trigger it.
   if (battleContext.isLegendaryForgotten && battleContext.legendaryForgottenMonId) {
@@ -2274,6 +2338,7 @@ function updateMultiBattleUI() {
     const spriteEl = document.getElementById(`enemy-sprite-${i + 1}`);
     if (i < enemyActiveMons.length && enemyActiveMons[i] && !enemyActiveMons[i].fainted) {
       const e = enemyActiveMons[i];
+      trackEncounterFlags(e);
       infoEl.classList.remove("hidden");
       spriteEl.classList.remove("hidden");
       document.getElementById(`enemy-name-${i + 1}`).textContent = e.name;
@@ -2733,16 +2798,24 @@ function showTeamDetail(slot, idx) {
   const nature = slot.nature || "Balanced";
   const natureData = typeof NATURES_DATA !== "undefined" ? NATURES_DATA[nature] : null;
   const ivs = slot.ivs || { hp:0, atk:0, def:0, spa:0, spd:0, spe:0 };
+  // Variants use their permuted+drifted base values and rolled typing.
+  const base = (slot.variant && slot.variantBase) ? slot.variantBase : def.base;
+  const dispTypes = (slot.variant && slot.variantTypes) ? slot.variantTypes : def.types;
   const stats = [
-    ["HP",  calcMaxHP(def.base.hp, lv, ivs.hp),                                250],
-    ["ATK", applyNatureToStat("atk", calcStat(def.base.atk, lv, ivs.atk), nature), 200],
-    ["DEF", applyNatureToStat("def", calcStat(def.base.def, lv, ivs.def), nature), 200],
-    ["SPA", applyNatureToStat("spa", calcStat(def.base.spa, lv, ivs.spa), nature), 200],
-    ["SPD", applyNatureToStat("spd", calcStat(def.base.spd, lv, ivs.spd), nature), 200],
-    ["SPE", applyNatureToStat("spe", calcStat(def.base.spe, lv, ivs.spe), nature), 200]
+    ["HP",  calcMaxHP(base.hp, lv, ivs.hp),                                250],
+    ["ATK", applyNatureToStat("atk", calcStat(base.atk, lv, ivs.atk), nature), 200],
+    ["DEF", applyNatureToStat("def", calcStat(base.def, lv, ivs.def), nature), 200],
+    ["SPA", applyNatureToStat("spa", calcStat(base.spa, lv, ivs.spa), nature), 200],
+    ["SPD", applyNatureToStat("spd", calcStat(base.spd, lv, ivs.spd), nature), 200],
+    ["SPE", applyNatureToStat("spe", calcStat(base.spe, lv, ivs.spe), nature), 200]
   ];
   const statKeyMap = { ATK:"atk", DEF:"def", SPA:"spa", SPD:"spd", SPE:"spe" };
-  const typeHTML = def.types.map(t => `<span class="type-badge type-${t}">${t}</span>`).join(" ");
+  const typeHTML = dispTypes.map(t => `<span class="type-badge type-${t}">${t}</span>`).join(" ");
+  const variantBadge = slot.variant ? `<span class="variant-name" style="margin-left:6px">Variant</span>` : "";
+  const shinyBadge = slot.shiny ? `<span class="shiny-name" style="margin-left:6px">Radiant</span>` : "";
+  const immuneRow = (slot.variant && slot.variantImmune)
+    ? `<div class="detail-immune-row" style="margin:6px 0;color:var(--text-muted)">🛡️ Immune to <span class="type-badge type-${slot.variantImmune}">${slot.variantImmune}</span></div>`
+    : "";
   const statsHTML = stats.map(([n, v, max]) => {
     const key = statKeyMap[n];
     let color = n === "HP" ? "#3fb950" : "#58a6ff";
@@ -2765,6 +2838,27 @@ function showTeamDetail(slot, idx) {
       <div class="move-detail-info">${m.type} | ${m.cat} | Pwr:${m.power||"—"}</div>
     </div>`;
   }).join("");
+
+  // Variant distortion block (caught variant only): bespoke/C lore + generated learnset.
+  let variantHTML = "";
+  if (slot.variant && typeof VariantContent !== "undefined") {
+    const vc = (typeof VariantLLM !== "undefined" && VariantLLM.getContent)
+      ? VariantLLM.getContent(def, slot) : VariantContent.generate(def, slot);
+    const ls = VariantContent.generateLearnset ? VariantContent.generateLearnset(def, slot) : [];
+    const lsRows = ls.map(([l, m]) => {
+      const mv = MOVES_DATA[m];
+      return mv ? `<tr><td>Lv${l}</td><td>${mv.name}</td><td><span class="type-badge type-${mv.type}">${mv.type}</span></td><td style="text-align:right">${mv.power || "—"}</td></tr>` : "";
+    }).join("");
+    if (vc) variantHTML = `
+      <div class="detail-section variant-content">
+        <h4>🔀 Variant Distortion</h4>
+        <p class="variant-desc">${vc.desc || ""}</p>
+        <p class="variant-lore">${vc.lore || ""}</p>
+        ${vc.behaviour ? `<p class="variant-behaviour"><strong>In battle:</strong> ${vc.behaviour}</p>` : ""}
+        ${lsRows ? `<h4 style="margin-top:0.7rem">Variant Learnset</h4>
+        <div class="variant-learnset-wrap"><table class="variant-learnset"><tbody>${lsRows}</tbody></table></div>` : ""}
+      </div>`;
+  }
 
   // Held item display
   const currentHeld = slot.heldItem ? ITEMS_DATA[slot.heldItem] : null;
@@ -2808,11 +2902,12 @@ function showTeamDetail(slot, idx) {
     ? `<img src="${getMonsterSpriteURL(def, 100)}" width="100" height="100" alt="${def.name}" style="border-radius:12px">`
     : `<span class="detail-sprite">${def.emoji}</span>`;
   document.getElementById("team-detail-content").innerHTML = `
-    <div style="text-align:center;margin-bottom:1rem">
+    <div class="${slot.shiny ? "shiny-sprite" : ""} ${slot.variant ? "variant-sprite" : ""}" style="text-align:center;margin-bottom:1rem">
       ${detailSpriteHTML}
-      <h3>${slot.nickname || def.name} ${typeHTML}</h3>
+      <h3>${slot.nickname || def.name} ${typeHTML}${variantBadge}${shinyBadge}</h3>
       <p style="color:var(--text-secondary);font-size:0.8rem">Lv.${lv} | XP to next: ${xpToNext}</p>
       <p style="font-size:0.8rem;color:#c9a0dc;margin:0.2rem 0"><strong>${nature}</strong> nature${natureData ? ` — ${natureData.desc}` : ""}</p>
+      ${immuneRow}
       <p style="font-size:0.8rem;color:var(--text-muted)">${def.desc}</p>
     </div>
     <div class="detail-section"><h4>Stats</h4>${statsHTML}
@@ -2823,6 +2918,7 @@ function showTeamDetail(slot, idx) {
       </div>
     </div>
     <div class="detail-section"><h4>Moves</h4><div class="moves-grid">${movesHTML}</div></div>
+    ${variantHTML}
     <div class="detail-section">
       <h4>Held Item</h4>
       ${heldDisplay}
@@ -3116,8 +3212,8 @@ function hideTutorial() {
   document.getElementById("tutorial-overlay").classList.add("hidden");
 }
 
-const NG_PLUS_DEX_START = 322; // IDs 322-407 are NG+-exclusive (upper bound = FORGOTTEN_DEX_START - 1)
-const FORGOTTEN_DEX_START = 408; // IDs >= this are Forgotten Lumori, gated behind Vaeldris-quest completion (not NG+-exclusive)
+const NG_PLUS_DEX_START = 322; // IDs 322-461 are NG+-exclusive (upper bound = FORGOTTEN_DEX_START - 1)
+const FORGOTTEN_DEX_START = 462; // IDs >= this are Forgotten Lumori, gated behind Vaeldris-quest completion (not NG+-exclusive)
 
 function isForgottenUnlocked() {
   if (!G || !G.defeatedWielders || typeof VAELDRIS_WIELDERS === "undefined") return false;
@@ -3198,7 +3294,7 @@ function renderDexGrid(filter, search) {
     // reveal their real name; otherwise show "Forgotten Lumori N" placeholder.
     if (filter === "vaeldris") {
       if (!isForeign) continue;
-      const num = mid - 407;
+      const num = mid - 461;
       const displayName = caught ? def.name : (seen ? `Forgotten Lumori ${num}` : "???");
       const emojiHTML = (seen || caught) ? `<div class="dex-emoji">${def.emoji}</div>` : `<div class="dex-emoji">❓</div>`;
       const card = document.createElement("div");
@@ -3209,6 +3305,47 @@ function renderDexGrid(filter, search) {
         <div class="dex-name">${displayName}</div>
       `;
       if (seen) card.addEventListener("click", () => showForgottenDetail(mid));
+      grid.appendChild(card);
+      continue;
+    }
+
+    // ✨ Shiny showcase: reveal shiny art for species whose shiny you've seen/caught.
+    if (filter === "shiny") {
+      if (isForeign) continue;
+      const sCaught = G.shinyDexCaught && G.shinyDexCaught.has(mid);
+      const sSeen = G.shinyDexSeen && G.shinyDexSeen.has(mid);
+      if (search && !def.name.toLowerCase().includes(search.toLowerCase()) && !(sCaught || sSeen)) continue;
+      const card = document.createElement("div");
+      card.className = "dex-card" + (sCaught ? " caught" : sSeen ? " seen" : " unseen");
+      const spriteHTML = (sCaught || sSeen) && typeof getMonsterSpriteURL === "function"
+        ? `<div class="shiny-sprite"${sSeen && !sCaught ? ' style="opacity:.55"' : ''}><img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" style="border-radius:6px"></div>`
+        : `<div class="dex-emoji">❓</div>`;
+      card.innerHTML = `
+        <div class="dex-num">✨#${String(mid).padStart(3,"0")}</div>
+        ${spriteHTML}
+        <div class="dex-name">${(sCaught || sSeen) ? def.name : "???"}</div>`;
+      grid.appendChild(card);
+      continue;
+    }
+    // 🔀 Variant tracker: species you've encountered variants of; click for the log.
+    if (filter === "variant") {
+      if (isForeign) continue;
+      const log = (G.variantLog && G.variantLog[mid]) || [];
+      const known = log.length || (G.variantDexSeen && G.variantDexSeen.has(mid)) || (G.variantDexCaught && G.variantDexCaught.has(mid));
+      if (!known) continue;
+      if (search && !def.name.toLowerCase().includes(search.toLowerCase())) continue;
+      const vCaught = G.variantDexCaught && G.variantDexCaught.has(mid);
+      const card = document.createElement("div");
+      card.className = "dex-card" + (vCaught ? " caught" : " seen");
+      const spriteHTML = typeof getMonsterSpriteURL === "function"
+        ? `<div class="variant-sprite"><img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" style="border-radius:6px"></div>`
+        : `<div class="dex-emoji">${def.emoji}</div>`;
+      card.innerHTML = `
+        <div class="dex-num">🔀#${String(mid).padStart(3,"0")}</div>
+        ${spriteHTML}
+        <div class="dex-name">${def.name}</div>
+        <div class="dex-name" style="font-size:.65rem;color:var(--text-muted)">${log.length} logged</div>`;
+      card.addEventListener("click", () => showVariantDetail(mid));
       grid.appendChild(card);
       continue;
     }
@@ -3244,9 +3381,55 @@ function renderDexGrid(filter, search) {
   }
 }
 
+function showVariantDetail(mid) {
+  const def = MONSTERS_DATA[mid];
+  const log = (G.variantLog && G.variantLog[mid]) || [];
+  document.getElementById("dex-detail").classList.remove("hidden");
+  document.getElementById("dex-grid").style.display = "none";
+  const keys = ["hp","atk","def","spa","spd","spe"];
+  const SHAPE = { swift:"swift, fragile", brute:"physical bruiser", caster:"ranged attacker", bulwark:"durable wall", even:"balanced" };
+  const hasVC = typeof VariantContent !== "undefined";
+  const rows = log.slice().reverse().map((e, i) => {
+    const n = log.length - i;
+    const v = { variant:true, variantTypes:e.types, variantBase:e.base, variantImmune:e.immune };
+    const types = e.types ? e.types.map(t => `<span class="type-badge type-${t}">${t}</span>`).join(" ") : "—";
+    const prof = (hasVC && e.base) ? VariantContent.statProfile(def, e.base) : null;
+    const head = `<div><strong>#${n}</strong> — ${e.caught ? "🎒 Caught" : "👁 Seen"}${e.shiny ? " ✨ Radiant" : ""}</div>
+      <div style="margin:.2rem 0">Typing: ${types}</div>`;
+    if (e.caught) {
+      // Full reveal: exact stats, immunity, bespoke/C lore + behaviour, generated learnset.
+      const imm = e.immune ? `<span class="type-badge type-${e.immune}">${e.immune}</span>` : "—";
+      const base = e.base ? keys.map(k => `${k.toUpperCase()}&nbsp;${e.base[k]}`).join(" · ") : "—";
+      const vc = hasVC ? ((typeof VariantLLM !== "undefined" && VariantLLM.getContent) ? VariantLLM.getContent(def, v) : VariantContent.generate(def, v)) : null;
+      const ls = (hasVC && VariantContent.generateLearnset) ? VariantContent.generateLearnset(def, v) : [];
+      const lsRows = ls.map(([l, m]) => { const mv = MOVES_DATA[m]; return mv ? `<tr><td>Lv${l}</td><td>${mv.name}</td><td><span class="type-badge type-${mv.type}">${mv.type}</span></td><td style="text-align:right">${mv.power || "—"}</td></tr>` : ""; }).join("");
+      return `<div class="detail-section variant-content" style="text-align:left">
+        ${head}
+        <div style="margin:.2rem 0">🛡️ Immune to: ${imm}</div>
+        <div style="font-size:.72rem;color:var(--text-muted)">Stat spread: ${base}</div>
+        ${vc ? `<p class="variant-desc">${vc.desc || ""}</p><p class="variant-lore">${vc.lore || ""}</p>${vc.behaviour ? `<p class="variant-behaviour"><strong>In battle:</strong> ${vc.behaviour}</p>` : ""}` : ""}
+        ${lsRows ? `<div class="variant-learnset-wrap"><table class="variant-learnset"><tbody>${lsRows}</tbody></table></div>` : ""}
+      </div>`;
+    }
+    // Seen / enemy (uncatchable): observed only — typing + qualitative shape; lore & learnset locked.
+    return `<div class="detail-section" style="text-align:left">
+      ${head}
+      <div style="font-size:.72rem;color:var(--text-muted)">Observed build: ${prof ? (SHAPE[prof.label] || prof.label) + ", " + prof.heft + " than base" : "unclear"}</div>
+      <div style="font-size:.72rem;color:var(--text-muted)">🛡️ Immune to: ???</div>
+      <div style="font-size:.72rem;color:#c9a0dc;margin-top:.2rem">🔒 Catch this variant to reveal its lore, immunity, and learnset.</div>
+    </div>`;
+  }).join("") || "<p style='color:var(--text-muted)'>No variants recorded yet.</p>";
+  document.getElementById("dex-detail-content").innerHTML = `
+    <div style="text-align:center;margin-bottom:.5rem">
+      <h2 style="color:var(--accent-purple)">🔀 ${def.name} — Variant log</h2>
+      <p style="color:var(--text-muted);font-size:.8rem">${log.length} variant${log.length === 1 ? "" : "s"} recorded (newest first, last 30 kept)</p>
+    </div>
+    ${rows}`;
+}
+
 function showForgottenDetail(monsterId) {
   const def = MONSTERS_DATA[monsterId];
-  const num = monsterId - 407;
+  const num = monsterId - 461;
   document.getElementById("dex-detail").classList.remove("hidden");
   document.getElementById("dex-grid").style.display = "none";
   document.getElementById("dex-detail-content").innerHTML = `

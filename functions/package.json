@@ -1,0 +1,11 @@
+{
+  "name": "lumoria-functions",
+  "description": "Cloud Functions for Lumoria (variant bespoke-prose generation)",
+  "main": "index.js",
+  "engines": { "node": "20" },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.1",
+    "firebase-functions": "^5.0.0"
+  },
+  "private": true
+}

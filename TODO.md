@@ -1,5 +1,43 @@
 # TODO - Lumoria Bugs & Feature Requests
 
+## 📊 STATUS OVERVIEW — reconciled against `main` (63 PRs: 61 merged, #60 PvP draft, #52 launch draft)
+
+_At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress · ⏳ not started · 📎 reference/parking. Section headers carry the same tag inline._
+
+> **Status = the TODO task, not the PR.** The only **open (unmerged) PRs** are **#60 (Online PvP)** and **#52 (launch plan)** — both drafts. Every other PR (incl. #63) is **already merged**; a 🚧/⏳ next to a merged-PR row means the *task* is partly/not done, not that the PR is open.
+
+| Area | Status | Evidence |
+|---|---|---|
+| Bugs #1–4, Features #5–10 | ✅ done | early PRs |
+| #11 Variant + shiny system | ✅ done | PR #59 |
+| #12 Variant content (lore/desc/behaviour/learnset) | ✅ done | PR #61 |
+| #13 Online PvP | 🚧 in progress | PR #60 (draft) |
+| Phase-1 coherence (archetype brainstorm, borderline triage, bridge lore) | ✅ done | PRs #38–46, #47, #48 |
+| 🔧 BREAKING + 🪛 MINOR family fixes | ✅ done | PRs #36/#47/#55 |
+| 🔍 Solo desc/lore/emoji audit | ✅ done | PR #49 |
+| 🦄 Creature inventory + exemptions | ✅ done | PRs #38–46 |
+| 🔀 Typing-system overhaul (26-type chart + moves) | ✅ done | PR #51 |
+| 🧪 Type-combination (over-cap) audit | ✅ done | PRs #50, #55 |
+| Multi-status battle system | ✅ done | PR #54 |
+| Dex expansion to 500 (+54 NG+ families, Forgotten renumber, placement) | ✅ done | PR #57 |
+| 🎲 Encounter-rate audit | ✅ done | PR #58 |
+| 🎯 Obtainability audit (474/500) | ✅ done | PR #62 |
+| 🎮 NG+/Forgotten gating + legendary encounters | ✅ done | PR #53 |
+| 🎯 Archetype × type-combo diversity **audit** | ✅ analysis shipped · ⏳ full audit pending | PR #63 **merged** (matrix doc only); full pass folded into 🕯 UNIFIED |
+| 🕯 UNIFIED per-Lumori audit | ⏳ not started | next major phase |
+| 📉 Standalone count reduction | ⏳ not started | — |
+| 🏷️ Luminex renaming + final lore | ⏳ partial/paused | PRs #34–35; resumes after UNIFIED |
+| 🔮 Mythical archetype flags | ⏳ not started | end-of-task |
+| 🎯 Moveset utilization audit | ⏳ not started | — |
+| 📊 Final stat-spread review | ⏳ not started | RUN LAST |
+| 🧬 Abilities feature | ⏳ not started | after stat review |
+| 🤝 Inter-Lumori interactions (dedicated pass) | ⏳ not started | after abilities (bridge sweep done, PR #48) |
+| 13 wielder cutscenes (Forgotten legendaries) | ⏳ not started | after stat review |
+| 🚀 Pre-launch / release process | 🚧 in progress | launch draft PR #52 |
+
+---
+
+
 ## Bugs
 
 ### ~~1. Wild Lumos persists when starting a quest~~ ✅ FIXED
@@ -54,9 +92,28 @@
 - Toggle mute via nav bar music button
 - No external audio files needed (all synthesized in-browser)
 
+### 11. Procedural variant system + shiny showcase ✅ DONE (PR #59, merged)
+**Full design: `docs/variant-system-spec.md`.** Variants are now a *procedural per-instance* system, not hand-authored forms:
+- **Variant roll:** 1/200 per-mon in **every** battle type (either side). Each variant rolls and persists `variantTypes`, `variantBase`, `variantImmune`.
+- **`variantTypes`:** 85% random 2-distinct / 10% mono / 5% original combo; pool = 24 types (never Aether/Chrono); Crystal/Primal/Stellar each 1/500. (Rewrite the stale legacy-type `getVariantTypes`.)
+- **`variantBase`:** permute the 6 base values, then 3 independent gates (Large 20% / Medium 20% / Small 40%; fail-all ≈ 38.4% = no drift); Large → 1 stat ≤15%, Medium → 0/1/2 at 30/50/20 ≤10%, Small → each leftover stat 40% ≤5%; `±ceil(stat×rand1..cap%)`, 50/50 up/down, uniform stat picks. BST drifts.
+- **`variantImmune`:** 1 random of the 24 types, 0× damage; shown in team detail post-catch.
+- **Shiny:** 1/2048 (×4 NG+, × time/event); now rolls in **all** battle types; +10% stats. All 500 shiny-capable. **Variant + shiny stack** for the 474 catchable.
+- **Tracker:** Luminex 🔀 tab logging every **encountered** variant (caught / seen / uncatchable enemy) per species — stat distributions, typings, immunities. Plus ✨ shiny showcase (seen/caught).
+- **Save:** add `shinySeen/shinyCaught/variantSeen/variantCaught` sets + migration.
+- **Online:** variants **and** shinies both usable (trades; future PvP).
+
+### 12. Variant content / deeper randomization layer ✅ DONE (PR #61, merged — procedural lore/desc/behaviour + learnset, 500 anchors, dormant Route-1 LLM)
+- The variant *mechanic* (stats/typing/immunity randomization) is handled in #11. #12 is the **content** layer on top: per-Lumori variant **lore, descriptions, movesets** and any deeper randomization.
+- **Batch** the authoring like the NG+ families; validate move keys/types per batch.
+
+### 13. Online PvP battle system 🚧 IN PROGRESS (PR #60, draft branch)
+- No PvP exists yet (only leaderboards, trades, events). Build async or real-time online battles (Firebase): challenge/matchmaking, team submission + validation, turn resolution reusing the battle engine, result reporting.
+- Per current ruling, **both variants and shinies are allowed** in PvP (no shiny exclusion).
+
 ---
 
-# 📋 ACTIVE WORK — Phase 1 Coherence Pass
+# 📋 ACTIVE WORK — Phase 1 Coherence Pass  `[✅ DONE — archetype brainstorm PRs #38–46, borderline triage, bridge sweep PR #48]`
 
 ## Reference docs
 
@@ -97,7 +154,7 @@ The original walkthrough through ids 7-446 (paused at #13 Taurcin "keep" decisio
 
 ---
 
-# 🔧 BREAKING family fixes (priority queue)
+# 🔧 BREAKING family fixes (priority queue)  `[✅ DONE — PRs #36/#47/#55, all items [x]]`
 
 Per audit (Part 1 of evolution-line coherence audit) **plus** the strict re-audit of ids 210-446. Tackle one-by-one, get user approval per family before applying.
 
@@ -152,7 +209,7 @@ These are NEW BREAKING items surfaced when the audit was rerun strictly. Each is
 - [x] **#126-127 Impefurr → Specraxis** — full fox/kitsune line (Option A). Impefurr (#126) lore opener "Vexakin is..." → "Impefurr is..." (name-leak fix); emoji 👻 → 🦊. Specraxis (#127) reframed as 70 cm kitsune-like fox-spirit with shadow-tails, deep-set violet eyes glowing through fringes of shadow-fur, floats 10 cm above ground; mind-reading + thought-broadcasting confusion preserved verbatim. Names, types Dark / Dark+Psychic, learnsets all preserved. Same-archetype peer check: fox×Dark/Psychic = sole. *(Uncommitted, batched.)*
 - [x] **#160-161 Miasmafly → Mistbane** — insect-swarm-as-cloud line (Option C; pristine swarm archetype). Miasmafly (#160) kept; lore opener "Miasoveth is..." → "Miasmafly is..." (name-leak fix). Mistbane (#161) reframed as 1 m cloud-swarm of microscopic miasma-flies bound by shared chemical signals into a single drifting collective; queen-fly at centre directs the swarm. "No fixed outline" / "shifting cloud" / "olive-green haze" / bog habitat / vitality-sapping all preserved verbatim. Names, types Poison/Wind, emojis 🦟/🦠, learnsets all preserved. Same-archetype peer check: insect-swarm sole. *(Uncommitted, batches with next checkpoint at 26/32.)*
 
-# 🪛 MINOR family tweaks (one-line lore edits)
+# 🪛 MINOR family tweaks (one-line lore edits)  `[✅ DONE — PR #47]`
 
 Batch these together once BREAKING is done. Each fix is a single-sentence wording change.
 
@@ -199,11 +256,11 @@ Batch these together once BREAKING is done. Each fix is a single-sentence wordin
 - [x] **#220-221** Shadowveil (#221) lore opener extended with "Umbrajest's wispy smoke-body has solidified into a cloaked humanoid form" — bridges the smoke-trickster → cloaked-humanoid silhouette shift (tangibility unchanged: hands still pass through its shadow-substance).
 - [x] **#226-229** *(resolved by BREAKING #226-229 split-evo work — both #228 Lunaroon (retyped Grass/Psychic moonlit-kangaroo) and #229 Radiafish (kangaroo-pivot from fish) handled.)*
 
-# 🔍 Solo desc/lore/emoji consistency audit — MERGED INTO 🕯 UNIFIED AUDIT
+# 🔍 Solo desc/lore/emoji consistency audit — MERGED INTO 🕯 UNIFIED AUDIT  `[✅ DONE standalone (PR #49); workflow now lives in 🕯 UNIFIED]`
 
 Workflow merged into the per-Lumori UNIFIED audit (Step 2). The original scan categories — emoji vs body plan, desc vs lore, name leaks, stat-vs-body conflicts, same-archetype × typing-combo collisions, pre-408 post-game typings — are surfaced per Lumori as the audit walks the dex. See "🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED)" below.
 
-# 🦄 Creature inventory + mythological exemptions — RUN BEFORE archetype trim
+# 🦄 Creature inventory + mythological exemptions — RUN BEFORE archetype trim  `[✅ DONE — inventory/classification PRs #38–46; archetype TRIM happens in 🕯 UNIFIED]`
 
 Goal: complete inventory of every creature/animal/thing represented in the dex (with family counts), and curated lists of "special / mythological / unique" archetypes exempt from the cap-of-3 rule, plus mythological creatures NOT yet in dex for potential diversification.
 
@@ -470,7 +527,7 @@ For each over-cap common archetype, we can convert some members into one of thes
 
 **Run order placement:** before the existing "Archetype oversaturation — common animals" trim section below. The inventory + exemption list **defines** what counts toward the trim, then the trim runs against that updated list.
 
-# 🔀 Typing system overhaul — RUN BEFORE the type-combination audit cap re-analysis
+# 🔀 Typing system overhaul — RUN BEFORE the type-combination audit cap re-analysis  `[✅ DONE — PR #51: 26-type TYPE_CHART + 556 new moves + Step-4 flags; Step 5 → 🕯 UNIFIED]`
 
 Active work as of 2026-05-21: differentiate Lumoria's typing system from Pokemon's, then re-tally combo caps under the new types.
 
@@ -524,7 +581,7 @@ Inline `LORE-AUDIT FLAG (Step 4)` comments placed above 46 Lumori entries in `js
 - **Step 4/5 process rule:** when proposing per-Lumori typing adjustments, ground each recommendation in the Lumori's existing lore/desc so the new typing makes narrative sense.
 - Branch: `claude/typing-combo-audit-2-JUGMH` (PR #51 — re-titled + re-described to reflect new scope on next commit).
 
-# 🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED) — added 2026-05-24
+# 🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED) — added 2026-05-24  `[⏳ NOT STARTED — the next major phase; scoping Qs open + diversity-matrix findings queued]`
 
 Single per-Lumori audit pass that merges what were previously four separate workflows:
 - Step 5 of the typing-system overhaul (type-combo cap re-analysis under the new 26-type chart)
@@ -558,13 +615,27 @@ After each batch of approvals, re-tally the dex-wide type-combo counts to confir
 - **The 46 inline flags** from Step 4 (ids listed in `## Step 4 deferred — lore audit follow-ups` above) are the highest-priority entries to address.
 - **7 currently-unused pre-408 types** (Sonic/Vapor/Mineral/Toxin/Dream/Fighting/Spectral) — distribute during this pass where lore fits.
 
+## Pre-surfaced findings (from the archetype × type-combo diversity matrix, 2026-06)
+
+Reference doc: `docs/archetype-diversity-matrix.md` (291 families; archetype tokens are anchor-noun-derived and **must be cross-checked against each Lumori's `desc`/`lore`** during the walk — several flagged "collisions" turned out to be false positives once body-plan was verified). Surface these when the relevant Lumori come up:
+
+- [ ] **Genuine archetype × type-combo collisions to resolve** (cap-verified safe; resolve by pivoting one family's typing to an empty cell, ≤6 non-flagship / ≤12 flagship):
+  - **canine × Dark** — Nightwolf (#118-120) vs Darkfang (#266-268). Proposed: pivot **Darkfang apex (#268) → Dark/Spectral** (lore: "howl resonates across dimensions / heard in the land of the dead"); Dark/Spectral 4→5 species. + Spectral-STAB learnset swap.
+  - **cat × Fire/Dark** — Emberveil (#301) vs Cinderpaw (#307). Proposed: pivot **Emberveil → Fire/Spectral** (lore: "fire **specter**... phantom footprints"); Fire/Spectral 1→2. + Spectral-STAB swap.
+- [ ] **desc↔lore body-plan inconsistencies to reconcile** (found via the matrix + the data-integrity sweep; pick one side per Lumori):
+  - **#84 Electrix** — desc "electric **beetle**" vs lore "**dragonfly nymph**" (stale desc; the BREAKING #84-86 reframe made this a dragonfly line — desc likely just needs updating to dragonfly nymph).
+  - **#243 Stuntrap** — desc "beetle warrior" vs lore "moulted into an elongated **dragonfly** form". (desc=beetle differentiates it from Galvaglide's dragonfly line — likely the intent.)
+  - **#265 Mosswing** — desc "mossy **grasshopper**" vs lore "resembling a **moth**". (grasshopper avoids a lepidopteran×Nature collision with Thornmoth #331.)
+  - **#316 Abyssovex** — desc "The Legendary Abyss **Drake**" vs lore "enormous deep-sea **squid** leviathan". Pick one (squid matches the cephalopod body in lore).
+  - *(#18 Bahamber, #233 Serpenthorn flagged by the heuristic but are valid serpent-dragons — no action.)*
+
 ## Open scoping questions (to decide before starting)
 
 - [ ] Walk order: by id ascending? by archetype cluster? by flagged-first (the 46) then rest?
 - [ ] Batch size: 1 Lumori per approval (slow but safe) or N per approval (faster, table-based)?
 - [ ] Flagship typing list (4 combos pre-overhaul, stale) — re-decide before or during the walk?
 
-# 🧪 Type-combination audit — REFERENCE ONLY (workflow merged into 🕯 UNIFIED AUDIT)
+# 🧪 Type-combination audit — REFERENCE ONLY (workflow merged into 🕯 UNIFIED AUDIT)  `[✅ over-cap retypes DONE (PRs #50/#55); now 📎 REFERENCE for cap rules]`
 
 Workflow merged into the per-Lumori UNIFIED audit (Step 4). Cap-tally checks happen per-Lumori at the moment each Lumori's lore + desc + archetype is finalized. The cap rules + counting rules + progress state below remain authoritative reference.
 
@@ -626,7 +697,7 @@ Banksnout adjustment.
 
 Final triad: **Fire/Draconic + Aquatic/Dark + Nature/Fairy.** All 3 matchups are clean 2:1 ratios; no more 4x/0.25x extremes.
 
-# 🐺 Archetype oversaturation — REFERENCE TALLIES (workflow merged into 🕯 UNIFIED AUDIT)
+# 🐺 Archetype oversaturation — REFERENCE TALLIES (workflow merged into 🕯 UNIFIED AUDIT)  `[📎 REFERENCE tallies]`
 
 Per-archetype trim decisions happen per-Lumori inside the UNIFIED audit (Step 3 "Decide archetype"). The cap rules + current family counts below remain authoritative reference.
 
@@ -657,7 +728,7 @@ Umbrella archetype with per-disaster subtypes (thunderstorm, tornado, tsunami, w
 
 *(Wraithstorm #386 reclassified out of storm group → wraith archetype: "translucent humanoid wraith inside lightning bolts". Galeaxis/Vortexathos/Stormcrown stay in their animal archetypes.)*
 
-# 📉 Standalone count reduction — RUN BEFORE the renaming queue resumes
+# 📉 Standalone count reduction — RUN BEFORE the renaming queue resumes  `[⏳ NOT STARTED]`
 
 **Current state:** 269 families total — **118 multi-stage + 151 single-stage**. Solo ratio is **56.1%** which is high; most established Pokémon-style dexes target 60-70% multi-stage families. Goal: significantly reduce the solo count by absorbing many standalone mons into multi-stage evolution chains, or by retiring/merging redundant solos.
 
@@ -672,7 +743,7 @@ Umbrella archetype with per-disaster subtypes (thunderstorm, tornado, tsunami, w
 
 **Run order:** after BREAKING + MINOR + creature inventory + 🕯 UNIFIED audit (which now contains the merged solo desc/lore + typing + archetype-trim workflow), **but before the renaming queue resumes** — because consolidating solos into chains affects names (new evolution-name relationships) and the rename pass should work on the post-consolidation roster.
 
-# 🎯 Per-archetype typing-combo diversity audit — RUN BEFORE STAT REVIEW
+# 🎯 Per-archetype typing-combo diversity audit — RUN BEFORE STAT REVIEW  `[🚧 PARTIAL — prelim matrix done (PR #63, docs/archetype-diversity-matrix.md); full pass folded into 🕯 UNIFIED]`
 
 **Goal: max 1 family per archetype × typing-combo cell.** No two families that share an archetype (otter, lion, owl, beetle, tree-elemental, etc.) should also share the same typing combo. Different combos within the same archetype are fine (e.g. one Ground/Electric rhino + one Steel/Rock rhino is OK, but two Ground/Rock rhinos is not).
 
@@ -720,41 +791,44 @@ This audit specifically catches the cross-product: same creature **and** same ty
 
 For every BREAKING/MINOR proposal going forward, include a **same-archetype peer typings** section so we catch new collisions before they go in. Format: list other families with the same archetype and their typing combos, flag any cell-collision the proposal would create.
 
-# 🎲 Encounter rate audit — RUN AFTER over-cap audit completes
+# 🎲 Encounter rate audit — RUN AFTER over-cap audit completes  `[✅ DONE — PR #58]`
 
 After the over-cap pre-408 type-combo audit lands (PR #55, branch `claude/lumoria-overcap-audit-2kkDV`), walk every encounter zone in `js/data.js` and audit `rate:` distributions.
 
-- [ ] Verify every zone's `wildMonsters[].rate` values sum to 100.
-- [ ] Check rates against BST tiers — weaker mons should be more common (higher rate), stronger/rarer mons less common. Some zones currently have arbitrary uniform rates ignoring BST gaps.
-- [ ] **Route 8 — Sky Corridors specifically:** Silvergust (BST 308), Swirlavel (485), Drakorius (521), Sapphier (537) all at or near rate 25 despite 230-BST spread. Doesn't follow a clean weakest-to-strongest curve. Rebalance using the Spirit Canyon pattern (35/30/25/10 weakest-to-strongest) or similar, while preserving Cranivade's rate 3 from the over-cap retype.
-- [ ] Stale encounter-table comments: Spirit Canyon and Route 8 cleaned inline during the Cranivade retype, but the rest of the dex likely has more stale names (pattern: old rename targets — e.g. "Psyshade" was an earlier name for Cranivade). Sweep with `grep` against current `MONSTERS_DATA[id].name`.
+- [x] Verify every zone's `wildMonsters[].rate` values sum to 100. *(all 90 non-empty base zones now sum to 100; 31 drifted zones fixed — PR #58)*
+- [x] Check rates against BST tiers — weaker mons should be more common (higher rate), stronger/rarer mons less common. Some zones currently have arbitrary uniform rates ignoring BST gaps. *(65 BST-inversion zones rebalanced to monotonic weakest→strongest curve via Spirit-Canyon 35/30/25/10 templates; pinned rares preserved; endgame mega-zones scaled to 100 keeping curve. PR #58)*
+- [x] **Route 8 — Sky Corridors specifically:** Silvergust (BST 308), Swirlavel (485), Drakorius (521), Sapphier (537) all at or near rate 25 despite 230-BST spread. Doesn't follow a clean weakest-to-strongest curve. Rebalance using the Spirit Canyon pattern (35/30/25/10 weakest-to-strongest) or similar, while preserving Cranivade's rate 3 from the over-cap retype. *(→ 34/29/24/10, Cranivade pinned at 3. PR #58)*
+- [x] Stale encounter-table comments: Spirit Canyon and Route 8 cleaned inline during the Cranivade retype, but the rest of the dex likely has more stale names (pattern: old rename targets — e.g. "Psyshade" was an earlier name for Cranivade). Sweep with `grep` against current `MONSTERS_DATA[id].name`. *(214 stale name comments fixed across base wildMonsters tables. NG+ `ngPlusWildMonsters` overlays audited separately — freshly authored, correctly named, left as-is. PR #58)*
 
-**Run order:** after 🕯 UNIFIED audit / over-cap PR lands, before stat spread review.
+**Run order:** after 🕯 UNIFIED audit / over-cap PR lands, before stat spread review. ✅ **DONE — PR #58.**
 
-# 🎯 Lumori obtainability audit — RUN AFTER over-cap audit completes
+# 🎯 Lumori obtainability audit — RUN AFTER over-cap audit completes  `[✅ DONE — PR #62, 474/500 verified]`
 
 After the over-cap pre-408 type-combo audit lands (PR #55, branch `claude/lumoria-overcap-audit-2kkDV`), walk every Lumori in `MONSTERS_DATA` and verify each has at least one obtainability path. Acceptable paths: wild area encounter, NG+ rotation, one-off static encounter, quest reward, in-game trade, evolution from another obtainable Lumori, special event, etc.
 
-- [ ] Cross-reference every `MONSTERS_DATA[id]` against:
+- [x] Cross-reference every `MONSTERS_DATA[id]` against:
   - All `wildMonsters[]` and `ngPlusWildMonsters[]` arrays in `WORLD_DATA`
   - All `legendaryEncounter`, story-encounter, quest-reward references
   - Evolution chain (`evolveTo` from another obtainable Lumori)
-- [ ] Flag any Lumori with zero obtainability paths. Decide for each:
+  *(Built full obtainability graph: starters + all wild/NG+ encounters + 13 legendaryEncounters + 13 Forgotten wielder-team[0] legendaries, closed over evolveTo/evolveAlt. Result: **474/500 obtainable**, matching the 500-dex placement pass. PR for this audit.)*
+- [x] Flag any Lumori with zero obtainability paths. Decide for each:
   - Add to a suitable wild area or static encounter
   - Designate as quest-only and add the quest
   - Confirm intentionally unobtainable (only valid for the **26 Forgotten Lumori** explicitly designated as such — verify against the canonical list)
-- [ ] **Known cases from over-cap audit:**
-  - #362 Lunaspectre — has no encounter entries dex-wide (surfaced during Dark/Mental retype). Needs assignment.
+  *(**0 real gaps.** The 26 unobtainable = exactly the encounter-only Forgotten (wielder team[1]/team[2]); verified they carry `uncatchable:true` and have no encounter/evo path.)*
+- [x] **Known cases from over-cap audit:**
+  - #362 Lunaspectre — has no encounter entries dex-wide (surfaced during Dark/Mental retype). Needs assignment. *(RESOLVED — now obtainable via the Starbloom NG+ overlay.)*
+- [x] **Latent data-hygiene fixes (found during this audit):** the 13 catchable Forgotten (wielder team[0]) had `catchRate:0` (only "worked" via the `(catchRate || 45)` fallback) and a misleading `uncatchable:true`. → set them to legendary `catchRate:3` and removed `uncatchable:true`; the 26 encounter-only Forgotten keep both. `uncatchable` is otherwise unused by code (display gating uses `foreignRegion`).
 
-**Run order:** after 🕯 UNIFIED audit / over-cap PR lands, parallel with 🎲 Encounter rate audit, before stat spread review.
+**Run order:** after 🕯 UNIFIED audit / over-cap PR lands, parallel with 🎲 Encounter rate audit, before stat spread review. ✅ **DONE.**
 
-# 💡 Concept parking — future family ideas to use later
+# 💡 Concept parking — future family ideas to use later  `[📎 PARKING — not a task]`
 
 - **"Whirlpool of light" — Water/Psychic family.** The original Aurarael flavor (a flowing psychic entity that resembles a whirlpool of blue-violet light given form, no solid body, continuously cycling vortex, inhabits locations of high psychic resonance, absorbs ambient thought energy) is being preserved here. Reuse for a new Water/Psychic family — possibly a deep-ocean meditation-shrine guardian, or a tidal-current spirit. Keep in mind during the renaming/typing pass.
 - **"Fairy-dragon" — Water/Fairy or Dragon/Fairy family.** The original Thalassira flavor (a grand aquatic fairy-dragon 5 metres long, combining the sinuous body of a sea serpent with translucent fairy wings that function as fins, iridescent ocean-blue and silver scales, guarding hidden underwater groves where rare magical plants grow undisturbed) is being preserved here. Reuse for a new family — possibly a flagship legendary fairy-dragon line, or as the final stage of a new aquatic dragon family during the renaming pass.
 - **"Nautilus metallic humanoid" — Water/Steel family.** The original Titanariel flavor (a 7-metre armoured sea-titan resembling a colossal nautilus with steel-hard shell and metallic-plated tentacles, propelled by high-pressure water jets, capsizing ships by wrapping tentacles around the hull) is being preserved. User specifically liked the **nautilus metallic humanoid** read — likely intent is a humanoid creature with a nautilus-shell carapace and metal-plated tentacle-arms (rather than a pure mollusk). Reuse for a new Water/Steel family — possibly a flagship deep-sea armored legendary or final stage of a new aquatic mollusk-knight line.
 
-# 🔮 Mythical/rare archetype flags — END-OF-TASK USER DISCUSSION
+# 🔮 Mythical/rare archetype flags — END-OF-TASK USER DISCUSSION  `[⏳ NOT STARTED — end-of-task discussion]`
 
 Per user instruction: leave these for late discussion before any consolidation.
 
@@ -765,7 +839,7 @@ Per user instruction: leave these for late discussion before any consolidation.
 - [ ] **humanoid (non-armoured elemental)** — 6+ families.
 - [ ] **phoenix / solar-bird** — 3-4 families (borderline).
 
-# 🏷️ Luminex Renaming + Final Lore/Description Adjustments/Audit
+# 🏷️ Luminex Renaming + Final Lore/Description Adjustments/Audit  `[⏳ PARTIAL/PAUSED — some renames applied (PRs #34–35); full final pass runs after 🕯 UNIFIED]`
 
 **Working branch:** `claude/complete-task-FkreZ` (PR: https://github.com/casimbahadar/Lumoria/pull/35 — draft)
 
@@ -798,11 +872,11 @@ Per user instruction: leave these for late discussion before any consolidation.
 - [x] **#11** Helioveth → **Heliocoon** (Fire/Wind; chrysalis lore, defensive stats, 🥚 emoji)
 - [x] **#12** Inferarch (kept name, retyped Fire/Dragon → Fire/Wind, butterfly lore + 🦋 emoji + 5 dragon moves swapped for Wind/Bug)
 
-# 🎯 Moveset utilization audit — RUN BEFORE stat spread review
+# 🎯 Moveset utilization audit — RUN BEFORE stat spread review  `[⏳ NOT STARTED]`
 
 For each of the 26 types, calculate the ratio of moves actually assigned to at least one Lumori vs total move count of that type. Identify **orphan moves** (0 current learners — many such moves exist; Fire alone has 13+ orphans like Lava Plume, Cinder Lance, Smolder Trap, Eruption, Will-O-Wisp, etc.). For each orphan: decide whether to (a) **assign** to specific Lumori via learnset additions, (b) **promote** to `rarity:"exclusive"` and earmark for a future legendary, or (c) **remove** from MOVES_DATA as dead code. Also identify **near-orphan moves** (1-2 learners) and decide if those moves are intentionally signature/exclusive (mark them) or should have wider distribution. Goal: every move in MOVES_DATA serves a clear purpose, and no Lumori is missing access to type-appropriate moves it should reasonably have.
 
-# 📊 Final-pass stat spread review — RUN LAST (after all renaming complete)
+# 📊 Final-pass stat spread review — RUN LAST (after all renaming complete)  `[⏳ NOT STARTED — RUN LAST]`
 
 After every coherence fix, type adjustment, and rename is committed, do a final pass over **every Lumori's base stat spread** across the whole dex. This is the last item in the entire workflow.
 
@@ -817,7 +891,7 @@ After every coherence fix, type adjustment, and rename is committed, do a final 
 
 **Run order:** BREAKING fixes → MINOR fixes → typing audit → archetype trim → renaming queue → **stat spread review (this section, last)**.
 
-# 🧬 Abilities feature (or similar legal-safe name) — RUN AFTER STAT REVIEW
+# 🧬 Abilities feature (or similar legal-safe name) — RUN AFTER STAT REVIEW  `[⏳ NOT STARTED]`
 
 Add a per-Lumori passive-ability system. Feature name must avoid legal risk (Pokémon's "Abilities" trademark) — candidate alternates: Traits / Aptitudes / Quirks / Knacks / Innate / Talents (final naming TBD).
 
@@ -828,7 +902,7 @@ Add a per-Lumori passive-ability system. Feature name must avoid legal risk (Pok
 - [ ] Integrate into battle engine + UI (team detail, battle log)
 - [ ] Migration logic for existing saves
 
-# 🤝 Inter-Lumori interactions in lore/desc — RUN AFTER ABILITIES
+# 🤝 Inter-Lumori interactions in lore/desc — RUN AFTER ABILITIES  `[⏳ NOT STARTED — note: bridge-lore sweep already done (PR #48); this is the dedicated interaction pass]`
 
 Add cross-references between Lumori in lore/description text to give the world ecological depth — predator/prey, ancestral rivalries, symbioses, territorial competition, parasite/host relationships, item-stealing behaviours, etc.
 
@@ -843,7 +917,7 @@ Add cross-references between Lumori in lore/description text to give the world e
 - [ ] Draft + apply edits in batches (propose-and-approve per batch, batched commits).
 - [ ] Audit for confusing circular references (avoid A→B→C→A loops unless thematically intentional).
 
-# 🎮 NG+ / Forgotten gating separation — RUN BEFORE LUMINEX REORDER
+# 🎮 NG+ / Forgotten gating separation — RUN BEFORE LUMINEX REORDER  `[✅ DONE — gating + legendary encounters (PR #53); only the 13 wielder cutscenes remain (deferred to after stat review)]`
 
 `js/data.js` currently classifies ids 322-421 as NG+-exclusive and ids 408-446 as Forgotten Lumori, creating an unintended dual-classification at ids 408-421. **These two ranges must be separate.**
 
@@ -866,7 +940,7 @@ Add cross-references between Lumori in lore/description text to give the world e
 
 This work should run BEFORE the Luminex reorder (renumber pass) so that the reorder respects the new NG+/Forgotten boundary at id 407/408.
 
-# 🚀 Pre-launch features, assets, and release process
+# 🚀 Pre-launch features, assets, and release process  `[🚧 IN PROGRESS — launch plan draft (PR #52); most items pending]`
 
 Higher-level work remaining beyond the lore / typing / stats audits.
 

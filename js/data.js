@@ -802,7 +802,7 @@ const MOVES_DATA = {
   // --- Metal (signature moves for Forgotten Lumori) ---
   pyro_alloy:       { name:"Pyro Alloy",       type:"Metal",   power:85,  acc:100, pp:10, cat:"physical", effect:"burn",      ec:20, desc:"Pyraeon fuses its superheated alloy scales into an edge and strikes, leaving a burning brand on contact." },
   iron_fortress:    { name:"Iron Fortress",    type:"Crystal",   power:85,  acc:100, pp:10, cat:"physical", effect:"defup",     ec:100,desc:"Ironvast strikes with total commitment, its own body acting as a rampart. Every blow hardens its defensive posture." },
-  steel_gale:       { name:"Metal Gale",       type:"Metal",   power:100, acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:20, desc:"Zephyrak spins its steel-edged wings to hurricane velocity and releases a blade of compressed metal-edged air." },
+  steel_gale:       { name:"Ferrous Gale",       type:"Metal",   power:100, acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:20, desc:"Zephyrak spins its steel-edged wings to hurricane velocity and releases a blade of compressed metal-edged air." },
 
   // --- Spectral (signature moves for Forgotten Lumori) ---
   phantom_gale:     { name:"Phantom Gale",     type:"Spectral",   power:130, acc:90,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Skydrak tears open a corridor to the void and channels its force through a phantom-wind strike. The void tears back." },
@@ -960,7 +960,7 @@ const MOVES_DATA = {
 
   // --- Metal (regular) ---
   metal_pulse:             { name:"Metal Pulse", type:"Metal", power:45, acc:100, pp:30, cat:"special", effect:null, ec:0, target:"single", desc:"Resonant metal pulse." },
-  iron_shockwave:          { name:"Iron Shockwave", type:"Metal", power:60, acc:100, pp:20, cat:"special", effect:"defdown", ec:30, target:"wide", desc:"Iron-density shockwave on all foes; may lower Def." },
+  iron_shockwave:          { name:"Wrought Shockwave", type:"Metal", power:60, acc:100, pp:20, cat:"special", effect:"defdown", ec:30, target:"wide", desc:"Iron-density shockwave on all foes; may lower Def." },
   magnet_burst:            { name:"Magnet Burst", type:"Metal", power:70, acc:95, pp:15, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Magnetic-field burst; always lands a critical hit." },
   chromium_ray:            { name:"Chromium Ray", type:"Metal", power:75, acc:100, pp:15, cat:"special", effect:"crit", ec:100, target:"single", breakerVs:"Mental", desc:"Chromium-light ray; super vs Mental; high crit ratio." },
   titanic_beam:            { name:"Titanic Beam", type:"Metal", dualType:["Metal","Mineral"], power:90, acc:95, pp:10, cat:"special", effect:"spdefdown", ec:30, target:"wide", desc:"Titanium beam on all foes. Dual Metal+Mineral; may lower SpDef." },

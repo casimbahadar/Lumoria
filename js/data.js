@@ -914,7 +914,7 @@ const MOVES_DATA = {
   hurricane_blast:         { name:"Hurricane Blast", type:"Wind", power:110, acc:80, pp:5, cat:"special", effect:"confuse", ec:30, target:"wide", breakerVs:"Spectral", desc:"Wild hurricane; super vs Spectral; may confuse all foes." },
   windstorm_eruption:      { name:"Thunderstorm Eruption", type:"Wind", dualType:["Wind","Electric"], power:130, acc:85, pp:5, cat:"special", effect:"strained", ec:30, target:"wide", desc:"Lightning-laced windstorm. Dual Wind+Electric; may inflict Strained on all foes." },
   updraft:                 { name:"Updraft", type:"Wind", power:0, acc:100, pp:15, cat:"status", effect:"spdefup", ec:100, target:"self", desc:"Updraft cushion (+1 SpDef)." },
-  gale_focus:              { name:"Gale Focus", type:"Wind", power:0, acc:100, pp:15, cat:"status", effect:"accup", ec:100, target:"self", desc:"Reads wind currents; raises own Accuracy." },
+  gale_focus:              { name:"Mistral Focus", type:"Wind", power:0, acc:100, pp:15, cat:"status", effect:"accup", ec:100, target:"self", desc:"Reads wind currents; raises own Accuracy." },
   air_barrier:             { name:"Air Barrier", type:"Wind", power:0, acc:100, pp:10, cat:"status", effect:"heal50", ec:100, target:"self", desc:"Air-current bath restores half HP." },
 
   // --- Ice (regular) ---

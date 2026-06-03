@@ -217,7 +217,7 @@ const MOVES_DATA = {
   // --- Dark ---
   bite:         { name:"Chomp",          type:"Dark",     power:60,  acc:100, pp:25, cat:"physical", effect:"flinch",    ec:30,  desc:"Bites with dark power. May cause flinching." },
   crunch:       { name:"Jaw Crush",        type:"Dark",     power:80,  acc:100, pp:15, cat:"physical", effect:"defdown",   ec:20,  desc:"Crunches with dark fangs. May lower Defense." },
-  shadow_ball:  { name:"Void Sphere",   type:"Dark",     power:80,  acc:100, pp:15, cat:"special",  effect:"spdefdown", ec:20,  desc:"Hurls a shadowy blob. May lower Sp.Def." },
+  shadow_ball:  { name:"Nether Sphere",   type:"Dark",     power:80,  acc:100, pp:15, cat:"special",  effect:"spdefdown", ec:20,  desc:"Hurls a shadowy blob. May lower Sp.Def." },
   night_slash:  { name:"Dusk Slash",   type:"Dark",     power:70,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes in the dark. High critical rate." },
   dark_pulse:   { name:"Void Pulse",    type:"Dark",     power:80,  acc:100, pp:15, cat:"special",  effect:"flinch",    ec:20,  desc:"Fires pulses of dark energy." },
   void_rend:    { name:"Void Rend",     type:"Dark",     power:95,  acc:90,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Tears through the foe with a claw infused with the emptiness of the void." },
@@ -345,7 +345,7 @@ const MOVES_DATA = {
   // --- NEW: Dark (5 more → 15) ---
   umbral_claw:  { name:"Umbral Claw",   type:"Dark",     power:80,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Rakes the foe with claws forged from living shadow. High crit rate." },
   dread_howl:   { name:"Dread Howl",    type:"Dark",     power:0,   acc:100, pp:15, cat:"status",   effect:"spatkdown", ec:100, desc:"Emits a howl of pure dread that saps the foe's will to use special attacks." },
-  abyssal_snare:{ name:"Abyssal Snare", type:"Dark",     power:70,  acc:95,  pp:15, cat:"special",  effect:"spedown",   ec:30,  desc:"Tendrils of darkness coil around the foe, dragging them into sluggishness." },
+  abyssal_snare:{ name:"Tenebrous Snare", type:"Dark",     power:70,  acc:95,  pp:15, cat:"special",  effect:"spedown",   ec:30,  desc:"Tendrils of darkness coil around the foe, dragging them into sluggishness." },
   blackout_bomb:{ name:"Blackout Bomb",  type:"Dark",     power:90,  acc:90,  pp:10, cat:"special",  effect:"confuse",   ec:30,  desc:"Detonates a sphere of absolute darkness that disorients everything nearby." },
   soul_rend:    { name:"Soul Rend",     type:"Dark",     power:100, acc:85,  pp:5,  cat:"special",  effect:"spdefdown", ec:30,  desc:"Tears at the foe's spiritual essence, shredding their mental resilience." },
 
@@ -936,7 +936,7 @@ const MOVES_DATA = {
   nightmare_smash:         { name:"Nightmare Smash", type:"Dark", dualType:["Dark","Dream"], power:90, acc:90, pp:10, cat:"physical", effect:"flinch", ec:20, target:"single", desc:"Nightmarish slam. Dual Dark+Dream; may flinch." },
   umbral_pulse:            { name:"Umbral Pulse", type:"Dark", power:65, acc:100, pp:25, cat:"special", effect:"flinch", ec:20, target:"single", desc:"Umbral burst; may flinch." },
   shadow_lance:            { name:"Shadow Lance", type:"Dark", power:80, acc:95, pp:15, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Piercing shadow-lance; always lands a critical hit." },
-  void_whisper:            { name:"Void Whisper", type:"Dark", power:50, acc:100, pp:25, cat:"special", effect:"confuse", ec:20, target:"wide", desc:"Disturbing whispers on all foes; may confuse." },
+  void_whisper:            { name:"Stygian Whisper", type:"Dark", power:50, acc:100, pp:25, cat:"special", effect:"confuse", ec:20, target:"wide", desc:"Disturbing whispers on all foes; may confuse." },
   shadowstorm:             { name:"Shadowstorm", type:"Dark", dualType:["Dark","Wind"], power:95, acc:90, pp:10, cat:"special", effect:null, ec:0, target:"wide", desc:"Whirling shadow-storm. Dual Dark+Wind." },
   eclipse_burst:           { name:"Eclipse Burst", type:"Dark", power:110, acc:80, pp:5, cat:"special", effect:"atkdown", ec:30, target:"wide", desc:"Blinding eclipse-burst on all foes; may lower Atk." },
   abyssal_wave:            { name:"Abyssal Wave", type:"Dark", power:130, acc:85, pp:5, cat:"special", effect:"bleed", ec:30, target:"single", desc:"Abyssal wave; may inflict Bleed." },

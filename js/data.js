@@ -867,7 +867,7 @@ const MOVES_DATA = {
   scorch_kick:             { name:"Scorch Kick", type:"Fire", dualType:["Fire","Earth"], power:95, acc:85, pp:10, cat:"physical", effect:"marked", ec:30, target:"wide", desc:"Earth-scorching kick across all foes; may inflict Marked." },
   flare_uppercut:          { name:"Flare Uppercut", type:"Fire", power:85, acc:100, pp:10, cat:"physical", effect:"flinch", ec:20, target:"single", desc:"Upward flare-uppercut; may flinch." },
   lava_drop:               { name:"Lava Drop", type:"Fire", power:130, acc:85, pp:5, cat:"physical", effect:"recharge", ec:100, target:"wide", desc:"Drops as molten lava across all foes; requires rest." },
-  flame_focus:             { name:"Flame Focus", type:"Fire", power:0, acc:100, pp:15, cat:"status", effect:"focus", ec:100, target:"self", desc:"Sharpens flame for high critical-hit ratio." },
+  flame_focus:             { name:"Ember Focus", type:"Fire", power:0, acc:100, pp:15, cat:"status", effect:"focus", ec:100, target:"self", desc:"Sharpens flame for high critical-hit ratio." },
   searing_glare:           { name:"Searing Glare", type:"Fire", power:0, acc:100, pp:15, cat:"status", effect:"spdefdown", ec:100, target:"single", desc:"Intense gaze lowers foe's SpDef." },
   molten_armor:            { name:"Molten Armor", type:"Fire", power:0, acc:100, pp:15, cat:"status", effect:"defup2", ec:100, target:"self", desc:"Hardens molten skin (+2 Def)." },
   kindle:                  { name:"Kindle", type:"Fire", power:0, acc:100, pp:10, cat:"status", effect:"atkup", ec:100, target:"self", desc:"Kindles inner flame (+1 Atk)." },

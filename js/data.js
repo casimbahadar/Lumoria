@@ -1074,7 +1074,7 @@ const MOVES_DATA = {
 
   // --- Aether (regular, batch3) ---
   aether_jab:                  { name:"Aether Jab", type:"Aether", power:40, acc:100, pp:30, cat:"physical", effect:null, ec:0, target:"single", desc:"Quick aether-jab." },
-  mystic_strike:               { name:"Mystic Strike", type:"Aether", power:70, acc:100, pp:15, cat:"physical", effect:null, ec:0, target:"single", desc:"Mystic strike." },
+  mystic_strike:               { name:"Mystic Blow", type:"Aether", power:70, acc:100, pp:15, cat:"physical", effect:null, ec:0, target:"single", desc:"Mystic Blow." },
   ethereal_slash:              { name:"Ethereal Slash", type:"Aether", power:85, acc:95, pp:15, cat:"physical", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Ethereal slash." },
   radiant_strike:              { name:"Radiant Strike", type:"Aether", dualType:["Aether","Fairy"], power:95, acc:90, pp:10, cat:"physical", effect:"spdefdown", ec:30, target:"single", desc:"Radiant strike. Dual Aether+Fairy." },
   divine_press:                { name:"Divine Press", type:"Aether", power:110, acc:85, pp:5, cat:"physical", effect:null, ec:0, target:"wide", desc:"Wide divine press." },
@@ -1084,7 +1084,7 @@ const MOVES_DATA = {
   radiant_wave:                { name:"Radiant Wave", type:"Aether", power:90, acc:90, pp:10, cat:"special", effect:null, ec:0, target:"wide", desc:"Radiant wave." },
   mystical_eruption:           { name:"Mystical Eruption", type:"Aether", power:100, acc:85, pp:10, cat:"special", effect:null, ec:0, target:"wide", breakerVs:"Spectral", desc:"Mystical eruption." },
   ethereal_storm:              { name:"Ethereal Storm", type:"Aether", power:120, acc:85, pp:5, cat:"special", effect:null, ec:0, target:"wide", desc:"Wide ethereal storm." },
-  aether_focus:                { name:"Aether Focus", type:"Aether", power:0, acc:100, pp:15, cat:"status", effect:"focus", ec:100, target:"self", desc:"High crit." },
+  aether_focus:                { name:"Empyrean Focus", type:"Aether", power:0, acc:100, pp:15, cat:"status", effect:"focus", ec:100, target:"self", desc:"High crit." },
   arcane_meditation:           { name:"Arcane Meditation", type:"Aether", power:0, acc:100, pp:15, cat:"status", effect:"calmup", ec:100, target:"self", desc:"Calm-up." },
   divine_ward:                 { name:"Divine Ward", type:"Aether", power:0, acc:100, pp:15, cat:"status", effect:"defup2", ec:100, target:"self", desc:"+2 Def." },
   mystic_charge:               { name:"Mystic Charge", type:"Aether", power:0, acc:100, pp:10, cat:"status", effect:"spaup2", ec:100, target:"self", desc:"+2 SpA." },

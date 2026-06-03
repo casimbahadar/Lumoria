@@ -526,7 +526,7 @@ const MOVES_DATA = {
   twister:       { name:"Wyrm Gale",       type:"Draconic",   power:40,  acc:100, pp:20, cat:"special",  effect:"confuse",    ec:30,  desc:"Whips up a vicious twister of draconic wind." },
   dragon_rage:   { name:"Serpent Rage",   type:"Draconic",   power:55,  acc:100, pp:15, cat:"special",  effect:null,        ec:0,   desc:"Blasts the foe with an ancient draconic fury." },
   serpent_coil:  { name:"Serpent Coil",   type:"Draconic",   power:0,   acc:100, pp:15, cat:"status",   effect:"atkup",     ec:100, desc:"Coils like a dragon serpent, building power for the next strike." },
-  wyrm_breath:   { name:"Reptilian Gust",   type:"Draconic",   power:80,  acc:95,  pp:15, cat:"special",  effect:"paralyze",  ec:20,  desc:"Breathes the ancient miasma of a primordial wyrm." },
+  wyrm_breath:   { name:"Wyrm Breath",   type:"Draconic",   power:80,  acc:95,  pp:15, cat:"special",  effect:"paralyze",  ec:20,  desc:"Breathes the ancient miasma of a primordial wyrm." },
 
   // Rock (+7 → 22)
   ancient_power: { name:"Primeval Force", type:"Earth",    power:60,  acc:100, pp:5,  cat:"special",  effect:"atkup",     ec:10,  desc:"Attacks with prehistoric power that may raise all stats." },
@@ -998,7 +998,7 @@ const MOVES_DATA = {
   // --- Draconic (regular, batch3) ---
   draco_jab:                   { name:"Draco Jab", type:"Draconic", power:40, acc:100, pp:30, cat:"physical", effect:null, ec:0, target:"single", breakerVs:"Fairy", desc:"Quick draco-jab." },
   draco_pulse_n:               { name:"Draco Pulse", type:"Draconic", power:70, acc:100, pp:15, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Draconic pulse." },
-  wyrm_breath:                 { name:"Wyrm Breath", type:"Draconic", dualType:["Draconic","Wind"], power:90, acc:90, pp:10, cat:"special", effect:null, ec:0, target:"wide", desc:"Wide wyrm-breath. Dual Draconic+Wind." },
+  wyrm_breath:                 { name:"Reptilian Gust", type:"Draconic", dualType:["Draconic","Wind"], power:90, acc:90, pp:10, cat:"special", effect:null, ec:0, target:"wide", desc:"Wide reptilian gust. Dual Draconic+Wind." },
   dragon_focus:                { name:"Dragon Focus", type:"Draconic", power:0, acc:100, pp:15, cat:"status", effect:"focus", ec:100, target:"self", desc:"Dragon's focus; high crit." },
   ancient_meditation:          { name:"Ancient Meditation", type:"Draconic", power:0, acc:100, pp:10, cat:"status", effect:"calmup", ec:100, target:"self", desc:"Calm-up self." },
   wyrm_armor:                  { name:"Drake Armor", type:"Draconic", power:0, acc:100, pp:15, cat:"status", effect:"defup2", ec:100, target:"self", desc:"+2 Def." },

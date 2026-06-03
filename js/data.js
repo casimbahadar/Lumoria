@@ -696,7 +696,7 @@ const MOVES_DATA = {
   sticky_web:       { name:"Sticky Web",        type:"Nature",      power:0,   acc:100, pp:20, cat:"status",   effect:"spedown",   ec:100, desc:"Shoots a sticky web that significantly slows the target." },
   twineedle:        { name:"Twin Sting",        type:"Nature",      power:50,  acc:100, pp:20, cat:"physical", effect:"poison",    ec:20,  desc:"Stings the foe twice with a sharp stinger. May poison." },
   attack_order:     { name:"Swarm Strike",      type:"Nature",      power:90,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Commands bug allies to swarm the foe — their unified assault always finds weak points." },
-  swarm_fury:       { name:"Swarm Fury",        type:"Nature",      power:80,  acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"An unrelenting swarming assault that exhausts the user as well." },
+  swarm_fury:       { name:"Locust Fury",        type:"Nature",      power:80,  acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"An unrelenting swarming assault that exhausts the user as well." },
   cocoon_guard:     { name:"Cocoon Guard",      type:"Nature",      power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Wraps the body in a hardened cocoon shell, dramatically raising Defense." },
   hivemind_surge:   { name:"Hivemind Surge",    type:"Nature",      power:110, acc:90,  pp:10, cat:"special",  effect:"spaup",        ec:30,   desc:"Channels the collective power of a hivemind into a single devastating burst." },
 
@@ -753,7 +753,7 @@ const MOVES_DATA = {
   star_cannon:      { name:"Star Cannon",      type:"Aether",  power:55,  acc:100, pp:10, cat:"special",  effect:"defdown",   ec:30, hits:2, desc:"Celestrix fires two concentrated bolts of compressed starlight that punch through defenses on impact." },
 
   // --- Bug (signature moves for Forgotten Lumori) ---
-  swarm_tide:       { name:"Swarm Tide",       type:"Nature",     power:40,  acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30, hits:3, desc:"Fulgureis summons a torrent of charged insects in three cascading waves, each slowing the target further." },
+  swarm_tide:       { name:"Brood Tide",       type:"Nature",     power:40,  acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30, hits:3, desc:"Fulgureis summons a torrent of charged insects in three cascading waves, each slowing the target further." },
 
   // --- Aquatic (signature moves for Forgotten Lumori) ---
   torrent_shell:    { name:"Torrent Shell",    type:"Aquatic",   power:150, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Fulgureis condenses an ocean's worth of pressure into a single catastrophic blast. The backlash is immense." },
@@ -877,7 +877,7 @@ const MOVES_DATA = {
   nature_pulse:            { name:"Nature Pulse", type:"Nature", power:40, acc:100, pp:30, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Pulse of life-energy; always lands a critical hit." },
   leafblade_swirl:         { name:"Leafblade Swirl", type:"Nature", power:65, acc:95, pp:20, cat:"special", effect:"atkdown", ec:20, target:"single", desc:"Swirling leaf-blades; may lower foe's Atk." },
   sporecloud_burst:        { name:"Sporecloud Burst", type:"Nature", power:70, acc:100, pp:15, cat:"special", effect:"sleep", ec:10, target:"wide", desc:"Burst of spores across all foes; may sleep them." },
-  verdant_radiance:        { name:"Verdant Radiance", type:"Nature", dualType:["Nature","Stellar"], power:85, acc:90, pp:10, cat:"special", effect:"crit", ec:100, target:"single", desc:"Bright life-radiance with high crit ratio. Dual Nature+Stellar." },
+  verdant_radiance:        { name:"Sylvan Radiance", type:"Nature", dualType:["Nature","Stellar"], power:85, acc:90, pp:10, cat:"special", effect:"crit", ec:100, target:"single", desc:"Bright life-radiance with high crit ratio. Dual Nature+Stellar." },
   swarm_assault:           { name:"Swarm Assault", type:"Nature", power:95, acc:90, pp:10, cat:"special", effect:"flinch", ec:20, target:"wide", desc:"Insect-swarm assault on all foes; may flinch." },
   primordial_growth:       { name:"Primordial Growth", type:"Nature", dualType:["Nature","Earth"], power:110, acc:85, pp:5, cat:"special", effect:null, ec:0, target:"single", desc:"Primordial growth-burst. Dual Nature+Earth." },
 

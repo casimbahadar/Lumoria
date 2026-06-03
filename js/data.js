@@ -130,12 +130,12 @@ const MOVES_DATA = {
   vital_pulse:  { name:"Vital Pulse",   type:"Normal",   power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Focuses life energy inward to restore the user's vitality." },
   instinct_slash:{ name:"Instinct Slash",type:"Normal",  power:70,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes by pure instinct, always finding a critical spot to exploit." },
   // --- Fire ---
-  ember:        { name:"Ember",         type:"Fire",     power:40,  acc:100, pp:25, cat:"special",  effect:"burn",      ec:10,  desc:"A weak fire attack that may burn." },
+  ember:        { name:"Flicker",       type:"Fire",     power:40,  acc:100, pp:25, cat:"special",  effect:"burn",      ec:10,  desc:"A weak fire attack that may burn." },
   flame_fang:   { name:"Flame Fang",    type:"Fire",     power:65,  acc:95,  pp:15, cat:"physical", effect:"burn",      ec:10,  desc:"Bites with flaming fangs. May burn." },
   flamethrower: { name:"Inferno Jet",  type:"Fire",     power:90,  acc:100, pp:15, cat:"special",  effect:"atkup",      ec:30,  desc:"Shoots a stream of intense fire. May burn." },
-  fire_blast:   { name:"Fire Blast",    type:"Fire",     power:110, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:10,  desc:"A massive fireball. May burn the target." },
-  heat_wave:    { name:"Heat Wave",     type:"Fire",     power:95,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:10,  desc:"Exhales a wave of scorching heat." },
-  inferno:      { name:"Inferno",       type:"Fire",     power:100, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:100, desc:"A raging inferno that always burns." },
+  fire_blast:   { name:"Pyroclasm",     type:"Fire",     power:110, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:10,  desc:"A massive fireball. May burn the target." },
+  heat_wave:    { name:"Searing Gale",  type:"Fire",     power:95,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:10,  desc:"Exhales a wave of scorching heat." },
+  inferno:      { name:"Conflagration", type:"Fire",     power:100, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:100, desc:"A raging inferno that always burns." },
   cinderwhirl:  { name:"Cinderwhirl",   type:"Fire",     power:85,  acc:90,  pp:10, cat:"special",  effect:"spedown",      ec:30,  desc:"Unleashes a spinning tornado of cinders that scorches everything in its path." },
   scorch_veil:  { name:"Scorch Veil",   type:"Fire",     power:0,   acc:100, pp:15, cat:"status",   effect:"burn",      ec:100, desc:"Wraps the user in a veil of burning ash that singes any foe that makes contact." },
   magma_surge:  { name:"Magma Surge",   type:"Fire",     power:90,  acc:85,  pp:10, cat:"special",  effect:"burn",      ec:30,  desc:"Erupts scalding magma from the ground beneath the foe." },
@@ -417,7 +417,7 @@ const MOVES_DATA = {
 
   // Fire (+6 → 22)
   flash_fire:    { name:"Flash Fire",    type:"Fire",     power:50,  acc:100, pp:25, cat:"special",  effect:"spaup",        ec:30,   desc:"A quick burst of concentrated flame." },
-  lava_plume:    { name:"Lava Plume",    type:"Fire",     power:80,  acc:100, pp:15, cat:"special",  effect:"burn",      ec:30,  desc:"Erupts lava in all directions, likely to burn." },
+  lava_plume:    { name:"Lava Spout",    type:"Fire",     power:80,  acc:100, pp:15, cat:"special",  effect:"burn",      ec:30,  desc:"Erupts lava in all directions, likely to burn." },
   smolder_trap:  { name:"Smolder Trap",  type:"Fire",     power:0,   acc:90,  pp:15, cat:"status",   effect:"burn",      ec:100, desc:"Lays a trap of smoldering coals that burns the foe." },
   ignition_kick: { name:"Ignition Kick", type:"Fire",     power:90,  acc:95,  pp:10, cat:"physical", effect:"burn",      ec:20,  desc:"Delivers a combustion-powered kick wreathed in ignited air." },
   wildfire_surge:{ name:"Wildfire Surge",type:"Fire",     power:95,  acc:85,  pp:10, cat:"special",  effect:"spedown",      ec:30,  desc:"Unleashes an uncontrollable wildfire that sweeps across the field.", rarity:"exclusive" },
@@ -561,13 +561,13 @@ const MOVES_DATA = {
   double_edge:      { name:"All-Out Assault",   type:"Normal",   power:100, acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"A reckless life-risking tackle that also damages the user." },
 
   // --- Fire (+7) ---
-  will_o_wisp:      { name:"Will-O-Wisp",       type:"Fire",     power:0,   acc:85,  pp:15, cat:"status",   effect:"burn",      ec:100, desc:"Shoots a sinister flame that reliably burns the target." },
+  will_o_wisp:      { name:"Hexflame",           type:"Fire",     power:0,   acc:85,  pp:15, cat:"status",   effect:"burn",      ec:100, desc:"Shoots a sinister flame that reliably burns the target." },
   flame_charge:     { name:"Flame Charge",      type:"Fire",     power:50,  acc:100, pp:20, cat:"physical", effect:"speup",     ec:100, desc:"Cloaks the user in flame and charges forward, raising Speed." },
   sun_burst:        { name:"Sun Burst",         type:"Fire",     power:80,  acc:100, pp:15, cat:"special",  effect:"spaup",      ec:30,  desc:"Concentrates solar energy into a burst of searing heat that may burn." },
   molten_tide:      { name:"Molten Tide",       type:"Fire",     power:95,  acc:90,  pp:10, cat:"special",  effect:"spdefdown", ec:30,  desc:"A wave of molten rock that may erode the target's special resistance." },
-  eruption:         { name:"Eruption",          type:"Fire",     power:140, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Erupts with volcanic force, dealing immense damage at a cost to the user." },
+  eruption:         { name:"Pyroclastic Burst",  type:"Fire",     power:140, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Erupts with volcanic force, dealing immense damage at a cost to the user." },
   infernal_roar:    { name:"Infernal Roar",     type:"Fire",     power:0,   acc:100, pp:15, cat:"status",   effect:"spatkup",   ec:100, desc:"A roar blazing with inner fire, sharply raising the user's Special Attack." },
-  fire_spin:        { name:"Fire Spin",         type:"Fire",     power:35,  acc:85,  pp:15, cat:"special",  effect:"spedown",   ec:100, desc:"Traps the foe in a swirling vortex of fire, slowing it down." },
+  fire_spin:        { name:"Flame Spiral",       type:"Fire",     power:35,  acc:85,  pp:15, cat:"special",  effect:"spedown",   ec:100, desc:"Traps the foe in a swirling vortex of fire, slowing it down." },
 
   // --- Aquatic (+7) ---
   water_pulse:      { name:"Aquatic Pulse",       type:"Aquatic",    power:60,  acc:100, pp:20, cat:"special",  effect:"confuse",   ec:20,  desc:"A pulsing wave of water that may confuse the target." },

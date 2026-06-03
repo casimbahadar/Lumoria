@@ -642,7 +642,7 @@ const MOVES_DATA = {
   misty_explosion:  { name:"Misty Explosion",   type:"Fairy",    power:100, acc:100, pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Explodes in a burst of mystic mist, dealing heavy damage at a cost." },
   sparkling_aria:   { name:"Glimmering Song",    type:"Fairy",    power:90,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Sings a sparkling aria that resonates with magical force." },
   light_of_ruin:    { name:"Fairy Blast",     type:"Fairy",    power:140, acc:90,  pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Draws in destructive light for a catastrophic blast at the user's expense." },
-  fairy_lock:       { name:"Fairy Lock",        type:"Fairy",    power:0,   acc:100, pp:15, cat:"status",   effect:"spedown",   ec:100, desc:"Seals the battlefield with fairy magic, slowing the foe with mystical bonds." },
+  fairy_lock:       { name:"Sprite Lock",        type:"Fairy",    power:0,   acc:100, pp:15, cat:"status",   effect:"spedown",   ec:100, desc:"Seals the battlefield with fairy magic, slowing the foe with mystical bonds." },
 
   // --- Metal (+7) ---
   metal_sound:      { name:"Grating Din",       type:"Metal",    power:0,   acc:85,  pp:40, cat:"status",   effect:"spdefdown", ec:100, desc:"Scrapes metal to produce a horrible sound that sharply lowers Sp. Def." },
@@ -947,14 +947,14 @@ const MOVES_DATA = {
   // --- Fairy (regular) ---
   fairy_jab:               { name:"Fairy Jab", type:"Fairy", power:60, acc:100, pp:20, cat:"physical", effect:"crit", ec:100, target:"single", desc:"Fairy-fist jab with high crit ratio." },
   enchanted_smash:         { name:"Enchanted Smash", type:"Fairy", power:90, acc:95, pp:10, cat:"physical", effect:"flinch", ec:30, target:"single", desc:"Enchanted slam; may flinch." },
-  fairy_mist:              { name:"Fairy Mist", type:"Fairy", power:45, acc:100, pp:30, cat:"special", effect:"atkdown", ec:20, target:"wide", breakerVs:"Metal", desc:"Corrosive fairy-mist; super vs Metal; may lower Atk." },
+  fairy_mist:              { name:"Nymph Mist", type:"Fairy", power:45, acc:100, pp:30, cat:"special", effect:"atkdown", ec:20, target:"wide", breakerVs:"Metal", desc:"Corrosive Nymph-Mist; super vs Metal; may lower Atk." },
   sparkle_shot:            { name:"Sparkle Shot", type:"Fairy", power:65, acc:100, pp:20, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Sparkle pellet; always lands a critical hit." },
   moonlight_beam:          { name:"Moonlight Beam", type:"Fairy", power:75, acc:100, pp:15, cat:"special", effect:"flinch", ec:20, target:"wide", desc:"Moonlight beam on all foes; may flinch." },
   charm_pulse:             { name:"Charm Pulse", type:"Fairy", power:60, acc:95, pp:20, cat:"special", effect:"confuse", ec:30, target:"wide", desc:"Charming pulse on all foes; may confuse." },
   faewind:                 { name:"Faewind", type:"Fairy", dualType:["Fairy","Wind"], power:80, acc:95, pp:15, cat:"special", effect:"spedown", ec:30, target:"single", desc:"Sweeping fae-wind. Dual Fairy+Wind; may slow." },
   starlit_radiance:        { name:"Starlit Radiance", type:"Fairy", dualType:["Fairy","Stellar"], power:110, acc:85, pp:5, cat:"special", effect:null, ec:0, target:"wide", desc:"Starlit radiance on all foes. Dual Fairy+Stellar." },
   supernova_glow:          { name:"Supernova Glow", type:"Fairy", power:130, acc:85, pp:5, cat:"special", effect:"smothered", ec:30, target:"single", desc:"Blinding supernova; may inflict Smothered." },
-  fairy_focus:             { name:"Fairy Focus", type:"Fairy", power:0, acc:100, pp:15, cat:"status", effect:"accup", ec:100, target:"self", desc:"Focused fairy-sense (+1 Accuracy)." },
+  fairy_focus:             { name:"Sylph Focus", type:"Fairy", power:0, acc:100, pp:15, cat:"status", effect:"accup", ec:100, target:"self", desc:"Focused fairy-sense (+1 Accuracy)." },
   enchant:                 { name:"Enchant", type:"Fairy", power:0, acc:100, pp:15, cat:"status", effect:"spaup", ec:100, target:"self", desc:"Enchants self (+1 SpA)." },
   healing_circle:          { name:"Healing Circle", type:"Fairy", power:0, acc:100, pp:10, cat:"status", effect:"defup2", ec:100, target:"self", desc:"Fairy circle (+2 Def)." },
 

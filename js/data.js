@@ -2368,7 +2368,7 @@ const MONSTERS_DATA = {
   // 2-stage Dark/Vapor chain: Umbrajest → Shadowveil (level 34)
   220: { id:220, name:"Umbrajest", emoji:"🎭", types:["Dark","Vapor"],
     base:{hp:62,atk:58,def:55,spa:78,spd:62,spe:82},
-    learnset:[[1,"bite"],[1,"confusion"],[12,"dark_pulse"],[22,"psybeam"],[32,"night_slash"],[42,"psychic_move"],[52,"eclipse_shroud"],[60,"hyper_beam"]],
+    learnset:[[1,"bite"],[1,"confusion"],[5,"vapor_jab"],[8,"drizzle"],[10,"mist_s"],[12,"dark_pulse"],[14,"mist_strike"],[16,"fog_beam"],[20,"fog_kick"],[22,"psybeam"],[24,"vapor_focus"],[28,"mist_pulse"],[32,"night_slash"],[42,"psychic_move"],[52,"eclipse_shroud"],[60,"hyper_beam"]],
     evolveTo:221, evolveLevel:34, catchRate:145, expYield:92, rarity:"common",
     desc:"A trickster in a dark jester's mask. Uses vaporous illusions and dark energy to confuse and terrify.",
     lore:"Umbrajest is a dark-vapor trickster creature 60 cm tall with a wispy smoke-black body and a permanent wide grin formed by luminescent patches. Its eyes are bright and mischievous. It delights in rearranging objects in darkened rooms and projecting images of feared things into the peripheral vision of passers-by." },
@@ -2380,7 +2380,7 @@ const MONSTERS_DATA = {
   // Shadowveil (evolves from Umbrajest 220)
   221: { id:221, name:"Shadowveil", emoji:"🎪", types:["Dark","Vapor"],
     base:{hp:91,atk:84,def:78,spa:109,spd:91,spe:97},
-    learnset:[[1,"dark_pulse"],[1,"psychic_move"],[26,"night_slash"],[34,"eclipse_shroud"],[42,"soul_rend"],[50,"dread_howl"],[58,"moonblast"],[66,"hyper_beam"]],
+    learnset:[[1,"dark_pulse"],[1,"psychic_move"],[12,"fog_kick"],[16,"mist_s"],[20,"mist_pulse"],[22,"cloud_form"],[26,"night_slash"],[28,"mist_lash"],[34,"eclipse_shroud"],[36,"fog_storm"],[40,"abyssal_mist"],[42,"soul_rend"],[50,"dread_howl"],[54,"mist_veil"],[58,"moonblast"],[66,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:220, rarity:"uncommon",
     desc:"A master of dark illusions. Those who witness its act lose themselves in vaporous nightmares for days.",
     lore:"Shadowveil is a dark-vapor creature 90 cm tall resembling a tall humanoid draped in a cloak of living shadow — Umbrajest's wispy smoke-body has solidified into a cloaked humanoid form. Its face is blank except for two silver eyes. It is impossible to touch directly — hands pass through its shadow-substance — but it can interact physically by will. It observes from darkened doorways." },
@@ -4669,21 +4669,21 @@ const MONSTERS_DATA = {
   420: { id:420, name:"Mistling", emoji:"♨️", types:["Vapor"],
     evolveTo:421, evolveLevel:18, catchRate:150, expYield:66, rarity:"common",
     base:{hp:62,atk:48,def:52,spa:60,spd:58,spe:30}, // BST 310
-    learnset:[[1,"tackle"],[1,"mist_s"],[5,"vapor_jab"],[10,"ember"],[15,"fog_beam"],[20,"steam_burst"],[26,"mist_pulse"]],
+    learnset:[[1,"tackle"],[1,"mist_s"],[5,"vapor_jab"],[8,"drizzle"],[10,"ember"],[12,"mist_meditation"],[15,"fog_beam"],[18,"vapor_focus"],[20,"steam_burst"],[26,"mist_pulse"]],
     desc:"A round, downy pup that breathes out little curls of warm fog when it dozes.",
     lore:"Mistling are gregarious and famously placid, huddling together at the edges of warm springs and exhaling soft fog that pools around them like a blanket. The warm haze keeps their fur from freezing in cold country and soothes wounds, so injured Lumori often shelter among a Mistling colony until they mend." },
 
   421: { id:421, name:"Geyserook", emoji:"♨️", types:["Fire","Vapor"],
     evolveTo:422, evolveLevel:38, catchRate:70, expYield:150, rarity:"uncommon",
     base:{hp:85,atk:62,def:70,spa:82,spd:76,spe:35}, // BST 410
-    learnset:[[1,"tackle"],[5,"vapor_jab"],[10,"ember"],[20,"steam_burst"],[26,"flame_charge"],[32,"boil_v"],[38,"flamethrower"],[44,"vapor_eruption"]],
+    learnset:[[1,"tackle"],[5,"vapor_jab"],[10,"ember"],[12,"mist_veil"],[16,"steam_punch"],[20,"steam_burst"],[22,"evaporate"],[24,"boiling_rage"],[26,"flame_charge"],[30,"cloud_blast"],[32,"boil_v"],[38,"flamethrower"],[40,"burning_mist"],[44,"vapor_eruption"]],
     desc:"A barrel-bodied beast that nests against thermal vents and vents scalding spray when alarmed.",
     lore:"Geyserook makes its home where geothermal heat meets water, lounging in mineral pools heated from below. The fat it stores insulates a furnace-warm core, and when threatened it arches its back and jets superheated spray from glands along its spine. Bath-keepers in volcanic country consider a resident Geyserook a sign that the springs run hot and clean." },
 
   422: { id:422, name:"Tempesteam", emoji:"♨️", types:["Fire","Vapor"],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:258, rarity:"rare",
     base:{hp:115,atk:80,def:88,spa:108,spd:96,spe:48}, // BST 535
-    learnset:[[1,"steam_burst"],[1,"flamethrower"],[1,"recover"],[26,"boil_v"],[38,"vapor_eruption"],[44,"heat_wave"],[50,"steam_storm"],[56,"lava_plume"],[62,"miasma_apocalypse"]],
+    learnset:[[1,"steam_burst"],[1,"flamethrower"],[1,"recover"],[16,"boiling_rage"],[20,"condense_form"],[26,"boil_v"],[28,"burning_mist"],[32,"boiling_strike"],[38,"vapor_eruption"],[40,"steam_slam"],[44,"heat_wave"],[46,"vapor_drill"],[50,"steam_storm"],[56,"lava_plume"],[62,"miasma_apocalypse"]],
     desc:"A massive, placid behemoth that wears a permanent cloak of scalding steam from its furnace-hot hide.",
     lore:"Tempesteam is the elder of the line, a ponderous mountain of warm flesh whose hide runs hot enough to flash spring-water into a rolling shroud of steam that hides it from sight. It is slow to anger and slower to move, but a roused Tempesteam can fill a whole valley with blinding, scalding fog. Travellers lost in such a cloud are wise to walk toward the heat, not away, for it has been known to shelter the freezing within its steam." },
 
@@ -4831,14 +4831,14 @@ const MONSTERS_DATA = {
   442: { id:442, name:"Bloatleech", emoji:"🩸", types:["Vapor"],
     evolveTo:443, evolveLevel:26, catchRate:190, expYield:66, rarity:"common",
     base:{hp:65,atk:45,def:55,spa:58,spd:52,spe:30}, // BST 305
-    learnset:[[1,"vapor_jab"],[1,"mist_s"],[5,"poison_sting"],[10,"fog_beam"],[15,"acid_spray"],[20,"mist_pulse"],[26,"venoshock"]],
+    learnset:[[1,"vapor_jab"],[1,"mist_s"],[5,"poison_sting"],[8,"miasma_blow"],[10,"fog_beam"],[12,"vapor_ray"],[15,"acid_spray"],[18,"mist_meditation"],[20,"mist_pulse"],[26,"venoshock"]],
     desc:"A swollen, translucent leech that exhales a faint sour fog as it feeds.",
     lore:"Bloatleech haunts stagnant fens, bloating itself on the vital warmth of larger Lumori and venting the excess as a sour, low-hanging mist. The fog it breathes out dulls the senses of its host, so a feeding Bloatleech often goes unnoticed until it drops away, fat and sluggish, into the murk." },
 
   443: { id:443, name:"Miasmire", emoji:"🩸", types:["Poison","Vapor"],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:200, rarity:"uncommon",
     base:{hp:95,atk:60,def:78,spa:92,spd:85,spe:50}, // BST 460
-    learnset:[[1,"vapor_jab"],[5,"poison_sting"],[15,"acid_spray"],[20,"mist_pulse"],[26,"venoshock"],[32,"miasma_cloud"],[38,"sludge_bomb"],[44,"miasma_wave"],[50,"corrosive_fog"]],
+    learnset:[[1,"vapor_jab"],[5,"poison_sting"],[15,"acid_spray"],[18,"mist_veil"],[20,"mist_pulse"],[24,"condense"],[26,"venoshock"],[28,"acid_mist"],[32,"miasma_cloud"],[34,"cloud_smash"],[38,"sludge_bomb"],[40,"mist_flood"],[44,"miasma_wave"],[50,"corrosive_fog"],[52,"fog_screen"]],
     desc:"A bloated bog-horror that drags a permanent cloud of toxic mist wherever it oozes.",
     lore:"Miasmire has grown into a slow, swollen mass that no longer needs to attach to feed — it simply exhales a creeping fog of toxin and waits for weakened prey to fall. Whole stretches of marsh die back where one settles, the reeds blackening in the haze, and bog-guides mark a Miasmire's territory by the silence and the smell long before they see it." },
 
@@ -4861,14 +4861,14 @@ const MONSTERS_DATA = {
   446: { id:446, name:"Sporelet", emoji:"🍄", types:["Vapor"],
     evolveTo:447, evolveLevel:26, catchRate:190, expYield:66, rarity:"common",
     base:{hp:60,atk:45,def:58,spa:62,spd:55,spe:30}, // BST 310
-    learnset:[[1,"tackle"],[1,"mist_s"],[5,"vapor_jab"],[10,"sleep_powder"],[15,"fog_beam"],[20,"mist_pulse"],[26,"seed_bomb"]],
+    learnset:[[1,"tackle"],[1,"mist_s"],[5,"vapor_jab"],[8,"mist_meditation"],[10,"sleep_powder"],[12,"vapor_focus"],[15,"fog_beam"],[18,"acid_mist"],[20,"mist_pulse"],[26,"seed_bomb"]],
     desc:"A capped sprout that puffs a fine drowsy haze of spores when nudged.",
     lore:"Sporelet pushes up overnight in damp, shaded hollows, releasing a soft haze of spores at the first disturbance to ward off grazers. The mist is harmless but soporific, and small Lumori that bed down near a cluster of Sporelet sleep deep and wake to find the sprouts have quietly multiplied around them." },
 
   447: { id:447, name:"Fumycet", emoji:"🍄", types:["Nature","Vapor"],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:200, rarity:"uncommon",
     base:{hp:92,atk:62,def:80,spa:95,spd:84,spe:55}, // BST 468
-    learnset:[[1,"tackle"],[5,"vapor_jab"],[15,"fog_beam"],[20,"seed_bomb"],[26,"mist_pulse"],[32,"mycelia_net"],[38,"energy_ball"],[44,"corrosive_fog"],[50,"spore_burst"]],
+    learnset:[[1,"tackle"],[5,"vapor_jab"],[15,"fog_beam"],[16,"mist_speed"],[18,"mist_veil"],[20,"seed_bomb"],[22,"stream_burst"],[24,"acid_mist"],[26,"mist_pulse"],[28,"evaporate"],[32,"mycelia_net"],[34,"vapor_drill"],[38,"energy_ball"],[44,"corrosive_fog"],[50,"spore_burst"]],
     desc:"A towering fungal myconid that breathes living spore-fog and seeds the soil as it walks.",
     lore:"Fumycet is a walking fungus the height of a person, its cap venting a slow fog thick with spores that take root wherever they settle. It cultivates the ground it passes over, leaving trails of fresh mushroom-growth, and the deep mycelial network beneath a Fumycet's range lets it sense every footfall pressing the soil for miles." },
 
@@ -4936,14 +4936,14 @@ const MONSTERS_DATA = {
   456: { id:456, name:"Mistgill", emoji:"🦎", types:["Vapor"],
     evolveTo:457, evolveLevel:26, catchRate:190, expYield:68, rarity:"common",
     base:{hp:65,atk:50,def:55,spa:58,spd:55,spe:35}, // BST 318
-    learnset:[[1,"tackle"],[1,"mist_s"],[5,"vapor_jab"],[10,"water_gun"],[15,"fog_beam"],[20,"mist_pulse"],[26,"bubble_beam"]],
+    learnset:[[1,"tackle"],[1,"mist_s"],[5,"vapor_jab"],[10,"water_gun"],[12,"stream_burst"],[15,"fog_beam"],[18,"mist_speed"],[20,"mist_pulse"],[22,"mist_strike"],[26,"bubble_beam"]],
     desc:"A frilled, perpetually smiling amphibian whose feathery gills trail wisps of warm mist.",
     lore:"Mistgill lives in mineral springs where warm water meets cool air, and the feathery external gills it waves to breathe leave little curls of mist drifting behind it. It regenerates lost limbs in days and never fully matures away from the water, keeping its juvenile frills and its placid, eternal smile throughout its life." },
 
   457: { id:457, name:"Vaporlotl", emoji:"🦎", types:["Aquatic","Vapor"],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:205, rarity:"uncommon",
     base:{hp:100,atk:72,def:78,spa:92,spd:86,spe:50}, // BST 478
-    learnset:[[1,"water_gun"],[1,"mist_s"],[15,"fog_beam"],[20,"bubble_beam"],[26,"mist_pulse"],[32,"aqua_tail"],[38,"steam_burst"],[44,"surf"],[50,"vapor_eruption"]],
+    learnset:[[1,"water_gun"],[1,"mist_s"],[10,"stream_burst"],[15,"fog_beam"],[18,"mist_speed"],[20,"bubble_beam"],[22,"fog_screen"],[26,"mist_pulse"],[28,"cloud_strike"],[32,"aqua_tail"],[38,"steam_burst"],[40,"mist_press"],[44,"surf"],[50,"vapor_eruption"],[52,"vapor_calm"]],
     desc:"A large spring-dwelling amphibian wreathed in warm vapour, able to heal its own wounds in moments.",
     lore:"Vaporlotl rules the deep thermal pools, its broad gills exhaling a constant warm fog across the water's surface. Its regenerative powers are the stuff of legend — it can knit a severed limb whole within an afternoon — and injured Lumori that reach a Vaporlotl's spring and rest in its mist often recover from wounds that should have been mortal." },
 
@@ -4989,7 +4989,7 @@ const MONSTERS_DATA = {
   462: { id:462, name:"Forgotten Auravian", emoji:"🕊️", types:["Aether","Primal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:115,atk:95,def:110,spa:145,spd:130,spe:125},
-    learnset:[[1,"confusion"],[20,"psybeam"],[35,"earth_power"],[50,"psychic_move"],[65,"moonblast"],[70,"cosmic_veil"],[80,"aura_veil_strike"]],
+    learnset:[[1,"confusion"],[5,"aether_jab"],[10,"aether_pulse"],[20,"psybeam"],[25,"life_force"],[30,"mystic_ray"],[35,"earth_power"],[40,"arcane_beam"],[50,"psychic_move"],[50,"mystic_charge"],[60,"mystical_eruption"],[65,"moonblast"],[70,"cosmic_veil"],[75,"radiant_aura"],[80,"aura_veil_strike"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Messengers of the sacred temples of a lost land, Auravian carry the resonance of ancient prayers on crystalline wings.",
     lore:"Auravian are the divine messengers of Vaeldris. They appear to those who have lost something precious and are said to carry the voices of the departed on their wings." },
@@ -5006,7 +5006,7 @@ const MONSTERS_DATA = {
   464: { id:464, name:"Forgotten Celestrix", emoji:"👼", types:["Aether","Metal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:130,atk:105,def:120,spa:170,spd:145,spe:130},
-    learnset:[[1,"body_slam"],[20,"flash_cannon"],[35,"psychic_move"],[50,"moonblast"],[65,"alloy_edge"],[70,"cosmic_veil"],[80,"celestial_forge"],[90,"star_cannon"]],
+    learnset:[[1,"body_slam"],[5,"aether_jab"],[20,"flash_cannon"],[25,"divine_ward"],[35,"psychic_move"],[40,"ethereal_slash"],[45,"arcane_resolve"],[50,"moonblast"],[55,"radiant_wave"],[65,"alloy_edge"],[70,"cosmic_veil"],[75,"divine_press"],[80,"celestial_forge"],[85,"arcane_meditation"],[90,"star_cannon"],[100,"ethereal_storm"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"The apex guardian of Vaeldris's celestial order, Celestrix was said to manifest only when the stars aligned perfectly.",
     lore:"Lysara wept on the day Celestrix became the last of its kind. She has never spoken of the Sundering to anyone, but those who watch her battle claim they can see it in her eyes." },
@@ -5126,7 +5126,7 @@ const MONSTERS_DATA = {
   477: { id:477, name:"Forgotten Aetherveil", emoji:"🦋", types:["Aether","Electric"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:85,atk:100,def:90,spa:155,spd:110,spe:180},
-    learnset:[[1,"confusion"],[20,"thunder_shock"],[35,"dazzling_gleam"],[50,"thunderbolt"],[65,"moonblast"],[70,"discharge"],[80,"aether_shock"]],
+    learnset:[[1,"confusion"],[5,"aether_jab"],[15,"aether_pulse"],[20,"thunder_shock"],[25,"ethereal_step"],[30,"aether_focus"],[35,"dazzling_gleam"],[40,"mystic_strike"],[45,"radiant_wave"],[50,"thunderbolt"],[55,"ethereal_slash"],[65,"moonblast"],[70,"discharge"],[75,"mystical_eruption"],[80,"aether_shock"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Aetherveil are the songs of the wind given form. Their calls travel across mountain ranges in seconds, carrying the voices of the lost to where they are needed.",
     lore:"Caelia says Aetherveil don't fly so much as they remind the air where it wants to go." },
@@ -5316,7 +5316,7 @@ const MONSTERS_DATA = {
   498: { id:498, name:"Forgotten Cosmolith", emoji:"🌠", types:["Aether","Fairy"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:110,atk:90,def:110,spa:185,spd:130,spe:95},
-    learnset:[[1,"confusion"],[20,"fairy_wind"],[35,"dazzling_gleam"],[50,"moonblast"],[65,"psystrike"],[70,"cosmic_veil"],[80,"cosmic_dust"]],
+    learnset:[[1,"confusion"],[5,"aether_jab"],[15,"aether_pulse"],[20,"fairy_wind"],[25,"life_force"],[30,"aether_focus"],[35,"dazzling_gleam"],[40,"arcane_meditation"],[45,"arcane_beam"],[50,"moonblast"],[55,"mystic_charge"],[65,"psystrike"],[70,"cosmic_veil"],[75,"radiant_strike"],[80,"cosmic_dust"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Cosmolith serve as living star maps — their scales reflect the night sky of Vaeldris exactly as it existed the moment before the Sundering. They are the only record those stars ever existed.",
     lore:"Azura detected the Sundering three days before it happened by reading a change in Cosmolith's scale patterns. She had not understood what she was seeing until it was too late." },

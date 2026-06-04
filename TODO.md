@@ -882,15 +882,18 @@ Discovery script: `scripts/move_utilization.py` — read-only stats tool, parses
 
 **Baseline (2026-06-03):** 1093 moves / 26 types / **641 orphans (59%)** / 172 near-orphans / 41% used.
 
+**Sharing rule (locked Batch 2):** any move (orphan or used) can be added to multiple Lumori; goal is each Lumori has a healthy STAB pool for its type(s).
+
 **Grouped batch plan (8 batches):**
-- [x] **Batch 1 — Stellar + Chrono.** Stellar: 16 assigned across the 4 existing Stellar Lumori (#319 Voidraxis, #384 Solarcrown, #394 Solarvast, #401 Cosmoveil) at 4 moves each + 17 newly tagged `rarity:"exclusive"` (total 20 exclusive reserved for future Forgotten Stellar adds). Chrono: 33 deferred per user decision — to handle when Forgotten/Chrono Lumori expand.
-- [ ] Batch 2 — Aether, Vapor (56 orphans)
+- [x] **Batch 1 — Stellar.** 16 assigned across 4 Stellar Lumori (4 each) + 17 newly `rarity:"exclusive"` (20 total reserved). 33 Chrono deferred to end of audit.
+- [x] **Batch 2 — Aether + Vapor.** Aether: 19 generic orphans distributed across 4 Forgotten Aether Lumori (32 inserts, sharing); 3 stay exclusive. Vapor: 31 generic orphans distributed across 11 Vapor Lumori (53 orphan inserts + 5 used-pool top-ups on Umbrajest/Shadowveil = 58 inserts); 3 stay exclusive. Utilization Aether 21%→89%, Vapor 24%→93%.
 - [ ] Batch 3 — Toxin, Crystal, Mineral, Primal (83 orphans)
 - [ ] Batch 4 — Fire, Ice, Wind (82 orphans)
 - [ ] Batch 5 — Earth, Nature (64 orphans)
 - [ ] Batch 6 — Dark, Spectral, Dream (68 orphans)
 - [ ] Batch 7 — Electric, Metal, Mental (77 orphans)
 - [ ] Batch 8 — Normal, Aquatic, Fairy, Draconic, Fighting, Poison, Sonic (134 orphans)
+- [ ] End-of-audit revisit: Aether + Chrono post-game-restricted moves (any final tagging once Forgotten/Stellar/Aether/Chrono roster expands)
 
 # 📊 Final-pass stat spread review — RUN LAST (after all renaming complete)  `[⏳ NOT STARTED — RUN LAST]`
 

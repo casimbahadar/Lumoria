@@ -84,9 +84,11 @@
   - **C** — format-tagged post/accept/quick-match, each routed to the right ladder.
   - **D** — Singles/Doubles toggle on the PvP screen, dual-ladder rating banner, format tags on challenge cards.
   - **E** — **up-to-6 saved teams per format** (active PvP loadouts, posted **and** battled with via a `G.team` temp-swap; party untouched) + builder UI screen. Also **fixed a real bug**: `pvpSerializeMon` mapped `mv.id` on string-array slot moves → posted teams had `[undefined]` moves (why Phase A was unverified-broken). Now handles both move shapes.
-- **Phase C (TODO):** async **FFA Royale** — engine must support **>2 sides**.
-- **Phase D (TODO):** real-time — passcode rooms public/private + host-authoritative live turn-sync + public spectating + **live 2v2 / live FFA** (live skeleton already exists in `online.js`: `createLiveRoom`/`watchLiveRoom`/`resolveLiveTurn`).
+- **Phase C ✅ (done, unverified):** async **FFA Royale** — isolated N-side engine (`startFfaBattle`/`#screen-ffa`), 3-4 sides, full teams (1 active + bench), true royale (everyone targets anyone, last standing). Pulls 2-3 open posted teams as AI sides; self-contained 👑 `pvp_ffa_rating` ladder. Reuses `calcDamage`/`applyMoveEffect`; never touches the proven 2-side engine.
+- **Phase D ✅ (done, unverified):** real-time. **D1** — type-aware live damage, passcode + public rooms, public spectating, per-client zero-sum rating (replaced coins-only/host-only). **D2** — **live 2v2 + live FFA** via a unified host-authoritative N-seat engine (`createMultiLiveRoom`/`resolveMultiLiveTurn`): one human per seat, alliances per mode, missing-move AI fill + resolve guard; 2v2→doubles ladder, FFA→ffa ladder. ⚠️ Needs multiple simultaneous real clients to verify; see `docs/pvp-spec.md` "Known limitations" (no turn timer yet).
 - See `docs/pvp-spec.md` for the rating formula + full modes roadmap.
+
+**TODO #13 PvP: all phases A–D implemented (unverified pending real Firebase + playtest).**
 
 ---
 

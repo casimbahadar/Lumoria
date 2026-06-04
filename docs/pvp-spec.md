@@ -119,9 +119,30 @@ curve mirror is `L(gap) = −W(−gap)`, the exchange is exactly zero-sum.
   gap-driven rating curve + challenger rating **mailbox** (two-sided reconciliation) +
   `pvp_rating` leaderboard + PvP screen with rating banner + **Gauntlet** survival mode
   (`pvp_gauntlet` leaderboard). *Unverified pending real Firebase + playtest.*
-- **Phase B:** async **Doubles (2v2)**.
-- **Phase C:** async **FFA Royale** (>2-side engine).
-- **Phase D:** real-time — passcode rooms (private/public) + host-authoritative live
-  turn-sync + public spectating + **live 2v2 / live FFA**.
+- **Phase B:** ✅ async **Doubles (2v2)** — independent `pvp_doubles_rating` ladder +
+  saved **PvP team loadouts** (6/format, posted & battled with). Also fixed
+  `pvpSerializeMon` serializing posted-team moves as `[undefined]`.
+- **Phase C:** ✅ async **FFA Royale** — isolated N-side engine (`startFfaBattle`,
+  `#screen-ffa`): 3-4 sides, full teams (1 active + bench), true royale (everyone
+  targets anyone, last side standing). Reuses `calcDamage`/`applyMoveEffect`; pulls
+  2-3 open posted teams as AI sides; self-contained `pvp_ffa_rating` ladder (👑).
+- **Phase D:** ✅ real-time — **D1**: type-aware live damage, passcode + public
+  rooms, public spectating, per-client zero-sum **rating** (was coins-only and
+  host-only). **D2**: **live 2v2 + live FFA** via a unified host-authoritative
+  N-seat engine (`createMultiLiveRoom`/`resolveMultiLiveTurn`): one human per seat,
+  alliances per mode, missing-move AI fill + resolve guard; 2v2 → doubles ladder,
+  FFA → ffa ladder.
 
-Each phase committed incrementally; flagged UNVERIFIED until real Firebase + playtest.
+Each phase committed incrementally; **all flagged UNVERIFIED** until real Firebase
+credentials + playtest (and live 2v2/FFA need multiple simultaneous real clients).
+
+## Known limitations / follow-ups (post-playtest)
+- Live multi-seat (D2) has no turn **timer** yet — a present-but-idle seat (vs a
+  fully dropped one) can still stall a turn; add a host-side countdown that
+  AI-fills after N seconds. Disconnect detection relies on the AI-fill fallback
+  only when a seat is gone from `moves`.
+- FFA (async + live) skips residual status DoT and exotic multi-turn move effects
+  (try/guarded) — direct damage + stat/status from `applyMoveEffect` apply; deep
+  effect parity is a follow-up.
+- Live damage uses a single atk/def (no phys/spec split) inherited from the live
+  skeleton; async paths use the full `calcDamage`.

@@ -786,7 +786,7 @@ const MOVES_DATA = {
   // --- Electric (signature moves for Forgotten Lumori) ---
   volt_rail:        { name:"Ampere Rail",        type:"Electric",power:90,  acc:95,  pp:10, cat:"physical", effect:"spedown",  ec:30, desc:"Electrak fires along a magnetic rail it generates in an instant, striking with rail-gun velocity and leaving the target stunned." },
   thought_stream:   { name:"Thought Stream",   type:"Mental", power:90,  acc:95,  pp:10, cat:"special",  effect:"drain", ec:100, desc:"Pelagor floods the target with a torrent of raw psychic data, overwhelming their mental defenses." },
-  voltaic_fang_drake: { name:"Voltaic Fang",   type:"Draconic",  power:140, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Psydrak charges its draconic fangs with lethal voltage before biting down. The discharge blows back through Psydrak's own jaw." },
+  voltaic_fang_drake: { name:"Wyrmvolt Fang",   type:"Draconic",  power:140, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Psydrak charges its draconic fangs with lethal voltage before biting down. The discharge blows back through Psydrak's own jaw." },
   thunder_chain:    { name:"Thunder Chain",    type:"Electric",power:40,  acc:90,  pp:10, cat:"special",  effect:"paralyze",  ec:20, hits:3, desc:"Psydrak fires three chained lightning arcs that arc between target limbs, each carrying a chance to paralyze." },
   psycho_surge:     { name:"Psycho Surge",     type:"Mental", power:90,  acc:95,  pp:10, cat:"special",  effect:"calmup",    ec:30, desc:"Volteon releases a surge of psychoelectric energy, sometimes amplifying its own mental capabilities in the process." },
 
@@ -1052,7 +1052,7 @@ const MOVES_DATA = {
   martial_aura:                { name:"Martial Aura", type:"Fighting", power:75, acc:100, pp:15, cat:"special", effect:"atkup", ec:30, target:"single", desc:"Martial aura; may raise Atk." },
   ki_burst:                    { name:"Ki Burst", type:"Fighting", power:80, acc:95, pp:15, cat:"special", effect:null, ec:0, target:"wide", desc:"Wide ki-burst." },
   spirit_bomb:                 { name:"Spirit Bomb", type:"Fighting", power:95, acc:90, pp:10, cat:"special", effect:null, ec:0, target:"wide", desc:"Wide spirit bomb." },
-  battle_cry_fighting:         { name:"Battle Cry", type:"Fighting", power:60, acc:100, pp:20, cat:"special", effect:"atkdown", ec:30, target:"wide", desc:"Cry that lowers foes' Atk." },
+  battle_cry_fighting:         { name:"War Cry", type:"Fighting", power:60, acc:100, pp:20, cat:"special", effect:"atkdown", ec:30, target:"wide", desc:"Cry that lowers foes' Atk." },
   sonic_palm:                  { name:"Sonic Palm", type:"Fighting", power:85, acc:95, pp:10, cat:"special", effect:null, ec:0, target:"single", breakerVs:"Crystal", desc:"Sonic palm." },
   shockwave_kick:              { name:"Shockwave Kick", type:"Fighting", power:90, acc:90, pp:10, cat:"special", effect:"flinch", ec:30, target:"wide", desc:"Shockwave-kick wide." },
   heaven_strike:               { name:"Heaven Strike", type:"Fighting", power:110, acc:85, pp:5, cat:"special", effect:null, ec:0, target:"single", desc:"Heaven-piercing strike." },

@@ -660,7 +660,341 @@ const ABILITY_REGISTRY = {
       mon.currentHP > mon.maxHP * 0.5 ? { spe: 2 } : {},
   },
 
-  // ====== Phase 2 will add ~110-160 more traits below this line ======
+  // ====== Phase 2 batch 1 chunk 2 — 26 more locked traits ======
+
+  // --- E. Move-power conditionals (7) ---
+  heavy_hands: {
+    name: "Heavy Hands",
+    emoji: "🥊",
+    cssClass: "trait-heavy-hands",
+    description: "Punch and fist-flagged moves deal +30% power.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) => {
+      const n = (move.name || "").toLowerCase();
+      return (n.includes("punch") || n.includes("fist") || n.includes("knuckle")) ? 1.3 : 1;
+    },
+  },
+
+  crushing_bite: {
+    name: "Crushing Bite",
+    emoji: "🦷",
+    cssClass: "trait-crushing-bite",
+    description: "Bite-flagged moves deal +50% power.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) => {
+      const n = (move.name || "").toLowerCase();
+      return (n.includes("bite") || n.includes("fang") || n.includes("chomp") || n.includes("crunch") || n.includes("maul")) ? 1.5 : 1;
+    },
+  },
+
+  pulse_master: {
+    name: "Pulse Master",
+    emoji: "🌟",
+    cssClass: "trait-pulse-master",
+    description: "Pulse, beam, and orb-flagged moves deal +50% power.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) => {
+      const n = (move.name || "").toLowerCase();
+      return (n.includes("pulse") || n.includes("beam") || n.includes("orb") || n.includes("blast")) ? 1.5 : 1;
+    },
+  },
+
+  honed_edge: {
+    name: "Honed Edge",
+    emoji: "🗡️",
+    cssClass: "trait-honed-edge",
+    description: "Slice, blade, and cutting-flagged moves deal +50% power.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) => {
+      const n = (move.name || "").toLowerCase();
+      return (n.includes("slash") || n.includes("cut") || n.includes("blade") || n.includes("slice") || n.includes("edge") || n.includes("razor")) ? 1.5 : 1;
+    },
+  },
+
+  pyromaniac: {
+    name: "Pyromaniac",
+    emoji: "🔥",
+    cssClass: "trait-pyromaniac",
+    description: "Fire moves dealt by this Lumori +30% power; Fire moves taken +20% damage.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) => move.type === "Fire" ? 1.3 : 1,
+    incomingDmgMod: (_d, _e, move) => move.type === "Fire" ? 1.2 : 1,
+  },
+
+  storm_caller: {
+    name: "Storm-caller",
+    emoji: "⚡",
+    cssClass: "trait-storm-caller",
+    description: "Electric and Wind moves dealt by this Lumori +30% power.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) =>
+      (move.type === "Electric" || move.type === "Wind") ? 1.3 : 1,
+  },
+
+  bloodseeker: {
+    name: "Bloodseeker",
+    emoji: "🩸",
+    cssClass: "trait-bloodseeker",
+    description: "Moves vs Bleeding or Severely-Bleeding foes deal +50% damage.",
+    ngPlusOnly: false,
+    // Phase 3 dispatches with defender as 4th arg
+    outgoingPowerMod: (_a, _e, _move, defender) => {
+      if (!defender || typeof hasStatus !== "function") return 1;
+      if (hasStatus(defender, "bleed") || hasStatus(defender, "severe_bleed")) return 1.5;
+      return 1;
+    },
+  },
+
+  // --- F. Crit-related (4) ---
+  sharp_eyed: {
+    name: "Sharp-eyed",
+    emoji: "👁️",
+    cssClass: "trait-sharp-eyed",
+    description: "Crit rate raised by +2 stages — extremely crit-prone.",
+    ngPlusOnly: false,
+    // Adds bonus to attacker's crit rate. +2 stages ≈ +18.75 to base 6.25 (lands at 25%).
+    selfCritBonus: () => 18.75,
+  },
+
+  sharpshooter: {
+    name: "Sharpshooter",
+    emoji: "🎯",
+    cssClass: "trait-sharpshooter",
+    description: "Critical hits deal ×2.5 damage instead of the usual ×1.5.",
+    ngPlusOnly: false,
+    critDamageMult: () => 2.5,
+  },
+
+  predator: {
+    name: "Predator",
+    emoji: "🐺",
+    cssClass: "trait-predator",
+    description: "Always lands a critical hit on foes below 50% HP.",
+    ngPlusOnly: false,
+    forceCritIf: (_a, _e, defender) =>
+      !!(defender && defender.currentHP < defender.maxHP * 0.5),
+  },
+
+  killing_blow: {
+    name: "Killing Blow",
+    emoji: "☠️",
+    cssClass: "trait-killing-blow",
+    description: "Always lands a critical hit on foes with any active status.",
+    ngPlusOnly: false,
+    forceCritIf: (_a, _e, defender) => {
+      if (!defender) return false;
+      if (defender.statuses && defender.statuses.length > 0) return true;
+      if (defender.isConfused) return true;
+      return false;
+    },
+  },
+
+  // --- G. Conditional damage modifiers (2; #63 Aura Break dropped) ---
+  resilient_skin: {
+    name: "Resilient Skin",
+    emoji: "🛡️",
+    cssClass: "trait-resilient-skin",
+    description: "Super-effective moves vs this Lumori deal ×0.75 damage.",
+    ngPlusOnly: false,
+    // Phase 3 dispatches with computed effectiveness as 5th arg
+    incomingDmgMod: (_d, _e, _move, _attacker, eff) =>
+      (typeof eff === "number" && eff > 1) ? 0.75 : 1,
+  },
+
+  piercing_sight: {
+    name: "Piercing Sight",
+    emoji: "🔍",
+    cssClass: "trait-piercing-sight",
+    description: "Resisted moves used by this Lumori deal ×2 damage (effectively unresisting).",
+    ngPlusOnly: false,
+    // Phase 3 dispatches with computed effectiveness as 5th arg
+    outgoingPowerMod: (_a, _e, _move, _defender, eff) =>
+      (typeof eff === "number" && eff < 1 && eff > 0) ? 2.0 : 1,
+  },
+
+  // --- H. Health/recovery (5) ---
+  rapid_recovery: {
+    name: "Rapid Recovery",
+    emoji: "🌿",
+    cssClass: "trait-rapid-recovery",
+    description: "Heals 1/3 max HP when switching out.",
+    ngPlusOnly: false,
+    onSwitchOut: (mon) => {
+      const heal = Math.max(1, Math.floor(mon.maxHP / 3));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return { msg: `🌿 Rapid Recovery: ${mon.name} healed ${heal} HP on switch!` };
+    },
+  },
+
+  cellular_repair: {
+    name: "Cellular Repair",
+    emoji: "🧬",
+    cssClass: "trait-cellular-repair",
+    description: "Heals 1/16 max HP at the end of every turn.",
+    ngPlusOnly: false,
+    tickEffect: (mon) => {
+      if (mon.currentHP >= mon.maxHP) return [];
+      const heal = Math.max(1, Math.floor(mon.maxHP / 16));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return [`🧬 Cellular Repair: ${mon.name} regenerated ${heal} HP!`];
+    },
+  },
+
+  vampire: {
+    name: "Vampire",
+    emoji: "🩸",
+    cssClass: "trait-vampire",
+    description: "Heals for 25% of damage dealt by any attack.",
+    ngPlusOnly: false,
+    onDamageDealt: (attacker, _e, dmg) => {
+      if (dmg <= 0) return null;
+      const heal = Math.max(1, Math.floor(dmg * 0.25));
+      attacker.currentHP = Math.min(attacker.maxHP, attacker.currentHP + heal);
+      return { msg: `🩸 Vampire: ${attacker.name} drained ${heal} HP!` };
+    },
+  },
+
+  phoenix_flame: {
+    name: "Phoenix-Flame",
+    emoji: "🔥",
+    cssClass: "trait-phoenix-flame",
+    description: "Once per battle, when knocked out, revives at 50% max HP.",
+    ngPlusOnly: true,
+    onFaint: (mon) => {
+      if (mon._phoenixUsed) return null;
+      mon._phoenixUsed = true;
+      mon.currentHP = Math.max(1, Math.floor(mon.maxHP * 0.5));
+      mon.fainted = false;
+      return { msg: `🔥 Phoenix-Flame: ${mon.name} was reborn from the ashes!` };
+    },
+  },
+
+  night_terror: {
+    name: "Night Terror",
+    emoji: "💤",
+    cssClass: "trait-night-terror",
+    description: "Foes that are Asleep or Comatose take -1/8 max HP each turn.",
+    ngPlusOnly: false,
+    // Phase 3 dispatches at end-of-turn iterating foes
+    opponentTickEffect: (foe) => {
+      if (typeof hasStatus !== "function") return null;
+      if (!hasStatus(foe, "sleep") && !hasStatus(foe, "comatose")) return null;
+      const dmg = Math.max(1, Math.floor(foe.maxHP / 8));
+      foe.currentHP = Math.max(0, foe.currentHP - dmg);
+      if (foe.currentHP <= 0) foe.fainted = true;
+      return { msg: `💤 Night Terror: ${foe.name} suffered ${dmg} HP in its dreams!` };
+    },
+  },
+
+  // --- I. Contact triggers (4) ---
+  iron_spikes: {
+    name: "Iron Spikes",
+    emoji: "🌵",
+    cssClass: "trait-iron-spikes",
+    description: "Physical attackers have a 30% chance to flinch on contact.",
+    ngPlusOnly: false,
+    onIncomingHit: (_d, _e, move, _dmg, attacker) => {
+      if (move.cat !== "physical") return null;
+      if (Math.random() * 100 >= 30) return null;
+      attacker._flinched = true;
+      return { msg: `🌵 Iron Spikes: ${attacker.name} flinched!` };
+    },
+  },
+
+  magnetic_skin: {
+    name: "Magnetic Skin",
+    emoji: "🧲",
+    cssClass: "trait-magnetic-skin",
+    description: "On physical contact, 50% chance to steal the attacker's held item (if any).",
+    ngPlusOnly: false,
+    onIncomingHit: (defender, _e, move, _dmg, attacker) => {
+      if (move.cat !== "physical") return null;
+      if (!attacker.heldItem || defender.heldItem) return null;
+      if (Math.random() * 100 >= 50) return null;
+      const stolen = attacker.heldItem;
+      defender.heldItem = stolen;
+      attacker.heldItem = null;
+      return { msg: `🧲 Magnetic Skin: ${defender.name} stole ${attacker.name}'s ${stolen}!` };
+    },
+  },
+
+  slime_coat: {
+    name: "Slime Coat",
+    emoji: "🦠",
+    cssClass: "trait-slime-coat",
+    description: "Physical attackers have a 30% chance to be Smothered.",
+    ngPlusOnly: false,
+    onIncomingHit: (_d, _e, move, _dmg, attacker) => {
+      if (move.cat !== "physical") return null;
+      if (Math.random() * 100 >= 30) return null;
+      if (typeof addStatus === "function" && addStatus(attacker, "smothered")) {
+        return { msg: `🦠 Slime Coat: ${attacker.name} was smothered!` };
+      }
+      return null;
+    },
+  },
+
+  bewitching: {
+    name: "Bewitching",
+    emoji: "💕",
+    cssClass: "trait-bewitching",
+    description: "Physical attackers have a 30% chance to be Confused.",
+    ngPlusOnly: false,
+    onIncomingHit: (_d, _e, move, _dmg, attacker) => {
+      if (move.cat !== "physical") return null;
+      if (Math.random() * 100 >= 30) return null;
+      if (attacker.isConfused) return null;
+      attacker.isConfused = true;
+      attacker.confuseTurns = 2 + Math.floor(Math.random() * 3);
+      return { msg: `💕 Bewitching: ${attacker.name} became confused!` };
+    },
+  },
+
+  // --- J. Move type modification (4) ---
+  pyroform: {
+    name: "Pyroform",
+    emoji: "🔥",
+    cssClass: "trait-pyroform",
+    description: "Normal-type moves used by this Lumori become Fire-type (gains STAB if Fire).",
+    ngPlusOnly: false,
+    moveTypeOverride: (_a, _e, move) => move.type === "Normal" ? "Fire" : null,
+  },
+
+  crystal_tipped: {
+    name: "Crystal-tipped",
+    emoji: "💎",
+    cssClass: "trait-crystal-tipped",
+    description: "Normal-type moves used by this Lumori become Crystal-type.",
+    ngPlusOnly: true,
+    moveTypeOverride: (_a, _e, move) => move.type === "Normal" ? "Crystal" : null,
+  },
+
+  aqua_tongue: {
+    name: "Aqua-tongue",
+    emoji: "💧",
+    cssClass: "trait-aqua-tongue",
+    description: "Sound-keyword moves (any Sonic-style move) used by this Lumori become Aquatic-type.",
+    ngPlusOnly: false,
+    moveTypeOverride: (_a, _e, move) => {
+      const n = (move.name || "").toLowerCase();
+      const isSound = move.type === "Sonic" || n.includes("sound") || n.includes("shriek") || n.includes("cry") || n.includes("howl") || n.includes("roar");
+      return isSound ? "Aquatic" : null;
+    },
+  },
+
+  variform: {
+    name: "Variform",
+    emoji: "🔀",
+    cssClass: "trait-variform",
+    description: "Player picks the type of each outgoing move this turn (chosen at move-select).",
+    ngPlusOnly: true,
+    // Phase 3 wires the per-turn type-pick UI; data layer just declares the hook
+    moveTypeOverride: (attacker, _e, move) =>
+      attacker._chosenMoveType || null,
+  },
+
+  // ====== Phase 2 batch 1 — 35 candidates (77-89) still under review ======
+  // ====== Phase 2 batches 2+ will add the remaining traits below ======
 };
 
 

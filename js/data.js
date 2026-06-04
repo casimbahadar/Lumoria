@@ -526,7 +526,6 @@ const MOVES_DATA = {
   twister:       { name:"Wyrm Gale",       type:"Draconic",   power:40,  acc:100, pp:20, cat:"special",  effect:"confuse",    ec:30,  desc:"Whips up a vicious twister of draconic wind." },
   dragon_rage:   { name:"Serpent Rage",   type:"Draconic",   power:55,  acc:100, pp:15, cat:"special",  effect:null,        ec:0,   desc:"Blasts the foe with an ancient draconic fury." },
   serpent_coil:  { name:"Serpent Coil",   type:"Draconic",   power:0,   acc:100, pp:15, cat:"status",   effect:"atkup",     ec:100, desc:"Coils like a dragon serpent, building power for the next strike." },
-  wyrm_breath:   { name:"Wyrm Breath",   type:"Draconic",   power:80,  acc:95,  pp:15, cat:"special",  effect:"paralyze",  ec:20,  desc:"Breathes the ancient miasma of a primordial wyrm." },
 
   // Rock (+7 → 22)
   ancient_power: { name:"Primeval Force", type:"Earth",    power:60,  acc:100, pp:5,  cat:"special",  effect:"atkup",     ec:10,  desc:"Attacks with prehistoric power that may raise all stats." },
@@ -535,7 +534,6 @@ const MOVES_DATA = {
   smack_down:    { name:"Smack Down",    type:"Earth",     power:50,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Hurls a stone to knock the foe down to earth." },
   diamond_storm: { name:"Diamond Storm", type:"Earth",     power:100, acc:95,  pp:5,  cat:"physical", effect:"defup",     ec:50,  desc:"Whips up a storm of diamonds that may raise Defense." },
   erosion_wave:  { name:"Erosion Wave",  type:"Earth",     power:75,  acc:95,  pp:10, cat:"special",  effect:"defdown",   ec:30,  desc:"Sends a wave of eroding stone particles that wear down defenses." },
-  quarry_crush:  { name:"Quarry Crush",  type:"Earth",     power:90,  acc:85,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Crushes the foe with the force of a collapsing quarry." },
 
   // Bug (+7 → 22)
   fury_cutter:   { name:"Mantis Slash",  type:"Nature",      power:40,  acc:95,  pp:20, cat:"physical", effect:"crit",        ec:100,   desc:"Slashes with scythe-like claws in a fury." },
@@ -554,7 +552,6 @@ const MOVES_DATA = {
   rapid_strike:     { name:"Rapid Strike",      type:"Normal",   power:50,  acc:100, pp:25, cat:"physical", effect:"crit",    ec:100,  desc:"Unleashes a flurry of rapid blows that may cause flinching." },
   echoing_shout:    { name:"Echoing Shout",     type:"Normal",   power:60,  acc:100, pp:20, cat:"special",  effect:"spdefdown",   ec:30,  desc:"A reverberating shout that rattles the target's defenses." },
   relentless_fury:  { name:"Relentless Fury",   type:"Normal",   power:80,  acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"Attacks with reckless fury at the cost of the user's own HP." },
-  iron_will:        { name:"Iron Will",         type:"Normal",   power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Steels the body with iron resolve, raising the user's Defense." },
   afterimage:       { name:"Afterimage",        type:"Normal",   power:0,   acc:100, pp:20, cat:"status",   effect:"speup",     ec:100, desc:"Moves so fast it leaves an afterimage, raising the user's Speed." },
   encore_blast:     { name:"Encore Blast",      type:"Normal",   power:90,  acc:100, pp:10, cat:"special",  effect:"spatkup",   ec:30,  desc:"A theatrical burst of energy that may boost the user's Special Attack." },
   last_stand:       { name:"Last Stand",        type:"Normal",   power:120, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100, desc:"A desperate all-or-nothing strike that takes a heavy toll on the user." },
@@ -601,7 +598,6 @@ const MOVES_DATA = {
   sand_attack:      { name:"Dust Toss",         type:"Earth",   power:0,   acc:100, pp:15, cat:"status",   effect:"atkdown",   ec:100, desc:"Kicks sand into the foe's face, impairing its offensive precision." },
   bone_rush:        { name:"Bone Barrage",      type:"Earth",   power:65,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Strikes the foe 2–5 times in rapid succession with a hard bone." },
   scorched_sand:    { name:"Scorched Sand",     type:"Earth",   power:70,  acc:100, pp:15, cat:"special",  effect:"atkdown",      ec:30,  desc:"Fires scorching superheated sand that may leave burns on contact." },
-  tectonic_wrath:   { name:"Tectonic Wrath",    type:"Earth",   power:110, acc:90,  pp:10, cat:"physical", effect:"recoil",    ec:100, desc:"Channels seismic fury into a devastating blow that rattles the user too." },
   underground_slam: { name:"Underground Crush",  type:"Earth",   power:80,  acc:100, pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"Burrows underground and erupts beneath the foe for a bone-crunching slam." },
   quicksand_trap:   { name:"Quicksand Trap",    type:"Earth",   power:0,   acc:90,  pp:15, cat:"status",   effect:"spedown2",  ec:100, desc:"Sucks the foe into quicksand, drastically reducing its Speed." },
   bone_club:        { name:"Bone Cudgel",       type:"Earth",   power:65,  acc:85,  pp:20, cat:"physical", effect:"flinch",    ec:10,  desc:"Strikes the foe with a club-like bone. May cause flinching." },
@@ -659,7 +655,6 @@ const MOVES_DATA = {
   coil:             { name:"Coil",              type:"Poison",   power:0,   acc:100, pp:20, cat:"status",   effect:"atkup",     ec:100, desc:"Coils up tightly, raising Attack and focus for the coming battle." },
   gunk_blast:       { name:"Gunk Blast",        type:"Poison",   power:120, acc:85,  pp:5,  cat:"special",  effect:"spdefdown",    ec:30,  desc:"Blasts the foe with a surge of concentrated toxins that may poison." },
   corrosive_rain:   { name:"Corrosive Rain",    type:"Poison",   power:80,  acc:100, pp:10, cat:"special",  effect:"defdown",    ec:30,  desc:"Summons a rain of corrosive acid that may poison the target." },
-  venom_surge:      { name:"Venom Surge",       type:"Poison",   power:95,  acc:90,  pp:10, cat:"special",  effect:"badpoison", ec:30,  desc:"Releases concentrated venom that may badly poison the target." },
   blight_drain:     { name:"Blight Drain",      type:"Poison",   power:75,  acc:100, pp:15, cat:"special",  effect:"drain",     ec:100, desc:"Fires blighted energy that saps the foe's life force to restore the user's HP." },
 
   // --- Mental (+8) ---

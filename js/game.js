@@ -3731,6 +3731,12 @@ function initEventListeners() {
   document.getElementById("btn-pvp-teams-back")?.addEventListener("click", () => {
     if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp");
   });
+  document.getElementById("btn-pvp-ffa")?.addEventListener("click", () => {
+    if (typeof ffaQuickMatch === "function") ffaQuickMatch();
+  });
+  document.getElementById("btn-ffa-quit")?.addEventListener("click", () => {
+    if (typeof ffaForfeit === "function") ffaForfeit(); else showScreen("screen-pvp");
+  });
   document.getElementById("btn-post-challenge")?.addEventListener("click", () => {
     if (typeof postBattleChallenge === "function") postBattleChallenge(getPvpFormat());
   });
@@ -4188,6 +4194,247 @@ function startPvpBattle(oppSlots, oppName, meta) {
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+}
+
+// ============================================================
+// FFA ROYALE (async, isolated N-side engine vs AI snapshots)
+// ============================================================
+// A free-for-all between the player and 2-3 AI-piloted posted-team snapshots.
+// Each side fields up to 3 Lumori but only ONE is active at a time (a bench mon
+// replaces a fainted active). Every side can target every other side; the last
+// side standing wins. This is a dedicated path that reuses the real damage / type
+// / status primitives (calcDamage, applyMoveEffect, getEffectiveSpeed) but never
+// touches the proven 2-side engine. All mons Lv-50 normalize via buildBattleMon's
+// PvP path. See docs/pvp-spec.md (Phase C).
+let ffaState = null;
+
+function ffaSleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+function ffaLog(msg) { if (ffaState) ffaState.log.push(msg); }
+function ffaActive(side) { return side && !side.defeated ? side.team[side.activeIdx] : null; }
+function ffaLiving() { return ffaState.sides.filter(s => !s.defeated); }
+function ffaOpponents(side) { return ffaState.sides.filter(s => s !== side && !s.defeated && ffaActive(s)); }
+function ffaEffSpeed(mon) {
+  try { return (typeof getEffectiveSpeed === "function") ? getEffectiveSpeed(mon) : (mon.spe || 0); }
+  catch (e) { return mon ? (mon.spe || 0) : 0; }
+}
+
+function ffaBuildSide(name, isPlayer, slots, rating) {
+  const team = (slots || []).slice(0, 3).map(s => buildBattleMon(s)).filter(Boolean);
+  // PvP fairness: every side starts at full, un-fainted HP regardless of the
+  // source slot's live HP (the player's party may be partly damaged).
+  team.forEach(m => { m.currentHP = m.maxHP; m.fainted = false; });
+  return { name, isPlayer, team, activeIdx: 0, defeated: team.length === 0, rating: rating || 1000 };
+}
+
+// aiSides = [{ name, slots:[partySlot-shaped...], rating }, ...] (2-3 of them).
+function startFfaBattle(aiSides, meta) {
+  meta = meta || {};
+  const healthy = G.team.filter(m => m && m.currentHP > 0).slice(0, 3);
+  if (!healthy.length) { showNotification("Heal your team before a Royale!"); return; }
+  if (!aiSides || aiSides.length < 1) { showNotification("Not enough rivals for a Royale right now."); return; }
+
+  // PvP context so buildBattleMon normalizes every mon to Lv 50 / perfect IVs.
+  battleContext = { isPvP: true, isFfa: true, battleMode: "ffa" };
+
+  const sides = [ ffaBuildSide(G.playerName || "You", true, healthy, (typeof G.pvpFfaRating === "number") ? G.pvpFfaRating : 1000) ];
+  aiSides.forEach(a => sides.push(ffaBuildSide(a.name || "Rival", false, a.slots, a.rating)));
+
+  ffaState = { sides, log: [], over: false, awaitingPlayer: false };
+  ffaLog(`👑 FFA Royale — ${sides.length} teams enter, last standing wins!`);
+  sides.forEach(s => ffaLog(`${s.isPlayer ? "You bring" : escapeHtml(s.name) + " brings"} ${ffaActive(s)?.name || "?"}.`));
+  showScreen("screen-ffa");
+  ffaBeginPlayerTurn();
+}
+
+function ffaBeginPlayerTurn() {
+  if (!ffaState || ffaState.over) return;
+  ffaState.awaitingPlayer = true;
+  ffaRender();
+  ffaRenderMoves();
+}
+
+function ffaRenderMoves() {
+  const ctrl = document.getElementById("ffa-controls");
+  if (!ctrl || !ffaState) return;
+  const mon = ffaActive(ffaState.sides[0]);
+  if (ffaState.over || !mon) { ctrl.innerHTML = ""; return; }
+  const moves = mon.moves.map(mv => {
+    const md = MOVES_DATA[mv.id];
+    return `<button class="ffa-move" data-mv="${mv.id}" ${mv.pp <= 0 ? "disabled" : ""}>${md?.name || mv.id}<small>${md?.type || ""} · ${mv.pp}/${mv.maxPP}</small></button>`;
+  }).join("");
+  ctrl.innerHTML = `<div class="ffa-prompt">Choose ${escapeHtml(mon.name)}'s move:</div><div class="ffa-moves">${moves}</div>`;
+  ctrl.querySelectorAll(".ffa-move").forEach(b => b.addEventListener("click", () => ffaChooseMove(b.dataset.mv)));
+}
+
+function ffaChooseMove(moveId) {
+  const md = MOVES_DATA[moveId];
+  if (!md || !md.power || md.power <= 0 || md.target === "self") { ffaResolveTurn(moveId, null); return; }
+  const opps = ffaOpponents(ffaState.sides[0]);
+  if (opps.length <= 1) { ffaResolveTurn(moveId, opps[0] ? ffaState.sides.indexOf(opps[0]) : null); return; }
+  const ctrl = document.getElementById("ffa-controls");
+  const btns = opps.map(s => {
+    const m = ffaActive(s);
+    return `<button class="ffa-target" data-side="${ffaState.sides.indexOf(s)}">${escapeHtml(s.name)}<small>${m?.emoji || ""} ${Math.ceil(m?.currentHP || 0)} HP</small></button>`;
+  }).join("");
+  ctrl.innerHTML = `<div class="ffa-prompt">Target which team?</div><div class="ffa-moves">${btns}</div><button class="btn-secondary ffa-back">← Back</button>`;
+  ctrl.querySelectorAll(".ffa-target").forEach(b => b.addEventListener("click", () => ffaResolveTurn(moveId, parseInt(b.dataset.side, 10))));
+  ctrl.querySelector(".ffa-back")?.addEventListener("click", () => ffaRenderMoves());
+}
+
+// AI: prefer a damaging move, target the lowest-HP living opponent (royale "gang the weak").
+function ffaAiAction(side) {
+  const mon = ffaActive(side);
+  const opps = ffaOpponents(side);
+  if (!mon || !opps.length) return null;
+  const target = opps.reduce((lo, s) => (ffaActive(s).currentHP < ffaActive(lo).currentHP ? s : lo), opps[0]);
+  const usable = mon.moves.filter(mv => mv.pp > 0);
+  const pool = usable.length ? usable : mon.moves;
+  const dmg = pool.filter(mv => (MOVES_DATA[mv.id]?.power || 0) > 0);
+  const choices = dmg.length ? dmg : pool;
+  const pick = choices[Math.floor(Math.random() * choices.length)];
+  return { side, moveId: pick.id, targetSide: target };
+}
+
+function ffaApplyMove(attacker, defender, moveId, atkSide, defSide) {
+  const move = MOVES_DATA[moveId];
+  const mv = attacker.moves.find(m => m.id === moveId);
+  if (mv && mv.pp > 0) mv.pp--;
+  if (!move) return;
+  const who = atkSide.isPlayer ? "Your" : `${escapeHtml(atkSide.name)}'s`;
+  if (move.power && move.power > 0 && defender) {
+    let res;
+    try { res = calcDamage(attacker, defender, move); } catch (e) { res = { damage: 1, effectiveness: 1, crit: false }; }
+    const dmg = (typeof res === "object") ? res.damage : res;
+    const eff = (typeof res === "object") ? res.effectiveness : 1;
+    defender.currentHP = Math.max(0, defender.currentHP - dmg);
+    ffaLog(`${who} ${attacker.name} used ${move.name} on ${defSide.isPlayer ? "your" : escapeHtml(defSide.name) + "'s"} ${defender.name} — ${dmg} dmg.`);
+    if (res && res.crit) ffaLog("&nbsp;&nbsp;💥 Critical hit!");
+    if (eff > 1) ffaLog("&nbsp;&nbsp;It's super effective!");
+    else if (eff > 0 && eff < 1) ffaLog("&nbsp;&nbsp;It's not very effective…");
+    else if (eff === 0) ffaLog("&nbsp;&nbsp;It had no effect!");
+  } else {
+    ffaLog(`${who} ${attacker.name} used ${move.name}.`);
+  }
+  // Stat/status effects, best-effort — never let an exotic effect crash the match.
+  try {
+    const msgs = applyMoveEffect(move, attacker, defender || attacker);
+    (msgs || []).forEach(m => { if (typeof m === "string") ffaLog("&nbsp;&nbsp;" + m); });
+  } catch (e) { /* ignore exotic effect in FFA */ }
+}
+
+function ffaCheckFaints() {
+  ffaState.sides.forEach(s => {
+    const m = s.team[s.activeIdx];
+    if (m && !m.fainted && m.currentHP <= 0) {
+      m.fainted = true;
+      ffaLog(`${s.isPlayer ? "Your" : escapeHtml(s.name) + "'s"} ${m.name} fainted!`);
+    }
+  });
+}
+
+function ffaReplaceActive(side) {
+  if (side.defeated) return;
+  const cur = side.team[side.activeIdx];
+  if (cur && cur.currentHP > 0 && !cur.fainted) return;
+  const nextIdx = side.team.findIndex(t => t && t.currentHP > 0 && !t.fainted);
+  if (nextIdx === -1) {
+    side.defeated = true;
+    ffaLog(`${side.isPlayer ? "You are" : escapeHtml(side.name) + " is"} eliminated!`);
+  } else {
+    side.activeIdx = nextIdx;
+    ffaLog(`${side.isPlayer ? "You send out" : escapeHtml(side.name) + " sends out"} ${side.team[nextIdx].name}!`);
+  }
+}
+
+async function ffaResolveTurn(playerMoveId, targetSideIdx) {
+  if (!ffaState || ffaState.over || !ffaState.awaitingPlayer) return;
+  ffaState.awaitingPlayer = false;
+  const ctrl = document.getElementById("ffa-controls");
+  if (ctrl) ctrl.innerHTML = `<div class="ffa-prompt">Resolving…</div>`;
+
+  const me = ffaState.sides[0];
+  const actions = [{ side: me, moveId: playerMoveId, targetSide: (targetSideIdx != null) ? ffaState.sides[targetSideIdx] : null }];
+  ffaLiving().forEach(s => { if (!s.isPlayer) { const a = ffaAiAction(s); if (a) actions.push(a); } });
+
+  actions.sort((a, b) => {
+    const pa = MOVES_DATA[a.moveId]?.effect === "priority" ? 1 : 0;
+    const pb = MOVES_DATA[b.moveId]?.effect === "priority" ? 1 : 0;
+    if (pa !== pb) return pb - pa;
+    return ffaEffSpeed(ffaActive(b.side)) - ffaEffSpeed(ffaActive(a.side));
+  });
+
+  for (const act of actions) {
+    if (ffaState.over || act.side.defeated) continue;
+    const attacker = ffaActive(act.side);
+    if (!attacker || attacker.fainted || attacker.currentHP <= 0) continue;
+    let tgt = act.targetSide;
+    if (!tgt || tgt.defeated || !ffaActive(tgt) || ffaActive(tgt).currentHP <= 0) {
+      const opps = ffaOpponents(act.side);
+      if (!opps.length) continue;
+      tgt = opps.reduce((lo, s) => (ffaActive(s).currentHP < ffaActive(lo).currentHP ? s : lo), opps[0]);
+    }
+    ffaApplyMove(attacker, ffaActive(tgt), act.moveId, act.side, tgt);
+    ffaCheckFaints();
+    ffaRender();
+    await ffaSleep(45);
+  }
+
+  ffaState.sides.forEach(s => ffaReplaceActive(s));
+  ffaRender();
+
+  if (me.defeated) { ffaFinish(false); return; }
+  if (ffaLiving().length <= 1) { ffaFinish(true); return; }
+  ffaBeginPlayerTurn();
+}
+
+function ffaFinish(won) {
+  ffaState.over = true;
+  ffaLog(won ? "🏆 You're the last team standing — Royale won!" : "💀 You've been eliminated from the Royale.");
+  ffaRender();
+  const opps = ffaState.sides.filter(s => !s.isPlayer);
+  const avg = opps.length ? Math.round(opps.reduce((a, s) => a + (s.rating || 1000), 0) / opps.length) : 1000;
+  const ctrl = document.getElementById("ffa-controls");
+  if (ctrl) ctrl.innerHTML = `<button class="btn-primary" id="ffa-done">Continue</button>`;
+  document.getElementById("ffa-done")?.addEventListener("click", () => {
+    if (typeof recordFfaResult === "function") recordFfaResult(won, avg);
+    else if (typeof showPvPScreen === "function") showPvPScreen();
+    else showScreen("screen-pvp");
+  });
+}
+
+function ffaForfeit() {
+  if (!ffaState || ffaState.over) { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); return; }
+  if (!confirm("Forfeit the Royale? It counts as a loss.")) return;
+  const opps = ffaState.sides.filter(s => !s.isPlayer);
+  const avg = opps.length ? Math.round(opps.reduce((a, s) => a + (s.rating || 1000), 0) / opps.length) : 1000;
+  ffaState.over = true;
+  if (typeof recordFfaResult === "function") recordFfaResult(false, avg);
+  else if (typeof showPvPScreen === "function") showPvPScreen();
+  else showScreen("screen-pvp");
+}
+
+function ffaRender() {
+  if (!ffaState) return;
+  const sidesEl = document.getElementById("ffa-sides");
+  if (sidesEl) {
+    sidesEl.innerHTML = ffaState.sides.map(s => {
+      const m = s.team[s.activeIdx];
+      const alive = s.team.filter(t => t && t.currentHP > 0 && !t.fainted).length;
+      const pct = m ? Math.max(0, Math.min(100, (m.currentHP / m.maxHP) * 100)) : 0;
+      const hpClass = pct > 50 ? "high" : pct > 20 ? "mid" : "low";
+      return `<div class="ffa-side ${s.isPlayer ? "player" : ""} ${s.defeated ? "defeated" : ""}">
+        <div class="ffa-side-name">${escapeHtml(s.name)}${s.isPlayer ? " (You)" : ""}</div>
+        <div class="ffa-side-mon">${s.defeated ? "💀 out" : `${m?.emoji || "❓"} ${escapeHtml(m?.name || "?")}`}</div>
+        ${s.defeated ? "" : `<div class="ffa-hpbar"><div class="ffa-hpfill ${hpClass}" style="width:${pct}%"></div></div>`}
+        <div class="ffa-side-meta">${s.defeated ? "—" : `${Math.ceil(m?.currentHP || 0)}/${m?.maxHP || 0} · ${alive} left`}</div>
+      </div>`;
+    }).join("");
+  }
+  const logEl = document.getElementById("ffa-log");
+  if (logEl) {
+    logEl.innerHTML = ffaState.log.slice(-9).map(l => `<div>${l}</div>`).join("");
+    logEl.scrollTop = logEl.scrollHeight;
+  }
 }
 
 function startUmbraAreaBattle(umbraId, battle) {

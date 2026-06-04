@@ -2560,6 +2560,36 @@ button, a, [role="button"] {
   background:var(--bg-panel); color:var(--text-primary); cursor:pointer;
 }
 .pvp-own-mon.picked { background:var(--accent-blue); color:#fff; border-color:var(--accent-blue); }
+
+/* ---- FFA Royale ---- */
+.ffa-sides { display:flex; flex-wrap:wrap; gap:0.5rem; padding:0.6rem; justify-content:center; }
+.ffa-side {
+  flex:1 1 40%; min-width:130px; max-width:220px; border:1px solid var(--border); border-radius:8px;
+  padding:0.5rem; background:var(--bg-panel); text-align:center;
+}
+.ffa-side.player { border-color:var(--accent-blue); box-shadow:0 0 0 1px var(--accent-blue) inset; }
+.ffa-side.defeated { opacity:0.45; }
+.ffa-side-name { font-size:0.75rem; color:var(--text-secondary); }
+.ffa-side-mon { font-size:0.95rem; font-weight:bold; margin:0.2rem 0; }
+.ffa-side-meta { font-size:0.72rem; color:var(--text-secondary); }
+.ffa-hpbar { height:7px; border-radius:4px; background:var(--border); overflow:hidden; margin:0.25rem 0; }
+.ffa-hpfill { height:100%; transition:width 0.25s; }
+.ffa-hpfill.high { background:#3fb950; } .ffa-hpfill.mid { background:#d29922; } .ffa-hpfill.low { background:#f85149; }
+.ffa-log {
+  margin:0.4rem 0.6rem; padding:0.5rem; height:150px; overflow-y:auto; font-size:0.8rem;
+  border:1px solid var(--border); border-radius:8px; background:var(--bg-dark); line-height:1.5;
+}
+.ffa-controls { padding:0.6rem; }
+.ffa-prompt { font-size:0.85rem; margin-bottom:0.4rem; text-align:center; }
+.ffa-moves { display:flex; flex-wrap:wrap; gap:0.4rem; justify-content:center; }
+.ffa-move, .ffa-target {
+  display:flex; flex-direction:column; align-items:center; gap:1px; min-width:120px;
+  border:1px solid var(--border); border-radius:6px; padding:0.4rem 0.6rem; cursor:pointer;
+  background:var(--bg-panel); color:var(--text-primary); font-size:0.82rem;
+}
+.ffa-move small, .ffa-target small { font-size:0.68rem; color:var(--text-secondary); }
+.ffa-move:disabled { opacity:0.4; cursor:not-allowed; }
+.ffa-target:hover, .ffa-move:hover { border-color:var(--accent-blue); }
 .pvp-live-desc { margin-bottom:1rem; font-size:0.82rem; color:var(--text-secondary); }
 
 /* ===== LIVE PvP BATTLE ARENA ===== */

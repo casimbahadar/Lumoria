@@ -62,6 +62,7 @@ const LB_CATEGORIES = [
   { id:"event_pts",   label:"Event Points",    icon:"🎉", getValue: g => g.eventPoints || 0 },
   { id:"pvp_rating",  label:"PvP Rating",      icon:"⭐", getValue: g => g.pvpRating || 0 },
   { id:"pvp_doubles_rating", label:"PvP Doubles", icon:"👥", getValue: g => g.pvpDoublesRating || 0 },
+  { id:"pvp_ffa_rating", label:"FFA Royale",   icon:"👑", getValue: g => g.pvpFfaRating || 0 },
   { id:"pvp_gauntlet",label:"Gauntlet Clears", icon:"🏟️", getValue: g => g.pvpGauntletBest || 0 },
 ];
 
@@ -424,6 +425,9 @@ const PVP_BASE_RATING = 1000;
 const PVP_MODES = {
   single: { label:"Singles", rating:"pvpRating",        wins:"pvpWins",        losses:"pvpLosses",        board:"pvp_rating" },
   double: { label:"Doubles", rating:"pvpDoublesRating",  wins:"pvpDoublesWins",  losses:"pvpDoublesLosses",  board:"pvp_doubles_rating" },
+  // FFA is multi-opponent vs snapshots, so it's self-contained (no zero-sum
+  // mailbox): the player's rating moves vs the average opponent rating.
+  ffa:    { label:"FFA",     rating:"pvpFfaRating",      wins:"pvpFfaWins",      losses:"pvpFfaLosses",      board:"pvp_ffa_rating" },
 };
 function pvpModeFields(mode) { return PVP_MODES[mode] || PVP_MODES.single; }
 
@@ -659,6 +663,58 @@ async function quickMatch(format) {
   launchPvpChallenge(pick.id, pick);
 }
 
+// FFA Royale: pull 2-3 open posted teams near your FFA rating and run a local
+// last-team-standing royale vs the AI. Self-contained ladder (pvp_ffa_rating).
+async function ffaQuickMatch() {
+  if (!requireOnline() || !G) return;
+  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before a Royale!"); return; }
+  let snap;
+  try {
+    snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").limitToFirst(50).once("value");
+  } catch (e) {
+    showNotification("Couldn't reach the challenge board — check your connection and try again.");
+    return;
+  }
+  const pool = [];
+  snap.forEach(child => {
+    const v = child.val();
+    if (v.challengerUID === firebaseUID) return;
+    let team;
+    try { team = JSON.parse(v.team); } catch (e) { return; }
+    if (Array.isArray(team) && team.length) pool.push({ name: v.challengerName || "Rival", rating: v.rating || 0, slots: team });
+  });
+  if (pool.length < 2) { showNotification("Need at least 2 other posted teams for a Royale — post challenges and try again soon!"); return; }
+  const myRating = G.pvpFfaRating || PVP_BASE_RATING;
+  pool.sort((a, b) => Math.abs((a.rating || 0) - myRating) - Math.abs((b.rating || 0) - myRating));
+  // 3-4 total sides: draw the AI teams from the nearest-rated band for variety.
+  const aiCount = Math.min(3, pool.length);
+  const bag = pool.slice(0, Math.min(6, pool.length));
+  const chosen = [];
+  while (chosen.length < aiCount && bag.length) {
+    chosen.push(bag.splice(Math.floor(Math.random() * bag.length), 1)[0]);
+  }
+  if (typeof startFfaBattle === "function") startFfaBattle(chosen, {});
+  else showNotification("Royale engine unavailable.");
+}
+
+// Self-contained FFA result: move pvp_ffa_rating vs the average opponent rating.
+// No zero-sum mailbox (multi-opponent vs snapshots), like Gauntlet.
+async function recordFfaResult(won, avgOppRating) {
+  const F = pvpModeFields("ffa");
+  const before = G[F.rating] || PVP_BASE_RATING;
+  const delta = pvpRatingDelta(before, avgOppRating || PVP_BASE_RATING, !!won);
+  G[F.rating] = Math.max(0, before + delta);
+  if (won) G[F.wins] = (G[F.wins] || 0) + 1; else G[F.losses] = (G[F.losses] || 0) + 1;
+  saveGame();
+  if (typeof submitLeaderboardScore === "function") submitLeaderboardScore(F.board);
+  const sign = delta >= 0 ? "+" : "";
+  showNotification(
+    (won ? "🏆 You won the Royale!" : "😞 You were eliminated from the Royale.") +
+    ` FFA rating ${sign}${delta} → <strong>${G[F.rating]}</strong>.`,
+    () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); }
+  );
+}
+
 // Apply the outcome of an async PvP battle: adjust rating, push it to the
 // leaderboard, mark the challenge completed, and return to the PvP screen.
 // Called from endBattle() in game.js when battleContext.isPvP.
@@ -860,10 +916,14 @@ function renderPvpRatingBanner() {
   const doubles = playedDoubles
     ? ` · 👥 <strong>${G.pvpDoublesRating || PVP_BASE_RATING}</strong> <span class="pvp-record">${dW}W–${dL}L</span>`
     : "";
+  const fW = G.pvpFfaWins || 0, fL = G.pvpFfaLosses || 0;
+  const ffa = ((G.pvpFfaRating !== undefined) || fW || fL)
+    ? ` · 👑 <strong>${G.pvpFfaRating || PVP_BASE_RATING}</strong> <span class="pvp-record">${fW}W–${fL}L</span>`
+    : "";
   const gauntlet = (G.pvpGauntletBest || 0) > 0
     ? ` · <span class="pvp-record">🏟️ best ${G.pvpGauntletBest}</span>`
     : "";
-  el.innerHTML = `Singles: ${singles}${doubles}${gauntlet}`;
+  el.innerHTML = `Singles: ${singles}${doubles}${ffa}${gauntlet}`;
 }
 
 async function loadOpenChallenges() {

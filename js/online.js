@@ -1147,7 +1147,9 @@ function savePvpTeam() {
 let liveRoomCode = null;
 let liveRoomRef  = null;
 let liveIsHost   = false;
+let liveIsSpectator = false;
 let liveRoomListener = null;
+let liveCreateMode = "live1v1";   // selected mode in the create-room UI
 
 function generateRoomCode() {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
@@ -1168,19 +1170,32 @@ function buildLiveTeam() {
       monsterId: m.monsterId, name: m.name, emoji: def?.emoji || "❓",
       level: m.level, nature: m.nature,
       moves: m.moves.map(mv => mv.id || mv),
+      types: def?.types || [],
       atk, def: defStat, spd, maxHP
     };
   });
 }
 
+// Host-authoritative live damage. Type-aware (STAB + effectiveness) so live
+// battles play like the real engine; falls back gracefully if helpers/types
+// are missing. Physical/special split uses the move category.
 function livePvPDamage(attackerMon, moveId, defenderMon) {
   const moveDef = MOVES_DATA[moveId];
   if (!moveDef?.power) return 0;
-  const dmg = Math.floor((2 * attackerMon.level / 5 + 2) * moveDef.power * attackerMon.atk / defenderMon.def / 50 + 2);
+  let dmg = Math.floor((2 * attackerMon.level / 5 + 2) * moveDef.power * attackerMon.atk / defenderMon.def / 50 + 2);
+  // STAB
+  if ((attackerMon.types || []).includes(moveDef.type)) dmg = Math.floor(dmg * 1.5);
+  // Type effectiveness
+  let eff = 1;
+  if (typeof getMoveEffectiveness === "function") {
+    try { eff = getMoveEffectiveness(moveDef, defenderMon.types || []); } catch (e) { eff = 1; }
+  }
+  dmg = Math.floor(dmg * eff);
+  if (eff === 0) return 0;
   return Math.max(1, Math.round(dmg * (0.85 + Math.random() * 0.15)));
 }
 
-async function createLiveRoom() {
+async function createLiveRoom(passcode, isPublic) {
   if (!requireOnline() || !G) return;
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team first!"); return; }
   const code = generateRoomCode();
@@ -1189,7 +1204,10 @@ async function createLiveRoom() {
   const room = {
     hostUID: firebaseUID, hostName: G.playerName,
     hostTeam: JSON.stringify(team),
-    guestUID: null, guestName: null, guestTeam: null,
+    hostRating: G.pvpRating || PVP_BASE_RATING,
+    guestUID: null, guestName: null, guestTeam: null, guestRating: null,
+    passcode: passcode ? String(passcode).trim() : null,
+    public: !!isPublic,
     status: "waiting",
     hostHP: hpArr, hostMaxHP: hpArr,
     guestHP: [], guestMaxHP: [],
@@ -1201,11 +1219,13 @@ async function createLiveRoom() {
   await firebaseDB.ref(`pvp_live/${code}`).set(room);
   liveRoomCode = code;
   liveIsHost = true;
-  renderLiveRoomUI("waiting", code, null);
+  liveIsSpectator = false;
+  liveResultApplied = false;
+  renderLiveRoomUI("waiting", code, room);
   watchLiveRoom(code);
 }
 
-async function joinLiveRoom(code) {
+async function joinLiveRoom(code, passcode) {
   if (!requireOnline() || !G) return;
   if (!code || code.length !== 6) { showNotification("Enter a 6-character room code."); return; }
   code = code.toUpperCase();
@@ -1215,18 +1235,78 @@ async function joinLiveRoom(code) {
   if (!room) { showNotification("Room not found."); return; }
   if (room.status !== "waiting") { showNotification("Room is already full or finished."); return; }
   if (room.hostUID === firebaseUID) { showNotification("You can't join your own room."); return; }
+  if (room.passcode && String(room.passcode) !== String(passcode || "").trim()) { showNotification("Wrong passcode for this room."); return; }
   const team = buildLiveTeam();
   const hpArr = team.map(m => m.maxHP);
   await firebaseDB.ref(`pvp_live/${code}`).update({
     guestUID: firebaseUID, guestName: G.playerName,
     guestTeam: JSON.stringify(team),
+    guestRating: G.pvpRating || PVP_BASE_RATING,
     guestHP: hpArr, guestMaxHP: hpArr,
     status: "battling",
     log: [...(room.log || []), `${G.playerName} joined! Battle begins!`]
   });
   liveRoomCode = code;
   liveIsHost = false;
+  liveIsSpectator = false;
+  liveResultApplied = false;
   watchLiveRoom(code);
+}
+
+// Route a join by room code to the right handler based on the room's mode.
+async function joinAnyLiveRoom(code, passcode) {
+  if (!requireOnline()) return;
+  if (!code || code.length !== 6) { showNotification("Enter a 6-character room code."); return; }
+  code = code.toUpperCase();
+  const snap = await firebaseDB.ref(`pvp_live/${code}`).once("value").catch(() => null);
+  const room = snap && snap.val();
+  if (!room) { showNotification("Room not found."); return; }
+  if (room.mode && room.mode !== "live1v1" && typeof joinMultiLiveRoom === "function") joinMultiLiveRoom(code, passcode);
+  else joinLiveRoom(code, passcode);
+}
+
+// Watch a public room read-only (no team submitted, no controls rendered).
+async function spectateLiveRoom(code) {
+  if (!requireOnline()) return;
+  code = (code || "").toUpperCase();
+  const snap = await firebaseDB.ref(`pvp_live/${code}`).once("value");
+  if (!snap.val()) { showNotification("Room not found."); return; }
+  liveRoomCode = code;
+  liveIsHost = false;
+  liveIsSpectator = true;
+  liveResultApplied = false;
+  watchLiveRoom(code);
+}
+
+// List public rooms still waiting for an opponent, plus any in-progress public
+// rooms to spectate. Rendered into the idle live UI.
+async function listLiveRooms() {
+  const el = document.getElementById("live-room-list");
+  if (!el) return;
+  let snap;
+  try { snap = await firebaseDB.ref("pvp_live").orderByChild("public").equalTo(true).limitToLast(30).once("value"); }
+  catch (e) { el.innerHTML = `<p class="pvp-desc">Couldn't load public rooms.</p>`; return; }
+  const open = [], live = [];
+  snap.forEach(c => {
+    const r = c.val();
+    if (r.hostUID === firebaseUID) return;
+    if (r.status === "waiting") open.push({ code: c.key, ...r });
+    else if (r.status === "battling") live.push({ code: c.key, ...r });
+  });
+  if (!open.length && !live.length) { el.innerHTML = `<p class="pvp-desc">No public rooms right now. Create one (toggle Public) or share a code.</p>`; return; }
+  const openHtml = open.map(r => `
+    <div class="live-room-row">
+      <span>🟢 <strong>${escapeHtml(r.hostName || "Host")}</strong> · ⭐${r.hostRating || PVP_BASE_RATING}</span>
+      <button class="btn-secondary live-join-public" data-code="${r.code}">Join</button>
+    </div>`).join("");
+  const liveHtml = live.map(r => `
+    <div class="live-room-row">
+      <span>⚔️ ${escapeHtml(r.hostName || "Host")} vs ${escapeHtml(r.guestName || "?")}</span>
+      <button class="btn-secondary live-spectate" data-code="${r.code}">👁️ Watch</button>
+    </div>`).join("");
+  el.innerHTML = openHtml + liveHtml;
+  el.querySelectorAll(".live-join-public").forEach(b => b.addEventListener("click", () => joinAnyLiveRoom(b.dataset.code)));
+  el.querySelectorAll(".live-spectate").forEach(b => b.addEventListener("click", () => spectateLiveRoom(b.dataset.code)));
 }
 
 function watchLiveRoom(code) {
@@ -1240,6 +1320,8 @@ function watchLiveRoom(code) {
     if (liveIsHost && room.status === "battling" && room.hostMove && room.guestMove) {
       resolveLiveTurn(code, room);
     }
+    // Each participant applies its own (zero-sum) rating result once, when done.
+    if (room.status === "done" && room.winner) applyLiveResult(room);
   });
 }
 
@@ -1257,9 +1339,19 @@ async function resolveLiveTurn(code, room) {
   function applyMove(attackerMon, moveId, defenderHP, defenderIdx, defenderTeam) {
     const moveDef = MOVES_DATA[moveId];
     const moveName = moveDef?.name || moveId;
-    const dmg = livePvPDamage(attackerMon, moveId, defenderTeam[defenderIdx]);
+    const defMon = defenderTeam[defenderIdx];
+    const dmg = livePvPDamage(attackerMon, moveId, defMon);
     defenderHP[defenderIdx] = Math.max(0, defenderHP[defenderIdx] - dmg);
-    log.push(`${attackerMon.name} used ${moveName}! ${dmg} damage.`);
+    let note = "";
+    if (typeof getMoveEffectiveness === "function" && moveDef?.power) {
+      try {
+        const eff = getMoveEffectiveness(moveDef, defMon.types || []);
+        if (eff === 0) note = " It had no effect!";
+        else if (eff > 1) note = " Super effective!";
+        else if (eff < 1) note = " Not very effective…";
+      } catch (e) {}
+    }
+    log.push(`${attackerMon.name} used ${moveName}! ${dmg} damage.${note}`);
     return defenderHP[defenderIdx] === 0;
   }
 
@@ -1293,13 +1385,33 @@ async function resolveLiveTurn(code, room) {
     winner
   });
 
-  if (winner) {
-    const prize = winner === (liveIsHost ? "host" : "guest") ? 600 : 150;
-    if (G) { G.money += prize; G.battleWins = (G.battleWins||0) + (winner === (liveIsHost ? "host" : "guest") ? 1 : 0); saveGame(); }
-    if (typeof submitLeaderboardScore === "function") submitLeaderboardScore("battles_won");
-    showNotification(winner === (liveIsHost ? "host" : "guest") ? `🏆 You won the live battle! +${prize} coins` : `😞 You lost the live battle. +${prize} coins for participating.`);
-    leaveLiveRoom();
-  }
+  // Result is applied per-client when each observes status "done" (see
+  // watchLiveRoom → applyLiveResult), so both the (online) host and guest update
+  // their own rating exactly once. The host only writes the authoritative state.
+}
+
+// Zero-sum live rating exchange: each client applies its own delta once, using
+// the pre-battle ratings stored on the room. Mirror curve ⇒ deltas sum to zero.
+let liveResultApplied = false;
+function applyLiveResult(room) {
+  if (liveResultApplied || liveIsSpectator || !G || !room || !room.winner) return;
+  liveResultApplied = true;
+  const iWon = room.winner === (liveIsHost ? "host" : "guest");
+  const oppRating = (liveIsHost ? room.guestRating : room.hostRating) || PVP_BASE_RATING;
+  const before = G.pvpRating || PVP_BASE_RATING;
+  const delta = pvpRatingDelta(before, oppRating, iWon);
+  G.pvpRating = Math.max(0, before + delta);
+  if (iWon) G.pvpWins = (G.pvpWins || 0) + 1; else G.pvpLosses = (G.pvpLosses || 0) + 1;
+  const prize = iWon ? 400 : 100;
+  G.money = (G.money || 0) + prize;
+  saveGame();
+  if (typeof submitLeaderboardScore === "function") { submitLeaderboardScore("pvp_rating"); submitLeaderboardScore("battles_won"); }
+  const sign = delta >= 0 ? "+" : "";
+  showNotification(
+    (iWon ? "🏆 You won the live battle!" : "😞 You lost the live battle.") +
+    ` Singles rating ${sign}${delta} → <strong>${G.pvpRating}</strong>. +${prize} coins.`,
+    () => leaveLiveRoom()
+  );
 }
 
 async function submitLiveMove(moveId) {
@@ -1313,8 +1425,10 @@ async function submitLiveMove(moveId) {
 
 function leaveLiveRoom() {
   if (liveRoomListener && liveRoomRef) liveRoomRef.off("value", liveRoomListener);
-  if (liveRoomCode && liveIsHost) firebaseDB.ref(`pvp_live/${liveRoomCode}`).update({ status:"abandoned" }).catch(()=>{});
-  liveRoomCode = null; liveRoomRef = null; liveIsHost = false; liveRoomListener = null;
+  // Abandoning mid-battle as a player ends the room; spectators just detach.
+  if (liveRoomCode && !liveIsSpectator && liveIsHost) firebaseDB.ref(`pvp_live/${liveRoomCode}`).update({ status:"abandoned" }).catch(()=>{});
+  liveRoomCode = null; liveRoomRef = null; liveIsHost = false; liveIsSpectator = false; liveRoomListener = null;
+  liveResultApplied = false;
   renderLiveRoomUI("idle", null, null);
 }
 
@@ -1325,14 +1439,66 @@ function renderLiveRoomUI(status, code, room) {
   if (status === "idle" || !code) {
     area.innerHTML = `
       <div class="live-setup">
-        <button class="btn-primary" id="btn-create-room">🏠 Create Room</button>
+        <div class="live-mode-row">
+          <button class="live-mode-btn active" data-lmode="live1v1">⚔️ 1v1</button>
+          <button class="live-mode-btn" data-lmode="live2v2">👥 2v2</button>
+          <button class="live-mode-btn" data-lmode="liveffa">👑 FFA</button>
+        </div>
+        <div class="live-create">
+          <input type="text" id="live-pass-input" class="pvp-input" placeholder="Passcode (optional)" maxlength="12">
+          <label class="live-public-toggle"><input type="checkbox" id="live-public-check"> Public (listed &amp; spectatable)</label>
+          <button class="btn-primary" id="btn-create-room">🏠 Create Room</button>
+        </div>
         <div class="live-join-row">
-          <input type="text" id="live-room-input" class="pvp-input" placeholder="Enter room code..." maxlength="6">
+          <input type="text" id="live-room-input" class="pvp-input" placeholder="Room code..." maxlength="6">
+          <input type="text" id="live-join-pass" class="pvp-input" placeholder="Passcode" maxlength="12">
           <button class="btn-secondary" id="btn-join-room">Join</button>
         </div>
+        <div class="live-rooms-header">Public Rooms <button class="btn-secondary" id="btn-refresh-rooms">⟳</button></div>
+        <div id="live-room-list" class="live-room-list"></div>
       </div>`;
-    document.getElementById("btn-create-room")?.addEventListener("click", createLiveRoom);
-    document.getElementById("btn-join-room")?.addEventListener("click", () => joinLiveRoom(document.getElementById("live-room-input")?.value.trim()));
+    area.querySelectorAll(".live-mode-btn").forEach(b => b.addEventListener("click", () => {
+      area.querySelectorAll(".live-mode-btn").forEach(x => x.classList.remove("active"));
+      b.classList.add("active");
+      liveCreateMode = b.dataset.lmode;
+    }));
+    document.getElementById("btn-create-room")?.addEventListener("click", () => {
+      const pass = document.getElementById("live-pass-input")?.value;
+      const pub = document.getElementById("live-public-check")?.checked;
+      if (liveCreateMode && liveCreateMode !== "live1v1" && typeof createMultiLiveRoom === "function") createMultiLiveRoom(liveCreateMode, pass, pub);
+      else createLiveRoom(pass, pub);
+    });
+    document.getElementById("btn-join-room")?.addEventListener("click", () => {
+      const jc = document.getElementById("live-room-input")?.value.trim();
+      const jp = document.getElementById("live-join-pass")?.value;
+      joinAnyLiveRoom(jc, jp);
+    });
+    document.getElementById("btn-refresh-rooms")?.addEventListener("click", listLiveRooms);
+    listLiveRooms();
+    return;
+  }
+
+  // Spectator: read-only view of host vs guest, no controls.
+  if (liveIsSpectator && (status === "battling" || status === "done")) {
+    let ht, gt;
+    try { ht = JSON.parse(room.hostTeam || "[]"); gt = JSON.parse(room.guestTeam || "[]"); } catch (e) { return; }
+    const hMon = ht[room.hostActive] || {}, gMon = gt[room.guestActive] || {};
+    const hpBar = (c, m) => `<div class="live-hp-bar-wrap"><div class="live-hp-bar" style="width:${Math.max(0, Math.round((c / m) * 100))}%"></div></div><span class="live-hp-text">${c}/${m}</span>`;
+    const logHtml = (room.log || []).slice(-8).map(l => `<div class="live-log-line">${escapeHtml(l)}</div>`).join("");
+    area.innerHTML = `
+      <div class="live-room-header">👁️ Spectating: <strong>${code}</strong></div>
+      <div class="live-arena">
+        <div class="live-side"><div class="live-side-name">${escapeHtml(room.hostName || "Host")}</div>
+          <div class="live-mon-name">${hMon.emoji || "❓"} ${hMon.name || "?"} Lv.${hMon.level || "?"}</div>
+          ${hpBar((room.hostHP || [])[room.hostActive] || 0, (room.hostMaxHP || [])[room.hostActive] || 1)}</div>
+        <div class="live-vs">VS</div>
+        <div class="live-side"><div class="live-side-name">${escapeHtml(room.guestName || "Guest")}</div>
+          <div class="live-mon-name">${gMon.emoji || "❓"} ${gMon.name || "?"} Lv.${gMon.level || "?"}</div>
+          ${hpBar((room.guestHP || [])[room.guestActive] || 0, (room.guestMaxHP || [])[room.guestActive] || 1)}</div>
+      </div>
+      <div class="live-log">${logHtml}</div>
+      <button class="btn-secondary" id="btn-stop-watching">Stop Watching</button>`;
+    document.getElementById("btn-stop-watching")?.addEventListener("click", leaveLiveRoom);
     return;
   }
 

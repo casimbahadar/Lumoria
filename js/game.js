@@ -3707,15 +3707,24 @@ function initEventListeners() {
     const type = document.getElementById("trade-wanted-type")?.value || "";
     if (typeof postTrade === "function") postTrade(type);
   });
+  // Singles / Doubles format toggle (drives post + quick match).
+  document.querySelectorAll(".pvp-fmt-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".pvp-fmt-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+    });
+  });
+  const getPvpFormat = () =>
+    document.querySelector(".pvp-fmt-btn.active")?.dataset.fmt === "double" ? "double" : "single";
   document.getElementById("btn-post-challenge")?.addEventListener("click", () => {
-    if (typeof postBattleChallenge === "function") postBattleChallenge();
+    if (typeof postBattleChallenge === "function") postBattleChallenge(getPvpFormat());
   });
   document.getElementById("btn-accept-by-code")?.addEventListener("click", () => {
     const code = document.getElementById("pvp-code-input")?.value.trim();
     if (code && typeof acceptBattleChallenge === "function") acceptBattleChallenge(code);
   });
   document.getElementById("btn-pvp-quickmatch")?.addEventListener("click", () => {
-    if (typeof quickMatch === "function") quickMatch();
+    if (typeof quickMatch === "function") quickMatch(getPvpFormat());
   });
   document.getElementById("btn-pvp-gauntlet")?.addEventListener("click", () => {
     if (typeof startGauntlet === "function") startGauntlet();

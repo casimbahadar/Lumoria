@@ -790,16 +790,20 @@ async function showPvPScreen() {
 function renderPvpRatingBanner() {
   const el = document.getElementById("pvp-rating-banner");
   if (!el || !G) return;
-  const rating = G.pvpRating || PVP_BASE_RATING;
-  const w = G.pvpWins || 0, l = G.pvpLosses || 0;
-  const played = (G.pvpRating !== undefined) || w || l;
+  const sW = G.pvpWins || 0, sL = G.pvpLosses || 0;
+  const dW = G.pvpDoublesWins || 0, dL = G.pvpDoublesLosses || 0;
+  const playedSingles = (G.pvpRating !== undefined) || sW || sL;
+  const playedDoubles = (G.pvpDoublesRating !== undefined) || dW || dL;
+  const singles = playedSingles
+    ? `<strong>⭐ ${G.pvpRating || PVP_BASE_RATING}</strong> <span class="pvp-record">${sW}W–${sL}L</span>`
+    : `<strong>⭐ ${PVP_BASE_RATING}</strong> <span class="pvp-record">unranked</span>`;
+  const doubles = playedDoubles
+    ? ` · 👥 <strong>${G.pvpDoublesRating || PVP_BASE_RATING}</strong> <span class="pvp-record">${dW}W–${dL}L</span>`
+    : "";
   const gauntlet = (G.pvpGauntletBest || 0) > 0
     ? ` · <span class="pvp-record">🏟️ best ${G.pvpGauntletBest}</span>`
     : "";
-  el.innerHTML = (played
-    ? `Your rating: <strong>⭐ ${rating}</strong> · <span class="pvp-record">${w}W–${l}L</span>`
-    : `Your rating: <strong>⭐ ${PVP_BASE_RATING}</strong> · <span class="pvp-record">unranked — play your first match!</span>`)
-    + gauntlet;
+  el.innerHTML = `Singles: ${singles}${doubles}${gauntlet}`;
 }
 
 async function loadOpenChallenges() {
@@ -814,13 +818,17 @@ async function loadOpenChallenges() {
         battles.push({ id: child.key, ...child.val() });
     });
     if (!battles.length) { container.innerHTML = '<div class="pvp-empty">No open challenges. Post one!</div>'; return; }
-    container.innerHTML = battles.map((b, i) => `
+    container.innerHTML = battles.map((b, i) => {
+      const fmtLabel = (b.format === "double") ? "👥 Doubles" : "⚔️ Singles";
+      return `
       <div class="pvp-card">
         <span class="pvp-challenger">${escapeHtml(b.challengerName)}</span>
+        <span class="pvp-format-tag">${fmtLabel}</span>
         <span class="pvp-badges">🏅 ${b.challengerBadges} · ⭐ ${b.rating || 0}</span>
         <span class="pvp-code">Code: ${b.id.slice(-6).toUpperCase()}</span>
         <button class="btn-primary pvp-accept" data-idx="${i}">⚔️ Battle</button>
-      </div>`).join("");
+      </div>`;
+    }).join("");
     container.querySelectorAll(".pvp-accept").forEach(btn => {
       btn.addEventListener("click", () => {
         const b = battles[parseInt(btn.dataset.idx, 10)];

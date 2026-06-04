@@ -2534,6 +2534,13 @@ button, a, [role="button"] {
 }
 .pvp-tab.active { background:var(--accent-blue); color:#fff; border-color:var(--accent-blue); }
 .pvp-tab-content { padding:1rem; }
+.pvp-format-toggle { display:flex; gap:0.4rem; margin-bottom:0.6rem; }
+.pvp-fmt-btn {
+  flex:1; padding:0.35rem 0.6rem; border-radius:6px; border:1px solid var(--border);
+  background:var(--bg-panel); color:var(--text-secondary); cursor:pointer; font-size:0.8rem;
+}
+.pvp-fmt-btn.active { background:var(--accent-blue); color:#fff; border-color:var(--accent-blue); }
+.pvp-format-tag { font-size:0.72rem; color:var(--text-secondary); }
 .pvp-live-desc { margin-bottom:1rem; font-size:0.82rem; color:var(--text-secondary); }
 
 /* ===== LIVE PvP BATTLE ARENA ===== */

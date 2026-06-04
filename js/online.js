@@ -61,6 +61,7 @@ const LB_CATEGORIES = [
   { id:"shiny_caught",label:"Radiant Caught",  icon:"✨", getValue: g => g.shinyCaught || 0 },
   { id:"event_pts",   label:"Event Points",    icon:"🎉", getValue: g => g.eventPoints || 0 },
   { id:"pvp_rating",  label:"PvP Rating",      icon:"⭐", getValue: g => g.pvpRating || 0 },
+  { id:"pvp_doubles_rating", label:"PvP Doubles", icon:"👥", getValue: g => g.pvpDoublesRating || 0 },
   { id:"pvp_gauntlet",label:"Gauntlet Clears", icon:"🏟️", getValue: g => g.pvpGauntletBest || 0 },
 ];
 
@@ -417,6 +418,15 @@ async function cancelTrade(tradeId) {
 // the "harder" direction swings (up to ±80). See docs/pvp-spec.md.
 const PVP_BASE_RATING = 1000;
 
+// Singles and Doubles keep fully independent ladders. Each mode maps to its own
+// rating / win / loss fields on the save and its own leaderboard track, so the
+// same rating math (pvpRatingDelta) drives both without duplicated logic.
+const PVP_MODES = {
+  single: { label:"Singles", rating:"pvpRating",        wins:"pvpWins",        losses:"pvpLosses",        board:"pvp_rating" },
+  double: { label:"Doubles", rating:"pvpDoublesRating",  wins:"pvpDoublesWins",  losses:"pvpDoublesLosses",  board:"pvp_doubles_rating" },
+};
+function pvpModeFields(mode) { return PVP_MODES[mode] || PVP_MODES.single; }
+
 // Magnitude of a WIN as a function of gap = oppRating - myRating (+ = opponent
 // rated higher). Defined by (gap, delta) breakpoints, linearly interpolated:
 // beating a much weaker player floors at +10, an even match is +16, and beating
@@ -571,18 +581,20 @@ async function quickMatch() {
 // Apply the outcome of an async PvP battle: adjust rating, push it to the
 // leaderboard, mark the challenge completed, and return to the PvP screen.
 // Called from endBattle() in game.js when battleContext.isPvP.
-async function recordPvpResult(won) {
+async function recordPvpResult(won, mode) {
   const ctx = (typeof battleContext !== "undefined" && battleContext) ? battleContext : {};
   const oppName = ctx.pvpOpponentName || "your opponent";
+  const fmt = (mode === "double") ? "double" : "single";
+  const F = pvpModeFields(fmt);
 
   // Gap-driven rating change: close matches move ±10–22, larger gaps in the
   // "harder" direction (winning vs a higher rating / losing to a lower one) ramp
   // continuously up to ±80. See pvpRatingDelta / PVP_WIN_CURVE.
-  const before = G.pvpRating || PVP_BASE_RATING;
+  const before = G[F.rating] || PVP_BASE_RATING;
   const oppRating = ctx.pvpOpponentRating || PVP_BASE_RATING;
   const delta = pvpRatingDelta(before, oppRating, won);
-  G.pvpRating = Math.max(0, before + delta);
-  if (won) G.pvpWins = (G.pvpWins || 0) + 1; else G.pvpLosses = (G.pvpLosses || 0) + 1;
+  G[F.rating] = Math.max(0, before + delta);
+  if (won) G[F.wins] = (G[F.wins] || 0) + 1; else G[F.losses] = (G[F.losses] || 0) + 1;
   saveGame();
 
   // Record the outcome on the challenge, and leave a mailbox note so the
@@ -606,17 +618,18 @@ async function recordPvpResult(won) {
           opponentRating: before,                // defender rating at battle time
           challengerRatingAtPost: oppRating,     // rating the challenger posted with
           challengerWon: !won,                   // challenger won iff defender lost
+          format: fmt,                           // which ladder this result belongs to
           ts: Date.now()
         });
       }
     } catch(e) { /* non-fatal; local rating already saved */ }
   }
-  if (typeof submitLeaderboardScore === "function") submitLeaderboardScore("pvp_rating");
+  if (typeof submitLeaderboardScore === "function") submitLeaderboardScore(F.board);
 
   const sign = delta >= 0 ? "+" : "";
   showNotification(
     (won ? `🏆 You won vs ${escapeHtml(oppName)}!` : `😞 You lost to ${escapeHtml(oppName)}.`) +
-    ` Rating ${sign}${delta} → <strong>${G.pvpRating}</strong>.`,
+    ` ${F.label} rating ${sign}${delta} → <strong>${G[F.rating]}</strong>.`,
     () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); }
   );
 }
@@ -634,14 +647,18 @@ async function drainPvpMailbox() {
   snap.forEach(c => { entries.push({ key: c.key, ...c.val() }); });
 
   let net = 0, w = 0, l = 0, lastName = "";
+  const boardsTouched = new Set();
   for (const e of entries) {
-    const base = (typeof e.challengerRatingAtPost === "number") ? e.challengerRatingAtPost : (G.pvpRating || PVP_BASE_RATING);
+    // Each note carries the ladder it belongs to (older notes default to singles).
+    const F = pvpModeFields(e.format === "double" ? "double" : "single");
+    const base = (typeof e.challengerRatingAtPost === "number") ? e.challengerRatingAtPost : (G[F.rating] || PVP_BASE_RATING);
     const oppR = (typeof e.opponentRating === "number") ? e.opponentRating : PVP_BASE_RATING;
     const delta = pvpRatingDelta(base, oppR, !!e.challengerWon);
-    G.pvpRating = Math.max(0, (G.pvpRating || PVP_BASE_RATING) + delta);
-    if (e.challengerWon) { G.pvpWins = (G.pvpWins || 0) + 1; w++; }
-    else { G.pvpLosses = (G.pvpLosses || 0) + 1; l++; }
+    G[F.rating] = Math.max(0, (G[F.rating] || PVP_BASE_RATING) + delta);
+    if (e.challengerWon) { G[F.wins] = (G[F.wins] || 0) + 1; w++; }
+    else { G[F.losses] = (G[F.losses] || 0) + 1; l++; }
     net += delta;
+    boardsTouched.add(F.board);
     lastName = e.opponentName || lastName;
     // Clear the note first so a result can never be applied twice, then remove
     // the finished challenge (we own it as the challenger).
@@ -650,11 +667,15 @@ async function drainPvpMailbox() {
   }
 
   saveGame();
-  if (typeof submitLeaderboardScore === "function") submitLeaderboardScore("pvp_rating");
+  if (typeof submitLeaderboardScore === "function") {
+    for (const board of boardsTouched) submitLeaderboardScore(board);
+  }
   const sign = net >= 0 ? "+" : "";
+  // Results may span both ladders, so the summary reports the net swing rather
+  // than a single "→ rating" figure (each ladder is updated independently above).
   showNotification(entries.length === 1
-    ? `While you were away, ${escapeHtml(lastName || "someone")} ${w ? "fell to" : "beat"} your team. Rating ${sign}${net} → <strong>${G.pvpRating}</strong>.`
-    : `While you were away: ${entries.length} battles (${w}W–${l}L). Net rating ${sign}${net} → <strong>${G.pvpRating}</strong>.`,
+    ? `While you were away, ${escapeHtml(lastName || "someone")} ${w ? "fell to" : "beat"} your team. Net rating ${sign}${net}.`
+    : `While you were away: ${entries.length} battles (${w}W–${l}L). Net rating ${sign}${net}.`,
     () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); }
   );
 }

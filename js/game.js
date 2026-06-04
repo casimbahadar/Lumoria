@@ -2006,7 +2006,7 @@ function endBattle(outcome, slot, levelUps) {
     if (battleContext.pvpGauntlet && typeof advanceGauntlet === "function") {
       advanceGauntlet(outcome);   // gauntlet runs don't touch ladder rating/mailbox
     } else if ((outcome === "won" || outcome === "lost") && typeof recordPvpResult === "function") {
-      recordPvpResult(outcome === "won");
+      recordPvpResult(outcome === "won", battleContext.battleMode === "double" ? "double" : "single");
     } else {
       showScreen("screen-pvp");
     }

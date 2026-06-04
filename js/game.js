@@ -3716,14 +3716,21 @@ function initEventListeners() {
     if (typeof postTrade === "function") postTrade(type);
   });
   // Singles / Doubles format toggle (drives post + quick match).
-  document.querySelectorAll(".pvp-fmt-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      document.querySelectorAll(".pvp-fmt-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-    });
-  });
   const getPvpFormat = () =>
     document.querySelector(".pvp-fmt-btn.active")?.dataset.fmt === "double" ? "double" : "single";
+  document.querySelectorAll("#pvp-format-toggle .pvp-fmt-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#pvp-format-toggle .pvp-fmt-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      if (typeof renderPvpActiveTeam === "function") renderPvpActiveTeam(getPvpFormat());
+    });
+  });
+  document.getElementById("btn-pvp-teams")?.addEventListener("click", () => {
+    if (typeof showPvpTeamsScreen === "function") showPvpTeamsScreen(getPvpFormat());
+  });
+  document.getElementById("btn-pvp-teams-back")?.addEventListener("click", () => {
+    if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp");
+  });
   document.getElementById("btn-post-challenge")?.addEventListener("click", () => {
     if (typeof postBattleChallenge === "function") postBattleChallenge(getPvpFormat());
   });

@@ -573,8 +573,8 @@ async function postBattleChallenge(format) {
 
 async function acceptBattleChallenge(code) {
   if (!requireOnline() || !G) return;
-  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before battling!"); return; }
-
+  // Team-readiness is validated in launchPvpChallenge once we know the challenge's
+  // format (a saved loadout may stand in for a fainted live party).
   if (!code || !code.trim()) { showNotification("Enter a battle code first."); return; }
   // Find challenge by last 6 chars of key
   let snap;
@@ -841,6 +841,7 @@ async function showPvPScreen() {
   showScreen("screen-pvp");
   await drainPvpMailbox();   // catch results that landed since login, then show fresh standing
   renderPvpRatingBanner();
+  renderPvpActiveTeam(document.querySelector(".pvp-fmt-btn.active")?.dataset.fmt || "single");
   loadOpenChallenges();
 }
 
@@ -897,6 +898,187 @@ async function loadOpenChallenges() {
   } catch(e) {
     container.innerHTML = '<div class="pvp-error">Failed to load challenges.</div>';
   }
+}
+
+// ============================================================
+// PvP TEAM BUILDER UI (saved loadouts, up to 6 per format)
+// ============================================================
+let pvpTeamFmt = "single";   // format the builder is currently editing
+let pvpTeamEditor = null;    // { editIndex, name, picks:[snapshot...] } while editing
+
+// Compact, identity-ish key so an owned Lumori matches its loadout snapshot.
+function monKey(m) {
+  return [m.monsterId, m.level, m.nickname || "", (m.moves || []).join(","),
+          m.heldItem || "", m.shiny ? 1 : 0, m.variant ? 1 : 0].join("|");
+}
+function monLabel(m) {
+  const def = MONSTERS_DATA[m.monsterId];
+  const nm = m.nickname || def?.name || "?";
+  return `${def?.emoji || "❓"} ${escapeHtml(nm)} <small>Lv.${m.level || "?"}</small>`;
+}
+
+// Short "active team" line shown on the PvP screen for the selected format.
+function renderPvpActiveTeam(fmt) {
+  const el = document.getElementById("pvp-active-team");
+  if (!el || !G) return;
+  const f = (fmt === "double") ? "double" : "single";
+  const active = getActivePvpLoadout(f);
+  el.innerHTML = active
+    ? `Active ${f === "double" ? "Doubles" : "Singles"} team: <strong>${escapeHtml(active.name)}</strong> · ${(active.mons || []).length} Lumori`
+    : `<span class="pvp-record">Using your live party for ${f === "double" ? "Doubles" : "Singles"}.</span>`;
+}
+
+function showPvpTeamsScreen(fmt) {
+  if (!G) return;
+  pvpTeamFmt = (fmt === "double") ? "double" : "single";
+  pvpTeamEditor = null;
+  showScreen("screen-pvp-teams");
+  renderPvpTeamsArea();
+}
+
+function renderPvpTeamsArea() {
+  const area = document.getElementById("pvp-teams-area");
+  if (!area) return;
+  if (pvpTeamEditor) { renderPvpTeamEditor(area); return; }
+
+  const fmtName = pvpTeamFmt === "double" ? "Doubles" : "Singles";
+  const cap = PVP_LOADOUT_CAP[pvpTeamFmt];
+  const list = pvpLoadoutList(pvpTeamFmt);
+  const activeIdx = G.pvpActiveLoadout ? G.pvpActiveLoadout[pvpTeamFmt] : null;
+
+  const tabs = `
+    <div class="pvp-format-toggle">
+      <button class="pvp-fmt-btn ${pvpTeamFmt === "single" ? "active" : ""}" data-tfmt="single">⚔️ Singles</button>
+      <button class="pvp-fmt-btn ${pvpTeamFmt === "double" ? "active" : ""}" data-tfmt="double">👥 Doubles</button>
+    </div>`;
+
+  const rows = list.length ? list.map((lo, i) => `
+    <div class="pvp-team-card ${i === activeIdx ? "active" : ""}">
+      <div class="pvp-team-head">
+        <strong>${escapeHtml(lo.name || `Team ${i + 1}`)}</strong>
+        ${i === activeIdx ? '<span class="pvp-active-pill">★ Active</span>' : ""}
+      </div>
+      <div class="pvp-team-mons">${(lo.mons || []).map(monLabel).join(" · ")}</div>
+      <div class="pvp-team-actions">
+        ${i === activeIdx ? "" : `<button class="btn-secondary pvp-team-activate" data-i="${i}">Set Active</button>`}
+        <button class="btn-secondary pvp-team-edit" data-i="${i}">Edit</button>
+        <button class="btn-secondary pvp-team-delete" data-i="${i}">Delete</button>
+      </div>
+    </div>`).join("") : `<p class="pvp-desc">No ${fmtName} teams yet. Create one to post &amp; battle with a fixed lineup.</p>`;
+
+  const newBtn = list.length < PVP_LOADOUT_MAX
+    ? `<button class="btn-primary" id="pvp-team-new">➕ New ${fmtName} Team</button>`
+    : `<p class="pvp-desc">Maximum ${PVP_LOADOUT_MAX} ${fmtName} teams reached.</p>`;
+
+  area.innerHTML = `
+    ${tabs}
+    <p class="pvp-desc">${fmtName} teams field up to ${cap} Lumori (${pvpTeamFmt === "double" ? "2 active" : "1 active"} + bench). The active team is posted and battled with — your overworld party is never touched.</p>
+    <div class="pvp-team-list">${rows}</div>
+    ${newBtn}`;
+
+  area.querySelectorAll(".pvp-fmt-btn").forEach(b => b.addEventListener("click", () => showPvpTeamsScreen(b.dataset.tfmt)));
+  document.getElementById("pvp-team-new")?.addEventListener("click", () => startPvpTeamEditor(null));
+  area.querySelectorAll(".pvp-team-activate").forEach(b => b.addEventListener("click", () => setActivePvpTeam(parseInt(b.dataset.i, 10))));
+  area.querySelectorAll(".pvp-team-edit").forEach(b => b.addEventListener("click", () => startPvpTeamEditor(parseInt(b.dataset.i, 10))));
+  area.querySelectorAll(".pvp-team-delete").forEach(b => b.addEventListener("click", () => deletePvpTeam(parseInt(b.dataset.i, 10))));
+}
+
+function setActivePvpTeam(i) {
+  if (!G.pvpActiveLoadout) G.pvpActiveLoadout = { single: null, double: null };
+  G.pvpActiveLoadout[pvpTeamFmt] = i;
+  saveGame();
+  renderPvpTeamsArea();
+}
+
+function deletePvpTeam(i) {
+  const list = pvpLoadoutList(pvpTeamFmt);
+  list.splice(i, 1);
+  const act = G.pvpActiveLoadout ? G.pvpActiveLoadout[pvpTeamFmt] : null;
+  if (act != null) {
+    if (act === i) G.pvpActiveLoadout[pvpTeamFmt] = null;
+    else if (act > i) G.pvpActiveLoadout[pvpTeamFmt] = act - 1;
+  }
+  saveGame();
+  renderPvpTeamsArea();
+}
+
+function startPvpTeamEditor(editIndex) {
+  const list = pvpLoadoutList(pvpTeamFmt);
+  if (editIndex != null && list[editIndex]) {
+    const lo = list[editIndex];
+    pvpTeamEditor = { editIndex, name: lo.name || "", picks: (lo.mons || []).map(m => JSON.parse(JSON.stringify(m))) };
+  } else {
+    pvpTeamEditor = { editIndex: null, name: "", picks: [] };
+  }
+  renderPvpTeamsArea();
+}
+
+function renderPvpTeamEditor(area) {
+  const cap = PVP_LOADOUT_CAP[pvpTeamFmt];
+  const fmtName = pvpTeamFmt === "double" ? "Doubles" : "Singles";
+  const ed = pvpTeamEditor;
+  const owned = allOwnedMons();
+  const pickedKeys = new Set(ed.picks.map(monKey));
+
+  const selected = ed.picks.length
+    ? ed.picks.map((m, i) => `<span class="pvp-pick-chip">${i === 0 ? "🔹 " : ""}${monLabel(m)} <button class="pvp-pick-remove" data-k="${escapeHtml(monKey(m))}">✖</button></span>`).join("")
+    : `<span class="pvp-record">Tap your Lumori below to add them.</span>`;
+
+  const grid = owned.length
+    ? owned.map(m => {
+        const k = monKey(m);
+        return `<button class="pvp-own-mon ${pickedKeys.has(k) ? "picked" : ""}" data-k="${escapeHtml(k)}">${monLabel(m)}</button>`;
+      }).join("")
+    : `<p class="pvp-desc">You don't own any Lumori yet.</p>`;
+
+  area.innerHTML = `
+    <input type="text" id="pvp-team-name" class="pvp-input" maxlength="20" placeholder="Team name" value="${escapeHtml(ed.name || "")}">
+    <p class="pvp-desc">${fmtName}: pick ${pvpTeamFmt === "double" ? "2" : "1"}–${cap} Lumori. Order matters — the first ${pvpTeamFmt === "double" ? "two lead" : "one leads"}.</p>
+    <div class="pvp-pick-row">Selected (${ed.picks.length}/${cap}): ${selected}</div>
+    <div class="pvp-own-grid">${grid}</div>
+    <div class="pvp-team-actions">
+      <button class="btn-primary" id="pvp-team-save">💾 Save</button>
+      <button class="btn-secondary" id="pvp-team-cancel">Cancel</button>
+    </div>`;
+
+  document.getElementById("pvp-team-name").addEventListener("input", e => { ed.name = e.target.value; });
+  area.querySelectorAll(".pvp-own-mon").forEach(b => b.addEventListener("click", () => togglePvpPick(b.dataset.k, owned)));
+  area.querySelectorAll(".pvp-pick-remove").forEach(b => b.addEventListener("click", () => togglePvpPick(b.dataset.k, owned)));
+  document.getElementById("pvp-team-save").addEventListener("click", savePvpTeam);
+  document.getElementById("pvp-team-cancel").addEventListener("click", () => { pvpTeamEditor = null; renderPvpTeamsArea(); });
+}
+
+function togglePvpPick(key, owned) {
+  const ed = pvpTeamEditor;
+  if (!ed) return;
+  const cap = PVP_LOADOUT_CAP[pvpTeamFmt];
+  const existing = ed.picks.findIndex(p => monKey(p) === key);
+  if (existing >= 0) {
+    ed.picks.splice(existing, 1);
+  } else {
+    if (ed.picks.length >= cap) { showNotification(`A ${pvpTeamFmt === "double" ? "Doubles" : "Singles"} team holds at most ${cap} Lumori.`); return; }
+    const m = owned.find(o => monKey(o) === key);
+    if (m) ed.picks.push(JSON.parse(JSON.stringify(m)));
+  }
+  renderPvpTeamEditor(document.getElementById("pvp-teams-area"));
+}
+
+function savePvpTeam() {
+  const ed = pvpTeamEditor;
+  if (!ed) return;
+  const need = pvpTeamFmt === "double" ? 2 : 1;
+  if (ed.picks.length < need) { showNotification(`A ${pvpTeamFmt === "double" ? "Doubles" : "Singles"} team needs at least ${need} Lumori.`); return; }
+  const list = pvpLoadoutList(pvpTeamFmt);
+  const name = (ed.name || "").trim() || `${pvpTeamFmt === "double" ? "Doubles" : "Singles"} ${list.length + 1}`;
+  const loadout = { name, mons: ed.picks.map(m => JSON.parse(JSON.stringify(m))) };
+  if (ed.editIndex != null && list[ed.editIndex]) list[ed.editIndex] = loadout;
+  else list.push(loadout);
+  if (!G.pvpActiveLoadout) G.pvpActiveLoadout = { single: null, double: null };
+  if (G.pvpActiveLoadout[pvpTeamFmt] == null) G.pvpActiveLoadout[pvpTeamFmt] = list.indexOf(loadout);
+  saveGame();
+  pvpTeamEditor = null;
+  renderPvpTeamsArea();
+  showNotification(`Saved “${escapeHtml(name)}”.`);
 }
 
 // ============================================================

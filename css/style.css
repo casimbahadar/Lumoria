@@ -2541,6 +2541,25 @@ button, a, [role="button"] {
 }
 .pvp-fmt-btn.active { background:var(--accent-blue); color:#fff; border-color:var(--accent-blue); }
 .pvp-format-tag { font-size:0.72rem; color:var(--text-secondary); }
+.pvp-active-team { font-size:0.8rem; margin:0.3rem 0 0.5rem; color:var(--text-primary); }
+.pvp-teams-area { padding:1rem; display:flex; flex-direction:column; gap:0.6rem; }
+.pvp-team-list { display:flex; flex-direction:column; gap:0.5rem; }
+.pvp-team-card { border:1px solid var(--border); border-radius:8px; padding:0.6rem; background:var(--bg-panel); }
+.pvp-team-card.active { border-color:var(--accent-blue); }
+.pvp-team-head { display:flex; align-items:center; gap:0.5rem; }
+.pvp-active-pill { font-size:0.72rem; color:var(--accent-blue); }
+.pvp-team-mons { font-size:0.82rem; color:var(--text-secondary); margin:0.3rem 0; }
+.pvp-team-actions { display:flex; gap:0.4rem; flex-wrap:wrap; }
+.pvp-team-actions button { font-size:0.78rem; padding:0.3rem 0.7rem; }
+.pvp-pick-row { font-size:0.82rem; display:flex; flex-wrap:wrap; gap:0.4rem; align-items:center; }
+.pvp-pick-chip { border:1px solid var(--border); border-radius:12px; padding:0.15rem 0.5rem; font-size:0.78rem; }
+.pvp-pick-remove { background:none; border:none; color:var(--text-secondary); cursor:pointer; }
+.pvp-own-grid { display:flex; flex-wrap:wrap; gap:0.4rem; max-height:320px; overflow-y:auto; }
+.pvp-own-mon {
+  border:1px solid var(--border); border-radius:6px; padding:0.35rem 0.55rem; font-size:0.78rem;
+  background:var(--bg-panel); color:var(--text-primary); cursor:pointer;
+}
+.pvp-own-mon.picked { background:var(--accent-blue); color:#fff; border-color:var(--accent-blue); }
 .pvp-live-desc { margin-bottom:1rem; font-size:0.82rem; color:var(--text-secondary); }
 
 /* ===== LIVE PvP BATTLE ARENA ===== */

@@ -2057,14 +2057,14 @@ const MONSTERS_DATA = {
 
   168: { id:168, name:"Espelith",     emoji:"🔮", types:["Mental","Mineral"],
     base:{hp:46,atk:51,def:57,spa:80,spd:79,spe:62},
-    learnset:[[1,"confusion",[22,"insight_flare"]],[1,"fairy_wind"],[10,"psybeam"],[18,"dazzling_gleam"],[26,"psychic_move"],[34,"moonblast"],[42,"calm_mind"],[50,"psystrike",[5,"prism_ward"]],[3,"mind_reader"],[36,"glitter_storm"]],
+    learnset:[[1,"confusion",[22,"insight_flare"]],[1,"fairy_wind"],[8,"crystal_glow"],[10,"psybeam"],[14,"mineral_focus"],[18,"dazzling_gleam"],[26,"psychic_move"],[30,"mineral_pulse"],[34,"moonblast"],[42,"calm_mind"],[50,"psystrike",[5,"prism_ward"]],[3,"mind_reader"],[36,"glitter_storm"]],
     evolveTo:169, evolveLevel:32, catchRate:90, expYield:100, rarity:"common",
     desc:"A serene gem-being. Bridges the worlds of mind and matter, refracting psychic energy through its violet prism body into patterns of light.",
     lore:"Espelith is a mental-mineral gem creature 50 cm tall resembling a rounded prism of violet crystal with short limbs and a serene humanoid face embedded in the front face of the crystal. It refracts nearby psychic energy into visible light, producing beautiful patterns on surrounding surfaces." },
 
   169: { id:169, name:"Aurarael",   emoji:"💫", types:["Mental","Mineral"],
     base:{hp:83,atk:62,def:59,spa:119,spd:98,spe:104},
-    learnset:[[1,"psybeam"],[2,"psychic_move"],[3,"prism_ward"],[36,"harden"],[39,"calm_mind"],[40,"recover"],[44,"quick_attack"],[47,"psystrike"],[48,"telepathic_slam"],[52,"thought_crush"],[56,"temporal_rift"],[60,"hyper_beam"],[4,"mind_reader"],[35,"leer"]],
+    learnset:[[1,"psybeam"],[2,"psychic_move"],[3,"prism_ward"],[20,"ore_ray"],[36,"harden"],[38,"mineral_pulse"],[39,"calm_mind"],[40,"recover"],[44,"quick_attack"],[45,"gem_storm"],[47,"psystrike"],[48,"telepathic_slam"],[50,"quartz_blast"],[52,"thought_crush"],[56,"temporal_rift"],[60,"hyper_beam"],[4,"mind_reader"],[35,"leer"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:245, rarity:"rare",
     desc:"A levitating psychic core orbited by seven prism shards, held in formation by a luminous mind-field. Its serene face gleams from the central crystal.",
     lore:"Aurarael is a 60-centimetre crystalline entity whose violet prism body has fractured upward into a slowly orbiting cluster of seven smaller shards, held in formation by the visible blue-violet psychic field that radiates between them. The serene humanoid face from its Espelith juvenile stage still shimmers at the centre of the largest core shard, watching outward through every angle of the rotating crown. It inhabits locations with high psychic resonance — ancient meditation sites, mystical crossroads — and the constant low chime of its orbiting shards announces its presence well before it drifts into view." },
@@ -2215,7 +2215,7 @@ const MONSTERS_DATA = {
 
   195: { id:195, name:"Prismolith",  emoji:"💎", types:["Ice","Mineral"],
     base:{hp:70,atk:66,def:101,spa:77,spd:87,spe:38},
-    learnset:[[1,"rock_throw",[25,"crystal_lance"]],[1,"powder_snow"],[12,"harden"],[17,"swords_dance"],[20,"rock_slide"],[28,"ice_beam"],[31,"stalactite_drop"],[36,"stone_edge"],[43,"icicle_crash"],[44,"blizzard",[5,"granite_wall"]],[3,"petrify_gaze"],[33,"quarry_crush"]],
+    learnset:[[1,"rock_throw",[25,"crystal_lance"]],[1,"powder_snow"],[8,"mineral_focus"],[12,"harden"],[17,"swords_dance"],[20,"rock_slide"],[22,"mineral_heal"],[28,"ice_beam"],[30,"mineral_lattice"],[31,"stalactite_drop"],[36,"stone_edge"],[43,"icicle_crash"],[44,"blizzard",[5,"granite_wall"]],[3,"petrify_gaze"],[33,"quarry_crush"]],
     evolveTo:196, evolveLevel:40, catchRate:70, expYield:172, rarity:"uncommon",
     desc:"A crystal of ice and stone. Formed under tremendous pressure underground.",
     lore:"Prismolith is a faceted ice-mineral creature 80 cm tall shaped like a natural geode that has grown legs. Its body is a rough dark matrix on the outside, but gaps reveal brilliant purple amethyst crystals within. It moves very slowly and is prized by miners for the high-quality crystals it sheds during moulting. Each year a Prismolith moves more slowly than the last, and where it pauses too long its feet sink slightly into the frozen ground beneath: these are the first signs of the permafrost rooting Frigolith commits to fully." },
@@ -2410,7 +2410,7 @@ const MONSTERS_DATA = {
   // Standalone Fairy/Mineral: Crealight
   225: { id:225, name:"Crealight", emoji:"✨", types:["Fairy","Mineral"],
     base:{hp:82,atk:60,def:72,spa:115,spd:105,spe:88},
-    learnset:[[1,"fairy_wind"],[1,"confusion"],[15,"dazzling_gleam"],[25,"moonblast"],[35,"psybeam"],[45,"psychic_move"],[55,"celestial_wave"],[65,"hyper_beam"]],
+    learnset:[[1,"fairy_wind"],[1,"confusion"],[15,"dazzling_gleam"],[20,"crystal_glow"],[25,"moonblast"],[30,"mineral_pulse"],[35,"psybeam"],[40,"quartz_blast"],[45,"psychic_move"],[55,"celestial_wave"],[65,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:210, rarity:"uncommon",
     desc:"A crystalline fairy of pure prismatic energy. Its body refracts light into impossible colors.",
     lore:"Crealight is a small fairy-mineral creature 30 cm tall with a rounded glowing crystal body of warm pink-gold light. It leaves a trail of glimmer-dust wherever it floats. It inhabits libraries, art studios, and places of quiet human creativity, feeding on the ambient creative energy generated there." },
@@ -2703,21 +2703,21 @@ const MONSTERS_DATA = {
   // 3-stage Fighting/Toxin chain: Transluceed → Tendrilisk → Impenezard
   262: { id:262, name:"Transluceed", emoji:"🌿", types:["Fighting","Toxin"],
     base:{hp:46,atk:52,def:45,spa:65,spd:55,spe:60},
-    learnset:[[1,"vine_whip"],[1,"poison_sting"],[10,"razor_leaf"],[20,"sludge_bomb"],[30,"energy_ball"],[40,"toxic"],[50,"petal_blitz"],[60,"hyper_beam"]],
+    learnset:[[1,"vine_whip"],[1,"poison_sting"],[5,"tox_acid_armor"],[10,"razor_leaf"],[15,"tox_corrosive_step"],[20,"sludge_bomb"],[25,"tox_acid_burst"],[30,"energy_ball"],[40,"toxic"],[50,"petal_blitz"],[60,"hyper_beam"]],
     evolveTo:263, evolveLevel:24, catchRate:180, expYield:68, rarity:"common",
     desc:"A seed creature wrapped in poisoned vines. It plants itself to absorb nutrients then walks away.",
     lore:"Transluceed is a small fighting-toxin creature 20 cm tall resembling a cactus sapling that has grown a face and legs. Its body is pale green and slightly translucent. Tiny venom-tipped thorn-buds dot its surface, flicked at grazing animals to deter them. As it ages, these buds harden into the vine-tendril limbs Tendrilisk wields and eventually the towering thorn-warrior Impenezard rises into decades later." },
 
   263: { id:263, name:"Tendrilisk", emoji:"🌵", types:["Fighting","Toxin"],
     base:{hp:70,atk:80,def:68,spa:98,spd:80,spe:72},
-    learnset:[[1,"razor_leaf"],[1,"sludge_bomb"],[18,"energy_ball"],[28,"toxic"],[36,"petal_blitz"],[44,"venom_lance"],[52,"grove_wrath"],[60,"hyper_beam"]],
+    learnset:[[1,"razor_leaf"],[1,"sludge_bomb"],[18,"energy_ball"],[20,"tox_corrosive_claw"],[25,"tox_slash"],[28,"toxic"],[30,"tox_acid_burst"],[36,"petal_blitz"],[44,"venom_lance"],[45,"tox_press"],[52,"grove_wrath"],[60,"hyper_beam"]],
     evolveTo:264, evolveLevel:42, catchRate:90, expYield:145, rarity:"uncommon",
     desc:"A cactus warrior of venomous thorns. Its spines can inject toxins from up to three meters away.",
     lore:"Tendrilisk is a fighting-toxin creature 60 cm tall whose vine-tendril limbs still wrap Transluceed's pale-green translucent seed-pod at its core. Its cactus-warrior body bristles with sharp thorns, held in a constant martial stance — the climbing vine-tendrils that grow from it extend rapidly to strike, each tipped with venomous barbs that flick out to three metres at threats or prey. It inhabits jungle undergrowth and trains daily by setting up elaborate thorn-target networks throughout its territory." },
 
   264: { id:264, name:"Impenezard", emoji:"🌳", types:["Fighting","Toxin"],
     base:{hp:95,atk:102,def:86,spa:111,spd:93,spe:63},
-    learnset:[[1,"petal_blitz"],[1,"venom_lance"],[30,"grove_wrath"],[38,"toxic"],[46,"energy_ball"],[54,"sludge_wave"],[62,"briar_lash"],[70,"hyper_beam"]],
+    learnset:[[1,"petal_blitz"],[1,"venom_lance"],[15,"tox_corrosive_claw"],[20,"tox_corrosive_step"],[28,"tox_slash"],[30,"grove_wrath"],[38,"toxic"],[45,"tox_press"],[46,"energy_ball"],[54,"sludge_wave"],[62,"briar_lash"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:260, rarity:"rare",
     desc:"An enormous walking thorn-warrior. Its 15-cm venom-thorns inject potent toxins on impact, making any approach deadly.",
     lore:"Impenezard is a massive fighting-toxin creature 2 metres tall resembling a walking thorn-warrior — Tendrilisk's climbing vine-tendrils have hardened into 15-cm thorns tipped with potent venom, and its body has thickened into a bristling cactus-plate carapace. Its broad form is nearly impenetrable. It moves slowly through dense jungle in measured fighting stances, and other creatures create well-worn trails specifically to avoid contact with it." },
@@ -2798,7 +2798,7 @@ const MONSTERS_DATA = {
   // 3-stage Fire/Rock chain: Cindling → Infernox → Pyrovast
   274: { id:274, name:"Cindling", emoji:"🪨", types:["Fire","Mineral"],
     base:{hp:46,atk:60,def:65,spa:55,spd:50,spe:52},
-    learnset:[[1,"ember"],[1,"rock_throw"],[10,"rock_slide"],[20,"flamethrower"],[30,"stone_edge"],[40,"fire_blast"],[50,"magma_rock"],[60,"hyper_beam"]],
+    learnset:[[1,"ember"],[1,"rock_throw"],[10,"rock_slide"],[15,"mineral_lattice"],[20,"flamethrower"],[30,"stone_edge"],[40,"fire_blast"],[50,"magma_rock"],[60,"hyper_beam"]],
     evolveTo:275, evolveLevel:28, catchRate:170, expYield:74, rarity:"common",
     desc:"A coal-like creature that ignites when rolling downhill. Leaves scorch marks on stone paths.",
     lore:"Cindling is a fire-mineral creature 30 cm long resembling a small lizard made of dark basalt with glowing cinders embedded in its skin. It collects small pebbles and packs them into its cinder-body over time, growing heavier and slower with age. The hottest cinders in its body mark its most active thinking. A Cindling's surface cinders glow steadily hotter and oranger as the creature ages, the body's heat-storage capacity inching toward the magma-pool levels Infernox sustains across every joint. Faint heat-shimmer extends further outward with each successive moult, approaching the eruption-radius Scorchvast maintains constantly. Provoke a fully-grown Cindling and its body will produce a small but distinct ground-tremor that propagates further than its tiny mass should allow." },
@@ -2972,21 +2972,21 @@ const MONSTERS_DATA = {
   // 3-stage Poison/Toxin chain: Plaguefly → Blightwing → Plagueoth (lv26, lv44)
   296: { id:296, name:"Plaguefly", emoji:"🦟", types:["Poison","Toxin"],
     base:{hp:44,atk:52,def:40,spa:68,spd:52,spe:80},
-    learnset:[[1,"poison_sting"],[1,"bug_buzz"],[10,"sludge_bomb"],[20,"x_scissor"],[30,"toxic"],[40,"venoshock"],[50,"venom_lance"],[60,"hyper_beam"]],
+    learnset:[[1,"poison_sting"],[1,"bug_buzz"],[5,"tox_plague_meditation"],[10,"sludge_bomb"],[15,"tox_pulse"],[20,"x_scissor"],[25,"tox_plague_charge"],[30,"toxic"],[40,"venoshock"],[50,"venom_lance"],[60,"hyper_beam"]],
     evolveTo:297, evolveLevel:26, catchRate:178, expYield:70, rarity:"common",
     desc:"A mosquito-like creature with toxic saliva. A single bite can poison most Lumori instantly.",
     lore:"Plaguefly is a large poison-toxin insect with a 30 cm wingspan. Its wings are translucent grey with poison-green venation. Its body is a bloated sack of toxic fluid. It breeds in stagnant water and its larval masses are visible as roiling dark clouds beneath the surface of contaminated ponds." },
 
   297: { id:297, name:"Blightwing", emoji:"🦟", types:["Poison","Toxin"],
     base:{hp:68,atk:78,def:62,spa:98,spd:78,spe:100},
-    learnset:[[1,"x_scissor"],[1,"sludge_bomb"],[20,"toxic"],[28,"venoshock"],[36,"bug_buzz"],[44,"venom_lance"],[52,"sludge_wave"],[60,"hyper_beam"]],
+    learnset:[[1,"x_scissor"],[1,"sludge_bomb"],[15,"tox_plague_claw"],[20,"toxic"],[25,"tox_plague_strike"],[28,"venoshock"],[35,"tox_pulse"],[36,"bug_buzz"],[44,"venom_lance"],[52,"sludge_wave"],[60,"hyper_beam"]],
     evolveTo:298, evolveLevel:44, catchRate:85, expYield:148, rarity:"uncommon",
     desc:"A blight mosquito whose extended proboscis can drain entire forests of vitality. Its bite spreads withering pestilence.",
     lore:"Blightwing is a medium poison-toxin mosquito with 40 cm wingspan — Plaguefly's translucent grey wings have darkened to dark purple with the same poison-green venation now glowing faintly across them. Its elongated proboscis can pierce thick bark to drain plant sap, leaving withered scars in its wake. It inhabits areas of environmental decay, flourishing where other life struggles." },
 
   298: { id:298, name:"Plagueoth", emoji:"🦟", types:["Poison","Toxin"],
     base:{hp:82,atk:89,def:73,spa:116,spd:95,spe:95},
-    learnset:[[1,"venom_lance"],[1,"bug_buzz"],[30,"sludge_wave"],[38,"toxic"],[46,"venoshock"],[54,"mycelia_net"],[62,"corrosion_fang"],[70,"hyper_beam"]],
+    learnset:[[1,"venom_lance"],[1,"bug_buzz"],[15,"tox_plague_claw"],[20,"tox_plague_strike"],[30,"sludge_wave"],[35,"tox_plague_wave"],[38,"toxic"],[45,"tox_plague_charge"],[46,"venoshock"],[54,"mycelia_net"],[62,"corrosion_fang"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
     desc:"The plague mosquito. Ancient texts describe its awakening as an omen of great pestilence. A single drain leaves victims hollowed.",
     lore:"Plagueoth is a large poison-toxin mosquito 60 cm long — Blightwing's elongated bark-piercing proboscis has lengthened further into a needle as long as its body, and the slim juvenile abdomen has bloated into a venom-sac. Its ragged dark wings have a 1.5 m span. It inhabits abandoned buildings and decaying swampland, draining the vital fluids of any creature unfortunate enough to be caught alone at dusk." },
@@ -2994,14 +2994,14 @@ const MONSTERS_DATA = {
   // 2-stage Toxin/Sonic chain: Stinglet → Nettleclaw (level 28)
   299: { id:299, name:"Stinglet", emoji:"🐝", types:["Toxin","Sonic"],
     base:{hp:50,atk:65,def:52,spa:58,spd:55,spe:78},
-    learnset:[[1,"bug_buzz"],[1,"poison_sting"],[12,"x_scissor"],[22,"sludge_bomb"],[32,"toxic"],[42,"venoshock"],[52,"venom_lance"],[60,"hyper_beam"]],
+    learnset:[[1,"bug_buzz"],[1,"poison_sting"],[5,"tox_kiss"],[12,"x_scissor"],[15,"tox_venom_field"],[22,"sludge_bomb"],[32,"toxic"],[42,"venoshock"],[52,"venom_lance"],[60,"hyper_beam"]],
     evolveTo:300, evolveLevel:28, catchRate:162, expYield:78, rarity:"common",
     desc:"A bee-like stinger creature with a massive venomous barb. Builds hives from toxic resin.",
     lore:"Stinglet is a small toxin-sonic bee 8 cm long with a bright yellow-and-black striped abdomen. Its stinger contains a venom that causes localised swelling and intense pain. It is fiercely territorial around its nest and coordinates with colony-mates using chemical signals to perform coordinated defence responses." },
 
   300: { id:300, name:"Nettleclaw", emoji:"🐝", types:["Toxin","Sonic"],
     base:{hp:80,atk:105,def:80,spa:88,spd:80,spe:95},
-    learnset:[[1,"x_scissor"],[1,"venom_lance"],[22,"toxic"],[30,"venoshock"],[38,"sludge_bomb"],[46,"bug_buzz"],[54,"sludge_wave"],[62,"hyper_beam"]],
+    learnset:[[1,"x_scissor"],[1,"venom_lance"],[15,"tox_kiss"],[20,"tox_venom_ray"],[22,"toxic"],[25,"tox_venom_field"],[30,"venoshock"],[32,"tox_venom_mark"],[38,"sludge_bomb"],[46,"bug_buzz"],[54,"sludge_wave"],[62,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:218, rarity:"uncommon",
     desc:"A great venom-bee with an elongated stinger-tail. The whip-stinger arches scorpion-like over its back but is true bee anatomy, parallel-evolved from the standard sting.",
     lore:"Nettleclaw is a large toxin-sonic bee 25 cm long — Stinglet's bright yellow-and-black striped abdomen has matured across an entire body still bee-striped yellow-and-black, with four membranous wings and an elongated segmented stinger-tail that arches scorpion-like over its back. The whip-stinger is parallel-evolved from the bee's standard sting, not arachnid heritage. It is solitary and aggressive — unusual for Hymenoptera — marking territory with scent-trails that it defends vigorously against any trespasser regardless of size." },
@@ -3220,7 +3220,7 @@ const MONSTERS_DATA = {
   // ===== POISON/GRASS =====
   162: { id:162, name:"Marlix", emoji:"🌾", types:["Nature","Toxin"],
     base:{hp:55,atk:56,def:53,spa:59,spd:48,spe:66},
-    learnset:[[1,"poison_sting",[22,"miasma_cloud"]],[1,"vine_whip"],[10,"sludge_bomb"],[18,"razor_leaf"],[26,"toxic"],[30,"petal_blitz"],[34,"energy_ball"],[42,"venoshock",[5,"toxic_surge"]],[3,"toxin_bloom"],[32,"sludge_wave"]],
+    learnset:[[1,"poison_sting",[22,"miasma_cloud"]],[1,"vine_whip"],[10,"sludge_bomb"],[15,"tox_miasma_screen"],[18,"razor_leaf"],[25,"tox_miasma_lure"],[26,"toxic"],[30,"petal_blitz"],[34,"energy_ball"],[35,"tox_lash2"],[42,"venoshock",[5,"toxic_surge"]],[3,"toxin_bloom"],[32,"sludge_wave"]],
     evolveTo:163, evolveLevel:28, catchRate:120, expYield:94, rarity:"common",
     desc:"A bog plant with razor-edged thorns dripping toxic sap. Thrives in poisoned swamps.",
     lore:"Marlix is a slender grass-toxin creature 80 cm tall resembling a humanoid made of dense marsh reeds. Its stalk-body is pale green with brown banding, and it moves by bending and straightening its reed-limbs. It inhabits shallow wetlands and disguises itself as ordinary marsh vegetation between encounters." },
@@ -3357,7 +3357,7 @@ const MONSTERS_DATA = {
 
   163: { id:163, name:"Blightalis", emoji:"🪷", types:["Nature","Toxin"],
     base:{hp:88,atk:80,def:60,spa:116,spd:83,spe:58},
-    learnset:[[1,"sludge_bomb"],[2,"toxic"],[3,"poison_sting"],[4,"toxic_surge"],[28,"petal_blitz"],[31,"energy_ball"],[35,"growl"],[39,"venoshock"],[42,"battle_cry"],[49,"photon_leaf"],[56,"venom_lance"],[63,"root_lance"],[5,"toxin_bloom"],[43,"leaf_blade"]],
+    learnset:[[1,"sludge_bomb"],[2,"toxic"],[3,"poison_sting"],[4,"toxic_surge"],[15,"tox_miasma_screen"],[25,"tox_miasma_strike"],[28,"petal_blitz"],[31,"energy_ball"],[35,"growl"],[35,"tox_miasma_blast"],[39,"venoshock"],[42,"battle_cry"],[45,"tox_lash2"],[49,"photon_leaf"],[56,"venom_lance"],[63,"root_lance"],[5,"toxin_bloom"],[43,"leaf_blade"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
     desc:"A carnivorous flower of potent venom. Its blooms lure in prey before injecting toxins.",
     lore:"Blightalis is a grass-toxin creature 1.2 metres tall whose Marlix reed-stalk body has bloomed into a flower-headed humanoid. Its petals are deep crimson-purple and droop downward like a wilting bloom around its head. Its stem-body is hollow and filled with toxic nectar. It lures insects and small creatures into its central chamber, trapping and dissolving them." },
@@ -3623,14 +3623,14 @@ const MONSTERS_DATA = {
 
   194: { id:194, name:"Lithomere", emoji:"🦀", types:["Aquatic","Mineral"],
     base:{hp:95,atk:100,def:115,spa:72,spd:85,spe:75},
-    learnset:[[1,"scratch"],[1,"water_gun"],[2,"aqua_tail"],[3,"stalactite_drop"],[4,"harden"],[39,"rock_slide"],[43,"hydro_pump"],[47,"stone_edge"],[52,"tidal_crush"],[56,"crystal_lance"],[60,"sea_serpent_strike"],[64,"quarry_crush"],[5,"tidecaller"],[42,"swords_dance"]],
+    learnset:[[1,"scratch"],[1,"water_gun"],[2,"aqua_tail"],[3,"stalactite_drop"],[4,"harden"],[15,"mineral_crystal_shard"],[25,"mineral_resonance"],[35,"shard_burst_m"],[39,"rock_slide"],[43,"hydro_pump"],[47,"stone_edge"],[52,"tidal_crush"],[56,"crystal_lance"],[60,"sea_serpent_strike"],[64,"quarry_crush"],[5,"tidecaller"],[42,"swords_dance"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:248, rarity:"rare",
     desc:"A colossal ancient shore titan. Its shell is older than recorded history, layered with oceanic minerals.",
     lore:"Lithomere is a crab-like water-mineral creature 60 cm across with a shell of compressed coastal rock — Rugothon's massive barnacle-encrusted carapace has compressed down through dense mineral deposition into a smaller but far denser shell, and the eight digging legs have shortened into wedge-shaped braces that lock its body into rock crevices during low tide, sealing gaps with a secreted mineral cement. Its shell grows thicker with each passing year." },
 
   196: { id:196, name:"Frigolith", emoji:"💎", types:["Ice","Mineral"],
     base:{hp:87,atk:77,def:127,spa:103,spd:108,spe:48},
-    learnset:[[1,"powder_snow"],[1,"stalactite_drop"],[2,"ice_beam"],[3,"rock_slide"],[4,"harden"],[41,"blizzard"],[45,"stone_edge"],[49,"crystal_lance"],[53,"icicle_crash"],[57,"glacial_tomb"],[61,"quarry_crush"],[65,"cryo_lance"],[5,"permafrost"],[43,"harden"]],
+    learnset:[[1,"powder_snow"],[1,"stalactite_drop"],[2,"ice_beam"],[3,"rock_slide"],[4,"harden"],[15,"shard_form"],[20,"mineral_heal"],[25,"mineral_lattice"],[41,"blizzard"],[45,"stone_edge"],[49,"crystal_lance"],[53,"icicle_crash"],[57,"glacial_tomb"],[61,"quarry_crush"],[65,"cryo_lance"],[5,"permafrost"],[43,"harden"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:258, rarity:"rare",
     desc:"A titanic crystal colossus forged from eons of glacial pressure. Its body refracts light into blinding aurora beams.",
     lore:"Frigolith is an ice-mineral creature 1 metre long resembling a boulder partially submerged in permafrost — Prismolith's purple amethyst crystals have darkened and refrozen into crystalline ice formations that have grown through cracks in its rock body over centuries, and its mobile legs have rooted into the tundra it must now remain in to survive. In winter it becomes nearly invisible against frozen tundra. Warming weather causes it distress as its ice components begin to melt." },
@@ -3998,7 +3998,7 @@ const MONSTERS_DATA = {
 
   329: { id:329, name:"Skullmite", emoji:"💀", types:["Nature","Mineral"],
     base:{hp:65,atk:81,def:84,spa:52,spd:65,spe:73}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"bug_bite"],[10,"rock_throw"],[20,"metal_claw"],[30,"rock_slide"],[40,"fossil_rush"],[50,"bug_buzz"],[60,"iron_tail"],[5,"harden"],[38,"venom_drool"]],
+    learnset:[[1,"bug_bite"],[10,"rock_throw"],[20,"metal_claw"],[25,"gem_storm"],[30,"rock_slide"],[40,"fossil_rush"],[50,"bug_buzz"],[60,"iron_tail"],[5,"harden"],[38,"venom_drool"]],
     catchRate:26, expYield:256, rarity:"rare",
     desc:"An armoured beetle with a fossilised shell harder than most metals. Ancient specimens are sold as armour.",
     lore:"Skullmite is a beetle-like mineral creature 1.1 metres long with a helmet-shaped carapace of fossilised mineral. Its mandibles can crack geodes." },
@@ -4143,7 +4143,7 @@ const MONSTERS_DATA = {
 
   349: { id:349, name:"Crystavault", emoji:"💠", types:["Ice","Mineral"],
     base:{hp:80,atk:91,def:109,spa:74,spd:87,spe:54}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"ice_punch"],[10,"rock_throw"],[20,"ice_beam"],[30,"rock_slide"],[40,"cryo_lance"],[50,"fossil_rush"],[60,"blizzard"],[5,"harden"],[38,"winter_shroud"]],
+    learnset:[[1,"ice_punch"],[10,"rock_throw"],[20,"ice_beam"],[25,"crystal_glow"],[30,"rock_slide"],[40,"cryo_lance"],[50,"fossil_rush"],[60,"blizzard"],[5,"harden"],[38,"winter_shroud"]],
     catchRate:16, expYield:292, rarity:"rare",
     desc:"A fortress of living glacier-stone. Its outer shell has never been successfully breached in recorded history.",
     lore:"Crystavault is an ice-mineral creature 2.5 metres tall resembling a fortified tower of layered glacial ice and granite. Ancient siege equipment has been found bent and broken around specimens." },
@@ -4157,7 +4157,7 @@ const MONSTERS_DATA = {
 
   351: { id:351, name:"Spectravore", emoji:"🌈", types:["Mental","Mineral"],
     base:{hp:65,atk:71,def:68,spa:104,spd:92,spe:90}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[30,"psystrike"],[40,"mind_shatter"],[50,"neural_storm"],[60,"fae_requiem"],[5,"dreamweave"],[38,"prism_ward"]],
+    learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[25,"ore_ray"],[30,"psystrike"],[40,"mind_shatter"],[45,"quartz_blast"],[50,"neural_storm"],[60,"fae_requiem"],[5,"dreamweave"],[38,"prism_ward"]],
     catchRate:15, expYield:288, rarity:"rare",
     desc:"A being of pure prismatic thought that feeds on raw psychic energy. It is invariably found near psychic Lumori.",
     lore:"Spectravore is a mental-mineral entity 1 metre tall — Spectroo's translucent white-light kangaroo silhouette has fractured under prism-stone exposure into a floating iridescent humanoid, the pouch's concentrated psychic energy now dispersed as a shifting aura of all visible colours surrounding it." },
@@ -4186,7 +4186,7 @@ const MONSTERS_DATA = {
 
   355: { id:355, name:"Abyssalith", emoji:"🌊", types:["Aquatic","Toxin"],
     base:{hp:81,atk:99,def:88,spa:89,spd:81,spe:77}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"surf"],[10,"void_rend"],[20,"tidal_crush"],[30,"shadow_ball"],[40,"hydro_pump"],[50,"sea_serpent_strike"],[60,"sludge_wave"],[5,"shadowstep"],[38,"phantom_claw"]],
+    learnset:[[1,"surf"],[10,"void_rend"],[20,"tidal_crush"],[22,"tox_drown"],[30,"shadow_ball"],[32,"tox_acidic_glance"],[40,"hydro_pump"],[45,"tox_storm_spec"],[50,"sea_serpent_strike"],[60,"sludge_wave"],[5,"shadowstep"],[38,"phantom_claw"]],
     catchRate:10, expYield:318, rarity:"rare",
     desc:"A hunter from the deepest abyss. Light physically bends around it as though avoiding contact.",
     lore:"Abyssalith is a water-toxin creature 5 metres long resembling an armoured eel with bioluminescent lures. Its black scales have a refractive property that makes it nearly invisible underwater." },
@@ -4271,7 +4271,7 @@ const MONSTERS_DATA = {
 
   367: { id:367, name:"Bouldertide", emoji:"🌊", types:["Aquatic","Mineral"],
     base:{hp:91,atk:97,def:103,spa:80,spd:83,spe:66}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"water_gun"],[10,"rock_throw"],[20,"surf"],[30,"rock_slide"],[40,"hydro_pump"],[50,"fossil_rush"],[60,"sea_serpent_strike"],[5,"harden"],[38,"tidal_crush"]],
+    learnset:[[1,"water_gun"],[10,"rock_throw"],[20,"surf"],[30,"rock_slide"],[40,"hydro_pump"],[45,"mineral_press"],[50,"fossil_rush"],[60,"sea_serpent_strike"],[5,"harden"],[38,"tidal_crush"]],
     catchRate:9, expYield:318, rarity:"rare",
     desc:"A creature that is half ocean, half cliff-face. It creates tsunamis as a side effect of moving.",
     lore:"Bouldertide is an aquatic-mineral creature 4 metres tall resembling a tide-carved sea stack that walks. Aquatic constantly flows through channels in its stone body." },
@@ -4509,7 +4509,7 @@ const MONSTERS_DATA = {
 
   400: { id:400, name:"Primordiax", emoji:"🔥", types:["Fire","Primal"],
     base:{hp:102,atk:136,def:110,spa:110,spd:101,spe:101}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
-    learnset:[[1,"flamethrower"],[10,"earth_power"],[20,"magma_surge"],[30,"fissure_slam"],[40,"solar_flare"],[50,"terra_spike"],[60,"mantle_surge"],[5,"char_dance"],[55,"mantle_surge"]],
+    learnset:[[1,"flamethrower"],[10,"earth_power"],[15,"primal_focus"],[20,"magma_surge"],[25,"ancient_pulse"],[30,"fissure_slam"],[35,"ancient_calm"],[40,"solar_flare"],[45,"raw_fury"],[50,"terra_spike"],[60,"mantle_surge"],[5,"char_dance"],[55,"mantle_surge"]],
     catchRate:4, expYield:375, rarity:"legendary",
     desc:"A creature born when the planet's crust cracked and the mantle met the surface. It predates all others.",
     lore:"Primordiax is a fire-primal creature 5 metres tall resembling a primordial titan of cooling lava and deep rock. Geologists have identified its footprints in geological formations 500 million years old." },
@@ -4581,21 +4581,21 @@ const MONSTERS_DATA = {
   408: { id:408, name:"Glimmerling", emoji:"💎", types:["Crystal"],
     evolveTo:409, evolveLevel:18, catchRate:30, expYield:70, rarity:"legendary",
     base:{hp:55,atk:45,def:80,spa:65,spd:75,spe:40}, // BST 360
-    learnset:[[1,"tackle"],[1,"harden"],[5,"crystal_jab"],[9,"shard_strike"],[14,"fairy_wind"],[19,"crystal_pulse"],[25,"crystal_charge"],[31,"prism_ray"]],
+    learnset:[[1,"tackle"],[1,"harden"],[5,"crystal_jab"],[9,"shard_strike"],[12,"crystal_focus"],[14,"fairy_wind"],[17,"gem_focus"],[19,"crystal_pulse"],[22,"crystalline_speed"],[25,"crystal_charge"],[31,"prism_ray"]],
     desc:"A hatchling tortoise no bigger than a thumb, its domed shell a cluster of cloudy raw quartz.",
     lore:"Glimmerling is born when a vein of dormant gem-crystal absorbs enough ambient ley-light to quicken into life. The cloudy quartz of its shell clears a little more each season as it basks, and hatchlings instinctively gather in sunlit hollows where the refracted glow keeps predators wary. Folk who find a Glimmerling sunning itself speak of a faint chiming hum that rises from the shell at dawn." },
 
   409: { id:409, name:"Facetite", emoji:"💎", types:["Crystal","Fairy"],
     evolveTo:410, evolveLevel:42, catchRate:15, expYield:150, rarity:"legendary",
     base:{hp:80,atk:65,def:115,spa:95,spd:100,spe:50}, // BST 505
-    learnset:[[1,"tackle"],[1,"harden"],[5,"crystal_jab"],[14,"fairy_wind"],[19,"crystal_pulse"],[27,"prism_ray"],[33,"dazzling_gleam"],[39,"crystalline_beam"],[45,"crystal_lattice"]],
+    learnset:[[1,"tackle"],[1,"harden"],[5,"crystal_jab"],[14,"fairy_wind"],[19,"crystal_pulse"],[22,"radiant_reflection"],[27,"prism_ray"],[33,"dazzling_gleam"],[36,"prismatic_calm"],[39,"crystalline_beam"],[43,"gemstone_strike"],[45,"crystal_lattice"]],
     desc:"Its shell has cleared into faceted gemstone planes that split sunlight into drifting fairy-glimmer.",
     lore:"As a Glimmerling matures into Facetite, the quartz of its shell anneals into true gemstone, each plate cut into geometric facets that scatter light in shifting rainbows. The drifting motes of glimmer it sheds are warm to the touch and pacify nearby Lumori, and Facetite is often found guarding spring-fed grottoes where the light dances brightest." },
 
   410: { id:410, name:"Prismarch", emoji:"💎", types:["Crystal","Fairy"],
     evolveTo:null, evolveLevel:null, catchRate:5, expYield:320, rarity:"legendary",
     base:{hp:110,atk:85,def:145,spa:125,spd:130,spe:30}, // BST 625
-    learnset:[[1,"crystal_pulse"],[1,"dazzling_gleam"],[1,"recover"],[33,"crystalline_beam"],[42,"prism_armor"],[48,"gemstone_blast"],[54,"moonblast"],[60,"starlight_prism"],[66,"prism_apocalypse"]],
+    learnset:[[1,"crystal_pulse"],[1,"dazzling_gleam"],[1,"recover"],[33,"crystalline_beam"],[38,"rainbow_burst"],[40,"crystal_press"],[42,"prism_armor"],[45,"prism_blow"],[48,"gemstone_blast"],[50,"crystal_storm"],[54,"moonblast"],[55,"prismatic_eruption"],[60,"starlight_prism"],[66,"prism_apocalypse"]],
     desc:"An ancient gem-tortoise whose vast domed shell has grown into a living cathedral of prisms.",
     lore:"Prismarch is reckoned a legendary among gem-Lumori — a colossal tortoise that has carried its crystal shell for centuries until the facets fused into a single radiant dome that bends daylight into standing rainbows for leagues around. It moves perhaps once a generation, and where it finally settles, gardens of luminous crystal bloom from the soil. Pilgrims claim the light beneath its shell can mend a fractured spirit." },
 
@@ -4625,21 +4625,21 @@ const MONSTERS_DATA = {
   414: { id:414, name:"Grublurk", emoji:"🪱", types:["Toxin"],
     evolveTo:415, evolveLevel:16, catchRate:160, expYield:62, rarity:"common",
     base:{hp:60,atk:55,def:58,spa:42,spd:45,spe:40}, // BST 300
-    learnset:[[1,"tackle"],[1,"tox_sting"],[5,"mud_shot"],[10,"tox_jab"],[15,"harden"],[20,"sandstrike"],[26,"tox_acid_strike"]],
+    learnset:[[1,"tackle"],[1,"tox_sting"],[5,"mud_shot"],[8,"tox_calm"],[10,"tox_jab"],[15,"harden"],[18,"tox_lash"],[20,"sandstrike"],[26,"tox_acid_strike"]],
     desc:"A pale, finger-thick grub that sweats an acrid slime as it inches through loose soil.",
     lore:"Grublurk spends its larval life just beneath the surface, ploughing slow furrows and digesting the toxins other creatures leave behind. The acrid film coating its skin deters most predators, and gardeners both curse the burrows it leaves and prize the rich, detoxified earth it leaves in its wake." },
 
   415: { id:415, name:"Tunnelmaw", emoji:"🪱", types:["Earth","Toxin"],
     evolveTo:416, evolveLevel:36, catchRate:75, expYield:142, rarity:"uncommon",
     base:{hp:80,atk:78,def:80,spa:52,spd:60,spe:45}, // BST 395
-    learnset:[[1,"tackle"],[5,"mud_shot"],[15,"tox_jab"],[20,"sandstrike"],[26,"tox_acid_strike"],[32,"bulldoze"],[38,"tox_venom_thrust"],[44,"earthquake"]],
+    learnset:[[1,"tackle"],[5,"mud_shot"],[15,"tox_jab"],[18,"tox_lash"],[20,"sandstrike"],[22,"ore_armor"],[26,"tox_acid_strike"],[30,"tox_burst_phy"],[32,"bulldoze"],[38,"tox_venom_thrust"],[44,"earthquake"]],
     desc:"A segmented burrower ringed with grinding mineral teeth at the front of its tunnel-boring maw.",
     lore:"Tunnelmaw bores through hardpan and stone alike, its leading segment fused into a rotating ring of mineral teeth that grind rock to swallowable grit. It floods its tunnels with caustic mucus to soften the way and to drown anything that follows it down. Mining camps learn to recognise the faint hiss of acid that precedes a Tunnelmaw breaking through a wall." },
 
   416: { id:416, name:"Sandscourge", emoji:"🪱", types:["Earth","Toxin"],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:250, rarity:"rare",
     base:{hp:105,atk:110,def:100,spa:60,spd:80,spe:60}, // BST 515
-    learnset:[[1,"sandstrike"],[1,"tox_acid_strike"],[26,"tox_venom_thrust"],[38,"earthquake"],[44,"tox_smash"],[50,"sand_tomb"],[56,"tox_storm_phy"],[62,"tectonic_slam"],[68,"tox_finish"]],
+    learnset:[[1,"sandstrike"],[1,"tox_acid_strike"],[15,"tox_lash"],[26,"tox_venom_thrust"],[30,"tox_burst_phy"],[38,"earthquake"],[40,"tox_acid_armor"],[44,"tox_smash"],[50,"sand_tomb"],[52,"tox_calm"],[56,"tox_storm_phy"],[62,"tectonic_slam"],[68,"tox_finish"]],
     desc:"A colossal dune-worm that erupts from beneath the sand to drag down anything crossing its territory.",
     lore:"Sandscourge is the apex of its line, a leviathan of the deep desert long enough to encircle a caravan. It senses footfalls through kilometres of sand and surfaces in a spray of grit and venom, collapsing dunes to mire its prey before it strikes. Nomads mark its hunting-grounds on their maps in red and cross them only by night, when the cold drives it deep." },
 
@@ -4691,21 +4691,21 @@ const MONSTERS_DATA = {
   423: { id:423, name:"Pebblite", emoji:"🪨", types:["Mineral"],
     evolveTo:424, evolveLevel:16, catchRate:160, expYield:60, rarity:"common",
     base:{hp:52,atk:55,def:78,spa:38,spd:47,spe:30}, // BST 300
-    learnset:[[1,"tackle"],[1,"harden"],[5,"mineral_jab"],[10,"shard_volley"],[16,"ore_punch"],[22,"mineral_strike"],[28,"mineral_smash"]],
+    learnset:[[1,"tackle"],[1,"harden"],[5,"mineral_jab"],[8,"mineral_crystal_shard"],[10,"shard_volley"],[12,"shard_form"],[14,"mineral_focus"],[16,"ore_punch"],[20,"mineral_resonance"],[22,"mineral_strike"],[25,"shard_burst_m"],[28,"mineral_smash"]],
     desc:"A pebble-scaled pup that tucks into a tight ball at the first sign of trouble.",
     lore:"Pebblite is plated head to tail in overlapping scales of raw mineral that it grows by ingesting grit and ore. At rest it forages for hard nodules to wear down its ever-growing scales; at the first alarm it rolls into an armoured sphere that even larger predators give up on. Its scales, shed as it grows, are collected by jewelers for their natural polish." },
 
   424: { id:424, name:"Geodon", emoji:"🦔", types:["Metal","Mineral"],
     evolveTo:425, evolveLevel:38, catchRate:75, expYield:145, rarity:"uncommon",
     base:{hp:70,atk:80,def:105,spa:48,spd:62,spe:35}, // BST 400
-    learnset:[[1,"tackle"],[5,"mineral_jab"],[16,"ore_punch"],[22,"metal_claw"],[28,"mineral_smash"],[34,"iron_defense"],[40,"ore_smash"],[46,"heavy_slam"]],
+    learnset:[[1,"tackle"],[5,"mineral_jab"],[8,"ore_armor"],[12,"quarry_speed"],[16,"ore_punch"],[20,"shard_burst_m"],[22,"metal_claw"],[28,"mineral_smash"],[34,"iron_defense"],[40,"ore_smash"],[46,"heavy_slam"]],
     desc:"Its mineral scales have hardened with veins of native metal into a near-impervious armour.",
     lore:"As it matures, Geodon begins smelting trace metals from the ore it eats, threading its mineral scales with veins of iron and copper until they ring like struck plate. It uses its bladed foreclaws to tear open termite mounds and ore seams alike, and a curled Geodon has turned the teeth of more than one predator. The metallic sheen of its armour deepens with age." },
 
   425: { id:425, name:"Strataclaw", emoji:"⛏️", types:["Metal","Mineral"],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:252, rarity:"rare",
     base:{hp:90,atk:115,def:140,spa:55,spd:75,spe:45}, // BST 520
-    learnset:[[1,"ore_punch"],[1,"metal_claw"],[1,"iron_defense"],[28,"mineral_smash"],[40,"ore_smash"],[46,"iron_tail"],[52,"obsidian_strike"],[58,"anvil_drop"],[64,"tungsten_ram"]],
+    learnset:[[1,"ore_punch"],[1,"metal_claw"],[1,"iron_defense"],[20,"quarry_speed"],[28,"mineral_smash"],[35,"mineral_press"],[40,"ore_smash"],[46,"iron_tail"],[52,"obsidian_strike"],[58,"anvil_drop"],[64,"tungsten_ram"]],
     desc:"A great pangolin whose scales are layered like strata of tempered metal and stone over a digging titan.",
     lore:"Strataclaw is a digging titan whose every scale is a laminate of stone and tempered metal laid down in visible strata, each band a record of the ground it has eaten through. Its forelimbs end in pick-like claws that quarry through bedrock as easily as soil, and it carves the deep dens that whole communities of smaller Lumori later inhabit. Miners who find its abandoned tunnels follow them gratefully toward the richest seams." },
 
@@ -4757,21 +4757,21 @@ const MONSTERS_DATA = {
   432: { id:432, name:"Tusklet", emoji:"🦣", types:["Primal"],
     evolveTo:433, evolveLevel:20, catchRate:30, expYield:72, rarity:"legendary",
     base:{hp:75,atk:70,def:68,spa:45,spd:57,spe:50}, // BST 365
-    learnset:[[1,"tackle"],[1,"primal_roar"],[5,"primal_jab"],[10,"feral_claw"],[16,"savage_bite"],[22,"wild_strike"],[28,"beast_charge"]],
+    learnset:[[1,"tackle"],[1,"primal_roar"],[5,"primal_jab"],[8,"primal_focus"],[10,"feral_claw"],[14,"beast_speed"],[16,"savage_bite"],[20,"wild_rage"],[22,"wild_strike"],[28,"beast_charge"]],
     desc:"A shaggy calf with stubby tusks, already strong enough to topple a grown traveller.",
     lore:"Tusklet are born of a bloodline so ancient it predates the region's other Lumori, and even as calves they carry the deep, unhurried strength of their kind. A herd guards its young in a wall of bodies, and a lost Tusklet will trumpet a call that grown Primammoth answer from valleys away. The moss already creeping along its back marks the living mountain it will become." },
 
   433: { id:433, name:"Verdantusk", emoji:"🦣", types:["Nature","Primal"],
     evolveTo:434, evolveLevel:44, catchRate:15, expYield:155, rarity:"legendary",
     base:{hp:105,atk:100,def:95,spa:60,spd:80,spe:70}, // BST 510
-    learnset:[[1,"tackle"],[5,"primal_jab"],[16,"savage_bite"],[22,"vine_whip"],[28,"beast_charge"],[34,"seed_bomb"],[40,"crushing_jaws"],[46,"primal_smash"]],
+    learnset:[[1,"tackle"],[5,"primal_jab"],[10,"beast_speed"],[16,"savage_bite"],[20,"wild_rage"],[22,"vine_whip"],[28,"beast_charge"],[34,"seed_bomb"],[36,"wild_aura"],[40,"crushing_jaws"],[46,"primal_smash"]],
     desc:"A great tusker whose hide has become a hanging garden of moss, fern and clinging vine.",
     lore:"Verdantusk moves slowly enough that whole ecosystems take root upon it — moss carpets its flanks, ferns nod between its shoulders, and small Lumori shelter in the living thicket of its hide. Where it walks, it tramples seed into soil and fertilises the ground, and old forests trace their first saplings to the passage of one of these wandering groves." },
 
   434: { id:434, name:"Primammoth", emoji:"🦣", types:["Nature","Primal"],
     evolveTo:null, evolveLevel:null, catchRate:5, expYield:325, rarity:"legendary",
     base:{hp:140,atk:130,def:118,spa:70,spd:102,spe:70}, // BST 630
-    learnset:[[1,"beast_charge"],[1,"seed_bomb"],[28,"crushing_jaws"],[40,"primal_smash"],[46,"energy_ball"],[52,"ancient_strike"],[58,"jungle_hammer"],[64,"primal_eruption"],[70,"world_devour"]],
+    learnset:[[1,"beast_charge"],[1,"seed_bomb"],[20,"wild_rage"],[28,"crushing_jaws"],[30,"feral_armor"],[36,"wild_aura"],[40,"primal_smash"],[45,"apex_predator"],[46,"energy_ball"],[50,"raw_fury"],[52,"ancient_strike"],[55,"ancient_calm"],[58,"jungle_hammer"],[64,"primal_eruption"],[70,"world_devour"]],
     desc:"A living mountain of the elder world, a moss-mantled mammoth that forests follow like a wake.",
     lore:"Primammoth is reckoned legendary — a titan that has carried the first forest on its back since before the gyms were built, so vast and slow that a grove matures and dies between its footfalls. It remembers the land as it was and steers great migrations of Lumori by instinct older than memory. To stand in its shadow is to feel the weight of every age it has walked through, and the deep green hush of the world before names." },
 
@@ -4793,7 +4793,7 @@ const MONSTERS_DATA = {
   437: { id:437, name:"Goliathon", emoji:"🦍", types:["Fighting","Mineral"],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:252, rarity:"rare",
     base:{hp:95,atk:128,def:110,spa:55,spd:77,spe:60}, // BST 525
-    learnset:[[1,"ore_punch"],[1,"iron_fist"],[26,"mineral_smash"],[38,"seismic_force"],[44,"obsidian_strike"],[50,"close_combat"],[56,"quarry_crush"],[62,"quake_barrage"],[68,"mineral_eruption"]],
+    learnset:[[1,"ore_punch"],[1,"iron_fist"],[26,"mineral_smash"],[38,"seismic_force"],[44,"obsidian_strike"],[46,"mineral_press"],[50,"close_combat"],[56,"quarry_crush"],[62,"quake_barrage"],[68,"mineral_eruption"]],
     desc:"A colossal silverback whose stone-clad fists can shatter a cliff face in a single blow.",
     lore:"Goliathon is the undisputed patriarch of the highland troops, a mountain of muscle armoured in living rock that it can shrug off avalanches. It rarely needs to fight — its mere knuckle-drum, felt as a tremor through the stone, is enough to send challengers away — but when it does, the landscape itself is rearranged. Old quarries in gorilla country are said to be the work of feuding Goliathon." },
 
@@ -4816,14 +4816,14 @@ const MONSTERS_DATA = {
   440: { id:440, name:"Rustmite", emoji:"🐛", types:["Toxin"],
     evolveTo:441, evolveLevel:26, catchRate:190, expYield:70, rarity:"common",
     base:{hp:50,atk:60,def:52,spa:48,spd:45,spe:55}, // BST 310
-    learnset:[[1,"tox_sting"],[1,"tox_jab"],[5,"thunder_shock"],[10,"tox_bite"],[15,"spark"],[20,"tox_acid_strike"],[26,"tox_fang"]],
+    learnset:[[1,"tox_sting"],[1,"tox_jab"],[5,"thunder_shock"],[10,"tox_bite"],[12,"tox_focus"],[15,"spark"],[20,"tox_acid_strike"],[22,"tox_poison_resolve"],[26,"tox_fang"]],
     desc:"A many-legged grub whose corrosive secretions pit and rust whatever it crawls across.",
     lore:"Rustmite oozes a caustic film that eats at metal and stone alike, leaving a telltale trail of pitted rust wherever it travels. It nests in damp ironwork and decaying machinery, feeding on the corrosion it creates, and a colony can reduce an abandoned forge to flaking ruin in a single season." },
 
   441: { id:441, name:"Corrodon", emoji:"🐛", types:["Electric","Toxin"],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:205, rarity:"uncommon",
     base:{hp:72,atk:98,def:70,spa:78,spd:62,spe:90}, // BST 470
-    learnset:[[1,"tox_jab"],[5,"thunder_shock"],[15,"spark"],[20,"tox_acid_strike"],[26,"volt_fang"],[32,"tox_venom_thrust"],[38,"discharge"],[44,"tox_storm_phy"],[50,"plasma_strike"]],
+    learnset:[[1,"tox_jab"],[5,"thunder_shock"],[15,"spark"],[18,"tox_focus"],[20,"tox_acid_strike"],[26,"volt_fang"],[28,"tox_poison_resolve"],[32,"tox_venom_thrust"],[38,"discharge"],[44,"tox_storm_phy"],[50,"plasma_strike"]],
     desc:"A fast, armoured centipede that pairs corrosive venom with a stored electric charge.",
     lore:"Corrodon's many segments each hold a tiny store of charge drawn from the corrosion it feeds on, so a bite delivers acid and a jolt at once. It races along power-lines and pipework with unnerving speed, shorting machinery and dissolving the housings, and engineers in the foundry cities wage a constant quiet war against the colonies that infest their conduits." },
 
@@ -4876,14 +4876,14 @@ const MONSTERS_DATA = {
   448: { id:448, name:"Cobblepup", emoji:"🦡", types:["Mineral"],
     evolveTo:449, evolveLevel:24, catchRate:190, expYield:64, rarity:"common",
     base:{hp:54,atk:60,def:62,spa:40,spd:44,spe:45}, // BST 305
-    learnset:[[1,"tackle"],[1,"harden"],[5,"mineral_jab"],[10,"shard_volley"],[15,"ore_punch"],[20,"mineral_strike"],[26,"mineral_smash"]],
+    learnset:[[1,"tackle"],[1,"harden"],[5,"mineral_jab"],[10,"shard_volley"],[12,"mineral_resonance"],[15,"ore_punch"],[18,"shard_form"],[20,"mineral_strike"],[26,"mineral_smash"]],
     desc:"A snub-nosed digger with spade-claws that shovel through gravel as if it were sand.",
     lore:"Cobblepup is born blind in deep burrows and reads the world through the grit it shoves aside, its spade-claws breaking cobbles to swallow the mineral-rich shards within. Pups dig constantly, and a single litter can honeycomb a hillside in a season, sieving the soil for the ore-pebbles that strengthen their claws." },
 
   449: { id:449, name:"Oredigger", emoji:"🦡", types:["Dark","Mineral"],
     evolveTo:null, evolveLevel:null, catchRate:65, expYield:198, rarity:"uncommon",
     base:{hp:80,atk:100,def:88,spa:50,spd:62,spe:75}, // BST 455
-    learnset:[[1,"tackle"],[5,"mineral_jab"],[15,"ore_punch"],[20,"bite"],[26,"mineral_smash"],[32,"night_slash"],[38,"obsidian_strike"],[44,"crunch"],[50,"shadowstep"]],
+    learnset:[[1,"tackle"],[5,"mineral_jab"],[15,"ore_punch"],[18,"ore_armor"],[20,"bite"],[26,"mineral_smash"],[32,"night_slash"],[38,"obsidian_strike"],[44,"crunch"],[50,"shadowstep"]],
     desc:"A lightless-eyed tunneler that ambushes from below, dragging prey down into the dark.",
     lore:"Oredigger has abandoned the surface entirely, hunting in the lightless deep where its sense of vibration and its obsidian claws make it lord of the tunnels. It strikes upward without warning, hauling unwary Lumori beneath the soil before they can struggle, and miners who hear claws scraping the far side of a rock wall know to dig elsewhere." },
 
@@ -4989,7 +4989,7 @@ const MONSTERS_DATA = {
   462: { id:462, name:"Forgotten Auravian", emoji:"🕊️", types:["Aether","Primal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:115,atk:95,def:110,spa:145,spd:130,spe:125},
-    learnset:[[1,"confusion"],[5,"aether_jab"],[10,"aether_pulse"],[20,"psybeam"],[25,"life_force"],[30,"mystic_ray"],[35,"earth_power"],[40,"arcane_beam"],[50,"psychic_move"],[50,"mystic_charge"],[60,"mystical_eruption"],[65,"moonblast"],[70,"cosmic_veil"],[75,"radiant_aura"],[80,"aura_veil_strike"]],
+    learnset:[[1,"confusion"],[5,"aether_jab"],[10,"aether_pulse"],[15,"primal_focus"],[20,"psybeam"],[25,"life_force"],[30,"mystic_ray"],[35,"earth_power"],[40,"arcane_beam"],[45,"ancient_pulse"],[50,"psychic_move"],[50,"mystic_charge"],[55,"primal_meditation"],[60,"mystical_eruption"],[65,"moonblast"],[70,"cosmic_veil"],[75,"radiant_aura"],[80,"aura_veil_strike"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Messengers of the sacred temples of a lost land, Auravian carry the resonance of ancient prayers on crystalline wings.",
     lore:"Auravian are the divine messengers of Vaeldris. They appear to those who have lost something precious and are said to carry the voices of the departed on their wings." },
@@ -5117,7 +5117,7 @@ const MONSTERS_DATA = {
   476: { id:476, name:"Forgotten Tidecrest", emoji:"🌊", types:["Primal","Ice"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:140,def:110,spa:165,spd:130,spe:130},
-    learnset:[[1,"ice_punch"],[20,"ice_beam"],[35,"surf"],[50,"blizzard"],[65,"eon_crash"],[70,"time_fracture"],[80,"glacial_riptide"],[90,"tidal_fang"]],
+    learnset:[[1,"ice_punch"],[15,"feral_armor"],[20,"ice_beam"],[30,"apex_predator"],[35,"surf"],[45,"ancient_calm"],[50,"blizzard"],[60,"primal_meditation"],[65,"eon_crash"],[70,"time_fracture"],[80,"glacial_riptide"],[90,"tidal_fang"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Tidecrest commands ocean currents that span continents. A single pulse of its tail can redirect rivers. Nereus calls it the last ocean god. The ocean agrees.",
     lore:"In Vaeldrian myth, Tidecrest did not swim the ocean. The ocean flowed around Tidecrest." },
@@ -5162,7 +5162,7 @@ const MONSTERS_DATA = {
   481: { id:481, name:"Forgotten Emberon", emoji:"🐯", types:["Primal","Earth"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:165,def:115,spa:135,spd:100,spe:140},
-    learnset:[[1,"rock_slide"],[20,"earthquake"],[35,"fire_blast"],[50,"earth_power"],[65,"dragon_claw"],[70,"stone_edge"],[80,"smoldering_abyss"]],
+    learnset:[[1,"rock_slide"],[15,"beast_speed"],[20,"earthquake"],[25,"feral_armor"],[30,"raw_fury"],[35,"fire_blast"],[45,"wild_aura"],[50,"earth_power"],[55,"apex_predator"],[65,"dragon_claw"],[70,"stone_edge"],[80,"smoldering_abyss"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Emberon hunts in volcanic shadow. Its strikes leave wounds that refuse to stop burning, channeled through volcanic earth energy into something darker.",
     lore:"Every general in Vaeldris's history tried to recruit Dravek. He refused every one of them. Emberon, he said, fights for itself — he just happens to agree with it." },
@@ -5180,7 +5180,7 @@ const MONSTERS_DATA = {
   483: { id:483, name:"Forgotten Frigalum", emoji:"🦊", types:["Ice","Crystal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:120,atk:120,def:130,spa:120,spd:130,spe:100},
-    learnset:[[1,"ice_punch"],[20,"blizzard"],[35,"ice_beam"],[50,"rock_slide"],[65,"permafrost"],[70,"stone_edge"],[80,"cryo_plate"]],
+    learnset:[[1,"ice_punch"],[20,"blizzard"],[25,"crystalline_slash"],[35,"ice_beam"],[40,"shard_blade"],[50,"rock_slide"],[55,"crystal_smash"],[65,"permafrost"],[70,"stone_edge"],[75,"diamond_drill"],[80,"cryo_plate"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Frigalum are armored in ice-steel — a material unique to Vaeldris that never melts and deflects dragonfire. Vaeldrian smiths spent centuries failing to replicate it.",
     lore:"The only sample of Frigalum ice-steel that made it out of Vaeldris is the pauldron on Nylara's left shoulder. She refuses to explain how she acquired it." },
@@ -5235,7 +5235,7 @@ const MONSTERS_DATA = {
   489: { id:489, name:"Forgotten Ironvast", emoji:"🦾", types:["Crystal","Earth"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:130,atk:145,def:175,spa:75,spd:130,spe:65},
-    learnset:[[1,"rock_throw"],[20,"rock_slide"],[35,"rock_blast"],[50,"stone_edge"],[65,"obsidian_crash"],[70,"earthquake"],[80,"iron_fortress"]],
+    learnset:[[1,"rock_throw"],[15,"crystal_punch"],[20,"rock_slide"],[35,"rock_blast"],[45,"quartz_quake"],[50,"stone_edge"],[65,"obsidian_crash"],[70,"earthquake"],[75,"diamond_drill"],[80,"iron_fortress"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Ironvast's carapace has never been cracked in recorded Vaeldrian history. Engineers once used shed Ironvast shells as building material — with their full consent.",
     lore:"Rax says Ironvast has only ever been afraid once. He doesn't say when." },
@@ -5271,7 +5271,7 @@ const MONSTERS_DATA = {
   493: { id:493, name:"Forgotten Sparkeis", emoji:"⚡", types:["Crystal","Ice"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:120,def:100,spa:165,spd:125,spe:145},
-    learnset:[[1,"powder_snow"],[20,"ice_punch"],[35,"ice_beam"],[50,"blizzard"],[65,"rock_slide"],[70,"stone_edge"],[80,"frost_lattice"]],
+    learnset:[[1,"powder_snow"],[20,"ice_punch"],[30,"radiant_reflection"],[35,"ice_beam"],[40,"crystal_storm"],[45,"shard_blade"],[50,"blizzard"],[55,"prismatic_eruption"],[65,"rock_slide"],[70,"stone_edge"],[80,"frost_lattice"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Sparkeis are living power grids — their steel chassis stores charges that could power a city for months. They convert all kinetic energy into electricity passively.",
     lore:"Tempris installed a small meter on Sparkeis to measure output. It broke after three days. He has not replaced it." },
@@ -5289,7 +5289,7 @@ const MONSTERS_DATA = {
   495: { id:495, name:"Forgotten Nihilax", emoji:"🕳️", types:["Primal","Spectral"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:75,atk:145,def:80,spa:160,spd:90,spe:170},
-    learnset:[[1,"night_slash"],[20,"earth_power"],[35,"dark_pulse"],[50,"earthquake"],[65,"specter_pulse"],[70,"void_dominion"],[80,"nihil_quake"]],
+    learnset:[[1,"night_slash"],[15,"ancient_pulse"],[20,"earth_power"],[30,"primal_meditation"],[35,"dark_pulse"],[45,"soul_eater_p"],[50,"earthquake"],[65,"specter_pulse"],[70,"void_dominion"],[80,"nihil_quake"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Nihilax emit a field that suppresses all energy signatures within range. In their presence, lights dim, sound muffles, and time seems to hesitate.",
     lore:"Vayne says Nihilax was the first Lumori she saw after the Sundering began. She has never been sure if it was trying to help or simply watching." },

@@ -887,7 +887,7 @@ Discovery script: `scripts/move_utilization.py` — read-only stats tool, parses
 **Grouped batch plan (8 batches):**
 - [x] **Batch 1 — Stellar.** 16 assigned across 4 Stellar Lumori (4 each) + 17 newly `rarity:"exclusive"` (20 total reserved). 33 Chrono deferred to end of audit.
 - [x] **Batch 2 — Aether + Vapor.** Aether: 19 generic orphans distributed across 4 Forgotten Aether Lumori (32 inserts, sharing); 3 stay exclusive. Vapor: 31 generic orphans distributed across 11 Vapor Lumori (53 orphan inserts + 5 used-pool top-ups on Umbrajest/Shadowveil = 58 inserts); 3 stay exclusive. Utilization Aether 21%→89%, Vapor 24%→93%.
-- [ ] Batch 3 — Toxin, Crystal, Mineral, Primal (83 orphans)
+- [x] **Batch 3 — Toxin, Crystal, Mineral, Primal.** 72 generic orphans cleared via ~80 learnset inserts across 47 Lumori. Toxin 22%→93%, Crystal 39%→94%, Mineral 33%→89%, Primal 48%→89%. 12 already-exclusive moves (3 per type) stay reserved.
 - [ ] Batch 4 — Fire, Ice, Wind (82 orphans)
 - [ ] Batch 5 — Earth, Nature (64 orphans)
 - [ ] Batch 6 — Dark, Spectral, Dream (68 orphans)

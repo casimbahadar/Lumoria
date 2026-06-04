@@ -1423,7 +1423,7 @@ function startWildBattle(wildMon) {
   showScreen("screen-battle");
   clearBattleLog();
   if (wildMon.shiny)   logMsg(`✨ A Radiant ${wildMon.name} appeared! (Lv.${wildMon.level})`, "log-catch");
-  else if (wildMon.variant) logMsg(`🔀 A variant ${wildMon.name} appeared! [${wildMon.types.join("/")}] (Lv.${wildMon.level})`, "log-catch");
+  else if (wildMon.variant) logMsg(`🔀 A wild ${wildMon.name} variant has come forward to battle! [${wildMon.types.join("/")}] (Lv.${wildMon.level})`, "log-catch");
   else logMsg(`A wild Lumori — ${wildMon.name} appeared! (Lv.${wildMon.level})`);
   if (wildMon.shiny) { checkAchievement("first_shiny"); trackDailyChallenge("shiny_encounter"); }
   updateBattleUI();

@@ -528,14 +528,23 @@ function materializePvpLoadout(loadout) {
 
 async function postBattleChallenge(format) {
   if (!requireOnline() || !G) return;
-  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before challenging!"); return; }
   const fmt = (format === "double") ? "double" : "single";
   const F = pvpModeFields(fmt);
+  const need = fmt === "double" ? 2 : 1;
 
-  const healthy = G.team.filter(m => m.currentHP > 0);
-  if (fmt === "double" && healthy.length < 2) { showNotification("Doubles needs at least 2 healthy Lumori on your team!"); return; }
-  // Send up to 3: doubles leads with the first 2 and keeps the rest as bench.
-  const challengerTeam = healthy.slice(0, 3).map(pvpSerializeMon);
+  // Prefer the active saved loadout; otherwise post the live healthy party.
+  const active = getActivePvpLoadout(fmt);
+  let challengerTeam;
+  if (active) {
+    if ((active.mons || []).length < need) { showNotification(`Your active ${fmt === "double" ? "Doubles" : "Singles"} team needs at least ${need} Lumori.`); return; }
+    challengerTeam = active.mons.slice(0, PVP_LOADOUT_CAP[fmt]).map(pvpSerializeMon);
+  } else {
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team (or set a saved PvP team) before challenging!"); return; }
+    const healthy = G.team.filter(m => m.currentHP > 0);
+    if (fmt === "double" && healthy.length < 2) { showNotification("Doubles needs at least 2 healthy Lumori on your team (or set a Doubles team)."); return; }
+    // Send up to 3: doubles leads with the first 2 and keeps the rest as bench.
+    challengerTeam = healthy.slice(0, 3).map(pvpSerializeMon);
+  }
 
   const challenge = {
     challengerUID: firebaseUID,
@@ -588,11 +597,16 @@ async function acceptBattleChallenge(code) {
 
 // Launch a real, playable battle against a challenge's submitted team (vs the AI).
 function launchPvpChallenge(id, challenge) {
-  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before battling!"); return; }
   const fmt = (challenge.format === "double") ? "double" : "single";
-  if (fmt === "double") {
-    const healthy = G.team.filter(m => m.currentHP > 0).length;
-    if (healthy < 2) { showNotification("This is a Doubles challenge — bring at least 2 healthy Lumori!"); return; }
+  const need = fmt === "double" ? 2 : 1;
+  // Field the active saved loadout if set, otherwise the live healthy party.
+  const active = getActivePvpLoadout(fmt);
+  const playerTeam = active ? materializePvpLoadout(active) : null;
+  if (playerTeam) {
+    if (playerTeam.length < need) { showNotification(`Your active ${fmt === "double" ? "Doubles" : "Singles"} team needs at least ${need} Lumori.`); return; }
+  } else {
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team (or set a saved PvP team) before battling!"); return; }
+    if (fmt === "double" && G.team.filter(m => m.currentHP > 0).length < 2) { showNotification("This is a Doubles challenge — bring at least 2 healthy Lumori (or set a Doubles team)!"); return; }
   }
   let team;
   try { team = JSON.parse(challenge.team); } catch(e) { showNotification("Invalid challenge data."); return; }
@@ -603,7 +617,8 @@ function launchPvpChallenge(id, challenge) {
     challengeId: id,
     opponentUID: challenge.challengerUID || null,
     opponentRating: challenge.rating || 0,
-    doubles: fmt === "double"
+    doubles: fmt === "double",
+    playerTeam
   });
 }
 
@@ -611,11 +626,15 @@ function launchPvpChallenge(id, challenge) {
 // closest few) and battle it.
 async function quickMatch(format) {
   if (!requireOnline() || !G) return;
-  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before battling!"); return; }
   const fmt = (format === "double") ? "double" : "single";
   const F = pvpModeFields(fmt);
-  if (fmt === "double" && G.team.filter(m => m.currentHP > 0).length < 2) {
-    showNotification("Doubles needs at least 2 healthy Lumori on your team!"); return;
+  // When no saved loadout is active, the live party must be battle-ready
+  // (launchPvpChallenge re-validates whichever side we end up fielding).
+  if (!getActivePvpLoadout(fmt)) {
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team (or set a saved PvP team) before battling!"); return; }
+    if (fmt === "double" && G.team.filter(m => m.currentHP > 0).length < 2) {
+      showNotification("Doubles needs at least 2 healthy Lumori on your team (or set a Doubles team)!"); return;
+    }
   }
   let snap;
   try {

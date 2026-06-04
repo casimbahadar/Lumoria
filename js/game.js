@@ -2003,7 +2003,10 @@ function endBattle(outcome, slot, levelUps) {
   // trainer rewards, no blackout penalty. The real team's pre-match HP is restored
   // so a PvP match neither damages nor heals your party.
   if (battleContext.isPvP) {
-    if (Array.isArray(battleContext.pvpHpSnapshot)) {
+    if (battleContext.pvpRealParty) {
+      // Fielded a saved loadout — put the untouched real party back.
+      G.team = battleContext.pvpRealParty;
+    } else if (Array.isArray(battleContext.pvpHpSnapshot)) {
       G.team.forEach((m, i) => {
         if (m) m.currentHP = Math.min(m.maxHP, battleContext.pvpHpSnapshot[i] ?? m.maxHP);
       });
@@ -4139,8 +4142,17 @@ function startPvpBattle(oppSlots, oppName, meta) {
     battleMode: "single",
     enemyTeamIdx: 0,
   };
-  // Snapshot real team HP so a PvP match neither damages nor heals your party.
-  battleContext.pvpHpSnapshot = G.team.map(m => m ? m.currentHP : 0);
+  // If a saved PvP loadout is being fielded, battle on it instead of the real
+  // party by temporarily swapping G.team. The real party is stashed and restored
+  // wholesale in endBattle, so it is never damaged or healed (no HP snapshot
+  // needed in that case — we never touch it).
+  if (Array.isArray(meta.playerTeam) && meta.playerTeam.length) {
+    battleContext.pvpRealParty = G.team;
+    G.team = meta.playerTeam;
+  } else {
+    // Snapshot real team HP so a PvP match neither damages nor heals your party.
+    battleContext.pvpHpSnapshot = G.team.map(m => m ? m.currentHP : 0);
+  }
   battleContext.enemyTeam = oppSlots.map(s => buildBattleMon(s));
   const safeName = (typeof escapeHtml === "function") ? escapeHtml(name) : name;
   const cap = (typeof PVP_LEVEL_CAP !== "undefined") ? PVP_LEVEL_CAP : 50;

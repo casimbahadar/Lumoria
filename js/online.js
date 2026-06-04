@@ -471,7 +471,9 @@ function pvpSerializeMon(m) {
   return {
     monsterId: m.monsterId,
     level: m.level,
-    moves: (m.moves || []).map(mv => mv.id),
+    // Party slots store moves as id strings; battle mons store {id,...} objects.
+    // Accept both so a snapshot taken from either shape keeps real moves.
+    moves: (m.moves || []).map(mv => (typeof mv === "string" ? mv : mv.id)),
     nature: m.nature || "Balanced",
     ivs: { hp:31, atk:31, def:31, spa:31, spd:31, spe:31 },
     heldItem: m.heldItem || null,
@@ -484,6 +486,44 @@ function pvpSerializeMon(m) {
     statuses: [],
     currentHP: 999999
   };
+}
+
+// ---- PvP saved team loadouts (up to 6 per format, drawn from owned Lumori) ----
+// A loadout is a named set of party-slot snapshots the player can post AND battle
+// with; the real overworld party is never touched. Singles lead with 1 active,
+// Doubles with 2, the rest acting as bench replacements on faint.
+const PVP_LOADOUT_MAX = 6;
+const PVP_LOADOUT_CAP = { single: 3, double: 4 };
+
+// Every Lumori the player owns (party + box), as live party-slot objects.
+function allOwnedMons() {
+  if (!G) return [];
+  return [...(G.team || []), ...(G.box || [])].filter(Boolean);
+}
+
+function pvpLoadoutList(fmt) {
+  const f = (fmt === "double") ? "double" : "single";
+  if (!G.pvpLoadouts) G.pvpLoadouts = { single: [], double: [] };
+  if (!G.pvpLoadouts[f]) G.pvpLoadouts[f] = [];
+  return G.pvpLoadouts[f];
+}
+
+// The player's selected loadout for a format, or null if none chosen / invalid.
+function getActivePvpLoadout(fmt) {
+  const f = (fmt === "double") ? "double" : "single";
+  const idx = G.pvpActiveLoadout ? G.pvpActiveLoadout[f] : null;
+  const list = pvpLoadoutList(f);
+  return (idx != null && list[idx]) ? list[idx] : null;
+}
+
+// Turn a loadout's stored mons into fresh, full-HP party slots for battle.
+function materializePvpLoadout(loadout) {
+  return (loadout.mons || []).map(m => {
+    const slot = JSON.parse(JSON.stringify(m));   // deep clone; never mutate the saved copy
+    slot.statuses = [];
+    if (typeof slot.maxHP === "number") slot.currentHP = slot.maxHP;
+    return slot;
+  });
 }
 
 async function postBattleChallenge(format) {

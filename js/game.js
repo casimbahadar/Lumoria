@@ -132,6 +132,11 @@ function loadGame(slot) {
     if (data.vaeldrisPartyLock === undefined) data.vaeldrisPartyLock = null;
     if (!data.defeatedWielders) data.defeatedWielders = [];
     if (!data.forgottenLegendaryAttempted) data.forgottenLegendaryAttempted = [];
+    // PvP saved team loadouts: up to 6 per format, drawn from owned Lumori.
+    if (!data.pvpLoadouts) data.pvpLoadouts = { single: [], double: [] };
+    if (!data.pvpLoadouts.single) data.pvpLoadouts.single = [];
+    if (!data.pvpLoadouts.double) data.pvpLoadouts.double = [];
+    if (!data.pvpActiveLoadout) data.pvpActiveLoadout = { single: null, double: null };
     data.saveSlot = slot;
     G = data;
     return true;

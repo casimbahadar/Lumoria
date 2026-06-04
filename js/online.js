@@ -1315,6 +1315,7 @@ function watchLiveRoom(code) {
   liveRoomListener = liveRoomRef.on("value", snap => {
     const room = snap.val();
     if (!room) return;
+    if (room.mode && room.mode !== "live1v1") { handleMultiLiveUpdate(code, room); return; }
     renderLiveRoomUI(room.status, code, room);
     // Host resolves turn when both moves are submitted
     if (liveIsHost && room.status === "battling" && room.hostMove && room.guestMove) {
@@ -1428,7 +1429,7 @@ function leaveLiveRoom() {
   // Abandoning mid-battle as a player ends the room; spectators just detach.
   if (liveRoomCode && !liveIsSpectator && liveIsHost) firebaseDB.ref(`pvp_live/${liveRoomCode}`).update({ status:"abandoned" }).catch(()=>{});
   liveRoomCode = null; liveRoomRef = null; liveIsHost = false; liveIsSpectator = false; liveRoomListener = null;
-  liveResultApplied = false;
+  liveResultApplied = false; liveResultAppliedMulti = false; liveResolving = false;
   renderLiveRoomUI("idle", null, null);
 }
 
@@ -1568,6 +1569,288 @@ function renderLiveRoomUI(status, code, room) {
     });
     return;
   }
+}
+
+// ============================================================
+// MULTI-SEAT LIVE PvP (live 2v2 + live FFA) — host-authoritative
+// ============================================================
+// One seat = one human controlling one active Lumori (+ bench). 2v2 groups the
+// 4 seats into two alliances (don't target allies; an alliance is out when both
+// its seats are); FFA gives every seat its own alliance (last seat standing).
+// Each turn every living seat submits {moveId, targetSeat}; the host resolves all
+// in speed order, advances benches, checks alliances, and broadcasts new state.
+const LIVE_MODE_CFG = {
+  live2v2: { capacity: 4, minStart: 4, label: "2v2", ratingMode: "double", ally: i => i % 2 },
+  liveffa: { capacity: 4, minStart: 2, label: "FFA", ratingMode: "ffa",    ally: i => i },
+};
+let liveResultAppliedMulti = false;
+let liveResolving = false;   // host guard against double-resolving one turn
+
+function liveSeatTeam() {
+  const team = buildLiveTeam();
+  return { uid: firebaseUID, name: G.playerName, rating: G.pvpRating || PVP_BASE_RATING,
+           team, hp: team.map(m => m.maxHP), maxHP: team.map(m => m.maxHP),
+           active: 0, defeated: team.length === 0 };
+}
+function mySeatIndex(room) { return (room.seats || []).findIndex(s => s && s.uid === firebaseUID); }
+function seatActiveMon(seat) { return seat && seat.team ? seat.team[seat.active] : null; }
+function seatAliveCount(seat) { return (seat.hp || []).filter(h => h > 0).length; }
+function aliveAlliances(room) {
+  const set = new Set();
+  (room.seats || []).forEach(s => { if (!s.defeated) set.add(s.alliance); });
+  return set;
+}
+
+async function createMultiLiveRoom(mode, passcode, isPublic) {
+  if (!requireOnline() || !G) return;
+  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team first!"); return; }
+  const cfg = LIVE_MODE_CFG[mode]; if (!cfg) { createLiveRoom(passcode, isPublic); return; }
+  const code = generateRoomCode();
+  const seat0 = liveSeatTeam(); seat0.alliance = cfg.ally(0);
+  const room = {
+    mode, hostUID: firebaseUID, hostName: G.playerName,
+    passcode: passcode ? String(passcode).trim() : null, public: !!isPublic,
+    capacity: cfg.capacity, status: "waiting",
+    seats: [seat0], moves: {}, turn: 0,
+    log: [`${G.playerName} opened a ${cfg.label} room. Waiting for players…`],
+    winner: null, ts: Date.now()
+  };
+  await firebaseDB.ref(`pvp_live/${code}`).set(room);
+  liveRoomCode = code; liveIsHost = true; liveIsSpectator = false; liveResultAppliedMulti = false;
+  watchLiveRoom(code);
+}
+
+async function joinMultiLiveRoom(code, passcode) {
+  if (!requireOnline() || !G) return;
+  code = (code || "").toUpperCase();
+  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team first!"); return; }
+  const ref = firebaseDB.ref(`pvp_live/${code}`);
+  const room = (await ref.once("value")).val();
+  if (!room) { showNotification("Room not found."); return; }
+  const cfg = LIVE_MODE_CFG[room.mode]; if (!cfg) { showNotification("Unsupported room."); return; }
+  if (room.status !== "waiting") { showNotification("Room already started or finished."); return; }
+  if (room.passcode && String(room.passcode) !== String(passcode || "").trim()) { showNotification("Wrong passcode."); return; }
+  const seats = room.seats || [];
+  if (seats.some(s => s.uid === firebaseUID)) { showNotification("You're already in this room."); return; }
+  if (seats.length >= cfg.capacity) { showNotification("Room is full."); return; }
+  const seat = liveSeatTeam(); seat.alliance = cfg.ally(seats.length);
+  seats.push(seat);
+  const full = seats.length >= cfg.capacity;
+  await ref.update({
+    seats,
+    status: full ? "battling" : "waiting",
+    log: [...(room.log || []), `${G.playerName} joined (${seats.length}/${cfg.capacity})${full ? " — battle begins!" : ""}`]
+  });
+  liveRoomCode = code; liveIsHost = false; liveIsSpectator = false; liveResultAppliedMulti = false;
+  watchLiveRoom(code);
+}
+
+// Host can start an FFA early once at least minStart players are in.
+async function startMultiLiveRoom() {
+  if (!liveIsHost || !liveRoomCode) return;
+  const ref = firebaseDB.ref(`pvp_live/${liveRoomCode}`);
+  const room = (await ref.once("value")).val();
+  const cfg = room && LIVE_MODE_CFG[room.mode];
+  if (!room || !cfg || room.status !== "waiting") return;
+  if ((room.seats || []).length < cfg.minStart) { showNotification(`Need at least ${cfg.minStart} players.`); return; }
+  await ref.update({ status: "battling", log: [...(room.log || []), "Host started the battle!"] });
+}
+
+function handleMultiLiveUpdate(code, room) {
+  renderMultiLiveUI(code, room);
+  if (liveIsHost && room.status === "battling") maybeResolveMultiTurn(code, room);
+  if (room.status === "done") applyMultiLiveResult(room);
+}
+
+// Host: resolve once every living seat has submitted a move this turn.
+function maybeResolveMultiTurn(code, room) {
+  const living = (room.seats || []).map((s, i) => ({ s, i })).filter(x => !x.s.defeated);
+  const moves = room.moves || {};
+  const haveAll = living.every(x => moves[x.s.uid]);
+  if (haveAll) { resolveMultiLiveTurn(code, room); return; }
+}
+
+function pickAiMultiMove(room, seatIdx) {
+  const seat = room.seats[seatIdx];
+  const mon = seatActiveMon(seat);
+  const enemies = room.seats.map((s, i) => ({ s, i })).filter(x => !x.s.defeated && x.s.alliance !== seat.alliance);
+  if (!mon || !enemies.length) return null;
+  const tgt = enemies.reduce((lo, x) => ((x.s.hp[x.s.active] || 0) < (lo.s.hp[lo.s.active] || 0) ? x : lo), enemies[0]);
+  const dmg = (mon.moves || []).filter(mv => (MOVES_DATA[mv]?.power || 0) > 0);
+  const pool = dmg.length ? dmg : (mon.moves || []);
+  return { moveId: pool[Math.floor(Math.random() * pool.length)], targetSeat: tgt.i };
+}
+
+async function resolveMultiLiveTurn(code, room) {
+  if (liveResolving) return;
+  liveResolving = true;
+  try {
+  const seats = room.seats.map(s => ({ ...s, hp: [...s.hp] }));
+  const moves = room.moves || {};
+  const log = [...(room.log || [])];
+
+  // One action per living seat (missing submissions → AI auto-pick so a dropped
+  // player can't stall the match).
+  const actions = [];
+  seats.forEach((s, i) => {
+    if (s.defeated) return;
+    const sub = moves[s.uid] || pickAiMultiMove({ seats }, i);
+    if (sub) actions.push({ i, moveId: sub.moveId, targetSeat: sub.targetSeat });
+  });
+  actions.sort((a, b) => (seatActiveMon(seats[b.i])?.spd || 0) - (seatActiveMon(seats[a.i])?.spd || 0));
+
+  for (const act of actions) {
+    const atkSeat = seats[act.i];
+    if (atkSeat.defeated) continue;
+    const attacker = seatActiveMon(atkSeat);
+    if (!attacker || atkSeat.hp[atkSeat.active] <= 0) continue;
+    // Validate / retarget: must be a living enemy-alliance seat.
+    let ti = act.targetSeat;
+    let tSeat = seats[ti];
+    if (!tSeat || tSeat.defeated || tSeat.alliance === atkSeat.alliance || tSeat.hp[tSeat.active] <= 0) {
+      const enemies = seats.map((s, i) => ({ s, i })).filter(x => !x.s.defeated && x.s.alliance !== atkSeat.alliance && x.s.hp[x.s.active] > 0);
+      if (!enemies.length) continue;
+      const pick = enemies.reduce((lo, x) => (x.s.hp[x.s.active] < lo.s.hp[lo.s.active] ? x : lo), enemies[0]);
+      ti = pick.i; tSeat = pick.s;
+    }
+    const defender = seatActiveMon(tSeat);
+    const dmg = livePvPDamage(attacker, act.moveId, defender);
+    tSeat.hp[tSeat.active] = Math.max(0, tSeat.hp[tSeat.active] - dmg);
+    log.push(`${attacker.name} hit ${defender.name} for ${dmg}.`);
+    // Bench advance on faint.
+    if (tSeat.hp[tSeat.active] <= 0) {
+      log.push(`${defender.name} fainted!`);
+      const next = tSeat.hp.findIndex(h => h > 0);
+      if (next === -1) { tSeat.defeated = true; log.push(`${tSeat.name} is out!`); }
+      else { tSeat.active = next; log.push(`${tSeat.name} sends out ${tSeat.team[next].name}!`); }
+    }
+  }
+
+  // Alliance win check.
+  const alive = new Set(); seats.forEach(s => { if (!s.defeated) alive.add(s.alliance); });
+  let winner = null;
+  if (alive.size <= 1) { winner = alive.size === 1 ? [...alive][0] : -1; log.push("The battle is over!"); }
+
+  await firebaseDB.ref(`pvp_live/${code}`).update({
+    seats, moves: {}, turn: (room.turn || 0) + 1,
+    log: log.slice(-30), status: winner !== null ? "done" : "battling",
+    winner
+  });
+  } finally { liveResolving = false; }
+}
+
+async function submitMultiMove(moveId, targetSeat) {
+  if (!liveRoomCode || !onlineReady) return;
+  await firebaseDB.ref(`pvp_live/${liveRoomCode}/moves/${firebaseUID}`).set({ moveId, targetSeat });
+  document.querySelectorAll(".live-move-btn,.live-mtarget").forEach(b => b.disabled = true);
+}
+
+function applyMultiLiveResult(room) {
+  if (liveResultAppliedMulti || liveIsSpectator || !G || room.winner === null || room.winner === undefined) return;
+  const myIdx = mySeatIndex(room);
+  if (myIdx === -1) return; // spectator-ish
+  liveResultAppliedMulti = true;
+  const mySeat = room.seats[myIdx];
+  const iWon = room.winner === mySeat.alliance;
+  const enemies = room.seats.filter(s => s.alliance !== mySeat.alliance);
+  const avgOpp = enemies.length ? Math.round(enemies.reduce((a, s) => a + (s.rating || PVP_BASE_RATING), 0) / enemies.length) : PVP_BASE_RATING;
+  const cfg = LIVE_MODE_CFG[room.mode] || LIVE_MODE_CFG.liveffa;
+  const F = pvpModeFields(cfg.ratingMode);
+  const before = G[F.rating] || PVP_BASE_RATING;
+  const delta = pvpRatingDelta(before, avgOpp, iWon);
+  G[F.rating] = Math.max(0, before + delta);
+  if (iWon) G[F.wins] = (G[F.wins] || 0) + 1; else G[F.losses] = (G[F.losses] || 0) + 1;
+  G.money = (G.money || 0) + (iWon ? 400 : 100);
+  saveGame();
+  if (typeof submitLeaderboardScore === "function") submitLeaderboardScore(F.board);
+  const sign = delta >= 0 ? "+" : "";
+  showNotification(
+    (iWon ? `🏆 Your team won the live ${cfg.label}!` : `😞 Your team lost the live ${cfg.label}.`) +
+    ` ${F.label} rating ${sign}${delta} → <strong>${G[F.rating]}</strong>.`,
+    () => leaveLiveRoom()
+  );
+}
+
+function renderMultiLiveUI(code, room) {
+  const area = document.getElementById("pvp-live-area");
+  if (!area) return;
+  const cfg = LIVE_MODE_CFG[room.mode] || LIVE_MODE_CFG.liveffa;
+
+  if (room.status === "waiting") {
+    const n = (room.seats || []).length;
+    const canStart = liveIsHost && n >= cfg.minStart;
+    area.innerHTML = `
+      <div class="live-waiting">
+        <div class="live-code-display">${cfg.label} Room: <strong>${code}</strong></div>
+        <p class="live-hint">${n}/${cfg.capacity} players in.${room.passcode ? " 🔒 passcode set." : ""}${room.public ? " 🌐 public." : ""}</p>
+        <div class="live-room-list">${(room.seats || []).map(s => `<div class="live-room-row"><span>${escapeHtml(s.name)}</span></div>`).join("")}</div>
+        ${canStart ? `<button class="btn-primary" id="btn-mstart">Start now</button>` : ""}
+        <button class="btn-secondary" id="btn-leave-room">✖ Leave</button>
+      </div>`;
+    document.getElementById("btn-mstart")?.addEventListener("click", startMultiLiveRoom);
+    document.getElementById("btn-leave-room")?.addEventListener("click", leaveLiveRoom);
+    return;
+  }
+
+  if (room.status === "battling" || room.status === "done") {
+    const myIdx = mySeatIndex(room);
+    const moves = room.moves || {};
+    const iSubmitted = myIdx !== -1 && !!moves[room.seats[myIdx].uid];
+    const myTurnOver = room.status === "done" || liveIsSpectator || myIdx === -1 || room.seats[myIdx].defeated || iSubmitted;
+
+    const seatsHtml = (room.seats || []).map((s, i) => {
+      const m = seatActiveMon(s);
+      const hp = (s.hp || [])[s.active] || 0, max = (s.maxHP || [])[s.active] || 1;
+      const pct = Math.max(0, Math.round((hp / max) * 100));
+      const mine = i === myIdx;
+      return `<div class="live-mseat ${mine ? "you" : ""} ${s.defeated ? "out" : ""}">
+        <div class="live-side-name">${escapeHtml(s.name)}${mine ? " (You)" : ""} · T${s.alliance + 1}</div>
+        <div class="live-mon-name">${s.defeated ? "💀" : `${m?.emoji || "❓"} ${m?.name || "?"}`}</div>
+        <div class="live-hp-bar-wrap"><div class="live-hp-bar" style="width:${s.defeated ? 0 : pct}%"></div></div>
+        <div class="live-side-name">${s.defeated ? "out" : `${hp}/${max} · ${seatAliveCount(s)} left`}</div>
+      </div>`;
+    }).join("");
+
+    let controls = "";
+    if (!myTurnOver) {
+      const myMon = seatActiveMon(room.seats[myIdx]);
+      controls = `<div class="ffa-prompt">Choose ${escapeHtml(myMon?.name || "")}'s move:</div><div class="ffa-moves">` +
+        (myMon?.moves || []).map(mv => { const md = MOVES_DATA[mv]; return `<button class="live-move-btn ffa-move" data-mv="${mv}">${md?.name || mv}<small>${md?.type || ""}</small></button>`; }).join("") + `</div>`;
+    } else if (room.status === "battling") {
+      controls = `<div class="live-waiting-msg">⏳ Waiting for other players…</div>`;
+    }
+
+    const logHtml = (room.log || []).slice(-8).map(l => `<div class="live-log-line">${escapeHtml(l)}</div>`).join("");
+    area.innerHTML = `
+      <div class="live-room-header">${cfg.label} · Room <strong>${code}</strong>${liveIsSpectator ? " 👁️" : ""}</div>
+      <div class="live-multi-sides">${seatsHtml}</div>
+      <div class="ffa-controls">${controls}</div>
+      <div class="live-log">${logHtml}</div>
+      ${room.status === "done" ? `<button class="btn-primary" id="btn-live-done">Back to PvP</button>`
+        : `<button class="btn-secondary" id="btn-leave-room-battle">${liveIsSpectator ? "Stop Watching" : "Forfeit"}</button>`}`;
+
+    area.querySelectorAll(".live-move-btn").forEach(b => b.addEventListener("click", () => multiPickTarget(room, b.dataset.mv)));
+    document.getElementById("btn-live-done")?.addEventListener("click", leaveLiveRoom);
+    document.getElementById("btn-leave-room-battle")?.addEventListener("click", () => {
+      if (liveIsSpectator || confirm("Leave this battle?")) leaveLiveRoom();
+    });
+    return;
+  }
+}
+
+// Player target selection for multi-live: pick a living enemy-alliance seat.
+function multiPickTarget(room, moveId) {
+  const myIdx = mySeatIndex(room);
+  const mySeat = room.seats[myIdx];
+  const enemies = room.seats.map((s, i) => ({ s, i })).filter(x => !x.s.defeated && x.s.alliance !== mySeat.alliance && x.s.hp[x.s.active] > 0);
+  if (enemies.length <= 1) { submitMultiMove(moveId, enemies[0] ? enemies[0].i : 0); return; }
+  const ctrl = document.querySelector("#pvp-live-area .ffa-controls");
+  if (!ctrl) { submitMultiMove(moveId, enemies[0].i); return; }
+  ctrl.innerHTML = `<div class="ffa-prompt">Target which player?</div><div class="ffa-moves">` +
+    enemies.map(x => { const m = seatActiveMon(x.s); return `<button class="live-mtarget ffa-target" data-side="${x.i}">${escapeHtml(x.s.name)}<small>${m?.emoji || ""} ${x.s.hp[x.s.active]} HP</small></button>`; }).join("") +
+    `</div><button class="btn-secondary live-mback">← Back</button>`;
+  ctrl.querySelectorAll(".live-mtarget").forEach(b => b.addEventListener("click", () => submitMultiMove(moveId, parseInt(b.dataset.side, 10))));
+  ctrl.querySelector(".live-mback")?.addEventListener("click", () => renderMultiLiveUI(liveRoomCode, room));
 }
 
 // ============================================================

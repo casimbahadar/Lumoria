@@ -786,7 +786,7 @@ const MOVES_DATA = {
   // --- Electric (signature moves for Forgotten Lumori) ---
   volt_rail:        { name:"Ampere Rail",        type:"Electric",power:90,  acc:95,  pp:10, cat:"physical", effect:"spedown",  ec:30, desc:"Electrak fires along a magnetic rail it generates in an instant, striking with rail-gun velocity and leaving the target stunned." },
   thought_stream:   { name:"Thought Stream",   type:"Mental", power:90,  acc:95,  pp:10, cat:"special",  effect:"drain", ec:100, desc:"Pelagor floods the target with a torrent of raw psychic data, overwhelming their mental defenses." },
-  voltaic_fang:     { name:"Voltaic Fang",     type:"Draconic",  power:140, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Psydrak charges its draconic fangs with lethal voltage before biting down. The discharge blows back through Psydrak's own jaw." },
+  voltaic_fang_drake: { name:"Voltaic Fang",   type:"Draconic",  power:140, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Psydrak charges its draconic fangs with lethal voltage before biting down. The discharge blows back through Psydrak's own jaw." },
   thunder_chain:    { name:"Thunder Chain",    type:"Electric",power:40,  acc:90,  pp:10, cat:"special",  effect:"paralyze",  ec:20, hits:3, desc:"Psydrak fires three chained lightning arcs that arc between target limbs, each carrying a chance to paralyze." },
   psycho_surge:     { name:"Psycho Surge",     type:"Mental", power:90,  acc:95,  pp:10, cat:"special",  effect:"calmup",    ec:30, desc:"Volteon releases a surge of psychoelectric energy, sometimes amplifying its own mental capabilities in the process." },
 
@@ -1052,7 +1052,7 @@ const MOVES_DATA = {
   martial_aura:                { name:"Martial Aura", type:"Fighting", power:75, acc:100, pp:15, cat:"special", effect:"atkup", ec:30, target:"single", desc:"Martial aura; may raise Atk." },
   ki_burst:                    { name:"Ki Burst", type:"Fighting", power:80, acc:95, pp:15, cat:"special", effect:null, ec:0, target:"wide", desc:"Wide ki-burst." },
   spirit_bomb:                 { name:"Spirit Bomb", type:"Fighting", power:95, acc:90, pp:10, cat:"special", effect:null, ec:0, target:"wide", desc:"Wide spirit bomb." },
-  battle_cry:                  { name:"Battle Cry", type:"Fighting", power:60, acc:100, pp:20, cat:"special", effect:"atkdown", ec:30, target:"wide", desc:"Cry that lowers foes' Atk." },
+  battle_cry_fighting:         { name:"Battle Cry", type:"Fighting", power:60, acc:100, pp:20, cat:"special", effect:"atkdown", ec:30, target:"wide", desc:"Cry that lowers foes' Atk." },
   sonic_palm:                  { name:"Sonic Palm", type:"Fighting", power:85, acc:95, pp:10, cat:"special", effect:null, ec:0, target:"single", breakerVs:"Crystal", desc:"Sonic palm." },
   shockwave_kick:              { name:"Shockwave Kick", type:"Fighting", power:90, acc:90, pp:10, cat:"special", effect:"flinch", ec:30, target:"wide", desc:"Shockwave-kick wide." },
   heaven_strike:               { name:"Heaven Strike", type:"Fighting", power:110, acc:85, pp:5, cat:"special", effect:null, ec:0, target:"single", desc:"Heaven-piercing strike." },
@@ -5221,7 +5221,7 @@ const MONSTERS_DATA = {
   488: { id:488, name:"Forgotten Psydrak", emoji:"💭", types:["Draconic","Electric"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:90,def:115,spa:200,spd:165,spe:115},
-    learnset:[[1,"dragon_breath"],[20,"thunderbolt"],[35,"dragon_pulse"],[50,"thunder"],[65,"draconic_roar"],[70,"time_fracture"],[80,"voltaic_fang"],[90,"thunder_chain"]],
+    learnset:[[1,"dragon_breath"],[20,"thunderbolt"],[35,"dragon_pulse"],[50,"thunder"],[65,"draconic_roar"],[70,"time_fracture"],[80,"voltaic_fang_drake"],[90,"thunder_chain"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Psydrak exists simultaneously across multiple timelines. Its draconic mind holds the memory of Vaeldris in a thousand possible futures — and the grief of knowing none survived.",
     lore:"Solenne says Psydrak has been trying to show her a timeline where Vaeldris still exists. She says she can feel it almost finding one, night after night." },
@@ -7798,12 +7798,12 @@ const VAELDRIS_WIELDERS = {
     team:[
       {monsterId:486, level:98, moves:["psychic_move","shadow_ball","psystrike","dream_torrent"]},
       {monsterId:487, level:99, moves:["moonblast","surf","celestial_wave","moonlit_surge"]},
-      {monsterId:488, level:100, moves:["dragon_pulse","thunder","voltaic_fang","thunder_chain"]}
+      {monsterId:488, level:100, moves:["dragon_pulse","thunder","voltaic_fang_drake","thunder_chain"]}
     ],
     ngTeam:[
       {monsterId:486, level:100, moves:["psychic_move","shadow_ball","psystrike","dream_torrent"]},
       {monsterId:487, level:102, moves:["moonblast","surf","celestial_wave","moonlit_surge"]},
-      {monsterId:488, level:105, moves:["dragon_pulse","thunder","voltaic_fang","thunder_chain"]}
+      {monsterId:488, level:105, moves:["dragon_pulse","thunder","voltaic_fang_drake","thunder_chain"]}
     ]
   },
   wielder_rax: {

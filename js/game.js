@@ -2676,13 +2676,16 @@ async function handleMultiFaintedMons() {
     const e = enemyActiveMons[i];
     if (e && (e.fainted || e.currentHP <= 0)) {
       logMsg(`${e.name} fainted!`);
-      // Give XP to the player mon that was targeting it
-      const xpGain = calcXPGain(e, false);
-      const alivePlayerMon = playerActiveMons.find(m => m && !m.fainted && m.currentHP > 0);
-      if (alivePlayerMon) {
-        const pIdx = playerActiveMons.indexOf(alivePlayerMon);
-        const slot = G.team[playerTeamIdxs[pIdx]];
-        giveXP(slot, xpGain);
+      // PvP is level-normalized and grants no XP (mirrors the single-battle path).
+      if (!battleContext.isPvP) {
+        // Give XP to the player mon that was targeting it
+        const xpGain = calcXPGain(e, false);
+        const alivePlayerMon = playerActiveMons.find(m => m && !m.fainted && m.currentHP > 0);
+        if (alivePlayerMon) {
+          const pIdx = playerActiveMons.indexOf(alivePlayerMon);
+          const slot = G.team[playerTeamIdxs[pIdx]];
+          giveXP(slot, xpGain);
+        }
       }
       // Try to send in next enemy from team
       if (battleContext.enemyTeamIdx < battleContext.enemyTeam.length) {
@@ -4125,6 +4128,19 @@ function startPvpBattle(oppSlots, oppName, meta) {
   // Snapshot real team HP so a PvP match neither damages nor heals your party.
   battleContext.pvpHpSnapshot = G.team.map(m => m ? m.currentHP : 0);
   battleContext.enemyTeam = oppSlots.map(s => buildBattleMon(s));
+  const safeName = (typeof escapeHtml === "function") ? escapeHtml(name) : name;
+  const cap = (typeof PVP_LEVEL_CAP !== "undefined") ? PVP_LEVEL_CAP : 50;
+
+  // Async Doubles: 2-active-per-side vs the AI-piloted snapshot. Needs ≥2 healthy
+  // mons on each side; otherwise fall through to the single duel below.
+  const healthyCount = G.team.filter(m => m && m.currentHP > 0).length;
+  if (meta.doubles && healthyCount >= 2 && battleContext.enemyTeam.length >= 2) {
+    startMultiBattle(battleContext.enemyTeam, safeName, "double");
+    logMsg(`⚖️ PvP Doubles — level-capped to ${cap} with perfect IVs for both sides.`);
+    document.getElementById("btn-catch").disabled = true;
+    return;
+  }
+
   battleContext.playerTeamIdx = G.team.findIndex(m => m && m.currentHP > 0);
   if (battleContext.playerTeamIdx < 0) battleContext.playerTeamIdx = 0;
   playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx]);
@@ -4132,8 +4148,6 @@ function startPvpBattle(oppSlots, oppName, meta) {
   hideMultiBattleSlots();
   showScreen("screen-battle");
   clearBattleLog();
-  const safeName = (typeof escapeHtml === "function") ? escapeHtml(name) : name;
-  const cap = (typeof PVP_LEVEL_CAP !== "undefined") ? PVP_LEVEL_CAP : 50;
   logMsg(`⚔️ PvP! ${safeName} wants to battle!`);
   logMsg(`⚖️ Level-capped to ${cap} with perfect IVs for both sides.`);
   logMsg(`${safeName} sent out ${getDisplayName(enemyActiveMon)}!`);

@@ -977,3 +977,4 @@ Surfaced by the reference/hygiene sweep (the broken-reference bugs — 14 dangli
 - [ ] **Learnset internal duplicate moves (21 families)** — the same move key appears twice in one learnset (dedup, keep earliest level): #11, #150, #155, #157, #188, #196, #219, #239, #265, #290, #324, #325, #327, #344, #351, #376, #388, #398, #399, #400, #401.
 - [ ] **No level-1 move (2)** — #198 Chrysalix, #199 Aeridaleth (currently fall back to `tackle`; consider an explicit Lv1 move).
 - [ ] **(Tooling note)** a proper move-effect validity check must parse compound effects (split on `_and_`) and cross-reference battle.js effect handlers — the naive literal-match heuristic gives false positives.
+- [ ] **Variant-rate help-text mismatch** — the intro/help text (`js/game.js` ~line 4849) says variants are **1/100**, but `rollVariant` (`js/battle.js`) rolls **1/200** (the spec value). Reconcile to one rate.

@@ -239,7 +239,7 @@ const MOVES_DATA = {
   // --- Metal ---
   steel_wing:   { name:"Metal Wing",    type:"Metal",    power:70,  acc:90,  pp:25, cat:"physical", effect:"defup",     ec:10,  desc:"Strikes with steel wings. May raise Defense." },
   iron_tail:    { name:"Alloy Tail",     type:"Metal",    power:100, acc:75,  pp:15, cat:"physical", effect:"defdown",   ec:30,  desc:"Slams with a steel-hard tail. May lower Defense." },
-  flash_cannon: { name:"Forge Blast",  type:"Metal",    power:80,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"Fires a flash of steel-colored light." },
+  flash_cannon: { name:"Foundry Blast",  type:"Metal",    power:80,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:10,  desc:"Fires a flash of steel-colored light." },
   metal_claw:   { name:"Chrome Claw",    type:"Metal",    power:50,  acc:95,  pp:35, cat:"physical", effect:"atkup",     ec:10,  desc:"Slashes with steel claws. May raise Attack." },
   forge_strike: { name:"Forge Strike",  type:"Metal",    power:90,  acc:95,  pp:10, cat:"physical", effect:"defdown",   ec:20,  desc:"Strikes with a blow as powerful as a forge hammer, denting armor." },
   tungsten_ram: { name:"Tungsten Ram",  type:"Metal",    power:110, acc:85,  pp:5,  cat:"physical", effect:"recharge",  ec:100, desc:"Charges with the density of tungsten in a devastating ram that needs recovery." },
@@ -488,7 +488,7 @@ const MOVES_DATA = {
   draining_kiss: { name:"Vampiric Kiss",  type:"Fairy",   power:50,  acc:100, pp:10, cat:"special",  effect:"drain",     ec:100, desc:"Steals the foe's energy with an enchanted kiss." },
   play_rough:    { name:"Roughhouse",    type:"Fairy",    power:90,  acc:90,  pp:10, cat:"physical", effect:"atkdown",   ec:10,  desc:"Plays rough with the foe, lowering their Attack." },
   misty_terrain: { name:"Misty Terrain", type:"Fairy",    power:0,   acc:100, pp:10, cat:"status",   effect:"spdefup",   ec:100, desc:"Covers the field in protective mist that raises special defense." },
-  starfall:      { name:"Starfall",      type:"Fairy",    power:80,  acc:95,  pp:15, cat:"special",  effect:"flinch",        ec:30,   desc:"Calls down a shower of starlight that crashes into the foe." },
+  starfall:      { name:"Starshower",      type:"Fairy",    power:80,  acc:95,  pp:15, cat:"special",  effect:"flinch",        ec:30,   desc:"Calls down a shower of starlight that crashes into the foe." },
   enchanted_edge:{ name:"Enchanted Edge",type:"Fairy",    power:70,  acc:100, pp:15, cat:"physical", effect:"spatkdown", ec:20,  desc:"Strikes with a blade imbued with fairy enchantment." },
   radiant_burst: { name:"Radiant Burst", type:"Fairy",    power:100, acc:85,  pp:5,  cat:"special",  effect:"confuse", ec:30,  desc:"Releases a devastating burst of pure fairy radiance." },
   sylvan_song:   { name:"Sylvan Song",   type:"Fairy",    power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Sings an ancient sylvan melody that restores the user's health." },
@@ -1007,7 +1007,7 @@ const MOVES_DATA = {
   tornado_grab:                { name:"Tornado Grab", type:"Normal", dualType:["Normal","Wind"], power:90, acc:85, pp:10, cat:"physical", effect:null, ec:0, target:"wide", desc:"Spinning grab on all foes. Dual Normal+Wind." },
   echo_beam_n:                 { name:"Echo Beam", type:"Normal", power:60, acc:100, pp:20, cat:"special", effect:null, ec:0, target:"wide", desc:"Echoing beam on all foes." },
   aural_ray:                   { name:"Aural Ray", type:"Normal", power:70, acc:100, pp:20, cat:"special", effect:"spdefdown", ec:20, target:"single", desc:"Aural ray; may lower SpDef." },
-  radiant_burst_n:             { name:"Radiant Burst", type:"Normal", power:85, acc:90, pp:10, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Radiant burst." },
+  radiant_burst_n:             { name:"Lumina Burst", type:"Normal", power:85, acc:90, pp:10, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Lumina Burst." },
   lumiwave:                    { name:"Lumiwave", type:"Normal", power:95, acc:90, pp:10, cat:"special", effect:"atkdown", ec:30, target:"wide", desc:"Lumiwave on all foes; may lower Atk." },
   zenith_ray:                  { name:"Zenith Ray", type:"Normal", power:110, acc:85, pp:5, cat:"special", effect:null, ec:0, target:"single", breakerVs:"Spectral", desc:"Pure-light zenith ray." },
 
@@ -1056,7 +1056,7 @@ const MOVES_DATA = {
   sonic_palm:                  { name:"Sonic Palm", type:"Fighting", power:85, acc:95, pp:10, cat:"special", effect:null, ec:0, target:"single", breakerVs:"Crystal", desc:"Sonic palm." },
   shockwave_kick:              { name:"Shockwave Kick", type:"Fighting", power:90, acc:90, pp:10, cat:"special", effect:"flinch", ec:30, target:"wide", desc:"Shockwave-kick wide." },
   heaven_strike:               { name:"Heaven Strike", type:"Fighting", power:110, acc:85, pp:5, cat:"special", effect:null, ec:0, target:"single", desc:"Heaven-piercing strike." },
-  galaxy_punch_spec:           { name:"Galaxy Punch", type:"Fighting", power:95, acc:95, pp:10, cat:"special", effect:"crit", ec:100, target:"single", desc:"High-crit galaxy-fist." },
+  galaxy_punch_spec:           { name:"Cosmic Fist", type:"Fighting", power:95, acc:95, pp:10, cat:"special", effect:"crit", ec:100, target:"single", desc:"High-crit galaxy-fist." },
   martial_intent:              { name:"Martial Intent", type:"Fighting", power:70, acc:100, pp:15, cat:"special", effect:"spaup", ec:30, target:"single", desc:"May raise SpA." },
   focus_pose:                  { name:"Focus Pose", type:"Fighting", power:0, acc:100, pp:15, cat:"status", effect:"focus", ec:100, target:"self", desc:"High crit." },
   battle_meditation:           { name:"Battle Meditation", type:"Fighting", power:0, acc:100, pp:15, cat:"status", effect:"calmup", ec:100, target:"self", desc:"Calm up." },
@@ -1217,7 +1217,7 @@ const MOVES_DATA = {
   tox_bite:                        { name:"Septic Bite", type:"Toxin", power:65, acc:100, pp:20, cat:"physical", effect:"poison", ec:30, target:"single", desc:"Septic Bite." },
   tox_acid_strike:                 { name:"Vitriol Strike", type:"Toxin", power:75, acc:100, pp:15, cat:"physical", effect:null, ec:0, target:"single", desc:"Vitriol-Strike." },
   tox_corrosive_claw:              { name:"Acrid Claw", type:"Toxin", power:80, acc:95, pp:15, cat:"physical", effect:"defdown", ec:30, target:"single", desc:"May lower Def." },
-  tox_lash:                        { name:"Toxic Lash", type:"Toxin", power:70, acc:100, pp:20, cat:"physical", effect:"poison", ec:30, target:"single", desc:"Toxic lash." },
+  tox_lash:                        { name:"Septic Lash", type:"Toxin", power:70, acc:100, pp:20, cat:"physical", effect:"poison", ec:30, target:"single", desc:"Septic Lash." },
   tox_venom_thrust:                { name:"Venom Thrust", type:"Toxin", power:85, acc:90, pp:15, cat:"physical", effect:"poison", ec:50, target:"single", alwaysCrit:true, desc:"Venom-thrust; high poison chance." },
   tox_slash:                       { name:"Acid Slash", type:"Toxin", power:90, acc:95, pp:10, cat:"physical", effect:null, ec:0, target:"single", desc:"Acid-slash." },
   tox_sting:                       { name:"Toxic Sting", type:"Toxin", power:50, acc:100, pp:30, cat:"physical", effect:"priority", ec:0, target:"single", desc:"First-strike sting." },
@@ -1234,7 +1234,7 @@ const MOVES_DATA = {
   tox_plague_strike:               { name:"Blight Strike", type:"Toxin", power:95, acc:90, pp:10, cat:"physical", effect:null, ec:0, target:"single", breakerVs:"Fairy", desc:"Blight-Strike." },
   tox_pulse:                       { name:"Toxin Pulse", type:"Toxin", power:45, acc:100, pp:30, cat:"special", effect:null, ec:0, target:"single", desc:"Single toxin-pulse." },
   tox_venom_ray:                   { name:"Venom Ray", type:"Toxin", power:65, acc:100, pp:20, cat:"special", effect:"poison", ec:30, target:"single", desc:"Venom ray." },
-  tox_acid_burst:                  { name:"Acid Burst", type:"Toxin", power:80, acc:95, pp:15, cat:"special", effect:"spdefdown", ec:30, target:"wide", desc:"Acid burst." },
+  tox_acid_burst:                  { name:"Vitriol Burst", type:"Toxin", power:80, acc:95, pp:15, cat:"special", effect:"spdefdown", ec:30, target:"wide", desc:"Vitriol Burst." },
   tox_miasma_blast:                { name:"Miasma Blast", type:"Toxin", power:90, acc:95, pp:10, cat:"special", effect:"poison", ec:30, target:"wide", desc:"Miasma blast." },
   tox_storm_spec:                  { name:"Virulent Storm", type:"Toxin", power:100, acc:85, pp:10, cat:"special", effect:null, ec:0, target:"wide", desc:"Wide Virulent Storm." },
   tox_plague_wave:                 { name:"Plague Wave", type:"Toxin", dualType:["Toxin","Dream"], power:110, acc:85, pp:5, cat:"special", effect:null, ec:0, target:"wide", desc:"Wide plague-wave. Dual Toxin+Dream." },
@@ -1471,7 +1471,7 @@ const MOVES_DATA = {
 
   // --- Toxin (exclusive, batch4) ---
   tox_tainted_breath:              { name:"Tainted Breath", type:"Toxin", power:130, acc:85, pp:5, cat:"special", effect:"tainted", ec:100, target:"wide", rarity:"exclusive", desc:"Locks Tainted on all foes." },
-  tox_plague_bringer:              { name:"Plague Bringer", type:"Toxin", power:0, acc:100, pp:5, cat:"status", effect:"poison_and_atkdown_target", ec:100, target:"wide", rarity:"exclusive", desc:"Poisons all foes AND lowers Atk." },
+  tox_plague_bringer:              { name:"Contagion Bringer", type:"Toxin", power:0, acc:100, pp:5, cat:"status", effect:"poison_and_atkdown_target", ec:100, target:"wide", rarity:"exclusive", desc:"Poisons all foes AND lowers Atk." },
   tox_necrotic_apocalypse:         { name:"Necrotic Apocalypse", type:"Toxin", power:150, acc:80, pp:5, cat:"special", effect:"recharge_and_severe_bleed_target", ec:30, target:"wide", rarity:"exclusive", desc:"May inflict Severe Bleed; needs rest." },
 
   // --- Chrono (exclusive, batch4) ---

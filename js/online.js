@@ -486,17 +486,23 @@ function pvpSerializeMon(m) {
   };
 }
 
-async function postBattleChallenge() {
+async function postBattleChallenge(format) {
   if (!requireOnline() || !G) return;
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before challenging!"); return; }
+  const fmt = (format === "double") ? "double" : "single";
+  const F = pvpModeFields(fmt);
 
-  const challengerTeam = G.team.filter(m => m.currentHP > 0).slice(0, 3).map(pvpSerializeMon);
+  const healthy = G.team.filter(m => m.currentHP > 0);
+  if (fmt === "double" && healthy.length < 2) { showNotification("Doubles needs at least 2 healthy Lumori on your team!"); return; }
+  // Send up to 3: doubles leads with the first 2 and keeps the rest as bench.
+  const challengerTeam = healthy.slice(0, 3).map(pvpSerializeMon);
 
   const challenge = {
     challengerUID: firebaseUID,
     challengerName: G.playerName,
     challengerBadges: G.badges.length,
-    rating: G.pvpRating || 0,
+    rating: G[F.rating] || 0,
+    format: fmt,
     team: JSON.stringify(challengerTeam),
     status: "open",
     ts: Date.now()
@@ -543,22 +549,34 @@ async function acceptBattleChallenge(code) {
 // Launch a real, playable battle against a challenge's submitted team (vs the AI).
 function launchPvpChallenge(id, challenge) {
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before battling!"); return; }
+  const fmt = (challenge.format === "double") ? "double" : "single";
+  if (fmt === "double") {
+    const healthy = G.team.filter(m => m.currentHP > 0).length;
+    if (healthy < 2) { showNotification("This is a Doubles challenge — bring at least 2 healthy Lumori!"); return; }
+  }
   let team;
   try { team = JSON.parse(challenge.team); } catch(e) { showNotification("Invalid challenge data."); return; }
   if (!Array.isArray(team) || !team.length) { showNotification("That challenge has no team."); return; }
+  if (fmt === "double" && team.length < 2) { showNotification("That Doubles challenge is missing a second Lumori."); return; }
   if (typeof startPvpBattle !== "function") { showNotification("Battle engine unavailable."); return; }
   startPvpBattle(team, challenge.challengerName || "Rival", {
     challengeId: id,
     opponentUID: challenge.challengerUID || null,
-    opponentRating: challenge.rating || 0
+    opponentRating: challenge.rating || 0,
+    doubles: fmt === "double"
   });
 }
 
 // One-tap matchmaking: pick an open challenge near your rating (random among the
 // closest few) and battle it.
-async function quickMatch() {
+async function quickMatch(format) {
   if (!requireOnline() || !G) return;
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before battling!"); return; }
+  const fmt = (format === "double") ? "double" : "single";
+  const F = pvpModeFields(fmt);
+  if (fmt === "double" && G.team.filter(m => m.currentHP > 0).length < 2) {
+    showNotification("Doubles needs at least 2 healthy Lumori on your team!"); return;
+  }
   let snap;
   try {
     snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").limitToFirst(50).once("value");
@@ -568,10 +586,14 @@ async function quickMatch() {
   }
   const pool = [];
   snap.forEach(child => {
-    if (child.val().challengerUID !== firebaseUID) pool.push({ id: child.key, ...child.val() });
+    const v = child.val();
+    // Only match the requested format (untagged legacy challenges are singles).
+    if (v.challengerUID !== firebaseUID && ((v.format === "double") ? "double" : "single") === fmt) {
+      pool.push({ id: child.key, ...v });
+    }
   });
-  if (!pool.length) { showNotification("No open challenges to match against yet. Post one and wait, or invite a friend!"); return; }
-  const myRating = G.pvpRating || 0;
+  if (!pool.length) { showNotification(`No open ${fmt === "double" ? "Doubles" : "Singles"} challenges yet. Post one and wait, or invite a friend!`); return; }
+  const myRating = G[F.rating] || 0;
   pool.sort((a, b) => Math.abs((a.rating || 0) - myRating) - Math.abs((b.rating || 0) - myRating));
   const near = pool.slice(0, Math.min(5, pool.length));
   const pick = near[Math.floor(Math.random() * near.length)];

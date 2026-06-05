@@ -134,6 +134,11 @@ function loadGame(slot) {
     if (data.vaeldrisPartyLock === undefined) data.vaeldrisPartyLock = null;
     if (!data.defeatedWielders) data.defeatedWielders = [];
     if (!data.forgottenLegendaryAttempted) data.forgottenLegendaryAttempted = [];
+    // PvP saved team loadouts: up to 6 per format, drawn from owned Lumori.
+    if (!data.pvpLoadouts) data.pvpLoadouts = { single: [], double: [] };
+    if (!data.pvpLoadouts.single) data.pvpLoadouts.single = [];
+    if (!data.pvpLoadouts.double) data.pvpLoadouts.double = [];
+    if (!data.pvpActiveLoadout) data.pvpActiveLoadout = { single: null, double: null };
     data.saveSlot = slot;
     G = data;
     return true;
@@ -275,9 +280,67 @@ function startNGPlus() {
 
 // ---- Screen Management ----
 function showScreen(id) {
+  if (typeof clearTurnTimer === "function") clearTurnTimer();
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
   const el = document.getElementById(id);
   if (el) el.classList.add("active");
+}
+
+// ---- PvP / online turn timer (60s, auto-pick on expiry) ----
+// One shared countdown used by every PvP/online mode (async battle screen, async
+// FFA, and the live rooms). `key` makes it idempotent across re-renders: passing
+// the same key won't restart a running countdown (needed for the live UIs, which
+// re-render on every Firebase update); pass null to always restart (battle screen).
+let pvpTurnTimer = null;
+let pvpTurnTimerKey = null;
+const PVP_TURN_SECONDS = 60;
+function startTurnTimer(key, elId, onExpire, seconds = PVP_TURN_SECONDS) {
+  if (key != null && key === pvpTurnTimerKey && pvpTurnTimer) return; // already counting this turn
+  clearTurnTimer();
+  pvpTurnTimerKey = key;
+  const deadline = Date.now() + seconds * 1000;
+  const tick = () => {
+    const remain = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+    const el = document.getElementById(elId);
+    if (el) { el.textContent = `⏱️ ${remain}s`; el.classList.remove("hidden"); el.classList.toggle("urgent", remain <= 10); }
+    if (remain <= 0) { clearTurnTimer(); try { if (typeof onExpire === "function") onExpire(); } catch (e) {} }
+  };
+  tick();
+  pvpTurnTimer = setInterval(tick, 250);
+}
+function clearTurnTimer() {
+  if (pvpTurnTimer) clearInterval(pvpTurnTimer);
+  pvpTurnTimer = null;
+  pvpTurnTimerKey = null;
+  ["pvp-turn-timer", "ffa-timer", "live-timer"].forEach(id => { const el = document.getElementById(id); if (el) el.classList.add("hidden"); });
+}
+
+// Auto-pick a move when the battle-screen timer expires (async PvP / Gauntlet only).
+function pvpAutoPickBattle() {
+  if (!battleContext || !battleContext.isPvP || battleContext.battleEnded) return;
+  const sw = document.getElementById("battle-switch-panel");
+  // Don't drive a forced-switch sub-state automatically; just give the player time.
+  if (sw && !sw.classList.contains("hidden")) return;
+  if (typeof isMultiBattle === "function" && isMultiBattle()) { pvpAutoPickMulti(); return; }
+  if (!playerActiveMon || playerActiveMon.fainted || playerActiveMon.currentHP <= 0) return;
+  const usable = playerActiveMon.moves.filter(m => m.pp > 0);
+  const pool = usable.length ? usable : playerActiveMon.moves;
+  if (!pool.length) return;
+  logMsg("⏱️ Time's up — auto-selecting a move!");
+  playerUseMove(pool[Math.floor(Math.random() * pool.length)].id);
+}
+function pvpAutoPickMulti() {
+  const aliveEnemies = enemyActiveMons.map((e, i) => ({ e, i })).filter(x => x.e && !x.e.fainted && x.e.currentHP > 0);
+  const alive = playerActiveMons.map((m, i) => ({ m, i })).filter(x => x.m && !x.m.fainted && x.m.currentHP > 0);
+  logMsg("⏱️ Time's up — auto-selecting moves!");
+  alive.forEach(x => {
+    if (multiBattlePendingMoves.find(p => p.monIndex === x.i)) return;
+    const usable = x.m.moves.filter(mv => mv.pp > 0);
+    const pool = usable.length ? usable : x.m.moves;
+    if (!pool.length) return;
+    const tgt = aliveEnemies.length ? aliveEnemies[Math.floor(Math.random() * aliveEnemies.length)].i : 0;
+    queueMultiMove(x.i, pool[Math.floor(Math.random() * pool.length)].id, tgt);
+  });
 }
 
 // ---- Notification Overlay ----
@@ -1190,6 +1253,14 @@ function showBattleMainActions() {
   document.getElementById("battle-bag-panel").classList.add("hidden");
   document.getElementById("battle-switch-panel").classList.add("hidden");
   document.getElementById("battle-target-panel")?.classList.add("hidden");
+  // PvP/Gauntlet: (re)start the 60s turn timer each time control returns to the
+  // player, and disable the bag (items are banned in PvP). Story/gym/wild battles
+  // (no isPvP) are unaffected.
+  const bagBtn = document.getElementById("btn-battle-bag");
+  if (bagBtn) bagBtn.disabled = !!(battleContext && battleContext.isPvP);
+  if (battleContext && battleContext.isPvP && !battleContext.battleEnded) {
+    startTurnTimer(null, "pvp-turn-timer", pvpAutoPickBattle);
+  }
 }
 
 function showMovePanel() {
@@ -1311,6 +1382,11 @@ function showSwitchPanel(forceSwitch = false) {
 let battleBagSelectedMon = 0;
 
 function showBattleBagPanel() {
+  // Items (healing/revives/etc.) are disabled in all PvP/online battles.
+  if (battleContext && battleContext.isPvP) {
+    showNotification("🚫 Bag items are disabled in PvP battles.");
+    return;
+  }
   document.getElementById("battle-main-actions").classList.add("hidden");
   document.getElementById("battle-bag-panel").classList.remove("hidden");
   battleBagSelectedMon = battleContext.playerTeamIdx;
@@ -1936,20 +2012,25 @@ async function handleEnemyFainted() {
     await delay(500);
     endBattle("won", slot, levelUps);
   } else {
-    // Gym battle - next enemy
+    // Gym / trainer / PvP — bring in the opponent's next mon.
     battleContext.enemyTeamIdx++;
+    const slot = G.team[battleContext.playerTeamIdx];
     if (battleContext.enemyTeamIdx >= battleContext.enemyTeam.length) {
+      // PvP grants no XP (normalized match) — resolve straight to the result.
+      if (battleContext.isPvP) { endBattle("won"); return; }
       // Give XP to all team members
       const xpGain = calcXPGain(enemyActiveMon, false);
-      const slot = G.team[battleContext.playerTeamIdx];
       const levelUps = giveXP(slot, xpGain);
       endBattle("won", slot, levelUps);
     } else {
-      const xpGain = calcXPGain(enemyActiveMon, false);
-      const slot = G.team[battleContext.playerTeamIdx];
-      giveXP(slot, xpGain);
+      if (!battleContext.isPvP) {
+        const xpGain = calcXPGain(enemyActiveMon, false);
+        giveXP(slot, xpGain);
+      }
       enemyActiveMon = battleContext.enemyTeam[battleContext.enemyTeamIdx];
-      const leaderName = GYM_LEADERS[battleContext.leaderId].name;
+      const leaderName = battleContext.isPvP
+        ? (battleContext.pvpOpponentName || "Rival")
+        : GYM_LEADERS[battleContext.leaderId].name;
       logMsg(`${leaderName} sent out ${getDisplayName(enemyActiveMon)}!`);
       updateBattleUI();
       await delay(600);
@@ -1998,6 +2079,29 @@ function endBattle(outcome, slot, levelUps) {
     MusicEngine.stop();
     // Resume overworld music after a short delay
     setTimeout(() => { if (typeof MusicEngine !== "undefined" && !MusicEngine.isMuted()) MusicEngine.playOverworld(); }, 1500);
+  }
+
+  // PvP resolves to a rating change and returns to the PvP screen — no wild/gym/
+  // trainer rewards, no blackout penalty. The real team's pre-match HP is restored
+  // so a PvP match neither damages nor heals your party.
+  if (battleContext.isPvP) {
+    if (battleContext.pvpRealParty) {
+      // Fielded a saved loadout — put the untouched real party back.
+      G.team = battleContext.pvpRealParty;
+    } else if (Array.isArray(battleContext.pvpHpSnapshot)) {
+      G.team.forEach((m, i) => {
+        if (m) m.currentHP = Math.min(m.maxHP, battleContext.pvpHpSnapshot[i] ?? m.maxHP);
+      });
+    }
+    if (battleContext.pvpGauntlet && typeof advanceGauntlet === "function") {
+      advanceGauntlet(outcome);   // gauntlet runs don't touch ladder rating/mailbox
+    } else if ((outcome === "won" || outcome === "lost") && typeof recordPvpResult === "function") {
+      recordPvpResult(outcome === "won", battleContext.battleMode === "double" ? "double" : "single");
+    } else {
+      showScreen("screen-pvp");
+    }
+    saveGame();
+    return;
   }
 
   if (outcome === "ran" || outcome === "caught") {
@@ -2428,6 +2532,10 @@ function hideMultiBattleSlots() {
 function showMultiMovePanel(monIndex) {
   const mon = playerActiveMons[monIndex];
   if (!mon || mon.fainted) return;
+  // PvP doubles starts each turn here (no main-actions menu); keep the timer alive.
+  if (battleContext && battleContext.isPvP && !battleContext.battleEnded) {
+    startTurnTimer(null, "pvp-turn-timer", pvpAutoPickBattle);
+  }
 
   document.getElementById("battle-main-actions").classList.add("hidden");
   document.getElementById("battle-moves-panel").classList.remove("hidden");
@@ -2662,13 +2770,16 @@ async function handleMultiFaintedMons() {
     const e = enemyActiveMons[i];
     if (e && (e.fainted || e.currentHP <= 0)) {
       logMsg(`${e.name} fainted!`);
-      // Give XP to the player mon that was targeting it
-      const xpGain = calcXPGain(e, false);
-      const alivePlayerMon = playerActiveMons.find(m => m && !m.fainted && m.currentHP > 0);
-      if (alivePlayerMon) {
-        const pIdx = playerActiveMons.indexOf(alivePlayerMon);
-        const slot = G.team[playerTeamIdxs[pIdx]];
-        giveXP(slot, xpGain);
+      // PvP is level-normalized and grants no XP (mirrors the single-battle path).
+      if (!battleContext.isPvP) {
+        // Give XP to the player mon that was targeting it
+        const xpGain = calcXPGain(e, false);
+        const alivePlayerMon = playerActiveMons.find(m => m && !m.fainted && m.currentHP > 0);
+        if (alivePlayerMon) {
+          const pIdx = playerActiveMons.indexOf(alivePlayerMon);
+          const slot = G.team[playerTeamIdxs[pIdx]];
+          giveXP(slot, xpGain);
+        }
       }
       // Try to send in next enemy from team
       if (battleContext.enemyTeamIdx < battleContext.enemyTeam.length) {
@@ -3732,12 +3843,40 @@ function initEventListeners() {
     const type = document.getElementById("trade-wanted-type")?.value || "";
     if (typeof postTrade === "function") postTrade(type);
   });
+  // Singles / Doubles format toggle (drives post + quick match).
+  const getPvpFormat = () =>
+    document.querySelector(".pvp-fmt-btn.active")?.dataset.fmt === "double" ? "double" : "single";
+  document.querySelectorAll("#pvp-format-toggle .pvp-fmt-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("#pvp-format-toggle .pvp-fmt-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      if (typeof renderPvpActiveTeam === "function") renderPvpActiveTeam(getPvpFormat());
+    });
+  });
+  document.getElementById("btn-pvp-teams")?.addEventListener("click", () => {
+    if (typeof showPvpTeamsScreen === "function") showPvpTeamsScreen(getPvpFormat());
+  });
+  document.getElementById("btn-pvp-teams-back")?.addEventListener("click", () => {
+    if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp");
+  });
+  document.getElementById("btn-pvp-ffa")?.addEventListener("click", () => {
+    if (typeof ffaQuickMatch === "function") ffaQuickMatch();
+  });
+  document.getElementById("btn-ffa-quit")?.addEventListener("click", () => {
+    if (typeof ffaForfeit === "function") ffaForfeit(); else showScreen("screen-pvp");
+  });
   document.getElementById("btn-post-challenge")?.addEventListener("click", () => {
-    if (typeof postBattleChallenge === "function") postBattleChallenge();
+    if (typeof postBattleChallenge === "function") postBattleChallenge(getPvpFormat());
   });
   document.getElementById("btn-accept-by-code")?.addEventListener("click", () => {
     const code = document.getElementById("pvp-code-input")?.value.trim();
     if (code && typeof acceptBattleChallenge === "function") acceptBattleChallenge(code);
+  });
+  document.getElementById("btn-pvp-quickmatch")?.addEventListener("click", () => {
+    if (typeof quickMatch === "function") quickMatch(getPvpFormat());
+  });
+  document.getElementById("btn-pvp-gauntlet")?.addEventListener("click", () => {
+    if (typeof startGauntlet === "function") startGauntlet();
   });
 
   // Quest filter buttons
@@ -4125,6 +4264,377 @@ function startTrainerBattle(trainerId, trainer) {
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+}
+
+// Async PvP: battle a snapshot of another player's submitted team, played for real
+// against the AI. Both sides are normalized to Lv PVP_LEVEL_CAP with perfect IVs
+// (handled in buildBattleMon when battleContext.isPvP is set). See docs/pvp-spec.md.
+function startPvpBattle(oppSlots, oppName, meta) {
+  meta = meta || {};
+  const name = oppName || "Rival Trainer";
+  battleContext = {
+    isWild: false, isGym: false, isChampion: false, isTrainer: false,
+    isPvP: true,
+    pvpGauntlet: !!meta.gauntlet,
+    pvpChallengeId: meta.challengeId || null,
+    pvpOpponentName: name,
+    pvpOpponentUID: meta.opponentUID || null,
+    pvpOpponentRating: meta.opponentRating || 0,
+    battleMode: "single",
+    enemyTeamIdx: 0,
+  };
+  // If a saved PvP loadout is being fielded, battle on it instead of the real
+  // party by temporarily swapping G.team. The real party is stashed and restored
+  // wholesale in endBattle, so it is never damaged or healed (no HP snapshot
+  // needed in that case — we never touch it).
+  if (Array.isArray(meta.playerTeam) && meta.playerTeam.length) {
+    battleContext.pvpRealParty = G.team;
+    G.team = meta.playerTeam;
+  } else {
+    // Snapshot real team HP so a PvP match neither damages nor heals your party.
+    battleContext.pvpHpSnapshot = G.team.map(m => m ? m.currentHP : 0);
+  }
+  battleContext.enemyTeam = oppSlots.map(s => buildBattleMon(s));
+  const safeName = (typeof escapeHtml === "function") ? escapeHtml(name) : name;
+  const cap = (typeof PVP_LEVEL_CAP !== "undefined") ? PVP_LEVEL_CAP : 50;
+
+  // Async Doubles: 2-active-per-side vs the AI-piloted snapshot. Needs ≥2 healthy
+  // mons on each side; otherwise fall through to the single duel below.
+  const healthyCount = G.team.filter(m => m && m.currentHP > 0).length;
+  if (meta.doubles && healthyCount >= 2 && battleContext.enemyTeam.length >= 2) {
+    startMultiBattle(battleContext.enemyTeam, safeName, "double");
+    logMsg(`⚖️ PvP Doubles — level-capped to ${cap} with perfect IVs for both sides.`);
+    document.getElementById("btn-catch").disabled = true;
+    return;
+  }
+
+  battleContext.playerTeamIdx = G.team.findIndex(m => m && m.currentHP > 0);
+  if (battleContext.playerTeamIdx < 0) battleContext.playerTeamIdx = 0;
+  playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx]);
+  enemyActiveMon = battleContext.enemyTeam[0];
+  hideMultiBattleSlots();
+  showScreen("screen-battle");
+  clearBattleLog();
+  logMsg(`⚔️ PvP! ${safeName} wants to battle!`);
+  logMsg(`⚖️ Level-capped to ${cap} with perfect IVs for both sides.`);
+  logMsg(`${safeName} sent out ${getDisplayName(enemyActiveMon)}!`);
+  updateBattleUI();
+  showBattleMainActions();
+  document.getElementById("btn-catch").disabled = true;
+  if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+}
+
+// ============================================================
+// FFA ROYALE (async, isolated N-side engine vs AI snapshots)
+// ============================================================
+// A free-for-all between the player and 2-3 AI-piloted posted-team snapshots.
+// Each side fields up to 3 Lumori but only ONE is active at a time (a bench mon
+// replaces a fainted active). Every side can target every other side; the last
+// side standing wins. This is a dedicated path that reuses the real damage / type
+// / status primitives (calcDamage, applyMoveEffect, getEffectiveSpeed) but never
+// touches the proven 2-side engine. All mons Lv-50 normalize via buildBattleMon's
+// PvP path. See docs/pvp-spec.md (Phase C).
+let ffaState = null;
+
+function ffaSleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+function ffaLog(msg) { if (ffaState) ffaState.log.push(msg); }
+function ffaActive(side) { return side && !side.defeated ? side.team[side.activeIdx] : null; }
+function ffaLiving() { return ffaState.sides.filter(s => !s.defeated); }
+function ffaOpponents(side) { return ffaState.sides.filter(s => s !== side && !s.defeated && ffaActive(s)); }
+function ffaEffSpeed(mon) {
+  try { return (typeof getEffectiveSpeed === "function") ? getEffectiveSpeed(mon) : (mon.spe || 0); }
+  catch (e) { return mon ? (mon.spe || 0) : 0; }
+}
+
+function ffaBuildSide(name, isPlayer, slots, rating) {
+  const team = (slots || []).slice(0, 3).map(s => buildBattleMon(s)).filter(Boolean);
+  // PvP fairness: every side starts at full, un-fainted HP regardless of the
+  // source slot's live HP (the player's party may be partly damaged).
+  team.forEach(m => { m.currentHP = m.maxHP; m.fainted = false; });
+  return { name, isPlayer, team, activeIdx: 0, defeated: team.length === 0, rating: rating || 1000 };
+}
+
+// aiSides = [{ name, slots:[partySlot-shaped...], rating }, ...] (2-3 of them).
+function startFfaBattle(aiSides, meta) {
+  meta = meta || {};
+  const healthy = G.team.filter(m => m && m.currentHP > 0).slice(0, 3);
+  if (!healthy.length) { showNotification("Heal your team before a Royale!"); return; }
+  if (!aiSides || aiSides.length < 1) { showNotification("Not enough rivals for a Royale right now."); return; }
+
+  // PvP context so buildBattleMon normalizes every mon to Lv 50 / perfect IVs.
+  battleContext = { isPvP: true, isFfa: true, battleMode: "ffa" };
+
+  const sides = [ ffaBuildSide(G.playerName || "You", true, healthy, (typeof G.pvpFfaRating === "number") ? G.pvpFfaRating : 1000) ];
+  aiSides.forEach(a => sides.push(ffaBuildSide(a.name || "Rival", false, a.slots, a.rating)));
+
+  ffaState = { sides, log: [], over: false, awaitingPlayer: false };
+  ffaLog(`👑 FFA Royale — ${sides.length} teams enter, last standing wins!`);
+  sides.forEach(s => ffaLog(`${s.isPlayer ? "You bring" : escapeHtml(s.name) + " brings"} ${ffaActive(s)?.name || "?"}.`));
+  showScreen("screen-ffa");
+  if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+  ffaBeginPlayerTurn();
+}
+
+// Stop FFA battle music and drift back to the overworld theme.
+function ffaStopMusic() {
+  if (typeof MusicEngine === "undefined") return;
+  MusicEngine.stop();
+  setTimeout(() => { if (typeof MusicEngine !== "undefined" && !MusicEngine.isMuted()) MusicEngine.playOverworld(); }, 1200);
+}
+
+function ffaBeginPlayerTurn() {
+  if (!ffaState || ffaState.over) return;
+  ffaState.awaitingPlayer = true;
+  ffaRender();
+  ffaRenderMoves();
+  startTurnTimer(null, "ffa-timer", ffaAutoPick);
+}
+
+// FFA timer expiry: auto-pick a random move + random living opponent.
+function ffaAutoPick() {
+  if (!ffaState || ffaState.over || !ffaState.awaitingPlayer) return;
+  const me = ffaState.sides[0];
+  const mon = ffaActive(me);
+  if (!mon) return;
+  ffaLog("⏱️ Time's up — auto-selecting a move!");
+  const usable = mon.moves.filter(mv => mv.pp > 0);
+  const pool = usable.length ? usable : mon.moves;
+  const opps = ffaOpponents(me);
+  const tgtIdx = opps.length ? ffaState.sides.indexOf(opps[Math.floor(Math.random() * opps.length)]) : null;
+  ffaResolveTurn(pool[Math.floor(Math.random() * pool.length)].id, tgtIdx);
+}
+
+function ffaRenderMoves() {
+  const ctrl = document.getElementById("ffa-controls");
+  if (!ctrl || !ffaState) return;
+  const mon = ffaActive(ffaState.sides[0]);
+  if (ffaState.over || !mon) { ctrl.innerHTML = ""; return; }
+  const moves = mon.moves.map(mv => {
+    const md = MOVES_DATA[mv.id];
+    return `<button class="ffa-move" data-mv="${mv.id}" ${mv.pp <= 0 ? "disabled" : ""}>${md?.name || mv.id}<small>${md?.type || ""} · ${mv.pp}/${mv.maxPP}</small></button>`;
+  }).join("");
+  const me = ffaState.sides[0];
+  const hasBench = me.team.some((t, i) => i !== me.activeIdx && t && t.currentHP > 0 && !t.fainted);
+  // No bag in PvP — items are disabled in all online/PvP modes.
+  ctrl.innerHTML = `<div class="ffa-prompt">Choose ${escapeHtml(mon.name)}'s move:</div><div class="ffa-moves">${moves}</div>` +
+    `<div class="ffa-subactions">${hasBench ? `<button class="btn-secondary ffa-switch">🔄 Switch</button>` : ""}</div>`;
+  ctrl.querySelectorAll(".ffa-move").forEach(b => b.addEventListener("click", () => ffaChooseMove(b.dataset.mv)));
+  ctrl.querySelector(".ffa-switch")?.addEventListener("click", ffaShowSwitch);
+}
+
+function ffaShowSwitch() {
+  const me = ffaState.sides[0];
+  const bench = me.team.map((t, i) => ({ t, i })).filter(x => x.i !== me.activeIdx && x.t && x.t.currentHP > 0 && !x.t.fainted);
+  if (!bench.length) { ffaRenderMoves(); return; }
+  const ctrl = document.getElementById("ffa-controls");
+  ctrl.innerHTML = `<div class="ffa-prompt">Switch to (uses your turn):</div><div class="ffa-moves">` +
+    bench.map(x => `<button class="ffa-target" data-idx="${x.i}">${x.t.emoji || ""} ${escapeHtml(x.t.name)}<small>${Math.ceil(x.t.currentHP)}/${x.t.maxHP} HP</small></button>`).join("") +
+    `</div><button class="btn-secondary ffa-back">← Back</button>`;
+  ctrl.querySelectorAll(".ffa-target").forEach(b => b.addEventListener("click", () => ffaDoSwitch(parseInt(b.dataset.idx, 10))));
+  ctrl.querySelector(".ffa-back")?.addEventListener("click", () => ffaRenderMoves());
+}
+function ffaDoSwitch(idx) {
+  if (!ffaState || ffaState.over || !ffaState.awaitingPlayer) return;
+  const me = ffaState.sides[0];
+  const t = me.team[idx];
+  if (!t || t.currentHP <= 0 || t.fainted || idx === me.activeIdx) return;
+  me.activeIdx = idx;
+  ffaLog(`You switched to ${t.name}!`);
+  ffaResolveTurn(null, null, "switch");
+}
+
+
+function ffaChooseMove(moveId) {
+  const md = MOVES_DATA[moveId];
+  if (!md || !md.power || md.power <= 0 || md.target === "self") { ffaResolveTurn(moveId, null); return; }
+  const opps = ffaOpponents(ffaState.sides[0]);
+  if (opps.length <= 1) { ffaResolveTurn(moveId, opps[0] ? ffaState.sides.indexOf(opps[0]) : null); return; }
+  const ctrl = document.getElementById("ffa-controls");
+  const btns = opps.map(s => {
+    const m = ffaActive(s);
+    return `<button class="ffa-target" data-side="${ffaState.sides.indexOf(s)}">${escapeHtml(s.name)}<small>${m?.emoji || ""} ${Math.ceil(m?.currentHP || 0)} HP</small></button>`;
+  }).join("");
+  ctrl.innerHTML = `<div class="ffa-prompt">Target which team?</div><div class="ffa-moves">${btns}</div><button class="btn-secondary ffa-back">← Back</button>`;
+  ctrl.querySelectorAll(".ffa-target").forEach(b => b.addEventListener("click", () => ffaResolveTurn(moveId, parseInt(b.dataset.side, 10))));
+  ctrl.querySelector(".ffa-back")?.addEventListener("click", () => ffaRenderMoves());
+}
+
+// AI: prefer a damaging move, target the lowest-HP living opponent (royale "gang the weak").
+function ffaAiAction(side) {
+  const mon = ffaActive(side);
+  const opps = ffaOpponents(side);
+  if (!mon || !opps.length) return null;
+  const target = opps.reduce((lo, s) => (ffaActive(s).currentHP < ffaActive(lo).currentHP ? s : lo), opps[0]);
+  const usable = mon.moves.filter(mv => mv.pp > 0);
+  const pool = usable.length ? usable : mon.moves;
+  const dmg = pool.filter(mv => (MOVES_DATA[mv.id]?.power || 0) > 0);
+  const choices = dmg.length ? dmg : pool;
+  const pick = choices[Math.floor(Math.random() * choices.length)];
+  return { side, moveId: pick.id, targetSide: target };
+}
+
+function ffaApplyMove(attacker, defender, moveId, atkSide, defSide) {
+  const move = MOVES_DATA[moveId];
+  const mv = attacker.moves.find(m => m.id === moveId);
+  if (mv && mv.pp > 0) mv.pp--;
+  if (!move) return;
+  const who = atkSide.isPlayer ? "Your" : `${escapeHtml(atkSide.name)}'s`;
+  if (move.power && move.power > 0 && defender) {
+    let res;
+    try { res = calcDamage(attacker, defender, move); } catch (e) { res = { damage: 1, effectiveness: 1, crit: false }; }
+    const dmg = (typeof res === "object") ? res.damage : res;
+    const eff = (typeof res === "object") ? res.effectiveness : 1;
+    defender.currentHP = Math.max(0, defender.currentHP - dmg);
+    if (dmg > 0) defSide._flash = true;   // trigger a hit animation on next render
+    ffaLog(`${who} ${attacker.name} used ${move.name} on ${defSide.isPlayer ? "your" : escapeHtml(defSide.name) + "'s"} ${defender.name} — ${dmg} dmg.`);
+    if (res && res.crit) ffaLog("&nbsp;&nbsp;💥 Critical hit!");
+    if (eff > 1) ffaLog("&nbsp;&nbsp;It's super effective!");
+    else if (eff > 0 && eff < 1) ffaLog("&nbsp;&nbsp;It's not very effective…");
+    else if (eff === 0) ffaLog("&nbsp;&nbsp;It had no effect!");
+  } else {
+    ffaLog(`${who} ${attacker.name} used ${move.name}.`);
+  }
+  // Stat/status effects, best-effort — never let an exotic effect crash the match.
+  try {
+    const msgs = applyMoveEffect(move, attacker, defender || attacker);
+    (msgs || []).forEach(m => { if (typeof m === "string") ffaLog("&nbsp;&nbsp;" + m); });
+  } catch (e) { /* ignore exotic effect in FFA */ }
+}
+
+function ffaCheckFaints() {
+  ffaState.sides.forEach(s => {
+    const m = s.team[s.activeIdx];
+    if (m && !m.fainted && m.currentHP <= 0) {
+      m.fainted = true;
+      ffaLog(`${s.isPlayer ? "Your" : escapeHtml(s.name) + "'s"} ${m.name} fainted!`);
+    }
+  });
+}
+
+function ffaReplaceActive(side) {
+  if (side.defeated) return;
+  const cur = side.team[side.activeIdx];
+  if (cur && cur.currentHP > 0 && !cur.fainted) return;
+  const nextIdx = side.team.findIndex(t => t && t.currentHP > 0 && !t.fainted);
+  if (nextIdx === -1) {
+    side.defeated = true;
+    ffaLog(`${side.isPlayer ? "You are" : escapeHtml(side.name) + " is"} eliminated!`);
+  } else {
+    side.activeIdx = nextIdx;
+    ffaLog(`${side.isPlayer ? "You send out" : escapeHtml(side.name) + " sends out"} ${side.team[nextIdx].name}!`);
+  }
+}
+
+async function ffaResolveTurn(playerMoveId, targetSideIdx, playerAltAction) {
+  if (!ffaState || ffaState.over || !ffaState.awaitingPlayer) return;
+  clearTurnTimer();
+  ffaState.awaitingPlayer = false;
+  const ctrl = document.getElementById("ffa-controls");
+  if (ctrl) ctrl.innerHTML = `<div class="ffa-prompt">Resolving…</div>`;
+
+  const me = ffaState.sides[0];
+  // A "switch" alt-action already happened (caller mutated state); the player
+  // forgoes attacking this turn. Otherwise queue their chosen move.
+  const actions = [];
+  if (!playerAltAction) {
+    actions.push({ side: me, moveId: playerMoveId, targetSide: (targetSideIdx != null) ? ffaState.sides[targetSideIdx] : null });
+  }
+  ffaLiving().forEach(s => { if (!s.isPlayer) { const a = ffaAiAction(s); if (a) actions.push(a); } });
+
+  actions.sort((a, b) => {
+    const pa = MOVES_DATA[a.moveId]?.effect === "priority" ? 1 : 0;
+    const pb = MOVES_DATA[b.moveId]?.effect === "priority" ? 1 : 0;
+    if (pa !== pb) return pb - pa;
+    return ffaEffSpeed(ffaActive(b.side)) - ffaEffSpeed(ffaActive(a.side));
+  });
+
+  for (const act of actions) {
+    if (ffaState.over || act.side.defeated) continue;
+    const attacker = ffaActive(act.side);
+    if (!attacker || attacker.fainted || attacker.currentHP <= 0) continue;
+    let tgt = act.targetSide;
+    if (!tgt || tgt.defeated || !ffaActive(tgt) || ffaActive(tgt).currentHP <= 0) {
+      const opps = ffaOpponents(act.side);
+      if (!opps.length) continue;
+      tgt = opps.reduce((lo, s) => (ffaActive(s).currentHP < ffaActive(lo).currentHP ? s : lo), opps[0]);
+    }
+    ffaApplyMove(attacker, ffaActive(tgt), act.moveId, act.side, tgt);
+    ffaCheckFaints();
+    ffaRender();
+    await ffaSleep(45);
+  }
+
+  // End-of-turn residual statuses (burn/poison DoT, Hexed debuffs, expiry, etc.)
+  // reusing the real engine's tickStatus on each living active.
+  ffaState.sides.forEach(s => {
+    const m = ffaActive(s);
+    if (m && m.currentHP > 0 && typeof tickStatus === "function") {
+      try { tickStatus(m).forEach(msg => ffaLog(msg)); } catch (e) {}
+    }
+  });
+  ffaCheckFaints();
+  ffaRender();
+
+  ffaState.sides.forEach(s => ffaReplaceActive(s));
+  ffaRender();
+
+  if (me.defeated) { ffaFinish(false); return; }
+  if (ffaLiving().length <= 1) { ffaFinish(true); return; }
+  ffaBeginPlayerTurn();
+}
+
+function ffaFinish(won) {
+  ffaState.over = true;
+  clearTurnTimer();
+  ffaStopMusic();
+  ffaLog(won ? "🏆 You're the last team standing — Royale won!" : "💀 You've been eliminated from the Royale.");
+  ffaRender();
+  const opps = ffaState.sides.filter(s => !s.isPlayer);
+  const avg = opps.length ? Math.round(opps.reduce((a, s) => a + (s.rating || 1000), 0) / opps.length) : 1000;
+  const ctrl = document.getElementById("ffa-controls");
+  if (ctrl) ctrl.innerHTML = `<button class="btn-primary" id="ffa-done">Continue</button>`;
+  document.getElementById("ffa-done")?.addEventListener("click", () => {
+    if (typeof recordFfaResult === "function") recordFfaResult(won, avg);
+    else if (typeof showPvPScreen === "function") showPvPScreen();
+    else showScreen("screen-pvp");
+  });
+}
+
+function ffaForfeit() {
+  if (!ffaState || ffaState.over) { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); return; }
+  if (!confirm("Forfeit the Royale? It counts as a loss.")) return;
+  ffaStopMusic();
+  const opps = ffaState.sides.filter(s => !s.isPlayer);
+  const avg = opps.length ? Math.round(opps.reduce((a, s) => a + (s.rating || 1000), 0) / opps.length) : 1000;
+  ffaState.over = true;
+  if (typeof recordFfaResult === "function") recordFfaResult(false, avg);
+  else if (typeof showPvPScreen === "function") showPvPScreen();
+  else showScreen("screen-pvp");
+}
+
+function ffaRender() {
+  if (!ffaState) return;
+  const sidesEl = document.getElementById("ffa-sides");
+  if (sidesEl) {
+    sidesEl.innerHTML = ffaState.sides.map(s => {
+      const m = s.team[s.activeIdx];
+      const alive = s.team.filter(t => t && t.currentHP > 0 && !t.fainted).length;
+      const pct = m ? Math.max(0, Math.min(100, (m.currentHP / m.maxHP) * 100)) : 0;
+      const hpClass = pct > 50 ? "high" : pct > 20 ? "mid" : "low";
+      const flash = s._flash ? "hit" : ""; s._flash = false;
+      return `<div class="ffa-side ${s.isPlayer ? "player" : ""} ${s.defeated ? "defeated" : ""} ${flash}">
+        <div class="ffa-side-name">${escapeHtml(s.name)}${s.isPlayer ? " (You)" : ""}</div>
+        <div class="ffa-side-mon">${s.defeated ? "💀 out" : `${m?.emoji || "❓"} ${escapeHtml(m?.name || "?")}`}</div>
+        ${s.defeated ? "" : `<div class="ffa-hpbar"><div class="ffa-hpfill ${hpClass}" style="width:${pct}%"></div></div>`}
+        <div class="ffa-side-meta">${s.defeated ? "—" : `${Math.ceil(m?.currentHP || 0)}/${m?.maxHP || 0} · ${alive} left`}</div>
+      </div>`;
+    }).join("");
+  }
+  const logEl = document.getElementById("ffa-log");
+  if (logEl) {
+    logEl.innerHTML = ffaState.log.slice(-9).map(l => `<div>${l}</div>`).join("");
+    logEl.scrollTop = logEl.scrollHeight;
+  }
 }
 
 function startUmbraAreaBattle(umbraId, battle) {

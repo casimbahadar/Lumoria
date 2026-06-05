@@ -1,17 +1,17 @@
 # TODO - Lumoria Bugs & Feature Requests
 
-## 📊 STATUS OVERVIEW — reconciled against `main` (63 PRs: 61 merged, #60 PvP draft, #52 launch draft)
+## 📊 STATUS OVERVIEW — reconciled against `main` (PvP PR #60 now merged; #52 launch still draft)
 
 _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress · ⏳ not started · 📎 reference/parking. Section headers carry the same tag inline._
 
-> **Status = the TODO task, not the PR.** The only **open (unmerged) PRs** are **#60 (Online PvP)** and **#52 (launch plan)** — both drafts. Every other PR (incl. #63) is **already merged**; a 🚧/⏳ next to a merged-PR row means the *task* is partly/not done, not that the PR is open.
+> **Status = the TODO task, not the PR.** The only **open (unmerged) PR** is **#52 (launch plan)** — a draft. **#60 (Online PvP) is now merged** (code-complete, but ⏳ **unverified** — needs a real-Firebase playtest, see #13's verification checklist). Every other PR (incl. #63) is **already merged**; a 🚧/⏳ next to a merged-PR row means the *task* is partly/not done, not that the PR is open.
 
 | Area | Status | Evidence |
 |---|---|---|
 | Bugs #1–4, Features #5–10 | ✅ done | early PRs |
 | #11 Variant + shiny system | ✅ done | PR #59 |
 | #12 Variant content (lore/desc/behaviour/learnset) | ✅ done | PR #61 |
-| #13 Online PvP | 🚧 in progress | PR #60 (draft) |
+| #13 Online PvP | ✅ code · ⏳ verify | PR #60 **merged**; all modes built, needs Firebase playtest (checklist in #13) |
 | Phase-1 coherence (archetype brainstorm, borderline triage, bridge lore) | ✅ done | PRs #38–46, #47, #48 |
 | 🔧 BREAKING + 🪛 MINOR family fixes | ✅ done | PRs #36/#47/#55 |
 | 🔍 Solo desc/lore/emoji audit | ✅ done | PR #49 |
@@ -108,9 +108,77 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 - The variant *mechanic* (stats/typing/immunity randomization) is handled in #11. #12 is the **content** layer on top: per-Lumori variant **lore, descriptions, movesets** and any deeper randomization.
 - **Batch** the authoring like the NG+ families; validate move keys/types per batch.
 
-### 13. Online PvP battle system 🚧 IN PROGRESS (PR #60, draft branch)
-- No PvP exists yet (only leaderboards, trades, events). Build async or real-time online battles (Firebase): challenge/matchmaking, team submission + validation, turn resolution reusing the battle engine, result reporting.
-- Per current ruling, **both variants and shinies are allowed** in PvP (no shiny exclusion).
+### 13. Online PvP battle system ✅ CODE-COMPLETE (PR #60 merged to `main`) · ⏳ UNVERIFIED (needs Firebase playtest)
+**Full design: `docs/pvp-spec.md`.** Two player-chosen modes on the existing Firebase RTDB layer:
+- **Async** — battle a snapshot of another player's team locally vs the AI (reuses the battle engine). **Real-time** — host-authoritative live turn-sync between two online players.
+- **Lv 50 cap** for all PvP mons (IVs 31; variant fields preserved).
+- **Matchmaking:** browsable board + one-tap random/rating queue + **passcode rooms** (private by default, flippable to public spectating — Showdown-style).
+- Variants **and** shinies both allowed. Rating → `/leaderboards/pvp`.
+- ⚠️ Untestable here (placeholder `FIREBASE_CONFIG`, no browser/2nd client) — write correct-by-inspection, playtest after real credentials.
+- **Phase A ✅ (done, unverified):** Lv-50 normalization in `buildBattleMon` (force Lv 50 + perfect IVs + full HP when `battleContext.isPvP`); `startPvpBattle()` plays the opponent's snapshot for real vs the AI (single mode, snapshots/restores party HP so PvP neither damages nor heals); `endBattle` PvP branch → `recordPvpResult()`; `quickMatch()` (near-rating pick) + browsable board now launch real battles; full team serialization (`pvpSerializeMon`: moves/nature/held/shiny/variant); Quick Match button; fixed a latent crash (`GYM_LEADERS[undefined]`) for multi-mon opponents. Retired the old power-score `simulatePvPBattle`.
+- **Rating ✅ (done, unverified):** Elo with **amplified upsets** (two-K: `PVP_K_UPSET=56` / `PVP_K_EXPECTED=24`, base 1000) → `pvp_rating` leaderboard; no XP/blackout/gym rewards. PvP screen shows a rating banner (`renderPvpRatingBanner`: "Your rating: ⭐ N · W–L"). Acceptor-only for now; challenger mailbox deferred.
+- **Phase B ✅ (done, unverified):** **Gauntlet** + challenger rating **mailbox** (`/pvpMailbox/{uid}`) landed earlier. Async **Doubles (2v2 vs AI snapshot)** now complete via the existing `startMultiBattle("double")` engine — Units A–E:
+  - **A** — `startPvpBattle(meta.doubles)` routes through the double engine vs the AI-piloted snapshot; plugged the doubles XP leak (`handleMultiFaintedMons` now PvP-guarded).
+  - **B** — independent Doubles **ladder**: `PVP_MODES` field map, mode-aware `recordPvpResult(won,mode)` + `drainPvpMailbox` (notes carry `format`), new `pvp_doubles_rating` board.
+  - **C** — format-tagged post/accept/quick-match, each routed to the right ladder.
+  - **D** — Singles/Doubles toggle on the PvP screen, dual-ladder rating banner, format tags on challenge cards.
+  - **E** — **up-to-6 saved teams per format** (active PvP loadouts, posted **and** battled with via a `G.team` temp-swap; party untouched) + builder UI screen. Also **fixed a real bug**: `pvpSerializeMon` mapped `mv.id` on string-array slot moves → posted teams had `[undefined]` moves (why Phase A was unverified-broken). Now handles both move shapes.
+- **Phase C ✅ (done, unverified):** async **FFA Royale** — isolated N-side engine (`startFfaBattle`/`#screen-ffa`), 3-4 sides, full teams (1 active + bench), true royale (everyone targets anyone, last standing). Pulls 2-3 open posted teams as AI sides; self-contained 👑 `pvp_ffa_rating` ladder. Reuses `calcDamage`/`applyMoveEffect`; never touches the proven 2-side engine.
+- **Phase D ✅ (done, unverified):** real-time. **D1** — type-aware live damage, passcode + public rooms, public spectating, per-client zero-sum rating (replaced coins-only/host-only). **D2** — **live 2v2 + live FFA** via a unified host-authoritative N-seat engine (`createMultiLiveRoom`/`resolveMultiLiveTurn`): one human per seat, alliances per mode, missing-move AI fill + resolve guard; 2v2→doubles ladder, FFA→ffa ladder.
+- **Post-D polish ✅ (done, unverified):** 60s **turn timer** (auto-pick on expiry) across every PvP/online mode + host-side disconnect safety net; **live mechanical parity** (live now runs the real `calcDamage`); **FFA polish** (battle music, hit/faint animations) + **FFA depth** (residual `tickStatus`, switch menu). **Bag items disabled in all PvP/online modes.** ⚠️ Live 2v2/FFA still need multiple simultaneous real clients to verify; see `docs/pvp-spec.md` "Known limitations".
+- See `docs/pvp-spec.md` for the rating formula + full modes roadmap.
+
+#### 🔥 Firebase verification checklist — DO THIS to confirm PvP works (everything above is correct-by-inspection only; never run against a live DB / 2nd client)
+> Why: this session had a **placeholder `FIREBASE_CONFIG`** and no browser, so nothing online was exercised. Run the steps below with real credentials before flipping #13 to ✅ verified. Tick boxes + date as you go.
+
+**Setup (once):**
+- [ ] Real `FIREBASE_CONFIG` wired (see `js/firebase-config*.js` / `initOnline` in `js/online.js`); Realtime Database enabled.
+- [ ] RTDB **security rules** allow the signed-in user to read/write the PvP paths below (challenges readable by all, mailbox writable cross-user, live rooms read/write for participants).
+- [ ] **2 accounts** in separate browsers/incognito (devices ideal). Live **2v2 needs 4**, live **FFA needs 2–4**; async **FFA quick-match needs ≥2 other posted teams** on the board.
+- [ ] `🌐 ONLINE` connects (`#hud-online-status`), PvP screen opens, rating banner renders (`renderPvpRatingBanner`).
+
+**RTDB paths to watch in the console** (confirms writes land correctly):
+- `battles/{id}` — async challenges (status open→completed; team JSON has **real move ids, not `[undefined]`**).
+- `pvpMailbox/{uid}` — async result notes for the offline challenger.
+- `pvp_live/{code}` — live rooms (1v1 fields + `seats[]`/`moves` for multi).
+- `leaderboards/pvp_rating` · `pvp_doubles_rating` · `pvp_ffa_rating` · `pvp_gauntlet`.
+
+**Async Singles 1v1:**
+- [ ] Post Singles challenge (live party or saved loadout) → `battles/` open entry with correct serialized team; party HP unchanged afterward.
+- [ ] Acct B Quick Match / accept → real battle vs AI snapshot at **Lv 50**; result → ratings move by the gap curve; `pvp_rating` board updates; challenge marked completed.
+- [ ] Mailbox note deposited; on the challenger's next login `drainPvpMailbox` mirrors the result **zero-sum** (their Δ = −acceptor's), then clears the note.
+
+**Async Doubles (2v2):**
+- [ ] Toggle Doubles → post/accept → 2v2 vs snapshot; `pvp_doubles_rating` moves **independently** of singles; format tag shown on cards; saved Doubles loadout posts/battles with real party untouched.
+
+**Gauntlet:**
+- [ ] Back-to-back snapshot battles; survival streak → `pvp_gauntlet` (best only); rating **not** affected.
+
+**Async FFA Royale (👑):**
+- [ ] With ≥2 other posted teams → 3–4 sides; everyone can target anyone; last side standing wins; `pvp_ffa_rating` moves vs avg opponent; **switch** works; **no bag**; residual burn/poison ticks at end of turn.
+
+**Live 1v1:**
+- [ ] Create room (try **passcode** + **public** toggle) → public room appears in the list; Acct B joins (passcode enforced) → battle starts.
+- [ ] Damage uses real `calcDamage` (log shows crit / super-effective / resisted); on a faint the bench sends out; on KO both players' `pvp_rating` update **zero-sum** once each.
+- [ ] Acct C **spectates** a public in-progress room read-only (no controls).
+
+**Live 2v2:**
+- [ ] 4 clients join → alliances A/B (join order); each controls **1 active**; **can't target allies**; alliance is out when both its seats fall; battle ends at ≤1 alliance; `pvp_doubles_rating` updates per client.
+
+**Live FFA:**
+- [ ] 2–4 clients; host **Start** enabled once ≥2 in; everyone targets anyone; last seat standing; `pvp_ffa_rating` updates.
+
+**Turn timer & disconnect (every mode):**
+- [ ] Idle 60s → countdown shows, turns red ≤10 s, **auto-picks** a move (live auto-submits).
+- [ ] Close a live client mid-turn → host **force-resolves ~65 s** later with AI-fill (no permanent stall).
+
+**Bag-disable & integrity:**
+- [ ] Bag is blocked in every PvP mode (greyed button / "🚫 disabled" notice); items **not** consumed; catch disabled.
+- [ ] Forfeit/leave sets the room `abandoned`; result rating applied **exactly once** (no double-count on repeated `done` events).
+
+**Known risk areas to scrutinize first** (most likely to bite): multi-seat `seats[]`/`moves` sync & alliance win-check; zero-sum rating mirroring (async mailbox + live per-client); RTDB rules blocking cross-user mailbox writes; the host disconnect timer firing on the right turn key.
+
+**TODO #13 PvP: all phases A–D + timer/parity/polish implemented & merged (PR #60). Status = code-complete, ⏳ UNVERIFIED — run the Firebase checklist above to validate, then mark ✅.**
 
 ---
 

@@ -2568,9 +2568,18 @@ button, a, [role="button"] {
   padding:0.5rem; background:var(--bg-panel); text-align:center;
 }
 .ffa-side.player { border-color:var(--accent-blue); box-shadow:0 0 0 1px var(--accent-blue) inset; }
-.ffa-side.defeated { opacity:0.45; }
+.ffa-side.defeated { opacity:0.45; filter:grayscale(0.8); transition:opacity 0.4s, filter 0.4s; }
 .ffa-side-name { font-size:0.75rem; color:var(--text-secondary); }
-.ffa-side-mon { font-size:0.95rem; font-weight:bold; margin:0.2rem 0; }
+.ffa-side-mon { font-size:1.05rem; font-weight:bold; margin:0.25rem 0; line-height:1.3; }
+/* hit feedback: shake + red flash on the struck side card */
+.ffa-side.hit { animation:ffaHit 0.4s ease-in-out; }
+@keyframes ffaHit {
+  0%,100% { transform:translateX(0); }
+  20% { transform:translateX(-5px); background:rgba(248,81,73,0.28); }
+  40% { transform:translateX(5px); }
+  60% { transform:translateX(-3px); background:rgba(248,81,73,0.18); }
+  80% { transform:translateX(3px); }
+}
 .ffa-side-meta { font-size:0.72rem; color:var(--text-secondary); }
 .ffa-hpbar { height:7px; border-radius:4px; background:var(--border); overflow:hidden; margin:0.25rem 0; }
 .ffa-hpfill { height:100%; transition:width 0.25s; }

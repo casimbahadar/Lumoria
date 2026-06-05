@@ -4310,7 +4310,15 @@ function startFfaBattle(aiSides, meta) {
   ffaLog(`👑 FFA Royale — ${sides.length} teams enter, last standing wins!`);
   sides.forEach(s => ffaLog(`${s.isPlayer ? "You bring" : escapeHtml(s.name) + " brings"} ${ffaActive(s)?.name || "?"}.`));
   showScreen("screen-ffa");
+  if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
   ffaBeginPlayerTurn();
+}
+
+// Stop FFA battle music and drift back to the overworld theme.
+function ffaStopMusic() {
+  if (typeof MusicEngine === "undefined") return;
+  MusicEngine.stop();
+  setTimeout(() => { if (typeof MusicEngine !== "undefined" && !MusicEngine.isMuted()) MusicEngine.playOverworld(); }, 1200);
 }
 
 function ffaBeginPlayerTurn() {
@@ -4389,6 +4397,7 @@ function ffaApplyMove(attacker, defender, moveId, atkSide, defSide) {
     const dmg = (typeof res === "object") ? res.damage : res;
     const eff = (typeof res === "object") ? res.effectiveness : 1;
     defender.currentHP = Math.max(0, defender.currentHP - dmg);
+    if (dmg > 0) defSide._flash = true;   // trigger a hit animation on next render
     ffaLog(`${who} ${attacker.name} used ${move.name} on ${defSide.isPlayer ? "your" : escapeHtml(defSide.name) + "'s"} ${defender.name} — ${dmg} dmg.`);
     if (res && res.crit) ffaLog("&nbsp;&nbsp;💥 Critical hit!");
     if (eff > 1) ffaLog("&nbsp;&nbsp;It's super effective!");
@@ -4473,6 +4482,7 @@ async function ffaResolveTurn(playerMoveId, targetSideIdx) {
 function ffaFinish(won) {
   ffaState.over = true;
   clearTurnTimer();
+  ffaStopMusic();
   ffaLog(won ? "🏆 You're the last team standing — Royale won!" : "💀 You've been eliminated from the Royale.");
   ffaRender();
   const opps = ffaState.sides.filter(s => !s.isPlayer);
@@ -4489,6 +4499,7 @@ function ffaFinish(won) {
 function ffaForfeit() {
   if (!ffaState || ffaState.over) { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); return; }
   if (!confirm("Forfeit the Royale? It counts as a loss.")) return;
+  ffaStopMusic();
   const opps = ffaState.sides.filter(s => !s.isPlayer);
   const avg = opps.length ? Math.round(opps.reduce((a, s) => a + (s.rating || 1000), 0) / opps.length) : 1000;
   ffaState.over = true;
@@ -4506,7 +4517,8 @@ function ffaRender() {
       const alive = s.team.filter(t => t && t.currentHP > 0 && !t.fainted).length;
       const pct = m ? Math.max(0, Math.min(100, (m.currentHP / m.maxHP) * 100)) : 0;
       const hpClass = pct > 50 ? "high" : pct > 20 ? "mid" : "low";
-      return `<div class="ffa-side ${s.isPlayer ? "player" : ""} ${s.defeated ? "defeated" : ""}">
+      const flash = s._flash ? "hit" : ""; s._flash = false;
+      return `<div class="ffa-side ${s.isPlayer ? "player" : ""} ${s.defeated ? "defeated" : ""} ${flash}">
         <div class="ffa-side-name">${escapeHtml(s.name)}${s.isPlayer ? " (You)" : ""}</div>
         <div class="ffa-side-mon">${s.defeated ? "💀 out" : `${m?.emoji || "❓"} ${escapeHtml(m?.name || "?")}`}</div>
         ${s.defeated ? "" : `<div class="ffa-hpbar"><div class="ffa-hpfill ${hpClass}" style="width:${pct}%"></div></div>`}

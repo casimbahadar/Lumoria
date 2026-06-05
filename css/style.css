@@ -2712,3 +2712,20 @@ button, a, [role="button"] {
   border-color:rgba(255,200,80,1) !important;
   box-shadow:0 0 14px rgba(255,200,80,0.45);
 }
+
+/* ---- Variant distortion content (team detail / tracker) — responsive ---- */
+/* Fluid sizing via clamp() so it reads well phone -> tablet -> desktop;
+   learnset scrolls on small screens instead of overflowing. */
+.variant-content { border-left:3px solid #c9a0dc; padding-left:.6rem; }
+.variant-desc { font-style:italic; color:#c9a0dc; font-size:clamp(.8rem,2.6vw,.9rem); margin:0 0 .4rem; }
+.variant-lore { font-size:clamp(.78rem,2.5vw,.88rem); line-height:1.55; margin:0 0 .4rem; }
+.variant-behaviour { font-size:clamp(.72rem,2.3vw,.82rem); color:var(--text-muted); margin:0; }
+.variant-learnset-wrap {
+  max-height:220px; overflow:auto; -webkit-overflow-scrolling:touch;
+  border:1px solid var(--border); border-radius:8px; margin-top:.3rem;
+}
+.variant-learnset { width:100%; border-collapse:collapse; font-size:clamp(.7rem,2.3vw,.8rem); }
+.variant-learnset td { padding:3px 8px; border-bottom:1px solid var(--border); }
+.variant-learnset td:first-child { color:var(--text-muted); white-space:nowrap; width:48px; }
+.variant-learnset td:last-child { text-align:right; white-space:nowrap; }
+@media (min-width:768px) { .variant-learnset-wrap { max-height:320px; } }

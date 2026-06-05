@@ -198,7 +198,7 @@ const MOVES_DATA = {
   wingbeat:  { name:"Wingbeat",      type:"Wind",     power:60,  acc:100, pp:35, cat:"physical", effect:null,        ec:0,   desc:"Strikes with powerful wings." },
   jetstream:    { name:"Jetstream",     type:"Wind",     power:80,  acc:95,  pp:15, cat:"special",  effect:"spdefdown",   ec:30,  desc:"Fires a focused stream of high-speed air that batters the foe's footing." },
   skyfall:      { name:"Skyfall",       type:"Wind",     power:90,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:30,  desc:"Ascends to great height and plummets with crushing momentum." },
-  cyclone_blade:{ name:"Cyclone Blade", type:"Wind",     power:85,  acc:95,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Spins to form a blade of compressed air and slashes the foe." },
+  cyclone_blade:{ name:"Cyclone Blade", type:"Wind",     power:85,  acc:95,  pp:10, cat:"physical", effect:"crit",      ec:100, desc:"Spins to form a razor blade of compressed air and slashes the foe; high critical-hit ratio." },
   mistveil:     { name:"Mistveil",      type:"Wind",     power:0,   acc:100, pp:20, cat:"status",   effect:"spedown",   ec:100, desc:"Releases a mist that slows everything caught within it." },
   tailwind_strike:{ name:"Tailwind Strike",type:"Wind",  power:55,  acc:100, pp:20, cat:"physical", effect:"priority",  ec:0,   desc:"Rides a tailwind to smash into the foe before they can react." },
   zephyr_dance: { name:"Zephyr Dance",  type:"Wind",     power:0,   acc:100, pp:15, cat:"status",   effect:"dragondance",ec:100,desc:"A graceful aerial dance that raises Attack and Speed on the wind currents." },
@@ -245,7 +245,7 @@ const MOVES_DATA = {
   tungsten_ram: { name:"Tungsten Ram",  type:"Metal",    power:110, acc:85,  pp:5,  cat:"physical", effect:"recharge",  ec:100, desc:"Charges with the density of tungsten in a devastating ram that needs recovery." },
   magnetize:    { name:"Magnetize",     type:"Metal",    power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Polarizes the user's body magnetically to repel incoming metal-based attacks." },
   shrapnel_burst:{ name:"Shrapnel Burst",type:"Metal",   power:75,  acc:90,  pp:15, cat:"physical", effect:"flinch",    ec:20,  desc:"Explodes fragments of sharp metal in all directions to damage the foe." },
-  alloy_edge:   { name:"Alloy Edge",    type:"Metal",    power:65,  acc:100, pp:20, cat:"physical", effect:"crit",      ec:100, desc:"Slices with a blade of impossibly sharp layered alloy, always finding weak spots." },
+  alloy_edge:   { name:"Alloy Edge",    type:"Metal",    power:65,  acc:100, pp:20, cat:"physical", effect:"crit",      ec:100, desc:"Slices with a blade of impossibly sharp layered alloy; high critical-hit ratio." },
   ironskin:     { name:"Ironskin",      type:"Metal",    power:0,   acc:100, pp:15, cat:"status",   effect:"atkup",     ec:100, desc:"Hardens the surface of the body to the density of pure iron." },
   // --- Poison ---
   septic_prick: { name:"Septic Prick",  type:"Poison",   power:15,  acc:100, pp:35, cat:"physical", effect:"poison",    ec:30,  desc:"Stings with a poisonous stinger." },
@@ -331,7 +331,7 @@ const MOVES_DATA = {
 
   // --- NEW: Wind (5 more → 15) ---
   downdraft:    { name:"Downdraft",     type:"Wind",     power:65,  acc:100, pp:20, cat:"special",  effect:"spedown",   ec:30,  desc:"Forces a column of heavy air down on the foe, crushing their momentum." },
-  thermal_dive: { name:"Thermal Dive",  type:"Wind",     power:90,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Rides a thermal updraft to extreme height, then dives with devastating force." },
+  thermal_dive: { name:"Thermal Dive",  type:"Wind",     power:90,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Rides a thermal updraft to extreme height, then dives with devastating force that may make the foe flinch." },
   squall_slash: { name:"Squall Slash",  type:"Wind",     power:80,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes with wind-hardened feathers during a sudden squall. High crit rate." },
   vortex_trap:  { name:"Vortex Trap",   type:"Wind",     power:0,   acc:85,  pp:15, cat:"status",   effect:"confuse",   ec:100, desc:"Traps the foe in a disorienting vortex that scrambles their senses." },
   gale_cannon:  { name:"Gale Cannon",   type:"Wind",     power:110, acc:80,  pp:5,  cat:"special",  effect:"flinch",    ec:30,  desc:"Compresses air into a devastating lance of wind and fires it at the foe." },
@@ -357,7 +357,7 @@ const MOVES_DATA = {
   fae_requiem:  { name:"Fae Requiem",   type:"Fairy",    power:110, acc:80,  pp:5,  cat:"special",  effect:"confuse",   ec:30,  desc:"Sings an ancient fairy requiem that overwhelms the foe's mind." },
 
   // --- NEW: Metal (5 more → 15) ---
-  rivet_barrage:{ name:"Rivet Barrage", type:"Metal",    power:70,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Fires a hail of white-hot rivets from the body at the foe." },
+  rivet_barrage:{ name:"Rivet Barrage", type:"Metal",    power:70,  acc:90,  pp:15, cat:"physical", effect:"burn",      ec:20,  desc:"Fires a hail of white-hot rivets from the body that may burn the foe." },
   smelt_crush:  { name:"Smelt Crush",   type:"Metal",    power:95,  acc:90,  pp:10, cat:"physical", effect:"burn",      ec:20,  desc:"Crushes the foe with superheated molten metal arms." },
   temper_edge:  { name:"Temper Edge",   type:"Metal",    power:80,  acc:100, pp:10, cat:"physical", effect:"atkup",     ec:20,  desc:"Strikes with a perfectly tempered blade that hones the user's edge." },
   slag_shield:  { name:"Slag Shield",   type:"Metal",    power:0,   acc:100, pp:15, cat:"status",   effect:"spdefup",     ec:100, desc:"Coats the body in cooling slag that hardens into impenetrable armor." },
@@ -471,18 +471,18 @@ const MOVES_DATA = {
   borealis_ray:   { name:"Borealis Ray",  type:"Ice",      power:65,  acc:100, pp:20, cat:"special",  effect:"atkdown",   ec:10,  desc:"Fires a rainbow-colored beam that may lower Attack." },
   flash_freeze:    { name:"Flash Freeze",  type:"Ice",      power:70,  acc:100, pp:20, cat:"special",  effect:"freeze",    ec:10,  desc:"Flash-freezes the moisture around the foe." },
   hail_storm:    { name:"Hail Storm",    type:"Ice",      power:80,  acc:90,  pp:10, cat:"special",  effect:"flinch",    ec:30,  desc:"Summons a brutal hailstorm that batters the foe." },
-  icicle_volley:  { name:"Icicle Volley", type:"Ice",      power:75,  acc:95,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Drives a sharp icicle spear into the foe." },
+  icicle_volley:  { name:"Icicle Volley", type:"Ice",      power:75,  acc:95,  pp:15, cat:"physical", effect:"defdown",   ec:20,  desc:"Drives a sharp icicle spear into the foe, piercing armor and may lower Defense." },
   subzero_slash: { name:"Subzero Slash", type:"Ice",      power:90,  acc:90,  pp:10, cat:"physical", effect:"freeze",    ec:15,  desc:"Slashes with claws cooled to absolute zero." },
   crystal_veil:  { name:"Crystal Veil",  type:"Ice",      power:0,   acc:100, pp:10, cat:"status",   effect:"calmup",    ec:100, desc:"Coats the user in crystal ice that sharpens focus and resilience." },
 
   // Dark (+7 → 22)
   cheap_shot:  { name:"Cheap Shot",  type:"Dark",     power:70,  acc:100, pp:5,  cat:"physical", effect:"priority",  ec:0,   desc:"Strikes first with a sneaky sucker punch." },
-  backstab:  { name:"Backstab",  type:"Dark",     power:60,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"Approaches the foe disarmingly, then strikes without warning." },
+  backstab:  { name:"Backstab",  type:"Dark",     power:60,  acc:100, pp:20, cat:"physical", effect:"crit",      ec:100, desc:"Approaches the foe disarmingly, then strikes without warning at a vital point; high critical-hit ratio." },
   shade_dash:  { name:"Shade Dash",  type:"Dark",     power:40,  acc:100, pp:30, cat:"physical", effect:"priority",  ec:0,   desc:"Extends shadow to strike the foe before they react." },
   malice_beam:   { name:"Malice Beam",   type:"Dark",     power:85,  acc:95,  pp:10, cat:"special",  effect:"atkdown", ec:30,  desc:"Fires a beam of concentrated malice that erodes mental barriers." },
   dark_shroud:   { name:"Dark Shroud",   type:"Dark",     power:0,   acc:100, pp:15, cat:"status",   effect:"speup",     ec:100, desc:"Cloaks the user in darkness, boosting evasion and speed." },
   phantom_claw:  { name:"Phantom Claw",  type:"Dark",     power:75,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes with ghostly claws that find vital points. High crit rate." },
-  savage_blow:   { name:"Savage Blow",   type:"Dark",     power:95,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Delivers a single devastating blow with wicked intent." },
+  savage_blow:   { name:"Savage Blow",   type:"Dark",     power:95,  acc:90,  pp:10, cat:"physical", effect:"bleed",     ec:20,  desc:"Delivers a single devastating, savage blow that may leave the foe bleeding." },
 
   // Fairy (+7 → 22)
   vampiric_kiss: { name:"Vampiric Kiss",  type:"Fairy",   power:50,  acc:100, pp:10, cat:"special",  effect:"drain",     ec:100, desc:"Steals the foe's energy with an enchanted kiss." },
@@ -498,7 +498,7 @@ const MOVES_DATA = {
   flywheel:     { name:"Flywheel",     type:"Metal",    power:85,  acc:100, pp:5,  cat:"physical", effect:null,        ec:0,   desc:"Spins and slams into the foe with metallic force." },
   heavy_slam:    { name:"Heavy Slam",    type:"Metal",    power:100, acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Slams into the foe with a heavy metal body." },
   mirror_plating:   { name:"Mirror Plating",   type:"Metal",    power:0,   acc:100, pp:15, cat:"status",   effect:"spdefup",   ec:100, desc:"Polishes the body to a mirror shine, raising special defense." },
-  counterforge:   { name:"Counterforge",   type:"Metal",    power:80,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Fires shrapnel of stored metallic energy at the foe." },
+  counterforge:   { name:"Counterforge",   type:"Metal",    power:80,  acc:100, pp:10, cat:"special",  effect:"defdown",   ec:20,  desc:"Fires shrapnel of stored metallic energy that shreds armor and may lower Defense." },
   iron_press:    { name:"Iron Press",    type:"Metal",    power:85,  acc:95,  pp:10, cat:"physical", effect:"defdown",   ec:30,  desc:"Presses down on the foe with crushing metallic weight." },
   chrome_slash:  { name:"Chrome Slash",  type:"Metal",    power:70,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes with chrome-plated claws. High crit rate." },
 
@@ -978,8 +978,8 @@ const MOVES_DATA = {
 
   // --- Mental (regular, batch3) ---
   psy_jab:                     { name:"Psy Jab", type:"Mental", power:40, acc:100, pp:30, cat:"physical", effect:null, ec:0, target:"single", desc:"Quick psy-jab." },
-  mind_strike:                 { name:"Mind Strike", type:"Mental", power:65, acc:100, pp:20, cat:"physical", effect:null, ec:0, target:"single", desc:"Focused mind-strike." },
-  telekinetic_throw:           { name:"Telekinetic Throw", type:"Mental", power:75, acc:95, pp:15, cat:"physical", effect:null, ec:0, target:"single", desc:"Telekinetic throw." },
+  mind_strike:                 { name:"Mind Strike", type:"Mental", power:65, acc:100, pp:20, cat:"physical", effect:"spatkdown", ec:20, target:"single", desc:"A focused psychic strike that dulls the foe's mind and may lower Sp.Atk." },
+  telekinetic_throw:           { name:"Telekinetic Throw", type:"Mental", power:75, acc:95, pp:15, cat:"physical", effect:"flinch", ec:20, target:"single", desc:"Hurls the foe with telekinetic force, staggering it into a possible flinch." },
   brain_blast:               { name:"Brain Blast", type:"Mental", power:85, acc:90, pp:10, cat:"physical", effect:"confuse", ec:30, target:"single", desc:"Brain-rattling blast." },
   cerebral_punch:              { name:"Cerebral Punch", type:"Mental", power:95, acc:90, pp:10, cat:"physical", effect:"spdefdown", ec:30, target:"single", alwaysCrit:true, desc:"Mind-piercing punch." },
   mindbreaker:            { name:"Mindbreaker", type:"Mental", dualType:["Mental","Sonic"], power:110, acc:85, pp:5, cat:"physical", effect:null, ec:0, target:"wide", desc:"Sonic-laced mind-breaker. Dual Mental+Sonic." },

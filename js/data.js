@@ -1488,6 +1488,52 @@ const MOVES_DATA = {
   dream_devourer:                  { name:"Dream Devourer", type:"Dream", power:130, acc:85, pp:5, cat:"special", effect:"drain", ec:100, target:"single", rarity:"exclusive", desc:"Drains the target." },
   nightmare_bringer:               { name:"Nightmare Bringer", type:"Dream", power:0, acc:100, pp:5, cat:"status", effect:"sleep_and_atkdown_target", ec:100, target:"wide", rarity:"exclusive", desc:"Sleeps all foes AND lowers Atk." },
   apocalyptic_dream:               { name:"Apocalyptic Dream", type:"Dream", power:150, acc:80, pp:5, cat:"special", effect:"recharge_and_bleed_target", ec:100, target:"wide", rarity:"exclusive", desc:"Wide bleed; needs rest." },
+
+  // --- Phase 2 STAB expansion: Spectral (+15) ---
+  wraith_claw:                     { name:"Wraith Claw", type:"Spectral", power:40, acc:100, pp:15, cat:"physical", effect:null, ec:0, target:"single", hits:2, desc:"Two phantom-claw strikes in rapid succession." },
+  revenant_strike:                 { name:"Revenant Strike", type:"Spectral", power:60, acc:100, pp:15, cat:"physical", effect:"priority", ec:0, target:"single", desc:"Vengeful return-blow that strikes first." },
+  poltergeist_smash:               { name:"Poltergeist Smash", type:"Spectral", power:100, acc:85, pp:10, cat:"physical", effect:"spedown", ec:30, target:"wide", desc:"Chaotic invisible-hand wave that staggers all foes." },
+  reaper_scythe:                   { name:"Reaper's Scythe", type:"Spectral", power:110, acc:85, pp:5, cat:"physical", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Death-scythe arc that always finds a vital spot." },
+  banshee_lash:                    { name:"Banshee Lash", type:"Spectral", dualType:["Spectral","Sonic"], power:85, acc:95, pp:10, cat:"physical", effect:"spedown", ec:30, target:"single", desc:"Screech-whip strike. Dual Spectral+Sonic." },
+  spectral_ray:                    { name:"Spectral Ray", type:"Spectral", power:75, acc:100, pp:15, cat:"special", effect:null, ec:0, target:"single", breakerVs:"Aether", desc:"Beam of spectral energy. Treats Aether as 2x weak." },
+  ghastly_wail:                    { name:"Ghastly Wail", type:"Spectral", power:80, acc:95, pp:15, cat:"special", effect:"defdown", ec:30, target:"wide", desc:"Ghoulish keening that softens foes' guard." },
+  haunting_chorus:                 { name:"Haunting Chorus", type:"Spectral", power:45, acc:90, pp:10, cat:"special", effect:null, ec:0, target:"wide", hits:2, desc:"Layered phantom-voices roll across all foes twice." },
+  soul_chill:                      { name:"Soul Chill", type:"Spectral", power:75, acc:100, pp:15, cat:"special", effect:"spedown", ec:30, target:"single", desc:"Cold spirit-touch slows the foe's nerves." },
+  eternal_haunt:                   { name:"Eternal Haunt", type:"Spectral", power:100, acc:85, pp:10, cat:"special", effect:"hexed", ec:30, target:"single", desc:"Lingering apparition that may inflict Hexed." },
+  necrotic_pulse:                  { name:"Necrotic Pulse", type:"Spectral", power:85, acc:100, pp:10, cat:"special", effect:"drain", ec:50, target:"single", desc:"Decay-pulse drains some HP from the target." },
+  spectral_veil:                   { name:"Spectral Veil", type:"Spectral", power:0, acc:100, pp:15, cat:"status", effect:"defup", ec:100, target:"self", desc:"Cloaks the user in spectral mist to raise Defense." },
+  wraith_form:                     { name:"Wraith Form", type:"Spectral", power:0, acc:100, pp:15, cat:"status", effect:"focus", ec:100, target:"self", desc:"Phases into wraith-form for greatly increased critical-hit ratio." },
+  soul_link:                       { name:"Soul Link", type:"Spectral", power:0, acc:100, pp:10, cat:"status", effect:"atkup_and_spaup_self", ec:100, target:"self", desc:"Binds soul to body — raises both Atk AND SpA." },
+  ghastly_focus:                   { name:"Ghastly Focus", type:"Spectral", power:0, acc:100, pp:10, cat:"status", effect:"spaup", ec:100, target:"self", desc:"Wraith-concentration sharpens Special Attack." },
+
+  // --- Phase 2 STAB expansion: Mineral (+15) ---
+  granite_slam:                    { name:"Granite Slam", type:"Mineral", power:90, acc:90, pp:10, cat:"physical", effect:"defdown", ec:30, target:"single", desc:"Heavy granite-impact crushes defenses." },
+  obsidian_edge:                   { name:"Obsidian Edge", type:"Mineral", power:80, acc:100, pp:5, cat:"physical", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Razor-sharp obsidian cleave that always lands a critical hit." },
+  ruby_strike:                     { name:"Ruby Strike", type:"Mineral", dualType:["Mineral","Fire"], power:90, acc:95, pp:15, cat:"physical", effect:"burn", ec:20, target:"single", desc:"Heat-baked ruby-edge strike. Dual Mineral+Fire." },
+  sapphire_lance:                  { name:"Sapphire Lance", type:"Mineral", dualType:["Mineral","Ice"], power:90, acc:95, pp:15, cat:"physical", effect:"freeze", ec:10, target:"single", desc:"Cold sapphire-spike thrust. Dual Mineral+Ice." },
+  emerald_blade:                   { name:"Emerald Blade", type:"Mineral", dualType:["Mineral","Nature"], power:95, acc:90, pp:10, cat:"physical", effect:"poison", ec:20, target:"single", desc:"Razor emerald-edge laced with sap-poison. Dual Mineral+Nature." },
+  amethyst_pulse:                  { name:"Amethyst Pulse", type:"Mineral", power:35, acc:100, pp:20, cat:"special", effect:null, ec:0, target:"single", hits:2, desc:"Two resonant amethyst-shocks from purple crystal facets." },
+  topaz_beam:                      { name:"Topaz Beam", type:"Mineral", power:90, acc:90, pp:10, cat:"special", effect:null, ec:0, target:"single", breakerVs:"Metal", desc:"Concentrated topaz-light cuts through metal armor." },
+  copper_shock:                    { name:"Copper Shock", type:"Mineral", dualType:["Mineral","Electric"], power:85, acc:100, pp:15, cat:"special", effect:"paralyze", ec:30, target:"single", desc:"Conductive copper-arc that may paralyze. Dual Mineral+Electric." },
+  mineral_dust:                    { name:"Mineral Dust", type:"Mineral", power:70, acc:100, pp:20, cat:"special", effect:"accdown", ec:50, target:"wide", desc:"Ground-mineral spray that blurs vision." },
+  marble_resonance:                { name:"Marble Resonance", type:"Mineral", power:85, acc:90, pp:10, cat:"special", effect:"spdefdown", ec:30, target:"wide", desc:"Marble-pillar resonance erodes Special Defense." },
+  obsidian_burst:                  { name:"Obsidian Burst", type:"Mineral", power:95, acc:90, pp:10, cat:"special", effect:"brittle", ec:30, target:"single", desc:"Volcanic obsidian-shrapnel that may lock Brittle." },
+  petrified_form:                  { name:"Petrified Form", type:"Mineral", power:0, acc:100, pp:10, cat:"status", effect:"defup2", ec:100, target:"self", desc:"Hardens body into stone for +2 Defense." },
+  crystalline_focus:               { name:"Crystalline Focus", type:"Mineral", power:0, acc:100, pp:10, cat:"status", effect:"spaup_and_spdefup_self", ec:100, target:"self", desc:"Refracts intent through crystal facets — raises SpA AND SpDef." },
+  ore_polish:                      { name:"Ore Polish", type:"Mineral", power:0, acc:100, pp:15, cat:"status", effect:"accup", ec:100, target:"self", desc:"Polishes mineral surfaces to a mirror finish, raising Accuracy." },
+  gem_resonance:                   { name:"Gem Resonance", type:"Mineral", power:0, acc:100, pp:15, cat:"status", effect:"spdefup", ec:100, target:"self", desc:"Resonant gemstone-hum hardens Special Defense." },
+
+  // --- Phase 2 STAB expansion: Sonic (+10) ---
+  concussive_strike:               { name:"Concussive Strike", type:"Sonic", power:80, acc:100, pp:15, cat:"physical", effect:"flinch", ec:30, target:"single", desc:"Stunning shock-impact that may cause flinch." },
+  amplified_jab:                   { name:"Amplified Jab", type:"Sonic", power:50, acc:100, pp:20, cat:"physical", effect:"priority", ec:0, target:"single", desc:"Sound-amplified jab that strikes first." },
+  resonant_smash:                  { name:"Resonant Smash", type:"Sonic", power:45, acc:90, pp:10, cat:"physical", effect:null, ec:0, target:"wide", hits:2, desc:"Two percussive smashes that roll across all foes." },
+  frequency_blast:                 { name:"Frequency Blast", type:"Sonic", power:80, acc:100, pp:15, cat:"special", effect:null, ec:0, target:"single", breakerVs:"Mental", desc:"Focused frequency-blast that pierces psychic shielding." },
+  harmonic_wave:                   { name:"Harmonic Wave", type:"Sonic", dualType:["Sonic","Mental"], power:85, acc:95, pp:15, cat:"special", effect:null, ec:0, target:"wide", desc:"Resonant harmonic-wave. Dual Sonic+Mental." },
+  dissonant_chord:                 { name:"Dissonant Chord", type:"Sonic", power:85, acc:95, pp:10, cat:"special", effect:"confuse", ec:30, target:"single", desc:"Jarring chord-clash that may confuse." },
+  melody_cascade:                  { name:"Melody Cascade", type:"Sonic", power:70, acc:100, pp:15, cat:"special", effect:"spaup", ec:30, target:"single", desc:"Layered melody-cascade that raises Special Attack." },
+  acoustic_shock:                  { name:"Acoustic Shock", type:"Sonic", power:90, acc:90, pp:10, cat:"special", effect:"deafen", ec:30, target:"single", desc:"Pressure-shock pulse that may Deafen." },
+  sonic_calm:                      { name:"Sonic Calm", type:"Sonic", power:0, acc:100, pp:10, cat:"status", effect:"heal50", ec:100, target:"self", desc:"Soothing tonal-hum restores half HP." },
+  resonance_field:                 { name:"Resonance Field", type:"Sonic", power:0, acc:100, pp:15, cat:"status", effect:"spdefup", ec:100, target:"self", desc:"Builds a sympathetic-resonance field that raises Special Defense." },
 };
 
 

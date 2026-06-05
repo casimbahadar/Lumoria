@@ -48,7 +48,7 @@ function createPartySlot(monsterId, level) {
   // Build initial moveset
   const known = def.learnset.filter(e => e[0] <= level).map(e => e[1]);
   const moves = known.slice(-4);
-  if (moves.length === 0) moves.push("tackle");
+  if (moves.length === 0) moves.push("collide");
   return {
     monsterId, nickname: null, level, xp: xpForLevel(level),
     maxHP, currentHP: maxHP, moves, statuses: [], heldItem: null,
@@ -1898,7 +1898,7 @@ async function enemyTurn() {
   if (battleContext.battleEnded) return;
   const moveSlot = aiChooseMove(enemyActiveMon, playerActiveMon);
   const move = MOVES_DATA[moveSlot.id];
-  if (moveSlot.id !== "tackle") moveSlot.pp = Math.max(0, moveSlot.pp - 1);
+  if (moveSlot.id !== "collide") moveSlot.pp = Math.max(0, moveSlot.pp - 1);
 
   await doAttack(enemyActiveMon, playerActiveMon, moveSlot.id, false);
 
@@ -2548,7 +2548,7 @@ async function executeMultiTurn() {
     const target = alivePlayers[Math.floor(Math.random() * alivePlayers.length)];
     const moveSlot = aiChooseMove(e, target.m);
     const move = MOVES_DATA[moveSlot.id];
-    if (moveSlot.id !== "tackle") moveSlot.pp = Math.max(0, moveSlot.pp - 1);
+    if (moveSlot.id !== "collide") moveSlot.pp = Math.max(0, moveSlot.pp - 1);
     actions.push({
       mon: e, moveId: moveSlot.id, targetIdx: target.idx, isPlayer: false,
       monIdx: i,

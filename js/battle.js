@@ -993,7 +993,7 @@ function buildWildMon(monsterId, level, forceShiny, forceVariant) {
   const nature = getRandomNature();
   const ivs = generateIVs();
   const knownMoves = def.learnset.filter(e => e[0] <= level).map(e => e[1]).slice(-4);
-  if (knownMoves.length === 0) knownMoves.push("tackle");
+  if (knownMoves.length === 0) knownMoves.push("collide");
 
   let shinyRate = 1/2048;
   if (typeof getTimeShinyMult  === "function") shinyRate *= getTimeShinyMult();
@@ -1388,7 +1388,7 @@ function canMove(mon) {
 
 function aiChooseMove(ai, target) {
   const usableMoves = ai.moves.filter(m => m.pp > 0);
-  if (!usableMoves.length) return { id: "tackle", pp: 1, maxPP: 35 };
+  if (!usableMoves.length) return { id: "collide", pp: 1, maxPP: 35 };
 
   return usableMoves.reduce((best, m) => {
     const move = MOVES_DATA[m.id];

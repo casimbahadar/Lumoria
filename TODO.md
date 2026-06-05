@@ -28,7 +28,8 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 | 📉 Standalone count reduction | ⏳ not started | — |
 | 🏷️ Luminex renaming + final lore | ⏳ partial/paused | PRs #34–35; resumes after UNIFIED |
 | 🔮 Mythical archetype flags | ⏳ not started | end-of-task |
-| 🎯 Moveset utilization audit | ⏳ not started | — |
+| 🎯 Moveset utilization audit | ✅ done | PR #68 — Phase 1 orphan-clearing + key rename + Phase 2 STAB-completeness |
+| 🌑 Forgotten Lumori dedicated audit | ⏳ not started | before stat-spread review |
 | 📊 Final stat-spread review | ⏳ not started | RUN LAST |
 | 🧬 Abilities feature | ⏳ not started | after stat review |
 | 🤝 Inter-Lumori interactions (dedicated pass) | ⏳ not started | after abilities (bridge sweep done, PR #48) |
@@ -940,13 +941,49 @@ Per user instruction: leave these for late discussion before any consolidation.
 - [x] **#11** Helioveth → **Heliocoon** (Fire/Wind; chrysalis lore, defensive stats, 🥚 emoji)
 - [x] **#12** Inferarch (kept name, retyped Fire/Dragon → Fire/Wind, butterfly lore + 🦋 emoji + 5 dragon moves swapped for Wind/Bug)
 
-# 🎯 Moveset utilization audit — RUN BEFORE stat spread review  `[⏳ NOT STARTED]`
+# 🎯 Moveset utilization audit — RUN BEFORE stat spread review  `[🚧 IN PROGRESS — PR #68, branch claude/move-utilization-audit-2kkDV]`
 
 For each of the 26 types, calculate the ratio of moves actually assigned to at least one Lumori vs total move count of that type. Identify **orphan moves** (0 current learners — many such moves exist; Fire alone has 13+ orphans like Lava Plume, Cinder Lance, Smolder Trap, Eruption, Will-O-Wisp, etc.). For each orphan: decide whether to (a) **assign** to specific Lumori via learnset additions, (b) **promote** to `rarity:"exclusive"` and earmark for a future legendary, or (c) **remove** from MOVES_DATA as dead code. Also identify **near-orphan moves** (1-2 learners) and decide if those moves are intentionally signature/exclusive (mark them) or should have wider distribution. Goal: every move in MOVES_DATA serves a clear purpose, and no Lumori is missing access to type-appropriate moves it should reasonably have.
 
-# 📊 Final-pass stat spread review — RUN LAST (after all renaming complete)  `[⏳ NOT STARTED — RUN LAST]`
+## Discovery + batching
 
-After every coherence fix, type adjustment, and rename is committed, do a final pass over **every Lumori's base stat spread** across the whole dex. This is the last item in the entire workflow.
+Discovery script: `scripts/move_utilization.py` — read-only stats tool, parses MOVES_DATA + every learnset + trainer-hardcoded moves:[]. Baseline report committed at `docs/move-utilization-report.md`.
+
+**Baseline (2026-06-03):** 1093 moves / 26 types / **641 orphans (59%)** / 172 near-orphans / 41% used.
+
+**Sharing rule (locked Batch 2):** any move (orphan or used) can be added to multiple Lumori; goal is each Lumori has a healthy STAB pool for its type(s).
+
+**Grouped batch plan (8 batches):**
+- [x] **Batch 1 — Stellar.** 16 assigned across 4 Stellar Lumori (4 each) + 17 newly `rarity:"exclusive"` (20 total reserved). 33 Chrono deferred to end of audit.
+- [x] **Batch 2 — Aether + Vapor.** Aether: 19 generic orphans distributed across 4 Forgotten Aether Lumori (32 inserts, sharing); 3 stay exclusive. Vapor: 31 generic orphans distributed across 11 Vapor Lumori (53 orphan inserts + 5 used-pool top-ups on Umbrajest/Shadowveil = 58 inserts); 3 stay exclusive. Utilization Aether 21%→89%, Vapor 24%→93%.
+- [x] **Batch 3 — Toxin, Crystal, Mineral, Primal.** 72 generic orphans cleared via ~80 learnset inserts across 47 Lumori. Toxin 22%→93%, Crystal 39%→94%, Mineral 33%→89%, Primal 48%→89%. 12 already-exclusive moves (3 per type) stay reserved.
+- [x] **Batch 4 — Fire, Ice, Wind.** 73 generic orphans cleared via ~160 learnset inserts across 37 Lumori (sharing rule). Fire 47%→94%, Ice 43%→94%, Wind 45%→94%. 9 already-exclusive (3/type) stay reserved.
+- [x] **Batch 5 — Earth, Nature.** 58 generic orphans cleared via ~120 learnset inserts across 28 Lumori. Earth 58%→96%, Nature 52%→96%. 6 already-exclusive (3/type) stay reserved.
+- [x] **Batch 6 — Dark, Spectral, Dream.** 60 generic orphans cleared via ~130 learnset inserts across 39 Lumori. Dark 47%→94%, Spectral 52%→89%, Dream 29%→95%. 9 already-exclusive (3/type) stay reserved.
+- [x] **Batch 7 — Electric, Metal, Mental.** 68 generic orphans cleared via ~155 learnset inserts across 41 Lumori. Electric 44%→93%, Metal 47%→94%, Mental 49%→94%. 9 already-exclusive (3/type) stay reserved.
+- [x] **Batch 8 — Normal + Aquatic + Fairy + Draconic + Fighting + Poison + Sonic.** 125 generic orphans cleared via ~245 learnset inserts across 75+ Lumori. Normal 56%→93%, Aquatic 58%→**100%**, Fairy 37%→93%, Draconic 47%→94%, Fighting 33%→93%, Poison 47%→92%, Sonic 69%→92%. 17 already-exclusive stay reserved (Aquatic has 0 — that's why it hit 100%).
+- [x] **Move-key rename pass.** 372 keys aligned to renamed display names (365 clean + 7 collision-disambiguated with `_2` suffix). Atomic apply via `scripts/move_key_rename_apply.py`. 0 dangling refs post-sweep.
+- [x] **Phase 2: STAB-completeness audit.** 40 new moves added to thin types (Spectral/Mineral/Sonic +15/15/10) with unique mechanics (dualType, breakerVs, alwaysCrit, hits:2, priority, dual-stat combos). ~210 inserts across 6 sub-batches (P2-prep + P2-1 through P2-6). Flagged 163 → 6 (96% cleared). The 6 remaining are 5 deferred Stellar/Primal Lumori → revisit in the Forgotten Lumori audit (next section).
+- [ ] End-of-audit revisit: Aether + Chrono post-game-restricted moves (any final tagging once Forgotten/Stellar/Aether/Chrono roster expands) — rolled into Forgotten Lumori audit below.
+
+# 🌑 Forgotten Lumori dedicated audit — RUN BEFORE STAT-SPREAD REVIEW  `[⏳ NOT STARTED]`
+
+The 39 Forgotten Lumori (ids 462-500) are gameplay-gated content designed as post-game encounters. Several open threads converge on them; a dedicated audit pass before the final stat-spread review is cleaner than handling each scattered.
+
+- [ ] **Typing review** — 29 Forgotten still lack any 408+-restricted type (Aether/Crystal/Primal/Chrono/Stellar). Decide which Forgotten should carry the rare typings; rebalance the 5-type roster.
+- [ ] **Moveset finalization** — apply the deferred Phase 2 STAB-completeness cases for Stellar/Primal Lumori (5 currently at 4/5 STAB: #319 Voidraxis, #384 Solarcrown, #394 Solarvast, #401 Cosmoveil, #400 Primordiax). Once typing review determines which Forgotten gain rare types, assign their moves; may un-reserve some Stellar/Aether/Chrono exclusives that are no longer needed in the pool.
+- [ ] **Stat-spread (Forgotten subset)** — verify BST-720/750/800 tiers are internally consistent and stat distributions match each Lumori's role (legendary tank vs sweeper vs balanced). Runs as a focused subset before the dex-wide stat-spread review.
+- [ ] **Archetype classification** — finish the manual classification pass for ~31 unclassified Forgotten families (deferred from the UNIFIED audit phase).
+- [ ] **Lore audit** — resolve all inline `LORE-AUDIT FLAG (Step 4)` comments on Forgotten entries.
+- [ ] **Variant content** — verify `js/variant-content.js` identity anchors for 462-500 are coherent post-typing-changes.
+- [ ] **Abilities** — once the abilities feature is implemented, assign Forgotten-specific signature abilities (probably more impactful than regular Lumori).
+- [ ] **13 wielder cutscenes** — already deferred in the NG+/Forgotten gating section; rolls into this audit naturally.
+
+**Run order:** after Phase 2 STAB-completeness (done) → **Forgotten audit (this section)** → final stat-spread review (next section).
+
+# 📊 Final-pass stat spread review — RUN LAST (after Forgotten audit complete)  `[⏳ NOT STARTED — RUN LAST]`
+
+After every coherence fix, type adjustment, rename, AND the Forgotten Lumori dedicated audit is committed, do a final pass over **every Lumori's base stat spread** across the whole dex. This is the last content-balance item in the workflow.
 
 - [ ] Walk every mon (or every family) and check the BST + stat distribution against:
   - Stage tier (base / mid / final) — BSTs should grow uniformly along an evolution chain

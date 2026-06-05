@@ -2271,7 +2271,7 @@ const MONSTERS_DATA = {
 
   198: { id:198, name:"Chrysalix",  emoji:"🫙", types:["Nature"],
     base:{hp:46,atk:30,def:58,spa:30,spd:30,spe:30},
-    learnset:[[17,"fortify"]],
+    learnset:[[1,"chitin_guard"],[3,"vine_lash"],[7,"mantis_slash"],[11,"sharp_leaves"],[14,"cocoon_guard"],[17,"fortify"],[20,"nature_pulse"],[23,"metamorphosis"]],
     evolveTo:199, evolveLevel:10, catchRate:120, expYield:72, rarity:"common",
     desc:"A shimmering cocoon. Inside, something remarkable is taking shape.",
     lore:"Chrysalix is a pupating bug creature 12 cm long encased in a hard metallic-green chrysalis shell — Photoworm's pale-green segmented body has surfaced from its underground burrow and spun its weak-photosynthesis skin into the hardened metallic-green casing, the body within now completely liquefied in the process of transformation. The chrysalis vibrates at a frequency inaudible to humans but felt by nearby insects as a call to gather and guard the emerging adult." },
@@ -2853,7 +2853,7 @@ const MONSTERS_DATA = {
 
   276: { id:276, name:"Scorchvast", emoji:"🏔️", types:["Fire","Mineral"],
     base:{hp:102,atk:118,def:109,spa:90,spd:78,spe:53},
-    learnset:[[1,"pyroclasm"],[1,"magma_stone"],[12,"coal_smash"],[18,"infernal_roar"],[24,"smolder_trap"],[28,"molten_armor"],[32,"caldera_meltdown"],[36,"magma_strike"],[40,"tectonic_shift"],[44,"volcanic_wrath"],[48,"crag_strike"],[56,"bedrock_slam"],[64,"ashfall"],[72,"radiance_cannon"]],
+    learnset:[[1,"pyroclasm"],[1,"magma_stone"],[8,"granite_slam"],[12,"coal_smash"],[18,"infernal_roar"],[20,"ruby_strike"],[24,"smolder_trap"],[28,"molten_armor"],[32,"caldera_meltdown"],[36,"magma_strike"],[38,"marble_resonance"],[40,"tectonic_shift"],[44,"volcanic_wrath"],[48,"crag_strike"],[52,"obsidian_burst"],[56,"bedrock_slam"],[64,"ashfall"],[72,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:272, rarity:"rare",
     desc:"A living volcano of immense destructive power. When it battles, the sky fills with ash and the earth splits.",
     lore:"Scorchvast is a massive fire-mineral creature 2 metres long — Infernox's volcanic plate armour has thickened and fused into natural stone armour entirely encasing a very large igneous lizard, and the joint-magma of its juvenile form has rerouted into fountains of fire that erupt from vents on its back when it is agitated. Its body temperature is sufficient to melt most metals on contact." },
@@ -3001,7 +3001,7 @@ const MONSTERS_DATA = {
 
   295: { id:295, name:"Cyclonax", emoji:"🌀", types:["Electric","Draconic"],
     base:{hp:81,atk:93,def:77,spa:112,spd:88,spe:99},
-    learnset:[[1,"typhoon"],[1,"draconic_pulse"],[10,"scale_crash"],[15,"dragon_focus"],[20,"cyclone_smash"],[24,"mistral_focus"],[26,"sky_surge"],[28,"slipstream"],[30,"tempest_wrath"],[32,"tornado_slam"],[34,"hurricane_blast"],[36,"whirlwind_force"],[38,"hydra_dance"],[40,"thunderstorm_eruption"],[42,"stratosphere_drop"],[46,"gale_cannon"],[54,"rampage"],[62,"ancient_breath"],[70,"radiance_cannon"]],
+    learnset:[[1,"typhoon"],[1,"draconic_pulse"],[10,"scale_crash"],[12,"shock_pulse"],[15,"dragon_focus"],[20,"cyclone_smash"],[24,"mistral_focus"],[26,"sky_surge"],[28,"slipstream"],[30,"tempest_wrath"],[32,"tornado_slam"],[34,"hurricane_blast"],[36,"whirlwind_force"],[38,"hydra_dance"],[40,"thunderstorm_eruption"],[42,"stratosphere_drop"],[46,"gale_cannon"],[50,"volt_surge"],[54,"rampage"],[58,"stormbolt"],[62,"ancient_breath"],[66,"ion_cannon"],[70,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:20, expYield:272, rarity:"rare",
     desc:"A hurricane dragon of unimaginable velocity. When it flies, it creates permanent weather anomalies.",
     lore:"Cyclonax is a massive electric-dragon 5 metres long — Stormwing's grey-blue scales have darkened to deep grey with white edges, and the personal storm system that condensed from its juvenile form's wingtip vortices has matured into a perpetual cyclone orbiting its full body. It is rarely seen, living above the weather systems of the world. When it descends to lower altitudes it brings catastrophic storms with it." },
@@ -3110,7 +3110,7 @@ const MONSTERS_DATA = {
 
   309: { id:309, name:"Tidephant", emoji:"🐋", types:["Aquatic","Spectral"],
     base:{hp:94,atk:82,def:86,spa:113,spd:102,spe:73},
-    learnset:[[1,"tsunami"],[1,"eclipse_shroud"],[28,"soul_rend"],[36,"phantom_claw"],[44,"geyser_burst"],[52,"nether_sphere"],[60,"void_pulse"],[68,"radiance_cannon"]],
+    learnset:[[1,"tsunami"],[1,"eclipse_shroud"],[8,"wraith_claw"],[14,"spectral_ray"],[22,"ghastly_wail"],[28,"soul_rend"],[36,"phantom_claw"],[44,"geyser_burst"],[48,"spectral_veil"],[52,"nether_sphere"],[60,"void_pulse"],[68,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:232, rarity:"rare",
     desc:"A spectral sea leviathan that capsizes ships. Half water, half ghost—completely terrifying.",
     lore:"Tidephant is a large water-spectral creature 2 metres long resembling a cetacean with dark blue-black hide and a broad flat head. As it matured from Seafraith, its fins broadened into flippers and its skeleton calcified into a whale-like frame — a fish-to-leviathan apotheosis. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },
@@ -3125,7 +3125,7 @@ const MONSTERS_DATA = {
 
   311: { id:311, name:"Marshix", emoji:"🦛", types:["Aquatic","Nature"],
     base:{hp:105,atk:118,def:100,spa:78,spd:82,spe:62},
-    learnset:[[1,"tectonic_shift"],[1,"tidal_rush"],[10,"rain_cascade"],[18,"erosion_wave"],[22,"geoblast"],[26,"quicksand_pull"],[30,"tsunami"],[34,"steam_geyser"],[38,"clay_armor"],[46,"bedrock_slam"],[54,"tidal_sweep"],[62,"radiance_cannon"]],
+    learnset:[[1,"tectonic_shift"],[1,"tidal_rush"],[8,"vine_lash"],[10,"rain_cascade"],[14,"sharp_leaves"],[18,"erosion_wave"],[20,"nature_pulse"],[22,"geoblast"],[26,"quicksand_pull"],[30,"tsunami"],[34,"steam_geyser"],[38,"clay_armor"],[42,"fae_petals"],[46,"bedrock_slam"],[54,"tidal_sweep"],[62,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:222, rarity:"uncommon",
     desc:"A hippo-like swamp titan that commands both mud and water. Creates marshy terrain wherever it settles.",
     lore:"Marshix is a large marshland hippo-like creature 1.5 metres at the shoulder — Mudpump's slick mud-coating has set and hardened into a broad pale grey body with mud-brown legs, and the suction-pump snout of its calf form has widened for adult marsh-feeding. It spends most of its time submerged in shallow marsh water with only its eyes and nostrils above the surface. Its movements churn the marsh bottom, aerating the sediment beneficially." },
@@ -3149,7 +3149,7 @@ const MONSTERS_DATA = {
   // ===== LEGENDARIES (IDs 314-321) =====
   314: { id:314, name:"Galeaxis",  emoji:"🌪️", types:["Wind","Sonic"],
     base:{hp:102,atk:84,def:93,spa:125,spd:96,spe:100},
-    learnset:[[1,"wind_scythe"],[1,"jolt"],[7,"breeze"],[14,"static_strike"],[21,"zephyr_dance"],[28,"volt_jet"],[35,"downdraft"],[42,"typhoon"],[49,"squall_slash"],[56,"overcharge"],[63,"tempest_wrath"],[70,"gale_cannon"],[77,"radiance_cannon"]],
+    learnset:[[1,"wind_scythe"],[1,"jolt"],[7,"breeze"],[11,"concussive_strike"],[14,"static_strike"],[18,"frequency_blast"],[21,"zephyr_dance"],[25,"resonance_field"],[28,"volt_jet"],[35,"downdraft"],[40,"harmonic_wave"],[42,"typhoon"],[49,"squall_slash"],[56,"overcharge"],[60,"acoustic_shock"],[63,"tempest_wrath"],[70,"gale_cannon"],[77,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
     desc:"The Legendary Skybreaker. Said to control all weather in Lumoria.",
     lore:"Galeaxis is a wind-sonic creature with a 1-metre wingspan, a sleek pale-grey raptor body trailing streamers of compressed air. From cruising altitude it folds its wings and dives faster than sound, and each plunge ends in a localised sonic boom as it exceeds natural air displacement limits. Hunters claim the shockwave can be felt before the bird itself is seen." },
@@ -3718,7 +3718,7 @@ const MONSTERS_DATA = {
   // 180: Helixareth - Fire/Draconic (Ignicula→Pyroveth→Helixareth)
   18: { id:18, name:"Bahamber", emoji:"🐉", types:["Draconic","Earth"],
     base:{hp:87,atk:111,def:72,spa:121,spd:82,spe:77},
-    learnset:[[1,"flicker"],[1,"inferno_jet"],[2,"draconic_breath"],[3,"cinderwhirl"],[4,"scorch_veil"],[38,"draconic_claw"],[42,"searing_gale"],[46,"pyroclasm"],[50,"draconic_pulse"],[54,"solar_flare"],[58,"rampage"],[62,"conflagration"],[5,"embercloak"],[44,"eon_crash"]],
+    learnset:[[1,"flicker"],[1,"inferno_jet"],[2,"draconic_breath"],[3,"cinderwhirl"],[4,"scorch_veil"],[5,"embercloak"],[8,"sandstrike"],[20,"geoblast"],[30,"tectonic_shift"],[38,"draconic_claw"],[40,"crag_strike"],[42,"searing_gale"],[44,"eon_crash"],[46,"pyroclasm"],[50,"draconic_pulse"],[54,"solar_flare"],[58,"rampage"],[62,"conflagration"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
     desc:"An ancient serpent of celestial fire that coils around mountaintops. Legends say its breath forged the first volcanoes.",
     lore:"Bahamber is a serpentine earth-dragon 6 metres long that coils tightly around rocky spires to sleep — Searburn's scarlet-and-black scales have darkened further to amber-and-black overlapping like armour, and the backward-swept horns of its juvenile form have grown forward into twin crests of blue-tipped flame crowning its narrow skull. Vast wings fold along its serpentine length when at rest, almost invisible against its scales but capable of sweeping fire across a hillside when unfurled. It breathes a spiralling helix of fire able to bore through solid stone." },
@@ -3989,7 +3989,7 @@ const MONSTERS_DATA = {
   // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   322: { id:322, name:"Venomwraith", emoji:"☠️", types:["Poison","Spectral"],
     base:{hp:60,atk:65,def:54,spa:81,spd:69,spe:71}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"septic_prick"],[5,"toxify"],[10,"nether_sphere"],[15,"blight_drain"],[20,"ooze_bomb"],[25,"corrosive_rain"],[30,"miasma_cloud"],[35,"venom_drown"],[40,"void_rend"],[45,"venom_lance"],[50,"sludge_wave"],[60,"toxic_surge"]],
+    learnset:[[1,"septic_prick"],[5,"toxify"],[8,"spectral_ray"],[10,"nether_sphere"],[15,"blight_drain"],[18,"ghastly_wail"],[20,"ooze_bomb"],[25,"corrosive_rain"],[28,"soul_chill"],[30,"miasma_cloud"],[35,"venom_drown"],[38,"necrotic_pulse"],[40,"void_rend"],[45,"venom_lance"],[50,"sludge_wave"],[60,"toxic_surge"]],
     catchRate:30, expYield:255, rarity:"rare",
     desc:"A wraith of pure venom that haunts poison-soaked ruins. Its touch corrupts everything.",
     lore:"Venomwraith is a poison-spectral entity 1.5 metres tall with a translucent body that glows sickly green. Corrosive vapour constantly seeps from its form." },
@@ -4076,7 +4076,7 @@ const MONSTERS_DATA = {
 
   334: { id:334, name:"Ferrocrush", emoji:"⚙️", types:["Metal","Fire"],
     base:{hp:83,atk:104,def:100,spa:52,spd:70,spe:61}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"chrome_claw"],[10,"geoblast"],[20,"alloy_tail"],[30,"fissure_slam"],[40,"forge_blast_2"],[50,"terra_spike"],[60,"fossil_rush"],[5,"fortify"],[38,"alloy_edge"]],
+    learnset:[[1,"chrome_claw"],[5,"fortify"],[8,"flicker"],[10,"geoblast"],[15,"flame_fang"],[20,"alloy_tail"],[25,"inferno_jet"],[30,"fissure_slam"],[38,"alloy_edge"],[40,"forge_blast_2"],[45,"blazing_rush"],[50,"terra_spike"],[60,"fossil_rush"]],
     catchRate:22, expYield:268, rarity:"rare",
     desc:"A mechanical behemoth forged in Ironforge's deepest furnaces. It was never meant to leave.",
     lore:"Ferrocrush is a 2.5-metre metal-fire golem with a body of smelted iron and a core of compressed ore. Its joints run at thousands of atmospheres of pressure." },
@@ -4213,7 +4213,7 @@ const MONSTERS_DATA = {
 
   353: { id:353, name:"Infernotitan", emoji:"🌋", types:["Draconic","Mineral"],
     base:{hp:78,atk:106,def:82,spa:98,spd:74,spe:82}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"inferno_jet"],[5,"char_dance"],[10,"draconic_claw"],[12,"basilisk_might"],[15,"lava_drop"],[18,"emperor_inferno"],[20,"pyroclasm"],[25,"magma_strike"],[28,"comet_crash"],[30,"draconic_pulse"],[35,"molten_tide"],[38,"primordial_roar"],[40,"solar_flare"],[50,"cataclysm_breath"],[60,"ancient_breath"]],
+    learnset:[[1,"inferno_jet"],[5,"char_dance"],[10,"draconic_claw"],[12,"basilisk_might"],[15,"lava_drop"],[18,"emperor_inferno"],[20,"pyroclasm"],[22,"ruby_strike"],[25,"magma_strike"],[28,"comet_crash"],[30,"draconic_pulse"],[32,"granite_slam"],[35,"molten_tide"],[38,"primordial_roar"],[40,"solar_flare"],[42,"obsidian_burst"],[48,"marble_resonance"],[50,"cataclysm_breath"],[60,"ancient_breath"]],
     catchRate:10, expYield:318, rarity:"rare",
     desc:"A volcanic dragon that erupts when enraged. Continents have shifted from its ancient battles.",
     lore:"Infernotitan is a mineral-dragon 6 metres long with scales of hardened magma and breath hot enough to liquefy stone. Ancient geological surveys attribute certain canyon formations to its rampages." },
@@ -4320,7 +4320,7 @@ const MONSTERS_DATA = {
   // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   368: { id:368, name:"Willowisp", emoji:"🕯️", types:["Fire","Spectral"],
     base:{hp:67,atk:80,def:69,spa:110,spd:93,spe:101}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"flicker"],[10,"nether_sphere"],[20,"inferno_jet"],[30,"void_rend"],[40,"solar_flare"],[50,"phantom_claw"],[60,"conflagration"],[5,"shadowstep"],[38,"shade_dash"]],
+    learnset:[[1,"flicker"],[5,"shadowstep"],[8,"wraith_claw"],[10,"nether_sphere"],[15,"spectral_ray"],[20,"inferno_jet"],[25,"ghastly_focus"],[30,"void_rend"],[38,"shade_dash"],[40,"solar_flare"],[45,"eternal_haunt"],[50,"phantom_claw"],[60,"conflagration"]],
     catchRate:9, expYield:320, rarity:"rare",
     desc:"An ancient will-o-the-wisp grown to monstrous power. It leads the living into the realm of flame.",
     lore:"Willowisp is a fire-spectral entity resembling a human-sized floating flame with a faint spectral face visible in its core. Its fire burns without fuel and consumes nothing physical." },
@@ -4334,7 +4334,7 @@ const MONSTERS_DATA = {
 
   370: { id:370, name:"Vortexwing", emoji:"🌪️", types:["Electric","Sonic"],
     base:{hp:70,atk:90,def:68,spa:101,spd:81,spe:110}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"breeze"],[10,"jolt"],[20,"wind_scythe"],[30,"volt_jet"],[40,"tailwind_strike"],[50,"volt_surge"],[60,"stormbolt"],[5,"zephyr_dance"],[38,"stun_pulse"]],
+    learnset:[[1,"breeze"],[5,"zephyr_dance"],[8,"frequency_blast"],[10,"jolt"],[15,"harmonic_wave"],[20,"wind_scythe"],[25,"dissonant_chord"],[30,"volt_jet"],[38,"stun_pulse"],[40,"tailwind_strike"],[45,"sonic_calm"],[50,"volt_surge"],[60,"stormbolt"]],
     catchRate:9, expYield:322, rarity:"rare",
     desc:"A living tornado that generates electricity from its rotation. Anything inside it is shredded and electrocuted simultaneously.",
     lore:"Vortexwing is an electric-sonic entity 3 metres tall that exists as a permanent self-sustaining vortex. At its core is a dense electromagnetic nucleus visible as a crackling violet sphere." },
@@ -4398,7 +4398,7 @@ const MONSTERS_DATA = {
 
   379: { id:379, name:"Riftscale", emoji:"🔮", types:["Draconic","Spectral"],
     base:{hp:78,atk:105,def:87,spa:111,spd:94,spe:105}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
-    learnset:[[1,"draconic_breath"],[10,"nether_sphere"],[20,"draconic_claw"],[30,"phantom_claw"],[40,"wyrm_strike"],[50,"void_rend"],[60,"cataclysm_breath"],[5,"hydra_dance"],[48,"eon_crash"]],
+    learnset:[[1,"draconic_breath"],[5,"hydra_dance"],[8,"wraith_claw"],[10,"nether_sphere"],[15,"spectral_ray"],[20,"draconic_claw"],[25,"ghastly_wail"],[30,"phantom_claw"],[35,"necrotic_pulse"],[40,"wyrm_strike"],[45,"eternal_haunt"],[48,"eon_crash"],[50,"void_rend"],[60,"cataclysm_breath"]],
     catchRate:6, expYield:342, rarity:"legendary",
     desc:"A dragon that phases between worlds. Its scales exist in multiple realities simultaneously.",
     lore:"Riftscale is a draconic-spectral 4.5 metres long whose scales shimmer with a translucent quality — half of them appear solid and half ghostly. It can phase through solid matter at will." },

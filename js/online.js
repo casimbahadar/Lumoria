@@ -1158,41 +1158,66 @@ function generateRoomCode() {
   return code;
 }
 
+// Serialize the live team by building each mon through the REAL Lv-50 PvP path
+// (buildBattleMon under a temporary isPvP context) and storing its full computed
+// stat block. This gives live battles the same stats/types/held-item math as
+// single-player, and lets the host run the real calcDamage each turn.
 function buildLiveTeam() {
   if (!G) return [];
-  return G.team.filter(m => m.currentHP > 0).slice(0, 3).map(m => {
-    const def = MONSTERS_DATA[m.monsterId];
-    const spd = (def?.baseStats?.speed || def?.base?.spe || 50) + Math.floor(m.level * 0.5);
-    const atk = (def?.baseStats?.attack || def?.base?.atk || 50) + Math.floor(m.level * 0.5);
-    const defStat = (def?.baseStats?.defense || def?.base?.def || 50) + Math.floor(m.level * 0.5);
-    const maxHP = m.maxHP || m.currentHP;
-    return {
-      monsterId: m.monsterId, name: m.name, emoji: def?.emoji || "❓",
-      level: m.level, nature: m.nature,
-      moves: m.moves.map(mv => mv.id || mv),
-      types: def?.types || [],
-      atk, def: defStat, spd, maxHP
-    };
-  });
+  const prev = (typeof battleContext !== "undefined") ? battleContext : undefined;
+  try {
+    battleContext = { isPvP: true };
+    return G.team.filter(m => m.currentHP > 0).slice(0, 3).map(m => {
+      const def = MONSTERS_DATA[m.monsterId];
+      const bm = buildBattleMon(m);
+      return {
+        monsterId: m.monsterId, name: bm.name, emoji: def?.emoji || "❓",
+        level: bm.level, types: bm.types || def?.types || [],
+        atk: bm.atk, def: bm.def, spa: bm.spa, spd: bm.spd, spe: bm.spe,
+        maxHP: bm.maxHP, heldItem: bm.heldItem || null,
+        variantImmune: bm.variantImmune || null,
+        moves: m.moves.map(mv => mv.id || mv),
+      };
+    });
+  } finally {
+    battleContext = prev;
+  }
 }
 
-// Host-authoritative live damage. Type-aware (STAB + effectiveness) so live
-// battles play like the real engine; falls back gracefully if helpers/types
-// are missing. Physical/special split uses the move category.
-function livePvPDamage(attackerMon, moveId, defenderMon) {
+// Reconstruct a calcDamage-ready mon from a stored live stat block. Stages start
+// neutral and statuses empty each turn (live doesn't persist them across turns —
+// see docs/pvp-spec.md), but the damage exchange itself is full-fidelity.
+function liveCalcMon(s) {
+  return {
+    level: s.level, atk: s.atk, def: s.def, spa: s.spa, spd: s.spd, spe: s.spe,
+    types: s.types || [], maxHP: s.maxHP, heldItem: s.heldItem || null,
+    variantImmune: s.variantImmune || null,
+    stages: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0, acc: 0, eva: 0 }, statuses: [],
+  };
+}
+
+// Real-engine live damage: physical/special split, crit, held items, exact
+// formula, type chart, STAB, variant immunity. Falls back to a flat formula only
+// if calcDamage is somehow unavailable.
+function liveRealDamage(attackerS, moveId, defenderS) {
+  const move = MOVES_DATA[moveId];
+  if (!move || !move.power) return { damage: 0, effectiveness: 1, crit: false };
+  try {
+    const res = calcDamage(liveCalcMon(attackerS), liveCalcMon(defenderS), move);
+    return (typeof res === "object") ? res : { damage: res, effectiveness: 1, crit: false };
+  } catch (e) {
+    return { damage: livePvPFlatDamage(attackerS, moveId, defenderS), effectiveness: 1, crit: false };
+  }
+}
+function livePvPFlatDamage(attackerMon, moveId, defenderMon) {
   const moveDef = MOVES_DATA[moveId];
   if (!moveDef?.power) return 0;
   let dmg = Math.floor((2 * attackerMon.level / 5 + 2) * moveDef.power * attackerMon.atk / defenderMon.def / 50 + 2);
-  // STAB
   if ((attackerMon.types || []).includes(moveDef.type)) dmg = Math.floor(dmg * 1.5);
-  // Type effectiveness
   let eff = 1;
-  if (typeof getMoveEffectiveness === "function") {
-    try { eff = getMoveEffectiveness(moveDef, defenderMon.types || []); } catch (e) { eff = 1; }
-  }
-  dmg = Math.floor(dmg * eff);
+  if (typeof getMoveEffectiveness === "function") { try { eff = getMoveEffectiveness(moveDef, defenderMon.types || []); } catch (e) {} }
   if (eff === 0) return 0;
-  return Math.max(1, Math.round(dmg * (0.85 + Math.random() * 0.15)));
+  return Math.max(1, Math.round(dmg * eff * (0.85 + Math.random() * 0.15)));
 }
 
 async function createLiveRoom(passcode, isPublic) {
@@ -1365,24 +1390,21 @@ async function resolveLiveTurn(code, room) {
   let guestHP = [...room.guestHP];
   const log = [...(room.log || [])];
 
-  // Determine turn order by speed
-  const hostFirst = hostMon.spd >= guestMon.spd;
+  // Determine turn order by speed (priority moves handled by the real engine in
+  // single-player; live keeps a simple speed compare).
+  const hostFirst = (hostMon.spe ?? hostMon.spd) >= (guestMon.spe ?? guestMon.spd);
   function applyMove(attackerMon, moveId, defenderHP, defenderIdx, defenderTeam) {
     const moveDef = MOVES_DATA[moveId];
     const moveName = moveDef?.name || moveId;
     const defMon = defenderTeam[defenderIdx];
-    const dmg = livePvPDamage(attackerMon, moveId, defMon);
-    defenderHP[defenderIdx] = Math.max(0, defenderHP[defenderIdx] - dmg);
+    const res = liveRealDamage(attackerMon, moveId, defMon);
+    defenderHP[defenderIdx] = Math.max(0, defenderHP[defenderIdx] - res.damage);
     let note = "";
-    if (typeof getMoveEffectiveness === "function" && moveDef?.power) {
-      try {
-        const eff = getMoveEffectiveness(moveDef, defMon.types || []);
-        if (eff === 0) note = " It had no effect!";
-        else if (eff > 1) note = " Super effective!";
-        else if (eff < 1) note = " Not very effective…";
-      } catch (e) {}
-    }
-    log.push(`${attackerMon.name} used ${moveName}! ${dmg} damage.${note}`);
+    if (res.crit) note += " Critical hit!";
+    if (res.effectiveness === 0) note += " It had no effect!";
+    else if (res.effectiveness > 1) note += " Super effective!";
+    else if (res.effectiveness < 1) note += " Not very effective…";
+    log.push(`${attackerMon.name} used ${moveName}! ${res.damage} damage.${note}`);
     return defenderHP[defenderIdx] === 0;
   }
 
@@ -1750,7 +1772,7 @@ async function resolveMultiLiveTurn(code, room) {
     const sub = moves[s.uid] || pickAiMultiMove({ seats }, i);
     if (sub) actions.push({ i, moveId: sub.moveId, targetSeat: sub.targetSeat });
   });
-  actions.sort((a, b) => (seatActiveMon(seats[b.i])?.spd || 0) - (seatActiveMon(seats[a.i])?.spd || 0));
+  actions.sort((a, b) => ((seatActiveMon(seats[b.i])?.spe ?? seatActiveMon(seats[b.i])?.spd) || 0) - ((seatActiveMon(seats[a.i])?.spe ?? seatActiveMon(seats[a.i])?.spd) || 0));
 
   for (const act of actions) {
     const atkSeat = seats[act.i];
@@ -1767,9 +1789,10 @@ async function resolveMultiLiveTurn(code, room) {
       ti = pick.i; tSeat = pick.s;
     }
     const defender = seatActiveMon(tSeat);
-    const dmg = livePvPDamage(attacker, act.moveId, defender);
-    tSeat.hp[tSeat.active] = Math.max(0, tSeat.hp[tSeat.active] - dmg);
-    log.push(`${attacker.name} hit ${defender.name} for ${dmg}.`);
+    const res = liveRealDamage(attacker, act.moveId, defender);
+    tSeat.hp[tSeat.active] = Math.max(0, tSeat.hp[tSeat.active] - res.damage);
+    const note = res.crit ? " (crit!)" : res.effectiveness > 1 ? " (super effective!)" : (res.effectiveness > 0 && res.effectiveness < 1) ? " (resisted)" : res.effectiveness === 0 ? " (no effect)" : "";
+    log.push(`${attacker.name} hit ${defender.name} for ${res.damage}${note}.`);
     // Bench advance on faint.
     if (tSeat.hp[tSeat.active] <= 0) {
       log.push(`${defender.name} fainted!`);

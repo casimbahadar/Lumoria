@@ -136,13 +136,30 @@ curve mirror is `L(gap) = −W(−gap)`, the exchange is exactly zero-sum.
 Each phase committed incrementally; **all flagged UNVERIFIED** until real Firebase
 credentials + playtest (and live 2v2/FFA need multiple simultaneous real clients).
 
+## Turn timer (all PvP/online modes)
+60s per turn, **auto-picks** a random legal move (+ valid target) on expiry.
+Shared `startTurnTimer`/`clearTurnTimer` (key-guarded so live re-renders don't
+reset mid-turn; `showScreen` clears globally). Async battle screen + Gauntlet hook
+`showBattleMainActions`/`showMultiMovePanel` gated on `isPvP`; async FFA hooks the
+turn loop; live modes auto-submit on expiry **plus** a host-side disconnect safety
+net (`scheduleLiveHostTimeout`, ~65s) that force-resolves with AI-fill when a
+seat's client is gone. Countdown turns red + pulses in the last 10s.
+
+## Parity upgrades (post-spec)
+- **Live mechanical parity:** live 1v1/2v2/FFA now run the **real `calcDamage`**
+  (phys/spec split, crit, held items, exact formula, full type chart, STAB, variant
+  immunity). `buildLiveTeam` serializes the Lv-50 PvP stat block; host rebuilds a
+  calcDamage-ready mon each turn. *Remaining:* live doesn't persist stat stages /
+  statuses across turns (each turn's exchange is full-fidelity; no carry-over).
+- **FFA polish:** battle music (`rival_battle` for any PvP context), hit shake/flash
+  + faint fade on side cards.
+- **FFA depth:** end-of-turn `tickStatus` (residual DoT/effects), a **switch** menu,
+  and a heal-item **bag** (matches async PvP: catch off, bag/switch on).
+
 ## Known limitations / follow-ups (post-playtest)
-- Live multi-seat (D2) has no turn **timer** yet — a present-but-idle seat (vs a
-  fully dropped one) can still stall a turn; add a host-side countdown that
-  AI-fills after N seconds. Disconnect detection relies on the AI-fill fallback
-  only when a seat is gone from `moves`.
-- FFA (async + live) skips residual status DoT and exotic multi-turn move effects
-  (try/guarded) — direct damage + stat/status from `applyMoveEffect` apply; deep
-  effect parity is a follow-up.
-- Live damage uses a single atk/def (no phys/spec split) inherited from the live
-  skeleton; async paths use the full `calcDamage`.
+- Live still doesn't persist stat stages / statuses across turns (per-turn exchange
+  is full-fidelity); add per-mon status/stage carry-over for full live parity.
+- FFA bag is limited to `heal` items (the meaningful battle subset); X-items/revives
+  are out of scope.
+- Live multi-seat has no in-band turn **countdown UI** for *other* seats — only the
+  acting client sees its own timer; the host safety net still covers disconnects.

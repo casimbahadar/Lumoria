@@ -889,7 +889,9 @@ Discovery script: `scripts/move_utilization.py` — read-only stats tool, parses
 - [x] **Batch 2 — Aether + Vapor.** Aether: 19 generic orphans distributed across 4 Forgotten Aether Lumori (32 inserts, sharing); 3 stay exclusive. Vapor: 31 generic orphans distributed across 11 Vapor Lumori (53 orphan inserts + 5 used-pool top-ups on Umbrajest/Shadowveil = 58 inserts); 3 stay exclusive. Utilization Aether 21%→89%, Vapor 24%→93%.
 - [x] **Batch 3 — Toxin, Crystal, Mineral, Primal.** 72 generic orphans cleared via ~80 learnset inserts across 47 Lumori. Toxin 22%→93%, Crystal 39%→94%, Mineral 33%→89%, Primal 48%→89%. 12 already-exclusive moves (3 per type) stay reserved.
 - [x] **Batch 4 — Fire, Ice, Wind.** 73 generic orphans cleared via ~160 learnset inserts across 37 Lumori (sharing rule). Fire 47%→94%, Ice 43%→94%, Wind 45%→94%. 9 already-exclusive (3/type) stay reserved.
-- [ ] Batch 5 — Earth, Nature (64 orphans)
+- [x] **Batch 5 — Earth, Nature.** 58 generic orphans cleared via ~120 learnset inserts across 28 Lumori. Earth 58%→96%, Nature 52%→96%. 6 already-exclusive (3/type) stay reserved.
+- [ ] Batch 6 — Dark, Spectral, Dream (68 orphans)
+- [ ] **End-of-audit (after Batch 8): move-key rename pass.** Other session renamed `MOVES_DATA[].name` display fields but left snake_case keys unchanged (e.g. `ancient_power:` key → display "Primeval Force"). To clean up the gap before final code review, do a focused sweep renaming keys to match new display names. Touches MOVES_DATA + every learnset (~5,500 refs) + trainer `moves:[...]` arrays + battle/AI hardcodes. Must be atomic — write a key-rename script that updates all refs simultaneously.
 - [ ] Batch 6 — Dark, Spectral, Dream (68 orphans)
 - [ ] Batch 7 — Electric, Metal, Mental (77 orphans)
 - [ ] Batch 8 — Normal, Aquatic, Fairy, Draconic, Fighting, Poison, Sonic (134 orphans)

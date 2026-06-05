@@ -2362,7 +2362,7 @@ const MONSTERS_DATA = {
   // Standalone Aquatic/Rock: Coralstone
   214: { id:214, name:"Petrwave", emoji:"🪸", types:["Aquatic","Earth"],
     base:{hp:101,atk:96,def:117,spa:83,spd:99,spe:54},
-    learnset:[[1,"aquatic_gun"],[1,"stone_throw"],[18,"tidal_rush"],[28,"crag_strike"],[38,"tsunami"],[48,"stone_slide"],[58,"bedrock_slam"],[68,"radiance_cannon"]],
+    learnset:[[1,"aquatic_gun"],[1,"stone_throw"],[18,"tidal_rush"],[28,"crag_strike"],[38,"tsunami"],[48,"stone_slide"],[58,"bedrock_slam"],[68,"radiance_cannon"],[70,"tidal_sweep"]],
     evolveTo:null, evolveLevel:null, catchRate:48, expYield:212, rarity:"uncommon",
     desc:"A living coral fortress. Anchors itself to seafloor rocks and grows for centuries, becoming near-indestructible.",
     lore:"Petrwave is a 1.5-metre coral fortress creature resembling a crab whose shell is built from a mass of densely packed living coral and rock. Its four broad legs anchor it to seafloor rock. It filters nutrients from strong ocean currents and its shell provides habitat for thousands of small marine organisms." },
@@ -2451,7 +2451,7 @@ const MONSTERS_DATA = {
   // Standalone Fairy/Mineral: Crealight
   225: { id:225, name:"Crealight", emoji:"✨", types:["Fairy","Mineral"],
     base:{hp:82,atk:60,def:72,spa:115,spd:105,spe:88},
-    learnset:[[1,"fairy_wind"],[1,"mind_jolt"],[15,"prism_flare"],[20,"crystal_glow"],[25,"lunar_burst"],[30,"mineral_pulse"],[35,"psi_burst"],[40,"quartz_blast"],[45,"mental"],[50,"gemburst"],[55,"celestial_wave"],[65,"radiance_cannon"]],
+    learnset:[[1,"fairy_wind"],[1,"mind_jolt"],[15,"prism_flare"],[20,"crystal_glow"],[25,"lunar_burst"],[30,"mineral_pulse"],[35,"psi_burst"],[40,"quartz_blast"],[45,"mental"],[50,"gemburst"],[55,"celestial_wave"],[65,"radiance_cannon"],[67,"ore_punch"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:210, rarity:"uncommon",
     desc:"A crystalline fairy of pure prismatic energy. Its body refracts light into impossible colors.",
     lore:"Crealight is a small fairy-mineral creature 30 cm tall with a rounded glowing crystal body of warm pink-gold light. It leaves a trail of glimmer-dust wherever it floats. It inhabits libraries, art studios, and places of quiet human creativity, feeding on the ambient creative energy generated there." },
@@ -2476,7 +2476,7 @@ const MONSTERS_DATA = {
   // Spectroon: Moon Stone evolution (Ice/Mental)
   228: { id:228, name:"Lunaroon", emoji:"🌙", types:["Nature","Mental"],
     base:{hp:82,atk:72,def:88,spa:122,spd:108,spe:78},
-    learnset:[[1,"verdant_orb"],[1,"mental"],[28,"petal_blitz"],[36,"psi_strike"],[44,"astral_rend"],[52,"spore_burst"],[60,"neural_storm"],[68,"radiance_cannon"]],
+    learnset:[[1,"verdant_orb"],[1,"mental"],[28,"petal_blitz"],[36,"psi_strike"],[44,"astral_rend"],[52,"spore_burst"],[60,"neural_storm"],[68,"radiance_cannon"],[70,"pod_blast"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:225, rarity:"rare",
     desc:"A moonlit kangaroo whose body grows night-blooming silver flora. Its presence opens blossoms across highland clearings wherever it pads.",
     lore:"Lunaroon is a 50-centimetre marsupial — Spectroo's translucent white-light kangaroo silhouette has been moonStone-touched into a form of compressed moonlight overgrown with night-blooming silver flora — pale violet-blue moss covers its hindquarters and a crown of small white-and-silver flowers blooms across its head and shoulders, opening only when full moonlight touches them. Its pouch holds a soft glow that draws moonlight downward in a faint cascade onto the soil it crosses, and dormant seeds sprout in its wake. It inhabits high open plateaux and roams quietly during clear nights, mapping the positions of stars by psychic observation while leaving a trail of newly-opened blossoms wherever it pauses." },
@@ -2484,7 +2484,7 @@ const MONSTERS_DATA = {
   // Prismolt: Thunder Stone evolution (Electric/Mental)
   229: { id:229, name:"Radiafish", emoji:"⚡", types:["Electric","Mental"],
     base:{hp:72,atk:88,def:62,spa:130,spd:78,spe:110},
-    learnset:[[1,"volt_jet"],[1,"mental"],[14,"echo_beam"],[20,"brain_blast"],[24,"sixth_sense"],[28,"stormbolt"],[30,"lumiwave"],[36,"psi_strike"],[44,"astral_rend"],[45,"zenith_ray"],[52,"galvanic_burst"],[60,"neural_storm"],[68,"radiance_cannon"]],
+    learnset:[[1,"volt_jet"],[1,"mental"],[14,"echo_beam"],[20,"brain_blast"],[24,"sixth_sense"],[28,"stormbolt"],[30,"lumiwave"],[36,"psi_strike"],[44,"astral_rend"],[45,"zenith_ray"],[52,"galvanic_burst"],[60,"neural_storm"],[68,"radiance_cannon"],[70,"volt_surge"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:225, rarity:"rare",
     desc:"A kangaroo-silhouette of crackling electric plasma. It bounds across high mountain ridges in arcing leaps that briefly carry it through the air on bursts of electrical thrust.",
     lore:"Radiafish is a 40-centimetre electric-psychic creature whose body is Spectroo's translucent kangaroo-silhouette ignited under thunderStone exposure into constantly cycling electric plasma — pale yellow at the core, shifting through blue-white at its outer layers, with the pouch and hindquarters most visible when it pauses between leaps. It bounds across high mountain ridges and along power-line corridors in long arcing jumps that briefly carry it through the air on bursts of electrical thrust. It surfaces near radio towers and electrical masts to feed on broadcast radiation, and its psychic field translates surrounding electrical activity into thought-impulses at lightning speed." },
@@ -2531,7 +2531,7 @@ const MONSTERS_DATA = {
   // Standalone Draconic/Aquatic: Glintscale
   235: { id:235, name:"Glintscale", emoji:"🐟", types:["Draconic","Aquatic"],
     base:{hp:88,atk:98,def:82,spa:101,spd:85,spe:96},
-    learnset:[[1,"draconic_claw"],[1,"tidal_rush"],[20,"draconic_pulse"],[30,"tsunami"],[40,"hydra_dance"],[50,"rampage"],[60,"geyser_burst"],[70,"radiance_cannon"]],
+    learnset:[[1,"draconic_claw"],[1,"tidal_rush"],[20,"draconic_pulse"],[30,"tsunami"],[40,"hydra_dance"],[50,"rampage"],[60,"geyser_burst"],[70,"radiance_cannon"],[72,"tidal_sweep"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
     desc:"A dragon-koi of iridescent scales. Legends say it swims the boundary between worlds.",
     lore:"Glintscale is a water-dragon 3 metres long with brilliant silver-green scales that catch light and scatter it in all directions. Underwater it is effectively invisible from above due to this mirroring effect. It uses its reflective scales to confuse and disorient prey, striking when they become disoriented." },
@@ -2580,7 +2580,7 @@ const MONSTERS_DATA = {
   // Standalone Ice/Crystal evolves in cold area: Crystalix
   241: { id:241, name:"Shardlix", emoji:"💠", types:["Ice","Mental"],
     base:{hp:78,atk:75,def:105,spa:115,spd:100,spe:72},
-    learnset:[[1,"cold_beam"],[1,"mental"],[20,"cryo_lance"],[30,"psi_burst"],[40,"whiteout"],[50,"psi_strike"],[60,"tundra_tomb"],[70,"radiance_cannon"]],
+    learnset:[[1,"cold_beam"],[1,"mental"],[20,"cryo_lance"],[30,"psi_burst"],[40,"whiteout"],[50,"psi_strike"],[60,"tundra_tomb"],[70,"radiance_cannon"],[72,"synaptic_shatter"]],
     evolveTo:null, evolveLevel:null, evolveLocation:"cosmic_cavern", evolveMethod:"location", catchRate:50, expYield:215, rarity:"uncommon",
     desc:"A crystal lattice of ice and psychic power. Forms only in caves where cosmic energy freezes space itself.",
     lore:"Shardlix is a psychic-ice creature 40 cm tall resembling a bipedal figure made entirely of precision-cut ice crystals fitted together without gaps. Its eyes are two flawless prismatic lenses. It transmits thoughts through vibrations in its crystalline body and can read psychic impressions left on ice surfaces." },
@@ -2676,7 +2676,7 @@ const MONSTERS_DATA = {
   // Standalone Fire/Mineral: Ashrock (location evo near volcano area)
   253: { id:253, name:"Ashrock", emoji:"🌋", types:["Fire","Mineral"],
     base:{hp:90,atk:105,def:100,spa:88,spd:75,spe:55},
-    learnset:[[1,"stone_throw"],[1,"flicker"],[18,"stone_slide"],[28,"inferno_jet"],[38,"crag_strike"],[48,"magma_stone"],[58,"pyroclasm"],[68,"radiance_cannon"],[70,"mineral_jab"],[71,"mineral_pulse"],[72,"shard_volley"]],
+    learnset:[[1,"stone_throw"],[1,"flicker"],[18,"stone_slide"],[28,"inferno_jet"],[38,"crag_strike"],[48,"magma_stone"],[58,"pyroclasm"],[68,"radiance_cannon"],[70,"mineral_jab"],[71,"mineral_pulse"],[72,"shard_volley"],[74,"searing_gale"],[75,"ore_punch"]],
     evolveTo:null, evolveLevel:null, evolveLocation:"forge_ruins", evolveMethod:"location", catchRate:55, expYield:215, rarity:"uncommon",
     desc:"Volcanic rock infused with fire. Found only near ancient forge sites where magma once flowed freely.",
     lore:"Ashrock is a fire-mineral creature 60 cm tall resembling a chunk of volcanic basalt with glowing orange cracks running through it like veins of magma. Its surface radiates intense heat. It inhabits volcanic crater rims and lava tube exits, cooling slowly over centuries until its glow dims and it becomes dormant." },
@@ -2721,7 +2721,7 @@ const MONSTERS_DATA = {
   // Standalone Aquatic/Mental: Lumejell
   259: { id:259, name:"Lumejell", emoji:"🪼", types:["Aquatic","Mental"],
     base:{hp:88,atk:64,def:80,spa:118,spd:105,spe:95},
-    learnset:[[1,"aquatic_gun"],[1,"psi_burst"],[18,"tidal_rush"],[28,"mental"],[38,"tsunami"],[48,"psi_strike"],[58,"neural_storm"],[68,"radiance_cannon"]],
+    learnset:[[1,"aquatic_gun"],[1,"psi_burst"],[18,"tidal_rush"],[28,"mental"],[38,"tsunami"],[48,"psi_strike"],[58,"neural_storm"],[68,"radiance_cannon"],[70,"tidal_sweep"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:215, rarity:"uncommon",
     desc:"A luminescent jellyfish with psychic tentacles. Its bioluminescence communicates complex thoughts.",
     lore:"Lumejell is a water-psychic jellyfish 45 cm in diameter with a pale blue bioluminescent bell and long trailing psychic-charged tendrils. Its pulsing light patterns encode complex emotional information. Deep-sea researchers have documented Lumejell performing what appears to be coordinated light-art displays at night." },
@@ -2816,7 +2816,7 @@ const MONSTERS_DATA = {
   // Standalone Dark/Normal: Duskrat
   271: { id:271, name:"Murkrat", emoji:"🐀", types:["Dark","Normal"],
     base:{hp:95,atk:100,def:82,spa:68,spd:75,spe:105},
-    learnset:[[1,"chomp"],[1,"collide"],[18,"dusk_slash"],[28,"void_pulse"],[38,"crushing_bulk"],[48,"jaw_crush"],[58,"eclipse_shroud"],[68,"radiance_cannon"]],
+    learnset:[[1,"chomp"],[1,"collide"],[18,"dusk_slash"],[28,"void_pulse"],[38,"crushing_bulk"],[48,"jaw_crush"],[58,"eclipse_shroud"],[68,"radiance_cannon"],[70,"cranial_ram"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:205, rarity:"uncommon",
     desc:"A cunning dark rodent that steals anything shiny. Surprisingly tough for its size and always escapes.",
     lore:"Murkrat is a dark-normal creature 30 cm long resembling a fat rat with dark grey fur and bright beady eyes. It is deeply pragmatic — it will steal anything useful, hoard it, and trade it back. It inhabits sewer systems and underground markets and is surprisingly social once trust is established." },
@@ -2911,7 +2911,7 @@ const MONSTERS_DATA = {
   // Standalone Metal/Ground: Rustpike
   283: { id:283, name:"Rustpike", emoji:"🗡️", types:["Metal","Poison"],
     base:{hp:85,atk:112,def:90,spa:72,spd:78,spe:78},
-    learnset:[[1,"chrome_claw"],[1,"septic_prick"],[14,"chrome_slash"],[18,"alloy_tail"],[24,"smart_strike"],[28,"ooze_bomb"],[38,"forge_strike"],[48,"toxify"],[58,"forge_blast_2"],[68,"radiance_cannon"]],
+    learnset:[[1,"chrome_claw"],[1,"septic_prick"],[14,"chrome_slash"],[18,"alloy_tail"],[24,"smart_strike"],[28,"ooze_bomb"],[38,"forge_strike"],[48,"toxify"],[58,"forge_blast_2"],[68,"radiance_cannon"],[70,"miasma_cloud"]],
     evolveTo:null, evolveLevel:null, catchRate:48, expYield:212, rarity:"uncommon",
     desc:"A rusted iron spike creature coated in toxins. Its corroded exterior makes it harder to damage than pristine steel.",
     lore:"Rustpike is a steel-poison creature 50 cm long resembling a pike fish made of rusting iron with patches of toxic green oxidation. Its fin-spines release a corroding toxin. It inhabits iron-rich waterways where its body chemistry is sustained by dissolved metals. Its presence discolours the water orange-red." },
@@ -2964,7 +2964,7 @@ const MONSTERS_DATA = {
   // Standalone Normal/Spectral: Mimiclaw (evolves in gloomy location)
   290: { id:290, name:"Mimiclaw", emoji:"🎭", types:["Normal","Dark"],
     base:{hp:82,atk:90,def:78,spa:95,spd:85,spe:102},
-    learnset:[[1,"collide"],[1,"nether_sphere"],[15,"phantom_claw"],[25,"eclipse_shroud"],[35,"crushing_bulk"],[45,"soul_rend"],[55,"nether_sphere"],[65,"radiance_cannon"]],
+    learnset:[[1,"collide"],[1,"nether_sphere"],[15,"phantom_claw"],[25,"eclipse_shroud"],[35,"crushing_bulk"],[45,"soul_rend"],[55,"nether_sphere"],[65,"radiance_cannon"],[67,"cranial_ram"]],
     evolveTo:null, evolveLevel:null, evolveLocation:"cobweb_gully", evolveMethod:"location", catchRate:52, expYield:212, rarity:"uncommon",
     desc:"An unsettling mimic that copies the appearance of other Lumori. Found deep in haunted gullies and ruins.",
     lore:"Mimiclaw is a dark-normal creature 40 cm long resembling a cat with dark grey fur and the ability to shift its outline. Its face can rearrange its features to mimic any creature it has studied for ten minutes or more. It uses mimicry of distressed sounds to lure curious prey within reach." },
@@ -3050,7 +3050,7 @@ const MONSTERS_DATA = {
   // Standalone Fire/Spectral: Emberveil
   301: { id:301, name:"Emberveil", emoji:"🔥", types:["Fire","Dark"],
     base:{hp:78,atk:82,def:72,spa:118,spd:95,spe:102},
-    learnset:[[1,"flicker"],[1,"nether_sphere"],[18,"inferno_jet"],[28,"phantom_claw"],[38,"pyroclasm"],[48,"eclipse_shroud"],[58,"soul_rend"],[68,"radiance_cannon"]],
+    learnset:[[1,"flicker"],[1,"nether_sphere"],[18,"inferno_jet"],[28,"phantom_claw"],[38,"pyroclasm"],[48,"eclipse_shroud"],[58,"soul_rend"],[68,"radiance_cannon"],[70,"searing_gale"]],
     evolveTo:null, evolveLevel:null, catchRate:48, expYield:215, rarity:"uncommon",
     desc:"A fire specter born from the embers of burned-down haunted houses. Leaves smoldering phantom footprints.",
     lore:"Emberveil is a fire-dark creature 60 cm tall resembling a smouldering black cat whose fur is made of living shadow and ember. Dim orange flames flicker through its dark coat without burning it. It inhabits the spaces near dying fires — hearths, burn-sites, campfire remains — absorbing residual heat from ash." },
@@ -3095,7 +3095,7 @@ const MONSTERS_DATA = {
   // Standalone Fire/Dark: Cinderpaw
   307: { id:307, name:"Cinderpaw", emoji:"🐈", types:["Fire","Dark"],
     base:{hp:85,atk:103,def:73,spa:98,spd:79,spe:112},
-    learnset:[[1,"flicker"],[1,"chomp"],[18,"inferno_jet"],[28,"dusk_slash"],[38,"pyroclasm"],[48,"void_pulse"],[58,"eclipse_shroud"],[68,"radiance_cannon"]],
+    learnset:[[1,"flicker"],[1,"chomp"],[18,"inferno_jet"],[28,"dusk_slash"],[38,"pyroclasm"],[48,"void_pulse"],[58,"eclipse_shroud"],[68,"radiance_cannon"],[70,"searing_gale"]],
     evolveTo:null, evolveLevel:null, catchRate:52, expYield:212, rarity:"uncommon",
     desc:"A dark flame cat that stalks targets silently before unleashing explosive fire attacks. Unpredictable and cunning.",
     lore:"Cinderpaw is a fire-dark cat 45 cm at the shoulder with glossy black fur overlaid with faintly glowing ember-orange markings on its paws, ears, and tail tip. It moves silently and blends into shadow easily. It inhabits ancient forge-ruins and warm building interiors, drawn to residual warmth in stone." },
@@ -4405,7 +4405,7 @@ const MONSTERS_DATA = {
 
   380: { id:380, name:"Tempestborn", emoji:"⛈️", types:["Electric","Wind"],
     base:{hp:77,atk:98,def:77,spa:116,spd:94,spe:116}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
-    learnset:[[1,"jolt"],[10,"breeze"],[20,"volt_jet"],[30,"wind_scythe"],[40,"stormbolt"],[50,"volt_surge"],[60,"tailwind_strike"],[5,"zephyr_dance"],[48,"neural_storm"]],
+    learnset:[[1,"jolt"],[10,"breeze"],[20,"volt_jet"],[30,"wind_scythe"],[40,"stormbolt"],[50,"volt_surge"],[60,"tailwind_strike"],[5,"zephyr_dance"],[48,"neural_storm"],[62,"arc_flash"],[63,"typhoon"]],
     catchRate:6, expYield:345, rarity:"legendary",
     desc:"Born at the eye of a century-storm. It IS the storm — a permanent atmospheric event given will.",
     lore:"Tempestborn is an electric-wind entity 4 metres across — a self-sustaining atmospheric vortex with a crackling lightning nucleus. Meteorologists have tracked it as both a storm and a living creature." },
@@ -4470,7 +4470,7 @@ const MONSTERS_DATA = {
 
   389: { id:389, name:"Stormcrown", emoji:"⛈️", types:["Electric","Draconic"],
     base:{hp:78,atk:103,def:85,spa:118,spd:91,spe:108}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
-    learnset:[[1,"jolt"],[10,"draconic_breath"],[20,"volt_jet"],[30,"draconic_pulse"],[40,"stormbolt"],[50,"wyrm_strike"],[60,"cataclysm_breath"],[5,"hydra_dance"],[52,"volt_surge"]],
+    learnset:[[1,"jolt"],[10,"draconic_breath"],[20,"volt_jet"],[30,"draconic_pulse"],[40,"stormbolt"],[50,"wyrm_strike"],[60,"cataclysm_breath"],[5,"hydra_dance"],[52,"volt_surge"],[62,"arc_flash"]],
     catchRate:5, expYield:360, rarity:"legendary",
     desc:"The apex predator of electric dragons. Every storm in Lumoria eventually reports to it.",
     lore:"Stormcrown is an electric-dragon 5.5 metres long with a permanent crown of crackling lightning. It is the dominant electric-type in any region it inhabits and other electric creatures defer to it instinctively." },
@@ -4535,7 +4535,7 @@ const MONSTERS_DATA = {
 
   398: { id:398, name:"Voidcrown", emoji:"🌌", types:["Dark","Fairy"],
     base:{hp:87,atk:103,def:96,spa:137,spd:112,spe:117}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
-    learnset:[[1,"fae_requiem"],[10,"void_rend"],[20,"synaptic_shatter"],[30,"nether_sphere"],[40,"neural_storm"],[50,"phantom_claw"],[60,"void_dominion"],[5,"dreamweave"],[55,"void_dominion"],[62,"fairy_wind"],[63,"disarming_voice"],[64,"nymph_mist"]],
+    learnset:[[1,"fae_requiem"],[10,"void_rend"],[20,"synaptic_shatter"],[30,"nether_sphere"],[40,"neural_storm"],[50,"phantom_claw"],[60,"void_dominion"],[5,"dreamweave"],[55,"void_dominion"],[62,"fairy_wind"],[63,"disarming_voice"],[64,"nymph_mist"],[66,"lunar_burst"]],
     catchRate:4, expYield:372, rarity:"legendary",
     desc:"The sovereign of corrupted fae — a ruler that bridges the beautiful and the terrible without apology.",
     lore:"Voidcrown is a dark-fairy entity 2.5 metres tall wearing a permanent crown of void-matter and fairy-light. Half of its face is radiant and warm; the other half is an absolute darkness that swallows sight." },

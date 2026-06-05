@@ -279,6 +279,7 @@
 
     <!-- Battle Controls -->
     <div id="battle-controls">
+      <div id="pvp-turn-timer" class="pvp-turn-timer hidden"></div>
       <!-- Main Actions -->
       <div id="battle-main-actions" class="control-panel">
         <button class="battle-btn fight-btn" id="btn-fight">⚔ FIGHT</button>
@@ -706,6 +707,7 @@
       <button class="btn-back" id="btn-pvp-back">← Back</button>
       <h2>⚔️ PvP Battles</h2>
     </div>
+    <div id="pvp-rating-banner" class="pvp-rating-banner"></div>
     <div class="pvp-mode-tabs">
       <button class="pvp-tab active" data-tab="simulated">🤖 Simulated</button>
       <button class="pvp-tab" data-tab="live">⚡ Live</button>
@@ -716,9 +718,20 @@
       <div class="pvp-layout">
         <div class="pvp-post">
           <h3>Challenge Someone</h3>
-          <p class="pvp-desc">Post a challenge and share the code. Your opponent enters it to auto-resolve a battle.</p>
+          <p class="pvp-desc">Post your team, then anyone can battle it. All Lumori are level-capped to 50 with perfect IVs for a fair fight. <strong>Doubles</strong> fights 2-active-per-side and has its own ladder.</p>
+          <div class="pvp-format-toggle" id="pvp-format-toggle">
+            <button class="pvp-fmt-btn active" data-fmt="single">⚔️ Singles</button>
+            <button class="pvp-fmt-btn" data-fmt="double">👥 Doubles</button>
+          </div>
+          <div id="pvp-active-team" class="pvp-active-team"></div>
+          <button class="btn-secondary" id="btn-pvp-teams">🛠️ My PvP Teams</button>
           <button class="btn-primary" id="btn-post-challenge">⚔️ Post Challenge</button>
           <div id="pvp-my-code" class="pvp-code-display hidden"></div>
+          <button class="btn-primary" id="btn-pvp-quickmatch">🎲 Quick Match</button>
+          <button class="btn-secondary" id="btn-pvp-gauntlet">🏟️ Gauntlet</button>
+          <p class="pvp-desc">Gauntlet: battle posted teams back-to-back — see how many you can clear in a row. Survival score only; doesn't affect your rating.</p>
+          <button class="btn-secondary" id="btn-pvp-ffa">👑 FFA Royale</button>
+          <p class="pvp-desc">FFA Royale: a free-for-all against 2–3 other posted teams — everyone can attack anyone, last team standing wins. Has its own 👑 ladder.</p>
         </div>
         <div class="pvp-browse">
           <h3>Open Challenges</h3>
@@ -734,6 +747,27 @@
       <p class="pvp-desc pvp-live-desc">Real-time battles! Create a room, share the 6-letter code with a friend, and battle live. Both players must be online at the same time.</p>
       <div id="pvp-live-area"></div>
     </div>
+  </div>
+
+  <!-- PvP TEAMS BUILDER SCREEN -->
+  <div id="screen-pvp-teams" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" id="btn-pvp-teams-back">← Back</button>
+      <h2>🛠️ My PvP Teams</h2>
+    </div>
+    <div id="pvp-teams-area" class="pvp-teams-area"></div>
+  </div>
+
+  <!-- FFA ROYALE SCREEN -->
+  <div id="screen-ffa" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" id="btn-ffa-quit">← Forfeit</button>
+      <h2>👑 FFA Royale</h2>
+      <span id="ffa-timer" class="pvp-turn-timer hidden"></span>
+    </div>
+    <div id="ffa-sides" class="ffa-sides"></div>
+    <div id="ffa-log" class="ffa-log"></div>
+    <div id="ffa-controls" class="ffa-controls"></div>
   </div>
 
   <!-- FRIENDS SCREEN -->

@@ -829,11 +829,18 @@ function buildMonBase(def, lv, ivs, nature, baseOverride) {
 }
 
 // Build a live battle copy from a party slot (levelCap optional)
+// PvP normalizes every battler to a fixed level with perfect IVs so team-building
+// and skill decide the match, not grind. See docs/pvp-spec.md.
+const PVP_LEVEL_CAP = 50;
+
 function buildBattleMon(partySlot, levelCap) {
   migrateStatuses(partySlot);
   const def = MONSTERS_DATA[partySlot.monsterId];
-  const lv = (levelCap && partySlot.level > levelCap) ? levelCap : partySlot.level;
-  const ivs = partySlot.ivs || { hp:0, atk:0, def:0, spa:0, spd:0, spe:0 };
+  const pvp = typeof battleContext !== "undefined" && battleContext && battleContext.isPvP;
+  const lv = pvp ? PVP_LEVEL_CAP
+                 : ((levelCap && partySlot.level > levelCap) ? levelCap : partySlot.level);
+  const ivs = pvp ? { hp:31, atk:31, def:31, spa:31, spd:31, spe:31 }
+                  : (partySlot.ivs || { hp:0, atk:0, def:0, spa:0, spd:0, spe:0 });
   const heldItemId = partySlot.heldItem || null;
   const heldData = heldItemId ? ITEMS_DATA[heldItemId] : null;
 
@@ -847,6 +854,10 @@ function buildBattleMon(partySlot, levelCap) {
     heldItem: heldItemId,
     focusSashUsed: false,
     partyRef: partySlot,
+    // Forward-compat: no ability battle system exists yet, so this is null today.
+    // Carried here (and in pvpSerializeMon) so abilities will flow through battles —
+    // including PvP snapshots — automatically once the system is implemented.
+    ability: partySlot.ability || (def && def.ability) || null,
     shiny: !!partySlot.shiny,
     variant: !!partySlot.variant,
     variantTypes: partySlot.variantTypes || null,
@@ -899,6 +910,9 @@ function buildBattleMon(partySlot, levelCap) {
   }
   // Variant: override types
   if (partySlot.variant && partySlot.variantTypes) mon.types = [...partySlot.variantTypes];
+
+  // PvP battlers always enter at full, un-statused HP (a fresh competitive match).
+  if (pvp) { mon.currentHP = mon.maxHP; mon.fainted = false; mon.statuses = []; }
 
   return mon;
 }

@@ -107,9 +107,27 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 - The variant *mechanic* (stats/typing/immunity randomization) is handled in #11. #12 is the **content** layer on top: per-Lumori variant **lore, descriptions, movesets** and any deeper randomization.
 - **Batch** the authoring like the NG+ families; validate move keys/types per batch.
 
-### 13. Online PvP battle system 🚧 IN PROGRESS (PR #60, draft branch)
-- No PvP exists yet (only leaderboards, trades, events). Build async or real-time online battles (Firebase): challenge/matchmaking, team submission + validation, turn resolution reusing the battle engine, result reporting.
-- Per current ruling, **both variants and shinies are allowed** in PvP (no shiny exclusion).
+### 13. Online PvP battle system 🚧 IN PROGRESS (branch `claude/online-pvp`)
+**Full design: `docs/pvp-spec.md`.** Two player-chosen modes on the existing Firebase RTDB layer:
+- **Async** — battle a snapshot of another player's team locally vs the AI (reuses the battle engine). **Real-time** — host-authoritative live turn-sync between two online players.
+- **Lv 50 cap** for all PvP mons (IVs 31; variant fields preserved).
+- **Matchmaking:** browsable board + one-tap random/rating queue + **passcode rooms** (private by default, flippable to public spectating — Showdown-style).
+- Variants **and** shinies both allowed. Rating → `/leaderboards/pvp`.
+- ⚠️ Untestable here (placeholder `FIREBASE_CONFIG`, no browser/2nd client) — write correct-by-inspection, playtest after real credentials.
+- **Phase A ✅ (done, unverified):** Lv-50 normalization in `buildBattleMon` (force Lv 50 + perfect IVs + full HP when `battleContext.isPvP`); `startPvpBattle()` plays the opponent's snapshot for real vs the AI (single mode, snapshots/restores party HP so PvP neither damages nor heals); `endBattle` PvP branch → `recordPvpResult()`; `quickMatch()` (near-rating pick) + browsable board now launch real battles; full team serialization (`pvpSerializeMon`: moves/nature/held/shiny/variant); Quick Match button; fixed a latent crash (`GYM_LEADERS[undefined]`) for multi-mon opponents. Retired the old power-score `simulatePvPBattle`.
+- **Rating ✅ (done, unverified):** Elo with **amplified upsets** (two-K: `PVP_K_UPSET=56` / `PVP_K_EXPECTED=24`, base 1000) → `pvp_rating` leaderboard; no XP/blackout/gym rewards. PvP screen shows a rating banner (`renderPvpRatingBanner`: "Your rating: ⭐ N · W–L"). Acceptor-only for now; challenger mailbox deferred.
+- **Phase B ✅ (done, unverified):** **Gauntlet** + challenger rating **mailbox** (`/pvpMailbox/{uid}`) landed earlier. Async **Doubles (2v2 vs AI snapshot)** now complete via the existing `startMultiBattle("double")` engine — Units A–E:
+  - **A** — `startPvpBattle(meta.doubles)` routes through the double engine vs the AI-piloted snapshot; plugged the doubles XP leak (`handleMultiFaintedMons` now PvP-guarded).
+  - **B** — independent Doubles **ladder**: `PVP_MODES` field map, mode-aware `recordPvpResult(won,mode)` + `drainPvpMailbox` (notes carry `format`), new `pvp_doubles_rating` board.
+  - **C** — format-tagged post/accept/quick-match, each routed to the right ladder.
+  - **D** — Singles/Doubles toggle on the PvP screen, dual-ladder rating banner, format tags on challenge cards.
+  - **E** — **up-to-6 saved teams per format** (active PvP loadouts, posted **and** battled with via a `G.team` temp-swap; party untouched) + builder UI screen. Also **fixed a real bug**: `pvpSerializeMon` mapped `mv.id` on string-array slot moves → posted teams had `[undefined]` moves (why Phase A was unverified-broken). Now handles both move shapes.
+- **Phase C ✅ (done, unverified):** async **FFA Royale** — isolated N-side engine (`startFfaBattle`/`#screen-ffa`), 3-4 sides, full teams (1 active + bench), true royale (everyone targets anyone, last standing). Pulls 2-3 open posted teams as AI sides; self-contained 👑 `pvp_ffa_rating` ladder. Reuses `calcDamage`/`applyMoveEffect`; never touches the proven 2-side engine.
+- **Phase D ✅ (done, unverified):** real-time. **D1** — type-aware live damage, passcode + public rooms, public spectating, per-client zero-sum rating (replaced coins-only/host-only). **D2** — **live 2v2 + live FFA** via a unified host-authoritative N-seat engine (`createMultiLiveRoom`/`resolveMultiLiveTurn`): one human per seat, alliances per mode, missing-move AI fill + resolve guard; 2v2→doubles ladder, FFA→ffa ladder.
+- **Post-D polish ✅ (done, unverified):** 60s **turn timer** (auto-pick on expiry) across every PvP/online mode + host-side disconnect safety net; **live mechanical parity** (live now runs the real `calcDamage`); **FFA polish** (battle music, hit/faint animations) + **FFA depth** (residual `tickStatus`, switch menu). **Bag items disabled in all PvP/online modes.** ⚠️ Live 2v2/FFA still need multiple simultaneous real clients to verify; see `docs/pvp-spec.md` "Known limitations".
+- See `docs/pvp-spec.md` for the rating formula + full modes roadmap.
+
+**TODO #13 PvP: all phases A–D + timer/parity/polish implemented (unverified pending real Firebase + playtest).**
 
 ---
 

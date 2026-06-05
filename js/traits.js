@@ -1896,13 +1896,12 @@ const ABILITY_REGISTRY = {
     },
   },
 
-  // NOTE: name "Frost Resistant" assigned per user, but the mechanic is offensive
-  // (Ice +50% in snow). Suggested alternates if user wants name to match mechanic:
-  // "Frost Empowered" / "Coldfront Strike" / "Ice Heart".
+  // NOTE: renamed from "Frost Resistant" per user (the name better fits the
+  // offensive mechanic — Ice strike empowered by cold conditions).
   frost_resistant: {
-    name: "Frost Resistant",
+    name: "Coldfront Strike",
     emoji: "❄️",
-    cssClass: "trait-frost-resistant",
+    cssClass: "trait-coldfront-strike",
     description: "Ice moves +50% power in snow.",
     ngPlusOnly: false,
     outgoingPowerMod: (_a, _e, move) => {

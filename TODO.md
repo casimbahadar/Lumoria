@@ -890,11 +890,11 @@ Discovery script: `scripts/move_utilization.py` — read-only stats tool, parses
 - [x] **Batch 3 — Toxin, Crystal, Mineral, Primal.** 72 generic orphans cleared via ~80 learnset inserts across 47 Lumori. Toxin 22%→93%, Crystal 39%→94%, Mineral 33%→89%, Primal 48%→89%. 12 already-exclusive moves (3 per type) stay reserved.
 - [x] **Batch 4 — Fire, Ice, Wind.** 73 generic orphans cleared via ~160 learnset inserts across 37 Lumori (sharing rule). Fire 47%→94%, Ice 43%→94%, Wind 45%→94%. 9 already-exclusive (3/type) stay reserved.
 - [x] **Batch 5 — Earth, Nature.** 58 generic orphans cleared via ~120 learnset inserts across 28 Lumori. Earth 58%→96%, Nature 52%→96%. 6 already-exclusive (3/type) stay reserved.
-- [ ] Batch 6 — Dark, Spectral, Dream (68 orphans)
-- [ ] **End-of-audit (after Batch 8): move-key rename pass.** Other session renamed `MOVES_DATA[].name` display fields but left snake_case keys unchanged (e.g. `ancient_power:` key → display "Primeval Force"). To clean up the gap before final code review, do a focused sweep renaming keys to match new display names. Touches MOVES_DATA + every learnset (~5,500 refs) + trainer `moves:[...]` arrays + battle/AI hardcodes. Must be atomic — write a key-rename script that updates all refs simultaneously.
-- [ ] Batch 6 — Dark, Spectral, Dream (68 orphans)
+- [x] **Batch 6 — Dark, Spectral, Dream.** 60 generic orphans cleared via ~130 learnset inserts across 39 Lumori. Dark 47%→94%, Spectral 52%→89%, Dream 29%→95%. 9 already-exclusive (3/type) stay reserved.
 - [ ] Batch 7 — Electric, Metal, Mental (77 orphans)
 - [ ] Batch 8 — Normal, Aquatic, Fairy, Draconic, Fighting, Poison, Sonic (134 orphans)
+- [ ] **End-of-audit (after Batch 8): move-key rename pass.** Other session renamed `MOVES_DATA[].name` display fields but left snake_case keys unchanged (e.g. `ancient_power:` key → display "Primeval Force"). To clean up the gap before final code review, do a focused sweep renaming keys to match new display names. Touches MOVES_DATA + every learnset (~5,500 refs) + trainer `moves:[...]` arrays + battle/AI hardcodes. Must be atomic — write a key-rename script that updates all refs simultaneously.
+- [ ] **End-of-audit Phase 2: STAB-completeness audit.** After Phase 1 (orphan-clearing) + key rename, walk each type and verify every Lumori of that type has a healthy total STAB pool. Phase 1 only ensured each move has ≥1 learner; Phase 2 ensures each Lumori has enough STAB moves to play its role. May surface Lumori with sparse STAB despite no orphan moves remaining.
 - [ ] End-of-audit revisit: Aether + Chrono post-game-restricted moves (any final tagging once Forgotten/Stellar/Aether/Chrono roster expands)
 
 # 📊 Final-pass stat spread review — RUN LAST (after all renaming complete)  `[⏳ NOT STARTED — RUN LAST]`

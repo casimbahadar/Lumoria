@@ -1527,14 +1527,14 @@ const MONSTERS_DATA = {
 
   5: { id:5, name:"Cobaleap",    emoji:"🦦", types:["Aquatic"],
     base:{hp:60,atk:66,def:79,spa:64,spd:85,spe:64},
-    learnset:[[1,"water_gun"],[2,"tail_whip"],[3,"bubble_beam"],[4,"aqua_tail"],[5,"tidecaller"],[16,"recover"],[24,"surf"],[30,"harden"],[35,"hydro_pump"],[44,"tidal_crush"],[6,"deepwater_hymn"],[33,"swords_dance"]],
+    learnset:[[1,"water_gun"],[2,"tail_whip"],[3,"bubble_beam"],[4,"aqua_tail"],[5,"tidecaller"],[6,"deepwater_hymn"],[8,"shadow_jab"],[14,"sucker_punch"],[16,"recover"],[24,"surf"],[30,"harden"],[33,"swords_dance"],[35,"hydro_pump"],[44,"tidal_crush"]],
     evolveTo:6, evolveLevel:36, catchRate:25, expYield:142, rarity:"uncommon",
     desc:"A sleek long-bodied otter-cousin with cobalt fur. Streaks through water in graceful leaping bounds, surfacing in a quick arc each stroke.",
     lore:"Cobaleap is a long-bodied mustelid roughly 2 metres from nose to tail, more elongated and slender than its base form. Its juvenile teal kit-fur has deepened to a glossy cobalt, and Aquatter's neck-to-tail steering fin has flattened and fused into its denser, sleeker body. Its short cobalt-blue fur is so dense it appears to gleam like polished glass when wet, and a pale turquoise stripe runs from the crown of its head to the tip of its powerful tail. A small ruff of stiffer guard-hairs flares behind its head when threatened — mistaken at a distance for a fin or crest. It hunts in shallow coastal waters by leaping between wave crests in long bounding arcs, and can sustain speeds that outpace most sailing vessels for hours at a time." },
 
   6: { id:6, name:"Banksnout",    emoji:"🦦", types:["Aquatic","Dark"],
     base:{hp:72,atk:90,def:97,spa:89,spd:105,spe:75},
-    learnset:[[1,"surf"],[2,"aqua_tail"],[3,"harden"],[4,"tidecaller"],[37,"hydro_pump"],[40,"abyssal_jet"],[44,"mud_shot"],[48,"coral_barrage"],[52,"drill_run"],[56,"earth_power"],[60,"fissure_slam"],[64,"tectonic_slam"],[5,"deepwater_hymn"],[39,"ocean_tempest"]],
+    learnset:[[1,"surf"],[2,"aqua_tail"],[3,"harden"],[4,"tidecaller"],[5,"deepwater_hymn"],[10,"abyssal_wave"],[30,"wicked_torrent"],[37,"hydro_pump"],[39,"ocean_tempest"],[40,"abyssal_jet"],[44,"mud_shot"],[48,"coral_barrage"],[52,"drill_run"],[56,"earth_power"],[60,"fissure_slam"],[64,"tectonic_slam"]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:265, rarity:"rare",
     desc:"An amphibious otter that has grown to thrive on land as much as in water. Its stretched limbs and digging claws make it as fearsome on the bank as in the current.",
     lore:"Banksnout is a powerfully built otter just over 2 metres from snout to tail-tip. Where Cobaleap spends almost all its life submerged, this final form has gradually grown into a true land-thriver: its limbs have stretched and thickened, Cobaleap's gleaming cobalt-blue coat has darkened to a glossy umber and gained a coarser overcoat that sheds water and sun alike, and its broad webbed forepaws have developed stout digging claws strong enough to carve deep tunnels straight into riverbanks. It still chases trout and crustaceans through submerged channels, but increasingly it patrols the surrounding grasslands at dusk and dawn — stalking rodents and ground-nesting birds in near-silence before ambushing them, then retreating to long burrows whose chambers open well above the waterline. Long mud slides worn into embankments mark its preferred travel routes between water and land." },
@@ -1900,7 +1900,7 @@ const MONSTERS_DATA = {
 
   122: { id:122, name:"Caveshroud", emoji:"🦇", types:["Dark","Wind"],
     base:{hp:63,atk:78,def:48,spa:116,spd:78,spe:119},
-    learnset:[[1,"dark_pulse"],[2,"wing_attack"],[3,"air_slash"],[4,"shadowstep"],[5,"eclipse_shroud"],[30,"shadow_ball"],[35,"growl"],[38,"hurricane"],[42,"tackle"],[49,"night_slash"],[56,"nightmare_pulse"],[63,"cyclone_blade"],[6,"dread_howl"],[43,"void_rend"]],
+    learnset:[[1,"dark_pulse"],[2,"wing_attack"],[3,"air_slash"],[4,"shadowstep"],[5,"eclipse_shroud"],[6,"dread_howl"],[8,"shadow_jab"],[20,"shadow_cloak"],[30,"shadow_ball"],[35,"growl"],[38,"hurricane"],[42,"tackle"],[43,"void_rend"],[49,"night_slash"],[56,"nightmare_pulse"],[63,"cyclone_blade"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:205, rarity:"uncommon",
     desc:"A spectral wing beast. Its mere passing through an area chills it completely.",
     lore:"Caveshroud is a large dark-wind bat with a 1.5-metre wingspan — Spiraloom's narrow grey-black wings have broadened to leathery dark purple-black and its echolocating nose-leaf has flattened against deeper charcoal-grey fur. When it passes, shadows move in directions contrary to light sources. It roosts alone in sea caves and hunts by riding cold offshore winds far out to sea." },
@@ -2066,7 +2066,7 @@ const MONSTERS_DATA = {
 
   170: { id:170, name:"Oneiron",   emoji:"💫", types:["Mental","Dream"],
     base:{hp:75,atk:69,def:52,spa:125,spd:94,spe:84},
-    learnset:[[1,"confusion",[25,"future_echo"]],[1,"bite"],[11,"psybeam"],[19,"dark_pulse"],[23,"swords_dance"],[27,"psychic_move"],[35,"shadow_ball"],[42,"nightmare_pulse"],[43,"night_slash"],[51,"psystrike",[5,"calm_mind"]],[3,"prism_ward"],[37,"void_rend"]],
+    learnset:[[1,"confusion",[25,"future_echo"]],[1,"bite"],[3,"prism_ward"],[7,"dream_focus"],[9,"somnia_calm"],[11,"psybeam"],[13,"dream_meditation"],[15,"somnia_speed"],[19,"dark_pulse"],[20,"dream_swirl"],[23,"swords_dance"],[27,"psychic_move"],[30,"dream_wave"],[35,"shadow_ball"],[37,"void_rend"],[42,"nightmare_pulse"],[43,"night_slash"],[51,"psystrike",[5,"calm_mind"]]],
     evolveTo:null, evolveLevel:null, catchRate:70, expYield:185, rarity:"uncommon",
     desc:"A dreamrift that exists between sleep and waking. It draws power from nightmares.",
     lore:"Oneiron is a mental-dream entity 70 cm tall with a wisp-like body of deep indigo and silver. Its limbs dissolve at the edges into drifting motes of light. It inhabits the boundary between waking and sleep, entering dreams of nearby sleeping creatures and exploring their symbolic landscapes." },
@@ -2363,7 +2363,7 @@ const MONSTERS_DATA = {
   // 2-stage Dark/Vapor chain: Umbrajest → Shadowveil (level 34)
   220: { id:220, name:"Umbrajest", emoji:"🎭", types:["Dark","Vapor"],
     base:{hp:62,atk:58,def:55,spa:78,spd:62,spe:82},
-    learnset:[[1,"bite"],[1,"confusion"],[5,"vapor_jab"],[8,"drizzle"],[10,"mist_s"],[12,"dark_pulse"],[14,"mist_strike"],[16,"fog_beam"],[20,"fog_kick"],[22,"psybeam"],[24,"vapor_focus"],[28,"mist_pulse"],[32,"night_slash"],[42,"psychic_move"],[52,"eclipse_shroud"],[60,"hyper_beam"]],
+    learnset:[[1,"bite"],[1,"confusion"],[5,"vapor_jab"],[7,"dark_focus"],[8,"drizzle"],[10,"mist_s"],[11,"shadow_jab"],[12,"dark_pulse"],[14,"mist_strike"],[16,"fog_beam"],[18,"sucker_punch"],[20,"fog_kick"],[22,"psybeam"],[24,"vapor_focus"],[26,"taunt"],[28,"mist_pulse"],[32,"night_slash"],[42,"psychic_move"],[52,"eclipse_shroud"],[60,"hyper_beam"]],
     evolveTo:221, evolveLevel:34, catchRate:145, expYield:92, rarity:"common",
     desc:"A trickster in a dark jester's mask. Uses vaporous illusions and dark energy to confuse and terrify.",
     lore:"Umbrajest is a dark-vapor trickster creature 60 cm tall with a wispy smoke-black body and a permanent wide grin formed by luminescent patches. Its eyes are bright and mischievous. It delights in rearranging objects in darkened rooms and projecting images of feared things into the peripheral vision of passers-by." },
@@ -2375,7 +2375,7 @@ const MONSTERS_DATA = {
   // Shadowveil (evolves from Umbrajest 220)
   221: { id:221, name:"Shadowveil", emoji:"🎪", types:["Dark","Vapor"],
     base:{hp:91,atk:84,def:78,spa:109,spd:91,spe:97},
-    learnset:[[1,"dark_pulse"],[1,"psychic_move"],[12,"fog_kick"],[16,"mist_s"],[20,"mist_pulse"],[22,"cloud_form"],[26,"night_slash"],[28,"mist_lash"],[34,"eclipse_shroud"],[36,"fog_storm"],[40,"abyssal_mist"],[42,"soul_rend"],[50,"dread_howl"],[54,"mist_veil"],[58,"moonblast"],[66,"hyper_beam"]],
+    learnset:[[1,"dark_pulse"],[1,"psychic_move"],[10,"shadow_cloak"],[12,"fog_kick"],[16,"mist_s"],[20,"mist_pulse"],[22,"cloud_form"],[24,"fade"],[26,"night_slash"],[28,"mist_lash"],[32,"veil_shroud"],[34,"eclipse_shroud"],[36,"fog_storm"],[40,"abyssal_mist"],[42,"soul_rend"],[50,"dread_howl"],[54,"mist_veil"],[58,"moonblast"],[66,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:220, rarity:"uncommon",
     desc:"A master of dark illusions. Those who witness its act lose themselves in vaporous nightmares for days.",
     lore:"Shadowveil is a dark-vapor creature 90 cm tall resembling a tall humanoid draped in a cloak of living shadow — Umbrajest's wispy smoke-body has solidified into a cloaked humanoid form. Its face is blank except for two silver eyes. It is impossible to touch directly — hands pass through its shadow-substance — but it can interact physically by will. It observes from darkened doorways." },
@@ -2526,7 +2526,7 @@ const MONSTERS_DATA = {
 
   240: { id:240, name:"Tundrafox", emoji:"☃️", types:["Ice","Dark"],
     base:{hp:83,atk:77,def:80,spa:119,spd:99,spe:92},
-    learnset:[[1,"blizzard"],[1,"dark_pulse"],[12,"arctic_calm"],[18,"aurora_blast"],[22,"blizzard_charge"],[26,"cryogenic_breath"],[30,"frostbite_strike"],[32,"cryo_lance"],[36,"glacial_lance"],[40,"icicle_crash"],[44,"ice_claw"],[48,"avalanche_drive"],[52,"ice_hammer"],[56,"glacial_tomb"],[60,"sheer_cold"],[64,"sleet_barrage"],[72,"night_slash"]],
+    learnset:[[1,"blizzard"],[1,"dark_pulse"],[8,"fear_aura"],[12,"arctic_calm"],[16,"feint_attack"],[18,"aurora_blast"],[20,"throat_chop"],[22,"blizzard_charge"],[26,"cryogenic_breath"],[28,"shadow_force"],[30,"frostbite_strike"],[32,"cryo_lance"],[36,"glacial_lance"],[40,"icicle_crash"],[44,"ice_claw"],[48,"avalanche_drive"],[52,"ice_hammer"],[56,"glacial_tomb"],[60,"sheer_cold"],[64,"sleet_barrage"],[68,"starlight_obliteration"],[72,"night_slash"]],
     evolveTo:null, evolveLevel:null, catchRate:28, expYield:265, rarity:"rare",
     desc:"A 3-metre malevolent snow-titan whose cheerful snowman frame has frozen into something cruel. Its hollow coal-eyes glint with predatory cold, and a permanent blizzard cloaks its approach.",
     lore:"Tundrafox is a colossal malevolent snow-titan 3 metres tall whose three stacked tiers form an unsettlingly cheerful silhouette of a great snowman — until you notice the wrongness. Its transformation begins when a Blizzariel grows large enough to weather the months-long polar dark months without melting; the small dense crystal of frozen wind-energy at its core cools past a threshold during the unbroken polar night and develops a malice of its own, an awareness shaped by sustained darkness and cold rather than warmth. Around this dark-frozen core the snowman's body grows dense with compressed glacier-air rather than ordinary snow, giving the surface a faint silver-blue tint and the density of stone-ice. Long branch-arms hang past its midsection, ending in twisted fingers tipped in needle-sharp shards. Its broad face bears a long crystalline carrot-nose curved like a tusk and four hollow coal-eyes whose centres glow faint violet — two original, two new ones opened by the corrupted core. It hunts by gliding its lower tier across the surface like a sled, leaving no trail; a permanent localised blizzard cloaks its approach, dropping the air temperature and silencing all sound for kilometres around. Northern hunters consider it a true terror — a creature that wears the joyful shape of a snowman to lower its prey's guard before striking." },
@@ -2755,14 +2755,14 @@ const MONSTERS_DATA = {
   // 2-stage Dark split: Grimshade → Eclipsoon (Moon Stone item)
   269: { id:269, name:"Grimshade", emoji:"🦝", types:["Dark"],
     base:{hp:55,atk:65,def:52,spa:78,spd:65,spe:82},
-    learnset:[[1,"bite"],[1,"dark_pulse"],[14,"night_slash"],[24,"eclipse_shroud"],[34,"crunch"],[44,"soul_rend"],[54,"dread_howl"],[60,"hyper_beam"]],
+    learnset:[[1,"bite"],[1,"dark_pulse"],[5,"dark_focus"],[8,"sucker_punch"],[14,"night_slash"],[18,"shadow_cloak"],[24,"eclipse_shroud"],[28,"feint_attack"],[34,"crunch"],[44,"soul_rend"],[54,"dread_howl"],[60,"hyper_beam"]],
     evolveTo:270, evolveLevel:null, evolveItem:"moonStone", evolveMethod:"item", catchRate:130, expYield:102, rarity:"common",
     desc:"A tanuki cub with deep slate-grey fur and a long shadow that seems to move on its own. Already learning the shape-shifting trickery of its lineage.",
     lore:"Grimshade is a small tanuki-like creature 50 centimetres long with deep slate-grey fur and a thick raccoon-banded tail. Its shadow is unusually large for its size and seems to drift independently in low light, sometimes brushing surfaces several seconds after Grimshade has passed — the first sign of the eclipse-magic that will mature in its evolved form. It is fiercely curious and mischievous, opening pouches and pots in mountain camps for the sheer joy of seeing things fall over." },
 
   270: { id:270, name:"Eclipsoon", emoji:"🌑", types:["Dark","Fairy"],
     base:{hp:83,atk:87,def:75,spa:114,spd:100,spe:91},
-    learnset:[[1,"dark_pulse"],[1,"moonblast"],[28,"eclipse_shroud"],[36,"soul_rend"],[44,"dread_howl"],[52,"fae_requiem"],[60,"shadow_ball"],[68,"hyper_beam"]],
+    learnset:[[1,"dark_pulse"],[1,"moonblast"],[8,"nasty_plot"],[12,"umbral_pulse"],[16,"shadow_lance"],[20,"abyss_stare"],[24,"eclipse_burst"],[28,"eclipse_shroud"],[32,"shadowstorm"],[36,"soul_rend"],[40,"void_whisper"],[44,"dread_howl"],[48,"wicked_torrent"],[52,"fae_requiem"],[56,"abyssal_dominion"],[60,"shadow_ball"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:38, expYield:228, rarity:"rare",
     desc:"An eclipse-tanuki whose dark fur is patched with fairy-pink moonlight markings. Its illusion-magic peaks under the shadow of an eclipse.",
     lore:"Eclipsoon is a 70-centimetre dark-fairy tanuki, the matured form of Grimshade's mischievous lineage. Its dense dark fur is broken by patches of luminescent fairy-pink across its face, ear-tips, and the rings of its long banded tail; when full moonlight or eclipse shadow falls across it, those patches glow brightly enough to read by. It is famous in Lumoria folklore for spinning convincing illusions of vanished objects, missing creatures, or impossible vistas to confuse travellers, and its illusions are strongest under the shadow of an eclipse — when sun and moon align, an Eclipsoon's deceptions become indistinguishable from reality. It inhabits forest-edge habitats and signals to others across open clearings at night with rhythmic flashes of its glowing patches." },
@@ -3094,7 +3094,7 @@ const MONSTERS_DATA = {
 
   313: { id:313, name:"Sandrix", emoji:"🪨", types:["Earth","Dark"],
     base:{hp:88,atk:112,def:88,spa:75,spd:80,spe:98},
-    learnset:[[1,"earthquake"],[1,"dark_pulse"],[8,"bone_club"],[12,"earthen_wall"],[16,"rock_polish"],[20,"erosion_wave"],[24,"quicksand_trap"],[26,"night_slash"],[28,"sand_polish_v2"],[30,"smack_down"],[34,"earth_power"],[36,"ancient_tide"],[40,"underground_slam"],[42,"eclipse_shroud"],[44,"scorched_sand"],[50,"bedrock_slam"],[54,"world_root_bind"],[58,"soul_rend"],[66,"hyper_beam"]],
+    learnset:[[1,"earthquake"],[1,"dark_pulse"],[8,"bone_club"],[12,"earthen_wall"],[16,"rock_polish"],[20,"erosion_wave"],[24,"quicksand_trap"],[26,"night_slash"],[28,"sand_polish_v2"],[30,"smack_down"],[34,"earth_power"],[36,"ancient_tide"],[40,"underground_slam"],[42,"eclipse_shroud"],[44,"scorched_sand"],[46,"pursuit"],[50,"bedrock_slam"],[54,"world_root_bind"],[58,"soul_rend"],[66,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:225, rarity:"uncommon",
     desc:"A massive desert armadillo 1.5 metres long. Strikes prey from below by burrowing through soft sand at deceptive speed.",
     lore:"Sandrix is a large desert armadillo 1.5 metres long — Dunecrawl's dark sand-coloured plates have darkened further to sandy brown-black across a body more than double its juvenile length, the overlapping armour absorbing light around it deepening the shadow it casts even at midday. It inhabits desert shadow-zones — rocky overhangs and dune troughs — and hunts by detecting footstep vibrations through sand at extraordinary range, then burrowing rapidly beneath its prey and erupting from below to clamp on with armored jaws. When threatened it tucks fully into a 1-metre sphere of impenetrable plate-armor and rolls down dunes at frightening speed." },
@@ -3231,7 +3231,7 @@ const MONSTERS_DATA = {
   // ===== PSYCHIC/DARK =====
   128: { id:128, name:"Cranivade", emoji:"🔮", types:["Mental","Spectral"],
     base:{hp:41,atk:50,def:49,spa:78,spd:69,spe:61},
-    learnset:[[1,"confusion",[22,"telepathic_slam"]],[1,"bite"],[10,"psybeam"],[18,"dark_pulse"],[26,"psychic_move"],[30,"neural_storm"],[34,"shadow_ball"],[42,"psystrike",[5,"calm_mind"]],[3,"prism_ward"],[32,"blackout_bomb"]],
+    learnset:[[1,"confusion",[22,"telepathic_slam"]],[1,"bite"],[3,"prism_ward"],[10,"psybeam"],[14,"nasty_plot"],[18,"dark_pulse"],[20,"ectoplasm_wave"],[25,"ghost_focus"],[26,"psychic_move"],[30,"neural_storm"],[32,"blackout_bomb"],[34,"shadow_ball"],[42,"psystrike",[5,"calm_mind"]]],
     evolveTo:129, evolveLevel:34, catchRate:90, expYield:100, rarity:"common",
     desc:"A spectre of mental power. It exists half in reality and half in the mind's eye.",
     lore:"Cranivade is a tall mental-spectral biped 1.3 metres tall with a smooth lavender-grey body and an oversized cranium that pulses with light when it concentrates. Its small hands trail crackling spectral energy. It dredges suppressed memories from others without consent and catalogues them in its own vast mental archive. During its deepest archiving trances, the lavender-grey cranium of a Cranivade briefly turns translucent at the edges and flickers between dimensions; this momentary phase-shift is exactly the half-dimensional state Voidaxis inhabits permanently." },
@@ -3366,7 +3366,7 @@ const MONSTERS_DATA = {
 
   129: { id:129, name:"Voidaxis", emoji:"🌀", types:["Mental","Spectral"],
     base:{hp:83,atk:77,def:72,spa:107,spd:89,spe:75},
-    learnset:[[1,"psybeam"],[2,"dark_pulse"],[3,"psychic_move"],[4,"shadow_ball"],[5,"calm_mind"],[39,"psystrike"],[40,"battle_cry"],[44,"prism_ward"],[49,"obsidian_fang"],[54,"void_rend"],[59,"mind_shatter"],[64,"hyper_beam"],[6,"mind_reader"],[41,"thought_crush"]],
+    learnset:[[1,"psybeam"],[2,"dark_pulse"],[3,"psychic_move"],[4,"shadow_ball"],[5,"calm_mind"],[6,"mind_reader"],[20,"phantom_charge"],[39,"psystrike"],[40,"battle_cry"],[41,"thought_crush"],[44,"prism_ward"],[49,"obsidian_fang"],[54,"void_rend"],[59,"mind_shatter"],[64,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:248, rarity:"rare",
     desc:"A void being of mental and spectral power. Consumes light and thought with equal ease.",
     lore:"Voidaxis is a large mental-spectral entity 1.5 metres tall whose body appears to exist partially in another dimension — Cranivade's lavender-grey biped silhouette persists at the form's centre with its oversized cranium still pulsing dimly, but its edges are blurred and its outline shifts when viewed peripherally, dissolving into half-dimensional shadow. Its presence makes nearby electronic devices malfunction. It communicates only through psychic projection and has never been heard to vocalise." },
@@ -3760,7 +3760,7 @@ const MONSTERS_DATA = {
   // 191: Morralyn - Grass/Dark (Sylvnox→Morraveth→Morralyn)
   80: { id:80, name:"Morralyn", emoji:"🪵", types:["Nature","Dark"],
     base:{hp:98,atk:122,def:97,spa:117,spd:87,spe:29},
-    learnset:[[1,"razor_leaf"],[1,"night_slash"],[2,"energy_ball"],[3,"dark_pulse"],[4,"sleep_powder"],[5,"spore_burst"],[8,"bark_shield"],[14,"root_drain"],[20,"synthesis"],[26,"nature_pulse"],[30,"magical_leaf"],[34,"primordial_growth"],[38,"petal_blitz"],[42,"shadow_ball"],[44,"abyssal_snare"],[46,"void_rend"],[50,"verdant_surge"],[54,"soul_rend"],[58,"canopy_crash"],[60,"verdant_radiance"],[62,"eclipse_shroud"]],
+    learnset:[[1,"razor_leaf"],[1,"night_slash"],[2,"energy_ball"],[3,"dark_pulse"],[4,"sleep_powder"],[5,"spore_burst"],[8,"bark_shield"],[14,"root_drain"],[20,"synthesis"],[26,"nature_pulse"],[30,"magical_leaf"],[34,"primordial_growth"],[38,"petal_blitz"],[40,"nasty_plot"],[42,"shadow_ball"],[44,"abyssal_snare"],[46,"void_rend"],[50,"verdant_surge"],[54,"soul_rend"],[58,"canopy_crash"],[60,"verdant_radiance"],[62,"eclipse_shroud"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A wraith of shadow and thorn that stalks moonless forests. The trees it passes through wither and grow dark, feeding it endlessly.",
     lore:"Morralyn is the ancient leshy-lord of corrupted groves, a towering 1.8-metre bark-skinned forest-spirit — Morraveth's branching antler-buds have grown into a full crown of branching black antlers, and a long vine-beard hung with hollow seedpods has matured below. Dead foliage and dark moss cover the heavy bark-armour plates of its body, and a faint aura of decay accelerates the decomposition of fallen material around it, enriching the soil it walks upon. It is said that the deepest, most shadow-tangled groves of Lumoria are still ruled by patriarchal Morralyn who have not been seen by human eyes in centuries." },
@@ -4088,14 +4088,14 @@ const MONSTERS_DATA = {
   // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   342: { id:342, name:"Wraithking", emoji:"👑", types:["Dark","Spectral"],
     base:{hp:69,atk:94,def:71,spa:92,spd:79,spe:90}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"shadow_ball"],[10,"void_rend"],[20,"umbral_claw"],[30,"phantom_claw"],[40,"shadow_sneak"],[50,"shadowstep"],[60,"neural_storm"],[5,"toxic"],[38,"mind_shatter"]],
+    learnset:[[1,"shadow_ball"],[5,"toxic"],[10,"void_rend"],[15,"dark_void"],[20,"umbral_claw"],[25,"ectoplasm_strike"],[30,"phantom_claw"],[35,"spectral_lock"],[38,"mind_shatter"],[40,"shadow_sneak"],[50,"shadowstep"],[60,"neural_storm"]],
     catchRate:18, expYield:285, rarity:"rare",
     desc:"The apex ghost predator — a crowned wraith that rules over all lesser ghost-types in its domain.",
     lore:"Wraithking is a dark-spectral entity 2 metres tall with a spectral crown of black flame. It commands lesser ghost-types and its presence causes all light sources within 50 metres to dim." },
 
   343: { id:343, name:"Shadowreave", emoji:"🌑", types:["Dark","Spectral"],
     base:{hp:66,atk:81,def:66,spa:103,spd:85,spe:89}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"shadowstep"],[10,"psychic_move"],[20,"void_rend"],[30,"psystrike"],[40,"phantom_claw"],[50,"mind_shatter"],[60,"neural_storm"],[5,"shadow_sneak"],[38,"dreamweave"]],
+    learnset:[[1,"shadowstep"],[5,"shadow_sneak"],[8,"abyss_stare"],[10,"psychic_move"],[12,"umbral_pulse"],[15,"shadow_lance"],[18,"nasty_plot"],[20,"void_rend"],[22,"fear_aura"],[28,"shadowstorm"],[30,"psystrike"],[35,"void_whisper"],[38,"dreamweave"],[40,"phantom_claw"],[45,"spirit_calamity"],[50,"mind_shatter"],[55,"abyssal_dominion"],[60,"neural_storm"]],
     catchRate:18, expYield:283, rarity:"rare",
     desc:"A being of living shadow that exists simultaneously in darkness and the spectral realm. It phases through walls to hunt, its constantly shifting silhouette making it nearly impossible to track.",
     lore:"Shadowreave is a dark-spectral entity 1.6 metres tall with a body composed of living shadow and two luminous violet eyes. Its silhouette is never quite the same shape twice." },
@@ -4103,7 +4103,7 @@ const MONSTERS_DATA = {
   // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   344: { id:344, name:"Glimmeritch", emoji:"🧚", types:["Fairy","Spectral"],
     base:{hp:63,atk:69,def:68,spa:102,spd:91,spe:97}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"fairy_wind"],[10,"shadow_ball"],[20,"fae_requiem"],[30,"psystrike"],[40,"phantom_claw"],[50,"void_rend"],[60,"fae_requiem"],[5,"dreamweave"],[38,"prism_ward"]],
+    learnset:[[1,"fairy_wind"],[5,"dreamweave"],[10,"shadow_ball"],[15,"fade"],[20,"fae_requiem"],[25,"phantom_dance"],[30,"psystrike"],[35,"veil_shroud"],[38,"prism_ward"],[40,"phantom_claw"],[50,"void_rend"],[60,"fae_requiem"]],
     catchRate:18, expYield:280, rarity:"rare",
     desc:"A corrupted fairy that has passed through death and returned. Its glow is beautiful and deeply unsettling.",
     lore:"Glimmeritch is a fairy-spectral creature resembling a 0.6-metre glowing humanoid with translucent wings and a body that flickers between solid and spectral forms." },
@@ -4160,7 +4160,7 @@ const MONSTERS_DATA = {
   // ---- Tier 3: Post-game NG+ (requiresChampion areas) BST ~580–630 ----
   352: { id:352, name:"Voidlord", emoji:"🕳️", types:["Mental","Spectral"],
     base:{hp:72,atk:94,def:76,spa:100,spd:84,spe:89}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"void_rend"],[10,"mind_shatter"],[20,"phantom_claw"],[30,"neural_storm"],[40,"shadowstep"],[50,"psystrike"],[60,"cataclysm_breath"],[5,"dreamweave"],[45,"prism_ward"]],
+    learnset:[[1,"void_rend"],[5,"dreamweave"],[10,"mind_shatter"],[15,"ectoplasm_wave"],[20,"phantom_claw"],[25,"spectral_lock"],[30,"neural_storm"],[40,"shadowstep"],[45,"prism_ward"],[50,"psystrike"],[60,"cataclysm_breath"]],
     catchRate:12, expYield:308, rarity:"rare",
     desc:"The sovereign of all void-touched creatures. Its mind is a labyrinth with no exit.",
     lore:"Voidlord is a mental-spectral entity 2.2 metres tall with a body of solidified void-matter and a crown of hovering psychic fragments. No one who has entered its mindscape has returned unchanged." },
@@ -4231,7 +4231,7 @@ const MONSTERS_DATA = {
   // ---- Tier 3b: More post-game NG+ BST ~590–640 ----
   362: { id:362, name:"Lunaspectre", emoji:"🌕", types:["Mental","Spectral"],
     base:{hp:70,atk:78,def:74,spa:110,spd:94,spe:94}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"psychic_move"],[10,"shadow_ball"],[20,"psystrike"],[30,"void_rend"],[40,"mind_shatter"],[50,"phantom_claw"],[60,"neural_storm"],[5,"dreamweave"],[38,"prism_ward"]],
+    learnset:[[1,"psychic_move"],[5,"dreamweave"],[10,"shadow_ball"],[15,"ectoplasm_wave"],[20,"psystrike"],[30,"void_rend"],[38,"prism_ward"],[40,"mind_shatter"],[50,"phantom_claw"],[60,"neural_storm"]],
     catchRate:10, expYield:320, rarity:"rare",
     desc:"A moon-born spectre woven from lunar psychic energy. It appears only on nights of the full moon.",
     lore:"Lunaspectre is a mental-spectral entity 2 metres tall that resembles a human silhouette composed of condensed moonlight. Its edges blur and shimmer like a reflection on disturbed water." },
@@ -4310,7 +4310,7 @@ const MONSTERS_DATA = {
 
   373: { id:373, name:"Voidrend", emoji:"🌌", types:["Dark","Spectral"],
     base:{hp:69,atk:103,def:74,spa:92,spd:82,spe:100}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"void_rend"],[10,"phantom_claw"],[20,"shadow_ball"],[30,"shadowstep"],[40,"umbral_claw"],[50,"mind_shatter"],[60,"neural_storm"],[5,"shadow_sneak"],[48,"cataclysm_breath"]],
+    learnset:[[1,"void_rend"],[5,"shadow_sneak"],[8,"dark_void"],[10,"phantom_claw"],[15,"phantom_charge"],[20,"shadow_ball"],[25,"ectoplasm_strike"],[30,"shadowstep"],[35,"shadowstorm"],[40,"umbral_claw"],[45,"spirit_calamity"],[48,"cataclysm_breath"],[50,"mind_shatter"],[60,"neural_storm"]],
     catchRate:7, expYield:338, rarity:"rare",
     desc:"A predator from between realities. It tears holes in space as naturally as others breathe.",
     lore:"Voidrend is a dark-spectral entity 2.5 metres tall with a body that exists simultaneously in normal space and the void between dimensions. Its claws leave visible tears in reality that slowly heal." },
@@ -4345,7 +4345,7 @@ const MONSTERS_DATA = {
 
   378: { id:378, name:"Dreamweald", emoji:"💭", types:["Mental","Dream"],
     base:{hp:69,atk:73,def:73,spa:113,spd:97,spe:95}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"fairy_wind"],[10,"psychic_move"],[20,"fae_requiem"],[30,"psystrike"],[40,"mind_shatter"],[50,"neural_storm"],[60,"dreamweave"],[5,"prism_ward"],[48,"cortex_spike"]],
+    learnset:[[1,"fairy_wind"],[5,"prism_ward"],[8,"dream_meditation"],[10,"psychic_move"],[15,"dream_focus_acc"],[20,"fae_requiem"],[25,"lullaby_charge"],[30,"psystrike"],[35,"dream_breath"],[40,"mind_shatter"],[45,"eternal_dream_n"],[48,"cortex_spike"],[50,"neural_storm"],[55,"cosmic_nightmare"],[58,"dream_eruption"],[60,"dreamweave"],[65,"somnia_storm"]],
     catchRate:7, expYield:340, rarity:"rare",
     desc:"A being that exists only in the shared dreamspace of nearby creatures. Physical contact wakes it permanently.",
     lore:"Dreamweald is a mental-dream entity visible only to those who are half-asleep. In full wakefulness it appears as a translucent shimmer, but in dreams it takes whatever form the dreamer most desires." },
@@ -4403,7 +4403,7 @@ const MONSTERS_DATA = {
   // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   386: { id:386, name:"Wraithstorm", emoji:"💀", types:["Electric","Spectral"],
     base:{hp:68,atk:92,def:70,spa:106,spd:84,spe:105}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"shadow_ball"],[10,"thunder_shock"],[20,"phantom_claw"],[30,"thunderbolt"],[40,"void_rend"],[50,"volt_surge"],[60,"thunder"],[5,"shadow_sneak"],[52,"neural_storm"]],
+    learnset:[[1,"shadow_ball"],[5,"shadow_sneak"],[10,"thunder_shock"],[15,"ghost_focus"],[20,"phantom_claw"],[30,"thunderbolt"],[40,"void_rend"],[50,"volt_surge"],[52,"neural_storm"],[60,"thunder"]],
     catchRate:5, expYield:358, rarity:"rare",
     desc:"A ghost electrified by a lightning strike. It haunts storm fronts and strikes from inside the thunder.",
     lore:"Wraithstorm is an electric-spectral entity that exists inside active lightning bolts. Between strikes it takes the form of a translucent humanoid crackling with contained electricity." },
@@ -4482,7 +4482,7 @@ const MONSTERS_DATA = {
   // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   397: { id:397, name:"Abyssalord", emoji:"🌊", types:["Aquatic","Spectral"],
     base:{hp:79,atk:92,def:81,spa:101,spd:87,spe:85}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"surf"],[10,"shadow_ball"],[20,"tidal_crush"],[30,"phantom_claw"],[40,"hydro_pump"],[50,"void_rend"],[60,"neural_storm"],[5,"shadowstep"],[55,"sea_serpent_strike"]],
+    learnset:[[1,"surf"],[5,"shadowstep"],[10,"shadow_ball"],[20,"tidal_crush"],[30,"phantom_claw"],[40,"hydro_pump"],[45,"spirit_calamity"],[50,"void_rend"],[55,"sea_serpent_strike"],[60,"neural_storm"]],
     catchRate:4, expYield:372, rarity:"rare",
     desc:"The lord of all drowned things. Sailors who die at sea answer to it now.",
     lore:"Abyssalord is a water-spectral creature 9 metres long resembling a massive spectral leviathan trailing ghostly sea-wrack. It is invisible underwater — its presence is detected only by a sudden drop in water temperature and the silencing of all sea life." },
@@ -4545,7 +4545,7 @@ const MONSTERS_DATA = {
   405: { id:405, name:"Mirkling", emoji:"🐾", types:["Dark","Metal"],
     evolveTo:406, evolveLevel:30, ngPlusTier:1,
     base:{hp:45,atk:62,def:55,spa:48,spd:50,spe:40}, // BST 300
-    learnset:[[1,"shadowstep"],[1,"metal_claw"],[10,"void_rend"],[18,"iron_tail"],[26,"phantom_claw"],[30,"alloy_edge"]],
+    learnset:[[1,"shadowstep"],[1,"metal_claw"],[5,"dark_focus"],[10,"void_rend"],[14,"shadow_cloak"],[18,"iron_tail"],[22,"feint_attack"],[26,"phantom_claw"],[30,"alloy_edge"]],
     catchRate:45, expYield:62, rarity:"uncommon",
     desc:"A shadow-pup of dark-steel born in the void rifts. Its tiny steel claws cut harder than they should.",
     lore:"Mirkling is a dark-steel creature 0.5 metres long resembling a shadowy puppy with small but razor-sharp steel claws. A Mirkling instinctively forms alliances with other dark-types but rarely with its own kind: pre-conditioning for the solitary boundary-warden life Voidwarden eventually leads. Mirkling consistently patrol the edges of rift-zones rather than entering them, drawn already to the guardian role they will inhabit at their third evolution. Their claws are not steel from birth either; they slowly metallise across the first year of life as the shadow-and-steel fusion of the lineage chemically composes itself in the pup." },
@@ -4553,7 +4553,7 @@ const MONSTERS_DATA = {
   406: { id:406, name:"Umbrasteel", emoji:"🐺", types:["Dark","Metal"],
     evolveTo:407, evolveLevel:50, ngPlusTier:1,
     base:{hp:68,atk:98,def:88,spa:72,spd:78,spe:61}, // BST 465
-    learnset:[[1,"shadowstep"],[1,"metal_claw"],[12,"void_rend"],[22,"iron_tail"],[32,"phantom_claw"],[42,"alloy_edge"],[52,"flash_cannon"]],
+    learnset:[[1,"shadowstep"],[1,"metal_claw"],[5,"shadow_jab"],[12,"void_rend"],[18,"nightmare_smash"],[22,"iron_tail"],[28,"pursuit"],[32,"phantom_claw"],[42,"alloy_edge"],[52,"flash_cannon"]],
     catchRate:15, expYield:152, rarity:"rare",
     desc:"A wolf of forged shadows and living steel. It hunts in packs but leads every pack it joins.",
     lore:"Umbrasteel is a dark-steel creature 1.5 metres at the shoulder — Mirkling's puppy-shadow has woven itself into a body of fine shadow filaments reinforced with micro-crystal steel alloy, and the small razor-sharp pup-claws have matured into the apex hunter's silent invisibility within shadow." },
@@ -4561,7 +4561,7 @@ const MONSTERS_DATA = {
   407: { id:407, name:"Voidwarden", emoji:"⚔️", types:["Dark","Metal"],
     evolveTo:null, evolveLevel:null, ngPlusTier:1,
     base:{hp:88,atk:130,def:115,spa:85,spd:95,spe:87}, // BST 600
-    learnset:[[1,"void_rend"],[1,"iron_tail"],[20,"phantom_claw"],[30,"flash_cannon"],[40,"umbral_claw"],[50,"alloy_edge"],[60,"scale_storm"],[5,"dragon_dance"],[60,"void_dominion"]],
+    learnset:[[1,"void_rend"],[1,"iron_tail"],[5,"dragon_dance"],[8,"dark_void"],[15,"eclipse_burst"],[20,"phantom_claw"],[25,"shadow_lance"],[30,"flash_cannon"],[35,"nightmare_smash"],[40,"umbral_claw"],[45,"shadow_force"],[50,"alloy_edge"],[55,"starlight_obliteration"],[60,"scale_storm"],[60,"void_dominion"],[65,"void_whisper"],[70,"abyssal_dominion"]],
     catchRate:5, expYield:300, rarity:"pseudolegendary",
     desc:"The supreme guardian of the void boundary. It wields darkness and steel as extensions of its own will.",
     lore:"Voidwarden is a dark-steel creature 3 metres tall with a body of condensed void-matter reinforced with an exoskeleton of ultra-dense steel. Its transformation begins when an Umbrasteel proves itself worthy of guarding the boundary between worlds — at that moment, the canine body it carried as juvenile and adolescent re-forges itself upright: the four legs reconstitute as two heavy hindlimbs and two long arms tipped in steel claws, and the shadow-filaments of its body re-weave into a humanoid silhouette better suited to wielding darkness and steel as tools. Ancient legends name Voidwarden the Warden of the Boundary Between Worlds, and it is rarely seen — its post is a fixed point in the lattice that separates one reality from another, and it leaves only at the call of catastrophic incursion." },
@@ -4642,21 +4642,21 @@ const MONSTERS_DATA = {
   417: { id:417, name:"Glacigeist", emoji:"👻", types:["Spectral"],
     evolveTo:418, evolveLevel:18, catchRate:150, expYield:65, rarity:"common",
     base:{hp:48,atk:40,def:52,spa:72,spd:58,spe:25}, // BST 295
-    learnset:[[1,"ghost_jab"],[1,"powder_snow"],[6,"ghost_pulse"],[11,"frost_breath"],[16,"specter_pulse"],[22,"aurora_beam"],[28,"phantom_beam"]],
+    learnset:[[1,"ghost_jab"],[1,"powder_snow"],[6,"ghost_pulse"],[8,"ectoplasm_armor"],[11,"frost_breath"],[16,"specter_pulse"],[18,"fade"],[22,"aurora_beam"],[28,"phantom_beam"]],
     desc:"A small, lonely haunt that has crept inside a cracked porcelain joint to give itself a body.",
     lore:"Glacigeist is a houseless spirit drawn to abandoned, cold places, where it slips into a discarded fragment of carved wood or porcelain to anchor itself to the world. The object frosts over wherever the spirit touches it, and a faint chill marks the rooms it has chosen to haunt. Left undisturbed, it begins to gather more pieces to itself." },
 
   418: { id:418, name:"Frostmarion", emoji:"❄️", types:["Ice","Spectral"],
     evolveTo:419, evolveLevel:38, catchRate:70, expYield:148, rarity:"uncommon",
     base:{hp:62,atk:52,def:70,spa:95,spd:76,spe:30}, // BST 385
-    learnset:[[1,"ghost_jab"],[6,"ghost_pulse"],[16,"specter_pulse"],[22,"aurora_beam"],[28,"phantom_beam"],[34,"ice_beam"],[40,"soul_lance"],[46,"glacial_shard"]],
+    learnset:[[1,"ghost_jab"],[6,"ghost_pulse"],[10,"ectoplasm_armor"],[16,"specter_pulse"],[22,"aurora_beam"],[28,"phantom_beam"],[34,"ice_beam"],[40,"soul_lance"],[46,"glacial_shard"]],
     desc:"A puppet of frost-lacquered wood, worked by an unseen ghost through threads of icy thread.",
     lore:"Having gathered enough cast-off pieces, the spirit assembles Frostmarion: a jointed marionette of pale wood glazed in frost, dangling from strings of frozen filament that it manipulates itself. It moves with the eerie, hitching grace of a puppet whose puppeteer is hidden, and the air around its strings rings faintly cold. Those who cut the threads find them re-formed by morning." },
 
   419: { id:419, name:"Pallidoll", emoji:"🎎", types:["Ice","Spectral"],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:250, rarity:"rare",
     base:{hp:80,atk:60,def:88,spa:125,spd:97,spe:55}, // BST 505
-    learnset:[[1,"specter_pulse"],[1,"aurora_beam"],[28,"phantom_beam"],[40,"soul_lance"],[46,"ice_beam"],[52,"phantom_force"],[58,"blizzard"],[64,"soul_burst"],[70,"winter_shade"]],
+    learnset:[[1,"specter_pulse"],[1,"aurora_beam"],[15,"phantom_dance"],[28,"phantom_beam"],[40,"soul_lance"],[46,"ice_beam"],[52,"phantom_force"],[58,"blizzard"],[64,"soul_burst"],[70,"winter_shade"]],
     desc:"A life-size haunted doll wreathed in freezing mist, its painted eyes following anyone who lingers.",
     lore:"Pallidoll is the spirit fully realised — a doll the size of a child, porcelain-faced and immaculate, drifting through silent winter halls on a low bank of freezing fog. It is gentle to those who treat it kindly and merciless to those who would break it, sealing intruders in sudden rime. Estates that house a Pallidoll are always cold, and always, somehow, perfectly clean." },
 
@@ -4730,21 +4730,21 @@ const MONSTERS_DATA = {
   429: { id:429, name:"Lullasnout", emoji:"🌙", types:["Dream"],
     evolveTo:430, evolveLevel:18, catchRate:150, expYield:63, rarity:"common",
     base:{hp:62,atk:45,def:52,spa:58,spd:53,spe:30}, // BST 300
-    learnset:[[1,"tackle"],[1,"lullaby_song"],[5,"dream_jab"],[10,"dream_pulse"],[15,"somnia_ray"],[20,"bite"],[26,"dream_beam"]],
+    learnset:[[1,"tackle"],[1,"lullaby_song"],[5,"dream_jab"],[7,"dream_focus"],[10,"dream_pulse"],[12,"somnia_calm"],[15,"somnia_ray"],[17,"dream_armor"],[20,"bite"],[22,"lullaby_strike"],[26,"dream_beam"],[28,"dream_wave"]],
     desc:"A drowsy, snouted cub that snuffles through the air for the scent of dreams.",
     lore:"Lullasnout drifts half-asleep even while awake, its long flexible snout twitching toward the dreams of nearby sleepers. It nibbles only at idle daydreams and bad moods, leaving those it visits a little lighter of heart, and parents in some regions welcome a Lullasnout into the nursery to keep nightmares at bay." },
 
   430: { id:430, name:"Drowsetapir", emoji:"🌙", types:["Dark","Dream"],
     evolveTo:431, evolveLevel:38, catchRate:70, expYield:145, rarity:"uncommon",
     base:{hp:82,atk:60,def:70,spa:78,spd:70,spe:35}, // BST 395
-    learnset:[[1,"tackle"],[5,"dream_jab"],[15,"somnia_ray"],[20,"bite"],[26,"dream_beam"],[32,"dark_pulse"],[38,"nightmare_burst"],[44,"nightmare_storm"]],
+    learnset:[[1,"tackle"],[5,"dream_jab"],[8,"dream_charge"],[11,"dream_armor"],[15,"somnia_ray"],[17,"somnia_speed"],[20,"bite"],[22,"lullaby_strike"],[26,"dream_beam"],[28,"lullaby_charge"],[32,"dark_pulse"],[38,"nightmare_burst"],[40,"nightmare_haunt"],[44,"nightmare_storm"]],
     desc:"A heavy-shouldered dream-eater that now draws nourishment from nightmares as well.",
     lore:"As it matures, Drowsetapir develops a taste for the darker dreams its gentler youth avoided, wading into nightmares to devour the fear within. The sleepers it feeds upon wake unsettled but unharmed, their terrors gone, and a Drowsetapir grown bold will follow a troubled mind for nights on end until the nightmare is consumed." },
 
   431: { id:431, name:"Nocturnbaku", emoji:"🌙", types:["Dark","Dream"],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:250, rarity:"rare",
     base:{hp:110,atk:75,def:88,spa:105,spd:92,spe:40}, // BST 510
-    learnset:[[1,"dream_beam"],[1,"dark_pulse"],[26,"somnia_blast"],[38,"nightmare_storm"],[44,"shadow_ball"],[50,"dream_devourer"],[56,"nightmare_calamity"],[62,"soul_rend"],[66,"dream_apocalypse_spec"]],
+    learnset:[[1,"dream_beam"],[1,"dark_pulse"],[8,"nightmare_strike"],[12,"nightmare_haunt"],[16,"nightmare_slash"],[20,"dream_press"],[24,"dreamscape_smash"],[26,"somnia_blast"],[28,"nightmare_aura"],[32,"nightmare_lock"],[38,"nightmare_storm"],[40,"nightmare_resolve"],[44,"shadow_ball"],[48,"nightmare_finisher"],[50,"dream_devourer"],[56,"nightmare_calamity"],[62,"soul_rend"],[66,"dream_apocalypse_spec"]],
     desc:"A great baku wreathed in stolen dreams, able to walk into sleep and reshape it at will.",
     lore:"Nocturnbaku is the dream-eater grown vast and deliberate, a creature that steps fully into a sleeper's mind and walks their dreamscape as easily as a meadow. It can soothe a haunted soul into untroubled rest or, provoked, trap a foe in an endless looping nightmare. Folk leave offerings at the edge of forests where one is known to den, asking for a single dreamless night." },
 
@@ -4878,7 +4878,7 @@ const MONSTERS_DATA = {
   449: { id:449, name:"Oredigger", emoji:"🦡", types:["Dark","Mineral"],
     evolveTo:null, evolveLevel:null, catchRate:65, expYield:198, rarity:"uncommon",
     base:{hp:80,atk:100,def:88,spa:50,spd:62,spe:75}, // BST 455
-    learnset:[[1,"tackle"],[5,"mineral_jab"],[15,"ore_punch"],[18,"ore_armor"],[20,"bite"],[26,"mineral_smash"],[32,"night_slash"],[38,"obsidian_strike"],[44,"crunch"],[50,"shadowstep"]],
+    learnset:[[1,"tackle"],[5,"mineral_jab"],[10,"throat_chop"],[15,"ore_punch"],[18,"ore_armor"],[20,"bite"],[26,"mineral_smash"],[28,"abyssal_wave"],[32,"night_slash"],[38,"obsidian_strike"],[40,"pursuit"],[44,"crunch"],[50,"shadowstep"]],
     desc:"A lightless-eyed tunneler that ambushes from below, dragging prey down into the dark.",
     lore:"Oredigger has abandoned the surface entirely, hunting in the lightless deep where its sense of vibration and its obsidian claws make it lord of the tunnels. It strikes upward without warning, hauling unwary Lumori beneath the soil before they can struggle, and miners who hear claws scraping the far side of a rock wall know to dig elsewhere." },
 
@@ -4901,14 +4901,14 @@ const MONSTERS_DATA = {
   452: { id:452, name:"Dozit", emoji:"🦥", types:["Dream"],
     evolveTo:453, evolveLevel:28, catchRate:190, expYield:64, rarity:"common",
     base:{hp:68,atk:42,def:55,spa:58,spd:57,spe:20}, // BST 300
-    learnset:[[1,"tackle"],[1,"lullaby_song"],[5,"dream_jab"],[10,"dream_pulse"],[15,"somnia_ray"],[20,"dream_beam"],[26,"lullaby_aura"]],
+    learnset:[[1,"tackle"],[1,"lullaby_song"],[5,"dream_jab"],[7,"dream_focus"],[10,"dream_pulse"],[12,"somnia_punch"],[15,"somnia_ray"],[17,"somnia_speed"],[20,"dream_beam"],[22,"dream_armor"],[26,"lullaby_aura"]],
     desc:"A perpetually half-asleep sloth that drifts through its own slow daydreams.",
     lore:"Dozit spends nearly all its life adrift between waking and sleep, moving so slowly that moss and small Lumori take up residence in its fur. Its dreams leak gently into the air as a calming drowse, and creatures that doze beneath a hanging Dozit share in its mild, wandering reveries." },
 
   453: { id:453, name:"Lullavoir", emoji:"🦥", types:["Dream","Fairy"],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:196, rarity:"uncommon",
     base:{hp:100,atk:55,def:80,spa:90,spd:95,spe:30}, // BST 450
-    learnset:[[1,"dream_pulse"],[1,"fairy_wind"],[15,"somnia_ray"],[20,"dream_beam"],[26,"draining_kiss"],[32,"dazzling_gleam"],[38,"somnia_blast"],[44,"moonblast"],[50,"lullaby_song"]],
+    learnset:[[1,"dream_pulse"],[1,"fairy_wind"],[8,"dream_meditation"],[12,"lullaby_strike"],[15,"somnia_ray"],[18,"lullaby_charge"],[20,"dream_beam"],[25,"dream_focus_acc"],[26,"draining_kiss"],[32,"dazzling_gleam"],[35,"starlit_dream"],[38,"somnia_blast"],[44,"moonblast"],[46,"somnia_storm"],[50,"lullaby_song"]],
     desc:"A serene, slow-moving sloth-fae that spins waking dreams of soft light around itself.",
     lore:"Lullavoir drifts through the high canopy wrapped in a haze of luminous, gentle dreams, and to wander into its aura is to feel one's worries dissolve into a pleasant drowse. It means no harm — those it lulls wake rested and content — but enemies caught in its dreamscape simply forget why they came to fight. Forest-folk consider a resident Lullavoir a blessing on the grove." },
 
@@ -4916,7 +4916,7 @@ const MONSTERS_DATA = {
   454: { id:454, name:"Tollwisp", emoji:"🔔", types:["Spectral"],
     evolveTo:455, evolveLevel:30, catchRate:180, expYield:68, rarity:"common",
     base:{hp:50,atk:42,def:62,spa:72,spd:62,spe:24}, // BST 312
-    learnset:[[1,"ghost_jab"],[1,"haunting_cry"],[5,"ghost_pulse"],[10,"specter_pulse"],[15,"void_wail"],[20,"phantom_beam"],[26,"spirit_drain"]],
+    learnset:[[1,"ghost_jab"],[1,"haunting_cry"],[5,"ghost_pulse"],[8,"ectoplasm_armor"],[10,"specter_pulse"],[15,"void_wail"],[20,"phantom_beam"],[26,"spirit_drain"]],
     desc:"A small spirit that has taken up residence inside a cracked, tarnished handbell.",
     lore:"Tollwisp is a lonely haunt nesting within a discarded bell, ringing itself softly at odd hours to announce a presence no one can see. The sound carries an unmistakable mournful note, and old chapels where a Tollwisp has settled are said to toll on their own on the anniversaries of those once mourned there." },
 
@@ -5011,7 +5011,7 @@ const MONSTERS_DATA = {
   465: { id:465, name:"Forgotten Nyxviper", emoji:"🦇", types:["Dark","Spectral"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:80,atk:150,def:80,spa:120,spd:90,spe:200},
-    learnset:[[1,"night_slash"],[20,"shadow_ball"],[35,"dark_pulse"],[50,"void_rend"],[65,"shadowstep"],[70,"eclipse_shroud"],[80,"nyx_fang"]],
+    learnset:[[1,"night_slash"],[10,"sucker_punch"],[20,"shadow_ball"],[25,"feint_attack"],[35,"dark_pulse"],[40,"abyss_stare"],[50,"void_rend"],[65,"shadowstep"],[70,"eclipse_shroud"],[80,"nyx_fang"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Nyxviper phase through solid matter and strike from the space between moments. Their venom erases memories rather than dealing damage.",
     lore:"Vaeldrian scholars debated whether Nyxviper were truly physical beings or manifestations of collective nightmares. The debate was never resolved." },
@@ -5193,7 +5193,7 @@ const MONSTERS_DATA = {
   485: { id:485, name:"Forgotten Frostdrax", emoji:"❄️", types:["Spectral","Fairy"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:135,atk:145,def:150,spa:135,spd:145,spe:90},
-    learnset:[[1,"spirit_strike"],[20,"fairy_wind"],[35,"specter_pulse"],[50,"moonblast"],[65,"celestial_wave"],[70,"haunting_cry"],[80,"winter_shade"],[90,"glacial_spirit"]],
+    learnset:[[1,"spirit_strike"],[20,"fairy_wind"],[35,"specter_pulse"],[45,"phantom_dance"],[50,"moonblast"],[65,"celestial_wave"],[70,"haunting_cry"],[80,"winter_shade"],[90,"glacial_spirit"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Frostdrax maintained Vaeldris's northern climate for millennia. The ice continent shattered within hours of the moment it fled. It has not forgiven itself.",
     lore:"Frostdrax is the only one of the 39 that Nylara says chose to come with her. She did not command it. It simply followed." },
@@ -5284,7 +5284,7 @@ const MONSTERS_DATA = {
   495: { id:495, name:"Forgotten Nihilax", emoji:"🕳️", types:["Primal","Spectral"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:75,atk:145,def:80,spa:160,spd:90,spe:170},
-    learnset:[[1,"night_slash"],[15,"ancient_pulse"],[20,"earth_power"],[30,"primal_meditation"],[35,"dark_pulse"],[45,"soul_eater_p"],[50,"earthquake"],[65,"specter_pulse"],[70,"void_dominion"],[80,"nihil_quake"]],
+    learnset:[[1,"night_slash"],[15,"ancient_pulse"],[20,"earth_power"],[25,"spectral_lock"],[30,"primal_meditation"],[35,"dark_pulse"],[45,"soul_eater_p"],[50,"earthquake"],[65,"specter_pulse"],[70,"void_dominion"],[80,"nihil_quake"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Nihilax emit a field that suppresses all energy signatures within range. In their presence, lights dim, sound muffles, and time seems to hesitate.",
     lore:"Vayne says Nihilax was the first Lumori she saw after the Sundering began. She has never been sure if it was trying to help or simply watching." },
@@ -5329,7 +5329,7 @@ const MONSTERS_DATA = {
   500: { id:500, name:"Forgotten Stellarion", emoji:"🔭", types:["Normal","Spectral"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:115,def:125,spa:210,spd:145,spe:80},
-    learnset:[[1,"body_slam"],[20,"shadow_ball"],[35,"psychic_move"],[50,"hyper_beam"],[65,"void_rend"],[70,"cosmic_veil"],[80,"stellar_collapse"],[90,"ghost_radiance"]],
+    learnset:[[1,"body_slam"],[15,"ghost_focus"],[20,"shadow_ball"],[35,"psychic_move"],[45,"veil_shroud"],[50,"hyper_beam"],[65,"void_rend"],[70,"cosmic_veil"],[80,"stellar_collapse"],[90,"ghost_radiance"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Stellarion is said to contain a fragment of the first star that ever formed. To those who cannot perceive cosmic energy it appears ordinary. To Azura, it blazes like a newborn universe.",
     lore:"Azura says Stellarion is the last wonder Vaeldris ever produced — and that it is also the most important thing to survive the Sundering, because it carries the proof that Vaeldris was worth mourning." }

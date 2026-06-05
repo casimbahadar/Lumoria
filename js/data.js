@@ -1693,28 +1693,28 @@ const MONSTERS_DATA = {
   // ===== ELECTRIC =====
   81: { id:81, name:"Joltan",    emoji:"🐎", types:["Electric"],
     base:{hp:43,atk:47,def:36,spa:51,spd:39,spe:100},
-    learnset:[[1,"scratch",[20,"volt_surge"]],[1,"thunder_shock"],[8,"quick_attack"],[16,"spark"],[22,"thunderbolt"],[29,"recover"],[30,"thunder_wave"],[38,"thunder",[5,"static_cage"]],[3,"charge_burst"],[32,"leer"]],
+    learnset:[[1,"scratch",[20,"volt_surge"]],[1,"thunder_shock"],[3,"charge_burst"],[6,"nuzzle"],[8,"quick_attack"],[10,"thunder_jab"],[16,"spark"],[18,"shock_wave"],[22,"thunderbolt"],[24,"static_charge"],[29,"recover"],[30,"thunder_wave"],[32,"leer"],[38,"thunder",[5,"static_cage"]]],
     evolveTo:82, evolveLevel:20, catchRate:190, expYield:82, rarity:"common",
     desc:"A miniature electric pony-foal that bounds across grasslands faster than the eye can track. Tiny blue sparks drift from its short mane.",
     lore:"Joltan is a miniature electric pony-foal about 50 centimetres at the shoulder with a bright yellow short-haired coat and a dark mane that stands constantly on end from accumulated static charge. Tiny blue sparks drift from the tips of its mane and tail as it moves, and it discharges small jolts into anything that touches it unexpectedly. It cannot stand still — it races constantly across grasslands, building up kinetic and electrical energy together." },
 
   82: { id:82, name:"Galvanos",    emoji:"🐴", types:["Electric"],
     base:{hp:59,atk:88,def:58,spa:89,spd:60,spe:141},
-    learnset:[[1,"thunder_shock"],[2,"quick_attack"],[3,"spark"],[20,"thunderbolt"],[27,"thunder_wave"],[28,"growl"],[34,"harden"],[35,"thunder"],[41,"wild_tumble"],[48,"arc_flash"],[55,"plasma_strike"],[62,"body_slam"],[4,"static_cage"],[42,"leer"]],
+    learnset:[[1,"thunder_shock"],[2,"quick_attack"],[3,"spark"],[4,"static_cage"],[10,"chain_spark"],[18,"lightning_rush"],[20,"thunderbolt"],[24,"volt_switch"],[27,"thunder_wave"],[28,"growl"],[34,"harden"],[35,"thunder"],[41,"wild_tumble"],[42,"leer"],[48,"arc_flash"],[55,"plasma_strike"],[62,"body_slam"]],
     evolveTo:83, evolveLevel:44, catchRate:60, expYield:200, rarity:"uncommon",
     desc:"An electric horse that gallops faster than lightning. Its mane crackles.",
     lore:"Galvanos is a horse-like creature 1.2 metres at the shoulder — Joltan's yellow pony-foal coat has grown into a sleek golden-yellow hide crisscrossed by electric-blue markings. Its flowing mane crackles with constant static. It can sustain a gallop at extraordinary speed for hours by converting its own electrical energy into kinetic force." },
 
   84: { id:84, name:"Electrix",      emoji:"🐛", types:["Electric","Aquatic"],
     base:{hp:34,atk:48,def:43,spa:50,spd:43,spe:94},
-    learnset:[[1,"bug_bite",[22,"arc_flash"]],[1,"thunder_shock"],[10,"spark"],[18,"string_shot"],[20,"recover"],[26,"thunderbolt"],[34,"bug_buzz",[5,"thunder_wave"]],[36,"x_scissor"],[3,"static_cage"],[31,"cocoon_burst"]],
+    learnset:[[1,"bug_bite",[22,"arc_flash"]],[1,"thunder_shock"],[3,"static_cage"],[10,"spark"],[12,"electroweb"],[18,"string_shot"],[20,"recover"],[24,"shock_wave"],[26,"thunderbolt"],[30,"magnet_rise"],[31,"cocoon_burst"],[34,"bug_buzz",[5,"thunder_wave"]],[36,"x_scissor"]],
     evolveTo:85, evolveLevel:22, catchRate:200, expYield:74, rarity:"common",
     desc:"An electric beetle that emits charged buzzing sounds. Very energetic.",
     lore:"Electrix is a small dragonfly nymph 8 cm long, the aquatic juvenile stage of the lineage. Its body is segmented and dark with metallic gold-edged plates, and small gilled abdomen-tufts trail behind it as it crawls along stream beds. It already generates faint electrical sparks from its rudimentary wing-buds when threatened. It hunts smaller aquatic insects with its hooked predatory mandibles, and lives in colonies in slow-moving water near decaying wood, where it processes organic material into bioelectric energy." },
 
   85: { id:85, name:"Shockharpe",  emoji:"🪰", types:["Electric","Nature"],
     base:{hp:81,atk:68,def:53,spa:107,spd:67,spe:101},
-    learnset:[[1,"thunder_shock"],[2,"bug_bite"],[3,"thunder_wave"],[23,"thunderbolt"],[29,"tail_whip"],[31,"bug_buzz"],[33,"x_scissor"],[36,"scratch"],[43,"silk_bind"],[50,"swarm_dive"],[57,"volt_surge"],[64,"thunder"],[4,"static_cage"],[42,"mandible_crush"]],
+    learnset:[[1,"thunder_shock"],[2,"bug_bite"],[3,"thunder_wave"],[4,"static_cage"],[15,"electroweb"],[23,"thunderbolt"],[29,"tail_whip"],[31,"bug_buzz"],[33,"x_scissor"],[36,"scratch"],[42,"mandible_crush"],[43,"silk_bind"],[50,"swarm_dive"],[57,"volt_surge"],[64,"thunder"]],
     evolveTo:86, evolveLevel:42, catchRate:75, expYield:180, rarity:"uncommon",
     desc:"A dragonfly of electricity. Moves so fast it leaves lightning trails behind.",
     lore:"Shockharpe is a 15 cm late-instar dragonfly, the metamorphic mid-stage of the Electrix lineage. Its body has elongated and slimmed from its aquatic-nymph form, and its rudimentary wing-buds have unfolded into newly emerged wings that are still soft and translucent, humming at a frequency that causes mild disorientation in nearby creatures. Its hooked predatory mandibles and accumulating electrical charge are inherited from the nymph. It drains bioelectric energy from prey rather than blood, leaving targets drained and sluggish." },
@@ -1950,7 +1950,7 @@ const MONSTERS_DATA = {
 
   142: { id:142, name:"Dawnirel",  emoji:"✨", types:["Fairy","Mental"],
     base:{hp:50,atk:48,def:54,spa:74,spd:61,spe:63},
-    learnset:[[1,"fairy_wind",[22,"stardust_veil"]],[1,"confusion"],[10,"sweet_kiss"],[18,"psybeam"],[26,"dazzling_gleam"],[30,"neural_storm"],[34,"psychic_move"],[42,"moonblast",[5,"charm_bloom"]],[3,"aurora_veil"],[32,"glitter_storm"]],
+    learnset:[[1,"fairy_wind",[22,"stardust_veil"]],[1,"confusion"],[3,"aurora_veil"],[6,"psy_jab"],[10,"sweet_kiss"],[14,"cerebral_calm"],[18,"psybeam"],[22,"psywave"],[26,"dazzling_gleam"],[30,"neural_storm"],[32,"glitter_storm"],[34,"psychic_move"],[42,"moonblast",[5,"charm_bloom"]]],
     evolveTo:143, evolveLevel:32, catchRate:100, expYield:96, rarity:"common",
     desc:"A dawn spirit that appears at sunrise. Its psychic energy is immense.",
     lore:"Dawnirel is a small star-shaped psychic-fairy creature about 20 cm across, with a central golden body and five pointed arms tipped in pale rose light. It hovers gently, spinning slowly, and emits pulses of warm light in rhythm with its thoughts. It appears at dawn and dusk on cloudless days." },
@@ -1965,28 +1965,28 @@ const MONSTERS_DATA = {
   // ===== STEEL =====
   147: { id:147, name:"Scrapsapien",     emoji:"🤖", types:["Metal"],
     base:{hp:47,atk:60,def:72,spa:37,spd:45,spe:54},
-    learnset:[[1,"scratch",[22,"alloy_edge"]],[1,"metal_claw"],[9,"harden"],[17,"flash_cannon"],[25,"steel_wing"],[29,"leer"],[33,"iron_tail"],[41,"body_slam",[5,"magnetize"]],[3,"ironskin"],[32,"tail_whip"]],
+    learnset:[[1,"scratch",[22,"alloy_edge"]],[1,"metal_claw"],[3,"ironskin"],[9,"harden"],[11,"bullet_punch"],[17,"flash_cannon"],[20,"metal_pulse"],[25,"steel_wing"],[29,"leer"],[32,"tail_whip"],[33,"iron_tail"],[41,"body_slam",[5,"magnetize"]]],
     evolveTo:148, evolveLevel:28, catchRate:120, expYield:90, rarity:"common",
     desc:"A small steel humanoid armored in iron plates. Slow but incredibly tough.",
     lore:"Scrapsapien is a small humanoid steel creature 50 cm tall with a compact body of dark grey steel plates with visible bolts and seams. Its eyes are small yellow optical lenses. It collects metal scraps and incorporates them into its own body, slowly growing more elaborate and patched over time." },
 
   148: { id:148, name:"Stoicguard",  emoji:"🦾", types:["Metal"],
     base:{hp:90,atk:107,def:111,spa:65,spd:83,spe:37},
-    learnset:[[1,"metal_claw"],[2,"flash_cannon"],[3,"steel_wing"],[4,"magnetize"],[28,"leer"],[30,"iron_tail"],[35,"battle_cry"],[38,"body_slam"],[42,"quick_attack"],[49,"rivet_barrage"],[56,"forge_strike"],[63,"tungsten_ram"],[5,"ironskin"],[43,"recover"]],
+    learnset:[[1,"metal_claw"],[2,"flash_cannon"],[3,"steel_wing"],[4,"magnetize"],[5,"ironskin"],[10,"armor_meld"],[18,"gyro_ball"],[24,"smart_strike"],[28,"leer"],[30,"iron_tail"],[35,"battle_cry"],[38,"body_slam"],[42,"quick_attack"],[43,"recover"],[49,"rivet_barrage"],[56,"forge_strike"],[63,"tungsten_ram"]],
     evolveTo:149, evolveLevel:46, catchRate:40, expYield:225, rarity:"uncommon",
     desc:"A steel hound with titanium claws. Almost nothing can break its armor.",
     lore:"Stoicguard is a large humanoid steel creature 1.5 metres tall — Scrapsapien's compact bolted-and-seamed plating has reforged into a broad powerful chest and arms that function as natural weapons, and the scrap-collecting habit of its juvenile form has left a surface of burnished dark steel with deep scratches from past battles. It is stoic, rarely speaking, and positions itself between perceived threats and those it considers worth protecting." },
 
   150: { id:150, name:"Gearon",     emoji:"⚙️", types:["Metal","Electric"],
     base:{hp:48,atk:50,def:67,spa:52,spd:57,spe:54},
-    learnset:[[1,"metal_claw",[22,"shrapnel_burst"]],[1,"thunder_shock"],[10,"flash_cannon"],[18,"spark"],[21,"recover"],[26,"thunderbolt"],[34,"flash_cannon"],[38,"plasma_strike"],[42,"thunder",[5,"magnetize"]],[3,"ironskin"],[32,"ball_lightning"]],
+    learnset:[[1,"metal_claw",[22,"shrapnel_burst"]],[1,"thunder_shock"],[3,"ironskin"],[6,"bullet_punch"],[10,"flash_cannon"],[14,"metal_pulse"],[18,"spark"],[20,"mirror_polish"],[21,"recover"],[26,"thunderbolt"],[32,"ball_lightning"],[34,"flash_cannon"],[38,"plasma_strike"],[42,"thunder",[5,"magnetize"]]],
     evolveTo:151, evolveLevel:28, catchRate:100, expYield:95, rarity:"common",
     desc:"A mechanical gear-bot that runs on electric power. Loves to tinker.",
     lore:"Gearon is a compact steel-electric creature 60 cm tall that resembles a gear-work automaton. Its round body is made of interlocking cog-wheels that spin and whir constantly, generating its own electrical power through mechanical motion. Sparks escape through gaps in its gear-work as it moves." },
 
   151: { id:151, name:"Alloytron",    emoji:"🦿", types:["Metal","Electric"],
     base:{hp:77,atk:72,def:92,spa:108,spd:75,spe:66},
-    learnset:[[1,"thunderbolt"],[2,"magnetize"],[31,"flash_cannon"],[32,"surge_field"],[36,"harden"],[39,"thunder"],[40,"rivet_barrage"],[44,"volt_surge"],[48,"iron_tail"],[52,"tungsten_ram"],[56,"overcharge"],[60,"hyper_beam"],[3,"ironskin"],[37,"forge_strike"]],
+    learnset:[[1,"thunderbolt"],[2,"magnetize"],[3,"ironskin"],[15,"chrome_slash"],[20,"corrosion_proof"],[25,"gyro_ball"],[31,"flash_cannon"],[32,"surge_field"],[33,"mirror_coat"],[35,"steel_roller"],[36,"harden"],[37,"forge_strike"],[39,"thunder"],[40,"rivet_barrage"],[44,"volt_surge"],[48,"iron_tail"],[52,"tungsten_ram"],[56,"overcharge"],[60,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"uncommon",
     desc:"A mechanical warrior powered by electric cores. Feared on every battlefield.",
     lore:"Alloytron is a larger electric-steel automaton 1.2 metres tall — Gearon's spinning cog-wheels have consolidated into an assembly of interlocked alloy panels with exposed wiring running between them, and the mechanical-motion sparks of its juvenile form have organised into a glowing power core visible through a transparent casing in its chest. Its chest houses a glowing power core visible through a transparent casing. It can interface with electrical infrastructure and draw power directly from city grid lines." },
@@ -1994,7 +1994,7 @@ const MONSTERS_DATA = {
   // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   152: { id:152, name:"Imperion",  emoji:"🐢", types:["Metal","Earth"],
     base:{hp:108,atk:61,def:138,spa:59,spd:105,spe:30},
-    learnset:[[1,"tackle",[25,"ironskin"]],[1,"rock_throw"],[12,"harden"],[20,"flash_cannon"],[24,"growl"],[28,"rock_slide"],[36,"iron_tail"],[44,"stone_edge"],[45,"temper_edge"],[52,"body_slam",[5,"magnetize"]],[3,"slag_shield"],[37,"crystal_lance"]],
+    learnset:[[1,"tackle",[25,"ironskin"]],[1,"rock_throw"],[3,"slag_shield"],[12,"harden"],[15,"iron_bulwark"],[20,"flash_cannon"],[24,"growl"],[28,"rock_slide"],[32,"iron_storm"],[36,"iron_tail"],[37,"crystal_lance"],[40,"titan_blade"],[44,"stone_edge"],[45,"temper_edge"],[48,"tungsten_wrath"],[52,"body_slam",[5,"magnetize"]]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:318, rarity:"uncommon",
     desc:"A colossal steel-rock turtle. Nigh indestructible but very slow.",
     lore:"Imperion is a heavily built metal-earth tortoise 1.5 metres long with a thick dome shell of laminated steel plates fused over natural rock. It moves with glacial slowness but is nearly impossible to harm. It is said to carry small ecosystems on its shell — moss, insects, and even small plants grow undisturbed there." },
@@ -2038,14 +2038,14 @@ const MONSTERS_DATA = {
   // ===== PSYCHIC =====
   166: { id:166, name:"Projectery",     emoji:"🐩", types:["Mental"],
     base:{hp:50,atk:34,def:39,spa:74,spd:72,spe:72},
-    learnset:[[1,"tackle",[22,"mind_shatter"]],[1,"confusion"],[8,"quick_attack"],[16,"psybeam"],[24,"psychic_move"],[29,"leer"],[32,"calm_mind"],[40,"psystrike",[5,"prism_ward"]],[3,"mind_reader"],[31,"recover"]],
+    learnset:[[1,"tackle",[22,"mind_shatter"]],[1,"confusion"],[3,"mind_reader"],[6,"psy_jab"],[8,"quick_attack"],[12,"cerebral_calm"],[16,"psybeam"],[20,"psy_blast"],[24,"psychic_move"],[29,"leer"],[31,"recover"],[32,"calm_mind"],[40,"psystrike",[5,"prism_ward"]]],
     evolveTo:167, evolveLevel:25, catchRate:165, expYield:86, rarity:"common",
     desc:"A psychic puppy that reads minds. Can predict attacks before they happen.",
     lore:"Projectery is a small psychic dog about 30 cm at the shoulder with smooth lavender-grey fur and a large domed forehead that glows softly when focusing. Its eyes are bright blue-silver. It reads emotions effortlessly and communicates its own feelings through projected imagery rather than vocalisation." },
 
   167: { id:167, name:"Psychovast",   emoji:"🐩", types:["Mental"],
     base:{hp:78,atk:58,def:54,spa:108,spd:100,spe:107},
-    learnset:[[1,"confusion"],[2,"psybeam"],[3,"psychic_move"],[4,"prism_ward"],[29,"calm_mind"],[31,"growl"],[37,"psystrike"],[38,"battle_cry"],[43,"recover"],[49,"wild_tumble"],[55,"telepathic_slam"],[61,"thought_crush"],[5,"mind_reader"],[41,"swords_dance"]],
+    learnset:[[1,"confusion"],[2,"psybeam"],[3,"psychic_move"],[4,"prism_ward"],[5,"mind_reader"],[15,"mind_focus_s"],[18,"mind_burst"],[22,"psy_blast"],[26,"stored_power"],[29,"calm_mind"],[31,"growl"],[33,"extrasensory"],[37,"psystrike"],[38,"battle_cry"],[41,"swords_dance"],[43,"recover"],[45,"mind_meld"],[48,"future_sight"],[49,"wild_tumble"],[55,"telepathic_slam"],[61,"thought_crush"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:318, rarity:"uncommon",
     desc:"A psychic hound whose mind burns with power. Can levitate small objects.",
     lore:"Psychovast is a larger psychic dog 75 cm at the shoulder — Projectery's smooth lavender-grey fur has darkened to sleek indigo-grey, and the domed glowing forehead of its juvenile form has hardened into a prominent cranial ridge. Concentric rings of faint blue light appear around its head when it concentrates. It can project full sensory experiences into nearby minds and uses this ability to test the character of strangers." },
@@ -2095,7 +2095,7 @@ const MONSTERS_DATA = {
 
   174: { id:174, name:"Scalevorn", emoji:"🦕", types:["Draconic","Metal"],
     base:{hp:88,atk:115,def:118,spa:75,spd:85,spe:62},
-    learnset:[[1,"dragon_claw"],[1,"metal_claw"],[20,"dragon_pulse"],[30,"flash_cannon"],[40,"iron_tail"],[50,"outrage"],[60,"forge_strike"],[70,"hyper_beam"]],
+    learnset:[[1,"dragon_claw"],[1,"metal_claw"],[15,"sunsteel_strike"],[20,"dragon_pulse"],[25,"titan_blade"],[30,"flash_cannon"],[35,"tungsten_wrath"],[40,"iron_tail"],[50,"outrage"],[60,"forge_strike"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:275, rarity:"rare",
     desc:"The final form of the ancient dragon lineage. Its scales have fused into living steel over millennia of battle, creating impenetrable natural armor.",
     lore:"Scalevorn is a powerful dragon-steel hybrid 4 metres long — Serpenthos's green-bronze scales have hardened into steel-grey metallic plates over centuries, and the cobra-hood of its juvenile form has folded flat against the broad muscular base of its skull. Its body is broad and muscular. It moves on four limbs with its wings folded into secondary arms. Its scales have been used in legendary armour-forging projects." },
@@ -2279,14 +2279,14 @@ const MONSTERS_DATA = {
   // 2-stage Normal/Electric chain: Boltfur → Thundermane (level 30)
   209: { id:209, name:"Boltfur", emoji:"🐇", types:["Normal","Electric"],
     base:{hp:58,atk:52,def:48,spa:65,spd:58,spe:88},
-    learnset:[[1,"thunder_shock"],[1,"tackle"],[12,"spark"],[22,"thunderbolt"],[32,"discharge"],[42,"volt_surge"],[52,"ball_lightning"],[60,"hyper_beam"]],
+    learnset:[[1,"thunder_shock"],[1,"tackle"],[6,"nuzzle"],[10,"thunder_jab"],[12,"spark"],[16,"shock_wave"],[20,"static_charge"],[22,"thunderbolt"],[32,"discharge"],[42,"volt_surge"],[52,"ball_lightning"],[60,"hyper_beam"]],
     evolveTo:210, evolveLevel:30, catchRate:155, expYield:82, rarity:"common",
     desc:"A rabbit-like creature whose fur stands permanently on end from static electricity. Leaves sparks wherever it hops.",
     lore:"Boltfur is a small normal-electric rabbit 20 cm long with yellow-white fur that stands permanently on end, giving it a spiky silhouette. Its long ears act as static accumulators. In dry weather its fur produces visible sparks with every movement. It communicates with other Boltfur by controlled static discharge patterns." },
 
   210: { id:210, name:"Thundermane", emoji:"🐰", types:["Normal","Electric"],
     base:{hp:89,atk:85,def:75,spa:105,spd:87,spe:109},
-    learnset:[[1,"thunderbolt"],[1,"body_slam"],[24,"discharge"],[32,"volt_surge"],[40,"thunder"],[48,"ball_lightning"],[56,"plasma_strike"],[64,"hyper_beam"]],
+    learnset:[[1,"thunderbolt"],[1,"body_slam"],[10,"bolt_smash"],[16,"coil_strike"],[22,"lightning_rush"],[24,"discharge"],[28,"storm_sovereignty"],[32,"volt_surge"],[40,"thunder"],[48,"ball_lightning"],[56,"plasma_strike"],[64,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:222, rarity:"uncommon",
     desc:"A colossal storm-hare with a crackling lightning-mane around its long ears. Bounds the open savannah at thunder-cracking speeds, marking territory with rolling claps.",
     lore:"Thundermane is a giant maned hare 1.2 metres at the shoulder when seated and easily 1.8 metres long when stretched. Its powerful hind legs and lithe tawny body still read as lagomorph at a glance, but Boltfur's spiky juvenile fur has thickened into a stiff mane of yellow-white fur — perpetually crackling with arcs of static lightning — that flares around its long upright ears and down the back of its neck like a lion's. It rules open savannahs by hopping rather than stalking, covering thirty metres in a single bound and discharging the built-up charge of each landing back into the earth. Its territorial calls are not roars but rolling thunderclaps produced by mane-flares strong enough to be heard kilometres away." },
@@ -2326,7 +2326,7 @@ const MONSTERS_DATA = {
   // 3-stage Spectral/Mental chain: Spiritch → Phantorge → Spectraith
   215: { id:215, name:"Veilwisp", emoji:"🌀", types:["Mental"],
     base:{hp:40,atk:42,def:30,spa:68,spd:52,spe:72},
-    learnset:[[1,"confusion"],[1,"psybeam"],[12,"calm_mind"],[20,"psychic_move"],[28,"moonblast"],[36,"psystrike"],[44,"neural_storm"],[52,"astral_rend"]],
+    learnset:[[1,"confusion"],[1,"psybeam"],[8,"psy_jab"],[12,"calm_mind"],[16,"mind_focus_s"],[20,"psychic_move"],[24,"mental_pulse_n"],[28,"moonblast"],[36,"psystrike"],[44,"neural_storm"],[52,"astral_rend"]],
     evolveTo:216, evolveLevel:26, catchRate:175, expYield:68, rarity:"common",
     desc:"A wisp of pure psychic energy. Drifts through reality reading the thoughts of every living thing nearby.",
     lore:"Veilwisp is a floating psychic orb 20 cm across made of condensed translucent violet energy. Its form shifts between a perfect sphere and a wispy irregularity as its thoughts wander. It drifts through solid objects as if they do not exist and leaves a brief afterimage wherever it passes. With age a Veilwisp spends longer and longer stretches in its irregular wispy state, shorter intervals as a perfect sphere. This gradual self-dissolution is the body easing toward the bodiless distortion Distorsion eventually sustains." },
@@ -2340,7 +2340,7 @@ const MONSTERS_DATA = {
 
   217: { id:217, name:"Distorsion", emoji:"🔮", types:["Mental"],
     base:{hp:82,atk:70,def:67,spa:132,spd:106,spe:93},
-    learnset:[[1,"psychic_move"],[1,"moonblast"],[30,"psystrike"],[38,"neural_storm"],[46,"astral_rend"],[54,"psybeam"],[62,"calm_mind"],[70,"hyper_beam"]],
+    learnset:[[1,"psychic_move"],[1,"moonblast"],[15,"mental_overflow"],[20,"cerebral_punch"],[25,"telekinetic_throw"],[30,"psystrike"],[35,"mind_breaker_phy"],[38,"neural_storm"],[42,"temporal_collapse"],[46,"astral_rend"],[54,"psybeam"],[62,"calm_mind"],[70,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
     desc:"A vast psychic intelligence that defies physical form. Peers into the deepest layers of consciousness.",
     lore:"Distorsion is a vast psychic intelligence that lacks a physical body — Mindrift's slowly-rotating particle-galaxy has dispersed entirely, leaving only a shimmering distortion in the air roughly 1 metre across. Nearby objects float slightly and light bends toward it. It exists primarily in a mental dimension and its physical manifestation is merely an accidental side-effect." },
@@ -2383,7 +2383,7 @@ const MONSTERS_DATA = {
   // 3-stage Mental chain: Mindpuff → Cerebrix → Psytheon
   222: { id:222, name:"Mindpuff", emoji:"🫧", types:["Mental"],
     base:{hp:42,atk:35,def:38,spa:70,spd:58,spe:65},
-    learnset:[[1,"confusion"],[1,"psybeam"],[10,"calm_mind"],[20,"psychic_move"],[30,"moonblast"],[40,"psystrike"],[50,"neural_storm"],[60,"hyper_beam"]],
+    learnset:[[1,"confusion"],[1,"psybeam"],[6,"psywave"],[10,"calm_mind"],[14,"mind_focus_s"],[20,"psychic_move"],[24,"mental_pulse_n"],[30,"moonblast"],[40,"psystrike"],[50,"neural_storm"],[60,"hyper_beam"]],
     evolveTo:223, evolveLevel:24, catchRate:190, expYield:65, rarity:"common",
     desc:"A floating blob of pure thought-energy. Its mood is contagious to nearby Lumori.",
     lore:"Mindpuff is a small psychic creature 20 cm across resembling a round cloud-puff of blue-silver light with two bright eyes. It bounces gently in the air and broadcasts simple emotions outward in waves — contentment, curiosity, mild alarm. It is drawn to calm environments and distressed by conflict. The simple emotion-waves a young Mindpuff broadcasts (contentment, curiosity, mild alarm) slowly structure themselves into proto-thoughts and brief impressions of language across the creature's life, a slow shaping toward the sapient cognition Recallum fully possesses." },
@@ -2397,7 +2397,7 @@ const MONSTERS_DATA = {
 
   224: { id:224, name:"Psytheon", emoji:"🔮", types:["Mental","Fairy"],
     base:{hp:82,atk:63,def:74,spa:131,spd:112,spe:88},
-    learnset:[[1,"psychic_move"],[1,"moonblast"],[32,"psystrike"],[40,"neural_storm"],[48,"astral_rend"],[56,"dazzling_gleam"],[64,"celestial_wave"],[72,"hyper_beam"]],
+    learnset:[[1,"psychic_move"],[1,"moonblast"],[15,"cerebral_punch"],[20,"future_sight"],[25,"gravitational_pull"],[30,"psyche_lock"],[32,"psystrike"],[35,"mind_breaker_phy"],[38,"thought_wave"],[40,"neural_storm"],[48,"astral_rend"],[56,"dazzling_gleam"],[64,"celestial_wave"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:265, rarity:"rare",
     desc:"The apex psychic being. Its thoughts reshape reality in its immediate vicinity.",
     lore:"Psytheon is a graceful psychic-fairy creature 70 cm tall — Recallum's ovoid body has stretched into a humanoid with its prominent cranium preserved as an oversized head, and the four condensed-energy limbs have crystallised into delicate crystal wings above a torso of pale lavender trimmed in gold. It exudes a field of concentrated wonder that makes nearby creatures briefly lose track of their fears. Artists claim it inspires creativity." },
@@ -2414,7 +2414,7 @@ const MONSTERS_DATA = {
   // Spectroo (base, Normal/Mental) → Prismace (Fire Stone), Prismoon (Moon Stone), Prismolt (Thunder Stone)
   226: { id:226, name:"Spectroo", emoji:"🌈", types:["Normal","Mental"],
     base:{hp:60,atk:55,def:55,spa:68,spd:60,spe:62},
-    learnset:[[1,"tackle"],[1,"confusion"],[14,"psybeam"],[22,"fairy_wind"],[30,"moonblast"],[40,"psychic_move"],[50,"hyper_beam"]],
+    learnset:[[1,"tackle"],[1,"confusion"],[8,"psy_jab"],[14,"psybeam"],[18,"mental_pulse_n"],[22,"fairy_wind"],[30,"moonblast"],[40,"psychic_move"],[50,"hyper_beam"]],
     evolveTo:227, evolveLevel:null, evolveItem:"fireStone", evolveMethod:"item", catchRate:140, expYield:88, rarity:"common",
     desc:"A prism-shaped creature full of untapped potential. Exposure to different energies changes its form entirely.",
     lore:"Spectroo is a normal-psychic creature 40 cm long resembling a kangaroo made of translucent white light. Its pouch holds concentrated psychic energy. It hops through open fields and its presence makes detailed hallucinations of past events visible in the area — a form of psychic archaeology. Spectroo cradle their psychic-pouch with their forelimbs whenever they pause, instinctively shielding something not yet ready to manifest. By adolescence, individuals from the same litter develop diverging sleeping postures: some tuck toward warmth, others face the moon, others curl around the pouch like a battery, others spread under prismatic light. All become unusually attentive in the presence of evolution-stones at distances where other Lumori show no awareness — four temperaments for the four stone-bound paths the lineage may take, with individuals eventually crystallising into Spectrace, Lunaroon, Radiafish, or Spectravore." },
@@ -2438,7 +2438,7 @@ const MONSTERS_DATA = {
   // Prismolt: Thunder Stone evolution (Electric/Mental)
   229: { id:229, name:"Radiafish", emoji:"⚡", types:["Electric","Mental"],
     base:{hp:72,atk:88,def:62,spa:130,spd:78,spe:110},
-    learnset:[[1,"thunderbolt"],[1,"psychic_move"],[28,"thunder"],[36,"psystrike"],[44,"astral_rend"],[52,"discharge"],[60,"neural_storm"],[68,"hyper_beam"]],
+    learnset:[[1,"thunderbolt"],[1,"psychic_move"],[20,"brain_blast_p"],[24,"extrasensory"],[28,"thunder"],[36,"psystrike"],[44,"astral_rend"],[52,"discharge"],[60,"neural_storm"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:225, rarity:"rare",
     desc:"A kangaroo-silhouette of crackling electric plasma. It bounds across high mountain ridges in arcing leaps that briefly carry it through the air on bursts of electrical thrust.",
     lore:"Radiafish is a 40-centimetre electric-psychic creature whose body is Spectroo's translucent kangaroo-silhouette ignited under thunderStone exposure into constantly cycling electric plasma — pale yellow at the core, shifting through blue-white at its outer layers, with the pouch and hindquarters most visible when it pauses between leaps. It bounds across high mountain ridges and along power-line corridors in long arcing jumps that briefly carry it through the air on bursts of electrical thrust. It surfaces near radio towers and electrical masts to feed on broadcast radiation, and its psychic field translates surrounding electrical activity into thought-impulses at lightning speed." },
@@ -2557,21 +2557,21 @@ const MONSTERS_DATA = {
   // 3-stage Electric/Fighting chain: Staticlaw → Thundravex → Megavolt
   244: { id:244, name:"Staticlaw", emoji:"🦡", types:["Electric"],
     base:{hp:58,atk:68,def:52,spa:72,spd:55,spe:88},
-    learnset:[[1,"thunder_shock"],[1,"spark"],[12,"thunderbolt"],[20,"discharge"],[30,"arc_flash"],[38,"ball_lightning"],[46,"thunder"],[54,"plasma_strike"]],
+    learnset:[[1,"thunder_shock"],[1,"spark"],[8,"thunder_jab"],[12,"thunderbolt"],[16,"static_charge"],[20,"discharge"],[24,"spark_claw"],[30,"arc_flash"],[38,"ball_lightning"],[46,"thunder"],[54,"plasma_strike"]],
     evolveTo:245, evolveLevel:28, catchRate:160, expYield:80, rarity:"common",
     desc:"A small electric weasel-kit whose short fur permanently crackles with static. Runs in tight circles to build charge before discharging into the ground.",
     lore:"Staticlaw is a small electric weasel-kit 30 centimetres at the shoulder with short yellow-white fur that permanently crackles with static charge. Its claws generate small static shocks on contact with any surface. It is perpetually restless and accumulates electrical charge by running in tight circles, periodically discharging the built-up energy into the ground in flashes that startle larger creatures away." },
 
   245: { id:245, name:"Thundravex", emoji:"⚡", types:["Electric"],
     base:{hp:82,atk:90,def:72,spa:110,spd:80,spe:108},
-    learnset:[[1,"thunderbolt"],[1,"discharge"],[22,"ball_lightning"],[30,"arc_flash"],[38,"thunder"],[46,"volt_surge"],[54,"plasma_strike"],[62,"hyper_beam"]],
+    learnset:[[1,"thunderbolt"],[1,"discharge"],[14,"nuzzle"],[20,"spark_claw"],[22,"ball_lightning"],[30,"arc_flash"],[38,"thunder"],[46,"volt_surge"],[54,"plasma_strike"],[62,"hyper_beam"]],
     evolveTo:246, evolveLevel:48, catchRate:75, expYield:165, rarity:"uncommon",
     desc:"An adolescent thunder-weasel 60 centimetres at the shoulder. Its dorsal stripe glows when it accumulates static, and arcs jump constantly between its alert ears.",
     lore:"Thundravex is a 60-centimetre adolescent mustelid, longer-bodied and more muscular than its Staticlaw juvenile stage, with bright yellow fur and a dark dorsal stripe that runs from the back of its head to the tip of its sleek tail. Electrical arcs constantly jump between its alert pointed ears, and the dorsal stripe glows brighter when the static charge built up in its body approaches discharge. It emits a continuous 50 Hz hum audible up close, and inhabits open areas near tall trees it uses as earthing points to safely release accumulated charge." },
 
   246: { id:246, name:"Megavolt", emoji:"🦡", types:["Electric"],
     base:{hp:89,atk:93,def:76,spa:111,spd:80,spe:101},
-    learnset:[[1,"thunder"],[1,"discharge"],[32,"ball_lightning"],[40,"plasma_strike"],[48,"arc_flash"],[56,"volt_surge"],[64,"overcharge"],[72,"hyper_beam"]],
+    learnset:[[1,"thunder"],[1,"discharge"],[10,"chain_spark"],[16,"spark_claw"],[22,"lightning_rush"],[28,"volt_switch"],[32,"ball_lightning"],[36,"plasma_punch"],[40,"plasma_strike"],[44,"rising_voltage"],[46,"plasma_fists"],[48,"arc_flash"],[56,"volt_surge"],[64,"overcharge"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:270, rarity:"rare",
     desc:"A massive thunder-wolverine 1 metre at the shoulder, fearless and apex among electric predators. Its collar of crackling coils announces its presence with audible static.",
     lore:"Megavolt is a massive thunder-wolverine 1 metre at the shoulder, the apex form of the Staticlaw→Thundravex lineage. Its body is heavily muscled with chrome-yellow fur and a thick collar of crackling electric coils running from the back of its neck down both shoulders, mistaken at distance for a felid mane. It is fearless to the point of recklessness, attacking creatures many times its size to defend its territory, and the visible electrical shockwave that accompanies its roar temporarily blinds and deafens those nearby. It is considered the apex electric predator of any region it claims." },
@@ -2857,7 +2857,7 @@ const MONSTERS_DATA = {
 
   282: { id:282, name:"Mechavast", emoji:"🤖", types:["Metal","Fighting"],
     base:{hp:105,atk:122,def:124,spa:63,spd:85,spe:51},
-    learnset:[[1,"forge_strike"],[1,"earthquake"],[32,"heavy_slam"],[40,"bedrock_slam"],[48,"iron_tail"],[56,"earth_power"],[64,"flash_cannon"],[72,"hyper_beam"]],
+    learnset:[[1,"forge_strike"],[1,"earthquake"],[20,"smart_strike"],[26,"steel_roller"],[32,"heavy_slam"],[36,"titan_blade"],[40,"bedrock_slam"],[48,"iron_tail"],[56,"earth_power"],[64,"flash_cannon"],[72,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:278, rarity:"rare",
     desc:"The ultimate combat titan. Its body is a perfect fusion of steel and martial precision.",
     lore:"Mechavast is a large metal-fighting automaton 1.5 metres tall — Cogvex's exposed chest-mechanism of interlocking cogs and pistons has been enclosed within a heavy combat chassis, and the gear-driven training apparatus its juvenile form constructed are now built directly into its body as weapons: thick piston-driven legs, a drill-bit gauntlet, and a hydraulic combat-claw. Its internal mechanisms grind audibly. It drills opponents into submission with mechanical precision and marks vanquished rivals' stations in neat geometric formations." },
@@ -2865,7 +2865,7 @@ const MONSTERS_DATA = {
   // Standalone Metal/Ground: Rustpike
   283: { id:283, name:"Rustpike", emoji:"🗡️", types:["Metal","Poison"],
     base:{hp:85,atk:112,def:90,spa:72,spd:78,spe:78},
-    learnset:[[1,"metal_claw"],[1,"poison_sting"],[18,"iron_tail"],[28,"sludge_bomb"],[38,"forge_strike"],[48,"toxic"],[58,"flash_cannon"],[68,"hyper_beam"]],
+    learnset:[[1,"metal_claw"],[1,"poison_sting"],[14,"chrome_slash"],[18,"iron_tail"],[24,"smart_strike"],[28,"sludge_bomb"],[38,"forge_strike"],[48,"toxic"],[58,"flash_cannon"],[68,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:48, expYield:212, rarity:"uncommon",
     desc:"A rusted iron spike creature coated in toxins. Its corroded exterior makes it harder to damage than pristine steel.",
     lore:"Rustpike is a steel-poison creature 50 cm long resembling a pike fish made of rusting iron with patches of toxic green oxidation. Its fin-spines release a corroding toxin. It inhabits iron-rich waterways where its body chemistry is sustained by dissolved metals. Its presence discolours the water orange-red." },
@@ -3404,14 +3404,14 @@ const MONSTERS_DATA = {
   // ===== FIRE/PSYCHIC =====
   22: { id:22, name:"Hallucigaze", emoji:"🔥", types:["Fire","Mental"],
     base:{hp:35,atk:41,def:37,spa:58,spd:56,spe:68},
-    learnset:[[1,"ember",[20,"cinderwhirl"]],[1,"confusion"],[9,"psybeam"],[17,"flamethrower"],[21,"recover"],[25,"psychic_move"],[33,"fire_blast",[5,"scorch_veil"]],[36,"magma_surge"],[3,"embercloak"],[31,"inferno"]],
+    learnset:[[1,"ember",[20,"cinderwhirl"]],[1,"confusion"],[3,"embercloak"],[7,"psy_jab"],[9,"psybeam"],[13,"cerebral_punch"],[15,"mind_strike"],[17,"flamethrower"],[21,"recover"],[25,"psychic_move"],[31,"inferno"],[33,"fire_blast",[5,"scorch_veil"]],[36,"magma_surge"]],
     evolveTo:23, evolveLevel:28, catchRate:150, expYield:88, rarity:"common",
     desc:"A psychic flame sprite. Its fire burns hotter when it concentrates its mind.",
     lore:"Hallucigaze is a lightly built snake-headed lizard about 1 metre long with bright amber scales marked by psychic-violet patterns along the flanks. Its eyes glow purple when focusing energy. It preys on animals much larger than itself by implanting sensory illusions that disorient them before striking. The illusions a Hallucigaze projects to disorient prey occasionally turn back on the projector itself, showing the creature walking upright on heavy hindlegs with a great mane of fire. It treats these visions with reverence: half-prophecy, half-memory of Ignitheon." },
 
   23: { id:23, name:"Pyraxis", emoji:"🦎", types:["Fire","Mental"],
     base:{hp:68,atk:64,def:68,spa:103,spd:81,spe:98},
-    learnset:[[1,"flamethrower"],[2,"psychic_move"],[3,"scorch_veil"],[30,"fire_blast"],[32,"battle_cry"],[36,"calm_mind"],[40,"dreamweave"],[44,"heat_wave"],[48,"psystrike"],[52,"mind_shatter"],[56,"inferno"],[60,"solar_flare"],[4,"embercloak"],[38,"thought_crush"]],
+    learnset:[[1,"flamethrower"],[2,"psychic_move"],[3,"scorch_veil"],[4,"embercloak"],[15,"mind_strike"],[20,"brain_blast_p"],[25,"telekinetic_throw"],[30,"fire_blast"],[32,"battle_cry"],[36,"calm_mind"],[38,"thought_crush"],[40,"dreamweave"],[44,"heat_wave"],[48,"psystrike"],[52,"mind_shatter"],[56,"inferno"],[60,"solar_flare"]],
     evolveTo:24, evolveLevel:44, catchRate:35, expYield:235, rarity:"rare",
     desc:"A bipedal saurian whose feathered mane is just beginning to bloom. Channels heat and thought through long, claw-tipped forelimbs to paralyse prey before striking.",
     lore:"Pyraxis is a tall bipedal saurian about 1.5 metres at the shoulder, walking upright on heavy hindlegs while its long upper limbs swing free or sweep forward to claw at prey. Hallucigaze's snake-headed silhouette is gone, but the violet psychic markings that pulsed along its flanks have spread to its underside, and its eyes still glow violet when focusing energy. Its scaled hide is flame-red across the back and deepens to violet down the underside; a stiff feathered ruff has begun to grow around its broadening jaw — the first hint of the leonine final form to come. Slitted pupils glow violet when it focuses, and its forelimbs leave faint heat shimmers in the air as it channels both thermal and psychic energy along their length. It stalks arid ruins on near-silent footfalls, locking prey in a brief telepathic shock before incinerating it with a concentrated jet of flame from the throat." },
@@ -3471,7 +3471,7 @@ const MONSTERS_DATA = {
 
   154: { id:154, name:"Terragolem", emoji:"🤖", types:["Metal","Earth"],
     base:{hp:95,atk:108,def:116,spa:52,spd:79,spe:30},
-    learnset:[[1,"flash_cannon"],[2,"earthquake"],[3,"magnetize"],[30,"iron_tail"],[31,"battle_cry"],[34,"loam_leech"],[38,"rock_slide"],[42,"temper_edge"],[46,"body_slam"],[50,"earth_power"],[54,"tungsten_ram"],[58,"anvil_drop"],[4,"ironskin"],[37,"magnitude"]],
+    learnset:[[1,"flash_cannon"],[2,"earthquake"],[3,"magnetize"],[4,"ironskin"],[15,"iron_bulwark"],[20,"iron_shockwave"],[26,"magnet_burst"],[30,"iron_tail"],[31,"battle_cry"],[33,"steel_roller"],[34,"loam_leech"],[37,"magnitude"],[38,"rock_slide"],[42,"temper_edge"],[46,"body_slam"],[50,"earth_power"],[54,"tungsten_ram"],[58,"anvil_drop"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:222, rarity:"uncommon",
     desc:"A forged golem of steel and compressed earth. Was created to guard ancient mines.",
     lore:"Terragolem is a massive metal-earth golem 2.5 metres tall — Dentshaft's dented-and-scuffed humanoid miner-frame has expanded into a tremendous assembly of metal and compressed earth, and the reflexive surface-tapping of its juvenile form has become a deep tremor through the ground with every step. The ground trembles slightly with each of its steps. It is largely indifferent to the world around it and moves at its own slow pace, but obstacles that cannot be sidestepped are simply absorbed." },
@@ -3494,14 +3494,14 @@ const MONSTERS_DATA = {
   // ===== NORMAL/PSYCHIC =====
   189: { id:189, name:"Woolcalm", emoji:"🐑", types:["Normal","Mental"],
     base:{hp:49,atk:43,def:42,spa:63,spd:68,spe:58},
-    learnset:[[1,"tackle",[22,"future_echo"]],[1,"confusion"],[9,"growl"],[17,"psybeam"],[25,"recover"],[29,"dreamweave"],[33,"psychic_move"],[41,"calm_mind",[5,"tail_whip"]],[3,"leer"],[32,"psycho_cut"]],
+    learnset:[[1,"tackle",[22,"future_echo"]],[1,"confusion"],[3,"leer"],[6,"hypnosis"],[9,"growl"],[12,"cerebral_calm"],[17,"psybeam"],[20,"mental_pulse_n"],[25,"recover"],[29,"dreamweave"],[32,"psycho_cut"],[33,"psychic_move"],[41,"calm_mind",[5,"tail_whip"]]],
     evolveTo:190, evolveLevel:24, catchRate:180, expYield:78, rarity:"common",
     desc:"A woolly psychic creature that reads emotional auras. Very empathetic and gentle.",
     lore:"Woolcalm is a small psychic sheep about 40 cm at the shoulder with soft white wool and calm violet eyes. Its wool carries a faint static charge from accumulated psychic energy. It grazes peacefully in highland meadows and the simple act of standing near it produces a remarkable sense of mental clarity." },
 
   190: { id:190, name:"Aetherflock", emoji:"🐏", types:["Normal","Mental"],
     base:{hp:88,atk:57,def:67,spa:110,spd:103,spe:75},
-    learnset:[[1,"psybeam"],[2,"future_echo"],[3,"growl"],[24,"recover"],[30,"psychic_move"],[31,"vital_pulse"],[36,"wild_tumble"],[38,"calm_mind"],[42,"body_slam"],[48,"thought_crush"],[54,"psystrike"],[60,"hyper_beam"],[4,"tail_whip"],[40,"headbutt"]],
+    learnset:[[1,"psybeam"],[2,"future_echo"],[3,"growl"],[4,"tail_whip"],[15,"psywave"],[20,"cosmic_power"],[24,"recover"],[28,"extrasensory"],[30,"psychic_move"],[31,"vital_pulse"],[36,"wild_tumble"],[38,"calm_mind"],[40,"headbutt"],[42,"body_slam"],[44,"thought_wave"],[48,"thought_crush"],[54,"psystrike"],[60,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:200, rarity:"uncommon",
     desc:"A dreaming flock manifestation. Said to appear to sleeping trainers before a great trial.",
     lore:"Aetherflock is a medium psychic sheep 70 cm at the shoulder — Woolcalm's soft white wool has thickened and lightened to silvery-white that drifts gently in an invisible wind even in still air, and the faint static charge of its juvenile fleece now manifests as a soft night-glow. Entire flocks graze on isolated mountain plateaux and are said to collectively generate powerful psychic fields." },
@@ -3553,7 +3553,7 @@ const MONSTERS_DATA = {
 
   317: { id:317, name:"Temporith", emoji:"⏳", types:["Mental","Draconic"],
     base:{hp:97,atk:100,def:99,spa:132,spd:107,spe:83},
-    learnset:[[1,"confusion"],[1,"dragon_breath"],[7,"psybeam"],[14,"calm_mind"],[21,"dragon_claw"],[28,"psychic_move"],[35,"dragon_pulse"],[42,"prism_ward"],[49,"astral_rend"],[56,"ancient_breath"],[63,"temporal_rift"],[70,"neural_storm"],[77,"hyper_beam"]],
+    learnset:[[1,"confusion"],[1,"dragon_breath"],[7,"psybeam"],[14,"calm_mind"],[18,"future_sight"],[21,"dragon_claw"],[25,"gravitational_pull"],[28,"psychic_move"],[35,"dragon_pulse"],[42,"prism_ward"],[45,"temporal_collapse"],[49,"astral_rend"],[56,"ancient_breath"],[63,"temporal_rift"],[70,"neural_storm"],[77,"hyper_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
     desc:"The Legendary Veil of Time. Said to exist at the crossing point of past and future.",
     lore:"Temporith is a psychic-dragon 3 metres long whose scales appear to flicker between states of existence — slightly out of phase with the present moment. Its outline is never quite sharp. It inhabits places where history is dense — ancient battlefields, old libraries — feeding on residual temporal energy." },
@@ -3574,7 +3574,7 @@ const MONSTERS_DATA = {
 
   320: { id:320, name:"Galvathon", emoji:"⚡", types:["Metal","Electric"],
     base:{hp:91,atk:120,def:108,spa:103,spd:84,spe:93},
-    learnset:[[1,"metal_claw"],[1,"thunder_shock"],[7,"spark"],[14,"steel_wing"],[21,"magnetize"],[28,"thunderbolt"],[35,"flash_cannon"],[42,"forge_strike"],[49,"iron_tail"],[56,"ball_lightning"],[63,"anvil_drop"],[70,"thunder"],[77,"hyper_beam"]],
+    learnset:[[1,"metal_claw"],[1,"thunder_shock"],[7,"spark"],[14,"steel_wing"],[18,"capacitor_drain"],[21,"magnetize"],[24,"magnet_field"],[28,"thunderbolt"],[32,"ground_circuit"],[35,"flash_cannon"],[38,"chrome_slash"],[42,"forge_strike"],[45,"overcharge_status"],[49,"iron_tail"],[52,"plasma_punch"],[55,"thunder_cage"],[56,"ball_lightning"],[60,"iron_storm"],[63,"anvil_drop"],[65,"magnet_bomb"],[68,"mercurial_torrent"],[70,"thunder"],[72,"plasma_smelt"],[74,"smelter_surge"],[76,"titanic_beam"],[77,"hyper_beam"],[80,"zap_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
     desc:"The Legendary Stormforged. Born in the heart of the greatest storm ever recorded. Lightning is its heartbeat.",
     lore:"Galvathon is a massive steel-electric creature 3 metres tall resembling a great mechanical titan powered by its own internal fusion of steel and lightning. Its body is dark polished metal with electric arcs cascading continuously across its surface. It is considered the pinnacle of natural mechanical evolution." },
@@ -3590,7 +3590,7 @@ const MONSTERS_DATA = {
 
   46: { id:46, name:"Frostmere", emoji:"🦭", types:["Ice","Electric"],
     base:{hp:90,atk:65,def:90,spa:109,spd:92,spe:59},
-    learnset:[[1,"powder_snow"],[1,"thunder_shock"],[2,"ice_beam"],[3,"permafrost"],[4,"winter_shroud"],[5,"cryo_lance"],[8,"ice_shard"],[12,"frost_bite"],[16,"frost_jab"],[20,"snow_veil"],[24,"cold_focus"],[28,"arctic_calm"],[33,"blizzard"],[38,"voltaic_fang"],[42,"hoarfrost_bite"],[43,"harden"],[46,"icicle_crash"],[50,"ion_cannon"],[54,"glacial_tomb"],[58,"ball_lightning"]],
+    learnset:[[1,"powder_snow"],[1,"thunder_shock"],[2,"ice_beam"],[3,"permafrost"],[4,"winter_shroud"],[5,"cryo_lance"],[8,"ice_shard"],[11,"capacitor_drain"],[12,"frost_bite"],[16,"frost_jab"],[20,"snow_veil"],[24,"cold_focus"],[28,"arctic_calm"],[33,"blizzard"],[35,"magnet_field"],[38,"voltaic_fang"],[42,"hoarfrost_bite"],[43,"harden"],[46,"icicle_crash"],[50,"ion_cannon"],[54,"glacial_tomb"],[58,"ball_lightning"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:205, rarity:"uncommon",
     desc:"A gelatinous pinniped of compacted living frost. Bioluminescent pulses ripple through its translucent body, mapping prey by their electric fields.",
     lore:"Frostmere is a gelatinous deep-ocean creature 1.5 metres long that has condensed its drifting medusa form into a more solid, seal-shaped silhouette. Its translucent body — Slatis's free-floating jellyfish bell — is now packed into a streamlined pinniped outline of bluish-white frozen jelly, sheathed in a fine layer of silver-white frost crystals that mimic the look of fur. Pale eyes the colour of deep glacier melt sit forward in its head, and the trailing tendrils of its base form persist as faint translucent streamers behind its flippers. Subtle bioluminescent pulses ripple through its gel-body in slow waves, illuminating it from within and serving as the visible discharge of an internal organ that maps the electric fields of every living thing nearby — its entire body functions as a single conductive sensor, hunting through polar water channels by reading prey's heartbeats from metres away rather than relying on sight." },
@@ -3688,7 +3688,7 @@ const MONSTERS_DATA = {
   // 182: Ignitheon - Fire/Mental (Ignorin→Pyraxis→Ignitheon)
   24: { id:24, name:"Ignitheon", emoji:"🔮", types:["Fire","Mental"],
     base:{hp:82,atk:77,def:77,spa:131,spd:97,spe:86},
-    learnset:[[1,"flamethrower"],[1,"psychic_move"],[2,"scorch_veil"],[3,"psystrike"],[4,"heat_wave"],[38,"fire_blast"],[42,"calm_mind"],[46,"solar_flare"],[50,"thought_crush"],[54,"inferno"],[58,"mind_shatter"],[62,"neural_storm"],[5,"embercloak"],[44,"astral_rend"]],
+    learnset:[[1,"flamethrower"],[1,"psychic_move"],[2,"scorch_veil"],[3,"psystrike"],[4,"heat_wave"],[5,"embercloak"],[20,"stored_power"],[28,"telekinetic_throw"],[38,"fire_blast"],[42,"calm_mind"],[44,"astral_rend"],[46,"solar_flare"],[50,"thought_crush"],[54,"inferno"],[58,"mind_shatter"],[62,"neural_storm"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
     desc:"An oracle of living flame. It reads the minds of its foes and burns their deepest fears into reality.",
     lore:"Ignitheon is a regal lion-like psychic-fire creature 2 metres long — Pyraxis's stiff feathered ruff has bloomed into a full mane of living fire that changes colour with its emotional state (gold when calm, white when enraged), and the violet psychic markings of its juvenile flanks still pulse along its sides. It guards ancient flame temples and is said to judge challengers before allowing passage." },
@@ -3784,7 +3784,7 @@ const MONSTERS_DATA = {
   // 194: Voltanox - Electric (Joltan→Galvanos→Voltanox)
   83: { id:83, name:"Voltanox", emoji:"🐎", types:["Electric"],
     base:{hp:81,atk:111,def:71,spa:115,spd:76,spe:96},
-    learnset:[[1,"thunder_shock"],[1,"thunderbolt"],[2,"spark"],[3,"thunder_wave"],[4,"quick_attack"],[38,"thunder"],[42,"arc_flash"],[46,"plasma_strike"],[50,"volt_surge"],[54,"ion_cannon"],[58,"charge_burst"],[62,"voltaic_fang"],[5,"static_cage"],[44,"wild_charge"]],
+    learnset:[[1,"thunder_shock"],[1,"thunderbolt"],[2,"spark"],[3,"thunder_wave"],[4,"quick_attack"],[5,"static_cage"],[10,"bolt_smash"],[15,"coil_strike"],[20,"rising_voltage"],[25,"overcharge_status"],[30,"plasma_fists"],[36,"storm_sovereignty"],[38,"thunder"],[42,"arc_flash"],[44,"wild_charge"],[46,"plasma_strike"],[48,"zap_cannon"],[50,"volt_surge"],[54,"ion_cannon"],[58,"charge_burst"],[62,"voltaic_fang"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:275, rarity:"rare",
     desc:"A heavy electric destrier whose hooves spark thunder with each strike. Cities briefly light up bright as day when it gallops through them.",
     lore:"Voltanox is a powerful electric stallion 1.6 metres at the shoulder — Galvanos's golden-yellow hide has darkened to dark charcoal marked by bright yellow lightning-bolt patterns along each flank and shoulder. Its broad chest and heavy musculature suggest a destrier or clydesdale-sized warhorse, and its long mane and tail crackle constantly with stored electrical charge. Two short forward-curving forehead-spurs act as capacitor tips, building enormous charges that release in arcs when it lowers its head and charges; the impact of its hooves on the ground can send visible shockwaves through metal surfaces nearby. Cities through which it briefly gallops are lit as bright as day for the moments of its passing." },
@@ -3792,7 +3792,7 @@ const MONSTERS_DATA = {
   // 195: Zapoveth - Electric/Bug (Electrix→Voltharpe→Zapoveth)
   86: { id:86, name:"Galvaglide", emoji:"🪰", types:["Electric","Nature"],
     base:{hp:84,atk:89,def:69,spa:129,spd:84,spe:95},
-    learnset:[[1,"thunder_shock"],[1,"bug_buzz"],[2,"thunderbolt"],[3,"x_scissor"],[4,"thunder_wave"],[38,"thunder"],[42,"volt_surge"],[46,"swarm_dive"],[50,"plasma_strike"],[54,"mandible_crush"],[58,"ion_cannon"],[62,"stinger_volley"],[5,"static_cage"],[44,"silk_bind"]],
+    learnset:[[1,"thunder_shock"],[1,"bug_buzz"],[2,"thunderbolt"],[3,"x_scissor"],[4,"thunder_wave"],[5,"static_cage"],[10,"chain_spark"],[20,"magnet_rise"],[30,"electroweb"],[38,"thunder"],[42,"volt_surge"],[44,"silk_bind"],[46,"swarm_dive"],[50,"plasma_strike"],[54,"mandible_crush"],[58,"ion_cannon"],[62,"stinger_volley"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
     desc:"A dragonfly of pure lightning. Its body discharges with every wingbeat; to be caught in its swarm is to stand in a thunderstorm.",
     lore:"Galvaglide is a dragonfly-like creature with a 40 cm wingspan — Shockharpe's translucent late-instar wings have hardened to translucent gold and now crackle with static charge, and its hooked predatory mandibles have refined into precision strike-points. Its slender body is vivid yellow. It hunts in flight, hovering stationary before striking prey with a precisely targeted electrical discharge from its forward-pointing tail." },
@@ -3816,7 +3816,7 @@ const MONSTERS_DATA = {
   // 198: Tectonvast - Ground/Rock (Terrakin→Seismith→Tectonvast)
   97: { id:97, name:"Tectonvast", emoji:"🦏", types:["Earth","Electric"],
     base:{hp:111,atk:136,def:116,spa:57,spd:73,spe:57},
-    learnset:[[1,"earthquake"],[1,"thunderbolt"],[2,"headbutt"],[3,"earth_power"],[4,"stone_edge"],[5,"clay_armor"],[6,"earthen_wall"],[8,"rock_polish"],[12,"smack_down"],[15,"ancient_power"],[18,"erosion_wave"],[20,"tectonic_wave"],[22,"stone_axe"],[24,"quake_pulse"],[26,"meteor_strike"],[28,"rock_wrecker"],[30,"continental_shift"],[32,"diamond_crash"],[36,"diamond_storm"],[38,"ball_lightning"],[42,"crystal_lance"],[44,"temper_edge"],[46,"sand_geyser"],[50,"overcharge"],[54,"scorched_earth"],[58,"fissure_slam"],[62,"body_slam"]],
+    learnset:[[1,"earthquake"],[1,"thunderbolt"],[2,"headbutt"],[3,"earth_power"],[4,"stone_edge"],[5,"clay_armor"],[6,"earthen_wall"],[8,"rock_polish"],[10,"bolt_smash"],[12,"smack_down"],[14,"ground_circuit"],[15,"ancient_power"],[18,"erosion_wave"],[20,"tectonic_wave"],[22,"stone_axe"],[24,"quake_pulse"],[26,"meteor_strike"],[28,"rock_wrecker"],[30,"continental_shift"],[32,"diamond_crash"],[34,"thunder_cage"],[36,"diamond_storm"],[38,"ball_lightning"],[40,"zap_cannon"],[42,"crystal_lance"],[44,"temper_edge"],[46,"sand_geyser"],[50,"overcharge"],[54,"scorched_earth"],[58,"fissure_slam"],[62,"body_slam"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"A colossal rhino-titan whose every footfall registers as both an earthquake and a thunderclap. Lightning rolls along its plated hide as it walks.",
     lore:"Tectonvast is a massive rhino-titan 2 metres at the shoulder — Seismith's iron-and-copper-veined plates have grown across its grey-brown hide into heavy sheathing-armour of iron-veined earth, deeply furrowed and crackling with static potential built up over decades of seismic march. Its single horn — a column of compressed mineral over 40 centimetres long — glows white-hot at the tip when it lowers its head to charge, releasing the stored charge through whatever it strikes in a clap of grounded thunder. Seismic activity follows it wherever it walks, but unlike its ancestors the air around it carries the metallic tang of ozone, and skies darken overhead as storms are drawn to the metal in its hide." },
@@ -3896,7 +3896,7 @@ const MONSTERS_DATA = {
   // 208: Celestarch - Fairy/Mental (Dawnirel→Lunarael→Celestarch)
   144: { id:144, name:"Celestarch", emoji:"🌙", types:["Fairy","Mental"],
     base:{hp:95,atk:75,def:91,spa:147,spd:114,spe:28},
-    learnset:[[1,"dazzling_gleam"],[1,"psychic_move"],[2,"moonblast"],[3,"calm_mind"],[4,"stardust_veil"],[38,"celestial_wave"],[42,"psystrike"],[46,"fae_requiem"],[50,"thought_crush"],[54,"glitter_storm"],[58,"mind_shatter"],[62,"prism_ward"],[5,"sweet_kiss"],[44,"eon_crash"]],
+    learnset:[[1,"dazzling_gleam"],[1,"psychic_move"],[2,"moonblast"],[3,"calm_mind"],[4,"stardust_veil"],[5,"sweet_kiss"],[20,"cosmic_power"],[25,"thought_wave"],[30,"future_sight"],[35,"gravitational_pull"],[38,"celestial_wave"],[40,"mental_overflow"],[42,"psystrike"],[44,"eon_crash"],[46,"fae_requiem"],[50,"thought_crush"],[54,"glitter_storm"],[58,"mind_shatter"],[62,"prism_ward"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:280, rarity:"rare",
     desc:"A celestial archon said to be the personification of the moon's light and the night sky's oldest thoughts. Stars bow when it rises.",
     lore:"Celestarch is a grand psychic-fairy celestial creature 1.5 metres across — Lunarael's curved-inward crescent arms have bloomed back into a many-pointed star, and the deep violet-blue body has brightened to brilliant gold-white with an aura shifting through deep purple and starlight silver. It appears only during celestial events — eclipses, conjunctions, meteor showers — and is regarded as a divine herald." },
@@ -4072,7 +4072,7 @@ const MONSTERS_DATA = {
 
   340: { id:340, name:"Cryoshard", emoji:"💎", types:["Ice","Mental"],
     base:{hp:63,atk:68,def:72,spa:102,spd:89,spe:66}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"powder_snow"],[10,"psychic_move"],[20,"ice_beam"],[30,"psystrike"],[40,"cryo_lance"],[50,"mind_shatter"],[60,"blizzard"],[5,"winter_shroud"],[38,"prism_ward"]],
+    learnset:[[1,"powder_snow"],[5,"winter_shroud"],[10,"psychic_move"],[15,"psy_blast"],[20,"ice_beam"],[25,"mind_breaker_phy"],[30,"psystrike"],[38,"prism_ward"],[40,"cryo_lance"],[50,"mind_shatter"],[60,"blizzard"]],
     catchRate:24, expYield:262, rarity:"rare",
     desc:"A sentient crystal of psychically-active ice. Its facets reflect possible futures.",
     lore:"Cryoshard is a floating ice-psychic crystal 1 metre across with an irregular faceted form that constantly shifts. Each face reflects a different perceived future of whoever looks into it." },
@@ -4923,7 +4923,7 @@ const MONSTERS_DATA = {
   455: { id:455, name:"Knellgeist", emoji:"🔔", types:["Metal","Spectral"],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:205, rarity:"uncommon",
     base:{hp:72,atk:60,def:105,spa:100,spd:95,spe:40}, // BST 472
-    learnset:[[1,"ghost_pulse"],[1,"specter_pulse"],[15,"void_wail"],[20,"phantom_beam"],[26,"flash_cannon"],[32,"metal_sound"],[38,"soul_burst"],[44,"chromium_ray"],[50,"phantom_force"]],
+    learnset:[[1,"ghost_pulse"],[1,"specter_pulse"],[12,"iron_shockwave"],[15,"void_wail"],[18,"magnet_bomb"],[20,"phantom_beam"],[22,"metal_burst"],[26,"flash_cannon"],[28,"plasma_smelt"],[32,"metal_sound"],[38,"soul_burst"],[44,"chromium_ray"],[50,"phantom_force"]],
     desc:"A great cast-iron tower-bell possessed by a host of spirits, its toll heavy with dread.",
     lore:"Knellgeist is a massive bronze-and-iron bell grown thick with the spirits drawn to its resonance, and its toll is a physical force — a wave of sound and dread that buckles the will of any who hear it. It rings of its own accord before calamities, and townsfolk who hear an unmanned Knellgeist sound at midnight bar their doors and wait for dawn." },
 

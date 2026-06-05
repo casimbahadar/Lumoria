@@ -2249,7 +2249,7 @@ const MONSTERS_DATA = {
 
   193: { id:193, name:"Rugothon",    emoji:"🦞", types:["Aquatic","Mineral"],
     base:{hp:71,atk:78,def:89,spa:52,spd:63,spe:68},
-    learnset:[[1,"graze",[25,"geode_burst"]],[1,"stone_throw"],[3,"petrify_gaze"],[8,"claw_hammer"],[11,"aquatic_gun"],[16,"war_dance"],[19,"stone_slide"],[22,"torrent_fang"],[27,"tidal_sweep"],[29,"sandstone_rush"],[33,"landslide"],[35,"crag_strike"],[40,"sea_serpent_strike"],[43,"tidal_rush",[5,"granite_wall"]]],
+    learnset:[[1,"graze",[25,"geode_burst"]],[1,"stone_throw"],[3,"petrify_gaze"],[8,"claw_hammer"],[10,"granite_slam"],[11,"aquatic_gun"],[14,"amethyst_pulse"],[16,"war_dance"],[19,"stone_slide"],[20,"ore_polish"],[22,"torrent_fang"],[27,"tidal_sweep"],[29,"sandstone_rush"],[33,"landslide"],[35,"crag_strike"],[40,"sea_serpent_strike"],[43,"tidal_rush",[5,"granite_wall"]]],
     evolveTo:194, evolveLevel:38, catchRate:75, expYield:168, rarity:"uncommon",
     desc:"A crag claw crab that lives on rocky sea cliffs. Fiercely territorial.",
     lore:"Rugothon is a massive water-mineral crustacean 2 metres long with a heavily encrusted shell of barnacles and embedded pebbles. Its eight wide legs are each tipped with flat digging pads. It inhabits rocky coastlines where it is mistaken for a tide-pool feature until it suddenly moves. Rugothon spend long hours wedging themselves into rock crevices much smaller than their 2-metre bodies, packing their bulk inward. Older individuals also eat noticeably less in each successive moult cycle, then less again, slowly withdrawing into themselves. Both habits compound across generations into the smaller, denser rock-crab Lithomere becomes — the only Lumori evolution known to scale downward in size while gaining density." },
@@ -3103,7 +3103,7 @@ const MONSTERS_DATA = {
   // 2-stage Aquatic/Spectral chain: Seafraith → Tidephant (Water Stone item)
   308: { id:308, name:"Seafraith", emoji:"🌊", types:["Aquatic","Spectral"],
     base:{hp:58,atk:62,def:58,spa:88,spd:75,spe:80},
-    learnset:[[1,"aquatic_gun"],[1,"nether_sphere"],[14,"tidal_rush"],[24,"phantom_claw"],[34,"tsunami"],[44,"eclipse_shroud"],[54,"soul_rend"],[60,"radiance_cannon"]],
+    learnset:[[1,"aquatic_gun"],[1,"nether_sphere"],[10,"spectral_ray"],[14,"tidal_rush"],[20,"soul_chill"],[24,"phantom_claw"],[30,"spectral_veil"],[34,"tsunami"],[44,"eclipse_shroud"],[54,"soul_rend"],[60,"radiance_cannon"]],
     evolveTo:309, evolveLevel:null, evolveItem:"waterStone", evolveMethod:"item", catchRate:135, expYield:98, rarity:"common",
     desc:"A ghost that drowned and merged with ocean tides. Haunts coastal routes, pulling travelers into the surf.",
     lore:"Seafraith is a water-spectral creature 60 cm long resembling a deep-sea fish with a translucent dark body through which dim bioluminescent organs are visible. Its eyes are white and sightless — it navigates by sensing water displacement. It inhabits sunken ruins at depths where light never reaches." },
@@ -3412,7 +3412,7 @@ const MONSTERS_DATA = {
 
   129: { id:129, name:"Voidaxis", emoji:"🌀", types:["Mental","Spectral"],
     base:{hp:83,atk:77,def:72,spa:107,spd:89,spe:75},
-    learnset:[[1,"psi_burst"],[2,"void_pulse"],[3,"mental"],[4,"nether_sphere"],[5,"inner_calm"],[6,"clairvoyance"],[20,"revenant_charge"],[39,"psi_strike"],[40,"battle_cry"],[41,"thought_crush"],[44,"prism_ward"],[49,"obsidian_fang"],[54,"void_rend"],[59,"synaptic_shatter"],[64,"radiance_cannon"]],
+    learnset:[[1,"psi_burst"],[2,"void_pulse"],[3,"mental"],[4,"nether_sphere"],[5,"inner_calm"],[6,"clairvoyance"],[15,"wraith_claw"],[20,"revenant_charge"],[25,"ghastly_focus"],[39,"psi_strike"],[40,"battle_cry"],[41,"thought_crush"],[44,"prism_ward"],[45,"eternal_haunt"],[49,"obsidian_fang"],[54,"void_rend"],[59,"synaptic_shatter"],[64,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:248, rarity:"rare",
     desc:"A void being of mental and spectral power. Consumes light and thought with equal ease.",
     lore:"Voidaxis is a large mental-spectral entity 1.5 metres tall whose body appears to exist partially in another dimension — Cranivade's lavender-grey biped silhouette persists at the form's centre with its oversized cranium still pulsing dimly, but its edges are blurred and its outline shifts when viewed peripherally, dissolving into half-dimensional shadow. Its presence makes nearby electronic devices malfunction. It communicates only through psychic projection and has never been heard to vocalise." },
@@ -4039,7 +4039,7 @@ const MONSTERS_DATA = {
 
   329: { id:329, name:"Skullmite", emoji:"💀", types:["Nature","Mineral"],
     base:{hp:65,atk:81,def:84,spa:52,spd:65,spe:73}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"mandible_bite"],[10,"stone_throw"],[20,"chrome_claw"],[25,"gem_storm"],[30,"stone_slide"],[40,"fossil_rush"],[50,"resonance_hum"],[60,"alloy_tail"],[5,"fortify"],[38,"venom_drool"]],
+    learnset:[[1,"mandible_bite"],[5,"fortify"],[10,"stone_throw"],[18,"emerald_blade"],[20,"chrome_claw"],[25,"gem_storm"],[28,"granite_slam"],[30,"stone_slide"],[35,"crystalline_focus"],[38,"venom_drool"],[40,"fossil_rush"],[50,"resonance_hum"],[60,"alloy_tail"]],
     catchRate:26, expYield:256, rarity:"rare",
     desc:"An armoured beetle with a fossilised shell harder than most metals. Ancient specimens are sold as armour.",
     lore:"Skullmite is a beetle-like mineral creature 1.1 metres long with a helmet-shaped carapace of fossilised mineral. Its mandibles can crack geodes." },
@@ -4141,7 +4141,7 @@ const MONSTERS_DATA = {
 
   343: { id:343, name:"Shadowreave", emoji:"🌑", types:["Dark","Spectral"],
     base:{hp:66,atk:81,def:66,spa:103,spd:85,spe:89}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"shadowstep"],[5,"shade_dash"],[8,"abyss_stare"],[10,"mental"],[12,"umbral_pulse"],[15,"shadow_lance"],[18,"sinister_scheme"],[20,"void_rend"],[22,"fear_aura"],[28,"shadowstorm"],[30,"psi_strike"],[35,"stygian_whisper"],[38,"dreamweave"],[40,"phantom_claw"],[45,"spirit_calamity"],[50,"synaptic_shatter"],[55,"abyssal_dominion"],[60,"neural_storm"]],
+    learnset:[[1,"shadowstep"],[5,"shade_dash"],[8,"abyss_stare"],[10,"mental"],[11,"wraith_form"],[12,"umbral_pulse"],[15,"shadow_lance"],[18,"sinister_scheme"],[20,"void_rend"],[22,"fear_aura"],[25,"necrotic_pulse"],[28,"shadowstorm"],[30,"psi_strike"],[35,"stygian_whisper"],[38,"dreamweave"],[40,"phantom_claw"],[45,"spirit_calamity"],[48,"reaper_scythe"],[50,"synaptic_shatter"],[55,"abyssal_dominion"],[60,"neural_storm"]],
     catchRate:18, expYield:283, rarity:"rare",
     desc:"A being of living shadow that exists simultaneously in darkness and the spectral realm. It phases through walls to hunt, its constantly shifting silhouette making it nearly impossible to track.",
     lore:"Shadowreave is a dark-spectral entity 1.6 metres tall with a body composed of living shadow and two luminous violet eyes. Its silhouette is never quite the same shape twice." },
@@ -4184,7 +4184,7 @@ const MONSTERS_DATA = {
 
   349: { id:349, name:"Crystavault", emoji:"💠", types:["Ice","Mineral"],
     base:{hp:80,atk:91,def:109,spa:74,spd:87,spe:54}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"glacial_punch"],[5,"fortify"],[10,"stone_throw"],[12,"cryogenic_field"],[15,"crystal_veil"],[18,"boreal_armor"],[20,"cold_beam"],[22,"ice_hammer"],[25,"crystal_glow"],[28,"ice_resonance"],[30,"stone_slide"],[38,"winter_shroud"],[40,"cryo_lance"],[50,"fossil_rush"],[60,"whiteout"]],
+    learnset:[[1,"glacial_punch"],[5,"fortify"],[10,"stone_throw"],[12,"cryogenic_field"],[15,"crystal_veil"],[18,"boreal_armor"],[20,"cold_beam"],[21,"sapphire_lance"],[22,"ice_hammer"],[25,"crystal_glow"],[28,"ice_resonance"],[29,"marble_resonance"],[30,"stone_slide"],[35,"gem_resonance"],[38,"winter_shroud"],[40,"cryo_lance"],[50,"fossil_rush"],[60,"whiteout"]],
     catchRate:16, expYield:292, rarity:"rare",
     desc:"A fortress of living glacier-stone. Its outer shell has never been successfully breached in recorded history.",
     lore:"Crystavault is an ice-mineral creature 2.5 metres tall resembling a fortified tower of layered glacial ice and granite. Ancient siege equipment has been found bent and broken around specimens." },
@@ -4277,7 +4277,7 @@ const MONSTERS_DATA = {
   // ---- Tier 3b: More post-game NG+ BST ~590–640 ----
   362: { id:362, name:"Lunaspectre", emoji:"🌕", types:["Mental","Spectral"],
     base:{hp:70,atk:78,def:74,spa:110,spd:94,spe:94}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"mental"],[5,"dreamweave"],[10,"nether_sphere"],[15,"ectoplasm_wave"],[20,"psi_strike"],[30,"void_rend"],[38,"prism_ward"],[40,"synaptic_shatter"],[50,"phantom_claw"],[60,"neural_storm"]],
+    learnset:[[1,"mental"],[5,"dreamweave"],[10,"nether_sphere"],[13,"spectral_ray"],[15,"ectoplasm_wave"],[20,"psi_strike"],[25,"ghastly_wail"],[30,"void_rend"],[38,"prism_ward"],[40,"synaptic_shatter"],[45,"eternal_haunt"],[50,"phantom_claw"],[60,"neural_storm"]],
     catchRate:10, expYield:320, rarity:"rare",
     desc:"A moon-born spectre woven from lunar psychic energy. It appears only on nights of the full moon.",
     lore:"Lunaspectre is a mental-spectral entity 2 metres tall that resembles a human silhouette composed of condensed moonlight. Its edges blur and shimmer like a reflection on disturbed water." },
@@ -4312,7 +4312,7 @@ const MONSTERS_DATA = {
 
   367: { id:367, name:"Bouldertide", emoji:"🌊", types:["Aquatic","Mineral"],
     base:{hp:91,atk:97,def:103,spa:80,spd:83,spe:66}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"aquatic_gun"],[5,"fortify"],[10,"stone_throw"],[15,"ancient_tide"],[20,"tidal_rush"],[30,"stone_slide"],[38,"tidal_crush"],[40,"tsunami"],[45,"granite_press"],[50,"fossil_rush"],[60,"sea_serpent_strike"]],
+    learnset:[[1,"aquatic_gun"],[5,"fortify"],[10,"stone_throw"],[15,"ancient_tide"],[18,"granite_slam"],[20,"tidal_rush"],[28,"topaz_beam"],[30,"stone_slide"],[35,"petrified_form"],[38,"tidal_crush"],[40,"tsunami"],[45,"granite_press"],[50,"fossil_rush"],[60,"sea_serpent_strike"]],
     catchRate:9, expYield:318, rarity:"rare",
     desc:"A creature that is half ocean, half cliff-face. It creates tsunamis as a side effect of moving.",
     lore:"Bouldertide is an aquatic-mineral creature 4 metres tall resembling a tide-carved sea stack that walks. Aquatic constantly flows through channels in its stone body." },
@@ -4449,7 +4449,7 @@ const MONSTERS_DATA = {
   // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   386: { id:386, name:"Wraithstorm", emoji:"💀", types:["Electric","Spectral"],
     base:{hp:68,atk:92,def:70,spa:106,spd:84,spe:105}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"nether_sphere"],[5,"shade_dash"],[10,"jolt"],[15,"wraith_focus"],[20,"phantom_claw"],[30,"volt_jet"],[40,"void_rend"],[50,"volt_surge"],[52,"neural_storm"],[60,"stormbolt"]],
+    learnset:[[1,"nether_sphere"],[5,"shade_dash"],[10,"jolt"],[13,"wraith_claw"],[15,"wraith_focus"],[20,"phantom_claw"],[25,"soul_chill"],[30,"volt_jet"],[40,"void_rend"],[45,"necrotic_pulse"],[50,"volt_surge"],[52,"neural_storm"],[60,"stormbolt"]],
     catchRate:5, expYield:358, rarity:"rare",
     desc:"A ghost electrified by a lightning strike. It haunts storm fronts and strikes from inside the thunder.",
     lore:"Wraithstorm is an electric-spectral entity that exists inside active lightning bolts. Between strikes it takes the form of a translucent humanoid crackling with contained electricity." },
@@ -4528,7 +4528,7 @@ const MONSTERS_DATA = {
   // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   397: { id:397, name:"Abyssalord", emoji:"🌊", types:["Aquatic","Spectral"],
     base:{hp:79,atk:92,def:81,spa:101,spd:87,spe:85}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"tidal_rush"],[5,"shadowstep"],[10,"nether_sphere"],[20,"tidal_crush"],[30,"phantom_claw"],[40,"tsunami"],[45,"spirit_calamity"],[50,"void_rend"],[55,"sea_serpent_strike"],[60,"neural_storm"]],
+    learnset:[[1,"tidal_rush"],[5,"shadowstep"],[10,"nether_sphere"],[15,"spectral_ray"],[20,"tidal_crush"],[25,"ghastly_wail"],[30,"phantom_claw"],[40,"tsunami"],[42,"spectral_veil"],[45,"spirit_calamity"],[50,"void_rend"],[55,"sea_serpent_strike"],[60,"neural_storm"]],
     catchRate:4, expYield:372, rarity:"rare",
     desc:"The lord of all drowned things. Sailors who die at sea answer to it now.",
     lore:"Abyssalord is a water-spectral creature 9 metres long resembling a massive spectral leviathan trailing ghostly sea-wrack. It is invisible underwater — its presence is detected only by a sudden drop in water temperature and the silencing of all sea life." },

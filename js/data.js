@@ -1753,7 +1753,7 @@ const MONSTERS_DATA = {
 
   84: { id:84, name:"Electrix",      emoji:"🐛", types:["Electric","Aquatic"],
     base:{hp:34,atk:48,def:43,spa:50,spd:43,spe:94},
-    learnset:[[1,"mandible_bite",[22,"arc_flash"]],[1,"jolt"],[3,"static_cage"],[10,"static_strike"],[12,"shock_net"],[18,"silk_spray"],[20,"second_wind"],[24,"shock_pulse"],[26,"volt_jet"],[30,"repulsion_field"],[31,"cocoon_burst"],[34,"resonance_hum",[5,"stun_pulse"]],[36,"shear_strike"]],
+    learnset:[[1,"mandible_bite",[22,"arc_flash"]],[1,"jolt"],[3,"static_cage"],[7,"aquatic_gun"],[10,"static_strike"],[12,"shock_net"],[15,"wave_dash"],[18,"silk_spray"],[20,"second_wind"],[24,"shock_pulse"],[26,"volt_jet"],[28,"bubble_jet"],[30,"repulsion_field"],[31,"cocoon_burst"],[34,"resonance_hum",[5,"stun_pulse"]],[36,"shear_strike"]],
     evolveTo:85, evolveLevel:22, catchRate:200, expYield:74, rarity:"common",
     desc:"An electric beetle that emits charged buzzing sounds. Very energetic.",
     lore:"Electrix is a small dragonfly nymph 8 cm long, the aquatic juvenile stage of the lineage. Its body is segmented and dark with metallic gold-edged plates, and small gilled abdomen-tufts trail behind it as it crawls along stream beds. It already generates faint electrical sparks from its rudimentary wing-buds when threatened. It hunts smaller aquatic insects with its hooked predatory mandibles, and lives in colonies in slow-moving water near decaying wood, where it processes organic material into bioelectric energy." },
@@ -1982,7 +1982,7 @@ const MONSTERS_DATA = {
 
   140: { id:140, name:"Faeling",    emoji:"🦋", types:["Fairy","Wind"],
     base:{hp:35,atk:44,def:33,spa:79,spd:71,spe:78},
-    learnset:[[1,"fairy_wind",[22,"wish_spark"]],[1,"mandible_bite"],[10,"bewitching_kiss"],[18,"prism_flare"],[20,"second_wind"],[26,"lunar_burst"],[34,"resonance_hum",[5,"stardust_veil"]],[36,"gossamer_lance"],[3,"charm_bloom"],[31,"cocoon_burst"]],
+    learnset:[[1,"fairy_wind",[22,"wish_spark"]],[1,"mandible_bite"],[3,"charm_bloom"],[7,"breeze"],[10,"bewitching_kiss"],[14,"gust_jab"],[18,"prism_flare"],[20,"second_wind"],[22,"breeze_blade"],[26,"lunar_burst"],[31,"cocoon_burst"],[34,"resonance_hum",[5,"stardust_veil"]],[36,"gossamer_lance"]],
     evolveTo:141, evolveLevel:22, catchRate:160, expYield:82, rarity:"common",
     desc:"A prismatic butterfly that scatters rainbow dust. Hard to catch.",
     lore:"Faeling is a small fairy butterfly with a 25 cm wingspan. Its wings display soft pastel fairy-shimmer patterns — pinks, creams, and pale golds — with delicate trailing tails. Its body is slender and pale green. It inhabits enchanted meadows and its wingbeat releases a fine powder that induces feelings of mild euphoria." },
@@ -2285,7 +2285,7 @@ const MONSTERS_DATA = {
 
   200: { id:200, name:"Iridibeetle",  emoji:"🪲", types:["Nature","Metal"],
     base:{hp:61,atk:73,def:71,spa:43,spd:51,spe:30},
-    learnset:[[1,"mandible_bite",[22,"mandible_crush"]],[1,"stone_throw"],[10,"cranial_ram"],[18,"shear_strike"],[20,"baleful_stare"],[26,"stone_slide"],[34,"crag_strike",[5,"silk_spray"]],[36,"swarm_dive"],[3,"chitin_guard"],[31,"magma_stone"]],
+    learnset:[[1,"mandible_bite",[22,"mandible_crush"]],[1,"stone_throw"],[3,"chitin_guard"],[8,"chrome_claw"],[10,"cranial_ram"],[14,"metal_pulse"],[18,"shear_strike"],[20,"baleful_stare"],[22,"alloy_edge"],[26,"stone_slide"],[31,"magma_stone"],[34,"crag_strike",[5,"silk_spray"]],[36,"swarm_dive"]],
     evolveTo:201, evolveLevel:25, catchRate:130, expYield:95, rarity:"common",
     desc:"A heavily armored beetle. Its rock-hard shell is practically indestructible.",
     lore:"Iridibeetle is a beetle 12 cm long with a hard iridescent wing-case that shifts between emerald and sapphire depending on viewing angle. Its underside is pale gold. It lives in old-growth forest canopy and cuts precise circular holes in leaves that it then rolls into tubes for egg-laying." },
@@ -2861,7 +2861,7 @@ const MONSTERS_DATA = {
   // Standalone mono Fire: Magmite (location evo near forge area)
   277: { id:277, name:"Magmite", emoji:"🌶️", types:["Fire"],
     base:{hp:92,atk:110,def:96,spa:98,spd:80,spe:62},
-    learnset:[[1,"flicker"],[1,"mud_spray"],[18,"inferno_jet"],[28,"geoblast"],[38,"pyroclasm"],[48,"tectonic_shift"],[58,"magma_surge"],[68,"radiance_cannon"]],
+    learnset:[[1,"flicker"],[1,"mud_spray"],[15,"flame_charge"],[18,"inferno_jet"],[28,"geoblast"],[28,"blazing_rush"],[38,"pyroclasm"],[45,"flash_fire"],[48,"tectonic_shift"],[58,"magma_surge"],[68,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, evolveLocation:"ironforge", evolveMethod:"location", catchRate:50, expYield:215, rarity:"uncommon",
     desc:"Found only in volcanic forge areas where earth meets fire. Its body is half-molten rock, half-flame.",
     lore:"Magmite is a small fire creature 20 cm tall resembling a lava droplet that has cooled enough to walk. Its body is glossy dark basalt with an interior glow. It inhabits active volcanic vents and feeds by filtering mineral nutrients from magma, which passes harmlessly through its heat-adapted body." },
@@ -2987,14 +2987,14 @@ const MONSTERS_DATA = {
   // 3-stage Wind chain: Zephyrpuff → Stormwing → Cyclonax
   293: { id:293, name:"Gustpuff", emoji:"💨", types:["Electric","Draconic"],
     base:{hp:42,atk:45,def:38,spa:65,spd:55,spe:90},
-    learnset:[[1,"breeze"],[1,"collide"],[6,"gust_jab"],[10,"wind_scythe"],[16,"updraft"],[20,"downdraft"],[30,"typhoon"],[40,"gale_cannon"],[50,"squall_slash"],[60,"radiance_cannon"]],
+    learnset:[[1,"breeze"],[1,"collide"],[5,"jolt"],[6,"gust_jab"],[8,"draconic_breath"],[10,"wind_scythe"],[12,"volt_jet"],[16,"updraft"],[18,"draconic_claw"],[20,"downdraft"],[22,"shock_pulse"],[28,"draconic_pulse"],[30,"typhoon"],[40,"gale_cannon"],[50,"squall_slash"],[60,"radiance_cannon"]],
     evolveTo:294, evolveLevel:26, catchRate:175, expYield:68, rarity:"common",
     desc:"A tiny wind-dragon hatchling whose newly-shed scale-husks float around it as drifting feather-light puffs of fluff. Disperses and reassembles in low winds.",
     lore:"Gustpuff is a small electric-dragon hatchling about 25 centimetres long, with delicate pale-grey scales just hardening into solid form. Loose translucent scale-husks shed during its earliest moults still float around it like drifting puffs of dandelion-down, crackling with faint static when they brush against each other — a cloud of soft filaments that lifts and reassembles around its body whenever it moves through low winds. Its tiny wings are not yet strong enough for sustained flight, but it darts through grasslands and coastal updrafts at speeds that belie its size, and its passage is announced by the gentle drift of those fluff-husks settling behind it. When groups of Gustpuff hatch in the same season, their combined scale-husks form a small visible cloud above them — an accidental precursor of the personal storm-systems Cyclonax sustains. A sleeping Gustpuff will twitch its tiny incomplete wings in patterns far more complex than its current flight ability requires, practising a wingstroke Stormwing performs adult. The species' instinctive preference for coastal updrafts and high ridges over grasslands or forests reveals the same orientation toward the wind-cathedrals Cyclonax eventually occupies." },
 
   294: { id:294, name:"Stormwing", emoji:"🐉", types:["Electric","Draconic"],
     base:{hp:70,atk:88,def:68,spa:98,spd:80,spe:108},
-    learnset:[[1,"wind_scythe"],[1,"draconic_breath"],[12,"squall"],[16,"aerial_slam"],[20,"typhoon"],[24,"gale_strike"],[28,"draconic_claw"],[32,"tempest_wave"],[36,"gale_cannon"],[40,"hurricane_blast"],[44,"draconic_pulse"],[48,"thunderstorm_eruption"],[52,"tempest_wrath"],[60,"radiance_cannon"]],
+    learnset:[[1,"wind_scythe"],[1,"draconic_breath"],[5,"jolt"],[12,"squall"],[15,"volt_jet"],[16,"aerial_slam"],[20,"typhoon"],[24,"gale_strike"],[25,"thunder_chain"],[28,"draconic_claw"],[32,"tempest_wave"],[36,"gale_cannon"],[40,"hurricane_blast"],[44,"draconic_pulse"],[48,"thunderstorm_eruption"],[52,"tempest_wrath"],[60,"radiance_cannon"]],
     evolveTo:295, evolveLevel:44, catchRate:80, expYield:155, rarity:"uncommon",
     desc:"A storm-drake hybrid of wind and dragon power. Rides cyclones across entire mountain ranges.",
     lore:"Stormwing is a large electric-dragon 3 metres long — Gustpuff's pale-grey hardening scales have darkened to grey-blue and the translucent scale-husks of its juvenile form have ceased shedding entirely, leaving powerful slate-grey wings spanning 5 metres. Its eyes are electric-white. It generates its own personal storm system wherever it flies — clouds condensing from its wingtip vortices, lightning striking where it looks." },
@@ -3118,7 +3118,7 @@ const MONSTERS_DATA = {
   // 2-stage Aquatic/Nature chain: Mudpump → Marshix (level 28)
   310: { id:310, name:"Mudpump", emoji:"🦛", types:["Aquatic","Nature"],
     base:{hp:58,atk:68,def:62,spa:58,spd:55,spe:55},
-    learnset:[[1,"mud_spray"],[1,"aquatic_gun"],[8,"dust_toss"],[12,"geoblast"],[22,"tidal_rush"],[32,"tectonic_shift"],[42,"tsunami"],[52,"clay_armor"],[60,"radiance_cannon"]],
+    learnset:[[1,"mud_spray"],[1,"aquatic_gun"],[7,"vine_lash"],[8,"dust_toss"],[12,"geoblast"],[14,"nature_pulse"],[20,"sharp_leaves"],[22,"tidal_rush"],[32,"tectonic_shift"],[42,"tsunami"],[52,"clay_armor"],[60,"radiance_cannon"]],
     evolveTo:311, evolveLevel:28, catchRate:155, expYield:80, rarity:"common",
     desc:"A small hippo calf perpetually slick with mud. Wallows in shallow tidal mudflats and digs out cool burrow-chambers with its broad snout.",
     lore:"Mudpump is a small hippo calf about 50 centimetres long with a broad rounded body coated in slick wet mud and a short blunt snout perfectly suited to scooping muddy water. It is too small to fully submerge in deep water, so it wallows in shallow tidal mudflats and shallow lagoons where it builds dome-shaped mud-and-reed homes by piling clay around itself with a suction-pump motion of its wide mouth. Small herds of Mudpump dig out vast networks of cool burrow-chambers connecting their wallows beneath the soft surface." },
@@ -3502,7 +3502,7 @@ const MONSTERS_DATA = {
 
   165: { id:165, name:"Venowarn", emoji:"🦋", types:["Poison","Wind"],
     base:{hp:77,atk:69,def:57,spa:106,spd:84,spe:92},
-    learnset:[[1,"ooze_bomb"],[2,"toxic_surge"],[20,"second_wind"],[25,"blitz"],[29,"toxify"],[30,"nerve_agent"],[35,"virulent_surge"],[40,"wind_scythe"],[45,"putrid_pulse"],[50,"acid_rain"],[55,"cocoon_burst"],[60,"resonance_hum"],[3,"toxin_bloom"],[39,"sap_bite"]],
+    learnset:[[1,"ooze_bomb"],[2,"toxic_surge"],[3,"toxin_bloom"],[8,"breeze"],[15,"tailwind_strike"],[20,"second_wind"],[25,"blitz"],[25,"breeze_blast"],[29,"toxify"],[30,"nerve_agent"],[35,"virulent_surge"],[39,"sap_bite"],[40,"wind_scythe"],[45,"putrid_pulse"],[50,"acid_rain"],[55,"cocoon_burst"],[60,"resonance_hum"]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:185, rarity:"uncommon",
     desc:"A venomous moth that releases toxic scales on the wind. A cloud of them can fell a Lumori quickly.",
     lore:"Venowarn is a large poison-wind butterfly with a 50 cm wingspan — Blightmite's dark purple-black caterpillar body has metamorphosed into deep black wings, with the bristle-hair toxin now sequestered into vivid purple warning patterns. It releases a cloud of toxic scales when startled, and the scales cause skin irritation and respiratory distress in creatures that inhale them. It inhabits dense poisonous forest regions." },
@@ -4629,7 +4629,7 @@ const MONSTERS_DATA = {
   409: { id:409, name:"Facetite", emoji:"💎", types:["Crystal","Fairy"],
     evolveTo:410, evolveLevel:42, catchRate:15, expYield:150, rarity:"legendary",
     base:{hp:80,atk:65,def:115,spa:95,spd:100,spe:50}, // BST 505
-    learnset:[[1,"collide"],[1,"fortify"],[5,"crystal_jab"],[14,"fairy_wind"],[19,"crystal_pulse"],[22,"radiant_reflection"],[27,"prism_ray"],[33,"prism_flare"],[36,"prismatic_calm"],[39,"crystalline_beam"],[43,"gemstone_strike"],[45,"jade_lattice"]],
+    learnset:[[1,"collide"],[1,"fortify"],[5,"crystal_jab"],[8,"bewitching_kiss"],[14,"fairy_wind"],[18,"wish_spark"],[19,"crystal_pulse"],[22,"radiant_reflection"],[27,"prism_ray"],[30,"lunar_burst"],[33,"prism_flare"],[36,"prismatic_calm"],[39,"crystalline_beam"],[43,"gemstone_strike"],[45,"jade_lattice"]],
     desc:"Its shell has cleared into faceted gemstone planes that split sunlight into drifting fairy-glimmer.",
     lore:"As a Glimmerling matures into Facetite, the quartz of its shell anneals into true gemstone, each plate cut into geometric facets that scatter light in shifting rainbows. The drifting motes of glimmer it sheds are warm to the touch and pacify nearby Lumori, and Facetite is often found guarding spring-fed grottoes where the light dances brightest." },
 
@@ -4805,7 +4805,7 @@ const MONSTERS_DATA = {
   433: { id:433, name:"Verdantusk", emoji:"🦣", types:["Nature","Primal"],
     evolveTo:434, evolveLevel:44, catchRate:15, expYield:155, rarity:"legendary",
     base:{hp:105,atk:100,def:95,spa:60,spd:80,spe:70}, // BST 510
-    learnset:[[1,"collide"],[5,"primal_jab"],[10,"beast_speed"],[16,"savage_bite"],[20,"wild_rage"],[22,"vine_lash"],[28,"beast_charge"],[34,"pod_blast"],[36,"wild_aura"],[40,"crushing_jaws"],[46,"primal_smash"]],
+    learnset:[[1,"collide"],[5,"primal_jab"],[7,"nature_pulse"],[10,"beast_speed"],[14,"mantis_slash"],[16,"savage_bite"],[20,"wild_rage"],[22,"vine_lash"],[24,"sharp_leaves"],[28,"beast_charge"],[34,"pod_blast"],[36,"wild_aura"],[40,"crushing_jaws"],[46,"primal_smash"]],
     desc:"A great tusker whose hide has become a hanging garden of moss, fern and clinging vine.",
     lore:"Verdantusk moves slowly enough that whole ecosystems take root upon it — moss carpets its flanks, ferns nod between its shoulders, and small Lumori shelter in the living thicket of its hide. Where it walks, it tramples seed into soil and fertilises the ground, and old forests trace their first saplings to the passage of one of these wandering groves." },
 

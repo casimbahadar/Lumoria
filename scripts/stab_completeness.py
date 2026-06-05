@@ -32,9 +32,22 @@ mblock_start = text.find("const MOVES_DATA = {")
 mblock_end_match = re.search(r'^\};', text[mblock_start:], re.MULTILINE)
 mblock = text[mblock_start:mblock_start + mblock_end_match.start()]
 mpat = re.compile(r'^\s*(\w+):\s*\{\s*name:"([^"]+)",\s*type:"(\w+)"', re.MULTILINE)
-move_type = {}
-for m in mpat.finditer(mblock):
-    move_type[m.group(1)] = m.group(3)
+# Each move: key → set of types it counts as STAB for (primary + dualType if present)
+move_types = {}
+# Capture each full move declaration line to also detect dualType:["A","B"]
+mfull_pat = re.compile(r'^\s*(\w+):\s*\{([^}]*)\}', re.MULTILINE)
+for m in mfull_pat.finditer(mblock):
+    key = m.group(1)
+    body = m.group(2)
+    type_m = re.search(r'type:"(\w+)"', body)
+    if not type_m:
+        continue
+    types = {type_m.group(1)}
+    dual_m = re.search(r'dualType:\[([^\]]+)\]', body)
+    if dual_m:
+        for t in re.findall(r'"(\w+)"', dual_m.group(1)):
+            types.add(t)
+    move_types[key] = types
 
 # Parse MONSTERS_DATA
 mons_start = text.find("const MONSTERS_DATA = {")
@@ -104,28 +117,27 @@ for mid, info in mons.items():
     else:
         info["stage"] = "mid"
 
-# Per-type-per-Lumori STAB count
+# Per-type-per-Lumori STAB count (a dualType move counts for BOTH types)
 for mid, info in mons.items():
     stab = defaultdict(int)
     for k in info["move_keys"]:
-        t = move_type.get(k)
-        if t and t in info["types"]:
-            stab[t] += 1
+        m_types = move_types.get(k, set())
+        for t in m_types:
+            if t in info["types"]:
+                stab[t] += 1
     info["stab"] = dict(stab)
 
-# Threshold by stage
-def threshold(stage, rarity):
-    if rarity in ("legendary", "exclusive") or (rarity is None and stage == "final"):
-        return 4
-    if stage == "standalone":
-        return 3
-    if stage == "final":
-        return 4
-    if stage == "mid":
-        return 3
-    if stage == "base":
-        return 2
-    return 2
+# Threshold by mono-vs-dual and stage
+def threshold(stage, rarity, is_mono):
+    """Per-type minimum STAB."""
+    base_map_mono = {"base": 5, "mid": 6, "final": 7, "standalone": 7}
+    base_map_dual = {"base": 3, "mid": 4, "final": 4, "standalone": 4}
+    table = base_map_mono if is_mono else base_map_dual
+    val = table.get(stage, 4 if is_mono else 3)
+    # Legendary/exclusive bump
+    if rarity in ("legendary", "exclusive"):
+        val = 8 if is_mono else 5
+    return val
 
 FORGOTTEN_START = 462
 
@@ -134,7 +146,8 @@ flagged = []
 for mid, info in mons.items():
     if mid >= FORGOTTEN_START:
         continue
-    threshold_per_type = threshold(info["stage"], info["rarity"])
+    is_mono = len(info["types"]) == 1
+    threshold_per_type = threshold(info["stage"], info["rarity"], is_mono)
     for t in info["types"]:
         count = info["stab"].get(t, 0)
         if count < threshold_per_type:
@@ -151,10 +164,13 @@ for mid, info in mons.items():
             })
 
 # Report
-print(f"Total Lumori scanned: {len(mons)}")
+print(f"Total Lumori scanned: {len(mons)} (Forgotten 462-500 excluded)")
 print(f"Flagged Lumori-type pairs with insufficient STAB: {len(flagged)}")
 print()
-print("Thresholds: base=2, mid=3, final/standalone=3-4, legendary/exclusive=4")
+print("Thresholds (per type):")
+print("  Mono Lumori:  base=5, mid=6, final/standalone=7, legendary=8")
+print("  Dual Lumori:  base=3, mid=4, final/standalone=4, legendary=5")
+print("  dualType moves count for BOTH their types")
 print()
 print("=" * 90)
 print(f"{'ID':>4}  {'Name':<24} {'Stage':<10} {'Type':<10} {'Have':>5} {'Need':>5} {'-':>3}")

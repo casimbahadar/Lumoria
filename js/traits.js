@@ -1144,7 +1144,555 @@ const ABILITY_REGISTRY = {
     },
   },
 
-  // ====== Phase 2 batches 2+ will add the remaining traits below ======
+  // ====== Phase 2 batch 2 — 46 locked traits ======
+
+  // --- A. Indirect-damage immunities (3) ---
+  untouchable: {
+    name: "Untouchable",
+    emoji: "🚫",
+    cssClass: "trait-untouchable",
+    description: "Immune to all non-attack damage (DOT, recoil, hazards, weather).",
+    ngPlusOnly: false,
+    immuneToIndirectDamage: true,
+  },
+
+  toughness: {
+    name: "Toughness",
+    emoji: "💪",
+    cssClass: "trait-toughness",
+    description: "Damage-over-time effects are halved.",
+    ngPlusOnly: false,
+    dotDamageMod: () => 0.5,
+  },
+
+  quick_metabolism: {
+    name: "Quick Metabolism",
+    emoji: "⏱️",
+    cssClass: "trait-quick-metabolism",
+    description: "Status conditions wear off twice as fast.",
+    ngPlusOnly: false,
+    statusTurnRate: 2,
+  },
+
+  // --- B. Reactive damage-amp (5) ---
+  counter_charged: {
+    name: "Counter-Charged",
+    emoji: "🔋",
+    cssClass: "trait-counter-charged",
+    description: "Next move deals +30% damage after taking a critical hit.",
+    ngPlusOnly: false,
+    onCritTaken: (mon) => {
+      mon._counterCharged = true;
+      return { msg: `🔋 Counter-Charged: ${mon.name}'s next move will hit harder!` };
+    },
+    outgoingPowerMod: (mon) => {
+      if (mon._counterCharged) {
+        mon._counterCharged = false;
+        return 1.3;
+      }
+      return 1;
+    },
+  },
+
+  pride: {
+    name: "Pride",
+    emoji: "😠",
+    cssClass: "trait-pride",
+    description: "Attack +2 stages when a foe lowers any of this Lumori's stats.",
+    ngPlusOnly: false,
+    onStatLowered: (mon) => {
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "atk", 2)) {
+        return { msg: `😠 Pride: ${mon.name}'s Attack rose sharply!` };
+      }
+      return null;
+    },
+  },
+
+  crisis_push: {
+    name: "Crisis Push",
+    emoji: "🏴",
+    cssClass: "trait-crisis-push",
+    description: "All damage dealt +30% while HP is below 25%.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (mon) => mon.currentHP < mon.maxHP * 0.25 ? 1.3 : 1,
+  },
+
+  avenger: {
+    name: "Avenger",
+    emoji: "🗡️",
+    cssClass: "trait-avenger",
+    description: "Atk and SpA both +1 stage when an ally faints (multi-battle).",
+    ngPlusOnly: false,
+    onAllyFaint: (mon) => {
+      if (typeof applyStageChange !== "function") return null;
+      const a = applyStageChange(mon, "atk", 1);
+      const s = applyStageChange(mon, "spa", 1);
+      if (a || s) return { msg: `🗡️ Avenger: ${mon.name} rose in fury!` };
+      return null;
+    },
+  },
+
+  retribution_charge: {
+    name: "Retribution Charge",
+    emoji: "⚔️",
+    cssClass: "trait-retribution-charge",
+    description: "Stores 30% of damage taken; releases as bonus damage on the next attack.",
+    ngPlusOnly: false,
+    onIncomingHit: (mon, _e, _move, dmgTaken) => {
+      mon._retribution = (mon._retribution || 0) + Math.floor(dmgTaken * 0.3);
+      return null;
+    },
+    outgoingPowerMod: (mon) => {
+      if (mon._retribution > 0) {
+        mon._retributionPending = mon._retribution;
+        mon._retribution = 0;
+      }
+      return 1;
+    },
+  },
+
+  // --- C. Status-bundle immunities (6) ---
+  tide_immune: {
+    name: "Tide-immune",
+    emoji: "🌊",
+    cssClass: "trait-tide-immune",
+    description: "Immune to Drenched and Soaked.",
+    ngPlusOnly: false,
+    immuneToStatus: ["drenched", "soaked"],
+  },
+
+  bedrock: {
+    name: "Bedrock",
+    emoji: "🗿",
+    cssClass: "trait-bedrock",
+    description: "Immune to Crystallize, Petrify, and Statue.",
+    ngPlusOnly: false,
+    immuneToStatus: ["crystallize", "petrify", "statue"],
+  },
+
+  mortal_coil: {
+    name: "Mortal Coil",
+    emoji: "💀",
+    cssClass: "trait-mortal-coil",
+    description: "Immune to Necrosis, Bleed, and Severe Bleed.",
+    ngPlusOnly: false,
+    immuneToStatus: ["necrosis", "bleed", "severe_bleed"],
+  },
+
+  clear_mind: {
+    name: "Clear Mind",
+    emoji: "🧘",
+    cssClass: "trait-clear-mind",
+    description: "Immune to Hexed, Possessed, Comatose, and Concussion.",
+    ngPlusOnly: false,
+    immuneToStatus: ["hexed", "possessed", "comatose", "concussion"],
+  },
+
+  lucid_dream: {
+    name: "Lucid Dream",
+    emoji: "💭",
+    cssClass: "trait-lucid-dream",
+    description: "Immune to Phase-shifted and any Dream-themed status (extensible).",
+    ngPlusOnly: false,
+    immuneToStatus: ["phase_shifted"],
+  },
+
+  iron_limbs: {
+    name: "Iron Limbs",
+    emoji: "🦾",
+    cssClass: "trait-iron-limbs",
+    description: "Immune to Bound, Tangled, Anchored, Tethered, and Weighed Down.",
+    ngPlusOnly: false,
+    immuneToStatus: ["bound", "tangled", "anchored", "tethered", "weighed_down"],
+  },
+
+  // --- D. Speed manipulation (3) ---
+  burst_reflex: {
+    name: "Burst Reflex",
+    emoji: "🎯",
+    cssClass: "trait-burst-reflex",
+    description: "Always moves first on the very first turn of every battle.",
+    ngPlusOnly: true,
+    priorityBonus: (mon) => (mon._turnsInBattle || 0) === 0 ? 5 : 0,
+  },
+
+  steady: {
+    name: "Steady",
+    emoji: "🪨",
+    cssClass: "trait-steady",
+    description: "Speed stage cannot be reduced below 0 (immune to Speed-lowering effects below baseline).",
+    ngPlusOnly: true,
+    floorStatStage: (stat) => stat === "spe" ? 0 : null,
+  },
+
+  sleep_sprint: {
+    name: "Sleep-Sprint",
+    emoji: "🌙",
+    cssClass: "trait-sleep-sprint",
+    description: "Speed ×2 while Asleep (Sleep Talk synergy).",
+    ngPlusOnly: false,
+    statMod: (mon) =>
+      (typeof hasStatus === "function" && hasStatus(mon, "sleep")) ? { spe: 2 } : {},
+  },
+
+  // --- E. Type-shift on-event (3) ---
+  mirror_form: {
+    name: "Mirror Form",
+    emoji: "🪞",
+    cssClass: "trait-mirror-form",
+    description: "Type changes to match the last move that hit this Lumori.",
+    ngPlusOnly: false,
+    onIncomingHit: (mon, _e, move) => {
+      if (!move?.type) return null;
+      if (mon.types.length === 1 && mon.types[0] === move.type) return null;
+      mon.types = [move.type];
+      return { msg: `🪞 Mirror Form: ${mon.name} became ${move.type}-type!` };
+    },
+  },
+
+  chameleon: {
+    name: "Chameleon",
+    emoji: "🦎",
+    cssClass: "trait-chameleon",
+    description: "Type changes to match each move this Lumori uses.",
+    ngPlusOnly: false,
+    onMoveUse: (mon, _e, move) => {
+      if (!move?.type) return null;
+      if (mon.types.length === 1 && mon.types[0] === move.type) return null;
+      mon.types = [move.type];
+      return { msg: `🦎 Chameleon: ${mon.name} shifted to ${move.type}-type!` };
+    },
+  },
+
+  adaptive_shell: {
+    name: "Adaptive Shell",
+    emoji: "🐚",
+    cssClass: "trait-adaptive-shell",
+    description: "Type changes once per battle when HP drops below 25% (player picks).",
+    ngPlusOnly: true,
+    onLowHpTrigger: (mon) => {
+      if (mon._adaptiveShellUsed) return null;
+      mon._adaptiveShellUsed = true;
+      return { msg: `🐚 Adaptive Shell: ${mon.name} is reshaping!` };
+    },
+  },
+
+  // --- F. Aura / battlefield-wide (3) ---
+  faerie_glow: {
+    name: "Faerie Glow",
+    emoji: "🧚",
+    cssClass: "trait-faerie-glow",
+    description: "All Fairy moves on the field (both sides) deal +20% damage.",
+    ngPlusOnly: false,
+    fieldTypeMod: { type: "Fairy", mult: 1.2 },
+  },
+
+  umbral_glow: {
+    name: "Umbral Glow",
+    emoji: "🌑",
+    cssClass: "trait-umbral-glow",
+    description: "All Dark moves on the field (both sides) deal +20% damage.",
+    ngPlusOnly: false,
+    fieldTypeMod: { type: "Dark", mult: 1.2 },
+  },
+
+  pheromone_field: {
+    name: "Pheromone Field",
+    emoji: "🌸",
+    cssClass: "trait-pheromone-field",
+    description: "Foes' Attack and Sp.Atk are passively -1 stage while this Lumori is on field.",
+    ngPlusOnly: true,
+    foeStatMod: () => ({ atk: -1, spa: -1 }),
+  },
+
+  // --- G. Held-item interactions (2) ---
+  itemless_strength: {
+    name: "Itemless Strength",
+    emoji: "🦴",
+    cssClass: "trait-itemless-strength",
+    description: "When holding no item, all moves deal +25% power.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (mon) => !mon.heldItem ? 1.25 : 1,
+  },
+
+  item_recycler: {
+    name: "Item Recycler",
+    emoji: "♻️",
+    cssClass: "trait-item-recycler",
+    description: "Consumed held items return to inventory after the battle.",
+    ngPlusOnly: false,
+    onBattleEnd: (mon) => {
+      if (mon._consumedItem) {
+        const it = mon._consumedItem;
+        mon._consumedItem = null;
+        return { msg: `♻️ Item Recycler: ${mon.name}'s ${it} returned to the bag!` };
+      }
+      return null;
+    },
+  },
+
+  // --- H. Multi-mon synergy (5) ---
+  battle_buddy: {
+    name: "Battle Buddy",
+    emoji: "🤝",
+    cssClass: "trait-battle-buddy",
+    description: "Adjacent ally's Atk and SpA effectively +25% in multi-battle.",
+    ngPlusOnly: false,
+    multiAllyStatMod: () => ({ atk: 1.25, spa: 1.25 }),
+  },
+
+  shield_wall: {
+    name: "Shield Wall",
+    emoji: "🛡️",
+    cssClass: "trait-shield-wall",
+    description: "Allies take 25% less damage while this Lumori is on field (multi-battle).",
+    ngPlusOnly: false,
+    multiAllyDmgMod: () => 0.75,
+  },
+
+  coordinator: {
+    name: "Coordinator",
+    emoji: "📡",
+    cssClass: "trait-coordinator",
+    description: "Attack +1 stage when an ally lands a critical hit.",
+    ngPlusOnly: false,
+    onAllyCrit: (mon) => {
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "atk", 1)) {
+        return { msg: `📡 Coordinator: ${mon.name}'s Attack rose!` };
+      }
+      return null;
+    },
+  },
+
+  synergy_link: {
+    name: "Synergy Link",
+    emoji: "🔗",
+    cssClass: "trait-synergy-link",
+    description: "Next move +30% power after an ally uses a status move (multi-battle).",
+    ngPlusOnly: false,
+    onAllyStatusMove: (mon) => {
+      mon._synergyPrimed = true;
+      return null;
+    },
+    outgoingPowerMod: (mon) => {
+      if (mon._synergyPrimed) {
+        mon._synergyPrimed = false;
+        return 1.3;
+      }
+      return 1;
+    },
+  },
+
+  tag_team: {
+    name: "Tag Team",
+    emoji: "👬",
+    cssClass: "trait-tag-team",
+    description: "Switching out grants the incoming ally +1 Attack.",
+    ngPlusOnly: false,
+    onSwitchOut: (_m, _e, incomingAlly) => {
+      if (incomingAlly && typeof applyStageChange === "function" && applyStageChange(incomingAlly, "atk", 1)) {
+        return { msg: `👬 Tag Team: ${incomingAlly.name}'s Attack rose on entry!` };
+      }
+      return null;
+    },
+  },
+
+  // --- I. Risk / reward drawbacks (2) ---
+  late_bloom: {
+    name: "Late Bloom",
+    emoji: "🔥",
+    cssClass: "trait-late-bloom",
+    description: "Attack halved for the first 3 turns of battle; permanently ×1.66 Attack thereafter.",
+    ngPlusOnly: true,
+    statMod: (mon) => (mon._turnsInBattle || 0) < 3 ? { atk: -1 } : {},
+    outgoingPowerMod: (mon, _e, move) =>
+      ((mon._turnsInBattle || 0) >= 3 && move.cat === "physical") ? 1.66 : 1,
+  },
+
+  glass_cannon: {
+    name: "Glass Cannon",
+    emoji: "💎",
+    cssClass: "trait-glass-cannon",
+    description: "All damage dealt ×1.5; all damage taken ×1.5. High risk, high reward.",
+    ngPlusOnly: false,
+    outgoingPowerMod: () => 1.5,
+    incomingDmgMod: () => 1.5,
+  },
+
+  // --- J. Weather-conditional (3; weather system pending — see TODO.md) ---
+  sun_bathed: {
+    name: "Sun-bathed",
+    emoji: "☀️",
+    cssClass: "trait-sun-bathed",
+    description: "Sp.Atk +50% in clear/sunny weather.",
+    ngPlusOnly: false,
+    statMod: (mon) => {
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "sun") return { spa: 2 };
+      return {};
+    },
+  },
+
+  storm_born: {
+    name: "Storm-born",
+    emoji: "⛈️",
+    cssClass: "trait-storm-born",
+    description: "Speed +50% in rain/storm weather.",
+    ngPlusOnly: false,
+    statMod: (mon) => {
+      if (typeof getCurrentWeather === "function" && (getCurrentWeather() === "rain" || getCurrentWeather() === "storm")) return { spe: 2 };
+      return {};
+    },
+  },
+
+  frostling: {
+    name: "Frostling",
+    emoji: "❄️",
+    cssClass: "trait-frostling",
+    description: "Attack +50% in snow/hail weather.",
+    ngPlusOnly: false,
+    statMod: (mon) => {
+      if (typeof getCurrentWeather === "function" && (getCurrentWeather() === "snow" || getCurrentWeather() === "hail")) return { atk: 2 };
+      return {};
+    },
+  },
+
+  // --- K. End-of-turn passives (1) ---
+  self_cleanse: {
+    name: "Self-Cleanse",
+    emoji: "🧼",
+    cssClass: "trait-self-cleanse",
+    description: "25% chance to remove a random own status at end of each turn.",
+    ngPlusOnly: false,
+    tickEffect: (mon) => {
+      if (typeof rollPercent !== "function" || !rollPercent(25)) return [];
+      const statuses = mon.statuses || [];
+      if (statuses.length === 0) return [];
+      const idx = Math.floor(Math.random() * statuses.length);
+      const removed = statuses[idx].type;
+      if (typeof removeStatus === "function") removeStatus(mon, removed);
+      return [`🧼 Self-Cleanse: ${mon.name} shed ${removed}!`];
+    },
+  },
+
+  // --- L. Recovery variants (4) ---
+  photosynthesis: {
+    name: "Photosynthesis",
+    emoji: "☀️",
+    cssClass: "trait-photosynthesis",
+    description: "Heals 1/4 max HP per turn in clear/sunny weather.",
+    ngPlusOnly: false,
+    tickEffect: (mon) => {
+      if (typeof getCurrentWeather !== "function" || getCurrentWeather() !== "sun") return [];
+      if (mon.currentHP >= mon.maxHP) return [];
+      const heal = Math.max(1, Math.floor(mon.maxHP / 4));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return [`☀️ Photosynthesis: ${mon.name} basked and healed ${heal} HP!`];
+    },
+  },
+
+  battle_trance: {
+    name: "Battle Trance",
+    emoji: "🥋",
+    cssClass: "trait-battle-trance",
+    description: "Heals 25% max HP after KOing an enemy.",
+    ngPlusOnly: false,
+    onKO: (mon) => {
+      const heal = Math.max(1, Math.floor(mon.maxHP * 0.25));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return { msg: `🥋 Battle Trance: ${mon.name} healed ${heal} HP after the takedown!` };
+    },
+  },
+
+  restful_sleep: {
+    name: "Restful Sleep",
+    emoji: "💤",
+    cssClass: "trait-restful-sleep",
+    description: "Heals 1/4 max HP per turn while Asleep.",
+    ngPlusOnly: false,
+    tickEffect: (mon) => {
+      if (typeof hasStatus !== "function" || !hasStatus(mon, "sleep")) return [];
+      if (mon.currentHP >= mon.maxHP) return [];
+      const heal = Math.max(1, Math.floor(mon.maxHP / 4));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return [`💤 Restful Sleep: ${mon.name} dreamed and healed ${heal} HP!`];
+    },
+  },
+
+  adrenaline_heal: {
+    name: "Adrenaline Heal",
+    emoji: "💊",
+    cssClass: "trait-adrenaline-heal",
+    description: "Heals 1/4 max HP the moment HP first drops below 25% (once per battle).",
+    ngPlusOnly: true,
+    onLowHpTrigger: (mon) => {
+      if (mon._adrenalineHealUsed) return null;
+      if (mon.currentHP >= mon.maxHP * 0.25) return null;
+      mon._adrenalineHealUsed = true;
+      const heal = Math.max(1, Math.floor(mon.maxHP / 4));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return { msg: `💊 Adrenaline Heal: ${mon.name} surged and healed ${heal} HP!` };
+    },
+  },
+
+  // --- M. Movement / escape (3) ---
+  slick_body: {
+    name: "Slick Body",
+    emoji: "💧",
+    cssClass: "trait-slick-body",
+    description: "Immune to Anchored, Tethered, and Weighed Down.",
+    ngPlusOnly: false,
+    immuneToStatus: ["anchored", "tethered", "weighed_down"],
+  },
+
+  slippery: {
+    name: "Slippery",
+    emoji: "🐍",
+    cssClass: "trait-slippery",
+    description: "40% chance to dodge status moves.",
+    ngPlusOnly: false,
+    statusMoveDodge: () => 40,
+  },
+
+  smoke_veil: {
+    name: "Smoke Veil",
+    emoji: "💨",
+    cssClass: "trait-smoke-veil",
+    description: "Takes 50% less damage from all moves when HP is below 25%.",
+    ngPlusOnly: false,
+    incomingDmgMod: (mon) => mon.currentHP < mon.maxHP * 0.25 ? 0.5 : 1,
+  },
+
+  // --- N. Lumoria-unique with new types (3; #142 Brittle Glass dropped) ---
+  stellar_resolve: {
+    name: "Stellar Resolve",
+    emoji: "🌠",
+    cssClass: "trait-stellar-resolve",
+    description: "Always moves last but deals +30% damage when acting second to act.",
+    ngPlusOnly: true,
+    priorityBonus: () => -5,
+    outgoingPowerMod: (mon) => mon._stellarSecondAct ? 1.3 : 1,
+  },
+
+  vaporform: {
+    name: "Vaporform",
+    emoji: "💨",
+    cssClass: "trait-vaporform",
+    description: "Takes only 25% damage from physical moves while at full HP.",
+    ngPlusOnly: true,
+    incomingDmgMod: (mon, _e, move) =>
+      (move.cat === "physical" && mon.currentHP === mon.maxHP) ? 0.25 : 1,
+  },
+
+  sonic_bypass: {
+    name: "Sonic Bypass",
+    emoji: "🔊",
+    cssClass: "trait-sonic-bypass",
+    description: "Sonic moves used by this Lumori ignore type-chart resistances (minimum 1× effectiveness).",
+    ngPlusOnly: true,
+    bypassResistance: (move) => move.type === "Sonic",
+  },
+
+  // ====== Phase 2 batch 3 — weather-focused candidates coming next ======
 };
 
 

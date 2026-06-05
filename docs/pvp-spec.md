@@ -153,13 +153,12 @@ seat's client is gone. Countdown turns red + pulses in the last 10s.
   statuses across turns (each turn's exchange is full-fidelity; no carry-over).
 - **FFA polish:** battle music (`rival_battle` for any PvP context), hit shake/flash
   + faint fade on side cards.
-- **FFA depth:** end-of-turn `tickStatus` (residual DoT/effects), a **switch** menu,
-  and a heal-item **bag** (matches async PvP: catch off, bag/switch on).
+- **FFA depth:** end-of-turn `tickStatus` (residual DoT/effects) and a **switch**
+  menu. **Bag items (heal/revive/etc.) are disabled in all PvP/online modes** —
+  `showBattleBagPanel` blocks + greys the bag when `isPvP`, and FFA has no bag.
 
 ## Known limitations / follow-ups (post-playtest)
 - Live still doesn't persist stat stages / statuses across turns (per-turn exchange
   is full-fidelity); add per-mon status/stage carry-over for full live parity.
-- FFA bag is limited to `heal` items (the meaningful battle subset); X-items/revives
-  are out of scope.
 - Live multi-seat has no in-band turn **countdown UI** for *other* seats — only the
   acting client sees its own timer; the host safety net still covers disconnects.

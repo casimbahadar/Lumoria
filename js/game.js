@@ -1252,7 +1252,10 @@ function showBattleMainActions() {
   document.getElementById("battle-switch-panel").classList.add("hidden");
   document.getElementById("battle-target-panel")?.classList.add("hidden");
   // PvP/Gauntlet: (re)start the 60s turn timer each time control returns to the
-  // player. Story/gym/wild battles (no isPvP) are unaffected.
+  // player, and disable the bag (items are banned in PvP). Story/gym/wild battles
+  // (no isPvP) are unaffected.
+  const bagBtn = document.getElementById("btn-battle-bag");
+  if (bagBtn) bagBtn.disabled = !!(battleContext && battleContext.isPvP);
   if (battleContext && battleContext.isPvP && !battleContext.battleEnded) {
     startTurnTimer(null, "pvp-turn-timer", pvpAutoPickBattle);
   }
@@ -1377,6 +1380,11 @@ function showSwitchPanel(forceSwitch = false) {
 let battleBagSelectedMon = 0;
 
 function showBattleBagPanel() {
+  // Items (healing/revives/etc.) are disabled in all PvP/online battles.
+  if (battleContext && battleContext.isPvP) {
+    showNotification("🚫 Bag items are disabled in PvP battles.");
+    return;
+  }
   document.getElementById("battle-main-actions").classList.add("hidden");
   document.getElementById("battle-bag-panel").classList.remove("hidden");
   battleBagSelectedMon = battleContext.playerTeamIdx;
@@ -4354,18 +4362,11 @@ function ffaRenderMoves() {
   }).join("");
   const me = ffaState.sides[0];
   const hasBench = me.team.some((t, i) => i !== me.activeIdx && t && t.currentHP > 0 && !t.fainted);
-  const hasItems = ffaHealItems().length > 0;
+  // No bag in PvP — items are disabled in all online/PvP modes.
   ctrl.innerHTML = `<div class="ffa-prompt">Choose ${escapeHtml(mon.name)}'s move:</div><div class="ffa-moves">${moves}</div>` +
-    `<div class="ffa-subactions">${hasBench ? `<button class="btn-secondary ffa-switch">🔄 Switch</button>` : ""}${hasItems ? `<button class="btn-secondary ffa-bag">🎒 Bag</button>` : ""}</div>`;
+    `<div class="ffa-subactions">${hasBench ? `<button class="btn-secondary ffa-switch">🔄 Switch</button>` : ""}</div>`;
   ctrl.querySelectorAll(".ffa-move").forEach(b => b.addEventListener("click", () => ffaChooseMove(b.dataset.mv)));
   ctrl.querySelector(".ffa-switch")?.addEventListener("click", ffaShowSwitch);
-  ctrl.querySelector(".ffa-bag")?.addEventListener("click", ffaShowBag);
-}
-
-// Heal items currently in the bag (the FFA-usable subset, like the real battle bag).
-function ffaHealItems() {
-  if (!G || !G.bag) return [];
-  return Object.keys(G.bag).filter(id => (G.bag[id] || 0) > 0 && ITEMS_DATA[id] && ITEMS_DATA[id].type === "heal");
 }
 
 function ffaShowSwitch() {
@@ -4389,29 +4390,6 @@ function ffaDoSwitch(idx) {
   ffaResolveTurn(null, null, "switch");
 }
 
-function ffaShowBag() {
-  const items = ffaHealItems();
-  if (!items.length) { ffaRenderMoves(); return; }
-  const ctrl = document.getElementById("ffa-controls");
-  ctrl.innerHTML = `<div class="ffa-prompt">Use which item (uses your turn):</div><div class="ffa-moves">` +
-    items.map(id => `<button class="ffa-target" data-id="${id}">${ITEMS_DATA[id].emoji || "🎒"} ${escapeHtml(ITEMS_DATA[id].name)}<small>x${G.bag[id]}</small></button>`).join("") +
-    `</div><button class="btn-secondary ffa-back">← Back</button>`;
-  ctrl.querySelectorAll(".ffa-target").forEach(b => b.addEventListener("click", () => ffaUseItem(b.dataset.id)));
-  ctrl.querySelector(".ffa-back")?.addEventListener("click", () => ffaRenderMoves());
-}
-function ffaUseItem(itemId) {
-  if (!ffaState || ffaState.over || !ffaState.awaitingPlayer) return;
-  const item = ITEMS_DATA[itemId];
-  const mon = ffaActive(ffaState.sides[0]);
-  if (!item || !mon || (G.bag[itemId] || 0) <= 0) return;
-  if (item.type !== "heal") return;
-  if (mon.currentHP >= mon.maxHP) { showNotification("Already at full HP!"); return; }
-  mon.currentHP = Math.min(mon.maxHP, mon.currentHP + item.healAmt);
-  G.bag[itemId]--;
-  saveGame();
-  ffaLog(`You used ${item.name} on ${mon.name} — HP restored!`);
-  ffaResolveTurn(null, null, "item");
-}
 
 function ffaChooseMove(moveId) {
   const md = MOVES_DATA[moveId];
@@ -4502,8 +4480,8 @@ async function ffaResolveTurn(playerMoveId, targetSideIdx, playerAltAction) {
   if (ctrl) ctrl.innerHTML = `<div class="ffa-prompt">Resolving…</div>`;
 
   const me = ffaState.sides[0];
-  // A "switch" or "item" alt-action already happened (caller mutated state); the
-  // player forgoes attacking this turn. Otherwise queue their chosen move.
+  // A "switch" alt-action already happened (caller mutated state); the player
+  // forgoes attacking this turn. Otherwise queue their chosen move.
   const actions = [];
   if (!playerAltAction) {
     actions.push({ side: me, moveId: playerMoveId, targetSide: (targetSideIdx != null) ? ffaState.sides[targetSideIdx] : null });

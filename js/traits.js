@@ -993,7 +993,163 @@ const ABILITY_REGISTRY = {
       attacker._chosenMoveType || null,
   },
 
-  // ====== Phase 2 batch 1 — 35 candidates (77-89) still under review ======
+  // ====== Phase 2 batch 1 chunk 3 — 11 more locked traits (77-89; #82, #84 dropped) ======
+
+  // --- K. Triggered stat boosts (5; all Pokemon-IP names renamed) ---
+  crisis_mind: {
+    name: "Crisis Mind",
+    emoji: "😡",
+    cssClass: "trait-crisis-mind",
+    description: "Sp.Atk +1 stage when HP first drops below 50% (once per battle).",
+    ngPlusOnly: false,
+    onSelfDamageTaken: (mon) => {
+      if (mon._crisisMindTriggered) return null;
+      if (mon.currentHP < mon.maxHP * 0.5 && mon.currentHP > 0) {
+        mon._crisisMindTriggered = true;
+        if (typeof applyStageChange === "function" && applyStageChange(mon, "spa", 1)) {
+          return { msg: `😡 Crisis Mind: ${mon.name}'s Sp.Atk rose!` };
+        }
+      }
+      return null;
+    },
+  },
+
+  righteous_fury: {
+    name: "Righteous Fury",
+    emoji: "⚔️",
+    cssClass: "trait-righteous-fury",
+    description: "Attack +1 stage when hit by a Dark-type move.",
+    ngPlusOnly: false,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Dark") return null;
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "atk", 1)) {
+        return { msg: `⚔️ Righteous Fury: ${mon.name}'s Attack rose!` };
+      }
+      return null;
+    },
+  },
+
+  boiler_burst: {
+    name: "Boiler Burst",
+    emoji: "🚂",
+    cssClass: "trait-boiler-burst",
+    description: "Speed maxes out (+6 stages) when hit by a Fire or Aquatic move.",
+    ngPlusOnly: false,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Fire" && move.type !== "Aquatic") return null;
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "spe", 6)) {
+        return { msg: `🚂 Boiler Burst: ${mon.name}'s Speed maxed out!` };
+      }
+      return null;
+    },
+  },
+
+  slipstream: {
+    name: "Slipstream",
+    emoji: "💨",
+    cssClass: "trait-slipstream",
+    description: "Attack +1 stage when hit by a Wind-type move.",
+    ngPlusOnly: false,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Wind") return null;
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "atk", 1)) {
+        return { msg: `💨 Slipstream: ${mon.name}'s Attack rose!` };
+      }
+      return null;
+    },
+  },
+
+  blood_rage: {
+    name: "Blood Rage",
+    emoji: "😤",
+    cssClass: "trait-blood-rage",
+    description: "Attack maxes out (+6 stages) when struck by a critical hit.",
+    ngPlusOnly: false,
+    onCritTaken: (mon) => {
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "atk", 6)) {
+        return { msg: `😤 Blood Rage: ${mon.name}'s Attack maxed out!` };
+      }
+      return null;
+    },
+  },
+
+  // --- L. Battle-end effects (1; #82 Pickup and #84 Frisk dropped) ---
+  bounty_hunter: {
+    name: "Bounty Hunter",
+    emoji: "🍯",
+    cssClass: "trait-bounty-hunter",
+    description: "Earns bonus coins (100-300) after each winning battle.",
+    ngPlusOnly: false,
+    onBattleEnd: (_mon, _e, outcome) => {
+      if (outcome !== "won") return null;
+      const bonus = 100 + Math.floor(Math.random() * 201);
+      if (typeof G !== "undefined" && G) G.money = (G.money || 0) + bonus;
+      return { msg: `🍯 Bounty Hunter: Found ${bonus} coins after the battle!` };
+    },
+  },
+
+  // --- M. Lumoria-unique (5; renamed/retuned per user) ---
+  sonic_shield: {
+    name: "Sonic Shield",
+    emoji: "🛡️",
+    cssClass: "trait-sonic-shield",
+    description: "Sonic moves heal 25% max HP; immune to Sonic damage. (Mechanically identical to Echo Chamber — flavor variant.)",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Sonic" ? 0 : 1,
+    onIncomingHit: (mon, _e, move) => {
+      if (move.type !== "Sonic") return null;
+      const heal = Math.max(1, Math.floor(mon.maxHP * 0.25));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return { msg: `🛡️ Sonic Shield: ${mon.name} healed ${heal} HP!` };
+    },
+  },
+
+  toxin_veins: {
+    name: "Toxin Veins",
+    emoji: "🦠",
+    cssClass: "trait-toxin-veins",
+    description: "This Lumori's status moves applying Tainted or Necrosis bypass type immunity.",
+    ngPlusOnly: false,
+    bypassStatusImmunity: ["tainted", "necrosis"],
+  },
+
+  dream_inducer: {
+    name: "Dream Inducer",
+    emoji: "💭",
+    cssClass: "trait-dream-inducer",
+    description: "Sleep status applied by this Lumori always lasts exactly 4 turns (max duration).",
+    ngPlusOnly: false,
+    statusDurationOverride: { sleep: 4 },
+  },
+
+  mineral_skin: {
+    name: "Mineral Skin",
+    emoji: "💎",
+    cssClass: "trait-mineral-skin",
+    description: "Defense effectively ×1.33 against physical hits on every 2nd turn (alternating).",
+    ngPlusOnly: false,
+    incomingDmgMod: (defender, _e, move) => {
+      if (move.cat !== "physical") return 1;
+      // Phase 3 increments defender._mineralSkinTurn at end of each turn.
+      // Active on odd-numbered turns (1, 3, 5, ...).
+      const t = defender._mineralSkinTurn || 0;
+      return (t % 2 === 1) ? 0.75 : 1; // 1/1.33 ≈ 0.75 effective dmg reduction
+    },
+  },
+
+  see_through: {
+    name: "See-Through",
+    emoji: "👻",
+    cssClass: "trait-see-through",
+    description: "Physical moves miss 25% of the time against this Lumori — partially intangible.",
+    ngPlusOnly: true,
+    accuracyMod: (_m, _e, isAttacking, move) => {
+      if (isAttacking) return 1;
+      if (!move || move.cat !== "physical") return 1;
+      return 0.75; // 75% accuracy on incoming physical = 25% miss
+    },
+  },
+
   // ====== Phase 2 batches 2+ will add the remaining traits below ======
 };
 

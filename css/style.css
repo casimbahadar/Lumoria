@@ -2599,6 +2599,8 @@ button, a, [role="button"] {
 .ffa-move small, .ffa-target small { font-size:0.68rem; color:var(--text-secondary); }
 .ffa-move:disabled { opacity:0.4; cursor:not-allowed; }
 .ffa-target:hover, .ffa-move:hover { border-color:var(--accent-blue); }
+.ffa-subactions { display:flex; gap:0.4rem; justify-content:center; margin-top:0.5rem; }
+.ffa-subactions button { padding:0.35rem 0.9rem; font-size:0.82rem; }
 
 /* ---- Live room setup extras ---- */
 .live-mode-row { display:flex; gap:0.4rem; justify-content:center; margin-bottom:0.5rem; }

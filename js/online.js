@@ -1319,11 +1319,41 @@ function watchLiveRoom(code) {
     renderLiveRoomUI(room.status, code, room);
     // Host resolves turn when both moves are submitted
     if (liveIsHost && room.status === "battling" && room.hostMove && room.guestMove) {
+      clearLiveHostTimeout();
       resolveLiveTurn(code, room);
+    } else if (liveIsHost && room.status === "battling") {
+      // Safety net for a disconnected opponent (whose client can't auto-submit):
+      // force-resolve a few seconds past the 60s client timer.
+      scheduleLiveHostTimeout(`1v1:${code}:${(room.log || []).length}`, () => liveHostForceResolve1v1(code));
+    } else {
+      clearLiveHostTimeout();
     }
     // Each participant applies its own (zero-sum) rating result once, when done.
     if (room.status === "done" && room.winner) applyLiveResult(room);
   });
+}
+
+// Host disconnect safety net (one-shot setTimeout, idempotent per key).
+let liveHostTimeoutTimer = null;
+let liveHostTimeoutKey = null;
+function scheduleLiveHostTimeout(key, fn, ms = 65000) {
+  if (key === liveHostTimeoutKey && liveHostTimeoutTimer) return;
+  clearLiveHostTimeout();
+  liveHostTimeoutKey = key;
+  liveHostTimeoutTimer = setTimeout(() => { liveHostTimeoutTimer = null; liveHostTimeoutKey = null; try { fn(); } catch (e) {} }, ms);
+}
+function clearLiveHostTimeout() {
+  if (liveHostTimeoutTimer) clearTimeout(liveHostTimeoutTimer);
+  liveHostTimeoutTimer = null; liveHostTimeoutKey = null;
+}
+async function liveHostForceResolve1v1(code) {
+  const room = (await firebaseDB.ref(`pvp_live/${code}`).once("value")).val();
+  if (!room || room.status !== "battling") return;
+  if (room.hostMove && room.guestMove) return; // already ready
+  const updates = {};
+  if (!room.hostMove) { const t = JSON.parse(room.hostTeam || "[]")[room.hostActive]; const mv = t?.moves || []; updates.hostMove = mv[Math.floor(Math.random() * mv.length)] || null; }
+  if (!room.guestMove) { const t = JSON.parse(room.guestTeam || "[]")[room.guestActive]; const mv = t?.moves || []; updates.guestMove = mv[Math.floor(Math.random() * mv.length)] || null; }
+  if (updates.hostMove || updates.guestMove) await firebaseDB.ref(`pvp_live/${code}`).update(updates);
 }
 
 async function resolveLiveTurn(code, room) {
@@ -1430,6 +1460,8 @@ function leaveLiveRoom() {
   if (liveRoomCode && !liveIsSpectator && liveIsHost) firebaseDB.ref(`pvp_live/${liveRoomCode}`).update({ status:"abandoned" }).catch(()=>{});
   liveRoomCode = null; liveRoomRef = null; liveIsHost = false; liveIsSpectator = false; liveRoomListener = null;
   liveResultApplied = false; liveResultAppliedMulti = false; liveResolving = false;
+  if (typeof clearTurnTimer === "function") clearTurnTimer();
+  clearLiveHostTimeout();
   renderLiveRoomUI("idle", null, null);
 }
 
@@ -1557,6 +1589,7 @@ function renderLiveRoomUI(status, code, room) {
         </div>
       </div>
       <div class="live-moves">${moveBtns}</div>
+      <span id="live-timer" class="pvp-turn-timer hidden"></span>
       <div class="live-log">${logHtml}</div>
       ${status === "done" ? `<button class="btn-primary" id="btn-live-done">Back to PvP</button>` : `<button class="btn-secondary" id="btn-leave-room-battle">Forfeit</button>`}`;
 
@@ -1567,6 +1600,13 @@ function renderLiveRoomUI(status, code, room) {
     document.getElementById("btn-leave-room-battle")?.addEventListener("click", () => {
       if (confirm("Forfeit this battle?")) leaveLiveRoom();
     });
+    // 60s turn timer while it's my move to make; auto-picks a random move on expiry.
+    if (status === "battling" && !myMoved && myMon.moves && myMon.moves.length) {
+      startTurnTimer(`1v1:${code}:${(room.log || []).length}`, "live-timer",
+        () => submitLiveMove(myMon.moves[Math.floor(Math.random() * myMon.moves.length)]));
+    } else if (typeof clearTurnTimer === "function") {
+      clearTurnTimer();
+    }
     return;
   }
 }
@@ -1658,8 +1698,21 @@ async function startMultiLiveRoom() {
 
 function handleMultiLiveUpdate(code, room) {
   renderMultiLiveUI(code, room);
-  if (liveIsHost && room.status === "battling") maybeResolveMultiTurn(code, room);
+  if (liveIsHost && room.status === "battling") {
+    maybeResolveMultiTurn(code, room);
+    // Disconnect safety net: force-resolve (AI-fills missing seats) past the timer.
+    const living = (room.seats || []).filter(s => !s.defeated);
+    const allIn = living.every(s => (room.moves || {})[s.uid]);
+    if (allIn) clearLiveHostTimeout();
+    else scheduleLiveHostTimeout(`m:${code}:${room.turn}`, () => liveHostForceResolveMulti(code));
+  } else {
+    clearLiveHostTimeout();
+  }
   if (room.status === "done") applyMultiLiveResult(room);
+}
+async function liveHostForceResolveMulti(code) {
+  const room = (await firebaseDB.ref(`pvp_live/${code}`).once("value")).val();
+  if (room && room.status === "battling") resolveMultiLiveTurn(code, room); // AI-fills missing
 }
 
 // Host: resolve once every living seat has submitted a move this turn.
@@ -1825,6 +1878,7 @@ function renderMultiLiveUI(code, room) {
       <div class="live-room-header">${cfg.label} · Room <strong>${code}</strong>${liveIsSpectator ? " 👁️" : ""}</div>
       <div class="live-multi-sides">${seatsHtml}</div>
       <div class="ffa-controls">${controls}</div>
+      <span id="live-timer" class="pvp-turn-timer hidden"></span>
       <div class="live-log">${logHtml}</div>
       ${room.status === "done" ? `<button class="btn-primary" id="btn-live-done">Back to PvP</button>`
         : `<button class="btn-secondary" id="btn-leave-room-battle">${liveIsSpectator ? "Stop Watching" : "Forfeit"}</button>`}`;
@@ -1834,6 +1888,19 @@ function renderMultiLiveUI(code, room) {
     document.getElementById("btn-leave-room-battle")?.addEventListener("click", () => {
       if (liveIsSpectator || confirm("Leave this battle?")) leaveLiveRoom();
     });
+    // 60s turn timer when it's my move; auto-picks a random move + valid target.
+    if (!myTurnOver) {
+      const mySeat = room.seats[myIdx];
+      const myMon = seatActiveMon(mySeat);
+      const enemies = room.seats.map((s, i) => ({ s, i })).filter(x => !x.s.defeated && x.s.alliance !== mySeat.alliance && x.s.hp[x.s.active] > 0);
+      startTurnTimer(`m:${code}:${room.turn}`, "live-timer", () => {
+        if (!myMon || !myMon.moves || !myMon.moves.length) return;
+        const mv = myMon.moves[Math.floor(Math.random() * myMon.moves.length)];
+        submitMultiMove(mv, enemies.length ? enemies[Math.floor(Math.random() * enemies.length)].i : 0);
+      });
+    } else if (typeof clearTurnTimer === "function") {
+      clearTurnTimer();
+    }
     return;
   }
 }

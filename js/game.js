@@ -278,9 +278,67 @@ function startNGPlus() {
 
 // ---- Screen Management ----
 function showScreen(id) {
+  if (typeof clearTurnTimer === "function") clearTurnTimer();
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
   const el = document.getElementById(id);
   if (el) el.classList.add("active");
+}
+
+// ---- PvP / online turn timer (60s, auto-pick on expiry) ----
+// One shared countdown used by every PvP/online mode (async battle screen, async
+// FFA, and the live rooms). `key` makes it idempotent across re-renders: passing
+// the same key won't restart a running countdown (needed for the live UIs, which
+// re-render on every Firebase update); pass null to always restart (battle screen).
+let pvpTurnTimer = null;
+let pvpTurnTimerKey = null;
+const PVP_TURN_SECONDS = 60;
+function startTurnTimer(key, elId, onExpire, seconds = PVP_TURN_SECONDS) {
+  if (key != null && key === pvpTurnTimerKey && pvpTurnTimer) return; // already counting this turn
+  clearTurnTimer();
+  pvpTurnTimerKey = key;
+  const deadline = Date.now() + seconds * 1000;
+  const tick = () => {
+    const remain = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+    const el = document.getElementById(elId);
+    if (el) { el.textContent = `⏱️ ${remain}s`; el.classList.remove("hidden"); el.classList.toggle("urgent", remain <= 10); }
+    if (remain <= 0) { clearTurnTimer(); try { if (typeof onExpire === "function") onExpire(); } catch (e) {} }
+  };
+  tick();
+  pvpTurnTimer = setInterval(tick, 250);
+}
+function clearTurnTimer() {
+  if (pvpTurnTimer) clearInterval(pvpTurnTimer);
+  pvpTurnTimer = null;
+  pvpTurnTimerKey = null;
+  ["pvp-turn-timer", "ffa-timer", "live-timer"].forEach(id => { const el = document.getElementById(id); if (el) el.classList.add("hidden"); });
+}
+
+// Auto-pick a move when the battle-screen timer expires (async PvP / Gauntlet only).
+function pvpAutoPickBattle() {
+  if (!battleContext || !battleContext.isPvP || battleContext.battleEnded) return;
+  const sw = document.getElementById("battle-switch-panel");
+  // Don't drive a forced-switch sub-state automatically; just give the player time.
+  if (sw && !sw.classList.contains("hidden")) return;
+  if (typeof isMultiBattle === "function" && isMultiBattle()) { pvpAutoPickMulti(); return; }
+  if (!playerActiveMon || playerActiveMon.fainted || playerActiveMon.currentHP <= 0) return;
+  const usable = playerActiveMon.moves.filter(m => m.pp > 0);
+  const pool = usable.length ? usable : playerActiveMon.moves;
+  if (!pool.length) return;
+  logMsg("⏱️ Time's up — auto-selecting a move!");
+  playerUseMove(pool[Math.floor(Math.random() * pool.length)].id);
+}
+function pvpAutoPickMulti() {
+  const aliveEnemies = enemyActiveMons.map((e, i) => ({ e, i })).filter(x => x.e && !x.e.fainted && x.e.currentHP > 0);
+  const alive = playerActiveMons.map((m, i) => ({ m, i })).filter(x => x.m && !x.m.fainted && x.m.currentHP > 0);
+  logMsg("⏱️ Time's up — auto-selecting moves!");
+  alive.forEach(x => {
+    if (multiBattlePendingMoves.find(p => p.monIndex === x.i)) return;
+    const usable = x.m.moves.filter(mv => mv.pp > 0);
+    const pool = usable.length ? usable : x.m.moves;
+    if (!pool.length) return;
+    const tgt = aliveEnemies.length ? aliveEnemies[Math.floor(Math.random() * aliveEnemies.length)].i : 0;
+    queueMultiMove(x.i, pool[Math.floor(Math.random() * pool.length)].id, tgt);
+  });
 }
 
 // ---- Notification Overlay ----
@@ -1193,6 +1251,11 @@ function showBattleMainActions() {
   document.getElementById("battle-bag-panel").classList.add("hidden");
   document.getElementById("battle-switch-panel").classList.add("hidden");
   document.getElementById("battle-target-panel")?.classList.add("hidden");
+  // PvP/Gauntlet: (re)start the 60s turn timer each time control returns to the
+  // player. Story/gym/wild battles (no isPvP) are unaffected.
+  if (battleContext && battleContext.isPvP && !battleContext.battleEnded) {
+    startTurnTimer(null, "pvp-turn-timer", pvpAutoPickBattle);
+  }
 }
 
 function showMovePanel() {
@@ -2450,6 +2513,10 @@ function hideMultiBattleSlots() {
 function showMultiMovePanel(monIndex) {
   const mon = playerActiveMons[monIndex];
   if (!mon || mon.fainted) return;
+  // PvP doubles starts each turn here (no main-actions menu); keep the timer alive.
+  if (battleContext && battleContext.isPvP && !battleContext.battleEnded) {
+    startTurnTimer(null, "pvp-turn-timer", pvpAutoPickBattle);
+  }
 
   document.getElementById("battle-main-actions").classList.add("hidden");
   document.getElementById("battle-moves-panel").classList.remove("hidden");
@@ -4251,6 +4318,21 @@ function ffaBeginPlayerTurn() {
   ffaState.awaitingPlayer = true;
   ffaRender();
   ffaRenderMoves();
+  startTurnTimer(null, "ffa-timer", ffaAutoPick);
+}
+
+// FFA timer expiry: auto-pick a random move + random living opponent.
+function ffaAutoPick() {
+  if (!ffaState || ffaState.over || !ffaState.awaitingPlayer) return;
+  const me = ffaState.sides[0];
+  const mon = ffaActive(me);
+  if (!mon) return;
+  ffaLog("⏱️ Time's up — auto-selecting a move!");
+  const usable = mon.moves.filter(mv => mv.pp > 0);
+  const pool = usable.length ? usable : mon.moves;
+  const opps = ffaOpponents(me);
+  const tgtIdx = opps.length ? ffaState.sides.indexOf(opps[Math.floor(Math.random() * opps.length)]) : null;
+  ffaResolveTurn(pool[Math.floor(Math.random() * pool.length)].id, tgtIdx);
 }
 
 function ffaRenderMoves() {
@@ -4348,6 +4430,7 @@ function ffaReplaceActive(side) {
 
 async function ffaResolveTurn(playerMoveId, targetSideIdx) {
   if (!ffaState || ffaState.over || !ffaState.awaitingPlayer) return;
+  clearTurnTimer();
   ffaState.awaitingPlayer = false;
   const ctrl = document.getElementById("ffa-controls");
   if (ctrl) ctrl.innerHTML = `<div class="ffa-prompt">Resolving…</div>`;
@@ -4389,6 +4472,7 @@ async function ffaResolveTurn(playerMoveId, targetSideIdx) {
 
 function ffaFinish(won) {
   ffaState.over = true;
+  clearTurnTimer();
   ffaLog(won ? "🏆 You're the last team standing — Royale won!" : "💀 You've been eliminated from the Royale.");
   ffaRender();
   const opps = ffaState.sides.filter(s => !s.isPlayer);

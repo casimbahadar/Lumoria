@@ -2608,6 +2608,15 @@ button, a, [role="button"] {
 .live-mseat.you { border-color:var(--accent-blue); box-shadow:0 0 0 1px var(--accent-blue) inset; }
 .live-mseat.out { opacity:0.45; }
 .live-mseat.turn { outline:2px solid #d29922; }
+
+/* ---- PvP/online turn timer ---- */
+.pvp-turn-timer {
+  display:inline-block; font-weight:bold; font-size:0.95rem; padding:0.15rem 0.6rem;
+  border-radius:12px; background:var(--bg-panel); border:1px solid var(--border);
+  color:var(--text-primary); margin:0.3rem auto; text-align:center;
+}
+.pvp-turn-timer.urgent { background:#f85149; color:#fff; border-color:#f85149; animation:pvpTimerPulse 1s infinite; }
+@keyframes pvpTimerPulse { 0%,100%{opacity:1;} 50%{opacity:0.55;} }
 .pvp-live-desc { margin-bottom:1rem; font-size:0.82rem; color:var(--text-secondary); }
 
 /* ===== LIVE PvP BATTLE ARENA ===== */

@@ -1692,7 +1692,867 @@ const ABILITY_REGISTRY = {
     bypassResistance: (move) => move.type === "Sonic",
   },
 
-  // ====== Phase 2 batch 3 — weather-focused candidates coming next ======
+  // ====== Phase 2 batch 3 — 65 locked traits (heavy weather focus) ======
+
+  // --- A. Weather-summoning on entry (6) ---
+  perihelion: {
+    name: "Perihelion",
+    emoji: "🌞",
+    cssClass: "trait-perihelion",
+    description: "Summons sun for 5 turns when entering battle.",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof setWeather === "function") {
+        setWeather("sun", 5);
+        return { msg: `🌞 Perihelion: ${mon.name} bathed the field in sunlight!` };
+      }
+      return null;
+    },
+  },
+
+  condensation: {
+    name: "Condensation",
+    emoji: "🌊",
+    cssClass: "trait-condensation",
+    description: "Summons rain for 5 turns when entering battle.",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof setWeather === "function") {
+        setWeather("rain", 5);
+        return { msg: `🌊 Condensation: ${mon.name} drew rain from the sky!` };
+      }
+      return null;
+    },
+  },
+
+  stormbringer: {
+    name: "Stormbringer",
+    emoji: "⚡",
+    cssClass: "trait-stormbringer",
+    description: "Summons lightning for 5 turns when entering battle.",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof setWeather === "function") {
+        setWeather("lightning", 5);
+        return { msg: `⚡ Stormbringer: ${mon.name} called the lightning!` };
+      }
+      return null;
+    },
+  },
+
+  cold_front: {
+    name: "Cold Front",
+    emoji: "❄️",
+    cssClass: "trait-cold-front",
+    description: "Summons snow for 5 turns when entering battle.",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof setWeather === "function") {
+        setWeather("snow", 5);
+        return { msg: `❄️ Cold Front: ${mon.name} chilled the field!` };
+      }
+      return null;
+    },
+  },
+
+  temperature_shift: {
+    name: "Temperature Shift",
+    emoji: "🌫️",
+    cssClass: "trait-temperature-shift",
+    description: "Summons fog for 5 turns when entering battle.",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof setWeather === "function") {
+        setWeather("fog", 5);
+        return { msg: `🌫️ Temperature Shift: ${mon.name} blanketed the field in fog!` };
+      }
+      return null;
+    },
+  },
+
+  dust_storm: {
+    name: "Dust Storm",
+    emoji: "🏜️",
+    cssClass: "trait-dust-storm",
+    description: "Summons sandstorm for 5 turns when entering battle.",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof setWeather === "function") {
+        setWeather("sandstorm", 5);
+        return { msg: `🏜️ Dust Storm: ${mon.name} kicked up a sandstorm!` };
+      }
+      return null;
+    },
+  },
+
+  // --- B. Weather-extending (4) ---
+  solar_flare: {
+    name: "Solar Flare",
+    emoji: "☀️",
+    cssClass: "trait-solar-flare",
+    description: "If sun is active when entering battle, extends it by 3 turns.",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "sun"
+          && typeof extendWeather === "function") {
+        extendWeather(3);
+        return { msg: `☀️ Solar Flare: ${mon.name} prolonged the sun!` };
+      }
+      return null;
+    },
+  },
+
+  cloudburst: {
+    name: "Cloudburst",
+    emoji: "🌧️",
+    cssClass: "trait-cloudburst",
+    description: "If rain is active when entering battle, extends it by 3 turns.",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "rain"
+          && typeof extendWeather === "function") {
+        extendWeather(3);
+        return { msg: `🌧️ Cloudburst: ${mon.name} prolonged the rain!` };
+      }
+      return null;
+    },
+  },
+
+  severe_system: {
+    name: "Severe System",
+    emoji: "⚡",
+    cssClass: "trait-severe-system",
+    description: "If storm or lightning is active when entering battle, extends it by 3 turns.",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof getCurrentWeather !== "function") return null;
+      const w = getCurrentWeather();
+      if ((w === "storm" || w === "lightning") && typeof extendWeather === "function") {
+        extendWeather(3);
+        return { msg: `⚡ Severe System: ${mon.name} prolonged the ${w}!` };
+      }
+      return null;
+    },
+  },
+
+  glacial_field: {
+    name: "Glacial Field",
+    emoji: "🧊",
+    cssClass: "trait-glacial-field",
+    description: "If snow or hail is active when entering battle, extends it by 3 turns.",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof getCurrentWeather !== "function") return null;
+      const w = getCurrentWeather();
+      if ((w === "snow" || w === "hail") && typeof extendWeather === "function") {
+        extendWeather(3);
+        return { msg: `🧊 Glacial Field: ${mon.name} prolonged the ${w}!` };
+      }
+      return null;
+    },
+  },
+
+  // --- C. Weather-reactive offense (8) ---
+  humidex: {
+    name: "Humidex",
+    emoji: "🌅",
+    cssClass: "trait-humidex",
+    description: "Fire moves +50% power in sun; -25% in rain.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) => {
+      if (move.type !== "Fire") return 1;
+      if (typeof getCurrentWeather !== "function") return 1;
+      const w = getCurrentWeather();
+      if (w === "sun") return 1.5;
+      if (w === "rain") return 0.75;
+      return 1;
+    },
+  },
+
+  tidal_force: {
+    name: "Tidal Force",
+    emoji: "🌊",
+    cssClass: "trait-tidal-force",
+    description: "Aquatic moves +50% power in rain.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) => {
+      if (move.type !== "Aquatic") return 1;
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "rain") return 1.5;
+      return 1;
+    },
+  },
+
+  voltcharge: {
+    name: "Voltcharge",
+    emoji: "⚡",
+    cssClass: "trait-voltcharge",
+    description: "Electric moves +50% power in storm or lightning.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) => {
+      if (move.type !== "Electric") return 1;
+      if (typeof getCurrentWeather !== "function") return 1;
+      const w = getCurrentWeather();
+      return (w === "storm" || w === "lightning") ? 1.5 : 1;
+    },
+  },
+
+  // NOTE: name "Frost Resistant" assigned per user, but the mechanic is offensive
+  // (Ice +50% in snow). Suggested alternates if user wants name to match mechanic:
+  // "Frost Empowered" / "Coldfront Strike" / "Ice Heart".
+  frost_resistant: {
+    name: "Frost Resistant",
+    emoji: "❄️",
+    cssClass: "trait-frost-resistant",
+    description: "Ice moves +50% power in snow.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) => {
+      if (move.type !== "Ice") return 1;
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "snow") return 1.5;
+      return 1;
+    },
+  },
+
+  one_with_the_earth: {
+    name: "One with the Earth",
+    emoji: "🌪️",
+    cssClass: "trait-one-with-the-earth",
+    description: "Earth moves +50% power in sandstorm.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) => {
+      if (move.type !== "Earth") return 1;
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "sandstorm") return 1.5;
+      return 1;
+    },
+  },
+
+  vaporize: {
+    name: "Vaporize",
+    emoji: "💧",
+    cssClass: "trait-vaporize",
+    description: "Vapor moves +50% power in fog.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) => {
+      if (move.type !== "Vapor") return 1;
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "fog") return 1.5;
+      return 1;
+    },
+  },
+
+  heat_haze: {
+    name: "Heat Haze",
+    emoji: "🔥",
+    cssClass: "trait-heat-haze",
+    description: "Speed rises +1 stage at end of each turn while in sun.",
+    ngPlusOnly: false,
+    tickEffect: (mon) => {
+      if (typeof getCurrentWeather !== "function" || getCurrentWeather() !== "sun") return [];
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "spe", 1)) {
+        return [`🔥 Heat Haze: ${mon.name}'s Speed rose!`];
+      }
+      return [];
+    },
+  },
+
+  rain_runner: {
+    name: "Rain-runner",
+    emoji: "🌧️",
+    cssClass: "trait-rain-runner",
+    description: "Speed rises +1 stage at end of each turn while in rain.",
+    ngPlusOnly: false,
+    tickEffect: (mon) => {
+      if (typeof getCurrentWeather !== "function" || getCurrentWeather() !== "rain") return [];
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "spe", 1)) {
+        return [`🌧️ Rain-runner: ${mon.name}'s Speed rose!`];
+      }
+      return [];
+    },
+  },
+
+  // --- D. Weather-reactive defense (5) ---
+  sunblock: {
+    name: "Sunblock",
+    emoji: "☀️",
+    cssClass: "trait-sunblock",
+    description: "Takes 25% less damage in sun.",
+    ngPlusOnly: false,
+    incomingDmgMod: () => {
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "sun") return 0.75;
+      return 1;
+    },
+  },
+
+  water_resistant: {
+    name: "Water Resistant",
+    emoji: "🌧️",
+    cssClass: "trait-water-resistant",
+    description: "Takes 25% less damage in rain.",
+    ngPlusOnly: false,
+    incomingDmgMod: () => {
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "rain") return 0.75;
+      return 1;
+    },
+  },
+
+  warming_aura: {
+    name: "Warming Aura",
+    emoji: "❄️",
+    cssClass: "trait-warming-aura",
+    description: "Takes 25% less damage in snow.",
+    ngPlusOnly: false,
+    incomingDmgMod: () => {
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "snow") return 0.75;
+      return 1;
+    },
+  },
+
+  mist_veil: {
+    name: "Mist Veil",
+    emoji: "🌫️",
+    cssClass: "trait-mist-veil",
+    description: "Takes 25% less damage in fog.",
+    ngPlusOnly: false,
+    incomingDmgMod: () => {
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "fog") return 0.75;
+      return 1;
+    },
+  },
+
+  insulator: {
+    name: "Insulator",
+    emoji: "⚡",
+    cssClass: "trait-insulator",
+    description: "Takes 25% less damage in storm or lightning.",
+    ngPlusOnly: false,
+    incomingDmgMod: () => {
+      if (typeof getCurrentWeather === "function") {
+        const w = getCurrentWeather();
+        if (w === "storm" || w === "lightning") return 0.75;
+      }
+      return 1;
+    },
+  },
+
+  // --- E. Weather utility (3; #169 Forecaster dropped) ---
+  weather_lock: {
+    name: "Weather Lock",
+    emoji: "🔒",
+    cssClass: "trait-weather-lock",
+    description: "Opposing Lumori cannot change or summon weather while this Lumori is on field.",
+    ngPlusOnly: false,
+    weatherLockActive: true,
+  },
+
+  sky_reader: {
+    name: "Sky Reader",
+    emoji: "☁️",
+    cssClass: "trait-sky-reader",
+    description: "Speed +1 stage while any weather is active.",
+    ngPlusOnly: false,
+    statMod: () => {
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() && getCurrentWeather() !== "clear") {
+        return { spe: 1 };
+      }
+      return {};
+    },
+  },
+
+  atmosphere_master: {
+    name: "Atmosphere Master",
+    emoji: "🌍",
+    cssClass: "trait-atmosphere-master",
+    description: "All damage dealt +20% while any weather is active.",
+    ngPlusOnly: true,
+    outgoingPowerMod: () => {
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() && getCurrentWeather() !== "clear") {
+        return 1.2;
+      }
+      return 1;
+    },
+  },
+
+  // --- F. Extra weather effects (8) ---
+  heatwave: {
+    name: "Heatwave",
+    emoji: "🌡️",
+    cssClass: "trait-heatwave",
+    description: "Attack rises +1 stage at end of each turn while in sun.",
+    ngPlusOnly: false,
+    tickEffect: (mon) => {
+      if (typeof getCurrentWeather !== "function" || getCurrentWeather() !== "sun") return [];
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "atk", 1)) {
+        return [`🌡️ Heatwave: ${mon.name}'s Attack rose!`];
+      }
+      return [];
+    },
+  },
+
+  polar_plunge: {
+    name: "Polar Plunge",
+    emoji: "❄️",
+    cssClass: "trait-polar-plunge",
+    description: "Heals 1/16 max HP at end of each turn while in snow.",
+    ngPlusOnly: false,
+    tickEffect: (mon) => {
+      if (typeof getCurrentWeather !== "function" || getCurrentWeather() !== "snow") return [];
+      if (mon.currentHP >= mon.maxHP) return [];
+      const heal = Math.max(1, Math.floor(mon.maxHP / 16));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return [`❄️ Polar Plunge: ${mon.name} healed ${heal} HP!`];
+    },
+  },
+
+  voltcatcher: {
+    name: "Voltcatcher",
+    emoji: "⚡",
+    cssClass: "trait-voltcatcher",
+    description: "Draws all opposing Electric moves to this Lumori while in storm or lightning (multi-battle).",
+    ngPlusOnly: false,
+    drawMoveType: (_m, _e, move) => {
+      if (move.type !== "Electric") return false;
+      if (typeof getCurrentWeather !== "function") return false;
+      const w = getCurrentWeather();
+      return (w === "storm" || w === "lightning");
+    },
+  },
+
+  lightning_reflex: {
+    name: "Lightning Reflex",
+    emoji: "⚡",
+    cssClass: "trait-lightning-reflex",
+    description: "Speed +50% AND 25% dodge chance while in storm or lightning.",
+    ngPlusOnly: false,
+    statMod: () => {
+      if (typeof getCurrentWeather === "function") {
+        const w = getCurrentWeather();
+        if (w === "storm" || w === "lightning") return { spe: 2 };
+      }
+      return {};
+    },
+    accuracyMod: (_m, _e, isAttacking) => {
+      if (isAttacking) return 1;
+      if (typeof getCurrentWeather === "function") {
+        const w = getCurrentWeather();
+        if (w === "storm" || w === "lightning") return 0.75;
+      }
+      return 1;
+    },
+  },
+
+  drought_adapt: {
+    name: "Drought Adapt",
+    emoji: "🏜️",
+    cssClass: "trait-drought-adapt",
+    description: "Immune to all DOT effects while in sun.",
+    ngPlusOnly: false,
+    dotImmuneInWeather: () => {
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "sun") return true;
+      return false;
+    },
+  },
+
+  wave_shield: {
+    name: "Wave Shield",
+    emoji: "🌊",
+    cssClass: "trait-wave-shield",
+    description: "Sp.Def +50% (+2 stages) in rain.",
+    ngPlusOnly: false,
+    statMod: () => {
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "rain") return { spd: 2 };
+      return {};
+    },
+  },
+
+  mist_shroud: {
+    name: "Mist-shroud",
+    emoji: "🌫️",
+    cssClass: "trait-mist-shroud",
+    description: "Foes' accuracy -25% (-1 stage equivalent) while in fog.",
+    ngPlusOnly: false,
+    foeStatMod: () => {
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "fog") {
+        return { acc: -1 };
+      }
+      return {};
+    },
+  },
+
+  permafrost: {
+    name: "Permafrost",
+    emoji: "🧊",
+    cssClass: "trait-permafrost",
+    description: "Immune to Burn while in snow.",
+    ngPlusOnly: false,
+    conditionalImmuneToStatus: (_m, _e, statusType) => {
+      if (statusType !== "burn") return false;
+      if (typeof getCurrentWeather === "function" && getCurrentWeather() === "snow") return true;
+      return false;
+    },
+  },
+
+  // --- G. Counter / mischief (2; #181 Trick Wrist, #183 Item Switch, #185 Magic Bounce dropped) ---
+  snatcher: {
+    name: "Snatcher",
+    emoji: "👜",
+    cssClass: "trait-snatcher",
+    description: "Steals the attacker's held item on physical contact (if any).",
+    ngPlusOnly: false,
+    onIncomingHit: (defender, _e, move, _dmg, attacker) => {
+      if (move.cat !== "physical") return null;
+      if (!attacker.heldItem || defender.heldItem) return null;
+      const stolen = attacker.heldItem;
+      defender.heldItem = stolen;
+      attacker.heldItem = null;
+      return { msg: `👜 Snatcher: ${defender.name} snatched ${attacker.name}'s ${stolen}!` };
+    },
+  },
+
+  mirror_caster: {
+    name: "Mirror Caster",
+    emoji: "🪞",
+    cssClass: "trait-mirror-caster",
+    description: "Status-category moves used against this Lumori are reflected back at the attacker.",
+    ngPlusOnly: true,
+    reflectStatusMoves: true,
+  },
+
+  // --- H. Type-specific auras (8) ---
+  pyre_aura: {
+    name: "Pyre Aura",
+    emoji: "🔥",
+    cssClass: "trait-pyre-aura",
+    description: "All Fire moves on the field (both sides) deal +20% damage.",
+    ngPlusOnly: false,
+    fieldTypeMod: { type: "Fire", mult: 1.2 },
+  },
+
+  wave_crest: {
+    name: "Wave Crest",
+    emoji: "🌊",
+    cssClass: "trait-wave-crest",
+    description: "All Aquatic moves on the field +20% damage.",
+    ngPlusOnly: false,
+    fieldTypeMod: { type: "Aquatic", mult: 1.2 },
+  },
+
+  bloom_aura: {
+    name: "Bloom Aura",
+    emoji: "🌿",
+    cssClass: "trait-bloom-aura",
+    description: "All Nature moves on the field +20% damage.",
+    ngPlusOnly: false,
+    fieldTypeMod: { type: "Nature", mult: 1.2 },
+  },
+
+  voltic_aura: {
+    name: "Voltic Aura",
+    emoji: "⚡",
+    cssClass: "trait-voltic-aura",
+    description: "All Electric moves on the field +20% damage.",
+    ngPlusOnly: false,
+    fieldTypeMod: { type: "Electric", mult: 1.2 },
+  },
+
+  unstable_foundation: {
+    name: "Unstable Foundation",
+    emoji: "🌋",
+    cssClass: "trait-unstable-foundation",
+    description: "All Earth moves on the field +20% damage.",
+    ngPlusOnly: false,
+    fieldTypeMod: { type: "Earth", mult: 1.2 },
+  },
+
+  updraft: {
+    name: "Updraft",
+    emoji: "💨",
+    cssClass: "trait-updraft",
+    description: "All Wind moves on the field +20% damage.",
+    ngPlusOnly: false,
+    fieldTypeMod: { type: "Wind", mult: 1.2 },
+  },
+
+  glacial_freeze: {
+    name: "Glacial Freeze",
+    emoji: "❄️",
+    cssClass: "trait-glacial-freeze",
+    description: "All Ice moves on the field +20% damage.",
+    ngPlusOnly: false,
+    fieldTypeMod: { type: "Ice", mult: 1.2 },
+  },
+
+  sonic_resonance: {
+    name: "Sonic Resonance",
+    emoji: "🔊",
+    cssClass: "trait-sonic-resonance",
+    description: "All Sonic moves on the field +20% damage.",
+    ngPlusOnly: false,
+    fieldTypeMod: { type: "Sonic", mult: 1.2 },
+  },
+
+  // --- I. Reactive defense (4) ---
+  resolute: {
+    name: "Resolute",
+    emoji: "🛡️",
+    cssClass: "trait-resolute",
+    description: "Defense rises +1 stage each time this Lumori takes a hit.",
+    ngPlusOnly: false,
+    onIncomingHit: (mon) => {
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "def", 1)) {
+        return { msg: `🛡️ Resolute: ${mon.name}'s Defense rose!` };
+      }
+      return null;
+    },
+  },
+
+  vengeance: {
+    name: "Vengeance",
+    emoji: "⚔️",
+    cssClass: "trait-vengeance",
+    description: "Attack rises +1 stage each time this Lumori is hit by a super-effective move.",
+    ngPlusOnly: false,
+    onIncomingHit: (mon, _e, _move, _dmg, _attacker, eff) => {
+      if (typeof eff !== "number" || eff <= 1) return null;
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "atk", 1)) {
+        return { msg: `⚔️ Vengeance: ${mon.name}'s Attack rose!` };
+      }
+      return null;
+    },
+  },
+
+  soulhunter: {
+    name: "Soulhunter",
+    emoji: "🩸",
+    cssClass: "trait-soulhunter",
+    description: "Atk and SpA both rise +1 stage after KOing an enemy (stacks each KO).",
+    ngPlusOnly: true,
+    legendaryOnly: true,
+    onKO: (mon) => {
+      if (typeof applyStageChange !== "function") return null;
+      const a = applyStageChange(mon, "atk", 1);
+      const s = applyStageChange(mon, "spa", 1);
+      if (a || s) return { msg: `🩸 Soulhunter: ${mon.name} grew stronger!` };
+      return null;
+    },
+  },
+
+  reckoning: {
+    name: "Reckoning",
+    emoji: "⚔️",
+    cssClass: "trait-reckoning",
+    description: "Speed rises +1 stage each time this Lumori is hit by a critical hit.",
+    ngPlusOnly: false,
+    onCritTaken: (mon) => {
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "spe", 1)) {
+        return { msg: `⚔️ Reckoning: ${mon.name}'s Speed rose!` };
+      }
+      return null;
+    },
+  },
+
+  // --- J. Action modifiers (4) ---
+  daredevil: {
+    name: "Daredevil",
+    emoji: "💀",
+    cssClass: "trait-daredevil",
+    description: "Recoil moves deal +30% power (recoil is still paid).",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) => move.effect === "recoil" ? 1.3 : 1,
+  },
+
+  hardback: {
+    name: "Hardback",
+    emoji: "🪨",
+    cssClass: "trait-hardback",
+    description: "Contact moves vs this Lumori deal -20% damage.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.cat === "physical" ? 0.8 : 1,
+  },
+
+  pure_force: {
+    name: "Pure Force",
+    emoji: "💥",
+    cssClass: "trait-pure-force",
+    description: "Own moves have no secondary effects, but deal +30% damage.",
+    ngPlusOnly: false,
+    outgoingPowerMod: () => 1.3,
+    suppressOwnSecondaryEffects: true,
+  },
+
+  first_strike: {
+    name: "First Strike",
+    emoji: "🏇",
+    cssClass: "trait-first-strike",
+    description: "First move of every battle ignores accuracy check (always hits).",
+    ngPlusOnly: true,
+    forceHit: (mon, _e, isAttacking) =>
+      isAttacking && (mon._turnsInBattle || 0) === 0,
+  },
+
+  // --- K. Form / signature (4) ---
+  awakening: {
+    name: "Awakening",
+    emoji: "🔗",
+    cssClass: "trait-awakening",
+    description: "Once per battle, after KOing a foe, gains permanent +1 to all stats.",
+    ngPlusOnly: true,
+    legendaryOnly: true,
+    onKO: (mon) => {
+      if (mon._awakeningUsed) return null;
+      mon._awakeningUsed = true;
+      if (typeof applyStageChange === "function") {
+        ["atk", "def", "spa", "spd", "spe"].forEach(s => applyStageChange(mon, s, 1));
+      }
+      return { msg: `🔗 Awakening: ${mon.name} has awakened!` };
+    },
+  },
+
+  multi_strike: {
+    name: "Multi-Strike",
+    emoji: "🔗",
+    cssClass: "trait-multi-strike",
+    description: "Multi-hit moves always hit the maximum number of times (5).",
+    ngPlusOnly: false,
+    multiHitOverride: 5,
+  },
+
+  finesse: {
+    name: "Finesse",
+    emoji: "🎯",
+    cssClass: "trait-finesse",
+    description: "Moves with base power ≤60 get +50% power.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) => (move.power && move.power <= 60) ? 1.5 : 1,
+  },
+
+  punisher: {
+    name: "Punisher",
+    emoji: "⚔️",
+    cssClass: "trait-punisher",
+    description: "When a foe switches out, that foe takes 25% max HP damage.",
+    ngPlusOnly: true,
+    onFoeSwitchOut: (_m, _e, foe) => {
+      if (!foe) return null;
+      const dmg = Math.max(1, Math.floor(foe.maxHP * 0.25));
+      foe.currentHP = Math.max(0, foe.currentHP - dmg);
+      if (foe.currentHP <= 0) foe.fainted = true;
+      return { msg: `⚔️ Punisher: ${foe.name} took ${dmg} damage on the way out!` };
+    },
+  },
+
+  // --- L. Battle-end / economy (2; #206 Salvager dropped) ---
+  lucky_catch: {
+    name: "Lucky Catch",
+    emoji: "🍀",
+    cssClass: "trait-lucky-catch",
+    description: "Capture rate +25% when this Lumori is active during a wild encounter.",
+    ngPlusOnly: false,
+    captureRateMod: () => 1.25,
+  },
+
+  escapist: {
+    name: "Escapist",
+    emoji: "💨",
+    cssClass: "trait-escapist",
+    description: "Always succeeds when running from a wild battle.",
+    ngPlusOnly: false,
+    forceRunSuccess: true,
+  },
+
+  // --- M. Lumoria-type-specific (4) ---
+  hardened_crystals: {
+    name: "Hardened Crystals",
+    emoji: "💎",
+    cssClass: "trait-hardened-crystals",
+    description: "Crystal moves used by this Lumori deal +50% power.",
+    ngPlusOnly: true,
+    outgoingPowerMod: (_a, _e, move) => move.type === "Crystal" ? 1.5 : 1,
+  },
+
+  toxin_coat: {
+    name: "Toxin Coat",
+    emoji: "🦠",
+    cssClass: "trait-toxin-coat",
+    description: "On physical contact, 30% chance to apply Tainted to the attacker.",
+    ngPlusOnly: false,
+    onIncomingHit: (_d, _e, move, _dmg, attacker) => {
+      if (move.cat !== "physical") return null;
+      if (typeof rollPercent !== "function" || !rollPercent(30)) return null;
+      if (typeof addStatus === "function" && addStatus(attacker, "tainted")) {
+        return { msg: `🦠 Toxin Coat: ${attacker.name} was tainted!` };
+      }
+      return null;
+    },
+  },
+
+  mineral_charge: {
+    name: "Mineral Charge",
+    emoji: "💎",
+    cssClass: "trait-mineral-charge",
+    description: "Mineral moves used by this Lumori deal +30% power.",
+    ngPlusOnly: false,
+    outgoingPowerMod: (_a, _e, move) => move.type === "Mineral" ? 1.3 : 1,
+  },
+
+  dream_lord: {
+    name: "Dream Lord",
+    emoji: "💭",
+    cssClass: "trait-dream-lord",
+    description: "Dream moves used by this Lumori have triple base crit rate.",
+    ngPlusOnly: false,
+    legendaryOnly: true,
+    selfCritBonus: (_a, _e, move) => move.type === "Dream" ? 18.75 : 0,
+  },
+
+  // --- N. Misc / unique (3) ---
+  earthshaker: {
+    name: "Earthshaker",
+    emoji: "🌋",
+    cssClass: "trait-earthshaker",
+    description: "When Speed is boosted, Attack also rises +1 stage.",
+    ngPlusOnly: false,
+    legendaryOnly: true,
+    onSelfStatRaised: (mon, _e, stat) => {
+      if (stat !== "spe") return null;
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "atk", 1)) {
+        return { msg: `🌋 Earthshaker: ${mon.name}'s Attack rose with its Speed!` };
+      }
+      return null;
+    },
+  },
+
+  return_surge: {
+    name: "Return Surge",
+    emoji: "🔀",
+    cssClass: "trait-return-surge",
+    description: "When this Lumori switches BACK into battle, +1 Spe AND +1 Atk.",
+    ngPlusOnly: false,
+    onSwitchIn: (mon) => {
+      // Only triggers on a re-entry, not the first entry of the battle
+      if (!mon._hasEnteredOnce) {
+        mon._hasEnteredOnce = true;
+        return null;
+      }
+      if (typeof applyStageChange !== "function") return null;
+      const a = applyStageChange(mon, "atk", 1);
+      const s = applyStageChange(mon, "spe", 1);
+      if (a || s) return { msg: `🔀 Return Surge: ${mon.name} surged back with renewed power!` };
+      return null;
+    },
+  },
+
+  skitter: {
+    name: "Skitter",
+    emoji: "🦗",
+    cssClass: "trait-skitter",
+    description: "Alternates priority: +5 on odd turns, -5 on even turns.",
+    ngPlusOnly: false,
+    legendaryOnly: true,
+    priorityBonus: (mon) => {
+      const t = mon._turnsInBattle || 0;
+      return (t % 2 === 0) ? 5 : -5;
+    },
+  },
+
+  // ====== Phase 2 batch 3 will continue if user wants to push to ~250 ======
 };
 
 

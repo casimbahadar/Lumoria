@@ -155,7 +155,7 @@ const MOVES_DATA = {
   abyssal_jet:  { name:"Abyssal Jet",   type:"Aquatic",    power:55,  acc:100, pp:20, cat:"special",  effect:"priority",  ec:0,   desc:"Blasts a jet of deep-ocean water at blinding speed." },
   coral_barrage:{ name:"Coral Barrage", type:"Aquatic",    power:75,  acc:90,  pp:15, cat:"physical", effect:"flinch",    ec:20,  desc:"Hurls a barrage of razor-sharp coral fragments at the foe." },
   sea_serpent_strike:{ name:"Sea Serpent Strike",type:"Aquatic",power:95,acc:90,pp:10,cat:"physical",effect:null,        ec:0,   desc:"A coiling strike mimicking the legendary sea serpent's lethal lunge." },
-  tidecaller:   { name:"Tidecaller",    type:"Aquatic",    power:0,   acc:100, pp:15, cat:"status",   effect:"calmup",    ec:100, desc:"Calls upon the tides to bolster the user's special power and resilience." },
+  tidecaller:   { name:"Tidecaller",    type:"Aquatic",    power:0,   acc:100, pp:15, cat:"status",   effect:"calmup",    ec:90,  desc:"Calls upon the tides to bolster the user's special power and resilience." },
   // --- Nature ---
   vine_lash:    { name:"Vine Lash",     type:"Nature",    power:45,  acc:100, pp:25, cat:"physical", effect:null,        ec:0,   desc:"Strikes with long, slender vines." },
   sharp_leaves:   { name:"Sharp Leaves",  type:"Nature",    power:55,  acc:95,  pp:25, cat:"physical", effect:"crit",      ec:100, desc:"Slices with razor-edged leaves. High crit." },
@@ -308,7 +308,7 @@ const MOVES_DATA = {
   // --- NEW: Aquatic (3 more → 15) ---
   riptide_slam: { name:"Riptide Slam",  type:"Aquatic",    power:85,  acc:95,  pp:10, cat:"physical", effect:"spedown",   ec:30,  desc:"Catches the foe in a violent riptide and slams them into the seabed." },
   geyser_burst: { name:"Geyser Burst",  type:"Aquatic",    power:110, acc:80,  pp:5,  cat:"special",  effect:"burn",      ec:20,  desc:"Erupts a scalding geyser from deep underground that may scald the foe." },
-  deepwater_hymn:{ name:"Deepwater Hymn",type:"Aquatic",   power:0,   acc:100, pp:15, cat:"status",   effect:"calmup",    ec:100, desc:"Sings the ancient song of the ocean depths to bolster special power." },
+  deepwater_hymn:{ name:"Deepwater Hymn",type:"Aquatic",   power:0,   acc:100, pp:10, cat:"status",   effect:"calmup_and_accup_self", ec:90, desc:"Sings the ancient song of the ocean depths to bolster special power and sharpen aim." },
 
   // --- NEW: Nature (3 more → 15) ---
   briar_lash:   { name:"Briar Lash",    type:"Nature",    power:75,  acc:100, pp:15, cat:"physical", effect:"poison",    ec:20,  desc:"Lashes the foe with thorny briars coated in natural toxin." },
@@ -426,8 +426,8 @@ const MOVES_DATA = {
   // Aquatic (+7 → 22)
   wave_dash:      { name:"Wave Dash",     type:"Aquatic",    power:40,  acc:100, pp:20, cat:"physical", effect:"priority",  ec:0,   desc:"Strikes first by surrounding the body in water and charging." },
   monsoon:    { name:"Monsoon",       type:"Aquatic",    power:0,   acc:100, pp:10, cat:"status",   effect:"spatkup",   ec:100, desc:"Calls down rain to boost the user's special attack." },
-  torrent_fang:  { name:"Torrent Fang",  type:"Aquatic",    power:80,  acc:95,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Bites with fangs sheathed in pressurized water." },
-  maelstrom:     { name:"Maelstrom",     type:"Aquatic",    power:70,  acc:85,  pp:15, cat:"special",  effect:"spedown",   ec:30,  desc:"Traps the foe in a churning whirlpool that slows their escape." },
+  torrent_fang:  { name:"Torrent Fang",  type:"Aquatic",    power:80,  acc:95,  pp:15, cat:"physical", effect:"flinch",    ec:20,  desc:"Bites with fangs sheathed in pressurized water; the shock can make the foe flinch." },
+  maelstrom:     { name:"Maelstrom",     type:"Aquatic",    power:75,  acc:80,  pp:15, cat:"special",  effect:"spedown2",  ec:25,  desc:"Traps the foe in a churning whirlpool that sharply slows their escape." },
   ocean_tempest: { name:"Ocean Tempest", type:"Aquatic",    power:100, acc:80,  pp:5,  cat:"special",  effect:"confuse",   ec:30,  desc:"Summons a furious ocean tempest that batters and confuses." },
   brine_slash:   { name:"Brine Slash",   type:"Aquatic",    power:65,  acc:100, pp:20, cat:"physical", effect:"crit",      ec:100, desc:"Slashes with a blade of crystallized brine. High crit rate." },
   marine_blessing:{ name:"Marine Blessing",type:"Aquatic",    power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Draws on the ocean's grace to restore the user's vitality." },
@@ -572,7 +572,7 @@ const MOVES_DATA = {
   diving_strike:    { name:"Diving Strike",     type:"Aquatic",    power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Dives deep then rockets up to slam the foe with crushing force." },
   claw_hammer:       { name:"Claw Hammer",       type:"Aquatic",    power:100, acc:90,  pp:10, cat:"physical", effect:"crit",      ec:100, desc:"A massive claw strike at high speed — always finds a critical spot." },
   steam_geyser:     { name:"Steam Geyser",      type:"Aquatic",    power:90,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:30,  desc:"A column of superheated steam that may burn the target." },
-  flood_tide:       { name:"Flood Tide",        type:"Aquatic",    power:0,   acc:100, pp:15, cat:"status",   effect:"calmup",    ec:100, desc:"Rides the rising flood tide, bolstering special power and resilience." },
+  flood_tide:       { name:"Flood Tide",        type:"Aquatic",    power:0,   acc:100, pp:5,  cat:"status",   effect:"calmup_and_speup_self", ec:90, desc:"Rides the rising flood tide, bolstering special power, resilience, and speed." },
   ocean_crash:      { name:"Ocean Crash",       type:"Aquatic",    power:120, acc:85,  pp:5,  cat:"physical", effect:"defdown",   ec:30,  desc:"Crashes into the foe with the full force of a collapsing ocean wave." },
 
   // --- Grass (+7) ---

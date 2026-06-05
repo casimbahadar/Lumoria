@@ -14,6 +14,9 @@ Thresholds (per type, per Lumori, by stage):
 Stage is inferred from evolveTo (null = final) and presence in another
 Lumori's evolveTo (= not base).
 
+Forgotten Lumori (id 462-500) are excluded — they'll be re-audited as
+part of a dedicated Forgotten-typing overhaul.
+
 Read-only — produces a report. Use for planning Phase 2 batches.
 """
 import re
@@ -124,9 +127,13 @@ def threshold(stage, rarity):
         return 2
     return 2
 
-# Flag insufficient
+FORGOTTEN_START = 462
+
+# Flag insufficient (excludes Forgotten — to be re-audited separately)
 flagged = []
 for mid, info in mons.items():
+    if mid >= FORGOTTEN_START:
+        continue
     threshold_per_type = threshold(info["stage"], info["rarity"])
     for t in info["types"]:
         count = info["stab"].get(t, 0)

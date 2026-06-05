@@ -228,7 +228,7 @@ const MOVES_DATA = {
   // --- Fairy ---
   fairy_wind:   { name:"Fairy Wind",    type:"Fairy",    power:40,  acc:100, pp:30, cat:"special",  effect:null,        ec:0,   desc:"Stirs up a fairy wind to strike." },
   lunar_burst:    { name:"Lunar Burst",     type:"Fairy",    power:95,  acc:100, pp:15, cat:"special",  effect:"spatkdown", ec:30,  desc:"Attacks using moonlight. May lower Sp.Atk." },
-  prism_flare:{ name:"Prism Flare",type:"Fairy",  power:80,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Emits a powerful flash of light." },
+  prism_flare:{ name:"Prism Flare",type:"Fairy",  power:80,  acc:100, pp:10, cat:"special",  effect:"accdown",   ec:30,  desc:"Emits a powerful blinding flash of light that may lower the foe's Accuracy." },
   bewitching_kiss:   { name:"Bewitching Kiss",    type:"Fairy",    power:0,   acc:75,  pp:10, cat:"status",   effect:"confuse",   ec:100, desc:"An angel's kiss that confuses the foe." },
   stardust_veil:{ name:"Stardust Veil", type:"Fairy",    power:0,   acc:100, pp:20, cat:"status",   effect:"calmup",    ec:100, desc:"Wraps the user in drifting stardust that enhances special power and resilience." },
   pixie_bolt:   { name:"Pixie Bolt",    type:"Fairy",    power:75,  acc:100, pp:15, cat:"special",  effect:"confuse",   ec:20,  desc:"Fires a bolt of concentrated pixie energy that scrambles the foe's mind." },
@@ -251,7 +251,7 @@ const MOVES_DATA = {
   septic_prick: { name:"Septic Prick",  type:"Poison",   power:15,  acc:100, pp:35, cat:"physical", effect:"poison",    ec:30,  desc:"Stings with a poisonous stinger." },
   ooze_bomb:  { name:"Ooze Bomb",   type:"Poison",   power:90,  acc:100, pp:10, cat:"special",  effect:"poison",    ec:30,  desc:"Hurls a sludge bomb. May poison." },
   toxify:        { name:"Toxify",         type:"Poison",   power:0,   acc:90,  pp:10, cat:"status",   effect:"badpoison", ec:100, desc:"Badly poisons the foe. Damage worsens each turn." },
-  virulent_surge:    { name:"Virulent Surge",     type:"Poison",   power:65,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Doubles damage if target is poisoned." },
+  virulent_surge:    { name:"Virulent Surge",     type:"Poison",   power:65,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   bonusVsStatus:["poison","badpoison"], desc:"A surge of virulence that deals double damage to a poisoned target." },
   miasma_cloud: { name:"Miasma Cloud",  type:"Poison",   power:70,  acc:90,  pp:15, cat:"special",  effect:"badpoison", ec:30,  desc:"Releases a dense toxic cloud that seeps into wounds and worsens over time." },
   acid_rain:    { name:"Acid Rain",     type:"Poison",   power:80,  acc:90,  pp:10, cat:"special",  effect:"spdefdown",    ec:30,  desc:"Summons a rain of burning acid that corrodes the foe's body." },
   venom_lance:  { name:"Venom Lance",   type:"Poison",   power:85,  acc:95,  pp:10, cat:"physical", effect:"badpoison", ec:20,  desc:"Drives a concentrated venom spike deep into the foe." },
@@ -271,8 +271,8 @@ const MOVES_DATA = {
   thought_crush:{ name:"Thought Crush", type:"Mental",  power:90,  acc:85,  pp:10, cat:"special",  effect:"defdown", ec:30,  desc:"Crushes the foe's mind with overwhelming psychokinetic force." },
   // --- Draconic ---
   draconic_breath:{ name:"Draconic Breath", type:"Draconic",   power:60,  acc:100, pp:20, cat:"special",  effect:"paralyze",  ec:30,  desc:"Exhales a dragon's breath. May paralyze." },
-  draconic_claw:  { name:"Draconic Claw",   type:"Draconic",   power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Slashes with razor-sharp dragon claws." },
-  draconic_pulse: { name:"Draconic Pulse",  type:"Draconic",   power:85,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Fires a shockwave of dragon energy." },
+  draconic_claw:  { name:"Draconic Claw",   type:"Draconic",   power:80,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes with razor-sharp dragon claws; high critical-hit ratio." },
+  draconic_pulse: { name:"Draconic Pulse",  type:"Draconic",   power:85,  acc:100, pp:10, cat:"special",  effect:"spdefdown", ec:20,  desc:"Fires a shockwave of dragon energy that may erode the foe's Sp.Def." },
   rampage:      { name:"Rampage",       type:"Draconic",   power:120, acc:100, pp:10, cat:"physical", effect:"confuse",   ec:100, desc:"A 2-3 turn rampage. Confuses user after." },
   hydra_dance: { name:"Hydra Dance",  type:"Draconic",   power:0,   acc:100, pp:20, cat:"status",   effect:"dragondance",ec:100,desc:"A ritualistic dance that raises Atk and Speed." },
   wyrm_strike:  { name:"Wyrm Strike",   type:"Draconic",   power:90,  acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Strikes with the coiled force of an ancient wyrm's tail." },
@@ -316,7 +316,7 @@ const MOVES_DATA = {
   grove_wrath:  { name:"Grove Wrath",   type:"Nature",    power:100, acc:85,  pp:5,  cat:"physical", effect:"flinch",    ec:30,  desc:"Channels the fury of an ancient forest into a devastating trunk-shattering strike." },
 
   // --- NEW: Electric (4 more → 15) ---
-  dynamo_whip:  { name:"Dynamo Whip",   type:"Electric", power:70,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Cracks a whip of concentrated lightning across the opponent." },
+  dynamo_whip:  { name:"Dynamo Whip",   type:"Electric", power:70,  acc:100, pp:15, cat:"physical", effect:"paralyze",  ec:20,  desc:"Cracks a whip of concentrated lightning that may paralyze the foe." },
   surge_field:  { name:"Surge Field",   type:"Electric", power:0,   acc:100, pp:15, cat:"status",   effect:"speup",     ec:100, desc:"Charges the ground with electricity, accelerating the user's movements." },
   voltaic_fang: { name:"Voltaic Fang",  type:"Electric", power:85,  acc:95,  pp:10, cat:"physical", effect:"defdown",  ec:30,  desc:"Bites with electrified fangs that discharge thousands of volts." },
   ball_lightning:{ name:"Ball Lightning",type:"Electric", power:95,  acc:90,  pp:10, cat:"special",  effect:"paralyze",  ec:20,  desc:"Conjures a sphere of rogue lightning that drifts toward the foe and detonates." },
@@ -350,7 +350,7 @@ const MOVES_DATA = {
   soul_rend:    { name:"Soul Rend",     type:"Dark",     power:100, acc:85,  pp:5,  cat:"special",  effect:"spdefdown", ec:30,  desc:"Tears at the foe's spiritual essence, shredding their mental resilience." },
 
   // --- NEW: Fairy (5 more → 15) ---
-  gossamer_lance:{ name:"Gossamer Lance",type:"Fairy",   power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Drives a lance of crystallized fairy light through the foe." },
+  gossamer_lance:{ name:"Gossamer Lance",type:"Fairy",   power:80,  acc:100, pp:15, cat:"physical", effect:"defdown",   ec:20,  desc:"Drives a lance of crystallized fairy light through the foe, piercing armor and may lower Defense." },
   aurora_veil:  { name:"Aurora Veil",   type:"Fairy",    power:0,   acc:100, pp:15, cat:"status",   effect:"defup",     ec:100, desc:"Wraps the user in shimmering aurora light that deflects attacks." },
   dream_drain:  { name:"Dream Drain",   type:"Fairy",    power:75,  acc:100, pp:15, cat:"special",  effect:"drain",     ec:100, desc:"Devours the foe's pleasant dreams, restoring the user's health." },
   glitter_storm:{ name:"Glitter Storm", type:"Fairy",    power:95,  acc:90,  pp:10, cat:"special",  effect:"spdefdown", ec:30,  desc:"Unleashes a storm of razor-sharp glitter that dazzles and cuts." },
@@ -409,7 +409,7 @@ const MOVES_DATA = {
   // --- ROUND 3: Expanding all types to 22 ---
 
   // Normal (+5 → 22)
-  double_smash: { name:"Double Smash", type:"Normal",   power:50,  acc:95,  pp:20, cat:"physical", effect:null,        ec:0,   desc:"Hits twice in rapid succession with blinding speed." },
+  double_smash: { name:"Double Smash", type:"Normal",   power:40,  acc:95,  pp:20, cat:"physical", effect:null,        ec:0,   hits:2, desc:"Hits twice in rapid succession with blinding speed." },
   focus_roar:    { name:"Focus Roar",    type:"Normal",   power:0,   acc:100, pp:15, cat:"status",   effect:"spatkup",   ec:100, desc:"Roars with focused intent, sharpening the user's special attack." },
   reckless_charge:{ name:"Reckless Charge",type:"Normal", power:120, acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"A reckless full-body charge that also damages the user." },
   endure_pulse:  { name:"Endure Pulse",  type:"Normal",   power:0,   acc:100, pp:10, cat:"status",   effect:"defup",     ec:100, desc:"Pulses with survival energy, steeling the body for the next blow." },
@@ -520,7 +520,7 @@ const MOVES_DATA = {
   sixth_sense:  { name:"Sixth Sense",  type:"Mental",  power:80,  acc:100, pp:20, cat:"special",  effect:"flinch",    ec:10,  desc:"Attacks with an odd psychic power that may cause flinching." },
 
   // Draconic (+7 → 22)
-  drake_tail:   { name:"Drake Tail",   type:"Draconic",   power:60,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Slaps the foe with a powerful dragon tail." },
+  drake_tail:   { name:"Drake Tail",   type:"Draconic",   power:60,  acc:90,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Slaps the foe with a powerful dragon tail that may make it flinch." },
   comet_crash:  { name:"Comet Crash",  type:"Draconic",   power:130, acc:90,  pp:5,  cat:"special",  effect:"spatkdown", ec:100, desc:"Calls down meteors with draconic power. Lowers user's Sp.Atk." },
   leviathan_rush:   { name:"Leviathan Rush",   type:"Draconic",   power:100, acc:75,  pp:10, cat:"physical", effect:"flinch",    ec:20,  desc:"Charges the foe with menacing draconic energy." },
   wyrm_gale:       { name:"Wyrm Gale",       type:"Draconic",   power:40,  acc:100, pp:20, cat:"special",  effect:"confuse",    ec:30,  desc:"Whips up a vicious twister of draconic wind." },
@@ -587,7 +587,7 @@ const MOVES_DATA = {
   // --- Electric (+7) ---
   nuzzle:           { name:"Nuzzle",            type:"Electric", power:20,  acc:100, pp:20, cat:"physical", effect:"paralyze",  ec:100, desc:"Rubs cheeks against the target, delivering a jolt that always paralyzes." },
   shock_net:       { name:"Shock Net",         type:"Electric", power:55,  acc:95,  pp:15, cat:"special",  effect:"spedown",   ec:100, desc:"Shoots an electric web that snares and slows the target." },
-  relay_shock:      { name:"Relay Shock",       type:"Electric", power:70,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Jolts the foe with electricity, then retreats with swift momentum." },
+  relay_shock:      { name:"Relay Shock",       type:"Electric", power:70,  acc:100, pp:20, cat:"special",  effect:"speup",     ec:30,  desc:"Jolts the foe with electricity, then retreats with swift momentum that may raise the user's Speed." },
   arc_cannon:       { name:"Arc Cannon",        type:"Electric", power:120, acc:50,  pp:5,  cat:"special",  effect:"paralyze",  ec:100, desc:"An electric cannon blast that always paralyzes but is hard to aim." },
   tesla_fists:     { name:"Tesla Fists",      type:"Electric", power:100, acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Slams with fists wreathed in crackling plasma for massive damage." },
   rising_voltage:   { name:"Rising Voltage",    type:"Electric", power:70,  acc:100, pp:20, cat:"special",  effect:"burn",      ec:10,  desc:"Charges the air with intensifying voltage that can unpredictably cause burns." },
@@ -669,7 +669,7 @@ const MOVES_DATA = {
 
   // --- Draconic (+7) ---
   scale_shot:       { name:"Scale Shot",        type:"Draconic",   power:65,  acc:90,  pp:20, cat:"physical", effect:"speup",     ec:100, desc:"Fires sharp scales as projectiles, raising the user's Speed afterward." },
-  twin_chop:        { name:"Twin Chop",         type:"Draconic",   power:40,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Strikes the target twice in swift succession with dragon-like precision." },
+  twin_chop:        { name:"Twin Chop",         type:"Draconic",   power:40,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   hits:2, desc:"Strikes the target twice in swift succession with dragon-like precision." },
   breaking_swipe:   { name:"Breaking Swipe",    type:"Draconic",   power:60,  acc:100, pp:15, cat:"physical", effect:"atkdown",   ec:100, desc:"Sweeps the foe with a dragon's tail, always lowering their Attack." },
   scale_crash:  { name:"Scale Crash",   type:"Draconic",   power:110, acc:100, pp:5,  cat:"special",  effect:"spdefdown", ec:100, desc:"Clashes the user's scales to release a deafening sound that lowers Sp. Def." },
   abyss_ray:       { name:"Abyss Ray",        type:"Draconic",   power:160, acc:90,  pp:5,  cat:"special",  effect:"recharge",  ec:100, desc:"The most powerful attack a dragon can use — must rest on the following turn." },
@@ -879,7 +879,7 @@ const MOVES_DATA = {
   // --- Electric (regular) ---
   thunder_jab:             { name:"Thunder Jab", type:"Electric", power:40, acc:100, pp:30, cat:"physical", effect:null, ec:0, target:"single", desc:"Quick electric jab." },
   spark_claw:              { name:"Spark Claw", type:"Electric", power:60, acc:100, pp:20, cat:"physical", effect:"paralyze", ec:30, target:"single", breakerVs:"Earth", desc:"Electrified claw; bypasses Earth's normal immunity." },
-  coil_strike:             { name:"Coil Strike", type:"Electric", power:75, acc:100, pp:15, cat:"physical", effect:null, ec:0, target:"single", desc:"Electromagnetic coil-strike." },
+  coil_strike:             { name:"Coil Strike", type:"Electric", power:75, acc:100, pp:15, cat:"physical", effect:null, ec:0, target:"single", bonusVsStatus:"paralyze", desc:"An electromagnetic coil-strike that deals double damage to a paralyzed target." },
   bolt_smash:              { name:"Bolt Smash", type:"Electric", dualType:["Electric","Metal"], power:85, acc:95, pp:10, cat:"physical", effect:"flinch", ec:20, target:"wide", desc:"Bolt-charged smash. Dual Electric+Metal; may flinch all foes." },
   plasma_punch:            { name:"Plasma Punch", type:"Electric", power:95, acc:90, pp:10, cat:"physical", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Plasma-fist; always lands a critical hit." },
   lightning_rush:          { name:"Lightning Rush", type:"Electric", dualType:["Electric","Sonic"], power:110, acc:85, pp:10, cat:"physical", effect:"sluggish", ec:30, target:"wide", desc:"Sonic-boom-fast rush. Dual Electric+Sonic; may inflict Sluggish." },
@@ -1003,9 +1003,9 @@ const MOVES_DATA = {
 
   // --- Normal (regular, batch3) ---
   quick_jab:                 { name:"Quick Jab", type:"Normal", power:40, acc:100, pp:30, cat:"physical", effect:"priority", ec:0, target:"single", desc:"First-strike jab." },
-  body_blow:                   { name:"Body Blow", type:"Normal", power:75, acc:100, pp:15, cat:"physical", effect:null, ec:0, target:"single", desc:"Heavy body blow." },
+  body_blow:                   { name:"Body Blow", type:"Normal", power:75, acc:100, pp:15, cat:"physical", effect:"flinch", ec:20, target:"single", desc:"A heavy body blow that knocks the wind out of the foe and may flinch." },
   tornado_grab:                { name:"Tornado Grab", type:"Normal", dualType:["Normal","Wind"], power:90, acc:85, pp:10, cat:"physical", effect:null, ec:0, target:"wide", desc:"Spinning grab on all foes. Dual Normal+Wind." },
-  echo_beam:                 { name:"Echo Beam", type:"Normal", power:60, acc:100, pp:20, cat:"special", effect:null, ec:0, target:"wide", desc:"Echoing beam on all foes." },
+  echo_beam:                 { name:"Echo Beam", type:"Normal", power:60, acc:100, pp:20, cat:"special", effect:"spdefdown", ec:20, target:"wide", desc:"A resonant echoing beam on all foes that may erode Sp.Def." },
   aural_ray:                   { name:"Aural Ray", type:"Normal", power:70, acc:100, pp:20, cat:"special", effect:"spdefdown", ec:20, target:"single", desc:"Aural ray; may lower SpDef." },
   radiant_burst_2:             { name:"Radiant Burst", type:"Normal", power:85, acc:90, pp:10, cat:"special", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Radiant burst." },
   lumiwave:                    { name:"Lumiwave", type:"Normal", power:95, acc:90, pp:10, cat:"special", effect:"atkdown", ec:30, target:"wide", desc:"Lumiwave on all foes; may lower Atk." },
@@ -1016,7 +1016,7 @@ const MOVES_DATA = {
   ectoplasm_strike:            { name:"Ectoplasm Strike", type:"Spectral", power:75, acc:95, pp:15, cat:"physical", effect:null, ec:0, target:"single", alwaysCrit:true, desc:"Ectoplasmic strike." },
   revenant_charge:              { name:"Revenant Charge", type:"Spectral", dualType:["Spectral","Dark"], power:95, acc:90, pp:10, cat:"physical", effect:null, ec:0, target:"single", desc:"Revenant Charge. Dual Spectral+Dark." },
   ghost_pulse:                 { name:"Ghost Pulse", type:"Spectral", power:50, acc:100, pp:30, cat:"special", effect:null, ec:0, target:"single", desc:"Single ghost-pulse." },
-  soul_lance:                  { name:"Soul Lance", type:"Spectral", power:70, acc:100, pp:20, cat:"special", effect:null, ec:0, target:"wide", desc:"Wide soul-lance." },
+  soul_lance:                  { name:"Soul Lance", type:"Spectral", power:70, acc:100, pp:20, cat:"special", effect:null, ec:0, target:"wide", bonusVsStatus:"any", desc:"A wide soul-lance that deals double damage to any afflicted foe." },
   ectoplasm_wave:              { name:"Ectoplasm Wave", type:"Spectral", power:80, acc:95, pp:15, cat:"special", effect:"atkdown", ec:30, target:"wide", desc:"Ectoplasm wave; may lower Atk." },
   phantom_beam:                { name:"Phantom Beam", type:"Spectral", power:75, acc:95, pp:15, cat:"special", effect:null, ec:0, target:"single", breakerVs:"Mental", desc:"Phantom beam." },
   void_wail:                   { name:"Void Wail", type:"Spectral", power:85, acc:90, pp:10, cat:"special", effect:"confuse", ec:30, target:"wide", desc:"Void wail; may confuse." },

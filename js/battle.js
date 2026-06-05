@@ -1144,6 +1144,16 @@ function calcDamage(attacker, defender, move, opts = {}) {
   const incomingMod = getIncomingDmgMod(defender, move, attacker);
   dmg = Math.floor(dmg * incomingMod);
 
+  // Status-exploit moves: 2x damage if the defender carries the targeted status.
+  // move.bonusVsStatus may be a status-type string, an array of types, or "any".
+  if (move.bonusVsStatus && defender.statuses && defender.statuses.length) {
+    const want = move.bonusVsStatus;
+    const hit = want === "any"
+      ? true
+      : (Array.isArray(want) ? want : [want]).some(t => hasStatus(defender, t));
+    if (hit) dmg = Math.floor(dmg * 2);
+  }
+
   let critRate = move.effect === "crit" ? 25 : 6.25;
   if (atkHeld?.effect === "critUp") critRate = Math.min(50, critRate * 2);
   critRate += getOpponentCritBonus(defender); // Hunted etc. amplify attacker's crit rate

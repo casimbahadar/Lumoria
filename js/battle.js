@@ -783,6 +783,7 @@ function applyPlagueSpread(fieldMons) {
 // Combines: attacker's stages.acc + defender's stages.eva (Pokemon-style accuracy stages)
 // with passive accuracyMod hooks from active statuses (Smothered, Faded, Mirage, etc.).
 function getEffectiveAccuracy(attacker, defender, move) {
+  if (move.neverMiss) return 100;
   if (shouldForceHit(attacker)) return 100;
   const accStage = (attacker.stages && attacker.stages.acc) || 0;
   const evaStage = (defender.stages && defender.stages.eva) || 0;

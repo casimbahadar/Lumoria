@@ -128,7 +128,7 @@ const MOVES_DATA = {
   battle_cry:   { name:"Battle Cry",    type:"Normal",   power:0,   acc:100, pp:20, cat:"status",   effect:"atkup2",    ec:100, desc:"Lets out a ferocious cry that fires up the user's fighting spirit." },
   momentum_rush:{ name:"Momentum Rush", type:"Normal",   power:75,  acc:100, pp:15, cat:"physical", effect:"speup",        ec:30,   desc:"Builds momentum across the field and crashes into the foe at full speed." },
   vital_pulse:  { name:"Vital Pulse",   type:"Normal",   power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Focuses life energy inward to restore the user's vitality." },
-  instinct_slash:{ name:"Instinct Slash",type:"Normal",  power:70,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes by pure instinct, always finding a critical spot to exploit." },
+  instinct_slash:{ name:"Instinct Slash",type:"Normal",  power:70,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Slashes by pure instinct, with a high critical-hit ratio." },
   // --- Fire ---
   flicker:        { name:"Flicker",       type:"Fire",     power:40,  acc:100, pp:25, cat:"special",  effect:"burn",      ec:10,  desc:"A weak fire attack that may burn." },
   flame_fang:   { name:"Flame Fang",    type:"Fire",     power:65,  acc:95,  pp:15, cat:"physical", effect:"burn",      ec:10,  desc:"Bites with flaming fangs. May burn." },
@@ -168,7 +168,7 @@ const MOVES_DATA = {
   spore_burst:  { name:"Spore Burst",   type:"Nature",    power:0,   acc:80,  pp:15, cat:"status",   effect:"sleep",     ec:100, desc:"Releases an explosive burst of sleep-inducing spores." },
   thornwall:    { name:"Thornwall",     type:"Nature",    power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Grows a wall of thorns around the user, raising its Defense." },
   verdant_surge:{ name:"Verdant Surge", type:"Nature",    power:110, acc:85,  pp:5,  cat:"special",  effect:"atkup",        ec:30,   desc:"Surges with the full power of living nature in a devastating burst." },
-  photon_leaf:  { name:"Photon Leaf",   type:"Nature",    power:70,  acc:100, pp:15, cat:"special",  effect:"crit",      ec:100, desc:"A leaf sharpened by concentrated sunlight that always finds weak points." },
+  photon_leaf:  { name:"Photon Leaf",   type:"Nature",    power:70,  acc:100, pp:15, cat:"special",  effect:"crit",      ec:100, desc:"A leaf sharpened by concentrated sunlight; high critical-hit ratio." },
   // --- Electric ---
   jolt:{ name:"Jolt",          type:"Electric", power:40,  acc:100, pp:30, cat:"special",  effect:"paralyze",  ec:10,  desc:"A jolt of electricity. May paralyze." },
   volt_jet:  { name:"Volt Jet",   type:"Electric", power:90,  acc:100, pp:15, cat:"special",  effect:"paralyze",  ec:10,  desc:"A strong thunderbolt. May paralyze." },
@@ -267,7 +267,7 @@ const MOVES_DATA = {
   synaptic_shatter: { name:"Synaptic Shatter",  type:"Mental",  power:100, acc:90,  pp:10, cat:"special",  effect:"spdefdown", ec:30,  desc:"Shatters the foe's mental fortitude with a concentrated psychic burst." },
   telepathic_slam:{ name:"Telepathic Slam",type:"Mental",power:85, acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30,  desc:"Reads the foe's thoughts and strikes using their own fear against them." },
   future_echo:  { name:"Future Echo",   type:"Mental",  power:80,  acc:100, pp:10, cat:"special",  effect:null,        ec:0,   desc:"Sends an echo of future energy that strikes the foe one turn ahead of time." },
-  insight_flare:{ name:"Insight Flare", type:"Mental",  power:75,  acc:100, pp:15, cat:"special",  effect:"crit",      ec:100, desc:"Flares with intense mental insight, always finding the critical point." },
+  insight_flare:{ name:"Insight Flare", type:"Mental",  power:75,  acc:100, pp:15, cat:"special",  effect:"crit",      ec:100, desc:"Flares with intense mental insight, with a high critical-hit ratio." },
   thought_crush:{ name:"Thought Crush", type:"Mental",  power:90,  acc:85,  pp:10, cat:"special",  effect:"defdown", ec:30,  desc:"Crushes the foe's mind with overwhelming psychokinetic force." },
   // --- Draconic ---
   draconic_breath:{ name:"Draconic Breath", type:"Draconic",   power:60,  acc:100, pp:20, cat:"special",  effect:"paralyze",  ec:30,  desc:"Exhales a dragon's breath. May paralyze." },
@@ -397,7 +397,7 @@ const MOVES_DATA = {
   compound_glare:{ name:"Compound Glare",type:"Nature",     power:0,   acc:100, pp:20, cat:"status",   effect:"spatkdown", ec:100, desc:"Fixes the foe with thousands of compound eyes, unnerving their focus." },
   pheromone_rush:{ name:"Pheromone Rush",type:"Nature",      power:60,  acc:100, pp:20, cat:"physical", effect:"priority",  ec:0,   desc:"Releases attack pheromones and charges with insectile speed." },
   cocoon_burst: { name:"Cocoon Burst",  type:"Nature",      power:85,  acc:95,  pp:10, cat:"special",  effect:"flinch",        ec:30,   desc:"Shatters its cocoon in an explosive burst of metamorphic energy." },
-  stinger_volley:{ name:"Stinger Volley",type:"Nature",     power:90,  acc:85,  pp:10, cat:"physical", effect:"poison",    ec:30,  desc:"Fires a volley of venomous stingers in rapid succession." },
+  stinger_lance:{ name:"Stinger Lance", type:"Nature",     power:90,  acc:85,  pp:10, cat:"physical", effect:"poison",    ec:30,  desc:"Drives a single venomous stinger deep into the foe. May poison." },
   moth_dust:    { name:"Moth Dust",     type:"Nature",      power:0,   acc:85,  pp:15, cat:"status",   effect:"sleep",     ec:100, desc:"Scatters iridescent scales from moth wings that induce deep sleep." },
 
   // --- SIGNATURE MOVES for remaining legendaries ---
@@ -443,7 +443,7 @@ const MOVES_DATA = {
 
   // Electric (+7 → 22)
   voltaic_rush:   { name:"Voltaic Rush",  type:"Electric", power:90,  acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"An electrified reckless tackle that also hurts the user." },
-  shock_pulse:    { name:"Shock Pulse",   type:"Electric", power:60,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"A wave of electricity that never misses." },
+  shock_pulse:    { name:"Shock Pulse",   type:"Electric", power:60,  acc:100, pp:20, cat:"special",  effect:null,        ec:0, neverMiss:true, desc:"A wave of electricity that never misses." },
   repulsion_field:   { name:"Repulsion Field", type:"Electric", power:0,   acc:100, pp:15, cat:"status",   effect:"speup",     ec:100, desc:"Levitates using electromagnetic force, boosting speed." },
   ion_cannon:    { name:"Ion Cannon",    type:"Electric", power:100, acc:85,  pp:5,  cat:"special",  effect:"spdefdown", ec:30,  desc:"Fires a concentrated beam of ions that shreds special defense." },
   chain_spark:   { name:"Chain Spark",   type:"Electric", power:70,  acc:95,  pp:15, cat:"special",  effect:"paralyze",  ec:20,  desc:"Sparks that chain between targets, likely to paralyze." },
@@ -460,7 +460,7 @@ const MOVES_DATA = {
 
   // Wind (+6 → 22)
   slicing_gale:    { name:"Slicing Gale",  type:"Wind",     power:80,  acc:100, pp:10, cat:"special",  effect:"crit",      ec:100, desc:"Fires blades of razor-sharp wind. High crit rate." },
-  falcon_dive:    { name:"Falcon Dive",   type:"Wind",     power:60,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"A swift aerial strike that never misses." },
+  falcon_dive:    { name:"Falcon Dive",   type:"Wind",     power:60,  acc:100, pp:20, cat:"physical", effect:null,        ec:0, neverMiss:true, desc:"A swift aerial strike that never misses." },
   storm_surge:   { name:"Storm Surge",   type:"Wind",     power:95,  acc:90,  pp:10, cat:"special",  effect:"spedown",   ec:30,  desc:"Unleashes a concentrated surge of storm energy." },
   plume_veil: { name:"Plume Veil",    type:"Wind",     power:0,   acc:100, pp:15, cat:"status",   effect:"atkdown",   ec:100, desc:"Scatters feathers that distract and weaken the foe's attacks." },
   slipstream:    { name:"Slipstream",    type:"Wind",     power:0,   acc:100, pp:15, cat:"status",   effect:"speup",     ec:100, desc:"Rides the slipstream to dramatically boost speed." },
@@ -539,7 +539,7 @@ const MOVES_DATA = {
   mantis_slash:   { name:"Mantis Slash",  type:"Nature",      power:40,  acc:95,  pp:20, cat:"physical", effect:"crit",        ec:100,   desc:"Slashes with scythe-like claws in a fury." },
   lumen_pulse:   { name:"Lumen Pulse",   type:"Nature",      power:75,  acc:100, pp:15, cat:"special",  effect:"confuse",   ec:10,  desc:"Fires a peculiar signal beam that confuses." },
   sap_bite:    { name:"Sap Bite",      type:"Nature",      power:80,  acc:100, pp:10, cat:"physical", effect:"drain",     ec:100, desc:"Drains the foe's blood to restore the user's HP." },
-  quill_barrage:   { name:"Quill Barrage", type:"Nature",      power:55,  acc:95,  pp:20, cat:"physical", effect:"hits",        ec:0,   desc:"Fires sharp pins at the foe in rapid succession." },
+  quill_barrage:   { name:"Quill Barrage", type:"Nature",      power:30,  acc:95,  pp:20, cat:"physical", effect:"defdown",     ec:20, hits:3, desc:"Fires a barrage of three sharp quills in rapid succession; the lodged barbs may lower Defense." },
   maul:         { name:"Maul",          type:"Nature",      power:80,  acc:100, pp:15, cat:"physical", effect:"atkdown",   ec:100, desc:"Lunges at the foe, lowering their Attack on contact." },
   infestation:   { name:"Infestation",   type:"Nature",      power:50,  acc:100, pp:20, cat:"special",  effect:"spedown",   ec:30,  desc:"Infests the foe with parasitic bugs that slow them down." },
   metamorphosis: { name:"Metamorphosis", type:"Nature",      power:0,   acc:100, pp:10, cat:"status",   effect:"calmup",    ec:100, desc:"Undergoes a transformation that sharpens special power and resilience." },
@@ -568,16 +568,16 @@ const MOVES_DATA = {
 
   // --- Aquatic (+7) ---
   aquatic_pulse:      { name:"Aquatic Pulse",       type:"Aquatic",    power:60,  acc:100, pp:20, cat:"special",  effect:"confuse",   ec:20,  desc:"A pulsing wave of water that may confuse the target." },
-  rain_cascade:     { name:"Rain Cascade",      type:"Aquatic",    power:55,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"A cascading downpour of rain that never misses its mark." },
+  rain_cascade:     { name:"Rain Cascade",      type:"Aquatic",    power:55,  acc:100, pp:20, cat:"special",  effect:null,        ec:0, neverMiss:true, desc:"A cascading downpour of rain that never misses its mark." },
   diving_strike:    { name:"Diving Strike",     type:"Aquatic",    power:80,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Dives deep then rockets up to slam the foe with crushing force." },
-  claw_hammer:       { name:"Claw Hammer",       type:"Aquatic",    power:100, acc:90,  pp:10, cat:"physical", effect:"crit",      ec:100, desc:"A massive claw strike at high speed — always finds a critical spot." },
+  claw_hammer:       { name:"Claw Hammer",       type:"Aquatic",    power:100, acc:90,  pp:10, cat:"physical", effect:"crit",      ec:100, desc:"A massive claw strike at high speed — high critical-hit ratio." },
   steam_geyser:     { name:"Steam Geyser",      type:"Aquatic",    power:90,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:30,  desc:"A column of superheated steam that may burn the target." },
   flood_tide:       { name:"Flood Tide",        type:"Aquatic",    power:0,   acc:100, pp:5,  cat:"status",   effect:"calmup_and_speup_self", ec:90, desc:"Rides the rising flood tide, bolstering special power, resilience, and speed." },
   ocean_crash:      { name:"Ocean Crash",       type:"Aquatic",    power:120, acc:85,  pp:5,  cat:"physical", effect:"defdown",   ec:30,  desc:"Crashes into the foe with the full force of a collapsing ocean wave." },
 
   // --- Grass (+7) ---
-  seed_volley:      { name:"Seed Volley",       type:"Nature",    power:65,  acc:100, pp:20, cat:"physical", effect:"hits",        ec:0,   desc:"Forcefully shoots seeds in rapid bursts at the target." },
-  fae_petals:     { name:"Fae Petals",        type:"Nature",    power:60,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Scatters leaves imbued with magical energy that never miss." },
+  seed_volley:      { name:"Seed Volley",       type:"Nature",    power:30,  acc:100, pp:20, cat:"physical", effect:null,          ec:0, hits:3, desc:"Forcefully shoots a volley of three seeds in rapid bursts at the target." },
+  fae_petals:     { name:"Fae Petals",        type:"Nature",    power:60,  acc:100, pp:20, cat:"special",  effect:null,        ec:0, neverMiss:true, desc:"Scatters leaves imbued with magical energy that never miss." },
   sap_seed:       { name:"Sap Seed",          type:"Nature",    power:0,   acc:90,  pp:10, cat:"status",   effect:"drain",     ec:100, desc:"Plants a parasitic seed on the foe that saps HP each turn." },
   foliage_tempest:       { name:"Foliage Tempest",   type:"Nature",    power:130, acc:90,  pp:5,  cat:"special",  effect:"spatkdown", ec:100, desc:"A savage storm of razor leaves that sharply lowers the user's Sp. Atk." },
   blossom_frenzy:      { name:"Blossom Frenzy",    type:"Nature",    power:120, acc:100, pp:10, cat:"special",  effect:"confuse",   ec:100, desc:"A whirling dance of petals for several turns, then confuses the user." },
@@ -603,7 +603,7 @@ const MOVES_DATA = {
   bone_cudgel:        { name:"Bone Cudgel",       type:"Earth",   power:65,  acc:85,  pp:20, cat:"physical", effect:"flinch",    ec:10,  desc:"Strikes the foe with a club-like bone. May cause flinching." },
 
   // --- Wind (+7) ---
-  breeze_blade:     { name:"Breeze Blade",      type:"Wind",     power:50,  acc:100, pp:20, cat:"physical", effect:"crit",      ec:100, desc:"Slices with focused wind so precisely it always finds a critical spot." },
+  breeze_blade:     { name:"Breeze Blade",      type:"Wind",     power:50,  acc:100, pp:20, cat:"physical", effect:"crit",      ec:100, desc:"Slices with focused wind so precisely it carries a high critical-hit ratio." },
   gale_strike:      { name:"Gale Strike",       type:"Wind",     power:70,  acc:100, pp:20, cat:"physical", effect:"speup",    ec:30,  desc:"A powerful strike backed by gale-force winds that may cause flinching." },
   suction_wave:      { name:"Suction Wave",      type:"Wind",     power:40,  acc:100, pp:30, cat:"special",  effect:"priority",  ec:0,   desc:"Creates a vacuum wave that strikes before the foe can react." },
   aerial_slam:      { name:"Aerial Slam",       type:"Wind",     power:90,  acc:95,  pp:10, cat:"physical", effect:"defdown",    ec:30,  desc:"Soars high then slams the foe with the full force of a high-altitude dive." },
@@ -632,7 +632,7 @@ const MOVES_DATA = {
   abyss_stare:      { name:"Abyss Stare",       type:"Dark",     power:0,   acc:100, pp:15, cat:"status",   effect:"spatkdown", ec:100, desc:"Fixes the target with a gaze from the bottomless abyss, sapping special power." },
 
   // --- Fairy (+7) ---
-  disarming_voice:  { name:"Disarming Voice",   type:"Fairy",    power:40,  acc:100, pp:15, cat:"special",  effect:null,        ec:0,   desc:"A melodic cry that never misses and disarms the foe's heart." },
+  disarming_voice:  { name:"Disarming Voice",   type:"Fairy",    power:40,  acc:100, pp:15, cat:"special",  effect:null,        ec:0, neverMiss:true, desc:"A melodic cry that never misses and disarms the foe's heart." },
   beguile:            { name:"Beguile",             type:"Fairy",    power:0,   acc:100, pp:20, cat:"status",   effect:"atkdown",   ec:100, desc:"Charms the foe with cuteness, sharply lowering its Attack." },
   moonglow:        { name:"Moonglow",         type:"Fairy",    power:0,   acc:100, pp:10, cat:"status",   effect:"heal50",    ec:100, desc:"Bathes in moonlight to restore the user's HP." },
   misty_explosion:  { name:"Misty Explosion",   type:"Fairy",    power:100, acc:100, pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Explodes in a burst of mystic mist, dealing heavy damage at a cost." },
@@ -643,8 +643,8 @@ const MOVES_DATA = {
   // --- Metal (+7) ---
   grating_din:      { name:"Grating Din",       type:"Metal",    power:0,   acc:85,  pp:40, cat:"status",   effect:"spdefdown", ec:100, desc:"Scrapes metal to produce a horrible sound that sharply lowers Sp. Def." },
   bulwark:     { name:"Bulwark",      type:"Metal",    power:0,   acc:100, pp:15, cat:"status",   effect:"defup",     ec:100, desc:"Hardens the body like iron, sharply raising the user's Defense." },
-  magnetic_mine:      { name:"Magnetic Mine",       type:"Metal",    power:60,  acc:100, pp:20, cat:"physical", effect:null,        ec:0,   desc:"Launches a magnetic bomb that homes in on the target and never misses." },
-  smart_strike:     { name:"Smart Strike",      type:"Metal",    power:70,  acc:100, pp:10, cat:"physical", effect:null,        ec:0,   desc:"Strikes with calculated precision — never missing its mark." },
+  magnetic_mine:      { name:"Magnetic Mine",       type:"Metal",    power:60,  acc:100, pp:20, cat:"physical", effect:null,        ec:0, neverMiss:true, desc:"Launches a magnetic bomb that homes in on the target and never misses." },
+  smart_strike:     { name:"Smart Strike",      type:"Metal",    power:70,  acc:100, pp:10, cat:"physical", effect:null,        ec:0, neverMiss:true, desc:"Strikes with calculated precision — never missing its mark." },
   solar_impact:  { name:"Solar Impact",   type:"Metal",    power:100, acc:100, pp:10, cat:"physical", effect:null,        ec:0,   desc:"Charges with the force of a meteorite, ignoring the target's defenses." },
   titan_blade:      { name:"Titan Blade",       type:"Metal",    power:110, acc:90,  pp:10, cat:"physical", effect:"recoil",    ec:100, desc:"Swings a blade of titanic steel with overwhelming force, damaging the user too." },
   metal_roller:     { name:"Metal Roller",      type:"Metal",    power:130, acc:90,  pp:5,  cat:"physical", effect:"defdown",   ec:30,  desc:"Rolls over the foe with massive steel momentum, crushing through their guard." },
@@ -684,13 +684,13 @@ const MOVES_DATA = {
   meteor_strike:    { name:"Meteor Strike",     type:"Earth",     power:140, acc:85,  pp:5,  cat:"special",  effect:"recharge",  ec:100, desc:"Calls down a meteorite from above. Must rest on the following turn." },
   stone_cleave:        { name:"Stone Cleave",         type:"Earth",     power:65,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Strikes with the cleaving force of a stone axe, splitting through armor." },
   boulder_wrecker:     { name:"Boulder Wrecker",      type:"Earth",     power:150, acc:90,  pp:5,  cat:"physical", effect:"recharge",  ec:100, desc:"A devastating rock-shattering blow that requires rest on the next turn." },
-  crystal_spear:    { name:"Crystal Spear",     type:"Earth",     power:80,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"A spear of pure crystal that always strikes a critical point." },
+  crystal_spear:    { name:"Crystal Spear",     type:"Earth",     power:80,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"A spear of pure crystal with a high critical-hit ratio." },
 
   // --- Bug (+7) ---
   quiver_dance:     { name:"Quiver Dance",      type:"Nature",      power:0,   acc:100, pp:20, cat:"status",   effect:"calmup",    ec:100, desc:"A mystical dance that raises the user's special power, resilience, and Speed." },
   sticky_web:       { name:"Sticky Web",        type:"Nature",      power:0,   acc:100, pp:20, cat:"status",   effect:"spedown",   ec:100, desc:"Shoots a sticky web that significantly slows the target." },
-  twin_sting:        { name:"Twin Sting",        type:"Nature",      power:50,  acc:100, pp:20, cat:"physical", effect:"poison",    ec:20,  desc:"Stings the foe twice with a sharp stinger. May poison." },
-  swarm_strike:     { name:"Swarm Strike",      type:"Nature",      power:90,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Commands bug allies to swarm the foe — their unified assault always finds weak points." },
+  twin_sting:        { name:"Twin Sting",        type:"Nature",      power:40,  acc:100, pp:20, cat:"physical", effect:"poison",    ec:20, hits:2, desc:"Stings the foe twice with a sharp stinger. May poison." },
+  swarm_strike:     { name:"Swarm Strike",      type:"Nature",      power:90,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"Commands bug allies to swarm the foe — a relentless assault with a high critical-hit ratio." },
   locust_fury:       { name:"Locust Fury",        type:"Nature",      power:80,  acc:100, pp:15, cat:"physical", effect:"recoil",    ec:100, desc:"An unrelenting swarming assault that exhausts the user as well." },
   cocoon_guard:     { name:"Cocoon Guard",      type:"Nature",      power:0,   acc:100, pp:20, cat:"status",   effect:"defup",     ec:100, desc:"Wraps the body in a hardened cocoon shell, dramatically raising Defense." },
   hivemind_surge:   { name:"Hivemind Surge",    type:"Nature",      power:110, acc:90,  pp:10, cat:"special",  effect:"spaup",        ec:30,   desc:"Channels the collective power of a hivemind into a single devastating burst." },
@@ -1610,7 +1610,7 @@ const MONSTERS_DATA = {
   // ===== ADDITIONAL FIRE =====
   10: { id:10, name:"Scorchlarva",  emoji:"🐛", types:["Fire","Nature"],
     base:{hp:54,atk:68,def:37,spa:43,spd:43,spe:48},
-    learnset:[[1,"collide",[20,"cinderwhirl"]],[1,"flicker"],[8,"mandible_bite"],[15,"flame_fang"],[17,"war_dance"],[22,"shear_strike",[5,"scorch_veil"]],[29,"venom_drool"],[39,"stinger_volley"]],
+    learnset:[[1,"collide",[20,"cinderwhirl"]],[1,"flicker"],[8,"mandible_bite"],[15,"flame_fang"],[17,"war_dance"],[22,"shear_strike",[5,"scorch_veil"]],[29,"venom_drool"],[39,"stinger_lance"]],
     evolveTo:11, evolveLevel:18, catchRate:255, expYield:56, rarity:"common",
     desc:"A fire beetle larva. Leaves scorch marks wherever it walks.",
     lore:"Scorchlarva is a chubby flame-patterned caterpillar about 20 cm long. Its body segments alternate vivid orange and smoky black, with two antennae that glow orange at the tips. It feeds on dried bark near volcanic soil, and its silk threads are heat-resistant enough to be woven into flame-proof cloth." },
@@ -2278,7 +2278,7 @@ const MONSTERS_DATA = {
 
   199: { id:199, name:"Aeridaleth",emoji:"🦋", types:["Nature","Wind"],
     base:{hp:73,atk:39,def:53,spa:104,spd:85,spe:93},
-    learnset:[[14,"baleful_stare"],[18,"silk_spray"],[22,"breeze"],[26,"graze"],[30,"silk_bind"],[34,"sonic_buzz"],[38,"wind_scythe"],[42,"prism_flare"],[46,"shear_strike"],[50,"resonance_hum"],[54,"stinger_volley"],[58,"typhoon"],[3,"chitin_guard"],[39,"cocoon_burst"],[60,"suction_wave"]],
+    learnset:[[14,"baleful_stare"],[18,"silk_spray"],[22,"breeze"],[26,"graze"],[30,"silk_bind"],[34,"sonic_buzz"],[38,"wind_scythe"],[42,"prism_flare"],[46,"shear_strike"],[50,"resonance_hum"],[54,"stinger_lance"],[58,"typhoon"],[3,"chitin_guard"],[39,"cocoon_burst"],[60,"suction_wave"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:170, rarity:"uncommon",
     desc:"A glorious butterfly of wind and beauty. Its wing patterns mesmerize foes.",
     lore:"Aeridaleth is a large butterfly 60 cm wingspan with wings displaying intricate patterns in deep teal, gold, and black. It emerged from Chrysalix through a dramatic transformation. It undertakes migrations of thousands of kilometres, navigating by magnetic fields and producing a floral scent that persists in its wake for hours." },
@@ -2292,7 +2292,7 @@ const MONSTERS_DATA = {
 
   201: { id:201, name:"Scarabion",  emoji:"🪲", types:["Nature","Metal"],
     base:{hp:88,atk:124,def:94,spa:64,spd:69,spe:46},
-    learnset:[[1,"shear_strike"],[2,"silk_spray"],[3,"chitin_guard"],[15,"chrome_claw"],[25,"stone_slide"],[28,"alloy_edge"],[30,"fortify"],[31,"crag_strike"],[33,"swarm_dive"],[35,"pheromone_rush"],[39,"cocoon_burst"],[40,"forge_blast_2"],[45,"resonance_hum"],[50,"stinger_volley"],[55,"alloy_tail"],[60,"radiance_cannon"]],
+    learnset:[[1,"shear_strike"],[2,"silk_spray"],[3,"chitin_guard"],[15,"chrome_claw"],[25,"stone_slide"],[28,"alloy_edge"],[30,"fortify"],[31,"crag_strike"],[33,"swarm_dive"],[35,"pheromone_rush"],[39,"cocoon_burst"],[40,"forge_blast_2"],[45,"resonance_hum"],[50,"stinger_lance"],[55,"alloy_tail"],[60,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:220, rarity:"uncommon",
     desc:"A steel beetle of terrifying might. Its mandibles can cut through iron.",
     lore:"Scarabion is a large scarab beetle 20 cm long — Iridibeetle's iridescent emerald-sapphire wing-case has darkened and metallised into a copper-gold carapace etched with natural hieroglyphic-like patterns. Its wide horns are used to roll large balls of compressed organic material that it buries as food caches. Ancient cultures venerated it as a symbol of renewal and persistence." },
@@ -3570,14 +3570,14 @@ const MONSTERS_DATA = {
   // ===== WIND/ICE =====
   61: { id:61, name:"Gelspike", emoji:"🦔", types:["Ice","Poison"],
     base:{hp:34,atk:45,def:36,spa:64,spd:47,spe:93},
-    learnset:[[1,"septic_prick"],[1,"flurries"],[3,"toxify"],[4,"icy_shot"],[8,"fortify"],[10,"frigid_jab"],[12,"frost_bite"],[14,"flash_freeze"],[16,"permafrost"],[18,"icicle_volley"],[20,"corrosive_bite"],[22,"cryo_lance"],[24,"venom_lance"],[26,"venom_jab"],[28,"bane_caltrops"],[29,"ooze_bomb"],[31,"stinger_volley"],[32,"cold_beam"],[40,"virulent_surge",[5,"mistveil"]]],
+    learnset:[[1,"septic_prick"],[1,"flurries"],[3,"toxify"],[4,"icy_shot"],[8,"fortify"],[10,"frigid_jab"],[12,"frost_bite"],[14,"flash_freeze"],[16,"permafrost"],[18,"icicle_volley"],[20,"corrosive_bite"],[22,"cryo_lance"],[24,"venom_lance"],[26,"venom_jab"],[28,"bane_caltrops"],[29,"ooze_bomb"],[31,"stinger_lance"],[32,"cold_beam"],[40,"virulent_surge",[5,"mistveil"]]],
     evolveTo:62, evolveLevel:26, catchRate:180, expYield:78, rarity:"common",
     desc:"A small ice hedgehog whose translucent quills are tipped with paralytic frost-venom. A faintly numbing chill-mist hangs around it at all times.",
     lore:"Gelspike is a compact creature about 60 cm tall shaped like a hedgehog. Its body is pale ice-blue and covered in dozens of sharp translucent ice spines that project outward in all directions, each tipped with a clear bead of paralytic frost-venom that crystallises on contact with air. A toxic chill-mist drifts around it constantly — breathable but distinctly numbing to anything that lingers nearby. It rolls into a venomous spiky ball when threatened, allowing wind to carry it across frozen plains while leaving a faint trail of stinging mist behind." },
 
   62: { id:62, name:"Gelwing", emoji:"🦔", types:["Ice","Poison"],
     base:{hp:74,atk:66,def:61,spa:106,spd:78,spe:92},
-    learnset:[[1,"septic_prick"],[2,"venom_lance"],[3,"mistveil"],[4,"toxify"],[10,"icicle_volley"],[16,"flash_freeze"],[22,"blizzard_charge"],[26,"icicle_smash"],[29,"cold_beam"],[31,"battle_cry"],[36,"sleet_barrage"],[37,"putrid_pulse"],[40,"ooze_bomb"],[41,"stinger_volley"],[46,"frost_crash"],[51,"avalanche_drive"],[56,"whiteout"],[61,"radiance_cannon"]],
+    learnset:[[1,"septic_prick"],[2,"venom_lance"],[3,"mistveil"],[4,"toxify"],[10,"icicle_volley"],[16,"flash_freeze"],[22,"blizzard_charge"],[26,"icicle_smash"],[29,"cold_beam"],[31,"battle_cry"],[36,"sleet_barrage"],[37,"putrid_pulse"],[40,"ooze_bomb"],[41,"stinger_lance"],[46,"frost_crash"],[51,"avalanche_drive"],[56,"whiteout"],[61,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
     desc:"A large ice-porcupine whose blade-quills carry a paralytic frost-venom. Launches volleys of toxic spines and tucks into a wind-borne ball of poisoned ice when threatened.",
     lore:"Gelwing is a large adult ice-porcupine roughly 1.2 metres long and 70 cm at the shoulder — Gelspike's pale ice-blue hedgehog body has lengthened and its short translucent spines have grown into long blade-quills along its back, flanks, and tail — translucent ice tipped in pale blue, the longest reaching nearly 40 centimetres — and each one weeps a slow bead of paralytic frost-venom that freezes solid on whatever flesh it pierces. It hunts mountain prey by detecting their breath on the wind and launching volleys of envenomed quills with sharp shrugs of its haunches; in flight or pursuit it folds entirely into a wind-borne rolling sphere, picked up by glacial gusts and rocketed across frozen passes leaving a thin trail of toxic mist in its wake. Spent quills regrow within hours from its constantly forming inner frost." },
@@ -3766,7 +3766,7 @@ const MONSTERS_DATA = {
   // 186: Noxarith - Aquatic/Poison (Toxaquil→Noxaquith→Noxarith)
   33: { id:33, name:"Septanemone", emoji:"🦑", types:["Aquatic","Poison"],
     base:{hp:92,atk:98,def:87,spa:127,spd:98,spe:48},
-    learnset:[[1,"ooze_bomb"],[1,"tidal_rush"],[2,"tidecaller"],[3,"toxify"],[4,"corrosion_fang"],[38,"venom_lance"],[42,"sludge_wave"],[46,"tsunami"],[50,"acid_rain"],[54,"virulent_surge"],[58,"putrid_pulse"],[62,"stinger_volley"],[5,"deepwater_hymn"],[44,"miasma_cloud"]],
+    learnset:[[1,"ooze_bomb"],[1,"tidal_rush"],[2,"tidecaller"],[3,"toxify"],[4,"corrosion_fang"],[38,"venom_lance"],[42,"sludge_wave"],[46,"tsunami"],[50,"acid_rain"],[54,"virulent_surge"],[58,"putrid_pulse"],[62,"stinger_lance"],[5,"deepwater_hymn"],[44,"miasma_cloud"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A massive bloomed cephalopod that drifts through poison-clouded waters. Its venom-tipped tentacles unfurl like the petals of a deep-sea anemone.",
     lore:"Septanemone is a colossal bloomed cephalopod nearly 3.5 metres from beak to outermost tentacle-tip — Noxaquith's navy hood has flared open and bloomed into a bell-shaped mantle patterned in deep crimson and bruised violet, and its poisoned ink has specialised into stinging cells that scatter from soft frills around its body like the inverted petals of a vast sea anemone — a bloom from which seven main tentacles, each tipped with venomous barbs, unfurl in a wide circle. Smaller stinging cells scatter from the frills as it swims, leaving drifting clouds that paralyse plankton and small fish drawn in by its vivid colouration. It cruises slowly through poison-saturated waters using rhythmic jets from its mantle, anchoring briefly to rocky outcroppings only when digesting a large meal — never permanently sessile." },
@@ -3838,7 +3838,7 @@ const MONSTERS_DATA = {
   // 195: Zapoveth - Electric/Bug (Electrix→Voltharpe→Zapoveth)
   86: { id:86, name:"Galvaglide", emoji:"🪰", types:["Electric","Nature"],
     base:{hp:84,atk:89,def:69,spa:129,spd:84,spe:95},
-    learnset:[[1,"jolt"],[1,"resonance_hum"],[2,"volt_jet"],[3,"shear_strike"],[4,"stun_pulse"],[5,"static_cage"],[10,"chain_spark"],[20,"repulsion_field"],[30,"shock_net"],[38,"stormbolt"],[42,"volt_surge"],[44,"silk_bind"],[46,"swarm_dive"],[50,"plasma_strike"],[54,"mandible_crush"],[58,"ion_cannon"],[62,"stinger_volley"]],
+    learnset:[[1,"jolt"],[1,"resonance_hum"],[2,"volt_jet"],[3,"shear_strike"],[4,"stun_pulse"],[5,"static_cage"],[10,"chain_spark"],[20,"repulsion_field"],[30,"shock_net"],[38,"stormbolt"],[42,"volt_surge"],[44,"silk_bind"],[46,"swarm_dive"],[50,"plasma_strike"],[54,"mandible_crush"],[58,"ion_cannon"],[62,"stinger_lance"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
     desc:"A dragonfly of pure lightning. Its body discharges with every wingbeat; to be caught in its swarm is to stand in a thunderstorm.",
     lore:"Galvaglide is a dragonfly-like creature with a 40 cm wingspan — Shockharpe's translucent late-instar wings have hardened to translucent gold and now crackle with static charge, and its hooked predatory mandibles have refined into precision strike-points. Its slender body is vivid yellow. It hunts in flight, hovering stationary before striking prey with a precisely targeted electrical discharge from its forward-pointing tail." },
@@ -3870,7 +3870,7 @@ const MONSTERS_DATA = {
   // 199: Geovenomvast - Ground/Poison (Aridix→Geovenoth→Geovenomvast)
   100: { id:100, name:"Craterlurk", emoji:"🦂", types:["Earth","Poison"],
     base:{hp:89,atk:119,def:89,spa:105,spd:99,spe:49},
-    learnset:[[1,"septic_prick"],[1,"tectonic_shift"],[2,"venom_lance"],[3,"geoblast"],[4,"toxify"],[38,"sludge_wave"],[42,"miasma_cloud"],[46,"scorched_earth"],[50,"acid_rain"],[54,"sand_geyser"],[58,"stinger_volley"],[62,"toxic_surge"],[5,"clay_armor"],[44,"corrosion_fang"]],
+    learnset:[[1,"septic_prick"],[1,"tectonic_shift"],[2,"venom_lance"],[3,"geoblast"],[4,"toxify"],[38,"sludge_wave"],[42,"miasma_cloud"],[46,"scorched_earth"],[50,"acid_rain"],[54,"sand_geyser"],[58,"stinger_lance"],[62,"toxic_surge"],[5,"clay_armor"],[44,"corrosion_fang"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
     desc:"A scorpion tyrant of the poisoned badlands. Its stinger contains enough venom to wilt an entire forest, and its tail leaves craters in the earth.",
     lore:"Craterlurk is a colossal scorpion nearly 2 metres long — Toxivenoth's teal-green exoskeleton has darkened to dark purple-black chitin across an enormous broad carapace. Its eight legs move with disturbing silence. The stinger at the end of its tail stores enough venom to incapacitate a creature ten times its size. It is rarely seen during daylight hours." },

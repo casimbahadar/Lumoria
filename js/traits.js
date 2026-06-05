@@ -422,17 +422,11 @@ const ABILITY_REGISTRY = {
 
   echo_chamber: {
     name: "Echo Chamber",
-    emoji: "🔇",
+    emoji: "📢",
     cssClass: "trait-echo-chamber",
-    description: "Sonic moves heal 25% max HP; immune to Sonic damage.",
+    description: "Sonic moves used by this Lumori deal +50% power, amplified through resonant cavities.",
     ngPlusOnly: false,
-    incomingDmgMod: (_d, _e, move) => move.type === "Sonic" ? 0 : 1,
-    onIncomingHit: (mon, _e, move) => {
-      if (move.type !== "Sonic") return null;
-      const heal = Math.max(1, Math.floor(mon.maxHP * 0.25));
-      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
-      return { msg: `🔇 Echo Chamber: ${mon.name} healed ${heal} HP!` };
-    },
+    outgoingPowerMod: (_a, _e, move) => move.type === "Sonic" ? 1.5 : 1,
   },
 
   vapor_vent: {

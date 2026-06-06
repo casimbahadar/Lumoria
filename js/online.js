@@ -1203,8 +1203,30 @@ function liveRealDamage(attackerS, moveId, defenderS) {
   const move = MOVES_DATA[moveId];
   if (!move || !move.power) return { damage: 0, effectiveness: 1, crit: false };
   try {
-    const res = calcDamage(liveCalcMon(attackerS), liveCalcMon(defenderS), move);
-    return (typeof res === "object") ? res : { damage: res, effectiveness: 1, crit: false };
+    const atk = liveCalcMon(attackerS), def = liveCalcMon(defenderS);
+    // Multi-hit parity with the single-player engine (game.js applyMove): move.hits
+    // may be a fixed count or a [min,max] range ([2,5] weighted 35/35/15/15). Without
+    // this loop, moves whose per-hit power was lowered for multi-hit (e.g. basalt_volley,
+    // bone_barrage) would deal only a single hit's damage in live battles.
+    let hitCount = 1;
+    if (Array.isArray(move.hits)) {
+      const [mn, mx] = move.hits;
+      if (mn === 2 && mx === 5) {
+        const r = Math.random();
+        hitCount = r < 0.35 ? 2 : r < 0.70 ? 3 : r < 0.85 ? 4 : 5;
+      } else {
+        hitCount = mn + Math.floor(Math.random() * (mx - mn + 1));
+      }
+    } else if (move.hits) {
+      hitCount = move.hits;
+    }
+    let total = 0, crit = false, eff = 1;
+    for (let h = 0; h < hitCount; h++) {
+      const res = calcDamage(atk, def, move);
+      const r = (typeof res === "object") ? res : { damage: res, effectiveness: 1, crit: false };
+      total += r.damage; crit = crit || r.crit; eff = r.effectiveness;
+    }
+    return { damage: total, effectiveness: eff, crit, hits: hitCount };
   } catch (e) {
     return { damage: livePvPFlatDamage(attackerS, moveId, defenderS), effectiveness: 1, crit: false };
   }

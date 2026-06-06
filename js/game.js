@@ -1475,11 +1475,15 @@ async function playerUseBattleItem(itemId, monIdx) {
 }
 
 function getTypeColor(type) {
+  // 26-type palette — keep in sync with the .type-* classes in css/style.css.
   const colors = {
-    Fire:"#ff6b35",Water:"#4da6ff",Grass:"#4caf50",Electric:"#ffd700",
-    Ground:"#c8a045",Wind:"#7ec8e3",Ice:"#96d5d5",Dark:"#5a4a6e",
-    Fairy:"#ff69b4",Steel:"#9e9e9e",Poison:"#9b59b6",Psychic:"#ff4081",
-    Dragon:"#7038f8",Normal:"#a8a878",Rock:"#b8a038",Bug:"#a8b820"
+    Fire:"#ff6b35",Aquatic:"#4da6ff",Nature:"#4caf50",Electric:"#ffd700",
+    Earth:"#c8a045",Wind:"#7ec8e3",Ice:"#96d5d5",Dark:"#5a4a6e",
+    Fairy:"#ff69b4",Metal:"#9e9e9e",Poison:"#9b59b6",Mental:"#ff4081",
+    Draconic:"#7038f8",Normal:"#a8a878",Spectral:"#6e5db0",Fighting:"#c0392b",
+    Aether:"#d8c0ff",Crystal:"#56d2e0",Primal:"#a0522d",Sonic:"#5d7bf0",
+    Vapor:"#9fb8c8",Mineral:"#b8a038",Toxin:"#aacc2a",Chrono:"#c490d8",
+    Stellar:"#3949ab",Dream:"#a99fe0"
   };
   return colors[type] || "#666";
 }
@@ -1949,7 +1953,7 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
   else if (lastResult.effectiveness === 0) logMsg("It had no effect!", "log-immune");
   if (lastResult.crit) logMsg("A critical hit!", "log-damage");
 
-  logMsg(`${defender.name} took ${totalDamage} damage!`, "log-damage");
+  if (totalDamage > 0) logMsg(`${defender.name} took ${totalDamage} damage!`, "log-damage");
   if (sashTriggered) logMsg(`${defender.name}'s Focus Sash kept it standing!`, "log-status");
 
   // Phase 3 follow-up: Bonded ally-share (multi-battle only — opts.allies undefined in 1v1)
@@ -2079,9 +2083,13 @@ function endBattle(outcome, slot, levelUps) {
   for (const mon of G.team) {
     if (mon) clearStatuses(mon);
   }
-  // Consume one-time legendary forgotten encounter on any resolution (caught,
-  // ran, lost, won). Once marked, the area-entry hook won't re-trigger it.
-  if (battleContext.isLegendaryForgotten && battleContext.legendaryForgottenMonId) {
+  // Consume the one-time legendary Forgotten encounter only on a DELIBERATE
+  // resolution — caught (you got it) or ran (you chose to walk away). A KO ("won")
+  // or blackout ("lost") leaves it un-consumed so the area-entry hook re-triggers
+  // it: an accidental knockout or a loss can't permanently lock the species out of
+  // the save (catchRate:3 means catch attempts routinely fail).
+  if (battleContext.isLegendaryForgotten && battleContext.legendaryForgottenMonId
+      && (outcome === "caught" || outcome === "ran")) {
     if (!G.forgottenLegendaryAttempted) G.forgottenLegendaryAttempted = [];
     if (!G.forgottenLegendaryAttempted.includes(battleContext.legendaryForgottenMonId)) {
       G.forgottenLegendaryAttempted.push(battleContext.legendaryForgottenMonId);
@@ -3377,7 +3385,7 @@ function triggerForgottenLegendaryEncounter(enc) {
   const areaName = WORLD_DATA[w.location]?.name || w.location;
   const lines = [
     `${w.emoji || "🌌"} <strong>${w.name}</strong> reappears as you enter ${areaName}.`,
-    `${w.emoji || "🌌"} <strong>${w.name}</strong>: "Our duel awakened something in the bond between us and our Lumori. ${def.name} has chosen to test you. Make this chance count — it will not come again."`,
+    `${w.emoji || "🌌"} <strong>${w.name}</strong>: "Our duel awakened something in the bond between us and our Lumori. ${def.name} has chosen to test you. Capture it — or turn and flee — and this chance is gone. But should it best you in battle, the bond will summon it to test you once more."`,
     `🌌 A wild <strong>${def.name}</strong> appears!`
   ];
   showStoryMessage(lines, 0, () => {

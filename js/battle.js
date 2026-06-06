@@ -1137,6 +1137,10 @@ function calcDamage(attacker, defender, move, opts = {}) {
   if (defender.variantImmune && (move.type === defender.variantImmune || (move.dualType || []).includes(defender.variantImmune))) {
     return { damage: 0, effectiveness: 0, crit: false };
   }
+  // True type immunity (0x): deal no damage. Returning here avoids the final
+  // Math.max(1, dmg) clamp chipping 1 HP through an immunity (and the
+  // contradictory "It had no effect!" + "took 1 damage!" log).
+  if (eff === 0) return { damage: 0, effectiveness: 0, crit: false };
   dmg = Math.floor(dmg * eff);
 
   // Incoming dmg multiplier from defender's active statuses (Drenched/Soaked type mods,
@@ -1180,6 +1184,7 @@ const STAGE_FX = {
   defup:     { who:'a', stat:'def', delta:+1, msg:'Defense rose' },
   defup2:    { who:'a', stat:'def', delta:+2, msg:'Defense rose sharply' },
   speup:     { who:'a', stat:'spe', delta:+1, msg:'Speed rose' },
+  speup2:    { who:'a', stat:'spe', delta:+2, msg:'Speed rose sharply' },
   spaup:     { who:'a', stat:'spa', delta:+1, msg:'Sp.Atk rose' },
   spaup2:    { who:'a', stat:'spa', delta:+2, msg:'Sp.Atk rose sharply' },
   spatkup:   { who:'a', stat:'spa', delta:+1, msg:'Sp.Atk rose' }, // synonym for spaup

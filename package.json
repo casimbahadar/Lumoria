@@ -1,0 +1,9 @@
+{
+  "name": "lumoria",
+  "private": true,
+  "description": "Lumoria — browser monster-catching RPG.",
+  "scripts": {
+    "test": "node scripts/validate.js",
+    "validate": "node scripts/validate.js"
+  }
+}

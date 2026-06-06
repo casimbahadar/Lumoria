@@ -67,7 +67,11 @@ const LB_CATEGORIES = [
 ];
 
 async function submitLeaderboardScore(category) {
-  if (!requireOnline() || !G) return;
+  // Passive/background submit (fires on catch, NG+, event points). Must fail
+  // SILENTLY when offline — requireOnline() would pop "Online features
+  // unavailable" on every catch. requireOnline() stays for user-initiated
+  // actions only (showLeaderboards, PvP entry, etc.).
+  if (!onlineReady || !G) return;
   const cat = LB_CATEGORIES.find(c => c.id === category);
   if (!cat) return;
   const value = cat.getValue(G);

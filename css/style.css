@@ -22,23 +22,33 @@
   --xp-color: #58a6ff;
 }
 
-/* Type Colors */
+/* Type Colors (26-type palette — keep in sync with getTypeColor() in js/game.js) */
 .type-Fire { background: #ff6b35; }
-.type-Water { background: #4da6ff; }
-.type-Grass { background: #4caf50; }
+.type-Aquatic { background: #4da6ff; }
+.type-Nature { background: #4caf50; }
 .type-Electric { background: #ffd700; color: #333; }
-.type-Ground { background: #c8a045; }
+.type-Earth { background: #c8a045; }
 .type-Wind { background: #7ec8e3; color: #333; }
 .type-Ice { background: #96d5d5; color: #333; }
 .type-Dark { background: #5a4a6e; }
 .type-Fairy { background: #ff69b4; }
-.type-Steel { background: #9e9e9e; }
+.type-Metal { background: #9e9e9e; }
 .type-Poison { background: #9b59b6; }
-.type-Psychic { background: #ff4081; }
-.type-Dragon { background: #7038f8; }
+.type-Mental { background: #ff4081; }
+.type-Draconic { background: #7038f8; }
 .type-Normal { background: #a8a878; color: #333; }
-.type-Rock { background: #b8a038; }
-.type-Bug { background: #a8b820; color: #333; }
+.type-Spectral { background: #6e5db0; }
+.type-Fighting { background: #c0392b; }
+.type-Aether { background: #d8c0ff; color: #333; }
+.type-Crystal { background: #56d2e0; color: #333; }
+.type-Primal { background: #a0522d; }
+.type-Sonic { background: #5d7bf0; }
+.type-Vapor { background: #9fb8c8; color: #333; }
+.type-Mineral { background: #b8a038; }
+.type-Toxin { background: #aacc2a; color: #333; }
+.type-Chrono { background: #c490d8; }
+.type-Stellar { background: #3949ab; }
+.type-Dream { background: #a99fe0; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1695,7 +1705,11 @@ button, a, [role="button"] {
 /* Minimum touch target size (Apple HIG: 44px) */
 .btn-primary, .btn-secondary, .btn-action, .battle-btn,
 .nav-btn, .move-btn, .catch-item-btn, .switch-mon-btn,
-.starter-card, .team-card, .dex-card, .bag-item { min-height: 44px; }
+.starter-card, .team-card, .dex-card, .bag-item,
+.btn-back, .btn-back-menu, .back-btn { min-height: 44px; }
+
+/* Icon-only ✕ close button: give it a square 44×44 hit area and center the glyph */
+.btn-back-menu { min-width: 44px; display: inline-flex; align-items: center; justify-content: center; }
 
 /* ---- Tablet (≤768px) ---- */
 @media (max-width: 768px) {

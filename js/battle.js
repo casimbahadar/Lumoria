@@ -783,6 +783,7 @@ function applyPlagueSpread(fieldMons) {
 // Combines: attacker's stages.acc + defender's stages.eva (Pokemon-style accuracy stages)
 // with passive accuracyMod hooks from active statuses (Smothered, Faded, Mirage, etc.).
 function getEffectiveAccuracy(attacker, defender, move) {
+  if (move.neverMiss) return 100;
   if (shouldForceHit(attacker)) return 100;
   const accStage = (attacker.stages && attacker.stages.acc) || 0;
   const evaStage = (defender.stages && defender.stages.eva) || 0;
@@ -1142,6 +1143,16 @@ function calcDamage(attacker, defender, move, opts = {}) {
   // Brittle physical-amp, Marked/Hunted dmg-amp, Phase-shifted alternating, Deafen Sonic-immune).
   const incomingMod = getIncomingDmgMod(defender, move, attacker);
   dmg = Math.floor(dmg * incomingMod);
+
+  // Status-exploit moves: 2x damage if the defender carries the targeted status.
+  // move.bonusVsStatus may be a status-type string, an array of types, or "any".
+  if (move.bonusVsStatus && defender.statuses && defender.statuses.length) {
+    const want = move.bonusVsStatus;
+    const hit = want === "any"
+      ? true
+      : (Array.isArray(want) ? want : [want]).some(t => hasStatus(defender, t));
+    if (hit) dmg = Math.floor(dmg * 2);
+  }
 
   let critRate = move.effect === "crit" ? 25 : 6.25;
   if (atkHeld?.effect === "critUp") critRate = Math.min(50, critRate * 2);

@@ -1189,25 +1189,28 @@ function buildLiveTeam() {
 }
 
 // Reconstruct a calcDamage-ready mon from a stored live stat block. Stages start
-// neutral and statuses empty each turn (live doesn't persist them across turns —
-// see docs/pvp-spec.md), but the damage exchange itself is full-fidelity.
-function liveCalcMon(s) {
+// neutral each turn (stat-stage changes are not persisted live), but `statuses`
+// are now carried across turns by the resolver and passed in here, so calcDamage
+// honours bonusVsStatus, burn's physical halving, status statMod, and
+// incomingDmgMod exactly as single-player does.
+function liveCalcMon(s, statuses) {
   return {
     level: s.level, atk: s.atk, def: s.def, spa: s.spa, spd: s.spd, spe: s.spe,
     types: s.types || [], maxHP: s.maxHP, heldItem: s.heldItem || null,
     variantImmune: s.variantImmune || null,
-    stages: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0, acc: 0, eva: 0 }, statuses: [],
+    stages: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0, acc: 0, eva: 0 },
+    statuses: Array.isArray(statuses) ? statuses : [],
   };
 }
 
 // Real-engine live damage: physical/special split, crit, held items, exact
 // formula, type chart, STAB, variant immunity. Falls back to a flat formula only
 // if calcDamage is somehow unavailable.
-function liveRealDamage(attackerS, moveId, defenderS) {
+function liveRealDamage(attackerS, moveId, defenderS, opts = {}) {
   const move = MOVES_DATA[moveId];
   if (!move || !move.power) return { damage: 0, effectiveness: 1, crit: false };
   try {
-    const atk = liveCalcMon(attackerS), def = liveCalcMon(defenderS);
+    const atk = liveCalcMon(attackerS, opts.attackerStatuses), def = liveCalcMon(defenderS, opts.defenderStatuses);
     // Multi-hit parity with the single-player engine (game.js applyMove): move.hits
     // may be a fixed count or a [min,max] range ([2,5] weighted 35/35/15/15). Without
     // this loop, moves whose per-hit power was lowered for multi-hit (e.g. basalt_volley,
@@ -1244,6 +1247,45 @@ function livePvPFlatDamage(attackerMon, moveId, defenderMon) {
   if (typeof getMoveEffectiveness === "function") { try { eff = getMoveEffectiveness(moveDef, defenderMon.types || []); } catch (e) {} }
   if (eff === 0) return 0;
   return Math.max(1, Math.round(dmg * eff * (0.85 + Math.random() * 0.15)));
+}
+
+// ---- Live status persistence (C2) ----
+// Live battles now carry persistent statuses across turns (stored serialized on
+// the room). These helpers reuse the single-player engine's addStatus /
+// tickStatus / STATUS_REGISTRY so behaviour matches solo play. Stat-stage
+// changes and HP heals are still NOT persisted across live turns — only the
+// status-condition portion of a move's effect is applied here.
+
+// A tick/status-capable wrapper around a stored stat block + its live HP and
+// persisted status list (the same shape addStatus/tickStatus expect).
+function liveStatusMon(statBlock, hp, statusList) {
+  return {
+    name: statBlock.name, types: statBlock.types || [], maxHP: statBlock.maxHP,
+    currentHP: hp, statuses: Array.isArray(statusList) ? statusList : [], fainted: hp <= 0,
+  };
+}
+
+// Inflict the persistent-status portion of a move's effect, mirroring
+// applyMoveEffect's "_and_" / "_self" / "_target" routing and single ec roll.
+// Only STATUS_REGISTRY tokens are applied (stat stages / heals are skipped live).
+// Mutates the target wrappers' `statuses` arrays; returns log messages.
+function liveInflictStatus(move, attackerMon, defenderMon) {
+  if (!move || !move.effect || move.ec === 0) return [];
+  if (typeof addStatus !== "function" || typeof STATUS_REGISTRY === "undefined") return [];
+  const ec = move.ec ?? 0;
+  const passed = (typeof rollPercent === "function") ? rollPercent(ec) : (Math.random() * 100 < ec);
+  if (!passed) return [];
+  const msgs = [];
+  for (const part of String(move.effect).split("_and_")) {
+    let base = part;
+    let target = (move.target === "self") ? attackerMon : defenderMon;
+    if (part.endsWith("_self")) { base = part.slice(0, -5); target = attackerMon; }
+    else if (part.endsWith("_target")) { base = part.slice(0, -7); target = defenderMon; }
+    if (STATUS_REGISTRY[base] && target && !target.fainted && target.currentHP > 0) {
+      if (addStatus(target, base)) msgs.push(STATUS_REGISTRY[base].applyMsg(target.name));
+    }
+  }
+  return msgs;
 }
 
 async function createLiveRoom(passcode, isPublic) {
@@ -1414,16 +1456,27 @@ async function resolveLiveTurn(code, room) {
   const guestMon = guestTeam[room.guestActive];
   let hostHP  = [...room.hostHP];
   let guestHP = [...room.guestHP];
+  // Persisted per-slot status lists (C2). Stored serialized to dodge Firebase's
+  // empty-array/sparse-array quirks; default to one empty list per team slot.
+  let hostStatuses, guestStatuses;
+  try { hostStatuses = JSON.parse(room.hostStatuses || "[]"); } catch (e) { hostStatuses = []; }
+  try { guestStatuses = JSON.parse(room.guestStatuses || "[]"); } catch (e) { guestStatuses = []; }
+  while (hostStatuses.length < hostHP.length) hostStatuses.push([]);
+  while (guestStatuses.length < guestHP.length) guestStatuses.push([]);
   const log = [...(room.log || [])];
 
   // Determine turn order by speed (priority moves handled by the real engine in
   // single-player; live keeps a simple speed compare).
   const hostFirst = (hostMon.spe ?? hostMon.spd) >= (guestMon.spe ?? guestMon.spd);
-  function applyMove(attackerMon, moveId, defenderHP, defenderIdx, defenderTeam) {
+  function applyMove(attackerMon, atkIdx, atkStatusList, moveId, defenderHP, defenderIdx, defenderTeam, defStatusList) {
     const moveDef = MOVES_DATA[moveId];
     const moveName = moveDef?.name || moveId;
     const defMon = defenderTeam[defenderIdx];
-    const res = liveRealDamage(attackerMon, moveId, defMon);
+    // Damage sees the statuses carried INTO this turn (bonusVsStatus, burn, etc.).
+    const res = liveRealDamage(attackerMon, moveId, defMon, {
+      attackerStatuses: atkStatusList[atkIdx],
+      defenderStatuses: defStatusList[defenderIdx],
+    });
     defenderHP[defenderIdx] = Math.max(0, defenderHP[defenderIdx] - res.damage);
     let note = "";
     if (res.crit) note += " Critical hit!";
@@ -1431,21 +1484,50 @@ async function resolveLiveTurn(code, room) {
     else if (res.effectiveness > 1) note += " Super effective!";
     else if (res.effectiveness < 1) note += " Not very effective…";
     log.push(`${attackerMon.name} used ${moveName}! ${res.damage} damage.${note}`);
+    // Inflict the move's persistent status (applies from next turn on), if the
+    // defender survived. Self-target statuses go on the attacker.
+    if (moveDef && moveDef.effect) {
+      const atkWrap = liveStatusMon(attackerMon, 1, atkStatusList[atkIdx]);
+      const defWrap = liveStatusMon(defMon, defenderHP[defenderIdx], defStatusList[defenderIdx]);
+      const sMsgs = liveInflictStatus(moveDef, atkWrap, defWrap);
+      atkStatusList[atkIdx] = atkWrap.statuses;
+      defStatusList[defenderIdx] = defWrap.statuses;
+      for (const m of sMsgs) log.push(m);
+    }
     return defenderHP[defenderIdx] === 0;
   }
 
   let hostAct = room.hostActive, guestAct = room.guestActive;
-  const first  = hostFirst ? [hostMon, room.hostMove, guestHP, guestAct, guestTeam] : [guestMon, room.guestMove, hostHP, hostAct, hostTeam];
-  const second = hostFirst ? [guestMon, room.guestMove, hostHP, hostAct, hostTeam]  : [hostMon, room.hostMove, guestHP, guestAct, guestTeam];
+  const first  = hostFirst
+    ? [hostMon, hostAct, hostStatuses, room.hostMove, guestHP, guestAct, guestTeam, guestStatuses]
+    : [guestMon, guestAct, guestStatuses, room.guestMove, hostHP, hostAct, hostTeam, hostStatuses];
+  const second = hostFirst
+    ? [guestMon, guestAct, guestStatuses, room.guestMove, hostHP, hostAct, hostTeam, hostStatuses]
+    : [hostMon, hostAct, hostStatuses, room.hostMove, guestHP, guestAct, guestTeam, guestStatuses];
   const firstFainted = applyMove(...first);
   if (!firstFainted) applyMove(...second);
 
-  // Advance active index past fainted mons
+  // End-of-turn status tick (DoT / evolve / expire) on each active mon that
+  // survived its hit. tickStatus mutates currentHP + statuses in place.
+  function tickActive(team, hpArr, statusList, act) {
+    if (hpArr[act] <= 0 || !(statusList[act] || []).length) return;
+    const mon = liveStatusMon(team[act], hpArr[act], statusList[act]);
+    const tMsgs = (typeof tickStatus === "function") ? tickStatus(mon) : [];
+    hpArr[act] = Math.max(0, mon.currentHP);
+    statusList[act] = mon.statuses;
+    for (const m of tMsgs) log.push(m);
+  }
+  tickActive(hostTeam, hostHP, hostStatuses, hostAct);
+  tickActive(guestTeam, guestHP, guestStatuses, guestAct);
+
+  // Advance active index past fainted mons (statuses don't persist past a faint).
   if (hostHP[hostAct] === 0) {
+    hostStatuses[hostAct] = [];
     const next = hostTeam.findIndex((_, i) => i > hostAct && hostHP[i] > 0);
     if (next !== -1) { hostAct = next; log.push(`${room.hostName}'s ${hostTeam[hostAct-1]?.name || "Lumori"} fainted! Go, ${hostTeam[hostAct].name}!`); }
   }
   if (guestHP[guestAct] === 0) {
+    guestStatuses[guestAct] = [];
     const next = guestTeam.findIndex((_, i) => i > guestAct && guestHP[i] > 0);
     if (next !== -1) { guestAct = next; log.push(`${room.guestName}'s ${guestTeam[guestAct-1]?.name || "Lumori"} fainted! Go, ${guestTeam[guestAct].name}!`); }
   }
@@ -1458,6 +1540,8 @@ async function resolveLiveTurn(code, room) {
 
   await firebaseDB.ref(`pvp_live/${code}`).update({
     hostHP, guestHP, hostActive: hostAct, guestActive: guestAct,
+    hostStatuses: JSON.stringify(hostStatuses),
+    guestStatuses: JSON.stringify(guestStatuses),
     hostMove: null, guestMove: null,
     log: log.slice(-30),
     status: winner ? "done" : "battling",
@@ -1786,7 +1870,18 @@ async function resolveMultiLiveTurn(code, room) {
   if (liveResolving) return;
   liveResolving = true;
   try {
-  const seats = room.seats.map(s => ({ ...s, hp: [...s.hp] }));
+  // Persisted per-seat, per-slot status lists (C2/C3). Stored serialized per seat
+  // to dodge Firebase's empty/sparse-array quirks; default to one empty list per
+  // bench slot.
+  const seats = room.seats.map(s => {
+    let st;
+    if (typeof s.statuses === "string") { try { st = JSON.parse(s.statuses); } catch (e) { st = []; } }
+    else if (Array.isArray(s.statuses)) st = s.statuses;
+    else st = [];
+    const len = (s.hp || []).length;
+    while (st.length < len) st.push([]);
+    return { ...s, hp: [...s.hp], statuses: st.map(x => Array.isArray(x) ? x : []) };
+  });
   const moves = room.moves || {};
   const log = [...(room.log || [])];
 
@@ -1815,16 +1910,49 @@ async function resolveMultiLiveTurn(code, room) {
       ti = pick.i; tSeat = pick.s;
     }
     const defender = seatActiveMon(tSeat);
-    const res = liveRealDamage(attacker, act.moveId, defender);
+    const res = liveRealDamage(attacker, act.moveId, defender, {
+      attackerStatuses: atkSeat.statuses[atkSeat.active],
+      defenderStatuses: tSeat.statuses[tSeat.active],
+    });
     tSeat.hp[tSeat.active] = Math.max(0, tSeat.hp[tSeat.active] - res.damage);
     const note = res.crit ? " (crit!)" : res.effectiveness > 1 ? " (super effective!)" : (res.effectiveness > 0 && res.effectiveness < 1) ? " (resisted)" : res.effectiveness === 0 ? " (no effect)" : "";
     log.push(`${attacker.name} hit ${defender.name} for ${res.damage}${note}.`);
-    // Bench advance on faint.
+    // Inflict the move's persistent status (applies from next turn) if the target survived.
+    const moveDef = MOVES_DATA[act.moveId];
+    if (tSeat.hp[tSeat.active] > 0 && moveDef && moveDef.effect) {
+      const atkWrap = liveStatusMon(attacker, 1, atkSeat.statuses[atkSeat.active]);
+      const defWrap = liveStatusMon(defender, tSeat.hp[tSeat.active], tSeat.statuses[tSeat.active]);
+      const sMsgs = liveInflictStatus(moveDef, atkWrap, defWrap);
+      atkSeat.statuses[atkSeat.active] = atkWrap.statuses;
+      tSeat.statuses[tSeat.active] = defWrap.statuses;
+      for (const m of sMsgs) log.push(m);
+    }
+    // Bench advance on faint (statuses don't persist past a faint).
     if (tSeat.hp[tSeat.active] <= 0) {
       log.push(`${defender.name} fainted!`);
+      tSeat.statuses[tSeat.active] = [];
       const next = tSeat.hp.findIndex(h => h > 0);
       if (next === -1) { tSeat.defeated = true; log.push(`${tSeat.name} is out!`); }
       else { tSeat.active = next; log.push(`${tSeat.name} sends out ${tSeat.team[next].name}!`); }
+    }
+  }
+
+  // End-of-turn status tick (DoT / evolve / expire) on each living seat's active.
+  for (const s of seats) {
+    if (s.defeated) continue;
+    const a = s.active;
+    if (s.hp[a] <= 0 || !(s.statuses[a] || []).length) continue;
+    const mon = liveStatusMon(s.team[a], s.hp[a], s.statuses[a]);
+    const tMsgs = (typeof tickStatus === "function") ? tickStatus(mon) : [];
+    s.hp[a] = Math.max(0, mon.currentHP);
+    s.statuses[a] = mon.statuses;
+    for (const m of tMsgs) log.push(m);
+    if (s.hp[a] <= 0) {
+      log.push(`${mon.name} fainted!`);
+      s.statuses[a] = [];
+      const next = s.hp.findIndex(h => h > 0);
+      if (next === -1) { s.defeated = true; log.push(`${s.name} is out!`); }
+      else { s.active = next; log.push(`${s.name} sends out ${s.team[next].name}!`); }
     }
   }
 
@@ -1833,8 +1961,10 @@ async function resolveMultiLiveTurn(code, room) {
   let winner = null;
   if (alive.size <= 1) { winner = alive.size === 1 ? [...alive][0] : -1; log.push("The battle is over!"); }
 
+  // Serialize each seat's status lists so Firebase doesn't mangle empty/sparse arrays.
+  const seatsToWrite = seats.map(s => ({ ...s, statuses: JSON.stringify(s.statuses || []) }));
   await firebaseDB.ref(`pvp_live/${code}`).update({
-    seats, moves: {}, turn: (room.turn || 0) + 1,
+    seats: seatsToWrite, moves: {}, turn: (room.turn || 0) + 1,
     log: log.slice(-30), status: winner !== null ? "done" : "battling",
     winner
   });

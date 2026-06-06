@@ -71,7 +71,7 @@ try {
   const sandbox = { console, window: {}, document: {}, globalThis: null };
   sandbox.globalThis = sandbox;
   vm.createContext(sandbox);
-  const epilogue = "\n;globalThis.__V = { MOVES_DATA, MONSTERS_DATA, STAGE_FX, MULTI_STAGE_FX, STATUS_REGISTRY };";
+  const epilogue = "\n;globalThis.__V = { MOVES_DATA, MONSTERS_DATA, STAGE_FX, MULTI_STAGE_FX, STATUS_REGISTRY, buildMoveArr, calcDamage };";
   vm.runInContext(read("data.js") + "\n" + read("battle.js") + epilogue, sandbox, { filename: "vmload" });
   DATA = sandbox.__V;
 } catch (e) {
@@ -79,7 +79,8 @@ try {
 }
 
 if (DATA) {
-  const { MOVES_DATA, MONSTERS_DATA, STAGE_FX, MULTI_STAGE_FX, STATUS_REGISTRY } = DATA;
+  const { MOVES_DATA, MONSTERS_DATA, STAGE_FX, MULTI_STAGE_FX, STATUS_REGISTRY, buildMoveArr, calcDamage } = DATA;
+  const referenced = new Set(); // every move id used by some learnset (for the dead-move count)
 
   // -------------------------------------------------------------------------
   // G1 — orphan move keys. Walk every learnset, collect every string (move id),
@@ -98,6 +99,7 @@ if (DATA) {
     collectIds(def.learnset, ids);
     for (const moveId of ids) {
       refCount++;
+      referenced.add(moveId);
       if (!MOVES_DATA[moveId]) {
         if (!orphans.has(moveId)) orphans.set(moveId, []);
         orphans.get(moveId).push(mid);
@@ -149,6 +151,69 @@ if (DATA) {
   } else {
     ok("G2", `all move.effect tokens resolve to a handler`);
   }
+
+  // -------------------------------------------------------------------------
+  // G4 — schema lint for the newer move fields.
+  //   hits: integer ≥2, or [min,max] with 1 ≤ min ≤ max (both integers).
+  //   bonusVsStatus: "any", a known status type, or an array of known types.
+  // -------------------------------------------------------------------------
+  console.log("G4 — hits / bonusVsStatus schema");
+  const isInt = n => Number.isInteger(n);
+  let g4before = failures;
+  for (const [mid, def] of Object.entries(MOVES_DATA)) {
+    if (!def) continue;
+    if (def.hits !== undefined) {
+      const h = def.hits;
+      if (Array.isArray(h)) {
+        if (h.length !== 2 || !isInt(h[0]) || !isInt(h[1]) || h[0] < 1 || h[1] < h[0])
+          fail("G4", `${mid}: hits ${JSON.stringify(h)} must be [min,max] with 1 ≤ min ≤ max`);
+      } else if (!isInt(h) || h < 2) {
+        fail("G4", `${mid}: hits ${JSON.stringify(h)} must be an integer ≥ 2 (or a [min,max] array)`);
+      }
+    }
+    if (def.bonusVsStatus !== undefined) {
+      const b = def.bonusVsStatus;
+      const okTok = t => t === "any" || !!STATUS_REGISTRY[t];
+      const valid = (typeof b === "string") ? okTok(b)
+                  : Array.isArray(b) ? (b.length > 0 && b.every(okTok))
+                  : false;
+      if (!valid) fail("G4", `${mid}: bonusVsStatus ${JSON.stringify(b)} must be "any", a known status, or an array of known statuses`);
+    }
+  }
+  if (failures === g4before) ok("G4", `all hits / bonusVsStatus fields well-formed`);
+
+  // -------------------------------------------------------------------------
+  // F2 — save round-trip smoke test. Build a move array for a multi-hit move,
+  // JSON round-trip a synthetic team slot, and run calcDamage with it — guards
+  // against a future schema move silently breaking battle-build / damage calc.
+  // -------------------------------------------------------------------------
+  console.log("F2 — save round-trip smoke");
+  try {
+    const multiId = Object.keys(MOVES_DATA).find(id => Array.isArray(MOVES_DATA[id].hits) && MOVES_DATA[id].power);
+    if (!multiId) { ok("F2", "no multi-hit move to sample (skipped)"); }
+    else {
+      const slot = { monsterId: 1, level: 50, moves: [multiId], currentHP: 150 };
+      const round = JSON.parse(JSON.stringify(slot));               // serialize → deserialize
+      const arr = buildMoveArr(round.moves);
+      if (!arr.length || arr[0].id !== multiId || !(arr[0].pp > 0))
+        throw new Error(`buildMoveArr produced ${JSON.stringify(arr)}`);
+      const mk = types => ({ level: 50, atk: 100, def: 100, spa: 100, spd: 100, spe: 100,
+        maxHP: 150, currentHP: 150, types, stages: { atk:0,def:0,spa:0,spd:0,spe:0,acc:0,eva:0 }, statuses: [] });
+      const res = calcDamage(mk(["Normal"]), mk(["Normal"]), MOVES_DATA[multiId]);
+      const dmg = (typeof res === "object") ? res.damage : res;
+      if (!(typeof dmg === "number" && dmg >= 0)) throw new Error(`calcDamage returned ${JSON.stringify(res)}`);
+      ok("F2", `round-tripped a team holding "${multiId}" (hits ${JSON.stringify(MOVES_DATA[multiId].hits)}) → damage ${dmg}`);
+    }
+  } catch (e) {
+    fail("F2", `round-trip failed: ${e.message}`);
+  }
+
+  // -------------------------------------------------------------------------
+  // G5 (informational) — dead-move count. Defined moves never referenced by any
+  // learnset. Non-blocking; surfaces drift so the dead pool doesn't grow silently.
+  // -------------------------------------------------------------------------
+  const dead = Object.keys(MOVES_DATA).filter(id => !referenced.has(id));
+  console.log(`  ℹ [G5] ${dead.length} defined move(s) unused by any learnset (informational)`);
 }
 
 console.log("");

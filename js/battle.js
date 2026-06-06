@@ -803,9 +803,15 @@ function calcStat(base, level, iv) {
   return Math.floor(((2 * base + (iv||0)) * level) / 100) + 5;
 }
 
-// Shared move array builder
+// Shared move array builder. Skips ids missing from MOVES_DATA so an old save (or
+// a renamed/removed move key) can't crash battle-build on `MOVES_DATA[mid].pp`.
 function buildMoveArr(moveIds) {
-  return moveIds.map(mid => ({ id: mid, pp: MOVES_DATA[mid].pp, maxPP: MOVES_DATA[mid].pp }));
+  return (moveIds || []).reduce((arr, mid) => {
+    const def = MOVES_DATA[mid];
+    if (!def) { if (typeof console !== "undefined") console.warn(`buildMoveArr: unknown move "${mid}" skipped`); return arr; }
+    arr.push({ id: mid, pp: def.pp, maxPP: def.pp });
+    return arr;
+  }, []);
 }
 
 // Shared battle-mon base (common fields for all 3 build functions)

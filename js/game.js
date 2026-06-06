@@ -1900,11 +1900,15 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
   let totalDamage = 0;
   let lastResult = null;
   let sashTriggered = false;
+  let hitsLanded = 0;   // B2: actual delivered hits (≤ hitCount if defender faints mid-loop)
+  let anyCrit = false;  // B3: any hit crit, not just the last
 
   for (let h = 0; h < hitCount; h++) {
     if (defender.fainted) break;
+    hitsLanded++;
 
     const result = calcDamage(attacker, defender, move, { targetCount: opts.targetCount || 1 });
+    anyCrit = anyCrit || result.crit;
 
     // Focus Sash only activates on the first hit
     if (h === 0) {
@@ -1945,13 +1949,13 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     await delay(hitCount > 1 ? 200 : 400);
   }
 
-  if (hitCount > 1) logMsg(`Hit ${hitCount} times!`, "log-damage");
+  if (hitsLanded > 1) logMsg(`Hit ${hitsLanded} times!`, "log-damage");
 
   // Effectiveness and damage messages (based on last hit)
   if (lastResult.effectiveness > 1) logMsg("It's super effective!", "log-super-effective");
   else if (lastResult.effectiveness < 1 && lastResult.effectiveness > 0) logMsg("It's not very effective...", "log-not-effective");
   else if (lastResult.effectiveness === 0) logMsg("It had no effect!", "log-immune");
-  if (lastResult.crit) logMsg("A critical hit!", "log-damage");
+  if (anyCrit) logMsg("A critical hit!", "log-damage");
 
   if (totalDamage > 0) logMsg(`${defender.name} took ${totalDamage} damage!`, "log-damage");
   if (sashTriggered) logMsg(`${defender.name}'s Focus Sash kept it standing!`, "log-status");
@@ -1979,8 +1983,11 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     updateBattleUI();
   }
 
-  // Secondary stat/status effects (recoil and drain moves have no additional secondary effect)
-  if (move.effect !== "recoil" && move.effect !== "drain") {
+  // Secondary stat/status effects (recoil and drain moves have no additional secondary effect).
+  // B4: don't apply a defender-targeted rider to an already-fainted defender ("was poisoned!"
+  // on a corpse). Pure self-target moves still resolve (their buff should land on a KO).
+  if (move.effect !== "recoil" && move.effect !== "drain"
+      && !(defender.fainted && move.target !== "self")) {
     const effMsgs = applyMoveEffect(move, attacker, defender);
     for (const msg of effMsgs) logMsg(msg, "log-status");
   }

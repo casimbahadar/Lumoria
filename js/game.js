@@ -2121,8 +2121,16 @@ function endBattle(outcome, slot, levelUps) {
         if (m) m.currentHP = Math.min(m.maxHP, battleContext.pvpHpSnapshot[i] ?? m.maxHP);
       });
     }
+    const backToPvp = () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); };
     if (battleContext.pvpGauntlet && typeof advanceGauntlet === "function") {
       advanceGauntlet(outcome);   // gauntlet runs don't touch ladder rating/mailbox
+    } else if (battleContext.pvpPractice) {
+      // Offline practice vs a cached opponent — no rating, no mailbox, no board write.
+      if (outcome === "won" || outcome === "lost") {
+        showNotification(outcome === "won"
+          ? "🏆 Practice win! (Offline — no rating change.)"
+          : "Practice battle over. (Offline — no rating change.)", backToPvp);
+      } else { backToPvp(); }
     } else if ((outcome === "won" || outcome === "lost") && typeof recordPvpResult === "function") {
       recordPvpResult(outcome === "won", battleContext.battleMode === "double" ? "double" : "single");
     } else {
@@ -4304,6 +4312,7 @@ function startPvpBattle(oppSlots, oppName, meta) {
     isWild: false, isGym: false, isChampion: false, isTrainer: false,
     isPvP: true,
     pvpGauntlet: !!meta.gauntlet,
+    pvpPractice: !!meta.practice,   // offline cached opponent → no rating/mailbox (A4)
     pvpChallengeId: meta.challengeId || null,
     pvpOpponentName: name,
     pvpOpponentUID: meta.opponentUID || null,
@@ -4395,7 +4404,7 @@ function startFfaBattle(aiSides, meta) {
   const sides = [ ffaBuildSide(G.playerName || "You", true, healthy, (typeof G.pvpFfaRating === "number") ? G.pvpFfaRating : 1000) ];
   aiSides.forEach(a => sides.push(ffaBuildSide(a.name || "Rival", false, a.slots, a.rating)));
 
-  ffaState = { sides, log: [], over: false, awaitingPlayer: false };
+  ffaState = { sides, log: [], over: false, awaitingPlayer: false, practice: !!meta.practice };
   ffaLog(`👑 FFA Royale — ${sides.length} teams enter, last standing wins!`);
   sides.forEach(s => ffaLog(`${s.isPlayer ? "You bring" : escapeHtml(s.name) + " brings"} ${ffaActive(s)?.name || "?"}.`));
   showScreen("screen-ffa");
@@ -4619,23 +4628,29 @@ function ffaFinish(won) {
   ffaRender();
   const opps = ffaState.sides.filter(s => !s.isPlayer);
   const avg = opps.length ? Math.round(opps.reduce((a, s) => a + (s.rating || 1000), 0) / opps.length) : 1000;
+  const practice = !!ffaState.practice;
   const ctrl = document.getElementById("ffa-controls");
   if (ctrl) ctrl.innerHTML = `<button class="btn-primary" id="ffa-done">Continue</button>`;
   document.getElementById("ffa-done")?.addEventListener("click", () => {
-    if (typeof recordFfaResult === "function") recordFfaResult(won, avg);
-    else if (typeof showPvPScreen === "function") showPvPScreen();
-    else showScreen("screen-pvp");
+    const backToPvp = () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); };
+    if (practice) {
+      // Offline practice Royale — no FFA rating change.
+      showNotification(won ? "🏆 Practice Royale won! (Offline — no rating change.)" : "Practice Royale over. (Offline — no rating change.)", backToPvp);
+    } else if (typeof recordFfaResult === "function") recordFfaResult(won, avg);
+    else backToPvp();
   });
 }
 
 function ffaForfeit() {
   if (!ffaState || ffaState.over) { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); return; }
-  if (!confirm("Forfeit the Royale? It counts as a loss.")) return;
+  const practice = !!ffaState.practice;
+  if (!confirm(practice ? "Forfeit the practice Royale?" : "Forfeit the Royale? It counts as a loss.")) return;
   ffaStopMusic();
   const opps = ffaState.sides.filter(s => !s.isPlayer);
   const avg = opps.length ? Math.round(opps.reduce((a, s) => a + (s.rating || 1000), 0) / opps.length) : 1000;
   ffaState.over = true;
-  if (typeof recordFfaResult === "function") recordFfaResult(false, avg);
+  if (practice) { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); }
+  else if (typeof recordFfaResult === "function") recordFfaResult(false, avg);
   else if (typeof showPvPScreen === "function") showPvPScreen();
   else showScreen("screen-pvp");
 }

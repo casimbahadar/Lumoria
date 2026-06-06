@@ -1878,8 +1878,21 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     return;
   }
 
-  // Multi-hit loop (move.hits defaults to 1)
-  const hitCount = move.hits || 1;
+  // Multi-hit loop. move.hits is a fixed count (e.g. 2), or a [min,max]
+  // range for a variable barrage — classic 2-5 weighting (35/35/15/15)
+  // when the range is exactly [2,5], otherwise a uniform roll.
+  let hitCount = 1;
+  if (Array.isArray(move.hits)) {
+    const [mn, mx] = move.hits;
+    if (mn === 2 && mx === 5) {
+      const r = Math.random();
+      hitCount = r < 0.35 ? 2 : r < 0.70 ? 3 : r < 0.85 ? 4 : 5;
+    } else {
+      hitCount = mn + Math.floor(Math.random() * (mx - mn + 1));
+    }
+  } else if (move.hits) {
+    hitCount = move.hits;
+  }
   let totalDamage = 0;
   let lastResult = null;
   let sashTriggered = false;

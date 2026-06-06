@@ -386,7 +386,7 @@ const MOVES_DATA = {
 
   // --- NEW: Earth (7 more → 15) ---
   stalactite_drop:{ name:"Stalactite Drop",type:"Earth",   power:70,  acc:95,  pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"Drops massive stalactites from above that crash down on the foe." },
-  fossil_rush:  { name:"Fossil Rush",   type:"Earth",     power:80,  acc:100, pp:10, cat:"physical", effect:null,        ec:0,   desc:"Charges with the hardened force of an ancient fossil embedded in the body." },
+  fossil_rush:  { name:"Fossil Rush",   type:"Earth",     power:80,  acc:100, pp:10, cat:"physical", effect:"defup",     ec:20,  desc:"Charges with the hardened force of an ancient fossil; the braced impact may toughen the user's Defense." },
   gem_scatter:  { name:"Gem Scatter",   type:"Earth",     power:65,  acc:90,  pp:15, cat:"special",  effect:"spdefdown", ec:20,  desc:"Shatters gemstones and scatters razor-sharp fragments at the foe." },
   bedrock_slam: { name:"Bedrock Slam",  type:"Earth",     power:110, acc:80,  pp:5,  cat:"physical", effect:"recharge",  ec:100, desc:"Slams with the weight of pure bedrock. Must recharge afterward." },
   petrify_gaze: { name:"Petrify Gaze",  type:"Earth",     power:0,   acc:80,  pp:15, cat:"status",   effect:"paralyze",  ec:100, desc:"Fixes the foe with a stony gaze that locks their body in place." },
@@ -454,7 +454,7 @@ const MOVES_DATA = {
   auger_strike:     { name:"Auger Strike",  type:"Earth",   power:80,  acc:95,  pp:10, cat:"physical", effect:"crit",      ec:100, desc:"Spins like a drill and crashes into the foe. High crit rate." },
   mire_burst:      { name:"Mire Burst",    type:"Earth",   power:65,  acc:85,  pp:10, cat:"special",  effect:"spdefdown", ec:30,  desc:"Hurls a large ball of mud that may lower accuracy." },
   scorched_earth:{ name:"Scorched Earth",type:"Earth",   power:90,  acc:90,  pp:10, cat:"special",  effect:"burn",      ec:20,  desc:"Superheats the ground beneath the foe until it scorches." },
-  aftershock:     { name:"Aftershock",    type:"Earth",   power:85,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Shakes the ground with varying intensity." },
+  aftershock:     { name:"Aftershock",    type:"Earth",   power:85,  acc:100, pp:15, cat:"physical", effect:"confuse",   ec:20,  desc:"Shakes the ground with unpredictable, varying intensity that may leave the foe disoriented." },
   burial_sands:     { name:"Burial Sands",  type:"Earth",   power:55,  acc:85,  pp:15, cat:"physical", effect:"spedown",   ec:100, desc:"Traps the foe in a swirling sand tomb." },
   earthen_wall:  { name:"Earthen Wall",  type:"Earth",   power:0,   acc:100, pp:10, cat:"status",   effect:"defup",     ec:100, desc:"Raises a massive wall of packed earth to shield the user." },
 
@@ -529,8 +529,8 @@ const MOVES_DATA = {
 
   // Rock (+7 → 22)
   primeval_force: { name:"Primeval Force", type:"Earth",    power:60,  acc:100, pp:5,  cat:"special",  effect:"atkup",     ec:10,  desc:"Attacks with prehistoric power that may raise all stats." },
-  gemburst:     { name:"Gemburst",      type:"Earth",     power:80,  acc:100, pp:20, cat:"special",  effect:null,        ec:0,   desc:"Fires a ray of light formed from gemstones." },
-  basalt_volley:    { name:"Basalt Volley",    type:"Earth",     power:70,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Hurls multiple rocks at the foe in rapid succession." },
+  gemburst:     { name:"Gemburst",      type:"Earth",     power:80,  acc:100, pp:20, cat:"special",  effect:"crit",      ec:100, desc:"Fires a precise ray of focused gemstone light with a high critical-hit ratio." },
+  basalt_volley:    { name:"Basalt Volley",    type:"Earth",     power:22,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   hits:[2,5], desc:"Hurls a volley of rocks at the foe, striking 2–5 times in rapid succession." },
   smack_down:    { name:"Smack Down",    type:"Earth",     power:50,  acc:100, pp:15, cat:"physical", effect:null,        ec:0,   desc:"Hurls a stone to knock the foe down to earth." },
   diamond_storm: { name:"Diamond Storm", type:"Earth",     power:100, acc:95,  pp:5,  cat:"physical", effect:"defup",     ec:50,  desc:"Whips up a storm of diamonds that may raise Defense." },
   erosion_wave:  { name:"Erosion Wave",  type:"Earth",     power:75,  acc:95,  pp:10, cat:"special",  effect:"defdown",   ec:30,  desc:"Sends a wave of eroding stone particles that wear down defenses." },
@@ -596,7 +596,7 @@ const MOVES_DATA = {
   // --- Ground (+8) ---
   trample:         { name:"Trample",           type:"Earth",   power:60,  acc:100, pp:20, cat:"physical", effect:"spedown",   ec:100, desc:"Stomps the ground heavily, shaking the area and lowering the foe's Speed." },
   dust_toss:      { name:"Dust Toss",         type:"Earth",   power:0,   acc:100, pp:15, cat:"status",   effect:"atkdown",   ec:100, desc:"Kicks sand into the foe's face, impairing its offensive precision." },
-  bone_barrage:        { name:"Bone Barrage",      type:"Earth",   power:65,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Strikes the foe 2–5 times in rapid succession with a hard bone." },
+  bone_barrage:        { name:"Bone Barrage",      type:"Earth",   power:20,  acc:90,  pp:10, cat:"physical", effect:null,        ec:0,   hits:[2,5], desc:"Strikes the foe 2–5 times in rapid succession with a hard bone." },
   scorched_sand:    { name:"Scorched Sand",     type:"Earth",   power:70,  acc:100, pp:15, cat:"special",  effect:"atkdown",      ec:30,  desc:"Fires scorching superheated sand that may leave burns on contact." },
   underground_crush: { name:"Underground Crush",  type:"Earth",   power:80,  acc:100, pp:15, cat:"physical", effect:"flinch",    ec:30,  desc:"Burrows underground and erupts beneath the foe for a bone-crunching slam." },
   quicksand_trap:   { name:"Quicksand Trap",    type:"Earth",   power:0,   acc:90,  pp:15, cat:"status",   effect:"spedown2",  ec:100, desc:"Sucks the foe into quicksand, drastically reducing its Speed." },
@@ -682,7 +682,7 @@ const MOVES_DATA = {
   diamond_crash:    { name:"Diamond Crash",     type:"Earth",     power:100, acc:95,  pp:10, cat:"physical", effect:null,        ec:0,   desc:"Crashes into the foe with crystalline diamond hardness." },
   ancient_tide:     { name:"Ancient Tide",      type:"Earth",     power:75,  acc:95,  pp:15, cat:"special",  effect:"defdown",   ec:20,  desc:"Unleashes a wave of ancient stone energy that may erode the foe's defenses." },
   meteor_strike:    { name:"Meteor Strike",     type:"Earth",     power:140, acc:85,  pp:5,  cat:"special",  effect:"recharge",  ec:100, desc:"Calls down a meteorite from above. Must rest on the following turn." },
-  stone_cleave:        { name:"Stone Cleave",         type:"Earth",     power:65,  acc:90,  pp:15, cat:"physical", effect:null,        ec:0,   desc:"Strikes with the cleaving force of a stone axe, splitting through armor." },
+  stone_cleave:        { name:"Stone Cleave",         type:"Earth",     power:65,  acc:90,  pp:15, cat:"physical", effect:"defdown",   ec:20,  desc:"Strikes with the cleaving force of a stone axe, splitting through armor and may lower the foe's Defense." },
   boulder_wrecker:     { name:"Boulder Wrecker",      type:"Earth",     power:150, acc:90,  pp:5,  cat:"physical", effect:"recharge",  ec:100, desc:"A devastating rock-shattering blow that requires rest on the next turn." },
   crystal_spear:    { name:"Crystal Spear",     type:"Earth",     power:80,  acc:100, pp:15, cat:"physical", effect:"crit",      ec:100, desc:"A spear of pure crystal with a high critical-hit ratio." },
 

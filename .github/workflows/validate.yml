@@ -1,0 +1,19 @@
+name: Data Integrity
+
+# Runs the dependency-free integrity gates from docs/qa-readiness-report.md §G:
+#   G1 orphan move keys · G2 effect-token coverage · G3 syntax + global collisions.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Run integrity gates
+        run: node scripts/validate.js

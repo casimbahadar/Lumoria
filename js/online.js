@@ -604,7 +604,7 @@ async function acceptBattleChallenge(code) {
 }
 
 // Launch a real, playable battle against a challenge's submitted team (vs the AI).
-function launchPvpChallenge(id, challenge) {
+function launchPvpChallenge(id, challenge, opts = {}) {
   const fmt = (challenge.format === "double") ? "double" : "single";
   const need = fmt === "double" ? 2 : 1;
   // Field the active saved loadout if set, otherwise the live healthy party.
@@ -626,14 +626,66 @@ function launchPvpChallenge(id, challenge) {
     opponentUID: challenge.challengerUID || null,
     opponentRating: challenge.rating || 0,
     doubles: fmt === "double",
-    playerTeam
+    playerTeam,
+    practice: !!opts.practice,   // offline cached opponent → practice (no rating/mailbox)
   });
 }
 
 // One-tap matchmaking: pick an open challenge near your rating (random among the
 // closest few) and battle it.
+// ---- Offline AI-battle snapshot cache (A4) ----
+// Posted-team snapshots seen while online are cached in localStorage so the
+// Simulated modes (Quick Match / Gauntlet / FFA) stay playable OFFLINE as
+// practice (no rating / leaderboard / mailbox writes when offline). Online
+// behaviour is unchanged — the cache is just refreshed as a side effect.
+const PVP_SNAPSHOT_KEY = "lumoria_pvp_snapshots";
+const PVP_SNAPSHOT_MAX = 60;
+
+function loadPvpSnapshots() {
+  try { const a = JSON.parse(localStorage.getItem(PVP_SNAPSHOT_KEY) || "[]"); return Array.isArray(a) ? a : []; }
+  catch (e) { return []; }
+}
+function cachePvpSnapshots(list) {
+  try {
+    const byKey = new Map();
+    for (const s of loadPvpSnapshots()) byKey.set(s.challengerUID || s.id, s);
+    for (const v of (list || [])) {
+      if (!v || !v.team) continue;
+      if (firebaseUID && v.challengerUID === firebaseUID) continue;   // never cache our own post
+      byKey.set(v.challengerUID || v.id, {
+        id: v.id || null,
+        challengerUID: v.challengerUID || null,
+        challengerName: v.challengerName || "Rival",
+        rating: v.rating || PVP_BASE_RATING,
+        format: (v.format === "double") ? "double" : "single",
+        team: v.team,
+        ts: Date.now(),
+      });
+    }
+    const arr = [...byKey.values()].sort((a, b) => (b.ts || 0) - (a.ts || 0)).slice(0, PVP_SNAPSHOT_MAX);
+    localStorage.setItem(PVP_SNAPSHOT_KEY, JSON.stringify(arr));
+  } catch (e) { /* storage full / unavailable — non-fatal */ }
+}
+
+// Posted-team snapshots as challenge-shaped objects ({id, challengerUID,
+// challengerName, rating, format, team}). Online: fetch the open board and
+// refresh the cache. Offline (or on a fetch error): serve the local cache.
+// `offline` tells callers to run the resulting battle as practice.
+async function getPvpSnapshotPool() {
+  if (onlineReady) {
+    try {
+      const snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").limitToFirst(50).once("value");
+      const list = [];
+      snap.forEach(c => { list.push({ id: c.key, ...c.val() }); });
+      cachePvpSnapshots(list);
+      return { offline: false, pool: list };
+    } catch (e) { /* fall through to cache */ }
+  }
+  return { offline: true, pool: loadPvpSnapshots() };
+}
+
 async function quickMatch(format) {
-  if (!requireOnline() || !G) return;
+  if (!G) return;
   const fmt = (format === "double") ? "double" : "single";
   const F = pvpModeFields(fmt);
   // When no saved loadout is active, the live party must be battle-ready
@@ -644,50 +696,41 @@ async function quickMatch(format) {
       showNotification("Doubles needs at least 2 healthy Lumori on your team (or set a Doubles team)!"); return;
     }
   }
-  let snap;
-  try {
-    snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").limitToFirst(50).once("value");
-  } catch(e) {
-    showNotification("Couldn't reach the challenge board — check your connection and try again.");
+  const { offline, pool: raw } = await getPvpSnapshotPool();
+  const pool = raw.filter(v =>
+    v.challengerUID !== firebaseUID && ((v.format === "double") ? "double" : "single") === fmt);
+  if (!pool.length) {
+    showNotification(offline
+      ? `No cached ${fmt === "double" ? "Doubles" : "Singles"} opponents yet — go online once to stock up practice teams.`
+      : `No open ${fmt === "double" ? "Doubles" : "Singles"} challenges yet. Post one and wait, or invite a friend!`);
     return;
   }
-  const pool = [];
-  snap.forEach(child => {
-    const v = child.val();
-    // Only match the requested format (untagged legacy challenges are singles).
-    if (v.challengerUID !== firebaseUID && ((v.format === "double") ? "double" : "single") === fmt) {
-      pool.push({ id: child.key, ...v });
-    }
-  });
-  if (!pool.length) { showNotification(`No open ${fmt === "double" ? "Doubles" : "Singles"} challenges yet. Post one and wait, or invite a friend!`); return; }
   const myRating = G[F.rating] || 0;
   pool.sort((a, b) => Math.abs((a.rating || 0) - myRating) - Math.abs((b.rating || 0) - myRating));
   const near = pool.slice(0, Math.min(5, pool.length));
   const pick = near[Math.floor(Math.random() * near.length)];
-  launchPvpChallenge(pick.id, pick);
+  launchPvpChallenge(pick.id, pick, { practice: offline });
 }
 
 // FFA Royale: pull 2-3 open posted teams near your FFA rating and run a local
 // last-team-standing royale vs the AI. Self-contained ladder (pvp_ffa_rating).
 async function ffaQuickMatch() {
-  if (!requireOnline() || !G) return;
+  if (!G) return;
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before a Royale!"); return; }
-  let snap;
-  try {
-    snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").limitToFirst(50).once("value");
-  } catch (e) {
-    showNotification("Couldn't reach the challenge board — check your connection and try again.");
+  const { offline, pool: raw } = await getPvpSnapshotPool();
+  const pool = [];
+  for (const v of raw) {
+    if (v.challengerUID === firebaseUID) continue;
+    let team;
+    try { team = JSON.parse(v.team); } catch (e) { continue; }
+    if (Array.isArray(team) && team.length) pool.push({ name: v.challengerName || "Rival", rating: v.rating || 0, slots: team });
+  }
+  if (pool.length < 2) {
+    showNotification(offline
+      ? "Not enough cached opponents for a Royale — go online once to stock up practice teams."
+      : "Need at least 2 other posted teams for a Royale — post challenges and try again soon!");
     return;
   }
-  const pool = [];
-  snap.forEach(child => {
-    const v = child.val();
-    if (v.challengerUID === firebaseUID) return;
-    let team;
-    try { team = JSON.parse(v.team); } catch (e) { return; }
-    if (Array.isArray(team) && team.length) pool.push({ name: v.challengerName || "Rival", rating: v.rating || 0, slots: team });
-  });
-  if (pool.length < 2) { showNotification("Need at least 2 other posted teams for a Royale — post challenges and try again soon!"); return; }
   const myRating = G.pvpFfaRating || PVP_BASE_RATING;
   pool.sort((a, b) => Math.abs((a.rating || 0) - myRating) - Math.abs((b.rating || 0) - myRating));
   // 3-4 total sides: draw the AI teams from the nearest-rated band for variety.
@@ -697,7 +740,7 @@ async function ffaQuickMatch() {
   while (chosen.length < aiCount && bag.length) {
     chosen.push(bag.splice(Math.floor(Math.random() * bag.length), 1)[0]);
   }
-  if (typeof startFfaBattle === "function") startFfaBattle(chosen, {});
+  if (typeof startFfaBattle === "function") startFfaBattle(chosen, { practice: offline });
   else showNotification("Royale engine unavailable.");
 }
 
@@ -829,26 +872,21 @@ let gauntletRun = null;
 const GAUNTLET_MAX = 8;
 
 async function startGauntlet() {
-  if (!requireOnline() || !G) return;
+  if (!G) return;
   if (gauntletRun) { showNotification("A gauntlet run is already in progress!"); return; }
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before the gauntlet!"); return; }
-  let snap;
-  try {
-    snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").limitToFirst(50).once("value");
-  } catch(e) {
-    showNotification("Couldn't reach the challenge board — check your connection and try again.");
+  const { offline, pool: raw } = await getPvpSnapshotPool();
+  const pool = raw.filter(v => v.challengerUID !== firebaseUID);
+  if (!pool.length) {
+    showNotification(offline
+      ? "No cached opponents to run a gauntlet against — go online once to stock up practice teams."
+      : "No open challenges to run a gauntlet against yet. Post one or invite friends!");
     return;
   }
-  const pool = [];
-  snap.forEach(child => {
-    const v = child.val();
-    if (v.challengerUID !== firebaseUID) pool.push({ id: child.key, ...v });
-  });
-  if (!pool.length) { showNotification("No open challenges to run a gauntlet against yet. Post one or invite friends!"); return; }
   // Shuffle, then take up to GAUNTLET_MAX as the run queue.
   for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
-  gauntletRun = { queue: pool.slice(0, GAUNTLET_MAX), idx: 0, clears: 0 };
-  showNotification(`🏟️ Gauntlet begins! Beat as many teams as you can — ${gauntletRun.queue.length} waiting.`);
+  gauntletRun = { queue: pool.slice(0, GAUNTLET_MAX), idx: 0, clears: 0, practice: offline };
+  showNotification(`🏟️ Gauntlet begins!${offline ? " (offline practice — best score won't be recorded.)" : ""} Beat as many teams as you can — ${gauntletRun.queue.length} waiting.`);
   gauntletLaunchNext();
 }
 
@@ -881,28 +919,54 @@ function advanceGauntlet(outcome) {
 
 function finishGauntlet(clearedAll) {
   const clears = gauntletRun ? gauntletRun.clears : 0;
+  const practice = gauntletRun ? gauntletRun.practice : false;
   gauntletRun = null;
-  const prevBest = G.pvpGauntletBest || 0;
-  const isRecord = clears > prevBest;
-  if (isRecord) G.pvpGauntletBest = clears;
-  saveGame();
-  if (typeof submitLeaderboardScore === "function") submitLeaderboardScore("pvp_gauntlet");
+  let isRecord = false;
+  if (!practice) {
+    // Offline practice runs deliberately don't touch the best-clears score or board.
+    const prevBest = G.pvpGauntletBest || 0;
+    isRecord = clears > prevBest;
+    if (isRecord) G.pvpGauntletBest = clears;
+    saveGame();
+    if (typeof submitLeaderboardScore === "function") submitLeaderboardScore("pvp_gauntlet");
+  }
   const head = clearedAll
     ? `🏟️ Gauntlet cleared! You beat all ${clears} team${clears === 1 ? "" : "s"}!`
     : `🏟️ Gauntlet over — ${clears} clear${clears === 1 ? "" : "s"}.`;
-  const tail = isRecord ? " 🏆 New best!" : ` (Best: ${G.pvpGauntletBest || 0}.)`;
+  const tail = practice ? " (offline practice — not recorded.)" : (isRecord ? " 🏆 New best!" : ` (Best: ${G.pvpGauntletBest || 0}.)`);
   showNotification(head + tail,
     () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); });
 }
 
 async function showPvPScreen() {
-  if (!requireOnline()) return;
+  if (!G) return;
   gauntletRun = null;        // abandon any run orphaned by backing out mid-battle
   showScreen("screen-pvp");
-  await drainPvpMailbox();   // catch results that landed since login, then show fresh standing
+  renderPvpOfflineNote();    // inline "offline — practice only" banner (A4)
+  if (onlineReady) await drainPvpMailbox();  // reconcile results that landed since login
   renderPvpRatingBanner();
   renderPvpActiveTeam(document.querySelector(".pvp-fmt-btn.active")?.dataset.fmt || "single");
-  loadOpenChallenges();
+  if (onlineReady) loadOpenChallenges();
+  else renderPvpListingsOffline();
+}
+
+// Inline offline state for the PvP screen: explains that the AI modes run as
+// practice from cached opponents while posting / open challenges / live need a
+// connection. Replaces the old hard bounce.
+function renderPvpOfflineNote() {
+  const el = document.getElementById("pvp-offline-note");
+  if (!el) return;
+  if (onlineReady) { el.classList.add("hidden"); el.innerHTML = ""; return; }
+  const n = loadPvpSnapshots().length;
+  el.classList.remove("hidden");
+  el.innerHTML = n
+    ? `📴 Offline — Quick Match, Gauntlet & FFA run as <strong>practice</strong> vs ${n} cached opponent${n === 1 ? "" : "s"} (no rating change). Posting, open challenges & Live need a connection.`
+    : `📴 Offline — go online once to cache opponents, then Quick Match / Gauntlet / FFA work here as practice. Posting & Live need a connection.`;
+}
+
+function renderPvpListingsOffline() {
+  const container = document.getElementById("pvp-listings");
+  if (container) container.innerHTML = '<div class="pvp-empty">Open challenges need a connection. Use Quick Match / Gauntlet / FFA for offline practice vs cached opponents.</div>';
 }
 
 // "Your rating: ⭐ N · W–L" header so the player sees standing without opening

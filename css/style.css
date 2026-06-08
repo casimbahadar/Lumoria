@@ -541,19 +541,32 @@ html, body {
   color: var(--text-secondary);
 }
 
-#area-actions { display: flex; flex-direction: column; gap: 0.5rem; }
+/* Responsive tile grid instead of a tall single-column stack (declutter, mobile-friendly). */
+#area-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.5rem;
+  align-content: start;
+}
+/* Primary action stays prominent across the full width. */
+#area-actions > #btn-explore { grid-column: 1 / -1; }
 
 .btn-action {
   background: var(--bg-card);
   color: var(--text-primary);
   border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  line-height: 1.15;
   cursor: pointer;
   transition: all 0.15s ease;
-  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 46px;
 }
 
 .btn-action:hover {
@@ -1739,8 +1752,9 @@ button, a, [role="button"] {
   }
   #area-header { width: 100%; }
   #area-description { width: 100%; font-size: 0.8rem; }
-  #area-wild-preview { flex: 1; min-width: 140px; }
-  #area-actions { flex: 1; min-width: 140px; gap: 0.4rem; }
+  #area-wild-preview { width: 100%; }
+  /* Full width so the action tiles flow into 2+ columns instead of squishing. */
+  #area-actions { flex: 1 1 100%; min-width: 0; gap: 0.4rem; }
   #area-gym-info { width: 100%; }
 
   /* Map dots: bigger for touch */

@@ -1098,7 +1098,10 @@ function getMoveEffectiveness(move, defenderTypes) {
       if (move.breakerVs && dt === move.breakerVs) {
         eff *= 2;
       } else if (TYPE_CHART[mt] && TYPE_CHART[mt][dt] !== undefined) {
-        eff *= TYPE_CHART[mt][dt];
+        let m = TYPE_CHART[mt][dt];
+        // Inverse Mode (NG+ option): fully reversed type chart.
+        if (typeof G !== "undefined" && G && G.inverseMode && typeof inverseEffMult === "function") m = inverseEffMult(m);
+        eff *= m;
       }
     }
     total *= eff;

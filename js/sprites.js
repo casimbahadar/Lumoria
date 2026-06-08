@@ -884,7 +884,34 @@ function getMonsterSVG(monster, size = 80) {
 }
 
 // Get sprite as data URL for use in img src
+// ============================================================
+// REAL SPRITE OVERRIDE — drop-in raster art (replaces the procedural SVG + emoji)
+// Drop files at  assets/sprites/<id>.png   (monsters, id 1-500)
+//           and  assets/trainers/<key>.png (trainers: rex, marina, aria, umbra_shade, ...)
+// then list them in the matching manifest.json (or just run
+//   python3 scripts/build_sprite_manifest.py
+// ). Anything not listed transparently falls back to the procedural SVG, so the
+// game keeps working while the folders fill up — replace sprites incrementally.
+// ============================================================
+const MONSTER_SPRITES = new Set();
+const TRAINER_SPRITES = new Set();
+function _loadSpriteManifest(url, set) {
+  try {
+    fetch(url, { cache: "no-cache" })
+      .then(r => (r.ok ? r.json() : []))
+      .then(arr => { if (Array.isArray(arr)) arr.forEach(k => set.add(String(k))); })
+      .catch(() => {});
+  } catch (e) { /* file:// or offline — stay on the procedural fallback */ }
+}
+function loadSpriteManifests() {
+  _loadSpriteManifest("assets/sprites/manifest.json", MONSTER_SPRITES);
+  _loadSpriteManifest("assets/trainers/manifest.json", TRAINER_SPRITES);
+}
+loadSpriteManifests();
+
 function getMonsterSpriteURL(monster, size = 80) {
+  const id = monster && (monster.id != null ? monster.id : monster.monsterId);
+  if (id != null && MONSTER_SPRITES.has(String(id))) return `assets/sprites/${id}.png`;
   const svg = getMonsterSVG(monster, size);
   return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
 }
@@ -1316,6 +1343,7 @@ function getTrainerSVG(leaderId, leaderData, size = 80) {
 }
 
 function getTrainerSpriteURL(leaderId, leaderData, size = 80) {
+  if (leaderId != null && TRAINER_SPRITES.has(String(leaderId))) return `assets/trainers/${leaderId}.png`;
   const svg = getTrainerSVG(leaderId, leaderData, size);
   return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
 }

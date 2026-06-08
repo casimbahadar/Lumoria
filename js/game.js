@@ -35,6 +35,7 @@ function newGameState(playerName, starterMonsterId) {
     saveTimestamp: Date.now(),
     saveSlot: 0,
     ngPlusCount: 0,
+    inverseMode: false,
     vaeldrisPartyLock: null,
     defeatedWielders: [],
     forgottenLegendaryAttempted: []
@@ -131,6 +132,7 @@ function loadGame(slot) {
     if (!data.roamingCaught) data.roamingCaught = [];
     if (!data.dailyChallenges) data.dailyChallenges = null;
     if (data.ngPlusCount === undefined) data.ngPlusCount = 0;
+    if (data.inverseMode === undefined) data.inverseMode = false;
     if (data.vaeldrisPartyLock === undefined) data.vaeldrisPartyLock = null;
     if (!data.defeatedWielders) data.defeatedWielders = [];
     if (!data.forgottenLegendaryAttempted) data.forgottenLegendaryAttempted = [];
@@ -266,11 +268,13 @@ function showSaveSlots() {
 function startNGPlus() {
   if (!G) return;
   if (!confirm("Start New Game+? Your box Lumori carry over. Enemies will be significantly stronger and new areas unlock.")) return;
+  const inverseMode = confirm("Enable INVERSE MODE for this playthrough?\n\nThe type chart is completely reversed: super-effective and not-very-effective swap, and immunities become weaknesses (2×). A fresh strategic challenge.\n\nOK = Inverse Mode ON, Cancel = normal.");
   window._ngPlusCarry = {
     box: [...G.box],
     ngCount: (G.ngPlusCount || 0) + 1,
     name: G.playerName,
-    slot: G.saveSlot
+    slot: G.saveSlot,
+    inverseMode
   };
   window._pendingSlot = G.saveSlot;
   checkAchievement("ngplus_start");
@@ -3767,6 +3771,7 @@ function initEventListeners() {
     if (carry) {
       G.ngPlusCount = carry.ngCount;
       G.box = carry.box;
+      G.inverseMode = !!carry.inverseMode;
       window._ngPlusCarry = null;
     }
     showScreen("screen-main");

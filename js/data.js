@@ -97,11 +97,18 @@ const TYPE_CHART = {
   Dream   : { Fire:1,       Aquatic:1,    Nature:1,     Electric:1,   Earth:0.5,    Wind:0.5,     Ice:1,        Dark:2,       Fairy:2,      Metal:0.5,    Poison:1,     Mental:2,     Draconic:2,   Normal:2,     Spectral:2,   Fighting:2,   Aether:1,     Crystal:0.5,  Primal:1,     Sonic:2,      Vapor:1,      Mineral:0,    Toxin:0.5,    Chrono:2,     Stellar:2,    Dream:0.5 }
 };
 
+// Inverse Mode (NG+ option): completely reverses the type chart — super-effective
+// and not-very-effective swap, and immunities (0×) become super-effective (2×).
+function inverseEffMult(m) { return m === 1 ? 1 : (m > 1 ? 0.5 : 2); }
+
 function getTypeEffectiveness(moveType, defenderTypes) {
+  const inverse = (typeof G !== "undefined" && G && G.inverseMode);
   let mult = 1;
   for (const dt of defenderTypes) {
     if (TYPE_CHART[moveType] && TYPE_CHART[moveType][dt] !== undefined) {
-      mult *= TYPE_CHART[moveType][dt];
+      let m = TYPE_CHART[moveType][dt];
+      if (inverse) m = inverseEffMult(m);
+      mult *= m;
     }
   }
   return mult;

@@ -3068,7 +3068,7 @@ function showTeamDetail(slot, idx) {
         <span style="color:var(--accent-blue)">(${Object.values(slot.ivs||{}).reduce((a,b)=>a+b,0)}/186)</span>
       </div>
     </div>
-    <div class="detail-section"><h4>Moves</h4><div class="moves-grid">${movesHTML}</div></div>
+    <div class="detail-section"><h4>Moves</h4><div class="moves-grid">${movesHTML}</div><button class="btn-relearn-moves" data-relearn-mon="${idx}" style="margin-top:0.55rem;width:100%;padding:0.5rem;border-radius:8px;cursor:pointer">↺ Relearn Moves</button></div>
     ${variantHTML}
     <div class="detail-section">
       <h4>Held Item</h4>
@@ -3119,6 +3119,80 @@ function showTeamDetail(slot, idx) {
       showTeamDetail(G.team[monIdx], monIdx);
     });
   });
+
+  // Move relearner entry point
+  document.querySelectorAll("[data-relearn-mon]").forEach(btn => {
+    btn.addEventListener("click", () => openMoveRelearner(parseInt(btn.dataset.relearnMon)));
+  });
+}
+
+// ---- Move Relearner (move reminder) ----
+// Lets a Lumori re-learn any move from its learnset it could already have learned
+// (level <= current level) but doesn't currently know. Free of charge.
+function moveRelearnEligible(slot) {
+  const def = MONSTERS_DATA[slot.monsterId];
+  const known = new Set(slot.moves);
+  const seen = new Set();
+  const out = [];
+  for (const [lv, key] of def.learnset) {
+    if (lv <= slot.level && !known.has(key) && !seen.has(key) && MOVES_DATA[key]) {
+      seen.add(key); out.push([lv, key]);
+    }
+  }
+  return out;
+}
+function relearnRowHTML(name, sub, dataAttr) {
+  return `<button class="relearn-option" ${dataAttr} style="display:flex;justify-content:space-between;align-items:center;width:100%;gap:0.5rem;padding:0.55rem 0.7rem;margin:0.25rem 0;border-radius:8px;border:1px solid var(--border,#444);background:var(--panel,#2a2a3a);color:inherit;cursor:pointer;text-align:left">
+    <span style="font-weight:600">${name}</span><span style="font-size:0.72rem;color:var(--text-secondary,#9aa)">${sub}</span></button>`;
+}
+function openMoveRelearner(idx) {
+  const slot = G.team[idx]; if (!slot) return;
+  const def = MONSTERS_DATA[slot.monsterId];
+  const container = document.getElementById("team-detail-content"); if (!container) return;
+  const eligible = moveRelearnEligible(slot);
+  if (eligible.length === 0) { showNotification(`${slot.nickname || def.name} has no other moves to relearn.`); return; }
+  const list = eligible.map(([lv, key]) => {
+    const m = MOVES_DATA[key];
+    return relearnRowHTML(m.name, `Lv${lv} · ${m.type} · ${m.cat} · Pwr ${m.power || "—"}`, `data-relearn-pick="${key}"`);
+  }).join("");
+  container.innerHTML = `<div style="padding:0.5rem">
+    <h3 style="margin:0 0 0.3rem">↺ Relearn a Move</h3>
+    <p style="font-size:0.8rem;color:var(--text-secondary,#9aa);margin:0 0 0.6rem">${slot.nickname || def.name} (Lv.${slot.level}) can relearn a past move — free of charge.</p>
+    <div>${list}</div>
+    <button class="btn-secondary" data-relearn-back="1" style="margin-top:0.7rem">← Back</button></div>`;
+  container.querySelectorAll("[data-relearn-pick]").forEach(b => b.addEventListener("click", () => relearnPick(idx, b.dataset.relearnPick)));
+  container.querySelectorAll("[data-relearn-back]").forEach(b => b.addEventListener("click", () => showTeamDetail(G.team[idx], idx)));
+}
+function relearnPick(idx, key) {
+  const slot = G.team[idx]; const m = MOVES_DATA[key];
+  if (!slot || !m || slot.moves.includes(key)) return;
+  const name = slot.nickname || MONSTERS_DATA[slot.monsterId].name;
+  if (slot.moves.length < 4) {
+    slot.moves.push(key); saveGame();
+    showNotification(`${name} relearned ${m.name}!`);
+    showTeamDetail(G.team[idx], idx); return;
+  }
+  const container = document.getElementById("team-detail-content"); if (!container) return;
+  const cur = slot.moves.map((mid, i) => {
+    const cm = MOVES_DATA[mid];
+    return relearnRowHTML(cm ? cm.name : mid, cm ? `${cm.type} · Pwr ${cm.power || "—"}` : "", `data-relearn-replace="${i}"`);
+  }).join("");
+  container.innerHTML = `<div style="padding:0.5rem">
+    <h3 style="margin:0 0 0.3rem">Replace which move?</h3>
+    <p style="font-size:0.8rem;color:var(--text-secondary,#9aa);margin:0 0 0.6rem">${name} wants to learn <strong>${m.name}</strong>. Choose a move to forget:</p>
+    <div>${cur}</div>
+    <button class="btn-secondary" data-relearn-back2="1" style="margin-top:0.7rem">← Cancel</button></div>`;
+  container.querySelectorAll("[data-relearn-replace]").forEach(b => b.addEventListener("click", () => relearnReplace(idx, key, parseInt(b.dataset.relearnReplace))));
+  container.querySelectorAll("[data-relearn-back2]").forEach(b => b.addEventListener("click", () => openMoveRelearner(idx)));
+}
+function relearnReplace(idx, key, pos) {
+  const slot = G.team[idx]; const m = MOVES_DATA[key];
+  if (!slot || !m || pos < 0 || pos >= slot.moves.length) return;
+  const forgotten = MOVES_DATA[slot.moves[pos]];
+  const name = slot.nickname || MONSTERS_DATA[slot.monsterId].name;
+  slot.moves[pos] = key; saveGame();
+  showNotification(`${name} forgot ${forgotten ? forgotten.name : "a move"} and learned ${m.name}!`);
+  showTeamDetail(G.team[idx], idx);
 }
 
 function useItemOnMon(itemId, monIdx) {

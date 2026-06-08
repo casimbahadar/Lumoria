@@ -1,0 +1,141 @@
+#!/usr/bin/env python3
+"""Sample art: an SVG wielder portrait (Azura) + a Gen-4-style pixel creature sprite.
+Renders each to PNG via cairosvg so they can be viewed directly."""
+import os, cairosvg
+OUT = "docs/art-samples"; os.makedirs(OUT, exist_ok=True)
+
+# ---------------------------------------------------------------- Azura portrait
+AZURA = '''<svg xmlns="http://www.w3.org/2000/svg" width="360" height="460" viewBox="0 0 360 460">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="38%" r="75%">
+    <stop offset="0%" stop-color="#2a2670"/><stop offset="55%" stop-color="#141442"/><stop offset="100%" stop-color="#080820"/>
+  </radialGradient>
+  <linearGradient id="cloak" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#3a347e"/><stop offset="60%" stop-color="#231f5e"/><stop offset="100%" stop-color="#161240"/>
+  </linearGradient>
+  <linearGradient id="hood" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#46408f"/><stop offset="100%" stop-color="#241f5c"/>
+  </linearGradient>
+  <linearGradient id="brass" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#ffe6a0"/><stop offset="45%" stop-color="#d6a23c"/><stop offset="100%" stop-color="#8a6420"/>
+  </linearGradient>
+  <radialGradient id="planet" cx="40%" cy="35%" r="70%">
+    <stop offset="0%" stop-color="#ffe9b0"/><stop offset="60%" stop-color="#e0a93f"/><stop offset="100%" stop-color="#9c6a1e"/>
+  </radialGradient>
+  <radialGradient id="eye" cx="50%" cy="50%" r="60%">
+    <stop offset="0%" stop-color="#eafcff"/><stop offset="55%" stop-color="#7fe3ff"/><stop offset="100%" stop-color="#2a8fcf"/>
+  </radialGradient>
+  <filter id="soft"><feGaussianBlur stdDeviation="2.2"/></filter>
+</defs>
+
+<!-- card + frame -->
+<rect x="6" y="6" width="348" height="448" rx="22" fill="url(#bg)" stroke="#caa24a" stroke-width="3"/>
+<rect x="14" y="14" width="332" height="432" rx="16" fill="none" stroke="#caa24a" stroke-width="1" opacity="0.5"/>
+
+<!-- starfield -->
+<g fill="#ffe9a8">
+  <circle cx="60" cy="60" r="2"/><circle cx="300" cy="80" r="2.4"/><circle cx="120" cy="40" r="1.4"/>
+  <circle cx="250" cy="50" r="1.6"/><circle cx="40" cy="150" r="1.6"/><circle cx="330" cy="180" r="1.8"/>
+  <circle cx="30" cy="260" r="1.4"/><circle cx="90" cy="100" r="1.2"/><circle cx="280" cy="140" r="1.3"/>
+  <circle cx="200" cy="36" r="1.2"/><circle cx="160" cy="70" r="1.1"/>
+</g>
+<g stroke="#9ab0ff" stroke-width="0.8" opacity="0.55">
+  <line x1="60" y1="60" x2="120" y2="40"/><line x1="120" y1="40" x2="160" y2="70"/>
+  <line x1="250" y1="50" x2="300" y2="80"/><line x1="300" y1="80" x2="280" y2="140"/>
+</g>
+
+<!-- ringed planet motif above the hood -->
+<g transform="translate(180 92)">
+  <ellipse cx="0" cy="0" rx="40" ry="11" fill="none" stroke="#caa24a" stroke-width="2.4" opacity="0.85"/>
+  <circle cx="0" cy="0" r="20" fill="url(#planet)" stroke="#7a5418" stroke-width="1.5"/>
+  <ellipse cx="-6" cy="-6" rx="7" ry="4" fill="#fff4d2" opacity="0.5"/>
+</g>
+
+<!-- telescope-staff (behind figure) -->
+<g transform="rotate(24 180 300)">
+  <rect x="176" y="120" width="9" height="250" rx="4" fill="url(#brass)" stroke="#6e4e1a" stroke-width="1"/>
+  <rect x="168" y="116" width="25" height="34" rx="6" fill="url(#brass)" stroke="#6e4e1a" stroke-width="1.5"/>
+  <circle cx="180.5" cy="133" r="7" fill="#0c1030" stroke="#caa24a" stroke-width="2"/>
+</g>
+
+<!-- cloak -->
+<path d="M180 200 C120 210 96 250 92 430 L268 430 C264 250 240 210 180 200 Z" fill="url(#cloak)" stroke="#0e0b2c" stroke-width="2"/>
+<!-- cloak gold trim + stars -->
+<path d="M180 205 C128 214 108 252 104 425" fill="none" stroke="#caa24a" stroke-width="1.4" opacity="0.7"/>
+<path d="M180 205 C232 214 252 252 256 425" fill="none" stroke="#caa24a" stroke-width="1.4" opacity="0.7"/>
+<g fill="#ffe9a8" opacity="0.85">
+  <circle cx="150" cy="300" r="2"/><circle cx="210" cy="330" r="2"/><circle cx="178" cy="380" r="2.3"/>
+  <circle cx="135" cy="360" r="1.6"/><circle cx="226" cy="300" r="1.6"/><circle cx="200" cy="392" r="1.4"/>
+</g>
+<!-- clasp -->
+<path d="M180 232 l6 12 13 1 -10 9 3 13 -12 -7 -12 7 3 -13 -10 -9 13 -1 z" fill="#ffe08a" stroke="#7a5418" stroke-width="1"/>
+
+<!-- hands gripping staff -->
+<ellipse cx="150" cy="300" rx="13" ry="10" fill="#3a347e" stroke="#0e0b2c" stroke-width="2"/>
+<rect x="142" y="291" width="16" height="6" rx="3" fill="#caa24a"/>
+
+<!-- hood -->
+<path d="M180 150 C138 150 120 188 124 232 C150 214 210 214 236 232 C240 188 222 150 180 150 Z" fill="url(#hood)" stroke="#0e0b2c" stroke-width="2"/>
+<!-- face shadow -->
+<ellipse cx="180" cy="214" rx="40" ry="34" fill="#0a0a22"/>
+<!-- glowing eyes -->
+<g filter="url(#soft)" opacity="0.9"><circle cx="166" cy="212" r="7" fill="#7fe3ff"/><circle cx="194" cy="212" r="7" fill="#7fe3ff"/></g>
+<circle cx="166" cy="212" r="4.5" fill="url(#eye)"/><circle cx="194" cy="212" r="4.5" fill="url(#eye)"/>
+<circle cx="164.5" cy="210.5" r="1.4" fill="#ffffff"/><circle cx="192.5" cy="210.5" r="1.4" fill="#ffffff"/>
+
+<!-- name banner -->
+<g>
+  <rect x="70" y="404" width="220" height="38" rx="10" fill="#1a1648" stroke="#caa24a" stroke-width="2"/>
+  <text x="180" y="423" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#ffe9a8" font-weight="bold" letter-spacing="3">AZURA</text>
+  <text x="180" y="436" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#b9b0e6" letter-spacing="1">OBSERVATORY PEAK &#183; STARS</text>
+</g>
+</svg>'''
+
+# ---------------------------------------------------------------- Gen-4 style creature sprite
+# "Cindling" — a small ember creature, pixel art. . = transparent.
+GRID = [
+ "..........K...........",
+ ".........KyK..........",
+ "........KyoyK.........",
+ "........KooyK.........",
+ ".......KKooKK.........",
+ ".....KKooooooKK.......",
+ "...KKoooooooorrKK.....",
+ "..KooooooooooorrrK....",
+ ".KoooooooooooorrrrK...",
+ ".KooooooooooooorrrK...",
+ ".KoooEoooooEoooorrK...",
+ ".KooohEoooohEooorrK...",
+ ".KoooooooooooooorrK...",
+ ".Koooooowwwwoooorr K..".replace(" ",""),
+ ".KoooowwwmmwwwoorrK...",
+ ".KoooowwmmmmwwworK....",
+ "..Kooyywwwwwwyyrr K..".replace(" ",""),
+ "..KoyyyYYYYYyyyrK.....",
+ "...KyyyYYYYYyyyrK.....",
+ "....KKyyYYyyyrKK......",
+ "......KKyyyyKK........",
+ ".......KK.KK..........",
+ "....KKooK.KooKK.......",
+ "....KoooK.KoooK.......",
+ ".....KKKK.KKKK........",
+]
+PAL = {
+ 'K':'#2a0d05', 'r':'#a8330c', 'o':'#e0641a', 'y':'#f5a623', 'Y':'#ffd76b',
+ 'w':'#fff1cf', 'm':'#7a2406', 'E':'#1a0a04', 'h':'#ffffff',
+}
+PX = 14
+W = max(len(r) for r in GRID); H = len(GRID)
+rects = []
+for j,row in enumerate(GRID):
+    for i,ch in enumerate(row):
+        if ch in PAL:
+            rects.append(f'<rect x="{i*PX}" y="{j*PX}" width="{PX}" height="{PX}" fill="{PAL[ch]}"/>')
+CREATURE = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W*PX}" height="{H*PX}" '
+            f'viewBox="0 0 {W*PX} {H*PX}" shape-rendering="crispEdges">'
+            f'<rect width="100%" height="100%" fill="#eef3f7"/>' + "".join(rects) + '</svg>')
+
+for name, svg in [("wielder-azura", AZURA), ("lumori-cindling-gen4", CREATURE)]:
+    open(f"{OUT}/{name}.svg","w").write(svg)
+    cairosvg.svg2png(bytestring=svg.encode(), write_to=f"{OUT}/{name}.png", scale=2)
+    print("wrote", f"{OUT}/{name}.svg", "+ .png")

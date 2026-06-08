@@ -2037,7 +2037,6 @@ const MONSTERS_DATA = {
     desc:"A mechanical warrior powered by electric cores. Feared on every battlefield.",
     lore:"Alloytron is a larger electric-steel automaton 1.2 metres tall — Gearon's spinning cog-wheels have consolidated into an assembly of interlocked alloy panels with exposed wiring running between them, and the mechanical-motion sparks of its juvenile form have organised into a glowing power core visible through a transparent casing in its chest. Its chest houses a glowing power core visible through a transparent casing. It can interface with electrical infrastructure and draw power directly from city grid lines." },
 
-  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   152: { id:152, name:"Imperion",  emoji:"🐢", types:["Metal","Earth"],
     base:{hp:108,atk:61,def:138,spa:59,spd:105,spe:30},
     learnset:[[1,"collide",[25,"ironskin"]],[1,"stone_throw"],[3,"slag_shield"],[12,"fortify"],[15,"iron_bulwark"],[20,"forge_blast_2"],[24,"daunt"],[28,"stone_slide"],[32,"iron_storm"],[36,"alloy_tail"],[37,"crystal_lance"],[40,"titan_blade"],[44,"crag_strike"],[45,"temper_edge"],[48,"tungsten_wrath"],[52,"crushing_bulk",[5,"magnetize"]]],
@@ -2239,7 +2238,6 @@ const MONSTERS_DATA = {
     desc:"A rock creature shaped like a small pebble with tiny legs. Almost indistinguishable from an ordinary river stone when still.",
     lore:"Pebblet is a small rock creature 20 cm tall shaped like a round pebble with two tiny legs and a somewhat surprised-looking face embedded in the stone. It is almost indistinguishable from an ordinary river pebble when still. It lives in streambeds and rolls with the current when travelling. Pebblet cluster in tight streambank groupings that mimic natural rock outcroppings. From within each cluster, individuals occasionally rear briefly upright on their two tiny legs before tumbling back, rehearsing both the awkward humanoid stance and the geologist-fooling formation Boulderoll and Megalith will maintain together at much greater scale." },
 
-  // LORE-AUDIT FLAG (Step 4): auto-collapsed to mono in Phase B — review for re-dual
   192: { id:192, name:"Boulderoll",emoji:"🪨", types:["Earth"],
     base:{hp:82,atk:108,def:112,spa:50,spd:57,spe:69},
     learnset:[[1,"stone_throw"],[2,"cranial_ram"],[3,"fortify"],[4,"stone_slide"],[5,"granite_wall"],[29,"crag_strike"],[33,"tremor_stomp"],[37,"crushing_bulk"],[41,"geoblast"],[49,"crystal_lance"],[57,"landslide"],[65,"tectonic_shift"],[6,"petrify_gaze"],[44,"aftershock"]],
@@ -2638,7 +2636,6 @@ const MONSTERS_DATA = {
     desc:"A living pebble with stubby limbs. Rolls into enemies to deal surprisingly heavy blows.",
     lore:"Pebblard is a small round rock creature 15 cm in diameter that is essentially a smooth river pebble with two tiny eyes. It camouflages perfectly among ordinary rocks. It communicates with others by clicking against nearby stone. Geologists have placed Pebblard specimens in their sample bags by mistake." },
 
-  // LORE-AUDIT FLAG (Step 4): auto-collapsed to mono in Phase B — review for re-dual
   249: { id:249, name:"Boulderax", emoji:"⛰️", types:["Earth"],
     base:{hp:80,atk:95,def:108,spa:52,spd:70,spe:52},
     learnset:[[1,"stone_slide"],[1,"geoblast"],[22,"crag_strike"],[30,"tectonic_shift"],[38,"bedrock_slam"],[46,"mud_spray"],[54,"clay_armor"],[62,"radiance_cannon"]],
@@ -2646,7 +2643,6 @@ const MONSTERS_DATA = {
     desc:"A boulder-bodied titan that rolls through terrain like a wrecking ball. Nothing stops its charge.",
     lore:"Boulderax is a medium rock-ground creature 60 cm tall — Pebblard's smooth river-pebble silhouette has grown squat and boulder-shaped, sprouting thick arm-stubs and two flat feet, and the camouflage that once hid it among ordinary rocks now matches local geological formations at a much larger scale. It rolls itself into a perfect sphere for travel and unfurls only when it finds suitable terrain to defend." },
 
-  // LORE-AUDIT FLAG (Step 4): auto-collapsed to mono in Phase B — review for re-dual
   250: { id:250, name:"Megalith", emoji:"🗿", types:["Earth"],
     base:{hp:110,atk:120,def:134,spa:55,spd:88,spe:43},
     learnset:[[1,"crag_strike"],[1,"tectonic_shift"],[15,"mineral_polish"],[20,"earthen_wall"],[25,"stone_cleave"],[32,"bedrock_slam"],[35,"quake_pulse"],[40,"clay_armor"],[45,"boulder_wrecker"],[48,"geoblast"],[50,"telluric_wave"],[56,"stone_slide"],[60,"continental_shift"],[64,"worldseed_quake"],[72,"radiance_cannon"]],
@@ -2764,7 +2760,6 @@ const MONSTERS_DATA = {
     lore:"Impenezard is a massive fighting-toxin creature 2 metres tall resembling a walking thorn-warrior — Tendrilisk's climbing vine-tendrils have hardened into 15-cm thorns tipped with potent venom, and its body has thickened into a bristling cactus-plate carapace. Its broad form is nearly impenetrable. It moves slowly through dense jungle in measured fighting stances, and other creatures create well-worn trails specifically to avoid contact with it." },
 
   // Standalone Grass/Bug: Mosswing
-  // LORE-AUDIT FLAG (Step 4): auto-collapsed to mono in Phase B — review for re-dual
   265: { id:265, name:"Mosswing", emoji:"🦗", types:["Nature"],
     base:{hp:78,atk:82,def:70,spa:95,spd:88,spe:108},
     learnset:[[1,"resonance_hum"],[1,"vine_lash"],[5,"cocoon_guard"],[10,"metamorphosis"],[14,"quiver_dance"],[18,"shear_strike"],[22,"sticky_web"],[28,"verdant_orb"],[32,"spore_shield"],[38,"sharp_leaves"],[42,"sporecloud_burst"],[48,"petal_blitz"],[58,"resonance_hum"],[68,"radiance_cannon"]],
@@ -3299,7 +3294,6 @@ const MONSTERS_DATA = {
     lore:"Sculptweave is a spider 15 cm across with a pale cream body and legs banded in rose-gold. Its silk is exceptionally strong and has a faint iridescent sheen. It weaves elaborate three-dimensional web sculptures rather than flat sheets, incorporating fairy-touched strands that glow at dawn and dusk." },
 
   // ===== ICE/STEEL =====
-  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   55: { id:55, name:"Rimeling", emoji:"🗡️", types:["Ice","Metal"],
     base:{hp:46,atk:73,def:66,spa:56,spd:52,spe:76},
     learnset:[[1,"flurries",[25,"cryo_lance"]],[1,"chrome_claw"],[11,"glacial_punch"],[19,"forge_blast_2"],[27,"frost_crash"],[30,"smelt_crush"],[35,"alloy_tail"],[43,"whiteout",[5,"permafrost"]],[3,"winter_shroud"],[33,"forge_strike"]],
@@ -3986,7 +3980,6 @@ const MONSTERS_DATA = {
   // =====================================================================
 
   // ---- Tier 1a: Mid-game NG+ (badges 8–11 areas) BST ~490–540 ----
-  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   322: { id:322, name:"Venomwraith", emoji:"☠️", types:["Poison","Spectral"],
     base:{hp:60,atk:65,def:54,spa:81,spd:69,spe:71}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"septic_prick"],[5,"toxify"],[8,"spectral_ray"],[10,"nether_sphere"],[15,"blight_drain"],[18,"ghastly_wail"],[20,"ooze_bomb"],[25,"corrosive_rain"],[28,"soul_chill"],[30,"miasma_cloud"],[35,"venom_drown"],[38,"necrotic_pulse"],[40,"void_rend"],[45,"venom_lance"],[50,"sludge_wave"],[60,"toxic_surge"]],
@@ -4022,7 +4015,6 @@ const MONSTERS_DATA = {
     desc:"A carnivorous marsh plant that lures prey with sweet-smelling nectar before paralysing them with venom.",
     lore:"Silthorn is a large ambulatory plant 1.8 metres tall with glossy dark-green leaves edged with translucent purple poison sacs. Its roots move like fingers." },
 
-  // LORE-AUDIT FLAG (Step 4): auto-collapsed to mono in Phase B — review for re-dual
   327: { id:327, name:"Quarrex", emoji:"⛏️", types:["Earth"],
     base:{hp:77,atk:93,def:89,spa:48,spd:61,spe:52}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"stone_throw"],[10,"geoblast"],[20,"stone_slide"],[30,"terra_spike"],[40,"fissure_slam"],[50,"fossil_rush"],[60,"stone_slide"],[5,"fortify"],[35,"alloy_tail"]],
@@ -4051,7 +4043,6 @@ const MONSTERS_DATA = {
     desc:"A swamp crocodilian with acid-laced saliva. Prey dissolves within minutes of a bite.",
     lore:"Blistermaw is a water-poison reptile 2.8 metres long resembling a heavily built crocodile with blistered, acid-weeping skin and rows of hollow venom-conducting teeth." },
 
-  // LORE-AUDIT FLAG (Step 4): auto-collapsed to mono in Phase B — review for re-dual
   331: { id:331, name:"Thornmoth", emoji:"🦋", types:["Nature"],
     base:{hp:55,atk:63,def:58,spa:78,spd:68,spe:78}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"breeze"],[8,"vine_lash"],[18,"mandible_bite"],[28,"sharp_leaves"],[38,"resonance_hum"],[48,"canopy_crash"],[58,"verdant_surge"],[5,"slumber_dust"],[35,"spore_burst"]],
@@ -4131,7 +4122,6 @@ const MONSTERS_DATA = {
     lore:"Mirestone is a floating rock-psychic entity resembling a worn monolith 1.5 metres tall. Ancient carvings on its surface glow when it uses psychic powers." },
 
   // ---- Tier 2: Late-game NG+ (badges 12–16 areas) BST ~545–590 ----
-  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   342: { id:342, name:"Wraithking", emoji:"👑", types:["Dark","Spectral"],
     base:{hp:69,atk:94,def:71,spa:92,spd:79,spe:90}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"nether_sphere"],[5,"toxify"],[8,"spectral_ray"],[10,"void_rend"],[15,"null_void"],[20,"umbral_claw"],[25,"ectoplasm_strike"],[30,"phantom_claw"],[33,"ghastly_wail"],[35,"spectral_lock"],[38,"synaptic_shatter"],[40,"shade_dash"],[50,"shadowstep"],[60,"neural_storm"]],
@@ -4146,7 +4136,6 @@ const MONSTERS_DATA = {
     desc:"A being of living shadow that exists simultaneously in darkness and the spectral realm. It phases through walls to hunt, its constantly shifting silhouette making it nearly impossible to track.",
     lore:"Shadowreave is a dark-spectral entity 1.6 metres tall with a body composed of living shadow and two luminous violet eyes. Its silhouette is never quite the same shape twice." },
 
-  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   344: { id:344, name:"Glimmeritch", emoji:"🧚", types:["Fairy","Spectral"],
     base:{hp:63,atk:69,def:68,spa:102,spd:91,spe:97}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"fairy_wind"],[5,"dreamweave"],[10,"nether_sphere"],[12,"nymph_mist"],[15,"fade"],[20,"fae_requiem"],[22,"dream_drain"],[25,"eidolon_dance"],[28,"misty_explosion"],[30,"psi_strike"],[35,"veil_shroud"],[38,"prism_ward"],[40,"phantom_claw"],[45,"disarming_voice"],[50,"void_rend"],[60,"fae_requiem"],[62,"ghost_jab"]],
@@ -4317,7 +4306,6 @@ const MONSTERS_DATA = {
     desc:"A creature that is half ocean, half cliff-face. It creates tsunamis as a side effect of moving.",
     lore:"Bouldertide is an aquatic-mineral creature 4 metres tall resembling a tide-carved sea stack that walks. Aquatic constantly flows through channels in its stone body." },
 
-  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   368: { id:368, name:"Willowisp", emoji:"🕯️", types:["Fire","Spectral"],
     base:{hp:67,atk:80,def:69,spa:110,spd:93,spe:101}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"flicker"],[5,"shadowstep"],[8,"wraith_claw"],[10,"nether_sphere"],[15,"spectral_ray"],[20,"inferno_jet"],[25,"ghastly_focus"],[30,"void_rend"],[38,"shade_dash"],[40,"solar_flare"],[45,"eternal_haunt"],[50,"phantom_claw"],[60,"conflagration"]],
@@ -4446,7 +4434,6 @@ const MONSTERS_DATA = {
     desc:"A creature so cold it freezes the ground beneath it permanently. It has never melted.",
     lore:"Permafrost is an ice-ground creature 3 metres tall resembling a glacial boulder with limbs. The ground beneath it freezes to a depth of 50 metres and does not thaw for decades after it leaves." },
 
-  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   386: { id:386, name:"Wraithstorm", emoji:"💀", types:["Electric","Spectral"],
     base:{hp:68,atk:92,def:70,spa:106,spd:84,spe:105}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"nether_sphere"],[5,"shade_dash"],[10,"jolt"],[13,"wraith_claw"],[15,"wraith_focus"],[20,"phantom_claw"],[25,"soul_chill"],[30,"volt_jet"],[40,"void_rend"],[45,"necrotic_pulse"],[50,"volt_surge"],[52,"neural_storm"],[60,"stormbolt"]],
@@ -4525,7 +4512,6 @@ const MONSTERS_DATA = {
     desc:"A living lightning rod of steel. Every bolt from every storm in Lumoria eventually passes through it.",
     lore:"Thunderpeak is an electric-steel creature 3 metres tall resembling a stylised lightning bolt in living metal. It has a near-perfect conductor rating and can absorb, store, and release planet-scale electrical charge." },
 
-  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   397: { id:397, name:"Abyssalord", emoji:"🌊", types:["Aquatic","Spectral"],
     base:{hp:79,atk:92,def:81,spa:101,spd:87,spe:85}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"tidal_rush"],[5,"shadowstep"],[10,"nether_sphere"],[15,"spectral_ray"],[20,"tidal_crush"],[25,"ghastly_wail"],[30,"phantom_claw"],[40,"tsunami"],[42,"spectral_veil"],[45,"spirit_calamity"],[50,"void_rend"],[55,"sea_serpent_strike"],[60,"neural_storm"]],
@@ -4540,7 +4526,6 @@ const MONSTERS_DATA = {
     desc:"The sovereign of corrupted fae — a ruler that bridges the beautiful and the terrible without apology.",
     lore:"Voidcrown is a dark-fairy entity 2.5 metres tall wearing a permanent crown of void-matter and fairy-light. Half of its face is radiant and warm; the other half is an absolute darkness that swallows sight." },
 
-  // LORE-AUDIT FLAG (Step 4): PR #49 forced retype (Spectral/Fighting now pre-408 OK — reconsider)
   399: { id:399, name:"Stonekeeper", emoji:"⛰️", types:["Earth","Spectral"],
     base:{hp:83,atk:89,def:103,spa:89,spd:89,spe:72}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"stone_slide"],[10,"nether_sphere"],[20,"fossil_rush"],[30,"phantom_claw"],[40,"stone_slide"],[50,"void_rend"],[60,"neural_storm"],[5,"fortify"],[55,"prism_ward"],[62,"bone_cudgel"],[64,"spectral_radiance"],[65,"ghost_jab"],[66,"wraith_claw"],[67,"haunting_chorus"]],
@@ -5033,189 +5018,194 @@ const MONSTERS_DATA = {
     learnset:[[1,"mind_jolt"],[5,"aether_jab"],[10,"aether_pulse"],[15,"atavistic_focus"],[20,"psi_burst"],[25,"life_force"],[30,"mystic_ray"],[35,"geoblast"],[40,"arcane_beam"],[45,"ancient_pulse"],[50,"mental"],[50,"mystic_charge"],[55,"untamed_meditation"],[60,"mystical_eruption"],[65,"lunar_burst"],[70,"cosmic_veil"],[75,"radiant_aura"],[80,"aura_veil_strike"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Messengers of the sacred temples of a lost land, Auravian carry the resonance of ancient prayers on crystalline wings.",
-    lore:"Auravian are the divine messengers of Vaeldris. They appear to those who have lost something precious and are said to carry the voices of the departed on their wings." },
+    lore:"Auravian are the divine messengers of Vaeldris. They appear to those who have lost something precious and are said to carry the voices of the departed on their wings.",
+    appearance:"Serene winged messenger-being; slender luminous body, large crystalline-feathered wings, light-veiled faceless head ringed by a faint halo, trailing prayer-glyph ribbons. White-gold and opal palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  463: { id:463, name:"Forgotten Lumarix", emoji:"🦢", types:["Fairy","Earth"],
+  463: { id:463, name:"Forgotten Lumarix", emoji:"🦢", types:["Crystal","Stellar"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:120,atk:100,def:115,spa:155,spd:135,spe:125},
     learnset:[[1,"fairy_wind"],[20,"geoblast"],[35,"prism_flare"],[50,"lunar_burst"],[65,"fissure_slam"],[70,"celestial_wave"],[80,"luma_quake"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Lumarix hold fragments of starlight within their translucent bodies and release blinding radiance when threatened.",
-    lore:"The crystalline structures within a Lumarix's body refract light in ways that physicists from Vaeldris spent centuries trying to explain. They never succeeded." },
+    lore:"The crystalline structures within a Lumarix's body refract light in ways that physicists from Vaeldris spent centuries trying to explain. They never succeeded.",
+    appearance:"Regal swan of translucent living crystal; glowing star-points along neck and wings tracing the Cygnus constellation, prismatic light refraction. Crystal, indigo and gold palette." },
 
-  464: { id:464, name:"Forgotten Celestrix", emoji:"👼", types:["Aether","Metal"],
+  464: { id:464, name:"Forgotten Celestrix", emoji:"👼", types:["Aether","Crystal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:130,atk:105,def:120,spa:170,spd:145,spe:130},
     learnset:[[1,"crushing_bulk"],[5,"aether_jab"],[20,"forge_blast_2"],[25,"divine_ward"],[35,"mental"],[40,"ethereal_slash"],[45,"arcane_resolve"],[50,"lunar_burst"],[55,"radiant_wave"],[65,"alloy_edge"],[70,"cosmic_veil"],[75,"divine_press"],[80,"celestial_forge"],[85,"arcane_meditation"],[90,"star_cannon"],[100,"ethereal_storm"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"The apex guardian of Vaeldris's celestial order, Celestrix was said to manifest only when the stars aligned perfectly.",
-    lore:"Lysara wept on the day Celestrix became the last of its kind. She has never spoken of the Sundering to anyone, but those who watch her battle claim they can see it in her eyes." },
+    lore:"Lysara wept on the day Celestrix became the last of its kind. She has never spoken of the Sundering to anyone, but those who watch her battle claim they can see it in her eyes.",
+    appearance:"Apex six-winged seraph; crystalline starlight-forged armor, three pairs of radiant wings, a halo of orbiting crystal shards, masked serene visage, forged light-lance. White-gold and prismatic palette." },
 
   // --- Wielder: Morrigan (The Shadowfen) ---
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  465: { id:465, name:"Forgotten Nyxviper", emoji:"🦇", types:["Dark","Spectral"],
+  465: { id:465, name:"Forgotten Nyxviper", emoji:"🗡️", types:["Dark","Chrono"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:80,atk:150,def:80,spa:120,spd:90,spe:200},
     learnset:[[1,"dusk_slash"],[10,"cheap_shot"],[20,"nether_sphere"],[25,"backstab"],[35,"void_pulse"],[40,"abyss_stare"],[50,"void_rend"],[65,"shadowstep"],[70,"eclipse_shroud"],[80,"nyx_fang"]],
     catchRate:3, expYield:300, rarity:"legendary",
-    desc:"Nyxviper phase through solid matter and strike from the space between moments. Their venom erases memories rather than dealing damage.",
-    lore:"Vaeldrian scholars debated whether Nyxviper were truly physical beings or manifestations of collective nightmares. The debate was never resolved." },
+    desc:"Forgotten Nyxviper exist a half-second outside time. They step into the pause between heartbeats, strike, and are gone before the moment resumes — a victim never perceives the wound being made.",
+    lore:"Vaeldrian duelists called them 'the second that never was.' A Nyxviper does not outrun the eye; it removes itself from the timeline entirely and returns only to land the blow.",
+    appearance:"Sleek hooded time-assassin that flickers between instants; segmented black-plated limbs, twin blade-arms, pale-blue after-image echoes trailing it mid-strike. Matte-black and violet palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  466: { id:466, name:"Forgotten Morrath", emoji:"🌑", types:["Poison","Fire"],
+  466: { id:466, name:"Forgotten Morrath", emoji:"🌑", types:["Dark","Primal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:85,atk:145,def:90,spa:135,spd:95,spe:200},
     learnset:[[1,"nether_sphere"],[20,"pyroclasm"],[35,"void_pulse"],[50,"sludge_wave"],[65,"cinderwhirl"],[70,"nightmare_pulse"],[80,"toxic_blaze"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Ancient Vaeldrians believed Morrath were warriors who refused to pass on. Their dark flames absorb light and burn without producing warmth.",
-    lore:"The flames Morrath produce are called darkfire — they are technically fire in every measurable sense, yet a room lit only by darkfire grows darker the longer they burn." },
+    lore:"The flames Morrath produce are called darkfire — they are technically fire in every measurable sense, yet a room lit only by darkfire grows darker the longer they burn.",
+    appearance:"Primordial warrior-shape of black darkfire that swallows light; horned silhouette, cracked obsidian armor plates, dim dying-ember eyes, the air darkening around it. Void-black and faint-orange palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  467: { id:467, name:"Forgotten Duskmourn", emoji:"🕷️", types:["Ice","Mental"],
+  467: { id:467, name:"Forgotten Duskmourn", emoji:"⏸️", types:["Crystal","Chrono"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:155,def:95,spa:155,spd:100,spe:200},
     learnset:[[1,"glacial_punch"],[20,"mental"],[35,"whiteout"],[50,"psi_strike"],[65,"cryo_lance"],[70,"veil_collapse"],[80,"psychic_blizzard"],[90,"frost_pulse"]],
     catchRate:0, expYield:420, rarity:"legendary",
-    desc:"Duskmourn presided over Vaeldris's shadow courts as judge and executioner. It was the last thing standing when the Sundering came — and it still carries that grief.",
-    lore:"Morrigan found Duskmourn three days after the Sundering, standing perfectly still at the edge of the collapse. She has never been able to explain why it chose to follow her." },
+    desc:"Forgotten Duskmourn is the instant the Sundering began, given form. Around it time does not pass — dust hangs in the air and the light of that final day never fades.",
+    lore:"Morrigan found Duskmourn standing perfectly still at the edge of the collapse, three days after. It had not moved because, for Duskmourn, those three days had not yet happened.",
+    appearance:"Tall robed judge-figure frozen at a single instant; a cracked clock-face stopped in its chest, body of pale frozen crystal, dust and shards hanging motionless around it. Grey-crystal and frost-white palette." },
 
   // --- Wielder: Kael (Stormpeak Ridge) ---
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  468: { id:468, name:"Forgotten Electrak", emoji:"🌩️", types:["Electric","Metal"],
+  468: { id:468, name:"Forgotten Electrak", emoji:"🌩️", types:["Electric","Crystal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:90,atk:130,def:90,spa:150,spd:90,spe:170},
     learnset:[[1,"jolt"],[20,"forge_blast_2"],[35,"volt_jet"],[50,"volt_surge"],[65,"alloy_edge"],[70,"overcharge"],[80,"ampere_rail"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Electrak surf electromagnetic currents at speeds that blur their outline. Their charged steel scales can discharge enough power to fuel a city for hours.",
-    lore:"The steel in Electrak's scales is a natural alloy produced by their bodies — a material that conducts electricity with zero resistance that Vaeldrian engineers failed to replicate." },
+    lore:"The steel in Electrak's scales is a natural alloy produced by their bodies — a material that conducts electricity with zero resistance that Vaeldrian engineers failed to replicate.",
+    appearance:"Fast quadruped-construct around a crackling tesla-coil spine; crystalline insulator scale-plates, arcs leaping between coil-rings, motion-blur speed trail. Chrome-blue and electric-cyan palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  469: { id:469, name:"Forgotten Arcvolt", emoji:"⚡", types:["Normal","Earth"],
+  469: { id:469, name:"Forgotten Arcvolt", emoji:"🔮", types:["Electric","Chrono"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:140,def:95,spa:155,spd:100,spe:165},
     learnset:[[1,"draconic_breath"],[20,"crag_strike"],[35,"draconic_claw"],[50,"draconic_pulse"],[65,"obsidian_crash"],[70,"time_fracture"],[80,"arc_strike"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Arcvolt stores massive charges within draconic stone-scale formations before releasing them in a single arc. The discharge leaves glass where the lightning lands.",
-    lore:"Arcvolt's scales form geological strata within their bodies over time — geologists from Vaeldris once found evidence of strikes dating back sixty thousand years in a single Arcvolt's hide." },
+    lore:"Arcvolt's scales form geological strata within their bodies over time — geologists from Vaeldris once found evidence of strikes dating back sixty thousand years in a single Arcvolt's hide.",
+    appearance:"Creature of petrified lightning; branching translucent fulgurite-glass limbs frozen mid-strike, a layered stone core with glassy lightning-scars, amber-blue glow in the cracks. Smoky-glass and sandstone palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  470: { id:470, name:"Forgotten Fulgureis", emoji:"🌪️", types:["Nature","Aquatic"],
+  470: { id:470, name:"Forgotten Fulgureis", emoji:"🌀", types:["Electric","Primal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:100,atk:155,def:100,spa:165,spd:110,spe:170},
     learnset:[[1,"breeze"],[20,"tidal_rush"],[35,"typhoon"],[50,"tsunami"],[65,"tidal_crush"],[70,"time_fracture"],[80,"torrent_shell"],[90,"brood_tide"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Fulgureis was worshipped as Vaeldris's storm god. Its roar causes lightning to strike from all directions simultaneously. It has never been struck by lightning — it IS lightning.",
-    lore:"Kael refuses to call Fulgureis by any title. He says if you need a title to respect something, you haven't understood it yet." },
+    lore:"Kael refuses to call Fulgureis by any title. He says if you need a title to respect something, you haven't understood it yet.",
+    appearance:"Colossal primordial storm-titan; serpentine cyclone lower body as a waterspout, muscular storm-cloud torso, thunderhead-crowned head, lightning-vein eyes. Storm-grey and electric-blue palette." },
 
   // --- Wielder: Thessaly (Ancient Root Cavern) ---
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  471: { id:471, name:"Forgotten Rootborn", emoji:"🌿", types:["Nature","Poison"],
+  471: { id:471, name:"Forgotten Rootborn", emoji:"🌿", types:["Poison","Primal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:155,atk:135,def:130,spa:90,spd:120,spe:90},
     learnset:[[1,"vine_lash"],[20,"ooze_bomb"],[35,"pod_blast"],[50,"verdant_orb"],[65,"toxic_surge"],[70,"verdant_surge"],[80,"root_toxin"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Rootborn grew from ancient seed-stones buried beneath Vaeldris's mountains for ten thousand years. Their roots crack bedrock and draw nutrients from bare stone.",
-    lore:"A single Rootborn can undermine a mountain's foundation in a century. Thessaly meditates beside hers every morning and says it tells her things the mountains are thinking." },
+    lore:"A single Rootborn can undermine a mountain's foundation in a century. Thessaly meditates beside hers every morning and says it tells her things the mountains are thinking.",
+    appearance:"Primordial mandrake; gnarled humanoid root-body grown from a cracked seed-stone, leafy frond crest, hollow knot-mouth that speaks, toxic-violet sap weeping from the bark. Bark-brown and moss-green palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  472: { id:472, name:"Forgotten Tellurak", emoji:"🗻", types:["Earth","Metal"],
+  472: { id:472, name:"Forgotten Tellurak", emoji:"🗻", types:["Crystal","Primal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:160,atk:145,def:140,spa:95,spd:125,spe:85},
     learnset:[[1,"stone_slide"],[20,"alloy_tail"],[35,"crag_strike"],[50,"forge_blast_2"],[65,"obsidian_crash"],[70,"warden_strike"],[80,"mineral_lance"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Tellurak has absorbed millennia of geological pressure. Eruptions and earthquakes do not faze it. It once held a mountain together for a week through sheer will.",
-    lore:"Vaeldrian stonecutters believed Tellurak were mountains that decided to walk. Thessaly has never corrected this belief." },
+    lore:"Vaeldrian stonecutters believed Tellurak were mountains that decided to walk. Thessaly has never corrected this belief.",
+    appearance:"Walking mountain whose hollow interior is a vast geode; craggy stone hide cracked open at the chest to reveal a glowing amethyst crystal cavity, mossy strata. Slate-grey and amethyst palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  473: { id:473, name:"Forgotten Gaiasurge", emoji:"🌋", types:["Earth","Fighting"],
+  473: { id:473, name:"Forgotten Gaiasurge", emoji:"🌋", types:["Primal","Fighting"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:170,atk:160,def:150,spa:105,spd:130,spe:85},
     learnset:[[1,"tectonic_shift"],[20,"power_drive"],[35,"geoblast"],[50,"iron_cleave"],[65,"fissure_slam"],[70,"mantle_surge"],[80,"tectonic_wrath"],[90,"quake_barrage"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Gaiasurge embodies Vaeldris's tectonic fury. When the Sundering struck, it held the land together for as long as anything could. Then it could hold no longer.",
-    lore:"Thessaly never speaks of what she saw Gaiasurge do during the Sundering. She says some things are too large for language." },
+    lore:"Thessaly never speaks of what she saw Gaiasurge do during the Sundering. She says some things are too large for language.",
+    appearance:"Colossal earth-titan in an Atlas pose bearing a cracking slab of land on its shoulders; magma-veined black-stone musculature, mountain-shard crown, boulder fists. Basalt-black and magma-orange palette." },
 
   // --- Wielder: Nereus (The Hadal Depths) ---
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  474: { id:474, name:"Forgotten Pelagor", emoji:"🐬", types:["Aquatic","Mental"],
+  474: { id:474, name:"Forgotten Pelagor", emoji:"🐬", types:["Aquatic","Chrono"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:110,atk:110,def:100,spa:145,spd:115,spe:140},
     learnset:[[1,"aquatic_gun"],[20,"mind_jolt"],[35,"tidal_rush"],[50,"mental"],[65,"tsunami"],[70,"telepathic_slam"],[80,"thought_stream"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Pelagor perceive the emotional currents of the ocean and can sense fear, joy, and hunger across miles of open water.",
-    lore:"Nereus claims Pelagor told him about the Sundering before it happened. He was three days' sail from Vaeldris and turned back because of it. He has never decided if that was the right choice." },
+    lore:"Nereus claims Pelagor told him about the Sundering before it happened. He was three days' sail from Vaeldris and turned back because of it. He has never decided if that was the right choice.",
+    appearance:"Sleek dolphin-like ocean oracle; smooth luminous body, glowing third foresight-eye on its brow, current-glyphs along its flanks, faint time-ripples trailing it. Pearl-teal and deep-blue palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  475: { id:475, name:"Forgotten Bathykor", emoji:"🦈", types:["Dark","Poison"],
+  475: { id:475, name:"Forgotten Bathykor", emoji:"🦈", types:["Aquatic","Stellar"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:120,def:105,spa:155,spd:120,spe:135},
     learnset:[[1,"void_pulse"],[20,"ooze_bomb"],[35,"jaw_crush"],[50,"venom_lance"],[65,"obsidian_fang"],[70,"void_dominion"],[80,"dark_corrosion"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"From Vaeldris's lightless deep zones, Bathykor evolved to crush prey under pressures that collapse iron. Its gaze draws enemies toward an unseen void.",
-    lore:"The toxin Bathykor produces doesn't cause pain. Victims simply become very still, very calm, and very far from the surface." },
+    lore:"The toxin Bathykor produces doesn't cause pain. Victims simply become very still, very calm, and very far from the surface.",
+    appearance:"Abyssal anglerfish predator; armored deep-pressure body, gaping needle-toothed maw, a glowing lure holding a tiny violet void-star that draws prey in. Black-blue and bioluminescent-cyan palette." },
 
-  476: { id:476, name:"Forgotten Tidecrest", emoji:"🌊", types:["Primal","Ice"],
+  476: { id:476, name:"Forgotten Tidecrest", emoji:"🌊", types:["Aquatic","Primal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:140,def:110,spa:165,spd:130,spe:130},
     learnset:[[1,"glacial_punch"],[15,"feral_armor"],[20,"cold_beam"],[30,"apex_predator"],[35,"tidal_rush"],[45,"ancient_calm"],[50,"whiteout"],[60,"untamed_meditation"],[65,"eon_crash"],[70,"time_fracture"],[80,"glacial_riptide"],[90,"tidal_fang"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Tidecrest commands ocean currents that span continents. A single pulse of its tail can redirect rivers. Nereus calls it the last ocean god. The ocean agrees.",
-    lore:"In Vaeldrian myth, Tidecrest did not swim the ocean. The ocean flowed around Tidecrest." },
+    lore:"In Vaeldrian myth, Tidecrest did not swim the ocean. The ocean flowed around Tidecrest.",
+    appearance:"Primordial sea-leviathan titan; immense serpentine whale-bodied form, fluked tail, ridged coral-and-shell crest, ocean water curving and flowing around it. Deep ocean-blue and sea-green palette." },
 
   // --- Wielder: Caelia (Cloudspire) ---
-  477: { id:477, name:"Forgotten Aetherveil", emoji:"🦋", types:["Aether","Electric"],
+  477: { id:477, name:"Forgotten Aetherveil", emoji:"🎐", types:["Aether"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:85,atk:100,def:90,spa:155,spd:110,spe:180},
     learnset:[[1,"mind_jolt"],[5,"aether_jab"],[15,"aether_pulse"],[20,"jolt"],[25,"ethereal_step"],[30,"empyrean_focus"],[35,"prism_flare"],[40,"mystic_blow"],[45,"radiant_wave"],[50,"volt_jet"],[55,"ethereal_slash"],[65,"lunar_burst"],[70,"galvanic_burst"],[75,"mystical_eruption"],[80,"aether_shock"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Aetherveil are the songs of the wind given form. Their calls travel across mountain ranges in seconds, carrying the voices of the lost to where they are needed.",
-    lore:"Caelia says Aetherveil don't fly so much as they remind the air where it wants to go." },
+    lore:"Caelia says Aetherveil don't fly so much as they remind the air where it wants to go.",
+    appearance:"Near-formless wind-spirit shaped like a floating wind-chime; suspended luminous singing tubes and ribbons, a translucent silhouette held together by moving air. Pale-blue and white-gold shimmer palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  478: { id:478, name:"Forgotten Zephyrak", emoji:"🦅", types:["Wind","Metal"],
+  478: { id:478, name:"Forgotten Zephyrak", emoji:"🦅", types:["Wind","Crystal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:105,def:95,spa:165,spd:115,spe:180},
     learnset:[[1,"breeze"],[20,"forge_blast_2"],[35,"wind_scythe"],[50,"alloy_edge"],[65,"typhoon"],[70,"warden_strike"],[80,"ferrous_gale"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Zephyrak navigate by the electromagnetic signatures of all living things below, seeing the world as a tapestry of pulsing lights from miles in the clouds.",
-    lore:"A Zephyrak's steel-feathers vibrate at frequencies that predict weather systems days in advance. Vaeldrian navigators once paid fortunes to travel with one." },
+    lore:"A Zephyrak's steel-feathers vibrate at frequencies that predict weather systems days in advance. Vaeldrian navigators once paid fortunes to travel with one.",
+    appearance:"Fierce storm-wind harpy sky-sentinel; raptor wings and talons, avian-humanoid body, crystalline resonant feathers with prismatic edges, eyes reading glowing wind-current lines. Slate-blue and steel-grey palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  479: { id:479, name:"Forgotten Skydrak", emoji:"🌬️", types:["Wind","Spectral"],
+  479: { id:479, name:"Forgotten Skydrak", emoji:"🌬️", types:["Wind","Stellar"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:100,atk:115,def:100,spa:180,spd:125,spe:180},
     learnset:[[1,"breeze"],[20,"specter_pulse"],[35,"typhoon"],[50,"spirit_strike"],[65,"gale_cannon"],[70,"haunting_cry"],[80,"phantom_gale"],[90,"void_cyclone"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Skydrak soars at the edge of the atmosphere where air meets space. Its wings span a city block. The last of its kind watched Vaeldris fall from that height and could do nothing.",
-    lore:"Caelia refuses to let Skydrak land. She says it belongs in the sky and the day it touches the ground again is the day she'll know it has given up." },
+    lore:"Caelia refuses to let Skydrak land. She says it belongs in the sky and the day it touches the ground again is the day she'll know it has given up.",
+    appearance:"Colossal mythic roc eagle with an enormous wingspan; feathers fading from cloud-white to star-flecked indigo at the tips, regal crested head, soaring at the edge of space. Cloud-white and indigo palette." },
 
   // --- Wielder: Dravek (Magma Forge) ---
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  480: { id:480, name:"Forgotten Pyraeon", emoji:"🦁", types:["Fire","Metal"],
+  480: { id:480, name:"Forgotten Pyraeon", emoji:"🦁", types:["Fire","Crystal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:90,atk:155,def:110,spa:130,spd:95,spe:140},
     learnset:[[1,"flicker"],[20,"chrome_claw"],[35,"pyroclasm"],[50,"forge_blast_2"],[65,"solar_flare"],[70,"forge_strike"],[80,"pyro_alloy"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Pyraeon's body is a living alloy — bone-steel fused with molten cores. Their claws can cut through solid iron with a single stroke.",
-    lore:"Dravek sharpens Pyraeon's claws on volcanic rock every morning. He says the ritual keeps them both sharp." },
+    lore:"Dravek sharpens Pyraeon's claws on volcanic rock every morning. He says the ritual keeps them both sharp.",
+    appearance:"Mythic Nemean lion of living alloy; bronze-and-crystal mane, black bone-steel hide with glowing molten seams, iron-shearing claws. Bronze and molten-orange palette." },
 
-  481: { id:481, name:"Forgotten Emberon", emoji:"🐯", types:["Primal","Earth"],
+  481: { id:481, name:"Forgotten Emberon", emoji:"🐯", types:["Fire","Chrono"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:165,def:115,spa:135,spd:100,spe:140},
     learnset:[[1,"stone_slide"],[15,"beast_speed"],[20,"tectonic_shift"],[25,"feral_armor"],[30,"raw_fury"],[35,"pyroclasm"],[40,"primeval_force"],[45,"wild_aura"],[50,"geoblast"],[55,"apex_predator"],[60,"meteor_strike"],[65,"draconic_claw"],[70,"crag_strike"],[75,"world_root_bind"],[80,"smoldering_abyss"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Emberon hunts in volcanic shadow. Its strikes leave wounds that refuse to stop burning, channeled through volcanic earth energy into something darker.",
-    lore:"Every general in Vaeldris's history tried to recruit Dravek. He refused every one of them. Emberon, he said, fights for itself — he just happens to agree with it." },
+    lore:"Every general in Vaeldris's history tried to recruit Dravek. He refused every one of them. Emberon, he said, fights for itself — he just happens to agree with it.",
+    appearance:"Prehistoric sabertooth that hunts in volcanic shadow; ash-striped pelt, oversized glowing fangs, eternal slow-burning embers trailing from its claw-marks. Charcoal and ember-orange palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  482: { id:482, name:"Forgotten Dracofire", emoji:"🔥", types:["Draconic","Poison"],
+  482: { id:482, name:"Forgotten Dracofire", emoji:"🔥", types:["Draconic","Primal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:185,def:120,spa:145,spd:105,spe:140},
     learnset:[[1,"draconic_breath"],[20,"sludge_wave"],[35,"draconic_claw"],[50,"venom_lance"],[65,"rampage"],[70,"mantle_surge"],[80,"venom_surge"],[90,"acid_burst"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Dracofire channels volcanic energy through draconic poison. Its exhale reaches temperatures that melt diamond — and the vapour corrodes whatever survives the heat.",
-    lore:"Dravek bonded Dracofire as a hatchling, when it fit in his palm. He carried it under his armour for two winters. He has never admitted this publicly." },
+    lore:"Dravek bonded Dracofire as a hatchling, when it fit in his palm. He carried it under his armour for two winters. He has never admitted this publicly.",
+    appearance:"Primordial magma-dragon; obsidian-plated draconic body with cracked molten cores glowing through, jagged volcanic crest, jaws glowing with diamond-melting heat. Obsidian-black and magma-red palette." },
 
   // --- Wielder: Nylara (Glacial Abyss) ---
   483: { id:483, name:"Forgotten Frigalum", emoji:"🦊", types:["Ice","Crystal"],
@@ -5224,161 +5214,166 @@ const MONSTERS_DATA = {
     learnset:[[1,"glacial_punch"],[15,"aurora_blast"],[20,"whiteout"],[25,"crystalline_slash"],[30,"ice_claw"],[35,"cold_beam"],[40,"shard_blade"],[50,"stone_slide"],[55,"geode_smash"],[65,"permafrost"],[70,"crag_strike"],[75,"diamond_drill"],[80,"cryo_plate"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Frigalum are armored in ice-steel — a material unique to Vaeldris that never melts and deflects dragonfire. Vaeldrian smiths spent centuries failing to replicate it.",
-    lore:"The only sample of Frigalum ice-steel that made it out of Vaeldris is the pauldron on Nylara's left shoulder. She refuses to explain how she acquired it." },
+    lore:"The only sample of Frigalum ice-steel that made it out of Vaeldris is the pauldron on Nylara's left shoulder. She refuses to explain how she acquired it.",
+    appearance:"Arctic fox armored in unmeltable crystalline ice-steel plates; sleek white pelt, frost-rimmed tail, frost trailing behind it. Glacier-blue and steel-silver palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  484: { id:484, name:"Forgotten Cryvorn", emoji:"🐺", types:["Dark","Ice"],
+  484: { id:484, name:"Forgotten Cryvorn", emoji:"🐺", types:["Ice","Chrono"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:130,def:140,spa:125,spd:135,spe:95},
     learnset:[[1,"void_pulse"],[20,"glacial_punch"],[35,"jaw_crush"],[50,"whiteout"],[65,"eclipse_shroud"],[70,"cold_beam"],[80,"cryo_shatter"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Cryvorn lurk beneath glacial ice, rising to drag prey into the frozen depths. Their dark aura prevents victims from feeling the cold — until it is already fatal.",
-    lore:"Nylara says Cryvorn don't hunt so much as they remind prey that warmth was always temporary." },
+    lore:"Nylara says Cryvorn don't hunt so much as they remind prey that warmth was always temporary.",
+    appearance:"Massive Norse doom-wolf Fenrir rising from cracked glacier ice; dark frost-rimed fur, chilling pale aura, cold pale eyes. Charcoal-blue and frost-white palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  485: { id:485, name:"Forgotten Frostdrax", emoji:"❄️", types:["Spectral","Fairy"],
+  485: { id:485, name:"Forgotten Frostdrax", emoji:"❄️", types:["Ice","Primal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:135,atk:145,def:150,spa:135,spd:145,spe:90},
     learnset:[[1,"spirit_strike"],[20,"fairy_wind"],[35,"specter_pulse"],[45,"eidolon_dance"],[50,"lunar_burst"],[65,"celestial_wave"],[70,"haunting_cry"],[80,"winter_shade"],[90,"glacial_spirit"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Frostdrax maintained Vaeldris's northern climate for millennia. The ice continent shattered within hours of the moment it fled. It has not forgiven itself.",
-    lore:"Frostdrax is the only one of the 39 that Nylara says chose to come with her. She did not command it. It simply followed." },
+    lore:"Frostdrax is the only one of the 39 that Nylara says chose to come with her. She did not command it. It simply followed.",
+    appearance:"Primordial Ymir frost-giant jotun; towering body of jagged ice and grey stone, glacier-shard beard and crown, exhaling a blizzard, ice spreading from its feet. Deep glacier-blue and white-rime palette." },
 
   // --- Wielder: Solenne (Moonhaven Ruins) ---
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  486: { id:486, name:"Forgotten Dreamaith", emoji:"🦉", types:["Mental","Aquatic"],
+  486: { id:486, name:"Forgotten Psydrak", emoji:"💭", types:["Dream","Chrono"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:100,atk:75,def:105,spa:175,spd:150,spe:115},
     learnset:[[1,"mind_jolt"],[20,"nether_sphere"],[35,"mental"],[50,"void_rend"],[65,"psi_strike"],[70,"veil_collapse"],[80,"dream_torrent"]],
     catchRate:3, expYield:300, rarity:"legendary",
-    desc:"Dreamaith drift through walls and minds alike, leaving vivid impressions of Vaeldris in their wake. Those who encounter one report dreaming of a lost land for weeks afterward.",
-    lore:"Solenne says Dreamaith don't know Vaeldris is gone. Every night, in the dream they share with her, it still stands." },
+    desc:"Forgotten Psydrak does not fly through skies but through dreams. Its half-real body drifts like smoke and starlight, trailing fragments of worlds that were only ever dreamed.",
+    lore:"Forgotten Psydrak coils through the dream Solenne shares each night, where it holds a thousand sleeping versions of Vaeldris — every one a world that might still have been.",
+    appearance:"Coiling dream-dragon of drifting smoke and starlight; semi-translucent body, trailing fragments of dreamed worlds, soft glowing clock-glyphs in its mane. Lavender and twilight-violet palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  487: { id:487, name:"Forgotten Luneveth", emoji:"🌙", types:["Fairy","Aquatic"],
+  487: { id:487, name:"Forgotten Luneveth", emoji:"🌙", types:["Stellar","Dream"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:80,def:110,spa:185,spd:155,spe:115},
     learnset:[[1,"fairy_wind"],[20,"aquatic_gun"],[35,"lunar_burst"],[50,"tidal_rush"],[65,"celestial_wave"],[70,"tsunami"],[80,"moonlit_surge"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Luneveth absorb moonlight and convert it into tidal energy. On full moon nights their power doubles. They are drawn to places that remember the sea.",
-    lore:"There is a pool in Moonhaven Ruins that Luneveth fills each night with reflected moonlight. By morning it is dry again. Solenne has watched this every night for fifteen years." },
+    lore:"There is a pool in Moonhaven Ruins that Luneveth fills each night with reflected moonlight. By morning it is dry again. Solenne has watched this every night for fifteen years.",
+    appearance:"Graceful fairy woven of moonlight; translucent crescent-veined wings, body of pale silver light, cupping a small reflective moon-pool orb. Moon-silver and pale-lavender palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  488: { id:488, name:"Forgotten Psydrak", emoji:"💭", types:["Draconic","Electric"],
+  488: { id:488, name:"Forgotten Dreamaith", emoji:"💤", types:["Dream","Aether"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:90,def:115,spa:200,spd:165,spe:115},
     learnset:[[1,"draconic_breath"],[20,"volt_jet"],[35,"draconic_pulse"],[50,"stormbolt"],[65,"saurian_roar"],[70,"time_fracture"],[80,"voltaic_fang"],[90,"thunder_chain"]],
     catchRate:0, expYield:420, rarity:"legendary",
-    desc:"Psydrak exists simultaneously across multiple timelines. Its draconic mind holds the memory of Vaeldris in a thousand possible futures — and the grief of knowing none survived.",
-    lore:"Solenne says Psydrak has been trying to show her a timeline where Vaeldris still exists. She says she can feel it almost finding one, night after night." },
+    desc:"Forgotten Dreamaith drifts through walls and minds alike, pouring rivers of dream-sand that bloom into whole worlds. Those it passes dream of Vaeldris, still standing, for weeks.",
+    lore:"Solenne says Dreamaith does not know Vaeldris is gone. Every night, in the dream it pours for her, the lost land still stands — and for a few hours, so does everyone in it.",
+    appearance:"Imposing dream-god; tall robed figure of shifting twilight cloth and dream-sand, a starry void where its face should be, pouring golden dream-sand that blooms into tiny floating dreamscapes. Twilight-indigo and gold palette." },
 
   // --- Wielder: Rax (The Iron Sanctum) ---
-  489: { id:489, name:"Forgotten Ironvast", emoji:"🦾", types:["Crystal","Earth"],
+  489: { id:489, name:"Forgotten Ironvast", emoji:"🦾", types:["Metal","Crystal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:130,atk:145,def:175,spa:75,spd:130,spe:65},
     learnset:[[1,"stone_throw"],[15,"quartz_punch"],[20,"stone_slide"],[25,"crystal_spear"],[35,"basalt_volley"],[40,"diamond_storm"],[45,"quartz_quake"],[50,"crag_strike"],[55,"diamond_crash"],[65,"obsidian_crash"],[70,"tectonic_shift"],[75,"diamond_drill"],[80,"iron_fortress"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Ironvast's carapace has never been cracked in recorded Vaeldrian history. Engineers once used shed Ironvast shells as building material — with their full consent.",
-    lore:"Rax says Ironvast has only ever been afraid once. He doesn't say when." },
+    lore:"Rax says Ironvast has only ever been afraid once. He doesn't say when.",
+    appearance:"Armored ankylosaurus-tank; impenetrable crystalline-metal plating, a heavy club tail of fused ore-crystal, low and immovable. Gunmetal-grey and crystal-blue palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  490: { id:490, name:"Forgotten Forgerak", emoji:"⚔️", types:["Fire","Dark"],
+  490: { id:490, name:"Forgotten Forgerak", emoji:"⚔️", types:["Metal","Aether"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:135,atk:155,def:185,spa:80,spd:135,spe:60},
     learnset:[[1,"flicker"],[20,"dusk_slash"],[35,"pyroclasm"],[50,"void_pulse"],[65,"solar_flare"],[70,"eclipse_shroud"],[80,"forge_blast"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Forgerak can heat their core to temperatures that liquefy ore. Vaeldrian smiths once worked alongside them to craft legendary weapons. Those weapons are all gone now.",
-    lore:"Rax carries one of those weapons — a blade forged by Forgerak before the Sundering. He has never used it in battle. He says it isn't meant for fighting." },
+    lore:"Rax carries one of those weapons — a blade forged by Forgerak before the Sundering. He has never used it in battle. He says it isn't meant for fighting.",
+    appearance:"Divine forge-spirit smith; broad humanoid of living metal with a molten forge-core chest, anvil shoulders, hammer hands, halo of sparks, forging a glowing blade. Dark-iron and forge-orange palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  491: { id:491, name:"Forgotten Alloydrax", emoji:"🛡️", types:["Draconic","Fighting"],
+  491: { id:491, name:"Forgotten Alloydrax", emoji:"🛡️", types:["Metal","Chrono"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:145,atk:170,def:200,spa:90,spd:145,spe:50},
     learnset:[[1,"draconic_breath"],[20,"crushing_bulk"],[35,"draconic_claw"],[50,"rampage"],[65,"eon_crash"],[70,"mantle_surge"],[80,"draconic_pummels"],[90,"alloy_breaker"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Alloydrax continuously refines its own body, becoming stronger with every battle. It was Vaeldris's final line of defense. The fact that Vaeldris still fell says everything.",
-    lore:"Rax does not speak of Alloydrax's battle during the Sundering. He only says that it did its job — and that doing your job perfectly is not always enough." },
+    lore:"Rax does not speak of Alloydrax's battle during the Sundering. He only says that it did its job — and that doing your job perfectly is not always enough.",
+    appearance:"Giant bronze Talos automaton-guardian; towering riveted bronze colossus, glowing core-seam, clockwork joints, bracing a massive tower shield as a final defender. Aged-bronze and verdigris palette." },
 
   // --- Wielder: Tempris (The Arc Station) ---
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  492: { id:492, name:"Forgotten Volteon", emoji:"🔋", types:["Electric","Mental"],
+  492: { id:492, name:"Forgotten Volteon", emoji:"⏱️", types:["Chrono"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:90,atk:110,def:95,spa:160,spd:120,spe:145},
     learnset:[[1,"jolt"],[20,"mind_jolt"],[35,"volt_jet"],[50,"mental"],[65,"volt_surge"],[70,"overcharge"],[80,"psycho_surge"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Volteon processes battle outcomes in microseconds using electric-psychic predictive modeling. By the time you have decided to act, Volteon has already chosen its counter.",
-    lore:"Tempris designed the predictive model that Volteon runs. He says it's 94.7% accurate. Volteon disagrees with the 5.3% margin of error." },
+    lore:"Tempris designed the predictive model that Volteon runs. He says it's 94.7% accurate. Volteon disagrees with the 5.3% margin of error.",
+    appearance:"Sleek precognitive clockwork automaton; exposed turning brass gears, a stopwatch-face head, pale-blue ghost-images of its next moves projected ahead of it. Brass and glass palette." },
 
-  493: { id:493, name:"Forgotten Sparkeis", emoji:"⚡", types:["Crystal","Ice"],
+  493: { id:493, name:"Forgotten Sparkeis", emoji:"⌛", types:["Aether","Chrono"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:95,atk:120,def:100,spa:165,spd:125,spe:145},
     learnset:[[1,"flurries"],[20,"glacial_punch"],[30,"radiant_reflection"],[35,"cold_beam"],[40,"crystal_storm"],[45,"shard_blade"],[50,"whiteout"],[55,"prismatic_eruption"],[65,"stone_slide"],[70,"crag_strike"],[80,"icebound_lattice"]],
     catchRate:0, expYield:350, rarity:"legendary",
-    desc:"Sparkeis are living power grids — their steel chassis stores charges that could power a city for months. They convert all kinetic energy into electricity passively.",
-    lore:"Tempris installed a small meter on Sparkeis to measure output. It broke after three days. He has not replaced it." },
+    desc:"Forgotten Sparkeis hoards moments the way others hoard treasure. Time pools inside its great hourglass core as glowing sand, and what it pours back out has already happened — or has not happened yet.",
+    lore:"Tempris tried to measure how much time Sparkeis holds. The instrument read a figure, then unread it, then showed a third. He stopped trying.",
+    appearance:"Ethereal hourglass-being; a luminous figure built around a great hourglass torso of falling glowing sand, time-frozen motes orbiting it, soft halo. White-gold and amber palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  494: { id:494, name:"Forgotten Thunderax", emoji:"🌩️", types:["Wind","Nature"],
+  494: { id:494, name:"Forgotten Thunderax", emoji:"🕰️", types:["Chrono","Primal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:105,atk:135,def:110,spa:180,spd:135,spe:135},
     learnset:[[1,"aerial_assault"],[20,"verdant_orb"],[35,"sky_dive"],[50,"verdant_surge"],[65,"gale_cannon"],[70,"typhoon"],[80,"canopy_strike"],[90,"sky_harvest"]],
     catchRate:0, expYield:420, rarity:"legendary",
-    desc:"Thunderax charges itself using entire storm systems. Tempris claims it once powered a civilization for a week by standing still in a thundercloud. He is not exaggerating.",
-    lore:"Thunderax is the only one of the 39 that does not seem to remember Vaeldris. Tempris has never decided if that is a tragedy or a mercy." },
+    desc:"Forgotten Thunderax is the Titan of passing time given shape. Memory dissolves in its wake — which is why it alone, of all the Forgotten, no longer remembers Vaeldris at all.",
+    lore:"Tempris says Thunderax does not mourn the lost land because, for it, the lost land was simply one more moment that time has already carried away.",
+    appearance:"Primordial Titan of Time; vast ancient figure in a star-mantle, a clockwork-gear halo, holding an hourglass and scythe, a long beard of falling sand. Antique-brass and deep-indigo palette." },
 
   // --- Wielder: Vayne (The Void Gate) ---
-  495: { id:495, name:"Forgotten Nihilax", emoji:"🕳️", types:["Primal","Spectral"],
+  495: { id:495, name:"Forgotten Nihilax", emoji:"🕳️", types:["Stellar","Spectral"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:75,atk:145,def:80,spa:160,spd:90,spe:170},
     learnset:[[1,"dusk_slash"],[15,"ancient_pulse"],[20,"geoblast"],[25,"spectral_lock"],[30,"untamed_meditation"],[35,"void_pulse"],[45,"soul_eater"],[50,"tectonic_shift"],[65,"specter_pulse"],[70,"void_dominion"],[80,"nihil_quake"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Nihilax emit a field that suppresses all energy signatures within range. In their presence, lights dim, sound muffles, and time seems to hesitate.",
-    lore:"Vayne says Nihilax was the first Lumori she saw after the Sundering began. She has never been sure if it was trying to help or simply watching." },
+    lore:"Vayne says Nihilax was the first Lumori she saw after the Sundering began. She has never been sure if it was trying to help or simply watching.",
+    appearance:"Hooded faceless wraith of pure silence; a dampening void where light dims and sound dies, stars guttering out around its frayed hem. Starless-black and dim-violet palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  496: { id:496, name:"Forgotten Vantarix", emoji:"🌌", types:["Mental","Nature"],
+  496: { id:496, name:"Forgotten Vantarix", emoji:"🌌", types:["Chrono","Stellar"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:80,atk:155,def:85,spa:170,spd:95,spe:165},
     learnset:[[1,"mind_jolt"],[20,"mandible_bite"],[35,"mental"],[50,"shear_strike"],[65,"psi_strike"],[70,"lumen_pulse"],[80,"venom_mind"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Vantarix absorb light across all spectrums, appearing as a perfect silhouette even in total darkness. They are the only known Lumori visible inside the dimensional collapse itself.",
-    lore:"Vayne has a drawing of Vantarix she made the first night she was safe. She has never looked at it again." },
+    lore:"Vayne has a drawing of Vantarix she made the first night she was safe. She has never looked at it again.",
+    appearance:"A perfect living silhouette that absorbs all light; flat pure-black cut-out body whose interior shows a star-flecked collapsing void, edges shimmering with time-distortion. Absolute-black and star-violet palette." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  497: { id:497, name:"Forgotten Abysdrak", emoji:"💠", types:["Wind","Draconic"],
+  497: { id:497, name:"Forgotten Abysdrak", emoji:"🐍", types:["Primal","Stellar"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:170,def:90,spa:185,spd:100,spe:165},
     learnset:[[1,"draconic_breath"],[20,"wind_scythe"],[35,"draconic_claw"],[50,"typhoon"],[65,"rampage"],[70,"gale_cannon"],[80,"abyssal_fang"],[90,"void_rend_ex"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Abysdrak embodies the void at the heart of the Sundering. Vayne refuses to explain how she bound it to her will. Only that the night she did, stars over Vaeldris went out and never came back.",
-    lore:"Some of the other wielders are afraid of Abysdrak. Vayne considers this the only reasonable response." },
+    lore:"Some of the other wielders are afraid of Abysdrak. Vayne considers this the only reasonable response.",
+    appearance:"Colossal primordial void-serpent (Apophis); starless black scales, an enormous maw swallowing constellations, extinguished stars trailing from its fangs. Void-black with dying-gold star-flecks." },
 
   // --- Wielder: Azura (Observatory Peak) ---
-  498: { id:498, name:"Forgotten Cosmolith", emoji:"🌠", types:["Aether","Fairy"],
+  498: { id:498, name:"Forgotten Cosmolith", emoji:"🌠", types:["Aether","Stellar"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:110,atk:90,def:110,spa:185,spd:130,spe:95},
     learnset:[[1,"mind_jolt"],[5,"aether_jab"],[15,"aether_pulse"],[20,"fairy_wind"],[25,"life_force"],[30,"empyrean_focus"],[35,"prism_flare"],[40,"arcane_meditation"],[45,"arcane_beam"],[50,"lunar_burst"],[55,"mystic_charge"],[65,"psi_strike"],[70,"cosmic_veil"],[75,"radiant_strike"],[80,"cosmic_dust"]],
     catchRate:3, expYield:300, rarity:"legendary",
     desc:"Cosmolith serve as living star maps — their scales reflect the night sky of Vaeldris exactly as it existed the moment before the Sundering. They are the only record those stars ever existed.",
-    lore:"Azura detected the Sundering three days before it happened by reading a change in Cosmolith's scale patterns. She had not understood what she was seeing until it was too late." },
+    lore:"Azura detected the Sundering three days before it happened by reading a change in Cosmolith's scale patterns. She had not understood what she was seeing until it was too late.",
+    appearance:"Living star-chart; plated body like a rotating celestial globe inside brass armillary meridian-rings, scales mapping a glowing constellation night-sky. Indigo and gold palette with brass rings." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  499: { id:499, name:"Forgotten Stardrax", emoji:"✨", types:["Draconic","Fire"],
+  499: { id:499, name:"Forgotten Stardrax", emoji:"✨", types:["Stellar","Sonic"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:115,atk:100,def:115,spa:195,spd:135,spe:90},
     learnset:[[1,"draconic_breath"],[20,"pyroclasm"],[35,"draconic_pulse"],[50,"solar_flare"],[65,"ancient_breath"],[70,"time_fracture"],[80,"stellar_flare"]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Stardrax's power surges like a dying star — quiet and vast until catastrophically sudden. Azura kept its egg safe for twelve years before it hatched the day the Sundering began.",
-    lore:"The egg hatched the exact moment the Sundering started. Azura has spent fifteen years deciding what that means." },
+    lore:"The egg hatched the exact moment the Sundering started. Azura has spent fifteen years deciding what that means.",
+    appearance:"Planet-born supernova-core beast; dormant as a compact ash-shelled ember-beast, then its shell cracks open and it erupts into concentric shockwave rings and radiant plasma plumes like a corona-mane. Ash-black to blue-white with violet shock-rings." },
 
-  // LORE-AUDIT FLAG (Step 4): needs a 408+-only type (Aether/Crystal/Primal/Chrono/Stellar) per lore
-  500: { id:500, name:"Forgotten Stellarion", emoji:"🔭", types:["Normal","Spectral"],
+  500: { id:500, name:"Forgotten Stellarion", emoji:"🌟", types:["Stellar"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:125,atk:115,def:125,spa:210,spd:145,spe:80},
     learnset:[[1,"crushing_bulk"],[10,"lumiwave"],[15,"wraith_focus"],[20,"nether_sphere"],[25,"radiant_burst_2"],[35,"mental"],[45,"veil_shroud"],[50,"radiance_cannon"],[55,"zenith_ray"],[65,"void_rend"],[70,"cosmic_veil"],[80,"stellar_collapse"],[90,"spectral_radiance"]],
     catchRate:0, expYield:420, rarity:"legendary",
     desc:"Stellarion is said to contain a fragment of the first star that ever formed. To those who cannot perceive cosmic energy it appears ordinary. To Azura, it blazes like a newborn universe.",
-    lore:"Azura says Stellarion is the last wonder Vaeldris ever produced — and that it is also the most important thing to survive the Sundering, because it carries the proof that Vaeldris was worth mourning." }
+    lore:"Azura says Stellarion is the last wonder Vaeldris ever produced — and that it is also the most important thing to survive the Sundering, because it carries the proof that Vaeldris was worth mourning.",
+    appearance:"Imposing radiant star-spirit carrying a blazing star-shard core in its chest; robes of woven nebula-light, a crown of orbiting starlight, blazing like a newborn universe. Deep-indigo and white-gold palette." }
 };
 
 

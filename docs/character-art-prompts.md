@@ -4,7 +4,7 @@ Companion to `forgotten-art-prompts.md`, but for **people**: the 13 Vaeldris wie
 
 **How to use:** paste a **Prompt** line into an image generator. Each entry gives **Look / Palette / Signature prop** to tweak. Style suggestion for consistency: *"character concept art, full body, clean background, painterly anime-adjacent."*
 
-**Canon vs proposal:** gym leaders, Champion Lumian, and Commander Shade are **canon** (names/types from the game). Umbra **admins** and the four **Vanguard** seats have no canon yet — those are **design proposals**, flag-marked 🆕, easy to rename/retheme.
+**All names here are canon** (pulled from `js/data.js`): the 16 gym leaders, the Vanguard/Elite Four (Aria, Grimshaw, Celeste, Titan), Champion Lumian, the NG+ Void Council (Vale, Kade, Mira, Gorn, Null), and the Umbra Order (Commander Shade + Commanders Kira/Vorn/Phantom + acolytes Vex/Morta). The **looks/palettes** are my design proposals to accept or retheme; the **names/roles/themes** are the game's.
 
 ---
 
@@ -86,13 +86,14 @@ Goal: awaken the three Legendaries. Shared look: matte-black uniforms, eclipse-r
 - **Palette:** matte black · eclipse-violet · cold silver. **Prop:** an eclipse-disc that swallows light.
 - **Prompt:** *"imposing villain commander in a black living-shadow cloak, an eclipse-disc emblem on the chest, face half-lost in shadow, matte-black and eclipse-violet palette, menacing full-body character concept art, clean background"*
 
-### 🆕 Umbra Admins (4 — design proposals, themed to the 3 Legendaries + the void)
-| Admin | Theme | Look · Palette · Prompt seed |
+### Umbra Commanders *(canon)*
+| Commander | Flavor | Look · Palette · Prompt seed |
 |--|--|--|
-| 🆕 **Erebus** | the void-star | gaunt ritualist, star-extinguishing gauntlet · black/violet · *"gaunt cult-ritualist with a star-extinguishing gauntlet, black and violet"* |
-| 🆕 **Vesper** | the eclipse | duelist with twin shadow-blades, half-moon visor · charcoal/silver · *"sleek duelist with twin shadow-blades and a half-moon visor, charcoal and silver"* |
-| 🆕 **Mire** | living shadow | hulking shadow-handler, smoke-leaking armor · black/green · *"hulking enforcer in smoke-leaking black armor, eclipse crest"* |
-| 🆕 **Noctis** | the awakening | scholar-zealot with a ritual codex, hooded · black/gold · *"hooded scholar-zealot clutching a glowing ritual codex, black and dim-gold"* |
+| **Kira** 😈 | "first commander," seized the volcano; cruel + theatrical | smug, sharp-dressed femme-fatale officer · black/magma-red · *"theatrical cruel female villain commander, sharp black uniform with a magma-red eclipse crest, smug grin"* |
+| **Vorn** ⚡ | raw-power storm enforcer *(id: `rex_shadow`)* | brutish, lightning-charged bruiser · black/electric-violet · *"brutish villain commander in black armor crackling with violet lightning, eclipse crest"* |
+| **Phantom** 🌌 | cosmic/void illusionist | enigmatic, starfield-cloaked, masked · black/starfield-violet · *"enigmatic villain commander in a starfield-black cloak and void-mask, eclipse crest"* |
+
+*Acolytes/grunts: **Vex** & **Morta** 🕶️ (foot-soldier uniform, eclipse crest).*
 
 ---
 
@@ -127,14 +128,23 @@ Type-themed; arena-appropriate outfits.
 - **Palette:** royal indigo · gold · white. **Prop:** a cloak set with 16 badge-gems.
 - **Prompt:** *"regal Lumoria Champion grandmaster, a circlet and cloak set with sixteen glowing badge-gems, royal-indigo and gold robes, commanding yet warm, full-body character concept art, clean background"*
 
-### 🆕 The Vanguard — 4 elite seats (design proposals)
-| Seat | Theme | Prompt seed |
+### The Vanguard — Elite Four *(canon)*
+| Elite | Theme | Look · Palette · Prompt seed |
 |--|--|--|
-| 🆕 **Castellan Bram** | bulwark / defense | *"immovable elite knight in tower-shield armor, bastion theme, grey-steel"* |
-| 🆕 **Tempest Io** | offense / speed | *"fierce elite striker, twin-edged speed, storm-cyan accents"* |
-| 🆕 **Mistress Vael** | guile / status | *"cunning elite enchantress, status-hex motifs, deep-emerald robes"* |
-| 🆕 **Sage Orrin** | balance / cosmic | *"aged elite cosmic-sage with a constellation mantle, indigo and silver"* |
+| **Aria** 🎵 | Graceful Offense | poised musician-duelist, flowing concert attire · rose/gold · *"poised elegant musician-duelist, flowing rose-and-gold concert attire, sound-wave motifs"* |
+| **Grimshaw** 💀 | Brutal Power | grim hulking bruiser, scarred + skull motifs · charcoal/blood-red · *"grim hulking elite bruiser, scarred, black armor with skull motifs, blood-red accents"* |
+| **Celeste** ✨ | Cosmic Balance | serene starlit sage, constellation robes · indigo/silver · *"serene starlit elite sage in constellation robes, silver circlet, cosmic-balance aura"* |
+| **Titan** 🏔️ | Immovable Fortress | armored mountain of a man, fortress-plate · stone-grey/bronze · *"immense armored elite, mountain-fortress plate armor, stone-grey and bronze, immovable stance"* |
+
+### The Void Council — NG+ elite *(canon)*
+| Councilor | Role | Prompt seed |
+|--|--|--|
+| **Vale** | The Tactician (prediction/counters) | *"calculating void councilor strategist, dark tactician's coat, holographic prediction-grid"* |
+| **Kade** | The Berserker (raw power) | *"savage void councilor berserker, brutal void-armor, overwhelming-power aura"* |
+| **Mira** | The Illusionist (status/misdirection) | *"deceptive void councilor illusionist, shifting mirage-veils, confusion motifs"* |
+| **Gorn** | The Titan (defensive walls) | *"colossal void councilor defender, immovable void-fortress armor"* |
+| **Null** | The Grandmaster (legendary team) | *"fearsome void councilor grandmaster, regal-dark void mantle, legendary aura"* |
 
 ---
 
-*Canon entries (wielders' lore hooks, gym leaders, Champion Lumian, Commander Shade) come from `js/data.js`. Items marked 🆕 are design proposals to accept, rename, or replace.*
+*All names, types, roles, and lore hooks come from `js/data.js`. Only the visual designs (looks / palettes / props) are proposals — accept or retheme freely.*

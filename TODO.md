@@ -981,6 +981,7 @@ The 39 Forgotten Lumori (ids 462-500) are gameplay-gated content designed as pos
 - [ ] **Variant content** — verify `js/variant-content.js` identity anchors for 462-500 are coherent post-typing-changes.
 - [ ] **Abilities** — once the abilities feature is implemented, assign Forgotten-specific signature abilities (probably more impactful than regular Lumori).
 - [ ] **13 wielder cutscenes** — already deferred in the NG+/Forgotten gating section; rolls into this audit naturally.
+- [ ] **13 Vaeldris wielder appearance designs** — brainstorm + design how each of the 13 wielders looks (full visual/character design per wielder), tied to their established elemental/cosmic theme: Lysara (Celestial), Morrigan (Shadow/Death/Fate), Kael (Storm), Thessaly (Primordial Earth), Nereus (Deep Ocean), Caelia (Sky/Wind), Dravek (Fire/Forge), Nylara (Ice/Frost), Solenne (Moon/Dream), Rax (Metal/Forge), Tempris (Time), Vayne (Void), Azura (Stars). Goal: make them genuinely look good — distinctive silhouettes, color identity, signature props.
 
 **Run order:** after Phase 2 STAB-completeness (done) → **Forgotten audit (this section)** → final stat-spread review (next section).
 

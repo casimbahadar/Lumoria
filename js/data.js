@@ -4061,9 +4061,10 @@ const MONSTERS_DATA = {
     lore:"Behemovast is a titanic normal-type creature 3 metres at the shoulder, resembling an enormous bear with a solid barrel-shaped torso and legs like columns — Glutoros's already-massive frame has grown into the heaviest non-legendary Lumori known, and the heavy russet-brown fur has matted and toughened to thick brown-grey under the bulk it must now support. It is the heaviest non-legendary Lumori known and leaves impressions in solid rock where it steps." },
 
   // =====================================================================
-  // NG+-EXCLUSIVE LUMORI (IDs 322–407) — appear only in New Game+ runs
-  // Forgotten Lumori (IDs 408–446) live in a separate range gated behind
-  // completing the Vaeldris Wielder quest line; they are NOT NG+-exclusive.
+  // NG+-EXCLUSIVE LUMORI (IDs 322–461) — appear only in New Game+ runs.
+  // This block is 322–407; the +54 expansion families continue at 408–461.
+  // Forgotten Lumori (IDs 462–500, Vaeldrian Region) live in a separate range
+  // gated behind completing the Vaeldris Wielder quest line; NOT NG+-exclusive.
   // =====================================================================
 
   // ---- Tier 1a: Mid-game NG+ (badges 8–11 areas) BST ~490–540 ----

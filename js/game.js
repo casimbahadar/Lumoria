@@ -1874,19 +1874,6 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
       updateBattleUI();
     }
 
-    // Phase 3a: trait on-incoming-hit dispatch (Thorned, Flame/Frost/Toxic Aura, Resolute,
-    // Vengeance, Mind Steal, Toxin Coat, Slime Coat, Bewitching, Magnetic Skin, Snatcher, etc.)
-    if (typeof applyOnIncomingHit === "function") {
-      const hitMsgs = applyOnIncomingHit(defender, attacker, move, result.damage, result.effectiveness);
-      for (const m of hitMsgs) logMsg(m, "log-status");
-    }
-
-    // Phase 3a: trait on-damage-dealt for the attacker (Vampire's drain on dealt damage)
-    if (typeof applyOnDamageDealt === "function" && result.damage > 0) {
-      const dealtMsgs = applyOnDamageDealt(attacker, defender, result.damage);
-      for (const m of dealtMsgs) logMsg(m, "log-status");
-    }
-
     // Animations
     if (isPlayer) {
       document.getElementById("enemy-sprite").classList.add("shake");

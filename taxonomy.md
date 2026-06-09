@@ -291,6 +291,9 @@ The 22 NG+-exclusive families added in the dex-to-500 expansion (#57). Regular d
 - `[425] Pebblite→Geodon→Strataclaw | Mineral / Metal-Mineral | pangolin` (F6; mineral ball-roller → metal-veined armor → strata-scaled digging titan. PRISTINE pangolin, distinct from hedgehog/echidna/armadillo/mole-rat. Good Mineral distribution. emoji theme-coded 🪨/🦔/⛏️, kept. clean.)
 - `[428] Pummelo→Brawlith→Zenkaiser | Fighting / Fighting-Mental | mantis` (F7; martial-mantis duelist line. 2nd mantis alongside Chittering #324 — within animal cap-3. Good Fighting+Mental distribution. 🦗 cricket stand-in kept (no mantis emoji). clean.)
 - `[431] Lullasnout→Drowsetapir→Nocturnbaku | Dream / Dark-Dream | tapir (baku)` (F8; dream-eater line — snouted cub → nightmare-eating tapir → dreamscape-walking baku. PRISTINE tapir, animal-first read (baku folkloric flavor), NOT a formless dream-entity. Good Dream distribution. 🌙 theme-emoji kept. clean.)
+- `[434] Tusklet→Verdantusk→Primammoth | Primal / Nature-Primal | mammoth (proboscidean)` (LEGENDARY line, F9. PRISTINE mammoth, animal-first (NOT primordial-titan despite "living mountain" language). Primal is reserved post-game: **KEPT** under legendary+intrinsic-primeval-lore exception — all 3 legendary; "elder world / first forest / before names" coding throughout; no pre-462 type captures primeval (Nature covers the moss half). clean.)
+- `[437] Knucklite→Cragfist→Goliathon | Mineral / Fighting-Mineral | gorilla (ape)` (F10; stone-fist gorilla line. PRISTINE primate (first ape in dex). Good Mineral+Fighting distribution. 🦍 exact. clean.)
+- `[439] Chimelet→Seraphene | Sonic / Fairy-Sonic | cicada (bard-fae)` (F11, 2-stage; glass-winged cicada-fae. PRISTINE cicada, animal-first read (faerie-sprite is the flavor alternative — cap-neutral either way). Good Sonic distribution. 🎐 apt (wings ring like windchime). clean.)
 
 #### Forgotten / post-game (id ≥ 462)
 

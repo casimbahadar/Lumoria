@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Tally type-combo distribution among pre-408 (non-Forgotten) Lumori in js/data.js
+Tally type-combo distribution among pre-462 (non-Forgotten) Lumori in js/data.js
 under the ID-tally framework.
 
 Counting rule (ID-tally):
@@ -14,7 +14,7 @@ Cap rules (soft caps — drift acceptable on justification):
   - Ordinary dual cap:  6 IDs
   - Flagship dual cap:  12 IDs (2x ordinary)
   - All mono combos:    automatic flagship status (12-ID cap)
-  - Forgotten (id>=408) excluded entirely from pre-408 cap accounting.
+  - Forgotten (id>=462) excluded entirely from pre-462 cap accounting.
 
 See TODO.md "Cap rules & counting" section for full framework.
 """
@@ -26,7 +26,7 @@ from itertools import combinations
 DATA_JS = Path(__file__).resolve().parent.parent / "js" / "data.js"
 ORDINARY_CAP = 6
 FLAGSHIP_CAP = 12
-POSTGAME_THRESHOLD = 408  # Lumori with id >= 408 are Forgotten (excluded here)
+POSTGAME_THRESHOLD = 462  # Lumori with id >= 462 are Forgotten (excluded here)
 
 # All 26 type names in the chart
 ALL_TYPES = [
@@ -35,15 +35,15 @@ ALL_TYPES = [
     "Normal", "Poison", "Sonic", "Spectral", "Toxin", "Vapor", "Wind",
     "Aether", "Crystal", "Primal", "Chrono", "Stellar",
 ]
-# Freely-usable pre-408 (no eligibility restriction)
-PRE408_FREE = [
+# Freely-usable pre-462 (no eligibility restriction)
+PRE462_FREE = [
     "Aquatic", "Dark", "Draconic", "Dream", "Earth", "Electric", "Fairy",
     "Fighting", "Fire", "Ice", "Mental", "Metal", "Mineral", "Nature",
     "Normal", "Poison", "Sonic", "Spectral", "Toxin", "Vapor", "Wind",
 ]
-# Legendary-only pre-408 (Crystal/Primal/Stellar — CLAUDE.md exception)
+# Legendary-only pre-462 (Crystal/Primal/Stellar — CLAUDE.md exception)
 POSTGAME_LEGENDARY_OK = ["Crystal", "Primal", "Stellar"]
-# Strict post-408 only (never pre-408)
+# Strict post-462 only (never pre-462)
 STRICT_POSTGAME = ["Aether", "Chrono"]
 
 # ---------- Parse data.js ----------
@@ -82,8 +82,8 @@ for combo, members in combo_members.items():
     })
 
 # ---------- Reports ----------
-print(f"Loaded {len(mons)} pre-408 Lumori (Forgotten id>={POSTGAME_THRESHOLD} excluded)")
-print(f"Distinct type combos in pre-408 dex: {len(combo_members)}")
+print(f"Loaded {len(mons)} pre-462 Lumori (Forgotten id>={POSTGAME_THRESHOLD} excluded)")
+print(f"Distinct type combos in pre-462 dex: {len(combo_members)}")
 print(f"\nCap rules (soft): ordinary dual={ORDINARY_CAP}, flagship dual={FLAGSHIP_CAP}, all monos auto-flagship\n")
 
 # Distribution histogram
@@ -125,12 +125,12 @@ if not over_cap:
     print("  (none — all combos within cap)")
 print()
 
-# Pristine pre-408-eligible duals (still empty, freely usable)
-all_freely_duals = set(tuple(sorted(c)) for c in combinations(PRE408_FREE, 2))
+# Pristine pre-462-eligible duals (still empty, freely usable)
+all_freely_duals = set(tuple(sorted(c)) for c in combinations(PRE462_FREE, 2))
 occupied = set(r["combo"] for r in rows if not r["is_mono"])
 pristine = sorted(all_freely_duals - occupied)
 print("=" * 60)
-print(f"PRISTINE pre-408-freely-eligible duals: {len(pristine)}")
+print(f"PRISTINE pre-462-freely-eligible duals: {len(pristine)}")
 print("=" * 60)
 print("  (empty combos available as retype targets — no legendary restriction)")
 # Print compactly: 4 per line
@@ -141,6 +141,6 @@ print()
 
 # Summary
 total = len(mons)
-print(f"Pre-408 totals: {total} Lumori across {len(combo_members)} occupied type combos")
+print(f"Pre-462 totals: {total} Lumori across {len(combo_members)} occupied type combos")
 print(f"Over-cap dual combos to address: {sum(1 for r in over_cap if not r['is_mono'])}")
 print(f"Over-cap monos (over flagship 12): {sum(1 for r in over_cap if r['is_mono'])}")

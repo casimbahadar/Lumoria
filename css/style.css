@@ -2763,3 +2763,24 @@ button, a, [role="button"] {
 .variant-learnset td:first-child { color:var(--text-muted); white-space:nowrap; width:48px; }
 .variant-learnset td:last-child { text-align:right; white-space:nowrap; }
 @media (min-width:768px) { .variant-learnset-wrap { max-height:320px; } }
+
+/* Inverse Mode battle badge (shown only in battle when G.inverseMode is on) */
+#battle-arena { position: relative; }
+#inverse-mode-badge {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  background: linear-gradient(90deg, #6a2bd6, #b8336a);
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  padding: 3px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.45);
+  pointer-events: none;
+  white-space: nowrap;
+}

@@ -1656,12 +1656,24 @@ async function playerSwitch(idx) {
     }
   }
   showBattleMainActions();
+  // Phase 3b: onSwitchOut on the outgoing mon (if any & still alive)
+  if (playerActiveMon && playerActiveMon.currentHP > 0 && typeof applyOnSwitchOut === "function") {
+    const outMsgs = applyOnSwitchOut(playerActiveMon, enemyActiveMon);
+    for (const msg of outMsgs) logMsg(msg, "log-status");
+  }
   // Sync current HP back
   syncPlayerMonHP();
   battleContext.playerTeamIdx = idx;
   playerActiveMon = buildBattleMon(G.team[idx], battleContext.levelCap || null);
   logMsg(`Go, ${playerActiveMon.name}!`);
   updateBattleUI();
+  // Phase 3b: onSwitchIn + onEntry on the incoming mon
+  if (typeof applyOnSwitchIn === "function") {
+    const inMsgs = applyOnSwitchIn(playerActiveMon, enemyActiveMon);
+    for (const msg of inMsgs) logMsg(msg, "log-status");
+    if (inMsgs.length > 0) updateBattleUI();
+  }
+  fireOnEntryHooks(playerActiveMon, enemyActiveMon);
   // Enemy gets a free turn after switch (unless forced switch)
   if (!battleContext.forcedSwitch) {
     await enemyTurn();

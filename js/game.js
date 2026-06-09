@@ -1861,6 +1861,18 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
       updateBattleUI();
     }
 
+    // Phase 3b: per-hit crit hooks (onSelfCrit on attacker, onCritTaken on defender)
+    if (result.crit) {
+      if (typeof applyOnSelfCrit === "function") {
+        const selfCritMsgs = applyOnSelfCrit(attacker, defender, move);
+        for (const m of selfCritMsgs) logMsg(m, "log-status");
+      }
+      if (typeof applyOnCritTaken === "function") {
+        const takenMsgs = applyOnCritTaken(defender, attacker, move);
+        for (const m of takenMsgs) logMsg(m, "log-status");
+      }
+    }
+
     // Phase 3a: on-incoming-hit dispatch (defender traits: Thorned, Flame Aura,
     // Resolute, Vengeance, Pride, Per-type auras, Mirror Form, etc.)
     const onHitMsgs = applyOnIncomingHit(defender, attacker, move, result.damage, result.effectiveness);

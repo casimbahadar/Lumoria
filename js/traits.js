@@ -2551,7 +2551,883 @@ const ABILITY_REGISTRY = {
     },
   },
 
-  // ====== Phase 2 batch 3 will continue if user wants to push to ~250 ======
+  // ====== Phase 2 batch 4 — 69 locked traits (final batch, registry → 265 total) ======
+
+  // --- A. Terrain-summoning (8; retuned to 25% boost per user) ---
+  verdant_surge: {
+    name: "Verdant Surge",
+    emoji: "🌿",
+    cssClass: "trait-verdant-surge",
+    description: "Summons Nature Terrain on entry (Nature moves +25%).",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof setTerrain === "function") {
+        setTerrain("nature", 5);
+        return { msg: `🌿 Verdant Surge: ${mon.name} energized the field with nature!` };
+      }
+      return null;
+    },
+  },
+
+  static_surge: {
+    name: "Static Surge",
+    emoji: "⚡",
+    cssClass: "trait-static-surge",
+    description: "Summons Electric Terrain on entry (Electric moves +25%).",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof setTerrain === "function") {
+        setTerrain("electric", 5);
+        return { msg: `⚡ Static Surge: ${mon.name} charged the field with electricity!` };
+      }
+      return null;
+    },
+  },
+
+  psychic_field: {
+    name: "Psychic Field",
+    emoji: "🧠",
+    cssClass: "trait-psychic-field",
+    description: "Summons Mental Terrain on entry (Mental moves +25%).",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof setTerrain === "function") {
+        setTerrain("mental", 5);
+        return { msg: `🧠 Psychic Field: ${mon.name} warped the field with psychic energy!` };
+      }
+      return null;
+    },
+  },
+
+  misty_field: {
+    name: "Misty Field",
+    emoji: "🌸",
+    cssClass: "trait-misty-field",
+    description: "Summons Mist Terrain on entry (Fairy moves +25%).",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof setTerrain === "function") {
+        setTerrain("mist", 5);
+        return { msg: `🌸 Misty Field: ${mon.name} enveloped the field in fairy mist!` };
+      }
+      return null;
+    },
+  },
+
+  dragons_domain: {
+    name: "Dragon's Domain",
+    emoji: "🐉",
+    cssClass: "trait-dragons-domain",
+    description: "Summons Draconic Terrain on entry (Draconic moves +25%).",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof setTerrain === "function") {
+        setTerrain("draconic", 5);
+        return { msg: `🐉 Dragon's Domain: ${mon.name} claimed the field for dragonkind!` };
+      }
+      return null;
+    },
+  },
+
+  spore_field: {
+    name: "Spore Field",
+    emoji: "🦠",
+    cssClass: "trait-spore-field",
+    description: "Summons Toxin Terrain on entry (Toxin moves +25%).",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof setTerrain === "function") {
+        setTerrain("toxin", 5);
+        return { msg: `🦠 Spore Field: ${mon.name} blanketed the field with toxic spores!` };
+      }
+      return null;
+    },
+  },
+
+  sonic_field: {
+    name: "Sonic Field",
+    emoji: "🔊",
+    cssClass: "trait-sonic-field",
+    description: "Summons Sonic Terrain on entry (Sonic moves +25%).",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof setTerrain === "function") {
+        setTerrain("sonic", 5);
+        return { msg: `🔊 Sonic Field: ${mon.name} filled the field with resonant sound!` };
+      }
+      return null;
+    },
+  },
+
+  crystal_field: {
+    name: "Crystal Field",
+    emoji: "💎",
+    cssClass: "trait-crystal-field",
+    description: "Summons Crystal Terrain on entry (Crystal moves +25%).",
+    ngPlusOnly: true,
+    onEntry: (mon) => {
+      if (typeof setTerrain === "function") {
+        setTerrain("crystal", 5);
+        return { msg: `💎 Crystal Field: ${mon.name} crystallized the very air!` };
+      }
+      return null;
+    },
+  },
+
+  // --- B. Per-type defensive specialists (8; #226-231 renamed per user) ---
+  hot_blooded: {
+    name: "Hot-blooded",
+    emoji: "🔥",
+    cssClass: "trait-hot-blooded",
+    description: "Fire damage taken -50%.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Fire" ? 0.5 : 1,
+  },
+
+  cold_blooded: {
+    name: "Cold-blooded",
+    emoji: "❄️",
+    cssClass: "trait-cold-blooded",
+    description: "Ice damage taken -50%.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Ice" ? 0.5 : 1,
+  },
+
+  stoneform: {
+    name: "Stoneform",
+    emoji: "🌋",
+    cssClass: "trait-stoneform",
+    description: "Earth damage taken -50%.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Earth" ? 0.5 : 1,
+  },
+
+  hydrophobic: {
+    name: "Hydrophobic",
+    emoji: "🌊",
+    cssClass: "trait-hydrophobic",
+    description: "Aquatic damage taken -50%.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Aquatic" ? 0.5 : 1,
+  },
+
+  insulated: {
+    name: "Insulated",
+    emoji: "⚡",
+    cssClass: "trait-insulated",
+    description: "Electric damage taken -50%.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Electric" ? 0.5 : 1,
+  },
+
+  damper: {
+    name: "Damper",
+    emoji: "🔊",
+    cssClass: "trait-damper",
+    description: "Sonic damage taken -50%.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Sonic" ? 0.5 : 1,
+  },
+
+  heavyhold: {
+    name: "Heavyhold",
+    emoji: "💨",
+    cssClass: "trait-heavyhold",
+    description: "Wind damage taken -50%.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Wind" ? 0.5 : 1,
+  },
+
+  light_warded: {
+    name: "Light-warded",
+    emoji: "👻",
+    cssClass: "trait-light-warded",
+    description: "Dark damage taken -50%.",
+    ngPlusOnly: false,
+    incomingDmgMod: (_d, _e, move) => move.type === "Dark" ? 0.5 : 1,
+  },
+
+  // --- C. Damage-cap mechanics (4) ---
+  iron_resolve: {
+    name: "Iron Resolve",
+    emoji: "🛡️",
+    cssClass: "trait-iron-resolve",
+    description: "Hits dealing more than 50% max HP are capped at 50%.",
+    ngPlusOnly: true,
+    damageCapFrac: () => 0.5,
+  },
+
+  eternal_coil: {
+    name: "Eternal Coil",
+    emoji: "💀",
+    cssClass: "trait-eternal-coil",
+    description: "Cannot be one-shot from full HP — always survives with 1 HP on a fatal hit from full.",
+    ngPlusOnly: true,
+    preventOhkoFromFull: true,
+  },
+
+  hardened_flesh: {
+    name: "Hardened Flesh",
+    emoji: "🪨",
+    cssClass: "trait-hardened-flesh",
+    description: "Physical hits capped at 1/4 max HP per hit.",
+    ngPlusOnly: false,
+    physicalDmgCapFrac: () => 0.25,
+  },
+
+  spirit_shell: {
+    name: "Spirit Shell",
+    emoji: "👻",
+    cssClass: "trait-spirit-shell",
+    description: "Damage taken below 25% HP is halved.",
+    ngPlusOnly: true,
+    incomingDmgMod: (mon) => mon.currentHP < mon.maxHP * 0.25 ? 0.5 : 1,
+  },
+
+  // --- D. PP / move manipulation (3; #237 dropped) ---
+  move_steal: {
+    name: "Move Steal",
+    emoji: "🪞",
+    cssClass: "trait-move-steal",
+    description: "Once per battle, player selects which of their move slots to overwrite with a copy of the foe's last-used move. Effect lasts until end of battle.",
+    ngPlusOnly: false,
+    moveStealOncePerBattle: true,
+  },
+
+  pp_saver: {
+    name: "PP Saver",
+    emoji: "🪙",
+    cssClass: "trait-pp-saver",
+    description: "30% chance not to consume PP when using a move.",
+    ngPlusOnly: false,
+    ppSaveChance: () => 30,
+  },
+
+  auto_recharge: {
+    name: "Auto-recharge",
+    emoji: "🔋",
+    cssClass: "trait-auto-recharge",
+    description: "Recharge-flagged moves used by this Lumori only require 1 turn instead of 2.",
+    ngPlusOnly: true,
+    rechargeSkip: true,
+  },
+
+  // --- E. Status-specific bonuses (4) ---
+  toxin_hunger: {
+    name: "Toxin Hunger",
+    emoji: "🦠",
+    cssClass: "trait-toxin-hunger",
+    description: "Heals 1/4 max HP per turn while Tainted, Poisoned, or under Necrosis.",
+    ngPlusOnly: false,
+    tickEffect: (mon) => {
+      if (typeof hasStatus !== "function") return [];
+      if (!hasStatus(mon, "tainted") && !hasStatus(mon, "poison") && !hasStatus(mon, "badpoison") && !hasStatus(mon, "necrosis")) return [];
+      if (mon.currentHP >= mon.maxHP) return [];
+      const heal = Math.max(1, Math.floor(mon.maxHP / 4));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return [`🦠 Toxin Hunger: ${mon.name} thrived on poison and healed ${heal} HP!`];
+    },
+  },
+
+  burn_phoenix: {
+    name: "Burn Phoenix",
+    emoji: "🔥",
+    cssClass: "trait-burn-phoenix",
+    description: "Heals 1/4 max HP per turn while Burned.",
+    ngPlusOnly: false,
+    tickEffect: (mon) => {
+      if (typeof hasStatus !== "function" || !hasStatus(mon, "burn")) return [];
+      if (mon.currentHP >= mon.maxHP) return [];
+      const heal = Math.max(1, Math.floor(mon.maxHP / 4));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return [`🔥 Burn Phoenix: ${mon.name} fed on flame and healed ${heal} HP!`];
+    },
+  },
+
+  sleep_empowered: {
+    name: "Sleep Empowered",
+    emoji: "💤",
+    cssClass: "trait-sleep-empowered",
+    description: "While Asleep, attacks ignore type immunity (treat 0× as 1×).",
+    ngPlusOnly: false,
+    bypassImmunityWhile: (mon) =>
+      (typeof hasStatus === "function" && hasStatus(mon, "sleep")),
+  },
+
+  blood_pact: {
+    name: "Blood Pact",
+    emoji: "🩸",
+    cssClass: "trait-blood-pact",
+    description: "Attack rises +1 stage at end of each turn while Bleeding or Severe-Bleeding.",
+    ngPlusOnly: false,
+    tickEffect: (mon) => {
+      if (typeof hasStatus !== "function") return [];
+      if (!hasStatus(mon, "bleed") && !hasStatus(mon, "severe_bleed")) return [];
+      if (typeof applyStageChange === "function" && applyStageChange(mon, "atk", 1)) {
+        return [`🩸 Blood Pact: ${mon.name}'s Attack rose with the spilling blood!`];
+      }
+      return [];
+    },
+  },
+
+  // --- F. Move-prep / charging (3; #244 dropped) ---
+  combo_crusher: {
+    name: "Combo Crusher",
+    emoji: "💥",
+    cssClass: "trait-combo-crusher",
+    description: "Each consecutive successful hit on the same foe stacks +10% power (caps at ×2 = 10 hits).",
+    ngPlusOnly: true,
+    outgoingPowerMod: (mon) => {
+      const stacks = Math.min(10, mon._comboCrusherStacks || 0);
+      return 1 + (stacks * 0.1);
+    },
+    onHitLanded: (mon, _e, _move, _dmg, defender) => {
+      if (defender && mon._comboCrusherTarget === defender) {
+        mon._comboCrusherStacks = Math.min(10, (mon._comboCrusherStacks || 0) + 1);
+      } else {
+        mon._comboCrusherTarget = defender;
+        mon._comboCrusherStacks = 1;
+      }
+      return null;
+    },
+  },
+
+  steady_aim: {
+    name: "Steady Aim",
+    emoji: "🎯",
+    cssClass: "trait-steady-aim",
+    description: "Each consecutive miss increases next move's accuracy by +50% (resets on hit).",
+    ngPlusOnly: false,
+    accuracyMod: (mon, _e, isAttacking) => {
+      if (!isAttacking) return 1;
+      const misses = mon._steadyAimMisses || 0;
+      return 1 + (misses * 0.5);
+    },
+    onMoveMiss: (mon) => { mon._steadyAimMisses = (mon._steadyAimMisses || 0) + 1; return null; },
+    onMoveHit: (mon) => { mon._steadyAimMisses = 0; return null; },
+  },
+
+  crit_reserve: {
+    name: "Crit Reserve",
+    emoji: "🎴",
+    cssClass: "trait-crit-reserve",
+    description: "Stores critical hits; player can release one stored crit at most once every 2 turns.",
+    ngPlusOnly: true,
+    onSelfCrit: (mon) => { mon._critReserveStored = (mon._critReserveStored || 0) + 1; return null; },
+    critReleaseCooldown: 2,
+  },
+
+  // --- G. Field interaction synergy (5; #249-251 retuned to 30% boost) ---
+  verdant_healer: {
+    name: "Verdant Healer",
+    emoji: "🌿",
+    cssClass: "trait-verdant-healer",
+    description: "Heals 1/16 max HP per turn in Nature Terrain.",
+    ngPlusOnly: false,
+    tickEffect: (mon) => {
+      if (typeof getCurrentTerrain !== "function" || getCurrentTerrain() !== "nature") return [];
+      if (mon.currentHP >= mon.maxHP) return [];
+      const heal = Math.max(1, Math.floor(mon.maxHP / 16));
+      mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
+      return [`🌿 Verdant Healer: ${mon.name} drew strength from the terrain (+${heal} HP)!`];
+    },
+  },
+
+  volt_surge_body: {
+    name: "Volt Surge Body",
+    emoji: "⚡",
+    cssClass: "trait-volt-surge-body",
+    description: "Speed +30% in Electric Terrain.",
+    ngPlusOnly: false,
+    outgoingPowerMod: () => 1,
+    statMod: (mon) => {
+      if (typeof getCurrentTerrain === "function" && getCurrentTerrain() === "electric") return { spe: 1 };
+      return {};
+    },
+  },
+
+  mind_sync: {
+    name: "Mind Sync",
+    emoji: "🧠",
+    cssClass: "trait-mind-sync",
+    description: "Sp.Atk +30% in Mental Terrain.",
+    ngPlusOnly: false,
+    statMod: (mon) => {
+      if (typeof getCurrentTerrain === "function" && getCurrentTerrain() === "mental") return { spa: 1 };
+      return {};
+    },
+  },
+
+  fairy_bond: {
+    name: "Fairy Bond",
+    emoji: "🧚",
+    cssClass: "trait-fairy-bond",
+    description: "Status moves +30% accuracy in Mist Terrain.",
+    ngPlusOnly: false,
+    accuracyMod: (mon, _e, isAttacking, move) => {
+      if (!isAttacking) return 1;
+      if (!move || move.cat !== "status") return 1;
+      if (typeof getCurrentTerrain === "function" && getCurrentTerrain() === "mist") return 1.3;
+      return 1;
+    },
+  },
+
+  dragons_heart: {
+    name: "Dragon's Heart",
+    emoji: "🐉",
+    cssClass: "trait-dragons-heart",
+    description: "STAB multiplier raised to ×2.0 in Draconic Terrain.",
+    ngPlusOnly: true,
+    stabBonusMult: (attacker, _e, move) => {
+      if (typeof getCurrentTerrain !== "function" || getCurrentTerrain() !== "draconic") return 1;
+      return attacker.types?.includes(move.type) ? (2.0 / 1.5) : 1;
+    },
+  },
+
+  // --- H. Speed / priority hybrid (2; #253, #254 dropped) ---
+  underdog_bolt: {
+    name: "Underdog Bolt",
+    emoji: "🏃",
+    cssClass: "trait-underdog-bolt",
+    description: "Gains +1 priority when slower than the opponent.",
+    ngPlusOnly: false,
+    priorityBonus: (mon, _e, foe) => {
+      if (!foe) return 0;
+      const ms = typeof getEffectiveSpeed === "function" ? getEffectiveSpeed(mon) : mon.spe;
+      const fs = typeof getEffectiveSpeed === "function" ? getEffectiveSpeed(foe) : foe.spe;
+      return (ms < fs) ? 1 : 0;
+    },
+  },
+
+  pulse_step: {
+    name: "Pulse Step",
+    emoji: "💢",
+    cssClass: "trait-pulse-step",
+    description: "Priority +1 on odd-numbered turns (1, 3, 5...).",
+    ngPlusOnly: false,
+    priorityBonus: (mon) => {
+      const t = (mon._turnsInBattle || 0) + 1; // 1-indexed
+      return (t % 2 === 1) ? 1 : 0;
+    },
+  },
+
+  // --- J. Power-tier specific (3) ---
+  heavy_hitter: {
+    name: "Heavy Hitter",
+    emoji: "💪",
+    cssClass: "trait-heavy-hitter",
+    description: "Moves with base power ≥100 deal +20% damage.",
+    ngPlusOnly: true,
+    outgoingPowerMod: (_a, _e, move) => (move.power && move.power >= 100) ? 1.2 : 1,
+  },
+
+  light_feet: {
+    name: "Light-feet",
+    emoji: "🦋",
+    cssClass: "trait-light-feet",
+    description: "Moves with base power ≤40 always land a critical hit.",
+    ngPlusOnly: false,
+    forceCritIf: (_a, _e, _d, move) => !!(move && move.power && move.power <= 40),
+  },
+
+  all_or_nothing: {
+    name: "All-or-Nothing",
+    emoji: "🎲",
+    cssClass: "trait-all-or-nothing",
+    description: "Each move randomly deals +50% damage or -20% damage (50/50 split).",
+    ngPlusOnly: false,
+    outgoingPowerMod: () => (Math.random() < 0.5 ? 1.5 : 0.8),
+  },
+
+  // --- K. Stat swap (3; retuned to 30% chance per move) ---
+  iron_reverse: {
+    name: "Iron Reverse",
+    emoji: "🔄",
+    cssClass: "trait-iron-reverse",
+    description: "30% chance per move to swap raw Atk and Def stats for that move's calculation.",
+    ngPlusOnly: false,
+    statSwapChance: { swap: ["atk", "def"], chance: 30 },
+  },
+
+  mind_reverse: {
+    name: "Mind Reverse",
+    emoji: "🔄",
+    cssClass: "trait-mind-reverse",
+    description: "30% chance per move to swap raw SpA and SpD stats for that move's calculation.",
+    ngPlusOnly: false,
+    statSwapChance: { swap: ["spa", "spd"], chance: 30 },
+  },
+
+  speed_power: {
+    name: "Speed Power",
+    emoji: "🔀",
+    cssClass: "trait-speed-power",
+    description: "30% chance per move to swap raw Spe and Atk stats for that move's calculation.",
+    ngPlusOnly: false,
+    statSwapChance: { swap: ["spe", "atk"], chance: 30 },
+  },
+
+  // --- L. Trick / deception (4; #267 dropped) ---
+  decoy: {
+    name: "Decoy",
+    emoji: "🪆",
+    cssClass: "trait-decoy",
+    description: "On entry, creates an illusion that absorbs the first incoming hit.",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      mon._decoyActive = true;
+      return { msg: `🪆 Decoy: ${mon.name} created a duplicate to draw fire!` };
+    },
+    onIncomingHit: (mon) => {
+      if (!mon._decoyActive) return null;
+      mon._decoyActive = false;
+      mon._absorbNextHit = true;
+      return { msg: `🪆 Decoy absorbed the hit!` };
+    },
+  },
+
+  stealth_cloak: {
+    name: "Stealth Cloak",
+    emoji: "🌫️",
+    cssClass: "trait-stealth-cloak",
+    description: "Invisible on the first turn — immune to all direct attacks until next turn.",
+    ngPlusOnly: false,
+    incomingDmgMod: (mon) => (mon._turnsInBattle || 0) === 0 ? 0 : 1,
+  },
+
+  biome_shift: {
+    name: "Biome Shift",
+    emoji: "🦎",
+    cssClass: "trait-biome-shift",
+    description: "Type changes to match the map biome on entry (forest/cave/desert/etc.).",
+    ngPlusOnly: false,
+    onEntry: (mon) => {
+      if (typeof getCurrentBiomeType === "function") {
+        const newType = getCurrentBiomeType();
+        if (newType && (mon.types[0] !== newType || mon.types.length > 1)) {
+          mon.types = [newType];
+          return { msg: `🦎 Biome Shift: ${mon.name} adapted to ${newType}-type!` };
+        }
+      }
+      return null;
+    },
+  },
+
+  trickster: {
+    name: "Trickster",
+    emoji: "🎩",
+    cssClass: "trait-trickster",
+    description: "Status-category moves used by this Lumori gain +1 priority.",
+    ngPlusOnly: false,
+    movePriorityBonus: (_a, _e, move) => move.cat === "status" ? 1 : 0,
+  },
+
+  // --- N. Light / Dark specific (3; #274 dropped) ---
+  shadowstep: {
+    name: "Shadowstep",
+    emoji: "🌑",
+    cssClass: "trait-shadowstep",
+    description: "Dark moves used by this Lumori gain +1 priority.",
+    ngPlusOnly: false,
+    movePriorityBonus: (_a, _e, move) => move.type === "Dark" ? 1 : 0,
+  },
+
+  bright_eye: {
+    name: "Bright Eye",
+    emoji: "👁️",
+    cssClass: "trait-bright-eye",
+    description: "Own accuracy can never be lowered — always treated as minimum 100%.",
+    ngPlusOnly: false,
+    accuracyFloor: 1.0,
+  },
+
+  eclipse_form: {
+    name: "Eclipse Form",
+    emoji: "🌚",
+    cssClass: "trait-eclipse-form",
+    description: "Type becomes Dark during night-time conditions.",
+    ngPlusOnly: true,
+    onEntry: (mon) => {
+      if (typeof isNightTime === "function" && isNightTime()) {
+        if (mon.types[0] !== "Dark" || mon.types.length > 1) {
+          mon.types = ["Dark"];
+          return { msg: `🌚 Eclipse Form: ${mon.name} shifted to Dark-type under the night!` };
+        }
+      }
+      return null;
+    },
+  },
+
+  // --- O. Adaptive / Identity (2; #278, #279 dropped) ---
+  battlefield_memory: {
+    name: "Battlefield Memory",
+    emoji: "🧠",
+    cssClass: "trait-battlefield-memory",
+    description: "After each KO, the player picks +1 stage on one of three random stats (HP can appear). Choice surfaced via UI.",
+    ngPlusOnly: false,
+    onKO: (mon) => {
+      // Picks 3 random stats from [hp, atk, def, spa, spd, spe], shows the user, awaits choice.
+      // Phase 3 UI: surface a choice dialog. Stub returns intent message.
+      mon._battlefieldMemoryPending = true;
+      return { msg: `🧠 Battlefield Memory: pick a stat to permanently raise!` };
+    },
+  },
+
+  combat_veteran: {
+    name: "Combat Veteran",
+    emoji: "⚔️",
+    cssClass: "trait-combat-veteran",
+    description: "After every 3 battles, 5% chance for all stats +5% permanently — underdog growth (best given to weaker Lumori).",
+    ngPlusOnly: true,
+    onBattleEnd: (mon, _e, outcome) => {
+      if (outcome !== "won") return null;
+      mon._combatVeteranCounter = (mon._combatVeteranCounter || 0) + 1;
+      if (mon._combatVeteranCounter < 3) return null;
+      mon._combatVeteranCounter = 0;
+      if (typeof rollPercent !== "function" || !rollPercent(5)) return null;
+      // Apply permanent +5% to all stats (persistent across battles)
+      ["maxHP", "atk", "def", "spa", "spd", "spe"].forEach(s => {
+        if (mon[s]) mon[s] = Math.floor(mon[s] * 1.05);
+      });
+      return { msg: `⚔️ Combat Veteran: ${mon.name} permanently grew stronger from experience!` };
+    },
+  },
+
+  // --- P. Multi-mon utility (2; #282, #284, #285 dropped) ---
+  defender: {
+    name: "Defender",
+    emoji: "🛡️",
+    cssClass: "trait-defender",
+    description: "Takes 50% of damage targeted at adjacent allies (multi-battle).",
+    ngPlusOnly: false,
+    redirectAllyDmgFrac: () => 0.5,
+  },
+
+  pack_hunter: {
+    name: "Pack Hunter",
+    emoji: "🐺",
+    cssClass: "trait-pack-hunter",
+    description: "In multi-battle, damage dealt +10% per ally currently on field (max +30% in triple).",
+    ngPlusOnly: false,
+    outgoingPowerMod: (mon) => {
+      const allies = mon._fieldAlliesCount || 0;
+      return 1 + (Math.min(3, allies) * 0.1);
+    },
+  },
+
+  // --- S. Boss-style / Legendary (4) ---
+  tyrant_aura: {
+    name: "Tyrant Aura",
+    emoji: "👑",
+    cssClass: "trait-tyrant-aura",
+    description: "On entry, lowers 2 random foe stats by 1 stage.",
+    ngPlusOnly: true,
+    legendaryOnly: true,
+    onEntry: (_mon, _e, foe) => {
+      if (!foe || typeof applyStageChange !== "function") return null;
+      const stats = ["atk", "def", "spa", "spd", "spe"];
+      const shuffled = stats.sort(() => Math.random() - 0.5).slice(0, 2);
+      const dropped = [];
+      for (const s of shuffled) {
+        if (applyStageChange(foe, s, -1)) dropped.push(s.toUpperCase());
+      }
+      if (dropped.length === 0) return null;
+      return { msg: `👑 Tyrant Aura: ${foe.name}'s ${dropped.join(" and ")} fell!` };
+    },
+  },
+
+  world_shaker: {
+    name: "World-shaker",
+    emoji: "🌍",
+    cssClass: "trait-world-shaker",
+    description: "Damage dealt to bosses/legendaries +50%.",
+    ngPlusOnly: true,
+    outgoingPowerMod: (_a, _e, _move, defender) => {
+      if (!defender) return 1;
+      if (defender.isBoss || defender.isLegendary) return 1.5;
+      return 1;
+    },
+  },
+
+  origin_form: {
+    name: "Origin Form",
+    emoji: "✨",
+    cssClass: "trait-origin-form",
+    description: "In NG+ playthroughs, base stats +10% permanently.",
+    ngPlusOnly: true,
+    legendaryOnly: true,
+    onBuild: (mon) => {
+      if (typeof isNgPlus !== "function" || !isNgPlus()) return null;
+      ["maxHP", "atk", "def", "spa", "spd", "spe"].forEach(s => {
+        if (mon[s]) mon[s] = Math.floor(mon[s] * 1.1);
+      });
+      return null;
+    },
+  },
+
+  sealed_power: {
+    name: "Sealed Power",
+    emoji: "🔓",
+    cssClass: "trait-sealed-power",
+    description: "At 25% HP, transforms to an 'awakened' form (redistributes stats for the rest of the battle).",
+    ngPlusOnly: true,
+    legendaryOnly: true,
+    onLowHpTrigger: (mon) => {
+      if (mon._sealedAwakened) return null;
+      mon._sealedAwakened = true;
+      // Phase 3: redistribute stats; for now log intent
+      return { msg: `🔓 Sealed Power: ${mon.name} awakened its true form!` };
+    },
+  },
+
+  // --- T. Misc / unique (1; #296, #298 dropped) ---
+  final_stand: {
+    name: "Final Stand",
+    emoji: "🏴",
+    cssClass: "trait-final-stand",
+    description: "When all teammates have fainted and this is the last Lumori standing, Atk and SpA both +1 stage.",
+    ngPlusOnly: false,
+    legendaryOnly: true,
+    onLastStanding: (mon) => {
+      if (mon._finalStandTriggered) return null;
+      mon._finalStandTriggered = true;
+      if (typeof applyStageChange !== "function") return null;
+      const a = applyStageChange(mon, "atk", 1);
+      const s = applyStageChange(mon, "spa", 1);
+      if (a || s) return { msg: `🏴 Final Stand: ${mon.name} resolved to fight alone!` };
+      return null;
+    },
+  },
+
+  // --- U. Extras (kept set) ---
+  mind_steal: {
+    name: "Mind Steal",
+    emoji: "🧠",
+    cssClass: "trait-mind-steal",
+    description: "When hit by a foe, 30% chance to copy one of their active stat boosts to self.",
+    ngPlusOnly: false,
+    onIncomingHit: (mon, _e, _move, _dmg, attacker) => {
+      if (!attacker || typeof rollPercent !== "function" || !rollPercent(30)) return null;
+      const stats = ["atk", "def", "spa", "spd", "spe"];
+      const positiveStages = stats.filter(s => (attacker.stages?.[s] || 0) > 0);
+      if (positiveStages.length === 0) return null;
+      const stolen = positiveStages[Math.floor(Math.random() * positiveStages.length)];
+      const amount = attacker.stages[stolen];
+      if (typeof applyStageChange === "function" && applyStageChange(mon, stolen, amount)) {
+        return { msg: `🧠 Mind Steal: ${mon.name} stole ${attacker.name}'s ${stolen.toUpperCase()} boost!` };
+      }
+      return null;
+    },
+  },
+
+  calming_field: {
+    name: "Calming Field",
+    emoji: "🧘",
+    cssClass: "trait-calming-field",
+    description: "All Lumori on the field gain +1 Sp.Atk stage.",
+    ngPlusOnly: false,
+    fieldAllStatMod: () => ({ spa: 1 }),
+  },
+
+  charisma: {
+    name: "Charisma",
+    emoji: "👑",
+    cssClass: "trait-charisma",
+    description: "Always wins speed ties when stats are exactly equal.",
+    ngPlusOnly: false,
+    speedTieWin: true,
+  },
+
+  hunters_mark: {
+    name: "Hunter's Mark",
+    emoji: "🎯",
+    cssClass: "trait-hunters-mark",
+    description: "Multi-battle only: player picks one foe at battle start; this Lumori AND all teammates deal +30% damage to that foe for the rest of the battle.",
+    ngPlusOnly: false,
+    multiBattleOnly: true,
+    onEntryMultiBattle: (_mon) => {
+      // Phase 3 UI: surface foe-pick dialog; mark the picked foe for team-wide bonus
+      return { msg: `🎯 Hunter's Mark: pick a target to mark for the team!` };
+    },
+  },
+
+  time_skip: {
+    name: "Time Skip",
+    emoji: "⏰",
+    cssClass: "trait-time-skip",
+    description: "Once per battle, take an extra turn immediately after your normal action.",
+    ngPlusOnly: true,
+    legendaryOnly: true,
+    extraTurnOncePerBattle: true,
+  },
+
+  strategist: {
+    name: "Strategist",
+    emoji: "📋",
+    cssClass: "trait-strategist",
+    description: "When this Lumori is active, the opponent must commit their move first; the player chooses afterward based on what was revealed.",
+    ngPlusOnly: false,
+    revealOpponentMoveFirst: true,
+  },
+
+  apex_predator: {
+    name: "Apex Predator",
+    emoji: "🦁",
+    cssClass: "trait-apex-predator",
+    description: "On entry vs a lower-level foe, 3 random stats +1 stage.",
+    ngPlusOnly: true,
+    onEntry: (mon, _e, foe) => {
+      if (!foe || foe.level >= mon.level || typeof applyStageChange !== "function") return null;
+      const stats = ["atk", "def", "spa", "spd", "spe"];
+      const picks = stats.sort(() => Math.random() - 0.5).slice(0, 3);
+      const raised = [];
+      for (const s of picks) {
+        if (applyStageChange(mon, s, 1)) raised.push(s.toUpperCase());
+      }
+      if (raised.length === 0) return null;
+      return { msg: `🦁 Apex Predator: ${mon.name}'s ${raised.join(", ")} rose!` };
+    },
+  },
+
+  lumian_soul: {
+    name: "Lumian Soul",
+    emoji: "💖",
+    cssClass: "trait-lumian-soul",
+    description: "Heals to 50% HP if a fatal hit would land on the first turn of battle (once per battle).",
+    ngPlusOnly: true,
+    onFaint: (mon) => {
+      if (mon._lumianSoulUsed) return null;
+      if ((mon._turnsInBattle || 0) !== 0) return null;
+      mon._lumianSoulUsed = true;
+      mon.currentHP = Math.floor(mon.maxHP * 0.5);
+      mon.fainted = false;
+      return { msg: `💖 Lumian Soul: ${mon.name} clung to life!` };
+    },
+  },
+
+  stable_ground: {
+    name: "Stable Ground",
+    emoji: "🌋",
+    cssClass: "trait-stable-ground",
+    description: "Immune to all priority moves (priority +0 attacks land normally).",
+    ngPlusOnly: true,
+    priorityMoveImmune: true,
+  },
+
+  battlefield_resonance: {
+    name: "Battlefield Resonance",
+    emoji: "🔊",
+    cssClass: "trait-battlefield-resonance",
+    description: "In multi-battle, +10% damage dealt per ally currently on field.",
+    ngPlusOnly: false,
+    legendaryOnly: true,
+    outgoingPowerMod: (mon) => {
+      const allies = mon._fieldAlliesCount || 0;
+      return 1 + (allies * 0.1);
+    },
+  },
+
+  // ====== Phase 2 brainstorm COMPLETE — registry now seeded for Phase 3 ======
 };
 
 

@@ -1163,13 +1163,17 @@ function getPriorityBonus(mon, foe, move) {
 // Returns array of log messages for any triggered low-HP traits.
 function checkAndFireLowHpTrigger(mon) {
   if (!mon || mon.fainted) return [];
-  if (mon._lowHpTriggerFired) return [];
-  // Default threshold 25% — individual traits also re-check via their own hooks
-  if (mon.currentHP < mon.maxHP * 0.25) {
-    mon._lowHpTriggerFired = true;
-    return applyOnLowHpTrigger(mon);
+  const isLow = mon.currentHP < mon.maxHP * 0.25;
+  if (!isLow) {
+    // Hysteresis reset: HP returned above threshold so a future dip can fire again.
+    // Per-trait once-per-battle guards (e.g. _adaptiveShellUsed) live inside individual
+    // onLowHpTrigger hooks — this gate only handles cross-threshold edge detection.
+    mon._lowHpTriggerFired = false;
+    return [];
   }
-  return [];
+  if (mon._lowHpTriggerFired) return [];
+  mon._lowHpTriggerFired = true;
+  return applyOnLowHpTrigger(mon);
 }
 
 // Per-turn counter increment. Call at end of each turn for active mons.
@@ -1739,6 +1743,8 @@ function applySubEffect(fx, attacker, target) {
       if (healAmt > 0) {
         attacker.currentHP = Math.min(attacker.maxHP, attacker.currentHP + healAmt);
         messages.push(`💚 ${attacker.name} restored ${healAmt} HP!`);
+        // Phase 3b: keep low-HP hysteresis flag honest on heal
+        for (const m of checkAndFireLowHpTrigger(attacker)) messages.push(m);
       } else {
         messages.push(`💚 ${attacker.name}'s healing was blocked!`);
       }
@@ -1768,7 +1774,10 @@ function tickStatus(mon) {
     if (reg.tickDamage) {
       const dmg = reg.tickDamage(mon, entry);
       mon.currentHP = Math.max(0, mon.currentHP - dmg);
+      if (mon.currentHP <= 0) mon.fainted = true;
       if (reg.tickMsg) msgs.push(reg.tickMsg(mon.name, dmg));
+      // Phase 3b: status DOT can cross low-HP threshold — fire trigger
+      for (const m of checkAndFireLowHpTrigger(mon)) msgs.push(m);
     }
     // 2. Per-turn side effects (Hexed random debuff, Inspired random buff, etc.)
     if (reg.tickEffect) {
@@ -1803,6 +1812,8 @@ function tickStatus(mon) {
     const heal = Math.max(1, Math.floor(mon.maxHP / 16));
     mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
     msgs.push(`🍎 ${mon.name}'s Leftovers restored ${heal} HP!`);
+    // Phase 3b: keep low-HP hysteresis flag honest on heal
+    for (const m of checkAndFireLowHpTrigger(mon)) msgs.push(m);
   }
   return msgs;
 }

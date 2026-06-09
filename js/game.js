@@ -1369,6 +1369,11 @@ async function playerUseBattleItem(itemId, monIdx) {
     // Also update live battle mon if it's the active one
     if (monIdx === battleContext.playerTeamIdx) {
       playerActiveMon.currentHP = Math.min(playerActiveMon.maxHP, playerActiveMon.currentHP + healed);
+      // Phase 3b: keep low-HP hysteresis flag honest on heal
+      if (typeof checkAndFireLowHpTrigger === "function") {
+        const lowHpMsgs = checkAndFireLowHpTrigger(playerActiveMon);
+        for (const m of lowHpMsgs) logMsg(m, "log-status");
+      }
     }
     G.bag[itemId]--;
     logMsg(`Used ${item.name} on ${slot.nickname || MONSTERS_DATA[slot.monsterId].name}! +${healed} HP`);
@@ -1653,6 +1658,11 @@ async function playerSwitch(idx) {
       playerActiveMon.currentHP = Math.max(0, playerActiveMon.currentHP - hpCost);
       logMsg(`⛓️ ${playerActiveMon.name} lost ${hpCost} HP from switching while tethered!`, "log-damage");
       if (playerActiveMon.currentHP <= 0) playerActiveMon.fainted = true;
+      // Phase 3b: low-HP trigger on Tethered HP drop
+      if (typeof checkAndFireLowHpTrigger === "function") {
+        const lowHpMsgs = checkAndFireLowHpTrigger(playerActiveMon);
+        for (const m of lowHpMsgs) logMsg(m, "log-status");
+      }
     }
   }
   showBattleMainActions();
@@ -1769,6 +1779,12 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
   const canMoveResult = canMove(attacker);
   if (!canMoveResult.can) {
     logMsg(canMoveResult.msg);
+    // Phase 3b: confusion self-hit mutates attacker.currentHP inside canMove —
+    // check low-HP trigger on the blocked-move path.
+    if (typeof checkAndFireLowHpTrigger === "function") {
+      const lowHpMsgs = checkAndFireLowHpTrigger(attacker);
+      for (const m of lowHpMsgs) logMsg(m, "log-status");
+    }
     await delay(400);
     return;
   }
@@ -1799,6 +1815,11 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     logMsg(attempt.msg, "log-damage");
     if (isPlayer) syncPlayerMonHP();
     updateBattleUI();
+    // Phase 3b: Concussion-style self-hit mutates attacker.currentHP — check low-HP trigger
+    if (typeof checkAndFireLowHpTrigger === "function") {
+      const lowHpMsgs = checkAndFireLowHpTrigger(attacker);
+      for (const m of lowHpMsgs) logMsg(m, "log-status");
+    }
     await delay(400);
     return;
   }
@@ -1876,6 +1897,11 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
       logMsg(reflect.msg, "log-status");
       if (!isPlayer) syncPlayerMonHP();
       updateBattleUI();
+      // Phase 3b: reflect mutates attacker.currentHP — check low-HP trigger on attacker
+      if (typeof checkAndFireLowHpTrigger === "function") {
+        const lowHpMsgs = checkAndFireLowHpTrigger(attacker);
+        for (const m of lowHpMsgs) logMsg(m, "log-status");
+      }
     }
 
     // Phase 3b: per-hit crit hooks (onSelfCrit on attacker, onCritTaken on defender)
@@ -1888,6 +1914,13 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
         const takenMsgs = applyOnCritTaken(defender, attacker, move);
         for (const m of takenMsgs) logMsg(m, "log-status");
       }
+    }
+
+    // Phase 3b: low-HP entry trigger (Berserker, Last Stand, Wounded Rage, etc.)
+    // Defender just took damage — check if they crossed into low-HP this hit.
+    if (typeof checkAndFireLowHpTrigger === "function") {
+      const lowHpMsgs = checkAndFireLowHpTrigger(defender);
+      for (const m of lowHpMsgs) logMsg(m, "log-status");
     }
 
     // Phase 3a: on-incoming-hit dispatch (defender traits: Thorned, Flame Aura,
@@ -1930,7 +1963,14 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
 
   // Phase 3 follow-up: Bonded ally-share (multi-battle only — opts.allies undefined in 1v1)
   const bondedShare = applyBondedShare(defender, opts.allies, totalDamage);
-  if (bondedShare) logMsg(bondedShare.msg, "log-status");
+  if (bondedShare) {
+    logMsg(bondedShare.msg, "log-status");
+    // Phase 3b: bonded share mutates the random ally's currentHP — check low-HP trigger on them
+    if (typeof checkAndFireLowHpTrigger === "function") {
+      const lowHpMsgs = checkAndFireLowHpTrigger(bondedShare.ally);
+      for (const m of lowHpMsgs) logMsg(m, "log-status");
+    }
+  }
 
   // Recoil damage
   if (move.effect === "recoil" && totalDamage > 0 && !attacker.fainted) {
@@ -1940,6 +1980,11 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     logMsg(`${attacker.name} was hurt by recoil! (${recoilDmg})`, "log-damage");
     if (isPlayer) syncPlayerMonHP();
     updateBattleUI();
+    // Phase 3b: low-HP trigger on attacker (recoil can cross threshold)
+    if (typeof checkAndFireLowHpTrigger === "function") {
+      const lowHpMsgs = checkAndFireLowHpTrigger(attacker);
+      for (const m of lowHpMsgs) logMsg(m, "log-status");
+    }
   }
 
   // Drain heal
@@ -1949,6 +1994,11 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     logMsg(`${attacker.name} drained ${drainAmt} HP!`, "log-status");
     if (isPlayer) syncPlayerMonHP();
     updateBattleUI();
+    // Phase 3b: keep low-HP hysteresis flag honest on heal
+    if (typeof checkAndFireLowHpTrigger === "function") {
+      const lowHpMsgs = checkAndFireLowHpTrigger(attacker);
+      for (const m of lowHpMsgs) logMsg(m, "log-status");
+    }
   }
 
   // Secondary stat/status effects (recoil and drain moves have no additional secondary effect)

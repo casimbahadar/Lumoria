@@ -1495,9 +1495,20 @@ function startGymBattle(leaderId, battleType = "single") {
   logMsg(`⚔️ ${fmtLabel} Battle — ${leader.emoji} ${leader.name}`);
   logMsg(`${leader.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
+  // Phase 3b: onEntry hooks for both active mons at battle start
+  fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+  fireOnEntryHooks(enemyActiveMon, playerActiveMon);
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+}
+
+// Phase 3b: dispatch + log onEntry trait hooks for a mon entering the field.
+function fireOnEntryHooks(mon, foe) {
+  if (!mon || typeof applyOnEntry !== "function") return;
+  const msgs = applyOnEntry(mon, foe);
+  for (const msg of msgs) logMsg(msg, "log-status");
+  if (msgs.length > 0) updateBattleUI();
 }
 
 // ---- Player Actions ----

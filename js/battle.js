@@ -983,6 +983,201 @@ function applyOnDamageDealt(attacker, defender, totalDmg) {
   return messages;
 }
 
+// ---- Phase 3b: event-trigger hook dispatchers ----
+
+// onEntry — fires when a Lumori first becomes active in this battle.
+// foe is the opposing active mon (may be null for non-battle contexts).
+function applyOnEntry(mon, foe) {
+  const messages = [];
+  _eachTrait(mon, (reg) => {
+    if (reg.onEntry) {
+      const r = reg.onEntry(mon, null, foe);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onSwitchOut — fires when a Lumori voluntarily switches out.
+// incomingAlly is the Lumori coming in (may be null).
+function applyOnSwitchOut(mon, incomingAlly) {
+  const messages = [];
+  _eachTrait(mon, (reg) => {
+    if (reg.onSwitchOut) {
+      const r = reg.onSwitchOut(mon, null, incomingAlly);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onSwitchIn — fires when a Lumori re-enters battle (Return Surge needs to
+// distinguish first entry from re-entry; the trait itself reads _hasEnteredOnce).
+function applyOnSwitchIn(mon, foe) {
+  const messages = [];
+  _eachTrait(mon, (reg) => {
+    if (reg.onSwitchIn) {
+      const r = reg.onSwitchIn(mon, null, foe);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onKO — fires on the attacker when its move KOs a foe.
+function applyOnKO(attacker, defender) {
+  const messages = [];
+  _eachTrait(attacker, (reg) => {
+    if (reg.onKO) {
+      const r = reg.onKO(attacker, null, defender);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onCritTaken — fires on the defender when it takes a critical hit
+// (Blood Rage atk+6, Reckoning spe+1, Counter-Charged primer).
+function applyOnCritTaken(defender, attacker, move) {
+  const messages = [];
+  _eachTrait(defender, (reg) => {
+    if (reg.onCritTaken) {
+      const r = reg.onCritTaken(defender, null, attacker, move);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onSelfCrit — fires on the attacker when it lands a critical hit (Crit Reserve).
+function applyOnSelfCrit(attacker, defender, move) {
+  const messages = [];
+  _eachTrait(attacker, (reg) => {
+    if (reg.onSelfCrit) {
+      const r = reg.onSelfCrit(attacker, null, defender, move);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onFaint — fires BEFORE the mon is marked fainted. Trait can revive (set
+// mon.currentHP and mon.fainted = false) — see Phoenix-Flame, Lumian Soul.
+// Returns the first non-null msg, or null if no trait intervened.
+function applyOnFaint(mon) {
+  let msg = null;
+  _eachTrait(mon, (reg) => {
+    if (msg) return; // first-match wins
+    if (reg.onFaint) {
+      const r = reg.onFaint(mon, null);
+      if (r?.msg) msg = r.msg;
+    }
+  });
+  return msg;
+}
+
+// onLowHpTrigger — fires once when HP first crosses ~25% threshold.
+// Each trait may have its own threshold; the hook itself decides whether to fire.
+function applyOnLowHpTrigger(mon) {
+  const messages = [];
+  _eachTrait(mon, (reg) => {
+    if (reg.onLowHpTrigger) {
+      const lowFrac = mon.currentHP / mon.maxHP;
+      const r = reg.onLowHpTrigger(mon, null, lowFrac);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onBattleEnd — fires once when the battle resolves (won, lost, ran, caught).
+function applyOnBattleEnd(mon, outcome) {
+  const messages = [];
+  _eachTrait(mon, (reg) => {
+    if (reg.onBattleEnd) {
+      const r = reg.onBattleEnd(mon, null, outcome);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onMoveUse — fires after this Lumori uses a move (Chameleon's type-shift).
+function applyOnMoveUse(mon, move) {
+  const messages = [];
+  _eachTrait(mon, (reg) => {
+    if (reg.onMoveUse) {
+      const r = reg.onMoveUse(mon, null, move);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onMoveHit / onMoveMiss — for Steady Aim consecutive-miss tracking.
+function applyOnMoveHit(mon, move, defender) {
+  _eachTrait(mon, (reg) => {
+    if (reg.onMoveHit) reg.onMoveHit(mon, null, move, defender);
+    if (reg.onHitLanded) reg.onHitLanded(mon, null, move, 0, defender);
+  });
+}
+
+function applyOnMoveMiss(mon, move) {
+  _eachTrait(mon, (reg) => {
+    if (reg.onMoveMiss) reg.onMoveMiss(mon, null, move);
+  });
+}
+
+// onStatLowered — fires on the mon when a stat-lower delta lands (Pride).
+function applyOnStatLowered(mon, stat, delta) {
+  _eachTrait(mon, (reg) => {
+    if (reg.onStatLowered) reg.onStatLowered(mon, null, stat, delta);
+  });
+}
+
+// onSelfStatRaised — fires on the mon when a stat-raise delta lands (Earthshaker).
+function applyOnSelfStatRaised(mon, stat, delta) {
+  _eachTrait(mon, (reg) => {
+    if (reg.onSelfStatRaised) reg.onSelfStatRaised(mon, null, stat, delta);
+  });
+}
+
+// Priority bonus aggregator — for turn-order calculations.
+// Iterates traits' priorityBonus and movePriorityBonus hooks.
+function getPriorityBonus(mon, foe, move) {
+  let bonus = 0;
+  _eachTrait(mon, (reg) => {
+    if (reg.priorityBonus) {
+      const v = reg.priorityBonus(mon, null, foe);
+      if (typeof v === "number") bonus += v;
+    }
+    if (reg.movePriorityBonus && move) {
+      const v = reg.movePriorityBonus(mon, null, move);
+      if (typeof v === "number") bonus += v;
+    }
+  });
+  return bonus;
+}
+
+// Once-per-battle low-HP threshold tracker. Call when a mon takes damage.
+// Returns array of log messages for any triggered low-HP traits.
+function checkAndFireLowHpTrigger(mon) {
+  if (!mon || mon.fainted) return [];
+  if (mon._lowHpTriggerFired) return [];
+  // Default threshold 25% — individual traits also re-check via their own hooks
+  if (mon.currentHP < mon.maxHP * 0.25) {
+    mon._lowHpTriggerFired = true;
+    return applyOnLowHpTrigger(mon);
+  }
+  return [];
+}
+
+// Per-turn counter increment. Call at end of each turn for active mons.
+function tickTurnCounter(mon) {
+  if (!mon) return;
+  mon._turnsInBattle = (mon._turnsInBattle || 0) + 1;
+}
+
 // Multi-battle: cross-mon status hooks (Phase 3 follow-up).
 
 // Bonded share: when a defender with Bonded takes damage, redirect 25% to a
@@ -1439,6 +1634,17 @@ function applyStageChange(mon, stat, delta) {
   if (delta < 0 && cur <= -6) return false;
   if (delta > 0 && cur >= 6) return false;
   mon.stages[stat] = Math.max(-6, Math.min(6, cur + delta));
+  // Phase 3b: trait triggers (Pride on stat-lowered; Earthshaker on stat-raised).
+  // Re-entrancy guard so the triggered effect's own applyStageChange doesn't loop.
+  if (!mon._inStageChangeTrigger) {
+    mon._inStageChangeTrigger = true;
+    try {
+      if (delta < 0) applyOnStatLowered(mon, stat, delta);
+      else if (delta > 0) applyOnSelfStatRaised(mon, stat, delta);
+    } finally {
+      mon._inStageChangeTrigger = false;
+    }
+  }
   return true;
 }
 

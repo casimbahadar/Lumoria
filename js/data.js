@@ -2742,16 +2742,16 @@ const MONSTERS_DATA = {
   // ===== BATCH 4: ROCK / WATER / GRASS / DARK (IDs 251-265) =====
 
   // 2-stage Rock/Metal chain: Crumblite → Stonegrip (Metal Coat item)
-  251: { id:251, name:"Crumblite", emoji:"🪨", types:["Earth","Metal"],
+  251: { id:251, name:"Crumblite", emoji:"🪨", types:["Metal","Mineral"],
     base:{hp:60,atk:75,def:85,spa:42,spd:60,spe:45},
-    learnset:[[1,"stone_throw"],[1,"chrome_claw"],[14,"stone_slide"],[24,"forge_blast_2"],[34,"crag_strike"],[44,"alloy_tail"],[54,"forge_strike"],[60,"radiance_cannon"]],
+    learnset:[[20,"lode_strike"],[1,"stone_throw"],[1,"chrome_claw"],[14,"stone_slide"],[24,"forge_blast_2"],[34,"crag_strike"],[44,"alloy_tail"],[54,"forge_strike"],[60,"radiance_cannon"]],
     evolveTo:252, evolveLevel:null, evolveItem:"metalCoat", evolveMethod:"item", catchRate:140, expYield:98, rarity:"common",
     desc:"A ore-encrusted creature that upgrades itself by absorbing metallic minerals from cave walls.",
     lore:"Crumblite is an earth-metal creature 40 cm tall whose body appears to be crumbling stone held together by thin steel rebar-like structures growing through it. Chunks occasionally fall away and are immediately replaced by new growth. It inhabits construction sites and ruined architecture, instinctively reinforcing damaged structures. A Crumblite constantly loses and regrows chunks of its crumbling stone-body, but each replaced piece sets slightly more permanently than the last. This gradual stabilisation is the slow approach toward the bolted-steel-plate compactness Stonegrip exhibits once metalCoat fully reinforces it." },
 
-  252: { id:252, name:"Stonegrip", emoji:"🛡️", types:["Earth","Metal"],
+  252: { id:252, name:"Stonegrip", emoji:"🛡️", types:["Metal","Mineral"],
     base:{hp:95,atk:110,def:135,spa:58,spd:88,spe:52},
-    learnset:[[1,"crag_strike"],[1,"forge_blast_2"],[28,"alloy_tail"],[36,"forge_strike"],[44,"tectonic_shift"],[52,"bedrock_slam"],[60,"heavy_slam"],[68,"radiance_cannon"],[70,"mud_spray"]],
+    learnset:[[40,"granite_slam"],[1,"crag_strike"],[1,"forge_blast_2"],[28,"alloy_tail"],[36,"forge_strike"],[44,"tectonic_shift"],[52,"bedrock_slam"],[60,"heavy_slam"],[68,"radiance_cannon"],[70,"mud_spray"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"rare",
     desc:"An iron-clad rock titan. Its exterior is half-rock, half-steel, forming impenetrable natural armor.",
     lore:"Stonegrip is an earth-metal creature 80 cm tall — Crumblite's crumbling stone-body has been stabilised under metalCoat's influence into a compact frame of grey granite, the thin rebar-structures of its juvenile form now visible steel plating bolted to its surface. Its broad hands can crush stone to powder. It works obsessively to compress and compact loose rock around it, creating denser stone formations wherever it dwells." },
@@ -2847,9 +2847,9 @@ const MONSTERS_DATA = {
     lore:"Impenezard is a massive fighting-toxin creature 2 metres tall resembling a walking thorn-warrior — Tendrilisk's climbing vine-tendrils have hardened into 15-cm thorns tipped with potent venom, and its body has thickened into a bristling cactus-plate carapace. Its broad form is nearly impenetrable. It moves slowly through dense jungle in measured fighting stances, and other creatures create well-worn trails specifically to avoid contact with it." },
 
   // Standalone Grass/Bug: Mosswing
-  265: { id:265, name:"Mosswing", emoji:"🦗", types:["Nature"],
+  265: { id:265, name:"Mosswing", emoji:"🦗", types:["Nature","Wind"],
     base:{hp:78,atk:82,def:70,spa:95,spd:88,spe:108},
-    learnset:[[1,"resonance_hum"],[1,"vine_lash"],[5,"cocoon_guard"],[10,"metamorphosis"],[14,"quiver_dance"],[18,"shear_strike"],[22,"sticky_web"],[28,"verdant_orb"],[32,"spore_shield"],[38,"sharp_leaves"],[42,"sporecloud_burst"],[48,"petal_blitz"],[58,"resonance_hum"],[68,"radiance_cannon"]],
+    learnset:[[34,"gale_strike"],[1,"resonance_hum"],[1,"vine_lash"],[5,"cocoon_guard"],[10,"metamorphosis"],[14,"quiver_dance"],[18,"shear_strike"],[22,"sticky_web"],[28,"verdant_orb"],[32,"spore_shield"],[38,"sharp_leaves"],[42,"sporecloud_burst"],[48,"petal_blitz"],[58,"resonance_hum"],[68,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:210, rarity:"uncommon",
     desc:"A mossy grasshopper that blends perfectly into overgrown forest floors. Its wings buzz with plant pollen.",
     lore:"Mosswing is a grass-bug creature 20 cm wingspan resembling a moth whose wings are covered in living moss rather than scales. The moss is a different species front and back, providing camouflage on both bark and leaf surfaces. Its moss-wings are never still, micro-growing and micro-dying continuously." },
@@ -2859,23 +2859,23 @@ const MONSTERS_DATA = {
   // ===== BATCH 5: DARK / FIRE / STEEL / NORMAL (IDs 266-280) =====
 
   // 3-stage Dark chain: Shadowpup → Nightclaw → Darkfang
-  266: { id:266, name:"Shadowpup", emoji:"🐺", types:["Dark"],
+  266: { id:266, name:"Shadowpup", emoji:"🐺", types:["Dark","Sonic"],
     base:{hp:48,atk:62,def:45,spa:50,spd:48,spe:72},
-    learnset:[[1,"chomp"],[1,"collide"],[10,"dusk_slash"],[20,"void_pulse"],[30,"jaw_crush"],[40,"eclipse_shroud"],[50,"soul_rend"],[60,"radiance_cannon"]],
+    learnset:[[16,"sound_rush"],[1,"chomp"],[1,"collide"],[10,"dusk_slash"],[20,"void_pulse"],[30,"jaw_crush"],[40,"eclipse_shroud"],[50,"soul_rend"],[60,"radiance_cannon"]],
     evolveTo:267, evolveLevel:26, catchRate:180, expYield:70, rarity:"common",
     desc:"A shadow wolf pup that feeds on ambient light. Eyes glow in pitch darkness where nothing should glow.",
     lore:"Shadowpup is a small dark dog 25 cm at the shoulder with jet-black fur so dark it absorbs almost all visible light. Its outline against bright backgrounds seems slightly wrong — too sharp and flat. It is playful and energetic, unaware that its unusual appearance unnerves most creatures it approaches. A Shadowpup's quiet growls and yips somehow produce a faint chest-pressure in nearby creatures despite being inaudibly soft. The same pup will visibly flinch from sudden bright light, its visual cortex evidently calibrated for total darkness already. Both quirks foretell Darkfang: the felt-not-heard intimidation the apex form fully wields, and the pitch-darkness vision its eyes will use as clearly as others use daylight." },
 
-  267: { id:267, name:"Nightclaw", emoji:"🐾", types:["Dark"],
+  267: { id:267, name:"Nightclaw", emoji:"🐾", types:["Dark","Sonic"],
     base:{hp:72,atk:95,def:65,spa:75,spd:68,spe:90},
-    learnset:[[1,"dusk_slash"],[1,"phantom_claw"],[20,"void_pulse"],[28,"eclipse_shroud"],[36,"jaw_crush"],[44,"soul_rend"],[52,"nether_sphere"],[60,"radiance_cannon"]],
+    learnset:[[40,"concussive_strike"],[1,"dusk_slash"],[1,"phantom_claw"],[20,"void_pulse"],[28,"eclipse_shroud"],[36,"jaw_crush"],[44,"soul_rend"],[52,"nether_sphere"],[60,"radiance_cannon"]],
     evolveTo:268, evolveLevel:44, catchRate:85, expYield:150, rarity:"uncommon",
     desc:"A dark wolf that phases through shadows. Its claws can strike from a different dimension.",
     lore:"Nightclaw is a medium dark dog 55 cm at the shoulder — Shadowpup's jet-black light-absorbing fur has deepened across a larger frame, and the strangely-flat outline of its pup-form has sharpened into non-reflective retractable claws. It hunts by moving through deep shadow too fast to track, using echolocation rather than vision. Its natural shadow-camouflage is so effective it can vanish against dark walls in daylight." },
 
-  268: { id:268, name:"Darkfang", emoji:"🐕", types:["Dark"],
+  268: { id:268, name:"Darkfang", emoji:"🐕", types:["Dark","Spectral"],
     base:{hp:89,atk:118,def:79,spa:87,spd:79,spe:98},
-    learnset:[[1,"eclipse_shroud"],[1,"soul_rend"],[30,"void_pulse"],[38,"nether_sphere"],[46,"dusk_slash"],[54,"phantom_claw"],[62,"dread_howl"],[70,"radiance_cannon"]],
+    learnset:[[58,"reaper_scythe"],[1,"eclipse_shroud"],[1,"soul_rend"],[30,"void_pulse"],[38,"nether_sphere"],[46,"dusk_slash"],[54,"phantom_claw"],[62,"dread_howl"],[70,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
     desc:"The apex shadow predator. Its howl resonates across dimensions and can be heard in the land of the dead.",
     lore:"Darkfang is a large dark wolf 90 cm at the shoulder — Nightclaw's deep-black coat has darkened to pitch and the non-reflective claws that hid its juvenile form have been joined by fangs that absorb light, giving them a void-like appearance. Its growl is felt more than heard, as a pressure in the chest. It inhabits forested night-terrain and sees in conditions of total darkness as clearly as others see in daylight." },
@@ -3130,9 +3130,9 @@ const MONSTERS_DATA = {
     lore:"Nettleclaw is a large toxin-sonic bee 25 cm long — Stinglet's bright yellow-and-black striped abdomen has matured across an entire body still bee-striped yellow-and-black, with four membranous wings and an elongated segmented stinger-tail that arches scorpion-like over its back. The whip-stinger is parallel-evolved from the bee's standard sting, not arachnid heritage. It is solitary and aggressive — unusual for Hymenoptera — marking territory with scent-trails that it defends vigorously against any trespasser regardless of size." },
 
   // Standalone Fire/Spectral: Emberveil
-  301: { id:301, name:"Emberveil", emoji:"🔥", types:["Fire","Dark"],
+  301: { id:301, name:"Emberveil", emoji:"🔥", types:["Fire","Spectral"],
     base:{hp:78,atk:82,def:72,spa:118,spd:95,spe:102},
-    learnset:[[1,"flicker"],[1,"nether_sphere"],[18,"inferno_jet"],[28,"phantom_claw"],[38,"pyroclasm"],[48,"eclipse_shroud"],[58,"soul_rend"],[68,"radiance_cannon"],[70,"searing_gale"]],
+    learnset:[[44,"phantom_beam"],[1,"flicker"],[1,"nether_sphere"],[18,"inferno_jet"],[28,"phantom_claw"],[38,"pyroclasm"],[48,"eclipse_shroud"],[58,"soul_rend"],[68,"radiance_cannon"],[70,"searing_gale"]],
     evolveTo:null, evolveLevel:null, catchRate:48, expYield:215, rarity:"uncommon",
     desc:"A fire specter born from the embers of burned-down haunted houses. Leaves smoldering phantom footprints.",
     lore:"Emberveil is a fire-dark creature 60 cm tall resembling a smouldering black cat whose fur is made of living shadow and ember. Dim orange flames flicker through its dark coat without burning it. It inhabits the spaces near dying fires — hearths, burn-sites, campfire remains — absorbing residual heat from ash." },
@@ -3381,9 +3381,9 @@ const MONSTERS_DATA = {
     lore:"Sculptweave is a spider 15 cm across with a pale cream body and legs banded in rose-gold. Its silk is exceptionally strong and has a faint iridescent sheen. It weaves elaborate three-dimensional web sculptures rather than flat sheets, incorporating fairy-touched strands that glow at dawn and dusk." },
 
   // ===== ICE/STEEL =====
-  55: { id:55, name:"Rimeling", emoji:"🗡️", types:["Ice","Metal"],
+  55: { id:55, name:"Rimeling", emoji:"🗡️", types:["Ice","Fighting"],
     base:{hp:46,atk:73,def:66,spa:56,spd:52,spe:76},
-    learnset:[[1,"flurries",[25,"cryo_lance"]],[1,"chrome_claw"],[11,"glacial_punch"],[19,"forge_blast_2"],[27,"frost_crash"],[30,"smelt_crush"],[35,"alloy_tail"],[43,"whiteout",[5,"permafrost"]],[3,"winter_shroud"],[33,"forge_strike"]],
+    learnset:[[15,"straight_jab"],[1,"flurries",[25,"cryo_lance"]],[1,"chrome_claw"],[11,"glacial_punch"],[19,"forge_blast_2"],[27,"frost_crash"],[30,"smelt_crush"],[35,"alloy_tail"],[43,"whiteout",[5,"permafrost"]],[3,"winter_shroud"],[33,"forge_strike"]],
     evolveTo:56, evolveLevel:36, catchRate:90, expYield:110, rarity:"uncommon",
     desc:"A blade of living ice and metal. Keeps its edge forever sharp in the coldest conditions.",
     lore:"Rimeling is a slender humanoid about 1.2 metres tall made entirely of layered ice and dark tempered steel. Its body appears jointed, like armour assembled from ice-forged plates. Blue veins of compressed frost show through gaps in the plating. It stands motionless in blizzards for days, absorbing ambient cold to reinforce its body." },
@@ -3505,9 +3505,9 @@ const MONSTERS_DATA = {
     desc:"A radiant spider archon that spins webs that trap bad dreams. Revered as a good omen.",
     lore:"Arachnalis is a large spider 30 cm across — Sculptweave's pale-cream body has lightened to silver-white and the rose-gold leg-banding has thinned to faint shimmer, while the fairy-touched silk it once spun has crystallised into vestigial gossamer wings capable of short gliding jumps. Its web structures are architectural in complexity. It inhabits flowered glades and decorates its webs with flower petals, creating structures that attract pollinating insects as prey." },
 
-  56: { id:56, name:"Deepfreeze", emoji:"⚔️", types:["Ice","Metal"],
+  56: { id:56, name:"Deepfreeze", emoji:"⚔️", types:["Ice","Fighting"],
     base:{hp:69,atk:122,def:105,spa:78,spd:83,spe:79},
-    learnset:[[1,"glacial_punch"],[2,"forge_blast_2"],[3,"frost_crash"],[4,"alloy_tail"],[5,"permafrost"],[40,"whiteout"],[41,"winter_shroud"],[44,"war_dance"],[48,"rime_shard"],[52,"metal_wing"],[56,"avalanche_drive"],[60,"radiance_cannon"],[6,"frostfire_veil"],[37,"subzero_slash"],[62,"piston_jab"]],
+    learnset:[[46,"iron_fist"],[1,"glacial_punch"],[2,"forge_blast_2"],[3,"frost_crash"],[4,"alloy_tail"],[5,"permafrost"],[40,"whiteout"],[41,"winter_shroud"],[44,"war_dance"],[48,"rime_shard"],[52,"metal_wing"],[56,"avalanche_drive"],[60,"radiance_cannon"],[6,"frostfire_veil"],[37,"subzero_slash"],[62,"piston_jab"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:260, rarity:"rare",
     desc:"A legendary blade forged from glacier ice and pure ore. Its strikes freeze what they cut.",
     lore:"Deepfreeze is a heavily armoured bipedal warrior 1.8 metres tall — Rimeling's jointed ice-and-steel plating has thickened and fused into broad-chested armour with pauldrons of glacial ice permanently bonded to the steel underneath, and the blue veins of compressed frost now glow more brightly across the chest and shoulders. Its footsteps leave frost-rimed prints. It patrols the deepest glacier regions and engages any intruder with sword-like projections of flash-frozen air." },
@@ -4152,9 +4152,9 @@ const MONSTERS_DATA = {
     desc:"A storm wolf that channels voltage through its dark fur. Its howl triggers localised lightning strikes.",
     lore:"Voltfang is an electric-dark wolf 1.4 metres at the shoulder with jet-black fur shot through with crackling yellow lightning. Its eyes glow violet." },
 
-  334: { id:334, name:"Ferrocrush", emoji:"⚙️", types:["Metal","Fire"],
+  334: { id:334, name:"Ferrocrush", emoji:"⚙️", types:["Metal","Fighting"],
     base:{hp:83,atk:104,def:100,spa:52,spd:70,spe:61}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"chrome_claw"],[5,"fortify"],[8,"flicker"],[10,"geoblast"],[15,"flame_fang"],[20,"alloy_tail"],[25,"inferno_jet"],[30,"fissure_slam"],[38,"alloy_edge"],[40,"forge_blast_2"],[45,"blazing_rush"],[50,"terra_spike"],[60,"fossil_rush"]],
+    learnset:[[48,"brawl"],[1,"chrome_claw"],[5,"fortify"],[8,"flicker"],[10,"geoblast"],[15,"flame_fang"],[20,"alloy_tail"],[25,"inferno_jet"],[30,"fissure_slam"],[38,"alloy_edge"],[40,"forge_blast_2"],[45,"blazing_rush"],[50,"terra_spike"],[60,"fossil_rush"]],
     catchRate:22, expYield:268, rarity:"rare",
     desc:"A mechanical behemoth forged in Ironforge's deepest furnaces. It was never meant to leave.",
     lore:"Ferrocrush is a 2.5-metre metal-fire golem with a body of smelted iron and a core of compressed ore. Its joints run at thousands of atmospheres of pressure." },
@@ -4194,12 +4194,12 @@ const MONSTERS_DATA = {
     desc:"A beetle that accumulates static charge on its elytra. Touching its wing-covers triggers a full discharge.",
     lore:"Voltbeetle is a squat beetle 0.9 metres long with highly polished elytra that generate static electricity from air resistance alone. A constant low hum surrounds it." },
 
-  340: { id:340, name:"Cryoshard", emoji:"💎", types:["Ice","Mental"],
+  340: { id:340, name:"Cryoshard", emoji:"💎", types:["Ice","Sonic"],
     base:{hp:63,atk:68,def:72,spa:102,spd:89,spe:66}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"flurries"],[5,"winter_shroud"],[10,"mental"],[15,"psy_blast"],[20,"cold_beam"],[25,"mindbreaker"],[30,"psi_strike"],[38,"prism_ward"],[40,"cryo_lance"],[50,"synaptic_shatter"],[60,"whiteout"]],
+    learnset:[[45,"prism_resonance"],[1,"flurries"],[5,"winter_shroud"],[10,"mental"],[15,"psy_blast"],[20,"cold_beam"],[25,"mindbreaker"],[30,"psi_strike"],[38,"prism_ward"],[40,"cryo_lance"],[50,"synaptic_shatter"],[60,"whiteout"]],
     catchRate:24, expYield:262, rarity:"rare",
-    desc:"A sentient crystal of psychically-active ice. Its facets reflect possible futures.",
-    lore:"Cryoshard is a floating ice-psychic crystal 1 metre across with an irregular faceted form that constantly shifts. Each face reflects a different perceived future of whoever looks into it." },
+    desc:"A sentient crystal of resonant ice. Its facets ring with tones that shatter stone and bone.",
+    lore:"Cryoshard is a floating faceted ice-crystal 1 metre across whose form constantly shifts. Each facet rings at its own frequency, and when the tones fall into alignment it looses a focused pulse of resonant sound — a chord of pure cold that fractures whatever stands before it." },
 
   341: { id:341, name:"Mirestone", emoji:"🪨", types:["Earth","Mental"],
     base:{hp:72,atk:70,def:93,spa:89,spd:83,spe:53}, evolveTo:null, evolveLevel:null,
@@ -4457,9 +4457,9 @@ const MONSTERS_DATA = {
     desc:"A being of concentrated solar fury blessed by ancient fairy magic. It has never been touched by shadow.",
     lore:"Solarwrath is a fire-fairy creature 2 metres tall composed of radiant solar plasma. It is warm to be near and hot to approach — within 10 metres, all shadow is eliminated." },
 
-  377: { id:377, name:"Abyssforge", emoji:"🌋", types:["Earth","Metal"],
+  377: { id:377, name:"Abyssforge", emoji:"🌋", types:["Earth","Mineral"],
     base:{hp:85,atk:103,def:105,spa:73,spd:81,spe:73}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"geoblast"],[10,"chrome_claw"],[20,"fissure_slam"],[30,"alloy_tail"],[40,"terra_spike"],[50,"forge_blast_2"],[60,"fossil_rush"],[5,"fortify"],[48,"alloy_edge"]],
+    learnset:[[45,"obsidian_strike"],[1,"geoblast"],[10,"chrome_claw"],[20,"fissure_slam"],[30,"alloy_tail"],[40,"terra_spike"],[50,"forge_blast_2"],[60,"fossil_rush"],[5,"fortify"],[48,"alloy_edge"]],
     catchRate:7, expYield:340, rarity:"rare",
     desc:"Born at the meeting of mantle and iron core, it forges new minerals inside itself as it moves.",
     lore:"Abyssforge is an earth-metal creature 3 metres tall with a body of compressed ultra-dense alloy formed under planetary core pressures. It leaves impressions in solid steel where it rests." },

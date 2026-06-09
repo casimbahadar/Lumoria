@@ -23,7 +23,7 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 | 🎲 Encounter-rate audit | ✅ done | PR #58 |
 | 🎯 Obtainability audit (474/500) | ✅ done | PR #62 |
 | 🎮 NG+/Forgotten gating + legendary encounters | ✅ done | PR #53 |
-| 🎯 Archetype × type-combo diversity **audit** | ✅ analysis shipped · ⏳ full audit pending | PR #63 **merged** (matrix doc only); full pass folded into 🕯 UNIFIED |
+| 🎯 Archetype × type-combo diversity **audit** | ✅ analysis shipped · ✅ collision pass applied · ⏳ full sweep folded into UNIFIED | PR #63 **merged** (matrix doc); collision-resolution pass: 9 archetype×combo collisions → 12 cap-verified retypes (Crumblite/Stonegrip, Abyssforge, Rimeling/Deepfreeze, Ferrocrush, Emberveil, Mosswing, Shadowpup/Nightclaw/Darkfang, Cryoshard) + STAB; Lumivane kept (false-collision relabel). Remaining full per-cell sweep folded into 🕯 UNIFIED |
 | 🕯 UNIFIED per-Lumori audit | ⏳ not started | next major phase |
 | 📉 Standalone count reduction | ⏳ not started | — |
 | 🏷️ Luminex renaming + final lore | ⏳ partial/paused | PRs #34–35; resumes after UNIFIED |

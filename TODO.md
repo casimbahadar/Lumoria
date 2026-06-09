@@ -27,7 +27,7 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 | 🕯 UNIFIED per-Lumori audit | ⏳ not started | next major phase |
 | 📉 Standalone count reduction | ⏳ not started | — |
 | 🏷️ Luminex renaming + final lore | ⏳ partial/paused | PRs #34–35; resumes after UNIFIED |
-| 🔮 Mythical archetype flags | ⏳ not started | end-of-task |
+| 🔮 Mythical archetype flags | ✅ policy locked · ⏳ re-archetype execution + NG+ classification → UNIFIED | `docs/mythical-archetype-policy.md`: golem CONFIRMED exempt; cetacean & treant capped (common cap-3, trim 2/1); wraith **split** into distinct spectral sub-archetypes; Forgotten renumbered 408–446→462–500 in taxonomy.md. Docs-only (no `mythical` data field). Creature re-archetyping + 54 NG+ classification deferred to UNIFIED. |
 | 🎯 Moveset utilization audit | ✅ done | PR #68 — Phase 1 orphan-clearing + key rename + Phase 2 STAB-completeness |
 | 🌑 Forgotten Lumori dedicated audit | ⏳ not started | before stat-spread review |
 | 📊 Final stat-spread review | ⏳ not started | RUN LAST |

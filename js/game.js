@@ -1803,6 +1803,12 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     return;
   }
 
+  // Phase 3b: onMoveUse (Strategist, Move Steal, move-counter traits)
+  if (typeof applyOnMoveUse === "function") {
+    const useMsgs = applyOnMoveUse(attacker, defender, move);
+    for (const m of useMsgs) logMsg(m, "log-status");
+  }
+
   if (move.power === 0) {
     // Status move
     const effMsgs = applyMoveEffect(move, attacker, defender);
@@ -1822,7 +1828,18 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
   // Accuracy check — Phase 3: respects forceHit (Echolocation) + accuracyMod (Smothered/Faded/Mirage)
   if (!rollPercent(getEffectiveAccuracy(attacker, defender, move))) {
     logMsg(`${attacker.name}'s attack missed!`);
+    // Phase 3b: onMoveMiss (Stumble, frustration-style traits)
+    if (typeof applyOnMoveMiss === "function") {
+      const missMsgs = applyOnMoveMiss(attacker, defender, move);
+      for (const m of missMsgs) logMsg(m, "log-status");
+    }
     return;
+  }
+
+  // Phase 3b: onMoveHit (Charge-up wind-down, Combo Builder, hit-streak traits)
+  if (typeof applyOnMoveHit === "function") {
+    const hitTrigMsgs = applyOnMoveHit(attacker, defender, move);
+    for (const m of hitTrigMsgs) logMsg(m, "log-status");
   }
 
   // Multi-hit loop (move.hits defaults to 1)

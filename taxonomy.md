@@ -14,7 +14,7 @@ Single umbrella archetype with per-disaster subtypes. Each subtype cap = 1 famil
 Real-world animal body plans. E.g. wolf, lion, eagle, snake, fish, etc. Mythical exemptions apply for some (dragon, kitsune, tanuki, leshy, etc.).
 
 **Mythical/folkloric archetypes:**
-Universally recognized mythological beings. Some are mythical-exempt (no cap): dragon-mythic, kitsune, tanuki, leshy, snowman, sea-fairy queen, mermaid, kraken, wraith, void/cosmic, treant, golem, faerie sprite, will-o-wisp, slime/blob, crystalline-prism, kirin, insect-swarm.
+Universally recognized mythological beings. Mythical-exempt (no cap): dragon-mythic, kitsune, tanuki, leshy, snowman, sea-fairy queen, mermaid, kraken, void/cosmic, golem, faerie sprite, will-o-wisp, slime/blob, crystalline-prism, kirin, insect-swarm, phoenix/solar-being, primordial-titan, warden/boundary-sentinel. **Capped (NOT exempt):** treant → cap-3; cetacean → cap-3; wraith → split into distinct spectral sub-archetypes. See `docs/mythical-archetype-policy.md` for the LOCKED policy.
 
 **Classification priority:**
 1. If body plan is a real animal → animal archetype
@@ -285,50 +285,50 @@ These are all post-game legendary-tier, mostly with cryptic short lore. Classifi
 
 > **Forgotten audit (2026-06-08):** the 39 Forgotten (data.js ids 462–500; old taxonomy ids 408–446, offset −54) were fully re-typed and re-archetyped per the per-wielder theme pass — the `| types | archetype |` fields below are **current**, but the trailing parenthetical notes are **stale historical breadcrumbs** from the original best-guess pass. Note the 486↔488 (Psydrak↔Dreamaith) identity swap. Canonical archetypes + appearance briefs live in `docs/forgotten-art-prompts.md`.
 
-- `[408] Forgotten Auravian | Aether/Primal | aether-divine messenger` (winged divine messenger — pristine aether-elemental candidate)
-- `[409] Forgotten Lumarix | Crystal/Stellar | constellation-being` (light-refracting body — variant crystalline-prism + fairy hybrid)
-- `[410] Forgotten Celestrix | Aether/Crystal | seraph` (pristine post-game angelic archetype)
-- `[411] Forgotten Nyxviper | Dark/Chrono | temporal-assassin` (collective-nightmare manifestation; bat emoji)
-- `[412] Forgotten Morrath | Dark/Primal | darkfire elemental` (paradoxical fire-that-darkens-rooms — unique sub)
-- `[413] Forgotten Duskmourn | Crystal/Chrono | stopped-clock being` (spider emoji; post-game spider)
-- `[414] Forgotten Electrak | Electric/Crystal | tesla-coil being` (likely dragon based on scales)
-- `[415] Forgotten Arcvolt | Electric/Chrono | fulgurite / petrified-lightning being` (scales form geological strata over time)
-- `[416] Forgotten Fulgureis | Electric/Primal | typhon` (tornado emoji + Bug/Water — borderline)
-- `[417] Forgotten Rootborn | Poison/Primal | mandragora` (fifth treant)
-- `[418] Forgotten Tellurak | Crystal/Primal | geode-being` (mountain-golem)
-- `[419] Forgotten Gaiasurge | Primal/Fighting | atlas` (volcano emoji; Fighting type — post-game allowed)
-- `[420] Forgotten Pelagor | Aquatic/Chrono | oracle-seer` (sixth cetacean — post-game)
+- `[462] Forgotten Auravian | Aether/Primal | aether-divine messenger` (winged divine messenger — pristine aether-elemental candidate)
+- `[463] Forgotten Lumarix | Crystal/Stellar | constellation-being` (light-refracting body — variant crystalline-prism + fairy hybrid)
+- `[464] Forgotten Celestrix | Aether/Crystal | seraph` (pristine post-game angelic archetype)
+- `[465] Forgotten Nyxviper | Dark/Chrono | temporal-assassin` (collective-nightmare manifestation; bat emoji)
+- `[466] Forgotten Morrath | Dark/Primal | darkfire elemental` (paradoxical fire-that-darkens-rooms — unique sub)
+- `[467] Forgotten Duskmourn | Crystal/Chrono | stopped-clock being` (spider emoji; post-game spider)
+- `[468] Forgotten Electrak | Electric/Crystal | tesla-coil being` (likely dragon based on scales)
+- `[469] Forgotten Arcvolt | Electric/Chrono | fulgurite / petrified-lightning being` (scales form geological strata over time)
+- `[470] Forgotten Fulgureis | Electric/Primal | typhon` (tornado emoji + Bug/Water — borderline)
+- `[471] Forgotten Rootborn | Poison/Primal | mandragora` (fifth treant)
+- `[472] Forgotten Tellurak | Crystal/Primal | geode-being` (mountain-golem)
+- `[473] Forgotten Gaiasurge | Primal/Fighting | atlas` (volcano emoji; Fighting type — post-game allowed)
+- `[474] Forgotten Pelagor | Aquatic/Chrono | oracle-seer` (sixth cetacean — post-game)
 
 ### Batch 7 (families 244-269) — Forgotten / post-game continued
 
 Same caveat: Forgotten lores are narrative-focused; classifications are best-guess from type/emoji/name and need user-led body-plan reframing later if precision matters.
 
-- `[421] Forgotten Bathykor | Aquatic/Stellar | anglerfish` (toxin causes paralysis; sharkemoji)
-- `[422] Forgotten Tidecrest | Aquatic/Primal | leviathan` (post-game; "ocean flowed around it" — flagship sub)
-- `[423] Forgotten Aetherveil | Aether | wind-chime being` (post-game; butterfly-like wings of air-and-light)
-- `[424] Forgotten Zephyrak | Wind/Crystal | harpy` (eagle with steel-feathers — fifth raptor, post-game)
-- `[425] Forgotten Skydrak | Wind/Stellar | roc` (sub: ghost-dragon — post-game; -drak suffix)
-- `[426] Forgotten Pyraeon | Fire/Crystal | nemean-lion` (Dravek's lion — post-game lion)
-- `[427] Forgotten Emberon | Fire/Chrono | sabertooth / smilodon` (post-game tiger — pristine sub for tiger)
-- `[428] Forgotten Dracofire | Draconic/Primal | primal-dragon` (sub: poison-dragon, palm-sized hatchling — second poison-dragon alongside Wyrmvenom)
-- `[429] Forgotten Frigalum | Ice/Crystal | arctic-fox` (post-game fox — second kitsune alongside Specraxis; Forgotten = mythical-exempt)
-- `[430] Forgotten Cryvorn | Ice/Chrono | fenrir` (post-game wolf — fifth wolf)
-- `[431] Forgotten Frostdrax | Ice/Primal | ymir / frost-giant` (sub: ghost-fairy-dragon — post-game; -drax suffix)
-- `[432] Forgotten Dreamaith | Dream/Aether | sandman` (post-game owl — second owl alongside Arcturex)
-- `[433] Forgotten Luneveth | Stellar/Dream | moonlight-fairy` (post-game moonlight water-fairy)
-- `[434] Forgotten Psydrak | Dream/Chrono | dream-dragon` (sub: psychic-dragon — sixth psychic-dragon)
-- `[435] Forgotten Ironvast | Metal/Crystal | ankylosaurus` (post-game robotic-golem)
-- `[436] Forgotten Forgerak | Metal/Aether | smith / forge-spirit` (Rax's smith — unique forge-being archetype)
-- `[437] Forgotten Alloydrax | Metal/Chrono | talos` (sub: steel-alloy dragon — third steel-dragon)
-- `[438] Forgotten Volteon | Chrono | clockwork-being` (predictive-model running mechanical entity)
-- `[439] Forgotten Sparkeis | Aether/Chrono | hourglass-being` (electric crystal — fifth crystalline-prism)
-- `[440] Forgotten Thunderax | Chrono/Primal | chronos / father-time` (lightning emoji + wind/grass — post-game)
-- `[441] Forgotten Nihilax | Stellar/Spectral | silence-being` (eighth void/cosmic; void emoji)
-- `[442] Forgotten Vantarix | Chrono/Stellar | silhouette-being` (cosmic emoji + bug; unique sub)
-- `[443] Forgotten Abysdrak | Primal/Stellar | apophis` (sub: wind-dragon — fourth wind-dragon)
-- `[444] Forgotten Cosmolith | Aether/Stellar | celestial-globe / star-chart being` (ninth void/cosmic; cosmic emoji + scale-patterns)
-- `[445] Forgotten Stardrax | Stellar/Sonic | supernova-being` (sub: star-dragon — seventh fire-dragon)
-- `[446] Forgotten Stellarion | Stellar | star-spirit` (telescope emoji + named "wonder"; unique observatory archetype, last in the dex)
+- `[475] Forgotten Bathykor | Aquatic/Stellar | anglerfish` (toxin causes paralysis; sharkemoji)
+- `[476] Forgotten Tidecrest | Aquatic/Primal | leviathan` (post-game; "ocean flowed around it" — flagship sub)
+- `[477] Forgotten Aetherveil | Aether | wind-chime being` (post-game; butterfly-like wings of air-and-light)
+- `[478] Forgotten Zephyrak | Wind/Crystal | harpy` (eagle with steel-feathers — fifth raptor, post-game)
+- `[479] Forgotten Skydrak | Wind/Stellar | roc` (sub: ghost-dragon — post-game; -drak suffix)
+- `[480] Forgotten Pyraeon | Fire/Crystal | nemean-lion` (Dravek's lion — post-game lion)
+- `[481] Forgotten Emberon | Fire/Chrono | sabertooth / smilodon` (post-game tiger — pristine sub for tiger)
+- `[482] Forgotten Dracofire | Draconic/Primal | primal-dragon` (sub: poison-dragon, palm-sized hatchling — second poison-dragon alongside Wyrmvenom)
+- `[483] Forgotten Frigalum | Ice/Crystal | arctic-fox` (post-game fox — second kitsune alongside Specraxis; Forgotten = mythical-exempt)
+- `[484] Forgotten Cryvorn | Ice/Chrono | fenrir` (post-game wolf — fifth wolf)
+- `[485] Forgotten Frostdrax | Ice/Primal | ymir / frost-giant` (sub: ghost-fairy-dragon — post-game; -drax suffix)
+- `[488] Forgotten Dreamaith | Dream/Aether | sandman` (post-game owl — second owl alongside Arcturex)
+- `[487] Forgotten Luneveth | Stellar/Dream | moonlight-fairy` (post-game moonlight water-fairy)
+- `[486] Forgotten Psydrak | Dream/Chrono | dream-dragon` (sub: psychic-dragon — sixth psychic-dragon)
+- `[489] Forgotten Ironvast | Metal/Crystal | ankylosaurus` (post-game robotic-golem)
+- `[490] Forgotten Forgerak | Metal/Aether | smith / forge-spirit` (Rax's smith — unique forge-being archetype)
+- `[491] Forgotten Alloydrax | Metal/Chrono | talos` (sub: steel-alloy dragon — third steel-dragon)
+- `[492] Forgotten Volteon | Chrono | clockwork-being` (predictive-model running mechanical entity)
+- `[493] Forgotten Sparkeis | Aether/Chrono | hourglass-being` (electric crystal — fifth crystalline-prism)
+- `[494] Forgotten Thunderax | Chrono/Primal | chronos / father-time` (lightning emoji + wind/grass — post-game)
+- `[495] Forgotten Nihilax | Stellar/Spectral | silence-being` (eighth void/cosmic; void emoji)
+- `[496] Forgotten Vantarix | Chrono/Stellar | silhouette-being` (cosmic emoji + bug; unique sub)
+- `[497] Forgotten Abysdrak | Primal/Stellar | apophis` (sub: wind-dragon — fourth wind-dragon)
+- `[498] Forgotten Cosmolith | Aether/Stellar | celestial-globe / star-chart being` (ninth void/cosmic; cosmic emoji + scale-patterns)
+- `[499] Forgotten Stardrax | Stellar/Sonic | supernova-being` (sub: star-dragon — seventh fire-dragon)
+- `[500] Forgotten Stellarion | Stellar | star-spirit` (telescope emoji + named "wonder"; unique observatory archetype, last in the dex)
 
 ### Audit complete — 269 families classified.
 
@@ -338,24 +338,26 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 
 (Compiled from all 269 family classifications above. Caps: animals = 3 families, elementals = 1 family + 1 standalone per element, disaster subtypes = 1 family + 1 standalone per disaster, mythical-exempt = no cap.)
 
+> **Forgotten = ids 462–500** (excluded from these caps; "-postgame" members below are Forgotten and do NOT count). The legacy 408+ Forgotten numbering is retired. The **54 NG+ families (408–461)** are regular dex members that DO count but are **not yet classified** — full classification deferred to UNIFIED. Mythical-exempt policy + borderline resolutions are **locked** in `docs/mythical-archetype-policy.md`.
+
 ### Over-cap (needs trim)
 
 | Archetype | Count | Cap | Trim | Notes |
 |---|---|---|---|---|
 | **dragon-mythic** | ~30 | exempt | — | Mythical-exempt; sub-flavor diversity is high. No trim. |
-| **wraith / spectre** | 11 | exempt | — | Mythical-exempt. Sub-types vary (humanoid wraith, leviathan, mountain-spirit, etc.). |
-| **golem** | 11+ | exempt or 3 | trim ~5-8 | If treated as mythical-exempt: keep all. If common archetype: trim hard. **Decision needed.** |
+| **wraith / spectre** | 11+ | **split** | re-arch | **LOCKED:** split the over-broad bucket. Core wraith ≤3 (Shadowveil, Wraithking, Shadowreave); split the rest into spectral-leviathan (Abyssalord), mountain-spirit (Stonekeeper), storm-wraith (Wraithstorm), plague-spectre (Venomwraith), moonlight-spectre (Lunaspectre), haunted-doll (Pallidoll), bell-spirit (Tollwisp/Knellgeist), faerie-sprite (Glimmeritch). All stay Spectral-typed. See policy doc. |
+| **golem** | 11 | **exempt** | — | **LOCKED mythical-exempt** — universal mythological construct (same footing as dragon). No trim. |
 | **wolf** | 5 (post pivots) | 3 | trim 2 | Hexaprowl, Eclipsehound, Shadowpup, Voltfang, Cryvorn. (Mirkling/Morraveth lines already pivoted.) |
 | **fire-dragon** (sub) | 7 | n/a (under dragon-mythic) | discuss | If sub-caps applied: way over. |
 | **psychic-dragon** (sub) | 6 | n/a | discuss | Same. |
 | **lion** | 3 (post Dravanas pivot) | 3 | at cap | Siroccomane, Ignitheon, Pyraeon-postgame. Dravanas planned for canid pivot. |
-| **cetacean** | 6 | 3 | trim 3 | Marevanos, Titanomare, Torrentox, Riftwhale, Tidephant, Pelagor-postgame. |
+| **cetacean** | 5 | 3 | trim 2 | **LOCKED common cap-3.** Keep Torrentox (orca), Riftwhale (psychic-whale), Titanomare (steel-whale titan); re-archetype Marevanos #40→manta-ray, Tidephant #309→pinniped. (Pelagor is Forgotten 462+, excluded.) |
 | **moth/butterfly (Lepidoptera)** | 6 | 3 | trim 3 | Inferarch, Aeridaleth, Venowarn, Mosswing, Thornmoth, Plagueoth. |
 | **beetle** | 5 | 3 | trim 2 | Iridibeetle, Quarrix, Sparkeen, Skullmite, Voltbeetle. |
 | **rock-monolith / standing stone** | 6 | 3 | trim 3 | Frigolith, Megalith, Crystallon, Mirestone, Bouldertide, Chronolith. |
 | **crystalline-prism** | 5 | 3 | trim 2 | Aurarael, Shardlix, Cryoshard, Crystalmind, Sparkeis-postgame. |
 | **bird-of-prey / raptor** | 5 | 3 | trim 2 | Vortexathos, Cyclavorn, Rimeclaw, Zephyrak-postgame, plus eagle-flavor on others. |
-| **treant / walking-tree** | 5 | exempt | — | Necralia, Impenezard, Thornspire, Silthorn, Rootborn-postgame. Treant is mythical-exempt. |
+| **treant / walking-tree** | 4 | 3 | trim 1 | **LOCKED capped (not exempt).** Keep Necrothon, Impenezard, Thornspire; re-archetype Silthorn #326→carnivorous-plant. (Rootborn is Forgotten 462+, excluded.) |
 | **void / cosmic abstract** | 9 | exempt | — | Voidaxis, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Cosmoveil, Nihilax, Cosmolith. Mythical-exempt. |
 | **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Mimiclaw, Emberveil, Cinderpaw. |
 | **thunderstorm-disaster** | 3 | 1+1 | trim 1-2 | Vortexwing, Tempestborn, Nullstorm. (See storm-elemental TODO entry.) |

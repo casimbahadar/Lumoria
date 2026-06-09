@@ -1973,6 +1973,16 @@ function syncPlayerMonHP() {
 
 async function handleEnemyFainted() {
   logMsg(`${enemyActiveMon.name} fainted!`);
+  // Phase 3b: onFaint on the dying mon, onKO on the killer (player)
+  if (typeof applyOnFaint === "function") {
+    const faintMsgs = applyOnFaint(enemyActiveMon, playerActiveMon);
+    for (const msg of faintMsgs) logMsg(msg, "log-status");
+  }
+  if (typeof applyOnKO === "function" && playerActiveMon && playerActiveMon.currentHP > 0) {
+    const koMsgs = applyOnKO(playerActiveMon, enemyActiveMon);
+    for (const msg of koMsgs) logMsg(msg, "log-status");
+  }
+  updateBattleUI();
   await delay(700);
 
   if (battleContext.isWild) {
@@ -2016,6 +2026,15 @@ async function handleEnemyFainted() {
 
 async function handlePlayerFainted() {
   logMsg(`${playerActiveMon.name} fainted!`);
+  // Phase 3b: onFaint on the dying mon, onKO on the killer (enemy)
+  if (typeof applyOnFaint === "function") {
+    const faintMsgs = applyOnFaint(playerActiveMon, enemyActiveMon);
+    for (const msg of faintMsgs) logMsg(msg, "log-status");
+  }
+  if (typeof applyOnKO === "function" && enemyActiveMon && enemyActiveMon.currentHP > 0) {
+    const koMsgs = applyOnKO(enemyActiveMon, playerActiveMon);
+    for (const msg of koMsgs) logMsg(msg, "log-status");
+  }
   syncPlayerMonHP();
   await delay(700);
 

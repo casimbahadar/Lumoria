@@ -284,6 +284,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 The 22 NG+-exclusive families added in the dex-to-500 expansion (#57). Regular dex members — they **DO** count toward caps (per the fixed `oversaturated_combos.py` threshold = 462). Each carries a designer intent comment in `js/data.js` (`// --- Fn: ... ---`). Classified one family per approval during the UNIFIED walk.
 
 - `[410] Glimmerling→Facetite→Prismarch | Crystal / Crystal-Fairy | tortoise (gem-shelled)` (LEGENDARY line, F1. 2nd tortoise alongside Imperion #152 — within animal cap-3. Crystal is legacy pre-462: **KEPT** under the legendary+intrinsic-prism-lore exception — all 3 stages legendary; prism/rainbow coding throughout the line; Mineral would lose the light-refraction identity. emoji/desc/lore clean, no name leaks.)
+- `[413] Thrumquill→Echostride→Resonadon | Sonic / Draconic-Sonic | ratite (cassowary)` (F2; flightless booming bird — buzz-quill chick → scaled draconic runner → casqued infrasound giant. PRISTINE ratite slot, distinct from albatross/owl/raptor. Both types pre-462-allowed; good Sonic distribution. emoji/desc/lore clean, no leaks.)
 
 #### Forgotten / post-game (id ≥ 462)
 

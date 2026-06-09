@@ -297,6 +297,9 @@ The 22 NG+-exclusive families added in the dex-to-500 expansion (#57). Regular d
 - `[441] Rustmite→Corrodon | Toxin / Electric-Toxin | centipede (myriapod)` (F12, 2-stage; metal-rusting grub → acid+charge armored centipede. PRISTINE centipede. Good Toxin+Electric distribution. 🐛 stand-in kept. clean.)
 - `[443] Bloatleech→Miasmire | Vapor / Poison-Vapor | leech (annelid)` (F13, 2-stage; fog-venting bog leech → mist-dragging bog-horror. PRISTINE leech, distinct body plan from F3 sandworm (per-species, NOT an annelid umbrella). Good Vapor+Poison distribution. 🩸 thematic, kept. clean.)
 - `[445] Squeaklet→Sentrike | Sonic / Normal-Sonic | meerkat (mongoose family)` (F14, 2-stage; sentinel-colony line. PRISTINE meerkat — NOT a rodent, so no rodent-cap interaction (resolves the earlier F5 "squirrel" worry). Good Sonic distribution. 🐿️ stand-in kept (no meerkat emoji). clean.)
+- `[447] Sporelet→Fumycet | Vapor / Nature-Vapor | mushroom (fungus)` (F15, 2-stage; drowsy-spore sprout → walking spore-fog myconid. 2nd mushroom alongside Mycovast #65 — within cap-3. Good Vapor distribution. 🍄 exact. clean.)
+- `[449] Cobblepup→Oredigger | Mineral / Dark-Mineral | mole (Talpidae)` (F16, 2-stage; blind burrowing mole → ambush tunneler. PRISTINE mole, per-species (distinct from mole-rat #325 / badger). Good Mineral distribution. 🦡 stand-in kept (no mole emoji). clean.)
+- `[451] Jabshell→Smashclaw | Fighting / Fighting-Fire | mantis shrimp (stomatopod)` (F17, 2-stage; cavitation-strike reef brawler. PRISTINE stomatopod, per-species — does NOT add to the crab/crustacean over-cap bucket (mantis shrimp ≠ crab). Good Fighting distribution; Fire = the steam-flash cavitation. clean.)
 
 #### Forgotten / post-game (id ≥ 462)
 

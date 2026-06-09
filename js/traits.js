@@ -3435,10 +3435,16 @@ const ABILITY_REGISTRY = {
 // Filled in Phase 5. Each entry: { pool: [traitId1, traitId2?], ngPlusPool?: [...] }
 // pool size 1 or 2; ngPlusPool only consulted in NG+ playthroughs.
 const TRAIT_ASSIGNMENTS = {
-  // Example shape (commented out until Phase 5):
-  // 1: { pool: ["frosted"] },                                   // mono trait Lumori
-  // 100: { pool: ["resonant", "ironclad"] },                    // dual trait Lumori
-  // 250: { pool: ["mossy"], ngPlusPool: ["empowered"] },        // NG+ alt
+  // Phase 5 partial — canonical 8 (3 starters + 5 early-game catches).
+  // Full Phase 5 fills in all 446 entries. Until then, only these IDs have traits.
+  1:   { pool: ["empowered"] },    // Solkin — Fire STAB 2.0×
+  4:   { pool: ["mirage"] },       // Aquatter — 25% incoming miss
+  7:   { pool: ["mossy"] },        // Verdkin — Nature heals it
+  69:  { pool: ["thorned"] },      // Germix — phys recoil
+  178: { pool: ["lucky"] },        // Fluffen — crit-immune
+  180: { pool: ["mossy"] },        // Leapbun — Nature heals it
+  185: { pool: ["levitating"] },   // Hoverrow — Earth-immune, Wind-weak
+  197: { pool: ["thorned"] },      // Photoworm — phys recoil
 };
 
 
@@ -3448,7 +3454,11 @@ const TRAIT_ASSIGNMENTS = {
 // otherwise falls back to TRAIT_ASSIGNMENTS[monsterId].pool (Phase 5 hookup).
 function getMonTraits(mon) {
   if (Array.isArray(mon?.traits)) return mon.traits;
-  return []; // Phase 5 fills this in
+  // Phase 5 partial: fall back to the static assignment pool. Full Phase 5 will
+  // roll per-individual at catch/spawn time and store on the party slot as
+  // mon.traits, but until then the pool acts as "always-active for this species".
+  const assignment = mon?.monsterId ? TRAIT_ASSIGNMENTS[mon.monsterId] : null;
+  return assignment?.pool || [];
 }
 
 // Return the registry entry for a trait id, or null if unknown.

@@ -999,6 +999,7 @@ After every coherence fix, type adjustment, rename, AND the Forgotten Lumori ded
   - Cross-family parity (similar-tier mons should have similar BSTs)
   - Stat distribution coherence (e.g. high-Atk physical attackers have at least decent Spe; tanks have HP/Def synergy; SpA-leaning casters have SpD bulk)
 - [ ] Flag any mon whose stats fight its body plan (e.g. a fast bird with Speed 30, a heavy tank with Def 40)
+- [ ] **Per-typing stat-profile variance check** (added 2026-06-09): for **every type and every type-combo group**, verify the member species/families do NOT collapse into a single homogeneous stat profile — there should be deliberate variance in stat *shape*/role across the roster of a given typing (e.g. not every Sonic-type a fast special-attacker; not every Vapor/X a bulky special wall; not every Fighting/X a slow physical bruiser). Flag any typing or combo whose members cluster too tightly on one stat-shape, and diversify the outliers (respecting body-plan coherence and evo-stage BST tiers). Grouping source: the per-typing rosters from the UNIFIED classification + `scripts/oversaturated_combos.py` combo tally.
 - [ ] Adjust to bring outliers in line, preserving overall power balance
 - [ ] Re-verify trainer encounters / wild-area difficulty curves still feel correct after stat adjustments
 

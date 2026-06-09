@@ -300,6 +300,9 @@ The 22 NG+-exclusive families added in the dex-to-500 expansion (#57). Regular d
 - `[447] Sporelet→Fumycet | Vapor / Nature-Vapor | mushroom (fungus)` (F15, 2-stage; drowsy-spore sprout → walking spore-fog myconid. 2nd mushroom alongside Mycovast #65 — within cap-3. Good Vapor distribution. 🍄 exact. clean.)
 - `[449] Cobblepup→Oredigger | Mineral / Dark-Mineral | mole (Talpidae)` (F16, 2-stage; blind burrowing mole → ambush tunneler. PRISTINE mole, per-species (distinct from mole-rat #325 / badger). Good Mineral distribution. 🦡 stand-in kept (no mole emoji). clean.)
 - `[451] Jabshell→Smashclaw | Fighting / Fighting-Fire | mantis shrimp (stomatopod)` (F17, 2-stage; cavitation-strike reef brawler. PRISTINE stomatopod, per-species — does NOT add to the crab/crustacean over-cap bucket (mantis shrimp ≠ crab). Good Fighting distribution; Fire = the steam-flash cavitation. clean.)
+- `[453] Dozit→Lullavoir | Dream / Dream-Fairy | sloth` (F18, 2-stage; daydreaming sloth → dream-spinning sloth-fae. PRISTINE sloth (animal-first). Good Dream distribution. 🦥 exact. clean.)
+- `[455] Tollwisp→Knellgeist | Spectral / Metal-Spectral | bell-spirit` (F19, 2-stage; haunted handbell → dread tower-bell. The bell-spirit spectral sub-archetype already named in the LOCKED wraith-split policy. 🔔 exact. clean.)
+- `[457] Mistgill→Vaporlotl | Vapor / Aquatic-Vapor | axolotl (amphibian)` (F20, 2-stage; misty-gilled regenerating spring-amphibian. PRISTINE axolotl, per-species (distinct from frog/toad #156/#159). Good Vapor distribution. 🦎 stand-in kept (no axolotl emoji). clean.)
 
 #### Forgotten / post-game (id ≥ 462)
 

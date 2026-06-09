@@ -294,6 +294,9 @@ The 22 NG+-exclusive families added in the dex-to-500 expansion (#57). Regular d
 - `[434] Tusklet→Verdantusk→Primammoth | Primal / Nature-Primal | mammoth (proboscidean)` (LEGENDARY line, F9. PRISTINE mammoth, animal-first (NOT primordial-titan despite "living mountain" language). Primal is reserved post-game: **KEPT** under legendary+intrinsic-primeval-lore exception — all 3 legendary; "elder world / first forest / before names" coding throughout; no pre-462 type captures primeval (Nature covers the moss half). clean.)
 - `[437] Knucklite→Cragfist→Goliathon | Mineral / Fighting-Mineral | gorilla (ape)` (F10; stone-fist gorilla line. PRISTINE primate (first ape in dex). Good Mineral+Fighting distribution. 🦍 exact. clean.)
 - `[439] Chimelet→Seraphene | Sonic / Fairy-Sonic | cicada (bard-fae)` (F11, 2-stage; glass-winged cicada-fae. PRISTINE cicada, animal-first read (faerie-sprite is the flavor alternative — cap-neutral either way). Good Sonic distribution. 🎐 apt (wings ring like windchime). clean.)
+- `[441] Rustmite→Corrodon | Toxin / Electric-Toxin | centipede (myriapod)` (F12, 2-stage; metal-rusting grub → acid+charge armored centipede. PRISTINE centipede. Good Toxin+Electric distribution. 🐛 stand-in kept. clean.)
+- `[443] Bloatleech→Miasmire | Vapor / Poison-Vapor | leech (annelid)` (F13, 2-stage; fog-venting bog leech → mist-dragging bog-horror. PRISTINE leech, distinct body plan from F3 sandworm (per-species, NOT an annelid umbrella). Good Vapor+Poison distribution. 🩸 thematic, kept. clean.)
+- `[445] Squeaklet→Sentrike | Sonic / Normal-Sonic | meerkat (mongoose family)` (F14, 2-stage; sentinel-colony line. PRISTINE meerkat — NOT a rodent, so no rodent-cap interaction (resolves the earlier F5 "squirrel" worry). Good Sonic distribution. 🐿️ stand-in kept (no meerkat emoji). clean.)
 
 #### Forgotten / post-game (id ≥ 462)
 

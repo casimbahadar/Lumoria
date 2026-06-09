@@ -3190,12 +3190,12 @@ const MONSTERS_DATA = {
     desc:"A ghost that drowned and merged with ocean tides. Haunts coastal routes, pulling travelers into the surf.",
     lore:"Seafraith is a water-spectral creature 60 cm long resembling a deep-sea fish with a translucent dark body through which dim bioluminescent organs are visible. Its eyes are white and sightless — it navigates by sensing water displacement. It inhabits sunken ruins at depths where light never reaches." },
 
-  309: { id:309, name:"Tidephant", emoji:"🐋", types:["Aquatic","Spectral"],
+  309: { id:309, name:"Tidephant", emoji:"🦭", types:["Aquatic","Spectral"],
     base:{hp:94,atk:82,def:86,spa:113,spd:102,spe:73},
     learnset:[[1,"tsunami"],[1,"eclipse_shroud"],[8,"wraith_claw"],[10,"aquatic_gun"],[14,"spectral_ray"],[20,"bubble_jet"],[22,"ghastly_wail"],[28,"soul_rend"],[36,"phantom_claw"],[44,"geyser_burst"],[48,"spectral_veil"],[52,"nether_sphere"],[60,"void_pulse"],[68,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:232, rarity:"rare",
-    desc:"A spectral sea leviathan that capsizes ships. Half water, half ghost—completely terrifying.",
-    lore:"Tidephant is a large water-spectral creature 2 metres long resembling a cetacean with dark blue-black hide and a broad flat head. As it matured from Seafraith, its fins broadened into flippers and its skeleton calcified into a whale-like frame — a fish-to-leviathan apotheosis. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },
+    desc:"A spectral elephant-seal that hauls out on ghost-lit shores. Half pinniped, half phantom—completely terrifying.",
+    lore:"Tidephant is a large water-spectral creature 2 metres long resembling a great elephant-seal with dark blue-black hide and a broad blunt-snouted head. As it matured from Seafraith, its fins broadened into flippers and its skeleton calcified into a bull-pinniped frame — a fish-to-leviathan apotheosis. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },
 
   // 2-stage Aquatic/Nature chain: Mudpump → Marshix (level 28)
   310: { id:310, name:"Mudpump", emoji:"🦛", types:["Aquatic","Nature"],
@@ -3757,12 +3757,12 @@ const MONSTERS_DATA = {
     desc:"A titanic crystal colossus forged from eons of glacial pressure. Its body refracts light into blinding aurora beams.",
     lore:"Frigolith is an ice-mineral creature 1 metre long resembling a boulder partially submerged in permafrost — Prismolith's purple amethyst crystals have darkened and refrozen into crystalline ice formations that have grown through cracks in its rock body over centuries, and its mobile legs have rooted into the tundra it must now remain in to survive. In winter it becomes nearly invisible against frozen tundra. Warming weather causes it distress as its ice components begin to melt." },
 
-  40: { id:40, name:"Marevanos", emoji:"🐋", types:["Aquatic","Wind"],
+  40: { id:40, name:"Marevanos", emoji:"🐠", types:["Aquatic","Wind"],
     base:{hp:84,atk:87,def:80,spa:108,spd:90,spe:101},
     learnset:[[1,"tidal_rush"],[1,"downdraft"],[2,"tidal_sweep"],[3,"wind_scythe"],[4,"tidecaller"],[43,"tsunami"],[47,"typhoon"],[51,"tidal_crush"],[55,"tempest_wrath"],[59,"sea_serpent_strike"],[63,"ocean_tempest"],[67,"whirlpool_dive"],[5,"deepwater_hymn"],[48,"second_wind"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A sovereign of sky and sea. It breaches into storm clouds and dives into ocean trenches with equal majesty.",
-    lore:"Marevanos is a winged cetacean 6 metres long whose flat broad head and pectoral wing-fins retain the manta silhouette of Gossafin's juvenile form; its streamlined blue-grey body trails into a powerful tail, and its wing-fins catch both wind and water. It breaches spectacularly, launching fully airborne and gliding long distances. Sailors consider spotting it a good-weather omen." },
+    lore:"Marevanos is a winged manta-ray 6 metres across whose flat broad head and great pectoral wing-fins carry forward the manta silhouette of Gossafin's juvenile form; its streamlined blue-grey body trails into a powerful tail, and its wing-fins catch both wind and water. It breaches spectacularly, launching fully airborne and gliding long distances. Sailors consider spotting it a good-weather omen." },
 
   131: { id:131, name:"Necrothon", emoji:"🌑", types:["Dark","Nature"],
     base:{hp:94,atk:89,def:99,spa:104,spd:90,spe:74},

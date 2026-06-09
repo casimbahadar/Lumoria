@@ -2001,6 +2001,13 @@ async function handleEnemyFainted() {
       const leaderName = GYM_LEADERS[battleContext.leaderId].name;
       logMsg(`${leaderName} sent out ${getDisplayName(enemyActiveMon)}!`);
       updateBattleUI();
+      // Phase 3b: onSwitchIn + onEntry on the incoming enemy mon
+      if (typeof applyOnSwitchIn === "function") {
+        const inMsgs = applyOnSwitchIn(enemyActiveMon, playerActiveMon);
+        for (const msg of inMsgs) logMsg(msg, "log-status");
+        if (inMsgs.length > 0) updateBattleUI();
+      }
+      fireOnEntryHooks(enemyActiveMon, playerActiveMon);
       await delay(600);
       showBattleMainActions();
     }

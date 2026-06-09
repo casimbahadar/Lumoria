@@ -303,6 +303,10 @@ The 22 NG+-exclusive families added in the dex-to-500 expansion (#57). Regular d
 - `[453] Dozit→Lullavoir | Dream / Dream-Fairy | sloth` (F18, 2-stage; daydreaming sloth → dream-spinning sloth-fae. PRISTINE sloth (animal-first). Good Dream distribution. 🦥 exact. clean.)
 - `[455] Tollwisp→Knellgeist | Spectral / Metal-Spectral | bell-spirit` (F19, 2-stage; haunted handbell → dread tower-bell. The bell-spirit spectral sub-archetype already named in the LOCKED wraith-split policy. 🔔 exact. clean.)
 - `[457] Mistgill→Vaporlotl | Vapor / Aquatic-Vapor | axolotl (amphibian)` (F20, 2-stage; misty-gilled regenerating spring-amphibian. PRISTINE axolotl, per-species (distinct from frog/toad #156/#159). Good Vapor distribution. 🦎 stand-in kept (no axolotl emoji). clean.)
+- `[459] Gustling→Tengrath | Fighting / Fighting-Wind | tengu (mythical)` (F21, 2-stage; mountain martial-spirit — imp drilling fist-forms → whirlwind tengu master. Singular pristine tengu (not on exempt list but cap-neutral — only one; could join exempt list if more appear). Good Fighting+Wind distribution. 👺 exact. clean.)
+- `[461] Gongling→Resonethe | Sonic / Mental-Sonic | singing-bowl construct (animate instrument)` (F22, 2-stage; resonance-animated votive bowl → thought-tuning nested-bowl construct. PRISTINE unique sub, distinct from golem (humanoid) and bell-spirit F19 (haunted/Spectral) — self-willed via meditative resonance, Sonic/Mental not Spectral. Good Sonic+Mental distribution. clean.)
+
+**✅ NG+ 408–461 block COMPLETE — all 22 families (F1–F22) classified.** Hard prerequisite for cap tallies done. Next: re-run `scripts/oversaturated_combos.py` against the full 461-Lumori dex + re-decide the flagship-combo list.
 
 #### Forgotten / post-game (id ≥ 462)
 

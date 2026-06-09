@@ -1432,6 +1432,9 @@ function startWildBattle(wildMon) {
   else logMsg(`A wild Lumori — ${wildMon.name} appeared! (Lv.${wildMon.level})`);
   if (wildMon.shiny) { checkAchievement("first_shiny"); trackDailyChallenge("shiny_encounter"); }
   updateBattleUI();
+  // Phase 3b: onEntry hooks for both active mons at battle start
+  fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+  fireOnEntryHooks(enemyActiveMon, playerActiveMon);
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = false;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
@@ -1723,11 +1726,20 @@ async function executeTurn(playerMoveId, _unused) {
   // Determine turn order by speed (priority moves go first, Quick Claw may override)
   const playerSpe = getEffectiveSpeed(playerActiveMon);
   const enemySpe  = getEffectiveSpeed(enemyActiveMon);
+  // Phase 3b: trait priority bonus (Quick Start "+1 first turn", etc.) Enemy move
+  // isn't known at this point, so movePriorityBonus on the enemy side is best-effort
+  // and gets only passive (non-move-specific) bonuses.
+  const playerPrioBonus = typeof getPriorityBonus === "function" ? getPriorityBonus(playerActiveMon, enemyActiveMon, move) : 0;
+  const enemyPrioBonus  = typeof getPriorityBonus === "function" ? getPriorityBonus(enemyActiveMon, playerActiveMon, null) : 0;
   const playerQuickClaw = checkQuickClaw(playerActiveMon);
   const enemyQuickClaw = checkQuickClaw(enemyActiveMon);
   if (playerQuickClaw && !enemyQuickClaw) logMsg(`${playerActiveMon.name}'s Quick Claw let it move first!`);
   if (enemyQuickClaw && !playerQuickClaw) logMsg(`${enemyActiveMon.name}'s Quick Claw let it move first!`);
-  let playerFirst = move.effect === "priority" || playerSpe >= enemySpe;
+  // Order resolution: move-priority flag → trait priority bonuses → speed.
+  let playerFirst;
+  if (move.effect === "priority") playerFirst = true;
+  else if (playerPrioBonus !== enemyPrioBonus) playerFirst = playerPrioBonus > enemyPrioBonus;
+  else playerFirst = playerSpe >= enemySpe;
   if (playerQuickClaw && !enemyQuickClaw) playerFirst = true;
   else if (enemyQuickClaw && !playerQuickClaw) playerFirst = false;
 
@@ -1754,6 +1766,8 @@ async function executeTurn(playerMoveId, _unused) {
     const playerTickMsgs = tickStatus(playerActiveMon);
     for (const msg of playerTickMsgs) logMsg(msg);
     syncPlayerMonHP();
+    // Phase 3b: generic per-turn counter (drives Time Skip, Slow Start countdown, etc.)
+    if (typeof tickTurnCounter === "function") tickTurnCounter(playerActiveMon);
     if (playerActiveMon.fainted || playerActiveMon.currentHP <= 0) {
       await handlePlayerFainted();
       return;
@@ -2020,6 +2034,8 @@ async function enemyTurn() {
   // Status ticks on enemy
   const enemyTickMsgs = tickStatus(enemyActiveMon);
   for (const msg of enemyTickMsgs) logMsg(msg);
+  // Phase 3b: generic per-turn counter (drives Time Skip, Slow Start countdown, etc.)
+  if (typeof tickTurnCounter === "function") tickTurnCounter(enemyActiveMon);
   updateBattleUI();
 
   syncPlayerMonHP();
@@ -2119,6 +2135,24 @@ async function handlePlayerFainted() {
 function endBattle(outcome, slot, levelUps) {
   battleContext.battleEnded = true;
   syncPlayerMonHP();
+
+  // Phase 3b: onBattleEnd hooks on all participating mons before status-clear.
+  // Player team: every slot (including bench — some traits care about "I was benched").
+  // Enemy team: only present for gym battles.
+  if (typeof applyOnBattleEnd === "function") {
+    for (const mon of G.team) {
+      if (!mon) continue;
+      const msgs = applyOnBattleEnd(mon, outcome);
+      for (const m of msgs) logMsg(m, "log-status");
+    }
+    if (battleContext.enemyTeam) {
+      for (const mon of battleContext.enemyTeam) {
+        if (!mon) continue;
+        const msgs = applyOnBattleEnd(mon, outcome);
+        for (const m of msgs) logMsg(m, "log-status");
+      }
+    }
+  }
 
   // Clear all statuses from the entire team — fresh slate when returning to the overworld.
   // Statuses do not persist outside of battle, regardless of how the battle ended
@@ -2703,6 +2737,10 @@ async function executeMultiTurn() {
     const moveB = MOVES_DATA[b.moveId];
     if (moveA?.effect === "priority" && moveB?.effect !== "priority") return -1;
     if (moveB?.effect === "priority" && moveA?.effect !== "priority") return 1;
+    // Phase 3b: trait priority bonuses (both actors' moves are known here)
+    const aPrioBonus = typeof getPriorityBonus === "function" ? getPriorityBonus(a.mon, b.mon, moveA) : 0;
+    const bPrioBonus = typeof getPriorityBonus === "function" ? getPriorityBonus(b.mon, a.mon, moveB) : 0;
+    if (aPrioBonus !== bPrioBonus) return bPrioBonus - aPrioBonus;
     return b.spe - a.spe;
   });
 
@@ -3981,6 +4019,9 @@ function initEventListeners() {
       clearBattleLog();
       logMsg(`🌟 The Legendary ${wildMon.name} appeared! (Lv.${wildMon.level})`);
       updateBattleUI();
+      // Phase 3b: onEntry hooks for both active mons at battle start
+      fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+      fireOnEntryHooks(enemyActiveMon, playerActiveMon);
       showBattleMainActions();
       document.getElementById("btn-catch").disabled = false;
       if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle({ ...battleContext, isUmbra: true });
@@ -4092,6 +4133,9 @@ function initEventListeners() {
       clearBattleLog();
       logMsg(`🌿 The roaming ${r.name} appeared! (Lv.${r.level})`, "log-catch");
       updateBattleUI();
+      // Phase 3b: onEntry hooks for both active mons at battle start
+      fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+      fireOnEntryHooks(enemyActiveMon, playerActiveMon);
       showBattleMainActions();
       document.getElementById("btn-catch").disabled = false;
     });
@@ -4234,6 +4278,9 @@ function startSpecialBattle(battleId, battleData, isUmbra, battleType = "single"
   logMsg(`${battle.emoji} ${battle.name}: "${battle.quote}"`);
   logMsg(`${battle.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
+  // Phase 3b: onEntry hooks for both active mons at battle start
+  fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+  fireOnEntryHooks(enemyActiveMon, playerActiveMon);
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
@@ -4263,6 +4310,9 @@ function startTrainerBattle(trainerId, trainer) {
   logMsg(`${trainer.emoji} ${trainer.name} wants to battle!`);
   logMsg(`${trainer.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
+  // Phase 3b: onEntry hooks for both active mons at battle start
+  fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+  fireOnEntryHooks(enemyActiveMon, playerActiveMon);
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
@@ -4293,6 +4343,9 @@ function startUmbraAreaBattle(umbraId, battle) {
   logMsg(`⚔️ ${fmtLabel} Battle — ${battle.emoji} ${battle.name}`);
   logMsg(`${battle.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
+  // Phase 3b: onEntry hooks for both active mons at battle start
+  fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+  fireOnEntryHooks(enemyActiveMon, playerActiveMon);
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
@@ -4710,6 +4763,9 @@ function startQuestBattle(quest) {
     clearBattleLog();
     logMsg(`⚔️ Quest Boss ${bossName} appeared! (Lv.${boss.level})`);
     updateBattleUI();
+    // Phase 3b: onEntry hooks for both active mons at battle start
+    fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+    fireOnEntryHooks(enemyActiveMon, playerActiveMon);
     showBattleMainActions();
     document.getElementById("btn-catch").disabled = true;
     if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
@@ -4836,6 +4892,9 @@ function launchWielderBattle(quest, playerSlots, fmt = "triple") {
     clearBattleLog();
     logMsg(`${wielder.emoji} ${wielder.name}: "${wielder.quote}"`);
     renderBattleUI();
+    // Phase 3b: onEntry hooks for both active mons at battle start
+    fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+    fireOnEntryHooks(enemyActiveMon, playerActiveMon);
   } else {
     startMultiBattle(enemyTeam, wielder.name, fmt, playerSlots);
   }

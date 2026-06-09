@@ -288,6 +288,9 @@ function showScreen(id) {
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
   const el = document.getElementById(id);
   if (el) el.classList.add("active");
+  // Inverse Mode badge: show only on the battle screen while inverse mode is active.
+  const ib = document.getElementById("inverse-mode-badge");
+  if (ib) ib.classList.toggle("hidden", !(id === "screen-battle" && typeof G !== "undefined" && G && G.inverseMode));
 }
 
 // ---- PvP / online turn timer (60s, auto-pick on expiry) ----

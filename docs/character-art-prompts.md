@@ -2,7 +2,9 @@
 
 Companion to `forgotten-art-prompts.md`, but for **people**: the 13 Vaeldris wielders, Team **Umbra Order**, and Lumoria's main cast (16 gym leaders + the Vanguard elite + Champion Lumian).
 
-**How to use:** paste a **Prompt** line into an image generator. Each entry gives **Look / Palette / Signature prop** to tweak. Style suggestion for consistency: *"character concept art, full body, clean background, painterly anime-adjacent."*
+**How to use:** paste a **Prompt** line into an image generator (ChatGPT/DALL·E). Each entry gives **Look / Palette / Signature prop** to tweak.
+
+**🎨 House style (match the *Pyril* / *Lumirae* look — same as the creature doc):** an **expressive painterly cartoon character illustration** — detailed costume, dynamic pose, warm cinematic **rim-lighting**, glowing accents where the theme calls for it, atmospheric theme-matched background. Push the style **away from Nintendo's** — unique and distinctive, *not* flat vector. **Two modes:** a **game portrait** (character centered, on a simple/transparent background → `assets/trainers/<key>.png`) or a **full character card** (name, title, short flavor line, a couple of pose thumbnails, like the creature cards). The style line is appended to every Prompt below.
 
 **All names here are canon** (pulled from `js/data.js`): the 16 gym leaders, the Vanguard/Elite Four (Aria, Grimshaw, Celeste, Titan), Champion Lumian, the NG+ Void Council (Vale, Kade, Mira, Gorn, Null), and the Umbra Order (Commander Shade + Commanders Kira/Vorn/Phantom + acolytes Vex/Morta). The **looks/palettes** are my design proposals to accept or retheme; the **names/roles/themes** are the game's.
 
@@ -14,67 +16,67 @@ Each wields a Forgotten trio; their look should echo that trio's element + a "su
 ### Lysara — Celestial Plateau *(Celestial / Divine)*
 - **Look:** serene robed astromancer-priestess; long pale hair, closed-eye calm, faint halo-ring; she "wept the day Celestrix became the last of its kind."
 - **Palette:** white-gold · opal · soft blue. **Prop:** a crystalline feather.
-- **Prompt:** *"serene robed celestial priestess, pale hair, faint halo ring, holding a glowing crystalline feather, white-gold and opal robes, full-body character concept art, clean background"*
+- **Prompt:** *"serene robed celestial priestess, pale hair, faint halo ring, holding a glowing crystalline feather, white-gold and opal robes, expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ### Morrigan — The Shadowfen *(Shadow / Death / Fate)*
 - **Look:** hooded marsh-witch / fen-warden; tattered dark cloak, pale grave-calm face, carries grief quietly.
 - **Palette:** black · deep violet · bog-grey. **Prop:** a stopped pocket-watch.
-- **Prompt:** *"hooded marsh-witch in a tattered dark cloak, pale solemn face, holding a stopped pocket-watch, black and deep-violet palette, eerie full-body character concept art, clean background"*
+- **Prompt:** *"hooded marsh-witch in a tattered dark cloak, pale solemn face, holding a stopped pocket-watch, black and deep-violet palette, eerie expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ### Kael — Stormpeak Ridge *(Storm / Lightning)*
 - **Look:** weathered mountain stormchaser; lightning-scarred arms, refuses titles, fur-trimmed coat crackling with static.
 - **Palette:** storm-grey · electric-blue. **Prop:** a conductor's rod.
-- **Prompt:** *"rugged mountain stormchaser, lightning-scarred arms, static crackling around a fur-trimmed coat, holding a conductor's rod, storm-grey and electric-blue palette, full-body character concept art, clean background"*
+- **Prompt:** *"rugged mountain stormchaser, lightning-scarred arms, static crackling around a fur-trimmed coat, holding a conductor's rod, storm-grey and electric-blue palette, expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ### Thessaly — Ancient Root Cavern *(Primordial Earth)*
 - **Look:** grounded stone-druid; moss-and-bark mantle, meditative, listens to mountains.
 - **Palette:** amber · moss-green · slate. **Prop:** a seed-stone.
-- **Prompt:** *"calm stone-druid in a moss-and-bark mantle, holding an ancient glowing seed-stone, amber and moss-green palette, full-body character concept art, clean background"*
+- **Prompt:** *"calm stone-druid in a moss-and-bark mantle, holding an ancient glowing seed-stone, amber and moss-green palette, expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ### Nereus — The Hadal Depths *(Deep Ocean)*
 - **Look:** deep-sea diver-sage; oilskin coat, salt-grey beard, the man who "turned back from the sea."
 - **Palette:** abyss-blue · brass · barnacle-grey. **Prop:** a bioluminescent lantern.
-- **Prompt:** *"weathered deep-sea diver-sage in an oilskin coat, salt-grey beard, holding a bioluminescent deep-sea lantern, abyss-blue and brass palette, full-body character concept art, clean background"*
+- **Prompt:** *"weathered deep-sea diver-sage in an oilskin coat, salt-grey beard, holding a bioluminescent deep-sea lantern, abyss-blue and brass palette, expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ### Caelia — Cloudspire *(Sky / Wind)*
 - **Look:** high-altitude windrider; layered flight-silks, goggles, never lets her Skydrak land.
 - **Palette:** cloud-white · sky-blue · gold. **Prop:** a feathered glider-cloak.
-- **Prompt:** *"agile high-altitude windrider in layered flight-silks and goggles, a feathered glider-cloak catching the wind, cloud-white and sky-blue palette, full-body character concept art, clean background"*
+- **Prompt:** *"agile high-altitude windrider in layered flight-silks and goggles, a feathered glider-cloak catching the wind, cloud-white and sky-blue palette, expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ### Dravek — Magma Forge *(Fire / Volcanic)*
 - **Look:** volcanic blacksmith-warrior; soot-streaked, heavy forge-apron, refused every general who tried to recruit him.
 - **Palette:** obsidian-black · magma-orange. **Prop:** a forge-hammer.
-- **Prompt:** *"burly volcanic blacksmith-warrior, soot-streaked, heavy forge-apron, holding a glowing forge-hammer, obsidian-black and magma-orange palette, full-body character concept art, clean background"*
+- **Prompt:** *"burly volcanic blacksmith-warrior, soot-streaked, heavy forge-apron, holding a glowing forge-hammer, obsidian-black and magma-orange palette, expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ### Nylara — Glacial Abyss *(Ice / Frost)*
 - **Look:** glacier-walker; fur-lined parka, the **ice-steel pauldron on her left shoulder** (her one Vaeldris relic).
 - **Palette:** glacier-blue · white · steel-silver. **Prop:** the ice-steel pauldron.
-- **Prompt:** *"stoic glacier-walker in a fur-lined parka with a gleaming ice-steel pauldron on the left shoulder, glacier-blue and steel-silver palette, full-body character concept art, clean background"*
+- **Prompt:** *"stoic glacier-walker in a fur-lined parka with a gleaming ice-steel pauldron on the left shoulder, glacier-blue and steel-silver palette, expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ### Solenne — Moonhaven Ruins *(Moon / Dream)*
 - **Look:** dreaming moon-priestess; sleepwalker's grace, half-lidded eyes, shares a nightly dream of the lost land.
 - **Palette:** lavender · moon-silver · twilight. **Prop:** a vial of moonlit water.
-- **Prompt:** *"dreamy moon-priestess with half-lidded eyes and sleepwalker's grace, holding a vial of glowing moonlit water, lavender and moon-silver palette, full-body character concept art, clean background"*
+- **Prompt:** *"dreamy moon-priestess with half-lidded eyes and sleepwalker's grace, holding a vial of glowing moonlit water, lavender and moon-silver palette, expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ### Rax — The Iron Sanctum *(Metal / Forge)*
 - **Look:** stoic iron-sentinel knight; battered plate armor, carries **a blade forged by Forgerak he has never used in battle.**
 - **Palette:** gunmetal · bronze · rust. **Prop:** the unused forged blade (sheathed).
-- **Prompt:** *"stoic iron-sentinel knight in battered plate armor, a beautiful sheathed forged blade at his side, gunmetal and bronze palette, full-body character concept art, clean background"*
+- **Prompt:** *"stoic iron-sentinel knight in battered plate armor, a beautiful sheathed forged blade at his side, gunmetal and bronze palette, expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ### Tempris — The Arc Station *(Time)*
 - **Look:** tinkerer-chronologist; brass-goggled, clockwork-augmented arm, designed the predictive model Volteon runs.
 - **Palette:** antique brass · amber · pale-blue. **Prop:** a clockwork orrery-watch.
-- **Prompt:** *"inventive chronologist with brass goggles and a clockwork-augmented arm, holding a clockwork orrery-watch, antique-brass and amber palette, full-body character concept art, clean background"*
+- **Prompt:** *"inventive chronologist with brass goggles and a clockwork-augmented arm, holding a clockwork orrery-watch, antique-brass and amber palette, expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ### Vayne — The Void Gate *(Void / Cosmic Abyss)*
 - **Look:** austere void-warden; star-flecked black robes, unflinching, bound the thing that put out the stars.
 - **Palette:** starless-black · dim violet · dead-gold. **Prop:** a fragment of extinguished star.
-- **Prompt:** *"austere void-warden in star-flecked black robes, unflinching gaze, holding a fragment of an extinguished star, starless-black and dim-violet palette, full-body character concept art, clean background"*
+- **Prompt:** *"austere void-warden in star-flecked black robes, unflinching gaze, holding a fragment of an extinguished star, starless-black and dim-violet palette, expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ### Azura — Observatory Peak *(Stars / Cosmos)*
 - **Look:** astronomer-scholar; star-chart cloak, telescope-staff, read the Sundering three days early in Cosmolith's scales.
 - **Palette:** indigo · gold · brass. **Prop:** a telescope-staff / armillary.
-- **Prompt:** *"elegant astronomer-scholar in a star-chart cloak, holding a brass telescope-staff, indigo and gold palette, full-body character concept art, clean background"*
+- **Prompt:** *"elegant astronomer-scholar in a star-chart cloak, holding a brass telescope-staff, indigo and gold palette, expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ---
 
@@ -84,7 +86,7 @@ Goal: awaken the three Legendaries. Shared look: matte-black uniforms, eclipse-r
 ### Commander Shade — Leader *(canon)*
 - **Look:** imposing cloaked commander; an eclipse-disc emblem, face half-lost in living shadow, cold authority.
 - **Palette:** matte black · eclipse-violet · cold silver. **Prop:** an eclipse-disc that swallows light.
-- **Prompt:** *"imposing villain commander in a black living-shadow cloak, an eclipse-disc emblem on the chest, face half-lost in shadow, matte-black and eclipse-violet palette, menacing full-body character concept art, clean background"*
+- **Prompt:** *"imposing villain commander in a black living-shadow cloak, an eclipse-disc emblem on the chest, face half-lost in shadow, matte-black and eclipse-violet palette, menacing expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ### Umbra Commanders *(canon)*
 | Commander | Flavor | Look · Palette · Prompt seed |
@@ -126,7 +128,7 @@ Type-themed; arena-appropriate outfits.
 ### Champion Lumian *(canon — the Lumoria Champion)*
 - **Look:** regal, balanced grandmaster; a circlet bearing all 16 badge-gems, an aura of mastery, approachable warmth over immense strength.
 - **Palette:** royal indigo · gold · white. **Prop:** a cloak set with 16 badge-gems.
-- **Prompt:** *"regal Lumoria Champion grandmaster, a circlet and cloak set with sixteen glowing badge-gems, royal-indigo and gold robes, commanding yet warm, full-body character concept art, clean background"*
+- **Prompt:** *"regal Lumoria Champion grandmaster, a circlet and cloak set with sixteen glowing badge-gems, royal-indigo and gold robes, commanding yet warm, expressive painterly cartoon character illustration, dynamic pose, detailed costume with rim-lighting, atmospheric themed background; art style moved away from Nintendo's look — unique and distinctive; full-body, centered for cropping"*
 
 ### The Vanguard — Elite Four *(canon)*
 | Elite | Theme | Look · Palette · Prompt seed |

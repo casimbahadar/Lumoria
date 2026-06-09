@@ -24,12 +24,12 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 | 🎯 Obtainability audit (474/500) | ✅ done | PR #62 |
 | 🎮 NG+/Forgotten gating + legendary encounters | ✅ done | PR #53 |
 | 🎯 Archetype × type-combo diversity **audit** | ✅ analysis shipped · ✅ collision pass applied · ⏳ full sweep folded into UNIFIED | PR #63 **merged** (matrix doc); collision-resolution pass: 9 archetype×combo collisions → 12 cap-verified retypes (Crumblite/Stonegrip, Abyssforge, Rimeling/Deepfreeze, Ferrocrush, Emberveil, Mosswing, Shadowpup/Nightclaw/Darkfang, Cryoshard) + STAB; Lumivane kept (false-collision relabel). Remaining full per-cell sweep folded into 🕯 UNIFIED |
-| 🕯 UNIFIED per-Lumori audit | ⏳ not started | next major phase |
+| 🕯 UNIFIED per-Lumori audit | 🚧 ACTIVE — next phase | handoff: `docs/unified-audit-handoff.md`. Per-Lumori lore/desc/emoji/archetype/type/cap walk + classifies the **54 unclassified NG+ families (ids 408–461)** |
 | 📉 Standalone count reduction | ⏳ not started | — |
 | 🏷️ Luminex renaming + final lore | ⏳ partial/paused | PRs #34–35; resumes after UNIFIED |
-| 🔮 Mythical archetype flags | ✅ policy locked · ⏳ re-archetype execution + NG+ classification → UNIFIED | `docs/mythical-archetype-policy.md`: golem CONFIRMED exempt; cetacean & treant capped (common cap-3, trim 2/1); wraith **split** into distinct spectral sub-archetypes; Forgotten renumbered 408–446→462–500 in taxonomy.md. Docs-only (no `mythical` data field). Creature re-archetyping + 54 NG+ classification deferred to UNIFIED. |
+| 🔮 Mythical archetype flags | ✅ policy locked · ✅ re-archetype execution (#86) · ⏳ 54 NG+ classification → UNIFIED | `docs/mythical-archetype-policy.md`: golem CONFIRMED exempt; cetacean & treant capped (common cap-3, trim 2/1); wraith **split** into distinct spectral sub-archetypes; Forgotten renumbered 408–446→462–500 in taxonomy.md. Docs-only (no `mythical` data field). Re-archetype execution DONE (#86: cetacean trim-2, treant trim-1, wraith split). **54 NG+ classification (ids 408–461)** deferred to UNIFIED. |
 | 🎯 Moveset utilization audit | ✅ done | PR #68 — Phase 1 orphan-clearing + key rename + Phase 2 STAB-completeness |
-| 🌑 Forgotten Lumori dedicated audit | ⏳ not started | before stat-spread review |
+| 🌑 Forgotten Lumori dedicated audit | ✅ done (core) | typing/moveset/stats/archetype/lore/variant/appearance-briefs all done (2026-06-08, incl. PR #81); residual Abilities-assignment (blocked on Abilities feature) + 13 wielder cutscenes tracked under their own items |
 | 📊 Final stat-spread review | ⏳ not started | RUN LAST |
 | 🧬 Abilities feature | ⏳ not started | after stat review |
 | 🤝 Inter-Lumori interactions (dedicated pass) | ⏳ not started | after abilities (bridge sweep done, PR #48) |
@@ -650,7 +650,9 @@ Inline `LORE-AUDIT FLAG (Step 4)` comments placed above 46 Lumori entries in `js
 - **Step 4/5 process rule:** when proposing per-Lumori typing adjustments, ground each recommendation in the Lumori's existing lore/desc so the new typing makes narrative sense.
 - Branch: `claude/typing-combo-audit-2-JUGMH` (PR #51 — re-titled + re-described to reflect new scope on next commit).
 
-# 🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED) — added 2026-05-24  `[⏳ NOT STARTED — the next major phase; scoping Qs open + diversity-matrix findings queued]`
+# 🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED) — added 2026-05-24  `[🚧 ACTIVE — the next major phase; handoff in docs/unified-audit-handoff.md; scoping Qs open + diversity-matrix findings queued]`
+
+> **Dex bands (authoritative, `js/game.js` constants):** base = ids 1–321 · **NG+-exclusive = ids 322–461** · **Forgotten = ids ≥ 462** (Vaeldris-quest gated). The 322–407 NG+ block is already classified; the **54 NG+ families at ids 408–461 are the unclassified subset** this audit must classify (several carry legacy Crystal/Sonic/Vapor/etc. types from before the Forgotten renumber — review per CLAUDE.md, don't mass-strip).
 
 Single per-Lumori audit pass that merges what were previously four separate workflows:
 - Step 5 of the typing-system overhaul (type-combo cap re-analysis under the new 26-type chart)
@@ -966,7 +968,7 @@ Discovery script: `scripts/move_utilization.py` — read-only stats tool, parses
 - [x] **Phase 2: STAB-completeness audit.** 40 new moves added to thin types (Spectral/Mineral/Sonic +15/15/10) with unique mechanics (dualType, breakerVs, alwaysCrit, hits:2, priority, dual-stat combos). ~210 inserts across 6 sub-batches (P2-prep + P2-1 through P2-6). Flagged 163 → 6 (96% cleared). The 6 remaining are 5 deferred Stellar/Primal Lumori → revisit in the Forgotten Lumori audit (next section).
 - [x] End-of-audit revisit: Aether + Chrono post-game-restricted moves — **DONE (2026-06).** Now that the Forgotten Aether/Chrono roster exists, distributed every non-reserved orphan (Aether 1 + Chrono 26) across the Aether/Chrono Forgotten learnsets, keeping the ultra-finishers reserved as `rarity:"exclusive"` (Aether: `divine_judgement`, `infinity_strike`; Chrono: `timeless_apocalypse`, `era_calamity`, `eternity_lock`). **0 non-exclusive orphans remain** in either type. validate.js green.
 
-# 🌑 Forgotten Lumori dedicated audit — RUN BEFORE STAT-SPREAD REVIEW  `[⏳ NOT STARTED]`
+# 🌑 Forgotten Lumori dedicated audit — RUN BEFORE STAT-SPREAD REVIEW  `[✅ DONE (core, 2026-06-08) — typing/moveset/stats/archetype/lore/variant/appearance-briefs complete; only Abilities-assignment (blocked on Abilities feature) + 13 wielder cutscenes remain, each tracked under its own item]`
 
 The 39 Forgotten Lumori (ids 462-500) are gameplay-gated content designed as post-game encounters. Several open threads converge on them; a dedicated audit pass before the final stat-spread review is cleaner than handling each scattered.
 

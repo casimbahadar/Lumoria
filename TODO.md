@@ -24,7 +24,7 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 | 🎯 Obtainability audit (474/500) | ✅ done | PR #62 |
 | 🎮 NG+/Forgotten gating + legendary encounters | ✅ done | PR #53 |
 | 🎯 Archetype × type-combo diversity **audit** | ✅ analysis shipped · ✅ collision pass applied · ⏳ full sweep folded into UNIFIED | PR #63 **merged** (matrix doc); collision-resolution pass: 9 archetype×combo collisions → 12 cap-verified retypes (Crumblite/Stonegrip, Abyssforge, Rimeling/Deepfreeze, Ferrocrush, Emberveil, Mosswing, Shadowpup/Nightclaw/Darkfang, Cryoshard) + STAB; Lumivane kept (false-collision relabel). Remaining full per-cell sweep folded into 🕯 UNIFIED |
-| 🕯 UNIFIED per-Lumori audit | 🚧 ACTIVE | handoff: `docs/unified-audit-handoff.md`. Per-Lumori lore/desc/emoji/archetype/type/cap walk. ✅ **NG+ 408–461 classification DONE** (all 22 families F1–F22 in `taxonomy.md`; legacy Crystal 408–410 & Primal 432–434 kept under legendary exception; no `data.js` changes). ✅ `oversaturated_combos.py` threshold fixed→462. ✅ **flagship policy re-decided & LOCKED 2026-06-10** (rule-based: mono auto-12, dual ordinary-6 + flagship-by-justification; old 4-combo list retired; Nature mono 13 accepted soft-over). ⏳ remaining: desc↔lore body flags (✅ ALL DONE: #84 Electrix / #243 Stuntrap / #316 Abyssovex), inline Step-4 flags, under-used-type distribution, standalone/renaming candidates |
+| 🕯 UNIFIED per-Lumori audit | 🚧 ACTIVE | handoff: `docs/unified-audit-handoff.md`. Per-Lumori lore/desc/emoji/archetype/type/cap walk. ✅ **NG+ 408–461 classification DONE** (all 22 families F1–F22 in `taxonomy.md`; legacy Crystal 408–410 & Primal 432–434 kept under legendary exception; no `data.js` changes). ✅ `oversaturated_combos.py` threshold fixed→462. ✅ **flagship policy re-decided & LOCKED 2026-06-10** (rule-based: mono auto-12, dual ordinary-6 + flagship-by-justification; old 4-combo list retired; Nature mono 13 accepted soft-over). ✅ desc↔lore body flags ALL DONE (#84 Electrix / #243 Stuntrap / #316 Abyssovex). ✅ inline Step-4 flags VERIFIED zero remain (resolved 2026-06-08). ✅ under-used-type distribution — clear wins applied (#160/#161 Miasmafly line + #328 Smogveil → Poison/Vapor; Vapor 11→14, Wind 40→37); Dream/Sonic/Fighting yielded no intrinsic candidates (no forcing). ✅ renaming surface pass done → Tier-1 queue in checkpoint note below. ⏳ remaining: standalone-count reduction (#6, design-level — needs user intent); optional Tier-1 renames. **See "🕯 UNIFIED — session checkpoint" below.** |
 | 📉 Standalone count reduction | ⏳ not started | — |
 | 🏷️ Luminex renaming + final lore | ⏳ partial/paused | PRs #34–35; resumes after UNIFIED |
 | 🔮 Mythical archetype flags | ✅ policy locked · ✅ re-archetype execution (#86) · ⏳ 54 NG+ classification → UNIFIED | `docs/mythical-archetype-policy.md`: golem CONFIRMED exempt; cetacean & treant capped (common cap-3, trim 2/1); wraith **split** into distinct spectral sub-archetypes; Forgotten renumbered 408–446→462–500 in taxonomy.md. Docs-only (no `mythical` data field). Re-archetype execution DONE (#86: cetacean trim-2, treant trim-1, wraith split). **54 NG+ classification (ids 408–461)** deferred to UNIFIED. |
@@ -35,6 +35,25 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 | 🤝 Inter-Lumori interactions (dedicated pass) | ⏳ not started | after abilities (bridge sweep done, PR #48) |
 | 13 wielder cutscenes (Forgotten legendaries) | ⏳ not started | after stat review |
 | 🚀 Pre-launch / release process | 🚧 in progress | launch draft PR #52 |
+
+---
+
+## 🕯 UNIFIED — session checkpoint (2026-06-10)
+
+Clean state — everything committed & pushed on `claude/unified-audit-handoff-tianz9`; PR #90 (run-game skill) **merged to main**.
+
+**Done this session:** desc↔lore fixes (#84/#243/#316) · flagship policy locked · Step-4 flags verified 0 remain · under-used-type distribution clear wins (Miasmafly line #160/#161 + Smogveil #328 → Poison/Vapor) · run-game skill (now on `main`) · renaming surface pass.
+
+**Renaming review queue (read-only — nothing changed):**
+- 🔴 Tier 1 (both base-dex, genuinely confusable — only ones worth acting on):
+  - #129 **Voidaxis** ↔ #319 **Voidraxis** (1-char diff)
+  - #257 **Reefhorn** ↔ #261 **Leafhorn** (adjacent ids, rhyme)
+  - #173 **Serpenthos** ↔ #233 **Serpenthorn** (8-char shared stem)
+- 🟡 Tier 2 (lower priority): #205 Quarrix ↔ #327 Quarrex (cross-band) · #390 Voidgarden ↔ #407 Voidwarden (distinct words) · Mirkling/Mistling/Gustling `-ling` cluster.
+- No exact-duplicate names; no obvious IP collisions (original portmanteaus).
+- ⚠️ Any rename touches `js/data.js` + `js/variant-content.js` (+ maybe `taxonomy.md`/sprite keys) — propose per-name with a sync check.
+
+**Next-session options:** (a) work up a Tier-1 rename proposal; (b) item #6 standalone-count reduction = design-level (creating evos / cutting Lumori) — needs explicit user design intent, not a surgical fix; (c) other audit items. Under-used-type distribution (#3) is considered substantially complete (clear wins banked, no forcing).
 
 ---
 

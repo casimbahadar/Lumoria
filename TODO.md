@@ -31,7 +31,7 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 | 🎯 Moveset utilization audit | ✅ done | PR #68 — Phase 1 orphan-clearing + key rename + Phase 2 STAB-completeness |
 | 🌑 Forgotten Lumori dedicated audit | ✅ done (core) | typing/moveset/stats/archetype/lore/variant/appearance-briefs all done (2026-06-08, incl. PR #81); residual Abilities-assignment (blocked on Abilities feature) + 13 wielder cutscenes tracked under their own items |
 | 📊 Final stat-spread review | ⏳ not started | RUN LAST |
-| 🧬 Abilities feature | ⏳ not started | after stat review |
+| 🧬 Abilities feature (now "Traits") | ✅ Phase 1-3b + canonical 8 merged · 🚧 UI surfacing in progress · ⏳ Phase 5 full assignment | PR #67 **merged** (265-entry registry, full battle dispatch, 8 verified end-to-end). Next branch `claude/traits-ui-surfacing`: team-menu badge, Lumori-detail traits section, battle UI inline badge. Phase 5 full assignment (~438 remaining Lumori) follows. |
 | 🤝 Inter-Lumori interactions (dedicated pass) | ⏳ not started | after abilities (bridge sweep done, PR #48) |
 | 13 wielder cutscenes (Forgotten legendaries) | ⏳ not started | after stat review |
 | 🚀 Pre-launch / release process | 🚧 in progress | launch draft PR #52 |
@@ -1004,16 +1004,38 @@ After every coherence fix, type adjustment, rename, AND the Forgotten Lumori ded
 
 **Run order:** BREAKING fixes → MINOR fixes → typing audit → archetype trim → renaming queue → **stat spread review (this section, last)**.
 
-# 🧬 Abilities feature (or similar legal-safe name) — RUN AFTER STAT REVIEW  `[⏳ NOT STARTED]`
+# 🧬 Traits (passive abilities) — Phase 1-3b + canonical 8 **merged** (PR #67); UI surfacing **in progress**
 
-Add a per-Lumori passive-ability system. Feature name must avoid legal risk (Pokémon's "Abilities" trademark) — candidate alternates: Traits / Aptitudes / Quirks / Knacks / Innate / Talents (final naming TBD).
+Per-Lumori passive system. Named "Traits" to sidestep Pokémon "Abilities" trademark.
 
-- [ ] Pick a non-infringing feature name
-- [ ] Design system scope (ability-pool size, per-creature count, hidden-ability slot)
-- [ ] Curate ability list (passive battle effects, stat modifiers, type resistances, weather triggers, etc.)
-- [ ] Assign abilities per Lumori (cross-reference body-plan + archetype)
-- [ ] Integrate into battle engine + UI (team detail, battle log)
-- [ ] Migration logic for existing saves
+**Done (PR #67, merged):**
+- [x] Pick a non-infringing feature name → **Traits**
+- [x] System scope locked — 1-2 active traits per Lumori; legendaries always 2; Trait Capsule item + evolution re-roll for change mechanic; ~265 traits total; verbose log with per-turn dedup; `ngPlusOnly` flag for NG+-exclusive traits
+- [x] Curate trait list — 265 entries in `ABILITY_REGISTRY`, lore-fitted across 4 review batches, Pokemon-IP free
+- [x] Phase 3a: passive hook wiring (`getStatMod`, `getIncomingDmgMod`, `getOutgoingPowerMod`, `getAccuracyMod`, `getStabBonusMult`, new crit pipeline, etc.)
+- [x] Phase 3b: event-trigger hook wiring (`onEntry`, `onSwitchOut`/`In`, `onFaint`, `onKO`, `onSelfCrit`/`onCritTaken`, `onMoveUse`/`Hit`/`Miss`, `onBattleEnd`, `onLowHpTrigger` with hysteresis at every HP-mutation site, `getPriorityBonus`, `tickTurnCounter`)
+- [x] Phase 5 partial: canonical 8 trait assignments (3 starters + 5 early-game catches) via `TRAIT_ASSIGNMENTS` + `getMonTraits` fallback. All 8 verified working end-to-end (Mossy heal, Levitating immunity, Thorned recoil, Empowered STAB, Mirage miss, Lucky crit-immune)
+- [x] Mossy/Levitating bugfix — `calcDamage` now honors zero/negative `incomingDmgMod` (immunity / absorb) instead of clamping to 1 dmg
+
+**🚧 ACTIVE — Trait UI surfacing (new branch `claude/traits-ui-surfacing`):**
+- [ ] Team menu — small trait badge per Lumori card with hover/tap tooltip
+- [ ] Lumori detail screen — traits section with name + emoji + description per active trait
+- [ ] Battle UI — inline trait badge near each active mon's name (player + enemy)
+- [ ] Per-trait CSS class hook (`cssClass` field already on every registry entry) so future theming is easy
+- [ ] Smoke test: visible badge for Verdkin (Mossy), Solkin (Empowered), Photoworm (Thorned) etc. at all 3 surfaces
+
+**⏳ Phase 5 full assignment (follows UI surfacing):**
+- [ ] Assign 1-2 traits to the remaining ~438 Lumori in lore-coherent batches (cross-reference body-plan + archetype + habitat)
+- [ ] Legendaries always 2 traits; NG+-exclusive traits assigned only to NG+ Lumori instances
+
+**⏳ Phase 6 — Save migration:**
+- [ ] Backfill `traits` field on existing party slots when loading saves from pre-trait builds (`getMonTraits` already falls back gracefully)
+
+**⏳ Phase 3c — Deferred wiring (parking):**
+- [ ] Multi-mon `onEntry` at the two multi-battle init points (`startMultiBattle` ~line 2432, multi-battle restructure ~line 2869)
+- [ ] Weather / terrain hook stubs (gated on the weather battle system TODO further down)
+- [ ] Damage caps
+- [ ] Complex UI mechanics: Move Steal swap dialog, Strategist reveal, Time Skip slow-mo
 
 # 🤝 Inter-Lumori interactions in lore/desc — RUN AFTER ABILITIES  `[⏳ NOT STARTED — note: bridge-lore sweep already done (PR #48); this is the dedicated interaction pass]`
 

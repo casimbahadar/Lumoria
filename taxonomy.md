@@ -306,7 +306,16 @@ The 22 NG+-exclusive families added in the dex-to-500 expansion (#57). Regular d
 - `[459] Gustling→Tengrath | Fighting / Fighting-Wind | tengu (mythical)` (F21, 2-stage; mountain martial-spirit — imp drilling fist-forms → whirlwind tengu master. Singular pristine tengu (not on exempt list but cap-neutral — only one; could join exempt list if more appear). Good Fighting+Wind distribution. 👺 exact. clean.)
 - `[461] Gongling→Resonethe | Sonic / Mental-Sonic | singing-bowl construct (animate instrument)` (F22, 2-stage; resonance-animated votive bowl → thought-tuning nested-bowl construct. PRISTINE unique sub, distinct from golem (humanoid) and bell-spirit F19 (haunted/Spectral) — self-willed via meditative resonance, Sonic/Mental not Spectral. Good Sonic+Mental distribution. clean.)
 
-**✅ NG+ 408–461 block COMPLETE — all 22 families (F1–F22) classified.** Hard prerequisite for cap tallies done. Next: re-run `scripts/oversaturated_combos.py` against the full 461-Lumori dex + re-decide the flagship-combo list.
+**✅ NG+ 408–461 block COMPLETE — all 22 families (F1–F22) classified.** Hard prerequisite for cap tallies done. Typings all kept (no `data.js` changes); legacy Crystal 408–410 and Primal 432–434 kept under the legendary exception.
+
+##### Type-combo flagship policy — LOCKED 2026-06-10
+
+Re-decided "up front" under the 26-type chart against the complete 461-Lumori tally (`scripts/oversaturated_combos.py`). The old 4-combo flagship list is **RETIRED**. New policy (rule-based, not a named list):
+- **Monos = auto-flagship (12-ID cap).** Unchanged.
+- **Duals = ordinary 6-ID cap.** A dual gets flagship (12) status **only by explicit per-combo justification** when a genuinely-fitting 7th member actually arises — decided case-by-case during the walk, never preemptively. Every at-6 dual is treated as full/locked.
+- **Nature mono @ 13 IDs:** ACCEPTED as a justified soft-over (+1 over the flagship-12 mono cap; all 13 are legitimately grass-bodied — starters, fungi, seed-pods, moths). No retype. This is the only over-cap combo in the pre-462 dex.
+
+The script already implements this (mono cap 12 / dual cap 6), so no code change is required.
 
 #### Forgotten / post-game (id ≥ 462)
 

@@ -87,3 +87,65 @@ await page.waitForSelector('#screen-battle.active');
 - There is **no build/lint to run** for UI; `node scripts/validate.js` covers data integrity.
 - Heads-up: this container is ephemeral and the local checkout can roll back a commit
   between turns — **untracked files get wiped**, so commit anything you want to keep.
+
+## How to use this skill (capacity & best practice)
+
+The point of this skill is **ground truth**: it runs the actual shipped game code, so it
+answers "does X really work?" in a way that reading code or reasoning cannot. Use it
+whenever there's a *factual* question about game behavior — **run it, don't reason about it.**
+
+### Two modes of power
+
+1. **Visual / UI driving** — *"does it look right / does the screen work?"*
+   Render any of the ~23 screens, click through flows, screenshot, do before/after diffs.
+   Best for: layout, styling, text wrapping, sprite rendering, "show me entry #316".
+
+2. **Deterministic internal probing** — *"does this mechanic compute correctly?"* (the
+   more reliable mode). Call the engine's own functions live in the page —
+   `calcDamage(atk, def, move)`, `getMonTraits(mon)`, `addStatus(...)`,
+   `buildWildMon(id, lvl)`, `applyOnHitReflect(...)`, `applyOnIncomingHit(...)`, and read
+   `playerActiveMon` / `enemyActiveMon` state directly. This **bypasses the UI**, which
+   matters because the battle UI's markup/timing differs across branches and is brittle to
+   click-drive. When a click-driven turn won't resolve, drop to the function call.
+
+### Recipe for a mechanic test (the reliable pattern)
+```js
+await page.evaluate(() => {
+  G = newGameState('Tester', 7);          // player party
+  startWildBattle(buildWildMon(197, 5));  // enemy
+  // construct the exact condition:
+  playerActiveMon.currentHP = Math.floor(playerActiveMon.maxHP / 2);
+  // probe the mechanic deterministically (no UI):
+  const move = MOVES_DATA.silk_bind;
+  return { traits: getMonTraits(playerActiveMon), dmg: calcDamage(enemyActiveMon, playerActiveMon, move) };
+});
+```
+Read the returned numbers / log lines as the verdict. `calcDamage` returns
+`{damage, effectiveness, crit}`; trait recoil/heal hooks mutate `attacker.currentHP` /
+`defender.currentHP`; full-turn flow is `doAttack(atk, def, moveId, isPlayer)` but it needs
+real battle context and can throw (`missMsgs is not iterable`) under a synthetic setup —
+prefer the lower-level calls when that happens.
+
+### To get the sharpest answer, tell me:
+- **The branch** if not the current one — I spin up a throwaway `git worktree` off the
+  remote ref (e.g. `git worktree add --detach /tmp/wt origin/<branch>`), serve from there,
+  then `git worktree remove --force` after. Trait/ability code lives on
+  `claude/abilities-feature`, not `main`.
+- **The exact condition** — level, HP, status, which move (and physical vs special).
+- **What "working" looks like** — HP should go *up*, a specific log line should appear,
+  damage should be ~N. Gives a clear pass/fail.
+
+### What it's great at / can't do
+- ✅ Objective mechanic verification, screenshots, constructing exact edge-case states,
+  comparing behavior across branches.
+- ⚠️ Can't simulate enemy-AI move *choice* through the UI — to test "enemy uses move Y",
+  call the move function directly. Click-driving multi-turn battles is brittle across
+  branches. It measures what the code computes, not subjective fun/balance.
+
+### Worked examples from real use
+- **Visual:** rendered Luminex dex entries to verify the lore line-wrap fix (before/after).
+- **Mechanic, passing:** `getMonTraits(Photoworm)` → `["thorned"]`; a physical hit ran
+  `attacker 18→16` with `"🌹 Thorned: … 2 recoil damage"`; a special hit correctly did 0.
+- **Mechanic, bug caught:** `mossy` returns `incomingDmgMod = -1` (intends heal) but
+  `calcDamage` clamps with `Math.max(1, dmg)` → it deals **1 damage instead of healing**.
+  Pure code-reading wouldn't have settled it; running it did.

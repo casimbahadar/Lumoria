@@ -60,15 +60,21 @@ const ABILITY_REGISTRY = {
     name: "Resonant",
     emoji: "📻",
     cssClass: "trait-resonant",
-    description: "Sonic moves this Lumori uses deal double power.",
+    description: "Sonic moves deal 1.33× power, but only when used by a non-Sonic-type Lumori.",
     ngPlusOnly: false,
-    outgoingPowerMod: (_a, _e, move) => move.type === "Sonic" ? 2.0 : 1,
+    // Niche cross-typing buff: assignable only to Lumori that aren't Sonic-typed
+    // themselves but happen to learn Sonic moves. Sonic-types get nothing.
+    outgoingPowerMod: (attacker, _e, move) => {
+      if (move.type !== "Sonic") return 1;
+      if (attacker.types?.includes("Sonic")) return 1;
+      return 1.33;
+    },
   },
 
-  empowered: {
-    name: "Empowered",
+  mastery: {
+    name: "Mastery",
     emoji: "💥",
-    cssClass: "trait-empowered",
+    cssClass: "trait-mastery",
     description: "Same-type-attack bonus boosted from 1.5× to 2.0×.",
     ngPlusOnly: false,
     // Returns the STAB multiplier this trait imposes; battle.js applies it via stabBonusMult dispatch
@@ -236,10 +242,10 @@ const ABILITY_REGISTRY = {
     drainMod: () => 2.0,
   },
 
-  symbiote: {
-    name: "Symbiote",
+  tool_adept: {
+    name: "Tool Adept",
     emoji: "🦠",
-    cssClass: "trait-symbiote",
+    cssClass: "trait-tool-adept",
     description: "Held item effects are twice as strong on this Lumori.",
     ngPlusOnly: false,
     heldItemMod: () => 2.0,
@@ -3437,7 +3443,7 @@ const ABILITY_REGISTRY = {
 const TRAIT_ASSIGNMENTS = {
   // Phase 5 partial — canonical 8 (3 starters + 5 early-game catches).
   // Full Phase 5 fills in all 446 entries. Until then, only these IDs have traits.
-  1:   { pool: ["empowered"] },    // Solkin — Fire STAB 2.0×
+  1:   { pool: ["mastery"] },      // Solkin — Fire STAB 2.0× via Mastery
   4:   { pool: ["mirage"] },       // Aquatter — 25% incoming miss
   7:   { pool: ["mossy"] },        // Verdkin — Nature heals it
   69:  { pool: ["thorned"] },      // Germix — phys recoil

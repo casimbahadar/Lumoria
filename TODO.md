@@ -30,10 +30,10 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 | 🔮 Mythical archetype flags | ✅ policy locked · ✅ re-archetype execution (#86) · ⏳ 54 NG+ classification → UNIFIED | `docs/mythical-archetype-policy.md`: golem CONFIRMED exempt; cetacean & treant capped (common cap-3, trim 2/1); wraith **split** into distinct spectral sub-archetypes; Forgotten renumbered 408–446→462–500 in taxonomy.md. Docs-only (no `mythical` data field). Re-archetype execution DONE (#86: cetacean trim-2, treant trim-1, wraith split). **54 NG+ classification (ids 408–461)** deferred to UNIFIED. |
 | 🎯 Moveset utilization audit | ✅ done | PR #68 — Phase 1 orphan-clearing + key rename + Phase 2 STAB-completeness |
 | 🌑 Forgotten Lumori dedicated audit | ✅ done (core) | typing/moveset/stats/archetype/lore/variant/appearance-briefs all done (2026-06-08, incl. PR #81); residual Abilities-assignment (blocked on Abilities feature) + 13 wielder cutscenes tracked under their own items |
-| 📊 Final stat-spread review | ⏳ not started | RUN LAST |
-| 🧬 Abilities feature | ⏳ not started | after stat review |
+| 📋 Final per-Lumori complete analysis | ⏳ not started | **RUN LAST.** Rescoped 2026-06-10 from the old stats-only "Final stat-spread review" → a comprehensive per-Lumori final pass: re-check **everything** one more time for each entry — stats/BST spread, typing (+ cap), lore, desc, emoji, archetype, moveset/learnset, evolution-line logic, name — and produce a **detailed written explanation per family and per standalone** (what it is, why each field/decision is right, any residual flags). Family-by-family / standalone-by-standalone format. This is the capstone verification of all prior audit work. |
+| 🧬 Abilities feature | ⏳ not started | after final per-Lumori analysis |
 | 🤝 Inter-Lumori interactions (dedicated pass) | ⏳ not started | after abilities (bridge sweep done, PR #48) |
-| 13 wielder cutscenes (Forgotten legendaries) | ⏳ not started | after stat review |
+| 13 wielder cutscenes (Forgotten legendaries) | ⏳ not started | after final per-Lumori analysis |
 | 🚀 Pre-launch / release process | 🚧 in progress | launch draft PR #52 |
 
 ---

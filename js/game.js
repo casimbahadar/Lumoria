@@ -1168,7 +1168,7 @@ function renderBattleTraitBadges(mon, isOwnSide) {
   return ids.map(id => {
     const def = getTraitDef(id);
     if (!def) return "";
-    return `<span class="battle-trait-badge ${def.cssClass||""}" title="${def.name}: ${def.description}">${def.emoji}</span>`;
+    return `<span class="battle-trait-badge ${def.cssClass||""}" title="${def.name}: ${def.description}">${def.name}</span>`;
   }).filter(Boolean).join("");
 }
 
@@ -3139,7 +3139,7 @@ function renderTraitBadges(slot) {
     const def = getTraitDef(id);
     if (!def) return "";
     const cls = def.cssClass || "";
-    return `<span class="trait-badge ${cls}" title="${def.name}: ${def.description}">${def.emoji} ${def.name}</span>`;
+    return `<span class="trait-badge ${cls}" title="${def.name}: ${def.description}">${def.name}</span>`;
   }).filter(Boolean).join("");
   return badges ? `<div class="team-traits">${badges}</div>` : "";
 }
@@ -3194,7 +3194,6 @@ function renderTraitSection(slot) {
     const cls = def.cssClass || "";
     return `<div class="trait-detail-row ${cls}">
       <div class="trait-detail-head">
-        <span class="trait-detail-emoji">${def.emoji}</span>
         <span class="trait-detail-name">${def.name}</span>
       </div>
       <div class="trait-detail-desc">${def.description}</div>
@@ -3939,6 +3938,25 @@ function showForgottenDetail(monsterId) {
     </div>`;
 }
 
+// Render the per-species "Known Traits" section for the Luminex dex page.
+// Reads the persistent G.discoveredTraits[monsterId] populated when a trait
+// fires in any battle. Hides the section entirely if nothing has been discovered.
+function renderLuminexTraitSection(monsterId) {
+  if (typeof getTraitDef !== "function" || typeof G === "undefined" || !G) return "";
+  const ids = G.discoveredTraits?.[monsterId] || [];
+  if (!ids.length) return "";
+  const rows = ids.map(id => {
+    const def = getTraitDef(id);
+    if (!def) return "";
+    const cls = def.cssClass || "";
+    return `<div class="trait-detail-row ${cls}">
+      <div class="trait-detail-head"><span class="trait-detail-name">${def.name}</span></div>
+      <div class="trait-detail-desc">${def.description}</div>
+    </div>`;
+  }).filter(Boolean).join("");
+  return rows ? `<div class="detail-section"><h4>Known Traits</h4>${rows}</div>` : "";
+}
+
 function showDexDetail(monsterId) {
   const def = MONSTERS_DATA[monsterId];
   const caught = G.caughtMonsters.has(monsterId);
@@ -4067,6 +4085,7 @@ function showDexDetail(monsterId) {
     </div>
     <div class="detail-section"><h4>Base Stats</h4>${statsHTML}</div>
     <div class="detail-section"><h4>Learnset</h4>${movesetHTML}</div>
+    ${renderLuminexTraitSection(monsterId)}
   `;
 
   renderLoreScreen();

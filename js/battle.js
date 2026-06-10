@@ -594,11 +594,13 @@ function _eachTrait(mon, fn) {
   }
 }
 
-// Mark a trait as discovered on this mon. Two layers:
-// - per-battle transient (mon._discoveredTraits Set) — fresh on every buildBattleMon
-// - per-species persistent (G.discoveredTraits[monsterId]) — survives save/load
-// Player's own roster always shows full reveal regardless of these flags; this
-// helper only matters for enemy-side reveal.
+// Mark a trait as fired on this mon. Two independent layers:
+// - per-battle transient (mon._discoveredTraits Set) — drives the BATTLE UI badge.
+//   Fresh on every buildBattleMon so each new encounter is a clean mystery, even
+//   for species the player has fought many times before.
+// - per-species persistent (G.discoveredTraits[monsterId]) — drives the LUMINEX
+//   dex page only. Permanent record across runs; lets the player look up traits
+//   they've learned long-term without spoiling the in-battle surprise.
 function markTraitDiscovered(mon, traitId) {
   if (!mon || !traitId) return;
   if (!mon._discoveredTraits) mon._discoveredTraits = new Set();
@@ -612,14 +614,21 @@ function markTraitDiscovered(mon, traitId) {
   }
 }
 
-// Should this trait render in the battle UI for this side?
+// Should this trait render in the BATTLE UI for this side? Transient-only check
+// so each new encounter starts hidden until the trait fires this battle.
 // - Own side (player): always reveal.
-// - Other side (enemy): only if discovered this battle OR persistently for this species.
+// - Other side (enemy): only if discovered this specific battle.
 function isTraitDiscovered(mon, traitId, isOwnSide) {
   if (isOwnSide) return true;
   if (mon?._discoveredTraits?.has(traitId)) return true;
-  if (typeof G !== "undefined" && G?.discoveredTraits?.[mon?.monsterId]?.includes(traitId)) return true;
   return false;
+}
+
+// Luminex helper: has this species×trait combo been confirmed at least once
+// across any past battle? Reads the persistent layer only.
+function isTraitInLuminex(monsterId, traitId) {
+  if (typeof G === "undefined" || !G) return false;
+  return !!G.discoveredTraits?.[monsterId]?.includes(traitId);
 }
 
 // Trait conditional status immunity (e.g. Permafrost: immune to Burn only in snow)

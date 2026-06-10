@@ -1252,21 +1252,22 @@ html, body {
 .trait-detail-name { font-weight: bold; color: var(--text-primary); font-size: 0.9rem; }
 .trait-detail-desc { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; }
 
-/* Battle UI trait badges — compact emoji-only rounds. Player side reveals all
-   traits; enemy side reveals only discovered ones. */
+/* Battle UI trait badges — small text pills with the trait name. Player side
+   reveals all traits; enemy side reveals only traits fired this battle.
+   Tooltip (title attr) provides the full description on hover/long-press. */
 .battle-trait-row { display: flex; gap: 0.25rem; margin-top: 0.25rem; flex-wrap: wrap; }
 .battle-trait-badge {
-  background: rgba(167, 139, 250, 0.18);
-  border: 1px solid rgba(167, 139, 250, 0.35);
-  border-radius: 50%;
-  width: 22px;
-  height: 22px;
-  display: flex;
+  background: rgba(167, 139, 250, 0.2);
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  border-radius: 10px;
+  padding: 0 0.4rem;
+  height: 18px;
+  font-size: 0.6rem;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  font-size: 0.85rem;
+  color: var(--text-secondary);
   cursor: help;
-  line-height: 1;
+  white-space: nowrap;
 }
 
 .team-hp-bar-wrap { display: flex; align-items: center; gap: 0.4rem; }

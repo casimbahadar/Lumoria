@@ -21,6 +21,7 @@ function newGameState(playerName, starterMonsterId) {
     shinyDexSeen: new Set(), shinyDexCaught: new Set(),
     variantDexSeen: new Set(), variantDexCaught: new Set(),
     variantLog: {},
+    discoveredTraits: {},
     seenInArea: {},
     championDefeated: false,
     questsCompleted: [],
@@ -136,6 +137,7 @@ function loadGame(slot) {
     if (data.vaeldrisPartyLock === undefined) data.vaeldrisPartyLock = null;
     if (!data.defeatedWielders) data.defeatedWielders = [];
     if (!data.forgottenLegendaryAttempted) data.forgottenLegendaryAttempted = [];
+    if (!data.discoveredTraits) data.discoveredTraits = {};
     // PvP saved team loadouts: up to 6 per format, drawn from owned Lumori.
     if (!data.pvpLoadouts) data.pvpLoadouts = { single: [], double: [] };
     if (!data.pvpLoadouts.single) data.pvpLoadouts.single = [];
@@ -1157,6 +1159,19 @@ function clearBattleLog() {
   document.getElementById("battle-log").innerHTML = "";
 }
 
+// Render visible trait badges for one side of the battle UI. Player side always
+// shows all traits; enemy side gates each trait through isTraitDiscovered so
+// undiscovered enemy traits stay hidden until first fire.
+function renderBattleTraitBadges(mon, isOwnSide) {
+  if (!mon || typeof getMonTraits !== "function" || typeof getTraitDef !== "function") return "";
+  const ids = getMonTraits(mon).filter(id => isTraitDiscovered(mon, id, isOwnSide));
+  return ids.map(id => {
+    const def = getTraitDef(id);
+    if (!def) return "";
+    return `<span class="battle-trait-badge ${def.cssClass||""}" title="${def.name}: ${def.description}">${def.emoji}</span>`;
+  }).filter(Boolean).join("");
+}
+
 function updateBattleUI() {
   const player = playerActiveMon;
   const enemy = enemyActiveMon;
@@ -1199,6 +1214,9 @@ function updateBattleUI() {
     enemyTypes.appendChild(badge);
   }
 
+  const enemyTraits = document.getElementById("enemy-trait-badges");
+  if (enemyTraits) enemyTraits.innerHTML = renderBattleTraitBadges(enemy, false);
+
   // Show IVs for wild encounters so players can evaluate
   const enemyIVsEl = document.getElementById("enemy-ivs");
   if (enemyIVsEl) {
@@ -1230,6 +1248,9 @@ function updateBattleUI() {
   playerFill.style.width = playerHPPct + "%";
   playerFill.className = "hp-fill" + (playerHPPct < 25 ? " red" : playerHPPct < 50 ? " yellow" : "");
   document.getElementById("player-hp-text").textContent = `${player.currentHP} / ${player.maxHP}`;
+
+  const playerTraits = document.getElementById("player-trait-badges");
+  if (playerTraits) playerTraits.innerHTML = renderBattleTraitBadges(player, true);
 
   const playerStatus = document.getElementById("player-status-badge");
   if (hasAnyStatus(player)) {

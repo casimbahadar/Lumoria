@@ -1842,7 +1842,7 @@ const MONSTERS_DATA = {
     base:{hp:34,atk:48,def:43,spa:50,spd:43,spe:94},
     learnset:[[1,"mandible_bite",[22,"arc_flash"]],[1,"jolt"],[3,"static_cage"],[7,"aquatic_gun"],[10,"static_strike"],[12,"shock_net"],[15,"wave_dash"],[18,"silk_spray"],[20,"second_wind"],[24,"shock_pulse"],[26,"volt_jet"],[28,"bubble_jet"],[30,"repulsion_field"],[31,"cocoon_burst"],[34,"resonance_hum",[5,"stun_pulse"]],[36,"shear_strike"]],
     evolveTo:85, evolveLevel:22, catchRate:200, expYield:74, rarity:"common",
-    desc:"An electric beetle that emits charged buzzing sounds. Very energetic.",
+    desc:"An electric dragonfly nymph that crawls stream beds, sparking from its wing-buds when threatened. Very energetic.",
     lore:"Electrix is a small dragonfly nymph 8 cm long, the aquatic juvenile stage of the lineage. Its body is segmented and dark with metallic gold-edged plates, and small gilled abdomen-tufts trail behind it as it crawls along stream beds. It already generates faint electrical sparks from its rudimentary wing-buds when threatened. It hunts smaller aquatic insects with its hooked predatory mandibles, and lives in colonies in slow-moving water near decaying wood, where it processes organic material into bioelectric energy." },
 
   85: { id:85, name:"Shockharpe",  emoji:"🪰", types:["Electric","Nature"],

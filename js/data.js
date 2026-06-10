@@ -2160,7 +2160,7 @@ const MONSTERS_DATA = {
     desc:"A sludge behemoth that poisons everything it touches. Its territory reeks.",
     lore:"Corrodisc is a large ground-crawling acidic creature 1 metre across, shaped like a flattened toad-tadpole with a broad disc-like body and short stubby limbs — Acidelix's drifting orb-membrane has settled to the ground and reorganised into a flat disc, and the acid-green liquid that once filled its sphere now exudes from its undersurface as a corrosive fluid that slowly etches whatever it crawls across. It inhabits cave floors and underground acid springs, leaving characteristic pitting in stone wherever it travels." },
 
-  160: { id:160, name:"Miasmafly",   emoji:"🦟", types:["Poison","Wind"],
+  160: { id:160, name:"Miasmafly",   emoji:"🦟", types:["Poison","Vapor"],
     base:{hp:49,atk:53,def:30,spa:78,spd:64,spe:77},
     learnset:[[1,"septic_prick",[22,"acid_rain"]],[1,"breeze"],[10,"ooze_bomb"],[16,"vital_pulse"],[18,"wind_scythe"],[26,"toxify"],[29,"miasma_cloud"],[34,"typhoon"],[40,"plague_burst"],[42,"virulent_surge",[5,"toxic_surge"]],[3,"toxin_bloom"],[32,"sludge_wave"]],
     evolveTo:161, evolveLevel:30, catchRate:140, expYield:88, rarity:"common",
@@ -3722,7 +3722,7 @@ const MONSTERS_DATA = {
     desc:"A gelatinous pinniped of compacted living frost. Bioluminescent pulses ripple through its translucent body, mapping prey by their electric fields.",
     lore:"Frostmere is a gelatinous deep-ocean creature 1.5 metres long that has condensed its drifting medusa form into a more solid, seal-shaped silhouette. Its translucent body — Slatis's free-floating jellyfish bell — is now packed into a streamlined pinniped outline of bluish-white frozen jelly, sheathed in a fine layer of silver-white frost crystals that mimic the look of fur. Pale eyes the colour of deep glacier melt sit forward in its head, and the trailing tendrils of its base form persist as faint translucent streamers behind its flippers. Subtle bioluminescent pulses ripple through its gel-body in slow waves, illuminating it from within and serving as the visible discharge of an internal organ that maps the electric fields of every living thing nearby — its entire body functions as a single conductive sensor, hunting through polar water channels by reading prey's heartbeats from metres away rather than relying on sight." },
 
-  161: { id:161, name:"Mistbane", emoji:"🦠", types:["Poison","Wind"],
+  161: { id:161, name:"Mistbane", emoji:"🦠", types:["Poison","Vapor"],
     base:{hp:70,atk:75,def:54,spa:102,spd:80,spe:105},
     learnset:[[1,"septic_prick"],[1,"downdraft"],[2,"ooze_bomb"],[3,"wind_scythe"],[4,"mycelia_net"],[31,"toxify"],[36,"virulent_surge"],[40,"tempest_wrath"],[45,"corrosion_fang"],[50,"typhoon"],[55,"venom_lance"],[60,"sludge_wave"],[5,"miasma_cloud"],[43,"wingbeat"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:195, rarity:"uncommon",

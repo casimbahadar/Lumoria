@@ -3105,6 +3105,24 @@ function onFightButtonMulti() {
 // ============================================================
 // TEAM SCREEN
 // ============================================================
+
+// Render the active-trait badges for a Lumori slot. Returns an empty string
+// if the species has no trait assignments yet — caller drops the row entirely.
+// Reveals all traits since the player owns this Lumori; enemy-side trait
+// surfacing (battle UI) gates reveal on in-battle discovery.
+function renderTraitBadges(slot) {
+  if (typeof getMonTraits !== "function" || typeof getTraitDef !== "function") return "";
+  const ids = getMonTraits(slot);
+  if (!ids.length) return "";
+  const badges = ids.map(id => {
+    const def = getTraitDef(id);
+    if (!def) return "";
+    const cls = def.cssClass || "";
+    return `<span class="trait-badge ${cls}" title="${def.name}: ${def.description}">${def.emoji} ${def.name}</span>`;
+  }).filter(Boolean).join("");
+  return badges ? `<div class="team-traits">${badges}</div>` : "";
+}
+
 function showTeamScreen() {
   showScreen("screen-team");
   document.getElementById("team-detail").classList.add("hidden");
@@ -3133,6 +3151,7 @@ function showTeamScreen() {
           <div class="team-types">${typeHTML}</div>
         </div>
       </div>
+      ${renderTraitBadges(slot)}
       <div class="team-hp-bar-wrap">
         <div class="team-hp-bar"><div class="team-hp-fill ${hpClass}" style="width:${hpPct}%"></div></div>
         <span class="team-hp-text">${slot.currentHP}/${slot.maxHP}</span>

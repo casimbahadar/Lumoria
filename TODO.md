@@ -1017,11 +1017,11 @@ Per-Lumori passive system. Named "Traits" to sidestep Pokémon "Abilities" trade
 - [x] Phase 5 partial: canonical 8 trait assignments (3 starters + 5 early-game catches) via `TRAIT_ASSIGNMENTS` + `getMonTraits` fallback. All 8 verified working end-to-end (Mossy heal, Levitating immunity, Thorned recoil, Empowered STAB, Mirage miss, Lucky crit-immune)
 - [x] Mossy/Levitating bugfix — `calcDamage` now honors zero/negative `incomingDmgMod` (immunity / absorb) instead of clamping to 1 dmg
 
-**🚧 ACTIVE — Trait UI surfacing (new branch `claude/traits-ui-surfacing`):**
-- [ ] Team menu — small trait badge per Lumori card with hover/tap tooltip
-- [ ] Lumori detail screen — traits section with name + emoji + description per active trait
-- [ ] Battle UI — inline trait badge near each active mon's name (player + enemy)
-- [ ] Per-trait CSS class hook (`cssClass` field already on every registry entry) so future theming is easy
+**🚧 ACTIVE — Trait UI surfacing (new branch `claude/traits-ui-surfacing`, PR #91):**
+- [x] Team menu — small trait badge per Lumori card with hover/tap tooltip (own roster, full reveal)
+- [ ] Lumori detail screen — traits section with name + emoji + description per active trait (own roster, full reveal)
+- [ ] Battle UI — inline trait badge near the **player's** active mon's name (full reveal — it's your own Lumori). **Enemy-side reveal gated on in-battle discovery**: an enemy's trait shows only after it has triggered at least once in the current battle (or persistently across runs once a per-species "seen" flag is set). Per-individual transient flag during battle; per-species persistent flag in save data. Details TBD.
+- [x] Per-trait CSS class hook (`cssClass` field already on every registry entry) so future theming is easy — markup includes the class; per-trait styling is its own commit
 - [ ] Smoke test: visible badge for Verdkin (Mossy), Solkin (Empowered), Photoworm (Thorned) etc. at all 3 surfaces
 
 **⏳ Phase 5 full assignment (follows UI surfacing):**

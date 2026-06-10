@@ -3752,24 +3752,22 @@ function showDexDetail(monsterId) {
       <tbody>${movesetRows.join("")}</tbody>
     </table>`;
 
-  // Build paginated lore lines (4 lines per page)
+  // Build paginated lore lines (continuous wrap — fills each line fully
+  // instead of breaking short at every sentence end)
   const loreText = def.lore || def.desc;
-  // Split into sentences then wrap into lines of ~45 chars
-  const sentences = loreText.match(/[^.!?]+[.!?]+/g) || [loreText];
+  const CHARS_PER_LINE = 50;
+  const words = loreText.trim().split(/\s+/);
   const lines = [];
-  for (const s of sentences) {
-    const words = s.trim().split(" ");
-    let line = "";
-    for (const w of words) {
-      if ((line + " " + w).trim().length > 45 && line.length > 0) {
-        lines.push(line.trim());
-        line = w;
-      } else {
-        line = (line + " " + w).trim();
-      }
+  let line = "";
+  for (const w of words) {
+    if (line && (line + " " + w).length > CHARS_PER_LINE) {
+      lines.push(line);
+      line = w;
+    } else {
+      line = line ? line + " " + w : w;
     }
-    if (line) lines.push(line.trim());
   }
+  if (line) lines.push(line);
   const LINES_PER_PAGE = 4;
   const totalPages = Math.max(1, Math.ceil(lines.length / LINES_PER_PAGE));
   let lorePage = 0;

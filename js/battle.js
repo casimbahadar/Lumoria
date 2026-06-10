@@ -1221,6 +1221,7 @@ function applyPlagueSpread(fieldMons) {
 // Combines: attacker's stages.acc + defender's stages.eva (Pokemon-style accuracy stages)
 // with passive accuracyMod hooks from active statuses (Smothered, Faded, Mirage, etc.).
 function getEffectiveAccuracy(attacker, defender, move) {
+  if (move.neverMiss) return 100;
   if (shouldForceHit(attacker)) return 100;
   const accStage = (attacker.stages && attacker.stages.acc) || 0;
   const evaStage = (defender.stages && defender.stages.eva) || 0;
@@ -1240,9 +1241,15 @@ function calcStat(base, level, iv) {
   return Math.floor(((2 * base + (iv||0)) * level) / 100) + 5;
 }
 
-// Shared move array builder
+// Shared move array builder. Skips ids missing from MOVES_DATA so an old save (or
+// a renamed/removed move key) can't crash battle-build on `MOVES_DATA[mid].pp`.
 function buildMoveArr(moveIds) {
-  return moveIds.map(mid => ({ id: mid, pp: MOVES_DATA[mid].pp, maxPP: MOVES_DATA[mid].pp }));
+  return (moveIds || []).reduce((arr, mid) => {
+    const def = MOVES_DATA[mid];
+    if (!def) { if (typeof console !== "undefined") console.warn(`buildMoveArr: unknown move "${mid}" skipped`); return arr; }
+    arr.push({ id: mid, pp: def.pp, maxPP: def.pp });
+    return arr;
+  }, []);
 }
 
 // Shared battle-mon base (common fields for all 3 build functions)
@@ -1267,11 +1274,18 @@ function buildMonBase(def, lv, ivs, nature, baseOverride) {
 }
 
 // Build a live battle copy from a party slot (levelCap optional)
+// PvP normalizes every battler to a fixed level with perfect IVs so team-building
+// and skill decide the match, not grind. See docs/pvp-spec.md.
+const PVP_LEVEL_CAP = 50;
+
 function buildBattleMon(partySlot, levelCap) {
   migrateStatuses(partySlot);
   const def = MONSTERS_DATA[partySlot.monsterId];
-  const lv = (levelCap && partySlot.level > levelCap) ? levelCap : partySlot.level;
-  const ivs = partySlot.ivs || { hp:0, atk:0, def:0, spa:0, spd:0, spe:0 };
+  const pvp = typeof battleContext !== "undefined" && battleContext && battleContext.isPvP;
+  const lv = pvp ? PVP_LEVEL_CAP
+                 : ((levelCap && partySlot.level > levelCap) ? levelCap : partySlot.level);
+  const ivs = pvp ? { hp:31, atk:31, def:31, spa:31, spd:31, spe:31 }
+                  : (partySlot.ivs || { hp:0, atk:0, def:0, spa:0, spd:0, spe:0 });
   const heldItemId = partySlot.heldItem || null;
   const heldData = heldItemId ? ITEMS_DATA[heldItemId] : null;
 
@@ -1285,6 +1299,10 @@ function buildBattleMon(partySlot, levelCap) {
     heldItem: heldItemId,
     focusSashUsed: false,
     partyRef: partySlot,
+    // Forward-compat: no ability battle system exists yet, so this is null today.
+    // Carried here (and in pvpSerializeMon) so abilities will flow through battles —
+    // including PvP snapshots — automatically once the system is implemented.
+    ability: partySlot.ability || (def && def.ability) || null,
     shiny: !!partySlot.shiny,
     variant: !!partySlot.variant,
     variantTypes: partySlot.variantTypes || null,
@@ -1337,6 +1355,9 @@ function buildBattleMon(partySlot, levelCap) {
   }
   // Variant: override types
   if (partySlot.variant && partySlot.variantTypes) mon.types = [...partySlot.variantTypes];
+
+  // PvP battlers always enter at full, un-statused HP (a fresh competitive match).
+  if (pvp) { mon.currentHP = mon.maxHP; mon.fainted = false; mon.statuses = []; }
 
   return mon;
 }
@@ -1431,7 +1452,7 @@ function buildWildMon(monsterId, level, forceShiny, forceVariant) {
   const nature = getRandomNature();
   const ivs = generateIVs();
   const knownMoves = def.learnset.filter(e => e[0] <= level).map(e => e[1]).slice(-4);
-  if (knownMoves.length === 0) knownMoves.push("tackle");
+  if (knownMoves.length === 0) knownMoves.push("collide");
 
   let shinyRate = 1/2048;
   if (typeof getTimeShinyMult  === "function") shinyRate *= getTimeShinyMult();
@@ -1515,7 +1536,10 @@ function getMoveEffectiveness(move, defenderTypes) {
       if (move.breakerVs && dt === move.breakerVs) {
         eff *= 2;
       } else if (TYPE_CHART[mt] && TYPE_CHART[mt][dt] !== undefined) {
-        eff *= TYPE_CHART[mt][dt];
+        let m = TYPE_CHART[mt][dt];
+        // Inverse Mode (NG+ option): fully reversed type chart.
+        if (typeof G !== "undefined" && G && G.inverseMode && typeof inverseEffMult === "function") m = inverseEffMult(m);
+        eff *= m;
       }
     }
     total *= eff;
@@ -1574,6 +1598,10 @@ function calcDamage(attacker, defender, move, opts = {}) {
   if (defender.variantImmune && (workMove.type === defender.variantImmune || (workMove.dualType || []).includes(defender.variantImmune))) {
     return { damage: 0, effectiveness: 0, crit: false };
   }
+  // True type immunity (0x): deal no damage. Returning here avoids the final
+  // Math.max(1, dmg) clamp chipping 1 HP through an immunity (and the
+  // contradictory "It had no effect!" + "took 1 damage!" log).
+  if (eff === 0) return { damage: 0, effectiveness: 0, crit: false };
   dmg = Math.floor(dmg * eff);
 
   // Incoming dmg multiplier from defender's statuses + traits (Drenched/Soaked,
@@ -1592,6 +1620,16 @@ function calcDamage(attacker, defender, move, opts = {}) {
     return { damage: 0, heal, effectiveness: eff, crit: false };
   }
   dmg = Math.floor(adjusted);
+
+  // Status-exploit moves: 2x damage if the defender carries the targeted status.
+  // move.bonusVsStatus may be a status-type string, an array of types, or "any".
+  if (workMove.bonusVsStatus && defender.statuses && defender.statuses.length) {
+    const want = workMove.bonusVsStatus;
+    const hit = want === "any"
+      ? true
+      : (Array.isArray(want) ? want : [want]).some(t => hasStatus(defender, t));
+    if (hit) dmg = Math.floor(dmg * 2);
+  }
 
   // Crit calculation: traits can force-crit (Predator, Killing Blow, Light-feet),
   // grant crit-immunity (Lucky), boost crit rate (Sharp-eyed, Dream Lord), or override
@@ -1627,6 +1665,7 @@ const STAGE_FX = {
   defup:     { who:'a', stat:'def', delta:+1, msg:'Defense rose' },
   defup2:    { who:'a', stat:'def', delta:+2, msg:'Defense rose sharply' },
   speup:     { who:'a', stat:'spe', delta:+1, msg:'Speed rose' },
+  speup2:    { who:'a', stat:'spe', delta:+2, msg:'Speed rose sharply' },
   spaup:     { who:'a', stat:'spa', delta:+1, msg:'Sp.Atk rose' },
   spaup2:    { who:'a', stat:'spa', delta:+2, msg:'Sp.Atk rose sharply' },
   spatkup:   { who:'a', stat:'spa', delta:+1, msg:'Sp.Atk rose' }, // synonym for spaup
@@ -1878,7 +1917,7 @@ function canMove(mon) {
 
 function aiChooseMove(ai, target) {
   const usableMoves = ai.moves.filter(m => m.pp > 0);
-  if (!usableMoves.length) return { id: "tackle", pp: 1, maxPP: 35 };
+  if (!usableMoves.length) return { id: "collide", pp: 1, maxPP: 35 };
 
   return usableMoves.reduce((best, m) => {
     const move = MOVES_DATA[m.id];

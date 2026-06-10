@@ -420,6 +420,7 @@ const MusicEngine = (() => {
     if (context.isUmbra) return "umbra_battle";
     if (context.isGym || context.isQuest) return "gym_battle";
     if (context.isWild) return "wild_battle";
+    if (context.isPvP) return "rival_battle";   // async/FFA/live PvP get a battle theme
     return "overworld";
   }
 

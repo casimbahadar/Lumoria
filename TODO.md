@@ -1,17 +1,17 @@
 # TODO - Lumoria Bugs & Feature Requests
 
-## 📊 STATUS OVERVIEW — reconciled against `main` (63 PRs: 61 merged, #60 PvP draft, #52 launch draft)
+## 📊 STATUS OVERVIEW — reconciled against `main` (PvP PR #60 now merged; #52 launch still draft)
 
 _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress · ⏳ not started · 📎 reference/parking. Section headers carry the same tag inline._
 
-> **Status = the TODO task, not the PR.** The only **open (unmerged) PRs** are **#60 (Online PvP)** and **#52 (launch plan)** — both drafts. Every other PR (incl. #63) is **already merged**; a 🚧/⏳ next to a merged-PR row means the *task* is partly/not done, not that the PR is open.
+> **Status = the TODO task, not the PR.** The only **open (unmerged) PR** is **#52 (launch plan)** — a draft. **#60 (Online PvP) is now merged** (code-complete, but ⏳ **unverified** — needs a real-Firebase playtest, see #13's verification checklist). Every other PR (incl. #63) is **already merged**; a 🚧/⏳ next to a merged-PR row means the *task* is partly/not done, not that the PR is open.
 
 | Area | Status | Evidence |
 |---|---|---|
 | Bugs #1–4, Features #5–10 | ✅ done | early PRs |
 | #11 Variant + shiny system | ✅ done | PR #59 |
 | #12 Variant content (lore/desc/behaviour/learnset) | ✅ done | PR #61 |
-| #13 Online PvP | 🚧 in progress | PR #60 (draft) |
+| #13 Online PvP | ✅ code · ⏳ verify | PR #60 **merged**; all modes built, needs Firebase playtest (checklist in #13) |
 | Phase-1 coherence (archetype brainstorm, borderline triage, bridge lore) | ✅ done | PRs #38–46, #47, #48 |
 | 🔧 BREAKING + 🪛 MINOR family fixes | ✅ done | PRs #36/#47/#55 |
 | 🔍 Solo desc/lore/emoji audit | ✅ done | PR #49 |
@@ -23,12 +23,13 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 | 🎲 Encounter-rate audit | ✅ done | PR #58 |
 | 🎯 Obtainability audit (474/500) | ✅ done | PR #62 |
 | 🎮 NG+/Forgotten gating + legendary encounters | ✅ done | PR #53 |
-| 🎯 Archetype × type-combo diversity **audit** | ✅ analysis shipped · ⏳ full audit pending | PR #63 **merged** (matrix doc only); full pass folded into 🕯 UNIFIED |
-| 🕯 UNIFIED per-Lumori audit | ⏳ not started | next major phase |
+| 🎯 Archetype × type-combo diversity **audit** | ✅ analysis shipped · ✅ collision pass applied · ⏳ full sweep folded into UNIFIED | PR #63 **merged** (matrix doc); collision-resolution pass: 9 archetype×combo collisions → 12 cap-verified retypes (Crumblite/Stonegrip, Abyssforge, Rimeling/Deepfreeze, Ferrocrush, Emberveil, Mosswing, Shadowpup/Nightclaw/Darkfang, Cryoshard) + STAB; Lumivane kept (false-collision relabel). Remaining full per-cell sweep folded into 🕯 UNIFIED |
+| 🕯 UNIFIED per-Lumori audit | 🚧 ACTIVE — next phase | handoff: `docs/unified-audit-handoff.md`. Per-Lumori lore/desc/emoji/archetype/type/cap walk + classifies the **54 unclassified NG+ families (ids 408–461)** |
 | 📉 Standalone count reduction | ⏳ not started | — |
 | 🏷️ Luminex renaming + final lore | ⏳ partial/paused | PRs #34–35; resumes after UNIFIED |
-| 🔮 Mythical archetype flags | ⏳ not started | end-of-task |
-| 🎯 Moveset utilization audit | ⏳ not started | — |
+| 🔮 Mythical archetype flags | ✅ policy locked · ✅ re-archetype execution (#86) · ⏳ 54 NG+ classification → UNIFIED | `docs/mythical-archetype-policy.md`: golem CONFIRMED exempt; cetacean & treant capped (common cap-3, trim 2/1); wraith **split** into distinct spectral sub-archetypes; Forgotten renumbered 408–446→462–500 in taxonomy.md. Docs-only (no `mythical` data field). Re-archetype execution DONE (#86: cetacean trim-2, treant trim-1, wraith split). **54 NG+ classification (ids 408–461)** deferred to UNIFIED. |
+| 🎯 Moveset utilization audit | ✅ done | PR #68 — Phase 1 orphan-clearing + key rename + Phase 2 STAB-completeness |
+| 🌑 Forgotten Lumori dedicated audit | ✅ done (core) | typing/moveset/stats/archetype/lore/variant/appearance-briefs all done (2026-06-08, incl. PR #81); residual Abilities-assignment (blocked on Abilities feature) + 13 wielder cutscenes tracked under their own items |
 | 📊 Final stat-spread review | ⏳ not started | RUN LAST |
 | 🧬 Abilities feature | ⏳ not started | after stat review |
 | 🤝 Inter-Lumori interactions (dedicated pass) | ⏳ not started | after abilities (bridge sweep done, PR #48) |
@@ -107,9 +108,77 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 - The variant *mechanic* (stats/typing/immunity randomization) is handled in #11. #12 is the **content** layer on top: per-Lumori variant **lore, descriptions, movesets** and any deeper randomization.
 - **Batch** the authoring like the NG+ families; validate move keys/types per batch.
 
-### 13. Online PvP battle system 🚧 IN PROGRESS (PR #60, draft branch)
-- No PvP exists yet (only leaderboards, trades, events). Build async or real-time online battles (Firebase): challenge/matchmaking, team submission + validation, turn resolution reusing the battle engine, result reporting.
-- Per current ruling, **both variants and shinies are allowed** in PvP (no shiny exclusion).
+### 13. Online PvP battle system ✅ CODE-COMPLETE (PR #60 merged to `main`) · ⏳ UNVERIFIED (needs Firebase playtest)
+**Full design: `docs/pvp-spec.md`.** Two player-chosen modes on the existing Firebase RTDB layer:
+- **Async** — battle a snapshot of another player's team locally vs the AI (reuses the battle engine). **Real-time** — host-authoritative live turn-sync between two online players.
+- **Lv 50 cap** for all PvP mons (IVs 31; variant fields preserved).
+- **Matchmaking:** browsable board + one-tap random/rating queue + **passcode rooms** (private by default, flippable to public spectating — Showdown-style).
+- Variants **and** shinies both allowed. Rating → `/leaderboards/pvp`.
+- ⚠️ Untestable here (placeholder `FIREBASE_CONFIG`, no browser/2nd client) — write correct-by-inspection, playtest after real credentials.
+- **Phase A ✅ (done, unverified):** Lv-50 normalization in `buildBattleMon` (force Lv 50 + perfect IVs + full HP when `battleContext.isPvP`); `startPvpBattle()` plays the opponent's snapshot for real vs the AI (single mode, snapshots/restores party HP so PvP neither damages nor heals); `endBattle` PvP branch → `recordPvpResult()`; `quickMatch()` (near-rating pick) + browsable board now launch real battles; full team serialization (`pvpSerializeMon`: moves/nature/held/shiny/variant); Quick Match button; fixed a latent crash (`GYM_LEADERS[undefined]`) for multi-mon opponents. Retired the old power-score `simulatePvPBattle`.
+- **Rating ✅ (done, unverified):** Elo with **amplified upsets** (two-K: `PVP_K_UPSET=56` / `PVP_K_EXPECTED=24`, base 1000) → `pvp_rating` leaderboard; no XP/blackout/gym rewards. PvP screen shows a rating banner (`renderPvpRatingBanner`: "Your rating: ⭐ N · W–L"). Acceptor-only for now; challenger mailbox deferred.
+- **Phase B ✅ (done, unverified):** **Gauntlet** + challenger rating **mailbox** (`/pvpMailbox/{uid}`) landed earlier. Async **Doubles (2v2 vs AI snapshot)** now complete via the existing `startMultiBattle("double")` engine — Units A–E:
+  - **A** — `startPvpBattle(meta.doubles)` routes through the double engine vs the AI-piloted snapshot; plugged the doubles XP leak (`handleMultiFaintedMons` now PvP-guarded).
+  - **B** — independent Doubles **ladder**: `PVP_MODES` field map, mode-aware `recordPvpResult(won,mode)` + `drainPvpMailbox` (notes carry `format`), new `pvp_doubles_rating` board.
+  - **C** — format-tagged post/accept/quick-match, each routed to the right ladder.
+  - **D** — Singles/Doubles toggle on the PvP screen, dual-ladder rating banner, format tags on challenge cards.
+  - **E** — **up-to-6 saved teams per format** (active PvP loadouts, posted **and** battled with via a `G.team` temp-swap; party untouched) + builder UI screen. Also **fixed a real bug**: `pvpSerializeMon` mapped `mv.id` on string-array slot moves → posted teams had `[undefined]` moves (why Phase A was unverified-broken). Now handles both move shapes.
+- **Phase C ✅ (done, unverified):** async **FFA Royale** — isolated N-side engine (`startFfaBattle`/`#screen-ffa`), 3-4 sides, full teams (1 active + bench), true royale (everyone targets anyone, last standing). Pulls 2-3 open posted teams as AI sides; self-contained 👑 `pvp_ffa_rating` ladder. Reuses `calcDamage`/`applyMoveEffect`; never touches the proven 2-side engine.
+- **Phase D ✅ (done, unverified):** real-time. **D1** — type-aware live damage, passcode + public rooms, public spectating, per-client zero-sum rating (replaced coins-only/host-only). **D2** — **live 2v2 + live FFA** via a unified host-authoritative N-seat engine (`createMultiLiveRoom`/`resolveMultiLiveTurn`): one human per seat, alliances per mode, missing-move AI fill + resolve guard; 2v2→doubles ladder, FFA→ffa ladder.
+- **Post-D polish ✅ (done, unverified):** 60s **turn timer** (auto-pick on expiry) across every PvP/online mode + host-side disconnect safety net; **live mechanical parity** (live now runs the real `calcDamage`); **FFA polish** (battle music, hit/faint animations) + **FFA depth** (residual `tickStatus`, switch menu). **Bag items disabled in all PvP/online modes.** ⚠️ Live 2v2/FFA still need multiple simultaneous real clients to verify; see `docs/pvp-spec.md` "Known limitations".
+- See `docs/pvp-spec.md` for the rating formula + full modes roadmap.
+
+#### 🔥 Firebase verification checklist — DO THIS to confirm PvP works (everything above is correct-by-inspection only; never run against a live DB / 2nd client)
+> Why: this session had a **placeholder `FIREBASE_CONFIG`** and no browser, so nothing online was exercised. Run the steps below with real credentials before flipping #13 to ✅ verified. Tick boxes + date as you go.
+
+**Setup (once):**
+- [ ] Real `FIREBASE_CONFIG` wired (see `js/firebase-config*.js` / `initOnline` in `js/online.js`); Realtime Database enabled.
+- [ ] RTDB **security rules** allow the signed-in user to read/write the PvP paths below (challenges readable by all, mailbox writable cross-user, live rooms read/write for participants).
+- [ ] **2 accounts** in separate browsers/incognito (devices ideal). Live **2v2 needs 4**, live **FFA needs 2–4**; async **FFA quick-match needs ≥2 other posted teams** on the board.
+- [ ] `🌐 ONLINE` connects (`#hud-online-status`), PvP screen opens, rating banner renders (`renderPvpRatingBanner`).
+
+**RTDB paths to watch in the console** (confirms writes land correctly):
+- `battles/{id}` — async challenges (status open→completed; team JSON has **real move ids, not `[undefined]`**).
+- `pvpMailbox/{uid}` — async result notes for the offline challenger.
+- `pvp_live/{code}` — live rooms (1v1 fields + `seats[]`/`moves` for multi).
+- `leaderboards/pvp_rating` · `pvp_doubles_rating` · `pvp_ffa_rating` · `pvp_gauntlet`.
+
+**Async Singles 1v1:**
+- [ ] Post Singles challenge (live party or saved loadout) → `battles/` open entry with correct serialized team; party HP unchanged afterward.
+- [ ] Acct B Quick Match / accept → real battle vs AI snapshot at **Lv 50**; result → ratings move by the gap curve; `pvp_rating` board updates; challenge marked completed.
+- [ ] Mailbox note deposited; on the challenger's next login `drainPvpMailbox` mirrors the result **zero-sum** (their Δ = −acceptor's), then clears the note.
+
+**Async Doubles (2v2):**
+- [ ] Toggle Doubles → post/accept → 2v2 vs snapshot; `pvp_doubles_rating` moves **independently** of singles; format tag shown on cards; saved Doubles loadout posts/battles with real party untouched.
+
+**Gauntlet:**
+- [ ] Back-to-back snapshot battles; survival streak → `pvp_gauntlet` (best only); rating **not** affected.
+
+**Async FFA Royale (👑):**
+- [ ] With ≥2 other posted teams → 3–4 sides; everyone can target anyone; last side standing wins; `pvp_ffa_rating` moves vs avg opponent; **switch** works; **no bag**; residual burn/poison ticks at end of turn.
+
+**Live 1v1:**
+- [ ] Create room (try **passcode** + **public** toggle) → public room appears in the list; Acct B joins (passcode enforced) → battle starts.
+- [ ] Damage uses real `calcDamage` (log shows crit / super-effective / resisted); on a faint the bench sends out; on KO both players' `pvp_rating` update **zero-sum** once each.
+- [ ] Acct C **spectates** a public in-progress room read-only (no controls).
+
+**Live 2v2:**
+- [ ] 4 clients join → alliances A/B (join order); each controls **1 active**; **can't target allies**; alliance is out when both its seats fall; battle ends at ≤1 alliance; `pvp_doubles_rating` updates per client.
+
+**Live FFA:**
+- [ ] 2–4 clients; host **Start** enabled once ≥2 in; everyone targets anyone; last seat standing; `pvp_ffa_rating` updates.
+
+**Turn timer & disconnect (every mode):**
+- [ ] Idle 60s → countdown shows, turns red ≤10 s, **auto-picks** a move (live auto-submits).
+- [ ] Close a live client mid-turn → host **force-resolves ~65 s** later with AI-fill (no permanent stall).
+
+**Bag-disable & integrity:**
+- [ ] Bag is blocked in every PvP mode (greyed button / "🚫 disabled" notice); items **not** consumed; catch disabled.
+- [ ] Forfeit/leave sets the room `abandoned`; result rating applied **exactly once** (no double-count on repeated `done` events).
+
+**Known risk areas to scrutinize first** (most likely to bite): multi-seat `seats[]`/`moves` sync & alliance win-check; zero-sum rating mirroring (async mailbox + live per-client); RTDB rules blocking cross-user mailbox writes; the host disconnect timer firing on the right turn key.
+
+**TODO #13 PvP: all phases A–D + timer/parity/polish implemented & merged (PR #60). Status = code-complete, ⏳ UNVERIFIED — run the Firebase checklist above to validate, then mark ✅.**
 
 ---
 
@@ -581,7 +650,9 @@ Inline `LORE-AUDIT FLAG (Step 4)` comments placed above 46 Lumori entries in `js
 - **Step 4/5 process rule:** when proposing per-Lumori typing adjustments, ground each recommendation in the Lumori's existing lore/desc so the new typing makes narrative sense.
 - Branch: `claude/typing-combo-audit-2-JUGMH` (PR #51 — re-titled + re-described to reflect new scope on next commit).
 
-# 🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED) — added 2026-05-24  `[⏳ NOT STARTED — the next major phase; scoping Qs open + diversity-matrix findings queued]`
+# 🕯 Per-Lumori lore + desc + archetype + cap audit (UNIFIED) — added 2026-05-24  `[🚧 ACTIVE — the next major phase; handoff in docs/unified-audit-handoff.md; scoping Qs open + diversity-matrix findings queued]`
+
+> **Dex bands (authoritative, `js/game.js` constants):** base = ids 1–321 · **NG+-exclusive = ids 322–461** · **Forgotten = ids ≥ 462** (Vaeldris-quest gated). The 322–407 NG+ block is already classified; the **54 NG+ families at ids 408–461 are the unclassified subset** this audit must classify (several carry legacy Crystal/Sonic/Vapor/etc. types from before the Forgotten renumber — review per CLAUDE.md, don't mass-strip).
 
 Single per-Lumori audit pass that merges what were previously four separate workflows:
 - Step 5 of the typing-system overhaul (type-combo cap re-analysis under the new 26-type chart)
@@ -872,13 +943,55 @@ Per user instruction: leave these for late discussion before any consolidation.
 - [x] **#11** Helioveth → **Heliocoon** (Fire/Wind; chrysalis lore, defensive stats, 🥚 emoji)
 - [x] **#12** Inferarch (kept name, retyped Fire/Dragon → Fire/Wind, butterfly lore + 🦋 emoji + 5 dragon moves swapped for Wind/Bug)
 
-# 🎯 Moveset utilization audit — RUN BEFORE stat spread review  `[⏳ NOT STARTED]`
+# 🎯 Moveset utilization audit — RUN BEFORE stat spread review  `[🚧 IN PROGRESS — PR #68, branch claude/move-utilization-audit-2kkDV]`
 
 For each of the 26 types, calculate the ratio of moves actually assigned to at least one Lumori vs total move count of that type. Identify **orphan moves** (0 current learners — many such moves exist; Fire alone has 13+ orphans like Lava Plume, Cinder Lance, Smolder Trap, Eruption, Will-O-Wisp, etc.). For each orphan: decide whether to (a) **assign** to specific Lumori via learnset additions, (b) **promote** to `rarity:"exclusive"` and earmark for a future legendary, or (c) **remove** from MOVES_DATA as dead code. Also identify **near-orphan moves** (1-2 learners) and decide if those moves are intentionally signature/exclusive (mark them) or should have wider distribution. Goal: every move in MOVES_DATA serves a clear purpose, and no Lumori is missing access to type-appropriate moves it should reasonably have.
 
-# 📊 Final-pass stat spread review — RUN LAST (after all renaming complete)  `[⏳ NOT STARTED — RUN LAST]`
+## Discovery + batching
 
-After every coherence fix, type adjustment, and rename is committed, do a final pass over **every Lumori's base stat spread** across the whole dex. This is the last item in the entire workflow.
+Discovery script: `scripts/move_utilization.py` — read-only stats tool, parses MOVES_DATA + every learnset + trainer-hardcoded moves:[]. Baseline report committed at `docs/move-utilization-report.md`.
+
+**Baseline (2026-06-03):** 1093 moves / 26 types / **641 orphans (59%)** / 172 near-orphans / 41% used.
+
+**Sharing rule (locked Batch 2):** any move (orphan or used) can be added to multiple Lumori; goal is each Lumori has a healthy STAB pool for its type(s).
+
+**Grouped batch plan (8 batches):**
+- [x] **Batch 1 — Stellar.** 16 assigned across 4 Stellar Lumori (4 each) + 17 newly `rarity:"exclusive"` (20 total reserved). 33 Chrono deferred to end of audit.
+- [x] **Batch 2 — Aether + Vapor.** Aether: 19 generic orphans distributed across 4 Forgotten Aether Lumori (32 inserts, sharing); 3 stay exclusive. Vapor: 31 generic orphans distributed across 11 Vapor Lumori (53 orphan inserts + 5 used-pool top-ups on Umbrajest/Shadowveil = 58 inserts); 3 stay exclusive. Utilization Aether 21%→89%, Vapor 24%→93%.
+- [x] **Batch 3 — Toxin, Crystal, Mineral, Primal.** 72 generic orphans cleared via ~80 learnset inserts across 47 Lumori. Toxin 22%→93%, Crystal 39%→94%, Mineral 33%→89%, Primal 48%→89%. 12 already-exclusive moves (3 per type) stay reserved.
+- [x] **Batch 4 — Fire, Ice, Wind.** 73 generic orphans cleared via ~160 learnset inserts across 37 Lumori (sharing rule). Fire 47%→94%, Ice 43%→94%, Wind 45%→94%. 9 already-exclusive (3/type) stay reserved.
+- [x] **Batch 5 — Earth, Nature.** 58 generic orphans cleared via ~120 learnset inserts across 28 Lumori. Earth 58%→96%, Nature 52%→96%. 6 already-exclusive (3/type) stay reserved.
+- [x] **Batch 6 — Dark, Spectral, Dream.** 60 generic orphans cleared via ~130 learnset inserts across 39 Lumori. Dark 47%→94%, Spectral 52%→89%, Dream 29%→95%. 9 already-exclusive (3/type) stay reserved.
+- [x] **Batch 7 — Electric, Metal, Mental.** 68 generic orphans cleared via ~155 learnset inserts across 41 Lumori. Electric 44%→93%, Metal 47%→94%, Mental 49%→94%. 9 already-exclusive (3/type) stay reserved.
+- [x] **Batch 8 — Normal + Aquatic + Fairy + Draconic + Fighting + Poison + Sonic.** 125 generic orphans cleared via ~245 learnset inserts across 75+ Lumori. Normal 56%→93%, Aquatic 58%→**100%**, Fairy 37%→93%, Draconic 47%→94%, Fighting 33%→93%, Poison 47%→92%, Sonic 69%→92%. 17 already-exclusive stay reserved (Aquatic has 0 — that's why it hit 100%).
+- [x] **Move-key rename pass.** 372 keys aligned to renamed display names (365 clean + 7 collision-disambiguated with `_2` suffix). Atomic apply via `scripts/move_key_rename_apply.py`. 0 dangling refs post-sweep.
+- [x] **Phase 2: STAB-completeness audit.** 40 new moves added to thin types (Spectral/Mineral/Sonic +15/15/10) with unique mechanics (dualType, breakerVs, alwaysCrit, hits:2, priority, dual-stat combos). ~210 inserts across 6 sub-batches (P2-prep + P2-1 through P2-6). Flagged 163 → 6 (96% cleared). The 6 remaining are 5 deferred Stellar/Primal Lumori → revisit in the Forgotten Lumori audit (next section).
+- [x] End-of-audit revisit: Aether + Chrono post-game-restricted moves — **DONE (2026-06).** Now that the Forgotten Aether/Chrono roster exists, distributed every non-reserved orphan (Aether 1 + Chrono 26) across the Aether/Chrono Forgotten learnsets, keeping the ultra-finishers reserved as `rarity:"exclusive"` (Aether: `divine_judgement`, `infinity_strike`; Chrono: `timeless_apocalypse`, `era_calamity`, `eternity_lock`). **0 non-exclusive orphans remain** in either type. validate.js green.
+
+# 🌑 Forgotten Lumori dedicated audit — RUN BEFORE STAT-SPREAD REVIEW  `[✅ DONE (core, 2026-06-08) — typing/moveset/stats/archetype/lore/variant/appearance-briefs complete; only Abilities-assignment (blocked on Abilities feature) + 13 wielder cutscenes remain, each tracked under its own item]`
+
+The 39 Forgotten Lumori (ids 462-500) are gameplay-gated content designed as post-game encounters. Several open threads converge on them; a dedicated audit pass before the final stat-spread review is cleaner than handling each scattered.
+
+- [x] **Typing review** — **DONE (2026-06-08).** All 39 Forgotten (462–500) retyped per a **per-wielder theme** design (13 wielders × 3; 800-BST ace = the trio's titan/god). Every Forgotten now carries ≥1 of the 5 post-game types; **all 10 rare×rare cross-combos + a mono of each** of the 5 types are represented, with **no duplicate type-combo dex-wide**. Cosmic wielders host the crosses/monos; elemental wielders keep their element + one rare overlay. Applied to `js/data.js` (validate.js green).
+  - **Appearance/art:** every entry now has an `appearance:` field; full art-generator briefs in `docs/forgotten-art-prompts.md` (all 39 confirmed sprite-able; space-themed ones grounded as planet-native creatures that *embody* celestial energy). Note the 486↔488 (Psydrak↔Dreamaith) identity swap.
+- [x] **Moveset finalization** — **DONE (2026-06-08, PR #81).** Forgotten STAB top-up: every Forgotten now has **3–4 damaging STAB moves per type** (4 for mono-types; 0 gaps). Plus **2 unique signature moves per Forgotten** (78 total, `rarity:"exclusive"` + `signature:true`, each learned by exactly one Lumori). validate.js green.
+- [x] **Post-game-type move identity** — **DONE (2026-06-08, PR #81).** Gave **69** flat `effect:null` damaging moves in the 5 post-game types thematic minor effects (stat-mods / status-chance / crit; the top-power nuke per type gets a `recharge` downside). Added one **`bonusVsStatus` exploiter per type** (Chrono→sluggish, Primal→bleed, Crystal→brittle, Aether/Stellar→any-status), extending the status-exploit engine family. The 10 lowest-power basics (the ~40-power "jab" + "pulse" per type) left vanilla by design. validate.js green. *(Original context, for reference:)* the 26-type rebalance gave every regular type's flat moves a gimmick; the 5 post-game types were held until the Typing review settled. When picking up:
+  - Assign effects consistent with the regular-type pass (low-power/wide spreads and multi-hits may stay effectless by design — see Sonic, which audited clean with zero changes for exactly this reason).
+  - **Extend the `bonusVsStatus` status-exploit family** (engine mechanic added in the rebalance branch — `move.bonusVsStatus` = a status string | array | `"any"` → **2× damage** when the defender carries that status; live examples: `virulent_surge` 2× vs poison, `coil_strike` 2× vs paralyze, `soul_lance` 2× vs *any* status). Map one type-themed exploiter per fitting type: **Fire→burn, Ice→freeze, Dark→bleed, Mental→confuse**, plus post-game equivalents (e.g. Chrono→sluggish, Primal→its signature affliction). NOTE: the Fire/Ice/Dark/Mental exploiters are *regular* types already rebalanced in Batches 1–2 — fold those few additions in here as one coherent status-exploit sweep rather than reopening each type's batch.
+- [x] **Stat-spread (Forgotten subset)** — **DONE (2026-06-08, PR #81).** Reviewed all 39: every wielder triad is a clean 720/750/800 with uniform growth, and every spread matches its archetype lean (physical earth/metal/cat/dragon walls & bruisers; special celestial/dream/star/time/ocean attackers; fast assassins/birds/glass-cannons Spe 135–200; slow tanks Spe 50–95). **0 role/stat mismatches; no changes needed.**
+- [x] **Archetype classification** — **DONE (2026-06-08).** All 39 Forgotten assigned a **distinctive, dex-wide-unique archetype** (replacing duplicate "Nth dragon/void/cosmic/treant" slots), drawn from the full `archetype-subtypes.md` catalog; ≤2 specialized post-game dragons used (primal-dragon, dream-dragon). Updated in `taxonomy.md`.
+- [x] **Lore audit** — **DONE (2026-06-08).** All inline `LORE-AUDIT FLAG (Step 4)` comments resolved/removed; desc/lore rewrites applied where the new type/archetype warranted it.
+- [x] **Variant content** — **DONE (2026-06-08, PR #81).** Rewrote all 39 Forgotten identity anchors (noun + features + coreLine) in `js/variant-content.js` to match the new types/archetypes/appearance (many referenced dropped types — earthen/metal/spectral/verdant/electric/dragon, etc.). variant-content.js parses; validate.js green.
+- [ ] **Abilities** — once the abilities feature is implemented, assign Forgotten-specific signature abilities (probably more impactful than regular Lumori).
+- [ ] **13 wielder cutscenes** — already deferred in the NG+/Forgotten gating section; rolls into this audit naturally.
+- [x] **13 Vaeldris wielder appearance designs** — **briefs DONE (PR #81)** in `docs/character-art-prompts.md` (Look / Palette / Signature prop + paste-ready prompt per wielder, tied to each one's Forgotten-trio theme + lore hook). Remaining: generate the actual art from the prompts.
+- [x] **Team Umbra + Lumoria main-cast appearance designs** — **briefs DONE (PR #81)** in `docs/character-art-prompts.md`: Umbra Order (Commander Shade canon + 4 admin proposals), 16 gym leaders (canon names/types), Champion Lumian (canon), 4 Vanguard elite seats (proposals). Remaining: generate art + (optionally) lock the 🆕 proposed admin/elite names.
+
+**Run order:** after Phase 2 STAB-completeness (done) → **Forgotten audit (this section)** → final stat-spread review (next section).
+
+# 📊 Final-pass stat spread review — RUN LAST (after Forgotten audit complete)  `[⏳ NOT STARTED — RUN LAST]`
+
+After every coherence fix, type adjustment, rename, AND the Forgotten Lumori dedicated audit is committed, do a final pass over **every Lumori's base stat spread** across the whole dex. This is the last content-balance item in the workflow.
 
 - [ ] Walk every mon (or every family) and check the BST + stat distribution against:
   - Stage tier (base / mid / final) — BSTs should grow uniformly along an evolution chain
@@ -978,3 +1091,28 @@ Higher-level work remaining beyond the lore / typing / stats audits.
 3. Continue from "Walkthrough cursor" or pick up the next unchecked BREAKING family
 4. Run `python3 scripts/analyze_current.py` after each change to confirm cap-2 stays clean
 5. Commit + push each change with `https://claude.ai/code/session_…` footer
+
+# 🧹 Data-integrity backlog (from the extended sweep, 2026-06)  `[⏳ NOT STARTED — bounded cleanup; no broken refs, lower severity]`
+
+Surfaced by the reference/hygiene sweep (the broken-reference bugs — 14 dangling move keys + Spectroo fireStone — are already FIXED in PRs #65/#66). Remaining lower-severity items:
+
+- [ ] **One-way area connections (4)** — verify each is intentional or add the reverse edge: `miasmacity -> toxic_bog`, `tremor_summit -> quake_foothills`, `mire_depths -> miasmacity`, `magma_vent -> tremor_summit` (the area lists the neighbor in `connections` but the neighbor does not list it back).
+- [ ] **Learnset internal duplicate moves (21 families)** — the same move key appears twice in one learnset (dedup, keep earliest level): #11, #150, #155, #157, #188, #196, #219, #239, #265, #290, #324, #325, #327, #344, #351, #376, #388, #398, #399, #400, #401.
+- [ ] **No level-1 move (2)** — #198 Chrysalix, #199 Aeridaleth (currently fall back to `tackle`; consider an explicit Lv1 move).
+- [ ] **(Tooling note)** a proper move-effect validity check must parse compound effects (split on `_and_`) and cross-reference battle.js effect handlers — the naive literal-match heuristic gives false positives.
+- [ ] **Variant-rate help-text mismatch** — the intro/help text (`js/game.js` ~line 4849) says variants are **1/100**, but `rollVariant` (`js/battle.js`) rolls **1/200** (the spec value). Reconcile to one rate.
+
+# 🧩 Game-systems / feature implementations  `[mixed]`
+
+- [x] **Inverse Mode (reversed type chart) — NG+ option. DONE (2026-06).** A subsequent-playthrough option that **completely reverses the type chart**: super-effective ↔ not-very-effective, and immunities (0×) become weaknesses (2×). `inverseEffMult` (`js/data.js`) hooked into `getMoveEffectiveness` (`js/battle.js`); `G.inverseMode` persisted in save + migration; prompted at **Start New Game+** (`startNGPlus`); and an **in-battle "🔄 INVERSE MODE" badge** toggled centrally in `showScreen`. *(Optional, non-blocking future polish: a settings toggle outside NG+, surfacing it in type-matchup helper text, and reviewing AI/teambuilder behaviour under inversion.)*
+- [x] **Move relearner (relearning moves) implementation.** **DONE (PR #81).** A **"↺ Relearn Moves"** button in the team-detail modal (`showTeamDetail`) opens a free move reminder: lists eligible moves (`learnset` entries with `level ≤ slot.level` not currently known, deduped), learns the picked move (or prompts which of 4 to replace), persists via `saveGame`. Implemented as `openMoveRelearner`/`relearnPick`/`relearnReplace` in `js/game.js`; logic unit-checked. (Lives in the existing party/summary screen — no extra main-screen clutter.)
+
+# 🌌 Post-game / endgame design  `[⏳ NOT STARTED — analysis + design]`
+
+- [ ] **Void Council analysis** — fully analyze the NG+ **Void Council** (5 elite specialists, `js/data.js` quests ngq23–27): Councilor **Vale** (The Tactician — prediction/counters, `void_rift`), **Kade** (The Berserker — raw power, `void_nexus`), **Mira** (The Illusionist — status/misdirection, `prismatic_rift`), **Gorn** (The Titan — defensive walls, `apex_summit`), **Null** (The Grandmaster — legendary team, `apex_summit`). Audit: their teams/levels/difficulty curve, how they gate into NG+ progression, rewards, lore, and whether they connect coherently to the Umbra Order + the Forgotten/Vaeldris arc. Confirm they're distinct from the base **Vanguard / Elite Four** (Aria/Grimshaw/Celeste/Titan) and not confusingly duplicative (note: both have a "Titan").
+- [ ] **The Sundering → post-game plot** — design how to weave **the Sundering** (the cataclysm that destroyed Vaeldris) into a post-game story arc that unlocks **after the player defeats all 13 Forgotten Lumori wielders**. Decide: what the player learns about what the Sundering actually *was* and what caused it; whether Lumoria is threatened by a recurrence (and the Umbra Order's plan to awaken the 3 Legendaries as the trigger); how the 13 wielders, the Forgotten, the Umbra Order, and the Void Council tie together into one endgame thread; and the player's role (witness / prevent / avert). Output a plot outline + the gating/sequence.
+- [ ] **Post-game content audit** — map the *entire* current post-game: everything available after beating Champion Lumian (the 13 Forgotten wielders, Void Council, roaming/static legendaries, NG+ scaling + NG+-only areas, quests, Umbra post-defeat operations, etc.). Produce a clear "what exists vs. what's missing/thin" picture and a prioritized list of endgame content that could be added (replayability, rewards, difficulty ladders, story beats). Feeds the two items above.
+
+- [ ] **Full story & dialogue analysis + fleshing-out (WHOLE game — run before final code-analysis)** — a comprehensive narrative pass over the *entire* game, not a single thread: the **main plot** (Champion run → the **Umbra Order** & its plan to awaken the 3 Legendaries → the post-game **Forgotten / Vaeldris / the Sundering** arc → **Void Council**) **and all major NPCs + their dialogue** — the 16 gym leaders, the Vanguard/Elite Four, Champion Lumian, the 13 wielders, the rival, and the Umbra cast (intro / win / loss lines, story beats, foreshadowing, callbacks, pacing, consistent voice). Goal: one coherent, well-paced story with real payoffs and no loose threads. Specific arcs to develop *within* this pass include:
+  - **Rex's double life → "Rex Shadow":** Rex (Gym Leader #1, Normal) resents being dismissed as the easy first leader and secretly joins the **Umbra Order**, rising to become **"Rex Shadow."** *Data hint:* the commander id `umbra_commander_rex_shadow` currently displays as **Commander Vorn** — reconcile (an alias the player later unmasks, or a rename). Foreshadow in early gym dialogue → mid/late reveal → his Umbra team vs. gym team → player confrontation.
+  - *(add further character arcs / plot threads as the pass surfaces them — rival arc, wielder backstories, Umbra commanders' motives, Void Council identities, etc.)*

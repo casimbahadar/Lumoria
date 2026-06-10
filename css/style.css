@@ -22,23 +22,33 @@
   --xp-color: #58a6ff;
 }
 
-/* Type Colors */
+/* Type Colors (26-type palette — keep in sync with getTypeColor() in js/game.js) */
 .type-Fire { background: #ff6b35; }
-.type-Water { background: #4da6ff; }
-.type-Grass { background: #4caf50; }
+.type-Aquatic { background: #4da6ff; }
+.type-Nature { background: #4caf50; }
 .type-Electric { background: #ffd700; color: #333; }
-.type-Ground { background: #c8a045; }
+.type-Earth { background: #c8a045; }
 .type-Wind { background: #7ec8e3; color: #333; }
 .type-Ice { background: #96d5d5; color: #333; }
 .type-Dark { background: #5a4a6e; }
 .type-Fairy { background: #ff69b4; }
-.type-Steel { background: #9e9e9e; }
+.type-Metal { background: #9e9e9e; }
 .type-Poison { background: #9b59b6; }
-.type-Psychic { background: #ff4081; }
-.type-Dragon { background: #7038f8; }
+.type-Mental { background: #ff4081; }
+.type-Draconic { background: #7038f8; }
 .type-Normal { background: #a8a878; color: #333; }
-.type-Rock { background: #b8a038; }
-.type-Bug { background: #a8b820; color: #333; }
+.type-Spectral { background: #6e5db0; }
+.type-Fighting { background: #c0392b; }
+.type-Aether { background: #d8c0ff; color: #333; }
+.type-Crystal { background: #56d2e0; color: #333; }
+.type-Primal { background: #a0522d; }
+.type-Sonic { background: #5d7bf0; }
+.type-Vapor { background: #9fb8c8; color: #333; }
+.type-Mineral { background: #b8a038; }
+.type-Toxin { background: #aacc2a; color: #333; }
+.type-Chrono { background: #c490d8; }
+.type-Stellar { background: #3949ab; }
+.type-Dream { background: #a99fe0; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -531,19 +541,32 @@ html, body {
   color: var(--text-secondary);
 }
 
-#area-actions { display: flex; flex-direction: column; gap: 0.5rem; }
+/* Responsive tile grid instead of a tall single-column stack (declutter, mobile-friendly). */
+#area-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.5rem;
+  align-content: start;
+}
+/* Primary action stays prominent across the full width. */
+#area-actions > #btn-explore { grid-column: 1 / -1; }
 
 .btn-action {
   background: var(--bg-card);
   color: var(--text-primary);
   border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem;
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  line-height: 1.15;
   cursor: pointer;
   transition: all 0.15s ease;
-  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 46px;
 }
 
 .btn-action:hover {
@@ -1695,7 +1718,11 @@ button, a, [role="button"] {
 /* Minimum touch target size (Apple HIG: 44px) */
 .btn-primary, .btn-secondary, .btn-action, .battle-btn,
 .nav-btn, .move-btn, .catch-item-btn, .switch-mon-btn,
-.starter-card, .team-card, .dex-card, .bag-item { min-height: 44px; }
+.starter-card, .team-card, .dex-card, .bag-item,
+.btn-back, .btn-back-menu, .back-btn { min-height: 44px; }
+
+/* Icon-only ✕ close button: give it a square 44×44 hit area and center the glyph */
+.btn-back-menu { min-width: 44px; display: inline-flex; align-items: center; justify-content: center; }
 
 /* ---- Tablet (≤768px) ---- */
 @media (max-width: 768px) {
@@ -1725,8 +1752,9 @@ button, a, [role="button"] {
   }
   #area-header { width: 100%; }
   #area-description { width: 100%; font-size: 0.8rem; }
-  #area-wild-preview { flex: 1; min-width: 140px; }
-  #area-actions { flex: 1; min-width: 140px; gap: 0.4rem; }
+  #area-wild-preview { width: 100%; }
+  /* Full width so the action tiles flow into 2+ columns instead of squishing. */
+  #area-actions { flex: 1 1 100%; min-width: 0; gap: 0.4rem; }
   #area-gym-info { width: 100%; }
 
   /* Map dots: bigger for touch */
@@ -2546,6 +2574,19 @@ button, a, [role="button"] {
 .nav-btn-online { background: linear-gradient(135deg, #1a3a6b 0%, #1e6bb8 100%); color: #fff; }
 
 /* ===== PvP MODE TABS ===== */
+.pvp-rating-banner {
+  margin:0.5rem 1rem 0; padding:0.5rem 0.9rem; border-radius:8px;
+  background:var(--bg-panel); border:1px solid var(--border);
+  color:var(--text-secondary); font-size:0.9rem;
+}
+.pvp-rating-banner strong { color:var(--text-primary); }
+.pvp-rating-banner .pvp-record { color:var(--text-secondary); }
+.pvp-offline-note {
+  margin:0.5rem 1rem 0; padding:0.5rem 0.9rem; border-radius:8px;
+  background:rgba(210,153,34,0.12); border:1px solid var(--hp-yellow);
+  color:var(--text-secondary); font-size:0.85rem; line-height:1.4;
+}
+.pvp-offline-note strong { color:var(--text-primary); }
 .pvp-mode-tabs { display:flex; gap:0.5rem; padding:0.75rem 1rem 0; }
 .pvp-tab {
   padding:0.4rem 1.2rem; border-radius:6px 6px 0 0; border:1px solid var(--border);
@@ -2553,6 +2594,100 @@ button, a, [role="button"] {
 }
 .pvp-tab.active { background:var(--accent-blue); color:#fff; border-color:var(--accent-blue); }
 .pvp-tab-content { padding:1rem; }
+.pvp-format-toggle { display:flex; gap:0.4rem; margin-bottom:0.6rem; }
+.pvp-fmt-btn {
+  flex:1; padding:0.35rem 0.6rem; border-radius:6px; border:1px solid var(--border);
+  background:var(--bg-panel); color:var(--text-secondary); cursor:pointer; font-size:0.8rem;
+}
+.pvp-fmt-btn.active { background:var(--accent-blue); color:#fff; border-color:var(--accent-blue); }
+.pvp-format-tag { font-size:0.72rem; color:var(--text-secondary); }
+.pvp-active-team { font-size:0.8rem; margin:0.3rem 0 0.5rem; color:var(--text-primary); }
+.pvp-teams-area { padding:1rem; display:flex; flex-direction:column; gap:0.6rem; }
+.pvp-team-list { display:flex; flex-direction:column; gap:0.5rem; }
+.pvp-team-card { border:1px solid var(--border); border-radius:8px; padding:0.6rem; background:var(--bg-panel); }
+.pvp-team-card.active { border-color:var(--accent-blue); }
+.pvp-team-head { display:flex; align-items:center; gap:0.5rem; }
+.pvp-active-pill { font-size:0.72rem; color:var(--accent-blue); }
+.pvp-team-mons { font-size:0.82rem; color:var(--text-secondary); margin:0.3rem 0; }
+.pvp-team-actions { display:flex; gap:0.4rem; flex-wrap:wrap; }
+.pvp-team-actions button { font-size:0.78rem; padding:0.3rem 0.7rem; }
+.pvp-pick-row { font-size:0.82rem; display:flex; flex-wrap:wrap; gap:0.4rem; align-items:center; }
+.pvp-pick-chip { border:1px solid var(--border); border-radius:12px; padding:0.15rem 0.5rem; font-size:0.78rem; }
+.pvp-pick-remove { background:none; border:none; color:var(--text-secondary); cursor:pointer; }
+.pvp-own-grid { display:flex; flex-wrap:wrap; gap:0.4rem; max-height:320px; overflow-y:auto; }
+.pvp-own-mon {
+  border:1px solid var(--border); border-radius:6px; padding:0.35rem 0.55rem; font-size:0.78rem;
+  background:var(--bg-panel); color:var(--text-primary); cursor:pointer;
+}
+.pvp-own-mon.picked { background:var(--accent-blue); color:#fff; border-color:var(--accent-blue); }
+
+/* ---- FFA Royale ---- */
+.ffa-sides { display:flex; flex-wrap:wrap; gap:0.5rem; padding:0.6rem; justify-content:center; }
+.ffa-side {
+  flex:1 1 40%; min-width:130px; max-width:220px; border:1px solid var(--border); border-radius:8px;
+  padding:0.5rem; background:var(--bg-panel); text-align:center;
+}
+.ffa-side.player { border-color:var(--accent-blue); box-shadow:0 0 0 1px var(--accent-blue) inset; }
+.ffa-side.defeated { opacity:0.45; filter:grayscale(0.8); transition:opacity 0.4s, filter 0.4s; }
+.ffa-side-name { font-size:0.75rem; color:var(--text-secondary); }
+.ffa-side-mon { font-size:1.05rem; font-weight:bold; margin:0.25rem 0; line-height:1.3; }
+/* hit feedback: shake + red flash on the struck side card */
+.ffa-side.hit { animation:ffaHit 0.4s ease-in-out; }
+@keyframes ffaHit {
+  0%,100% { transform:translateX(0); }
+  20% { transform:translateX(-5px); background:rgba(248,81,73,0.28); }
+  40% { transform:translateX(5px); }
+  60% { transform:translateX(-3px); background:rgba(248,81,73,0.18); }
+  80% { transform:translateX(3px); }
+}
+.ffa-side-meta { font-size:0.72rem; color:var(--text-secondary); }
+.ffa-hpbar { height:7px; border-radius:4px; background:var(--border); overflow:hidden; margin:0.25rem 0; }
+.ffa-hpfill { height:100%; transition:width 0.25s; }
+.ffa-hpfill.high { background:#3fb950; } .ffa-hpfill.mid { background:#d29922; } .ffa-hpfill.low { background:#f85149; }
+.ffa-log {
+  margin:0.4rem 0.6rem; padding:0.5rem; height:150px; overflow-y:auto; font-size:0.8rem;
+  border:1px solid var(--border); border-radius:8px; background:var(--bg-dark); line-height:1.5;
+}
+.ffa-controls { padding:0.6rem; }
+.ffa-prompt { font-size:0.85rem; margin-bottom:0.4rem; text-align:center; }
+.ffa-moves { display:flex; flex-wrap:wrap; gap:0.4rem; justify-content:center; }
+.ffa-move, .ffa-target {
+  display:flex; flex-direction:column; align-items:center; gap:1px; min-width:120px;
+  border:1px solid var(--border); border-radius:6px; padding:0.4rem 0.6rem; cursor:pointer;
+  background:var(--bg-panel); color:var(--text-primary); font-size:0.82rem;
+}
+.ffa-move small, .ffa-target small { font-size:0.68rem; color:var(--text-secondary); }
+.ffa-move:disabled { opacity:0.4; cursor:not-allowed; }
+.ffa-target:hover, .ffa-move:hover { border-color:var(--accent-blue); }
+.ffa-subactions { display:flex; gap:0.4rem; justify-content:center; margin-top:0.5rem; }
+.ffa-subactions button { padding:0.35rem 0.9rem; font-size:0.82rem; }
+
+/* ---- Live room setup extras ---- */
+.live-mode-row { display:flex; gap:0.4rem; justify-content:center; margin-bottom:0.5rem; }
+.live-mode-btn { flex:1; border:1px solid var(--border); border-radius:6px; padding:0.4rem; background:var(--bg-panel); color:var(--text-primary); cursor:pointer; font-size:0.85rem; }
+.live-mode-btn.active { background:var(--accent-blue); color:#fff; border-color:var(--accent-blue); }
+.live-create { display:flex; flex-direction:column; gap:0.4rem; margin-bottom:0.6rem; }
+.live-public-toggle { font-size:0.8rem; color:var(--text-secondary); display:flex; align-items:center; gap:0.35rem; }
+.live-rooms-header { display:flex; align-items:center; gap:0.5rem; font-weight:bold; font-size:0.85rem; margin:0.6rem 0 0.3rem; }
+.live-rooms-header button { padding:0.1rem 0.5rem; font-size:0.85rem; }
+.live-room-list { display:flex; flex-direction:column; gap:0.35rem; }
+.live-room-row { display:flex; align-items:center; justify-content:space-between; gap:0.5rem; border:1px solid var(--border); border-radius:6px; padding:0.35rem 0.55rem; font-size:0.82rem; }
+.live-room-row button { padding:0.2rem 0.6rem; font-size:0.78rem; }
+/* multi-side live arena (2v2 / FFA) */
+.live-multi-sides { display:flex; flex-wrap:wrap; gap:0.5rem; justify-content:center; padding:0.5rem; }
+.live-mseat { flex:1 1 40%; min-width:130px; max-width:220px; border:1px solid var(--border); border-radius:8px; padding:0.5rem; background:var(--bg-panel); text-align:center; }
+.live-mseat.you { border-color:var(--accent-blue); box-shadow:0 0 0 1px var(--accent-blue) inset; }
+.live-mseat.out { opacity:0.45; }
+.live-mseat.turn { outline:2px solid #d29922; }
+
+/* ---- PvP/online turn timer ---- */
+.pvp-turn-timer {
+  display:inline-block; font-weight:bold; font-size:0.95rem; padding:0.15rem 0.6rem;
+  border-radius:12px; background:var(--bg-panel); border:1px solid var(--border);
+  color:var(--text-primary); margin:0.3rem auto; text-align:center;
+}
+.pvp-turn-timer.urgent { background:#f85149; color:#fff; border-color:#f85149; animation:pvpTimerPulse 1s infinite; }
+@keyframes pvpTimerPulse { 0%,100%{opacity:1;} 50%{opacity:0.55;} }
 .pvp-live-desc { margin-bottom:1rem; font-size:0.82rem; color:var(--text-secondary); }
 
 /* ===== LIVE PvP BATTLE ARENA ===== */
@@ -2654,3 +2789,24 @@ button, a, [role="button"] {
 .variant-learnset td:first-child { color:var(--text-muted); white-space:nowrap; width:48px; }
 .variant-learnset td:last-child { text-align:right; white-space:nowrap; }
 @media (min-width:768px) { .variant-learnset-wrap { max-height:320px; } }
+
+/* Inverse Mode battle badge (shown only in battle when G.inverseMode is on) */
+#battle-arena { position: relative; }
+#inverse-mode-badge {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  background: linear-gradient(90deg, #6a2bd6, #b8336a);
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  padding: 3px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.45);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.45);
+  pointer-events: none;
+  white-space: nowrap;
+}

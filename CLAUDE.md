@@ -81,15 +81,17 @@ At the 90% warning, also surface a brief preview of the 98% options so the user 
 
 ## Post-game typing restriction
 
-**Aether and Chrono are post-game typings reserved for Forgotten Lumori (id ≥ 408).** Never recommend or include these for any Lumori with id < 408 — they belong to the Forgotten/post-game roster only.
+**Dex bands (authoritative, per `js/game.js` `NG_PLUS_DEX_START`/`FORGOTTEN_DEX_START`):** base = ids 1–321 · NG+-exclusive = ids 322–461 · **Forgotten Lumori = ids ≥ 462**. (The old "Forgotten = id ≥ 408" numbering is RETIRED — ids 408–461 are NG+-exclusive filler, *not* Forgotten.)
 
-**Crystal, Primal, and Stellar are primarily post-game Forgotten typings**, with a narrow pre-408 exception: they may be assigned to a pre-408 Lumori only when ALL of the following hold:
+**Aether and Chrono are post-game typings reserved for Forgotten Lumori (id ≥ 462).** Never recommend or include these for any Lumori with id < 462 — they belong to the Forgotten/post-game roster only.
+
+**Crystal, Primal, and Stellar are primarily post-game Forgotten typings**, with a narrow pre-462 exception: they may be assigned to a pre-462 Lumori only when ALL of the following hold:
 1. The Lumori has `rarity:"legendary"`.
 2. The lore strongly demands it (clear, intrinsic, multi-phrase coding — not decorative flavor).
-3. No pre-408-allowed type alternative provides a comparable lore fit.
+3. No pre-462-allowed type alternative provides a comparable lore fit.
 
 Use sparingly. These types remain reserved by intent.
 
 Suggestion lists, type-pivot proposals, and "pristine combo" recommendations for non-Forgotten ids must exclude all five types by default. The Crystal/Primal/Stellar exception only applies when explicitly justified per the legendary-criteria above.
 
-When a pre-408 Lumori already has one of these types in current data (legacy), do not auto-strip it — surface it for user discussion only.
+When a pre-462 Lumori already has one of these types in current data (legacy), do not auto-strip it — surface it for user discussion only. This notably covers the NG+ block **408–461**, several of which (e.g. 408 Glimmerling, 409 Facetite) currently carry Crystal from before the renumber; review them case-by-case in the UNIFIED audit rather than mass-stripping.

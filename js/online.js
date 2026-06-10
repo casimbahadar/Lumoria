@@ -36,6 +36,7 @@ async function initOnline() {
     loadLiveEvent();
     renderOnlineHUD();
     syncPlayerProfile();
+    drainPvpMailbox();   // reconcile async results that landed while offline
   } catch(e) {
     console.warn("Firebase init failed:", e.message);
   }
@@ -59,10 +60,18 @@ const LB_CATEGORIES = [
   { id:"dex",         label:"Lumori Caught",   icon:"📖", getValue: g => (g.caughtMonsters?.size || [...(g.caughtMonsters||[])].length) },
   { id:"shiny_caught",label:"Radiant Caught",  icon:"✨", getValue: g => g.shinyCaught || 0 },
   { id:"event_pts",   label:"Event Points",    icon:"🎉", getValue: g => g.eventPoints || 0 },
+  { id:"pvp_rating",  label:"PvP Rating",      icon:"⭐", getValue: g => g.pvpRating || 0 },
+  { id:"pvp_doubles_rating", label:"PvP Doubles", icon:"👥", getValue: g => g.pvpDoublesRating || 0 },
+  { id:"pvp_ffa_rating", label:"FFA Royale",   icon:"👑", getValue: g => g.pvpFfaRating || 0 },
+  { id:"pvp_gauntlet",label:"Gauntlet Clears", icon:"🏟️", getValue: g => g.pvpGauntletBest || 0 },
 ];
 
 async function submitLeaderboardScore(category) {
-  if (!requireOnline() || !G) return;
+  // Passive/background submit (fires on catch, NG+, event points). Must fail
+  // SILENTLY when offline — requireOnline() would pop "Online features
+  // unavailable" on every catch. requireOnline() stays for user-initiated
+  // actions only (showLeaderboards, PvP entry, etc.).
+  if (!onlineReady || !G) return;
   const cat = LB_CATEGORIES.find(c => c.id === category);
   if (!cat) return;
   const value = cat.getValue(G);
@@ -398,37 +407,187 @@ async function cancelTrade(tradeId) {
 }
 
 // ============================================================
-// PvP BATTLES (auto-resolve, challenge code system)
+// PvP BATTLES (async — play a snapshot of another player's team for real vs the AI)
+// All battlers are normalized to Lv PVP_LEVEL_CAP with perfect IVs at battle time
+// (see buildBattleMon). See docs/pvp-spec.md.
 // ============================================================
-async function postBattleChallenge() {
-  if (!requireOnline() || !G) return;
-  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before challenging!"); return; }
 
-  const challengerTeam = G.team.filter(m => m.currentHP > 0).slice(0, 3).map(m => ({
-    monsterId: m.monsterId, level: m.level, moves: m.moves.map(mv => mv.id),
-    nature: m.nature, shiny: m.shiny
-  }));
+// Rating: everyone starts at PVP_BASE_RATING. The amount a result moves your
+// rating is a single continuous curve driven by the gap between your rating and
+// your opponent's — no flat tiers, no "upset" special-casing. Close matches move
+// you a little (±10–22), and the further apart the ratings, the more a result in
+// the "harder" direction swings (up to ±80). See docs/pvp-spec.md.
+const PVP_BASE_RATING = 1000;
+
+// Singles and Doubles keep fully independent ladders. Each mode maps to its own
+// rating / win / loss fields on the save and its own leaderboard track, so the
+// same rating math (pvpRatingDelta) drives both without duplicated logic.
+const PVP_MODES = {
+  single: { label:"Singles", rating:"pvpRating",        wins:"pvpWins",        losses:"pvpLosses",        board:"pvp_rating" },
+  double: { label:"Doubles", rating:"pvpDoublesRating",  wins:"pvpDoublesWins",  losses:"pvpDoublesLosses",  board:"pvp_doubles_rating" },
+  // FFA is multi-opponent vs snapshots, so it's self-contained (no zero-sum
+  // mailbox): the player's rating moves vs the average opponent rating.
+  ffa:    { label:"FFA",     rating:"pvpFfaRating",      wins:"pvpFfaWins",      losses:"pvpFfaLosses",      board:"pvp_ffa_rating" },
+};
+function pvpModeFields(mode) { return PVP_MODES[mode] || PVP_MODES.single; }
+
+// Magnitude of a WIN as a function of gap = oppRating - myRating (+ = opponent
+// rated higher). Defined by (gap, delta) breakpoints, linearly interpolated:
+// beating a much weaker player floors at +10, an even match is +16, and beating
+// progressively stronger players ramps continuously up to a +80 cap. Each band's
+// start equals the previous band's end, so the curve is seamless.
+const PVP_WIN_CURVE = [
+  [-49, 10], [0, 16], [49, 22], [100, 30], [200, 36], [300, 42],
+  [449, 48], [599, 58], [799, 68], [999, 75], [1199, 80]
+];
+
+// Rating delta for a result. A loss is the mirror of a win against the opposite
+// gap (L(gap) = -W(-gap)): losing to a much weaker player swings as hard as
+// beating a much stronger one, while losing to someone far above you floors at -10.
+function pvpRatingDelta(myRating, oppRating, won) {
+  const gap = won ? (oppRating - myRating) : (myRating - oppRating);
+  const pts = PVP_WIN_CURVE;
+  let mag;
+  if (gap <= pts[0][0]) {
+    mag = pts[0][1];
+  } else if (gap >= pts[pts.length - 1][0]) {
+    mag = pts[pts.length - 1][1];
+  } else {
+    mag = pts[pts.length - 1][1];
+    for (let i = 1; i < pts.length; i++) {
+      if (gap <= pts[i][0]) {
+        const [g0, d0] = pts[i - 1], [g1, d1] = pts[i];
+        mag = d0 + (d1 - d0) * (gap - g0) / (g1 - g0);
+        break;
+      }
+    }
+  }
+  return won ? Math.round(mag) : -Math.round(mag);
+}
+
+// Serialize a party mon into a PvP team slot. Level/IVs are normalized at battle
+// time, but variant/shiny/held/moves/nature are carried so the snapshot battles
+// exactly as the owner built it. currentHP/statuses keep buildBattleMon happy.
+// `ability` is carried forward-compatibly: there is no ability battle system yet,
+// so it's null today, but once abilities exist on party mons the PvP snapshot will
+// preserve them automatically (buildBattleMon also passes it through).
+function pvpSerializeMon(m) {
+  return {
+    monsterId: m.monsterId,
+    level: m.level,
+    // Party slots store moves as id strings; battle mons store {id,...} objects.
+    // Accept both so a snapshot taken from either shape keeps real moves.
+    moves: (m.moves || []).map(mv => (typeof mv === "string" ? mv : mv.id)),
+    nature: m.nature || "Balanced",
+    ivs: { hp:31, atk:31, def:31, spa:31, spd:31, spe:31 },
+    heldItem: m.heldItem || null,
+    ability: m.ability || null,
+    shiny: !!m.shiny,
+    variant: !!m.variant,
+    variantTypes: m.variantTypes || null,
+    variantBase: m.variantBase || null,
+    variantImmune: m.variantImmune || null,
+    statuses: [],
+    currentHP: 999999
+  };
+}
+
+// ---- PvP saved team loadouts (up to 6 per format, drawn from owned Lumori) ----
+// A loadout is a named set of party-slot snapshots the player can post AND battle
+// with; the real overworld party is never touched. Singles lead with 1 active,
+// Doubles with 2, the rest acting as bench replacements on faint.
+const PVP_LOADOUT_MAX = 6;
+const PVP_LOADOUT_CAP = { single: 3, double: 4 };
+
+// Every Lumori the player owns (party + box), as live party-slot objects.
+function allOwnedMons() {
+  if (!G) return [];
+  return [...(G.team || []), ...(G.box || [])].filter(Boolean);
+}
+
+function pvpLoadoutList(fmt) {
+  const f = (fmt === "double") ? "double" : "single";
+  if (!G.pvpLoadouts) G.pvpLoadouts = { single: [], double: [] };
+  if (!G.pvpLoadouts[f]) G.pvpLoadouts[f] = [];
+  return G.pvpLoadouts[f];
+}
+
+// The player's selected loadout for a format, or null if none chosen / invalid.
+function getActivePvpLoadout(fmt) {
+  const f = (fmt === "double") ? "double" : "single";
+  const idx = G.pvpActiveLoadout ? G.pvpActiveLoadout[f] : null;
+  const list = pvpLoadoutList(f);
+  return (idx != null && list[idx]) ? list[idx] : null;
+}
+
+// Turn a loadout's stored mons into fresh, full-HP party slots for battle.
+function materializePvpLoadout(loadout) {
+  return (loadout.mons || []).map(m => {
+    const slot = JSON.parse(JSON.stringify(m));   // deep clone; never mutate the saved copy
+    slot.statuses = [];
+    if (typeof slot.maxHP === "number") slot.currentHP = slot.maxHP;
+    return slot;
+  });
+}
+
+async function postBattleChallenge(format) {
+  if (!requireOnline() || !G) return;
+  const fmt = (format === "double") ? "double" : "single";
+  const F = pvpModeFields(fmt);
+  const need = fmt === "double" ? 2 : 1;
+
+  // Prefer the active saved loadout; otherwise post the live healthy party.
+  const active = getActivePvpLoadout(fmt);
+  let challengerTeam;
+  if (active) {
+    if ((active.mons || []).length < need) { showNotification(`Your active ${fmt === "double" ? "Doubles" : "Singles"} team needs at least ${need} Lumori.`); return; }
+    challengerTeam = active.mons.slice(0, PVP_LOADOUT_CAP[fmt]).map(pvpSerializeMon);
+  } else {
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team (or set a saved PvP team) before challenging!"); return; }
+    const healthy = G.team.filter(m => m.currentHP > 0);
+    if (fmt === "double" && healthy.length < 2) { showNotification("Doubles needs at least 2 healthy Lumori on your team (or set a Doubles team)."); return; }
+    // Send up to 3: doubles leads with the first 2 and keeps the rest as bench.
+    challengerTeam = healthy.slice(0, 3).map(pvpSerializeMon);
+  }
 
   const challenge = {
     challengerUID: firebaseUID,
     challengerName: G.playerName,
     challengerBadges: G.badges.length,
+    rating: G[F.rating] || 0,
+    format: fmt,
     team: JSON.stringify(challengerTeam),
     status: "open",
     ts: Date.now()
   };
-  const ref = await firebaseDB.ref("battles").push(challenge);
+  let ref;
+  try {
+    ref = await firebaseDB.ref("battles").push(challenge);
+  } catch(e) {
+    showNotification("Couldn't post your challenge — check your connection and try again.");
+    return;
+  }
   const code = ref.key.slice(-6).toUpperCase();
-  showNotification(`⚔️ Challenge posted! Share code: <strong>${code}</strong> — tell your opponent to enter it in PvP.`);
+  const codeEl = document.getElementById("pvp-my-code");
+  if (codeEl) { codeEl.textContent = `Your challenge code: ${code}`; codeEl.classList.remove("hidden"); }
+  showNotification(`⚔️ Challenge posted! Share code <strong>${code}</strong>, or wait for someone to accept it.`);
+  loadOpenChallenges();
   return code;
 }
 
 async function acceptBattleChallenge(code) {
   if (!requireOnline() || !G) return;
-  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before battling!"); return; }
-
+  // Team-readiness is validated in launchPvpChallenge once we know the challenge's
+  // format (a saved loadout may stand in for a fainted live party).
+  if (!code || !code.trim()) { showNotification("Enter a battle code first."); return; }
   // Find challenge by last 6 chars of key
-  const snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").once("value");
+  let snap;
+  try {
+    snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").once("value");
+  } catch(e) {
+    showNotification("Couldn't reach the challenge board — check your connection and try again.");
+    return;
+  }
   let challengeId = null, challenge = null;
   snap.forEach(child => {
     if (child.key.slice(-6).toUpperCase() === code.toUpperCase() && child.val().challengerUID !== firebaseUID) {
@@ -437,54 +596,398 @@ async function acceptBattleChallenge(code) {
     }
   });
   if (!challenge) { showNotification("Challenge code not found or already completed."); return; }
+  launchPvpChallenge(challengeId, challenge);
+}
 
-  // Auto-resolve battle
-  let challengerTeam, defenderTeam;
-  try { challengerTeam = JSON.parse(challenge.team); } catch(e) { showNotification("Invalid challenge data."); return; }
-  defenderTeam = G.team.filter(m => m.currentHP > 0).slice(0, 3).map(m => ({
-    monsterId: m.monsterId, level: m.level, moves: m.moves.map(mv => mv.id), nature: m.nature
-  }));
-
-  const result = simulatePvPBattle(challengerTeam, defenderTeam);
-  const won = result.winner === "defender";
-
-  await firebaseDB.ref(`battles/${challengeId}`).update({
-    status: "completed",
-    defenderUID: firebaseUID,
-    defenderName: G.playerName,
-    result: result.winner,
-    completedTs: Date.now()
+// Launch a real, playable battle against a challenge's submitted team (vs the AI).
+function launchPvpChallenge(id, challenge, opts = {}) {
+  const fmt = (challenge.format === "double") ? "double" : "single";
+  const need = fmt === "double" ? 2 : 1;
+  // Field the active saved loadout if set, otherwise the live healthy party.
+  const active = getActivePvpLoadout(fmt);
+  const playerTeam = active ? materializePvpLoadout(active) : null;
+  if (playerTeam) {
+    if (playerTeam.length < need) { showNotification(`Your active ${fmt === "double" ? "Doubles" : "Singles"} team needs at least ${need} Lumori.`); return; }
+  } else {
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team (or set a saved PvP team) before battling!"); return; }
+    if (fmt === "double" && G.team.filter(m => m.currentHP > 0).length < 2) { showNotification("This is a Doubles challenge — bring at least 2 healthy Lumori (or set a Doubles team)!"); return; }
+  }
+  let team;
+  try { team = JSON.parse(challenge.team); } catch(e) { showNotification("Invalid challenge data."); return; }
+  if (!Array.isArray(team) || !team.length) { showNotification("That challenge has no team."); return; }
+  if (fmt === "double" && team.length < 2) { showNotification("That Doubles challenge is missing a second Lumori."); return; }
+  if (typeof startPvpBattle !== "function") { showNotification("Battle engine unavailable."); return; }
+  startPvpBattle(team, challenge.challengerName || "Rival", {
+    challengeId: id,
+    opponentUID: challenge.challengerUID || null,
+    opponentRating: challenge.rating || 0,
+    doubles: fmt === "double",
+    playerTeam,
+    practice: !!opts.practice,   // offline cached opponent → practice (no rating/mailbox)
   });
+}
 
-  const prize = won ? 500 : 100;
-  G.money += prize;
+// One-tap matchmaking: pick an open challenge near your rating (random among the
+// closest few) and battle it.
+// ---- Offline AI-battle snapshot cache (A4) ----
+// Posted-team snapshots seen while online are cached in localStorage so the
+// Simulated modes (Quick Match / Gauntlet / FFA) stay playable OFFLINE as
+// practice (no rating / leaderboard / mailbox writes when offline). Online
+// behaviour is unchanged — the cache is just refreshed as a side effect.
+const PVP_SNAPSHOT_KEY = "lumoria_pvp_snapshots";
+const PVP_SNAPSHOT_MAX = 60;
+
+function loadPvpSnapshots() {
+  try { const a = JSON.parse(localStorage.getItem(PVP_SNAPSHOT_KEY) || "[]"); return Array.isArray(a) ? a : []; }
+  catch (e) { return []; }
+}
+function cachePvpSnapshots(list) {
+  try {
+    const byKey = new Map();
+    for (const s of loadPvpSnapshots()) byKey.set(s.challengerUID || s.id, s);
+    for (const v of (list || [])) {
+      if (!v || !v.team) continue;
+      if (firebaseUID && v.challengerUID === firebaseUID) continue;   // never cache our own post
+      byKey.set(v.challengerUID || v.id, {
+        id: v.id || null,
+        challengerUID: v.challengerUID || null,
+        challengerName: v.challengerName || "Rival",
+        rating: v.rating || PVP_BASE_RATING,
+        format: (v.format === "double") ? "double" : "single",
+        team: v.team,
+        ts: Date.now(),
+      });
+    }
+    const arr = [...byKey.values()].sort((a, b) => (b.ts || 0) - (a.ts || 0)).slice(0, PVP_SNAPSHOT_MAX);
+    localStorage.setItem(PVP_SNAPSHOT_KEY, JSON.stringify(arr));
+  } catch (e) { /* storage full / unavailable — non-fatal */ }
+}
+
+// Posted-team snapshots as challenge-shaped objects ({id, challengerUID,
+// challengerName, rating, format, team}). Online: fetch the open board and
+// refresh the cache. Offline (or on a fetch error): serve the local cache.
+// `offline` tells callers to run the resulting battle as practice.
+async function getPvpSnapshotPool() {
+  if (onlineReady) {
+    try {
+      const snap = await firebaseDB.ref("battles").orderByChild("status").equalTo("open").limitToFirst(50).once("value");
+      const list = [];
+      snap.forEach(c => { list.push({ id: c.key, ...c.val() }); });
+      cachePvpSnapshots(list);
+      return { offline: false, pool: list };
+    } catch (e) { /* fall through to cache */ }
+  }
+  return { offline: true, pool: loadPvpSnapshots() };
+}
+
+async function quickMatch(format) {
+  if (!G) return;
+  const fmt = (format === "double") ? "double" : "single";
+  const F = pvpModeFields(fmt);
+  // When no saved loadout is active, the live party must be battle-ready
+  // (launchPvpChallenge re-validates whichever side we end up fielding).
+  if (!getActivePvpLoadout(fmt)) {
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team (or set a saved PvP team) before battling!"); return; }
+    if (fmt === "double" && G.team.filter(m => m.currentHP > 0).length < 2) {
+      showNotification("Doubles needs at least 2 healthy Lumori on your team (or set a Doubles team)!"); return;
+    }
+  }
+  const { offline, pool: raw } = await getPvpSnapshotPool();
+  const pool = raw.filter(v =>
+    v.challengerUID !== firebaseUID && ((v.format === "double") ? "double" : "single") === fmt);
+  if (!pool.length) {
+    showNotification(offline
+      ? `No cached ${fmt === "double" ? "Doubles" : "Singles"} opponents yet — go online once to stock up practice teams.`
+      : `No open ${fmt === "double" ? "Doubles" : "Singles"} challenges yet. Post one and wait, or invite a friend!`);
+    return;
+  }
+  const myRating = G[F.rating] || 0;
+  pool.sort((a, b) => Math.abs((a.rating || 0) - myRating) - Math.abs((b.rating || 0) - myRating));
+  const near = pool.slice(0, Math.min(5, pool.length));
+  const pick = near[Math.floor(Math.random() * near.length)];
+  launchPvpChallenge(pick.id, pick, { practice: offline });
+}
+
+// FFA Royale: pull 2-3 open posted teams near your FFA rating and run a local
+// last-team-standing royale vs the AI. Self-contained ladder (pvp_ffa_rating).
+async function ffaQuickMatch() {
+  if (!G) return;
+  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before a Royale!"); return; }
+  const { offline, pool: raw } = await getPvpSnapshotPool();
+  const pool = [];
+  for (const v of raw) {
+    if (v.challengerUID === firebaseUID) continue;
+    let team;
+    try { team = JSON.parse(v.team); } catch (e) { continue; }
+    if (Array.isArray(team) && team.length) pool.push({ name: v.challengerName || "Rival", rating: v.rating || 0, slots: team });
+  }
+  if (pool.length < 2) {
+    showNotification(offline
+      ? "Not enough cached opponents for a Royale — go online once to stock up practice teams."
+      : "Need at least 2 other posted teams for a Royale — post challenges and try again soon!");
+    return;
+  }
+  const myRating = G.pvpFfaRating || PVP_BASE_RATING;
+  pool.sort((a, b) => Math.abs((a.rating || 0) - myRating) - Math.abs((b.rating || 0) - myRating));
+  // 3-4 total sides: draw the AI teams from the nearest-rated band for variety.
+  const aiCount = Math.min(3, pool.length);
+  const bag = pool.slice(0, Math.min(6, pool.length));
+  const chosen = [];
+  while (chosen.length < aiCount && bag.length) {
+    chosen.push(bag.splice(Math.floor(Math.random() * bag.length), 1)[0]);
+  }
+  if (typeof startFfaBattle === "function") startFfaBattle(chosen, { practice: offline });
+  else showNotification("Royale engine unavailable.");
+}
+
+// Self-contained FFA result: move pvp_ffa_rating vs the average opponent rating.
+// No zero-sum mailbox (multi-opponent vs snapshots), like Gauntlet.
+async function recordFfaResult(won, avgOppRating) {
+  const F = pvpModeFields("ffa");
+  const before = G[F.rating] || PVP_BASE_RATING;
+  const delta = pvpRatingDelta(before, avgOppRating || PVP_BASE_RATING, !!won);
+  G[F.rating] = Math.max(0, before + delta);
+  if (won) G[F.wins] = (G[F.wins] || 0) + 1; else G[F.losses] = (G[F.losses] || 0) + 1;
   saveGame();
+  if (typeof submitLeaderboardScore === "function") submitLeaderboardScore(F.board);
+  const sign = delta >= 0 ? "+" : "";
   showNotification(
-    won
-      ? `🏆 You won the PvP battle vs ${escapeHtml(challenge.challengerName)}! +${prize} coins`
-      : `😞 You lost to ${escapeHtml(challenge.challengerName)}. +${prize} coins for participating.`
+    (won ? "🏆 You won the Royale!" : "😞 You were eliminated from the Royale.") +
+    ` FFA rating ${sign}${delta} → <strong>${G[F.rating]}</strong>.`,
+    () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); }
   );
 }
 
-function simulatePvPBattle(teamA, teamB) {
-  // Simple simulation: compare team power scores
-  function teamScore(team) {
-    return team.reduce((sum, m) => {
-      const def = MONSTERS_DATA[m.monsterId];
-      if (!def) return sum;
-      const statTotal = Object.values(def.baseStats || {}).reduce((a,b) => a+b, 0);
-      return sum + (statTotal * m.level / 100);
-    }, 0);
+// Apply the outcome of an async PvP battle: adjust rating, push it to the
+// leaderboard, mark the challenge completed, and return to the PvP screen.
+// Called from endBattle() in game.js when battleContext.isPvP.
+async function recordPvpResult(won, mode) {
+  const ctx = (typeof battleContext !== "undefined" && battleContext) ? battleContext : {};
+  const oppName = ctx.pvpOpponentName || "your opponent";
+  const fmt = (mode === "double") ? "double" : "single";
+  const F = pvpModeFields(fmt);
+
+  // Gap-driven rating change: close matches move ±10–22, larger gaps in the
+  // "harder" direction (winning vs a higher rating / losing to a lower one) ramp
+  // continuously up to ±80. See pvpRatingDelta / PVP_WIN_CURVE.
+  const before = G[F.rating] || PVP_BASE_RATING;
+  const oppRating = ctx.pvpOpponentRating || PVP_BASE_RATING;
+  const delta = pvpRatingDelta(before, oppRating, won);
+  G[F.rating] = Math.max(0, before + delta);
+  if (won) G[F.wins] = (G[F.wins] || 0) + 1; else G[F.losses] = (G[F.losses] || 0) + 1;
+  saveGame();
+
+  // Record the outcome on the challenge, and leave a mailbox note so the
+  // (offline) challenger can reconcile their own rating on next login.
+  if (onlineReady && ctx.pvpChallengeId) {
+    try {
+      await firebaseDB.ref(`battles/${ctx.pvpChallengeId}`).update({
+        status: "completed",
+        defenderUID: firebaseUID,
+        defenderName: G.playerName,
+        result: won ? "defender" : "challenger",
+        completedTs: Date.now()
+      });
+      // Only the acceptor (defender) is online, so deposit the inputs the
+      // challenger needs to mirror this result via drainPvpMailbox() when they
+      // next come online. The mirror is zero-sum: their delta = -ours.
+      if (ctx.pvpOpponentUID && ctx.pvpOpponentUID !== firebaseUID) {
+        await firebaseDB.ref(`pvpMailbox/${ctx.pvpOpponentUID}/${ctx.pvpChallengeId}`).set({
+          challengeId: ctx.pvpChallengeId,
+          opponentName: G.playerName,            // the defender, from the challenger's view
+          opponentRating: before,                // defender rating at battle time
+          challengerRatingAtPost: oppRating,     // rating the challenger posted with
+          challengerWon: !won,                   // challenger won iff defender lost
+          format: fmt,                           // which ladder this result belongs to
+          ts: Date.now()
+        });
+      }
+    } catch(e) { /* non-fatal; local rating already saved */ }
   }
-  const scoreA = teamScore(teamA) * (0.85 + Math.random() * 0.3);
-  const scoreB = teamScore(teamB) * (0.85 + Math.random() * 0.3);
-  return { winner: scoreA >= scoreB ? "challenger" : "defender", scoreA, scoreB };
+  if (typeof submitLeaderboardScore === "function") submitLeaderboardScore(F.board);
+
+  const sign = delta >= 0 ? "+" : "";
+  showNotification(
+    (won ? `🏆 You won vs ${escapeHtml(oppName)}!` : `😞 You lost to ${escapeHtml(oppName)}.`) +
+    ` ${F.label} rating ${sign}${delta} → <strong>${G[F.rating]}</strong>.`,
+    () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); }
+  );
+}
+
+// Reconcile async PvP results that landed on our posted challenges while we were
+// offline. The acceptor (defender) leaves a mailbox note per battle (see
+// recordPvpResult); here we mirror each one onto our own rating/record, then clear
+// the note (apply-once) and delete the now-finished challenge to tidy the board.
+// Called on login (initOnline) and when opening the PvP screen.
+async function drainPvpMailbox() {
+  if (!onlineReady || !firebaseUID || !G) return;
+  const snap = await firebaseDB.ref(`pvpMailbox/${firebaseUID}`).once("value").catch(() => null);
+  if (!snap || !snap.exists()) return;
+  const entries = [];
+  snap.forEach(c => { entries.push({ key: c.key, ...c.val() }); });
+
+  let net = 0, w = 0, l = 0, lastName = "";
+  const boardsTouched = new Set();
+  for (const e of entries) {
+    // Each note carries the ladder it belongs to (older notes default to singles).
+    const F = pvpModeFields(e.format === "double" ? "double" : "single");
+    const base = (typeof e.challengerRatingAtPost === "number") ? e.challengerRatingAtPost : (G[F.rating] || PVP_BASE_RATING);
+    const oppR = (typeof e.opponentRating === "number") ? e.opponentRating : PVP_BASE_RATING;
+    const delta = pvpRatingDelta(base, oppR, !!e.challengerWon);
+    G[F.rating] = Math.max(0, (G[F.rating] || PVP_BASE_RATING) + delta);
+    if (e.challengerWon) { G[F.wins] = (G[F.wins] || 0) + 1; w++; }
+    else { G[F.losses] = (G[F.losses] || 0) + 1; l++; }
+    net += delta;
+    boardsTouched.add(F.board);
+    lastName = e.opponentName || lastName;
+    // Clear the note first so a result can never be applied twice, then remove
+    // the finished challenge (we own it as the challenger).
+    await firebaseDB.ref(`pvpMailbox/${firebaseUID}/${e.key}`).remove().catch(() => {});
+    if (e.challengeId) await firebaseDB.ref(`battles/${e.challengeId}`).remove().catch(() => {});
+  }
+
+  saveGame();
+  if (typeof submitLeaderboardScore === "function") {
+    for (const board of boardsTouched) submitLeaderboardScore(board);
+  }
+  const sign = net >= 0 ? "+" : "";
+  // Results may span both ladders, so the summary reports the net swing rather
+  // than a single "→ rating" figure (each ladder is updated independently above).
+  showNotification(entries.length === 1
+    ? `While you were away, ${escapeHtml(lastName || "someone")} ${w ? "fell to" : "beat"} your team. Net rating ${sign}${net}.`
+    : `While you were away: ${entries.length} battles (${w}W–${l}L). Net rating ${sign}${net}.`,
+    () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); }
+  );
+}
+
+// ---- Gauntlet: battle several posted teams back-to-back; score = clears ----
+// A survival ladder that reuses the 1v1 battle path but deliberately does NOT
+// touch ladder rating or the mailbox — it's a separate "best clears" track so a
+// long run can't farm rating off other players who aren't choosing to fight.
+let gauntletRun = null;
+const GAUNTLET_MAX = 8;
+
+async function startGauntlet() {
+  if (!G) return;
+  if (gauntletRun) { showNotification("A gauntlet run is already in progress!"); return; }
+  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team before the gauntlet!"); return; }
+  const { offline, pool: raw } = await getPvpSnapshotPool();
+  const pool = raw.filter(v => v.challengerUID !== firebaseUID);
+  if (!pool.length) {
+    showNotification(offline
+      ? "No cached opponents to run a gauntlet against — go online once to stock up practice teams."
+      : "No open challenges to run a gauntlet against yet. Post one or invite friends!");
+    return;
+  }
+  // Shuffle, then take up to GAUNTLET_MAX as the run queue.
+  for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+  gauntletRun = { queue: pool.slice(0, GAUNTLET_MAX), idx: 0, clears: 0, practice: offline };
+  showNotification(`🏟️ Gauntlet begins!${offline ? " (offline practice — best score won't be recorded.)" : ""} Beat as many teams as you can — ${gauntletRun.queue.length} waiting.`);
+  gauntletLaunchNext();
+}
+
+function gauntletLaunchNext() {
+  if (!gauntletRun) return;
+  const next = gauntletRun.queue[gauntletRun.idx];
+  if (!next) { finishGauntlet(true); return; }   // cleared everyone available
+  let team;
+  try { team = JSON.parse(next.team); } catch(e) { team = null; }
+  if (!Array.isArray(team) || !team.length) {    // skip a malformed entry
+    gauntletRun.idx++;
+    gauntletLaunchNext();
+    return;
+  }
+  if (typeof startPvpBattle !== "function") { showNotification("Battle engine unavailable."); gauntletRun = null; return; }
+  startPvpBattle(team, next.challengerName || "Challenger", { gauntlet: true });
+}
+
+// Called from endBattle's PvP branch when battleContext.pvpGauntlet is set.
+function advanceGauntlet(outcome) {
+  if (!gauntletRun) { showScreen("screen-pvp"); return; }
+  if (outcome === "won") {
+    gauntletRun.clears++;
+    gauntletRun.idx++;
+    gauntletLaunchNext();
+  } else {
+    finishGauntlet(false);
+  }
+}
+
+function finishGauntlet(clearedAll) {
+  const clears = gauntletRun ? gauntletRun.clears : 0;
+  const practice = gauntletRun ? gauntletRun.practice : false;
+  gauntletRun = null;
+  let isRecord = false;
+  if (!practice) {
+    // Offline practice runs deliberately don't touch the best-clears score or board.
+    const prevBest = G.pvpGauntletBest || 0;
+    isRecord = clears > prevBest;
+    if (isRecord) G.pvpGauntletBest = clears;
+    saveGame();
+    if (typeof submitLeaderboardScore === "function") submitLeaderboardScore("pvp_gauntlet");
+  }
+  const head = clearedAll
+    ? `🏟️ Gauntlet cleared! You beat all ${clears} team${clears === 1 ? "" : "s"}!`
+    : `🏟️ Gauntlet over — ${clears} clear${clears === 1 ? "" : "s"}.`;
+  const tail = practice ? " (offline practice — not recorded.)" : (isRecord ? " 🏆 New best!" : ` (Best: ${G.pvpGauntletBest || 0}.)`);
+  showNotification(head + tail,
+    () => { if (typeof showPvPScreen === "function") showPvPScreen(); else showScreen("screen-pvp"); });
 }
 
 async function showPvPScreen() {
-  if (!requireOnline()) return;
+  if (!G) return;
+  gauntletRun = null;        // abandon any run orphaned by backing out mid-battle
   showScreen("screen-pvp");
-  loadOpenChallenges();
+  renderPvpOfflineNote();    // inline "offline — practice only" banner (A4)
+  if (onlineReady) await drainPvpMailbox();  // reconcile results that landed since login
+  renderPvpRatingBanner();
+  renderPvpActiveTeam(document.querySelector(".pvp-fmt-btn.active")?.dataset.fmt || "single");
+  if (onlineReady) loadOpenChallenges();
+  else renderPvpListingsOffline();
+}
+
+// Inline offline state for the PvP screen: explains that the AI modes run as
+// practice from cached opponents while posting / open challenges / live need a
+// connection. Replaces the old hard bounce.
+function renderPvpOfflineNote() {
+  const el = document.getElementById("pvp-offline-note");
+  if (!el) return;
+  if (onlineReady) { el.classList.add("hidden"); el.innerHTML = ""; return; }
+  const n = loadPvpSnapshots().length;
+  el.classList.remove("hidden");
+  el.innerHTML = n
+    ? `📴 Offline — Quick Match, Gauntlet & FFA run as <strong>practice</strong> vs ${n} cached opponent${n === 1 ? "" : "s"} (no rating change). Posting, open challenges & Live need a connection.`
+    : `📴 Offline — go online once to cache opponents, then Quick Match / Gauntlet / FFA work here as practice. Posting & Live need a connection.`;
+}
+
+function renderPvpListingsOffline() {
+  const container = document.getElementById("pvp-listings");
+  if (container) container.innerHTML = '<div class="pvp-empty">Open challenges need a connection. Use Quick Match / Gauntlet / FFA for offline practice vs cached opponents.</div>';
+}
+
+// "Your rating: ⭐ N · W–L" header so the player sees standing without opening
+// the leaderboard.
+function renderPvpRatingBanner() {
+  const el = document.getElementById("pvp-rating-banner");
+  if (!el || !G) return;
+  const sW = G.pvpWins || 0, sL = G.pvpLosses || 0;
+  const dW = G.pvpDoublesWins || 0, dL = G.pvpDoublesLosses || 0;
+  const playedSingles = (G.pvpRating !== undefined) || sW || sL;
+  const playedDoubles = (G.pvpDoublesRating !== undefined) || dW || dL;
+  const singles = playedSingles
+    ? `<strong>⭐ ${G.pvpRating || PVP_BASE_RATING}</strong> <span class="pvp-record">${sW}W–${sL}L</span>`
+    : `<strong>⭐ ${PVP_BASE_RATING}</strong> <span class="pvp-record">unranked</span>`;
+  const doubles = playedDoubles
+    ? ` · 👥 <strong>${G.pvpDoublesRating || PVP_BASE_RATING}</strong> <span class="pvp-record">${dW}W–${dL}L</span>`
+    : "";
+  const fW = G.pvpFfaWins || 0, fL = G.pvpFfaLosses || 0;
+  const ffa = ((G.pvpFfaRating !== undefined) || fW || fL)
+    ? ` · 👑 <strong>${G.pvpFfaRating || PVP_BASE_RATING}</strong> <span class="pvp-record">${fW}W–${fL}L</span>`
+    : "";
+  const gauntlet = (G.pvpGauntletBest || 0) > 0
+    ? ` · <span class="pvp-record">🏟️ best ${G.pvpGauntletBest}</span>`
+    : "";
+  el.innerHTML = `Singles: ${singles}${doubles}${ffa}${gauntlet}`;
 }
 
 async function loadOpenChallenges() {
@@ -499,19 +1002,207 @@ async function loadOpenChallenges() {
         battles.push({ id: child.key, ...child.val() });
     });
     if (!battles.length) { container.innerHTML = '<div class="pvp-empty">No open challenges. Post one!</div>'; return; }
-    container.innerHTML = battles.map(b => `
+    container.innerHTML = battles.map((b, i) => {
+      const fmtLabel = (b.format === "double") ? "👥 Doubles" : "⚔️ Singles";
+      return `
       <div class="pvp-card">
         <span class="pvp-challenger">${escapeHtml(b.challengerName)}</span>
-        <span class="pvp-badges">🏅 ${b.challengerBadges}</span>
+        <span class="pvp-format-tag">${fmtLabel}</span>
+        <span class="pvp-badges">🏅 ${b.challengerBadges} · ⭐ ${b.rating || 0}</span>
         <span class="pvp-code">Code: ${b.id.slice(-6).toUpperCase()}</span>
-        <button class="btn-primary pvp-accept" data-code="${b.id.slice(-6)}">⚔️ Accept</button>
-      </div>`).join("");
+        <button class="btn-primary pvp-accept" data-idx="${i}">⚔️ Battle</button>
+      </div>`;
+    }).join("");
     container.querySelectorAll(".pvp-accept").forEach(btn => {
-      btn.addEventListener("click", () => acceptBattleChallenge(btn.dataset.code));
+      btn.addEventListener("click", () => {
+        const b = battles[parseInt(btn.dataset.idx, 10)];
+        if (b) launchPvpChallenge(b.id, b);
+      });
     });
   } catch(e) {
     container.innerHTML = '<div class="pvp-error">Failed to load challenges.</div>';
   }
+}
+
+// ============================================================
+// PvP TEAM BUILDER UI (saved loadouts, up to 6 per format)
+// ============================================================
+let pvpTeamFmt = "single";   // format the builder is currently editing
+let pvpTeamEditor = null;    // { editIndex, name, picks:[snapshot...] } while editing
+
+// Compact, identity-ish key so an owned Lumori matches its loadout snapshot.
+function monKey(m) {
+  return [m.monsterId, m.level, m.nickname || "", (m.moves || []).join(","),
+          m.heldItem || "", m.shiny ? 1 : 0, m.variant ? 1 : 0].join("|");
+}
+function monLabel(m) {
+  const def = MONSTERS_DATA[m.monsterId];
+  const nm = m.nickname || def?.name || "?";
+  return `${def?.emoji || "❓"} ${escapeHtml(nm)} <small>Lv.${m.level || "?"}</small>`;
+}
+
+// Short "active team" line shown on the PvP screen for the selected format.
+function renderPvpActiveTeam(fmt) {
+  const el = document.getElementById("pvp-active-team");
+  if (!el || !G) return;
+  const f = (fmt === "double") ? "double" : "single";
+  const active = getActivePvpLoadout(f);
+  el.innerHTML = active
+    ? `Active ${f === "double" ? "Doubles" : "Singles"} team: <strong>${escapeHtml(active.name)}</strong> · ${(active.mons || []).length} Lumori`
+    : `<span class="pvp-record">Using your live party for ${f === "double" ? "Doubles" : "Singles"}.</span>`;
+}
+
+function showPvpTeamsScreen(fmt) {
+  if (!G) return;
+  pvpTeamFmt = (fmt === "double") ? "double" : "single";
+  pvpTeamEditor = null;
+  showScreen("screen-pvp-teams");
+  renderPvpTeamsArea();
+}
+
+function renderPvpTeamsArea() {
+  const area = document.getElementById("pvp-teams-area");
+  if (!area) return;
+  if (pvpTeamEditor) { renderPvpTeamEditor(area); return; }
+
+  const fmtName = pvpTeamFmt === "double" ? "Doubles" : "Singles";
+  const cap = PVP_LOADOUT_CAP[pvpTeamFmt];
+  const list = pvpLoadoutList(pvpTeamFmt);
+  const activeIdx = G.pvpActiveLoadout ? G.pvpActiveLoadout[pvpTeamFmt] : null;
+
+  const tabs = `
+    <div class="pvp-format-toggle">
+      <button class="pvp-fmt-btn ${pvpTeamFmt === "single" ? "active" : ""}" data-tfmt="single">⚔️ Singles</button>
+      <button class="pvp-fmt-btn ${pvpTeamFmt === "double" ? "active" : ""}" data-tfmt="double">👥 Doubles</button>
+    </div>`;
+
+  const rows = list.length ? list.map((lo, i) => `
+    <div class="pvp-team-card ${i === activeIdx ? "active" : ""}">
+      <div class="pvp-team-head">
+        <strong>${escapeHtml(lo.name || `Team ${i + 1}`)}</strong>
+        ${i === activeIdx ? '<span class="pvp-active-pill">★ Active</span>' : ""}
+      </div>
+      <div class="pvp-team-mons">${(lo.mons || []).map(monLabel).join(" · ")}</div>
+      <div class="pvp-team-actions">
+        ${i === activeIdx ? "" : `<button class="btn-secondary pvp-team-activate" data-i="${i}">Set Active</button>`}
+        <button class="btn-secondary pvp-team-edit" data-i="${i}">Edit</button>
+        <button class="btn-secondary pvp-team-delete" data-i="${i}">Delete</button>
+      </div>
+    </div>`).join("") : `<p class="pvp-desc">No ${fmtName} teams yet. Create one to post &amp; battle with a fixed lineup.</p>`;
+
+  const newBtn = list.length < PVP_LOADOUT_MAX
+    ? `<button class="btn-primary" id="pvp-team-new">➕ New ${fmtName} Team</button>`
+    : `<p class="pvp-desc">Maximum ${PVP_LOADOUT_MAX} ${fmtName} teams reached.</p>`;
+
+  area.innerHTML = `
+    ${tabs}
+    <p class="pvp-desc">${fmtName} teams field up to ${cap} Lumori (${pvpTeamFmt === "double" ? "2 active" : "1 active"} + bench). The active team is posted and battled with — your overworld party is never touched.</p>
+    <div class="pvp-team-list">${rows}</div>
+    ${newBtn}`;
+
+  area.querySelectorAll(".pvp-fmt-btn").forEach(b => b.addEventListener("click", () => showPvpTeamsScreen(b.dataset.tfmt)));
+  document.getElementById("pvp-team-new")?.addEventListener("click", () => startPvpTeamEditor(null));
+  area.querySelectorAll(".pvp-team-activate").forEach(b => b.addEventListener("click", () => setActivePvpTeam(parseInt(b.dataset.i, 10))));
+  area.querySelectorAll(".pvp-team-edit").forEach(b => b.addEventListener("click", () => startPvpTeamEditor(parseInt(b.dataset.i, 10))));
+  area.querySelectorAll(".pvp-team-delete").forEach(b => b.addEventListener("click", () => deletePvpTeam(parseInt(b.dataset.i, 10))));
+}
+
+function setActivePvpTeam(i) {
+  if (!G.pvpActiveLoadout) G.pvpActiveLoadout = { single: null, double: null };
+  G.pvpActiveLoadout[pvpTeamFmt] = i;
+  saveGame();
+  renderPvpTeamsArea();
+}
+
+function deletePvpTeam(i) {
+  const list = pvpLoadoutList(pvpTeamFmt);
+  list.splice(i, 1);
+  const act = G.pvpActiveLoadout ? G.pvpActiveLoadout[pvpTeamFmt] : null;
+  if (act != null) {
+    if (act === i) G.pvpActiveLoadout[pvpTeamFmt] = null;
+    else if (act > i) G.pvpActiveLoadout[pvpTeamFmt] = act - 1;
+  }
+  saveGame();
+  renderPvpTeamsArea();
+}
+
+function startPvpTeamEditor(editIndex) {
+  const list = pvpLoadoutList(pvpTeamFmt);
+  if (editIndex != null && list[editIndex]) {
+    const lo = list[editIndex];
+    pvpTeamEditor = { editIndex, name: lo.name || "", picks: (lo.mons || []).map(m => JSON.parse(JSON.stringify(m))) };
+  } else {
+    pvpTeamEditor = { editIndex: null, name: "", picks: [] };
+  }
+  renderPvpTeamsArea();
+}
+
+function renderPvpTeamEditor(area) {
+  const cap = PVP_LOADOUT_CAP[pvpTeamFmt];
+  const fmtName = pvpTeamFmt === "double" ? "Doubles" : "Singles";
+  const ed = pvpTeamEditor;
+  const owned = allOwnedMons();
+  const pickedKeys = new Set(ed.picks.map(monKey));
+
+  const selected = ed.picks.length
+    ? ed.picks.map((m, i) => `<span class="pvp-pick-chip">${i === 0 ? "🔹 " : ""}${monLabel(m)} <button class="pvp-pick-remove" data-k="${escapeHtml(monKey(m))}">✖</button></span>`).join("")
+    : `<span class="pvp-record">Tap your Lumori below to add them.</span>`;
+
+  const grid = owned.length
+    ? owned.map(m => {
+        const k = monKey(m);
+        return `<button class="pvp-own-mon ${pickedKeys.has(k) ? "picked" : ""}" data-k="${escapeHtml(k)}">${monLabel(m)}</button>`;
+      }).join("")
+    : `<p class="pvp-desc">You don't own any Lumori yet.</p>`;
+
+  area.innerHTML = `
+    <input type="text" id="pvp-team-name" class="pvp-input" maxlength="20" placeholder="Team name" value="${escapeHtml(ed.name || "")}">
+    <p class="pvp-desc">${fmtName}: pick ${pvpTeamFmt === "double" ? "2" : "1"}–${cap} Lumori. Order matters — the first ${pvpTeamFmt === "double" ? "two lead" : "one leads"}.</p>
+    <div class="pvp-pick-row">Selected (${ed.picks.length}/${cap}): ${selected}</div>
+    <div class="pvp-own-grid">${grid}</div>
+    <div class="pvp-team-actions">
+      <button class="btn-primary" id="pvp-team-save">💾 Save</button>
+      <button class="btn-secondary" id="pvp-team-cancel">Cancel</button>
+    </div>`;
+
+  document.getElementById("pvp-team-name").addEventListener("input", e => { ed.name = e.target.value; });
+  area.querySelectorAll(".pvp-own-mon").forEach(b => b.addEventListener("click", () => togglePvpPick(b.dataset.k, owned)));
+  area.querySelectorAll(".pvp-pick-remove").forEach(b => b.addEventListener("click", () => togglePvpPick(b.dataset.k, owned)));
+  document.getElementById("pvp-team-save").addEventListener("click", savePvpTeam);
+  document.getElementById("pvp-team-cancel").addEventListener("click", () => { pvpTeamEditor = null; renderPvpTeamsArea(); });
+}
+
+function togglePvpPick(key, owned) {
+  const ed = pvpTeamEditor;
+  if (!ed) return;
+  const cap = PVP_LOADOUT_CAP[pvpTeamFmt];
+  const existing = ed.picks.findIndex(p => monKey(p) === key);
+  if (existing >= 0) {
+    ed.picks.splice(existing, 1);
+  } else {
+    if (ed.picks.length >= cap) { showNotification(`A ${pvpTeamFmt === "double" ? "Doubles" : "Singles"} team holds at most ${cap} Lumori.`); return; }
+    const m = owned.find(o => monKey(o) === key);
+    if (m) ed.picks.push(JSON.parse(JSON.stringify(m)));
+  }
+  renderPvpTeamEditor(document.getElementById("pvp-teams-area"));
+}
+
+function savePvpTeam() {
+  const ed = pvpTeamEditor;
+  if (!ed) return;
+  const need = pvpTeamFmt === "double" ? 2 : 1;
+  if (ed.picks.length < need) { showNotification(`A ${pvpTeamFmt === "double" ? "Doubles" : "Singles"} team needs at least ${need} Lumori.`); return; }
+  const list = pvpLoadoutList(pvpTeamFmt);
+  const name = (ed.name || "").trim() || `${pvpTeamFmt === "double" ? "Doubles" : "Singles"} ${list.length + 1}`;
+  const loadout = { name, mons: ed.picks.map(m => JSON.parse(JSON.stringify(m))) };
+  if (ed.editIndex != null && list[ed.editIndex]) list[ed.editIndex] = loadout;
+  else list.push(loadout);
+  if (!G.pvpActiveLoadout) G.pvpActiveLoadout = { single: null, double: null };
+  if (G.pvpActiveLoadout[pvpTeamFmt] == null) G.pvpActiveLoadout[pvpTeamFmt] = list.indexOf(loadout);
+  saveGame();
+  pvpTeamEditor = null;
+  renderPvpTeamsArea();
+  showNotification(`Saved “${escapeHtml(name)}”.`);
 }
 
 // ============================================================
@@ -520,7 +1211,9 @@ async function loadOpenChallenges() {
 let liveRoomCode = null;
 let liveRoomRef  = null;
 let liveIsHost   = false;
+let liveIsSpectator = false;
 let liveRoomListener = null;
+let liveCreateMode = "live1v1";   // selected mode in the create-room UI
 
 function generateRoomCode() {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
@@ -529,31 +1222,133 @@ function generateRoomCode() {
   return code;
 }
 
+// Serialize the live team by building each mon through the REAL Lv-50 PvP path
+// (buildBattleMon under a temporary isPvP context) and storing its full computed
+// stat block. This gives live battles the same stats/types/held-item math as
+// single-player, and lets the host run the real calcDamage each turn.
 function buildLiveTeam() {
   if (!G) return [];
-  return G.team.filter(m => m.currentHP > 0).slice(0, 3).map(m => {
-    const def = MONSTERS_DATA[m.monsterId];
-    const spd = (def?.baseStats?.speed || def?.base?.spe || 50) + Math.floor(m.level * 0.5);
-    const atk = (def?.baseStats?.attack || def?.base?.atk || 50) + Math.floor(m.level * 0.5);
-    const defStat = (def?.baseStats?.defense || def?.base?.def || 50) + Math.floor(m.level * 0.5);
-    const maxHP = m.maxHP || m.currentHP;
-    return {
-      monsterId: m.monsterId, name: m.name, emoji: def?.emoji || "❓",
-      level: m.level, nature: m.nature,
-      moves: m.moves.map(mv => mv.id || mv),
-      atk, def: defStat, spd, maxHP
-    };
-  });
+  const prev = (typeof battleContext !== "undefined") ? battleContext : undefined;
+  try {
+    battleContext = { isPvP: true };
+    return G.team.filter(m => m.currentHP > 0).slice(0, 3).map(m => {
+      const def = MONSTERS_DATA[m.monsterId];
+      const bm = buildBattleMon(m);
+      return {
+        monsterId: m.monsterId, name: bm.name, emoji: def?.emoji || "❓",
+        level: bm.level, types: bm.types || def?.types || [],
+        atk: bm.atk, def: bm.def, spa: bm.spa, spd: bm.spd, spe: bm.spe,
+        maxHP: bm.maxHP, heldItem: bm.heldItem || null,
+        variantImmune: bm.variantImmune || null,
+        moves: m.moves.map(mv => mv.id || mv),
+      };
+    });
+  } finally {
+    battleContext = prev;
+  }
 }
 
-function livePvPDamage(attackerMon, moveId, defenderMon) {
+// Reconstruct a calcDamage-ready mon from a stored live stat block. Stages start
+// neutral each turn (stat-stage changes are not persisted live), but `statuses`
+// are now carried across turns by the resolver and passed in here, so calcDamage
+// honours bonusVsStatus, burn's physical halving, status statMod, and
+// incomingDmgMod exactly as single-player does.
+function liveCalcMon(s, statuses) {
+  return {
+    level: s.level, atk: s.atk, def: s.def, spa: s.spa, spd: s.spd, spe: s.spe,
+    types: s.types || [], maxHP: s.maxHP, heldItem: s.heldItem || null,
+    variantImmune: s.variantImmune || null,
+    stages: { atk: 0, def: 0, spa: 0, spd: 0, spe: 0, acc: 0, eva: 0 },
+    statuses: Array.isArray(statuses) ? statuses : [],
+  };
+}
+
+// Real-engine live damage: physical/special split, crit, held items, exact
+// formula, type chart, STAB, variant immunity. Falls back to a flat formula only
+// if calcDamage is somehow unavailable.
+function liveRealDamage(attackerS, moveId, defenderS, opts = {}) {
+  const move = MOVES_DATA[moveId];
+  if (!move || !move.power) return { damage: 0, effectiveness: 1, crit: false };
+  try {
+    const atk = liveCalcMon(attackerS, opts.attackerStatuses), def = liveCalcMon(defenderS, opts.defenderStatuses);
+    // Multi-hit parity with the single-player engine (game.js applyMove): move.hits
+    // may be a fixed count or a [min,max] range ([2,5] weighted 35/35/15/15). Without
+    // this loop, moves whose per-hit power was lowered for multi-hit (e.g. basalt_volley,
+    // bone_barrage) would deal only a single hit's damage in live battles.
+    let hitCount = 1;
+    if (Array.isArray(move.hits)) {
+      const [mn, mx] = move.hits;
+      if (mn === 2 && mx === 5) {
+        const r = Math.random();
+        hitCount = r < 0.35 ? 2 : r < 0.70 ? 3 : r < 0.85 ? 4 : 5;
+      } else {
+        hitCount = mn + Math.floor(Math.random() * (mx - mn + 1));
+      }
+    } else if (move.hits) {
+      hitCount = move.hits;
+    }
+    let total = 0, crit = false, eff = 1;
+    for (let h = 0; h < hitCount; h++) {
+      const res = calcDamage(atk, def, move);
+      const r = (typeof res === "object") ? res : { damage: res, effectiveness: 1, crit: false };
+      total += r.damage; crit = crit || r.crit; eff = r.effectiveness;
+    }
+    return { damage: total, effectiveness: eff, crit, hits: hitCount };
+  } catch (e) {
+    return { damage: livePvPFlatDamage(attackerS, moveId, defenderS), effectiveness: 1, crit: false };
+  }
+}
+function livePvPFlatDamage(attackerMon, moveId, defenderMon) {
   const moveDef = MOVES_DATA[moveId];
   if (!moveDef?.power) return 0;
-  const dmg = Math.floor((2 * attackerMon.level / 5 + 2) * moveDef.power * attackerMon.atk / defenderMon.def / 50 + 2);
-  return Math.max(1, Math.round(dmg * (0.85 + Math.random() * 0.15)));
+  let dmg = Math.floor((2 * attackerMon.level / 5 + 2) * moveDef.power * attackerMon.atk / defenderMon.def / 50 + 2);
+  if ((attackerMon.types || []).includes(moveDef.type)) dmg = Math.floor(dmg * 1.5);
+  let eff = 1;
+  if (typeof getMoveEffectiveness === "function") { try { eff = getMoveEffectiveness(moveDef, defenderMon.types || []); } catch (e) {} }
+  if (eff === 0) return 0;
+  return Math.max(1, Math.round(dmg * eff * (0.85 + Math.random() * 0.15)));
 }
 
-async function createLiveRoom() {
+// ---- Live status persistence (C2) ----
+// Live battles now carry persistent statuses across turns (stored serialized on
+// the room). These helpers reuse the single-player engine's addStatus /
+// tickStatus / STATUS_REGISTRY so behaviour matches solo play. Stat-stage
+// changes and HP heals are still NOT persisted across live turns — only the
+// status-condition portion of a move's effect is applied here.
+
+// A tick/status-capable wrapper around a stored stat block + its live HP and
+// persisted status list (the same shape addStatus/tickStatus expect).
+function liveStatusMon(statBlock, hp, statusList) {
+  return {
+    name: statBlock.name, types: statBlock.types || [], maxHP: statBlock.maxHP,
+    currentHP: hp, statuses: Array.isArray(statusList) ? statusList : [], fainted: hp <= 0,
+  };
+}
+
+// Inflict the persistent-status portion of a move's effect, mirroring
+// applyMoveEffect's "_and_" / "_self" / "_target" routing and single ec roll.
+// Only STATUS_REGISTRY tokens are applied (stat stages / heals are skipped live).
+// Mutates the target wrappers' `statuses` arrays; returns log messages.
+function liveInflictStatus(move, attackerMon, defenderMon) {
+  if (!move || !move.effect || move.ec === 0) return [];
+  if (typeof addStatus !== "function" || typeof STATUS_REGISTRY === "undefined") return [];
+  const ec = move.ec ?? 0;
+  const passed = (typeof rollPercent === "function") ? rollPercent(ec) : (Math.random() * 100 < ec);
+  if (!passed) return [];
+  const msgs = [];
+  for (const part of String(move.effect).split("_and_")) {
+    let base = part;
+    let target = (move.target === "self") ? attackerMon : defenderMon;
+    if (part.endsWith("_self")) { base = part.slice(0, -5); target = attackerMon; }
+    else if (part.endsWith("_target")) { base = part.slice(0, -7); target = defenderMon; }
+    if (STATUS_REGISTRY[base] && target && !target.fainted && target.currentHP > 0) {
+      if (addStatus(target, base)) msgs.push(STATUS_REGISTRY[base].applyMsg(target.name));
+    }
+  }
+  return msgs;
+}
+
+async function createLiveRoom(passcode, isPublic) {
   if (!requireOnline() || !G) return;
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team first!"); return; }
   const code = generateRoomCode();
@@ -562,7 +1357,10 @@ async function createLiveRoom() {
   const room = {
     hostUID: firebaseUID, hostName: G.playerName,
     hostTeam: JSON.stringify(team),
-    guestUID: null, guestName: null, guestTeam: null,
+    hostRating: G.pvpRating || PVP_BASE_RATING,
+    guestUID: null, guestName: null, guestTeam: null, guestRating: null,
+    passcode: passcode ? String(passcode).trim() : null,
+    public: !!isPublic,
     status: "waiting",
     hostHP: hpArr, hostMaxHP: hpArr,
     guestHP: [], guestMaxHP: [],
@@ -574,11 +1372,13 @@ async function createLiveRoom() {
   await firebaseDB.ref(`pvp_live/${code}`).set(room);
   liveRoomCode = code;
   liveIsHost = true;
-  renderLiveRoomUI("waiting", code, null);
+  liveIsSpectator = false;
+  liveResultApplied = false;
+  renderLiveRoomUI("waiting", code, room);
   watchLiveRoom(code);
 }
 
-async function joinLiveRoom(code) {
+async function joinLiveRoom(code, passcode) {
   if (!requireOnline() || !G) return;
   if (!code || code.length !== 6) { showNotification("Enter a 6-character room code."); return; }
   code = code.toUpperCase();
@@ -588,18 +1388,78 @@ async function joinLiveRoom(code) {
   if (!room) { showNotification("Room not found."); return; }
   if (room.status !== "waiting") { showNotification("Room is already full or finished."); return; }
   if (room.hostUID === firebaseUID) { showNotification("You can't join your own room."); return; }
+  if (room.passcode && String(room.passcode) !== String(passcode || "").trim()) { showNotification("Wrong passcode for this room."); return; }
   const team = buildLiveTeam();
   const hpArr = team.map(m => m.maxHP);
   await firebaseDB.ref(`pvp_live/${code}`).update({
     guestUID: firebaseUID, guestName: G.playerName,
     guestTeam: JSON.stringify(team),
+    guestRating: G.pvpRating || PVP_BASE_RATING,
     guestHP: hpArr, guestMaxHP: hpArr,
     status: "battling",
     log: [...(room.log || []), `${G.playerName} joined! Battle begins!`]
   });
   liveRoomCode = code;
   liveIsHost = false;
+  liveIsSpectator = false;
+  liveResultApplied = false;
   watchLiveRoom(code);
+}
+
+// Route a join by room code to the right handler based on the room's mode.
+async function joinAnyLiveRoom(code, passcode) {
+  if (!requireOnline()) return;
+  if (!code || code.length !== 6) { showNotification("Enter a 6-character room code."); return; }
+  code = code.toUpperCase();
+  const snap = await firebaseDB.ref(`pvp_live/${code}`).once("value").catch(() => null);
+  const room = snap && snap.val();
+  if (!room) { showNotification("Room not found."); return; }
+  if (room.mode && room.mode !== "live1v1" && typeof joinMultiLiveRoom === "function") joinMultiLiveRoom(code, passcode);
+  else joinLiveRoom(code, passcode);
+}
+
+// Watch a public room read-only (no team submitted, no controls rendered).
+async function spectateLiveRoom(code) {
+  if (!requireOnline()) return;
+  code = (code || "").toUpperCase();
+  const snap = await firebaseDB.ref(`pvp_live/${code}`).once("value");
+  if (!snap.val()) { showNotification("Room not found."); return; }
+  liveRoomCode = code;
+  liveIsHost = false;
+  liveIsSpectator = true;
+  liveResultApplied = false;
+  watchLiveRoom(code);
+}
+
+// List public rooms still waiting for an opponent, plus any in-progress public
+// rooms to spectate. Rendered into the idle live UI.
+async function listLiveRooms() {
+  const el = document.getElementById("live-room-list");
+  if (!el) return;
+  let snap;
+  try { snap = await firebaseDB.ref("pvp_live").orderByChild("public").equalTo(true).limitToLast(30).once("value"); }
+  catch (e) { el.innerHTML = `<p class="pvp-desc">Couldn't load public rooms.</p>`; return; }
+  const open = [], live = [];
+  snap.forEach(c => {
+    const r = c.val();
+    if (r.hostUID === firebaseUID) return;
+    if (r.status === "waiting") open.push({ code: c.key, ...r });
+    else if (r.status === "battling") live.push({ code: c.key, ...r });
+  });
+  if (!open.length && !live.length) { el.innerHTML = `<p class="pvp-desc">No public rooms right now. Create one (toggle Public) or share a code.</p>`; return; }
+  const openHtml = open.map(r => `
+    <div class="live-room-row">
+      <span>🟢 <strong>${escapeHtml(r.hostName || "Host")}</strong> · ⭐${r.hostRating || PVP_BASE_RATING}</span>
+      <button class="btn-secondary live-join-public" data-code="${r.code}">Join</button>
+    </div>`).join("");
+  const liveHtml = live.map(r => `
+    <div class="live-room-row">
+      <span>⚔️ ${escapeHtml(r.hostName || "Host")} vs ${escapeHtml(r.guestName || "?")}</span>
+      <button class="btn-secondary live-spectate" data-code="${r.code}">👁️ Watch</button>
+    </div>`).join("");
+  el.innerHTML = openHtml + liveHtml;
+  el.querySelectorAll(".live-join-public").forEach(b => b.addEventListener("click", () => joinAnyLiveRoom(b.dataset.code)));
+  el.querySelectorAll(".live-spectate").forEach(b => b.addEventListener("click", () => spectateLiveRoom(b.dataset.code)));
 }
 
 function watchLiveRoom(code) {
@@ -608,12 +1468,45 @@ function watchLiveRoom(code) {
   liveRoomListener = liveRoomRef.on("value", snap => {
     const room = snap.val();
     if (!room) return;
+    if (room.mode && room.mode !== "live1v1") { handleMultiLiveUpdate(code, room); return; }
     renderLiveRoomUI(room.status, code, room);
     // Host resolves turn when both moves are submitted
     if (liveIsHost && room.status === "battling" && room.hostMove && room.guestMove) {
+      clearLiveHostTimeout();
       resolveLiveTurn(code, room);
+    } else if (liveIsHost && room.status === "battling") {
+      // Safety net for a disconnected opponent (whose client can't auto-submit):
+      // force-resolve a few seconds past the 60s client timer.
+      scheduleLiveHostTimeout(`1v1:${code}:${(room.log || []).length}`, () => liveHostForceResolve1v1(code));
+    } else {
+      clearLiveHostTimeout();
     }
+    // Each participant applies its own (zero-sum) rating result once, when done.
+    if (room.status === "done" && room.winner) applyLiveResult(room);
   });
+}
+
+// Host disconnect safety net (one-shot setTimeout, idempotent per key).
+let liveHostTimeoutTimer = null;
+let liveHostTimeoutKey = null;
+function scheduleLiveHostTimeout(key, fn, ms = 65000) {
+  if (key === liveHostTimeoutKey && liveHostTimeoutTimer) return;
+  clearLiveHostTimeout();
+  liveHostTimeoutKey = key;
+  liveHostTimeoutTimer = setTimeout(() => { liveHostTimeoutTimer = null; liveHostTimeoutKey = null; try { fn(); } catch (e) {} }, ms);
+}
+function clearLiveHostTimeout() {
+  if (liveHostTimeoutTimer) clearTimeout(liveHostTimeoutTimer);
+  liveHostTimeoutTimer = null; liveHostTimeoutKey = null;
+}
+async function liveHostForceResolve1v1(code) {
+  const room = (await firebaseDB.ref(`pvp_live/${code}`).once("value")).val();
+  if (!room || room.status !== "battling") return;
+  if (room.hostMove && room.guestMove) return; // already ready
+  const updates = {};
+  if (!room.hostMove) { const t = JSON.parse(room.hostTeam || "[]")[room.hostActive]; const mv = t?.moves || []; updates.hostMove = mv[Math.floor(Math.random() * mv.length)] || null; }
+  if (!room.guestMove) { const t = JSON.parse(room.guestTeam || "[]")[room.guestActive]; const mv = t?.moves || []; updates.guestMove = mv[Math.floor(Math.random() * mv.length)] || null; }
+  if (updates.hostMove || updates.guestMove) await firebaseDB.ref(`pvp_live/${code}`).update(updates);
 }
 
 async function resolveLiveTurn(code, room) {
@@ -623,31 +1516,78 @@ async function resolveLiveTurn(code, room) {
   const guestMon = guestTeam[room.guestActive];
   let hostHP  = [...room.hostHP];
   let guestHP = [...room.guestHP];
+  // Persisted per-slot status lists (C2). Stored serialized to dodge Firebase's
+  // empty-array/sparse-array quirks; default to one empty list per team slot.
+  let hostStatuses, guestStatuses;
+  try { hostStatuses = JSON.parse(room.hostStatuses || "[]"); } catch (e) { hostStatuses = []; }
+  try { guestStatuses = JSON.parse(room.guestStatuses || "[]"); } catch (e) { guestStatuses = []; }
+  while (hostStatuses.length < hostHP.length) hostStatuses.push([]);
+  while (guestStatuses.length < guestHP.length) guestStatuses.push([]);
   const log = [...(room.log || [])];
 
-  // Determine turn order by speed
-  const hostFirst = hostMon.spd >= guestMon.spd;
-  function applyMove(attackerMon, moveId, defenderHP, defenderIdx, defenderTeam) {
+  // Determine turn order by speed (priority moves handled by the real engine in
+  // single-player; live keeps a simple speed compare).
+  const hostFirst = (hostMon.spe ?? hostMon.spd) >= (guestMon.spe ?? guestMon.spd);
+  function applyMove(attackerMon, atkIdx, atkStatusList, moveId, defenderHP, defenderIdx, defenderTeam, defStatusList) {
     const moveDef = MOVES_DATA[moveId];
     const moveName = moveDef?.name || moveId;
-    const dmg = livePvPDamage(attackerMon, moveId, defenderTeam[defenderIdx]);
-    defenderHP[defenderIdx] = Math.max(0, defenderHP[defenderIdx] - dmg);
-    log.push(`${attackerMon.name} used ${moveName}! ${dmg} damage.`);
+    const defMon = defenderTeam[defenderIdx];
+    // Damage sees the statuses carried INTO this turn (bonusVsStatus, burn, etc.).
+    const res = liveRealDamage(attackerMon, moveId, defMon, {
+      attackerStatuses: atkStatusList[atkIdx],
+      defenderStatuses: defStatusList[defenderIdx],
+    });
+    defenderHP[defenderIdx] = Math.max(0, defenderHP[defenderIdx] - res.damage);
+    let note = "";
+    if (res.crit) note += " Critical hit!";
+    if (res.effectiveness === 0) note += " It had no effect!";
+    else if (res.effectiveness > 1) note += " Super effective!";
+    else if (res.effectiveness < 1) note += " Not very effective…";
+    log.push(`${attackerMon.name} used ${moveName}! ${res.damage} damage.${note}`);
+    // Inflict the move's persistent status (applies from next turn on), if the
+    // defender survived. Self-target statuses go on the attacker.
+    if (moveDef && moveDef.effect) {
+      const atkWrap = liveStatusMon(attackerMon, 1, atkStatusList[atkIdx]);
+      const defWrap = liveStatusMon(defMon, defenderHP[defenderIdx], defStatusList[defenderIdx]);
+      const sMsgs = liveInflictStatus(moveDef, atkWrap, defWrap);
+      atkStatusList[atkIdx] = atkWrap.statuses;
+      defStatusList[defenderIdx] = defWrap.statuses;
+      for (const m of sMsgs) log.push(m);
+    }
     return defenderHP[defenderIdx] === 0;
   }
 
   let hostAct = room.hostActive, guestAct = room.guestActive;
-  const first  = hostFirst ? [hostMon, room.hostMove, guestHP, guestAct, guestTeam] : [guestMon, room.guestMove, hostHP, hostAct, hostTeam];
-  const second = hostFirst ? [guestMon, room.guestMove, hostHP, hostAct, hostTeam]  : [hostMon, room.hostMove, guestHP, guestAct, guestTeam];
+  const first  = hostFirst
+    ? [hostMon, hostAct, hostStatuses, room.hostMove, guestHP, guestAct, guestTeam, guestStatuses]
+    : [guestMon, guestAct, guestStatuses, room.guestMove, hostHP, hostAct, hostTeam, hostStatuses];
+  const second = hostFirst
+    ? [guestMon, guestAct, guestStatuses, room.guestMove, hostHP, hostAct, hostTeam, hostStatuses]
+    : [hostMon, hostAct, hostStatuses, room.hostMove, guestHP, guestAct, guestTeam, guestStatuses];
   const firstFainted = applyMove(...first);
   if (!firstFainted) applyMove(...second);
 
-  // Advance active index past fainted mons
+  // End-of-turn status tick (DoT / evolve / expire) on each active mon that
+  // survived its hit. tickStatus mutates currentHP + statuses in place.
+  function tickActive(team, hpArr, statusList, act) {
+    if (hpArr[act] <= 0 || !(statusList[act] || []).length) return;
+    const mon = liveStatusMon(team[act], hpArr[act], statusList[act]);
+    const tMsgs = (typeof tickStatus === "function") ? tickStatus(mon) : [];
+    hpArr[act] = Math.max(0, mon.currentHP);
+    statusList[act] = mon.statuses;
+    for (const m of tMsgs) log.push(m);
+  }
+  tickActive(hostTeam, hostHP, hostStatuses, hostAct);
+  tickActive(guestTeam, guestHP, guestStatuses, guestAct);
+
+  // Advance active index past fainted mons (statuses don't persist past a faint).
   if (hostHP[hostAct] === 0) {
+    hostStatuses[hostAct] = [];
     const next = hostTeam.findIndex((_, i) => i > hostAct && hostHP[i] > 0);
     if (next !== -1) { hostAct = next; log.push(`${room.hostName}'s ${hostTeam[hostAct-1]?.name || "Lumori"} fainted! Go, ${hostTeam[hostAct].name}!`); }
   }
   if (guestHP[guestAct] === 0) {
+    guestStatuses[guestAct] = [];
     const next = guestTeam.findIndex((_, i) => i > guestAct && guestHP[i] > 0);
     if (next !== -1) { guestAct = next; log.push(`${room.guestName}'s ${guestTeam[guestAct-1]?.name || "Lumori"} fainted! Go, ${guestTeam[guestAct].name}!`); }
   }
@@ -660,19 +1600,41 @@ async function resolveLiveTurn(code, room) {
 
   await firebaseDB.ref(`pvp_live/${code}`).update({
     hostHP, guestHP, hostActive: hostAct, guestActive: guestAct,
+    hostStatuses: JSON.stringify(hostStatuses),
+    guestStatuses: JSON.stringify(guestStatuses),
     hostMove: null, guestMove: null,
     log: log.slice(-30),
     status: winner ? "done" : "battling",
     winner
   });
 
-  if (winner) {
-    const prize = winner === (liveIsHost ? "host" : "guest") ? 600 : 150;
-    if (G) { G.money += prize; G.battleWins = (G.battleWins||0) + (winner === (liveIsHost ? "host" : "guest") ? 1 : 0); saveGame(); }
-    if (typeof submitLeaderboardScore === "function") submitLeaderboardScore("battles_won");
-    showNotification(winner === (liveIsHost ? "host" : "guest") ? `🏆 You won the live battle! +${prize} coins` : `😞 You lost the live battle. +${prize} coins for participating.`);
-    leaveLiveRoom();
-  }
+  // Result is applied per-client when each observes status "done" (see
+  // watchLiveRoom → applyLiveResult), so both the (online) host and guest update
+  // their own rating exactly once. The host only writes the authoritative state.
+}
+
+// Zero-sum live rating exchange: each client applies its own delta once, using
+// the pre-battle ratings stored on the room. Mirror curve ⇒ deltas sum to zero.
+let liveResultApplied = false;
+function applyLiveResult(room) {
+  if (liveResultApplied || liveIsSpectator || !G || !room || !room.winner) return;
+  liveResultApplied = true;
+  const iWon = room.winner === (liveIsHost ? "host" : "guest");
+  const oppRating = (liveIsHost ? room.guestRating : room.hostRating) || PVP_BASE_RATING;
+  const before = G.pvpRating || PVP_BASE_RATING;
+  const delta = pvpRatingDelta(before, oppRating, iWon);
+  G.pvpRating = Math.max(0, before + delta);
+  if (iWon) G.pvpWins = (G.pvpWins || 0) + 1; else G.pvpLosses = (G.pvpLosses || 0) + 1;
+  const prize = iWon ? 400 : 100;
+  G.money = (G.money || 0) + prize;
+  saveGame();
+  if (typeof submitLeaderboardScore === "function") { submitLeaderboardScore("pvp_rating"); submitLeaderboardScore("battles_won"); }
+  const sign = delta >= 0 ? "+" : "";
+  showNotification(
+    (iWon ? "🏆 You won the live battle!" : "😞 You lost the live battle.") +
+    ` Singles rating ${sign}${delta} → <strong>${G.pvpRating}</strong>. +${prize} coins.`,
+    () => leaveLiveRoom()
+  );
 }
 
 async function submitLiveMove(moveId) {
@@ -686,8 +1648,12 @@ async function submitLiveMove(moveId) {
 
 function leaveLiveRoom() {
   if (liveRoomListener && liveRoomRef) liveRoomRef.off("value", liveRoomListener);
-  if (liveRoomCode && liveIsHost) firebaseDB.ref(`pvp_live/${liveRoomCode}`).update({ status:"abandoned" }).catch(()=>{});
-  liveRoomCode = null; liveRoomRef = null; liveIsHost = false; liveRoomListener = null;
+  // Abandoning mid-battle as a player ends the room; spectators just detach.
+  if (liveRoomCode && !liveIsSpectator && liveIsHost) firebaseDB.ref(`pvp_live/${liveRoomCode}`).update({ status:"abandoned" }).catch(()=>{});
+  liveRoomCode = null; liveRoomRef = null; liveIsHost = false; liveIsSpectator = false; liveRoomListener = null;
+  liveResultApplied = false; liveResultAppliedMulti = false; liveResolving = false;
+  if (typeof clearTurnTimer === "function") clearTurnTimer();
+  clearLiveHostTimeout();
   renderLiveRoomUI("idle", null, null);
 }
 
@@ -698,14 +1664,66 @@ function renderLiveRoomUI(status, code, room) {
   if (status === "idle" || !code) {
     area.innerHTML = `
       <div class="live-setup">
-        <button class="btn-primary" id="btn-create-room">🏠 Create Room</button>
+        <div class="live-mode-row">
+          <button class="live-mode-btn active" data-lmode="live1v1">⚔️ 1v1</button>
+          <button class="live-mode-btn" data-lmode="live2v2">👥 2v2</button>
+          <button class="live-mode-btn" data-lmode="liveffa">👑 FFA</button>
+        </div>
+        <div class="live-create">
+          <input type="text" id="live-pass-input" class="pvp-input" placeholder="Passcode (optional)" maxlength="12">
+          <label class="live-public-toggle"><input type="checkbox" id="live-public-check"> Public (listed &amp; spectatable)</label>
+          <button class="btn-primary" id="btn-create-room">🏠 Create Room</button>
+        </div>
         <div class="live-join-row">
-          <input type="text" id="live-room-input" class="pvp-input" placeholder="Enter room code..." maxlength="6">
+          <input type="text" id="live-room-input" class="pvp-input" placeholder="Room code..." maxlength="6">
+          <input type="text" id="live-join-pass" class="pvp-input" placeholder="Passcode" maxlength="12">
           <button class="btn-secondary" id="btn-join-room">Join</button>
         </div>
+        <div class="live-rooms-header">Public Rooms <button class="btn-secondary" id="btn-refresh-rooms">⟳</button></div>
+        <div id="live-room-list" class="live-room-list"></div>
       </div>`;
-    document.getElementById("btn-create-room")?.addEventListener("click", createLiveRoom);
-    document.getElementById("btn-join-room")?.addEventListener("click", () => joinLiveRoom(document.getElementById("live-room-input")?.value.trim()));
+    area.querySelectorAll(".live-mode-btn").forEach(b => b.addEventListener("click", () => {
+      area.querySelectorAll(".live-mode-btn").forEach(x => x.classList.remove("active"));
+      b.classList.add("active");
+      liveCreateMode = b.dataset.lmode;
+    }));
+    document.getElementById("btn-create-room")?.addEventListener("click", () => {
+      const pass = document.getElementById("live-pass-input")?.value;
+      const pub = document.getElementById("live-public-check")?.checked;
+      if (liveCreateMode && liveCreateMode !== "live1v1" && typeof createMultiLiveRoom === "function") createMultiLiveRoom(liveCreateMode, pass, pub);
+      else createLiveRoom(pass, pub);
+    });
+    document.getElementById("btn-join-room")?.addEventListener("click", () => {
+      const jc = document.getElementById("live-room-input")?.value.trim();
+      const jp = document.getElementById("live-join-pass")?.value;
+      joinAnyLiveRoom(jc, jp);
+    });
+    document.getElementById("btn-refresh-rooms")?.addEventListener("click", listLiveRooms);
+    listLiveRooms();
+    return;
+  }
+
+  // Spectator: read-only view of host vs guest, no controls.
+  if (liveIsSpectator && (status === "battling" || status === "done")) {
+    let ht, gt;
+    try { ht = JSON.parse(room.hostTeam || "[]"); gt = JSON.parse(room.guestTeam || "[]"); } catch (e) { return; }
+    const hMon = ht[room.hostActive] || {}, gMon = gt[room.guestActive] || {};
+    const hpBar = (c, m) => `<div class="live-hp-bar-wrap"><div class="live-hp-bar" style="width:${Math.max(0, Math.round((c / m) * 100))}%"></div></div><span class="live-hp-text">${c}/${m}</span>`;
+    const logHtml = (room.log || []).slice(-8).map(l => `<div class="live-log-line">${escapeHtml(l)}</div>`).join("");
+    area.innerHTML = `
+      <div class="live-room-header">👁️ Spectating: <strong>${code}</strong></div>
+      <div class="live-arena">
+        <div class="live-side"><div class="live-side-name">${escapeHtml(room.hostName || "Host")}</div>
+          <div class="live-mon-name">${hMon.emoji || "❓"} ${hMon.name || "?"} Lv.${hMon.level || "?"}</div>
+          ${hpBar((room.hostHP || [])[room.hostActive] || 0, (room.hostMaxHP || [])[room.hostActive] || 1)}</div>
+        <div class="live-vs">VS</div>
+        <div class="live-side"><div class="live-side-name">${escapeHtml(room.guestName || "Guest")}</div>
+          <div class="live-mon-name">${gMon.emoji || "❓"} ${gMon.name || "?"} Lv.${gMon.level || "?"}</div>
+          ${hpBar((room.guestHP || [])[room.guestActive] || 0, (room.guestMaxHP || [])[room.guestActive] || 1)}</div>
+      </div>
+      <div class="live-log">${logHtml}</div>
+      <button class="btn-secondary" id="btn-stop-watching">Stop Watching</button>`;
+    document.getElementById("btn-stop-watching")?.addEventListener("click", leaveLiveRoom);
     return;
   }
 
@@ -763,6 +1781,7 @@ function renderLiveRoomUI(status, code, room) {
         </div>
       </div>
       <div class="live-moves">${moveBtns}</div>
+      <span id="live-timer" class="pvp-turn-timer hidden"></span>
       <div class="live-log">${logHtml}</div>
       ${status === "done" ? `<button class="btn-primary" id="btn-live-done">Back to PvP</button>` : `<button class="btn-secondary" id="btn-leave-room-battle">Forfeit</button>`}`;
 
@@ -773,8 +1792,371 @@ function renderLiveRoomUI(status, code, room) {
     document.getElementById("btn-leave-room-battle")?.addEventListener("click", () => {
       if (confirm("Forfeit this battle?")) leaveLiveRoom();
     });
+    // 60s turn timer while it's my move to make; auto-picks a random move on expiry.
+    if (status === "battling" && !myMoved && myMon.moves && myMon.moves.length) {
+      startTurnTimer(`1v1:${code}:${(room.log || []).length}`, "live-timer",
+        () => submitLiveMove(myMon.moves[Math.floor(Math.random() * myMon.moves.length)]));
+    } else if (typeof clearTurnTimer === "function") {
+      clearTurnTimer();
+    }
     return;
   }
+}
+
+// ============================================================
+// MULTI-SEAT LIVE PvP (live 2v2 + live FFA) — host-authoritative
+// ============================================================
+// One seat = one human controlling one active Lumori (+ bench). 2v2 groups the
+// 4 seats into two alliances (don't target allies; an alliance is out when both
+// its seats are); FFA gives every seat its own alliance (last seat standing).
+// Each turn every living seat submits {moveId, targetSeat}; the host resolves all
+// in speed order, advances benches, checks alliances, and broadcasts new state.
+const LIVE_MODE_CFG = {
+  live2v2: { capacity: 4, minStart: 4, label: "2v2", ratingMode: "double", ally: i => i % 2 },
+  liveffa: { capacity: 4, minStart: 2, label: "FFA", ratingMode: "ffa",    ally: i => i },
+};
+let liveResultAppliedMulti = false;
+let liveResolving = false;   // host guard against double-resolving one turn
+
+function liveSeatTeam() {
+  const team = buildLiveTeam();
+  return { uid: firebaseUID, name: G.playerName, rating: G.pvpRating || PVP_BASE_RATING,
+           team, hp: team.map(m => m.maxHP), maxHP: team.map(m => m.maxHP),
+           active: 0, defeated: team.length === 0 };
+}
+function mySeatIndex(room) { return (room.seats || []).findIndex(s => s && s.uid === firebaseUID); }
+function seatActiveMon(seat) { return seat && seat.team ? seat.team[seat.active] : null; }
+function seatAliveCount(seat) { return (seat.hp || []).filter(h => h > 0).length; }
+function aliveAlliances(room) {
+  const set = new Set();
+  (room.seats || []).forEach(s => { if (!s.defeated) set.add(s.alliance); });
+  return set;
+}
+
+async function createMultiLiveRoom(mode, passcode, isPublic) {
+  if (!requireOnline() || !G) return;
+  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team first!"); return; }
+  const cfg = LIVE_MODE_CFG[mode]; if (!cfg) { createLiveRoom(passcode, isPublic); return; }
+  const code = generateRoomCode();
+  const seat0 = liveSeatTeam(); seat0.alliance = cfg.ally(0);
+  const room = {
+    mode, hostUID: firebaseUID, hostName: G.playerName,
+    passcode: passcode ? String(passcode).trim() : null, public: !!isPublic,
+    capacity: cfg.capacity, status: "waiting",
+    seats: [seat0], moves: {}, turn: 0,
+    log: [`${G.playerName} opened a ${cfg.label} room. Waiting for players…`],
+    winner: null, ts: Date.now()
+  };
+  await firebaseDB.ref(`pvp_live/${code}`).set(room);
+  liveRoomCode = code; liveIsHost = true; liveIsSpectator = false; liveResultAppliedMulti = false;
+  watchLiveRoom(code);
+}
+
+async function joinMultiLiveRoom(code, passcode) {
+  if (!requireOnline() || !G) return;
+  code = (code || "").toUpperCase();
+  if (G.team.every(m => m.currentHP <= 0)) { showNotification("Heal your team first!"); return; }
+  const ref = firebaseDB.ref(`pvp_live/${code}`);
+  const room = (await ref.once("value")).val();
+  if (!room) { showNotification("Room not found."); return; }
+  const cfg = LIVE_MODE_CFG[room.mode]; if (!cfg) { showNotification("Unsupported room."); return; }
+  if (room.status !== "waiting") { showNotification("Room already started or finished."); return; }
+  if (room.passcode && String(room.passcode) !== String(passcode || "").trim()) { showNotification("Wrong passcode."); return; }
+  const seats = room.seats || [];
+  if (seats.some(s => s.uid === firebaseUID)) { showNotification("You're already in this room."); return; }
+  if (seats.length >= cfg.capacity) { showNotification("Room is full."); return; }
+  const seat = liveSeatTeam(); seat.alliance = cfg.ally(seats.length);
+  seats.push(seat);
+  const full = seats.length >= cfg.capacity;
+  await ref.update({
+    seats,
+    status: full ? "battling" : "waiting",
+    log: [...(room.log || []), `${G.playerName} joined (${seats.length}/${cfg.capacity})${full ? " — battle begins!" : ""}`]
+  });
+  liveRoomCode = code; liveIsHost = false; liveIsSpectator = false; liveResultAppliedMulti = false;
+  watchLiveRoom(code);
+}
+
+// Host can start an FFA early once at least minStart players are in.
+async function startMultiLiveRoom() {
+  if (!liveIsHost || !liveRoomCode) return;
+  const ref = firebaseDB.ref(`pvp_live/${liveRoomCode}`);
+  const room = (await ref.once("value")).val();
+  const cfg = room && LIVE_MODE_CFG[room.mode];
+  if (!room || !cfg || room.status !== "waiting") return;
+  if ((room.seats || []).length < cfg.minStart) { showNotification(`Need at least ${cfg.minStart} players.`); return; }
+  await ref.update({ status: "battling", log: [...(room.log || []), "Host started the battle!"] });
+}
+
+function handleMultiLiveUpdate(code, room) {
+  renderMultiLiveUI(code, room);
+  if (liveIsHost && room.status === "battling") {
+    maybeResolveMultiTurn(code, room);
+    // Disconnect safety net: force-resolve (AI-fills missing seats) past the timer.
+    const living = (room.seats || []).filter(s => !s.defeated);
+    const allIn = living.every(s => (room.moves || {})[s.uid]);
+    if (allIn) clearLiveHostTimeout();
+    else scheduleLiveHostTimeout(`m:${code}:${room.turn}`, () => liveHostForceResolveMulti(code));
+  } else {
+    clearLiveHostTimeout();
+  }
+  if (room.status === "done") applyMultiLiveResult(room);
+}
+async function liveHostForceResolveMulti(code) {
+  const room = (await firebaseDB.ref(`pvp_live/${code}`).once("value")).val();
+  if (room && room.status === "battling") resolveMultiLiveTurn(code, room); // AI-fills missing
+}
+
+// Host: resolve once every living seat has submitted a move this turn.
+function maybeResolveMultiTurn(code, room) {
+  const living = (room.seats || []).map((s, i) => ({ s, i })).filter(x => !x.s.defeated);
+  const moves = room.moves || {};
+  const haveAll = living.every(x => moves[x.s.uid]);
+  if (haveAll) { resolveMultiLiveTurn(code, room); return; }
+}
+
+function pickAiMultiMove(room, seatIdx) {
+  const seat = room.seats[seatIdx];
+  const mon = seatActiveMon(seat);
+  const enemies = room.seats.map((s, i) => ({ s, i })).filter(x => !x.s.defeated && x.s.alliance !== seat.alliance);
+  if (!mon || !enemies.length) return null;
+  const tgt = enemies.reduce((lo, x) => ((x.s.hp[x.s.active] || 0) < (lo.s.hp[lo.s.active] || 0) ? x : lo), enemies[0]);
+  const dmg = (mon.moves || []).filter(mv => (MOVES_DATA[mv]?.power || 0) > 0);
+  const pool = dmg.length ? dmg : (mon.moves || []);
+  return { moveId: pool[Math.floor(Math.random() * pool.length)], targetSeat: tgt.i };
+}
+
+async function resolveMultiLiveTurn(code, room) {
+  if (liveResolving) return;
+  liveResolving = true;
+  try {
+  // Persisted per-seat, per-slot status lists (C2/C3). Stored serialized per seat
+  // to dodge Firebase's empty/sparse-array quirks; default to one empty list per
+  // bench slot.
+  const seats = room.seats.map(s => {
+    let st;
+    if (typeof s.statuses === "string") { try { st = JSON.parse(s.statuses); } catch (e) { st = []; } }
+    else if (Array.isArray(s.statuses)) st = s.statuses;
+    else st = [];
+    const len = (s.hp || []).length;
+    while (st.length < len) st.push([]);
+    return { ...s, hp: [...s.hp], statuses: st.map(x => Array.isArray(x) ? x : []) };
+  });
+  const moves = room.moves || {};
+  const log = [...(room.log || [])];
+
+  // One action per living seat (missing submissions → AI auto-pick so a dropped
+  // player can't stall the match).
+  const actions = [];
+  seats.forEach((s, i) => {
+    if (s.defeated) return;
+    const sub = moves[s.uid] || pickAiMultiMove({ seats }, i);
+    if (sub) actions.push({ i, moveId: sub.moveId, targetSeat: sub.targetSeat });
+  });
+  actions.sort((a, b) => ((seatActiveMon(seats[b.i])?.spe ?? seatActiveMon(seats[b.i])?.spd) || 0) - ((seatActiveMon(seats[a.i])?.spe ?? seatActiveMon(seats[a.i])?.spd) || 0));
+
+  for (const act of actions) {
+    const atkSeat = seats[act.i];
+    if (atkSeat.defeated) continue;
+    const attacker = seatActiveMon(atkSeat);
+    if (!attacker || atkSeat.hp[atkSeat.active] <= 0) continue;
+    // Validate / retarget: must be a living enemy-alliance seat.
+    let ti = act.targetSeat;
+    let tSeat = seats[ti];
+    if (!tSeat || tSeat.defeated || tSeat.alliance === atkSeat.alliance || tSeat.hp[tSeat.active] <= 0) {
+      const enemies = seats.map((s, i) => ({ s, i })).filter(x => !x.s.defeated && x.s.alliance !== atkSeat.alliance && x.s.hp[x.s.active] > 0);
+      if (!enemies.length) continue;
+      const pick = enemies.reduce((lo, x) => (x.s.hp[x.s.active] < lo.s.hp[lo.s.active] ? x : lo), enemies[0]);
+      ti = pick.i; tSeat = pick.s;
+    }
+    const defender = seatActiveMon(tSeat);
+    const res = liveRealDamage(attacker, act.moveId, defender, {
+      attackerStatuses: atkSeat.statuses[atkSeat.active],
+      defenderStatuses: tSeat.statuses[tSeat.active],
+    });
+    tSeat.hp[tSeat.active] = Math.max(0, tSeat.hp[tSeat.active] - res.damage);
+    const note = res.crit ? " (crit!)" : res.effectiveness > 1 ? " (super effective!)" : (res.effectiveness > 0 && res.effectiveness < 1) ? " (resisted)" : res.effectiveness === 0 ? " (no effect)" : "";
+    log.push(`${attacker.name} hit ${defender.name} for ${res.damage}${note}.`);
+    // Inflict the move's persistent status (applies from next turn) if the target survived.
+    const moveDef = MOVES_DATA[act.moveId];
+    if (tSeat.hp[tSeat.active] > 0 && moveDef && moveDef.effect) {
+      const atkWrap = liveStatusMon(attacker, 1, atkSeat.statuses[atkSeat.active]);
+      const defWrap = liveStatusMon(defender, tSeat.hp[tSeat.active], tSeat.statuses[tSeat.active]);
+      const sMsgs = liveInflictStatus(moveDef, atkWrap, defWrap);
+      atkSeat.statuses[atkSeat.active] = atkWrap.statuses;
+      tSeat.statuses[tSeat.active] = defWrap.statuses;
+      for (const m of sMsgs) log.push(m);
+    }
+    // Bench advance on faint (statuses don't persist past a faint).
+    if (tSeat.hp[tSeat.active] <= 0) {
+      log.push(`${defender.name} fainted!`);
+      tSeat.statuses[tSeat.active] = [];
+      const next = tSeat.hp.findIndex(h => h > 0);
+      if (next === -1) { tSeat.defeated = true; log.push(`${tSeat.name} is out!`); }
+      else { tSeat.active = next; log.push(`${tSeat.name} sends out ${tSeat.team[next].name}!`); }
+    }
+  }
+
+  // End-of-turn status tick (DoT / evolve / expire) on each living seat's active.
+  for (const s of seats) {
+    if (s.defeated) continue;
+    const a = s.active;
+    if (s.hp[a] <= 0 || !(s.statuses[a] || []).length) continue;
+    const mon = liveStatusMon(s.team[a], s.hp[a], s.statuses[a]);
+    const tMsgs = (typeof tickStatus === "function") ? tickStatus(mon) : [];
+    s.hp[a] = Math.max(0, mon.currentHP);
+    s.statuses[a] = mon.statuses;
+    for (const m of tMsgs) log.push(m);
+    if (s.hp[a] <= 0) {
+      log.push(`${mon.name} fainted!`);
+      s.statuses[a] = [];
+      const next = s.hp.findIndex(h => h > 0);
+      if (next === -1) { s.defeated = true; log.push(`${s.name} is out!`); }
+      else { s.active = next; log.push(`${s.name} sends out ${s.team[next].name}!`); }
+    }
+  }
+
+  // Alliance win check.
+  const alive = new Set(); seats.forEach(s => { if (!s.defeated) alive.add(s.alliance); });
+  let winner = null;
+  if (alive.size <= 1) { winner = alive.size === 1 ? [...alive][0] : -1; log.push("The battle is over!"); }
+
+  // Serialize each seat's status lists so Firebase doesn't mangle empty/sparse arrays.
+  const seatsToWrite = seats.map(s => ({ ...s, statuses: JSON.stringify(s.statuses || []) }));
+  await firebaseDB.ref(`pvp_live/${code}`).update({
+    seats: seatsToWrite, moves: {}, turn: (room.turn || 0) + 1,
+    log: log.slice(-30), status: winner !== null ? "done" : "battling",
+    winner
+  });
+  } finally { liveResolving = false; }
+}
+
+async function submitMultiMove(moveId, targetSeat) {
+  if (!liveRoomCode || !onlineReady) return;
+  await firebaseDB.ref(`pvp_live/${liveRoomCode}/moves/${firebaseUID}`).set({ moveId, targetSeat });
+  document.querySelectorAll(".live-move-btn,.live-mtarget").forEach(b => b.disabled = true);
+}
+
+function applyMultiLiveResult(room) {
+  if (liveResultAppliedMulti || liveIsSpectator || !G || room.winner === null || room.winner === undefined) return;
+  const myIdx = mySeatIndex(room);
+  if (myIdx === -1) return; // spectator-ish
+  liveResultAppliedMulti = true;
+  const mySeat = room.seats[myIdx];
+  const iWon = room.winner === mySeat.alliance;
+  const enemies = room.seats.filter(s => s.alliance !== mySeat.alliance);
+  const avgOpp = enemies.length ? Math.round(enemies.reduce((a, s) => a + (s.rating || PVP_BASE_RATING), 0) / enemies.length) : PVP_BASE_RATING;
+  const cfg = LIVE_MODE_CFG[room.mode] || LIVE_MODE_CFG.liveffa;
+  const F = pvpModeFields(cfg.ratingMode);
+  const before = G[F.rating] || PVP_BASE_RATING;
+  const delta = pvpRatingDelta(before, avgOpp, iWon);
+  G[F.rating] = Math.max(0, before + delta);
+  if (iWon) G[F.wins] = (G[F.wins] || 0) + 1; else G[F.losses] = (G[F.losses] || 0) + 1;
+  G.money = (G.money || 0) + (iWon ? 400 : 100);
+  saveGame();
+  if (typeof submitLeaderboardScore === "function") submitLeaderboardScore(F.board);
+  const sign = delta >= 0 ? "+" : "";
+  showNotification(
+    (iWon ? `🏆 Your team won the live ${cfg.label}!` : `😞 Your team lost the live ${cfg.label}.`) +
+    ` ${F.label} rating ${sign}${delta} → <strong>${G[F.rating]}</strong>.`,
+    () => leaveLiveRoom()
+  );
+}
+
+function renderMultiLiveUI(code, room) {
+  const area = document.getElementById("pvp-live-area");
+  if (!area) return;
+  const cfg = LIVE_MODE_CFG[room.mode] || LIVE_MODE_CFG.liveffa;
+
+  if (room.status === "waiting") {
+    const n = (room.seats || []).length;
+    const canStart = liveIsHost && n >= cfg.minStart;
+    area.innerHTML = `
+      <div class="live-waiting">
+        <div class="live-code-display">${cfg.label} Room: <strong>${code}</strong></div>
+        <p class="live-hint">${n}/${cfg.capacity} players in.${room.passcode ? " 🔒 passcode set." : ""}${room.public ? " 🌐 public." : ""}</p>
+        <div class="live-room-list">${(room.seats || []).map(s => `<div class="live-room-row"><span>${escapeHtml(s.name)}</span></div>`).join("")}</div>
+        ${canStart ? `<button class="btn-primary" id="btn-mstart">Start now</button>` : ""}
+        <button class="btn-secondary" id="btn-leave-room">✖ Leave</button>
+      </div>`;
+    document.getElementById("btn-mstart")?.addEventListener("click", startMultiLiveRoom);
+    document.getElementById("btn-leave-room")?.addEventListener("click", leaveLiveRoom);
+    return;
+  }
+
+  if (room.status === "battling" || room.status === "done") {
+    const myIdx = mySeatIndex(room);
+    const moves = room.moves || {};
+    const iSubmitted = myIdx !== -1 && !!moves[room.seats[myIdx].uid];
+    const myTurnOver = room.status === "done" || liveIsSpectator || myIdx === -1 || room.seats[myIdx].defeated || iSubmitted;
+
+    const seatsHtml = (room.seats || []).map((s, i) => {
+      const m = seatActiveMon(s);
+      const hp = (s.hp || [])[s.active] || 0, max = (s.maxHP || [])[s.active] || 1;
+      const pct = Math.max(0, Math.round((hp / max) * 100));
+      const mine = i === myIdx;
+      return `<div class="live-mseat ${mine ? "you" : ""} ${s.defeated ? "out" : ""}">
+        <div class="live-side-name">${escapeHtml(s.name)}${mine ? " (You)" : ""} · T${s.alliance + 1}</div>
+        <div class="live-mon-name">${s.defeated ? "💀" : `${m?.emoji || "❓"} ${m?.name || "?"}`}</div>
+        <div class="live-hp-bar-wrap"><div class="live-hp-bar" style="width:${s.defeated ? 0 : pct}%"></div></div>
+        <div class="live-side-name">${s.defeated ? "out" : `${hp}/${max} · ${seatAliveCount(s)} left`}</div>
+      </div>`;
+    }).join("");
+
+    let controls = "";
+    if (!myTurnOver) {
+      const myMon = seatActiveMon(room.seats[myIdx]);
+      controls = `<div class="ffa-prompt">Choose ${escapeHtml(myMon?.name || "")}'s move:</div><div class="ffa-moves">` +
+        (myMon?.moves || []).map(mv => { const md = MOVES_DATA[mv]; return `<button class="live-move-btn ffa-move" data-mv="${mv}">${md?.name || mv}<small>${md?.type || ""}</small></button>`; }).join("") + `</div>`;
+    } else if (room.status === "battling") {
+      controls = `<div class="live-waiting-msg">⏳ Waiting for other players…</div>`;
+    }
+
+    const logHtml = (room.log || []).slice(-8).map(l => `<div class="live-log-line">${escapeHtml(l)}</div>`).join("");
+    area.innerHTML = `
+      <div class="live-room-header">${cfg.label} · Room <strong>${code}</strong>${liveIsSpectator ? " 👁️" : ""}</div>
+      <div class="live-multi-sides">${seatsHtml}</div>
+      <div class="ffa-controls">${controls}</div>
+      <span id="live-timer" class="pvp-turn-timer hidden"></span>
+      <div class="live-log">${logHtml}</div>
+      ${room.status === "done" ? `<button class="btn-primary" id="btn-live-done">Back to PvP</button>`
+        : `<button class="btn-secondary" id="btn-leave-room-battle">${liveIsSpectator ? "Stop Watching" : "Forfeit"}</button>`}`;
+
+    area.querySelectorAll(".live-move-btn").forEach(b => b.addEventListener("click", () => multiPickTarget(room, b.dataset.mv)));
+    document.getElementById("btn-live-done")?.addEventListener("click", leaveLiveRoom);
+    document.getElementById("btn-leave-room-battle")?.addEventListener("click", () => {
+      if (liveIsSpectator || confirm("Leave this battle?")) leaveLiveRoom();
+    });
+    // 60s turn timer when it's my move; auto-picks a random move + valid target.
+    if (!myTurnOver) {
+      const mySeat = room.seats[myIdx];
+      const myMon = seatActiveMon(mySeat);
+      const enemies = room.seats.map((s, i) => ({ s, i })).filter(x => !x.s.defeated && x.s.alliance !== mySeat.alliance && x.s.hp[x.s.active] > 0);
+      startTurnTimer(`m:${code}:${room.turn}`, "live-timer", () => {
+        if (!myMon || !myMon.moves || !myMon.moves.length) return;
+        const mv = myMon.moves[Math.floor(Math.random() * myMon.moves.length)];
+        submitMultiMove(mv, enemies.length ? enemies[Math.floor(Math.random() * enemies.length)].i : 0);
+      });
+    } else if (typeof clearTurnTimer === "function") {
+      clearTurnTimer();
+    }
+    return;
+  }
+}
+
+// Player target selection for multi-live: pick a living enemy-alliance seat.
+function multiPickTarget(room, moveId) {
+  const myIdx = mySeatIndex(room);
+  const mySeat = room.seats[myIdx];
+  const enemies = room.seats.map((s, i) => ({ s, i })).filter(x => !x.s.defeated && x.s.alliance !== mySeat.alliance && x.s.hp[x.s.active] > 0);
+  if (enemies.length <= 1) { submitMultiMove(moveId, enemies[0] ? enemies[0].i : 0); return; }
+  const ctrl = document.querySelector("#pvp-live-area .ffa-controls");
+  if (!ctrl) { submitMultiMove(moveId, enemies[0].i); return; }
+  ctrl.innerHTML = `<div class="ffa-prompt">Target which player?</div><div class="ffa-moves">` +
+    enemies.map(x => { const m = seatActiveMon(x.s); return `<button class="live-mtarget ffa-target" data-side="${x.i}">${escapeHtml(x.s.name)}<small>${m?.emoji || ""} ${x.s.hp[x.s.active]} HP</small></button>`; }).join("") +
+    `</div><button class="btn-secondary live-mback">← Back</button>`;
+  ctrl.querySelectorAll(".live-mtarget").forEach(b => b.addEventListener("click", () => submitMultiMove(moveId, parseInt(b.dataset.side, 10))));
+  ctrl.querySelector(".live-mback")?.addEventListener("click", () => renderMultiLiveUI(liveRoomCode, room));
 }
 
 // ============================================================

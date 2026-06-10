@@ -1880,6 +1880,7 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
   // Multi-hit loop (move.hits defaults to 1)
   const hitCount = move.hits || 1;
   let totalDamage = 0;
+  let totalHeal = 0;
   let lastResult = null;
   let sashTriggered = false;
 
@@ -1898,6 +1899,17 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     }
 
     defender.currentHP = Math.max(0, defender.currentHP - result.damage);
+    // Absorb-style traits (Mossy on Nature, future Volt Absorb, etc.) return a heal
+    // instead of damage. Apply it and log per-hit so multi-hit absorbs read sensibly.
+    if (result.heal) {
+      const before = defender.currentHP;
+      defender.currentHP = Math.min(defender.maxHP, defender.currentHP + result.heal);
+      const actualHeal = defender.currentHP - before;
+      if (actualHeal > 0) {
+        totalHeal += actualHeal;
+        logMsg(`🌿 ${defender.name} absorbed the energy! (+${actualHeal} HP)`, "log-status");
+      }
+    }
     if (h === 0 && sashTriggered) defender.currentHP = Math.max(1, defender.currentHP);
     if (defender.currentHP <= 0) defender.fainted = true;
 
@@ -1967,12 +1979,21 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
   if (hitCount > 1) logMsg(`Hit ${hitCount} times!`, "log-damage");
 
   // Effectiveness and damage messages (based on last hit)
-  if (lastResult.effectiveness > 1) logMsg("It's super effective!", "log-super-effective");
-  else if (lastResult.effectiveness < 1 && lastResult.effectiveness > 0) logMsg("It's not very effective...", "log-not-effective");
-  else if (lastResult.effectiveness === 0) logMsg("It had no effect!", "log-immune");
+  // Suppress effectiveness wording when actual damage was 0 — type-chart
+  // effectiveness can read super-effective while trait-based immunity/absorb
+  // zero'd the damage, which would otherwise print "super effective!"
+  // immediately before "took 0 damage!" (or before the absorb log line).
+  const hadOutcome = totalDamage > 0 || totalHeal > 0;
+  if (totalDamage > 0) {
+    if (lastResult.effectiveness > 1) logMsg("It's super effective!", "log-super-effective");
+    else if (lastResult.effectiveness < 1 && lastResult.effectiveness > 0) logMsg("It's not very effective...", "log-not-effective");
+    else if (lastResult.effectiveness === 0) logMsg("It had no effect!", "log-immune");
+  } else if (!hadOutcome) {
+    logMsg("It had no effect!", "log-immune");
+  }
   if (lastResult.crit) logMsg("A critical hit!", "log-damage");
 
-  logMsg(`${defender.name} took ${totalDamage} damage!`, "log-damage");
+  if (totalDamage > 0) logMsg(`${defender.name} took ${totalDamage} damage!`, "log-damage");
   if (sashTriggered) logMsg(`${defender.name}'s Focus Sash kept it standing!`, "log-status");
 
   // Phase 3 follow-up: Bonded ally-share (multi-battle only — opts.allies undefined in 1v1)

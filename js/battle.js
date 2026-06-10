@@ -1579,7 +1579,19 @@ function calcDamage(attacker, defender, move, opts = {}) {
   // Incoming dmg multiplier from defender's statuses + traits (Drenched/Soaked,
   // Brittle, Marked/Hunted, Phase-shifted, Per-type defensive traits, Resilient Skin, etc).
   const incomingMod = getIncomingDmgMod(defender, workMove, attacker, eff);
-  dmg = Math.floor(dmg * incomingMod);
+  const adjusted = dmg * incomingMod;
+
+  // Honor zero-mod immunity (Levitating Earth, Phase-shifted, Sonic Bypass=0)
+  // and negative-mod absorption (Mossy Nature, future Volt Absorb / Water Absorb).
+  // Both were previously being clamped to 1 damage by the Math.max(1, dmg) below.
+  if (adjusted === 0) {
+    return { damage: 0, effectiveness: eff, crit: false };
+  }
+  if (adjusted < 0) {
+    const heal = Math.max(1, Math.floor(Math.abs(adjusted)));
+    return { damage: 0, heal, effectiveness: eff, crit: false };
+  }
+  dmg = Math.floor(adjusted);
 
   // Crit calculation: traits can force-crit (Predator, Killing Blow, Light-feet),
   // grant crit-immunity (Lucky), boost crit rate (Sharp-eyed, Dream Lord), or override

@@ -3135,7 +3135,8 @@ function showTeamScreen() {
     card.className = "team-card" + (slot.currentHP <= 0 ? " fainted" : "");
     const hpPct = Math.round((slot.currentHP / slot.maxHP) * 100);
     const hpClass = hpPct < 25 ? "red" : hpPct < 50 ? "yellow" : "";
-    const typeHTML = def.types.map(t => `<span class="type-badge type-${t}" style="font-size:0.6rem">${t}</span>`).join("");
+    const dispTypes = (slot.variant && slot.variantTypes) ? slot.variantTypes : def.types;
+    const typeHTML = dispTypes.map(t => `<span class="type-badge type-${t}" style="font-size:0.6rem">${t}</span>`).join("");
     const spriteHTML = (typeof getMonsterSpriteURL === "function")
       ? `<img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" class="team-sprite-img">`
       : `<span class="team-sprite">${def.emoji}</span>`;
@@ -3160,6 +3161,25 @@ function showTeamScreen() {
     card.addEventListener("click", () => showTeamDetail(slot, idx));
     list.appendChild(card);
   });
+}
+
+function renderTraitSection(slot) {
+  if (typeof getMonTraits !== "function" || typeof getTraitDef !== "function") return "";
+  const ids = getMonTraits(slot);
+  if (!ids.length) return "";
+  const rows = ids.map(id => {
+    const def = getTraitDef(id);
+    if (!def) return "";
+    const cls = def.cssClass || "";
+    return `<div class="trait-detail-row ${cls}">
+      <div class="trait-detail-head">
+        <span class="trait-detail-emoji">${def.emoji}</span>
+        <span class="trait-detail-name">${def.name}</span>
+      </div>
+      <div class="trait-detail-desc">${def.description}</div>
+    </div>`;
+  }).filter(Boolean).join("");
+  return rows ? `<div class="detail-section"><h4>Traits</h4>${rows}</div>` : "";
 }
 
 function showTeamDetail(slot, idx) {
@@ -3290,6 +3310,7 @@ function showTeamDetail(slot, idx) {
         <span style="color:var(--accent-blue)">(${Object.values(slot.ivs||{}).reduce((a,b)=>a+b,0)}/186)</span>
       </div>
     </div>
+    ${renderTraitSection(slot)}
     <div class="detail-section"><h4>Moves</h4><div class="moves-grid">${movesHTML}</div><button class="btn-relearn-moves" data-relearn-mon="${idx}" style="margin-top:0.55rem;width:100%;padding:0.5rem;border-radius:8px;cursor:pointer">↺ Relearn Moves</button></div>
     ${variantHTML}
     <div class="detail-section">

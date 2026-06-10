@@ -712,8 +712,8 @@ const MOVES_DATA = {
   temporal_collapse:      { name:"Temporal Collapse",      type:"Mental",  power:120, acc:90,  pp:5,  cat:"special",  effect:"confuse",   ec:50,  desc:"Chronoveil collapses the flow of time around the target, leaving them disoriented and confused." },
   // Ashvanus — Fire/Rock volcano titan
   volcanic_wrath:         { name:"Volcanic Wrath",         type:"Fire",     power:140, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:100, desc:"Pyrovanus channels the full fury of a super-volcano, always severely burning the target." },
-  // Abyssovex — Aquatic/Dark abyss drake
-  abyssal_dominion:       { name:"Abyssal Dominion",       type:"Dark",     power:130, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50,  desc:"Thalassovex asserts dominion over the deep abyss, crushing the target's psychic defenses." },
+  // Abyssovex — Aquatic/Dark abyssal squid leviathan
+  abyssal_dominion:       { name:"Abyssal Dominion",       type:"Dark",     power:130, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50,  desc:"Abyssovex asserts dominion over the deep abyss, crushing the target's psychic defenses." },
   // Gaiavorn — Ground/Grass land spirit
   world_root_bind:        { name:"World Root Bind",        type:"Earth",   power:130, acc:90,  pp:5,  cat:"physical", effect:"spedown",   ec:100, desc:"Gaiavorn erupts roots from the world's core to bind and crush the target." },
   // Voidraxis — Dark/Fairy void star
@@ -3245,9 +3245,9 @@ const MONSTERS_DATA = {
 
   316: { id:316, name:"Abyssovex", emoji:"🌊", types:["Aquatic","Dark"],
     base:{hp:99,atk:102,def:85,spa:130,spd:92,spe:82},
-    learnset:[[1,"aquatic_gun"],[1,"chomp"],[7,"bubble_jet"],[14,"jaw_crush"],[21,"abyssal_jet"],[28,"void_pulse"],[35,"tidal_rush"],[42,"tenebrous_snare"],[49,"draconic_pulse"],[56,"soul_rend"],[63,"tsunami"],[70,"geyser_burst"],[77,"radiance_cannon"]],
+    learnset:[[1,"aquatic_gun"],[1,"chomp"],[7,"bubble_jet"],[14,"jaw_crush"],[21,"abyssal_jet"],[28,"void_pulse"],[35,"tidal_rush"],[42,"tenebrous_snare"],[49,"draconic_pulse"],[56,"soul_rend"],[63,"tsunami"],[70,"geyser_burst"],[77,"radiance_cannon"],[84,"abyssal_dominion"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
-    desc:"The Legendary Abyss Drake. Lurks in the deepest ocean trenches.",
+    desc:"The Legendary abyssal leviathan, an enormous deep-sea squid. Lurks in the deepest ocean trenches.",
     lore:"Abyssovex is a massive water-dark leviathan 8 metres long resembling an enormous deep-sea squid with dark bioluminescent patches along its body. Its tentacles extend 4 metres beyond its mantle. It inhabits the deepest ocean trenches and ascends toward surface waters only during rare deep-sea events." },
 
   // ===== NEW LUMOS IDs 108-167 =====

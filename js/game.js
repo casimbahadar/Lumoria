@@ -1452,6 +1452,11 @@ async function playerUseBattleItem(itemId, monIdx) {
     // Also update live battle mon if it's the active one
     if (monIdx === battleContext.playerTeamIdx) {
       playerActiveMon.currentHP = Math.min(playerActiveMon.maxHP, playerActiveMon.currentHP + healed);
+      // Phase 3b: keep low-HP hysteresis flag honest on heal
+      if (typeof checkAndFireLowHpTrigger === "function") {
+        const lowHpMsgs = checkAndFireLowHpTrigger(playerActiveMon);
+        for (const m of lowHpMsgs) logMsg(m, "log-status");
+      }
     }
     G.bag[itemId]--;
     logMsg(`Used ${item.name} on ${slot.nickname || MONSTERS_DATA[slot.monsterId].name}! +${healed} HP`);
@@ -1514,6 +1519,9 @@ function startWildBattle(wildMon) {
   else logMsg(`A wild Lumori — ${wildMon.name} appeared! (Lv.${wildMon.level})`);
   if (wildMon.shiny) { checkAchievement("first_shiny"); trackDailyChallenge("shiny_encounter"); }
   updateBattleUI();
+  // Phase 3b: onEntry hooks for both active mons at battle start
+  fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+  fireOnEntryHooks(enemyActiveMon, playerActiveMon);
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = false;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
@@ -1582,9 +1590,20 @@ function startGymBattle(leaderId, battleType = "single") {
   logMsg(`⚔️ ${fmtLabel} Battle — ${leader.emoji} ${leader.name}`);
   logMsg(`${leader.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
+  // Phase 3b: onEntry hooks for both active mons at battle start
+  fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+  fireOnEntryHooks(enemyActiveMon, playerActiveMon);
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+}
+
+// Phase 3b: dispatch + log onEntry trait hooks for a mon entering the field.
+function fireOnEntryHooks(mon, foe) {
+  if (!mon || typeof applyOnEntry !== "function") return;
+  const msgs = applyOnEntry(mon, foe);
+  for (const msg of msgs) logMsg(msg, "log-status");
+  if (msgs.length > 0) updateBattleUI();
 }
 
 // ---- Player Actions ----
@@ -1729,15 +1748,32 @@ async function playerSwitch(idx) {
       playerActiveMon.currentHP = Math.max(0, playerActiveMon.currentHP - hpCost);
       logMsg(`⛓️ ${playerActiveMon.name} lost ${hpCost} HP from switching while tethered!`, "log-damage");
       if (playerActiveMon.currentHP <= 0) playerActiveMon.fainted = true;
+      // Phase 3b: low-HP trigger on Tethered HP drop
+      if (typeof checkAndFireLowHpTrigger === "function") {
+        const lowHpMsgs = checkAndFireLowHpTrigger(playerActiveMon);
+        for (const m of lowHpMsgs) logMsg(m, "log-status");
+      }
     }
   }
   showBattleMainActions();
+  // Phase 3b: onSwitchOut on the outgoing mon (if any & still alive)
+  if (playerActiveMon && playerActiveMon.currentHP > 0 && typeof applyOnSwitchOut === "function") {
+    const outMsgs = applyOnSwitchOut(playerActiveMon, enemyActiveMon);
+    for (const msg of outMsgs) logMsg(msg, "log-status");
+  }
   // Sync current HP back
   syncPlayerMonHP();
   battleContext.playerTeamIdx = idx;
   playerActiveMon = buildBattleMon(G.team[idx], battleContext.levelCap || null);
   logMsg(`Go, ${playerActiveMon.name}!`);
   updateBattleUI();
+  // Phase 3b: onSwitchIn + onEntry on the incoming mon
+  if (typeof applyOnSwitchIn === "function") {
+    const inMsgs = applyOnSwitchIn(playerActiveMon, enemyActiveMon);
+    for (const msg of inMsgs) logMsg(msg, "log-status");
+    if (inMsgs.length > 0) updateBattleUI();
+  }
+  fireOnEntryHooks(playerActiveMon, enemyActiveMon);
   // Enemy gets a free turn after switch (unless forced switch)
   if (!battleContext.forcedSwitch) {
     await enemyTurn();
@@ -1777,11 +1813,20 @@ async function executeTurn(playerMoveId, _unused) {
   // Determine turn order by speed (priority moves go first, Quick Claw may override)
   const playerSpe = getEffectiveSpeed(playerActiveMon);
   const enemySpe  = getEffectiveSpeed(enemyActiveMon);
+  // Phase 3b: trait priority bonus (Quick Start "+1 first turn", etc.) Enemy move
+  // isn't known at this point, so movePriorityBonus on the enemy side is best-effort
+  // and gets only passive (non-move-specific) bonuses.
+  const playerPrioBonus = typeof getPriorityBonus === "function" ? getPriorityBonus(playerActiveMon, enemyActiveMon, move) : 0;
+  const enemyPrioBonus  = typeof getPriorityBonus === "function" ? getPriorityBonus(enemyActiveMon, playerActiveMon, null) : 0;
   const playerQuickClaw = checkQuickClaw(playerActiveMon);
   const enemyQuickClaw = checkQuickClaw(enemyActiveMon);
   if (playerQuickClaw && !enemyQuickClaw) logMsg(`${playerActiveMon.name}'s Quick Claw let it move first!`);
   if (enemyQuickClaw && !playerQuickClaw) logMsg(`${enemyActiveMon.name}'s Quick Claw let it move first!`);
-  let playerFirst = move.effect === "priority" || playerSpe >= enemySpe;
+  // Order resolution: move-priority flag → trait priority bonuses → speed.
+  let playerFirst;
+  if (move.effect === "priority") playerFirst = true;
+  else if (playerPrioBonus !== enemyPrioBonus) playerFirst = playerPrioBonus > enemyPrioBonus;
+  else playerFirst = playerSpe >= enemySpe;
   if (playerQuickClaw && !enemyQuickClaw) playerFirst = true;
   else if (enemyQuickClaw && !playerQuickClaw) playerFirst = false;
 
@@ -1808,6 +1853,8 @@ async function executeTurn(playerMoveId, _unused) {
     const playerTickMsgs = tickStatus(playerActiveMon);
     for (const msg of playerTickMsgs) logMsg(msg);
     syncPlayerMonHP();
+    // Phase 3b: generic per-turn counter (drives Time Skip, Slow Start countdown, etc.)
+    if (typeof tickTurnCounter === "function") tickTurnCounter(playerActiveMon);
     if (playerActiveMon.fainted || playerActiveMon.currentHP <= 0) {
       await handlePlayerFainted();
       return;
@@ -1833,6 +1880,12 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
   const canMoveResult = canMove(attacker);
   if (!canMoveResult.can) {
     logMsg(canMoveResult.msg);
+    // Phase 3b: confusion self-hit mutates attacker.currentHP inside canMove —
+    // check low-HP trigger on the blocked-move path.
+    if (typeof checkAndFireLowHpTrigger === "function") {
+      const lowHpMsgs = checkAndFireLowHpTrigger(attacker);
+      for (const m of lowHpMsgs) logMsg(m, "log-status");
+    }
     await delay(400);
     return;
   }
@@ -1863,8 +1916,19 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     logMsg(attempt.msg, "log-damage");
     if (isPlayer) syncPlayerMonHP();
     updateBattleUI();
+    // Phase 3b: Concussion-style self-hit mutates attacker.currentHP — check low-HP trigger
+    if (typeof checkAndFireLowHpTrigger === "function") {
+      const lowHpMsgs = checkAndFireLowHpTrigger(attacker);
+      for (const m of lowHpMsgs) logMsg(m, "log-status");
+    }
     await delay(400);
     return;
+  }
+
+  // Phase 3b: onMoveUse (Strategist, Move Steal, move-counter traits)
+  if (typeof applyOnMoveUse === "function") {
+    const useMsgs = applyOnMoveUse(attacker, defender, move);
+    for (const m of useMsgs) logMsg(m, "log-status");
   }
 
   if (move.power === 0) {
@@ -1886,7 +1950,18 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
   // Accuracy check — Phase 3: respects forceHit (Echolocation) + accuracyMod (Smothered/Faded/Mirage)
   if (!rollPercent(getEffectiveAccuracy(attacker, defender, move))) {
     logMsg(`${attacker.name}'s attack missed!`);
+    // Phase 3b: onMoveMiss (Stumble, frustration-style traits)
+    if (typeof applyOnMoveMiss === "function") {
+      const missMsgs = applyOnMoveMiss(attacker, defender, move);
+      for (const m of missMsgs) logMsg(m, "log-status");
+    }
     return;
+  }
+
+  // Phase 3b: onMoveHit (Charge-up wind-down, Combo Builder, hit-streak traits)
+  if (typeof applyOnMoveHit === "function") {
+    const hitTrigMsgs = applyOnMoveHit(attacker, defender, move);
+    for (const m of hitTrigMsgs) logMsg(m, "log-status");
   }
 
   // Multi-hit loop. move.hits is a fixed count (e.g. 2), or a [min,max]
@@ -1905,6 +1980,7 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     hitCount = move.hits;
   }
   let totalDamage = 0;
+  let totalHeal = 0;
   let lastResult = null;
   let sashTriggered = false;
   let hitsLanded = 0;   // B2: actual delivered hits (≤ hitCount if defender faints mid-loop)
@@ -1927,6 +2003,17 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     }
 
     defender.currentHP = Math.max(0, defender.currentHP - result.damage);
+    // Absorb-style traits (Mossy on Nature, future Volt Absorb, etc.) return a heal
+    // instead of damage. Apply it and log per-hit so multi-hit absorbs read sensibly.
+    if (result.heal) {
+      const before = defender.currentHP;
+      defender.currentHP = Math.min(defender.maxHP, defender.currentHP + result.heal);
+      const actualHeal = defender.currentHP - before;
+      if (actualHeal > 0) {
+        totalHeal += actualHeal;
+        logMsg(`🌿 ${defender.name} absorbed the energy! (+${actualHeal} HP)`, "log-status");
+      }
+    }
     if (h === 0 && sashTriggered) defender.currentHP = Math.max(1, defender.currentHP);
     if (defender.currentHP <= 0) defender.fainted = true;
 
@@ -1939,6 +2026,43 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     if (reflect) {
       logMsg(reflect.msg, "log-status");
       if (!isPlayer) syncPlayerMonHP();
+      updateBattleUI();
+      // Phase 3b: reflect mutates attacker.currentHP — check low-HP trigger on attacker
+      if (typeof checkAndFireLowHpTrigger === "function") {
+        const lowHpMsgs = checkAndFireLowHpTrigger(attacker);
+        for (const m of lowHpMsgs) logMsg(m, "log-status");
+      }
+    }
+
+    // Phase 3b: per-hit crit hooks (onSelfCrit on attacker, onCritTaken on defender)
+    if (result.crit) {
+      if (typeof applyOnSelfCrit === "function") {
+        const selfCritMsgs = applyOnSelfCrit(attacker, defender, move);
+        for (const m of selfCritMsgs) logMsg(m, "log-status");
+      }
+      if (typeof applyOnCritTaken === "function") {
+        const takenMsgs = applyOnCritTaken(defender, attacker, move);
+        for (const m of takenMsgs) logMsg(m, "log-status");
+      }
+    }
+
+    // Phase 3b: low-HP entry trigger (Berserker, Last Stand, Wounded Rage, etc.)
+    // Defender just took damage — check if they crossed into low-HP this hit.
+    if (typeof checkAndFireLowHpTrigger === "function") {
+      const lowHpMsgs = checkAndFireLowHpTrigger(defender);
+      for (const m of lowHpMsgs) logMsg(m, "log-status");
+    }
+
+    // Phase 3a: on-incoming-hit dispatch (defender traits: Thorned, Flame Aura,
+    // Resolute, Vengeance, Pride, Per-type auras, Mirror Form, etc.)
+    const onHitMsgs = applyOnIncomingHit(defender, attacker, move, result.damage, result.effectiveness);
+    for (const msg of onHitMsgs) logMsg(msg, "log-status");
+
+    // Phase 3a: on-damage-dealt dispatch (attacker traits: Vampire)
+    if (result.damage > 0) {
+      const onDealtMsgs = applyOnDamageDealt(attacker, defender, result.damage);
+      for (const msg of onDealtMsgs) logMsg(msg, "log-status");
+      if (isPlayer) syncPlayerMonHP();
       updateBattleUI();
     }
 
@@ -1959,9 +2083,18 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
   if (hitsLanded > 1) logMsg(`Hit ${hitsLanded} times!`, "log-damage");
 
   // Effectiveness and damage messages (based on last hit)
-  if (lastResult.effectiveness > 1) logMsg("It's super effective!", "log-super-effective");
-  else if (lastResult.effectiveness < 1 && lastResult.effectiveness > 0) logMsg("It's not very effective...", "log-not-effective");
-  else if (lastResult.effectiveness === 0) logMsg("It had no effect!", "log-immune");
+  // Suppress effectiveness wording when actual damage was 0 — type-chart
+  // effectiveness can read super-effective while trait-based immunity/absorb
+  // zero'd the damage, which would otherwise print "super effective!"
+  // immediately before "took 0 damage!" (or before the absorb log line).
+  const hadOutcome = totalDamage > 0 || totalHeal > 0;
+  if (totalDamage > 0) {
+    if (lastResult.effectiveness > 1) logMsg("It's super effective!", "log-super-effective");
+    else if (lastResult.effectiveness < 1 && lastResult.effectiveness > 0) logMsg("It's not very effective...", "log-not-effective");
+    else if (lastResult.effectiveness === 0) logMsg("It had no effect!", "log-immune");
+  } else if (!hadOutcome) {
+    logMsg("It had no effect!", "log-immune");
+  }
   if (anyCrit) logMsg("A critical hit!", "log-damage");
 
   if (totalDamage > 0) logMsg(`${defender.name} took ${totalDamage} damage!`, "log-damage");
@@ -1969,7 +2102,14 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
 
   // Phase 3 follow-up: Bonded ally-share (multi-battle only — opts.allies undefined in 1v1)
   const bondedShare = applyBondedShare(defender, opts.allies, totalDamage);
-  if (bondedShare) logMsg(bondedShare.msg, "log-status");
+  if (bondedShare) {
+    logMsg(bondedShare.msg, "log-status");
+    // Phase 3b: bonded share mutates the random ally's currentHP — check low-HP trigger on them
+    if (typeof checkAndFireLowHpTrigger === "function") {
+      const lowHpMsgs = checkAndFireLowHpTrigger(bondedShare.ally);
+      for (const m of lowHpMsgs) logMsg(m, "log-status");
+    }
+  }
 
   // Recoil damage
   if (move.effect === "recoil" && totalDamage > 0 && !attacker.fainted) {
@@ -1979,6 +2119,11 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     logMsg(`${attacker.name} was hurt by recoil! (${recoilDmg})`, "log-damage");
     if (isPlayer) syncPlayerMonHP();
     updateBattleUI();
+    // Phase 3b: low-HP trigger on attacker (recoil can cross threshold)
+    if (typeof checkAndFireLowHpTrigger === "function") {
+      const lowHpMsgs = checkAndFireLowHpTrigger(attacker);
+      for (const m of lowHpMsgs) logMsg(m, "log-status");
+    }
   }
 
   // Drain heal
@@ -1988,6 +2133,11 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     logMsg(`${attacker.name} drained ${drainAmt} HP!`, "log-status");
     if (isPlayer) syncPlayerMonHP();
     updateBattleUI();
+    // Phase 3b: keep low-HP hysteresis flag honest on heal
+    if (typeof checkAndFireLowHpTrigger === "function") {
+      const lowHpMsgs = checkAndFireLowHpTrigger(attacker);
+      for (const m of lowHpMsgs) logMsg(m, "log-status");
+    }
   }
 
   // Secondary stat/status effects (recoil and drain moves have no additional secondary effect).
@@ -2012,6 +2162,8 @@ async function enemyTurn() {
   // Status ticks on enemy
   const enemyTickMsgs = tickStatus(enemyActiveMon);
   for (const msg of enemyTickMsgs) logMsg(msg);
+  // Phase 3b: generic per-turn counter (drives Time Skip, Slow Start countdown, etc.)
+  if (typeof tickTurnCounter === "function") tickTurnCounter(enemyActiveMon);
   updateBattleUI();
 
   syncPlayerMonHP();
@@ -2031,6 +2183,16 @@ function syncPlayerMonHP() {
 
 async function handleEnemyFainted() {
   logMsg(`${enemyActiveMon.name} fainted!`);
+  // Phase 3b: onFaint on the dying mon, onKO on the killer (player)
+  if (typeof applyOnFaint === "function") {
+    const faintMsgs = applyOnFaint(enemyActiveMon, playerActiveMon);
+    for (const msg of faintMsgs) logMsg(msg, "log-status");
+  }
+  if (typeof applyOnKO === "function" && playerActiveMon && playerActiveMon.currentHP > 0) {
+    const koMsgs = applyOnKO(playerActiveMon, enemyActiveMon);
+    for (const msg of koMsgs) logMsg(msg, "log-status");
+  }
+  updateBattleUI();
   await delay(700);
 
   if (battleContext.isWild) {
@@ -2064,6 +2226,13 @@ async function handleEnemyFainted() {
         : GYM_LEADERS[battleContext.leaderId].name;
       logMsg(`${leaderName} sent out ${getDisplayName(enemyActiveMon)}!`);
       updateBattleUI();
+      // Phase 3b: onSwitchIn + onEntry on the incoming enemy mon
+      if (typeof applyOnSwitchIn === "function") {
+        const inMsgs = applyOnSwitchIn(enemyActiveMon, playerActiveMon);
+        for (const msg of inMsgs) logMsg(msg, "log-status");
+        if (inMsgs.length > 0) updateBattleUI();
+      }
+      fireOnEntryHooks(enemyActiveMon, playerActiveMon);
       await delay(600);
       showBattleMainActions();
     }
@@ -2072,6 +2241,15 @@ async function handleEnemyFainted() {
 
 async function handlePlayerFainted() {
   logMsg(`${playerActiveMon.name} fainted!`);
+  // Phase 3b: onFaint on the dying mon, onKO on the killer (enemy)
+  if (typeof applyOnFaint === "function") {
+    const faintMsgs = applyOnFaint(playerActiveMon, enemyActiveMon);
+    for (const msg of faintMsgs) logMsg(msg, "log-status");
+  }
+  if (typeof applyOnKO === "function" && enemyActiveMon && enemyActiveMon.currentHP > 0) {
+    const koMsgs = applyOnKO(enemyActiveMon, playerActiveMon);
+    for (const msg of koMsgs) logMsg(msg, "log-status");
+  }
   syncPlayerMonHP();
   await delay(700);
 
@@ -2090,6 +2268,24 @@ async function handlePlayerFainted() {
 function endBattle(outcome, slot, levelUps) {
   battleContext.battleEnded = true;
   syncPlayerMonHP();
+
+  // Phase 3b: onBattleEnd hooks on all participating mons before status-clear.
+  // Player team: every slot (including bench — some traits care about "I was benched").
+  // Enemy team: only present for gym battles.
+  if (typeof applyOnBattleEnd === "function") {
+    for (const mon of G.team) {
+      if (!mon) continue;
+      const msgs = applyOnBattleEnd(mon, outcome);
+      for (const m of msgs) logMsg(m, "log-status");
+    }
+    if (battleContext.enemyTeam) {
+      for (const mon of battleContext.enemyTeam) {
+        if (!mon) continue;
+        const msgs = applyOnBattleEnd(mon, outcome);
+        for (const m of msgs) logMsg(m, "log-status");
+      }
+    }
+  }
 
   // Clear all statuses from the entire team — fresh slate when returning to the overworld.
   // Statuses do not persist outside of battle, regardless of how the battle ended
@@ -2713,6 +2909,10 @@ async function executeMultiTurn() {
     const moveB = MOVES_DATA[b.moveId];
     if (moveA?.effect === "priority" && moveB?.effect !== "priority") return -1;
     if (moveB?.effect === "priority" && moveA?.effect !== "priority") return 1;
+    // Phase 3b: trait priority bonuses (both actors' moves are known here)
+    const aPrioBonus = typeof getPriorityBonus === "function" ? getPriorityBonus(a.mon, b.mon, moveA) : 0;
+    const bPrioBonus = typeof getPriorityBonus === "function" ? getPriorityBonus(b.mon, a.mon, moveB) : 0;
+    if (aPrioBonus !== bPrioBonus) return bPrioBonus - aPrioBonus;
     return b.spe - a.spe;
   });
 
@@ -4097,6 +4297,9 @@ function initEventListeners() {
       clearBattleLog();
       logMsg(`🌟 The Legendary ${wildMon.name} appeared! (Lv.${wildMon.level})`);
       updateBattleUI();
+      // Phase 3b: onEntry hooks for both active mons at battle start
+      fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+      fireOnEntryHooks(enemyActiveMon, playerActiveMon);
       showBattleMainActions();
       document.getElementById("btn-catch").disabled = false;
       if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle({ ...battleContext, isUmbra: true });
@@ -4208,6 +4411,9 @@ function initEventListeners() {
       clearBattleLog();
       logMsg(`🌿 The roaming ${r.name} appeared! (Lv.${r.level})`, "log-catch");
       updateBattleUI();
+      // Phase 3b: onEntry hooks for both active mons at battle start
+      fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+      fireOnEntryHooks(enemyActiveMon, playerActiveMon);
       showBattleMainActions();
       document.getElementById("btn-catch").disabled = false;
     });
@@ -4350,6 +4556,9 @@ function startSpecialBattle(battleId, battleData, isUmbra, battleType = "single"
   logMsg(`${battle.emoji} ${battle.name}: "${battle.quote}"`);
   logMsg(`${battle.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
+  // Phase 3b: onEntry hooks for both active mons at battle start
+  fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+  fireOnEntryHooks(enemyActiveMon, playerActiveMon);
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
@@ -4379,6 +4588,9 @@ function startTrainerBattle(trainerId, trainer) {
   logMsg(`${trainer.emoji} ${trainer.name} wants to battle!`);
   logMsg(`${trainer.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
+  // Phase 3b: onEntry hooks for both active mons at battle start
+  fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+  fireOnEntryHooks(enemyActiveMon, playerActiveMon);
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
@@ -4787,6 +4999,9 @@ function startUmbraAreaBattle(umbraId, battle) {
   logMsg(`⚔️ ${fmtLabel} Battle — ${battle.emoji} ${battle.name}`);
   logMsg(`${battle.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
+  // Phase 3b: onEntry hooks for both active mons at battle start
+  fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+  fireOnEntryHooks(enemyActiveMon, playerActiveMon);
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
@@ -5204,6 +5419,9 @@ function startQuestBattle(quest) {
     clearBattleLog();
     logMsg(`⚔️ Quest Boss ${bossName} appeared! (Lv.${boss.level})`);
     updateBattleUI();
+    // Phase 3b: onEntry hooks for both active mons at battle start
+    fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+    fireOnEntryHooks(enemyActiveMon, playerActiveMon);
     showBattleMainActions();
     document.getElementById("btn-catch").disabled = true;
     if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
@@ -5330,6 +5548,9 @@ function launchWielderBattle(quest, playerSlots, fmt = "triple") {
     clearBattleLog();
     logMsg(`${wielder.emoji} ${wielder.name}: "${wielder.quote}"`);
     renderBattleUI();
+    // Phase 3b: onEntry hooks for both active mons at battle start
+    fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+    fireOnEntryHooks(enemyActiveMon, playerActiveMon);
   } else {
     startMultiBattle(enemyTeam, wielder.name, fmt, playerSlots);
   }

@@ -534,6 +534,10 @@ function addStatus(mon, type, opts = {}) {
   const reg = STATUS_REGISTRY[type];
   if (!reg) return false;
   if (reg.immuneTypes && reg.immuneTypes.some(t => mon.types?.includes(t))) return false;
+  // Phase 3a: trait-based status immunity
+  if (typeof isTraitImmuneToStatus === "function" && isTraitImmuneToStatus(mon, type)) return false;
+  if (_traitConditionalImmuneToStatus(mon, type)) return false;
+  // Confused-immunity (Mind-fortress etc.) and flinch-immunity (Steel Nerves) handled in canMove
   const turns = typeof reg.initialTurns === "function" ? reg.initialTurns()
               : (reg.initialTurns ?? 0);
   const entry = { type, turns, turnsActive: 0, ...opts };
@@ -574,174 +578,608 @@ function clearStatuses(obj) {
 // Each iterates a mon's active statuses, querying the registry for the
 // matching hook and combining results across all entries.
 
+// ---- Phase 3a: trait dispatch helpers ----
+// Iterate a mon's active traits, invoking `fn(traitRegistryEntry, traitId)` for each.
+// No-op if traits system isn't loaded.
+function _eachTrait(mon, fn) {
+  if (!mon || typeof getMonTraits !== "function" || typeof ABILITY_REGISTRY === "undefined") return;
+  for (const traitId of getMonTraits(mon)) {
+    const reg = ABILITY_REGISTRY[traitId];
+    if (reg) fn(reg, traitId);
+  }
+}
+
+// Trait conditional status immunity (e.g. Permafrost: immune to Burn only in snow)
+function _traitConditionalImmuneToStatus(mon, statusType) {
+  let immune = false;
+  _eachTrait(mon, (reg) => {
+    if (reg.conditionalImmuneToStatus && reg.conditionalImmuneToStatus(mon, null, statusType)) immune = true;
+  });
+  return immune;
+}
+
 function getStatMod(mon) {
   const mods = { atk: 0, def: 0, spa: 0, spd: 0, spe: 0 };
-  if (!mon.statuses) return mods;
-  for (const e of mon.statuses) {
-    const reg = STATUS_REGISTRY[e.type];
-    if (reg?.statMod) {
-      const m = reg.statMod(mon, e);
-      for (const [k, v] of Object.entries(m)) mods[k] = (mods[k] || 0) + v;
+  if (mon.statuses) {
+    for (const e of mon.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.statMod) {
+        const m = reg.statMod(mon, e);
+        for (const [k, v] of Object.entries(m)) mods[k] = (mods[k] || 0) + v;
+      }
     }
   }
+  // Phase 3a: also dispatch trait statMod hooks
+  _eachTrait(mon, (reg) => {
+    if (reg.statMod) {
+      const m = reg.statMod(mon, null);
+      for (const [k, v] of Object.entries(m)) mods[k] = (mods[k] || 0) + v;
+    }
+  });
   return mods;
 }
 
 function getEffectiveStage(mon, stat) {
   const base = (mon.stages && mon.stages[stat]) || 0;
   const mod = getStatMod(mon)[stat] || 0;
-  return clamp(base + mod, -6, 6);
+  let stage = clamp(base + mod, -6, 6);
+  // Phase 3a: stage floor (Steady: spe never below 0)
+  _eachTrait(mon, (reg) => {
+    if (reg.floorStatStage) {
+      const floor = reg.floorStatStage(stat);
+      if (typeof floor === "number" && stage < floor) stage = floor;
+    }
+  });
+  return stage;
 }
 
 function getEffectiveSpeed(mon) {
   return mon.spe * stageMultiplier(getEffectiveStage(mon, "spe"));
 }
 
-function getIncomingDmgMod(defender, move, attacker) {
-  if (!defender.statuses) return 1;
+function getIncomingDmgMod(defender, move, attacker, eff) {
   let m = 1;
-  for (const e of defender.statuses) {
-    const reg = STATUS_REGISTRY[e.type];
-    if (reg?.incomingDmgMod) m *= (reg.incomingDmgMod(defender, e, move, attacker) ?? 1);
+  if (defender.statuses) {
+    for (const e of defender.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.incomingDmgMod) m *= (reg.incomingDmgMod(defender, e, move, attacker, eff) ?? 1);
+    }
   }
+  _eachTrait(defender, (reg) => {
+    if (reg.incomingDmgMod) m *= (reg.incomingDmgMod(defender, null, move, attacker, eff) ?? 1);
+  });
   return m;
 }
 
-function getOutgoingPowerMod(attacker, move) {
-  if (!attacker.statuses) return 1;
+function getOutgoingPowerMod(attacker, move, defender, eff) {
   let m = 1;
-  for (const e of attacker.statuses) {
-    const reg = STATUS_REGISTRY[e.type];
-    if (reg?.outgoingPowerMod) m *= (reg.outgoingPowerMod(attacker, e, move) ?? 1);
+  if (attacker.statuses) {
+    for (const e of attacker.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.outgoingPowerMod) m *= (reg.outgoingPowerMod(attacker, e, move, defender, eff) ?? 1);
+    }
   }
+  _eachTrait(attacker, (reg) => {
+    if (reg.outgoingPowerMod) m *= (reg.outgoingPowerMod(attacker, null, move, defender, eff) ?? 1);
+  });
   return m;
 }
 
-function getAccuracyMod(mon, isAttacking) {
-  if (!mon.statuses) return 1;
+function getAccuracyMod(mon, isAttacking, move) {
   let m = 1;
-  for (const e of mon.statuses) {
-    const reg = STATUS_REGISTRY[e.type];
-    if (reg?.accuracyMod) m *= (reg.accuracyMod(mon, e, isAttacking) ?? 1);
+  if (mon.statuses) {
+    for (const e of mon.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.accuracyMod) m *= (reg.accuracyMod(mon, e, isAttacking, move) ?? 1);
+    }
   }
+  _eachTrait(mon, (reg) => {
+    if (reg.accuracyMod) m *= (reg.accuracyMod(mon, null, isAttacking, move) ?? 1);
+  });
   return m;
 }
 
 function shouldForceHit(attacker) {
-  if (!attacker.statuses) return false;
-  for (const e of attacker.statuses) {
-    const reg = STATUS_REGISTRY[e.type];
-    if (reg?.forceHit && reg.forceHit(attacker, e, true)) return true;
+  if (attacker.statuses) {
+    for (const e of attacker.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.forceHit && reg.forceHit(attacker, e, true)) return true;
+    }
   }
-  return false;
+  let force = false;
+  _eachTrait(attacker, (reg) => {
+    if (reg.forceHit && reg.forceHit(attacker, null, true)) force = true;
+  });
+  return force;
 }
 
 function getHealMod(mon) {
-  if (!mon.statuses) return 1;
   let m = 1;
-  for (const e of mon.statuses) {
-    const reg = STATUS_REGISTRY[e.type];
-    if (reg?.healMod) m *= (reg.healMod(mon, e) ?? 1);
+  if (mon.statuses) {
+    for (const e of mon.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.healMod) m *= (reg.healMod(mon, e) ?? 1);
+    }
   }
+  _eachTrait(mon, (reg) => {
+    if (reg.healMod) m *= (reg.healMod(mon, null) ?? 1);
+  });
   return m;
 }
 
 function getOpponentCritBonus(defender) {
-  if (!defender.statuses) return 0;
   let b = 0;
-  for (const e of defender.statuses) {
-    const reg = STATUS_REGISTRY[e.type];
-    if (reg?.opponentCritBonus) b += (reg.opponentCritBonus(defender, e) ?? 0);
+  if (defender.statuses) {
+    for (const e of defender.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.opponentCritBonus) b += (reg.opponentCritBonus(defender, e) ?? 0);
+    }
   }
+  _eachTrait(defender, (reg) => {
+    if (reg.opponentCritBonus) b += (reg.opponentCritBonus(defender, null) ?? 0);
+  });
   return b;
 }
 
+// Self-crit bonus (Sharp-eyed, Dream Lord)
+function getSelfCritBonus(attacker, move) {
+  let b = 0;
+  _eachTrait(attacker, (reg) => {
+    if (reg.selfCritBonus) {
+      const v = reg.selfCritBonus(attacker, null, move);
+      if (typeof v === "number") b += v;
+    }
+  });
+  return b;
+}
+
+// Force-crit-if check (Predator, Killing Blow, Light-feet)
+function shouldForceCrit(attacker, defender, move) {
+  let force = false;
+  _eachTrait(attacker, (reg) => {
+    if (reg.forceCritIf && reg.forceCritIf(attacker, null, defender, move)) force = true;
+  });
+  return force;
+}
+
+// Crit-immunity (Lucky)
+function isImmuneToCrit(defender, move) {
+  let immune = false;
+  _eachTrait(defender, (reg) => {
+    if (reg.forceCritImmune && reg.forceCritImmune(defender, null, move)) immune = true;
+  });
+  return immune;
+}
+
+// Critical-hit damage multiplier (Sharpshooter): returns the crit mult (default 1.5)
+function getCritDamageMult(attacker) {
+  let m = 1.5;
+  _eachTrait(attacker, (reg) => {
+    if (reg.critDamageMult) {
+      const v = reg.critDamageMult(attacker, null);
+      if (typeof v === "number") m = v;
+    }
+  });
+  return m;
+}
+
+// STAB bonus multiplier override (Empowered, Dragon's Heart)
+function getStabBonusMult(attacker, move) {
+  let m = 1;
+  _eachTrait(attacker, (reg) => {
+    if (reg.stabBonusMult) {
+      const v = reg.stabBonusMult(attacker, null, move);
+      if (typeof v === "number") m *= v;
+    }
+  });
+  return m;
+}
+
 function getEffectivenessOverride(defender, move) {
-  if (!defender.statuses) return null;
-  for (const e of defender.statuses) {
-    const reg = STATUS_REGISTRY[e.type];
-    if (reg?.effectivenessOverride) {
-      const v = reg.effectivenessOverride(defender, e, move);
-      if (v !== null && v !== undefined) return v;
+  if (defender.statuses) {
+    for (const e of defender.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.effectivenessOverride) {
+        const v = reg.effectivenessOverride(defender, e, move);
+        if (v !== null && v !== undefined) return v;
+      }
     }
   }
-  return null;
+  let override = null;
+  _eachTrait(defender, (reg) => {
+    if (override !== null) return;
+    if (reg.effectivenessOverride) {
+      const v = reg.effectivenessOverride(defender, null, move);
+      if (v !== null && v !== undefined) override = v;
+    }
+  });
+  return override;
+}
+
+// Resistance-bypass (Sonic Bypass): floor effectiveness at 1× for matching move
+function shouldBypassResistance(attacker, move) {
+  let bypass = false;
+  _eachTrait(attacker, (reg) => {
+    if (reg.bypassResistance && reg.bypassResistance(move)) bypass = true;
+  });
+  return bypass;
+}
+
+// Move-type override (Pyroform, Crystal-tipped, Aqua-tongue, Variform)
+function getMoveTypeOverride(attacker, move) {
+  let newType = null;
+  _eachTrait(attacker, (reg) => {
+    if (newType !== null) return;
+    if (reg.moveTypeOverride) {
+      const v = reg.moveTypeOverride(attacker, null, move);
+      if (v) newType = v;
+    }
+  });
+  return newType;
 }
 
 function checkBlocksOutgoingMove(attacker, move) {
-  if (!attacker.statuses) return null;
-  for (const e of attacker.statuses) {
-    const reg = STATUS_REGISTRY[e.type];
-    if (reg?.blocksOutgoingMove) {
-      const block = reg.blocksOutgoingMove(attacker, e, move);
-      if (block) return block;
+  if (attacker.statuses) {
+    for (const e of attacker.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.blocksOutgoingMove) {
+        const block = reg.blocksOutgoingMove(attacker, e, move);
+        if (block) return block;
+      }
     }
   }
-  return null;
+  let blocked = null;
+  _eachTrait(attacker, (reg) => {
+    if (blocked) return;
+    if (reg.blocksOutgoingMove) {
+      const block = reg.blocksOutgoingMove(attacker, null, move);
+      if (block) blocked = block;
+    }
+  });
+  return blocked;
 }
 
 function checkBlocksSwitch(mon) {
-  if (!mon.statuses) return null;
-  for (const e of mon.statuses) {
-    const reg = STATUS_REGISTRY[e.type];
-    if (reg?.blocksSwitch && reg.blocksSwitch(mon, e)) {
-      return { msg: `${reg.emoji} ${mon.name} can't switch out — ${reg.label}!` };
+  if (mon.statuses) {
+    for (const e of mon.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.blocksSwitch && reg.blocksSwitch(mon, e)) {
+        return { msg: `${reg.emoji} ${mon.name} can't switch out — ${reg.label}!` };
+      }
     }
   }
-  return null;
+  let blocked = null;
+  _eachTrait(mon, (reg) => {
+    if (blocked) return;
+    if (reg.blocksSwitch && reg.blocksSwitch(mon, null)) {
+      blocked = { msg: `${reg.emoji || ""} ${mon.name} can't switch out — ${reg.name}!` };
+    }
+  });
+  return blocked;
 }
 
 function getSwitchCost(mon) {
-  if (!mon.statuses) return 0;
   let cost = 0;
-  for (const e of mon.statuses) {
-    const reg = STATUS_REGISTRY[e.type];
-    if (reg?.switchCost) cost = Math.max(cost, reg.switchCost(mon, e) ?? 0);
+  if (mon.statuses) {
+    for (const e of mon.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.switchCost) cost = Math.max(cost, reg.switchCost(mon, e) ?? 0);
+    }
   }
+  _eachTrait(mon, (reg) => {
+    if (reg.switchCost) cost = Math.max(cost, reg.switchCost(mon, null) ?? 0);
+  });
   return cost;
 }
 
 function interceptMove(attacker, chosenMove, moveset) {
-  if (!attacker.statuses) return { move: chosenMove, msg: null };
-  for (const e of attacker.statuses) {
-    const reg = STATUS_REGISTRY[e.type];
-    if (reg?.interceptMove) {
-      const sub = reg.interceptMove(attacker, e, chosenMove, moveset);
-      if (sub && sub !== chosenMove && sub.id !== chosenMove.id) {
-        return { move: sub, msg: reg.interceptMsg ? reg.interceptMsg(attacker, sub) : null };
+  if (attacker.statuses) {
+    for (const e of attacker.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.interceptMove) {
+        const sub = reg.interceptMove(attacker, e, chosenMove, moveset);
+        if (sub && sub !== chosenMove && sub.id !== chosenMove.id) {
+          return { move: sub, msg: reg.interceptMsg ? reg.interceptMsg(attacker, sub) : null };
+        }
       }
     }
   }
-  return { move: chosenMove, msg: null };
+  let intercepted = null;
+  _eachTrait(attacker, (reg) => {
+    if (intercepted) return;
+    if (reg.interceptMove) {
+      const sub = reg.interceptMove(attacker, null, chosenMove, moveset);
+      if (sub && sub !== chosenMove && sub.id !== chosenMove.id) {
+        intercepted = { move: sub, msg: reg.interceptMsg ? reg.interceptMsg(attacker, sub) : null };
+      }
+    }
+  });
+  return intercepted || { move: chosenMove, msg: null };
 }
 
 function checkOnMoveAttempt(attacker, move) {
-  if (!attacker.statuses) return null;
-  for (const e of attacker.statuses) {
-    const reg = STATUS_REGISTRY[e.type];
-    if (reg?.onMoveAttempt) {
-      const result = reg.onMoveAttempt(attacker, e, move);
-      if (result) return result;
+  if (attacker.statuses) {
+    for (const e of attacker.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.onMoveAttempt) {
+        const result = reg.onMoveAttempt(attacker, e, move);
+        if (result) return result;
+      }
     }
   }
-  return null;
+  let attempt = null;
+  _eachTrait(attacker, (reg) => {
+    if (attempt) return;
+    if (reg.onMoveAttempt) {
+      const result = reg.onMoveAttempt(attacker, null, move);
+      if (result) attempt = result;
+    }
+  });
+  return attempt;
 }
 
 // Apply reflect-on-hit effects; mutates attacker.currentHP. Returns first match's msg (or null).
 function applyOnHitReflect(defender, attacker, move, dmgTaken) {
-  if (!defender.statuses) return null;
-  for (const e of defender.statuses) {
-    const reg = STATUS_REGISTRY[e.type];
-    if (reg?.onHitReflect) {
-      const result = reg.onHitReflect(defender, e, move, dmgTaken, attacker);
-      if (result) {
-        attacker.currentHP = Math.max(0, attacker.currentHP - result.reflectDmg);
-        if (attacker.currentHP <= 0) attacker.fainted = true;
-        return result;
+  if (defender.statuses) {
+    for (const e of defender.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.onHitReflect) {
+        const result = reg.onHitReflect(defender, e, move, dmgTaken, attacker);
+        if (result) {
+          attacker.currentHP = Math.max(0, attacker.currentHP - result.reflectDmg);
+          if (attacker.currentHP <= 0) attacker.fainted = true;
+          return result;
+        }
       }
     }
   }
-  return null;
+  // Phase 3a: trait onHitReflect (Bouncy, Refracted from traits)
+  let reflected = null;
+  _eachTrait(defender, (reg) => {
+    if (reflected) return;
+    if (reg.onHitReflect) {
+      const result = reg.onHitReflect(defender, null, move, dmgTaken, attacker);
+      if (result) {
+        attacker.currentHP = Math.max(0, attacker.currentHP - result.reflectDmg);
+        if (attacker.currentHP <= 0) attacker.fainted = true;
+        reflected = result;
+      }
+    }
+  });
+  return reflected;
+}
+
+// Apply on-incoming-hit hooks (Thorned, Aura traits, Resolute, Vengeance, etc.)
+// Returns array of log messages. Dispatches both status and trait hooks.
+function applyOnIncomingHit(defender, attacker, move, dmgTaken, eff) {
+  const messages = [];
+  if (defender.statuses) {
+    for (const e of defender.statuses) {
+      const reg = STATUS_REGISTRY[e.type];
+      if (reg?.onIncomingHit) {
+        const r = reg.onIncomingHit(defender, e, move, dmgTaken, attacker, eff);
+        if (r?.msg) messages.push(r.msg);
+      }
+    }
+  }
+  _eachTrait(defender, (reg) => {
+    if (reg.onIncomingHit) {
+      const r = reg.onIncomingHit(defender, null, move, dmgTaken, attacker, eff);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// Apply on-damage-dealt hooks for the attacker (Vampire).
+function applyOnDamageDealt(attacker, defender, totalDmg) {
+  const messages = [];
+  _eachTrait(attacker, (reg) => {
+    if (reg.onDamageDealt) {
+      const r = reg.onDamageDealt(attacker, null, totalDmg, defender);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// ---- Phase 3b: event-trigger hook dispatchers ----
+
+// onEntry — fires when a Lumori first becomes active in this battle.
+// foe is the opposing active mon (may be null for non-battle contexts).
+function applyOnEntry(mon, foe) {
+  const messages = [];
+  _eachTrait(mon, (reg) => {
+    if (reg.onEntry) {
+      const r = reg.onEntry(mon, null, foe);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onSwitchOut — fires when a Lumori voluntarily switches out.
+// incomingAlly is the Lumori coming in (may be null).
+function applyOnSwitchOut(mon, incomingAlly) {
+  const messages = [];
+  _eachTrait(mon, (reg) => {
+    if (reg.onSwitchOut) {
+      const r = reg.onSwitchOut(mon, null, incomingAlly);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onSwitchIn — fires when a Lumori re-enters battle (Return Surge needs to
+// distinguish first entry from re-entry; the trait itself reads _hasEnteredOnce).
+function applyOnSwitchIn(mon, foe) {
+  const messages = [];
+  _eachTrait(mon, (reg) => {
+    if (reg.onSwitchIn) {
+      const r = reg.onSwitchIn(mon, null, foe);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onKO — fires on the attacker when its move KOs a foe.
+function applyOnKO(attacker, defender) {
+  const messages = [];
+  _eachTrait(attacker, (reg) => {
+    if (reg.onKO) {
+      const r = reg.onKO(attacker, null, defender);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onCritTaken — fires on the defender when it takes a critical hit
+// (Blood Rage atk+6, Reckoning spe+1, Counter-Charged primer).
+function applyOnCritTaken(defender, attacker, move) {
+  const messages = [];
+  _eachTrait(defender, (reg) => {
+    if (reg.onCritTaken) {
+      const r = reg.onCritTaken(defender, null, attacker, move);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onSelfCrit — fires on the attacker when it lands a critical hit (Crit Reserve).
+function applyOnSelfCrit(attacker, defender, move) {
+  const messages = [];
+  _eachTrait(attacker, (reg) => {
+    if (reg.onSelfCrit) {
+      const r = reg.onSelfCrit(attacker, null, defender, move);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onFaint — fires BEFORE the mon is marked fainted. Trait can revive (set
+// mon.currentHP and mon.fainted = false) — see Phoenix-Flame, Lumian Soul.
+// Returns the first non-null msg, or null if no trait intervened.
+function applyOnFaint(mon) {
+  let msg = null;
+  _eachTrait(mon, (reg) => {
+    if (msg) return; // first-match wins
+    if (reg.onFaint) {
+      const r = reg.onFaint(mon, null);
+      if (r?.msg) msg = r.msg;
+    }
+  });
+  return msg;
+}
+
+// onLowHpTrigger — fires once when HP first crosses ~25% threshold.
+// Each trait may have its own threshold; the hook itself decides whether to fire.
+function applyOnLowHpTrigger(mon) {
+  const messages = [];
+  _eachTrait(mon, (reg) => {
+    if (reg.onLowHpTrigger) {
+      const lowFrac = mon.currentHP / mon.maxHP;
+      const r = reg.onLowHpTrigger(mon, null, lowFrac);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onBattleEnd — fires once when the battle resolves (won, lost, ran, caught).
+function applyOnBattleEnd(mon, outcome) {
+  const messages = [];
+  _eachTrait(mon, (reg) => {
+    if (reg.onBattleEnd) {
+      const r = reg.onBattleEnd(mon, null, outcome);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onMoveUse — fires after this Lumori uses a move (Chameleon's type-shift).
+function applyOnMoveUse(mon, move) {
+  const messages = [];
+  _eachTrait(mon, (reg) => {
+    if (reg.onMoveUse) {
+      const r = reg.onMoveUse(mon, null, move);
+      if (r?.msg) messages.push(r.msg);
+    }
+  });
+  return messages;
+}
+
+// onMoveHit / onMoveMiss — for Steady Aim consecutive-miss tracking.
+function applyOnMoveHit(mon, move, defender) {
+  _eachTrait(mon, (reg) => {
+    if (reg.onMoveHit) reg.onMoveHit(mon, null, move, defender);
+    if (reg.onHitLanded) reg.onHitLanded(mon, null, move, 0, defender);
+  });
+}
+
+function applyOnMoveMiss(mon, move) {
+  _eachTrait(mon, (reg) => {
+    if (reg.onMoveMiss) reg.onMoveMiss(mon, null, move);
+  });
+}
+
+// onStatLowered — fires on the mon when a stat-lower delta lands (Pride).
+function applyOnStatLowered(mon, stat, delta) {
+  _eachTrait(mon, (reg) => {
+    if (reg.onStatLowered) reg.onStatLowered(mon, null, stat, delta);
+  });
+}
+
+// onSelfStatRaised — fires on the mon when a stat-raise delta lands (Earthshaker).
+function applyOnSelfStatRaised(mon, stat, delta) {
+  _eachTrait(mon, (reg) => {
+    if (reg.onSelfStatRaised) reg.onSelfStatRaised(mon, null, stat, delta);
+  });
+}
+
+// Priority bonus aggregator — for turn-order calculations.
+// Iterates traits' priorityBonus and movePriorityBonus hooks.
+function getPriorityBonus(mon, foe, move) {
+  let bonus = 0;
+  _eachTrait(mon, (reg) => {
+    if (reg.priorityBonus) {
+      const v = reg.priorityBonus(mon, null, foe);
+      if (typeof v === "number") bonus += v;
+    }
+    if (reg.movePriorityBonus && move) {
+      const v = reg.movePriorityBonus(mon, null, move);
+      if (typeof v === "number") bonus += v;
+    }
+  });
+  return bonus;
+}
+
+// Once-per-battle low-HP threshold tracker. Call when a mon takes damage.
+// Returns array of log messages for any triggered low-HP traits.
+function checkAndFireLowHpTrigger(mon) {
+  if (!mon || mon.fainted) return [];
+  const isLow = mon.currentHP < mon.maxHP * 0.25;
+  if (!isLow) {
+    // Hysteresis reset: HP returned above threshold so a future dip can fire again.
+    // Per-trait once-per-battle guards (e.g. _adaptiveShellUsed) live inside individual
+    // onLowHpTrigger hooks — this gate only handles cross-threshold edge detection.
+    mon._lowHpTriggerFired = false;
+    return [];
+  }
+  if (mon._lowHpTriggerFired) return [];
+  mon._lowHpTriggerFired = true;
+  return applyOnLowHpTrigger(mon);
+}
+
+// Per-turn counter increment. Call at end of each turn for active mons.
+function tickTurnCounter(mon) {
+  if (!mon) return;
+  mon._turnsInBattle = (mon._turnsInBattle || 0) + 1;
 }
 
 // Multi-battle: cross-mon status hooks (Phase 3 follow-up).
@@ -790,8 +1228,8 @@ function getEffectiveAccuracy(attacker, defender, move) {
   // stageMultiplier curve: 0→1.0, +1→1.5, -1→0.67, +6→4.0, -6→0.25
   const stageAccMult = stageMultiplier(accStage);
   const stageEvaMult = stageMultiplier(evaStage);
-  const accAtk = getAccuracyMod(attacker, true);
-  const accDef = getAccuracyMod(defender, false);
+  const accAtk = getAccuracyMod(attacker, true, move);
+  const accDef = getAccuracyMod(defender, false, move);
   return Math.min(100, move.acc * stageAccMult / stageEvaMult * accAtk * accDef);
 }
 
@@ -1112,38 +1550,52 @@ function getMoveEffectiveness(move, defenderTypes) {
 function calcDamage(attacker, defender, move, opts = {}) {
   if (move.power === 0) return 0;
   const targetCount = opts.targetCount || 1;
-  // Effective stages combine mon.stages + passive statMod from active statuses.
+
+  // Phase 3a: trait move-type override (Pyroform, Crystal-tipped, Aqua-tongue, Variform).
+  // Build a working move object with the overridden type if any trait demands it.
+  const overrideType = getMoveTypeOverride(attacker, move);
+  const workMove = overrideType ? { ...move, type: overrideType } : move;
+
+  // Effective stages combine mon.stages + passive statMod from active statuses + traits.
   const aAtkStage = getEffectiveStage(attacker, "atk");
   const aSpaStage = getEffectiveStage(attacker, "spa");
   const dDefStage = getEffectiveStage(defender, "def");
   const dSpdStage = getEffectiveStage(defender, "spd");
-  const atk = move.cat === "physical"
+  const atk = workMove.cat === "physical"
     ? attacker.atk * stageMultiplier(aAtkStage)
     : attacker.spa * stageMultiplier(aSpaStage);
-  const def = move.cat === "physical"
+  const def = workMove.cat === "physical"
     ? defender.def * stageMultiplier(dDefStage)
     : defender.spd * stageMultiplier(dSpdStage);
 
-  const burnMod = (hasStatus(attacker, "burn") && move.cat === "physical") ? 0.5 : 1;
+  // Compute effectiveness EARLY so trait outgoingPowerMod hooks (Piercing Sight,
+  // Bloodseeker) can read it via the 4th/5th args. Also honor Sonic Bypass (floor at 1×).
+  const override = getEffectivenessOverride(defender, workMove);
+  let eff = override !== null ? override : getMoveEffectiveness(workMove, defender.types);
+  if (shouldBypassResistance(attacker, workMove) && eff < 1 && eff > 0) eff = 1;
+
+  const burnMod = (hasStatus(attacker, "burn") && workMove.cat === "physical") ? 0.5 : 1;
   // Wide-spread modifier: 0.75× when a wide move actually hits more than one target.
-  // For 1v1 (default targetCount=1) this is a no-op.
-  const spreadMod = (move.target === "wide" && targetCount > 1) ? 0.75 : 1;
-  // Outgoing power mod from attacker's active statuses (Strained/Exhausted/Migraine/Concussion).
-  const powerMod = getOutgoingPowerMod(attacker, move);
-  let dmg = Math.floor(((2 * attacker.level / 5 + 2) * move.power * atk / def) / 50 + 2);
+  const spreadMod = (workMove.target === "wide" && targetCount > 1) ? 0.75 : 1;
+  // Outgoing power mod from attacker's active statuses (Strained/Exhausted/Migraine/Concussion)
+  // and traits (Heavy Hands / Crushing Bite / Pulse Master / Pyromaniac / Bloodseeker / etc).
+  const powerMod = getOutgoingPowerMod(attacker, workMove, defender, eff);
+  let dmg = Math.floor(((2 * attacker.level / 5 + 2) * workMove.power * atk / def) / 50 + 2);
   dmg = Math.floor(dmg * burnMod * spreadMod * powerMod * (0.85 + Math.random() * 0.15));
-  if (attacker.types.includes(move.type)) dmg = Math.floor(dmg * 1.5);
+
+  // STAB: 1.5× by default, but trait stabBonusMult (Empowered, Dragon's Heart) can override.
+  if (attacker.types.includes(workMove.type)) {
+    const stabExtra = getStabBonusMult(attacker, workMove);
+    dmg = Math.floor(dmg * 1.5 * stabExtra);
+  }
 
   const atkHeld = getHeldData(attacker);
-  if (atkHeld?.typeBoost === move.type) dmg = Math.floor(dmg * atkHeld.mult);
-  if (atkHeld?.catBoost === move.cat)   dmg = Math.floor(dmg * atkHeld.mult);
-  if (atkHeld?.typeBoostDual?.includes(move.type)) dmg = Math.floor(dmg * atkHeld.mult);
+  if (atkHeld?.typeBoost === workMove.type) dmg = Math.floor(dmg * atkHeld.mult);
+  if (atkHeld?.catBoost === workMove.cat)   dmg = Math.floor(dmg * atkHeld.mult);
+  if (atkHeld?.typeBoostDual?.includes(workMove.type)) dmg = Math.floor(dmg * atkHeld.mult);
 
-  // Type effectiveness: respect any status-driven chart override (Type Shattered → 1.33×).
-  const override = getEffectivenessOverride(defender, move);
-  const eff = override !== null ? override : getMoveEffectiveness(move, defender.types);
   // Variant immunity: a variant takes 0x damage from its rolled immune type.
-  if (defender.variantImmune && (move.type === defender.variantImmune || (move.dualType || []).includes(defender.variantImmune))) {
+  if (defender.variantImmune && (workMove.type === defender.variantImmune || (workMove.dualType || []).includes(defender.variantImmune))) {
     return { damage: 0, effectiveness: 0, crit: false };
   }
   // True type immunity (0x): deal no damage. Returning here avoids the final
@@ -1152,26 +1604,46 @@ function calcDamage(attacker, defender, move, opts = {}) {
   if (eff === 0) return { damage: 0, effectiveness: 0, crit: false };
   dmg = Math.floor(dmg * eff);
 
-  // Incoming dmg multiplier from defender's active statuses (Drenched/Soaked type mods,
-  // Brittle physical-amp, Marked/Hunted dmg-amp, Phase-shifted alternating, Deafen Sonic-immune).
-  const incomingMod = getIncomingDmgMod(defender, move, attacker);
-  dmg = Math.floor(dmg * incomingMod);
+  // Incoming dmg multiplier from defender's statuses + traits (Drenched/Soaked,
+  // Brittle, Marked/Hunted, Phase-shifted, Per-type defensive traits, Resilient Skin, etc).
+  const incomingMod = getIncomingDmgMod(defender, workMove, attacker, eff);
+  const adjusted = dmg * incomingMod;
+
+  // Honor zero-mod immunity (Levitating Earth, Phase-shifted, Sonic Bypass=0)
+  // and negative-mod absorption (Mossy Nature, future Volt Absorb / Water Absorb).
+  // Both were previously being clamped to 1 damage by the Math.max(1, dmg) below.
+  if (adjusted === 0) {
+    return { damage: 0, effectiveness: eff, crit: false };
+  }
+  if (adjusted < 0) {
+    const heal = Math.max(1, Math.floor(Math.abs(adjusted)));
+    return { damage: 0, heal, effectiveness: eff, crit: false };
+  }
+  dmg = Math.floor(adjusted);
 
   // Status-exploit moves: 2x damage if the defender carries the targeted status.
   // move.bonusVsStatus may be a status-type string, an array of types, or "any".
-  if (move.bonusVsStatus && defender.statuses && defender.statuses.length) {
-    const want = move.bonusVsStatus;
+  if (workMove.bonusVsStatus && defender.statuses && defender.statuses.length) {
+    const want = workMove.bonusVsStatus;
     const hit = want === "any"
       ? true
       : (Array.isArray(want) ? want : [want]).some(t => hasStatus(defender, t));
     if (hit) dmg = Math.floor(dmg * 2);
   }
 
-  let critRate = move.effect === "crit" ? 25 : 6.25;
+  // Crit calculation: traits can force-crit (Predator, Killing Blow, Light-feet),
+  // grant crit-immunity (Lucky), boost crit rate (Sharp-eyed, Dream Lord), or override
+  // crit damage multiplier (Sharpshooter).
+  let critRate = workMove.effect === "crit" ? 25 : 6.25;
   if (atkHeld?.effect === "critUp") critRate = Math.min(50, critRate * 2);
-  critRate += getOpponentCritBonus(defender); // Hunted etc. amplify attacker's crit rate
-  const isCrit = move.alwaysCrit === true || rollPercent(critRate);
-  if (isCrit) dmg = Math.floor(dmg * 1.5);
+  critRate += getOpponentCritBonus(defender);
+  critRate += getSelfCritBonus(attacker, workMove);
+  let isCrit = workMove.alwaysCrit === true || shouldForceCrit(attacker, defender, workMove) || rollPercent(critRate);
+  if (isCrit && isImmuneToCrit(defender, workMove)) isCrit = false;
+  if (isCrit) {
+    const critMult = getCritDamageMult(attacker);
+    dmg = Math.floor(dmg * critMult);
+  }
 
   return { damage: Math.max(1, dmg), effectiveness: eff, crit: isCrit };
 }
@@ -1217,6 +1689,17 @@ function applyStageChange(mon, stat, delta) {
   if (delta < 0 && cur <= -6) return false;
   if (delta > 0 && cur >= 6) return false;
   mon.stages[stat] = Math.max(-6, Math.min(6, cur + delta));
+  // Phase 3b: trait triggers (Pride on stat-lowered; Earthshaker on stat-raised).
+  // Re-entrancy guard so the triggered effect's own applyStageChange doesn't loop.
+  if (!mon._inStageChangeTrigger) {
+    mon._inStageChangeTrigger = true;
+    try {
+      if (delta < 0) applyOnStatLowered(mon, stat, delta);
+      else if (delta > 0) applyOnSelfStatRaised(mon, stat, delta);
+    } finally {
+      mon._inStageChangeTrigger = false;
+    }
+  }
   return true;
 }
 
@@ -1311,6 +1794,8 @@ function applySubEffect(fx, attacker, target) {
       if (healAmt > 0) {
         attacker.currentHP = Math.min(attacker.maxHP, attacker.currentHP + healAmt);
         messages.push(`💚 ${attacker.name} restored ${healAmt} HP!`);
+        // Phase 3b: keep low-HP hysteresis flag honest on heal
+        for (const m of checkAndFireLowHpTrigger(attacker)) messages.push(m);
       } else {
         messages.push(`💚 ${attacker.name}'s healing was blocked!`);
       }
@@ -1340,7 +1825,10 @@ function tickStatus(mon) {
     if (reg.tickDamage) {
       const dmg = reg.tickDamage(mon, entry);
       mon.currentHP = Math.max(0, mon.currentHP - dmg);
+      if (mon.currentHP <= 0) mon.fainted = true;
       if (reg.tickMsg) msgs.push(reg.tickMsg(mon.name, dmg));
+      // Phase 3b: status DOT can cross low-HP threshold — fire trigger
+      for (const m of checkAndFireLowHpTrigger(mon)) msgs.push(m);
     }
     // 2. Per-turn side effects (Hexed random debuff, Inspired random buff, etc.)
     if (reg.tickEffect) {
@@ -1375,6 +1863,8 @@ function tickStatus(mon) {
     const heal = Math.max(1, Math.floor(mon.maxHP / 16));
     mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
     msgs.push(`🍎 ${mon.name}'s Leftovers restored ${heal} HP!`);
+    // Phase 3b: keep low-HP hysteresis flag honest on heal
+    for (const m of checkAndFireLowHpTrigger(mon)) msgs.push(m);
   }
   return msgs;
 }

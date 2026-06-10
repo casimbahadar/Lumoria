@@ -194,7 +194,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[325] Dunespike | Ground/Poison | mole-rat / rodent` (armored mole-rat — second rodent alongside Murkrat)
 - `[326] Silthorn | Nature/Poison | carnivorous-plant` (already a carnivorous marsh-plant in data — relabeled out of treant per mythical-archetype-policy cap-3; treant now Necrothon/Impenezard/Thornspire)
 - `[327] Quarrex | Rock/Ground | rock-monolith / golem hybrid` (interlocked granite slabs; could double-classify)
-- `[328] Smogveil | Poison/Wind | poison-elemental` (amorphous yellow-green storm cloud, formless, sole poison-elemental)
+- `[328] Smogveil | Poison/Vapor | poison-elemental` (amorphous yellow-green storm cloud, formless, sole poison-elemental; retyped Wind→Vapor 2026-06-10 — sentient smog/gas cloud, lore "smog"/"choking vapour"/"poisoned fog")
 - `[329] Skullmite | Bug/Rock | beetle` (helmet-shaped carapace — fourth beetle alongside Iridibeetle/Quarrix/Sparkeen/Voltbeetle)
 - `[330] Blistermaw | Water/Poison | crocodilian` (acid-weeping croc — second crocodilian alongside Limoux line)
 - `[331] Thornmoth | Bug/Grass | moth` (bug-grass moth — sixth Lepidoptera)

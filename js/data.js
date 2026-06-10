@@ -4110,7 +4110,7 @@ const MONSTERS_DATA = {
     desc:"A titan of compressed stone forged in Terravault's deepest mines. Its fists leave craters.",
     lore:"Quarrex is a massive rock-ground creature 2.2 metres tall composed of interlocked slabs of granite and iron ore. Miners initially mistook ancient specimens for geological formations." },
 
-  328: { id:328, name:"Smogveil", emoji:"🌫️", types:["Poison","Wind"],
+  328: { id:328, name:"Smogveil", emoji:"🌫️", types:["Poison","Vapor"],
     base:{hp:58,atk:60,def:52,spa:83,spd:71,spe:76}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"breeze"],[10,"miasma_cloud"],[20,"wind_scythe"],[30,"ooze_bomb"],[40,"sludge_wave"],[50,"acid_rain"],[60,"tailwind_strike"],[5,"toxify"],[38,"neural_storm"],[62,"breeze_blast"]],
     catchRate:27, expYield:253, rarity:"rare",

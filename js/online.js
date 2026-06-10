@@ -223,10 +223,6 @@ function getTimeEvent() {
   ].find(s => s.months.includes(month));
   if (season) season.types.forEach(t => events.push({ label:season.label, typeBoost:t, spawnMult:1.4, seasonal:true }));
 
-  // Weekly spotlight (each day has a bonus type)
-  const weeklyTypes = ["Normal","Water","Fire","Electric","Psychic","Fairy","Dragon"];
-  events.push({ label:"📅 Weekly", typeBoost:weeklyTypes[day], spawnMult:1.6, xpMult:1.2 });
-
   return events;
 }
 
@@ -241,7 +237,7 @@ function getTimeShinyMult() {
 function renderTimeEvents() {
   const el = document.getElementById("time-events-display");
   if (!el) return;
-  const evs = getTimeEvent().filter(e => e.seasonal || e.label.includes("Weekly") ||
+  const evs = getTimeEvent().filter(e => e.seasonal ||
     e.label.includes("Night") || e.label.includes("Dawn") || e.label.includes("Dusk") || e.label.includes("Day"));
   const seen = new Set();
   const unique = evs.filter(e => { if (seen.has(e.label)) return false; seen.add(e.label); return true; });

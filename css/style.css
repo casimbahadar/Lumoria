@@ -1765,12 +1765,24 @@ button, a, [role="button"] {
   .title-hint { font-size: 0.7rem; }
   .btn-primary, .btn-secondary { min-width: 160px; font-size: 0.9rem; }
 
-  /* HUD: single compact line */
-  #hud { padding: 0.3rem 0.5rem; }
+  /* HUD: single compact line — all items visible, shrink + scroll fallback */
+  #hud {
+    flex-wrap: nowrap;
+    padding: 0.3rem 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
   #hud-location { display: none; } /* shown in area panel instead */
+  #hud-left, #hud-right { gap: 0.35rem; min-width: 0; flex-shrink: 1; }
+  #hud-player-name { font-size: 0.7rem; white-space: nowrap; }
+  #hud-right { font-size: 0.7rem; }
+  .badge-icon { width: 16px; height: 16px; }
+  .time-event-tag { font-size: 0.55rem; padding: 0.05rem 0.25rem; }
+  #hud-online-status { font-size: 0.7rem; }
+  #btn-fullscreen { font-size: 0.85rem; padding: 0.15rem 0.3rem; }
 
-  /* World map: taller on phone */
-  #world-map-container { min-height: 40vh; padding: 0.4rem; }
+  /* World map: leaves room for taller area panel */
+  #world-map-container { min-height: 34vh; padding: 0.4rem; }
   .map-title { font-size: 0.75rem; margin-bottom: 0.4rem; }
   .map-loc-dot { width: 22px; height: 22px; font-size: 0.75rem; }
   .map-location.city .map-loc-dot { width: 30px; height: 30px; font-size: 1rem; }
@@ -1785,10 +1797,12 @@ button, a, [role="button"] {
   /* Add more touch area padding to map locations */
   .map-location { padding: 4px; }
 
-  /* Area panel: compact single column */
+  /* Area panel: compact single column. max-height bumped from 42vh → 50vh
+     to keep Explore Area / gym action buttons reachable beneath the wild
+     preview, using the space freed by the shrunken map. */
   #area-panel {
     flex-direction: column;
-    max-height: 42vh;
+    max-height: 50vh;
     padding: 0.6rem;
     gap: 0.4rem;
   }
@@ -1836,8 +1850,20 @@ button, a, [role="button"] {
   /* XP bar */
   #battle-xp-bar-container { padding: 0.2rem 0.6rem; }
 
-  /* Bottom nav */
-  .nav-btn { font-size: 0.65rem; padding: 0.5rem 0.1rem; letter-spacing: 0; }
+  /* Bottom nav — 5×2 grid: wider tap targets, readable labels */
+  #bottom-nav {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .nav-btn {
+    font-size: 0.65rem;
+    padding: 0.5rem 0.1rem;
+    letter-spacing: 0;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-btn:nth-child(5n) { border-right: none; }       /* cols 5 + 10 */
+  .nav-btn:nth-child(n+6) { border-bottom: none; }     /* bottom row */
 
   /* Starter screen */
   .starter-grid { grid-template-columns: 1fr; gap: 0.6rem; }

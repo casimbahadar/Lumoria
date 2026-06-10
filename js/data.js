@@ -2787,19 +2787,19 @@ const MONSTERS_DATA = {
     desc:"A dolphin-like creature of ice-blue water. Schools in cold coastal seas and leaps in synchronised arcing patterns.",
     lore:"Scolphin is a water creature 30 cm long resembling a small dolphin made of ice-blue water. Its body is semi-solid — more ice than liquid in cold conditions and more liquid in warmth. It schools in large groups in cold coastal waters and leaps collectively in synchronised arcing patterns. Younger Scolphin's body is roughly 60% liquid water and 40% ice, but the ratio reverses with age toward the dense solid form their narwhal and orca-calf adult stages adopt. Their tail-half is consistently denser and colder than their head-half — the body already pre-shaped along the axis Torrentox's armoured-dorsal will eventually establish — and their school-communication chirps narrow with each year into the directional precision-hunting echolocation Torrentox uses to map prey through frozen water." },
 
-  257: { id:257, name:"Reefhorn", emoji:"🦄", types:["Aquatic","Ice"],
+  257: { id:257, name:"Narwhirl", emoji:"🦄", types:["Aquatic","Ice"],
     base:{hp:72,atk:80,def:88,spa:90,spd:78,spe:65},
     learnset:[[1,"cold_beam"],[1,"tidal_rush"],[20,"whiteout"],[28,"tidal_sweep"],[36,"cryo_lance"],[44,"tsunami"],[52,"frost_crash"],[60,"radiance_cannon"],[62,"abyssal_jet"]],
     evolveTo:258, evolveLevel:44, catchRate:80, expYield:155, rarity:"uncommon",
     desc:"A horned sea creature made partly of frozen coral. Its horns channel water and ice attacks with precision.",
-    lore:"Reefhorn is a water-ice creature 60 cm long — Scolphin's ice-blue dolphin form has solidified to a denser blue-grey narwhal frame and grown a single spiralling ice horn 20 cm long from its forehead, the schooling instinct dropping away in favour of solitary reef-territory. It inhabits cold-water reefs where its horn can chip algae from rock surfaces. The horn breaks and regrows seasonally, and shed horns are used by seabirds as nesting material." },
+    lore:"Narwhirl is a water-ice creature 60 cm long — Scolphin's ice-blue dolphin form has solidified to a denser blue-grey narwhal frame and grown a single spiralling ice horn 20 cm long from its forehead, the schooling instinct dropping away in favour of solitary reef-territory. It inhabits cold-water reefs where its horn can chip algae from rock surfaces. The horn breaks and regrows seasonally, and shed horns are used by seabirds as nesting material." },
 
   258: { id:258, name:"Torrentox", emoji:"🐋", types:["Aquatic","Ice"],
     base:{hp:90,atk:86,def:93,spa:119,spd:99,spe:63},
     learnset:[[1,"tsunami"],[1,"whiteout"],[30,"tidal_sweep"],[38,"cryo_lance"],[46,"frost_crash"],[54,"tundra_tomb"],[62,"geyser_burst"],[70,"radiance_cannon"],[72,"rain_cascade"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
     desc:"An ancient orca-titan of ice. Controls ocean currents and freezes sea lanes solid in winter.",
-    lore:"Torrentox is a water-ice creature 1.2 metres long — Reefhorn's deep blue-grey narwhal frame has whitened to a muscular orca calf with blue-white colouration, and the spiralling ice-horn has dissolved into the ice-plate armour now lining its dorsal surface. It generates ice walls around prey by rapidly cooling a volume of water from within, trapping targets in an enclosed freezing pocket." },
+    lore:"Torrentox is a water-ice creature 1.2 metres long — Narwhirl's deep blue-grey narwhal frame has whitened to a muscular orca calf with blue-white colouration, and the spiralling ice-horn has dissolved into the ice-plate armour now lining its dorsal surface. It generates ice walls around prey by rapidly cooling a volume of water from within, trapping targets in an enclosed freezing pocket." },
 
   // Standalone Aquatic/Mental: Lumejell
   259: { id:259, name:"Lumejell", emoji:"🪼", types:["Aquatic","Mental"],

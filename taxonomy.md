@@ -148,7 +148,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[252] Crumblite→Stonegrip | Metal/Mineral | golem` (metal-mineral humanoid; retyped Earth/Metal→Metal/Mineral for diversity)
 - `[253] Ashrock | Rock/Fire | rock-elemental` (formless basalt with magma veins, standalone — could equally be fire-elemental; lean rock-elemental since body is rock)
 - `[255] Bubblepuff→Psychotide | Water/Psychic | water-elemental` (wave humanoid, formless water — sole water-elemental candidate; **name leak in #255: "Wavrix"**)
-- `[258] Scolphin→Reefhorn→Torrentox | Water/Ice | cetacean` (orca/calf — second cetacean alongside Gossafin line + Titanomare standalone + Tidephant)
+- `[258] Scolphin→Narwhirl→Torrentox | Water/Ice | cetacean` (orca/calf — second cetacean alongside Gossafin line + Titanomare standalone + Tidephant)
 - `[259] Lumejell | Water/Psychic | jellyfish / cnidarian` (psychic-jellyfish, standalone — second jelly alongside Slatis-line origin)
 - `[261] Sproutix→Leafhorn | Grass/Fairy | stag / deer (cervid)` (faun — second cervid alongside Sylvolt line)
 - `[264] Transluceed→Tendrilisk→Impenezard | Grass/Poison | treant / walking-tree spirit` (walking thorn-bush — **name leak in #264: "Thornvast"**; second treant alongside Necralia line)

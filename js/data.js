@@ -2678,11 +2678,11 @@ const MONSTERS_DATA = {
     desc:"A firefly-like creature that stores electricity in its abdomen-light. Releases it when threatened.",
     lore:"Pulseglow is a tiny electric creature 5 cm long resembling a glowing firefly. Its abdomen pulses with yellow-white electric light at regular intervals. Huge swarms congregate in summer nights over open water, and the coordinated light patterns of the swarm are a complex form of collective communication." },
 
-  243: { id:243, name:"Stuntrap", emoji:"🪲", types:["Electric","Nature"],
+  243: { id:243, name:"Stuntrap", emoji:"🪰", types:["Electric","Nature"],
     base:{hp:72,atk:82,def:68,spa:110,spd:78,spe:98},
     learnset:[[1,"volt_jet"],[1,"shear_strike"],[10,"vine_lash"],[24,"galvanic_burst"],[32,"resonance_hum"],[38,"nature_pulse"],[40,"stormbolt"],[48,"volt_surge"],[56,"ball_lightning"],[64,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:215, rarity:"uncommon",
-    desc:"An electrified beetle warrior. Its wing-cases generate static as it flies, creating lightning storms.",
+    desc:"An electrified dragonfly that herds prey into mid-air shock-traps. Its translucent wings crackle with static as it flies.",
     lore:"Stuntrap is a medium electric-bug 25 centimetres in wingspan that has moulted from Pulseglow's firefly carapace into an elongated dragonfly form, its abdominal light-organs migrating outward to become the electric-blue arcs along its translucent copper wings. It hunts by creating a small electrical trap in mid-air and herding smaller insects into it. It can deliver a precise shock from its tail that stuns prey without killing it." },
 
   // 3-stage Electric/Fighting chain: Staticlaw → Thundravex → Megavolt

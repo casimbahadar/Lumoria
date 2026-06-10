@@ -3362,7 +3362,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"mind_jolt",[22,"telepathic_slam"]],[1,"chomp"],[3,"prism_ward"],[10,"psi_burst"],[14,"sinister_scheme"],[18,"void_pulse"],[20,"ectoplasm_wave"],[25,"wraith_focus"],[26,"mental"],[30,"neural_storm"],[32,"blackout_bomb"],[34,"nether_sphere"],[42,"psi_strike",[5,"inner_calm"]],[44,"spectral_radiance"]],
     evolveTo:129, evolveLevel:34, catchRate:90, expYield:100, rarity:"common",
     desc:"A spectre of mental power. It exists half in reality and half in the mind's eye.",
-    lore:"Cranivade is a tall mental-spectral biped 1.3 metres tall with a smooth lavender-grey body and an oversized cranium that pulses with light when it concentrates. Its small hands trail crackling spectral energy. It dredges suppressed memories from others without consent and catalogues them in its own vast mental archive. During its deepest archiving trances, the lavender-grey cranium of a Cranivade briefly turns translucent at the edges and flickers between dimensions; this momentary phase-shift is exactly the half-dimensional state Voidaxis inhabits permanently." },
+    lore:"Cranivade is a tall mental-spectral biped 1.3 metres tall with a smooth lavender-grey body and an oversized cranium that pulses with light when it concentrates. Its small hands trail crackling spectral energy. It dredges suppressed memories from others without consent and catalogues them in its own vast mental archive. During its deepest archiving trances, the lavender-grey cranium of a Cranivade briefly turns translucent at the edges and flickers between dimensions; this momentary phase-shift is exactly the half-dimensional state Cerebraith inhabits permanently." },
 
   // ===== DARK/GRASS =====
   130: { id:130, name:"Necralia", emoji:"🌿", types:["Dark","Nature"],
@@ -3491,12 +3491,12 @@ const MONSTERS_DATA = {
     desc:"A spectral fox-spirit whose shadowy form trails into smoke. Multiple ghostly tails fan out behind it, and its violet eyes seem to read minds at a glance.",
     lore:"Specraxis is a 70-centimetre kitsune-like fox-spirit, the matured form of Impefurr's mischievous lineage. Its fox silhouette is preserved but partly translucent — a smoke-grey body shading darker toward the spine and tail-tips, with deep-set violet eyes glowing through long fringes of shadow-fur. Two long shadow-tails fan from its hindquarters and seem to multiply or merge depending on the angle of viewing. It floats roughly 10 centimetres above the ground at all times, padding silently through the air, and its mind-reading is so passive it broadcasts surface thoughts back through its violet aura — anyone standing nearby in a crowded place hears their own private thoughts spoken back to them in distorted whispers, causing widespread confusion." },
 
-  129: { id:129, name:"Voidaxis", emoji:"🌀", types:["Mental","Spectral"],
+  129: { id:129, name:"Cerebraith", emoji:"🌀", types:["Mental","Spectral"],
     base:{hp:83,atk:77,def:72,spa:107,spd:89,spe:75},
     learnset:[[1,"psi_burst"],[2,"void_pulse"],[3,"mental"],[4,"nether_sphere"],[5,"inner_calm"],[6,"clairvoyance"],[15,"wraith_claw"],[20,"revenant_charge"],[25,"ghastly_focus"],[39,"psi_strike"],[40,"battle_cry"],[41,"thought_crush"],[44,"prism_ward"],[45,"eternal_haunt"],[49,"obsidian_fang"],[54,"void_rend"],[59,"synaptic_shatter"],[64,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:248, rarity:"rare",
     desc:"A void being of mental and spectral power. Consumes light and thought with equal ease.",
-    lore:"Voidaxis is a large mental-spectral entity 1.5 metres tall whose body appears to exist partially in another dimension — Cranivade's lavender-grey biped silhouette persists at the form's centre with its oversized cranium still pulsing dimly, but its edges are blurred and its outline shifts when viewed peripherally, dissolving into half-dimensional shadow. Its presence makes nearby electronic devices malfunction. It communicates only through psychic projection and has never been heard to vocalise." },
+    lore:"Cerebraith is a large mental-spectral entity 1.5 metres tall whose body appears to exist partially in another dimension — Cranivade's lavender-grey biped silhouette persists at the form's centre with its oversized cranium still pulsing dimly, but its edges are blurred and its outline shifts when viewed peripherally, dissolving into half-dimensional shadow. Its presence makes nearby electronic devices malfunction. It communicates only through psychic projection and has never been heard to vocalise." },
 
   203: { id:203, name:"Arachnalis", emoji:"🕸️", types:["Nature","Fairy"],
     base:{hp:76,atk:64,def:73,spa:101,spd:89,spe:74},

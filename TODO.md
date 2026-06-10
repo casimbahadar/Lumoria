@@ -46,7 +46,7 @@ Clean state — everything committed & pushed on `claude/unified-audit-handoff-t
 
 **Renaming review queue (read-only — nothing changed):**
 - 🔴 Tier 1 (both base-dex, genuinely confusable — only ones worth acting on):
-  - #129 **Voidaxis** ↔ #319 **Voidraxis** (1-char diff)
+  - ✅ #129 **Voidaxis → Cerebraith** (renamed 2026-06-10; #319 Voidraxis kept — story legendary)
   - #257 **Reefhorn** ↔ #261 **Leafhorn** (adjacent ids, rhyme)
   - #173 **Serpenthos** ↔ #233 **Serpenthorn** (8-char shared stem)
 - 🟡 Tier 2 (lower priority): #205 Quarrix ↔ #327 Quarrex (cross-band) · #390 Voidgarden ↔ #407 Voidwarden (distinct words) · Mirkling/Mistling/Gustling `-ling` cluster.

@@ -307,7 +307,7 @@
 
   /* ---- per-species identity anchors (BATCHED content; fallback auto-derives) ---- */
   const ANCHORS = {
-    129: { // Voidaxis
+    129: { // Cerebraith
       noun: 'void-being',
       features: ['its blurred, ever-shifting edges', 'the dim-pulsing cranium at its core',
                  'the faint Cranivade silhouette held within it'],

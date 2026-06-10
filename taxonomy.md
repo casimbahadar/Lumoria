@@ -79,7 +79,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[122] Spiraloom→Caveshroud | Dark/Wind | bat` (**name leak in #122: "Umbraveth"**)
 - `[125] Nocturil→Phantorvex→Venotitan | Dark/Poison | serpent` (**name leak in #125: "Phantomvast"**)
 - `[127] Impefurr→Specraxis | Dark/Psychic | kitsune` (mythical, just claimed)
-- `[129] Cranivade→Voidaxis | Psychic/Dark | void / cosmic abstract being` (mythical)
+- `[129] Cranivade→Cerebraith | Psychic/Dark | void / cosmic abstract being` (mythical)
 - `[131] Necralia→Necrothon | Dark/Grass | treant / walking-tree spirit` (mythical)
 - `[133] Volcascale→Monolithox | Rock/Dark | saurian` (with rock-monolith plate-shell — could double-classify as rock-monolith)
 - `[136] Aeronyx→Steelvex→Metalibat | Steel/Dark | bat` (**name leak in #136: "Ferrovast"**)
@@ -185,7 +185,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[316] Abyssovex | Water/Dark | cephalopod` (deep-sea squid leviathan, standalone — second cephalopod alongside Toxaquil line)
 - `[317] Temporith | Psychic/Dragon | dragon-mythic` (sub: psychic-dragon — second psychic-dragon alongside Drakorius)
 - `[318] Gaiavorn | Ground/Grass | golem / earth-titan` (4m titan with living forest canopy — variant golem; could double as treant — flag)
-- `[319] Voidraxis | Dark/Fairy | void / cosmic abstract being` (mythical — second void/cosmic alongside Voidaxis)
+- `[319] Voidraxis | Dark/Fairy | void / cosmic abstract being` (mythical — second void/cosmic alongside Cerebraith)
 - `[320] Galvathon | Steel/Electric | golem` (mechanical titan)
 - `[321] Dragemian | Dragon/Fire | dragon-mythic` (sub: fire-dragon — fourth fire-dragon alongside Calderaeth/Bahamber/Blazeon)
 - `[322] Venomwraith | Poison/Spectral | plague-spectre` (split out of wraith bucket per policy)
@@ -223,7 +223,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[349] Crystavault | Ice/Rock | golem / fortress-tower` (layered ice/granite tower; borderline rock-monolith)
 - `[350] Fernwrath | Grass/Dragon | dragon-mythic` (sub: grass-dragon, sole)
 - `[351] Spectravore | Fairy/Psychic | rainbow / prismatic being` (iridescent humanoid silhouette with all-colour aura — unique sub)
-- `[352] Voidlord | Dark/Psychic | void / cosmic abstract being` (mythical — third void/cosmic alongside Voidaxis/Voidraxis)
+- `[352] Voidlord | Dark/Psychic | void / cosmic abstract being` (mythical — third void/cosmic alongside Cerebraith/Voidraxis)
 - `[353] Infernotitan | Fire/Dragon | dragon-mythic` (sub: fire-dragon — fifth fire-dragon)
 - `[354] Riftwhale | Water/Psychic | cetacean` (psychic-whale, 12m — fifth cetacean)
 - `[355] Abyssalith | Water/Dark | eel` (armoured eel — second eel alongside Surgolith)
@@ -396,7 +396,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **crystalline-prism** | 5 | 3 | trim 2 | Aurarael, Shardlix, Cryoshard, Crystalmind, Sparkeis-postgame. |
 | **bird-of-prey / raptor** | 5 | 3 | trim 2 | Vortexathos, Cyclavorn, Rimeclaw, Zephyrak-postgame, plus eagle-flavor on others. |
 | **treant / walking-tree** | 4 | 3 | trim 1 | **LOCKED capped (not exempt).** Keep Necrothon, Impenezard, Thornspire; re-archetype Silthorn #326→carnivorous-plant. (Rootborn is Forgotten 462+, excluded.) |
-| **void / cosmic abstract** | 9 | exempt | — | Voidaxis, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Cosmoveil, Nihilax, Cosmolith. Mythical-exempt. |
+| **void / cosmic abstract** | 9 | exempt | — | Cerebraith, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Cosmoveil, Nihilax, Cosmolith. Mythical-exempt. |
 | **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Mimiclaw, Emberveil, Cinderpaw. |
 | **thunderstorm-disaster** | 3 | 1+1 | trim 1-2 | Vortexwing, Tempestborn, Nullstorm. (See storm-elemental TODO entry.) |
 | **fire-dragon legendary cluster** | 3 (Dragemian, Infernotitan, Solarvast) + chain finals (Calderaeth, Bahamber, Blazeon, Stardrax) | n/a | discuss | All under dragon-mythic exempt but sub-flavor crowded. |

@@ -4392,7 +4392,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"aquatic_gun"],[5,"fortify"],[10,"stone_throw"],[15,"ancient_tide"],[18,"granite_slam"],[20,"tidal_rush"],[28,"topaz_beam"],[30,"stone_slide"],[35,"petrified_form"],[38,"tidal_crush"],[40,"tsunami"],[45,"granite_press"],[50,"fossil_rush"],[60,"sea_serpent_strike"]],
     catchRate:9, expYield:318, rarity:"rare",
     desc:"A creature that is half ocean, half cliff-face. It creates tsunamis as a side effect of moving.",
-    lore:"Bouldertide is an aquatic-mineral creature 4 metres tall resembling a tide-carved sea stack that walks. Aquatic constantly flows through channels in its stone body." },
+    lore:"Bouldertide is an aquatic-mineral creature 4 metres tall resembling a tide-carved sea stack that walks. Water constantly flows through channels in its stone body." },
 
   368: { id:368, name:"Willowisp", emoji:"🕯️", types:["Fire","Spectral"],
     base:{hp:67,atk:80,def:69,spa:110,spd:93,spe:101}, evolveTo:null, evolveLevel:null,

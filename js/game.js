@@ -21,6 +21,7 @@ function newGameState(playerName, starterMonsterId) {
     shinyDexSeen: new Set(), shinyDexCaught: new Set(),
     variantDexSeen: new Set(), variantDexCaught: new Set(),
     variantLog: {},
+    discoveredTraits: {},
     seenInArea: {},
     championDefeated: false,
     questsCompleted: [],
@@ -136,6 +137,7 @@ function loadGame(slot) {
     if (data.vaeldrisPartyLock === undefined) data.vaeldrisPartyLock = null;
     if (!data.defeatedWielders) data.defeatedWielders = [];
     if (!data.forgottenLegendaryAttempted) data.forgottenLegendaryAttempted = [];
+    if (!data.discoveredTraits) data.discoveredTraits = {};
     // PvP saved team loadouts: up to 6 per format, drawn from owned Lumori.
     if (!data.pvpLoadouts) data.pvpLoadouts = { single: [], double: [] };
     if (!data.pvpLoadouts.single) data.pvpLoadouts.single = [];
@@ -1157,6 +1159,19 @@ function clearBattleLog() {
   document.getElementById("battle-log").innerHTML = "";
 }
 
+// Render visible trait badges for one side of the battle UI. Player side always
+// shows all traits; enemy side gates each trait through isTraitDiscovered so
+// undiscovered enemy traits stay hidden until first fire.
+function renderBattleTraitBadges(mon, isOwnSide) {
+  if (!mon || typeof getMonTraits !== "function" || typeof getTraitDef !== "function") return "";
+  const ids = getMonTraits(mon).filter(id => isTraitDiscovered(mon, id, isOwnSide));
+  return ids.map(id => {
+    const def = getTraitDef(id);
+    if (!def) return "";
+    return `<span class="battle-trait-badge ${def.cssClass||""}" title="${def.name}: ${def.description}">${def.name}</span>`;
+  }).filter(Boolean).join("");
+}
+
 function updateBattleUI() {
   const player = playerActiveMon;
   const enemy = enemyActiveMon;
@@ -1199,6 +1214,9 @@ function updateBattleUI() {
     enemyTypes.appendChild(badge);
   }
 
+  const enemyTraits = document.getElementById("enemy-trait-badges");
+  if (enemyTraits) enemyTraits.innerHTML = renderBattleTraitBadges(enemy, false);
+
   // Show IVs for wild encounters so players can evaluate
   const enemyIVsEl = document.getElementById("enemy-ivs");
   if (enemyIVsEl) {
@@ -1230,6 +1248,9 @@ function updateBattleUI() {
   playerFill.style.width = playerHPPct + "%";
   playerFill.className = "hp-fill" + (playerHPPct < 25 ? " red" : playerHPPct < 50 ? " yellow" : "");
   document.getElementById("player-hp-text").textContent = `${player.currentHP} / ${player.maxHP}`;
+
+  const playerTraits = document.getElementById("player-trait-badges");
+  if (playerTraits) playerTraits.innerHTML = renderBattleTraitBadges(player, true);
 
   const playerStatus = document.getElementById("player-status-badge");
   if (hasAnyStatus(player)) {
@@ -3105,6 +3126,24 @@ function onFightButtonMulti() {
 // ============================================================
 // TEAM SCREEN
 // ============================================================
+
+// Render the active-trait badges for a Lumori slot. Returns an empty string
+// if the species has no trait assignments yet — caller drops the row entirely.
+// Reveals all traits since the player owns this Lumori; enemy-side trait
+// surfacing (battle UI) gates reveal on in-battle discovery.
+function renderTraitBadges(slot) {
+  if (typeof getMonTraits !== "function" || typeof getTraitDef !== "function") return "";
+  const ids = getMonTraits(slot);
+  if (!ids.length) return "";
+  const badges = ids.map(id => {
+    const def = getTraitDef(id);
+    if (!def) return "";
+    const cls = def.cssClass || "";
+    return `<span class="trait-badge ${cls}" title="${def.name}: ${def.description}">${def.name}</span>`;
+  }).filter(Boolean).join("");
+  return badges ? `<div class="team-traits">${badges}</div>` : "";
+}
+
 function showTeamScreen() {
   showScreen("screen-team");
   document.getElementById("team-detail").classList.add("hidden");
@@ -3117,7 +3156,8 @@ function showTeamScreen() {
     card.className = "team-card" + (slot.currentHP <= 0 ? " fainted" : "");
     const hpPct = Math.round((slot.currentHP / slot.maxHP) * 100);
     const hpClass = hpPct < 25 ? "red" : hpPct < 50 ? "yellow" : "";
-    const typeHTML = def.types.map(t => `<span class="type-badge type-${t}" style="font-size:0.6rem">${t}</span>`).join("");
+    const dispTypes = (slot.variant && slot.variantTypes) ? slot.variantTypes : def.types;
+    const typeHTML = dispTypes.map(t => `<span class="type-badge type-${t}" style="font-size:0.6rem">${t}</span>`).join("");
     const spriteHTML = (typeof getMonsterSpriteURL === "function")
       ? `<img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" class="team-sprite-img">`
       : `<span class="team-sprite">${def.emoji}</span>`;
@@ -3133,6 +3173,7 @@ function showTeamScreen() {
           <div class="team-types">${typeHTML}</div>
         </div>
       </div>
+      ${renderTraitBadges(slot)}
       <div class="team-hp-bar-wrap">
         <div class="team-hp-bar"><div class="team-hp-fill ${hpClass}" style="width:${hpPct}%"></div></div>
         <span class="team-hp-text">${slot.currentHP}/${slot.maxHP}</span>
@@ -3141,6 +3182,24 @@ function showTeamScreen() {
     card.addEventListener("click", () => showTeamDetail(slot, idx));
     list.appendChild(card);
   });
+}
+
+function renderTraitSection(slot) {
+  if (typeof getMonTraits !== "function" || typeof getTraitDef !== "function") return "";
+  const ids = getMonTraits(slot);
+  if (!ids.length) return "";
+  const rows = ids.map(id => {
+    const def = getTraitDef(id);
+    if (!def) return "";
+    const cls = def.cssClass || "";
+    return `<div class="trait-detail-row ${cls}">
+      <div class="trait-detail-head">
+        <span class="trait-detail-name">${def.name}</span>
+      </div>
+      <div class="trait-detail-desc">${def.description}</div>
+    </div>`;
+  }).filter(Boolean).join("");
+  return rows ? `<div class="detail-section"><h4>Traits</h4>${rows}</div>` : "";
 }
 
 function showTeamDetail(slot, idx) {
@@ -3271,6 +3330,7 @@ function showTeamDetail(slot, idx) {
         <span style="color:var(--accent-blue)">(${Object.values(slot.ivs||{}).reduce((a,b)=>a+b,0)}/186)</span>
       </div>
     </div>
+    ${renderTraitSection(slot)}
     <div class="detail-section"><h4>Moves</h4><div class="moves-grid">${movesHTML}</div><button class="btn-relearn-moves" data-relearn-mon="${idx}" style="margin-top:0.55rem;width:100%;padding:0.5rem;border-radius:8px;cursor:pointer">↺ Relearn Moves</button></div>
     ${variantHTML}
     <div class="detail-section">
@@ -3878,6 +3938,25 @@ function showForgottenDetail(monsterId) {
     </div>`;
 }
 
+// Render the per-species "Known Traits" section for the Luminex dex page.
+// Reads the persistent G.discoveredTraits[monsterId] populated when a trait
+// fires in any battle. Hides the section entirely if nothing has been discovered.
+function renderLuminexTraitSection(monsterId) {
+  if (typeof getTraitDef !== "function" || typeof G === "undefined" || !G) return "";
+  const ids = G.discoveredTraits?.[monsterId] || [];
+  if (!ids.length) return "";
+  const rows = ids.map(id => {
+    const def = getTraitDef(id);
+    if (!def) return "";
+    const cls = def.cssClass || "";
+    return `<div class="trait-detail-row ${cls}">
+      <div class="trait-detail-head"><span class="trait-detail-name">${def.name}</span></div>
+      <div class="trait-detail-desc">${def.description}</div>
+    </div>`;
+  }).filter(Boolean).join("");
+  return rows ? `<div class="detail-section"><h4>Known Traits</h4>${rows}</div>` : "";
+}
+
 function showDexDetail(monsterId) {
   const def = MONSTERS_DATA[monsterId];
   const caught = G.caughtMonsters.has(monsterId);
@@ -4006,6 +4085,7 @@ function showDexDetail(monsterId) {
     </div>
     <div class="detail-section"><h4>Base Stats</h4>${statsHTML}</div>
     <div class="detail-section"><h4>Learnset</h4>${movesetHTML}</div>
+    ${renderLuminexTraitSection(monsterId)}
   `;
 
   renderLoreScreen();

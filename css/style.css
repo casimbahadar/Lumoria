@@ -1224,6 +1224,52 @@ html, body {
 
 .team-types { display: flex; gap: 0.3rem; }
 
+/* Trait badges — per-Lumori passive abilities. Per-trait theming via the
+   cssClass field (e.g. .trait-thorned, .trait-mossy) is a later styling pass. */
+.team-traits { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.trait-badge {
+  background: rgba(167, 139, 250, 0.15);
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  border-radius: 4px;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  cursor: help;
+}
+
+/* Detail-screen trait rows — lighter tint than the team-menu badge so the
+   denser detail layout doesn't feel cluttered. */
+.trait-detail-row {
+  background: rgba(167, 139, 250, 0.08);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  margin: 0.4rem 0;
+}
+.trait-detail-head { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 0.2rem; }
+.trait-detail-emoji { font-size: 1.1rem; }
+.trait-detail-name { font-weight: bold; color: var(--text-primary); font-size: 0.9rem; }
+.trait-detail-desc { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; }
+
+/* Battle UI trait badges — small text pills with the trait name. Player side
+   reveals all traits; enemy side reveals only traits fired this battle.
+   Tooltip (title attr) provides the full description on hover/long-press. */
+.battle-trait-row { display: flex; gap: 0.25rem; margin-top: 0.25rem; flex-wrap: wrap; }
+.battle-trait-badge {
+  background: rgba(167, 139, 250, 0.2);
+  border: 1px solid rgba(167, 139, 250, 0.4);
+  border-radius: 10px;
+  padding: 0 0.4rem;
+  height: 18px;
+  font-size: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-secondary);
+  cursor: help;
+  white-space: nowrap;
+}
+
 .team-hp-bar-wrap { display: flex; align-items: center; gap: 0.4rem; }
 
 .team-hp-bar {

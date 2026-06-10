@@ -580,13 +580,55 @@ function clearStatuses(obj) {
 
 // ---- Phase 3a: trait dispatch helpers ----
 // Iterate a mon's active traits, invoking `fn(traitRegistryEntry, traitId)` for each.
-// No-op if traits system isn't loaded.
+// If the callback returns true, the trait is auto-marked as discovered on the mon
+// (enables battle-UI enemy-trait reveal via in-battle discovery). No-op if traits
+// system isn't loaded.
 function _eachTrait(mon, fn) {
   if (!mon || typeof getMonTraits !== "function" || typeof ABILITY_REGISTRY === "undefined") return;
   for (const traitId of getMonTraits(mon)) {
     const reg = ABILITY_REGISTRY[traitId];
-    if (reg) fn(reg, traitId);
+    if (reg) {
+      const fired = fn(reg, traitId);
+      if (fired === true) markTraitDiscovered(mon, traitId);
+    }
   }
+}
+
+// Mark a trait as fired on this mon. Two independent layers:
+// - per-battle transient (mon._discoveredTraits Set) — drives the BATTLE UI badge.
+//   Fresh on every buildBattleMon so each new encounter is a clean mystery, even
+//   for species the player has fought many times before.
+// - per-species persistent (G.discoveredTraits[monsterId]) — drives the LUMINEX
+//   dex page only. Permanent record across runs; lets the player look up traits
+//   they've learned long-term without spoiling the in-battle surprise.
+function markTraitDiscovered(mon, traitId) {
+  if (!mon || !traitId) return;
+  if (!mon._discoveredTraits) mon._discoveredTraits = new Set();
+  mon._discoveredTraits.add(traitId);
+  if (typeof G !== "undefined" && G && mon.monsterId) {
+    if (!G.discoveredTraits) G.discoveredTraits = {};
+    if (!G.discoveredTraits[mon.monsterId]) G.discoveredTraits[mon.monsterId] = [];
+    if (!G.discoveredTraits[mon.monsterId].includes(traitId)) {
+      G.discoveredTraits[mon.monsterId].push(traitId);
+    }
+  }
+}
+
+// Should this trait render in the BATTLE UI for this side? Transient-only check
+// so each new encounter starts hidden until the trait fires this battle.
+// - Own side (player): always reveal.
+// - Other side (enemy): only if discovered this specific battle.
+function isTraitDiscovered(mon, traitId, isOwnSide) {
+  if (isOwnSide) return true;
+  if (mon?._discoveredTraits?.has(traitId)) return true;
+  return false;
+}
+
+// Luminex helper: has this species×trait combo been confirmed at least once
+// across any past battle? Reads the persistent layer only.
+function isTraitInLuminex(monsterId, traitId) {
+  if (typeof G === "undefined" || !G) return false;
+  return !!G.discoveredTraits?.[monsterId]?.includes(traitId);
 }
 
 // Trait conditional status immunity (e.g. Permafrost: immune to Burn only in snow)
@@ -936,15 +978,17 @@ function applyOnHitReflect(defender, attacker, move, dmgTaken) {
   // Phase 3a: trait onHitReflect (Bouncy, Refracted from traits)
   let reflected = null;
   _eachTrait(defender, (reg) => {
-    if (reflected) return;
+    if (reflected) return false;
     if (reg.onHitReflect) {
       const result = reg.onHitReflect(defender, null, move, dmgTaken, attacker);
       if (result) {
         attacker.currentHP = Math.max(0, attacker.currentHP - result.reflectDmg);
         if (attacker.currentHP <= 0) attacker.fainted = true;
         reflected = result;
+        return true;
       }
     }
+    return false;
   });
   return reflected;
 }
@@ -965,8 +1009,9 @@ function applyOnIncomingHit(defender, attacker, move, dmgTaken, eff) {
   _eachTrait(defender, (reg) => {
     if (reg.onIncomingHit) {
       const r = reg.onIncomingHit(defender, null, move, dmgTaken, attacker, eff);
-      if (r?.msg) messages.push(r.msg);
+      if (r?.msg) { messages.push(r.msg); return true; }
     }
+    return false;
   });
   return messages;
 }
@@ -977,8 +1022,9 @@ function applyOnDamageDealt(attacker, defender, totalDmg) {
   _eachTrait(attacker, (reg) => {
     if (reg.onDamageDealt) {
       const r = reg.onDamageDealt(attacker, null, totalDmg, defender);
-      if (r?.msg) messages.push(r.msg);
+      if (r?.msg) { messages.push(r.msg); return true; }
     }
+    return false;
   });
   return messages;
 }
@@ -992,8 +1038,9 @@ function applyOnEntry(mon, foe) {
   _eachTrait(mon, (reg) => {
     if (reg.onEntry) {
       const r = reg.onEntry(mon, null, foe);
-      if (r?.msg) messages.push(r.msg);
+      if (r?.msg) { messages.push(r.msg); return true; }
     }
+    return false;
   });
   return messages;
 }
@@ -1005,8 +1052,9 @@ function applyOnSwitchOut(mon, incomingAlly) {
   _eachTrait(mon, (reg) => {
     if (reg.onSwitchOut) {
       const r = reg.onSwitchOut(mon, null, incomingAlly);
-      if (r?.msg) messages.push(r.msg);
+      if (r?.msg) { messages.push(r.msg); return true; }
     }
+    return false;
   });
   return messages;
 }
@@ -1018,8 +1066,9 @@ function applyOnSwitchIn(mon, foe) {
   _eachTrait(mon, (reg) => {
     if (reg.onSwitchIn) {
       const r = reg.onSwitchIn(mon, null, foe);
-      if (r?.msg) messages.push(r.msg);
+      if (r?.msg) { messages.push(r.msg); return true; }
     }
+    return false;
   });
   return messages;
 }
@@ -1030,8 +1079,9 @@ function applyOnKO(attacker, defender) {
   _eachTrait(attacker, (reg) => {
     if (reg.onKO) {
       const r = reg.onKO(attacker, null, defender);
-      if (r?.msg) messages.push(r.msg);
+      if (r?.msg) { messages.push(r.msg); return true; }
     }
+    return false;
   });
   return messages;
 }
@@ -1043,8 +1093,9 @@ function applyOnCritTaken(defender, attacker, move) {
   _eachTrait(defender, (reg) => {
     if (reg.onCritTaken) {
       const r = reg.onCritTaken(defender, null, attacker, move);
-      if (r?.msg) messages.push(r.msg);
+      if (r?.msg) { messages.push(r.msg); return true; }
     }
+    return false;
   });
   return messages;
 }
@@ -1055,8 +1106,9 @@ function applyOnSelfCrit(attacker, defender, move) {
   _eachTrait(attacker, (reg) => {
     if (reg.onSelfCrit) {
       const r = reg.onSelfCrit(attacker, null, defender, move);
-      if (r?.msg) messages.push(r.msg);
+      if (r?.msg) { messages.push(r.msg); return true; }
     }
+    return false;
   });
   return messages;
 }
@@ -1067,11 +1119,12 @@ function applyOnSelfCrit(attacker, defender, move) {
 function applyOnFaint(mon) {
   let msg = null;
   _eachTrait(mon, (reg) => {
-    if (msg) return; // first-match wins
+    if (msg) return false; // first-match wins
     if (reg.onFaint) {
       const r = reg.onFaint(mon, null);
-      if (r?.msg) msg = r.msg;
+      if (r?.msg) { msg = r.msg; return true; }
     }
+    return false;
   });
   return msg;
 }
@@ -1084,8 +1137,9 @@ function applyOnLowHpTrigger(mon) {
     if (reg.onLowHpTrigger) {
       const lowFrac = mon.currentHP / mon.maxHP;
       const r = reg.onLowHpTrigger(mon, null, lowFrac);
-      if (r?.msg) messages.push(r.msg);
+      if (r?.msg) { messages.push(r.msg); return true; }
     }
+    return false;
   });
   return messages;
 }
@@ -1096,8 +1150,9 @@ function applyOnBattleEnd(mon, outcome) {
   _eachTrait(mon, (reg) => {
     if (reg.onBattleEnd) {
       const r = reg.onBattleEnd(mon, null, outcome);
-      if (r?.msg) messages.push(r.msg);
+      if (r?.msg) { messages.push(r.msg); return true; }
     }
+    return false;
   });
   return messages;
 }
@@ -1108,8 +1163,9 @@ function applyOnMoveUse(mon, move) {
   _eachTrait(mon, (reg) => {
     if (reg.onMoveUse) {
       const r = reg.onMoveUse(mon, null, move);
-      if (r?.msg) messages.push(r.msg);
+      if (r?.msg) { messages.push(r.msg); return true; }
     }
+    return false;
   });
   return messages;
 }

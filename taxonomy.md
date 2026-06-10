@@ -100,7 +100,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[169] Espelith→Aurarael | Psychic/Fairy | crystalline-prism` (mythical)
 - `[170] Oneiron | Psychic/Dark | dream-entity / wisp` (formless, standalone)
 - `[171] Drakorius | Psychic/Dragon | dragon-mythic` (sub: psychic-dragon, standalone)
-- `[174] Scalurin→Serpenthos→Scalevorn | Dragon/Steel | dragon-mythic` (sub: steel-dragon)
+- `[174] Scalurin→Cobravyrm→Scalevorn | Dragon/Steel | dragon-mythic` (sub: steel-dragon)
 
 ### Batch 2 (families 71-105)
 

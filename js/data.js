@@ -2218,19 +2218,19 @@ const MONSTERS_DATA = {
     desc:"A baby dragon hatchling. Clumsy but full of fiery determination.",
     lore:"Scalurin is a tiny dragon hatchling 20 cm long with soft, flexible scales in pale gold-green. Its eyes are enormous relative to its face. It stumbles awkwardly when walking but is a capable swimmer. It hatches in sandy riverbanks and spends its first year hunting insects near the water's edge." },
 
-  173: { id:173, name:"Serpenthos",    emoji:"🐲", types:["Draconic"],
+  173: { id:173, name:"Cobravyrm",    emoji:"🐲", types:["Draconic"],
     base:{hp:71,atk:102,def:72,spa:79,spd:65,spe:67},
     learnset:[[1,"draconic_breath"],[2,"draconic_claw"],[3,"draconic_pulse"],[4,"hydra_dance"],[5,"saurian_roar"],[33,"lashing_tail"],[36,"battle_cry"],[37,"rampage"],[39,"wild_tumble"],[42,"drake_rush"],[45,"scale_storm"],[46,"radiance_cannon"],[6,"primordial_roar"],[30,"second_wind"]],
     evolveTo:174, evolveLevel:55, catchRate:15, expYield:175, rarity:"rare",
     desc:"A powerful wyrm with tremendous strength. Known to destroy mountains. Legends say it will one day don armor of living steel.",
-    lore:"Serpenthos is a young dragon-serpent 1.5 metres long — Scalurin's soft pale gold-green scales have hardened and darkened to green-bronze, and a flat cobra-like hood has emerged from its broadening neck that it flares when threatened. Its wings are still developing and cannot support flight. It inhabits river caves and hunts fish by lunging from concealed positions near the water surface." },
+    lore:"Cobravyrm is a young dragon-serpent 1.5 metres long — Scalurin's soft pale gold-green scales have hardened and darkened to green-bronze, and a flat cobra-like hood has emerged from its broadening neck that it flares when threatened. Its wings are still developing and cannot support flight. It inhabits river caves and hunts fish by lunging from concealed positions near the water surface." },
 
   174: { id:174, name:"Scalevorn", emoji:"🦕", types:["Draconic","Metal"],
     base:{hp:88,atk:115,def:118,spa:75,spd:85,spe:62},
     learnset:[[1,"draconic_claw"],[1,"chrome_claw"],[10,"scale_crash"],[15,"solar_impact"],[18,"wyvern_maw"],[20,"draconic_pulse"],[25,"titan_blade"],[28,"twin_chop"],[30,"forge_blast_2"],[35,"tungsten_wrath"],[40,"alloy_tail"],[45,"drake_armor"],[50,"rampage"],[60,"forge_strike"],[70,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:275, rarity:"rare",
     desc:"The final form of the ancient dragon lineage. Its scales have fused into living steel over millennia of battle, creating impenetrable natural armor.",
-    lore:"Scalevorn is a powerful dragon-steel hybrid 4 metres long — Serpenthos's green-bronze scales have hardened into steel-grey metallic plates over centuries, and the cobra-hood of its juvenile form has folded flat against the broad muscular base of its skull. Its body is broad and muscular. It moves on four limbs with its wings folded into secondary arms. Its scales have been used in legendary armour-forging projects." },
+    lore:"Scalevorn is a powerful dragon-steel hybrid 4 metres long — Cobravyrm's green-bronze scales have hardened into steel-grey metallic plates over centuries, and the cobra-hood of its juvenile form has folded flat against the broad muscular base of its skull. Its body is broad and muscular. It moves on four limbs with its wings folded into secondary arms. Its scales have been used in legendary armour-forging projects." },
 
   321: { id:321, name:"Dragemian",  emoji:"🐉", types:["Draconic","Fire"],
     base:{hp:86,atk:149,def:101,spa:101,spd:94,spe:66},
@@ -5689,7 +5689,7 @@ const WORLD_DATA = {
     desc:"The final gauntlet. Only trainers with all 16 badges may pass.",
     connections:["starbloom","summit"],
     wildMonsters:[
-      {id:173, minLv:62, maxLv:66, rate:25}, // Serpenthos
+      {id:173, minLv:62, maxLv:66, rate:25}, // Cobravyrm
       {id:124, minLv:62, maxLv:66, rate:25}, // Phantorvex
       {id:143, minLv:62, maxLv:66, rate:25}, // Lunarael
       {id:151, minLv:63, maxLv:66, rate:25}  // Alloytron

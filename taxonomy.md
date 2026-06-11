@@ -263,7 +263,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[389] Stormlord→Stormcrown | Electric/Sonic | thunderbird` (re-archetyped from electric-dragon 2026-06-10; NG+ 2-stage storm-raptor)
 - `[390] Voidgarden | Fairy/Dark | plant-humanoid / fairy-flower-being` (luminous flowers + dark thorned vines humanoid; sub of corrupted-flower archetype with Blightalis)
 - `[391] Titanfang | Normal/Earth | behemoth` (re-archetyped from normal-dragon 2026-06-10; primordial mega-beast)
-- `[392] Eondrake | Dragon/Psychic | dragon-mythic [LEGEND t3]` (sub: time-dragon — fourth psychic-dragon)
+- `[392] Eonyx | Mental | sphinx` (re-archetyped from psychic-dragon 2026-06-10; ancient oracle sphinx; renamed from Eondrake; signature Time Fracture retyped Draconic→Mental)
 - `[393] Nullstorm | Dark/Electric | thunderstorm-disaster` (over cap)
 - `[394] Solarvast | Fire/Dragon | dragon-mythic [LEGEND t3]` (sub: solar-dragon / fire-dragon — sixth fire-dragon)
 - `[395] Auroratusk→Glacierend | Ice/Normal | walrus` (re-archetyped from ice-dragons 2026-06-10; NG+ 2-stage aurora→glacier walrus; Auroradrake renamed Auroratusk)

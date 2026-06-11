@@ -724,8 +724,8 @@ const MOVES_DATA = {
   // NG+ Signature Moves
   // Cosmoveil (401) — Mental/Fairy cosmos strike
   cosmic_veil:      { name:"Cosmic Veil",     type:"Aether" , power:140, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50, desc:"Cosmoveil wraps the battlefield in condensed starlight, crushing the foe's mind and spirit." },
-  // Eondrake (392) — Draconic/Mental time fracture
-  time_fracture:    { name:"Time Fracture",   type:"Draconic",  power:130, acc:90,  pp:5,  cat:"special",  effect:"spedown2",  ec:50, desc:"Eondrake shatters the flow of time around the target, massively reducing its speed." },
+  // Eonyx (392) — Mental time fracture
+  time_fracture:    { name:"Time Fracture",   type:"Mental",  power:130, acc:90,  pp:5,  cat:"special",  effect:"spedown2",  ec:50, desc:"Eonyx shatters the flow of time around the target, massively reducing its speed." },
   // Primordiax (400) — Fire/Ground mantle surge
   mantle_surge:     { name:"Mantle Surge",    type:"Earth",  power:135, acc:85,  pp:5,  cat:"physical", effect:"defdown",   ec:50, desc:"Primordiax channels the planet's mantle into a cataclysmic ground surge that weakens all defenses." },
   // Voidcrown (398) — Dark/Fairy void dominion
@@ -4565,12 +4565,12 @@ const MONSTERS_DATA = {
     lore:"Titanfang is a colossal behemoth 10 metres long, an ancient apex beast grown to impossible scale, its tusked jaws and tree-trunk limbs caked in dried earth. The ground shakes with each step, and its roar is felt as a physical pressure for 30 kilometres. Nothing in Lumoria preys on it." },
 
   // ---- Tier 5b: Ultra-rare Apex Summit BST ~680–710 ----
-  392: { id:392, name:"Eondrake", emoji:"🐉", types:["Draconic","Mental"],
+  392: { id:392, name:"Eonyx", emoji:"🦁", types:["Mental"],
     base:{hp:82,atk:115,def:91,spa:122,spd:95,spe:100}, evolveTo:null, evolveLevel:null, ngPlusTier:3,
-    learnset:[[1,"draconic_pulse"],[5,"hydra_dance"],[10,"psi_strike"],[15,"psi_burst"],[20,"wyrm_strike"],[30,"synaptic_shatter"],[35,"mental"],[40,"scale_storm"],[50,"neural_storm"],[55,"time_fracture"],[60,"cataclysm_breath"]],
+    learnset:[[1,"cortex_spike"],[5,"clairvoyance"],[10,"psi_strike"],[15,"psi_burst"],[20,"cerebral_punch"],[30,"synaptic_shatter"],[35,"mental"],[40,"mindbreaker"],[50,"neural_storm"],[55,"time_fracture"],[60,"cosmic_thought"]],
     catchRate:4, expYield:368, rarity:"legendary",
-    desc:"A dragon that has lived so long it perceives all possible futures simultaneously. It fights battles it has already won.",
-    lore:"Eondrake is a dragon-psychic 7 metres long whose scales carry the iridescent sheen of deep time. Its eyes are filled with visions of every past and future moment. Ancient records show it has appeared at every major historical turning point." },
+    desc:"An ancient sphinx that has lived so long it perceives all possible futures simultaneously. It fights battles it has already won.",
+    lore:"Eonyx is an ancient sphinx 4 metres long, a lion-bodied oracle whose mane and wings carry the iridescent sheen of deep time. Its eyes are filled with visions of every past and future moment, and it speaks only in riddles whose answers have not yet happened. Ancient records show it has appeared at every major historical turning point." },
 
   393: { id:393, name:"Nullstorm", emoji:"🌀", types:["Dark","Electric"],
     base:{hp:68,atk:95,def:70,spa:107,spd:83,spe:102}, evolveTo:null, evolveLevel:null,
@@ -8981,7 +8981,7 @@ const QUESTS_DATA = [
     reward:{type:"money", amount:40000}, rewardText:"40000 coins" },
 
   // --- Legendary Beast Hunt (high-level wild legendary encounters as quests) ---
-  { id:"ngq35", title:"Legend Hunt: Eondrake", desc:"Track down the ancient Eondrake that has been spotted near the Prismatic Rift. It will not be caught easily.", location:"prismatic_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
+  { id:"ngq35", title:"Legend Hunt: Eonyx", desc:"Track down the ancient Eonyx that has been spotted near the Prismatic Rift. It will not be caught easily.", location:"prismatic_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
     boss:{monsterId:392, level:90, moves:["time_fracture","cataclysm_breath","synaptic_shatter","wyrm_strike"]},
     reward:{type:"item", itemId:"masterOrb", qty:2}, rewardText:"2 Master Orbs" },
   { id:"ngq36", title:"Legend Hunt: Cosmoveil", desc:"Cosmoveil has been sighted at the absolute peak of Apex Summit. Reach it and face the being from beyond the stars.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,

@@ -713,7 +713,7 @@
     389: { noun: 'crowned thunderbird', features: ['its permanent lightning crown', 'its charged plumage', 'its dominant bulk'], coreLine: 'It still cows every lesser storm-creature near.' },
     390: { noun: 'venom garden', features: ['its body of venomous flowers', 'its dark thorned vines', 'its humanoid form'], coreLine: 'Toxic blooms still open and wither across it.' },
     391: { noun: 'behemoth', features: ['its impossibly vast body', 'its ancient apex frame', 'its earth-shaking tread'], coreLine: 'The ground still shakes with each of its steps.' },
-    392: { noun: 'eon dragon', features: ['its deep-time iridescent scales', 'its vision-filled eyes', 'its ageless frame'], coreLine: 'Ages still seem to turn behind its eyes.' },
+    392: { noun: 'eon sphinx', features: ['its deep-time iridescent mane', 'its vision-filled eyes', 'its ageless frame'], coreLine: 'Ages still seem to turn behind its eyes.' },
     393: { noun: 'null storm', features: ['its contained electromagnetic storm', 'its dark nucleus', 'its crackling shell'], coreLine: 'Electronics still die in the field around it.' },
     394: { noun: 'star dragon', features: ['its star-hot scales', 'its blazing body', 'its immense frame'], coreLine: 'Its scales still burn like a star’s surface.' },
     395: { noun: 'glacier walrus', features: ['its ancient glacial-ice hide', 'its vast tusked body', 'its slow ponderous frame'], coreLine: 'Ages of ice still armour its hide.' },

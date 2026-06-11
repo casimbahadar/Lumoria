@@ -4231,12 +4231,12 @@ const MONSTERS_DATA = {
     desc:"A corrupted fairy that has passed through death and returned. Its glow is beautiful and deeply unsettling.",
     lore:"Glimmeritch is a fairy-spectral creature resembling a 0.6-metre glowing humanoid with translucent wings and a body that flickers between solid and spectral forms." },
 
-  345: { id:345, name:"Voidcoil", emoji:"🌀", types:["Dark","Draconic"],
-    base:{hp:73,atk:99,def:75,spa:90,spd:77,spe:81}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"draconic_breath"],[10,"void_rend"],[20,"draconic_claw"],[30,"nether_sphere"],[40,"wyrm_strike"],[50,"phantom_claw"],[60,"cataclysm_breath"],[5,"hydra_dance"],[38,"primordial_roar"],[62,"shade_dash"]],
+  345: { id:345, name:"Voidcoil", emoji:"🐦‍⬛", types:["Dark","Wind"],
+    base:{hp:73,atk:99,def:75,spa:90,spd:77,spe:81}, evolveTo:382, evolveLevel:null, evolveItem:"duskStone", evolveMethod:"item",
+    learnset:[[1,"wingbeat"],[10,"void_rend"],[20,"squall_slash"],[30,"nether_sphere"],[40,"skyfall"],[50,"phantom_claw"],[60,"gale_force"],[5,"zephyr_dance"],[38,"plume_veil"],[62,"shade_dash"]],
     catchRate:16, expYield:290, rarity:"rare",
-    desc:"A dragon born from a void rift. Its scales absorb all light, making it nearly invisible in darkness.",
-    lore:"Voidcoil is a dark-dragon serpent 4 metres long with scales so black they create a visible absence of light. Its eyes emit dim crimson light visible only in complete darkness." },
+    desc:"A void-feathered raven whose plumage drinks all light, leaving it nearly invisible in the dark.",
+    lore:"Voidcoil is a void-touched raven with a 2-metre wingspan, its plumage so black it creates a visible absence of light as it glides. Its eyes emit a dim crimson glow seen only in complete darkness, and shadow seems to coil in its wake. Drawn to places of deepest dark, it can drink in enough shadow to blot out the noon sun — the threshold at which it becomes Oblivionwing." },
 
   346: { id:346, name:"Astralwing", emoji:"🌟", types:["Mental","Wind"],
     base:{hp:67,atk:74,def:65,spa:100,spd:88,spe:96}, evolveTo:null, evolveLevel:null,
@@ -4494,12 +4494,12 @@ const MONSTERS_DATA = {
     lore:"Crystalmind is a psychic-steel entity 1.5 metres tall shaped like a perfect geometric polyhedron of living crystal laced with steel filaments. Its psychic processing speed exceeds any known computation." },
 
   // ---- Tier 5: Apex Summit exclusives BST ~655–695 ----
-  382: { id:382, name:"Oblivionwing", emoji:"🖤", types:["Dark","Draconic"],
+  382: { id:382, name:"Oblivionwing", emoji:"🐦‍⬛", types:["Dark","Wind"],
     base:{hp:71,atk:103,def:78,spa:95,spd:81,spe:97}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"draconic_claw"],[10,"void_rend"],[20,"wyrm_strike"],[30,"nether_sphere"],[40,"scale_storm"],[50,"phantom_claw"],[60,"cataclysm_breath"],[5,"hydra_dance"],[52,"primordial_roar"],[62,"run_down"]],
+    learnset:[[1,"wingbeat"],[10,"void_rend"],[20,"skyfall"],[30,"nether_sphere"],[40,"cyclone_smash"],[50,"phantom_claw"],[60,"gale_force"],[5,"zephyr_dance"],[52,"plume_veil"],[62,"run_down"]],
     catchRate:5, expYield:355, rarity:"rare",
-    desc:"A dragon that devours light itself. Darkness spreads for kilometres from wherever it roosts.",
-    lore:"Oblivionwing is a dark-dragon 6 metres long with wings that absorb all incoming light. Flying overhead, it casts a shadow darker than any natural darkness. Stars are visible at noon beneath its wings." },
+    desc:"A colossal raven that devours light itself. Darkness spreads for kilometres from wherever it roosts.",
+    lore:"Oblivionwing is an enormous raven with a 6-metre wingspan whose feathers absorb all incoming light — the matured void Voidcoil once only carried. Flying overhead it casts a shadow darker than any natural night, and stars become visible at noon beneath its wings." },
 
   383: { id:383, name:"Apexblade", emoji:"⚔️", types:["Metal","Draconic"],
     base:{hp:71,atk:112,def:93,spa:77,spd:81,spe:91}, evolveTo:null, evolveLevel:null,

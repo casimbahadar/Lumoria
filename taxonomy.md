@@ -211,7 +211,6 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[342] Wraithking | Ghost/Dark | wraith` (fifth wraith)
 - `[343] Shadowreave | Dark/Psychic | wraith / shadow-being` (sixth wraith)
 - `[344] Glimmeritch | Fairy/Spectral | spectral-faerie` (folded into faerie-sprite per policy)
-- `[345] Voidcoil | Dark/Dragon | dragon-mythic` (sub: dark-dragon serpent)
 - `[346] Astralwing | Psychic/Wind | psychic-elemental` (winged humanoid of solidified psychic energy — second psychic-elemental alongside Veilwisp/Distorsion)
 
 ### Batch 5 (families 174-209)
@@ -252,7 +251,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[379] Riftscale | Wind/Dragon | dragon-mythic [LEGEND t2]` (sub: wind-dragon — third wind-dragon alongside Cyclonax/Galedrake)
 - `[380] Tempestborn | Electric/Wind | thunderstorm-disaster [LEGEND t2]` (over cap)
 - `[381] Crystalmind | Psychic/Steel | crystalline-prism` (geometric polyhedron — fourth crystalline-prism)
-- `[382] Oblivionwing | Dark/Dragon | dragon-mythic` (sub: dark-dragon — second dark-dragon alongside Voidcoil)
+- `[382] Voidcoil→Oblivionwing | Dark/Wind | raven / corvid` (re-archetyped from dark-dragons 2026-06-10; NG+ 2-stage void-raven; duskstone evolution)
 
 ### Batch 6 (families 210-243)
 

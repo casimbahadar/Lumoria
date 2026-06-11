@@ -4344,12 +4344,12 @@ const MONSTERS_DATA = {
     desc:"A twilight sovereign that rules the threshold between day and night. It is neither fully light nor dark.",
     lore:"Duskmantle is a dark-mental entity 1.8 metres tall that appears different from each angle — from one side it is a being of radiant thought, from the other a creature of shadow. Both states are equally real." },
 
-  361: { id:361, name:"Tectolith", emoji:"🌍", types:["Earth","Draconic"],
+  361: { id:361, name:"Tectolith", emoji:"🐢", types:["Earth","Nature"],
     base:{hp:92,atk:104,def:94,spa:78,spd:82,spe:70}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"geoblast"],[10,"draconic_claw"],[20,"fissure_slam"],[30,"draconic_pulse"],[40,"terra_spike"],[50,"wyrm_strike"],[60,"eon_crash"],[5,"hydra_dance"],[38,"primordial_roar"],[62,"quicksand_pull"]],
+    learnset:[[1,"geoblast"],[10,"shear_strike"],[20,"fissure_slam"],[30,"verdant_orb"],[40,"terra_spike"],[50,"canopy_crash"],[60,"continental_shift"],[5,"bark_shield"],[38,"sand_storm_polish"],[62,"quicksand_pull"]],
     catchRate:10, expYield:320, rarity:"rare",
-    desc:"A dragon so old it has become part of the land itself. Earthquakes are merely it turning in its sleep.",
-    lore:"Tectolith is a ground-dragon 7 metres long with a body of compacted tectonic plates and continents of moss and stone across its back. It is older than most mountain ranges." },
+    desc:"A colossal island-turtle whose shell carries a living landscape of moss, stone, and rooted trees. Whole ecosystems thrive on its back.",
+    lore:"Tectolith is a colossal island-turtle 7 metres long whose domed shell is a crust of compacted tectonic plate, with continents of moss, stone, and even rooted trees spreading across its back. It moves so seldom that whole ecosystems take hold on it, and travellers have mistaken a sleeping Tectolith for a hill. It is older than most mountain ranges." },
 
   // ---- Tier 3b: More post-game NG+ BST ~590–640 ----
   362: { id:362, name:"Lunaspectre", emoji:"🌕", types:["Mental","Spectral"],
@@ -4557,12 +4557,12 @@ const MONSTERS_DATA = {
     desc:"A garden of beautiful but corrupted plant life. Its flowers are as poisonous as they are gorgeous.",
     lore:"Voidgarden is a nature-poison entity 2 metres tall resembling a humanoid composed of venomous flowers and dark thorned vines growing simultaneously. The flowers glow with a light that induces euphoria." },
 
-  391: { id:391, name:"Titanfang", emoji:"🦷", types:["Normal","Draconic"],
+  391: { id:391, name:"Titanfang", emoji:"🦬", types:["Normal","Earth"],
     base:{hp:88,atk:111,def:86,spa:77,spd:80,spe:83}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"cranial_ram"],[10,"draconic_breath"],[20,"crushing_bulk"],[30,"draconic_claw"],[40,"radiance_cannon"],[50,"wyrm_strike"],[60,"eon_crash"],[5,"hydra_dance"],[52,"primordial_roar"],[62,"double_smash"]],
+    learnset:[[1,"cranial_ram"],[10,"primeval_force"],[20,"crushing_bulk"],[30,"auger_strike"],[40,"radiance_cannon"],[50,"obsidian_crash"],[60,"mantle_surge"],[5,"war_dance"],[52,"crag_strike"],[62,"double_smash"]],
     catchRate:5, expYield:362, rarity:"rare",
-    desc:"The largest creature confirmed alive in Lumoria. It has no natural predators.",
-    lore:"Titanfang is a normal-dragon creature 10 metres long resembling an ancient apex predator grown to impossible scale. The ground shakes with each step. Its roar is felt as a physical pressure for 30 kilometres." },
+    desc:"The largest creature confirmed alive in Lumoria — an apex behemoth with no natural predators.",
+    lore:"Titanfang is a colossal behemoth 10 metres long, an ancient apex beast grown to impossible scale, its tusked jaws and tree-trunk limbs caked in dried earth. The ground shakes with each step, and its roar is felt as a physical pressure for 30 kilometres. Nothing in Lumoria preys on it." },
 
   // ---- Tier 5b: Ultra-rare Apex Summit BST ~680–710 ----
   392: { id:392, name:"Eondrake", emoji:"🐉", types:["Draconic","Mental"],

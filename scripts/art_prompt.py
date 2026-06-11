@@ -174,10 +174,11 @@ def palette(lore):
     found = []
     seen = []
     for term in COLOR_TERMS:
-        idx = low.find(term)
+        # whole-word match so "red" won't fire inside "revered", "ash" inside "flash"
+        m = re.search(r"\b" + re.escape(term) + r"\b", low)
         # skip terms already subsumed by a longer match (e.g. "ash" within "ashen")
-        if idx != -1 and not any(term in s or s in term for s in seen):
-            found.append((idx, term))
+        if m and not any(term in s or s in term for s in seen):
+            found.append((m.start(), term))
             seen.append(term)
     found.sort()
     return [term for _, term in found][:4]

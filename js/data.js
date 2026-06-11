@@ -2253,12 +2253,12 @@ const MONSTERS_DATA = {
     desc:"A dragon of lightning storms. Calls down thunder with each roar.",
     lore:"Chromena is a sleek electric-dragon 4 metres long with chrome-yellow and black scales that crackle with electrical charge. Its wing membranes are translucent yellow. It creates a continuous corona of electricity around its body while flying, visible at night as a moving chain of lightning." },
 
-  177: { id:177, name:"Sapphier",emoji:"💠", types:["Ice","Draconic"],
+  177: { id:177, name:"Sapphier",emoji:"🐍", types:["Ice","Mineral"],
     base:{hp:73,atk:96,def:79,spa:115,spd:100,spe:74},
-    learnset:[[1,"flurries",[28,"scale_storm"]],[1,"draconic_breath"],[13,"cold_beam"],[21,"draconic_claw"],[24,"second_wind"],[29,"whiteout"],[37,"draconic_pulse"],[44,"cryo_lance"],[45,"rampage"],[53,"glacial_punch",[5,"permafrost"]],[3,"winter_shroud"],[38,"tundra_tomb"]],
+    learnset:[[1,"flurries",[28,"quarry_crush"]],[1,"mineral_pulse"],[13,"cold_beam"],[21,"crystal_shard"],[24,"second_wind"],[29,"whiteout"],[37,"marble_resonance"],[44,"cryo_lance"],[45,"obsidian_strike"],[53,"glacial_punch",[5,"permafrost"]],[3,"winter_shroud"],[38,"tundra_tomb"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
-    desc:"A crystal dragon of ice. Its scales deflect nearly any attack.",
-    lore:"Sapphier is a magnificent ice-dragon 6 metres long with deep sapphire-blue scales and a crest of crystal ice spines along its neck. Its underbelly is pale white. Its breath produces a stream of sub-zero air that flash-freezes anything within 20 metres. It sleeps buried under glacier ice for decades." },
+    desc:"A crystal-ice basilisk whose mirror-bright scales deflect nearly any attack. Its frozen gaze locks prey in place.",
+    lore:"Sapphier is a magnificent basilisk 6 metres long — a serpent-king sheathed in deep sapphire-crystal scales, with a crown of ice spines along its neck and a pale-white underbelly. Its breath flash-freezes anything within 20 metres, and meeting its cold gaze leaves the unwary rooted in place. It sleeps buried under glacier ice for decades." },
 
   // ===== NORMAL =====
   178: { id:178, name:"Fluffen",     emoji:"🐱", types:["Normal"],

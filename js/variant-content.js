@@ -715,7 +715,7 @@
     391: { noun: 'behemoth', features: ['its impossibly vast body', 'its ancient apex frame', 'its earth-shaking tread'], coreLine: 'The ground still shakes with each of its steps.' },
     392: { noun: 'eon sphinx', features: ['its deep-time iridescent mane', 'its vision-filled eyes', 'its ageless frame'], coreLine: 'Ages still seem to turn behind its eyes.' },
     393: { noun: 'null storm', features: ['its contained electromagnetic storm', 'its dark nucleus', 'its crackling shell'], coreLine: 'Electronics still die in the field around it.' },
-    394: { noun: 'star dragon', features: ['its star-hot scales', 'its blazing body', 'its immense frame'], coreLine: 'Its scales still burn like a star’s surface.' },
+    394: { noun: 'solar griffin', features: ['its star-hot plumage', 'its blazing body', 'its immense frame'], coreLine: 'Its plumage still burns like a star’s surface.' },
     395: { noun: 'glacier walrus', features: ['its ancient glacial-ice hide', 'its vast tusked body', 'its slow ponderous frame'], coreLine: 'Ages of ice still armour its hide.' },
     396: { noun: 'lightning idol', features: ['its living-metal bolt shape', 'its near-perfect conductance', 'its jagged frame'], coreLine: 'Charge still races flawlessly through it.' },
     397: { noun: 'spectral leviathan', features: ['its massive spectral body', 'its trailing ghostly sea-wrack', 'its phasing bulk'], coreLine: 'It still glides unseen beneath the waves.' },

@@ -265,7 +265,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[391] Titanfang | Normal/Earth | behemoth` (re-archetyped from normal-dragon 2026-06-10; primordial mega-beast)
 - `[392] Eonyx | Mental | sphinx` (re-archetyped from psychic-dragon 2026-06-10; ancient oracle sphinx; renamed from Eondrake; signature Time Fracture retyped Draconic→Mental)
 - `[393] Nullstorm | Dark/Electric | thunderstorm-disaster` (over cap)
-- `[394] Solarvast | Fire/Dragon | dragon-mythic [LEGEND t3]` (sub: solar-dragon / fire-dragon — sixth fire-dragon)
+- `[394] Solarvast | Fire/Stellar | griffin` (re-archetyped from solar-dragon 2026-06-10; solar eagle-lion; Stellar kept under legendary+intrinsic exception)
 - `[395] Auroratusk→Glacierend | Ice/Normal | walrus` (re-archetyped from ice-dragons 2026-06-10; NG+ 2-stage aurora→glacier walrus; Auroradrake renamed Auroratusk)
 - `[396] Thunderpeak | Electric/Steel | electric-elemental / lightning-bolt being` (lightning-bolt-shaped living metal — sole electric-elemental candidate alongside Fluxserpent — flag for trim)
 - `[397] Abyssalord | Aquatic/Spectral | spectral-leviathan` (split out of wraith bucket per policy)
@@ -396,7 +396,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **void / cosmic abstract** | 9 | exempt | — | Cerebraith, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Cosmoveil, Nihilax, Cosmolith. Mythical-exempt. |
 | **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Mimiclaw, Emberveil, Cinderpaw. |
 | **thunderstorm-disaster** | 3 | 1+1 | trim 1-2 | Vortexwing, Tempestborn, Nullstorm. (See storm-elemental TODO entry.) |
-| **fire-dragon legendary cluster** | 3 (Dragemian, Infernotitan, Solarvast) + chain finals (Calderaeth, Bahamber, Blazeon, Stardrax) | n/a | discuss | All under dragon-mythic exempt but sub-flavor crowded. |
+| **fire-dragon legendary cluster** | 1 (Dragemian; Infernotitan→salamander, Solarvast→griffin re-archetyped out) + chain finals (Calderaeth, Bahamber, Blazeon, Stardrax) | n/a | discuss | All under dragon-mythic exempt but sub-flavor crowded. |
 
 ### At cap (no action)
 

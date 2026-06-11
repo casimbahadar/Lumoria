@@ -496,7 +496,7 @@
     172: { noun: 'dragon hatchling', features: ['its soft pale gold-green scales', 'its enormous eyes', 'its stumbling gait'], coreLine: 'It still stumbles with a hatchling’s clumsiness.' },
     173: { noun: 'dragon-serpent', features: ['its green-bronze scales', 'its flat head-crest', 'its coiling body'], coreLine: 'It still coils and weaves as it stalks.' },
     174: { noun: 'steel dragon', features: ['its steel-grey metallic plates', 'its powerful frame', 'its bladed scales'], coreLine: 'Its plated hide still rings like struck metal.' },
-    175: { noun: 'water-dragon', features: ['its fluid blue-green scales', 'its flowing fin-crest', 'its glowing underbelly'], coreLine: 'Its underbelly still glows in the dark water.' },
+    175: { noun: 'deep-sea shark', features: ['its dark blue-green hide', 'its rows of fins', 'its glowing underbelly'], coreLine: 'Its underbelly still glows in the dark water.' },
     176: { noun: 'electric dragon', features: ['its chrome-yellow-and-black scales', 'its crackling charge', 'its translucent wings'], coreLine: 'Charge still crawls across its chrome scales.' },
     177: { noun: 'sapphire dragon', features: ['its deep sapphire scales', 'its crest of crystal ice spines', 'its frost-pale belly'], coreLine: 'A chill still rolls off its sapphire hide.' },
     178: { noun: 'fluff cat', features: ['its enormous cream-white fluff', 'its tiny hidden face', 'its round bouncy shape'], coreLine: 'It still looks twice its true size for all the fluff.' },

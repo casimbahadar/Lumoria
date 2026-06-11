@@ -104,7 +104,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 
 ### Batch 2 (families 71-105)
 
-- `[175] Biolumal | Water/Dragon | dragon-mythic` (sub: water-dragon, standalone; **name leak: "Neruveth"**)
+- `[175] Biolumal | Aquatic/Dark | shark` (re-archetyped from water-dragon 2026-06-10; bioluminescent deep-sea shark)
 - `[176] Chromena | Electric/Dragon | dragon-mythic` (sub: electric-dragon, standalone; **name leak: "Tempyroth"**)
 - `[177] Sapphier | Ice/Dragon | dragon-mythic` (sub: ice-dragon, standalone; **name leak: "Glaciroth"**)
 - `[179] Fluffen→Velvetine | Normal | cat` (housecat)

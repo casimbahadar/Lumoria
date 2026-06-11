@@ -2239,12 +2239,12 @@ const MONSTERS_DATA = {
     desc:"The lord of all dragons. Its fire is hot enough to melt any metal.",
     lore:"Dragemian is a legendary fire-dragon of enormous size, estimated at 12 metres from snout to tail. Its scales are deep crimson-black edged with gold, and two enormous curved horns sweep back from its broad angular skull. Its wings span nearly 20 metres and darken the sky when spread. Ancient texts describe it as the progenitor of all fire dragon lineages, and its breath weapon — a sustained column of solar-temperature fire — can be seen from the horizon." },
 
-  175: { id:175, name:"Biolumal",    emoji:"🐉", types:["Aquatic","Draconic"],
+  175: { id:175, name:"Biolumal",    emoji:"🦈", types:["Aquatic","Dark"],
     base:{hp:71,atk:104,def:76,spa:98,spd:92,spe:88},
-    learnset:[[1,"aquatic_gun",[28,"eon_crash"]],[1,"draconic_breath"],[14,"tidal_rush"],[17,"fortify"],[22,"draconic_claw"],[30,"tsunami"],[31,"coral_barrage"],[38,"draconic_pulse"],[43,"tidal_crush"],[46,"rampage",[5,"tidecaller"]],[3,"deepwater_hymn"],[34,"ocean_tempest"]],
+    learnset:[[1,"aquatic_gun",[28,"savage_blow"]],[1,"chomp"],[14,"tidal_rush"],[17,"fortify"],[22,"jaw_crush"],[30,"tsunami"],[31,"coral_barrage"],[38,"malice_beam"],[43,"tidal_crush"],[46,"wraith_drive",[5,"tidecaller"]],[3,"deepwater_hymn"],[34,"ocean_tempest"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:318, rarity:"uncommon",
-    desc:"A sea dragon that rules the ocean floor. Massive and aquatic.",
-    lore:"Biolumal is a serpentine water-dragon 5 metres long with fluid blue-green scales and a flowing fin-crest from snout to tail. Its underbelly glows with bioluminescent blue. It inhabits deep ocean trenches and ascends to shallower water only to feed, drawing vast schools of fish upward with its bioluminescence." },
+    desc:"A deep-sea shark that rules the ocean floor, luring whole schools to it with a bioluminescent glow.",
+    lore:"Biolumal is a massive deep-sea shark 5 metres long, its dark blue-green hide marked by a row of fins and an underbelly that glows with cold bioluminescent blue. It inhabits the lightless ocean trenches, rising to shallower water only to feed — drawing vast schools of fish upward toward its glow before its jaws close among them." },
 
   176: { id:176, name:"Chromena",   emoji:"⚡", types:["Electric","Draconic"],
     base:{hp:68,atk:82,def:62,spa:117,spd:78,spe:113},

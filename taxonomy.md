@@ -132,7 +132,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[227] Spectroo→Spectrace | Fire/Psychic | kangaroo (marsupial)` (fire-marsupial branch of Spectroo evolution tree)
 - `[228] Lunaroon | Grass/Psychic | kangaroo (marsupial)` (moonlight branch of Spectroo line — second marsupial family + alt Spectroo branch)
 - `[229] Radiafish | Electric/Psychic | kangaroo (marsupial)` (electric branch of Spectroo line — third marsupial / alt Spectroo branch)
-- `[231] Scaleling→Wyvaxis | Dragon/Water | dragon-mythic` (sub: water-dragon — second water-dragon alongside Biolumal)
+- `[231] Kappling→Sumokappa | Aquatic/Fighting | kappa` (sub: river-yokai wrestler)
 - `[234] Serphaxon→Serpenthorn→Wyvernak | Dragon/Ground | dragon-mythic` (sub: ground-dragon — now the sole ground-dragon line; the former Geodrak line was re-archetyped to glyptodon)
 - `[235] Glintscale | Aquatic/Fairy | koi` (re-archetyped from water-dragon 2026-06-10; mystical boundary-swimming koi)
 - `[237] Frostick→Icevault | Ice/Rock | ice-stone vault / fortress structure` (small architectural creature — unique sub-archetype)

@@ -2576,20 +2576,20 @@ const MONSTERS_DATA = {
 
   // ===== DRAGON TYPES (IDs 230-235) =====
 
-  // 2-stage Draconic chain: Scaleling → Wyvaxis
-  230: { id:230, name:"Scaleling", emoji:"🐲", types:["Draconic"],
+  // 2-stage Aquatic/Fighting chain: Kappling → Sumokappa
+  230: { id:230, name:"Kappling", emoji:"🐢", types:["Aquatic","Fighting"],
     base:{hp:58,atk:72,def:62,spa:60,spd:55,spe:58},
-    learnset:[[1,"collide"],[1,"draconic_breath"],[16,"draconic_claw"],[26,"draconic_pulse"],[36,"hydra_dance"],[46,"rampage"],[56,"radiance_cannon"]],
+    learnset:[[1,"collide"],[1,"quick_punch"],[10,"aquatic_gun"],[16,"straight_jab"],[26,"wave_dash"],[36,"roundhouse"],[46,"brine_slash"],[56,"uppercut"]],
     evolveTo:231, evolveLevel:36, catchRate:150, expYield:90, rarity:"common",
-    desc:"A young river drake with scales that shimmer like gemstones. Fierce despite its small size.",
-    lore:"Scaleling is a tiny dragon hatchling 15 cm long with shiny copper-red scales and an oversized head. Its wings are crumpled against its body and not yet functional. It inhabits rocky outcroppings and practises flight by jumping from increasingly high ledges, rarely succeeding but never deterred. Its scales redden when basking but darken to aqua-blue once it learns to swim." },
+    desc:"A young river-yokai with a water-dish crowning its head. Practises grappling holds in the shallows.",
+    lore:"Kappling is a young river-yokai about 30 cm tall, green-skinned and webbed, with a shallow water-filled dish set into the crown of its head. So long as that dish stays full it brims with surprising strength, so it guards the precious water jealously — keeping its head level even while it tumbles and rolls. It haunts rocky shallows and pond-edges, ambushing larger creatures to practise the grappling holds it is determined to one day perfect." },
 
-  231: { id:231, name:"Wyvaxis", emoji:"🐲", types:["Draconic","Aquatic"],
+  231: { id:231, name:"Sumokappa", emoji:"🐢", types:["Aquatic","Fighting"],
     base:{hp:91,atk:109,def:84,spa:94,spd:78,spe:94},
-    learnset:[[1,"draconic_claw"],[1,"tidal_rush"],[8,"aquatic_gun"],[15,"drake_tail"],[20,"scale_shot"],[25,"wyrm_gale"],[28,"wave_dash"],[30,"draconic_pulse"],[38,"hydra_dance"],[46,"tsunami"],[54,"rampage"],[62,"ancient_breath"],[70,"radiance_cannon"]],
+    learnset:[[1,"quick_punch"],[1,"tidal_rush"],[8,"aquatic_gun"],[15,"straight_jab"],[20,"body_check"],[25,"riptide_slam"],[28,"wave_dash"],[30,"high_kick"],[38,"brawl"],[46,"tsunami"],[54,"spinning_kick"],[62,"ocean_tempest"],[70,"martial_finish"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:220, rarity:"uncommon",
-    desc:"A river drake that has mastered both land and water. Controls currents with its dragon energy.",
-    lore:"Wyvaxis is a water-dragon 2 metres long — Scaleling's copper-red basking-scales have fully darkened to streamlined aqua-blue and emerald, and a broad flat tail has emerged optimised for powerful swimming strokes. It is more fish than lizard in movement, rarely leaving water except to bask on rocks. Its wings are vestigial fins that aid steering underwater." },
+    desc:"A mature river-yokai and peerless wrestler. Drags rivals into the current and pins them with grappling holds.",
+    lore:"Sumokappa is a mature river-yokai standing 2 metres on powerful bowed legs, its back armoured by a broad turtle-like shell and its head still crowned with the brimming water-dish that is the wellspring of its strength. Renowned across the wetlands as an unbeatable wrestler, it challenges all comers to grappling bouts on the riverbank — and when it loses footing it simply drags the contest into deep water, where its webbed hands and tidal power leave no escape. Wise travellers bow politely before crossing its river, for a courteous kappa is honour-bound to bow in return, spilling the water from its dish and forfeiting the match." },
 
   // 3-stage Draconic/Ground chain: Draxon → Serpenthorn → Wyvernak
   232: { id:232, name:"Serphaxon", emoji:"🐲", types:["Draconic"],
@@ -5742,7 +5742,7 @@ const WORLD_DATA = {
     desc:"The deepest part of Lumoria's ocean. Aquatic and Draconic types of terrifying power lurk here. The Umbra Order seeks something ancient in these depths.",
     connections:["tidewatch","coral_reef","sunken_temple"],
     wildMonsters:[
-      {id:230, minLv:20, maxLv:24, rate:18}, // Scaleling (obtainability fix)
+      {id:230, minLv:20, maxLv:24, rate:18}, // Kappling (obtainability fix)
       {id:85, minLv:18, maxLv:24, rate:14},  // Shockharpe
       {id:33, minLv:18, maxLv:24, rate:6},  // Septanemone
       {id:19, minLv:19, maxLv:24, rate:28},  // Magmaurin

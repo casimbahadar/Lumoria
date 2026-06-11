@@ -3707,7 +3707,11 @@ function showDexDetail(monsterId) {
       <span class="stat-val">${bst}</span>
     </div>`;
   const evoInfo = def.evolveTo
-    ? `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} at Lv.${def.evolveLevel}`
+    ? (def.evolveMethod === "item"
+        ? `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} with ${ITEMS_DATA[def.evolveItem]?.name || "an item"}`
+        : def.evolveMethod === "location"
+          ? `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} at ${WORLD_DATA[def.evolveLocation]?.name || "a special place"}`
+          : `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} at Lv.${def.evolveLevel}`)
     : "Does not evolve";
 
   const dexDetailSprite = (typeof getMonsterSpriteURL === "function")

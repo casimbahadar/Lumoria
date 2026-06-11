@@ -4266,12 +4266,12 @@ const MONSTERS_DATA = {
     desc:"A fortress of living glacier-stone. Its outer shell has never been successfully breached in recorded history.",
     lore:"Crystavault is an ice-mineral creature 2.5 metres tall resembling a fortified tower of layered glacial ice and granite. Ancient siege equipment has been found bent and broken around specimens." },
 
-  350: { id:350, name:"Fernwrath", emoji:"🌿", types:["Nature","Draconic"],
+  350: { id:350, name:"Fernwrath", emoji:"🦎", types:["Nature","Mineral"],
     base:{hp:73,atk:95,def:75,spa:92,spd:79,spe:81}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"vine_lash"],[10,"draconic_breath"],[20,"root_lance"],[30,"draconic_pulse"],[40,"canopy_crash"],[50,"wyrm_strike"],[60,"verdant_surge"],[5,"hydra_dance"],[38,"ancient_breath"]],
+    learnset:[[1,"vine_lash"],[10,"ore_ray"],[20,"root_lance"],[30,"shard_burst"],[40,"canopy_crash"],[50,"granite_slam"],[60,"verdant_surge"],[5,"shard_form"],[38,"basalt_eruption"]],
     catchRate:15, expYield:292, rarity:"rare",
-    desc:"A dragon grown from the world's oldest forest. Its scales are living wood; vines sprout from its wounds.",
-    lore:"Fernwrath is a grass-dragon 4 metres long with scales of polished dark wood and a mane of living ferns. Where it walks, plants accelerate through their entire life cycle in hours." },
+    desc:"A great forest iguana whose bark-hard scales are living wood. Vines sprout from its wounds, and a crest of ferns runs down its spine.",
+    lore:"Fernwrath is a colossal forest iguana 4 metres long, its overlapping scales hardened into polished dark wood and a tall crest of living ferns running from skull to tail. It basks atop ancient stumps, and where it walks plants accelerate through their entire life cycle in hours." },
 
   351: { id:351, name:"Spectravore", emoji:"🌈", types:["Mental","Mineral"],
     base:{hp:65,atk:71,def:68,spa:104,spd:92,spe:90}, evolveTo:null, evolveLevel:null,

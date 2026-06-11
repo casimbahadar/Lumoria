@@ -671,7 +671,7 @@
     347: { noun: 'forge golem', features: ['its superheated steel body', 'its white-hot joints', 'its forged frame'], coreLine: 'Its seams still glow forge-bright with heat.' },
     348: { noun: 'gale swift', features: ['its long swept-back wings', 'the cyclone whirling around it', 'its sleek body'], coreLine: 'A private gale still churns wherever it flies.' },
     349: { noun: 'ice fortress', features: ['its layered ice-and-granite body', 'its tower-like form', 'its battlement ridges'], coreLine: 'It still stands like a keep that learned to walk.' },
-    350: { noun: 'forest dragon', features: ['its polished dark-wood scales', 'its mane of living ferns', 'its long body'], coreLine: 'Plants still surge to life where it treads.' },
+    350: { noun: 'forest iguana', features: ['its polished dark-wood scales', 'its crest of living ferns', 'its bark-hard hide'], coreLine: 'Plants still surge to life where it treads.' },
     351: { noun: 'prism marsupial', features: ['its prism-fractured light body', 'its faceted form', 'its glowing pouch'], coreLine: 'Light still splinters through its fractured frame.' },
     352: { noun: 'void-lord', features: ['its body of solidified void', 'its crown of hovering fragments', 'its imperious form'], coreLine: 'Nearby thought still bends toward its will.' },
     353: { noun: 'fire salamander', features: ['its magma-slick toxic hide', 'its glowing seams', 'its colossal frame'], coreLine: 'Its breath could still run stone to liquid.' },

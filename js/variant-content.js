@@ -704,7 +704,7 @@
     380: { noun: 'tempest vortex', features: ['its self-sustaining storm body', 'its lightning nucleus', 'its howling winds'], coreLine: 'Weather still bends around its turning core.' },
     381: { noun: 'crystal polyhedron', features: ['its geometric crystal body', 'its steel-laced facets', 'its precise form'], coreLine: 'Its facets still pulse with ordered thought.' },
     382: { noun: 'oblivion raven', features: ['its light-absorbing wings', 'its black-feathered body', 'its vast shadow'], coreLine: 'Its shadow still falls darker than night.' },
-    383: { noun: 'blade dragon', features: ['its folded ultra-steel body', 'its razor-edged surfaces', 'its honed frame'], coreLine: 'Every edge of it could still part steel.' },
+    383: { noun: 'steel swordfish', features: ['its folded ultra-steel body', 'its razor-edged surfaces', 'its long sword-bill'], coreLine: 'Every edge of it could still part steel.' },
     384: { noun: 'sun entity', features: ['its compressed solar-plasma body', 'its permanent coronal crown', 'its blinding glow'], coreLine: 'A small star’s heat still pours off it.' },
     385: { noun: 'glacier golem', features: ['its glacial-boulder body', 'its frost-sheathed limbs', 'its frozen ground-aura'], coreLine: 'The ground still freezes deep beneath it.' },
     386: { noun: 'storm wraith', features: ['its translucent between-strikes form', 'its lightning-borne body', 'its crackling edges'], coreLine: 'It still rides the lightning between strikes.' },

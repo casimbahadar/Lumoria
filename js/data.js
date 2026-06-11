@@ -4501,12 +4501,12 @@ const MONSTERS_DATA = {
     desc:"A colossal raven that devours light itself. Darkness spreads for kilometres from wherever it roosts.",
     lore:"Oblivionwing is an enormous raven with a 6-metre wingspan whose feathers absorb all incoming light — the matured void Voidcoil once only carried. Flying overhead it casts a shadow darker than any natural night, and stars become visible at noon beneath its wings." },
 
-  383: { id:383, name:"Apexblade", emoji:"⚔️", types:["Metal","Draconic"],
+  383: { id:383, name:"Apexblade", emoji:"🗡️", types:["Metal","Aquatic"],
     base:{hp:71,atk:112,def:93,spa:77,spd:81,spe:91}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"chrome_claw"],[10,"draconic_breath"],[20,"alloy_tail"],[30,"draconic_claw"],[40,"forge_blast_2"],[50,"wyrm_strike"],[60,"scale_storm"],[5,"hydra_dance"],[52,"alloy_edge"]],
+    learnset:[[1,"chrome_claw"],[10,"aquatic_pulse"],[20,"alloy_tail"],[30,"torrent_fang"],[40,"forge_blast_2"],[50,"tidal_sweep"],[60,"tidal_crush"],[5,"brine_slash"],[52,"alloy_edge"]],
     catchRate:5, expYield:355, rarity:"rare",
-    desc:"The ultimate fusion of forged steel and draconic power. Its body is a living weapon.",
-    lore:"Apexblade is a steel-dragon 5 metres long with a body of folded ultra-steel and draconic biology merged at the cellular level. Every surface is an edge. Its teeth alone number 340." },
+    desc:"A living-steel swordfish whose entire body is a single honed blade. The ultimate forged weapon of the deep.",
+    lore:"Apexblade is a steel swordfish 5 metres long, its streamlined body folded from ultra-steel into a single living blade tipped by a metre-long sword-bill. Every surface is an edge, and it cleaves through deep water at terrible speed; its teeth alone number 340. Hulls part like paper where it strikes." },
 
   384: { id:384, name:"Solarcrown", emoji:"🌞", types:["Fire","Stellar"],
     base:{hp:69,atk:83,def:76,spa:115,spd:91,spe:91}, evolveTo:null, evolveLevel:null,

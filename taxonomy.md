@@ -254,7 +254,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 
 ### Batch 6 (families 210-243)
 
-- `[383] Apexblade | Steel/Dragon | dragon-mythic` (sub: steel-dragon — second steel-dragon alongside Scalevorn)
+- `[383] Apexblade | Metal/Aquatic | swordfish` (re-archetyped from steel-dragon 2026-06-10; living-blade sea predator)
 - `[384] Solarcrown | Fire/Psychic | phoenix / solar-being` (third solar archetype with Pyrocrown/Solarwrath)
 - `[385] Permafrost | Ice/Ground | golem` (glacial boulder humanoid)
 - `[386] Wraithstorm | Spectral/Electric | storm-wraith` (split out of wraith bucket per policy)

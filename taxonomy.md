@@ -247,7 +247,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[376] Solarwrath | Fire/Fairy | phoenix / solar-being` (solar plasma — second solar archetype with Pyrocrown)
 - `[377] Abyssforge | Earth/Mineral | golem` (planetary-core-pressure alloy; retyped Earth/Metal→Earth/Mineral for diversity)
 - `[378] Dreamweald | Psychic/Fairy | dream-entity` (visible only to half-asleep; second dream-entity alongside Oneiron)
-- `[379] Riftscale | Wind/Dragon | dragon-mythic [LEGEND t2]` (sub: wind-dragon — third wind-dragon alongside Cyclonax)
+- `[379] Riftmane | Aquatic/Spectral | kelpie` (re-archetyped from spectral-dragon 2026-06-10; phasing otherworld water-horse; renamed from Riftscale)
 - `[380] Tempestborn | Electric/Wind | thunderstorm-disaster [LEGEND t2]` (over cap)
 - `[381] Crystalmind | Psychic/Steel | crystalline-prism` (geometric polyhedron — fourth crystalline-prism)
 - `[382] Voidcoil→Oblivionwing | Dark/Wind | raven / corvid` (re-archetyped from dark-dragons 2026-06-10; NG+ 2-stage void-raven; duskstone evolution)

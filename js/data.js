@@ -4472,12 +4472,12 @@ const MONSTERS_DATA = {
     desc:"A being that exists only in the shared dreamspace of nearby creatures. Physical contact wakes it permanently.",
     lore:"Dreamweald is a mental-dream entity visible only to those who are half-asleep. In full wakefulness it appears as a translucent shimmer, but in dreams it takes whatever form the dreamer most desires." },
 
-  379: { id:379, name:"Riftscale", emoji:"🔮", types:["Draconic","Spectral"],
+  379: { id:379, name:"Riftmane", emoji:"🐴", types:["Aquatic","Spectral"],
     base:{hp:78,atk:105,def:87,spa:111,spd:94,spe:105}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
-    learnset:[[1,"draconic_breath"],[5,"hydra_dance"],[8,"wraith_claw"],[10,"nether_sphere"],[15,"spectral_ray"],[20,"draconic_claw"],[25,"ghastly_wail"],[30,"phantom_claw"],[35,"necrotic_pulse"],[40,"wyrm_strike"],[45,"eternal_haunt"],[48,"eon_crash"],[50,"void_rend"],[60,"cataclysm_breath"]],
+    learnset:[[1,"aquatic_pulse"],[5,"abyssal_jet"],[8,"wraith_claw"],[10,"nether_sphere"],[15,"spectral_ray"],[20,"whirlpool_dive"],[25,"ghastly_wail"],[30,"phantom_claw"],[35,"necrotic_pulse"],[40,"tidal_sweep"],[45,"eternal_haunt"],[48,"tidal_crush"],[50,"void_rend"],[60,"ocean_sovereign"]],
     catchRate:6, expYield:342, rarity:"legendary",
-    desc:"A dragon that phases between worlds. Its scales exist in multiple realities simultaneously.",
-    lore:"Riftscale is a draconic-spectral 4.5 metres long whose scales shimmer with a translucent quality — half of them appear solid and half ghostly. It can phase through solid matter at will." },
+    desc:"A spectral water-horse that phases between the living world and the drowned otherworld. Half of it is never quite real.",
+    lore:"Riftmane is a kelpie 2.5 metres long — a spectral water-horse risen from a drowned otherworld no living thing can see. Its streaming mane and hide shimmer half-solid and half-ghostly, and it phases through stone and water alike, luring the unwary to follow it beneath the surface and never return." },
 
   380: { id:380, name:"Tempestborn", emoji:"⛈️", types:["Electric","Wind"],
     base:{hp:77,atk:98,def:77,spa:116,spd:94,spe:116}, evolveTo:null, evolveLevel:null, ngPlusTier:2,

@@ -700,7 +700,7 @@
     376: { noun: 'solar entity', features: ['its body of solar plasma', 'its searing radiance', 'its blazing form'], coreLine: 'It still burns hotter the closer one draws.' },
     377: { noun: 'core golem', features: ['its ultra-dense alloy body', 'its crushing weight', 'its compressed frame'], coreLine: 'It still carries the weight of a planet’s core.' },
     378: { noun: 'dream entity', features: ['its barely-there shimmer', 'its dreamlike form', 'its half-seen shape'], coreLine: 'It still shows itself only to the half-asleep.' },
-    379: { noun: 'rift dragon', features: ['its half-solid half-ghostly scales', 'its shimmering hide', 'its long body'], coreLine: 'Half of it still refuses to be quite real.' },
+    379: { noun: 'rift kelpie', features: ['its half-solid half-ghostly hide', 'its streaming spectral mane', 'its phasing equine form'], coreLine: 'Half of it still refuses to be quite real.' },
     380: { noun: 'tempest vortex', features: ['its self-sustaining storm body', 'its lightning nucleus', 'its howling winds'], coreLine: 'Weather still bends around its turning core.' },
     381: { noun: 'crystal polyhedron', features: ['its geometric crystal body', 'its steel-laced facets', 'its precise form'], coreLine: 'Its facets still pulse with ordered thought.' },
     382: { noun: 'oblivion raven', features: ['its light-absorbing wings', 'its black-feathered body', 'its vast shadow'], coreLine: 'Its shadow still falls darker than night.' },

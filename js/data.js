@@ -2246,12 +2246,12 @@ const MONSTERS_DATA = {
     desc:"A deep-sea shark that rules the ocean floor, luring whole schools to it with a bioluminescent glow.",
     lore:"Biolumal is a massive deep-sea shark 5 metres long, its dark blue-green hide marked by a row of fins and an underbelly that glows with cold bioluminescent blue. It inhabits the lightless ocean trenches, rising to shallower water only to feed — drawing vast schools of fish upward toward its glow before its jaws close among them." },
 
-  176: { id:176, name:"Chromena",   emoji:"⚡", types:["Electric","Draconic"],
+  176: { id:176, name:"Raijolt",   emoji:"🐺", types:["Electric","Dark"],
     base:{hp:68,atk:82,def:62,spa:117,spd:78,spe:113},
-    learnset:[[1,"jolt",[28,"wyrm_strike"]],[1,"draconic_breath"],[12,"volt_jet"],[17,"fortify"],[20,"draconic_claw"],[28,"stormbolt"],[30,"dynamo_whip"],[36,"draconic_pulse"],[42,"eon_crash"],[44,"rampage",[5,"stun_pulse"]],[3,"static_cage"],[33,"ion_cannon"]],
+    learnset:[[1,"jolt",[28,"voltaic_fang"]],[1,"spark_claw"],[3,"static_cage"],[10,"chomp"],[12,"volt_jet"],[17,"dread_howl"],[20,"obsidian_fang"],[28,"stormbolt"],[30,"dynamo_whip"],[33,"ion_cannon"],[40,"jaw_crush"],[44,"ball_lightning"],[50,"savage_blow",[5,"stun_pulse"]]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
-    desc:"A dragon of lightning storms. Calls down thunder with each roar.",
-    lore:"Chromena is a sleek electric-dragon 4 metres long with chrome-yellow and black scales that crackle with electrical charge. Its wing membranes are translucent yellow. It creates a continuous corona of electricity around its body while flying, visible at night as a moving chain of lightning." },
+    desc:"A feral thunder-beast that rides the storm. Goes berserk amid lightning, clawing anything it strikes.",
+    lore:"Raijolt is a lean, wolf-like thunder-beast 2 metres long, its chrome-yellow and black fur standing on end with a constant crackling charge and a continuous corona of electricity wreathing its body. Calm enough in clear weather, it grows wild and ferocious the moment a storm breaks — riding the gale on crackling leaps, it lashes out at trees, rooftops, and anything else a lightning-strike has marked, leaving long scorched claw-furrows behind. At night it is visible only as a moving chain of lightning racing across the hills." },
 
   177: { id:177, name:"Sapphier",emoji:"🐍", types:["Ice","Mineral"],
     base:{hp:73,atk:96,def:79,spa:115,spd:100,spe:74},
@@ -5678,7 +5678,7 @@ const WORLD_DATA = {
       {id:235, minLv:58, maxLv:62, rate:10}, // Glintscale (obtainability fix)
       {id:172, minLv:58, maxLv:62, rate:30}, // Scalurin
       {id:175, minLv:58, maxLv:62, rate:20}, // Biolumal
-      {id:176, minLv:59, maxLv:62, rate:25}, // Chromena
+      {id:176, minLv:59, maxLv:62, rate:25}, // Raijolt
       {id:177, minLv:59, maxLv:62, rate:15}  // Sapphier
     ],
     hasGym:true, gymLeader:"drake", requiredBadges:7, mapPos:{x:55, y:42},
@@ -5885,7 +5885,7 @@ const WORLD_DATA = {
       {id:90, minLv:28, maxLv:34, rate:24},   // Zephyrel
       {id:92, minLv:29, maxLv:34, rate:18},  // Arcspine
       {id:85, minLv:30, maxLv:35, rate:14},   // Shockharpe
-      {id:176, minLv:31, maxLv:36, rate:6}    // Chromena
+      {id:176, minLv:31, maxLv:36, rate:6}    // Raijolt
     ],
     hasGym:false, requiredBadges:4, mapPos:{x:60, y:16}
   },

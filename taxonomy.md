@@ -105,7 +105,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 ### Batch 2 (families 71-105)
 
 - `[175] Biolumal | Aquatic/Dark | shark` (re-archetyped from water-dragon 2026-06-10; bioluminescent deep-sea shark)
-- `[176] Chromena | Electric/Dragon | dragon-mythic` (sub: electric-dragon, standalone; **name leak: "Tempyroth"**)
+- `[176] Raijolt | Electric/Dark | raiju` (sub: thunder-beast, standalone)
 - `[177] Sapphier | Ice/Mineral | basilisk` (re-archetyped from ice-dragon 2026-06-10; crystal-ice serpent-king basilisk)
 - `[179] Fluffen→Velvetine | Normal | cat` (housecat)
 - `[181] Leapbun→Racehare | Normal | rabbit / hare` (**name leak in #181: "Boundrix"**)

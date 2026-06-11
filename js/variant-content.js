@@ -693,7 +693,7 @@
     369: { noun: 'gravity stone', features: ['its psychically compressed stone body', 'its hovering bulk', 'its warping pull'], coreLine: 'Gravity still bends in the space around it.' },
     370: { noun: 'electro vortex', features: ['its self-sustaining vortex body', 'its electromagnetic core', 'its roaring spin'], coreLine: 'It still holds itself together as pure storm.' },
     371: { noun: 'null entity', features: ['its perfect matte-black body', 'its featureless surface', 'its shifting outline'], coreLine: 'No light still escapes its lightless skin.' },
-    372: { noun: 'prism dragon', features: ['its colour-cycling scales', 'its refracting hide', 'its long body'], coreLine: 'Light still bends and splits across its scales.' },
+    372: { noun: 'prism chameleon', features: ['its colour-cycling scales', 'its refracting hide', 'its grasping tail and turret eyes'], coreLine: 'Light still bends and splits across its scales.' },
     373: { noun: 'void-rift entity', features: ['its half-here body', 'its void-torn edges', 'its flickering form'], coreLine: 'Part of it still hangs in the space between.' },
     374: { noun: 'aurora walrus', features: ['its aurora-glowing hide', 'its green-violet-gold glow', 'its short ivory tusks'], coreLine: 'Auroral light still ripples down its hide.' },
     375: { noun: 'current serpent', features: ['its body of looping current', 'its crackling form', 'its fluid coils'], coreLine: 'It still flows as a closed circuit of lightning.' },

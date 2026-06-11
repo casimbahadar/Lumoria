@@ -4423,12 +4423,12 @@ const MONSTERS_DATA = {
     lore:"Nullform is a dark-normal creature 2 metres tall with a body of perfect matte black that reflects no light at all. It has no fixed features but rearranges its form to match whatever it has most recently defeated." },
 
   // ---- Tier 4: Prismatic Rift exclusives BST ~630–670 ----
-  372: { id:372, name:"Prismancer", emoji:"🌈", types:["Draconic","Mineral"],
+  372: { id:372, name:"Prismancer", emoji:"🦎", types:["Mental","Mineral"],
     base:{hp:69,atk:89,def:77,spa:107,spd:89,spe:89}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"mental"],[10,"draconic_pulse"],[20,"psi_strike"],[30,"draconic_claw"],[40,"synaptic_shatter"],[50,"wyrm_strike"],[60,"neural_storm"],[5,"hydra_dance"],[48,"cataclysm_breath"],[62,"ore_ray"],[63,"mineral_dust"],[64,"ore_punch"],[65,"mineral_jab"]],
+    learnset:[[1,"mental"],[10,"cortex_spike"],[20,"psi_strike"],[30,"crystal_shard"],[40,"synaptic_shatter"],[50,"sapphire_lance"],[60,"neural_storm"],[5,"crystalline_focus"],[48,"psy_blast"],[62,"ore_ray"],[63,"mineral_dust"],[64,"ore_punch"],[65,"mineral_jab"]],
     catchRate:8, expYield:335, rarity:"rare",
-    desc:"A dragon born from a rift in the visible spectrum. Its scales cycle through every wavelength of light.",
-    lore:"Prismancer is a mineral-dragon 4 metres long whose scales shift through every colour of visible light in a constant slow cycle. The air around it refracts into rainbow halos." },
+    desc:"A crystalline chameleon whose scales cycle through every wavelength of light, bending the world's colours around it.",
+    lore:"Prismancer is a crystalline chameleon 1.5 metres long whose prismatic scales shift through every colour of visible light in a constant slow cycle. It bends light around its body to vanish from sight, and the air about it refracts into faint rainbow halos. It hunts by holding perfectly still until prey strays within reach of its lightning tongue." },
 
   373: { id:373, name:"Voidrend", emoji:"🌌", types:["Dark","Spectral"],
     base:{hp:69,atk:103,def:74,spa:92,spd:82,spe:100}, evolveTo:null, evolveLevel:null,

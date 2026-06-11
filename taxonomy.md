@@ -241,7 +241,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[369] Gravithorn | Psychic/Ground | psychic-elemental / golem` (compressed-stone humanoid with gravity inversion)
 - `[370] Vortexwing | Wind/Electric | thunderstorm-disaster` (over cap with Tempestborn/Nullstorm)
 - `[371] Nullform | Dark/Normal | shapeshifter / mimic` (matte-black form-shifter — second mimic alongside Mimiclaw)
-- `[372] Prismancer | Psychic/Dragon | dragon-mythic` (sub: psychic-dragon — third psychic-dragon)
+- `[372] Prismancer | Mental/Mineral | chameleon` (re-archetyped from psychic/mineral-dragon 2026-06-10; prismatic colour-shift reptile)
 - `[373] Voidrend | Dark/Ghost | void / cosmic` (reality-tearing dark-ghost — fourth void/cosmic. **⚠ Pre-408 with Ghost typing**)
 - `[375] Fluxserpent | Electric/Psychic | electric-elemental serpent` (current-loop serpent — sole electric-elemental candidate; or could classify as serpent variant)
 - `[376] Solarwrath | Fire/Fairy | phoenix / solar-being` (solar plasma — second solar archetype with Pyrocrown)

@@ -134,7 +134,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[229] Radiafish | Electric/Psychic | kangaroo (marsupial)` (electric branch of Spectroo line — third marsupial / alt Spectroo branch)
 - `[231] Scaleling→Wyvaxis | Dragon/Water | dragon-mythic` (sub: water-dragon — second water-dragon alongside Biolumal)
 - `[234] Serphaxon→Serpenthorn→Wyvernak | Dragon/Ground | dragon-mythic` (sub: ground-dragon — second ground-dragon alongside Geodrak line)
-- `[235] Glintscale | Dragon/Water | dragon-mythic` (sub: water-dragon, standalone — third water-dragon)
+- `[235] Glintscale | Aquatic/Fairy | koi` (re-archetyped from water-dragon 2026-06-10; mystical boundary-swimming koi)
 - `[237] Frostick→Icevault | Ice/Rock | ice-stone vault / fortress structure` (small architectural creature — unique sub-archetype)
 - `[240] Snowble→Blizzariel→Tundrafox | Ice/Dark | snowman (folkloric)` (mythical, just claimed)
 - `[241] Shardlix | Ice/Psychic | crystalline-prism` (bipedal ice crystal humanoid, standalone — second crystalline-prism alongside Espelith line)

@@ -556,7 +556,7 @@
     232: { noun: 'burrowing dragon', features: ['its earthy brown-bronze scales', 'its four powerful legs', 'its heavy digging claws'], coreLine: 'It still tunnels with a digger’s blunt strength.' },
     233: { noun: 'ground-dragon', features: ['its rust-brown thickened scales', 'its long low body', 'its clawed limbs'], coreLine: 'It still drags its long body through the rock.' },
     234: { noun: 'plated wyvern', features: ['its broad grey-green plates', 'its weathered hide', 'its heavy frame'], coreLine: 'Its weathered plates still shrug off blows.' },
-    235: { noun: 'glimmer dragon', features: ['its silver-green light-scattering scales', 'its sleek body', 'its shimmering trail'], coreLine: 'Underwater it still vanishes in scattered light.' },
+    235: { noun: 'glimmer koi', features: ['its silver-green light-scattering scales', 'its long trailing fins', 'its shimmering trail'], coreLine: 'Underwater it still vanishes in scattered light.' },
     236: { noun: 'icicle sprite', features: ['its transparent ice body', 'its two tiny arms', 'its sharp pointed form'], coreLine: 'It still forms anew wherever the cold gathers.' },
     237: { noun: 'ice-stone tower', features: ['its lattice of ice and stone', 'its tower-like silhouette', 'its frozen core'], coreLine: 'It still rises fused to the cave bedrock.' },
     238: { noun: 'snowball creature', features: ['its perfectly round snow-body', 'its two coal eyes', 'its cold packed form'], coreLine: 'It still rolls along gathering more snow.' },

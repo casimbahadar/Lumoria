@@ -2614,12 +2614,12 @@ const MONSTERS_DATA = {
     lore:"Wyvernak is a large ground-dragon 4 metres long — Serpenthorn's rust-brown scales have weathered to broad grey-green plates, and the backward-curved spine-row of its juvenile form has consolidated into a single crest of stone spines crowning its skull. Its wings generate dust-clouds when spread. It inhabits canyon systems where it ambushes prey by dropping from cliff ledges and pinning targets under its considerable weight before delivering a killing bite." },
 
   // Standalone Draconic/Aquatic: Glintscale
-  235: { id:235, name:"Glintscale", emoji:"🐟", types:["Draconic","Aquatic"],
+  235: { id:235, name:"Glintscale", emoji:"🐠", types:["Aquatic","Fairy"],
     base:{hp:88,atk:98,def:82,spa:101,spd:85,spe:96},
-    learnset:[[1,"draconic_claw"],[1,"tidal_rush"],[20,"draconic_pulse"],[30,"tsunami"],[40,"hydra_dance"],[50,"rampage"],[60,"geyser_burst"],[70,"radiance_cannon"],[72,"tidal_sweep"]],
+    learnset:[[1,"gossamer_lance"],[1,"tidal_rush"],[20,"celestial_wave"],[30,"tsunami"],[40,"lunar_burst"],[50,"fae_requiem"],[60,"geyser_burst"],[70,"radiance_cannon"],[72,"tidal_sweep"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
-    desc:"A dragon-koi of iridescent scales. Legends say it swims the boundary between worlds.",
-    lore:"Glintscale is a water-dragon 3 metres long with brilliant silver-green scales that catch light and scatter it in all directions. Underwater it is effectively invisible from above due to this mirroring effect. It uses its reflective scales to confuse and disorient prey, striking when they become disoriented." },
+    desc:"A great koi of iridescent scales. Legends say it swims the boundary between worlds, and to glimpse one is fortune.",
+    lore:"Glintscale is a great koi 3 metres long with brilliant silver-green scales that catch light and scatter it in all directions — underwater it is effectively invisible from above. Old legends hold that a koi which leaps the highest falls becomes something greater, and that Glintscale has already swum the boundary between this world and the next. It uses its mirroring scales to confuse and disorient prey before it strikes." },
 
 
 

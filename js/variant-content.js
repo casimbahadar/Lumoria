@@ -674,7 +674,7 @@
     350: { noun: 'forest dragon', features: ['its polished dark-wood scales', 'its mane of living ferns', 'its long body'], coreLine: 'Plants still surge to life where it treads.' },
     351: { noun: 'prism marsupial', features: ['its prism-fractured light body', 'its faceted form', 'its glowing pouch'], coreLine: 'Light still splinters through its fractured frame.' },
     352: { noun: 'void-lord', features: ['its body of solidified void', 'its crown of hovering fragments', 'its imperious form'], coreLine: 'Nearby thought still bends toward its will.' },
-    353: { noun: 'magma dragon', features: ['its hardened-magma scales', 'its glowing seams', 'its colossal frame'], coreLine: 'Its breath could still run stone to liquid.' },
+    353: { noun: 'fire salamander', features: ['its magma-slick toxic hide', 'its glowing seams', 'its colossal frame'], coreLine: 'Its breath could still run stone to liquid.' },
     354: { noun: 'rift whale', features: ['its colossal whale body', 'its luminous psychic sigils', 'its slow vast glide'], coreLine: 'Its sigils still light as it folds the deep.' },
     355: { noun: 'abyssal eel', features: ['its refracting black scales', 'its bioluminescent lures', 'its armoured length'], coreLine: 'Its lures still glimmer to draw in prey.' },
     356: { noun: 'thunderbird', features: ['its chrome-blue plumage', 'its wings of crackling lightning', 'its commanding bulk'], coreLine: 'The sky still darkens when it takes wing.' },

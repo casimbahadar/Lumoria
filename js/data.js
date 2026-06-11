@@ -4288,12 +4288,12 @@ const MONSTERS_DATA = {
     desc:"The sovereign of all void-touched creatures. Its mind is a labyrinth with no exit.",
     lore:"Voidlord is a mental-spectral entity 2.2 metres tall with a body of solidified void-matter and a crown of hovering psychic fragments. No one who has entered its mindscape has returned unchanged." },
 
-  353: { id:353, name:"Infernotitan", emoji:"🌋", types:["Draconic","Mineral"],
+  353: { id:353, name:"Infernotitan", emoji:"🦎", types:["Fire","Toxin"],
     base:{hp:78,atk:106,def:82,spa:98,spd:74,spe:82}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"inferno_jet"],[5,"char_dance"],[10,"draconic_claw"],[12,"basilisk_might"],[15,"lava_drop"],[18,"emperor_inferno"],[20,"pyroclasm"],[22,"ruby_strike"],[25,"magma_strike"],[28,"comet_crash"],[30,"draconic_pulse"],[32,"granite_slam"],[35,"molten_tide"],[38,"primordial_roar"],[40,"solar_flare"],[42,"obsidian_burst"],[48,"marble_resonance"],[50,"cataclysm_breath"],[60,"ancient_breath"]],
+    learnset:[[1,"inferno_jet"],[5,"char_dance"],[10,"acrid_claw"],[12,"venom_fang"],[15,"lava_drop"],[18,"pyre_fang"],[20,"pyroclasm"],[22,"ruby_strike"],[25,"magma_strike"],[28,"tainted_breath"],[30,"miasma_blast"],[32,"granite_slam"],[35,"molten_tide"],[38,"infernal_roar"],[40,"solar_flare"],[42,"obsidian_burst"],[48,"marble_resonance"],[50,"plague_wave"],[60,"caldera_meltdown"]],
     catchRate:10, expYield:318, rarity:"rare",
-    desc:"A volcanic dragon that erupts when enraged. Continents have shifted from its ancient battles.",
-    lore:"Infernotitan is a mineral-dragon 6 metres long with scales of hardened magma and breath hot enough to liquefy stone. Ancient geological surveys attribute certain canyon formations to its rampages." },
+    desc:"A volcanic salamander whose magma-slick skin weeps scalding toxins. It erupts when enraged.",
+    lore:"Infernotitan is a colossal fire salamander 6 metres long, its blackened hide slick with magma and beaded with scalding, toxic secretions that scar anything it touches. Its breath is hot enough to liquefy stone, and ancient geological surveys attribute certain canyon formations to its rampages." },
 
   354: { id:354, name:"Riftwhale", emoji:"🐋", types:["Aquatic","Mental"],
     base:{hp:105,atk:77,def:88,spa:99,spd:93,spe:53}, evolveTo:null, evolveLevel:null,

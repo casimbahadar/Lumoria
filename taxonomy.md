@@ -223,7 +223,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[350] Fernwrath | Grass/Dragon | dragon-mythic` (sub: grass-dragon, sole)
 - `[351] Spectravore | Fairy/Psychic | rainbow / prismatic being` (iridescent humanoid silhouette with all-colour aura — unique sub)
 - `[352] Voidlord | Dark/Psychic | void / cosmic abstract being` (mythical — third void/cosmic alongside Cerebraith/Voidraxis)
-- `[353] Infernotitan | Fire/Dragon | dragon-mythic` (sub: fire-dragon — fifth fire-dragon)
+- `[353] Infernotitan | Fire/Toxin | salamander` (re-archetyped from fire-dragon 2026-06-10; toxic-skinned volcanic salamander; pristine combo)
 - `[354] Riftwhale | Water/Psychic | cetacean` (psychic-whale, 12m — fifth cetacean)
 - `[355] Abyssalith | Water/Dark | eel` (armoured eel — second eel alongside Surgolith)
 - `[357] Thornspire | Grass/Steel | treant` (8m steel-branched tree — fourth treant)

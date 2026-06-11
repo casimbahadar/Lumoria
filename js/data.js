@@ -1727,15 +1727,15 @@ const MONSTERS_DATA = {
     base:{hp:41,atk:53,def:46,spa:59,spd:45,spe:47},
     learnset:[[1,"collide",[20,"cinderwhirl"]],[1,"flicker"],[9,"blitz"],[14,"baleful_stare"],[17,"inferno_jet",[5,"scorch_veil"]],[24,"vital_pulse"],[32,"ashfall"],[40,"pyroclasm"],[3,"embercloak"],[31,"lashing_tail"]],
     evolveTo:17, evolveLevel:20, catchRate:200, expYield:65, rarity:"common",
-    desc:"A small worm that breathes tiny flames. Very shy and avoids conflict.",
-    lore:"Cindercula is a sinuous fire-serpent about 1.8 metres long with iridescent scales shading from copper at the head to charcoal at the tail. A thin crest of flame-coloured feathers runs from its neck to mid-body. It slithers through ash fields and hunts by sensing heat signatures with specialised pit organs. Despite having no limbs at all, Cindercula sometimes rear upright along thermal columns and flare their feathered crests outward — a rehearsal of the great wings Searburn unfurls at metamorphosis and Bahamber spreads at maturity." },
+    desc:"A shy fledgling fire-serpent with a crest of flame-coloured feathers. Breathes tiny flames.",
+    lore:"Cindercula is a sinuous fire-serpent about 1.8 metres long with iridescent scales shading from copper at the head to charcoal at the tail. A thin crest of flame-coloured feathers runs from its neck to mid-body. It slithers through ash fields and hunts by sensing heat signatures with specialised pit organs. Despite having no limbs at all, Cindercula sometimes rear upright along thermal columns and flare their feathered crests outward — a rehearsal of the great plumed wings Searburn unfurls at metamorphosis and Quetzember spreads at maturity." },
 
-  17: { id:17, name:"Searburn",   emoji:"🐉", types:["Draconic","Earth"],
+  17: { id:17, name:"Searburn",   emoji:"🐍", types:["Fire","Wind"],
     base:{hp:78,atk:97,def:61,spa:101,spd:75,spe:92},
-    learnset:[[1,"flicker"],[2,"inferno_jet"],[3,"cinderwhirl"],[4,"scorch_veil"],[21,"vital_pulse"],[26,"char_dance"],[32,"draconic_breath"],[38,"draconic_claw"],[44,"searing_gale"],[50,"conflagration"],[56,"rampage"],[62,"solar_flare"],[5,"embercloak"],[41,"leviathan_rush"],[64,"stone_throw"],[65,"smack_down"],[66,"quake_pulse"],[67,"mud_spray"]],
+    learnset:[[1,"flicker"],[2,"inferno_jet"],[3,"cinderwhirl"],[4,"scorch_veil"],[5,"plume_veil"],[21,"vital_pulse"],[26,"char_dance"],[30,"wingbeat"],[38,"wind_scythe"],[44,"searing_gale"],[50,"jetstream"],[56,"conflagration"],[62,"skyfall"],[64,"embercloak"]],
     evolveTo:18, evolveLevel:42, catchRate:45, expYield:198, rarity:"uncommon",
-    desc:"A serpentine crag dragon. Coils around prey before unleashing flame.",
-    lore:"Searburn is a powerful earth-dragon 4 metres long — Cindercula's serpentine length has thickened and reared upward, its copper-to-charcoal scales darkened to scarlet-and-black and the flame-coloured feathered crest hardened into a pair of backward-swept horns framing its angular head. Its broad wings generate intense heat when flapping, scorching the air in wide arcs. It roosts in mountain crags above the treeline and uses updrafts to glide effortlessly for hours; years among the granite spires harden its scales toward the colour and density of the cliffs it claims as territory." },
+    desc:"A plumed fire-serpent that rides thermals on newly-grown feathered wings.",
+    lore:"Searburn is a plumed fire-serpent 4 metres long — Cindercula's serpentine length has thickened and reared upward, its copper-to-charcoal scales darkened to scarlet-and-black, and the thin feathered crest has burst into a pair of great iridescent plumed wings sprouting from behind its shoulders. Those wings beat with a heat that scorches the air in wide arcs, lofting the serpent onto rising thermals. It rides updrafts above the treeline for hours at a time, trailing sparks, and roosts on warm volcanic vents between flights." },
 
   // ===== ADDITIONAL WATER =====
   25: { id:25, name:"Reefling",  emoji:"🦀", types:["Aquatic"],
@@ -3797,12 +3797,12 @@ const MONSTERS_DATA = {
     lore:"Pyroclasm is a jagged bipedal volcanic bull-titan 2.5 metres tall that has reared up onto two legs since its Molteroth stage, its body a mass of dark basalt encrusted with glowing magma veins. When agitated it hurls chunks of its own burning body as projectiles. It forms in the wake of eruptions and is considered a manifestation of volcanic rage." },
 
   // 180: Helixareth - Fire/Draconic (Ignicula→Pyroveth→Helixareth)
-  18: { id:18, name:"Bahamber", emoji:"🐉", types:["Draconic","Earth"],
+  18: { id:18, name:"Quetzember", emoji:"🐍", types:["Fire","Wind"],
     base:{hp:87,atk:111,def:72,spa:121,spd:82,spe:77},
-    learnset:[[1,"flicker"],[1,"inferno_jet"],[2,"draconic_breath"],[3,"cinderwhirl"],[4,"scorch_veil"],[5,"embercloak"],[8,"sandstrike"],[20,"geoblast"],[30,"tectonic_shift"],[38,"draconic_claw"],[40,"crag_strike"],[42,"searing_gale"],[44,"eon_crash"],[46,"pyroclasm"],[50,"draconic_pulse"],[54,"solar_flare"],[58,"rampage"],[62,"conflagration"]],
+    learnset:[[1,"flicker"],[1,"inferno_jet"],[2,"wingbeat"],[3,"cinderwhirl"],[4,"scorch_veil"],[5,"embercloak"],[8,"breeze"],[20,"wind_scythe"],[30,"searing_gale"],[38,"jetstream"],[42,"pyroclasm"],[44,"skyfall"],[46,"plume_veil"],[50,"gale_cannon"],[54,"solar_flare"],[58,"typhoon"],[62,"conflagration"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
-    desc:"An ancient serpent of celestial fire that coils around mountaintops. Legends say its breath forged the first volcanoes.",
-    lore:"Bahamber is a serpentine earth-dragon 6 metres long that coils tightly around rocky spires to sleep — Searburn's scarlet-and-black scales have darkened further to amber-and-black overlapping like armour, and the backward-swept horns of its juvenile form have grown forward into twin crests of blue-tipped flame crowning its narrow skull. Vast wings fold along its serpentine length when at rest, almost invisible against its scales but capable of sweeping fire across a hillside when unfurled. It breathes a spiralling helix of fire able to bore through solid stone." },
+    desc:"A mature plumed sky-serpent wreathed in fire. Legends say its wingbeats fan the first volcanoes alight.",
+    lore:"Quetzember is a magnificent plumed sky-serpent 6 metres long — Searburn's wings have grown into a vast feathered span of amber, scarlet, and blue-tipped plumes, and a crown of the same iridescent feathers frames its narrow skull. It spends almost its whole life aloft, coiling and uncoiling through thermal columns high above the peaks and trailing a banner of fire that ripples in its wake. When it finally descends it sweeps low over the slopes, and the heat shed from its plumage is said in legend to have fanned the first volcanoes alight. It returns to earth only to bask, looping once around a lone spire before climbing back into the sky." },
 
   // 21: Terravore - Fire/Earth (Magmaurin→Embrath→Terravore)
   21: { id:21, name:"Terravore", emoji:"🦖", types:["Fire","Earth"],

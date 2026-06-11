@@ -99,7 +99,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[167] Projectery→Psychovast | Psychic | dog (non-wolf canine)`
 - `[169] Espelith→Aurarael | Psychic/Fairy | crystalline-prism` (mythical)
 - `[170] Oneiron | Psychic/Dark | dream-entity / wisp` (formless, standalone)
-- `[171] Drakorius | Psychic/Dragon | dragon-mythic` (sub: psychic-dragon, standalone)
+- `[171] Nagaseer | Mental/Poison | naga` (sub: oracle-serpent, standalone)
 - `[174] Scalurin→Cobravyrm→Scalevorn | Dragon/Steel | dragon-mythic` (sub: steel-dragon)
 
 ### Batch 2 (families 71-105)
@@ -183,7 +183,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[314] Galeaxis | Wind/Electric | dog (non-wolf canine)` (greyhound, standalone)
 - `[315] Ashvanus | Fire/Rock | volcanic-vent creature` (unique — "volcanic vent that has grown a body" with magma core; borderline rock-elemental vs unique. Standalone)
 - `[316] Abyssovex | Water/Dark | cephalopod` (deep-sea squid leviathan, standalone — second cephalopod alongside Toxaquil line)
-- `[317] Temporith | Psychic/Dragon | dragon-mythic` (sub: psychic-dragon — second psychic-dragon alongside Drakorius)
+- `[317] Temporith | Psychic/Dragon | dragon-mythic` (sub: psychic-dragon — now the sole psychic-dragon; the former Drakorius was re-archetyped to naga)
 - `[318] Gaiavorn | Ground/Grass | golem / earth-titan` (4m titan with living forest canopy — variant golem; could double as treant — flag)
 - `[319] Voidraxis | Dark/Fairy | void / cosmic abstract being` (mythical — second void/cosmic alongside Cerebraith)
 - `[320] Galvathon | Steel/Electric | golem` (mechanical titan)

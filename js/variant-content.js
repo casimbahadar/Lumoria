@@ -492,7 +492,7 @@
     168: { noun: 'gem creature', features: ['its violet crystal prism body', 'the serene face within it', 'its short limbs'], coreLine: 'A calm presence still hums within its crystal.' },
     169: { noun: 'crystal cluster', features: ['its orbiting cluster of shards', 'its violet glow', 'its slow turning halo'], coreLine: 'Its shards still wheel in quiet orbit.' },
     170: { noun: 'dream-wisp', features: ['its indigo-and-silver wisp body', 'its dissolving limbs', 'the motes drifting off it'], coreLine: 'Its edges still melt away into dream.' },
-    171: { noun: 'dragon', features: ['its sleek violet-blue scales', 'its broad intelligent brow', 'its translucent wings'], coreLine: 'A keen intelligence still lights its eyes.' },
+    171: { noun: 'oracle-serpent', features: ['its broad flaring cobra-hood', 'its eye-marked violet-blue coils', 'its hypnotic gaze'], coreLine: 'A keen, ancient intelligence still lights its eyes.' },
     172: { noun: 'dragon hatchling', features: ['its soft pale gold-green scales', 'its enormous eyes', 'its stumbling gait'], coreLine: 'It still stumbles with a hatchling’s clumsiness.' },
     173: { noun: 'dragon-serpent', features: ['its green-bronze scales', 'its flat head-crest', 'its coiling body'], coreLine: 'It still coils and weaves as it stalks.' },
     174: { noun: 'steel dragon', features: ['its steel-grey metallic plates', 'its powerful frame', 'its bladed scales'], coreLine: 'Its plated hide still rings like struck metal.' },

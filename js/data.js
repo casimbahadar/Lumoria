@@ -2203,12 +2203,12 @@ const MONSTERS_DATA = {
     desc:"A dreamrift that exists between sleep and waking. It draws power from nightmares.",
     lore:"Oneiron is a mental-dream entity 70 cm tall with a wisp-like body of deep indigo and silver. Its limbs dissolve at the edges into drifting motes of light. It inhabits the boundary between waking and sleep, entering dreams of nearby sleeping creatures and exploring their symbolic landscapes." },
 
-  171: { id:171, name:"Drakorius",    emoji:"🐲", types:["Draconic"],
+  171: { id:171, name:"Nagaseer",    emoji:"🐍", types:["Mental","Poison"],
     base:{hp:75,atk:88,def:74,spa:112,spd:82,spe:90},
-    learnset:[[1,"draconic_breath",[28,"synaptic_shatter"]],[1,"mind_jolt"],[3,"prism_ward"],[10,"scale_shot"],[13,"psi_burst"],[21,"draconic_claw"],[24,"war_dance"],[29,"mental"],[35,"drake_tail"],[37,"draconic_pulse"],[38,"eon_crash"],[44,"astral_rend"],[45,"psi_strike"],[53,"rampage",[5,"inner_calm"]]],
+    learnset:[[1,"mind_jolt"],[1,"psy_jab",[28,"synaptic_shatter"]],[3,"prism_ward"],[5,"coil"],[10,"venom_jab"],[13,"psi_burst"],[21,"mesmerize"],[24,"mental"],[29,"venom_mind"],[35,"venom_lance"],[37,"astral_rend"],[44,"sludge_wave"],[45,"psi_strike"],[53,"psycho_surge",[5,"inner_calm"]]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
-    desc:"A wise mediator dragon, fluent in the territorial calls of every clan. Ancient and mysterious.",
-    lore:"Drakorius is a dragon 2 metres long with sleek violet-blue scales and a broad intelligent forehead. Its wings are translucent membranes showing internal structure like stained glass. It is uniquely fluent in the territorial calls and posture-language of every dragon species, and has historically served as a mediator between rival dragon clans." },
+    desc:"A wise oracle-serpent that mediates with hypnotic, telepathic speech. Its hood-gaze stills any quarrel.",
+    lore:"Nagaseer is a great hooded serpent 4 metres long, its sleek violet-blue coils marked with eye-like patterns and a broad cobra-hood that flares when it speaks mind-to-mind. Revered as an oracle, it is fluent in the silent posture-language of every creature and has long served as a mediator between rival clans, stilling quarrels with a hypnotic, telepathic voice. Those who ignore its counsel learn that the same hood conceals fangs heavy with a venom potent enough to end any argument outright." },
 
   // ===== DRAGON =====
   172: { id:172, name:"Scalurin",    emoji:"🐣", types:["Draconic"],
@@ -5664,7 +5664,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:108, minLv:54, maxLv:58, rate:34}, // Silvergust
       {id:112, minLv:54, maxLv:58, rate:29}, // Swirlavel
-      {id:171, minLv:55, maxLv:58, rate:24}, // Drakorius
+      {id:171, minLv:55, maxLv:58, rate:24}, // Nagaseer
       {id:177, minLv:55, maxLv:58, rate:10}, // Sapphier
       {id:128, minLv:55, maxLv:58, rate:3}   // Cranivade
     ],

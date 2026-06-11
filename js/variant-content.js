@@ -669,7 +669,7 @@
     345: { noun: 'void raven', features: ['its light-swallowing black plumage', 'its dim crimson eyes', 'its shadow-coiled wake'], coreLine: 'A visible darkness still pools around it.' },
     346: { noun: 'astral form', features: ['its body of solidified psychic energy', 'its luminous wings', 'its radiant outline'], coreLine: 'It still glides on wings of pure thought.' },
     347: { noun: 'forge golem', features: ['its superheated steel body', 'its white-hot joints', 'its forged frame'], coreLine: 'Its seams still glow forge-bright with heat.' },
-    348: { noun: 'gale dragon', features: ['its broad swept-back wings', 'the cyclone whirling around it', 'its sleek body'], coreLine: 'A private gale still churns wherever it flies.' },
+    348: { noun: 'gale swift', features: ['its long swept-back wings', 'the cyclone whirling around it', 'its sleek body'], coreLine: 'A private gale still churns wherever it flies.' },
     349: { noun: 'ice fortress', features: ['its layered ice-and-granite body', 'its tower-like form', 'its battlement ridges'], coreLine: 'It still stands like a keep that learned to walk.' },
     350: { noun: 'forest dragon', features: ['its polished dark-wood scales', 'its mane of living ferns', 'its long body'], coreLine: 'Plants still surge to life where it treads.' },
     351: { noun: 'prism marsupial', features: ['its prism-fractured light body', 'its faceted form', 'its glowing pouch'], coreLine: 'Light still splinters through its fractured frame.' },

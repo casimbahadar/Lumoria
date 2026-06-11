@@ -4252,12 +4252,12 @@ const MONSTERS_DATA = {
     desc:"Forged in Ironforge's legendary seventh furnace, it is the pinnacle of fire-steel metallurgy.",
     lore:"Embersteel is a steel-fire golem 2.2 metres tall with a body of superheated steel that glows white-hot at its joints. It was created as a guardian automaton and has never been fully tamed." },
 
-  348: { id:348, name:"Galedrake", emoji:"🌪️", types:["Draconic","Wind"],
+  348: { id:348, name:"Galeswift", emoji:"🐦", types:["Wind","Sonic"],
     base:{hp:69,atk:91,def:69,spa:91,spd:76,spe:99}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"breeze"],[10,"draconic_breath"],[20,"wind_scythe"],[30,"draconic_claw"],[40,"tailwind_strike"],[50,"wyvern_gust"],[60,"scale_storm"],[5,"zephyr_dance"],[38,"wyrm_strike"]],
+    learnset:[[1,"breeze"],[10,"discord"],[20,"wind_scythe"],[30,"concussive_strike"],[40,"tailwind_strike"],[50,"pulse_wave"],[60,"shockwave_boom"],[5,"zephyr_dance"],[38,"skyboom_strike"]],
     catchRate:16, expYield:288, rarity:"rare",
-    desc:"A dragon that rides perpetual cyclones of its own creation. It cannot stop flying or the storm dies.",
-    lore:"Galedrake is a dragon-wind creature 3.5 metres long with broad swept-back wings that generate a constant personal cyclone. The air around it is always in violent circular motion." },
+    desc:"A swift that rides perpetual cyclones of its own creation. It cannot land or the storm dies — so it never does.",
+    lore:"Galeswift is a wind-swift with a 3.5-metre wingspan and long swept-back wings that generate a constant personal cyclone. It has not touched ground in its entire life — to land would still its storm and ground it forever — and the air around it is always in violent circular motion, its passage marked by a rolling sonic boom." },
 
   349: { id:349, name:"Crystavault", emoji:"💠", types:["Ice","Mineral"],
     base:{hp:80,atk:91,def:109,spa:74,spd:87,spe:54}, evolveTo:null, evolveLevel:null,

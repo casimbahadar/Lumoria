@@ -218,7 +218,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395, #398, #400, #401, #402-407 (Mirkling pseudolegendary line). Tagged `[LEGEND tN]` where applicable below.
 
 - `[347] Embersteel | Steel/Fire | golem` (superheated steel guardian-automaton — third+ steel golem)
-- `[348] Galedrake | Dragon/Wind | dragon-mythic` (sub: wind-dragon — second wind-dragon alongside Cyclonax)
+- `[348] Galeswift | Wind/Sonic | swift` (re-archetyped from wind-dragon 2026-06-10; never-landing storm-swift; renamed from Galedrake)
 - `[349] Crystavault | Ice/Rock | golem / fortress-tower` (layered ice/granite tower; borderline rock-monolith)
 - `[350] Fernwrath | Grass/Dragon | dragon-mythic` (sub: grass-dragon, sole)
 - `[351] Spectravore | Fairy/Psychic | rainbow / prismatic being` (iridescent humanoid silhouette with all-colour aura — unique sub)
@@ -247,7 +247,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[376] Solarwrath | Fire/Fairy | phoenix / solar-being` (solar plasma — second solar archetype with Pyrocrown)
 - `[377] Abyssforge | Earth/Mineral | golem` (planetary-core-pressure alloy; retyped Earth/Metal→Earth/Mineral for diversity)
 - `[378] Dreamweald | Psychic/Fairy | dream-entity` (visible only to half-asleep; second dream-entity alongside Oneiron)
-- `[379] Riftscale | Wind/Dragon | dragon-mythic [LEGEND t2]` (sub: wind-dragon — third wind-dragon alongside Cyclonax/Galedrake)
+- `[379] Riftscale | Wind/Dragon | dragon-mythic [LEGEND t2]` (sub: wind-dragon — third wind-dragon alongside Cyclonax)
 - `[380] Tempestborn | Electric/Wind | thunderstorm-disaster [LEGEND t2]` (over cap)
 - `[381] Crystalmind | Psychic/Steel | crystalline-prism` (geometric polyhedron — fourth crystalline-prism)
 - `[382] Voidcoil→Oblivionwing | Dark/Wind | raven / corvid` (re-archetyped from dark-dragons 2026-06-10; NG+ 2-stage void-raven; duskstone evolution)

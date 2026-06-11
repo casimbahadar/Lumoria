@@ -3604,19 +3604,19 @@ const MONSTERS_DATA = {
     lore:"Terragolem is a massive metal-earth golem 2.5 metres tall — Dentshaft's dented-and-scuffed humanoid miner-frame has expanded into a tremendous assembly of metal and compressed earth, and the reflexive surface-tapping of its juvenile form has become a deep tremor through the ground with every step. The ground trembles slightly with each of its steps. It is largely indifferent to the world around it and moves at its own slow pace, but obstacles that cannot be sidestepped are simply absorbed." },
 
   // ===== DRAGON/GROUND =====
-  106: { id:106, name:"Geodrak", emoji:"🐣", types:["Draconic"],
+  106: { id:106, name:"Geoclad", emoji:"🦔", types:["Earth","Metal"],
     base:{hp:40,atk:59,def:63,spa:57,spd:42,spe:64},
-    learnset:[[1,"graze",[22,"terra_spike"]],[1,"draconic_breath"],[10,"mud_spray"],[18,"draconic_claw"],[20,"lashing_tail"],[26,"tectonic_shift"],[34,"draconic_pulse",[5,"hydra_dance"]],[36,"sinkhole_maw"],[3,"saurian_roar"],[31,"leviathan_rush"]],
+    learnset:[[1,"graze",[22,"terra_spike"]],[1,"quake_pulse"],[10,"mud_spray"],[18,"auger_strike"],[20,"lashing_tail"],[26,"tectonic_shift"],[34,"telluric_wave",[5,"sand_storm_polish"]],[36,"sinkhole_maw"],[3,"clay_armor"],[31,"boulder_roll"]],
     evolveTo:107, evolveLevel:32, catchRate:80, expYield:94, rarity:"uncommon",
-    desc:"A burrowing dragon hatchling. Digs deep tunnels and breathes sand-laden gusts.",
-    lore:"Geodrak is a hatchling dragon about 40 cm long with rough grey-brown scales and two stumpy wing-buds on its back. Its small claws are already powerful diggers. It hatches from eggs buried in volcanic soil and immediately begins tunnelling to locate its first meal. Newly-hatched Geodrak often gather at cave mouths and spread their stumpy wing-buds toward the open sky. The preparation is futile; Quakeon, the mature ground-dragon they grow into, only ever achieves short downhill glides. True flight remains a hereditary aspiration this evolution will never fulfil." },
+    desc:"An armoured hatchling burrower. Rolls into a bony ball and tunnels through volcanic soil.",
+    lore:"Geoclad is an armoured hatchling about 40 cm long, its back already sheathed in a cap of overlapping bony scutes the colour of weathered iron. Its stubby claws are powerful diggers. It hatches from eggs buried in volcanic soil and immediately begins tunnelling to locate its first meal. When threatened, a young Geoclad tucks its soft underside away and rolls into a tight armoured ball, letting predators' teeth scrape uselessly across its shell. With each moult the plates thicken and fuse, until it grows into Quakeon, the great glyptodon whose domed back becomes an impregnable fortress of dark-bronze armour." },
 
-  107: { id:107, name:"Quakeon", emoji:"🐲", types:["Draconic","Earth"],
+  107: { id:107, name:"Quakeon", emoji:"🦔", types:["Earth","Metal"],
     base:{hp:86,atk:108,def:96,spa:94,spd:64,spe:69},
-    learnset:[[1,"draconic_claw"],[2,"tectonic_shift"],[3,"hydra_dance"],[32,"draconic_pulse"],[36,"battle_cry"],[40,"saurian_roar"],[44,"tremor_stomp"],[48,"geoblast"],[52,"eon_crash"],[56,"ancient_breath"],[60,"rampage"],[64,"radiance_cannon"],[4,"primordial_roar"],[39,"scale_storm"],[66,"loam_leech"]],
+    learnset:[[1,"auger_strike"],[2,"tectonic_shift"],[3,"clay_armor"],[32,"erosion_wave"],[36,"battle_cry"],[40,"sand_storm_polish"],[44,"tremor_stomp"],[48,"geoblast"],[52,"crag_strike"],[56,"continental_shift"],[60,"worldseed_quake"],[64,"radiance_cannon"],[4,"smack_down"],[39,"landslide"],[66,"loam_leech"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:260, rarity:"rare",
-    desc:"A subterranean dragon that causes quakes with each step. Rules the deep underground.",
-    lore:"Quakeon is a mature ground-dragon 2 metres long — Geodrak's stumpy wing-buds have grown into fully developed wings (still too short for sustained flight but useful for gliding downhill), and the rough grey-brown hatchling scales have darkened to broad overlapping dark-bronze plates. It excavates vast cavern systems using its tail as a battering ram, and ground above its tunnels often subsides unexpectedly." },
+    desc:"A mature glyptodon armoured in dark-bronze plates. Its bludgeon tail levels the ground into quakes.",
+    lore:"Quakeon is a mature glyptodon 2 metres long — Geoclad's loose juvenile scutes have fused into a single great dome of broad overlapping dark-bronze plates, so heavy that no predator's bite can crack it. Its tail has thickened into a knobbed bludgeon ringed with bone. It excavates vast cavern systems by ramming through bedrock with that club, and the ground above its tunnels often subsides unexpectedly into sinkholes." },
 
   // ===== NORMAL/PSYCHIC =====
   189: { id:189, name:"Woolcalm", emoji:"🐑", types:["Normal","Mental"],
@@ -6170,7 +6170,7 @@ const WORLD_DATA = {
       {id:101, minLv:59, maxLv:64, rate:13},  // Limoux (base)
       {id:104, minLv:60, maxLv:65, rate:22},  // Arenikin (base)
       {id:105, minLv:61, maxLv:66, rate:5},  // Dravanas (mid → after 104 ✓)
-      {id:106, minLv:60, maxLv:65, rate:15},  // Geodrak (base)
+      {id:106, minLv:60, maxLv:65, rate:15},  // Geoclad (base)
       {id:236, minLv:59, maxLv:64, rate:9},  // Frostick (base Ice)
       {id:248, minLv:59, maxLv:64, rate:18}   // Pebblard (base Rock)
     ],

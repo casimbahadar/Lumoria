@@ -70,7 +70,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[100] Aridix→Toxivenoth→Craterlurk | Ground/Poison | scorpion` (**name leak in #100: "Venomvast"**)
 - `[103] Limoux→Dunoloth→Calciderm | Ground/Water | crocodilian` (**name leak in #103: "Crustvast"**)
 - `[105] Arenikin→Dravanas | Normal/Ground | lion` (currently; on BREAKING list to pivot to canid)
-- `[107] Geodrak→Quakeon | Dragon/Ground | dragon-mythic` (sub: ground-dragon)
+- `[107] Geoclad→Quakeon | Earth/Metal | glyptodon` (sub: armoured mammal)
 - `[110] Silvergust→Siroccomane→Aeolarch | Wind/Electric | lion` (wind-lion)
 - `[113] Aeolin→Swirlavel→Cyclavorn | Wind | bird-of-prey` (condor)
 - `[115] Nimbusel→Aetherworn | Wind/Dark | cloud-fairy / wraith-fairy`
@@ -133,7 +133,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[228] Lunaroon | Grass/Psychic | kangaroo (marsupial)` (moonlight branch of Spectroo line — second marsupial family + alt Spectroo branch)
 - `[229] Radiafish | Electric/Psychic | kangaroo (marsupial)` (electric branch of Spectroo line — third marsupial / alt Spectroo branch)
 - `[231] Scaleling→Wyvaxis | Dragon/Water | dragon-mythic` (sub: water-dragon — second water-dragon alongside Biolumal)
-- `[234] Serphaxon→Serpenthorn→Wyvernak | Dragon/Ground | dragon-mythic` (sub: ground-dragon — second ground-dragon alongside Geodrak line)
+- `[234] Serphaxon→Serpenthorn→Wyvernak | Dragon/Ground | dragon-mythic` (sub: ground-dragon — now the sole ground-dragon line; the former Geodrak line was re-archetyped to glyptodon)
 - `[235] Glintscale | Aquatic/Fairy | koi` (re-archetyped from water-dragon 2026-06-10; mystical boundary-swimming koi)
 - `[237] Frostick→Icevault | Ice/Rock | ice-stone vault / fortress structure` (small architectural creature — unique sub-archetype)
 - `[240] Snowble→Blizzariel→Tundrafox | Ice/Dark | snowman (folkloric)` (mythical, just claimed)

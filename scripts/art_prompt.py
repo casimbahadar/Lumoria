@@ -12,6 +12,7 @@ Usage:
     python3 scripts/art_prompt.py 231
     python3 scripts/art_prompt.py 16 17 18          # whole evolution line
     python3 scripts/art_prompt.py 231 --mode card   # dex-card framing
+    python3 scripts/art_prompt.py 231 --style pixel # Gen-4 pixel-art sprite
     python3 scripts/art_prompt.py 231 --raw         # just the parsed fields
 
 Output per id: the ready-to-paste PROMPT, a COMPONENTS breakdown (so you can
@@ -41,6 +42,25 @@ STYLE_LINE = (
 CARD_LINE = (
     "presented as a framed creature-dex card — name, type icon, a short "
     "flavor line, and 2-3 small expression/pose thumbnails — " + STYLE_LINE
+)
+
+# Gen-4 (DS-era) pixel-art style line, used when --style pixel is passed.
+PIXEL_LINE = (
+    "a Generation-4 (Nintendo DS, Diamond/Pearl/Platinum-era) Pokemon-style "
+    "pixel-art sprite, low-resolution ~96x96 pixel grid, limited flat palette, "
+    "crisp hard-edged pixels with no anti-aliasing or smooth gradients, simple "
+    "dithering for shadows, clean dark outline, bold readable silhouette that "
+    "stays clear when scaled down to ~40px, front 3/4 battle pose, centered "
+    "full-body on a fully transparent background, square 1:1 framing"
+)
+
+# Sizing footer printed under pixel-mode prompts — real engine render targets.
+PIXEL_SIZING = (
+    "Target: square PNG -> assets/sprites/<id>.png. Generate native 96x96; the "
+    "engine scales the one square image to 90px (battle), 110px (dex detail), "
+    "100px (team), 56px/40px (lists). Keep the silhouette bold + high-contrast "
+    "so it also reads as a ~16-30px area/map icon. For crisp (not blurred) "
+    "pixels the sprite <img> needs image-rendering: pixelated (currently auto)."
 )
 
 # Per-type glowing-FX phrasing for the [signature feature + glowing FX] slot.
@@ -184,7 +204,7 @@ def palette(lore):
     return [term for _, term in found][:4]
 
 
-def build_prompt(mid, mon, var, mode="sprite"):
+def build_prompt(mid, mon, var, mode="sprite", style="painterly"):
     name = mon.get("name") or f"#{mid}"
     types = mon.get("types") or ["Normal"]
     element = "/".join(types)
@@ -218,8 +238,14 @@ def build_prompt(mid, mon, var, mode="sprite"):
         parts.append(core.rstrip("."))
     lead = "; ".join(p for p in parts if p)
 
-    style = CARD_LINE if mode == "card" else STYLE_LINE
-    return f"{lead}. {style}", {
+    # pixel overrides framing (a pixel sprite isn't a dex card)
+    if style == "pixel":
+        style_line = PIXEL_LINE
+    elif mode == "card":
+        style_line = CARD_LINE
+    else:
+        style_line = STYLE_LINE
+    return f"{lead}. {style_line}", {
         "name": name, "emoji": mon.get("emoji"), "element": element,
         "noun": noun, "body_plan": body, "features": features,
         "palette": pal_str or "(none detected — add by hand)",
@@ -227,11 +253,11 @@ def build_prompt(mid, mon, var, mode="sprite"):
     }
 
 
-def emit(mid, mon, var, mode, raw):
+def emit(mid, mon, var, mode, raw, style):
     if mon is None:
         print(f"\n#{mid}: not found in data.js\n")
         return
-    prompt, comp = build_prompt(mid, mon, var, mode)
+    prompt, comp = build_prompt(mid, mon, var, mode, style)
     head = f"#{mid} {comp['name']} {comp['emoji'] or ''}".strip()
     print("\n" + "=" * 78)
     print(head + f"   [{comp['element']}]"
@@ -247,12 +273,15 @@ def emit(mid, mon, var, mode, raw):
             print(f"  {k:10}: {comp[k]}")
         print(f"  lore      : {mon.get('lore')}")
         return
-    print("\nPROMPT (paste into image generator):\n")
+    label = "PROMPT (Gen-4 pixel sprite)" if style == "pixel" else "PROMPT"
+    print(f"\n{label} (paste into image generator):\n")
     print('  "' + prompt + '"')
     print("\nCOMPONENTS (tweak any slot by hand):")
     for k in ("noun", "body_plan", "palette", "fx", "pose"):
         print(f"  {k:10}: {comp[k]}")
     print(f"  features  : {', '.join(comp['features']) or '(none)'}")
+    if style == "pixel":
+        print(f"\nSIZING: {PIXEL_SIZING}")
     print(f"\nLORE (reference): {mon.get('lore')}")
 
 
@@ -261,6 +290,9 @@ def main():
     ap.add_argument("ids", nargs="+", type=int, help="Lumori id(s)")
     ap.add_argument("--mode", choices=("sprite", "card"), default="sprite",
                     help="sprite (engine art, default) or card (dex-card framing)")
+    ap.add_argument("--style", choices=("painterly", "pixel"), default="painterly",
+                    help="painterly illustration (default) or Gen-4 pixel-art "
+                         "sprite (overrides --mode card)")
     ap.add_argument("--raw", action="store_true",
                     help="dump parsed fields only, no assembled prompt")
     args = ap.parse_args()
@@ -268,7 +300,7 @@ def main():
     data = parse_data(DATA.read_text(encoding="utf-8"))
     variants = parse_variant(VARIANT.read_text(encoding="utf-8"))
     for mid in args.ids:
-        emit(mid, data.get(mid), variants.get(mid), args.mode, args.raw)
+        emit(mid, data.get(mid), variants.get(mid), args.mode, args.raw, args.style)
     print()
 
 

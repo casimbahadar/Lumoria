@@ -219,7 +219,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 
 - `[347] Ashgolem→Embersteel | Metal/Fire | golem` (sub: forge-golem / smith-construct; merged 2026-06-12 from 2 NG+ golem standalones via Metal Coat — Fire/Mineral ash-golem → Metal/Fire forged-steel guardian)
 - `[348] Galeswift | Wind/Sonic | swift` (re-archetyped from wind-dragon 2026-06-10; never-landing storm-swift; renamed from Galedrake)
-- `[349] Crystavault | Ice/Rock | golem / fortress-tower` (layered ice/granite tower; borderline rock-monolith)
+- `[349] Crystavault (→Glaciarch→Permafrost) | Ice/Mineral | golem` (base of the ice-golem line; see [385])
 - `[350] Fernwrath | Nature/Mineral | iguana` (re-archetyped from grass-dragon 2026-06-10; bark-scaled forest iguana)
 - `[351] Spectravore | Fairy/Psychic | rainbow / prismatic being` (iridescent humanoid silhouette with all-colour aura — unique sub)
 - `[352] Voidlord | Dark/Psychic | void / cosmic abstract being` (mythical — third void/cosmic alongside Cerebraith/Voidraxis)
@@ -228,7 +228,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[355] Abyssalith | Water/Dark | eel` (armoured eel — second eel alongside Surgolith)
 - `[357] Thornspire | Grass/Steel | treant` (8m steel-branched tree — fourth treant)
 - `[358] Pyrocrown | Fire/Psychic | phoenix / solar bird` (mythical-exempt — sole phoenix family)
-- `[359] Glaciarch | Ice/Psychic | golem` (idealised ice humanoid)
+- `[359] Glaciarch (→Permafrost) | Ice/Mental | golem` (mid of the ice-golem line; see [385])
 - `[360] Duskmantle | Dark/Fairy | duality being` (half-fairy half-shadow; unique sub-archetype)
 - `[361] Tectolith | Earth/Nature | zaratan / island-turtle` (re-archetyped from ground-dragon 2026-06-10; living-landscape shell)
 - `[362] Lunaspectre | Mental/Spectral | moonlight-spectre` (split out of wraith bucket per policy; Spectral is pre-Forgotten-allowed — stale Ghost flag cleared)
@@ -256,7 +256,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 
 - `[383] Apexblade | Metal/Aquatic | swordfish` (re-archetyped from steel-dragon 2026-06-10; living-blade sea predator)
 - `[384] Solarcrown | Fire/Psychic | phoenix / solar-being` (third solar archetype with Pyrocrown/Solarwrath)
-- `[385] Permafrost | Ice/Ground | golem` (glacial boulder humanoid)
+- `[385] Crystavault→Glaciarch→Permafrost | Ice/Earth | golem` (sub: ice-golem; merged 2026-06-12 from 3 NG+ golem standalones — young crystal-ice construct → awakened ice-sovereign → ancient earth-fused glacial titan; secondary type shifts Mineral→Mental→Earth, no cap impact)
 - `[386] Wraithstorm | Spectral/Electric | storm-wraith` (split out of wraith bucket per policy)
 - `[387] Deepvoid | Dark/Water | void / cosmic abstract being` (sub: aquatic void — fifth void/cosmic)
 - `[388] Chronolith | Rock/Psychic | rock-monolith` (psychic-stone with frozen moments — sixth rock-monolith)

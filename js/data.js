@@ -4260,11 +4260,11 @@ const MONSTERS_DATA = {
     lore:"Galeswift is a wind-swift with a 3.5-metre wingspan and long swept-back wings that generate a constant personal cyclone. It has not touched ground in its entire life — to land would still its storm and ground it forever — and the air around it is always in violent circular motion, its passage marked by a rolling sonic boom." },
 
   349: { id:349, name:"Crystavault", emoji:"💠", types:["Ice","Mineral"],
-    base:{hp:80,atk:91,def:109,spa:74,spd:87,spe:54}, evolveTo:null, evolveLevel:null,
+    base:{hp:74,atk:80,def:96,spa:64,spd:76,spe:50}, evolveTo:359, evolveLevel:72,
     learnset:[[1,"glacial_punch"],[5,"fortify"],[10,"stone_throw"],[12,"cryogenic_field"],[15,"crystal_veil"],[18,"boreal_armor"],[20,"cold_beam"],[21,"sapphire_lance"],[22,"ice_hammer"],[25,"crystal_glow"],[28,"ice_resonance"],[29,"marble_resonance"],[30,"stone_slide"],[35,"gem_resonance"],[38,"winter_shroud"],[40,"cryo_lance"],[50,"fossil_rush"],[60,"whiteout"]],
-    catchRate:16, expYield:292, rarity:"rare",
-    desc:"A fortress of living glacier-stone. Its outer shell has never been successfully breached in recorded history.",
-    lore:"Crystavault is an ice-mineral creature 2.5 metres tall resembling a fortified tower of layered glacial ice and granite. Ancient siege equipment has been found bent and broken around specimens." },
+    catchRate:45, expYield:150, rarity:"uncommon",
+    desc:"A young ice golem of clear glacial ice studded with raw crystal. A glacial awareness slowly stirs in its core.",
+    lore:"Crystavault is a 2.5-metre ice-golem, a compact construct of clear glacial ice studded with raw mineral crystal, its surface ridged like the walls of a small keep. It is the youngest of its kind: as it endures the deep cold over centuries, a faint glacial awareness begins to stir within its crystal core, and the construct slowly reshapes itself toward the sovereign form of Glaciarch." },
 
   350: { id:350, name:"Fernwrath", emoji:"🦎", types:["Nature","Mineral"],
     base:{hp:73,atk:95,def:75,spa:92,spd:79,spe:81}, evolveTo:null, evolveLevel:null,
@@ -4331,11 +4331,11 @@ const MONSTERS_DATA = {
     lore:"Pyrocrown is a fire-psychic bird 1.8 metres tall with feathers of solidified flame and a crown of pure solar fire. Its thoughts manifest as bursts of psychokinetic flame." },
 
   359: { id:359, name:"Glaciarch", emoji:"❄️", types:["Ice","Mental"],
-    base:{hp:73,atk:79,def:90,spa:107,spd:93,spe:73}, evolveTo:null, evolveLevel:null,
+    base:{hp:73,atk:79,def:90,spa:107,spd:93,spe:73}, evolveTo:385, evolveLevel:82,
     learnset:[[1,"cold_beam"],[10,"mental"],[20,"cryo_lance"],[30,"psi_strike"],[40,"whiteout"],[50,"synaptic_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"winter_shroud"]],
-    catchRate:10, expYield:316, rarity:"rare",
+    catchRate:22, expYield:316, rarity:"uncommon",
     desc:"The sovereign of all ice-bound psychics. Its mind is as cold and clear as absolute zero.",
-    lore:"Glaciarch is an ice-psychic entity 2 metres tall resembling an idealised humanoid carved entirely from deep blue glacial ice. Its eyes are voids of total blue-white." },
+    lore:"Glaciarch is the matured Crystavault — its crystal core has awakened into a cold, vast intelligence and its body has reshaped into an idealised humanoid carved from deep blue glacial ice, eyes voids of total blue-white. Reigning as the sovereign of all ice-bound minds, it eventually sinks into a centuries-long stillness, slowly fusing with the frozen bedrock until it becomes the colossal Permafrost." },
 
   360: { id:360, name:"Duskmantle", emoji:"🌙", types:["Dark","Mental"],
     base:{hp:68,atk:83,def:73,spa:105,spd:98,spe:93}, evolveTo:null, evolveLevel:null,
@@ -4519,8 +4519,8 @@ const MONSTERS_DATA = {
     base:{hp:87,atk:102,def:104,spa:75,spd:87,spe:70}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"glacial_punch"],[10,"geoblast"],[20,"cryo_lance"],[30,"fissure_slam"],[40,"whiteout"],[50,"terra_spike"],[60,"cold_beam"],[5,"winter_shroud"],[52,"fortify"],[62,"mire_burst"]],
     catchRate:5, expYield:355, rarity:"rare",
-    desc:"A creature so cold it freezes the ground beneath it permanently. It has never melted.",
-    lore:"Permafrost is an ice-ground creature 3 metres tall resembling a glacial boulder with limbs. The ground beneath it freezes to a depth of 50 metres and does not thaw for decades after it leaves." },
+    desc:"The ancient final form of the ice-golem line — a titanic glacial colossus fused with the frozen earth.",
+    lore:"Permafrost is the ancient, final form of the line: the once-sharp ice-sovereign Glaciarch has sunk into the frozen earth and swelled into a titanic glacial colossus 3 metres tall, a glacier given limbs, its mind slowed to the patient pace of moving ice. The ground beneath it freezes to a depth of 50 metres and does not thaw for decades after it has moved on." },
 
   386: { id:386, name:"Wraithstorm", emoji:"💀", types:["Electric","Spectral"],
     base:{hp:68,atk:92,def:70,spa:106,spd:84,spe:105}, evolveTo:null, evolveLevel:null,
@@ -6300,7 +6300,7 @@ const WORLD_DATA = {
       {id:232, minLv:67, maxLv:72, rate:5}    // Serphaxon (base Draconic/Ground)
     ],
     hasGym:false, requiredBadges:14, mapPos:{x:48, y:85},
-    ngPlusWildMonsters:[{id:364, minLv:68, maxLv:74, rate:9}, {id:332,minLv:74,maxLv:80,rate:20},{id:349,minLv:74,maxLv:80,rate:15},{id:369,minLv:75,maxLv:81,rate:10}]
+    ngPlusWildMonsters:[{id:364, minLv:68, maxLv:74, rate:9}, {id:332,minLv:74,maxLv:80,rate:20},{id:349,minLv:66,maxLv:72,rate:18},{id:369,minLv:75,maxLv:81,rate:10}]
   },
   quarryville: {
     id:"quarryville", name:"Quarryville Town", icon:"🏗️", type:"city",
@@ -6314,7 +6314,7 @@ const WORLD_DATA = {
       {id:92,  minLv:70, maxLv:74, rate:30}   // standalone
     ],
     hasGym:true, gymLeader:"boulder", requiredBadges:14, mapPos:{x:55, y:82},
-    ngPlusWildMonsters:[{id:399, minLv:69, maxLv:75, rate:8}, {id:359, minLv:69, maxLv:75, rate:9}, {id:327,minLv:74,maxLv:80,rate:25},{id:341,minLv:74,maxLv:80,rate:15},{id:349,minLv:75,maxLv:81,rate:8}]
+    ngPlusWildMonsters:[{id:399, minLv:69, maxLv:75, rate:8}, {id:359, minLv:74, maxLv:80, rate:9}, {id:327,minLv:74,maxLv:80,rate:25},{id:341,minLv:74,maxLv:80,rate:15},{id:349,minLv:67,maxLv:72,rate:10}]
   },
   route16: {
     id:"route16", name:"Route 16 - Starlit Path", icon:"✨", type:"route",
@@ -6436,7 +6436,7 @@ const WORLD_DATA = {
       {id:195, minLv:69, maxLv:74, rate:24},  // Prismolith (base, new)
       {id:196, minLv:70, maxLv:75, rate:6}   // Frigolith (mid → after 195 ✓)
     ],
-    ngPlusWildMonsters:[{id:385, minLv:68, maxLv:75, rate:8}, {id:367, minLv:68, maxLv:75, rate:10}], // NG+ standalone: Bouldertide
+    ngPlusWildMonsters:[{id:385, minLv:82, maxLv:88, rate:8}, {id:367, minLv:68, maxLv:75, rate:10}], // NG+: Permafrost (ice-golem final), Bouldertide
     hasGym:false, requiredBadges:14, mapPos:{x:48, y:82}
   },
   cosmic_cavern: {

@@ -2196,12 +2196,12 @@ const MONSTERS_DATA = {
     desc:"A levitating psychic core orbited by seven prism shards, held in formation by a luminous mind-field. Its serene face gleams from the central crystal.",
     lore:"Aurarael is a 60-centimetre crystalline entity whose violet prism body has fractured upward into a slowly orbiting cluster of seven smaller shards, held in formation by the visible blue-violet psychic field that radiates between them. The serene humanoid face from its Espelith juvenile stage still shimmers at the centre of the largest core shard, watching outward through every angle of the rotating crown. It inhabits locations with high psychic resonance — ancient meditation sites, mystical crossroads — and the constant low chime of its orbiting shards announces its presence well before it drifts into view." },
 
-  170: { id:170, name:"Oneiron",   emoji:"💫", types:["Mental","Dream"],
+  170: { id:170, name:"Oneiron",   emoji:"💫", types:["Dark","Dream"],
     base:{hp:75,atk:69,def:52,spa:125,spd:94,spe:84},
-    learnset:[[1,"mind_jolt",[25,"future_echo"]],[1,"chomp"],[3,"prism_ward"],[7,"reverie_focus"],[9,"doze_calm"],[11,"psi_burst"],[13,"trance_meditation"],[15,"hypnos_speed"],[19,"void_pulse"],[20,"drowse_swirl"],[23,"war_dance"],[27,"mental"],[30,"trance_wave"],[35,"nether_sphere"],[37,"void_rend"],[42,"nightmare_pulse"],[43,"dusk_slash"],[51,"psi_strike",[5,"inner_calm"]]],
+    learnset:[[1,"shadow_jab",[25,"future_echo"]],[1,"chomp"],[3,"prism_ward"],[7,"reverie_focus"],[9,"doze_calm"],[11,"umbral_pulse"],[13,"trance_meditation"],[15,"hypnos_speed"],[19,"void_pulse"],[20,"drowse_swirl"],[23,"war_dance"],[27,"malice_beam"],[30,"trance_wave"],[35,"nether_sphere"],[37,"void_rend"],[42,"nightmare_pulse"],[43,"dusk_slash"],[51,"shadow_lance",[5,"inner_calm"]]],
     evolveTo:null, evolveLevel:null, catchRate:70, expYield:185, rarity:"uncommon",
     desc:"A dreamrift that exists between sleep and waking. It draws power from nightmares.",
-    lore:"Oneiron is a mental-dream entity 70 cm tall with a wisp-like body of deep indigo and silver. Its limbs dissolve at the edges into drifting motes of light. It inhabits the boundary between waking and sleep, entering dreams of nearby sleeping creatures and exploring their symbolic landscapes." },
+    lore:"Oneiron is a dark-dream entity 70 cm tall with a wisp-like body of deep indigo and silver, its limbs dissolving at the edges into drifting motes. It inhabits the boundary between waking and sleep, slipping into the dreams of nearby sleepers and feeding on the dread it stirs there — the richer the nightmare, the stronger it grows." },
 
   171: { id:171, name:"Nagaseer",    emoji:"🐍", types:["Mental","Poison"],
     base:{hp:75,atk:88,def:74,spa:112,spd:82,spe:90},
@@ -2678,12 +2678,12 @@ const MONSTERS_DATA = {
     desc:"A firefly-like creature that stores electricity in its abdomen-light. Releases it when threatened.",
     lore:"Pulseglow is a tiny electric creature 5 cm long resembling a glowing firefly. Its abdomen pulses with yellow-white electric light at regular intervals. Huge swarms congregate in summer nights over open water, and the coordinated light patterns of the swarm are a complex form of collective communication." },
 
-  243: { id:243, name:"Stuntrap", emoji:"🪰", types:["Electric","Nature"],
+  243: { id:243, name:"Stuntrap", emoji:"🪰", types:["Dream","Sonic"],
     base:{hp:72,atk:82,def:68,spa:110,spd:78,spe:98},
-    learnset:[[1,"volt_jet"],[1,"shear_strike"],[10,"vine_lash"],[24,"galvanic_burst"],[32,"resonance_hum"],[38,"nature_pulse"],[40,"stormbolt"],[48,"volt_surge"],[56,"ball_lightning"],[64,"radiance_cannon"]],
+    learnset:[[1,"echo_pulse"],[1,"dream_pulse"],[10,"pulse_wave"],[18,"drowse_swirl"],[24,"resonate"],[30,"trance_wave"],[38,"lullaby_strike"],[40,"harmonic_burst"],[48,"somnia_blast"],[56,"decibel_burst"],[64,"dreamscape_smash"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:215, rarity:"uncommon",
-    desc:"An electrified dragonfly that herds prey into mid-air shock-traps. Its translucent wings crackle with static as it flies.",
-    lore:"Stuntrap is a medium electric-bug 25 centimetres in wingspan that has moulted from Pulseglow's firefly carapace into an elongated dragonfly form, its abdominal light-organs migrating outward to become the electric-blue arcs along its translucent copper wings. It hunts by creating a small electrical trap in mid-air and herding smaller insects into it. It can deliver a precise shock from its tail that stuns prey without killing it." },
+    desc:"A dragonfly whose droning wings lull prey into a daze, herding the dazzled swarm into mid-air traps.",
+    lore:"Stuntrap is a dragonfly 25 centimetres in wingspan that has moulted from Pulseglow's firefly form — the pulsing light its young once flickered for communication has matured into a low, hypnotic wing-drone pitched to lull. It hunts by weaving that drone through the air until smaller insects fall into a glassy-eyed daze, then herds the stupefied swarm into a tight knot before picking them off. Sleepers who doze too near a Stuntrap colony often wake reporting strangely vivid, looping dreams." },
 
   // 3-stage Electric/Fighting chain: Staticlaw → Thundravex → Megavolt
   244: { id:244, name:"Staticlaw", emoji:"🦡", types:["Electric"],

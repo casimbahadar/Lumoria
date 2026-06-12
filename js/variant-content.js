@@ -564,7 +564,7 @@
     240: { noun: 'snow-titan', features: ['its three towering snow-tiers', 'its unsettlingly cheerful face', 'its colossal frame'], coreLine: 'Its jolly shape still hides a cold malevolence.' },
     241: { noun: 'crystal figure', features: ['its precision-cut ice-crystal body', 'its faceted limbs', 'its serene poise'], coreLine: 'It still fits together flawless, like cut glass.' },
     242: { noun: 'spark firefly', features: ['its glowing pulsing abdomen', 'its tiny luminous body', 'its delicate wings'], coreLine: 'Its light still pulses in a steady rhythm.' },
-    243: { noun: 'shock dragonfly', features: ['its elongated dragonfly frame', 'its charged wings', 'its glowing abdomen'], coreLine: 'It still stuns prey with a snapping field.' },
+    243: { noun: 'droning dragonfly', features: ['its elongated dragonfly frame', 'its blurring drone-wings', 'its hypnotic hum'], coreLine: 'Its droning buzz still lulls prey into a daze.' },
     244: { noun: 'static weasel', features: ['its crackling yellow-white fur', 'its slender kit body', 'its quick paws'], coreLine: 'Static still snaps from its fur at a touch.' },
     245: { noun: 'thunder mustelid', features: ['its bright yellow fur', 'its longer muscular body', 'its charged coat'], coreLine: 'Charge still ripples down its lengthening frame.' },
     246: { noun: 'thunder wolverine', features: ['its heavily muscled body', 'its bristling charged fur', 'its powerful claws'], coreLine: 'It still discharges a storm when it strikes.' },

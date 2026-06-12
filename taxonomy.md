@@ -98,7 +98,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[165] Blightmite→Venowarn | Poison/Bug | butterfly` (**name leak in #165: "Noxoveth"** — second butterfly family)
 - `[167] Projectery→Psychovast | Psychic | dog (non-wolf canine)`
 - `[169] Espelith→Aurarael | Psychic/Fairy | crystalline-prism` (mythical)
-- `[170] Oneiron | Psychic/Dark | dream-entity / wisp` (formless, standalone)
+- `[170] Oneiron | Dark/Dream | dream-entity / wisp` (formless, standalone; nightmare-feeder — Dark/Dream restored 2026-06-12 to differentiate from Dreamweald #378's Mental/Dream)
 - `[171] Nagaseer | Mental/Poison | naga` (sub: oracle-serpent, standalone)
 - `[174] Scalurin→Cobravyrm→Scalevorn | Dragon/Steel | dragon-mythic` (sub: steel-dragon)
 
@@ -138,7 +138,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[237] Frostick→Icevault | Ice/Rock | ice-stone vault / fortress structure` (small architectural creature — unique sub-archetype)
 - `[240] Snowble→Blizzariel→Tundrafox | Ice/Dark | snowman (folkloric)` (mythical, just claimed)
 - `[241] Shardlix | Ice/Psychic | crystalline-prism` (bipedal ice crystal humanoid, standalone — second crystalline-prism alongside Espelith line)
-- `[243] Pulseglow→Stuntrap | Electric/Bug | dragonfly` (firefly→dragonfly — second dragonfly alongside Electrix line)
+- `[243] Pulseglow→Stuntrap | Dream/Sonic | dragonfly` (firefly→dragonfly; remade 2026-06-12 to pristine Dream/Sonic — hypnotic-drone stun-trapper; differentiates from Galvaglide's Electric/Nature and injects the 2 rarest types. Pulseglow stays mono-Electric; light-pulse→sound-drone bridge)
 
 ### Batch 3 (families 106-139)
 

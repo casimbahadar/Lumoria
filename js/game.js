@@ -1589,7 +1589,6 @@ function startGymBattle(leaderId, battleType = "single") {
     levelCap,
     enemyTeam: teamSlots.map(s => buildGymMon(s)),
     battleMode,
-    enemyTeam: leader.team.map(s => buildGymMon(s)),
     enemyTeamIdx: 0,
     playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
   };

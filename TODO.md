@@ -24,7 +24,7 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 | 🎯 Obtainability audit (474/500) | ✅ done | PR #62 |
 | 🎮 NG+/Forgotten gating + legendary encounters | ✅ done | PR #53 |
 | 🎯 Archetype × type-combo diversity **audit** | ✅ analysis shipped · ✅ collision pass applied · ⏳ full sweep folded into UNIFIED | PR #63 **merged** (matrix doc); collision-resolution pass: 9 archetype×combo collisions → 12 cap-verified retypes (Crumblite/Stonegrip, Abyssforge, Rimeling/Deepfreeze, Ferrocrush, Emberveil, Mosswing, Shadowpup/Nightclaw/Darkfang, Cryoshard) + STAB; Lumivane kept (false-collision relabel). Remaining full per-cell sweep folded into 🕯 UNIFIED |
-| 🕯 UNIFIED per-Lumori audit | 🚧 ACTIVE | handoff: `docs/unified-audit-handoff.md`. Per-Lumori lore/desc/emoji/archetype/type/cap walk. ✅ **NG+ 408–461 classification DONE** (all 22 families F1–F22 in `taxonomy.md`; legacy Crystal 408–410 & Primal 432–434 kept under legendary exception; no `data.js` changes). ✅ `oversaturated_combos.py` threshold fixed→462. ✅ **flagship policy re-decided & LOCKED 2026-06-10** (rule-based: mono auto-12, dual ordinary-6 + flagship-by-justification; old 4-combo list retired; Nature mono 13 accepted soft-over). ✅ desc↔lore body flags ALL DONE (#84 Electrix / #243 Stuntrap / #316 Abyssovex). ✅ inline Step-4 flags VERIFIED zero remain (resolved 2026-06-08). ✅ under-used-type distribution — clear wins applied (#160/#161 Miasmafly line + #328 Smogveil → Poison/Vapor; Vapor 11→14, Wind 40→37); Dream/Sonic/Fighting yielded no intrinsic candidates (no forcing). ✅ renaming surface pass done → Tier-1 queue in checkpoint note below. ⏳ remaining: standalone-count reduction (#6, design-level — needs user intent); optional Tier-1 renames. **See "🕯 UNIFIED — session checkpoint" below.** |
+| 🕯 UNIFIED per-Lumori audit | 🚧 ACTIVE | handoff: `docs/unified-audit-handoff.md`. Per-Lumori lore/desc/emoji/archetype/type/cap walk. ✅ **NG+ 408–461 classification DONE** (all 22 families F1–F22 in `taxonomy.md`; legacy Crystal 408–410 & Primal 432–434 kept under legendary exception; no `data.js` changes). ✅ `oversaturated_combos.py` threshold fixed→462. ✅ **flagship policy re-decided & LOCKED 2026-06-10** (rule-based: mono auto-12, dual ordinary-6 + flagship-by-justification; old 4-combo list retired; Nature mono 13 accepted soft-over). ✅ desc↔lore body flags ALL DONE (#84 Electrix / #243 Stuntrap / #316 Abyssovex). ✅ inline Step-4 flags VERIFIED zero remain (resolved 2026-06-08). ✅ under-used-type distribution — clear wins applied (#160/#161 Miasmafly line + #328 Smogveil → Poison/Vapor; Vapor 11→14, Wind 40→37); Dream/Sonic/Fighting yielded no intrinsic candidates (no forcing). ✅ renaming surface pass done → Tier-1 queue in checkpoint note below. ✅ **standalone-count reduction DONE** (2026-06-12 — reducible NG+ standalones 70→56 via golem + monolith + dragon-pair merges; see checkpoint). ⏳ remaining: optional Tier-1 renames; trainer-SVG replacement (deferred). **See "🕯 UNIFIED — session checkpoint" below.** |
 | 📉 Standalone count reduction | ⏳ not started | — |
 | 🏷️ Luminex renaming + final lore | ⏳ partial/paused | PRs #34–35; resumes after UNIFIED |
 | 🔮 Mythical archetype flags | ✅ policy locked · ✅ re-archetype execution (#86) · ⏳ 54 NG+ classification → UNIFIED | `docs/mythical-archetype-policy.md`: golem CONFIRMED exempt; cetacean & treant capped (common cap-3, trim 2/1); wraith **split** into distinct spectral sub-archetypes; Forgotten renumbered 408–446→462–500 in taxonomy.md. Docs-only (no `mythical` data field). Re-archetype execution DONE (#86: cetacean trim-2, treant trim-1, wraith split). **54 NG+ classification (ids 408–461)** deferred to UNIFIED. |
@@ -53,7 +53,7 @@ Clean state — everything committed & pushed on `claude/unified-audit-handoff-t
 - No exact-duplicate names; no obvious IP collisions (original portmanteaus).
 - ⚠️ Any rename touches `js/data.js` + `js/variant-content.js` (+ maybe `taxonomy.md`/sprite keys) — propose per-name with a sync check.
 
-**Next-session options:** (a) work up a Tier-1 rename proposal; (b) item #6 standalone-count reduction = design-level (creating evos / cutting Lumori) — needs explicit user design intent, not a surgical fix; (c) other audit items. Under-used-type distribution (#3) is considered substantially complete (clear wins banked, no forcing).
+**Next-session options:** (a) work up a Tier-1 rename proposal; (b) ~~item #6 standalone-count reduction~~ ✅ **DONE 2026-06-12** (see standalone-reduction checkpoint below); (c) trainer-SVG replacement (deferred follow-up to the monster-SVG strip); (d) other audit items. Under-used-type distribution (#3) is considered substantially complete (clear wins banked, no forcing).
 
 ### 🐉 Dragon cleanup + sprite pipeline (2026-06-12) — DONE
 
@@ -62,6 +62,21 @@ Clean state — everything committed & pushed on `claude/unified-audit-handoff-t
 **Plague-dragon reframe (#206–208 Venomscale line):** claimed canonical `plague-dragon` sub-archetype with a sympathetic/misunderstood identity (lore/behaviour only — types/stats/learnsets unchanged). Innately & involuntarily toxic but gentle, sociable & lonely; isolated by fear; keeps *away* from others to avoid sickening them — explicitly NOT a disease-spreader, no miasma/blight.
 
 **Sprite/art pipeline:** `scripts/art_prompt.py` (per-id prompt builder — painterly + `--style pixel` Gen-4 modes, sizing footer) · `image-rendering: pixelated` for raster PNGs · **procedural monster-SVG generator stripped** (~850 lines) → emoji fallback until PNGs land (gym-badge + trainer SVGs untouched; trainers = later follow-up) · 16 gym badges rendered for re-prompting. All on PR #88.
+
+### 🧩 Standalone-count reduction (#6) — DONE (2026-06-12)
+
+**Reducible NG+ standalones 70 → 56 (−14).** Merged same-archetype NG+ standalones into id-ascending evolution lines (base restatted weaker, evolve levels assigned, lore rewritten young→mature, caps respected, base placed to spawn before its evos):
+- **Forge golem** Ashgolem #337 → Embersteel #347 (via Metal Coat) — −2
+- **Ice golem** Crystavault #349 → Glaciarch #359 → Permafrost #385 — −3
+- **Earth golem** Quarrex #327 → Gravithorn #369 → Abyssforge #377 (consistent Earth → Earth/Mineral → Earth/Mineral) — −3
+- **Monolith** Mirestone #341 → Chronolith #388 (Earth/Mental) — −2
+- (earlier dragon-pair merges: thunderbird/raven/walrus — −4)
+
+Related: **Ferrocrush #334 → Voltbrawler** (Metal/Fighting → pristine **Electric/Fighting** battlebot 🤖 — new type pairing for golems). **Glacicore #332 kept** (unique Ice/Metal). Golem archetype stays mythical-exempt (no cap trim — merges shrink standalones, not the golem count).
+
+**Encounter-order audit (all changed multi-stage lines):** every base now spawns before its evolutions; fixed the one violation found (raven #345 Voidcoil ↔ #382 Oblivionwing — base was Lv80, evo Lv63; swapped areas so base Lv60-66 found first).
+
+**Stopping point:** remaining ~56 reducible NG+ standalones are overwhelmingly unique one-off creatures (wolf, crocodilian, kelpie, griffin, sphinx, swordfish…) that can't be force-merged; base 24 reducible untouched by design; Forgotten 39 are single legendaries. Natural completion. All on PR #88.
 
 ---
 

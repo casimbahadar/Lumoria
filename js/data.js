@@ -4175,11 +4175,11 @@ const MONSTERS_DATA = {
     lore:"Coilstrike is a sleek electric-poison snake 2.5 metres long with alternating bands of bright yellow and dark purple scales. Electrical discharge is visible along its spine." },
 
   337: { id:337, name:"Ashgolem", emoji:"🔥", types:["Fire","Mineral"],
-    base:{hp:87,atk:97,def:91,spa:77,spd:68,spe:50}, evolveTo:null, evolveLevel:null,
+    base:{hp:80,atk:86,def:84,spa:70,spd:62,spe:48}, evolveTo:347, evolveMethod:"item", evolveItem:"metalCoat",
     learnset:[[1,"flicker"],[5,"fortify"],[10,"stone_throw"],[15,"molten_armor"],[20,"inferno_jet"],[30,"stone_slide"],[40,"searing_gale"],[40,"magma_surge"],[50,"fossil_rush"],[60,"pyroclasm"],[62,"mineral_jab"],[63,"mineral_pulse"],[64,"shard_volley"],[65,"lode_strike"]],
-    catchRate:24, expYield:265, rarity:"rare",
-    desc:"A creature born from a volcanic eruption, its body is a walking magma chamber encased in basalt.",
-    lore:"Ashgolem is a fire-mineral creature 2 metres tall with a body of cooling basalt cracked to reveal glowing magma beneath. Ash and cinders constantly drift from its surface." },
+    catchRate:55, expYield:150, rarity:"uncommon",
+    desc:"A young volcanic golem of cracked basalt and magma. Its cooling shell slowly tempers toward steel.",
+    lore:"Ashgolem is a fire-mineral golem 2 metres tall with a body of cooling basalt cracked to reveal glowing magma beneath, ash and cinders constantly drifting from its surface. It is still young: each time its molten core flares and cools, the basalt shell hardens a little further toward true metal. Sheathed in an Iron Shell, that slow tempering completes all at once, and the ash-golem is forged into the white-hot steel guardian Embersteel." },
 
   338: { id:338, name:"Rimeclaw", emoji:"🦅", types:["Ice"],
     base:{hp:64,atk:88,def:61,spa:76,spd:69,spe:97}, evolveTo:null, evolveLevel:null,
@@ -4249,8 +4249,8 @@ const MONSTERS_DATA = {
     base:{hp:77,atk:104,def:98,spa:77,spd:75,spe:69}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"chrome_claw"],[10,"flicker"],[20,"alloy_tail"],[30,"inferno_jet"],[40,"forge_blast_2"],[50,"searing_gale"],[60,"solar_flare"],[5,"embercloak"],[38,"alloy_edge"]],
     catchRate:16, expYield:292, rarity:"rare",
-    desc:"Forged in Ironforge's legendary seventh furnace, it is the pinnacle of fire-steel metallurgy.",
-    lore:"Embersteel is a steel-fire golem 2.2 metres tall with a body of superheated steel that glows white-hot at its joints. It was created as a guardian automaton and has never been fully tamed." },
+    desc:"An Ashgolem forged into superheated steel. The pinnacle of fire-steel metallurgy, white-hot at every joint.",
+    lore:"Embersteel is a steel-fire golem 2.2 metres tall — the matured form of Ashgolem, its cracked basalt shell forged and fused under an Iron Shell into a body of superheated steel that glows white-hot at the joints. The transformation hardens it into a tireless guardian automaton; it has never been fully tamed, and the heat that pours from its seams can soften iron at arm's length." },
 
   348: { id:348, name:"Galeswift", emoji:"🐦", types:["Wind","Sonic"],
     base:{hp:69,atk:91,def:69,spa:91,spd:76,spe:99}, evolveTo:null, evolveLevel:null,

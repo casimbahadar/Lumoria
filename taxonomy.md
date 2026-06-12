@@ -203,7 +203,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[334] Ferrocrush | Metal/Fighting | golem` (metal brawler golem; retyped Metal/Fire→Metal/Fighting for diversity)
 - `[335] Frostprowl | Ice/Wind | feline (snow-leopard / cheetah)` (ice-wind feline — distinct from cat/lion; pristine snow-cat sub-archetype)
 - `[336] Coilstrike | Electric/Poison | serpent (non-dragon)` (electric-poison snake)
-- `[337] Ashgolem | Fire/Rock | golem` (fire-rock golem — explicitly named)
+- `[337] Ashgolem (→Embersteel #347) | Fire/Mineral | golem` (base of the forge-golem line; see [347])
 - `[338] Rimeclaw | Ice/Wind | bird-of-prey` (raptor — fourth raptor alongside Vortexathos/Cyclavorn/Zephyrak)
 - `[339] Voltbeetle | Bug/Electric | beetle` (fifth beetle)
 - `[340] Cryoshard | Ice/Sonic | resonant-crystal` (resonant crystal-prism; retyped Ice/Mental→Ice/Sonic to break the Ice/Mental crystalline-prism clash with Shardlix — Shardlix keeps the crystalline-prism slot, Cryoshard pivots to a sound-resonance identity)
@@ -217,7 +217,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 
 Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395, #398, #400, #401, #402-407 (Mirkling pseudolegendary line). Tagged `[LEGEND tN]` where applicable below.
 
-- `[347] Embersteel | Steel/Fire | golem` (superheated steel guardian-automaton — third+ steel golem)
+- `[347] Ashgolem→Embersteel | Metal/Fire | golem` (sub: forge-golem / smith-construct; merged 2026-06-12 from 2 NG+ golem standalones via Metal Coat — Fire/Mineral ash-golem → Metal/Fire forged-steel guardian)
 - `[348] Galeswift | Wind/Sonic | swift` (re-archetyped from wind-dragon 2026-06-10; never-landing storm-swift; renamed from Galedrake)
 - `[349] Crystavault | Ice/Rock | golem / fortress-tower` (layered ice/granite tower; borderline rock-monolith)
 - `[350] Fernwrath | Nature/Mineral | iguana` (re-archetyped from grass-dragon 2026-06-10; bark-scaled forest iguana)

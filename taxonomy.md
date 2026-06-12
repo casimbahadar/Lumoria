@@ -156,7 +156,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[268] Shadowpup→Nightclaw→Darkfang | Dark/Sonic → Dark/Spectral | wolf` (dark-wolf — third wolf alongside Hexaprowl and Eclipsehound lines; type-shift on final evo: pups are Dark/Sonic "howl resonates / echolocation", Darkfang matures into Dark/Spectral "heard in the land of the dead")
 - `[270] Grimshade→Eclipsoon | Dark/Fairy | tanuki` (mythical, just claimed)
 - `[271] Murkrat | Dark/Normal | rat (rodent)` (standalone)
-- `[273] Embrix→Blazeon | Fire/Dragon | dragon-mythic` (sub: small fire-dragon — alongside Calderaeth line; the former Bahamber line was re-archetyped to feathered-serpent)
+- `[273] Embrix→Blazeon | Fire/Spectral | phoenix` (sub: firebird; base #272 mono-Fire)
 - `[276] Cindling→Infernox→Scorchvast | Fire/Rock | saurian` (igneous lizard with rock plates — second fire-saurian alongside Magmaurin/Terravore line)
 - `[277] Magmite | Fire/Ground | fire-elemental` (lava droplet, formless walking magma — sole fire-elemental candidate, standalone)
 - `[279] Ironling→Steelhorn | Steel/Fairy | unicorn / single-horn fairy-equine` (single-horned humanoid — borderline; could be golem variant or pristine unicorn slot)
@@ -187,7 +187,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[318] Gaiavorn | Ground/Grass | golem / earth-titan` (4m titan with living forest canopy — variant golem; could double as treant — flag)
 - `[319] Voidraxis | Dark/Fairy | void / cosmic abstract being` (mythical — second void/cosmic alongside Cerebraith)
 - `[320] Galvathon | Steel/Electric | golem` (mechanical titan)
-- `[321] Dragemian | Dragon/Fire | dragon-mythic` (sub: fire-dragon — alongside Calderaeth/Blazeon)
+- `[321] Dragemian | Dragon/Fire | dragon-mythic` (sub: fire-dragon — alongside Calderaeth)
 - `[322] Venomwraith | Poison/Spectral | plague-spectre` (split out of wraith bucket per policy)
 - `[323] Toxicore | Poison/Fire | unique vessel-creature` (living flask/chemistry-vessel with internal acid; distinct from elemental; flag as unique)
 - `[324] Chittering | Bug/Dark | mantis / blade-limbed insect` (sleek dark insect with 6 blade-limbs; pristine sub-archetype)
@@ -396,7 +396,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **void / cosmic abstract** | 9 | exempt | — | Cerebraith, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Cosmoveil, Nihilax, Cosmolith. Mythical-exempt. |
 | **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Mimiclaw, Emberveil, Cinderpaw. |
 | **thunderstorm-disaster** | 3 | 1+1 | trim 1-2 | Vortexwing, Tempestborn, Nullstorm. (See storm-elemental TODO entry.) |
-| **fire-dragon legendary cluster** | 1 (Dragemian; Infernotitan→salamander, Solarvast→griffin, Bahamber→feathered-serpent re-archetyped out) + chain finals (Calderaeth, Blazeon, Stardrax) | n/a | discuss | All under dragon-mythic exempt but sub-flavor crowded. |
+| **fire-dragon legendary cluster** | 1 (Dragemian; Infernotitan→salamander, Solarvast→griffin, Bahamber→feathered-serpent, Blazeon→phoenix re-archetyped out) + chain finals (Calderaeth, Stardrax) | n/a | discuss | All under dragon-mythic exempt but sub-flavor crowded. |
 
 ### At cap (no action)
 

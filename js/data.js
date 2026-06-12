@@ -2903,20 +2903,20 @@ const MONSTERS_DATA = {
     desc:"A cunning dark rodent that steals anything shiny. Surprisingly tough for its size and always escapes.",
     lore:"Murkrat is a dark-normal creature 30 cm long resembling a fat rat with dark grey fur and bright beady eyes. It is deeply pragmatic — it will steal anything useful, hoard it, and trade it back. It inhabits sewer systems and underground markets and is surprisingly social once trust is established." },
 
-  // 2-stage Fire/Draconic chain: Embrix → Blazeon (level 28)
-  272: { id:272, name:"Embrix", emoji:"🦎", types:["Fire","Draconic"],
+  // 2-stage Fire chain: Embrix → Blazeon (phoenix; final gains Spectral)
+  272: { id:272, name:"Embrix", emoji:"🐦‍🔥", types:["Fire"],
     base:{hp:50,atk:68,def:52,spa:65,spd:50,spe:72},
-    learnset:[[1,"flicker"],[1,"draconic_breath"],[12,"inferno_jet"],[22,"draconic_claw"],[32,"pyroclasm"],[42,"draconic_pulse"],[52,"rampage"],[62,"radiance_cannon"]],
+    learnset:[[1,"flicker"],[1,"ember_focus"],[12,"flame_charge"],[22,"cinderwhirl"],[32,"ashfall"],[42,"searing_gale"],[52,"firebrand"],[62,"pyroclasm"]],
     evolveTo:273, evolveLevel:34, catchRate:155, expYield:82, rarity:"common",
-    desc:"A fire lizard with nascent draconic power. Breathes embers in spiraling dragon-shaped patterns.",
-    lore:"Embrix is a young fire-dragon 25 cm long with bright orange-red scales and oversized eyes. Its wings are too small for flight but it flaps them enthusiastically when excited. It produces tiny fireballs no larger than a marble. It is the juvenile form of a powerful fire dragon lineage and grows rapidly with proper nutrition." },
+    desc:"A downy fire-chick that puffs marble-sized embers. Flaps eager wings too small to fly.",
+    lore:"Embrix is a downy fire-chick about 25 cm tall, its fledgling plumage glowing bright orange-red around oversized curious eyes. Its wings are still too small for flight, though it flaps them enthusiastically whenever excited, scattering little sparks. For now it can cough up only tiny embers no larger than a marble. It is the hatchling of a phoenix lineage and, fed well, grows with astonishing speed toward its first fiery rebirth." },
 
-  273: { id:273, name:"Blazeon", emoji:"🔥", types:["Fire","Draconic"],
+  273: { id:273, name:"Blazeon", emoji:"🐦‍🔥", types:["Fire","Spectral"],
     base:{hp:86,atk:110,def:75,spa:112,spd:77,spe:90},
-    learnset:[[1,"inferno_jet"],[1,"draconic_claw"],[26,"pyroclasm"],[34,"draconic_pulse"],[42,"rampage"],[50,"hydra_dance"],[58,"caldera_meltdown"],[66,"radiance_cannon"],[68,"flash_fire"]],
+    learnset:[[1,"inferno_jet"],[1,"spectral_radiance"],[1,"ember_focus"],[26,"cinderwhirl"],[30,"revenant_strike"],[34,"searing_gale"],[40,"soul_burst"],[42,"spirit_drain"],[48,"pyroclasm"],[54,"eternal_haunt"],[58,"caldera_meltdown"],[62,"conflagration"],[66,"eternal_ember"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:228, rarity:"uncommon",
-    desc:"A fire dragon of pure scorching flame. Dances in lava rivers to power up its abilities further.",
-    lore:"Blazeon is a fire-dragon 1.5 metres long with deep crimson-orange scales and a fully developed wing-span of 2 metres. Its breath weapon is now a sustained stream of fire rather than fireballs. It inhabits volcanic hillsides and defends a territory of several square kilometres from other fire-types." },
+    desc:"A reborn phoenix wreathed in everlasting flame. Rises from its own ashes brighter each time.",
+    lore:"Blazeon is a magnificent phoenix some 1.5 metres tall with a 2-metre wingspan of deep crimson-and-gold plumage that burns without being consumed. When its body finally fails it bursts into flame and collapses to ash — only to rise again days later, renewed and a little brighter than before. It roosts on volcanic hillsides, and the warmth shed from its feathers keeps the surrounding slopes in a perpetual early summer. Its cry is said to mend the spirits of those who hear it." },
 
   // 3-stage Fire/Rock chain: Cindling → Infernox → Pyrovast
   274: { id:274, name:"Cindling", emoji:"🪨", types:["Fire","Mineral"],
@@ -6570,7 +6570,7 @@ const WORLD_DATA = {
       {id:216, minLv:63, maxLv:68, rate:10},  // Mindrift (mid → Psywisp 215 ✓)
       {id:262, minLv:62, maxLv:67, rate:18},  // Transluceed (base Grass/Poi)
       {id:263, minLv:63, maxLv:68, rate:6},  // Tendrilisk (mid → after 262 ✓)
-      {id:272, minLv:62, maxLv:67, rate:14}   // Embrix (base Fire/Draconic)
+      {id:272, minLv:62, maxLv:67, rate:14}   // Embrix (base Fire, phoenix)
     ],
     ngPlusWildMonsters:[{id:350, minLv:63, maxLv:68, rate:10}], // NG+ standalone: Fernwrath
     hasGym:false, requiredBadges:11, mapPos:{x:20, y:83}
@@ -6584,7 +6584,7 @@ const WORLD_DATA = {
       {id:264, minLv:64, maxLv:69, rate:13},  // Impenezard (final → Vinrix 263 on fungal_cavern ✓)
       {id:199, minLv:63, maxLv:68, rate:27},  // Aeridaleth (final Bug)
       {id:265, minLv:63, maxLv:68, rate:23},  // Mosswing (standalone Grass/Bug)
-      {id:273, minLv:63, maxLv:68, rate:13},  // Blazeon (mid → Embrix 272 on fungal_cavern ✓)
+      {id:273, minLv:63, maxLv:68, rate:13},  // Blazeon (phoenix final → Embrix 272 on fungal_cavern ✓)
       {id:290, minLv:63, maxLv:68, rate:10}   // Mimiclaw (location evo cobweb_gully nearby)
     ],
     legendaryEncounter:{monsterId:318, level:69}, // static legendary (obtainability fix)

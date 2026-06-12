@@ -2385,27 +2385,27 @@ const MONSTERS_DATA = {
 
   // ===== BATCH 1: POISON/DRAGON, ELECTRIC, FIRE/ICE (IDs 206-214) =====
 
-  // 3-stage Poison/Draconic chain: Venomscale → Toxidrak → Dragovenom
+  // 3-stage Poison/Draconic chain: Venomscale → Venodrak → Wyrmvenom (plague-dragon; gentle/misunderstood)
   206: { id:206, name:"Venomscale", emoji:"🐍", types:["Poison","Draconic"],
     base:{hp:50,atk:62,def:50,spa:68,spd:52,spe:65},
     learnset:[[1,"septic_prick"],[1,"draconic_breath"],[12,"ooze_bomb"],[22,"draconic_claw"],[32,"toxify"],[42,"draconic_pulse"],[52,"venom_lance"],[62,"radiance_cannon"]],
     evolveTo:207, evolveLevel:26, catchRate:180, expYield:72, rarity:"common",
-    desc:"A small serpent whose venom has a faint draconic energy. Its fangs drip with corrosive toxin.",
-    lore:"Venomscale is a small dragon-serpent 40 cm long with vivid green scales overlaid with yellow warning banding. Its fangs are visibly elongated and hollow. It inhabits tropical jungle undergrowth and hunts by striking from concealment, relying on venom rather than constriction to subdue prey." },
+    desc:"A friendly little dragon-serpent whose touch is sadly toxic. Longs for playmates who never stay.",
+    lore:"Venomscale is a small dragon-serpent 40 cm long with vivid green scales and bright yellow warning banding. For all those alarming colours it is a gentle, playful hatchling that chirrups happily and tries to nuzzle anything that comes near — but the same glands that will one day make it formidable already weep a mild toxin through its skin, without it ever meaning them to, so the creatures it approaches flinch away sick and frightened. It does not understand why it is always left alone. It wishes no harm at all; it simply cannot help what its body produces, and spends its days waiting hopefully at the jungle's edge for a friend who can bear to stay." },
 
   207: { id:207, name:"Venodrak", emoji:"🐉", types:["Poison","Draconic"],
     base:{hp:75,atk:90,def:68,spa:98,spd:72,spe:80},
     learnset:[[1,"ooze_bomb"],[1,"draconic_claw"],[20,"toxify"],[28,"draconic_pulse"],[36,"venom_lance"],[44,"rampage"],[52,"sludge_wave"],[60,"radiance_cannon"],[62,"wyrm_gale"]],
     evolveTo:208, evolveLevel:46, catchRate:90, expYield:148, rarity:"uncommon",
-    desc:"A dragon-serpent that breathes venomous mist. Its flight path traces poisonous trails through the sky.",
-    lore:"Venodrak is a dragon-serpent 1.5 metres long — Venomscale's vivid green scales have darkened to purple-black, and the yellow warning banding has deepened to a sickly yellow as the venom-load it carries has matured. Its narrow wings allow limited gliding between trees. It hunts from the forest canopy, dropping onto prey below and injecting a fast-acting paralytic venom before taking flight again." },
+    desc:"A sociable dragon shunned for its toxic aura. Watches villages from afar, aching to belong.",
+    lore:"Venodrak is a dragon-serpent 1.5 metres long whose scales have deepened to purple-black with sickly-yellow bands as its venom matured. Fearsome as it looks, it is gentle and deeply social, and it has learned the hard way to keep its distance: anyone it lingers near soon grows queasy from the toxins it exudes involuntarily, and they drive it off with torches and stones. So it watches villages and herds from the high canopy, softly mimicking their calls under its breath, aching to join them. It has never once struck in anger — only ever flown quietly away, alone." },
 
   208: { id:208, name:"Wyrmvenom", emoji:"🐲", types:["Poison","Draconic"],
     base:{hp:88,atk:105,def:80,spa:114,spd:87,spe:76},
     learnset:[[1,"venom_lance"],[1,"rampage"],[30,"sludge_wave"],[38,"draconic_pulse"],[46,"hydra_dance"],[54,"corrosion_fang"],[62,"ancient_breath"],[70,"radiance_cannon"],[72,"acid_spray"]],
     evolveTo:null, evolveLevel:null, catchRate:28, expYield:262, rarity:"rare",
-    desc:"A venomous wyvern of terrible power. Its mere presence poisons the ground for miles around.",
-    lore:"Wyrmvenom is a massive venomous dragon 5 metres long — Venodrak's purple-black scales have shifted to deep olive-green marked in yellow-orange bands, and the narrow gliding wings of its juvenile form have grown into a full 7-metre wingspan. Its venom glands are the largest of any known creature, producing a cocktail that dissolves organic tissue rapidly. It is feared across tropical regions." },
+    desc:"A vast, lonely dragon feared as a plague-bringer — though it has never wished harm on a soul.",
+    lore:"Wyrmvenom is a massive dragon 5 metres long with a 7-metre wingspan and venom glands more potent than any known creature's. Legends call it a plague-bringer whose passing poisons the land — and it is true that nothing can live long in its company, for its body exudes toxins it can neither switch off nor control. But the legends mistake the heart of it: Wyrmvenom is patient, sociable, and achingly lonely, a gentle giant who has spent a lifetime feared and exiled for a danger it never chose and would give anything to be rid of. Precisely because it would never sicken anyone on purpose, it keeps to remote valleys far from people and herds; and on quiet nights it sings long, mournful calls toward the distant village lights — not a threat, but an invitation to a friend who never comes." },
 
   // 2-stage Normal/Electric chain: Boltfur → Thundermane (level 30)
   209: { id:209, name:"Boltfur", emoji:"🐇", types:["Normal","Electric"],

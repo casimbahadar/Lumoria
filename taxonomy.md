@@ -120,7 +120,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[201] Iridibeetle→Scarabion | Bug/Steel | beetle / scarab`
 - `[203] Sculptweave→Arachnalis | Bug/Fairy | spider`
 - `[205] Muddite→Quarrix | Bug/Ground | beetle` (second beetle family — Quarrix + Iridibeetle line)
-- `[208] Venomscale→Venodrak→Wyrmvenom | Poison/Dragon | dragon-mythic` (sub: poison-dragon)
+- `[208] Venomscale→Venodrak→Wyrmvenom | Poison/Dragon | dragon-mythic` (sub: plague-dragon — sympathetic/misunderstood: innately & involuntarily toxic but gentle, sociable & isolated by fear; NOT an active disease-spreader, no miasma/blight)
 - `[210] Boltfur→Thundermane | Normal/Electric | rabbit / hare` (giant maned hare — second hare alongside Leapbun line)
 - `[213] Cinderfrost→Frostscorch→Infriglace | Fire/Ice | fire-ice titan` (dual-element titan, unique body plan — flag as unique mythical)
 - `[214] Petrwave | Water/Rock | crab / crustacean` (coral-fortress crab, standalone — second crab alongside Rugothon line)
@@ -345,7 +345,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 - `[479] Forgotten Skydrak | Wind/Stellar | roc` (sub: ghost-dragon — post-game; -drak suffix)
 - `[480] Forgotten Pyraeon | Fire/Crystal | nemean-lion` (Dravek's lion — post-game lion)
 - `[481] Forgotten Emberon | Fire/Chrono | sabertooth / smilodon` (post-game tiger — pristine sub for tiger)
-- `[482] Forgotten Dracofire | Draconic/Primal | primal-dragon` (sub: poison-dragon, palm-sized hatchling — second poison-dragon alongside Wyrmvenom)
+- `[482] Forgotten Dracofire | Draconic/Primal | primal-dragon` (sub: plague-dragon, palm-sized hatchling — second plague-dragon alongside Wyrmvenom)
 - `[483] Forgotten Frigalum | Ice/Crystal | arctic-fox` (post-game fox — second kitsune alongside Specraxis; Forgotten = mythical-exempt)
 - `[484] Forgotten Cryvorn | Ice/Chrono | fenrir` (post-game wolf — fifth wolf)
 - `[485] Forgotten Frostdrax | Ice/Primal | ymir / frost-giant` (sub: ghost-fairy-dragon — post-game; -drax suffix)

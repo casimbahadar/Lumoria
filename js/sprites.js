@@ -1204,11 +1204,13 @@ function generateBadgeSVG(leaderId, earned, size = 28) {
 function renderMonsterSprite(container, monster, size = 80) {
   if (!container || !monster) return;
   const img = document.createElement("img");
-  img.src = getMonsterSpriteURL(monster, size);
+  const url = getMonsterSpriteURL(monster, size);
+  img.src = url;
   img.width = size;
   img.height = size;
   img.alt = monster.name;
-  img.style.imageRendering = "auto";
+  // crisp for raster sprite PNGs, smooth for the vector SVG fallback
+  img.style.imageRendering = url.startsWith("assets/sprites/") ? "pixelated" : "auto";
   container.innerHTML = "";
   container.appendChild(img);
 }

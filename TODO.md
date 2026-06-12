@@ -55,6 +55,14 @@ Clean state — everything committed & pushed on `claude/unified-audit-handoff-t
 
 **Next-session options:** (a) work up a Tier-1 rename proposal; (b) item #6 standalone-count reduction = design-level (creating evos / cutting Lumori) — needs explicit user design intent, not a surgical fix; (c) other audit items. Under-used-type distribution (#3) is considered substantially complete (clear wins banked, no forcing).
 
+### 🐉 Dragon cleanup + sprite pipeline (2026-06-12) — DONE
+
+**Dragon archetype cleanup COMPLETE: 52 → 24 Draconic IDs** (user-confirmed final; target was 15–25). 21 family re-archetypes into pristine archetypes, each: header types/emoji + on-type learnset + desc/lore rewrite + variant-content + taxonomy + caps respected + validate.js green. Families #1–21: thunderbird, raven, walrus, zaratan/behemoth, chameleon, swift, swordfish, salamander, kelpie, iguana, sphinx, griffin, koi, shark, basilisk, glyptodon, kappa, feathered-serpent, naga, raiju, phoenix. **Kept** as deliberate dragons: Boreadrake ice-line #59–60, Temporith #317, + untouched lines (#172–174, #206–208, #232–234, #293–295, #402–404, #412–413), standalones (#3, #288, #321), Forgotten #482.
+
+**Plague-dragon reframe (#206–208 Venomscale line):** claimed canonical `plague-dragon` sub-archetype with a sympathetic/misunderstood identity (lore/behaviour only — types/stats/learnsets unchanged). Innately & involuntarily toxic but gentle, sociable & lonely; isolated by fear; keeps *away* from others to avoid sickening them — explicitly NOT a disease-spreader, no miasma/blight.
+
+**Sprite/art pipeline:** `scripts/art_prompt.py` (per-id prompt builder — painterly + `--style pixel` Gen-4 modes, sizing footer) · `image-rendering: pixelated` for raster PNGs · **procedural monster-SVG generator stripped** (~850 lines) → emoji fallback until PNGs land (gym-badge + trainer SVGs untouched; trainers = later follow-up) · 16 gym badges rendered for re-prompting. All on PR #88.
+
 ---
 
 
@@ -366,7 +374,7 @@ Goal: complete inventory of every creature/animal/thing represented in the dex (
 - **serpent (non-dragon)**: 3 (Nocturil line, Coilstrike, Fluxserpent) *(Dunecrawl line → armadillo #312-313; Zephyrin line pivoted to vortex #116-117)*
 
 ### Over cap (>3) — mythical/exempt candidates (see (b) below):
-- **dragon-mythic**: 34 — exempt (mythical)
+- **dragon-mythic**: ≈24 Draconic IDs after the 2026-06-12 cleanup (was 34/52) — exempt (mythical)
 - **faerie sprite / winged-fairy**: 9 — exempt (mythical)
 - **shadow/wraith/ghost-spectral**: 9 — exempt (mythical)
 - **crystalline-prism**: 6 — exempt (mythical)

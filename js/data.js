@@ -5694,7 +5694,7 @@ const WORLD_DATA = {
       {id:143, minLv:62, maxLv:66, rate:25}, // Lunarael
       {id:151, minLv:63, maxLv:66, rate:25}  // Alloytron
     ],
-    ngPlusWildMonsters:[{id:382, minLv:63, maxLv:66, rate:8}], // thinned from mega-area
+    ngPlusWildMonsters:[{id:345, minLv:60, maxLv:66, rate:18}], // Voidcoil (base) — found before Oblivionwing in Void Nexus
     hasGym:false, requiredBadges:16, mapPos:{x:62, y:35}
   },
   summit: {
@@ -6761,7 +6761,7 @@ const WORLD_DATA = {
     ],
     hasGym:false, requiredBadges:16, requiresChampion:true,
     hasUmbraEncounter:true, mapPos:{x:83, y:79},
-    ngPlusWildMonsters:[{id:345,minLv:80,maxLv:87,rate:20},{id:352,minLv:81,maxLv:87,rate:15},{id:373,minLv:82,maxLv:88,rate:8}]
+    ngPlusWildMonsters:[{id:382,minLv:80,maxLv:87,rate:12},{id:352,minLv:81,maxLv:87,rate:15},{id:373,minLv:82,maxLv:88,rate:8}]
   },
 
   // ============================================================

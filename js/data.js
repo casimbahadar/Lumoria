@@ -4103,12 +4103,12 @@ const MONSTERS_DATA = {
     desc:"A carnivorous marsh plant that lures prey with sweet-smelling nectar before paralysing them with venom.",
     lore:"Silthorn is a large ambulatory plant 1.8 metres tall with glossy dark-green leaves edged with translucent purple poison sacs. Its roots move like fingers." },
 
-  327: { id:327, name:"Quarrex", emoji:"⛏️", types:["Earth"],
-    base:{hp:77,atk:93,def:89,spa:48,spd:61,spe:52}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"stone_throw"],[10,"geoblast"],[20,"stone_slide"],[30,"terra_spike"],[40,"fissure_slam"],[50,"fossil_rush"],[60,"stone_slide"],[5,"fortify"],[35,"alloy_tail"]],
-    catchRate:25, expYield:258, rarity:"rare",
-    desc:"A titan of compressed stone forged in Terravault's deepest mines. Its fists leave craters.",
-    lore:"Quarrex is a massive rock-ground creature 2.2 metres tall composed of interlocked slabs of granite and iron ore. Miners initially mistook ancient specimens for geological formations." },
+  327: { id:327, name:"Quarrex", emoji:"🗿", types:["Earth"],
+    base:{hp:77,atk:93,def:89,spa:48,spd:61,spe:52}, evolveTo:369, evolveLevel:75,
+    learnset:[[1,"stone_throw"],[10,"geoblast"],[20,"stone_slide"],[30,"terra_spike"],[40,"fissure_slam"],[50,"fossil_rush"],[60,"boulder_roll"],[5,"fortify"],[35,"quake_pulse"]],
+    catchRate:50, expYield:145, rarity:"uncommon",
+    desc:"A young granite golem, often mistaken for an outcrop. As its mass deepens, a strange pull warps the air around it.",
+    lore:"Quarrex is a 2.2-metre golem of interlocked granite slabs threaded with iron ore, so still and weathered that miners have mistaken ancient specimens for natural formations. It is the youngest of its kind; as the centuries pile their weight upon it, its own ever-growing mass begins to bend the space around it, and the golem slowly awakens the gravity-warping mind of Gravithorn." },
 
   328: { id:328, name:"Smogveil", emoji:"🌫️", types:["Poison","Vapor"],
     base:{hp:58,atk:60,def:52,spa:83,spd:71,spe:76}, evolveTo:null, evolveLevel:null,
@@ -4402,11 +4402,11 @@ const MONSTERS_DATA = {
     lore:"Willowisp is a fire-spectral entity resembling a human-sized floating flame with a faint spectral face visible in its core. Its fire burns without fuel and consumes nothing physical." },
 
   369: { id:369, name:"Gravithorn", emoji:"🔮", types:["Mental","Earth"],
-    base:{hp:80,atk:94,def:88,spa:100,spd:84,spe:74}, evolveTo:null, evolveLevel:null,
+    base:{hp:80,atk:94,def:88,spa:100,spd:84,spe:74}, evolveTo:377, evolveLevel:85,
     learnset:[[1,"geoblast"],[10,"mental"],[20,"terra_spike"],[30,"psi_strike"],[40,"fissure_slam"],[50,"synaptic_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"dreamweave"],[62,"gem_scatter"]],
-    catchRate:9, expYield:320, rarity:"rare",
+    catchRate:20, expYield:320, rarity:"uncommon",
     desc:"A psychic that has learned to manipulate gravity. It walks on any surface, including the sky.",
-    lore:"Gravithorn is a psychic-ground entity 1.8 metres tall with a body of psychically compressed stone. It can reverse gravity in a 30-metre radius and routinely walks on vertical surfaces." },
+    lore:"Gravithorn is the matured Quarrex — the crushing pressure of its own stone body has kindled a psychic field that reverses gravity for 30 metres around it, letting it stride up cliffs and across ceilings as easily as open ground. Over the ages that field turns inward, crushing its body tighter and tighter until it collapses into the ultra-dense core-titan Abyssforge." },
 
   370: { id:370, name:"Vortexwing", emoji:"🌪️", types:["Electric","Sonic"],
     base:{hp:70,atk:90,def:68,spa:101,spd:81,spe:110}, evolveTo:null, evolveLevel:null,
@@ -4459,11 +4459,11 @@ const MONSTERS_DATA = {
     lore:"Solarwrath is a fire-fairy creature 2 metres tall composed of radiant solar plasma. It is warm to be near and hot to approach — within 10 metres, all shadow is eliminated." },
 
   377: { id:377, name:"Abyssforge", emoji:"🌋", types:["Earth","Mineral"],
-    base:{hp:85,atk:103,def:105,spa:73,spd:81,spe:73}, evolveTo:null, evolveLevel:null,
-    learnset:[[45,"obsidian_strike"],[1,"geoblast"],[10,"chrome_claw"],[20,"fissure_slam"],[30,"alloy_tail"],[40,"terra_spike"],[50,"forge_blast_2"],[60,"fossil_rush"],[5,"fortify"],[48,"alloy_edge"]],
-    catchRate:7, expYield:340, rarity:"rare",
-    desc:"Born at the meeting of mantle and iron core, it forges new minerals inside itself as it moves.",
-    lore:"Abyssforge is an earth-metal creature 3 metres tall with a body of compressed ultra-dense alloy formed under planetary core pressures. It leaves impressions in solid steel where it rests." },
+    base:{hp:92,atk:108,def:114,spa:73,spd:84,spe:74}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"geoblast"],[10,"mineral_jab"],[20,"fissure_slam"],[30,"obsidian_strike"],[40,"terra_spike"],[48,"crag_strike"],[50,"shard_volley"],[55,"continental_shift"],[60,"fossil_rush"],[5,"fortify"],[62,"lode_strike"]],
+    catchRate:7, expYield:365, rarity:"rare",
+    desc:"The ancient final form — a titanic core-titan of ultra-dense alloy crushed together by its own gravity.",
+    lore:"Abyssforge is the ancient, final form: the inward-turning gravity of Gravithorn has crushed its body into compressed ultra-dense alloy, forged under pressures found only at a planet's core. The 3-metre titan leaves deep impressions in solid steel where it rests, and ceaselessly forges new minerals within itself as it moves." },
 
   378: { id:378, name:"Dreamweald", emoji:"💭", types:["Mental","Dream"],
     base:{hp:69,atk:73,def:73,spa:113,spd:97,spe:95}, evolveTo:null, evolveLevel:null,
@@ -6282,7 +6282,7 @@ const WORLD_DATA = {
       {id:136, minLv:68, maxLv:73, rate:12}   // Metalibat (final → after 135 ✓)
     ],
     hasGym:true, gymLeader:"ferro", requiredBadges:13, mapPos:{x:38, y:88},
-    ngPlusWildMonsters:[{id:377, minLv:67, maxLv:73, rate:8}, {id:334,minLv:73,maxLv:78,rate:25},{id:347,minLv:73,maxLv:78,rate:20},{id:377,minLv:73,maxLv:79,rate:8}]
+    ngPlusWildMonsters:[{id:334,minLv:73,maxLv:78,rate:25},{id:347,minLv:73,maxLv:78,rate:20}]
   },
   route15: {
     id:"route15", name:"Route 15 - Granite Pass", icon:"🪨", type:"route",
@@ -6300,7 +6300,7 @@ const WORLD_DATA = {
       {id:232, minLv:67, maxLv:72, rate:5}    // Serphaxon (base Draconic/Ground)
     ],
     hasGym:false, requiredBadges:14, mapPos:{x:48, y:85},
-    ngPlusWildMonsters:[{id:364, minLv:68, maxLv:74, rate:9}, {id:332,minLv:74,maxLv:80,rate:20},{id:349,minLv:66,maxLv:72,rate:18},{id:369,minLv:75,maxLv:81,rate:10}]
+    ngPlusWildMonsters:[{id:364, minLv:68, maxLv:74, rate:9}, {id:332,minLv:74,maxLv:80,rate:20},{id:349,minLv:66,maxLv:72,rate:18}]
   },
   quarryville: {
     id:"quarryville", name:"Quarryville Town", icon:"🏗️", type:"city",
@@ -6314,7 +6314,7 @@ const WORLD_DATA = {
       {id:92,  minLv:70, maxLv:74, rate:30}   // standalone
     ],
     hasGym:true, gymLeader:"boulder", requiredBadges:14, mapPos:{x:55, y:82},
-    ngPlusWildMonsters:[{id:399, minLv:69, maxLv:75, rate:8}, {id:359, minLv:74, maxLv:80, rate:9}, {id:327,minLv:74,maxLv:80,rate:25},{id:341,minLv:74,maxLv:80,rate:15},{id:349,minLv:67,maxLv:72,rate:10}]
+    ngPlusWildMonsters:[{id:399, minLv:69, maxLv:75, rate:8}, {id:359, minLv:74, maxLv:80, rate:9}, {id:327,minLv:70,maxLv:74,rate:25},{id:341,minLv:74,maxLv:80,rate:15},{id:349,minLv:67,maxLv:72,rate:10}]
   },
   route16: {
     id:"route16", name:"Route 16 - Starlit Path", icon:"✨", type:"route",

@@ -4108,7 +4108,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"stone_throw"],[10,"geoblast"],[20,"stone_slide"],[30,"terra_spike"],[40,"fissure_slam"],[50,"fossil_rush"],[60,"boulder_roll"],[5,"fortify"],[35,"quake_pulse"]],
     catchRate:50, expYield:145, rarity:"uncommon",
     desc:"A young granite golem, often mistaken for an outcrop. As its mass deepens, a strange pull warps the air around it.",
-    lore:"Quarrex is a 2.2-metre golem of interlocked granite slabs threaded with iron ore, so still and weathered that miners have mistaken ancient specimens for natural formations. It is the youngest of its kind; as the centuries pile their weight upon it, its own ever-growing mass begins to bend the space around it, and the golem slowly awakens the gravity-warping mind of Gravithorn." },
+    lore:"Quarrex is a 2.2-metre golem of interlocked granite slabs threaded with iron ore, so still and weathered that miners have mistaken ancient specimens for natural formations. It is the youngest of its kind; as the centuries pile their weight upon it, its own ever-growing mass begins to bend the space around it, and the granite slowly compresses toward the dense, gravity-warping crystal of Gravithorn." },
 
   328: { id:328, name:"Smogveil", emoji:"🌫️", types:["Poison","Vapor"],
     base:{hp:58,atk:60,def:52,spa:83,spd:71,spe:76}, evolveTo:null, evolveLevel:null,
@@ -4153,12 +4153,12 @@ const MONSTERS_DATA = {
     desc:"A storm wolf that channels voltage through its dark fur. Its howl triggers localised lightning strikes.",
     lore:"Voltfang is an electric-dark wolf 1.4 metres at the shoulder with jet-black fur shot through with crackling yellow lightning. Its eyes glow violet." },
 
-  334: { id:334, name:"Ferrocrush", emoji:"⚙️", types:["Metal","Fighting"],
+  334: { id:334, name:"Voltbrawler", emoji:"🤖", types:["Electric","Fighting"],
     base:{hp:83,atk:104,def:100,spa:52,spd:70,spe:61}, evolveTo:null, evolveLevel:null,
-    learnset:[[48,"brawl"],[1,"chrome_claw"],[5,"fortify"],[8,"flicker"],[10,"geoblast"],[15,"flame_fang"],[20,"alloy_tail"],[25,"inferno_jet"],[30,"fissure_slam"],[38,"alloy_edge"],[40,"forge_blast_2"],[45,"blazing_rush"],[50,"terra_spike"],[60,"fossil_rush"]],
+    learnset:[[1,"thunder_jab"],[1,"quick_punch"],[8,"spark_claw"],[12,"fortify"],[16,"uppercut"],[20,"volt_fang"],[26,"iron_fist"],[32,"voltaic_rush"],[38,"brawl"],[44,"tesla_fists"],[50,"plasma_punch"],[56,"overcharge"],[60,"haymaker"]],
     catchRate:22, expYield:268, rarity:"rare",
-    desc:"A mechanical behemoth forged in Ironforge's deepest furnaces. It was never meant to leave.",
-    lore:"Ferrocrush is a 2.5-metre metal-fire golem with a body of smelted iron and a core of compressed ore. Its joints run at thousands of atmospheres of pressure." },
+    desc:"An electric battlebot built for the arena. Its servo-driven fists land blows like lightning.",
+    lore:"Voltbrawler is a 2.5-metre combat automaton — a battlebot of riveted plating built for the old fighting pits, its frame strung with high-voltage cabling that whips its piston-driven fists faster than the eye can follow. Surplus charge arcs between its knuckles with every swing, and a clean hit lands like a thunderclap. Long after the arenas that built it fell silent, it still patrols them, sparring with anything that wanders in." },
 
   335: { id:335, name:"Frostprowl", emoji:"🐆", types:["Ice","Wind"],
     base:{hp:63,atk:86,def:59,spa:74,spd:67,spe:106}, evolveTo:null, evolveLevel:null,
@@ -4401,12 +4401,12 @@ const MONSTERS_DATA = {
     desc:"An ancient will-o-the-wisp grown to monstrous power. It leads the living into the realm of flame.",
     lore:"Willowisp is a fire-spectral entity resembling a human-sized floating flame with a faint spectral face visible in its core. Its fire burns without fuel and consumes nothing physical." },
 
-  369: { id:369, name:"Gravithorn", emoji:"🔮", types:["Mental","Earth"],
+  369: { id:369, name:"Gravithorn", emoji:"💎", types:["Earth","Mineral"],
     base:{hp:80,atk:94,def:88,spa:100,spd:84,spe:74}, evolveTo:377, evolveLevel:85,
-    learnset:[[1,"geoblast"],[10,"mental"],[20,"terra_spike"],[30,"psi_strike"],[40,"fissure_slam"],[50,"synaptic_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"dreamweave"],[62,"gem_scatter"]],
+    learnset:[[1,"geoblast"],[10,"mineral_jab"],[20,"terra_spike"],[30,"sapphire_lance"],[40,"fissure_slam"],[50,"shard_volley"],[60,"crag_strike"],[5,"fortify"],[38,"gem_resonance"],[62,"gem_scatter"]],
     catchRate:20, expYield:320, rarity:"uncommon",
-    desc:"A psychic that has learned to manipulate gravity. It walks on any surface, including the sky.",
-    lore:"Gravithorn is the matured Quarrex — the crushing pressure of its own stone body has kindled a psychic field that reverses gravity for 30 metres around it, letting it stride up cliffs and across ceilings as easily as open ground. Over the ages that field turns inward, crushing its body tighter and tighter until it collapses into the ultra-dense core-titan Abyssforge." },
+    desc:"A golem so dense it warps gravity by sheer mass. Loose stones drift up toward it as it walks.",
+    lore:"Gravithorn is the matured Quarrex — its granite body has compressed into incredibly dense crystalline mineral, so heavy that it bends gravity for 30 metres around it through sheer mass alone, and loose stones drift slowly up toward its bulk. That relentless inward crush only continues over the ages, packing its mineral body tighter and tighter until it collapses into the ultra-dense core-titan Abyssforge." },
 
   370: { id:370, name:"Vortexwing", emoji:"🌪️", types:["Electric","Sonic"],
     base:{hp:70,atk:90,def:68,spa:101,spd:81,spe:110}, evolveTo:null, evolveLevel:null,

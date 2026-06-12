@@ -662,7 +662,7 @@
     338: { noun: 'ice raptor', features: ['its never-melting ice talons', 'its broad wings', 'its frost-curved feathers'], coreLine: 'Its talons still grip in unmelting ice.' },
     339: { noun: 'volt beetle', features: ['its polished static-charged elytra', 'its squat armoured body', 'its buzzing flight'], coreLine: 'Static still builds across its glossy shell.' },
     340: { noun: 'psychic crystal', features: ['its irregular shifting facets', 'its floating form', 'its reflecting faces'], coreLine: 'Its faces still reshape themselves in the air.' },
-    341: { noun: 'monolith', features: ['its worn carved surface', 'its glowing ancient runes', 'its floating bulk'], coreLine: 'Its carvings still light when it reaches out.' },
+    341: { noun: 'rune-monolith', features: ['its worn carved surface', 'its glowing ancient runes', 'its floating bulk'], coreLine: 'Each passing moment settles into a new layer of its stone.' },
     342: { noun: 'wraith-king', features: ['its crown of black flame', 'its spectral regal form', 'its commanding presence'], coreLine: 'Lesser ghosts still bow before it.' },
     343: { noun: 'shadow wraith', features: ['its body of living shadow', 'its two luminous violet eyes', 'its shifting silhouette'], coreLine: 'Its form still tears free of any cast light.' },
     344: { noun: 'glimmer-wisp', features: ['its flickering glowing body', 'its translucent wings', 'its phasing form'], coreLine: 'It still winks between seen and unseen.' },

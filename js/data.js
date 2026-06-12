@@ -4203,11 +4203,11 @@ const MONSTERS_DATA = {
     lore:"Cryoshard is a floating faceted ice-crystal 1 metre across whose form constantly shifts. Each facet rings at its own frequency, and when the tones fall into alignment it looses a focused pulse of resonant sound — a chord of pure cold that fractures whatever stands before it." },
 
   341: { id:341, name:"Mirestone", emoji:"🪨", types:["Earth","Mental"],
-    base:{hp:72,atk:70,def:93,spa:89,spd:83,spe:53}, evolveTo:null, evolveLevel:null,
+    base:{hp:72,atk:66,def:90,spa:84,spd:80,spe:53}, evolveTo:388, evolveLevel:72,
     learnset:[[1,"stone_throw"],[10,"mental"],[20,"stone_slide"],[30,"psi_strike"],[40,"fossil_rush"],[50,"synaptic_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"fortify"],[62,"trample"]],
-    catchRate:24, expYield:263, rarity:"rare",
-    desc:"A monolith of psychically-resonant stone found at ancient ley line intersections.",
-    lore:"Mirestone is a floating rock-psychic entity resembling a worn monolith 1.5 metres tall. Ancient carvings on its surface glow when it uses psychic powers." },
+    catchRate:48, expYield:150, rarity:"uncommon",
+    desc:"A floating rune-monolith at ley-line crossings. It slowly records each passing moment into new layers of stone.",
+    lore:"Mirestone is a floating Earth-psychic monolith 1.5 metres tall, worn smooth by ages, its surface carved with ancient runes that glow when it draws on psychic power. It stands sentinel at ley-line intersections, and over the long centuries it slowly drinks in the passing moments of the world — each one settling as a new thin layer of stone — until, ages later, it has grown into the towering time-record Chronolith." },
 
   // ---- Tier 2: Late-game NG+ (badges 12–16 areas) BST ~545–590 ----
   342: { id:342, name:"Wraithking", emoji:"👑", types:["Dark","Spectral"],
@@ -4540,8 +4540,8 @@ const MONSTERS_DATA = {
     base:{hp:85,atk:86,def:103,spa:100,spd:90,spe:61}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"stone_slide"],[10,"mental"],[20,"fossil_rush"],[30,"psi_strike"],[40,"stone_slide"],[50,"synaptic_shatter"],[60,"neural_storm"],[5,"prism_ward"],[52,"cortex_spike"],[62,"bone_barrage"]],
     catchRate:5, expYield:358, rarity:"rare",
-    desc:"A stone that has witnessed every moment of Lumoria's history and remembers all of them simultaneously.",
-    lore:"Chronolith is a rock-psychic entity resembling a massive standing stone 2.5 metres tall with geological strata that each contain a perfect frozen moment from the past, visible if viewed psychically." },
+    desc:"The ancient final form of Mirestone — a standing stone that remembers every moment of history at once.",
+    lore:"Chronolith is the ancient, final form of Mirestone: a massive standing stone 2.5 metres tall whose geological strata each seal a perfect frozen moment from the past, visible to psychic sight. Having stood and recorded since the world was young, it remembers every moment of Lumoria's history simultaneously." },
 
   389: { id:389, name:"Stormcrown", emoji:"🦅", types:["Electric","Sonic"],
     base:{hp:78,atk:103,def:85,spa:118,spd:91,spe:108}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
@@ -6314,7 +6314,7 @@ const WORLD_DATA = {
       {id:92,  minLv:70, maxLv:74, rate:30}   // standalone
     ],
     hasGym:true, gymLeader:"boulder", requiredBadges:14, mapPos:{x:55, y:82},
-    ngPlusWildMonsters:[{id:399, minLv:69, maxLv:75, rate:8}, {id:359, minLv:74, maxLv:80, rate:9}, {id:327,minLv:70,maxLv:74,rate:25},{id:341,minLv:74,maxLv:80,rate:15},{id:349,minLv:67,maxLv:72,rate:10}]
+    ngPlusWildMonsters:[{id:399, minLv:69, maxLv:75, rate:8}, {id:359, minLv:74, maxLv:80, rate:9}, {id:327,minLv:70,maxLv:74,rate:25},{id:341,minLv:64,maxLv:70,rate:15},{id:349,minLv:67,maxLv:72,rate:10}]
   },
   route16: {
     id:"route16", name:"Route 16 - Starlit Path", icon:"✨", type:"route",
@@ -6681,7 +6681,7 @@ const WORLD_DATA = {
       {id:241, minLv:70, maxLv:75, rate:10}   // Shardlix (location evo from cosmic_cavern energy)
     ],
     legendaryEncounter:{monsterId:317, level:73}, // static legendary (obtainability fix)
-    ngPlusWildMonsters:[{id:388, minLv:70, maxLv:75, rate:8}, {id:340, minLv:70, maxLv:75, rate:10}], // NG+ standalone: Cryoshard
+    ngPlusWildMonsters:[{id:340, minLv:70, maxLv:75, rate:10}], // NG+: Cryoshard (Chronolith #388 now evolution-only from Mirestone)
     hasGym:false, requiredBadges:14, mapPos:{x:53, y:83}
   },
   nebula_gorge: {

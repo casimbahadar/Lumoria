@@ -650,7 +650,7 @@
     326: { noun: 'walking plant', features: ['its glossy dark-green leaves', 'its purple poison sacs', 'its trailing roots'], coreLine: 'Its leaves still weep poison at the edges.' },
     327: { noun: 'young granite golem', features: ['its interlocked granite slabs', 'its iron-ore veins', 'the faint warp in the air around it'], coreLine: 'A strange pull is starting to bend the air around it.' },
     328: { noun: 'smog cloud', features: ['its dense yellow-green haze', 'its shapeless drifting body', 'its choking vapour'], coreLine: 'It still rolls in like a poisoned fog.' },
-    329: { noun: 'fossil beetle', features: ['its helmet-shaped fossil carapace', 'its crushing mandibles', 'its armoured body'], coreLine: 'Its mandibles still crack stone with ease.' },
+    329: { noun: 'fossil trilobite', features: ['its broad helmet-shaped head-shield', 'its segmented fossil carapace', 'its hooked stone-cracking mouth-parts'], coreLine: 'Its mouth-parts still crack stone with ease.' },
     330: { noun: 'acid crocodile', features: ['its blistered acid-weeping skin', 'its rows of teeth', 'its heavy build'], coreLine: 'Acid still drips from its blistered hide.' },
     331: { noun: 'thorn moth', features: ['its serrated leaf-like wings', 'its emerald-and-brown patterning', 'its broad droning span'], coreLine: 'Its wing-beats set up a bark-stripping drone.' },
     332: { noun: 'ice-armour suit', features: ['its interlocking iron-and-ice plates', 'its hollow armour frame', 'its frost-rimed seams'], coreLine: 'Cold still radiates from its joined plates.' },

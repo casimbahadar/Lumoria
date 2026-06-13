@@ -4117,12 +4117,12 @@ const MONSTERS_DATA = {
     desc:"A drifting toxic cloud given form. Entire towns have been evacuated when a Smogveil settled overhead.",
     lore:"Smogveil is an amorphous poison-wind creature 3 metres across that resembles a dense yellow-green storm cloud. It has no fixed shape but two amber luminescent eye-spots drift within it." },
 
-  329: { id:329, name:"Skullmite", emoji:"💀", types:["Nature","Mineral"],
+  329: { id:329, name:"Skullmite", emoji:"🪨", types:["Nature","Mineral"],
     base:{hp:65,atk:81,def:84,spa:52,spd:65,spe:73}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"mandible_bite"],[5,"fortify"],[10,"stone_throw"],[18,"emerald_blade"],[20,"chrome_claw"],[25,"gem_storm"],[28,"granite_slam"],[30,"stone_slide"],[35,"crystalline_focus"],[38,"venom_drool"],[40,"fossil_rush"],[50,"resonance_hum"],[60,"alloy_tail"],[62,"nature_pulse"]],
     catchRate:26, expYield:256, rarity:"rare",
-    desc:"An armoured beetle with a fossilised shell harder than most metals. Ancient specimens are sold as armour.",
-    lore:"Skullmite is a beetle-like mineral creature 1.1 metres long with a helmet-shaped carapace of fossilised mineral. Its mandibles can crack geodes." },
+    desc:"A living-fossil trilobite whose segmented mineral shell is harder than most metals. Ancient specimens are sold as armour.",
+    lore:"Skullmite is a trilobite-like mineral creature 1.1 metres long with a broad helmet-shaped head-shield above a segmented, fossilised carapace of living stone. A true living fossil, it trundles across stony badlands and cave floors, and its hooked mouth-parts can crack open geodes." },
 
   330: { id:330, name:"Blistermaw", emoji:"🐊", types:["Aquatic","Poison"],
     base:{hp:71,atk:80,def:66,spa:77,spd:69,spe:57}, evolveTo:null, evolveLevel:null,

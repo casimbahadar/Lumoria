@@ -195,7 +195,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[326] Silthorn | Nature/Poison | carnivorous-plant` (already a carnivorous marsh-plant in data — relabeled out of treant per mythical-archetype-policy cap-3; treant now Necrothon/Impenezard/Thornspire)
 - `[327] Quarrex (→Gravithorn→Abyssforge) | Earth | earth-golem` (base of the earth/gravity-golem line; see [377])
 - `[328] Smogveil | Poison/Vapor | poison-elemental` (amorphous yellow-green storm cloud, formless, sole poison-elemental; retyped Wind→Vapor 2026-06-10 — sentient smog/gas cloud, lore "smog"/"choking vapour"/"poisoned fog")
-- `[329] Skullmite | Nature/Mineral | beetle` (helmet-shaped carapace — fourth beetle alongside Iridibeetle/Quarrix/Sparkeen/Voltbeetle)
+- `[329] Skullmite | Nature/Mineral | trilobite` (de-beetled 2026-06-13 — living-fossil trilobite with a helmet-shaped head-shield over a segmented fossil carapace; keeps Nature/Mineral, zero cap impact. Pristine archetype; trims beetle to cap)
 - `[330] Blistermaw | Aquatic/Poison | crocodilian` (acid-weeping croc — second crocodilian alongside Limoux line)
 - `[331] Thornmoth | Nature/Sonic | moth` (Nature mono→Nature/Sonic pristine 2026-06-12 — its wing-beat resonance strips bark; sixth Lepidoptera)
 - `[332] Glacicore | Ice/Metal | armor-suit` (ice-steel humanoid armor — second armor-suit alongside Deepfreeze)
@@ -389,7 +389,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **cetacean** | 5 | 3 | trim 2 | **LOCKED common cap-3.** Keep Torrentox (orca), Riftwhale (psychic-whale), Titanomare (steel-whale titan); re-archetype Marevanos #40→manta-ray, Tidephant #309→pinniped. (Pelagor is Forgotten 462+, excluded.) |
 | **moth** | 3 | 3 | at cap | Inferarch (#12), Mosswing (#265), Thornmoth (#331). Split out of the old "Lepidoptera" bucket 2026-06-13. |
 | **butterfly** | 3 | 3 | at cap | Iridesoar (#141), Venowarn (#165), Aeridaleth (#199). Split out of Lepidoptera 2026-06-13; Sparkeen #247→will-o-wisp and Plagueoth #298→mosquito trimmed it to cap. |
-| **beetle** | 5 | 3 | trim 2 | Iridibeetle, Quarrix, Sparkeen, Skullmite, Voltbeetle. |
+| **beetle** | 3 | 3 | at cap | Scarabion (#201, scarab beetle), Quarrix (#205), Voltbeetle (#339). Skullmite #329→trilobite 2026-06-13; Sparkeen had been miscounted here (it's a will-o-wisp). |
 | **rock-monolith / standing stone** | 4 | 3 | trim 1 | Frigolith, Megalith, Bouldertide, Mirestone→Chronolith. (Crystallon→yeti 2026-06-13) |
 | **crystalline-prism** | 5 | 3 | trim 2 | Aurarael, Shardlix, Cryoshard, Crystalmind, Sparkeis-postgame. |
 | **bird-of-prey / raptor** | 5 | 3 | trim 2 | Vortexathos, Cyclavorn, Rimeclaw, Zephyrak-postgame, plus eagle-flavor on others. |

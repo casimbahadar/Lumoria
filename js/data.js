@@ -2858,27 +2858,27 @@ const MONSTERS_DATA = {
 
   // ===== BATCH 5: DARK / FIRE / STEEL / NORMAL (IDs 266-280) =====
 
-  // 3-stage Dark chain: Shadowpup → Nightclaw → Darkfang
-  266: { id:266, name:"Shadowpup", emoji:"🐺", types:["Dark","Sonic"],
+  // 3-stage Dark chain: Shadowcub → Nightclaw → Darkfang (shadow-panther)
+  266: { id:266, name:"Shadowcub", emoji:"🐈‍⬛", types:["Dark","Sonic"],
     base:{hp:48,atk:62,def:45,spa:50,spd:48,spe:72},
     learnset:[[16,"sound_rush"],[1,"chomp"],[1,"collide"],[10,"dusk_slash"],[20,"void_pulse"],[30,"jaw_crush"],[40,"eclipse_shroud"],[50,"soul_rend"],[60,"radiance_cannon"]],
     evolveTo:267, evolveLevel:26, catchRate:180, expYield:70, rarity:"common",
-    desc:"A shadow wolf pup that feeds on ambient light. Eyes glow in pitch darkness where nothing should glow.",
-    lore:"Shadowpup is a small dark dog 25 cm at the shoulder with jet-black fur so dark it absorbs almost all visible light. Its outline against bright backgrounds seems slightly wrong — too sharp and flat. It is playful and energetic, unaware that its unusual appearance unnerves most creatures it approaches. A Shadowpup's quiet growls and yips somehow produce a faint chest-pressure in nearby creatures despite being inaudibly soft. The same pup will visibly flinch from sudden bright light, its visual cortex evidently calibrated for total darkness already. Both quirks foretell Darkfang: the felt-not-heard intimidation the apex form fully wields, and the pitch-darkness vision its eyes will use as clearly as others use daylight." },
+    desc:"A shadow-panther cub whose jet-black fur drinks the light. Its soft growls press oddly on the chest.",
+    lore:"Shadowcub is a small shadow-panther kitten about 25 cm at the shoulder, its jet-black fur so dark it swallows almost all light, leaving its outline against bright backgrounds looking too sharp and flat. It is playful and energetic, unaware that its eerie look unnerves others. Its quiet growls and mews are barely audible yet press faintly on the chest of those nearby, and it flinches from sudden light — both early signs of the felt-not-heard intimidation and pitch-dark sight the apex Darkfang will command." },
 
-  267: { id:267, name:"Nightclaw", emoji:"🐾", types:["Dark","Sonic"],
+  267: { id:267, name:"Nightclaw", emoji:"🐈‍⬛", types:["Dark","Sonic"],
     base:{hp:72,atk:95,def:65,spa:75,spd:68,spe:90},
     learnset:[[40,"concussive_strike"],[1,"dusk_slash"],[1,"phantom_claw"],[20,"void_pulse"],[28,"eclipse_shroud"],[36,"jaw_crush"],[44,"soul_rend"],[52,"nether_sphere"],[60,"radiance_cannon"]],
     evolveTo:268, evolveLevel:44, catchRate:85, expYield:150, rarity:"uncommon",
-    desc:"A dark wolf that phases through shadows. Its claws can strike from a different dimension.",
-    lore:"Nightclaw is a medium dark dog 55 cm at the shoulder — Shadowpup's jet-black light-absorbing fur has deepened across a larger frame, and the strangely-flat outline of its pup-form has sharpened into non-reflective retractable claws. It hunts by moving through deep shadow too fast to track, using echolocation rather than vision. Its natural shadow-camouflage is so effective it can vanish against dark walls in daylight." },
+    desc:"A shadow-panther that phases through darkness, striking with retractable claws from the shadows.",
+    lore:"Nightclaw is a sleek shadow-panther 55 cm at the shoulder — Shadowcub's light-drinking fur has deepened across a longer, more muscular frame, and the flat-edged outline of its kitten form has sharpened into non-reflective retractable claws. It hunts by slipping through deep shadow too fast to track, navigating by echolocation rather than sight, and can melt into a dark wall even in daylight." },
 
-  268: { id:268, name:"Darkfang", emoji:"🐕", types:["Dark","Spectral"],
+  268: { id:268, name:"Darkfang", emoji:"🐈‍⬛", types:["Dark","Spectral"],
     base:{hp:89,atk:118,def:79,spa:87,spd:79,spe:98},
     learnset:[[58,"reaper_scythe"],[1,"eclipse_shroud"],[1,"soul_rend"],[30,"void_pulse"],[38,"nether_sphere"],[46,"dusk_slash"],[54,"phantom_claw"],[62,"dread_howl"],[70,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
-    desc:"The apex shadow predator. Its howl resonates across dimensions and can be heard in the land of the dead.",
-    lore:"Darkfang is a large dark wolf 90 cm at the shoulder — Nightclaw's deep-black coat has darkened to pitch and the non-reflective claws that hid its juvenile form have been joined by fangs that absorb light, giving them a void-like appearance. Its growl is felt more than heard, as a pressure in the chest. It inhabits forested night-terrain and sees in conditions of total darkness as clearly as others see in daylight." },
+    desc:"The apex shadow predator. Its roar resonates across dimensions and can be heard in the land of the dead.",
+    lore:"Darkfang is a large shadow-panther 90 cm at the shoulder — Nightclaw's coat has darkened to absolute pitch, and its claws are joined by fangs that drink light, giving them a void-like black. Its growl is felt more than heard, a pressure deep in the chest, and it sees in total darkness as clearly as others see by day. Its hunting roar resonates across dimensions — faint echoes of it are said to reach the land of the dead." },
 
   // 2-stage Dark split: Grimshade → Eclipsoon (Moon Stone item)
   269: { id:269, name:"Grimshade", emoji:"🦝", types:["Dark"],
@@ -4146,12 +4146,12 @@ const MONSTERS_DATA = {
     desc:"A golem wrapped in self-generated permafrost. Its steel core never melts, no matter the heat.",
     lore:"Glacicore is an ice-steel creature 1.8 metres tall resembling a humanoid armour suit formed from interlocking plates of iron and glacial ice." },
 
-  333: { id:333, name:"Voltfang", emoji:"🐺", types:["Electric","Dark"],
+  333: { id:333, name:"Voltfang", emoji:"🐍", types:["Electric","Dark"],
     base:{hp:66,atk:91,def:61,spa:78,spd:67,spe:92}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"jolt"],[10,"shadowstep"],[20,"volt_jet"],[30,"void_rend"],[40,"stormbolt"],[50,"phantom_claw"],[60,"volt_surge"],[5,"stun_pulse"],[38,"nether_sphere"]],
     catchRate:26, expYield:258, rarity:"rare",
-    desc:"A storm wolf that channels voltage through its dark fur. Its howl triggers localised lightning strikes.",
-    lore:"Voltfang is an electric-dark wolf 1.4 metres at the shoulder with jet-black fur shot through with crackling yellow lightning. Its eyes glow violet." },
+    desc:"A dark electric eel whose sinuous body crackles with stored voltage. A single touch delivers a paralyzing shock.",
+    lore:"Voltfang is a 1.4-metre electric eel of deep blue-black, its long sinuous body crackling with stored voltage that glows violet along its flanks. It lurks in lightless deep water and murky river-bottoms, sensing prey by the faint electric fields they give off, then stuns them rigid with a single discharge before its needle-fanged bite closes." },
 
   334: { id:334, name:"Voltbrawler", emoji:"🤖", types:["Electric","Fighting"],
     base:{hp:83,atk:104,def:100,spa:52,spd:70,spe:61}, evolveTo:null, evolveLevel:null,
@@ -6141,7 +6141,7 @@ const WORLD_DATA = {
       {id:162, minLv:58, maxLv:63, rate:14},  // Marlix (base)
       {id:163, minLv:59, maxLv:64, rate:7},  // Blightalis (mid → after base ✓)
       {id:206, minLv:57, maxLv:62, rate:12},  // Venomscale (base Poison/Draconic)
-      {id:266, minLv:57, maxLv:62, rate:21},  // Shadowpup (base Dark)
+      {id:266, minLv:57, maxLv:62, rate:21},  // Shadowcub (base Dark/Sonic)
       {id:299, minLv:57, maxLv:62, rate:5}    // Stinglet (base Bug/Poi)
     ],
     hasGym:false, requiredBadges:9, mapPos:{x:48, y:60},
@@ -6630,7 +6630,7 @@ const WORLD_DATA = {
       {id:301, minLv:66, maxLv:71, rate:6}, // Emberveil (obtainability fix)
       {id:245, minLv:66, maxLv:71, rate:9},  // Thundravex (mid Electric → 244 ✓)
       {id:275, minLv:66, maxLv:71, rate:13},  // Infernox (mid → 274 Cindling on magma_vent ✓)
-      {id:266, minLv:65, maxLv:70, rate:27},  // Shadowpup (base Dark, also route10)
+      {id:266, minLv:65, maxLv:70, rate:27},  // Shadowcub (base Dark/Sonic, also route10)
       {id:267, minLv:66, maxLv:71, rate:17},  // Nightclaw (mid → after 266 ✓)
       {id:278, minLv:65, maxLv:70, rate:23},  // Ironling (base, also route14)
       {id:312, minLv:65, maxLv:70, rate:5}    // Dunecrawl (base, also magma_vent)

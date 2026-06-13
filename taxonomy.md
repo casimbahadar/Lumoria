@@ -153,7 +153,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[261] Sproutix→Leafhorn | Nature/Dream | stag / deer (cervid)` (faun — Leafhorn rewritten 2026-06-12 to a dream-bloom deer, Nature mono→Nature/Dream pristine; ties to Sproutix's drowsing pollen)
 - `[264] Transluceed→Tendrilisk→Impenezard | Grass/Poison | treant / walking-tree spirit` (walking thorn-bush — **name leak in #264: "Thornvast"**; second treant alongside Necralia line)
 - `[265] Mosswing | Nature/Wind | moth` (moss-winged moth, standalone — third Lepidoptera alongside Inferarch and Aeridaleth lines; retyped Nature→Nature/Wind for diversity + flight)
-- `[268] Shadowpup→Nightclaw→Darkfang | Dark/Sonic → Dark/Spectral | wolf` (dark-wolf — third wolf alongside Hexaprowl and Eclipsehound lines; type-shift on final evo: pups are Dark/Sonic "howl resonates / echolocation", Darkfang matures into Dark/Spectral "heard in the land of the dead")
+- `[268] Shadowcub→Nightclaw→Darkfang | Dark/Sonic → Dark/Spectral | panther` (de-wolfed 2026-06-13 — shadow-panther line, light-drinking cub → apex shadow-panther whose roar reaches the dead; renamed Shadowpup→Shadowcub)
 - `[270] Grimshade→Eclipsoon | Dark/Fairy | tanuki` (mythical, just claimed)
 - `[271] Murkrat | Dark/Normal | rat (rodent)` (standalone)
 - `[273] Embrix→Blazeon | Fire/Spectral | phoenix` (sub: firebird; base #272 mono-Fire)
@@ -199,7 +199,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[330] Blistermaw | Water/Poison | crocodilian` (acid-weeping croc — second crocodilian alongside Limoux line)
 - `[331] Thornmoth | Nature/Sonic | moth` (Nature mono→Nature/Sonic pristine 2026-06-12 — its wing-beat resonance strips bark; sixth Lepidoptera)
 - `[332] Glacicore | Ice/Steel | armor-suit` (ice-steel humanoid armor — second armor-suit alongside Deepfreeze)
-- `[333] Voltfang | Electric/Dark | wolf` (electric-dark wolf — fourth wolf alongside Hexaprowl/Eclipsehound/Shadowpup)
+- `[333] Voltfang | Electric/Dark | electric-eel` (de-wolfed 2026-06-13 — dark electric eel; was redundant with Raijolt's Electric/Dark thunder-beast)
 - `[334] Voltbrawler | Electric/Fighting | automaton` (sub: battlebot / combat-automaton; re-themed 2026-06-12 from Metal/Fighting metal-brawler → pristine Electric/Fighting battlebot, adding a new type pairing to the golem roster)
 - `[335] Frostprowl | Ice/Wind | feline (snow-leopard / cheetah)` (ice-wind feline — distinct from cat/lion; pristine snow-cat sub-archetype)
 - `[336] Coilstrike | Electric/Poison | serpent (non-dragon)` (electric-poison snake)
@@ -382,7 +382,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **dragon-mythic** | ~30 | exempt | — | Mythical-exempt; sub-flavor diversity is high. No trim. |
 | **wraith / spectre** | 11+ | **split** | re-arch | **LOCKED:** split the over-broad bucket. Core wraith ≤3 (Shadowveil, Wraithking, Shadowreave); split the rest into spectral-leviathan (Abyssalord), mountain-spirit (Stonekeeper), storm-wraith (Wraithstorm), plague-spectre (Venomwraith), moonlight-spectre (Lunaspectre), haunted-doll (Pallidoll), bell-spirit (Tollwisp/Knellgeist), faerie-sprite (Glimmeritch). All stay Spectral-typed. See policy doc. |
 | **golem** | 11 | **exempt** | — | **LOCKED mythical-exempt** — universal mythological construct (same footing as dragon). No trim. |
-| **wolf** | 5 (post pivots) | 3 | trim 2 | Hexaprowl, Eclipsehound, Shadowpup, Voltfang, Cryvorn. (Mirkling/Morraveth lines already pivoted.) |
+| **wolf** | 3 | 3 | at cap | Frigidvorn, Nightwolf, + Forgotten Cryvorn. (Darkfang→panther, Voltfang→electric-eel 2026-06-13; Mirkling/Morraveth earlier.) |
 | **fire-dragon** (sub) | 7 | n/a (under dragon-mythic) | discuss | If sub-caps applied: way over. |
 | **psychic-dragon** (sub) | 6 | n/a | discuss | Same. |
 | **lion** | 3 (post Dravanas pivot) | 3 | at cap | Siroccomane, Ignitheon, Pyraeon-postgame. Dravanas planned for canid pivot. |

@@ -64,7 +64,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[83] Joltan→Galvanos→Voltanox | Electric | horse / equine`
 - `[86] Electrix→Shockharpe→Galvaglide | Electric/Nature | dragonfly` (currently inconsistent: stages mix beetle/mosquito/dragonfly — on BREAKING list; final lore says "Zapoveth" name-leak)
 - `[89] Amperix→Sparkrel→Surgolith | Electric/Aquatic | electric eel`
-- `[91] Zephyrel→Vortexathos | Electric/Wind | bird-of-prey` (eagle)
+- `[91] Zephyrel→Vortexathos | Electric/Wind | eagle` (storm-eagle, 4 m wingspan; subdivided out of the generic "bird-of-prey/raptor" bucket 2026-06-13)
 - `[94] Arcspine→Stonebolt→Petrovast | Electric/Earth | echidna`
 - `[97] Dustkin→Seismith→Tectonvast | Earth/Electric | rhino`
 - `[100] Aridix→Toxivenoth→Craterlurk | Earth/Poison | scorpion` (**name leak in #100: "Venomvast"**)
@@ -72,7 +72,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[105] Arenikin→Dravanas | Normal/Earth | hyena` (de-lioned 2026-06-13 — completes the long-flagged canid pivot; already a desert-hyena line in lore/desc/variant, only the archetype label was stale)
 - `[107] Geoclad→Quakeon | Earth/Metal | glyptodon` (sub: armoured mammal)
 - `[110] Silvergust→Siroccomane→Aeolarch | Wind/Electric | lion` (wind-lion)
-- `[113] Aeolin→Swirlavel→Cyclavorn | Wind | bird-of-prey` (condor)
+- `[113] Aeolin→Swirlavel→Cyclavorn | Wind | condor / vulture` (high-altitude condor; subdivided out of "bird-of-prey/raptor" 2026-06-13)
 - `[115] Nimbusel→Aetherworn | Wind/Dark | cloud-fairy / wraith-fairy`
 - `[117] Zephyrin→Pneumathos | Wind/Mental | wind-elemental` (just claimed pristine)
 - `[120] Eclipsehound→Dreadmaw→Nightwolf | Dark | wolf` (**name leak in #120: "Noctovast"**)
@@ -204,7 +204,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[335] Frostprowl | Ice/Wind | feline (snow-leopard / cheetah)` (ice-wind feline — distinct from cat/lion; pristine snow-cat sub-archetype)
 - `[336] Coilstrike | Electric/Poison | serpent (non-dragon)` (electric-poison snake)
 - `[337] Ashgolem (→Embersteel #347) | Fire/Mineral | forge-golem` (base of the forge-golem line; see [347])
-- `[338] Rimeclaw | Ice | bird-of-prey` (raptor — fourth raptor alongside Vortexathos/Cyclavorn/Zephyrak)
+- `[338] Rimeclaw | Ice | hawk` (ice-hawk that nests on storm-capped peaks; subdivided out of "bird-of-prey/raptor" 2026-06-13)
 - `[339] Voltbeetle | Electric/Sonic | beetle` (fifth beetle)
 - `[340] Cryoshard | Ice/Sonic | resonant-crystal` (resonant crystal-prism; retyped Ice/Mental→Ice/Sonic to break the Ice/Mental crystalline-prism clash with Shardlix — Shardlix keeps the crystalline-prism slot, Cryoshard pivots to a sound-resonance identity)
 - `[341] Mirestone (→Chronolith #388) | Earth/Mental | rock-monolith` (base of the monolith line; see [388])
@@ -393,7 +393,10 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **beetle** | 3 | 3 | at cap | Scarabion (#201, scarab beetle), Quarrix (#205), Voltbeetle (#339). Skullmite #329→trilobite 2026-06-13; Sparkeen had been miscounted here (it's a will-o-wisp). |
 | **rock-monolith / standing stone** | 4 | 3 | trim 1 | Frigolith, Megalith, Bouldertide, Mirestone→Chronolith. (Crystallon→yeti 2026-06-13) |
 | **crystalline-prism** | 5 | 3 | trim 2 | Aurarael, Shardlix, Cryoshard, Crystalmind, Sparkeis-postgame. |
-| **bird-of-prey / raptor** | 5 | 3 | trim 2 | Vortexathos, Cyclavorn, Rimeclaw, Zephyrak-postgame, plus eagle-flavor on others. |
+| **eagle** | 1 | 3 | under cap | Vortexathos (#91). Subdivided out of "bird-of-prey/raptor" 2026-06-13. |
+| **condor / vulture** | 1 | 3 | under cap | Cyclavorn (#113). Subdivided 2026-06-13. |
+| **hawk** | 1 | 3 | under cap | Rimeclaw (#338). Subdivided 2026-06-13. |
+| _(raptor superfamily, already distinct)_ | — | — | — | thunderbird Stormcrown (#389), griffin Solarvast (#394), harpy Zephyrak (#478, post-game). The old "bird-of-prey/raptor: 5, trim 2" bucket dissolved by subdivision — each raptor type now sits at 1, no cull needed. |
 | **treant / walking-tree** | 4 | 3 | trim 1 | **LOCKED capped (not exempt).** Keep Necrothon, Impenezard, Thornspire; re-archetype Silthorn #326→carnivorous-plant. (Rootborn is Forgotten 462+, excluded.) |
 | **void / cosmic abstract** | 9 | exempt | — | Cerebraith, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Cosmoveil, Nihilax, Cosmolith. Mythical-exempt. |
 | **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Mimiclaw, Emberveil, Cinderpaw. |

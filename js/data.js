@@ -2849,10 +2849,10 @@ const MONSTERS_DATA = {
   // Standalone Grass/Bug: Mosswing
   265: { id:265, name:"Mosswing", emoji:"🦗", types:["Nature","Wind"],
     base:{hp:78,atk:82,def:70,spa:95,spd:88,spe:108},
-    learnset:[[34,"gale_strike"],[1,"resonance_hum"],[1,"vine_lash"],[5,"cocoon_guard"],[10,"metamorphosis"],[14,"quiver_dance"],[18,"shear_strike"],[22,"sticky_web"],[28,"verdant_orb"],[32,"spore_shield"],[38,"sharp_leaves"],[42,"sporecloud_burst"],[48,"petal_blitz"],[58,"resonance_hum"],[68,"radiance_cannon"]],
+    learnset:[[34,"gale_strike"],[1,"resonance_hum"],[1,"vine_lash"],[5,"fortify"],[10,"locust_fury"],[14,"quiver_dance"],[18,"shear_strike"],[22,"sticky_web"],[28,"verdant_orb"],[32,"spore_shield"],[38,"sharp_leaves"],[42,"sporecloud_burst"],[48,"swarm_strike"],[58,"resonance_hum"],[68,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:210, rarity:"uncommon",
-    desc:"A mossy grasshopper that blends perfectly into overgrown forest floors. Its wings buzz with plant pollen.",
-    lore:"Mosswing is a grass-bug creature 20 cm wingspan resembling a moth whose wings are covered in living moss rather than scales. The moss is a different species front and back, providing camouflage on both bark and leaf surfaces. Its moss-wings are never still, micro-growing and micro-dying continuously." },
+    desc:"A moss-cloaked grasshopper that blends perfectly into overgrown forest floors. Its wing-buzz scatters plant pollen.",
+    lore:"Mosswing is a grass-bug creature 20 cm long resembling a grasshopper, its long hind legs and folded wings covered in living moss rather than smooth chitin. The moss is a different species front and back, providing camouflage on both bark and leaf surfaces. The moss is never still, micro-growing and micro-dying continuously." },
 
 
 
@@ -3586,7 +3586,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"ooze_bomb"],[2,"toxic_surge"],[3,"toxin_bloom"],[8,"breeze"],[15,"tailwind_strike"],[20,"second_wind"],[25,"blitz"],[25,"breeze_blast"],[29,"toxify"],[30,"nerve_agent"],[35,"virulent_surge"],[39,"sap_bite"],[40,"wind_scythe"],[45,"putrid_pulse"],[50,"acid_rain"],[55,"cocoon_burst"],[60,"resonance_hum"]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:185, rarity:"uncommon",
     desc:"A venomous moth that releases toxic scales on the wind. A cloud of them can fell a Lumori quickly.",
-    lore:"Venowarn is a large poison-wind butterfly with a 50 cm wingspan — Blightmite's dark purple-black caterpillar body has metamorphosed into deep black wings, with the bristle-hair toxin now sequestered into vivid purple warning patterns. It releases a cloud of toxic scales when startled, and the scales cause skin irritation and respiratory distress in creatures that inhale them. It inhabits dense poisonous forest regions." },
+    lore:"Venowarn is a large poison-wind moth with a 50 cm wingspan — Blightmite's dark purple-black caterpillar body has metamorphosed into deep black wings, with the bristle-hair toxin now sequestered into vivid purple warning patterns. It releases a cloud of toxic scales when startled, and the scales cause skin irritation and respiratory distress in creatures that inhale them. It inhabits dense poisonous forest regions." },
 
   // ===== STEEL/GROUND =====
   153: { id:153, name:"Dentshaft", emoji:"⚙️", types:["Metal","Earth"],
@@ -4117,12 +4117,12 @@ const MONSTERS_DATA = {
     desc:"A drifting toxic cloud given form. Entire towns have been evacuated when a Smogveil settled overhead.",
     lore:"Smogveil is an amorphous poison-wind creature 3 metres across that resembles a dense yellow-green storm cloud. It has no fixed shape but two amber luminescent eye-spots drift within it." },
 
-  329: { id:329, name:"Skullmite", emoji:"💀", types:["Nature","Mineral"],
+  329: { id:329, name:"Skullmite", emoji:"🪨", types:["Nature","Mineral"],
     base:{hp:65,atk:81,def:84,spa:52,spd:65,spe:73}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"mandible_bite"],[5,"fortify"],[10,"stone_throw"],[18,"emerald_blade"],[20,"chrome_claw"],[25,"gem_storm"],[28,"granite_slam"],[30,"stone_slide"],[35,"crystalline_focus"],[38,"venom_drool"],[40,"fossil_rush"],[50,"resonance_hum"],[60,"alloy_tail"],[62,"nature_pulse"]],
     catchRate:26, expYield:256, rarity:"rare",
-    desc:"An armoured beetle with a fossilised shell harder than most metals. Ancient specimens are sold as armour.",
-    lore:"Skullmite is a beetle-like mineral creature 1.1 metres long with a helmet-shaped carapace of fossilised mineral. Its mandibles can crack geodes." },
+    desc:"A living-fossil trilobite whose segmented mineral shell is harder than most metals. Ancient specimens are sold as armour.",
+    lore:"Skullmite is a trilobite-like mineral creature 1.1 metres long with a broad helmet-shaped head-shield above a segmented, fossilised carapace of living stone. A true living fossil, it trundles across stony badlands and cave floors, and its hooked mouth-parts can crack open geodes." },
 
   330: { id:330, name:"Blistermaw", emoji:"🐊", types:["Aquatic","Poison"],
     base:{hp:71,atk:80,def:66,spa:77,spd:69,spe:57}, evolveTo:null, evolveLevel:null,

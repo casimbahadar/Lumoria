@@ -2954,14 +2954,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"chrome_claw"],[1,"fairy_wind"],[14,"forge_blast_2"],[24,"lunar_burst"],[34,"alloy_tail"],[44,"prism_flare"],[54,"forge_strike"],[60,"radiance_cannon"]],
     evolveTo:279, evolveLevel:null, evolveItem:"metalCoat", evolveMethod:"item", catchRate:145, expYield:92, rarity:"common",
     desc:"A small fairy forged of living iron. Works tirelessly in ancient forges, seeking purpose and strength.",
-    lore:"Ironling is a small steel-fairy creature 30 cm tall resembling a tiny knight in fairy-crafted iron armour. Its armour is silver-grey with a faint shimmer. It is protective of smaller creatures and positions itself between perceived threats and those it has chosen to guard, regardless of relative size." },
+    lore:"Ironling is a small steel-fairy creature 30 cm tall resembling an iron-shod fae foal sheathed in fairy-crafted barding, a budding nub of metal at its brow. Its plating is silver-grey with a faint shimmer. It is protective of smaller creatures and positions itself between perceived threats and those it has chosen to guard, regardless of relative size." },
 
   279: { id:279, name:"Steelhorn", emoji:"🦌", types:["Metal","Fairy"],
     base:{hp:87,atk:97,def:114,spa:84,spd:97,spe:71},
     learnset:[[1,"forge_blast_2"],[1,"lunar_burst"],[28,"alloy_tail"],[36,"prism_flare"],[44,"forge_strike"],[52,"heavy_slam"],[60,"celestial_wave"],[68,"radiance_cannon"],[70,"disarming_voice"]],
     evolveTo:null, evolveLevel:null, catchRate:38, expYield:228, rarity:"rare",
     desc:"A horned steel fairy of regal bearing. Its horn channels both fairy magic and forged steel energy.",
-    lore:"Steelhorn is a medium steel-fairy creature 70 cm tall — Ironling's silver-grey fairy-crafted iron armour has been refined under metalCoat's influence into a humanoid body of polished silver steel, and a single straight horn of fairy-charged metal has emerged from its forehead, channelling and purifying energy. It inhabits ancient forge-temples and stands watch over sacred metalworking sites." },
+    lore:"Steelhorn is a medium steel-fairy creature 70 cm tall — Ironling's silver-grey fairy-crafted barding has been refined under metalCoat's influence into the body of a four-legged steel-coated fae steed of regal bearing, and a single straight horn of fairy-charged metal has emerged from its brow, channelling and purifying energy. It inhabits ancient forge-temples and stands watch over sacred metalworking sites." },
 
   // 3-stage Metal/Fighting chain: Gearbit → Cogvex → Mechavast
   280: { id:280, name:"Gearbit", emoji:"🔩", types:["Metal","Fighting"],

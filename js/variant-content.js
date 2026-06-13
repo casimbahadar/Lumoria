@@ -568,7 +568,7 @@
     244: { noun: 'static weasel', features: ['its crackling yellow-white fur', 'its slender kit body', 'its quick paws'], coreLine: 'Static still snaps from its fur at a touch.' },
     245: { noun: 'thunder mustelid', features: ['its bright yellow fur', 'its longer muscular body', 'its charged coat'], coreLine: 'Charge still ripples down its lengthening frame.' },
     246: { noun: 'thunder wolverine', features: ['its heavily muscled body', 'its bristling charged fur', 'its powerful claws'], coreLine: 'It still discharges a storm when it strikes.' },
-    247: { noun: 'dream-light wisp', features: ['its glowing green light', 'the flickering strobing glow', 'its small drifting bodiless form'], coreLine: 'Watch its flicker too long and the mind drifts into a daze.' },
+    247: { noun: 'dream-light butterfly', features: ['its glowing green wings', 'the flickering strobing light off them', 'its small drifting body'], coreLine: 'Watch its flicker too long and the mind drifts into a daze.' },
     248: { noun: 'pebble creature', features: ['its smooth river-pebble body', 'its two tiny eyes', 'its camouflaged shape'], coreLine: 'It still sits motionless, just another stone.' },
     249: { noun: 'boulder creature', features: ['its squat boulder-frame', 'its rough stone limbs', 'its blunt head'], coreLine: 'It still hunkers down like a stubborn rock.' },
     250: { noun: 'standing-stone golem', features: ['its tall ancient stone body', 'its weathered surface', 'its monolithic frame'], coreLine: 'It still stands like a menhir come to life.' },

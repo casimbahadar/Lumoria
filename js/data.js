@@ -2708,12 +2708,12 @@ const MONSTERS_DATA = {
     lore:"Megavolt is a massive thunder-wolverine 1 metre at the shoulder, the apex form of the Staticlaw→Thundravex lineage. Its body is heavily muscled with chrome-yellow fur and a thick collar of crackling electric coils running from the back of its neck down both shoulders, mistaken at distance for a felid mane. It is fearless to the point of recklessness, attacking creatures many times its size to defend its territory, and the visible electrical shockwave that accompanies its roar temporarily blinds and deafens those nearby. It is considered the apex electric predator of any region it claims." },
 
   // Standalone Electric/Bug: Sparkeen
-  247: { id:247, name:"Sparkeen", emoji:"✨", types:["Electric","Dream"],
+  247: { id:247, name:"Sparkeen", emoji:"🦋", types:["Electric","Dream"],
     base:{hp:72,atk:68,def:65,spa:102,spd:88,spe:115},
     learnset:[[1,"volt_jet"],[1,"dream_pulse"],[8,"shock_pulse"],[18,"drowse_swirl"],[28,"somnia_ray"],[38,"stormbolt"],[48,"trance_wave"],[55,"jolt"],[58,"lullaby_strike"],[68,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:210, rarity:"uncommon",
-    desc:"A drifting will-o'-wisp of dream-light whose flickering glow lulls onlookers into brief waking dreams.",
-    lore:"Sparkeen is a small electric creature 10 cm across — a hovering, bodiless mote of dream-light, a soft electric field wrapped around a flickering, shifting glow. Watch the strobing light too long and the mind drifts into a brief, pleasant waking dream, a defence that lets Sparkeen drift unhurried over marsh and meadow while would-be predators stand dazed. Roused, that gentle field sharpens at once into a painful jolt." },
+    desc:"An electric butterfly whose flickering wing-light lulls onlookers into brief waking dreams.",
+    lore:"Sparkeen is a small electric creature 10 cm across resembling a glowing green butterfly. Its wings carry a soft electric field and a flickering, shifting glow — watch the strobing wingbeats too long and the mind drifts into a brief, pleasant waking dream, a defence that lets Sparkeen flit unhurried between flowers while would-be predators stand dazed. Roused, that gentle field sharpens at once into a painful jolt." },
 
   // 3-stage Rock/Ground chain: Pebblard → Boulderax → Megalith
   248: { id:248, name:"Pebblard", emoji:"🪨", types:["Earth"],

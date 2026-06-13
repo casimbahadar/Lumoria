@@ -143,7 +143,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 ### Batch 3 (families 106-139)
 
 - `[246] Staticlaw→Thundravex→Megavolt | Electric | wolverine (mustelid)`
-- `[247] Sparkeen | Electric/Dream | will-o-wisp / dream-wisp` (de-Lepidoptera'd 2026-06-13 — rewritten as a bodiless mote of dream-light, not a butterfly; will-o-wisp is mythical-exempt so no cap pressure. Keeps pristine Electric/Dream. Third will-o-wisp alongside Crealight #225 & Willowisp #368; trims butterfly 4→3)
+- `[247] Sparkeen | Electric/Dream | butterfly` (standalone Lepidoptera — dream-light flutterer. Kept as butterfly rather than a 3rd will-o-wisp, since Crealight #225 & Willowisp #368 already fill that slot; butterfly sits at cap-3 with Iridesoar/Aeridaleth once Venowarn→moth. Pristine Electric/Dream.)
 - `[250] Pebblard→Boulderax→Megalith | Earth | rock-monolith / standing stone` (second rock-monolith alongside Prismolith line)
 - `[252] Crumblite→Stonegrip | Metal/Mineral | lobster` (de-golemed 2026-06-13 from metal-golem — armored rock-crustacean with crushing stone-claws)
 - `[253] Ashrock | Fire/Mineral | rock-elemental` (formless basalt with magma veins, standalone — could equally be fire-elemental; lean rock-elemental since body is rock)
@@ -389,7 +389,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **cetacean** | 5 | 3 | trim 2 | **LOCKED common cap-3.** Keep Torrentox (orca), Riftwhale (psychic-whale), Titanomare (steel-whale titan); re-archetype Marevanos #40→manta-ray, Tidephant #309→pinniped. (Pelagor is Forgotten 462+, excluded.) |
 | **moth** | 3 | 3 | at cap | Inferarch (#12), Venowarn (#165), Thornmoth (#331). Split out of the old "Lepidoptera" bucket 2026-06-13; Mosswing #265→grasshopper, Venowarn reclassified butterfly→moth. |
 | **grasshopper (Orthoptera)** | 1 | 3 | under cap | Mosswing (#265). Pristine archetype, re-archetyped off moth 2026-06-13. |
-| **butterfly** | 2 | 3 | under cap | Iridesoar (#141), Aeridaleth (#199). Split out of Lepidoptera 2026-06-13; Venowarn #165→moth, Sparkeen #247→will-o-wisp, Plagueoth #298→mosquito. |
+| **butterfly** | 3 | 3 | at cap | Iridesoar (#141), Aeridaleth (#199), Sparkeen (#247). Split out of Lepidoptera 2026-06-13; Venowarn #165→moth and Plagueoth #298→mosquito left the bucket. |
 | **beetle** | 3 | 3 | at cap | Scarabion (#201, scarab beetle), Quarrix (#205), Voltbeetle (#339). Skullmite #329→trilobite 2026-06-13; Sparkeen had been miscounted here (it's a will-o-wisp). |
 | **rock-monolith / standing stone** | 4 | 3 | trim 1 | Frigolith, Megalith, Bouldertide, Mirestone→Chronolith. (Crystallon→yeti 2026-06-13) |
 | **crystalline-prism** | 3 | exempt | — | **Mythical-exempt** (CLAUDE.md) — resolves the old exempt-vs-trim contradiction. Aurarael #169 (orbiting 7-shard cluster + face), Shardlix #241 (ice-crystal humanoid), Crystalmind #381 (geometric polyhedron) — three distinct forms, no redundant look-alikes to cull. Old "5/trim 2" was stale: Cryoshard #340 already pivoted to resonant-crystal, Sparkeis #493 is post-game. Spectravore #351 is a separate "prismatic being". No cull. |

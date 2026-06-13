@@ -586,7 +586,7 @@
     262: { noun: 'cactus sprite', features: ['its pale-green translucent body', 'its spined limbs', 'its little face'], coreLine: 'It still squares up to far larger foes.' },
     263: { noun: 'vine fighter', features: ['its wrapping vine-tendril limbs', 'its translucent core', 'its toxic spines'], coreLine: 'It still lashes out with whipping tendrils.' },
     264: { noun: 'thorn warrior', features: ['its walking thorn-armoured body', 'its lashing vine-limbs', 'its towering frame'], coreLine: 'It still wades into a brawl bristling with thorns.' },
-    265: { noun: 'moss moth', features: ['its living-moss wings', 'its soft furred body', 'its slow flutter'], coreLine: 'Moss still grows thick across its wings.' },
+    265: { noun: 'moss grasshopper', features: ['its living-moss-cloaked body', 'its long folded hind legs', 'its sudden springing leaps'], coreLine: 'Moss still grows thick across its back.' },
     266: { noun: 'shadow-panther cub', features: ['its light-drinking jet-black fur', 'its small lithe frame', 'its blurred flat outline'], coreLine: 'Its soft growls press faintly on the chest.' },
     267: { noun: 'shadow-panther', features: ['its deep-black coat', 'its sleek muscular frame', 'its retractable dark claws'], coreLine: 'It slips through deep shadow too fast to track.' },
     268: { noun: 'apex shadow-panther', features: ['its pitch-black coat', 'its light-drinking void-fangs', 'its powerful frame'], coreLine: 'Its roar is said to carry to the land of the dead.' },

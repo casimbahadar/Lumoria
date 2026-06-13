@@ -2847,12 +2847,12 @@ const MONSTERS_DATA = {
     lore:"Impenezard is a massive fighting-toxin creature 2 metres tall resembling a walking thorn-warrior — Tendrilisk's climbing vine-tendrils have hardened into 15-cm thorns tipped with potent venom, and its body has thickened into a bristling cactus-plate carapace. Its broad form is nearly impenetrable. It moves slowly through dense jungle in measured fighting stances, and other creatures create well-worn trails specifically to avoid contact with it." },
 
   // Standalone Grass/Bug: Mosswing
-  265: { id:265, name:"Mosswing", emoji:"🦋", types:["Nature","Wind"],
+  265: { id:265, name:"Mosswing", emoji:"🦗", types:["Nature","Wind"],
     base:{hp:78,atk:82,def:70,spa:95,spd:88,spe:108},
-    learnset:[[34,"gale_strike"],[1,"resonance_hum"],[1,"vine_lash"],[5,"cocoon_guard"],[10,"metamorphosis"],[14,"quiver_dance"],[18,"shear_strike"],[22,"sticky_web"],[28,"verdant_orb"],[32,"spore_shield"],[38,"sharp_leaves"],[42,"sporecloud_burst"],[48,"petal_blitz"],[58,"resonance_hum"],[68,"radiance_cannon"]],
+    learnset:[[34,"gale_strike"],[1,"resonance_hum"],[1,"vine_lash"],[5,"fortify"],[10,"locust_fury"],[14,"quiver_dance"],[18,"shear_strike"],[22,"sticky_web"],[28,"verdant_orb"],[32,"spore_shield"],[38,"sharp_leaves"],[42,"sporecloud_burst"],[48,"swarm_strike"],[58,"resonance_hum"],[68,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:210, rarity:"uncommon",
-    desc:"A moss-winged moth that blends perfectly into overgrown forest floors. Its wings buzz with plant pollen.",
-    lore:"Mosswing is a grass-bug creature 20 cm wingspan resembling a moth whose wings are covered in living moss rather than scales. The moss is a different species front and back, providing camouflage on both bark and leaf surfaces. Its moss-wings are never still, micro-growing and micro-dying continuously." },
+    desc:"A moss-cloaked grasshopper that blends perfectly into overgrown forest floors. Its wing-buzz scatters plant pollen.",
+    lore:"Mosswing is a grass-bug creature 20 cm long resembling a grasshopper, its long hind legs and folded wings covered in living moss rather than smooth chitin. The moss is a different species front and back, providing camouflage on both bark and leaf surfaces. The moss is never still, micro-growing and micro-dying continuously." },
 
 
 

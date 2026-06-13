@@ -152,7 +152,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[259] Lumejell | Aquatic/Mental | jellyfish / cnidarian` (psychic-jellyfish, standalone — second jelly alongside Slatis-line origin)
 - `[261] Sproutix→Leafhorn | Nature/Dream | stag / deer (cervid)` (faun — Leafhorn rewritten 2026-06-12 to a dream-bloom deer, Nature mono→Nature/Dream pristine; ties to Sproutix's drowsing pollen)
 - `[264] Transluceed→Tendrilisk→Impenezard | Fighting/Toxin | cactus / thorn-warrior` (relabeled off treant 2026-06-13 — lore is cactus sapling→cactus warrior→cactus-plate carapace throughout, a succulent thorn-warrior, not a tree-spirit. **name leak in #264: "Thornvast"**)
-- `[265] Mosswing | Nature/Wind | moth` (moss-winged moth, standalone — third Lepidoptera alongside Inferarch and Aeridaleth lines; retyped Nature→Nature/Wind for diversity + flight)
+- `[265] Mosswing | Nature/Wind | grasshopper` (moss-cloaked grasshopper, standalone — pristine Orthoptera archetype, re-archetyped off moth 2026-06-13; keeps Nature/Wind. Learnset swapped cocoon_guard/metamorphosis → fortify/locust_fury/swarm_strike to fit)
 - `[268] Shadowcub→Nightclaw→Darkfang | Dark/Sonic → Dark/Spectral | panther` (de-wolfed 2026-06-13 — shadow-panther line, light-drinking cub → apex shadow-panther whose roar reaches the dead; renamed Shadowpup→Shadowcub)
 - `[270] Grimshade→Eclipsoon | Dark/Fairy | tanuki` (mythical, just claimed)
 - `[271] Murkrat | Dark/Normal | rat (rodent)` (standalone)
@@ -387,7 +387,8 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **psychic-dragon** (sub) | 6 | n/a | discuss | Same. |
 | **lion** | 2 pre-462 (+Pyraeon postgame) | 3 | under cap | Ignitheon (fire-oracle), Aeolarch (storm) lines. Dravanas→hyena done 2026-06-13. |
 | **cetacean** | 5 | 3 | trim 2 | **LOCKED common cap-3.** Keep Torrentox (orca), Riftwhale (psychic-whale), Titanomare (steel-whale titan); re-archetype Marevanos #40→manta-ray, Tidephant #309→pinniped. (Pelagor is Forgotten 462+, excluded.) |
-| **moth** | 3 | 3 | at cap | Inferarch (#12), Mosswing (#265), Thornmoth (#331). Split out of the old "Lepidoptera" bucket 2026-06-13. |
+| **moth** | 2 | 3 | under cap | Inferarch (#12), Thornmoth (#331). Split out of the old "Lepidoptera" bucket 2026-06-13; Mosswing #265→grasshopper. |
+| **grasshopper (Orthoptera)** | 1 | 3 | under cap | Mosswing (#265). Pristine archetype, re-archetyped off moth 2026-06-13. |
 | **butterfly** | 3 | 3 | at cap | Iridesoar (#141), Venowarn (#165), Aeridaleth (#199). Split out of Lepidoptera 2026-06-13; Sparkeen #247→will-o-wisp and Plagueoth #298→mosquito trimmed it to cap. |
 | **beetle** | 3 | 3 | at cap | Scarabion (#201, scarab beetle), Quarrix (#205), Voltbeetle (#339). Skullmite #329→trilobite 2026-06-13; Sparkeen had been miscounted here (it's a will-o-wisp). |
 | **rock-monolith / standing stone** | 4 | 3 | trim 1 | Frigolith, Megalith, Bouldertide, Mirestone→Chronolith. (Crystallon→yeti 2026-06-13) |

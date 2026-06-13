@@ -69,7 +69,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[97] Dustkin→Seismith→Tectonvast | Ground/Electric | rhino`
 - `[100] Aridix→Toxivenoth→Craterlurk | Ground/Poison | scorpion` (**name leak in #100: "Venomvast"**)
 - `[103] Limoux→Dunoloth→Calciderm | Ground/Water | crocodilian` (**name leak in #103: "Crustvast"**)
-- `[105] Arenikin→Dravanas | Normal/Ground | lion` (currently; on BREAKING list to pivot to canid)
+- `[105] Arenikin→Dravanas | Normal/Earth | hyena` (de-lioned 2026-06-13 — completes the long-flagged canid pivot; already a desert-hyena line in lore/desc/variant, only the archetype label was stale)
 - `[107] Geoclad→Quakeon | Earth/Metal | glyptodon` (sub: armoured mammal)
 - `[110] Silvergust→Siroccomane→Aeolarch | Wind/Electric | lion` (wind-lion)
 - `[113] Aeolin→Swirlavel→Cyclavorn | Wind | bird-of-prey` (condor)
@@ -385,7 +385,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **wolf** | 3 | 3 | at cap | Frigidvorn, Nightwolf, + Forgotten Cryvorn. (Darkfang→panther, Voltfang→electric-eel 2026-06-13; Mirkling/Morraveth earlier.) |
 | **fire-dragon** (sub) | 7 | n/a (under dragon-mythic) | discuss | If sub-caps applied: way over. |
 | **psychic-dragon** (sub) | 6 | n/a | discuss | Same. |
-| **lion** | 3 (post Dravanas pivot) | 3 | at cap | Siroccomane, Ignitheon, Pyraeon-postgame. Dravanas planned for canid pivot. |
+| **lion** | 2 pre-462 (+Pyraeon postgame) | 3 | under cap | Ignitheon (fire-oracle), Aeolarch (storm) lines. Dravanas→hyena done 2026-06-13. |
 | **cetacean** | 5 | 3 | trim 2 | **LOCKED common cap-3.** Keep Torrentox (orca), Riftwhale (psychic-whale), Titanomare (steel-whale titan); re-archetype Marevanos #40→manta-ray, Tidephant #309→pinniped. (Pelagor is Forgotten 462+, excluded.) |
 | **moth/butterfly (Lepidoptera)** | 6 | 3 | trim 3 | Inferarch, Aeridaleth, Venowarn, Mosswing, Thornmoth, Plagueoth. |
 | **beetle** | 5 | 3 | trim 2 | Iridibeetle, Quarrix, Sparkeen, Skullmite, Voltbeetle. |

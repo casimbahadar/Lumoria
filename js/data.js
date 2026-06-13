@@ -1809,19 +1809,19 @@ const MONSTERS_DATA = {
     desc:"A 1-metre forest snail whose massive curled shell is encrusted with bark, moss, and trailing vines. Walks slow circuits between damp glades over years.",
     lore:"Loamvin is a substantial forest snail roughly 1 metre across at the shell's widest curl, with a body 1.2 metres long when fully extended — Viridix's small lime-green leaf-patterned shell has grown massive and so heavily overgrown with bark plates, mossy patches, and trailing vines that the underlying calcified spiral is barely visible — small ferns even sprout from cracks where the shell meets the body. Two thick sensory eyestalks rise above its head, each ending in a glowing amber-green eye, and its broad muscular foot leaves a wide damp trail through the leaf-litter as it moves. It walks slow circuits between damp forest glades over years, and the small ecosystems carried on its shell shed seeds and spores wherever it goes." },
 
-  69: { id:69, name:"Germix",     emoji:"🫘", types:["Nature"],
+  69: { id:69, name:"Germix",     emoji:"🫘", types:["Nature","Fighting"],
     base:{hp:38,atk:41,def:49,spa:62,spd:55,spe:52},
-    learnset:[[1,"collide",[22,"spore_burst"]],[1,"vine_lash"],[10,"verdant_orb"],[16,"baleful_stare"],[18,"slumber_dust"],[26,"pod_blast",[5,"thornwall"]],[29,"graze"],[39,"canopy_crash"]],
+    learnset:[[1,"collide",[22,"spore_burst"]],[1,"vine_lash"],[10,"verdant_orb"],[16,"baleful_stare"],[18,"slumber_dust"],[26,"pod_blast",[5,"thornwall"]],[29,"body_check"],[39,"canopy_crash"]],
     evolveTo:70, evolveLevel:18, catchRate:255, expYield:58, rarity:"common",
-    desc:"A living seed pod that rolls around. Harmless but quick to flee.",
-    lore:"Germix is a round, seed-shaped creature about 15 cm tall. Its smooth green body has two tiny sprout-legs and a small face framed by curling leaf tendrils. It buries itself in rich soil during the day to photosynthesize through root-hairs. When threatened it releases a burst of accelerated growth, sprouting a tangle of vines around attackers." },
+    desc:"A living seed-pod that rolls into a headlong tackle. Scrappier than its small size suggests.",
+    lore:"Germix is a round, seed-shaped creature about 15 cm tall with two tiny sprout-legs and a small face framed by curling leaf tendrils. It buries itself in rich soil by day to photosynthesise through root-hairs — but it is far scrappier than it looks: cornered, it tucks into a hard pod and rolls into a headlong tackle, or sprouts a sudden tangle of vines to snare and shove attackers back off its patch of ground." },
 
-  70: { id:70, name:"Verdurus",    emoji:"🌱", types:["Nature"],
+  70: { id:70, name:"Verdurus",    emoji:"🌱", types:["Nature","Fighting"],
     base:{hp:90,atk:102,def:71,spa:95,spd:73,spe:61},
-    learnset:[[1,"collide"],[2,"vine_lash"],[3,"baleful_stare"],[4,"verdant_orb"],[5,"slumber_dust"],[23,"pod_blast"],[27,"war_dance"],[36,"canopy_crash"],[37,"blitz"],[45,"briar_lash"],[54,"crushing_bulk"],[63,"petal_blitz"],[6,"spore_burst"],[43,"lashing_tail"]],
+    learnset:[[1,"collide"],[2,"vine_lash"],[3,"baleful_stare"],[4,"verdant_orb"],[5,"slumber_dust"],[23,"pod_blast"],[27,"war_dance"],[36,"canopy_crash"],[37,"body_check"],[45,"briar_lash"],[54,"crushing_bulk"],[63,"petal_blitz"],[6,"spore_burst"],[43,"seismic_force"]],
     evolveTo:71, evolveLevel:40, catchRate:75, expYield:186, rarity:"uncommon",
-    desc:"A mid-sized walking seed-pod 1.5 metres tall whose green husk has split open to reveal long curling leaf-tendrils and a soft moss-covered core. Drops fresh seeds in its wake.",
-    lore:"Verdurus is a 1.5-metre walking seed-pod, the matured form of Germix whose smooth green husk has gradually split open along ridge-lines to reveal a soft moss-covered core inside. Long curling leaf-tendrils unfurl from the open seams, swaying gently as it walks on its short root-legs. Small yellow flowers bloom in clusters across its outer surface in spring, and ripe pollen drifts from them onto the wind. Wherever Verdurus walks for any length of time, it drops fresh seeds from internal pods, and patches of new growth follow its trail." },
+    desc:"A mid-sized walking seed-pod 1.5 metres tall with split-husk limbs it swings like clubs. Guards the trail of new growth it leaves behind.",
+    lore:"Verdurus is a 1.5-metre walking seed-pod, the matured Germix whose green husk has split open along ridge-lines to reveal a soft moss-covered core, with long leaf-tendrils unfurling from the seams. It drops fresh seeds wherever it walks, and patches of new growth follow its trail — but it guards that trail fiercely, swinging its heavy split-husk limbs like clubs and grappling intruders with its tendrils to haul them down and shove them off." },
 
   // ===== ELECTRIC =====
   81: { id:81, name:"Joltan",    emoji:"🐎", types:["Electric"],
@@ -3877,12 +3877,12 @@ const MONSTERS_DATA = {
     lore:"Rootvorn is a colossal ancient snail nearly 3 metres tall at the shell's apex, with a body that extends another 4 metres when fully out of the shell — Loamvin's bark-and-moss-overgrown shell has expanded and been so deeply colonised over centuries that it now resembles a mossy hill — thick roots from full-grown saplings have driven down through the shell's surface and clutched it like a living crown, and a complete miniature canopy of broad leaves shades the back of its body. Its eyestalks are 1-metre wood-coloured stalks tipped in twin amber gleams, raised cautiously above the canopy when it senses motion. It uproots itself only at night, dragging its forested shell to a new location before dawn, and is believed to reorganise the layout of entire woodlands over decades — wherever it has travelled, new groves take root from the seeds shed by its passing." },
 
   // 190: Verdovast - Grass (Germix→Verdurus→Verdovast)
-  71: { id:71, name:"Verdovast", emoji:"🌳", types:["Nature"],
+  71: { id:71, name:"Verdovast", emoji:"🌳", types:["Nature","Fighting"],
     base:{hp:109,atk:123,def:88,spa:113,spd:88,spe:29},
-    learnset:[[1,"collide"],[1,"vine_lash"],[2,"verdant_orb"],[3,"slumber_dust"],[4,"pod_blast"],[5,"spore_burst"],[8,"bark_shield"],[11,"sap_seed"],[14,"root_drain"],[17,"regrow"],[20,"nature_pulse"],[23,"seed_volley"],[26,"blossom_frenzy"],[30,"primordial_growth"],[34,"foliage_tempest"],[38,"petal_blitz"],[42,"war_dance"],[44,"root_lance"],[46,"canopy_crash"],[50,"verdant_surge"],[54,"crushing_bulk"],[56,"sun_ray"],[58,"briar_lash"],[60,"sylvan_radiance"],[62,"photon_leaf"]],
+    learnset:[[1,"collide"],[1,"vine_lash"],[2,"verdant_orb"],[3,"slumber_dust"],[4,"pod_blast"],[5,"spore_burst"],[8,"bark_shield"],[11,"sap_seed"],[14,"root_drain"],[17,"regrow"],[20,"nature_pulse"],[23,"seed_volley"],[26,"blossom_frenzy"],[30,"primordial_growth"],[34,"foliage_tempest"],[38,"petal_blitz"],[42,"war_dance"],[44,"root_lance"],[46,"canopy_crash"],[50,"verdant_surge"],[54,"crushing_bulk"],[56,"brawl"],[58,"briar_lash"],[60,"seismic_force"],[62,"haymaker"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
-    desc:"A colossal ancient seed-pod 2.5 metres tall whose surface is overgrown with saplings, vines, and a small ecosystem. Walks slowly across forests, dropping fertile seeds with each step.",
-    lore:"Verdovast is a colossal ancient seed-pod 2.5 metres tall — Verdurus's split walking seed-pod has grown enormous and its surface is now so deeply grown over with saplings, vines, blossoms, and a small ecosystem of moss and tendrils that the original seed-husk is barely visible. Older Verdovast resemble walking gardens, with tiny trees growing from their shoulders and back, fruit ripening among the branches, and small creatures nesting in the foliage they carry. It walks slowly across forests on broad root-feet, dropping fertile seeds at every step, and patches of new growth — eventually entire grove ecosystems — spring up wherever it has lingered." },
+    desc:"A colossal walking-garden titan that guards the grove it carries — uprooting trees to swing and crushing threats with its overgrown bulk.",
+    lore:"Verdovast is a colossal ancient seed-pod 2.5 metres tall, so deeply overgrown with saplings, vines, blossoms, and a whole small ecosystem that the original husk is barely visible — a walking garden with tiny trees on its shoulders and creatures nesting in its foliage. Gentle as it seems while it drops fertile seeds across the forest, it is the unyielding guardian of the grove it carries: anything that threatens its ecosystem is met by a titan that tears up its own trees to swing like clubs, drives root-limbs forward like battering rams, and bears down with sheer overgrown mass." },
 
   // 191: Morralyn - Grass/Dark (Sylvnox→Morraveth→Morralyn)
   80: { id:80, name:"Morralyn", emoji:"🪵", types:["Nature","Dark"],

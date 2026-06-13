@@ -57,7 +57,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[62] Gelspike→Gelwing | Ice/Poison | hedgehog / porcupine`
 - `[65] Sporix→Myceloth→Mycovast | Grass/Poison | mushroom / fungus`
 - `[68] Viridix→Loamvin→Rootvorn | Grass/Ground | snail / mollusk`
-- `[71] Germix→Verdurus→Verdovast | Grass | seed-pod / walking-garden` (pristine, just claimed)
+- `[71] Germix→Verdurus→Verdovast | Nature/Fighting | seed-pod / walking-garden` (added Fighting 2026-06-12 — grove-guardian bruisers that ram/grapple/smash; Nature mono→pristine Nature/Fighting; archetype unchanged)
 - `[74] Floralin→Faelomis→Faevernal | Fairy/Grass | faerie sprite` (flower-fairy variant)
 - `[77] Sylvolt→Sparkwood→Thorncharge | Grass/Electric | stag / elk / deer (cervid)`
 - `[80] Sylvnox→Morraveth→Morralyn | Grass/Dark | leshy / forest-spirit` (pristine mythical, just claimed)

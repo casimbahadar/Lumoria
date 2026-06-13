@@ -4211,18 +4211,18 @@ const MONSTERS_DATA = {
 
   // ---- Tier 2: Late-game NG+ (badges 12–16 areas) BST ~545–590 ----
   342: { id:342, name:"Wraithking", emoji:"👑", types:["Dark","Spectral"],
-    base:{hp:69,atk:94,def:71,spa:92,spd:79,spe:90}, evolveTo:null, evolveLevel:null,
+    base:{hp:66,atk:88,def:66,spa:84,spd:74,spe:84}, evolveTo:343, evolveLevel:80,
     learnset:[[1,"nether_sphere"],[5,"toxify"],[8,"spectral_ray"],[10,"void_rend"],[15,"null_void"],[20,"umbral_claw"],[25,"ectoplasm_strike"],[30,"phantom_claw"],[33,"ghastly_wail"],[35,"spectral_lock"],[38,"synaptic_shatter"],[40,"shade_dash"],[50,"shadowstep"],[60,"neural_storm"]],
-    catchRate:18, expYield:285, rarity:"rare",
-    desc:"The apex ghost predator — a crowned wraith that rules over all lesser ghost-types in its domain.",
-    lore:"Wraithking is a dark-spectral entity 2 metres tall with a spectral crown of black flame. It commands lesser ghost-types and its presence causes all light sources within 50 metres to dim." },
+    catchRate:40, expYield:160, rarity:"uncommon",
+    desc:"A wraith bound in spectral regalia, lording over a small haunt of lesser ghosts — until it sheds crown and form for something greater.",
+    lore:"Wraithking is a dark-spectral entity 2 metres tall that has crowned itself in black flame and lords over the lesser ghosts of its haunt, dimming every light within 50 metres. Yet the crown and the humanoid shape it clings to are a cage: once it has gathered shadow enough, it casts both off and unravels into the boundless, formless living-shadow Shadowreave — far harder to bind, and far more dangerous." },
 
   343: { id:343, name:"Shadowreave", emoji:"🌑", types:["Dark","Spectral"],
-    base:{hp:66,atk:81,def:66,spa:103,spd:85,spe:89}, evolveTo:null, evolveLevel:null,
+    base:{hp:78,atk:90,def:74,spa:117,spd:92,spe:94}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"shadowstep"],[5,"shade_dash"],[8,"abyss_stare"],[10,"mental"],[11,"wraith_form"],[12,"umbral_pulse"],[15,"shadow_lance"],[18,"sinister_scheme"],[20,"void_rend"],[22,"fear_aura"],[25,"necrotic_pulse"],[28,"shadowstorm"],[30,"psi_strike"],[35,"stygian_whisper"],[38,"dreamweave"],[40,"phantom_claw"],[45,"spirit_calamity"],[48,"reaper_scythe"],[50,"synaptic_shatter"],[55,"abyssal_dominion"],[60,"neural_storm"]],
-    catchRate:18, expYield:283, rarity:"rare",
-    desc:"A being of living shadow that exists simultaneously in darkness and the spectral realm. It phases through walls to hunt, its constantly shifting silhouette making it nearly impossible to track.",
-    lore:"Shadowreave is a dark-spectral entity 1.6 metres tall with a body composed of living shadow and two luminous violet eyes. Its silhouette is never quite the same shape twice." },
+    catchRate:18, expYield:285, rarity:"rare",
+    desc:"The matured Wraithking, freed of crown and form into pure living shadow. It phases through walls to hunt, its shifting silhouette nearly impossible to track.",
+    lore:"Shadowreave is the evolved Wraithking, having cast off crown and bodily shape entirely — a dark-spectral entity of pure living shadow with two luminous violet eyes and a silhouette never quite the same twice. Unbound by any fixed form it is far more dangerous than the king it was: it phases through walls to hunt and slips at will between darkness and the spectral realm, leaving pursuers nothing solid to strike." },
 
   344: { id:344, name:"Glimmeritch", emoji:"🧚", types:["Fairy","Spectral"],
     base:{hp:63,atk:69,def:68,spa:102,spd:91,spe:97}, evolveTo:null, evolveLevel:null,
@@ -6468,7 +6468,7 @@ const WORLD_DATA = {
       {id:131, minLv:73, maxLv:78, rate:15}   // Necrothon (Dark/Grass)
     ],
     hasGym:false, requiredBadges:15, mapPos:{x:75, y:72},
-    ngPlusWildMonsters:[{id:373, minLv:78, maxLv:84, rate:8}, {id:342,minLv:78,maxLv:84,rate:20},{id:343,minLv:78,maxLv:84,rate:15},{id:352,minLv:79,maxLv:85,rate:8}]
+    ngPlusWildMonsters:[{id:373, minLv:78, maxLv:84, rate:8}, {id:342,minLv:74,maxLv:79,rate:20},{id:352,minLv:79,maxLv:85,rate:8}]
   },
   // ---- ADDITIONAL MID-GYM ROUTES (phase 2) ----
   toxic_bog: {

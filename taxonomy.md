@@ -208,8 +208,8 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[339] Voltbeetle | Bug/Electric | beetle` (fifth beetle)
 - `[340] Cryoshard | Ice/Sonic | resonant-crystal` (resonant crystal-prism; retyped Ice/Mental→Ice/Sonic to break the Ice/Mental crystalline-prism clash with Shardlix — Shardlix keeps the crystalline-prism slot, Cryoshard pivots to a sound-resonance identity)
 - `[341] Mirestone (→Chronolith #388) | Earth/Mental | rock-monolith` (base of the monolith line; see [388])
-- `[342] Wraithking | Ghost/Dark | wraith` (fifth wraith)
-- `[343] Shadowreave | Dark/Psychic | wraith / shadow-being` (sixth wraith)
+- `[342] Wraithking (→Shadowreave #343) | Dark/Spectral | wraith` (base — bound crowned wraith; see [343])
+- `[343] Wraithking→Shadowreave | Dark/Spectral | wraith` (2-member line merged 2026-06-12 — crowned wraith sheds crown/form into the formless living-shadow apex; resolves the wraith×Dark/Spectral collision into one family)
 - `[344] Glimmeritch | Fairy/Spectral | spectral-faerie` (folded into faerie-sprite per policy)
 - `[346] Astralwing | Psychic/Wind | psychic-elemental` (winged humanoid of solidified psychic energy — second psychic-elemental alongside Veilwisp/Distorsion)
 

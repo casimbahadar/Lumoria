@@ -109,7 +109,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[177] Sapphier | Ice/Mineral | basilisk` (re-archetyped from ice-dragon 2026-06-10; crystal-ice serpent-king basilisk)
 - `[179] Fluffen→Velvetine | Normal | cat` (housecat)
 - `[181] Leapbun→Racehare | Normal | rabbit / hare` (**name leak in #181: "Boundrix"**)
-- `[184] Rotunden→Glutoros→Behemovast | Normal | bear` (titanic bear)
+- `[184] Rotunden→Glutoros→Behemovast | Normal/Fighting | bear` (titanic bruiser-bear — added Fighting 2026-06-12; Normal mono→pristine Normal/Fighting)
 - `[186] Hoverrow→Continemic | Normal/Wind | bird` (albatross — **name leak in #186: "Airovast"**)
 - `[188] Norindel→Plentorus | Normal | boar / pig`
 - `[190] Woolcalm→Aetherflock | Normal/Psychic | sheep / bovid` (psychic sheep — second bovid family alongside Tundram line)
@@ -164,7 +164,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[283] Rustpike | Steel/Poison | fish` (rusting-iron pike, standalone — second fish family alongside Corelin line; could also classify as steel-elemental?)
 - `[285] Fluffkin→Cloudrift | Normal/Wind | cloud-elemental / wisp` (compact cloud with face — formless cloud being; under cap, but flag — could be wind-elemental too)
 - `[288] Fuzzlet→Cuddrix→Majesticore | Dragon/Fairy | kirin` (mythical, just claimed)
-- `[289] Bouncyblob | Normal | slime / blob` (mythical, standalone)
+- `[289] Bouncyblob | Normal/Vapor | slime / blob` (mythical, standalone; added Vapor 2026-06-12 — a warm condensed-vapor gel blob; Normal mono→pristine Normal/Vapor)
 - `[290] Mimiclaw | Normal/Dark | cat` (mimic-cat — second cat alongside Fluffen line + Cinderpaw + Emberveil)
 - `[292] Breezekin→Galehorn | Wind/Electric | antelope` (pristine archetype)
 - `[295] Gustpuff→Stormwing→Cyclonax | Wind/Dragon | dragon-mythic` (sub: wind-dragon)

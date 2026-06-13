@@ -2289,16 +2289,16 @@ const MONSTERS_DATA = {
     desc:"A super-quick bouncing rabbit. Few can outrun this energetic creature.",
     lore:"Racehare is a lean racing rabbit 45 cm long — Leapbun's soft white-grey fur has darkened to short brown across a compact aerodynamic body shape, and the oversized hind legs of the kit have lengthened into long muscular legs. Its ears lie flat when running rather than pivoting independently. It can sustain sprints of extraordinary speed for short distances and uses evasion rather than combat as its primary survival strategy." },
 
-  182: { id:182, name:"Rotunden",   emoji:"🐻", types:["Normal"],
+  182: { id:182, name:"Rotunden",   emoji:"🐻", types:["Normal","Fighting"],
     base:{hp:81,atk:67,def:62,spa:52,spd:41,spe:48},
-    learnset:[[1,"collide",[22,"battle_cry"]],[1,"daunt"],[10,"cranial_ram"],[18,"crushing_bulk"],[26,"war_dance"],[30,"graze"],[34,"radiance_cannon"],[42,"second_wind",[5,"lashing_tail"]],[3,"baleful_stare"],[32,"double_smash"]],
+    learnset:[[1,"collide",[22,"battle_cry"]],[1,"daunt"],[10,"cranial_ram"],[18,"crushing_bulk"],[26,"war_dance"],[30,"body_check"],[34,"radiance_cannon"],[42,"second_wind",[5,"lashing_tail"]],[3,"baleful_stare"],[32,"double_smash"]],
     evolveTo:183, evolveLevel:25, catchRate:140, expYield:98, rarity:"common",
     desc:"A roly-poly bear. Loves honey and naps. Surprisingly strong when angry.",
     lore:"Rotunden is a chubby round bear-like creature 80 cm tall. Its fur is russet-brown and dense, giving it a perfectly spherical silhouette. It stores enormous fat reserves for winter and can be found in autumn gorging on berries and fruit. It is gentle by nature and rarely provoked." },
 
-  183: { id:183, name:"Glutoros",    emoji:"🐻", types:["Normal"],
+  183: { id:183, name:"Glutoros",    emoji:"🐻", types:["Normal","Fighting"],
     base:{hp:113,atk:93,def:79,spa:75,spd:66,spe:58},
-    learnset:[[1,"cranial_ram"],[2,"battle_cry"],[3,"crushing_bulk"],[4,"lashing_tail"],[5,"daunt"],[6,"collide"],[7,"focus_roar"],[15,"body_blow"],[25,"war_dance"],[31,"radiance_cannon"],[38,"baleful_stare"],[39,"second_wind"],[44,"wild_tumble"],[45,"all_out_assault"],[51,"fortify"],[64,"vital_pulse"]],
+    learnset:[[1,"cranial_ram"],[2,"battle_cry"],[3,"crushing_bulk"],[4,"lashing_tail"],[5,"daunt"],[6,"collide"],[7,"focus_roar"],[15,"body_blow"],[25,"war_dance"],[31,"radiance_cannon"],[38,"baleful_stare"],[39,"second_wind"],[44,"wild_tumble"],[45,"all_out_assault"],[51,"seismic_force"],[64,"brawl"]],
     evolveTo:184, evolveLevel:44, catchRate:50, expYield:220, rarity:"uncommon",
     desc:"A tubby great bear of enormous power. Its hugs can crush boulders.",
     lore:"Glutoros is a massive bear 1.8 metres at the shoulder — Rotunden's perfectly spherical russet-brown silhouette has elongated and grown upright into a broad rounded back with heavy russet-brown fur, and the autumn-gorging habit of its juvenile form has matured into an almost supernatural appetite. It has an almost supernatural appetite and can consume quantities of food that seem physically impossible. It is found in areas of extreme natural abundance and its presence indicates healthy ecosystem balance." },
@@ -3036,12 +3036,12 @@ const MONSTERS_DATA = {
     lore:"Majesticore is a regal dragon-kirin 1.2 metres at the shoulder, the auspicious final form of the Fuzzlet→Cuddrix lineage and the embodiment of the ancient legend of the qilin — the dragon-horse. Its sleek brown-gold body is overlaid with fine pale-gold scales beneath the longer fur of its haunches and shoulders, and its full branching antlers are wreathed in soft dragonfire-light that shifts through warm gold and rose hues. A flowing mane of fairy-light cascades from its neck down its shoulders, and at its passage gentle rain falls from clear skies — a sign of the dragon-blood that quickens the kirin's blessing. Its hooves leave only the gentlest impressions in soft soil, and its presence causes calm to settle over any region it crosses — agitated creatures still, fearful animals approach trustingly, and arguments between travellers cool to thoughtful silence within minutes of its arrival. Ancient texts describe its appearance at moments of great peace or great change as an auspicious omen." },
 
   // Standalone Normal: Bouncyblob
-  289: { id:289, name:"Bouncyblob", emoji:"🎱", types:["Normal"],
+  289: { id:289, name:"Bouncyblob", emoji:"🫧", types:["Normal","Vapor"],
     base:{hp:110,atk:85,def:85,spa:85,spd:85,spe:85},
-    learnset:[[1,"collide"],[1,"crushing_bulk"],[8,"graze"],[18,"cranial_ram"],[28,"reckless_charge"],[38,"rapid_strike"],[40,"heavy_slam"],[48,"battle_cry"],[58,"iron_press"],[68,"radiance_cannon"]],
+    learnset:[[1,"collide"],[1,"crushing_bulk"],[8,"mist_pulse"],[18,"vapor_ray"],[28,"steam_burst"],[38,"heavy_slam"],[40,"cloud_blast"],[48,"condense"],[58,"nimbus_flood"],[68,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:200, rarity:"uncommon",
-    desc:"A perfectly spherical blob of pure vitality. Its round body absorbs physical impacts with zero damage.",
-    lore:"Bouncyblob is a normal creature 30 cm in diameter resembling a perfectly spherical blob of pale pink gel. It bounces continuously regardless of surface type, using kinetic energy storage in its elastic body to maintain constant motion. It absorbs physical impacts and redirects them as higher bounces." },
+    desc:"A buoyant blob of warm condensed vapor held in a gel skin. It soaks up impacts and rebounds ever higher.",
+    lore:"Bouncyblob is a 30 cm sphere of pale-pink gel filled with warm condensed vapor. It bounces continuously regardless of surface, the vapor inside expanding and recompressing to fling it higher with every landing; physical blows are simply absorbed and redirected into bigger bounces. On cold mornings it leaves a faint trail of mist where it touches down, and a startled one can burst into a brief warm fog before reforming." },
 
   // Standalone Normal/Spectral: Mimiclaw (evolves in gloomy location)
   290: { id:290, name:"Mimiclaw", emoji:"🎭", types:["Normal","Dark"],
@@ -4053,9 +4053,9 @@ const MONSTERS_DATA = {
     lore:"Dissotoad is a massive ground-poison creature 2 metres tall resembling a toad made of compressed toxic earth — Corrodisc's flat disc-body has lifted upward into a true upright toad-frame, the corrosive undersurface now generalised across its skin as constant acidic weeping. The ground around it is perpetually discoloured. It is one of the few creatures that can neutralise other poisons by contact, making it paradoxically useful as an antidote source." },
 
   // 212: Behemovast - Normal (Rotunden→Glutoros→Behemovast)
-  184: { id:184, name:"Behemovast", emoji:"🐻", types:["Normal"],
+  184: { id:184, name:"Behemovast", emoji:"🐻", types:["Normal","Fighting"],
     base:{hp:140,atk:116,def:97,spa:77,spd:77,spe:43},
-    learnset:[[1,"cranial_ram"],[1,"crushing_bulk"],[2,"battle_cry"],[3,"war_dance"],[4,"second_wind"],[38,"radiance_cannon"],[42,"wild_tumble"],[46,"momentum_rush"],[50,"vital_pulse"],[54,"instinct_slash"],[58,"fortify"],[62,"collide"],[5,"focus_roar"],[44,"baleful_stare"]],
+    learnset:[[1,"cranial_ram"],[1,"crushing_bulk"],[2,"battle_cry"],[3,"war_dance"],[4,"second_wind"],[38,"radiance_cannon"],[42,"wild_tumble"],[46,"momentum_rush"],[50,"seismic_force"],[54,"instinct_slash"],[58,"brawl"],[62,"haymaker"],[5,"focus_roar"],[44,"baleful_stare"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"The greatest bear that has ever walked Lumoria. When it stands fully upright, it blots out the sun. Its roar has been mistaken for natural disasters.",
     lore:"Behemovast is a titanic normal-type creature 3 metres at the shoulder, resembling an enormous bear with a solid barrel-shaped torso and legs like columns — Glutoros's already-massive frame has grown into the heaviest non-legendary Lumori known, and the heavy russet-brown fur has matted and toughened to thick brown-grey under the bulk it must now support. It is the heaviest non-legendary Lumori known and leaves impressions in solid rock where it steps." },

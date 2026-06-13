@@ -610,7 +610,7 @@
     286: { noun: 'kirin fawn', features: ['its dense cream-white fluff', 'its tiny hooves', 'its round puffball shape'], coreLine: 'It still hides its slight frame under all that fluff.' },
     287: { noun: 'kirin calf', features: ['its soft pale-brown coat', 'its budding antlers', 'its gentle eyes'], coreLine: 'It still steps with a calf’s careful grace.' },
     288: { noun: 'dragon-kirin', features: ['its regal scaled-and-furred body', 'its branching antlers', 'its auspicious aura'], coreLine: 'An air of good fortune still attends it.' },
-    289: { noun: 'gel blob', features: ['its pale pink gel body', 'its perfectly spherical shape', 'its endless bounce'], coreLine: 'It still bounces along without ever stopping.' },
+    289: { noun: 'vapor-gel blob', features: ['its pale-pink gel skin', 'the warm vapor swirling inside it', 'its endless rebounding bounce'], coreLine: 'It leaves a faint trail of mist where it lands.' },
     290: { noun: 'mimic cat', features: ['its dark grey fur', 'its shifting outline', 'its rearranging face'], coreLine: 'It still reshapes its face to unsettle onlookers.' },
     291: { noun: 'wind fawn', features: ['its sleek pale-grey coat', 'its slender legs', 'its long ears'], coreLine: 'It still bounds light as a gust over open ground.' },
     292: { noun: 'gale antelope', features: ['its grey-white coat', 'its long resonant horns', 'its powerful legs'], coreLine: 'Its horns still keen in a strong wind.' },

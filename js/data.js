@@ -712,8 +712,8 @@ const MOVES_DATA = {
   temporal_collapse:      { name:"Temporal Collapse",      type:"Mental",  power:120, acc:90,  pp:5,  cat:"special",  effect:"confuse",   ec:50,  desc:"Chronoveil collapses the flow of time around the target, leaving them disoriented and confused." },
   // Ashvanus — Fire/Rock volcano titan
   volcanic_wrath:         { name:"Volcanic Wrath",         type:"Fire",     power:140, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:100, desc:"Pyrovanus channels the full fury of a super-volcano, always severely burning the target." },
-  // Abyssovex — Aquatic/Dark abyss drake
-  abyssal_dominion:       { name:"Abyssal Dominion",       type:"Dark",     power:130, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50,  desc:"Thalassovex asserts dominion over the deep abyss, crushing the target's psychic defenses." },
+  // Abyssovex — Aquatic/Dark abyssal squid leviathan
+  abyssal_dominion:       { name:"Abyssal Dominion",       type:"Dark",     power:130, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50,  desc:"Abyssovex asserts dominion over the deep abyss, crushing the target's psychic defenses." },
   // Gaiavorn — Ground/Grass land spirit
   world_root_bind:        { name:"World Root Bind",        type:"Earth",   power:130, acc:90,  pp:5,  cat:"physical", effect:"spedown",   ec:100, desc:"Gaiavorn erupts roots from the world's core to bind and crush the target." },
   // Voidraxis — Dark/Fairy void star
@@ -724,8 +724,8 @@ const MOVES_DATA = {
   // NG+ Signature Moves
   // Cosmoveil (401) — Mental/Fairy cosmos strike
   cosmic_veil:      { name:"Cosmic Veil",     type:"Aether" , power:140, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50, desc:"Cosmoveil wraps the battlefield in condensed starlight, crushing the foe's mind and spirit." },
-  // Eondrake (392) — Draconic/Mental time fracture
-  time_fracture:    { name:"Time Fracture",   type:"Draconic",  power:130, acc:90,  pp:5,  cat:"special",  effect:"spedown2",  ec:50, desc:"Eondrake shatters the flow of time around the target, massively reducing its speed." },
+  // Eonyx (392) — Mental time fracture
+  time_fracture:    { name:"Time Fracture",   type:"Mental",  power:130, acc:90,  pp:5,  cat:"special",  effect:"spedown2",  ec:50, desc:"Eonyx shatters the flow of time around the target, massively reducing its speed." },
   // Primordiax (400) — Fire/Ground mantle surge
   mantle_surge:     { name:"Mantle Surge",    type:"Earth",  power:135, acc:85,  pp:5,  cat:"physical", effect:"defdown",   ec:50, desc:"Primordiax channels the planet's mantle into a cataclysmic ground surge that weakens all defenses." },
   // Voidcrown (398) — Dark/Fairy void dominion
@@ -1727,15 +1727,15 @@ const MONSTERS_DATA = {
     base:{hp:41,atk:53,def:46,spa:59,spd:45,spe:47},
     learnset:[[1,"collide",[20,"cinderwhirl"]],[1,"flicker"],[9,"blitz"],[14,"baleful_stare"],[17,"inferno_jet",[5,"scorch_veil"]],[24,"vital_pulse"],[32,"ashfall"],[40,"pyroclasm"],[3,"embercloak"],[31,"lashing_tail"]],
     evolveTo:17, evolveLevel:20, catchRate:200, expYield:65, rarity:"common",
-    desc:"A small worm that breathes tiny flames. Very shy and avoids conflict.",
-    lore:"Cindercula is a sinuous fire-serpent about 1.8 metres long with iridescent scales shading from copper at the head to charcoal at the tail. A thin crest of flame-coloured feathers runs from its neck to mid-body. It slithers through ash fields and hunts by sensing heat signatures with specialised pit organs. Despite having no limbs at all, Cindercula sometimes rear upright along thermal columns and flare their feathered crests outward — a rehearsal of the great wings Searburn unfurls at metamorphosis and Bahamber spreads at maturity." },
+    desc:"A shy fledgling fire-serpent with a crest of flame-coloured feathers. Breathes tiny flames.",
+    lore:"Cindercula is a sinuous fire-serpent about 1.8 metres long with iridescent scales shading from copper at the head to charcoal at the tail. A thin crest of flame-coloured feathers runs from its neck to mid-body. It slithers through ash fields and hunts by sensing heat signatures with specialised pit organs. Despite having no limbs at all, Cindercula sometimes rear upright along thermal columns and flare their feathered crests outward — a rehearsal of the great plumed wings Searburn unfurls at metamorphosis and Quetzember spreads at maturity." },
 
-  17: { id:17, name:"Searburn",   emoji:"🐉", types:["Draconic","Earth"],
+  17: { id:17, name:"Searburn",   emoji:"🐍", types:["Fire","Wind"],
     base:{hp:78,atk:97,def:61,spa:101,spd:75,spe:92},
-    learnset:[[1,"flicker"],[2,"inferno_jet"],[3,"cinderwhirl"],[4,"scorch_veil"],[21,"vital_pulse"],[26,"char_dance"],[32,"draconic_breath"],[38,"draconic_claw"],[44,"searing_gale"],[50,"conflagration"],[56,"rampage"],[62,"solar_flare"],[5,"embercloak"],[41,"leviathan_rush"],[64,"stone_throw"],[65,"smack_down"],[66,"quake_pulse"],[67,"mud_spray"]],
+    learnset:[[1,"flicker"],[2,"inferno_jet"],[3,"cinderwhirl"],[4,"scorch_veil"],[5,"plume_veil"],[21,"vital_pulse"],[26,"char_dance"],[30,"wingbeat"],[38,"wind_scythe"],[44,"searing_gale"],[50,"jetstream"],[56,"conflagration"],[62,"skyfall"],[64,"embercloak"]],
     evolveTo:18, evolveLevel:42, catchRate:45, expYield:198, rarity:"uncommon",
-    desc:"A serpentine crag dragon. Coils around prey before unleashing flame.",
-    lore:"Searburn is a powerful earth-dragon 4 metres long — Cindercula's serpentine length has thickened and reared upward, its copper-to-charcoal scales darkened to scarlet-and-black and the flame-coloured feathered crest hardened into a pair of backward-swept horns framing its angular head. Its broad wings generate intense heat when flapping, scorching the air in wide arcs. It roosts in mountain crags above the treeline and uses updrafts to glide effortlessly for hours; years among the granite spires harden its scales toward the colour and density of the cliffs it claims as territory." },
+    desc:"A plumed fire-serpent that rides thermals on newly-grown feathered wings.",
+    lore:"Searburn is a plumed fire-serpent 4 metres long — Cindercula's serpentine length has thickened and reared upward, its copper-to-charcoal scales darkened to scarlet-and-black, and the thin feathered crest has burst into a pair of great iridescent plumed wings sprouting from behind its shoulders. Those wings beat with a heat that scorches the air in wide arcs, lofting the serpent onto rising thermals. It rides updrafts above the treeline for hours at a time, trailing sparks, and roosts on warm volcanic vents between flights." },
 
   // ===== ADDITIONAL WATER =====
   25: { id:25, name:"Reefling",  emoji:"🦀", types:["Aquatic"],
@@ -1809,19 +1809,19 @@ const MONSTERS_DATA = {
     desc:"A 1-metre forest snail whose massive curled shell is encrusted with bark, moss, and trailing vines. Walks slow circuits between damp glades over years.",
     lore:"Loamvin is a substantial forest snail roughly 1 metre across at the shell's widest curl, with a body 1.2 metres long when fully extended — Viridix's small lime-green leaf-patterned shell has grown massive and so heavily overgrown with bark plates, mossy patches, and trailing vines that the underlying calcified spiral is barely visible — small ferns even sprout from cracks where the shell meets the body. Two thick sensory eyestalks rise above its head, each ending in a glowing amber-green eye, and its broad muscular foot leaves a wide damp trail through the leaf-litter as it moves. It walks slow circuits between damp forest glades over years, and the small ecosystems carried on its shell shed seeds and spores wherever it goes." },
 
-  69: { id:69, name:"Germix",     emoji:"🫘", types:["Nature"],
+  69: { id:69, name:"Germix",     emoji:"🫘", types:["Nature","Fighting"],
     base:{hp:38,atk:41,def:49,spa:62,spd:55,spe:52},
-    learnset:[[1,"collide",[22,"spore_burst"]],[1,"vine_lash"],[10,"verdant_orb"],[16,"baleful_stare"],[18,"slumber_dust"],[26,"pod_blast",[5,"thornwall"]],[29,"graze"],[39,"canopy_crash"]],
+    learnset:[[1,"collide",[22,"spore_burst"]],[1,"vine_lash"],[10,"verdant_orb"],[16,"baleful_stare"],[18,"slumber_dust"],[26,"pod_blast",[5,"thornwall"]],[29,"body_check"],[39,"canopy_crash"]],
     evolveTo:70, evolveLevel:18, catchRate:255, expYield:58, rarity:"common",
-    desc:"A living seed pod that rolls around. Harmless but quick to flee.",
-    lore:"Germix is a round, seed-shaped creature about 15 cm tall. Its smooth green body has two tiny sprout-legs and a small face framed by curling leaf tendrils. It buries itself in rich soil during the day to photosynthesize through root-hairs. When threatened it releases a burst of accelerated growth, sprouting a tangle of vines around attackers." },
+    desc:"A living seed-pod that rolls into a headlong tackle. Scrappier than its small size suggests.",
+    lore:"Germix is a round, seed-shaped creature about 15 cm tall with two tiny sprout-legs and a small face framed by curling leaf tendrils. It buries itself in rich soil by day to photosynthesise through root-hairs — but it is far scrappier than it looks: cornered, it tucks into a hard pod and rolls into a headlong tackle, or sprouts a sudden tangle of vines to snare and shove attackers back off its patch of ground." },
 
-  70: { id:70, name:"Verdurus",    emoji:"🌱", types:["Nature"],
+  70: { id:70, name:"Verdurus",    emoji:"🌱", types:["Nature","Fighting"],
     base:{hp:90,atk:102,def:71,spa:95,spd:73,spe:61},
-    learnset:[[1,"collide"],[2,"vine_lash"],[3,"baleful_stare"],[4,"verdant_orb"],[5,"slumber_dust"],[23,"pod_blast"],[27,"war_dance"],[36,"canopy_crash"],[37,"blitz"],[45,"briar_lash"],[54,"crushing_bulk"],[63,"petal_blitz"],[6,"spore_burst"],[43,"lashing_tail"]],
+    learnset:[[1,"collide"],[2,"vine_lash"],[3,"baleful_stare"],[4,"verdant_orb"],[5,"slumber_dust"],[23,"pod_blast"],[27,"war_dance"],[36,"canopy_crash"],[37,"body_check"],[45,"briar_lash"],[54,"crushing_bulk"],[63,"petal_blitz"],[6,"spore_burst"],[43,"seismic_force"]],
     evolveTo:71, evolveLevel:40, catchRate:75, expYield:186, rarity:"uncommon",
-    desc:"A mid-sized walking seed-pod 1.5 metres tall whose green husk has split open to reveal long curling leaf-tendrils and a soft moss-covered core. Drops fresh seeds in its wake.",
-    lore:"Verdurus is a 1.5-metre walking seed-pod, the matured form of Germix whose smooth green husk has gradually split open along ridge-lines to reveal a soft moss-covered core inside. Long curling leaf-tendrils unfurl from the open seams, swaying gently as it walks on its short root-legs. Small yellow flowers bloom in clusters across its outer surface in spring, and ripe pollen drifts from them onto the wind. Wherever Verdurus walks for any length of time, it drops fresh seeds from internal pods, and patches of new growth follow its trail." },
+    desc:"A mid-sized walking seed-pod 1.5 metres tall with split-husk limbs it swings like clubs. Guards the trail of new growth it leaves behind.",
+    lore:"Verdurus is a 1.5-metre walking seed-pod, the matured Germix whose green husk has split open along ridge-lines to reveal a soft moss-covered core, with long leaf-tendrils unfurling from the seams. It drops fresh seeds wherever it walks, and patches of new growth follow its trail — but it guards that trail fiercely, swinging its heavy split-husk limbs like clubs and grappling intruders with its tendrils to haul them down and shove them off." },
 
   // ===== ELECTRIC =====
   81: { id:81, name:"Joltan",    emoji:"🐎", types:["Electric"],
@@ -1842,7 +1842,7 @@ const MONSTERS_DATA = {
     base:{hp:34,atk:48,def:43,spa:50,spd:43,spe:94},
     learnset:[[1,"mandible_bite",[22,"arc_flash"]],[1,"jolt"],[3,"static_cage"],[7,"aquatic_gun"],[10,"static_strike"],[12,"shock_net"],[15,"wave_dash"],[18,"silk_spray"],[20,"second_wind"],[24,"shock_pulse"],[26,"volt_jet"],[28,"bubble_jet"],[30,"repulsion_field"],[31,"cocoon_burst"],[34,"resonance_hum",[5,"stun_pulse"]],[36,"shear_strike"]],
     evolveTo:85, evolveLevel:22, catchRate:200, expYield:74, rarity:"common",
-    desc:"An electric beetle that emits charged buzzing sounds. Very energetic.",
+    desc:"An electric dragonfly nymph that crawls stream beds, sparking from its wing-buds when threatened. Very energetic.",
     lore:"Electrix is a small dragonfly nymph 8 cm long, the aquatic juvenile stage of the lineage. Its body is segmented and dark with metallic gold-edged plates, and small gilled abdomen-tufts trail behind it as it crawls along stream beds. It already generates faint electrical sparks from its rudimentary wing-buds when threatened. It hunts smaller aquatic insects with its hooked predatory mandibles, and lives in colonies in slow-moving water near decaying wood, where it processes organic material into bioelectric energy." },
 
   85: { id:85, name:"Shockharpe",  emoji:"🪰", types:["Electric","Nature"],
@@ -2110,19 +2110,19 @@ const MONSTERS_DATA = {
     desc:"A steel hound with titanium claws. Almost nothing can break its armor.",
     lore:"Stoicguard is a large humanoid steel creature 1.5 metres tall — Scrapsapien's compact bolted-and-seamed plating has reforged into a broad powerful chest and arms that function as natural weapons, and the scrap-collecting habit of its juvenile form has left a surface of burnished dark steel with deep scratches from past battles. It is stoic, rarely speaking, and positions itself between perceived threats and those it considers worth protecting." },
 
-  150: { id:150, name:"Gearon",     emoji:"⚙️", types:["Metal","Electric"],
+  150: { id:150, name:"Voltcrawl",     emoji:"🐛", types:["Metal","Electric"],
     base:{hp:48,atk:50,def:67,spa:52,spd:57,spe:54},
     learnset:[[1,"chrome_claw",[22,"shrapnel_burst"]],[1,"jolt"],[3,"ironskin"],[6,"piston_jab"],[10,"forge_blast_2"],[14,"metal_pulse"],[18,"static_strike"],[20,"mirror_polish"],[21,"second_wind"],[26,"volt_jet"],[32,"ball_lightning"],[34,"forge_blast_2"],[38,"plasma_strike"],[42,"stormbolt",[5,"magnetize"]]],
     evolveTo:151, evolveLevel:28, catchRate:100, expYield:95, rarity:"common",
-    desc:"A mechanical gear-bot that runs on electric power. Loves to tinker.",
-    lore:"Gearon is a compact steel-electric creature 60 cm tall that resembles a gear-work automaton. Its round body is made of interlocking cog-wheels that spin and whir constantly, generating its own electrical power through mechanical motion. Sparks escape through gaps in its gear-work as it moves." },
+    desc:"A small armored centipede whose plated segments spark with current as it scurries.",
+    lore:"Voltcrawl is a 60 cm centipede sheathed in interlocking metallic plates, a static charge building between its many legs as it scurries so that sparks leap from segment to segment. It nests in warm machinery and rock-faults, drawing charge from the air around it, and grows longer and more powerful with each moult — building toward the great Voltipede." },
 
-  151: { id:151, name:"Alloytron",    emoji:"🦿", types:["Metal","Electric"],
+  151: { id:151, name:"Voltipede",    emoji:"🐛", types:["Metal","Electric"],
     base:{hp:77,atk:72,def:92,spa:108,spd:75,spe:66},
     learnset:[[1,"volt_jet"],[2,"magnetize"],[3,"ironskin"],[15,"chrome_slash"],[20,"corrosion_proof"],[25,"flywheel"],[31,"forge_blast_2"],[32,"surge_field"],[33,"mirror_plating"],[35,"metal_roller"],[36,"fortify"],[37,"forge_strike"],[39,"stormbolt"],[40,"rivet_barrage"],[44,"volt_surge"],[48,"alloy_tail"],[52,"tungsten_ram"],[56,"overcharge"],[60,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"uncommon",
-    desc:"A mechanical warrior powered by electric cores. Feared on every battlefield.",
-    lore:"Alloytron is a larger electric-steel automaton 1.2 metres tall — Gearon's spinning cog-wheels have consolidated into an assembly of interlocked alloy panels with exposed wiring running between them, and the mechanical-motion sparks of its juvenile form have organised into a glowing power core visible through a transparent casing in its chest. Its chest houses a glowing power core visible through a transparent casing. It can interface with electrical infrastructure and draw power directly from city grid lines." },
+    desc:"A massive armored centipede crackling with stored current. Its electrified bite locks prey rigid.",
+    lore:"Voltipede is a 1.2-metre centipede of overlapping conductive plates, the matured Voltcrawl — the static that once merely sparked between its segments now pools into a charged core that runs the length of its body, glowing as a bright seam down its back. It earths itself against power-lines to recharge, and a single venomous, electrified bite jolts prey rigid before it coils its armored length around them." },
 
   152: { id:152, name:"Imperion",  emoji:"🐢", types:["Metal","Earth"],
     base:{hp:108,atk:61,def:138,spa:59,spd:105,spe:30},
@@ -2160,7 +2160,7 @@ const MONSTERS_DATA = {
     desc:"A sludge behemoth that poisons everything it touches. Its territory reeks.",
     lore:"Corrodisc is a large ground-crawling acidic creature 1 metre across, shaped like a flattened toad-tadpole with a broad disc-like body and short stubby limbs — Acidelix's drifting orb-membrane has settled to the ground and reorganised into a flat disc, and the acid-green liquid that once filled its sphere now exudes from its undersurface as a corrosive fluid that slowly etches whatever it crawls across. It inhabits cave floors and underground acid springs, leaving characteristic pitting in stone wherever it travels." },
 
-  160: { id:160, name:"Miasmafly",   emoji:"🦟", types:["Poison","Wind"],
+  160: { id:160, name:"Miasmafly",   emoji:"🦟", types:["Poison","Vapor"],
     base:{hp:49,atk:53,def:30,spa:78,spd:64,spe:77},
     learnset:[[1,"septic_prick",[22,"acid_rain"]],[1,"breeze"],[10,"ooze_bomb"],[16,"vital_pulse"],[18,"wind_scythe"],[26,"toxify"],[29,"miasma_cloud"],[34,"typhoon"],[40,"plague_burst"],[42,"virulent_surge",[5,"toxic_surge"]],[3,"toxin_bloom"],[32,"sludge_wave"]],
     evolveTo:161, evolveLevel:30, catchRate:140, expYield:88, rarity:"common",
@@ -2196,19 +2196,19 @@ const MONSTERS_DATA = {
     desc:"A levitating psychic core orbited by seven prism shards, held in formation by a luminous mind-field. Its serene face gleams from the central crystal.",
     lore:"Aurarael is a 60-centimetre crystalline entity whose violet prism body has fractured upward into a slowly orbiting cluster of seven smaller shards, held in formation by the visible blue-violet psychic field that radiates between them. The serene humanoid face from its Espelith juvenile stage still shimmers at the centre of the largest core shard, watching outward through every angle of the rotating crown. It inhabits locations with high psychic resonance — ancient meditation sites, mystical crossroads — and the constant low chime of its orbiting shards announces its presence well before it drifts into view." },
 
-  170: { id:170, name:"Oneiron",   emoji:"💫", types:["Mental","Dream"],
+  170: { id:170, name:"Oneiron",   emoji:"💫", types:["Dark","Dream"],
     base:{hp:75,atk:69,def:52,spa:125,spd:94,spe:84},
-    learnset:[[1,"mind_jolt",[25,"future_echo"]],[1,"chomp"],[3,"prism_ward"],[7,"reverie_focus"],[9,"doze_calm"],[11,"psi_burst"],[13,"trance_meditation"],[15,"hypnos_speed"],[19,"void_pulse"],[20,"drowse_swirl"],[23,"war_dance"],[27,"mental"],[30,"trance_wave"],[35,"nether_sphere"],[37,"void_rend"],[42,"nightmare_pulse"],[43,"dusk_slash"],[51,"psi_strike",[5,"inner_calm"]]],
+    learnset:[[1,"shadow_jab",[25,"future_echo"]],[1,"chomp"],[3,"prism_ward"],[7,"reverie_focus"],[9,"doze_calm"],[11,"umbral_pulse"],[13,"trance_meditation"],[15,"hypnos_speed"],[19,"void_pulse"],[20,"drowse_swirl"],[23,"war_dance"],[27,"malice_beam"],[30,"trance_wave"],[35,"nether_sphere"],[37,"void_rend"],[42,"nightmare_pulse"],[43,"dusk_slash"],[51,"shadow_lance",[5,"inner_calm"]]],
     evolveTo:null, evolveLevel:null, catchRate:70, expYield:185, rarity:"uncommon",
     desc:"A dreamrift that exists between sleep and waking. It draws power from nightmares.",
-    lore:"Oneiron is a mental-dream entity 70 cm tall with a wisp-like body of deep indigo and silver. Its limbs dissolve at the edges into drifting motes of light. It inhabits the boundary between waking and sleep, entering dreams of nearby sleeping creatures and exploring their symbolic landscapes." },
+    lore:"Oneiron is a dark-dream entity 70 cm tall with a wisp-like body of deep indigo and silver, its limbs dissolving at the edges into drifting motes. It inhabits the boundary between waking and sleep, slipping into the dreams of nearby sleepers and feeding on the dread it stirs there — the richer the nightmare, the stronger it grows." },
 
-  171: { id:171, name:"Drakorius",    emoji:"🐲", types:["Draconic"],
+  171: { id:171, name:"Nagaseer",    emoji:"🐍", types:["Mental","Poison"],
     base:{hp:75,atk:88,def:74,spa:112,spd:82,spe:90},
-    learnset:[[1,"draconic_breath",[28,"synaptic_shatter"]],[1,"mind_jolt"],[3,"prism_ward"],[10,"scale_shot"],[13,"psi_burst"],[21,"draconic_claw"],[24,"war_dance"],[29,"mental"],[35,"drake_tail"],[37,"draconic_pulse"],[38,"eon_crash"],[44,"astral_rend"],[45,"psi_strike"],[53,"rampage",[5,"inner_calm"]]],
+    learnset:[[1,"mind_jolt"],[1,"psy_jab",[28,"synaptic_shatter"]],[3,"prism_ward"],[5,"coil"],[10,"venom_jab"],[13,"psi_burst"],[21,"mesmerize"],[24,"mental"],[29,"venom_mind"],[35,"venom_lance"],[37,"astral_rend"],[44,"sludge_wave"],[45,"psi_strike"],[53,"psycho_surge",[5,"inner_calm"]]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
-    desc:"A wise mediator dragon, fluent in the territorial calls of every clan. Ancient and mysterious.",
-    lore:"Drakorius is a dragon 2 metres long with sleek violet-blue scales and a broad intelligent forehead. Its wings are translucent membranes showing internal structure like stained glass. It is uniquely fluent in the territorial calls and posture-language of every dragon species, and has historically served as a mediator between rival dragon clans." },
+    desc:"A wise oracle-serpent that mediates with hypnotic, telepathic speech. Its hood-gaze stills any quarrel.",
+    lore:"Nagaseer is a great hooded serpent 4 metres long, its sleek violet-blue coils marked with eye-like patterns and a broad cobra-hood that flares when it speaks mind-to-mind. Revered as an oracle, it is fluent in the silent posture-language of every creature and has long served as a mediator between rival clans, stilling quarrels with a hypnotic, telepathic voice. Those who ignore its counsel learn that the same hood conceals fangs heavy with a venom potent enough to end any argument outright." },
 
   // ===== DRAGON =====
   172: { id:172, name:"Scalurin",    emoji:"🐣", types:["Draconic"],
@@ -2218,19 +2218,19 @@ const MONSTERS_DATA = {
     desc:"A baby dragon hatchling. Clumsy but full of fiery determination.",
     lore:"Scalurin is a tiny dragon hatchling 20 cm long with soft, flexible scales in pale gold-green. Its eyes are enormous relative to its face. It stumbles awkwardly when walking but is a capable swimmer. It hatches in sandy riverbanks and spends its first year hunting insects near the water's edge." },
 
-  173: { id:173, name:"Serpenthos",    emoji:"🐲", types:["Draconic"],
+  173: { id:173, name:"Cobravyrm",    emoji:"🐲", types:["Draconic"],
     base:{hp:71,atk:102,def:72,spa:79,spd:65,spe:67},
     learnset:[[1,"draconic_breath"],[2,"draconic_claw"],[3,"draconic_pulse"],[4,"hydra_dance"],[5,"saurian_roar"],[33,"lashing_tail"],[36,"battle_cry"],[37,"rampage"],[39,"wild_tumble"],[42,"drake_rush"],[45,"scale_storm"],[46,"radiance_cannon"],[6,"primordial_roar"],[30,"second_wind"]],
     evolveTo:174, evolveLevel:55, catchRate:15, expYield:175, rarity:"rare",
     desc:"A powerful wyrm with tremendous strength. Known to destroy mountains. Legends say it will one day don armor of living steel.",
-    lore:"Serpenthos is a young dragon-serpent 1.5 metres long — Scalurin's soft pale gold-green scales have hardened and darkened to green-bronze, and a flat cobra-like hood has emerged from its broadening neck that it flares when threatened. Its wings are still developing and cannot support flight. It inhabits river caves and hunts fish by lunging from concealed positions near the water surface." },
+    lore:"Cobravyrm is a young dragon-serpent 1.5 metres long — Scalurin's soft pale gold-green scales have hardened and darkened to green-bronze, and a flat cobra-like hood has emerged from its broadening neck that it flares when threatened. Its wings are still developing and cannot support flight. It inhabits river caves and hunts fish by lunging from concealed positions near the water surface." },
 
   174: { id:174, name:"Scalevorn", emoji:"🦕", types:["Draconic","Metal"],
     base:{hp:88,atk:115,def:118,spa:75,spd:85,spe:62},
     learnset:[[1,"draconic_claw"],[1,"chrome_claw"],[10,"scale_crash"],[15,"solar_impact"],[18,"wyvern_maw"],[20,"draconic_pulse"],[25,"titan_blade"],[28,"twin_chop"],[30,"forge_blast_2"],[35,"tungsten_wrath"],[40,"alloy_tail"],[45,"drake_armor"],[50,"rampage"],[60,"forge_strike"],[70,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:275, rarity:"rare",
     desc:"The final form of the ancient dragon lineage. Its scales have fused into living steel over millennia of battle, creating impenetrable natural armor.",
-    lore:"Scalevorn is a powerful dragon-steel hybrid 4 metres long — Serpenthos's green-bronze scales have hardened into steel-grey metallic plates over centuries, and the cobra-hood of its juvenile form has folded flat against the broad muscular base of its skull. Its body is broad and muscular. It moves on four limbs with its wings folded into secondary arms. Its scales have been used in legendary armour-forging projects." },
+    lore:"Scalevorn is a powerful dragon-steel hybrid 4 metres long — Cobravyrm's green-bronze scales have hardened into steel-grey metallic plates over centuries, and the cobra-hood of its juvenile form has folded flat against the broad muscular base of its skull. Its body is broad and muscular. It moves on four limbs with its wings folded into secondary arms. Its scales have been used in legendary armour-forging projects." },
 
   321: { id:321, name:"Dragemian",  emoji:"🐉", types:["Draconic","Fire"],
     base:{hp:86,atk:149,def:101,spa:101,spd:94,spe:66},
@@ -2239,26 +2239,26 @@ const MONSTERS_DATA = {
     desc:"The lord of all dragons. Its fire is hot enough to melt any metal.",
     lore:"Dragemian is a legendary fire-dragon of enormous size, estimated at 12 metres from snout to tail. Its scales are deep crimson-black edged with gold, and two enormous curved horns sweep back from its broad angular skull. Its wings span nearly 20 metres and darken the sky when spread. Ancient texts describe it as the progenitor of all fire dragon lineages, and its breath weapon — a sustained column of solar-temperature fire — can be seen from the horizon." },
 
-  175: { id:175, name:"Biolumal",    emoji:"🐉", types:["Aquatic","Draconic"],
+  175: { id:175, name:"Biolumal",    emoji:"🦈", types:["Aquatic","Dark"],
     base:{hp:71,atk:104,def:76,spa:98,spd:92,spe:88},
-    learnset:[[1,"aquatic_gun",[28,"eon_crash"]],[1,"draconic_breath"],[14,"tidal_rush"],[17,"fortify"],[22,"draconic_claw"],[30,"tsunami"],[31,"coral_barrage"],[38,"draconic_pulse"],[43,"tidal_crush"],[46,"rampage",[5,"tidecaller"]],[3,"deepwater_hymn"],[34,"ocean_tempest"]],
+    learnset:[[1,"aquatic_gun",[28,"savage_blow"]],[1,"chomp"],[14,"tidal_rush"],[17,"fortify"],[22,"jaw_crush"],[30,"tsunami"],[31,"coral_barrage"],[38,"malice_beam"],[43,"tidal_crush"],[46,"wraith_drive",[5,"tidecaller"]],[3,"deepwater_hymn"],[34,"ocean_tempest"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:318, rarity:"uncommon",
-    desc:"A sea dragon that rules the ocean floor. Massive and aquatic.",
-    lore:"Biolumal is a serpentine water-dragon 5 metres long with fluid blue-green scales and a flowing fin-crest from snout to tail. Its underbelly glows with bioluminescent blue. It inhabits deep ocean trenches and ascends to shallower water only to feed, drawing vast schools of fish upward with its bioluminescence." },
+    desc:"A deep-sea shark that rules the ocean floor, luring whole schools to it with a bioluminescent glow.",
+    lore:"Biolumal is a massive deep-sea shark 5 metres long, its dark blue-green hide marked by a row of fins and an underbelly that glows with cold bioluminescent blue. It inhabits the lightless ocean trenches, rising to shallower water only to feed — drawing vast schools of fish upward toward its glow before its jaws close among them." },
 
-  176: { id:176, name:"Chromena",   emoji:"⚡", types:["Electric","Draconic"],
+  176: { id:176, name:"Raijolt",   emoji:"🐺", types:["Electric","Dark"],
     base:{hp:68,atk:82,def:62,spa:117,spd:78,spe:113},
-    learnset:[[1,"jolt",[28,"wyrm_strike"]],[1,"draconic_breath"],[12,"volt_jet"],[17,"fortify"],[20,"draconic_claw"],[28,"stormbolt"],[30,"dynamo_whip"],[36,"draconic_pulse"],[42,"eon_crash"],[44,"rampage",[5,"stun_pulse"]],[3,"static_cage"],[33,"ion_cannon"]],
+    learnset:[[1,"jolt",[28,"voltaic_fang"]],[1,"spark_claw"],[3,"static_cage"],[10,"chomp"],[12,"volt_jet"],[17,"dread_howl"],[20,"obsidian_fang"],[28,"stormbolt"],[30,"dynamo_whip"],[33,"ion_cannon"],[40,"jaw_crush"],[44,"ball_lightning"],[50,"savage_blow",[5,"stun_pulse"]]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
-    desc:"A dragon of lightning storms. Calls down thunder with each roar.",
-    lore:"Chromena is a sleek electric-dragon 4 metres long with chrome-yellow and black scales that crackle with electrical charge. Its wing membranes are translucent yellow. It creates a continuous corona of electricity around its body while flying, visible at night as a moving chain of lightning." },
+    desc:"A feral thunder-beast that rides the storm. Goes berserk amid lightning, clawing anything it strikes.",
+    lore:"Raijolt is a lean, wolf-like thunder-beast 2 metres long, its chrome-yellow and black fur standing on end with a constant crackling charge and a continuous corona of electricity wreathing its body. Calm enough in clear weather, it grows wild and ferocious the moment a storm breaks — riding the gale on crackling leaps, it lashes out at trees, rooftops, and anything else a lightning-strike has marked, leaving long scorched claw-furrows behind. At night it is visible only as a moving chain of lightning racing across the hills." },
 
-  177: { id:177, name:"Sapphier",emoji:"💠", types:["Ice","Draconic"],
+  177: { id:177, name:"Sapphier",emoji:"🐍", types:["Ice","Mineral"],
     base:{hp:73,atk:96,def:79,spa:115,spd:100,spe:74},
-    learnset:[[1,"flurries",[28,"scale_storm"]],[1,"draconic_breath"],[13,"cold_beam"],[21,"draconic_claw"],[24,"second_wind"],[29,"whiteout"],[37,"draconic_pulse"],[44,"cryo_lance"],[45,"rampage"],[53,"glacial_punch",[5,"permafrost"]],[3,"winter_shroud"],[38,"tundra_tomb"]],
+    learnset:[[1,"flurries",[28,"quarry_crush"]],[1,"mineral_pulse"],[13,"cold_beam"],[21,"crystal_shard"],[24,"second_wind"],[29,"whiteout"],[37,"marble_resonance"],[44,"cryo_lance"],[45,"obsidian_strike"],[53,"glacial_punch",[5,"permafrost"]],[3,"winter_shroud"],[38,"tundra_tomb"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:215, rarity:"uncommon",
-    desc:"A crystal dragon of ice. Its scales deflect nearly any attack.",
-    lore:"Sapphier is a magnificent ice-dragon 6 metres long with deep sapphire-blue scales and a crest of crystal ice spines along its neck. Its underbelly is pale white. Its breath produces a stream of sub-zero air that flash-freezes anything within 20 metres. It sleeps buried under glacier ice for decades." },
+    desc:"A crystal-ice basilisk whose mirror-bright scales deflect nearly any attack. Its frozen gaze locks prey in place.",
+    lore:"Sapphier is a magnificent basilisk 6 metres long — a serpent-king sheathed in deep sapphire-crystal scales, with a crown of ice spines along its neck and a pale-white underbelly. Its breath flash-freezes anything within 20 metres, and meeting its cold gaze leaves the unwary rooted in place. It sleeps buried under glacier ice for decades." },
 
   // ===== NORMAL =====
   178: { id:178, name:"Fluffen",     emoji:"🐱", types:["Normal"],
@@ -2289,16 +2289,16 @@ const MONSTERS_DATA = {
     desc:"A super-quick bouncing rabbit. Few can outrun this energetic creature.",
     lore:"Racehare is a lean racing rabbit 45 cm long — Leapbun's soft white-grey fur has darkened to short brown across a compact aerodynamic body shape, and the oversized hind legs of the kit have lengthened into long muscular legs. Its ears lie flat when running rather than pivoting independently. It can sustain sprints of extraordinary speed for short distances and uses evasion rather than combat as its primary survival strategy." },
 
-  182: { id:182, name:"Rotunden",   emoji:"🐻", types:["Normal"],
+  182: { id:182, name:"Rotunden",   emoji:"🐻", types:["Normal","Fighting"],
     base:{hp:81,atk:67,def:62,spa:52,spd:41,spe:48},
-    learnset:[[1,"collide",[22,"battle_cry"]],[1,"daunt"],[10,"cranial_ram"],[18,"crushing_bulk"],[26,"war_dance"],[30,"graze"],[34,"radiance_cannon"],[42,"second_wind",[5,"lashing_tail"]],[3,"baleful_stare"],[32,"double_smash"]],
+    learnset:[[1,"collide",[22,"battle_cry"]],[1,"daunt"],[10,"cranial_ram"],[18,"crushing_bulk"],[26,"war_dance"],[30,"body_check"],[34,"radiance_cannon"],[42,"second_wind",[5,"lashing_tail"]],[3,"baleful_stare"],[32,"double_smash"]],
     evolveTo:183, evolveLevel:25, catchRate:140, expYield:98, rarity:"common",
     desc:"A roly-poly bear. Loves honey and naps. Surprisingly strong when angry.",
     lore:"Rotunden is a chubby round bear-like creature 80 cm tall. Its fur is russet-brown and dense, giving it a perfectly spherical silhouette. It stores enormous fat reserves for winter and can be found in autumn gorging on berries and fruit. It is gentle by nature and rarely provoked." },
 
-  183: { id:183, name:"Glutoros",    emoji:"🐻", types:["Normal"],
+  183: { id:183, name:"Glutoros",    emoji:"🐻", types:["Normal","Fighting"],
     base:{hp:113,atk:93,def:79,spa:75,spd:66,spe:58},
-    learnset:[[1,"cranial_ram"],[2,"battle_cry"],[3,"crushing_bulk"],[4,"lashing_tail"],[5,"daunt"],[6,"collide"],[7,"focus_roar"],[15,"body_blow"],[25,"war_dance"],[31,"radiance_cannon"],[38,"baleful_stare"],[39,"second_wind"],[44,"wild_tumble"],[45,"all_out_assault"],[51,"fortify"],[64,"vital_pulse"]],
+    learnset:[[1,"cranial_ram"],[2,"battle_cry"],[3,"crushing_bulk"],[4,"lashing_tail"],[5,"daunt"],[6,"collide"],[7,"focus_roar"],[15,"body_blow"],[25,"war_dance"],[31,"radiance_cannon"],[38,"baleful_stare"],[39,"second_wind"],[44,"wild_tumble"],[45,"all_out_assault"],[51,"seismic_force"],[64,"brawl"]],
     evolveTo:184, evolveLevel:44, catchRate:50, expYield:220, rarity:"uncommon",
     desc:"A tubby great bear of enormous power. Its hugs can crush boulders.",
     lore:"Glutoros is a massive bear 1.8 metres at the shoulder — Rotunden's perfectly spherical russet-brown silhouette has elongated and grown upright into a broad rounded back with heavy russet-brown fur, and the autumn-gorging habit of its juvenile form has matured into an almost supernatural appetite. It has an almost supernatural appetite and can consume quantities of food that seem physically impossible. It is found in areas of extreme natural abundance and its presence indicates healthy ecosystem balance." },
@@ -2322,15 +2322,15 @@ const MONSTERS_DATA = {
     base:{hp:60,atk:63,def:73,spa:46,spd:31,spe:45},
     learnset:[[1,"collide",[22,"obsidian_crash"]],[1,"stone_throw"],[8,"fortify"],[16,"cranial_ram"],[24,"stone_slide"],[29,"lashing_tail"],[32,"crag_strike"],[40,"crushing_bulk",[5,"granite_wall"]],[3,"petrify_gaze"],[31,"daunt"]],
     evolveTo:192, evolveLevel:25, catchRate:160, expYield:88, rarity:"common",
-    desc:"A rock creature shaped like a small pebble with tiny legs. Almost indistinguishable from an ordinary river stone when still.",
-    lore:"Pebblet is a small rock creature 20 cm tall shaped like a round pebble with two tiny legs and a somewhat surprised-looking face embedded in the stone. It is almost indistinguishable from an ordinary river pebble when still. It lives in streambeds and rolls with the current when travelling. Pebblet cluster in tight streambank groupings that mimic natural rock outcroppings. From within each cluster, individuals occasionally rear briefly upright on their two tiny legs before tumbling back, rehearsing both the awkward humanoid stance and the geologist-fooling formation Boulderoll and Megalith will maintain together at much greater scale." },
+    desc:"A pebble-sized rock roly-poly. Curls into a tiny armored ball when startled, nearly invisible among river stones.",
+    lore:"Pebblet is a small rock-isopod about 20 cm long, its segmented stony shell the colour of river gravel and its underside lined with many tiny legs. At the first hint of danger it tucks head and legs away and curls into a tight pebble-shaped ball, nearly indistinguishable from an ordinary stone, rolling with the current through streambeds. As it grows it learns to roll under its own power — the habit that comes to define the boulder-rolling Boulderoll it becomes." },
 
   192: { id:192, name:"Boulderoll",emoji:"🪨", types:["Earth"],
     base:{hp:82,atk:108,def:112,spa:50,spd:57,spe:69},
     learnset:[[1,"stone_throw"],[2,"cranial_ram"],[3,"fortify"],[4,"stone_slide"],[5,"granite_wall"],[29,"crag_strike"],[33,"tremor_stomp"],[37,"crushing_bulk"],[41,"geoblast"],[49,"crystal_lance"],[57,"landslide"],[65,"tectonic_shift"],[6,"petrify_gaze"],[44,"aftershock"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:222, rarity:"uncommon",
-    desc:"A boulder hound encrusted with stones. Can cause landslides by running.",
-    lore:"Boulderoll is a large rock-ground creature 1.5 metres tall shaped like a roughly humanoid boulder — Pebblet's round river-pebble silhouette has grown and squared into a rough humanoid shape, the small surprised face of its kit form barely defined now but still clearly present, and the current-rolling travel habit has matured into a rolling shift of its own mass overland. It moves by rolling and shifting its own mass. Groups of Boulderoll arrange themselves in formations that geologists initially mistake for natural rock outcroppings." },
+    desc:"A massive rock roly-poly that curls into a boulder and rolls downhill, setting off landslides.",
+    lore:"Boulderoll is a large rock-isopod about 1.5 metres long — Pebblet's pebble-shell has thickened into overlapping plates of solid stone. It travels by tucking away its head and many legs and rolling as a great boulder, gathering speed downhill until it flattens trees and triggers landslides; uncurled, it trundles slowly on rows of short stony legs. Clusters wedged among hillside rocks are routinely mistaken for natural scree." },
 
   193: { id:193, name:"Rugothon",    emoji:"🦞", types:["Aquatic","Mineral"],
     base:{hp:71,atk:78,def:89,spa:52,spd:63,spe:68},
@@ -2385,27 +2385,27 @@ const MONSTERS_DATA = {
 
   // ===== BATCH 1: POISON/DRAGON, ELECTRIC, FIRE/ICE (IDs 206-214) =====
 
-  // 3-stage Poison/Draconic chain: Venomscale → Toxidrak → Dragovenom
+  // 3-stage Poison/Draconic chain: Venomscale → Venodrak → Wyrmvenom (plague-dragon; gentle/misunderstood)
   206: { id:206, name:"Venomscale", emoji:"🐍", types:["Poison","Draconic"],
     base:{hp:50,atk:62,def:50,spa:68,spd:52,spe:65},
     learnset:[[1,"septic_prick"],[1,"draconic_breath"],[12,"ooze_bomb"],[22,"draconic_claw"],[32,"toxify"],[42,"draconic_pulse"],[52,"venom_lance"],[62,"radiance_cannon"]],
     evolveTo:207, evolveLevel:26, catchRate:180, expYield:72, rarity:"common",
-    desc:"A small serpent whose venom has a faint draconic energy. Its fangs drip with corrosive toxin.",
-    lore:"Venomscale is a small dragon-serpent 40 cm long with vivid green scales overlaid with yellow warning banding. Its fangs are visibly elongated and hollow. It inhabits tropical jungle undergrowth and hunts by striking from concealment, relying on venom rather than constriction to subdue prey." },
+    desc:"A friendly little dragon-serpent whose touch is sadly toxic. Longs for playmates who never stay.",
+    lore:"Venomscale is a small dragon-serpent 40 cm long with vivid green scales and bright yellow warning banding. For all those alarming colours it is a gentle, playful hatchling that chirrups happily and tries to nuzzle anything that comes near — but the same glands that will one day make it formidable already weep a mild toxin through its skin, without it ever meaning them to, so the creatures it approaches flinch away sick and frightened. It does not understand why it is always left alone. It wishes no harm at all; it simply cannot help what its body produces, and spends its days waiting hopefully at the jungle's edge for a friend who can bear to stay." },
 
   207: { id:207, name:"Venodrak", emoji:"🐉", types:["Poison","Draconic"],
     base:{hp:75,atk:90,def:68,spa:98,spd:72,spe:80},
     learnset:[[1,"ooze_bomb"],[1,"draconic_claw"],[20,"toxify"],[28,"draconic_pulse"],[36,"venom_lance"],[44,"rampage"],[52,"sludge_wave"],[60,"radiance_cannon"],[62,"wyrm_gale"]],
     evolveTo:208, evolveLevel:46, catchRate:90, expYield:148, rarity:"uncommon",
-    desc:"A dragon-serpent that breathes venomous mist. Its flight path traces poisonous trails through the sky.",
-    lore:"Venodrak is a dragon-serpent 1.5 metres long — Venomscale's vivid green scales have darkened to purple-black, and the yellow warning banding has deepened to a sickly yellow as the venom-load it carries has matured. Its narrow wings allow limited gliding between trees. It hunts from the forest canopy, dropping onto prey below and injecting a fast-acting paralytic venom before taking flight again." },
+    desc:"A sociable dragon shunned for its toxic aura. Watches villages from afar, aching to belong.",
+    lore:"Venodrak is a dragon-serpent 1.5 metres long whose scales have deepened to purple-black with sickly-yellow bands as its venom matured. Fearsome as it looks, it is gentle and deeply social, and it has learned the hard way to keep its distance: anyone it lingers near soon grows queasy from the toxins it exudes involuntarily, and they drive it off with torches and stones. So it watches villages and herds from the high canopy, softly mimicking their calls under its breath, aching to join them. It has never once struck in anger — only ever flown quietly away, alone." },
 
   208: { id:208, name:"Wyrmvenom", emoji:"🐲", types:["Poison","Draconic"],
     base:{hp:88,atk:105,def:80,spa:114,spd:87,spe:76},
     learnset:[[1,"venom_lance"],[1,"rampage"],[30,"sludge_wave"],[38,"draconic_pulse"],[46,"hydra_dance"],[54,"corrosion_fang"],[62,"ancient_breath"],[70,"radiance_cannon"],[72,"acid_spray"]],
     evolveTo:null, evolveLevel:null, catchRate:28, expYield:262, rarity:"rare",
-    desc:"A venomous wyvern of terrible power. Its mere presence poisons the ground for miles around.",
-    lore:"Wyrmvenom is a massive venomous dragon 5 metres long — Venodrak's purple-black scales have shifted to deep olive-green marked in yellow-orange bands, and the narrow gliding wings of its juvenile form have grown into a full 7-metre wingspan. Its venom glands are the largest of any known creature, producing a cocktail that dissolves organic tissue rapidly. It is feared across tropical regions." },
+    desc:"A vast, lonely dragon feared as a plague-bringer — though it has never wished harm on a soul.",
+    lore:"Wyrmvenom is a massive dragon 5 metres long with a 7-metre wingspan and venom glands more potent than any known creature's. Legends call it a plague-bringer whose passing poisons the land — and it is true that nothing can live long in its company, for its body exudes toxins it can neither switch off nor control. But the legends mistake the heart of it: Wyrmvenom is patient, sociable, and achingly lonely, a gentle giant who has spent a lifetime feared and exiled for a danger it never chose and would give anything to be rid of. Precisely because it would never sicken anyone on purpose, it keeps to remote valleys far from people and herds; and on quiet nights it sings long, mournful calls toward the distant village lights — not a threat, but an invitation to a friend who never comes." },
 
   // 2-stage Normal/Electric chain: Boltfur → Thundermane (level 30)
   209: { id:209, name:"Boltfur", emoji:"🐇", types:["Normal","Electric"],
@@ -2455,25 +2455,25 @@ const MONSTERS_DATA = {
   // ===== BATCH 1: PSYCHIC/DARK TYPES (IDs 215-221) =====
 
   // 3-stage Spectral/Mental chain: Spiritch → Phantorge → Spectraith
-  215: { id:215, name:"Veilwisp", emoji:"🌀", types:["Mental"],
+  215: { id:215, name:"Veilwisp", emoji:"🌀", types:["Mental","Vapor"],
     base:{hp:40,atk:42,def:30,spa:68,spd:52,spe:72},
-    learnset:[[1,"mind_jolt"],[1,"psi_burst"],[8,"psy_jab"],[12,"inner_calm"],[16,"mnemonic_focus"],[20,"mental"],[24,"mental_pulse"],[28,"lunar_burst"],[36,"psi_strike"],[44,"neural_storm"],[52,"astral_rend"]],
+    learnset:[[1,"mind_jolt"],[1,"psi_burst"],[8,"mist_pulse"],[12,"inner_calm"],[16,"mnemonic_focus"],[20,"mental"],[24,"fog_beam"],[28,"vapor_ray"],[36,"psi_strike"],[44,"neural_storm"],[52,"astral_rend"]],
     evolveTo:216, evolveLevel:26, catchRate:175, expYield:68, rarity:"common",
-    desc:"A wisp of pure psychic energy. Drifts through reality reading the thoughts of every living thing nearby.",
-    lore:"Veilwisp is a floating psychic orb 20 cm across made of condensed translucent violet energy. Its form shifts between a perfect sphere and a wispy irregularity as its thoughts wander. It drifts through solid objects as if they do not exist and leaves a brief afterimage wherever it passes. With age a Veilwisp spends longer and longer stretches in its irregular wispy state, shorter intervals as a perfect sphere. This gradual self-dissolution is the body easing toward the bodiless distortion Distorsion eventually sustains." },
+    desc:"A wisp of pure psychic energy that thins to a cold violet mist. Drifts through reality reading nearby thoughts.",
+    lore:"Veilwisp is a floating psychic orb 20 cm across made of condensed translucent violet energy that thins, at the edges, into a cold drifting mist. Its form shifts between a perfect sphere and a wispy vapour as its thoughts wander. It drifts through solid objects as if they do not exist, leaving a brief afterimage. With age a Veilwisp spends longer stretches dispersed as mist and shorter intervals as a sphere — the body easing toward the bodiless distortion Distorsion eventually sustains." },
 
-  216: { id:216, name:"Mindrift", emoji:"🌫️", types:["Mental"],
+  216: { id:216, name:"Mindrift", emoji:"🌫️", types:["Mental","Vapor"],
     base:{hp:65,atk:65,def:52,spa:102,spd:80,spe:88},
-    learnset:[[1,"psi_burst"],[1,"inner_calm"],[20,"mental"],[28,"lunar_burst"],[36,"psi_strike"],[44,"neural_storm"],[52,"astral_rend"],[60,"radiance_cannon"]],
+    learnset:[[1,"psi_burst"],[1,"inner_calm"],[20,"mental"],[28,"fog_storm"],[36,"psi_strike"],[44,"neural_storm"],[52,"abyssal_mist"],[60,"radiance_cannon"]],
     evolveTo:217, evolveLevel:44, catchRate:90, expYield:145, rarity:"uncommon",
-    desc:"A drifting psychic entity that bridges the conscious and unconscious mind. Its form shifts like fog.",
+    desc:"A drifting psychic fog that bridges the conscious and unconscious mind. Its body shifts and rolls like mist.",
     lore:"Mindrift is a larger psychic entity 40 cm across — Veilwisp's condensed violet sphere has dispersed and lightened into a body like a slowly rotating galaxy of blue-white light particles, and its wandering wisp-form has matured into a state where no fixed centre is visible: the entity is simultaneously everywhere within itself. It is drawn to sleeping creatures and hovers above their heads to sample their dream-states." },
 
-  217: { id:217, name:"Distorsion", emoji:"🔮", types:["Mental"],
+  217: { id:217, name:"Distorsion", emoji:"🔮", types:["Mental","Vapor"],
     base:{hp:82,atk:70,def:67,spa:132,spd:106,spe:93},
-    learnset:[[1,"mental"],[1,"lunar_burst"],[15,"mental_overflow"],[20,"cerebral_punch"],[25,"telekinetic_throw"],[30,"psi_strike"],[35,"mindbreaker"],[38,"neural_storm"],[42,"temporal_collapse"],[46,"astral_rend"],[54,"psi_burst"],[62,"inner_calm"],[70,"radiance_cannon"]],
+    learnset:[[1,"mental"],[1,"nimbus_eruption"],[15,"mental_overflow"],[20,"fog_storm"],[25,"telekinetic_throw"],[30,"psi_strike"],[35,"mindbreaker"],[38,"neural_storm"],[42,"abyssal_mist"],[46,"astral_rend"],[54,"psi_burst"],[62,"inner_calm"],[70,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
-    desc:"A vast psychic intelligence that defies physical form. Peers into the deepest layers of consciousness.",
+    desc:"A vast psychic intelligence dispersed into a shimmering haze. Peers into the deepest layers of consciousness.",
     lore:"Distorsion is a vast psychic intelligence that lacks a physical body — Mindrift's slowly-rotating particle-galaxy has dispersed entirely, leaving only a shimmering distortion in the air roughly 1 metre across. Nearby objects float slightly and light bends toward it. It exists primarily in a mental dimension and its physical manifestation is merely an accidental side-effect." },
 
   // 2-stage Spectral/Dark chain: Mistwraith → Shademont (item evo: Dusk Stone)
@@ -2576,20 +2576,20 @@ const MONSTERS_DATA = {
 
   // ===== DRAGON TYPES (IDs 230-235) =====
 
-  // 2-stage Draconic chain: Scaleling → Wyvaxis
-  230: { id:230, name:"Scaleling", emoji:"🐲", types:["Draconic"],
+  // 2-stage Aquatic/Fighting chain: Kappling → Sumokappa
+  230: { id:230, name:"Kappling", emoji:"🐢", types:["Aquatic","Fighting"],
     base:{hp:58,atk:72,def:62,spa:60,spd:55,spe:58},
-    learnset:[[1,"collide"],[1,"draconic_breath"],[16,"draconic_claw"],[26,"draconic_pulse"],[36,"hydra_dance"],[46,"rampage"],[56,"radiance_cannon"]],
+    learnset:[[1,"collide"],[1,"quick_punch"],[10,"aquatic_gun"],[16,"straight_jab"],[26,"wave_dash"],[36,"roundhouse"],[46,"brine_slash"],[56,"uppercut"]],
     evolveTo:231, evolveLevel:36, catchRate:150, expYield:90, rarity:"common",
-    desc:"A young river drake with scales that shimmer like gemstones. Fierce despite its small size.",
-    lore:"Scaleling is a tiny dragon hatchling 15 cm long with shiny copper-red scales and an oversized head. Its wings are crumpled against its body and not yet functional. It inhabits rocky outcroppings and practises flight by jumping from increasingly high ledges, rarely succeeding but never deterred. Its scales redden when basking but darken to aqua-blue once it learns to swim." },
+    desc:"A young river-yokai with a water-dish crowning its head. Practises grappling holds in the shallows.",
+    lore:"Kappling is a young river-yokai about 30 cm tall, green-skinned and webbed, with a shallow water-filled dish set into the crown of its head. So long as that dish stays full it brims with surprising strength, so it guards the precious water jealously — keeping its head level even while it tumbles and rolls. It haunts rocky shallows and pond-edges, ambushing larger creatures to practise the grappling holds it is determined to one day perfect." },
 
-  231: { id:231, name:"Wyvaxis", emoji:"🐲", types:["Draconic","Aquatic"],
+  231: { id:231, name:"Sumokappa", emoji:"🐢", types:["Aquatic","Fighting"],
     base:{hp:91,atk:109,def:84,spa:94,spd:78,spe:94},
-    learnset:[[1,"draconic_claw"],[1,"tidal_rush"],[8,"aquatic_gun"],[15,"drake_tail"],[20,"scale_shot"],[25,"wyrm_gale"],[28,"wave_dash"],[30,"draconic_pulse"],[38,"hydra_dance"],[46,"tsunami"],[54,"rampage"],[62,"ancient_breath"],[70,"radiance_cannon"]],
+    learnset:[[1,"quick_punch"],[1,"tidal_rush"],[8,"aquatic_gun"],[15,"straight_jab"],[20,"body_check"],[25,"riptide_slam"],[28,"wave_dash"],[30,"high_kick"],[38,"brawl"],[46,"tsunami"],[54,"spinning_kick"],[62,"ocean_tempest"],[70,"martial_finish"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:220, rarity:"uncommon",
-    desc:"A river drake that has mastered both land and water. Controls currents with its dragon energy.",
-    lore:"Wyvaxis is a water-dragon 2 metres long — Scaleling's copper-red basking-scales have fully darkened to streamlined aqua-blue and emerald, and a broad flat tail has emerged optimised for powerful swimming strokes. It is more fish than lizard in movement, rarely leaving water except to bask on rocks. Its wings are vestigial fins that aid steering underwater." },
+    desc:"A mature river-yokai and peerless wrestler. Drags rivals into the current and pins them with grappling holds.",
+    lore:"Sumokappa is a mature river-yokai standing 2 metres on powerful bowed legs, its back armoured by a broad turtle-like shell and its head still crowned with the brimming water-dish that is the wellspring of its strength. Renowned across the wetlands as an unbeatable wrestler, it challenges all comers to grappling bouts on the riverbank — and when it loses footing it simply drags the contest into deep water, where its webbed hands and tidal power leave no escape. Wise travellers bow politely before crossing its river, for a courteous kappa is honour-bound to bow in return, spilling the water from its dish and forfeiting the match." },
 
   // 3-stage Draconic/Ground chain: Draxon → Serpenthorn → Wyvernak
   232: { id:232, name:"Serphaxon", emoji:"🐲", types:["Draconic"],
@@ -2614,12 +2614,12 @@ const MONSTERS_DATA = {
     lore:"Wyvernak is a large ground-dragon 4 metres long — Serpenthorn's rust-brown scales have weathered to broad grey-green plates, and the backward-curved spine-row of its juvenile form has consolidated into a single crest of stone spines crowning its skull. Its wings generate dust-clouds when spread. It inhabits canyon systems where it ambushes prey by dropping from cliff ledges and pinning targets under its considerable weight before delivering a killing bite." },
 
   // Standalone Draconic/Aquatic: Glintscale
-  235: { id:235, name:"Glintscale", emoji:"🐟", types:["Draconic","Aquatic"],
+  235: { id:235, name:"Glintscale", emoji:"🐠", types:["Aquatic","Fairy"],
     base:{hp:88,atk:98,def:82,spa:101,spd:85,spe:96},
-    learnset:[[1,"draconic_claw"],[1,"tidal_rush"],[20,"draconic_pulse"],[30,"tsunami"],[40,"hydra_dance"],[50,"rampage"],[60,"geyser_burst"],[70,"radiance_cannon"],[72,"tidal_sweep"]],
+    learnset:[[1,"gossamer_lance"],[1,"tidal_rush"],[20,"celestial_wave"],[30,"tsunami"],[40,"lunar_burst"],[50,"fae_requiem"],[60,"geyser_burst"],[70,"radiance_cannon"],[72,"tidal_sweep"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
-    desc:"A dragon-koi of iridescent scales. Legends say it swims the boundary between worlds.",
-    lore:"Glintscale is a water-dragon 3 metres long with brilliant silver-green scales that catch light and scatter it in all directions. Underwater it is effectively invisible from above due to this mirroring effect. It uses its reflective scales to confuse and disorient prey, striking when they become disoriented." },
+    desc:"A great koi of iridescent scales. Legends say it swims the boundary between worlds, and to glimpse one is fortune.",
+    lore:"Glintscale is a great koi 3 metres long with brilliant silver-green scales that catch light and scatter it in all directions — underwater it is effectively invisible from above. Old legends hold that a koi which leaps the highest falls becomes something greater, and that Glintscale has already swum the boundary between this world and the next. It uses its mirroring scales to confuse and disorient prey before it strikes." },
 
 
 
@@ -2646,7 +2646,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"flurries"],[1,"collide"],[10,"cold_snap"],[18,"cryo_lance"],[26,"cold_beam"],[36,"whiteout"],[46,"avalanche_drive"],[56,"radiance_cannon"]],
     evolveTo:239, evolveLevel:28, catchRate:175, expYield:72, rarity:"common",
     desc:"A self-rolling snowball that grows larger with every tumble across fresh snow. Tiny dark coal-eyes peek from a perfectly round body, and faint bumps mark where stick-limbs will eventually emerge.",
-    lore:"Snowble is a small Ice creature 20 centimetres across, shaped exactly like a perfectly round snowball with two small dark coal-eyes peeking from its surface. Beneath its smooth white shell, traces of stick-limbs and a small carrot-shaped nose are already forming — barely-visible bumps that will emerge when it grows large enough. It rolls effortlessly across snowfields, gathering more snow with every revolution, and groups of Snowble combine into single enormous boulders during heavy blizzards as they pack together for warmth. A few Snowble pause in deep shadow rather than rolling on, and their dense inner cores catch darkness more readily than fresh snow does — the first faint stir of the corruption Tundrafox eventually succumbs to during the long polar dark." },
+    lore:"Snowble is a small ice creature 20 centimetres across, shaped exactly like a perfectly round snowball with two small dark coal-eyes peeking from its surface. Beneath its smooth white shell, traces of stick-limbs and a small carrot-shaped nose are already forming — barely-visible bumps that will emerge when it grows large enough. It rolls effortlessly across snowfields, gathering more snow with every revolution, and groups of Snowble combine into single enormous boulders during heavy blizzards as they pack together for warmth. A few Snowble pause in deep shadow rather than rolling on, and their dense inner cores catch darkness more readily than fresh snow does — the first faint stir of the corruption Tundrafox eventually succumbs to during the long polar dark." },
 
   239: { id:239, name:"Blizzariel", emoji:"☃️", types:["Ice"],
     base:{hp:68,atk:62,def:65,spa:100,spd:82,spe:90},
@@ -2671,19 +2671,19 @@ const MONSTERS_DATA = {
     lore:"Shardlix is a psychic-ice creature 40 cm tall resembling a bipedal figure made entirely of precision-cut ice crystals fitted together without gaps. Its eyes are two flawless prismatic lenses. It transmits thoughts through vibrations in its crystalline body and can read psychic impressions left on ice surfaces." },
 
   // 2-stage Electric/Bug chain: Zappling → Voltrix (level 30)
-  242: { id:242, name:"Pulseglow", emoji:"🐞", types:["Electric"],
+  242: { id:242, name:"Pulseglow", emoji:"🐞", types:["Electric","Sonic"],
     base:{hp:46,atk:55,def:42,spa:68,spd:50,spe:78},
-    learnset:[[1,"jolt"],[1,"resonance_hum"],[12,"static_strike"],[22,"volt_jet"],[32,"galvanic_burst"],[42,"shear_strike"],[52,"stormbolt"],[60,"radiance_cannon"]],
+    learnset:[[1,"jolt"],[1,"echo_pulse"],[12,"static_strike"],[22,"volt_jet"],[32,"pulse_wave"],[42,"resonate"],[52,"stormbolt"],[60,"radiance_cannon"]],
     evolveTo:243, evolveLevel:30, catchRate:170, expYield:75, rarity:"common",
-    desc:"A firefly-like creature that stores electricity in its abdomen-light. Releases it when threatened.",
-    lore:"Pulseglow is a tiny electric creature 5 cm long resembling a glowing firefly. Its abdomen pulses with yellow-white electric light at regular intervals. Huge swarms congregate in summer nights over open water, and the coordinated light patterns of the swarm are a complex form of collective communication." },
+    desc:"A firefly whose swarms pulse in both light and sound. Its abdomen flashes and hums in coordinated rhythm.",
+    lore:"Pulseglow is a tiny electric creature 5 cm long resembling a glowing firefly. Its abdomen pulses with yellow-white electric light at regular intervals, each flash paired with a low matching hum. Huge swarms congregate on summer nights over open water, flashing and droning in coordinated light-and-sound patterns — a complex form of collective communication. As it matures into Stuntrap, those pulsing rhythms deepen and slow into the hypnotic sonic drone of the adult." },
 
-  243: { id:243, name:"Stuntrap", emoji:"🪲", types:["Electric","Nature"],
+  243: { id:243, name:"Stuntrap", emoji:"🪰", types:["Dream","Sonic"],
     base:{hp:72,atk:82,def:68,spa:110,spd:78,spe:98},
-    learnset:[[1,"volt_jet"],[1,"shear_strike"],[10,"vine_lash"],[24,"galvanic_burst"],[32,"resonance_hum"],[38,"nature_pulse"],[40,"stormbolt"],[48,"volt_surge"],[56,"ball_lightning"],[64,"radiance_cannon"]],
+    learnset:[[1,"echo_pulse"],[1,"dream_pulse"],[10,"pulse_wave"],[18,"drowse_swirl"],[24,"resonate"],[30,"trance_wave"],[38,"lullaby_strike"],[40,"harmonic_burst"],[48,"somnia_blast"],[56,"decibel_burst"],[64,"dreamscape_smash"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:215, rarity:"uncommon",
-    desc:"An electrified beetle warrior. Its wing-cases generate static as it flies, creating lightning storms.",
-    lore:"Stuntrap is a medium electric-bug 25 centimetres in wingspan that has moulted from Pulseglow's firefly carapace into an elongated dragonfly form, its abdominal light-organs migrating outward to become the electric-blue arcs along its translucent copper wings. It hunts by creating a small electrical trap in mid-air and herding smaller insects into it. It can deliver a precise shock from its tail that stuns prey without killing it." },
+    desc:"A dragonfly whose droning wings lull prey into a daze, herding the dazzled swarm into mid-air traps.",
+    lore:"Stuntrap is a dragonfly 25 centimetres in wingspan that has moulted from Pulseglow's firefly form — the pulsing light its young once flickered for communication has matured into a low, hypnotic wing-drone pitched to lull. It hunts by weaving that drone through the air until smaller insects fall into a glassy-eyed daze, then herds the stupefied swarm into a tight knot before picking them off. Sleepers who doze too near a Stuntrap colony often wake reporting strangely vivid, looping dreams." },
 
   // 3-stage Electric/Fighting chain: Staticlaw → Thundravex → Megavolt
   244: { id:244, name:"Staticlaw", emoji:"🦡", types:["Electric"],
@@ -2708,12 +2708,12 @@ const MONSTERS_DATA = {
     lore:"Megavolt is a massive thunder-wolverine 1 metre at the shoulder, the apex form of the Staticlaw→Thundravex lineage. Its body is heavily muscled with chrome-yellow fur and a thick collar of crackling electric coils running from the back of its neck down both shoulders, mistaken at distance for a felid mane. It is fearless to the point of recklessness, attacking creatures many times its size to defend its territory, and the visible electrical shockwave that accompanies its roar temporarily blinds and deafens those nearby. It is considered the apex electric predator of any region it claims." },
 
   // Standalone Electric/Bug: Sparkeen
-  247: { id:247, name:"Sparkeen", emoji:"🦋", types:["Electric"],
+  247: { id:247, name:"Sparkeen", emoji:"🦋", types:["Electric","Dream"],
     base:{hp:72,atk:68,def:65,spa:102,spd:88,spe:115},
-    learnset:[[1,"volt_jet"],[1,"resonance_hum"],[8,"shock_pulse"],[18,"galvanic_burst"],[28,"shear_strike"],[38,"stormbolt"],[48,"volt_surge"],[55,"jolt"],[58,"ball_lightning"],[68,"radiance_cannon"]],
+    learnset:[[1,"volt_jet"],[1,"dream_pulse"],[8,"shock_pulse"],[18,"drowse_swirl"],[28,"somnia_ray"],[38,"stormbolt"],[48,"trance_wave"],[55,"jolt"],[58,"lullaby_strike"],[68,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:210, rarity:"uncommon",
-    desc:"An electric butterfly that flickers between flower fields and storm clouds. Its wings spark with each flap.",
-    lore:"Sparkeen is a small electric creature 10 cm across resembling a glowing green butterfly. Its wings generate a localised electric field that is pleasant to the touch at low intensity but painful if the creature is threatened. It inhabits electrical substations and inside lightning-rod structures." },
+    desc:"An electric butterfly whose flickering wing-light lulls onlookers into brief waking dreams.",
+    lore:"Sparkeen is a small electric creature 10 cm across resembling a glowing green butterfly. Its wings carry a soft electric field and a flickering, shifting glow — watch the strobing wingbeats too long and the mind drifts into a brief, pleasant waking dream, a defence that lets Sparkeen flit unhurried between flowers while would-be predators stand dazed. Roused, that gentle field sharpens at once into a painful jolt." },
 
   // 3-stage Rock/Ground chain: Pebblard → Boulderax → Megalith
   248: { id:248, name:"Pebblard", emoji:"🪨", types:["Earth"],
@@ -2742,19 +2742,19 @@ const MONSTERS_DATA = {
   // ===== BATCH 4: ROCK / WATER / GRASS / DARK (IDs 251-265) =====
 
   // 2-stage Rock/Metal chain: Crumblite → Stonegrip (Metal Coat item)
-  251: { id:251, name:"Crumblite", emoji:"🪨", types:["Metal","Mineral"],
+  251: { id:251, name:"Crumblite", emoji:"🦞", types:["Metal","Mineral"],
     base:{hp:60,atk:75,def:85,spa:42,spd:60,spe:45},
     learnset:[[20,"lode_strike"],[1,"stone_throw"],[1,"chrome_claw"],[14,"stone_slide"],[24,"forge_blast_2"],[34,"crag_strike"],[44,"alloy_tail"],[54,"forge_strike"],[60,"radiance_cannon"]],
     evolveTo:252, evolveLevel:null, evolveItem:"metalCoat", evolveMethod:"item", catchRate:140, expYield:98, rarity:"common",
-    desc:"A ore-encrusted creature that upgrades itself by absorbing metallic minerals from cave walls.",
-    lore:"Crumblite is an earth-metal creature 40 cm tall whose body appears to be crumbling stone held together by thin steel rebar-like structures growing through it. Chunks occasionally fall away and are immediately replaced by new growth. It inhabits construction sites and ruined architecture, instinctively reinforcing damaged structures. A Crumblite constantly loses and regrows chunks of its crumbling stone-body, but each replaced piece sets slightly more permanently than the last. This gradual stabilisation is the slow approach toward the bolted-steel-plate compactness Stonegrip exhibits once metalCoat fully reinforces it." },
+    desc:"A young rock-crustacean with a brittle ore-crusted shell. Pries metallic minerals from cave walls to harden itself.",
+    lore:"Crumblite is a 40 cm rock-crustacean whose stony carapace is still brittle and flecked with raw ore, threaded through with thin veins of steel. Bits of shell chip away as it scuttles and are quickly regrown, each new piece setting a little harder than the last. It haunts caves and ruined masonry, prying out metallic minerals to reinforce its shell — and once a Metal Coat fully tempers that shell into bolted plate, it hardens all at once into the iron-clawed Stonegrip." },
 
-  252: { id:252, name:"Stonegrip", emoji:"🛡️", types:["Metal","Mineral"],
+  252: { id:252, name:"Stonegrip", emoji:"🦞", types:["Metal","Mineral"],
     base:{hp:95,atk:110,def:135,spa:58,spd:88,spe:52},
     learnset:[[40,"granite_slam"],[1,"crag_strike"],[1,"forge_blast_2"],[28,"alloy_tail"],[36,"forge_strike"],[44,"tectonic_shift"],[52,"bedrock_slam"],[60,"heavy_slam"],[68,"radiance_cannon"],[70,"mud_spray"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"rare",
-    desc:"An iron-clad rock titan. Its exterior is half-rock, half-steel, forming impenetrable natural armor.",
-    lore:"Stonegrip is an earth-metal creature 80 cm tall — Crumblite's crumbling stone-body has been stabilised under metalCoat's influence into a compact frame of grey granite, the thin rebar-structures of its juvenile form now visible steel plating bolted to its surface. Its broad hands can crush stone to powder. It works obsessively to compress and compact loose rock around it, creating denser stone formations wherever it dwells." },
+    desc:"An armored rock-lobster whose stone-and-steel claws crush boulders to powder.",
+    lore:"Stonegrip is an 80 cm rock-crustacean — Crumblite's brittle shell, tempered under a Metal Coat, has set into a compact carapace of grey granite bolted with steel plating. Its two great claws crush stone to powder and grip prey or rubble with bone-cracking force, and it works obsessively to compact the loose rock around it into dense formations wherever it settles." },
 
   // Standalone Fire/Mineral: Ashrock (location evo near volcano area)
   253: { id:253, name:"Ashrock", emoji:"🌋", types:["Fire","Mineral"],
@@ -2787,19 +2787,19 @@ const MONSTERS_DATA = {
     desc:"A dolphin-like creature of ice-blue water. Schools in cold coastal seas and leaps in synchronised arcing patterns.",
     lore:"Scolphin is a water creature 30 cm long resembling a small dolphin made of ice-blue water. Its body is semi-solid — more ice than liquid in cold conditions and more liquid in warmth. It schools in large groups in cold coastal waters and leaps collectively in synchronised arcing patterns. Younger Scolphin's body is roughly 60% liquid water and 40% ice, but the ratio reverses with age toward the dense solid form their narwhal and orca-calf adult stages adopt. Their tail-half is consistently denser and colder than their head-half — the body already pre-shaped along the axis Torrentox's armoured-dorsal will eventually establish — and their school-communication chirps narrow with each year into the directional precision-hunting echolocation Torrentox uses to map prey through frozen water." },
 
-  257: { id:257, name:"Reefhorn", emoji:"🦄", types:["Aquatic","Ice"],
+  257: { id:257, name:"Narwhirl", emoji:"🦄", types:["Aquatic","Ice"],
     base:{hp:72,atk:80,def:88,spa:90,spd:78,spe:65},
     learnset:[[1,"cold_beam"],[1,"tidal_rush"],[20,"whiteout"],[28,"tidal_sweep"],[36,"cryo_lance"],[44,"tsunami"],[52,"frost_crash"],[60,"radiance_cannon"],[62,"abyssal_jet"]],
     evolveTo:258, evolveLevel:44, catchRate:80, expYield:155, rarity:"uncommon",
     desc:"A horned sea creature made partly of frozen coral. Its horns channel water and ice attacks with precision.",
-    lore:"Reefhorn is a water-ice creature 60 cm long — Scolphin's ice-blue dolphin form has solidified to a denser blue-grey narwhal frame and grown a single spiralling ice horn 20 cm long from its forehead, the schooling instinct dropping away in favour of solitary reef-territory. It inhabits cold-water reefs where its horn can chip algae from rock surfaces. The horn breaks and regrows seasonally, and shed horns are used by seabirds as nesting material." },
+    lore:"Narwhirl is a water-ice creature 60 cm long — Scolphin's ice-blue dolphin form has solidified to a denser blue-grey narwhal frame and grown a single spiralling ice horn 20 cm long from its forehead, the schooling instinct dropping away in favour of solitary reef-territory. It inhabits cold-water reefs where its horn can chip algae from rock surfaces. The horn breaks and regrows seasonally, and shed horns are used by seabirds as nesting material." },
 
   258: { id:258, name:"Torrentox", emoji:"🐋", types:["Aquatic","Ice"],
     base:{hp:90,atk:86,def:93,spa:119,spd:99,spe:63},
     learnset:[[1,"tsunami"],[1,"whiteout"],[30,"tidal_sweep"],[38,"cryo_lance"],[46,"frost_crash"],[54,"tundra_tomb"],[62,"geyser_burst"],[70,"radiance_cannon"],[72,"rain_cascade"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
     desc:"An ancient orca-titan of ice. Controls ocean currents and freezes sea lanes solid in winter.",
-    lore:"Torrentox is a water-ice creature 1.2 metres long — Reefhorn's deep blue-grey narwhal frame has whitened to a muscular orca calf with blue-white colouration, and the spiralling ice-horn has dissolved into the ice-plate armour now lining its dorsal surface. It generates ice walls around prey by rapidly cooling a volume of water from within, trapping targets in an enclosed freezing pocket." },
+    lore:"Torrentox is a water-ice creature 1.2 metres long — Narwhirl's deep blue-grey narwhal frame has whitened to a muscular orca calf with blue-white colouration, and the spiralling ice-horn has dissolved into the ice-plate armour now lining its dorsal surface. It generates ice walls around prey by rapidly cooling a volume of water from within, trapping targets in an enclosed freezing pocket." },
 
   // Standalone Aquatic/Mental: Lumejell
   259: { id:259, name:"Lumejell", emoji:"🪼", types:["Aquatic","Mental"],
@@ -2817,12 +2817,12 @@ const MONSTERS_DATA = {
     desc:"A grass sprout that blooms with vibrant flowers. Its pollen causes drowsiness in those it trusts.",
     lore:"Sproutix is a small grass creature 15 cm tall resembling a tiny sapling with two leaf-hands and round soft-glowing eyes. It sprouts from the ground in spring meadows and can take root again if it stays still long enough. It leaves a trail of tiny flowers wherever it walks." },
 
-  261: { id:261, name:"Leafhorn", emoji:"🌺", types:["Nature"],
+  261: { id:261, name:"Leafhorn", emoji:"🌺", types:["Nature","Dream"],
     base:{hp:82,atk:78,def:75,spa:115,spd:100,spe:88},
-    learnset:[[1,"lunar_burst"],[1,"verdant_orb"],[5,"regrow"],[8,"sap_seed"],[12,"nature_pulse"],[16,"leafblade_swirl"],[20,"petal_blitz"],[24,"fae_petals"],[28,"prism_flare"],[32,"blossom_frenzy"],[36,"grove_wrath"],[40,"pollen_storm"],[44,"celestial_wave"],[48,"thorn_barrage"],[50,"foliage_tempest"],[52,"briar_lash"],[56,"sun_ray"],[58,"sylvan_radiance"],[60,"radiance_cannon"]],
+    learnset:[[1,"dream_pulse"],[1,"verdant_orb"],[5,"regrow"],[8,"sap_seed"],[12,"nature_pulse"],[16,"leafblade_swirl"],[20,"petal_blitz"],[24,"fae_petals"],[28,"drowse_swirl"],[32,"blossom_frenzy"],[36,"grove_wrath"],[40,"pollen_storm"],[44,"trance_wave"],[48,"thorn_barrage"],[50,"foliage_tempest"],[52,"briar_lash"],[56,"somnia_ray"],[58,"lullaby_strike"],[60,"dreamscape_smash"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:218, rarity:"uncommon",
-    desc:"A horned bloom deer of tremendous grace. Its horn concentrates solar and lunar energy into beam attacks.",
-    lore:"Leafhorn is a medium grass creature 50 cm tall resembling a deer-faun with leaf-antlers and a body covered in overlapping leaf-scales of vivid green. As it matured from Sproutix, its trunk-body split into four leaf-clad limbs and its head-leaves hardened into antlers. Morning sunlight catches the leaves and they shimmer gold at dawn. It inhabits enchanted forests and its passage encourages dormant seeds to germinate." },
+    desc:"A bloom-deer whose antler-pollen lulls creatures into waking dreams. It leads the dreamers deep into enchanted forests.",
+    lore:"Leafhorn is a deer-faun 50 cm tall with leaf-antlers and a body of overlapping vivid-green leaf-scales. As it matured from Sproutix — whose blossoms already shed a drowsing pollen — its antlers learned to bloom a fine, glittering dream-pollen. Creatures that breathe it slip into gentle waking dreams, and Leafhorn walks ahead of them, leading the dreamers along quiet paths deep into enchanted forests where dormant seeds germinate in their wake. Those who doze in its grove wake remembering soft, shared dreams of green and growing things." },
 
   // 3-stage Fighting/Toxin chain: Transluceed → Tendrilisk → Impenezard
   262: { id:262, name:"Transluceed", emoji:"🌿", types:["Fighting","Toxin"],
@@ -2858,27 +2858,27 @@ const MONSTERS_DATA = {
 
   // ===== BATCH 5: DARK / FIRE / STEEL / NORMAL (IDs 266-280) =====
 
-  // 3-stage Dark chain: Shadowpup → Nightclaw → Darkfang
-  266: { id:266, name:"Shadowpup", emoji:"🐺", types:["Dark","Sonic"],
+  // 3-stage Dark chain: Shadowcub → Nightclaw → Darkfang (shadow-panther)
+  266: { id:266, name:"Shadowcub", emoji:"🐈‍⬛", types:["Dark","Sonic"],
     base:{hp:48,atk:62,def:45,spa:50,spd:48,spe:72},
     learnset:[[16,"sound_rush"],[1,"chomp"],[1,"collide"],[10,"dusk_slash"],[20,"void_pulse"],[30,"jaw_crush"],[40,"eclipse_shroud"],[50,"soul_rend"],[60,"radiance_cannon"]],
     evolveTo:267, evolveLevel:26, catchRate:180, expYield:70, rarity:"common",
-    desc:"A shadow wolf pup that feeds on ambient light. Eyes glow in pitch darkness where nothing should glow.",
-    lore:"Shadowpup is a small dark dog 25 cm at the shoulder with jet-black fur so dark it absorbs almost all visible light. Its outline against bright backgrounds seems slightly wrong — too sharp and flat. It is playful and energetic, unaware that its unusual appearance unnerves most creatures it approaches. A Shadowpup's quiet growls and yips somehow produce a faint chest-pressure in nearby creatures despite being inaudibly soft. The same pup will visibly flinch from sudden bright light, its visual cortex evidently calibrated for total darkness already. Both quirks foretell Darkfang: the felt-not-heard intimidation the apex form fully wields, and the pitch-darkness vision its eyes will use as clearly as others use daylight." },
+    desc:"A shadow-panther cub whose jet-black fur drinks the light. Its soft growls press oddly on the chest.",
+    lore:"Shadowcub is a small shadow-panther kitten about 25 cm at the shoulder, its jet-black fur so dark it swallows almost all light, leaving its outline against bright backgrounds looking too sharp and flat. It is playful and energetic, unaware that its eerie look unnerves others. Its quiet growls and mews are barely audible yet press faintly on the chest of those nearby, and it flinches from sudden light — both early signs of the felt-not-heard intimidation and pitch-dark sight the apex Darkfang will command." },
 
-  267: { id:267, name:"Nightclaw", emoji:"🐾", types:["Dark","Sonic"],
+  267: { id:267, name:"Nightclaw", emoji:"🐈‍⬛", types:["Dark","Sonic"],
     base:{hp:72,atk:95,def:65,spa:75,spd:68,spe:90},
     learnset:[[40,"concussive_strike"],[1,"dusk_slash"],[1,"phantom_claw"],[20,"void_pulse"],[28,"eclipse_shroud"],[36,"jaw_crush"],[44,"soul_rend"],[52,"nether_sphere"],[60,"radiance_cannon"]],
     evolveTo:268, evolveLevel:44, catchRate:85, expYield:150, rarity:"uncommon",
-    desc:"A dark wolf that phases through shadows. Its claws can strike from a different dimension.",
-    lore:"Nightclaw is a medium dark dog 55 cm at the shoulder — Shadowpup's jet-black light-absorbing fur has deepened across a larger frame, and the strangely-flat outline of its pup-form has sharpened into non-reflective retractable claws. It hunts by moving through deep shadow too fast to track, using echolocation rather than vision. Its natural shadow-camouflage is so effective it can vanish against dark walls in daylight." },
+    desc:"A shadow-panther that phases through darkness, striking with retractable claws from the shadows.",
+    lore:"Nightclaw is a sleek shadow-panther 55 cm at the shoulder — Shadowcub's light-drinking fur has deepened across a longer, more muscular frame, and the flat-edged outline of its kitten form has sharpened into non-reflective retractable claws. It hunts by slipping through deep shadow too fast to track, navigating by echolocation rather than sight, and can melt into a dark wall even in daylight." },
 
-  268: { id:268, name:"Darkfang", emoji:"🐕", types:["Dark","Spectral"],
+  268: { id:268, name:"Darkfang", emoji:"🐈‍⬛", types:["Dark","Spectral"],
     base:{hp:89,atk:118,def:79,spa:87,spd:79,spe:98},
     learnset:[[58,"reaper_scythe"],[1,"eclipse_shroud"],[1,"soul_rend"],[30,"void_pulse"],[38,"nether_sphere"],[46,"dusk_slash"],[54,"phantom_claw"],[62,"dread_howl"],[70,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
-    desc:"The apex shadow predator. Its howl resonates across dimensions and can be heard in the land of the dead.",
-    lore:"Darkfang is a large dark wolf 90 cm at the shoulder — Nightclaw's deep-black coat has darkened to pitch and the non-reflective claws that hid its juvenile form have been joined by fangs that absorb light, giving them a void-like appearance. Its growl is felt more than heard, as a pressure in the chest. It inhabits forested night-terrain and sees in conditions of total darkness as clearly as others see in daylight." },
+    desc:"The apex shadow predator. Its roar resonates across dimensions and can be heard in the land of the dead.",
+    lore:"Darkfang is a large shadow-panther 90 cm at the shoulder — Nightclaw's coat has darkened to absolute pitch, and its claws are joined by fangs that drink light, giving them a void-like black. Its growl is felt more than heard, a pressure deep in the chest, and it sees in total darkness as clearly as others see by day. Its hunting roar resonates across dimensions — faint echoes of it are said to reach the land of the dead." },
 
   // 2-stage Dark split: Grimshade → Eclipsoon (Moon Stone item)
   269: { id:269, name:"Grimshade", emoji:"🦝", types:["Dark"],
@@ -2903,20 +2903,20 @@ const MONSTERS_DATA = {
     desc:"A cunning dark rodent that steals anything shiny. Surprisingly tough for its size and always escapes.",
     lore:"Murkrat is a dark-normal creature 30 cm long resembling a fat rat with dark grey fur and bright beady eyes. It is deeply pragmatic — it will steal anything useful, hoard it, and trade it back. It inhabits sewer systems and underground markets and is surprisingly social once trust is established." },
 
-  // 2-stage Fire/Draconic chain: Embrix → Blazeon (level 28)
-  272: { id:272, name:"Embrix", emoji:"🦎", types:["Fire","Draconic"],
+  // 2-stage Fire chain: Embrix → Blazeon (phoenix; final gains Spectral)
+  272: { id:272, name:"Embrix", emoji:"🐦‍🔥", types:["Fire"],
     base:{hp:50,atk:68,def:52,spa:65,spd:50,spe:72},
-    learnset:[[1,"flicker"],[1,"draconic_breath"],[12,"inferno_jet"],[22,"draconic_claw"],[32,"pyroclasm"],[42,"draconic_pulse"],[52,"rampage"],[62,"radiance_cannon"]],
+    learnset:[[1,"flicker"],[1,"ember_focus"],[12,"flame_charge"],[22,"cinderwhirl"],[32,"ashfall"],[42,"searing_gale"],[52,"firebrand"],[62,"pyroclasm"]],
     evolveTo:273, evolveLevel:34, catchRate:155, expYield:82, rarity:"common",
-    desc:"A fire lizard with nascent draconic power. Breathes embers in spiraling dragon-shaped patterns.",
-    lore:"Embrix is a young fire-dragon 25 cm long with bright orange-red scales and oversized eyes. Its wings are too small for flight but it flaps them enthusiastically when excited. It produces tiny fireballs no larger than a marble. It is the juvenile form of a powerful fire dragon lineage and grows rapidly with proper nutrition." },
+    desc:"A downy fire-chick that puffs marble-sized embers. Flaps eager wings too small to fly.",
+    lore:"Embrix is a downy fire-chick about 25 cm tall, its fledgling plumage glowing bright orange-red around oversized curious eyes. Its wings are still too small for flight, though it flaps them enthusiastically whenever excited, scattering little sparks. For now it can cough up only tiny embers no larger than a marble. It is the hatchling of a phoenix lineage and, fed well, grows with astonishing speed toward its first fiery rebirth." },
 
-  273: { id:273, name:"Blazeon", emoji:"🔥", types:["Fire","Draconic"],
+  273: { id:273, name:"Blazeon", emoji:"🐦‍🔥", types:["Fire","Spectral"],
     base:{hp:86,atk:110,def:75,spa:112,spd:77,spe:90},
-    learnset:[[1,"inferno_jet"],[1,"draconic_claw"],[26,"pyroclasm"],[34,"draconic_pulse"],[42,"rampage"],[50,"hydra_dance"],[58,"caldera_meltdown"],[66,"radiance_cannon"],[68,"flash_fire"]],
+    learnset:[[1,"inferno_jet"],[1,"spectral_radiance"],[1,"ember_focus"],[26,"cinderwhirl"],[30,"revenant_strike"],[34,"searing_gale"],[40,"soul_burst"],[42,"spirit_drain"],[48,"pyroclasm"],[54,"eternal_haunt"],[58,"caldera_meltdown"],[62,"conflagration"],[66,"eternal_ember"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:228, rarity:"uncommon",
-    desc:"A fire dragon of pure scorching flame. Dances in lava rivers to power up its abilities further.",
-    lore:"Blazeon is a fire-dragon 1.5 metres long with deep crimson-orange scales and a fully developed wing-span of 2 metres. Its breath weapon is now a sustained stream of fire rather than fireballs. It inhabits volcanic hillsides and defends a territory of several square kilometres from other fire-types." },
+    desc:"A reborn phoenix wreathed in everlasting flame. Rises from its own ashes brighter each time.",
+    lore:"Blazeon is a magnificent phoenix some 1.5 metres tall with a 2-metre wingspan of deep crimson-and-gold plumage that burns without being consumed. When its body finally fails it bursts into flame and collapses to ash — only to rise again days later, renewed and a little brighter than before. It roosts on volcanic hillsides, and the warmth shed from its feathers keeps the surrounding slopes in a perpetual early summer. Its cry is said to mend the spirits of those who hear it." },
 
   // 3-stage Fire/Rock chain: Cindling → Infernox → Pyrovast
   274: { id:274, name:"Cindling", emoji:"🪨", types:["Fire","Mineral"],
@@ -2954,14 +2954,14 @@ const MONSTERS_DATA = {
     learnset:[[1,"chrome_claw"],[1,"fairy_wind"],[14,"forge_blast_2"],[24,"lunar_burst"],[34,"alloy_tail"],[44,"prism_flare"],[54,"forge_strike"],[60,"radiance_cannon"]],
     evolveTo:279, evolveLevel:null, evolveItem:"metalCoat", evolveMethod:"item", catchRate:145, expYield:92, rarity:"common",
     desc:"A small fairy forged of living iron. Works tirelessly in ancient forges, seeking purpose and strength.",
-    lore:"Ironling is a small steel-fairy creature 30 cm tall resembling a tiny knight in fairy-crafted iron armour. Its armour is silver-grey with a faint shimmer. It is protective of smaller creatures and positions itself between perceived threats and those it has chosen to guard, regardless of relative size." },
+    lore:"Ironling is a small steel-fairy creature 30 cm tall resembling an iron-shod fae foal sheathed in fairy-crafted barding, a budding nub of metal at its brow. Its plating is silver-grey with a faint shimmer. It is protective of smaller creatures and positions itself between perceived threats and those it has chosen to guard, regardless of relative size." },
 
   279: { id:279, name:"Steelhorn", emoji:"🦌", types:["Metal","Fairy"],
     base:{hp:87,atk:97,def:114,spa:84,spd:97,spe:71},
     learnset:[[1,"forge_blast_2"],[1,"lunar_burst"],[28,"alloy_tail"],[36,"prism_flare"],[44,"forge_strike"],[52,"heavy_slam"],[60,"celestial_wave"],[68,"radiance_cannon"],[70,"disarming_voice"]],
     evolveTo:null, evolveLevel:null, catchRate:38, expYield:228, rarity:"rare",
     desc:"A horned steel fairy of regal bearing. Its horn channels both fairy magic and forged steel energy.",
-    lore:"Steelhorn is a medium steel-fairy creature 70 cm tall — Ironling's silver-grey fairy-crafted iron armour has been refined under metalCoat's influence into a humanoid body of polished silver steel, and a single straight horn of fairy-charged metal has emerged from its forehead, channelling and purifying energy. It inhabits ancient forge-temples and stands watch over sacred metalworking sites." },
+    lore:"Steelhorn is a medium steel-fairy creature 70 cm tall — Ironling's silver-grey fairy-crafted barding has been refined under metalCoat's influence into the body of a four-legged steel-coated fae steed of regal bearing, and a single straight horn of fairy-charged metal has emerged from its brow, channelling and purifying energy. It inhabits ancient forge-temples and stands watch over sacred metalworking sites." },
 
   // 3-stage Metal/Fighting chain: Gearbit → Cogvex → Mechavast
   280: { id:280, name:"Gearbit", emoji:"🔩", types:["Metal","Fighting"],
@@ -3036,12 +3036,12 @@ const MONSTERS_DATA = {
     lore:"Majesticore is a regal dragon-kirin 1.2 metres at the shoulder, the auspicious final form of the Fuzzlet→Cuddrix lineage and the embodiment of the ancient legend of the qilin — the dragon-horse. Its sleek brown-gold body is overlaid with fine pale-gold scales beneath the longer fur of its haunches and shoulders, and its full branching antlers are wreathed in soft dragonfire-light that shifts through warm gold and rose hues. A flowing mane of fairy-light cascades from its neck down its shoulders, and at its passage gentle rain falls from clear skies — a sign of the dragon-blood that quickens the kirin's blessing. Its hooves leave only the gentlest impressions in soft soil, and its presence causes calm to settle over any region it crosses — agitated creatures still, fearful animals approach trustingly, and arguments between travellers cool to thoughtful silence within minutes of its arrival. Ancient texts describe its appearance at moments of great peace or great change as an auspicious omen." },
 
   // Standalone Normal: Bouncyblob
-  289: { id:289, name:"Bouncyblob", emoji:"🎱", types:["Normal"],
+  289: { id:289, name:"Bouncyblob", emoji:"🫧", types:["Normal","Vapor"],
     base:{hp:110,atk:85,def:85,spa:85,spd:85,spe:85},
-    learnset:[[1,"collide"],[1,"crushing_bulk"],[8,"graze"],[18,"cranial_ram"],[28,"reckless_charge"],[38,"rapid_strike"],[40,"heavy_slam"],[48,"battle_cry"],[58,"iron_press"],[68,"radiance_cannon"]],
+    learnset:[[1,"collide"],[1,"crushing_bulk"],[8,"mist_pulse"],[18,"vapor_ray"],[28,"steam_burst"],[38,"heavy_slam"],[40,"cloud_blast"],[48,"condense"],[58,"nimbus_flood"],[68,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:200, rarity:"uncommon",
-    desc:"A perfectly spherical blob of pure vitality. Its round body absorbs physical impacts with zero damage.",
-    lore:"Bouncyblob is a normal creature 30 cm in diameter resembling a perfectly spherical blob of pale pink gel. It bounces continuously regardless of surface type, using kinetic energy storage in its elastic body to maintain constant motion. It absorbs physical impacts and redirects them as higher bounces." },
+    desc:"A buoyant blob of warm condensed vapor held in a gel skin. It soaks up impacts and rebounds ever higher.",
+    lore:"Bouncyblob is a 30 cm sphere of pale-pink gel filled with warm condensed vapor. It bounces continuously regardless of surface, the vapor inside expanding and recompressing to fling it higher with every landing; physical blows are simply absorbed and redirected into bigger bounces. On cold mornings it leaves a faint trail of mist where it touches down, and a startled one can burst into a brief warm fog before reforming." },
 
   // Standalone Normal/Spectral: Mimiclaw (evolves in gloomy location)
   290: { id:290, name:"Mimiclaw", emoji:"🎭", types:["Normal","Dark"],
@@ -3152,27 +3152,27 @@ const MONSTERS_DATA = {
     desc:"The comet-orb fairy, a larger luminous sphere haloed by streaming light-rays. Crosses the sky in streaks of prismatic light.",
     lore:"Lumivane is a fairy-psychic creature 50 cm across — Lightpuff's warm-golden 20 cm orb has grown under moonStone influence into a brilliant luminous sphere haloed by rudimentary limb-extensions of condensed light — translucent arm-rays and trailing tendril-legs that emerge from the central sphere but do not sever from it. Its body shifts between solid and luminous depending on its concentration. It inhabits high mountain observatories and archives astronomical data in a crystalline psychic memory at the core of its orb-body." },
 
-  // 3-stage Rock/Ice chain: Crysthorn → Geoshard → Crystallon (location: cold area, lv28, lv48)
-  304: { id:304, name:"Icethorn", emoji:"💎", types:["Earth","Ice"],
+  // 3-stage Earth/Ice chain: Frostpelt → Snowmaw → Yetigrand (location: cold area, lv28, lv48)
+  304: { id:304, name:"Frostpelt", emoji:"🦍", types:["Earth","Ice"],
     base:{hp:52,atk:62,def:75,spa:58,spd:60,spe:50},
     learnset:[[1,"stone_throw"],[1,"flurries"],[12,"stone_slide"],[22,"cold_beam"],[32,"crag_strike"],[42,"cryo_lance"],[52,"whiteout"],[60,"radiance_cannon"]],
     evolveTo:305, evolveLevel:28, catchRate:162, expYield:78, rarity:"common",
-    desc:"A crystal thorn creature that grows in frozen caves. Its crystalline spines shatter on impact then regrow.",
-    lore:"Icethorn is a rock-ice creature 40 cm tall resembling a cactus-like formation of grey rock studded with ice-crystal spines. Its ice spines regrow within hours if broken off. It inhabits frozen rocky highlands and uses its spines both to collect water from passing fog and to deter large herbivores." },
+    desc:"A shaggy frost-furred yeti cub. Hardy in the cold, shy of strangers, it huddles with its kind for warmth.",
+    lore:"Frostpelt is a 40 cm yeti cub whose thick white fur stays perpetually crusted with frost and rime. It shelters in frozen highland caves, pressing close to others of its kind for warmth, and packs loose snow into its pelt for insulation — the cold radiating off it never quite lets that snow melt." },
 
-  305: { id:305, name:"Geoshard", emoji:"🗻", types:["Earth","Ice"],
+  305: { id:305, name:"Snowmaw", emoji:"🦍", types:["Earth","Ice"],
     base:{hp:78,atk:92,def:105,spa:78,spd:82,spe:58},
     learnset:[[1,"cold_beam"],[1,"crag_strike"],[10,"sandstrike"],[22,"cryo_lance"],[30,"whiteout"],[35,"tectonic_shift"],[38,"bedrock_slam"],[46,"frost_crash"],[54,"avalanche_drive"],[62,"radiance_cannon"]],
     evolveTo:306, evolveLevel:48, catchRate:75, expYield:158, rarity:"uncommon",
-    desc:"A rock and ice giant with shard weapons. Lives on the highest frozen peaks of the Lumoria mountain range.",
-    lore:"Geoshard is a rock-ice creature 80 cm tall — Icethorn's grey rock body has expanded and crystallised into a jagged cluster of natural rock and ice that has grown into a vaguely bipedal shape, the ice-crystal spines of its juvenile form now reorganised into brilliant ice formations visible through large natural gaps in its dark stone frame. It moves rarely and is often mistaken for a natural geological feature." },
+    desc:"An adolescent yeti that prowls the frozen peaks alone. Its breath fogs and freezes the air.",
+    lore:"Snowmaw is an 80 cm adolescent yeti — Frostpelt's cub-fluff has grown into a shaggy white coat over heavy muscle. It prowls the high frozen peaks alone, its breath fogging and freezing in the air, strong enough to shoulder through packed drifts and shatter sheet ice with a blow." },
 
-  306: { id:306, name:"Crystallon", emoji:"🏔️", types:["Earth","Ice"],
+  306: { id:306, name:"Yetigrand", emoji:"🦍", types:["Earth","Ice"],
     base:{hp:101,atk:108,def:117,spa:83,spd:91,spe:50},
     learnset:[[1,"whiteout"],[1,"bedrock_slam"],[32,"avalanche_drive"],[40,"frost_crash"],[48,"crag_strike"],[56,"tundra_tomb"],[64,"worldseed_quake"],[72,"radiance_cannon"],[74,"burial_sands"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:275, rarity:"rare",
-    desc:"The frozen mountain titan. Glaciers form around it spontaneously. Worshipped by ancient mountain peoples.",
-    lore:"Crystallon is a large rock-ice entity 1.5 metres tall — Geoshard's jagged crystal-cluster bipedal frame has settled and elongated into an ancient standing stone of interlocked rock and ice crystal structures, the natural gaps of its juvenile form now sealed. Its face is barely defined — two faint depressions in the stone suggest eyes. It has stood in the same valley for centuries, and local cultures have built myths around it." },
+    desc:"The towering mountain yeti. Glaciers form in its wake; ancient mountain peoples worshipped it.",
+    lore:"Yetigrand is a towering yeti over 2.5 metres tall, a colossus of white fur over frozen-stone muscle that has wandered the same range for centuries. So much cold pours off it that glaciers form spontaneously in its wake and snowstorms gather where it walks; mountain cultures built myths around the great white shape glimpsed through the blizzard." },
 
   // Standalone Fire/Dark: Cinderpaw
   307: { id:307, name:"Cinderpaw", emoji:"🐈", types:["Fire","Dark"],
@@ -3245,9 +3245,9 @@ const MONSTERS_DATA = {
 
   316: { id:316, name:"Abyssovex", emoji:"🌊", types:["Aquatic","Dark"],
     base:{hp:99,atk:102,def:85,spa:130,spd:92,spe:82},
-    learnset:[[1,"aquatic_gun"],[1,"chomp"],[7,"bubble_jet"],[14,"jaw_crush"],[21,"abyssal_jet"],[28,"void_pulse"],[35,"tidal_rush"],[42,"tenebrous_snare"],[49,"draconic_pulse"],[56,"soul_rend"],[63,"tsunami"],[70,"geyser_burst"],[77,"radiance_cannon"]],
+    learnset:[[1,"aquatic_gun"],[1,"chomp"],[7,"bubble_jet"],[14,"jaw_crush"],[21,"abyssal_jet"],[28,"void_pulse"],[35,"tidal_rush"],[42,"tenebrous_snare"],[49,"draconic_pulse"],[56,"soul_rend"],[63,"tsunami"],[70,"geyser_burst"],[77,"radiance_cannon"],[84,"abyssal_dominion"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
-    desc:"The Legendary Abyss Drake. Lurks in the deepest ocean trenches.",
+    desc:"The Legendary abyssal leviathan, an enormous deep-sea squid. Lurks in the deepest ocean trenches.",
     lore:"Abyssovex is a massive water-dark leviathan 8 metres long resembling an enormous deep-sea squid with dark bioluminescent patches along its body. Its tentacles extend 4 metres beyond its mantle. It inhabits the deepest ocean trenches and ascends toward surface waters only during rare deep-sea events." },
 
   // ===== NEW LUMOS IDs 108-167 =====
@@ -3269,12 +3269,12 @@ const MONSTERS_DATA = {
     lore:"Aeronyx is a sleek steel-dark bat 80 cm long with wings made of thin flexible metal alloy rather than membrane. Its body is dark gunmetal grey with blue-tinted metal plating. It slices through the air with minimal noise and can fold its metal wings to act as shields. It roosts on steel structures. Aeronyx will hold the wing-shield position for minutes at a time even with no apparent threat: an autonomic drill, written into the body, for the chrome-black armour Steelvex wears continuously." },
 
   // ===== FIRE/GROUND =====
-  19: { id:19, name:"Magmaurin", emoji:"🐾", types:["Fire","Earth"],
+  19: { id:19, name:"Magmaurin", emoji:"🦏", types:["Fire","Earth"],
     base:{hp:68,atk:70,def:59,spa:51,spd:43,spe:49},
     learnset:[[1,"flicker",[22,"magma_surge"]],[1,"graze"],[9,"mud_spray"],[17,"flame_fang"],[20,"baleful_stare"],[25,"tectonic_shift"],[33,"inferno_jet",[5,"scorch_veil"]],[36,"cinderwhirl"],[3,"embercloak"],[31,"wildfire_surge"],[38,"sandstrike"]],
     evolveTo:20, evolveLevel:26, catchRate:150, expYield:92, rarity:"common",
-    desc:"A fire mole that tunnels through volcanic rock. Its claws glow orange with heat.",
-    lore:"Magmaurin is a bear-sized stocky saurian with a rounded body half-coated in cooling lava plates. Its fur beneath the stone armour is singed brown. It lumbers through volcanic badlands, digging up mineral veins with massive clawed forearms, and rolls into a ball of cooled rock when threatened." },
+    desc:"A fire-rhino calf, its hide half-plated in cooling lava and a molten horn-nub on its snout.",
+    lore:"Magmaurin is a stocky fire-rhino calf the size of a large dog, its thick hide half-plated in cooling lava-rock with a stubby molten horn-nub on its snout. It roots through volcanic badlands for mineral-rich stone to eat, and when threatened it lowers its head and barrels its armoured bulk straight at the danger." },
 
   // ===== FAIRY/GRASS =====
   72: { id:72, name:"Floralin", emoji:"🌸", types:["Fairy","Nature"],
@@ -3362,7 +3362,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"mind_jolt",[22,"telepathic_slam"]],[1,"chomp"],[3,"prism_ward"],[10,"psi_burst"],[14,"sinister_scheme"],[18,"void_pulse"],[20,"ectoplasm_wave"],[25,"wraith_focus"],[26,"mental"],[30,"neural_storm"],[32,"blackout_bomb"],[34,"nether_sphere"],[42,"psi_strike",[5,"inner_calm"]],[44,"spectral_radiance"]],
     evolveTo:129, evolveLevel:34, catchRate:90, expYield:100, rarity:"common",
     desc:"A spectre of mental power. It exists half in reality and half in the mind's eye.",
-    lore:"Cranivade is a tall mental-spectral biped 1.3 metres tall with a smooth lavender-grey body and an oversized cranium that pulses with light when it concentrates. Its small hands trail crackling spectral energy. It dredges suppressed memories from others without consent and catalogues them in its own vast mental archive. During its deepest archiving trances, the lavender-grey cranium of a Cranivade briefly turns translucent at the edges and flickers between dimensions; this momentary phase-shift is exactly the half-dimensional state Voidaxis inhabits permanently." },
+    lore:"Cranivade is a tall mental-spectral biped 1.3 metres tall with a smooth lavender-grey body and an oversized cranium that pulses with light when it concentrates. Its small hands trail crackling spectral energy. It dredges suppressed memories from others without consent and catalogues them in its own vast mental archive. During its deepest archiving trances, the lavender-grey cranium of a Cranivade briefly turns translucent at the edges and flickers between dimensions; this momentary phase-shift is exactly the half-dimensional state Cerebraith inhabits permanently." },
 
   // ===== DARK/GRASS =====
   130: { id:130, name:"Necralia", emoji:"🌿", types:["Dark","Nature"],
@@ -3428,12 +3428,12 @@ const MONSTERS_DATA = {
     desc:"An iron-clad wraith bat. Its metallic screech disorients enemies from great distances.",
     lore:"Steelvex is a larger dark-steel bat 1.2 metres long — Aeronyx's gunmetal-grey alloy wings have broadened into the metallic shields that now catch and reflect light strangely, and the blue-tinted plating of its juvenile form has darkened to a chrome-black body. It has the habit of dismantling mechanical objects it finds — gears, clockwork, small machines — studying each component before reassembling them incorrectly." },
 
-  20: { id:20, name:"Embrath", emoji:"🦔", types:["Fire","Earth"],
+  20: { id:20, name:"Embrath", emoji:"🦏", types:["Fire","Earth"],
     base:{hp:97,atk:121,def:76,spa:69,spd:62,spe:64},
     learnset:[[1,"flame_fang"],[2,"mud_spray"],[3,"tectonic_shift"],[4,"scorch_veil"],[5,"embercloak"],[8,"firebrand"],[12,"scorch_kick"],[16,"molten_claw"],[20,"flame_spiral"],[24,"inferno_chop"],[30,"inferno_jet"],[31,"battle_cry"],[36,"ashfall"],[40,"scorched_earth"],[41,"geoblast"],[46,"fissure_slam"],[51,"conflagration"],[56,"pyroclasm"],[61,"tectonic_slam"]],
     evolveTo:21, evolveLevel:44, catchRate:45, expYield:218, rarity:"uncommon",
-    desc:"A lava-boring behemoth that carves tunnels with molten precision. Its spines erupt flame.",
-    lore:"Embrath is a medium-sized spined lizard about 80 cm long — Magmaurin's stocky saurian frame has slimmed and lengthened for hunting, the lava-plate armour shed in favour of scales that still retain the charcoal grey and deep rust of its juvenile rock-coat. Heat-sensing pits line its snout. It hunts underground prey by detecting body heat through soil, then erupts from the ground in a burst of superheated air to stun its catch." },
+    desc:"An adolescent magma-rhino whose horn has hardened into a heat-radiating spike. It charges with surprising speed.",
+    lore:"Embrath is a 1.2-metre adolescent magma-rhino — Magmaurin's calf-plates have thickened into overlapping fire-hardened armour of charcoal grey and deep rust, and the horn-nub has grown into a heat-radiating spike. Heat-sensing pits along its snout track the warmth of rivals and prey, and it charges with startling speed for its bulk, cracking stone on impact." },
 
   73: { id:73, name:"Faelomis", emoji:"🌺", types:["Fairy","Nature"],
     base:{hp:78,atk:60,def:65,spa:115,spd:89,spe:93},
@@ -3491,12 +3491,12 @@ const MONSTERS_DATA = {
     desc:"A spectral fox-spirit whose shadowy form trails into smoke. Multiple ghostly tails fan out behind it, and its violet eyes seem to read minds at a glance.",
     lore:"Specraxis is a 70-centimetre kitsune-like fox-spirit, the matured form of Impefurr's mischievous lineage. Its fox silhouette is preserved but partly translucent — a smoke-grey body shading darker toward the spine and tail-tips, with deep-set violet eyes glowing through long fringes of shadow-fur. Two long shadow-tails fan from its hindquarters and seem to multiply or merge depending on the angle of viewing. It floats roughly 10 centimetres above the ground at all times, padding silently through the air, and its mind-reading is so passive it broadcasts surface thoughts back through its violet aura — anyone standing nearby in a crowded place hears their own private thoughts spoken back to them in distorted whispers, causing widespread confusion." },
 
-  129: { id:129, name:"Voidaxis", emoji:"🌀", types:["Mental","Spectral"],
+  129: { id:129, name:"Cerebraith", emoji:"🌀", types:["Mental","Spectral"],
     base:{hp:83,atk:77,def:72,spa:107,spd:89,spe:75},
     learnset:[[1,"psi_burst"],[2,"void_pulse"],[3,"mental"],[4,"nether_sphere"],[5,"inner_calm"],[6,"clairvoyance"],[15,"wraith_claw"],[20,"revenant_charge"],[25,"ghastly_focus"],[39,"psi_strike"],[40,"battle_cry"],[41,"thought_crush"],[44,"prism_ward"],[45,"eternal_haunt"],[49,"obsidian_fang"],[54,"void_rend"],[59,"synaptic_shatter"],[64,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:248, rarity:"rare",
     desc:"A void being of mental and spectral power. Consumes light and thought with equal ease.",
-    lore:"Voidaxis is a large mental-spectral entity 1.5 metres tall whose body appears to exist partially in another dimension — Cranivade's lavender-grey biped silhouette persists at the form's centre with its oversized cranium still pulsing dimly, but its edges are blurred and its outline shifts when viewed peripherally, dissolving into half-dimensional shadow. Its presence makes nearby electronic devices malfunction. It communicates only through psychic projection and has never been heard to vocalise." },
+    lore:"Cerebraith is a large mental-spectral entity 1.5 metres tall whose body appears to exist partially in another dimension — Cranivade's lavender-grey biped silhouette persists at the form's centre with its oversized cranium still pulsing dimly, but its edges are blurred and its outline shifts when viewed peripherally, dissolving into half-dimensional shadow. Its presence makes nearby electronic devices malfunction. It communicates only through psychic projection and has never been heard to vocalise." },
 
   203: { id:203, name:"Arachnalis", emoji:"🕸️", types:["Nature","Fairy"],
     base:{hp:76,atk:64,def:73,spa:101,spd:89,spe:74},
@@ -3559,19 +3559,19 @@ const MONSTERS_DATA = {
     lore:"Sparkwood is a 1.3-metre adolescent stag whose Sylvolt antler-buds have grown into a full crown of branching, bark-covered antlers — each rack 60 centimetres across, rough as old wood and shot through with crackling yellow electric veins. Its body has darkened into a rich forest-green coat with brown bark-textured plates along its shoulders and flanks. During storms it acts as a roaming lightning rod, absorbing strikes through the antlers and channelling the charge down through its hooves into the forest roots beneath, fertilising entire hillsides." },
 
   // ===== ROCK/DARK =====
-  132: { id:132, name:"Volcascale", emoji:"🪨", types:["Earth","Dark"],
+  132: { id:132, name:"Volcascale", emoji:"🗿", types:["Earth","Dark"],
     base:{hp:73,atk:69,def:75,spa:48,spd:62,spe:32},
     learnset:[[1,"stone_throw",[22,"obsidian_crash"]],[1,"chomp"],[10,"cranial_ram"],[18,"jaw_crush"],[26,"stone_slide"],[30,"landslide"],[34,"void_pulse"],[42,"crag_strike",[5,"granite_wall"]],[3,"petrify_gaze"],[32,"quarry_crush"]],
     evolveTo:133, evolveLevel:30, catchRate:130, expYield:97, rarity:"common",
-    desc:"A rock monster that absorbs shadow energy. Moves imperceptibly slow but hits with shattering force.",
-    lore:"Volcascale is a spiny rock-dark creature 60 cm long resembling a horned lizard made of volcanic obsidian. Its body is jet black with razor-sharp ridges. It reflects almost no light. It inhabits old lava tubes and volcanic glass fields, and its presence is detected mainly by the sound of its obsidian scales clicking together." },
+    desc:"A small obsidian gargoyle with razor wing-ridges. It reflects almost no light and lunges from cover.",
+    lore:"Volcascale is a 60 cm gargoyle that looks carved from volcanic obsidian — jet black, with razor ridges along its folded wing-stubs and a horned brow. It reflects almost no light and perches motionless in old lava tubes, betrayed only by the faint click of its glassy plates before it lunges at anything that strays too close." },
 
   133: { id:133, name:"Monolithox", emoji:"🗿", types:["Earth","Dark"],
     base:{hp:102,atk:114,def:103,spa:62,spd:70,spe:39},
     learnset:[[1,"stone_slide"],[2,"landslide"],[3,"jaw_crush"],[4,"granite_wall"],[31,"void_pulse"],[35,"battle_cry"],[39,"crag_strike"],[40,"tenebrous_snare"],[45,"nether_sphere"],[50,"blackout_bomb"],[55,"tectonic_shift"],[60,"radiance_cannon"],[5,"petrify_gaze"],[38,"malice_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:230, rarity:"uncommon",
-    desc:"A living monolith of darkened stone. Ancient civilizations worshipped it as a god of night.",
-    lore:"Monolithox is a hulking obsidian saurian 3 metres tall — Volcascale's obsidian horned-lizard frame has grown massive and its sharp-ridged back has fused into a towering monolithic plate-shell. It appears to be a standing stone until it moves; the basalt-dark plate is nearly featureless except for two deep-set glowing red eyes set in a low-slung saurian skull. It moves extremely slowly but is virtually indestructible, its body having the hardness of natural obsidian." },
+    desc:"A towering obsidian gargoyle worshipped as a god of night. Sits still as a statue until it spreads its glassy wings.",
+    lore:"Monolithox is a 3-metre obsidian gargoyle — Volcascale's wing-stubs have unfurled into broad razor-edged wings of black volcanic glass, and its hide has hardened to the near-indestructible sheen of natural obsidian. By day it crouches utterly still, easily mistaken for a carved idol, two deep-set red eyes the only sign of life; ancient peoples raised shrines to it as a god of night, when it spreads its glassy wings and hunts." },
 
   // ===== POISON/BUG =====
   164: { id:164, name:"Blightmite", emoji:"🐛", types:["Poison"],
@@ -3604,19 +3604,19 @@ const MONSTERS_DATA = {
     lore:"Terragolem is a massive metal-earth golem 2.5 metres tall — Dentshaft's dented-and-scuffed humanoid miner-frame has expanded into a tremendous assembly of metal and compressed earth, and the reflexive surface-tapping of its juvenile form has become a deep tremor through the ground with every step. The ground trembles slightly with each of its steps. It is largely indifferent to the world around it and moves at its own slow pace, but obstacles that cannot be sidestepped are simply absorbed." },
 
   // ===== DRAGON/GROUND =====
-  106: { id:106, name:"Geodrak", emoji:"🐣", types:["Draconic"],
+  106: { id:106, name:"Geoclad", emoji:"🦔", types:["Earth","Metal"],
     base:{hp:40,atk:59,def:63,spa:57,spd:42,spe:64},
-    learnset:[[1,"graze",[22,"terra_spike"]],[1,"draconic_breath"],[10,"mud_spray"],[18,"draconic_claw"],[20,"lashing_tail"],[26,"tectonic_shift"],[34,"draconic_pulse",[5,"hydra_dance"]],[36,"sinkhole_maw"],[3,"saurian_roar"],[31,"leviathan_rush"]],
+    learnset:[[1,"graze",[22,"terra_spike"]],[1,"quake_pulse"],[10,"mud_spray"],[18,"auger_strike"],[20,"lashing_tail"],[26,"tectonic_shift"],[34,"telluric_wave",[5,"sand_storm_polish"]],[36,"sinkhole_maw"],[3,"clay_armor"],[31,"boulder_roll"]],
     evolveTo:107, evolveLevel:32, catchRate:80, expYield:94, rarity:"uncommon",
-    desc:"A burrowing dragon hatchling. Digs deep tunnels and breathes sand-laden gusts.",
-    lore:"Geodrak is a hatchling dragon about 40 cm long with rough grey-brown scales and two stumpy wing-buds on its back. Its small claws are already powerful diggers. It hatches from eggs buried in volcanic soil and immediately begins tunnelling to locate its first meal. Newly-hatched Geodrak often gather at cave mouths and spread their stumpy wing-buds toward the open sky. The preparation is futile; Quakeon, the mature ground-dragon they grow into, only ever achieves short downhill glides. True flight remains a hereditary aspiration this evolution will never fulfil." },
+    desc:"An armoured hatchling burrower. Rolls into a bony ball and tunnels through volcanic soil.",
+    lore:"Geoclad is an armoured hatchling about 40 cm long, its back already sheathed in a cap of overlapping bony scutes the colour of weathered iron. Its stubby claws are powerful diggers. It hatches from eggs buried in volcanic soil and immediately begins tunnelling to locate its first meal. When threatened, a young Geoclad tucks its soft underside away and rolls into a tight armoured ball, letting predators' teeth scrape uselessly across its shell. With each moult the plates thicken and fuse, until it grows into Quakeon, the great glyptodon whose domed back becomes an impregnable fortress of dark-bronze armour." },
 
-  107: { id:107, name:"Quakeon", emoji:"🐲", types:["Draconic","Earth"],
+  107: { id:107, name:"Quakeon", emoji:"🦔", types:["Earth","Metal"],
     base:{hp:86,atk:108,def:96,spa:94,spd:64,spe:69},
-    learnset:[[1,"draconic_claw"],[2,"tectonic_shift"],[3,"hydra_dance"],[32,"draconic_pulse"],[36,"battle_cry"],[40,"saurian_roar"],[44,"tremor_stomp"],[48,"geoblast"],[52,"eon_crash"],[56,"ancient_breath"],[60,"rampage"],[64,"radiance_cannon"],[4,"primordial_roar"],[39,"scale_storm"],[66,"loam_leech"]],
+    learnset:[[1,"auger_strike"],[2,"tectonic_shift"],[3,"clay_armor"],[32,"erosion_wave"],[36,"battle_cry"],[40,"sand_storm_polish"],[44,"tremor_stomp"],[48,"geoblast"],[52,"crag_strike"],[56,"continental_shift"],[60,"worldseed_quake"],[64,"radiance_cannon"],[4,"smack_down"],[39,"landslide"],[66,"loam_leech"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:260, rarity:"rare",
-    desc:"A subterranean dragon that causes quakes with each step. Rules the deep underground.",
-    lore:"Quakeon is a mature ground-dragon 2 metres long — Geodrak's stumpy wing-buds have grown into fully developed wings (still too short for sustained flight but useful for gliding downhill), and the rough grey-brown hatchling scales have darkened to broad overlapping dark-bronze plates. It excavates vast cavern systems using its tail as a battering ram, and ground above its tunnels often subsides unexpectedly." },
+    desc:"A mature glyptodon armoured in dark-bronze plates. Its bludgeon tail levels the ground into quakes.",
+    lore:"Quakeon is a mature glyptodon 2 metres long — Geoclad's loose juvenile scutes have fused into a single great dome of broad overlapping dark-bronze plates, so heavy that no predator's bite can crack it. Its tail has thickened into a knobbed bludgeon ringed with bone. It excavates vast cavern systems by ramming through bedrock with that club, and the ground above its tunnels often subsides unexpectedly into sinkholes." },
 
   // ===== NORMAL/PSYCHIC =====
   189: { id:189, name:"Woolcalm", emoji:"🐑", types:["Normal","Mental"],
@@ -3722,7 +3722,7 @@ const MONSTERS_DATA = {
     desc:"A gelatinous pinniped of compacted living frost. Bioluminescent pulses ripple through its translucent body, mapping prey by their electric fields.",
     lore:"Frostmere is a gelatinous deep-ocean creature 1.5 metres long that has condensed its drifting medusa form into a more solid, seal-shaped silhouette. Its translucent body — Slatis's free-floating jellyfish bell — is now packed into a streamlined pinniped outline of bluish-white frozen jelly, sheathed in a fine layer of silver-white frost crystals that mimic the look of fur. Pale eyes the colour of deep glacier melt sit forward in its head, and the trailing tendrils of its base form persist as faint translucent streamers behind its flippers. Subtle bioluminescent pulses ripple through its gel-body in slow waves, illuminating it from within and serving as the visible discharge of an internal organ that maps the electric fields of every living thing nearby — its entire body functions as a single conductive sensor, hunting through polar water channels by reading prey's heartbeats from metres away rather than relying on sight." },
 
-  161: { id:161, name:"Mistbane", emoji:"🦠", types:["Poison","Wind"],
+  161: { id:161, name:"Mistbane", emoji:"🦠", types:["Poison","Vapor"],
     base:{hp:70,atk:75,def:54,spa:102,spd:80,spe:105},
     learnset:[[1,"septic_prick"],[1,"downdraft"],[2,"ooze_bomb"],[3,"wind_scythe"],[4,"mycelia_net"],[31,"toxify"],[36,"virulent_surge"],[40,"tempest_wrath"],[45,"corrosion_fang"],[50,"typhoon"],[55,"venom_lance"],[60,"sludge_wave"],[5,"miasma_cloud"],[43,"wingbeat"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:195, rarity:"uncommon",
@@ -3797,20 +3797,20 @@ const MONSTERS_DATA = {
     lore:"Pyroclasm is a jagged bipedal volcanic bull-titan 2.5 metres tall that has reared up onto two legs since its Molteroth stage, its body a mass of dark basalt encrusted with glowing magma veins. When agitated it hurls chunks of its own burning body as projectiles. It forms in the wake of eruptions and is considered a manifestation of volcanic rage." },
 
   // 180: Helixareth - Fire/Draconic (Ignicula→Pyroveth→Helixareth)
-  18: { id:18, name:"Bahamber", emoji:"🐉", types:["Draconic","Earth"],
+  18: { id:18, name:"Quetzember", emoji:"🐍", types:["Fire","Wind"],
     base:{hp:87,atk:111,def:72,spa:121,spd:82,spe:77},
-    learnset:[[1,"flicker"],[1,"inferno_jet"],[2,"draconic_breath"],[3,"cinderwhirl"],[4,"scorch_veil"],[5,"embercloak"],[8,"sandstrike"],[20,"geoblast"],[30,"tectonic_shift"],[38,"draconic_claw"],[40,"crag_strike"],[42,"searing_gale"],[44,"eon_crash"],[46,"pyroclasm"],[50,"draconic_pulse"],[54,"solar_flare"],[58,"rampage"],[62,"conflagration"]],
+    learnset:[[1,"flicker"],[1,"inferno_jet"],[2,"wingbeat"],[3,"cinderwhirl"],[4,"scorch_veil"],[5,"embercloak"],[8,"breeze"],[20,"wind_scythe"],[30,"searing_gale"],[38,"jetstream"],[42,"pyroclasm"],[44,"skyfall"],[46,"plume_veil"],[50,"gale_cannon"],[54,"solar_flare"],[58,"typhoon"],[62,"conflagration"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
-    desc:"An ancient serpent of celestial fire that coils around mountaintops. Legends say its breath forged the first volcanoes.",
-    lore:"Bahamber is a serpentine earth-dragon 6 metres long that coils tightly around rocky spires to sleep — Searburn's scarlet-and-black scales have darkened further to amber-and-black overlapping like armour, and the backward-swept horns of its juvenile form have grown forward into twin crests of blue-tipped flame crowning its narrow skull. Vast wings fold along its serpentine length when at rest, almost invisible against its scales but capable of sweeping fire across a hillside when unfurled. It breathes a spiralling helix of fire able to bore through solid stone." },
+    desc:"A mature plumed sky-serpent wreathed in fire. Legends say its wingbeats fan the first volcanoes alight.",
+    lore:"Quetzember is a magnificent plumed sky-serpent 6 metres long — Searburn's wings have grown into a vast feathered span of amber, scarlet, and blue-tipped plumes, and a crown of the same iridescent feathers frames its narrow skull. It spends almost its whole life aloft, coiling and uncoiling through thermal columns high above the peaks and trailing a banner of fire that ripples in its wake. When it finally descends it sweeps low over the slopes, and the heat shed from its plumage is said in legend to have fanned the first volcanoes alight. It returns to earth only to bask, looping once around a lone spire before climbing back into the sky." },
 
   // 21: Terravore - Fire/Earth (Magmaurin→Embrath→Terravore)
-  21: { id:21, name:"Terravore", emoji:"🦖", types:["Fire","Earth"],
+  21: { id:21, name:"Terravore", emoji:"🦏", types:["Fire","Earth"],
     base:{hp:100,atk:134,def:89,spa:79,spd:74,spe:74},
     learnset:[[1,"flame_fang"],[1,"tectonic_shift"],[2,"magma_surge"],[3,"scorched_earth"],[4,"scorch_veil"],[5,"embercloak"],[12,"ember_focus"],[20,"inferno_charge"],[38,"inferno_jet"],[42,"geoblast"],[44,"blazing_rush"],[46,"pyroclasm"],[48,"scorched_sand"],[50,"ashfall"],[54,"conflagration"],[58,"sand_geyser"],[62,"solar_flare"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:260, rarity:"rare",
-    desc:"A predator born from the magma deep within the earth. It tunnels through bedrock and erupts beneath its prey.",
-    lore:"Terravore is a hulking dinosaur-like creature 3 metres long, the apex of Embrath's lineage — its charcoal-and-rust juvenile scales have weathered to a uniform thick terracotta hide reinforced by fire-hardened dorsal plates, and the heat-pits along its snout have widened into wide-spaced sensory pores. Its wide mouth can swallow boulders to digest the minerals within. It tunnels through volcanic earth, leaving perfectly circular bore-holes 1 metre in diameter." },
+    desc:"A massive magma-rhino whose charge shatters bedrock. Its great horn glows white-hot before it strikes.",
+    lore:"Terravore is a hulking magma-rhino 3 metres long, the apex of Embrath's lineage — its juvenile armour weathered to a uniform thick terracotta hide reinforced by fire-hardened plates, twin sensory pores set wide along its snout, and a great horn that glows white-hot before it charges. A full charge shatters bedrock and leaves long furrows in stone, and it grinds boulders in its jaws to digest the minerals within." },
 
   // 182: Ignitheon - Fire/Mental (Ignorin→Pyraxis→Ignitheon)
   24: { id:24, name:"Ignitheon", emoji:"🔮", types:["Fire","Mental"],
@@ -3877,12 +3877,12 @@ const MONSTERS_DATA = {
     lore:"Rootvorn is a colossal ancient snail nearly 3 metres tall at the shell's apex, with a body that extends another 4 metres when fully out of the shell — Loamvin's bark-and-moss-overgrown shell has expanded and been so deeply colonised over centuries that it now resembles a mossy hill — thick roots from full-grown saplings have driven down through the shell's surface and clutched it like a living crown, and a complete miniature canopy of broad leaves shades the back of its body. Its eyestalks are 1-metre wood-coloured stalks tipped in twin amber gleams, raised cautiously above the canopy when it senses motion. It uproots itself only at night, dragging its forested shell to a new location before dawn, and is believed to reorganise the layout of entire woodlands over decades — wherever it has travelled, new groves take root from the seeds shed by its passing." },
 
   // 190: Verdovast - Grass (Germix→Verdurus→Verdovast)
-  71: { id:71, name:"Verdovast", emoji:"🌳", types:["Nature"],
+  71: { id:71, name:"Verdovast", emoji:"🌳", types:["Nature","Fighting"],
     base:{hp:109,atk:123,def:88,spa:113,spd:88,spe:29},
-    learnset:[[1,"collide"],[1,"vine_lash"],[2,"verdant_orb"],[3,"slumber_dust"],[4,"pod_blast"],[5,"spore_burst"],[8,"bark_shield"],[11,"sap_seed"],[14,"root_drain"],[17,"regrow"],[20,"nature_pulse"],[23,"seed_volley"],[26,"blossom_frenzy"],[30,"primordial_growth"],[34,"foliage_tempest"],[38,"petal_blitz"],[42,"war_dance"],[44,"root_lance"],[46,"canopy_crash"],[50,"verdant_surge"],[54,"crushing_bulk"],[56,"sun_ray"],[58,"briar_lash"],[60,"sylvan_radiance"],[62,"photon_leaf"]],
+    learnset:[[1,"collide"],[1,"vine_lash"],[2,"verdant_orb"],[3,"slumber_dust"],[4,"pod_blast"],[5,"spore_burst"],[8,"bark_shield"],[11,"sap_seed"],[14,"root_drain"],[17,"regrow"],[20,"nature_pulse"],[23,"seed_volley"],[26,"blossom_frenzy"],[30,"primordial_growth"],[34,"foliage_tempest"],[38,"petal_blitz"],[42,"war_dance"],[44,"root_lance"],[46,"canopy_crash"],[50,"verdant_surge"],[54,"crushing_bulk"],[56,"brawl"],[58,"briar_lash"],[60,"seismic_force"],[62,"haymaker"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
-    desc:"A colossal ancient seed-pod 2.5 metres tall whose surface is overgrown with saplings, vines, and a small ecosystem. Walks slowly across forests, dropping fertile seeds with each step.",
-    lore:"Verdovast is a colossal ancient seed-pod 2.5 metres tall — Verdurus's split walking seed-pod has grown enormous and its surface is now so deeply grown over with saplings, vines, blossoms, and a small ecosystem of moss and tendrils that the original seed-husk is barely visible. Older Verdovast resemble walking gardens, with tiny trees growing from their shoulders and back, fruit ripening among the branches, and small creatures nesting in the foliage they carry. It walks slowly across forests on broad root-feet, dropping fertile seeds at every step, and patches of new growth — eventually entire grove ecosystems — spring up wherever it has lingered." },
+    desc:"A colossal walking-garden titan that guards the grove it carries — uprooting trees to swing and crushing threats with its overgrown bulk.",
+    lore:"Verdovast is a colossal ancient seed-pod 2.5 metres tall, so deeply overgrown with saplings, vines, blossoms, and a whole small ecosystem that the original husk is barely visible — a walking garden with tiny trees on its shoulders and creatures nesting in its foliage. Gentle as it seems while it drops fertile seeds across the forest, it is the unyielding guardian of the grove it carries: anything that threatens its ecosystem is met by a titan that tears up its own trees to swing like clubs, drives root-limbs forward like battering rams, and bears down with sheer overgrown mass." },
 
   // 191: Morralyn - Grass/Dark (Sylvnox→Morraveth→Morralyn)
   80: { id:80, name:"Morralyn", emoji:"🪵", types:["Nature","Dark"],
@@ -4053,9 +4053,9 @@ const MONSTERS_DATA = {
     lore:"Dissotoad is a massive ground-poison creature 2 metres tall resembling a toad made of compressed toxic earth — Corrodisc's flat disc-body has lifted upward into a true upright toad-frame, the corrosive undersurface now generalised across its skin as constant acidic weeping. The ground around it is perpetually discoloured. It is one of the few creatures that can neutralise other poisons by contact, making it paradoxically useful as an antidote source." },
 
   // 212: Behemovast - Normal (Rotunden→Glutoros→Behemovast)
-  184: { id:184, name:"Behemovast", emoji:"🐻", types:["Normal"],
+  184: { id:184, name:"Behemovast", emoji:"🐻", types:["Normal","Fighting"],
     base:{hp:140,atk:116,def:97,spa:77,spd:77,spe:43},
-    learnset:[[1,"cranial_ram"],[1,"crushing_bulk"],[2,"battle_cry"],[3,"war_dance"],[4,"second_wind"],[38,"radiance_cannon"],[42,"wild_tumble"],[46,"momentum_rush"],[50,"vital_pulse"],[54,"instinct_slash"],[58,"fortify"],[62,"collide"],[5,"focus_roar"],[44,"baleful_stare"]],
+    learnset:[[1,"cranial_ram"],[1,"crushing_bulk"],[2,"battle_cry"],[3,"war_dance"],[4,"second_wind"],[38,"radiance_cannon"],[42,"wild_tumble"],[46,"momentum_rush"],[50,"seismic_force"],[54,"instinct_slash"],[58,"brawl"],[62,"haymaker"],[5,"focus_roar"],[44,"baleful_stare"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"The greatest bear that has ever walked Lumoria. When it stands fully upright, it blots out the sun. Its roar has been mistaken for natural disasters.",
     lore:"Behemovast is a titanic normal-type creature 3 metres at the shoulder, resembling an enormous bear with a solid barrel-shaped torso and legs like columns — Glutoros's already-massive frame has grown into the heaviest non-legendary Lumori known, and the heavy russet-brown fur has matted and toughened to thick brown-grey under the bulk it must now support. It is the heaviest non-legendary Lumori known and leaves impressions in solid rock where it steps." },
@@ -4103,14 +4103,14 @@ const MONSTERS_DATA = {
     desc:"A carnivorous marsh plant that lures prey with sweet-smelling nectar before paralysing them with venom.",
     lore:"Silthorn is a large ambulatory plant 1.8 metres tall with glossy dark-green leaves edged with translucent purple poison sacs. Its roots move like fingers." },
 
-  327: { id:327, name:"Quarrex", emoji:"⛏️", types:["Earth"],
-    base:{hp:77,atk:93,def:89,spa:48,spd:61,spe:52}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"stone_throw"],[10,"geoblast"],[20,"stone_slide"],[30,"terra_spike"],[40,"fissure_slam"],[50,"fossil_rush"],[60,"stone_slide"],[5,"fortify"],[35,"alloy_tail"]],
-    catchRate:25, expYield:258, rarity:"rare",
-    desc:"A titan of compressed stone forged in Terravault's deepest mines. Its fists leave craters.",
-    lore:"Quarrex is a massive rock-ground creature 2.2 metres tall composed of interlocked slabs of granite and iron ore. Miners initially mistook ancient specimens for geological formations." },
+  327: { id:327, name:"Quarrex", emoji:"🗿", types:["Earth"],
+    base:{hp:77,atk:93,def:89,spa:48,spd:61,spe:52}, evolveTo:369, evolveLevel:75,
+    learnset:[[1,"stone_throw"],[10,"geoblast"],[20,"stone_slide"],[30,"terra_spike"],[40,"fissure_slam"],[50,"fossil_rush"],[60,"boulder_roll"],[5,"fortify"],[35,"quake_pulse"]],
+    catchRate:50, expYield:145, rarity:"uncommon",
+    desc:"A young granite golem, often mistaken for an outcrop. As its mass deepens, a strange pull warps the air around it.",
+    lore:"Quarrex is a 2.2-metre golem of interlocked granite slabs threaded with iron ore, so still and weathered that miners have mistaken ancient specimens for natural formations. It is the youngest of its kind; as the centuries pile their weight upon it, its own ever-growing mass begins to bend the space around it, and the granite slowly compresses toward the dense, gravity-warping crystal of Gravithorn." },
 
-  328: { id:328, name:"Smogveil", emoji:"🌫️", types:["Poison","Wind"],
+  328: { id:328, name:"Smogveil", emoji:"🌫️", types:["Poison","Vapor"],
     base:{hp:58,atk:60,def:52,spa:83,spd:71,spe:76}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"breeze"],[10,"miasma_cloud"],[20,"wind_scythe"],[30,"ooze_bomb"],[40,"sludge_wave"],[50,"acid_rain"],[60,"tailwind_strike"],[5,"toxify"],[38,"neural_storm"],[62,"breeze_blast"]],
     catchRate:27, expYield:253, rarity:"rare",
@@ -4131,12 +4131,12 @@ const MONSTERS_DATA = {
     desc:"A swamp crocodilian with acid-laced saliva. Prey dissolves within minutes of a bite.",
     lore:"Blistermaw is a water-poison reptile 2.8 metres long resembling a heavily built crocodile with blistered, acid-weeping skin and rows of hollow venom-conducting teeth." },
 
-  331: { id:331, name:"Thornmoth", emoji:"🦋", types:["Nature"],
+  331: { id:331, name:"Thornmoth", emoji:"🦋", types:["Nature","Sonic"],
     base:{hp:55,atk:63,def:58,spa:78,spd:68,spe:78}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"breeze"],[8,"vine_lash"],[18,"mandible_bite"],[28,"sharp_leaves"],[38,"resonance_hum"],[48,"canopy_crash"],[58,"verdant_surge"],[5,"slumber_dust"],[35,"spore_burst"]],
+    learnset:[[1,"echo_pulse"],[8,"sharp_leaves"],[18,"resonate"],[24,"slumber_dust"],[32,"acoustic_shock"],[40,"canopy_crash"],[48,"decibel_burst"],[56,"harmonic_wave"],[58,"verdant_surge"]],
     catchRate:28, expYield:248, rarity:"rare",
-    desc:"A giant moth covered in razor-edged leaf-scales. Its wing-beats strip bark from trees.",
-    lore:"Thornmoth is a large bug-grass creature with a 2-metre wingspan. Its wings resemble overlapping serrated leaves in deep emerald and brown patterns." },
+    desc:"A giant moth whose serrated wings beat a low, shredding drone. The resonance strips bark from whole trees.",
+    lore:"Thornmoth is a large insect with a 2-metre wingspan, its wings overlapping serrated leaf-blades of deep emerald and brown. Its rapid wing-beats set up a low, grinding resonance that vibrates loose bark from trunks, shreds foliage, and rattles smaller creatures senseless. Up close the drone is felt in the bones as much as heard, and a colony rising at dusk hums loud enough to be mistaken for distant thunder." },
 
   // ---- Tier 1b: Mid-game NG+ (badges 8–11) Metal/Ice/Electric BST ~510–550 ----
   332: { id:332, name:"Glacicore", emoji:"🧊", types:["Ice","Metal"],
@@ -4146,19 +4146,19 @@ const MONSTERS_DATA = {
     desc:"A golem wrapped in self-generated permafrost. Its steel core never melts, no matter the heat.",
     lore:"Glacicore is an ice-steel creature 1.8 metres tall resembling a humanoid armour suit formed from interlocking plates of iron and glacial ice." },
 
-  333: { id:333, name:"Voltfang", emoji:"🐺", types:["Electric","Dark"],
+  333: { id:333, name:"Voltfang", emoji:"🐍", types:["Electric","Dark"],
     base:{hp:66,atk:91,def:61,spa:78,spd:67,spe:92}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"jolt"],[10,"shadowstep"],[20,"volt_jet"],[30,"void_rend"],[40,"stormbolt"],[50,"phantom_claw"],[60,"volt_surge"],[5,"stun_pulse"],[38,"nether_sphere"]],
     catchRate:26, expYield:258, rarity:"rare",
-    desc:"A storm wolf that channels voltage through its dark fur. Its howl triggers localised lightning strikes.",
-    lore:"Voltfang is an electric-dark wolf 1.4 metres at the shoulder with jet-black fur shot through with crackling yellow lightning. Its eyes glow violet." },
+    desc:"A dark electric eel whose sinuous body crackles with stored voltage. A single touch delivers a paralyzing shock.",
+    lore:"Voltfang is a 1.4-metre electric eel of deep blue-black, its long sinuous body crackling with stored voltage that glows violet along its flanks. It lurks in lightless deep water and murky river-bottoms, sensing prey by the faint electric fields they give off, then stuns them rigid with a single discharge before its needle-fanged bite closes." },
 
-  334: { id:334, name:"Ferrocrush", emoji:"⚙️", types:["Metal","Fighting"],
+  334: { id:334, name:"Voltbrawler", emoji:"🤖", types:["Electric","Fighting"],
     base:{hp:83,atk:104,def:100,spa:52,spd:70,spe:61}, evolveTo:null, evolveLevel:null,
-    learnset:[[48,"brawl"],[1,"chrome_claw"],[5,"fortify"],[8,"flicker"],[10,"geoblast"],[15,"flame_fang"],[20,"alloy_tail"],[25,"inferno_jet"],[30,"fissure_slam"],[38,"alloy_edge"],[40,"forge_blast_2"],[45,"blazing_rush"],[50,"terra_spike"],[60,"fossil_rush"]],
+    learnset:[[1,"thunder_jab"],[1,"quick_punch"],[8,"spark_claw"],[12,"fortify"],[16,"uppercut"],[20,"volt_fang"],[26,"iron_fist"],[32,"voltaic_rush"],[38,"brawl"],[44,"tesla_fists"],[50,"plasma_punch"],[56,"overcharge"],[60,"haymaker"]],
     catchRate:22, expYield:268, rarity:"rare",
-    desc:"A mechanical behemoth forged in Ironforge's deepest furnaces. It was never meant to leave.",
-    lore:"Ferrocrush is a 2.5-metre metal-fire golem with a body of smelted iron and a core of compressed ore. Its joints run at thousands of atmospheres of pressure." },
+    desc:"An electric battlebot built for the arena. Its servo-driven fists land blows like lightning.",
+    lore:"Voltbrawler is a 2.5-metre combat automaton — a battlebot of riveted plating built for the old fighting pits, its frame strung with high-voltage cabling that whips its piston-driven fists faster than the eye can follow. Surplus charge arcs between its knuckles with every swing, and a clean hit lands like a thunderclap. Long after the arenas that built it fell silent, it still patrols them, sparring with anything that wanders in." },
 
   335: { id:335, name:"Frostprowl", emoji:"🐆", types:["Ice","Wind"],
     base:{hp:63,atk:86,def:59,spa:74,spd:67,spe:106}, evolveTo:null, evolveLevel:null,
@@ -4175,11 +4175,11 @@ const MONSTERS_DATA = {
     lore:"Coilstrike is a sleek electric-poison snake 2.5 metres long with alternating bands of bright yellow and dark purple scales. Electrical discharge is visible along its spine." },
 
   337: { id:337, name:"Ashgolem", emoji:"🔥", types:["Fire","Mineral"],
-    base:{hp:87,atk:97,def:91,spa:77,spd:68,spe:50}, evolveTo:null, evolveLevel:null,
+    base:{hp:80,atk:86,def:84,spa:70,spd:62,spe:48}, evolveTo:347, evolveMethod:"item", evolveItem:"metalCoat",
     learnset:[[1,"flicker"],[5,"fortify"],[10,"stone_throw"],[15,"molten_armor"],[20,"inferno_jet"],[30,"stone_slide"],[40,"searing_gale"],[40,"magma_surge"],[50,"fossil_rush"],[60,"pyroclasm"],[62,"mineral_jab"],[63,"mineral_pulse"],[64,"shard_volley"],[65,"lode_strike"]],
-    catchRate:24, expYield:265, rarity:"rare",
-    desc:"A creature born from a volcanic eruption, its body is a walking magma chamber encased in basalt.",
-    lore:"Ashgolem is a fire-mineral creature 2 metres tall with a body of cooling basalt cracked to reveal glowing magma beneath. Ash and cinders constantly drift from its surface." },
+    catchRate:55, expYield:150, rarity:"uncommon",
+    desc:"A young volcanic golem of cracked basalt and magma. Its cooling shell slowly tempers toward steel.",
+    lore:"Ashgolem is a fire-mineral golem 2 metres tall with a body of cooling basalt cracked to reveal glowing magma beneath, ash and cinders constantly drifting from its surface. It is still young: each time its molten core flares and cools, the basalt shell hardens a little further toward true metal. Sheathed in an Iron Shell, that slow tempering completes all at once, and the ash-golem is forged into the white-hot steel guardian Embersteel." },
 
   338: { id:338, name:"Rimeclaw", emoji:"🦅", types:["Ice"],
     base:{hp:64,atk:88,def:61,spa:76,spd:69,spe:97}, evolveTo:null, evolveLevel:null,
@@ -4203,26 +4203,26 @@ const MONSTERS_DATA = {
     lore:"Cryoshard is a floating faceted ice-crystal 1 metre across whose form constantly shifts. Each facet rings at its own frequency, and when the tones fall into alignment it looses a focused pulse of resonant sound — a chord of pure cold that fractures whatever stands before it." },
 
   341: { id:341, name:"Mirestone", emoji:"🪨", types:["Earth","Mental"],
-    base:{hp:72,atk:70,def:93,spa:89,spd:83,spe:53}, evolveTo:null, evolveLevel:null,
+    base:{hp:72,atk:66,def:90,spa:84,spd:80,spe:53}, evolveTo:388, evolveLevel:72,
     learnset:[[1,"stone_throw"],[10,"mental"],[20,"stone_slide"],[30,"psi_strike"],[40,"fossil_rush"],[50,"synaptic_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"fortify"],[62,"trample"]],
-    catchRate:24, expYield:263, rarity:"rare",
-    desc:"A monolith of psychically-resonant stone found at ancient ley line intersections.",
-    lore:"Mirestone is a floating rock-psychic entity resembling a worn monolith 1.5 metres tall. Ancient carvings on its surface glow when it uses psychic powers." },
+    catchRate:48, expYield:150, rarity:"uncommon",
+    desc:"A floating rune-monolith at ley-line crossings. It slowly records each passing moment into new layers of stone.",
+    lore:"Mirestone is a floating Earth-psychic monolith 1.5 metres tall, worn smooth by ages, its surface carved with ancient runes that glow when it draws on psychic power. It stands sentinel at ley-line intersections, and over the long centuries it slowly drinks in the passing moments of the world — each one settling as a new thin layer of stone — until, ages later, it has grown into the towering time-record Chronolith." },
 
   // ---- Tier 2: Late-game NG+ (badges 12–16 areas) BST ~545–590 ----
   342: { id:342, name:"Wraithking", emoji:"👑", types:["Dark","Spectral"],
-    base:{hp:69,atk:94,def:71,spa:92,spd:79,spe:90}, evolveTo:null, evolveLevel:null,
+    base:{hp:66,atk:88,def:66,spa:84,spd:74,spe:84}, evolveTo:343, evolveLevel:80,
     learnset:[[1,"nether_sphere"],[5,"toxify"],[8,"spectral_ray"],[10,"void_rend"],[15,"null_void"],[20,"umbral_claw"],[25,"ectoplasm_strike"],[30,"phantom_claw"],[33,"ghastly_wail"],[35,"spectral_lock"],[38,"synaptic_shatter"],[40,"shade_dash"],[50,"shadowstep"],[60,"neural_storm"]],
-    catchRate:18, expYield:285, rarity:"rare",
-    desc:"The apex ghost predator — a crowned wraith that rules over all lesser ghost-types in its domain.",
-    lore:"Wraithking is a dark-spectral entity 2 metres tall with a spectral crown of black flame. It commands lesser ghost-types and its presence causes all light sources within 50 metres to dim." },
+    catchRate:40, expYield:160, rarity:"uncommon",
+    desc:"A wraith bound in spectral regalia, lording over a small haunt of lesser ghosts — until it sheds crown and form for something greater.",
+    lore:"Wraithking is a dark-spectral entity 2 metres tall that has crowned itself in black flame and lords over the lesser ghosts of its haunt, dimming every light within 50 metres. Yet the crown and the humanoid shape it clings to are a cage: once it has gathered shadow enough, it casts both off and unravels into the boundless, formless living-shadow Shadowreave — far harder to bind, and far more dangerous." },
 
   343: { id:343, name:"Shadowreave", emoji:"🌑", types:["Dark","Spectral"],
-    base:{hp:66,atk:81,def:66,spa:103,spd:85,spe:89}, evolveTo:null, evolveLevel:null,
+    base:{hp:78,atk:90,def:74,spa:117,spd:92,spe:94}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"shadowstep"],[5,"shade_dash"],[8,"abyss_stare"],[10,"mental"],[11,"wraith_form"],[12,"umbral_pulse"],[15,"shadow_lance"],[18,"sinister_scheme"],[20,"void_rend"],[22,"fear_aura"],[25,"necrotic_pulse"],[28,"shadowstorm"],[30,"psi_strike"],[35,"stygian_whisper"],[38,"dreamweave"],[40,"phantom_claw"],[45,"spirit_calamity"],[48,"reaper_scythe"],[50,"synaptic_shatter"],[55,"abyssal_dominion"],[60,"neural_storm"]],
-    catchRate:18, expYield:283, rarity:"rare",
-    desc:"A being of living shadow that exists simultaneously in darkness and the spectral realm. It phases through walls to hunt, its constantly shifting silhouette making it nearly impossible to track.",
-    lore:"Shadowreave is a dark-spectral entity 1.6 metres tall with a body composed of living shadow and two luminous violet eyes. Its silhouette is never quite the same shape twice." },
+    catchRate:18, expYield:285, rarity:"rare",
+    desc:"The matured Wraithking, freed of crown and form into pure living shadow. It phases through walls to hunt, its shifting silhouette nearly impossible to track.",
+    lore:"Shadowreave is the evolved Wraithking, having cast off crown and bodily shape entirely — a dark-spectral entity of pure living shadow with two luminous violet eyes and a silhouette never quite the same twice. Unbound by any fixed form it is far more dangerous than the king it was: it phases through walls to hunt and slips at will between darkness and the spectral realm, leaving pursuers nothing solid to strike." },
 
   344: { id:344, name:"Glimmeritch", emoji:"🧚", types:["Fairy","Spectral"],
     base:{hp:63,atk:69,def:68,spa:102,spd:91,spe:97}, evolveTo:null, evolveLevel:null,
@@ -4231,12 +4231,12 @@ const MONSTERS_DATA = {
     desc:"A corrupted fairy that has passed through death and returned. Its glow is beautiful and deeply unsettling.",
     lore:"Glimmeritch is a fairy-spectral creature resembling a 0.6-metre glowing humanoid with translucent wings and a body that flickers between solid and spectral forms." },
 
-  345: { id:345, name:"Voidcoil", emoji:"🌀", types:["Dark","Draconic"],
-    base:{hp:73,atk:99,def:75,spa:90,spd:77,spe:81}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"draconic_breath"],[10,"void_rend"],[20,"draconic_claw"],[30,"nether_sphere"],[40,"wyrm_strike"],[50,"phantom_claw"],[60,"cataclysm_breath"],[5,"hydra_dance"],[38,"primordial_roar"],[62,"shade_dash"]],
+  345: { id:345, name:"Voidcoil", emoji:"🐦‍⬛", types:["Dark","Wind"],
+    base:{hp:73,atk:99,def:75,spa:90,spd:77,spe:81}, evolveTo:382, evolveLevel:null, evolveItem:"duskStone", evolveMethod:"item",
+    learnset:[[1,"wingbeat"],[10,"void_rend"],[20,"squall_slash"],[30,"nether_sphere"],[40,"skyfall"],[50,"phantom_claw"],[60,"gale_force"],[5,"zephyr_dance"],[38,"plume_veil"],[62,"shade_dash"]],
     catchRate:16, expYield:290, rarity:"rare",
-    desc:"A dragon born from a void rift. Its scales absorb all light, making it nearly invisible in darkness.",
-    lore:"Voidcoil is a dark-dragon serpent 4 metres long with scales so black they create a visible absence of light. Its eyes emit dim crimson light visible only in complete darkness." },
+    desc:"A void-feathered raven whose plumage drinks all light, leaving it nearly invisible in the dark.",
+    lore:"Voidcoil is a void-touched raven with a 2-metre wingspan, its plumage so black it creates a visible absence of light as it glides. Its eyes emit a dim crimson glow seen only in complete darkness, and shadow seems to coil in its wake. Drawn to places of deepest dark, it can drink in enough shadow to blot out the noon sun — the threshold at which it becomes Oblivionwing." },
 
   346: { id:346, name:"Astralwing", emoji:"🌟", types:["Mental","Wind"],
     base:{hp:67,atk:74,def:65,spa:100,spd:88,spe:96}, evolveTo:null, evolveLevel:null,
@@ -4249,29 +4249,29 @@ const MONSTERS_DATA = {
     base:{hp:77,atk:104,def:98,spa:77,spd:75,spe:69}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"chrome_claw"],[10,"flicker"],[20,"alloy_tail"],[30,"inferno_jet"],[40,"forge_blast_2"],[50,"searing_gale"],[60,"solar_flare"],[5,"embercloak"],[38,"alloy_edge"]],
     catchRate:16, expYield:292, rarity:"rare",
-    desc:"Forged in Ironforge's legendary seventh furnace, it is the pinnacle of fire-steel metallurgy.",
-    lore:"Embersteel is a steel-fire golem 2.2 metres tall with a body of superheated steel that glows white-hot at its joints. It was created as a guardian automaton and has never been fully tamed." },
+    desc:"An Ashgolem forged into superheated steel. The pinnacle of fire-steel metallurgy, white-hot at every joint.",
+    lore:"Embersteel is a steel-fire golem 2.2 metres tall — the matured form of Ashgolem, its cracked basalt shell forged and fused under an Iron Shell into a body of superheated steel that glows white-hot at the joints. The transformation hardens it into a tireless guardian automaton; it has never been fully tamed, and the heat that pours from its seams can soften iron at arm's length." },
 
-  348: { id:348, name:"Galedrake", emoji:"🌪️", types:["Draconic","Wind"],
+  348: { id:348, name:"Galeswift", emoji:"🐦", types:["Wind","Sonic"],
     base:{hp:69,atk:91,def:69,spa:91,spd:76,spe:99}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"breeze"],[10,"draconic_breath"],[20,"wind_scythe"],[30,"draconic_claw"],[40,"tailwind_strike"],[50,"wyvern_gust"],[60,"scale_storm"],[5,"zephyr_dance"],[38,"wyrm_strike"]],
+    learnset:[[1,"breeze"],[10,"discord"],[20,"wind_scythe"],[30,"concussive_strike"],[40,"tailwind_strike"],[50,"pulse_wave"],[60,"shockwave_boom"],[5,"zephyr_dance"],[38,"skyboom_strike"]],
     catchRate:16, expYield:288, rarity:"rare",
-    desc:"A dragon that rides perpetual cyclones of its own creation. It cannot stop flying or the storm dies.",
-    lore:"Galedrake is a dragon-wind creature 3.5 metres long with broad swept-back wings that generate a constant personal cyclone. The air around it is always in violent circular motion." },
+    desc:"A swift that rides perpetual cyclones of its own creation. It cannot land or the storm dies — so it never does.",
+    lore:"Galeswift is a wind-swift with a 3.5-metre wingspan and long swept-back wings that generate a constant personal cyclone. It has not touched ground in its entire life — to land would still its storm and ground it forever — and the air around it is always in violent circular motion, its passage marked by a rolling sonic boom." },
 
   349: { id:349, name:"Crystavault", emoji:"💠", types:["Ice","Mineral"],
-    base:{hp:80,atk:91,def:109,spa:74,spd:87,spe:54}, evolveTo:null, evolveLevel:null,
+    base:{hp:74,atk:80,def:96,spa:64,spd:76,spe:50}, evolveTo:359, evolveLevel:72,
     learnset:[[1,"glacial_punch"],[5,"fortify"],[10,"stone_throw"],[12,"cryogenic_field"],[15,"crystal_veil"],[18,"boreal_armor"],[20,"cold_beam"],[21,"sapphire_lance"],[22,"ice_hammer"],[25,"crystal_glow"],[28,"ice_resonance"],[29,"marble_resonance"],[30,"stone_slide"],[35,"gem_resonance"],[38,"winter_shroud"],[40,"cryo_lance"],[50,"fossil_rush"],[60,"whiteout"]],
-    catchRate:16, expYield:292, rarity:"rare",
-    desc:"A fortress of living glacier-stone. Its outer shell has never been successfully breached in recorded history.",
-    lore:"Crystavault is an ice-mineral creature 2.5 metres tall resembling a fortified tower of layered glacial ice and granite. Ancient siege equipment has been found bent and broken around specimens." },
+    catchRate:45, expYield:150, rarity:"uncommon",
+    desc:"A young ice golem of clear glacial ice studded with raw crystal. A glacial awareness slowly stirs in its core.",
+    lore:"Crystavault is a 2.5-metre ice-golem, a compact construct of clear glacial ice studded with raw mineral crystal, its surface ridged like the walls of a small keep. It is the youngest of its kind: as it endures the deep cold over centuries, a faint glacial awareness begins to stir within its crystal core, and the construct slowly reshapes itself toward the sovereign form of Glaciarch." },
 
-  350: { id:350, name:"Fernwrath", emoji:"🌿", types:["Nature","Draconic"],
+  350: { id:350, name:"Fernwrath", emoji:"🦎", types:["Nature","Mineral"],
     base:{hp:73,atk:95,def:75,spa:92,spd:79,spe:81}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"vine_lash"],[10,"draconic_breath"],[20,"root_lance"],[30,"draconic_pulse"],[40,"canopy_crash"],[50,"wyrm_strike"],[60,"verdant_surge"],[5,"hydra_dance"],[38,"ancient_breath"]],
+    learnset:[[1,"vine_lash"],[10,"ore_ray"],[20,"root_lance"],[30,"shard_burst"],[40,"canopy_crash"],[50,"granite_slam"],[60,"verdant_surge"],[5,"shard_form"],[38,"basalt_eruption"]],
     catchRate:15, expYield:292, rarity:"rare",
-    desc:"A dragon grown from the world's oldest forest. Its scales are living wood; vines sprout from its wounds.",
-    lore:"Fernwrath is a grass-dragon 4 metres long with scales of polished dark wood and a mane of living ferns. Where it walks, plants accelerate through their entire life cycle in hours." },
+    desc:"A great forest iguana whose bark-hard scales are living wood. Vines sprout from its wounds, and a crest of ferns runs down its spine.",
+    lore:"Fernwrath is a colossal forest iguana 4 metres long, its overlapping scales hardened into polished dark wood and a tall crest of living ferns running from skull to tail. It basks atop ancient stumps, and where it walks plants accelerate through their entire life cycle in hours." },
 
   351: { id:351, name:"Spectravore", emoji:"🌈", types:["Mental","Mineral"],
     base:{hp:65,atk:71,def:68,spa:104,spd:92,spe:90}, evolveTo:null, evolveLevel:null,
@@ -4288,12 +4288,12 @@ const MONSTERS_DATA = {
     desc:"The sovereign of all void-touched creatures. Its mind is a labyrinth with no exit.",
     lore:"Voidlord is a mental-spectral entity 2.2 metres tall with a body of solidified void-matter and a crown of hovering psychic fragments. No one who has entered its mindscape has returned unchanged." },
 
-  353: { id:353, name:"Infernotitan", emoji:"🌋", types:["Draconic","Mineral"],
+  353: { id:353, name:"Infernotitan", emoji:"🦎", types:["Fire","Toxin"],
     base:{hp:78,atk:106,def:82,spa:98,spd:74,spe:82}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"inferno_jet"],[5,"char_dance"],[10,"draconic_claw"],[12,"basilisk_might"],[15,"lava_drop"],[18,"emperor_inferno"],[20,"pyroclasm"],[22,"ruby_strike"],[25,"magma_strike"],[28,"comet_crash"],[30,"draconic_pulse"],[32,"granite_slam"],[35,"molten_tide"],[38,"primordial_roar"],[40,"solar_flare"],[42,"obsidian_burst"],[48,"marble_resonance"],[50,"cataclysm_breath"],[60,"ancient_breath"]],
+    learnset:[[1,"inferno_jet"],[5,"char_dance"],[10,"acrid_claw"],[12,"venom_fang"],[15,"lava_drop"],[18,"pyre_fang"],[20,"pyroclasm"],[22,"ruby_strike"],[25,"magma_strike"],[28,"tainted_breath"],[30,"miasma_blast"],[32,"granite_slam"],[35,"molten_tide"],[38,"infernal_roar"],[40,"solar_flare"],[42,"obsidian_burst"],[48,"marble_resonance"],[50,"plague_wave"],[60,"caldera_meltdown"]],
     catchRate:10, expYield:318, rarity:"rare",
-    desc:"A volcanic dragon that erupts when enraged. Continents have shifted from its ancient battles.",
-    lore:"Infernotitan is a mineral-dragon 6 metres long with scales of hardened magma and breath hot enough to liquefy stone. Ancient geological surveys attribute certain canyon formations to its rampages." },
+    desc:"A volcanic salamander whose magma-slick skin weeps scalding toxins. It erupts when enraged.",
+    lore:"Infernotitan is a colossal fire salamander 6 metres long, its blackened hide slick with magma and beaded with scalding, toxic secretions that scar anything it touches. Its breath is hot enough to liquefy stone, and ancient geological surveys attribute certain canyon formations to its rampages." },
 
   354: { id:354, name:"Riftwhale", emoji:"🐋", types:["Aquatic","Mental"],
     base:{hp:105,atk:77,def:88,spa:99,spd:93,spe:53}, evolveTo:null, evolveLevel:null,
@@ -4309,12 +4309,12 @@ const MONSTERS_DATA = {
     desc:"A hunter from the deepest abyss. Light physically bends around it as though avoiding contact.",
     lore:"Abyssalith is a water-toxin creature 5 metres long resembling an armoured eel with bioluminescent lures. Its black scales have a refractive property that makes it nearly invisible underwater." },
 
-  356: { id:356, name:"Stormlord", emoji:"⛈️", types:["Electric","Draconic"],
-    base:{hp:72,atk:92,def:72,spa:104,spd:82,spe:98}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"jolt"],[10,"draconic_breath"],[20,"volt_jet"],[30,"draconic_pulse"],[40,"stormbolt"],[50,"wyrm_strike"],[60,"volt_surge"],[5,"hydra_dance"],[38,"ancient_breath"]],
+  356: { id:356, name:"Stormlord", emoji:"🦅", types:["Electric","Sonic"],
+    base:{hp:72,atk:92,def:72,spa:104,spd:82,spe:98}, evolveTo:389, evolveLevel:70,
+    learnset:[[1,"jolt"],[10,"discord"],[20,"volt_jet"],[30,"harmonic_wave"],[40,"stormbolt"],[50,"concussive_strike"],[60,"volt_surge"],[5,"resonate"],[38,"shockwave_boom"]],
     catchRate:10, expYield:320, rarity:"rare",
-    desc:"A dragon that calls down storms across entire regions. It is the living embodiment of a thunderhead.",
-    lore:"Stormlord is an electric-dragon 5 metres long with scales of polished chrome-blue and wing membranes of crackling electricity. The sky darkens for 100 kilometres when it takes flight." },
+    desc:"A colossal thunderbird whose wingbeats summon storms across entire regions — the living embodiment of a thunderhead.",
+    lore:"Stormlord is an enormous thunderbird with a 5-metre wingspan, its plumage polished chrome-blue and its flight-feathers trailing membranes of crackling electricity. Each thunderous wingbeat cracks the air like a peal of thunder, and the sky darkens for 100 kilometres when it takes flight. With age its crackling crest swells until the storm it carries crowns it — the threshold of its final form, Stormcrown." },
 
   357: { id:357, name:"Thornspire", emoji:"🌳", types:["Nature","Metal"],
     base:{hp:83,atk:91,def:108,spa:83,spd:90,spe:60}, evolveTo:null, evolveLevel:null,
@@ -4331,11 +4331,11 @@ const MONSTERS_DATA = {
     lore:"Pyrocrown is a fire-psychic bird 1.8 metres tall with feathers of solidified flame and a crown of pure solar fire. Its thoughts manifest as bursts of psychokinetic flame." },
 
   359: { id:359, name:"Glaciarch", emoji:"❄️", types:["Ice","Mental"],
-    base:{hp:73,atk:79,def:90,spa:107,spd:93,spe:73}, evolveTo:null, evolveLevel:null,
+    base:{hp:73,atk:79,def:90,spa:107,spd:93,spe:73}, evolveTo:385, evolveLevel:82,
     learnset:[[1,"cold_beam"],[10,"mental"],[20,"cryo_lance"],[30,"psi_strike"],[40,"whiteout"],[50,"synaptic_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"winter_shroud"]],
-    catchRate:10, expYield:316, rarity:"rare",
+    catchRate:22, expYield:316, rarity:"uncommon",
     desc:"The sovereign of all ice-bound psychics. Its mind is as cold and clear as absolute zero.",
-    lore:"Glaciarch is an ice-psychic entity 2 metres tall resembling an idealised humanoid carved entirely from deep blue glacial ice. Its eyes are voids of total blue-white." },
+    lore:"Glaciarch is the matured Crystavault — its crystal core has awakened into a cold, vast intelligence and its body has reshaped into an idealised humanoid carved from deep blue glacial ice, eyes voids of total blue-white. Reigning as the sovereign of all ice-bound minds, it eventually sinks into a centuries-long stillness, slowly fusing with the frozen bedrock until it becomes the colossal Permafrost." },
 
   360: { id:360, name:"Duskmantle", emoji:"🌙", types:["Dark","Mental"],
     base:{hp:68,atk:83,def:73,spa:105,spd:98,spe:93}, evolveTo:null, evolveLevel:null,
@@ -4344,12 +4344,12 @@ const MONSTERS_DATA = {
     desc:"A twilight sovereign that rules the threshold between day and night. It is neither fully light nor dark.",
     lore:"Duskmantle is a dark-mental entity 1.8 metres tall that appears different from each angle — from one side it is a being of radiant thought, from the other a creature of shadow. Both states are equally real." },
 
-  361: { id:361, name:"Tectolith", emoji:"🌍", types:["Earth","Draconic"],
+  361: { id:361, name:"Tectolith", emoji:"🐢", types:["Earth","Nature"],
     base:{hp:92,atk:104,def:94,spa:78,spd:82,spe:70}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"geoblast"],[10,"draconic_claw"],[20,"fissure_slam"],[30,"draconic_pulse"],[40,"terra_spike"],[50,"wyrm_strike"],[60,"eon_crash"],[5,"hydra_dance"],[38,"primordial_roar"],[62,"quicksand_pull"]],
+    learnset:[[1,"geoblast"],[10,"shear_strike"],[20,"fissure_slam"],[30,"verdant_orb"],[40,"terra_spike"],[50,"canopy_crash"],[60,"continental_shift"],[5,"bark_shield"],[38,"sand_storm_polish"],[62,"quicksand_pull"]],
     catchRate:10, expYield:320, rarity:"rare",
-    desc:"A dragon so old it has become part of the land itself. Earthquakes are merely it turning in its sleep.",
-    lore:"Tectolith is a ground-dragon 7 metres long with a body of compacted tectonic plates and continents of moss and stone across its back. It is older than most mountain ranges." },
+    desc:"A colossal island-turtle whose shell carries a living landscape of moss, stone, and rooted trees. Whole ecosystems thrive on its back.",
+    lore:"Tectolith is a colossal island-turtle 7 metres long whose domed shell is a crust of compacted tectonic plate, with continents of moss, stone, and even rooted trees spreading across its back. It moves so seldom that whole ecosystems take hold on it, and travellers have mistaken a sleeping Tectolith for a hill. It is older than most mountain ranges." },
 
   // ---- Tier 3b: More post-game NG+ BST ~590–640 ----
   362: { id:362, name:"Lunaspectre", emoji:"🌕", types:["Mental","Spectral"],
@@ -4401,12 +4401,12 @@ const MONSTERS_DATA = {
     desc:"An ancient will-o-the-wisp grown to monstrous power. It leads the living into the realm of flame.",
     lore:"Willowisp is a fire-spectral entity resembling a human-sized floating flame with a faint spectral face visible in its core. Its fire burns without fuel and consumes nothing physical." },
 
-  369: { id:369, name:"Gravithorn", emoji:"🔮", types:["Mental","Earth"],
-    base:{hp:80,atk:94,def:88,spa:100,spd:84,spe:74}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"geoblast"],[10,"mental"],[20,"terra_spike"],[30,"psi_strike"],[40,"fissure_slam"],[50,"synaptic_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"dreamweave"],[62,"gem_scatter"]],
-    catchRate:9, expYield:320, rarity:"rare",
-    desc:"A psychic that has learned to manipulate gravity. It walks on any surface, including the sky.",
-    lore:"Gravithorn is a psychic-ground entity 1.8 metres tall with a body of psychically compressed stone. It can reverse gravity in a 30-metre radius and routinely walks on vertical surfaces." },
+  369: { id:369, name:"Gravithorn", emoji:"💎", types:["Earth","Mineral"],
+    base:{hp:80,atk:94,def:88,spa:100,spd:84,spe:74}, evolveTo:377, evolveLevel:85,
+    learnset:[[1,"geoblast"],[10,"mineral_jab"],[20,"terra_spike"],[30,"sapphire_lance"],[40,"fissure_slam"],[50,"shard_volley"],[60,"crag_strike"],[5,"fortify"],[38,"gem_resonance"],[62,"gem_scatter"]],
+    catchRate:20, expYield:320, rarity:"uncommon",
+    desc:"A golem so dense it warps gravity by sheer mass. Loose stones drift up toward it as it walks.",
+    lore:"Gravithorn is the matured Quarrex — its granite body has compressed into incredibly dense crystalline mineral, so heavy that it bends gravity for 30 metres around it through sheer mass alone, and loose stones drift slowly up toward its bulk. That relentless inward crush only continues over the ages, packing its mineral body tighter and tighter until it collapses into the ultra-dense core-titan Abyssforge." },
 
   370: { id:370, name:"Vortexwing", emoji:"🌪️", types:["Electric","Sonic"],
     base:{hp:70,atk:90,def:68,spa:101,spd:81,spe:110}, evolveTo:null, evolveLevel:null,
@@ -4423,12 +4423,12 @@ const MONSTERS_DATA = {
     lore:"Nullform is a dark-normal creature 2 metres tall with a body of perfect matte black that reflects no light at all. It has no fixed features but rearranges its form to match whatever it has most recently defeated." },
 
   // ---- Tier 4: Prismatic Rift exclusives BST ~630–670 ----
-  372: { id:372, name:"Prismancer", emoji:"🌈", types:["Draconic","Mineral"],
+  372: { id:372, name:"Prismancer", emoji:"🦎", types:["Mental","Mineral"],
     base:{hp:69,atk:89,def:77,spa:107,spd:89,spe:89}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"mental"],[10,"draconic_pulse"],[20,"psi_strike"],[30,"draconic_claw"],[40,"synaptic_shatter"],[50,"wyrm_strike"],[60,"neural_storm"],[5,"hydra_dance"],[48,"cataclysm_breath"],[62,"ore_ray"],[63,"mineral_dust"],[64,"ore_punch"],[65,"mineral_jab"]],
+    learnset:[[1,"mental"],[10,"cortex_spike"],[20,"psi_strike"],[30,"crystal_shard"],[40,"synaptic_shatter"],[50,"sapphire_lance"],[60,"neural_storm"],[5,"crystalline_focus"],[48,"psy_blast"],[62,"ore_ray"],[63,"mineral_dust"],[64,"ore_punch"],[65,"mineral_jab"]],
     catchRate:8, expYield:335, rarity:"rare",
-    desc:"A dragon born from a rift in the visible spectrum. Its scales cycle through every wavelength of light.",
-    lore:"Prismancer is a mineral-dragon 4 metres long whose scales shift through every colour of visible light in a constant slow cycle. The air around it refracts into rainbow halos." },
+    desc:"A crystalline chameleon whose scales cycle through every wavelength of light, bending the world's colours around it.",
+    lore:"Prismancer is a crystalline chameleon 1.5 metres long whose prismatic scales shift through every colour of visible light in a constant slow cycle. It bends light around its body to vanish from sight, and the air about it refracts into faint rainbow halos. It hunts by holding perfectly still until prey strays within reach of its lightning tongue." },
 
   373: { id:373, name:"Voidrend", emoji:"🌌", types:["Dark","Spectral"],
     base:{hp:69,atk:103,def:74,spa:92,spd:82,spe:100}, evolveTo:null, evolveLevel:null,
@@ -4437,12 +4437,12 @@ const MONSTERS_DATA = {
     desc:"A predator from between realities. It tears holes in space as naturally as others breathe.",
     lore:"Voidrend is a dark-spectral entity 2.5 metres tall with a body that exists simultaneously in normal space and the void between dimensions. Its claws leave visible tears in reality that slowly heal." },
 
-  374: { id:374, name:"Auroradrake", emoji:"🌠", types:["Ice","Draconic"],
-    base:{hp:69,atk:92,def:78,spa:102,spd:85,spe:94}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"cold_beam"],[10,"draconic_breath"],[20,"cryo_lance"],[30,"draconic_pulse"],[40,"whiteout"],[50,"scale_storm"],[60,"cataclysm_breath"],[5,"hydra_dance"],[48,"ancient_breath"],[62,"icy_shot"]],
+  374: { id:374, name:"Auroratusk", emoji:"🦭", types:["Ice","Normal"],
+    base:{hp:69,atk:92,def:78,spa:102,spd:85,spe:94}, evolveTo:395, evolveLevel:75,
+    learnset:[[1,"cold_beam"],[10,"cold_snap"],[20,"cryo_lance"],[30,"aurora_blast"],[40,"whiteout"],[50,"avalanche_drive"],[60,"glaciation"],[5,"war_dance"],[48,"icebound_lattice"],[62,"icy_shot"]],
     catchRate:7, expYield:338, rarity:"rare",
-    desc:"A dragon woven from the aurora itself. It migrates between magnetic poles, trailing lights across the sky.",
-    lore:"Auroradrake is an ice-dragon 5 metres long with translucent scales that emit bioluminescent light in bands of green, violet, and gold — a living aurora. It navigates by magnetic field." },
+    desc:"An arctic walrus whose translucent hide shimmers with living aurora-light. It migrates between magnetic poles by sensing the field.",
+    lore:"Auroratusk is an arctic walrus 3 metres long whose translucent blubber and short ivory tusks glow with bioluminescent light in bands of green, violet, and gold — a living aurora rippling beneath its skin. It hauls out on polar ice and navigates vast migrations by sensing the magnetic field. Over decades its tusks lengthen and its hide thickens into ancient ice, until it becomes the glacier-bound titan Glacierend." },
 
   375: { id:375, name:"Fluxserpent", emoji:"⚡", types:["Electric","Mental"],
     base:{hp:67,atk:85,def:70,spa:110,spd:87,spe:101}, evolveTo:null, evolveLevel:null,
@@ -4459,11 +4459,11 @@ const MONSTERS_DATA = {
     lore:"Solarwrath is a fire-fairy creature 2 metres tall composed of radiant solar plasma. It is warm to be near and hot to approach — within 10 metres, all shadow is eliminated." },
 
   377: { id:377, name:"Abyssforge", emoji:"🌋", types:["Earth","Mineral"],
-    base:{hp:85,atk:103,def:105,spa:73,spd:81,spe:73}, evolveTo:null, evolveLevel:null,
-    learnset:[[45,"obsidian_strike"],[1,"geoblast"],[10,"chrome_claw"],[20,"fissure_slam"],[30,"alloy_tail"],[40,"terra_spike"],[50,"forge_blast_2"],[60,"fossil_rush"],[5,"fortify"],[48,"alloy_edge"]],
-    catchRate:7, expYield:340, rarity:"rare",
-    desc:"Born at the meeting of mantle and iron core, it forges new minerals inside itself as it moves.",
-    lore:"Abyssforge is an earth-metal creature 3 metres tall with a body of compressed ultra-dense alloy formed under planetary core pressures. It leaves impressions in solid steel where it rests." },
+    base:{hp:92,atk:108,def:114,spa:73,spd:84,spe:74}, evolveTo:null, evolveLevel:null,
+    learnset:[[1,"geoblast"],[10,"mineral_jab"],[20,"fissure_slam"],[30,"obsidian_strike"],[40,"terra_spike"],[48,"crag_strike"],[50,"shard_volley"],[55,"continental_shift"],[60,"fossil_rush"],[5,"fortify"],[62,"lode_strike"]],
+    catchRate:7, expYield:365, rarity:"rare",
+    desc:"The ancient final form — a titanic core-titan of ultra-dense alloy crushed together by its own gravity.",
+    lore:"Abyssforge is the ancient, final form: the inward-turning gravity of Gravithorn has crushed its body into compressed ultra-dense alloy, forged under pressures found only at a planet's core. The 3-metre titan leaves deep impressions in solid steel where it rests, and ceaselessly forges new minerals within itself as it moves." },
 
   378: { id:378, name:"Dreamweald", emoji:"💭", types:["Mental","Dream"],
     base:{hp:69,atk:73,def:73,spa:113,spd:97,spe:95}, evolveTo:null, evolveLevel:null,
@@ -4472,12 +4472,12 @@ const MONSTERS_DATA = {
     desc:"A being that exists only in the shared dreamspace of nearby creatures. Physical contact wakes it permanently.",
     lore:"Dreamweald is a mental-dream entity visible only to those who are half-asleep. In full wakefulness it appears as a translucent shimmer, but in dreams it takes whatever form the dreamer most desires." },
 
-  379: { id:379, name:"Riftscale", emoji:"🔮", types:["Draconic","Spectral"],
+  379: { id:379, name:"Riftmane", emoji:"🐴", types:["Aquatic","Spectral"],
     base:{hp:78,atk:105,def:87,spa:111,spd:94,spe:105}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
-    learnset:[[1,"draconic_breath"],[5,"hydra_dance"],[8,"wraith_claw"],[10,"nether_sphere"],[15,"spectral_ray"],[20,"draconic_claw"],[25,"ghastly_wail"],[30,"phantom_claw"],[35,"necrotic_pulse"],[40,"wyrm_strike"],[45,"eternal_haunt"],[48,"eon_crash"],[50,"void_rend"],[60,"cataclysm_breath"]],
+    learnset:[[1,"aquatic_pulse"],[5,"abyssal_jet"],[8,"wraith_claw"],[10,"nether_sphere"],[15,"spectral_ray"],[20,"whirlpool_dive"],[25,"ghastly_wail"],[30,"phantom_claw"],[35,"necrotic_pulse"],[40,"tidal_sweep"],[45,"eternal_haunt"],[48,"tidal_crush"],[50,"void_rend"],[60,"ocean_sovereign"]],
     catchRate:6, expYield:342, rarity:"legendary",
-    desc:"A dragon that phases between worlds. Its scales exist in multiple realities simultaneously.",
-    lore:"Riftscale is a draconic-spectral 4.5 metres long whose scales shimmer with a translucent quality — half of them appear solid and half ghostly. It can phase through solid matter at will." },
+    desc:"A spectral water-horse that phases between the living world and the drowned otherworld. Half of it is never quite real.",
+    lore:"Riftmane is a kelpie 2.5 metres long — a spectral water-horse risen from a drowned otherworld no living thing can see. Its streaming mane and hide shimmer half-solid and half-ghostly, and it phases through stone and water alike, luring the unwary to follow it beneath the surface and never return." },
 
   380: { id:380, name:"Tempestborn", emoji:"⛈️", types:["Electric","Wind"],
     base:{hp:77,atk:98,def:77,spa:116,spd:94,spe:116}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
@@ -4494,19 +4494,19 @@ const MONSTERS_DATA = {
     lore:"Crystalmind is a psychic-steel entity 1.5 metres tall shaped like a perfect geometric polyhedron of living crystal laced with steel filaments. Its psychic processing speed exceeds any known computation." },
 
   // ---- Tier 5: Apex Summit exclusives BST ~655–695 ----
-  382: { id:382, name:"Oblivionwing", emoji:"🖤", types:["Dark","Draconic"],
+  382: { id:382, name:"Oblivionwing", emoji:"🐦‍⬛", types:["Dark","Wind"],
     base:{hp:71,atk:103,def:78,spa:95,spd:81,spe:97}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"draconic_claw"],[10,"void_rend"],[20,"wyrm_strike"],[30,"nether_sphere"],[40,"scale_storm"],[50,"phantom_claw"],[60,"cataclysm_breath"],[5,"hydra_dance"],[52,"primordial_roar"],[62,"run_down"]],
+    learnset:[[1,"wingbeat"],[10,"void_rend"],[20,"skyfall"],[30,"nether_sphere"],[40,"cyclone_smash"],[50,"phantom_claw"],[60,"gale_force"],[5,"zephyr_dance"],[52,"plume_veil"],[62,"run_down"]],
     catchRate:5, expYield:355, rarity:"rare",
-    desc:"A dragon that devours light itself. Darkness spreads for kilometres from wherever it roosts.",
-    lore:"Oblivionwing is a dark-dragon 6 metres long with wings that absorb all incoming light. Flying overhead, it casts a shadow darker than any natural darkness. Stars are visible at noon beneath its wings." },
+    desc:"A colossal raven that devours light itself. Darkness spreads for kilometres from wherever it roosts.",
+    lore:"Oblivionwing is an enormous raven with a 6-metre wingspan whose feathers absorb all incoming light — the matured void Voidcoil once only carried. Flying overhead it casts a shadow darker than any natural night, and stars become visible at noon beneath its wings." },
 
-  383: { id:383, name:"Apexblade", emoji:"⚔️", types:["Metal","Draconic"],
+  383: { id:383, name:"Apexblade", emoji:"🗡️", types:["Metal","Aquatic"],
     base:{hp:71,atk:112,def:93,spa:77,spd:81,spe:91}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"chrome_claw"],[10,"draconic_breath"],[20,"alloy_tail"],[30,"draconic_claw"],[40,"forge_blast_2"],[50,"wyrm_strike"],[60,"scale_storm"],[5,"hydra_dance"],[52,"alloy_edge"]],
+    learnset:[[1,"chrome_claw"],[10,"aquatic_pulse"],[20,"alloy_tail"],[30,"torrent_fang"],[40,"forge_blast_2"],[50,"tidal_sweep"],[60,"tidal_crush"],[5,"brine_slash"],[52,"alloy_edge"]],
     catchRate:5, expYield:355, rarity:"rare",
-    desc:"The ultimate fusion of forged steel and draconic power. Its body is a living weapon.",
-    lore:"Apexblade is a steel-dragon 5 metres long with a body of folded ultra-steel and draconic biology merged at the cellular level. Every surface is an edge. Its teeth alone number 340." },
+    desc:"A living-steel swordfish whose entire body is a single honed blade. The ultimate forged weapon of the deep.",
+    lore:"Apexblade is a steel swordfish 5 metres long, its streamlined body folded from ultra-steel into a single living blade tipped by a metre-long sword-bill. Every surface is an edge, and it cleaves through deep water at terrible speed; its teeth alone number 340. Hulls part like paper where it strikes." },
 
   384: { id:384, name:"Solarcrown", emoji:"🌞", types:["Fire","Stellar"],
     base:{hp:69,atk:83,def:76,spa:115,spd:91,spe:91}, evolveTo:null, evolveLevel:null,
@@ -4519,8 +4519,8 @@ const MONSTERS_DATA = {
     base:{hp:87,atk:102,def:104,spa:75,spd:87,spe:70}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"glacial_punch"],[10,"geoblast"],[20,"cryo_lance"],[30,"fissure_slam"],[40,"whiteout"],[50,"terra_spike"],[60,"cold_beam"],[5,"winter_shroud"],[52,"fortify"],[62,"mire_burst"]],
     catchRate:5, expYield:355, rarity:"rare",
-    desc:"A creature so cold it freezes the ground beneath it permanently. It has never melted.",
-    lore:"Permafrost is an ice-ground creature 3 metres tall resembling a glacial boulder with limbs. The ground beneath it freezes to a depth of 50 metres and does not thaw for decades after it leaves." },
+    desc:"The ancient final form of the ice-golem line — a titanic glacial colossus fused with the frozen earth.",
+    lore:"Permafrost is the ancient, final form of the line: the once-sharp ice-sovereign Glaciarch has sunk into the frozen earth and swelled into a titanic glacial colossus 3 metres tall, a glacier given limbs, its mind slowed to the patient pace of moving ice. The ground beneath it freezes to a depth of 50 metres and does not thaw for decades after it has moved on." },
 
   386: { id:386, name:"Wraithstorm", emoji:"💀", types:["Electric","Spectral"],
     base:{hp:68,atk:92,def:70,spa:106,spd:84,spe:105}, evolveTo:null, evolveLevel:null,
@@ -4540,15 +4540,15 @@ const MONSTERS_DATA = {
     base:{hp:85,atk:86,def:103,spa:100,spd:90,spe:61}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"stone_slide"],[10,"mental"],[20,"fossil_rush"],[30,"psi_strike"],[40,"stone_slide"],[50,"synaptic_shatter"],[60,"neural_storm"],[5,"prism_ward"],[52,"cortex_spike"],[62,"bone_barrage"]],
     catchRate:5, expYield:358, rarity:"rare",
-    desc:"A stone that has witnessed every moment of Lumoria's history and remembers all of them simultaneously.",
-    lore:"Chronolith is a rock-psychic entity resembling a massive standing stone 2.5 metres tall with geological strata that each contain a perfect frozen moment from the past, visible if viewed psychically." },
+    desc:"The ancient final form of Mirestone — a standing stone that remembers every moment of history at once.",
+    lore:"Chronolith is the ancient, final form of Mirestone: a massive standing stone 2.5 metres tall whose geological strata each seal a perfect frozen moment from the past, visible to psychic sight. Having stood and recorded since the world was young, it remembers every moment of Lumoria's history simultaneously." },
 
-  389: { id:389, name:"Stormcrown", emoji:"⛈️", types:["Electric","Draconic"],
+  389: { id:389, name:"Stormcrown", emoji:"🦅", types:["Electric","Sonic"],
     base:{hp:78,atk:103,def:85,spa:118,spd:91,spe:108}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
-    learnset:[[1,"jolt"],[10,"draconic_breath"],[20,"volt_jet"],[30,"draconic_pulse"],[40,"stormbolt"],[50,"wyrm_strike"],[60,"cataclysm_breath"],[5,"hydra_dance"],[52,"volt_surge"],[62,"arc_flash"]],
-    catchRate:5, expYield:360, rarity:"legendary",
-    desc:"The apex predator of electric dragons. Every storm in Lumoria eventually reports to it.",
-    lore:"Stormcrown is an electric-dragon 5.5 metres long with a permanent crown of crackling lightning. It is the dominant electric-type in any region it inhabits and other electric creatures defer to it instinctively." },
+    learnset:[[1,"jolt"],[10,"discord"],[20,"volt_jet"],[30,"harmonic_wave"],[40,"stormbolt"],[50,"concussive_strike"],[60,"threnody"],[5,"resonate"],[52,"volt_surge"],[62,"arc_flash"]],
+    catchRate:5, expYield:360, rarity:"pseudolegendary",
+    desc:"The apex thunderbird, crowned in living lightning. Every storm in Lumoria eventually answers its call.",
+    lore:"Stormcrown is the apex thunderbird, a 5.5-metre raptor wreathed in storm-cloud plumage with a permanent crown of crackling lightning — the matured storm Stormlord once only carried. Its cry rolls across the land as a deafening thunderclap that scatters lesser creatures, and it is the dominant power in any region it inhabits; other electric creatures defer to it instinctively." },
 
   390: { id:390, name:"Voidgarden", emoji:"🌸", types:["Nature","Poison"],
     base:{hp:71,atk:81,def:77,spa:112,spd:93,spe:91}, evolveTo:null, evolveLevel:null,
@@ -4557,20 +4557,20 @@ const MONSTERS_DATA = {
     desc:"A garden of beautiful but corrupted plant life. Its flowers are as poisonous as they are gorgeous.",
     lore:"Voidgarden is a nature-poison entity 2 metres tall resembling a humanoid composed of venomous flowers and dark thorned vines growing simultaneously. The flowers glow with a light that induces euphoria." },
 
-  391: { id:391, name:"Titanfang", emoji:"🦷", types:["Normal","Draconic"],
+  391: { id:391, name:"Titanfang", emoji:"🦬", types:["Normal","Earth"],
     base:{hp:88,atk:111,def:86,spa:77,spd:80,spe:83}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"cranial_ram"],[10,"draconic_breath"],[20,"crushing_bulk"],[30,"draconic_claw"],[40,"radiance_cannon"],[50,"wyrm_strike"],[60,"eon_crash"],[5,"hydra_dance"],[52,"primordial_roar"],[62,"double_smash"]],
+    learnset:[[1,"cranial_ram"],[10,"primeval_force"],[20,"crushing_bulk"],[30,"auger_strike"],[40,"radiance_cannon"],[50,"obsidian_crash"],[60,"mantle_surge"],[5,"war_dance"],[52,"crag_strike"],[62,"double_smash"]],
     catchRate:5, expYield:362, rarity:"rare",
-    desc:"The largest creature confirmed alive in Lumoria. It has no natural predators.",
-    lore:"Titanfang is a normal-dragon creature 10 metres long resembling an ancient apex predator grown to impossible scale. The ground shakes with each step. Its roar is felt as a physical pressure for 30 kilometres." },
+    desc:"The largest creature confirmed alive in Lumoria — an apex behemoth with no natural predators.",
+    lore:"Titanfang is a colossal behemoth 10 metres long, an ancient apex beast grown to impossible scale, its tusked jaws and tree-trunk limbs caked in dried earth. The ground shakes with each step, and its roar is felt as a physical pressure for 30 kilometres. Nothing in Lumoria preys on it." },
 
   // ---- Tier 5b: Ultra-rare Apex Summit BST ~680–710 ----
-  392: { id:392, name:"Eondrake", emoji:"🐉", types:["Draconic","Mental"],
+  392: { id:392, name:"Eonyx", emoji:"🦁", types:["Mental"],
     base:{hp:82,atk:115,def:91,spa:122,spd:95,spe:100}, evolveTo:null, evolveLevel:null, ngPlusTier:3,
-    learnset:[[1,"draconic_pulse"],[5,"hydra_dance"],[10,"psi_strike"],[15,"psi_burst"],[20,"wyrm_strike"],[30,"synaptic_shatter"],[35,"mental"],[40,"scale_storm"],[50,"neural_storm"],[55,"time_fracture"],[60,"cataclysm_breath"]],
+    learnset:[[1,"cortex_spike"],[5,"clairvoyance"],[10,"psi_strike"],[15,"psi_burst"],[20,"cerebral_punch"],[30,"synaptic_shatter"],[35,"mental"],[40,"mindbreaker"],[50,"neural_storm"],[55,"time_fracture"],[60,"cosmic_thought"]],
     catchRate:4, expYield:368, rarity:"legendary",
-    desc:"A dragon that has lived so long it perceives all possible futures simultaneously. It fights battles it has already won.",
-    lore:"Eondrake is a dragon-psychic 7 metres long whose scales carry the iridescent sheen of deep time. Its eyes are filled with visions of every past and future moment. Ancient records show it has appeared at every major historical turning point." },
+    desc:"An ancient sphinx that has lived so long it perceives all possible futures simultaneously. It fights battles it has already won.",
+    lore:"Eonyx is an ancient sphinx 4 metres long, a lion-bodied oracle whose mane and wings carry the iridescent sheen of deep time. Its eyes are filled with visions of every past and future moment, and it speaks only in riddles whose answers have not yet happened. Ancient records show it has appeared at every major historical turning point." },
 
   393: { id:393, name:"Nullstorm", emoji:"🌀", types:["Dark","Electric"],
     base:{hp:68,atk:95,def:70,spa:107,spd:83,spe:102}, evolveTo:null, evolveLevel:null,
@@ -4579,19 +4579,19 @@ const MONSTERS_DATA = {
     desc:"A dark electromagnetic storm given will. It communicates by interrupting every electrical device within range.",
     lore:"Nullstorm is a dark-electric entity 5 metres across that resembles a contained electromagnetic storm with a dark nucleus. Every electronic device within a kilometre malfunctions in its presence." },
 
-  394: { id:394, name:"Solarvast", emoji:"🌟", types:["Draconic","Stellar"],
+  394: { id:394, name:"Solarvast", emoji:"🦅", types:["Fire","Stellar"],
     base:{hp:86,atk:120,def:92,spa:117,spd:92,spe:101}, evolveTo:null, evolveLevel:null, ngPlusTier:3,
-    learnset:[[1,"inferno_jet"],[5,"char_dance"],[8,"sun_burst"],[10,"draconic_breath"],[12,"arcane_roar"],[15,"searing_glare"],[18,"basilisk_might"],[20,"solar_flare"],[22,"emperor_inferno"],[25,"starlight_charge"],[28,"abyss_ray"],[30,"draconic_pulse"],[35,"cosmic_slam"],[40,"pyroclasm"],[50,"cataclysm_breath"],[55,"primordial_roar"],[55,"astral_resolve"],[60,"ancient_breath"],[65,"galaxy_apocalypse"]],
+    learnset:[[1,"inferno_jet"],[5,"char_dance"],[8,"sun_burst"],[10,"ashfall"],[12,"infernal_roar"],[15,"searing_glare"],[18,"firebrand"],[20,"solar_flare"],[22,"inferno_s_grasp"],[25,"starlight_charge"],[28,"magma_baptism"],[30,"cinderwhirl"],[35,"cosmic_slam"],[40,"pyroclasm"],[50,"solar_zenith"],[55,"conflagration"],[55,"astral_resolve"],[60,"forge_blast"],[65,"galaxy_apocalypse"]],
     catchRate:4, expYield:370, rarity:"legendary",
-    desc:"A stellar dragon born from the sun itself. The corona of its home star still wraps its body.",
-    lore:"Solarvast is a stellar-dragon 7 metres long whose scales burn with the surface temperature of a star. It was first recorded appearing from a solar flare. Its breath weapon reaches temperatures measurable only in solar physics." },
+    desc:"A solar griffin born from the sun itself. The corona of its home star still wraps its wings.",
+    lore:"Solarvast is a colossal griffin 7 metres long, its eagle's head and lion's body sheathed in plumage that burns at the surface temperature of a star, wings trailing a corona of stellar fire. It was first recorded appearing from a solar flare, and the heat of its dive reaches temperatures measurable only in solar physics." },
 
-  395: { id:395, name:"Glacierend", emoji:"❄️", types:["Ice","Draconic"],
+  395: { id:395, name:"Glacierend", emoji:"🦭", types:["Ice","Normal"],
     base:{hp:97,atk:124,def:110,spa:115,spd:103,spe:99}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
-    learnset:[[1,"cold_beam"],[5,"hydra_dance"],[10,"draconic_claw"],[12,"scale_crash"],[15,"ice_claw"],[18,"drake_tail"],[20,"cryo_lance"],[22,"reptilian_gust"],[25,"cryogenic_breath"],[28,"drake_armor"],[30,"draconic_pulse"],[35,"frostbite_strike"],[40,"whiteout"],[45,"absolute_zero"],[50,"scale_storm"],[55,"ancient_breath"],[60,"cataclysm_breath"]],
-    catchRate:4, expYield:370, rarity:"legendary",
-    desc:"A glacier-dragon that has been growing since the last ice age. It moves slowly, but nothing stops it.",
-    lore:"Glacierend is an ice-dragon 8 metres long with scales of glacial blue ice 50,000 years old. It moves at glacial speed outside battle but in combat is explosively fast. Every valley it has walked through remains permanently frozen." },
+    learnset:[[1,"cold_beam"],[5,"war_dance"],[10,"icicle_smash"],[12,"aurora_blast"],[15,"ice_claw"],[18,"body_blow"],[20,"cryo_lance"],[22,"tundra_tomb"],[25,"cryogenic_breath"],[28,"boreal_armor"],[30,"ice_resonance"],[35,"frostbite_strike"],[40,"whiteout"],[45,"absolute_zero"],[50,"avalanche_drive"],[55,"icebound_lattice"],[60,"glaciation"]],
+    catchRate:4, expYield:370, rarity:"pseudolegendary",
+    desc:"A colossal glacier-walrus that has been growing since the last ice age. It moves slowly, but nothing stops it.",
+    lore:"Glacierend is a colossal walrus 8 metres long, its hide armoured in glacial blue ice 50,000 years old and its tusks grown into vast frozen pillars — the matured form Auroratusk's aurora-glow hardens into. It hauls itself at glacial speed outside battle but in combat is explosively fast. Every valley it has dragged through remains permanently frozen." },
 
   396: { id:396, name:"Thunderpeak", emoji:"⚡", types:["Electric","Metal"],
     base:{hp:70,atk:98,def:92,spa:94,spd:79,spe:92}, evolveTo:null, evolveLevel:null,
@@ -5664,7 +5664,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:108, minLv:54, maxLv:58, rate:34}, // Silvergust
       {id:112, minLv:54, maxLv:58, rate:29}, // Swirlavel
-      {id:171, minLv:55, maxLv:58, rate:24}, // Drakorius
+      {id:171, minLv:55, maxLv:58, rate:24}, // Nagaseer
       {id:177, minLv:55, maxLv:58, rate:10}, // Sapphier
       {id:128, minLv:55, maxLv:58, rate:3}   // Cranivade
     ],
@@ -5678,7 +5678,7 @@ const WORLD_DATA = {
       {id:235, minLv:58, maxLv:62, rate:10}, // Glintscale (obtainability fix)
       {id:172, minLv:58, maxLv:62, rate:30}, // Scalurin
       {id:175, minLv:58, maxLv:62, rate:20}, // Biolumal
-      {id:176, minLv:59, maxLv:62, rate:25}, // Chromena
+      {id:176, minLv:59, maxLv:62, rate:25}, // Raijolt
       {id:177, minLv:59, maxLv:62, rate:15}  // Sapphier
     ],
     hasGym:true, gymLeader:"drake", requiredBadges:7, mapPos:{x:55, y:42},
@@ -5689,12 +5689,12 @@ const WORLD_DATA = {
     desc:"The final gauntlet. Only trainers with all 16 badges may pass.",
     connections:["starbloom","summit"],
     wildMonsters:[
-      {id:173, minLv:62, maxLv:66, rate:25}, // Serpenthos
+      {id:173, minLv:62, maxLv:66, rate:25}, // Cobravyrm
       {id:124, minLv:62, maxLv:66, rate:25}, // Phantorvex
       {id:143, minLv:62, maxLv:66, rate:25}, // Lunarael
-      {id:151, minLv:63, maxLv:66, rate:25}  // Alloytron
+      {id:151, minLv:63, maxLv:66, rate:25}  // Voltipede
     ],
-    ngPlusWildMonsters:[{id:382, minLv:63, maxLv:66, rate:8}], // thinned from mega-area
+    ngPlusWildMonsters:[{id:345, minLv:60, maxLv:66, rate:18}], // Voidcoil (base) — found before Oblivionwing in Void Nexus
     hasGym:false, requiredBadges:16, mapPos:{x:62, y:35}
   },
   summit: {
@@ -5742,7 +5742,7 @@ const WORLD_DATA = {
     desc:"The deepest part of Lumoria's ocean. Aquatic and Draconic types of terrifying power lurk here. The Umbra Order seeks something ancient in these depths.",
     connections:["tidewatch","coral_reef","sunken_temple"],
     wildMonsters:[
-      {id:230, minLv:20, maxLv:24, rate:18}, // Scaleling (obtainability fix)
+      {id:230, minLv:20, maxLv:24, rate:18}, // Kappling (obtainability fix)
       {id:85, minLv:18, maxLv:24, rate:14},  // Shockharpe
       {id:33, minLv:18, maxLv:24, rate:6},  // Septanemone
       {id:19, minLv:19, maxLv:24, rate:28},  // Magmaurin
@@ -5885,7 +5885,7 @@ const WORLD_DATA = {
       {id:90, minLv:28, maxLv:34, rate:24},   // Zephyrel
       {id:92, minLv:29, maxLv:34, rate:18},  // Arcspine
       {id:85, minLv:30, maxLv:35, rate:14},   // Shockharpe
-      {id:176, minLv:31, maxLv:36, rate:6}    // Chromena
+      {id:176, minLv:31, maxLv:36, rate:6}    // Raijolt
     ],
     hasGym:false, requiredBadges:4, mapPos:{x:60, y:16}
   },
@@ -5935,7 +5935,7 @@ const WORLD_DATA = {
       {id:147, minLv:25, maxLv:31, rate:25},   // Scrapsapien
       {id:191, minLv:25, maxLv:31, rate:25},   // Pebblet
       {id:134, minLv:26, maxLv:32, rate:20},  // Aeronyx
-      {id:150, minLv:27, maxLv:32, rate:20},   // Gearon
+      {id:150, minLv:27, maxLv:32, rate:20},   // Voltcrawl
       {id:152, minLv:28, maxLv:33, rate:10}    // Imperion
     ],
     ngPlusWildMonsters:[{id:423, minLv:25, maxLv:29, rate:12}], // NG+ family base: Pebblite
@@ -6141,7 +6141,7 @@ const WORLD_DATA = {
       {id:162, minLv:58, maxLv:63, rate:14},  // Marlix (base)
       {id:163, minLv:59, maxLv:64, rate:7},  // Blightalis (mid → after base ✓)
       {id:206, minLv:57, maxLv:62, rate:12},  // Venomscale (base Poison/Draconic)
-      {id:266, minLv:57, maxLv:62, rate:21},  // Shadowpup (base Dark)
+      {id:266, minLv:57, maxLv:62, rate:21},  // Shadowcub (base Dark/Sonic)
       {id:299, minLv:57, maxLv:62, rate:5}    // Stinglet (base Bug/Poi)
     ],
     hasGym:false, requiredBadges:9, mapPos:{x:48, y:60},
@@ -6170,7 +6170,7 @@ const WORLD_DATA = {
       {id:101, minLv:59, maxLv:64, rate:13},  // Limoux (base)
       {id:104, minLv:60, maxLv:65, rate:22},  // Arenikin (base)
       {id:105, minLv:61, maxLv:66, rate:5},  // Dravanas (mid → after 104 ✓)
-      {id:106, minLv:60, maxLv:65, rate:15},  // Geodrak (base)
+      {id:106, minLv:60, maxLv:65, rate:15},  // Geoclad (base)
       {id:236, minLv:59, maxLv:64, rate:9},  // Frostick (base Ice)
       {id:248, minLv:59, maxLv:64, rate:18}   // Pebblard (base Rock)
     ],
@@ -6259,7 +6259,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:147, minLv:65, maxLv:70, rate:21},  // Scrapsapien (base)
       {id:148, minLv:66, maxLv:71, rate:5},  // Stoicguard (mid → after 147 ✓)
-      {id:150, minLv:65, maxLv:70, rate:14},  // Gearon (base)
+      {id:150, minLv:65, maxLv:70, rate:14},  // Voltcrawl (base)
       {id:134, minLv:66, maxLv:71, rate:12},  // Aeronyx (base)
       {id:153, minLv:66, maxLv:71, rate:17},  // Dentshaft (base)
       {id:55,  minLv:67, maxLv:72, rate:9},  // standalone steel
@@ -6276,13 +6276,13 @@ const WORLD_DATA = {
     connections:["forge_approach","route15"],
     wildMonsters:[
       {id:149, minLv:67, maxLv:72, rate:13},  // Eternarmor (final)
-      {id:151, minLv:66, maxLv:71, rate:25},  // Alloytron (mid)
+      {id:151, minLv:66, maxLv:71, rate:25},  // Voltipede (mid)
       {id:152, minLv:67, maxLv:72, rate:20},  // Imperion (Metal/Rock)
       {id:135, minLv:67, maxLv:72, rate:30},  // Steelvex (mid, 134 on route14 ✓)
       {id:136, minLv:68, maxLv:73, rate:12}   // Metalibat (final → after 135 ✓)
     ],
     hasGym:true, gymLeader:"ferro", requiredBadges:13, mapPos:{x:38, y:88},
-    ngPlusWildMonsters:[{id:377, minLv:67, maxLv:73, rate:8}, {id:334,minLv:73,maxLv:78,rate:25},{id:347,minLv:73,maxLv:78,rate:20},{id:377,minLv:73,maxLv:79,rate:8}]
+    ngPlusWildMonsters:[{id:334,minLv:73,maxLv:78,rate:25},{id:347,minLv:73,maxLv:78,rate:20}]
   },
   route15: {
     id:"route15", name:"Route 15 - Granite Pass", icon:"🪨", type:"route",
@@ -6296,11 +6296,11 @@ const WORLD_DATA = {
       {id:133, minLv:69, maxLv:74, rate:5},  // Monolithox (mid → after 132 ✓)
       {id:93,  minLv:69, maxLv:74, rate:7},  // standalone rock
       {id:251, minLv:67, maxLv:72, rate:12},  // Crumblite (base Rock/Metal)
-      {id:304, minLv:67, maxLv:72, rate:17},  // Icethorn (base Rock/Ice)
+      {id:304, minLv:67, maxLv:72, rate:17},  // Frostpelt (base Earth/Ice)
       {id:232, minLv:67, maxLv:72, rate:5}    // Serphaxon (base Draconic/Ground)
     ],
     hasGym:false, requiredBadges:14, mapPos:{x:48, y:85},
-    ngPlusWildMonsters:[{id:364, minLv:68, maxLv:74, rate:9}, {id:332,minLv:74,maxLv:80,rate:20},{id:349,minLv:74,maxLv:80,rate:15},{id:369,minLv:75,maxLv:81,rate:10}]
+    ngPlusWildMonsters:[{id:364, minLv:68, maxLv:74, rate:9}, {id:332,minLv:74,maxLv:80,rate:20},{id:349,minLv:66,maxLv:72,rate:18}]
   },
   quarryville: {
     id:"quarryville", name:"Quarryville Town", icon:"🏗️", type:"city",
@@ -6314,7 +6314,7 @@ const WORLD_DATA = {
       {id:92,  minLv:70, maxLv:74, rate:30}   // standalone
     ],
     hasGym:true, gymLeader:"boulder", requiredBadges:14, mapPos:{x:55, y:82},
-    ngPlusWildMonsters:[{id:399, minLv:69, maxLv:75, rate:8}, {id:359, minLv:69, maxLv:75, rate:9}, {id:327,minLv:74,maxLv:80,rate:25},{id:341,minLv:74,maxLv:80,rate:15},{id:349,minLv:75,maxLv:81,rate:8}]
+    ngPlusWildMonsters:[{id:399, minLv:69, maxLv:75, rate:8}, {id:359, minLv:74, maxLv:80, rate:9}, {id:327,minLv:70,maxLv:74,rate:25},{id:341,minLv:64,maxLv:70,rate:15},{id:349,minLv:67,maxLv:72,rate:10}]
   },
   route16: {
     id:"route16", name:"Route 16 - Starlit Path", icon:"✨", type:"route",
@@ -6417,8 +6417,8 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:148, minLv:66, maxLv:71, rate:10},  // Stoicguard (mid)
       {id:149, minLv:67, maxLv:72, rate:6},  // Eternarmor (final → after 148 ✓)
-      {id:150, minLv:65, maxLv:70, rate:24},  // Gearon (base)
-      {id:151, minLv:66, maxLv:71, rate:14},  // Alloytron (mid → after 150 ✓)
+      {id:150, minLv:65, maxLv:70, rate:24},  // Voltcrawl (base)
+      {id:151, minLv:66, maxLv:71, rate:14},  // Voltipede (mid → after 150 ✓)
       {id:153, minLv:66, maxLv:71, rate:28},  // Dentshaft (base)
       {id:154, minLv:67, maxLv:72, rate:18}   // Terragolem (mid → after 153 ✓)
     ],
@@ -6436,7 +6436,7 @@ const WORLD_DATA = {
       {id:195, minLv:69, maxLv:74, rate:24},  // Prismolith (base, new)
       {id:196, minLv:70, maxLv:75, rate:6}   // Frigolith (mid → after 195 ✓)
     ],
-    ngPlusWildMonsters:[{id:385, minLv:68, maxLv:75, rate:8}, {id:367, minLv:68, maxLv:75, rate:10}], // NG+ standalone: Bouldertide
+    ngPlusWildMonsters:[{id:385, minLv:82, maxLv:88, rate:8}, {id:367, minLv:68, maxLv:75, rate:10}], // NG+: Permafrost (ice-golem final), Bouldertide
     hasGym:false, requiredBadges:14, mapPos:{x:48, y:82}
   },
   cosmic_cavern: {
@@ -6468,7 +6468,7 @@ const WORLD_DATA = {
       {id:131, minLv:73, maxLv:78, rate:15}   // Necrothon (Dark/Grass)
     ],
     hasGym:false, requiredBadges:15, mapPos:{x:75, y:72},
-    ngPlusWildMonsters:[{id:373, minLv:78, maxLv:84, rate:8}, {id:342,minLv:78,maxLv:84,rate:20},{id:343,minLv:78,maxLv:84,rate:15},{id:352,minLv:79,maxLv:85,rate:8}]
+    ngPlusWildMonsters:[{id:373, minLv:78, maxLv:84, rate:8}, {id:342,minLv:74,maxLv:79,rate:20},{id:352,minLv:79,maxLv:85,rate:8}]
   },
   // ---- ADDITIONAL MID-GYM ROUTES (phase 2) ----
   toxic_bog: {
@@ -6518,8 +6518,8 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:147, minLv:65, maxLv:70, rate:28},  // Scrapsapien (base)
       {id:148, minLv:66, maxLv:71, rate:6},  // Stoicguard (mid → after 147 ✓)
-      {id:150, minLv:65, maxLv:70, rate:24},  // Gearon (base)
-      {id:151, minLv:66, maxLv:71, rate:10},  // Alloytron (mid → after 150 ✓)
+      {id:150, minLv:65, maxLv:70, rate:24},  // Voltcrawl (base)
+      {id:151, minLv:66, maxLv:71, rate:10},  // Voltipede (mid → after 150 ✓)
       {id:134, minLv:66, maxLv:71, rate:18},  // Aeronyx (base)
       {id:135, minLv:67, maxLv:72, rate:14}   // Steelvex (mid → after 134 ✓)
     ],
@@ -6570,7 +6570,7 @@ const WORLD_DATA = {
       {id:216, minLv:63, maxLv:68, rate:10},  // Mindrift (mid → Psywisp 215 ✓)
       {id:262, minLv:62, maxLv:67, rate:18},  // Transluceed (base Grass/Poi)
       {id:263, minLv:63, maxLv:68, rate:6},  // Tendrilisk (mid → after 262 ✓)
-      {id:272, minLv:62, maxLv:67, rate:14}   // Embrix (base Fire/Draconic)
+      {id:272, minLv:62, maxLv:67, rate:14}   // Embrix (base Fire, phoenix)
     ],
     ngPlusWildMonsters:[{id:350, minLv:63, maxLv:68, rate:10}], // NG+ standalone: Fernwrath
     hasGym:false, requiredBadges:11, mapPos:{x:20, y:83}
@@ -6584,7 +6584,7 @@ const WORLD_DATA = {
       {id:264, minLv:64, maxLv:69, rate:13},  // Impenezard (final → Vinrix 263 on fungal_cavern ✓)
       {id:199, minLv:63, maxLv:68, rate:27},  // Aeridaleth (final Bug)
       {id:265, minLv:63, maxLv:68, rate:23},  // Mosswing (standalone Grass/Bug)
-      {id:273, minLv:63, maxLv:68, rate:13},  // Blazeon (mid → Embrix 272 on fungal_cavern ✓)
+      {id:273, minLv:63, maxLv:68, rate:13},  // Blazeon (phoenix final → Embrix 272 on fungal_cavern ✓)
       {id:290, minLv:63, maxLv:68, rate:10}   // Mimiclaw (location evo cobweb_gully nearby)
     ],
     legendaryEncounter:{monsterId:318, level:69}, // static legendary (obtainability fix)
@@ -6630,7 +6630,7 @@ const WORLD_DATA = {
       {id:301, minLv:66, maxLv:71, rate:6}, // Emberveil (obtainability fix)
       {id:245, minLv:66, maxLv:71, rate:9},  // Thundravex (mid Electric → 244 ✓)
       {id:275, minLv:66, maxLv:71, rate:13},  // Infernox (mid → 274 Cindling on magma_vent ✓)
-      {id:266, minLv:65, maxLv:70, rate:27},  // Shadowpup (base Dark, also route10)
+      {id:266, minLv:65, maxLv:70, rate:27},  // Shadowcub (base Dark/Sonic, also route10)
       {id:267, minLv:66, maxLv:71, rate:17},  // Nightclaw (mid → after 266 ✓)
       {id:278, minLv:65, maxLv:70, rate:23},  // Ironling (base, also route14)
       {id:312, minLv:65, maxLv:70, rate:5}    // Dunecrawl (base, also magma_vent)
@@ -6659,7 +6659,7 @@ const WORLD_DATA = {
     connections:["route15","stone_plateau"],
     wildMonsters:[
       {id:249, minLv:68, maxLv:73, rate:24},  // Boulderax (mid → 248 on route11/magma_vent ✓)
-      {id:305, minLv:68, maxLv:73, rate:14},  // Geoshard (mid → 304 Crysthorn on route15 ✓)
+      {id:305, minLv:68, maxLv:73, rate:14},  // Snowmaw (mid → 304 Frostpelt on route15 ✓)
       {id:233, minLv:68, maxLv:73, rate:18},  // Serpenthorn (mid → 232 Draxon on route15 ✓)
       {id:174, minLv:68, maxLv:73, rate:10},  // Scalevorn (standalone Draconic/Metal)
       {id:251, minLv:67, maxLv:72, rate:28},  // Crumblite (base Rock/Metal, also route15)
@@ -6674,14 +6674,14 @@ const WORLD_DATA = {
     connections:["stone_plateau","quarryville"],
     wildMonsters:[
       {id:250, minLv:70, maxLv:75, rate:14},  // Megalith (final → 249 on granite_tunnels ✓)
-      {id:306, minLv:70, maxLv:75, rate:13},  // Crystallon (final → 305 on granite_tunnels ✓)
+      {id:306, minLv:70, maxLv:75, rate:13},  // Yetigrand (final → 305 on granite_tunnels ✓)
       {id:234, minLv:70, maxLv:75, rate:13},  // Wyvernak (final → 233 on granite_tunnels ✓)
       {id:237, minLv:69, maxLv:74, rate:27},  // Icevault (mid → 236 Frostick on route11 ✓)
       {id:313, minLv:69, maxLv:74, rate:23},  // Sandrix (mid → 312 Dunecrawl on magma_vent ✓)
       {id:241, minLv:70, maxLv:75, rate:10}   // Shardlix (location evo from cosmic_cavern energy)
     ],
     legendaryEncounter:{monsterId:317, level:73}, // static legendary (obtainability fix)
-    ngPlusWildMonsters:[{id:388, minLv:70, maxLv:75, rate:8}, {id:340, minLv:70, maxLv:75, rate:10}], // NG+ standalone: Cryoshard
+    ngPlusWildMonsters:[{id:340, minLv:70, maxLv:75, rate:10}], // NG+: Cryoshard (Chronolith #388 now evolution-only from Mirestone)
     hasGym:false, requiredBadges:14, mapPos:{x:53, y:83}
   },
   nebula_gorge: {
@@ -6761,7 +6761,7 @@ const WORLD_DATA = {
     ],
     hasGym:false, requiredBadges:16, requiresChampion:true,
     hasUmbraEncounter:true, mapPos:{x:83, y:79},
-    ngPlusWildMonsters:[{id:345,minLv:80,maxLv:87,rate:20},{id:352,minLv:81,maxLv:87,rate:15},{id:373,minLv:82,maxLv:88,rate:8}]
+    ngPlusWildMonsters:[{id:382,minLv:80,maxLv:87,rate:12},{id:352,minLv:81,maxLv:87,rate:15},{id:373,minLv:82,maxLv:88,rate:8}]
   },
 
   // ============================================================
@@ -8981,7 +8981,7 @@ const QUESTS_DATA = [
     reward:{type:"money", amount:40000}, rewardText:"40000 coins" },
 
   // --- Legendary Beast Hunt (high-level wild legendary encounters as quests) ---
-  { id:"ngq35", title:"Legend Hunt: Eondrake", desc:"Track down the ancient Eondrake that has been spotted near the Prismatic Rift. It will not be caught easily.", location:"prismatic_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
+  { id:"ngq35", title:"Legend Hunt: Eonyx", desc:"Track down the ancient Eonyx that has been spotted near the Prismatic Rift. It will not be caught easily.", location:"prismatic_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
     boss:{monsterId:392, level:90, moves:["time_fracture","cataclysm_breath","synaptic_shatter","wyrm_strike"]},
     reward:{type:"item", itemId:"masterOrb", qty:2}, rewardText:"2 Master Orbs" },
   { id:"ngq36", title:"Legend Hunt: Cosmoveil", desc:"Cosmoveil has been sighted at the absolute peak of Apex Summit. Reach it and face the being from beyond the stars.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,

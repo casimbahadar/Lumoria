@@ -18,7 +18,7 @@ applies CAP=2 to all groups, and emits the full flagged list.
 
 By bucket:
 - exact duplicates: 2 (#10 Embrix ↔ #272 Embrix)
-- near-duplicates (≥0.88): 2 (#319 Voidraxis↔#129 Voidaxis, #407 Voidwarden↔#390 Voidgarden)
+- near-duplicates (≥0.88): 2 (#319 Voidraxis↔#129 Cerebraith (resolved — #129 renamed from Voidaxis), #407 Voidwarden↔#390 Voidgarden)
 - over-cap suffix/prefix groups: ~155
 - Forgotten midfix conflicts: 32
 

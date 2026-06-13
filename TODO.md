@@ -23,18 +23,77 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 | 🎲 Encounter-rate audit | ✅ done | PR #58 |
 | 🎯 Obtainability audit (474/500) | ✅ done | PR #62 |
 | 🎮 NG+/Forgotten gating + legendary encounters | ✅ done | PR #53 |
-| 🎯 Archetype × type-combo diversity **audit** | ✅ analysis shipped · ✅ collision pass applied · ⏳ full sweep folded into UNIFIED | PR #63 **merged** (matrix doc); collision-resolution pass: 9 archetype×combo collisions → 12 cap-verified retypes (Crumblite/Stonegrip, Abyssforge, Rimeling/Deepfreeze, Ferrocrush, Emberveil, Mosswing, Shadowpup/Nightclaw/Darkfang, Cryoshard) + STAB; Lumivane kept (false-collision relabel). Remaining full per-cell sweep folded into 🕯 UNIFIED |
-| 🕯 UNIFIED per-Lumori audit | 🚧 ACTIVE — next phase | handoff: `docs/unified-audit-handoff.md`. Per-Lumori lore/desc/emoji/archetype/type/cap walk + classifies the **54 unclassified NG+ families (ids 408–461)** |
+| 🎯 Archetype × type-combo diversity **audit** | ✅ analysis shipped · ✅ collision pass applied · ✅ **full sweep DONE 2026-06-12** | PR #63 **merged** (matrix doc); collision-resolution pass: 9 archetype×combo collisions → 12 cap-verified retypes (Crumblite/Stonegrip, Abyssforge, Rimeling/Deepfreeze, Ferrocrush, Emberveil, Mosswing, Shadowpup/Nightclaw/Darkfang, Cryoshard) + STAB; Lumivane kept (false-collision relabel). **Full per-cell sweep run 2026-06-12: diversity SUFFICIENT** — type-combo caps healthy (only Nature mono 13 over, accepted; 87 pristine duals free); a few common-animal archetypes over cap-3 (beetle 5 known "trim 2", cat/wolf/saurian ×4, borderline-OK); **3 archetype×combo redundancy pairs — ALL RESOLVED 2026-06-12:** dragonfly×Electric/Nature → Stuntrap #243 remade to Dream/Sonic · dream-entity×Dream/Mental → Oneiron #170 to Dark/Dream · wraith×Dark/Spectral → #342/#343 merged into one Wraithking→Shadowreave line. |
+| 🕯 UNIFIED per-Lumori audit | 🚧 ACTIVE | handoff: `docs/unified-audit-handoff.md`. Per-Lumori lore/desc/emoji/archetype/type/cap walk. ✅ **NG+ 408–461 classification DONE** (all 22 families F1–F22 in `taxonomy.md`; legacy Crystal 408–410 & Primal 432–434 kept under legendary exception; no `data.js` changes). ✅ `oversaturated_combos.py` threshold fixed→462. ✅ **flagship policy re-decided & LOCKED 2026-06-10** (rule-based: mono auto-12, dual ordinary-6 + flagship-by-justification; old 4-combo list retired; Nature mono 13 accepted soft-over). ✅ desc↔lore body flags ALL DONE (#84 Electrix / #243 Stuntrap / #316 Abyssovex). ✅ inline Step-4 flags VERIFIED zero remain (resolved 2026-06-08). ✅ under-used-type distribution — clear wins applied (#160/#161 Miasmafly line + #328 Smogveil → Poison/Vapor; Vapor 11→14, Wind 40→37); Dream/Sonic/Fighting yielded no intrinsic candidates (no forcing). ✅ renaming surface pass done → Tier-1 queue in checkpoint note below. ✅ **standalone-count reduction DONE** (2026-06-12 — reducible NG+ standalones 70→56 via golem + monolith + dragon-pair merges; see checkpoint). ⏳ remaining: Tier-2 + affix-collision renaming pass (folded into the 🏷️ Luminex renaming item — see checkpoint catalog); trainer-SVG replacement (deferred). **See "🕯 UNIFIED — session checkpoint" below.** |
 | 📉 Standalone count reduction | ⏳ not started | — |
-| 🏷️ Luminex renaming + final lore | ⏳ partial/paused | PRs #34–35; resumes after UNIFIED |
-| 🔮 Mythical archetype flags | ✅ policy locked · ✅ re-archetype execution (#86) · ⏳ 54 NG+ classification → UNIFIED | `docs/mythical-archetype-policy.md`: golem CONFIRMED exempt; cetacean & treant capped (common cap-3, trim 2/1); wraith **split** into distinct spectral sub-archetypes; Forgotten renumbered 408–446→462–500 in taxonomy.md. Docs-only (no `mythical` data field). Re-archetype execution DONE (#86: cetacean trim-2, treant trim-1, wraith split). **54 NG+ classification (ids 408–461)** deferred to UNIFIED. |
+| 🏷️ Luminex renaming + final lore | ⏳ partial/paused | PRs #34–35; Tier-1 confusables done (Cerebraith/Narwhirl/Cobravyrm). **Pending: Tier-2 + affix-collision renaming pass** (shared prefix/suffix near-twins — Quarrix/Quarrex, Mirkling/Mistling, etc.) → full catalog + guidance in the UNIFIED checkpoint. Do as one pass, not piecemeal. |
+| 🔮 Mythical archetype flags | ✅ policy locked · ✅ re-archetype execution (#86) · ✅ **54 NG+ classification DONE** | `docs/mythical-archetype-policy.md`: golem CONFIRMED exempt; cetacean & treant capped (common cap-3, trim 2/1); wraith **split** into distinct spectral sub-archetypes; Forgotten renumbered 408–446→462–500 in taxonomy.md. Docs-only (no `mythical` data field). Re-archetype execution DONE (#86: cetacean trim-2, treant trim-1, wraith split). **54 NG+ classification (ids 408–461) DONE** — completed in taxonomy.md as families F1–F22 (per UNIFIED row). |
 | 🎯 Moveset utilization audit | ✅ done | PR #68 — Phase 1 orphan-clearing + key rename + Phase 2 STAB-completeness |
 | 🌑 Forgotten Lumori dedicated audit | ✅ done (core) | typing/moveset/stats/archetype/lore/variant/appearance-briefs all done (2026-06-08, incl. PR #81); residual Abilities-assignment (blocked on Abilities feature) + 13 wielder cutscenes tracked under their own items |
-| 📊 Final stat-spread review | ⏳ not started | RUN LAST |
+| 📋 Final per-Lumori complete analysis | ⏳ not started | **RUN LAST.** Rescoped 2026-06-10 from the old stats-only "Final stat-spread review" → a comprehensive per-Lumori final pass: re-check **everything** one more time for each entry — stats/BST spread, typing (+ cap), lore, desc, emoji, archetype, moveset/learnset, evolution-line logic, name — and produce a **detailed written explanation per family and per standalone** (what it is, why each field/decision is right, any residual flags). Family-by-family / standalone-by-standalone format. This is the capstone verification of all prior audit work. |
 | 🧬 Abilities feature (now "Traits") | ✅ Phase 1-3b + canonical 8 merged · 🚧 UI surfacing in progress · ⏳ Phase 5 full assignment | PR #67 **merged** (265-entry registry, full battle dispatch, 8 verified end-to-end). Next branch `claude/traits-ui-surfacing`: team-menu badge, Lumori-detail traits section, battle UI inline badge. Phase 5 full assignment (~438 remaining Lumori) follows. |
 | 🤝 Inter-Lumori interactions (dedicated pass) | ⏳ not started | after abilities (bridge sweep done, PR #48) |
-| 13 wielder cutscenes (Forgotten legendaries) | ⏳ not started | after stat review |
+| 13 wielder cutscenes (Forgotten legendaries) | ⏳ not started | after final per-Lumori analysis |
 | 🚀 Pre-launch / release process | 🚧 in progress | launch draft PR #52 |
+
+---
+
+## 🕯 UNIFIED — session checkpoint (2026-06-10)
+
+Clean state — everything committed & pushed on `claude/unified-audit-handoff-tianz9`; PR #90 (run-game skill) **merged to main**.
+
+**Done this session:** desc↔lore fixes (#84/#243/#316) · flagship policy locked · Step-4 flags verified 0 remain · under-used-type distribution clear wins (Miasmafly line #160/#161 + Smogveil #328 → Poison/Vapor) · run-game skill (now on `main`) · renaming surface pass.
+
+**Renaming review queue (read-only — nothing changed):**
+- 🔴 Tier 1 (both base-dex, genuinely confusable — only ones worth acting on):
+  - ✅ #129 **Voidaxis → Cerebraith** (renamed 2026-06-10; #319 Voidraxis kept — story legendary)
+  - ✅ #257 **Reefhorn → Narwhirl** (renamed 2026-06-10; #261 Leafhorn kept)
+  - ✅ #173 **Serpenthos → Cobravyrm** (renamed 2026-06-10; #233 Serpenthorn kept)
+- 🟡 Tier 2 + affix-collision review → **DEFERRED to the 🏷️ Luminex renaming item** (handle as one pass — these are all shared-prefix/suffix issues, not one-offs). See the affix-collision catalog below.
+- No exact-duplicate names; no obvious IP collisions (original portmanteaus).
+- ⚠️ Any rename touches `js/data.js` + `js/variant-content.js` (+ maybe `taxonomy.md`/sprite keys/encounter comments) — propose per-name with a sync check.
+
+**Affix-collision catalog (for the 🏷️ renaming pass — compiled 2026-06-12):**
+- **Genuine confusables to resolve** (near-identical spelling AND similar creature/role):
+  - #205 **Quarrix** (🪲 Nature/Earth beetle, Muddite line) ↔ #327 **Quarrex** (🗿 Earth golem) — 1 letter apart; rename one (proposed beetle → "Cragborer", keeping the just-built golem line; could flip).
+  - #405 **Mirkling** (Dark/Metal shadow-pup) ↔ #420 **Mistling** (Vapor hot-spring pup, Mistling→Geyserook→Tempesteam) — Mirk/Mist + "pup -ling"; proposed Mistling → "Steamling" (line-cohesive, breaks the clash).
+  - *Borderline:* #390 **Voidgarden** (Nature/Poison) ↔ #407 **Voidwarden** (Dark/Metal) — distinct real words; likely leave, or Voidgarden → "Banebloom".
+- **Largest shared-affix groups to sanity-check** (mostly FINE — thematic conventions, list for awareness): suffixes `-ling`×12, `-vast`×12, `-lith/-olith`×12, `-horn/-thorn`×7, `-claw`×7, `-wing`×7, `-vorn`×6, `-arch`×6, `-veil/-drak/-rael/-raxis/-crown/-mite`×4–5; prefixes `Void`×7, `Cind/Veno/Frost/Spec`×5, `Glac/Volt/Mist/Abys/Luna`×4.
+- **Guidance:** a shared affix alone is NOT a problem (it signals a theme family). Only rename when two names read as near-identical spellings of similar creatures. Gustling #458 is distinct (Gust ≠ Mirk/Mist) — leave.
+
+**Next-session options:** (a) work up a Tier-1 rename proposal; (b) ~~item #6 standalone-count reduction~~ ✅ **DONE 2026-06-12** (see standalone-reduction checkpoint below); (c) trainer-SVG replacement (deferred follow-up to the monster-SVG strip); (d) other audit items. Under-used-type distribution (#3) is considered substantially complete (clear wins banked, no forcing).
+
+### 🐉 Dragon cleanup + sprite pipeline (2026-06-12) — DONE
+
+**Dragon archetype cleanup COMPLETE: 52 → 24 Draconic IDs** (user-confirmed final; target was 15–25). 21 family re-archetypes into pristine archetypes, each: header types/emoji + on-type learnset + desc/lore rewrite + variant-content + taxonomy + caps respected + validate.js green. Families #1–21: thunderbird, raven, walrus, zaratan/behemoth, chameleon, swift, swordfish, salamander, kelpie, iguana, sphinx, griffin, koi, shark, basilisk, glyptodon, kappa, feathered-serpent, naga, raiju, phoenix. **Kept** as deliberate dragons: Boreadrake ice-line #59–60, Temporith #317, + untouched lines (#172–174, #206–208, #232–234, #293–295, #402–404, #412–413), standalones (#3, #288, #321), Forgotten #482.
+
+**Plague-dragon reframe (#206–208 Venomscale line):** claimed canonical `plague-dragon` sub-archetype with a sympathetic/misunderstood identity (lore/behaviour only — types/stats/learnsets unchanged). Innately & involuntarily toxic but gentle, sociable & lonely; isolated by fear; keeps *away* from others to avoid sickening them — explicitly NOT a disease-spreader, no miasma/blight.
+
+**Sprite/art pipeline:** `scripts/art_prompt.py` (per-id prompt builder — painterly + `--style pixel` Gen-4 modes, sizing footer) · `image-rendering: pixelated` for raster PNGs · **procedural monster-SVG generator stripped** (~850 lines) → emoji fallback until PNGs land (gym-badge + trainer SVGs untouched; trainers = later follow-up) · 16 gym badges rendered for re-prompting. All on PR #88.
+
+### 🎨 Mono-type diversity pass (2026-06-12/13) — DONE for top types
+
+User-driven: walk types by descending mono-ID count, remake a few mono-type Lumori into pristine **lowest-usage** combos (rewriting lore/learnsets as needed; reserved 5 types excluded). Each injects rare types AND relieves mono saturation.
+- **Nature** (13→8): Thornmoth→Nature/Sonic · Leafhorn→Nature/Dream (rewritten dream-deer) · Germix line→Nature/Fighting (grove-guardians)
+- **Normal** (10→6): Bouncyblob→Normal/Vapor · bear line (Rotunden/Glutoros/Behemovast)→Normal/Fighting
+- **Electric** (8→6): Pulseglow→Electric/Sonic (bridges Stuntrap) · Sparkeen→Electric/Dream (+beetle→butterfly fix)
+- **Mental** (8→5): Veilwisp→Mindrift→Distorsion wisp line→Mental/Vapor (psychic mist)
+- Also resolved the 3 diversity collisions (Stuntrap, Oneiron, wraith merge). Rarest types Vapor/Dream/Sonic/Fighting now spread across far more combos. Remaining types (Aquatic/Earth/Ice/Dark 7, etc.) left — user called the pass complete after Mental.
+
+### 🧩 Standalone-count reduction (#6) — DONE (2026-06-12)
+
+**Reducible NG+ standalones 70 → 56 (−14).** Merged same-archetype NG+ standalones into id-ascending evolution lines (base restatted weaker, evolve levels assigned, lore rewritten young→mature, caps respected, base placed to spawn before its evos):
+- **Forge golem** Ashgolem #337 → Embersteel #347 (via Metal Coat) — −2
+- **Ice golem** Crystavault #349 → Glaciarch #359 → Permafrost #385 — −3
+- **Earth golem** Quarrex #327 → Gravithorn #369 → Abyssforge #377 (consistent Earth → Earth/Mineral → Earth/Mineral) — −3
+- **Monolith** Mirestone #341 → Chronolith #388 (Earth/Mental) — −2
+- (earlier dragon-pair merges: thunderbird/raven/walrus — −4)
+
+Related: **Ferrocrush #334 → Voltbrawler** (Metal/Fighting → pristine **Electric/Fighting** battlebot 🤖 — new type pairing for golems). **Glacicore #332 kept** (unique Ice/Metal). Golem archetype stays mythical-exempt (no cap trim — merges shrink standalones, not the golem count).
+
+**Encounter-order audit (all changed multi-stage lines):** every base now spawns before its evolutions; fixed the one violation found (raven #345 Voidcoil ↔ #382 Oblivionwing — base was Lv80, evo Lv63; swapped areas so base Lv60-66 found first).
+
+**Stopping point:** remaining ~56 reducible NG+ standalones are overwhelmingly unique one-off creatures (wolf, crocodilian, kelpie, griffin, sphinx, swordfish…) that can't be force-merged; base 24 reducible untouched by design; Forgotten 39 are single legendaries. Natural completion. All on PR #88.
 
 ---
 
@@ -347,7 +406,7 @@ Goal: complete inventory of every creature/animal/thing represented in the dex (
 - **serpent (non-dragon)**: 3 (Nocturil line, Coilstrike, Fluxserpent) *(Dunecrawl line → armadillo #312-313; Zephyrin line pivoted to vortex #116-117)*
 
 ### Over cap (>3) — mythical/exempt candidates (see (b) below):
-- **dragon-mythic**: 34 — exempt (mythical)
+- **dragon-mythic**: ≈24 Draconic IDs after the 2026-06-12 cleanup (was 34/52) — exempt (mythical)
 - **faerie sprite / winged-fairy**: 9 — exempt (mythical)
 - **shadow/wraith/ghost-spectral**: 9 — exempt (mythical)
 - **crystalline-prism**: 6 — exempt (mythical)
@@ -999,6 +1058,7 @@ After every coherence fix, type adjustment, rename, AND the Forgotten Lumori ded
   - Cross-family parity (similar-tier mons should have similar BSTs)
   - Stat distribution coherence (e.g. high-Atk physical attackers have at least decent Spe; tanks have HP/Def synergy; SpA-leaning casters have SpD bulk)
 - [ ] Flag any mon whose stats fight its body plan (e.g. a fast bird with Speed 30, a heavy tank with Def 40)
+- [ ] **Per-typing stat-profile variance check** (added 2026-06-09): for **every type and every type-combo group**, verify the member species/families do NOT collapse into a single homogeneous stat profile — there should be deliberate variance in stat *shape*/role across the roster of a given typing (e.g. not every Sonic-type a fast special-attacker; not every Vapor/X a bulky special wall; not every Fighting/X a slow physical bruiser). Flag any typing or combo whose members cluster too tightly on one stat-shape, and diversify the outliers (respecting body-plan coherence and evo-stage BST tiers). Grouping source: the per-typing rosters from the UNIFIED classification + `scripts/oversaturated_combos.py` combo tally.
 - [ ] Adjust to bring outliers in line, preserving overall power balance
 - [ ] Re-verify trainer encounters / wild-area difficulty curves still feel correct after stat adjustments
 

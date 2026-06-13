@@ -857,6 +857,12 @@ html, body {
   filter: drop-shadow(0 3px 6px rgba(0,0,0,0.5));
 }
 
+/* Pixel-art sprite overrides (assets/sprites/<id>.png) render crisp, not blurred.
+   The procedural SVG fallback (data: URI) is unaffected and stays smooth. */
+img[src*="assets/sprites/"] {
+  image-rendering: pixelated;
+}
+
 .enemy-pos { animation: enemyEntrance 0.5s ease-out; }
 
 .player-pos { animation: playerEntrance 0.5s ease-out; }
@@ -1310,7 +1316,7 @@ html, body {
 }
 .pokedex-screen-lines {
   font-family: 'Courier New', monospace;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   color: #a8d8a8;
   line-height: 1.6;
   min-height: 5.5rem;

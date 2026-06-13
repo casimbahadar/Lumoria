@@ -1181,7 +1181,7 @@ function updateBattleUI() {
   const enemySpriteEl = document.getElementById("enemy-sprite");
   enemySpriteEl.classList.toggle("shiny-sprite", !!enemy.shiny);
   enemySpriteEl.classList.toggle("variant-sprite", !!enemy.variant);
-  if (typeof getMonsterSpriteURL === "function" && MONSTERS_DATA[enemy.monsterId]) {
+  if (typeof getMonsterSpriteURL === "function" && MONSTERS_DATA[enemy.monsterId] && getMonsterSpriteURL(MONSTERS_DATA[enemy.monsterId])) {
     enemySpriteEl.innerHTML = `<img src="${getMonsterSpriteURL(MONSTERS_DATA[enemy.monsterId], 90)}" width="90" height="90" alt="${enemy.name}">`;
   } else {
     enemySpriteEl.textContent = enemy.emoji;
@@ -1236,7 +1236,7 @@ function updateBattleUI() {
   const playerSpriteEl = document.getElementById("player-sprite");
   playerSpriteEl.classList.toggle("shiny-sprite", !!player.shiny);
   playerSpriteEl.classList.toggle("variant-sprite", !!player.variant);
-  if (typeof getMonsterSpriteURL === "function" && MONSTERS_DATA[player.monsterId]) {
+  if (typeof getMonsterSpriteURL === "function" && MONSTERS_DATA[player.monsterId] && getMonsterSpriteURL(MONSTERS_DATA[player.monsterId])) {
     playerSpriteEl.innerHTML = `<img src="${getMonsterSpriteURL(MONSTERS_DATA[player.monsterId], 90)}" width="90" height="90" alt="${player.name}">`;
   } else {
     playerSpriteEl.textContent = player.emoji;
@@ -2727,7 +2727,7 @@ function updateMultiBattleUI() {
         badge.textContent = t;
         typesEl.appendChild(badge);
       }
-      if (typeof getMonsterSpriteURL === "function" && MONSTERS_DATA[e.monsterId]) {
+      if (typeof getMonsterSpriteURL === "function" && MONSTERS_DATA[e.monsterId] && getMonsterSpriteURL(MONSTERS_DATA[e.monsterId])) {
         spriteEl.innerHTML = `<img src="${getMonsterSpriteURL(MONSTERS_DATA[e.monsterId], 60)}" width="60" height="60" alt="${e.name}">`;
       } else {
         spriteEl.textContent = e.emoji;
@@ -2762,7 +2762,7 @@ function updateMultiBattleUI() {
       } else {
         statusEl.classList.add("hidden");
       }
-      if (typeof getMonsterSpriteURL === "function" && MONSTERS_DATA[p.monsterId]) {
+      if (typeof getMonsterSpriteURL === "function" && MONSTERS_DATA[p.monsterId] && getMonsterSpriteURL(MONSTERS_DATA[p.monsterId])) {
         spriteEl.innerHTML = `<img src="${getMonsterSpriteURL(MONSTERS_DATA[p.monsterId], 60)}" width="60" height="60" alt="${p.name}">`;
       } else {
         spriteEl.textContent = p.emoji;
@@ -3310,7 +3310,7 @@ function showTeamDetail(slot, idx) {
   const currXP = slot.xp || 0;
   const xpToNext = Math.max(0, nextLvXP - currXP);
 
-  const detailSpriteHTML = (typeof getMonsterSpriteURL === "function")
+  const detailSpriteHTML = (typeof getMonsterSpriteURL === "function" && getMonsterSpriteURL(def, 100))
     ? `<img src="${getMonsterSpriteURL(def, 100)}" width="100" height="100" alt="${def.name}" style="border-radius:12px">`
     : `<span class="detail-sprite">${def.emoji}</span>`;
   document.getElementById("team-detail-content").innerHTML = `
@@ -3595,7 +3595,7 @@ function createBoxCard(slot, idx, source) {
   const hpPct = Math.round((slot.currentHP / slot.maxHP) * 100);
   const hpClass = slot.currentHP <= 0 ? "fainted" : "";
   card.className = `box-card ${hpClass}`;
-  const spriteHTML = (typeof getMonsterSpriteURL === "function")
+  const spriteHTML = (typeof getMonsterSpriteURL === "function" && getMonsterSpriteURL(def, 40))
     ? `<img src="${getMonsterSpriteURL(def, 40)}" width="40" height="40" alt="${def.name}">`
     : `<span style="font-size:1.5rem">${def.emoji}</span>`;
   const typeHTML = def.types.map(t => `<span class="type-badge type-${t}" style="font-size:0.55rem">${t}</span>`).join("");
@@ -3804,7 +3804,7 @@ function renderDexGrid(filter, search) {
       if (search && !def.name.toLowerCase().includes(search.toLowerCase()) && !(sCaught || sSeen)) continue;
       const card = document.createElement("div");
       card.className = "dex-card" + (sCaught ? " caught" : sSeen ? " seen" : " unseen");
-      const spriteHTML = (sCaught || sSeen) && typeof getMonsterSpriteURL === "function"
+      const spriteHTML = (sCaught || sSeen) && typeof getMonsterSpriteURL === "function" && getMonsterSpriteURL(def, 56)
         ? `<div class="shiny-sprite"${sSeen && !sCaught ? ' style="opacity:.55"' : ''}><img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" style="border-radius:6px"></div>`
         : `<div class="dex-emoji">❓</div>`;
       card.innerHTML = `
@@ -3824,7 +3824,7 @@ function renderDexGrid(filter, search) {
       const vCaught = G.variantDexCaught && G.variantDexCaught.has(mid);
       const card = document.createElement("div");
       card.className = "dex-card" + (vCaught ? " caught" : " seen");
-      const spriteHTML = typeof getMonsterSpriteURL === "function"
+      const spriteHTML = typeof getMonsterSpriteURL === "function" && getMonsterSpriteURL(def, 56)
         ? `<div class="variant-sprite"><img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" style="border-radius:6px"></div>`
         : `<div class="dex-emoji">${def.emoji}</div>`;
       card.innerHTML = `
@@ -3854,7 +3854,7 @@ function renderDexGrid(filter, search) {
     else card.classList.add("caught");
     if (isNGPlus) card.classList.add("ngplus-dex-card");
     if (tier >= 2) card.classList.add(`ngplus-tier-${tier}`);
-    const dexSpriteHTML = seen && typeof getMonsterSpriteURL === "function"
+    const dexSpriteHTML = seen && typeof getMonsterSpriteURL === "function" && getMonsterSpriteURL(def, 56)
       ? `<img src="${getMonsterSpriteURL(def, 56)}" width="56" height="56" alt="${def.name}" style="border-radius:6px">`
       : `<div class="dex-emoji">${seen ? def.emoji : "❓"}</div>`;
     const ngBadge = isNGPlus ? `<span class="dex-ngplus-badge" title="NG+ Exclusive${tier >= 2 ? ' — '+tierLabels[tier] : ''}">⭐</span>` : "";
@@ -3985,10 +3985,14 @@ function showDexDetail(monsterId) {
       <span class="stat-val">${bst}</span>
     </div>`;
   const evoInfo = def.evolveTo
-    ? `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} at Lv.${def.evolveLevel}`
+    ? (def.evolveMethod === "item"
+        ? `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} with ${ITEMS_DATA[def.evolveItem]?.name || "an item"}`
+        : def.evolveMethod === "location"
+          ? `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} at ${WORLD_DATA[def.evolveLocation]?.name || "a special place"}`
+          : `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} at Lv.${def.evolveLevel}`)
     : "Does not evolve";
 
-  const dexDetailSprite = (typeof getMonsterSpriteURL === "function")
+  const dexDetailSprite = (typeof getMonsterSpriteURL === "function" && getMonsterSpriteURL(def, 110))
     ? `<img src="${getMonsterSpriteURL(def, 110)}" width="110" height="110" alt="${def.name}" style="border-radius:12px">`
     : `<span style="font-size:5rem">${def.emoji}</span>`;
   // Build learnset/moveset table
@@ -4030,24 +4034,22 @@ function showDexDetail(monsterId) {
       <tbody>${movesetRows.join("")}</tbody>
     </table>`;
 
-  // Build paginated lore lines (4 lines per page)
+  // Build paginated lore lines (continuous wrap — fills each line fully
+  // instead of breaking short at every sentence end)
   const loreText = def.lore || def.desc;
-  // Split into sentences then wrap into lines of ~45 chars
-  const sentences = loreText.match(/[^.!?]+[.!?]+/g) || [loreText];
+  const CHARS_PER_LINE = 50;
+  const words = loreText.trim().split(/\s+/);
   const lines = [];
-  for (const s of sentences) {
-    const words = s.trim().split(" ");
-    let line = "";
-    for (const w of words) {
-      if ((line + " " + w).trim().length > 45 && line.length > 0) {
-        lines.push(line.trim());
-        line = w;
-      } else {
-        line = (line + " " + w).trim();
-      }
+  let line = "";
+  for (const w of words) {
+    if (line && (line + " " + w).length > CHARS_PER_LINE) {
+      lines.push(line);
+      line = w;
+    } else {
+      line = line ? line + " " + w : w;
     }
-    if (line) lines.push(line.trim());
   }
+  if (line) lines.push(line);
   const LINES_PER_PAGE = 4;
   const totalPages = Math.max(1, Math.ceil(lines.length / LINES_PER_PAGE));
   let lorePage = 0;
@@ -4557,7 +4559,7 @@ function showStarterScreen() {
     const card = document.createElement("div");
     card.className = "starter-card";
     const typeColor = getTypeColor(def.types[0]);
-    const starterSpriteHTML = (typeof getMonsterSpriteURL === "function")
+    const starterSpriteHTML = (typeof getMonsterSpriteURL === "function" && getMonsterSpriteURL(def, 80))
       ? `<img src="${getMonsterSpriteURL(def, 80)}" width="80" height="80" alt="${def.name}" style="border-radius:10px;margin-bottom:0.5rem">`
       : `<span class="starter-emoji">${def.emoji}</span>`;
     card.innerHTML = `

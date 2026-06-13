@@ -2455,25 +2455,25 @@ const MONSTERS_DATA = {
   // ===== BATCH 1: PSYCHIC/DARK TYPES (IDs 215-221) =====
 
   // 3-stage Spectral/Mental chain: Spiritch → Phantorge → Spectraith
-  215: { id:215, name:"Veilwisp", emoji:"🌀", types:["Mental"],
+  215: { id:215, name:"Veilwisp", emoji:"🌀", types:["Mental","Vapor"],
     base:{hp:40,atk:42,def:30,spa:68,spd:52,spe:72},
-    learnset:[[1,"mind_jolt"],[1,"psi_burst"],[8,"psy_jab"],[12,"inner_calm"],[16,"mnemonic_focus"],[20,"mental"],[24,"mental_pulse"],[28,"lunar_burst"],[36,"psi_strike"],[44,"neural_storm"],[52,"astral_rend"]],
+    learnset:[[1,"mind_jolt"],[1,"psi_burst"],[8,"mist_pulse"],[12,"inner_calm"],[16,"mnemonic_focus"],[20,"mental"],[24,"fog_beam"],[28,"vapor_ray"],[36,"psi_strike"],[44,"neural_storm"],[52,"astral_rend"]],
     evolveTo:216, evolveLevel:26, catchRate:175, expYield:68, rarity:"common",
-    desc:"A wisp of pure psychic energy. Drifts through reality reading the thoughts of every living thing nearby.",
-    lore:"Veilwisp is a floating psychic orb 20 cm across made of condensed translucent violet energy. Its form shifts between a perfect sphere and a wispy irregularity as its thoughts wander. It drifts through solid objects as if they do not exist and leaves a brief afterimage wherever it passes. With age a Veilwisp spends longer and longer stretches in its irregular wispy state, shorter intervals as a perfect sphere. This gradual self-dissolution is the body easing toward the bodiless distortion Distorsion eventually sustains." },
+    desc:"A wisp of pure psychic energy that thins to a cold violet mist. Drifts through reality reading nearby thoughts.",
+    lore:"Veilwisp is a floating psychic orb 20 cm across made of condensed translucent violet energy that thins, at the edges, into a cold drifting mist. Its form shifts between a perfect sphere and a wispy vapour as its thoughts wander. It drifts through solid objects as if they do not exist, leaving a brief afterimage. With age a Veilwisp spends longer stretches dispersed as mist and shorter intervals as a sphere — the body easing toward the bodiless distortion Distorsion eventually sustains." },
 
-  216: { id:216, name:"Mindrift", emoji:"🌫️", types:["Mental"],
+  216: { id:216, name:"Mindrift", emoji:"🌫️", types:["Mental","Vapor"],
     base:{hp:65,atk:65,def:52,spa:102,spd:80,spe:88},
-    learnset:[[1,"psi_burst"],[1,"inner_calm"],[20,"mental"],[28,"lunar_burst"],[36,"psi_strike"],[44,"neural_storm"],[52,"astral_rend"],[60,"radiance_cannon"]],
+    learnset:[[1,"psi_burst"],[1,"inner_calm"],[20,"mental"],[28,"fog_storm"],[36,"psi_strike"],[44,"neural_storm"],[52,"abyssal_mist"],[60,"radiance_cannon"]],
     evolveTo:217, evolveLevel:44, catchRate:90, expYield:145, rarity:"uncommon",
-    desc:"A drifting psychic entity that bridges the conscious and unconscious mind. Its form shifts like fog.",
+    desc:"A drifting psychic fog that bridges the conscious and unconscious mind. Its body shifts and rolls like mist.",
     lore:"Mindrift is a larger psychic entity 40 cm across — Veilwisp's condensed violet sphere has dispersed and lightened into a body like a slowly rotating galaxy of blue-white light particles, and its wandering wisp-form has matured into a state where no fixed centre is visible: the entity is simultaneously everywhere within itself. It is drawn to sleeping creatures and hovers above their heads to sample their dream-states." },
 
-  217: { id:217, name:"Distorsion", emoji:"🔮", types:["Mental"],
+  217: { id:217, name:"Distorsion", emoji:"🔮", types:["Mental","Vapor"],
     base:{hp:82,atk:70,def:67,spa:132,spd:106,spe:93},
-    learnset:[[1,"mental"],[1,"lunar_burst"],[15,"mental_overflow"],[20,"cerebral_punch"],[25,"telekinetic_throw"],[30,"psi_strike"],[35,"mindbreaker"],[38,"neural_storm"],[42,"temporal_collapse"],[46,"astral_rend"],[54,"psi_burst"],[62,"inner_calm"],[70,"radiance_cannon"]],
+    learnset:[[1,"mental"],[1,"nimbus_eruption"],[15,"mental_overflow"],[20,"fog_storm"],[25,"telekinetic_throw"],[30,"psi_strike"],[35,"mindbreaker"],[38,"neural_storm"],[42,"abyssal_mist"],[46,"astral_rend"],[54,"psi_burst"],[62,"inner_calm"],[70,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
-    desc:"A vast psychic intelligence that defies physical form. Peers into the deepest layers of consciousness.",
+    desc:"A vast psychic intelligence dispersed into a shimmering haze. Peers into the deepest layers of consciousness.",
     lore:"Distorsion is a vast psychic intelligence that lacks a physical body — Mindrift's slowly-rotating particle-galaxy has dispersed entirely, leaving only a shimmering distortion in the air roughly 1 metre across. Nearby objects float slightly and light bends toward it. It exists primarily in a mental dimension and its physical manifestation is merely an accidental side-effect." },
 
   // 2-stage Spectral/Dark chain: Mistwraith → Shademont (item evo: Dusk Stone)

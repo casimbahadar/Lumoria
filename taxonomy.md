@@ -124,7 +124,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[210] Boltfur→Thundermane | Normal/Electric | rabbit / hare` (giant maned hare — second hare alongside Leapbun line)
 - `[213] Cinderfrost→Frostscorch→Infriglace | Fire/Ice | fire-ice titan` (dual-element titan, unique body plan — flag as unique mythical)
 - `[214] Petrwave | Water/Rock | crab / crustacean` (coral-fortress crab, standalone — second crab alongside Rugothon line)
-- `[217] Veilwisp→Mindrift→Distorsion | Psychic | psychic-elemental` (formless distortion in air — **name leak: "Mentovast"**; sole psychic-elemental)
+- `[217] Veilwisp→Mindrift→Distorsion | Mental/Vapor | psychic-elemental` (formless psychic mist/fog — added Vapor 2026-06-12; Mental mono→pristine Mental/Vapor, claims one of Mental's two missing low pairings. Stale "Mentovast" leak verified absent.)
 - `[219] Duskmist→Nightmont | Dark | dark-elemental / formless mountain` (3m formless darkness with red-pinpoint eyes — sole dark-elemental candidate)
 - `[221] Umbrajest→Shadowveil | Dark/Psychic | wraith` (cloaked humanoid shadow)
 - `[224] Mindpuff→Recallum→Psytheon | Psychic/Fairy | faerie sprite` (winged psychic-fairy humanoid with crystal wings)

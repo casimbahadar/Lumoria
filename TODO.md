@@ -31,7 +31,7 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 | 🎯 Moveset utilization audit | ✅ done | PR #68 — Phase 1 orphan-clearing + key rename + Phase 2 STAB-completeness |
 | 🌑 Forgotten Lumori dedicated audit | ✅ done (core) | typing/moveset/stats/archetype/lore/variant/appearance-briefs all done (2026-06-08, incl. PR #81); residual Abilities-assignment (blocked on Abilities feature) + 13 wielder cutscenes tracked under their own items |
 | 📋 Final per-Lumori complete analysis | ⏳ not started | **RUN LAST.** Rescoped 2026-06-10 from the old stats-only "Final stat-spread review" → a comprehensive per-Lumori final pass: re-check **everything** one more time for each entry — stats/BST spread, typing (+ cap), lore, desc, emoji, archetype, moveset/learnset, evolution-line logic, name — and produce a **detailed written explanation per family and per standalone** (what it is, why each field/decision is right, any residual flags). Family-by-family / standalone-by-standalone format. This is the capstone verification of all prior audit work. |
-| 🧬 Abilities feature | ⏳ not started | after final per-Lumori analysis |
+| 🧬 Abilities feature (now "Traits") | ✅ Phase 1-3b + canonical 8 merged · 🚧 UI surfacing in progress · ⏳ Phase 5 full assignment | PR #67 **merged** (265-entry registry, full battle dispatch, 8 verified end-to-end). Next branch `claude/traits-ui-surfacing`: team-menu badge, Lumori-detail traits section, battle UI inline badge. Phase 5 full assignment (~438 remaining Lumori) follows. |
 | 🤝 Inter-Lumori interactions (dedicated pass) | ⏳ not started | after abilities (bridge sweep done, PR #48) |
 | 13 wielder cutscenes (Forgotten legendaries) | ⏳ not started | after final per-Lumori analysis |
 | 🚀 Pre-launch / release process | 🚧 in progress | launch draft PR #52 |
@@ -1064,16 +1064,38 @@ After every coherence fix, type adjustment, rename, AND the Forgotten Lumori ded
 
 **Run order:** BREAKING fixes → MINOR fixes → typing audit → archetype trim → renaming queue → **stat spread review (this section, last)**.
 
-# 🧬 Abilities feature (or similar legal-safe name) — RUN AFTER STAT REVIEW  `[⏳ NOT STARTED]`
+# 🧬 Traits (passive abilities) — Phase 1-3b + canonical 8 **merged** (PR #67); UI surfacing **in progress**
 
-Add a per-Lumori passive-ability system. Feature name must avoid legal risk (Pokémon's "Abilities" trademark) — candidate alternates: Traits / Aptitudes / Quirks / Knacks / Innate / Talents (final naming TBD).
+Per-Lumori passive system. Named "Traits" to sidestep Pokémon "Abilities" trademark.
 
-- [ ] Pick a non-infringing feature name
-- [ ] Design system scope (ability-pool size, per-creature count, hidden-ability slot)
-- [ ] Curate ability list (passive battle effects, stat modifiers, type resistances, weather triggers, etc.)
-- [ ] Assign abilities per Lumori (cross-reference body-plan + archetype)
-- [ ] Integrate into battle engine + UI (team detail, battle log)
-- [ ] Migration logic for existing saves
+**Done (PR #67, merged):**
+- [x] Pick a non-infringing feature name → **Traits**
+- [x] System scope locked — 1-2 active traits per Lumori; legendaries always 2; Trait Capsule item + evolution re-roll for change mechanic; ~265 traits total; verbose log with per-turn dedup; `ngPlusOnly` flag for NG+-exclusive traits
+- [x] Curate trait list — 265 entries in `ABILITY_REGISTRY`, lore-fitted across 4 review batches, Pokemon-IP free
+- [x] Phase 3a: passive hook wiring (`getStatMod`, `getIncomingDmgMod`, `getOutgoingPowerMod`, `getAccuracyMod`, `getStabBonusMult`, new crit pipeline, etc.)
+- [x] Phase 3b: event-trigger hook wiring (`onEntry`, `onSwitchOut`/`In`, `onFaint`, `onKO`, `onSelfCrit`/`onCritTaken`, `onMoveUse`/`Hit`/`Miss`, `onBattleEnd`, `onLowHpTrigger` with hysteresis at every HP-mutation site, `getPriorityBonus`, `tickTurnCounter`)
+- [x] Phase 5 partial: canonical 8 trait assignments (3 starters + 5 early-game catches) via `TRAIT_ASSIGNMENTS` + `getMonTraits` fallback. All 8 verified working end-to-end (Mossy heal, Levitating immunity, Thorned recoil, Empowered STAB, Mirage miss, Lucky crit-immune)
+- [x] Mossy/Levitating bugfix — `calcDamage` now honors zero/negative `incomingDmgMod` (immunity / absorb) instead of clamping to 1 dmg
+
+**🚧 ACTIVE — Trait UI surfacing (new branch `claude/traits-ui-surfacing`, PR #91):**
+- [x] Team menu — small trait badge per Lumori card with hover/tap tooltip (own roster, full reveal)
+- [ ] Lumori detail screen — traits section with name + emoji + description per active trait (own roster, full reveal)
+- [ ] Battle UI — inline trait badge near the **player's** active mon's name (full reveal — it's your own Lumori). **Enemy-side reveal gated on in-battle discovery**: an enemy's trait shows only after it has triggered at least once in the current battle (or persistently across runs once a per-species "seen" flag is set). Per-individual transient flag during battle; per-species persistent flag in save data. Details TBD.
+- [x] Per-trait CSS class hook (`cssClass` field already on every registry entry) so future theming is easy — markup includes the class; per-trait styling is its own commit
+- [ ] Smoke test: visible badge for Verdkin (Mossy), Solkin (Empowered), Photoworm (Thorned) etc. at all 3 surfaces
+
+**⏳ Phase 5 full assignment (follows UI surfacing):**
+- [ ] Assign 1-2 traits to the remaining ~438 Lumori in lore-coherent batches (cross-reference body-plan + archetype + habitat)
+- [ ] Legendaries always 2 traits; NG+-exclusive traits assigned only to NG+ Lumori instances
+
+**⏳ Phase 6 — Save migration:**
+- [ ] Backfill `traits` field on existing party slots when loading saves from pre-trait builds (`getMonTraits` already falls back gracefully)
+
+**⏳ Phase 3c — Deferred wiring (parking):**
+- [ ] Multi-mon `onEntry` at the two multi-battle init points (`startMultiBattle` ~line 2432, multi-battle restructure ~line 2869)
+- [ ] Weather / terrain hook stubs (gated on the weather battle system TODO further down)
+- [ ] Damage caps
+- [ ] Complex UI mechanics: Move Steal swap dialog, Strategist reveal, Time Skip slow-mo
 
 # 🤝 Inter-Lumori interactions in lore/desc — RUN AFTER ABILITIES  `[⏳ NOT STARTED — note: bridge-lore sweep already done (PR #48); this is the dedicated interaction pass]`
 
@@ -1125,6 +1147,16 @@ Higher-level work remaining beyond the lore / typing / stats audits.
 - [x] **Multi-status battle system — ✅ DONE in PR #54 (commits 231859c → 002ce5d).** Summary: 47 statuses registered (6 existing + 19 TODO-named + 16 brainstorm-new + 3 dual-pool + 9 evolved-only), 12 evolution rules wired (3 from spec + 9 newly designed), multi-status stacking live (single-status guard removed), all sub-task flags functional (`target:single/wide/self`, `dualType`, `breakerVs`, `alwaysCrit`, compound `_and_` tag dispatcher, multi-effect via compound tags, `recharge`), multi-battle hooks active (wide-spread 0.75× modifier, Plague intra-team spread, Bonded ally-share), accuracy stages added as bonus deferral-close (`stages.acc`/`eva` + accup/accdown/accup2/accdown2/evup/evdown), 41 new `.status-*` CSS color classes, data-driven hooks for all persistent passive effects (statMod, incomingDmgMod, outgoingPowerMod, accuracyMod, forceHit, healMod, effectivenessOverride, opponentCritBonus, blocksMove, blocksOutgoingMove, blocksSwitch, switchCost, onApply, onHitReflect, onMoveAttempt, interceptMove, tickEffect). Original spec text preserved below:
 
   Multi-status battle system: implement the new status conditions added during Step 3b of the typing-system overhaul (initial set of 19: Deafen, Petrify, Bleed, Drenched, Weighed Down, Crystallize, Echolocation, Smothered, Marked, Burnt-out, Faded, Strained, Sluggish, Soaked, Brittle, Tainted, Hexed, Severe Bleed, Statue — list may grow) with their gameplay mechanics; allow multiple persistent statuses on a single Lumori at once (unlike Pokemon's single-major rule); add UI status tags to show all active statuses on the battle info panel. Move data already references these effect strings; battle/UI code needs implementation to make them functional. ALSO support evolving statuses (initial pairs: Drenched→Soaked at 2 turns, Bleed→Severe Bleed at 3 turns, Petrify→Statue at 2 turns) where evolution REPLACES the original status. **Sub-task:** support new `target` field on moves (single / wide / self) for double/triple battle targeting — wide moves hit all opposing Lumori; self moves only affect user. Default for moves without a target field is single. **Sub-task:** support unique move mechanics introduced in Step 3b: `dualType:["X","Y"]` (move's effectiveness = product of both type multipliers — Pokemon Flying Press style; max 2 per type, all >60 power); `breakerVs:"TypeName"` (move treats one defending type as 2× regardless of chart — Freeze-Dry style; no power minimum); `alwaysCrit:true` (guaranteed critical hit — Frost Breath / Storm Throw style; no power minimum). **Sub-task:** multi-effect schema — replace/extend the single `effect` string field with an array form `effects:[{effect:"X", ec:Y}, {effect:"Z", ec:W}]` so a move can apply multiple secondary effects on a single hit (e.g. priority + atkup self, or echolocation + deafen). For now, multi-effect moves use a combined string tag (e.g. "echolocation_and_deafen") with battle code handling the combination; future schema migration replaces those tags with the array form.
+- [ ] **🌦️ Weather battle system — required for several Traits-feature abilities to function.** Implement a weather state model with at minimum: clear/sun, rain, storm, snow, hail, fog, sandstorm. Wire into the battle engine so traits like Sun-bathed, Storm-born, Frostling, Photosynthesis (currently declared in `js/traits.js` with stubs to `getCurrentWeather()`) actually fire. Sub-tasks:
+  - Design weather state schema (current weather, turns remaining, summon source).
+  - Battle-engine integration: per-turn weather damage (e.g. sandstorm chip, hail chip), type-effectiveness modifiers (e.g. Fire +50% / Aquatic -50% in sun), accuracy adjustments (Fog: -20% acc field-wide), end-of-turn tick.
+  - **New weather-focused moves** to create or summon each weather state — e.g. Sunburst, Rainmaker, Stormcall, Blizzardform, Sandstorm Call, Mist Veil. Some moves should consume the weather or shift it (e.g. Dry Wind clears rain).
+  - **Map-location-dependent ambient weather** — overworld areas declare their typical/permanent weather (e.g. Volcano = sun, Storm Coast = rain, Frozen Peak = snow, Mystic Bog = fog). Wild encounters started in these areas begin with that weather active. Persists or resets between battles per area design.
+  - **Weather-immune traits** consideration (e.g. Untouchable already covers indirect damage including weather chip; consider per-weather immunity traits later).
+  - **UI**: weather badge on the battle info panel; battle-log announcements when weather starts / changes / ends; map-screen icon for ambient-weather zones.
+  - **Save migration**: ambient weather doesn't need save state (re-derived per area); active battle weather only persists in the live battle context.
+  - **Runs BEFORE**: the Traits feature Phase 5 per-Lumori assignment (so weather-tied trait assignments make narrative sense per Lumori's habitat).
+
 - [x] **Consider additional evolving status pairs — ✅ DONE in PR #54 (commit 4e070c7).** 9 new evolved pairs approved + implemented on top of the 3 from spec: Burnt-out→Crippled (2), Tainted→Corroded (3), Tangled→Bound (2), Tethered→Anchored (2), Disoriented→Comatose (3), Marked→Hunted (2), Strained→Exhausted (3), Migraine→Concussion (2), Type Distorted→Type Shattered (3). Two of the spec's example candidates (Crystallize→Encased, Frostbite→Frozen-Stiff) deferred — Crystallize's parent stays uncondensed-into-evolved; Frostbite not in the locked status pool. Original spec text preserved below:
 
   Consider additional evolving status pairs beyond Drenched→Soaked, Bleed→Severe Bleed, Petrify→Statue. Examples to discuss: Crystallize→Encased, Burnt-out→Crippled, Frostbite→Frozen-stiff, Tainted→Corroded, etc. Each pair: initial status persists N turns, then auto-evolves to a more severe variant that replaces the original. Add approved new pairs to the multi-status battle system. Runs BEFORE the full move audit so any new conditions can be folded into the audit.

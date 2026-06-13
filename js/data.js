@@ -2817,12 +2817,12 @@ const MONSTERS_DATA = {
     desc:"A grass sprout that blooms with vibrant flowers. Its pollen causes drowsiness in those it trusts.",
     lore:"Sproutix is a small grass creature 15 cm tall resembling a tiny sapling with two leaf-hands and round soft-glowing eyes. It sprouts from the ground in spring meadows and can take root again if it stays still long enough. It leaves a trail of tiny flowers wherever it walks." },
 
-  261: { id:261, name:"Leafhorn", emoji:"🌺", types:["Nature"],
+  261: { id:261, name:"Leafhorn", emoji:"🌺", types:["Nature","Dream"],
     base:{hp:82,atk:78,def:75,spa:115,spd:100,spe:88},
-    learnset:[[1,"lunar_burst"],[1,"verdant_orb"],[5,"regrow"],[8,"sap_seed"],[12,"nature_pulse"],[16,"leafblade_swirl"],[20,"petal_blitz"],[24,"fae_petals"],[28,"prism_flare"],[32,"blossom_frenzy"],[36,"grove_wrath"],[40,"pollen_storm"],[44,"celestial_wave"],[48,"thorn_barrage"],[50,"foliage_tempest"],[52,"briar_lash"],[56,"sun_ray"],[58,"sylvan_radiance"],[60,"radiance_cannon"]],
+    learnset:[[1,"dream_pulse"],[1,"verdant_orb"],[5,"regrow"],[8,"sap_seed"],[12,"nature_pulse"],[16,"leafblade_swirl"],[20,"petal_blitz"],[24,"fae_petals"],[28,"drowse_swirl"],[32,"blossom_frenzy"],[36,"grove_wrath"],[40,"pollen_storm"],[44,"trance_wave"],[48,"thorn_barrage"],[50,"foliage_tempest"],[52,"briar_lash"],[56,"somnia_ray"],[58,"lullaby_strike"],[60,"dreamscape_smash"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:218, rarity:"uncommon",
-    desc:"A horned bloom deer of tremendous grace. Its horn concentrates solar and lunar energy into beam attacks.",
-    lore:"Leafhorn is a medium grass creature 50 cm tall resembling a deer-faun with leaf-antlers and a body covered in overlapping leaf-scales of vivid green. As it matured from Sproutix, its trunk-body split into four leaf-clad limbs and its head-leaves hardened into antlers. Morning sunlight catches the leaves and they shimmer gold at dawn. It inhabits enchanted forests and its passage encourages dormant seeds to germinate." },
+    desc:"A bloom-deer whose antler-pollen lulls creatures into waking dreams. It leads the dreamers deep into enchanted forests.",
+    lore:"Leafhorn is a deer-faun 50 cm tall with leaf-antlers and a body of overlapping vivid-green leaf-scales. As it matured from Sproutix — whose blossoms already shed a drowsing pollen — its antlers learned to bloom a fine, glittering dream-pollen. Creatures that breathe it slip into gentle waking dreams, and Leafhorn walks ahead of them, leading the dreamers along quiet paths deep into enchanted forests where dormant seeds germinate in their wake. Those who doze in its grove wake remembering soft, shared dreams of green and growing things." },
 
   // 3-stage Fighting/Toxin chain: Transluceed → Tendrilisk → Impenezard
   262: { id:262, name:"Transluceed", emoji:"🌿", types:["Fighting","Toxin"],
@@ -4131,12 +4131,12 @@ const MONSTERS_DATA = {
     desc:"A swamp crocodilian with acid-laced saliva. Prey dissolves within minutes of a bite.",
     lore:"Blistermaw is a water-poison reptile 2.8 metres long resembling a heavily built crocodile with blistered, acid-weeping skin and rows of hollow venom-conducting teeth." },
 
-  331: { id:331, name:"Thornmoth", emoji:"🦋", types:["Nature"],
+  331: { id:331, name:"Thornmoth", emoji:"🦋", types:["Nature","Sonic"],
     base:{hp:55,atk:63,def:58,spa:78,spd:68,spe:78}, evolveTo:null, evolveLevel:null,
-    learnset:[[1,"breeze"],[8,"vine_lash"],[18,"mandible_bite"],[28,"sharp_leaves"],[38,"resonance_hum"],[48,"canopy_crash"],[58,"verdant_surge"],[5,"slumber_dust"],[35,"spore_burst"]],
+    learnset:[[1,"echo_pulse"],[8,"sharp_leaves"],[18,"resonate"],[24,"slumber_dust"],[32,"acoustic_shock"],[40,"canopy_crash"],[48,"decibel_burst"],[56,"harmonic_wave"],[58,"verdant_surge"]],
     catchRate:28, expYield:248, rarity:"rare",
-    desc:"A giant moth covered in razor-edged leaf-scales. Its wing-beats strip bark from trees.",
-    lore:"Thornmoth is a large bug-grass creature with a 2-metre wingspan. Its wings resemble overlapping serrated leaves in deep emerald and brown patterns." },
+    desc:"A giant moth whose serrated wings beat a low, shredding drone. The resonance strips bark from whole trees.",
+    lore:"Thornmoth is a large insect with a 2-metre wingspan, its wings overlapping serrated leaf-blades of deep emerald and brown. Its rapid wing-beats set up a low, grinding resonance that vibrates loose bark from trunks, shreds foliage, and rattles smaller creatures senseless. Up close the drone is felt in the bones as much as heard, and a colony rising at dusk hums loud enough to be mistaken for distant thunder." },
 
   // ---- Tier 1b: Mid-game NG+ (badges 8–11) Metal/Ice/Electric BST ~510–550 ----
   332: { id:332, name:"Glacicore", emoji:"🧊", types:["Ice","Metal"],

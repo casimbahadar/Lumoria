@@ -3152,27 +3152,27 @@ const MONSTERS_DATA = {
     desc:"The comet-orb fairy, a larger luminous sphere haloed by streaming light-rays. Crosses the sky in streaks of prismatic light.",
     lore:"Lumivane is a fairy-psychic creature 50 cm across — Lightpuff's warm-golden 20 cm orb has grown under moonStone influence into a brilliant luminous sphere haloed by rudimentary limb-extensions of condensed light — translucent arm-rays and trailing tendril-legs that emerge from the central sphere but do not sever from it. Its body shifts between solid and luminous depending on its concentration. It inhabits high mountain observatories and archives astronomical data in a crystalline psychic memory at the core of its orb-body." },
 
-  // 3-stage Rock/Ice chain: Crysthorn → Geoshard → Crystallon (location: cold area, lv28, lv48)
-  304: { id:304, name:"Icethorn", emoji:"💎", types:["Earth","Ice"],
+  // 3-stage Earth/Ice chain: Frostpelt → Snowmaw → Yetigrand (location: cold area, lv28, lv48)
+  304: { id:304, name:"Frostpelt", emoji:"🦍", types:["Earth","Ice"],
     base:{hp:52,atk:62,def:75,spa:58,spd:60,spe:50},
     learnset:[[1,"stone_throw"],[1,"flurries"],[12,"stone_slide"],[22,"cold_beam"],[32,"crag_strike"],[42,"cryo_lance"],[52,"whiteout"],[60,"radiance_cannon"]],
     evolveTo:305, evolveLevel:28, catchRate:162, expYield:78, rarity:"common",
-    desc:"A crystal thorn creature that grows in frozen caves. Its crystalline spines shatter on impact then regrow.",
-    lore:"Icethorn is a rock-ice creature 40 cm tall resembling a cactus-like formation of grey rock studded with ice-crystal spines. Its ice spines regrow within hours if broken off. It inhabits frozen rocky highlands and uses its spines both to collect water from passing fog and to deter large herbivores." },
+    desc:"A shaggy frost-furred yeti cub. Hardy in the cold, shy of strangers, it huddles with its kind for warmth.",
+    lore:"Frostpelt is a 40 cm yeti cub whose thick white fur stays perpetually crusted with frost and rime. It shelters in frozen highland caves, pressing close to others of its kind for warmth, and packs loose snow into its pelt for insulation — the cold radiating off it never quite lets that snow melt." },
 
-  305: { id:305, name:"Geoshard", emoji:"🗻", types:["Earth","Ice"],
+  305: { id:305, name:"Snowmaw", emoji:"🦍", types:["Earth","Ice"],
     base:{hp:78,atk:92,def:105,spa:78,spd:82,spe:58},
     learnset:[[1,"cold_beam"],[1,"crag_strike"],[10,"sandstrike"],[22,"cryo_lance"],[30,"whiteout"],[35,"tectonic_shift"],[38,"bedrock_slam"],[46,"frost_crash"],[54,"avalanche_drive"],[62,"radiance_cannon"]],
     evolveTo:306, evolveLevel:48, catchRate:75, expYield:158, rarity:"uncommon",
-    desc:"A rock and ice giant with shard weapons. Lives on the highest frozen peaks of the Lumoria mountain range.",
-    lore:"Geoshard is a rock-ice creature 80 cm tall — Icethorn's grey rock body has expanded and crystallised into a jagged cluster of natural rock and ice that has grown into a vaguely bipedal shape, the ice-crystal spines of its juvenile form now reorganised into brilliant ice formations visible through large natural gaps in its dark stone frame. It moves rarely and is often mistaken for a natural geological feature." },
+    desc:"An adolescent yeti that prowls the frozen peaks alone. Its breath fogs and freezes the air.",
+    lore:"Snowmaw is an 80 cm adolescent yeti — Frostpelt's cub-fluff has grown into a shaggy white coat over heavy muscle. It prowls the high frozen peaks alone, its breath fogging and freezing in the air, strong enough to shoulder through packed drifts and shatter sheet ice with a blow." },
 
-  306: { id:306, name:"Crystallon", emoji:"🏔️", types:["Earth","Ice"],
+  306: { id:306, name:"Yetigrand", emoji:"🦍", types:["Earth","Ice"],
     base:{hp:101,atk:108,def:117,spa:83,spd:91,spe:50},
     learnset:[[1,"whiteout"],[1,"bedrock_slam"],[32,"avalanche_drive"],[40,"frost_crash"],[48,"crag_strike"],[56,"tundra_tomb"],[64,"worldseed_quake"],[72,"radiance_cannon"],[74,"burial_sands"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:275, rarity:"rare",
-    desc:"The frozen mountain titan. Glaciers form around it spontaneously. Worshipped by ancient mountain peoples.",
-    lore:"Crystallon is a large rock-ice entity 1.5 metres tall — Geoshard's jagged crystal-cluster bipedal frame has settled and elongated into an ancient standing stone of interlocked rock and ice crystal structures, the natural gaps of its juvenile form now sealed. Its face is barely defined — two faint depressions in the stone suggest eyes. It has stood in the same valley for centuries, and local cultures have built myths around it." },
+    desc:"The towering mountain yeti. Glaciers form in its wake; ancient mountain peoples worshipped it.",
+    lore:"Yetigrand is a towering yeti over 2.5 metres tall, a colossus of white fur over frozen-stone muscle that has wandered the same range for centuries. So much cold pours off it that glaciers form spontaneously in its wake and snowstorms gather where it walks; mountain cultures built myths around the great white shape glimpsed through the blizzard." },
 
   // Standalone Fire/Dark: Cinderpaw
   307: { id:307, name:"Cinderpaw", emoji:"🐈", types:["Fire","Dark"],
@@ -3269,12 +3269,12 @@ const MONSTERS_DATA = {
     lore:"Aeronyx is a sleek steel-dark bat 80 cm long with wings made of thin flexible metal alloy rather than membrane. Its body is dark gunmetal grey with blue-tinted metal plating. It slices through the air with minimal noise and can fold its metal wings to act as shields. It roosts on steel structures. Aeronyx will hold the wing-shield position for minutes at a time even with no apparent threat: an autonomic drill, written into the body, for the chrome-black armour Steelvex wears continuously." },
 
   // ===== FIRE/GROUND =====
-  19: { id:19, name:"Magmaurin", emoji:"🐾", types:["Fire","Earth"],
+  19: { id:19, name:"Magmaurin", emoji:"🦏", types:["Fire","Earth"],
     base:{hp:68,atk:70,def:59,spa:51,spd:43,spe:49},
     learnset:[[1,"flicker",[22,"magma_surge"]],[1,"graze"],[9,"mud_spray"],[17,"flame_fang"],[20,"baleful_stare"],[25,"tectonic_shift"],[33,"inferno_jet",[5,"scorch_veil"]],[36,"cinderwhirl"],[3,"embercloak"],[31,"wildfire_surge"],[38,"sandstrike"]],
     evolveTo:20, evolveLevel:26, catchRate:150, expYield:92, rarity:"common",
-    desc:"A fire mole that tunnels through volcanic rock. Its claws glow orange with heat.",
-    lore:"Magmaurin is a bear-sized stocky saurian with a rounded body half-coated in cooling lava plates. Its fur beneath the stone armour is singed brown. It lumbers through volcanic badlands, digging up mineral veins with massive clawed forearms, and rolls into a ball of cooled rock when threatened." },
+    desc:"A fire-rhino calf, its hide half-plated in cooling lava and a molten horn-nub on its snout.",
+    lore:"Magmaurin is a stocky fire-rhino calf the size of a large dog, its thick hide half-plated in cooling lava-rock with a stubby molten horn-nub on its snout. It roots through volcanic badlands for mineral-rich stone to eat, and when threatened it lowers its head and barrels its armoured bulk straight at the danger." },
 
   // ===== FAIRY/GRASS =====
   72: { id:72, name:"Floralin", emoji:"🌸", types:["Fairy","Nature"],
@@ -3428,12 +3428,12 @@ const MONSTERS_DATA = {
     desc:"An iron-clad wraith bat. Its metallic screech disorients enemies from great distances.",
     lore:"Steelvex is a larger dark-steel bat 1.2 metres long — Aeronyx's gunmetal-grey alloy wings have broadened into the metallic shields that now catch and reflect light strangely, and the blue-tinted plating of its juvenile form has darkened to a chrome-black body. It has the habit of dismantling mechanical objects it finds — gears, clockwork, small machines — studying each component before reassembling them incorrectly." },
 
-  20: { id:20, name:"Embrath", emoji:"🦔", types:["Fire","Earth"],
+  20: { id:20, name:"Embrath", emoji:"🦏", types:["Fire","Earth"],
     base:{hp:97,atk:121,def:76,spa:69,spd:62,spe:64},
     learnset:[[1,"flame_fang"],[2,"mud_spray"],[3,"tectonic_shift"],[4,"scorch_veil"],[5,"embercloak"],[8,"firebrand"],[12,"scorch_kick"],[16,"molten_claw"],[20,"flame_spiral"],[24,"inferno_chop"],[30,"inferno_jet"],[31,"battle_cry"],[36,"ashfall"],[40,"scorched_earth"],[41,"geoblast"],[46,"fissure_slam"],[51,"conflagration"],[56,"pyroclasm"],[61,"tectonic_slam"]],
     evolveTo:21, evolveLevel:44, catchRate:45, expYield:218, rarity:"uncommon",
-    desc:"A lava-boring behemoth that carves tunnels with molten precision. Its spines erupt flame.",
-    lore:"Embrath is a medium-sized spined lizard about 80 cm long — Magmaurin's stocky saurian frame has slimmed and lengthened for hunting, the lava-plate armour shed in favour of scales that still retain the charcoal grey and deep rust of its juvenile rock-coat. Heat-sensing pits line its snout. It hunts underground prey by detecting body heat through soil, then erupts from the ground in a burst of superheated air to stun its catch." },
+    desc:"An adolescent magma-rhino whose horn has hardened into a heat-radiating spike. It charges with surprising speed.",
+    lore:"Embrath is a 1.2-metre adolescent magma-rhino — Magmaurin's calf-plates have thickened into overlapping fire-hardened armour of charcoal grey and deep rust, and the horn-nub has grown into a heat-radiating spike. Heat-sensing pits along its snout track the warmth of rivals and prey, and it charges with startling speed for its bulk, cracking stone on impact." },
 
   73: { id:73, name:"Faelomis", emoji:"🌺", types:["Fairy","Nature"],
     base:{hp:78,atk:60,def:65,spa:115,spd:89,spe:93},
@@ -3559,19 +3559,19 @@ const MONSTERS_DATA = {
     lore:"Sparkwood is a 1.3-metre adolescent stag whose Sylvolt antler-buds have grown into a full crown of branching, bark-covered antlers — each rack 60 centimetres across, rough as old wood and shot through with crackling yellow electric veins. Its body has darkened into a rich forest-green coat with brown bark-textured plates along its shoulders and flanks. During storms it acts as a roaming lightning rod, absorbing strikes through the antlers and channelling the charge down through its hooves into the forest roots beneath, fertilising entire hillsides." },
 
   // ===== ROCK/DARK =====
-  132: { id:132, name:"Volcascale", emoji:"🪨", types:["Earth","Dark"],
+  132: { id:132, name:"Volcascale", emoji:"🗿", types:["Earth","Dark"],
     base:{hp:73,atk:69,def:75,spa:48,spd:62,spe:32},
     learnset:[[1,"stone_throw",[22,"obsidian_crash"]],[1,"chomp"],[10,"cranial_ram"],[18,"jaw_crush"],[26,"stone_slide"],[30,"landslide"],[34,"void_pulse"],[42,"crag_strike",[5,"granite_wall"]],[3,"petrify_gaze"],[32,"quarry_crush"]],
     evolveTo:133, evolveLevel:30, catchRate:130, expYield:97, rarity:"common",
-    desc:"A rock monster that absorbs shadow energy. Moves imperceptibly slow but hits with shattering force.",
-    lore:"Volcascale is a spiny rock-dark creature 60 cm long resembling a horned lizard made of volcanic obsidian. Its body is jet black with razor-sharp ridges. It reflects almost no light. It inhabits old lava tubes and volcanic glass fields, and its presence is detected mainly by the sound of its obsidian scales clicking together." },
+    desc:"A small obsidian gargoyle with razor wing-ridges. It reflects almost no light and lunges from cover.",
+    lore:"Volcascale is a 60 cm gargoyle that looks carved from volcanic obsidian — jet black, with razor ridges along its folded wing-stubs and a horned brow. It reflects almost no light and perches motionless in old lava tubes, betrayed only by the faint click of its glassy plates before it lunges at anything that strays too close." },
 
   133: { id:133, name:"Monolithox", emoji:"🗿", types:["Earth","Dark"],
     base:{hp:102,atk:114,def:103,spa:62,spd:70,spe:39},
     learnset:[[1,"stone_slide"],[2,"landslide"],[3,"jaw_crush"],[4,"granite_wall"],[31,"void_pulse"],[35,"battle_cry"],[39,"crag_strike"],[40,"tenebrous_snare"],[45,"nether_sphere"],[50,"blackout_bomb"],[55,"tectonic_shift"],[60,"radiance_cannon"],[5,"petrify_gaze"],[38,"malice_beam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:230, rarity:"uncommon",
-    desc:"A living monolith of darkened stone. Ancient civilizations worshipped it as a god of night.",
-    lore:"Monolithox is a hulking obsidian saurian 3 metres tall — Volcascale's obsidian horned-lizard frame has grown massive and its sharp-ridged back has fused into a towering monolithic plate-shell. It appears to be a standing stone until it moves; the basalt-dark plate is nearly featureless except for two deep-set glowing red eyes set in a low-slung saurian skull. It moves extremely slowly but is virtually indestructible, its body having the hardness of natural obsidian." },
+    desc:"A towering obsidian gargoyle worshipped as a god of night. Sits still as a statue until it spreads its glassy wings.",
+    lore:"Monolithox is a 3-metre obsidian gargoyle — Volcascale's wing-stubs have unfurled into broad razor-edged wings of black volcanic glass, and its hide has hardened to the near-indestructible sheen of natural obsidian. By day it crouches utterly still, easily mistaken for a carved idol, two deep-set red eyes the only sign of life; ancient peoples raised shrines to it as a god of night, when it spreads its glassy wings and hunts." },
 
   // ===== POISON/BUG =====
   164: { id:164, name:"Blightmite", emoji:"🐛", types:["Poison"],
@@ -3805,12 +3805,12 @@ const MONSTERS_DATA = {
     lore:"Quetzember is a magnificent plumed sky-serpent 6 metres long — Searburn's wings have grown into a vast feathered span of amber, scarlet, and blue-tipped plumes, and a crown of the same iridescent feathers frames its narrow skull. It spends almost its whole life aloft, coiling and uncoiling through thermal columns high above the peaks and trailing a banner of fire that ripples in its wake. When it finally descends it sweeps low over the slopes, and the heat shed from its plumage is said in legend to have fanned the first volcanoes alight. It returns to earth only to bask, looping once around a lone spire before climbing back into the sky." },
 
   // 21: Terravore - Fire/Earth (Magmaurin→Embrath→Terravore)
-  21: { id:21, name:"Terravore", emoji:"🦖", types:["Fire","Earth"],
+  21: { id:21, name:"Terravore", emoji:"🦏", types:["Fire","Earth"],
     base:{hp:100,atk:134,def:89,spa:79,spd:74,spe:74},
     learnset:[[1,"flame_fang"],[1,"tectonic_shift"],[2,"magma_surge"],[3,"scorched_earth"],[4,"scorch_veil"],[5,"embercloak"],[12,"ember_focus"],[20,"inferno_charge"],[38,"inferno_jet"],[42,"geoblast"],[44,"blazing_rush"],[46,"pyroclasm"],[48,"scorched_sand"],[50,"ashfall"],[54,"conflagration"],[58,"sand_geyser"],[62,"solar_flare"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:260, rarity:"rare",
-    desc:"A predator born from the magma deep within the earth. It tunnels through bedrock and erupts beneath its prey.",
-    lore:"Terravore is a hulking dinosaur-like creature 3 metres long, the apex of Embrath's lineage — its charcoal-and-rust juvenile scales have weathered to a uniform thick terracotta hide reinforced by fire-hardened dorsal plates, and the heat-pits along its snout have widened into wide-spaced sensory pores. Its wide mouth can swallow boulders to digest the minerals within. It tunnels through volcanic earth, leaving perfectly circular bore-holes 1 metre in diameter." },
+    desc:"A massive magma-rhino whose charge shatters bedrock. Its great horn glows white-hot before it strikes.",
+    lore:"Terravore is a hulking magma-rhino 3 metres long, the apex of Embrath's lineage — its juvenile armour weathered to a uniform thick terracotta hide reinforced by fire-hardened plates, twin sensory pores set wide along its snout, and a great horn that glows white-hot before it charges. A full charge shatters bedrock and leaves long furrows in stone, and it grinds boulders in its jaws to digest the minerals within." },
 
   // 182: Ignitheon - Fire/Mental (Ignorin→Pyraxis→Ignitheon)
   24: { id:24, name:"Ignitheon", emoji:"🔮", types:["Fire","Mental"],
@@ -6296,7 +6296,7 @@ const WORLD_DATA = {
       {id:133, minLv:69, maxLv:74, rate:5},  // Monolithox (mid → after 132 ✓)
       {id:93,  minLv:69, maxLv:74, rate:7},  // standalone rock
       {id:251, minLv:67, maxLv:72, rate:12},  // Crumblite (base Rock/Metal)
-      {id:304, minLv:67, maxLv:72, rate:17},  // Icethorn (base Rock/Ice)
+      {id:304, minLv:67, maxLv:72, rate:17},  // Frostpelt (base Earth/Ice)
       {id:232, minLv:67, maxLv:72, rate:5}    // Serphaxon (base Draconic/Ground)
     ],
     hasGym:false, requiredBadges:14, mapPos:{x:48, y:85},
@@ -6659,7 +6659,7 @@ const WORLD_DATA = {
     connections:["route15","stone_plateau"],
     wildMonsters:[
       {id:249, minLv:68, maxLv:73, rate:24},  // Boulderax (mid → 248 on route11/magma_vent ✓)
-      {id:305, minLv:68, maxLv:73, rate:14},  // Geoshard (mid → 304 Crysthorn on route15 ✓)
+      {id:305, minLv:68, maxLv:73, rate:14},  // Snowmaw (mid → 304 Frostpelt on route15 ✓)
       {id:233, minLv:68, maxLv:73, rate:18},  // Serpenthorn (mid → 232 Draxon on route15 ✓)
       {id:174, minLv:68, maxLv:73, rate:10},  // Scalevorn (standalone Draconic/Metal)
       {id:251, minLv:67, maxLv:72, rate:28},  // Crumblite (base Rock/Metal, also route15)
@@ -6674,7 +6674,7 @@ const WORLD_DATA = {
     connections:["stone_plateau","quarryville"],
     wildMonsters:[
       {id:250, minLv:70, maxLv:75, rate:14},  // Megalith (final → 249 on granite_tunnels ✓)
-      {id:306, minLv:70, maxLv:75, rate:13},  // Crystallon (final → 305 on granite_tunnels ✓)
+      {id:306, minLv:70, maxLv:75, rate:13},  // Yetigrand (final → 305 on granite_tunnels ✓)
       {id:234, minLv:70, maxLv:75, rate:13},  // Wyvernak (final → 233 on granite_tunnels ✓)
       {id:237, minLv:69, maxLv:74, rate:27},  // Icevault (mid → 236 Frostick on route11 ✓)
       {id:313, minLv:69, maxLv:74, rate:23},  // Sandrix (mid → 312 Dunecrawl on magma_vent ✓)

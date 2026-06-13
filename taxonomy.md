@@ -172,7 +172,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[300] Stinglet→Nettleclaw | Bug/Poison | bee (Hymenoptera)` (currently inconsistent — bee→scorpion-bee hybrid on BREAKING list)
 - `[301] Emberveil | Fire/Spectral | cat` (smouldering ghost-cat, standalone — third cat; retyped Fire/Dark→Fire/Spectral for diversity)
 - `[303] Lightpuff→Lumivane | Fairy/Mental | starlight-orb` (luminous starlight sphere with non-severing light-limbs that archives astronomical data — NOT a faerie-sprite humanoid; archetype relabeled to resolve the false collision with Psytheon, which keeps the faerie-sprite slot. Stays Fairy/Mental.)
-- `[306] Icethorn→Geoshard→Crystallon | Rock/Ice | rock-monolith / standing stone` (third rock-monolith alongside Prismolith and Pebblard lines)
+- `[306] Frostpelt→Snowmaw→Yetigrand | Earth/Ice | yeti` (de-monolithed 2026-06-13 from rock-monolith — frozen-mountain snow-beast line; renamed from Icethorn/Geoshard/Crystallon)
 - `[307] Cinderpaw | Fire/Dark | cat` (fire-dark cat, standalone — fourth cat)
 - `[309] Seafraith→Tidephant | Aquatic/Spectral | pinniped` (spectral elephant-seal — relabeled out of cetacean per cap-3 policy; resolves the fish→cetacean BREAKING flag as fish→pinniped)
 - `[311] Mudpump→Marshix | Ground/Water | hippo` (pristine archetype)
@@ -389,7 +389,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **cetacean** | 5 | 3 | trim 2 | **LOCKED common cap-3.** Keep Torrentox (orca), Riftwhale (psychic-whale), Titanomare (steel-whale titan); re-archetype Marevanos #40→manta-ray, Tidephant #309→pinniped. (Pelagor is Forgotten 462+, excluded.) |
 | **moth/butterfly (Lepidoptera)** | 6 | 3 | trim 3 | Inferarch, Aeridaleth, Venowarn, Mosswing, Thornmoth, Plagueoth. |
 | **beetle** | 5 | 3 | trim 2 | Iridibeetle, Quarrix, Sparkeen, Skullmite, Voltbeetle. |
-| **rock-monolith / standing stone** | 6 | 3 | trim 3 | Frigolith, Megalith, Crystallon, Mirestone, Bouldertide, Chronolith. |
+| **rock-monolith / standing stone** | 4 | 3 | trim 1 | Frigolith, Megalith, Bouldertide, Mirestone→Chronolith. (Crystallon→yeti 2026-06-13) |
 | **crystalline-prism** | 5 | 3 | trim 2 | Aurarael, Shardlix, Cryoshard, Crystalmind, Sparkeis-postgame. |
 | **bird-of-prey / raptor** | 5 | 3 | trim 2 | Vortexathos, Cyclavorn, Rimeclaw, Zephyrak-postgame, plus eagle-flavor on others. |
 | **treant / walking-tree** | 4 | 3 | trim 1 | **LOCKED capped (not exempt).** Keep Necrothon, Impenezard, Thornspire; re-archetype Silthorn #326→carnivorous-plant. (Rootborn is Forgotten 462+, excluded.) |

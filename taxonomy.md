@@ -143,7 +143,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 ### Batch 3 (families 106-139)
 
 - `[246] Staticlaw→Thundravex→Megavolt | Electric | wolverine (mustelid)`
-- `[247] Sparkeen | Electric/Dream | butterfly` (standalone Lepidoptera — dream-light flutterer; 2026-06-12 fixed the old beetle/emoji mismatch (it's a butterfly) and Electric mono→pristine Electric/Dream)
+- `[247] Sparkeen | Electric/Dream | will-o-wisp / dream-wisp` (de-Lepidoptera'd 2026-06-13 — rewritten as a bodiless mote of dream-light, not a butterfly; will-o-wisp is mythical-exempt so no cap pressure. Keeps pristine Electric/Dream. Third will-o-wisp alongside Crealight #225 & Willowisp #368; trims butterfly 4→3)
 - `[250] Pebblard→Boulderax→Megalith | Earth | rock-monolith / standing stone` (second rock-monolith alongside Prismolith line)
 - `[252] Crumblite→Stonegrip | Metal/Mineral | lobster` (de-golemed 2026-06-13 from metal-golem — armored rock-crustacean with crushing stone-claws)
 - `[253] Ashrock | Fire/Mineral | rock-elemental` (formless basalt with magma veins, standalone — could equally be fire-elemental; lean rock-elemental since body is rock)
@@ -387,7 +387,8 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **psychic-dragon** (sub) | 6 | n/a | discuss | Same. |
 | **lion** | 2 pre-462 (+Pyraeon postgame) | 3 | under cap | Ignitheon (fire-oracle), Aeolarch (storm) lines. Dravanas→hyena done 2026-06-13. |
 | **cetacean** | 5 | 3 | trim 2 | **LOCKED common cap-3.** Keep Torrentox (orca), Riftwhale (psychic-whale), Titanomare (steel-whale titan); re-archetype Marevanos #40→manta-ray, Tidephant #309→pinniped. (Pelagor is Forgotten 462+, excluded.) |
-| **moth/butterfly (Lepidoptera)** | 6 | 3 | trim 3 | Inferarch, Aeridaleth, Venowarn, Mosswing, Thornmoth, Plagueoth. |
+| **moth** | 3 | 3 | at cap | Inferarch (#12), Mosswing (#265), Thornmoth (#331). Split out of the old "Lepidoptera" bucket 2026-06-13. |
+| **butterfly** | 3 | 3 | at cap | Iridesoar (#141), Venowarn (#165), Aeridaleth (#199). Split out of Lepidoptera 2026-06-13; Sparkeen #247→will-o-wisp and Plagueoth #298→mosquito trimmed it to cap. |
 | **beetle** | 5 | 3 | trim 2 | Iridibeetle, Quarrix, Sparkeen, Skullmite, Voltbeetle. |
 | **rock-monolith / standing stone** | 4 | 3 | trim 1 | Frigolith, Megalith, Bouldertide, Mirestone→Chronolith. (Crystallon→yeti 2026-06-13) |
 | **crystalline-prism** | 5 | 3 | trim 2 | Aurarael, Shardlix, Cryoshard, Crystalmind, Sparkeis-postgame. |

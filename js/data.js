@@ -2671,12 +2671,12 @@ const MONSTERS_DATA = {
     lore:"Shardlix is a psychic-ice creature 40 cm tall resembling a bipedal figure made entirely of precision-cut ice crystals fitted together without gaps. Its eyes are two flawless prismatic lenses. It transmits thoughts through vibrations in its crystalline body and can read psychic impressions left on ice surfaces." },
 
   // 2-stage Electric/Bug chain: Zappling → Voltrix (level 30)
-  242: { id:242, name:"Pulseglow", emoji:"🐞", types:["Electric"],
+  242: { id:242, name:"Pulseglow", emoji:"🐞", types:["Electric","Sonic"],
     base:{hp:46,atk:55,def:42,spa:68,spd:50,spe:78},
-    learnset:[[1,"jolt"],[1,"resonance_hum"],[12,"static_strike"],[22,"volt_jet"],[32,"galvanic_burst"],[42,"shear_strike"],[52,"stormbolt"],[60,"radiance_cannon"]],
+    learnset:[[1,"jolt"],[1,"echo_pulse"],[12,"static_strike"],[22,"volt_jet"],[32,"pulse_wave"],[42,"resonate"],[52,"stormbolt"],[60,"radiance_cannon"]],
     evolveTo:243, evolveLevel:30, catchRate:170, expYield:75, rarity:"common",
-    desc:"A firefly-like creature that stores electricity in its abdomen-light. Releases it when threatened.",
-    lore:"Pulseglow is a tiny electric creature 5 cm long resembling a glowing firefly. Its abdomen pulses with yellow-white electric light at regular intervals. Huge swarms congregate in summer nights over open water, and the coordinated light patterns of the swarm are a complex form of collective communication." },
+    desc:"A firefly whose swarms pulse in both light and sound. Its abdomen flashes and hums in coordinated rhythm.",
+    lore:"Pulseglow is a tiny electric creature 5 cm long resembling a glowing firefly. Its abdomen pulses with yellow-white electric light at regular intervals, each flash paired with a low matching hum. Huge swarms congregate on summer nights over open water, flashing and droning in coordinated light-and-sound patterns — a complex form of collective communication. As it matures into Stuntrap, those pulsing rhythms deepen and slow into the hypnotic sonic drone of the adult." },
 
   243: { id:243, name:"Stuntrap", emoji:"🪰", types:["Dream","Sonic"],
     base:{hp:72,atk:82,def:68,spa:110,spd:78,spe:98},
@@ -2708,12 +2708,12 @@ const MONSTERS_DATA = {
     lore:"Megavolt is a massive thunder-wolverine 1 metre at the shoulder, the apex form of the Staticlaw→Thundravex lineage. Its body is heavily muscled with chrome-yellow fur and a thick collar of crackling electric coils running from the back of its neck down both shoulders, mistaken at distance for a felid mane. It is fearless to the point of recklessness, attacking creatures many times its size to defend its territory, and the visible electrical shockwave that accompanies its roar temporarily blinds and deafens those nearby. It is considered the apex electric predator of any region it claims." },
 
   // Standalone Electric/Bug: Sparkeen
-  247: { id:247, name:"Sparkeen", emoji:"🦋", types:["Electric"],
+  247: { id:247, name:"Sparkeen", emoji:"🦋", types:["Electric","Dream"],
     base:{hp:72,atk:68,def:65,spa:102,spd:88,spe:115},
-    learnset:[[1,"volt_jet"],[1,"resonance_hum"],[8,"shock_pulse"],[18,"galvanic_burst"],[28,"shear_strike"],[38,"stormbolt"],[48,"volt_surge"],[55,"jolt"],[58,"ball_lightning"],[68,"radiance_cannon"]],
+    learnset:[[1,"volt_jet"],[1,"dream_pulse"],[8,"shock_pulse"],[18,"drowse_swirl"],[28,"somnia_ray"],[38,"stormbolt"],[48,"trance_wave"],[55,"jolt"],[58,"lullaby_strike"],[68,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:210, rarity:"uncommon",
-    desc:"An electric butterfly that flickers between flower fields and storm clouds. Its wings spark with each flap.",
-    lore:"Sparkeen is a small electric creature 10 cm across resembling a glowing green butterfly. Its wings generate a localised electric field that is pleasant to the touch at low intensity but painful if the creature is threatened. It inhabits electrical substations and inside lightning-rod structures." },
+    desc:"An electric butterfly whose flickering wing-light lulls onlookers into brief waking dreams.",
+    lore:"Sparkeen is a small electric creature 10 cm across resembling a glowing green butterfly. Its wings carry a soft electric field and a flickering, shifting glow — watch the strobing wingbeats too long and the mind drifts into a brief, pleasant waking dream, a defence that lets Sparkeen flit unhurried between flowers while would-be predators stand dazed. Roused, that gentle field sharpens at once into a painful jolt." },
 
   // 3-stage Rock/Ground chain: Pebblard → Boulderax → Megalith
   248: { id:248, name:"Pebblard", emoji:"🪨", types:["Earth"],

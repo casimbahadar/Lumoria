@@ -138,12 +138,12 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[237] Frostick→Icevault | Ice/Rock | ice-stone vault / fortress structure` (small architectural creature — unique sub-archetype)
 - `[240] Snowble→Blizzariel→Tundrafox | Ice/Dark | snowman (folkloric)` (mythical, just claimed)
 - `[241] Shardlix | Ice/Psychic | crystalline-prism` (bipedal ice crystal humanoid, standalone — second crystalline-prism alongside Espelith line)
-- `[243] Pulseglow→Stuntrap | Dream/Sonic | dragonfly` (firefly→dragonfly; remade 2026-06-12 to pristine Dream/Sonic — hypnotic-drone stun-trapper; differentiates from Galvaglide's Electric/Nature and injects the 2 rarest types. Pulseglow stays mono-Electric; light-pulse→sound-drone bridge)
+- `[243] Pulseglow→Stuntrap | Electric/Sonic→Dream/Sonic | dragonfly` (firefly→dragonfly; Stuntrap remade 2026-06-12 to pristine Dream/Sonic hypnotic-drone stun-trapper; Pulseglow now Electric/Sonic — its light-and-sound swarm pulse bridges to Stuntrap's sonic drone (shared Sonic). Differentiates from Galvaglide's Electric/Nature.)
 
 ### Batch 3 (families 106-139)
 
 - `[246] Staticlaw→Thundravex→Megavolt | Electric | wolverine (mustelid)`
-- `[247] Sparkeen | Electric/Bug | beetle` (small electric beetle, standalone — third beetle alongside Iridibeetle and Quarrix lines; emoji butterfly is mismatch — flag)
+- `[247] Sparkeen | Electric/Dream | butterfly` (standalone Lepidoptera — dream-light flutterer; 2026-06-12 fixed the old beetle/emoji mismatch (it's a butterfly) and Electric mono→pristine Electric/Dream)
 - `[250] Pebblard→Boulderax→Megalith | Rock/Ground | rock-monolith / standing stone` (second rock-monolith alongside Prismolith line)
 - `[252] Crumblite→Stonegrip | Metal/Mineral | golem` (metal-mineral humanoid; retyped Earth/Metal→Metal/Mineral for diversity)
 - `[253] Ashrock | Rock/Fire | rock-elemental` (formless basalt with magma veins, standalone — could equally be fire-elemental; lean rock-elemental since body is rock)

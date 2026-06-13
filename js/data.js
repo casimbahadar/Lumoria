@@ -3585,8 +3585,8 @@ const MONSTERS_DATA = {
     base:{hp:77,atk:69,def:57,spa:106,spd:84,spe:92},
     learnset:[[1,"ooze_bomb"],[2,"toxic_surge"],[3,"toxin_bloom"],[8,"breeze"],[15,"tailwind_strike"],[20,"second_wind"],[25,"blitz"],[25,"breeze_blast"],[29,"toxify"],[30,"nerve_agent"],[35,"virulent_surge"],[39,"sap_bite"],[40,"wind_scythe"],[45,"putrid_pulse"],[50,"acid_rain"],[55,"cocoon_burst"],[60,"resonance_hum"]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:185, rarity:"uncommon",
-    desc:"A venomous butterfly that releases toxic scales on the wind. A cloud of them can fell a Lumori quickly.",
-    lore:"Venowarn is a large poison-wind butterfly with a 50 cm wingspan — Blightmite's dark purple-black caterpillar body has metamorphosed into deep black wings, with the bristle-hair toxin now sequestered into vivid purple warning patterns. It releases a cloud of toxic scales when startled, and the scales cause skin irritation and respiratory distress in creatures that inhale them. It inhabits dense poisonous forest regions." },
+    desc:"A venomous moth that releases toxic scales on the wind. A cloud of them can fell a Lumori quickly.",
+    lore:"Venowarn is a large poison-wind moth with a 50 cm wingspan — Blightmite's dark purple-black caterpillar body has metamorphosed into deep black wings, with the bristle-hair toxin now sequestered into vivid purple warning patterns. It releases a cloud of toxic scales when startled, and the scales cause skin irritation and respiratory distress in creatures that inhale them. It inhabits dense poisonous forest regions." },
 
   // ===== STEEL/GROUND =====
   153: { id:153, name:"Dentshaft", emoji:"⚙️", types:["Metal","Earth"],

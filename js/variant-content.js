@@ -486,7 +486,7 @@
     162: { noun: 'reed humanoid', features: ['its body of dense marsh reeds', 'its pale-green brown-banded stalk', 'its swaying frame'], coreLine: 'It still rustles like reeds in a foul wind.' },
     163: { noun: 'blight-flower humanoid', features: ['its deep crimson petal-head', 'its reed-stalk body', 'its toxic pollen'], coreLine: 'Its bloom still scatters blighted pollen.' },
     164: { noun: 'poison caterpillar', features: ['its purple-black body', 'its toxic bristle-hairs', 'its small inching frame'], coreLine: 'Its bristles still shed toxin on contact.' },
-    165: { noun: 'poison butterfly', features: ['its deep black wings', 'its toxin-dusted scales', 'its drifting flight'], coreLine: 'Its wing-dust still warns of its poison.' },
+    165: { noun: 'poison moth', features: ['its deep black wings', 'its toxin-dusted scales', 'its drifting flight'], coreLine: 'Its wing-dust still warns of its poison.' },
     166: { noun: 'psychic pup', features: ['its lavender-grey fur', 'its glowing domed forehead', 'its alert frame'], coreLine: 'Its brow still glows when it focuses.' },
     167: { noun: 'psychic hound', features: ['its indigo-grey coat', 'its broad glowing brow', 'its keen stance'], coreLine: 'A faint pressure still radiates from its mind.' },
     168: { noun: 'gem creature', features: ['its violet crystal prism body', 'the serene face within it', 'its short limbs'], coreLine: 'A calm presence still hums within its crystal.' },

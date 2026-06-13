@@ -95,7 +95,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[159] Acidelix→Corrodisc→Dissotoad | Poison/Earth | frog / toad` (**name leak in #159: "Acidovast"** — second toad family)
 - `[161] Miasmafly→Mistbane | Poison/Vapor | insect-swarm collective` (mythical, just claimed)
 - `[163] Marlix→Blightalis | Nature/Toxin | corrupted flower / plant-humanoid`
-- `[165] Blightmite→Venowarn | Poison/Wind | butterfly` (**name leak in #165: "Noxoveth"** — second butterfly family)
+- `[165] Blightmite→Venowarn | Poison/Wind | moth` (poison-wind moth — caterpillar→cocoon→toxic-scaled moth, reclassified off butterfly 2026-06-13; learnset already carries cocoon_burst. **name leak in #165: "Noxoveth"**)
 - `[167] Projectery→Psychovast | Mental | dog (non-wolf canine)`
 - `[169] Espelith→Aurarael | Mental/Mineral | crystalline-prism` (mythical)
 - `[170] Oneiron | Dark/Dream | dream-entity / wisp` (formless, standalone; nightmare-feeder — Dark/Dream restored 2026-06-12 to differentiate from Dreamweald #378's Mental/Dream)
@@ -387,12 +387,12 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **psychic-dragon** (sub) | 6 | n/a | discuss | Same. |
 | **lion** | 2 pre-462 (+Pyraeon postgame) | 3 | under cap | Ignitheon (fire-oracle), Aeolarch (storm) lines. Dravanas→hyena done 2026-06-13. |
 | **cetacean** | 5 | 3 | trim 2 | **LOCKED common cap-3.** Keep Torrentox (orca), Riftwhale (psychic-whale), Titanomare (steel-whale titan); re-archetype Marevanos #40→manta-ray, Tidephant #309→pinniped. (Pelagor is Forgotten 462+, excluded.) |
-| **moth** | 2 | 3 | under cap | Inferarch (#12), Thornmoth (#331). Split out of the old "Lepidoptera" bucket 2026-06-13; Mosswing #265→grasshopper. |
+| **moth** | 3 | 3 | at cap | Inferarch (#12), Venowarn (#165), Thornmoth (#331). Split out of the old "Lepidoptera" bucket 2026-06-13; Mosswing #265→grasshopper, Venowarn reclassified butterfly→moth. |
 | **grasshopper (Orthoptera)** | 1 | 3 | under cap | Mosswing (#265). Pristine archetype, re-archetyped off moth 2026-06-13. |
-| **butterfly** | 3 | 3 | at cap | Iridesoar (#141), Venowarn (#165), Aeridaleth (#199). Split out of Lepidoptera 2026-06-13; Sparkeen #247→will-o-wisp and Plagueoth #298→mosquito trimmed it to cap. |
+| **butterfly** | 2 | 3 | under cap | Iridesoar (#141), Aeridaleth (#199). Split out of Lepidoptera 2026-06-13; Venowarn #165→moth, Sparkeen #247→will-o-wisp, Plagueoth #298→mosquito. |
 | **beetle** | 3 | 3 | at cap | Scarabion (#201, scarab beetle), Quarrix (#205), Voltbeetle (#339). Skullmite #329→trilobite 2026-06-13; Sparkeen had been miscounted here (it's a will-o-wisp). |
 | **rock-monolith / standing stone** | 4 | 3 | trim 1 | Frigolith, Megalith, Bouldertide, Mirestone→Chronolith. (Crystallon→yeti 2026-06-13) |
-| **crystalline-prism** | 5 | 3 | trim 2 | Aurarael, Shardlix, Cryoshard, Crystalmind, Sparkeis-postgame. |
+| **crystalline-prism** | 3 | exempt | — | **Mythical-exempt** (CLAUDE.md) — resolves the old exempt-vs-trim contradiction. Aurarael #169 (orbiting 7-shard cluster + face), Shardlix #241 (ice-crystal humanoid), Crystalmind #381 (geometric polyhedron) — three distinct forms, no redundant look-alikes to cull. Old "5/trim 2" was stale: Cryoshard #340 already pivoted to resonant-crystal, Sparkeis #493 is post-game. Spectravore #351 is a separate "prismatic being". No cull. |
 | **eagle** | 1 | 3 | under cap | Vortexathos (#91). Subdivided out of "bird-of-prey/raptor" 2026-06-13. |
 | **condor / vulture** | 1 | 3 | under cap | Cyclavorn (#113). Subdivided 2026-06-13. |
 | **hawk** | 1 | 3 | under cap | Rimeclaw (#338). Subdivided 2026-06-13. |

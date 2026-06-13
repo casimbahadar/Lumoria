@@ -37,7 +37,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[12] Scorchlarva→Heliocoon→Inferarch | Fire/Wind | moth (Lepidoptera)`
 - `[15] Taurcin→Molteroth→Pyroclasm | Fire/Rock | bull-titan / minotaur` (mythical sub: volcanic bull-titan, bipedal final)
 - `[18] Cindercula→Searburn→Quetzember | Fire/Wind | feathered-serpent` (sub: plumed fire-serpent / Quetzalcoatl; base #16 stays mono-Fire)
-- `[21] Magmaurin→Embrath→Terravore | Fire/Ground | saurian / dinosaur`
+- `[21] Magmaurin→Embrath→Terravore | Fire/Earth | rhinoceros` (de-saurianed 2026-06-13 — magma-rhino line, calf→great charging magma-rhino; fixes old mole→lizard→dino incoherence)
 - `[24] Hallucigaze→Pyraxis→Ignitheon | Fire/Psychic | lion` (final is true lion)
 - `[27] Reefling→Aquidon→Tidalossus | Water/Rock | kraken / sea-titan crustacean` (mythical-exempt)
 - `[30] Corelin→Neraxis→Nepturix | Water | fish` (deep-sea fish)
@@ -81,7 +81,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[127] Impefurr→Specraxis | Dark/Psychic | kitsune` (mythical, just claimed)
 - `[129] Cranivade→Cerebraith | Psychic/Dark | void / cosmic abstract being` (mythical)
 - `[131] Necralia→Necrothon | Dark/Grass | treant / walking-tree spirit` (mythical)
-- `[133] Volcascale→Monolithox | Rock/Dark | saurian` (with rock-monolith plate-shell — could double-classify as rock-monolith)
+- `[133] Volcascale→Monolithox | Earth/Dark | gargoyle` (de-saurianed 2026-06-13 — obsidian gargoyle, winged dark-stone guardian / god of night)
 - `[136] Aeronyx→Steelvex→Metalibat | Steel/Dark | bat` (**name leak in #136: "Ferrovast"**)
 - `[139] Goldefluff→Aetherael→Lumiarch | Fairy | fairy-hound` (canine-fairy mythical)
 - `[141] Faeling→Iridesoar | Fairy/Wind | butterfly` (**name leak in #141: "Prisoveth"**)

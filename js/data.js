@@ -2110,19 +2110,19 @@ const MONSTERS_DATA = {
     desc:"A steel hound with titanium claws. Almost nothing can break its armor.",
     lore:"Stoicguard is a large humanoid steel creature 1.5 metres tall — Scrapsapien's compact bolted-and-seamed plating has reforged into a broad powerful chest and arms that function as natural weapons, and the scrap-collecting habit of its juvenile form has left a surface of burnished dark steel with deep scratches from past battles. It is stoic, rarely speaking, and positions itself between perceived threats and those it considers worth protecting." },
 
-  150: { id:150, name:"Gearon",     emoji:"⚙️", types:["Metal","Electric"],
+  150: { id:150, name:"Voltcrawl",     emoji:"🐛", types:["Metal","Electric"],
     base:{hp:48,atk:50,def:67,spa:52,spd:57,spe:54},
     learnset:[[1,"chrome_claw",[22,"shrapnel_burst"]],[1,"jolt"],[3,"ironskin"],[6,"piston_jab"],[10,"forge_blast_2"],[14,"metal_pulse"],[18,"static_strike"],[20,"mirror_polish"],[21,"second_wind"],[26,"volt_jet"],[32,"ball_lightning"],[34,"forge_blast_2"],[38,"plasma_strike"],[42,"stormbolt",[5,"magnetize"]]],
     evolveTo:151, evolveLevel:28, catchRate:100, expYield:95, rarity:"common",
-    desc:"A mechanical gear-bot that runs on electric power. Loves to tinker.",
-    lore:"Gearon is a compact steel-electric creature 60 cm tall that resembles a gear-work automaton. Its round body is made of interlocking cog-wheels that spin and whir constantly, generating its own electrical power through mechanical motion. Sparks escape through gaps in its gear-work as it moves." },
+    desc:"A small armored centipede whose plated segments spark with current as it scurries.",
+    lore:"Voltcrawl is a 60 cm centipede sheathed in interlocking metallic plates, a static charge building between its many legs as it scurries so that sparks leap from segment to segment. It nests in warm machinery and rock-faults, drawing charge from the air around it, and grows longer and more powerful with each moult — building toward the great Voltipede." },
 
-  151: { id:151, name:"Alloytron",    emoji:"🦿", types:["Metal","Electric"],
+  151: { id:151, name:"Voltipede",    emoji:"🐛", types:["Metal","Electric"],
     base:{hp:77,atk:72,def:92,spa:108,spd:75,spe:66},
     learnset:[[1,"volt_jet"],[2,"magnetize"],[3,"ironskin"],[15,"chrome_slash"],[20,"corrosion_proof"],[25,"flywheel"],[31,"forge_blast_2"],[32,"surge_field"],[33,"mirror_plating"],[35,"metal_roller"],[36,"fortify"],[37,"forge_strike"],[39,"stormbolt"],[40,"rivet_barrage"],[44,"volt_surge"],[48,"alloy_tail"],[52,"tungsten_ram"],[56,"overcharge"],[60,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"uncommon",
-    desc:"A mechanical warrior powered by electric cores. Feared on every battlefield.",
-    lore:"Alloytron is a larger electric-steel automaton 1.2 metres tall — Gearon's spinning cog-wheels have consolidated into an assembly of interlocked alloy panels with exposed wiring running between them, and the mechanical-motion sparks of its juvenile form have organised into a glowing power core visible through a transparent casing in its chest. Its chest houses a glowing power core visible through a transparent casing. It can interface with electrical infrastructure and draw power directly from city grid lines." },
+    desc:"A massive armored centipede crackling with stored current. Its electrified bite locks prey rigid.",
+    lore:"Voltipede is a 1.2-metre centipede of overlapping conductive plates, the matured Voltcrawl — the static that once merely sparked between its segments now pools into a charged core that runs the length of its body, glowing as a bright seam down its back. It earths itself against power-lines to recharge, and a single venomous, electrified bite jolts prey rigid before it coils its armored length around them." },
 
   152: { id:152, name:"Imperion",  emoji:"🐢", types:["Metal","Earth"],
     base:{hp:108,atk:61,def:138,spa:59,spd:105,spe:30},
@@ -2322,15 +2322,15 @@ const MONSTERS_DATA = {
     base:{hp:60,atk:63,def:73,spa:46,spd:31,spe:45},
     learnset:[[1,"collide",[22,"obsidian_crash"]],[1,"stone_throw"],[8,"fortify"],[16,"cranial_ram"],[24,"stone_slide"],[29,"lashing_tail"],[32,"crag_strike"],[40,"crushing_bulk",[5,"granite_wall"]],[3,"petrify_gaze"],[31,"daunt"]],
     evolveTo:192, evolveLevel:25, catchRate:160, expYield:88, rarity:"common",
-    desc:"A rock creature shaped like a small pebble with tiny legs. Almost indistinguishable from an ordinary river stone when still.",
-    lore:"Pebblet is a small rock creature 20 cm tall shaped like a round pebble with two tiny legs and a somewhat surprised-looking face embedded in the stone. It is almost indistinguishable from an ordinary river pebble when still. It lives in streambeds and rolls with the current when travelling. Pebblet cluster in tight streambank groupings that mimic natural rock outcroppings. From within each cluster, individuals occasionally rear briefly upright on their two tiny legs before tumbling back, rehearsing both the awkward humanoid stance and the geologist-fooling formation Boulderoll and Megalith will maintain together at much greater scale." },
+    desc:"A pebble-sized rock roly-poly. Curls into a tiny armored ball when startled, nearly invisible among river stones.",
+    lore:"Pebblet is a small rock-isopod about 20 cm long, its segmented stony shell the colour of river gravel and its underside lined with many tiny legs. At the first hint of danger it tucks head and legs away and curls into a tight pebble-shaped ball, nearly indistinguishable from an ordinary stone, rolling with the current through streambeds. As it grows it learns to roll under its own power — the habit that comes to define the boulder-rolling Boulderoll it becomes." },
 
   192: { id:192, name:"Boulderoll",emoji:"🪨", types:["Earth"],
     base:{hp:82,atk:108,def:112,spa:50,spd:57,spe:69},
     learnset:[[1,"stone_throw"],[2,"cranial_ram"],[3,"fortify"],[4,"stone_slide"],[5,"granite_wall"],[29,"crag_strike"],[33,"tremor_stomp"],[37,"crushing_bulk"],[41,"geoblast"],[49,"crystal_lance"],[57,"landslide"],[65,"tectonic_shift"],[6,"petrify_gaze"],[44,"aftershock"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:222, rarity:"uncommon",
-    desc:"A boulder hound encrusted with stones. Can cause landslides by running.",
-    lore:"Boulderoll is a large rock-ground creature 1.5 metres tall shaped like a roughly humanoid boulder — Pebblet's round river-pebble silhouette has grown and squared into a rough humanoid shape, the small surprised face of its kit form barely defined now but still clearly present, and the current-rolling travel habit has matured into a rolling shift of its own mass overland. It moves by rolling and shifting its own mass. Groups of Boulderoll arrange themselves in formations that geologists initially mistake for natural rock outcroppings." },
+    desc:"A massive rock roly-poly that curls into a boulder and rolls downhill, setting off landslides.",
+    lore:"Boulderoll is a large rock-isopod about 1.5 metres long — Pebblet's pebble-shell has thickened into overlapping plates of solid stone. It travels by tucking away its head and many legs and rolling as a great boulder, gathering speed downhill until it flattens trees and triggers landslides; uncurled, it trundles slowly on rows of short stony legs. Clusters wedged among hillside rocks are routinely mistaken for natural scree." },
 
   193: { id:193, name:"Rugothon",    emoji:"🦞", types:["Aquatic","Mineral"],
     base:{hp:71,atk:78,def:89,spa:52,spd:63,spe:68},
@@ -2742,19 +2742,19 @@ const MONSTERS_DATA = {
   // ===== BATCH 4: ROCK / WATER / GRASS / DARK (IDs 251-265) =====
 
   // 2-stage Rock/Metal chain: Crumblite → Stonegrip (Metal Coat item)
-  251: { id:251, name:"Crumblite", emoji:"🪨", types:["Metal","Mineral"],
+  251: { id:251, name:"Crumblite", emoji:"🦞", types:["Metal","Mineral"],
     base:{hp:60,atk:75,def:85,spa:42,spd:60,spe:45},
     learnset:[[20,"lode_strike"],[1,"stone_throw"],[1,"chrome_claw"],[14,"stone_slide"],[24,"forge_blast_2"],[34,"crag_strike"],[44,"alloy_tail"],[54,"forge_strike"],[60,"radiance_cannon"]],
     evolveTo:252, evolveLevel:null, evolveItem:"metalCoat", evolveMethod:"item", catchRate:140, expYield:98, rarity:"common",
-    desc:"A ore-encrusted creature that upgrades itself by absorbing metallic minerals from cave walls.",
-    lore:"Crumblite is an earth-metal creature 40 cm tall whose body appears to be crumbling stone held together by thin steel rebar-like structures growing through it. Chunks occasionally fall away and are immediately replaced by new growth. It inhabits construction sites and ruined architecture, instinctively reinforcing damaged structures. A Crumblite constantly loses and regrows chunks of its crumbling stone-body, but each replaced piece sets slightly more permanently than the last. This gradual stabilisation is the slow approach toward the bolted-steel-plate compactness Stonegrip exhibits once metalCoat fully reinforces it." },
+    desc:"A young rock-crustacean with a brittle ore-crusted shell. Pries metallic minerals from cave walls to harden itself.",
+    lore:"Crumblite is a 40 cm rock-crustacean whose stony carapace is still brittle and flecked with raw ore, threaded through with thin veins of steel. Bits of shell chip away as it scuttles and are quickly regrown, each new piece setting a little harder than the last. It haunts caves and ruined masonry, prying out metallic minerals to reinforce its shell — and once a Metal Coat fully tempers that shell into bolted plate, it hardens all at once into the iron-clawed Stonegrip." },
 
-  252: { id:252, name:"Stonegrip", emoji:"🛡️", types:["Metal","Mineral"],
+  252: { id:252, name:"Stonegrip", emoji:"🦞", types:["Metal","Mineral"],
     base:{hp:95,atk:110,def:135,spa:58,spd:88,spe:52},
     learnset:[[40,"granite_slam"],[1,"crag_strike"],[1,"forge_blast_2"],[28,"alloy_tail"],[36,"forge_strike"],[44,"tectonic_shift"],[52,"bedrock_slam"],[60,"heavy_slam"],[68,"radiance_cannon"],[70,"mud_spray"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"rare",
-    desc:"An iron-clad rock titan. Its exterior is half-rock, half-steel, forming impenetrable natural armor.",
-    lore:"Stonegrip is an earth-metal creature 80 cm tall — Crumblite's crumbling stone-body has been stabilised under metalCoat's influence into a compact frame of grey granite, the thin rebar-structures of its juvenile form now visible steel plating bolted to its surface. Its broad hands can crush stone to powder. It works obsessively to compress and compact loose rock around it, creating denser stone formations wherever it dwells." },
+    desc:"An armored rock-lobster whose stone-and-steel claws crush boulders to powder.",
+    lore:"Stonegrip is an 80 cm rock-crustacean — Crumblite's brittle shell, tempered under a Metal Coat, has set into a compact carapace of grey granite bolted with steel plating. Its two great claws crush stone to powder and grip prey or rubble with bone-cracking force, and it works obsessively to compact the loose rock around it into dense formations wherever it settles." },
 
   // Standalone Fire/Mineral: Ashrock (location evo near volcano area)
   253: { id:253, name:"Ashrock", emoji:"🌋", types:["Fire","Mineral"],
@@ -5692,7 +5692,7 @@ const WORLD_DATA = {
       {id:173, minLv:62, maxLv:66, rate:25}, // Cobravyrm
       {id:124, minLv:62, maxLv:66, rate:25}, // Phantorvex
       {id:143, minLv:62, maxLv:66, rate:25}, // Lunarael
-      {id:151, minLv:63, maxLv:66, rate:25}  // Alloytron
+      {id:151, minLv:63, maxLv:66, rate:25}  // Voltipede
     ],
     ngPlusWildMonsters:[{id:345, minLv:60, maxLv:66, rate:18}], // Voidcoil (base) — found before Oblivionwing in Void Nexus
     hasGym:false, requiredBadges:16, mapPos:{x:62, y:35}
@@ -5935,7 +5935,7 @@ const WORLD_DATA = {
       {id:147, minLv:25, maxLv:31, rate:25},   // Scrapsapien
       {id:191, minLv:25, maxLv:31, rate:25},   // Pebblet
       {id:134, minLv:26, maxLv:32, rate:20},  // Aeronyx
-      {id:150, minLv:27, maxLv:32, rate:20},   // Gearon
+      {id:150, minLv:27, maxLv:32, rate:20},   // Voltcrawl
       {id:152, minLv:28, maxLv:33, rate:10}    // Imperion
     ],
     ngPlusWildMonsters:[{id:423, minLv:25, maxLv:29, rate:12}], // NG+ family base: Pebblite
@@ -6259,7 +6259,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:147, minLv:65, maxLv:70, rate:21},  // Scrapsapien (base)
       {id:148, minLv:66, maxLv:71, rate:5},  // Stoicguard (mid → after 147 ✓)
-      {id:150, minLv:65, maxLv:70, rate:14},  // Gearon (base)
+      {id:150, minLv:65, maxLv:70, rate:14},  // Voltcrawl (base)
       {id:134, minLv:66, maxLv:71, rate:12},  // Aeronyx (base)
       {id:153, minLv:66, maxLv:71, rate:17},  // Dentshaft (base)
       {id:55,  minLv:67, maxLv:72, rate:9},  // standalone steel
@@ -6276,7 +6276,7 @@ const WORLD_DATA = {
     connections:["forge_approach","route15"],
     wildMonsters:[
       {id:149, minLv:67, maxLv:72, rate:13},  // Eternarmor (final)
-      {id:151, minLv:66, maxLv:71, rate:25},  // Alloytron (mid)
+      {id:151, minLv:66, maxLv:71, rate:25},  // Voltipede (mid)
       {id:152, minLv:67, maxLv:72, rate:20},  // Imperion (Metal/Rock)
       {id:135, minLv:67, maxLv:72, rate:30},  // Steelvex (mid, 134 on route14 ✓)
       {id:136, minLv:68, maxLv:73, rate:12}   // Metalibat (final → after 135 ✓)
@@ -6417,8 +6417,8 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:148, minLv:66, maxLv:71, rate:10},  // Stoicguard (mid)
       {id:149, minLv:67, maxLv:72, rate:6},  // Eternarmor (final → after 148 ✓)
-      {id:150, minLv:65, maxLv:70, rate:24},  // Gearon (base)
-      {id:151, minLv:66, maxLv:71, rate:14},  // Alloytron (mid → after 150 ✓)
+      {id:150, minLv:65, maxLv:70, rate:24},  // Voltcrawl (base)
+      {id:151, minLv:66, maxLv:71, rate:14},  // Voltipede (mid → after 150 ✓)
       {id:153, minLv:66, maxLv:71, rate:28},  // Dentshaft (base)
       {id:154, minLv:67, maxLv:72, rate:18}   // Terragolem (mid → after 153 ✓)
     ],
@@ -6518,8 +6518,8 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:147, minLv:65, maxLv:70, rate:28},  // Scrapsapien (base)
       {id:148, minLv:66, maxLv:71, rate:6},  // Stoicguard (mid → after 147 ✓)
-      {id:150, minLv:65, maxLv:70, rate:24},  // Gearon (base)
-      {id:151, minLv:66, maxLv:71, rate:10},  // Alloytron (mid → after 150 ✓)
+      {id:150, minLv:65, maxLv:70, rate:24},  // Voltcrawl (base)
+      {id:151, minLv:66, maxLv:71, rate:10},  // Voltipede (mid → after 150 ✓)
       {id:134, minLv:66, maxLv:71, rate:18},  // Aeronyx (base)
       {id:135, minLv:67, maxLv:72, rate:14}   // Steelvex (mid → after 134 ✓)
     ],

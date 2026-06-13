@@ -88,7 +88,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[144] Dawnirel→Lunarael→Celestarch | Fairy/Psychic | star / celestial cosmic` (mythical)
 - `[146] Faerrin→Shinarith | Fairy/Steel | armor-suit` (fairy-armored guardian)
 - `[149] Scrapsapien→Stoicguard→Eternarmor | Steel | metal-golem` (**name leak in #149: "Adamovast"**)
-- `[151] Gearon→Alloytron | Steel/Electric | automaton` (electric-mechanical)
+- `[151] Voltcrawl→Voltipede | Metal/Electric | centipede` (de-golemed 2026-06-13 from automaton — armored electric myriapod; renamed from Gearon/Alloytron)
 - `[152] Imperion | Crystal/Rock | tortoise` (standalone, current types odd — described as steel-rock tortoise)
 - `[154] Dentshaft→Terragolem | Steel/Ground | metal-golem` (**name leak in #154: "Titanolith"**)
 - `[156] Toxirin→Venekon | Poison/Water | frog / toad`
@@ -113,7 +113,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[186] Hoverrow→Continemic | Normal/Wind | bird` (albatross — **name leak in #186: "Airovast"**)
 - `[188] Norindel→Plentorus | Normal | boar / pig`
 - `[190] Woolcalm→Aetherflock | Normal/Psychic | sheep / bovid` (psychic sheep — second bovid family alongside Tundram line)
-- `[192] Pebblet→Boulderoll | Rock/Ground | earth-golem` (boulder humanoid; **name leak in #192: "Lithavast"**)
+- `[192] Pebblet→Boulderoll | Earth | pillbug` (de-golemed 2026-06-13 from earth-golem — rock roly-poly that curls into a boulder and rolls)
 - `[194] Rugothon→Lithomere | Rock/Water | crab / crustacean` (rock-water crab)
 - `[196] Prismolith→Frigolith | Rock/Ice | rock-monolith / standing stone` (boulder partially submerged in permafrost)
 - `[199] Photoworm→Chrysalix→Aeridaleth | Bug/Wind | butterfly` (Lepidoptera — third butterfly/moth family)
@@ -145,7 +145,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[246] Staticlaw→Thundravex→Megavolt | Electric | wolverine (mustelid)`
 - `[247] Sparkeen | Electric/Dream | butterfly` (standalone Lepidoptera — dream-light flutterer; 2026-06-12 fixed the old beetle/emoji mismatch (it's a butterfly) and Electric mono→pristine Electric/Dream)
 - `[250] Pebblard→Boulderax→Megalith | Rock/Ground | rock-monolith / standing stone` (second rock-monolith alongside Prismolith line)
-- `[252] Crumblite→Stonegrip | Metal/Mineral | metal-golem` (metal-mineral humanoid; retyped Earth/Metal→Metal/Mineral for diversity)
+- `[252] Crumblite→Stonegrip | Metal/Mineral | lobster` (de-golemed 2026-06-13 from metal-golem — armored rock-crustacean with crushing stone-claws)
 - `[253] Ashrock | Rock/Fire | rock-elemental` (formless basalt with magma veins, standalone — could equally be fire-elemental; lean rock-elemental since body is rock)
 - `[255] Bubblepuff→Psychotide | Water/Psychic | water-elemental` (wave humanoid, formless water — sole water-elemental candidate; **name leak in #255: "Wavrix"**)
 - `[258] Scolphin→Narwhirl→Torrentox | Water/Ice | cetacean` (orca/calf — second cetacean alongside Gossafin line + Titanomare standalone + Tidephant)

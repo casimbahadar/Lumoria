@@ -1773,12 +1773,12 @@ const MONSTERS_DATA = {
     desc:"A dazzling coral fish with rainbow fins. Lures prey with its bright colors.",
     lore:"Corelin is a delicate tropical fish 25 cm long, striped vivid orange and white with translucent fins edged in blue. It lives inside branching coral formations and carries a weak electric charge in its scales that deters predators. Its scales refract light into small rainbows in shallow water." },
 
-  29: { id:29, name:"Neraxis",    emoji:"🐡", types:["Aquatic"],
+  29: { id:29, name:"Coralisk",    emoji:"🐡", types:["Aquatic"],
     base:{hp:76,atk:69,def:64,spa:114,spd:99,spe:74},
     learnset:[[1,"aquatic_gun"],[2,"bubble_jet"],[3,"tidal_rush"],[4,"tidecaller"],[30,"daunt"],[35,"fortify"],[40,"blitz"],[45,"prism_flare"],[50,"whirlpool_dive"],[55,"sea_serpent_strike"],[60,"lunar_burst"],[65,"tsunami"],[5,"deepwater_hymn"],[42,"second_wind"]],
     evolveTo:30, evolveLevel:42, catchRate:70, expYield:184, rarity:"uncommon",
     desc:"A majestic reef king with jewel-like scales. Commands schools of fish.",
-    lore:"Neraxis is a rotund puffer fish about 30 cm in diameter when deflated — Corelin's vivid orange-and-white reef stripes have muted to sandy yellow with dark brown spots as it migrated from coral to lagoon, but its scales still refract faint rainbows in shallow sunlight. When startled it inflates to three times its size, erecting short sharp quills. It dwells in sandy lagoons and buries itself to ambush worms and molluscs." },
+    lore:"Coralisk is a rotund puffer fish about 30 cm in diameter when deflated — Corelin's vivid orange-and-white reef stripes have muted to sandy yellow with dark brown spots as it migrated from coral to lagoon, but its scales still refract faint rainbows in shallow sunlight. When startled it inflates to three times its size, erecting short sharp quills. It dwells in sandy lagoons and buries itself to ambush worms and molluscs." },
 
   // ===== ADDITIONAL GRASS =====
   63: { id:63, name:"Sporix",    emoji:"🍄", types:["Nature"],
@@ -3229,12 +3229,12 @@ const MONSTERS_DATA = {
 
 
   // ===== LEGENDARIES (IDs 314-321) =====
-  314: { id:314, name:"Galeaxis",  emoji:"🌪️", types:["Wind","Sonic"],
+  314: { id:314, name:"Skybreaker",  emoji:"🌪️", types:["Wind","Sonic"],
     base:{hp:102,atk:84,def:93,spa:125,spd:96,spe:100},
     learnset:[[1,"wind_scythe"],[1,"jolt"],[7,"breeze"],[11,"concussive_strike"],[14,"static_strike"],[18,"frequency_blast"],[21,"zephyr_dance"],[25,"resonance_field"],[28,"volt_jet"],[35,"downdraft"],[40,"harmonic_wave"],[42,"typhoon"],[49,"squall_slash"],[56,"overcharge"],[60,"acoustic_shock"],[63,"tempest_wrath"],[70,"gale_cannon"],[77,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
     desc:"The Legendary Skybreaker. Said to control all weather in Lumoria.",
-    lore:"Galeaxis is a wind-sonic creature with a 1-metre wingspan, a sleek pale-grey raptor body trailing streamers of compressed air. From cruising altitude it folds its wings and dives faster than sound, and each plunge ends in a localised sonic boom as it exceeds natural air displacement limits. Hunters claim the shockwave can be felt before the bird itself is seen." },
+    lore:"Skybreaker is a wind-sonic creature with a 1-metre wingspan, a sleek pale-grey raptor body trailing streamers of compressed air. From cruising altitude it folds its wings and dives faster than sound, and each plunge ends in a localised sonic boom as it exceeds natural air displacement limits. Hunters claim the shockwave can be felt before the bird itself is seen." },
 
   315: { id:315, name:"Ashvanus",   emoji:"🌋", types:["Fire","Earth"],
     base:{hp:113,atk:145,def:111,spa:102,spd:89,spe:50},
@@ -3484,12 +3484,12 @@ const MONSTERS_DATA = {
     desc:"A carnivorous flower of potent venom. Its blooms lure in prey before injecting toxins.",
     lore:"Blightalis is a grass-toxin creature 1.2 metres tall whose Marlix reed-stalk body has bloomed into a flower-headed humanoid. Its petals are deep crimson-purple and droop downward like a wilting bloom around its head. Its stem-body is hollow and filled with toxic nectar. It lures insects and small creatures into its central chamber, trapping and dissolving them." },
 
-  127: { id:127, name:"Specraxis", emoji:"👻", types:["Dark","Mental"],
+  127: { id:127, name:"Wraithfox", emoji:"👻", types:["Dark","Mental"],
     base:{hp:78,atk:68,def:54,spa:107,spd:90,spe:91},
     learnset:[[1,"void_pulse"],[2,"eclipse_shroud"],[29,"nether_sphere"],[30,"daunt"],[34,"collide"],[38,"mind_jolt"],[42,"dreamweave"],[46,"dusk_slash"],[50,"nightmare_pulse"],[54,"mental"],[58,"blackout_bomb"],[62,"psi_strike"],[3,"dread_howl"],[39,"astral_rend"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:318, rarity:"uncommon",
     desc:"A spectral fox-spirit whose shadowy form trails into smoke. Multiple ghostly tails fan out behind it, and its violet eyes seem to read minds at a glance.",
-    lore:"Specraxis is a 70-centimetre kitsune-like fox-spirit, the matured form of Impefurr's mischievous lineage. Its fox silhouette is preserved but partly translucent — a smoke-grey body shading darker toward the spine and tail-tips, with deep-set violet eyes glowing through long fringes of shadow-fur. Two long shadow-tails fan from its hindquarters and seem to multiply or merge depending on the angle of viewing. It floats roughly 10 centimetres above the ground at all times, padding silently through the air, and its mind-reading is so passive it broadcasts surface thoughts back through its violet aura — anyone standing nearby in a crowded place hears their own private thoughts spoken back to them in distorted whispers, causing widespread confusion." },
+    lore:"Wraithfox is a 70-centimetre kitsune-like fox-spirit, the matured form of Impefurr's mischievous lineage. Its fox silhouette is preserved but partly translucent — a smoke-grey body shading darker toward the spine and tail-tips, with deep-set violet eyes glowing through long fringes of shadow-fur. Two long shadow-tails fan from its hindquarters and seem to multiply or merge depending on the angle of viewing. It floats roughly 10 centimetres above the ground at all times, padding silently through the air, and its mind-reading is so passive it broadcasts surface thoughts back through its violet aura — anyone standing nearby in a crowded place hears their own private thoughts spoken back to them in distorted whispers, causing widespread confusion." },
 
   129: { id:129, name:"Cerebraith", emoji:"🌀", types:["Mental","Spectral"],
     base:{hp:83,atk:77,def:72,spa:107,spd:89,spe:75},
@@ -3836,13 +3836,13 @@ const MONSTERS_DATA = {
     desc:"A titan of polar seas whose body is half glacier and half deep ocean. Its roar shatters icebergs for miles around.",
     lore:"Nagislither is an elongated mature seal-form 3 metres long, sleek and powerfully muscled, with translucent blue-white fur over a long pinniped body and broad front flippers. Its whiskered face and dark amber eyes match the Boreon-and-Cryonik lineage, but its tail has lengthened into a sweeping rudder that breaks through thin ice sheets in wide arcs. It hunts beneath pack ice, surfacing through cracks to catch prey venturing near the frozen edge." },
 
-  // 185: Nepturix - Aquatic (Corelin→Neraxis→Nepturix)
+  // 185: Nepturix - Aquatic (Corelin→Coralisk→Nepturix)
   30: { id:30, name:"Nepturix", emoji:"🐟", types:["Aquatic"],
     base:{hp:91,atk:82,def:77,spa:136,spd:107,spe:57},
     learnset:[[1,"aquatic_gun"],[1,"tidal_rush"],[2,"bubble_jet"],[3,"tidecaller"],[4,"whirlpool_dive"],[5,"deepwater_hymn"],[10,"aquatic_pulse"],[20,"maelstrom"],[30,"flood_tide"],[38,"tsunami"],[42,"tidal_crush"],[44,"frost_current"],[46,"sea_serpent_strike"],[50,"coral_barrage"],[54,"abyssal_jet"],[58,"ocean_tempest"],[62,"prism_flare"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
     desc:"A leviathan of the reef that commands all ocean life with a single glance. Its scales scatter light like a shattered prism.",
-    lore:"Nepturix is a silvery deep-sea fish about 60 cm long — Neraxis's rotund puffer body has streamlined and elongated for open-water hunting, the defensive spines retracted beneath the skin and the sandy lagoon camouflage darkened to silver-blue for trench depths. Enormous light-gathering eyes give it the slender streamlined head it now needs. Bioluminescent dots line its lateral line. It descends to lightless ocean trenches during the day and ascends to shallower water at night to feed on schooling fish." },
+    lore:"Nepturix is a silvery deep-sea fish about 60 cm long — Coralisk's rotund puffer body has streamlined and elongated for open-water hunting, the defensive spines retracted beneath the skin and the sandy lagoon camouflage darkened to silver-blue for trench depths. Enormous light-gathering eyes give it the slender streamlined head it now needs. Bioluminescent dots line its lateral line. It descends to lightless ocean trenches during the day and ascends to shallower water at night to feed on schooling fish." },
 
   // 186: Noxarith - Aquatic/Poison (Toxaquil→Noxaquith→Noxarith)
   33: { id:33, name:"Septanemone", emoji:"🦑", types:["Aquatic","Poison"],

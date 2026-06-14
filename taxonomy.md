@@ -40,7 +40,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[21] Magmaurin→Ignirhino→Terravore | Fire/Earth | rhinoceros` (de-saurianed 2026-06-13 — magma-rhino line, calf→great charging magma-rhino; fixes old mole→lizard→dino incoherence)
 - `[24] Hallucigaze→Pyraxis→Ignitheon | Fire/Mental | lion` (final is true lion)
 - `[27] Reefnip→Aquidon→Tidalossus | Aquatic/Earth | kraken / sea-titan crustacean` (mythical-exempt)
-- `[30] Corelin→Neraxis→Nepturix | Aquatic | fish` (deep-sea fish)
+- `[30] Corelin→Coralisk→Nepturix | Aquatic | fish` (deep-sea fish)
 - `[33] Toxaquil→Noxaquith→Septanemone | Aquatic/Poison | cephalopod` (sub: anemone-bloomed cephalopod)
 - `[36] Pearlmaid→Undirael→Thalassira | Aquatic/Fairy | sea-fairy queen / mermaid` (mythical-exempt; flagship)
 - `[38] Coralossus→Titanariel | Aquatic/Metal | coral-titan humanoid` (mythical sub)
@@ -78,7 +78,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[120] Eclipsehound→Dreadmaw→Nightwolf | Dark | wolf` (**name leak in #120: "Noctovast"**)
 - `[122] Spiraloom→Caveshroud | Dark/Wind | bat` (**name leak in #122: "Umbraveth"**)
 - `[125] Nocturil→Phantorvex→Venotitan | Dark/Poison | serpent` (**name leak in #125: "Phantomvast"**)
-- `[127] Impefurr→Specraxis | Dark/Mental | kitsune` (mythical, just claimed)
+- `[127] Impefurr→Wraithfox | Dark/Mental | kitsune` (mythical, just claimed)
 - `[129] Cranivade→Cerebraith | Mental/Spectral | void / cosmic abstract being` (mythical)
 - `[131] Necralia→Necrothon | Dark/Nature | treant / walking-tree spirit` (mythical)
 - `[133] Volcascale→Monolithox | Earth/Dark | gargoyle` (de-saurianed 2026-06-13 — obsidian gargoyle, winged dark-stone guardian / god of night)
@@ -180,7 +180,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 ### Batch 4 (families 140-173)
 
 - `[313] Dunecrawl→Sandrix | Earth/Dark | armadillo` (pristine archetype, just claimed)
-- `[314] Galeaxis | Wind/Sonic | dog (non-wolf canine)` (greyhound, standalone)
+- `[314] Skybreaker | Wind/Sonic | dog (non-wolf canine)` (greyhound, standalone)
 - `[315] Ashvanus | Fire/Earth | volcanic-vent creature` (unique — "volcanic vent that has grown a body" with magma core; borderline rock-elemental vs unique. Standalone)
 - `[316] Abyssovex | Aquatic/Dark | cephalopod` (deep-sea squid leviathan, standalone — second cephalopod alongside Toxaquil line)
 - `[317] Temporith | Mental/Draconic | dragon-mythic` (sub: psychic-dragon — now the sole psychic-dragon; the former Drakorius was re-archetyped to naga)
@@ -346,7 +346,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 - `[480] Forgotten Pyraeon | Fire/Crystal | nemean-lion` (Dravek's lion — post-game lion)
 - `[481] Forgotten Emberon | Fire/Chrono | sabertooth / smilodon` (post-game tiger — pristine sub for tiger)
 - `[482] Forgotten Dracofire | Draconic/Primal | primal-dragon` (sub: plague-dragon, palm-sized hatchling — second plague-dragon alongside Wyrmvenom)
-- `[483] Forgotten Frigalum | Ice/Crystal | arctic-fox` (post-game fox — second kitsune alongside Specraxis; Forgotten = mythical-exempt)
+- `[483] Forgotten Frigalum | Ice/Crystal | arctic-fox` (post-game fox — second kitsune alongside Wraithfox; Forgotten = mythical-exempt)
 - `[484] Forgotten Cryvorn | Ice/Chrono | fenrir` (post-game wolf — fifth wolf)
 - `[485] Forgotten Frostdrax | Ice/Primal | ymir / frost-giant` (sub: ghost-fairy-dragon — post-game; -drax suffix)
 - `[488] Forgotten Dreamaith | Dream/Aether | sandman` (post-game owl — second owl alongside Arcturex)
@@ -419,7 +419,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 
 **Real animal pristine (single family):** boar (Plentorus), horse (Voltanox), antelope (Galehorn), echidna (Basaltback), hippo (Marshix), armadillo (Sandrix), rhino (Quakehide), spider (Arachnalis + Duskmourn-postgame), scorpion (Craterlurk), snail (Bonsailoth), hedgehog (Gelquill), mushroom (Plaguecap), shark (Bathykor-postgame), tiger (Emberon-postgame), tortoise (Imperion).
 
-**Mythical pristine:** snowman (Tundrafox), kitsune (Specraxis + Frigalum-postgame), tanuki (Eclipsoon), leshy (Morralyn), kirin (Majesticore), insect-swarm (Mistbane), sea-fairy queen (Thalassira), coral-titan (Titanariel), kraken (Tidalossus — could expand), seed-pod / walking-garden (Groveguard), phoenix/solar-being (Pyrocrown, Solarwrath, Solarcrown — already 3, at-cap or just over).
+**Mythical pristine:** snowman (Tundrafox), kitsune (Wraithfox + Frigalum-postgame), tanuki (Eclipsoon), leshy (Morralyn), kirin (Majesticore), insect-swarm (Mistbane), sea-fairy queen (Thalassira), coral-titan (Titanariel), kraken (Tidalossus — could expand), seed-pod / walking-garden (Groveguard), phoenix/solar-being (Pyrocrown, Solarwrath, Solarcrown — already 3, at-cap or just over).
 
 ### Elementals (cap = 1 family + 1 standalone per element)
 

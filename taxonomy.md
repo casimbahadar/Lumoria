@@ -42,7 +42,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[27] Reefnip→Aquidon→Tidalossus | Aquatic/Earth | kraken / sea-titan crustacean` (mythical-exempt)
 - `[30] Corelin→Coralisk→Nepturix | Aquatic | fish` (deep-sea fish)
 - `[33] Toxaquil→Noxaquith→Septanemone | Aquatic/Poison | cephalopod` (sub: anemone-bloomed cephalopod)
-- `[36] Pearlmaid→Undirael→Thalassira | Aquatic/Fairy | sea-fairy queen / mermaid` (mythical-exempt; flagship)
+- `[36] Pearlmaid→Seanymph→Thalassira | Aquatic/Fairy | sea-fairy queen / mermaid` (mythical-exempt; flagship)
 - `[38] Coralossus→Titanariel | Aquatic/Metal | coral-titan humanoid` (mythical sub)
 - `[40] Gossafin→Marevanos | Aquatic/Wind | manta-ray` (winged manta — relabeled out of cetacean per cap-3 policy)
 - `[41] Titanomare | Aquatic/Metal | cetacean` (steel-whale titan; standalone)
@@ -83,9 +83,9 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[131] Necralia→Necrothon | Dark/Nature | treant / walking-tree spirit` (mythical)
 - `[133] Volcascale→Monolithox | Earth/Dark | gargoyle` (de-saurianed 2026-06-13 — obsidian gargoyle, winged dark-stone guardian / god of night)
 - `[136] Aeronyx→Steelvex→Metalibat | Metal/Dark | bat` (**name leak in #136: "Ferrovast"**)
-- `[139] Goldefluff→Aetherael→Lumiarch | Fairy | fairy-hound` (canine-fairy mythical)
+- `[139] Goldefluff→Halocanis→Lumiarch | Fairy | fairy-hound` (canine-fairy mythical)
 - `[141] Faedust→Iridesoar | Fairy/Wind | butterfly` (**name leak in #141: "Prisoveth"**)
-- `[144] Dawnirel→Lunarael→Moonseraph | Fairy/Mental | star / celestial cosmic` (mythical)
+- `[144] Dawnirel→Astrelle→Moonseraph | Fairy/Mental | star / celestial cosmic` (mythical)
 - `[146] Faerrin→Shinarith | Fairy/Metal | armor-suit` (fairy-armored guardian)
 - `[149] Scrapsapien→Stoicguard→Eternarmor | Metal | metal-golem` (**name leak in #149: "Adamovast"**)
 - `[151] Voltcrawl→Voltipede | Metal/Electric | centipede` (de-golemed 2026-06-13 from automaton — armored electric myriapod; renamed from Gearon/Alloytron)
@@ -97,7 +97,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[163] Marlix→Blightalis | Nature/Toxin | corrupted flower / plant-humanoid`
 - `[165] Blightmite→Venowarn | Poison/Wind | moth` (poison-wind moth — caterpillar→cocoon→toxic-scaled moth, reclassified off butterfly 2026-06-13; learnset already carries cocoon_burst. **name leak in #165: "Noxoveth"**)
 - `[167] Projectery→Psymastiff | Mental | dog (non-wolf canine)`
-- `[169] Gemseer→Aurarael | Mental/Mineral | crystalline-prism` (mythical)
+- `[169] Gemseer→Prismatica | Mental/Mineral | crystalline-prism` (mythical)
 - `[170] Oneiron | Dark/Dream | dream-entity / wisp` (formless, standalone; nightmare-feeder — Dark/Dream restored 2026-06-12 to differentiate from Dreamweald #378's Mental/Dream)
 - `[171] Nagaseer | Mental/Poison | naga` (sub: oracle-serpent, standalone)
 - `[174] Scalurin→Cobravyrm→Chromedrake | Draconic/Metal | dragon-mythic` (sub: steel-dragon)
@@ -392,7 +392,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **butterfly** | 3 | 3 | at cap | Iridesoar (#141), Aeridaleth (#199), Sparkeen (#247). Split out of Lepidoptera 2026-06-13; Venowarn #165→moth and Plagueoth #298→mosquito left the bucket. |
 | **beetle** | 3 | 3 | at cap | Scarabion (#201, scarab beetle), Quarrix (#205), Voltbeetle (#339). Skullmite #329→trilobite 2026-06-13; Sparkeen had been miscounted here (it's a will-o-wisp). |
 | **rock-monolith / standing stone** | 4 | 3 | trim 1 | Frigolith, Megalith, Bouldertide, Mirestone→Chronolith. (Crystallon→yeti 2026-06-13) |
-| **crystalline-prism** | 3 | exempt | — | **Mythical-exempt** (CLAUDE.md) — resolves the old exempt-vs-trim contradiction. Aurarael #169 (orbiting 7-shard cluster + face), Shardlix #241 (ice-crystal humanoid), Crystalmind #381 (geometric polyhedron) — three distinct forms, no redundant look-alikes to cull. Old "5/trim 2" was stale: Cryoshard #340 already pivoted to resonant-crystal, Sparkeis #493 is post-game. Spectravore #351 is a separate "prismatic being". No cull. |
+| **crystalline-prism** | 3 | exempt | — | **Mythical-exempt** (CLAUDE.md) — resolves the old exempt-vs-trim contradiction. Prismatica #169 (orbiting 7-shard cluster + face), Shardlix #241 (ice-crystal humanoid), Crystalmind #381 (geometric polyhedron) — three distinct forms, no redundant look-alikes to cull. Old "5/trim 2" was stale: Cryoshard #340 already pivoted to resonant-crystal, Sparkeis #493 is post-game. Spectravore #351 is a separate "prismatic being". No cull. |
 | **eagle** | 1 | 3 | under cap | Vortexathos (#91). Subdivided out of "bird-of-prey/raptor" 2026-06-13. |
 | **condor / vulture** | 1 | 3 | under cap | Cyclondor (#113). Subdivided 2026-06-13. |
 | **hawk** | 1 | 3 | under cap | Rimehawk (#338). Subdivided 2026-06-13. |

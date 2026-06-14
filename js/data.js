@@ -2060,12 +2060,12 @@ const MONSTERS_DATA = {
     desc:"A glowing puppy surrounded by fairy light. Brings luck wherever it goes.",
     lore:"Goldefluff is a small, round fairy dog about 30 cm at the shoulder with pure white fluffy fur that radiates a warm golden glow. Its eyes are bright violet. It bounces energetically and its glow intensifies when it is happy. It is attracted to places of celebration and is considered to bring good fortune." },
 
-  138: { id:138, name:"Aetherael", emoji:"🐕", types:["Fairy"],
+  138: { id:138, name:"Halocanis", emoji:"🐕", types:["Fairy"],
     base:{hp:71,atk:67,def:68,spa:100,spd:90,spe:77},
     learnset:[[1,"fairy_wind"],[2,"prism_flare"],[3,"lunar_burst"],[4,"bewitching_kiss"],[29,"second_wind"],[30,"lashing_tail"],[35,"battle_cry"],[40,"blitz"],[45,"wish_spark"],[50,"moonveil"],[55,"celestial_wave"],[60,"psi_strike"],[5,"stardust_veil"],[39,"baleful_stare"]],
     evolveTo:139, evolveLevel:44, catchRate:50, expYield:205, rarity:"uncommon",
     desc:"A luminous hound of fairy power. Its radiance can banish dark spirits.",
-    lore:"Aetherael is a sleek fairy hound 70 cm at the shoulder — Goldefluff's pure white fluffy puppy fur has lengthened into luminous adult fur, the warm golden glow has matured into a soft gold-pink aura surrounding it constantly, and the bright violet pup-eyes have deepened to amethyst. It moves with effortless grace and seeks out beings in distress, projecting a calming field of fairy light to soothe emotional pain." },
+    lore:"Halocanis is a sleek fairy hound 70 cm at the shoulder — Goldefluff's pure white fluffy puppy fur has lengthened into luminous adult fur, the warm golden glow has matured into a soft gold-pink aura surrounding it constantly, and the bright violet pup-eyes have deepened to amethyst. It moves with effortless grace and seeks out beings in distress, projecting a calming field of fairy light to soothe emotional pain." },
 
   140: { id:140, name:"Faedust",    emoji:"🦋", types:["Fairy","Wind"],
     base:{hp:35,atk:44,def:33,spa:79,spd:71,spe:78},
@@ -2088,12 +2088,12 @@ const MONSTERS_DATA = {
     desc:"A dawn spirit that appears at sunrise. Its psychic energy is immense.",
     lore:"Dawnirel is a small star-shaped psychic-fairy creature about 20 cm across, with a central golden body and five pointed arms tipped in pale rose light. It hovers gently, spinning slowly, and emits pulses of warm light in rhythm with its thoughts. It appears at dawn and dusk on cloudless days." },
 
-  143: { id:143, name:"Lunarael",   emoji:"🌟", types:["Fairy","Mental"],
+  143: { id:143, name:"Astrelle",   emoji:"🌟", types:["Fairy","Mental"],
     base:{hp:79,atk:66,def:79,spa:131,spd:105,spe:74},
     learnset:[[1,"prism_flare"],[2,"bewitching_kiss"],[3,"stardust_veil"],[15,"moonlight_beam"],[20,"sparkle_shot"],[25,"starfall"],[30,"starlit_radiance"],[32,"mental"],[36,"second_wind"],[38,"thought_crush"],[39,"lunar_burst"],[40,"inner_calm"],[44,"blitz"],[48,"wish_spark"],[52,"future_echo"],[56,"celestial_wave"],[60,"psi_strike"],[64,"synaptic_shatter"]],
     evolveTo:144, evolveLevel:46, catchRate:25, expYield:248, rarity:"rare",
     desc:"A celestial being of fairy and psychic power. Claims to have come from the stars.",
-    lore:"Lunarael is a larger crescent-moon-shaped psychic-fairy creature 45 cm across — Dawnirel's pointed arms have curved inward, briefly crescent-like, before they bloom back to a full many-pointed star at its final stage. Its body is deep violet-blue with silver-white edges that glow brightly in darkness. It is nocturnal and inhabits open mountain summits, drifting upward on clear nights and releasing lunar-charged energy that causes nearby crystals to resonate." },
+    lore:"Astrelle is a larger crescent-moon-shaped psychic-fairy creature 45 cm across — Dawnirel's pointed arms have curved inward, briefly crescent-like, before they bloom back to a full many-pointed star at its final stage. Its body is deep violet-blue with silver-white edges that glow brightly in darkness. It is nocturnal and inhabits open mountain summits, drifting upward on clear nights and releasing lunar-charged energy that causes nearby crystals to resonate." },
 
   // ===== STEEL =====
   147: { id:147, name:"Scrapsapien",     emoji:"🤖", types:["Metal"],
@@ -2189,12 +2189,12 @@ const MONSTERS_DATA = {
     desc:"A serene gem-being. Bridges the worlds of mind and matter, refracting psychic energy through its violet prism body into patterns of light.",
     lore:"Gemseer is a mental-mineral gem creature 50 cm tall resembling a rounded prism of violet crystal with short limbs and a serene humanoid face embedded in the front face of the crystal. It refracts nearby psychic energy into visible light, producing beautiful patterns on surrounding surfaces." },
 
-  169: { id:169, name:"Aurarael",   emoji:"💫", types:["Mental","Mineral"],
+  169: { id:169, name:"Prismatica",   emoji:"💫", types:["Mental","Mineral"],
     base:{hp:83,atk:62,def:59,spa:119,spd:98,spe:104},
     learnset:[[1,"psi_burst"],[2,"mental"],[3,"prism_ward"],[20,"ore_ray"],[36,"fortify"],[38,"mineral_pulse"],[39,"inner_calm"],[40,"second_wind"],[44,"blitz"],[45,"gem_storm"],[47,"psi_strike"],[48,"telepathic_slam"],[50,"quartz_blast"],[52,"thought_crush"],[56,"temporal_rift"],[60,"radiance_cannon"],[4,"clairvoyance"],[35,"baleful_stare"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:245, rarity:"rare",
     desc:"A levitating psychic core orbited by seven prism shards, held in formation by a luminous mind-field. Its serene face gleams from the central crystal.",
-    lore:"Aurarael is a 60-centimetre crystalline entity whose violet prism body has fractured upward into a slowly orbiting cluster of seven smaller shards, held in formation by the visible blue-violet psychic field that radiates between them. The serene humanoid face from its Gemseer juvenile stage still shimmers at the centre of the largest core shard, watching outward through every angle of the rotating crown. It inhabits locations with high psychic resonance — ancient meditation sites, mystical crossroads — and the constant low chime of its orbiting shards announces its presence well before it drifts into view." },
+    lore:"Prismatica is a 60-centimetre crystalline entity whose violet prism body has fractured upward into a slowly orbiting cluster of seven smaller shards, held in formation by the visible blue-violet psychic field that radiates between them. The serene humanoid face from its Gemseer juvenile stage still shimmers at the centre of the largest core shard, watching outward through every angle of the rotating crown. It inhabits locations with high psychic resonance — ancient meditation sites, mystical crossroads — and the constant low chime of its orbiting shards announces its presence well before it drifts into view." },
 
   170: { id:170, name:"Oneiron",   emoji:"💫", types:["Dark","Dream"],
     base:{hp:75,atk:69,def:52,spa:125,spd:94,spe:84},
@@ -3330,7 +3330,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"collide",[22,"wish_spark"]],[1,"aquatic_gun"],[8,"fairy_wind"],[16,"bubble_jet"],[20,"baleful_stare"],[24,"prism_flare"],[32,"tidal_rush",[5,"tidecaller"]],[36,"riptide_slam"],[3,"deepwater_hymn"],[31,"lunar_burst"]],
     evolveTo:35, evolveLevel:24, catchRate:200, expYield:74, rarity:"common",
     desc:"A tiny pearl-mermaid fry curled inside a fairy-touched oyster shell. Snaps the shell shut to hide whenever startled.",
-    lore:"Pearlmaid is a tiny pearl-mermaid fry about 12 centimetres long, curled comfortably inside a 20-centimetre barnacle-encrusted oyster shell that serves as both nursery and shelter. Its tiny pale-violet body has a soft humanoid torso and a stubby pearl-coloured tail tipped in delicate translucent fins; rose-gold luminescence pulses gently from its core, illuminating the shell from within. When threatened it tucks fully inside and snaps the shell closed with surprising force, becoming indistinguishable from an ordinary oyster among reef rocks. As it grows, fairy energy concentrates in its body until the shell can no longer contain it, and it emerges into the open sea as Undirael." },
+    lore:"Pearlmaid is a tiny pearl-mermaid fry about 12 centimetres long, curled comfortably inside a 20-centimetre barnacle-encrusted oyster shell that serves as both nursery and shelter. Its tiny pale-violet body has a soft humanoid torso and a stubby pearl-coloured tail tipped in delicate translucent fins; rose-gold luminescence pulses gently from its core, illuminating the shell from within. When threatened it tucks fully inside and snaps the shell closed with surprising force, becoming indistinguishable from an ordinary oyster among reef rocks. As it grows, fairy energy concentrates in its body until the shell can no longer contain it, and it emerges into the open sea as Seanymph." },
 
   // ===== GRASS/DARK =====
   78: { id:78, name:"Sylvnox", emoji:"🌿", types:["Nature","Dark"],
@@ -3463,12 +3463,12 @@ const MONSTERS_DATA = {
     desc:"A cyclone of pure psychic wind. Its thoughts create miniature tornadoes around it.",
     lore:"Pneumathos is a large wind-psychic entity 2.5 metres tall — Zephyrin's teal-blue compressed-air pillar has expanded into a swirling vortex of concentrated air with a humanoid core now visible at its centre, and the faint psychic glow has deepened to a violet tint. It reads atmospheric data from thousands of kilometres away and processes it instantly." },
 
-  35: { id:35, name:"Undirael", emoji:"🧜", types:["Aquatic","Fairy"],
+  35: { id:35, name:"Seanymph", emoji:"🧜", types:["Aquatic","Fairy"],
     base:{hp:65,atk:62,def:63,spa:110,spd:87,spe:103},
     learnset:[[1,"aquatic_gun"],[2,"fairy_wind"],[3,"bubble_jet"],[4,"prism_flare"],[5,"tidecaller"],[29,"tidal_rush"],[30,"lashing_tail"],[36,"graze"],[42,"moonveil"],[48,"tidal_sweep"],[54,"lunar_burst"],[60,"tsunami"],[6,"deepwater_hymn"],[40,"sea_serpent_strike"]],
     evolveTo:36, evolveLevel:46, catchRate:40, expYield:222, rarity:"rare",
     desc:"A sea nymph radiating both water and fairy energy. Said to protect lost sailors.",
-    lore:"Undirael is a mermaid-like creature 1.5 metres tall — Pearlmaid's tiny pale-violet body has grown to full mermaid stature now that the oyster shell can no longer contain it, the lower half lengthened into a deep-sea fish-tail shimmering violet and the upper retaining the humanoid torso with rose-gold core-luminescence still pulsing faintly beneath the skin. Its flowing hair is made of water-weed adorned with living sea-stars. It guides lost sailors away from dangerous reefs by projecting alluring visions of safe harbours." },
+    lore:"Seanymph is a mermaid-like creature 1.5 metres tall — Pearlmaid's tiny pale-violet body has grown to full mermaid stature now that the oyster shell can no longer contain it, the lower half lengthened into a deep-sea fish-tail shimmering violet and the upper retaining the humanoid torso with rose-gold core-luminescence still pulsing faintly beneath the skin. Its flowing hair is made of water-weed adorned with living sea-stars. It guides lost sailors away from dangerous reefs by projecting alluring visions of safe harbours." },
 
   79: { id:79, name:"Morraveth", emoji:"🌳", types:["Nature","Dark"],
     base:{hp:84,atk:101,def:80,spa:100,spd:72,spe:67},
@@ -3852,7 +3852,7 @@ const MONSTERS_DATA = {
     desc:"A massive bloomed cephalopod that drifts through poison-clouded waters. Its venom-tipped tentacles unfurl like the petals of a deep-sea anemone.",
     lore:"Septanemone is a colossal bloomed cephalopod nearly 3.5 metres from beak to outermost tentacle-tip — Noxaquith's navy hood has flared open and bloomed into a bell-shaped mantle patterned in deep crimson and bruised violet, and its poisoned ink has specialised into stinging cells that scatter from soft frills around its body like the inverted petals of a vast sea anemone — a bloom from which seven main tentacles, each tipped with venomous barbs, unfurl in a wide circle. Smaller stinging cells scatter from the frills as it swims, leaving drifting clouds that paralyse plankton and small fish drawn in by its vivid colouration. It cruises slowly through poison-saturated waters using rhythmic jets from its mantle, anchoring briefly to rocky outcroppings only when digesting a large meal — never permanently sessile." },
 
-  // 187: Thalassira - Aquatic/Fairy (Pearlmaid→Undirael→Thalassira)
+  // 187: Thalassira - Aquatic/Fairy (Pearlmaid→Seanymph→Thalassira)
   36: { id:36, name:"Thalassira", emoji:"👑", types:["Aquatic","Fairy"],
     base:{hp:91,atk:76,def:81,spa:139,spd:106,spe:57},
     learnset:[[1,"aquatic_gun"],[1,"fairy_wind"],[2,"prism_flare"],[3,"tidecaller"],[4,"lunar_burst"],[5,"deepwater_hymn"],[10,"rain_cascade"],[15,"healing_circle"],[20,"marine_blessing"],[25,"glimmering_song"],[30,"monsoon"],[35,"sylvan_song"],[38,"celestial_wave"],[40,"moonglow"],[42,"tidal_rush"],[44,"bewitching_kiss"],[46,"glitter_storm"],[50,"tsunami"],[54,"fae_requiem"],[58,"sea_serpent_strike"],[62,"moonveil"]],
@@ -4012,21 +4012,21 @@ const MONSTERS_DATA = {
     desc:"A venom phantom of ancient ruin sites. It haunts deep in shadow, and those bitten by it suffer visions of oblivion they never escape.",
     lore:"Venotitan is a titanic dark-poison serpent 4 metres long with body width enough to encircle a large tree — Phantorvex's iridescent purple-black scales have darkened to near-black with the violet shimmer now faint banding, and the necrotic venom of its juvenile form has matured into a constrictor's killing dose. It constricts prey before envenomating, and the venom it produces is so potent that researchers use it in diluted form as an anaesthetic." },
 
-  // 207: Lumiarch - Fairy (Lumkin→Aetherael→Lumiarch)
+  // 207: Lumiarch - Fairy (Lumkin→Halocanis→Lumiarch)
   139: { id:139, name:"Lumiarch", emoji:"🌟", types:["Fairy"],
     base:{hp:97,atk:86,def:86,spa:131,spd:107,spe:43},
     learnset:[[1,"fairy_wind"],[1,"prism_flare"],[2,"lunar_burst"],[3,"bewitching_kiss"],[4,"stardust_veil"],[38,"celestial_wave"],[42,"glitter_storm"],[46,"fae_requiem"],[50,"moonveil"],[54,"second_wind"],[58,"wish_spark"],[62,"radiance_cannon"],[5,"charm_bloom"],[44,"vital_pulse"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"The sovereign of fairy light. Its radiance can banish every shadow from a city; dark spirits flee the land at its mere approach.",
-    lore:"Lumiarch is a majestic fairy hound 1.1 metres at the shoulder — Aetherael's luminous white fur has brightened further and its soft gold-pink aura has condensed into a mane of living light that shifts through all warm colours slowly. Violet eyes glow like lanterns. Ancient lore records it appearing at the site of major conflicts and bringing sudden, unexplained peace between combatants." },
+    lore:"Lumiarch is a majestic fairy hound 1.1 metres at the shoulder — Halocanis's luminous white fur has brightened further and its soft gold-pink aura has condensed into a mane of living light that shifts through all warm colours slowly. Violet eyes glow like lanterns. Ancient lore records it appearing at the site of major conflicts and bringing sudden, unexplained peace between combatants." },
 
-  // 208: Moonseraph - Fairy/Mental (Dawnirel→Lunarael→Moonseraph)
+  // 208: Moonseraph - Fairy/Mental (Dawnirel→Astrelle→Moonseraph)
   144: { id:144, name:"Moonseraph", emoji:"🌙", types:["Fairy","Mental"],
     base:{hp:95,atk:75,def:91,spa:147,spd:114,spe:28},
     learnset:[[1,"prism_flare"],[1,"mental"],[2,"lunar_burst"],[3,"inner_calm"],[4,"stardust_veil"],[5,"bewitching_kiss"],[18,"moonlight_beam"],[20,"astral_guard"],[22,"starfall"],[25,"thought_wave"],[28,"starlit_radiance"],[30,"prophecy"],[34,"supernova_glow"],[35,"gravitational_pull"],[38,"celestial_wave"],[40,"mental_overflow"],[42,"psi_strike"],[44,"eon_crash"],[46,"fae_requiem"],[50,"thought_crush"],[54,"glitter_storm"],[58,"synaptic_shatter"],[62,"prism_ward"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:280, rarity:"rare",
     desc:"A celestial archon said to be the personification of the moon's light and the night sky's oldest thoughts. Stars bow when it rises.",
-    lore:"Moonseraph is a grand psychic-fairy celestial creature 1.5 metres across — Lunarael's curved-inward crescent arms have bloomed back into a many-pointed star, and the deep violet-blue body has brightened to brilliant gold-white with an aura shifting through deep purple and starlight silver. It appears only during celestial events — eclipses, conjunctions, meteor showers — and is regarded as a divine herald." },
+    lore:"Moonseraph is a grand psychic-fairy celestial creature 1.5 metres across — Astrelle's curved-inward crescent arms have bloomed back into a many-pointed star, and the deep violet-blue body has brightened to brilliant gold-white with an aura shifting through deep purple and starlight silver. It appears only during celestial events — eclipses, conjunctions, meteor showers — and is regarded as a divine herald." },
 
   // 209: Adamovast - Metal (Ferrokin→Adamavast→Adamovast)
   149: { id:149, name:"Eternarmor", emoji:"🐩", types:["Metal"],
@@ -5691,7 +5691,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:173, minLv:62, maxLv:66, rate:25}, // Cobravyrm
       {id:124, minLv:62, maxLv:66, rate:25}, // Phantorvex
-      {id:143, minLv:62, maxLv:66, rate:25}, // Lunarael
+      {id:143, minLv:62, maxLv:66, rate:25}, // Astrelle
       {id:151, minLv:63, maxLv:66, rate:25}  // Voltipede
     ],
     ngPlusWildMonsters:[{id:345, minLv:60, maxLv:66, rate:18}], // Voidcoil (base) — found before Oblivionwing in Void Nexus
@@ -5804,9 +5804,9 @@ const WORLD_DATA = {
     desc:"A forest where the boundary between worlds is thin. Fairy and Mental creatures drift between the trees. The Umbra Order's hideout is rumoured to be nearby.",
     connections:["route7","skyvault","sky_harbor","umbra_base"],
     wildMonsters:[
-      {id:143, minLv:46, maxLv:52, rate:6},  // Lunarael
+      {id:143, minLv:46, maxLv:52, rate:6},  // Astrelle
       {id:141, minLv:46, maxLv:52, rate:24},  // Iridesoar
-      {id:169, minLv:47, maxLv:52, rate:10},  // Aurarael
+      {id:169, minLv:47, maxLv:52, rate:10},  // Prismatica
       {id:115, minLv:48, maxLv:52, rate:28},  // Aetherworn
       {id:122, minLv:48, maxLv:52, rate:14},  // Caveshroud
       {id:170, minLv:46, maxLv:52, rate:18}   // Oneiron
@@ -5922,7 +5922,7 @@ const WORLD_DATA = {
       {id:166, minLv:25, maxLv:32, rate:31},   // Projectery
       {id:37, minLv:26, maxLv:33, rate:23},  // Coralossus
       {id:168, minLv:27, maxLv:33, rate:27},   // Gemseer
-      {id:169, minLv:35, maxLv:40, rate:10}    // Aurarael (rare!)
+      {id:169, minLv:35, maxLv:40, rate:10}    // Prismatica (rare!)
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:88, y:52},
     storyLocation:true, hasUmbraEncounter:true
@@ -6339,9 +6339,9 @@ const WORLD_DATA = {
     desc:"A radiant city that glows with fairy magic. Home to Gym Leader Seraphina, the last gym before The Vanguard.",
     connections:["astral_plateau","victoryroad","void_rift"],
     wildMonsters:[
-      {id:138, minLv:70, maxLv:75, rate:24},  // Aetherael (mid)
+      {id:138, minLv:70, maxLv:75, rate:24},  // Halocanis (mid)
       {id:139, minLv:71, maxLv:76, rate:8},  // Lumiarch (final → after 138 ✓)
-      {id:143, minLv:70, maxLv:75, rate:13},  // Lunarael (mid)
+      {id:143, minLv:70, maxLv:75, rate:13},  // Astrelle (mid)
       {id:144, minLv:71, maxLv:76, rate:8},  // Moonseraph (final → after 143 ✓)
       {id:146, minLv:71, maxLv:76, rate:15},  // Shinarith (mid, 145 on route16 ✓)
       {id:203, minLv:72, maxLv:76, rate:19},  // Arachnalis (mid)
@@ -6445,8 +6445,8 @@ const WORLD_DATA = {
     connections:["nebula_gorge","astral_plateau"],
     wildMonsters:[
       {id:137, minLv:69, maxLv:74, rate:16},  // Goldefluff (base)
-      {id:138, minLv:70, maxLv:75, rate:11},  // Aetherael (mid → after 137 ✓)
-      {id:143, minLv:70, maxLv:75, rate:7},  // Lunarael (mid, 142 on route16 ✓)
+      {id:138, minLv:70, maxLv:75, rate:11},  // Halocanis (mid → after 137 ✓)
+      {id:143, minLv:70, maxLv:75, rate:7},  // Astrelle (mid, 142 on route16 ✓)
       {id:144, minLv:71, maxLv:76, rate:5},  // Moonseraph (final → after 143 ✓)
       {id:145, minLv:70, maxLv:75, rate:14},  // Faerrin (base)
       {id:119, minLv:70, maxLv:74, rate:9},  // Dreadmaw (Dark/Umbra)

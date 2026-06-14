@@ -49,15 +49,15 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[44] Cryonik→Boreon→Nagislither | Ice/Aquatic | seal / pinniped`
 - `[46] Slatis→Frostmere | Ice/Electric | seal / pinniped` (jellyfish-to-seal — second seal family)
 - `[49] Hexaprowl→Hailgorge→Frigidvorn | Ice | wolf`
-- `[52] Tundram→Bergyak→Permavast | Ice/Normal | bovid` (auroch/ram chain)
+- `[52] Tundram→Bergyak→Aurochill | Ice/Normal | bovid` (auroch/ram chain)
 - `[54] Mistwhirl→Arcturex | Ice/Wind | owl`
 - `[56] Rimeling→Deepfreeze | Ice/Fighting | armored-warrior` (bipedal armor-warrior; retyped Ice/Metal→Ice/Fighting for diversity)
 - `[58] Glinteye→Irisarael | Ice/Fairy | faerie sprite` (winged fairy)
 - `[60] Lunaveris→Boreadrake | Ice/Draconic | dragon-mythic` (sub: ice-dragon)
 - `[62] Gelspike→Gelwing | Ice/Poison | hedgehog / porcupine`
-- `[65] Sporix→Myceloth→Mycovast | Nature/Poison | mushroom / fungus`
+- `[65] Sporix→Myceloth→Plaguecap | Nature/Poison | mushroom / fungus`
 - `[68] Viridix→Loamvin→Rootvorn | Nature/Earth | snail / mollusk`
-- `[71] Germix→Verdurus→Verdovast | Nature/Fighting | seed-pod / walking-garden` (added Fighting 2026-06-12 — grove-guardian bruisers that ram/grapple/smash; Nature mono→pristine Nature/Fighting; archetype unchanged)
+- `[71] Germix→Verdurus→Groveguard | Nature/Fighting | seed-pod / walking-garden` (added Fighting 2026-06-12 — grove-guardian bruisers that ram/grapple/smash; Nature mono→pristine Nature/Fighting; archetype unchanged)
 - `[74] Floralin→Faelomis→Faevernal | Fairy/Nature | faerie sprite` (flower-fairy variant)
 - `[77] Sylvolt→Sparkwood→Thorncharge | Nature/Electric | stag / elk / deer (cervid)`
 - `[80] Sylvnox→Morraveth→Morralyn | Nature/Dark | leshy / forest-spirit` (pristine mythical, just claimed)
@@ -65,8 +65,8 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[86] Electrix→Shockharpe→Galvaglide | Electric/Nature | dragonfly` (currently inconsistent: stages mix beetle/mosquito/dragonfly — on BREAKING list; final lore says "Zapoveth" name-leak)
 - `[89] Amperix→Sparkrel→Dynameel | Electric/Aquatic | electric eel`
 - `[91] Zephyrel→Vortexathos | Electric/Wind | eagle` (storm-eagle, 4 m wingspan; subdivided out of the generic "bird-of-prey/raptor" bucket 2026-06-13)
-- `[94] Arcspine→Stonebolt→Petrovast | Electric/Earth | echidna`
-- `[97] Dustkin→Seismith→Tectonvast | Earth/Electric | rhino`
+- `[94] Arcspine→Stonebolt→Basaltback | Electric/Earth | echidna`
+- `[97] Dustkin→Seismith→Quakehide | Earth/Electric | rhino`
 - `[100] Aridix→Toxivenoth→Craterlurk | Earth/Poison | scorpion` (**name leak in #100: "Venomvast"**)
 - `[103] Limoux→Dunoloth→Calciderm | Earth/Aquatic | crocodilian` (**name leak in #103: "Crustvast"**)
 - `[105] Arenikin→Dravanas | Normal/Earth | hyena` (de-lioned 2026-06-13 — completes the long-flagged canid pivot; already a desert-hyena line in lore/desc/variant, only the archetype label was stale)
@@ -96,7 +96,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[161] Miasmafly→Mistbane | Poison/Vapor | insect-swarm collective` (mythical, just claimed)
 - `[163] Marlix→Blightalis | Nature/Toxin | corrupted flower / plant-humanoid`
 - `[165] Blightmite→Venowarn | Poison/Wind | moth` (poison-wind moth — caterpillar→cocoon→toxic-scaled moth, reclassified off butterfly 2026-06-13; learnset already carries cocoon_burst. **name leak in #165: "Noxoveth"**)
-- `[167] Projectery→Psychovast | Mental | dog (non-wolf canine)`
+- `[167] Projectery→Psymastiff | Mental | dog (non-wolf canine)`
 - `[169] Gemseer→Aurarael | Mental/Mineral | crystalline-prism` (mythical)
 - `[170] Oneiron | Dark/Dream | dream-entity / wisp` (formless, standalone; nightmare-feeder — Dark/Dream restored 2026-06-12 to differentiate from Dreamweald #378's Mental/Dream)
 - `[171] Nagaseer | Mental/Poison | naga` (sub: oracle-serpent, standalone)
@@ -109,7 +109,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[177] Sapphier | Ice/Mineral | basilisk` (re-archetyped from ice-dragon 2026-06-10; crystal-ice serpent-king basilisk)
 - `[179] Fluffen→Velvetine | Normal | cat` (housecat)
 - `[181] Leapbun→Racehare | Normal | rabbit / hare` (**name leak in #181: "Boundrix"**)
-- `[184] Rotunden→Glutoros→Behemovast | Normal/Fighting | bear` (titanic bruiser-bear — added Fighting 2026-06-12; Normal mono→pristine Normal/Fighting)
+- `[184] Rotunden→Glutoros→Ursamight | Normal/Fighting | bear` (titanic bruiser-bear — added Fighting 2026-06-12; Normal mono→pristine Normal/Fighting)
 - `[186] Hoverrow→Continemic | Normal/Wind | bird` (albatross — **name leak in #186: "Airovast"**)
 - `[188] Norindel→Plentorus | Normal | boar / pig`
 - `[190] Woolcalm→Aetherflock | Normal/Mental | sheep / bovid` (psychic sheep — second bovid family alongside Tundram line)
@@ -157,10 +157,10 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[270] Grimshade→Eclipsoon | Dark/Fairy | tanuki` (mythical, just claimed)
 - `[271] Murkrat | Dark/Normal | rat (rodent)` (standalone)
 - `[273] Embrix→Blazeon | Fire/Spectral | phoenix` (sub: firebird; base #272 mono-Fire)
-- `[276] Cindling→Infernox→Scorchvast | Fire/Mineral | saurian` (igneous lizard with rock plates — second fire-saurian alongside Magmaurin/Terravore line)
+- `[276] Cindling→Infernox→Magmaw | Fire/Mineral | saurian` (igneous lizard with rock plates — second fire-saurian alongside Magmaurin/Terravore line)
 - `[277] Magmite | Fire | fire-elemental` (lava droplet, formless walking magma — sole fire-elemental candidate, standalone)
 - `[279] Ironpix→Steelhorn | Metal/Fairy | unicorn / single-horn fairy-equine` (fairy-forged steel steed with a single straight horn; lore/noun retuned off "humanoid knight" 2026-06-13 to match the equine archetype — the armored-knight concept is already covered by #56 Deepfreeze, #146 Shinarith, #332 Glacicore, #407 Voidwarden)
-- `[282] Gearbit→Cogvex→Mechavast | Metal/Fighting | automaton`
+- `[282] Gearbit→Cogvex→Mechabrute | Metal/Fighting | automaton`
 - `[283] Rustpike | Metal/Poison | fish` (rusting-iron pike, standalone — second fish family alongside Corelin line; could also classify as steel-elemental?)
 - `[285] Fluffkin→Cloudrift | Normal/Wind | cloud-elemental / wisp` (compact cloud with face — formless cloud being; under cap, but flag — could be wind-elemental too)
 - `[288] Fuzzlet→Cuddrix→Majesticore | Draconic/Fairy | kirin` (mythical, just claimed)
@@ -232,7 +232,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[360] Duskmantle | Dark/Mental | duality being` (half-fairy half-shadow; unique sub-archetype)
 - `[361] Tectoshell | Earth/Nature | zaratan / island-turtle` (re-archetyped from ground-dragon 2026-06-10; living-landscape shell)
 - `[362] Lunaspectre | Mental/Spectral | moonlight-spectre` (split out of wraith bucket per policy; Spectral is pre-Forgotten-allowed — stale Ghost flag cleared)
-- `[363] Chromavast | Normal/Mental | colour-shifting being` (smooth ovoid cycling all colours — unique sub)
+- `[363] Chromaton | Normal/Mental | colour-shifting being` (smooth ovoid cycling all colours — unique sub)
 - `[364] Deepcrawler | Aquatic/Metal | crustacean` (deep-sea armored crab — third crustacean alongside Tidalossus/Petrwave/Lithomere)
 - `[365] Cinderking | Fire/Dark | royal humanoid being` (regal bipedal with crown of black fire — unique royal sub; close to wraith)
 - `[366] Starlance | Mental/Metal | weapon-creature` (telekinetic lance-shaped entity — unique sub)
@@ -265,7 +265,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[391] Titanfang | Normal/Earth | behemoth` (re-archetyped from normal-dragon 2026-06-10; primordial mega-beast)
 - `[392] Eonyx | Mental | sphinx` (re-archetyped from psychic-dragon 2026-06-10; ancient oracle sphinx; renamed from Eondrake; signature Time Fracture retyped Draconic→Mental)
 - `[393] Nullstorm | Dark/Electric | thunderstorm-disaster` (over cap)
-- `[394] Solarvast | Fire/Stellar | griffin` (re-archetyped from solar-dragon 2026-06-10; solar eagle-lion; Stellar kept under legendary+intrinsic exception)
+- `[394] Heliogriff | Fire/Stellar | griffin` (re-archetyped from solar-dragon 2026-06-10; solar eagle-lion; Stellar kept under legendary+intrinsic exception)
 - `[395] Auroratusk→Glacierend | Ice/Normal | walrus` (re-archetyped from ice-dragons 2026-06-10; NG+ 2-stage aurora→glacier walrus; Auroradrake renamed Auroratusk)
 - `[396] Thunderpeak | Electric/Metal | electric-elemental / lightning-bolt being` (lightning-bolt-shaped living metal — sole electric-elemental candidate alongside Fluxserpent — flag for trim)
 - `[397] Abyssalord | Aquatic/Spectral | spectral-leviathan` (split out of wraith bucket per policy)
@@ -294,7 +294,7 @@ The 22 NG+-exclusive families added in the dex-to-500 expansion (#57). Regular d
 - `[441] Rustmite→Corrodon | Toxin / Electric-Toxin | centipede (myriapod)` (F12, 2-stage; metal-rusting grub → acid+charge armored centipede. PRISTINE centipede. Good Toxin+Electric distribution. 🐛 stand-in kept. clean.)
 - `[443] Bloatleech→Miasmire | Vapor / Poison-Vapor | leech (annelid)` (F13, 2-stage; fog-venting bog leech → mist-dragging bog-horror. PRISTINE leech, distinct body plan from F3 sandworm (per-species, NOT an annelid umbrella). Good Vapor+Poison distribution. 🩸 thematic, kept. clean.)
 - `[445] Squeaklet→Sentrike | Sonic / Normal-Sonic | meerkat (mongoose family)` (F14, 2-stage; sentinel-colony line. PRISTINE meerkat — NOT a rodent, so no rodent-cap interaction (resolves the earlier F5 "squirrel" worry). Good Sonic distribution. 🐿️ stand-in kept (no meerkat emoji). clean.)
-- `[447] Sporelet→Fumycet | Vapor / Nature-Vapor | mushroom (fungus)` (F15, 2-stage; drowsy-spore sprout → walking spore-fog myconid. 2nd mushroom alongside Mycovast #65 — within cap-3. Good Vapor distribution. 🍄 exact. clean.)
+- `[447] Sporelet→Fumycet | Vapor / Nature-Vapor | mushroom (fungus)` (F15, 2-stage; drowsy-spore sprout → walking spore-fog myconid. 2nd mushroom alongside Plaguecap #65 — within cap-3. Good Vapor distribution. 🍄 exact. clean.)
 - `[449] Cobblepup→Oredigger | Mineral / Dark-Mineral | mole (Talpidae)` (F16, 2-stage; blind burrowing mole → ambush tunneler. PRISTINE mole, per-species (distinct from mole-rat #325 / badger). Good Mineral distribution. 🦡 stand-in kept (no mole emoji). clean.)
 - `[451] Jabshell→Smashclaw | Fighting / Fighting-Fire | mantis shrimp (stomatopod)` (F17, 2-stage; cavitation-strike reef brawler. PRISTINE stomatopod, per-species — does NOT add to the crab/crustacean over-cap bucket (mantis shrimp ≠ crab). Good Fighting distribution; Fire = the steam-flash cavitation. clean.)
 - `[453] Dozit→Lullavoir | Dream / Dream-Fairy | sloth` (F18, 2-stage; daydreaming sloth → dream-spinning sloth-fae. PRISTINE sloth (animal-first). Good Dream distribution. 🦥 exact. clean.)
@@ -352,7 +352,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 - `[488] Forgotten Dreamaith | Dream/Aether | sandman` (post-game owl — second owl alongside Arcturex)
 - `[487] Forgotten Luneveth | Stellar/Dream | moonlight-fairy` (post-game moonlight water-fairy)
 - `[486] Forgotten Psydrak | Dream/Chrono | dream-dragon` (sub: psychic-dragon — sixth psychic-dragon)
-- `[489] Forgotten Ironvast | Metal/Crystal | ankylosaurus` (post-game robotic-golem)
+- `[489] Forgotten Carapax | Metal/Crystal | ankylosaurus` (post-game robotic-golem)
 - `[490] Forgotten Forgerak | Metal/Aether | smith / forge-spirit` (Rax's smith — unique forge-being archetype)
 - `[491] Forgotten Alloydrax | Metal/Chrono | talos` (sub: steel-alloy dragon — third steel-dragon)
 - `[492] Forgotten Volteon | Chrono | clockwork-being` (predictive-model running mechanical entity)
@@ -396,17 +396,17 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **eagle** | 1 | 3 | under cap | Vortexathos (#91). Subdivided out of "bird-of-prey/raptor" 2026-06-13. |
 | **condor / vulture** | 1 | 3 | under cap | Cyclavorn (#113). Subdivided 2026-06-13. |
 | **hawk** | 1 | 3 | under cap | Rimeclaw (#338). Subdivided 2026-06-13. |
-| _(raptor superfamily, already distinct)_ | — | — | — | thunderbird Stormcrown (#389), griffin Solarvast (#394), harpy Zephyrak (#478, post-game). The old "bird-of-prey/raptor: 5, trim 2" bucket dissolved by subdivision — each raptor type now sits at 1, no cull needed. |
+| _(raptor superfamily, already distinct)_ | — | — | — | thunderbird Stormcrown (#389), griffin Heliogriff (#394), harpy Zephyrak (#478, post-game). The old "bird-of-prey/raptor: 5, trim 2" bucket dissolved by subdivision — each raptor type now sits at 1, no cull needed. |
 | **treant / walking-tree** | 4 | 3 | trim 1 | **LOCKED capped (not exempt).** Keep Necrothon, Impenezard, Thornspire; re-archetype Silthorn #326→carnivorous-plant. (Rootborn is Forgotten 462+, excluded.) |
 | **void / cosmic abstract** | 9 | exempt | — | Cerebraith, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Cosmoveil, Nihilax, Cosmolith. Mythical-exempt. |
 | **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Mimiclaw, Emberveil, Cinderpaw. |
 | **thunderstorm-disaster** | 3 | 1+1 | trim 1-2 | Vortexwing, Tempestborn, Nullstorm. (See storm-elemental TODO entry.) |
-| **fire-dragon legendary cluster** | 1 (Dragemian; Infernotitan→salamander, Solarvast→griffin, Bahamber→feathered-serpent, Blazeon→phoenix re-archetyped out) + chain finals (Calderaeth, Stardrax) | n/a | discuss | All under dragon-mythic exempt but sub-flavor crowded. |
+| **fire-dragon legendary cluster** | 1 (Dragemian; Infernotitan→salamander, Heliogriff→griffin, Bahamber→feathered-serpent, Blazeon→phoenix re-archetyped out) + chain finals (Calderaeth, Stardrax) | n/a | discuss | All under dragon-mythic exempt but sub-flavor crowded. |
 
 ### At cap (no action)
 
-- bear: 3 (Frigidvorn, Permavast, Rotunden line)
-- saurian/dinosaur: 3 (Verdkin/Garlawarden, Magmaurin/Terravore, Cindling/Scorchvast). Plus Volcascale/Monolithox = 4 — **trim 1 candidate.**
+- bear: 3 (Frigidvorn, Aurochill, Rotunden line)
+- saurian/dinosaur: 3 (Verdkin/Garlawarden, Magmaurin/Terravore, Cindling/Magmaw). Plus Volcascale/Monolithox = 4 — **trim 1 candidate.**
 - frog/toad: 2 (Toxirin, Acidelix lines)
 - crocodilian: 2 (Limoux line, Blistermaw)
 - hare/rabbit: 2 (Leapbun, Boltfur lines)
@@ -417,9 +417,9 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 
 ### Pristine slots (1 family or 1 family + 1 standalone)
 
-**Real animal pristine (single family):** boar (Plentorus), horse (Voltanox), antelope (Galehorn), echidna (Petrovast), hippo (Marshix), armadillo (Sandrix), rhino (Tectonvast), spider (Arachnalis + Duskmourn-postgame), scorpion (Craterlurk), snail (Rootvorn), hedgehog (Gelwing), mushroom (Mycovast), shark (Bathykor-postgame), tiger (Emberon-postgame), tortoise (Imperion).
+**Real animal pristine (single family):** boar (Plentorus), horse (Voltanox), antelope (Galehorn), echidna (Basaltback), hippo (Marshix), armadillo (Sandrix), rhino (Quakehide), spider (Arachnalis + Duskmourn-postgame), scorpion (Craterlurk), snail (Rootvorn), hedgehog (Gelwing), mushroom (Plaguecap), shark (Bathykor-postgame), tiger (Emberon-postgame), tortoise (Imperion).
 
-**Mythical pristine:** snowman (Tundrafox), kitsune (Specraxis + Frigalum-postgame), tanuki (Eclipsoon), leshy (Morralyn), kirin (Majesticore), insect-swarm (Mistbane), sea-fairy queen (Thalassira), coral-titan (Titanariel), kraken (Tidalossus — could expand), seed-pod / walking-garden (Verdovast), phoenix/solar-being (Pyrocrown, Solarwrath, Solarcrown — already 3, at-cap or just over).
+**Mythical pristine:** snowman (Tundrafox), kitsune (Specraxis + Frigalum-postgame), tanuki (Eclipsoon), leshy (Morralyn), kirin (Majesticore), insect-swarm (Mistbane), sea-fairy queen (Thalassira), coral-titan (Titanariel), kraken (Tidalossus — could expand), seed-pod / walking-garden (Groveguard), phoenix/solar-being (Pyrocrown, Solarwrath, Solarcrown — already 3, at-cap or just over).
 
 ### Elementals (cap = 1 family + 1 standalone per element)
 

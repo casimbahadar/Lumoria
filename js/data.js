@@ -803,7 +803,7 @@ const MOVES_DATA = {
 
   // --- Metal (signature moves for Forgotten Lumori) ---
   pyro_alloy:       { name:"Pyro Alloy",       type:"Metal",   power:85,  acc:100, pp:10, cat:"physical", effect:"burn",      ec:20, desc:"Pyraeon fuses its superheated alloy scales into an edge and strikes, leaving a burning brand on contact." },
-  iron_fortress:    { name:"Iron Fortress",    type:"Crystal",   power:85,  acc:100, pp:10, cat:"physical", effect:"defup",     ec:100,desc:"Ironvast strikes with total commitment, its own body acting as a rampart. Every blow hardens its defensive posture." },
+  iron_fortress:    { name:"Iron Fortress",    type:"Crystal",   power:85,  acc:100, pp:10, cat:"physical", effect:"defup",     ec:100,desc:"Carapax strikes with total commitment, its own body acting as a rampart. Every blow hardens its defensive posture." },
   ferrous_gale:       { name:"Ferrous Gale",       type:"Metal",   power:100, acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:20, desc:"Zephyrak spins its steel-edged wings to hurricane velocity and releases a blade of compressed metal-edged air." },
 
   // --- Spectral (signature moves for Forgotten Lumori) ---
@@ -1879,7 +1879,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"graze",[22,"sandstrike"]],[1,"daunt"],[8,"mud_spray"],[16,"cranial_ram"],[24,"tectonic_shift"],[29,"lashing_tail"],[32,"geoblast"],[40,"crushing_bulk",[5,"dust_veil"]],[3,"clay_armor"],[31,"baleful_stare"]],
     evolveTo:96, evolveLevel:25, catchRate:160, expYield:88, rarity:"common",
     desc:"A dusty rhino calf the size of a small dog. Stomps about arid plains, sometimes shedding tiny static crackles from its budding horn.",
-    lore:"Dustkin is a stout rhino calf about 50 centimetres at the shoulder, the early form of a lineage of seismic earth-shakers. Its grey-brown hide is already beginning to thicken into proto-armour plates across its shoulders and broad chest, and a small ridged horn-bud crowns its snout — sometimes shedding tiny crackles of static when the calf scuffs the dry earth in play. It inhabits arid plains and digs shallow burrows to escape midday heat, drinking from rain pools that gather in the depressions left by its passing herd. Dustkin calves visibly flinch at faint thunder from distant storms; an unconscious recognition of the conductive iron-veined Tectonvast hide they will grow into, when storms follow rather than precede them across the plains." },
+    lore:"Dustkin is a stout rhino calf about 50 centimetres at the shoulder, the early form of a lineage of seismic earth-shakers. Its grey-brown hide is already beginning to thicken into proto-armour plates across its shoulders and broad chest, and a small ridged horn-bud crowns its snout — sometimes shedding tiny crackles of static when the calf scuffs the dry earth in play. It inhabits arid plains and digs shallow burrows to escape midday heat, drinking from rain pools that gather in the depressions left by its passing herd. Dustkin calves visibly flinch at faint thunder from distant storms; an unconscious recognition of the conductive iron-veined Quakehide hide they will grow into, when storms follow rather than precede them across the plains." },
 
   96: { id:96, name:"Seismith",  emoji:"🦏", types:["Earth","Electric"],
     base:{hp:104,atk:114,def:97,spa:53,spd:64,spe:70},
@@ -2175,12 +2175,12 @@ const MONSTERS_DATA = {
     desc:"A psychic puppy that reads minds. Can predict attacks before they happen.",
     lore:"Projectery is a small psychic dog about 30 cm at the shoulder with smooth lavender-grey fur and a large domed forehead that glows softly when focusing. Its eyes are bright blue-silver. It reads emotions effortlessly and communicates its own feelings through projected imagery rather than vocalisation." },
 
-  167: { id:167, name:"Psychovast",   emoji:"🐩", types:["Mental"],
+  167: { id:167, name:"Psymastiff",   emoji:"🐩", types:["Mental"],
     base:{hp:78,atk:58,def:54,spa:108,spd:100,spe:107},
     learnset:[[1,"mind_jolt"],[2,"psi_burst"],[3,"mental"],[4,"prism_ward"],[5,"clairvoyance"],[15,"mnemonic_focus"],[18,"noetic_burst"],[22,"psy_blast"],[26,"latent_force"],[29,"inner_calm"],[31,"daunt"],[33,"sixth_sense"],[37,"psi_strike"],[38,"battle_cry"],[41,"war_dance"],[43,"second_wind"],[45,"cognition_meld"],[48,"prophecy"],[49,"wild_tumble"],[55,"telepathic_slam"],[61,"thought_crush"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:318, rarity:"uncommon",
     desc:"A psychic hound whose mind burns with power. Can levitate small objects.",
-    lore:"Psychovast is a larger psychic dog 75 cm at the shoulder — Projectery's smooth lavender-grey fur has darkened to sleek indigo-grey, and the domed glowing forehead of its juvenile form has hardened into a prominent cranial ridge. Concentric rings of faint blue light appear around its head when it concentrates. It can project full sensory experiences into nearby minds and uses this ability to test the character of strangers." },
+    lore:"Psymastiff is a larger psychic dog 75 cm at the shoulder — Projectery's smooth lavender-grey fur has darkened to sleek indigo-grey, and the domed glowing forehead of its juvenile form has hardened into a prominent cranial ridge. Concentric rings of faint blue light appear around its head when it concentrates. It can project full sensory experiences into nearby minds and uses this ability to test the character of strangers." },
 
   168: { id:168, name:"Gemseer",     emoji:"🔮", types:["Mental","Mineral"],
     base:{hp:46,atk:51,def:57,spa:80,spd:79,spe:62},
@@ -2924,7 +2924,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"flicker"],[1,"stone_throw"],[5,"granite_slam"],[10,"stone_slide"],[15,"mica_lattice"],[20,"inferno_jet"],[25,"amethyst_pulse"],[30,"crag_strike"],[40,"pyroclasm"],[50,"magma_stone"],[60,"radiance_cannon"]],
     evolveTo:275, evolveLevel:28, catchRate:170, expYield:74, rarity:"common",
     desc:"A coal-like creature that ignites when rolling downhill. Leaves scorch marks on stone paths.",
-    lore:"Cindling is a fire-mineral creature 30 cm long resembling a small lizard made of dark basalt with glowing cinders embedded in its skin. It collects small pebbles and packs them into its cinder-body over time, growing heavier and slower with age. The hottest cinders in its body mark its most active thinking. A Cindling's surface cinders glow steadily hotter and oranger as the creature ages, the body's heat-storage capacity inching toward the magma-pool levels Infernox sustains across every joint. Faint heat-shimmer extends further outward with each successive moult, approaching the eruption-radius Scorchvast maintains constantly. Provoke a fully-grown Cindling and its body will produce a small but distinct ground-tremor that propagates further than its tiny mass should allow." },
+    lore:"Cindling is a fire-mineral creature 30 cm long resembling a small lizard made of dark basalt with glowing cinders embedded in its skin. It collects small pebbles and packs them into its cinder-body over time, growing heavier and slower with age. The hottest cinders in its body mark its most active thinking. A Cindling's surface cinders glow steadily hotter and oranger as the creature ages, the body's heat-storage capacity inching toward the magma-pool levels Infernox sustains across every joint. Faint heat-shimmer extends further outward with each successive moult, approaching the eruption-radius Magmaw maintains constantly. Provoke a fully-grown Cindling and its body will produce a small but distinct ground-tremor that propagates further than its tiny mass should allow." },
 
   275: { id:275, name:"Infernox", emoji:"🌋", types:["Fire","Mineral"],
     base:{hp:72,atk:92,def:95,spa:82,spd:68,spe:62},
@@ -2933,12 +2933,12 @@ const MONSTERS_DATA = {
     desc:"A volcanic rock beast that erupts periodically. Carries magma inside its carapace like a pressure cooker.",
     lore:"Infernox is a fire-mineral creature 80 cm long — Cindling's basalt-and-cinder juvenile body has thickened into volcanic plate armour resembling a larger armoured lizard, the embedded cinders of its early form now pooled magma glowing through every joint. Its footsteps leave brief glowing prints. It inhabits lava fields and uses its rock-hard body to deflect predator strikes while retaliating with blasts of focused fire." },
 
-  276: { id:276, name:"Scorchvast", emoji:"🏔️", types:["Fire","Mineral"],
+  276: { id:276, name:"Magmaw", emoji:"🏔️", types:["Fire","Mineral"],
     base:{hp:102,atk:118,def:109,spa:90,spd:78,spe:53},
     learnset:[[1,"pyroclasm"],[1,"magma_stone"],[8,"granite_slam"],[12,"coal_smash"],[18,"infernal_roar"],[20,"ruby_strike"],[24,"smolder_trap"],[28,"molten_armor"],[32,"caldera_meltdown"],[36,"magma_strike"],[38,"marble_resonance"],[40,"tectonic_shift"],[44,"volcanic_wrath"],[48,"crag_strike"],[52,"obsidian_burst"],[56,"bedrock_slam"],[64,"ashfall"],[72,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:272, rarity:"rare",
     desc:"A living volcano of immense destructive power. When it battles, the sky fills with ash and the earth splits.",
-    lore:"Scorchvast is a massive fire-mineral creature 2 metres long — Infernox's volcanic plate armour has thickened and fused into natural stone armour entirely encasing a very large igneous lizard, and the joint-magma of its juvenile form has rerouted into fountains of fire that erupt from vents on its back when it is agitated. Its body temperature is sufficient to melt most metals on contact." },
+    lore:"Magmaw is a massive fire-mineral creature 2 metres long — Infernox's volcanic plate armour has thickened and fused into natural stone armour entirely encasing a very large igneous lizard, and the joint-magma of its juvenile form has rerouted into fountains of fire that erupt from vents on its back when it is agitated. Its body temperature is sufficient to melt most metals on contact." },
 
   // Standalone mono Fire: Magmite (location evo near forge area)
   277: { id:277, name:"Magmite", emoji:"🌶️", types:["Fire"],
@@ -2963,7 +2963,7 @@ const MONSTERS_DATA = {
     desc:"A horned steel fairy of regal bearing. Its horn channels both fairy magic and forged steel energy.",
     lore:"Steelhorn is a medium steel-fairy creature 70 cm tall — Ironpix's silver-grey fairy-crafted barding has been refined under metalCoat's influence into the body of a four-legged steel-coated fae steed of regal bearing, and a single straight horn of fairy-charged metal has emerged from its brow, channelling and purifying energy. It inhabits ancient forge-temples and stands watch over sacred metalworking sites." },
 
-  // 3-stage Metal/Fighting chain: Gearbit → Cogvex → Mechavast
+  // 3-stage Metal/Fighting chain: Gearbit → Cogvex → Mechabrute
   280: { id:280, name:"Gearbit", emoji:"🔩", types:["Metal","Fighting"],
     base:{hp:50,atk:62,def:72,spa:40,spd:52,spe:48},
     learnset:[[1,"chrome_claw"],[1,"mud_spray"],[8,"spinning_kick"],[12,"forge_blast_2"],[16,"high_kick"],[22,"geoblast"],[32,"alloy_tail"],[42,"tectonic_shift"],[52,"forge_strike"],[60,"radiance_cannon"],[62,"draconic_pummels"]],
@@ -2975,7 +2975,7 @@ const MONSTERS_DATA = {
 
   // ===== BATCH 6: STEEL / NORMAL / WIND / POISON / BUG (IDs 281-295) =====
 
-  // Cogvex and Mechavast (continuing Gearbit chain from 280)
+  // Cogvex and Mechabrute (continuing Gearbit chain from 280)
   281: { id:281, name:"Cogvex", emoji:"⚙️", types:["Metal","Fighting"],
     base:{hp:78,atk:98,def:108,spa:58,spd:75,spe:60},
     learnset:[[1,"forge_blast_2"],[1,"geoblast"],[5,"quick_punch"],[15,"shockwave_kick"],[20,"straight_jab"],[22,"alloy_tail"],[26,"iron_will"],[30,"tectonic_shift"],[38,"forge_strike"],[46,"bedrock_slam"],[54,"heavy_slam"],[62,"radiance_cannon"]],
@@ -2983,12 +2983,12 @@ const MONSTERS_DATA = {
     desc:"A complex gear-machine combatant that builds practice rigs from scavenged parts and trains alone for hours.",
     lore:"Cogvex is a medium metal-fighting automaton 60 cm tall — Gearbit's stubby gear-work frame has elaborated into a more complex body, and the metals it absorbed in countless sparring matches have crystallised into an exposed chest mechanism of dozens of interlocking cogs and pistons. It constructs gear-driven training apparatus from found materials and leaves functional practice rigs scattered across its territory." },
 
-  282: { id:282, name:"Mechavast", emoji:"🤖", types:["Metal","Fighting"],
+  282: { id:282, name:"Mechabrute", emoji:"🤖", types:["Metal","Fighting"],
     base:{hp:105,atk:122,def:124,spa:63,spd:85,spe:51},
     learnset:[[1,"forge_strike"],[1,"tectonic_shift"],[15,"flying_press"],[20,"smart_strike"],[24,"focused_beam"],[26,"metal_roller"],[30,"martial_finish"],[32,"heavy_slam"],[36,"titan_blade"],[40,"bedrock_slam"],[48,"alloy_tail"],[56,"geoblast"],[64,"forge_blast_2"],[72,"radiance_cannon"],[74,"quick_punch"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:278, rarity:"rare",
     desc:"The ultimate combat titan. Its body is a perfect fusion of steel and martial precision.",
-    lore:"Mechavast is a large metal-fighting automaton 1.5 metres tall — Cogvex's exposed chest-mechanism of interlocking cogs and pistons has been enclosed within a heavy combat chassis, and the gear-driven training apparatus its juvenile form constructed are now built directly into its body as weapons: thick piston-driven legs, a drill-bit gauntlet, and a hydraulic combat-claw. Its internal mechanisms grind audibly. It drills opponents into submission with mechanical precision and marks vanquished rivals' stations in neat geometric formations." },
+    lore:"Mechabrute is a large metal-fighting automaton 1.5 metres tall — Cogvex's exposed chest-mechanism of interlocking cogs and pistons has been enclosed within a heavy combat chassis, and the gear-driven training apparatus its juvenile form constructed are now built directly into its body as weapons: thick piston-driven legs, a drill-bit gauntlet, and a hydraulic combat-claw. Its internal mechanisms grind audibly. It drills opponents into submission with mechanical precision and marks vanquished rivals' stations in neat geometric formations." },
 
   // Standalone Metal/Ground: Rustpike
   283: { id:283, name:"Rustpike", emoji:"🗡️", types:["Metal","Poison"],
@@ -3860,13 +3860,13 @@ const MONSTERS_DATA = {
     desc:"The radiant sovereign of the world's oceans — a regal sea-fairy queen whose long fin-tail and gossamer wings command tides and storms alike.",
     lore:"Thalassira is the radiant sovereign of the world's oceans, a regal sea-fairy queen 4 metres from crown to tail-tip with the upper body of a tall ethereal humanoid and a long sweeping fin-tail of iridescent ocean-blue and silver. From her shoulders unfurl two pairs of translucent fairy wings — gossamer in air and webbed for swift propulsion underwater. Strands of her flowing water-weed hair are woven with constellations of living sea-stars, and her crown is a single colossal pearl-fragment formed from the same fairy energy that quickened her in her Pearlmaid stage. She guards hidden underwater groves where rare magical plants grow undisturbed, and sailors who see her are blessed with eternal safe passage." },
 
-  // 188: Mycovast - Grass/Poison (Sporix→Myceloth→Mycovast)
-  65: { id:65, name:"Mycovast", emoji:"🍄", types:["Nature","Poison"],
+  // 188: Plaguecap - Grass/Poison (Sporix→Myceloth→Plaguecap)
+  65: { id:65, name:"Plaguecap", emoji:"🍄", types:["Nature","Poison"],
     base:{hp:98,atk:109,def:103,spa:108,spd:88,spe:44},
     learnset:[[1,"verdant_orb"],[1,"ooze_bomb"],[2,"spore_burst"],[3,"toxify"],[4,"slumber_dust"],[38,"petal_blitz"],[42,"venom_lance"],[46,"verdant_surge"],[50,"sludge_wave"],[54,"virulent_surge"],[58,"canopy_crash"],[62,"acid_rain"],[5,"mycelia_net"],[44,"corrosion_fang"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A fungal colossus whose spores drift on the wind for hundreds of miles, corrupting forests in days. It is the rot at the heart of every plagued wood.",
-    lore:"Mycovast is a hulking fungal creature 2 metres tall — Myceloth's translucent humanoid frame has thickened into a thick, barrel-like body and the wide flat cap of its earlier form has multiplied into overlapping shelf-fungus plates. Purple, green, and white tones mottle its surface. It generates a continuous cloud of toxic spores around itself and moves with surprising speed for its size when defending its spore territory." },
+    lore:"Plaguecap is a hulking fungal creature 2 metres tall — Myceloth's translucent humanoid frame has thickened into a thick, barrel-like body and the wide flat cap of its earlier form has multiplied into overlapping shelf-fungus plates. Purple, green, and white tones mottle its surface. It generates a continuous cloud of toxic spores around itself and moves with surprising speed for its size when defending its spore territory." },
 
   // 189: Rootvorn - Grass/Ground (Viridix→Terravin→Rootvorn)
   68: { id:68, name:"Rootvorn", emoji:"🐌", types:["Nature","Earth"],
@@ -3876,13 +3876,13 @@ const MONSTERS_DATA = {
     desc:"A 3-metre ancient garden snail whose colossal shell has become a rooted bonsai forest. Reorganises woodland over centuries simply by walking through it.",
     lore:"Rootvorn is a colossal ancient snail nearly 3 metres tall at the shell's apex, with a body that extends another 4 metres when fully out of the shell — Loamvin's bark-and-moss-overgrown shell has expanded and been so deeply colonised over centuries that it now resembles a mossy hill — thick roots from full-grown saplings have driven down through the shell's surface and clutched it like a living crown, and a complete miniature canopy of broad leaves shades the back of its body. Its eyestalks are 1-metre wood-coloured stalks tipped in twin amber gleams, raised cautiously above the canopy when it senses motion. It uproots itself only at night, dragging its forested shell to a new location before dawn, and is believed to reorganise the layout of entire woodlands over decades — wherever it has travelled, new groves take root from the seeds shed by its passing." },
 
-  // 190: Verdovast - Grass (Germix→Verdurus→Verdovast)
-  71: { id:71, name:"Verdovast", emoji:"🌳", types:["Nature","Fighting"],
+  // 190: Groveguard - Grass (Germix→Verdurus→Groveguard)
+  71: { id:71, name:"Groveguard", emoji:"🌳", types:["Nature","Fighting"],
     base:{hp:109,atk:123,def:88,spa:113,spd:88,spe:29},
     learnset:[[1,"collide"],[1,"vine_lash"],[2,"verdant_orb"],[3,"slumber_dust"],[4,"pod_blast"],[5,"spore_burst"],[8,"bark_shield"],[11,"sap_seed"],[14,"root_drain"],[17,"regrow"],[20,"nature_pulse"],[23,"seed_volley"],[26,"blossom_frenzy"],[30,"primordial_growth"],[34,"foliage_tempest"],[38,"petal_blitz"],[42,"war_dance"],[44,"root_lance"],[46,"canopy_crash"],[50,"verdant_surge"],[54,"crushing_bulk"],[56,"brawl"],[58,"briar_lash"],[60,"seismic_force"],[62,"haymaker"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A colossal walking-garden titan that guards the grove it carries — uprooting trees to swing and crushing threats with its overgrown bulk.",
-    lore:"Verdovast is a colossal ancient seed-pod 2.5 metres tall, so deeply overgrown with saplings, vines, blossoms, and a whole small ecosystem that the original husk is barely visible — a walking garden with tiny trees on its shoulders and creatures nesting in its foliage. Gentle as it seems while it drops fertile seeds across the forest, it is the unyielding guardian of the grove it carries: anything that threatens its ecosystem is met by a titan that tears up its own trees to swing like clubs, drives root-limbs forward like battering rams, and bears down with sheer overgrown mass." },
+    lore:"Groveguard is a colossal ancient seed-pod 2.5 metres tall, so deeply overgrown with saplings, vines, blossoms, and a whole small ecosystem that the original husk is barely visible — a walking garden with tiny trees on its shoulders and creatures nesting in its foliage. Gentle as it seems while it drops fertile seeds across the forest, it is the unyielding guardian of the grove it carries: anything that threatens its ecosystem is met by a titan that tears up its own trees to swing like clubs, drives root-limbs forward like battering rams, and bears down with sheer overgrown mass." },
 
   // 191: Morralyn - Grass/Dark (Sylvnox→Morraveth→Morralyn)
   80: { id:80, name:"Morralyn", emoji:"🪵", types:["Nature","Dark"],
@@ -3932,21 +3932,21 @@ const MONSTERS_DATA = {
     desc:"A 4-metre electric eel-like leviathan whose body crackles with stored ocean current. It powers itself by siphoning thermal-vent differentials.",
     lore:"Dynameel is a colossal electric eel-like leviathan over 4 metres long — Sparkrel's silver-blue developing form has darkened to a dark blue-black body marked by bands of bright yellow that pulse with stored electricity along its full length. Two long whiskers below its jaw act as ultra-sensitive electroreceptors, mapping every fish in the deep waters around it. It lives perched coiled around deep-sea volcanic thermal vents, drawing on the differential between hot and cold water to power its movements without needing to hunt for energy. When threatened, it discharges columns of electrified water in any direction, and the surrounding sea briefly glows with cascading currents." },
 
-  // 197: Petrovast - Electric/Rock (Voltrix→Petravolt→Petrovast)
-  94: { id:94, name:"Petrovast", emoji:"⛰️", types:["Electric","Earth"],
+  // 197: Basaltback - Electric/Rock (Voltrix→Petravolt→Basaltback)
+  94: { id:94, name:"Basaltback", emoji:"⛰️", types:["Electric","Earth"],
     base:{hp:98,atk:117,def:112,spa:82,spd:73,spe:68},
     learnset:[[1,"stone_slide"],[1,"volt_jet"],[2,"static_strike"],[3,"crag_strike"],[4,"stun_pulse"],[5,"static_cage"],[20,"primeval_force"],[38,"stormbolt"],[42,"tectonic_shift"],[44,"temper_edge"],[46,"volt_surge"],[50,"crystal_lance"],[54,"stalactite_drop"],[58,"ion_cannon"],[62,"quarry_crush"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A mountainous rock-echidna 2 metres at the shoulder, its body a fortress of basalt plates. Almost impossible to move once stationary.",
-    lore:"Petrovast is a colossal ancient rock-echidna 2 metres at the shoulder — Stonebolt's stone-grey plate-quills have thickened further into a body entirely encased in interlocking basalt-coloured plates between which vivid electrical arcs constantly discharge. Its forelimbs end in massive blunt digging claws capable of carving through bedrock, and the row of plate-spurs along its back crackles with the stored charge of years of weathered storms. Its weight builds up so much ground contact that it is almost impossible to move once it has settled into a position; herds of Petrovast are rarely seen — most are encountered as solitary sentinels guarding the same mountain pass for decades." },
+    lore:"Basaltback is a colossal ancient rock-echidna 2 metres at the shoulder — Stonebolt's stone-grey plate-quills have thickened further into a body entirely encased in interlocking basalt-coloured plates between which vivid electrical arcs constantly discharge. Its forelimbs end in massive blunt digging claws capable of carving through bedrock, and the row of plate-spurs along its back crackles with the stored charge of years of weathered storms. Its weight builds up so much ground contact that it is almost impossible to move once it has settled into a position; herds of Basaltback are rarely seen — most are encountered as solitary sentinels guarding the same mountain pass for decades." },
 
-  // 198: Tectonvast - Ground/Rock (Terrakin→Seismith→Tectonvast)
-  97: { id:97, name:"Tectonvast", emoji:"🦏", types:["Earth","Electric"],
+  // 198: Quakehide - Ground/Rock (Terrakin→Seismith→Quakehide)
+  97: { id:97, name:"Quakehide", emoji:"🦏", types:["Earth","Electric"],
     base:{hp:111,atk:136,def:116,spa:57,spd:73,spe:57},
     learnset:[[1,"tectonic_shift"],[1,"volt_jet"],[2,"cranial_ram"],[3,"geoblast"],[4,"crag_strike"],[5,"clay_armor"],[6,"earthen_wall"],[8,"mineral_polish"],[10,"bolt_smash"],[12,"smack_down"],[14,"ground_circuit"],[15,"primeval_force"],[18,"erosion_wave"],[20,"telluric_wave"],[22,"stone_cleave"],[24,"quake_pulse"],[26,"meteor_strike"],[28,"boulder_wrecker"],[30,"continental_shift"],[32,"diamond_crash"],[34,"thunder_cage"],[36,"diamond_storm"],[38,"ball_lightning"],[40,"arc_cannon"],[42,"crystal_lance"],[44,"temper_edge"],[46,"sand_geyser"],[50,"overcharge"],[54,"scorched_earth"],[58,"fissure_slam"],[62,"crushing_bulk"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"A colossal rhino-titan whose every footfall registers as both an earthquake and a thunderclap. Lightning rolls along its plated hide as it walks.",
-    lore:"Tectonvast is a massive rhino-titan 2 metres at the shoulder — Seismith's iron-and-copper-veined plates have grown across its grey-brown hide into heavy sheathing-armour of iron-veined earth, deeply furrowed and crackling with static potential built up over decades of seismic march. Its single horn — a column of compressed mineral over 40 centimetres long — glows white-hot at the tip when it lowers its head to charge, releasing the stored charge through whatever it strikes in a clap of grounded thunder. Seismic activity follows it wherever it walks, but unlike its ancestors the air around it carries the metallic tang of ozone, and skies darken overhead as storms are drawn to the metal in its hide." },
+    lore:"Quakehide is a massive rhino-titan 2 metres at the shoulder — Seismith's iron-and-copper-veined plates have grown across its grey-brown hide into heavy sheathing-armour of iron-veined earth, deeply furrowed and crackling with static potential built up over decades of seismic march. Its single horn — a column of compressed mineral over 40 centimetres long — glows white-hot at the tip when it lowers its head to charge, releasing the stored charge through whatever it strikes in a clap of grounded thunder. Seismic activity follows it wherever it walks, but unlike its ancestors the air around it carries the metallic tang of ozone, and skies darken overhead as storms are drawn to the metal in its hide." },
 
   // 199: Geovenomvast - Ground/Poison (Aridix→Geovenoth→Geovenomvast)
   100: { id:100, name:"Craterlurk", emoji:"🦂", types:["Earth","Poison"],
@@ -3989,12 +3989,12 @@ const MONSTERS_DATA = {
     lore:"Frigidvorn is a heavy-shouldered, shaggy ice-wolf 2 metres at the shoulder — Hailgorge's white fur and ice-spine hackles have lengthened and matted into thick grey-white fur and a permanent armoured ice-coat across its shoulders. Its breath freezes solid on contact with open air, producing a permanent mist cloud around its face. It excavates dens deep in glacier ice and hibernates for years between active periods." },
 
   // 204: Glaciovast - Ice/Normal (Nivelin→Glacivern→Glaciovast)
-  52: { id:52, name:"Permavast", emoji:"🐃", types:["Ice","Normal"],
+  52: { id:52, name:"Aurochill", emoji:"🐃", types:["Ice","Normal"],
     base:{hp:109,atk:88,def:118,spa:113,spd:103,spe:19},
     learnset:[[1,"flurries"],[1,"crushing_bulk"],[2,"cold_beam"],[3,"fortify"],[4,"whiteout"],[38,"cranial_ram"],[42,"hoarfrost_bite"],[46,"frost_crash"],[50,"tundra_tomb"],[54,"second_wind"],[58,"cryo_lance"],[62,"radiance_cannon"],[5,"winter_shroud"],[44,"vital_pulse"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:260, rarity:"rare",
     desc:"An immovable mountain-auroch armored in ancient glacier ice. When it wakes from a long slumber, the ice age returns.",
-    lore:"Permavast is a colossal mountain auroch around 2.5 metres at the shoulder and over 4 metres long — Bergyak's growing shoulder ice-plates have fused into a near-armoured shell of ancient glacier ice across its flanks and spine, and its woolly yak-coat has thickened into dense white fur streaked with grey. Two massive curled horns layered in old ice sweep low and wide from its broad skull, ringed in faint hoarfrost. It does not hibernate but roams frozen tundra year-round, breaking through wind-packed snowdrifts with its broad chest while the ice plates along its flanks grind audibly against one another with each measured step." },
+    lore:"Aurochill is a colossal mountain auroch around 2.5 metres at the shoulder and over 4 metres long — Bergyak's growing shoulder ice-plates have fused into a near-armoured shell of ancient glacier ice across its flanks and spine, and its woolly yak-coat has thickened into dense white fur streaked with grey. Two massive curled horns layered in old ice sweep low and wide from its broad skull, ringed in faint hoarfrost. It does not hibernate but roams frozen tundra year-round, breaking through wind-packed snowdrifts with its broad chest while the ice plates along its flanks grind audibly against one another with each measured step." },
 
   // 205: Noctovast - Dark (Umbrakin→Noctivast→Noctovast)
   120: { id:120, name:"Nightwolf", emoji:"🐕", types:["Dark"],
@@ -4052,13 +4052,13 @@ const MONSTERS_DATA = {
     desc:"A colossal acid behemoth that dissolves the ground wherever it treads. Entire cave systems have been created by its acidic ooze eating through the earth.",
     lore:"Dissotoad is a massive ground-poison creature 2 metres tall resembling a toad made of compressed toxic earth — Corrodisc's flat disc-body has lifted upward into a true upright toad-frame, the corrosive undersurface now generalised across its skin as constant acidic weeping. The ground around it is perpetually discoloured. It is one of the few creatures that can neutralise other poisons by contact, making it paradoxically useful as an antidote source." },
 
-  // 212: Behemovast - Normal (Rotunden→Glutoros→Behemovast)
-  184: { id:184, name:"Behemovast", emoji:"🐻", types:["Normal","Fighting"],
+  // 212: Ursamight - Normal (Rotunden→Glutoros→Ursamight)
+  184: { id:184, name:"Ursamight", emoji:"🐻", types:["Normal","Fighting"],
     base:{hp:140,atk:116,def:97,spa:77,spd:77,spe:43},
     learnset:[[1,"cranial_ram"],[1,"crushing_bulk"],[2,"battle_cry"],[3,"war_dance"],[4,"second_wind"],[38,"radiance_cannon"],[42,"wild_tumble"],[46,"momentum_rush"],[50,"seismic_force"],[54,"instinct_slash"],[58,"brawl"],[62,"haymaker"],[5,"focus_roar"],[44,"baleful_stare"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"The greatest bear that has ever walked Lumoria. When it stands fully upright, it blots out the sun. Its roar has been mistaken for natural disasters.",
-    lore:"Behemovast is a titanic normal-type creature 3 metres at the shoulder, resembling an enormous bear with a solid barrel-shaped torso and legs like columns — Glutoros's already-massive frame has grown into the heaviest non-legendary Lumori known, and the heavy russet-brown fur has matted and toughened to thick brown-grey under the bulk it must now support. It is the heaviest non-legendary Lumori known and leaves impressions in solid rock where it steps." },
+    lore:"Ursamight is a titanic normal-type creature 3 metres at the shoulder, resembling an enormous bear with a solid barrel-shaped torso and legs like columns — Glutoros's already-massive frame has grown into the heaviest non-legendary Lumori known, and the heavy russet-brown fur has matted and toughened to thick brown-grey under the bulk it must now support. It is the heaviest non-legendary Lumori known and leaves impressions in solid rock where it steps." },
 
   // =====================================================================
   // NG+-EXCLUSIVE LUMORI (IDs 322–461) — appear only in New Game+ runs.
@@ -4359,12 +4359,12 @@ const MONSTERS_DATA = {
     desc:"A moon-born spectre woven from lunar psychic energy. It appears only on nights of the full moon.",
     lore:"Lunaspectre is a mental-spectral entity 2 metres tall that resembles a human silhouette composed of condensed moonlight. Its edges blur and shimmer like a reflection on disturbed water." },
 
-  363: { id:363, name:"Chromavast", emoji:"🎨", types:["Normal","Mental"],
+  363: { id:363, name:"Chromaton", emoji:"🎨", types:["Normal","Mental"],
     base:{hp:87,atk:90,def:83,spa:100,spd:90,spe:75}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"cranial_ram"],[10,"mental"],[20,"crushing_bulk"],[30,"psi_strike"],[40,"radiance_cannon"],[50,"synaptic_shatter"],[60,"neural_storm"],[5,"battle_cry"],[38,"dreamweave"],[62,"blitz"]],
     catchRate:8, expYield:322, rarity:"rare",
     desc:"A colossal entity that shifts colour with its mood. When all colours appear simultaneously, it is enraged.",
-    lore:"Chromavast is a normal-psychic creature 3 metres tall with a smooth ovoid body that cycles through every colour in the visible spectrum. Its form is constantly, slowly shifting." },
+    lore:"Chromaton is a normal-psychic creature 3 metres tall with a smooth ovoid body that cycles through every colour in the visible spectrum. Its form is constantly, slowly shifting." },
 
   364: { id:364, name:"Deepcrawler", emoji:"🦀", types:["Aquatic","Metal"],
     base:{hp:85,atk:100,def:107,spa:75,spd:85,spe:68}, evolveTo:null, evolveLevel:null,
@@ -4579,12 +4579,12 @@ const MONSTERS_DATA = {
     desc:"A dark electromagnetic storm given will. It communicates by interrupting every electrical device within range.",
     lore:"Nullstorm is a dark-electric entity 5 metres across that resembles a contained electromagnetic storm with a dark nucleus. Every electronic device within a kilometre malfunctions in its presence." },
 
-  394: { id:394, name:"Solarvast", emoji:"🦅", types:["Fire","Stellar"],
+  394: { id:394, name:"Heliogriff", emoji:"🦅", types:["Fire","Stellar"],
     base:{hp:86,atk:120,def:92,spa:117,spd:92,spe:101}, evolveTo:null, evolveLevel:null, ngPlusTier:3,
     learnset:[[1,"inferno_jet"],[5,"char_dance"],[8,"sun_burst"],[10,"ashfall"],[12,"infernal_roar"],[15,"searing_glare"],[18,"firebrand"],[20,"solar_flare"],[22,"inferno_s_grasp"],[25,"starlight_charge"],[28,"magma_baptism"],[30,"cinderwhirl"],[35,"cosmic_slam"],[40,"pyroclasm"],[50,"solar_zenith"],[55,"conflagration"],[55,"astral_resolve"],[60,"forge_blast"],[65,"galaxy_apocalypse"]],
     catchRate:4, expYield:370, rarity:"legendary",
     desc:"A solar griffin born from the sun itself. The corona of its home star still wraps its wings.",
-    lore:"Solarvast is a colossal griffin 7 metres long, its eagle's head and lion's body sheathed in plumage that burns at the surface temperature of a star, wings trailing a corona of stellar fire. It was first recorded appearing from a solar flare, and the heat of its dive reaches temperatures measurable only in solar physics." },
+    lore:"Heliogriff is a colossal griffin 7 metres long, its eagle's head and lion's body sheathed in plumage that burns at the surface temperature of a star, wings trailing a corona of stellar fire. It was first recorded appearing from a solar flare, and the heat of its dive reaches temperatures measurable only in solar physics." },
 
   395: { id:395, name:"Glacierend", emoji:"🦭", types:["Ice","Normal"],
     base:{hp:97,atk:124,def:110,spa:115,spd:103,spe:99}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
@@ -5352,13 +5352,13 @@ const MONSTERS_DATA = {
     appearance:"Imposing dream-god; tall robed figure of shifting twilight cloth and dream-sand, a starry void where its face should be, pouring golden dream-sand that blooms into tiny floating dreamscapes. Twilight-indigo and gold palette." },
 
   // --- Wielder: Rax (The Iron Sanctum) ---
-  489: { id:489, name:"Forgotten Ironvast", emoji:"🦾", types:["Metal","Crystal"],
+  489: { id:489, name:"Forgotten Carapax", emoji:"🦾", types:["Metal","Crystal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:130,atk:145,def:175,spa:75,spd:130,spe:65},
     learnset:[[1,"stone_throw"],[15,"quartz_punch"],[20,"stone_slide"],[25,"crystal_spear"],[35,"basalt_volley"],[40,"diamond_storm"],[45,"quartz_quake"],[50,"crag_strike"],[55,"diamond_crash"],[65,"obsidian_crash"],[70,"tectonic_shift"],[75,"diamond_drill"],[80,"iron_fortress"],[24,"warden_strike"],[38,"anvil_drop"],[52,"heavy_slam"],[72,"plate_slam"],[78,"crystal_bastion"]],
     catchRate:3, expYield:300, rarity:"legendary",
-    desc:"Ironvast's carapace has never been cracked in recorded Vaeldrian history. Engineers once used shed Ironvast shells as building material — with their full consent.",
-    lore:"Rax says Ironvast has only ever been afraid once. He doesn't say when.",
+    desc:"Carapax's carapace has never been cracked in recorded Vaeldrian history. Engineers once used shed Carapax shells as building material — with their full consent.",
+    lore:"Rax says Carapax has only ever been afraid once. He doesn't say when.",
     appearance:"Armored ankylosaurus-tank; impenetrable crystalline-metal plating, a heavy club tail of fused ore-crystal, low and immovable. Gunmetal-grey and crystal-blue palette." },
 
   490: { id:490, name:"Forgotten Forgerak", emoji:"⚔️", types:["Metal","Aether"],
@@ -5762,7 +5762,7 @@ const WORLD_DATA = {
       {id:15, minLv:22, maxLv:28, rate:12},  // Pyroclasm
       {id:13, minLv:22, maxLv:28, rate:28},  // Taurcin
       {id:38, minLv:23, maxLv:28, rate:12},  // Titanariel
-      {id:97, minLv:24, maxLv:29, rate:12},  // Tectonvast
+      {id:97, minLv:24, maxLv:29, rate:12},  // Quakehide
       {id:15, minLv:24, maxLv:29, rate:12}   // Pyroclasm
     ],
     hasGym:false, requiredBadges:3, mapPos:{x:82, y:42},
@@ -5894,7 +5894,7 @@ const WORLD_DATA = {
     desc:"The upper reaches of the Poison Swamp, where toxic fumes seep from cracks in the earth near the marshes of Route 7.",
     connections:["route7","poison_swamp_lower"],
     wildMonsters:[
-      {id:71, minLv:44, maxLv:49, rate:30},   // Verdovast
+      {id:71, minLv:44, maxLv:49, rate:30},   // Groveguard
       {id:73, minLv:44, maxLv:49, rate:35},   // Faelomis
       {id:75, minLv:45, maxLv:50, rate:35}    // Sylvolt
     ],
@@ -6038,7 +6038,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:166, minLv:44, maxLv:50, rate:35},   // Projectery
       {id:123, minLv:46, maxLv:51, rate:50},   // Nocturil
-      {id:167, minLv:47, maxLv:52, rate:15}    // Psychovast
+      {id:167, minLv:47, maxLv:52, rate:15}    // Psymastiff
     ],
     hasGym:false, requiredBadges:5, mapPos:{x:6, y:52}
   },
@@ -6182,7 +6182,7 @@ const WORLD_DATA = {
     desc:"A city carved into a mountainside, rich with mineral deposits. Home to Gym Leader Atlas.",
     connections:["tremor_summit","route12"],
     wildMonsters:[
-      {id:97,  minLv:61, maxLv:66, rate:15},  // Tectonvast (final, 96 on quake_foothills ✓)
+      {id:97,  minLv:61, maxLv:66, rate:15},  // Quakehide (final, 96 on quake_foothills ✓)
       {id:100, minLv:61, maxLv:66, rate:15},  // Craterlurk (final, 99 on quake_foothills ✓)
       {id:103, minLv:61, maxLv:66, rate:15},  // Calciderm (final, 102 on quake_foothills ✓)
       {id:105, minLv:61, maxLv:66, rate:30},  // Dravanas (final, 104 on route11 ✓)
@@ -6489,7 +6489,7 @@ const WORLD_DATA = {
     desc:"The crest of the quake-ridden foothills where the shaking is strongest. Only final-stage Ground-type Lumori can hold their footing here.",
     connections:["quake_foothills","terravault"],
     wildMonsters:[
-      {id:97,  minLv:62, maxLv:67, rate:15},  // Tectonvast (final, 96 on quake_foothills ✓)
+      {id:97,  minLv:62, maxLv:67, rate:15},  // Quakehide (final, 96 on quake_foothills ✓)
       {id:100, minLv:62, maxLv:67, rate:15},  // Craterlurk (final, 99 on quake_foothills ✓)
       {id:103, minLv:62, maxLv:67, rate:15},  // Calciderm (final, 102 on quake_foothills ✓)
       {id:105, minLv:63, maxLv:68, rate:30},  // Dravanas (final, 104 on route11 ✓)
@@ -6644,7 +6644,7 @@ const WORLD_DATA = {
     connections:["forge_ruins","forge_approach"],
     wildMonsters:[
       {id:281, minLv:67, maxLv:72, rate:25},  // Cogvex (mid → 280 Gearbit on route14 ✓)
-      {id:276, minLv:67, maxLv:72, rate:20},  // Scorchvast (final → Infernox on ash_fields ✓)
+      {id:276, minLv:67, maxLv:72, rate:20},  // Magmaw (final → Infernox on ash_fields ✓)
       {id:283, minLv:66, maxLv:71, rate:20},  // Rustpike (standalone Metal/Poi)
       {id:246, minLv:67, maxLv:72, rate:15},  // Megavolt (final → 245 on ash_fields ✓)
       {id:268, minLv:67, maxLv:72, rate:10},  // Darkfang (final Dark → 267 ✓)
@@ -6663,7 +6663,7 @@ const WORLD_DATA = {
       {id:233, minLv:68, maxLv:73, rate:18},  // Serpenthorn (mid → 232 Draxon on route15 ✓)
       {id:174, minLv:68, maxLv:73, rate:10},  // Scalevorn (standalone Draconic/Metal)
       {id:251, minLv:67, maxLv:72, rate:28},  // Crumblite (base Rock/Metal, also route15)
-      {id:282, minLv:68, maxLv:73, rate:6}   // Mechavast (final → Cogvex on smelter_pass ✓)
+      {id:282, minLv:68, maxLv:73, rate:6}   // Mechabrute (final → Cogvex on smelter_pass ✓)
     ],
     ngPlusWildMonsters:[{id:374, minLv:68, maxLv:73, rate:8}], // thinned from mega-area
     hasGym:false, requiredBadges:14, mapPos:{x:46, y:84}

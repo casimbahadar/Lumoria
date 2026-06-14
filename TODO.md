@@ -88,6 +88,13 @@ Clean state — everything committed & pushed on `claude/unified-audit-handoff-t
 - PREFIX `void-` (→ 3; kept Voidraxis #319 / Voidcrown #398 / Voidwarden #407): #345 Voidcoil→**Sablecrow** · #352 Voidlord→**Hollowking** · #373 Voidrend→**Chasmrend** · #390 Voidgarden→**Necrobloom** (resolves Voidgarden/Voidwarden twin) (2026-06-14).
 - ✅✅ **AFFIX CLEANUP COMPLETE (2026-06-14)** — every pre-462 prefix/suffix (4-char) + genuine 3-char morpheme (-maw/-kin/-let/-don) is now ≤3 IDs. Remaining ×4 groups (-lith/-rath/spar-/thun-/fros-) are all exactly 3 pre-462 + 1 Forgotten (within policy). spar-/thun- never needed action. Cross-position rule (no morpheme as prefix-here/suffix-there) enforced throughout. ~100 renames across ~18 affix groups, PR #95.
 
+**📋 CAPSTONE PASS STRUCTURE (per-Lumori; the dex-wide renaming pass is DONE — see DONE LOG above):**
+- **Part A.1 — Stats:** per-Lumori stat / BST spread review + inter-family stat-curve consistency (ascending BST across a line, role-appropriate spreads, no outliers).
+- **Part A.2 — Evolution:** evolution method + level review per line. **Determine and audit evolution-method tallies dex-wide to ensure a VARIETY of methods** (level-up, item/stone, location, trade/condition, friendship, etc.) — no over-reliance on plain level-up; spread methods sensibly across lines.
+- **Part B — Flavor:** family-by-family lore / desc / behaviour / appearance walk (labelled-section format). ⚠️ **Renaming is STILL possible in Part B** for any Lumori — EXCEPT the ~90 already renamed during the affix-cleanup pass, whose names are now LOCKED (do not revisit; see DONE LOG above).
+- **Part C — Movesets:** per-Lumori moveset / learnset level adjustments.
+- **Part D — Encounter audit:** final analysis of encounter RATES + the encounter TABLES of every area / route / zone (incl. NG+ and Forgotten gating) to confirm obtainability, level curves, and rarity distribution are all coherent.
+
 **Next-session options:** (a) work up a Tier-1 rename proposal; (b) ~~item #6 standalone-count reduction~~ ✅ **DONE 2026-06-12** (see standalone-reduction checkpoint below); (c) trainer-SVG replacement (deferred follow-up to the monster-SVG strip); (d) other audit items. Under-used-type distribution (#3) is considered substantially complete (clear wins banked, no forcing).
 
 ### 🐉 Dragon cleanup + sprite pipeline (2026-06-12) — DONE

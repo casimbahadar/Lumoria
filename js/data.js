@@ -2110,19 +2110,19 @@ const MONSTERS_DATA = {
     desc:"A steel hound with titanium claws. Almost nothing can break its armor.",
     lore:"Stoicguard is a large humanoid steel creature 1.5 metres tall — Scrapsapien's compact bolted-and-seamed plating has reforged into a broad powerful chest and arms that function as natural weapons, and the scrap-collecting habit of its juvenile form has left a surface of burnished dark steel with deep scratches from past battles. It is stoic, rarely speaking, and positions itself between perceived threats and those it considers worth protecting." },
 
-  150: { id:150, name:"Voltcrawl",     emoji:"🐛", types:["Metal","Electric"],
+  150: { id:150, name:"Ampercrawl",     emoji:"🐛", types:["Metal","Electric"],
     base:{hp:48,atk:50,def:67,spa:52,spd:57,spe:54},
     learnset:[[1,"chrome_claw",[22,"shrapnel_burst"]],[1,"jolt"],[3,"ironskin"],[6,"piston_jab"],[10,"forge_blast_2"],[14,"metal_pulse"],[18,"static_strike"],[20,"mirror_polish"],[21,"second_wind"],[26,"volt_jet"],[32,"ball_lightning"],[34,"forge_blast_2"],[38,"plasma_strike"],[42,"stormbolt",[5,"magnetize"]]],
     evolveTo:151, evolveLevel:28, catchRate:100, expYield:95, rarity:"common",
     desc:"A small armored centipede whose plated segments spark with current as it scurries.",
-    lore:"Voltcrawl is a 60 cm centipede sheathed in interlocking metallic plates, a static charge building between its many legs as it scurries so that sparks leap from segment to segment. It nests in warm machinery and rock-faults, drawing charge from the air around it, and grows longer and more powerful with each moult — building toward the great Voltipede." },
+    lore:"Ampercrawl is a 60 cm centipede sheathed in interlocking metallic plates, a static charge building between its many legs as it scurries so that sparks leap from segment to segment. It nests in warm machinery and rock-faults, drawing charge from the air around it, and grows longer and more powerful with each moult — building toward the great Amperpede." },
 
-  151: { id:151, name:"Voltipede",    emoji:"🐛", types:["Metal","Electric"],
+  151: { id:151, name:"Amperpede",    emoji:"🐛", types:["Metal","Electric"],
     base:{hp:77,atk:72,def:92,spa:108,spd:75,spe:66},
     learnset:[[1,"volt_jet"],[2,"magnetize"],[3,"ironskin"],[15,"chrome_slash"],[20,"corrosion_proof"],[25,"flywheel"],[31,"forge_blast_2"],[32,"surge_field"],[33,"mirror_plating"],[35,"metal_roller"],[36,"fortify"],[37,"forge_strike"],[39,"stormbolt"],[40,"rivet_barrage"],[44,"volt_surge"],[48,"alloy_tail"],[52,"tungsten_ram"],[56,"overcharge"],[60,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"uncommon",
     desc:"A massive armored centipede crackling with stored current. Its electrified bite locks prey rigid.",
-    lore:"Voltipede is a 1.2-metre centipede of overlapping conductive plates, the matured Voltcrawl — the static that once merely sparked between its segments now pools into a charged core that runs the length of its body, glowing as a bright seam down its back. It earths itself against power-lines to recharge, and a single venomous, electrified bite jolts prey rigid before it coils its armored length around them." },
+    lore:"Amperpede is a 1.2-metre centipede of overlapping conductive plates, the matured Ampercrawl — the static that once merely sparked between its segments now pools into a charged core that runs the length of its body, glowing as a bright seam down its back. It earths itself against power-lines to recharge, and a single venomous, electrified bite jolts prey rigid before it coils its armored length around them." },
 
   152: { id:152, name:"Imperion",  emoji:"🐢", types:["Metal","Earth"],
     base:{hp:108,atk:61,def:138,spa:59,spd:105,spe:30},
@@ -4146,19 +4146,19 @@ const MONSTERS_DATA = {
     desc:"A golem wrapped in self-generated permafrost. Its steel core never melts, no matter the heat.",
     lore:"Glacicore is an ice-steel creature 1.8 metres tall resembling a humanoid armour suit formed from interlocking plates of iron and glacial ice." },
 
-  333: { id:333, name:"Voltfang", emoji:"🐍", types:["Electric","Dark"],
+  333: { id:333, name:"Voltafang", emoji:"🐍", types:["Electric","Dark"],
     base:{hp:66,atk:91,def:61,spa:78,spd:67,spe:92}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"jolt"],[10,"shadowstep"],[20,"volt_jet"],[30,"void_rend"],[40,"stormbolt"],[50,"phantom_claw"],[60,"volt_surge"],[5,"stun_pulse"],[38,"nether_sphere"]],
     catchRate:26, expYield:258, rarity:"rare",
     desc:"A dark electric eel whose sinuous body crackles with stored voltage. A single touch delivers a paralyzing shock.",
-    lore:"Voltfang is a 1.4-metre electric eel of deep blue-black, its long sinuous body crackling with stored voltage that glows violet along its flanks. It lurks in lightless deep water and murky river-bottoms, sensing prey by the faint electric fields they give off, then stuns them rigid with a single discharge before its needle-fanged bite closes." },
+    lore:"Voltafang is a 1.4-metre electric eel of deep blue-black, its long sinuous body crackling with stored voltage that glows violet along its flanks. It lurks in lightless deep water and murky river-bottoms, sensing prey by the faint electric fields they give off, then stuns them rigid with a single discharge before its needle-fanged bite closes." },
 
-  334: { id:334, name:"Voltbrawler", emoji:"🤖", types:["Electric","Fighting"],
+  334: { id:334, name:"Arcbrawler", emoji:"🤖", types:["Electric","Fighting"],
     base:{hp:83,atk:104,def:100,spa:52,spd:70,spe:61}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"thunder_jab"],[1,"quick_punch"],[8,"spark_claw"],[12,"fortify"],[16,"uppercut"],[20,"volt_fang"],[26,"iron_fist"],[32,"voltaic_rush"],[38,"brawl"],[44,"tesla_fists"],[50,"plasma_punch"],[56,"overcharge"],[60,"haymaker"]],
     catchRate:22, expYield:268, rarity:"rare",
     desc:"An electric battlebot built for the arena. Its servo-driven fists land blows like lightning.",
-    lore:"Voltbrawler is a 2.5-metre combat automaton — a battlebot of riveted plating built for the old fighting pits, its frame strung with high-voltage cabling that whips its piston-driven fists faster than the eye can follow. Surplus charge arcs between its knuckles with every swing, and a clean hit lands like a thunderclap. Long after the arenas that built it fell silent, it still patrols them, sparring with anything that wanders in." },
+    lore:"Arcbrawler is a 2.5-metre combat automaton — a battlebot of riveted plating built for the old fighting pits, its frame strung with high-voltage cabling that whips its piston-driven fists faster than the eye can follow. Surplus charge arcs between its knuckles with every swing, and a clean hit lands like a thunderclap. Long after the arenas that built it fell silent, it still patrols them, sparring with anything that wanders in." },
 
   335: { id:335, name:"Frostprowl", emoji:"🐆", types:["Ice","Wind"],
     base:{hp:63,atk:86,def:59,spa:74,spd:67,spe:106}, evolveTo:null, evolveLevel:null,
@@ -4188,12 +4188,12 @@ const MONSTERS_DATA = {
     desc:"A hawk that nests on storm-capped peaks. Its talons are perpetually coated in razor-sharp ice.",
     lore:"Rimehawk is an ice-flying raptor with a 2.4-metre wingspan and talons of permanent glacial ice that never melt. Its primary feathers cut like edged weapons." },
 
-  339: { id:339, name:"Voltbeetle", emoji:"⚡", types:["Electric","Sonic"],
+  339: { id:339, name:"Dynascarab", emoji:"⚡", types:["Electric","Sonic"],
     base:{hp:66,atk:81,def:86,spa:75,spd:72,spe:80}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"mandible_bite"],[10,"jolt"],[20,"chrome_claw"],[30,"volt_jet"],[40,"resonance_hum"],[50,"volt_surge"],[60,"stormbolt"],[5,"fortify"],[38,"alloy_edge"],[62,"resonant_smash"],[63,"shake_smash"],[64,"wave_cry"],[65,"amplified_jab"]],
     catchRate:26, expYield:257, rarity:"rare",
     desc:"A beetle that accumulates static charge on its elytra. Touching its wing-covers triggers a full discharge.",
-    lore:"Voltbeetle is a squat beetle 0.9 metres long with highly polished elytra that generate static electricity from air resistance alone. A constant low hum surrounds it." },
+    lore:"Dynascarab is a squat beetle 0.9 metres long with highly polished elytra that generate static electricity from air resistance alone. A constant low hum surrounds it." },
 
   340: { id:340, name:"Cryoshard", emoji:"💎", types:["Ice","Sonic"],
     base:{hp:63,atk:68,def:72,spa:102,spd:89,spe:66}, evolveTo:null, evolveLevel:null,
@@ -5692,7 +5692,7 @@ const WORLD_DATA = {
       {id:173, minLv:62, maxLv:66, rate:25}, // Cobravyrm
       {id:124, minLv:62, maxLv:66, rate:25}, // Phantorvex
       {id:143, minLv:62, maxLv:66, rate:25}, // Astrelle
-      {id:151, minLv:63, maxLv:66, rate:25}  // Voltipede
+      {id:151, minLv:63, maxLv:66, rate:25}  // Amperpede
     ],
     ngPlusWildMonsters:[{id:345, minLv:60, maxLv:66, rate:18}], // Voidcoil (base) — found before Oblivionwing in Void Nexus
     hasGym:false, requiredBadges:16, mapPos:{x:62, y:35}
@@ -5935,7 +5935,7 @@ const WORLD_DATA = {
       {id:147, minLv:25, maxLv:31, rate:25},   // Scrapsapien
       {id:191, minLv:25, maxLv:31, rate:25},   // Pebblet
       {id:134, minLv:26, maxLv:32, rate:20},  // Aeronyx
-      {id:150, minLv:27, maxLv:32, rate:20},   // Voltcrawl
+      {id:150, minLv:27, maxLv:32, rate:20},   // Ampercrawl
       {id:152, minLv:28, maxLv:33, rate:10}    // Imperion
     ],
     ngPlusWildMonsters:[{id:423, minLv:25, maxLv:29, rate:12}], // NG+ family base: Pebblite
@@ -6259,7 +6259,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:147, minLv:65, maxLv:70, rate:21},  // Scrapsapien (base)
       {id:148, minLv:66, maxLv:71, rate:5},  // Stoicguard (mid → after 147 ✓)
-      {id:150, minLv:65, maxLv:70, rate:14},  // Voltcrawl (base)
+      {id:150, minLv:65, maxLv:70, rate:14},  // Ampercrawl (base)
       {id:134, minLv:66, maxLv:71, rate:12},  // Aeronyx (base)
       {id:153, minLv:66, maxLv:71, rate:17},  // Dentshaft (base)
       {id:55,  minLv:67, maxLv:72, rate:9},  // standalone steel
@@ -6276,7 +6276,7 @@ const WORLD_DATA = {
     connections:["forge_approach","route15"],
     wildMonsters:[
       {id:149, minLv:67, maxLv:72, rate:13},  // Eternarmor (final)
-      {id:151, minLv:66, maxLv:71, rate:25},  // Voltipede (mid)
+      {id:151, minLv:66, maxLv:71, rate:25},  // Amperpede (mid)
       {id:152, minLv:67, maxLv:72, rate:20},  // Imperion (Metal/Rock)
       {id:135, minLv:67, maxLv:72, rate:30},  // Steelvex (mid, 134 on route14 ✓)
       {id:136, minLv:68, maxLv:73, rate:12}   // Metalibat (final → after 135 ✓)
@@ -6417,8 +6417,8 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:148, minLv:66, maxLv:71, rate:10},  // Stoicguard (mid)
       {id:149, minLv:67, maxLv:72, rate:6},  // Eternarmor (final → after 148 ✓)
-      {id:150, minLv:65, maxLv:70, rate:24},  // Voltcrawl (base)
-      {id:151, minLv:66, maxLv:71, rate:14},  // Voltipede (mid → after 150 ✓)
+      {id:150, minLv:65, maxLv:70, rate:24},  // Ampercrawl (base)
+      {id:151, minLv:66, maxLv:71, rate:14},  // Amperpede (mid → after 150 ✓)
       {id:153, minLv:66, maxLv:71, rate:28},  // Dentshaft (base)
       {id:154, minLv:67, maxLv:72, rate:18}   // Terragolem (mid → after 153 ✓)
     ],
@@ -6518,8 +6518,8 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:147, minLv:65, maxLv:70, rate:28},  // Scrapsapien (base)
       {id:148, minLv:66, maxLv:71, rate:6},  // Stoicguard (mid → after 147 ✓)
-      {id:150, minLv:65, maxLv:70, rate:24},  // Voltcrawl (base)
-      {id:151, minLv:66, maxLv:71, rate:10},  // Voltipede (mid → after 150 ✓)
+      {id:150, minLv:65, maxLv:70, rate:24},  // Ampercrawl (base)
+      {id:151, minLv:66, maxLv:71, rate:10},  // Amperpede (mid → after 150 ✓)
       {id:134, minLv:66, maxLv:71, rate:18},  // Aeronyx (base)
       {id:135, minLv:67, maxLv:72, rate:14}   // Steelvex (mid → after 134 ✓)
     ],
@@ -6619,7 +6619,7 @@ const WORLD_DATA = {
       {id:285, minLv:65, maxLv:70, rate:18},  // Cloudrift (mid → Fluffkin on wind_hollow ✓)
       {id:174, minLv:65, maxLv:70, rate:14}   // Chromedrake (standalone Draconic/Metal)
     ],
-    ngPlusWildMonsters:[{id:386, minLv:66, maxLv:71, rate:8}, {id:333, minLv:66, maxLv:71, rate:10}], // NG+ standalone: Voltfang
+    ngPlusWildMonsters:[{id:386, minLv:66, maxLv:71, rate:8}, {id:333, minLv:66, maxLv:71, rate:10}], // NG+ standalone: Voltafang
     hasGym:false, requiredBadges:12, mapPos:{x:16, y:97}
   },
   ash_fields: {

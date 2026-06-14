@@ -88,7 +88,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[144] Dawnirel→Astrelle→Moonseraph | Fairy/Mental | star / celestial cosmic` (mythical)
 - `[146] Faerrin→Shinarith | Fairy/Metal | armor-suit` (fairy-armored guardian)
 - `[149] Scrapsapien→Stoicguard→Eternarmor | Metal | metal-golem` (**name leak in #149: "Adamovast"**)
-- `[151] Voltcrawl→Voltipede | Metal/Electric | centipede` (de-golemed 2026-06-13 from automaton — armored electric myriapod; renamed from Gearon/Alloytron)
+- `[151] Ampercrawl→Amperpede | Metal/Electric | centipede` (de-golemed 2026-06-13 from automaton — armored electric myriapod; renamed from Gearon/Alloytron)
 - `[152] Imperion | Metal/Earth | tortoise` (standalone, current types odd — described as steel-rock tortoise)
 - `[154] Dentshaft→Terragolem | Metal/Earth | metal-golem` (**name leak in #154: "Titanolith"**)
 - `[156] Toxirin→Venekon | Poison/Aquatic | frog / toad`
@@ -199,13 +199,13 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[330] Sludgejaw | Aquatic/Poison | crocodilian` (acid-weeping croc — second crocodilian alongside Limoux line)
 - `[331] Thornmoth | Nature/Sonic | moth` (Nature mono→Nature/Sonic pristine 2026-06-12 — its wing-beat resonance strips bark; sixth Lepidoptera)
 - `[332] Glacicore | Ice/Metal | armor-suit` (ice-steel humanoid armor — second armor-suit alongside Deepfreeze)
-- `[333] Voltfang | Electric/Dark | electric-eel` (de-wolfed 2026-06-13 — dark electric eel; was redundant with Raijolt's Electric/Dark thunder-beast)
-- `[334] Voltbrawler | Electric/Fighting | automaton` (sub: battlebot / combat-automaton; re-themed 2026-06-12 from Metal/Fighting metal-brawler → pristine Electric/Fighting battlebot, adding a new type pairing to the golem roster)
+- `[333] Voltafang | Electric/Dark | electric-eel` (de-wolfed 2026-06-13 — dark electric eel; was redundant with Raijolt's Electric/Dark thunder-beast)
+- `[334] Arcbrawler | Electric/Fighting | automaton` (sub: battlebot / combat-automaton; re-themed 2026-06-12 from Metal/Fighting metal-brawler → pristine Electric/Fighting battlebot, adding a new type pairing to the golem roster)
 - `[335] Frostprowl | Ice/Wind | feline (snow-leopard / cheetah)` (ice-wind feline — distinct from cat/lion; pristine snow-cat sub-archetype)
 - `[336] Coilstrike | Electric/Poison | serpent (non-dragon)` (electric-poison snake)
 - `[337] Ashgolem (→Embersteel #347) | Fire/Mineral | forge-golem` (base of the forge-golem line; see [347])
 - `[338] Rimehawk | Ice | hawk` (ice-hawk that nests on storm-capped peaks; subdivided out of "bird-of-prey/raptor" 2026-06-13)
-- `[339] Voltbeetle | Electric/Sonic | beetle` (fifth beetle)
+- `[339] Dynascarab | Electric/Sonic | beetle` (fifth beetle)
 - `[340] Cryoshard | Ice/Sonic | resonant-crystal` (resonant crystal-prism; retyped Ice/Mental→Ice/Sonic to break the Ice/Mental crystalline-prism clash with Shardlix — Shardlix keeps the crystalline-prism slot, Cryoshard pivots to a sound-resonance identity)
 - `[341] Mirestone (→Chronolith #388) | Earth/Mental | rock-monolith` (base of the monolith line; see [388])
 - `[342] Wraithking (→Shadowreave #343) | Dark/Spectral | wraith` (base — bound crowned wraith; see [343])
@@ -382,7 +382,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **dragon-mythic** | ~30 | exempt | — | Mythical-exempt; sub-flavor diversity is high. No trim. |
 | **wraith / spectre** | 11+ | **split** | re-arch | **LOCKED:** split the over-broad bucket. Core wraith ≤3 (Shadowveil, Wraithking, Shadowreave); split the rest into spectral-leviathan (Abyssalord), mountain-spirit (Stonekeeper), storm-wraith (Wraithstorm), plague-spectre (Sepsishade), moonlight-spectre (Lunaspectre), haunted-doll (Pallidoll), bell-spirit (Tollwisp/Knellgeist), faerie-sprite (Glimmeritch). All stay Spectral-typed. See policy doc. |
 | **golem** | 11 | **exempt** | — | **LOCKED mythical-exempt** — universal mythological construct (same footing as dragon). No trim. |
-| **wolf** | 3 | 3 | at cap | Hailwolf, Nightwolf, + Forgotten Cryvorn. (Darkfang→panther, Voltfang→electric-eel 2026-06-13; Umbrapup/Morraveth earlier.) |
+| **wolf** | 3 | 3 | at cap | Hailwolf, Nightwolf, + Forgotten Cryvorn. (Darkfang→panther, Voltafang→electric-eel 2026-06-13; Umbrapup/Morraveth earlier.) |
 | **fire-dragon** (sub) | 7 | n/a (under dragon-mythic) | discuss | If sub-caps applied: way over. |
 | **psychic-dragon** (sub) | 6 | n/a | discuss | Same. |
 | **lion** | 2 pre-462 (+Pyraeon postgame) | 3 | under cap | Ignitheon (fire-oracle), Aeolarch (storm) lines. Dravanas→hyena done 2026-06-13. |
@@ -390,7 +390,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **moth** | 3 | 3 | at cap | Pyromoth (#12), Lepidox (#165), Thornmoth (#331). Split out of the old "Lepidoptera" bucket 2026-06-13; Mosshop #265→grasshopper, Lepidox reclassified butterfly→moth. |
 | **grasshopper (Orthoptera)** | 1 | 3 | under cap | Mosshop (#265). Pristine archetype, re-archetyped off moth 2026-06-13. |
 | **butterfly** | 3 | 3 | at cap | Iridesoar (#141), Aeridaleth (#199), Sparkeen (#247). Split out of Lepidoptera 2026-06-13; Lepidox #165→moth and Plagueoth #298→mosquito left the bucket. |
-| **beetle** | 3 | 3 | at cap | Scarabion (#201, scarab beetle), Quarrix (#205), Voltbeetle (#339). Skullmite #329→trilobite 2026-06-13; Sparkeen had been miscounted here (it's a will-o-wisp). |
+| **beetle** | 3 | 3 | at cap | Scarabion (#201, scarab beetle), Quarrix (#205), Dynascarab (#339). Skullmite #329→trilobite 2026-06-13; Sparkeen had been miscounted here (it's a will-o-wisp). |
 | **rock-monolith / standing stone** | 4 | 3 | trim 1 | Frigolith, Megalith, Bouldertide, Mirestone→Chronolith. (Crystallon→yeti 2026-06-13) |
 | **crystalline-prism** | 3 | exempt | — | **Mythical-exempt** (CLAUDE.md) — resolves the old exempt-vs-trim contradiction. Prismatica #169 (orbiting 7-shard cluster + face), Shardlix #241 (ice-crystal humanoid), Crystalmind #381 (geometric polyhedron) — three distinct forms, no redundant look-alikes to cull. Old "5/trim 2" was stale: Cryoshard #340 already pivoted to resonant-crystal, Sparkeis #493 is post-game. Spectravore #351 is a separate "prismatic being". No cull. |
 | **eagle** | 1 | 3 | under cap | Vortexathos (#91). Subdivided out of "bird-of-prey/raptor" 2026-06-13. |

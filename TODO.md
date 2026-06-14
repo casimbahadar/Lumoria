@@ -84,6 +84,7 @@ Clean state — everything committed & pushed on `claude/unified-audit-handoff-t
 - PREFIX `veno-` (→ 1; kept Venotitan #125): #165 Venowarn→**Lepidox** · #206 Venomscale→**Forlix** (Sorrowlix line base) · #322 Venomwraith→**Sepsishade** (2026-06-14). [spar-/thun- left: 3 pre-462 + Forgotten.]
 - PREFIX `cind-` (→ 3; kept Cindercula #16 / Cinderfrost #211 / Cinderking #365): #274 Cindling→**Charrock** (also drops -ling→2) · #307 Cinderpaw→**Pyrelynx** (2026-06-14).
 - PREFIX `fros-` (→ 3; kept Frostscorch #212 / Frostprowl #335 / Frostmarion #418): #46 Frostmere→**Gelseal** · #236 Frostick→**Iciquill** · #304 Frostpelt→**Yeticub** (yeti-line cohesion) (2026-06-14).
+- PREFIX `volt-` (→ 2; kept Voltanox #83 + Voltfang→Voltafang #333): #150 Voltcrawl→**Ampercrawl** · #151 Voltipede→**Amperpede** (centipede line) · #334 Voltbrawler→**Arcbrawler** · #339 Voltbeetle→**Dynascarab** (2026-06-14). [Note: Volt/-volt prefix↔suffix overlap with Sylvolt/Megavolt/Arcvolt accepted by user for the 2 kept Volt- names.]
 
 **Next-session options:** (a) work up a Tier-1 rename proposal; (b) ~~item #6 standalone-count reduction~~ ✅ **DONE 2026-06-12** (see standalone-reduction checkpoint below); (c) trainer-SVG replacement (deferred follow-up to the monster-SVG strip); (d) other audit items. Under-used-type distribution (#3) is considered substantially complete (clear wins banked, no forcing).
 

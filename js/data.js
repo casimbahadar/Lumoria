@@ -2385,13 +2385,13 @@ const MONSTERS_DATA = {
 
   // ===== BATCH 1: POISON/DRAGON, ELECTRIC, FIRE/ICE (IDs 206-214) =====
 
-  // 3-stage Poison/Draconic chain: Venomscale → Sorrowlix → Wyrmvenom (plague-dragon; gentle/misunderstood)
-  206: { id:206, name:"Venomscale", emoji:"🐍", types:["Poison","Draconic"],
+  // 3-stage Poison/Draconic chain: Forlix → Sorrowlix → Wyrmvenom (plague-dragon; gentle/misunderstood)
+  206: { id:206, name:"Forlix", emoji:"🐍", types:["Poison","Draconic"],
     base:{hp:50,atk:62,def:50,spa:68,spd:52,spe:65},
     learnset:[[1,"septic_prick"],[1,"draconic_breath"],[12,"ooze_bomb"],[22,"draconic_claw"],[32,"toxify"],[42,"draconic_pulse"],[52,"venom_lance"],[62,"radiance_cannon"]],
     evolveTo:207, evolveLevel:26, catchRate:180, expYield:72, rarity:"common",
     desc:"A friendly little dragon-serpent whose touch is sadly toxic. Longs for playmates who never stay.",
-    lore:"Venomscale is a small dragon-serpent 40 cm long with vivid green scales and bright yellow warning banding. For all those alarming colours it is a gentle, playful hatchling that chirrups happily and tries to nuzzle anything that comes near — but the same glands that will one day make it formidable already weep a mild toxin through its skin, without it ever meaning them to, so the creatures it approaches flinch away sick and frightened. It does not understand why it is always left alone. It wishes no harm at all; it simply cannot help what its body produces, and spends its days waiting hopefully at the jungle's edge for a friend who can bear to stay." },
+    lore:"Forlix is a small dragon-serpent 40 cm long with vivid green scales and bright yellow warning banding. For all those alarming colours it is a gentle, playful hatchling that chirrups happily and tries to nuzzle anything that comes near — but the same glands that will one day make it formidable already weep a mild toxin through its skin, without it ever meaning them to, so the creatures it approaches flinch away sick and frightened. It does not understand why it is always left alone. It wishes no harm at all; it simply cannot help what its body produces, and spends its days waiting hopefully at the jungle's edge for a friend who can bear to stay." },
 
   207: { id:207, name:"Sorrowlix", emoji:"🐉", types:["Poison","Draconic"],
     base:{hp:75,atk:90,def:68,spa:98,spd:72,spe:80},
@@ -3581,12 +3581,12 @@ const MONSTERS_DATA = {
     desc:"A larva coated in toxic slime. Leaves a trail of venom wherever it crawls.",
     lore:"Blightmite is a small caterpillar-like poison creature 10 cm long. Its body is dark purple-black with short bristle-hairs that release toxins on contact. It feeds on the toxic leaves that other creatures avoid, sequestering their poisons into its own body and becoming increasingly dangerous as it eats." },
 
-  165: { id:165, name:"Venowarn", emoji:"🦋", types:["Poison","Wind"],
+  165: { id:165, name:"Lepidox", emoji:"🦋", types:["Poison","Wind"],
     base:{hp:77,atk:69,def:57,spa:106,spd:84,spe:92},
     learnset:[[1,"ooze_bomb"],[2,"toxic_surge"],[3,"toxin_bloom"],[8,"breeze"],[15,"tailwind_strike"],[20,"second_wind"],[25,"blitz"],[25,"breeze_blast"],[29,"toxify"],[30,"nerve_agent"],[35,"virulent_surge"],[39,"sap_bite"],[40,"wind_scythe"],[45,"putrid_pulse"],[50,"acid_rain"],[55,"cocoon_burst"],[60,"resonance_hum"]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:185, rarity:"uncommon",
     desc:"A venomous moth that releases toxic scales on the wind. A cloud of them can fell a Lumori quickly.",
-    lore:"Venowarn is a large poison-wind moth with a 50 cm wingspan — Blightmite's dark purple-black caterpillar body has metamorphosed into deep black wings, with the bristle-hair toxin now sequestered into vivid purple warning patterns. It releases a cloud of toxic scales when startled, and the scales cause skin irritation and respiratory distress in creatures that inhale them. It inhabits dense poisonous forest regions." },
+    lore:"Lepidox is a large poison-wind moth with a 50 cm wingspan — Blightmite's dark purple-black caterpillar body has metamorphosed into deep black wings, with the bristle-hair toxin now sequestered into vivid purple warning patterns. It releases a cloud of toxic scales when startled, and the scales cause skin irritation and respiratory distress in creatures that inhale them. It inhabits dense poisonous forest regions." },
 
   // ===== STEEL/GROUND =====
   153: { id:153, name:"Dentshaft", emoji:"⚙️", types:["Metal","Earth"],
@@ -4068,12 +4068,12 @@ const MONSTERS_DATA = {
   // =====================================================================
 
   // ---- Tier 1a: Mid-game NG+ (badges 8–11 areas) BST ~490–540 ----
-  322: { id:322, name:"Venomwraith", emoji:"☠️", types:["Poison","Spectral"],
+  322: { id:322, name:"Sepsishade", emoji:"☠️", types:["Poison","Spectral"],
     base:{hp:60,atk:65,def:54,spa:81,spd:69,spe:71}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"septic_prick"],[5,"toxify"],[8,"spectral_ray"],[10,"nether_sphere"],[15,"blight_drain"],[18,"ghastly_wail"],[20,"ooze_bomb"],[25,"corrosive_rain"],[28,"soul_chill"],[30,"miasma_cloud"],[35,"venom_drown"],[38,"necrotic_pulse"],[40,"void_rend"],[45,"venom_lance"],[50,"sludge_wave"],[60,"toxic_surge"]],
     catchRate:30, expYield:255, rarity:"rare",
     desc:"A wraith of pure venom that haunts poison-soaked ruins. Its touch corrupts everything.",
-    lore:"Venomwraith is a poison-spectral entity 1.5 metres tall with a translucent body that glows sickly green. Corrosive vapour constantly seeps from its form." },
+    lore:"Sepsishade is a poison-spectral entity 1.5 metres tall with a translucent body that glows sickly green. Corrosive vapour constantly seeps from its form." },
 
   323: { id:323, name:"Toxicore", emoji:"🧪", types:["Poison","Fire"],
     base:{hp:63,atk:73,def:58,spa:84,spd:62,spe:60}, evolveTo:null, evolveLevel:null,
@@ -6140,7 +6140,7 @@ const WORLD_DATA = {
       {id:161, minLv:59, maxLv:64, rate:5},  // Mistbane (mid → after base ✓)
       {id:162, minLv:58, maxLv:63, rate:14},  // Marlix (base)
       {id:163, minLv:59, maxLv:64, rate:7},  // Blightalis (mid → after base ✓)
-      {id:206, minLv:57, maxLv:62, rate:12},  // Venomscale (base Poison/Draconic)
+      {id:206, minLv:57, maxLv:62, rate:12},  // Forlix (base Poison/Draconic)
       {id:266, minLv:57, maxLv:62, rate:21},  // Shadowcub (base Dark/Sonic)
       {id:299, minLv:57, maxLv:62, rate:5}    // Resinbee (base Bug/Poi)
     ],
@@ -6155,7 +6155,7 @@ const WORLD_DATA = {
       {id:156, minLv:58, maxLv:63, rate:25},  // Venekon (mid)
       {id:159, minLv:60, maxLv:65, rate:25},  // Dissotoad (final, 158 on murk_crossing ✓)
       {id:163, minLv:59, maxLv:64, rate:25},  // Blightalis (mid, 162 on route10 ✓)
-      {id:165, minLv:59, maxLv:64, rate:25}   // Venowarn (mid, 164 on murk_crossing ✓)
+      {id:165, minLv:59, maxLv:64, rate:25}   // Lepidox (mid, 164 on murk_crossing ✓)
     ],
     hasGym:true, gymLeader:"viper", requiredBadges:9, mapPos:{x:42, y:65},
     ngPlusWildMonsters:[{id:322,minLv:65,maxLv:70,rate:25},{id:324,minLv:65,maxLv:70,rate:15}]
@@ -6362,7 +6362,7 @@ const WORLD_DATA = {
       {id:158, minLv:58, maxLv:63, rate:18},  // Corrodisc (mid, base Acidelix on route10 ✓)
       {id:159, minLv:60, maxLv:65, rate:6},  // Dissotoad (final → after 158 ✓)
       {id:164, minLv:58, maxLv:63, rate:28},  // Blightmite (base, new)
-      {id:165, minLv:59, maxLv:64, rate:14}   // Venowarn (mid → after 164 ✓)
+      {id:165, minLv:59, maxLv:64, rate:14}   // Lepidox (mid → after 164 ✓)
     ],
     ngPlusWildMonsters:[{id:355, minLv:58, maxLv:65, rate:10}], // NG+ standalone: Nadiril
     hasGym:false, requiredBadges:9, mapPos:{x:42, y:60}
@@ -6480,7 +6480,7 @@ const WORLD_DATA = {
       {id:158, minLv:58, maxLv:63, rate:20},  // Corrodisc (mid)
       {id:159, minLv:60, maxLv:65, rate:20},  // Dissotoad (final)
       {id:164, minLv:58, maxLv:63, rate:20},  // Blightmite (base)
-      {id:165, minLv:59, maxLv:64, rate:20}   // Venowarn (mid → after 164 ✓)
+      {id:165, minLv:59, maxLv:64, rate:20}   // Lepidox (mid → after 164 ✓)
     ],
     hasGym:false, requiredBadges:9, mapPos:{x:42, y:63}
   },
@@ -6536,7 +6536,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:156, minLv:59, maxLv:64, rate:9},  // Venekon (mid, base 155 on route10 ✓)
       {id:297, minLv:58, maxLv:63, rate:18},  // Pestquito (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
-      {id:165, minLv:59, maxLv:64, rate:13},  // Venowarn (mid, 164 on murk_crossing ✓)
+      {id:165, minLv:59, maxLv:64, rate:13},  // Lepidox (mid, 164 on murk_crossing ✓)
       {id:296, minLv:58, maxLv:63, rate:27},  // Plaguefly (base Poi/Bug)
       {id:299, minLv:58, maxLv:63, rate:23},  // Resinbee (base Bug/Poi, also on route10)
       {id:218, minLv:59, maxLv:64, rate:10}   // Duskmist (base Spectral/Dark, item evo)

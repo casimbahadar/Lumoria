@@ -95,7 +95,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[159] Acidelix→Corrodisc→Dissotoad | Poison/Earth | frog / toad` (**name leak in #159: "Acidovast"** — second toad family)
 - `[161] Miasmafly→Mistbane | Poison/Vapor | insect-swarm collective` (mythical, just claimed)
 - `[163] Marlix→Blightalis | Nature/Toxin | corrupted flower / plant-humanoid`
-- `[165] Blightmite→Venowarn | Poison/Wind | moth` (poison-wind moth — caterpillar→cocoon→toxic-scaled moth, reclassified off butterfly 2026-06-13; learnset already carries cocoon_burst. **name leak in #165: "Noxoveth"**)
+- `[165] Blightmite→Lepidox | Poison/Wind | moth` (poison-wind moth — caterpillar→cocoon→toxic-scaled moth, reclassified off butterfly 2026-06-13; learnset already carries cocoon_burst. **name leak in #165: "Noxoveth"**)
 - `[167] Projectery→Psymastiff | Mental | dog (non-wolf canine)`
 - `[169] Gemseer→Prismatica | Mental/Mineral | crystalline-prism` (mythical)
 - `[170] Oneiron | Dark/Dream | dream-entity / wisp` (formless, standalone; nightmare-feeder — Dark/Dream restored 2026-06-12 to differentiate from Dreamweald #378's Mental/Dream)
@@ -120,7 +120,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[201] Iridibeetle→Scarabion | Nature/Metal | beetle / scarab`
 - `[203] Sculptweave→Arachnalis | Nature/Fairy | spider`
 - `[205] Muddite→Quarrix | Nature/Earth | beetle` (second beetle family — Quarrix + Iridibeetle line)
-- `[208] Venomscale→Sorrowlix→Wyrmvenom | Poison/Draconic | dragon-mythic` (sub: plague-dragon — sympathetic/misunderstood: innately & involuntarily toxic but gentle, sociable & isolated by fear; NOT an active disease-spreader, no miasma/blight)
+- `[208] Forlix→Sorrowlix→Wyrmvenom | Poison/Draconic | dragon-mythic` (sub: plague-dragon — sympathetic/misunderstood: innately & involuntarily toxic but gentle, sociable & isolated by fear; NOT an active disease-spreader, no miasma/blight)
 - `[210] Boltfur→Thundermane | Normal/Electric | rabbit / hare` (giant maned hare — second hare alongside Leapbun line)
 - `[213] Cinderfrost→Frostscorch→Infriglace | Fire/Ice | fire-ice titan` (dual-element titan, unique body plan — flag as unique mythical)
 - `[214] Petrwave | Aquatic/Earth | crab / crustacean` (coral-fortress crab, standalone — second crab alongside Cliffpinch line)
@@ -143,7 +143,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 ### Batch 3 (families 106-139)
 
 - `[246] Staticclaw→Thundravex→Megavolt | Electric | wolverine (mustelid)`
-- `[247] Sparkeen | Electric/Dream | butterfly` (standalone Lepidoptera — dream-light flutterer. Kept as butterfly rather than a 3rd will-o-wisp, since Crealight #225 & Willowisp #368 already fill that slot; butterfly sits at cap-3 with Iridesoar/Aeridaleth once Venowarn→moth. Pristine Electric/Dream.)
+- `[247] Sparkeen | Electric/Dream | butterfly` (standalone Lepidoptera — dream-light flutterer. Kept as butterfly rather than a 3rd will-o-wisp, since Crealight #225 & Willowisp #368 already fill that slot; butterfly sits at cap-3 with Iridesoar/Aeridaleth once Lepidox→moth. Pristine Electric/Dream.)
 - `[250] Pebblard→Boulderax→Megalith | Earth | rock-monolith / standing stone` (second rock-monolith alongside Icequartz line)
 - `[252] Crumblite→Stonegrip | Metal/Mineral | lobster` (de-golemed 2026-06-13 from metal-golem — armored rock-crustacean with crushing stone-claws)
 - `[253] Ashrock | Fire/Mineral | rock-elemental` (formless basalt with magma veins, standalone — could equally be fire-elemental; lean rock-elemental since body is rock)
@@ -188,7 +188,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[319] Voidraxis | Dark/Stellar | void / cosmic abstract being` (mythical — second void/cosmic alongside Cerebraith)
 - `[320] Galvathon | Metal/Electric | automaton` (mechanical titan)
 - `[321] Dragemian | Draconic/Fire | dragon-mythic` (sub: fire-dragon — alongside Calderaeth)
-- `[322] Venomwraith | Poison/Spectral | plague-spectre` (split out of wraith bucket per policy)
+- `[322] Sepsishade | Poison/Spectral | plague-spectre` (split out of wraith bucket per policy)
 - `[323] Toxicore | Poison/Fire | unique vessel-creature` (living flask/chemistry-vessel with internal acid; distinct from elemental; flag as unique)
 - `[324] Chittering | Nature/Dark | mantis / blade-limbed insect` (sleek dark insect with 6 blade-limbs; pristine sub-archetype)
 - `[325] Dunespike | Earth/Poison | mole-rat / rodent` (armored mole-rat — second rodent alongside Murkrat)
@@ -380,16 +380,16 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | Archetype | Count | Cap | Trim | Notes |
 |---|---|---|---|---|
 | **dragon-mythic** | ~30 | exempt | — | Mythical-exempt; sub-flavor diversity is high. No trim. |
-| **wraith / spectre** | 11+ | **split** | re-arch | **LOCKED:** split the over-broad bucket. Core wraith ≤3 (Shadowveil, Wraithking, Shadowreave); split the rest into spectral-leviathan (Abyssalord), mountain-spirit (Stonekeeper), storm-wraith (Wraithstorm), plague-spectre (Venomwraith), moonlight-spectre (Lunaspectre), haunted-doll (Pallidoll), bell-spirit (Tollwisp/Knellgeist), faerie-sprite (Glimmeritch). All stay Spectral-typed. See policy doc. |
+| **wraith / spectre** | 11+ | **split** | re-arch | **LOCKED:** split the over-broad bucket. Core wraith ≤3 (Shadowveil, Wraithking, Shadowreave); split the rest into spectral-leviathan (Abyssalord), mountain-spirit (Stonekeeper), storm-wraith (Wraithstorm), plague-spectre (Sepsishade), moonlight-spectre (Lunaspectre), haunted-doll (Pallidoll), bell-spirit (Tollwisp/Knellgeist), faerie-sprite (Glimmeritch). All stay Spectral-typed. See policy doc. |
 | **golem** | 11 | **exempt** | — | **LOCKED mythical-exempt** — universal mythological construct (same footing as dragon). No trim. |
 | **wolf** | 3 | 3 | at cap | Hailwolf, Nightwolf, + Forgotten Cryvorn. (Darkfang→panther, Voltfang→electric-eel 2026-06-13; Umbrapup/Morraveth earlier.) |
 | **fire-dragon** (sub) | 7 | n/a (under dragon-mythic) | discuss | If sub-caps applied: way over. |
 | **psychic-dragon** (sub) | 6 | n/a | discuss | Same. |
 | **lion** | 2 pre-462 (+Pyraeon postgame) | 3 | under cap | Ignitheon (fire-oracle), Aeolarch (storm) lines. Dravanas→hyena done 2026-06-13. |
 | **cetacean** | 5 | 3 | trim 2 | **LOCKED common cap-3.** Keep Torrentox (orca), Riftwhale (psychic-whale), Titanomare (steel-whale titan); re-archetype Marevanos #40→manta-ray, Tidephant #309→pinniped. (Pelagor is Forgotten 462+, excluded.) |
-| **moth** | 3 | 3 | at cap | Pyromoth (#12), Venowarn (#165), Thornmoth (#331). Split out of the old "Lepidoptera" bucket 2026-06-13; Mosshop #265→grasshopper, Venowarn reclassified butterfly→moth. |
+| **moth** | 3 | 3 | at cap | Pyromoth (#12), Lepidox (#165), Thornmoth (#331). Split out of the old "Lepidoptera" bucket 2026-06-13; Mosshop #265→grasshopper, Lepidox reclassified butterfly→moth. |
 | **grasshopper (Orthoptera)** | 1 | 3 | under cap | Mosshop (#265). Pristine archetype, re-archetyped off moth 2026-06-13. |
-| **butterfly** | 3 | 3 | at cap | Iridesoar (#141), Aeridaleth (#199), Sparkeen (#247). Split out of Lepidoptera 2026-06-13; Venowarn #165→moth and Plagueoth #298→mosquito left the bucket. |
+| **butterfly** | 3 | 3 | at cap | Iridesoar (#141), Aeridaleth (#199), Sparkeen (#247). Split out of Lepidoptera 2026-06-13; Lepidox #165→moth and Plagueoth #298→mosquito left the bucket. |
 | **beetle** | 3 | 3 | at cap | Scarabion (#201, scarab beetle), Quarrix (#205), Voltbeetle (#339). Skullmite #329→trilobite 2026-06-13; Sparkeen had been miscounted here (it's a will-o-wisp). |
 | **rock-monolith / standing stone** | 4 | 3 | trim 1 | Frigolith, Megalith, Bouldertide, Mirestone→Chronolith. (Crystallon→yeti 2026-06-13) |
 | **crystalline-prism** | 3 | exempt | — | **Mythical-exempt** (CLAUDE.md) — resolves the old exempt-vs-trim contradiction. Prismatica #169 (orbiting 7-shard cluster + face), Shardlix #241 (ice-crystal humanoid), Crystalmind #381 (geometric polyhedron) — three distinct forms, no redundant look-alikes to cull. Old "5/trim 2" was stale: Cryoshard #340 already pivoted to resonant-crystal, Sparkeis #493 is post-game. Spectravore #351 is a separate "prismatic being". No cull. |
@@ -469,7 +469,7 @@ From all 7 batches:
 - #149 Eternarmor → "Adamovast"
 - #154 Terragolem → "Titanolith"
 - #159 Dissotoad → "Acidovast"
-- #165 Venowarn → "Noxoveth"
+- #165 Lepidox → "Noxoveth"
 - #175 Biolumal → "Neruveth"
 - #176 Chromena → "Tempyroth"
 - #177 Sapphier → "Glaciroth"
@@ -513,7 +513,7 @@ From batch 1:
 - #149 Eternarmor → lore says "Adamovast"
 - #154 Terragolem → lore says "Titanolith"
 - #159 Dissotoad → lore says "Acidovast"
-- #165 Venowarn → lore says "Noxoveth"
+- #165 Lepidox → lore says "Noxoveth"
 
 (Continuing in further batches.)
 

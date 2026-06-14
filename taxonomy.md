@@ -54,7 +54,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[56] Rimeling→Deepfreeze | Ice/Fighting | armored-warrior` (bipedal armor-warrior; retyped Ice/Metal→Ice/Fighting for diversity)
 - `[58] Glinteye→Irisarael | Ice/Fairy | faerie sprite` (winged fairy)
 - `[60] Lunaveris→Boreadrake | Ice/Draconic | dragon-mythic` (sub: ice-dragon)
-- `[62] Gelspike→Gelwing | Ice/Poison | hedgehog / porcupine`
+- `[62] Gelspike→Gelquill | Ice/Poison | hedgehog / porcupine`
 - `[65] Sporix→Myceloth→Plaguecap | Nature/Poison | mushroom / fungus`
 - `[68] Viridix→Loamvin→Rootvorn | Nature/Earth | snail / mollusk`
 - `[71] Germix→Verdurus→Groveguard | Nature/Fighting | seed-pod / walking-garden` (added Fighting 2026-06-12 — grove-guardian bruisers that ram/grapple/smash; Nature mono→pristine Nature/Fighting; archetype unchanged)
@@ -152,7 +152,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[259] Lumejell | Aquatic/Mental | jellyfish / cnidarian` (psychic-jellyfish, standalone — second jelly alongside Slatis-line origin)
 - `[261] Sproutix→Leafhorn | Nature/Dream | stag / deer (cervid)` (faun — Leafhorn rewritten 2026-06-12 to a dream-bloom deer, Nature mono→Nature/Dream pristine; ties to Sproutix's drowsing pollen)
 - `[264] Transluceed→Tendrilisk→Impenezard | Fighting/Toxin | cactus / thorn-warrior` (relabeled off treant 2026-06-13 — lore is cactus sapling→cactus warrior→cactus-plate carapace throughout, a succulent thorn-warrior, not a tree-spirit. **name leak in #264: "Thornvast"**)
-- `[265] Mosswing | Nature/Wind | grasshopper` (moss-cloaked grasshopper, standalone — pristine Orthoptera archetype, re-archetyped off moth 2026-06-13; keeps Nature/Wind. Learnset swapped cocoon_guard/metamorphosis → fortify/locust_fury/swarm_strike to fit)
+- `[265] Mosshop | Nature/Wind | grasshopper` (moss-cloaked grasshopper, standalone — pristine Orthoptera archetype, re-archetyped off moth 2026-06-13; keeps Nature/Wind. Learnset swapped cocoon_guard/metamorphosis → fortify/locust_fury/swarm_strike to fit)
 - `[268] Shadowcub→Nightclaw→Darkfang | Dark/Sonic → Dark/Spectral | panther` (de-wolfed 2026-06-13 — shadow-panther line, light-drinking cub → apex shadow-panther whose roar reaches the dead; renamed Shadowpup→Shadowcub)
 - `[270] Grimshade→Eclipsoon | Dark/Fairy | tanuki` (mythical, just claimed)
 - `[271] Murkrat | Dark/Normal | rat (rodent)` (standalone)
@@ -168,7 +168,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[290] Mimiclaw | Normal/Dark | cat` (mimic-cat — second cat alongside Fluffen line + Cinderpaw + Emberveil)
 - `[292] Breezekin→Galehorn | Wind/Sonic | antelope` (pristine archetype)
 - `[295] Gustpuff→Stormwing→Cyclonax | Electric/Draconic | dragon-mythic` (sub: wind-dragon)
-- `[298] Plaguefly→Blightwing→Plagueoth | Poison/Toxin | mosquito` (Diptera — relabeled off moth 2026-06-13; emoji 🦟 + desc/lore "plague mosquito" across all 3 stages. Resolves the old BREAKING-list moth/butterfly flag)
+- `[298] Plaguefly→Pestquito→Plagueoth | Poison/Toxin | mosquito` (Diptera — relabeled off moth 2026-06-13; emoji 🦟 + desc/lore "plague mosquito" across all 3 stages. Resolves the old BREAKING-list moth/butterfly flag)
 - `[300] Stinglet→Nettleclaw | Toxin/Sonic | bee (Hymenoptera)` (currently inconsistent — bee→scorpion-bee hybrid on BREAKING list)
 - `[301] Emberveil | Fire/Spectral | cat` (smouldering ghost-cat, standalone — third cat; retyped Fire/Dark→Fire/Spectral for diversity)
 - `[303] Lightpuff→Lumivane | Fairy/Mental | starlight-orb` (luminous starlight sphere with non-severing light-limbs that archives astronomical data — NOT a faerie-sprite humanoid; archetype relabeled to resolve the false collision with Psytheon, which keeps the faerie-sprite slot. Stays Fairy/Mental.)
@@ -239,7 +239,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[367] Bouldertide | Aquatic/Mineral | rock-monolith / sea-stack` (walking sea-stack — fifth rock-monolith)
 - `[368] Willowisp | Fire/Spectral | will-o-wisp` (mythical sole)
 - `[369] Gravithorn (→Abyssforge) | Earth/Mineral | earth-golem` (mid of the earth-golem line — gravity by sheer mineral density; see [377])
-- `[370] Vortexwing | Electric/Sonic | thunderstorm-disaster` (over cap with Tempestborn/Nullstorm)
+- `[370] Cyclotron | Electric/Sonic | thunderstorm-disaster` (over cap with Tempestborn/Nullstorm)
 - `[371] Nullform | Dark/Normal | shapeshifter / mimic` (matte-black form-shifter — second mimic alongside Mimiclaw)
 - `[372] Prismancer | Mental/Mineral | chameleon` (re-archetyped from psychic/mineral-dragon 2026-06-10; prismatic colour-shift reptile)
 - `[373] Voidrend | Dark/Spectral | void / cosmic` (reality-tearing dark-ghost — fourth void/cosmic. **⚠ Pre-408 with Ghost typing**)
@@ -387,8 +387,8 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **psychic-dragon** (sub) | 6 | n/a | discuss | Same. |
 | **lion** | 2 pre-462 (+Pyraeon postgame) | 3 | under cap | Ignitheon (fire-oracle), Aeolarch (storm) lines. Dravanas→hyena done 2026-06-13. |
 | **cetacean** | 5 | 3 | trim 2 | **LOCKED common cap-3.** Keep Torrentox (orca), Riftwhale (psychic-whale), Titanomare (steel-whale titan); re-archetype Marevanos #40→manta-ray, Tidephant #309→pinniped. (Pelagor is Forgotten 462+, excluded.) |
-| **moth** | 3 | 3 | at cap | Inferarch (#12), Venowarn (#165), Thornmoth (#331). Split out of the old "Lepidoptera" bucket 2026-06-13; Mosswing #265→grasshopper, Venowarn reclassified butterfly→moth. |
-| **grasshopper (Orthoptera)** | 1 | 3 | under cap | Mosswing (#265). Pristine archetype, re-archetyped off moth 2026-06-13. |
+| **moth** | 3 | 3 | at cap | Inferarch (#12), Venowarn (#165), Thornmoth (#331). Split out of the old "Lepidoptera" bucket 2026-06-13; Mosshop #265→grasshopper, Venowarn reclassified butterfly→moth. |
+| **grasshopper (Orthoptera)** | 1 | 3 | under cap | Mosshop (#265). Pristine archetype, re-archetyped off moth 2026-06-13. |
 | **butterfly** | 3 | 3 | at cap | Iridesoar (#141), Aeridaleth (#199), Sparkeen (#247). Split out of Lepidoptera 2026-06-13; Venowarn #165→moth and Plagueoth #298→mosquito left the bucket. |
 | **beetle** | 3 | 3 | at cap | Scarabion (#201, scarab beetle), Quarrix (#205), Voltbeetle (#339). Skullmite #329→trilobite 2026-06-13; Sparkeen had been miscounted here (it's a will-o-wisp). |
 | **rock-monolith / standing stone** | 4 | 3 | trim 1 | Frigolith, Megalith, Bouldertide, Mirestone→Chronolith. (Crystallon→yeti 2026-06-13) |
@@ -400,7 +400,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **treant / walking-tree** | 4 | 3 | trim 1 | **LOCKED capped (not exempt).** Keep Necrothon, Impenezard, Thornspire; re-archetype Silthorn #326→carnivorous-plant. (Rootborn is Forgotten 462+, excluded.) |
 | **void / cosmic abstract** | 9 | exempt | — | Cerebraith, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Cosmoveil, Nihilax, Cosmolith. Mythical-exempt. |
 | **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Mimiclaw, Emberveil, Cinderpaw. |
-| **thunderstorm-disaster** | 3 | 1+1 | trim 1-2 | Vortexwing, Tempestborn, Nullstorm. (See storm-elemental TODO entry.) |
+| **thunderstorm-disaster** | 3 | 1+1 | trim 1-2 | Cyclotron, Tempestborn, Nullstorm. (See storm-elemental TODO entry.) |
 | **fire-dragon legendary cluster** | 1 (Dragemian; Infernotitan→salamander, Heliogriff→griffin, Bahamber→feathered-serpent, Blazeon→phoenix re-archetyped out) + chain finals (Calderaeth, Stardrax) | n/a | discuss | All under dragon-mythic exempt but sub-flavor crowded. |
 
 ### At cap (no action)
@@ -417,7 +417,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 
 ### Pristine slots (1 family or 1 family + 1 standalone)
 
-**Real animal pristine (single family):** boar (Plentorus), horse (Voltanox), antelope (Galehorn), echidna (Basaltback), hippo (Marshix), armadillo (Sandrix), rhino (Quakehide), spider (Arachnalis + Duskmourn-postgame), scorpion (Craterlurk), snail (Rootvorn), hedgehog (Gelwing), mushroom (Plaguecap), shark (Bathykor-postgame), tiger (Emberon-postgame), tortoise (Imperion).
+**Real animal pristine (single family):** boar (Plentorus), horse (Voltanox), antelope (Galehorn), echidna (Basaltback), hippo (Marshix), armadillo (Sandrix), rhino (Quakehide), spider (Arachnalis + Duskmourn-postgame), scorpion (Craterlurk), snail (Rootvorn), hedgehog (Gelquill), mushroom (Plaguecap), shark (Bathykor-postgame), tiger (Emberon-postgame), tortoise (Imperion).
 
 **Mythical pristine:** snowman (Tundrafox), kitsune (Specraxis + Frigalum-postgame), tanuki (Eclipsoon), leshy (Morralyn), kirin (Majesticore), insect-swarm (Mistbane), sea-fairy queen (Thalassira), coral-titan (Titanariel), kraken (Tidalossus — could expand), seed-pod / walking-garden (Groveguard), phoenix/solar-being (Pyrocrown, Solarwrath, Solarcrown — already 3, at-cap or just over).
 
@@ -440,7 +440,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 
 | Disaster | Family | Standalone | Status |
 |---|---|---|---|
-| thunderstorm | — | Vortexwing, Tempestborn, Nullstorm | **Over cap (0+3)** — trim to 1 standalone |
+| thunderstorm | — | Cyclotron, Tempestborn, Nullstorm | **Over cap (0+3)** — trim to 1 standalone |
 | tornado | — | (none classified — Pneumathos is wind-elemental) | Open |
 | tsunami | — | Tidecrest-postgame | At cap (0+1) |
 | wildfire / eruption | — | Ashvanus (volcanic vent) | borderline; could be eruption-disaster instead of rock-elemental |

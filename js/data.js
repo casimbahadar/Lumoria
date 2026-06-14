@@ -2846,13 +2846,13 @@ const MONSTERS_DATA = {
     desc:"An enormous walking thorn-warrior. Its 15-cm venom-thorns inject potent toxins on impact, making any approach deadly.",
     lore:"Impenezard is a massive fighting-toxin creature 2 metres tall resembling a walking thorn-warrior — Tendrilisk's climbing vine-tendrils have hardened into 15-cm thorns tipped with potent venom, and its body has thickened into a bristling cactus-plate carapace. Its broad form is nearly impenetrable. It moves slowly through dense jungle in measured fighting stances, and other creatures create well-worn trails specifically to avoid contact with it." },
 
-  // Standalone Grass/Bug: Mosswing
-  265: { id:265, name:"Mosswing", emoji:"🦗", types:["Nature","Wind"],
+  // Standalone Grass/Bug: Mosshop
+  265: { id:265, name:"Mosshop", emoji:"🦗", types:["Nature","Wind"],
     base:{hp:78,atk:82,def:70,spa:95,spd:88,spe:108},
     learnset:[[34,"gale_strike"],[1,"resonance_hum"],[1,"vine_lash"],[5,"fortify"],[10,"locust_fury"],[14,"quiver_dance"],[18,"shear_strike"],[22,"sticky_web"],[28,"verdant_orb"],[32,"spore_shield"],[38,"sharp_leaves"],[42,"sporecloud_burst"],[48,"swarm_strike"],[58,"resonance_hum"],[68,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:210, rarity:"uncommon",
     desc:"A moss-cloaked grasshopper that blends perfectly into overgrown forest floors. Its wing-buzz scatters plant pollen.",
-    lore:"Mosswing is a grass-bug creature 20 cm long resembling a grasshopper, its long hind legs and folded wings covered in living moss rather than smooth chitin. The moss is a different species front and back, providing camouflage on both bark and leaf surfaces. The moss is never still, micro-growing and micro-dying continuously." },
+    lore:"Mosshop is a grass-bug creature 20 cm long resembling a grasshopper, its long hind legs and folded wings covered in living moss rather than smooth chitin. The moss is a different species front and back, providing camouflage on both bark and leaf surfaces. The moss is never still, micro-growing and micro-dying continuously." },
 
 
 
@@ -3092,7 +3092,7 @@ const MONSTERS_DATA = {
 
   // ===== BATCH 7: POISON / BUG / MIXED FILLS (IDs 296-313) =====
 
-  // 3-stage Poison/Toxin chain: Plaguefly → Blightwing → Plagueoth (lv26, lv44)
+  // 3-stage Poison/Toxin chain: Plaguefly → Pestquito → Plagueoth (lv26, lv44)
   296: { id:296, name:"Plaguefly", emoji:"🦟", types:["Poison","Toxin"],
     base:{hp:44,atk:52,def:40,spa:68,spd:52,spe:80},
     learnset:[[1,"septic_prick"],[1,"resonance_hum"],[3,"barb_jab"],[5,"fester_meditation"],[8,"vile_cross"],[10,"ooze_bomb"],[14,"venom_jab"],[15,"toxin_pulse"],[18,"toxic_thread"],[20,"shear_strike"],[22,"sludge_cannon"],[25,"rancid_charge"],[30,"toxify"],[40,"virulent_surge"],[50,"venom_lance"],[60,"radiance_cannon"]],
@@ -3100,19 +3100,19 @@ const MONSTERS_DATA = {
     desc:"A mosquito-like creature with toxic saliva. A single bite can poison most Lumori instantly.",
     lore:"Plaguefly is a large poison-toxin insect with a 30 cm wingspan. Its wings are translucent grey with poison-green venation. Its body is a bloated sack of toxic fluid. It breeds in stagnant water and its larval masses are visible as roiling dark clouds beneath the surface of contaminated ponds." },
 
-  297: { id:297, name:"Blightwing", emoji:"🦟", types:["Poison","Toxin"],
+  297: { id:297, name:"Pestquito", emoji:"🦟", types:["Poison","Toxin"],
     base:{hp:68,atk:78,def:62,spa:98,spd:78,spe:100},
     learnset:[[1,"shear_strike"],[1,"ooze_bomb"],[10,"vile_cross"],[12,"gunk_blast"],[15,"plague_claw"],[18,"toxic_lash"],[20,"toxify"],[22,"plague_strike"],[25,"blight_strike"],[28,"virulent_surge"],[35,"toxin_pulse"],[36,"resonance_hum"],[44,"venom_lance"],[52,"sludge_wave"],[60,"radiance_cannon"],[62,"toxin_jab"]],
     evolveTo:298, evolveLevel:44, catchRate:85, expYield:148, rarity:"uncommon",
     desc:"A blight mosquito whose extended proboscis can drain entire forests of vitality. Its bite spreads withering pestilence.",
-    lore:"Blightwing is a medium poison-toxin mosquito with 40 cm wingspan — Plaguefly's translucent grey wings have darkened to dark purple with the same poison-green venation now glowing faintly across them. Its elongated proboscis can pierce thick bark to drain plant sap, leaving withered scars in its wake. It inhabits areas of environmental decay, flourishing where other life struggles." },
+    lore:"Pestquito is a medium poison-toxin mosquito with 40 cm wingspan — Plaguefly's translucent grey wings have darkened to dark purple with the same poison-green venation now glowing faintly across them. Its elongated proboscis can pierce thick bark to drain plant sap, leaving withered scars in its wake. It inhabits areas of environmental decay, flourishing where other life struggles." },
 
   298: { id:298, name:"Plagueoth", emoji:"🦟", types:["Poison","Toxin"],
     base:{hp:82,atk:89,def:73,spa:116,spd:95,spe:95},
     learnset:[[1,"venom_lance"],[1,"resonance_hum"],[6,"coil"],[8,"quill_barrage"],[10,"gunk_blast"],[12,"mantis_slash"],[14,"toxic_lash"],[15,"plague_claw"],[16,"plague_strike"],[18,"maul"],[20,"blight_strike"],[22,"bane_caltrops"],[24,"infestation"],[28,"twin_sting"],[30,"sludge_wave"],[32,"hivemind_surge"],[35,"plague_wave"],[38,"toxify"],[40,"swarm_assault"],[44,"locust_fury"],[45,"rancid_charge"],[46,"virulent_surge"],[50,"swarm_strike"],[54,"mycelia_net"],[56,"sticky_web"],[60,"quiver_dance"],[62,"corrosion_fang"],[70,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
     desc:"The plague mosquito. Ancient texts describe its awakening as an omen of great pestilence. A single drain leaves victims hollowed.",
-    lore:"Plagueoth is a large poison-toxin mosquito 60 cm long — Blightwing's elongated bark-piercing proboscis has lengthened further into a needle as long as its body, and the slim juvenile abdomen has bloated into a venom-sac. Its ragged dark wings have a 1.5 m span. It inhabits abandoned buildings and decaying swampland, draining the vital fluids of any creature unfortunate enough to be caught alone at dusk." },
+    lore:"Plagueoth is a large poison-toxin mosquito 60 cm long — Pestquito's elongated bark-piercing proboscis has lengthened further into a needle as long as its body, and the slim juvenile abdomen has bloated into a venom-sac. Its ragged dark wings have a 1.5 m span. It inhabits abandoned buildings and decaying swampland, draining the vital fluids of any creature unfortunate enough to be caught alone at dusk." },
 
   // 2-stage Toxin/Sonic chain: Stinglet → Nettleclaw (level 28)
   299: { id:299, name:"Stinglet", emoji:"🐝", types:["Toxin","Sonic"],
@@ -3656,12 +3656,12 @@ const MONSTERS_DATA = {
     desc:"A small ice hedgehog whose translucent quills are tipped with paralytic frost-venom. A faintly numbing chill-mist hangs around it at all times.",
     lore:"Gelspike is a compact creature about 60 cm tall shaped like a hedgehog. Its body is pale ice-blue and covered in dozens of sharp translucent ice spines that project outward in all directions, each tipped with a clear bead of paralytic frost-venom that crystallises on contact with air. A toxic chill-mist drifts around it constantly — breathable but distinctly numbing to anything that lingers nearby. It rolls into a venomous spiky ball when threatened, allowing wind to carry it across frozen plains while leaving a faint trail of stinging mist behind." },
 
-  62: { id:62, name:"Gelwing", emoji:"🦔", types:["Ice","Poison"],
+  62: { id:62, name:"Gelquill", emoji:"🦔", types:["Ice","Poison"],
     base:{hp:74,atk:66,def:61,spa:106,spd:78,spe:92},
     learnset:[[1,"septic_prick"],[2,"venom_lance"],[3,"mistveil"],[4,"toxify"],[10,"icicle_volley"],[16,"flash_freeze"],[22,"blizzard_charge"],[26,"icicle_smash"],[29,"cold_beam"],[31,"battle_cry"],[36,"sleet_barrage"],[37,"putrid_pulse"],[40,"ooze_bomb"],[41,"stinger_lance"],[46,"frost_crash"],[51,"avalanche_drive"],[56,"whiteout"],[61,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
     desc:"A large ice-porcupine whose blade-quills carry a paralytic frost-venom. Launches volleys of toxic spines and tucks into a wind-borne ball of poisoned ice when threatened.",
-    lore:"Gelwing is a large adult ice-porcupine roughly 1.2 metres long and 70 cm at the shoulder — Gelspike's pale ice-blue hedgehog body has lengthened and its short translucent spines have grown into long blade-quills along its back, flanks, and tail — translucent ice tipped in pale blue, the longest reaching nearly 40 centimetres — and each one weeps a slow bead of paralytic frost-venom that freezes solid on whatever flesh it pierces. It hunts mountain prey by detecting their breath on the wind and launching volleys of envenomed quills with sharp shrugs of its haunches; in flight or pursuit it folds entirely into a wind-borne rolling sphere, picked up by glacial gusts and rocketed across frozen passes leaving a thin trail of toxic mist in its wake. Spent quills regrow within hours from its constantly forming inner frost." },
+    lore:"Gelquill is a large adult ice-porcupine roughly 1.2 metres long and 70 cm at the shoulder — Gelspike's pale ice-blue hedgehog body has lengthened and its short translucent spines have grown into long blade-quills along its back, flanks, and tail — translucent ice tipped in pale blue, the longest reaching nearly 40 centimetres — and each one weeps a slow bead of paralytic frost-venom that freezes solid on whatever flesh it pierces. It hunts mountain prey by detecting their breath on the wind and launching volleys of envenomed quills with sharp shrugs of its haunches; in flight or pursuit it folds entirely into a wind-borne rolling sphere, picked up by glacial gusts and rocketed across frozen passes leaving a thin trail of toxic mist in its wake. Spent quills regrow within hours from its constantly forming inner frost." },
 
   // ===== FAIRY/STEEL =====
   145: { id:145, name:"Faerrin", emoji:"📌", types:["Fairy","Metal"],
@@ -4408,12 +4408,12 @@ const MONSTERS_DATA = {
     desc:"A golem so dense it warps gravity by sheer mass. Loose stones drift up toward it as it walks.",
     lore:"Gravithorn is the matured Quarrex — its granite body has compressed into incredibly dense crystalline mineral, so heavy that it bends gravity for 30 metres around it through sheer mass alone, and loose stones drift slowly up toward its bulk. That relentless inward crush only continues over the ages, packing its mineral body tighter and tighter until it collapses into the ultra-dense core-titan Abyssforge." },
 
-  370: { id:370, name:"Vortexwing", emoji:"🌪️", types:["Electric","Sonic"],
+  370: { id:370, name:"Cyclotron", emoji:"🌪️", types:["Electric","Sonic"],
     base:{hp:70,atk:90,def:68,spa:101,spd:81,spe:110}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"breeze"],[5,"zephyr_dance"],[8,"frequency_blast"],[10,"jolt"],[15,"harmonic_wave"],[20,"wind_scythe"],[25,"dissonant_chord"],[30,"volt_jet"],[38,"stun_pulse"],[40,"tailwind_strike"],[45,"sonic_calm"],[50,"volt_surge"],[60,"stormbolt"]],
     catchRate:9, expYield:322, rarity:"rare",
     desc:"A living tornado that generates electricity from its rotation. Anything inside it is shredded and electrocuted simultaneously.",
-    lore:"Vortexwing is an electric-sonic entity 3 metres tall that exists as a permanent self-sustaining vortex. At its core is a dense electromagnetic nucleus visible as a crackling violet sphere." },
+    lore:"Cyclotron is an electric-sonic entity 3 metres tall that exists as a permanent self-sustaining vortex. At its core is a dense electromagnetic nucleus visible as a crackling violet sphere." },
 
   371: { id:371, name:"Nullform", emoji:"⬛", types:["Dark","Normal"],
     base:{hp:82,atk:95,def:82,spa:94,spd:86,spe:86}, evolveTo:null, evolveLevel:null,
@@ -6535,7 +6535,7 @@ const WORLD_DATA = {
     connections:["toxic_bog","miasmacity"],
     wildMonsters:[
       {id:156, minLv:59, maxLv:64, rate:9},  // Venekon (mid, base 155 on route10 ✓)
-      {id:297, minLv:58, maxLv:63, rate:18},  // Blightwing (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
+      {id:297, minLv:58, maxLv:63, rate:18},  // Pestquito (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
       {id:165, minLv:59, maxLv:64, rate:13},  // Venowarn (mid, 164 on murk_crossing ✓)
       {id:296, minLv:58, maxLv:63, rate:27},  // Plaguefly (base Poi/Bug)
       {id:299, minLv:58, maxLv:63, rate:23},  // Stinglet (base Bug/Poi, also on route10)
@@ -6583,7 +6583,7 @@ const WORLD_DATA = {
       {id:221, minLv:64, maxLv:69, rate:14},  // Shadowveil (mid → Hauntrix 220 on route13 ✓)
       {id:264, minLv:64, maxLv:69, rate:13},  // Impenezard (final → Vinrix 263 on fungal_cavern ✓)
       {id:199, minLv:63, maxLv:68, rate:27},  // Aeridaleth (final Bug)
-      {id:265, minLv:63, maxLv:68, rate:23},  // Mosswing (standalone Grass/Bug)
+      {id:265, minLv:63, maxLv:68, rate:23},  // Mosshop (standalone Grass/Bug)
       {id:273, minLv:63, maxLv:68, rate:13},  // Blazeon (phoenix final → Embrix 272 on fungal_cavern ✓)
       {id:290, minLv:63, maxLv:68, rate:10}   // Mimiclaw (location evo cobweb_gully nearby)
     ],

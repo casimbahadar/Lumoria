@@ -3428,12 +3428,12 @@ const MONSTERS_DATA = {
     desc:"An iron-clad wraith bat. Its metallic screech disorients enemies from great distances.",
     lore:"Steelvex is a larger dark-steel bat 1.2 metres long — Aeronyx's gunmetal-grey alloy wings have broadened into the metallic shields that now catch and reflect light strangely, and the blue-tinted plating of its juvenile form has darkened to a chrome-black body. It has the habit of dismantling mechanical objects it finds — gears, clockwork, small machines — studying each component before reassembling them incorrectly." },
 
-  20: { id:20, name:"Embrath", emoji:"🦏", types:["Fire","Earth"],
+  20: { id:20, name:"Ignirhino", emoji:"🦏", types:["Fire","Earth"],
     base:{hp:97,atk:121,def:76,spa:69,spd:62,spe:64},
     learnset:[[1,"flame_fang"],[2,"mud_spray"],[3,"tectonic_shift"],[4,"scorch_veil"],[5,"embercloak"],[8,"firebrand"],[12,"scorch_kick"],[16,"molten_claw"],[20,"flame_spiral"],[24,"inferno_chop"],[30,"inferno_jet"],[31,"battle_cry"],[36,"ashfall"],[40,"scorched_earth"],[41,"geoblast"],[46,"fissure_slam"],[51,"conflagration"],[56,"pyroclasm"],[61,"tectonic_slam"]],
     evolveTo:21, evolveLevel:44, catchRate:45, expYield:218, rarity:"uncommon",
     desc:"An adolescent magma-rhino whose horn has hardened into a heat-radiating spike. It charges with surprising speed.",
-    lore:"Embrath is a 1.2-metre adolescent magma-rhino — Magmaurin's calf-plates have thickened into overlapping fire-hardened armour of charcoal grey and deep rust, and the horn-nub has grown into a heat-radiating spike. Heat-sensing pits along its snout track the warmth of rivals and prey, and it charges with startling speed for its bulk, cracking stone on impact." },
+    lore:"Ignirhino is a 1.2-metre adolescent magma-rhino — Magmaurin's calf-plates have thickened into overlapping fire-hardened armour of charcoal grey and deep rust, and the horn-nub has grown into a heat-radiating spike. Heat-sensing pits along its snout track the warmth of rivals and prey, and it charges with startling speed for its bulk, cracking stone on impact." },
 
   73: { id:73, name:"Faelomis", emoji:"🌺", types:["Fairy","Nature"],
     base:{hp:78,atk:60,def:65,spa:115,spd:89,spe:93},
@@ -3804,13 +3804,13 @@ const MONSTERS_DATA = {
     desc:"A mature plumed sky-serpent wreathed in fire. Legends say its wingbeats fan the first volcanoes alight.",
     lore:"Quetzember is a magnificent plumed sky-serpent 6 metres long — Searburn's wings have grown into a vast feathered span of amber, scarlet, and blue-tipped plumes, and a crown of the same iridescent feathers frames its narrow skull. It spends almost its whole life aloft, coiling and uncoiling through thermal columns high above the peaks and trailing a banner of fire that ripples in its wake. When it finally descends it sweeps low over the slopes, and the heat shed from its plumage is said in legend to have fanned the first volcanoes alight. It returns to earth only to bask, looping once around a lone spire before climbing back into the sky." },
 
-  // 21: Terravore - Fire/Earth (Magmaurin→Embrath→Terravore)
+  // 21: Terravore - Fire/Earth (Magmaurin→Ignirhino→Terravore)
   21: { id:21, name:"Terravore", emoji:"🦏", types:["Fire","Earth"],
     base:{hp:100,atk:134,def:89,spa:79,spd:74,spe:74},
     learnset:[[1,"flame_fang"],[1,"tectonic_shift"],[2,"magma_surge"],[3,"scorched_earth"],[4,"scorch_veil"],[5,"embercloak"],[12,"ember_focus"],[20,"inferno_charge"],[38,"inferno_jet"],[42,"geoblast"],[44,"blazing_rush"],[46,"pyroclasm"],[48,"scorched_sand"],[50,"ashfall"],[54,"conflagration"],[58,"sand_geyser"],[62,"solar_flare"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:260, rarity:"rare",
     desc:"A massive magma-rhino whose charge shatters bedrock. Its great horn glows white-hot before it strikes.",
-    lore:"Terravore is a hulking magma-rhino 3 metres long, the apex of Embrath's lineage — its juvenile armour weathered to a uniform thick terracotta hide reinforced by fire-hardened plates, twin sensory pores set wide along its snout, and a great horn that glows white-hot before it charges. A full charge shatters bedrock and leaves long furrows in stone, and it grinds boulders in its jaws to digest the minerals within." },
+    lore:"Terravore is a hulking magma-rhino 3 metres long, the apex of Ignirhino's lineage — its juvenile armour weathered to a uniform thick terracotta hide reinforced by fire-hardened plates, twin sensory pores set wide along its snout, and a great horn that glows white-hot before it charges. A full charge shatters bedrock and leaves long furrows in stone, and it grinds boulders in its jaws to digest the minerals within." },
 
   // 182: Ignitheon - Fire/Mental (Ignorin→Pyraxis→Ignitheon)
   24: { id:24, name:"Ignitheon", emoji:"🔮", types:["Fire","Mental"],
@@ -4266,12 +4266,12 @@ const MONSTERS_DATA = {
     desc:"A young ice golem of clear glacial ice studded with raw crystal. A glacial awareness slowly stirs in its core.",
     lore:"Crystavault is a 2.5-metre ice-golem, a compact construct of clear glacial ice studded with raw mineral crystal, its surface ridged like the walls of a small keep. It is the youngest of its kind: as it endures the deep cold over centuries, a faint glacial awareness begins to stir within its crystal core, and the construct slowly reshapes itself toward the sovereign form of Cryoseer." },
 
-  350: { id:350, name:"Fernwrath", emoji:"🦎", types:["Nature","Mineral"],
+  350: { id:350, name:"Forewrath", emoji:"🦎", types:["Nature","Mineral"],
     base:{hp:73,atk:95,def:75,spa:92,spd:79,spe:81}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"vine_lash"],[10,"ore_ray"],[20,"root_lance"],[30,"shard_burst"],[40,"canopy_crash"],[50,"granite_slam"],[60,"verdant_surge"],[5,"shard_form"],[38,"basalt_eruption"]],
     catchRate:15, expYield:292, rarity:"rare",
     desc:"A great forest iguana whose bark-hard scales are living wood. Vines sprout from its wounds, and a crest of ferns runs down its spine.",
-    lore:"Fernwrath is a colossal forest iguana 4 metres long, its overlapping scales hardened into polished dark wood and a tall crest of living ferns running from skull to tail. It basks atop ancient stumps, and where it walks plants accelerate through their entire life cycle in hours." },
+    lore:"Forewrath is a colossal forest iguana 4 metres long, its overlapping scales hardened into polished dark wood and a tall crest of living ferns running from skull to tail. It basks atop ancient stumps, and where it walks plants accelerate through their entire life cycle in hours." },
 
   351: { id:351, name:"Spectravore", emoji:"🌈", types:["Mental","Mineral"],
     base:{hp:65,atk:71,def:68,spa:104,spd:92,spe:90}, evolveTo:null, evolveLevel:null,
@@ -6572,7 +6572,7 @@ const WORLD_DATA = {
       {id:263, minLv:63, maxLv:68, rate:6},  // Tendrilisk (mid → after 262 ✓)
       {id:272, minLv:62, maxLv:67, rate:14}   // Embrix (base Fire, phoenix)
     ],
-    ngPlusWildMonsters:[{id:350, minLv:63, maxLv:68, rate:10}], // NG+ standalone: Fernwrath
+    ngPlusWildMonsters:[{id:350, minLv:63, maxLv:68, rate:10}], // NG+ standalone: Forewrath
     hasGym:false, requiredBadges:11, mapPos:{x:20, y:83}
   },
   ancient_grove: {

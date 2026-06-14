@@ -37,7 +37,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[12] Scorchlarva→Heliocoon→Pyromoth | Fire/Wind | moth (Lepidoptera)`
 - `[15] Taurcin→Molteroth→Pyroclasm | Fire/Earth | bull-titan / minotaur` (mythical sub: volcanic bull-titan, bipedal final)
 - `[18] Cindercula→Searburn→Quetzember | Fire/Wind | feathered-serpent` (sub: plumed fire-serpent / Quetzalcoatl; base #16 stays mono-Fire)
-- `[21] Magmaurin→Embrath→Terravore | Fire/Earth | rhinoceros` (de-saurianed 2026-06-13 — magma-rhino line, calf→great charging magma-rhino; fixes old mole→lizard→dino incoherence)
+- `[21] Magmaurin→Ignirhino→Terravore | Fire/Earth | rhinoceros` (de-saurianed 2026-06-13 — magma-rhino line, calf→great charging magma-rhino; fixes old mole→lizard→dino incoherence)
 - `[24] Hallucigaze→Pyraxis→Ignitheon | Fire/Mental | lion` (final is true lion)
 - `[27] Reefnip→Aquidon→Tidalossus | Aquatic/Earth | kraken / sea-titan crustacean` (mythical-exempt)
 - `[30] Corelin→Neraxis→Nepturix | Aquatic | fish` (deep-sea fish)
@@ -220,7 +220,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[347] Ashgolem→Embersteel | Metal/Fire | forge-golem` (sub: forge-golem / smith-construct; merged 2026-06-12 from 2 NG+ golem standalones via Metal Coat — Fire/Mineral ash-golem → Metal/Fire forged-steel guardian)
 - `[348] Galeswift | Wind/Sonic | swift` (re-archetyped from wind-dragon 2026-06-10; never-landing storm-swift; renamed from Galedrake)
 - `[349] Crystavault (→Cryoseer→Permafrost) | Ice/Mineral | ice-golem` (base of the ice-golem line; see [385])
-- `[350] Fernwrath | Nature/Mineral | iguana` (re-archetyped from grass-dragon 2026-06-10; bark-scaled forest iguana)
+- `[350] Forewrath | Nature/Mineral | iguana` (re-archetyped from grass-dragon 2026-06-10; bark-scaled forest iguana)
 - `[351] Spectravore | Mental/Mineral | rainbow / prismatic being` (iridescent humanoid silhouette with all-colour aura — unique sub)
 - `[352] Voidlord | Mental/Spectral | void / cosmic abstract being` (mythical — third void/cosmic alongside Cerebraith/Voidraxis)
 - `[353] Infernotitan | Fire/Toxin | salamander` (re-archetyped from fire-dragon 2026-06-10; toxic-skinned volcanic salamander; pristine combo)

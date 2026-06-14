@@ -150,7 +150,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[255] Bubblepuff→Psychotide | Aquatic/Mental | water-elemental` (wave humanoid, formless water — sole water-elemental candidate; **name leak in #255: "Wavrix"**)
 - `[258] Scolphin→Narwhirl→Torrentox | Aquatic/Ice | cetacean` (orca/calf — second cetacean alongside Gossafin line + Titanomare standalone + Tidephant)
 - `[259] Lumejell | Aquatic/Mental | jellyfish / cnidarian` (psychic-jellyfish, standalone — second jelly alongside Slatis-line origin)
-- `[261] Sproutix→Leafhorn | Nature/Dream | stag / deer (cervid)` (faun — Leafhorn rewritten 2026-06-12 to a dream-bloom deer, Nature mono→Nature/Dream pristine; ties to Sproutix's drowsing pollen)
+- `[261] Sproutix→Hypnostag | Nature/Dream | stag / deer (cervid)` (faun — Hypnostag rewritten 2026-06-12 to a dream-bloom deer, Nature mono→Nature/Dream pristine; ties to Sproutix's drowsing pollen)
 - `[264] Transluceed→Tendrilisk→Impenezard | Fighting/Toxin | cactus / thorn-warrior` (relabeled off treant 2026-06-13 — lore is cactus sapling→cactus warrior→cactus-plate carapace throughout, a succulent thorn-warrior, not a tree-spirit. **name leak in #264: "Thornvast"**)
 - `[265] Mosshop | Nature/Wind | grasshopper` (moss-cloaked grasshopper, standalone — pristine Orthoptera archetype, re-archetyped off moth 2026-06-13; keeps Nature/Wind. Learnset swapped cocoon_guard/metamorphosis → fortify/locust_fury/swarm_strike to fit)
 - `[268] Shadowcub→Nightclaw→Darkfang | Dark/Sonic → Dark/Spectral | panther` (de-wolfed 2026-06-13 — shadow-panther line, light-drinking cub → apex shadow-panther whose roar reaches the dead; renamed Shadowpup→Shadowcub)
@@ -192,8 +192,8 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[323] Toxicore | Poison/Fire | unique vessel-creature` (living flask/chemistry-vessel with internal acid; distinct from elemental; flag as unique)
 - `[324] Chittering | Nature/Dark | mantis / blade-limbed insect` (sleek dark insect with 6 blade-limbs; pristine sub-archetype)
 - `[325] Dunespike | Earth/Poison | mole-rat / rodent` (armored mole-rat — second rodent alongside Murkrat)
-- `[326] Silthorn | Nature/Poison | carnivorous-plant` (already a carnivorous marsh-plant in data — relabeled out of treant per mythical-archetype-policy cap-3; treant now Necrothon/Impenezard/Thornspire)
-- `[327] Quarrex (→Gravithorn→Abyssforge) | Earth | earth-golem` (base of the earth/gravity-golem line; see [377])
+- `[326] Nectartrap | Nature/Poison | carnivorous-plant` (already a carnivorous marsh-plant in data — relabeled out of treant per mythical-archetype-policy cap-3; treant now Necrothon/Impenezard/Thornspire)
+- `[327] Quarrex (→Graviton→Abyssforge) | Earth | earth-golem` (base of the earth/gravity-golem line; see [377])
 - `[328] Smogveil | Poison/Vapor | poison-elemental` (amorphous yellow-green storm cloud, formless, sole poison-elemental; retyped Wind→Vapor 2026-06-10 — sentient smog/gas cloud, lore "smog"/"choking vapour"/"poisoned fog")
 - `[329] Skullmite | Nature/Mineral | trilobite` (de-beetled 2026-06-13 — living-fossil trilobite with a helmet-shaped head-shield over a segmented fossil carapace; keeps Nature/Mineral, zero cap impact. Pristine archetype; trims beetle to cap)
 - `[330] Blistermaw | Aquatic/Poison | crocodilian` (acid-weeping croc — second crocodilian alongside Limoux line)
@@ -238,14 +238,14 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[366] Starlance | Mental/Metal | weapon-creature` (telekinetic lance-shaped entity — unique sub)
 - `[367] Bouldertide | Aquatic/Mineral | rock-monolith / sea-stack` (walking sea-stack — fifth rock-monolith)
 - `[368] Willowisp | Fire/Spectral | will-o-wisp` (mythical sole)
-- `[369] Gravithorn (→Abyssforge) | Earth/Mineral | earth-golem` (mid of the earth-golem line — gravity by sheer mineral density; see [377])
+- `[369] Graviton (→Abyssforge) | Earth/Mineral | earth-golem` (mid of the earth-golem line — gravity by sheer mineral density; see [377])
 - `[370] Cyclotron | Electric/Sonic | thunderstorm-disaster` (over cap with Tempestborn/Nullstorm)
 - `[371] Nullform | Dark/Normal | shapeshifter / mimic` (matte-black form-shifter — second mimic alongside Guisecat)
 - `[372] Prismancer | Mental/Mineral | chameleon` (re-archetyped from psychic/mineral-dragon 2026-06-10; prismatic colour-shift reptile)
 - `[373] Voidrend | Dark/Spectral | void / cosmic` (reality-tearing dark-ghost — fourth void/cosmic. **⚠ Pre-408 with Ghost typing**)
 - `[375] Fluxserpent | Electric/Mental | electric-elemental serpent` (current-loop serpent — sole electric-elemental candidate; or could classify as serpent variant)
 - `[376] Solarwrath | Fire/Fairy | phoenix / solar-being` (solar plasma — second solar archetype with Pyrocrown)
-- `[377] Quarrex→Gravithorn→Abyssforge | Earth/Mineral | earth-golem` (sub: earth-golem; merged 2026-06-12 from 3 NG+ golem standalones — granite golem → dense gravity golem → ultra-dense core-titan. Consistent Earth→Earth/Mineral→Earth/Mineral; Earth/Mineral count 2)
+- `[377] Quarrex→Graviton→Abyssforge | Earth/Mineral | earth-golem` (sub: earth-golem; merged 2026-06-12 from 3 NG+ golem standalones — granite golem → dense gravity golem → ultra-dense core-titan. Consistent Earth→Earth/Mineral→Earth/Mineral; Earth/Mineral count 2)
 - `[378] Dreamweald | Mental/Dream | dream-entity` (visible only to half-asleep; second dream-entity alongside Oneiron)
 - `[379] Riftmane | Aquatic/Spectral | kelpie` (re-archetyped from spectral-dragon 2026-06-10; phasing otherworld water-horse; renamed from Riftscale)
 - `[380] Tempestborn | Electric/Wind | thunderstorm-disaster [LEGEND t2]` (over cap)
@@ -397,7 +397,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **condor / vulture** | 1 | 3 | under cap | Cyclondor (#113). Subdivided 2026-06-13. |
 | **hawk** | 1 | 3 | under cap | Rimehawk (#338). Subdivided 2026-06-13. |
 | _(raptor superfamily, already distinct)_ | — | — | — | thunderbird Stormcrown (#389), griffin Heliogriff (#394), harpy Zephyrak (#478, post-game). The old "bird-of-prey/raptor: 5, trim 2" bucket dissolved by subdivision — each raptor type now sits at 1, no cull needed. |
-| **treant / walking-tree** | 4 | 3 | trim 1 | **LOCKED capped (not exempt).** Keep Necrothon, Impenezard, Thornspire; re-archetype Silthorn #326→carnivorous-plant. (Rootborn is Forgotten 462+, excluded.) |
+| **treant / walking-tree** | 4 | 3 | trim 1 | **LOCKED capped (not exempt).** Keep Necrothon, Impenezard, Thornspire; re-archetype Nectartrap #326→carnivorous-plant. (Rootborn is Forgotten 462+, excluded.) |
 | **void / cosmic abstract** | 9 | exempt | — | Cerebraith, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Cosmoveil, Nihilax, Cosmolith. Mythical-exempt. |
 | **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Guisecat, Emberveil, Cinderpaw. |
 | **thunderstorm-disaster** | 3 | 1+1 | trim 1-2 | Cyclotron, Tempestborn, Nullstorm. (See storm-elemental TODO entry.) |
@@ -426,7 +426,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | Element | Family | Standalone | Status |
 |---|---|---|---|
 | wind-elemental | Pneumathos line | — | At cap (1) |
-| psychic-elemental | Veilwisp/Distorsion | Astralwing, Gravithorn | **Over cap (1+2)** |
+| psychic-elemental | Veilwisp/Distorsion | Astralwing, Graviton | **Over cap (1+2)** |
 | dark-elemental | Nightmont line | — | At cap (1) |
 | fire-elemental | — | Magmite | At cap (0+1) |
 | poison-elemental | — | Smogveil | At cap (0+1) |

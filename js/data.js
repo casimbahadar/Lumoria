@@ -2809,7 +2809,7 @@ const MONSTERS_DATA = {
     desc:"A luminescent jellyfish with psychic tentacles. Its bioluminescence communicates complex thoughts.",
     lore:"Lumejell is a water-psychic jellyfish 45 cm in diameter with a pale blue bioluminescent bell and long trailing psychic-charged tendrils. Its pulsing light patterns encode complex emotional information. Deep-sea researchers have documented Lumejell performing what appears to be coordinated light-art displays at night." },
 
-  // 2-stage Grass/Fairy chain: Sproutix → Leafhorn (level 26)
+  // 2-stage Grass/Fairy chain: Sproutix → Hypnostag (level 26)
   260: { id:260, name:"Sproutix", emoji:"🌱", types:["Nature"],
     base:{hp:48,atk:50,def:48,spa:72,spd:58,spe:65},
     learnset:[[1,"vine_lash"],[1,"fairy_wind"],[12,"sharp_leaves"],[22,"lunar_burst"],[32,"verdant_orb"],[42,"petal_blitz"],[52,"prism_flare"],[60,"radiance_cannon"],[62,"mantis_slash"]],
@@ -2817,12 +2817,12 @@ const MONSTERS_DATA = {
     desc:"A grass sprout that blooms with vibrant flowers. Its pollen causes drowsiness in those it trusts.",
     lore:"Sproutix is a small grass creature 15 cm tall resembling a tiny sapling with two leaf-hands and round soft-glowing eyes. It sprouts from the ground in spring meadows and can take root again if it stays still long enough. It leaves a trail of tiny flowers wherever it walks." },
 
-  261: { id:261, name:"Leafhorn", emoji:"🌺", types:["Nature","Dream"],
+  261: { id:261, name:"Hypnostag", emoji:"🌺", types:["Nature","Dream"],
     base:{hp:82,atk:78,def:75,spa:115,spd:100,spe:88},
     learnset:[[1,"dream_pulse"],[1,"verdant_orb"],[5,"regrow"],[8,"sap_seed"],[12,"nature_pulse"],[16,"leafblade_swirl"],[20,"petal_blitz"],[24,"fae_petals"],[28,"drowse_swirl"],[32,"blossom_frenzy"],[36,"grove_wrath"],[40,"pollen_storm"],[44,"trance_wave"],[48,"thorn_barrage"],[50,"foliage_tempest"],[52,"briar_lash"],[56,"somnia_ray"],[58,"lullaby_strike"],[60,"dreamscape_smash"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:218, rarity:"uncommon",
     desc:"A bloom-deer whose antler-pollen lulls creatures into waking dreams. It leads the dreamers deep into enchanted forests.",
-    lore:"Leafhorn is a deer-faun 50 cm tall with leaf-antlers and a body of overlapping vivid-green leaf-scales. As it matured from Sproutix — whose blossoms already shed a drowsing pollen — its antlers learned to bloom a fine, glittering dream-pollen. Creatures that breathe it slip into gentle waking dreams, and Leafhorn walks ahead of them, leading the dreamers along quiet paths deep into enchanted forests where dormant seeds germinate in their wake. Those who doze in its grove wake remembering soft, shared dreams of green and growing things." },
+    lore:"Hypnostag is a deer-faun 50 cm tall with leaf-antlers and a body of overlapping vivid-green leaf-scales. As it matured from Sproutix — whose blossoms already shed a drowsing pollen — its antlers learned to bloom a fine, glittering dream-pollen. Creatures that breathe it slip into gentle waking dreams, and Hypnostag walks ahead of them, leading the dreamers along quiet paths deep into enchanted forests where dormant seeds germinate in their wake. Those who doze in its grove wake remembering soft, shared dreams of green and growing things." },
 
   // 3-stage Fighting/Toxin chain: Transluceed → Tendrilisk → Impenezard
   262: { id:262, name:"Transluceed", emoji:"🌿", types:["Fighting","Toxin"],
@@ -4096,19 +4096,19 @@ const MONSTERS_DATA = {
     desc:"A burrowing predator that injects venom through bone spikes as it erupts from the sand.",
     lore:"Dunespike is a powerful ground-poison creature 1.6 metres long resembling an armoured mole-rat with elongated venom spines along its spine and snout." },
 
-  326: { id:326, name:"Silthorn", emoji:"🌿", types:["Nature","Poison"],
+  326: { id:326, name:"Nectartrap", emoji:"🌿", types:["Nature","Poison"],
     base:{hp:66,atk:69,def:72,spa:77,spd:69,spe:52}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"vine_lash"],[12,"septic_prick"],[22,"verdant_orb"],[32,"ooze_bomb"],[42,"root_lance"],[52,"verdant_surge"],[62,"acid_rain"],[5,"toxify"],[38,"slumber_dust"]],
     catchRate:30, expYield:250, rarity:"rare",
     desc:"A carnivorous marsh plant that lures prey with sweet-smelling nectar before paralysing them with venom.",
-    lore:"Silthorn is a large ambulatory plant 1.8 metres tall with glossy dark-green leaves edged with translucent purple poison sacs. Its roots move like fingers." },
+    lore:"Nectartrap is a large ambulatory plant 1.8 metres tall with glossy dark-green leaves edged with translucent purple poison sacs. Its roots move like fingers." },
 
   327: { id:327, name:"Quarrex", emoji:"🗿", types:["Earth"],
     base:{hp:77,atk:93,def:89,spa:48,spd:61,spe:52}, evolveTo:369, evolveLevel:75,
     learnset:[[1,"stone_throw"],[10,"geoblast"],[20,"stone_slide"],[30,"terra_spike"],[40,"fissure_slam"],[50,"fossil_rush"],[60,"boulder_roll"],[5,"fortify"],[35,"quake_pulse"]],
     catchRate:50, expYield:145, rarity:"uncommon",
     desc:"A young granite golem, often mistaken for an outcrop. As its mass deepens, a strange pull warps the air around it.",
-    lore:"Quarrex is a 2.2-metre golem of interlocked granite slabs threaded with iron ore, so still and weathered that miners have mistaken ancient specimens for natural formations. It is the youngest of its kind; as the centuries pile their weight upon it, its own ever-growing mass begins to bend the space around it, and the granite slowly compresses toward the dense, gravity-warping crystal of Gravithorn." },
+    lore:"Quarrex is a 2.2-metre golem of interlocked granite slabs threaded with iron ore, so still and weathered that miners have mistaken ancient specimens for natural formations. It is the youngest of its kind; as the centuries pile their weight upon it, its own ever-growing mass begins to bend the space around it, and the granite slowly compresses toward the dense, gravity-warping crystal of Graviton." },
 
   328: { id:328, name:"Smogveil", emoji:"🌫️", types:["Poison","Vapor"],
     base:{hp:58,atk:60,def:52,spa:83,spd:71,spe:76}, evolveTo:null, evolveLevel:null,
@@ -4401,12 +4401,12 @@ const MONSTERS_DATA = {
     desc:"An ancient will-o-the-wisp grown to monstrous power. It leads the living into the realm of flame.",
     lore:"Willowisp is a fire-spectral entity resembling a human-sized floating flame with a faint spectral face visible in its core. Its fire burns without fuel and consumes nothing physical." },
 
-  369: { id:369, name:"Gravithorn", emoji:"💎", types:["Earth","Mineral"],
+  369: { id:369, name:"Graviton", emoji:"💎", types:["Earth","Mineral"],
     base:{hp:80,atk:94,def:88,spa:100,spd:84,spe:74}, evolveTo:377, evolveLevel:85,
     learnset:[[1,"geoblast"],[10,"mineral_jab"],[20,"terra_spike"],[30,"sapphire_lance"],[40,"fissure_slam"],[50,"shard_volley"],[60,"crag_strike"],[5,"fortify"],[38,"gem_resonance"],[62,"gem_scatter"]],
     catchRate:20, expYield:320, rarity:"uncommon",
     desc:"A golem so dense it warps gravity by sheer mass. Loose stones drift up toward it as it walks.",
-    lore:"Gravithorn is the matured Quarrex — its granite body has compressed into incredibly dense crystalline mineral, so heavy that it bends gravity for 30 metres around it through sheer mass alone, and loose stones drift slowly up toward its bulk. That relentless inward crush only continues over the ages, packing its mineral body tighter and tighter until it collapses into the ultra-dense core-titan Abyssforge." },
+    lore:"Graviton is the matured Quarrex — its granite body has compressed into incredibly dense crystalline mineral, so heavy that it bends gravity for 30 metres around it through sheer mass alone, and loose stones drift slowly up toward its bulk. That relentless inward crush only continues over the ages, packing its mineral body tighter and tighter until it collapses into the ultra-dense core-titan Abyssforge." },
 
   370: { id:370, name:"Cyclotron", emoji:"🌪️", types:["Electric","Sonic"],
     base:{hp:70,atk:90,def:68,spa:101,spd:81,spe:110}, evolveTo:null, evolveLevel:null,
@@ -4463,7 +4463,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"geoblast"],[10,"mineral_jab"],[20,"fissure_slam"],[30,"obsidian_strike"],[40,"terra_spike"],[48,"crag_strike"],[50,"shard_volley"],[55,"continental_shift"],[60,"fossil_rush"],[5,"fortify"],[62,"lode_strike"]],
     catchRate:7, expYield:365, rarity:"rare",
     desc:"The ancient final form — a titanic core-titan of ultra-dense alloy crushed together by its own gravity.",
-    lore:"Abyssforge is the ancient, final form: the inward-turning gravity of Gravithorn has crushed its body into compressed ultra-dense alloy, forged under pressures found only at a planet's core. The 3-metre titan leaves deep impressions in solid steel where it rests, and ceaselessly forges new minerals within itself as it moves." },
+    lore:"Abyssforge is the ancient, final form: the inward-turning gravity of Graviton has crushed its body into compressed ultra-dense alloy, forged under pressures found only at a planet's core. The 3-metre titan leaves deep impressions in solid steel where it rests, and ceaselessly forges new minerals within itself as it moves." },
 
   378: { id:378, name:"Dreamweald", emoji:"💭", types:["Mental","Dream"],
     base:{hp:69,atk:73,def:73,spa:113,spd:97,spe:95}, evolveTo:null, evolveLevel:null,

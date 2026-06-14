@@ -3043,13 +3043,13 @@ const MONSTERS_DATA = {
     desc:"A buoyant blob of warm condensed vapor held in a gel skin. It soaks up impacts and rebounds ever higher.",
     lore:"Bouncyblob is a 30 cm sphere of pale-pink gel filled with warm condensed vapor. It bounces continuously regardless of surface, the vapor inside expanding and recompressing to fling it higher with every landing; physical blows are simply absorbed and redirected into bigger bounces. On cold mornings it leaves a faint trail of mist where it touches down, and a startled one can burst into a brief warm fog before reforming." },
 
-  // Standalone Normal/Spectral: Mimicat (evolves in gloomy location)
-  290: { id:290, name:"Mimicat", emoji:"🎭", types:["Normal","Dark"],
+  // Standalone Normal/Spectral: Guisecat (evolves in gloomy location)
+  290: { id:290, name:"Guisecat", emoji:"🎭", types:["Normal","Dark"],
     base:{hp:82,atk:90,def:78,spa:95,spd:85,spe:102},
     learnset:[[1,"collide"],[1,"nether_sphere"],[15,"phantom_claw"],[25,"eclipse_shroud"],[35,"crushing_bulk"],[45,"soul_rend"],[55,"nether_sphere"],[65,"radiance_cannon"],[67,"cranial_ram"]],
     evolveTo:null, evolveLevel:null, evolveLocation:"cobweb_gully", evolveMethod:"location", catchRate:52, expYield:212, rarity:"uncommon",
     desc:"An unsettling mimic that copies the appearance of other Lumori. Found deep in haunted gullies and ruins.",
-    lore:"Mimicat is a dark-normal creature 40 cm long resembling a cat with dark grey fur and the ability to shift its outline. Its face can rearrange its features to mimic any creature it has studied for ten minutes or more. It uses mimicry of distressed sounds to lure curious prey within reach." },
+    lore:"Guisecat is a dark-normal creature 40 cm long resembling a cat with dark grey fur and the ability to shift its outline. Its face can rearrange its features to mimic any creature it has studied for ten minutes or more. It uses mimicry of distressed sounds to lure curious prey within reach." },
 
   // 2-stage Wind chain: Breezekin → Galehorn (level 28)
   291: { id:291, name:"Breezekin", emoji:"🌬️", types:["Wind"],
@@ -4816,12 +4816,12 @@ const MONSTERS_DATA = {
     desc:"Its mineral scales have hardened with veins of native metal into a near-impervious armour.",
     lore:"As it matures, Geodon begins smelting trace metals from the ore it eats, threading its mineral scales with veins of iron and copper until they ring like struck plate. It uses its bladed foreclaws to tear open termite mounds and ore seams alike, and a curled Geodon has turned the teeth of more than one predator. The metallic sheen of its armour deepens with age." },
 
-  425: { id:425, name:"Strataback", emoji:"⛏️", types:["Metal","Mineral"],
+  425: { id:425, name:"Stragolin", emoji:"⛏️", types:["Metal","Mineral"],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:252, rarity:"rare",
     base:{hp:90,atk:115,def:140,spa:55,spd:75,spe:45}, // BST 520
     learnset:[[1,"ore_punch"],[1,"chrome_claw"],[1,"bulwark"],[20,"quarry_speed"],[28,"cobble_smash"],[35,"granite_press"],[40,"ore_smash"],[45,"mineral_blast"],[46,"alloy_tail"],[52,"obsidian_strike"],[58,"anvil_drop"],[64,"tungsten_ram"]],
     desc:"A great pangolin whose scales are layered like strata of tempered metal and stone over a digging titan.",
-    lore:"Strataback is a digging titan whose every scale is a laminate of stone and tempered metal laid down in visible strata, each band a record of the ground it has eaten through. Its forelimbs end in pick-like claws that quarry through bedrock as easily as soil, and it carves the deep dens that whole communities of smaller Lumori later inhabit. Miners who find its abandoned tunnels follow them gratefully toward the richest seams." },
+    lore:"Stragolin is a digging titan whose every scale is a laminate of stone and tempered metal laid down in visible strata, each band a record of the ground it has eaten through. Its forelimbs end in pick-like claws that quarry through bedrock as easily as soil, and it carves the deep dens that whole communities of smaller Lumori later inhabit. Miners who find its abandoned tunnels follow them gratefully toward the richest seams." },
 
   // --- F7: martial mantis (Fighting / Fighting-Mental) ---
   426: { id:426, name:"Pummelo", emoji:"🦗", types:["Fighting"],
@@ -6585,7 +6585,7 @@ const WORLD_DATA = {
       {id:199, minLv:63, maxLv:68, rate:27},  // Aeridaleth (final Bug)
       {id:265, minLv:63, maxLv:68, rate:23},  // Mosshop (standalone Grass/Bug)
       {id:273, minLv:63, maxLv:68, rate:13},  // Blazeon (phoenix final → Embrix 272 on fungal_cavern ✓)
-      {id:290, minLv:63, maxLv:68, rate:10}   // Mimicat (location evo cobweb_gully nearby)
+      {id:290, minLv:63, maxLv:68, rate:10}   // Guisecat (location evo cobweb_gully nearby)
     ],
     legendaryEncounter:{monsterId:318, level:69}, // static legendary (obtainability fix)
     ngPlusWildMonsters:[{id:390, minLv:64, maxLv:69, rate:8}], // thinned from mega-area

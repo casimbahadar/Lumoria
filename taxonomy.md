@@ -165,7 +165,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[285] Fluffkin→Cloudrift | Normal/Wind | cloud-elemental / wisp` (compact cloud with face — formless cloud being; under cap, but flag — could be wind-elemental too)
 - `[288] Fuzzlet→Cuddrix→Majesticore | Draconic/Fairy | kirin` (mythical, just claimed)
 - `[289] Bouncyblob | Normal/Vapor | slime / blob` (mythical, standalone; added Vapor 2026-06-12 — a warm condensed-vapor gel blob; Normal mono→pristine Normal/Vapor)
-- `[290] Mimicat | Normal/Dark | cat` (mimic-cat — second cat alongside Fluffen line + Cinderpaw + Emberveil)
+- `[290] Guisecat | Normal/Dark | cat` (mimic-cat — second cat alongside Fluffen line + Cinderpaw + Emberveil)
 - `[292] Breezekin→Galehorn | Wind/Sonic | antelope` (pristine archetype)
 - `[295] Gustpuff→Stormwing→Cyclonax | Electric/Draconic | dragon-mythic` (sub: wind-dragon)
 - `[298] Plaguefly→Pestquito→Plagueoth | Poison/Toxin | mosquito` (Diptera — relabeled off moth 2026-06-13; emoji 🦟 + desc/lore "plague mosquito" across all 3 stages. Resolves the old BREAKING-list moth/butterfly flag)
@@ -240,7 +240,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[368] Willowisp | Fire/Spectral | will-o-wisp` (mythical sole)
 - `[369] Gravithorn (→Abyssforge) | Earth/Mineral | earth-golem` (mid of the earth-golem line — gravity by sheer mineral density; see [377])
 - `[370] Cyclotron | Electric/Sonic | thunderstorm-disaster` (over cap with Tempestborn/Nullstorm)
-- `[371] Nullform | Dark/Normal | shapeshifter / mimic` (matte-black form-shifter — second mimic alongside Mimicat)
+- `[371] Nullform | Dark/Normal | shapeshifter / mimic` (matte-black form-shifter — second mimic alongside Guisecat)
 - `[372] Prismancer | Mental/Mineral | chameleon` (re-archetyped from psychic/mineral-dragon 2026-06-10; prismatic colour-shift reptile)
 - `[373] Voidrend | Dark/Spectral | void / cosmic` (reality-tearing dark-ghost — fourth void/cosmic. **⚠ Pre-408 with Ghost typing**)
 - `[375] Fluxserpent | Electric/Mental | electric-elemental serpent` (current-loop serpent — sole electric-elemental candidate; or could classify as serpent variant)
@@ -285,7 +285,7 @@ The 22 NG+-exclusive families added in the dex-to-500 expansion (#57). Regular d
 - `[416] Grublurk→Tunnelmaw→Sandscourge | Toxin / Earth-Toxin | sandworm (annelid)` (F3; detoxifying soil-grub → mineral-toothed borer → colossal dune-leviathan. PRISTINE sandworm slot, distinct from serpent. Both types pre-462-allowed; good Toxin distribution. emoji/desc/lore clean, no leaks.)
 - `[419] Glacigeist→Frostmarion→Pallidoll | Spectral / Ice-Spectral | haunted-doll (marionette)` (F4; houseless spirit → frost-lacquered marionette → life-size haunted doll. This is the **haunted-doll** spectral sub-archetype already named in the LOCKED wraith-split policy (Pallidoll). Both types pre-462-allowed. desc/lore clean, no leaks; 418 emoji ❄️ kept as the Ice-onset stage (minor — 🎎 would be more body-literal).)
 - `[422] Steamkit→Geyserook→Tempesteam | Vapor / Fire-Vapor | capybara (rodent)` (F5; placid hot-spring line — downy spring-pup → thermal-vent beast → steam-cloaked behemoth. PRISTINE capybara slot, per-species read (distinct from rat #271 / mole-rat #325; rodent is NOT an umbrella cap). Both types pre-462-allowed; good Vapor distribution. emoji ♨️ codes habitat not body but consistent. clean.)
-- `[425] Pebblite→Geodon→Strataback | Mineral / Metal-Mineral | pangolin` (F6; mineral ball-roller → metal-veined armor → strata-scaled digging titan. PRISTINE pangolin, distinct from hedgehog/echidna/armadillo/mole-rat. Good Mineral distribution. emoji theme-coded 🪨/🦔/⛏️, kept. clean.)
+- `[425] Pebblite→Geodon→Stragolin | Mineral / Metal-Mineral | pangolin` (F6; mineral ball-roller → metal-veined armor → strata-scaled digging titan. PRISTINE pangolin, distinct from hedgehog/echidna/armadillo/mole-rat. Good Mineral distribution. emoji theme-coded 🪨/🦔/⛏️, kept. clean.)
 - `[428] Pummelo→Brawlmonk→Zenkaiser | Fighting / Fighting-Mental | mantis` (F7; martial-mantis duelist line. 2nd mantis alongside Chittering #324 — within animal cap-3. Good Fighting+Mental distribution. 🦗 cricket stand-in kept (no mantis emoji). clean.)
 - `[431] Lullasnout→Drowsetapir→Nocturnbaku | Dream / Dark-Dream | tapir (baku)` (F8; dream-eater line — snouted cub → nightmare-eating tapir → dreamscape-walking baku. PRISTINE tapir, animal-first read (baku folkloric flavor), NOT a formless dream-entity. Good Dream distribution. 🌙 theme-emoji kept. clean.)
 - `[434] Tusklet→Verdantusk→Primammoth | Primal / Nature-Primal | mammoth (proboscidean)` (LEGENDARY line, F9. PRISTINE mammoth, animal-first (NOT primordial-titan despite "living mountain" language). Primal is reserved post-game: **KEPT** under legendary+intrinsic-primeval-lore exception — all 3 legendary; "elder world / first forest / before names" coding throughout; no pre-462 type captures primeval (Nature covers the moss half). clean.)
@@ -399,7 +399,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | _(raptor superfamily, already distinct)_ | — | — | — | thunderbird Stormcrown (#389), griffin Heliogriff (#394), harpy Zephyrak (#478, post-game). The old "bird-of-prey/raptor: 5, trim 2" bucket dissolved by subdivision — each raptor type now sits at 1, no cull needed. |
 | **treant / walking-tree** | 4 | 3 | trim 1 | **LOCKED capped (not exempt).** Keep Necrothon, Impenezard, Thornspire; re-archetype Silthorn #326→carnivorous-plant. (Rootborn is Forgotten 462+, excluded.) |
 | **void / cosmic abstract** | 9 | exempt | — | Cerebraith, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Cosmoveil, Nihilax, Cosmolith. Mythical-exempt. |
-| **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Mimicat, Emberveil, Cinderpaw. |
+| **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Guisecat, Emberveil, Cinderpaw. |
 | **thunderstorm-disaster** | 3 | 1+1 | trim 1-2 | Cyclotron, Tempestborn, Nullstorm. (See storm-elemental TODO entry.) |
 | **fire-dragon legendary cluster** | 1 (Dragemian; Infernotitan→salamander, Heliogriff→griffin, Bahamber→feathered-serpent, Blazeon→phoenix re-archetyped out) + chain finals (Calderaeth, Stardrax) | n/a | discuss | All under dragon-mythic exempt but sub-flavor crowded. |
 

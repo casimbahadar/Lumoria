@@ -75,6 +75,7 @@ Clean state — everything committed & pushed on `claude/unified-audit-handoff-t
 - `-rath` group (→ 3 pre-462; kept Solarwrath #376 / Tengrath #459 + renamed Fernwrath→Forewrath #350; Forgotten Morrath #466 separate): #350 Fernwrath→**Forewrath** · #20 Embrath→**Ignirhino** (left group) (2026-06-14).
 - `-axis` group (→ 2; kept Pyraxis #23 / Voidraxis #319): #29 Neraxis→**Coralisk** · #127 Specraxis→**Wraithfox** (drops Spec-→3) · #314 Galeaxis→**Skybreaker** (drops Gale-→2; also fixed ROAMING_LEGENDARIES name in js/game.js) (2026-06-14).
 - `-rael` group (→ 1; kept Irisarael #58): #35 Undirael→**Seanymph** · #138 Aetherael→**Halocanis** (drops Aeth-→2) · #143 Lunarael→**Astrelle** (drops Luna-→3) · #169 Aurarael→**Prismatica** (2026-06-14).
+- `-drak` group (suffix retired entirely, all 5 incl. 3 Forgotten — user disliked -drak): #207 Venodrak→**Sorrowlix** · #404 Veildrak→**Auguryx** · #479 Forgotten Skydrak→**Forgotten Skyreth** · #486 Forgotten Psydrak→**Forgotten Somnareth** · #497 Forgotten Abysdrak→**Forgotten Nihilux** (2026-06-14). Distinctive endings (no common dragon suffix).
 
 **Next-session options:** (a) work up a Tier-1 rename proposal; (b) ~~item #6 standalone-count reduction~~ ✅ **DONE 2026-06-12** (see standalone-reduction checkpoint below); (c) trainer-SVG replacement (deferred follow-up to the monster-SVG strip); (d) other audit items. Under-used-type distribution (#3) is considered substantially complete (clear wins banked, no forcing).
 

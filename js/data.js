@@ -730,8 +730,8 @@ const MOVES_DATA = {
   mantle_surge:     { name:"Mantle Surge",    type:"Earth",  power:135, acc:85,  pp:5,  cat:"physical", effect:"defdown",   ec:50, desc:"Primordiax channels the planet's mantle into a cataclysmic ground surge that weakens all defenses." },
   // Voidcrown (398) — Dark/Fairy void dominion
   void_dominion:    { name:"Void Dominion",   type:"Dark",    power:135, acc:90,  pp:5,  cat:"special",  effect:"atkdown",   ec:50, desc:"Voidcrown exerts absolute dominion over the void, draining the target's will to fight." },
-  // Veildrak (404) — Draconic/Mental pseudo signature
-  veil_collapse:    { name:"Veil Collapse",   type:"Mental", power:120, acc:95,  pp:10, cat:"special",  effect:"defdown",   ec:30, desc:"Veildrak tears the psychic veil protecting the target's mind, leaving it confused and vulnerable." },
+  // Auguryx (404) — Draconic/Mental pseudo signature
+  veil_collapse:    { name:"Veil Collapse",   type:"Mental", power:120, acc:95,  pp:10, cat:"special",  effect:"defdown",   ec:30, desc:"Auguryx tears the psychic veil protecting the target's mind, leaving it confused and vulnerable." },
   // Voidwarden (407) — Dark/Metal pseudo signature
   warden_strike:    { name:"Warden Strike",   type:"Metal",   power:120, acc:95,  pp:10, cat:"physical", effect:"defdown",   ec:50, desc:"Voidwarden strikes with the full force of a guardian of worlds, shattering defensive stances." },
   // --- Spectral (signature moves for Forgotten Lumori) ---
@@ -793,8 +793,8 @@ const MOVES_DATA = {
   // --- Electric (signature moves for Forgotten Lumori) ---
   ampere_rail:        { name:"Ampere Rail",        type:"Electric",power:90,  acc:95,  pp:10, cat:"physical", effect:"spedown",  ec:30, desc:"Electrak fires along a magnetic rail it generates in an instant, striking with rail-gun velocity and leaving the target stunned." },
   thought_stream:   { name:"Thought Stream",   type:"Mental", power:90,  acc:95,  pp:10, cat:"special",  effect:"drain", ec:100, desc:"Pelagor floods the target with a torrent of raw psychic data, overwhelming their mental defenses." },
-  voltaic_fang:     { name:"Voltaic Fang",     type:"Draconic",  power:140, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Psydrak charges its draconic fangs with lethal voltage before biting down. The discharge blows back through Psydrak's own jaw." },
-  thunder_chain:    { name:"Thunder Chain",    type:"Electric",power:40,  acc:90,  pp:10, cat:"special",  effect:"paralyze",  ec:20, hits:3, desc:"Psydrak fires three chained lightning arcs that arc between target limbs, each carrying a chance to paralyze." },
+  voltaic_fang:     { name:"Voltaic Fang",     type:"Draconic",  power:140, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Somnareth charges its draconic fangs with lethal voltage before biting down. The discharge blows back through Somnareth's own jaw." },
+  thunder_chain:    { name:"Thunder Chain",    type:"Electric",power:40,  acc:90,  pp:10, cat:"special",  effect:"paralyze",  ec:20, hits:3, desc:"Somnareth fires three chained lightning arcs that arc between target limbs, each carrying a chance to paralyze." },
   psycho_surge:     { name:"Psycho Surge",     type:"Mental", power:90,  acc:95,  pp:10, cat:"special",  effect:"calmup",    ec:30, desc:"Volteon releases a surge of psychoelectric energy, sometimes amplifying its own mental capabilities in the process." },
 
   // --- Rock (signature moves for Forgotten Lumori) ---
@@ -807,12 +807,12 @@ const MOVES_DATA = {
   ferrous_gale:       { name:"Ferrous Gale",       type:"Metal",   power:100, acc:95,  pp:10, cat:"physical", effect:"flinch",    ec:20, desc:"Zephyrak spins its steel-edged wings to hurricane velocity and releases a blade of compressed metal-edged air." },
 
   // --- Spectral (signature moves for Forgotten Lumori) ---
-  phantom_gale:     { name:"Phantom Gale",     type:"Spectral",   power:130, acc:90,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Skydrak tears open a corridor to the void and channels its force through a phantom-wind strike. The void tears back." },
-  void_cyclone:     { name:"Void Cyclone",     type:"Wind",    power:50,  acc:95,  pp:10, cat:"special",  effect:"spatkdown", ec:30, hits:2, desc:"Skydrak creates two cyclones of void-infused wind in succession, each disrupting the target's focus." },
+  phantom_gale:     { name:"Phantom Gale",     type:"Spectral",   power:130, acc:90,  pp:5,  cat:"special",  effect:"recoil",    ec:100,desc:"Skyreth tears open a corridor to the void and channels its force through a phantom-wind strike. The void tears back." },
+  void_cyclone:     { name:"Void Cyclone",     type:"Wind",    power:50,  acc:95,  pp:10, cat:"special",  effect:"spatkdown", ec:30, hits:2, desc:"Skyreth creates two cyclones of void-infused wind in succession, each disrupting the target's focus." },
   winter_shade:     { name:"Winter Shade",     type:"Spectral",   power:130, acc:90,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Frostdrax becomes solid shadow and delivers a blow that hits from inside the target's own silhouette. The impact echoes back." },
   glacial_spirit:   { name:"Glacial Spirit",   type:"Fairy",   power:55,  acc:95,  pp:10, cat:"special",  effect:"spedown",   ec:30, hits:2, desc:"Frostdrax fires two waves of fairy-imbued glacial energy that seep into the target's joints, slowing their movement." },
-  void_rend_ex:     { name:"Void Rend EX",     type:"Wind",   power:55,  acc:95,  pp:10, cat:"special",  effect:"spdefdown", ec:30, hits:2, desc:"Abysdrak tears twin rifts through the fabric of space itself, each rend tearing through the target's special defenses." },
-  abyssal_fang:     { name:"Abyssal Fang",     type:"Draconic",  power:145, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Abysdrak descends from the abyssal deep with draconic force beyond comprehension. The impact damage reverberates back." },
+  void_rend_ex:     { name:"Void Rend EX",     type:"Wind",   power:55,  acc:95,  pp:10, cat:"special",  effect:"spdefdown", ec:30, hits:2, desc:"Nihilux tears twin rifts through the fabric of space itself, each rend tearing through the target's special defenses." },
+  abyssal_fang:     { name:"Abyssal Fang",     type:"Draconic",  power:145, acc:85,  pp:5,  cat:"physical", effect:"recoil",    ec:100,desc:"Nihilux descends from the abyssal deep with draconic force beyond comprehension. The impact damage reverberates back." },
   spectral_radiance:   { name:"Spectral Radiance",   type:"Spectral",   power:40,  acc:90,  pp:10, cat:"special",  effect:"spatkdown", ec:30, hits:3, desc:"Stellarion fires three pulses of spectral radiance that haunt the target's mind with each successive hit." },
 
   // --- Draconic (signature moves for Forgotten Lumori) ---
@@ -2385,7 +2385,7 @@ const MONSTERS_DATA = {
 
   // ===== BATCH 1: POISON/DRAGON, ELECTRIC, FIRE/ICE (IDs 206-214) =====
 
-  // 3-stage Poison/Draconic chain: Venomscale → Venodrak → Wyrmvenom (plague-dragon; gentle/misunderstood)
+  // 3-stage Poison/Draconic chain: Venomscale → Sorrowlix → Wyrmvenom (plague-dragon; gentle/misunderstood)
   206: { id:206, name:"Venomscale", emoji:"🐍", types:["Poison","Draconic"],
     base:{hp:50,atk:62,def:50,spa:68,spd:52,spe:65},
     learnset:[[1,"septic_prick"],[1,"draconic_breath"],[12,"ooze_bomb"],[22,"draconic_claw"],[32,"toxify"],[42,"draconic_pulse"],[52,"venom_lance"],[62,"radiance_cannon"]],
@@ -2393,12 +2393,12 @@ const MONSTERS_DATA = {
     desc:"A friendly little dragon-serpent whose touch is sadly toxic. Longs for playmates who never stay.",
     lore:"Venomscale is a small dragon-serpent 40 cm long with vivid green scales and bright yellow warning banding. For all those alarming colours it is a gentle, playful hatchling that chirrups happily and tries to nuzzle anything that comes near — but the same glands that will one day make it formidable already weep a mild toxin through its skin, without it ever meaning them to, so the creatures it approaches flinch away sick and frightened. It does not understand why it is always left alone. It wishes no harm at all; it simply cannot help what its body produces, and spends its days waiting hopefully at the jungle's edge for a friend who can bear to stay." },
 
-  207: { id:207, name:"Venodrak", emoji:"🐉", types:["Poison","Draconic"],
+  207: { id:207, name:"Sorrowlix", emoji:"🐉", types:["Poison","Draconic"],
     base:{hp:75,atk:90,def:68,spa:98,spd:72,spe:80},
     learnset:[[1,"ooze_bomb"],[1,"draconic_claw"],[20,"toxify"],[28,"draconic_pulse"],[36,"venom_lance"],[44,"rampage"],[52,"sludge_wave"],[60,"radiance_cannon"],[62,"wyrm_gale"]],
     evolveTo:208, evolveLevel:46, catchRate:90, expYield:148, rarity:"uncommon",
     desc:"A sociable dragon shunned for its toxic aura. Watches villages from afar, aching to belong.",
-    lore:"Venodrak is a dragon-serpent 1.5 metres long whose scales have deepened to purple-black with sickly-yellow bands as its venom matured. Fearsome as it looks, it is gentle and deeply social, and it has learned the hard way to keep its distance: anyone it lingers near soon grows queasy from the toxins it exudes involuntarily, and they drive it off with torches and stones. So it watches villages and herds from the high canopy, softly mimicking their calls under its breath, aching to join them. It has never once struck in anger — only ever flown quietly away, alone." },
+    lore:"Sorrowlix is a dragon-serpent 1.5 metres long whose scales have deepened to purple-black with sickly-yellow bands as its venom matured. Fearsome as it looks, it is gentle and deeply social, and it has learned the hard way to keep its distance: anyone it lingers near soon grows queasy from the toxins it exudes involuntarily, and they drive it off with torches and stones. So it watches villages and herds from the high canopy, softly mimicking their calls under its breath, aching to join them. It has never once struck in anger — only ever flown quietly away, alone." },
 
   208: { id:208, name:"Wyrmvenom", emoji:"🐲", types:["Poison","Draconic"],
     base:{hp:88,atk:105,def:80,spa:114,spd:87,spe:76},
@@ -4642,7 +4642,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"draconic_breath"],[1,"mental"],[12,"draconic_claw"],[20,"psi_strike"],[28,"hydra_dance"],[32,"wyrm_strike"],[34,"latent_force"]],
     catchRate:45, expYield:65, rarity:"uncommon",
     desc:"A tiny dragon hatchling with a faintly glowing psychic crest. Found only in NG+ rifts.",
-    lore:"Scalit is a dragon-psychic hatchling 0.4 metres long with iridescent scales that pulse faintly with psychic energy. Each psychic move a Scalit uses brightens its crest, and the accumulating luminance never fully fades between uses. Over a lifetime that residual glow becomes the constant psychokinetic field Dracomind layers across its scales, then crystallises further into the prismatic wings Veildrak wears at maturity." },
+    lore:"Scalit is a dragon-psychic hatchling 0.4 metres long with iridescent scales that pulse faintly with psychic energy. Each psychic move a Scalit uses brightens its crest, and the accumulating luminance never fully fades between uses. Over a lifetime that residual glow becomes the constant psychokinetic field Dracomind layers across its scales, then crystallises further into the prismatic wings Auguryx wears at maturity." },
 
   403: { id:403, name:"Dracomind", emoji:"🐲", types:["Draconic","Mental"],
     evolveTo:404, evolveLevel:52, ngPlusTier:1,
@@ -4652,13 +4652,13 @@ const MONSTERS_DATA = {
     desc:"A fierce mid-stage dragon whose psychic power has grown enough to bend reality around it.",
     lore:"Dracomind is a dragon-psychic creature 1.8 metres long — Scalit's iridescent hatchling scales have hardened to a permanent gleam, and the faint psychic-energy pulse of its juvenile form now layers as a psychokinetic field across its surface. Its roar leaves visible ripples in the air from the psychic shock wave it produces." },
 
-  404: { id:404, name:"Veildrak", emoji:"🐉", types:["Draconic","Mental"],
+  404: { id:404, name:"Auguryx", emoji:"🐉", types:["Draconic","Mental"],
     evolveTo:null, evolveLevel:null, ngPlusTier:1,
     base:{hp:92,atk:110,def:88,spa:130,spd:100,spe:80}, // BST 600
     learnset:[[1,"draconic_pulse"],[1,"psi_strike"],[5,"hydra_dance"],[15,"ancient_meditation"],[20,"wyrm_strike"],[25,"dragon_calm"],[30,"synaptic_shatter"],[35,"abyss_ray"],[40,"scale_storm"],[50,"neural_storm"],[60,"cataclysm_breath"],[60,"time_fracture"],[62,"mind_strike"]],
     catchRate:5, expYield:300, rarity:"pseudolegendary",
     desc:"The apex of dragon-psychic evolution. It perceives battle outcomes before they happen and acts accordingly.",
-    lore:"Veildrak is a dragon-psychic 5 metres long — Dracomind's psychokinetic field has crystallised outward into wings that refract light into prismatic patterns and a crest of solidified psychic energy, the shock-wave roar of its juvenile form refined into the precision of an entity that perceives battle outcomes before they happen. It is considered the pinnacle of the NG+ Lumori hierarchy." },
+    lore:"Auguryx is a dragon-psychic 5 metres long — Dracomind's psychokinetic field has crystallised outward into wings that refract light into prismatic patterns and a crest of solidified psychic energy, the shock-wave roar of its juvenile form refined into the precision of an entity that perceives battle outcomes before they happen. It is considered the pinnacle of the NG+ Lumori hierarchy." },
 
   // ---- Pseudo-legendary Family 2: Dark/Metal (Voidsteel line) BST 300→465→600 ----
   405: { id:405, name:"Umbrapup", emoji:"🐾", types:["Dark","Metal"],
@@ -5258,13 +5258,13 @@ const MONSTERS_DATA = {
     lore:"A Zephyrak's steel-feathers vibrate at frequencies that predict weather systems days in advance. Vaeldrian navigators once paid fortunes to travel with one.",
     appearance:"Fierce storm-wind harpy sky-sentinel; raptor wings and talons, avian-humanoid body, crystalline resonant feathers with prismatic edges, eyes reading glowing wind-current lines. Slate-blue and steel-grey palette." },
 
-  479: { id:479, name:"Forgotten Skydrak", emoji:"🌬️", types:["Wind","Stellar"],
+  479: { id:479, name:"Forgotten Skyreth", emoji:"🌬️", types:["Wind","Stellar"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:100,atk:115,def:100,spa:180,spd:125,spe:180},
     learnset:[[1,"breeze"],[20,"specter_pulse"],[35,"typhoon"],[50,"spirit_strike"],[65,"gale_cannon"],[70,"haunting_cry"],[80,"phantom_gale"],[90,"void_cyclone"],[24,"astral_blast"],[38,"starlight_charge"],[52,"nebula_burst"],[30,"stratosphere_fall"],[86,"edge_of_heaven"]],
     catchRate:0, expYield:420, rarity:"legendary",
-    desc:"Skydrak soars at the edge of the atmosphere where air meets space. Its wings span a city block. The last of its kind watched Vaeldris fall from that height and could do nothing.",
-    lore:"Caelia refuses to let Skydrak land. She says it belongs in the sky and the day it touches the ground again is the day she'll know it has given up.",
+    desc:"Skyreth soars at the edge of the atmosphere where air meets space. Its wings span a city block. The last of its kind watched Vaeldris fall from that height and could do nothing.",
+    lore:"Caelia refuses to let Skyreth land. She says it belongs in the sky and the day it touches the ground again is the day she'll know it has given up.",
     appearance:"Colossal mythic roc eagle with an enormous wingspan; feathers fading from cloud-white to star-flecked indigo at the tips, regal crested head, soaring at the edge of space. Cloud-white and indigo palette." },
 
   // --- Wielder: Dravek (Magma Forge) ---
@@ -5324,13 +5324,13 @@ const MONSTERS_DATA = {
     appearance:"Primordial Ymir frost-giant jotun; towering body of jagged ice and grey stone, glacier-shard beard and crown, exhaling a blizzard, ice spreading from its feet. Deep glacier-blue and white-rime palette." },
 
   // --- Wielder: Solenne (Moonhaven Ruins) ---
-  486: { id:486, name:"Forgotten Psydrak", emoji:"💭", types:["Dream","Chrono"],
+  486: { id:486, name:"Forgotten Somnareth", emoji:"💭", types:["Dream","Chrono"],
     evolveTo:null, evolveLevel:null, foreignRegion:true,
     base:{hp:100,atk:75,def:105,spa:175,spd:150,spe:115},
     learnset:[[1,"mind_jolt"],[20,"nether_sphere"],[35,"mental"],[50,"void_rend"],[65,"psi_strike"],[70,"veil_collapse"],[80,"dream_torrent"],[24,"starlit_dream"],[38,"lullaby_strike"],[52,"oneiric_press"],[66,"chronoshift"],[78,"timewarp_blow"],[44,"age_burst"],[1,"dream_coil"],[100,"thousand_futures"],[18,"clockwork_press"],[26,"temporal_wave"]],
     catchRate:3, expYield:300, rarity:"legendary",
-    desc:"Forgotten Psydrak does not fly through skies but through dreams. Its half-real body drifts like smoke and starlight, trailing fragments of worlds that were only ever dreamed.",
-    lore:"Forgotten Psydrak coils through the dream Solenne shares each night, where it holds a thousand sleeping versions of Vaeldris — every one a world that might still have been.",
+    desc:"Forgotten Somnareth does not fly through skies but through dreams. Its half-real body drifts like smoke and starlight, trailing fragments of worlds that were only ever dreamed.",
+    lore:"Forgotten Somnareth coils through the dream Solenne shares each night, where it holds a thousand sleeping versions of Vaeldris — every one a world that might still have been.",
     appearance:"Coiling dream-dragon of drifting smoke and starlight; semi-translucent body, trailing fragments of dreamed worlds, soft glowing clock-glyphs in its mane. Lavender and twilight-violet palette." },
 
   487: { id:487, name:"Forgotten Luneveth", emoji:"🌙", types:["Stellar","Dream"],
@@ -5426,13 +5426,13 @@ const MONSTERS_DATA = {
     lore:"Vayne has a drawing of Vantarix she made the first night she was safe. She has never looked at it again.",
     appearance:"A perfect living silhouette that absorbs all light; flat pure-black cut-out body whose interior shows a star-flecked collapsing void, edges shimmering with time-distortion. Absolute-black and star-violet palette." },
 
-  497: { id:497, name:"Forgotten Abysdrak", emoji:"🐍", types:["Primal","Stellar"],
+  497: { id:497, name:"Forgotten Nihilux", emoji:"🐍", types:["Primal","Stellar"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
     base:{hp:90,atk:170,def:90,spa:185,spd:100,spe:165},
     learnset:[[1,"draconic_breath"],[20,"wind_scythe"],[35,"draconic_claw"],[50,"typhoon"],[65,"rampage"],[70,"gale_cannon"],[80,"abyssal_fang"],[90,"void_rend_ex"],[24,"primal_smash"],[38,"ancient_strike"],[52,"beast_charge"],[66,"astral_blast"],[78,"starlight_charge"],[44,"nebula_burst"],[72,"devour_the_stars"],[78,"sundering_coil"]],
     catchRate:0, expYield:420, rarity:"legendary",
-    desc:"Abysdrak embodies the void at the heart of the Sundering. Vayne refuses to explain how she bound it to her will. Only that the night she did, stars over Vaeldris went out and never came back.",
-    lore:"Some of the other wielders are afraid of Abysdrak. Vayne considers this the only reasonable response.",
+    desc:"Nihilux embodies the void at the heart of the Sundering. Vayne refuses to explain how she bound it to her will. Only that the night she did, stars over Vaeldris went out and never came back.",
+    lore:"Some of the other wielders are afraid of Nihilux. Vayne considers this the only reasonable response.",
     appearance:"Colossal primordial void-serpent (Apophis); starless black scales, an enormous maw swallowing constellations, extinguished stars trailing from its fangs. Void-black with dying-gold star-flecks." },
 
   // --- Wielder: Azura (Observatory Peak) ---
@@ -7871,7 +7871,7 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_caelia", name:"Caelia", emoji:"☁️", location:"gale_peak",
     quote:"The sky doesn't care where you're from. It only cares how high you reach.",
     winQuote:"You belong up here. Not many do.",
-    lumoriLore:"Skydrak lives at the edge of breathable atmosphere. I reached it once, on borrowed altitude, running out of air. It appeared from nowhere and flew beneath me. I do not know why. I have spent years wondering whether it was instinct, whether it recognized something in me, whether I simply fell in its direction at the right moment. Skydrak has shown no interest in clarifying this. After all our years together, I have come to understand that this is its way of saying the reason should already be obvious.",
+    lumoriLore:"Skyreth lives at the edge of breathable atmosphere. I reached it once, on borrowed altitude, running out of air. It appeared from nowhere and flew beneath me. I do not know why. I have spent years wondering whether it was instinct, whether it recognized something in me, whether I simply fell in its direction at the right moment. Skyreth has shown no interest in clarifying this. After all our years together, I have come to understand that this is its way of saying the reason should already be obvious.",
     vaeldrisLore:"Within a year of Solarn's publication, something had begun following his work. Not reading it — consuming it. Absorbing the mapped knowledge of the Ley Network the way certain Lumori absorb elemental energy, drawing the information into itself across a vast distance. We did not notice it immediately because it had no body. It was attending to our world with something older and more patient than eyes. By the time Solarn recognized what was happening, it had already found what it came for.",
     team:[
       {monsterId:477, level:98, moves:["lunar_burst","volt_jet","prism_flare","aether_shock"]},
@@ -7922,7 +7922,7 @@ const VAELDRIS_WIELDERS = {
     id:"wielder_solenne", name:"Solenne", emoji:"🌙", location:"lunar_peak",
     quote:"Dreams outlast everything. Even the world that made them. What do yours contain?",
     winQuote:"You fight like you're awake. Most people never manage that.",
-    lumoriLore:"Psydrak first appeared to me in a dream — not as a symbol but literally, walking through my sleeping mind as if the boundary between sleeping thought and physical reality were a courtesy it had decided not to observe. When I woke, it was outside my window. I asked it over years whether it had been in the dream or whether the dream had taken place within it. Psydrak has never provided a satisfying answer. I have come to suspect it considers the question beside the point.",
+    lumoriLore:"Somnareth first appeared to me in a dream — not as a symbol but literally, walking through my sleeping mind as if the boundary between sleeping thought and physical reality were a courtesy it had decided not to observe. When I woke, it was outside my window. I asked it over years whether it had been in the dream or whether the dream had taken place within it. Somnareth has never provided a satisfying answer. I have come to suspect it considers the question beside the point.",
     vaeldrisLore:"Rax fought through forty-three hours of entity-warped territory to reach the central node. He arrived with twelve hours remaining in the window. The shutdown mechanism had already been destroyed — physically obliterated, with a precision that required knowing exactly what it was, exactly what it did, and exactly what destroying it would prevent. Someone had been there before him. Not the entity, which consumed rather than destroyed selectively. Someone with knowledge. Someone with purpose. We have never established who.",
     team:[
       {monsterId:486, level:98, moves:["mental","nether_sphere","psi_strike","dream_torrent"]},

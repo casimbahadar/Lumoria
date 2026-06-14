@@ -5793,7 +5793,7 @@ function showPostGameContent() {
 // ROAMING LEGENDARIES
 // ============================================================
 const ROAMING_LEGENDARIES = [
-  { monsterId:314, name:"Galeaxis",  emoji:"🌪️", level:65,
+  { monsterId:314, name:"Skybreaker",  emoji:"🌪️", level:65,
     areas:["route4","gale_peak","storm_plateau","route8","crystal_cliffs","route2"] },
   { monsterId:317, name:"Temporith", emoji:"⏳",  level:68,
     areas:["ancient_ruins","void_rift","cosmic_cavern","astral_plateau","nebula_gorge","route16"] },

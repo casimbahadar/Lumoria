@@ -722,8 +722,8 @@ const MOVES_DATA = {
   emperor_inferno:        { name:"Emperor Inferno",        type:"Draconic",   power:140, acc:90,  pp:5,  cat:"physical", effect:"burn",      ec:100, desc:"Dragemian, lord of all dragons, breathes the emperor's eternal flame — always scorches the target." },
 
   // NG+ Signature Moves
-  // Cosmoveil (401) — Mental/Fairy cosmos strike
-  cosmic_veil:      { name:"Cosmic Veil",     type:"Aether" , power:140, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50, desc:"Cosmoveil wraps the battlefield in condensed starlight, crushing the foe's mind and spirit." },
+  // Starborne (401) — Mental/Fairy cosmos strike
+  cosmic_veil:      { name:"Cosmic Veil",     type:"Aether" , power:140, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50, desc:"Starborne wraps the battlefield in condensed starlight, crushing the foe's mind and spirit." },
   // Eonyx (392) — Mental time fracture
   time_fracture:    { name:"Time Fracture",   type:"Mental",  power:130, acc:90,  pp:5,  cat:"special",  effect:"spedown2",  ec:50, desc:"Eonyx shatters the flow of time around the target, massively reducing its speed." },
   // Primordiax (400) — Fire/Ground mantle surge
@@ -3129,13 +3129,13 @@ const MONSTERS_DATA = {
     desc:"A great venom-bee with an elongated stinger-tail. The whip-stinger arches scorpion-like over its back but is true bee anatomy, parallel-evolved from the standard sting.",
     lore:"Nettlebarb is a large toxin-sonic bee 25 cm long — Stinglet's bright yellow-and-black striped abdomen has matured across an entire body still bee-striped yellow-and-black, with four membranous wings and an elongated segmented stinger-tail that arches scorpion-like over its back. The whip-stinger is parallel-evolved from the bee's standard sting, not arachnid heritage. It is solitary and aggressive — unusual for Hymenoptera — marking territory with scent-trails that it defends vigorously against any trespasser regardless of size." },
 
-  // Standalone Fire/Spectral: Emberveil
-  301: { id:301, name:"Emberveil", emoji:"🔥", types:["Fire","Spectral"],
+  // Standalone Fire/Spectral: Hauntcoal
+  301: { id:301, name:"Hauntcoal", emoji:"🔥", types:["Fire","Spectral"],
     base:{hp:78,atk:82,def:72,spa:118,spd:95,spe:102},
     learnset:[[44,"phantom_beam"],[1,"flicker"],[1,"nether_sphere"],[18,"inferno_jet"],[28,"phantom_claw"],[38,"pyroclasm"],[48,"eclipse_shroud"],[58,"soul_rend"],[68,"radiance_cannon"],[70,"searing_gale"]],
     evolveTo:null, evolveLevel:null, catchRate:48, expYield:215, rarity:"uncommon",
     desc:"A fire specter born from the embers of burned-down haunted houses. Leaves smoldering phantom footprints.",
-    lore:"Emberveil is a fire-dark creature 60 cm tall resembling a smouldering black cat whose fur is made of living shadow and ember. Dim orange flames flicker through its dark coat without burning it. It inhabits the spaces near dying fires — hearths, burn-sites, campfire remains — absorbing residual heat from ash." },
+    lore:"Hauntcoal is a fire-dark creature 60 cm tall resembling a smouldering black cat whose fur is made of living shadow and ember. Dim orange flames flicker through its dark coat without burning it. It inhabits the spaces near dying fires — hearths, burn-sites, campfire remains — absorbing residual heat from ash." },
 
   // 2-stage Fairy chain: Lightpuff → Lumivane (Moon Stone item)
   302: { id:302, name:"Lightpuff", emoji:"🌟", types:["Fairy"],
@@ -4110,12 +4110,12 @@ const MONSTERS_DATA = {
     desc:"A young granite golem, often mistaken for an outcrop. As its mass deepens, a strange pull warps the air around it.",
     lore:"Quarrex is a 2.2-metre golem of interlocked granite slabs threaded with iron ore, so still and weathered that miners have mistaken ancient specimens for natural formations. It is the youngest of its kind; as the centuries pile their weight upon it, its own ever-growing mass begins to bend the space around it, and the granite slowly compresses toward the dense, gravity-warping crystal of Graviton." },
 
-  328: { id:328, name:"Smogveil", emoji:"🌫️", types:["Poison","Vapor"],
+  328: { id:328, name:"Mephitis", emoji:"🌫️", types:["Poison","Vapor"],
     base:{hp:58,atk:60,def:52,spa:83,spd:71,spe:76}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"breeze"],[10,"miasma_cloud"],[20,"wind_scythe"],[30,"ooze_bomb"],[40,"sludge_wave"],[50,"acid_rain"],[60,"tailwind_strike"],[5,"toxify"],[38,"neural_storm"],[62,"breeze_blast"]],
     catchRate:27, expYield:253, rarity:"rare",
-    desc:"A drifting toxic cloud given form. Entire towns have been evacuated when a Smogveil settled overhead.",
-    lore:"Smogveil is an amorphous poison-wind creature 3 metres across that resembles a dense yellow-green storm cloud. It has no fixed shape but two amber luminescent eye-spots drift within it." },
+    desc:"A drifting toxic cloud given form. Entire towns have been evacuated when a Mephitis settled overhead.",
+    lore:"Mephitis is an amorphous poison-wind creature 3 metres across that resembles a dense yellow-green storm cloud. It has no fixed shape but two amber luminescent eye-spots drift within it." },
 
   329: { id:329, name:"Skullmite", emoji:"🪨", types:["Nature","Mineral"],
     base:{hp:65,atk:81,def:84,spa:52,spd:65,spe:73}, evolveTo:null, evolveLevel:null,
@@ -4628,12 +4628,12 @@ const MONSTERS_DATA = {
     desc:"A creature born when the planet's crust cracked and the mantle met the surface. It predates all others.",
     lore:"Primordiax is a fire-primal creature 5 metres tall resembling a primordial titan of cooling lava and deep rock. Geologists have identified its footprints in geological formations 500 million years old." },
 
-  401: { id:401, name:"Cosmoveil", emoji:"🌠", types:["Stellar","Mental"],
+  401: { id:401, name:"Starborne", emoji:"🌠", types:["Stellar","Mental"],
     base:{hp:89,atk:94,def:94,spa:146,spd:121,spe:121}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
     learnset:[[1,"fairy_wind"],[10,"mental"],[15,"star_ray"],[20,"fae_requiem"],[25,"cosmic_beam"],[30,"psi_strike"],[40,"synaptic_shatter"],[45,"starfall_2"],[50,"neural_storm"],[60,"cosmic_veil"],[5,"prism_ward"],[55,"cosmic_veil"],[55,"astral_focus"]],
     catchRate:3, expYield:380, rarity:"legendary",
     desc:"A being from beyond the known world. It arrived as a point of light that grew into something impossible.",
-    lore:"Cosmoveil is a mental-stellar entity 2 metres tall composed of condensed starlight and cosmic stellar magic. It arrived from outside the known Lumoria region and has not yet been placed in any evolutionary lineage. Its biology resembles nothing previously recorded." },
+    lore:"Starborne is a mental-stellar entity 2 metres tall composed of condensed starlight and cosmic stellar magic. It arrived from outside the known Lumoria region and has not yet been placed in any evolutionary lineage. Its biology resembles nothing previously recorded." },
 
   // ---- Pseudo-legendary Family 1: Draconic/Mental (Dracoveil line) BST 310→470→600 ----
   402: { id:402, name:"Scalit", emoji:"🐣", types:["Draconic","Mental"],
@@ -5540,7 +5540,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:2, mapPos:{x:70, y:45}
   },
   emberveil: {
-    id:"emberveil", name:"Emberveil City", icon:"🌋", type:"city",
+    id:"emberveil", name:"Hauntcoal City", icon:"🌋", type:"city",
     desc:"Built near an active volcano. The fiery Gym Leader Pyros waits within.",
     connections:["route3","route4","volcano_core","iron_canyon"],
     wildMonsters:[
@@ -5755,7 +5755,7 @@ const WORLD_DATA = {
   },
   volcano_core: {
     id:"volcano_core", name:"Volcano Core", icon:"🌋", type:"route",
-    desc:"The scorching heart of the volcano beneath Emberveil. Only the most fearless trainers descend here. Legendary energies stir within.",
+    desc:"The scorching heart of the volcano beneath Hauntcoal. Only the most fearless trainers descend here. Legendary energies stir within.",
     connections:["emberveil","iron_canyon","lava_fields"],
     wildMonsters:[
       {id:277, minLv:24, maxLv:29, rate:24}, // Magmite (obtainability fix)
@@ -6627,7 +6627,7 @@ const WORLD_DATA = {
     desc:"A barren expanse of volcanic ash fields between Gusthaven and the Forge Ruins. Fire types scorch the ashen ground, and Metal types scavenge the slag.",
     connections:["route14","forge_ruins"],
     wildMonsters:[
-      {id:301, minLv:66, maxLv:71, rate:6}, // Emberveil (obtainability fix)
+      {id:301, minLv:66, maxLv:71, rate:6}, // Hauntcoal (obtainability fix)
       {id:245, minLv:66, maxLv:71, rate:9},  // Thundravex (mid Electric → 244 ✓)
       {id:275, minLv:66, maxLv:71, rate:13},  // Infernox (mid → 274 Cindling on magma_vent ✓)
       {id:266, minLv:65, maxLv:70, rate:27},  // Shadowcub (base Dark/Sonic, also route10)
@@ -8022,7 +8022,7 @@ const STORY_EVENTS = {
     "Professor Solaris calls: 'Trainer! The Umbra Order has been diving into the Abyssal Trench near Tidewatch Port. They're looking for Abyssdrake's resting place. Stop them!'"
   ],
   after_badge_3: [
-    "📰 Breaking News: Tremors reported near Emberveil! Experts fear The Umbra Order is attempting to wake Volcanox in the Volcano Core.",
+    "📰 Breaking News: Tremors reported near Hauntcoal! Experts fear The Umbra Order is attempting to wake Volcanox in the Volcano Core.",
     "A wounded explorer stumbles to you: 'The Umbra Order... their commander Kira... she's in the Volcano Core... you must stop her!'"
   ],
   after_badge_4: [
@@ -8103,7 +8103,7 @@ const SHOPS_DATA = {
     ]
   },
   emberveil: {
-    name: "Emberveil Emporium",
+    name: "Hauntcoal Emporium",
     items: [
       { itemId: "greatOrb", price: 300 },
       { itemId: "ultraOrb", price: 600 },
@@ -8491,7 +8491,7 @@ const QUESTS_DATA = [
   { id:"q22", title:"Lava Fields Survivor", desc:"Cross the Lava Fields and defeat the alpha fire Lumori.", location:"lava_fields", type:"boss", requiredBadges:3,
     boss:{monsterId:13, level:34, moves:["inferno_jet","crushing_bulk","searing_gale","pyroclasm"]},
     reward:{type:"money", amount:2500}, rewardText:"2500 coins" },
-  { id:"q23", title:"Emberveil Forge Master", desc:"The Forge Master tests trainers with his strongest Lumori.", location:"emberveil", type:"boss", requiredBadges:2,
+  { id:"q23", title:"Hauntcoal Forge Master", desc:"The Forge Master tests trainers with his strongest Lumori.", location:"emberveil", type:"boss", requiredBadges:2,
     boss:{monsterId:16, level:30, moves:["inferno_jet","blitz","searing_gale","pyroclasm"]},
     reward:{type:"item", itemId:"maxPotion", qty:3}, rewardText:"3 Luma Infusions" },
   { id:"q24", title:"Cinder Mole Hunt", desc:"A rare Cindermole has been spotted in the Lava Fields!", location:"lava_fields", type:"boss", requiredBadges:3,
@@ -8503,7 +8503,7 @@ const QUESTS_DATA = [
   { id:"q26", title:"Route 3 Gauntlet", desc:"Run the Route 3 trainer gauntlet and face the final boss!", location:"route3", type:"boss", requiredBadges:2,
     boss:{monsterId:26, level:26, moves:["tidal_rush","stone_slide","tidal_sweep","cranial_ram"]},
     reward:{type:"money", amount:1500}, rewardText:"1500 coins" },
-  { id:"q27", title:"Fire Dance Festival", desc:"Win the Emberveil Fire Dance Festival battle tournament!", location:"emberveil", type:"boss", requiredBadges:3,
+  { id:"q27", title:"Fire Dance Festival", desc:"Win the Hauntcoal Fire Dance Festival battle tournament!", location:"emberveil", type:"boss", requiredBadges:3,
     boss:{monsterId:11, level:32, moves:["inferno_jet","wingbeat","wind_scythe","searing_gale"]},
     reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 Power Charges" },
   { id:"q28", title:"Molten Core Mystery", desc:"Strange energy readings in the Volcano Core need investigation.", location:"volcano_core", type:"boss", requiredBadges:3,
@@ -8512,7 +8512,7 @@ const QUESTS_DATA = [
   { id:"q29", title:"The Scorched Path", desc:"Clear the scorched path through Route 4 from aggressive Lumori.", location:"route4", type:"boss", requiredBadges:3,
     boss:{monsterId:99, level:34, moves:["tectonic_shift","septic_prick","virulent_surge","mud_spray"]},
     reward:{type:"item", itemId:"revive", qty:3}, rewardText:"3 Luma Shards" },
-  { id:"q30", title:"Ember Guardian", desc:"The legendary ember guardian protects Emberveil's sacred flame.", location:"emberveil", type:"boss", requiredBadges:3,
+  { id:"q30", title:"Ember Guardian", desc:"The legendary ember guardian protects Hauntcoal's sacred flame.", location:"emberveil", type:"boss", requiredBadges:3,
     boss:{monsterId:3, level:38, moves:["inferno_jet","draconic_claw","searing_gale","rampage"]},
     reward:{type:"item", itemId:"dragonFang", qty:1}, rewardText:"Draconic Fang" },
 
@@ -8984,7 +8984,7 @@ const QUESTS_DATA = [
   { id:"ngq35", title:"Legend Hunt: Eonyx", desc:"Track down the ancient Eonyx that has been spotted near the Prismatic Rift. It will not be caught easily.", location:"prismatic_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
     boss:{monsterId:392, level:90, moves:["time_fracture","cataclysm_breath","synaptic_shatter","wyrm_strike"]},
     reward:{type:"item", itemId:"masterOrb", qty:2}, rewardText:"2 Master Orbs" },
-  { id:"ngq36", title:"Legend Hunt: Cosmoveil", desc:"Cosmoveil has been sighted at the absolute peak of Apex Summit. Reach it and face the being from beyond the stars.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,
+  { id:"ngq36", title:"Legend Hunt: Starborne", desc:"Starborne has been sighted at the absolute peak of Apex Summit. Reach it and face the being from beyond the stars.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,
     boss:{monsterId:401, level:95, moves:["cosmic_veil","fae_requiem","neural_storm","psi_strike"]},
     reward:{type:"item", itemId:"masterOrb", qty:3}, rewardText:"3 Master Orbs" },
 

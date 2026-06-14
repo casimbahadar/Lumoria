@@ -165,12 +165,12 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[285] Fluffkin→Cloudrift | Normal/Wind | cloud-elemental / wisp` (compact cloud with face — formless cloud being; under cap, but flag — could be wind-elemental too)
 - `[288] Fuzzlet→Cuddrix→Majesticore | Draconic/Fairy | kirin` (mythical, just claimed)
 - `[289] Bouncyblob | Normal/Vapor | slime / blob` (mythical, standalone; added Vapor 2026-06-12 — a warm condensed-vapor gel blob; Normal mono→pristine Normal/Vapor)
-- `[290] Guisecat | Normal/Dark | cat` (mimic-cat — second cat alongside Fluffen line + Cinderpaw + Emberveil)
+- `[290] Guisecat | Normal/Dark | cat` (mimic-cat — second cat alongside Fluffen line + Cinderpaw + Hauntcoal)
 - `[292] Breezekin→Galehorn | Wind/Sonic | antelope` (pristine archetype)
 - `[295] Gustpuff→Stormwing→Cyclonax | Electric/Draconic | dragon-mythic` (sub: wind-dragon)
 - `[298] Plaguefly→Pestquito→Plagueoth | Poison/Toxin | mosquito` (Diptera — relabeled off moth 2026-06-13; emoji 🦟 + desc/lore "plague mosquito" across all 3 stages. Resolves the old BREAKING-list moth/butterfly flag)
 - `[300] Stinglet→Nettlebarb | Toxin/Sonic | bee (Hymenoptera)` (currently inconsistent — bee→scorpion-bee hybrid on BREAKING list)
-- `[301] Emberveil | Fire/Spectral | cat` (smouldering ghost-cat, standalone — third cat; retyped Fire/Dark→Fire/Spectral for diversity)
+- `[301] Hauntcoal | Fire/Spectral | cat` (smouldering ghost-cat, standalone — third cat; retyped Fire/Dark→Fire/Spectral for diversity)
 - `[303] Lightpuff→Lumivane | Fairy/Mental | starlight-orb` (luminous starlight sphere with non-severing light-limbs that archives astronomical data — NOT a faerie-sprite humanoid; archetype relabeled to resolve the false collision with Psytheon, which keeps the faerie-sprite slot. Stays Fairy/Mental.)
 - `[306] Frostpelt→Snowmaw→Yetigrand | Earth/Ice | yeti` (de-monolithed 2026-06-13 from rock-monolith — frozen-mountain snow-beast line; renamed from Icethorn/Geoshard/Crystallon)
 - `[307] Cinderpaw | Fire/Dark | cat` (fire-dark cat, standalone — fourth cat)
@@ -194,7 +194,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[325] Dunespike | Earth/Poison | mole-rat / rodent` (armored mole-rat — second rodent alongside Murkrat)
 - `[326] Nectartrap | Nature/Poison | carnivorous-plant` (already a carnivorous marsh-plant in data — relabeled out of treant per mythical-archetype-policy cap-3; treant now Necrothon/Impenezard/Thornspire)
 - `[327] Quarrex (→Graviton→Abyssforge) | Earth | earth-golem` (base of the earth/gravity-golem line; see [377])
-- `[328] Smogveil | Poison/Vapor | poison-elemental` (amorphous yellow-green storm cloud, formless, sole poison-elemental; retyped Wind→Vapor 2026-06-10 — sentient smog/gas cloud, lore "smog"/"choking vapour"/"poisoned fog")
+- `[328] Mephitis | Poison/Vapor | poison-elemental` (amorphous yellow-green storm cloud, formless, sole poison-elemental; retyped Wind→Vapor 2026-06-10 — sentient smog/gas cloud, lore "smog"/"choking vapour"/"poisoned fog")
 - `[329] Skullmite | Nature/Mineral | trilobite` (de-beetled 2026-06-13 — living-fossil trilobite with a helmet-shaped head-shield over a segmented fossil carapace; keeps Nature/Mineral, zero cap impact. Pristine archetype; trims beetle to cap)
 - `[330] Blistermaw | Aquatic/Poison | crocodilian` (acid-weeping croc — second crocodilian alongside Limoux line)
 - `[331] Thornmoth | Nature/Sonic | moth` (Nature mono→Nature/Sonic pristine 2026-06-12 — its wing-beat resonance strips bark; sixth Lepidoptera)
@@ -272,7 +272,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[398] Voidcrown | Dark/Fairy | void / cosmic abstract being [LEGEND t4]` (sixth void/cosmic; flagship for archetype)
 - `[399] Stonekeeper | Earth/Spectral | mountain-spirit / genius-loci` (split out of wraith bucket per policy)
 - `[400] Primordiax | Fire/Primal | primordial titan [LEGEND t4]` (cooling lava + deep rock titan; pristine primordial-titan archetype)
-- `[401] Cosmoveil | Stellar/Mental | void / cosmic abstract being [LEGEND t4]` (seventh void/cosmic — starlight-cosmic variant; flagship)
+- `[401] Starborne | Stellar/Mental | void / cosmic abstract being [LEGEND t4]` (seventh void/cosmic — starlight-cosmic variant; flagship)
 - `[404] Scalit→Dracomind→Auguryx | Draconic/Mental | dragon-mythic [LEGEND t1 pseudo]` (sub: psychic-dragon pseudolegendary — fifth psychic-dragon)
 - `[407] Umbrapup→Umbrasteel→Voidwarden | Dark/Metal | bipedal warden / boundary-sentinel [LEGEND t1 pseudo]` (just claimed pristine mythical-exempt)
 
@@ -398,8 +398,8 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **hawk** | 1 | 3 | under cap | Rimehawk (#338). Subdivided 2026-06-13. |
 | _(raptor superfamily, already distinct)_ | — | — | — | thunderbird Stormcrown (#389), griffin Heliogriff (#394), harpy Zephyrak (#478, post-game). The old "bird-of-prey/raptor: 5, trim 2" bucket dissolved by subdivision — each raptor type now sits at 1, no cull needed. |
 | **treant / walking-tree** | 4 | 3 | trim 1 | **LOCKED capped (not exempt).** Keep Necrothon, Impenezard, Thornspire; re-archetype Nectartrap #326→carnivorous-plant. (Rootborn is Forgotten 462+, excluded.) |
-| **void / cosmic abstract** | 9 | exempt | — | Cerebraith, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Cosmoveil, Nihilax, Cosmolith. Mythical-exempt. |
-| **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Guisecat, Emberveil, Cinderpaw. |
+| **void / cosmic abstract** | 9 | exempt | — | Cerebraith, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Starborne, Nihilax, Cosmolith. Mythical-exempt. |
+| **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Guisecat, Hauntcoal, Cinderpaw. |
 | **thunderstorm-disaster** | 3 | 1+1 | trim 1-2 | Cyclotron, Tempestborn, Nullstorm. (See storm-elemental TODO entry.) |
 | **fire-dragon legendary cluster** | 1 (Dragemian; Infernotitan→salamander, Heliogriff→griffin, Bahamber→feathered-serpent, Blazeon→phoenix re-archetyped out) + chain finals (Calderaeth, Stardrax) | n/a | discuss | All under dragon-mythic exempt but sub-flavor crowded. |
 
@@ -429,7 +429,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | psychic-elemental | Veilwisp/Distorsion | Astralwing, Graviton | **Over cap (1+2)** |
 | dark-elemental | Nightmont line | — | At cap (1) |
 | fire-elemental | — | Magmite | At cap (0+1) |
-| poison-elemental | — | Smogveil | At cap (0+1) |
+| poison-elemental | — | Mephitis | At cap (0+1) |
 | rock-elemental | — | Ashrock, Ashvanus | **Over cap (0+2)** — pick 1 |
 | electric-elemental | — | Thunderpeak, Fluxserpent | **Over cap (0+2)** — pick 1 |
 | water-elemental | Bubblepuff/Psychotide | — | At cap (1) |

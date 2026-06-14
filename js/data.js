@@ -1738,19 +1738,19 @@ const MONSTERS_DATA = {
     lore:"Searburn is a plumed fire-serpent 4 metres long — Cindercula's serpentine length has thickened and reared upward, its copper-to-charcoal scales darkened to scarlet-and-black, and the thin feathered crest has burst into a pair of great iridescent plumed wings sprouting from behind its shoulders. Those wings beat with a heat that scorches the air in wide arcs, lofting the serpent onto rising thermals. It rides updrafts above the treeline for hours at a time, trailing sparks, and roosts on warm volcanic vents between flights." },
 
   // ===== ADDITIONAL WATER =====
-  25: { id:25, name:"Reefling",  emoji:"🦀", types:["Aquatic"],
+  25: { id:25, name:"Reefnip",  emoji:"🦀", types:["Aquatic"],
     base:{hp:59,atk:66,def:78,spa:43,spd:63,spe:34},
     learnset:[[1,"graze",[22,"coral_barrage"]],[1,"aquatic_gun"],[10,"bubble_jet"],[18,"fortify"],[20,"vital_pulse"],[26,"tidal_sweep"],[34,"tidal_rush",[5,"tidecaller"]],[36,"tsunami"],[3,"deepwater_hymn"],[31,"baleful_stare"]],
     evolveTo:26, evolveLevel:20, catchRate:190, expYield:71, rarity:"common",
     desc:"A crab that blows iridescent bubbles. Very territorial near shorelines.",
-    lore:"Reefling is a small crab-like creature only 15 cm across. Its shell is pale blue-green studded with tiny polyps that filter nutrients from the water. It scuttles across coral formations in shallow warm seas, using its patterned shell for camouflage, and hides inside anemones when threatened." },
+    lore:"Reefnip is a small crab-like creature only 15 cm across. Its shell is pale blue-green studded with tiny polyps that filter nutrients from the water. It scuttles across coral formations in shallow warm seas, using its patterned shell for camouflage, and hides inside anemones when threatened." },
 
   26: { id:26, name:"Aquidon",    emoji:"🦞", types:["Aquatic","Earth"],
     base:{hp:75,atk:102,def:110,spa:59,spd:68,spe:81},
     learnset:[[1,"graze"],[2,"aquatic_gun"],[3,"tidecaller"],[23,"tidal_sweep"],[27,"war_dance"],[31,"tidal_rush"],[33,"tsunami"],[34,"stalactite_drop"],[41,"stone_slide"],[48,"crystal_lance"],[55,"tidal_crush"],[62,"crag_strike"],[4,"deepwater_hymn"],[42,"quarry_crush"]],
     evolveTo:27, evolveLevel:44, catchRate:60, expYield:188, rarity:"uncommon",
     desc:"A massive sea claw with rock-hard shell. Few can match its raw strength.",
-    lore:"Aquidon is a broad-bodied rock lobster about 50 cm long — Reefling's pale blue-green coral-polyp shell has hardened and stilled into a stone-grey carapace reinforced by calcified mineral deposits, and its tiny defensive pincers have grown into crushing claws that can crack thick coral. It dwells in rocky sea caves along the coastline, guarding its territory fiercely against any intruder." },
+    lore:"Aquidon is a broad-bodied rock lobster about 50 cm long — Reefnip's pale blue-green coral-polyp shell has hardened and stilled into a stone-grey carapace reinforced by calcified mineral deposits, and its tiny defensive pincers have grown into crushing claws that can crack thick coral. It dwells in rocky sea caves along the coastline, guarding its territory fiercely against any intruder." },
 
   42: { id:42, name:"Cryonik",    emoji:"🦭", types:["Ice","Aquatic"],
     base:{hp:54,atk:56,def:64,spa:73,spd:75,spe:31},
@@ -1981,12 +1981,12 @@ const MONSTERS_DATA = {
     desc:"A fluffy snow sheep. Its wool absorbs cold air and condenses it to ice.",
     lore:"Tundram is a stocky ram-like creature with thick white wool and curling horns coated in layers of old ice. A pale blue tinge runs through the wool near its spine. It grazes on frost-covered highland moss and climbs sheer glacier faces using hooves specially adapted to grip slick ice surfaces." },
 
-  51: { id:51, name:"Shiverling",  emoji:"🦬", types:["Ice","Normal"],
+  51: { id:51, name:"Bergyak",  emoji:"🦬", types:["Ice","Normal"],
     base:{hp:76,atk:67,def:93,spa:106,spd:91,spe:56},
     learnset:[[1,"flurries"],[2,"winter_shroud"],[3,"fortify"],[4,"vital_pulse"],[5,"cold_beam"],[6,"permafrost"],[31,"whiteout"],[33,"cranial_ram"],[34,"daunt"],[44,"second_wind"],[54,"hoarfrost_bite"],[64,"frost_crash"],[7,"frostfire_veil"],[43,"baleful_stare"]],
     evolveTo:52, evolveLevel:42, catchRate:60, expYield:185, rarity:"uncommon",
     desc:"A sturdy frost-yak whose shoulders are starting to grow translucent slabs of glacier ice. Roams highland tundra in small herds, generating a steady chill in the air.",
-    lore:"Shiverling is a stout woolly bovid roughly 1 metre at the shoulder, halfway in build between a frost-blooded ram and the great glacial mountain-oxen it will become. Its dense pale wool is streaked with the same blue tinge as Tundram's spine, and two short, curling horns — still tipped in old ice — sit low on its broad skull. Translucent slabs of pale-blue glacier ice have begun to fuse to its shoulders and along its back, refracting light in faint prismatic patterns when struck by the sun. Small herds roam highland tundra together, jostling against one another so that the ice plates of neighbouring beasts grind in a low keening chime that carries across snowfields for kilometres." },
+    lore:"Bergyak is a stout woolly bovid roughly 1 metre at the shoulder, halfway in build between a frost-blooded ram and the great glacial mountain-oxen it will become. Its dense pale wool is streaked with the same blue tinge as Tundram's spine, and two short, curling horns — still tipped in old ice — sit low on its broad skull. Translucent slabs of pale-blue glacier ice have begun to fuse to its shoulders and along its back, refracting light in faint prismatic patterns when struck by the sun. Small herds roam highland tundra together, jostling against one another so that the ice plates of neighbouring beasts grind in a low keening chime that carries across snowfields for kilometres." },
 
   53: { id:53, name:"Mistwhirl",  emoji:"🦉", types:["Ice","Wind"],
     base:{hp:52,atk:60,def:32,spa:45,spd:70,spe:98},
@@ -2067,19 +2067,19 @@ const MONSTERS_DATA = {
     desc:"A luminous hound of fairy power. Its radiance can banish dark spirits.",
     lore:"Aetherael is a sleek fairy hound 70 cm at the shoulder — Goldefluff's pure white fluffy puppy fur has lengthened into luminous adult fur, the warm golden glow has matured into a soft gold-pink aura surrounding it constantly, and the bright violet pup-eyes have deepened to amethyst. It moves with effortless grace and seeks out beings in distress, projecting a calming field of fairy light to soothe emotional pain." },
 
-  140: { id:140, name:"Faeling",    emoji:"🦋", types:["Fairy","Wind"],
+  140: { id:140, name:"Faedust",    emoji:"🦋", types:["Fairy","Wind"],
     base:{hp:35,atk:44,def:33,spa:79,spd:71,spe:78},
     learnset:[[1,"fairy_wind",[22,"wish_spark"]],[1,"mandible_bite"],[3,"charm_bloom"],[7,"breeze"],[10,"bewitching_kiss"],[14,"gust_jab"],[18,"prism_flare"],[20,"second_wind"],[22,"breeze_blade"],[26,"lunar_burst"],[31,"cocoon_burst"],[34,"resonance_hum",[5,"stardust_veil"]],[36,"gossamer_lance"]],
     evolveTo:141, evolveLevel:22, catchRate:160, expYield:82, rarity:"common",
     desc:"A prismatic butterfly that scatters rainbow dust. Hard to catch.",
-    lore:"Faeling is a small fairy butterfly with a 25 cm wingspan. Its wings display soft pastel fairy-shimmer patterns — pinks, creams, and pale golds — with delicate trailing tails. Its body is slender and pale green. It inhabits enchanted meadows and its wingbeat releases a fine powder that induces feelings of mild euphoria." },
+    lore:"Faedust is a small fairy butterfly with a 25 cm wingspan. Its wings display soft pastel fairy-shimmer patterns — pinks, creams, and pale golds — with delicate trailing tails. Its body is slender and pale green. It inhabits enchanted meadows and its wingbeat releases a fine powder that induces feelings of mild euphoria." },
 
   141: { id:141, name:"Iridesoar",  emoji:"🦋", types:["Fairy","Wind"],
     base:{hp:83,atk:55,def:60,spa:110,spd:95,spe:88},
     learnset:[[1,"fairy_wind"],[2,"prism_flare"],[3,"second_wind"],[4,"bewitching_kiss"],[23,"lunar_burst"],[29,"breeze"],[33,"gossamer_lance"],[36,"blitz"],[43,"wind_scythe"],[50,"moonveil"],[57,"glitter_storm"],[64,"typhoon"],[5,"stardust_veil"],[42,"thermal_dive"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:200, rarity:"uncommon",
     desc:"A radiant butterfly of pure fairy energy. Its wings shimmer with all colors.",
-    lore:"Iridesoar is a large fairy-wind butterfly with a 90 cm wingspan — Faeling's pastel-shimmer juvenile wings have whitened to brilliant iridescent upper wings that now fracture into full rainbow spectra in sunlight, while the underside still shows the soft cloud-white with violet hints carried over from the chrysalis. It soars on warm thermals above flowering valleys, visible from great distances by its light display." },
+    lore:"Iridesoar is a large fairy-wind butterfly with a 90 cm wingspan — Faedust's pastel-shimmer juvenile wings have whitened to brilliant iridescent upper wings that now fracture into full rainbow spectra in sunlight, while the underside still shows the soft cloud-white with violet hints carried over from the chrysalis. It soars on warm thermals above flowering valleys, visible from great distances by its light display." },
 
   142: { id:142, name:"Dawnirel",  emoji:"✨", types:["Fairy","Mental"],
     base:{hp:50,atk:48,def:54,spa:74,spd:61,spe:63},
@@ -2576,13 +2576,13 @@ const MONSTERS_DATA = {
 
   // ===== DRAGON TYPES (IDs 230-235) =====
 
-  // 2-stage Aquatic/Fighting chain: Kappling → Sumokappa
-  230: { id:230, name:"Kappling", emoji:"🐢", types:["Aquatic","Fighting"],
+  // 2-stage Aquatic/Fighting chain: Kappamaru → Sumokappa
+  230: { id:230, name:"Kappamaru", emoji:"🐢", types:["Aquatic","Fighting"],
     base:{hp:58,atk:72,def:62,spa:60,spd:55,spe:58},
     learnset:[[1,"collide"],[1,"quick_punch"],[10,"aquatic_gun"],[16,"straight_jab"],[26,"wave_dash"],[36,"roundhouse"],[46,"brine_slash"],[56,"uppercut"]],
     evolveTo:231, evolveLevel:36, catchRate:150, expYield:90, rarity:"common",
     desc:"A young river-yokai with a water-dish crowning its head. Practises grappling holds in the shallows.",
-    lore:"Kappling is a young river-yokai about 30 cm tall, green-skinned and webbed, with a shallow water-filled dish set into the crown of its head. So long as that dish stays full it brims with surprising strength, so it guards the precious water jealously — keeping its head level even while it tumbles and rolls. It haunts rocky shallows and pond-edges, ambushing larger creatures to practise the grappling holds it is determined to one day perfect." },
+    lore:"Kappamaru is a young river-yokai about 30 cm tall, green-skinned and webbed, with a shallow water-filled dish set into the crown of its head. So long as that dish stays full it brims with surprising strength, so it guards the precious water jealously — keeping its head level even while it tumbles and rolls. It haunts rocky shallows and pond-edges, ambushing larger creatures to practise the grappling holds it is determined to one day perfect." },
 
   231: { id:231, name:"Sumokappa", emoji:"🐢", types:["Aquatic","Fighting"],
     base:{hp:91,atk:109,def:84,spa:94,spd:78,spe:94},
@@ -2948,20 +2948,20 @@ const MONSTERS_DATA = {
     desc:"Found only in volcanic forge areas where earth meets fire. Its body is half-molten rock, half-flame.",
     lore:"Magmite is a small fire creature 20 cm tall resembling a lava droplet that has cooled enough to walk. Its body is glossy dark basalt with an interior glow. It inhabits active volcanic vents and feeds by filtering mineral nutrients from magma, which passes harmlessly through its heat-adapted body." },
 
-  // 2-stage Metal/Fairy chain: Ironling → Steelhorn (Metal Coat item)
-  278: { id:278, name:"Ironling", emoji:"⚙️", types:["Metal","Fairy"],
+  // 2-stage Metal/Fairy chain: Ironpix → Steelhorn (Metal Coat item)
+  278: { id:278, name:"Ironpix", emoji:"⚙️", types:["Metal","Fairy"],
     base:{hp:52,atk:65,def:78,spa:60,spd:58,spe:55},
     learnset:[[1,"chrome_claw"],[1,"fairy_wind"],[14,"forge_blast_2"],[24,"lunar_burst"],[34,"alloy_tail"],[44,"prism_flare"],[54,"forge_strike"],[60,"radiance_cannon"]],
     evolveTo:279, evolveLevel:null, evolveItem:"metalCoat", evolveMethod:"item", catchRate:145, expYield:92, rarity:"common",
     desc:"A small fairy forged of living iron. Works tirelessly in ancient forges, seeking purpose and strength.",
-    lore:"Ironling is a small steel-fairy creature 30 cm tall resembling an iron-shod fae foal sheathed in fairy-crafted barding, a budding nub of metal at its brow. Its plating is silver-grey with a faint shimmer. It is protective of smaller creatures and positions itself between perceived threats and those it has chosen to guard, regardless of relative size." },
+    lore:"Ironpix is a small steel-fairy creature 30 cm tall resembling an iron-shod fae foal sheathed in fairy-crafted barding, a budding nub of metal at its brow. Its plating is silver-grey with a faint shimmer. It is protective of smaller creatures and positions itself between perceived threats and those it has chosen to guard, regardless of relative size." },
 
   279: { id:279, name:"Steelhorn", emoji:"🦌", types:["Metal","Fairy"],
     base:{hp:87,atk:97,def:114,spa:84,spd:97,spe:71},
     learnset:[[1,"forge_blast_2"],[1,"lunar_burst"],[28,"alloy_tail"],[36,"prism_flare"],[44,"forge_strike"],[52,"heavy_slam"],[60,"celestial_wave"],[68,"radiance_cannon"],[70,"disarming_voice"]],
     evolveTo:null, evolveLevel:null, catchRate:38, expYield:228, rarity:"rare",
     desc:"A horned steel fairy of regal bearing. Its horn channels both fairy magic and forged steel energy.",
-    lore:"Steelhorn is a medium steel-fairy creature 70 cm tall — Ironling's silver-grey fairy-crafted barding has been refined under metalCoat's influence into the body of a four-legged steel-coated fae steed of regal bearing, and a single straight horn of fairy-charged metal has emerged from its brow, channelling and purifying energy. It inhabits ancient forge-temples and stands watch over sacred metalworking sites." },
+    lore:"Steelhorn is a medium steel-fairy creature 70 cm tall — Ironpix's silver-grey fairy-crafted barding has been refined under metalCoat's influence into the body of a four-legged steel-coated fae steed of regal bearing, and a single straight horn of fairy-charged metal has emerged from its brow, channelling and purifying energy. It inhabits ancient forge-temples and stands watch over sacred metalworking sites." },
 
   // 3-stage Metal/Fighting chain: Gearbit → Cogvex → Mechavast
   280: { id:280, name:"Gearbit", emoji:"🔩", types:["Metal","Fighting"],
@@ -3994,7 +3994,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"flurries"],[1,"crushing_bulk"],[2,"cold_beam"],[3,"fortify"],[4,"whiteout"],[38,"cranial_ram"],[42,"hoarfrost_bite"],[46,"frost_crash"],[50,"tundra_tomb"],[54,"second_wind"],[58,"cryo_lance"],[62,"radiance_cannon"],[5,"winter_shroud"],[44,"vital_pulse"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:260, rarity:"rare",
     desc:"An immovable mountain-auroch armored in ancient glacier ice. When it wakes from a long slumber, the ice age returns.",
-    lore:"Permavast is a colossal mountain auroch around 2.5 metres at the shoulder and over 4 metres long — Shiverling's growing shoulder ice-plates have fused into a near-armoured shell of ancient glacier ice across its flanks and spine, and its woolly yak-coat has thickened into dense white fur streaked with grey. Two massive curled horns layered in old ice sweep low and wide from its broad skull, ringed in faint hoarfrost. It does not hibernate but roams frozen tundra year-round, breaking through wind-packed snowdrifts with its broad chest while the ice plates along its flanks grind audibly against one another with each measured step." },
+    lore:"Permavast is a colossal mountain auroch around 2.5 metres at the shoulder and over 4 metres long — Bergyak's growing shoulder ice-plates have fused into a near-armoured shell of ancient glacier ice across its flanks and spine, and its woolly yak-coat has thickened into dense white fur streaked with grey. Two massive curled horns layered in old ice sweep low and wide from its broad skull, ringed in faint hoarfrost. It does not hibernate but roams frozen tundra year-round, breaking through wind-packed snowdrifts with its broad chest while the ice plates along its flanks grind audibly against one another with each measured step." },
 
   // 205: Noctovast - Dark (Umbrakin→Noctivast→Noctovast)
   120: { id:120, name:"Nightwolf", emoji:"🐕", types:["Dark"],
@@ -4661,13 +4661,13 @@ const MONSTERS_DATA = {
     lore:"Veildrak is a dragon-psychic 5 metres long — Dracomind's psychokinetic field has crystallised outward into wings that refract light into prismatic patterns and a crest of solidified psychic energy, the shock-wave roar of its juvenile form refined into the precision of an entity that perceives battle outcomes before they happen. It is considered the pinnacle of the NG+ Lumori hierarchy." },
 
   // ---- Pseudo-legendary Family 2: Dark/Metal (Voidsteel line) BST 300→465→600 ----
-  405: { id:405, name:"Mirkling", emoji:"🐾", types:["Dark","Metal"],
+  405: { id:405, name:"Umbrapup", emoji:"🐾", types:["Dark","Metal"],
     evolveTo:406, evolveLevel:30, ngPlusTier:1,
     base:{hp:45,atk:62,def:55,spa:48,spd:50,spe:40}, // BST 300
     learnset:[[1,"shadowstep"],[1,"chrome_claw"],[5,"dark_focus"],[10,"void_rend"],[14,"shadow_cloak"],[18,"alloy_tail"],[22,"backstab"],[26,"phantom_claw"],[30,"alloy_edge"]],
     catchRate:45, expYield:62, rarity:"uncommon",
     desc:"A shadow-pup of dark-steel born in the void rifts. Its tiny steel claws cut harder than they should.",
-    lore:"Mirkling is a dark-steel creature 0.5 metres long resembling a shadowy puppy with small but razor-sharp steel claws. A Mirkling instinctively forms alliances with other dark-types but rarely with its own kind: pre-conditioning for the solitary boundary-warden life Voidwarden eventually leads. Mirkling consistently patrol the edges of rift-zones rather than entering them, drawn already to the guardian role they will inhabit at their third evolution. Their claws are not steel from birth either; they slowly metallise across the first year of life as the shadow-and-steel fusion of the lineage chemically composes itself in the pup." },
+    lore:"Umbrapup is a dark-steel creature 0.5 metres long resembling a shadowy puppy with small but razor-sharp steel claws. A Umbrapup instinctively forms alliances with other dark-types but rarely with its own kind: pre-conditioning for the solitary boundary-warden life Voidwarden eventually leads. Umbrapup consistently patrol the edges of rift-zones rather than entering them, drawn already to the guardian role they will inhabit at their third evolution. Their claws are not steel from birth either; they slowly metallise across the first year of life as the shadow-and-steel fusion of the lineage chemically composes itself in the pup." },
 
   406: { id:406, name:"Umbrasteel", emoji:"🐺", types:["Dark","Metal"],
     evolveTo:407, evolveLevel:50, ngPlusTier:1,
@@ -4675,7 +4675,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"shadowstep"],[1,"chrome_claw"],[5,"shadow_jab"],[12,"void_rend"],[18,"nightmare_smash"],[22,"alloy_tail"],[28,"run_down"],[32,"phantom_claw"],[42,"alloy_edge"],[52,"forge_blast_2"]],
     catchRate:15, expYield:152, rarity:"rare",
     desc:"A wolf of forged shadows and living steel. It hunts in packs but leads every pack it joins.",
-    lore:"Umbrasteel is a dark-steel creature 1.5 metres at the shoulder — Mirkling's puppy-shadow has woven itself into a body of fine shadow filaments reinforced with micro-crystal steel alloy, and the small razor-sharp pup-claws have matured into the apex hunter's silent invisibility within shadow." },
+    lore:"Umbrasteel is a dark-steel creature 1.5 metres at the shoulder — Umbrapup's puppy-shadow has woven itself into a body of fine shadow filaments reinforced with micro-crystal steel alloy, and the small razor-sharp pup-claws have matured into the apex hunter's silent invisibility within shadow." },
 
   407: { id:407, name:"Voidwarden", emoji:"⚔️", types:["Dark","Metal"],
     evolveTo:null, evolveLevel:null, ngPlusTier:1,
@@ -4780,12 +4780,12 @@ const MONSTERS_DATA = {
     lore:"Pallidoll is the spirit fully realised — a doll the size of a child, porcelain-faced and immaculate, drifting through silent winter halls on a low bank of freezing fog. It is gentle to those who treat it kindly and merciless to those who would break it, sealing intruders in sudden rime. Estates that house a Pallidoll are always cold, and always, somehow, perfectly clean." },
 
   // --- F5: hot-spring capybara (Vapor / Fire-Vapor) ---
-  420: { id:420, name:"Mistling", emoji:"♨️", types:["Vapor"],
+  420: { id:420, name:"Steamkit", emoji:"♨️", types:["Vapor"],
     evolveTo:421, evolveLevel:18, catchRate:150, expYield:66, rarity:"common",
     base:{hp:62,atk:48,def:52,spa:60,spd:58,spe:30}, // BST 310
     learnset:[[1,"collide"],[1,"mist_pulse"],[5,"vapor_jab"],[8,"drizzle"],[10,"flicker"],[12,"cumulus_meditation"],[15,"fog_beam"],[18,"haze_focus"],[20,"steam_burst"],[26,"brume_resonance"]],
     desc:"A round, downy pup that breathes out little curls of warm fog when it dozes.",
-    lore:"Mistling are gregarious and famously placid, huddling together at the edges of warm springs and exhaling soft fog that pools around them like a blanket. The warm haze keeps their fur from freezing in cold country and soothes wounds, so injured Lumori often shelter among a Mistling colony until they mend." },
+    lore:"Steamkit are gregarious and famously placid, huddling together at the edges of warm springs and exhaling soft fog that pools around them like a blanket. The warm haze keeps their fur from freezing in cold country and soothes wounds, so injured Lumori often shelter among a Steamkit colony until they mend." },
 
   421: { id:421, name:"Geyserook", emoji:"♨️", types:["Fire","Vapor"],
     evolveTo:422, evolveLevel:38, catchRate:70, expYield:150, rarity:"uncommon",
@@ -5062,12 +5062,12 @@ const MONSTERS_DATA = {
     lore:"Vaporlotl rules the deep thermal pools, its broad gills exhaling a constant warm fog across the water's surface. Its regenerative powers are the stuff of legend — it can knit a severed limb whole within an afternoon — and injured Lumori that reach a Vaporlotl's spring and rest in its mist often recover from wounds that should have been mortal." },
 
   // --- F21: tengu (Fighting / Fighting-Wind) ---
-  458: { id:458, name:"Gustling", emoji:"👺", types:["Fighting"],
+  458: { id:458, name:"Tengko", emoji:"👺", types:["Fighting"],
     evolveTo:459, evolveLevel:28, catchRate:180, expYield:72, rarity:"common",
     base:{hp:55,atk:68,def:52,spa:55,spd:50,spe:50}, // BST 330
     learnset:[[1,"quick_punch"],[1,"battle_cry"],[5,"breeze"],[8,"swift_form"],[10,"straight_jab"],[12,"sonic_palm"],[15,"leg_sweep"],[18,"battle_rhythm"],[20,"body_check"],[26,"roundhouse"]],
     desc:"A red-faced mountain imp that practices its fist-forms atop wind-blasted crags.",
-    lore:"Gustling are mischievous spirits of the high peaks, drilling endless martial forms against the mountain gales and snatching the hats of travellers who climb too proudly. The wind they train against has taught them footwork no still-air fighter can match, and a humbled climber who bows respectfully may find a Gustling willing to guide them down." },
+    lore:"Tengko are mischievous spirits of the high peaks, drilling endless martial forms against the mountain gales and snatching the hats of travellers who climb too proudly. The wind they train against has taught them footwork no still-air fighter can match, and a humbled climber who bows respectfully may find a Tengko willing to guide them down." },
 
   459: { id:459, name:"Tengrath", emoji:"👺", types:["Fighting","Wind"],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:212, rarity:"uncommon",
@@ -5077,12 +5077,12 @@ const MONSTERS_DATA = {
     lore:"Tengrath is a tengu in its full power — a martial spirit that summons the mountain wind to its fists and feet, closing the distance on a gust to land blows that arrive from impossible angles. It tests warriors who climb to its peak, demanding humility as fiercely as skill, and the rare student it deems worthy is taught wind-walking forms found in no dojo below." },
 
   // --- F22: singing-bowl construct (Sonic / Mental-Sonic) ---
-  460: { id:460, name:"Gongling", emoji:"🎵", types:["Sonic"],
+  460: { id:460, name:"Chimebowl", emoji:"🎵", types:["Sonic"],
     evolveTo:461, evolveLevel:30, catchRate:180, expYield:68, rarity:"common",
     base:{hp:55,atk:45,def:58,spa:68,spd:54,spe:35}, // BST 315
     learnset:[[1,"echo_strike"],[1,"resonate"],[5,"echo_pulse"],[10,"sound_rush"],[15,"mind_jolt"],[20,"pulse_wave"],[26,"wave_cry"]],
     desc:"A small hovering singing-bowl that hums a steady, calming tone of its own accord.",
-    lore:"Gongling is a votive bowl given a faint will by generations of meditation rung into its metal. It drifts a hand's breadth above the ground, humming a low tone that steadies racing thoughts, and temples treasure one as a tireless aid to focus — though a startled Gongling will clang a discordant note that scatters concentration just as easily." },
+    lore:"Chimebowl is a votive bowl given a faint will by generations of meditation rung into its metal. It drifts a hand's breadth above the ground, humming a low tone that steadies racing thoughts, and temples treasure one as a tireless aid to focus — though a startled Chimebowl will clang a discordant note that scatters concentration just as easily." },
 
   461: { id:461, name:"Resonethe", emoji:"🎵", types:["Mental","Sonic"],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:208, rarity:"uncommon",
@@ -5519,7 +5519,7 @@ const WORLD_DATA = {
     desc:"A bustling port city on the coast. Gym Leader Marina commands the waves.",
     connections:["route2","route3","deep_trench"],
     wildMonsters:[
-      {id:25, minLv:10, maxLv:13, rate:30}, // Reefling
+      {id:25, minLv:10, maxLv:13, rate:30}, // Reefnip
       {id:28, minLv:10, maxLv:13, rate:30}, // Corelin
       {id:87, minLv:10, maxLv:12, rate:20}, // Amperix
       {id:42, minLv:11, maxLv:13, rate:20}  // Cryonik
@@ -5613,7 +5613,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:289, minLv:38, maxLv:42, rate:10}, // Bouncyblob (obtainability fix)
       {id:47, minLv:38, maxLv:42, rate:30},
-      {id:51, minLv:38, maxLv:42, rate:15}, // Shiverling
+      {id:51, minLv:38, maxLv:42, rate:15}, // Bergyak
       {id:195, minLv:39, maxLv:42, rate:20}, // Prismolith
       {id:53, minLv:39, maxLv:42, rate:25}
     ],
@@ -5654,7 +5654,7 @@ const WORLD_DATA = {
       {id:114, minLv:51, maxLv:54, rate:35}, // Nimbusel
       {id:168, minLv:51, maxLv:54, rate:10}  // Espelith
     ],
-    ngPlusWildMonsters:[{id:460, minLv:50, maxLv:53, rate:12}], // NG+ family base: Gongling
+    ngPlusWildMonsters:[{id:460, minLv:50, maxLv:53, rate:12}], // NG+ family base: Chimebowl
     hasGym:true, gymLeader:"oracle", requiredBadges:6, mapPos:{x:30, y:55}
   },
   route8: {
@@ -5714,7 +5714,7 @@ const WORLD_DATA = {
       {id:260, minLv:10, maxLv:13, rate:18}, // Sproutix (obtainability fix)
       {id:63, minLv:8, maxLv:12, rate:14},   // Sporix
       {id:66, minLv:8, maxLv:12, rate:28},   // Viridix
-      {id:140, minLv:9, maxLv:12, rate:24},   // Faeling
+      {id:140, minLv:9, maxLv:12, rate:24},   // Faedust
       {id:155, minLv:9, maxLv:13, rate:8},   // Toxirin
       {id:160, minLv:10, maxLv:13, rate:8}   // Miasmafly
     ],
@@ -5742,7 +5742,7 @@ const WORLD_DATA = {
     desc:"The deepest part of Lumoria's ocean. Aquatic and Draconic types of terrifying power lurk here. The Umbra Order seeks something ancient in these depths.",
     connections:["tidewatch","coral_reef","sunken_temple"],
     wildMonsters:[
-      {id:230, minLv:20, maxLv:24, rate:18}, // Kappling (obtainability fix)
+      {id:230, minLv:20, maxLv:24, rate:18}, // Kappamaru (obtainability fix)
       {id:85, minLv:18, maxLv:24, rate:14},  // Shockharpe
       {id:33, minLv:18, maxLv:24, rate:6},  // Septanemone
       {id:19, minLv:19, maxLv:24, rate:28},  // Magmaurin
@@ -5839,7 +5839,7 @@ const WORLD_DATA = {
       {id:256, minLv:24, maxLv:28, rate:13}, // Scolphin (obtainability fix)
       {id:34, minLv:22, maxLv:26, rate:25}, // Pearlith (obtainability fix)
       {id:28, minLv:22, maxLv:28, rate:20},   // Corelin
-      {id:25, minLv:22, maxLv:28, rate:11},   // Reefling
+      {id:25, minLv:22, maxLv:28, rate:11},   // Reefnip
       {id:31, minLv:23, maxLv:28, rate:16},  // Toxaquil
       {id:155, minLv:24, maxLv:29, rate:9},   // Toxirin
       {id:39, minLv:25, maxLv:30, rate:6}   // Gossafin
@@ -5961,7 +5961,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:286, minLv:8, maxLv:11, rate:25}, // Fuzzlet (obtainability fix)
       {id:137, minLv:6, maxLv:10, rate:30},    // Goldefluff
-      {id:140, minLv:7, maxLv:11, rate:10},   // Faeling
+      {id:140, minLv:7, maxLv:11, rate:10},   // Faedust
       {id:111, minLv:7, maxLv:11, rate:35}    // Aeolin
     ],
     hasGym:false, requiredBadges:0, mapPos:{x:8, y:48}
@@ -6014,7 +6014,7 @@ const WORLD_DATA = {
       {id:57, minLv:32, maxLv:38, rate:10},  // Speculith
       {id:43, minLv:34, maxLv:39, rate:6}    // Boreon
     ],
-    ngPlusWildMonsters:[{id:420, minLv:30, maxLv:34, rate:12}], // NG+ family base: Mistling
+    ngPlusWildMonsters:[{id:420, minLv:30, maxLv:34, rate:12}], // NG+ family base: Steamkit
     hasGym:false, requiredBadges:4, mapPos:{x:48, y:14}
   },
   lava_fields: {
@@ -6068,7 +6068,7 @@ const WORLD_DATA = {
       {id:116, minLv:50, maxLv:55, rate:20},  // Zephyrin
       {id:109, minLv:51, maxLv:56, rate:10}    // Siroccomane
     ],
-    ngPlusWildMonsters:[{id:458, minLv:48, maxLv:52, rate:12}], // NG+ family base: Gustling
+    ngPlusWildMonsters:[{id:458, minLv:48, maxLv:52, rate:12}], // NG+ family base: Tengko
     hasGym:false, requiredBadges:6, mapPos:{x:36, y:40}
   },
   crystal_spire: {
@@ -6076,7 +6076,7 @@ const WORLD_DATA = {
     desc:"A towering spire of pure crystal ice and steel that catches the moonlight. Few trainers have ever climbed to its pinnacle.",
     connections:["crystal_depths","lunar_peak"],
     wildMonsters:[
-      {id:51, minLv:38, maxLv:45, rate:15},   // Shiverling
+      {id:51, minLv:38, maxLv:45, rate:15},   // Bergyak
       {id:195, minLv:38, maxLv:45, rate:25},   // Prismolith
       {id:148, minLv:39, maxLv:46, rate:10},   // Stoicguard
       {id:55, minLv:40, maxLv:47, rate:30},  // Rimeling
@@ -6263,7 +6263,7 @@ const WORLD_DATA = {
       {id:134, minLv:66, maxLv:71, rate:12},  // Aeronyx (base)
       {id:153, minLv:66, maxLv:71, rate:17},  // Dentshaft (base)
       {id:55,  minLv:67, maxLv:72, rate:9},  // standalone steel
-      {id:278, minLv:65, maxLv:70, rate:10},  // Ironling (base Metal/Fairy)
+      {id:278, minLv:65, maxLv:70, rate:10},  // Ironpix (base Metal/Fairy)
       {id:244, minLv:65, maxLv:70, rate:7},  // Staticlaw (base Electric)
       {id:280, minLv:65, maxLv:70, rate:5}    // Gearbit (base Metal/Ground)
     ],
@@ -6632,7 +6632,7 @@ const WORLD_DATA = {
       {id:275, minLv:66, maxLv:71, rate:13},  // Infernox (mid → 274 Cindling on magma_vent ✓)
       {id:266, minLv:65, maxLv:70, rate:27},  // Shadowcub (base Dark/Sonic, also route10)
       {id:267, minLv:66, maxLv:71, rate:17},  // Nightclaw (mid → after 266 ✓)
-      {id:278, minLv:65, maxLv:70, rate:23},  // Ironling (base, also route14)
+      {id:278, minLv:65, maxLv:70, rate:23},  // Ironpix (base, also route14)
       {id:312, minLv:65, maxLv:70, rate:5}    // Dunecrawl (base, also magma_vent)
     ],
     ngPlusWildMonsters:[{id:376, minLv:67, maxLv:72, rate:8}, {id:358, minLv:66, maxLv:71, rate:9}], // NG+ standalone: Pyrocrown

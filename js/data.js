@@ -3152,7 +3152,7 @@ const MONSTERS_DATA = {
     desc:"The comet-orb fairy, a larger luminous sphere haloed by streaming light-rays. Crosses the sky in streaks of prismatic light.",
     lore:"Lumivane is a fairy-psychic creature 50 cm across — Lightpuff's warm-golden 20 cm orb has grown under moonStone influence into a brilliant luminous sphere haloed by rudimentary limb-extensions of condensed light — translucent arm-rays and trailing tendril-legs that emerge from the central sphere but do not sever from it. Its body shifts between solid and luminous depending on its concentration. It inhabits high mountain observatories and archives astronomical data in a crystalline psychic memory at the core of its orb-body." },
 
-  // 3-stage Earth/Ice chain: Frostpelt → Snowmaw → Yetigrand (location: cold area, lv28, lv48)
+  // 3-stage Earth/Ice chain: Frostpelt → Yetigeist → Yetigrand (location: cold area, lv28, lv48)
   304: { id:304, name:"Frostpelt", emoji:"🦍", types:["Earth","Ice"],
     base:{hp:52,atk:62,def:75,spa:58,spd:60,spe:50},
     learnset:[[1,"stone_throw"],[1,"flurries"],[12,"stone_slide"],[22,"cold_beam"],[32,"crag_strike"],[42,"cryo_lance"],[52,"whiteout"],[60,"radiance_cannon"]],
@@ -3160,12 +3160,12 @@ const MONSTERS_DATA = {
     desc:"A shaggy frost-furred yeti cub. Hardy in the cold, shy of strangers, it huddles with its kind for warmth.",
     lore:"Frostpelt is a 40 cm yeti cub whose thick white fur stays perpetually crusted with frost and rime. It shelters in frozen highland caves, pressing close to others of its kind for warmth, and packs loose snow into its pelt for insulation — the cold radiating off it never quite lets that snow melt." },
 
-  305: { id:305, name:"Snowmaw", emoji:"🦍", types:["Earth","Ice"],
+  305: { id:305, name:"Yetigeist", emoji:"🦍", types:["Earth","Ice"],
     base:{hp:78,atk:92,def:105,spa:78,spd:82,spe:58},
     learnset:[[1,"cold_beam"],[1,"crag_strike"],[10,"sandstrike"],[22,"cryo_lance"],[30,"whiteout"],[35,"tectonic_shift"],[38,"bedrock_slam"],[46,"frost_crash"],[54,"avalanche_drive"],[62,"radiance_cannon"]],
     evolveTo:306, evolveLevel:48, catchRate:75, expYield:158, rarity:"uncommon",
     desc:"An adolescent yeti that prowls the frozen peaks alone. Its breath fogs and freezes the air.",
-    lore:"Snowmaw is an 80 cm adolescent yeti — Frostpelt's cub-fluff has grown into a shaggy white coat over heavy muscle. It prowls the high frozen peaks alone, its breath fogging and freezing in the air, strong enough to shoulder through packed drifts and shatter sheet ice with a blow." },
+    lore:"Yetigeist is an 80 cm adolescent yeti — Frostpelt's cub-fluff has grown into a shaggy white coat over heavy muscle. It prowls the high frozen peaks alone, its breath fogging and freezing in the air, strong enough to shoulder through packed drifts and shatter sheet ice with a blow." },
 
   306: { id:306, name:"Yetigrand", emoji:"🦍", types:["Earth","Ice"],
     base:{hp:101,atk:108,def:117,spa:83,spd:91,spe:50},
@@ -4124,12 +4124,12 @@ const MONSTERS_DATA = {
     desc:"A living-fossil trilobite whose segmented mineral shell is harder than most metals. Ancient specimens are sold as armour.",
     lore:"Skullmite is a trilobite-like mineral creature 1.1 metres long with a broad helmet-shaped head-shield above a segmented, fossilised carapace of living stone. A true living fossil, it trundles across stony badlands and cave floors, and its hooked mouth-parts can crack open geodes." },
 
-  330: { id:330, name:"Blistermaw", emoji:"🐊", types:["Aquatic","Poison"],
+  330: { id:330, name:"Sludgejaw", emoji:"🐊", types:["Aquatic","Poison"],
     base:{hp:71,atk:80,def:66,spa:77,spd:69,spe:57}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"aquatic_gun"],[10,"septic_prick"],[20,"tidal_crush"],[30,"ooze_bomb"],[40,"tsunami"],[50,"sludge_wave"],[60,"sea_serpent_strike"],[5,"toxify"],[38,"venom_lance"]],
     catchRate:28, expYield:258, rarity:"rare",
     desc:"A swamp crocodilian with acid-laced saliva. Prey dissolves within minutes of a bite.",
-    lore:"Blistermaw is a water-poison reptile 2.8 metres long resembling a heavily built crocodile with blistered, acid-weeping skin and rows of hollow venom-conducting teeth." },
+    lore:"Sludgejaw is a water-poison reptile 2.8 metres long resembling a heavily built crocodile with blistered, acid-weeping skin and rows of hollow venom-conducting teeth." },
 
   331: { id:331, name:"Thornmoth", emoji:"🦋", types:["Nature","Sonic"],
     base:{hp:55,atk:63,def:58,spa:78,spd:68,spe:78}, evolveTo:null, evolveLevel:null,
@@ -4302,12 +4302,12 @@ const MONSTERS_DATA = {
     desc:"A leviathan that travels between dimensions using psychic rift gates. Islands vanish when it surfaces.",
     lore:"Riftwhale is a water-psychic creature 12 metres long resembling a colossal whale with flanks covered in luminous psychic sigils. It navigates by warping local space." },
 
-  355: { id:355, name:"Gloommaw", emoji:"🌊", types:["Aquatic","Toxin"],
+  355: { id:355, name:"Nadiril", emoji:"🌊", types:["Aquatic","Toxin"],
     base:{hp:81,atk:99,def:88,spa:89,spd:81,spe:77}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"tidal_rush"],[5,"shadowstep"],[10,"void_rend"],[15,"corrosive_rain"],[20,"tidal_crush"],[22,"bilious_drown"],[25,"gunk_blast"],[30,"nether_sphere"],[32,"acidic_glance"],[35,"venom_drown"],[38,"phantom_claw"],[40,"tsunami"],[45,"virulent_storm"],[50,"sea_serpent_strike"],[60,"sludge_wave"],[62,"toxic_sting"]],
     catchRate:10, expYield:318, rarity:"rare",
     desc:"A hunter from the deepest abyss. Light physically bends around it as though avoiding contact.",
-    lore:"Gloommaw is a water-toxin creature 5 metres long resembling an armoured eel with bioluminescent lures. Its black scales have a refractive property that makes it nearly invisible underwater." },
+    lore:"Nadiril is a water-toxin creature 5 metres long resembling an armoured eel with bioluminescent lures. Its black scales have a refractive property that makes it nearly invisible underwater." },
 
   356: { id:356, name:"Stormlord", emoji:"🦅", types:["Electric","Sonic"],
     base:{hp:72,atk:92,def:72,spa:104,spd:82,spe:98}, evolveTo:389, evolveLevel:70,
@@ -4743,12 +4743,12 @@ const MONSTERS_DATA = {
     desc:"A pale, finger-thick grub that sweats an acrid slime as it inches through loose soil.",
     lore:"Grublurk spends its larval life just beneath the surface, ploughing slow furrows and digesting the toxins other creatures leave behind. The acrid film coating its skin deters most predators, and gardeners both curse the burrows it leaves and prize the rich, detoxified earth it leaves in its wake." },
 
-  415: { id:415, name:"Tunnelmaw", emoji:"🪱", types:["Earth","Toxin"],
+  415: { id:415, name:"Grindworm", emoji:"🪱", types:["Earth","Toxin"],
     evolveTo:416, evolveLevel:36, catchRate:75, expYield:142, rarity:"uncommon",
     base:{hp:80,atk:78,def:80,spa:52,spd:60,spe:45}, // BST 395
     learnset:[[1,"collide"],[5,"mud_spray"],[15,"toxin_jab"],[18,"toxic_lash_2"],[20,"sandstrike"],[22,"slate_armor"],[26,"coiled_lunge"],[30,"corrosive_burst"],[32,"trample"],[38,"venom_thrust"],[44,"tectonic_shift"]],
     desc:"A segmented burrower ringed with grinding mineral teeth at the front of its tunnel-boring maw.",
-    lore:"Tunnelmaw bores through hardpan and stone alike, its leading segment fused into a rotating ring of mineral teeth that grind rock to swallowable grit. It floods its tunnels with caustic mucus to soften the way and to drown anything that follows it down. Mining camps learn to recognise the faint hiss of acid that precedes a Tunnelmaw breaking through a wall." },
+    lore:"Grindworm bores through hardpan and stone alike, its leading segment fused into a rotating ring of mineral teeth that grind rock to swallowable grit. It floods its tunnels with caustic mucus to soften the way and to drown anything that follows it down. Mining camps learn to recognise the faint hiss of acid that precedes a Grindworm breaking through a wall." },
 
   416: { id:416, name:"Sandscourge", emoji:"🪱", types:["Earth","Toxin"],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:250, rarity:"rare",
@@ -6364,7 +6364,7 @@ const WORLD_DATA = {
       {id:164, minLv:58, maxLv:63, rate:28},  // Blightmite (base, new)
       {id:165, minLv:59, maxLv:64, rate:14}   // Venowarn (mid → after 164 ✓)
     ],
-    ngPlusWildMonsters:[{id:355, minLv:58, maxLv:65, rate:10}], // NG+ standalone: Gloommaw
+    ngPlusWildMonsters:[{id:355, minLv:58, maxLv:65, rate:10}], // NG+ standalone: Nadiril
     hasGym:false, requiredBadges:9, mapPos:{x:42, y:60}
   },
   quake_foothills: {
@@ -6659,7 +6659,7 @@ const WORLD_DATA = {
     connections:["route15","stone_plateau"],
     wildMonsters:[
       {id:249, minLv:68, maxLv:73, rate:24},  // Boulderax (mid → 248 on route11/magma_vent ✓)
-      {id:305, minLv:68, maxLv:73, rate:14},  // Snowmaw (mid → 304 Frostpelt on route15 ✓)
+      {id:305, minLv:68, maxLv:73, rate:14},  // Yetigeist (mid → 304 Frostpelt on route15 ✓)
       {id:233, minLv:68, maxLv:73, rate:18},  // Serpenthorn (mid → 232 Draxon on route15 ✓)
       {id:174, minLv:68, maxLv:73, rate:10},  // Chromedrake (standalone Draconic/Metal)
       {id:251, minLv:67, maxLv:72, rate:28},  // Crumblite (base Rock/Metal, also route15)

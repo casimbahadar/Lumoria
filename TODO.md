@@ -77,6 +77,7 @@ Clean state — everything committed & pushed on `claude/unified-audit-handoff-t
 - `-rael` group (→ 1; kept Irisarael #58): #35 Undirael→**Seanymph** · #138 Aetherael→**Halocanis** (drops Aeth-→2) · #143 Lunarael→**Astrelle** (drops Luna-→3) · #169 Aurarael→**Prismatica** (2026-06-14).
 - `-drak` group (suffix retired entirely, all 5 incl. 3 Forgotten — user disliked -drak): #207 Venodrak→**Sorrowlix** · #404 Veildrak→**Auguryx** · #479 Forgotten Skydrak→**Forgotten Skyreth** · #486 Forgotten Psydrak→**Forgotten Somnareth** · #497 Forgotten Abysdrak→**Forgotten Nihilux** (2026-06-14). Distinctive endings (no common dragon suffix).
 - `-veil` group (→ 1 pre-462; kept Shadowveil #221 + Forgotten Aetherveil #477): #301 Emberveil→**Hauntcoal** · #328 Smogveil→**Mephitis** · #401 Cosmoveil→**Starborne** (2026-06-14).
+- `-maw` morpheme (3-char, genuine; → 2; kept Magmaw #276 / Dreadmaw #119): #355 Gloommaw→**Nadiril** · #330 Blistermaw→**Sludgejaw** · #305 Snowmaw→**Yetigeist** · #415 Tunnelmaw→**Grindworm** (2026-06-14). [Adopted policy: cap genuine 3-char morphemes -maw/-let/-kin/-don too, not just 4-char groups.]
 
 **Next-session options:** (a) work up a Tier-1 rename proposal; (b) ~~item #6 standalone-count reduction~~ ✅ **DONE 2026-06-12** (see standalone-reduction checkpoint below); (c) trainer-SVG replacement (deferred follow-up to the monster-SVG strip); (d) other audit items. Under-used-type distribution (#3) is considered substantially complete (clear wins banked, no forcing).
 

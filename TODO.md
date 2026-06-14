@@ -70,6 +70,7 @@ Clean state — everything committed & pushed on `claude/unified-audit-handoff-t
 - `-wing` group (→ 3; kept Stormwing #294 / Astralwing #346 / Oblivionwing #382): #62 Gelwing→**Gelquill** · #265 Mosswing→**Mosshop** · #297 Blightwing→**Pestquito** · #370 Vortexwing→**Cyclotron** (2026-06-14).
 - `-claw` group (→ 3; kept Nightclaw #267 / Smashclaw #451 / Staticclaw #244): #244 Staticlaw→**Staticclaw** (spelling fix, kept) · #290 Mimiclaw→**Guisecat** · #300 Nettleclaw→**Nettlebarb** · #338 Rimeclaw→**Rimehawk** · #425 Strataclaw→**Stragolin** (2026-06-14).
 - `-arch` group (→ 2; kept Aeolarch #110 / Lumiarch #139): #12 Inferarch→**Pyromoth** · #144 Celestarch→**Moonseraph** · #359 Glaciarch→**Cryoseer** (also drops Glac- prefix to 3) · #410 Prismarch→**Prismdome** (2026-06-14).
+- `-vorn` group (suffix retired pre-462, all 5 renamed; Forgotten Cryvorn #484 kept): #49 Frigidvorn→**Hailwolf** · #68 Rootvorn→**Bonsailoth** · #113 Cyclavorn→**Cyclondor** · #174 Scalevorn→**Chromedrake** · #318 Gaiavorn→**Gaiagant** (2026-06-14).
 
 **Next-session options:** (a) work up a Tier-1 rename proposal; (b) ~~item #6 standalone-count reduction~~ ✅ **DONE 2026-06-12** (see standalone-reduction checkpoint below); (c) trainer-SVG replacement (deferred follow-up to the monster-SVG strip); (d) other audit items. Under-used-type distribution (#3) is considered substantially complete (clear wins banked, no forcing).
 

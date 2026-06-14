@@ -714,8 +714,8 @@ const MOVES_DATA = {
   volcanic_wrath:         { name:"Volcanic Wrath",         type:"Fire",     power:140, acc:85,  pp:5,  cat:"special",  effect:"burn",      ec:100, desc:"Pyrovanus channels the full fury of a super-volcano, always severely burning the target." },
   // Abyssovex — Aquatic/Dark abyssal squid leviathan
   abyssal_dominion:       { name:"Abyssal Dominion",       type:"Dark",     power:130, acc:90,  pp:5,  cat:"special",  effect:"spdefdown", ec:50,  desc:"Abyssovex asserts dominion over the deep abyss, crushing the target's psychic defenses." },
-  // Gaiavorn — Ground/Grass land spirit
-  world_root_bind:        { name:"World Root Bind",        type:"Earth",   power:130, acc:90,  pp:5,  cat:"physical", effect:"spedown",   ec:100, desc:"Gaiavorn erupts roots from the world's core to bind and crush the target." },
+  // Gaiagant — Ground/Grass land spirit
+  world_root_bind:        { name:"World Root Bind",        type:"Earth",   power:130, acc:90,  pp:5,  cat:"physical", effect:"spedown",   ec:100, desc:"Gaiagant erupts roots from the world's core to bind and crush the target." },
   // Voidraxis — Dark/Fairy void star
   starlight_obliteration: { name:"Starlight Obliteration", type:"Dark",     power:150, acc:85,  pp:5,  cat:"special",  effect:"recoil",    ec:100, desc:"Voidraxis extinguishes entire stars and channels their death into a single point of annihilation." },
   // Dragemian — Draconic/Fire emperor
@@ -2225,12 +2225,12 @@ const MONSTERS_DATA = {
     desc:"A powerful wyrm with tremendous strength. Known to destroy mountains. Legends say it will one day don armor of living steel.",
     lore:"Cobravyrm is a young dragon-serpent 1.5 metres long — Scalurin's soft pale gold-green scales have hardened and darkened to green-bronze, and a flat cobra-like hood has emerged from its broadening neck that it flares when threatened. Its wings are still developing and cannot support flight. It inhabits river caves and hunts fish by lunging from concealed positions near the water surface." },
 
-  174: { id:174, name:"Scalevorn", emoji:"🦕", types:["Draconic","Metal"],
+  174: { id:174, name:"Chromedrake", emoji:"🦕", types:["Draconic","Metal"],
     base:{hp:88,atk:115,def:118,spa:75,spd:85,spe:62},
     learnset:[[1,"draconic_claw"],[1,"chrome_claw"],[10,"scale_crash"],[15,"solar_impact"],[18,"wyvern_maw"],[20,"draconic_pulse"],[25,"titan_blade"],[28,"twin_chop"],[30,"forge_blast_2"],[35,"tungsten_wrath"],[40,"alloy_tail"],[45,"drake_armor"],[50,"rampage"],[60,"forge_strike"],[70,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:275, rarity:"rare",
     desc:"The final form of the ancient dragon lineage. Its scales have fused into living steel over millennia of battle, creating impenetrable natural armor.",
-    lore:"Scalevorn is a powerful dragon-steel hybrid 4 metres long — Cobravyrm's green-bronze scales have hardened into steel-grey metallic plates over centuries, and the cobra-hood of its juvenile form has folded flat against the broad muscular base of its skull. Its body is broad and muscular. It moves on four limbs with its wings folded into secondary arms. Its scales have been used in legendary armour-forging projects." },
+    lore:"Chromedrake is a powerful dragon-steel hybrid 4 metres long — Cobravyrm's green-bronze scales have hardened into steel-grey metallic plates over centuries, and the cobra-hood of its juvenile form has folded flat against the broad muscular base of its skull. Its body is broad and muscular. It moves on four limbs with its wings folded into secondary arms. Its scales have been used in legendary armour-forging projects." },
 
   321: { id:321, name:"Dragemian",  emoji:"🐉", types:["Draconic","Fire"],
     base:{hp:86,atk:149,def:101,spa:101,spd:94,spe:66},
@@ -3685,12 +3685,12 @@ const MONSTERS_DATA = {
     desc:"The Legendary Veil of Time. Said to exist at the crossing point of past and future.",
     lore:"Temporith is a psychic-dragon 3 metres long whose scales appear to flicker between states of existence — slightly out of phase with the present moment. Its outline is never quite sharp. It inhabits places where history is dense — ancient battlefields, old libraries — feeding on residual temporal energy." },
 
-  318: { id:318, name:"Gaiavorn", emoji:"🌍", types:["Earth","Nature"],
+  318: { id:318, name:"Gaiagant", emoji:"🌍", types:["Earth","Nature"],
     base:{hp:103,atk:125,def:104,spa:92,spd:89,spe:75},
     learnset:[[1,"mud_spray"],[1,"vine_lash"],[7,"sandstrike"],[14,"sharp_leaves"],[21,"geoblast"],[28,"pod_blast"],[35,"clay_armor"],[42,"briar_lash"],[49,"tectonic_shift"],[56,"grove_wrath"],[63,"worldseed_quake"],[70,"verdant_surge"],[77,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
     desc:"The Legendary Spirit of the Land. Every continent in Lumoria trembles at its footfall.",
-    lore:"Gaiavorn is a ground-grass titan 4 metres tall resembling a towering elemental figure whose lower body is packed earth and roots and whose upper body is a living forest canopy. Trees grow from its shoulders. It moves once per decade at most and its displacement creates new valleys and ridges." },
+    lore:"Gaiagant is a ground-grass titan 4 metres tall resembling a towering elemental figure whose lower body is packed earth and roots and whose upper body is a living forest canopy. Trees grow from its shoulders. It moves once per decade at most and its displacement creates new valleys and ridges." },
 
   319: { id:319, name:"Voidraxis", emoji:"🌌", types:["Dark","Stellar"],
     base:{hp:95,atk:93,def:89,spa:131,spd:113,spe:88},
@@ -3868,13 +3868,13 @@ const MONSTERS_DATA = {
     desc:"A fungal colossus whose spores drift on the wind for hundreds of miles, corrupting forests in days. It is the rot at the heart of every plagued wood.",
     lore:"Plaguecap is a hulking fungal creature 2 metres tall — Myceloth's translucent humanoid frame has thickened into a thick, barrel-like body and the wide flat cap of its earlier form has multiplied into overlapping shelf-fungus plates. Purple, green, and white tones mottle its surface. It generates a continuous cloud of toxic spores around itself and moves with surprising speed for its size when defending its spore territory." },
 
-  // 189: Rootvorn - Grass/Ground (Viridix→Terravin→Rootvorn)
-  68: { id:68, name:"Rootvorn", emoji:"🐌", types:["Nature","Earth"],
+  // 189: Bonsailoth - Grass/Ground (Viridix→Terravin→Bonsailoth)
+  68: { id:68, name:"Bonsailoth", emoji:"🐌", types:["Nature","Earth"],
     base:{hp:98,atk:118,def:104,spa:93,spd:88,spe:49},
     learnset:[[1,"sharp_leaves"],[1,"tectonic_shift"],[2,"pod_blast"],[3,"root_lance"],[4,"slumber_dust"],[38,"verdant_orb"],[42,"geoblast"],[46,"petal_blitz"],[50,"verdant_surge"],[54,"sand_geyser"],[58,"canopy_crash"],[62,"scorched_earth"],[5,"spore_burst"],[44,"briar_lash"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A 3-metre ancient garden snail whose colossal shell has become a rooted bonsai forest. Reorganises woodland over centuries simply by walking through it.",
-    lore:"Rootvorn is a colossal ancient snail nearly 3 metres tall at the shell's apex, with a body that extends another 4 metres when fully out of the shell — Loamvin's bark-and-moss-overgrown shell has expanded and been so deeply colonised over centuries that it now resembles a mossy hill — thick roots from full-grown saplings have driven down through the shell's surface and clutched it like a living crown, and a complete miniature canopy of broad leaves shades the back of its body. Its eyestalks are 1-metre wood-coloured stalks tipped in twin amber gleams, raised cautiously above the canopy when it senses motion. It uproots itself only at night, dragging its forested shell to a new location before dawn, and is believed to reorganise the layout of entire woodlands over decades — wherever it has travelled, new groves take root from the seeds shed by its passing." },
+    lore:"Bonsailoth is a colossal ancient snail nearly 3 metres tall at the shell's apex, with a body that extends another 4 metres when fully out of the shell — Loamvin's bark-and-moss-overgrown shell has expanded and been so deeply colonised over centuries that it now resembles a mossy hill — thick roots from full-grown saplings have driven down through the shell's surface and clutched it like a living crown, and a complete miniature canopy of broad leaves shades the back of its body. Its eyestalks are 1-metre wood-coloured stalks tipped in twin amber gleams, raised cautiously above the canopy when it senses motion. It uproots itself only at night, dragging its forested shell to a new location before dawn, and is believed to reorganise the layout of entire woodlands over decades — wherever it has travelled, new groves take root from the seeds shed by its passing." },
 
   // 190: Groveguard - Grass (Germix→Verdurus→Groveguard)
   71: { id:71, name:"Groveguard", emoji:"🌳", types:["Nature","Fighting"],
@@ -3972,21 +3972,21 @@ const MONSTERS_DATA = {
     desc:"A storm sovereign whose mane is a permanent tempest. When it roars, thunder rolls across the land for days.",
     lore:"Aeolarch is a massive wind lion 1.8 metres at the shoulder — Siroccomane's tawny-gold fur has lightened to a white coat shading to storm-grey at the extremities, and the electric-blue mane has thickened across a broader chest, crackling and sparking continuously. It commands local weather patterns and is regarded as a living storm-anchor by coastal communities." },
 
-  // 202: Cyclavorn - Wind (Aeolin→Cyclavel→Cyclavorn)
-  113: { id:113, name:"Cyclavorn", emoji:"🦅", types:["Wind"],
+  // 202: Cyclondor - Wind (Aeolin→Cyclavel→Cyclondor)
+  113: { id:113, name:"Cyclondor", emoji:"🦅", types:["Wind"],
     base:{hp:89,atk:114,def:74,spa:110,spd:79,spe:84},
     learnset:[[1,"breeze"],[1,"wingbeat"],[2,"wind_scythe"],[3,"jetstream"],[4,"mistveil"],[5,"zephyr_dance"],[12,"falcon_dive"],[18,"breeze_blast"],[24,"plume_veil"],[28,"air_barrier"],[32,"aerial_slam"],[38,"typhoon"],[42,"skyfall"],[44,"vortex_trap"],[46,"squall_slash"],[50,"thermal_dive"],[54,"gale_cannon"],[58,"tempest_wrath"],[62,"downdraft"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
     desc:"A hurricane made flesh. It circles the highest peaks and its passage creates new storm systems that endure for years.",
-    lore:"Cyclavorn is a massive condor-like bird with a 3.5-metre wingspan — Swirlavel's double-spiral crest has smoothed into the streamlined skull of a high-altitude apex predator, and the grey-brown eagle plumage has darkened to deep charcoal with white under-wing patches visible only in flight. It circles at tremendous altitude for weeks without landing, descending only to feed. Its wingbeats can be felt as pressure waves on the ground below." },
+    lore:"Cyclondor is a massive condor-like bird with a 3.5-metre wingspan — Swirlavel's double-spiral crest has smoothed into the streamlined skull of a high-altitude apex predator, and the grey-brown eagle plumage has darkened to deep charcoal with white under-wing patches visible only in flight. It circles at tremendous altitude for weeks without landing, descending only to feed. Its wingbeats can be felt as pressure waves on the ground below." },
 
-  // 203: Frigidvorn - Ice (Cryokin→Boreovast→Frigidvorn)
-  49: { id:49, name:"Frigidvorn", emoji:"🐺", types:["Ice"],
+  // 203: Hailwolf - Ice (Cryokin→Boreovast→Hailwolf)
+  49: { id:49, name:"Hailwolf", emoji:"🐺", types:["Ice"],
     base:{hp:97,atk:108,def:77,spa:103,spd:92,spe:73},
     learnset:[[1,"flurries"],[1,"cold_beam"],[2,"frost_crash"],[3,"whiteout"],[4,"permafrost"],[38,"hoarfrost_bite"],[42,"cryo_lance"],[46,"tundra_tomb"],[50,"avalanche_drive"],[54,"winter_shroud"],[58,"crushing_bulk"],[62,"blitz"],[5,"frostfire_veil"],[44,"instinct_slash"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A wolf of absolute zero whose howl flash-freezes the air for miles. Entire mountain valleys have become permanent glacier fields where it hunts.",
-    lore:"Frigidvorn is a heavy-shouldered, shaggy ice-wolf 2 metres at the shoulder — Hailgorge's white fur and ice-spine hackles have lengthened and matted into thick grey-white fur and a permanent armoured ice-coat across its shoulders. Its breath freezes solid on contact with open air, producing a permanent mist cloud around its face. It excavates dens deep in glacier ice and hibernates for years between active periods." },
+    lore:"Hailwolf is a heavy-shouldered, shaggy ice-wolf 2 metres at the shoulder — Hailgorge's white fur and ice-spine hackles have lengthened and matted into thick grey-white fur and a permanent armoured ice-coat across its shoulders. Its breath freezes solid on contact with open air, producing a permanent mist cloud around its face. It excavates dens deep in glacier ice and hibernates for years between active periods." },
 
   // 204: Glaciovast - Ice/Normal (Nivelin→Glacivern→Glaciovast)
   52: { id:52, name:"Aurochill", emoji:"🐃", types:["Ice","Normal"],
@@ -6244,7 +6244,7 @@ const WORLD_DATA = {
     connections:["tempest_cliffs","route14"],
     wildMonsters:[
       {id:110, minLv:65, maxLv:70, rate:13},  // Aeolarch (final)
-      {id:113, minLv:65, maxLv:70, rate:12},  // Cyclavorn (final)
+      {id:113, minLv:65, maxLv:70, rate:12},  // Cyclondor (final)
       {id:115, minLv:65, maxLv:70, rate:25},  // Aetherworn (mid)
       {id:117, minLv:65, maxLv:70, rate:20},  // Pneumathos (mid)
       {id:62,  minLv:66, maxLv:70, rate:30}   // standalone
@@ -6403,7 +6403,7 @@ const WORLD_DATA = {
       {id:109, minLv:64, maxLv:69, rate:24},  // Siroccomane (mid, 108 on route13 ✓)
       {id:110, minLv:65, maxLv:70, rate:8},  // Aeolarch (final → after 109 ✓)
       {id:112, minLv:64, maxLv:69, rate:28},  // Swirlavel (mid, 111 on route13 ✓)
-      {id:113, minLv:65, maxLv:70, rate:8},  // Cyclavorn (final → after 112 ✓)
+      {id:113, minLv:65, maxLv:70, rate:8},  // Cyclondor (final → after 112 ✓)
       {id:115, minLv:65, maxLv:70, rate:18},  // Aetherworn (mid, 114 on route13 ✓)
       {id:117, minLv:65, maxLv:70, rate:14}   // Pneumathos (mid, 116 on route13 ✓)
     ],
@@ -6617,7 +6617,7 @@ const WORLD_DATA = {
       {id:239, minLv:65, maxLv:70, rate:28},  // Blizzariel (mid → 238 on gale_peak ✓)
       {id:240, minLv:66, maxLv:71, rate:8},  // Tundrafox (final → after 239 ✓)
       {id:285, minLv:65, maxLv:70, rate:18},  // Cloudrift (mid → Fluffkin on wind_hollow ✓)
-      {id:174, minLv:65, maxLv:70, rate:14}   // Scalevorn (standalone Draconic/Metal)
+      {id:174, minLv:65, maxLv:70, rate:14}   // Chromedrake (standalone Draconic/Metal)
     ],
     ngPlusWildMonsters:[{id:386, minLv:66, maxLv:71, rate:8}, {id:333, minLv:66, maxLv:71, rate:10}], // NG+ standalone: Voltfang
     hasGym:false, requiredBadges:12, mapPos:{x:16, y:97}
@@ -6661,7 +6661,7 @@ const WORLD_DATA = {
       {id:249, minLv:68, maxLv:73, rate:24},  // Boulderax (mid → 248 on route11/magma_vent ✓)
       {id:305, minLv:68, maxLv:73, rate:14},  // Snowmaw (mid → 304 Frostpelt on route15 ✓)
       {id:233, minLv:68, maxLv:73, rate:18},  // Serpenthorn (mid → 232 Draxon on route15 ✓)
-      {id:174, minLv:68, maxLv:73, rate:10},  // Scalevorn (standalone Draconic/Metal)
+      {id:174, minLv:68, maxLv:73, rate:10},  // Chromedrake (standalone Draconic/Metal)
       {id:251, minLv:67, maxLv:72, rate:28},  // Crumblite (base Rock/Metal, also route15)
       {id:282, minLv:68, maxLv:73, rate:6}   // Mechabrute (final → Cogvex on smelter_pass ✓)
     ],
@@ -8822,7 +8822,7 @@ const QUESTS_DATA = [
   { id:"q124", title:"Gusthaven Wind Sage", desc:"The ancient Wind Sage challenges only the strongest trainers.", location:"gusthaven", type:"boss", requiredBadges:12,
     boss:{monsterId:117, level:67, moves:["typhoon","mental","cyclone_blade","astral_rend"]},
     reward:{type:"item", itemId:"swiftFeather", qty:1}, rewardText:"Swift Feather" },
-  { id:"q125", title:"Cyclavorn Chase", desc:"A Cyclavorn has run amok through Gale Ridge! Calm it with battle.", location:"route13", type:"boss", requiredBadges:12,
+  { id:"q125", title:"Cyclondor Chase", desc:"A Cyclondor has run amok through Gale Ridge! Calm it with battle.", location:"route13", type:"boss", requiredBadges:12,
     boss:{monsterId:110, level:66, moves:["typhoon","volt_jet","cyclone_blade","storm_surge"]},
     reward:{type:"item", itemId:"xSpeed", qty:5}, rewardText:"5 Swift Charges" },
 

@@ -142,7 +142,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 
 ### Batch 3 (families 106-139)
 
-- `[246] Staticlaw→Thundravex→Megavolt | Electric | wolverine (mustelid)`
+- `[246] Staticclaw→Thundravex→Megavolt | Electric | wolverine (mustelid)`
 - `[247] Sparkeen | Electric/Dream | butterfly` (standalone Lepidoptera — dream-light flutterer. Kept as butterfly rather than a 3rd will-o-wisp, since Crealight #225 & Willowisp #368 already fill that slot; butterfly sits at cap-3 with Iridesoar/Aeridaleth once Venowarn→moth. Pristine Electric/Dream.)
 - `[250] Pebblard→Boulderax→Megalith | Earth | rock-monolith / standing stone` (second rock-monolith alongside Icequartz line)
 - `[252] Crumblite→Stonegrip | Metal/Mineral | lobster` (de-golemed 2026-06-13 from metal-golem — armored rock-crustacean with crushing stone-claws)
@@ -165,11 +165,11 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[285] Fluffkin→Cloudrift | Normal/Wind | cloud-elemental / wisp` (compact cloud with face — formless cloud being; under cap, but flag — could be wind-elemental too)
 - `[288] Fuzzlet→Cuddrix→Majesticore | Draconic/Fairy | kirin` (mythical, just claimed)
 - `[289] Bouncyblob | Normal/Vapor | slime / blob` (mythical, standalone; added Vapor 2026-06-12 — a warm condensed-vapor gel blob; Normal mono→pristine Normal/Vapor)
-- `[290] Mimiclaw | Normal/Dark | cat` (mimic-cat — second cat alongside Fluffen line + Cinderpaw + Emberveil)
+- `[290] Mimicat | Normal/Dark | cat` (mimic-cat — second cat alongside Fluffen line + Cinderpaw + Emberveil)
 - `[292] Breezekin→Galehorn | Wind/Sonic | antelope` (pristine archetype)
 - `[295] Gustpuff→Stormwing→Cyclonax | Electric/Draconic | dragon-mythic` (sub: wind-dragon)
 - `[298] Plaguefly→Pestquito→Plagueoth | Poison/Toxin | mosquito` (Diptera — relabeled off moth 2026-06-13; emoji 🦟 + desc/lore "plague mosquito" across all 3 stages. Resolves the old BREAKING-list moth/butterfly flag)
-- `[300] Stinglet→Nettleclaw | Toxin/Sonic | bee (Hymenoptera)` (currently inconsistent — bee→scorpion-bee hybrid on BREAKING list)
+- `[300] Stinglet→Nettlebarb | Toxin/Sonic | bee (Hymenoptera)` (currently inconsistent — bee→scorpion-bee hybrid on BREAKING list)
 - `[301] Emberveil | Fire/Spectral | cat` (smouldering ghost-cat, standalone — third cat; retyped Fire/Dark→Fire/Spectral for diversity)
 - `[303] Lightpuff→Lumivane | Fairy/Mental | starlight-orb` (luminous starlight sphere with non-severing light-limbs that archives astronomical data — NOT a faerie-sprite humanoid; archetype relabeled to resolve the false collision with Psytheon, which keeps the faerie-sprite slot. Stays Fairy/Mental.)
 - `[306] Frostpelt→Snowmaw→Yetigrand | Earth/Ice | yeti` (de-monolithed 2026-06-13 from rock-monolith — frozen-mountain snow-beast line; renamed from Icethorn/Geoshard/Crystallon)
@@ -204,7 +204,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[335] Frostprowl | Ice/Wind | feline (snow-leopard / cheetah)` (ice-wind feline — distinct from cat/lion; pristine snow-cat sub-archetype)
 - `[336] Coilstrike | Electric/Poison | serpent (non-dragon)` (electric-poison snake)
 - `[337] Ashgolem (→Embersteel #347) | Fire/Mineral | forge-golem` (base of the forge-golem line; see [347])
-- `[338] Rimeclaw | Ice | hawk` (ice-hawk that nests on storm-capped peaks; subdivided out of "bird-of-prey/raptor" 2026-06-13)
+- `[338] Rimehawk | Ice | hawk` (ice-hawk that nests on storm-capped peaks; subdivided out of "bird-of-prey/raptor" 2026-06-13)
 - `[339] Voltbeetle | Electric/Sonic | beetle` (fifth beetle)
 - `[340] Cryoshard | Ice/Sonic | resonant-crystal` (resonant crystal-prism; retyped Ice/Mental→Ice/Sonic to break the Ice/Mental crystalline-prism clash with Shardlix — Shardlix keeps the crystalline-prism slot, Cryoshard pivots to a sound-resonance identity)
 - `[341] Mirestone (→Chronolith #388) | Earth/Mental | rock-monolith` (base of the monolith line; see [388])
@@ -240,7 +240,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[368] Willowisp | Fire/Spectral | will-o-wisp` (mythical sole)
 - `[369] Gravithorn (→Abyssforge) | Earth/Mineral | earth-golem` (mid of the earth-golem line — gravity by sheer mineral density; see [377])
 - `[370] Cyclotron | Electric/Sonic | thunderstorm-disaster` (over cap with Tempestborn/Nullstorm)
-- `[371] Nullform | Dark/Normal | shapeshifter / mimic` (matte-black form-shifter — second mimic alongside Mimiclaw)
+- `[371] Nullform | Dark/Normal | shapeshifter / mimic` (matte-black form-shifter — second mimic alongside Mimicat)
 - `[372] Prismancer | Mental/Mineral | chameleon` (re-archetyped from psychic/mineral-dragon 2026-06-10; prismatic colour-shift reptile)
 - `[373] Voidrend | Dark/Spectral | void / cosmic` (reality-tearing dark-ghost — fourth void/cosmic. **⚠ Pre-408 with Ghost typing**)
 - `[375] Fluxserpent | Electric/Mental | electric-elemental serpent` (current-loop serpent — sole electric-elemental candidate; or could classify as serpent variant)
@@ -285,7 +285,7 @@ The 22 NG+-exclusive families added in the dex-to-500 expansion (#57). Regular d
 - `[416] Grublurk→Tunnelmaw→Sandscourge | Toxin / Earth-Toxin | sandworm (annelid)` (F3; detoxifying soil-grub → mineral-toothed borer → colossal dune-leviathan. PRISTINE sandworm slot, distinct from serpent. Both types pre-462-allowed; good Toxin distribution. emoji/desc/lore clean, no leaks.)
 - `[419] Glacigeist→Frostmarion→Pallidoll | Spectral / Ice-Spectral | haunted-doll (marionette)` (F4; houseless spirit → frost-lacquered marionette → life-size haunted doll. This is the **haunted-doll** spectral sub-archetype already named in the LOCKED wraith-split policy (Pallidoll). Both types pre-462-allowed. desc/lore clean, no leaks; 418 emoji ❄️ kept as the Ice-onset stage (minor — 🎎 would be more body-literal).)
 - `[422] Steamkit→Geyserook→Tempesteam | Vapor / Fire-Vapor | capybara (rodent)` (F5; placid hot-spring line — downy spring-pup → thermal-vent beast → steam-cloaked behemoth. PRISTINE capybara slot, per-species read (distinct from rat #271 / mole-rat #325; rodent is NOT an umbrella cap). Both types pre-462-allowed; good Vapor distribution. emoji ♨️ codes habitat not body but consistent. clean.)
-- `[425] Pebblite→Geodon→Strataclaw | Mineral / Metal-Mineral | pangolin` (F6; mineral ball-roller → metal-veined armor → strata-scaled digging titan. PRISTINE pangolin, distinct from hedgehog/echidna/armadillo/mole-rat. Good Mineral distribution. emoji theme-coded 🪨/🦔/⛏️, kept. clean.)
+- `[425] Pebblite→Geodon→Strataback | Mineral / Metal-Mineral | pangolin` (F6; mineral ball-roller → metal-veined armor → strata-scaled digging titan. PRISTINE pangolin, distinct from hedgehog/echidna/armadillo/mole-rat. Good Mineral distribution. emoji theme-coded 🪨/🦔/⛏️, kept. clean.)
 - `[428] Pummelo→Brawlmonk→Zenkaiser | Fighting / Fighting-Mental | mantis` (F7; martial-mantis duelist line. 2nd mantis alongside Chittering #324 — within animal cap-3. Good Fighting+Mental distribution. 🦗 cricket stand-in kept (no mantis emoji). clean.)
 - `[431] Lullasnout→Drowsetapir→Nocturnbaku | Dream / Dark-Dream | tapir (baku)` (F8; dream-eater line — snouted cub → nightmare-eating tapir → dreamscape-walking baku. PRISTINE tapir, animal-first read (baku folkloric flavor), NOT a formless dream-entity. Good Dream distribution. 🌙 theme-emoji kept. clean.)
 - `[434] Tusklet→Verdantusk→Primammoth | Primal / Nature-Primal | mammoth (proboscidean)` (LEGENDARY line, F9. PRISTINE mammoth, animal-first (NOT primordial-titan despite "living mountain" language). Primal is reserved post-game: **KEPT** under legendary+intrinsic-primeval-lore exception — all 3 legendary; "elder world / first forest / before names" coding throughout; no pre-462 type captures primeval (Nature covers the moss half). clean.)
@@ -395,11 +395,11 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **crystalline-prism** | 3 | exempt | — | **Mythical-exempt** (CLAUDE.md) — resolves the old exempt-vs-trim contradiction. Aurarael #169 (orbiting 7-shard cluster + face), Shardlix #241 (ice-crystal humanoid), Crystalmind #381 (geometric polyhedron) — three distinct forms, no redundant look-alikes to cull. Old "5/trim 2" was stale: Cryoshard #340 already pivoted to resonant-crystal, Sparkeis #493 is post-game. Spectravore #351 is a separate "prismatic being". No cull. |
 | **eagle** | 1 | 3 | under cap | Vortexathos (#91). Subdivided out of "bird-of-prey/raptor" 2026-06-13. |
 | **condor / vulture** | 1 | 3 | under cap | Cyclavorn (#113). Subdivided 2026-06-13. |
-| **hawk** | 1 | 3 | under cap | Rimeclaw (#338). Subdivided 2026-06-13. |
+| **hawk** | 1 | 3 | under cap | Rimehawk (#338). Subdivided 2026-06-13. |
 | _(raptor superfamily, already distinct)_ | — | — | — | thunderbird Stormcrown (#389), griffin Heliogriff (#394), harpy Zephyrak (#478, post-game). The old "bird-of-prey/raptor: 5, trim 2" bucket dissolved by subdivision — each raptor type now sits at 1, no cull needed. |
 | **treant / walking-tree** | 4 | 3 | trim 1 | **LOCKED capped (not exempt).** Keep Necrothon, Impenezard, Thornspire; re-archetype Silthorn #326→carnivorous-plant. (Rootborn is Forgotten 462+, excluded.) |
 | **void / cosmic abstract** | 9 | exempt | — | Cerebraith, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Cosmoveil, Nihilax, Cosmolith. Mythical-exempt. |
-| **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Mimiclaw, Emberveil, Cinderpaw. |
+| **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Mimicat, Emberveil, Cinderpaw. |
 | **thunderstorm-disaster** | 3 | 1+1 | trim 1-2 | Cyclotron, Tempestborn, Nullstorm. (See storm-elemental TODO entry.) |
 | **fire-dragon legendary cluster** | 1 (Dragemian; Infernotitan→salamander, Heliogriff→griffin, Bahamber→feathered-serpent, Blazeon→phoenix re-archetyped out) + chain finals (Calderaeth, Stardrax) | n/a | discuss | All under dragon-mythic exempt but sub-flavor crowded. |
 

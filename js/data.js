@@ -2685,27 +2685,27 @@ const MONSTERS_DATA = {
     desc:"A dragonfly whose droning wings lull prey into a daze, herding the dazzled swarm into mid-air traps.",
     lore:"Stuntrap is a dragonfly 25 centimetres in wingspan that has moulted from Pulseglow's firefly form — the pulsing light its young once flickered for communication has matured into a low, hypnotic wing-drone pitched to lull. It hunts by weaving that drone through the air until smaller insects fall into a glassy-eyed daze, then herds the stupefied swarm into a tight knot before picking them off. Sleepers who doze too near a Stuntrap colony often wake reporting strangely vivid, looping dreams." },
 
-  // 3-stage Electric/Fighting chain: Staticlaw → Thundravex → Megavolt
-  244: { id:244, name:"Staticlaw", emoji:"🦡", types:["Electric"],
+  // 3-stage Electric/Fighting chain: Staticclaw → Thundravex → Megavolt
+  244: { id:244, name:"Staticclaw", emoji:"🦡", types:["Electric"],
     base:{hp:58,atk:68,def:52,spa:72,spd:55,spe:88},
     learnset:[[1,"jolt"],[1,"static_strike"],[8,"thunder_jab"],[12,"volt_jet"],[16,"static_charge"],[20,"galvanic_burst"],[24,"spark_claw"],[30,"arc_flash"],[38,"ball_lightning"],[46,"stormbolt"],[54,"plasma_strike"]],
     evolveTo:245, evolveLevel:28, catchRate:160, expYield:80, rarity:"common",
     desc:"A small electric weasel-kit whose short fur permanently crackles with static. Runs in tight circles to build charge before discharging into the ground.",
-    lore:"Staticlaw is a small electric weasel-kit 30 centimetres at the shoulder with short yellow-white fur that permanently crackles with static charge. Its claws generate small static shocks on contact with any surface. It is perpetually restless and accumulates electrical charge by running in tight circles, periodically discharging the built-up energy into the ground in flashes that startle larger creatures away." },
+    lore:"Staticclaw is a small electric weasel-kit 30 centimetres at the shoulder with short yellow-white fur that permanently crackles with static charge. Its claws generate small static shocks on contact with any surface. It is perpetually restless and accumulates electrical charge by running in tight circles, periodically discharging the built-up energy into the ground in flashes that startle larger creatures away." },
 
   245: { id:245, name:"Thundravex", emoji:"⚡", types:["Electric"],
     base:{hp:82,atk:90,def:72,spa:110,spd:80,spe:108},
     learnset:[[1,"volt_jet"],[1,"galvanic_burst"],[14,"nuzzle"],[20,"spark_claw"],[22,"ball_lightning"],[30,"arc_flash"],[38,"stormbolt"],[46,"volt_surge"],[54,"plasma_strike"],[62,"radiance_cannon"]],
     evolveTo:246, evolveLevel:48, catchRate:75, expYield:165, rarity:"uncommon",
     desc:"An adolescent thunder-weasel 60 centimetres at the shoulder. Its dorsal stripe glows when it accumulates static, and arcs jump constantly between its alert ears.",
-    lore:"Thundravex is a 60-centimetre adolescent mustelid, longer-bodied and more muscular than its Staticlaw juvenile stage, with bright yellow fur and a dark dorsal stripe that runs from the back of its head to the tip of its sleek tail. Electrical arcs constantly jump between its alert pointed ears, and the dorsal stripe glows brighter when the static charge built up in its body approaches discharge. It emits a continuous 50 Hz hum audible up close, and inhabits open areas near tall trees it uses as earthing points to safely release accumulated charge." },
+    lore:"Thundravex is a 60-centimetre adolescent mustelid, longer-bodied and more muscular than its Staticclaw juvenile stage, with bright yellow fur and a dark dorsal stripe that runs from the back of its head to the tip of its sleek tail. Electrical arcs constantly jump between its alert pointed ears, and the dorsal stripe glows brighter when the static charge built up in its body approaches discharge. It emits a continuous 50 Hz hum audible up close, and inhabits open areas near tall trees it uses as earthing points to safely release accumulated charge." },
 
   246: { id:246, name:"Megavolt", emoji:"🦡", types:["Electric"],
     base:{hp:89,atk:93,def:76,spa:111,spd:80,spe:101},
     learnset:[[1,"stormbolt"],[1,"galvanic_burst"],[10,"chain_spark"],[16,"spark_claw"],[22,"lightning_rush"],[28,"relay_shock"],[32,"ball_lightning"],[36,"plasma_punch"],[40,"plasma_strike"],[44,"rising_voltage"],[46,"tesla_fists"],[48,"arc_flash"],[56,"volt_surge"],[64,"overcharge"],[72,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:270, rarity:"rare",
     desc:"A massive thunder-wolverine 1 metre at the shoulder, fearless and apex among electric predators. Its collar of crackling coils announces its presence with audible static.",
-    lore:"Megavolt is a massive thunder-wolverine 1 metre at the shoulder, the apex form of the Staticlaw→Thundravex lineage. Its body is heavily muscled with chrome-yellow fur and a thick collar of crackling electric coils running from the back of its neck down both shoulders, mistaken at distance for a felid mane. It is fearless to the point of recklessness, attacking creatures many times its size to defend its territory, and the visible electrical shockwave that accompanies its roar temporarily blinds and deafens those nearby. It is considered the apex electric predator of any region it claims." },
+    lore:"Megavolt is a massive thunder-wolverine 1 metre at the shoulder, the apex form of the Staticclaw→Thundravex lineage. Its body is heavily muscled with chrome-yellow fur and a thick collar of crackling electric coils running from the back of its neck down both shoulders, mistaken at distance for a felid mane. It is fearless to the point of recklessness, attacking creatures many times its size to defend its territory, and the visible electrical shockwave that accompanies its roar temporarily blinds and deafens those nearby. It is considered the apex electric predator of any region it claims." },
 
   // Standalone Electric/Bug: Sparkeen
   247: { id:247, name:"Sparkeen", emoji:"🦋", types:["Electric","Dream"],
@@ -3043,13 +3043,13 @@ const MONSTERS_DATA = {
     desc:"A buoyant blob of warm condensed vapor held in a gel skin. It soaks up impacts and rebounds ever higher.",
     lore:"Bouncyblob is a 30 cm sphere of pale-pink gel filled with warm condensed vapor. It bounces continuously regardless of surface, the vapor inside expanding and recompressing to fling it higher with every landing; physical blows are simply absorbed and redirected into bigger bounces. On cold mornings it leaves a faint trail of mist where it touches down, and a startled one can burst into a brief warm fog before reforming." },
 
-  // Standalone Normal/Spectral: Mimiclaw (evolves in gloomy location)
-  290: { id:290, name:"Mimiclaw", emoji:"🎭", types:["Normal","Dark"],
+  // Standalone Normal/Spectral: Mimicat (evolves in gloomy location)
+  290: { id:290, name:"Mimicat", emoji:"🎭", types:["Normal","Dark"],
     base:{hp:82,atk:90,def:78,spa:95,spd:85,spe:102},
     learnset:[[1,"collide"],[1,"nether_sphere"],[15,"phantom_claw"],[25,"eclipse_shroud"],[35,"crushing_bulk"],[45,"soul_rend"],[55,"nether_sphere"],[65,"radiance_cannon"],[67,"cranial_ram"]],
     evolveTo:null, evolveLevel:null, evolveLocation:"cobweb_gully", evolveMethod:"location", catchRate:52, expYield:212, rarity:"uncommon",
     desc:"An unsettling mimic that copies the appearance of other Lumori. Found deep in haunted gullies and ruins.",
-    lore:"Mimiclaw is a dark-normal creature 40 cm long resembling a cat with dark grey fur and the ability to shift its outline. Its face can rearrange its features to mimic any creature it has studied for ten minutes or more. It uses mimicry of distressed sounds to lure curious prey within reach." },
+    lore:"Mimicat is a dark-normal creature 40 cm long resembling a cat with dark grey fur and the ability to shift its outline. Its face can rearrange its features to mimic any creature it has studied for ten minutes or more. It uses mimicry of distressed sounds to lure curious prey within reach." },
 
   // 2-stage Wind chain: Breezekin → Galehorn (level 28)
   291: { id:291, name:"Breezekin", emoji:"🌬️", types:["Wind"],
@@ -3114,7 +3114,7 @@ const MONSTERS_DATA = {
     desc:"The plague mosquito. Ancient texts describe its awakening as an omen of great pestilence. A single drain leaves victims hollowed.",
     lore:"Plagueoth is a large poison-toxin mosquito 60 cm long — Pestquito's elongated bark-piercing proboscis has lengthened further into a needle as long as its body, and the slim juvenile abdomen has bloated into a venom-sac. Its ragged dark wings have a 1.5 m span. It inhabits abandoned buildings and decaying swampland, draining the vital fluids of any creature unfortunate enough to be caught alone at dusk." },
 
-  // 2-stage Toxin/Sonic chain: Stinglet → Nettleclaw (level 28)
+  // 2-stage Toxin/Sonic chain: Stinglet → Nettlebarb (level 28)
   299: { id:299, name:"Stinglet", emoji:"🐝", types:["Toxin","Sonic"],
     base:{hp:50,atk:65,def:52,spa:58,spd:55,spe:78},
     learnset:[[1,"resonance_hum"],[1,"septic_prick"],[5,"toxic_kiss"],[8,"discord"],[12,"shear_strike"],[15,"squalid_field"],[18,"silent_strike"],[22,"ooze_bomb"],[32,"toxify"],[42,"virulent_surge"],[52,"venom_lance"],[60,"radiance_cannon"],[62,"toxin_pulse"],[63,"shake_smash"]],
@@ -3122,12 +3122,12 @@ const MONSTERS_DATA = {
     desc:"A bee-like stinger creature with a massive venomous barb. Builds hives from toxic resin.",
     lore:"Stinglet is a small toxin-sonic bee 8 cm long with a bright yellow-and-black striped abdomen. Its stinger contains a venom that causes localised swelling and intense pain. It is fiercely territorial around its nest and coordinates with colony-mates using chemical signals to perform coordinated defence responses." },
 
-  300: { id:300, name:"Nettleclaw", emoji:"🐝", types:["Toxin","Sonic"],
+  300: { id:300, name:"Nettlebarb", emoji:"🐝", types:["Toxin","Sonic"],
     base:{hp:80,atk:105,def:80,spa:88,spd:80,spe:95},
     learnset:[[1,"shear_strike"],[1,"venom_lance"],[5,"echo_strike"],[6,"discord"],[8,"quill_barrage"],[10,"echo_chamber"],[12,"mantis_slash"],[15,"toxic_kiss"],[18,"maul"],[20,"venom_ray"],[22,"toxify"],[25,"squalid_field"],[28,"infestation"],[30,"virulent_surge"],[32,"pox_mark"],[34,"twin_sting"],[36,"hivemind_surge"],[38,"ooze_bomb"],[40,"swarm_assault"],[44,"locust_fury"],[46,"resonance_hum"],[48,"wave_cry"],[50,"swarm_strike"],[54,"sludge_wave"],[62,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:218, rarity:"uncommon",
     desc:"A great venom-bee with an elongated stinger-tail. The whip-stinger arches scorpion-like over its back but is true bee anatomy, parallel-evolved from the standard sting.",
-    lore:"Nettleclaw is a large toxin-sonic bee 25 cm long — Stinglet's bright yellow-and-black striped abdomen has matured across an entire body still bee-striped yellow-and-black, with four membranous wings and an elongated segmented stinger-tail that arches scorpion-like over its back. The whip-stinger is parallel-evolved from the bee's standard sting, not arachnid heritage. It is solitary and aggressive — unusual for Hymenoptera — marking territory with scent-trails that it defends vigorously against any trespasser regardless of size." },
+    lore:"Nettlebarb is a large toxin-sonic bee 25 cm long — Stinglet's bright yellow-and-black striped abdomen has matured across an entire body still bee-striped yellow-and-black, with four membranous wings and an elongated segmented stinger-tail that arches scorpion-like over its back. The whip-stinger is parallel-evolved from the bee's standard sting, not arachnid heritage. It is solitary and aggressive — unusual for Hymenoptera — marking territory with scent-trails that it defends vigorously against any trespasser regardless of size." },
 
   // Standalone Fire/Spectral: Emberveil
   301: { id:301, name:"Emberveil", emoji:"🔥", types:["Fire","Spectral"],
@@ -4181,12 +4181,12 @@ const MONSTERS_DATA = {
     desc:"A young volcanic golem of cracked basalt and magma. Its cooling shell slowly tempers toward steel.",
     lore:"Ashgolem is a fire-mineral golem 2 metres tall with a body of cooling basalt cracked to reveal glowing magma beneath, ash and cinders constantly drifting from its surface. It is still young: each time its molten core flares and cools, the basalt shell hardens a little further toward true metal. Sheathed in an Iron Shell, that slow tempering completes all at once, and the ash-golem is forged into the white-hot steel guardian Embersteel." },
 
-  338: { id:338, name:"Rimeclaw", emoji:"🦅", types:["Ice"],
+  338: { id:338, name:"Rimehawk", emoji:"🦅", types:["Ice"],
     base:{hp:64,atk:88,def:61,spa:76,spd:69,spe:97}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"flurries"],[5,"zephyr_dance"],[8,"breeze"],[15,"frost_crash"],[18,"glacial_punch"],[28,"wind_scythe"],[35,"cold_beam"],[38,"cryo_lance"],[48,"whiteout"],[50,"avalanche_drive"],[58,"tailwind_strike"]],
     catchRate:25, expYield:258, rarity:"rare",
     desc:"A hawk that nests on storm-capped peaks. Its talons are perpetually coated in razor-sharp ice.",
-    lore:"Rimeclaw is an ice-flying raptor with a 2.4-metre wingspan and talons of permanent glacial ice that never melt. Its primary feathers cut like edged weapons." },
+    lore:"Rimehawk is an ice-flying raptor with a 2.4-metre wingspan and talons of permanent glacial ice that never melt. Its primary feathers cut like edged weapons." },
 
   339: { id:339, name:"Voltbeetle", emoji:"⚡", types:["Electric","Sonic"],
     base:{hp:66,atk:81,def:86,spa:75,spd:72,spe:80}, evolveTo:null, evolveLevel:null,
@@ -4816,12 +4816,12 @@ const MONSTERS_DATA = {
     desc:"Its mineral scales have hardened with veins of native metal into a near-impervious armour.",
     lore:"As it matures, Geodon begins smelting trace metals from the ore it eats, threading its mineral scales with veins of iron and copper until they ring like struck plate. It uses its bladed foreclaws to tear open termite mounds and ore seams alike, and a curled Geodon has turned the teeth of more than one predator. The metallic sheen of its armour deepens with age." },
 
-  425: { id:425, name:"Strataclaw", emoji:"⛏️", types:["Metal","Mineral"],
+  425: { id:425, name:"Strataback", emoji:"⛏️", types:["Metal","Mineral"],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:252, rarity:"rare",
     base:{hp:90,atk:115,def:140,spa:55,spd:75,spe:45}, // BST 520
     learnset:[[1,"ore_punch"],[1,"chrome_claw"],[1,"bulwark"],[20,"quarry_speed"],[28,"cobble_smash"],[35,"granite_press"],[40,"ore_smash"],[45,"mineral_blast"],[46,"alloy_tail"],[52,"obsidian_strike"],[58,"anvil_drop"],[64,"tungsten_ram"]],
     desc:"A great pangolin whose scales are layered like strata of tempered metal and stone over a digging titan.",
-    lore:"Strataclaw is a digging titan whose every scale is a laminate of stone and tempered metal laid down in visible strata, each band a record of the ground it has eaten through. Its forelimbs end in pick-like claws that quarry through bedrock as easily as soil, and it carves the deep dens that whole communities of smaller Lumori later inhabit. Miners who find its abandoned tunnels follow them gratefully toward the richest seams." },
+    lore:"Strataback is a digging titan whose every scale is a laminate of stone and tempered metal laid down in visible strata, each band a record of the ground it has eaten through. Its forelimbs end in pick-like claws that quarry through bedrock as easily as soil, and it carves the deep dens that whole communities of smaller Lumori later inhabit. Miners who find its abandoned tunnels follow them gratefully toward the richest seams." },
 
   // --- F7: martial mantis (Fighting / Fighting-Mental) ---
   426: { id:426, name:"Pummelo", emoji:"🦗", types:["Fighting"],
@@ -6264,7 +6264,7 @@ const WORLD_DATA = {
       {id:153, minLv:66, maxLv:71, rate:17},  // Dentshaft (base)
       {id:55,  minLv:67, maxLv:72, rate:9},  // standalone steel
       {id:278, minLv:65, maxLv:70, rate:10},  // Ironpix (base Metal/Fairy)
-      {id:244, minLv:65, maxLv:70, rate:7},  // Staticlaw (base Electric)
+      {id:244, minLv:65, maxLv:70, rate:7},  // Staticclaw (base Electric)
       {id:280, minLv:65, maxLv:70, rate:5}    // Gearbit (base Metal/Ground)
     ],
     hasGym:false, requiredBadges:13, mapPos:{x:28, y:92},
@@ -6585,7 +6585,7 @@ const WORLD_DATA = {
       {id:199, minLv:63, maxLv:68, rate:27},  // Aeridaleth (final Bug)
       {id:265, minLv:63, maxLv:68, rate:23},  // Mosshop (standalone Grass/Bug)
       {id:273, minLv:63, maxLv:68, rate:13},  // Blazeon (phoenix final → Embrix 272 on fungal_cavern ✓)
-      {id:290, minLv:63, maxLv:68, rate:10}   // Mimiclaw (location evo cobweb_gully nearby)
+      {id:290, minLv:63, maxLv:68, rate:10}   // Mimicat (location evo cobweb_gully nearby)
     ],
     legendaryEncounter:{monsterId:318, level:69}, // static legendary (obtainability fix)
     ngPlusWildMonsters:[{id:390, minLv:64, maxLv:69, rate:8}], // thinned from mega-area

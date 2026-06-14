@@ -34,7 +34,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[3] Solkin→Pyrevix→Calderaeth | Fire/Draconic | dragon-mythic` (sub: fire-dragon-fox/kitsune-dragon hybrid)
 - `[6] Aquatter→Cobaleap→Banksnout | Aquatic/Dark | otter (mustelid)`
 - `[9] Verdkin→Barknell→Garlawarden | Nature/Fairy | saurian` (sub: bark-dinosaur with petals — borderline treant-saurian hybrid)
-- `[12] Scorchlarva→Heliocoon→Inferarch | Fire/Wind | moth (Lepidoptera)`
+- `[12] Scorchlarva→Heliocoon→Pyromoth | Fire/Wind | moth (Lepidoptera)`
 - `[15] Taurcin→Molteroth→Pyroclasm | Fire/Earth | bull-titan / minotaur` (mythical sub: volcanic bull-titan, bipedal final)
 - `[18] Cindercula→Searburn→Quetzember | Fire/Wind | feathered-serpent` (sub: plumed fire-serpent / Quetzalcoatl; base #16 stays mono-Fire)
 - `[21] Magmaurin→Embrath→Terravore | Fire/Earth | rhinoceros` (de-saurianed 2026-06-13 — magma-rhino line, calf→great charging magma-rhino; fixes old mole→lizard→dino incoherence)
@@ -85,7 +85,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[136] Aeronyx→Steelvex→Metalibat | Metal/Dark | bat` (**name leak in #136: "Ferrovast"**)
 - `[139] Goldefluff→Aetherael→Lumiarch | Fairy | fairy-hound` (canine-fairy mythical)
 - `[141] Faedust→Iridesoar | Fairy/Wind | butterfly` (**name leak in #141: "Prisoveth"**)
-- `[144] Dawnirel→Lunarael→Celestarch | Fairy/Mental | star / celestial cosmic` (mythical)
+- `[144] Dawnirel→Lunarael→Moonseraph | Fairy/Mental | star / celestial cosmic` (mythical)
 - `[146] Faerrin→Shinarith | Fairy/Metal | armor-suit` (fairy-armored guardian)
 - `[149] Scrapsapien→Stoicguard→Eternarmor | Metal | metal-golem` (**name leak in #149: "Adamovast"**)
 - `[151] Voltcrawl→Voltipede | Metal/Electric | centipede` (de-golemed 2026-06-13 from automaton — armored electric myriapod; renamed from Gearon/Alloytron)
@@ -219,7 +219,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 
 - `[347] Ashgolem→Embersteel | Metal/Fire | forge-golem` (sub: forge-golem / smith-construct; merged 2026-06-12 from 2 NG+ golem standalones via Metal Coat — Fire/Mineral ash-golem → Metal/Fire forged-steel guardian)
 - `[348] Galeswift | Wind/Sonic | swift` (re-archetyped from wind-dragon 2026-06-10; never-landing storm-swift; renamed from Galedrake)
-- `[349] Crystavault (→Glaciarch→Permafrost) | Ice/Mineral | ice-golem` (base of the ice-golem line; see [385])
+- `[349] Crystavault (→Cryoseer→Permafrost) | Ice/Mineral | ice-golem` (base of the ice-golem line; see [385])
 - `[350] Fernwrath | Nature/Mineral | iguana` (re-archetyped from grass-dragon 2026-06-10; bark-scaled forest iguana)
 - `[351] Spectravore | Mental/Mineral | rainbow / prismatic being` (iridescent humanoid silhouette with all-colour aura — unique sub)
 - `[352] Voidlord | Mental/Spectral | void / cosmic abstract being` (mythical — third void/cosmic alongside Cerebraith/Voidraxis)
@@ -228,7 +228,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[355] Gloommaw | Aquatic/Toxin | eel` (armoured eel — second eel alongside Dynameel)
 - `[357] Thornspire | Nature/Metal | treant` (8m steel-branched tree — fourth treant)
 - `[358] Pyrocrown | Fire/Mental | phoenix / solar bird` (mythical-exempt — sole phoenix family)
-- `[359] Glaciarch (→Permafrost) | Ice/Mental | ice-golem` (mid of the ice-golem line; see [385])
+- `[359] Cryoseer (→Permafrost) | Ice/Mental | ice-golem` (mid of the ice-golem line; see [385])
 - `[360] Duskmantle | Dark/Mental | duality being` (half-fairy half-shadow; unique sub-archetype)
 - `[361] Tectoshell | Earth/Nature | zaratan / island-turtle` (re-archetyped from ground-dragon 2026-06-10; living-landscape shell)
 - `[362] Lunaspectre | Mental/Spectral | moonlight-spectre` (split out of wraith bucket per policy; Spectral is pre-Forgotten-allowed — stale Ghost flag cleared)
@@ -256,7 +256,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 
 - `[383] Apexblade | Metal/Aquatic | swordfish` (re-archetyped from steel-dragon 2026-06-10; living-blade sea predator)
 - `[384] Solarcrown | Fire/Stellar | phoenix / solar-being` (third solar archetype with Pyrocrown/Solarwrath)
-- `[385] Crystavault→Glaciarch→Permafrost | Ice/Earth | ice-golem` (sub: ice-golem; merged 2026-06-12 from 3 NG+ golem standalones — young crystal-ice construct → awakened ice-sovereign → ancient earth-fused glacial titan; secondary type shifts Mineral→Mental→Earth, no cap impact)
+- `[385] Crystavault→Cryoseer→Permafrost | Ice/Earth | ice-golem` (sub: ice-golem; merged 2026-06-12 from 3 NG+ golem standalones — young crystal-ice construct → awakened ice-sovereign → ancient earth-fused glacial titan; secondary type shifts Mineral→Mental→Earth, no cap impact)
 - `[386] Wraithstorm | Electric/Spectral | storm-wraith` (split out of wraith bucket per policy)
 - `[387] Deepvoid | Dark/Aquatic | void / cosmic abstract being` (sub: aquatic void — fifth void/cosmic)
 - `[388] Mirestone→Chronolith | Earth/Mental | rock-monolith` (sub: rune-monolith → time-stone; merged 2026-06-12 from 2 NG+ standalones — IS the Earth/Mental pairing, count 2)
@@ -280,7 +280,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 
 The 22 NG+-exclusive families added in the dex-to-500 expansion (#57). Regular dex members — they **DO** count toward caps (per the fixed `oversaturated_combos.py` threshold = 462). Each carries a designer intent comment in `js/data.js` (`// --- Fn: ... ---`). Classified one family per approval during the UNIFIED walk.
 
-- `[410] Glimmerling→Facetite→Prismarch | Crystal / Crystal-Fairy | tortoise (gem-shelled)` (LEGENDARY line, F1. 2nd tortoise alongside Imperion #152 — within animal cap-3. Crystal is legacy pre-462: **KEPT** under the legendary+intrinsic-prism-lore exception — all 3 stages legendary; prism/rainbow coding throughout the line; Mineral would lose the light-refraction identity. emoji/desc/lore clean, no name leaks.)
+- `[410] Glimmerling→Facetite→Prismdome | Crystal / Crystal-Fairy | tortoise (gem-shelled)` (LEGENDARY line, F1. 2nd tortoise alongside Imperion #152 — within animal cap-3. Crystal is legacy pre-462: **KEPT** under the legendary+intrinsic-prism-lore exception — all 3 stages legendary; prism/rainbow coding throughout the line; Mineral would lose the light-refraction identity. emoji/desc/lore clean, no name leaks.)
 - `[413] Thrumquill→Echostride→Resonadon | Sonic / Draconic-Sonic | ratite (cassowary)` (F2; flightless booming bird — buzz-quill chick → scaled draconic runner → casqued infrasound giant. PRISTINE ratite slot, distinct from albatross/owl/raptor. Both types pre-462-allowed; good Sonic distribution. emoji/desc/lore clean, no leaks.)
 - `[416] Grublurk→Tunnelmaw→Sandscourge | Toxin / Earth-Toxin | sandworm (annelid)` (F3; detoxifying soil-grub → mineral-toothed borer → colossal dune-leviathan. PRISTINE sandworm slot, distinct from serpent. Both types pre-462-allowed; good Toxin distribution. emoji/desc/lore clean, no leaks.)
 - `[419] Glacigeist→Frostmarion→Pallidoll | Spectral / Ice-Spectral | haunted-doll (marionette)` (F4; houseless spirit → frost-lacquered marionette → life-size haunted doll. This is the **haunted-doll** spectral sub-archetype already named in the LOCKED wraith-split policy (Pallidoll). Both types pre-462-allowed. desc/lore clean, no leaks; 418 emoji ❄️ kept as the Ice-onset stage (minor — 🎎 would be more body-literal).)
@@ -387,7 +387,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **psychic-dragon** (sub) | 6 | n/a | discuss | Same. |
 | **lion** | 2 pre-462 (+Pyraeon postgame) | 3 | under cap | Ignitheon (fire-oracle), Aeolarch (storm) lines. Dravanas→hyena done 2026-06-13. |
 | **cetacean** | 5 | 3 | trim 2 | **LOCKED common cap-3.** Keep Torrentox (orca), Riftwhale (psychic-whale), Titanomare (steel-whale titan); re-archetype Marevanos #40→manta-ray, Tidephant #309→pinniped. (Pelagor is Forgotten 462+, excluded.) |
-| **moth** | 3 | 3 | at cap | Inferarch (#12), Venowarn (#165), Thornmoth (#331). Split out of the old "Lepidoptera" bucket 2026-06-13; Mosshop #265→grasshopper, Venowarn reclassified butterfly→moth. |
+| **moth** | 3 | 3 | at cap | Pyromoth (#12), Venowarn (#165), Thornmoth (#331). Split out of the old "Lepidoptera" bucket 2026-06-13; Mosshop #265→grasshopper, Venowarn reclassified butterfly→moth. |
 | **grasshopper (Orthoptera)** | 1 | 3 | under cap | Mosshop (#265). Pristine archetype, re-archetyped off moth 2026-06-13. |
 | **butterfly** | 3 | 3 | at cap | Iridesoar (#141), Aeridaleth (#199), Sparkeen (#247). Split out of Lepidoptera 2026-06-13; Venowarn #165→moth and Plagueoth #298→mosquito left the bucket. |
 | **beetle** | 3 | 3 | at cap | Scarabion (#201, scarab beetle), Quarrix (#205), Voltbeetle (#339). Skullmite #329→trilobite 2026-06-13; Sparkeen had been miscounted here (it's a will-o-wisp). |

@@ -3780,13 +3780,13 @@ const MONSTERS_DATA = {
 
   // ===== 3RD STAGE EVOLUTIONS (IDs 178-212) =====
 
-  // 178: Inferarch - Fire/Draconic (Embrix→Helioveth→Inferarch)
-  12: { id:12, name:"Inferarch", emoji:"🦋", types:["Fire","Wind"],
+  // 178: Pyromoth - Fire/Draconic (Embrix→Helioveth→Pyromoth)
+  12: { id:12, name:"Pyromoth", emoji:"🦋", types:["Fire","Wind"],
     base:{hp:84,atk:110,def:79,spa:119,spd:84,spe:74},
     learnset:[[1,"flicker"],[1,"inferno_jet"],[2,"breeze"],[3,"searing_gale"],[4,"scorch_veil"],[38,"pyroclasm"],[43,"wingbeat"],[48,"solar_flare"],[52,"resonance_hum"],[57,"conflagration"],[62,"typhoon"],[67,"char_dance"],[5,"embercloak"],[44,"wind_scythe"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:265, rarity:"rare",
     desc:"A regal fire-moth of vast wingspan. Heat shed by its wings rises into thermals it can ride for hours.",
-    lore:"Inferarch is an enormous fire-moth nearly 1.5 metres across the wings — the imago that finally splits Heliocoon's shell. Its slender body is banded in deep black; the upper wings flare with crimson, gold, and ash-rimmed eyespots that catch firelight when it rests, while the undersides shed a constant powder of ember-grey scales. Each broad wingbeat draws in cool air and releases it as a column of superheated wind that becomes its own thermal — Inferarch can drift silently above caldera fields for hours without descending. It feeds at night on the nectar of fire-blossoms that bloom only in geothermal soil, and the smouldering pollen it carries between flowers is responsible for the rapid spread of those heat-loving plants." },
+    lore:"Pyromoth is an enormous fire-moth nearly 1.5 metres across the wings — the imago that finally splits Heliocoon's shell. Its slender body is banded in deep black; the upper wings flare with crimson, gold, and ash-rimmed eyespots that catch firelight when it rests, while the undersides shed a constant powder of ember-grey scales. Each broad wingbeat draws in cool air and releases it as a column of superheated wind that becomes its own thermal — Pyromoth can drift silently above caldera fields for hours without descending. It feeds at night on the nectar of fire-blossoms that bloom only in geothermal soil, and the smouldering pollen it carries between flowers is responsible for the rapid spread of those heat-loving plants." },
 
   // 15: Pyroclasm - Fire/Earth (Taurcin→Molteroth→Pyroclasm)
   15: { id:15, name:"Pyroclasm", emoji:"🌋", types:["Fire","Earth"],
@@ -4020,13 +4020,13 @@ const MONSTERS_DATA = {
     desc:"The sovereign of fairy light. Its radiance can banish every shadow from a city; dark spirits flee the land at its mere approach.",
     lore:"Lumiarch is a majestic fairy hound 1.1 metres at the shoulder — Aetherael's luminous white fur has brightened further and its soft gold-pink aura has condensed into a mane of living light that shifts through all warm colours slowly. Violet eyes glow like lanterns. Ancient lore records it appearing at the site of major conflicts and bringing sudden, unexplained peace between combatants." },
 
-  // 208: Celestarch - Fairy/Mental (Dawnirel→Lunarael→Celestarch)
-  144: { id:144, name:"Celestarch", emoji:"🌙", types:["Fairy","Mental"],
+  // 208: Moonseraph - Fairy/Mental (Dawnirel→Lunarael→Moonseraph)
+  144: { id:144, name:"Moonseraph", emoji:"🌙", types:["Fairy","Mental"],
     base:{hp:95,atk:75,def:91,spa:147,spd:114,spe:28},
     learnset:[[1,"prism_flare"],[1,"mental"],[2,"lunar_burst"],[3,"inner_calm"],[4,"stardust_veil"],[5,"bewitching_kiss"],[18,"moonlight_beam"],[20,"astral_guard"],[22,"starfall"],[25,"thought_wave"],[28,"starlit_radiance"],[30,"prophecy"],[34,"supernova_glow"],[35,"gravitational_pull"],[38,"celestial_wave"],[40,"mental_overflow"],[42,"psi_strike"],[44,"eon_crash"],[46,"fae_requiem"],[50,"thought_crush"],[54,"glitter_storm"],[58,"synaptic_shatter"],[62,"prism_ward"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:280, rarity:"rare",
     desc:"A celestial archon said to be the personification of the moon's light and the night sky's oldest thoughts. Stars bow when it rises.",
-    lore:"Celestarch is a grand psychic-fairy celestial creature 1.5 metres across — Lunarael's curved-inward crescent arms have bloomed back into a many-pointed star, and the deep violet-blue body has brightened to brilliant gold-white with an aura shifting through deep purple and starlight silver. It appears only during celestial events — eclipses, conjunctions, meteor showers — and is regarded as a divine herald." },
+    lore:"Moonseraph is a grand psychic-fairy celestial creature 1.5 metres across — Lunarael's curved-inward crescent arms have bloomed back into a many-pointed star, and the deep violet-blue body has brightened to brilliant gold-white with an aura shifting through deep purple and starlight silver. It appears only during celestial events — eclipses, conjunctions, meteor showers — and is regarded as a divine herald." },
 
   // 209: Adamovast - Metal (Ferrokin→Adamavast→Adamovast)
   149: { id:149, name:"Eternarmor", emoji:"🐩", types:["Metal"],
@@ -4264,7 +4264,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"glacial_punch"],[5,"fortify"],[10,"stone_throw"],[12,"cryogenic_field"],[15,"crystal_veil"],[18,"boreal_armor"],[20,"cold_beam"],[21,"sapphire_lance"],[22,"ice_hammer"],[25,"crystal_glow"],[28,"ice_resonance"],[29,"marble_resonance"],[30,"stone_slide"],[35,"gem_resonance"],[38,"winter_shroud"],[40,"cryo_lance"],[50,"fossil_rush"],[60,"whiteout"]],
     catchRate:45, expYield:150, rarity:"uncommon",
     desc:"A young ice golem of clear glacial ice studded with raw crystal. A glacial awareness slowly stirs in its core.",
-    lore:"Crystavault is a 2.5-metre ice-golem, a compact construct of clear glacial ice studded with raw mineral crystal, its surface ridged like the walls of a small keep. It is the youngest of its kind: as it endures the deep cold over centuries, a faint glacial awareness begins to stir within its crystal core, and the construct slowly reshapes itself toward the sovereign form of Glaciarch." },
+    lore:"Crystavault is a 2.5-metre ice-golem, a compact construct of clear glacial ice studded with raw mineral crystal, its surface ridged like the walls of a small keep. It is the youngest of its kind: as it endures the deep cold over centuries, a faint glacial awareness begins to stir within its crystal core, and the construct slowly reshapes itself toward the sovereign form of Cryoseer." },
 
   350: { id:350, name:"Fernwrath", emoji:"🦎", types:["Nature","Mineral"],
     base:{hp:73,atk:95,def:75,spa:92,spd:79,spe:81}, evolveTo:null, evolveLevel:null,
@@ -4330,12 +4330,12 @@ const MONSTERS_DATA = {
     desc:"A psychic phoenix wearing a crown of permanent solar fire. Flame is its thought made manifest.",
     lore:"Pyrocrown is a fire-psychic bird 1.8 metres tall with feathers of solidified flame and a crown of pure solar fire. Its thoughts manifest as bursts of psychokinetic flame." },
 
-  359: { id:359, name:"Glaciarch", emoji:"❄️", types:["Ice","Mental"],
+  359: { id:359, name:"Cryoseer", emoji:"❄️", types:["Ice","Mental"],
     base:{hp:73,atk:79,def:90,spa:107,spd:93,spe:73}, evolveTo:385, evolveLevel:82,
     learnset:[[1,"cold_beam"],[10,"mental"],[20,"cryo_lance"],[30,"psi_strike"],[40,"whiteout"],[50,"synaptic_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"winter_shroud"]],
     catchRate:22, expYield:316, rarity:"uncommon",
     desc:"The sovereign of all ice-bound psychics. Its mind is as cold and clear as absolute zero.",
-    lore:"Glaciarch is the matured Crystavault — its crystal core has awakened into a cold, vast intelligence and its body has reshaped into an idealised humanoid carved from deep blue glacial ice, eyes voids of total blue-white. Reigning as the sovereign of all ice-bound minds, it eventually sinks into a centuries-long stillness, slowly fusing with the frozen bedrock until it becomes the colossal Permafrost." },
+    lore:"Cryoseer is the matured Crystavault — its crystal core has awakened into a cold, vast intelligence and its body has reshaped into an idealised humanoid carved from deep blue glacial ice, eyes voids of total blue-white. Reigning as the sovereign of all ice-bound minds, it eventually sinks into a centuries-long stillness, slowly fusing with the frozen bedrock until it becomes the colossal Permafrost." },
 
   360: { id:360, name:"Duskmantle", emoji:"🌙", types:["Dark","Mental"],
     base:{hp:68,atk:83,def:73,spa:105,spd:98,spe:93}, evolveTo:null, evolveLevel:null,
@@ -4520,7 +4520,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"glacial_punch"],[10,"geoblast"],[20,"cryo_lance"],[30,"fissure_slam"],[40,"whiteout"],[50,"terra_spike"],[60,"cold_beam"],[5,"winter_shroud"],[52,"fortify"],[62,"mire_burst"]],
     catchRate:5, expYield:355, rarity:"rare",
     desc:"The ancient final form of the ice-golem line — a titanic glacial colossus fused with the frozen earth.",
-    lore:"Permafrost is the ancient, final form of the line: the once-sharp ice-sovereign Glaciarch has sunk into the frozen earth and swelled into a titanic glacial colossus 3 metres tall, a glacier given limbs, its mind slowed to the patient pace of moving ice. The ground beneath it freezes to a depth of 50 metres and does not thaw for decades after it has moved on." },
+    lore:"Permafrost is the ancient, final form of the line: the once-sharp ice-sovereign Cryoseer has sunk into the frozen earth and swelled into a titanic glacial colossus 3 metres tall, a glacier given limbs, its mind slowed to the patient pace of moving ice. The ground beneath it freezes to a depth of 50 metres and does not thaw for decades after it has moved on." },
 
   386: { id:386, name:"Wraithstorm", emoji:"💀", types:["Electric","Spectral"],
     base:{hp:68,atk:92,def:70,spa:106,spd:84,spe:105}, evolveTo:null, evolveLevel:null,
@@ -4706,12 +4706,12 @@ const MONSTERS_DATA = {
     desc:"Its shell has cleared into faceted gemstone planes that split sunlight into drifting fairy-glimmer.",
     lore:"As a Glimmerling matures into Facetite, the quartz of its shell anneals into true gemstone, each plate cut into geometric facets that scatter light in shifting rainbows. The drifting motes of glimmer it sheds are warm to the touch and pacify nearby Lumori, and Facetite is often found guarding spring-fed grottoes where the light dances brightest." },
 
-  410: { id:410, name:"Prismarch", emoji:"💎", types:["Crystal","Fairy"],
+  410: { id:410, name:"Prismdome", emoji:"💎", types:["Crystal","Fairy"],
     evolveTo:null, evolveLevel:null, catchRate:5, expYield:320, rarity:"legendary",
     base:{hp:110,atk:85,def:145,spa:125,spd:130,spe:30}, // BST 625
     learnset:[[1,"crystal_pulse"],[1,"prism_flare"],[1,"second_wind"],[20,"roughhouse"],[25,"radiant_burst"],[28,"enchanted_smash"],[30,"crystal_veil"],[32,"ice_resonance"],[33,"crystalline_beam"],[35,"fairy_blast"],[38,"rainbow_burst"],[40,"beryl_press"],[42,"opaline_armor"],[45,"prism_blow"],[48,"gemstone_blast"],[50,"crystal_storm"],[54,"lunar_burst"],[55,"prismatic_eruption"],[60,"starlight_prism"],[66,"prism_apocalypse"]],
     desc:"An ancient gem-tortoise whose vast domed shell has grown into a living cathedral of prisms.",
-    lore:"Prismarch is reckoned a legendary among gem-Lumori — a colossal tortoise that has carried its crystal shell for centuries until the facets fused into a single radiant dome that bends daylight into standing rainbows for leagues around. It moves perhaps once a generation, and where it finally settles, gardens of luminous crystal bloom from the soil. Pilgrims claim the light beneath its shell can mend a fractured spirit." },
+    lore:"Prismdome is reckoned a legendary among gem-Lumori — a colossal tortoise that has carried its crystal shell for centuries until the facets fused into a single radiant dome that bends daylight into standing rainbows for leagues around. It moves perhaps once a generation, and where it finally settles, gardens of luminous crystal bloom from the soil. Pilgrims claim the light beneath its shell can mend a fractured spirit." },
 
   // --- F2: booming ratite / cassowary (Sonic / Draconic-Sonic) ---
   411: { id:411, name:"Thrumquill", emoji:"🐤", types:["Sonic"],
@@ -6342,7 +6342,7 @@ const WORLD_DATA = {
       {id:138, minLv:70, maxLv:75, rate:24},  // Aetherael (mid)
       {id:139, minLv:71, maxLv:76, rate:8},  // Lumiarch (final → after 138 ✓)
       {id:143, minLv:70, maxLv:75, rate:13},  // Lunarael (mid)
-      {id:144, minLv:71, maxLv:76, rate:8},  // Celestarch (final → after 143 ✓)
+      {id:144, minLv:71, maxLv:76, rate:8},  // Moonseraph (final → after 143 ✓)
       {id:146, minLv:71, maxLv:76, rate:15},  // Shinarith (mid, 145 on route16 ✓)
       {id:203, minLv:72, maxLv:76, rate:19},  // Arachnalis (mid)
       {id:224, minLv:72, maxLv:76, rate:8},  // Psytheon (final → 223 on cosmic_cavern ✓)
@@ -6447,7 +6447,7 @@ const WORLD_DATA = {
       {id:137, minLv:69, maxLv:74, rate:16},  // Goldefluff (base)
       {id:138, minLv:70, maxLv:75, rate:11},  // Aetherael (mid → after 137 ✓)
       {id:143, minLv:70, maxLv:75, rate:7},  // Lunarael (mid, 142 on route16 ✓)
-      {id:144, minLv:71, maxLv:76, rate:5},  // Celestarch (final → after 143 ✓)
+      {id:144, minLv:71, maxLv:76, rate:5},  // Moonseraph (final → after 143 ✓)
       {id:145, minLv:70, maxLv:75, rate:14},  // Faerrin (base)
       {id:119, minLv:70, maxLv:74, rate:9},  // Dreadmaw (Dark/Umbra)
       {id:222, minLv:70, maxLv:74, rate:20},  // Mindpuff (base, for Psytheon chain)

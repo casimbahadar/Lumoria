@@ -61,6 +61,11 @@ Clean state — everything committed & pushed on `claude/unified-audit-handoff-t
 - **Largest shared-affix groups to sanity-check** (mostly FINE — thematic conventions, list for awareness): suffixes `-ling`×12, `-vast`×12, `-lith/-olith`×12, `-horn/-thorn`×7, `-claw`×7, `-wing`×7, `-vorn`×6, `-arch`×6, `-veil/-drak/-rael/-raxis/-crown/-mite`×4–5; prefixes `Void`×7, `Cind/Veno/Frost/Spec`×5, `Glac/Volt/Mist/Abys/Luna`×4.
 - **Guidance:** a shared affix alone is NOT a problem (it signals a theme family). Only rename when two names read as near-identical spellings of similar creatures. Gustling #458 is distinct (Gust ≠ Mirk/Mist) — leave.
 
+**🔒 NEW POLICY (2026-06-14): ≤ 3 IDs per common prefix/suffix.** No affix (4-char prefix or suffix morpheme) may be shared by more than 3 Lumori. The capstone's affix-cleanup pass enforces this dex-wide, group by group. (Supersedes the looser "shared affix is fine" guidance above for over-3 groups.)
+
+**✅ Affix-cleanup renames — DONE LOG (capstone PR #95). These names are FINAL — do NOT revisit during the per-family Pass-B flavor walk:**
+- `-ling` group (12 → 3; kept Rimeling/Cindling/Glimmerling): #25 Reefling→**Reefnip** · #51 Shiverling→**Bergyak** · #140 Faeling→**Faedust** · #230 Kappling→**Kappamaru** · #278 Ironling→**Ironpix** · #405 Mirkling→**Umbrapup** · #420 Mistling→**Steamkit** · #458 Gustling→**Tengko** · #460 Gongling→**Chimebowl** (2026-06-14).
+
 **Next-session options:** (a) work up a Tier-1 rename proposal; (b) ~~item #6 standalone-count reduction~~ ✅ **DONE 2026-06-12** (see standalone-reduction checkpoint below); (c) trainer-SVG replacement (deferred follow-up to the monster-SVG strip); (d) other audit items. Under-used-type distribution (#3) is considered substantially complete (clear wins banked, no forcing).
 
 ### 🐉 Dragon cleanup + sprite pipeline (2026-06-12) — DONE

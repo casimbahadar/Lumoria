@@ -8861,13 +8861,13 @@ const QUESTS_DATA = [
 
   // --- Discovery & Exploration ---
   { id:"ngq01", title:"Beyond the Boundary", desc:"A shimmer in the air marks where reality has thinned. Enter the Void Rift and encounter the creatures that now roam there.", location:"void_rift", type:"exploration", requiresNGPlus:true, requiredBadges:0,
-    reward:{type:"item", itemId:"prismaticShard", qty:1}, rewardText:"Prismatic Shard" },
+    exploreTarget:1, reward:{type:"item", itemId:"prismaticShard", qty:1}, rewardText:"Prismatic Shard" },
   { id:"ngq02", title:"The Summit Calls", desc:"Locals speak of new creatures seen at the Apex Summit since your return. Be the first to catalogue them.", location:"apex_summit", type:"exploration", requiresNGPlus:true, requiredBadges:0,
-    reward:{type:"item", itemId:"apexCore", qty:1}, rewardText:"Apex Core" },
+    exploreTarget:1, reward:{type:"item", itemId:"apexCore", qty:1}, rewardText:"Apex Core" },
   { id:"ngq03", title:"Prismatic Phenomena", desc:"A researcher in Veilport has documented strange prismatic energy readings across the Prismatic Rift. Investigate three encounters there.", location:"prismatic_rift", type:"exploration", requiresNGPlus:true, requiredBadges:0,
-    reward:{type:"money", amount:15000}, rewardText:"15000 coins" },
+    exploreTarget:3, reward:{type:"money", amount:15000}, rewardText:"15000 coins" },
   { id:"ngq04", title:"Rift Walker's Journal", desc:"Find the journal of a trainer who entered the Void Nexus in a prior era. It contains clues to finding NG+-exclusive Lumori.", location:"void_nexus", type:"exploration", requiresNGPlus:true, requiredBadges:0,
-    reward:{type:"item", itemId:"voidEmber", qty:1}, rewardText:"Void Ember" },
+    exploreTarget:1, reward:{type:"item", itemId:"voidEmber", qty:1}, rewardText:"Void Ember" },
 
   // --- Catch Quests ---
   { id:"ngq05", title:"Rift Collector: Tier I", desc:"The creatures of this new era are unlike any before. Catch 5 NG+-exclusive Lumori to prove your worth as a rift collector.", location:"void_rift", type:"catch", requiresNGPlus:true, requiredBadges:0,

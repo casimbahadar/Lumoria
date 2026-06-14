@@ -3013,27 +3013,27 @@ const MONSTERS_DATA = {
     desc:"A cloud-form creature that rides jet streams. Creates weather patterns across entire regions as it travels.",
     lore:"Cloudrift is a medium normal-wind creature 40 cm across resembling a compact cloud with a contented face — Fluffkin's cream-white fluff has densified into the cloud-body, and the wind that once dragged its juvenile form helplessly now bears it at a steady chosen altitude. It drifts at a consistent altitude of 3 metres above ground level regardless of terrain and passes through tree canopies with only mild distortion of its form. It rains gently when sad." },
 
-  // 3-stage Normal chain: Fuzzlet → Cuddrix → Majesticore (lv24, lv44)
-  286: { id:286, name:"Fuzzlet", emoji:"🦌", types:["Fairy"],
+  // 3-stage Normal chain: Downyfawn → Cuddrix → Majesticore (lv24, lv44)
+  286: { id:286, name:"Downyfawn", emoji:"🦌", types:["Fairy"],
     base:{hp:50,atk:55,def:50,spa:45,spd:48,spe:65},
     learnset:[[1,"collide"],[1,"fairy_wind"],[5,"beguile"],[10,"prism_flare"],[15,"charm_pulse"],[20,"bewitching_kiss"],[25,"healing_circle"],[30,"wish_spark"],[40,"lunar_burst"],[50,"radiance_cannon"]],
     evolveTo:287, evolveLevel:24, catchRate:185, expYield:65, rarity:"common",
     desc:"A tiny fluffy kirin-fawn so densely furred that its body looks like a creamy puffball. Its hooves are barely visible beneath its fluff.",
-    lore:"Fuzzlet is a small kirin-fawn 15 centimetres tall, so densely covered in cream-white fluff that its body looks like a perfectly round puffball — only its tiny hooves and gentle dark eyes peek out. Beneath the fluff are the proportions of a slender deer-fawn, and small antler-buds are already raising the fluff at the crown of its head. A faint warm fairy-glow emanates from within its fluff and intensifies when it is content, casting soft golden light on whoever holds it. It grooms itself constantly, and shed fluff accumulates into soft nest-like mounds where it has rested." },
+    lore:"Downyfawn is a small kirin-fawn 15 centimetres tall, so densely covered in cream-white fluff that its body looks like a perfectly round puffball — only its tiny hooves and gentle dark eyes peek out. Beneath the fluff are the proportions of a slender deer-fawn, and small antler-buds are already raising the fluff at the crown of its head. A faint warm fairy-glow emanates from within its fluff and intensifies when it is content, casting soft golden light on whoever holds it. It grooms itself constantly, and shed fluff accumulates into soft nest-like mounds where it has rested." },
 
   287: { id:287, name:"Cuddrix", emoji:"🦌", types:["Fairy"],
     base:{hp:78,atk:82,def:72,spa:62,spd:68,spe:78},
     learnset:[[1,"crushing_bulk"],[1,"fairy_wind"],[10,"charm_pulse"],[15,"healing_circle"],[18,"prism_flare"],[23,"disarming_voice"],[28,"bewitching_kiss"],[33,"sprite_lock"],[38,"lunar_burst"],[48,"glitter_storm"],[58,"radiance_cannon"]],
     evolveTo:288, evolveLevel:44, catchRate:90, expYield:140, rarity:"uncommon",
     desc:"An adolescent kirin-calf with soft pale-brown fur and developing antler-buds. Its mere presence measurably calms larger creatures.",
-    lore:"Cuddrix is an adolescent kirin-calf 35 centimetres at the shoulder — Fuzzlet's cream-white kit-fluff has shed to reveal a soft pale-brown undercoat, and its large gentle dark eyes are unchanged; small antler-buds tipped in pale gold are visible at its crown, growing larger with each passing season and already beginning to glow with a soft auspicious fairy-light. It is intensely affectionate and uses gentle physical contact — nuzzles, brief leans against another creature's flank — to communicate. Its presence measurably reduces stress hormone levels in larger creatures, an effect researchers attribute to the calming fairy-aura that emanates softly from its golden antler-glow." },
+    lore:"Cuddrix is an adolescent kirin-calf 35 centimetres at the shoulder — Downyfawn's cream-white kit-fluff has shed to reveal a soft pale-brown undercoat, and its large gentle dark eyes are unchanged; small antler-buds tipped in pale gold are visible at its crown, growing larger with each passing season and already beginning to glow with a soft auspicious fairy-light. It is intensely affectionate and uses gentle physical contact — nuzzles, brief leans against another creature's flank — to communicate. Its presence measurably reduces stress hormone levels in larger creatures, an effect researchers attribute to the calming fairy-aura that emanates softly from its golden antler-glow." },
 
   288: { id:288, name:"Majesticore", emoji:"🌟", types:["Draconic","Fairy"],
     base:{hp:98,atk:98,def:85,spa:98,spd:97,spe:74},
     learnset:[[1,"heavy_slam"],[1,"draconic_breath"],[20,"sprite_lock"],[26,"roughhouse"],[30,"fairy_wind"],[34,"radiant_burst"],[38,"draconic_claw"],[42,"fairy_blast"],[46,"lunar_burst"],[54,"draconic_pulse"],[62,"radiance_cannon"],[70,"rampage"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:265, rarity:"rare",
     desc:"A regal dragon-kirin 1.2 metres at the shoulder. Its antlers wreathed in dragonfire-light, fine scales mixed with its fur, and its passage calls down gentle rain.",
-    lore:"Majesticore is a regal dragon-kirin 1.2 metres at the shoulder, the auspicious final form of the Fuzzlet→Cuddrix lineage and the embodiment of the ancient legend of the qilin — the dragon-horse. Its sleek brown-gold body is overlaid with fine pale-gold scales beneath the longer fur of its haunches and shoulders, and its full branching antlers are wreathed in soft dragonfire-light that shifts through warm gold and rose hues. A flowing mane of fairy-light cascades from its neck down its shoulders, and at its passage gentle rain falls from clear skies — a sign of the dragon-blood that quickens the kirin's blessing. Its hooves leave only the gentlest impressions in soft soil, and its presence causes calm to settle over any region it crosses — agitated creatures still, fearful animals approach trustingly, and arguments between travellers cool to thoughtful silence within minutes of its arrival. Ancient texts describe its appearance at moments of great peace or great change as an auspicious omen." },
+    lore:"Majesticore is a regal dragon-kirin 1.2 metres at the shoulder, the auspicious final form of the Downyfawn→Cuddrix lineage and the embodiment of the ancient legend of the qilin — the dragon-horse. Its sleek brown-gold body is overlaid with fine pale-gold scales beneath the longer fur of its haunches and shoulders, and its full branching antlers are wreathed in soft dragonfire-light that shifts through warm gold and rose hues. A flowing mane of fairy-light cascades from its neck down its shoulders, and at its passage gentle rain falls from clear skies — a sign of the dragon-blood that quickens the kirin's blessing. Its hooves leave only the gentlest impressions in soft soil, and its presence causes calm to settle over any region it crosses — agitated creatures still, fearful animals approach trustingly, and arguments between travellers cool to thoughtful silence within minutes of its arrival. Ancient texts describe its appearance at moments of great peace or great change as an auspicious omen." },
 
   // Standalone Normal: Bouncyblob
   289: { id:289, name:"Bouncyblob", emoji:"🫧", types:["Normal","Vapor"],
@@ -3114,20 +3114,20 @@ const MONSTERS_DATA = {
     desc:"The plague mosquito. Ancient texts describe its awakening as an omen of great pestilence. A single drain leaves victims hollowed.",
     lore:"Plagueoth is a large poison-toxin mosquito 60 cm long — Pestquito's elongated bark-piercing proboscis has lengthened further into a needle as long as its body, and the slim juvenile abdomen has bloated into a venom-sac. Its ragged dark wings have a 1.5 m span. It inhabits abandoned buildings and decaying swampland, draining the vital fluids of any creature unfortunate enough to be caught alone at dusk." },
 
-  // 2-stage Toxin/Sonic chain: Stinglet → Nettlebarb (level 28)
-  299: { id:299, name:"Stinglet", emoji:"🐝", types:["Toxin","Sonic"],
+  // 2-stage Toxin/Sonic chain: Resinbee → Nettlebarb (level 28)
+  299: { id:299, name:"Resinbee", emoji:"🐝", types:["Toxin","Sonic"],
     base:{hp:50,atk:65,def:52,spa:58,spd:55,spe:78},
     learnset:[[1,"resonance_hum"],[1,"septic_prick"],[5,"toxic_kiss"],[8,"discord"],[12,"shear_strike"],[15,"squalid_field"],[18,"silent_strike"],[22,"ooze_bomb"],[32,"toxify"],[42,"virulent_surge"],[52,"venom_lance"],[60,"radiance_cannon"],[62,"toxin_pulse"],[63,"shake_smash"]],
     evolveTo:300, evolveLevel:28, catchRate:162, expYield:78, rarity:"common",
     desc:"A bee-like stinger creature with a massive venomous barb. Builds hives from toxic resin.",
-    lore:"Stinglet is a small toxin-sonic bee 8 cm long with a bright yellow-and-black striped abdomen. Its stinger contains a venom that causes localised swelling and intense pain. It is fiercely territorial around its nest and coordinates with colony-mates using chemical signals to perform coordinated defence responses." },
+    lore:"Resinbee is a small toxin-sonic bee 8 cm long with a bright yellow-and-black striped abdomen. Its stinger contains a venom that causes localised swelling and intense pain. It is fiercely territorial around its nest and coordinates with colony-mates using chemical signals to perform coordinated defence responses." },
 
   300: { id:300, name:"Nettlebarb", emoji:"🐝", types:["Toxin","Sonic"],
     base:{hp:80,atk:105,def:80,spa:88,spd:80,spe:95},
     learnset:[[1,"shear_strike"],[1,"venom_lance"],[5,"echo_strike"],[6,"discord"],[8,"quill_barrage"],[10,"echo_chamber"],[12,"mantis_slash"],[15,"toxic_kiss"],[18,"maul"],[20,"venom_ray"],[22,"toxify"],[25,"squalid_field"],[28,"infestation"],[30,"virulent_surge"],[32,"pox_mark"],[34,"twin_sting"],[36,"hivemind_surge"],[38,"ooze_bomb"],[40,"swarm_assault"],[44,"locust_fury"],[46,"resonance_hum"],[48,"wave_cry"],[50,"swarm_strike"],[54,"sludge_wave"],[62,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:218, rarity:"uncommon",
     desc:"A great venom-bee with an elongated stinger-tail. The whip-stinger arches scorpion-like over its back but is true bee anatomy, parallel-evolved from the standard sting.",
-    lore:"Nettlebarb is a large toxin-sonic bee 25 cm long — Stinglet's bright yellow-and-black striped abdomen has matured across an entire body still bee-striped yellow-and-black, with four membranous wings and an elongated segmented stinger-tail that arches scorpion-like over its back. The whip-stinger is parallel-evolved from the bee's standard sting, not arachnid heritage. It is solitary and aggressive — unusual for Hymenoptera — marking territory with scent-trails that it defends vigorously against any trespasser regardless of size." },
+    lore:"Nettlebarb is a large toxin-sonic bee 25 cm long — Resinbee's bright yellow-and-black striped abdomen has matured across an entire body still bee-striped yellow-and-black, with four membranous wings and an elongated segmented stinger-tail that arches scorpion-like over its back. The whip-stinger is parallel-evolved from the bee's standard sting, not arachnid heritage. It is solitary and aggressive — unusual for Hymenoptera — marking territory with scent-trails that it defends vigorously against any trespasser regardless of size." },
 
   // Standalone Fire/Spectral: Hauntcoal
   301: { id:301, name:"Hauntcoal", emoji:"🔥", types:["Fire","Spectral"],
@@ -4868,12 +4868,12 @@ const MONSTERS_DATA = {
     lore:"Nocturnbaku is the dream-eater grown vast and deliberate, a creature that steps fully into a sleeper's mind and walks their dreamscape as easily as a meadow. It can soothe a haunted soul into untroubled rest or, provoked, trap a foe in an endless looping nightmare. Folk leave offerings at the edge of forests where one is known to den, asking for a single dreamless night." },
 
   // --- F9: mossy mammoth (Primal / Nature-Primal) — LEGENDARY line ---
-  432: { id:432, name:"Tusklet", emoji:"🦣", types:["Primal"],
+  432: { id:432, name:"Woollytot", emoji:"🦣", types:["Primal"],
     evolveTo:433, evolveLevel:20, catchRate:30, expYield:72, rarity:"legendary",
     base:{hp:75,atk:70,def:68,spa:45,spd:57,spe:50}, // BST 365
     learnset:[[1,"collide"],[1,"bestial_roar"],[5,"primal_jab"],[8,"atavistic_focus"],[10,"feral_claw"],[14,"beast_speed"],[16,"savage_bite"],[20,"wild_rage"],[22,"wild_strike"],[28,"beast_charge"]],
     desc:"A shaggy calf with stubby tusks, already strong enough to topple a grown traveller.",
-    lore:"Tusklet are born of a bloodline so ancient it predates the region's other Lumori, and even as calves they carry the deep, unhurried strength of their kind. A herd guards its young in a wall of bodies, and a lost Tusklet will trumpet a call that grown Primammoth answer from valleys away. The moss already creeping along its back marks the living mountain it will become." },
+    lore:"Woollytot are born of a bloodline so ancient it predates the region's other Lumori, and even as calves they carry the deep, unhurried strength of their kind. A herd guards its young in a wall of bodies, and a lost Woollytot will trumpet a call that grown Primammoth answer from valleys away. The moss already creeping along its back marks the living mountain it will become." },
 
   433: { id:433, name:"Verdantusk", emoji:"🦣", types:["Nature","Primal"],
     evolveTo:434, evolveLevel:44, catchRate:15, expYield:155, rarity:"legendary",
@@ -4912,12 +4912,12 @@ const MONSTERS_DATA = {
     lore:"Goliathon is the undisputed patriarch of the highland troops, a mountain of muscle armoured in living rock that it can shrug off avalanches. It rarely needs to fight — its mere knuckle-drum, felt as a tremor through the stone, is enough to send challengers away — but when it does, the landscape itself is rearranged. Old quarries in gorilla country are said to be the work of feuding Goliathon." },
 
   // --- F11: cicada bard-fae (Sonic / Fairy-Sonic) ---
-  438: { id:438, name:"Chimelet", emoji:"🎐", types:["Sonic"],
+  438: { id:438, name:"Chimicada", emoji:"🎐", types:["Sonic"],
     evolveTo:439, evolveLevel:24, catchRate:190, expYield:68, rarity:"common",
     base:{hp:52,atk:45,def:48,spa:70,spd:60,spe:45}, // BST 320
     learnset:[[1,"chirp"],[1,"echo_strike"],[5,"echo_pulse"],[10,"sound_rush"],[15,"resonate"],[20,"pulse_wave"],[26,"wave_cry"]],
     desc:"A tiny winged cicada-sprite whose translucent wings ring like struck glass.",
-    lore:"Chimelet spends its long nymphhood underground and emerges already singing, its glassy wings chiming in the breeze like a hung windchime. Swarms tune their songs to one another until a whole grove rings in harmony, and travellers say a chorus of Chimelet at dusk is among the gentlest sounds in all Lumoria." },
+    lore:"Chimicada spends its long nymphhood underground and emerges already singing, its glassy wings chiming in the breeze like a hung windchime. Swarms tune their songs to one another until a whole grove rings in harmony, and travellers say a chorus of Chimicada at dusk is among the gentlest sounds in all Lumoria." },
 
   439: { id:439, name:"Seraphene", emoji:"🎐", types:["Fairy","Sonic"],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:200, rarity:"uncommon",
@@ -5603,7 +5603,7 @@ const WORLD_DATA = {
       {id:45, minLv:35, maxLv:38, rate:35}, // Slatis
       {id:53, minLv:35, maxLv:38, rate:10}  // Mistwhirl
     ],
-    ngPlusWildMonsters:[{id:432, minLv:34, maxLv:37, rate:6}], // NG+ family base: Tusklet
+    ngPlusWildMonsters:[{id:432, minLv:34, maxLv:37, rate:6}], // NG+ family base: Woollytot
     hasGym:true, gymLeader:"glacier", requiredBadges:4, mapPos:{x:32, y:18}
   },
   route6: {
@@ -5951,7 +5951,7 @@ const WORLD_DATA = {
       {id:69, minLv:4, maxLv:7, rate:35},     // Germix
       {id:111, minLv:5, maxLv:8, rate:35}     // Aeolin
     ],
-    ngPlusWildMonsters:[{id:438, minLv:5, maxLv:8, rate:12}], // NG+ family base: Chimelet
+    ngPlusWildMonsters:[{id:438, minLv:5, maxLv:8, rate:12}], // NG+ family base: Chimicada
     hasGym:false, requiredBadges:0, mapPos:{x:8, y:68}
   },
   fairy_meadow_north: {
@@ -5959,7 +5959,7 @@ const WORLD_DATA = {
     desc:"The northern stretch of Fairy Meadow leading toward the Poison Marshes. Stronger Fairy types guard this path.",
     connections:["fairy_meadow_south","route7"],
     wildMonsters:[
-      {id:286, minLv:8, maxLv:11, rate:25}, // Fuzzlet (obtainability fix)
+      {id:286, minLv:8, maxLv:11, rate:25}, // Downyfawn (obtainability fix)
       {id:137, minLv:6, maxLv:10, rate:30},    // Goldefluff
       {id:140, minLv:7, maxLv:11, rate:10},   // Faedust
       {id:111, minLv:7, maxLv:11, rate:35}    // Aeolin
@@ -6142,7 +6142,7 @@ const WORLD_DATA = {
       {id:163, minLv:59, maxLv:64, rate:7},  // Blightalis (mid → after base ✓)
       {id:206, minLv:57, maxLv:62, rate:12},  // Venomscale (base Poison/Draconic)
       {id:266, minLv:57, maxLv:62, rate:21},  // Shadowcub (base Dark/Sonic)
-      {id:299, minLv:57, maxLv:62, rate:5}    // Stinglet (base Bug/Poi)
+      {id:299, minLv:57, maxLv:62, rate:5}    // Resinbee (base Bug/Poi)
     ],
     hasGym:false, requiredBadges:9, mapPos:{x:48, y:60},
     ngPlusWildMonsters:[{id:322,minLv:64,maxLv:70,rate:20},{id:323,minLv:64,maxLv:70,rate:15},{id:325,minLv:65,maxLv:71,rate:10}]
@@ -6538,7 +6538,7 @@ const WORLD_DATA = {
       {id:297, minLv:58, maxLv:63, rate:18},  // Pestquito (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
       {id:165, minLv:59, maxLv:64, rate:13},  // Venowarn (mid, 164 on murk_crossing ✓)
       {id:296, minLv:58, maxLv:63, rate:27},  // Plaguefly (base Poi/Bug)
-      {id:299, minLv:58, maxLv:63, rate:23},  // Stinglet (base Bug/Poi, also on route10)
+      {id:299, minLv:58, maxLv:63, rate:23},  // Resinbee (base Bug/Poi, also on route10)
       {id:218, minLv:59, maxLv:64, rate:10}   // Duskmist (base Spectral/Dark, item evo)
     ],
     legendaryEncounter:{monsterId:316, level:62}, // static legendary (obtainability fix)

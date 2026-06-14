@@ -23,6 +23,7 @@ function newGameState(playerName, starterMonsterId) {
     variantLog: {},
     discoveredTraits: {},
     seenInArea: {},
+    areaEncounters: {},
     championDefeated: false,
     questsCompleted: [],
     questsActive: [],
@@ -108,6 +109,7 @@ function loadGame(slot) {
     // Ensure new fields exist for old saves
     if (!data.questsCompleted) data.questsCompleted = [];
     if (!data.questsActive) data.questsActive = [];
+    if (!data.areaEncounters) data.areaEncounters = {};
     if (!data.visitedLocations) data.visitedLocations = [data.location];
     if (!data.box) data.box = [];
     if (data.bag && data.bag.rareCandy === undefined) data.bag.rareCandy = 0;
@@ -1532,6 +1534,8 @@ function startWildBattle(wildMon) {
   };
   playerActiveMon = buildBattleMon(G.team[battleContext.playerTeamIdx]);
   enemyActiveMon = wildMon;
+  // Quest tracking: a genuine wild encounter counts toward exploration quests for this area.
+  if (typeof trackAreaEncounter === "function") trackAreaEncounter(G.location);
   hideMultiBattleSlots();
   showScreen("screen-battle");
   clearBattleLog();
@@ -1678,6 +1682,7 @@ async function playerUseBall(orbId) {
       const totalNGPlus = Object.keys(MONSTERS_DATA).filter(k => parseInt(k) >= NG_PLUS_DEX_START).length;
       if (ngCaught >= totalNGPlus) checkAchievement("ngplus_catchall");
     }
+    if (typeof trackNGPlusCatch === "function") trackNGPlusCatch();
     checkAchievements();
     trackDailyChallenge("catch_count");
     if (caughtDef) for (const t of caughtDef.types) trackDailyChallenge("catch_type", t);
@@ -5465,6 +5470,25 @@ function attemptQuestCompletion(quest) {
       const locName = WORLD_DATA[quest.location]?.name || quest.location;
       showNotification(`You need to visit <strong>${locName}</strong> to complete this quest.`);
     }
+  } else if (quest.type === "catch") {
+    // Catch quests: must have caught at least `catchTarget` NG+ Lumori (ids >= NG_PLUS_DEX_START).
+    const target = quest.catchTarget || 0;
+    const have = countNGPlusCaught();
+    if (have >= target) {
+      completeQuest(quest);
+    } else {
+      showNotification(`You need to catch <strong>${target}</strong> NG+ Lumori to complete this quest. (${have}/${target})`);
+    }
+  } else if (quest.type === "exploration") {
+    // Exploration quests: must have encountered `exploreTarget` wild Lumori in the quest's area.
+    const need = quest.exploreTarget || 1;
+    const have = (G.areaEncounters && G.areaEncounters[quest.location]) || 0;
+    if (have >= need) {
+      completeQuest(quest);
+    } else {
+      const locName = WORLD_DATA[quest.location]?.name || quest.location;
+      showNotification(`Explore <strong>${locName}</strong> first — encounter ${need} Lumori there. (${have}/${need})`);
+    }
   } else {
     completeQuest(quest);
   }
@@ -5668,6 +5692,41 @@ function trackLocationVisit(locationId) {
       if (q && q.type === "visit" && q.location === locationId) {
         completeQuest(q);
       }
+    }
+  }
+}
+
+// Count NG+ Lumori the player has caught (ids >= NG_PLUS_DEX_START, matching the
+// in-game NG+ achievement counter — includes Forgotten Lumori).
+function countNGPlusCaught() {
+  if (!G || !G.caughtMonsters) return 0;
+  return [...G.caughtMonsters].filter(id => id >= NG_PLUS_DEX_START).length;
+}
+
+// Track a wild encounter in an area for exploration quests. Increments the per-area
+// counter and auto-completes any active exploration quest whose target is met.
+function trackAreaEncounter(locationId) {
+  if (!G) return;
+  if (!G.areaEncounters) G.areaEncounters = {};
+  G.areaEncounters[locationId] = (G.areaEncounters[locationId] || 0) + 1;
+  if (typeof QUESTS_DATA === "undefined") return;
+  for (const qid of [...(G.questsActive || [])]) {
+    const q = QUESTS_DATA.find(quest => quest.id === qid);
+    if (q && q.type === "exploration" && q.location === locationId
+        && G.areaEncounters[locationId] >= (q.exploreTarget || 1)) {
+      completeQuest(q);
+    }
+  }
+}
+
+// Auto-complete active catch quests once enough NG+ Lumori have been caught.
+function trackNGPlusCatch() {
+  if (typeof QUESTS_DATA === "undefined" || !G) return;
+  const have = countNGPlusCaught();
+  for (const qid of [...(G.questsActive || [])]) {
+    const q = QUESTS_DATA.find(quest => quest.id === qid);
+    if (q && q.type === "catch" && have >= (q.catchTarget || 0)) {
+      completeQuest(q);
     }
   }
 }

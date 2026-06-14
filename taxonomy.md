@@ -47,7 +47,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[40] Gossafin→Marevanos | Aquatic/Wind | manta-ray` (winged manta — relabeled out of cetacean per cap-3 policy)
 - `[41] Titanomare | Aquatic/Metal | cetacean` (steel-whale titan; standalone)
 - `[44] Cryonik→Boreon→Nagislither | Ice/Aquatic | seal / pinniped`
-- `[46] Slatis→Frostmere | Ice/Electric | seal / pinniped` (jellyfish-to-seal — second seal family)
+- `[46] Slatis→Gelseal | Ice/Electric | seal / pinniped` (jellyfish-to-seal — second seal family)
 - `[49] Hexaprowl→Hailgorge→Hailwolf | Ice | wolf`
 - `[52] Tundram→Bergyak→Aurochill | Ice/Normal | bovid` (auroch/ram chain)
 - `[54] Mistwhirl→Arcturex | Ice/Wind | owl`
@@ -135,7 +135,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[231] Kappamaru→Sumokappa | Aquatic/Fighting | kappa` (sub: river-yokai wrestler)
 - `[234] Serphaxon→Serpenthorn→Wyvernak | Draconic/Earth | dragon-mythic` (sub: ground-dragon — now the sole ground-dragon line; the former Geodrak line was re-archetyped to glyptodon)
 - `[235] Glintscale | Aquatic/Fairy | koi` (re-archetyped from water-dragon 2026-06-10; mystical boundary-swimming koi)
-- `[237] Frostick→Icevault | Ice/Earth | ice-stone vault / fortress structure` (small architectural creature — unique sub-archetype)
+- `[237] Iciquill→Icevault | Ice/Earth | ice-stone vault / fortress structure` (small architectural creature — unique sub-archetype)
 - `[240] Snowble→Blizzariel→Tundrafox | Ice/Dark | snowman (folkloric)` (mythical, just claimed)
 - `[241] Shardlix | Ice/Mental | crystalline-prism` (bipedal ice crystal humanoid, standalone — second crystalline-prism alongside Gemseer line)
 - `[243] Pulseglow→Stuntrap | Electric/Sonic→Dream/Sonic | dragonfly` (firefly→dragonfly; Stuntrap remade 2026-06-12 to pristine Dream/Sonic hypnotic-drone stun-trapper; Pulseglow now Electric/Sonic — its light-and-sound swarm pulse bridges to Stuntrap's sonic drone (shared Sonic). Differentiates from Galvaglide's Electric/Nature.)
@@ -172,7 +172,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[300] Resinbee→Nettlebarb | Toxin/Sonic | bee (Hymenoptera)` (currently inconsistent — bee→scorpion-bee hybrid on BREAKING list)
 - `[301] Hauntcoal | Fire/Spectral | cat` (smouldering ghost-cat, standalone — third cat; retyped Fire/Dark→Fire/Spectral for diversity)
 - `[303] Lightpuff→Lumivane | Fairy/Mental | starlight-orb` (luminous starlight sphere with non-severing light-limbs that archives astronomical data — NOT a faerie-sprite humanoid; archetype relabeled to resolve the false collision with Psytheon, which keeps the faerie-sprite slot. Stays Fairy/Mental.)
-- `[306] Frostpelt→Yetigeist→Yetigrand | Earth/Ice | yeti` (de-monolithed 2026-06-13 from rock-monolith — frozen-mountain snow-beast line; renamed from Icethorn/Geoshard/Crystallon)
+- `[306] Yeticub→Yetigeist→Yetigrand | Earth/Ice | yeti` (de-monolithed 2026-06-13 from rock-monolith — frozen-mountain snow-beast line; renamed from Icethorn/Geoshard/Crystallon)
 - `[307] Pyrelynx | Fire/Dark | cat` (fire-dark cat, standalone — fourth cat)
 - `[309] Seafraith→Tidephant | Aquatic/Spectral | pinniped` (spectral elephant-seal — relabeled out of cetacean per cap-3 policy; resolves the fish→cetacean BREAKING flag as fish→pinniped)
 - `[311] Mudpump→Marshix | Aquatic/Nature | hippo` (pristine archetype)

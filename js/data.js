@@ -2625,20 +2625,20 @@ const MONSTERS_DATA = {
 
   // ===== BATCH 3: ICE / ELECTRIC / ROCK (IDs 236-250) =====
 
-  // 2-stage Ice chain: Frostick → Glacicore (level 30)
-  236: { id:236, name:"Frostick", emoji:"🧊", types:["Ice"],
+  // 2-stage Ice chain: Iciquill → Glacicore (level 30)
+  236: { id:236, name:"Iciquill", emoji:"🧊", types:["Ice"],
     base:{hp:50,atk:58,def:52,spa:68,spd:55,spe:62},
     learnset:[[1,"flurries"],[1,"collide"],[12,"cold_snap"],[22,"cold_beam"],[32,"whiteout"],[42,"cryo_lance"],[52,"frost_crash"],[60,"radiance_cannon"]],
     evolveTo:237, evolveLevel:30, catchRate:170, expYield:78, rarity:"common",
     desc:"A porcupine of solid ice. Its quills are natural ice needles that regenerate after use.",
-    lore:"Frostick is a very small ice creature 10 cm tall shaped like an icicle with two tiny arms. Its body is pure transparent ice. It forms spontaneously in sub-zero environments and clusters in large groups on cave ceilings, combining into lattice structures for warmth. Individual ones melt quickly in warm hands." },
+    lore:"Iciquill is a very small ice creature 10 cm tall shaped like an icicle with two tiny arms. Its body is pure transparent ice. It forms spontaneously in sub-zero environments and clusters in large groups on cave ceilings, combining into lattice structures for warmth. Individual ones melt quickly in warm hands." },
 
   237: { id:237, name:"Icevault", emoji:"❄️", types:["Ice","Earth"],
     base:{hp:92,atk:102,def:112,spa:78,spd:88,spe:48},
     learnset:[[1,"cold_beam"],[1,"stone_slide"],[10,"sandstrike"],[24,"whiteout"],[32,"crag_strike"],[38,"primeval_force"],[40,"cryo_lance"],[48,"frost_crash"],[56,"avalanche_drive"],[64,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:215, rarity:"uncommon",
     desc:"A glacier golem of living ice and stone. So cold that even fire moves slowly near it.",
-    lore:"Icevault forms when a Frostick fuses with cave bedrock, its body lattice expanding into a tower-like silhouette of interlocked ice and stone 50 centimetres tall. Its walls are surprisingly thick. It inhabits glacier-topped mountains and creates elaborate ice-and-rock den structures that persist for centuries, providing shelter to generations of smaller creatures." },
+    lore:"Icevault forms when a Iciquill fuses with cave bedrock, its body lattice expanding into a tower-like silhouette of interlocked ice and stone 50 centimetres tall. Its walls are surprisingly thick. It inhabits glacier-topped mountains and creates elaborate ice-and-rock den structures that persist for centuries, providing shelter to generations of smaller creatures." },
 
   // 3-stage Ice/Wind chain: Snowble → Blizzavane → Permafrix
   238: { id:238, name:"Snowble", emoji:"☃️", types:["Ice"],
@@ -3152,20 +3152,20 @@ const MONSTERS_DATA = {
     desc:"The comet-orb fairy, a larger luminous sphere haloed by streaming light-rays. Crosses the sky in streaks of prismatic light.",
     lore:"Lumivane is a fairy-psychic creature 50 cm across — Lightpuff's warm-golden 20 cm orb has grown under moonStone influence into a brilliant luminous sphere haloed by rudimentary limb-extensions of condensed light — translucent arm-rays and trailing tendril-legs that emerge from the central sphere but do not sever from it. Its body shifts between solid and luminous depending on its concentration. It inhabits high mountain observatories and archives astronomical data in a crystalline psychic memory at the core of its orb-body." },
 
-  // 3-stage Earth/Ice chain: Frostpelt → Yetigeist → Yetigrand (location: cold area, lv28, lv48)
-  304: { id:304, name:"Frostpelt", emoji:"🦍", types:["Earth","Ice"],
+  // 3-stage Earth/Ice chain: Yeticub → Yetigeist → Yetigrand (location: cold area, lv28, lv48)
+  304: { id:304, name:"Yeticub", emoji:"🦍", types:["Earth","Ice"],
     base:{hp:52,atk:62,def:75,spa:58,spd:60,spe:50},
     learnset:[[1,"stone_throw"],[1,"flurries"],[12,"stone_slide"],[22,"cold_beam"],[32,"crag_strike"],[42,"cryo_lance"],[52,"whiteout"],[60,"radiance_cannon"]],
     evolveTo:305, evolveLevel:28, catchRate:162, expYield:78, rarity:"common",
     desc:"A shaggy frost-furred yeti cub. Hardy in the cold, shy of strangers, it huddles with its kind for warmth.",
-    lore:"Frostpelt is a 40 cm yeti cub whose thick white fur stays perpetually crusted with frost and rime. It shelters in frozen highland caves, pressing close to others of its kind for warmth, and packs loose snow into its pelt for insulation — the cold radiating off it never quite lets that snow melt." },
+    lore:"Yeticub is a 40 cm yeti cub whose thick white fur stays perpetually crusted with frost and rime. It shelters in frozen highland caves, pressing close to others of its kind for warmth, and packs loose snow into its pelt for insulation — the cold radiating off it never quite lets that snow melt." },
 
   305: { id:305, name:"Yetigeist", emoji:"🦍", types:["Earth","Ice"],
     base:{hp:78,atk:92,def:105,spa:78,spd:82,spe:58},
     learnset:[[1,"cold_beam"],[1,"crag_strike"],[10,"sandstrike"],[22,"cryo_lance"],[30,"whiteout"],[35,"tectonic_shift"],[38,"bedrock_slam"],[46,"frost_crash"],[54,"avalanche_drive"],[62,"radiance_cannon"]],
     evolveTo:306, evolveLevel:48, catchRate:75, expYield:158, rarity:"uncommon",
     desc:"An adolescent yeti that prowls the frozen peaks alone. Its breath fogs and freezes the air.",
-    lore:"Yetigeist is an 80 cm adolescent yeti — Frostpelt's cub-fluff has grown into a shaggy white coat over heavy muscle. It prowls the high frozen peaks alone, its breath fogging and freezing in the air, strong enough to shoulder through packed drifts and shatter sheet ice with a blow." },
+    lore:"Yetigeist is an 80 cm adolescent yeti — Yeticub's cub-fluff has grown into a shaggy white coat over heavy muscle. It prowls the high frozen peaks alone, its breath fogging and freezing in the air, strong enough to shoulder through packed drifts and shatter sheet ice with a blow." },
 
   306: { id:306, name:"Yetigrand", emoji:"🦍", types:["Earth","Ice"],
     base:{hp:101,atk:108,def:117,spa:83,spd:91,spe:50},
@@ -3715,12 +3715,12 @@ const MONSTERS_DATA = {
     desc:"An electrified storm raptor that rides cyclones. Its wingspan crackles with constant discharge.",
     lore:"Vortexathos is a massive eagle-wind creature with a 4-metre wingspan — Zephyrel's juvenile electric-blue feather-lines have brightened and now trace the leading edges of its much-larger wings, with feathers grey-white above and dark charcoal beneath. It circles high above storm systems and descends to strike prey with a diving electrical vortex that scours the ground." },
 
-  46: { id:46, name:"Frostmere", emoji:"🦭", types:["Ice","Electric"],
+  46: { id:46, name:"Gelseal", emoji:"🦭", types:["Ice","Electric"],
     base:{hp:90,atk:65,def:90,spa:109,spd:92,spe:59},
     learnset:[[1,"flurries"],[1,"jolt"],[2,"cold_beam"],[3,"permafrost"],[4,"winter_shroud"],[5,"cryo_lance"],[8,"icy_shot"],[11,"capacitor_drain"],[12,"frost_bite"],[16,"frigid_jab"],[20,"snow_veil"],[24,"cold_focus"],[28,"arctic_calm"],[33,"whiteout"],[35,"magnet_field"],[38,"voltaic_fang"],[42,"hoarfrost_bite"],[43,"fortify"],[46,"frost_crash"],[50,"ion_cannon"],[54,"tundra_tomb"],[58,"ball_lightning"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:205, rarity:"uncommon",
     desc:"A gelatinous pinniped of compacted living frost. Bioluminescent pulses ripple through its translucent body, mapping prey by their electric fields.",
-    lore:"Frostmere is a gelatinous deep-ocean creature 1.5 metres long that has condensed its drifting medusa form into a more solid, seal-shaped silhouette. Its translucent body — Slatis's free-floating jellyfish bell — is now packed into a streamlined pinniped outline of bluish-white frozen jelly, sheathed in a fine layer of silver-white frost crystals that mimic the look of fur. Pale eyes the colour of deep glacier melt sit forward in its head, and the trailing tendrils of its base form persist as faint translucent streamers behind its flippers. Subtle bioluminescent pulses ripple through its gel-body in slow waves, illuminating it from within and serving as the visible discharge of an internal organ that maps the electric fields of every living thing nearby — its entire body functions as a single conductive sensor, hunting through polar water channels by reading prey's heartbeats from metres away rather than relying on sight." },
+    lore:"Gelseal is a gelatinous deep-ocean creature 1.5 metres long that has condensed its drifting medusa form into a more solid, seal-shaped silhouette. Its translucent body — Slatis's free-floating jellyfish bell — is now packed into a streamlined pinniped outline of bluish-white frozen jelly, sheathed in a fine layer of silver-white frost crystals that mimic the look of fur. Pale eyes the colour of deep glacier melt sit forward in its head, and the trailing tendrils of its base form persist as faint translucent streamers behind its flippers. Subtle bioluminescent pulses ripple through its gel-body in slow waves, illuminating it from within and serving as the visible discharge of an internal organ that maps the electric fields of every living thing nearby — its entire body functions as a single conductive sensor, hunting through polar water channels by reading prey's heartbeats from metres away rather than relying on sight." },
 
   161: { id:161, name:"Mistbane", emoji:"🦠", types:["Poison","Vapor"],
     base:{hp:70,atk:75,def:54,spa:102,spd:80,spe:105},
@@ -6171,7 +6171,7 @@ const WORLD_DATA = {
       {id:104, minLv:60, maxLv:65, rate:22},  // Sandpup (base)
       {id:105, minLv:61, maxLv:66, rate:5},  // Dravanas (mid → after 104 ✓)
       {id:106, minLv:60, maxLv:65, rate:15},  // Geoclad (base)
-      {id:236, minLv:59, maxLv:64, rate:9},  // Frostick (base Ice)
+      {id:236, minLv:59, maxLv:64, rate:9},  // Iciquill (base Ice)
       {id:248, minLv:59, maxLv:64, rate:18}   // Pebblard (base Rock)
     ],
     hasGym:false, requiredBadges:10, mapPos:{x:35, y:72},
@@ -6296,7 +6296,7 @@ const WORLD_DATA = {
       {id:133, minLv:69, maxLv:74, rate:5},  // Monolithox (mid → after 132 ✓)
       {id:93,  minLv:69, maxLv:74, rate:7},  // standalone rock
       {id:251, minLv:67, maxLv:72, rate:12},  // Crumblite (base Rock/Metal)
-      {id:304, minLv:67, maxLv:72, rate:17},  // Frostpelt (base Earth/Ice)
+      {id:304, minLv:67, maxLv:72, rate:17},  // Yeticub (base Earth/Ice)
       {id:232, minLv:67, maxLv:72, rate:5}    // Serphaxon (base Draconic/Ground)
     ],
     hasGym:false, requiredBadges:14, mapPos:{x:48, y:85},
@@ -6659,7 +6659,7 @@ const WORLD_DATA = {
     connections:["route15","stone_plateau"],
     wildMonsters:[
       {id:249, minLv:68, maxLv:73, rate:24},  // Boulderax (mid → 248 on route11/magma_vent ✓)
-      {id:305, minLv:68, maxLv:73, rate:14},  // Yetigeist (mid → 304 Frostpelt on route15 ✓)
+      {id:305, minLv:68, maxLv:73, rate:14},  // Yetigeist (mid → 304 Yeticub on route15 ✓)
       {id:233, minLv:68, maxLv:73, rate:18},  // Serpenthorn (mid → 232 Draxon on route15 ✓)
       {id:174, minLv:68, maxLv:73, rate:10},  // Chromedrake (standalone Draconic/Metal)
       {id:251, minLv:67, maxLv:72, rate:28},  // Crumblite (base Rock/Metal, also route15)
@@ -6676,7 +6676,7 @@ const WORLD_DATA = {
       {id:250, minLv:70, maxLv:75, rate:14},  // Megalith (final → 249 on granite_tunnels ✓)
       {id:306, minLv:70, maxLv:75, rate:13},  // Yetigrand (final → 305 on granite_tunnels ✓)
       {id:234, minLv:70, maxLv:75, rate:13},  // Wyvernak (final → 233 on granite_tunnels ✓)
-      {id:237, minLv:69, maxLv:74, rate:27},  // Icevault (mid → 236 Frostick on route11 ✓)
+      {id:237, minLv:69, maxLv:74, rate:27},  // Icevault (mid → 236 Iciquill on route11 ✓)
       {id:313, minLv:69, maxLv:74, rate:23},  // Sandrix (mid → 312 Dunecrawl on magma_vent ✓)
       {id:241, minLv:70, maxLv:75, rate:10}   // Shardlix (location evo from cosmic_cavern energy)
     ],

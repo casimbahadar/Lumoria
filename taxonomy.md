@@ -33,7 +33,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 
 - `[3] Solkin→Pyrevix→Calderaeth | Fire/Draconic | dragon-mythic` (sub: fire-dragon-fox/kitsune-dragon hybrid)
 - `[6] Aquatter→Cobaleap→Banksnout | Aquatic/Dark | otter (mustelid)`
-- `[9] Verdkin→Barknell→Garlawarden | Nature/Fairy | saurian` (sub: bark-dinosaur with petals — borderline treant-saurian hybrid)
+- `[9] Saurbud→Barknell→Garlawarden | Nature/Fairy | saurian` (sub: bark-dinosaur with petals — borderline treant-saurian hybrid)
 - `[12] Scorchlarva→Heliocoon→Pyromoth | Fire/Wind | moth (Lepidoptera)`
 - `[15] Taurcin→Molteroth→Pyroclasm | Fire/Earth | bull-titan / minotaur` (mythical sub: volcanic bull-titan, bipedal final)
 - `[18] Cindercula→Searburn→Quetzember | Fire/Wind | feathered-serpent` (sub: plumed fire-serpent / Quetzalcoatl; base #16 stays mono-Fire)
@@ -66,10 +66,10 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[89] Amperix→Sparkrel→Dynameel | Electric/Aquatic | electric eel`
 - `[91] Zephyrel→Vortexathos | Electric/Wind | eagle` (storm-eagle, 4 m wingspan; subdivided out of the generic "bird-of-prey/raptor" bucket 2026-06-13)
 - `[94] Arcspine→Stonebolt→Basaltback | Electric/Earth | echidna`
-- `[97] Dustkin→Seismith→Quakehide | Earth/Electric | rhino`
+- `[97] Aridhino→Seismith→Quakehide | Earth/Electric | rhino`
 - `[100] Aridix→Toxivenoth→Craterlurk | Earth/Poison | scorpion` (**name leak in #100: "Venomvast"**)
 - `[103] Limoux→Dunoloth→Calciderm | Earth/Aquatic | crocodilian` (**name leak in #103: "Crustvast"**)
-- `[105] Arenikin→Dravanas | Normal/Earth | hyena` (de-lioned 2026-06-13 — completes the long-flagged canid pivot; already a desert-hyena line in lore/desc/variant, only the archetype label was stale)
+- `[105] Sandpup→Dravanas | Normal/Earth | hyena` (de-lioned 2026-06-13 — completes the long-flagged canid pivot; already a desert-hyena line in lore/desc/variant, only the archetype label was stale)
 - `[107] Geoclad→Quakeon | Earth/Metal | glyptodon` (sub: armoured mammal)
 - `[110] Silvergust→Siroccomane→Aeolarch | Wind/Electric | lion` (wind-lion)
 - `[113] Aeolin→Swirlavel→Cyclondor | Wind | condor / vulture` (high-altitude condor; subdivided out of "bird-of-prey/raptor" 2026-06-13)
@@ -166,7 +166,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[288] Fuzzlet→Cuddrix→Majesticore | Draconic/Fairy | kirin` (mythical, just claimed)
 - `[289] Bouncyblob | Normal/Vapor | slime / blob` (mythical, standalone; added Vapor 2026-06-12 — a warm condensed-vapor gel blob; Normal mono→pristine Normal/Vapor)
 - `[290] Guisecat | Normal/Dark | cat` (mimic-cat — second cat alongside Fluffen line + Cinderpaw + Hauntcoal)
-- `[292] Breezekin→Galehorn | Wind/Sonic | antelope` (pristine archetype)
+- `[292] Breefawn→Galehorn | Wind/Sonic | antelope` (pristine archetype)
 - `[295] Windwhelp→Stormwing→Cyclonax | Electric/Draconic | dragon-mythic` (sub: wind-dragon)
 - `[298] Plaguefly→Pestquito→Plagueoth | Poison/Toxin | mosquito` (Diptera — relabeled off moth 2026-06-13; emoji 🦟 + desc/lore "plague mosquito" across all 3 stages. Resolves the old BREAKING-list moth/butterfly flag)
 - `[300] Stinglet→Nettlebarb | Toxin/Sonic | bee (Hymenoptera)` (currently inconsistent — bee→scorpion-bee hybrid on BREAKING list)
@@ -406,7 +406,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 ### At cap (no action)
 
 - bear: 3 (Hailwolf, Aurochill, Rotunden line)
-- saurian/dinosaur: 3 (Verdkin/Garlawarden, Magmaurin/Terravore, Cindling/Magmaw). Plus Volcascale/Monolithox = 4 — **trim 1 candidate.**
+- saurian/dinosaur: 3 (Saurbud/Garlawarden, Magmaurin/Terravore, Cindling/Magmaw). Plus Volcascale/Monolithox = 4 — **trim 1 candidate.**
 - frog/toad: 2 (Toxirin, Acidelix lines)
 - crocodilian: 2 (Limoux line, Sludgejaw)
 - hare/rabbit: 2 (Leapbun, Boltfur lines)

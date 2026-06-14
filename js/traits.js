@@ -3445,7 +3445,7 @@ const TRAIT_ASSIGNMENTS = {
   // Full Phase 5 fills in all 446 entries. Until then, only these IDs have traits.
   1:   { pool: ["mastery"] },      // Solkin — Fire STAB 2.0× via Mastery
   4:   { pool: ["mirage"] },       // Aquatter — 25% incoming miss
-  7:   { pool: ["mossy"] },        // Verdkin — Nature heals it
+  7:   { pool: ["mossy"] },        // Saurbud — Nature heals it
   69:  { pool: ["thorned"] },      // Germix — phys recoil
   178: { pool: ["lucky"] },        // Fluffen — crit-immune
   180: { pool: ["mossy"] },        // Leapbun — Nature heals it

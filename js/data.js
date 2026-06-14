@@ -1857,7 +1857,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"aquatic_gun",[22,"arc_flash"]],[1,"jolt"],[12,"static_strike"],[19,"second_wind"],[20,"bubble_jet"],[28,"volt_jet"],[35,"voltaic_fang"],[36,"tidal_rush",[5,"stun_pulse"]],[3,"static_cage"],[31,"ion_cannon"]],
     evolveTo:88, evolveLevel:28, catchRate:120, expYield:90, rarity:"common",
     desc:"An electric fish that shocks prey in shallow water. Glows when excited.",
-    lore:"Amperix is a tropical fish 30 cm long with a vibrant yellow body striped in electric blue. Its dorsal fin doubles as an array of biological capacitor cells. It schools in large groups in warm coastal waters, and when a predator approaches the school emits a coordinated electrical pulse that stuns attackers. After a school's coordinated electrical pulse fires, a handful of Amperix tend to drift in place rather than rejoin the formation, dorsal capacitors humming with unused charge: the first stirrings of the solitary thermal-vent hunter Surgolith eventually becomes." },
+    lore:"Amperix is a tropical fish 30 cm long with a vibrant yellow body striped in electric blue. Its dorsal fin doubles as an array of biological capacitor cells. It schools in large groups in warm coastal waters, and when a predator approaches the school emits a coordinated electrical pulse that stuns attackers. After a school's coordinated electrical pulse fires, a handful of Amperix tend to drift in place rather than rejoin the formation, dorsal capacitors humming with unused charge: the first stirrings of the solitary thermal-vent hunter Dynameel eventually becomes." },
 
   88: { id:88, name:"Sparkrel",    emoji:"🐟", types:["Electric","Aquatic"],
     base:{hp:78,atk:61,def:64,spa:113,spd:85,spe:100},
@@ -2182,19 +2182,19 @@ const MONSTERS_DATA = {
     desc:"A psychic hound whose mind burns with power. Can levitate small objects.",
     lore:"Psychovast is a larger psychic dog 75 cm at the shoulder — Projectery's smooth lavender-grey fur has darkened to sleek indigo-grey, and the domed glowing forehead of its juvenile form has hardened into a prominent cranial ridge. Concentric rings of faint blue light appear around its head when it concentrates. It can project full sensory experiences into nearby minds and uses this ability to test the character of strangers." },
 
-  168: { id:168, name:"Espelith",     emoji:"🔮", types:["Mental","Mineral"],
+  168: { id:168, name:"Gemseer",     emoji:"🔮", types:["Mental","Mineral"],
     base:{hp:46,atk:51,def:57,spa:80,spd:79,spe:62},
     learnset:[[1,"mind_jolt",[22,"insight_flare"]],[1,"fairy_wind"],[8,"crystal_glow"],[10,"psi_burst"],[14,"flint_focus"],[18,"prism_flare"],[26,"mental"],[30,"mineral_pulse"],[34,"lunar_burst"],[42,"inner_calm"],[50,"psi_strike",[5,"prism_ward"]],[3,"clairvoyance"],[36,"glitter_storm"]],
     evolveTo:169, evolveLevel:32, catchRate:90, expYield:100, rarity:"common",
     desc:"A serene gem-being. Bridges the worlds of mind and matter, refracting psychic energy through its violet prism body into patterns of light.",
-    lore:"Espelith is a mental-mineral gem creature 50 cm tall resembling a rounded prism of violet crystal with short limbs and a serene humanoid face embedded in the front face of the crystal. It refracts nearby psychic energy into visible light, producing beautiful patterns on surrounding surfaces." },
+    lore:"Gemseer is a mental-mineral gem creature 50 cm tall resembling a rounded prism of violet crystal with short limbs and a serene humanoid face embedded in the front face of the crystal. It refracts nearby psychic energy into visible light, producing beautiful patterns on surrounding surfaces." },
 
   169: { id:169, name:"Aurarael",   emoji:"💫", types:["Mental","Mineral"],
     base:{hp:83,atk:62,def:59,spa:119,spd:98,spe:104},
     learnset:[[1,"psi_burst"],[2,"mental"],[3,"prism_ward"],[20,"ore_ray"],[36,"fortify"],[38,"mineral_pulse"],[39,"inner_calm"],[40,"second_wind"],[44,"blitz"],[45,"gem_storm"],[47,"psi_strike"],[48,"telepathic_slam"],[50,"quartz_blast"],[52,"thought_crush"],[56,"temporal_rift"],[60,"radiance_cannon"],[4,"clairvoyance"],[35,"baleful_stare"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:245, rarity:"rare",
     desc:"A levitating psychic core orbited by seven prism shards, held in formation by a luminous mind-field. Its serene face gleams from the central crystal.",
-    lore:"Aurarael is a 60-centimetre crystalline entity whose violet prism body has fractured upward into a slowly orbiting cluster of seven smaller shards, held in formation by the visible blue-violet psychic field that radiates between them. The serene humanoid face from its Espelith juvenile stage still shimmers at the centre of the largest core shard, watching outward through every angle of the rotating crown. It inhabits locations with high psychic resonance — ancient meditation sites, mystical crossroads — and the constant low chime of its orbiting shards announces its presence well before it drifts into view." },
+    lore:"Aurarael is a 60-centimetre crystalline entity whose violet prism body has fractured upward into a slowly orbiting cluster of seven smaller shards, held in formation by the visible blue-violet psychic field that radiates between them. The serene humanoid face from its Gemseer juvenile stage still shimmers at the centre of the largest core shard, watching outward through every angle of the rotating crown. It inhabits locations with high psychic resonance — ancient meditation sites, mystical crossroads — and the constant low chime of its orbiting shards announces its presence well before it drifts into view." },
 
   170: { id:170, name:"Oneiron",   emoji:"💫", types:["Dark","Dream"],
     base:{hp:75,atk:69,def:52,spa:125,spd:94,spe:84},
@@ -2339,12 +2339,12 @@ const MONSTERS_DATA = {
     desc:"A crag claw crab that lives on rocky sea cliffs. Fiercely territorial.",
     lore:"Rugothon is a massive water-mineral crustacean 2 metres long with a heavily encrusted shell of barnacles and embedded pebbles. Its eight wide legs are each tipped with flat digging pads. It inhabits rocky coastlines where it is mistaken for a tide-pool feature until it suddenly moves. Rugothon spend long hours wedging themselves into rock crevices much smaller than their 2-metre bodies, packing their bulk inward. Older individuals also eat noticeably less in each successive moult cycle, then less again, slowly withdrawing into themselves. Both habits compound across generations into the smaller, denser rock-crab Lithomere becomes — the only Lumori evolution known to scale downward in size while gaining density." },
 
-  195: { id:195, name:"Prismolith",  emoji:"💎", types:["Ice","Mineral"],
+  195: { id:195, name:"Icequartz",  emoji:"💎", types:["Ice","Mineral"],
     base:{hp:70,atk:66,def:101,spa:77,spd:87,spe:38},
     learnset:[[1,"stone_throw",[25,"crystal_lance"]],[1,"flurries"],[3,"petrify_gaze"],[8,"flint_focus"],[11,"embedded_spike"],[12,"fortify"],[14,"crystal_veil"],[17,"war_dance"],[20,"stone_slide"],[22,"sediment_heal"],[24,"glacial_lance"],[26,"crystal_spear"],[28,"cold_beam"],[30,"mica_lattice"],[31,"stalactite_drop"],[33,"quarry_crush"],[34,"hail_storm"],[36,"crag_strike"],[38,"diamond_storm"],[40,"gem_scatter"],[43,"frost_crash"],[44,"whiteout",[5,"granite_wall"]],[45,"gemburst"]],
     evolveTo:196, evolveLevel:40, catchRate:70, expYield:172, rarity:"uncommon",
     desc:"A crystal of ice and stone. Formed under tremendous pressure underground.",
-    lore:"Prismolith is a faceted ice-mineral creature 80 cm tall shaped like a natural geode that has grown legs. Its body is a rough dark matrix on the outside, but gaps reveal brilliant purple amethyst crystals within. It moves very slowly and is prized by miners for the high-quality crystals it sheds during moulting. Each year a Prismolith moves more slowly than the last, and where it pauses too long its feet sink slightly into the frozen ground beneath: these are the first signs of the permafrost rooting Frigolith commits to fully." },
+    lore:"Icequartz is a faceted ice-mineral creature 80 cm tall shaped like a natural geode that has grown legs. Its body is a rough dark matrix on the outside, but gaps reveal brilliant purple amethyst crystals within. It moves very slowly and is prized by miners for the high-quality crystals it sheds during moulting. Each year a Icequartz moves more slowly than the last, and where it pauses too long its feet sink slightly into the frozen ground beneath: these are the first signs of the permafrost rooting Frigolith commits to fully." },
 
   // ===== BUG =====
   197: { id:197, name:"Photoworm",   emoji:"🐛", types:["Nature"],
@@ -3325,12 +3325,12 @@ const MONSTERS_DATA = {
     lore:"Zephyrin is a small wind-psychic vortex 1.5 metres tall, a swirling column of translucent teal-blue compressed air with a faint psychic glow at its centre. Long trailing ribbons of wind unfurl from its periphery and drift behind it as it moves. It inhabits mountain weather-stations and is considered a reliable predictor of atmospheric pressure changes." },
 
   // ===== WATER/FAIRY =====
-  34: { id:34, name:"Pearlith", emoji:"🐚", types:["Aquatic","Fairy"],
+  34: { id:34, name:"Pearlmaid", emoji:"🐚", types:["Aquatic","Fairy"],
     base:{hp:36,atk:37,def:52,spa:69,spd:62,spe:57},
     learnset:[[1,"collide",[22,"wish_spark"]],[1,"aquatic_gun"],[8,"fairy_wind"],[16,"bubble_jet"],[20,"baleful_stare"],[24,"prism_flare"],[32,"tidal_rush",[5,"tidecaller"]],[36,"riptide_slam"],[3,"deepwater_hymn"],[31,"lunar_burst"]],
     evolveTo:35, evolveLevel:24, catchRate:200, expYield:74, rarity:"common",
     desc:"A tiny pearl-mermaid fry curled inside a fairy-touched oyster shell. Snaps the shell shut to hide whenever startled.",
-    lore:"Pearlith is a tiny pearl-mermaid fry about 12 centimetres long, curled comfortably inside a 20-centimetre barnacle-encrusted oyster shell that serves as both nursery and shelter. Its tiny pale-violet body has a soft humanoid torso and a stubby pearl-coloured tail tipped in delicate translucent fins; rose-gold luminescence pulses gently from its core, illuminating the shell from within. When threatened it tucks fully inside and snaps the shell closed with surprising force, becoming indistinguishable from an ordinary oyster among reef rocks. As it grows, fairy energy concentrates in its body until the shell can no longer contain it, and it emerges into the open sea as Undirael." },
+    lore:"Pearlmaid is a tiny pearl-mermaid fry about 12 centimetres long, curled comfortably inside a 20-centimetre barnacle-encrusted oyster shell that serves as both nursery and shelter. Its tiny pale-violet body has a soft humanoid torso and a stubby pearl-coloured tail tipped in delicate translucent fins; rose-gold luminescence pulses gently from its core, illuminating the shell from within. When threatened it tucks fully inside and snaps the shell closed with surprising force, becoming indistinguishable from an ordinary oyster among reef rocks. As it grows, fairy energy concentrates in its body until the shell can no longer contain it, and it emerges into the open sea as Undirael." },
 
   // ===== GRASS/DARK =====
   78: { id:78, name:"Sylvnox", emoji:"🌿", types:["Nature","Dark"],
@@ -3389,12 +3389,12 @@ const MONSTERS_DATA = {
     lore:"Rimeling is a slender humanoid about 1.2 metres tall made entirely of layered ice and dark tempered steel. Its body appears jointed, like armour assembled from ice-forged plates. Blue veins of compressed frost show through gaps in the plating. It stands motionless in blizzards for days, absorbing ambient cold to reinforce its body." },
 
   // ===== ICE/FAIRY =====
-  57: { id:57, name:"Speculith", emoji:"✨", types:["Ice","Fairy"],
+  57: { id:57, name:"Glinteye", emoji:"✨", types:["Ice","Fairy"],
     base:{hp:51,atk:37,def:62,spa:73,spd:68,spe:51},
     learnset:[[1,"collide",[22,"pixie_bolt"]],[1,"flurries"],[8,"fairy_wind"],[16,"cold_beam"],[24,"prism_flare"],[29,"avalanche_drive"],[32,"lunar_burst"],[40,"whiteout",[5,"permafrost"]],[3,"winter_shroud"],[31,"subzero_slash"]],
     evolveTo:58, evolveLevel:28, catchRate:150, expYield:85, rarity:"common",
     desc:"A small floating ice-fairy with a translucent lens for a face. Drifts through cold mountain air, signaling to others with prismatic flashes through its glassy mask.",
-    lore:"Speculith is a small floating ice-fairy roughly 40 cm tall, its slender translucent body capped with a flat circular lens-plate where its face would be. Delicate crystalline spines radiate from the lens like the petals of a frozen flower, and a pair of stubby wing-buds — folded close against its back — already glint with the rainbow iridescence its evolved form will display in full. It drifts on icy updrafts through cold mountain air, focusing and scattering light through its lens-face to flash bright prismatic signals to others of its kind." },
+    lore:"Glinteye is a small floating ice-fairy roughly 40 cm tall, its slender translucent body capped with a flat circular lens-plate where its face would be. Delicate crystalline spines radiate from the lens like the petals of a frozen flower, and a pair of stubby wing-buds — folded close against its back — already glint with the rainbow iridescence its evolved form will display in full. It drifts on icy updrafts through cold mountain air, focusing and scattering light through its lens-face to flash bright prismatic signals to others of its kind." },
 
   // ===== ICE/DRAGON =====
   59: { id:59, name:"Lunaveris", emoji:"🌙", types:["Ice","Draconic"],
@@ -3468,7 +3468,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"aquatic_gun"],[2,"fairy_wind"],[3,"bubble_jet"],[4,"prism_flare"],[5,"tidecaller"],[29,"tidal_rush"],[30,"lashing_tail"],[36,"graze"],[42,"moonveil"],[48,"tidal_sweep"],[54,"lunar_burst"],[60,"tsunami"],[6,"deepwater_hymn"],[40,"sea_serpent_strike"]],
     evolveTo:36, evolveLevel:46, catchRate:40, expYield:222, rarity:"rare",
     desc:"A sea nymph radiating both water and fairy energy. Said to protect lost sailors.",
-    lore:"Undirael is a mermaid-like creature 1.5 metres tall — Pearlith's tiny pale-violet body has grown to full mermaid stature now that the oyster shell can no longer contain it, the lower half lengthened into a deep-sea fish-tail shimmering violet and the upper retaining the humanoid torso with rose-gold core-luminescence still pulsing faintly beneath the skin. Its flowing hair is made of water-weed adorned with living sea-stars. It guides lost sailors away from dangerous reefs by projecting alluring visions of safe harbours." },
+    lore:"Undirael is a mermaid-like creature 1.5 metres tall — Pearlmaid's tiny pale-violet body has grown to full mermaid stature now that the oyster shell can no longer contain it, the lower half lengthened into a deep-sea fish-tail shimmering violet and the upper retaining the humanoid torso with rose-gold core-luminescence still pulsing faintly beneath the skin. Its flowing hair is made of water-weed adorned with living sea-stars. It guides lost sailors away from dangerous reefs by projecting alluring visions of safe harbours." },
 
   79: { id:79, name:"Morraveth", emoji:"🌳", types:["Nature","Dark"],
     base:{hp:84,atk:101,def:80,spa:100,spd:72,spe:67},
@@ -3517,7 +3517,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"cold_beam"],[2,"prism_flare"],[3,"collide"],[4,"permafrost"],[29,"lunar_burst"],[34,"stardust_veil"],[37,"whiteout"],[40,"daunt"],[46,"wish_spark"],[52,"cryo_lance"],[58,"frost_crash"],[64,"radiance_cannon"],[5,"winter_shroud"],[42,"subzero_slash"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:218, rarity:"rare",
     desc:"A prismatic ice being of refined fairy power. Its crystalline body bends light into rainbows.",
-    lore:"Irisarael is a graceful, winged fairy creature 1 metre tall — Speculith's stubby wing-buds have unfurled into enormous flat ice-crystal wings showing the full rainbow iridescence its juvenile form only hinted at, and the lens-plate face has rounded into a proper fairy visage with eyes glinting through the prismatic glass. Its slender body is pale lavender-white. It inhabits frozen waterfalls, sleeping anchored to the ice surface by small ice anchors on its heels." },
+    lore:"Irisarael is a graceful, winged fairy creature 1 metre tall — Glinteye's stubby wing-buds have unfurled into enormous flat ice-crystal wings showing the full rainbow iridescence its juvenile form only hinted at, and the lens-plate face has rounded into a proper fairy visage with eyes glinting through the prismatic glass. Its slender body is pale lavender-white. It inhabits frozen waterfalls, sleeping anchored to the ice surface by small ice anchors on its heels." },
 
   60: { id:60, name:"Boreadrake", emoji:"🐉", types:["Ice","Draconic"],
     base:{hp:84,atk:104,def:93,spa:110,spd:83,spe:76},
@@ -3755,7 +3755,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"flurries"],[1,"stalactite_drop"],[2,"cold_beam"],[3,"stone_slide"],[4,"fortify"],[5,"permafrost"],[10,"cold_focus"],[15,"shard_form"],[18,"cryogenic_field"],[20,"sediment_heal"],[22,"icicle_smash"],[25,"mica_lattice"],[28,"boreal_armor"],[30,"ice_hammer"],[35,"crystal_spear"],[41,"whiteout"],[43,"fortify"],[45,"crag_strike"],[49,"crystal_lance"],[53,"frost_crash"],[57,"tundra_tomb"],[61,"quarry_crush"],[65,"cryo_lance"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:258, rarity:"rare",
     desc:"A titanic crystal colossus forged from eons of glacial pressure. Its body refracts light into blinding aurora beams.",
-    lore:"Frigolith is an ice-mineral creature 1 metre long resembling a boulder partially submerged in permafrost — Prismolith's purple amethyst crystals have darkened and refrozen into crystalline ice formations that have grown through cracks in its rock body over centuries, and its mobile legs have rooted into the tundra it must now remain in to survive. In winter it becomes nearly invisible against frozen tundra. Warming weather causes it distress as its ice components begin to melt." },
+    lore:"Frigolith is an ice-mineral creature 1 metre long resembling a boulder partially submerged in permafrost — Icequartz's purple amethyst crystals have darkened and refrozen into crystalline ice formations that have grown through cracks in its rock body over centuries, and its mobile legs have rooted into the tundra it must now remain in to survive. In winter it becomes nearly invisible against frozen tundra. Warming weather causes it distress as its ice components begin to melt." },
 
   40: { id:40, name:"Marevanos", emoji:"🐠", types:["Aquatic","Wind"],
     base:{hp:84,atk:87,def:80,spa:108,spd:90,spe:101},
@@ -3852,13 +3852,13 @@ const MONSTERS_DATA = {
     desc:"A massive bloomed cephalopod that drifts through poison-clouded waters. Its venom-tipped tentacles unfurl like the petals of a deep-sea anemone.",
     lore:"Septanemone is a colossal bloomed cephalopod nearly 3.5 metres from beak to outermost tentacle-tip — Noxaquith's navy hood has flared open and bloomed into a bell-shaped mantle patterned in deep crimson and bruised violet, and its poisoned ink has specialised into stinging cells that scatter from soft frills around its body like the inverted petals of a vast sea anemone — a bloom from which seven main tentacles, each tipped with venomous barbs, unfurl in a wide circle. Smaller stinging cells scatter from the frills as it swims, leaving drifting clouds that paralyse plankton and small fish drawn in by its vivid colouration. It cruises slowly through poison-saturated waters using rhythmic jets from its mantle, anchoring briefly to rocky outcroppings only when digesting a large meal — never permanently sessile." },
 
-  // 187: Thalassira - Aquatic/Fairy (Pearlith→Undirael→Thalassira)
+  // 187: Thalassira - Aquatic/Fairy (Pearlmaid→Undirael→Thalassira)
   36: { id:36, name:"Thalassira", emoji:"👑", types:["Aquatic","Fairy"],
     base:{hp:91,atk:76,def:81,spa:139,spd:106,spe:57},
     learnset:[[1,"aquatic_gun"],[1,"fairy_wind"],[2,"prism_flare"],[3,"tidecaller"],[4,"lunar_burst"],[5,"deepwater_hymn"],[10,"rain_cascade"],[15,"healing_circle"],[20,"marine_blessing"],[25,"glimmering_song"],[30,"monsoon"],[35,"sylvan_song"],[38,"celestial_wave"],[40,"moonglow"],[42,"tidal_rush"],[44,"bewitching_kiss"],[46,"glitter_storm"],[50,"tsunami"],[54,"fae_requiem"],[58,"sea_serpent_strike"],[62,"moonveil"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:275, rarity:"rare",
     desc:"The radiant sovereign of the world's oceans — a regal sea-fairy queen whose long fin-tail and gossamer wings command tides and storms alike.",
-    lore:"Thalassira is the radiant sovereign of the world's oceans, a regal sea-fairy queen 4 metres from crown to tail-tip with the upper body of a tall ethereal humanoid and a long sweeping fin-tail of iridescent ocean-blue and silver. From her shoulders unfurl two pairs of translucent fairy wings — gossamer in air and webbed for swift propulsion underwater. Strands of her flowing water-weed hair are woven with constellations of living sea-stars, and her crown is a single colossal pearl-fragment formed from the same fairy energy that quickened her in her Pearlith stage. She guards hidden underwater groves where rare magical plants grow undisturbed, and sailors who see her are blessed with eternal safe passage." },
+    lore:"Thalassira is the radiant sovereign of the world's oceans, a regal sea-fairy queen 4 metres from crown to tail-tip with the upper body of a tall ethereal humanoid and a long sweeping fin-tail of iridescent ocean-blue and silver. From her shoulders unfurl two pairs of translucent fairy wings — gossamer in air and webbed for swift propulsion underwater. Strands of her flowing water-weed hair are woven with constellations of living sea-stars, and her crown is a single colossal pearl-fragment formed from the same fairy energy that quickened her in her Pearlmaid stage. She guards hidden underwater groves where rare magical plants grow undisturbed, and sailors who see her are blessed with eternal safe passage." },
 
   // 188: Mycovast - Grass/Poison (Sporix→Myceloth→Mycovast)
   65: { id:65, name:"Mycovast", emoji:"🍄", types:["Nature","Poison"],
@@ -3924,13 +3924,13 @@ const MONSTERS_DATA = {
     desc:"A dragonfly of pure lightning. Its body discharges with every wingbeat; to be caught in its swarm is to stand in a thunderstorm.",
     lore:"Galvaglide is a dragonfly-like creature with a 40 cm wingspan — Shockharpe's translucent late-instar wings have hardened to translucent gold and now crackle with static charge, and its hooked predatory mandibles have refined into precision strike-points. Its slender body is vivid yellow. It hunts in flight, hovering stationary before striking prey with a precisely targeted electrical discharge from its forward-pointing tail." },
 
-  // 196: Surgolith - Electric/Aquatic (Amperix→Volterel→Surgolith)
-  89: { id:89, name:"Surgolith", emoji:"🐍", types:["Electric","Aquatic"],
+  // 196: Dynameel - Electric/Aquatic (Amperix→Volterel→Dynameel)
+  89: { id:89, name:"Dynameel", emoji:"🐍", types:["Electric","Aquatic"],
     base:{hp:93,atk:77,def:82,spa:137,spd:103,spe:58},
     learnset:[[1,"jolt"],[1,"tidal_rush"],[2,"volt_jet"],[3,"aquatic_gun"],[4,"stun_pulse"],[38,"stormbolt"],[42,"tsunami"],[46,"voltaic_fang"],[50,"tidal_crush"],[54,"ion_cannon"],[58,"abyssal_jet"],[62,"overcharge"],[5,"static_cage"],[44,"frost_current"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A 4-metre electric eel-like leviathan whose body crackles with stored ocean current. It powers itself by siphoning thermal-vent differentials.",
-    lore:"Surgolith is a colossal electric eel-like leviathan over 4 metres long — Sparkrel's silver-blue developing form has darkened to a dark blue-black body marked by bands of bright yellow that pulse with stored electricity along its full length. Two long whiskers below its jaw act as ultra-sensitive electroreceptors, mapping every fish in the deep waters around it. It lives perched coiled around deep-sea volcanic thermal vents, drawing on the differential between hot and cold water to power its movements without needing to hunt for energy. When threatened, it discharges columns of electrified water in any direction, and the surrounding sea briefly glows with cascading currents." },
+    lore:"Dynameel is a colossal electric eel-like leviathan over 4 metres long — Sparkrel's silver-blue developing form has darkened to a dark blue-black body marked by bands of bright yellow that pulse with stored electricity along its full length. Two long whiskers below its jaw act as ultra-sensitive electroreceptors, mapping every fish in the deep waters around it. It lives perched coiled around deep-sea volcanic thermal vents, drawing on the differential between hot and cold water to power its movements without needing to hunt for energy. When threatened, it discharges columns of electrified water in any direction, and the surrounding sea briefly glows with cascading currents." },
 
   // 197: Petrovast - Electric/Rock (Voltrix→Petravolt→Petrovast)
   94: { id:94, name:"Petrovast", emoji:"⛰️", types:["Electric","Earth"],
@@ -4302,12 +4302,12 @@ const MONSTERS_DATA = {
     desc:"A leviathan that travels between dimensions using psychic rift gates. Islands vanish when it surfaces.",
     lore:"Riftwhale is a water-psychic creature 12 metres long resembling a colossal whale with flanks covered in luminous psychic sigils. It navigates by warping local space." },
 
-  355: { id:355, name:"Abyssalith", emoji:"🌊", types:["Aquatic","Toxin"],
+  355: { id:355, name:"Gloommaw", emoji:"🌊", types:["Aquatic","Toxin"],
     base:{hp:81,atk:99,def:88,spa:89,spd:81,spe:77}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"tidal_rush"],[5,"shadowstep"],[10,"void_rend"],[15,"corrosive_rain"],[20,"tidal_crush"],[22,"bilious_drown"],[25,"gunk_blast"],[30,"nether_sphere"],[32,"acidic_glance"],[35,"venom_drown"],[38,"phantom_claw"],[40,"tsunami"],[45,"virulent_storm"],[50,"sea_serpent_strike"],[60,"sludge_wave"],[62,"toxic_sting"]],
     catchRate:10, expYield:318, rarity:"rare",
     desc:"A hunter from the deepest abyss. Light physically bends around it as though avoiding contact.",
-    lore:"Abyssalith is a water-toxin creature 5 metres long resembling an armoured eel with bioluminescent lures. Its black scales have a refractive property that makes it nearly invisible underwater." },
+    lore:"Gloommaw is a water-toxin creature 5 metres long resembling an armoured eel with bioluminescent lures. Its black scales have a refractive property that makes it nearly invisible underwater." },
 
   356: { id:356, name:"Stormlord", emoji:"🦅", types:["Electric","Sonic"],
     base:{hp:72,atk:92,def:72,spa:104,spd:82,spe:98}, evolveTo:389, evolveLevel:70,
@@ -4344,12 +4344,12 @@ const MONSTERS_DATA = {
     desc:"A twilight sovereign that rules the threshold between day and night. It is neither fully light nor dark.",
     lore:"Duskmantle is a dark-mental entity 1.8 metres tall that appears different from each angle — from one side it is a being of radiant thought, from the other a creature of shadow. Both states are equally real." },
 
-  361: { id:361, name:"Tectolith", emoji:"🐢", types:["Earth","Nature"],
+  361: { id:361, name:"Tectoshell", emoji:"🐢", types:["Earth","Nature"],
     base:{hp:92,atk:104,def:94,spa:78,spd:82,spe:70}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"geoblast"],[10,"shear_strike"],[20,"fissure_slam"],[30,"verdant_orb"],[40,"terra_spike"],[50,"canopy_crash"],[60,"continental_shift"],[5,"bark_shield"],[38,"sand_storm_polish"],[62,"quicksand_pull"]],
     catchRate:10, expYield:320, rarity:"rare",
     desc:"A colossal island-turtle whose shell carries a living landscape of moss, stone, and rooted trees. Whole ecosystems thrive on its back.",
-    lore:"Tectolith is a colossal island-turtle 7 metres long whose domed shell is a crust of compacted tectonic plate, with continents of moss, stone, and even rooted trees spreading across its back. It moves so seldom that whole ecosystems take hold on it, and travellers have mistaken a sleeping Tectolith for a hill. It is older than most mountain ranges." },
+    lore:"Tectoshell is a colossal island-turtle 7 metres long whose domed shell is a crust of compacted tectonic plate, with continents of moss, stone, and even rooted trees spreading across its back. It moves so seldom that whole ecosystems take hold on it, and travellers have mistaken a sleeping Tectoshell for a hill. It is older than most mountain ranges." },
 
   // ---- Tier 3b: More post-game NG+ BST ~590–640 ----
   362: { id:362, name:"Lunaspectre", emoji:"🌕", types:["Mental","Spectral"],
@@ -4831,12 +4831,12 @@ const MONSTERS_DATA = {
     desc:"A palm-sized mantis nymph that drills its strikes against stones for hours on end.",
     lore:"Pummelo hatches already pugnacious, sparring with its broodmates and battering pebbles with its raptorial forelimbs to harden them. The faint hum it gives off while training is the first stirring of the focused mind its line is known for, and trainers prize the discipline a young Pummelo shows even at this size." },
 
-  427: { id:427, name:"Brawlith", emoji:"🦗", types:["Fighting","Mental"],
+  427: { id:427, name:"Brawlmonk", emoji:"🦗", types:["Fighting","Mental"],
     evolveTo:428, evolveLevel:36, catchRate:70, expYield:145, rarity:"uncommon",
     base:{hp:62,atk:95,def:66,spa:70,spd:62,spe:55}, // BST 410
     learnset:[[1,"quick_punch"],[5,"straight_jab"],[10,"battle_meditation"],[14,"body_check"],[16,"martial_aura"],[19,"mind_jolt"],[22,"fighter_s_resolve"],[25,"roundhouse"],[28,"ki_burst"],[31,"psi_burst"],[37,"iron_fist"],[43,"cortex_ram"],[45,"dreamweave"]],
     desc:"A mantis warrior whose meditation has woken a focused psychic edge to its strikes.",
-    lore:"Brawlith fights with an eerie calm, reading an opponent's intent a breath before they move and answering with bladed forelimbs guided by foresight. Between bouts it holds long, motionless vigils that sharpen its mind as surely as its sparring sharpens its claws, and rival Brawlith settle disputes in silent, lightning-fast duels." },
+    lore:"Brawlmonk fights with an eerie calm, reading an opponent's intent a breath before they move and answering with bladed forelimbs guided by foresight. Between bouts it holds long, motionless vigils that sharpen its mind as surely as its sparring sharpens its claws, and rival Brawlmonk settle disputes in silent, lightning-fast duels." },
 
   428: { id:428, name:"Zenkaiser", emoji:"🦗", types:["Fighting","Mental"],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:255, rarity:"rare",
@@ -5614,7 +5614,7 @@ const WORLD_DATA = {
       {id:289, minLv:38, maxLv:42, rate:10}, // Bouncyblob (obtainability fix)
       {id:47, minLv:38, maxLv:42, rate:30},
       {id:51, minLv:38, maxLv:42, rate:15}, // Bergyak
-      {id:195, minLv:39, maxLv:42, rate:20}, // Prismolith
+      {id:195, minLv:39, maxLv:42, rate:20}, // Icequartz
       {id:53, minLv:39, maxLv:42, rate:25}
     ],
     ngPlusWildMonsters:[{id:435, minLv:38, maxLv:41, rate:12}], // NG+ family base: Knucklite
@@ -5652,7 +5652,7 @@ const WORLD_DATA = {
       {id:166, minLv:50, maxLv:54, rate:30}, // Projectery
       {id:142, minLv:50, maxLv:54, rate:25}, // Dawnirel
       {id:114, minLv:51, maxLv:54, rate:35}, // Nimbusel
-      {id:168, minLv:51, maxLv:54, rate:10}  // Espelith
+      {id:168, minLv:51, maxLv:54, rate:10}  // Gemseer
     ],
     ngPlusWildMonsters:[{id:460, minLv:50, maxLv:53, rate:12}], // NG+ family base: Chimebowl
     hasGym:true, gymLeader:"oracle", requiredBadges:6, mapPos:{x:30, y:55}
@@ -5729,7 +5729,7 @@ const WORLD_DATA = {
       {id:22, minLv:13, maxLv:17, rate:30}, // Hallucigaze (obtainability fix)
       {id:142, minLv:12, maxLv:16, rate:20},  // Dawnirel
       {id:124, minLv:13, maxLv:17, rate:10},  // Phantorvex
-      {id:168, minLv:14, maxLv:17, rate:15},  // Espelith
+      {id:168, minLv:14, maxLv:17, rate:15},  // Gemseer
       {id:166, minLv:14, maxLv:17, rate:25}   // Projectery
     ],
     ngPlusWildMonsters:[{id:448, minLv:12, maxLv:16, rate:12}], // NG+ family base: Cobblepup
@@ -5791,7 +5791,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:211, minLv:34, maxLv:38, rate:28}, // Cinderfrost (obtainability fix)
       {id:177, minLv:34, maxLv:40, rate:6},  // Sapphier
-      {id:195, minLv:34, maxLv:40, rate:24},  // Prismolith
+      {id:195, minLv:34, maxLv:40, rate:24},  // Icequartz
       {id:152, minLv:35, maxLv:40, rate:10},  // Imperion
       {id:201, minLv:36, maxLv:41, rate:18}, // Scarabion
       {id:54, minLv:36, maxLv:41, rate:14}   // Arcturex
@@ -5837,7 +5837,7 @@ const WORLD_DATA = {
     connections:["deep_trench","reef_ruins","sunken_temple"],
     wildMonsters:[
       {id:256, minLv:24, maxLv:28, rate:13}, // Scolphin (obtainability fix)
-      {id:34, minLv:22, maxLv:26, rate:25}, // Pearlith (obtainability fix)
+      {id:34, minLv:22, maxLv:26, rate:25}, // Pearlmaid (obtainability fix)
       {id:28, minLv:22, maxLv:28, rate:20},   // Corelin
       {id:25, minLv:22, maxLv:28, rate:11},   // Reefnip
       {id:31, minLv:23, maxLv:28, rate:16},  // Toxaquil
@@ -5921,7 +5921,7 @@ const WORLD_DATA = {
       {id:175, minLv:25, maxLv:32, rate:9},   // Biolumal
       {id:166, minLv:25, maxLv:32, rate:31},   // Projectery
       {id:37, minLv:26, maxLv:33, rate:23},  // Coralossus
-      {id:168, minLv:27, maxLv:33, rate:27},   // Espelith
+      {id:168, minLv:27, maxLv:33, rate:27},   // Gemseer
       {id:169, minLv:35, maxLv:40, rate:10}    // Aurarael (rare!)
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:88, y:52},
@@ -6011,7 +6011,7 @@ const WORLD_DATA = {
       {id:45, minLv:30, maxLv:36, rate:24},   // Slatis
       {id:50, minLv:30, maxLv:36, rate:16},   // Tundram
       {id:137, minLv:31, maxLv:36, rate:28},   // Goldefluff
-      {id:57, minLv:32, maxLv:38, rate:10},  // Speculith
+      {id:57, minLv:32, maxLv:38, rate:10},  // Glinteye
       {id:43, minLv:34, maxLv:39, rate:6}    // Boreon
     ],
     ngPlusWildMonsters:[{id:420, minLv:30, maxLv:34, rate:12}], // NG+ family base: Steamkit
@@ -6077,7 +6077,7 @@ const WORLD_DATA = {
     connections:["crystal_depths","lunar_peak"],
     wildMonsters:[
       {id:51, minLv:38, maxLv:45, rate:15},   // Bergyak
-      {id:195, minLv:38, maxLv:45, rate:25},   // Prismolith
+      {id:195, minLv:38, maxLv:45, rate:25},   // Icequartz
       {id:148, minLv:39, maxLv:46, rate:10},   // Stoicguard
       {id:55, minLv:40, maxLv:47, rate:30},  // Rimeling
       {id:201, minLv:42, maxLv:48, rate:20}   // Scarabion
@@ -6308,7 +6308,7 @@ const WORLD_DATA = {
     connections:["crystal_mine","route16"],
     wildMonsters:[
       {id:192, minLv:68, maxLv:73, rate:20},  // Boulderoll (mid)
-      {id:195, minLv:69, maxLv:74, rate:25},  // Prismolith (195 on stone_plateau ✓)
+      {id:195, minLv:69, maxLv:74, rate:25},  // Icequartz (195 on stone_plateau ✓)
       {id:196, minLv:70, maxLv:75, rate:10},  // Frigolith (mid → after 195 ✓)
       {id:133, minLv:69, maxLv:74, rate:15},  // Monolithox (mid)
       {id:92,  minLv:70, maxLv:74, rate:30}   // standalone
@@ -6364,7 +6364,7 @@ const WORLD_DATA = {
       {id:164, minLv:58, maxLv:63, rate:28},  // Blightmite (base, new)
       {id:165, minLv:59, maxLv:64, rate:14}   // Venowarn (mid → after 164 ✓)
     ],
-    ngPlusWildMonsters:[{id:355, minLv:58, maxLv:65, rate:10}], // NG+ standalone: Abyssalith
+    ngPlusWildMonsters:[{id:355, minLv:58, maxLv:65, rate:10}], // NG+ standalone: Gloommaw
     hasGym:false, requiredBadges:9, mapPos:{x:42, y:60}
   },
   quake_foothills: {
@@ -6433,7 +6433,7 @@ const WORLD_DATA = {
       {id:193, minLv:67, maxLv:72, rate:28},  // Rugothon (base)
       {id:194, minLv:68, maxLv:73, rate:10},  // Lithomere (mid → after 193 ✓)
       {id:133, minLv:69, maxLv:74, rate:14},  // Monolithox (mid)
-      {id:195, minLv:69, maxLv:74, rate:24},  // Prismolith (base, new)
+      {id:195, minLv:69, maxLv:74, rate:24},  // Icequartz (base, new)
       {id:196, minLv:70, maxLv:75, rate:6}   // Frigolith (mid → after 195 ✓)
     ],
     ngPlusWildMonsters:[{id:385, minLv:82, maxLv:88, rate:8}, {id:367, minLv:68, maxLv:75, rate:10}], // NG+: Permafrost (ice-golem final), Bouldertide

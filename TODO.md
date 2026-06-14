@@ -65,6 +65,7 @@ Clean state — everything committed & pushed on `claude/unified-audit-handoff-t
 
 **✅ Affix-cleanup renames — DONE LOG (capstone PR #95). These names are FINAL — do NOT revisit during the per-family Pass-B flavor walk:**
 - `-ling` group (12 → 3; kept Rimeling/Cindling/Glimmerling): #25 Reefling→**Reefnip** · #51 Shiverling→**Bergyak** · #140 Faeling→**Faedust** · #230 Kappling→**Kappamaru** · #278 Ironling→**Ironpix** · #405 Mirkling→**Umbrapup** · #420 Mistling→**Steamkit** · #458 Gustling→**Tengko** · #460 Gongling→**Chimebowl** (2026-06-14).
+- `-lith` group (→ 3 pre-462; kept Megalith #250 / Chronolith #388 / Frigolith #196, + Forgotten Cosmolith #498 untouched): #34 Pearlith→**Pearlmaid** · #57 Speculith→**Glinteye** · #89 Surgolith→**Dynameel** · #168 Espelith→**Gemseer** · #195 Prismolith→**Icequartz** · #355 Abyssalith→**Gloommaw** · #361 Tectolith→**Tectoshell** · #427 Brawlith→**Brawlmonk** (2026-06-14). *Also added cross-position rule: a morpheme must not appear as a prefix in one name and a suffix in another.*
 
 **Next-session options:** (a) work up a Tier-1 rename proposal; (b) ~~item #6 standalone-count reduction~~ ✅ **DONE 2026-06-12** (see standalone-reduction checkpoint below); (c) trainer-SVG replacement (deferred follow-up to the monster-SVG strip); (d) other audit items. Under-used-type distribution (#3) is considered substantially complete (clear wins banked, no forcing).
 

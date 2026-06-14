@@ -42,7 +42,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[27] Reefnip→Aquidon→Tidalossus | Aquatic/Earth | kraken / sea-titan crustacean` (mythical-exempt)
 - `[30] Corelin→Neraxis→Nepturix | Aquatic | fish` (deep-sea fish)
 - `[33] Toxaquil→Noxaquith→Septanemone | Aquatic/Poison | cephalopod` (sub: anemone-bloomed cephalopod)
-- `[36] Pearlith→Undirael→Thalassira | Aquatic/Fairy | sea-fairy queen / mermaid` (mythical-exempt; flagship)
+- `[36] Pearlmaid→Undirael→Thalassira | Aquatic/Fairy | sea-fairy queen / mermaid` (mythical-exempt; flagship)
 - `[38] Coralossus→Titanariel | Aquatic/Metal | coral-titan humanoid` (mythical sub)
 - `[40] Gossafin→Marevanos | Aquatic/Wind | manta-ray` (winged manta — relabeled out of cetacean per cap-3 policy)
 - `[41] Titanomare | Aquatic/Metal | cetacean` (steel-whale titan; standalone)
@@ -52,7 +52,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[52] Tundram→Bergyak→Permavast | Ice/Normal | bovid` (auroch/ram chain)
 - `[54] Mistwhirl→Arcturex | Ice/Wind | owl`
 - `[56] Rimeling→Deepfreeze | Ice/Fighting | armored-warrior` (bipedal armor-warrior; retyped Ice/Metal→Ice/Fighting for diversity)
-- `[58] Speculith→Irisarael | Ice/Fairy | faerie sprite` (winged fairy)
+- `[58] Glinteye→Irisarael | Ice/Fairy | faerie sprite` (winged fairy)
 - `[60] Lunaveris→Boreadrake | Ice/Draconic | dragon-mythic` (sub: ice-dragon)
 - `[62] Gelspike→Gelwing | Ice/Poison | hedgehog / porcupine`
 - `[65] Sporix→Myceloth→Mycovast | Nature/Poison | mushroom / fungus`
@@ -63,7 +63,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[80] Sylvnox→Morraveth→Morralyn | Nature/Dark | leshy / forest-spirit` (pristine mythical, just claimed)
 - `[83] Joltan→Galvanos→Voltanox | Electric | horse / equine`
 - `[86] Electrix→Shockharpe→Galvaglide | Electric/Nature | dragonfly` (currently inconsistent: stages mix beetle/mosquito/dragonfly — on BREAKING list; final lore says "Zapoveth" name-leak)
-- `[89] Amperix→Sparkrel→Surgolith | Electric/Aquatic | electric eel`
+- `[89] Amperix→Sparkrel→Dynameel | Electric/Aquatic | electric eel`
 - `[91] Zephyrel→Vortexathos | Electric/Wind | eagle` (storm-eagle, 4 m wingspan; subdivided out of the generic "bird-of-prey/raptor" bucket 2026-06-13)
 - `[94] Arcspine→Stonebolt→Petrovast | Electric/Earth | echidna`
 - `[97] Dustkin→Seismith→Tectonvast | Earth/Electric | rhino`
@@ -97,7 +97,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[163] Marlix→Blightalis | Nature/Toxin | corrupted flower / plant-humanoid`
 - `[165] Blightmite→Venowarn | Poison/Wind | moth` (poison-wind moth — caterpillar→cocoon→toxic-scaled moth, reclassified off butterfly 2026-06-13; learnset already carries cocoon_burst. **name leak in #165: "Noxoveth"**)
 - `[167] Projectery→Psychovast | Mental | dog (non-wolf canine)`
-- `[169] Espelith→Aurarael | Mental/Mineral | crystalline-prism` (mythical)
+- `[169] Gemseer→Aurarael | Mental/Mineral | crystalline-prism` (mythical)
 - `[170] Oneiron | Dark/Dream | dream-entity / wisp` (formless, standalone; nightmare-feeder — Dark/Dream restored 2026-06-12 to differentiate from Dreamweald #378's Mental/Dream)
 - `[171] Nagaseer | Mental/Poison | naga` (sub: oracle-serpent, standalone)
 - `[174] Scalurin→Cobravyrm→Scalevorn | Draconic/Metal | dragon-mythic` (sub: steel-dragon)
@@ -115,7 +115,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[190] Woolcalm→Aetherflock | Normal/Mental | sheep / bovid` (psychic sheep — second bovid family alongside Tundram line)
 - `[192] Pebblet→Boulderoll | Earth | pillbug` (de-golemed 2026-06-13 from earth-golem — rock roly-poly that curls into a boulder and rolls)
 - `[194] Rugothon→Lithomere | Aquatic/Mineral | crab / crustacean` (rock-water crab)
-- `[196] Prismolith→Frigolith | Ice/Mineral | rock-monolith / standing stone` (boulder partially submerged in permafrost)
+- `[196] Icequartz→Frigolith | Ice/Mineral | rock-monolith / standing stone` (boulder partially submerged in permafrost)
 - `[199] Photoworm→Chrysalix→Aeridaleth | Nature/Wind | butterfly` (Lepidoptera — third butterfly/moth family)
 - `[201] Iridibeetle→Scarabion | Nature/Metal | beetle / scarab`
 - `[203] Sculptweave→Arachnalis | Nature/Fairy | spider`
@@ -137,14 +137,14 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[235] Glintscale | Aquatic/Fairy | koi` (re-archetyped from water-dragon 2026-06-10; mystical boundary-swimming koi)
 - `[237] Frostick→Icevault | Ice/Earth | ice-stone vault / fortress structure` (small architectural creature — unique sub-archetype)
 - `[240] Snowble→Blizzariel→Tundrafox | Ice/Dark | snowman (folkloric)` (mythical, just claimed)
-- `[241] Shardlix | Ice/Mental | crystalline-prism` (bipedal ice crystal humanoid, standalone — second crystalline-prism alongside Espelith line)
+- `[241] Shardlix | Ice/Mental | crystalline-prism` (bipedal ice crystal humanoid, standalone — second crystalline-prism alongside Gemseer line)
 - `[243] Pulseglow→Stuntrap | Electric/Sonic→Dream/Sonic | dragonfly` (firefly→dragonfly; Stuntrap remade 2026-06-12 to pristine Dream/Sonic hypnotic-drone stun-trapper; Pulseglow now Electric/Sonic — its light-and-sound swarm pulse bridges to Stuntrap's sonic drone (shared Sonic). Differentiates from Galvaglide's Electric/Nature.)
 
 ### Batch 3 (families 106-139)
 
 - `[246] Staticlaw→Thundravex→Megavolt | Electric | wolverine (mustelid)`
 - `[247] Sparkeen | Electric/Dream | butterfly` (standalone Lepidoptera — dream-light flutterer. Kept as butterfly rather than a 3rd will-o-wisp, since Crealight #225 & Willowisp #368 already fill that slot; butterfly sits at cap-3 with Iridesoar/Aeridaleth once Venowarn→moth. Pristine Electric/Dream.)
-- `[250] Pebblard→Boulderax→Megalith | Earth | rock-monolith / standing stone` (second rock-monolith alongside Prismolith line)
+- `[250] Pebblard→Boulderax→Megalith | Earth | rock-monolith / standing stone` (second rock-monolith alongside Icequartz line)
 - `[252] Crumblite→Stonegrip | Metal/Mineral | lobster` (de-golemed 2026-06-13 from metal-golem — armored rock-crustacean with crushing stone-claws)
 - `[253] Ashrock | Fire/Mineral | rock-elemental` (formless basalt with magma veins, standalone — could equally be fire-elemental; lean rock-elemental since body is rock)
 - `[255] Bubblepuff→Psychotide | Aquatic/Mental | water-elemental` (wave humanoid, formless water — sole water-elemental candidate; **name leak in #255: "Wavrix"**)
@@ -225,12 +225,12 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[352] Voidlord | Mental/Spectral | void / cosmic abstract being` (mythical — third void/cosmic alongside Cerebraith/Voidraxis)
 - `[353] Infernotitan | Fire/Toxin | salamander` (re-archetyped from fire-dragon 2026-06-10; toxic-skinned volcanic salamander; pristine combo)
 - `[354] Riftwhale | Aquatic/Mental | cetacean` (psychic-whale, 12m — fifth cetacean)
-- `[355] Abyssalith | Aquatic/Toxin | eel` (armoured eel — second eel alongside Surgolith)
+- `[355] Gloommaw | Aquatic/Toxin | eel` (armoured eel — second eel alongside Dynameel)
 - `[357] Thornspire | Nature/Metal | treant` (8m steel-branched tree — fourth treant)
 - `[358] Pyrocrown | Fire/Mental | phoenix / solar bird` (mythical-exempt — sole phoenix family)
 - `[359] Glaciarch (→Permafrost) | Ice/Mental | ice-golem` (mid of the ice-golem line; see [385])
 - `[360] Duskmantle | Dark/Mental | duality being` (half-fairy half-shadow; unique sub-archetype)
-- `[361] Tectolith | Earth/Nature | zaratan / island-turtle` (re-archetyped from ground-dragon 2026-06-10; living-landscape shell)
+- `[361] Tectoshell | Earth/Nature | zaratan / island-turtle` (re-archetyped from ground-dragon 2026-06-10; living-landscape shell)
 - `[362] Lunaspectre | Mental/Spectral | moonlight-spectre` (split out of wraith bucket per policy; Spectral is pre-Forgotten-allowed — stale Ghost flag cleared)
 - `[363] Chromavast | Normal/Mental | colour-shifting being` (smooth ovoid cycling all colours — unique sub)
 - `[364] Deepcrawler | Aquatic/Metal | crustacean` (deep-sea armored crab — third crustacean alongside Tidalossus/Petrwave/Lithomere)
@@ -286,7 +286,7 @@ The 22 NG+-exclusive families added in the dex-to-500 expansion (#57). Regular d
 - `[419] Glacigeist→Frostmarion→Pallidoll | Spectral / Ice-Spectral | haunted-doll (marionette)` (F4; houseless spirit → frost-lacquered marionette → life-size haunted doll. This is the **haunted-doll** spectral sub-archetype already named in the LOCKED wraith-split policy (Pallidoll). Both types pre-462-allowed. desc/lore clean, no leaks; 418 emoji ❄️ kept as the Ice-onset stage (minor — 🎎 would be more body-literal).)
 - `[422] Steamkit→Geyserook→Tempesteam | Vapor / Fire-Vapor | capybara (rodent)` (F5; placid hot-spring line — downy spring-pup → thermal-vent beast → steam-cloaked behemoth. PRISTINE capybara slot, per-species read (distinct from rat #271 / mole-rat #325; rodent is NOT an umbrella cap). Both types pre-462-allowed; good Vapor distribution. emoji ♨️ codes habitat not body but consistent. clean.)
 - `[425] Pebblite→Geodon→Strataclaw | Mineral / Metal-Mineral | pangolin` (F6; mineral ball-roller → metal-veined armor → strata-scaled digging titan. PRISTINE pangolin, distinct from hedgehog/echidna/armadillo/mole-rat. Good Mineral distribution. emoji theme-coded 🪨/🦔/⛏️, kept. clean.)
-- `[428] Pummelo→Brawlith→Zenkaiser | Fighting / Fighting-Mental | mantis` (F7; martial-mantis duelist line. 2nd mantis alongside Chittering #324 — within animal cap-3. Good Fighting+Mental distribution. 🦗 cricket stand-in kept (no mantis emoji). clean.)
+- `[428] Pummelo→Brawlmonk→Zenkaiser | Fighting / Fighting-Mental | mantis` (F7; martial-mantis duelist line. 2nd mantis alongside Chittering #324 — within animal cap-3. Good Fighting+Mental distribution. 🦗 cricket stand-in kept (no mantis emoji). clean.)
 - `[431] Lullasnout→Drowsetapir→Nocturnbaku | Dream / Dark-Dream | tapir (baku)` (F8; dream-eater line — snouted cub → nightmare-eating tapir → dreamscape-walking baku. PRISTINE tapir, animal-first read (baku folkloric flavor), NOT a formless dream-entity. Good Dream distribution. 🌙 theme-emoji kept. clean.)
 - `[434] Tusklet→Verdantusk→Primammoth | Primal / Nature-Primal | mammoth (proboscidean)` (LEGENDARY line, F9. PRISTINE mammoth, animal-first (NOT primordial-titan despite "living mountain" language). Primal is reserved post-game: **KEPT** under legendary+intrinsic-primeval-lore exception — all 3 legendary; "elder world / first forest / before names" coding throughout; no pre-462 type captures primeval (Nature covers the moss half). clean.)
 - `[437] Knucklite→Cragfist→Goliathon | Mineral / Fighting-Mineral | gorilla (ape)` (F10; stone-fist gorilla line. PRISTINE primate (first ape in dex). Good Mineral+Fighting distribution. 🦍 exact. clean.)

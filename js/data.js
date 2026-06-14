@@ -1630,21 +1630,21 @@ const MOVES_DATA = {
 const MONSTERS_DATA = {
   // ===== FIRE STARTERS + FIRE LINE =====
   1: { id:1, name:"Solkin",    emoji:"🦊", types:["Fire"],
-    base:{hp:35,atk:48,def:40,spa:64,spd:47,spe:91},
+    base:{hp:35,atk:53,def:45,spa:64,spd:47,spe:81},
     learnset:[[1,"collide",[20,"cinderwhirl"]],[1,"daunt"],[2,"kindle"],[4,"flicker"],[6,"quick_jab"],[8,"blitz"],[10,"rapid_strike"],[11,"cinder_lance"],[13,"flame_fang"],[16,"firebrand"],[19,"war_dance"],[27,"inferno_jet"],[38,"pyroclasm",[5,"scorch_veil"]],[40,"forge_blast"],[30,"toxic_blaze"],[20,"flare_uppercut"],[20,"lava_spout"],[30,"molten_tide"],[75,"ki_blast",{ng:true}],[100,"boulder_wrecker",{ng:true}]],
     evolveTo:2, evolveLevel:16, catchRate:45, expYield:62, rarity:"starter",
     desc:"A fire fox cub. Its tail flame glows brighter when its spirit is high.",
     lore:"Solkin resembles a lean fox kit covered in orange-red fur that fades to pale cream on its underbelly. Its tail tip burns with a small candle-bright flame that flickers when excited. Stands roughly 50 cm tall. It hunts at dawn using bursts of speed to chase insects across sun-warmed stone, and is known for its affectionate, curious temperament. Watch a Solkin kit at dawn and you may catch it pausing mid-chase to gaze at distant volcanic plumes — the long stare of a creature half-aware of the cooling-lava scales it will one day wear as Calderaeth." },
 
   2: { id:2, name:"Pyrevix",    emoji:"🦊", types:["Fire"],
-    base:{hp:52,atk:59,def:62,spa:74,spd:57,spe:105},
+    base:{hp:52,atk:65,def:62,spa:74,spd:63,spe:93},
     learnset:[[1,"collide"],[2,"flicker"],[3,"blitz"],[4,"flame_fang"],[5,"scorch_veil"],[6,"embercloak"],[8,"cinder_lance"],[10,"afterimage"],[15,"flame_spiral"],[20,"ember_focus"],[24,"inferno_jet"],[25,"blazing_rush"],[28,"scorch_kick"],[32,"second_wind"],[34,"searing_gale"],[35,"pyroclasm"],[40,"all_out_assault"],[43,"conflagration"],[30,"glimmering_song"],[12,"ghost_pulse"]],
     evolveTo:3, evolveLevel:36, catchRate:25, expYield:142, rarity:"uncommon",
     desc:"A blazing fox with a fiery mane. Rivals fear its flaming charge.",
     lore:"Pyrevix is a mid-sized fox standing 90 cm tall — Solkin's candle-bright tail-flame has spread up the body into a flowing mane of orange flame that streams behind it when running, framed by a broader chest. Its paws leave faint scorch marks on soft ground. It patrols wide territories each night, marking boundaries by igniting patches of dry grass in small controlled rings." },
 
   3: { id:3, name:"Calderaeth",  emoji:"🐲", types:["Fire","Draconic"],
-    base:{hp:70,atk:88,def:80,spa:105,spd:79,spe:105},
+    base:{hp:70,atk:85,def:80,spa:105,spd:79,spe:111},
     learnset:[[1,"flame_fang"],[2,"inferno_jet"],[3,"searing_gale"],[4,"scorch_veil"],[5,"embercloak"],[10,"cinder_lance"],[15,"flash_fire"],[20,"pyre_strike"],[22,"draco_fang"],[25,"searing_glare"],[28,"draco_pulse"],[30,"pyroclastic_burst"],[33,"dragon_focus"],[35,"dragon_calm"],[36,"eon_crash"],[37,"pyroclasm"],[40,"war_dance"],[44,"draconic_breath"],[47,"conflagration"],[48,"draconic_claw"],[52,"draconic_pulse"],[56,"solar_flare"],[60,"rampage"],[15,"empyrean_focus"],[15,"eidolon_dance"],[15,"ectoplasm_armor"],[90,"reptilian_gust",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:265, rarity:"rare",
     desc:"A terrifying dragon-fox hybrid. Its volcanic roar can be heard for miles.",

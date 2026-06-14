@@ -2028,6 +2028,8 @@ function giveXP(partySlot, amount) {
       if (!partySlot.moves.includes(mid))
         partySlot.moves.length < 4 ? partySlot.moves.push(mid) : (partySlot.moves[3] = mid);
     }
+    // Bond grows through training — fuels "friendship" evolutions.
+    partySlot.friendship = Math.min(255, (partySlot.friendship ?? 70) + 8);
     levelUps.push({ level: lv, newMoves });
   }
   return levelUps;
@@ -2035,14 +2037,70 @@ function giveXP(partySlot, amount) {
 
 // ---- Evolution ----
 
-function checkEvolution(partySlot) {
-  const def = MONSTERS_DATA[partySlot.monsterId];
-  if (def.evolveTo && def.evolveLevel && partySlot.level >= def.evolveLevel) return def.evolveTo;
-  return null;
+// Default friendship a Lumori reaches before a "friendship" evolution triggers
+// (mirrors createPartySlot's base of 70; tunable per-species via evolveFriendship).
+const FRIENDSHIP_EVO_THRESHOLD = 160;
+
+// Day/night for time-gated evolution. Reuses the canonical bands from
+// online.js getTimeEvent() (Night 21–05, Dawn 05–10, Day 10–17, Dusk 17–21).
+// Falls back to a self-contained split if online.js isn't loaded yet.
+function evoTimeSegment() {
+  if (typeof getTimeSegment === "function") return getTimeSegment();
+  const h = new Date().getHours();
+  if (h >= 21 || h < 5) return "night";
+  if (h >= 5 && h < 10) return "dawn";
+  if (h >= 10 && h < 17) return "day";
+  return "dusk";
 }
 
-function evolveMonster(partySlot) {
-  const targetId = checkEvolution(partySlot);
+// Unified evolution resolver. `trigger` distinguishes how the check was invoked:
+//   "level"     — after a level-up / Rare Candy (the passive sweep)
+//   "area"      — after travelling into a new area (location evolutions)
+//   "item:<id>" — from useEvoItem when an evolution stone is used
+// Returns the target species id, or null if conditions aren't met. Each species
+// declares exactly one method via evolveMethod ("level" is the implicit default).
+function resolveEvolution(partySlot, trigger) {
+  const def = MONSTERS_DATA[partySlot.monsterId];
+  if (!def || !def.evolveTo) return null;
+  const method = def.evolveMethod || "level";
+  const meetsLevel = !def.evolveLevel || partySlot.level >= def.evolveLevel;
+  const here = (typeof G !== "undefined" && G) ? G.location : null;
+  switch (method) {
+    case "level":
+      return (def.evolveLevel && partySlot.level >= def.evolveLevel) ? def.evolveTo : null;
+    case "item":
+      // Stones evolve only when the matching item is actively used.
+      return (trigger === "item:" + def.evolveItem) ? def.evolveTo : null;
+    case "location":
+      return (meetsLevel && here && here === def.evolveLocation) ? def.evolveTo : null;
+    case "held":
+      return (meetsLevel && partySlot.heldItem && partySlot.heldItem === def.evolveItem) ? def.evolveTo : null;
+    case "friendship":
+      return (meetsLevel && (partySlot.friendship ?? 70) >= (def.evolveFriendship || FRIENDSHIP_EVO_THRESHOLD))
+        ? def.evolveTo : null;
+    case "time": {
+      if (!meetsLevel) return null;
+      const seg = evoTimeSegment();
+      const isNight = seg === "night" || seg === "dusk";
+      if (def.evolveTime === "night") return isNight ? def.evolveTo : null;
+      if (def.evolveTime === "day")   return !isNight ? def.evolveTo : null;
+      return seg === def.evolveTime ? def.evolveTo : null; // exact dawn/dusk match
+    }
+    case "move":
+      return (meetsLevel && (partySlot.moves || []).includes(def.evolveMove)) ? def.evolveTo : null;
+    default:
+      return null;
+  }
+}
+
+// Back-compat wrapper: the post-level-up sweep. Now also fires location/held/
+// friendship/time/move evolutions whose conditions happen to be met at level-up.
+function checkEvolution(partySlot) {
+  return resolveEvolution(partySlot, "level");
+}
+
+function evolveMonster(partySlot, explicitTarget) {
+  const targetId = explicitTarget || checkEvolution(partySlot);
   if (!targetId) return null;
   const oldId = partySlot.monsterId;
   const oldDef = MONSTERS_DATA[oldId];

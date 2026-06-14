@@ -71,7 +71,7 @@ try {
   const sandbox = { console, window: {}, document: {}, globalThis: null };
   sandbox.globalThis = sandbox;
   vm.createContext(sandbox);
-  const epilogue = "\n;globalThis.__V = { MOVES_DATA, MONSTERS_DATA, STAGE_FX, MULTI_STAGE_FX, STATUS_REGISTRY, buildMoveArr, calcDamage };";
+  const epilogue = "\n;globalThis.__V = { MOVES_DATA, MONSTERS_DATA, STAGE_FX, MULTI_STAGE_FX, STATUS_REGISTRY, buildMoveArr, calcDamage, WORLD_DATA: (typeof WORLD_DATA!=='undefined'?WORLD_DATA:null), ITEMS_DATA: (typeof ITEMS_DATA!=='undefined'?ITEMS_DATA:null) };";
   vm.runInContext(read("data.js") + "\n" + read("battle.js") + epilogue, sandbox, { filename: "vmload" });
   DATA = sandbox.__V;
 } catch (e) {
@@ -79,7 +79,7 @@ try {
 }
 
 if (DATA) {
-  const { MOVES_DATA, MONSTERS_DATA, STAGE_FX, MULTI_STAGE_FX, STATUS_REGISTRY, buildMoveArr, calcDamage } = DATA;
+  const { MOVES_DATA, MONSTERS_DATA, STAGE_FX, MULTI_STAGE_FX, STATUS_REGISTRY, buildMoveArr, calcDamage, WORLD_DATA, ITEMS_DATA } = DATA;
   const referenced = new Set(); // every move id used by some learnset (for the dead-move count)
 
   // -------------------------------------------------------------------------
@@ -207,6 +207,55 @@ if (DATA) {
   } catch (e) {
     fail("F2", `round-trip failed: ${e.message}`);
   }
+
+  // -------------------------------------------------------------------------
+  // G6 — evolution integrity. Every evolveTo resolves to a real species, and the
+  // declared evolveMethod carries the fields its resolver (battle.js
+  // resolveEvolution) needs. Dangling lines (evo fields set but no target) are
+  // surfaced informationally — they can't evolve, but they don't brick anything.
+  // -------------------------------------------------------------------------
+  console.log("G6 — evolution integrity");
+  const VALID_METHODS = new Set(["level", "item", "location", "held", "friendship", "time", "move"]);
+  const VALID_TIMES = new Set(["day", "night", "dawn", "dusk"]);
+  let g6before = failures;
+  const dangling = [];
+  for (const [mid, def] of Object.entries(MONSTERS_DATA)) {
+    if (!def) continue;
+    if (def.evolveMethod && !VALID_METHODS.has(def.evolveMethod))
+      fail("G6", `#${mid} ${def.name}: unknown evolveMethod "${def.evolveMethod}"`);
+    if (!def.evolveTo) {
+      if (def.evolveMethod || def.evolveLocation || def.evolveItem || def.evolveTime || def.evolveMove)
+        dangling.push(`#${mid} ${def.name} (method=${def.evolveMethod || "?"}, no evolveTo)`);
+      continue;
+    }
+    if (!MONSTERS_DATA[def.evolveTo]) {
+      fail("G6", `#${mid} ${def.name}: evolveTo ${def.evolveTo} is not a real species`);
+      continue;
+    }
+    switch (def.evolveMethod || "level") {
+      case "level":
+        if (!def.evolveLevel) fail("G6", `#${mid} ${def.name}: level evolution missing evolveLevel`);
+        break;
+      case "item": case "held":
+        if (!def.evolveItem) fail("G6", `#${mid} ${def.name}: ${def.evolveMethod} evolution missing evolveItem`);
+        else if (ITEMS_DATA && !ITEMS_DATA[def.evolveItem]) fail("G6", `#${mid} ${def.name}: evolveItem "${def.evolveItem}" not in ITEMS_DATA`);
+        break;
+      case "location":
+        if (!def.evolveLocation) fail("G6", `#${mid} ${def.name}: location evolution missing evolveLocation`);
+        else if (WORLD_DATA && !WORLD_DATA[def.evolveLocation]) fail("G6", `#${mid} ${def.name}: evolveLocation "${def.evolveLocation}" not in WORLD_DATA`);
+        break;
+      case "time":
+        if (!VALID_TIMES.has(def.evolveTime)) fail("G6", `#${mid} ${def.name}: time evolution needs evolveTime ∈ {day,night,dawn,dusk}`);
+        break;
+      case "move":
+        if (!def.evolveMove) fail("G6", `#${mid} ${def.name}: move evolution missing evolveMove`);
+        else if (!MOVES_DATA[def.evolveMove]) fail("G6", `#${mid} ${def.name}: evolveMove "${def.evolveMove}" not in MOVES_DATA`);
+        break;
+    }
+  }
+  if (failures === g6before) ok("G6", `all evolveTo targets resolve and methods well-formed`);
+  if (dangling.length)
+    console.log(`  ℹ [G6] ${dangling.length} dangling evolution line(s) — fields set but no evolveTo: ${dangling.join("; ")}`);
 
   // -------------------------------------------------------------------------
   // G5 (informational) — dead-move count. Defined moves never referenced by any

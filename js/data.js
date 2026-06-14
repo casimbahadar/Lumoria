@@ -1745,12 +1745,12 @@ const MONSTERS_DATA = {
     desc:"A crab that blows iridescent bubbles. Very territorial near shorelines.",
     lore:"Reefnip is a small crab-like creature only 15 cm across. Its shell is pale blue-green studded with tiny polyps that filter nutrients from the water. It scuttles across coral formations in shallow warm seas, using its patterned shell for camouflage, and hides inside anemones when threatened." },
 
-  26: { id:26, name:"Aquidon",    emoji:"🦞", types:["Aquatic","Earth"],
+  26: { id:26, name:"Brinecrush",    emoji:"🦞", types:["Aquatic","Earth"],
     base:{hp:75,atk:102,def:110,spa:59,spd:68,spe:81},
     learnset:[[1,"graze"],[2,"aquatic_gun"],[3,"tidecaller"],[23,"tidal_sweep"],[27,"war_dance"],[31,"tidal_rush"],[33,"tsunami"],[34,"stalactite_drop"],[41,"stone_slide"],[48,"crystal_lance"],[55,"tidal_crush"],[62,"crag_strike"],[4,"deepwater_hymn"],[42,"quarry_crush"]],
     evolveTo:27, evolveLevel:44, catchRate:60, expYield:188, rarity:"uncommon",
     desc:"A massive sea claw with rock-hard shell. Few can match its raw strength.",
-    lore:"Aquidon is a broad-bodied rock lobster about 50 cm long — Reefnip's pale blue-green coral-polyp shell has hardened and stilled into a stone-grey carapace reinforced by calcified mineral deposits, and its tiny defensive pincers have grown into crushing claws that can crack thick coral. It dwells in rocky sea caves along the coastline, guarding its territory fiercely against any intruder." },
+    lore:"Brinecrush is a broad-bodied rock lobster about 50 cm long — Reefnip's pale blue-green coral-polyp shell has hardened and stilled into a stone-grey carapace reinforced by calcified mineral deposits, and its tiny defensive pincers have grown into crushing claws that can crack thick coral. It dwells in rocky sea caves along the coastline, guarding its territory fiercely against any intruder." },
 
   42: { id:42, name:"Cryonik",    emoji:"🦭", types:["Ice","Aquatic"],
     base:{hp:54,atk:56,def:64,spa:73,spd:75,spe:31},
@@ -2332,12 +2332,12 @@ const MONSTERS_DATA = {
     desc:"A massive rock roly-poly that curls into a boulder and rolls downhill, setting off landslides.",
     lore:"Boulderoll is a large rock-isopod about 1.5 metres long — Pebblet's pebble-shell has thickened into overlapping plates of solid stone. It travels by tucking away its head and many legs and rolling as a great boulder, gathering speed downhill until it flattens trees and triggers landslides; uncurled, it trundles slowly on rows of short stony legs. Clusters wedged among hillside rocks are routinely mistaken for natural scree." },
 
-  193: { id:193, name:"Rugothon",    emoji:"🦞", types:["Aquatic","Mineral"],
+  193: { id:193, name:"Cliffpinch",    emoji:"🦞", types:["Aquatic","Mineral"],
     base:{hp:71,atk:78,def:89,spa:52,spd:63,spe:68},
     learnset:[[1,"graze",[25,"geode_burst"]],[1,"stone_throw"],[3,"petrify_gaze"],[8,"claw_hammer"],[10,"granite_slam"],[11,"aquatic_gun"],[14,"amethyst_pulse"],[16,"war_dance"],[19,"stone_slide"],[20,"ore_polish"],[22,"torrent_fang"],[27,"tidal_sweep"],[29,"sandstone_rush"],[33,"landslide"],[35,"crag_strike"],[40,"sea_serpent_strike"],[43,"tidal_rush",[5,"granite_wall"]]],
     evolveTo:194, evolveLevel:38, catchRate:75, expYield:168, rarity:"uncommon",
     desc:"A crag claw crab that lives on rocky sea cliffs. Fiercely territorial.",
-    lore:"Rugothon is a massive water-mineral crustacean 2 metres long with a heavily encrusted shell of barnacles and embedded pebbles. Its eight wide legs are each tipped with flat digging pads. It inhabits rocky coastlines where it is mistaken for a tide-pool feature until it suddenly moves. Rugothon spend long hours wedging themselves into rock crevices much smaller than their 2-metre bodies, packing their bulk inward. Older individuals also eat noticeably less in each successive moult cycle, then less again, slowly withdrawing into themselves. Both habits compound across generations into the smaller, denser rock-crab Lithomere becomes — the only Lumori evolution known to scale downward in size while gaining density." },
+    lore:"Cliffpinch is a massive water-mineral crustacean 2 metres long with a heavily encrusted shell of barnacles and embedded pebbles. Its eight wide legs are each tipped with flat digging pads. It inhabits rocky coastlines where it is mistaken for a tide-pool feature until it suddenly moves. Cliffpinch spend long hours wedging themselves into rock crevices much smaller than their 2-metre bodies, packing their bulk inward. Older individuals also eat noticeably less in each successive moult cycle, then less again, slowly withdrawing into themselves. Both habits compound across generations into the smaller, denser rock-crab Lithomere becomes — the only Lumori evolution known to scale downward in size while gaining density." },
 
   195: { id:195, name:"Icequartz",  emoji:"💎", types:["Ice","Mineral"],
     base:{hp:70,atk:66,def:101,spa:77,spd:87,spe:38},
@@ -2940,13 +2940,13 @@ const MONSTERS_DATA = {
     desc:"A living volcano of immense destructive power. When it battles, the sky fills with ash and the earth splits.",
     lore:"Magmaw is a massive fire-mineral creature 2 metres long — Infernox's volcanic plate armour has thickened and fused into natural stone armour entirely encasing a very large igneous lizard, and the joint-magma of its juvenile form has rerouted into fountains of fire that erupt from vents on its back when it is agitated. Its body temperature is sufficient to melt most metals on contact." },
 
-  // Standalone mono Fire: Magmite (location evo near forge area)
-  277: { id:277, name:"Magmite", emoji:"🌶️", types:["Fire"],
+  // Standalone mono Fire: Magmote (location evo near forge area)
+  277: { id:277, name:"Magmote", emoji:"🌶️", types:["Fire"],
     base:{hp:92,atk:110,def:96,spa:98,spd:80,spe:62},
     learnset:[[1,"flicker"],[1,"mud_spray"],[15,"flame_charge"],[18,"inferno_jet"],[28,"geoblast"],[28,"blazing_rush"],[38,"pyroclasm"],[45,"flash_fire"],[48,"tectonic_shift"],[58,"magma_surge"],[68,"radiance_cannon"]],
     evolveTo:null, evolveLevel:null, evolveLocation:"ironforge", evolveMethod:"location", catchRate:50, expYield:215, rarity:"uncommon",
     desc:"Found only in volcanic forge areas where earth meets fire. Its body is half-molten rock, half-flame.",
-    lore:"Magmite is a small fire creature 20 cm tall resembling a lava droplet that has cooled enough to walk. Its body is glossy dark basalt with an interior glow. It inhabits active volcanic vents and feeds by filtering mineral nutrients from magma, which passes harmlessly through its heat-adapted body." },
+    lore:"Magmote is a small fire creature 20 cm tall resembling a lava droplet that has cooled enough to walk. Its body is glossy dark basalt with an interior glow. It inhabits active volcanic vents and feeds by filtering mineral nutrients from magma, which passes harmlessly through its heat-adapted body." },
 
   // 2-stage Metal/Fairy chain: Ironpix → Steelhorn (Metal Coat item)
   278: { id:278, name:"Ironpix", emoji:"⚙️", types:["Metal","Fairy"],
@@ -3067,19 +3067,19 @@ const MONSTERS_DATA = {
     lore:"Galehorn is a large wind-antelope 1.2 metres at the shoulder, the matured form of the Breezekin lineage. Its slender muscular body is grey-white with a long flowing mane down its neck and shoulders, and its head bears a pair of long spiralling horns that hum at a resonant pitch when they vibrate in high winds, producing a low ringing tone audible for kilometres. During storms it faces directly into the gale and amplifies the wind through these horns. It is one of the swiftest land creatures in any region it claims, and its passage through open plains leaves a faint resonant ringing in the air that can be heard by other Lumori for hours." },
 
   // 3-stage Wind chain: Zephyrpuff → Stormwing → Cyclonax
-  293: { id:293, name:"Gustpuff", emoji:"💨", types:["Electric","Draconic"],
+  293: { id:293, name:"Windwhelp", emoji:"💨", types:["Electric","Draconic"],
     base:{hp:42,atk:45,def:38,spa:65,spd:55,spe:90},
     learnset:[[1,"breeze"],[1,"collide"],[5,"jolt"],[6,"gust_jab"],[8,"draconic_breath"],[10,"wind_scythe"],[12,"volt_jet"],[16,"updraft"],[18,"draconic_claw"],[20,"downdraft"],[22,"shock_pulse"],[28,"draconic_pulse"],[30,"typhoon"],[40,"gale_cannon"],[50,"squall_slash"],[60,"radiance_cannon"]],
     evolveTo:294, evolveLevel:26, catchRate:175, expYield:68, rarity:"common",
     desc:"A tiny wind-dragon hatchling whose newly-shed scale-husks float around it as drifting feather-light puffs of fluff. Disperses and reassembles in low winds.",
-    lore:"Gustpuff is a small electric-dragon hatchling about 25 centimetres long, with delicate pale-grey scales just hardening into solid form. Loose translucent scale-husks shed during its earliest moults still float around it like drifting puffs of dandelion-down, crackling with faint static when they brush against each other — a cloud of soft filaments that lifts and reassembles around its body whenever it moves through low winds. Its tiny wings are not yet strong enough for sustained flight, but it darts through grasslands and coastal updrafts at speeds that belie its size, and its passage is announced by the gentle drift of those fluff-husks settling behind it. When groups of Gustpuff hatch in the same season, their combined scale-husks form a small visible cloud above them — an accidental precursor of the personal storm-systems Cyclonax sustains. A sleeping Gustpuff will twitch its tiny incomplete wings in patterns far more complex than its current flight ability requires, practising a wingstroke Stormwing performs adult. The species' instinctive preference for coastal updrafts and high ridges over grasslands or forests reveals the same orientation toward the wind-cathedrals Cyclonax eventually occupies." },
+    lore:"Windwhelp is a small electric-dragon hatchling about 25 centimetres long, with delicate pale-grey scales just hardening into solid form. Loose translucent scale-husks shed during its earliest moults still float around it like drifting puffs of dandelion-down, crackling with faint static when they brush against each other — a cloud of soft filaments that lifts and reassembles around its body whenever it moves through low winds. Its tiny wings are not yet strong enough for sustained flight, but it darts through grasslands and coastal updrafts at speeds that belie its size, and its passage is announced by the gentle drift of those fluff-husks settling behind it. When groups of Windwhelp hatch in the same season, their combined scale-husks form a small visible cloud above them — an accidental precursor of the personal storm-systems Cyclonax sustains. A sleeping Windwhelp will twitch its tiny incomplete wings in patterns far more complex than its current flight ability requires, practising a wingstroke Stormwing performs adult. The species' instinctive preference for coastal updrafts and high ridges over grasslands or forests reveals the same orientation toward the wind-cathedrals Cyclonax eventually occupies." },
 
   294: { id:294, name:"Stormwing", emoji:"🐉", types:["Electric","Draconic"],
     base:{hp:70,atk:88,def:68,spa:98,spd:80,spe:108},
     learnset:[[1,"wind_scythe"],[1,"draconic_breath"],[5,"jolt"],[12,"squall"],[15,"volt_jet"],[16,"aerial_slam"],[20,"typhoon"],[24,"gale_strike"],[25,"thunder_chain"],[28,"draconic_claw"],[32,"tempest_wave"],[36,"gale_cannon"],[40,"hurricane_blast"],[44,"draconic_pulse"],[48,"thunderstorm_eruption"],[52,"tempest_wrath"],[60,"radiance_cannon"],[62,"thunder_jab"],[63,"draco_jab"]],
     evolveTo:295, evolveLevel:44, catchRate:80, expYield:155, rarity:"uncommon",
     desc:"A storm-drake hybrid of wind and dragon power. Rides cyclones across entire mountain ranges.",
-    lore:"Stormwing is a large electric-dragon 3 metres long — Gustpuff's pale-grey hardening scales have darkened to grey-blue and the translucent scale-husks of its juvenile form have ceased shedding entirely, leaving powerful slate-grey wings spanning 5 metres. Its eyes are electric-white. It generates its own personal storm system wherever it flies — clouds condensing from its wingtip vortices, lightning striking where it looks." },
+    lore:"Stormwing is a large electric-dragon 3 metres long — Windwhelp's pale-grey hardening scales have darkened to grey-blue and the translucent scale-husks of its juvenile form have ceased shedding entirely, leaving powerful slate-grey wings spanning 5 metres. Its eyes are electric-white. It generates its own personal storm system wherever it flies — clouds condensing from its wingtip vortices, lightning striking where it looks." },
 
   295: { id:295, name:"Cyclonax", emoji:"🌀", types:["Electric","Draconic"],
     base:{hp:81,atk:93,def:77,spa:112,spd:88,spe:99},
@@ -3748,7 +3748,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"graze"],[1,"aquatic_gun"],[2,"tidal_sweep"],[3,"stalactite_drop"],[4,"fortify"],[5,"tidecaller"],[8,"claw_hammer"],[15,"crystal_shard"],[18,"ancient_tide"],[25,"calcite_resonance"],[30,"flood_tide"],[35,"shard_burst"],[39,"stone_slide"],[42,"war_dance"],[43,"tsunami"],[47,"crag_strike"],[52,"tidal_crush"],[56,"crystal_lance"],[60,"sea_serpent_strike"],[64,"quarry_crush"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:248, rarity:"rare",
     desc:"A colossal ancient shore titan. Its shell is older than recorded history, layered with oceanic minerals.",
-    lore:"Lithomere is a crab-like water-mineral creature 60 cm across with a shell of compressed coastal rock — Rugothon's massive barnacle-encrusted carapace has compressed down through dense mineral deposition into a smaller but far denser shell, and the eight digging legs have shortened into wedge-shaped braces that lock its body into rock crevices during low tide, sealing gaps with a secreted mineral cement. Its shell grows thicker with each passing year." },
+    lore:"Lithomere is a crab-like water-mineral creature 60 cm across with a shell of compressed coastal rock — Cliffpinch's massive barnacle-encrusted carapace has compressed down through dense mineral deposition into a smaller but far denser shell, and the eight digging legs have shortened into wedge-shaped braces that lock its body into rock crevices during low tide, sealing gaps with a secreted mineral cement. Its shell grows thicker with each passing year." },
 
   196: { id:196, name:"Frigolith", emoji:"💎", types:["Ice","Mineral"],
     base:{hp:87,atk:77,def:127,spa:103,spd:108,spe:48},
@@ -3820,13 +3820,13 @@ const MONSTERS_DATA = {
     desc:"An oracle of living flame. It reads the minds of its foes and burns their deepest fears into reality.",
     lore:"Ignitheon is a regal lion-like psychic-fire creature 2 metres long — Pyraxis's stiff feathered ruff has bloomed into a full mane of living fire that changes colour with its emotional state (gold when calm, white when enraged), and the violet psychic markings of its juvenile flanks still pulse along its sides. It guards ancient flame temples and is said to judge challengers before allowing passage." },
 
-  // 183: Tidalossus - Aquatic/Rock (Coralix→Aquidon→Tidalossus)
+  // 183: Tidalossus - Aquatic/Rock (Coralix→Brinecrush→Tidalossus)
   27: { id:27, name:"Tidalossus", emoji:"🦞", types:["Aquatic","Earth"],
     base:{hp:92,atk:121,def:126,spa:67,spd:82,spe:62},
     learnset:[[1,"graze"],[1,"tidal_rush"],[2,"tidecaller"],[3,"stalactite_drop"],[4,"stone_slide"],[38,"tidal_sweep"],[42,"crag_strike"],[46,"tidal_crush"],[50,"crystal_lance"],[54,"tsunami"],[58,"quarry_crush"],[62,"sea_serpent_strike"],[5,"deepwater_hymn"],[44,"coral_barrage"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
     desc:"A colossus of tide and stone that rules coastal shallows. Its claws can shear cliff faces clean through.",
-    lore:"Tidalossus is a massive crustacean predator 4 metres across — Aquidon's stone-grey carapace has expanded into a dome-shaped granite-grey shell etched by centuries of wave erosion, and its two crushing claws have multiplied across six serrated limbs. It prowls coastal shallows at night and generates a localised tidal surge by rapidly displacing water with its body." },
+    lore:"Tidalossus is a massive crustacean predator 4 metres across — Brinecrush's stone-grey carapace has expanded into a dome-shaped granite-grey shell etched by centuries of wave erosion, and its two crushing claws have multiplied across six serrated limbs. It prowls coastal shallows at night and generates a localised tidal surge by rapidly displacing water with its body." },
 
   // 184: Polarveth - Ice/Aquatic (Cryonik→Boreon→Polarveth)
   44: { id:44, name:"Nagislither", emoji:"🧊", types:["Ice","Aquatic"],
@@ -4323,12 +4323,12 @@ const MONSTERS_DATA = {
     desc:"An ancient tree-god whose bark is stronger than titanium. It has not moved in ten thousand years.",
     lore:"Thornspire is a grass-steel creature 8 metres tall resembling an impossibly old tree with branches of reinforced steel-alloy and roots that pierce solid bedrock." },
 
-  358: { id:358, name:"Pyrocrown", emoji:"👑", types:["Fire","Mental"],
+  358: { id:358, name:"Psyphoenix", emoji:"👑", types:["Fire","Mental"],
     base:{hp:71,atk:83,def:73,spa:111,spd:92,spe:90}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"flicker"],[10,"mental"],[20,"inferno_jet"],[30,"psi_strike"],[40,"solar_flare"],[50,"synaptic_shatter"],[60,"neural_storm"],[5,"char_dance"],[38,"dreamweave"]],
     catchRate:10, expYield:318, rarity:"rare",
     desc:"A psychic phoenix wearing a crown of permanent solar fire. Flame is its thought made manifest.",
-    lore:"Pyrocrown is a fire-psychic bird 1.8 metres tall with feathers of solidified flame and a crown of pure solar fire. Its thoughts manifest as bursts of psychokinetic flame." },
+    lore:"Psyphoenix is a fire-psychic bird 1.8 metres tall with feathers of solidified flame and a crown of pure solar fire. Its thoughts manifest as bursts of psychokinetic flame." },
 
   359: { id:359, name:"Cryoseer", emoji:"❄️", types:["Ice","Mental"],
     base:{hp:73,atk:79,def:90,spa:107,spd:93,spe:73}, evolveTo:385, evolveLevel:82,
@@ -5758,7 +5758,7 @@ const WORLD_DATA = {
     desc:"The scorching heart of the volcano beneath Hauntcoal. Only the most fearless trainers descend here. Legendary energies stir within.",
     connections:["emberveil","iron_canyon","lava_fields"],
     wildMonsters:[
-      {id:277, minLv:24, maxLv:29, rate:24}, // Magmite (obtainability fix)
+      {id:277, minLv:24, maxLv:29, rate:24}, // Magmote (obtainability fix)
       {id:15, minLv:22, maxLv:28, rate:12},  // Pyroclasm
       {id:13, minLv:22, maxLv:28, rate:28},  // Taurcin
       {id:38, minLv:23, maxLv:28, rate:12},  // Titanariel
@@ -6048,8 +6048,8 @@ const WORLD_DATA = {
     connections:["coral_reef","ancient_ruins"],
     wildMonsters:[
       {id:214, minLv:36, maxLv:42, rate:8}, // Petrwave (obtainability fix)
-      {id:26, minLv:28, maxLv:35, rate:18},   // Aquidon
-      {id:193, minLv:28, maxLv:35, rate:28},   // Rugothon
+      {id:26, minLv:28, maxLv:35, rate:18},   // Brinecrush
+      {id:193, minLv:28, maxLv:35, rate:28},   // Cliffpinch
       {id:37, minLv:29, maxLv:36, rate:24},  // Coralossus
       {id:152, minLv:30, maxLv:36, rate:14},   // Imperion
       {id:41, minLv:35, maxLv:42, rate:8}   // Titanomare
@@ -6291,7 +6291,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:191, minLv:67, maxLv:72, rate:21},  // Pebblet (base)
       {id:192, minLv:68, maxLv:73, rate:9},  // Boulderoll (mid → after 191 ✓)
-      {id:193, minLv:67, maxLv:72, rate:10},  // Rugothon (base)
+      {id:193, minLv:67, maxLv:72, rate:10},  // Cliffpinch (base)
       {id:132, minLv:68, maxLv:73, rate:14},  // Volcascale (base)
       {id:133, minLv:69, maxLv:74, rate:5},  // Monolithox (mid → after 132 ✓)
       {id:93,  minLv:69, maxLv:74, rate:7},  // standalone rock
@@ -6430,7 +6430,7 @@ const WORLD_DATA = {
     connections:["granite_tunnels","crystal_mine"],
     wildMonsters:[
       {id:192, minLv:68, maxLv:73, rate:18},  // Boulderoll (mid, 191 on route15 ✓)
-      {id:193, minLv:67, maxLv:72, rate:28},  // Rugothon (base)
+      {id:193, minLv:67, maxLv:72, rate:28},  // Cliffpinch (base)
       {id:194, minLv:68, maxLv:73, rate:10},  // Lithomere (mid → after 193 ✓)
       {id:133, minLv:69, maxLv:74, rate:14},  // Monolithox (mid)
       {id:195, minLv:69, maxLv:74, rate:24},  // Icequartz (base, new)
@@ -6597,7 +6597,7 @@ const WORLD_DATA = {
     connections:["route13","gale_peak"],
     wildMonsters:[
       {id:292, minLv:64, maxLv:69, rate:6},  // Galehorn (mid → 291 Breezekin on route13 ✓)
-      {id:293, minLv:63, maxLv:68, rate:18},  // Gustpuff (base Wind)
+      {id:293, minLv:63, maxLv:68, rate:18},  // Windwhelp (base Wind)
       {id:222, minLv:63, maxLv:68, rate:28},  // Mindpuff (base Mental)
       {id:223, minLv:64, maxLv:69, rate:10},  // Recallum (mid → after 222 ✓)
       {id:238, minLv:63, maxLv:68, rate:24},  // Snowble (base Ice/Wind)
@@ -6635,7 +6635,7 @@ const WORLD_DATA = {
       {id:278, minLv:65, maxLv:70, rate:23},  // Ironpix (base, also route14)
       {id:312, minLv:65, maxLv:70, rate:5}    // Dunecrawl (base, also magma_vent)
     ],
-    ngPlusWildMonsters:[{id:376, minLv:67, maxLv:72, rate:8}, {id:358, minLv:66, maxLv:71, rate:9}], // NG+ standalone: Pyrocrown
+    ngPlusWildMonsters:[{id:376, minLv:67, maxLv:72, rate:8}, {id:358, minLv:66, maxLv:71, rate:9}], // NG+ standalone: Psyphoenix
     hasGym:false, requiredBadges:13, mapPos:{x:30, y:90}
   },
   smelter_pass: {

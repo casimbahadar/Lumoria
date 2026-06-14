@@ -39,7 +39,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[18] Cindercula→Searburn→Quetzember | Fire/Wind | feathered-serpent` (sub: plumed fire-serpent / Quetzalcoatl; base #16 stays mono-Fire)
 - `[21] Magmaurin→Ignirhino→Terravore | Fire/Earth | rhinoceros` (de-saurianed 2026-06-13 — magma-rhino line, calf→great charging magma-rhino; fixes old mole→lizard→dino incoherence)
 - `[24] Hallucigaze→Pyraxis→Ignitheon | Fire/Mental | lion` (final is true lion)
-- `[27] Reefnip→Aquidon→Tidalossus | Aquatic/Earth | kraken / sea-titan crustacean` (mythical-exempt)
+- `[27] Reefnip→Brinecrush→Tidalossus | Aquatic/Earth | kraken / sea-titan crustacean` (mythical-exempt)
 - `[30] Corelin→Coralisk→Nepturix | Aquatic | fish` (deep-sea fish)
 - `[33] Toxaquil→Noxaquith→Septanemone | Aquatic/Poison | cephalopod` (sub: anemone-bloomed cephalopod)
 - `[36] Pearlmaid→Seanymph→Thalassira | Aquatic/Fairy | sea-fairy queen / mermaid` (mythical-exempt; flagship)
@@ -114,7 +114,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[188] Norindel→Plentorus | Normal | boar / pig`
 - `[190] Woolcalm→Aetherflock | Normal/Mental | sheep / bovid` (psychic sheep — second bovid family alongside Tundram line)
 - `[192] Pebblet→Boulderoll | Earth | pillbug` (de-golemed 2026-06-13 from earth-golem — rock roly-poly that curls into a boulder and rolls)
-- `[194] Rugothon→Lithomere | Aquatic/Mineral | crab / crustacean` (rock-water crab)
+- `[194] Cliffpinch→Lithomere | Aquatic/Mineral | crab / crustacean` (rock-water crab)
 - `[196] Icequartz→Frigolith | Ice/Mineral | rock-monolith / standing stone` (boulder partially submerged in permafrost)
 - `[199] Photoworm→Chrysalix→Aeridaleth | Nature/Wind | butterfly` (Lepidoptera — third butterfly/moth family)
 - `[201] Iridibeetle→Scarabion | Nature/Metal | beetle / scarab`
@@ -123,7 +123,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[208] Venomscale→Sorrowlix→Wyrmvenom | Poison/Draconic | dragon-mythic` (sub: plague-dragon — sympathetic/misunderstood: innately & involuntarily toxic but gentle, sociable & isolated by fear; NOT an active disease-spreader, no miasma/blight)
 - `[210] Boltfur→Thundermane | Normal/Electric | rabbit / hare` (giant maned hare — second hare alongside Leapbun line)
 - `[213] Cinderfrost→Frostscorch→Infriglace | Fire/Ice | fire-ice titan` (dual-element titan, unique body plan — flag as unique mythical)
-- `[214] Petrwave | Aquatic/Earth | crab / crustacean` (coral-fortress crab, standalone — second crab alongside Rugothon line)
+- `[214] Petrwave | Aquatic/Earth | crab / crustacean` (coral-fortress crab, standalone — second crab alongside Cliffpinch line)
 - `[217] Veilwisp→Mindrift→Distorsion | Mental/Vapor | psychic-elemental` (formless psychic mist/fog — added Vapor 2026-06-12; Mental mono→pristine Mental/Vapor, claims one of Mental's two missing low pairings. Stale "Mentovast" leak verified absent.)
 - `[219] Duskmist→Nightmont | Dark | dark-elemental / formless mountain` (3m formless darkness with red-pinpoint eyes — sole dark-elemental candidate)
 - `[221] Umbrajest→Shadowveil | Dark/Vapor | wraith` (cloaked humanoid shadow)
@@ -158,7 +158,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[271] Murkrat | Dark/Normal | rat (rodent)` (standalone)
 - `[273] Embrix→Blazeon | Fire/Spectral | phoenix` (sub: firebird; base #272 mono-Fire)
 - `[276] Cindling→Infernox→Magmaw | Fire/Mineral | saurian` (igneous lizard with rock plates — second fire-saurian alongside Magmaurin/Terravore line)
-- `[277] Magmite | Fire | fire-elemental` (lava droplet, formless walking magma — sole fire-elemental candidate, standalone)
+- `[277] Magmote | Fire | fire-elemental` (lava droplet, formless walking magma — sole fire-elemental candidate, standalone)
 - `[279] Ironpix→Steelhorn | Metal/Fairy | unicorn / single-horn fairy-equine` (fairy-forged steel steed with a single straight horn; lore/noun retuned off "humanoid knight" 2026-06-13 to match the equine archetype — the armored-knight concept is already covered by #56 Deepfreeze, #146 Shinarith, #332 Glacicore, #407 Voidwarden)
 - `[282] Gearbit→Cogvex→Mechabrute | Metal/Fighting | automaton`
 - `[283] Rustpike | Metal/Poison | fish` (rusting-iron pike, standalone — second fish family alongside Corelin line; could also classify as steel-elemental?)
@@ -167,7 +167,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[289] Bouncyblob | Normal/Vapor | slime / blob` (mythical, standalone; added Vapor 2026-06-12 — a warm condensed-vapor gel blob; Normal mono→pristine Normal/Vapor)
 - `[290] Guisecat | Normal/Dark | cat` (mimic-cat — second cat alongside Fluffen line + Cinderpaw + Hauntcoal)
 - `[292] Breezekin→Galehorn | Wind/Sonic | antelope` (pristine archetype)
-- `[295] Gustpuff→Stormwing→Cyclonax | Electric/Draconic | dragon-mythic` (sub: wind-dragon)
+- `[295] Windwhelp→Stormwing→Cyclonax | Electric/Draconic | dragon-mythic` (sub: wind-dragon)
 - `[298] Plaguefly→Pestquito→Plagueoth | Poison/Toxin | mosquito` (Diptera — relabeled off moth 2026-06-13; emoji 🦟 + desc/lore "plague mosquito" across all 3 stages. Resolves the old BREAKING-list moth/butterfly flag)
 - `[300] Stinglet→Nettlebarb | Toxin/Sonic | bee (Hymenoptera)` (currently inconsistent — bee→scorpion-bee hybrid on BREAKING list)
 - `[301] Hauntcoal | Fire/Spectral | cat` (smouldering ghost-cat, standalone — third cat; retyped Fire/Dark→Fire/Spectral for diversity)
@@ -227,7 +227,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[354] Riftwhale | Aquatic/Mental | cetacean` (psychic-whale, 12m — fifth cetacean)
 - `[355] Nadiril | Aquatic/Toxin | eel` (armoured eel — second eel alongside Dynameel)
 - `[357] Thornspire | Nature/Metal | treant` (8m steel-branched tree — fourth treant)
-- `[358] Pyrocrown | Fire/Mental | phoenix / solar bird` (mythical-exempt — sole phoenix family)
+- `[358] Psyphoenix | Fire/Mental | phoenix / solar bird` (mythical-exempt — sole phoenix family)
 - `[359] Cryoseer (→Permafrost) | Ice/Mental | ice-golem` (mid of the ice-golem line; see [385])
 - `[360] Duskmantle | Dark/Mental | duality being` (half-fairy half-shadow; unique sub-archetype)
 - `[361] Tectoshell | Earth/Nature | zaratan / island-turtle` (re-archetyped from ground-dragon 2026-06-10; living-landscape shell)
@@ -244,7 +244,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[372] Prismancer | Mental/Mineral | chameleon` (re-archetyped from psychic/mineral-dragon 2026-06-10; prismatic colour-shift reptile)
 - `[373] Voidrend | Dark/Spectral | void / cosmic` (reality-tearing dark-ghost — fourth void/cosmic. **⚠ Pre-408 with Ghost typing**)
 - `[375] Fluxserpent | Electric/Mental | electric-elemental serpent` (current-loop serpent — sole electric-elemental candidate; or could classify as serpent variant)
-- `[376] Solarwrath | Fire/Fairy | phoenix / solar-being` (solar plasma — second solar archetype with Pyrocrown)
+- `[376] Solarwrath | Fire/Fairy | phoenix / solar-being` (solar plasma — second solar archetype with Psyphoenix)
 - `[377] Quarrex→Graviton→Abyssforge | Earth/Mineral | earth-golem` (sub: earth-golem; merged 2026-06-12 from 3 NG+ golem standalones — granite golem → dense gravity golem → ultra-dense core-titan. Consistent Earth→Earth/Mineral→Earth/Mineral; Earth/Mineral count 2)
 - `[378] Dreamweald | Mental/Dream | dream-entity` (visible only to half-asleep; second dream-entity alongside Oneiron)
 - `[379] Riftmane | Aquatic/Spectral | kelpie` (re-archetyped from spectral-dragon 2026-06-10; phasing otherworld water-horse; renamed from Riftscale)
@@ -255,7 +255,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 ### Batch 6 (families 210-243)
 
 - `[383] Apexblade | Metal/Aquatic | swordfish` (re-archetyped from steel-dragon 2026-06-10; living-blade sea predator)
-- `[384] Solarcrown | Fire/Stellar | phoenix / solar-being` (third solar archetype with Pyrocrown/Solarwrath)
+- `[384] Solarcrown | Fire/Stellar | phoenix / solar-being` (third solar archetype with Psyphoenix/Solarwrath)
 - `[385] Crystavault→Cryoseer→Permafrost | Ice/Earth | ice-golem` (sub: ice-golem; merged 2026-06-12 from 3 NG+ golem standalones — young crystal-ice construct → awakened ice-sovereign → ancient earth-fused glacial titan; secondary type shifts Mineral→Mental→Earth, no cap impact)
 - `[386] Wraithstorm | Electric/Spectral | storm-wraith` (split out of wraith bucket per policy)
 - `[387] Deepvoid | Dark/Aquatic | void / cosmic abstract being` (sub: aquatic void — fifth void/cosmic)
@@ -419,7 +419,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 
 **Real animal pristine (single family):** boar (Plentorus), horse (Voltanox), antelope (Galehorn), echidna (Basaltback), hippo (Marshix), armadillo (Sandrix), rhino (Quakehide), spider (Arachnalis + Duskmourn-postgame), scorpion (Craterlurk), snail (Bonsailoth), hedgehog (Gelquill), mushroom (Plaguecap), shark (Bathykor-postgame), tiger (Emberon-postgame), tortoise (Imperion).
 
-**Mythical pristine:** snowman (Tundrafox), kitsune (Wraithfox + Frigalum-postgame), tanuki (Eclipsoon), leshy (Morralyn), kirin (Majesticore), insect-swarm (Mistbane), sea-fairy queen (Thalassira), coral-titan (Titanariel), kraken (Tidalossus — could expand), seed-pod / walking-garden (Groveguard), phoenix/solar-being (Pyrocrown, Solarwrath, Solarcrown — already 3, at-cap or just over).
+**Mythical pristine:** snowman (Tundrafox), kitsune (Wraithfox + Frigalum-postgame), tanuki (Eclipsoon), leshy (Morralyn), kirin (Majesticore), insect-swarm (Mistbane), sea-fairy queen (Thalassira), coral-titan (Titanariel), kraken (Tidalossus — could expand), seed-pod / walking-garden (Groveguard), phoenix/solar-being (Psyphoenix, Solarwrath, Solarcrown — already 3, at-cap or just over).
 
 ### Elementals (cap = 1 family + 1 standalone per element)
 
@@ -428,7 +428,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | wind-elemental | Pneumathos line | — | At cap (1) |
 | psychic-elemental | Veilwisp/Distorsion | Astralwing, Graviton | **Over cap (1+2)** |
 | dark-elemental | Nightmont line | — | At cap (1) |
-| fire-elemental | — | Magmite | At cap (0+1) |
+| fire-elemental | — | Magmote | At cap (0+1) |
 | poison-elemental | — | Mephitis | At cap (0+1) |
 | rock-elemental | — | Ashrock, Ashvanus | **Over cap (0+2)** — pick 1 |
 | electric-elemental | — | Thunderpeak, Fluxserpent | **Over cap (0+2)** — pick 1 |

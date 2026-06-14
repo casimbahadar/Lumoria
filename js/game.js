@@ -54,6 +54,7 @@ function createPartySlot(monsterId, level) {
   return {
     monsterId, nickname: null, level, xp: xpForLevel(level),
     maxHP, currentHP: maxHP, moves, statuses: [], heldItem: null,
+    friendship: 70,
     nature: getRandomNature(), ivs,
     shiny: false, variant: false, variantTypes: null, variantBase: null, variantImmune: null
   };
@@ -431,6 +432,20 @@ function showEvolution(partySlot, newId, cb) {
     document.getElementById("evolution-overlay").classList.add("hidden");
     if (cb) cb();
   };
+}
+
+// Sweep the team for location-gated evolutions after entering a new area.
+// Chains via the overlay callback so multiple eligible Lumori evolve one by one.
+function checkAreaEvolutions() {
+  if (!G || !Array.isArray(G.team)) return;
+  for (const slot of G.team) {
+    if (!slot) continue;
+    const target = resolveEvolution(slot, "area");
+    if (target) {
+      showEvolution(slot, target, checkAreaEvolutions);
+      return;
+    }
+  }
 }
 
 // ============================================================
@@ -834,6 +849,7 @@ function travelTo(areaId) {
   trackLocationVisit(areaId);
   renderWorldMap();
   renderAreaPanel();
+  checkAreaEvolutions();
   maybeTriggerForgottenLegendaryEncounter(areaId);
 }
 
@@ -1714,6 +1730,7 @@ function createCaughtSlot(battleMon) {
     maxHP: battleMon.maxHP, currentHP: battleMon.currentHP,
     moves: battleMon.moves.map(m => m.id),
     statuses: (battleMon.statuses || []).map(s => ({ ...s })),
+    friendship: 70,
     nature: battleMon.nature || getRandomNature(),
     ivs: battleMon.ivs || generateIVs(),
     shiny: !!battleMon.shiny, variant: !!battleMon.variant,
@@ -3466,6 +3483,7 @@ function useItemOnMon(itemId, monIdx) {
     if (slot.currentHP <= 0) { showNotification("Can't use on a fainted Lumori!"); return; }
     slot.currentHP = Math.min(slot.maxHP, slot.currentHP + item.healAmt);
     G.bag[itemId]--;
+    slot.friendship = Math.min(255, (slot.friendship ?? 70) + 3); // care builds bond
     showNotification(`Used ${item.name}! HP restored.`);
   } else if (item.type === "revive") {
     if (slot.currentHP > 0) { showNotification("Lumori is not fainted!"); return; }
@@ -5156,8 +5174,9 @@ function useEvoItem(itemId, partyIdx) {
 
   let targetId = null;
 
-  // Check if this mon evolves with this item
-  if (def.evolveItem === itemId && def.evolveTo) {
+  // Check if this mon evolves with this item. "held"-method evolvers share the
+  // evolveItem field but must hold it through a level-up — using it does nothing.
+  if (def.evolveItem === itemId && def.evolveTo && def.evolveMethod !== "held") {
     targetId = def.evolveTo;
   }
   // Check alt evolution

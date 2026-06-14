@@ -4231,12 +4231,12 @@ const MONSTERS_DATA = {
     desc:"A corrupted fairy that has passed through death and returned. Its glow is beautiful and deeply unsettling.",
     lore:"Glimmeritch is a fairy-spectral creature resembling a 0.6-metre glowing humanoid with translucent wings and a body that flickers between solid and spectral forms." },
 
-  345: { id:345, name:"Voidcoil", emoji:"🐦‍⬛", types:["Dark","Wind"],
+  345: { id:345, name:"Sablecrow", emoji:"🐦‍⬛", types:["Dark","Wind"],
     base:{hp:73,atk:99,def:75,spa:90,spd:77,spe:81}, evolveTo:382, evolveLevel:null, evolveItem:"duskStone", evolveMethod:"item",
     learnset:[[1,"wingbeat"],[10,"void_rend"],[20,"squall_slash"],[30,"nether_sphere"],[40,"skyfall"],[50,"phantom_claw"],[60,"gale_force"],[5,"zephyr_dance"],[38,"plume_veil"],[62,"shade_dash"]],
     catchRate:16, expYield:290, rarity:"rare",
     desc:"A void-feathered raven whose plumage drinks all light, leaving it nearly invisible in the dark.",
-    lore:"Voidcoil is a void-touched raven with a 2-metre wingspan, its plumage so black it creates a visible absence of light as it glides. Its eyes emit a dim crimson glow seen only in complete darkness, and shadow seems to coil in its wake. Drawn to places of deepest dark, it can drink in enough shadow to blot out the noon sun — the threshold at which it becomes Oblivionwing." },
+    lore:"Sablecrow is a void-touched raven with a 2-metre wingspan, its plumage so black it creates a visible absence of light as it glides. Its eyes emit a dim crimson glow seen only in complete darkness, and shadow seems to coil in its wake. Drawn to places of deepest dark, it can drink in enough shadow to blot out the noon sun — the threshold at which it becomes Oblivionwing." },
 
   346: { id:346, name:"Astralwing", emoji:"🌟", types:["Mental","Wind"],
     base:{hp:67,atk:74,def:65,spa:100,spd:88,spe:96}, evolveTo:null, evolveLevel:null,
@@ -4281,12 +4281,12 @@ const MONSTERS_DATA = {
     lore:"Spectravore is a mental-mineral entity 1 metre tall — Spectroo's translucent white-light kangaroo silhouette has fractured under prism-stone exposure into a floating iridescent humanoid, the pouch's concentrated psychic energy now dispersed as a shifting aura of all visible colours surrounding it." },
 
   // ---- Tier 3: Post-game NG+ (requiresChampion areas) BST ~580–630 ----
-  352: { id:352, name:"Voidlord", emoji:"🕳️", types:["Mental","Spectral"],
+  352: { id:352, name:"Hollowking", emoji:"🕳️", types:["Mental","Spectral"],
     base:{hp:72,atk:94,def:76,spa:100,spd:84,spe:89}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"void_rend"],[5,"dreamweave"],[8,"wraith_claw"],[10,"synaptic_shatter"],[15,"ectoplasm_wave"],[20,"phantom_claw"],[25,"spectral_lock"],[30,"neural_storm"],[35,"spectral_veil"],[40,"shadowstep"],[45,"prism_ward"],[50,"psi_strike"],[60,"cataclysm_breath"]],
     catchRate:12, expYield:308, rarity:"rare",
     desc:"The sovereign of all void-touched creatures. Its mind is a labyrinth with no exit.",
-    lore:"Voidlord is a mental-spectral entity 2.2 metres tall with a body of solidified void-matter and a crown of hovering psychic fragments. No one who has entered its mindscape has returned unchanged." },
+    lore:"Hollowking is a mental-spectral entity 2.2 metres tall with a body of solidified void-matter and a crown of hovering psychic fragments. No one who has entered its mindscape has returned unchanged." },
 
   353: { id:353, name:"Infernotitan", emoji:"🦎", types:["Fire","Toxin"],
     base:{hp:78,atk:106,def:82,spa:98,spd:74,spe:82}, evolveTo:null, evolveLevel:null,
@@ -4430,12 +4430,12 @@ const MONSTERS_DATA = {
     desc:"A crystalline chameleon whose scales cycle through every wavelength of light, bending the world's colours around it.",
     lore:"Prismancer is a crystalline chameleon 1.5 metres long whose prismatic scales shift through every colour of visible light in a constant slow cycle. It bends light around its body to vanish from sight, and the air about it refracts into faint rainbow halos. It hunts by holding perfectly still until prey strays within reach of its lightning tongue." },
 
-  373: { id:373, name:"Voidrend", emoji:"🌌", types:["Dark","Spectral"],
+  373: { id:373, name:"Chasmrend", emoji:"🌌", types:["Dark","Spectral"],
     base:{hp:69,atk:103,def:74,spa:92,spd:82,spe:100}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"void_rend"],[5,"shade_dash"],[8,"null_void"],[10,"phantom_claw"],[15,"revenant_charge"],[20,"nether_sphere"],[25,"ectoplasm_strike"],[30,"shadowstep"],[35,"shadowstorm"],[40,"umbral_claw"],[45,"spirit_calamity"],[48,"cataclysm_breath"],[50,"synaptic_shatter"],[60,"neural_storm"],[62,"wraith_claw"]],
     catchRate:7, expYield:338, rarity:"rare",
     desc:"A predator from between realities. It tears holes in space as naturally as others breathe.",
-    lore:"Voidrend is a dark-spectral entity 2.5 metres tall with a body that exists simultaneously in normal space and the void between dimensions. Its claws leave visible tears in reality that slowly heal." },
+    lore:"Chasmrend is a dark-spectral entity 2.5 metres tall with a body that exists simultaneously in normal space and the void between dimensions. Its claws leave visible tears in reality that slowly heal." },
 
   374: { id:374, name:"Auroratusk", emoji:"🦭", types:["Ice","Normal"],
     base:{hp:69,atk:92,def:78,spa:102,spd:85,spe:94}, evolveTo:395, evolveLevel:75,
@@ -4499,7 +4499,7 @@ const MONSTERS_DATA = {
     learnset:[[1,"wingbeat"],[10,"void_rend"],[20,"skyfall"],[30,"nether_sphere"],[40,"cyclone_smash"],[50,"phantom_claw"],[60,"gale_force"],[5,"zephyr_dance"],[52,"plume_veil"],[62,"run_down"]],
     catchRate:5, expYield:355, rarity:"rare",
     desc:"A colossal raven that devours light itself. Darkness spreads for kilometres from wherever it roosts.",
-    lore:"Oblivionwing is an enormous raven with a 6-metre wingspan whose feathers absorb all incoming light — the matured void Voidcoil once only carried. Flying overhead it casts a shadow darker than any natural night, and stars become visible at noon beneath its wings." },
+    lore:"Oblivionwing is an enormous raven with a 6-metre wingspan whose feathers absorb all incoming light — the matured void Sablecrow once only carried. Flying overhead it casts a shadow darker than any natural night, and stars become visible at noon beneath its wings." },
 
   383: { id:383, name:"Apexblade", emoji:"🗡️", types:["Metal","Aquatic"],
     base:{hp:71,atk:112,def:93,spa:77,spd:81,spe:91}, evolveTo:null, evolveLevel:null,
@@ -4550,12 +4550,12 @@ const MONSTERS_DATA = {
     desc:"The apex thunderbird, crowned in living lightning. Every storm in Lumoria eventually answers its call.",
     lore:"Stormcrown is the apex thunderbird, a 5.5-metre raptor wreathed in storm-cloud plumage with a permanent crown of crackling lightning — the matured storm Stormlord once only carried. Its cry rolls across the land as a deafening thunderclap that scatters lesser creatures, and it is the dominant power in any region it inhabits; other electric creatures defer to it instinctively." },
 
-  390: { id:390, name:"Voidgarden", emoji:"🌸", types:["Nature","Poison"],
+  390: { id:390, name:"Necrobloom", emoji:"🌸", types:["Nature","Poison"],
     base:{hp:71,atk:81,def:77,spa:112,spd:93,spe:91}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"fairy_wind"],[10,"nether_sphere"],[20,"fae_requiem"],[30,"void_rend"],[40,"synaptic_shatter"],[50,"phantom_claw"],[60,"neural_storm"],[5,"dreamweave"],[52,"umbral_claw"],[62,"mantis_slash"],[63,"brood_tide"],[64,"nature_pulse"],[65,"vine_lash"],[66,"acid_spray"],[67,"acid_burst"],[68,"venom_jab"],[69,"nerve_agent"]],
     catchRate:5, expYield:360, rarity:"rare",
     desc:"A garden of beautiful but corrupted plant life. Its flowers are as poisonous as they are gorgeous.",
-    lore:"Voidgarden is a nature-poison entity 2 metres tall resembling a humanoid composed of venomous flowers and dark thorned vines growing simultaneously. The flowers glow with a light that induces euphoria." },
+    lore:"Necrobloom is a nature-poison entity 2 metres tall resembling a humanoid composed of venomous flowers and dark thorned vines growing simultaneously. The flowers glow with a light that induces euphoria." },
 
   391: { id:391, name:"Titanfang", emoji:"🦬", types:["Normal","Earth"],
     base:{hp:88,atk:111,def:86,spa:77,spd:80,spe:83}, evolveTo:null, evolveLevel:null,
@@ -5694,7 +5694,7 @@ const WORLD_DATA = {
       {id:143, minLv:62, maxLv:66, rate:25}, // Astrelle
       {id:151, minLv:63, maxLv:66, rate:25}  // Amperpede
     ],
-    ngPlusWildMonsters:[{id:345, minLv:60, maxLv:66, rate:18}], // Voidcoil (base) — found before Oblivionwing in Void Nexus
+    ngPlusWildMonsters:[{id:345, minLv:60, maxLv:66, rate:18}], // Sablecrow (base) — found before Oblivionwing in Void Nexus
     hasGym:false, requiredBadges:16, mapPos:{x:62, y:35}
   },
   summit: {

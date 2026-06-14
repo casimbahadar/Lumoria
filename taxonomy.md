@@ -222,7 +222,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[349] Crystavault (→Cryoseer→Permafrost) | Ice/Mineral | ice-golem` (base of the ice-golem line; see [385])
 - `[350] Forewrath | Nature/Mineral | iguana` (re-archetyped from grass-dragon 2026-06-10; bark-scaled forest iguana)
 - `[351] Spectravore | Mental/Mineral | rainbow / prismatic being` (iridescent humanoid silhouette with all-colour aura — unique sub)
-- `[352] Voidlord | Mental/Spectral | void / cosmic abstract being` (mythical — third void/cosmic alongside Cerebraith/Voidraxis)
+- `[352] Hollowking | Mental/Spectral | void / cosmic abstract being` (mythical — third void/cosmic alongside Cerebraith/Voidraxis)
 - `[353] Infernotitan | Fire/Toxin | salamander` (re-archetyped from fire-dragon 2026-06-10; toxic-skinned volcanic salamander; pristine combo)
 - `[354] Riftwhale | Aquatic/Mental | cetacean` (psychic-whale, 12m — fifth cetacean)
 - `[355] Nadiril | Aquatic/Toxin | eel` (armoured eel — second eel alongside Dynameel)
@@ -242,7 +242,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[370] Cyclotron | Electric/Sonic | thunderstorm-disaster` (over cap with Tempestborn/Nullstorm)
 - `[371] Nullform | Dark/Normal | shapeshifter / mimic` (matte-black form-shifter — second mimic alongside Guisecat)
 - `[372] Prismancer | Mental/Mineral | chameleon` (re-archetyped from psychic/mineral-dragon 2026-06-10; prismatic colour-shift reptile)
-- `[373] Voidrend | Dark/Spectral | void / cosmic` (reality-tearing dark-ghost — fourth void/cosmic. **⚠ Pre-408 with Ghost typing**)
+- `[373] Chasmrend | Dark/Spectral | void / cosmic` (reality-tearing dark-ghost — fourth void/cosmic. **⚠ Pre-408 with Ghost typing**)
 - `[375] Fluxserpent | Electric/Mental | electric-elemental serpent` (current-loop serpent — sole electric-elemental candidate; or could classify as serpent variant)
 - `[376] Solarwrath | Fire/Fairy | phoenix / solar-being` (solar plasma — second solar archetype with Psyphoenix)
 - `[377] Quarrex→Graviton→Abyssforge | Earth/Mineral | earth-golem` (sub: earth-golem; merged 2026-06-12 from 3 NG+ golem standalones — granite golem → dense gravity golem → ultra-dense core-titan. Consistent Earth→Earth/Mineral→Earth/Mineral; Earth/Mineral count 2)
@@ -250,7 +250,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[379] Riftmane | Aquatic/Spectral | kelpie` (re-archetyped from spectral-dragon 2026-06-10; phasing otherworld water-horse; renamed from Riftscale)
 - `[380] Tempestborn | Electric/Wind | thunderstorm-disaster [LEGEND t2]` (over cap)
 - `[381] Crystalmind | Mental/Metal | crystalline-prism` (geometric polyhedron — fourth crystalline-prism)
-- `[382] Voidcoil→Oblivionwing | Dark/Wind | raven / corvid` (re-archetyped from dark-dragons 2026-06-10; NG+ 2-stage void-raven; duskstone evolution)
+- `[382] Sablecrow→Oblivionwing | Dark/Wind | raven / corvid` (re-archetyped from dark-dragons 2026-06-10; NG+ 2-stage void-raven; duskstone evolution)
 
 ### Batch 6 (families 210-243)
 
@@ -261,7 +261,7 @@ Legendary tier (`ngPlusTier`) confirmed for: #379, #380, #389, #392, #394, #395,
 - `[387] Deepvoid | Dark/Aquatic | void / cosmic abstract being` (sub: aquatic void — fifth void/cosmic)
 - `[388] Mirestone→Chronolith | Earth/Mental | rock-monolith` (sub: rune-monolith → time-stone; merged 2026-06-12 from 2 NG+ standalones — IS the Earth/Mental pairing, count 2)
 - `[389] Stormlord→Stormcrown | Electric/Sonic | thunderbird` (re-archetyped from electric-dragon 2026-06-10; NG+ 2-stage storm-raptor)
-- `[390] Voidgarden | Nature/Poison | plant-humanoid / fairy-flower-being` (luminous flowers + dark thorned vines humanoid; sub of corrupted-flower archetype with Blightalis)
+- `[390] Necrobloom | Nature/Poison | plant-humanoid / fairy-flower-being` (luminous flowers + dark thorned vines humanoid; sub of corrupted-flower archetype with Blightalis)
 - `[391] Titanfang | Normal/Earth | behemoth` (re-archetyped from normal-dragon 2026-06-10; primordial mega-beast)
 - `[392] Eonyx | Mental | sphinx` (re-archetyped from psychic-dragon 2026-06-10; ancient oracle sphinx; renamed from Eondrake; signature Time Fracture retyped Draconic→Mental)
 - `[393] Nullstorm | Dark/Electric | thunderstorm-disaster` (over cap)
@@ -398,7 +398,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | **hawk** | 1 | 3 | under cap | Rimehawk (#338). Subdivided 2026-06-13. |
 | _(raptor superfamily, already distinct)_ | — | — | — | thunderbird Stormcrown (#389), griffin Heliogriff (#394), harpy Zephyrak (#478, post-game). The old "bird-of-prey/raptor: 5, trim 2" bucket dissolved by subdivision — each raptor type now sits at 1, no cull needed. |
 | **treant / walking-tree** | 4 | 3 | trim 1 | **LOCKED capped (not exempt).** Keep Necrothon, Impenezard, Thornspire; re-archetype Nectartrap #326→carnivorous-plant. (Rootborn is Forgotten 462+, excluded.) |
-| **void / cosmic abstract** | 9 | exempt | — | Cerebraith, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Starborne, Nihilax, Cosmolith. Mythical-exempt. |
+| **void / cosmic abstract** | 9 | exempt | — | Cerebraith, Voidraxis, Hollowking, Chasmrend, Deepvoid, Voidcrown, Starborne, Nihilax, Cosmolith. Mythical-exempt. |
 | **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Guisecat, Hauntcoal, Pyrelynx. |
 | **thunderstorm-disaster** | 3 | 1+1 | trim 1-2 | Cyclotron, Tempestborn, Nullstorm. (See storm-elemental TODO entry.) |
 | **fire-dragon legendary cluster** | 1 (Dragemian; Infernotitan→salamander, Heliogriff→griffin, Bahamber→feathered-serpent, Blazeon→phoenix re-archetyped out) + chain finals (Calderaeth, Stardrax) | n/a | discuss | All under dragon-mythic exempt but sub-flavor crowded. |
@@ -449,7 +449,7 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 ### Pre-408 Ghost-typing flags (per CLAUDE.md, surface for user discussion)
 
 - `#362 Lunaspectre | Psychic/Ghost`
-- `#373 Voidrend | Dark/Ghost`
+- `#373 Chasmrend | Dark/Ghost`
 - (Others to be cross-checked.)
 
 ---
@@ -492,7 +492,7 @@ From all 7 batches:
 3. **Cetacean (whale)** — over cap at 6. Is this a common-animal cap-3 case or borderline mythical (sea-leviathan)?
 4. **Wraith** — currently treated as mythical-exempt (~11 families). Confirm or apply cap.
 5. **Treant** — currently mythical-exempt (5 families). Confirm.
-6. **Pre-408 Ghost-typing** mons (#362 Lunaspectre, #373 Voidrend) — surface for retyping discussion.
+6. **Pre-408 Ghost-typing** mons (#362 Lunaspectre, #373 Chasmrend) — surface for retyping discussion.
 7. **Forgotten 408+ classifications** — many are best-guess from emoji/type. Want me to flag specific ones for fuller body-plan rewrites?
 
 ---

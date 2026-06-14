@@ -2918,20 +2918,20 @@ const MONSTERS_DATA = {
     desc:"A reborn phoenix wreathed in everlasting flame. Rises from its own ashes brighter each time.",
     lore:"Blazeon is a magnificent phoenix some 1.5 metres tall with a 2-metre wingspan of deep crimson-and-gold plumage that burns without being consumed. When its body finally fails it bursts into flame and collapses to ash — only to rise again days later, renewed and a little brighter than before. It roosts on volcanic hillsides, and the warmth shed from its feathers keeps the surrounding slopes in a perpetual early summer. Its cry is said to mend the spirits of those who hear it." },
 
-  // 3-stage Fire/Rock chain: Cindling → Infernox → Pyrovast
-  274: { id:274, name:"Cindling", emoji:"🪨", types:["Fire","Mineral"],
+  // 3-stage Fire/Rock chain: Charrock → Infernox → Pyrovast
+  274: { id:274, name:"Charrock", emoji:"🪨", types:["Fire","Mineral"],
     base:{hp:46,atk:60,def:65,spa:55,spd:50,spe:52},
     learnset:[[1,"flicker"],[1,"stone_throw"],[5,"granite_slam"],[10,"stone_slide"],[15,"mica_lattice"],[20,"inferno_jet"],[25,"amethyst_pulse"],[30,"crag_strike"],[40,"pyroclasm"],[50,"magma_stone"],[60,"radiance_cannon"]],
     evolveTo:275, evolveLevel:28, catchRate:170, expYield:74, rarity:"common",
     desc:"A coal-like creature that ignites when rolling downhill. Leaves scorch marks on stone paths.",
-    lore:"Cindling is a fire-mineral creature 30 cm long resembling a small lizard made of dark basalt with glowing cinders embedded in its skin. It collects small pebbles and packs them into its cinder-body over time, growing heavier and slower with age. The hottest cinders in its body mark its most active thinking. A Cindling's surface cinders glow steadily hotter and oranger as the creature ages, the body's heat-storage capacity inching toward the magma-pool levels Infernox sustains across every joint. Faint heat-shimmer extends further outward with each successive moult, approaching the eruption-radius Magmaw maintains constantly. Provoke a fully-grown Cindling and its body will produce a small but distinct ground-tremor that propagates further than its tiny mass should allow." },
+    lore:"Charrock is a fire-mineral creature 30 cm long resembling a small lizard made of dark basalt with glowing cinders embedded in its skin. It collects small pebbles and packs them into its cinder-body over time, growing heavier and slower with age. The hottest cinders in its body mark its most active thinking. A Charrock's surface cinders glow steadily hotter and oranger as the creature ages, the body's heat-storage capacity inching toward the magma-pool levels Infernox sustains across every joint. Faint heat-shimmer extends further outward with each successive moult, approaching the eruption-radius Magmaw maintains constantly. Provoke a fully-grown Charrock and its body will produce a small but distinct ground-tremor that propagates further than its tiny mass should allow." },
 
   275: { id:275, name:"Infernox", emoji:"🌋", types:["Fire","Mineral"],
     base:{hp:72,atk:92,def:95,spa:82,spd:68,spe:62},
     learnset:[[1,"inferno_jet"],[1,"crag_strike"],[8,"coal_smash"],[12,"ember_focus"],[16,"flash_fire"],[20,"lava_drop"],[22,"pyroclasm"],[26,"magma_strike"],[30,"magma_stone"],[34,"molten_tide"],[38,"stone_slide"],[42,"pyre_strike"],[44,"searing_glare"],[46,"tectonic_shift"],[50,"volcanic_wrath"],[54,"caldera_meltdown"],[62,"radiance_cannon"],[64,"lode_strike"],[65,"ore_ray"],[66,"mineral_dust"],[67,"ore_punch"]],
     evolveTo:276, evolveLevel:46, catchRate:75, expYield:158, rarity:"uncommon",
     desc:"A volcanic rock beast that erupts periodically. Carries magma inside its carapace like a pressure cooker.",
-    lore:"Infernox is a fire-mineral creature 80 cm long — Cindling's basalt-and-cinder juvenile body has thickened into volcanic plate armour resembling a larger armoured lizard, the embedded cinders of its early form now pooled magma glowing through every joint. Its footsteps leave brief glowing prints. It inhabits lava fields and uses its rock-hard body to deflect predator strikes while retaliating with blasts of focused fire." },
+    lore:"Infernox is a fire-mineral creature 80 cm long — Charrock's basalt-and-cinder juvenile body has thickened into volcanic plate armour resembling a larger armoured lizard, the embedded cinders of its early form now pooled magma glowing through every joint. Its footsteps leave brief glowing prints. It inhabits lava fields and uses its rock-hard body to deflect predator strikes while retaliating with blasts of focused fire." },
 
   276: { id:276, name:"Magmaw", emoji:"🏔️", types:["Fire","Mineral"],
     base:{hp:102,atk:118,def:109,spa:90,spd:78,spe:53},
@@ -3174,13 +3174,13 @@ const MONSTERS_DATA = {
     desc:"The towering mountain yeti. Glaciers form in its wake; ancient mountain peoples worshipped it.",
     lore:"Yetigrand is a towering yeti over 2.5 metres tall, a colossus of white fur over frozen-stone muscle that has wandered the same range for centuries. So much cold pours off it that glaciers form spontaneously in its wake and snowstorms gather where it walks; mountain cultures built myths around the great white shape glimpsed through the blizzard." },
 
-  // Standalone Fire/Dark: Cinderpaw
-  307: { id:307, name:"Cinderpaw", emoji:"🐈", types:["Fire","Dark"],
+  // Standalone Fire/Dark: Pyrelynx
+  307: { id:307, name:"Pyrelynx", emoji:"🐈", types:["Fire","Dark"],
     base:{hp:85,atk:103,def:73,spa:98,spd:79,spe:112},
     learnset:[[1,"flicker"],[1,"chomp"],[18,"inferno_jet"],[28,"dusk_slash"],[38,"pyroclasm"],[48,"void_pulse"],[58,"eclipse_shroud"],[68,"radiance_cannon"],[70,"searing_gale"]],
     evolveTo:null, evolveLevel:null, catchRate:52, expYield:212, rarity:"uncommon",
     desc:"A dark flame cat that stalks targets silently before unleashing explosive fire attacks. Unpredictable and cunning.",
-    lore:"Cinderpaw is a fire-dark cat 45 cm at the shoulder with glossy black fur overlaid with faintly glowing ember-orange markings on its paws, ears, and tail tip. It moves silently and blends into shadow easily. It inhabits ancient forge-ruins and warm building interiors, drawn to residual warmth in stone." },
+    lore:"Pyrelynx is a fire-dark cat 45 cm at the shoulder with glossy black fur overlaid with faintly glowing ember-orange markings on its paws, ears, and tail tip. It moves silently and blends into shadow easily. It inhabits ancient forge-ruins and warm building interiors, drawn to residual warmth in stone." },
 
   // 2-stage Aquatic/Spectral chain: Seafraith → Tidephant (Water Stone item)
   308: { id:308, name:"Seafraith", emoji:"🌊", types:["Aquatic","Spectral"],
@@ -6553,7 +6553,7 @@ const WORLD_DATA = {
       {id:99,  minLv:61, maxLv:66, rate:14},  // Toxivenoth (mid, 98 on quake_foothills ✓)
       {id:102, minLv:61, maxLv:66, rate:8},  // Dunoloth (mid, 101 on quake_foothills ✓)
       {id:248, minLv:60, maxLv:65, rate:28},  // Pebblard (base Rock, also on route11)
-      {id:274, minLv:60, maxLv:65, rate:24},  // Cindling (base Fire/Rock)
+      {id:274, minLv:60, maxLv:65, rate:24},  // Charrock (base Fire/Rock)
       {id:312, minLv:60, maxLv:65, rate:18}   // Dunecrawl (base Ground/Dark)
     ],
     ngPlusWildMonsters:[{id:368, minLv:61, maxLv:66, rate:9}], // NG+ standalone: Willowisp
@@ -6629,7 +6629,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:301, minLv:66, maxLv:71, rate:6}, // Hauntcoal (obtainability fix)
       {id:245, minLv:66, maxLv:71, rate:9},  // Thundravex (mid Electric → 244 ✓)
-      {id:275, minLv:66, maxLv:71, rate:13},  // Infernox (mid → 274 Cindling on magma_vent ✓)
+      {id:275, minLv:66, maxLv:71, rate:13},  // Infernox (mid → 274 Charrock on magma_vent ✓)
       {id:266, minLv:65, maxLv:70, rate:27},  // Shadowcub (base Dark/Sonic, also route10)
       {id:267, minLv:66, maxLv:71, rate:17},  // Nightclaw (mid → after 266 ✓)
       {id:278, minLv:65, maxLv:70, rate:23},  // Ironpix (base, also route14)
@@ -6648,7 +6648,7 @@ const WORLD_DATA = {
       {id:283, minLv:66, maxLv:71, rate:20},  // Rustpike (standalone Metal/Poi)
       {id:246, minLv:67, maxLv:72, rate:15},  // Megavolt (final → 245 on ash_fields ✓)
       {id:268, minLv:67, maxLv:72, rate:10},  // Darkfang (final Dark → 267 ✓)
-      {id:307, minLv:66, maxLv:71, rate:10}   // Cinderpaw (standalone Fire/Dark)
+      {id:307, minLv:66, maxLv:71, rate:10}   // Pyrelynx (standalone Fire/Dark)
     ],
     ngPlusWildMonsters:[{id:365, minLv:67, maxLv:72, rate:9}], // NG+ standalone: Cinderking
     hasGym:false, requiredBadges:13, mapPos:{x:36, y:91}

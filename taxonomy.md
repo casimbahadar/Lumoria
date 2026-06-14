@@ -157,7 +157,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[270] Grimshade→Eclipsoon | Dark/Fairy | tanuki` (mythical, just claimed)
 - `[271] Murkrat | Dark/Normal | rat (rodent)` (standalone)
 - `[273] Embrix→Blazeon | Fire/Spectral | phoenix` (sub: firebird; base #272 mono-Fire)
-- `[276] Cindling→Infernox→Magmaw | Fire/Mineral | saurian` (igneous lizard with rock plates — second fire-saurian alongside Magmaurin/Terravore line)
+- `[276] Charrock→Infernox→Magmaw | Fire/Mineral | saurian` (igneous lizard with rock plates — second fire-saurian alongside Magmaurin/Terravore line)
 - `[277] Magmote | Fire | fire-elemental` (lava droplet, formless walking magma — sole fire-elemental candidate, standalone)
 - `[279] Ironpix→Steelhorn | Metal/Fairy | unicorn / single-horn fairy-equine` (fairy-forged steel steed with a single straight horn; lore/noun retuned off "humanoid knight" 2026-06-13 to match the equine archetype — the armored-knight concept is already covered by #56 Deepfreeze, #146 Shinarith, #332 Glacicore, #407 Voidwarden)
 - `[282] Gearbit→Cogvex→Mechabrute | Metal/Fighting | automaton`
@@ -165,7 +165,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[285] Fluffkin→Cloudrift | Normal/Wind | cloud-elemental / wisp` (compact cloud with face — formless cloud being; under cap, but flag — could be wind-elemental too)
 - `[288] Downyfawn→Cuddrix→Majesticore | Draconic/Fairy | kirin` (mythical, just claimed)
 - `[289] Bouncyblob | Normal/Vapor | slime / blob` (mythical, standalone; added Vapor 2026-06-12 — a warm condensed-vapor gel blob; Normal mono→pristine Normal/Vapor)
-- `[290] Guisecat | Normal/Dark | cat` (mimic-cat — second cat alongside Fluffen line + Cinderpaw + Hauntcoal)
+- `[290] Guisecat | Normal/Dark | cat` (mimic-cat — second cat alongside Fluffen line + Pyrelynx + Hauntcoal)
 - `[292] Breefawn→Galehorn | Wind/Sonic | antelope` (pristine archetype)
 - `[295] Windwhelp→Stormwing→Cyclonax | Electric/Draconic | dragon-mythic` (sub: wind-dragon)
 - `[298] Plaguefly→Pestquito→Plagueoth | Poison/Toxin | mosquito` (Diptera — relabeled off moth 2026-06-13; emoji 🦟 + desc/lore "plague mosquito" across all 3 stages. Resolves the old BREAKING-list moth/butterfly flag)
@@ -173,7 +173,7 @@ Format: `[final_id] family_name | types | archetype | notes`
 - `[301] Hauntcoal | Fire/Spectral | cat` (smouldering ghost-cat, standalone — third cat; retyped Fire/Dark→Fire/Spectral for diversity)
 - `[303] Lightpuff→Lumivane | Fairy/Mental | starlight-orb` (luminous starlight sphere with non-severing light-limbs that archives astronomical data — NOT a faerie-sprite humanoid; archetype relabeled to resolve the false collision with Psytheon, which keeps the faerie-sprite slot. Stays Fairy/Mental.)
 - `[306] Frostpelt→Yetigeist→Yetigrand | Earth/Ice | yeti` (de-monolithed 2026-06-13 from rock-monolith — frozen-mountain snow-beast line; renamed from Icethorn/Geoshard/Crystallon)
-- `[307] Cinderpaw | Fire/Dark | cat` (fire-dark cat, standalone — fourth cat)
+- `[307] Pyrelynx | Fire/Dark | cat` (fire-dark cat, standalone — fourth cat)
 - `[309] Seafraith→Tidephant | Aquatic/Spectral | pinniped` (spectral elephant-seal — relabeled out of cetacean per cap-3 policy; resolves the fish→cetacean BREAKING flag as fish→pinniped)
 - `[311] Mudpump→Marshix | Aquatic/Nature | hippo` (pristine archetype)
 
@@ -399,14 +399,14 @@ Same caveat: Forgotten lores are narrative-focused; classifications are best-gue
 | _(raptor superfamily, already distinct)_ | — | — | — | thunderbird Stormcrown (#389), griffin Heliogriff (#394), harpy Zephyrak (#478, post-game). The old "bird-of-prey/raptor: 5, trim 2" bucket dissolved by subdivision — each raptor type now sits at 1, no cull needed. |
 | **treant / walking-tree** | 4 | 3 | trim 1 | **LOCKED capped (not exempt).** Keep Necrothon, Impenezard, Thornspire; re-archetype Nectartrap #326→carnivorous-plant. (Rootborn is Forgotten 462+, excluded.) |
 | **void / cosmic abstract** | 9 | exempt | — | Cerebraith, Voidraxis, Voidlord, Voidrend, Deepvoid, Voidcrown, Starborne, Nihilax, Cosmolith. Mythical-exempt. |
-| **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Guisecat, Hauntcoal, Cinderpaw. |
+| **cat (housecat / non-lion)** | 4 | 3 | trim 1 | Velvetine, Guisecat, Hauntcoal, Pyrelynx. |
 | **thunderstorm-disaster** | 3 | 1+1 | trim 1-2 | Cyclotron, Tempestborn, Nullstorm. (See storm-elemental TODO entry.) |
 | **fire-dragon legendary cluster** | 1 (Dragemian; Infernotitan→salamander, Heliogriff→griffin, Bahamber→feathered-serpent, Blazeon→phoenix re-archetyped out) + chain finals (Calderaeth, Stardrax) | n/a | discuss | All under dragon-mythic exempt but sub-flavor crowded. |
 
 ### At cap (no action)
 
 - bear: 3 (Hailwolf, Aurochill, Rotunden line)
-- saurian/dinosaur: 3 (Saurbud/Garlawarden, Magmaurin/Terravore, Cindling/Magmaw). Plus Volcascale/Monolithox = 4 — **trim 1 candidate.**
+- saurian/dinosaur: 3 (Saurbud/Garlawarden, Magmaurin/Terravore, Charrock/Magmaw). Plus Volcascale/Monolithox = 4 — **trim 1 candidate.**
 - frog/toad: 2 (Toxirin, Acidelix lines)
 - crocodilian: 2 (Limoux line, Sludgejaw)
 - hare/rabbit: 2 (Leapbun, Boltfur lines)

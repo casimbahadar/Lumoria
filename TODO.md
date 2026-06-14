@@ -82,6 +82,7 @@ Clean state — everything committed & pushed on `claude/unified-audit-handoff-t
 - `-kin` morpheme (→ 2; kept Solkin #1 / Fluffkin #284): #7 Verdkin→**Saurbud** (grass starter; also updated js/traits.js canonical-8) · #291 Breezekin→**Breefawn** · #95 Dustkin→**Aridhino** · #104 Arenikin→**Sandpup** (2026-06-14).
 - `-let` morpheme (→ 3; kept Pebblet #191 / Squeaklet #444 / Sporelet #446): #286 Fuzzlet→**Downyfawn** · #299 Stinglet→**Resinbee** · #432 Tusklet→**Woollytot** · #438 Chimelet→**Chimicada** (2026-06-14). **ALL SUFFIXES + 3-char morphemes (-maw/-kin/-let/-don) DONE. Remaining: prefix groups.**
 - PREFIX `veno-` (→ 1; kept Venotitan #125): #165 Venowarn→**Lepidox** · #206 Venomscale→**Forlix** (Sorrowlix line base) · #322 Venomwraith→**Sepsishade** (2026-06-14). [spar-/thun- left: 3 pre-462 + Forgotten.]
+- PREFIX `cind-` (→ 3; kept Cindercula #16 / Cinderfrost #211 / Cinderking #365): #274 Cindling→**Charrock** (also drops -ling→2) · #307 Cinderpaw→**Pyrelynx** (2026-06-14).
 
 **Next-session options:** (a) work up a Tier-1 rename proposal; (b) ~~item #6 standalone-count reduction~~ ✅ **DONE 2026-06-12** (see standalone-reduction checkpoint below); (c) trainer-SVG replacement (deferred follow-up to the monster-SVG strip); (d) other audit items. Under-used-type distribution (#3) is considered substantially complete (clear wins banked, no forcing).
 

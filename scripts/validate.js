@@ -215,7 +215,7 @@ if (DATA) {
   // surfaced informationally — they can't evolve, but they don't brick anything.
   // -------------------------------------------------------------------------
   console.log("G6 — evolution integrity");
-  const VALID_METHODS = new Set(["level", "item", "location", "held", "friendship", "time", "move"]);
+  const VALID_METHODS = new Set(["level", "item", "location", "held", "friendship", "time", "move", "teammate", "battles"]);
   const VALID_TIMES = new Set(["day", "night", "dawn", "dusk"]);
   let g6before = failures;
   const dangling = [];
@@ -250,6 +250,14 @@ if (DATA) {
       case "move":
         if (!def.evolveMove) fail("G6", `#${mid} ${def.name}: move evolution missing evolveMove`);
         else if (!MOVES_DATA[def.evolveMove]) fail("G6", `#${mid} ${def.name}: evolveMove "${def.evolveMove}" not in MOVES_DATA`);
+        break;
+      case "teammate":
+        if (!def.evolveWith) fail("G6", `#${mid} ${def.name}: teammate evolution missing evolveWith`);
+        else if (!MONSTERS_DATA[def.evolveWith]) fail("G6", `#${mid} ${def.name}: evolveWith ${def.evolveWith} is not a real species`);
+        break;
+      case "battles":
+        if (!Number.isInteger(def.evolveBattles) || def.evolveBattles < 1)
+          fail("G6", `#${mid} ${def.name}: battles evolution needs a positive integer evolveBattles`);
         break;
     }
   }

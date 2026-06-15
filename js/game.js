@@ -55,7 +55,7 @@ function createPartySlot(monsterId, level) {
   return {
     monsterId, nickname: null, level, xp: xpForLevel(level),
     maxHP, currentHP: maxHP, moves, statuses: [], heldItem: null,
-    friendship: 70,
+    friendship: 70, battlesWon: 0,
     nature: getRandomNature(), ivs,
     shiny: false, variant: false, variantTypes: null, variantBase: null, variantImmune: null
   };
@@ -447,6 +447,35 @@ function checkAreaEvolutions() {
       showEvolution(slot, target, checkAreaEvolutions);
       return;
     }
+  }
+}
+
+// Human-readable evolution requirement for the dex/Luminex panel. Covers every
+// method the resolver (battle.js resolveEvolution) understands.
+function describeEvolution(def) {
+  const into = MONSTERS_DATA[def.evolveTo]?.name || "???";
+  const floor = def.evolveLevel ? ` (Lv.${def.evolveLevel}+)` : "";
+  switch (def.evolveMethod || "level") {
+    case "item":
+      return `Evolves into ${into} with ${ITEMS_DATA[def.evolveItem]?.name || "an item"}`;
+    case "held":
+      return `Evolves into ${into} by leveling up while holding ${ITEMS_DATA[def.evolveItem]?.name || "an item"}`;
+    case "location":
+      return `Evolves into ${into} at ${WORLD_DATA[def.evolveLocation]?.name || "a special place"}${floor}`;
+    case "friendship":
+      return `Evolves into ${into} by leveling up with a strong bond${floor}`;
+    case "time": {
+      const when = { day: "in daytime", night: "at night", dawn: "at dawn", dusk: "at dusk" }[def.evolveTime] || "at a certain time";
+      return `Evolves into ${into} by leveling up ${when}${floor}`;
+    }
+    case "move":
+      return `Evolves into ${into} once it knows ${MOVES_DATA[def.evolveMove]?.name || "a certain move"}${floor}`;
+    case "teammate":
+      return `Evolves into ${into} while ${MONSTERS_DATA[def.evolveWith]?.name || "a certain ally"} is in the party${floor}`;
+    case "battles":
+      return `Evolves into ${into} after winning ${def.evolveBattles || "several"} battles${floor}`;
+    default:
+      return `Evolves into ${into} at Lv.${def.evolveLevel}`;
   }
 }
 
@@ -1735,7 +1764,7 @@ function createCaughtSlot(battleMon) {
     maxHP: battleMon.maxHP, currentHP: battleMon.currentHP,
     moves: battleMon.moves.map(m => m.id),
     statuses: (battleMon.statuses || []).map(s => ({ ...s })),
-    friendship: 70,
+    friendship: 70, battlesWon: 0,
     nature: battleMon.nature || getRandomNature(),
     ivs: battleMon.ivs || generateIVs(),
     shiny: !!battleMon.shiny, variant: !!battleMon.variant,
@@ -2414,6 +2443,7 @@ function endBattle(outcome, slot, levelUps) {
 
   if (outcome === "won") {
     G.battleWins = (G.battleWins || 0) + 1;
+    if (slot) slot.battlesWon = (slot.battlesWon || 0) + 1; // fuels battle-count evolutions
     if (battleContext.battleMode === "double" || battleContext.battleMode === "triple") checkAchievement("win_double");
     checkAchievements();
     trackDailyChallenge("battle_wins");
@@ -2616,10 +2646,19 @@ function endBattle(outcome, slot, levelUps) {
       }
     };
 
+    // After the level-up overlays, re-check the participant for non-level
+    // evolutions (battle-count / teammate / friendship thresholds that may now be
+    // met without a level gain). A mon that already evolved on level-up is the new
+    // species here, so resolveEvolution returns null and nothing double-fires.
+    const afterLevels = () => {
+      const evo = slot ? resolveEvolution(slot, "level") : null;
+      if (evo) showEvolution(slot, evo, handleAfterLevelUps);
+      else handleAfterLevelUps();
+    };
     if (slot && levelUps && levelUps.length > 0) {
-      showLevelUp(slot, levelUps, handleAfterLevelUps);
+      showLevelUp(slot, levelUps, afterLevels);
     } else {
-      handleAfterLevelUps();
+      afterLevels();
     }
   }
 }
@@ -4007,13 +4046,7 @@ function showDexDetail(monsterId) {
       <div class="stat-bar"><div class="stat-fill" style="width:${Math.min(100,(bst/BST_CAP)*100)}%;background:var(--accent-yellow)"></div>${renderOverdrive(bst, BST_CAP)}</div>
       <span class="stat-val">${bst}</span>
     </div>`;
-  const evoInfo = def.evolveTo
-    ? (def.evolveMethod === "item"
-        ? `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} with ${ITEMS_DATA[def.evolveItem]?.name || "an item"}`
-        : def.evolveMethod === "location"
-          ? `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} at ${WORLD_DATA[def.evolveLocation]?.name || "a special place"}`
-          : `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} at Lv.${def.evolveLevel}`)
-    : "Does not evolve";
+  const evoInfo = def.evolveTo ? describeEvolution(def) : "Does not evolve";
 
   const dexDetailSprite = (typeof getMonsterSpriteURL === "function" && getMonsterSpriteURL(def, 110))
     ? `<img src="${getMonsterSpriteURL(def, 110)}" width="110" height="110" alt="${def.name}" style="border-radius:12px">`

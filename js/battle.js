@@ -2088,6 +2088,11 @@ function resolveEvolution(partySlot, trigger) {
     }
     case "move":
       return (meetsLevel && (partySlot.moves || []).includes(def.evolveMove)) ? def.evolveTo : null;
+    case "teammate":
+      return (meetsLevel && typeof G !== "undefined" && G && Array.isArray(G.team)
+        && G.team.some(s => s && s.monsterId === def.evolveWith)) ? def.evolveTo : null;
+    case "battles":
+      return (meetsLevel && (partySlot.battlesWon ?? 0) >= (def.evolveBattles || 0)) ? def.evolveTo : null;
     default:
       return null;
   }

@@ -7222,6 +7222,198 @@ const GYM_LEADERS = {
       ]
     }
   },
+  kano: {
+    id:"kano", name:"Leader Kano", emoji:"🥋", type:"Fighting",
+    badge:"Resolve Badge", badgeEmoji:"🥋",
+    quote:"Strength is earned, never given. Show me your resolve!",
+    winQuote:"You fought with true heart. The Resolve Badge is yours.",
+    teams:{
+      single:[
+        {monsterId:184, level:20, moves:["instinct_slash","haymaker","brawl","baleful_stare"]},
+        {monsterId:71, level:22, moves:["briar_lash","haymaker","seismic_force","war_dance"]}
+      ],
+      double:[
+        {monsterId:56, level:18, moves:["avalanche_drive","iron_fist","piston_jab","war_dance"]},
+        {monsterId:231, level:20, moves:["ocean_tempest","martial_finish","spinning_kick","tsunami"]},
+        {monsterId:71, level:22, moves:["briar_lash","haymaker","seismic_force","war_dance"]}
+      ],
+      triple:[
+        {monsterId:184, level:18, moves:["instinct_slash","haymaker","brawl","baleful_stare"]},
+        {monsterId:56, level:19, moves:["avalanche_drive","iron_fist","piston_jab","war_dance"]},
+        {monsterId:231, level:20, moves:["ocean_tempest","martial_finish","spinning_kick","tsunami"]},
+        {monsterId:282, level:20, moves:["forge_blast_2","quick_punch","radiance_cannon","geoblast"]},
+        {monsterId:71, level:22, moves:["briar_lash","haymaker","seismic_force","war_dance"]}
+      ]
+    }
+  },
+  marl: {
+    id:"marl", name:"Leader Marl", emoji:"⛏️", type:"Mineral",
+    badge:"Strata Badge", badgeEmoji:"⛏️",
+    quote:"Every gem is forged under pressure. Let's apply some.",
+    winQuote:"Solid as bedrock. Take the Strata Badge.",
+    teams:{
+      single:[
+        {monsterId:252, level:32, moves:["heavy_slam","granite_slam","mud_spray","radiance_cannon"]},
+        {monsterId:196, level:34, moves:["cryo_lance","quarry_crush","tundra_tomb","fortify"]}
+      ],
+      double:[
+        {monsterId:177, level:30, moves:["glacial_punch","obsidian_strike","cryo_lance","second_wind"]},
+        {monsterId:194, level:32, moves:["sea_serpent_strike","quarry_crush","crystal_lance","war_dance"]},
+        {monsterId:196, level:34, moves:["cryo_lance","quarry_crush","tundra_tomb","fortify"]}
+      ],
+      triple:[
+        {monsterId:252, level:30, moves:["heavy_slam","granite_slam","mud_spray","radiance_cannon"]},
+        {monsterId:177, level:31, moves:["glacial_punch","obsidian_strike","cryo_lance","second_wind"]},
+        {monsterId:194, level:32, moves:["sea_serpent_strike","quarry_crush","crystal_lance","war_dance"]},
+        {monsterId:276, level:33, moves:["ashfall","obsidian_burst","radiance_cannon","molten_armor"]},
+        {monsterId:196, level:34, moves:["cryo_lance","quarry_crush","tundra_tomb","fortify"]}
+      ]
+    }
+  },
+  echo: {
+    id:"echo", name:"Leader Echo", emoji:"🔊", type:"Sonic",
+    badge:"Resonance Badge", badgeEmoji:"🔊",
+    quote:"Can you keep pace with my rhythm? Let's find your frequency.",
+    winQuote:"A flawless harmony. The Resonance Badge resonates for you.",
+    teams:{
+      single:[
+        {monsterId:292, level:40, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]},
+        {monsterId:314, level:42, moves:["gale_cannon","acoustic_shock","radiance_cannon","resonance_field"]}
+      ],
+      double:[
+        {monsterId:300, level:38, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
+        {monsterId:356, level:40, moves:["volt_surge","concussive_strike","stormbolt","shockwave_boom"]},
+        {monsterId:314, level:42, moves:["gale_cannon","acoustic_shock","radiance_cannon","resonance_field"]}
+      ],
+      triple:[
+        {monsterId:292, level:38, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]},
+        {monsterId:300, level:39, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
+        {monsterId:413, level:40, moves:["serpent_rage","threnody","resonance_quake","rampage"]},
+        {monsterId:389, level:41, moves:["arc_flash","threnody","volt_surge","concussive_strike"]},
+        {monsterId:314, level:42, moves:["gale_cannon","acoustic_shock","radiance_cannon","resonance_field"]}
+      ]
+    }
+  },
+  acrid: {
+    id:"acrid", name:"Leader Acrid", emoji:"☣️", type:"Toxin",
+    badge:"Corrosion Badge", badgeEmoji:"☣️",
+    quote:"My toxins dissolve all resistance. Care to dissolve with them?",
+    winQuote:"You endured the corrosion. The badge is yours.",
+    teams:{
+      single:[
+        {monsterId:300, level:56, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
+        {monsterId:298, level:58, moves:["corrosion_fang","plague_wave","radiance_cannon","quiver_dance"]}
+      ],
+      double:[
+        {monsterId:355, level:54, moves:["sea_serpent_strike","toxic_sting","sludge_wave","acidic_glance"]},
+        {monsterId:353, level:56, moves:["caldera_meltdown","plague_wave","marble_resonance","infernal_roar"]},
+        {monsterId:298, level:58, moves:["corrosion_fang","plague_wave","radiance_cannon","quiver_dance"]}
+      ],
+      triple:[
+        {monsterId:300, level:54, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
+        {monsterId:355, level:55, moves:["sea_serpent_strike","toxic_sting","sludge_wave","acidic_glance"]},
+        {monsterId:416, level:56, moves:["tectonic_slam","corrosive_finish","malignant_storm","putrid_calm"]},
+        {monsterId:264, level:57, moves:["martial_finish","acid_press","radiance_cannon","toxify"]},
+        {monsterId:298, level:58, moves:["corrosion_fang","plague_wave","radiance_cannon","quiver_dance"]}
+      ]
+    }
+  },
+  steam: {
+    id:"steam", name:"Leader Steam", emoji:"💨", type:"Vapor",
+    badge:"Mist Badge", badgeEmoji:"💨",
+    quote:"You can't strike what you can't see. Into the mist!",
+    winQuote:"You cut clean through the haze. Take the Mist Badge.",
+    teams:{
+      single:[
+        {monsterId:221, level:72, moves:["soul_rend","abyssal_mist","radiance_cannon","mist_veil"]},
+        {monsterId:217, level:74, moves:["psi_burst","abyssal_mist","radiance_cannon","inner_calm"]}
+      ],
+      double:[
+        {monsterId:161, level:70, moves:["sludge_wave","venom_lance","typhoon","toxify"]},
+        {monsterId:422, level:72, moves:["lava_spout","miasma_apocalypse","geyser_storm","condense_form"]},
+        {monsterId:217, level:74, moves:["psi_burst","abyssal_mist","radiance_cannon","inner_calm"]}
+      ],
+      triple:[
+        {monsterId:289, level:70, moves:["radiance_cannon","nimbus_flood","condense","cloud_blast"]},
+        {monsterId:457, level:71, moves:["tidal_rush","nimbus_eruption","mist_press","smoke_calm"]},
+        {monsterId:161, level:72, moves:["sludge_wave","venom_lance","typhoon","toxify"]},
+        {monsterId:221, level:73, moves:["soul_rend","abyssal_mist","radiance_cannon","mist_veil"]},
+        {monsterId:217, level:74, moves:["psi_burst","abyssal_mist","radiance_cannon","inner_calm"]}
+      ]
+    }
+  },
+  mortis: {
+    id:"mortis", name:"Leader Mortis", emoji:"👻", type:"Spectral",
+    badge:"Phantom Badge", badgeEmoji:"👻",
+    quote:"The veil between worlds is thin here. Dare you cross it?",
+    winQuote:"You faced the phantoms unflinching. The badge is yours.",
+    teams:{
+      single:[
+        {monsterId:268, level:84, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]},
+        {monsterId:379, level:86, moves:["ocean_sovereign","eternal_haunt","void_rend","tidal_crush"]}
+      ],
+      double:[
+        {monsterId:301, level:82, moves:["searing_gale","phantom_beam","radiance_cannon","eclipse_shroud"]},
+        {monsterId:343, level:84, moves:["abyssal_dominion","reaper_scythe","neural_storm","fear_aura"]},
+        {monsterId:379, level:86, moves:["ocean_sovereign","eternal_haunt","void_rend","tidal_crush"]}
+      ],
+      triple:[
+        {monsterId:273, level:82, moves:["eternal_ember","eternal_haunt","conflagration","spirit_drain"]},
+        {monsterId:309, level:83, moves:["geyser_burst","ghastly_wail","radiance_cannon","spectral_veil"]},
+        {monsterId:268, level:84, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]},
+        {monsterId:343, level:85, moves:["abyssal_dominion","reaper_scythe","neural_storm","fear_aura"]},
+        {monsterId:379, level:86, moves:["ocean_sovereign","eternal_haunt","void_rend","tidal_crush"]}
+      ]
+    }
+  },
+  somna: {
+    id:"somna", name:"Leader Somna", emoji:"💤", type:"Dream",
+    badge:"Reverie Badge", badgeEmoji:"💤",
+    quote:"Drift into my dreamscape... if you can stay awake.",
+    winQuote:"You kept your focus through the reverie. Well done.",
+    teams:{
+      single:[
+        {monsterId:170, level:92, moves:["shadow_lance","trance_wave","dusk_slash","war_dance"]},
+        {monsterId:261, level:94, moves:["briar_lash","dreamscape_smash","lullaby_strike","sap_seed"]}
+      ],
+      double:[
+        {monsterId:247, level:90, moves:["jolt","lullaby_strike","radiance_cannon","trance_wave"]},
+        {monsterId:431, level:92, moves:["stygian_whisper","mirage_apocalypse","soul_rend","fright_resolve"]},
+        {monsterId:378, level:94, moves:["dreamweave","hypnos_storm","slumber_eruption","nocturne_charge"]}
+      ],
+      triple:[
+        {monsterId:243, level:90, moves:["dreamscape_smash","decibel_burst","somnia_blast","harmonic_burst"]},
+        {monsterId:170, level:91, moves:["shadow_lance","trance_wave","dusk_slash","war_dance"]},
+        {monsterId:247, level:92, moves:["jolt","lullaby_strike","radiance_cannon","trance_wave"]},
+        {monsterId:431, level:93, moves:["stygian_whisper","mirage_apocalypse","soul_rend","fright_resolve"]},
+        {monsterId:261, level:94, moves:["briar_lash","dreamscape_smash","lullaby_strike","sap_seed"]}
+      ]
+    }
+  },
+  prisma: {
+    id:"prisma", name:"Leader Prisma", emoji:"💎", type:"Crystal",
+    badge:"Facet Badge", badgeEmoji:"💎",
+    quote:"Light fractures into a thousand edges here. Behold every facet.",
+    winQuote:"You shone brighter than any crystal. The Facet Badge is yours.",
+    teams:{
+      single:[
+        {monsterId:409, level:100, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
+        {monsterId:410, level:102, moves:["prism_apocalypse","lunar_burst","starlight_prism","opaline_armor"]}
+      ],
+      double:[
+        {monsterId:408, level:98, moves:["prism_ray","crystal_pulse","fairy_wind","sapphire_charge"]},
+        {monsterId:409, level:100, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
+        {monsterId:410, level:102, moves:["prism_apocalypse","lunar_burst","starlight_prism","opaline_armor"]}
+      ],
+      triple:[
+        {monsterId:408, level:98, moves:["prism_ray","crystal_pulse","fairy_wind","sapphire_charge"]},
+        {monsterId:409, level:100, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
+        {monsterId:408, level:100, moves:["prism_ray","crystal_pulse","fairy_wind","sapphire_charge"]},
+        {monsterId:409, level:101, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
+        {monsterId:410, level:102, moves:["prism_apocalypse","lunar_burst","starlight_prism","opaline_armor"]}
+      ]
+    }
+  },
   champion: {
     id:"champion", name:"Champion Lumian", emoji:"👑", type:"Mixed",
     badge:null, badgeEmoji:"🏆",

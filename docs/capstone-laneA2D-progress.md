@@ -165,3 +165,35 @@ dex renders each method's requirement.
 - [ ] 201–321 (base dex)
 - [ ] 322–461 (NG+)
 - [ ] 462–500 (Forgotten — light re-verify)
+
+---
+
+# 24-Gym Region Expansion (new directive, in progress)
+
+Scope expansion approved by user: grow from 16 → **24 gyms** (interleaved 1–24), add
+specialists for the 8 missing qualifying types, new cities/routes/trainers/quests, expand
+the map, and rescale the whole curve to end **under 150** (gentle, ~130 ceiling).
+
+**Type rule applied:** new gyms for Fighting, Mineral, Sonic, Toxin, Vapor, Spectral, Dream,
+Crystal (>6 obtainable). Excluded: Stellar 6, Primal 6 (≤6); Aether 3, Chrono 4 (Forgotten).
+
+**Interleaved order (badge = gym#−1) + gentle curve (gym max level):**
+1 Normal/Rex 10 · 2 Aquatic/Marina 14 · 3 Fire/Pyros 18 · **4 Fighting/Kano 22** ·
+5 Electric/Zara 26 · 6 Ice/Glacier 30 · **7 Mineral/Marl 34** · 8 Dark/Nyx 38 ·
+**9 Sonic/Echo 42** · 10 Mental/Oracle 46 · 11 Draconic/Drake 50 · 12 Nature/Thorne 54 ·
+**13 Toxin/Acrid 58** · 14 Poison/Viper 62 · 15 Earth/Atlas 66 · 16 Nature-Bug/Mantis 70 ·
+**17 Vapor/Steam 74** · 18 Wind/Zephyra 78 · 19 Metal/Ferro 82 · **20 Spectral/Mortis 86** ·
+21 Earth-Geode/Boulder 90 · **22 Dream/Somna 94** · 23 Fairy/Seraphina 98 · **24 Crystal/Prisma 102**.
+Vanguard 106/108/110/112 · Champion 116 · post-game/legendaries ~118–130.
+
+**Team re-theming (user):** Thorne = grassy/non-bug Nature · Mantis = bug-themed Nature ·
+Atlas = ground Earth · Boulder = rock/geode Earth (stays 24 gyms).
+
+## Build phases
+- [x] **Phase A — 8 new gym leaders** (GYM_LEADERS): Kano/Marl/Echo/Acrid/Steam/Mortis/Somna/
+      Prisma with type-themed single/double/triple teams at curve levels. validate green; boots clean.
+- [ ] Phase B — 8 new cities + connecting routes + map expansion (mapPos re-space, biomes) + encounter tables.
+- [ ] Phase C — re-gate all areas' requiredBadges to the new 1–24 order.
+- [ ] Phase D — trainers + quests in new areas.
+- [ ] Phase E — full level rescale (existing 16 gyms, Elite, Champion, all wild/trainer/legendary tables) + team re-theming (Thorne/Mantis/Atlas/Boulder).
+- [ ] Phase F — game.js integration (badge count 16→24, Elite/Champion gates, title text, GYM_HELD_REWARDS, badge story hooks).

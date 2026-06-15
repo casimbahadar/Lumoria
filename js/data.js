@@ -7365,20 +7365,20 @@ const GYM_LEADERS = {
     winQuote:"A flawless harmony. The Resonance Badge resonates for you.",
     teams:{
       single:[
-        {monsterId:300, level:40, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
-        {monsterId:292, level:42, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]}
+        {monsterId:300, level:110, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
+        {monsterId:292, level:112, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]}
       ],
       double:[
-        {monsterId:243, level:38, moves:["dreamscape_smash","decibel_burst","somnia_blast","harmonic_burst"]},
-        {monsterId:356, level:40, moves:["volt_surge","concussive_strike","stormbolt","shockwave_boom"]},
-        {monsterId:292, level:42, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]}
+        {monsterId:243, level:108, moves:["dreamscape_smash","decibel_burst","somnia_blast","harmonic_burst"]},
+        {monsterId:356, level:110, moves:["volt_surge","concussive_strike","stormbolt","shockwave_boom"]},
+        {monsterId:292, level:112, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]}
       ],
       triple:[
-        {monsterId:300, level:38, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
-        {monsterId:243, level:39, moves:["dreamscape_smash","decibel_burst","somnia_blast","harmonic_burst"]},
-        {monsterId:413, level:40, moves:["serpent_rage","threnody","resonance_quake","rampage"]},
-        {monsterId:389, level:41, moves:["arc_flash","threnody","volt_surge","concussive_strike"]},
-        {monsterId:292, level:42, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]}
+        {monsterId:300, level:108, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
+        {monsterId:243, level:109, moves:["dreamscape_smash","decibel_burst","somnia_blast","harmonic_burst"]},
+        {monsterId:413, level:110, moves:["serpent_rage","threnody","resonance_quake","rampage"]},
+        {monsterId:389, level:111, moves:["arc_flash","threnody","volt_surge","concussive_strike"]},
+        {monsterId:292, level:112, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]}
       ]
     }
   },
@@ -7437,20 +7437,20 @@ const GYM_LEADERS = {
     winQuote:"You faced the phantoms unflinching. The badge is yours.",
     teams:{
       single:[
-        {monsterId:309, level:84, moves:["geyser_burst","ghastly_wail","radiance_cannon","spectral_veil"]},
-        {monsterId:268, level:86, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]}
+        {monsterId:309, level:115, moves:["geyser_burst","ghastly_wail","radiance_cannon","spectral_veil"]},
+        {monsterId:268, level:117, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]}
       ],
       double:[
-        {monsterId:301, level:82, moves:["searing_gale","phantom_beam","radiance_cannon","eclipse_shroud"]},
-        {monsterId:343, level:84, moves:["abyssal_dominion","reaper_scythe","neural_storm","fear_aura"]},
-        {monsterId:268, level:86, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]}
+        {monsterId:301, level:113, moves:["searing_gale","phantom_beam","radiance_cannon","eclipse_shroud"]},
+        {monsterId:343, level:115, moves:["abyssal_dominion","reaper_scythe","neural_storm","fear_aura"]},
+        {monsterId:268, level:117, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]}
       ],
       triple:[
-        {monsterId:273, level:82, moves:["eternal_ember","eternal_haunt","conflagration","spirit_drain"]},
-        {monsterId:309, level:83, moves:["geyser_burst","ghastly_wail","radiance_cannon","spectral_veil"]},
-        {monsterId:301, level:84, moves:["searing_gale","phantom_beam","radiance_cannon","eclipse_shroud"]},
-        {monsterId:343, level:85, moves:["abyssal_dominion","reaper_scythe","neural_storm","fear_aura"]},
-        {monsterId:268, level:86, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]}
+        {monsterId:273, level:113, moves:["eternal_ember","eternal_haunt","conflagration","spirit_drain"]},
+        {monsterId:309, level:114, moves:["geyser_burst","ghastly_wail","radiance_cannon","spectral_veil"]},
+        {monsterId:301, level:115, moves:["searing_gale","phantom_beam","radiance_cannon","eclipse_shroud"]},
+        {monsterId:343, level:116, moves:["abyssal_dominion","reaper_scythe","neural_storm","fear_aura"]},
+        {monsterId:268, level:117, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]}
       ]
     }
   },
@@ -7461,20 +7461,20 @@ const GYM_LEADERS = {
     winQuote:"You kept your focus through the reverie. Well done.",
     teams:{
       single:[
-        {monsterId:170, level:92, moves:["shadow_lance","trance_wave","dusk_slash","war_dance"]},
-        {monsterId:261, level:94, moves:["briar_lash","dreamscape_smash","lullaby_strike","sap_seed"]}
+        {monsterId:170, level:120, moves:["shadow_lance","trance_wave","dusk_slash","war_dance"]},
+        {monsterId:261, level:122, moves:["briar_lash","dreamscape_smash","lullaby_strike","sap_seed"]}
       ],
       double:[
-        {monsterId:247, level:90, moves:["jolt","lullaby_strike","radiance_cannon","trance_wave"]},
-        {monsterId:431, level:92, moves:["stygian_whisper","mirage_apocalypse","soul_rend","fright_resolve"]},
-        {monsterId:378, level:94, moves:["dreamweave","hypnos_storm","slumber_eruption","nocturne_charge"]}
+        {monsterId:247, level:118, moves:["jolt","lullaby_strike","radiance_cannon","trance_wave"]},
+        {monsterId:431, level:120, moves:["stygian_whisper","mirage_apocalypse","soul_rend","fright_resolve"]},
+        {monsterId:378, level:122, moves:["dreamweave","hypnos_storm","slumber_eruption","nocturne_charge"]}
       ],
       triple:[
-        {monsterId:243, level:90, moves:["dreamscape_smash","decibel_burst","somnia_blast","harmonic_burst"]},
-        {monsterId:170, level:91, moves:["shadow_lance","trance_wave","dusk_slash","war_dance"]},
-        {monsterId:247, level:92, moves:["jolt","lullaby_strike","radiance_cannon","trance_wave"]},
-        {monsterId:431, level:93, moves:["stygian_whisper","mirage_apocalypse","soul_rend","fright_resolve"]},
-        {monsterId:261, level:94, moves:["briar_lash","dreamscape_smash","lullaby_strike","sap_seed"]}
+        {monsterId:243, level:118, moves:["dreamscape_smash","decibel_burst","somnia_blast","harmonic_burst"]},
+        {monsterId:170, level:119, moves:["shadow_lance","trance_wave","dusk_slash","war_dance"]},
+        {monsterId:247, level:120, moves:["jolt","lullaby_strike","radiance_cannon","trance_wave"]},
+        {monsterId:431, level:121, moves:["stygian_whisper","mirage_apocalypse","soul_rend","fright_resolve"]},
+        {monsterId:261, level:122, moves:["briar_lash","dreamscape_smash","lullaby_strike","sap_seed"]}
       ]
     }
   },
@@ -7485,20 +7485,20 @@ const GYM_LEADERS = {
     winQuote:"You shone brighter than any crystal. The Facet Badge is yours.",
     teams:{
       single:[
-        {monsterId:409, level:100, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
-        {monsterId:410, level:102, moves:["prism_apocalypse","lunar_burst","starlight_prism","opaline_armor"]}
+        {monsterId:409, level:125, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
+        {monsterId:410, level:127, moves:["prism_apocalypse","lunar_burst","starlight_prism","opaline_armor"]}
       ],
       double:[
-        {monsterId:408, level:98, moves:["prism_ray","crystal_pulse","fairy_wind","sapphire_charge"]},
-        {monsterId:409, level:100, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
-        {monsterId:410, level:102, moves:["prism_apocalypse","lunar_burst","starlight_prism","opaline_armor"]}
+        {monsterId:408, level:123, moves:["prism_ray","crystal_pulse","fairy_wind","sapphire_charge"]},
+        {monsterId:409, level:125, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
+        {monsterId:410, level:127, moves:["prism_apocalypse","lunar_burst","starlight_prism","opaline_armor"]}
       ],
       triple:[
-        {monsterId:408, level:98, moves:["prism_ray","crystal_pulse","fairy_wind","sapphire_charge"]},
-        {monsterId:409, level:100, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
-        {monsterId:408, level:100, moves:["prism_ray","crystal_pulse","fairy_wind","sapphire_charge"]},
-        {monsterId:409, level:101, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
-        {monsterId:410, level:102, moves:["prism_apocalypse","lunar_burst","starlight_prism","opaline_armor"]}
+        {monsterId:408, level:123, moves:["prism_ray","crystal_pulse","fairy_wind","sapphire_charge"]},
+        {monsterId:409, level:125, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
+        {monsterId:408, level:125, moves:["prism_ray","crystal_pulse","fairy_wind","sapphire_charge"]},
+        {monsterId:409, level:126, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
+        {monsterId:410, level:127, moves:["prism_apocalypse","lunar_burst","starlight_prism","opaline_armor"]}
       ]
     }
   },

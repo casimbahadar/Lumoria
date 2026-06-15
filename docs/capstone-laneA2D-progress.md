@@ -290,7 +290,10 @@ Void Council / Shade Final Form **140–150**.
 - [ ] C — NG+ region: Echo/Mortis/Somna/Prisma re-leveled to 112/117/122/127; NG+-exclusive
       cities + routes (requiresNGPlus + requiresChampion) wired toward apex_summit.
 - [ ] D — Vanguard/Champion re-level (both versions); post-apex Vanguard rematch + Champion
-      rematch (L150) NG+ bosses.
+      rematch (L150) NG+ bosses. **Also fix pre-existing map-graph issues (user-requested):**
+      `skyvault↔sky_harbor` city↔town adjacency (add a route/area between), and 4 one-way
+      links (miasmacity→toxic_bog, mire_depths→miasmacity, tremor_summit→quake_foothills,
+      magma_vent→tremor_summit) — make bidirectional or confirm intentional.
 - [ ] E — Rival + Umbra Order re-level per curve (both versions); Forgotten/Vaeldris wielder
       re-level (110–122 non-NG+ / 135–148 NG+).
 - [ ] F — full base-gym + wild/trainer/legendary level rescale to the curves; team re-theming

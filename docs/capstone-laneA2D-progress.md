@@ -70,13 +70,49 @@ to the two that already worked (level, stone-item).
 - Headless boot → all globals present, starter `friendship:70`, `getTimeSegment()` works,
   no real console errors, title renders.
 
-## Next phases (TODO)
-- **Phase 2 — method wiring + variety re-audit (DATA):** convert a lore-supported subset of
-  plain level-up lines to location/held/friendship/time/move; resolve the 4 dangling lines;
-  fix #337 `evolveLevel`. Re-run the tally for a healthy spread. Propose → approve → apply.
+## Phase 2 — method wiring + variety re-audit (DONE, green)
+Wired lore-supported alternative methods onto 25 plain-level-up lines (method on the
+pre-evo line; existing `evolveLevel` kept as a floor). Cleaned up the dangling/inconsistent
+evo data. Approved full-set, applied via exact single-match line replacements.
+
+- **time:night (6):** #143 Astrelle, #59 Lunaveris, #118 Eclipsehound, #98 Aridix,
+  #312 Dunecrawl, #266 Shadowcub.
+- **time:day (3):** #142 Dawnirel, #75 Sylvolt, #66 Viridix (Dawnirel→Astrelle now reads
+  dawn→night across one family).
+- **location (7):** #14 Molteroth, #20 Ignirhino → `volcano_core`; #168 Gemseer,
+  #195 Icequartz → `crystal_depths`; #124 Phantorvex → `haunted_grove`;
+  #50 Tundram → `frostpeak`; #29 Coralisk → `coral_reef`.
+- **held metalCoat (6):** #134 Aeronyx, #147 Scrapsapien, #280 Gearbit, #153 Dentshaft,
+  #106 Geoclad, #424 Geodon.
+- **friendship (3):** #286 Downyfawn, #182 Rotunden, #206 Forlix.
+- **Cleanup:** stripped dangling `evolveMethod`/`evolveLocation` from #241/#253/#277/#290
+  → clean single-stage finals; set #337 Ashgolem `evolveLevel:null`.
+
+### Re-audit tally (219 evolvers) — 2 → 7 functioning methods
+| Method | Count | % |
+|--------|-------|---|
+| level | 185 | 84.5% |
+| item (stone) | 9 | 4.1% |
+| location | 7 | 3.2% |
+| time:night | 6 | 2.7% |
+| held | 6 | 2.7% |
+| time:day | 3 | 1.4% |
+| friendship | 3 | 1.4% |
+
+Verification: `validate.js` green (G6 no longer reports dangling lines); resolver re-tested
+11/11 against the edited data (each converted mon evolves only under its real condition).
+
+### Deferred from Phase 2
+- **`move` method:** unused so far — needs a learnset cross-check (Lane C data). Small
+  follow-up pass if we want an 8th method.
+- **Location area-level reachability:** the 7 location lines get their final reachability
+  confirmation during Phase D (each area reachable around its floor level).
+
+## Next phase (TODO)
 - **Phase D — encounter audit (DATA):** every area/route/zone for obtainability, level curve,
   rarity coherence, NG+/Forgotten gating. 93 areas (90 wild, 59 NG+ overlays), 352 distinct
-  wild-obtainable ids at baseline.
+  wild-obtainable ids at baseline. Also confirm the 7 Phase-2 location areas are reachable
+  near each line's evolve-floor level.
 
 ### Per-id-band completion tracker (data phases — update id-ascending)
 - [ ] 1–50

@@ -7305,14 +7305,14 @@ const GYM_LEADERS = {
         {monsterId:298, level:58, moves:["corrosion_fang","plague_wave","radiance_cannon","quiver_dance"]}
       ],
       double:[
-        {monsterId:355, level:54, moves:["sea_serpent_strike","toxic_sting","sludge_wave","acidic_glance"]},
-        {monsterId:353, level:56, moves:["caldera_meltdown","plague_wave","marble_resonance","infernal_roar"]},
+        {monsterId:163, level:54, moves:["miasma_blast","miasma_lash","sun_ray","caustic_shock"]},
+        {monsterId:297, level:56, moves:["sludge_wave","blight_strike","venom_lance","toxify"]},
         {monsterId:298, level:58, moves:["corrosion_fang","plague_wave","radiance_cannon","quiver_dance"]}
       ],
       triple:[
         {monsterId:300, level:54, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
-        {monsterId:355, level:55, moves:["sea_serpent_strike","toxic_sting","sludge_wave","acidic_glance"]},
-        {monsterId:416, level:56, moves:["tectonic_slam","corrosive_finish","malignant_storm","putrid_calm"]},
+        {monsterId:263, level:55, moves:["acid_press","grove_wrath","crippling_blow","acid_slash"]},
+        {monsterId:297, level:56, moves:["sludge_wave","blight_strike","venom_lance","toxify"]},
         {monsterId:264, level:57, moves:["martial_finish","acid_press","radiance_cannon","toxify"]},
         {monsterId:298, level:58, moves:["corrosion_fang","plague_wave","radiance_cannon","quiver_dance"]}
       ]
@@ -7330,12 +7330,12 @@ const GYM_LEADERS = {
       ],
       double:[
         {monsterId:161, level:70, moves:["sludge_wave","venom_lance","typhoon","toxify"]},
-        {monsterId:422, level:72, moves:["lava_spout","miasma_apocalypse","geyser_storm","condense_form"]},
+        {monsterId:216, level:72, moves:["abyssal_mist","fog_storm","neural_storm","psi_strike"]},
         {monsterId:217, level:74, moves:["psi_burst","abyssal_mist","radiance_cannon","inner_calm"]}
       ],
       triple:[
         {monsterId:289, level:70, moves:["radiance_cannon","nimbus_flood","condense","cloud_blast"]},
-        {monsterId:457, level:71, moves:["tidal_rush","nimbus_eruption","mist_press","smoke_calm"]},
+        {monsterId:220, level:71, moves:["brume_resonance","fog_kick","void_pulse","dusk_slash"]},
         {monsterId:161, level:72, moves:["sludge_wave","venom_lance","typhoon","toxify"]},
         {monsterId:221, level:73, moves:["soul_rend","abyssal_mist","radiance_cannon","mist_veil"]},
         {monsterId:217, level:74, moves:["psi_burst","abyssal_mist","radiance_cannon","inner_calm"]}

@@ -170,6 +170,12 @@ dex renders each method's requirement.
 
 # 24-Gym Region Expansion (new directive, in progress)
 
+> **⚠️ SUPERSEDED (2026-06-15):** the single interleaved-24 curve below is replaced by the
+> **two-version progression spec** at the bottom of this file
+> ("## AUTHORITATIVE two-version progression"). The new model splits into a 20-gym Non-NG+
+> world and a 24-gym NG+ world (Sonic/Spectral/Dream/Crystal gyms are NG+-exclusive), per the
+> legendary/NG+ team rule. Keep this section for historical context only.
+
 Scope expansion approved by user: grow from 16 → **24 gyms** (interleaved 1–24), add
 specialists for the 8 missing qualifying types, new cities/routes/trainers/quests, expand
 the map, and rescale the whole curve to end **under 150** (gentle, ~130 ceiling).
@@ -213,3 +219,80 @@ NG+-exclusive (ids 322–461) and Forgotten (≥462) mons — not obtainable on 
 - **Open question:** does the rule also bar NG+-only mons (322–461) on gyms? Several
   late gyms (Echo/Acrid/Steam/Mortis/Somna) currently use a few; the base-dex roster for
   niche types thins out at high levels. Resolve before Phase E rescale.
+
+---
+
+# AUTHORITATIVE two-version progression (2026-06-15, user-confirmed)
+
+Supersedes the inline-24 curve above. Two world-map versions, gated on NG+ state
+(`requiresNGPlus` mechanism, as already used by prismatic_rift/apex_summit):
+
+- **Non-NG+ run:** 20 gyms. The Sonic/Spectral/Dream/Crystal gym cities + their routes are
+  hidden.
+- **NG+ run:** 24 gyms — the 4 niche-type gyms (Echo/Mortis/Somna/Prisma) + connecting
+  areas appear as gyms 21–24, post-Champion.
+
+**Team rule (unchanged):** no legendaries/NG+/Forgotten mons on any team the player can't yet
+access. Crystal gym (Prisma) is the sanctioned legendary exception (Crystal has 0 non-legendary
+mons) — NG+-only, so allowed there.
+
+## Non-NG+ version (20 gyms, ceiling ~122)
+Gyms keep the confirmed anchors (Kano 22 · Marl 34 · Acrid 58 · Steam 74). Three +8 gaps
+(Nyx 38→Oracle 46, Ferro 82→Boulder 90, Boulder 90→Seraphina 98) are **intentionally kept** —
+each has well-above-typical content between the gyms (Oracle region = town + Umbra base + 7
+areas; forge complex = 4 routes; Seraphina region = void_rift + 5 areas).
+
+| b | gym (type) | L | b | gym (type) | L |
+|---|---|---|---|---|---|
+| 1 | Rex (Normal) | 10 | 11 | Thorne (Nature) | 54 |
+| 2 | Marina (Aquatic) | 14 | 12 | Acrid (Toxin) | 58 |
+| 3 | Pyros (Fire) | 18 | 13 | Viper (Poison) | 62 |
+| 4 | Kano (Fighting) | 22 | 14 | Atlas (Earth) | 66 |
+| 5 | Zara (Electric) | 26 | 15 | Mantis (Nature-bug) | 70 |
+| 6 | Glacier (Ice) | 30 | 16 | Steam (Vapor) | 74 |
+| 7 | Marl (Mineral) | 34 | 17 | Zephyra (Wind) | 78 |
+| 8 | Nyx (Dark) | 38 | 18 | Ferro (Metal) | 82 |
+| 9 | Oracle (Mental) | 46 | 19 | Boulder (Earth-geode) | 90 |
+| 10 | Drake (Draconic) | 50 | 20 | Seraphina (Fairy) | 98 |
+
+Endgame: Vanguard (Elite Four) **100–105** → Champion **108** → Forgotten Lumori
+(13 Vaeldris wielders) **110–122**.
+Rival: 13 · 28 · 50 · 70 · 96.
+Umbra Order: Vex 16 · Morta 28 · Kira 40 · Vorn 52 · **Director Shade 64** → post-game
+remnants 110–118.
+
+## NG+ version (24 gyms, ceiling 150)
+Gym ace level = **12 + 5×(badge−1)** → 127 at gym 24.
+
+| b | gym | L | b | gym | L | b | gym | L |
+|---|---|---|---|---|---|---|---|---|
+| 1 | Rex | 12 | 9 | Oracle | 52 | 17 | Zephyra | 92 |
+| 2 | Marina | 17 | 10 | Drake | 57 | 18 | Ferro | 97 |
+| 3 | Pyros | 22 | 11 | Thorne | 62 | 19 | Boulder | 102 |
+| 4 | Kano | 27 | 12 | Acrid | 67 | 20 | Seraphina | 107 |
+| 5 | Zara | 32 | 13 | Viper | 72 | 21 | ★Echo (Sonic) | 112 |
+| 6 | Glacier | 37 | 14 | Atlas | 77 | 22 | ★Mortis (Spectral) | 117 |
+| 7 | Marl | 42 | 15 | Mantis | 82 | 23 | ★Somna (Dream) | 122 |
+| 8 | Nyx | 47 | 16 | Steam | 87 | 24 | ★Prisma (Crystal) | 127 |
+
+★ = NG+-exclusive gym (hidden non-NG+; appears post-Champion).
+Endgame ladder: Vanguard **128–132** → Champion **134** → Forgotten Lumori **135–140** →
+apex **145** → **Vanguard rematch 146–148** → **Champion rematch (all L150)**.
+Rival: 17 · 52 · 82 · 112 · 127.
+Umbra Order: Vex 22 · Morta 47 · Kira 72 · Vorn 97 · **Director Shade 122** → post-game
+Void Council / Shade Final Form **140–150**.
+
+## Implementation phases (this spec)
+- [ ] **B1 — base gym teams base-dex-only:** Acrid/Steam swap NG+ mons (#355/#353/#416,
+      #422/#457) for base-dex Toxin/Vapor at confirmed L58/L74. Kano/Marl already clean. ← in progress
+- [ ] B2 — base-map renumber requiredBadges to the 20-gym order; champion gate 16→20; 4 new
+      base gym cities (Kano/Marl) already exist? confirm + add any missing cities/routes.
+- [ ] C — NG+ region: Echo/Mortis/Somna/Prisma re-leveled to 112/117/122/127; NG+-exclusive
+      cities + routes (requiresNGPlus + requiresChampion) wired toward apex_summit.
+- [ ] D — Vanguard/Champion re-level (both versions); post-apex Vanguard rematch + Champion
+      rematch (L150) NG+ bosses.
+- [ ] E — Rival + Umbra Order re-level per curve (both versions); Forgotten/Vaeldris wielder
+      re-level (110–122 non-NG+ / 135–148 NG+).
+- [ ] F — full base-gym + wild/trainer/legendary level rescale to the curves; team re-theming
+      (Thorne/Mantis/Atlas/Boulder).
+- [ ] G — game.js integration (badge count, gates, title text, GYM_HELD_REWARDS).

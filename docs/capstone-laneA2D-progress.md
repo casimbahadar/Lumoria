@@ -108,11 +108,55 @@ Verification: `validate.js` green (G6 no longer reports dangling lines); resolve
 - **Location area-level reachability:** the 7 location lines get their final reachability
   confirmation during Phase D (each area reachable around its floor level).
 
+## Phase 2b — extra engine methods (DONE, green)
+Added `teammate` (evolveWith species in party) and `battles` (evolveBattles wins) resolver
+cases; `move` was already supported; `dawn`/`dusk` are free exact-segment matches.
+- battle.js: cases for teammate/battles. game.js: `battlesWon` slot counter (+1 per won
+  battle), post-victory participant evolution re-check, `describeEvolution()` helper rendering
+  every method in the dex panel. validate.js G6 covers teammate/battles.
+- `teammate` is implemented but currently unused in data (no strong cross-species lore pairing).
+
+## Phase 2c — deepen diversification to ≤65% level (DONE, green)
+43 more conversions to bring plain level-up to the user's 60–65% ceiling. Object-based
+evolutions use the **use-on-Lumori stone** mechanic; two new lore items created and
+**scattered** across thematic shops (not all in one place).
+
+- **New items:** `auspiciousPlate` (Auspicious Plate 🛡️ → #148 Stoicguard, sold at Ironforge
+  Metallurgy) and `tidePearl` (Tide Pearl 🦪 → #34 Pearlmaid, sold at Tidewatch Market).
+  Also wired the previously-unused `dragonScale`/`steelCoating` stones (already in Seedvale).
+- **item/use-stone (9):** dragons #232/#233/#173 (Wyrm Scale); steel #145/#135/#37/#95
+  (Metal Coating); #148 (Auspicious Plate); #34 (Tide Pearl).
+- **held (6):** #19/#405/#460 (Metal Coat), #55/#61 (Eternal Ice), #275 (Crag Shard).
+- **battles (11):** #262 #263 #281 #426 #427 #436 #450 #458 #43 #70 #85.
+- **location (6):** #132→volcano_core, #157→fungal_cavern, #45→mirror_lake,
+  #47/#236/#304→frostpeak.
+- **time (6):** dusk #108/#121/#438, dawn #202, night #78/#79.
+- **friendship (1):** #293. **move (4):** #16 #88 #82 #26 (signature moves).
+- Removed the 3 weak teammate pairings from the draft proposal; corrected a double-count
+  (Cuddrix/Sorrowlix are evolved stages of already-friendship families).
+
+### Final tally (219 evolvers, 8 distinct methods)
+| Method | Count | % |
+|--------|------|---|
+| level | 142 | **64.8%** |
+| item (≈11 stones) | 18 | 8.2% |
+| location | 13 | 5.9% |
+| held | 12 | 5.5% |
+| battles | 11 | 5.0% |
+| time (night 8·day 3·dusk 3·dawn 1) | 15 | 6.8% |
+| friendship | 4 | 1.8% |
+| move | 4 | 1.8% |
+
+Verification: validate.js green; resolver re-tested 12/12 vs edited data; headless boot clean,
+dex renders each method's requirement.
+
 ## Next phase (TODO)
 - **Phase D — encounter audit (DATA):** every area/route/zone for obtainability, level curve,
   rarity coherence, NG+/Forgotten gating. 93 areas (90 wild, 59 NG+ overlays), 352 distinct
-  wild-obtainable ids at baseline. Also confirm the 7 Phase-2 location areas are reachable
-  near each line's evolve-floor level.
+  wild-obtainable ids at baseline. Also confirm the location-evo areas (volcano_core,
+  fungal_cavern, mirror_lake, frostpeak, crystal_depths, coral_reef, haunted_grove) are
+  reachable near each line's evolve-floor level, and that the new evo items are obtainable
+  in time.
 
 ### Per-id-band completion tracker (data phases — update id-ascending)
 - [ ] 1–50

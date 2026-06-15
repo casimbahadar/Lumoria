@@ -197,3 +197,19 @@ Atlas = ground Earth · Boulder = rock/geode Earth (stays 24 gyms).
 - [ ] Phase D — trainers + quests in new areas.
 - [ ] Phase E — full level rescale (existing 16 gyms, Elite, Champion, all wild/trainer/legendary tables) + team re-theming (Thorne/Mantis/Atlas/Boulder).
 - [ ] Phase F — game.js integration (badge count 16→24, Elite/Champion gates, title text, GYM_HELD_REWARDS, badge story hooks).
+
+## Team-building rule (user, applies to all gym/trainer/rescale phases)
+**Legendaries may only appear on an NPC team if the player can already access that
+legendary at that point in progression** (and only to fill toward a 6-mon minimum).
+Practically: no legendaries on gyms 1–24 (all pre-Champion). Extends in spirit to
+NG+-exclusive (ids 322–461) and Forgotten (≥462) mons — not obtainable on a first run.
+
+### Phase A legendary audit + fixes
+- Fixed: Echo (Sonic) ace #314 Skybreaker → #292 Galehorn; Mortis (Spectral) ace
+  #379 Riftmane → #268 Darkfang. No legendaries remain on those gyms.
+- **BLOCKER — Crystal gym (Prisma):** Crystal has **0 non-legendary** Lumori (all 7
+  Crystal mons are legendary/NG+). A no-legendary Crystal gym is impossible as-is —
+  needs a user decision (sanctioned exception / drop gym / make a Crystal mon accessible).
+- **Open question:** does the rule also bar NG+-only mons (322–461) on gyms? Several
+  late gyms (Echo/Acrid/Steam/Mortis/Somna) currently use a few; the base-dex roster for
+  niche types thins out at high levels. Resolve before Phase E rescale.

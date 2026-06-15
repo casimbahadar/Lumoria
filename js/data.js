@@ -7277,20 +7277,20 @@ const GYM_LEADERS = {
     winQuote:"A flawless harmony. The Resonance Badge resonates for you.",
     teams:{
       single:[
-        {monsterId:292, level:40, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]},
-        {monsterId:314, level:42, moves:["gale_cannon","acoustic_shock","radiance_cannon","resonance_field"]}
+        {monsterId:300, level:40, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
+        {monsterId:292, level:42, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]}
       ],
       double:[
-        {monsterId:300, level:38, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
+        {monsterId:243, level:38, moves:["dreamscape_smash","decibel_burst","somnia_blast","harmonic_burst"]},
         {monsterId:356, level:40, moves:["volt_surge","concussive_strike","stormbolt","shockwave_boom"]},
-        {monsterId:314, level:42, moves:["gale_cannon","acoustic_shock","radiance_cannon","resonance_field"]}
+        {monsterId:292, level:42, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]}
       ],
       triple:[
-        {monsterId:292, level:38, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]},
-        {monsterId:300, level:39, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
+        {monsterId:300, level:38, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
+        {monsterId:243, level:39, moves:["dreamscape_smash","decibel_burst","somnia_blast","harmonic_burst"]},
         {monsterId:413, level:40, moves:["serpent_rage","threnody","resonance_quake","rampage"]},
         {monsterId:389, level:41, moves:["arc_flash","threnody","volt_surge","concussive_strike"]},
-        {monsterId:314, level:42, moves:["gale_cannon","acoustic_shock","radiance_cannon","resonance_field"]}
+        {monsterId:292, level:42, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]}
       ]
     }
   },
@@ -7349,20 +7349,20 @@ const GYM_LEADERS = {
     winQuote:"You faced the phantoms unflinching. The badge is yours.",
     teams:{
       single:[
-        {monsterId:268, level:84, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]},
-        {monsterId:379, level:86, moves:["ocean_sovereign","eternal_haunt","void_rend","tidal_crush"]}
+        {monsterId:309, level:84, moves:["geyser_burst","ghastly_wail","radiance_cannon","spectral_veil"]},
+        {monsterId:268, level:86, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]}
       ],
       double:[
         {monsterId:301, level:82, moves:["searing_gale","phantom_beam","radiance_cannon","eclipse_shroud"]},
         {monsterId:343, level:84, moves:["abyssal_dominion","reaper_scythe","neural_storm","fear_aura"]},
-        {monsterId:379, level:86, moves:["ocean_sovereign","eternal_haunt","void_rend","tidal_crush"]}
+        {monsterId:268, level:86, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]}
       ],
       triple:[
         {monsterId:273, level:82, moves:["eternal_ember","eternal_haunt","conflagration","spirit_drain"]},
         {monsterId:309, level:83, moves:["geyser_burst","ghastly_wail","radiance_cannon","spectral_veil"]},
-        {monsterId:268, level:84, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]},
+        {monsterId:301, level:84, moves:["searing_gale","phantom_beam","radiance_cannon","eclipse_shroud"]},
         {monsterId:343, level:85, moves:["abyssal_dominion","reaper_scythe","neural_storm","fear_aura"]},
-        {monsterId:379, level:86, moves:["ocean_sovereign","eternal_haunt","void_rend","tidal_crush"]}
+        {monsterId:268, level:86, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]}
       ]
     }
   },

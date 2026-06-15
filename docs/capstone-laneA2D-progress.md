@@ -283,12 +283,13 @@ Umbra Order: Vex 22 · Morta 47 · Kira 72 · Vorn 97 · **Director Shade 122** 
 Void Council / Shade Final Form **140–150**.
 
 ## Implementation phases (this spec)
-- [ ] **B1 — base gym teams base-dex-only:** Acrid/Steam swap NG+ mons (#355/#353/#416,
-      #422/#457) for base-dex Toxin/Vapor at confirmed L58/L74. Kano/Marl already clean. ← in progress
-- [ ] B2 — base-map renumber requiredBadges to the 20-gym order; champion gate 16→20; 4 new
-      base gym cities (Kano/Marl) already exist? confirm + add any missing cities/routes.
-- [ ] C — NG+ region: Echo/Mortis/Somna/Prisma re-leveled to 112/117/122/127; NG+-exclusive
-      cities + routes (requiresNGPlus + requiresChampion) wired toward apex_summit.
+- [x] **B1 — base gym teams base-dex-only:** Acrid/Steam swapped NG+ mons for base-dex
+      Toxin/Vapor at confirmed L58/L74. Kano/Marl already clean. (commit 29b7348)
+- [x] B2 — base-map: remapped requiredBadges to the 20-gym order (champion→rb20); added 4 new
+      gym cities (Dauntridge/Lodehollow/Corroden/Mistmoor) + 3 connector routes. (commit dd0fe1c)
+- [x] C — NG+ region: C1 re-leveled Echo/Mortis/Somna/Prisma to 112/117/122/127 (commit
+      4750330); C2 added NG+-exclusive cities (Clarion/Gravecourt/Reverie Vale/Gleamcrest, rb20-23,
+      requiresNGPlus) + 5 routes, chained Starbloom→…→The Gauntlet.
 - [ ] D — Vanguard/Champion re-level (both versions); post-apex Vanguard rematch + Champion
       rematch (L150) NG+ bosses. **Also fix pre-existing map-graph issues (user-requested):**
       `skyvault↔sky_harbor` city↔town adjacency (add a route/area between), and 4 one-way

@@ -5736,8 +5736,8 @@ const WORLD_DATA = {
   },
   victoryroad: {
     id:"victoryroad", name:"The Gauntlet", icon:"⚔️", type:"route",
-    desc:"The final gauntlet. Only trainers with all 16 badges may pass.",
-    connections:["starbloom","summit"],
+    desc:"The final gauntlet. Only trainers with all badges may pass.",
+    connections:["starbloom","summit","ascendant_path"],
     wildMonsters:[
       {id:173, minLv:62, maxLv:66, rate:25}, // Cobravyrm
       {id:124, minLv:62, maxLv:66, rate:25}, // Phantorvex
@@ -5753,6 +5753,118 @@ const WORLD_DATA = {
     connections:["victoryroad"],
     wildMonsters:[], hasGym:false, isChampion:true, requiredBadges:20,
     mapPos:{x:72, y:30}
+  },
+
+  // ===== NG+-EXCLUSIVE GYM CHAIN (gyms 21-24) — requiresNGPlus =====
+  // Branches off Starbloom, rejoins The Gauntlet; hidden on a first run.
+  resonant_trail: {
+    id:"resonant_trail", name:"Resonant Trail", icon:"🎵", type:"route",
+    desc:"A canyon path that catches and replays every footfall, opening onto the hidden Sonic country beyond Starbloom only in the void-touched era.",
+    connections:["starbloom","clarion"],
+    wildMonsters:[
+      {id:300, minLv:108, maxLv:112, rate:28}, // Nettlebarb
+      {id:243, minLv:108, maxLv:112, rate:26}, // Stuntrap
+      {id:370, minLv:109, maxLv:112, rate:24}, // Cyclotron
+      {id:292, minLv:109, maxLv:112, rate:22}  // Galehorn
+    ],
+    hasGym:false, requiredBadges:20, requiresNGPlus:true, mapPos:{x:68, y:68}
+  },
+  clarion: {
+    id:"clarion", name:"Clarion", icon:"🔊", type:"city",
+    desc:"A bell-towered town where every street hums with layered sound, unreachable until the void-touched era reveals it. Gym Leader Echo conducts the Sonic Lumori like an orchestra.",
+    connections:["resonant_trail","phantom_crossing"],
+    wildMonsters:[
+      {id:389, minLv:108, maxLv:112, rate:20}, // Stormcrown
+      {id:292, minLv:108, maxLv:112, rate:22}, // Galehorn
+      {id:413, minLv:109, maxLv:112, rate:20}, // Resonadon
+      {id:356, minLv:109, maxLv:112, rate:20}, // Stormlord
+      {id:348, minLv:110, maxLv:112, rate:18}  // Galeswift
+    ],
+    hasGym:true, gymLeader:"echo", requiredBadges:20, requiresNGPlus:true, mapPos:{x:67, y:63}
+  },
+  phantom_crossing: {
+    id:"phantom_crossing", name:"Phantom Crossing", icon:"🕯️", type:"route",
+    desc:"A fog-bound causeway between the singing town and the graves, where Spectral shapes drift across the path at dusk.",
+    connections:["clarion","gravecourt"],
+    wildMonsters:[
+      {id:273, minLv:113, maxLv:117, rate:28}, // Blazeon
+      {id:309, minLv:113, maxLv:117, rate:26}, // Tidephant
+      {id:343, minLv:114, maxLv:117, rate:24}, // Shadowreave
+      {id:386, minLv:114, maxLv:117, rate:22}  // Wraithstorm
+    ],
+    hasGym:false, requiredBadges:21, requiresNGPlus:true, mapPos:{x:67, y:59}
+  },
+  gravecourt: {
+    id:"gravecourt", name:"Gravecourt", icon:"👻", type:"city",
+    desc:"A walled court of mausoleums wrapped in perpetual dusk, where the boundary to the spirit world wore thin after the Sundering. Gym Leader Mortis keeps company with the Spectral dead.",
+    connections:["phantom_crossing","dream_drift"],
+    wildMonsters:[
+      {id:268, minLv:113, maxLv:117, rate:22}, // Darkfang
+      {id:343, minLv:113, maxLv:117, rate:20}, // Shadowreave
+      {id:386, minLv:114, maxLv:117, rate:20}, // Wraithstorm
+      {id:301, minLv:114, maxLv:117, rate:20}, // Hauntcoal
+      {id:397, minLv:115, maxLv:117, rate:18}  // Abyssalord
+    ],
+    hasGym:true, gymLeader:"mortis", requiredBadges:21, requiresNGPlus:true, mapPos:{x:66, y:55}
+  },
+  dream_drift: {
+    id:"dream_drift", name:"Dream Drift", icon:"🌙", type:"route",
+    desc:"A slow river of luminous mist that carries drowsy Dream Lumori between the dead court and the sleeping vale.",
+    connections:["gravecourt","reverie_vale"],
+    wildMonsters:[
+      {id:247, minLv:118, maxLv:122, rate:28}, // Sparkeen
+      {id:431, minLv:118, maxLv:122, rate:26}, // Nocturnbaku
+      {id:453, minLv:119, maxLv:122, rate:24}, // Lullavoir
+      {id:243, minLv:119, maxLv:122, rate:22}  // Stuntrap
+    ],
+    hasGym:false, requiredBadges:22, requiresNGPlus:true, mapPos:{x:66, y:51}
+  },
+  reverie_vale: {
+    id:"reverie_vale", name:"Reverie Vale", icon:"💤", type:"city",
+    desc:"A hushed valley wreathed in sleeping mist, where waking and dreaming blur for any who linger too long. Gym Leader Somna shepherds the Dream Lumori through the haze.",
+    connections:["dream_drift","prism_causeway"],
+    wildMonsters:[
+      {id:261, minLv:118, maxLv:122, rate:22}, // Hypnostag
+      {id:378, minLv:118, maxLv:122, rate:20}, // Dreamweald
+      {id:431, minLv:119, maxLv:122, rate:20}, // Nocturnbaku
+      {id:247, minLv:119, maxLv:122, rate:20}, // Sparkeen
+      {id:170, minLv:120, maxLv:122, rate:18}  // Oneiron
+    ],
+    hasGym:true, gymLeader:"somna", requiredBadges:22, requiresNGPlus:true, mapPos:{x:65, y:47}
+  },
+  prism_causeway: {
+    id:"prism_causeway", name:"Prism Causeway", icon:"🌈", type:"route",
+    desc:"A bridge of fused crystal that scatters the light into drifting rainbows on the final climb toward Gleamcrest.",
+    connections:["reverie_vale","gleamcrest"],
+    wildMonsters:[
+      {id:408, minLv:123, maxLv:127, rate:40}, // Glimmerling (Crystal — sanctioned NG+ exception)
+      {id:225, minLv:123, maxLv:127, rate:32}, // Crealight (Fairy/Mineral)
+      {id:409, minLv:124, maxLv:127, rate:28}  // Facetite
+    ],
+    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:65, y:43}
+  },
+  gleamcrest: {
+    id:"gleamcrest", name:"Gleamcrest", icon:"💎", type:"city",
+    desc:"A town grown over a crest of living crystal that refracts the aurora into a thousand colors — the only place the Crystal Lumori are known to gather. Gym Leader Prisma reigns over its every facet.",
+    connections:["prism_causeway","ascendant_path"],
+    wildMonsters:[
+      {id:408, minLv:123, maxLv:127, rate:45}, // Glimmerling (Crystal — sanctioned NG+ exception)
+      {id:409, minLv:124, maxLv:127, rate:35}, // Facetite
+      {id:410, minLv:125, maxLv:127, rate:20}  // Prismdome
+    ],
+    hasGym:true, gymLeader:"prisma", requiredBadges:23, requiresNGPlus:true, mapPos:{x:64, y:40}
+  },
+  ascendant_path: {
+    id:"ascendant_path", name:"Ascendant Path", icon:"⚔️", type:"route",
+    desc:"The long stair that climbs from the crystal heights back to the Gauntlet, walked only by NG+ challengers who have bested all twenty-four gyms.",
+    connections:["gleamcrest","victoryroad"],
+    wildMonsters:[
+      {id:389, minLv:124, maxLv:127, rate:26}, // Stormcrown
+      {id:268, minLv:124, maxLv:127, rate:26}, // Darkfang
+      {id:261, minLv:125, maxLv:127, rate:24}, // Hypnostag
+      {id:409, minLv:125, maxLv:127, rate:24}  // Facetite
+    ],
+    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:63, y:37}
   },
 
   // ===== EXTRA AREAS =====
@@ -6387,7 +6499,7 @@ const WORLD_DATA = {
   starbloom: {
     id:"starbloom", name:"Starbloom City", icon:"🌟", type:"city",
     desc:"A radiant city that glows with fairy magic. Home to Gym Leader Seraphina, the last gym before The Vanguard.",
-    connections:["astral_plateau","victoryroad","void_rift"],
+    connections:["astral_plateau","victoryroad","void_rift","resonant_trail"],
     wildMonsters:[
       {id:138, minLv:70, maxLv:75, rate:24},  // Halocanis (mid)
       {id:139, minLv:71, maxLv:76, rate:8},  // Lumiarch (final → after 138 ✓)

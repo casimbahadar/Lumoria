@@ -290,13 +290,19 @@ Void Council / Shade Final Form **140–150**.
 - [x] C — NG+ region: C1 re-leveled Echo/Mortis/Somna/Prisma to 112/117/122/127 (commit
       4750330); C2 added NG+-exclusive cities (Clarion/Gravecourt/Reverie Vale/Gleamcrest, rb20-23,
       requiresNGPlus) + 5 routes, chained Starbloom→…→The Gauntlet.
-- [ ] D — Vanguard/Champion re-level (both versions); post-apex Vanguard rematch + Champion
-      rematch (L150) NG+ bosses. **Also fix pre-existing map-graph issues (user-requested):**
-      `skyvault↔sky_harbor` city↔town adjacency (add a route/area between), and 4 one-way
-      links (miasmacity→toxic_bog, mire_depths→miasmacity, tremor_summit→quake_foothills,
-      magma_vent→tremor_summit) — make bidirectional or confirm intentional.
+- [~] D — **mostly done.** ✅ map-graph fix (commit cdb5999); ✅ non-NG+ rescale: gyms 10-98,
+      Vanguard 100-105, Champion 108 + LEVEL_CAPS (5586428); ✅ NG+ level model: NG_OFFSETS,
+      explicit NG+ levels (gyms 12+5/badge, Vanguard 128-132, Champion 134), L150 ceiling,
+      cap-aware ngPlusScale + scale-down caps extended to NG+ (24d6803, verified live).
+      ⏳ **D3 remaining:** post-apex Vanguard rematch (146-148) + Champion rematch (L150) — upgraded
+      rosters (NG+/legendary allowed, NO Forgotten), fought at the summit, gated on an "apex
+      cleared" milestone (see open question).
 - [ ] E — Rival + Umbra Order re-level per curve (both versions); Forgotten/Vaeldris wielder
       re-level (110–122 non-NG+ / 135–148 NG+).
 - [ ] F — full base-gym + wild/trainer/legendary level rescale to the curves; team re-theming
       (Thorne/Mantis/Atlas/Boulder).
 - [ ] G — game.js integration (badge count, gates, title text, GYM_HELD_REWARDS).
+- [ ] **H — NG+-exclusive moves (new, user-requested):** with the cap raised to L150, add a
+      variety of new NG+-only moves for each type for Lumori to learn (post-game movepool depth).
+      NG+-gated learnset entries; one fitting new move (or a few) per type. Define moves in
+      MOVES_DATA, gate availability to NG+, wire into learnsets.

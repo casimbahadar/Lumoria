@@ -8853,6 +8853,153 @@ const ELITE_FOUR = [
 // ============================================================
 // LEVEL CAPS - Player team levels are capped in major battles
 // ============================================================
+// ============================================================
+// D3 POST-APEX REMATCH ROSTERS (unlock: NG+ & champion & apexGuardian & all 13 wielders)
+// Vanguard L146-148 (1 legendary ace each + coverage), Champion all L150.
+// ============================================================
+const REMATCH_TEAMS = {
+  aria: {
+    single:[
+      {monsterId:224, level:147, moves:["psychic_blizzard","time_fracture","fairy_blast","psy_blast"]},
+      {monsterId:382, level:147, moves:["starlight_obliteration","void_dominion","canopy_strike","abyssal_dominion"]},
+      {monsterId:314, level:148, moves:["canopy_strike","thunderstorm_eruption","threnody","tempest_wrath"]}
+    ],
+    double:[
+      {monsterId:143, level:146, moves:["fairy_blast","supernova_glow","psychic_blizzard","fae_requiem"]},
+      {monsterId:303, level:147, moves:["fairy_blast","supernova_glow","psychic_blizzard","fae_requiem"]},
+      {monsterId:224, level:147, moves:["psychic_blizzard","time_fracture","fairy_blast","psy_blast"]},
+      {monsterId:382, level:147, moves:["starlight_obliteration","void_dominion","canopy_strike","abyssal_dominion"]},
+      {monsterId:314, level:148, moves:["canopy_strike","thunderstorm_eruption","threnody","tempest_wrath"]}
+    ],
+    triple:[
+      {monsterId:376, level:146, moves:["pyroclastic_burst","volcanic_wrath","fairy_blast","caldera_meltdown"]},
+      {monsterId:143, level:146, moves:["fairy_blast","supernova_glow","psychic_blizzard","fae_requiem"]},
+      {monsterId:303, level:147, moves:["fairy_blast","supernova_glow","psychic_blizzard","fae_requiem"]},
+      {monsterId:224, level:147, moves:["psychic_blizzard","time_fracture","fairy_blast","psy_blast"]},
+      {monsterId:382, level:147, moves:["starlight_obliteration","void_dominion","canopy_strike","abyssal_dominion"]},
+      {monsterId:314, level:148, moves:["canopy_strike","thunderstorm_eruption","threnody","tempest_wrath"]}
+    ]
+  },
+  grimshaw: {
+    single:[
+      {monsterId:208, level:147, moves:["sludge_cannon","gunk_blast","abyss_ray","venom_drown"]},
+      {monsterId:213, level:147, moves:["pyroclastic_burst","volcanic_wrath","glacial_riptide","caldera_meltdown"]},
+      {monsterId:319, level:148, moves:["starlight_obliteration","void_dominion","galaxy_apocalypse","abyssal_dominion"]}
+    ],
+    double:[
+      {monsterId:437, level:146, moves:["haymaker","seismic_force","quartz_blast","martial_finish"]},
+      {monsterId:377, level:147, moves:["boulder_wrecker","tectonic_wrath","quartz_blast","meteor_strike"]},
+      {monsterId:208, level:147, moves:["sludge_cannon","gunk_blast","abyss_ray","venom_drown"]},
+      {monsterId:213, level:147, moves:["pyroclastic_burst","volcanic_wrath","glacial_riptide","caldera_meltdown"]},
+      {monsterId:319, level:148, moves:["starlight_obliteration","void_dominion","galaxy_apocalypse","abyssal_dominion"]}
+    ],
+    triple:[
+      {monsterId:373, level:146, moves:["starlight_obliteration","void_dominion","phantom_gale","abyssal_dominion"]},
+      {monsterId:437, level:146, moves:["haymaker","seismic_force","quartz_blast","martial_finish"]},
+      {monsterId:377, level:147, moves:["boulder_wrecker","tectonic_wrath","quartz_blast","meteor_strike"]},
+      {monsterId:208, level:147, moves:["sludge_cannon","gunk_blast","abyss_ray","venom_drown"]},
+      {monsterId:213, level:147, moves:["pyroclastic_burst","volcanic_wrath","glacial_riptide","caldera_meltdown"]},
+      {monsterId:319, level:148, moves:["starlight_obliteration","void_dominion","galaxy_apocalypse","abyssal_dominion"]}
+    ]
+  },
+  celeste: {
+    single:[
+      {monsterId:229, level:147, moves:["storm_sovereignty","overcharge","psychic_blizzard","arc_cannon"]},
+      {monsterId:241, level:147, moves:["glacial_riptide","glacial_lance","psychic_blizzard","avalanche_smash"]},
+      {monsterId:394, level:148, moves:["pyroclastic_burst","volcanic_wrath","galaxy_apocalypse","caldera_meltdown"]}
+    ],
+    double:[
+      {monsterId:372, level:146, moves:["psychic_blizzard","time_fracture","quartz_blast","psy_blast"]},
+      {monsterId:3, level:147, moves:["pyroclastic_burst","volcanic_wrath","abyss_ray","caldera_meltdown"]},
+      {monsterId:229, level:147, moves:["storm_sovereignty","overcharge","psychic_blizzard","arc_cannon"]},
+      {monsterId:241, level:147, moves:["glacial_riptide","glacial_lance","psychic_blizzard","avalanche_smash"]},
+      {monsterId:394, level:148, moves:["pyroclastic_burst","volcanic_wrath","galaxy_apocalypse","caldera_meltdown"]}
+    ],
+    triple:[
+      {monsterId:359, level:146, moves:["glacial_riptide","glacial_lance","psychic_blizzard","avalanche_smash"]},
+      {monsterId:372, level:146, moves:["psychic_blizzard","time_fracture","quartz_blast","psy_blast"]},
+      {monsterId:3, level:147, moves:["pyroclastic_burst","volcanic_wrath","abyss_ray","caldera_meltdown"]},
+      {monsterId:229, level:147, moves:["storm_sovereignty","overcharge","psychic_blizzard","arc_cannon"]},
+      {monsterId:241, level:147, moves:["glacial_riptide","glacial_lance","psychic_blizzard","avalanche_smash"]},
+      {monsterId:394, level:148, moves:["pyroclastic_burst","volcanic_wrath","galaxy_apocalypse","caldera_meltdown"]}
+    ]
+  },
+  titan: {
+    single:[
+      {monsterId:385, level:147, moves:["glacial_riptide","glacial_lance","boulder_wrecker","avalanche_smash"]},
+      {monsterId:237, level:147, moves:["glacial_riptide","glacial_lance","boulder_wrecker","avalanche_smash"]},
+      {monsterId:320, level:148, moves:["metal_roller","tungsten_wrath","storm_sovereignty","anvil_drop"]}
+    ],
+    double:[
+      {monsterId:425, level:146, moves:["metal_roller","tungsten_wrath","quartz_blast","anvil_drop"]},
+      {monsterId:369, level:147, moves:["boulder_wrecker","tectonic_wrath","quartz_blast","meteor_strike"]},
+      {monsterId:385, level:147, moves:["glacial_riptide","glacial_lance","boulder_wrecker","avalanche_smash"]},
+      {monsterId:237, level:147, moves:["glacial_riptide","glacial_lance","boulder_wrecker","avalanche_smash"]},
+      {monsterId:320, level:148, moves:["metal_roller","tungsten_wrath","storm_sovereignty","anvil_drop"]}
+    ],
+    triple:[
+      {monsterId:152, level:146, moves:["metal_roller","tungsten_wrath","boulder_wrecker","anvil_drop"]},
+      {monsterId:425, level:146, moves:["metal_roller","tungsten_wrath","quartz_blast","anvil_drop"]},
+      {monsterId:369, level:147, moves:["boulder_wrecker","tectonic_wrath","quartz_blast","meteor_strike"]},
+      {monsterId:385, level:147, moves:["glacial_riptide","glacial_lance","boulder_wrecker","avalanche_smash"]},
+      {monsterId:237, level:147, moves:["glacial_riptide","glacial_lance","boulder_wrecker","avalanche_smash"]},
+      {monsterId:320, level:148, moves:["metal_roller","tungsten_wrath","storm_sovereignty","anvil_drop"]}
+    ]
+  },
+  champion: {
+    single:[
+      {monsterId:392, level:150, moves:["psychic_blizzard","time_fracture","psy_blast","prophecy"]},
+      {monsterId:400, level:150, moves:["pyroclastic_burst","volcanic_wrath","world_devour","caldera_meltdown"]},
+      {monsterId:398, level:150, moves:["starlight_obliteration","void_dominion","fairy_blast","abyssal_dominion"]}
+    ],
+    double:[
+      {monsterId:404, level:150, moves:["abyss_ray","alloy_breaker","psychic_blizzard","venom_surge"]},
+      {monsterId:407, level:150, moves:["starlight_obliteration","void_dominion","metal_roller","abyssal_dominion"]},
+      {monsterId:392, level:150, moves:["psychic_blizzard","time_fracture","psy_blast","prophecy"]},
+      {monsterId:400, level:150, moves:["pyroclastic_burst","volcanic_wrath","world_devour","caldera_meltdown"]},
+      {monsterId:398, level:150, moves:["starlight_obliteration","void_dominion","fairy_blast","abyssal_dominion"]}
+    ],
+    triple:[
+      {monsterId:395, level:150, moves:["glacial_riptide","glacial_lance","radiance_cannon","avalanche_smash"]},
+      {monsterId:404, level:150, moves:["abyss_ray","alloy_breaker","psychic_blizzard","venom_surge"]},
+      {monsterId:407, level:150, moves:["starlight_obliteration","void_dominion","metal_roller","abyssal_dominion"]},
+      {monsterId:392, level:150, moves:["psychic_blizzard","time_fracture","psy_blast","prophecy"]},
+      {monsterId:400, level:150, moves:["pyroclastic_burst","volcanic_wrath","world_devour","caldera_meltdown"]},
+      {monsterId:398, level:150, moves:["starlight_obliteration","void_dominion","fairy_blast","abyssal_dominion"]}
+    ]
+  }
+};
+
+// Apex Guardian boss (apex_summit, L143-145, all-legendary capstone). Beating it sets apexGuardianDefeated.
+const APEX_GUARDIAN = {
+  id:"apex_guardian", name:"The Apex Sovereign", emoji:"🌄", triggerLocation:"apex_summit",
+  quote:"You have bested champions and wielders alike. But the summit answers to me. Show me the apex of your bond, or be cast down.",
+  winQuote:"...So. The throne of the summit passes. The Vanguard and Champion will test you anew — rise, and claim what waits above.",
+  reward:{ masterOrb:3, rareCandy:10 },
+  teams: {
+   single:[
+     {monsterId:400, level:144, moves:["pyroclastic_burst","volcanic_wrath","world_devour","caldera_meltdown"]},
+     {monsterId:398, level:145, moves:["starlight_obliteration","void_dominion","fairy_blast","abyssal_dominion"]},
+     {monsterId:401, level:145, moves:["galaxy_apocalypse","astral_blast","psychic_blizzard","supernova_eruption"]}
+   ],
+   double:[
+     {monsterId:434, level:143, moves:["foliage_tempest","blossom_frenzy","world_devour","sun_ray"]},
+     {monsterId:319, level:144, moves:["starlight_obliteration","void_dominion","galaxy_apocalypse","abyssal_dominion"]},
+     {monsterId:400, level:144, moves:["pyroclastic_burst","volcanic_wrath","world_devour","caldera_meltdown"]},
+     {monsterId:398, level:145, moves:["starlight_obliteration","void_dominion","fairy_blast","abyssal_dominion"]},
+     {monsterId:401, level:145, moves:["galaxy_apocalypse","astral_blast","psychic_blizzard","supernova_eruption"]}
+   ],
+   triple:[
+     {monsterId:394, level:143, moves:["pyroclastic_burst","volcanic_wrath","galaxy_apocalypse","caldera_meltdown"]},
+     {monsterId:434, level:143, moves:["foliage_tempest","blossom_frenzy","world_devour","sun_ray"]},
+     {monsterId:319, level:144, moves:["starlight_obliteration","void_dominion","galaxy_apocalypse","abyssal_dominion"]},
+     {monsterId:400, level:144, moves:["pyroclastic_burst","volcanic_wrath","world_devour","caldera_meltdown"]},
+     {monsterId:398, level:145, moves:["starlight_obliteration","void_dominion","fairy_blast","abyssal_dominion"]},
+     {monsterId:401, level:145, moves:["galaxy_apocalypse","astral_blast","psychic_blizzard","supernova_eruption"]}
+   ]
+ }
+};
+
 const LEVEL_CAPS = {
   // Gym Leaders: cap = ace level + 2 (non-NG+; the engine adds ngOffset in NG+ runs)
   rex: 12, marina: 16, pyros: 20, kano: 24,
@@ -8866,6 +9013,9 @@ const LEVEL_CAPS = {
   aria: 102, grimshaw: 104, celeste: 106, titan: 107,
   // Champion
   champion: 110,
+  // D3 post-apex content (cap = ace + 2, clamped to the 150 global max)
+  apex_guardian: 147,
+  aria_rematch: 150, grimshaw_rematch: 150, celeste_rematch: 150, titan_rematch: 150, champion_rematch: 150,
   // Rival battles (re-leveled in Phase E)
   rival_1: 17, rival_2: 35, rival_3: 56,
   rival_4: 68, rival_5: 77,

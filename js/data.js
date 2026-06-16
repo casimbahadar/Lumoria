@@ -7029,20 +7029,24 @@ const GYM_LEADERS = {
     winQuote:"Not bad! Here, take the Foundation Badge. You've earned it.",
     teams:{
       single:[
-        {monsterId:178, level:7, moves:["collide","cranial_ram","daunt","blitz"]},
-        {monsterId:183, level:10, moves:["cranial_ram","crushing_bulk","daunt","collide"]}
+        {monsterId:104, level:8, moves:["rapid_strike","quick_jab","quake_pulse","double_smash"]},
+        {monsterId:187, level:8, moves:["rapid_strike","quick_jab","double_smash","blitz"]},
+        {monsterId:118, level:9, moves:["chomp","stygian_whisper","run_down","shade_dash"]}
       ],
       double:[
-        {monsterId:178, level:6, moves:["collide","cranial_ram","daunt","blitz"]},
-        {monsterId:180, level:8, moves:["collide","blitz","lashing_tail","cranial_ram"]},
-        {monsterId:183, level:10, moves:["cranial_ram","crushing_bulk","daunt","collide"]}
+        {monsterId:185, level:7, moves:["rapid_strike","quick_jab","gust_jab","double_smash"]},
+        {monsterId:178, level:7, moves:["rapid_strike","quick_jab","double_smash","blitz"]},
+        {monsterId:104, level:8, moves:["rapid_strike","quick_jab","quake_pulse","double_smash"]},
+        {monsterId:187, level:8, moves:["rapid_strike","quick_jab","double_smash","blitz"]},
+        {monsterId:118, level:9, moves:["chomp","stygian_whisper","run_down","shade_dash"]}
       ],
       triple:[
-        {monsterId:178, level:6, moves:["collide","cranial_ram","daunt","blitz"]},
-        {monsterId:180, level:7, moves:["collide","blitz","lashing_tail","cranial_ram"]},
-        {monsterId:182, level:8, moves:["cranial_ram","crushing_bulk","daunt","collide"]},
-        {monsterId:183, level:9, moves:["cranial_ram","crushing_bulk","daunt","collide"]},
-        {monsterId:185, level:9, moves:["collide","breeze","blitz","wingbeat"]}
+        {monsterId:180, level:6, moves:["rapid_strike","quick_jab","double_smash","blitz"]},
+        {monsterId:185, level:7, moves:["rapid_strike","quick_jab","gust_jab","double_smash"]},
+        {monsterId:178, level:7, moves:["rapid_strike","quick_jab","double_smash","blitz"]},
+        {monsterId:104, level:8, moves:["rapid_strike","quick_jab","quake_pulse","double_smash"]},
+        {monsterId:187, level:8, moves:["rapid_strike","quick_jab","double_smash","blitz"]},
+        {monsterId:118, level:9, moves:["chomp","stygian_whisper","run_down","shade_dash"]}
       ]
     }
   },
@@ -7053,21 +7057,24 @@ const GYM_LEADERS = {
     winQuote:"You truly understand the ocean's power. The Wave Badge is yours.",
     teams:{
       single:[
-        {monsterId:25, level:12, moves:["aquatic_gun","bubble_jet","fortify","tidal_sweep"]},
-        {monsterId:5,  level:13, moves:["aquatic_gun","tidal_sweep","tidal_rush","second_wind"]}
+        {monsterId:28, level:13, moves:["rain_cascade","abyssal_jet","wave_dash","aquatic_gun"]},
+        {monsterId:31, level:13, moves:["rain_cascade","abyssal_jet","nerve_agent","wave_dash"]},
+        {monsterId:4, level:14, moves:["rain_cascade","abyssal_jet","wave_dash","aquatic_gun"]}
       ],
       double:[
-        {monsterId:28, level:11, moves:["aquatic_gun","bubble_jet","bewitching_kiss","blitz"]},
-        {monsterId:25, level:12, moves:["aquatic_gun","bubble_jet","fortify","tidal_sweep"]},
-        {monsterId:193, level:13, moves:["aquatic_gun","stone_slide","tidal_sweep","fortify"]},
-        {monsterId:5,  level:14, moves:["aquatic_gun","tidal_sweep","tidal_rush","second_wind"]}
+        {monsterId:84, level:12, moves:["shock_net","thunder_jab","rain_cascade","thunder_chain"]},
+        {monsterId:34, level:12, moves:["rain_cascade","abyssal_jet","glacial_spirit","wave_dash"]},
+        {monsterId:28, level:13, moves:["rain_cascade","abyssal_jet","wave_dash","aquatic_gun"]},
+        {monsterId:31, level:13, moves:["rain_cascade","abyssal_jet","nerve_agent","wave_dash"]},
+        {monsterId:4, level:14, moves:["rain_cascade","abyssal_jet","wave_dash","aquatic_gun"]}
       ],
       triple:[
-        {monsterId:28, level:11, moves:["aquatic_gun","bubble_jet","bewitching_kiss","blitz"]},
-        {monsterId:25, level:12, moves:["aquatic_gun","bubble_jet","fortify","tidal_sweep"]},
-        {monsterId:193, level:12, moves:["aquatic_gun","stone_slide","tidal_sweep","fortify"]},
-        {monsterId:29, level:13, moves:["aquatic_gun","tidal_sweep","bubble_jet","prism_flare"]},
-        {monsterId:5,  level:14, moves:["aquatic_gun","tidal_sweep","tidal_rush","second_wind"]}
+        {monsterId:104, level:11, moves:["rapid_strike","quick_jab","burial_sands","double_smash"]},
+        {monsterId:84, level:12, moves:["shock_net","thunder_jab","rain_cascade","thunder_chain"]},
+        {monsterId:34, level:12, moves:["rain_cascade","abyssal_jet","glacial_spirit","wave_dash"]},
+        {monsterId:28, level:13, moves:["rain_cascade","abyssal_jet","wave_dash","aquatic_gun"]},
+        {monsterId:31, level:13, moves:["rain_cascade","abyssal_jet","nerve_agent","wave_dash"]},
+        {monsterId:4, level:14, moves:["rain_cascade","abyssal_jet","wave_dash","aquatic_gun"]}
       ]
     }
   },
@@ -7078,19 +7085,24 @@ const GYM_LEADERS = {
     winQuote:"Your strength is as intense as a raging wildfire. The Forge Badge is yours!",
     teams:{
       single:[
-        {monsterId:16, level:17, moves:["flicker","blitz","inferno_jet","collide"]},
-        {monsterId:13, level:18, moves:["flicker","cranial_ram","inferno_jet","crushing_bulk"]}
+        {monsterId:1, level:17, moves:["inferno_chop","blazing_rush","flame_charge","flash_fire"]},
+        {monsterId:274, level:18, moves:["inferno_chop","blazing_rush","lode_strike","flame_charge"]},
+        {monsterId:19, level:18, moves:["inferno_chop","blazing_rush","trample","flame_charge"]}
       ],
       double:[
-        {monsterId:16, level:16, moves:["flicker","blitz","inferno_jet","collide"]},
-        {monsterId:10, level:17, moves:["flicker","mandible_bite","flame_fang","shear_strike"]},
-        {monsterId:13, level:18, moves:["flicker","cranial_ram","inferno_jet","crushing_bulk"]}
+        {monsterId:66, level:16, moves:["fae_petals","pheromone_rush","mandible_bite","silk_bind"]},
+        {monsterId:13, level:17, moves:["inferno_chop","blazing_rush","flame_charge","flash_fire"]},
+        {monsterId:1, level:17, moves:["inferno_chop","blazing_rush","flame_charge","flash_fire"]},
+        {monsterId:274, level:18, moves:["inferno_chop","blazing_rush","lode_strike","flame_charge"]},
+        {monsterId:19, level:18, moves:["inferno_chop","blazing_rush","trample","flame_charge"]}
       ],
       triple:[
-        {monsterId:16, level:16, moves:["flicker","blitz","inferno_jet","collide"]},
-        {monsterId:10, level:17, moves:["flicker","mandible_bite","flame_fang","shear_strike"]},
-        {monsterId:17, level:17, moves:["inferno_jet","draconic_claw","searing_gale","draconic_breath"]},
-        {monsterId:13, level:18, moves:["flicker","cranial_ram","inferno_jet","crushing_bulk"]}
+        {monsterId:10, level:16, moves:["inferno_chop","blazing_rush","fae_petals","flame_charge"]},
+        {monsterId:66, level:16, moves:["fae_petals","pheromone_rush","mandible_bite","silk_bind"]},
+        {monsterId:13, level:17, moves:["inferno_chop","blazing_rush","flame_charge","flash_fire"]},
+        {monsterId:1, level:17, moves:["inferno_chop","blazing_rush","flame_charge","flash_fire"]},
+        {monsterId:274, level:18, moves:["inferno_chop","blazing_rush","lode_strike","flame_charge"]},
+        {monsterId:19, level:18, moves:["inferno_chop","blazing_rush","trample","flame_charge"]}
       ]
     }
   },
@@ -7101,19 +7113,24 @@ const GYM_LEADERS = {
     winQuote:"You're truly electrifying! The Current Badge is yours.",
     teams:{
       single:[
-        {monsterId:90, level:24, moves:["jolt","wingbeat","static_strike","volt_jet"]},
-        {monsterId:82, level:26, moves:["volt_jet","static_strike","crushing_bulk","stun_pulse"]}
+        {monsterId:242, level:25, moves:["rising_voltage","relay_shock","melody_cascade","chain_spark"]},
+        {monsterId:92, level:25, moves:["rising_voltage","relay_shock","scorched_sand","chain_spark"]},
+        {monsterId:87, level:26, moves:["rising_voltage","relay_shock","frost_current","chain_spark"]}
       ],
       double:[
-        {monsterId:84, level:23, moves:["jolt","static_strike","mandible_bite","silk_spray"]},
-        {monsterId:90, level:24, moves:["jolt","wingbeat","static_strike","volt_jet"]},
-        {monsterId:82, level:26, moves:["volt_jet","static_strike","crushing_bulk","stun_pulse"]}
+        {monsterId:90, level:24, moves:["rising_voltage","relay_shock","zephyr_arrow","chain_spark"]},
+        {monsterId:293, level:24, moves:["rising_voltage","relay_shock","draco_pulse","chain_spark"]},
+        {monsterId:242, level:25, moves:["rising_voltage","relay_shock","melody_cascade","chain_spark"]},
+        {monsterId:92, level:25, moves:["rising_voltage","relay_shock","scorched_sand","chain_spark"]},
+        {monsterId:87, level:26, moves:["rising_voltage","relay_shock","frost_current","chain_spark"]}
       ],
       triple:[
-        {monsterId:84, level:23, moves:["jolt","static_strike","mandible_bite","silk_spray"]},
-        {monsterId:90, level:24, moves:["jolt","wingbeat","static_strike","volt_jet"]},
-        {monsterId:81, level:25, moves:["jolt","static_strike","volt_jet","blitz"]},
-        {monsterId:82, level:26, moves:["volt_jet","static_strike","crushing_bulk","stun_pulse"]}
+        {monsterId:47, level:23, moves:["flash_freeze","hoarfrost_bite","hail_barrage","borealis_ray"]},
+        {monsterId:90, level:24, moves:["rising_voltage","relay_shock","zephyr_arrow","chain_spark"]},
+        {monsterId:293, level:24, moves:["rising_voltage","relay_shock","draco_pulse","chain_spark"]},
+        {monsterId:242, level:25, moves:["rising_voltage","relay_shock","melody_cascade","chain_spark"]},
+        {monsterId:92, level:25, moves:["rising_voltage","relay_shock","scorched_sand","chain_spark"]},
+        {monsterId:87, level:26, moves:["rising_voltage","relay_shock","frost_current","chain_spark"]}
       ]
     }
   },
@@ -7124,19 +7141,24 @@ const GYM_LEADERS = {
     winQuote:"Your warmth has melted even my icy heart. The Frost Badge is yours.",
     teams:{
       single:[
-        {monsterId:47, level:29, moves:["flurries","blitz","cold_beam","frost_crash"]},
-        {monsterId:50, level:30, moves:["flurries","fortify","cold_beam","whiteout"]}
+        {monsterId:53, level:29, moves:["icicle_smash","aurora_blast","tempest_wave","hail_storm"]},
+        {monsterId:304, level:30, moves:["crystal_spear","underground_crush","icicle_smash","gemburst"]},
+        {monsterId:55, level:30, moves:["icicle_smash","aurora_blast","ki_burst","hail_storm"]}
       ],
       double:[
-        {monsterId:45, level:28, moves:["flurries","aquatic_gun","cold_beam","tidal_rush"]},
-        {monsterId:47, level:29, moves:["flurries","blitz","cold_beam","frost_crash"]},
-        {monsterId:50, level:30, moves:["flurries","fortify","cold_beam","whiteout"]}
+        {monsterId:236, level:28, moves:["icicle_smash","aurora_blast","hail_storm","cryo_lance"]},
+        {monsterId:42, level:29, moves:["icicle_smash","aurora_blast","diving_strike","hail_storm"]},
+        {monsterId:53, level:29, moves:["icicle_smash","aurora_blast","tempest_wave","hail_storm"]},
+        {monsterId:304, level:30, moves:["crystal_spear","underground_crush","icicle_smash","gemburst"]},
+        {monsterId:55, level:30, moves:["icicle_smash","aurora_blast","ki_burst","hail_storm"]}
       ],
       triple:[
-        {monsterId:45, level:28, moves:["flurries","aquatic_gun","cold_beam","tidal_rush"]},
-        {monsterId:47, level:29, moves:["flurries","blitz","cold_beam","frost_crash"]},
-        {monsterId:48, level:29, moves:["whiteout","cold_beam","tidal_rush","frost_crash"]},
-        {monsterId:50, level:30, moves:["flurries","fortify","cold_beam","whiteout"]}
+        {monsterId:256, level:28, moves:["diving_strike","torrent_fang","whirlpool_dive","maelstrom"]},
+        {monsterId:236, level:28, moves:["icicle_smash","aurora_blast","hail_storm","cryo_lance"]},
+        {monsterId:42, level:29, moves:["icicle_smash","aurora_blast","diving_strike","hail_storm"]},
+        {monsterId:53, level:29, moves:["icicle_smash","aurora_blast","tempest_wave","hail_storm"]},
+        {monsterId:304, level:30, moves:["crystal_spear","underground_crush","icicle_smash","gemburst"]},
+        {monsterId:55, level:30, moves:["icicle_smash","aurora_blast","ki_burst","hail_storm"]}
       ]
     }
   },
@@ -7147,19 +7169,24 @@ const GYM_LEADERS = {
     winQuote:"A light that cannot be extinguished... The Dusk Badge is yours.",
     teams:{
       single:[
-        {monsterId:118, level:36, moves:["chomp","blitz","jaw_crush","dusk_slash"]},
-        {monsterId:123, level:38, moves:["chomp","septic_prick","jaw_crush","nether_sphere"]}
+        {monsterId:230, level:37, moves:["dream_torrent","steam_geyser","shockwave_kick","tidal_rush"]},
+        {monsterId:218, level:37, moves:["nightmare_smash","blackout_bomb","nyx_fang","malice_beam"]},
+        {monsterId:220, level:38, moves:["nightmare_smash","blackout_bomb","corrosive_fog","nyx_fang"]}
       ],
       double:[
-        {monsterId:121, level:35, moves:["chomp","breeze","void_pulse","wingbeat"]},
-        {monsterId:118, level:36, moves:["chomp","blitz","jaw_crush","dusk_slash"]},
-        {monsterId:123, level:38, moves:["chomp","septic_prick","jaw_crush","nether_sphere"]}
+        {monsterId:132, level:36, moves:["scorched_earth","crystal_lance","nightmare_smash","geoblast"]},
+        {monsterId:312, level:36, moves:["scorched_earth","crystal_lance","nightmare_smash","geoblast"]},
+        {monsterId:230, level:37, moves:["dream_torrent","steam_geyser","shockwave_kick","tidal_rush"]},
+        {monsterId:218, level:37, moves:["nightmare_smash","blackout_bomb","nyx_fang","malice_beam"]},
+        {monsterId:220, level:38, moves:["nightmare_smash","blackout_bomb","corrosive_fog","nyx_fang"]}
       ],
       triple:[
-        {monsterId:121, level:35, moves:["chomp","breeze","void_pulse","wingbeat"]},
-        {monsterId:118, level:36, moves:["chomp","blitz","jaw_crush","dusk_slash"]},
-        {monsterId:122, level:37, moves:["void_pulse","wingbeat","wind_scythe","nether_sphere"]},
-        {monsterId:123, level:38, moves:["chomp","septic_prick","jaw_crush","nether_sphere"]}
+        {monsterId:78, level:35, moves:["sky_harvest","swarm_strike","nightmare_smash","verdant_edge"]},
+        {monsterId:132, level:36, moves:["scorched_earth","crystal_lance","nightmare_smash","geoblast"]},
+        {monsterId:312, level:36, moves:["scorched_earth","crystal_lance","nightmare_smash","geoblast"]},
+        {monsterId:230, level:37, moves:["dream_torrent","steam_geyser","shockwave_kick","tidal_rush"]},
+        {monsterId:218, level:37, moves:["nightmare_smash","blackout_bomb","nyx_fang","malice_beam"]},
+        {monsterId:220, level:38, moves:["nightmare_smash","blackout_bomb","corrosive_fog","nyx_fang"]}
       ]
     }
   },
@@ -7170,22 +7197,24 @@ const GYM_LEADERS = {
     winQuote:"Incredible. You have rewritten what I thought was fate. The Foresight Badge is yours.",
     teams:{
       single:[
-        {monsterId:166, level:44, moves:["mind_jolt","blitz","psi_burst","second_wind"]},
-        {monsterId:168, level:46, moves:["psi_burst","prism_flare","mental","inner_calm"]}
+        {monsterId:168, level:45, moves:["cerebral_punch","venom_mind","obsidian_burst","cognition_meld"]},
+        {monsterId:302, level:45, moves:["glitter_storm","lunar_burst","enchanted_smash","glimmering_song"]},
+        {monsterId:223, level:46, moves:["cerebral_punch","venom_mind","cognition_meld","psycho_surge"]}
       ],
       double:[
-        {monsterId:167, level:43, moves:["mind_jolt","psi_burst","second_wind","blitz"]},
-        {monsterId:166, level:44, moves:["mind_jolt","blitz","psi_burst","second_wind"]},
-        {monsterId:142, level:44, moves:["mind_jolt","fairy_wind","psi_burst","prism_flare"]},
-        {monsterId:168, level:46, moves:["psi_burst","prism_flare","mental","inner_calm"]}
+        {monsterId:142, level:44, moves:["glitter_storm","lunar_burst","cerebral_punch","enchanted_smash"]},
+        {monsterId:226, level:44, moves:["lumiwave","tornado_grab","cerebral_punch","encore_blast"]},
+        {monsterId:168, level:45, moves:["cerebral_punch","venom_mind","obsidian_burst","cognition_meld"]},
+        {monsterId:302, level:45, moves:["glitter_storm","lunar_burst","enchanted_smash","glimmering_song"]},
+        {monsterId:223, level:46, moves:["cerebral_punch","venom_mind","cognition_meld","psycho_surge"]}
       ],
       triple:[
-        {monsterId:167, level:43, moves:["mind_jolt","psi_burst","second_wind","blitz"]},
-        {monsterId:166, level:44, moves:["mind_jolt","blitz","psi_burst","second_wind"]},
-        {monsterId:142, level:44, moves:["mind_jolt","fairy_wind","psi_burst","prism_flare"]},
-        {monsterId:169, level:45, moves:["mind_jolt","psi_burst","mental","inner_calm"]},
-        {monsterId:170, level:46, moves:["mental","void_pulse","nether_sphere","dusk_slash"]},
-        {monsterId:168, level:46, moves:["psi_burst","prism_flare","mental","inner_calm"]}
+        {monsterId:128, level:43, moves:["cerebral_punch","venom_mind","revenant_charge","cognition_meld"]},
+        {monsterId:142, level:44, moves:["glitter_storm","lunar_burst","cerebral_punch","enchanted_smash"]},
+        {monsterId:226, level:44, moves:["lumiwave","tornado_grab","cerebral_punch","encore_blast"]},
+        {monsterId:168, level:45, moves:["cerebral_punch","venom_mind","obsidian_burst","cognition_meld"]},
+        {monsterId:302, level:45, moves:["glitter_storm","lunar_burst","enchanted_smash","glimmering_song"]},
+        {monsterId:223, level:46, moves:["cerebral_punch","venom_mind","cognition_meld","psycho_surge"]}
       ]
     }
   },
@@ -7196,22 +7225,24 @@ const GYM_LEADERS = {
     winQuote:"You have shown the heart of a true dragon master. The Wyrm Badge is yours!",
     teams:{
       single:[
-        {monsterId:172, level:48, moves:["draconic_breath","draconic_claw","cranial_ram","hydra_dance"]},
-        {monsterId:173, level:50, moves:["draconic_claw","draconic_pulse","hydra_dance","rampage"]}
+        {monsterId:59, level:49, moves:["icebound_lattice","ice_hammer","leviathan_rush","frostbite_strike"]},
+        {monsterId:173, level:49, moves:["leviathan_rush","eon_crash","scale_storm","reptilian_gust"]},
+        {monsterId:233, level:50, moves:["leviathan_rush","eon_crash","luma_quake","scale_storm"]}
       ],
       double:[
-        {monsterId:172, level:47, moves:["draconic_breath","draconic_claw","cranial_ram","hydra_dance"]},
-        {monsterId:174, level:48, moves:["draconic_claw","alloy_tail","draconic_breath","forge_blast_2"]},
-        {monsterId:175, level:49, moves:["aquatic_gun","draconic_breath","tidal_rush","draconic_claw"]},
-        {monsterId:173, level:50, moves:["draconic_claw","draconic_pulse","hydra_dance","rampage"]}
+        {monsterId:206, level:48, moves:["plague_burst","sludge_wave","leviathan_rush","toxic_lash"]},
+        {monsterId:278, level:48, moves:["plasma_smelt","ferrous_gale","moonlit_surge","solar_impact"]},
+        {monsterId:59, level:49, moves:["icebound_lattice","ice_hammer","leviathan_rush","frostbite_strike"]},
+        {monsterId:173, level:49, moves:["leviathan_rush","eon_crash","scale_storm","reptilian_gust"]},
+        {monsterId:233, level:50, moves:["leviathan_rush","eon_crash","luma_quake","scale_storm"]}
       ],
       triple:[
-        {monsterId:172, level:47, moves:["draconic_breath","draconic_claw","cranial_ram","hydra_dance"]},
-        {monsterId:174, level:48, moves:["draconic_claw","alloy_tail","draconic_breath","forge_blast_2"]},
-        {monsterId:175, level:49, moves:["aquatic_gun","draconic_breath","tidal_rush","draconic_claw"]},
-        {monsterId:176, level:49, moves:["jolt","draconic_breath","volt_jet","draconic_claw"]},
-        {monsterId:177, level:50, moves:["cold_beam","draconic_breath","whiteout","draconic_claw"]},
-        {monsterId:173, level:50, moves:["draconic_claw","draconic_pulse","hydra_dance","rampage"]}
+        {monsterId:293, level:47, moves:["tesla_fists","ion_cannon","leviathan_rush","plasma_punch"]},
+        {monsterId:206, level:48, moves:["plague_burst","sludge_wave","leviathan_rush","toxic_lash"]},
+        {monsterId:278, level:48, moves:["plasma_smelt","ferrous_gale","moonlit_surge","solar_impact"]},
+        {monsterId:59, level:49, moves:["icebound_lattice","ice_hammer","leviathan_rush","frostbite_strike"]},
+        {monsterId:173, level:49, moves:["leviathan_rush","eon_crash","scale_storm","reptilian_gust"]},
+        {monsterId:233, level:50, moves:["leviathan_rush","eon_crash","luma_quake","scale_storm"]}
       ]
     }
   },
@@ -7223,21 +7254,24 @@ const GYM_LEADERS = {
     winQuote:"Your spirit is as resilient as ancient oak. The Canopy Badge is yours.",
     teams:{
       single:[
-        {monsterId:263, level:53, moves:["vine_lash","barb_jab","verdant_orb","toxify"]},
-        {monsterId:9,   level:54, moves:["petal_blitz","verdant_orb","lunar_burst","canopy_crash"]}
+        {monsterId:5, level:53, moves:["geyser_burst","tsunami","claw_hammer","ocean_tempest"]},
+        {monsterId:199, level:54, moves:["primordial_growth","hivemind_surge","hurricane_blast","jungle_hammer"]},
+        {monsterId:130, level:54, moves:["eclipse_burst","soul_rend","primordial_growth","shadowstorm"]}
       ],
       double:[
-        {monsterId:8,   level:52, moves:["sharp_leaves","vine_lash","pod_blast","verdant_orb"]},
-        {monsterId:263, level:53, moves:["vine_lash","barb_jab","verdant_orb","toxify"]},
-        {monsterId:264, level:53, moves:["verdant_orb","toxify","ooze_bomb","petal_blitz"]},
-        {monsterId:9,   level:54, moves:["petal_blitz","verdant_orb","lunar_burst","canopy_crash"]}
+        {monsterId:310, level:52, moves:["geyser_burst","tsunami","primordial_growth","claw_hammer"]},
+        {monsterId:8, level:53, moves:["primordial_growth","hivemind_surge","jungle_hammer","verdant_surge"]},
+        {monsterId:5, level:53, moves:["geyser_burst","tsunami","claw_hammer","ocean_tempest"]},
+        {monsterId:199, level:54, moves:["primordial_growth","hivemind_surge","hurricane_blast","jungle_hammer"]},
+        {monsterId:130, level:54, moves:["eclipse_burst","soul_rend","primordial_growth","shadowstorm"]}
       ],
       triple:[
-        {monsterId:8,   level:52, moves:["sharp_leaves","vine_lash","pod_blast","verdant_orb"]},
-        {monsterId:263, level:53, moves:["vine_lash","barb_jab","verdant_orb","toxify"]},
-        {monsterId:264, level:53, moves:["verdant_orb","toxify","ooze_bomb","petal_blitz"]},
-        {monsterId:65,  level:53, moves:["petal_blitz","verdant_orb","verdant_surge","canopy_crash"]},
-        {monsterId:9,   level:54, moves:["petal_blitz","verdant_orb","lunar_burst","canopy_crash"]}
+        {monsterId:78, level:52, moves:["primordial_growth","hivemind_surge","eclipse_burst","jungle_hammer"]},
+        {monsterId:310, level:52, moves:["geyser_burst","tsunami","primordial_growth","claw_hammer"]},
+        {monsterId:8, level:53, moves:["primordial_growth","hivemind_surge","jungle_hammer","verdant_surge"]},
+        {monsterId:5, level:53, moves:["geyser_burst","tsunami","claw_hammer","ocean_tempest"]},
+        {monsterId:199, level:54, moves:["primordial_growth","hivemind_surge","hurricane_blast","jungle_hammer"]},
+        {monsterId:130, level:54, moves:["eclipse_burst","soul_rend","primordial_growth","shadowstorm"]}
       ]
     }
   },
@@ -7248,21 +7282,24 @@ const GYM_LEADERS = {
     winQuote:"You survived my venom... impressive. The Venom Badge is yours.",
     teams:{
       single:[
-        {monsterId:156, level:61, moves:["ooze_bomb","virulent_surge","toxify","acid_rain"]},
-        {monsterId:158, level:62, moves:["sludge_wave","tectonic_shift","acid_rain","toxify"]}
+        {monsterId:62, level:61, moves:["avalanche_smash","glacial_lance","gunk_blast","whiteout"]},
+        {monsterId:158, level:62, moves:["gunk_blast","sludge_cannon","worldseed_quake","venom_drown"]},
+        {monsterId:124, level:62, moves:["wraith_drive","eclipse_burst","gunk_blast","soul_rend"]}
       ],
       double:[
-        {monsterId:156, level:60, moves:["ooze_bomb","virulent_surge","toxify","acid_rain"]},
-        {monsterId:297, level:60, moves:["ooze_bomb","wind_scythe","toxify","resonance_hum"]},
-        {monsterId:208, level:61, moves:["ooze_bomb","draconic_pulse","virulent_surge","toxify"]},
-        {monsterId:158, level:62, moves:["sludge_wave","tectonic_shift","acid_rain","toxify"]}
+        {monsterId:155, level:60, moves:["gunk_blast","sludge_cannon","venom_drown","plague_burst"]},
+        {monsterId:193, level:61, moves:["ocean_crash","geyser_burst","quartz_blast","tsunami"]},
+        {monsterId:62, level:61, moves:["avalanche_smash","glacial_lance","gunk_blast","whiteout"]},
+        {monsterId:158, level:62, moves:["gunk_blast","sludge_cannon","worldseed_quake","venom_drown"]},
+        {monsterId:124, level:62, moves:["wraith_drive","eclipse_burst","gunk_blast","soul_rend"]}
       ],
       triple:[
-        {monsterId:156, level:60, moves:["ooze_bomb","virulent_surge","toxify","acid_rain"]},
-        {monsterId:297, level:60, moves:["ooze_bomb","wind_scythe","toxify","resonance_hum"]},
-        {monsterId:99,  level:61, moves:["ooze_bomb","tectonic_shift","toxify","virulent_surge"]},
-        {monsterId:208, level:61, moves:["ooze_bomb","draconic_pulse","virulent_surge","toxify"]},
-        {monsterId:158, level:62, moves:["sludge_wave","tectonic_shift","acid_rain","toxify"]}
+        {monsterId:98, level:60, moves:["worldseed_quake","continental_shift","gunk_blast","cryo_shatter"]},
+        {monsterId:155, level:60, moves:["gunk_blast","sludge_cannon","venom_drown","plague_burst"]},
+        {monsterId:193, level:61, moves:["ocean_crash","geyser_burst","quartz_blast","tsunami"]},
+        {monsterId:62, level:61, moves:["avalanche_smash","glacial_lance","gunk_blast","whiteout"]},
+        {monsterId:158, level:62, moves:["gunk_blast","sludge_cannon","worldseed_quake","venom_drown"]},
+        {monsterId:124, level:62, moves:["wraith_drive","eclipse_burst","gunk_blast","soul_rend"]}
       ]
     }
   },
@@ -7273,21 +7310,24 @@ const GYM_LEADERS = {
     winQuote:"The ground trembles in respect. The Tectonic Badge is yours.",
     teams:{
       single:[
-        {monsterId:96,  level:65, moves:["tectonic_shift","stone_slide","mud_spray","crag_strike"]},
-        {monsterId:54,  level:66, moves:["tectonic_shift","whiteout","cold_beam","geoblast"]}
+        {monsterId:192, level:65, moves:["worldseed_quake","continental_shift","cryo_shatter","bedrock_slam"]},
+        {monsterId:223, level:66, moves:["veil_collapse","temporal_collapse","prophecy","psy_blast"]},
+        {monsterId:205, level:66, moves:["sun_ray","blossom_frenzy","worldseed_quake","primordial_growth"]}
       ],
       double:[
-        {monsterId:96,  level:64, moves:["tectonic_shift","stone_slide","mud_spray","crag_strike"]},
-        {monsterId:310, level:65, moves:["mud_spray","aquatic_gun","tectonic_shift","mire_burst"]},
-        {monsterId:311, level:65, moves:["tidal_rush","tectonic_shift","geoblast","mud_spray"]},
-        {monsterId:54,  level:66, moves:["tectonic_shift","whiteout","cold_beam","geoblast"]}
+        {monsterId:249, level:64, moves:["worldseed_quake","continental_shift","cryo_shatter","bedrock_slam"]},
+        {monsterId:233, level:65, moves:["sky_surge","rampage","worldseed_quake","stellar_flare"]},
+        {monsterId:192, level:65, moves:["worldseed_quake","continental_shift","cryo_shatter","bedrock_slam"]},
+        {monsterId:223, level:66, moves:["veil_collapse","temporal_collapse","prophecy","psy_blast"]},
+        {monsterId:205, level:66, moves:["sun_ray","blossom_frenzy","worldseed_quake","primordial_growth"]}
       ],
       triple:[
-        {monsterId:96,  level:64, moves:["tectonic_shift","stone_slide","mud_spray","crag_strike"]},
-        {monsterId:310, level:65, moves:["mud_spray","aquatic_gun","tectonic_shift","mire_burst"]},
-        {monsterId:311, level:65, moves:["tidal_rush","tectonic_shift","geoblast","mud_spray"]},
-        {monsterId:250, level:65, moves:["tectonic_shift","crag_strike","stone_slide","landslide"]},
-        {monsterId:54,  level:66, moves:["tectonic_shift","whiteout","cold_beam","geoblast"]}
+        {monsterId:95, level:64, moves:["worldseed_quake","continental_shift","cryo_shatter","bedrock_slam"]},
+        {monsterId:249, level:64, moves:["worldseed_quake","continental_shift","cryo_shatter","bedrock_slam"]},
+        {monsterId:233, level:65, moves:["sky_surge","rampage","worldseed_quake","stellar_flare"]},
+        {monsterId:192, level:65, moves:["worldseed_quake","continental_shift","cryo_shatter","bedrock_slam"]},
+        {monsterId:223, level:66, moves:["veil_collapse","temporal_collapse","prophecy","psy_blast"]},
+        {monsterId:205, level:66, moves:["sun_ray","blossom_frenzy","worldseed_quake","primordial_growth"]}
       ]
     }
   },
@@ -7298,22 +7338,24 @@ const GYM_LEADERS = {
     winQuote:"Your reflexes rival even my bugs. The Chitin Badge is yours!",
     teams:{
       single:[
-        {monsterId:201, level:69, moves:["shear_strike","resonance_hum","alloy_tail","mandible_crush"]},
-        {monsterId:203, level:70, moves:["resonance_hum","lunar_burst","shear_strike","prism_flare"]}
+        {monsterId:130, level:69, moves:["abyssal_wave","abyssal_dominion","foliage_tempest","wraith_drive"]},
+        {monsterId:203, level:70, moves:["foliage_tempest","sun_ray","supernova_glow","blossom_frenzy"]},
+        {monsterId:205, level:70, moves:["foliage_tempest","sun_ray","world_root_bind","blossom_frenzy"]}
       ],
       double:[
-        {monsterId:201, level:68, moves:["shear_strike","resonance_hum","alloy_tail","mandible_crush"]},
-        {monsterId:197, level:69, moves:["mandible_bite","shear_strike","septic_prick","resonance_hum"]},
-        {monsterId:299, level:69, moves:["mandible_bite","septic_prick","shear_strike","toxify"]},
-        {monsterId:203, level:70, moves:["resonance_hum","lunar_burst","shear_strike","prism_flare"]}
+        {monsterId:199, level:68, moves:["foliage_tempest","sun_ray","thunderstorm_eruption","blossom_frenzy"]},
+        {monsterId:223, level:69, moves:["time_fracture","veil_collapse","temporal_collapse","prophecy"]},
+        {monsterId:130, level:69, moves:["abyssal_wave","abyssal_dominion","foliage_tempest","wraith_drive"]},
+        {monsterId:203, level:70, moves:["foliage_tempest","sun_ray","supernova_glow","blossom_frenzy"]},
+        {monsterId:205, level:70, moves:["foliage_tempest","sun_ray","world_root_bind","blossom_frenzy"]}
       ],
       triple:[
-        {monsterId:201, level:68, moves:["shear_strike","resonance_hum","alloy_tail","mandible_crush"]},
-        {monsterId:197, level:69, moves:["mandible_bite","shear_strike","septic_prick","resonance_hum"]},
-        {monsterId:299, level:69, moves:["mandible_bite","septic_prick","shear_strike","toxify"]},
-        {monsterId:300, level:69, moves:["shear_strike","ooze_bomb","toxify","resonance_hum"]},
-        {monsterId:199, level:70, moves:["resonance_hum","wind_scythe","shear_strike","typhoon"]},
-        {monsterId:203, level:70, moves:["resonance_hum","lunar_burst","shear_strike","prism_flare"]}
+        {monsterId:8, level:68, moves:["foliage_tempest","sun_ray","blossom_frenzy","primordial_growth"]},
+        {monsterId:199, level:68, moves:["foliage_tempest","sun_ray","thunderstorm_eruption","blossom_frenzy"]},
+        {monsterId:223, level:69, moves:["time_fracture","veil_collapse","temporal_collapse","prophecy"]},
+        {monsterId:130, level:69, moves:["abyssal_wave","abyssal_dominion","foliage_tempest","wraith_drive"]},
+        {monsterId:203, level:70, moves:["foliage_tempest","sun_ray","supernova_glow","blossom_frenzy"]},
+        {monsterId:205, level:70, moves:["foliage_tempest","sun_ray","world_root_bind","blossom_frenzy"]}
       ]
     }
   },
@@ -7429,20 +7471,24 @@ const GYM_LEADERS = {
     winQuote:"You fought with true heart. The Resolve Badge is yours.",
     teams:{
       single:[
-        {monsterId:184, level:20, moves:["instinct_slash","haymaker","brawl","baleful_stare"]},
-        {monsterId:71, level:22, moves:["briar_lash","haymaker","seismic_force","war_dance"]}
+        {monsterId:182, level:20, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]},
+        {monsterId:123, level:21, moves:["umbral_pulse","shadow_jab","plague_strike","backstab"]},
+        {monsterId:230, level:22, moves:["brine_slash","bubble_jet","focused_beam","aquatic_pulse"]}
       ],
       double:[
-        {monsterId:56, level:18, moves:["avalanche_drive","iron_fist","piston_jab","war_dance"]},
-        {monsterId:231, level:20, moves:["ocean_tempest","martial_finish","spinning_kick","tsunami"]},
-        {monsterId:71, level:22, moves:["briar_lash","haymaker","seismic_force","war_dance"]}
+        {monsterId:262, level:19, moves:["focused_beam","leg_sweep","venom_ray","roundhouse"]},
+        {monsterId:280, level:20, moves:["alloy_edge","wrought_shockwave","focused_beam","magnetic_mine"]},
+        {monsterId:182, level:20, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]},
+        {monsterId:123, level:21, moves:["umbral_pulse","shadow_jab","plague_strike","backstab"]},
+        {monsterId:230, level:22, moves:["brine_slash","bubble_jet","focused_beam","aquatic_pulse"]}
       ],
       triple:[
-        {monsterId:184, level:18, moves:["instinct_slash","haymaker","brawl","baleful_stare"]},
-        {monsterId:56, level:19, moves:["avalanche_drive","iron_fist","piston_jab","war_dance"]},
-        {monsterId:231, level:20, moves:["ocean_tempest","martial_finish","spinning_kick","tsunami"]},
-        {monsterId:282, level:20, moves:["forge_blast_2","quick_punch","radiance_cannon","geoblast"]},
-        {monsterId:71, level:22, moves:["briar_lash","haymaker","seismic_force","war_dance"]}
+        {monsterId:69, level:18, moves:["leafblade_swirl","venom_drool","focused_beam","fae_petals"]},
+        {monsterId:262, level:19, moves:["focused_beam","leg_sweep","venom_ray","roundhouse"]},
+        {monsterId:280, level:20, moves:["alloy_edge","wrought_shockwave","focused_beam","magnetic_mine"]},
+        {monsterId:182, level:20, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]},
+        {monsterId:123, level:21, moves:["umbral_pulse","shadow_jab","plague_strike","backstab"]},
+        {monsterId:230, level:22, moves:["brine_slash","bubble_jet","focused_beam","aquatic_pulse"]}
       ]
     }
   },
@@ -7453,20 +7499,24 @@ const GYM_LEADERS = {
     winQuote:"Solid as bedrock. Take the Strata Badge.",
     teams:{
       single:[
-        {monsterId:252, level:32, moves:["heavy_slam","granite_slam","mud_spray","radiance_cannon"]},
-        {monsterId:196, level:34, moves:["cryo_lance","quarry_crush","tundra_tomb","fortify"]}
+        {monsterId:168, level:32, moves:["brain_blast","noetic_burst","marble_resonance","cortex_spike"]},
+        {monsterId:132, level:33, moves:["mineral_blast","aftershock","nyx_fang","magma_stone"]},
+        {monsterId:193, level:34, moves:["riptide_slam","diving_strike","marble_resonance","torrent_fang"]}
       ],
       double:[
-        {monsterId:177, level:30, moves:["glacial_punch","obsidian_strike","cryo_lance","second_wind"]},
-        {monsterId:194, level:32, moves:["sea_serpent_strike","quarry_crush","crystal_lance","war_dance"]},
-        {monsterId:196, level:34, moves:["cryo_lance","quarry_crush","tundra_tomb","fortify"]}
+        {monsterId:63, level:31, moves:["sylvan_radiance","pollen_storm","cocoon_burst","mandible_crush"]},
+        {monsterId:251, level:32, moves:["pyro_alloy","iron_press","marble_resonance","flywheel"]},
+        {monsterId:168, level:32, moves:["brain_blast","noetic_burst","marble_resonance","cortex_spike"]},
+        {monsterId:132, level:33, moves:["mineral_blast","aftershock","nyx_fang","magma_stone"]},
+        {monsterId:193, level:34, moves:["riptide_slam","diving_strike","marble_resonance","torrent_fang"]}
       ],
       triple:[
-        {monsterId:252, level:30, moves:["heavy_slam","granite_slam","mud_spray","radiance_cannon"]},
-        {monsterId:177, level:31, moves:["glacial_punch","obsidian_strike","cryo_lance","second_wind"]},
-        {monsterId:194, level:32, moves:["sea_serpent_strike","quarry_crush","crystal_lance","war_dance"]},
-        {monsterId:276, level:33, moves:["ashfall","obsidian_burst","radiance_cannon","molten_armor"]},
-        {monsterId:196, level:34, moves:["cryo_lance","quarry_crush","tundra_tomb","fortify"]}
+        {monsterId:274, level:30, moves:["flare_uppercut","cinderwhirl","marble_resonance","coal_smash"]},
+        {monsterId:63, level:31, moves:["sylvan_radiance","pollen_storm","cocoon_burst","mandible_crush"]},
+        {monsterId:251, level:32, moves:["pyro_alloy","iron_press","marble_resonance","flywheel"]},
+        {monsterId:168, level:32, moves:["brain_blast","noetic_burst","marble_resonance","cortex_spike"]},
+        {monsterId:132, level:33, moves:["mineral_blast","aftershock","nyx_fang","magma_stone"]},
+        {monsterId:193, level:34, moves:["riptide_slam","diving_strike","marble_resonance","torrent_fang"]}
       ]
     }
   },
@@ -7501,20 +7551,24 @@ const GYM_LEADERS = {
     winQuote:"You endured the corrosion. The badge is yours.",
     teams:{
       single:[
-        {monsterId:300, level:56, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
-        {monsterId:298, level:58, moves:["corrosion_fang","plague_wave","radiance_cannon","quiver_dance"]}
+        {monsterId:263, level:56, moves:["heaven_strike","brawl","plague_wave","spinning_kick"]},
+        {monsterId:297, level:57, moves:["venom_drown","plague_burst","plague_wave","sludge_wave"]},
+        {monsterId:163, level:58, moves:["primordial_growth","hivemind_surge","plague_wave","jungle_hammer"]}
       ],
       double:[
-        {monsterId:163, level:54, moves:["miasma_blast","miasma_lash","sun_ray","caustic_shock"]},
-        {monsterId:297, level:56, moves:["sludge_wave","blight_strike","venom_lance","toxify"]},
-        {monsterId:298, level:58, moves:["corrosion_fang","plague_wave","radiance_cannon","quiver_dance"]}
+        {monsterId:299, level:55, moves:["plague_wave","toxin_smash","harmonic_burst","malignant_storm"]},
+        {monsterId:193, level:56, moves:["geyser_burst","tsunami","basalt_eruption","claw_hammer"]},
+        {monsterId:263, level:56, moves:["heaven_strike","brawl","plague_wave","spinning_kick"]},
+        {monsterId:297, level:57, moves:["venom_drown","plague_burst","plague_wave","sludge_wave"]},
+        {monsterId:163, level:58, moves:["primordial_growth","hivemind_surge","plague_wave","jungle_hammer"]}
       ],
       triple:[
-        {monsterId:300, level:54, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
-        {monsterId:263, level:55, moves:["acid_press","grove_wrath","crippling_blow","acid_slash"]},
-        {monsterId:297, level:56, moves:["sludge_wave","blight_strike","venom_lance","toxify"]},
-        {monsterId:264, level:57, moves:["martial_finish","acid_press","radiance_cannon","toxify"]},
-        {monsterId:298, level:58, moves:["corrosion_fang","plague_wave","radiance_cannon","quiver_dance"]}
+        {monsterId:296, level:54, moves:["venom_drown","plague_burst","plague_wave","sludge_wave"]},
+        {monsterId:299, level:55, moves:["plague_wave","toxin_smash","harmonic_burst","malignant_storm"]},
+        {monsterId:193, level:56, moves:["geyser_burst","tsunami","basalt_eruption","claw_hammer"]},
+        {monsterId:263, level:56, moves:["heaven_strike","brawl","plague_wave","spinning_kick"]},
+        {monsterId:297, level:57, moves:["venom_drown","plague_burst","plague_wave","sludge_wave"]},
+        {monsterId:163, level:58, moves:["primordial_growth","hivemind_surge","plague_wave","jungle_hammer"]}
       ]
     }
   },
@@ -7525,20 +7579,24 @@ const GYM_LEADERS = {
     winQuote:"You cut clean through the haze. Take the Mist Badge.",
     teams:{
       single:[
-        {monsterId:221, level:72, moves:["soul_rend","abyssal_mist","radiance_cannon","mist_veil"]},
-        {monsterId:217, level:74, moves:["psi_burst","abyssal_mist","radiance_cannon","inner_calm"]}
+        {monsterId:161, level:72, moves:["gunk_blast","sludge_cannon","miasma_apocalypse","venom_drown"]},
+        {monsterId:217, level:73, moves:["psychic_blizzard","time_fracture","miasma_apocalypse","veil_collapse"]},
+        {monsterId:289, level:74, moves:["last_stand","reckless_charge","miasma_apocalypse","zenith_ray"]}
       ],
       double:[
-        {monsterId:161, level:70, moves:["sludge_wave","venom_lance","typhoon","toxify"]},
-        {monsterId:447, level:72, moves:["abyssal_mist","fog_storm","neural_storm","psi_strike"]},
-        {monsterId:217, level:74, moves:["psi_burst","abyssal_mist","radiance_cannon","inner_calm"]}
+        {monsterId:216, level:71, moves:["psychic_blizzard","time_fracture","miasma_apocalypse","veil_collapse"]},
+        {monsterId:249, level:72, moves:["meteor_strike","mantle_surge","world_root_bind","worldseed_quake"]},
+        {monsterId:161, level:72, moves:["gunk_blast","sludge_cannon","miasma_apocalypse","venom_drown"]},
+        {monsterId:217, level:73, moves:["psychic_blizzard","time_fracture","miasma_apocalypse","veil_collapse"]},
+        {monsterId:289, level:74, moves:["last_stand","reckless_charge","miasma_apocalypse","zenith_ray"]}
       ],
       triple:[
-        {monsterId:289, level:70, moves:["radiance_cannon","nimbus_flood","condense","cloud_blast"]},
-        {monsterId:457, level:71, moves:["brume_resonance","fog_kick","void_pulse","dusk_slash"]},
-        {monsterId:161, level:72, moves:["sludge_wave","venom_lance","typhoon","toxify"]},
-        {monsterId:221, level:73, moves:["soul_rend","abyssal_mist","radiance_cannon","mist_veil"]},
-        {monsterId:217, level:74, moves:["psi_burst","abyssal_mist","radiance_cannon","inner_calm"]}
+        {monsterId:160, level:70, moves:["gunk_blast","sludge_cannon","miasma_apocalypse","venom_drown"]},
+        {monsterId:216, level:71, moves:["psychic_blizzard","time_fracture","miasma_apocalypse","veil_collapse"]},
+        {monsterId:249, level:72, moves:["meteor_strike","mantle_surge","world_root_bind","worldseed_quake"]},
+        {monsterId:161, level:72, moves:["gunk_blast","sludge_cannon","miasma_apocalypse","venom_drown"]},
+        {monsterId:217, level:73, moves:["psychic_blizzard","time_fracture","miasma_apocalypse","veil_collapse"]},
+        {monsterId:289, level:74, moves:["last_stand","reckless_charge","miasma_apocalypse","zenith_ray"]}
       ]
     }
   },

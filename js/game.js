@@ -1137,10 +1137,11 @@ function exploreArea() {
   if (!area?.wildMonsters?.length) { showNotification("There's nothing to explore here."); return; }
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori have fainted! Heal at a town first."); return; }
 
-  // Filter out high-BST mons until the player has enough badges; also exclude unknown IDs (BST=0)
-  let pool = G.badges.length < 3
-    ? area.wildMonsters.filter(wm => { const b = getMonBST(wm.id); return b > 0 && b <= 375; })
-    : area.wildMonsters.filter(wm => getMonBST(wm.id) > 0);
+  // Gate wild Lumori by progression: cap = gym-ramp target + 25 = min(550, 325 + 10*badges).
+  // Keeps catchable mons from outclassing the gyms ahead. Post-game catch zones are exempt.
+  const isPostgameArea = area.requiresChampion || area.requiresNGPlus;
+  const wildBstCap = isPostgameArea ? Infinity : Math.min(550, 325 + 10 * G.badges.length);
+  let pool = area.wildMonsters.filter(wm => { const b = getMonBST(wm.id); return b > 0 && b <= wildBstCap; });
   if (!pool.length) { showNotification("No wild Lumori appear here yet."); return; }
 
   // Inject NG+-exclusive spawns when in NG+ run

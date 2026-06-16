@@ -5540,7 +5540,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:2, mapPos:{x:70, y:45}
   },
   emberveil: {
-    id:"emberveil", name:"Hauntcoal City", icon:"🌋", type:"city",
+    id:"emberveil", name:"Hauntcoal City", icon:"🌋", type:"city", hasUmbraEncounter:true,
     desc:"Built near an active volcano. The fiery Gym Leader Pyros waits within.",
     connections:["route3","route4","volcano_core","iron_canyon"],
     wildMonsters:[
@@ -5566,7 +5566,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:3, mapPos:{x:65, y:28}
   },
   sparkmoor: {
-    id:"sparkmoor", name:"Sparkmoor Town", icon:"⚡", type:"city",
+    id:"sparkmoor", name:"Sparkmoor Town", icon:"⚡", type:"city", hasUmbraEncounter:true,
     desc:"A town on the electric plains. Gym Leader Zara harnesses lightning power.",
     connections:["valor_pass","route5","storm_plateau","thunder_cliffs"],
     wildMonsters:[
@@ -6972,7 +6972,7 @@ const WORLD_DATA = {
     desc:"A convergence point where the boundary between Lumoria and the lost land of Vaeldris grows thin. Thirteen Wielders wait here — survivors of a world that no longer exists, each carrying a bond that outlasted their home.",
     connections:["void_nexus"],
     wildMonsters:[],
-    hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade",
+    hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade", hasUmbraEncounter:true,
     mapPos:{x:88, y:85}
   },
 
@@ -8035,27 +8035,104 @@ const UMBRA_BATTLES = {
     }
   },
   umbra_commander_rex_shadow: {
-    id:"umbra_commander_rex_shadow", name:"Commander Vorn", emoji:"⚡",
+    id:"umbra_commander_rex_shadow", name:"Commander Shadow", emoji:"⚡",
     triggerLocation:"storm_plateau",
-    quote:"I am Vorn, second commander of The Umbra Order. We have awakened Tempestia from the Storm Plateau. Nothing can stop our plan now!",
-    winQuote:"You're more powerful than our intelligence suggested... But Commander Shade is still ahead of you. And Tempestia has been released!",
+    quote:"We meet a third time. You still don't know my face beneath this hood... but you know my Lumori well enough by now. I have awakened Tempestia from the Storm Plateau. This is where your chase ends!",
+    winQuote:"...Again. How? That bond you share with your team... I once believed in something like it. Remember this storm, trainer. We are not finished — not by a long way.",
     teams:{
       single:[
-        {monsterId:109, level:45, moves:["typhoon","volt_jet","wind_scythe","stormbolt"]},
-        {monsterId:184, level:49, moves:["haymaker","seismic_force","wild_tumble","crushing_bulk"]}
+        {monsterId:109, level:30, moves:["squall","windshear","coil_strike","wind_scythe"]},
+        {monsterId:184, level:32, moves:["body_blow","momentum_rush","martial_aura","aural_ray"]}
       ],
       double:[
-        {monsterId:176, level:44, moves:["stormbolt","draconic_claw","draconic_pulse","draconic_breath"]},
-        {monsterId:109, level:45, moves:["typhoon","volt_jet","wind_scythe","stormbolt"]},
-        {monsterId:122, level:47, moves:["nether_sphere","wind_scythe","typhoon","void_pulse"]},
-        {monsterId:184, level:49, moves:["haymaker","seismic_force","wild_tumble","crushing_bulk"]}
+        {monsterId:176, level:28, moves:["coil_strike","volt_fang","phantom_claw","arc_flash"]},
+        {monsterId:109, level:29, moves:["squall","windshear","coil_strike","wind_scythe"]},
+        {monsterId:122, level:31, moves:["phantom_claw","obsidian_fang","squall","cheap_shot"]},
+        {monsterId:184, level:32, moves:["body_blow","momentum_rush","martial_aura","aural_ray"]}
       ],
       triple:[
-        {monsterId:176, level:44, moves:["stormbolt","draconic_claw","draconic_pulse","draconic_breath"]},
-        {monsterId:109, level:45, moves:["typhoon","volt_jet","wind_scythe","stormbolt"]},
-        {monsterId:82,  level:46, moves:["volt_jet","static_strike","crushing_bulk","stun_pulse"]},
-        {monsterId:122, level:47, moves:["nether_sphere","wind_scythe","typhoon","void_pulse"]},
-        {monsterId:184, level:49, moves:["haymaker","seismic_force","wild_tumble","crushing_bulk"]}
+        {monsterId:176, level:28, moves:["coil_strike","volt_fang","phantom_claw","arc_flash"]},
+        {monsterId:109, level:29, moves:["squall","windshear","coil_strike","wind_scythe"]},
+        {monsterId:82, level:30, moves:["coil_strike","volt_fang","arc_flash","rising_voltage"]},
+        {monsterId:122, level:31, moves:["phantom_claw","obsidian_fang","squall","cheap_shot"]},
+        {monsterId:184, level:32, moves:["body_blow","momentum_rush","martial_aura","aural_ray"]}
+      ]
+    }
+  },
+  umbra_shadow_route: {
+    id:"umbra_shadow_route", name:"Commander Shadow", emoji:"🕶️",
+    triggerLocation:"emberveil",
+    quote:"Halt. The Umbra Order claims these lands now. They call me Shadow — and you will not pass while I draw breath. Show me if your bond is worth the legend they whisper of you.",
+    winQuote:"Hmph. Stronger than the reports said. We will meet again, trainer... and I will not go so easy next time.",
+    teams:{
+      single:[
+        {monsterId:90, level:18, moves:["thunder_jab","thunder_chain","gust_jab","jolt"]},
+        {monsterId:184, level:19, moves:["rapid_strike","quick_jab","ki_blast","double_smash"]}
+      ],
+      double:[
+        {monsterId:81, level:16, moves:["thunder_jab","thunder_chain","jolt","nuzzle"]},
+        {monsterId:90, level:17, moves:["thunder_jab","thunder_chain","gust_jab","jolt"]},
+        {monsterId:184, level:19, moves:["rapid_strike","quick_jab","ki_blast","double_smash"]}
+      ],
+      triple:[
+        {monsterId:81, level:16, moves:["thunder_jab","thunder_chain","jolt","nuzzle"]},
+        {monsterId:90, level:17, moves:["thunder_jab","thunder_chain","gust_jab","jolt"]},
+        {monsterId:82, level:18, moves:["thunder_jab","thunder_chain","jolt","nuzzle"]},
+        {monsterId:184, level:19, moves:["rapid_strike","quick_jab","ki_blast","double_smash"]}
+      ]
+    }
+  },
+  umbra_shadow_moor: {
+    id:"umbra_shadow_moor", name:"Commander Shadow", emoji:"🕶️",
+    triggerLocation:"sparkmoor",
+    quote:"You again. Persistent. I have studied your team since our last clash — every habit, every favourite move. This time the storm is mine. Prove me wrong if you can.",
+    winQuote:"...Impossible. I built that team to counter yours exactly. There is something in how you fight that I cannot model. We are not done.",
+    teams:{
+      single:[
+        {monsterId:176, level:26, moves:["static_strike","spark_claw","umbral_pulse","shock_pulse"]},
+        {monsterId:184, level:27, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]}
+      ],
+      double:[
+        {monsterId:87, level:24, moves:["static_strike","spark_claw","brine_slash","shock_pulse"]},
+        {monsterId:209, level:25, moves:["feral_swipe","echo_beam","static_strike","echoing_shout"]},
+        {monsterId:176, level:26, moves:["static_strike","spark_claw","umbral_pulse","shock_pulse"]},
+        {monsterId:184, level:27, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]}
+      ],
+      triple:[
+        {monsterId:82, level:23, moves:["static_strike","spark_claw","shock_pulse","shock_net"]},
+        {monsterId:87, level:24, moves:["static_strike","spark_claw","brine_slash","shock_pulse"]},
+        {monsterId:209, level:25, moves:["feral_swipe","echo_beam","static_strike","echoing_shout"]},
+        {monsterId:176, level:26, moves:["static_strike","spark_claw","umbral_pulse","shock_pulse"]},
+        {monsterId:184, level:27, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]}
+      ]
+    }
+  },
+  umbra_rex_vorn: {
+    id:"umbra_rex_vorn", name:"Commander Rex Vorn", emoji:"⚡",
+    triggerLocation:"vaeldrian_reaches",
+    reward:{ masterOrb:2, rareCandy:8 },
+    quote:"So you climbed all the way here. Then you have earned the truth. Lower the hood — yes. Leader Rex. The Foundation Badge was mine to give... and the Umbra Order is mine to remake now that Shade has fallen. I will not destroy Lumoria. I will rebuild it in order. But first — the one trainer who could ever stand against me.",
+    winQuote:"...Then it is settled. The bond beats the design, every time. Perhaps order was never the answer. Lead them better than I would have, champion. Solarcrown — stand down. We yield.",
+    teams:{
+      single:[
+        {monsterId:389, level:109, moves:["storm_sovereignty","arc_cannon","threnody","overcharge"]},
+        {monsterId:384, level:110, moves:["volcanic_wrath","pyroclastic_burst","galaxy_apocalypse","lava_drop"]},
+        {monsterId:184, level:112, moves:["stellar_collapse","radiance_cannon","haymaker","last_stand"]}
+      ],
+      double:[
+        {monsterId:396, level:108, moves:["storm_sovereignty","arc_cannon","tungsten_wrath","overcharge"]},
+        {monsterId:393, level:108, moves:["starlight_obliteration","void_dominion","storm_sovereignty","abyssal_wave"]},
+        {monsterId:389, level:109, moves:["storm_sovereignty","arc_cannon","threnody","overcharge"]},
+        {monsterId:384, level:110, moves:["volcanic_wrath","pyroclastic_burst","galaxy_apocalypse","lava_drop"]},
+        {monsterId:184, level:112, moves:["stellar_collapse","radiance_cannon","haymaker","last_stand"]}
+      ],
+      triple:[
+        {monsterId:386, level:107, moves:["storm_sovereignty","arc_cannon","spirit_calamity","overcharge"]},
+        {monsterId:393, level:108, moves:["starlight_obliteration","void_dominion","storm_sovereignty","abyssal_wave"]},
+        {monsterId:396, level:108, moves:["storm_sovereignty","arc_cannon","tungsten_wrath","overcharge"]},
+        {monsterId:389, level:109, moves:["storm_sovereignty","arc_cannon","threnody","overcharge"]},
+        {monsterId:384, level:110, moves:["volcanic_wrath","pyroclastic_burst","galaxy_apocalypse","lava_drop"]},
+        {monsterId:184, level:112, moves:["stellar_collapse","radiance_cannon","haymaker","last_stand"]}
       ]
     }
   },
@@ -9022,8 +9099,11 @@ const LEVEL_CAPS = {
   // The Umbra Order bosses (re-leveled in Phase E)
   umbra_grunt_1: 18, umbra_grunt_2: 27,
   umbra_phantom_grunt: 70, umbra_commander_phantom: 76,
-  umbra_commander_kira: 40, umbra_commander_rex_shadow: 51,
-  umbra_shade: 67
+  umbra_commander_kira: 40, umbra_commander_rex_shadow: 34,
+  umbra_shade: 67,
+  // The Rex/Commander Shadow arc — matched to the level cap at each point
+  // (Pyros-tier, Zara-tier, Glacier-tier, Champion-tier)
+  umbra_shadow_route: 21, umbra_shadow_moor: 29, umbra_rex_vorn: 114
 };
 
 // ============================================================
@@ -9037,7 +9117,9 @@ const NG_OFFSETS = {
   oracle:6, drake:7, thorne:8, acrid:9, viper:10, atlas:11, mantis:12, steam:13,
   zephyra:14, ferro:15, boulder:12, seraphina:9,
   // The Vanguard / Champion
-  aria:28, grimshaw:28, celeste:27, titan:27, champion:26
+  aria:28, grimshaw:28, celeste:27, titan:27, champion:26,
+  // The Rex/Commander Shadow arc — scales like gym leaders at matching progression
+  umbra_shadow_route:4, umbra_shadow_moor:6, umbra_commander_rex_shadow:7, umbra_rex_vorn:26
 };
 
 // ============================================================

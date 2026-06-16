@@ -902,13 +902,6 @@ function renderAreaPanel() {
   const area = WORLD_DATA[G.location];
   if (!area) return;
 
-  // Lore reveal: the Storm Plateau commander hides his identity on a first run
-  // ("Commander Shadow") and is unmasked as gym leader Rex on subsequent (NG+)
-  // playthroughs ("Commander Rex Vorn"). His ace is Rex's evolved signature mon.
-  if (typeof UMBRA_BATTLES !== "undefined" && UMBRA_BATTLES.umbra_commander_rex_shadow) {
-    UMBRA_BATTLES.umbra_commander_rex_shadow.name = (G.ngPlusCount > 0) ? "Commander Rex Vorn" : "Commander Shadow";
-  }
-
   document.getElementById("area-name").textContent = area.name;
   document.getElementById("hud-location").textContent = "📍 " + area.name;
 
@@ -4799,7 +4792,7 @@ function startSpecialBattle(battleId, battleData, isUmbra, battleType = "single"
     leaderId: battleId,
     battleType,
     levelCap,
-    enemyTeam: teamSlots.map(s => buildGymMon(s)),
+    enemyTeam: teamSlots.map(s => buildGymMon(s, ngBattleOffset(battleId))),
     enemyTeamIdx: 0,
     playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
   };
@@ -5241,7 +5234,7 @@ function startUmbraAreaBattle(umbraId, battle) {
     leaderId: umbraId,
     levelCap,
     battleMode: "single",
-    enemyTeam: battle.team.map(s => buildGymMon(s)),
+    enemyTeam: (battle.team || (battle.teams && (battle.teams.triple || battle.teams.double || battle.teams.single)) || []).map(s => buildGymMon(s, ngBattleOffset(umbraId))),
     enemyTeamIdx: 0,
     playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
   };
@@ -5251,7 +5244,7 @@ function startUmbraAreaBattle(umbraId, battle) {
   showScreen("screen-battle");
   clearBattleLog();
   if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
-  const fmtLabel = {single:"Single",double:"Double",triple:"Triple"}[battleType] || "Single";
+  const fmtLabel = {single:"Single",double:"Double",triple:"Triple"}[battleContext.battleMode] || "Single";
   logMsg(`⚔️ ${fmtLabel} Battle — ${battle.emoji} ${battle.name}`);
   logMsg(`${battle.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();

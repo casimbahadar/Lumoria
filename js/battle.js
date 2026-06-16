@@ -1541,8 +1541,9 @@ function buildWildMon(monsterId, level, forceShiny, forceVariant) {
 }
 
 // Build a gym/boss monster (perfect IVs, no nature modifier)
-function buildGymMon(slot) {
+function buildGymMon(slot, levelBonus) {
   const def = MONSTERS_DATA[slot.monsterId];
+  const lvl = Math.min(150, slot.level + (levelBonus || 0)); // NG+ offset, capped at the global max
   const ivs31 = { hp:31, atk:31, def:31, spa:31, spd:31, spe:31 };
   // Shiny + variant can appear on any non-wild enemy team too.
   let shinyRate = 1/2048;
@@ -1552,9 +1553,9 @@ function buildGymMon(slot) {
   const shiny = Math.random() < shinyRate;
   const v = rollVariant(def);
   const gymMoves = (v.variant && typeof VariantContent !== "undefined" && VariantContent.generateBattleMoves)
-    ? VariantContent.generateBattleMoves(def, v, slot.level) : slot.moves;
+    ? VariantContent.generateBattleMoves(def, v, lvl) : slot.moves;
   const mon = {
-    ...buildMonBase(def, slot.level, ivs31, "Balanced", v.variant ? v.variantBase : null),
+    ...buildMonBase(def, lvl, ivs31, "Balanced", v.variant ? v.variantBase : null),
     monsterId: slot.monsterId,
     moves: buildMoveArr(gymMoves),
     catchRate: 0,
@@ -2015,7 +2016,7 @@ function xpForLevel(level) { return Math.floor(Math.pow(level, 3) * 0.8); }
 function giveXP(partySlot, amount) {
   partySlot.xp = (partySlot.xp || 0) + amount;
   const levelUps = [];
-  while (partySlot.level < 100 && partySlot.xp >= xpForLevel(partySlot.level + 1)) {
+  while (partySlot.level < 150 && partySlot.xp >= xpForLevel(partySlot.level + 1)) {
     partySlot.level++;
     const def = MONSTERS_DATA[partySlot.monsterId];
     const lv = partySlot.level;

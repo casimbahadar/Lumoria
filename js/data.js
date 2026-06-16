@@ -8819,6 +8819,20 @@ const LEVEL_CAPS = {
 };
 
 // ============================================================
+// NG+ LEVEL OFFSETS — added to a major battle's team levels AND its level
+// cap when ngPlusCount > 0, producing the explicit NG+ curve (base gyms
+// 12 +5/badge, Vanguard 128-132, Champion 134). The NG+-exclusive gyms
+// 21-24 are authored directly at NG+ levels, so they carry no offset.
+// ============================================================
+const NG_OFFSETS = {
+  rex:2, marina:3, pyros:4, kano:5, zara:6, glacier:7, marl:8, nyx:9,
+  oracle:6, drake:7, thorne:8, acrid:9, viper:10, atlas:11, mantis:12, steam:13,
+  zephyra:14, ferro:15, boulder:12, seraphina:9,
+  // The Vanguard / Champion
+  aria:28, grimshaw:28, celeste:27, titan:27, champion:26
+};
+
+// ============================================================
 // QUESTS DATA (100+ side quests)
 // ============================================================
 const QUESTS_DATA = [

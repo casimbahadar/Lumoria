@@ -180,6 +180,8 @@ function timeSince(ts) {
 // ---- NG+ Scaling ----
 function ngPlusScale(level, area) {
   if (!G || !G.ngPlusCount) return level;
+  // NG+-exclusive areas are already authored at their NG+ levels — don't double-boost.
+  if (area && area.requiresNGPlus) return level;
   // Per-tier scaling cap to keep NG+ balanced by content difficulty
   let cap;
   const badges = area?.requiredBadges || 0;
@@ -193,7 +195,17 @@ function ngPlusScale(level, area) {
     cap = 0.40;  // early game (badges 1-5 or no requirement)
   }
   const boost = Math.min(cap, 0.2 * G.ngPlusCount);
-  return Math.min(100, Math.round(level * (1 + boost)));
+  return Math.min(150, Math.round(level * (1 + boost)));
+}
+
+// NG+ level offset for a major battle (gym/Elite/Champion); 0 outside NG+ or for
+// unmapped ids. Applied to both the enemy team's levels and the player's scale-down cap.
+function ngBattleOffset(id) {
+  return (G && G.ngPlusCount > 0 && typeof NG_OFFSETS !== "undefined" && NG_OFFSETS[id]) ? NG_OFFSETS[id] : 0;
+}
+function getLevelCap(id) {
+  if (typeof LEVEL_CAPS === "undefined" || !LEVEL_CAPS[id]) return null;
+  return LEVEL_CAPS[id] + ngBattleOffset(id);
 }
 
 // ---- Fullscreen ----
@@ -1621,7 +1633,7 @@ function startGymBattle(leaderId, battleType = "single") {
     leader = ELITE_FOUR.find(e => e.id === leaderId);
   }
   if (!leader) return;
-  const levelCap = (typeof LEVEL_CAPS !== "undefined" && LEVEL_CAPS[leaderId]) ? LEVEL_CAPS[leaderId] : null;
+  const levelCap = getLevelCap(leaderId);
   // Support both old team: [...] and new teams: { single, double, triple }
   const teamSlots = (leader.teams && leader.teams[battleType]) ? leader.teams[battleType]
                   : (leader.teams && leader.teams.single) ? leader.teams.single
@@ -1636,7 +1648,7 @@ function startGymBattle(leaderId, battleType = "single") {
     leaderId,
     battleType,
     levelCap,
-    enemyTeam: teamSlots.map(s => buildGymMon(s)),
+    enemyTeam: teamSlots.map(s => buildGymMon(s, ngBattleOffset(leaderId))),
     battleMode,
     enemyTeamIdx: 0,
     playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
@@ -4665,7 +4677,7 @@ function getPendingRivalBattle() {
 function startSpecialBattle(battleId, battleData, isUmbra, battleType = "single") {
   const battle = battleData[battleId];
   if (!battle) return;
-  const levelCap = (typeof LEVEL_CAPS !== "undefined" && LEVEL_CAPS[battleId]) ? LEVEL_CAPS[battleId] : null;
+  const levelCap = getLevelCap(battleId);
   // Support both old team: [...] and new teams: { single, double, triple }
   const teamSlots = (battle.teams && battle.teams[battleType]) ? battle.teams[battleType]
                   : (battle.teams && battle.teams.single) ? battle.teams.single
@@ -5112,7 +5124,7 @@ function ffaRender() {
 }
 
 function startUmbraAreaBattle(umbraId, battle) {
-  const levelCap = (typeof LEVEL_CAPS !== "undefined" && LEVEL_CAPS[umbraId]) ? LEVEL_CAPS[umbraId] : null;
+  const levelCap = getLevelCap(umbraId);
   battleContext = {
     isWild: false,
     isGym: false,

@@ -8042,20 +8042,20 @@ const UMBRA_BATTLES = {
     teams:{
       single:[
         {monsterId:109, level:45, moves:["typhoon","volt_jet","wind_scythe","stormbolt"]},
-        {monsterId:151, level:49, moves:["forge_blast_2","stormbolt","alloy_tail","crushing_bulk"]}
+        {monsterId:184, level:49, moves:["haymaker","seismic_force","wild_tumble","crushing_bulk"]}
       ],
       double:[
         {monsterId:176, level:44, moves:["stormbolt","draconic_claw","draconic_pulse","draconic_breath"]},
         {monsterId:109, level:45, moves:["typhoon","volt_jet","wind_scythe","stormbolt"]},
         {monsterId:122, level:47, moves:["nether_sphere","wind_scythe","typhoon","void_pulse"]},
-        {monsterId:151, level:49, moves:["forge_blast_2","stormbolt","alloy_tail","crushing_bulk"]}
+        {monsterId:184, level:49, moves:["haymaker","seismic_force","wild_tumble","crushing_bulk"]}
       ],
       triple:[
         {monsterId:176, level:44, moves:["stormbolt","draconic_claw","draconic_pulse","draconic_breath"]},
         {monsterId:109, level:45, moves:["typhoon","volt_jet","wind_scythe","stormbolt"]},
         {monsterId:82,  level:46, moves:["volt_jet","static_strike","crushing_bulk","stun_pulse"]},
         {monsterId:122, level:47, moves:["nether_sphere","wind_scythe","typhoon","void_pulse"]},
-        {monsterId:151, level:49, moves:["forge_blast_2","stormbolt","alloy_tail","crushing_bulk"]}
+        {monsterId:184, level:49, moves:["haymaker","seismic_force","wild_tumble","crushing_bulk"]}
       ]
     }
   },

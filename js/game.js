@@ -902,6 +902,13 @@ function renderAreaPanel() {
   const area = WORLD_DATA[G.location];
   if (!area) return;
 
+  // Lore reveal: the Storm Plateau commander hides his identity on a first run
+  // ("Commander Shadow") and is unmasked as gym leader Rex on subsequent (NG+)
+  // playthroughs ("Commander Rex Vorn"). His ace is Rex's evolved signature mon.
+  if (typeof UMBRA_BATTLES !== "undefined" && UMBRA_BATTLES.umbra_commander_rex_shadow) {
+    UMBRA_BATTLES.umbra_commander_rex_shadow.name = (G.ngPlusCount > 0) ? "Commander Rex Vorn" : "Commander Shadow";
+  }
+
   document.getElementById("area-name").textContent = area.name;
   document.getElementById("hud-location").textContent = "📍 " + area.name;
 

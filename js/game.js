@@ -25,6 +25,7 @@ function newGameState(playerName, starterMonsterId) {
     seenInArea: {},
     areaEncounters: {},
     championDefeated: false,
+    apexGuardianDefeated: false,
     questsCompleted: [],
     questsActive: [],
     visitedLocations: ["seedvale"],
@@ -140,6 +141,7 @@ function loadGame(slot) {
     if (data.vaeldrisPartyLock === undefined) data.vaeldrisPartyLock = null;
     if (!data.defeatedWielders) data.defeatedWielders = [];
     if (!data.forgottenLegendaryAttempted) data.forgottenLegendaryAttempted = [];
+    if (data.apexGuardianDefeated === undefined) data.apexGuardianDefeated = false;
     if (!data.discoveredTraits) data.discoveredTraits = {};
     // PvP saved team loadouts: up to 6 per format, drawn from owned Lumori.
     if (!data.pvpLoadouts) data.pvpLoadouts = { single: [], double: [] };
@@ -1109,7 +1111,31 @@ function renderAreaPanel() {
       }
     }
   }
+
+  // D3: Apex Guardian + Summit Rematch (apex_summit only)
+  const apexBtn = document.getElementById("btn-apex-guardian");
+  const rematchBtn = document.getElementById("btn-summit-rematch");
+  const atSummit = area.id === "apex_summit";
+  if (apexBtn) {
+    apexBtn.classList.toggle("hidden", !(atSummit && isApexGuardianAvailable()));
+  }
+  if (rematchBtn) {
+    let show = false;
+    if (atSummit && isSummitRematchUnlocked()) {
+      const next = SUMMIT_REMATCH_ORDER.find(id => !G.defeatedLeaders.includes(id));
+      if (next) {
+        show = true;
+        const label = next === "champion_rematch" ? "Champion" : (REMATCH_TEAMS[next.replace("_rematch","")] ? next.replace("_rematch","").replace(/^\w/, c => c.toUpperCase()) : next);
+        rematchBtn.textContent = `⚔️ Summit Rematch: ${label}`;
+        rematchBtn.disabled = false;
+      }
+    }
+    rematchBtn.classList.toggle("hidden", !show);
+  }
 }
+
+// D3: fixed order for the post-apex summit rematch (Vanguard -> Champion).
+const SUMMIT_REMATCH_ORDER = ["aria_rematch", "grimshaw_rematch", "celeste_rematch", "titan_rematch", "champion_rematch"];
 
 function renderHUD() {
   document.getElementById("hud-player-name").textContent = G.playerName;
@@ -1633,7 +1659,28 @@ function startGymBattle(leaderId, battleType = "single") {
   if (!leader && typeof ELITE_FOUR !== "undefined") {
     leader = ELITE_FOUR.find(e => e.id === leaderId);
   }
+  // D3: Apex Guardian + post-apex Vanguard/Champion rematch (synthesised leaders).
+  if (!leader && leaderId === "apex_guardian" && typeof APEX_GUARDIAN !== "undefined") {
+    leader = APEX_GUARDIAN;
+  }
+  if (!leader && leaderId.endsWith("_rematch") && typeof REMATCH_TEAMS !== "undefined") {
+    const base = leaderId.replace("_rematch", "");
+    const rt = REMATCH_TEAMS[base];
+    if (rt) {
+      const src = base === "champion" ? GYM_LEADERS.champion
+                : (typeof ELITE_FOUR !== "undefined" ? ELITE_FOUR.find(e => e.id === base) : null);
+      leader = {
+        id: leaderId, teams: rt,
+        name: (src ? src.name : base) + " (Rematch)",
+        emoji: src ? src.emoji : "⚔️",
+        quote: src ? src.quote : "Let us settle this at the summit.",
+        winQuote: src ? src.winQuote : "A worthy rematch."
+      }; // no battleMode -> sequential single-mode gauntlet
+    }
+  }
   if (!leader) return;
+  const isApexGuardian = leaderId === "apex_guardian";
+  const isRematch = leaderId.endsWith("_rematch");
   const levelCap = getLevelCap(leaderId);
   // Support both old team: [...] and new teams: { single, double, triple }
   const teamSlots = (leader.teams && leader.teams[battleType]) ? leader.teams[battleType]
@@ -1646,7 +1693,12 @@ function startGymBattle(leaderId, battleType = "single") {
     isGym: true,
     isChampion: leaderId === "champion",
     isEliteFour: !!(typeof ELITE_FOUR !== "undefined" && ELITE_FOUR.find(e => e.id === leaderId)),
+    isApexGuardian,
+    isRematch,
     leaderId,
+    leaderName: leader.name,
+    leaderEmoji: leader.emoji,
+    leaderWinQuote: leader.winQuote,
     battleType,
     levelCap,
     enemyTeam: teamSlots.map(s => buildGymMon(s, ngBattleOffset(leaderId))),
@@ -2464,6 +2516,25 @@ function endBattle(outcome, slot, levelUps) {
     if (slot && slot.currentHP === slot.maxHP) trackDailyChallenge("full_hp_win");
     // Show level ups then return
     const handleAfterLevelUps = () => {
+      const returnToMain = () => { showScreen("screen-main"); renderWorldMap(); renderAreaPanel(); renderHUD(); saveGame(); };
+      if (battleContext.isApexGuardian) {
+        G.apexGuardianDefeated = true;
+        if (!G.defeatedLeaders.includes("apex_guardian")) G.defeatedLeaders.push("apex_guardian");
+        const ag = typeof APEX_GUARDIAN !== "undefined" ? APEX_GUARDIAN : null;
+        if (ag?.reward) for (const [item, amt] of Object.entries(ag.reward)) G.bag[item] = (G.bag[item] || 0) + amt;
+        const unlockedMsg = isSummitRematchUnlocked()
+          ? "<br><br>The summit stirs — the Vanguard and Champion will face you anew."
+          : "<br><br>Defeat every Vaeldris wielder to unlock the summit rematch.";
+        showNotification(`${battleContext.leaderEmoji} <strong>${battleContext.leaderName}</strong>:<br>"${battleContext.leaderWinQuote}"${unlockedMsg}`, returnToMain);
+        return;
+      }
+      if (battleContext.isRematch) {
+        if (!G.defeatedLeaders.includes(battleContext.leaderId)) G.defeatedLeaders.push(battleContext.leaderId);
+        G.money += 12000;
+        checkAchievements();
+        showNotification(`⚔️ <strong>${battleContext.leaderName}</strong>:<br>"${battleContext.leaderWinQuote}"<br><br>Received 💰12000!`, returnToMain);
+        return;
+      }
       if (battleContext.isGym || battleContext.isChampion || battleContext.isEliteFour) {
         // Look up leader in GYM_LEADERS or ELITE_FOUR
         let leader = GYM_LEADERS[battleContext.leaderId];
@@ -3782,6 +3853,16 @@ function isForgottenUnlocked() {
   return Object.keys(VAELDRIS_WIELDERS).every(id => G.defeatedWielders.includes(id));
 }
 
+// D3: the Apex Guardian (apex_summit) becomes available once you've cleared the
+// main game in an NG+ run; beating it + every Vaeldris wielder unlocks the
+// higher-level summit rematch of the Vanguard and Champion.
+function isApexGuardianAvailable() {
+  return !!(G && G.ngPlusCount > 0 && G.championDefeated && !G.apexGuardianDefeated);
+}
+function isSummitRematchUnlocked() {
+  return !!(G && G.ngPlusCount > 0 && G.championDefeated && G.apexGuardianDefeated && isForgottenUnlocked());
+}
+
 // Each wielder's team[0] is by convention the BST-720 Forgotten Lumori catchable
 // once the player has finished the full Vaeldris quest. team[1]/team[2] (BST 750/800)
 // stay encounter-only via the wielder battles themselves.
@@ -4253,6 +4334,24 @@ function initEventListeners() {
     if (nextElite) {
       showBattleFormatSelection(nextElite.name, nextElite.emoji || "⚔️", nextElite.quote, fmt => startGymBattle(nextElite.id, fmt));
     }
+  });
+
+  // D3: Apex Guardian
+  document.getElementById("btn-apex-guardian")?.addEventListener("click", () => {
+    if (typeof APEX_GUARDIAN === "undefined" || !isApexGuardianAvailable()) return;
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori are fainted! Heal first."); return; }
+    showBattleFormatSelection(APEX_GUARDIAN.name, APEX_GUARDIAN.emoji || "🌄", APEX_GUARDIAN.quote, fmt => startGymBattle("apex_guardian", fmt));
+  });
+
+  // D3: Summit Rematch (Vanguard -> Champion, in order)
+  document.getElementById("btn-summit-rematch")?.addEventListener("click", () => {
+    if (typeof REMATCH_TEAMS === "undefined" || !isSummitRematchUnlocked()) return;
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori are fainted! Heal first."); return; }
+    const nextId = SUMMIT_REMATCH_ORDER.find(id => !G.defeatedLeaders.includes(id));
+    if (!nextId) { showNotification("You have bested every summit rematch."); return; }
+    const base = nextId.replace("_rematch", "");
+    const src = base === "champion" ? GYM_LEADERS.champion : ELITE_FOUR.find(e => e.id === base);
+    showBattleFormatSelection((src ? src.name : base) + " (Rematch)", src ? src.emoji : "⚔️", src ? src.quote : "", fmt => startGymBattle(nextId, fmt));
   });
 
   // Bottom nav

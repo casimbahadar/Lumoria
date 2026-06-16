@@ -5697,7 +5697,7 @@ const WORLD_DATA = {
   skyvault: {
     id:"skyvault", name:"Skyvault City", icon:"🏰", type:"city",
     desc:"A city floating on clouds. Mental Gym Leader Oracle sees all futures.",
-    connections:["route7","route8","mystic_forest","sky_harbor","wind_bridge"],
+    connections:["route7","route8","mystic_forest","wind_bridge"],
     wildMonsters:[
       {id:166, minLv:50, maxLv:54, rate:30}, // Projectery
       {id:142, minLv:50, maxLv:54, rate:25}, // Dawnirel
@@ -6027,7 +6027,7 @@ const WORLD_DATA = {
   sky_harbor: {
     id:"sky_harbor", name:"Sky Harbor", icon:"⛵", type:"town",
     desc:"A floating dock tethered to the clouds. Wind traders and Mental navigators pass through this breezy waystation.",
-    connections:["skyvault","mystic_forest"],
+    connections:["mystic_forest"],
     wildMonsters:[
       {id:108, minLv:48, maxLv:53, rate:25},   // Silvergust
       {id:114, minLv:48, maxLv:53, rate:15},   // Nimbusel
@@ -6312,7 +6312,7 @@ const WORLD_DATA = {
   miasmacity: {
     id:"miasmacity", name:"Miasma City", icon:"🏭", type:"city",
     desc:"An industrial city shrouded in toxic mist. Home to Gym Leader Viper, master of Poison types.",
-    connections:["toxic_bog","route11"],
+    connections:["toxic_bog","route11","mire_depths"],
     wildMonsters:[
       {id:156, minLv:58, maxLv:63, rate:25},  // Venekon (mid)
       {id:159, minLv:60, maxLv:65, rate:25},  // Dissotoad (final, 158 on murk_crossing ✓)
@@ -6545,7 +6545,7 @@ const WORLD_DATA = {
   quake_foothills: {
     id:"quake_foothills", name:"Quake Foothills", icon:"🌋", type:"route",
     desc:"Rolling foothills rocked by constant tremors where Terravault's mountain range begins. Ground-type Lumori burrow through the cracked and heaving earth.",
-    connections:["route11","magma_vent"],
+    connections:["route11","magma_vent","tremor_summit"],
     wildMonsters:[
       {id:95,  minLv:59, maxLv:64, rate:24},  // Aridhino (base)
       {id:96,  minLv:60, maxLv:65, rate:8},  // Seismith (mid → after 95 ✓)
@@ -6649,7 +6649,7 @@ const WORLD_DATA = {
   toxic_bog: {
     id:"toxic_bog", name:"Toxic Bog", icon:"🐸", type:"route",
     desc:"A stagnant bog where the path turns south toward Miasma City. Foul gas bubbles up through the mud and Poison types lurk beneath the surface.",
-    connections:["murk_crossing","mire_depths"],
+    connections:["murk_crossing","mire_depths","miasmacity"],
     wildMonsters:[
       {id:156, minLv:58, maxLv:63, rate:20},  // Venekon (mid)
       {id:158, minLv:58, maxLv:63, rate:20},  // Corrodisc (mid)
@@ -6662,7 +6662,7 @@ const WORLD_DATA = {
   tremor_summit: {
     id:"tremor_summit", name:"Tremor Summit", icon:"⛰️", type:"route",
     desc:"The crest of the quake-ridden foothills where the shaking is strongest. Only final-stage Ground-type Lumori can hold their footing here.",
-    connections:["quake_foothills","terravault"],
+    connections:["quake_foothills","terravault","magma_vent"],
     wildMonsters:[
       {id:97,  minLv:62, maxLv:67, rate:15},  // Quakehide (final, 96 on quake_foothills ✓)
       {id:100, minLv:62, maxLv:67, rate:15},  // Craterlurk (final, 99 on quake_foothills ✓)

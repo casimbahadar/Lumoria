@@ -5708,7 +5708,7 @@ const WORLD_DATA = {
     hasGym:true, gymLeader:"oracle", requiredBadges:8, mapPos:{x:30, y:55}
   },
   route8: {
-    id:"route8", name:"Route 8 - Sky Corridors", icon:"🌤️", type:"route",
+    id:"route8", hasUmbraEncounter:true, name:"Route 8 - Sky Corridors", icon:"🌤️", type:"route",
     desc:"Aerial paths between floating islands. Wind and Mental types soar here.",
     connections:["skyvault","dragonspire","wind_bridge"],
     wildMonsters:[
@@ -6265,7 +6265,7 @@ const WORLD_DATA = {
   },
   // ---- NEW ROUTES & GYM CITIES (badges 8-15) ----
   route9: {
-    id:"route9", name:"Route 9 - Verdant Trail", icon:"🌿", type:"route",
+    id:"route9", hasUmbraEncounter:true, name:"Route 9 - Verdant Trail", icon:"🌿", type:"route",
     desc:"A lush overgrown trail leading south from Dragonspire. Grass and Bug types thrive here.",
     connections:["dragonspire","bloomhaven"],
     wildMonsters:[
@@ -6292,7 +6292,7 @@ const WORLD_DATA = {
     hasGym:true, gymLeader:"thorne", requiredBadges:10, mapPos:{x:55, y:55}
   },
   route10: {
-    id:"route10", name:"Route 10 - Toxic Passage", icon:"☠️", type:"route",
+    id:"route10", hasUmbraEncounter:true, name:"Route 10 - Toxic Passage", icon:"☠️", type:"route",
     desc:"A murky swamp path where poisonous fumes rise from the ground.",
     connections:["bloomhaven","corroden"],
     wildMonsters:[
@@ -6323,7 +6323,7 @@ const WORLD_DATA = {
     ngPlusWildMonsters:[{id:322,minLv:65,maxLv:70,rate:25},{id:324,minLv:65,maxLv:70,rate:15}]
   },
   route11: {
-    id:"route11", name:"Route 11 - Tremor Pass", icon:"🏔️", type:"route",
+    id:"route11", hasUmbraEncounter:true, name:"Route 11 - Tremor Pass", icon:"🏔️", type:"route",
     desc:"A rumbling mountain pass where the ground never stops shaking.",
     connections:["miasmacity","quake_foothills"],
     wildMonsters:[
@@ -6383,7 +6383,7 @@ const WORLD_DATA = {
     ngPlusWildMonsters:[{id:357, minLv:63, maxLv:69, rate:10}, {id:330,minLv:68,maxLv:74,rate:25},{id:331,minLv:68,maxLv:74,rate:20},{id:326,minLv:68,maxLv:74,rate:10},{id:402,minLv:69,maxLv:75,rate:6},{id:405,minLv:69,maxLv:75,rate:6}]
   },
   route13: {
-    id:"route13", name:"Route 13 - Gale Ridge West", icon:"🌬️", type:"route",
+    id:"route13", hasUmbraEncounter:true, name:"Route 13 - Gale Ridge West", icon:"🌬️", type:"route",
     desc:"The western arm of Gale Ridge, where howling winds funnel through a narrow canyon toward the furthest point of the region.",
     connections:["silkwood","mistmoor"],
     wildMonsters:[
@@ -6415,7 +6415,7 @@ const WORLD_DATA = {
     ngPlusWildMonsters:[{id:338, minLv:66, maxLv:70, rate:10}, {id:335,minLv:71,maxLv:76,rate:25},{id:370,minLv:71,maxLv:76,rate:15}]
   },
   route14: {
-    id:"route14", name:"Route 14 - Ironwork Path", icon:"⚙️", type:"route",
+    id:"route14", hasUmbraEncounter:true, name:"Route 14 - Ironwork Path", icon:"⚙️", type:"route",
     desc:"A path lined with abandoned machinery. Metal types have claimed the ruins as their territory.",
     connections:["gusthaven","ash_fields"],
     wildMonsters:[
@@ -6871,7 +6871,7 @@ const WORLD_DATA = {
   crystal_mine: {
     id:"crystal_mine", name:"Crystal Mine", icon:"💎", type:"route",
     desc:"An exhausted gem mine between Stone Plateau and Quarryville where crystalline Rock types have colonized the abandoned shafts.",
-    connections:["stone_plateau","quarryville"],
+    connections:["stone_plateau","quarryville","umbra_citadel"],
     wildMonsters:[
       {id:249, minLv:70, maxLv:75, rate:14},  // Megalith (final → 249 on granite_tunnels ✓)
       {id:305, minLv:70, maxLv:75, rate:13},  // Yetigrand (final → 305 on granite_tunnels ✓)
@@ -6883,6 +6883,18 @@ const WORLD_DATA = {
     legendaryEncounter:{monsterId:317, level:73}, // static legendary (obtainability fix)
     ngPlusWildMonsters:[{id:340, minLv:70, maxLv:75, rate:10}], // NG+: Cryoshard (Chronolith #388 now evolution-only from Mirestone)
     hasGym:false, requiredBadges:18, mapPos:{x:53, y:83}
+  },
+  umbra_citadel: {
+    id:"umbra_citadel", name:"Umbra Citadel", icon:"🏰", type:"special", hasUmbraEncounter:true,
+    desc:"The Umbra Order's true stronghold — a black spire raised in secret near the peaks above Quarryville. Acolytes, Zealots and Enforcers guard the long climb, and at its summit Commander Shade waits for the trainer who unravelled every plan laid below.",
+    connections:["crystal_mine"],
+    wildMonsters:[
+      {id:122, minLv:84, maxLv:88, rate:30}, // Caveshroud
+      {id:127, minLv:84, maxLv:88, rate:30}, // Wraithfox
+      {id:119, minLv:85, maxLv:88, rate:25}, // Dreadmaw
+      {id:130, minLv:85, maxLv:88, rate:15}  // Necralia
+    ],
+    hasGym:false, requiredBadges:18, mapPos:{x:62, y:90}
   },
   nebula_gorge: {
     id:"nebula_gorge", name:"Nebula Gorge", icon:"🌠", type:"route",
@@ -8136,6 +8148,186 @@ const UMBRA_BATTLES = {
       ]
     }
   },
+  umbra_grunt_soot: {
+    id:"umbra_grunt_soot", name:"Umbra Acolyte Soot", emoji:"🕶️",
+    triggerLocation:"route8",
+    quote:"The Order spreads even here. Commander Shade rewards those who slow you down — and I intend to be rewarded.",
+    winQuote:"Tch. You really are everything they feared.",
+    teams:{
+      single:[
+        {monsterId:127, level:47, moves:["phantom_claw","obsidian_fang","telekinetic_throw","cheap_shot"]},
+        {monsterId:119, level:48, moves:["phantom_claw","obsidian_fang","cheap_shot","tenebrous_snare"]}
+      ],
+      double:[
+        {monsterId:130, level:46, moves:["phantom_claw","obsidian_fang","lumen_pulse","cheap_shot"]},
+        {monsterId:124, level:46, moves:["phantom_claw","obsidian_fang","blight_drain","cheap_shot"]},
+        {monsterId:127, level:47, moves:["phantom_claw","obsidian_fang","telekinetic_throw","cheap_shot"]},
+        {monsterId:119, level:48, moves:["phantom_claw","obsidian_fang","cheap_shot","tenebrous_snare"]}
+      ],
+      triple:[
+        {monsterId:130, level:46, moves:["phantom_claw","obsidian_fang","lumen_pulse","cheap_shot"]},
+        {monsterId:124, level:46, moves:["phantom_claw","obsidian_fang","blight_drain","cheap_shot"]},
+        {monsterId:127, level:47, moves:["phantom_claw","obsidian_fang","telekinetic_throw","cheap_shot"]},
+        {monsterId:119, level:48, moves:["phantom_claw","obsidian_fang","cheap_shot","tenebrous_snare"]}
+      ]
+    }
+  },
+  umbra_commander_kira_2: {
+    id:"umbra_commander_kira_2", name:"Commander Kira", emoji:"🌋",
+    triggerLocation:"route9",
+    quote:"You cost me the Volcano Core, child. I have been waiting for a rematch — and this time the magma answers to ME.",
+    winQuote:"Burned again... But Shade rises far above us both. You will see.",
+    teams:{
+      single:[
+        {monsterId:99, level:51, moves:["crystal_spear","underground_crush","corrosive_bite","gemburst"]},
+        {monsterId:17, level:51, moves:["coal_smash","sun_burst","tempest_wave","lava_spout"]},
+        {monsterId:192, level:52, moves:["crystal_spear","underground_crush","gemburst","auger_strike"]}
+      ],
+      double:[
+        {monsterId:16, level:50, moves:["coal_smash","sun_burst","lava_spout","magma_strike"]},
+        {monsterId:14, level:50, moves:["coal_smash","sun_burst","crystal_spear","lava_spout"]},
+        {monsterId:99, level:51, moves:["crystal_spear","underground_crush","corrosive_bite","gemburst"]},
+        {monsterId:17, level:51, moves:["coal_smash","sun_burst","tempest_wave","lava_spout"]},
+        {monsterId:192, level:52, moves:["crystal_spear","underground_crush","gemburst","auger_strike"]}
+      ],
+      triple:[
+        {monsterId:16, level:50, moves:["coal_smash","sun_burst","lava_spout","magma_strike"]},
+        {monsterId:14, level:50, moves:["coal_smash","sun_burst","crystal_spear","lava_spout"]},
+        {monsterId:99, level:51, moves:["crystal_spear","underground_crush","corrosive_bite","gemburst"]},
+        {monsterId:17, level:51, moves:["coal_smash","sun_burst","tempest_wave","lava_spout"]},
+        {monsterId:192, level:52, moves:["crystal_spear","underground_crush","gemburst","auger_strike"]}
+      ]
+    }
+  },
+  umbra_zealot_cinder: {
+    id:"umbra_zealot_cinder", name:"Umbra Zealot Cinder", emoji:"🕶️",
+    triggerLocation:"route10",
+    quote:"The light blinds you to the truth! The Umbra Order will draw a kinder darkness over all Lumoria!",
+    winQuote:"My faith... was not enough. But Shade's will is.",
+    teams:{
+      single:[
+        {monsterId:80, level:55, moves:["sylvan_radiance","pollen_storm","nyx_fang","cocoon_burst"]},
+        {monsterId:120, level:56, moves:["nyx_fang","malice_beam","nightmare_pulse","shadow_lance"]}
+      ],
+      double:[
+        {monsterId:122, level:54, moves:["nyx_fang","malice_beam","aerial_assault","nightmare_pulse"]},
+        {monsterId:80, level:55, moves:["sylvan_radiance","pollen_storm","nyx_fang","cocoon_burst"]},
+        {monsterId:120, level:56, moves:["nyx_fang","malice_beam","nightmare_pulse","shadow_lance"]}
+      ],
+      triple:[
+        {monsterId:122, level:54, moves:["nyx_fang","malice_beam","aerial_assault","nightmare_pulse"]},
+        {monsterId:80, level:55, moves:["sylvan_radiance","pollen_storm","nyx_fang","cocoon_burst"]},
+        {monsterId:120, level:56, moves:["nyx_fang","malice_beam","nightmare_pulse","shadow_lance"]}
+      ]
+    }
+  },
+  umbra_shade_2: {
+    id:"umbra_shade_2", name:"Commander Shade", emoji:"🌑",
+    triggerLocation:"route11",
+    quote:"We meet again, little light. My grunts were never meant to stop you — only to measure you. You have grown. So has the void I carry. Show me your resolve.",
+    winQuote:"Impressive... but the Order has reached its final phase. Come to our citadel when you dare. I will be waiting at the top.",
+    teams:{
+      single:[
+        {monsterId:270, level:66, moves:["eclipse_burst","soul_rend","starlit_radiance","shadowstorm"]},
+        {monsterId:314, level:67, moves:["hurricane_blast","gale_cannon","harmonic_burst","typhoon"]},
+        {monsterId:316, level:68, moves:["geyser_burst","tsunami","eclipse_burst","claw_hammer"]}
+      ],
+      double:[
+        {monsterId:217, level:64, moves:["mindbreaker","temporal_rift","nimbus_flood","neural_storm"]},
+        {monsterId:360, level:65, moves:["eclipse_burst","soul_rend","mindbreaker","shadowstorm"]},
+        {monsterId:270, level:66, moves:["eclipse_burst","soul_rend","starlit_radiance","shadowstorm"]},
+        {monsterId:314, level:67, moves:["hurricane_blast","gale_cannon","harmonic_burst","typhoon"]},
+        {monsterId:316, level:68, moves:["geyser_burst","tsunami","eclipse_burst","claw_hammer"]}
+      ],
+      triple:[
+        {monsterId:217, level:64, moves:["mindbreaker","temporal_rift","nimbus_flood","neural_storm"]},
+        {monsterId:360, level:65, moves:["eclipse_burst","soul_rend","mindbreaker","shadowstorm"]},
+        {monsterId:270, level:66, moves:["eclipse_burst","soul_rend","starlit_radiance","shadowstorm"]},
+        {monsterId:314, level:67, moves:["hurricane_blast","gale_cannon","harmonic_burst","typhoon"]},
+        {monsterId:316, level:68, moves:["geyser_burst","tsunami","eclipse_burst","claw_hammer"]}
+      ]
+    }
+  },
+  umbra_enforcer_dross: {
+    id:"umbra_enforcer_dross", name:"Umbra Enforcer Dross", emoji:"🕶️",
+    triggerLocation:"route13",
+    quote:"Far enough. The Enforcers answer only to Shade, and Shade says you go no further.",
+    winQuote:"...Then nothing stands between you and the citadel but the Commander himself.",
+    teams:{
+      single:[
+        {monsterId:120, level:71, moves:["eclipse_burst","soul_rend","shadowstorm","dark_corrosion"]},
+        {monsterId:80, level:72, moves:["primordial_growth","hivemind_surge","eclipse_burst","jungle_hammer"]}
+      ],
+      double:[
+        {monsterId:65, level:70, moves:["primordial_growth","hivemind_surge","venom_drown","jungle_hammer"]},
+        {monsterId:100, level:71, moves:["continental_shift","cryo_shatter","venom_drown","bedrock_slam"]},
+        {monsterId:120, level:71, moves:["eclipse_burst","soul_rend","shadowstorm","dark_corrosion"]},
+        {monsterId:80, level:72, moves:["primordial_growth","hivemind_surge","eclipse_burst","jungle_hammer"]}
+      ],
+      triple:[
+        {monsterId:65, level:70, moves:["primordial_growth","hivemind_surge","venom_drown","jungle_hammer"]},
+        {monsterId:100, level:71, moves:["continental_shift","cryo_shatter","venom_drown","bedrock_slam"]},
+        {monsterId:120, level:71, moves:["eclipse_burst","soul_rend","shadowstorm","dark_corrosion"]},
+        {monsterId:80, level:72, moves:["primordial_growth","hivemind_surge","eclipse_burst","jungle_hammer"]}
+      ]
+    }
+  },
+  umbra_commander_kira_3: {
+    id:"umbra_commander_kira_3", name:"Commander Kira", emoji:"🌋",
+    triggerLocation:"route14",
+    quote:"Third time, little champion-to-be. I have stopped fighting for the Order. I fight now only to beat YOU — once, before the end.",
+    winQuote:"...Heh. Worth it. Go on. Finish what Shade started — or end it.",
+    teams:{
+      single:[
+        {monsterId:99, level:79, moves:["world_root_bind","worldseed_quake","gunk_blast","continental_shift"]},
+        {monsterId:14, level:79, moves:["lava_drop","caldera_meltdown","world_root_bind","solar_flare"]},
+        {monsterId:192, level:80, moves:["world_root_bind","worldseed_quake","continental_shift","cryo_shatter"]}
+      ],
+      double:[
+        {monsterId:16, level:78, moves:["lava_drop","caldera_meltdown","solar_flare","pyroclasm"]},
+        {monsterId:17, level:78, moves:["lava_drop","caldera_meltdown","thunderstorm_eruption","solar_flare"]},
+        {monsterId:99, level:79, moves:["world_root_bind","worldseed_quake","gunk_blast","continental_shift"]},
+        {monsterId:14, level:79, moves:["lava_drop","caldera_meltdown","world_root_bind","solar_flare"]},
+        {monsterId:192, level:80, moves:["world_root_bind","worldseed_quake","continental_shift","cryo_shatter"]}
+      ],
+      triple:[
+        {monsterId:16, level:78, moves:["lava_drop","caldera_meltdown","solar_flare","pyroclasm"]},
+        {monsterId:17, level:78, moves:["lava_drop","caldera_meltdown","thunderstorm_eruption","solar_flare"]},
+        {monsterId:99, level:79, moves:["world_root_bind","worldseed_quake","gunk_blast","continental_shift"]},
+        {monsterId:14, level:79, moves:["lava_drop","caldera_meltdown","world_root_bind","solar_flare"]},
+        {monsterId:192, level:80, moves:["world_root_bind","worldseed_quake","continental_shift","cryo_shatter"]}
+      ]
+    }
+  },
+  umbra_shade_3: {
+    id:"umbra_shade_3", name:"Commander Shade", emoji:"🌑",
+    triggerLocation:"umbra_citadel",
+    reward:{ masterOrb:1, rareCandy:6 },
+    quote:"You climbed my citadel. Past every Acolyte, every Commander, every fear I sent down the mountain. Here, at the summit, there is only me and the void I have become. This is the Umbra Order's final hour — one way or the other. Come, light. Let us end the long dark.",
+    winQuote:"...So this is how the Order falls. Not to an army — to one trainer and the bonds I never understood. Take it, then. The dark is yours to lift. The remnants will scatter... but they will remember your name.",
+    teams:{
+      single:[
+        {monsterId:321, level:92, moves:["emperor_inferno","voltaic_fang","volcanic_wrath","comet_crash"]},
+        {monsterId:314, level:93, moves:["thunderstorm_eruption","canopy_strike","threnody","stratosphere_drop"]},
+        {monsterId:316, level:94, moves:["ocean_crash","geyser_burst","void_dominion","tsunami"]}
+      ],
+      double:[
+        {monsterId:360, level:91, moves:["void_dominion","abyssal_wave","psychic_blizzard","abyssal_dominion"]},
+        {monsterId:270, level:92, moves:["void_dominion","abyssal_wave","fairy_blast","abyssal_dominion"]},
+        {monsterId:321, level:92, moves:["emperor_inferno","voltaic_fang","volcanic_wrath","comet_crash"]},
+        {monsterId:314, level:93, moves:["thunderstorm_eruption","canopy_strike","threnody","stratosphere_drop"]},
+        {monsterId:316, level:94, moves:["ocean_crash","geyser_burst","void_dominion","tsunami"]}
+      ],
+      triple:[
+        {monsterId:217, level:90, moves:["psychic_blizzard","time_fracture","miasma_apocalypse","veil_collapse"]},
+        {monsterId:360, level:91, moves:["void_dominion","abyssal_wave","psychic_blizzard","abyssal_dominion"]},
+        {monsterId:270, level:92, moves:["void_dominion","abyssal_wave","fairy_blast","abyssal_dominion"]},
+        {monsterId:321, level:92, moves:["emperor_inferno","voltaic_fang","volcanic_wrath","comet_crash"]},
+        {monsterId:314, level:93, moves:["thunderstorm_eruption","canopy_strike","threnody","stratosphere_drop"]},
+        {monsterId:316, level:94, moves:["ocean_crash","geyser_burst","void_dominion","tsunami"]}
+      ]
+    }
+  },
   umbra_shade: {
     id:"umbra_shade", name:"Commander Shade", emoji:"🌑",
     triggerLocation:"haunted_grove",
@@ -9103,6 +9295,9 @@ const LEVEL_CAPS = {
   umbra_shade: 50,
   // Post-game remnant raids — Champion-tier
   umbra_remnant_lab: 106, umbra_remnant_archive: 109, umbra_remnant_nexus: 112,
+  // Phase 2 — the post-gym-7 Umbra arc (grunts/Kira/Shade) escalating to the Citadel
+  umbra_grunt_soot: 50, umbra_commander_kira_2: 54, umbra_zealot_cinder: 58,
+  umbra_shade_2: 70, umbra_enforcer_dross: 74, umbra_commander_kira_3: 82, umbra_shade_3: 96,
   // The Rex/Commander Shadow arc — matched to the level cap at each point
   // (Pyros-tier, Zara-tier, Glacier-tier, Champion-tier)
   umbra_shadow_route: 21, umbra_shadow_moor: 29, umbra_rex_vorn: 114
@@ -9125,7 +9320,10 @@ const NG_OFFSETS = {
   // All other Umbra Order battles — scale like the gym tier at each point
   umbra_grunt_1:2, umbra_grunt_2:3, umbra_commander_kira:5, umbra_shade:8,
   umbra_phantom_grunt:14, umbra_commander_phantom:14,
-  umbra_remnant_lab:26, umbra_remnant_archive:26, umbra_remnant_nexus:26
+  umbra_remnant_lab:26, umbra_remnant_archive:26, umbra_remnant_nexus:26,
+  // Phase 2 Umbra arc — scale like the gym tier at each point
+  umbra_grunt_soot:6, umbra_commander_kira_2:7, umbra_zealot_cinder:8, umbra_shade_2:10,
+  umbra_enforcer_dross:12, umbra_commander_kira_3:14, umbra_shade_3:27
 };
 
 // ============================================================

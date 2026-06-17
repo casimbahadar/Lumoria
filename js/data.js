@@ -3132,7 +3132,7 @@ const MONSTERS_DATA = {
   // Standalone Fire/Spectral: Hauntcoal
   301: { id:301, name:"Hauntcoal", emoji:"🔥", types:["Fire","Spectral"],
     base:{hp:78,atk:82,def:72,spa:118,spd:95,spe:102},
-    learnset:[[44,"phantom_beam"],[1,"flicker"],[1,"nether_sphere"],[18,"inferno_jet"],[28,"phantom_claw"],[38,"pyroclasm"],[48,"eclipse_shroud"],[58,"soul_rend"],[68,"radiance_cannon"],[70,"searing_gale"],[45,"forge_blast"],[35,"toxic_blaze"],[35,"ignition_kick"],[25,"flare_uppercut"],[25,"lava_spout"],[55,"lava_drop"]],
+    learnset:[[44,"phantom_beam"],[1,"flicker"],[1,"nether_sphere"],[18,"inferno_jet"],[28,"phantom_claw"],[38,"pyroclasm"],[48,"eclipse_shroud"],[58,"soul_rend"],[68,"radiance_cannon"],[70,"searing_gale"],[45,"forge_blast"],[35,"toxic_blaze"],[35,"ignition_kick"],[25,"flare_uppercut"],[25,"lava_spout"],[55,"lava_drop"],[55,"phantom_gale"]],
     evolveTo:null, evolveLevel:null, catchRate:48, expYield:215, rarity:"uncommon",
     desc:"A fire specter born from the embers of burned-down haunted houses. Leaves smoldering phantom footprints.",
     lore:"Hauntcoal is a fire-dark creature 60 cm tall resembling a smouldering black cat whose fur is made of living shadow and ember. Dim orange flames flicker through its dark coat without burning it. It inhabits the spaces near dying fires — hearths, burn-sites, campfire remains — absorbing residual heat from ash." },
@@ -3185,14 +3185,14 @@ const MONSTERS_DATA = {
   // 2-stage Aquatic/Spectral chain: Seafraith → Tidephant (Water Stone item)
   308: { id:308, name:"Seafraith", emoji:"🌊", types:["Aquatic","Spectral"],
     base:{hp:58,atk:62,def:58,spa:88,spd:75,spe:80},
-    learnset:[[1,"aquatic_gun"],[1,"nether_sphere"],[10,"spectral_ray"],[14,"tidal_rush"],[20,"soul_chill"],[24,"phantom_claw"],[30,"spectral_veil"],[34,"tsunami"],[44,"eclipse_shroud"],[54,"soul_rend"],[60,"radiance_cannon"],[50,"torrent_shell"],[30,"dream_torrent"],[20,"maelstrom"],[10,"marine_blessing"],[12,"aquatic_pulse"]],
+    learnset:[[1,"aquatic_gun"],[1,"nether_sphere"],[10,"spectral_ray"],[14,"tidal_rush"],[20,"soul_chill"],[24,"phantom_claw"],[30,"spectral_veil"],[34,"tsunami"],[44,"eclipse_shroud"],[54,"soul_rend"],[60,"radiance_cannon"],[50,"torrent_shell"],[30,"dream_torrent"],[20,"maelstrom"],[10,"marine_blessing"],[12,"aquatic_pulse"],[50,"phantom_gale"]],
     evolveTo:309, evolveLevel:null, evolveItem:"waterStone", evolveMethod:"item", catchRate:135, expYield:98, rarity:"common",
     desc:"A ghost that drowned and merged with ocean tides. Haunts coastal routes, pulling travelers into the surf.",
     lore:"Seafraith is a water-spectral creature 60 cm long resembling a deep-sea fish with a translucent dark body through which dim bioluminescent organs are visible. Its eyes are white and sightless — it navigates by sensing water displacement. It inhabits sunken ruins at depths where light never reaches." },
 
   309: { id:309, name:"Tidephant", emoji:"🦭", types:["Aquatic","Spectral"],
     base:{hp:94,atk:82,def:86,spa:113,spd:102,spe:73},
-    learnset:[[1,"tsunami"],[1,"eclipse_shroud"],[8,"wraith_claw"],[10,"aquatic_gun"],[14,"spectral_ray"],[20,"bubble_jet"],[22,"ghastly_wail"],[28,"soul_rend"],[36,"phantom_claw"],[44,"geyser_burst"],[48,"spectral_veil"],[52,"nether_sphere"],[60,"void_pulse"],[68,"radiance_cannon"],[40,"dream_torrent"],[40,"steam_geyser"],[20,"monsoon"],[30,"torrent_fang"],[22,"rain_cascade"]],
+    learnset:[[1,"tsunami"],[1,"eclipse_shroud"],[8,"wraith_claw"],[10,"aquatic_gun"],[14,"spectral_ray"],[20,"bubble_jet"],[22,"ghastly_wail"],[28,"soul_rend"],[36,"phantom_claw"],[44,"geyser_burst"],[48,"spectral_veil"],[52,"nether_sphere"],[60,"void_pulse"],[68,"radiance_cannon"],[40,"dream_torrent"],[40,"steam_geyser"],[20,"monsoon"],[30,"torrent_fang"],[22,"rain_cascade"],[60,"phantom_gale"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:232, rarity:"rare",
     desc:"A spectral elephant-seal that hauls out on ghost-lit shores. Half pinniped, half phantom—completely terrifying.",
     lore:"Tidephant is a large water-spectral creature 2 metres long resembling a great elephant-seal with dark blue-black hide and a broad blunt-snouted head. As it matured from Seafraith, its fins broadened into flippers and its skeleton calcified into a bull-pinniped frame — a fish-to-leviathan apotheosis. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },

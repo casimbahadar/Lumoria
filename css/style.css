@@ -1812,7 +1812,7 @@ button, a, [role="button"] {
   /* Map dots: bigger for touch */
   .map-loc-dot { width: 26px; height: 26px; font-size: 0.85rem; }
   .map-location.city .map-loc-dot { width: 36px; height: 36px; font-size: 1.2rem; }
-  .map-loc-label { font-size: 0.65rem; }
+  .map-loc-label { font-size: 0.55rem; }
 
   /* Smaller route labels on tablet to reduce overlap */
   .map-route-label { font-size: 0.35rem; padding: 1px 3px; }
@@ -1867,8 +1867,8 @@ button, a, [role="button"] {
   .map-loc-dot { width: 22px; height: 22px; font-size: 0.75rem; }
   .map-location.city .map-loc-dot { width: 30px; height: 30px; font-size: 1rem; }
   .map-loc-label {
-    font-size: 0.5rem;
-    max-width: 50px;
+    font-size: 0.45rem;
+    max-width: 44px;
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.1;

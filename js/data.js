@@ -5498,7 +5498,7 @@ const WORLD_DATA = {
       {id:69, minLv:4, maxLv:6, rate:30},
       {id:180, minLv:5, maxLv:7, rate:35}
     ],
-    hasGym:true, gymLeader:"rex", requiredBadges:0, mapPos:{x:35, y:63}
+    hasGym:true, gymLeader:"rex", requiredBadges:0, mapPos:{x:35, y:65}
   },
   route2: {
     id:"route2", name:"Route 2 - Greenwood Forest", icon:"🌲", type:"route",
@@ -5524,7 +5524,7 @@ const WORLD_DATA = {
       {id:293, minLv:10, maxLv:12, rate:20}, // Amperix
       {id:256, minLv:11, maxLv:13, rate:20}  // Cryonik
     ],
-    hasGym:true, gymLeader:"marina", requiredBadges:1, mapPos:{x:64, y:50}
+    hasGym:true, gymLeader:"marina", requiredBadges:1, mapPos:{x:66, y:51}
   },
   route3: {
     id:"route3", name:"Route 3 - Coastal Shore", icon:"🏖️", type:"route",
@@ -5705,7 +5705,7 @@ const WORLD_DATA = {
       {id:168, minLv:51, maxLv:54, rate:10}  // Gemseer
     ],
     ngPlusWildMonsters:[{id:460, minLv:50, maxLv:53, rate:12}], // NG+ family base: Chimebowl
-    hasGym:true, gymLeader:"oracle", requiredBadges:8, mapPos:{x:30, y:55}
+    hasGym:true, gymLeader:"oracle", requiredBadges:8, mapPos:{x:28, y:53}
   },
   route8: {
     id:"route8", hasUmbraEncounter:true, name:"Route 8 - Sky Corridors", icon:"🌤️", type:"route",
@@ -6288,7 +6288,7 @@ const WORLD_DATA = {
       {id:75, minLv:58, maxLv:62, rate:35}
     ],
     ngPlusWildMonsters:[{id:452, minLv:56, maxLv:60, rate:12}], // NG+ family base: Dozit
-    hasGym:true, gymLeader:"thorne", requiredBadges:10, mapPos:{x:55, y:55}
+    hasGym:true, gymLeader:"thorne", requiredBadges:10, mapPos:{x:56, y:57}
   },
   route10: {
     id:"route10", hasUmbraEncounter:true, name:"Route 10 - Toxic Passage", icon:"☠️", type:"route",
@@ -6318,7 +6318,7 @@ const WORLD_DATA = {
       {id:162, minLv:59, maxLv:64, rate:25},  // Blightalis (mid, 162 on route10 ✓)
       {id:164, minLv:59, maxLv:64, rate:25}   // Lepidox (mid, 164 on murk_crossing ✓)
     ],
-    hasGym:true, gymLeader:"viper", requiredBadges:12, mapPos:{x:43, y:71},
+    hasGym:true, gymLeader:"viper", requiredBadges:12, mapPos:{x:44, y:73},
     ngPlusWildMonsters:[{id:322,minLv:65,maxLv:70,rate:25},{id:324,minLv:65,maxLv:70,rate:15}]
   },
   route11: {
@@ -6539,7 +6539,7 @@ const WORLD_DATA = {
       {id:296, minLv:58, maxLv:60, rate:18}, // Plagueoth
       {id:262, minLv:58, maxLv:60, rate:12}  // Impenezard
     ],
-    hasGym:true, gymLeader:"acrid", requiredBadges:11, mapPos:{x:46, y:54}
+    hasGym:true, gymLeader:"acrid", requiredBadges:11, mapPos:{x:43, y:53}
   },
   quake_foothills: {
     id:"quake_foothills", name:"Quake Foothills", icon:"🌋", type:"route",

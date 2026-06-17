@@ -2012,14 +2012,14 @@ const MONSTERS_DATA = {
   // ===== DARK =====
   118: { id:118, name:"Eclipsehound",   emoji:"🐕", types:["Dark"],
     base:{hp:39,atk:56,def:44,spa:62,spd:39,spe:88},
-    learnset:[[1,"graze",[22,"shadowstep"]],[1,"chomp"],[8,"blitz"],[16,"dusk_slash"],[24,"jaw_crush"],[29,"second_wind"],[32,"void_pulse"],[40,"nether_sphere",[5,"eclipse_shroud"]],[3,"dread_howl"],[31,"baleful_stare"]],
+    learnset:[[1,"graze",[22,"shadowstep"]],[1,"chomp"],[8,"blitz"],[16,"dusk_slash"],[24,"jaw_crush"],[29,"second_wind"],[32,"void_pulse"],[40,"nether_sphere",[5,"eclipse_shroud"]],[3,"dread_howl"],[31,"baleful_stare"],[50,"void_dominion"],[30,"dark_corrosion"]],
     evolveTo:119, evolveLevel:25, evolveMethod:"time", evolveTime:"night", catchRate:150, expYield:88, rarity:"common",
     desc:"A shadow puppy that hides in darkness. Its eyes glow red at night.",
     lore:"Eclipsehound is a small dark-coloured dog about 40 cm at the shoulder with jet-black fur that absorbs nearby light, creating a subtle darkening effect around it. Its eyes glow a faint amber. It is skittish and secretive, hiding in shadows and emerging only at dusk to scavenge in settlements." },
 
   119: { id:119, name:"Dreadmaw",  emoji:"🐕", types:["Dark"],
     base:{hp:81,atk:90,def:57,spa:83,spd:77,spe:92},
-    learnset:[[1,"chomp"],[2,"blitz"],[3,"jaw_crush"],[4,"dusk_slash"],[5,"graze"],[6,"eclipse_shroud"],[26,"second_wind"],[29,"void_pulse"],[37,"nether_sphere"],[38,"nightmare_pulse"],[51,"crushing_bulk"],[64,"void_rend"],[7,"dread_howl"],[44,"baleful_stare"]],
+    learnset:[[1,"chomp"],[2,"blitz"],[3,"jaw_crush"],[4,"dusk_slash"],[5,"graze"],[6,"eclipse_shroud"],[26,"second_wind"],[29,"void_pulse"],[37,"nether_sphere"],[38,"nightmare_pulse"],[51,"crushing_bulk"],[64,"void_rend"],[7,"dread_howl"],[44,"baleful_stare"],[55,"void_dominion"],[35,"dark_corrosion"],[35,"nightmare_smash"]],
     evolveTo:120, evolveLevel:44, catchRate:45, expYield:316, rarity:"uncommon",
     desc:"A hound of the night. Moves silently and strikes from blind spots.",
     lore:"Dreadmaw is a large dark dog 90 cm at the shoulder — Eclipsehound's jet-black light-absorbing fur has deepened to pure black across a broad powerful chest, and the skittish pup's silent-paw habit has matured into the ability to move without sound on any surface. It guards underground lairs and claims territorial ownership of shadow-filled spaces within its range, tolerating no other predators in its claimed darkness." },
@@ -2506,7 +2506,7 @@ const MONSTERS_DATA = {
   // Shadowveil (evolves from Umbrajest 220)
   221: { id:221, name:"Shadowveil", emoji:"🎪", types:["Dark","Vapor"],
     base:{hp:91,atk:84,def:78,spa:109,spd:91,spe:97},
-    learnset:[[1,"void_pulse"],[1,"mental"],[10,"shadow_cloak"],[12,"fog_kick"],[16,"mist_pulse"],[20,"brume_resonance"],[22,"cloud_form"],[24,"fade"],[26,"dusk_slash"],[28,"smog_lash"],[30,"enchanted_edge"],[32,"veil_shroud"],[34,"eclipse_shroud"],[36,"fog_storm"],[40,"abyssal_mist"],[42,"soul_rend"],[44,"enchanted_smash"],[50,"dread_howl"],[54,"mist_veil"],[58,"lunar_burst"],[66,"radiance_cannon"]],
+    learnset:[[1,"void_pulse"],[1,"mental"],[10,"shadow_cloak"],[12,"fog_kick"],[16,"mist_pulse"],[20,"brume_resonance"],[22,"cloud_form"],[24,"fade"],[26,"dusk_slash"],[28,"smog_lash"],[30,"enchanted_edge"],[32,"veil_shroud"],[34,"eclipse_shroud"],[36,"fog_storm"],[40,"abyssal_mist"],[42,"soul_rend"],[44,"enchanted_smash"],[50,"dread_howl"],[54,"mist_veil"],[58,"lunar_burst"],[66,"radiance_cannon"],[60,"void_dominion"],[40,"dark_corrosion"],[40,"nightmare_smash"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:220, rarity:"uncommon",
     desc:"A master of dark illusions. Those who witness its act lose themselves in vaporous nightmares for days.",
     lore:"Shadowveil is a dark-vapor creature 90 cm tall resembling a tall humanoid draped in a cloak of living shadow — Umbrajest's wispy smoke-body has solidified into a cloaked humanoid form. Its face is blank except for two silver eyes. It is impossible to touch directly — hands pass through its shadow-substance — but it can interact physically by will. It observes from darkened doorways." },
@@ -3351,7 +3351,7 @@ const MONSTERS_DATA = {
   // ===== DARK =====
   126: { id:126, name:"Impefurr", emoji:"🦊", types:["Dark"],
     base:{hp:30,atk:38,def:31,spa:56,spd:59,spe:79},
-    learnset:[[1,"chomp"],[1,"baleful_stare"],[8,"blitz"],[16,"void_pulse"],[20,"shadowstep"],[21,"vital_pulse"],[24,"jaw_crush"],[32,"nether_sphere",[5,"eclipse_shroud"]],[36,"void_rend"],[3,"dread_howl"],[31,"second_wind"]],
+    learnset:[[1,"chomp"],[1,"baleful_stare"],[8,"blitz"],[16,"void_pulse"],[20,"shadowstep"],[21,"vital_pulse"],[24,"jaw_crush"],[32,"nether_sphere",[5,"eclipse_shroud"]],[36,"void_rend"],[3,"dread_howl"],[31,"second_wind"],[50,"void_dominion"],[30,"dark_corrosion"]],
     evolveTo:127, evolveLevel:26, catchRate:160, expYield:80, rarity:"common",
     desc:"A faint wraith of shadow energy. Haunts dark places and feeds on fearful emotions.",
     lore:"Impefurr is a slight dark-coloured fox-like creature 45 cm at the shoulder with deep slate-grey fur and eyes that reflect no light. It mimics sounds from its environment — calls of other creatures, distant voices, metal scraping — to confuse and misdirect. It is deeply mischievous by nature." },
@@ -3694,7 +3694,7 @@ const MONSTERS_DATA = {
 
   319: { id:319, name:"Voidraxis", emoji:"🌌", types:["Dark","Stellar"],
     base:{hp:95,atk:93,def:89,spa:131,spd:113,spe:88},
-    learnset:[[1,"fairy_wind"],[1,"chomp"],[7,"void_pulse"],[11,"starlight_lock"],[14,"prism_flare"],[21,"eclipse_shroud"],[28,"lunar_burst"],[32,"nebula_burst"],[35,"tenebrous_snare"],[42,"nether_sphere"],[49,"dread_howl"],[55,"pulsar_storm"],[56,"glitter_storm"],[63,"soul_rend"],[70,"fae_requiem"],[77,"radiance_cannon"],[80,"astral_blast"]],
+    learnset:[[1,"fairy_wind"],[1,"chomp"],[7,"void_pulse"],[11,"starlight_lock"],[14,"prism_flare"],[21,"eclipse_shroud"],[28,"lunar_burst"],[32,"nebula_burst"],[35,"tenebrous_snare"],[42,"nether_sphere"],[49,"dread_howl"],[55,"pulsar_storm"],[56,"glitter_storm"],[63,"soul_rend"],[70,"fae_requiem"],[77,"radiance_cannon"],[80,"astral_blast"],[60,"void_dominion"],[40,"dark_corrosion"],[40,"nightmare_smash"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
     desc:"The Legendary Void Star. A being of absolute darkness ringed by stellar light. Where it passes, stars blink out.",
     lore:"Voidraxis is a dark-stellar creature 1 metre at the shoulder with a body that appears as a perfectly shaped void in reality — an absence of light surrounded by a rim of pale stellar luminescence. It inhabits boundary spaces between light and dark and feeds on ambient emotional energy at dawn and dusk." },

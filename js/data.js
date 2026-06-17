@@ -1876,7 +1876,7 @@ const MONSTERS_DATA = {
   // ===== GROUND =====
   95: { id:95, name:"Aridhino",     emoji:"🦏", types:["Earth"],
     base:{hp:61,atk:71,def:58,spa:40,spd:40,spe:68},
-    learnset:[[1,"graze",[22,"sandstrike"]],[1,"daunt"],[8,"mud_spray"],[16,"cranial_ram"],[24,"tectonic_shift"],[29,"lashing_tail"],[32,"geoblast"],[40,"crushing_bulk",[5,"dust_veil"]],[3,"clay_armor"],[31,"baleful_stare"]],
+    learnset:[[1,"graze",[22,"sandstrike"]],[1,"daunt"],[8,"mud_spray"],[16,"cranial_ram"],[24,"tectonic_shift"],[29,"lashing_tail"],[32,"geoblast"],[40,"crushing_bulk",[5,"dust_veil"]],[3,"clay_armor"],[31,"baleful_stare"],[50,"tectonic_wrath"],[50,"mantle_surge"],[40,"cryo_shatter"],[40,"mineral_lance"],[30,"luma_quake"],[30,"smoldering_abyss"]],
     evolveTo:96, evolveLevel:null, evolveMethod:"item", evolveItem:"steelCoating", catchRate:160, expYield:88, rarity:"common",
     desc:"A dusty rhino calf the size of a small dog. Stomps about arid plains, sometimes shedding tiny static crackles from its budding horn.",
     lore:"Aridhino is a stout rhino calf about 50 centimetres at the shoulder, the early form of a lineage of seismic earth-shakers. Its grey-brown hide is already beginning to thicken into proto-armour plates across its shoulders and broad chest, and a small ridged horn-bud crowns its snout — sometimes shedding tiny crackles of static when the calf scuffs the dry earth in play. It inhabits arid plains and digs shallow burrows to escape midday heat, drinking from rain pools that gather in the depressions left by its passing herd. Aridhino calves visibly flinch at faint thunder from distant storms; an unconscious recognition of the conductive iron-veined Quakehide hide they will grow into, when storms follow rather than precede them across the plains." },
@@ -2320,7 +2320,7 @@ const MONSTERS_DATA = {
   // ===== ROCK =====
   191: { id:191, name:"Pebblet",   emoji:"🪨", types:["Earth"],
     base:{hp:60,atk:63,def:73,spa:46,spd:31,spe:45},
-    learnset:[[1,"collide",[22,"obsidian_crash"]],[1,"stone_throw"],[8,"fortify"],[16,"cranial_ram"],[24,"stone_slide"],[29,"lashing_tail"],[32,"crag_strike"],[40,"crushing_bulk",[5,"granite_wall"]],[3,"petrify_gaze"],[31,"daunt"]],
+    learnset:[[1,"collide",[22,"obsidian_crash"]],[1,"stone_throw"],[8,"fortify"],[16,"cranial_ram"],[24,"stone_slide"],[29,"lashing_tail"],[32,"crag_strike"],[40,"crushing_bulk",[5,"granite_wall"]],[3,"petrify_gaze"],[31,"daunt"],[50,"tectonic_wrath"],[50,"mantle_surge"],[40,"cryo_shatter"],[40,"mineral_lance"],[30,"luma_quake"],[30,"smoldering_abyss"]],
     evolveTo:192, evolveLevel:25, catchRate:160, expYield:88, rarity:"common",
     desc:"A pebble-sized rock roly-poly. Curls into a tiny armored ball when startled, nearly invisible among river stones.",
     lore:"Pebblet is a small rock-isopod about 20 cm long, its segmented stony shell the colour of river gravel and its underside lined with many tiny legs. At the first hint of danger it tucks head and legs away and curls into a tight pebble-shaped ball, nearly indistinguishable from an ordinary stone, rolling with the current through streambeds. As it grows it learns to roll under its own power — the habit that comes to define the boulder-rolling Boulderoll it becomes." },

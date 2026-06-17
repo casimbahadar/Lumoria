@@ -40,6 +40,7 @@ function newGameState(playerName, starterMonsterId) {
     ngPlusCount: 0,
     inverseMode: false,
     vaeldrisPartyLock: null,
+    vaeldrisGauntletRelaxed: false,
     defeatedWielders: [],
     forgottenLegendaryAttempted: []
   };
@@ -139,6 +140,7 @@ function loadGame(slot) {
     if (data.ngPlusCount === undefined) data.ngPlusCount = 0;
     if (data.inverseMode === undefined) data.inverseMode = false;
     if (data.vaeldrisPartyLock === undefined) data.vaeldrisPartyLock = null;
+    if (data.vaeldrisGauntletRelaxed === undefined) data.vaeldrisGauntletRelaxed = false;
     if (!data.defeatedWielders) data.defeatedWielders = [];
     if (!data.forgottenLegendaryAttempted) data.forgottenLegendaryAttempted = [];
     if (data.apexGuardianDefeated === undefined) data.apexGuardianDefeated = false;
@@ -378,6 +380,27 @@ function showNotification(text, cb) {
     overlay.classList.add("hidden");
     if (cb) cb();
   };
+}
+
+// Minimal two-button confirm, reusing the notification overlay (adds a temporary
+// "No" button beside OK so we don't need new markup).
+function showConfirm(text, onYes, yesLabel = "Yes", noLabel = "No") {
+  const overlay = document.getElementById("notification-overlay");
+  document.getElementById("notification-text").innerHTML = text;
+  const okBtn = document.getElementById("btn-notification-ok");
+  okBtn.textContent = yesLabel;
+  let noBtn = document.getElementById("btn-notification-no");
+  if (!noBtn) {
+    noBtn = document.createElement("button");
+    noBtn.id = "btn-notification-no";
+    noBtn.className = okBtn.className;
+    okBtn.parentNode.insertBefore(noBtn, okBtn.nextSibling);
+  }
+  noBtn.textContent = noLabel;
+  overlay.classList.remove("hidden");
+  const cleanup = () => { overlay.classList.add("hidden"); okBtn.textContent = "OK"; if (noBtn) noBtn.remove(); };
+  okBtn.onclick = () => { cleanup(); if (onYes) onYes(); };
+  noBtn.onclick = () => { cleanup(); };
 }
 
 // ---- Level Up Overlay ----
@@ -3708,7 +3731,16 @@ function showBagScreen() {
 // PC BOX SCREEN
 // ============================================================
 function showBoxScreen() {
-  if (G.vaeldrisPartyLock) {
+  if (G.vaeldrisPartyLock && !G.vaeldrisGauntletRelaxed) {
+    // In New Game+ the player may choose to relax the gauntlet's party lock.
+    if (G.ngPlusCount > 0) {
+      showConfirm(
+        "🌀 <strong>Vaeldrian Gauntlet</strong><br><br>Your party is locked for the 13 Wielder battles. In New Game+ you may relax this rule and allow PC / party access between fights for the rest of this run.<br><br>The Wielders stand at Lv.153–155. Relax the lock, or keep the strict gauntlet?",
+        () => { G.vaeldrisGauntletRelaxed = true; saveGame(); showScreen("screen-box"); renderBoxScreen(); },
+        "Relax it", "Keep it strict"
+      );
+      return;
+    }
     showNotification("🌀 <strong>Vaeldrian Gauntlet Active</strong><br><br>Your party is locked for the duration of the 13 Wielder battles. PC access is restricted until all Wielders are defeated.");
     return;
   }

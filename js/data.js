@@ -5498,7 +5498,7 @@ const WORLD_DATA = {
       {id:69, minLv:4, maxLv:6, rate:30},
       {id:180, minLv:5, maxLv:7, rate:35}
     ],
-    hasGym:true, gymLeader:"rex", requiredBadges:0, mapPos:{x:38, y:62}
+    hasGym:true, gymLeader:"rex", requiredBadges:0, mapPos:{x:35, y:63}
   },
   route2: {
     id:"route2", name:"Route 2 - Greenwood Forest", icon:"🌲", type:"route",
@@ -6318,7 +6318,7 @@ const WORLD_DATA = {
       {id:162, minLv:59, maxLv:64, rate:25},  // Blightalis (mid, 162 on route10 ✓)
       {id:164, minLv:59, maxLv:64, rate:25}   // Lepidox (mid, 164 on murk_crossing ✓)
     ],
-    hasGym:true, gymLeader:"viper", requiredBadges:12, mapPos:{x:45, y:69},
+    hasGym:true, gymLeader:"viper", requiredBadges:12, mapPos:{x:43, y:71},
     ngPlusWildMonsters:[{id:322,minLv:65,maxLv:70,rate:25},{id:324,minLv:65,maxLv:70,rate:15}]
   },
   route11: {
@@ -6539,7 +6539,7 @@ const WORLD_DATA = {
       {id:296, minLv:58, maxLv:60, rate:18}, // Plagueoth
       {id:262, minLv:58, maxLv:60, rate:12}  // Impenezard
     ],
-    hasGym:true, gymLeader:"acrid", requiredBadges:11, mapPos:{x:44, y:59}
+    hasGym:true, gymLeader:"acrid", requiredBadges:11, mapPos:{x:46, y:54}
   },
   quake_foothills: {
     id:"quake_foothills", name:"Quake Foothills", icon:"🌋", type:"route",

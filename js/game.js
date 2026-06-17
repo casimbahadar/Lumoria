@@ -904,6 +904,19 @@ function renderWorldMap() {
   regionLabel.style.cssText = "position:absolute;bottom:4px;right:8px;font-size:0.6rem;color:#adf;opacity:0.5;pointer-events:none;font-family:monospace;letter-spacing:1px;";
   regionLabel.textContent = "LUMORIA REGION";
   mapEl.appendChild(regionLabel);
+
+  // Center the viewport on the player's current location. Matters when the map is
+  // larger than the viewport (e.g. the mobile default zoom) so you start on yourself
+  // rather than the top-left corner; harmless at 1x where the map fits.
+  if (viewport) {
+    const cur = WORLD_DATA[G.location];
+    if (cur && cur.mapPos) {
+      const cx = (cur.mapPos.x / 100) * mapW;
+      const cy = (cur.mapPos.y / 100) * mapH;
+      viewport.scrollLeft = Math.max(0, Math.min(cx - viewport.clientWidth / 2, mapW - viewport.clientWidth));
+      viewport.scrollTop  = Math.max(0, Math.min(cy - viewport.clientHeight / 2, mapH - viewport.clientHeight));
+    }
+  }
 }
 
 function travelTo(areaId) {

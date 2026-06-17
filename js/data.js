@@ -1631,7 +1631,7 @@ const MONSTERS_DATA = {
   // ===== FIRE STARTERS + FIRE LINE =====
   1: { id:1, name:"Solkin",    emoji:"🦊", types:["Fire"],
     base:{hp:35,atk:48,def:40,spa:64,spd:47,spe:91},
-    learnset:[[1,"collide",[20,"cinderwhirl"]],[1,"daunt"],[2,"kindle"],[4,"flicker"],[6,"quick_jab"],[8,"blitz"],[10,"rapid_strike"],[11,"cinder_lance"],[13,"flame_fang"],[16,"firebrand"],[19,"war_dance"],[27,"inferno_jet"],[38,"pyroclasm",[5,"scorch_veil"]]],
+    learnset:[[1,"collide",[20,"cinderwhirl"]],[1,"daunt"],[2,"kindle"],[4,"flicker"],[6,"quick_jab"],[8,"blitz"],[10,"rapid_strike"],[11,"cinder_lance"],[13,"flame_fang"],[16,"firebrand"],[19,"war_dance"],[27,"inferno_jet"],[38,"pyroclasm",[5,"scorch_veil"]],[40,"forge_blast"],[30,"toxic_blaze"],[20,"flare_uppercut"],[20,"lava_spout"],[30,"molten_tide"]],
     evolveTo:2, evolveLevel:16, catchRate:45, expYield:62, rarity:"starter",
     desc:"A fire fox cub. Its tail flame glows brighter when its spirit is high.",
     lore:"Solkin resembles a lean fox kit covered in orange-red fur that fades to pale cream on its underbelly. Its tail tip burns with a small candle-bright flame that flickers when excited. Stands roughly 50 cm tall. It hunts at dawn using bursts of speed to chase insects across sun-warmed stone, and is known for its affectionate, curious temperament. Watch a Solkin kit at dawn and you may catch it pausing mid-chase to gaze at distant volcanic plumes — the long stare of a creature half-aware of the cooling-lava scales it will one day wear as Calderaeth." },
@@ -1704,14 +1704,14 @@ const MONSTERS_DATA = {
 
   11: { id:11, name:"Heliocoon",  emoji:"🥚", types:["Fire","Wind"],
     base:{hp:80,atk:40,def:130,spa:60,spd:110,spe:56},
-    learnset:[[1,"fortify"],[1,"flicker"],[4,"mandible_bite"],[5,"embercloak"],[6,"kindle"],[8,"chitin_guard"],[10,"cocoon_guard"],[14,"scorch_veil"],[18,"sun_burst"],[20,"second_wind"],[22,"metamorphosis"],[26,"fortify"],[32,"embercloak"],[36,"searing_gale"],[39,"conflagration"],[41,"breeze"],[42,"suction_wave"],[43,"breeze_blast"],[44,"breeze_blade"]],
+    learnset:[[1,"fortify"],[1,"flicker"],[4,"mandible_bite"],[5,"embercloak"],[6,"kindle"],[8,"chitin_guard"],[10,"cocoon_guard"],[14,"scorch_veil"],[18,"sun_burst"],[20,"second_wind"],[22,"metamorphosis"],[26,"fortify"],[32,"embercloak"],[36,"searing_gale"],[39,"conflagration"],[41,"breeze"],[42,"suction_wave"],[43,"breeze_blast"],[44,"breeze_blade"],[25,"lava_spout"],[35,"molten_tide"],[15,"hexflame"]],
     evolveTo:12, evolveLevel:40, catchRate:75, expYield:158, rarity:"uncommon",
     desc:"A motionless flame-veined chrysalis hanging from charred branches. Sealed within, a future winged form slowly takes shape.",
     lore:"Heliocoon is a 30-centimetre teardrop-shaped chrysalis spun from Scorchlarva's heat-resistant silk and anchored by a single dark thread to the underside of a charred branch. Its outer casing is layered tan and charcoal-grey, threaded with thin orange veins that pulse faintly with internal warmth as the larva continues to develop inside. It does not feed and rarely shifts — only the casing's surface trembles when the body within turns. Heat radiates from the shell strongly enough to discourage most predators, and it can hang motionless for weeks on end while it waits to emerge into its winged final form." },
 
   13: { id:13, name:"Taurcin",    emoji:"🐂", types:["Fire"],
     base:{hp:67,atk:69,def:56,spa:52,spd:37,spe:43},
-    learnset:[[1,"collide",[22,"magma_surge"]],[1,"flicker"],[12,"cranial_ram"],[19,"war_dance"],[20,"inferno_jet"],[30,"crushing_bulk"],[35,"searing_gale"],[40,"pyroclasm",[5,"scorch_veil"]],[3,"embercloak"],[31,"lashing_tail"]],
+    learnset:[[1,"collide",[22,"magma_surge"]],[1,"flicker"],[12,"cranial_ram"],[19,"war_dance"],[20,"inferno_jet"],[30,"crushing_bulk"],[35,"searing_gale"],[40,"pyroclasm",[5,"scorch_veil"]],[3,"embercloak"],[31,"lashing_tail"],[40,"forge_blast"],[30,"ignition_kick"],[20,"flare_uppercut"],[50,"lava_drop"],[20,"sun_burst"]],
     evolveTo:14, evolveLevel:22, catchRate:120, expYield:112, rarity:"common",
     desc:"A powerful bull with lava dripping from its hooves. Incredibly stubborn.",
     lore:"Taurcin is a bulky bull-like creature standing 1.5 metres at the shoulder. Its rust-red hide is thick as leather armour, and two forward-curving horns glow orange at the tips from retained heat. It stamps and snorts before charging, and the impact of its body can crack stone walls. Veteran Taurcin will stamp their hooves into bare soil until faint magma-glow rises through the cracks; the instinct comes from further down the bloodline, where Pyroclasm walks across pools of cooling lava without harm." },
@@ -1725,7 +1725,7 @@ const MONSTERS_DATA = {
 
   16: { id:16, name:"Cindercula",   emoji:"🐍", types:["Fire"],
     base:{hp:41,atk:53,def:46,spa:59,spd:45,spe:47},
-    learnset:[[1,"collide",[20,"cinderwhirl"]],[1,"flicker"],[9,"blitz"],[14,"baleful_stare"],[17,"inferno_jet",[5,"scorch_veil"]],[24,"vital_pulse"],[32,"ashfall"],[40,"pyroclasm"],[3,"embercloak"],[31,"lashing_tail"]],
+    learnset:[[1,"collide",[20,"cinderwhirl"]],[1,"flicker"],[9,"blitz"],[14,"baleful_stare"],[17,"inferno_jet",[5,"scorch_veil"]],[24,"vital_pulse"],[32,"ashfall"],[40,"pyroclasm"],[3,"embercloak"],[31,"lashing_tail"],[40,"forge_blast"],[30,"toxic_blaze"],[20,"flare_uppercut"],[20,"lava_spout"],[30,"molten_tide"]],
     evolveTo:17, evolveLevel:20, evolveMethod:"move", evolveMove:"cinderwhirl", catchRate:200, expYield:65, rarity:"common",
     desc:"A shy fledgling fire-serpent with a crest of flame-coloured feathers. Breathes tiny flames.",
     lore:"Cindercula is a sinuous fire-serpent about 1.8 metres long with iridescent scales shading from copper at the head to charcoal at the tail. A thin crest of flame-coloured feathers runs from its neck to mid-body. It slithers through ash fields and hunts by sensing heat signatures with specialised pit organs. Despite having no limbs at all, Cindercula sometimes rear upright along thermal columns and flare their feathered crests outward — a rehearsal of the great plumed wings Searburn unfurls at metamorphosis and Quetzember spreads at maturity." },
@@ -2759,7 +2759,7 @@ const MONSTERS_DATA = {
   // Standalone Fire/Mineral: Ashrock (location evo near volcano area)
   253: { id:253, name:"Ashrock", emoji:"🌋", types:["Fire","Mineral"],
     base:{hp:90,atk:105,def:100,spa:88,spd:75,spe:55},
-    learnset:[[1,"stone_throw"],[1,"flicker"],[18,"stone_slide"],[28,"inferno_jet"],[38,"crag_strike"],[48,"magma_stone"],[58,"pyroclasm"],[68,"radiance_cannon"],[70,"mineral_jab"],[71,"mineral_pulse"],[72,"shard_volley"],[74,"searing_gale"],[75,"ore_punch"]],
+    learnset:[[1,"stone_throw"],[1,"flicker"],[18,"stone_slide"],[28,"inferno_jet"],[38,"crag_strike"],[48,"magma_stone"],[58,"pyroclasm"],[68,"radiance_cannon"],[70,"mineral_jab"],[71,"mineral_pulse"],[72,"shard_volley"],[74,"searing_gale"],[75,"ore_punch"],[35,"toxic_blaze"],[35,"ignition_kick"],[55,"lava_drop"],[25,"sun_burst"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:215, rarity:"uncommon",
     desc:"Volcanic rock infused with fire. Found only near ancient forge sites where magma once flowed freely.",
     lore:"Ashrock is a fire-mineral creature 60 cm tall resembling a chunk of volcanic basalt with glowing orange cracks running through it like veins of magma. Its surface radiates intense heat. It inhabits volcanic crater rims and lava tube exits, cooling slowly over centuries until its glow dims and it becomes dormant." },
@@ -2921,7 +2921,7 @@ const MONSTERS_DATA = {
   // 3-stage Fire/Rock chain: Charrock → Infernox → Pyrovast
   274: { id:274, name:"Charrock", emoji:"🪨", types:["Fire","Mineral"],
     base:{hp:46,atk:60,def:65,spa:55,spd:50,spe:52},
-    learnset:[[1,"flicker"],[1,"stone_throw"],[5,"granite_slam"],[10,"stone_slide"],[15,"mica_lattice"],[20,"inferno_jet"],[25,"amethyst_pulse"],[30,"crag_strike"],[40,"pyroclasm"],[50,"magma_stone"],[60,"radiance_cannon"]],
+    learnset:[[1,"flicker"],[1,"stone_throw"],[5,"granite_slam"],[10,"stone_slide"],[15,"mica_lattice"],[20,"inferno_jet"],[25,"amethyst_pulse"],[30,"crag_strike"],[40,"pyroclasm"],[50,"magma_stone"],[60,"radiance_cannon"],[40,"forge_blast"],[30,"toxic_blaze"],[30,"ignition_kick"],[20,"flare_uppercut"],[20,"lava_spout"],[30,"molten_tide"]],
     evolveTo:275, evolveLevel:28, catchRate:170, expYield:74, rarity:"common",
     desc:"A coal-like creature that ignites when rolling downhill. Leaves scorch marks on stone paths.",
     lore:"Charrock is a fire-mineral creature 30 cm long resembling a small lizard made of dark basalt with glowing cinders embedded in its skin. It collects small pebbles and packs them into its cinder-body over time, growing heavier and slower with age. The hottest cinders in its body mark its most active thinking. A Charrock's surface cinders glow steadily hotter and oranger as the creature ages, the body's heat-storage capacity inching toward the magma-pool levels Infernox sustains across every joint. Faint heat-shimmer extends further outward with each successive moult, approaching the eruption-radius Magmaw maintains constantly. Provoke a fully-grown Charrock and its body will produce a small but distinct ground-tremor that propagates further than its tiny mass should allow." },
@@ -2943,7 +2943,7 @@ const MONSTERS_DATA = {
   // Standalone mono Fire: Magmote (location evo near forge area)
   277: { id:277, name:"Magmote", emoji:"🌶️", types:["Fire"],
     base:{hp:92,atk:110,def:96,spa:98,spd:80,spe:62},
-    learnset:[[1,"flicker"],[1,"mud_spray"],[15,"flame_charge"],[18,"inferno_jet"],[28,"geoblast"],[28,"blazing_rush"],[38,"pyroclasm"],[45,"flash_fire"],[48,"tectonic_shift"],[58,"magma_surge"],[68,"radiance_cannon"]],
+    learnset:[[1,"flicker"],[1,"mud_spray"],[15,"flame_charge"],[18,"inferno_jet"],[28,"geoblast"],[28,"blazing_rush"],[38,"pyroclasm"],[45,"flash_fire"],[48,"tectonic_shift"],[58,"magma_surge"],[68,"radiance_cannon"],[35,"ignition_kick"],[55,"lava_drop"],[25,"sun_burst"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:215, rarity:"uncommon",
     desc:"Found only in volcanic forge areas where earth meets fire. Its body is half-molten rock, half-flame.",
     lore:"Magmote is a small fire creature 20 cm tall resembling a lava droplet that has cooled enough to walk. Its body is glossy dark basalt with an interior glow. It inhabits active volcanic vents and feeds by filtering mineral nutrients from magma, which passes harmlessly through its heat-adapted body." },
@@ -3132,7 +3132,7 @@ const MONSTERS_DATA = {
   // Standalone Fire/Spectral: Hauntcoal
   301: { id:301, name:"Hauntcoal", emoji:"🔥", types:["Fire","Spectral"],
     base:{hp:78,atk:82,def:72,spa:118,spd:95,spe:102},
-    learnset:[[44,"phantom_beam"],[1,"flicker"],[1,"nether_sphere"],[18,"inferno_jet"],[28,"phantom_claw"],[38,"pyroclasm"],[48,"eclipse_shroud"],[58,"soul_rend"],[68,"radiance_cannon"],[70,"searing_gale"]],
+    learnset:[[44,"phantom_beam"],[1,"flicker"],[1,"nether_sphere"],[18,"inferno_jet"],[28,"phantom_claw"],[38,"pyroclasm"],[48,"eclipse_shroud"],[58,"soul_rend"],[68,"radiance_cannon"],[70,"searing_gale"],[45,"forge_blast"],[35,"toxic_blaze"],[35,"ignition_kick"],[25,"flare_uppercut"],[25,"lava_spout"],[55,"lava_drop"]],
     evolveTo:null, evolveLevel:null, catchRate:48, expYield:215, rarity:"uncommon",
     desc:"A fire specter born from the embers of burned-down haunted houses. Leaves smoldering phantom footprints.",
     lore:"Hauntcoal is a fire-dark creature 60 cm tall resembling a smouldering black cat whose fur is made of living shadow and ember. Dim orange flames flicker through its dark coat without burning it. It inhabits the spaces near dying fires — hearths, burn-sites, campfire remains — absorbing residual heat from ash." },

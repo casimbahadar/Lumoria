@@ -1962,14 +1962,14 @@ const MONSTERS_DATA = {
   // ===== ICE =====
   47: { id:47, name:"Hexaprowl",    emoji:"🐺", types:["Ice"],
     base:{hp:49,atk:54,def:51,spa:63,spd:47,spe:73},
-    learnset:[[1,"graze",[22,"rime_shard"]],[1,"flurries"],[8,"blitz"],[16,"frost_crash"],[24,"cold_beam"],[29,"second_wind"],[32,"glacial_punch"],[40,"whiteout",[5,"permafrost"]],[3,"winter_shroud"],[31,"baleful_stare"]],
+    learnset:[[1,"graze",[22,"rime_shard"]],[1,"flurries"],[8,"blitz"],[16,"frost_crash"],[24,"cold_beam"],[29,"second_wind"],[32,"glacial_punch"],[40,"whiteout",[5,"permafrost"]],[3,"winter_shroud"],[31,"baleful_stare"],[50,"glacial_riptide"],[30,"icebound_lattice"]],
     evolveTo:48, evolveLevel:28, evolveMethod:"location", evolveLocation:"frostpeak", catchRate:120, expYield:90, rarity:"common",
     desc:"An ice wolf pup with fur as white as fresh snow. Very loyal and fierce.",
     lore:"Hexaprowl is a lean wolf-like creature about 70 cm at the shoulder with short grey-white fur overlaid by a thin shell of constantly renewing ice crystals. Its paws leave perfectly hexagonal imprints in snow. It hunts in packs across tundra, using coordinated flanking manoeuvres to drive prey toward waiting ambushers." },
 
   48: { id:48, name:"Hailgorge",emoji:"🐺", types:["Ice"],
     base:{hp:89,atk:85,def:55,spa:81,spd:76,spe:94},
-    learnset:[[1,"flurries"],[2,"blitz"],[3,"cold_beam"],[4,"frost_crash"],[5,"graze"],[6,"permafrost"],[28,"second_wind"],[29,"glacial_punch"],[37,"whiteout"],[40,"hoarfrost_bite"],[52,"crushing_bulk"],[64,"avalanche_drive"],[7,"winter_shroud"],[44,"baleful_stare"]],
+    learnset:[[1,"flurries"],[2,"blitz"],[3,"cold_beam"],[4,"frost_crash"],[5,"graze"],[6,"permafrost"],[28,"second_wind"],[29,"glacial_punch"],[37,"whiteout"],[40,"hoarfrost_bite"],[52,"crushing_bulk"],[64,"avalanche_drive"],[7,"winter_shroud"],[44,"baleful_stare"],[55,"glacial_riptide"],[35,"icebound_lattice"],[25,"cryo_plate"]],
     evolveTo:49, evolveLevel:44, catchRate:40, expYield:220, rarity:"uncommon",
     desc:"A blizzard hound that howls to summon snowstorms. Fearsome and fast.",
     lore:"Hailgorge is a massive ice wolf 1.3 metres tall at the shoulder with broad shoulders and white fur that bristles with jagged ice spines when it raises its hackles — Hexaprowl's thin ice-crystal shell has thickened into a permanent armoured mantle along its back, and the hexagonal paw-prints of its juvenile form have widened into bear-sized impressions. Its howl condenses moisture in the air into a brief localised hailstorm. It leads Hexaprowl packs with absolute authority." },
@@ -2341,7 +2341,7 @@ const MONSTERS_DATA = {
 
   195: { id:195, name:"Icequartz",  emoji:"💎", types:["Ice","Mineral"],
     base:{hp:70,atk:66,def:101,spa:77,spd:87,spe:38},
-    learnset:[[1,"stone_throw",[25,"crystal_lance"]],[1,"flurries"],[3,"petrify_gaze"],[8,"flint_focus"],[11,"embedded_spike"],[12,"fortify"],[14,"crystal_veil"],[17,"war_dance"],[20,"stone_slide"],[22,"sediment_heal"],[24,"glacial_lance"],[26,"crystal_spear"],[28,"cold_beam"],[30,"mica_lattice"],[31,"stalactite_drop"],[33,"quarry_crush"],[34,"hail_storm"],[36,"crag_strike"],[38,"diamond_storm"],[40,"gem_scatter"],[43,"frost_crash"],[44,"whiteout",[5,"granite_wall"]],[45,"gemburst"]],
+    learnset:[[1,"stone_throw",[25,"crystal_lance"]],[1,"flurries"],[3,"petrify_gaze"],[8,"flint_focus"],[11,"embedded_spike"],[12,"fortify"],[14,"crystal_veil"],[17,"war_dance"],[20,"stone_slide"],[22,"sediment_heal"],[24,"glacial_lance"],[26,"crystal_spear"],[28,"cold_beam"],[30,"mica_lattice"],[31,"stalactite_drop"],[33,"quarry_crush"],[34,"hail_storm"],[36,"crag_strike"],[38,"diamond_storm"],[40,"gem_scatter"],[43,"frost_crash"],[44,"whiteout",[5,"granite_wall"]],[45,"gemburst"],[50,"glacial_riptide"],[30,"icebound_lattice"],[20,"cryo_plate"],[20,"ice_resonance"],[12,"borealis_ray"],[12,"frost_pulse"]],
     evolveTo:196, evolveLevel:40, evolveMethod:"location", evolveLocation:"crystal_depths", catchRate:70, expYield:172, rarity:"uncommon",
     desc:"A crystal of ice and stone. Formed under tremendous pressure underground.",
     lore:"Icequartz is a faceted ice-mineral creature 80 cm tall shaped like a natural geode that has grown legs. Its body is a rough dark matrix on the outside, but gaps reveal brilliant purple amethyst crystals within. It moves very slowly and is prized by miners for the high-quality crystals it sheds during moulting. Each year a Icequartz moves more slowly than the last, and where it pauses too long its feet sink slightly into the frozen ground beneath: these are the first signs of the permafrost rooting Frigolith commits to fully." },
@@ -3383,7 +3383,7 @@ const MONSTERS_DATA = {
   // ===== ICE/STEEL =====
   55: { id:55, name:"Rimeling", emoji:"🗡️", types:["Ice","Fighting"],
     base:{hp:46,atk:73,def:66,spa:56,spd:52,spe:76},
-    learnset:[[15,"straight_jab"],[1,"flurries",[25,"cryo_lance"]],[1,"chrome_claw"],[11,"glacial_punch"],[19,"forge_blast_2"],[27,"frost_crash"],[30,"smelt_crush"],[35,"alloy_tail"],[43,"whiteout",[5,"permafrost"]],[3,"winter_shroud"],[33,"forge_strike"]],
+    learnset:[[15,"straight_jab"],[1,"flurries",[25,"cryo_lance"]],[1,"chrome_claw"],[11,"glacial_punch"],[19,"forge_blast_2"],[27,"frost_crash"],[30,"smelt_crush"],[35,"alloy_tail"],[43,"whiteout",[5,"permafrost"]],[3,"winter_shroud"],[33,"forge_strike"],[50,"glacial_riptide"],[30,"icebound_lattice"],[20,"cryo_plate"],[20,"ice_resonance"]],
     evolveTo:56, evolveLevel:36, evolveMethod:"held", evolveItem:"neverMeltIce", catchRate:90, expYield:110, rarity:"uncommon",
     desc:"A blade of living ice and metal. Keeps its edge forever sharp in the coldest conditions.",
     lore:"Rimeling is a slender humanoid about 1.2 metres tall made entirely of layered ice and dark tempered steel. Its body appears jointed, like armour assembled from ice-forged plates. Blue veins of compressed frost show through gaps in the plating. It stands motionless in blizzards for days, absorbing ambient cold to reinforce its body." },
@@ -3507,7 +3507,7 @@ const MONSTERS_DATA = {
 
   56: { id:56, name:"Deepfreeze", emoji:"⚔️", types:["Ice","Fighting"],
     base:{hp:69,atk:122,def:105,spa:78,spd:83,spe:79},
-    learnset:[[46,"iron_fist"],[1,"glacial_punch"],[2,"forge_blast_2"],[3,"frost_crash"],[4,"alloy_tail"],[5,"permafrost"],[40,"whiteout"],[41,"winter_shroud"],[44,"war_dance"],[48,"rime_shard"],[52,"metal_wing"],[56,"avalanche_drive"],[60,"radiance_cannon"],[6,"frostfire_veil"],[37,"subzero_slash"],[62,"piston_jab"]],
+    learnset:[[46,"iron_fist"],[1,"glacial_punch"],[2,"forge_blast_2"],[3,"frost_crash"],[4,"alloy_tail"],[5,"permafrost"],[40,"whiteout"],[41,"winter_shroud"],[44,"war_dance"],[48,"rime_shard"],[52,"metal_wing"],[56,"avalanche_drive"],[60,"radiance_cannon"],[6,"frostfire_veil"],[37,"subzero_slash"],[62,"piston_jab"],[55,"glacial_riptide"],[35,"icebound_lattice"],[25,"cryo_plate"],[25,"ice_resonance"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:260, rarity:"rare",
     desc:"A legendary blade forged from glacier ice and pure ore. Its strikes freeze what they cut.",
     lore:"Deepfreeze is a heavily armoured bipedal warrior 1.8 metres tall — Rimeling's jointed ice-and-steel plating has thickened and fused into broad-chested armour with pauldrons of glacial ice permanently bonded to the steel underneath, and the blue veins of compressed frost now glow more brightly across the chest and shoulders. Its footsteps leave frost-rimed prints. It patrols the deepest glacier regions and engages any intruder with sword-like projections of flash-frozen air." },

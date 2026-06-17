@@ -689,6 +689,23 @@ function renderWorldMap() {
     el.addEventListener("touchcancel", () => { if (lp) { clearTimeout(lp); lp = null; } hideRouteTip(); });
   };
 
+  // A dead-end route (single connection) otherwise looks like a road that just stops in
+  // open space. Render the route's own icon at its endpoint so it reads as a real
+  // destination; it stays clickable and shows its name on hover / long-press.
+  const addRouteEndIcon = (rId, rArea, rx, ry, rLocked) => {
+    if (!rArea.icon || !rArea.connections || rArea.connections.length !== 1) return;
+    const ic = document.createElement("div");
+    ic.className = "map-route-endicon" + (rLocked ? " locked" : "") + (rId === G.location ? " current" : "");
+    ic.textContent = rArea.icon;
+    ic.style.left = rx + "px";
+    ic.style.top = ry + "px";
+    if (!rLocked) {
+      ic.style.cursor = "pointer";
+      bindRouteName(ic, rArea.name, () => travelTo(rId));
+    }
+    mapEl.appendChild(ic);
+  };
+
   const svg = se("svg", { width:mapW, height:mapH, viewBox:`0 0 ${mapW} ${mapH}` });
   Object.assign(svg.style, { position:"absolute", top:"0", left:"0", zIndex:"5" });
 
@@ -857,6 +874,7 @@ function renderWorldMap() {
         routeLabel.style.left = rx + "px";
         routeLabel.style.top = (ry - 8) + "px";
         mapEl.appendChild(routeLabel);
+        addRouteEndIcon(rId, rArea, rx, ry, rLocked);
       }
     }
   }
@@ -885,6 +903,7 @@ function renderWorldMap() {
       bindRouteName(routeLabel, rArea.name, () => travelTo(rId));
     }
     mapEl.appendChild(routeLabel);
+    addRouteEndIcon(rId, rArea, rx, ry, rLocked);
   }
 
   mapEl.appendChild(svg);

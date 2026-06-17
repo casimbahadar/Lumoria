@@ -477,6 +477,26 @@ html, body {
 
 .map-location.current .map-loc-label { color: var(--accent-yellow); }
 
+/* Icon marker at a dead-end route's endpoint (so the road doesn't just stop in space) */
+.map-route-endicon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  line-height: 1;
+  z-index: 11;
+  border-radius: 50%;
+  background: rgba(18,22,32,0.62);
+  border: 1.5px solid rgba(255,255,255,0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.75);
+}
+.map-route-endicon.locked { opacity: 0.45; filter: grayscale(1); }
+.map-route-endicon.current { border-color: var(--accent-yellow); transform: translate(-50%, -50%) scale(1.2); }
+
 /* Route labels on paths */
 .map-route-label {
   position: absolute;

@@ -1045,18 +1045,20 @@ function renderAreaPanel() {
   if (umbraAreaBtn) {
     umbraAreaBtn.classList.add("hidden");
     if (area.hasUmbraEncounter && typeof UMBRA_BATTLES !== "undefined") {
-      // Find the umbra battle for this location
-      const umbraId = Object.keys(UMBRA_BATTLES).find(k => {
-        const b = UMBRA_BATTLES[k];
-        return b.triggerLocation === G.location;
-      });
+      // Battles sharing a location form a consecutive gauntlet — surface the
+      // next undefeated one (and a counter); once all are beaten, show the last.
+      const here = Object.keys(UMBRA_BATTLES).filter(k => UMBRA_BATTLES[k].triggerLocation === G.location);
+      const beatenList = G.defeatedUmbraEncounters || [];
+      const umbraId = here.find(k => !beatenList.includes(k)) || here[here.length - 1];
       if (umbraId) {
-        const beaten = G.defeatedUmbraEncounters && G.defeatedUmbraEncounters.includes(umbraId);
+        const beaten = beatenList.includes(umbraId);
         umbraAreaBtn.classList.remove("hidden");
         const ub = UMBRA_BATTLES[umbraId];
+        const idx = here.indexOf(umbraId) + 1;
+        const suffix = here.length > 1 && !beaten ? ` (${idx}/${here.length})` : "";
         umbraAreaBtn.textContent = beaten
           ? `✅ ${ub.name} (Defeated)`
-          : `🕶️ Battle ${ub.name}`;
+          : `🕶️ Battle ${ub.name}${suffix}`;
         umbraAreaBtn.disabled = beaten;
       }
     }
@@ -4601,10 +4603,9 @@ function initEventListeners() {
       return;
     }
     if (typeof UMBRA_BATTLES === "undefined") return;
-    const umbraId = Object.keys(UMBRA_BATTLES).find(k => {
-      const b = UMBRA_BATTLES[k];
-      return b.triggerLocation === G.location;
-    });
+    // Gauntlet: fight the next undefeated battle at this location.
+    const beatenList = G.defeatedUmbraEncounters || [];
+    const umbraId = Object.keys(UMBRA_BATTLES).find(k => UMBRA_BATTLES[k].triggerLocation === G.location && !beatenList.includes(k));
     if (!umbraId) return;
     const battle = UMBRA_BATTLES[umbraId];
     showNotification(`${battle.emoji} <strong>${battle.name}</strong>:<br>"${battle.quote}"`, () => {

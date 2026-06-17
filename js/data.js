@@ -5566,7 +5566,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:3, mapPos:{x:65, y:28}
   },
   sparkmoor: {
-    id:"sparkmoor", name:"Sparkmoor Town", icon:"⚡", type:"city", hasUmbraEncounter:true,
+    id:"sparkmoor", name:"Sparkmoor Town", icon:"⚡", type:"city",
     desc:"A town on the electric plains. Gym Leader Zara harnesses lightning power.",
     connections:["valor_pass","route5","storm_plateau","thunder_cliffs"],
     wildMonsters:[
@@ -6249,7 +6249,7 @@ const WORLD_DATA = {
     legendaryEncounter:{monsterId:164, level:55}
   },
   dark_canyon: {
-    id:"dark_canyon", name:"Dark Canyon", icon:"🌑", type:"route",
+    id:"dark_canyon", hasUmbraEncounter:true, name:"Dark Canyon", icon:"🌑", type:"route",
     desc:"A pitch-black gorge where no light penetrates. Dark type Lumori have claimed every shadowed corner, and even the rocks seem to absorb light.",
     connections:["spirit_canyon","umbra_base"],
     wildMonsters:[
@@ -6963,7 +6963,7 @@ const WORLD_DATA = {
   void_nexus: {
     id:"void_nexus", name:"Void Nexus", icon:"🌑", type:"special",
     desc:"The heart of Umbra's post-defeat operations — a nexus of void energy deep in unmapped territory. Only the strongest trainers reach this place. Ultra-rare Lumori cluster around the residual void energy.",
-    connections:["shadow_archive","prismatic_rift","vaeldrian_reaches"],
+    connections:["shadow_archive","prismatic_rift","vaeldrian_reaches","umbra_spire"],
     wildMonsters:[
       {id:270, minLv:72, maxLv:78, rate:18},
       {id:267, minLv:72, maxLv:78, rate:31},
@@ -6984,8 +6984,17 @@ const WORLD_DATA = {
     desc:"A convergence point where the boundary between Lumoria and the lost land of Vaeldris grows thin. Thirteen Wielders wait here — survivors of a world that no longer exists, each carrying a bond that outlasted their home.",
     connections:["void_nexus"],
     wildMonsters:[],
-    hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade", hasUmbraEncounter:true,
+    hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade",
     mapPos:{x:88, y:85}
+  },
+
+  umbra_spire: {
+    id:"umbra_spire", name:"Umbra Spire", icon:"🗼", type:"special", hasUmbraEncounter:true,
+    desc:"The black tower Leader Rex raised from the ruins of the old Order. Its stair is a gauntlet of Admins — the grunts you once pitied, remade in his image — and at its summit waits Rex himself, his oldest partner at his side.",
+    connections:["void_nexus"],
+    wildMonsters:[],
+    hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade",
+    mapPos:{x:80, y:78}
   },
 
   // ===== NG+ EXCLUSIVE AREAS =====
@@ -8049,7 +8058,7 @@ const UMBRA_BATTLES = {
   umbra_commander_rex_shadow: {
     id:"umbra_commander_rex_shadow", name:"Commander Shadow", emoji:"⚡",
     triggerLocation:"storm_plateau",
-    quote:"We meet a third time. You still don't know my face beneath this hood... but you know my Lumori well enough by now. I have awakened Tempestia from the Storm Plateau. This is where your chase ends!",
+    quote:"We meet a second time. You still don't know my face beneath this hood... but you know my Lumori well enough by now. I have awakened Tempestia from the Storm Plateau. Let us see how far you have come!",
     winQuote:"...Again. How? That bond you share with your team... I once believed in something like it. Remember this storm, trainer. We are not finished — not by a long way.",
     teams:{
       single:[
@@ -8096,32 +8105,101 @@ const UMBRA_BATTLES = {
   },
   umbra_shadow_moor: {
     id:"umbra_shadow_moor", name:"Commander Shadow", emoji:"🕶️",
-    triggerLocation:"sparkmoor",
-    quote:"You again. Persistent. I have studied your team since our last clash — every habit, every favourite move. This time the storm is mine. Prove me wrong if you can.",
-    winQuote:"...Impossible. I built that team to counter yours exactly. There is something in how you fight that I cannot model. We are not done.",
+    triggerLocation:"dark_canyon",
+    quote:"Three times now. You have chased my shadow across half of Lumoria. No more grunts, no more storms borrowed from legends — just you, me, and the partner I have carried since before you held a single badge. This canyon is where I find out exactly what you are.",
+    winQuote:"...Three for three. I cannot beat you here — not yet. But remember this, trainer: a shadow is patient. When the badges are all yours, look for me where the dark runs deepest.",
     teams:{
       single:[
-        {monsterId:176, level:26, moves:["static_strike","spark_claw","umbral_pulse","shock_pulse"]},
-        {monsterId:183, level:27, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]}
+        {monsterId:176, level:45, moves:["static_strike","spark_claw","umbral_pulse","shock_pulse"]},
+        {monsterId:183, level:46, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]}
       ],
       double:[
-        {monsterId:87, level:24, moves:["static_strike","spark_claw","brine_slash","shock_pulse"]},
-        {monsterId:209, level:25, moves:["feral_swipe","echo_beam","static_strike","echoing_shout"]},
-        {monsterId:176, level:26, moves:["static_strike","spark_claw","umbral_pulse","shock_pulse"]},
-        {monsterId:183, level:27, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]}
+        {monsterId:87, level:43, moves:["static_strike","spark_claw","brine_slash","shock_pulse"]},
+        {monsterId:209, level:44, moves:["feral_swipe","echo_beam","static_strike","echoing_shout"]},
+        {monsterId:176, level:45, moves:["static_strike","spark_claw","umbral_pulse","shock_pulse"]},
+        {monsterId:183, level:46, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]}
       ],
       triple:[
-        {monsterId:82, level:23, moves:["static_strike","spark_claw","shock_pulse","shock_net"]},
-        {monsterId:87, level:24, moves:["static_strike","spark_claw","brine_slash","shock_pulse"]},
-        {monsterId:209, level:25, moves:["feral_swipe","echo_beam","static_strike","echoing_shout"]},
-        {monsterId:176, level:26, moves:["static_strike","spark_claw","umbral_pulse","shock_pulse"]},
-        {monsterId:183, level:27, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]}
+        {monsterId:82, level:42, moves:["static_strike","spark_claw","shock_pulse","shock_net"]},
+        {monsterId:87, level:43, moves:["static_strike","spark_claw","brine_slash","shock_pulse"]},
+        {monsterId:209, level:44, moves:["feral_swipe","echo_beam","static_strike","echoing_shout"]},
+        {monsterId:176, level:45, moves:["static_strike","spark_claw","umbral_pulse","shock_pulse"]},
+        {monsterId:183, level:46, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]}
+      ]
+    }
+  },
+  umbra_admin_soot: {
+    id:"umbra_admin_soot", name:"Admin Soot", emoji:"🕶️",
+    triggerLocation:"umbra_spire",
+    quote:"Remember me? A lowly Acolyte you swatted aside on the road. Leader Rex saw potential in me — promoted me to Admin of the Spire. The grunts you pitied now guard a god. You will not reach him.",
+    winQuote:"...He was right about you. Go on, then. The other Admins are waiting above.",
+    teams:{
+      single:[
+        {monsterId:125, level:101, moves:["void_dominion","abyssal_wave","gunk_blast","abyssal_dominion"]},
+        {monsterId:131, level:102, moves:["void_dominion","abyssal_wave","foliage_tempest","abyssal_dominion"]}
+      ],
+      double:[
+        {monsterId:120, level:100, moves:["void_dominion","abyssal_wave","abyssal_dominion","wraith_drive"]},
+        {monsterId:125, level:101, moves:["void_dominion","abyssal_wave","gunk_blast","abyssal_dominion"]},
+        {monsterId:131, level:102, moves:["void_dominion","abyssal_wave","foliage_tempest","abyssal_dominion"]}
+      ],
+      triple:[
+        {monsterId:80, level:98, moves:["foliage_tempest","sun_ray","void_dominion","blossom_frenzy"]},
+        {monsterId:120, level:100, moves:["void_dominion","abyssal_wave","abyssal_dominion","wraith_drive"]},
+        {monsterId:125, level:101, moves:["void_dominion","abyssal_wave","gunk_blast","abyssal_dominion"]},
+        {monsterId:131, level:102, moves:["void_dominion","abyssal_wave","foliage_tempest","abyssal_dominion"]}
+      ]
+    }
+  },
+  umbra_admin_cinder: {
+    id:"umbra_admin_cinder", name:"Admin Cinder", emoji:"🕶️",
+    triggerLocation:"umbra_spire",
+    quote:"The Zealot you met on a forgotten route kept the faith — and Leader Rex rewarded it. We are not the rabble you remember. The Spire remakes us. Prove you are still worthy of the climb.",
+    winQuote:"My faith holds... but you climb anyway. Dross is next. He has waited a long time for you.",
+    teams:{
+      single:[
+        {monsterId:136, level:103, moves:["tungsten_wrath","metal_roller","void_dominion","warden_strike"]},
+        {monsterId:125, level:104, moves:["void_dominion","abyssal_wave","gunk_blast","abyssal_dominion"]}
+      ],
+      double:[
+        {monsterId:120, level:102, moves:["void_dominion","abyssal_wave","abyssal_dominion","wraith_drive"]},
+        {monsterId:136, level:103, moves:["tungsten_wrath","metal_roller","void_dominion","warden_strike"]},
+        {monsterId:125, level:104, moves:["void_dominion","abyssal_wave","gunk_blast","abyssal_dominion"]}
+      ],
+      triple:[
+        {monsterId:65, level:100, moves:["foliage_tempest","sun_ray","gunk_blast","blossom_frenzy"]},
+        {monsterId:120, level:102, moves:["void_dominion","abyssal_wave","abyssal_dominion","wraith_drive"]},
+        {monsterId:136, level:103, moves:["tungsten_wrath","metal_roller","void_dominion","warden_strike"]},
+        {monsterId:125, level:104, moves:["void_dominion","abyssal_wave","gunk_blast","abyssal_dominion"]}
+      ]
+    }
+  },
+  umbra_admin_dross: {
+    id:"umbra_admin_dross", name:"Admin Dross", emoji:"🕶️",
+    triggerLocation:"umbra_spire",
+    quote:"Far enough. I was an Enforcer who failed to stop you once. Leader Rex gave me a second chance, and a Spire to defend. Beyond me is only him. You will not pass a third time.",
+    winQuote:"...Then go. Climb the last stair. Leader Rex has been waiting for this since the day he handed you your first badge.",
+    teams:{
+      single:[
+        {monsterId:131, level:105, moves:["void_dominion","abyssal_wave","foliage_tempest","abyssal_dominion"]},
+        {monsterId:120, level:106, moves:["void_dominion","abyssal_wave","abyssal_dominion","wraith_drive"]}
+      ],
+      double:[
+        {monsterId:100, level:104, moves:["meteor_strike","mantle_surge","gunk_blast","world_root_bind"]},
+        {monsterId:131, level:105, moves:["void_dominion","abyssal_wave","foliage_tempest","abyssal_dominion"]},
+        {monsterId:120, level:106, moves:["void_dominion","abyssal_wave","abyssal_dominion","wraith_drive"]}
+      ],
+      triple:[
+        {monsterId:80, level:102, moves:["foliage_tempest","sun_ray","void_dominion","blossom_frenzy"]},
+        {monsterId:100, level:104, moves:["meteor_strike","mantle_surge","gunk_blast","world_root_bind"]},
+        {monsterId:131, level:105, moves:["void_dominion","abyssal_wave","foliage_tempest","abyssal_dominion"]},
+        {monsterId:120, level:106, moves:["void_dominion","abyssal_wave","abyssal_dominion","wraith_drive"]}
       ]
     }
   },
   umbra_rex_vorn: {
     id:"umbra_rex_vorn", name:"Commander Rex Vorn", emoji:"⚡",
-    triggerLocation:"vaeldrian_reaches",
+    triggerLocation:"umbra_spire",
     reward:{ masterOrb:2, rareCandy:8 },
     quote:"So you climbed all the way here. Then you have earned the truth. Lower the hood — yes. Leader Rex. The Foundation Badge was mine to give... and the Umbra Order is mine to remake now that Shade has fallen. You have faced my Glutoros since you were a rookie — the same partner, battle after battle. We have both been holding back. No longer. [Glutoros blazes with light.] EVOLVE. Rise, Ursamight. I will not destroy Lumoria — I will rebuild it in order. But first, the one trainer who could ever stand against me.",
     winQuote:"...Then it is settled. The bond beats the design, every time. Perhaps order was never the answer. Lead them better than I would have, champion. Solarcrown — stand down. We yield.",
@@ -9300,7 +9378,9 @@ const LEVEL_CAPS = {
   umbra_shade_2: 70, umbra_enforcer_dross: 74, umbra_commander_kira_3: 82, umbra_shade_3: 96,
   // The Rex/Commander Shadow arc — matched to the level cap at each point
   // (Pyros-tier, Zara-tier, Glacier-tier, Champion-tier)
-  umbra_shadow_route: 21, umbra_shadow_moor: 29, umbra_rex_vorn: 114
+  umbra_shadow_route: 21, umbra_shadow_moor: 48, umbra_rex_vorn: 114,
+  // Post-game Umbra Spire admin gauntlet (promoted grunts under leader Rex)
+  umbra_admin_soot: 104, umbra_admin_cinder: 106, umbra_admin_dross: 108
 };
 
 // ============================================================
@@ -9316,7 +9396,8 @@ const NG_OFFSETS = {
   // The Vanguard / Champion
   aria:28, grimshaw:28, celeste:27, titan:27, champion:26,
   // The Rex/Commander Shadow arc — scales like gym leaders at matching progression
-  umbra_shadow_route:4, umbra_shadow_moor:6, umbra_commander_rex_shadow:7, umbra_rex_vorn:26,
+  umbra_shadow_route:4, umbra_shadow_moor:8, umbra_commander_rex_shadow:7, umbra_rex_vorn:26,
+  umbra_admin_soot:26, umbra_admin_cinder:26, umbra_admin_dross:26,
   // All other Umbra Order battles — scale like the gym tier at each point
   umbra_grunt_1:2, umbra_grunt_2:3, umbra_commander_kira:5, umbra_shade:8,
   umbra_phantom_grunt:14, umbra_commander_phantom:14,

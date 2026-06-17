@@ -8200,6 +8200,7 @@ const UMBRA_BATTLES = {
   umbra_rex_vorn: {
     id:"umbra_rex_vorn", name:"Commander Rex Vorn", emoji:"⚡",
     triggerLocation:"umbra_spire",
+    requiresUmbraDefeated:["umbra_remnant_lab","umbra_remnant_archive","umbra_remnant_nexus"],
     reward:{ masterOrb:2, rareCandy:8 },
     quote:"So you climbed all the way here. Then you have earned the truth. Lower the hood — yes. Leader Rex. The Foundation Badge was mine to give... and the Umbra Order is mine to remake now that Shade has fallen. You have faced my Glutoros since you were a rookie — the same partner, battle after battle. We have both been holding back. No longer. [Glutoros blazes with light.] EVOLVE. Rise, Ursamight. I will not destroy Lumoria — I will rebuild it in order. But first, the one trainer who could ever stand against me.",
     winQuote:"...Then it is settled. The bond beats the design, every time. Perhaps order was never the answer. Lead them better than I would have, champion. Solarcrown — stand down. We yield.",
@@ -8595,9 +8596,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:464, level:100, moves:["forge_blast_2","lunar_burst","celestial_forge","star_cannon"]}
     ],
     ngTeam:[
-      {monsterId:462, level:100, moves:["mental","wind_scythe","lunar_burst","aura_veil_strike"]},
-      {monsterId:463, level:102, moves:["lunar_burst","geoblast","prism_flare","luma_quake"]},
-      {monsterId:464, level:105, moves:["forge_blast_2","lunar_burst","celestial_forge","star_cannon"]}
+      {monsterId:462, level:145, moves:["mental","wind_scythe","lunar_burst","aura_veil_strike"]},
+      {monsterId:463, level:147, moves:["lunar_burst","geoblast","prism_flare","luma_quake"]},
+      {monsterId:464, level:150, moves:["forge_blast_2","lunar_burst","celestial_forge","star_cannon"]}
     ]
   },
   wielder_morrigan: {
@@ -8612,9 +8613,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:467, level:100, moves:["whiteout","psi_strike","psychic_blizzard","frost_pulse"]}
     ],
     ngTeam:[
-      {monsterId:465, level:100, moves:["nether_sphere","void_pulse","void_rend","nyx_fang"]},
-      {monsterId:466, level:102, moves:["pyroclasm","sludge_wave","void_pulse","toxic_blaze"]},
-      {monsterId:467, level:105, moves:["whiteout","psi_strike","psychic_blizzard","frost_pulse"]}
+      {monsterId:465, level:145, moves:["nether_sphere","void_pulse","void_rend","nyx_fang"]},
+      {monsterId:466, level:147, moves:["pyroclasm","sludge_wave","void_pulse","toxic_blaze"]},
+      {monsterId:467, level:150, moves:["whiteout","psi_strike","psychic_blizzard","frost_pulse"]}
     ]
   },
   wielder_kael: {
@@ -8629,9 +8630,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:470, level:100, moves:["typhoon","tsunami","torrent_shell","brood_tide"]}
     ],
     ngTeam:[
-      {monsterId:468, level:100, moves:["volt_jet","forge_blast_2","volt_surge","ampere_rail"]},
-      {monsterId:469, level:102, moves:["crag_strike","draconic_pulse","obsidian_crash","arc_strike"]},
-      {monsterId:470, level:105, moves:["typhoon","tsunami","torrent_shell","brood_tide"]}
+      {monsterId:468, level:145, moves:["volt_jet","forge_blast_2","volt_surge","ampere_rail"]},
+      {monsterId:469, level:147, moves:["crag_strike","draconic_pulse","obsidian_crash","arc_strike"]},
+      {monsterId:470, level:150, moves:["typhoon","tsunami","torrent_shell","brood_tide"]}
     ]
   },
   wielder_thessaly: {
@@ -8646,9 +8647,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:473, level:100, moves:["tectonic_shift","geoblast","tectonic_wrath","quake_barrage"]}
     ],
     ngTeam:[
-      {monsterId:471, level:100, moves:["pod_blast","ooze_bomb","verdant_orb","root_toxin"]},
-      {monsterId:472, level:102, moves:["crag_strike","forge_blast_2","obsidian_crash","mineral_lance"]},
-      {monsterId:473, level:105, moves:["tectonic_shift","geoblast","tectonic_wrath","quake_barrage"]}
+      {monsterId:471, level:145, moves:["pod_blast","ooze_bomb","verdant_orb","root_toxin"]},
+      {monsterId:472, level:147, moves:["crag_strike","forge_blast_2","obsidian_crash","mineral_lance"]},
+      {monsterId:473, level:150, moves:["tectonic_shift","geoblast","tectonic_wrath","quake_barrage"]}
     ]
   },
   wielder_nereus: {
@@ -8663,9 +8664,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:476, level:100, moves:["draconic_claw","whiteout","glacial_riptide","tidal_fang"]}
     ],
     ngTeam:[
-      {monsterId:474, level:100, moves:["tidal_rush","mental","tsunami","thought_stream"]},
-      {monsterId:475, level:102, moves:["jaw_crush","venom_lance","void_pulse","dark_corrosion"]},
-      {monsterId:476, level:105, moves:["draconic_claw","whiteout","glacial_riptide","tidal_fang"]}
+      {monsterId:474, level:145, moves:["tidal_rush","mental","tsunami","thought_stream"]},
+      {monsterId:475, level:147, moves:["jaw_crush","venom_lance","void_pulse","dark_corrosion"]},
+      {monsterId:476, level:150, moves:["draconic_claw","whiteout","glacial_riptide","tidal_fang"]}
     ]
   },
   wielder_caelia: {
@@ -8680,9 +8681,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:479, level:100, moves:["typhoon","specter_pulse","phantom_gale","void_cyclone"]}
     ],
     ngTeam:[
-      {monsterId:477, level:100, moves:["lunar_burst","volt_jet","prism_flare","aether_shock"]},
-      {monsterId:478, level:102, moves:["wind_scythe","forge_blast_2","typhoon","ferrous_gale"]},
-      {monsterId:479, level:105, moves:["typhoon","specter_pulse","phantom_gale","void_cyclone"]}
+      {monsterId:477, level:145, moves:["lunar_burst","volt_jet","prism_flare","aether_shock"]},
+      {monsterId:478, level:147, moves:["wind_scythe","forge_blast_2","typhoon","ferrous_gale"]},
+      {monsterId:479, level:150, moves:["typhoon","specter_pulse","phantom_gale","void_cyclone"]}
     ]
   },
   wielder_dravek: {
@@ -8697,9 +8698,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:482, level:100, moves:["draconic_claw","venom_lance","venom_surge","acid_burst"]}
     ],
     ngTeam:[
-      {monsterId:480, level:100, moves:["pyroclasm","forge_blast_2","solar_flare","pyro_alloy"]},
-      {monsterId:481, level:102, moves:["void_pulse","geoblast","obsidian_fang","smoldering_abyss"]},
-      {monsterId:482, level:105, moves:["draconic_claw","venom_lance","venom_surge","acid_burst"]}
+      {monsterId:480, level:145, moves:["pyroclasm","forge_blast_2","solar_flare","pyro_alloy"]},
+      {monsterId:481, level:147, moves:["void_pulse","geoblast","obsidian_fang","smoldering_abyss"]},
+      {monsterId:482, level:150, moves:["draconic_claw","venom_lance","venom_surge","acid_burst"]}
     ]
   },
   wielder_nylara: {
@@ -8714,9 +8715,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:485, level:100, moves:["specter_pulse","lunar_burst","winter_shade","glacial_spirit"]}
     ],
     ngTeam:[
-      {monsterId:483, level:100, moves:["cold_beam","forge_blast_2","alloy_edge","cryo_plate"]},
-      {monsterId:484, level:102, moves:["jaw_crush","obsidian_crash","eclipse_shroud","cryo_shatter"]},
-      {monsterId:485, level:105, moves:["specter_pulse","lunar_burst","winter_shade","glacial_spirit"]}
+      {monsterId:483, level:145, moves:["cold_beam","forge_blast_2","alloy_edge","cryo_plate"]},
+      {monsterId:484, level:147, moves:["jaw_crush","obsidian_crash","eclipse_shroud","cryo_shatter"]},
+      {monsterId:485, level:150, moves:["specter_pulse","lunar_burst","winter_shade","glacial_spirit"]}
     ]
   },
   wielder_solenne: {
@@ -8731,9 +8732,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:488, level:100, moves:["draconic_pulse","stormbolt","voltaic_fang","thunder_chain"]}
     ],
     ngTeam:[
-      {monsterId:486, level:100, moves:["mental","nether_sphere","psi_strike","dream_torrent"]},
-      {monsterId:487, level:102, moves:["lunar_burst","tidal_rush","celestial_wave","moonlit_surge"]},
-      {monsterId:488, level:105, moves:["draconic_pulse","stormbolt","voltaic_fang","thunder_chain"]}
+      {monsterId:486, level:145, moves:["mental","nether_sphere","psi_strike","dream_torrent"]},
+      {monsterId:487, level:147, moves:["lunar_burst","tidal_rush","celestial_wave","moonlit_surge"]},
+      {monsterId:488, level:150, moves:["draconic_pulse","stormbolt","voltaic_fang","thunder_chain"]}
     ]
   },
   wielder_rax: {
@@ -8748,9 +8749,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:491, level:100, moves:["draconic_claw","iron_cleave","draconic_pummels","alloy_breaker"]}
     ],
     ngTeam:[
-      {monsterId:489, level:100, moves:["alloy_tail","crag_strike","obsidian_crash","iron_fortress"]},
-      {monsterId:490, level:102, moves:["pyroclasm","void_pulse","solar_flare","forge_blast"]},
-      {monsterId:491, level:105, moves:["draconic_claw","iron_cleave","draconic_pummels","alloy_breaker"]}
+      {monsterId:489, level:145, moves:["alloy_tail","crag_strike","obsidian_crash","iron_fortress"]},
+      {monsterId:490, level:147, moves:["pyroclasm","void_pulse","solar_flare","forge_blast"]},
+      {monsterId:491, level:150, moves:["draconic_claw","iron_cleave","draconic_pummels","alloy_breaker"]}
     ]
   },
   wielder_tempris: {
@@ -8765,9 +8766,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:494, level:100, moves:["aerial_assault","verdant_surge","canopy_strike","sky_harvest"]}
     ],
     ngTeam:[
-      {monsterId:492, level:100, moves:["volt_jet","mental","volt_surge","psycho_surge"]},
-      {monsterId:493, level:102, moves:["forge_blast_2","whiteout","alloy_edge","icebound_lattice"]},
-      {monsterId:494, level:105, moves:["aerial_assault","verdant_surge","canopy_strike","sky_harvest"]}
+      {monsterId:492, level:145, moves:["volt_jet","mental","volt_surge","psycho_surge"]},
+      {monsterId:493, level:147, moves:["forge_blast_2","whiteout","alloy_edge","icebound_lattice"]},
+      {monsterId:494, level:150, moves:["aerial_assault","verdant_surge","canopy_strike","sky_harvest"]}
     ]
   },
   wielder_vayne: {
@@ -8782,9 +8783,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:497, level:100, moves:["draconic_claw","gale_cannon","abyssal_fang","void_rend_ex"]}
     ],
     ngTeam:[
-      {monsterId:495, level:100, moves:["specter_pulse","tectonic_shift","void_pulse","nihil_quake"]},
-      {monsterId:496, level:102, moves:["mental","shear_strike","psi_strike","venom_mind"]},
-      {monsterId:497, level:105, moves:["draconic_claw","gale_cannon","abyssal_fang","void_rend_ex"]}
+      {monsterId:495, level:145, moves:["specter_pulse","tectonic_shift","void_pulse","nihil_quake"]},
+      {monsterId:496, level:147, moves:["mental","shear_strike","psi_strike","venom_mind"]},
+      {monsterId:497, level:150, moves:["draconic_claw","gale_cannon","abyssal_fang","void_rend_ex"]}
     ]
   },
   wielder_azura: {
@@ -8799,9 +8800,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:500, level:100, moves:["nether_sphere","radiance_cannon","stellar_collapse","spectral_radiance"]}
     ],
     ngTeam:[
-      {monsterId:498, level:100, moves:["mental","lunar_burst","psi_strike","cosmic_dust"]},
-      {monsterId:499, level:102, moves:["draconic_pulse","solar_flare","ancient_breath","stellar_flare"]},
-      {monsterId:500, level:105, moves:["nether_sphere","radiance_cannon","stellar_collapse","spectral_radiance"]}
+      {monsterId:498, level:145, moves:["mental","lunar_burst","psi_strike","cosmic_dust"]},
+      {monsterId:499, level:147, moves:["draconic_pulse","solar_flare","ancient_breath","stellar_flare"]},
+      {monsterId:500, level:150, moves:["nether_sphere","radiance_cannon","stellar_collapse","spectral_radiance"]}
     ]
   }
 };

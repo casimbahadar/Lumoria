@@ -1054,12 +1054,16 @@ function renderAreaPanel() {
         const beaten = beatenList.includes(umbraId);
         umbraAreaBtn.classList.remove("hidden");
         const ub = UMBRA_BATTLES[umbraId];
+        const req = ub.requiresUmbraDefeated;
+        const locked = req && !req.every(r => beatenList.includes(r));
         const idx = here.indexOf(umbraId) + 1;
         const suffix = here.length > 1 && !beaten ? ` (${idx}/${here.length})` : "";
         umbraAreaBtn.textContent = beaten
           ? `✅ ${ub.name} (Defeated)`
+          : locked
+          ? `🔒 ${ub.name} — defeat the Remnant raids first`
           : `🕶️ Battle ${ub.name}${suffix}`;
-        umbraAreaBtn.disabled = beaten;
+        umbraAreaBtn.disabled = beaten || locked;
       }
     }
   }
@@ -4608,6 +4612,10 @@ function initEventListeners() {
     const umbraId = Object.keys(UMBRA_BATTLES).find(k => UMBRA_BATTLES[k].triggerLocation === G.location && !beatenList.includes(k));
     if (!umbraId) return;
     const battle = UMBRA_BATTLES[umbraId];
+    if (battle.requiresUmbraDefeated && !battle.requiresUmbraDefeated.every(r => beatenList.includes(r))) {
+      showNotification("The Spire's summit is sealed. Defeat the three Umbra Remnants — in the Lab, the Archive and the Nexus — before facing Rex.");
+      return;
+    }
     showNotification(`${battle.emoji} <strong>${battle.name}</strong>:<br>"${battle.quote}"`, () => {
       startUmbraAreaBattle(umbraId, battle);
     });

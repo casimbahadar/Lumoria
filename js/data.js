@@ -1919,7 +1919,7 @@ const MONSTERS_DATA = {
   // ===== WIND =====
   108: { id:108, name:"Silvergust",   emoji:"🐱", types:["Wind"],
     base:{hp:46,atk:43,def:37,spa:56,spd:45,spe:81},
-    learnset:[[1,"graze",[20,"cyclone_blade"]],[1,"breeze"],[8,"blitz"],[16,"wingbeat"],[21,"fortify"],[24,"wind_scythe"],[32,"typhoon",[5,"mistveil"]],[36,"thermal_dive"],[3,"zephyr_dance"],[31,"baleful_stare"]],
+    learnset:[[1,"graze",[20,"cyclone_blade"]],[1,"breeze"],[8,"blitz"],[16,"wingbeat"],[21,"fortify"],[24,"wind_scythe"],[32,"typhoon",[5,"mistveil"]],[36,"thermal_dive"],[3,"zephyr_dance"],[31,"baleful_stare"],[50,"canopy_strike"],[30,"sky_dive"]],
     evolveTo:109, evolveLevel:22, evolveMethod:"time", evolveTime:"dusk", catchRate:200, expYield:70, rarity:"common",
     desc:"A light-footed wind kitten. Jumps and glides on invisible air currents.",
     lore:"Silvergust is a lion-cub-sized wind-felid about 45 cm at the shoulder with pale silver-grey fur that ruffles constantly in self-generated air currents. Its ears are long and swept back. It moves with uncanny speed across open spaces, leaving a trail of swirling leaves and dust in its wake. On a high outcropping at dusk, a Silvergust cub will sometimes stand frozen with its ears swept fully back and silver fur ruffling in self-generated wind: the body bracing itself, instinctively, against the storm-mane Siroccomane wears and the full electric-blue mane Aeolarch carries thereafter." },
@@ -1940,7 +1940,7 @@ const MONSTERS_DATA = {
 
   112: { id:112, name:"Swirlavel",   emoji:"🦅", types:["Wind"],
     base:{hp:61,atk:90,def:58,spa:85,spd:61,spe:130},
-    learnset:[[1,"breeze"],[2,"wingbeat"],[3,"jetstream"],[4,"mistveil"],[21,"wind_scythe"],[27,"war_dance"],[29,"crushing_bulk"],[34,"graze"],[41,"metal_wing"],[48,"skyfall"],[55,"typhoon"],[62,"tempest_wrath"],[5,"zephyr_dance"],[42,"baleful_stare"]],
+    learnset:[[1,"breeze"],[2,"wingbeat"],[3,"jetstream"],[4,"mistveil"],[21,"wind_scythe"],[27,"war_dance"],[29,"crushing_bulk"],[34,"graze"],[41,"metal_wing"],[48,"skyfall"],[55,"typhoon"],[62,"tempest_wrath"],[5,"zephyr_dance"],[42,"baleful_stare"],[55,"canopy_strike"],[35,"sky_dive"],[25,"aerial_assault"]],
     evolveTo:113, evolveLevel:42, catchRate:65, expYield:195, rarity:"uncommon",
     desc:"A great cyclone eagle. Causes miniature tornadoes with each wingbeat.",
     lore:"Swirlavel is a compact eagle 50 cm long — Aeolin's white-silver feathers have weathered to a grey-brown pattern and its long forked tail has shortened and stiffened into a powerful rudder, with a distinctive double-spiral crest now topping its head. It creates miniature localised whirlwinds with each wingbeat that allow it to hover effortlessly in place. It hunts by dropping into these personal tornadoes and striking prey below." },

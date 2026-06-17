@@ -1022,7 +1022,9 @@ function renderAreaPanel() {
   const legendBtn = document.getElementById("btn-legendary");
   if (legendBtn) {
     legendBtn.classList.add("hidden");
-    if (area.legendaryEncounter) {
+    // NG+-gated statics (rounded-up wild legendaries) only surface on an NG+ run.
+    const legNgOk = !(area.legendaryEncounter && area.legendaryEncounter.requiresNGPlus && !(G.ngPlusCount > 0));
+    if (area.legendaryEncounter && legNgOk) {
       const legDef = MONSTERS_DATA[area.legendaryEncounter.monsterId];
       const caught = G.defeatedLegendaries && G.defeatedLegendaries.includes(area.legendaryEncounter.monsterId);
       legendBtn.classList.remove("hidden");
@@ -4565,6 +4567,7 @@ function initEventListeners() {
   document.getElementById("btn-legendary")?.addEventListener("click", () => {
     const area = WORLD_DATA[G.location];
     if (!area?.legendaryEncounter) return;
+    if (area.legendaryEncounter.requiresNGPlus && !(G.ngPlusCount > 0)) return;
     if (G.team.every(m => m.currentHP <= 0)) {
       showNotification("All your Lumori are fainted! Heal first.");
       return;

@@ -38,6 +38,36 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 
 ---
 
+# 📋 ACTIVE WORK — Post-game capstone (branch `claude/lumoria-capstone-postgame-deoeui`)
+
+Continuation after PR #102 merged to main. Phase 1 = three post-game threads (legendary
+roundup → gym rematches → Battle Frontier); Phase 2 = Lane A.2+D (evolution + encounters).
+Per CLAUDE.md: propose → approve → apply; validate.js + run-game headless before each commit.
+
+## Phase 1 — Thread 1: Legendary roundup ✅ (this commit)
+Full legendary-obtainability audit (all 61): **every** legendary is already obtainable —
+base via static/roam, NG+ via wild/evolution, 13 Forgotten via wielder-`team[0]` catch,
+26 Forgotten intentionally boss-only. No unused pool. Real issue found: **15 legendaries +
+4 pseudo-legendaries were obtainable as plain repeatable wild spawns** (some high-rate, some
+early). User scope = "only the egregious ones" → **rounded up 4 base catches into one-time
+NG+-gated `legendaryEncounter` statics** (evolutions come from evolving):
+- **384 Solarcrown** → static @ apex_summit L90 (was wild r27).
+- **408 Glimmerling** → static @ crystal_depths L38 (early special; → 409 Facetite → 410 Prismdome by evo). Removed wild from crystal_depths/prism_causeway/gleamcrest.
+- **432 Woollytot** → static @ frostpeak L36 (early special; → 433/434 by evo).
+- Backfilled emptied Crystal areas (thin-area fix): gleamcrest = Prismancer#372/Crealight#225/Glimmeritch#344; prism_causeway = Crealight#225/Prismancer#372/Prismatica#169; ascendant_path = Stormcrown#389/Darkfang#268/Hypnostag#261 (Facetite removed).
+- **Engine:** added optional `legendaryEncounter.requiresNGPlus` flag + guard on the
+  `btn-legendary` render (game.js ~1025) and click handler (~4564) so NG+-only statics
+  don't leak onto a first run.
+- Left as rare wild per user: Eonyx/Heliogriff/Voidcrown/Riftmane/Tempestborn (r6–10),
+  Primordiax/Starborne (r3), base 315/319/320 (r5), and the 4 pseudo-legendaries.
+- Verified: validate.js green (G6 evo chains intact); headless boot 0 real errors; all 6 areas confirmed.
+
+## Phase 1 — Thread 2: Gym Leader rematches ⏳ next
+## Phase 1 — Thread 3: Battle Frontier/Tower ⏳
+## Phase 2 — Lane A.2 (evolution audit) + D (encounter audit) ⏳
+
+---
+
 ## 🕯 UNIFIED — session checkpoint (2026-06-10)
 
 Clean state — everything committed & pushed on `claude/unified-audit-handoff-tianz9`; PR #90 (run-game skill) **merged to main**.

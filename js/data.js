@@ -1719,14 +1719,14 @@ const MONSTERS_DATA = {
   14: { id:14, name:"Molteroth",    emoji:"🐃", types:["Fire","Earth"],
     base:{hp:94,atk:111,def:97,spa:78,spd:64,spe:63},
     learnset:[[1,"cranial_ram"],[2,"magma_surge"],[3,"flicker"],[4,"inferno_jet"],[5,"scorch_veil"],[6,"embercloak"],[10,"flame_spiral"],[14,"molten_claw"],[18,"inferno_chop"],[22,"infernal_roar"],[26,"inferno_charge"],[30,"battle_cry"],[32,"searing_gale"],[34,"pyroclastic_burst"],[37,"pyroclasm"],[38,"stalactite_drop"],[42,"quarry_crush"],[46,"stone_slide"],[54,"crag_strike"],[62,"conflagration"],[64,"stone_throw"]],
-    evolveTo:15, evolveLevel:42, catchRate:45, expYield:235, rarity:"uncommon",
+    evolveTo:15, evolveLevel:42, evolveMethod:"location", evolveLocation:"volcano_core", catchRate:45, expYield:235, rarity:"uncommon",
     desc:"A volcanic beast covered in hardened magma. Nothing can stop its charge.",
     lore:"Molteroth is a massive volcanic bull over 2 metres tall — Taurcin's rust-red hide has cooled and crusted into plates of hardened lava-rock that grind and shift as it moves, and its forward-curving horns now glow with steady amber heat rather than only at the tips. Jets of steam escape from vents along its spine. It inhabits lava fields, grazing on mineral deposits by grinding rock with its flat stone-hard teeth." },
 
   16: { id:16, name:"Cindercula",   emoji:"🐍", types:["Fire"],
     base:{hp:41,atk:53,def:46,spa:59,spd:45,spe:47},
     learnset:[[1,"collide",[20,"cinderwhirl"]],[1,"flicker"],[9,"blitz"],[14,"baleful_stare"],[17,"inferno_jet",[5,"scorch_veil"]],[24,"vital_pulse"],[32,"ashfall"],[40,"pyroclasm"],[3,"embercloak"],[31,"lashing_tail"]],
-    evolveTo:17, evolveLevel:20, catchRate:200, expYield:65, rarity:"common",
+    evolveTo:17, evolveLevel:20, evolveMethod:"move", evolveMove:"cinderwhirl", catchRate:200, expYield:65, rarity:"common",
     desc:"A shy fledgling fire-serpent with a crest of flame-coloured feathers. Breathes tiny flames.",
     lore:"Cindercula is a sinuous fire-serpent about 1.8 metres long with iridescent scales shading from copper at the head to charcoal at the tail. A thin crest of flame-coloured feathers runs from its neck to mid-body. It slithers through ash fields and hunts by sensing heat signatures with specialised pit organs. Despite having no limbs at all, Cindercula sometimes rear upright along thermal columns and flare their feathered crests outward — a rehearsal of the great plumed wings Searburn unfurls at metamorphosis and Quetzember spreads at maturity." },
 
@@ -1748,7 +1748,7 @@ const MONSTERS_DATA = {
   26: { id:26, name:"Brinecrush",    emoji:"🦞", types:["Aquatic","Earth"],
     base:{hp:75,atk:102,def:110,spa:59,spd:68,spe:81},
     learnset:[[1,"graze"],[2,"aquatic_gun"],[3,"tidecaller"],[23,"tidal_sweep"],[27,"war_dance"],[31,"tidal_rush"],[33,"tsunami"],[34,"stalactite_drop"],[41,"stone_slide"],[48,"crystal_lance"],[55,"tidal_crush"],[62,"crag_strike"],[4,"deepwater_hymn"],[42,"quarry_crush"]],
-    evolveTo:27, evolveLevel:44, catchRate:60, expYield:188, rarity:"uncommon",
+    evolveTo:27, evolveLevel:44, evolveMethod:"move", evolveMove:"quarry_crush", catchRate:60, expYield:188, rarity:"uncommon",
     desc:"A massive sea claw with rock-hard shell. Few can match its raw strength.",
     lore:"Brinecrush is a broad-bodied rock lobster about 50 cm long — Reefnip's pale blue-green coral-polyp shell has hardened and stilled into a stone-grey carapace reinforced by calcified mineral deposits, and its tiny defensive pincers have grown into crushing claws that can crack thick coral. It dwells in rocky sea caves along the coastline, guarding its territory fiercely against any intruder." },
 
@@ -1762,7 +1762,7 @@ const MONSTERS_DATA = {
   43: { id:43, name:"Boreon",  emoji:"🦭", types:["Ice","Aquatic"],
     base:{hp:82,atk:60,def:80,spa:103,spd:97,spe:81},
     learnset:[[1,"flurries"],[2,"aquatic_gun"],[3,"cold_beam"],[4,"permafrost"],[31,"whiteout"],[33,"fortify"],[38,"abyssal_jet"],[43,"hoarfrost_bite"],[48,"frost_crash"],[53,"tidal_rush"],[58,"tundra_tomb"],[63,"tsunami"],[5,"winter_shroud"],[41,"tidal_sweep"]],
-    evolveTo:44, evolveLevel:44, catchRate:40, expYield:217, rarity:"uncommon",
+    evolveTo:44, evolveLevel:44, evolveMethod:"battles", evolveBattles:20, catchRate:40, expYield:217, rarity:"uncommon",
     desc:"A regal glacial seal. It can freeze oceans with a single breath.",
     lore:"Boreon is a larger muscular seal — Cryonik's powder-blue fur has deepened to slate-blue and its perpetually crackling ice-coat has thickened into a frosted white neck-mane. Bands of ice spontaneously form around its flippers when it rears up. Its bark echoes across frozen bays, audible several kilometres away. It is highly territorial during breeding season on ice shelves." },
 
@@ -1776,7 +1776,7 @@ const MONSTERS_DATA = {
   29: { id:29, name:"Coralisk",    emoji:"🐡", types:["Aquatic"],
     base:{hp:76,atk:69,def:64,spa:114,spd:99,spe:74},
     learnset:[[1,"aquatic_gun"],[2,"bubble_jet"],[3,"tidal_rush"],[4,"tidecaller"],[30,"daunt"],[35,"fortify"],[40,"blitz"],[45,"prism_flare"],[50,"whirlpool_dive"],[55,"sea_serpent_strike"],[60,"lunar_burst"],[65,"tsunami"],[5,"deepwater_hymn"],[42,"second_wind"]],
-    evolveTo:30, evolveLevel:42, catchRate:70, expYield:184, rarity:"uncommon",
+    evolveTo:30, evolveLevel:42, evolveMethod:"location", evolveLocation:"coral_reef", catchRate:70, expYield:184, rarity:"uncommon",
     desc:"A majestic reef king with jewel-like scales. Commands schools of fish.",
     lore:"Coralisk is a rotund puffer fish about 30 cm in diameter when deflated — Corelin's vivid orange-and-white reef stripes have muted to sandy yellow with dark brown spots as it migrated from coral to lagoon, but its scales still refract faint rainbows in shallow sunlight. When startled it inflates to three times its size, erecting short sharp quills. It dwells in sandy lagoons and buries itself to ambush worms and molluscs." },
 
@@ -1798,7 +1798,7 @@ const MONSTERS_DATA = {
   66: { id:66, name:"Viridix",    emoji:"🐌", types:["Nature"],
     base:{hp:39,atk:60,def:39,spa:52,spd:40,spe:86},
     learnset:[[1,"vine_lash",[20,"photon_leaf"]],[1,"baleful_stare"],[8,"sharp_leaves"],[16,"pod_blast"],[17,"second_wind"],[24,"verdant_orb",[5,"slumber_dust"]],[29,"graze"],[39,"canopy_crash"],[3,"spore_burst"],[32,"war_dance"]],
-    evolveTo:67, evolveLevel:22, catchRate:180, expYield:78, rarity:"common",
+    evolveTo:67, evolveLevel:22, evolveMethod:"time", evolveTime:"day", catchRate:180, expYield:78, rarity:"common",
     desc:"A bright green leaf-snail whose curled shell mimics a young rolled fern. Glides slowly across forest floors leaving a faintly luminescent slime trail.",
     lore:"Viridix is a small terrestrial mollusk about 30 centimetres long including its curled spiral shell, which is lime-green and patterned like a rolled fern frond — perfect camouflage among forest undergrowth. Two long sensory tentacles rise from its head, tipped with tiny golden dots that twist toward sunlight, and its soft body is bright green with darker scale-like ripples along its mantle. It glides slowly across the forest floor on a single muscular foot, feeding on tender leaf shoots and fungi, and leaves behind a faintly luminescent slime trail that lingers for hours after sundown." },
 
@@ -1819,7 +1819,7 @@ const MONSTERS_DATA = {
   70: { id:70, name:"Verdurus",    emoji:"🌱", types:["Nature","Fighting"],
     base:{hp:90,atk:102,def:71,spa:95,spd:73,spe:61},
     learnset:[[1,"collide"],[2,"vine_lash"],[3,"baleful_stare"],[4,"verdant_orb"],[5,"slumber_dust"],[23,"pod_blast"],[27,"war_dance"],[36,"canopy_crash"],[37,"body_check"],[45,"briar_lash"],[54,"crushing_bulk"],[63,"petal_blitz"],[6,"spore_burst"],[43,"seismic_force"]],
-    evolveTo:71, evolveLevel:40, catchRate:75, expYield:186, rarity:"uncommon",
+    evolveTo:71, evolveLevel:40, evolveMethod:"battles", evolveBattles:18, catchRate:75, expYield:186, rarity:"uncommon",
     desc:"A mid-sized walking seed-pod 1.5 metres tall with split-husk limbs it swings like clubs. Guards the trail of new growth it leaves behind.",
     lore:"Verdurus is a 1.5-metre walking seed-pod, the matured Germix whose green husk has split open along ridge-lines to reveal a soft moss-covered core, with long leaf-tendrils unfurling from the seams. It drops fresh seeds wherever it walks, and patches of new growth follow its trail — but it guards that trail fiercely, swinging its heavy split-husk limbs like clubs and grappling intruders with its tendrils to haul them down and shove them off." },
 
@@ -1834,7 +1834,7 @@ const MONSTERS_DATA = {
   82: { id:82, name:"Galvanos",    emoji:"🐴", types:["Electric"],
     base:{hp:59,atk:88,def:58,spa:89,spd:60,spe:141},
     learnset:[[1,"jolt"],[2,"blitz"],[3,"static_strike"],[4,"static_cage"],[10,"chain_spark"],[18,"lightning_rush"],[20,"volt_jet"],[24,"relay_shock"],[27,"stun_pulse"],[28,"daunt"],[34,"fortify"],[35,"stormbolt"],[41,"wild_tumble"],[42,"baleful_stare"],[48,"arc_flash"],[55,"plasma_strike"],[62,"crushing_bulk"]],
-    evolveTo:83, evolveLevel:44, catchRate:60, expYield:200, rarity:"uncommon",
+    evolveTo:83, evolveLevel:44, evolveMethod:"move", evolveMove:"stormbolt", catchRate:60, expYield:200, rarity:"uncommon",
     desc:"An electric horse that gallops faster than lightning. Its mane crackles.",
     lore:"Galvanos is a horse-like creature 1.2 metres at the shoulder — Joltan's yellow pony-foal coat has grown into a sleek golden-yellow hide crisscrossed by electric-blue markings. Its flowing mane crackles with constant static. It can sustain a gallop at extraordinary speed for hours by converting its own electrical energy into kinetic force." },
 
@@ -1848,7 +1848,7 @@ const MONSTERS_DATA = {
   85: { id:85, name:"Shockharpe",  emoji:"🪰", types:["Electric","Nature"],
     base:{hp:81,atk:68,def:53,spa:107,spd:67,spe:101},
     learnset:[[1,"jolt"],[2,"mandible_bite"],[3,"stun_pulse"],[4,"static_cage"],[15,"shock_net"],[23,"volt_jet"],[29,"lashing_tail"],[31,"resonance_hum"],[33,"shear_strike"],[36,"graze"],[42,"mandible_crush"],[43,"silk_bind"],[50,"swarm_dive"],[57,"volt_surge"],[64,"stormbolt"]],
-    evolveTo:86, evolveLevel:42, catchRate:75, expYield:180, rarity:"uncommon",
+    evolveTo:86, evolveLevel:42, evolveMethod:"battles", evolveBattles:20, catchRate:75, expYield:180, rarity:"uncommon",
     desc:"A dragonfly of electricity. Moves so fast it leaves lightning trails behind.",
     lore:"Shockharpe is a 15 cm late-instar dragonfly, the metamorphic mid-stage of the Electrix lineage. Its body has elongated and slimmed from its aquatic-nymph form, and its rudimentary wing-buds have unfolded into newly emerged wings that are still soft and translucent, humming at a frequency that causes mild disorientation in nearby creatures. Its hooked predatory mandibles and accumulating electrical charge are inherited from the nymph. It drains bioelectric energy from prey rather than blood, leaving targets drained and sluggish." },
 
@@ -1862,7 +1862,7 @@ const MONSTERS_DATA = {
   88: { id:88, name:"Sparkrel",    emoji:"🐟", types:["Electric","Aquatic"],
     base:{hp:78,atk:61,def:64,spa:113,spd:85,spe:100},
     learnset:[[1,"jolt"],[2,"aquatic_gun"],[3,"volt_jet"],[4,"bubble_jet"],[5,"stun_pulse"],[32,"voltaic_fang"],[33,"tidal_rush"],[35,"lashing_tail"],[42,"graze"],[49,"stormbolt"],[56,"tsunami"],[63,"overcharge"],[6,"static_cage"],[43,"tidal_sweep"]],
-    evolveTo:89, evolveLevel:42, catchRate:50, expYield:205, rarity:"uncommon",
+    evolveTo:89, evolveLevel:42, evolveMethod:"move", evolveMove:"voltaic_fang", catchRate:50, expYield:205, rarity:"uncommon",
     desc:"A 60-centimetre developing electric eel, slim and silver-blue, that crackles when startled. Patterns of static glow along its sides as it swims.",
     lore:"Sparkrel is a developing electric eel about 60 centimetres long — Amperix's tropical schooling body has slimmed and elongated to silver-blue with a pale yellow underbelly streaked by electric markings that pulse along its length when it accelerates. Its skin produces small sparks when disturbed, and as it grows the capacitor cells of its earlier school-fish stage have consolidated into specialised organs running the full length of its body. It floats near the surface of warm bays alongside drifting kelp, discharging static bursts to stun small prey before swallowing them whole." },
 
@@ -1877,7 +1877,7 @@ const MONSTERS_DATA = {
   95: { id:95, name:"Aridhino",     emoji:"🦏", types:["Earth"],
     base:{hp:61,atk:71,def:58,spa:40,spd:40,spe:68},
     learnset:[[1,"graze",[22,"sandstrike"]],[1,"daunt"],[8,"mud_spray"],[16,"cranial_ram"],[24,"tectonic_shift"],[29,"lashing_tail"],[32,"geoblast"],[40,"crushing_bulk",[5,"dust_veil"]],[3,"clay_armor"],[31,"baleful_stare"]],
-    evolveTo:96, evolveLevel:25, catchRate:160, expYield:88, rarity:"common",
+    evolveTo:96, evolveLevel:null, evolveMethod:"item", evolveItem:"steelCoating", catchRate:160, expYield:88, rarity:"common",
     desc:"A dusty rhino calf the size of a small dog. Stomps about arid plains, sometimes shedding tiny static crackles from its budding horn.",
     lore:"Aridhino is a stout rhino calf about 50 centimetres at the shoulder, the early form of a lineage of seismic earth-shakers. Its grey-brown hide is already beginning to thicken into proto-armour plates across its shoulders and broad chest, and a small ridged horn-bud crowns its snout — sometimes shedding tiny crackles of static when the calf scuffs the dry earth in play. It inhabits arid plains and digs shallow burrows to escape midday heat, drinking from rain pools that gather in the depressions left by its passing herd. Aridhino calves visibly flinch at faint thunder from distant storms; an unconscious recognition of the conductive iron-veined Quakehide hide they will grow into, when storms follow rather than precede them across the plains." },
 
@@ -1891,7 +1891,7 @@ const MONSTERS_DATA = {
   98: { id:98, name:"Aridix",   emoji:"🦂", types:["Earth","Poison"],
     base:{hp:53,atk:56,def:60,spa:57,spd:47,spe:76},
     learnset:[[1,"graze",[22,"terra_spike"]],[1,"septic_prick"],[10,"mud_spray"],[18,"virulent_surge"],[26,"tectonic_shift"],[30,"fissure_slam"],[34,"ooze_bomb"],[42,"toxify",[5,"dust_veil"]],[3,"clay_armor"],[32,"geoblast"]],
-    evolveTo:99, evolveLevel:30, catchRate:100, expYield:95, rarity:"common",
+    evolveTo:99, evolveLevel:30, evolveMethod:"time", evolveTime:"night", catchRate:100, expYield:95, rarity:"common",
     desc:"A desert scorpion with a venomous stinger. Buries itself in sand to ambush.",
     lore:"Aridix is a scorpion about 30 cm long with pale sandstone-coloured exoskeleton and a slender venomous stinger tail. Its pincers are wide and flat for digging. It inhabits deep desert dunes, burrowing down by day and emerging at night to hunt insects attracted by its faint phosphorescent glow." },
 
@@ -1920,7 +1920,7 @@ const MONSTERS_DATA = {
   108: { id:108, name:"Silvergust",   emoji:"🐱", types:["Wind"],
     base:{hp:46,atk:43,def:37,spa:56,spd:45,spe:81},
     learnset:[[1,"graze",[20,"cyclone_blade"]],[1,"breeze"],[8,"blitz"],[16,"wingbeat"],[21,"fortify"],[24,"wind_scythe"],[32,"typhoon",[5,"mistveil"]],[36,"thermal_dive"],[3,"zephyr_dance"],[31,"baleful_stare"]],
-    evolveTo:109, evolveLevel:22, catchRate:200, expYield:70, rarity:"common",
+    evolveTo:109, evolveLevel:22, evolveMethod:"time", evolveTime:"dusk", catchRate:200, expYield:70, rarity:"common",
     desc:"A light-footed wind kitten. Jumps and glides on invisible air currents.",
     lore:"Silvergust is a lion-cub-sized wind-felid about 45 cm at the shoulder with pale silver-grey fur that ruffles constantly in self-generated air currents. Its ears are long and swept back. It moves with uncanny speed across open spaces, leaving a trail of swirling leaves and dust in its wake. On a high outcropping at dusk, a Silvergust cub will sometimes stand frozen with its ears swept fully back and silver fur ruffling in self-generated wind: the body bracing itself, instinctively, against the storm-mane Siroccomane wears and the full electric-blue mane Aeolarch carries thereafter." },
 
@@ -1963,7 +1963,7 @@ const MONSTERS_DATA = {
   47: { id:47, name:"Hexaprowl",    emoji:"🐺", types:["Ice"],
     base:{hp:49,atk:54,def:51,spa:63,spd:47,spe:73},
     learnset:[[1,"graze",[22,"rime_shard"]],[1,"flurries"],[8,"blitz"],[16,"frost_crash"],[24,"cold_beam"],[29,"second_wind"],[32,"glacial_punch"],[40,"whiteout",[5,"permafrost"]],[3,"winter_shroud"],[31,"baleful_stare"]],
-    evolveTo:48, evolveLevel:28, catchRate:120, expYield:90, rarity:"common",
+    evolveTo:48, evolveLevel:28, evolveMethod:"location", evolveLocation:"frostpeak", catchRate:120, expYield:90, rarity:"common",
     desc:"An ice wolf pup with fur as white as fresh snow. Very loyal and fierce.",
     lore:"Hexaprowl is a lean wolf-like creature about 70 cm at the shoulder with short grey-white fur overlaid by a thin shell of constantly renewing ice crystals. Its paws leave perfectly hexagonal imprints in snow. It hunts in packs across tundra, using coordinated flanking manoeuvres to drive prey toward waiting ambushers." },
 
@@ -1977,7 +1977,7 @@ const MONSTERS_DATA = {
   50: { id:50, name:"Tundram",   emoji:"🐏", types:["Ice","Normal"],
     base:{hp:49,atk:49,def:55,spa:52,spd:64,spe:54},
     learnset:[[1,"collide",[22,"permafrost"]],[1,"flurries"],[10,"fortify"],[18,"cold_beam"],[20,"vital_pulse"],[26,"crushing_bulk"],[34,"whiteout",[5,"winter_shroud"]],[36,"cranial_ram"],[3,"frostfire_veil"],[31,"rime_shard"]],
-    evolveTo:51, evolveLevel:24, catchRate:180, expYield:77, rarity:"common",
+    evolveTo:51, evolveLevel:24, evolveMethod:"location", evolveLocation:"frostpeak", catchRate:180, expYield:77, rarity:"common",
     desc:"A fluffy snow sheep. Its wool absorbs cold air and condenses it to ice.",
     lore:"Tundram is a stocky ram-like creature with thick white wool and curling horns coated in layers of old ice. A pale blue tinge runs through the wool near its spine. It grazes on frost-covered highland moss and climbs sheer glacier faces using hooves specially adapted to grip slick ice surfaces." },
 
@@ -2005,7 +2005,7 @@ const MONSTERS_DATA = {
   45: { id:45, name:"Slatis",   emoji:"🌨️", types:["Ice","Aquatic"],
     base:{hp:51,atk:39,def:49,spa:74,spd:64,spe:45},
     learnset:[[1,"collide",[20,"cold_snap"]],[1,"aquatic_gun"],[6,"icy_shot"],[9,"flurries"],[11,"frost_bite"],[14,"daunt"],[16,"frigid_jab"],[17,"cold_beam"],[24,"graze"],[25,"tidal_rush"],[33,"whiteout",[5,"permafrost"]],[34,"bubble_jet"],[42,"riptide_slam"],[3,"winter_shroud"],[32,"tidal_sweep"]],
-    evolveTo:46, evolveLevel:32, catchRate:130, expYield:82, rarity:"common",
+    evolveTo:46, evolveLevel:32, evolveMethod:"location", evolveLocation:"mirror_lake", catchRate:130, expYield:82, rarity:"common",
     desc:"A sleet sprite that lives in cold mountain streams. Chills the air around it.",
     lore:"Slatis is a drifting jellyfish-like ice creature 60 cm in diameter. Its translucent bell shimmers with pale arctic blue light, and long trailing tendrils of frozen water hang below it like icicles. It bobs through freezing mountain lakes, generating a localised cold field that chills the surrounding water." },
 
@@ -2013,7 +2013,7 @@ const MONSTERS_DATA = {
   118: { id:118, name:"Eclipsehound",   emoji:"🐕", types:["Dark"],
     base:{hp:39,atk:56,def:44,spa:62,spd:39,spe:88},
     learnset:[[1,"graze",[22,"shadowstep"]],[1,"chomp"],[8,"blitz"],[16,"dusk_slash"],[24,"jaw_crush"],[29,"second_wind"],[32,"void_pulse"],[40,"nether_sphere",[5,"eclipse_shroud"]],[3,"dread_howl"],[31,"baleful_stare"]],
-    evolveTo:119, evolveLevel:25, catchRate:150, expYield:88, rarity:"common",
+    evolveTo:119, evolveLevel:25, evolveMethod:"time", evolveTime:"night", catchRate:150, expYield:88, rarity:"common",
     desc:"A shadow puppy that hides in darkness. Its eyes glow red at night.",
     lore:"Eclipsehound is a small dark-coloured dog about 40 cm at the shoulder with jet-black fur that absorbs nearby light, creating a subtle darkening effect around it. Its eyes glow a faint amber. It is skittish and secretive, hiding in shadows and emerging only at dusk to scavenge in settlements." },
 
@@ -2027,7 +2027,7 @@ const MONSTERS_DATA = {
   121: { id:121, name:"Spiraloom",     emoji:"🦇", types:["Dark","Wind"],
     base:{hp:52,atk:47,def:34,spa:57,spd:51,spe:106},
     learnset:[[1,"chomp",[22,"shadowstep"]],[1,"breeze"],[9,"wingbeat"],[17,"void_pulse"],[25,"wind_scythe"],[29,"soul_rend"],[33,"nether_sphere"],[41,"typhoon",[5,"eclipse_shroud"]],[3,"dread_howl"],[32,"void_rend"]],
-    evolveTo:122, evolveLevel:28, catchRate:130, expYield:85, rarity:"common",
+    evolveTo:122, evolveLevel:28, evolveMethod:"time", evolveTime:"dusk", catchRate:130, expYield:85, rarity:"common",
     desc:"A dark bat that absorbs light. Creates zones of absolute darkness.",
     lore:"Spiraloom is a medium-sized bat 60 cm long with dark grey-black fur and long narrow wings. Its face is flat with a broad wrinkled nose-leaf for echolocation. It roosts in enormous colonies inside cave systems and emerges at dusk in spiralling columns that can darken the sky for minutes." },
 
@@ -2048,7 +2048,7 @@ const MONSTERS_DATA = {
   124: { id:124, name:"Phantorvex", emoji:"🐍", types:["Dark","Poison"],
     base:{hp:76,atk:95,def:72,spa:89,spd:73,spe:81},
     learnset:[[1,"chomp"],[2,"eclipse_shroud"],[3,"septic_prick"],[4,"obsidian_fang"],[5,"ooze_bomb"],[32,"jaw_crush"],[39,"void_pulse"],[40,"fortify"],[47,"toxify"],[48,"dread_howl"],[56,"virulent_surge"],[64,"void_rend"],[6,"dark_shroud"],[42,"blackout_bomb"]],
-    evolveTo:125, evolveLevel:44, catchRate:35, expYield:218, rarity:"uncommon",
+    evolveTo:125, evolveLevel:44, evolveMethod:"location", evolveLocation:"haunted_grove", catchRate:35, expYield:218, rarity:"uncommon",
     desc:"A phantom serpent of darkness and venom. Said to haunt ancient ruins.",
     lore:"Phantorvex is a long-bodied legless serpent-lizard 2 metres long — Nocturil's dark-green rough scales have darkened into dark iridescent scales that shift between deep purple and black, while its legs have shrivelled to vestigial limb-stubs against its sides. Its fangs inject a necrotic venom. It haunts ancient ruins and underground crypts, and local legends claim it is drawn to places where death has recently occurred." },
 
@@ -2084,14 +2084,14 @@ const MONSTERS_DATA = {
   142: { id:142, name:"Dawnirel",  emoji:"✨", types:["Fairy","Mental"],
     base:{hp:50,atk:48,def:54,spa:74,spd:61,spe:63},
     learnset:[[1,"fairy_wind",[22,"stardust_veil"]],[1,"mind_jolt"],[3,"aurora_veil"],[6,"psy_jab"],[10,"bewitching_kiss"],[14,"cerebral_calm"],[18,"psi_burst"],[22,"psionic_wave"],[26,"prism_flare"],[30,"neural_storm"],[32,"glitter_storm"],[34,"mental"],[42,"lunar_burst",[5,"charm_bloom"]]],
-    evolveTo:143, evolveLevel:32, catchRate:100, expYield:96, rarity:"common",
+    evolveTo:143, evolveLevel:32, evolveMethod:"time", evolveTime:"day", catchRate:100, expYield:96, rarity:"common",
     desc:"A dawn spirit that appears at sunrise. Its psychic energy is immense.",
     lore:"Dawnirel is a small star-shaped psychic-fairy creature about 20 cm across, with a central golden body and five pointed arms tipped in pale rose light. It hovers gently, spinning slowly, and emits pulses of warm light in rhythm with its thoughts. It appears at dawn and dusk on cloudless days." },
 
   143: { id:143, name:"Astrelle",   emoji:"🌟", types:["Fairy","Mental"],
     base:{hp:79,atk:66,def:79,spa:131,spd:105,spe:74},
     learnset:[[1,"prism_flare"],[2,"bewitching_kiss"],[3,"stardust_veil"],[15,"moonlight_beam"],[20,"sparkle_shot"],[25,"starfall"],[30,"starlit_radiance"],[32,"mental"],[36,"second_wind"],[38,"thought_crush"],[39,"lunar_burst"],[40,"inner_calm"],[44,"blitz"],[48,"wish_spark"],[52,"future_echo"],[56,"celestial_wave"],[60,"psi_strike"],[64,"synaptic_shatter"]],
-    evolveTo:144, evolveLevel:46, catchRate:25, expYield:248, rarity:"rare",
+    evolveTo:144, evolveLevel:46, evolveMethod:"time", evolveTime:"night", catchRate:25, expYield:248, rarity:"rare",
     desc:"A celestial being of fairy and psychic power. Claims to have come from the stars.",
     lore:"Astrelle is a larger crescent-moon-shaped psychic-fairy creature 45 cm across — Dawnirel's pointed arms have curved inward, briefly crescent-like, before they bloom back to a full many-pointed star at its final stage. Its body is deep violet-blue with silver-white edges that glow brightly in darkness. It is nocturnal and inhabits open mountain summits, drifting upward on clear nights and releasing lunar-charged energy that causes nearby crystals to resonate." },
 
@@ -2099,14 +2099,14 @@ const MONSTERS_DATA = {
   147: { id:147, name:"Scrapsapien",     emoji:"🤖", types:["Metal"],
     base:{hp:47,atk:60,def:72,spa:37,spd:45,spe:54},
     learnset:[[1,"graze",[22,"alloy_edge"]],[1,"chrome_claw"],[3,"ironskin"],[9,"fortify"],[11,"piston_jab"],[17,"forge_blast_2"],[20,"metal_pulse"],[25,"metal_wing"],[29,"baleful_stare"],[32,"lashing_tail"],[33,"alloy_tail"],[41,"crushing_bulk",[5,"magnetize"]]],
-    evolveTo:148, evolveLevel:28, catchRate:120, expYield:90, rarity:"common",
+    evolveTo:148, evolveLevel:28, evolveMethod:"held", evolveItem:"metalCoat", catchRate:120, expYield:90, rarity:"common",
     desc:"A small steel humanoid armored in iron plates. Slow but incredibly tough.",
     lore:"Scrapsapien is a small humanoid steel creature 50 cm tall with a compact body of dark grey steel plates with visible bolts and seams. Its eyes are small yellow optical lenses. It collects metal scraps and incorporates them into its own body, slowly growing more elaborate and patched over time." },
 
   148: { id:148, name:"Stoicguard",  emoji:"🦾", types:["Metal"],
     base:{hp:90,atk:107,def:111,spa:65,spd:83,spe:37},
     learnset:[[1,"chrome_claw"],[2,"forge_blast_2"],[3,"metal_wing"],[4,"magnetize"],[5,"ironskin"],[10,"armor_meld"],[18,"flywheel"],[24,"smart_strike"],[28,"baleful_stare"],[30,"alloy_tail"],[35,"battle_cry"],[38,"crushing_bulk"],[42,"blitz"],[43,"second_wind"],[49,"rivet_barrage"],[56,"forge_strike"],[63,"tungsten_ram"]],
-    evolveTo:149, evolveLevel:46, catchRate:40, expYield:225, rarity:"uncommon",
+    evolveTo:149, evolveLevel:null, evolveMethod:"item", evolveItem:"auspiciousPlate", catchRate:40, expYield:225, rarity:"uncommon",
     desc:"A steel hound with titanium claws. Almost nothing can break its armor.",
     lore:"Stoicguard is a large humanoid steel creature 1.5 metres tall — Scrapsapien's compact bolted-and-seamed plating has reforged into a broad powerful chest and arms that function as natural weapons, and the scrap-collecting habit of its juvenile form has left a surface of burnished dark steel with deep scratches from past battles. It is stoic, rarely speaking, and positions itself between perceived threats and those it considers worth protecting." },
 
@@ -2149,7 +2149,7 @@ const MONSTERS_DATA = {
   157: { id:157, name:"Acidelix",    emoji:"🫧", types:["Poison"],
     base:{hp:61,atk:47,def:47,spa:75,spd:59,spe:43},
     learnset:[[1,"collide",[22,"putrid_pulse"]],[1,"septic_prick"],[10,"ooze_bomb"],[18,"toxify"],[21,"vital_pulse"],[26,"virulent_surge"],[34,"second_wind"],[38,"sludge_wave"],[42,"ooze_bomb",[5,"toxic_surge"]],[3,"toxin_bloom"],[32,"baleful_stare"]],
-    evolveTo:158, evolveLevel:26, catchRate:130, expYield:95, rarity:"common",
+    evolveTo:158, evolveLevel:26, evolveMethod:"location", evolveLocation:"fungal_cavern", catchRate:130, expYield:95, rarity:"common",
     desc:"A blob of acid that oozes across the ground. Dissolves things with its body.",
     lore:"Acidelix is a floating translucent orb about 20 cm in diameter filled with slowly swirling acid-green liquid. Its outer membrane is barely visible. It drifts through damp cave systems, dissolving organic material it contacts and absorbing the resulting nutrients through its outer surface." },
 
@@ -2185,7 +2185,7 @@ const MONSTERS_DATA = {
   168: { id:168, name:"Gemseer",     emoji:"🔮", types:["Mental","Mineral"],
     base:{hp:46,atk:51,def:57,spa:80,spd:79,spe:62},
     learnset:[[1,"mind_jolt",[22,"insight_flare"]],[1,"fairy_wind"],[8,"crystal_glow"],[10,"psi_burst"],[14,"flint_focus"],[18,"prism_flare"],[26,"mental"],[30,"mineral_pulse"],[34,"lunar_burst"],[42,"inner_calm"],[50,"psi_strike",[5,"prism_ward"]],[3,"clairvoyance"],[36,"glitter_storm"]],
-    evolveTo:169, evolveLevel:32, catchRate:90, expYield:100, rarity:"common",
+    evolveTo:169, evolveLevel:32, evolveMethod:"location", evolveLocation:"crystal_depths", catchRate:90, expYield:100, rarity:"common",
     desc:"A serene gem-being. Bridges the worlds of mind and matter, refracting psychic energy through its violet prism body into patterns of light.",
     lore:"Gemseer is a mental-mineral gem creature 50 cm tall resembling a rounded prism of violet crystal with short limbs and a serene humanoid face embedded in the front face of the crystal. It refracts nearby psychic energy into visible light, producing beautiful patterns on surrounding surfaces." },
 
@@ -2221,7 +2221,7 @@ const MONSTERS_DATA = {
   173: { id:173, name:"Cobravyrm",    emoji:"🐲", types:["Draconic"],
     base:{hp:71,atk:102,def:72,spa:79,spd:65,spe:67},
     learnset:[[1,"draconic_breath"],[2,"draconic_claw"],[3,"draconic_pulse"],[4,"hydra_dance"],[5,"saurian_roar"],[33,"lashing_tail"],[36,"battle_cry"],[37,"rampage"],[39,"wild_tumble"],[42,"drake_rush"],[45,"scale_storm"],[46,"radiance_cannon"],[6,"primordial_roar"],[30,"second_wind"]],
-    evolveTo:174, evolveLevel:55, catchRate:15, expYield:175, rarity:"rare",
+    evolveTo:174, evolveLevel:null, evolveMethod:"item", evolveItem:"dragonScale", catchRate:15, expYield:175, rarity:"rare",
     desc:"A powerful wyrm with tremendous strength. Known to destroy mountains. Legends say it will one day don armor of living steel.",
     lore:"Cobravyrm is a young dragon-serpent 1.5 metres long — Scalurin's soft pale gold-green scales have hardened and darkened to green-bronze, and a flat cobra-like hood has emerged from its broadening neck that it flares when threatened. Its wings are still developing and cannot support flight. It inhabits river caves and hunts fish by lunging from concealed positions near the water surface." },
 
@@ -2292,7 +2292,7 @@ const MONSTERS_DATA = {
   182: { id:182, name:"Rotunden",   emoji:"🐻", types:["Normal","Fighting"],
     base:{hp:81,atk:67,def:62,spa:52,spd:41,spe:48},
     learnset:[[1,"collide",[22,"battle_cry"]],[1,"daunt"],[10,"cranial_ram"],[18,"crushing_bulk"],[26,"war_dance"],[30,"body_check"],[34,"radiance_cannon"],[42,"second_wind",[5,"lashing_tail"]],[3,"baleful_stare"],[32,"double_smash"]],
-    evolveTo:183, evolveLevel:25, catchRate:140, expYield:98, rarity:"common",
+    evolveTo:183, evolveLevel:25, evolveMethod:"friendship", catchRate:140, expYield:98, rarity:"common",
     desc:"A roly-poly bear. Loves honey and naps. Surprisingly strong when angry.",
     lore:"Rotunden is a chubby round bear-like creature 80 cm tall. Its fur is russet-brown and dense, giving it a perfectly spherical silhouette. It stores enormous fat reserves for winter and can be found in autumn gorging on berries and fruit. It is gentle by nature and rarely provoked." },
 
@@ -2342,7 +2342,7 @@ const MONSTERS_DATA = {
   195: { id:195, name:"Icequartz",  emoji:"💎", types:["Ice","Mineral"],
     base:{hp:70,atk:66,def:101,spa:77,spd:87,spe:38},
     learnset:[[1,"stone_throw",[25,"crystal_lance"]],[1,"flurries"],[3,"petrify_gaze"],[8,"flint_focus"],[11,"embedded_spike"],[12,"fortify"],[14,"crystal_veil"],[17,"war_dance"],[20,"stone_slide"],[22,"sediment_heal"],[24,"glacial_lance"],[26,"crystal_spear"],[28,"cold_beam"],[30,"mica_lattice"],[31,"stalactite_drop"],[33,"quarry_crush"],[34,"hail_storm"],[36,"crag_strike"],[38,"diamond_storm"],[40,"gem_scatter"],[43,"frost_crash"],[44,"whiteout",[5,"granite_wall"]],[45,"gemburst"]],
-    evolveTo:196, evolveLevel:40, catchRate:70, expYield:172, rarity:"uncommon",
+    evolveTo:196, evolveLevel:40, evolveMethod:"location", evolveLocation:"crystal_depths", catchRate:70, expYield:172, rarity:"uncommon",
     desc:"A crystal of ice and stone. Formed under tremendous pressure underground.",
     lore:"Icequartz is a faceted ice-mineral creature 80 cm tall shaped like a natural geode that has grown legs. Its body is a rough dark matrix on the outside, but gaps reveal brilliant purple amethyst crystals within. It moves very slowly and is prized by miners for the high-quality crystals it sheds during moulting. Each year a Icequartz moves more slowly than the last, and where it pauses too long its feet sink slightly into the frozen ground beneath: these are the first signs of the permafrost rooting Frigolith commits to fully." },
 
@@ -2389,7 +2389,7 @@ const MONSTERS_DATA = {
   206: { id:206, name:"Forlix", emoji:"🐍", types:["Poison","Draconic"],
     base:{hp:50,atk:62,def:50,spa:68,spd:52,spe:65},
     learnset:[[1,"septic_prick"],[1,"draconic_breath"],[12,"ooze_bomb"],[22,"draconic_claw"],[32,"toxify"],[42,"draconic_pulse"],[52,"venom_lance"],[62,"radiance_cannon"]],
-    evolveTo:207, evolveLevel:26, catchRate:180, expYield:72, rarity:"common",
+    evolveTo:207, evolveLevel:26, evolveMethod:"friendship", catchRate:180, expYield:72, rarity:"common",
     desc:"A friendly little dragon-serpent whose touch is sadly toxic. Longs for playmates who never stay.",
     lore:"Forlix is a small dragon-serpent 40 cm long with vivid green scales and bright yellow warning banding. For all those alarming colours it is a gentle, playful hatchling that chirrups happily and tries to nuzzle anything that comes near — but the same glands that will one day make it formidable already weep a mild toxin through its skin, without it ever meaning them to, so the creatures it approaches flinch away sick and frightened. It does not understand why it is always left alone. It wishes no harm at all; it simply cannot help what its body produces, and spends its days waiting hopefully at the jungle's edge for a friend who can bear to stay." },
 
@@ -2595,14 +2595,14 @@ const MONSTERS_DATA = {
   232: { id:232, name:"Serphaxon", emoji:"🐲", types:["Draconic"],
     base:{hp:52,atk:68,def:65,spa:45,spd:50,spe:55},
     learnset:[[1,"collide"],[1,"mud_spray"],[14,"draconic_breath"],[24,"tectonic_shift"],[34,"draconic_claw"],[44,"draconic_pulse"],[54,"rampage"],[64,"radiance_cannon"],[66,"twin_chop"]],
-    evolveTo:233, evolveLevel:32, catchRate:160, expYield:82, rarity:"common",
+    evolveTo:233, evolveLevel:null, evolveMethod:"item", evolveItem:"dragonScale", catchRate:160, expYield:82, rarity:"common",
     desc:"A ground-burrowing young dragon. Its thick hide absorbs punishment like bedrock.",
     lore:"Serphaxon is a dragon 2.5 metres long with earthy brown-bronze scales and four short powerful legs. Its blunt snout and heavy claws make it a capable excavator. It digs extensive underground lairs in rocky hillsides and uses its weight to collapse cave ceilings onto trespassers." },
 
   233: { id:233, name:"Serpenthorn", emoji:"🐍", types:["Draconic","Earth"],
     base:{hp:78,atk:98,def:90,spa:65,spd:72,spe:68},
     learnset:[[1,"draconic_claw"],[1,"tectonic_shift"],[15,"breaking_swipe"],[20,"serpent_coil"],[26,"geoblast"],[30,"serpent_rage"],[34,"draconic_pulse"],[42,"hydra_dance"],[50,"rampage"],[58,"bedrock_slam"],[66,"radiance_cannon"],[68,"smack_down"]],
-    evolveTo:234, evolveLevel:52, catchRate:75, expYield:165, rarity:"uncommon",
+    evolveTo:234, evolveLevel:null, evolveMethod:"item", evolveItem:"dragonScale", catchRate:75, expYield:165, rarity:"uncommon",
     desc:"A horned serpent that tunnels through mountain roots. Its charge creates fissures in bedrock.",
     lore:"Serpenthorn is a long-bodied four-legged ground-dragon 3 metres long — Serphaxon's earthy brown-bronze scales have thickened to rust-brown and its blunt-snout digger frame has elongated into a body that drags its belly low, almost serpentine in motion, with numerous backward-curved spines now lining its back. Its short legs fold tightly against its body when it rolls along rocky terrain, using its spine-ring as a natural wheel. It inhabits ravine systems and is capable of reaching high speed on smooth stone surfaces." },
 
@@ -2629,7 +2629,7 @@ const MONSTERS_DATA = {
   236: { id:236, name:"Iciquill", emoji:"🧊", types:["Ice"],
     base:{hp:50,atk:58,def:52,spa:68,spd:55,spe:62},
     learnset:[[1,"flurries"],[1,"collide"],[12,"cold_snap"],[22,"cold_beam"],[32,"whiteout"],[42,"cryo_lance"],[52,"frost_crash"],[60,"radiance_cannon"]],
-    evolveTo:237, evolveLevel:30, catchRate:170, expYield:78, rarity:"common",
+    evolveTo:237, evolveLevel:30, evolveMethod:"location", evolveLocation:"frostpeak", catchRate:170, expYield:78, rarity:"common",
     desc:"A porcupine of solid ice. Its quills are natural ice needles that regenerate after use.",
     lore:"Iciquill is a very small ice creature 10 cm tall shaped like an icicle with two tiny arms. Its body is pure transparent ice. It forms spontaneously in sub-zero environments and clusters in large groups on cave ceilings, combining into lattice structures for warmth. Individual ones melt quickly in warm hands." },
 
@@ -2666,7 +2666,7 @@ const MONSTERS_DATA = {
   241: { id:241, name:"Shardlix", emoji:"💠", types:["Ice","Mental"],
     base:{hp:78,atk:75,def:105,spa:115,spd:100,spe:72},
     learnset:[[1,"cold_beam"],[1,"mental"],[20,"cryo_lance"],[30,"psi_burst"],[40,"whiteout"],[50,"psi_strike"],[60,"tundra_tomb"],[70,"radiance_cannon"],[72,"synaptic_shatter"]],
-    evolveTo:null, evolveLevel:null, evolveLocation:"cosmic_cavern", evolveMethod:"location", catchRate:50, expYield:215, rarity:"uncommon",
+    evolveTo:null, evolveLevel:null, catchRate:50, expYield:215, rarity:"uncommon",
     desc:"A crystal lattice of ice and psychic power. Forms only in caves where cosmic energy freezes space itself.",
     lore:"Shardlix is a psychic-ice creature 40 cm tall resembling a bipedal figure made entirely of precision-cut ice crystals fitted together without gaps. Its eyes are two flawless prismatic lenses. It transmits thoughts through vibrations in its crystalline body and can read psychic impressions left on ice surfaces." },
 
@@ -2760,7 +2760,7 @@ const MONSTERS_DATA = {
   253: { id:253, name:"Ashrock", emoji:"🌋", types:["Fire","Mineral"],
     base:{hp:90,atk:105,def:100,spa:88,spd:75,spe:55},
     learnset:[[1,"stone_throw"],[1,"flicker"],[18,"stone_slide"],[28,"inferno_jet"],[38,"crag_strike"],[48,"magma_stone"],[58,"pyroclasm"],[68,"radiance_cannon"],[70,"mineral_jab"],[71,"mineral_pulse"],[72,"shard_volley"],[74,"searing_gale"],[75,"ore_punch"]],
-    evolveTo:null, evolveLevel:null, evolveLocation:"forge_ruins", evolveMethod:"location", catchRate:55, expYield:215, rarity:"uncommon",
+    evolveTo:null, evolveLevel:null, catchRate:55, expYield:215, rarity:"uncommon",
     desc:"Volcanic rock infused with fire. Found only near ancient forge sites where magma once flowed freely.",
     lore:"Ashrock is a fire-mineral creature 60 cm tall resembling a chunk of volcanic basalt with glowing orange cracks running through it like veins of magma. Its surface radiates intense heat. It inhabits volcanic crater rims and lava tube exits, cooling slowly over centuries until its glow dims and it becomes dormant." },
 
@@ -2828,14 +2828,14 @@ const MONSTERS_DATA = {
   262: { id:262, name:"Transluceed", emoji:"🌿", types:["Fighting","Toxin"],
     base:{hp:46,atk:52,def:45,spa:65,spd:55,spe:60},
     learnset:[[1,"vine_lash"],[1,"septic_prick"],[5,"caustic_shell"],[8,"ki_blast"],[10,"sharp_leaves"],[12,"warrior_block"],[15,"corrosive_step"],[18,"martial_aura"],[20,"ooze_bomb"],[25,"acid_burst_2"],[30,"verdant_orb"],[40,"toxify"],[50,"petal_blitz"],[60,"radiance_cannon"]],
-    evolveTo:263, evolveLevel:24, catchRate:180, expYield:68, rarity:"common",
+    evolveTo:263, evolveLevel:24, evolveMethod:"battles", evolveBattles:12, catchRate:180, expYield:68, rarity:"common",
     desc:"A seed creature wrapped in poisoned vines. It plants itself to absorb nutrients then walks away.",
     lore:"Transluceed is a small fighting-toxin creature 20 cm tall resembling a cactus sapling that has grown a face and legs. Its body is pale green and slightly translucent. Tiny venom-tipped thorn-buds dot its surface, flicked at grazing animals to deter them. As it ages, these buds harden into the vine-tendril limbs Tendrilisk wields and eventually the towering thorn-warrior Impenezard rises into decades later." },
 
   263: { id:263, name:"Tendrilisk", emoji:"🌵", types:["Fighting","Toxin"],
     base:{hp:70,atk:80,def:68,spa:98,spd:80,spe:72},
     learnset:[[1,"sharp_leaves"],[1,"ooze_bomb"],[15,"focus_pose"],[18,"verdant_orb"],[20,"acrid_claw"],[22,"martial_intent"],[25,"acid_slash"],[28,"toxify"],[30,"acid_burst_2"],[33,"crippling_blow"],[36,"petal_blitz"],[44,"venom_lance"],[45,"acid_press"],[52,"grove_wrath"],[60,"radiance_cannon"],[62,"quake_barrage"]],
-    evolveTo:264, evolveLevel:42, catchRate:90, expYield:145, rarity:"uncommon",
+    evolveTo:264, evolveLevel:42, evolveMethod:"battles", evolveBattles:20, catchRate:90, expYield:145, rarity:"uncommon",
     desc:"A cactus warrior of venomous thorns. Its spines can inject toxins from up to three meters away.",
     lore:"Tendrilisk is a fighting-toxin creature 60 cm tall whose vine-tendril limbs still wrap Transluceed's pale-green translucent seed-pod at its core. Its cactus-warrior body bristles with sharp thorns, held in a constant martial stance — the climbing vine-tendrils that grow from it extend rapidly to strike, each tipped with venomous barbs that flick out to three metres at threats or prey. It inhabits jungle undergrowth and trains daily by setting up elaborate thorn-target networks throughout its territory." },
 
@@ -2862,7 +2862,7 @@ const MONSTERS_DATA = {
   266: { id:266, name:"Shadowcub", emoji:"🐈‍⬛", types:["Dark","Sonic"],
     base:{hp:48,atk:62,def:45,spa:50,spd:48,spe:72},
     learnset:[[16,"sound_rush"],[1,"chomp"],[1,"collide"],[10,"dusk_slash"],[20,"void_pulse"],[30,"jaw_crush"],[40,"eclipse_shroud"],[50,"soul_rend"],[60,"radiance_cannon"]],
-    evolveTo:267, evolveLevel:26, catchRate:180, expYield:70, rarity:"common",
+    evolveTo:267, evolveLevel:26, evolveMethod:"time", evolveTime:"night", catchRate:180, expYield:70, rarity:"common",
     desc:"A shadow-panther cub whose jet-black fur drinks the light. Its soft growls press oddly on the chest.",
     lore:"Shadowcub is a small shadow-panther kitten about 25 cm at the shoulder, its jet-black fur so dark it swallows almost all light, leaving its outline against bright backgrounds looking too sharp and flat. It is playful and energetic, unaware that its eerie look unnerves others. Its quiet growls and mews are barely audible yet press faintly on the chest of those nearby, and it flinches from sudden light — both early signs of the felt-not-heard intimidation and pitch-dark sight the apex Darkfang will command." },
 
@@ -2929,7 +2929,7 @@ const MONSTERS_DATA = {
   275: { id:275, name:"Infernox", emoji:"🌋", types:["Fire","Mineral"],
     base:{hp:72,atk:92,def:95,spa:82,spd:68,spe:62},
     learnset:[[1,"inferno_jet"],[1,"crag_strike"],[8,"coal_smash"],[12,"ember_focus"],[16,"flash_fire"],[20,"lava_drop"],[22,"pyroclasm"],[26,"magma_strike"],[30,"magma_stone"],[34,"molten_tide"],[38,"stone_slide"],[42,"pyre_strike"],[44,"searing_glare"],[46,"tectonic_shift"],[50,"volcanic_wrath"],[54,"caldera_meltdown"],[62,"radiance_cannon"],[64,"lode_strike"],[65,"ore_ray"],[66,"mineral_dust"],[67,"ore_punch"]],
-    evolveTo:276, evolveLevel:46, catchRate:75, expYield:158, rarity:"uncommon",
+    evolveTo:276, evolveLevel:46, evolveMethod:"held", evolveItem:"hardStone", catchRate:75, expYield:158, rarity:"uncommon",
     desc:"A volcanic rock beast that erupts periodically. Carries magma inside its carapace like a pressure cooker.",
     lore:"Infernox is a fire-mineral creature 80 cm long — Charrock's basalt-and-cinder juvenile body has thickened into volcanic plate armour resembling a larger armoured lizard, the embedded cinders of its early form now pooled magma glowing through every joint. Its footsteps leave brief glowing prints. It inhabits lava fields and uses its rock-hard body to deflect predator strikes while retaliating with blasts of focused fire." },
 
@@ -2944,7 +2944,7 @@ const MONSTERS_DATA = {
   277: { id:277, name:"Magmote", emoji:"🌶️", types:["Fire"],
     base:{hp:92,atk:110,def:96,spa:98,spd:80,spe:62},
     learnset:[[1,"flicker"],[1,"mud_spray"],[15,"flame_charge"],[18,"inferno_jet"],[28,"geoblast"],[28,"blazing_rush"],[38,"pyroclasm"],[45,"flash_fire"],[48,"tectonic_shift"],[58,"magma_surge"],[68,"radiance_cannon"]],
-    evolveTo:null, evolveLevel:null, evolveLocation:"ironforge", evolveMethod:"location", catchRate:50, expYield:215, rarity:"uncommon",
+    evolveTo:null, evolveLevel:null, catchRate:50, expYield:215, rarity:"uncommon",
     desc:"Found only in volcanic forge areas where earth meets fire. Its body is half-molten rock, half-flame.",
     lore:"Magmote is a small fire creature 20 cm tall resembling a lava droplet that has cooled enough to walk. Its body is glossy dark basalt with an interior glow. It inhabits active volcanic vents and feeds by filtering mineral nutrients from magma, which passes harmlessly through its heat-adapted body." },
 
@@ -2967,7 +2967,7 @@ const MONSTERS_DATA = {
   280: { id:280, name:"Gearbit", emoji:"🔩", types:["Metal","Fighting"],
     base:{hp:50,atk:62,def:72,spa:40,spd:52,spe:48},
     learnset:[[1,"chrome_claw"],[1,"mud_spray"],[8,"spinning_kick"],[12,"forge_blast_2"],[16,"high_kick"],[22,"geoblast"],[32,"alloy_tail"],[42,"tectonic_shift"],[52,"forge_strike"],[60,"radiance_cannon"],[62,"draconic_pummels"]],
-    evolveTo:281, evolveLevel:28, catchRate:165, expYield:76, rarity:"common",
+    evolveTo:281, evolveLevel:28, evolveMethod:"held", evolveItem:"metalCoat", catchRate:165, expYield:76, rarity:"common",
     desc:"A gear-driven sparring automaton that grapples with found scrap to build strength. Restless and combative.",
     lore:"Gearbit is a small metal-fighting creature 20 cm tall shaped like a round gear-work automaton with stubby legs. Its body is a collection of interlocked cogs that rotate slowly. It spars constantly with found scrap and rival Gearbits, incorporating useful metals into its growing combat-frame. A Gearbit's slow-rotating juvenile cogs are visibly oversized for the small frame that houses them. They were forged at a scale meant for a far heavier Cogvex chassis, and the body still awaits years of martial conditioning before it grows large enough to put them properly to work." },
 
@@ -2979,7 +2979,7 @@ const MONSTERS_DATA = {
   281: { id:281, name:"Cogvex", emoji:"⚙️", types:["Metal","Fighting"],
     base:{hp:78,atk:98,def:108,spa:58,spd:75,spe:60},
     learnset:[[1,"forge_blast_2"],[1,"geoblast"],[5,"quick_punch"],[15,"shockwave_kick"],[20,"straight_jab"],[22,"alloy_tail"],[26,"iron_will"],[30,"tectonic_shift"],[38,"forge_strike"],[46,"bedrock_slam"],[54,"heavy_slam"],[62,"radiance_cannon"]],
-    evolveTo:282, evolveLevel:46, catchRate:80, expYield:155, rarity:"uncommon",
+    evolveTo:282, evolveLevel:46, evolveMethod:"battles", evolveBattles:22, catchRate:80, expYield:155, rarity:"uncommon",
     desc:"A complex gear-machine combatant that builds practice rigs from scavenged parts and trains alone for hours.",
     lore:"Cogvex is a medium metal-fighting automaton 60 cm tall — Gearbit's stubby gear-work frame has elaborated into a more complex body, and the metals it absorbed in countless sparring matches have crystallised into an exposed chest mechanism of dozens of interlocking cogs and pistons. It constructs gear-driven training apparatus from found materials and leaves functional practice rigs scattered across its territory." },
 
@@ -3017,7 +3017,7 @@ const MONSTERS_DATA = {
   286: { id:286, name:"Downyfawn", emoji:"🦌", types:["Fairy"],
     base:{hp:50,atk:55,def:50,spa:45,spd:48,spe:65},
     learnset:[[1,"collide"],[1,"fairy_wind"],[5,"beguile"],[10,"prism_flare"],[15,"charm_pulse"],[20,"bewitching_kiss"],[25,"healing_circle"],[30,"wish_spark"],[40,"lunar_burst"],[50,"radiance_cannon"]],
-    evolveTo:287, evolveLevel:24, catchRate:185, expYield:65, rarity:"common",
+    evolveTo:287, evolveLevel:24, evolveMethod:"friendship", catchRate:185, expYield:65, rarity:"common",
     desc:"A tiny fluffy kirin-fawn so densely furred that its body looks like a creamy puffball. Its hooves are barely visible beneath its fluff.",
     lore:"Downyfawn is a small kirin-fawn 15 centimetres tall, so densely covered in cream-white fluff that its body looks like a perfectly round puffball — only its tiny hooves and gentle dark eyes peek out. Beneath the fluff are the proportions of a slender deer-fawn, and small antler-buds are already raising the fluff at the crown of its head. A faint warm fairy-glow emanates from within its fluff and intensifies when it is content, casting soft golden light on whoever holds it. It grooms itself constantly, and shed fluff accumulates into soft nest-like mounds where it has rested." },
 
@@ -3047,7 +3047,7 @@ const MONSTERS_DATA = {
   290: { id:290, name:"Guisecat", emoji:"🎭", types:["Normal","Dark"],
     base:{hp:82,atk:90,def:78,spa:95,spd:85,spe:102},
     learnset:[[1,"collide"],[1,"nether_sphere"],[15,"phantom_claw"],[25,"eclipse_shroud"],[35,"crushing_bulk"],[45,"soul_rend"],[55,"nether_sphere"],[65,"radiance_cannon"],[67,"cranial_ram"]],
-    evolveTo:null, evolveLevel:null, evolveLocation:"cobweb_gully", evolveMethod:"location", catchRate:52, expYield:212, rarity:"uncommon",
+    evolveTo:null, evolveLevel:null, catchRate:52, expYield:212, rarity:"uncommon",
     desc:"An unsettling mimic that copies the appearance of other Lumori. Found deep in haunted gullies and ruins.",
     lore:"Guisecat is a dark-normal creature 40 cm long resembling a cat with dark grey fur and the ability to shift its outline. Its face can rearrange its features to mimic any creature it has studied for ten minutes or more. It uses mimicry of distressed sounds to lure curious prey within reach." },
 
@@ -3070,7 +3070,7 @@ const MONSTERS_DATA = {
   293: { id:293, name:"Windwhelp", emoji:"💨", types:["Electric","Draconic"],
     base:{hp:42,atk:45,def:38,spa:65,spd:55,spe:90},
     learnset:[[1,"breeze"],[1,"collide"],[5,"jolt"],[6,"gust_jab"],[8,"draconic_breath"],[10,"wind_scythe"],[12,"volt_jet"],[16,"updraft"],[18,"draconic_claw"],[20,"downdraft"],[22,"shock_pulse"],[28,"draconic_pulse"],[30,"typhoon"],[40,"gale_cannon"],[50,"squall_slash"],[60,"radiance_cannon"]],
-    evolveTo:294, evolveLevel:26, catchRate:175, expYield:68, rarity:"common",
+    evolveTo:294, evolveLevel:26, evolveMethod:"friendship", catchRate:175, expYield:68, rarity:"common",
     desc:"A tiny wind-dragon hatchling whose newly-shed scale-husks float around it as drifting feather-light puffs of fluff. Disperses and reassembles in low winds.",
     lore:"Windwhelp is a small electric-dragon hatchling about 25 centimetres long, with delicate pale-grey scales just hardening into solid form. Loose translucent scale-husks shed during its earliest moults still float around it like drifting puffs of dandelion-down, crackling with faint static when they brush against each other — a cloud of soft filaments that lifts and reassembles around its body whenever it moves through low winds. Its tiny wings are not yet strong enough for sustained flight, but it darts through grasslands and coastal updrafts at speeds that belie its size, and its passage is announced by the gentle drift of those fluff-husks settling behind it. When groups of Windwhelp hatch in the same season, their combined scale-husks form a small visible cloud above them — an accidental precursor of the personal storm-systems Cyclonax sustains. A sleeping Windwhelp will twitch its tiny incomplete wings in patterns far more complex than its current flight ability requires, practising a wingstroke Stormwing performs adult. The species' instinctive preference for coastal updrafts and high ridges over grasslands or forests reveals the same orientation toward the wind-cathedrals Cyclonax eventually occupies." },
 
@@ -3156,7 +3156,7 @@ const MONSTERS_DATA = {
   304: { id:304, name:"Yeticub", emoji:"🦍", types:["Earth","Ice"],
     base:{hp:52,atk:62,def:75,spa:58,spd:60,spe:50},
     learnset:[[1,"stone_throw"],[1,"flurries"],[12,"stone_slide"],[22,"cold_beam"],[32,"crag_strike"],[42,"cryo_lance"],[52,"whiteout"],[60,"radiance_cannon"]],
-    evolveTo:305, evolveLevel:28, catchRate:162, expYield:78, rarity:"common",
+    evolveTo:305, evolveLevel:28, evolveMethod:"location", evolveLocation:"frostpeak", catchRate:162, expYield:78, rarity:"common",
     desc:"A shaggy frost-furred yeti cub. Hardy in the cold, shy of strangers, it huddles with its kind for warmth.",
     lore:"Yeticub is a 40 cm yeti cub whose thick white fur stays perpetually crusted with frost and rime. It shelters in frozen highland caves, pressing close to others of its kind for warmth, and packs loose snow into its pelt for insulation — the cold radiating off it never quite lets that snow melt." },
 
@@ -3216,7 +3216,7 @@ const MONSTERS_DATA = {
   312: { id:312, name:"Dunecrawl", emoji:"🪨", types:["Earth","Dark"],
     base:{hp:55,atk:72,def:60,spa:52,spd:55,spe:70},
     learnset:[[1,"mud_spray"],[1,"chomp"],[5,"dust_toss"],[8,"bone_cudgel"],[11,"bone_barrage"],[14,"geoblast"],[18,"quicksand_trap"],[22,"quicksand_pull"],[24,"dusk_slash"],[28,"sand_storm_polish"],[34,"tectonic_shift"],[38,"embedded_spike"],[44,"void_pulse"],[48,"underground_crush"],[54,"eclipse_shroud"],[60,"radiance_cannon"]],
-    evolveTo:313, evolveLevel:32, catchRate:148, expYield:85, rarity:"common",
+    evolveTo:313, evolveLevel:32, evolveMethod:"time", evolveTime:"night", catchRate:148, expYield:85, rarity:"common",
     desc:"A medium armadillo whose dark sand-coloured armour rolls into a perfect sphere. Buries itself under a thin layer of sand at dawn to disappear from view.",
     lore:"Dunecrawl is a medium armadillo 70 centimetres long with overlapping plates of dark sand-coloured armour that fit together perfectly when it rolls into a sphere — small enough to nest in the palm of a giant's hand. At night it unfurls and hunts insects and small reptiles across the dunes, and at dawn it rolls back into a ball and buries itself under a thin layer of sand, becoming indistinguishable from a dark stone among many." },
 
@@ -3264,7 +3264,7 @@ const MONSTERS_DATA = {
   134: { id:134, name:"Aeronyx", emoji:"🦇", types:["Metal","Dark"],
     base:{hp:49,atk:51,def:69,spa:45,spd:57,spe:66},
     learnset:[[1,"chomp",[20,"shadowstep"]],[1,"chrome_claw"],[9,"wingbeat"],[17,"void_pulse"],[21,"baleful_stare"],[25,"forge_blast_2"],[33,"jaw_crush",[5,"magnetize"]],[36,"nether_sphere"],[3,"ironskin"],[31,"smelt_crush"]],
-    evolveTo:135, evolveLevel:28, catchRate:140, expYield:88, rarity:"common",
+    evolveTo:135, evolveLevel:28, evolveMethod:"held", evolveItem:"metalCoat", catchRate:140, expYield:88, rarity:"common",
     desc:"A small bat with scrap-metal wings that screech on the wind. Lives in old ruins.",
     lore:"Aeronyx is a sleek steel-dark bat 80 cm long with wings made of thin flexible metal alloy rather than membrane. Its body is dark gunmetal grey with blue-tinted metal plating. It slices through the air with minimal noise and can fold its metal wings to act as shields. It roosts on steel structures. Aeronyx will hold the wing-shield position for minutes at a time even with no apparent threat: an autonomic drill, written into the body, for the chrome-black armour Steelvex wears continuously." },
 
@@ -3272,7 +3272,7 @@ const MONSTERS_DATA = {
   19: { id:19, name:"Magmaurin", emoji:"🦏", types:["Fire","Earth"],
     base:{hp:68,atk:70,def:59,spa:51,spd:43,spe:49},
     learnset:[[1,"flicker",[22,"magma_surge"]],[1,"graze"],[9,"mud_spray"],[17,"flame_fang"],[20,"baleful_stare"],[25,"tectonic_shift"],[33,"inferno_jet",[5,"scorch_veil"]],[36,"cinderwhirl"],[3,"embercloak"],[31,"wildfire_surge"],[38,"sandstrike"]],
-    evolveTo:20, evolveLevel:26, catchRate:150, expYield:92, rarity:"common",
+    evolveTo:20, evolveLevel:26, evolveMethod:"held", evolveItem:"metalCoat", catchRate:150, expYield:92, rarity:"common",
     desc:"A fire-rhino calf, its hide half-plated in cooling lava and a molten horn-nub on its snout.",
     lore:"Magmaurin is a stocky fire-rhino calf the size of a large dog, its thick hide half-plated in cooling lava-rock with a stubby molten horn-nub on its snout. It roots through volcanic badlands for mineral-rich stone to eat, and when threatened it lowers its head and barrels its armoured bulk straight at the danger." },
 
@@ -3304,7 +3304,7 @@ const MONSTERS_DATA = {
   37: { id:37, name:"Coralossus", emoji:"🪸", types:["Aquatic","Metal"],
     base:{hp:88,atk:83,def:118,spa:71,spd:90,spe:30},
     learnset:[[1,"aquatic_gun",[25,"ironskin"]],[1,"chrome_claw"],[11,"fortify"],[16,"war_dance"],[19,"tidal_sweep"],[27,"forge_blast_2"],[29,"rivet_barrage"],[35,"tidal_rush"],[40,"tidal_crush"],[43,"alloy_tail",[5,"tidecaller"]],[3,"deepwater_hymn"],[33,"smelt_crush"]],
-    evolveTo:38, evolveLevel:44, catchRate:55, expYield:188, rarity:"uncommon",
+    evolveTo:38, evolveLevel:null, evolveMethod:"item", evolveItem:"steelCoating", catchRate:55, expYield:188, rarity:"uncommon",
     desc:"A golem formed from centuries of compressed coral and sunken steel. Nearly indestructible.",
     lore:"Coralossus is a massive living-reef creature 4 metres tall appearing as a hulking humanoid formed from packed coral, encrusted shells, and marine growth. Metal-hard armour covers every surface. It stands motionless on the sea floor for decades, and divers often mistake it for a natural reef formation." },
 
@@ -3328,7 +3328,7 @@ const MONSTERS_DATA = {
   34: { id:34, name:"Pearlmaid", emoji:"🐚", types:["Aquatic","Fairy"],
     base:{hp:36,atk:37,def:52,spa:69,spd:62,spe:57},
     learnset:[[1,"collide",[22,"wish_spark"]],[1,"aquatic_gun"],[8,"fairy_wind"],[16,"bubble_jet"],[20,"baleful_stare"],[24,"prism_flare"],[32,"tidal_rush",[5,"tidecaller"]],[36,"riptide_slam"],[3,"deepwater_hymn"],[31,"lunar_burst"]],
-    evolveTo:35, evolveLevel:24, catchRate:200, expYield:74, rarity:"common",
+    evolveTo:35, evolveLevel:null, evolveMethod:"item", evolveItem:"tidePearl", catchRate:200, expYield:74, rarity:"common",
     desc:"A tiny pearl-mermaid fry curled inside a fairy-touched oyster shell. Snaps the shell shut to hide whenever startled.",
     lore:"Pearlmaid is a tiny pearl-mermaid fry about 12 centimetres long, curled comfortably inside a 20-centimetre barnacle-encrusted oyster shell that serves as both nursery and shelter. Its tiny pale-violet body has a soft humanoid torso and a stubby pearl-coloured tail tipped in delicate translucent fins; rose-gold luminescence pulses gently from its core, illuminating the shell from within. When threatened it tucks fully inside and snaps the shell closed with surprising force, becoming indistinguishable from an ordinary oyster among reef rocks. As it grows, fairy energy concentrates in its body until the shell can no longer contain it, and it emerges into the open sea as Seanymph." },
 
@@ -3336,7 +3336,7 @@ const MONSTERS_DATA = {
   78: { id:78, name:"Sylvnox", emoji:"🌿", types:["Nature","Dark"],
     base:{hp:61,atk:62,def:48,spa:59,spd:54,spe:69},
     learnset:[[1,"vine_lash",[22,"root_lance"]],[1,"chomp"],[10,"sharp_leaves"],[18,"dusk_slash"],[26,"verdant_orb"],[30,"grove_wrath"],[34,"jaw_crush"],[42,"void_pulse",[5,"slumber_dust"]],[3,"spore_burst"],[32,"void_rend"]],
-    evolveTo:79, evolveLevel:30, catchRate:110, expYield:98, rarity:"common",
+    evolveTo:79, evolveLevel:30, evolveMethod:"time", evolveTime:"night", catchRate:110, expYield:98, rarity:"common",
     desc:"A shadowy plant sprite that hides in dark undergrowth. Its thorns drip with shadow energy.",
     lore:"Sylvnox is a small bark-skinned forest-sprite 60 cm tall, the youngest stage of the leshy lineage. Its body is bipedal and humanoid, wrapped in a fringed cloak of dark leaves and shadow-moss with two short twig-horns curling from its brow. Its amber eyes glow through the foliage-hood as it skitters through the undergrowth at twilight, drawing shadow-camouflage from the corrupted plants it touches. Travellers who hear its faint giggling among the trees rarely see it before it is gone." },
 
@@ -3376,7 +3376,7 @@ const MONSTERS_DATA = {
   202: { id:202, name:"Sculptweave", emoji:"🕷️", types:["Nature","Fairy"],
     base:{hp:34,atk:52,def:63,spa:58,spd:49,spe:85},
     learnset:[[1,"silk_spray",[22,"silk_bind"]],[1,"fairy_wind"],[9,"mandible_bite"],[17,"prism_flare"],[20,"second_wind"],[25,"shear_strike"],[33,"lunar_burst",[5,"chitin_guard"]],[36,"swarm_dive"],[3,"compound_glare"],[31,"resonance_hum"]],
-    evolveTo:203, evolveLevel:26, catchRate:160, expYield:84, rarity:"common",
+    evolveTo:203, evolveLevel:26, evolveMethod:"time", evolveTime:"dawn", catchRate:160, expYield:84, rarity:"common",
     desc:"A spider that weaves silk infused with fairy dust. Its webs shimmer like spun moonlight.",
     lore:"Sculptweave is a spider 15 cm across with a pale cream body and legs banded in rose-gold. Its silk is exceptionally strong and has a faint iridescent sheen. It weaves elaborate three-dimensional web sculptures rather than flat sheets, incorporating fairy-touched strands that glow at dawn and dusk." },
 
@@ -3384,7 +3384,7 @@ const MONSTERS_DATA = {
   55: { id:55, name:"Rimeling", emoji:"🗡️", types:["Ice","Fighting"],
     base:{hp:46,atk:73,def:66,spa:56,spd:52,spe:76},
     learnset:[[15,"straight_jab"],[1,"flurries",[25,"cryo_lance"]],[1,"chrome_claw"],[11,"glacial_punch"],[19,"forge_blast_2"],[27,"frost_crash"],[30,"smelt_crush"],[35,"alloy_tail"],[43,"whiteout",[5,"permafrost"]],[3,"winter_shroud"],[33,"forge_strike"]],
-    evolveTo:56, evolveLevel:36, catchRate:90, expYield:110, rarity:"uncommon",
+    evolveTo:56, evolveLevel:36, evolveMethod:"held", evolveItem:"neverMeltIce", catchRate:90, expYield:110, rarity:"uncommon",
     desc:"A blade of living ice and metal. Keeps its edge forever sharp in the coldest conditions.",
     lore:"Rimeling is a slender humanoid about 1.2 metres tall made entirely of layered ice and dark tempered steel. Its body appears jointed, like armour assembled from ice-forged plates. Blue veins of compressed frost show through gaps in the plating. It stands motionless in blizzards for days, absorbing ambient cold to reinforce its body." },
 
@@ -3400,7 +3400,7 @@ const MONSTERS_DATA = {
   59: { id:59, name:"Lunaveris", emoji:"🌙", types:["Ice","Draconic"],
     base:{hp:63,atk:65,def:69,spa:79,spd:64,spe:59},
     learnset:[[1,"flurries",[24,"wyrm_strike"]],[1,"draconic_breath"],[12,"cold_beam"],[20,"draconic_claw"],[28,"frost_crash"],[36,"draconic_pulse"],[44,"whiteout"],[52,"rampage",[5,"permafrost"]],[3,"winter_shroud"],[37,"scale_storm"]],
-    evolveTo:60, evolveLevel:40, catchRate:60, expYield:115, rarity:"uncommon",
+    evolveTo:60, evolveLevel:40, evolveMethod:"time", evolveTime:"night", catchRate:60, expYield:115, rarity:"uncommon",
     desc:"A moonlit dragon of frost. Its scales glimmer with cold starlight on winter nights.",
     lore:"Lunaveris is a serpentine ice-dragon 5 metres long with scales that shift between deep blue and silver depending on the angle of light. A crescent-shaped ridge of ice forms its crest. It is nocturnal, hunting on moonlit glacier surfaces and using reflected moonlight to navigate across vast frozen plains." },
 
@@ -3424,14 +3424,14 @@ const MONSTERS_DATA = {
   135: { id:135, name:"Steelvex", emoji:"🦇", types:["Metal","Dark"],
     base:{hp:82,atk:102,def:94,spa:59,spd:73,spe:78},
     learnset:[[1,"forge_blast_2"],[2,"void_pulse"],[3,"magnetize"],[30,"jaw_crush"],[33,"nether_sphere"],[34,"fortify"],[38,"rivet_barrage"],[43,"metal_wing"],[48,"dusk_slash"],[53,"forge_strike"],[58,"void_rend"],[63,"alloy_tail"],[4,"ironskin"],[41,"smelt_crush"]],
-    evolveTo:136, evolveLevel:44, catchRate:45, expYield:215, rarity:"uncommon",
+    evolveTo:136, evolveLevel:null, evolveMethod:"item", evolveItem:"steelCoating", catchRate:45, expYield:215, rarity:"uncommon",
     desc:"An iron-clad wraith bat. Its metallic screech disorients enemies from great distances.",
     lore:"Steelvex is a larger dark-steel bat 1.2 metres long — Aeronyx's gunmetal-grey alloy wings have broadened into the metallic shields that now catch and reflect light strangely, and the blue-tinted plating of its juvenile form has darkened to a chrome-black body. It has the habit of dismantling mechanical objects it finds — gears, clockwork, small machines — studying each component before reassembling them incorrectly." },
 
   20: { id:20, name:"Ignirhino", emoji:"🦏", types:["Fire","Earth"],
     base:{hp:97,atk:121,def:76,spa:69,spd:62,spe:64},
     learnset:[[1,"flame_fang"],[2,"mud_spray"],[3,"tectonic_shift"],[4,"scorch_veil"],[5,"embercloak"],[8,"firebrand"],[12,"scorch_kick"],[16,"molten_claw"],[20,"flame_spiral"],[24,"inferno_chop"],[30,"inferno_jet"],[31,"battle_cry"],[36,"ashfall"],[40,"scorched_earth"],[41,"geoblast"],[46,"fissure_slam"],[51,"conflagration"],[56,"pyroclasm"],[61,"tectonic_slam"]],
-    evolveTo:21, evolveLevel:44, catchRate:45, expYield:218, rarity:"uncommon",
+    evolveTo:21, evolveLevel:44, evolveMethod:"location", evolveLocation:"volcano_core", catchRate:45, expYield:218, rarity:"uncommon",
     desc:"An adolescent magma-rhino whose horn has hardened into a heat-radiating spike. It charges with surprising speed.",
     lore:"Ignirhino is a 1.2-metre adolescent magma-rhino — Magmaurin's calf-plates have thickened into overlapping fire-hardened armour of charcoal grey and deep rust, and the horn-nub has grown into a heat-radiating spike. Heat-sensing pits along its snout track the warmth of rivals and prey, and it charges with startling speed for its bulk, cracking stone on impact." },
 
@@ -3473,7 +3473,7 @@ const MONSTERS_DATA = {
   79: { id:79, name:"Morraveth", emoji:"🌳", types:["Nature","Dark"],
     base:{hp:84,atk:101,def:80,spa:100,spd:72,spe:67},
     learnset:[[1,"sharp_leaves"],[2,"verdant_orb"],[3,"dusk_slash"],[4,"slumber_dust"],[31,"jaw_crush"],[35,"fortify"],[39,"void_pulse"],[40,"photon_leaf"],[45,"nether_sphere"],[50,"blackout_bomb"],[55,"void_rend"],[60,"petal_blitz"],[5,"spore_burst"],[38,"verdant_edge"]],
-    evolveTo:80, evolveLevel:44, catchRate:40, expYield:218, rarity:"uncommon",
+    evolveTo:80, evolveLevel:44, evolveMethod:"time", evolveTime:"night", catchRate:40, expYield:218, rarity:"uncommon",
     desc:"A dark vine predator that ensnares prey in shadow-infused tendrils. Ancient and cunning.",
     lore:"Morraveth is a mid-stage leshy 1 metre tall — Sylvnox's bark-skin has thickened into shoulder-plates of dark wood, and the twig-horns of its sprite-form have elongated into branching antler-buds. Withered vines coil around its forearms and its leaf-cloak has deepened to midnight green and black. It hunts by corrupting the plant growth around its prey into thorny barriers, gradually encircling the target before closing in from the shadows." },
 
@@ -3547,7 +3547,7 @@ const MONSTERS_DATA = {
   75: { id:75, name:"Sylvolt", emoji:"🦌", types:["Nature","Electric"],
     base:{hp:40,atk:63,def:39,spa:60,spd:54,spe:59},
     learnset:[[1,"vine_lash",[22,"volt_surge"]],[1,"jolt"],[8,"sharp_leaves"],[16,"static_strike"],[20,"second_wind"],[24,"verdant_orb"],[32,"volt_jet",[5,"slumber_dust"]],[36,"plasma_strike"],[3,"spore_burst"],[31,"petal_blitz"]],
-    evolveTo:76, evolveLevel:22, catchRate:190, expYield:78, rarity:"common",
+    evolveTo:76, evolveLevel:22, evolveMethod:"time", evolveTime:"day", catchRate:190, expYield:78, rarity:"common",
     desc:"A bright-green fawn with leaf-tipped antler buds that crackle with static. Bounds through underbrush leaving a faint trail of leaf-shed and sparks.",
     lore:"Sylvolt is a lithe forest fawn about 70 centimetres at the shoulder, with a coat of vivid green that shades into pale moss-yellow along its underbelly. Its short stubby antler-buds have not yet hardened into wood — instead, each is tipped with a small cluster of broad photosynthetic leaves striped in electric yellow, which crackle with static whenever they catch sunlight. It bounds through forest underbrush at remarkable speed, charging the leaf-buds in storm-laden afternoons and discharging tiny sparks into the soil along its trails." },
 
@@ -3562,7 +3562,7 @@ const MONSTERS_DATA = {
   132: { id:132, name:"Volcascale", emoji:"🗿", types:["Earth","Dark"],
     base:{hp:73,atk:69,def:75,spa:48,spd:62,spe:32},
     learnset:[[1,"stone_throw",[22,"obsidian_crash"]],[1,"chomp"],[10,"cranial_ram"],[18,"jaw_crush"],[26,"stone_slide"],[30,"landslide"],[34,"void_pulse"],[42,"crag_strike",[5,"granite_wall"]],[3,"petrify_gaze"],[32,"quarry_crush"]],
-    evolveTo:133, evolveLevel:30, catchRate:130, expYield:97, rarity:"common",
+    evolveTo:133, evolveLevel:30, evolveMethod:"location", evolveLocation:"volcano_core", catchRate:130, expYield:97, rarity:"common",
     desc:"A small obsidian gargoyle with razor wing-ridges. It reflects almost no light and lunges from cover.",
     lore:"Volcascale is a 60 cm gargoyle that looks carved from volcanic obsidian — jet black, with razor ridges along its folded wing-stubs and a horned brow. It reflects almost no light and perches motionless in old lava tubes, betrayed only by the faint click of its glassy plates before it lunges at anything that strays too close." },
 
@@ -3592,7 +3592,7 @@ const MONSTERS_DATA = {
   153: { id:153, name:"Dentshaft", emoji:"⚙️", types:["Metal","Earth"],
     base:{hp:60,atk:63,def:85,spa:30,spd:50,spe:35},
     learnset:[[1,"chrome_claw",[22,"forge_strike"]],[1,"mud_spray"],[9,"fortify"],[17,"forge_blast_2"],[20,"lashing_tail"],[25,"tectonic_shift"],[33,"alloy_tail",[5,"magnetize"]],[36,"boulder_roll"],[3,"ironskin"],[31,"scorched_earth"]],
-    evolveTo:154, evolveLevel:26, catchRate:160, expYield:90, rarity:"common",
+    evolveTo:154, evolveLevel:26, evolveMethod:"held", evolveItem:"metalCoat", catchRate:160, expYield:90, rarity:"common",
     desc:"A small ore elemental born in deep mine shafts. Tough as iron and twice as stubborn.",
     lore:"Dentshaft is a compact metal-earth creature 60 cm tall shaped like a short humanoid miner. Its steel body is scuffed and dented from constant digging. It uses its broad flat hands as shovels to excavate ore veins. It never stops working — even while dormant it taps at nearby rock surfaces reflexively. Every handful of ore a Dentshaft processes leaves a microscopic amount of metal and earth bonded into its body. The slow accretion compounds across years of mine-work into the 2.5-metre golem frame Terragolem eventually attains." },
 
@@ -3607,7 +3607,7 @@ const MONSTERS_DATA = {
   106: { id:106, name:"Geoclad", emoji:"🦔", types:["Earth","Metal"],
     base:{hp:40,atk:59,def:63,spa:57,spd:42,spe:64},
     learnset:[[1,"graze",[22,"terra_spike"]],[1,"quake_pulse"],[10,"mud_spray"],[18,"auger_strike"],[20,"lashing_tail"],[26,"tectonic_shift"],[34,"telluric_wave",[5,"sand_storm_polish"]],[36,"sinkhole_maw"],[3,"clay_armor"],[31,"boulder_roll"]],
-    evolveTo:107, evolveLevel:32, catchRate:80, expYield:94, rarity:"uncommon",
+    evolveTo:107, evolveLevel:32, evolveMethod:"held", evolveItem:"metalCoat", catchRate:80, expYield:94, rarity:"uncommon",
     desc:"An armoured hatchling burrower. Rolls into a bony ball and tunnels through volcanic soil.",
     lore:"Geoclad is an armoured hatchling about 40 cm long, its back already sheathed in a cap of overlapping bony scutes the colour of weathered iron. Its stubby claws are powerful diggers. It hatches from eggs buried in volcanic soil and immediately begins tunnelling to locate its first meal. When threatened, a young Geoclad tucks its soft underside away and rolls into a tight armoured ball, letting predators' teeth scrape uselessly across its shell. With each moult the plates thicken and fuse, until it grows into Quakeon, the great glyptodon whose domed back becomes an impregnable fortress of dark-bronze armour." },
 
@@ -3652,7 +3652,7 @@ const MONSTERS_DATA = {
   61: { id:61, name:"Gelspike", emoji:"🦔", types:["Ice","Poison"],
     base:{hp:34,atk:45,def:36,spa:64,spd:47,spe:93},
     learnset:[[1,"septic_prick"],[1,"flurries"],[3,"toxify"],[4,"icy_shot"],[8,"fortify"],[10,"frigid_jab"],[12,"frost_bite"],[14,"flash_freeze"],[16,"permafrost"],[18,"icicle_volley"],[20,"corrosive_bite"],[22,"cryo_lance"],[24,"venom_lance"],[26,"venom_jab"],[28,"bane_caltrops"],[29,"ooze_bomb"],[31,"stinger_lance"],[32,"cold_beam"],[40,"virulent_surge",[5,"mistveil"]]],
-    evolveTo:62, evolveLevel:26, catchRate:180, expYield:78, rarity:"common",
+    evolveTo:62, evolveLevel:26, evolveMethod:"held", evolveItem:"neverMeltIce", catchRate:180, expYield:78, rarity:"common",
     desc:"A small ice hedgehog whose translucent quills are tipped with paralytic frost-venom. A faintly numbing chill-mist hangs around it at all times.",
     lore:"Gelspike is a compact creature about 60 cm tall shaped like a hedgehog. Its body is pale ice-blue and covered in dozens of sharp translucent ice spines that project outward in all directions, each tipped with a clear bead of paralytic frost-venom that crystallises on contact with air. A toxic chill-mist drifts around it constantly — breathable but distinctly numbing to anything that lingers nearby. It rolls into a venomous spiky ball when threatened, allowing wind to carry it across frozen plains while leaving a faint trail of stinging mist behind." },
 
@@ -3667,7 +3667,7 @@ const MONSTERS_DATA = {
   145: { id:145, name:"Faerrin", emoji:"📌", types:["Fairy","Metal"],
     base:{hp:35,atk:46,def:71,spa:68,spd:52,spe:51},
     learnset:[[1,"fairy_wind",[22,"ironskin"]],[1,"chrome_claw"],[9,"prism_flare"],[17,"forge_blast_2"],[20,"second_wind"],[25,"lunar_burst"],[33,"alloy_tail",[5,"bewitching_kiss"]],[36,"gossamer_lance"],[3,"stardust_veil"],[31,"glitter_storm"]],
-    evolveTo:146, evolveLevel:26, catchRate:170, expYield:82, rarity:"common",
+    evolveTo:146, evolveLevel:null, evolveMethod:"item", evolveItem:"steelCoating", catchRate:170, expYield:82, rarity:"common",
     desc:"A tiny fairy-knight made of living silver. Fiercely guards those it bonds with.",
     lore:"Faerrin is a petite fairy-steel creature 40 cm tall resembling a humanoid knight in tiny armour. Its armour is forged from a pale silver-gold alloy that catches fairy light and redirects it as a dazzling display. It inhabits ruined ancient fortresses and maintains guard even centuries after the fort's abandonment." },
 
@@ -4175,7 +4175,7 @@ const MONSTERS_DATA = {
     lore:"Coilstrike is a sleek electric-poison snake 2.5 metres long with alternating bands of bright yellow and dark purple scales. Electrical discharge is visible along its spine." },
 
   337: { id:337, name:"Ashgolem", emoji:"🔥", types:["Fire","Mineral"],
-    base:{hp:80,atk:86,def:84,spa:70,spd:62,spe:48}, evolveTo:347, evolveMethod:"item", evolveItem:"metalCoat",
+    base:{hp:80,atk:86,def:84,spa:70,spd:62,spe:48}, evolveTo:347, evolveLevel:null, evolveMethod:"item", evolveItem:"metalCoat",
     learnset:[[1,"flicker"],[5,"fortify"],[10,"stone_throw"],[15,"molten_armor"],[20,"inferno_jet"],[30,"stone_slide"],[40,"searing_gale"],[40,"magma_surge"],[50,"fossil_rush"],[60,"pyroclasm"],[62,"mineral_jab"],[63,"mineral_pulse"],[64,"shard_volley"],[65,"lode_strike"]],
     catchRate:55, expYield:150, rarity:"uncommon",
     desc:"A young volcanic golem of cracked basalt and magma. Its cooling shell slowly tempers toward steel.",
@@ -4662,7 +4662,7 @@ const MONSTERS_DATA = {
 
   // ---- Pseudo-legendary Family 2: Dark/Metal (Voidsteel line) BST 300→465→600 ----
   405: { id:405, name:"Umbrapup", emoji:"🐾", types:["Dark","Metal"],
-    evolveTo:406, evolveLevel:30, ngPlusTier:1,
+    evolveTo:406, evolveLevel:30, evolveMethod:"held", evolveItem:"metalCoat", ngPlusTier:1,
     base:{hp:45,atk:62,def:55,spa:48,spd:50,spe:40}, // BST 300
     learnset:[[1,"shadowstep"],[1,"chrome_claw"],[5,"dark_focus"],[10,"void_rend"],[14,"shadow_cloak"],[18,"alloy_tail"],[22,"backstab"],[26,"phantom_claw"],[30,"alloy_edge"]],
     catchRate:45, expYield:62, rarity:"uncommon",
@@ -4810,7 +4810,7 @@ const MONSTERS_DATA = {
     lore:"Pebblite is plated head to tail in overlapping scales of raw mineral that it grows by ingesting grit and ore. At rest it forages for hard nodules to wear down its ever-growing scales; at the first alarm it rolls into an armoured sphere that even larger predators give up on. Its scales, shed as it grows, are collected by jewelers for their natural polish." },
 
   424: { id:424, name:"Geodon", emoji:"🦔", types:["Metal","Mineral"],
-    evolveTo:425, evolveLevel:38, catchRate:75, expYield:145, rarity:"uncommon",
+    evolveTo:425, evolveLevel:38, evolveMethod:"held", evolveItem:"metalCoat", catchRate:75, expYield:145, rarity:"uncommon",
     base:{hp:70,atk:80,def:105,spa:48,spd:62,spe:35}, // BST 400
     learnset:[[1,"collide"],[5,"mineral_jab"],[8,"slate_armor"],[12,"quarry_speed"],[16,"ore_punch"],[20,"shard_burst"],[22,"chrome_claw"],[28,"cobble_smash"],[34,"bulwark"],[36,"mineral_blast"],[40,"ore_smash"],[46,"heavy_slam"],[48,"alloy_edge"]],
     desc:"Its mineral scales have hardened with veins of native metal into a near-impervious armour.",
@@ -4825,14 +4825,14 @@ const MONSTERS_DATA = {
 
   // --- F7: martial mantis (Fighting / Fighting-Mental) ---
   426: { id:426, name:"Pummelo", emoji:"🦗", types:["Fighting"],
-    evolveTo:427, evolveLevel:16, catchRate:150, expYield:64, rarity:"common",
+    evolveTo:427, evolveLevel:16, evolveMethod:"battles", evolveBattles:8, catchRate:150, expYield:64, rarity:"common",
     base:{hp:48,atk:68,def:50,spa:52,spd:47,spe:40}, // BST 305
     learnset:[[1,"quick_punch"],[1,"battle_cry"],[5,"straight_jab"],[7,"high_kick"],[9,"leg_sweep"],[11,"spinning_kick"],[14,"body_check"],[17,"ki_blast"],[19,"mind_jolt"],[22,"uppercut"],[25,"roundhouse"]],
     desc:"A palm-sized mantis nymph that drills its strikes against stones for hours on end.",
     lore:"Pummelo hatches already pugnacious, sparring with its broodmates and battering pebbles with its raptorial forelimbs to harden them. The faint hum it gives off while training is the first stirring of the focused mind its line is known for, and trainers prize the discipline a young Pummelo shows even at this size." },
 
   427: { id:427, name:"Brawlmonk", emoji:"🦗", types:["Fighting","Mental"],
-    evolveTo:428, evolveLevel:36, catchRate:70, expYield:145, rarity:"uncommon",
+    evolveTo:428, evolveLevel:36, evolveMethod:"battles", evolveBattles:18, catchRate:70, expYield:145, rarity:"uncommon",
     base:{hp:62,atk:95,def:66,spa:70,spd:62,spe:55}, // BST 410
     learnset:[[1,"quick_punch"],[5,"straight_jab"],[10,"battle_meditation"],[14,"body_check"],[16,"martial_aura"],[19,"mind_jolt"],[22,"fighter_s_resolve"],[25,"roundhouse"],[28,"ki_burst"],[31,"psi_burst"],[37,"iron_fist"],[43,"cortex_ram"],[45,"dreamweave"]],
     desc:"A mantis warrior whose meditation has woken a focused psychic edge to its strikes.",
@@ -4898,7 +4898,7 @@ const MONSTERS_DATA = {
     lore:"Knucklite grows up in rocky highlands, where it toughens its fists by pounding stone until thick mineral calluses form across its knuckles. Troops communicate by drumming these stony fists against boulders, and the booming knuckle-rhythm of a Knucklite band rolls for miles through the canyons they call home." },
 
   436: { id:436, name:"Cragfist", emoji:"🦍", types:["Fighting","Mineral"],
-    evolveTo:437, evolveLevel:38, catchRate:75, expYield:145, rarity:"uncommon",
+    evolveTo:437, evolveLevel:38, evolveMethod:"battles", evolveBattles:18, catchRate:75, expYield:145, rarity:"uncommon",
     base:{hp:75,atk:95,def:88,spa:48,spd:62,spe:52}, // BST 420
     learnset:[[1,"collide"],[5,"mineral_jab"],[10,"battle_meditation"],[15,"quick_punch"],[18,"fighter_s_resolve"],[20,"ore_punch"],[24,"iron_will"],[26,"body_check"],[32,"cobble_smash"],[38,"iron_fist"],[44,"seismic_force"],[46,"mineral_pulse"]],
     desc:"A powerful ape whose forearms are sheathed in plates of grown-in rock.",
@@ -4913,7 +4913,7 @@ const MONSTERS_DATA = {
 
   // --- F11: cicada bard-fae (Sonic / Fairy-Sonic) ---
   438: { id:438, name:"Chimicada", emoji:"🎐", types:["Sonic"],
-    evolveTo:439, evolveLevel:24, catchRate:190, expYield:68, rarity:"common",
+    evolveTo:439, evolveLevel:24, evolveMethod:"time", evolveTime:"dusk", catchRate:190, expYield:68, rarity:"common",
     base:{hp:52,atk:45,def:48,spa:70,spd:60,spe:45}, // BST 320
     learnset:[[1,"chirp"],[1,"echo_strike"],[5,"echo_pulse"],[10,"sound_rush"],[15,"resonate"],[20,"pulse_wave"],[26,"wave_cry"]],
     desc:"A tiny winged cicada-sprite whose translucent wings ring like struck glass.",
@@ -5003,7 +5003,7 @@ const MONSTERS_DATA = {
 
   // --- F17: mantis shrimp (Fighting / Fighting-Fire) ---
   450: { id:450, name:"Jabshell", emoji:"🦐", types:["Fighting"],
-    evolveTo:451, evolveLevel:28, catchRate:180, expYield:70, rarity:"common",
+    evolveTo:451, evolveLevel:28, evolveMethod:"battles", evolveBattles:14, catchRate:180, expYield:70, rarity:"common",
     base:{hp:55,atk:72,def:58,spa:48,spd:47,spe:45}, // BST 325
     learnset:[[1,"quick_punch"],[1,"battle_cry"],[5,"straight_jab"],[8,"warrior_block"],[10,"body_check"],[12,"sonic_palm"],[15,"leg_sweep"],[18,"shockwave_kick"],[20,"power_drive"],[26,"roundhouse"]],
     desc:"A small reef-shrimp whose club-arms strike fast enough to crack a shell with a snap.",
@@ -5063,7 +5063,7 @@ const MONSTERS_DATA = {
 
   // --- F21: tengu (Fighting / Fighting-Wind) ---
   458: { id:458, name:"Tengko", emoji:"👺", types:["Fighting"],
-    evolveTo:459, evolveLevel:28, catchRate:180, expYield:72, rarity:"common",
+    evolveTo:459, evolveLevel:28, evolveMethod:"battles", evolveBattles:14, catchRate:180, expYield:72, rarity:"common",
     base:{hp:55,atk:68,def:52,spa:55,spd:50,spe:50}, // BST 330
     learnset:[[1,"quick_punch"],[1,"battle_cry"],[5,"breeze"],[8,"swift_form"],[10,"straight_jab"],[12,"sonic_palm"],[15,"leg_sweep"],[18,"battle_rhythm"],[20,"body_check"],[26,"roundhouse"]],
     desc:"A red-faced mountain imp that practices its fist-forms atop wind-blasted crags.",
@@ -5078,7 +5078,7 @@ const MONSTERS_DATA = {
 
   // --- F22: singing-bowl construct (Sonic / Mental-Sonic) ---
   460: { id:460, name:"Chimebowl", emoji:"🎵", types:["Sonic"],
-    evolveTo:461, evolveLevel:30, catchRate:180, expYield:68, rarity:"common",
+    evolveTo:461, evolveLevel:30, evolveMethod:"held", evolveItem:"metalCoat", catchRate:180, expYield:68, rarity:"common",
     base:{hp:55,atk:45,def:58,spa:68,spd:54,spe:35}, // BST 315
     learnset:[[1,"echo_strike"],[1,"resonate"],[5,"echo_pulse"],[10,"sound_rush"],[15,"mind_jolt"],[20,"pulse_wave"],[26,"wave_cry"]],
     desc:"A small hovering singing-bowl that hums a steady, calming tone of its own accord.",
@@ -5519,10 +5519,10 @@ const WORLD_DATA = {
     desc:"A bustling port city on the coast. Gym Leader Marina commands the waves.",
     connections:["route2","route3","deep_trench"],
     wildMonsters:[
-      {id:25, minLv:10, maxLv:13, rate:30}, // Reefnip
+      {id:101, minLv:10, maxLv:13, rate:30}, // Reefnip
       {id:28, minLv:10, maxLv:13, rate:30}, // Corelin
-      {id:87, minLv:10, maxLv:12, rate:20}, // Amperix
-      {id:42, minLv:11, maxLv:13, rate:20}  // Cryonik
+      {id:293, minLv:10, maxLv:12, rate:20}, // Amperix
+      {id:256, minLv:11, maxLv:13, rate:20}  // Cryonik
     ],
     hasGym:true, gymLeader:"marina", requiredBadges:1, mapPos:{x:62, y:52}
   },
@@ -5534,13 +5534,13 @@ const WORLD_DATA = {
       {id:25, minLv:14, maxLv:17, rate:25},
       {id:28, minLv:14, maxLv:17, rate:25},
       {id:101, minLv:14, maxLv:16, rate:25},
-      {id:42, minLv:15, maxLv:17, rate:25}
+      {id:236, minLv:15, maxLv:17, rate:25}
     ],
     ngPlusWildMonsters:[{id:456, minLv:14, maxLv:17, rate:12}], // NG+ family base: Mistgill
     hasGym:false, requiredBadges:2, mapPos:{x:70, y:45}
   },
   emberveil: {
-    id:"emberveil", name:"Hauntcoal City", icon:"🌋", type:"city",
+    id:"emberveil", name:"Hauntcoal City", icon:"🌋", type:"city", hasUmbraEncounter:true,
     desc:"Built near an active volcano. The fiery Gym Leader Pyros waits within.",
     connections:["route3","route4","volcano_core","iron_canyon"],
     wildMonsters:[
@@ -5555,7 +5555,7 @@ const WORLD_DATA = {
   route4: {
     id:"route4", name:"Route 4 - Volcanic Wastes", icon:"🔥", type:"route",
     desc:"A harsh volcanic wasteland. Fire and Rock types are common here.",
-    connections:["emberveil","sparkmoor"],
+    connections:["emberveil","dauntridge"],
     wildMonsters:[
       {id:16, minLv:22, maxLv:26, rate:25},
       {id:13, minLv:22, maxLv:26, rate:25},
@@ -5568,7 +5568,7 @@ const WORLD_DATA = {
   sparkmoor: {
     id:"sparkmoor", name:"Sparkmoor Town", icon:"⚡", type:"city",
     desc:"A town on the electric plains. Gym Leader Zara harnesses lightning power.",
-    connections:["route4","route5","storm_plateau","thunder_cliffs"],
+    connections:["valor_pass","route5","storm_plateau","thunder_cliffs"],
     wildMonsters:[
       {id:242, minLv:26, maxLv:30, rate:15}, // Pulseglow (obtainability fix)
       {id:81, minLv:26, maxLv:30, rate:25}, // Joltan
@@ -5577,7 +5577,32 @@ const WORLD_DATA = {
       {id:87, minLv:27, maxLv:30, rate:10}  // Amperix
     ],
     ngPlusWildMonsters:[{id:440, minLv:26, maxLv:29, rate:12}], // NG+ family base: Rustmite
-    hasGym:true, gymLeader:"zara", requiredBadges:3, mapPos:{x:52, y:25}
+    hasGym:true, gymLeader:"zara", requiredBadges:4, mapPos:{x:52, y:25}
+  },
+  dauntridge: {
+    id:"dauntridge", name:"Dauntridge Town", icon:"🥋", type:"city",
+    desc:"A cliffside dojo-town where warriors temper body and spirit against the mountain wind. Gym Leader Kano drills the unyielding discipline of the Fighting types.",
+    connections:["route4","valor_pass"],
+    wildMonsters:[
+      {id:262, minLv:20, maxLv:24, rate:25}, // Tendrilisk
+      {id:69,  minLv:20, maxLv:24, rate:25}, // Verdurus
+      {id:42, minLv:21, maxLv:24, rate:20}, // Sumokappa
+      {id:69,  minLv:21, maxLv:24, rate:18}, // Groveguard
+      {id:182, minLv:22, maxLv:24, rate:12}  // Ursamight
+    ],
+    hasGym:true, gymLeader:"kano", requiredBadges:3, mapPos:{x:60, y:36}
+  },
+  valor_pass: {
+    id:"valor_pass", name:"Valor Pass", icon:"⛰️", type:"route",
+    desc:"A switchback mountain pass lined with weathered training posts, where Fighting types spar on the long climb toward Sparkmoor.",
+    connections:["dauntridge","sparkmoor"],
+    wildMonsters:[
+      {id:262, minLv:22, maxLv:26, rate:30}, // Tendrilisk
+      {id:69,  minLv:22, maxLv:26, rate:30}, // Verdurus
+      {id:230,  minLv:23, maxLv:26, rate:22}, // Deepfreeze
+      {id:280, minLv:24, maxLv:26, rate:18}  // Mechabrute
+    ],
+    hasGym:false, requiredBadges:4, mapPos:{x:56, y:30}
   },
   route5: {
     id:"route5", name:"Route 5 - Thunder Plains", icon:"🌩️", type:"route",
@@ -5591,7 +5616,7 @@ const WORLD_DATA = {
       {id:182, minLv:31, maxLv:34, rate:15}  // Rotunden
     ],
     ngPlusWildMonsters:[{id:444, minLv:30, maxLv:33, rate:12}], // NG+ family base: Squeaklet
-    hasGym:false, requiredBadges:4, mapPos:{x:42, y:22}
+    hasGym:false, requiredBadges:5, mapPos:{x:42, y:22}
   },
   frostpeak: {
     id:"frostpeak", name:"Frostpeak Village", icon:"❄️", type:"city",
@@ -5604,33 +5629,58 @@ const WORLD_DATA = {
       {id:53, minLv:35, maxLv:38, rate:10}  // Mistwhirl
     ],
     ngPlusWildMonsters:[{id:432, minLv:34, maxLv:37, rate:6}], // NG+ family base: Woollytot
-    hasGym:true, gymLeader:"glacier", requiredBadges:4, mapPos:{x:32, y:18}
+    hasGym:true, gymLeader:"glacier", requiredBadges:5, mapPos:{x:32, y:18}
   },
   route6: {
     id:"route6", name:"Route 6 - Crystal Caverns", icon:"💎", type:"route",
     desc:"An icy cave system glittering with crystals. Ice and Rock types dwell here.",
-    connections:["frostpeak","shadowmere"],
+    connections:["frostpeak","lodehollow"],
     wildMonsters:[
-      {id:289, minLv:38, maxLv:42, rate:10}, // Bouncyblob (obtainability fix)
+      {id:185, minLv:38, maxLv:42, rate:10}, // Bouncyblob (obtainability fix)
       {id:47, minLv:38, maxLv:42, rate:30},
-      {id:51, minLv:38, maxLv:42, rate:15}, // Bergyak
-      {id:195, minLv:39, maxLv:42, rate:20}, // Icequartz
+      {id:50, minLv:38, maxLv:42, rate:15}, // Bergyak
+      {id:168, minLv:39, maxLv:42, rate:20}, // Icequartz
       {id:53, minLv:39, maxLv:42, rate:25}
     ],
     ngPlusWildMonsters:[{id:435, minLv:38, maxLv:41, rate:12}], // NG+ family base: Knucklite
-    hasGym:false, requiredBadges:5, mapPos:{x:22, y:25}
+    hasGym:false, requiredBadges:6, mapPos:{x:22, y:25}
   },
   shadowmere: {
     id:"shadowmere", name:"Shadowmere City", icon:"🌑", type:"city",
     desc:"A city forever shrouded in shadow. Dark Gym Leader Nyx commands the night.",
-    connections:["route6","route7","crystal_depths","haunted_grove"],
+    connections:["lode_pass","route7","crystal_depths","haunted_grove"],
     wildMonsters:[
       {id:118, minLv:42, maxLv:46, rate:45}, // Eclipsehound
       {id:121, minLv:42, maxLv:46, rate:20}, // Spiraloom
       {id:123, minLv:43, maxLv:46, rate:35}  // Nocturil
     ],
     ngPlusWildMonsters:[{id:417, minLv:42, maxLv:45, rate:12}], // NG+ family base: Glacigeist
-    hasGym:true, gymLeader:"nyx", requiredBadges:5, mapPos:{x:15, y:35}
+    hasGym:true, gymLeader:"nyx", requiredBadges:7, mapPos:{x:15, y:35}
+  },
+  lodehollow: {
+    id:"lodehollow", name:"Lodehollow Town", icon:"⛏️", type:"city",
+    desc:"A mining settlement carved into a gem-veined hollow, its lanterns glinting off raw ore. Gym Leader Marl reads the strength locked in stone and crystal.",
+    connections:["route6","lode_pass"],
+    wildMonsters:[
+      {id:47, minLv:32, maxLv:36, rate:25}, // Sapphier
+      {id:251, minLv:32, maxLv:36, rate:25}, // Stonegrip
+      {id:230, minLv:33, maxLv:36, rate:20}, // Lithomere
+      {id:168, minLv:33, maxLv:36, rate:18}, // Prismatica
+      {id:55, minLv:34, maxLv:36, rate:12}  // Frigolith
+    ],
+    hasGym:true, gymLeader:"marl", requiredBadges:6, mapPos:{x:26, y:33}
+  },
+  lode_pass: {
+    id:"lode_pass", name:"Lode Pass", icon:"💠", type:"route",
+    desc:"A narrow ore-cart trail threading the crystal hills, where Mineral types burrow between Lodehollow and the shadowed lowlands.",
+    connections:["lodehollow","shadowmere"],
+    wildMonsters:[
+      {id:251, minLv:34, maxLv:38, rate:30}, // Stonegrip
+      {id:53, minLv:34, maxLv:38, rate:28}, // Sapphier
+      {id:34, minLv:35, maxLv:38, rate:22}, // Crealight
+      {id:274, minLv:35, maxLv:38, rate:20}  // Magmaw
+    ],
+    hasGym:false, requiredBadges:7, mapPos:{x:20, y:34}
   },
   route7: {
     id:"route7", name:"Route 7 - Poison Marshes", icon:"☠️", type:"route",
@@ -5642,12 +5692,12 @@ const WORLD_DATA = {
       {id:160, minLv:47, maxLv:50, rate:25}, // Miasmafly
       {id:121, minLv:47, maxLv:50, rate:25}  // Spiraloom
     ],
-    hasGym:false, requiredBadges:6, mapPos:{x:20, y:48}
+    hasGym:false, requiredBadges:8, mapPos:{x:20, y:48}
   },
   skyvault: {
     id:"skyvault", name:"Skyvault City", icon:"🏰", type:"city",
     desc:"A city floating on clouds. Mental Gym Leader Oracle sees all futures.",
-    connections:["route7","route8","mystic_forest","sky_harbor","wind_bridge"],
+    connections:["route7","route8","mystic_forest","wind_bridge"],
     wildMonsters:[
       {id:166, minLv:50, maxLv:54, rate:30}, // Projectery
       {id:142, minLv:50, maxLv:54, rate:25}, // Dawnirel
@@ -5655,54 +5705,166 @@ const WORLD_DATA = {
       {id:168, minLv:51, maxLv:54, rate:10}  // Gemseer
     ],
     ngPlusWildMonsters:[{id:460, minLv:50, maxLv:53, rate:12}], // NG+ family base: Chimebowl
-    hasGym:true, gymLeader:"oracle", requiredBadges:6, mapPos:{x:30, y:55}
+    hasGym:true, gymLeader:"oracle", requiredBadges:8, mapPos:{x:30, y:55}
   },
   route8: {
-    id:"route8", name:"Route 8 - Sky Corridors", icon:"🌤️", type:"route",
+    id:"route8", hasUmbraEncounter:true, name:"Route 8 - Sky Corridors", icon:"🌤️", type:"route",
     desc:"Aerial paths between floating islands. Wind and Mental types soar here.",
     connections:["skyvault","dragonspire","wind_bridge"],
     wildMonsters:[
       {id:108, minLv:54, maxLv:58, rate:34}, // Silvergust
-      {id:112, minLv:54, maxLv:58, rate:29}, // Swirlavel
-      {id:171, minLv:55, maxLv:58, rate:24}, // Nagaseer
-      {id:177, minLv:55, maxLv:58, rate:10}, // Sapphier
+      {id:111, minLv:54, maxLv:58, rate:29}, // Swirlavel
+      {id:166, minLv:55, maxLv:58, rate:24}, // Nagaseer
+      {id:211, minLv:55, maxLv:58, rate:10}, // Sapphier
       {id:128, minLv:55, maxLv:58, rate:3}   // Cranivade
     ],
-    hasGym:false, requiredBadges:7, mapPos:{x:42, y:50}
+    hasGym:false, requiredBadges:9, mapPos:{x:42, y:50}
   },
   dragonspire: {
     id:"dragonspire", name:"Dragonspire Peak", icon:"🐉", type:"city",
     desc:"The highest peak in Lumoria. Draconic Gym Leader Drake commands ancient power.",
     connections:["route8","route9"],
     wildMonsters:[
-      {id:235, minLv:58, maxLv:62, rate:10}, // Glintscale (obtainability fix)
+      {id:42, minLv:58, maxLv:62, rate:10}, // Glintscale (obtainability fix)
       {id:172, minLv:58, maxLv:62, rate:30}, // Scalurin
-      {id:175, minLv:58, maxLv:62, rate:20}, // Biolumal
-      {id:176, minLv:59, maxLv:62, rate:25}, // Raijolt
-      {id:177, minLv:59, maxLv:62, rate:15}  // Sapphier
+      {id:78, minLv:58, maxLv:62, rate:20}, // Biolumal
+      {id:244, minLv:59, maxLv:62, rate:25}, // Raijolt
+      {id:211, minLv:59, maxLv:62, rate:15}  // Sapphier
     ],
-    hasGym:true, gymLeader:"drake", requiredBadges:7, mapPos:{x:55, y:42},
+    hasGym:true, gymLeader:"drake", requiredBadges:9, mapPos:{x:55, y:42},
     legendaryEncounter:{monsterId:84, level:60}
   },
   victoryroad: {
     id:"victoryroad", name:"The Gauntlet", icon:"⚔️", type:"route",
-    desc:"The final gauntlet. Only trainers with all 16 badges may pass.",
-    connections:["starbloom","summit"],
+    desc:"The final gauntlet. Only trainers with all badges may pass.",
+    connections:["starbloom","summit","ascendant_path"],
     wildMonsters:[
       {id:173, minLv:62, maxLv:66, rate:25}, // Cobravyrm
       {id:124, minLv:62, maxLv:66, rate:25}, // Phantorvex
-      {id:143, minLv:62, maxLv:66, rate:25}, // Astrelle
+      {id:142, minLv:62, maxLv:66, rate:25}, // Astrelle
       {id:151, minLv:63, maxLv:66, rate:25}  // Amperpede
     ],
     ngPlusWildMonsters:[{id:345, minLv:60, maxLv:66, rate:18}], // Sablecrow (base) — found before Oblivionwing in Void Nexus
-    hasGym:false, requiredBadges:16, mapPos:{x:62, y:35}
+    hasGym:false, requiredBadges:20, mapPos:{x:62, y:35}
   },
   summit: {
     id:"summit", name:"Victory Summit", icon:"👑", type:"special",
     desc:"The seat of the Lumoria Champion. Only the greatest trainers reach this place.",
     connections:["victoryroad"],
-    wildMonsters:[], hasGym:false, isChampion:true, requiredBadges:16,
+    wildMonsters:[], hasGym:false, isChampion:true, requiredBadges:20,
     mapPos:{x:72, y:30}
+  },
+
+  // ===== NG+-EXCLUSIVE GYM CHAIN (gyms 21-24) — requiresNGPlus =====
+  // Branches off Starbloom, rejoins The Gauntlet; hidden on a first run.
+  resonant_trail: {
+    id:"resonant_trail", name:"Resonant Trail", icon:"🎵", type:"route",
+    desc:"A canyon path that catches and replays every footfall, opening onto the hidden Sonic country beyond Starbloom only in the void-touched era.",
+    connections:["starbloom","clarion"],
+    wildMonsters:[
+      {id:300, minLv:108, maxLv:112, rate:28}, // Nettlebarb
+      {id:243, minLv:108, maxLv:112, rate:26}, // Stuntrap
+      {id:370, minLv:109, maxLv:112, rate:24}, // Cyclotron
+      {id:292, minLv:109, maxLv:112, rate:22}  // Galehorn
+    ],
+    hasGym:false, requiredBadges:20, requiresNGPlus:true, mapPos:{x:68, y:68}
+  },
+  clarion: {
+    id:"clarion", name:"Clarion", icon:"🔊", type:"city",
+    desc:"A bell-towered town where every street hums with layered sound, unreachable until the void-touched era reveals it. Gym Leader Echo conducts the Sonic Lumori like an orchestra.",
+    connections:["resonant_trail","phantom_crossing"],
+    wildMonsters:[
+      {id:389, minLv:108, maxLv:112, rate:20}, // Stormcrown
+      {id:292, minLv:108, maxLv:112, rate:22}, // Galehorn
+      {id:413, minLv:109, maxLv:112, rate:20}, // Resonadon
+      {id:356, minLv:109, maxLv:112, rate:20}, // Stormlord
+      {id:348, minLv:110, maxLv:112, rate:18}  // Galeswift
+    ],
+    hasGym:true, gymLeader:"echo", requiredBadges:20, requiresNGPlus:true, mapPos:{x:67, y:63}
+  },
+  phantom_crossing: {
+    id:"phantom_crossing", name:"Phantom Crossing", icon:"🕯️", type:"route",
+    desc:"A fog-bound causeway between the singing town and the graves, where Spectral shapes drift across the path at dusk.",
+    connections:["clarion","gravecourt"],
+    wildMonsters:[
+      {id:273, minLv:113, maxLv:117, rate:28}, // Blazeon
+      {id:309, minLv:113, maxLv:117, rate:26}, // Tidephant
+      {id:343, minLv:114, maxLv:117, rate:24}, // Shadowreave
+      {id:386, minLv:114, maxLv:117, rate:22}  // Wraithstorm
+    ],
+    hasGym:false, requiredBadges:21, requiresNGPlus:true, mapPos:{x:67, y:59}
+  },
+  gravecourt: {
+    id:"gravecourt", name:"Gravecourt", icon:"👻", type:"city",
+    desc:"A walled court of mausoleums wrapped in perpetual dusk, where the boundary to the spirit world wore thin after the Sundering. Gym Leader Mortis keeps company with the Spectral dead.",
+    connections:["phantom_crossing","dream_drift"],
+    wildMonsters:[
+      {id:268, minLv:113, maxLv:117, rate:22}, // Darkfang
+      {id:343, minLv:113, maxLv:117, rate:20}, // Shadowreave
+      {id:386, minLv:114, maxLv:117, rate:20}, // Wraithstorm
+      {id:301, minLv:114, maxLv:117, rate:20}, // Hauntcoal
+      {id:397, minLv:115, maxLv:117, rate:18}  // Abyssalord
+    ],
+    hasGym:true, gymLeader:"mortis", requiredBadges:21, requiresNGPlus:true, mapPos:{x:66, y:55}
+  },
+  dream_drift: {
+    id:"dream_drift", name:"Dream Drift", icon:"🌙", type:"route",
+    desc:"A slow river of luminous mist that carries drowsy Dream Lumori between the dead court and the sleeping vale.",
+    connections:["gravecourt","reverie_vale"],
+    wildMonsters:[
+      {id:247, minLv:118, maxLv:122, rate:28}, // Sparkeen
+      {id:431, minLv:118, maxLv:122, rate:26}, // Nocturnbaku
+      {id:453, minLv:119, maxLv:122, rate:24}, // Lullavoir
+      {id:243, minLv:119, maxLv:122, rate:22}  // Stuntrap
+    ],
+    hasGym:false, requiredBadges:22, requiresNGPlus:true, mapPos:{x:66, y:51}
+  },
+  reverie_vale: {
+    id:"reverie_vale", name:"Reverie Vale", icon:"💤", type:"city",
+    desc:"A hushed valley wreathed in sleeping mist, where waking and dreaming blur for any who linger too long. Gym Leader Somna shepherds the Dream Lumori through the haze.",
+    connections:["dream_drift","prism_causeway"],
+    wildMonsters:[
+      {id:261, minLv:118, maxLv:122, rate:22}, // Hypnostag
+      {id:378, minLv:118, maxLv:122, rate:20}, // Dreamweald
+      {id:431, minLv:119, maxLv:122, rate:20}, // Nocturnbaku
+      {id:247, minLv:119, maxLv:122, rate:20}, // Sparkeen
+      {id:170, minLv:120, maxLv:122, rate:18}  // Oneiron
+    ],
+    hasGym:true, gymLeader:"somna", requiredBadges:22, requiresNGPlus:true, mapPos:{x:65, y:47}
+  },
+  prism_causeway: {
+    id:"prism_causeway", name:"Prism Causeway", icon:"🌈", type:"route",
+    desc:"A bridge of fused crystal that scatters the light into drifting rainbows on the final climb toward Gleamcrest.",
+    connections:["reverie_vale","gleamcrest"],
+    wildMonsters:[
+      {id:408, minLv:123, maxLv:127, rate:40}, // Glimmerling (Crystal — sanctioned NG+ exception)
+      {id:225, minLv:123, maxLv:127, rate:32}, // Crealight (Fairy/Mineral)
+      {id:409, minLv:124, maxLv:127, rate:28}  // Facetite
+    ],
+    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:65, y:43}
+  },
+  gleamcrest: {
+    id:"gleamcrest", name:"Gleamcrest", icon:"💎", type:"city",
+    desc:"A town grown over a crest of living crystal that refracts the aurora into a thousand colors — the only place the Crystal Lumori are known to gather. Gym Leader Prisma reigns over its every facet.",
+    connections:["prism_causeway","ascendant_path"],
+    wildMonsters:[
+      {id:408, minLv:123, maxLv:127, rate:45}, // Glimmerling (Crystal — sanctioned NG+ exception)
+      {id:409, minLv:124, maxLv:127, rate:35}, // Facetite
+      {id:410, minLv:125, maxLv:127, rate:20}  // Prismdome
+    ],
+    hasGym:true, gymLeader:"prisma", requiredBadges:23, requiresNGPlus:true, mapPos:{x:64, y:40}
+  },
+  ascendant_path: {
+    id:"ascendant_path", name:"Ascendant Path", icon:"⚔️", type:"route",
+    desc:"The long stair that climbs from the crystal heights back to the Gauntlet, walked only by NG+ challengers who have bested all twenty-four gyms.",
+    connections:["gleamcrest","victoryroad"],
+    wildMonsters:[
+      {id:389, minLv:124, maxLv:127, rate:26}, // Stormcrown
+      {id:268, minLv:124, maxLv:127, rate:26}, // Darkfang
+      {id:261, minLv:125, maxLv:127, rate:24}, // Hypnostag
+      {id:409, minLv:125, maxLv:127, rate:24}  // Facetite
+    ],
+    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:63, y:37}
   },
 
   // ===== EXTRA AREAS =====
@@ -5711,12 +5873,12 @@ const WORLD_DATA = {
     desc:"A dense, humid jungle teeming with Grass, Poison and Bug types. Ancient ruins peek through the canopy.",
     connections:["route2","ancient_ruins","bug_forest_west","poison_swamp_lower"],
     wildMonsters:[
-      {id:260, minLv:10, maxLv:13, rate:18}, // Sproutix (obtainability fix)
-      {id:63, minLv:8, maxLv:12, rate:14},   // Sporix
+      {id:200, minLv:10, maxLv:13, rate:18}, // Sproutix (obtainability fix)
+      {id:7, minLv:8, maxLv:12, rate:14},   // Sporix
       {id:66, minLv:8, maxLv:12, rate:28},   // Viridix
-      {id:140, minLv:9, maxLv:12, rate:24},   // Faedust
-      {id:155, minLv:9, maxLv:13, rate:8},   // Toxirin
-      {id:160, minLv:10, maxLv:13, rate:8}   // Miasmafly
+      {id:90, minLv:9, maxLv:12, rate:24},   // Faedust
+      {id:157, minLv:9, maxLv:13, rate:8},   // Toxirin
+      {id:123, minLv:10, maxLv:13, rate:8}   // Miasmafly
     ],
     ngPlusWildMonsters:[{id:411, minLv:9, maxLv:12, rate:12}], // NG+ family base: Thrumquill
     hasGym:false, requiredBadges:1, mapPos:{x:56, y:68}
@@ -5727,10 +5889,10 @@ const WORLD_DATA = {
     connections:["lumoria_jungle","bug_forest_east","reef_ruins"],
     wildMonsters:[
       {id:22, minLv:13, maxLv:17, rate:30}, // Hallucigaze (obtainability fix)
-      {id:142, minLv:12, maxLv:16, rate:20},  // Dawnirel
-      {id:124, minLv:13, maxLv:17, rate:10},  // Phantorvex
-      {id:168, minLv:14, maxLv:17, rate:15},  // Gemseer
-      {id:166, minLv:14, maxLv:17, rate:25}   // Projectery
+      {id:114, minLv:12, maxLv:16, rate:20},  // Dawnirel
+      {id:123, minLv:13, maxLv:17, rate:10},  // Phantorvex
+      {id:116, minLv:14, maxLv:17, rate:15},  // Gemseer
+      {id:189, minLv:14, maxLv:17, rate:25}   // Projectery
     ],
     ngPlusWildMonsters:[{id:448, minLv:12, maxLv:16, rate:12}], // NG+ family base: Cobblepup
     hasGym:false, requiredBadges:1, mapPos:{x:64, y:76},
@@ -5742,12 +5904,12 @@ const WORLD_DATA = {
     desc:"The deepest part of Lumoria's ocean. Aquatic and Draconic types of terrifying power lurk here. The Umbra Order seeks something ancient in these depths.",
     connections:["tidewatch","coral_reef","sunken_temple"],
     wildMonsters:[
-      {id:230, minLv:20, maxLv:24, rate:18}, // Kappamaru (obtainability fix)
-      {id:85, minLv:18, maxLv:24, rate:14},  // Shockharpe
-      {id:33, minLv:18, maxLv:24, rate:6},  // Septanemone
+      {id:254, minLv:20, maxLv:24, rate:18}, // Kappamaru (obtainability fix)
+      {id:84, minLv:18, maxLv:24, rate:14},  // Shockharpe
+      {id:31, minLv:18, maxLv:24, rate:6},  // Septanemone
       {id:19, minLv:19, maxLv:24, rate:28},  // Magmaurin
-      {id:17, minLv:20, maxLv:25, rate:10},  // Searburn
-      {id:98, minLv:20, maxLv:25, rate:24}   // Aridix
+      {id:16, minLv:20, maxLv:25, rate:10},  // Searburn
+      {id:95, minLv:20, maxLv:25, rate:24}   // Aridix
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:78, y:60},
     storyLocation:true, hasUmbraEncounter:true,
@@ -5758,14 +5920,14 @@ const WORLD_DATA = {
     desc:"The scorching heart of the volcano beneath Hauntcoal. Only the most fearless trainers descend here. Legendary energies stir within.",
     connections:["emberveil","iron_canyon","lava_fields"],
     wildMonsters:[
-      {id:277, minLv:24, maxLv:29, rate:24}, // Magmote (obtainability fix)
-      {id:15, minLv:22, maxLv:28, rate:12},  // Pyroclasm
+      {id:1, minLv:24, maxLv:29, rate:24}, // Magmote (obtainability fix)
+      {id:13, minLv:22, maxLv:28, rate:12},  // Pyroclasm
       {id:13, minLv:22, maxLv:28, rate:28},  // Taurcin
-      {id:38, minLv:23, maxLv:28, rate:12},  // Titanariel
-      {id:97, minLv:24, maxLv:29, rate:12},  // Quakehide
-      {id:15, minLv:24, maxLv:29, rate:12}   // Pyroclasm
+      {id:230, minLv:23, maxLv:28, rate:12},  // Titanariel
+      {id:95, minLv:24, maxLv:29, rate:12},  // Quakehide
+      {id:13, minLv:24, maxLv:29, rate:12}   // Pyroclasm
     ],
-    hasGym:false, requiredBadges:3, mapPos:{x:82, y:42},
+    hasGym:false, requiredBadges:4, mapPos:{x:82, y:42},
     storyLocation:true, hasUmbraEncounter:true,
     legendaryEncounter:{monsterId:106, level:50}
   },
@@ -5774,13 +5936,13 @@ const WORLD_DATA = {
     desc:"A high plateau perpetually wracked by storms. Electric and Draconic types are drawn to its crackling energy.",
     connections:["sparkmoor","frostpeak","lunar_peak","mirror_lake","thunder_cliffs"],
     wildMonsters:[
-      {id:86, minLv:28, maxLv:34, rate:25},  // Galvaglide
+      {id:84, minLv:28, maxLv:34, rate:25},  // Galvaglide
       {id:42, minLv:28, maxLv:34, rate:25},  // Cryonik
       {id:31, minLv:29, maxLv:34, rate:25},  // Toxaquil
-      {id:44, minLv:29, maxLv:34, rate:15},  // Nagislither
-      {id:33, minLv:30, maxLv:35, rate:10}   // Septanemone
+      {id:42, minLv:29, maxLv:34, rate:15},  // Nagislither
+      {id:31, minLv:30, maxLv:35, rate:10}   // Septanemone
     ],
-    hasGym:false, requiredBadges:4, mapPos:{x:36, y:12},
+    hasGym:false, requiredBadges:5, mapPos:{x:36, y:12},
     storyLocation:true, hasUmbraEncounter:true,
     legendaryEncounter:{monsterId:105, level:50}
   },
@@ -5790,29 +5952,29 @@ const WORLD_DATA = {
     connections:["frostpeak","shadowmere","crystal_spire"],
     wildMonsters:[
       {id:211, minLv:34, maxLv:38, rate:28}, // Cinderfrost (obtainability fix)
-      {id:177, minLv:34, maxLv:40, rate:6},  // Sapphier
-      {id:195, minLv:34, maxLv:40, rate:24},  // Icequartz
-      {id:152, minLv:35, maxLv:40, rate:10},  // Imperion
-      {id:201, minLv:36, maxLv:41, rate:18}, // Scarabion
-      {id:54, minLv:36, maxLv:41, rate:14}   // Arcturex
+      {id:50, minLv:34, maxLv:40, rate:6},  // Sapphier
+      {id:168, minLv:34, maxLv:40, rate:24},  // Icequartz
+      {id:132, minLv:35, maxLv:40, rate:10},  // Imperion
+      {id:200, minLv:36, maxLv:41, rate:18}, // Scarabion
+      {id:53, minLv:36, maxLv:41, rate:14}   // Arcturex
     ],
     ngPlusWildMonsters:[{id:408, minLv:36, maxLv:40, rate:6}], // NG+ family base: Glimmerling
-    hasGym:false, requiredBadges:5, mapPos:{x:10, y:28}
+    hasGym:false, requiredBadges:7, mapPos:{x:10, y:28}
   },
   mystic_forest: {
     id:"mystic_forest", name:"Mystic Forest", icon:"🌌", type:"route",
     desc:"A forest where the boundary between worlds is thin. Fairy and Mental creatures drift between the trees. The Umbra Order's hideout is rumoured to be nearby.",
     connections:["route7","skyvault","sky_harbor","umbra_base"],
     wildMonsters:[
-      {id:143, minLv:46, maxLv:52, rate:6},  // Astrelle
-      {id:141, minLv:46, maxLv:52, rate:24},  // Iridesoar
-      {id:169, minLv:47, maxLv:52, rate:10},  // Prismatica
-      {id:115, minLv:48, maxLv:52, rate:28},  // Aetherworn
-      {id:122, minLv:48, maxLv:52, rate:14},  // Caveshroud
-      {id:170, minLv:46, maxLv:52, rate:18}   // Oneiron
+      {id:142, minLv:46, maxLv:52, rate:6},  // Astrelle
+      {id:140, minLv:46, maxLv:52, rate:24},  // Iridesoar
+      {id:168, minLv:47, maxLv:52, rate:10},  // Prismatica
+      {id:114, minLv:48, maxLv:52, rate:28},  // Aetherworn
+      {id:121, minLv:48, maxLv:52, rate:14},  // Caveshroud
+      {id:220, minLv:46, maxLv:52, rate:18}   // Oneiron
     ],
     ngPlusWildMonsters:[{id:429, minLv:46, maxLv:49, rate:12}], // NG+ family base: Lullasnout
-    hasGym:false, requiredBadges:6, mapPos:{x:25, y:62},
+    hasGym:false, requiredBadges:8, mapPos:{x:25, y:62},
     storyLocation:true, hasUmbraEncounter:true
   },
   umbra_base: {
@@ -5820,12 +5982,12 @@ const WORLD_DATA = {
     desc:"The hidden fortress of The Umbra Order. Their leader, Commander Shade, awaits you here. This is your chance to stop their plan to awaken the three Legendaries.",
     connections:["mystic_forest","dark_canyon"],
     wildMonsters:[
-      {id:119, minLv:50, maxLv:55, rate:25},  // Dreadmaw
-      {id:124, minLv:50, maxLv:55, rate:25},  // Phantorvex
-      {id:122, minLv:51, maxLv:55, rate:25},  // Caveshroud
-      {id:158, minLv:51, maxLv:55, rate:25}   // Corrodisc
+      {id:118, minLv:50, maxLv:55, rate:25},  // Dreadmaw
+      {id:123, minLv:50, maxLv:55, rate:25},  // Phantorvex
+      {id:121, minLv:51, maxLv:55, rate:25},  // Caveshroud
+      {id:157, minLv:51, maxLv:55, rate:25}   // Corrodisc
     ],
-    hasGym:false, requiredBadges:6,
+    hasGym:false, requiredBadges:8,
     hasUmbraBase:true,
     mapPos:{x:12, y:58}
   },
@@ -5841,8 +6003,8 @@ const WORLD_DATA = {
       {id:28, minLv:22, maxLv:28, rate:20},   // Corelin
       {id:25, minLv:22, maxLv:28, rate:11},   // Reefnip
       {id:31, minLv:23, maxLv:28, rate:16},  // Toxaquil
-      {id:155, minLv:24, maxLv:29, rate:9},   // Toxirin
-      {id:39, minLv:25, maxLv:30, rate:6}   // Gossafin
+      {id:296, minLv:24, maxLv:29, rate:9},   // Toxirin
+      {id:254, minLv:25, maxLv:30, rate:6}   // Gossafin
     ],
     ngPlusWildMonsters:[{id:450, minLv:22, maxLv:26, rate:12}], // NG+ family base: Jabshell
     hasGym:false, requiredBadges:2, mapPos:{x:84, y:72}
@@ -5857,49 +6019,49 @@ const WORLD_DATA = {
       {id:121, minLv:42, maxLv:47, rate:14},   // Spiraloom
       {id:126, minLv:43, maxLv:48, rate:28},  // Impefurr
       {id:123, minLv:44, maxLv:48, rate:18},   // Nocturil
-      {id:130, minLv:45, maxLv:50, rate:6}   // Necralia
+      {id:218, minLv:45, maxLv:50, rate:6}   // Necralia
     ],
     ngPlusWildMonsters:[{id:454, minLv:43, maxLv:47, rate:12}], // NG+ family base: Tollwisp
-    hasGym:false, requiredBadges:5, mapPos:{x:8, y:42}
+    hasGym:false, requiredBadges:7, mapPos:{x:8, y:42}
   },
   sky_harbor: {
     id:"sky_harbor", name:"Sky Harbor", icon:"⛵", type:"town",
     desc:"A floating dock tethered to the clouds. Wind traders and Mental navigators pass through this breezy waystation.",
-    connections:["skyvault","mystic_forest"],
+    connections:["mystic_forest"],
     wildMonsters:[
       {id:108, minLv:48, maxLv:53, rate:25},   // Silvergust
       {id:114, minLv:48, maxLv:53, rate:15},   // Nimbusel
       {id:116, minLv:49, maxLv:54, rate:20},  // Zephyrin
-      {id:141, minLv:50, maxLv:54, rate:10},   // Iridesoar
+      {id:140, minLv:50, maxLv:54, rate:10},   // Iridesoar
       {id:111, minLv:49, maxLv:53, rate:30}    // Aeolin
     ],
-    hasGym:false, requiredBadges:6, mapPos:{x:18, y:62}
+    hasGym:false, requiredBadges:8, mapPos:{x:18, y:62}
   },
   thunder_cliffs: {
     id:"thunder_cliffs", name:"Thunder Cliffs", icon:"⚡", type:"route",
     desc:"Sheer cliff faces perpetually struck by lightning. Electric energy crackles through every rock and stone here.",
     connections:["sparkmoor","storm_plateau"],
     wildMonsters:[
-      {id:247, minLv:30, maxLv:36, rate:10}, // Sparkeen (obtainability fix)
+      {id:209, minLv:30, maxLv:36, rate:10}, // Sparkeen (obtainability fix)
       {id:81, minLv:28, maxLv:34, rate:28},   // Joltan
       {id:90, minLv:28, maxLv:34, rate:24},   // Zephyrel
       {id:92, minLv:29, maxLv:34, rate:18},  // Arcspine
-      {id:85, minLv:30, maxLv:35, rate:14},   // Shockharpe
-      {id:176, minLv:31, maxLv:36, rate:6}    // Raijolt
+      {id:84, minLv:30, maxLv:35, rate:14},   // Shockharpe
+      {id:266, minLv:31, maxLv:36, rate:6}    // Raijolt
     ],
-    hasGym:false, requiredBadges:4, mapPos:{x:60, y:16}
+    hasGym:false, requiredBadges:5, mapPos:{x:60, y:16}
   },
   poison_swamp_upper: {
     id:"poison_swamp_upper", name:"Poison Swamp Upper", icon:"🌿", type:"route",
     desc:"The upper reaches of the Poison Swamp, where toxic fumes seep from cracks in the earth near the marshes of Route 7.",
     connections:["route7","poison_swamp_lower"],
     wildMonsters:[
-      {id:71, minLv:44, maxLv:49, rate:30},   // Groveguard
-      {id:73, minLv:44, maxLv:49, rate:35},   // Faelomis
+      {id:69, minLv:44, maxLv:49, rate:30},   // Groveguard
+      {id:72, minLv:44, maxLv:49, rate:35},   // Faelomis
       {id:75, minLv:45, maxLv:50, rate:35}    // Sylvolt
     ],
     ngPlusWildMonsters:[{id:442, minLv:44, maxLv:48, rate:12}], // NG+ family base: Bloatleech
-    hasGym:false, requiredBadges:6, mapPos:{x:30, y:56}
+    hasGym:false, requiredBadges:8, mapPos:{x:30, y:56}
   },
   poison_swamp_lower: {
     id:"poison_swamp_lower", name:"Poison Swamp Lower", icon:"🌿", type:"route",
@@ -5907,22 +6069,22 @@ const WORLD_DATA = {
     connections:["poison_swamp_upper","lumoria_jungle"],
     wildMonsters:[
       {id:75, minLv:46, maxLv:51, rate:45},   // Sylvolt
-      {id:119, minLv:47, maxLv:52, rate:35},  // Dreadmaw
-      {id:74, minLv:48, maxLv:53, rate:20}    // Faevernal
+      {id:118, minLv:47, maxLv:52, rate:35},  // Dreadmaw
+      {id:72, minLv:48, maxLv:53, rate:20}    // Faevernal
     ],
     ngPlusWildMonsters:[{id:336, minLv:48, maxLv:53, rate:10}], // NG+ standalone: Coilstrike
-    hasGym:false, requiredBadges:6, mapPos:{x:42, y:70}
+    hasGym:false, requiredBadges:8, mapPos:{x:42, y:70}
   },
   sunken_temple: {
     id:"sunken_temple", name:"Sunken Temple", icon:"🏛️", type:"special",
     desc:"An ancient temple half-submerged beneath the ocean. Mental inscriptions glow on the walls. Something powerful sleeps in the inner sanctum.",
     connections:["deep_trench","coral_reef"],
     wildMonsters:[
-      {id:175, minLv:25, maxLv:32, rate:9},   // Biolumal
+      {id:254, minLv:25, maxLv:32, rate:9},   // Biolumal
       {id:166, minLv:25, maxLv:32, rate:31},   // Projectery
-      {id:37, minLv:26, maxLv:33, rate:23},  // Coralossus
-      {id:168, minLv:27, maxLv:33, rate:27},   // Gemseer
-      {id:169, minLv:35, maxLv:40, rate:10}    // Prismatica (rare!)
+      {id:25, minLv:26, maxLv:33, rate:23},  // Coralossus
+      {id:274, minLv:27, maxLv:33, rate:27},   // Gemseer
+      {id:274, minLv:35, maxLv:40, rate:10}    // Prismatica (rare!)
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:88, y:52},
     storyLocation:true, hasUmbraEncounter:true
@@ -5936,10 +6098,10 @@ const WORLD_DATA = {
       {id:191, minLv:25, maxLv:31, rate:25},   // Pebblet
       {id:134, minLv:26, maxLv:32, rate:20},  // Aeronyx
       {id:150, minLv:27, maxLv:32, rate:20},   // Ampercrawl
-      {id:152, minLv:28, maxLv:33, rate:10}    // Imperion
+      {id:248, minLv:28, maxLv:33, rate:10}    // Imperion
     ],
     ngPlusWildMonsters:[{id:423, minLv:25, maxLv:29, rate:12}], // NG+ family base: Pebblite
-    hasGym:false, requiredBadges:3, mapPos:{x:88, y:30},
+    hasGym:false, requiredBadges:4, mapPos:{x:88, y:30},
     legendaryEncounter:{monsterId:167, level:55}
   },
   fairy_meadow_south: {
@@ -5961,7 +6123,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:286, minLv:8, maxLv:11, rate:25}, // Downyfawn (obtainability fix)
       {id:137, minLv:6, maxLv:10, rate:30},    // Goldefluff
-      {id:140, minLv:7, maxLv:11, rate:10},   // Faedust
+      {id:145, minLv:7, maxLv:11, rate:10},   // Faedust
       {id:111, minLv:7, maxLv:11, rate:35}    // Aeolin
     ],
     hasGym:false, requiredBadges:0, mapPos:{x:8, y:48}
@@ -5972,12 +6134,12 @@ const WORLD_DATA = {
     connections:["frostpeak","storm_plateau","crystal_spire"],
     wildMonsters:[
       {id:47, minLv:36, maxLv:42, rate:30},   // Hexaprowl
-      {id:177, minLv:36, maxLv:42, rate:10},   // Sapphier
+      {id:50, minLv:36, maxLv:42, rate:10},   // Sapphier
       {id:53, minLv:37, maxLv:43, rate:25},   // Mistwhirl
-      {id:59, minLv:38, maxLv:44, rate:20},  // Lunaveris
-      {id:54, minLv:40, maxLv:46, rate:15}    // Arcturex
+      {id:55, minLv:38, maxLv:44, rate:20},  // Lunaveris
+      {id:53, minLv:40, maxLv:46, rate:15}    // Arcturex
     ],
-    hasGym:false, requiredBadges:5, mapPos:{x:20, y:10}
+    hasGym:false, requiredBadges:7, mapPos:{x:20, y:10}
   },
   bug_forest_west: {
     id:"bug_forest_west", name:"Bug Forest West", icon:"🐛", type:"route",
@@ -6012,24 +6174,24 @@ const WORLD_DATA = {
       {id:50, minLv:30, maxLv:36, rate:16},   // Tundram
       {id:137, minLv:31, maxLv:36, rate:28},   // Goldefluff
       {id:57, minLv:32, maxLv:38, rate:10},  // Glinteye
-      {id:43, minLv:34, maxLv:39, rate:6}    // Boreon
+      {id:42, minLv:34, maxLv:39, rate:6}    // Boreon
     ],
     ngPlusWildMonsters:[{id:420, minLv:30, maxLv:34, rate:12}], // NG+ family base: Steamkit
-    hasGym:false, requiredBadges:4, mapPos:{x:48, y:14}
+    hasGym:false, requiredBadges:5, mapPos:{x:48, y:14}
   },
   lava_fields: {
     id:"lava_fields", name:"Lava Fields", icon:"🌋", type:"route",
     desc:"A smoldering expanse of hardened lava and glowing fissures. The ground cracks underfoot and fire vents belch superheated air.",
     connections:["volcano_core","iron_canyon"],
     wildMonsters:[
-      {id:253, minLv:28, maxLv:34, rate:6}, // Ashrock (obtainability fix)
+      {id:53, minLv:28, maxLv:34, rate:6}, // Ashrock (obtainability fix)
       {id:13, minLv:26, maxLv:32, rate:28},   // Taurcin
-      {id:17, minLv:26, maxLv:32, rate:14},   // Searburn
+      {id:16, minLv:26, maxLv:32, rate:14},   // Searburn
       {id:19, minLv:27, maxLv:33, rate:24},  // Magmaurin
-      {id:14, minLv:28, maxLv:34, rate:10},   // Molteroth
-      {id:192, minLv:29, maxLv:34, rate:18}    // Boulderoll
+      {id:13, minLv:28, maxLv:34, rate:10},   // Molteroth
+      {id:191, minLv:29, maxLv:34, rate:18}    // Boulderoll
     ],
-    hasGym:false, requiredBadges:3, mapPos:{x:82, y:26}
+    hasGym:false, requiredBadges:4, mapPos:{x:82, y:26}
   },
   spirit_canyon: {
     id:"spirit_canyon", name:"Spirit Canyon", icon:"🌀", type:"route",
@@ -6038,21 +6200,21 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:166, minLv:44, maxLv:50, rate:35},   // Projectery
       {id:123, minLv:46, maxLv:51, rate:50},   // Nocturil
-      {id:167, minLv:47, maxLv:52, rate:15}    // Psymastiff
+      {id:166, minLv:47, maxLv:52, rate:15}    // Psymastiff
     ],
-    hasGym:false, requiredBadges:5, mapPos:{x:6, y:52}
+    hasGym:false, requiredBadges:7, mapPos:{x:6, y:52}
   },
   reef_ruins: {
     id:"reef_ruins", name:"Reef Ruins", icon:"🏛️", type:"special",
     desc:"Ancient steel structures submerged beneath the sea, overgrown with coral. A forgotten civilization once thrived here beneath the waves.",
     connections:["coral_reef","ancient_ruins"],
     wildMonsters:[
-      {id:214, minLv:36, maxLv:42, rate:8}, // Petrwave (obtainability fix)
-      {id:26, minLv:28, maxLv:35, rate:18},   // Brinecrush
-      {id:193, minLv:28, maxLv:35, rate:28},   // Cliffpinch
-      {id:37, minLv:29, maxLv:36, rate:24},  // Coralossus
-      {id:152, minLv:30, maxLv:36, rate:14},   // Imperion
-      {id:41, minLv:35, maxLv:42, rate:8}   // Titanomare
+      {id:254, minLv:36, maxLv:42, rate:8}, // Petrwave (obtainability fix)
+      {id:25, minLv:28, maxLv:35, rate:18},   // Brinecrush
+      {id:101, minLv:28, maxLv:35, rate:28},   // Cliffpinch
+      {id:4, minLv:29, maxLv:36, rate:24},  // Coralossus
+      {id:57, minLv:30, maxLv:36, rate:14},   // Imperion
+      {id:134, minLv:35, maxLv:42, rate:8}   // Titanomare
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:76, y:76},
     storyLocation:true, hasUmbraEncounter:true
@@ -6064,46 +6226,46 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:111, minLv:48, maxLv:54, rate:25},   // Aeolin
       {id:108, minLv:48, maxLv:54, rate:25},   // Silvergust
-      {id:112, minLv:49, maxLv:55, rate:20},   // Swirlavel
+      {id:111, minLv:49, maxLv:55, rate:20},   // Swirlavel
       {id:116, minLv:50, maxLv:55, rate:20},  // Zephyrin
-      {id:109, minLv:51, maxLv:56, rate:10}    // Siroccomane
+      {id:108, minLv:51, maxLv:56, rate:10}    // Siroccomane
     ],
     ngPlusWildMonsters:[{id:458, minLv:48, maxLv:52, rate:12}], // NG+ family base: Tengko
-    hasGym:false, requiredBadges:6, mapPos:{x:36, y:40}
+    hasGym:false, requiredBadges:8, mapPos:{x:36, y:40}
   },
   crystal_spire: {
     id:"crystal_spire", name:"Crystal Spire", icon:"💎", type:"special",
     desc:"A towering spire of pure crystal ice and steel that catches the moonlight. Few trainers have ever climbed to its pinnacle.",
     connections:["crystal_depths","lunar_peak"],
     wildMonsters:[
-      {id:51, minLv:38, maxLv:45, rate:15},   // Bergyak
-      {id:195, minLv:38, maxLv:45, rate:25},   // Icequartz
-      {id:148, minLv:39, maxLv:46, rate:10},   // Stoicguard
+      {id:50, minLv:38, maxLv:45, rate:15},   // Bergyak
+      {id:168, minLv:38, maxLv:45, rate:25},   // Icequartz
+      {id:147, minLv:39, maxLv:46, rate:10},   // Stoicguard
       {id:55, minLv:40, maxLv:47, rate:30},  // Rimeling
-      {id:201, minLv:42, maxLv:48, rate:20}   // Scarabion
+      {id:200, minLv:42, maxLv:48, rate:20}   // Scarabion
     ],
-    hasGym:false, requiredBadges:5, mapPos:{x:16, y:18},
+    hasGym:false, requiredBadges:7, mapPos:{x:16, y:18},
     storyLocation:true, hasUmbraEncounter:true,
     legendaryEncounter:{monsterId:164, level:55}
   },
   dark_canyon: {
-    id:"dark_canyon", name:"Dark Canyon", icon:"🌑", type:"route",
+    id:"dark_canyon", hasUmbraEncounter:true, name:"Dark Canyon", icon:"🌑", type:"route",
     desc:"A pitch-black gorge where no light penetrates. Dark type Lumori have claimed every shadowed corner, and even the rocks seem to absorb light.",
     connections:["spirit_canyon","umbra_base"],
     wildMonsters:[
-      {id:119, minLv:50, maxLv:56, rate:20},   // Dreadmaw
-      {id:122, minLv:50, maxLv:56, rate:10},   // Caveshroud
+      {id:118, minLv:50, maxLv:56, rate:20},   // Dreadmaw
+      {id:121, minLv:50, maxLv:56, rate:10},   // Caveshroud
       {id:126, minLv:51, maxLv:57, rate:30},  // Impefurr
-      {id:124, minLv:52, maxLv:57, rate:15},   // Phantorvex
-      {id:130, minLv:53, maxLv:58, rate:25}   // Necralia
+      {id:123, minLv:52, maxLv:57, rate:15},   // Phantorvex
+      {id:220, minLv:53, maxLv:58, rate:25}   // Necralia
     ],
     ngPlusWildMonsters:[{id:371, minLv:52, maxLv:58, rate:10}], // NG+ standalone: Nullform
-    hasGym:false, requiredBadges:6, mapPos:{x:4, y:60},
+    hasGym:false, requiredBadges:8, mapPos:{x:4, y:60},
     legendaryEncounter:{monsterId:166, level:55}
   },
   // ---- NEW ROUTES & GYM CITIES (badges 8-15) ----
   route9: {
-    id:"route9", name:"Route 9 - Verdant Trail", icon:"🌿", type:"route",
+    id:"route9", hasUmbraEncounter:true, name:"Route 9 - Verdant Trail", icon:"🌿", type:"route",
     desc:"A lush overgrown trail leading south from Dragonspire. Grass and Bug types thrive here.",
     connections:["dragonspire","bloomhaven"],
     wildMonsters:[
@@ -6111,9 +6273,9 @@ const WORLD_DATA = {
       {id:66, minLv:55, maxLv:60, rate:20},
       {id:197, minLv:55, maxLv:60, rate:30},
       {id:72, minLv:56, maxLv:61, rate:25},
-      {id:73, minLv:57, maxLv:62, rate:10}
+      {id:72, minLv:57, maxLv:62, rate:10}
     ],
-    hasGym:false, requiredBadges:8, mapPos:{x:60, y:48},
+    hasGym:false, requiredBadges:10, mapPos:{x:60, y:48},
     ngPlusWildMonsters:[{id:326,minLv:62,maxLv:68,rate:20},{id:328,minLv:62,maxLv:68,rate:15},{id:331,minLv:63,maxLv:69,rate:15}]
   },
   bloomhaven: {
@@ -6122,46 +6284,46 @@ const WORLD_DATA = {
     connections:["route9","route10"],
     wildMonsters:[
       {id:8, minLv:56, maxLv:60, rate:30},
-      {id:70, minLv:56, maxLv:60, rate:25},
-      {id:73, minLv:57, maxLv:61, rate:10},
+      {id:69, minLv:56, maxLv:60, rate:25},
+      {id:72, minLv:57, maxLv:61, rate:10},
       {id:75, minLv:58, maxLv:62, rate:35}
     ],
     ngPlusWildMonsters:[{id:452, minLv:56, maxLv:60, rate:12}], // NG+ family base: Dozit
-    hasGym:true, gymLeader:"thorne", requiredBadges:8, mapPos:{x:55, y:55}
+    hasGym:true, gymLeader:"thorne", requiredBadges:10, mapPos:{x:55, y:55}
   },
   route10: {
-    id:"route10", name:"Route 10 - Toxic Passage", icon:"☠️", type:"route",
+    id:"route10", hasUmbraEncounter:true, name:"Route 10 - Toxic Passage", icon:"☠️", type:"route",
     desc:"A murky swamp path where poisonous fumes rise from the ground.",
-    connections:["bloomhaven","murk_crossing"],
+    connections:["bloomhaven","corroden"],
     wildMonsters:[
       {id:155, minLv:57, maxLv:62, rate:10},  // Toxirin (base)
       {id:157, minLv:57, maxLv:62, rate:17},  // Acidelix (base)
       {id:160, minLv:58, maxLv:63, rate:9},  // Miasmafly (base)
-      {id:161, minLv:59, maxLv:64, rate:5},  // Mistbane (mid → after base ✓)
+      {id:160, minLv:59, maxLv:64, rate:5},  // Mistbane (mid → after base ✓)
       {id:162, minLv:58, maxLv:63, rate:14},  // Marlix (base)
-      {id:163, minLv:59, maxLv:64, rate:7},  // Blightalis (mid → after base ✓)
+      {id:162, minLv:59, maxLv:64, rate:7},  // Blightalis (mid → after base ✓)
       {id:206, minLv:57, maxLv:62, rate:12},  // Forlix (base Poison/Draconic)
       {id:266, minLv:57, maxLv:62, rate:21},  // Shadowcub (base Dark/Sonic)
       {id:299, minLv:57, maxLv:62, rate:5}    // Resinbee (base Bug/Poi)
     ],
-    hasGym:false, requiredBadges:9, mapPos:{x:48, y:60},
+    hasGym:false, requiredBadges:11, mapPos:{x:48, y:60},
     ngPlusWildMonsters:[{id:322,minLv:64,maxLv:70,rate:20},{id:323,minLv:64,maxLv:70,rate:15},{id:325,minLv:65,maxLv:71,rate:10}]
   },
   miasmacity: {
     id:"miasmacity", name:"Miasma City", icon:"🏭", type:"city",
     desc:"An industrial city shrouded in toxic mist. Home to Gym Leader Viper, master of Poison types.",
-    connections:["toxic_bog","route11"],
+    connections:["toxic_bog","route11","mire_depths"],
     wildMonsters:[
-      {id:156, minLv:58, maxLv:63, rate:25},  // Venekon (mid)
-      {id:159, minLv:60, maxLv:65, rate:25},  // Dissotoad (final, 158 on murk_crossing ✓)
-      {id:163, minLv:59, maxLv:64, rate:25},  // Blightalis (mid, 162 on route10 ✓)
-      {id:165, minLv:59, maxLv:64, rate:25}   // Lepidox (mid, 164 on murk_crossing ✓)
+      {id:155, minLv:58, maxLv:63, rate:25},  // Venekon (mid)
+      {id:157, minLv:60, maxLv:65, rate:25},  // Dissotoad (final, 158 on murk_crossing ✓)
+      {id:162, minLv:59, maxLv:64, rate:25},  // Blightalis (mid, 162 on route10 ✓)
+      {id:164, minLv:59, maxLv:64, rate:25}   // Lepidox (mid, 164 on murk_crossing ✓)
     ],
-    hasGym:true, gymLeader:"viper", requiredBadges:9, mapPos:{x:42, y:65},
+    hasGym:true, gymLeader:"viper", requiredBadges:12, mapPos:{x:42, y:65},
     ngPlusWildMonsters:[{id:322,minLv:65,maxLv:70,rate:25},{id:324,minLv:65,maxLv:70,rate:15}]
   },
   route11: {
-    id:"route11", name:"Route 11 - Tremor Pass", icon:"🏔️", type:"route",
+    id:"route11", hasUmbraEncounter:true, name:"Route 11 - Tremor Pass", icon:"🏔️", type:"route",
     desc:"A rumbling mountain pass where the ground never stops shaking.",
     connections:["miasmacity","quake_foothills"],
     wildMonsters:[
@@ -6169,12 +6331,12 @@ const WORLD_DATA = {
       {id:98,  minLv:59, maxLv:64, rate:7},  // Aridix (base)
       {id:101, minLv:59, maxLv:64, rate:13},  // Limoux (base)
       {id:104, minLv:60, maxLv:65, rate:22},  // Sandpup (base)
-      {id:105, minLv:61, maxLv:66, rate:5},  // Dravanas (mid → after 104 ✓)
+      {id:104, minLv:61, maxLv:66, rate:5},  // Dravanas (mid → after 104 ✓)
       {id:106, minLv:60, maxLv:65, rate:15},  // Geoclad (base)
       {id:236, minLv:59, maxLv:64, rate:9},  // Iciquill (base Ice)
       {id:248, minLv:59, maxLv:64, rate:18}   // Pebblard (base Rock)
     ],
-    hasGym:false, requiredBadges:10, mapPos:{x:35, y:72},
+    hasGym:false, requiredBadges:13, mapPos:{x:35, y:72},
     ngPlusWildMonsters:[{id:361, minLv:60, maxLv:66, rate:10}, {id:325,minLv:66,maxLv:72,rate:20},{id:327,minLv:66,maxLv:72,rate:15},{id:329,minLv:67,maxLv:73,rate:10}]
   },
   terravault: {
@@ -6182,13 +6344,13 @@ const WORLD_DATA = {
     desc:"A city carved into a mountainside, rich with mineral deposits. Home to Gym Leader Atlas.",
     connections:["tremor_summit","route12"],
     wildMonsters:[
-      {id:97,  minLv:61, maxLv:66, rate:15},  // Quakehide (final, 96 on quake_foothills ✓)
-      {id:100, minLv:61, maxLv:66, rate:15},  // Craterlurk (final, 99 on quake_foothills ✓)
-      {id:103, minLv:61, maxLv:66, rate:15},  // Calciderm (final, 102 on quake_foothills ✓)
-      {id:105, minLv:61, maxLv:66, rate:30},  // Dravanas (final, 104 on route11 ✓)
-      {id:107, minLv:62, maxLv:67, rate:25}   // Quakeon (final, 106 on route11 ✓)
+      {id:95,  minLv:61, maxLv:66, rate:15},  // Quakehide (final, 96 on quake_foothills ✓)
+      {id:98, minLv:61, maxLv:66, rate:15},  // Craterlurk (final, 99 on quake_foothills ✓)
+      {id:101, minLv:61, maxLv:66, rate:15},  // Calciderm (final, 102 on quake_foothills ✓)
+      {id:104, minLv:61, maxLv:66, rate:30},  // Dravanas (final, 104 on route11 ✓)
+      {id:106, minLv:62, maxLv:67, rate:25}   // Quakeon (final, 106 on route11 ✓)
     ],
-    hasGym:true, gymLeader:"atlas", requiredBadges:10, mapPos:{x:28, y:78},
+    hasGym:true, gymLeader:"atlas", requiredBadges:13, mapPos:{x:28, y:78},
     ngPlusWildMonsters:[{id:353, minLv:63, maxLv:67, rate:9}, {id:327,minLv:67,maxLv:72,rate:25},{id:337,minLv:67,maxLv:72,rate:15}]
   },
   route12: {
@@ -6204,7 +6366,7 @@ const WORLD_DATA = {
       {id:215, minLv:62, maxLv:67, rate:16},  // Veilwisp (base Mental)
       {id:262, minLv:62, maxLv:67, rate:11}   // Transluceed (base Grass/Poi)
     ],
-    hasGym:false, requiredBadges:11, mapPos:{x:22, y:82},
+    hasGym:false, requiredBadges:14, mapPos:{x:22, y:82},
     ngPlusWildMonsters:[{id:391, minLv:64, maxLv:68, rate:8}, {id:324,minLv:68,maxLv:74,rate:20},{id:329,minLv:68,maxLv:74,rate:15},{id:339,minLv:69,maxLv:75,rate:10},{id:402,minLv:68,maxLv:74,rate:8},{id:405,minLv:68,maxLv:74,rate:8}]
   },
   silkwood: {
@@ -6213,20 +6375,20 @@ const WORLD_DATA = {
     connections:["ancient_grove","route13"],
     wildMonsters:[
       {id:199, minLv:63, maxLv:68, rate:25},  // Aeridaleth (final)
-      {id:201, minLv:62, maxLv:67, rate:25},  // Scarabion (mid)
-      {id:203, minLv:63, maxLv:68, rate:25},  // Arachnalis (mid, 202 on route12 ✓)
-      {id:205, minLv:64, maxLv:69, rate:25}   // Quarrix (mid)
+      {id:200, minLv:62, maxLv:67, rate:25},  // Scarabion (mid)
+      {id:202, minLv:63, maxLv:68, rate:25},  // Arachnalis (mid, 202 on route12 ✓)
+      {id:204, minLv:64, maxLv:69, rate:25}   // Quarrix (mid)
     ],
-    hasGym:true, gymLeader:"mantis", requiredBadges:11, mapPos:{x:15, y:88},
+    hasGym:true, gymLeader:"mantis", requiredBadges:14, mapPos:{x:15, y:88},
     ngPlusWildMonsters:[{id:357, minLv:63, maxLv:69, rate:10}, {id:330,minLv:68,maxLv:74,rate:25},{id:331,minLv:68,maxLv:74,rate:20},{id:326,minLv:68,maxLv:74,rate:10},{id:402,minLv:69,maxLv:75,rate:6},{id:405,minLv:69,maxLv:75,rate:6}]
   },
   route13: {
-    id:"route13", name:"Route 13 - Gale Ridge West", icon:"🌬️", type:"route",
+    id:"route13", hasUmbraEncounter:true, name:"Route 13 - Gale Ridge West", icon:"🌬️", type:"route",
     desc:"The western arm of Gale Ridge, where howling winds funnel through a narrow canyon toward the furthest point of the region.",
-    connections:["silkwood","wind_hollow"],
+    connections:["silkwood","mistmoor"],
     wildMonsters:[
       {id:108, minLv:63, maxLv:68, rate:16},  // Silvergust (base)
-      {id:109, minLv:64, maxLv:69, rate:5},  // Siroccomane (mid → after 108 ✓)
+      {id:108, minLv:64, maxLv:69, rate:5},  // Siroccomane (mid → after 108 ✓)
       {id:111, minLv:63, maxLv:68, rate:21},  // Aeolin (base)
       {id:114, minLv:64, maxLv:69, rate:8},  // Nimbusel (base)
       {id:116, minLv:64, maxLv:69, rate:10},  // Zephyrin (base)
@@ -6235,7 +6397,7 @@ const WORLD_DATA = {
       {id:222, minLv:63, maxLv:68, rate:16},  // Mindpuff (base Mental)
       {id:220, minLv:63, maxLv:68, rate:5}    // Umbrajest (base Dark/Mental)
     ],
-    hasGym:false, requiredBadges:12, mapPos:{x:10, y:92},
+    hasGym:false, requiredBadges:15, mapPos:{x:10, y:92},
     ngPlusWildMonsters:[{id:356, minLv:64, maxLv:70, rate:9}, {id:335,minLv:70,maxLv:76,rate:20},{id:348,minLv:70,maxLv:76,rate:15},{id:370,minLv:71,maxLv:77,rate:10}]
   },
   gusthaven: {
@@ -6243,17 +6405,17 @@ const WORLD_DATA = {
     desc:"A town of windmills and airships. Home to Gym Leader Zephyra, master of Wind types.",
     connections:["tempest_cliffs","route14"],
     wildMonsters:[
-      {id:110, minLv:65, maxLv:70, rate:13},  // Aeolarch (final)
-      {id:113, minLv:65, maxLv:70, rate:12},  // Cyclondor (final)
-      {id:115, minLv:65, maxLv:70, rate:25},  // Aetherworn (mid)
-      {id:117, minLv:65, maxLv:70, rate:20},  // Pneumathos (mid)
+      {id:108, minLv:65, maxLv:70, rate:13},  // Aeolarch (final)
+      {id:112, minLv:65, maxLv:70, rate:12},  // Cyclondor (final)
+      {id:114, minLv:65, maxLv:70, rate:25},  // Aetherworn (mid)
+      {id:116, minLv:65, maxLv:70, rate:20},  // Pneumathos (mid)
       {id:62,  minLv:66, maxLv:70, rate:30}   // standalone
     ],
-    hasGym:true, gymLeader:"zephyra", requiredBadges:12, mapPos:{x:18, y:95},
+    hasGym:true, gymLeader:"zephyra", requiredBadges:16, mapPos:{x:18, y:95},
     ngPlusWildMonsters:[{id:338, minLv:66, maxLv:70, rate:10}, {id:335,minLv:71,maxLv:76,rate:25},{id:370,minLv:71,maxLv:76,rate:15}]
   },
   route14: {
-    id:"route14", name:"Route 14 - Ironwork Path", icon:"⚙️", type:"route",
+    id:"route14", hasUmbraEncounter:true, name:"Route 14 - Ironwork Path", icon:"⚙️", type:"route",
     desc:"A path lined with abandoned machinery. Metal types have claimed the ruins as their territory.",
     connections:["gusthaven","ash_fields"],
     wildMonsters:[
@@ -6267,7 +6429,7 @@ const WORLD_DATA = {
       {id:244, minLv:65, maxLv:70, rate:7},  // Staticclaw (base Electric)
       {id:280, minLv:65, maxLv:70, rate:5}    // Gearbit (base Metal/Ground)
     ],
-    hasGym:false, requiredBadges:13, mapPos:{x:28, y:92},
+    hasGym:false, requiredBadges:17, mapPos:{x:28, y:92},
     ngPlusWildMonsters:[{id:383, minLv:66, maxLv:72, rate:8}, {id:334,minLv:72,maxLv:78,rate:20},{id:347,minLv:72,maxLv:78,rate:15},{id:366,minLv:73,maxLv:79,rate:10}]
   },
   ironforge: {
@@ -6275,13 +6437,13 @@ const WORLD_DATA = {
     desc:"A city of foundries and forges. Home to Gym Leader Ferro, master of Metal types.",
     connections:["forge_approach","route15"],
     wildMonsters:[
-      {id:149, minLv:67, maxLv:72, rate:13},  // Eternarmor (final)
+      {id:148, minLv:67, maxLv:72, rate:13},  // Eternarmor (final)
       {id:151, minLv:66, maxLv:71, rate:25},  // Amperpede (mid)
-      {id:152, minLv:67, maxLv:72, rate:20},  // Imperion (Metal/Rock)
+      {id:26, minLv:67, maxLv:72, rate:20},  // Imperion (Metal/Rock)
       {id:135, minLv:67, maxLv:72, rate:30},  // Steelvex (mid, 134 on route14 ✓)
-      {id:136, minLv:68, maxLv:73, rate:12}   // Metalibat (final → after 135 ✓)
+      {id:135, minLv:68, maxLv:73, rate:12}   // Metalibat (final → after 135 ✓)
     ],
-    hasGym:true, gymLeader:"ferro", requiredBadges:13, mapPos:{x:38, y:88},
+    hasGym:true, gymLeader:"ferro", requiredBadges:17, mapPos:{x:38, y:88},
     ngPlusWildMonsters:[{id:334,minLv:73,maxLv:78,rate:25},{id:347,minLv:73,maxLv:78,rate:20}]
   },
   route15: {
@@ -6299,7 +6461,7 @@ const WORLD_DATA = {
       {id:304, minLv:67, maxLv:72, rate:17},  // Yeticub (base Earth/Ice)
       {id:232, minLv:67, maxLv:72, rate:5}    // Serphaxon (base Draconic/Ground)
     ],
-    hasGym:false, requiredBadges:14, mapPos:{x:48, y:85},
+    hasGym:false, requiredBadges:18, mapPos:{x:48, y:85},
     ngPlusWildMonsters:[{id:364, minLv:68, maxLv:74, rate:9}, {id:332,minLv:74,maxLv:80,rate:20},{id:349,minLv:66,maxLv:72,rate:18}]
   },
   quarryville: {
@@ -6309,11 +6471,11 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:192, minLv:68, maxLv:73, rate:20},  // Boulderoll (mid)
       {id:195, minLv:69, maxLv:74, rate:25},  // Icequartz (195 on stone_plateau ✓)
-      {id:196, minLv:70, maxLv:75, rate:10},  // Frigolith (mid → after 195 ✓)
+      {id:195, minLv:70, maxLv:75, rate:10},  // Frigolith (mid → after 195 ✓)
       {id:133, minLv:69, maxLv:74, rate:15},  // Monolithox (mid)
       {id:92,  minLv:70, maxLv:74, rate:30}   // standalone
     ],
-    hasGym:true, gymLeader:"boulder", requiredBadges:14, mapPos:{x:55, y:82},
+    hasGym:true, gymLeader:"boulder", requiredBadges:18, mapPos:{x:55, y:82},
     ngPlusWildMonsters:[{id:399, minLv:69, maxLv:75, rate:8}, {id:359, minLv:74, maxLv:80, rate:9}, {id:327,minLv:70,maxLv:74,rate:25},{id:341,minLv:64,maxLv:70,rate:15},{id:349,minLv:67,maxLv:72,rate:10}]
   },
   route16: {
@@ -6326,60 +6488,73 @@ const WORLD_DATA = {
       {id:73,  minLv:70, maxLv:75, rate:7},  // fairy-type (evo → after 72 ✓)
       {id:142, minLv:69, maxLv:74, rate:10},  // Dawnirel (base, new)
       {id:145, minLv:70, maxLv:75, rate:14},  // Faerrin (base)
-      {id:225, minLv:69, maxLv:74, rate:5},  // Crealight (standalone Psy/Fairy)
+      {id:253, minLv:69, maxLv:74, rate:5},  // Crealight (standalone Psy/Fairy)
       {id:226, minLv:69, maxLv:74, rate:9},  // Spectroo (base split-evo)
       {id:254, minLv:69, maxLv:74, rate:12},  // Bubblepuff (base Aquatic/Psy)
       {id:302, minLv:69, maxLv:74, rate:5}    // Lightpuff (base Fairy, item evo)
     ],
-    hasGym:false, requiredBadges:15, mapPos:{x:62, y:78},
+    hasGym:false, requiredBadges:19, mapPos:{x:62, y:78},
     ngPlusWildMonsters:[{id:363, minLv:71, maxLv:75, rate:9}, {id:344,minLv:76,maxLv:82,rate:20},{id:351,minLv:76,maxLv:82,rate:15},{id:360,minLv:77,maxLv:83,rate:10}]
   },
   starbloom: {
     id:"starbloom", name:"Starbloom City", icon:"🌟", type:"city",
     desc:"A radiant city that glows with fairy magic. Home to Gym Leader Seraphina, the last gym before The Vanguard.",
-    connections:["astral_plateau","victoryroad","void_rift"],
+    connections:["astral_plateau","victoryroad","void_rift","resonant_trail"],
     wildMonsters:[
       {id:138, minLv:70, maxLv:75, rate:24},  // Halocanis (mid)
-      {id:139, minLv:71, maxLv:76, rate:8},  // Lumiarch (final → after 138 ✓)
-      {id:143, minLv:70, maxLv:75, rate:13},  // Astrelle (mid)
-      {id:144, minLv:71, maxLv:76, rate:8},  // Moonseraph (final → after 143 ✓)
+      {id:138, minLv:71, maxLv:76, rate:8},  // Lumiarch (final → after 138 ✓)
+      {id:142, minLv:70, maxLv:75, rate:13},  // Astrelle (mid)
+      {id:142, minLv:71, maxLv:76, rate:8},  // Moonseraph (final → after 143 ✓)
       {id:146, minLv:71, maxLv:76, rate:15},  // Shinarith (mid, 145 on route16 ✓)
       {id:203, minLv:72, maxLv:76, rate:19},  // Arachnalis (mid)
-      {id:224, minLv:72, maxLv:76, rate:8},  // Psytheon (final → 223 on cosmic_cavern ✓)
-      {id:217, minLv:73, maxLv:77, rate:5}    // Distorsion (final Mental)
+      {id:223, minLv:72, maxLv:76, rate:8},  // Psytheon (final → 223 on cosmic_cavern ✓)
+      {id:216, minLv:73, maxLv:77, rate:5}    // Distorsion (final Mental)
     ],
-    hasGym:true, gymLeader:"seraphina", requiredBadges:15, mapPos:{x:68, y:72},
+    hasGym:true, gymLeader:"seraphina", requiredBadges:19, mapPos:{x:68, y:72},
     ngPlusWildMonsters:[{id:362, minLv:70, maxLv:77, rate:9}, {id:344,minLv:77,maxLv:82,rate:25},{id:351,minLv:77,maxLv:82,rate:20},{id:360,minLv:78,maxLv:83,rate:8}]
   },
   // ---- ADDITIONAL ROUTES (direction-change splits & mid-gym connectors) ----
   murk_crossing: {
     id:"murk_crossing", name:"Murk Crossing", icon:"🌫️", type:"route",
     desc:"A bog-choked crossing where the path turns south through fetid marshland. Toxic vapors hang low and Poison types lurk in every murky puddle.",
-    connections:["route10","toxic_bog"],
+    connections:["corroden","toxic_bog"],
     wildMonsters:[
       {id:155, minLv:57, maxLv:62, rate:24},  // Toxirin (base)
-      {id:156, minLv:58, maxLv:63, rate:10},  // Venekon (mid → after base ✓)
-      {id:158, minLv:58, maxLv:63, rate:18},  // Corrodisc (mid, base Acidelix on route10 ✓)
-      {id:159, minLv:60, maxLv:65, rate:6},  // Dissotoad (final → after 158 ✓)
+      {id:155, minLv:58, maxLv:63, rate:10},  // Venekon (mid → after base ✓)
+      {id:157, minLv:58, maxLv:63, rate:18},  // Corrodisc (mid, base Acidelix on route10 ✓)
+      {id:157, minLv:60, maxLv:65, rate:6},  // Dissotoad (final → after 158 ✓)
       {id:164, minLv:58, maxLv:63, rate:28},  // Blightmite (base, new)
-      {id:165, minLv:59, maxLv:64, rate:14}   // Lepidox (mid → after 164 ✓)
+      {id:164, minLv:59, maxLv:64, rate:14}   // Lepidox (mid → after 164 ✓)
     ],
     ngPlusWildMonsters:[{id:355, minLv:58, maxLv:65, rate:10}], // NG+ standalone: Nadiril
-    hasGym:false, requiredBadges:9, mapPos:{x:42, y:60}
+    hasGym:false, requiredBadges:12, mapPos:{x:42, y:60}
+  },
+  corroden: {
+    id:"corroden", name:"Corroden Town", icon:"☣️", type:"city",
+    desc:"A fume-wreathed town on the edge of the corrosion flats, its cobbles pitted and its air sharp enough to sting. Gym Leader Acrid thrives where lesser trainers' gear dissolves.",
+    connections:["route10","murk_crossing"],
+    wildMonsters:[
+      {id:299, minLv:56, maxLv:60, rate:25}, // Nettlebarb
+      {id:296, minLv:56, maxLv:60, rate:23}, // Pestquito
+      {id:162, minLv:57, maxLv:60, rate:22}, // Blightalis
+      {id:296, minLv:58, maxLv:60, rate:18}, // Plagueoth
+      {id:262, minLv:58, maxLv:60, rate:12}  // Impenezard
+    ],
+    hasGym:true, gymLeader:"acrid", requiredBadges:11, mapPos:{x:50, y:58}
   },
   quake_foothills: {
     id:"quake_foothills", name:"Quake Foothills", icon:"🌋", type:"route",
     desc:"Rolling foothills rocked by constant tremors where Terravault's mountain range begins. Ground-type Lumori burrow through the cracked and heaving earth.",
-    connections:["route11","magma_vent"],
+    connections:["route11","magma_vent","tremor_summit"],
     wildMonsters:[
       {id:95,  minLv:59, maxLv:64, rate:24},  // Aridhino (base)
-      {id:96,  minLv:60, maxLv:65, rate:8},  // Seismith (mid → after 95 ✓)
+      {id:95,  minLv:60, maxLv:65, rate:8},  // Seismith (mid → after 95 ✓)
       {id:98,  minLv:59, maxLv:64, rate:18},  // Aridix (base)
-      {id:99,  minLv:60, maxLv:65, rate:14},  // Toxivenoth (mid → after 98 ✓)
+      {id:98,  minLv:60, maxLv:65, rate:14},  // Toxivenoth (mid → after 98 ✓)
       {id:101, minLv:59, maxLv:64, rate:28},  // Limoux (base)
-      {id:102, minLv:60, maxLv:65, rate:8}   // Dunoloth (mid → after 101 ✓)
+      {id:101, minLv:60, maxLv:65, rate:8}   // Dunoloth (mid → after 101 ✓)
     ],
-    hasGym:false, requiredBadges:10, mapPos:{x:28, y:72}
+    hasGym:false, requiredBadges:13, mapPos:{x:28, y:72}
   },
   cobweb_gully: {
     id:"cobweb_gully", name:"Cobweb Gully", icon:"🕸️", type:"route",
@@ -6389,26 +6564,26 @@ const WORLD_DATA = {
       {id:198, minLv:62, maxLv:67, rate:28},  // Chrysalix (mid, 197 on route12 ✓)
       {id:199, minLv:63, maxLv:68, rate:14},  // Aeridaleth (final → after 198 ✓)
       {id:200, minLv:61, maxLv:66, rate:18},  // Iridibeetle (base)
-      {id:201, minLv:62, maxLv:67, rate:6},  // Scarabion (mid → after 200 ✓)
+      {id:200, minLv:62, maxLv:67, rate:6},  // Scarabion (mid → after 200 ✓)
       {id:204, minLv:63, maxLv:68, rate:24},  // Muddite (base)
-      {id:205, minLv:64, maxLv:69, rate:10}   // Quarrix (mid → after 204 ✓)
+      {id:204, minLv:64, maxLv:69, rate:10}   // Quarrix (mid → after 204 ✓)
     ],
-    hasGym:false, requiredBadges:11, mapPos:{x:15, y:82}
+    hasGym:false, requiredBadges:14, mapPos:{x:15, y:82}
   },
   gale_ridge_east: {
     id:"gale_ridge_east", name:"Gale Ridge East", icon:"🌪️", type:"route",
     desc:"Where Gale Ridge curves sharply eastward, the winds reverse direction entirely. This turn is notorious for sending unprepared trainers stumbling backward toward Silkwood.",
     connections:["gale_peak","tempest_cliffs"],
     wildMonsters:[
-      {id:109, minLv:64, maxLv:69, rate:24},  // Siroccomane (mid, 108 on route13 ✓)
-      {id:110, minLv:65, maxLv:70, rate:8},  // Aeolarch (final → after 109 ✓)
+      {id:108, minLv:64, maxLv:69, rate:24},  // Siroccomane (mid, 108 on route13 ✓)
+      {id:108, minLv:65, maxLv:70, rate:8},  // Aeolarch (final → after 109 ✓)
       {id:112, minLv:64, maxLv:69, rate:28},  // Swirlavel (mid, 111 on route13 ✓)
-      {id:113, minLv:65, maxLv:70, rate:8},  // Cyclondor (final → after 112 ✓)
-      {id:115, minLv:65, maxLv:70, rate:18},  // Aetherworn (mid, 114 on route13 ✓)
-      {id:117, minLv:65, maxLv:70, rate:14}   // Pneumathos (mid, 116 on route13 ✓)
+      {id:112, minLv:65, maxLv:70, rate:8},  // Cyclondor (final → after 112 ✓)
+      {id:114, minLv:65, maxLv:70, rate:18},  // Aetherworn (mid, 114 on route13 ✓)
+      {id:116, minLv:65, maxLv:70, rate:14}   // Pneumathos (mid, 116 on route13 ✓)
     ],
     ngPlusWildMonsters:[{id:393, minLv:65, maxLv:70, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:12, mapPos:{x:14, y:95}
+    hasGym:false, requiredBadges:16, mapPos:{x:14, y:95}
   },
   forge_approach: {
     id:"forge_approach", name:"Forge Approach", icon:"🔩", type:"route",
@@ -6416,13 +6591,13 @@ const WORLD_DATA = {
     connections:["smelter_pass","ironforge"],
     wildMonsters:[
       {id:148, minLv:66, maxLv:71, rate:10},  // Stoicguard (mid)
-      {id:149, minLv:67, maxLv:72, rate:6},  // Eternarmor (final → after 148 ✓)
+      {id:148, minLv:67, maxLv:72, rate:6},  // Eternarmor (final → after 148 ✓)
       {id:150, minLv:65, maxLv:70, rate:24},  // Ampercrawl (base)
       {id:151, minLv:66, maxLv:71, rate:14},  // Amperpede (mid → after 150 ✓)
       {id:153, minLv:66, maxLv:71, rate:28},  // Dentshaft (base)
       {id:154, minLv:67, maxLv:72, rate:18}   // Terragolem (mid → after 153 ✓)
     ],
-    hasGym:false, requiredBadges:13, mapPos:{x:38, y:92}
+    hasGym:false, requiredBadges:17, mapPos:{x:38, y:92}
   },
   stone_plateau: {
     id:"stone_plateau", name:"Stone Plateau", icon:"🏜️", type:"route",
@@ -6431,13 +6606,13 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:192, minLv:68, maxLv:73, rate:18},  // Boulderoll (mid, 191 on route15 ✓)
       {id:193, minLv:67, maxLv:72, rate:28},  // Cliffpinch (base)
-      {id:194, minLv:68, maxLv:73, rate:10},  // Lithomere (mid → after 193 ✓)
+      {id:193, minLv:68, maxLv:73, rate:10},  // Lithomere (mid → after 193 ✓)
       {id:133, minLv:69, maxLv:74, rate:14},  // Monolithox (mid)
       {id:195, minLv:69, maxLv:74, rate:24},  // Icequartz (base, new)
-      {id:196, minLv:70, maxLv:75, rate:6}   // Frigolith (mid → after 195 ✓)
+      {id:195, minLv:70, maxLv:75, rate:6}   // Frigolith (mid → after 195 ✓)
     ],
     ngPlusWildMonsters:[{id:385, minLv:82, maxLv:88, rate:8}, {id:367, minLv:68, maxLv:75, rate:10}], // NG+: Permafrost (ice-golem final), Bouldertide
-    hasGym:false, requiredBadges:14, mapPos:{x:48, y:82}
+    hasGym:false, requiredBadges:18, mapPos:{x:48, y:82}
   },
   cosmic_cavern: {
     id:"cosmic_cavern", name:"Cosmic Cavern", icon:"🌌", type:"route",
@@ -6446,16 +6621,16 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:137, minLv:69, maxLv:74, rate:16},  // Goldefluff (base)
       {id:138, minLv:70, maxLv:75, rate:11},  // Halocanis (mid → after 137 ✓)
-      {id:143, minLv:70, maxLv:75, rate:7},  // Astrelle (mid, 142 on route16 ✓)
-      {id:144, minLv:71, maxLv:76, rate:5},  // Moonseraph (final → after 143 ✓)
+      {id:142, minLv:70, maxLv:75, rate:7},  // Astrelle (mid, 142 on route16 ✓)
+      {id:142, minLv:71, maxLv:76, rate:5},  // Moonseraph (final → after 143 ✓)
       {id:145, minLv:70, maxLv:75, rate:14},  // Faerrin (base)
       {id:119, minLv:70, maxLv:74, rate:9},  // Dreadmaw (Dark/Umbra)
       {id:222, minLv:70, maxLv:74, rate:20},  // Mindpuff (base, for Psytheon chain)
       {id:223, minLv:70, maxLv:74, rate:12},  // Recallum (mid → after 222 ✓)
-      {id:255, minLv:71, maxLv:75, rate:6}   // Psychotide (mid → Aquapuff on route16 ✓)
+      {id:254, minLv:71, maxLv:75, rate:6}   // Psychotide (mid → Aquapuff on route16 ✓)
     ],
     ngPlusWildMonsters:[{id:397, minLv:70, maxLv:76, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:15, mapPos:{x:68, y:78}
+    hasGym:false, requiredBadges:19, mapPos:{x:68, y:78}
   },
   void_rift: {
     id:"void_rift", name:"The Void Rift", icon:"🌀", type:"special",
@@ -6464,38 +6639,38 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:119, minLv:72, maxLv:77, rate:30},  // Dreadmaw (Dark)
       {id:122, minLv:72, maxLv:77, rate:30},  // Caveshroud (Dark)
-      {id:120, minLv:73, maxLv:78, rate:25},  // dark-type
-      {id:131, minLv:73, maxLv:78, rate:15}   // Necrothon (Dark/Grass)
+      {id:119, minLv:73, maxLv:78, rate:25},  // dark-type
+      {id:130, minLv:73, maxLv:78, rate:15}   // Necrothon (Dark/Grass)
     ],
-    hasGym:false, requiredBadges:15, mapPos:{x:75, y:72},
+    hasGym:false, requiredBadges:19, mapPos:{x:75, y:72},
     ngPlusWildMonsters:[{id:373, minLv:78, maxLv:84, rate:8}, {id:342,minLv:74,maxLv:79,rate:20},{id:352,minLv:79,maxLv:85,rate:8}]
   },
   // ---- ADDITIONAL MID-GYM ROUTES (phase 2) ----
   toxic_bog: {
     id:"toxic_bog", name:"Toxic Bog", icon:"🐸", type:"route",
     desc:"A stagnant bog where the path turns south toward Miasma City. Foul gas bubbles up through the mud and Poison types lurk beneath the surface.",
-    connections:["murk_crossing","mire_depths"],
+    connections:["murk_crossing","mire_depths","miasmacity"],
     wildMonsters:[
-      {id:156, minLv:58, maxLv:63, rate:20},  // Venekon (mid)
-      {id:158, minLv:58, maxLv:63, rate:20},  // Corrodisc (mid)
-      {id:159, minLv:60, maxLv:65, rate:20},  // Dissotoad (final)
+      {id:155, minLv:58, maxLv:63, rate:20},  // Venekon (mid)
+      {id:157, minLv:58, maxLv:63, rate:20},  // Corrodisc (mid)
+      {id:157, minLv:60, maxLv:65, rate:20},  // Dissotoad (final)
       {id:164, minLv:58, maxLv:63, rate:20},  // Blightmite (base)
-      {id:165, minLv:59, maxLv:64, rate:20}   // Lepidox (mid → after 164 ✓)
+      {id:164, minLv:59, maxLv:64, rate:20}   // Lepidox (mid → after 164 ✓)
     ],
-    hasGym:false, requiredBadges:9, mapPos:{x:42, y:63}
+    hasGym:false, requiredBadges:12, mapPos:{x:42, y:63}
   },
   tremor_summit: {
     id:"tremor_summit", name:"Tremor Summit", icon:"⛰️", type:"route",
     desc:"The crest of the quake-ridden foothills where the shaking is strongest. Only final-stage Ground-type Lumori can hold their footing here.",
-    connections:["quake_foothills","terravault"],
+    connections:["quake_foothills","terravault","magma_vent"],
     wildMonsters:[
-      {id:97,  minLv:62, maxLv:67, rate:15},  // Quakehide (final, 96 on quake_foothills ✓)
-      {id:100, minLv:62, maxLv:67, rate:15},  // Craterlurk (final, 99 on quake_foothills ✓)
-      {id:103, minLv:62, maxLv:67, rate:15},  // Calciderm (final, 102 on quake_foothills ✓)
-      {id:105, minLv:63, maxLv:68, rate:30},  // Dravanas (final, 104 on route11 ✓)
-      {id:107, minLv:63, maxLv:68, rate:25}   // Quakeon (final, 106 on route11 ✓)
+      {id:95,  minLv:62, maxLv:67, rate:15},  // Quakehide (final, 96 on quake_foothills ✓)
+      {id:98, minLv:62, maxLv:67, rate:15},  // Craterlurk (final, 99 on quake_foothills ✓)
+      {id:101, minLv:62, maxLv:67, rate:15},  // Calciderm (final, 102 on quake_foothills ✓)
+      {id:104, minLv:63, maxLv:68, rate:30},  // Dravanas (final, 104 on route11 ✓)
+      {id:106, minLv:63, maxLv:68, rate:25}   // Quakeon (final, 106 on route11 ✓)
     ],
-    hasGym:false, requiredBadges:10, mapPos:{x:28, y:75}
+    hasGym:false, requiredBadges:13, mapPos:{x:28, y:75}
   },
   gale_peak: {
     id:"gale_peak", name:"Gale Peak", icon:"🌀", type:"route",
@@ -6503,13 +6678,13 @@ const WORLD_DATA = {
     connections:["wind_hollow","gale_ridge_east"],
     wildMonsters:[
       {id:108, minLv:63, maxLv:68, rate:24},  // Silvergust (base)
-      {id:109, minLv:64, maxLv:69, rate:10},  // Siroccomane (mid → after 108 ✓)
+      {id:108, minLv:64, maxLv:69, rate:10},  // Siroccomane (mid → after 108 ✓)
       {id:111, minLv:63, maxLv:68, rate:28},  // Aeolin (base)
       {id:112, minLv:64, maxLv:69, rate:14},  // Swirlavel (mid → after 111 ✓)
       {id:116, minLv:64, maxLv:69, rate:18},  // Zephyrin (base)
-      {id:117, minLv:65, maxLv:70, rate:6}   // Pneumathos (mid → after 116 ✓)
+      {id:116, minLv:65, maxLv:70, rate:6}   // Pneumathos (mid → after 116 ✓)
     ],
-    hasGym:false, requiredBadges:12, mapPos:{x:7, y:96}
+    hasGym:false, requiredBadges:16, mapPos:{x:7, y:96}
   },
   forge_ruins: {
     id:"forge_ruins", name:"Forge Ruins", icon:"🏚️", type:"route",
@@ -6524,7 +6699,7 @@ const WORLD_DATA = {
       {id:135, minLv:67, maxLv:72, rate:14}   // Steelvex (mid → after 134 ✓)
     ],
     ngPlusWildMonsters:[{id:396, minLv:66, maxLv:72, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:13, mapPos:{x:33, y:92}
+    hasGym:false, requiredBadges:17, mapPos:{x:33, y:92}
   },
 
   // ---- NEW AREAS: GYMS 9-16 EXPANSION ----
@@ -6534,31 +6709,31 @@ const WORLD_DATA = {
     desc:"A labyrinthine deep-swamp sector south of Toxic Bog. Venomous Lumori that have shed their pre-evolutions stalk the murky waterways. Umbra scouts use the miasma as cover.",
     connections:["toxic_bog","miasmacity"],
     wildMonsters:[
-      {id:156, minLv:59, maxLv:64, rate:9},  // Venekon (mid, base 155 on route10 ✓)
-      {id:297, minLv:58, maxLv:63, rate:18},  // Pestquito (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
-      {id:165, minLv:59, maxLv:64, rate:13},  // Lepidox (mid, 164 on murk_crossing ✓)
+      {id:155, minLv:59, maxLv:64, rate:9},  // Venekon (mid, base 155 on route10 ✓)
+      {id:296, minLv:58, maxLv:63, rate:18},  // Pestquito (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
+      {id:164, minLv:59, maxLv:64, rate:13},  // Lepidox (mid, 164 on murk_crossing ✓)
       {id:296, minLv:58, maxLv:63, rate:27},  // Plaguefly (base Poi/Bug)
       {id:299, minLv:58, maxLv:63, rate:23},  // Resinbee (base Bug/Poi, also on route10)
       {id:218, minLv:59, maxLv:64, rate:10}   // Duskmist (base Spectral/Dark, item evo)
     ],
     legendaryEncounter:{monsterId:316, level:62}, // static legendary (obtainability fix)
-    hasGym:false, requiredBadges:9, mapPos:{x:41, y:67}
+    hasGym:false, requiredBadges:12, mapPos:{x:41, y:67}
   },
   magma_vent: {
     id:"magma_vent", name:"Magma Vent", icon:"🌋", type:"route",
     desc:"A superheated gorge where magma seeps through rock fissures between the foothills and Tremor Summit. Ground and Fire types bask in the thermal heat.",
     connections:["quake_foothills","tremor_summit"],
     wildMonsters:[
-      {id:96,  minLv:61, maxLv:66, rate:8},  // Seismith (mid, 95 on quake_foothills ✓)
-      {id:99,  minLv:61, maxLv:66, rate:14},  // Toxivenoth (mid, 98 on quake_foothills ✓)
-      {id:102, minLv:61, maxLv:66, rate:8},  // Dunoloth (mid, 101 on quake_foothills ✓)
+      {id:95,  minLv:61, maxLv:66, rate:8},  // Seismith (mid, 95 on quake_foothills ✓)
+      {id:98,  minLv:61, maxLv:66, rate:14},  // Toxivenoth (mid, 98 on quake_foothills ✓)
+      {id:101, minLv:61, maxLv:66, rate:8},  // Dunoloth (mid, 101 on quake_foothills ✓)
       {id:248, minLv:60, maxLv:65, rate:28},  // Pebblard (base Rock, also on route11)
       {id:274, minLv:60, maxLv:65, rate:24},  // Charrock (base Fire/Rock)
       {id:312, minLv:60, maxLv:65, rate:18}   // Dunecrawl (base Ground/Dark)
     ],
     ngPlusWildMonsters:[{id:368, minLv:61, maxLv:66, rate:9}], // NG+ standalone: Willowisp
     legendaryEncounter:{monsterId:321, level:63}, // base-game legendary (relocated from NG+ mega-areas)
-    hasGym:false, requiredBadges:10, mapPos:{x:28, y:74}
+    hasGym:false, requiredBadges:13, mapPos:{x:28, y:74}
   },
   fungal_cavern: {
     id:"fungal_cavern", name:"Fungal Cavern", icon:"🍄", type:"route",
@@ -6569,34 +6744,34 @@ const WORLD_DATA = {
       {id:215, minLv:62, maxLv:67, rate:24},  // Veilwisp (base Mental)
       {id:216, minLv:63, maxLv:68, rate:10},  // Mindrift (mid → Psywisp 215 ✓)
       {id:262, minLv:62, maxLv:67, rate:18},  // Transluceed (base Grass/Poi)
-      {id:263, minLv:63, maxLv:68, rate:6},  // Tendrilisk (mid → after 262 ✓)
+      {id:262, minLv:63, maxLv:68, rate:6},  // Tendrilisk (mid → after 262 ✓)
       {id:272, minLv:62, maxLv:67, rate:14}   // Embrix (base Fire, phoenix)
     ],
     ngPlusWildMonsters:[{id:350, minLv:63, maxLv:68, rate:10}], // NG+ standalone: Forewrath
-    hasGym:false, requiredBadges:11, mapPos:{x:20, y:83}
+    hasGym:false, requiredBadges:14, mapPos:{x:20, y:83}
   },
   ancient_grove: {
     id:"ancient_grove", name:"Ancient Grove", icon:"🌳", type:"route",
     desc:"A sacred forest grove of thousand-year-old trees. The air hums with ancient energy. Grass types here have evolved beyond their usual forms.",
     connections:["cobweb_gully","silkwood"],
     wildMonsters:[
-      {id:221, minLv:64, maxLv:69, rate:14},  // Shadowveil (mid → Hauntrix 220 on route13 ✓)
-      {id:264, minLv:64, maxLv:69, rate:13},  // Impenezard (final → Vinrix 263 on fungal_cavern ✓)
+      {id:220, minLv:64, maxLv:69, rate:14},  // Shadowveil (mid → Hauntrix 220 on route13 ✓)
+      {id:262, minLv:64, maxLv:69, rate:13},  // Impenezard (final → Vinrix 263 on fungal_cavern ✓)
       {id:199, minLv:63, maxLv:68, rate:27},  // Aeridaleth (final Bug)
-      {id:265, minLv:63, maxLv:68, rate:23},  // Mosshop (standalone Grass/Bug)
-      {id:273, minLv:63, maxLv:68, rate:13},  // Blazeon (phoenix final → Embrix 272 on fungal_cavern ✓)
-      {id:290, minLv:63, maxLv:68, rate:10}   // Guisecat (location evo cobweb_gully nearby)
+      {id:39, minLv:63, maxLv:68, rate:23},  // Mosshop (standalone Grass/Bug)
+      {id:272, minLv:63, maxLv:68, rate:13},  // Blazeon (phoenix final → Embrix 272 on fungal_cavern ✓)
+      {id:267, minLv:63, maxLv:68, rate:10}   // Guisecat (location evo cobweb_gully nearby)
     ],
     legendaryEncounter:{monsterId:318, level:69}, // static legendary (obtainability fix)
     ngPlusWildMonsters:[{id:390, minLv:64, maxLv:69, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:11, mapPos:{x:14, y:86}
+    hasGym:false, requiredBadges:14, mapPos:{x:14, y:86}
   },
   wind_hollow: {
     id:"wind_hollow", name:"Wind Hollow", icon:"🌬️", type:"route",
     desc:"A sheltered bowl between cliff faces that creates a perfect wind tunnel. Rookie Wind-type Lumori train here before ascending Gale Ridge.",
-    connections:["route13","gale_peak"],
+    connections:["fogbank","gale_peak"],
     wildMonsters:[
-      {id:292, minLv:64, maxLv:69, rate:6},  // Galehorn (mid → 291 Breefawn on route13 ✓)
+      {id:291, minLv:64, maxLv:69, rate:6},  // Galehorn (mid → 291 Breefawn on route13 ✓)
       {id:293, minLv:63, maxLv:68, rate:18},  // Windwhelp (base Wind)
       {id:222, minLv:63, maxLv:68, rate:28},  // Mindpuff (base Mental)
       {id:223, minLv:64, maxLv:69, rate:10},  // Recallum (mid → after 222 ✓)
@@ -6605,30 +6780,55 @@ const WORLD_DATA = {
     ],
     legendaryEncounter:{monsterId:314, level:66}, // static legendary (obtainability fix)
     ngPlusWildMonsters:[{id:375, minLv:64, maxLv:69, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:12, mapPos:{x:8, y:93}
+    hasGym:false, requiredBadges:16, mapPos:{x:8, y:93}
+  },
+  mistmoor: {
+    id:"mistmoor", name:"Mistmoor Town", icon:"💨", type:"city",
+    desc:"A fog-bound hamlet adrift on the high moor, its rooftops half-dissolved in drifting steam. Gym Leader Steam strikes from within the haze before you ever see the blow.",
+    connections:["route13","fogbank"],
+    wildMonsters:[
+      {id:181, minLv:72, maxLv:76, rate:25}, // Bouncyblob
+      {id:160, minLv:72, maxLv:76, rate:22}, // Mistbane
+      {id:216, minLv:73, maxLv:76, rate:20}, // Mindrift
+      {id:220, minLv:73, maxLv:76, rate:18}, // Umbrajest
+      {id:216, minLv:74, maxLv:76, rate:15}  // Distorsion
+    ],
+    hasGym:true, gymLeader:"steam", requiredBadges:15, mapPos:{x:3, y:86}
+  },
+  fogbank: {
+    id:"fogbank", name:"Fogbank Reach", icon:"🌫️", type:"route",
+    desc:"A low bank of permanent fog rolling off the moor, where Vapor types drift unseen along the climb toward Gale Ridge.",
+    connections:["mistmoor","wind_hollow"],
+    wildMonsters:[
+      {id:220, minLv:72, maxLv:76, rate:28}, // Shadowveil
+      {id:160, minLv:72, maxLv:76, rate:26}, // Mistbane
+      {id:216, minLv:73, maxLv:76, rate:24}, // Mindrift
+      {id:160, minLv:73, maxLv:76, rate:22}  // Miasmafly
+    ],
+    hasGym:false, requiredBadges:16, mapPos:{x:4, y:91}
   },
   tempest_cliffs: {
     id:"tempest_cliffs", name:"Tempest Cliffs", icon:"⛰️", type:"route",
     desc:"Sheer cliff faces battered by perpetual gales where Gale Ridge meets Gusthaven. Only the most powerful Wind types cling to the rockface here.",
     connections:["gale_ridge_east","gusthaven"],
     wildMonsters:[
-      {id:294, minLv:65, maxLv:70, rate:24},  // Stormwing (mid → 293 on gale_peak ✓)
-      {id:295, minLv:66, maxLv:71, rate:8},  // Cyclonax (final → after 294 ✓)
+      {id:293, minLv:65, maxLv:70, rate:24},  // Stormwing (mid → 293 on gale_peak ✓)
+      {id:293, minLv:66, maxLv:71, rate:8},  // Cyclonax (final → after 294 ✓)
       {id:239, minLv:65, maxLv:70, rate:28},  // Blizzariel (mid → 238 on gale_peak ✓)
-      {id:240, minLv:66, maxLv:71, rate:8},  // Tundrafox (final → after 239 ✓)
-      {id:285, minLv:65, maxLv:70, rate:18},  // Cloudrift (mid → Fluffkin on wind_hollow ✓)
-      {id:174, minLv:65, maxLv:70, rate:14}   // Chromedrake (standalone Draconic/Metal)
+      {id:239, minLv:66, maxLv:71, rate:8},  // Tundrafox (final → after 239 ✓)
+      {id:284, minLv:65, maxLv:70, rate:18},  // Cloudrift (mid → Fluffkin on wind_hollow ✓)
+      {id:173, minLv:65, maxLv:70, rate:14}   // Chromedrake (standalone Draconic/Metal)
     ],
     ngPlusWildMonsters:[{id:386, minLv:66, maxLv:71, rate:8}, {id:333, minLv:66, maxLv:71, rate:10}], // NG+ standalone: Voltafang
-    hasGym:false, requiredBadges:12, mapPos:{x:16, y:97}
+    hasGym:false, requiredBadges:16, mapPos:{x:16, y:97}
   },
   ash_fields: {
     id:"ash_fields", name:"Ash Fields", icon:"🏜️", type:"route",
     desc:"A barren expanse of volcanic ash fields between Gusthaven and the Forge Ruins. Fire types scorch the ashen ground, and Metal types scavenge the slag.",
     connections:["route14","forge_ruins"],
     wildMonsters:[
-      {id:301, minLv:66, maxLv:71, rate:6}, // Hauntcoal (obtainability fix)
-      {id:245, minLv:66, maxLv:71, rate:9},  // Thundravex (mid Electric → 244 ✓)
+      {id:20, minLv:66, maxLv:71, rate:6}, // Hauntcoal (obtainability fix)
+      {id:244, minLv:66, maxLv:71, rate:9},  // Thundravex (mid Electric → 244 ✓)
       {id:275, minLv:66, maxLv:71, rate:13},  // Infernox (mid → 274 Charrock on magma_vent ✓)
       {id:266, minLv:65, maxLv:70, rate:27},  // Shadowcub (base Dark/Sonic, also route10)
       {id:267, minLv:66, maxLv:71, rate:17},  // Nightclaw (mid → after 266 ✓)
@@ -6636,7 +6836,7 @@ const WORLD_DATA = {
       {id:312, minLv:65, maxLv:70, rate:5}    // Dunecrawl (base, also magma_vent)
     ],
     ngPlusWildMonsters:[{id:376, minLv:67, maxLv:72, rate:8}, {id:358, minLv:66, maxLv:71, rate:9}], // NG+ standalone: Psyphoenix
-    hasGym:false, requiredBadges:13, mapPos:{x:30, y:90}
+    hasGym:false, requiredBadges:17, mapPos:{x:30, y:90}
   },
   smelter_pass: {
     id:"smelter_pass", name:"Smelter Pass", icon:"🔥", type:"route",
@@ -6644,14 +6844,14 @@ const WORLD_DATA = {
     connections:["forge_ruins","forge_approach"],
     wildMonsters:[
       {id:281, minLv:67, maxLv:72, rate:25},  // Cogvex (mid → 280 Gearbit on route14 ✓)
-      {id:276, minLv:67, maxLv:72, rate:20},  // Magmaw (final → Infernox on ash_fields ✓)
-      {id:283, minLv:66, maxLv:71, rate:20},  // Rustpike (standalone Metal/Poi)
-      {id:246, minLv:67, maxLv:72, rate:15},  // Megavolt (final → 245 on ash_fields ✓)
-      {id:268, minLv:67, maxLv:72, rate:10},  // Darkfang (final Dark → 267 ✓)
-      {id:307, minLv:66, maxLv:71, rate:10}   // Pyrelynx (standalone Fire/Dark)
+      {id:275, minLv:67, maxLv:72, rate:20},  // Magmaw (final → Infernox on ash_fields ✓)
+      {id:148, minLv:66, maxLv:71, rate:20},  // Rustpike (standalone Metal/Poi)
+      {id:244, minLv:67, maxLv:72, rate:15},  // Megavolt (final → 245 on ash_fields ✓)
+      {id:267, minLv:67, maxLv:72, rate:10},  // Darkfang (final Dark → 267 ✓)
+      {id:115, minLv:66, maxLv:71, rate:10}   // Pyrelynx (standalone Fire/Dark)
     ],
     ngPlusWildMonsters:[{id:365, minLv:67, maxLv:72, rate:9}], // NG+ standalone: Cinderking
-    hasGym:false, requiredBadges:13, mapPos:{x:36, y:91}
+    hasGym:false, requiredBadges:17, mapPos:{x:36, y:91}
   },
   granite_tunnels: {
     id:"granite_tunnels", name:"Granite Tunnels", icon:"⛏️", type:"route",
@@ -6661,28 +6861,40 @@ const WORLD_DATA = {
       {id:249, minLv:68, maxLv:73, rate:24},  // Boulderax (mid → 248 on route11/magma_vent ✓)
       {id:305, minLv:68, maxLv:73, rate:14},  // Yetigeist (mid → 304 Yeticub on route15 ✓)
       {id:233, minLv:68, maxLv:73, rate:18},  // Serpenthorn (mid → 232 Draxon on route15 ✓)
-      {id:174, minLv:68, maxLv:73, rate:10},  // Chromedrake (standalone Draconic/Metal)
+      {id:173, minLv:68, maxLv:73, rate:10},  // Chromedrake (standalone Draconic/Metal)
       {id:251, minLv:67, maxLv:72, rate:28},  // Crumblite (base Rock/Metal, also route15)
-      {id:282, minLv:68, maxLv:73, rate:6}   // Mechabrute (final → Cogvex on smelter_pass ✓)
+      {id:281, minLv:68, maxLv:73, rate:6}   // Mechabrute (final → Cogvex on smelter_pass ✓)
     ],
     ngPlusWildMonsters:[{id:374, minLv:68, maxLv:73, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:14, mapPos:{x:46, y:84}
+    hasGym:false, requiredBadges:18, mapPos:{x:46, y:84}
   },
   crystal_mine: {
     id:"crystal_mine", name:"Crystal Mine", icon:"💎", type:"route",
     desc:"An exhausted gem mine between Stone Plateau and Quarryville where crystalline Rock types have colonized the abandoned shafts.",
-    connections:["stone_plateau","quarryville"],
+    connections:["stone_plateau","quarryville","umbra_citadel"],
     wildMonsters:[
-      {id:250, minLv:70, maxLv:75, rate:14},  // Megalith (final → 249 on granite_tunnels ✓)
-      {id:306, minLv:70, maxLv:75, rate:13},  // Yetigrand (final → 305 on granite_tunnels ✓)
-      {id:234, minLv:70, maxLv:75, rate:13},  // Wyvernak (final → 233 on granite_tunnels ✓)
-      {id:237, minLv:69, maxLv:74, rate:27},  // Icevault (mid → 236 Iciquill on route11 ✓)
-      {id:313, minLv:69, maxLv:74, rate:23},  // Sandrix (mid → 312 Dunecrawl on magma_vent ✓)
-      {id:241, minLv:70, maxLv:75, rate:10}   // Shardlix (location evo from cosmic_cavern energy)
+      {id:249, minLv:70, maxLv:75, rate:14},  // Megalith (final → 249 on granite_tunnels ✓)
+      {id:305, minLv:70, maxLv:75, rate:13},  // Yetigrand (final → 305 on granite_tunnels ✓)
+      {id:233, minLv:70, maxLv:75, rate:13},  // Wyvernak (final → 233 on granite_tunnels ✓)
+      {id:236, minLv:69, maxLv:74, rate:27},  // Icevault (mid → 236 Iciquill on route11 ✓)
+      {id:312, minLv:69, maxLv:74, rate:23},  // Sandrix (mid → 312 Dunecrawl on magma_vent ✓)
+      {id:46, minLv:70, maxLv:75, rate:10}   // Shardlix (location evo from cosmic_cavern energy)
     ],
     legendaryEncounter:{monsterId:317, level:73}, // static legendary (obtainability fix)
     ngPlusWildMonsters:[{id:340, minLv:70, maxLv:75, rate:10}], // NG+: Cryoshard (Chronolith #388 now evolution-only from Mirestone)
-    hasGym:false, requiredBadges:14, mapPos:{x:53, y:83}
+    hasGym:false, requiredBadges:18, mapPos:{x:53, y:83}
+  },
+  umbra_citadel: {
+    id:"umbra_citadel", name:"Umbra Citadel", icon:"🏰", type:"special", hasUmbraEncounter:true,
+    desc:"The Umbra Order's true stronghold — a black spire raised in secret near the peaks above Quarryville. Acolytes, Zealots and Enforcers guard the long climb, and at its summit Commander Shade waits for the trainer who unravelled every plan laid below.",
+    connections:["crystal_mine"],
+    wildMonsters:[
+      {id:122, minLv:84, maxLv:88, rate:30}, // Caveshroud
+      {id:127, minLv:84, maxLv:88, rate:30}, // Wraithfox
+      {id:119, minLv:85, maxLv:88, rate:25}, // Dreadmaw
+      {id:130, minLv:85, maxLv:88, rate:15}  // Necralia
+    ],
+    hasGym:false, requiredBadges:18, mapPos:{x:62, y:90}
   },
   nebula_gorge: {
     id:"nebula_gorge", name:"Nebula Gorge", icon:"🌠", type:"route",
@@ -6690,31 +6902,31 @@ const WORLD_DATA = {
     connections:["route16","cosmic_cavern"],
     wildMonsters:[
       {id:254, minLv:70, maxLv:75, rate:21},  // Bubblepuff (base, also on route16)
-      {id:255, minLv:71, maxLv:76, rate:13},  // Psychotide (mid → after 254 ✓)
+      {id:254, minLv:71, maxLv:76, rate:13},  // Psychotide (mid → after 254 ✓)
       {id:215, minLv:70, maxLv:75, rate:26},  // Veilwisp (base Mental)
       {id:216, minLv:71, maxLv:76, rate:17},  // Mindrift (mid → Psywisp 215 ✓)
-      {id:259, minLv:70, maxLv:75, rate:8},  // Lumejell (standalone Aquatic/Psy)
+      {id:167, minLv:70, maxLv:75, rate:8},  // Lumejell (standalone Aquatic/Psy)
       {id:269, minLv:70, maxLv:75, rate:10},  // Grimshade (base Dark, item evo)
-      {id:271, minLv:70, maxLv:75, rate:5}    // Murkrat (standalone Dark/Normal)
+      {id:79, minLv:70, maxLv:75, rate:5}    // Murkrat (standalone Dark/Normal)
     ],
     ngPlusWildMonsters:[{id:387, minLv:71, maxLv:76, rate:8}, {id:354, minLv:71, maxLv:76, rate:9}], // NG+ standalone: Riftwhale
-    hasGym:false, requiredBadges:15, mapPos:{x:64, y:76}
+    hasGym:false, requiredBadges:19, mapPos:{x:64, y:76}
   },
   astral_plateau: {
     id:"astral_plateau", name:"Astral Plateau", icon:"⭐", type:"route",
     desc:"A high plateau above Cosmic Cavern where the sky seems close enough to touch. Rare Lumori shaped by cosmic energy appear here in the hours around midnight.",
     connections:["cosmic_cavern","starbloom"],
     wildMonsters:[
-      {id:217, minLv:72, maxLv:77, rate:14},  // Distorsion (final Mental)
-      {id:224, minLv:72, maxLv:77, rate:14},  // Psytheon (final → 223 on cosmic_cavern ✓)
-      {id:303, minLv:72, maxLv:77, rate:15},  // Lumivane (Moon Stone evo, base 302 on route16 ✓)
-      {id:229, minLv:72, maxLv:77, rate:15},  // Radiafish (Thunder Stone evo, base 226 on route16 ✓)
-      {id:228, minLv:72, maxLv:77, rate:10},  // Lunaroon (Moon Stone evo, base 226 on route16 ✓)
-      {id:309, minLv:72, maxLv:77, rate:10},  // Tidephant (Aquatic Stone evo, base 308 → Aquatic/Dark)
+      {id:216, minLv:72, maxLv:77, rate:14},  // Distorsion (final Mental)
+      {id:223, minLv:72, maxLv:77, rate:14},  // Psytheon (final → 223 on cosmic_cavern ✓)
+      {id:302, minLv:72, maxLv:77, rate:15},  // Lumivane (Moon Stone evo, base 302 on route16 ✓)
+      {id:294, minLv:72, maxLv:77, rate:15},  // Radiafish (Thunder Stone evo, base 226 on route16 ✓)
+      {id:167, minLv:72, maxLv:77, rate:10},  // Lunaroon (Moon Stone evo, base 226 on route16 ✓)
+      {id:308, minLv:72, maxLv:77, rate:10},  // Tidephant (Aquatic Stone evo, base 308 → Aquatic/Dark)
       {id:308, minLv:71, maxLv:76, rate:22}   // Seafraith (base Aquatic/Dark)
     ],
     ngPlusWildMonsters:[{id:346, minLv:72, maxLv:77, rate:10}], // NG+ standalone: Astralwing
-    hasGym:false, requiredBadges:15, mapPos:{x:67, y:74}
+    hasGym:false, requiredBadges:19, mapPos:{x:67, y:74}
   },
 
   // ============================================================
@@ -6731,7 +6943,7 @@ const WORLD_DATA = {
       {id:159, minLv:67, maxLv:72, rate:17},
       {id:315, minLv:68, maxLv:72, rate:5}   // Ashvanus roams the vents
     ],
-    hasGym:false, requiredBadges:16, requiresChampion:true,
+    hasGym:false, requiredBadges:20, requiresChampion:true,
     hasUmbraEncounter:true, mapPos:{x:81, y:69}
   },
   shadow_archive: {
@@ -6745,13 +6957,13 @@ const WORLD_DATA = {
       {id:120, minLv:69, maxLv:74, rate:20},
       {id:122, minLv:70, maxLv:75, rate:20}
     ],
-    hasGym:false, requiredBadges:16, requiresChampion:true,
+    hasGym:false, requiredBadges:20, requiresChampion:true,
     hasUmbraEncounter:true, mapPos:{x:86, y:73}
   },
   void_nexus: {
     id:"void_nexus", name:"Void Nexus", icon:"🌑", type:"special",
     desc:"The heart of Umbra's post-defeat operations — a nexus of void energy deep in unmapped territory. Only the strongest trainers reach this place. Ultra-rare Lumori cluster around the residual void energy.",
-    connections:["shadow_archive","prismatic_rift","vaeldrian_reaches"],
+    connections:["shadow_archive","prismatic_rift","vaeldrian_reaches","umbra_spire"],
     wildMonsters:[
       {id:270, minLv:72, maxLv:78, rate:18},
       {id:267, minLv:72, maxLv:78, rate:31},
@@ -6759,7 +6971,7 @@ const WORLD_DATA = {
       {id:319, minLv:74, maxLv:78, rate:5},
       {id:320, minLv:74, maxLv:78, rate:5}
     ],
-    hasGym:false, requiredBadges:16, requiresChampion:true,
+    hasGym:false, requiredBadges:20, requiresChampion:true,
     hasUmbraEncounter:true, mapPos:{x:83, y:79},
     ngPlusWildMonsters:[{id:382,minLv:80,maxLv:87,rate:12},{id:352,minLv:81,maxLv:87,rate:15},{id:373,minLv:82,maxLv:88,rate:8}]
   },
@@ -6772,8 +6984,17 @@ const WORLD_DATA = {
     desc:"A convergence point where the boundary between Lumoria and the lost land of Vaeldris grows thin. Thirteen Wielders wait here — survivors of a world that no longer exists, each carrying a bond that outlasted their home.",
     connections:["void_nexus"],
     wildMonsters:[],
-    hasGym:false, requiredBadges:16, requiresChampion:true, requiresDefeated:"umbra_shade",
+    hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade",
     mapPos:{x:88, y:85}
+  },
+
+  umbra_spire: {
+    id:"umbra_spire", name:"Umbra Spire", icon:"🗼", type:"special", hasUmbraEncounter:true,
+    desc:"The black tower Leader Rex raised from the ruins of the old Order. Its stair is a gauntlet of Admins — the grunts you once pitied, remade in his image — and at its summit waits Rex himself, his oldest partner at his side.",
+    connections:["void_nexus"],
+    wildMonsters:[],
+    hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade",
+    mapPos:{x:80, y:78}
   },
 
   // ===== NG+ EXCLUSIVE AREAS =====
@@ -6793,14 +7014,15 @@ const WORLD_DATA = {
       {id:403, minLv:85, maxLv:91, rate:6},
       {id:406, minLv:85, maxLv:91, rate:6}
     ],
-    hasGym:false, requiredBadges:16, requiresChampion:true, requiresNGPlus:true,
+    hasGym:false, requiredBadges:20, requiresChampion:true, requiresNGPlus:true,
     mapPos:{x:76, y:84}
   },
   apex_summit: {
     id:"apex_summit", name:"Apex Summit", icon:"⛰️", type:"special",
     desc:"The highest point in all of Lumoria, accessible only to trainers who have already stood as Champion. A legendary Lumori of pure light waits here for someone worthy of a second journey.",
     connections:["prismatic_rift"],
-    wildMonsters:[
+    wildMonsters:[],
+    ngPlusWildMonsters:[
       {id:384, minLv:88, maxLv:94, rate:27},
       {id:389, minLv:89, maxLv:95, rate:16},
       {id:392, minLv:90, maxLv:96, rate:10},
@@ -6812,7 +7034,7 @@ const WORLD_DATA = {
       {id:404, minLv:90, maxLv:96, rate:10},
       {id:407, minLv:90, maxLv:96, rate:10}
     ],
-    hasGym:false, requiredBadges:16, requiresChampion:true, requiresNGPlus:true,
+    hasGym:false, requiredBadges:20, requiresChampion:true,
     isApexBoss:true, mapPos:{x:70, y:88}
   },
 
@@ -6829,20 +7051,24 @@ const GYM_LEADERS = {
     winQuote:"Not bad! Here, take the Foundation Badge. You've earned it.",
     teams:{
       single:[
-        {monsterId:178, level:11, moves:["collide","cranial_ram","daunt","blitz"]},
-        {monsterId:183, level:14, moves:["cranial_ram","crushing_bulk","daunt","collide"]}
+        {monsterId:104, level:8, moves:["rapid_strike","quick_jab","quake_pulse","double_smash"]},
+        {monsterId:187, level:8, moves:["rapid_strike","quick_jab","double_smash","blitz"]},
+        {monsterId:118, level:9, moves:["chomp","stygian_whisper","run_down","shade_dash"]}
       ],
       double:[
-        {monsterId:178, level:10, moves:["collide","cranial_ram","daunt","blitz"]},
-        {monsterId:180, level:12, moves:["collide","blitz","lashing_tail","cranial_ram"]},
-        {monsterId:183, level:14, moves:["cranial_ram","crushing_bulk","daunt","collide"]}
+        {monsterId:185, level:7, moves:["rapid_strike","quick_jab","gust_jab","double_smash"]},
+        {monsterId:178, level:7, moves:["rapid_strike","quick_jab","double_smash","blitz"]},
+        {monsterId:104, level:8, moves:["rapid_strike","quick_jab","quake_pulse","double_smash"]},
+        {monsterId:187, level:8, moves:["rapid_strike","quick_jab","double_smash","blitz"]},
+        {monsterId:118, level:9, moves:["chomp","stygian_whisper","run_down","shade_dash"]}
       ],
       triple:[
-        {monsterId:178, level:10, moves:["collide","cranial_ram","daunt","blitz"]},
-        {monsterId:180, level:11, moves:["collide","blitz","lashing_tail","cranial_ram"]},
-        {monsterId:182, level:12, moves:["cranial_ram","crushing_bulk","daunt","collide"]},
-        {monsterId:183, level:13, moves:["cranial_ram","crushing_bulk","daunt","collide"]},
-        {monsterId:185, level:13, moves:["collide","breeze","blitz","wingbeat"]}
+        {monsterId:180, level:6, moves:["rapid_strike","quick_jab","double_smash","blitz"]},
+        {monsterId:185, level:7, moves:["rapid_strike","quick_jab","gust_jab","double_smash"]},
+        {monsterId:178, level:7, moves:["rapid_strike","quick_jab","double_smash","blitz"]},
+        {monsterId:104, level:8, moves:["rapid_strike","quick_jab","quake_pulse","double_smash"]},
+        {monsterId:187, level:8, moves:["rapid_strike","quick_jab","double_smash","blitz"]},
+        {monsterId:118, level:9, moves:["chomp","stygian_whisper","run_down","shade_dash"]}
       ]
     }
   },
@@ -6853,21 +7079,24 @@ const GYM_LEADERS = {
     winQuote:"You truly understand the ocean's power. The Wave Badge is yours.",
     teams:{
       single:[
-        {monsterId:25, level:18, moves:["aquatic_gun","bubble_jet","fortify","tidal_sweep"]},
-        {monsterId:5,  level:19, moves:["aquatic_gun","tidal_sweep","tidal_rush","second_wind"]}
+        {monsterId:28, level:13, moves:["rain_cascade","abyssal_jet","wave_dash","aquatic_gun"]},
+        {monsterId:31, level:13, moves:["rain_cascade","abyssal_jet","nerve_agent","wave_dash"]},
+        {monsterId:4, level:14, moves:["rain_cascade","abyssal_jet","wave_dash","aquatic_gun"]}
       ],
       double:[
-        {monsterId:28, level:17, moves:["aquatic_gun","bubble_jet","bewitching_kiss","blitz"]},
-        {monsterId:25, level:18, moves:["aquatic_gun","bubble_jet","fortify","tidal_sweep"]},
-        {monsterId:193, level:19, moves:["aquatic_gun","stone_slide","tidal_sweep","fortify"]},
-        {monsterId:5,  level:20, moves:["aquatic_gun","tidal_sweep","tidal_rush","second_wind"]}
+        {monsterId:84, level:12, moves:["shock_net","thunder_jab","rain_cascade","thunder_chain"]},
+        {monsterId:34, level:12, moves:["rain_cascade","abyssal_jet","glacial_spirit","wave_dash"]},
+        {monsterId:28, level:13, moves:["rain_cascade","abyssal_jet","wave_dash","aquatic_gun"]},
+        {monsterId:31, level:13, moves:["rain_cascade","abyssal_jet","nerve_agent","wave_dash"]},
+        {monsterId:4, level:14, moves:["rain_cascade","abyssal_jet","wave_dash","aquatic_gun"]}
       ],
       triple:[
-        {monsterId:28, level:17, moves:["aquatic_gun","bubble_jet","bewitching_kiss","blitz"]},
-        {monsterId:25, level:18, moves:["aquatic_gun","bubble_jet","fortify","tidal_sweep"]},
-        {monsterId:193, level:18, moves:["aquatic_gun","stone_slide","tidal_sweep","fortify"]},
-        {monsterId:29, level:19, moves:["aquatic_gun","tidal_sweep","bubble_jet","prism_flare"]},
-        {monsterId:5,  level:20, moves:["aquatic_gun","tidal_sweep","tidal_rush","second_wind"]}
+        {monsterId:104, level:11, moves:["rapid_strike","quick_jab","burial_sands","double_smash"]},
+        {monsterId:84, level:12, moves:["shock_net","thunder_jab","rain_cascade","thunder_chain"]},
+        {monsterId:34, level:12, moves:["rain_cascade","abyssal_jet","glacial_spirit","wave_dash"]},
+        {monsterId:28, level:13, moves:["rain_cascade","abyssal_jet","wave_dash","aquatic_gun"]},
+        {monsterId:31, level:13, moves:["rain_cascade","abyssal_jet","nerve_agent","wave_dash"]},
+        {monsterId:4, level:14, moves:["rain_cascade","abyssal_jet","wave_dash","aquatic_gun"]}
       ]
     }
   },
@@ -6878,19 +7107,24 @@ const GYM_LEADERS = {
     winQuote:"Your strength is as intense as a raging wildfire. The Forge Badge is yours!",
     teams:{
       single:[
-        {monsterId:16, level:22, moves:["flicker","blitz","inferno_jet","collide"]},
-        {monsterId:13, level:23, moves:["flicker","cranial_ram","inferno_jet","crushing_bulk"]}
+        {monsterId:1, level:17, moves:["inferno_chop","blazing_rush","flame_charge","flash_fire"]},
+        {monsterId:274, level:18, moves:["inferno_chop","blazing_rush","lode_strike","flame_charge"]},
+        {monsterId:19, level:18, moves:["inferno_chop","blazing_rush","trample","flame_charge"]}
       ],
       double:[
-        {monsterId:16, level:21, moves:["flicker","blitz","inferno_jet","collide"]},
-        {monsterId:10, level:22, moves:["flicker","mandible_bite","flame_fang","shear_strike"]},
-        {monsterId:13, level:23, moves:["flicker","cranial_ram","inferno_jet","crushing_bulk"]}
+        {monsterId:66, level:16, moves:["fae_petals","pheromone_rush","mandible_bite","silk_bind"]},
+        {monsterId:13, level:17, moves:["inferno_chop","blazing_rush","flame_charge","flash_fire"]},
+        {monsterId:1, level:17, moves:["inferno_chop","blazing_rush","flame_charge","flash_fire"]},
+        {monsterId:274, level:18, moves:["inferno_chop","blazing_rush","lode_strike","flame_charge"]},
+        {monsterId:19, level:18, moves:["inferno_chop","blazing_rush","trample","flame_charge"]}
       ],
       triple:[
-        {monsterId:16, level:21, moves:["flicker","blitz","inferno_jet","collide"]},
-        {monsterId:10, level:22, moves:["flicker","mandible_bite","flame_fang","shear_strike"]},
-        {monsterId:17, level:22, moves:["inferno_jet","draconic_claw","searing_gale","draconic_breath"]},
-        {monsterId:13, level:23, moves:["flicker","cranial_ram","inferno_jet","crushing_bulk"]}
+        {monsterId:10, level:16, moves:["inferno_chop","blazing_rush","fae_petals","flame_charge"]},
+        {monsterId:66, level:16, moves:["fae_petals","pheromone_rush","mandible_bite","silk_bind"]},
+        {monsterId:13, level:17, moves:["inferno_chop","blazing_rush","flame_charge","flash_fire"]},
+        {monsterId:1, level:17, moves:["inferno_chop","blazing_rush","flame_charge","flash_fire"]},
+        {monsterId:274, level:18, moves:["inferno_chop","blazing_rush","lode_strike","flame_charge"]},
+        {monsterId:19, level:18, moves:["inferno_chop","blazing_rush","trample","flame_charge"]}
       ]
     }
   },
@@ -6901,19 +7135,24 @@ const GYM_LEADERS = {
     winQuote:"You're truly electrifying! The Current Badge is yours.",
     teams:{
       single:[
-        {monsterId:90, level:26, moves:["jolt","wingbeat","static_strike","volt_jet"]},
-        {monsterId:82, level:28, moves:["volt_jet","static_strike","crushing_bulk","stun_pulse"]}
+        {monsterId:242, level:25, moves:["rising_voltage","relay_shock","melody_cascade","chain_spark"]},
+        {monsterId:92, level:25, moves:["rising_voltage","relay_shock","scorched_sand","chain_spark"]},
+        {monsterId:87, level:26, moves:["rising_voltage","relay_shock","frost_current","chain_spark"]}
       ],
       double:[
-        {monsterId:84, level:25, moves:["jolt","static_strike","mandible_bite","silk_spray"]},
-        {monsterId:90, level:26, moves:["jolt","wingbeat","static_strike","volt_jet"]},
-        {monsterId:82, level:28, moves:["volt_jet","static_strike","crushing_bulk","stun_pulse"]}
+        {monsterId:90, level:24, moves:["rising_voltage","relay_shock","zephyr_arrow","chain_spark"]},
+        {monsterId:293, level:24, moves:["rising_voltage","relay_shock","draco_pulse","chain_spark"]},
+        {monsterId:242, level:25, moves:["rising_voltage","relay_shock","melody_cascade","chain_spark"]},
+        {monsterId:92, level:25, moves:["rising_voltage","relay_shock","scorched_sand","chain_spark"]},
+        {monsterId:87, level:26, moves:["rising_voltage","relay_shock","frost_current","chain_spark"]}
       ],
       triple:[
-        {monsterId:84, level:25, moves:["jolt","static_strike","mandible_bite","silk_spray"]},
-        {monsterId:90, level:26, moves:["jolt","wingbeat","static_strike","volt_jet"]},
-        {monsterId:81, level:27, moves:["jolt","static_strike","volt_jet","blitz"]},
-        {monsterId:82, level:28, moves:["volt_jet","static_strike","crushing_bulk","stun_pulse"]}
+        {monsterId:47, level:23, moves:["flash_freeze","hoarfrost_bite","hail_barrage","borealis_ray"]},
+        {monsterId:90, level:24, moves:["rising_voltage","relay_shock","zephyr_arrow","chain_spark"]},
+        {monsterId:293, level:24, moves:["rising_voltage","relay_shock","draco_pulse","chain_spark"]},
+        {monsterId:242, level:25, moves:["rising_voltage","relay_shock","melody_cascade","chain_spark"]},
+        {monsterId:92, level:25, moves:["rising_voltage","relay_shock","scorched_sand","chain_spark"]},
+        {monsterId:87, level:26, moves:["rising_voltage","relay_shock","frost_current","chain_spark"]}
       ]
     }
   },
@@ -6924,19 +7163,24 @@ const GYM_LEADERS = {
     winQuote:"Your warmth has melted even my icy heart. The Frost Badge is yours.",
     teams:{
       single:[
-        {monsterId:47, level:33, moves:["flurries","blitz","cold_beam","frost_crash"]},
-        {monsterId:50, level:34, moves:["flurries","fortify","cold_beam","whiteout"]}
+        {monsterId:53, level:29, moves:["icicle_smash","aurora_blast","tempest_wave","hail_storm"]},
+        {monsterId:304, level:30, moves:["crystal_spear","underground_crush","icicle_smash","gemburst"]},
+        {monsterId:55, level:30, moves:["icicle_smash","aurora_blast","ki_burst","hail_storm"]}
       ],
       double:[
-        {monsterId:45, level:32, moves:["flurries","aquatic_gun","cold_beam","tidal_rush"]},
-        {monsterId:47, level:33, moves:["flurries","blitz","cold_beam","frost_crash"]},
-        {monsterId:50, level:34, moves:["flurries","fortify","cold_beam","whiteout"]}
+        {monsterId:236, level:28, moves:["icicle_smash","aurora_blast","hail_storm","cryo_lance"]},
+        {monsterId:42, level:29, moves:["icicle_smash","aurora_blast","diving_strike","hail_storm"]},
+        {monsterId:53, level:29, moves:["icicle_smash","aurora_blast","tempest_wave","hail_storm"]},
+        {monsterId:304, level:30, moves:["crystal_spear","underground_crush","icicle_smash","gemburst"]},
+        {monsterId:55, level:30, moves:["icicle_smash","aurora_blast","ki_burst","hail_storm"]}
       ],
       triple:[
-        {monsterId:45, level:32, moves:["flurries","aquatic_gun","cold_beam","tidal_rush"]},
-        {monsterId:47, level:33, moves:["flurries","blitz","cold_beam","frost_crash"]},
-        {monsterId:48, level:33, moves:["whiteout","cold_beam","tidal_rush","frost_crash"]},
-        {monsterId:50, level:34, moves:["flurries","fortify","cold_beam","whiteout"]}
+        {monsterId:256, level:28, moves:["diving_strike","torrent_fang","whirlpool_dive","maelstrom"]},
+        {monsterId:236, level:28, moves:["icicle_smash","aurora_blast","hail_storm","cryo_lance"]},
+        {monsterId:42, level:29, moves:["icicle_smash","aurora_blast","diving_strike","hail_storm"]},
+        {monsterId:53, level:29, moves:["icicle_smash","aurora_blast","tempest_wave","hail_storm"]},
+        {monsterId:304, level:30, moves:["crystal_spear","underground_crush","icicle_smash","gemburst"]},
+        {monsterId:55, level:30, moves:["icicle_smash","aurora_blast","ki_burst","hail_storm"]}
       ]
     }
   },
@@ -6947,19 +7191,24 @@ const GYM_LEADERS = {
     winQuote:"A light that cannot be extinguished... The Dusk Badge is yours.",
     teams:{
       single:[
-        {monsterId:118, level:37, moves:["chomp","blitz","jaw_crush","dusk_slash"]},
-        {monsterId:123, level:39, moves:["chomp","septic_prick","jaw_crush","nether_sphere"]}
+        {monsterId:230, level:37, moves:["dream_torrent","steam_geyser","shockwave_kick","tidal_rush"]},
+        {monsterId:218, level:37, moves:["nightmare_smash","blackout_bomb","nyx_fang","malice_beam"]},
+        {monsterId:220, level:38, moves:["nightmare_smash","blackout_bomb","corrosive_fog","nyx_fang"]}
       ],
       double:[
-        {monsterId:121, level:36, moves:["chomp","breeze","void_pulse","wingbeat"]},
-        {monsterId:118, level:37, moves:["chomp","blitz","jaw_crush","dusk_slash"]},
-        {monsterId:123, level:39, moves:["chomp","septic_prick","jaw_crush","nether_sphere"]}
+        {monsterId:132, level:36, moves:["scorched_earth","crystal_lance","nightmare_smash","geoblast"]},
+        {monsterId:312, level:36, moves:["scorched_earth","crystal_lance","nightmare_smash","geoblast"]},
+        {monsterId:230, level:37, moves:["dream_torrent","steam_geyser","shockwave_kick","tidal_rush"]},
+        {monsterId:218, level:37, moves:["nightmare_smash","blackout_bomb","nyx_fang","malice_beam"]},
+        {monsterId:220, level:38, moves:["nightmare_smash","blackout_bomb","corrosive_fog","nyx_fang"]}
       ],
       triple:[
-        {monsterId:121, level:36, moves:["chomp","breeze","void_pulse","wingbeat"]},
-        {monsterId:118, level:37, moves:["chomp","blitz","jaw_crush","dusk_slash"]},
-        {monsterId:122, level:38, moves:["void_pulse","wingbeat","wind_scythe","nether_sphere"]},
-        {monsterId:123, level:39, moves:["chomp","septic_prick","jaw_crush","nether_sphere"]}
+        {monsterId:78, level:35, moves:["sky_harvest","swarm_strike","nightmare_smash","verdant_edge"]},
+        {monsterId:132, level:36, moves:["scorched_earth","crystal_lance","nightmare_smash","geoblast"]},
+        {monsterId:312, level:36, moves:["scorched_earth","crystal_lance","nightmare_smash","geoblast"]},
+        {monsterId:230, level:37, moves:["dream_torrent","steam_geyser","shockwave_kick","tidal_rush"]},
+        {monsterId:218, level:37, moves:["nightmare_smash","blackout_bomb","nyx_fang","malice_beam"]},
+        {monsterId:220, level:38, moves:["nightmare_smash","blackout_bomb","corrosive_fog","nyx_fang"]}
       ]
     }
   },
@@ -6970,22 +7219,24 @@ const GYM_LEADERS = {
     winQuote:"Incredible. You have rewritten what I thought was fate. The Foresight Badge is yours.",
     teams:{
       single:[
-        {monsterId:166, level:43, moves:["mind_jolt","blitz","psi_burst","second_wind"]},
-        {monsterId:168, level:45, moves:["psi_burst","prism_flare","mental","inner_calm"]}
+        {monsterId:168, level:45, moves:["cerebral_punch","venom_mind","obsidian_burst","cognition_meld"]},
+        {monsterId:302, level:45, moves:["glitter_storm","lunar_burst","enchanted_smash","glimmering_song"]},
+        {monsterId:223, level:46, moves:["cerebral_punch","venom_mind","cognition_meld","psycho_surge"]}
       ],
       double:[
-        {monsterId:167, level:42, moves:["mind_jolt","psi_burst","second_wind","blitz"]},
-        {monsterId:166, level:43, moves:["mind_jolt","blitz","psi_burst","second_wind"]},
-        {monsterId:142, level:43, moves:["mind_jolt","fairy_wind","psi_burst","prism_flare"]},
-        {monsterId:168, level:45, moves:["psi_burst","prism_flare","mental","inner_calm"]}
+        {monsterId:142, level:44, moves:["glitter_storm","lunar_burst","cerebral_punch","enchanted_smash"]},
+        {monsterId:226, level:44, moves:["lumiwave","tornado_grab","cerebral_punch","encore_blast"]},
+        {monsterId:168, level:45, moves:["cerebral_punch","venom_mind","obsidian_burst","cognition_meld"]},
+        {monsterId:302, level:45, moves:["glitter_storm","lunar_burst","enchanted_smash","glimmering_song"]},
+        {monsterId:223, level:46, moves:["cerebral_punch","venom_mind","cognition_meld","psycho_surge"]}
       ],
       triple:[
-        {monsterId:167, level:42, moves:["mind_jolt","psi_burst","second_wind","blitz"]},
-        {monsterId:166, level:43, moves:["mind_jolt","blitz","psi_burst","second_wind"]},
-        {monsterId:142, level:43, moves:["mind_jolt","fairy_wind","psi_burst","prism_flare"]},
-        {monsterId:169, level:44, moves:["mind_jolt","psi_burst","mental","inner_calm"]},
-        {monsterId:170, level:45, moves:["mental","void_pulse","nether_sphere","dusk_slash"]},
-        {monsterId:168, level:45, moves:["psi_burst","prism_flare","mental","inner_calm"]}
+        {monsterId:128, level:43, moves:["cerebral_punch","venom_mind","revenant_charge","cognition_meld"]},
+        {monsterId:142, level:44, moves:["glitter_storm","lunar_burst","cerebral_punch","enchanted_smash"]},
+        {monsterId:226, level:44, moves:["lumiwave","tornado_grab","cerebral_punch","encore_blast"]},
+        {monsterId:168, level:45, moves:["cerebral_punch","venom_mind","obsidian_burst","cognition_meld"]},
+        {monsterId:302, level:45, moves:["glitter_storm","lunar_burst","enchanted_smash","glimmering_song"]},
+        {monsterId:223, level:46, moves:["cerebral_punch","venom_mind","cognition_meld","psycho_surge"]}
       ]
     }
   },
@@ -6996,22 +7247,24 @@ const GYM_LEADERS = {
     winQuote:"You have shown the heart of a true dragon master. The Wyrm Badge is yours!",
     teams:{
       single:[
-        {monsterId:172, level:48, moves:["draconic_breath","draconic_claw","cranial_ram","hydra_dance"]},
-        {monsterId:173, level:50, moves:["draconic_claw","draconic_pulse","hydra_dance","rampage"]}
+        {monsterId:59, level:49, moves:["icebound_lattice","ice_hammer","leviathan_rush","frostbite_strike"]},
+        {monsterId:173, level:49, moves:["leviathan_rush","eon_crash","scale_storm","reptilian_gust"]},
+        {monsterId:233, level:50, moves:["leviathan_rush","eon_crash","luma_quake","scale_storm"]}
       ],
       double:[
-        {monsterId:172, level:47, moves:["draconic_breath","draconic_claw","cranial_ram","hydra_dance"]},
-        {monsterId:174, level:48, moves:["draconic_claw","alloy_tail","draconic_breath","forge_blast_2"]},
-        {monsterId:175, level:49, moves:["aquatic_gun","draconic_breath","tidal_rush","draconic_claw"]},
-        {monsterId:173, level:50, moves:["draconic_claw","draconic_pulse","hydra_dance","rampage"]}
+        {monsterId:206, level:48, moves:["plague_burst","sludge_wave","leviathan_rush","toxic_lash"]},
+        {monsterId:278, level:48, moves:["plasma_smelt","ferrous_gale","moonlit_surge","solar_impact"]},
+        {monsterId:59, level:49, moves:["icebound_lattice","ice_hammer","leviathan_rush","frostbite_strike"]},
+        {monsterId:173, level:49, moves:["leviathan_rush","eon_crash","scale_storm","reptilian_gust"]},
+        {monsterId:233, level:50, moves:["leviathan_rush","eon_crash","luma_quake","scale_storm"]}
       ],
       triple:[
-        {monsterId:172, level:47, moves:["draconic_breath","draconic_claw","cranial_ram","hydra_dance"]},
-        {monsterId:174, level:48, moves:["draconic_claw","alloy_tail","draconic_breath","forge_blast_2"]},
-        {monsterId:175, level:49, moves:["aquatic_gun","draconic_breath","tidal_rush","draconic_claw"]},
-        {monsterId:176, level:49, moves:["jolt","draconic_breath","volt_jet","draconic_claw"]},
-        {monsterId:177, level:50, moves:["cold_beam","draconic_breath","whiteout","draconic_claw"]},
-        {monsterId:173, level:50, moves:["draconic_claw","draconic_pulse","hydra_dance","rampage"]}
+        {monsterId:293, level:47, moves:["tesla_fists","ion_cannon","leviathan_rush","plasma_punch"]},
+        {monsterId:206, level:48, moves:["plague_burst","sludge_wave","leviathan_rush","toxic_lash"]},
+        {monsterId:278, level:48, moves:["plasma_smelt","ferrous_gale","moonlit_surge","solar_impact"]},
+        {monsterId:59, level:49, moves:["icebound_lattice","ice_hammer","leviathan_rush","frostbite_strike"]},
+        {monsterId:173, level:49, moves:["leviathan_rush","eon_crash","scale_storm","reptilian_gust"]},
+        {monsterId:233, level:50, moves:["leviathan_rush","eon_crash","luma_quake","scale_storm"]}
       ]
     }
   },
@@ -7023,21 +7276,24 @@ const GYM_LEADERS = {
     winQuote:"Your spirit is as resilient as ancient oak. The Canopy Badge is yours.",
     teams:{
       single:[
-        {monsterId:263, level:52, moves:["vine_lash","barb_jab","verdant_orb","toxify"]},
-        {monsterId:9,   level:53, moves:["petal_blitz","verdant_orb","lunar_burst","canopy_crash"]}
+        {monsterId:5, level:53, moves:["geyser_burst","tsunami","claw_hammer","ocean_tempest"]},
+        {monsterId:199, level:54, moves:["primordial_growth","hivemind_surge","hurricane_blast","jungle_hammer"]},
+        {monsterId:130, level:54, moves:["eclipse_burst","soul_rend","primordial_growth","shadowstorm"]}
       ],
       double:[
-        {monsterId:8,   level:51, moves:["sharp_leaves","vine_lash","pod_blast","verdant_orb"]},
-        {monsterId:263, level:52, moves:["vine_lash","barb_jab","verdant_orb","toxify"]},
-        {monsterId:264, level:52, moves:["verdant_orb","toxify","ooze_bomb","petal_blitz"]},
-        {monsterId:9,   level:53, moves:["petal_blitz","verdant_orb","lunar_burst","canopy_crash"]}
+        {monsterId:310, level:52, moves:["geyser_burst","tsunami","primordial_growth","claw_hammer"]},
+        {monsterId:8, level:53, moves:["primordial_growth","hivemind_surge","jungle_hammer","verdant_surge"]},
+        {monsterId:5, level:53, moves:["geyser_burst","tsunami","claw_hammer","ocean_tempest"]},
+        {monsterId:199, level:54, moves:["primordial_growth","hivemind_surge","hurricane_blast","jungle_hammer"]},
+        {monsterId:130, level:54, moves:["eclipse_burst","soul_rend","primordial_growth","shadowstorm"]}
       ],
       triple:[
-        {monsterId:8,   level:51, moves:["sharp_leaves","vine_lash","pod_blast","verdant_orb"]},
-        {monsterId:263, level:52, moves:["vine_lash","barb_jab","verdant_orb","toxify"]},
-        {monsterId:264, level:52, moves:["verdant_orb","toxify","ooze_bomb","petal_blitz"]},
-        {monsterId:65,  level:52, moves:["petal_blitz","verdant_orb","verdant_surge","canopy_crash"]},
-        {monsterId:9,   level:53, moves:["petal_blitz","verdant_orb","lunar_burst","canopy_crash"]}
+        {monsterId:78, level:52, moves:["primordial_growth","hivemind_surge","eclipse_burst","jungle_hammer"]},
+        {monsterId:310, level:52, moves:["geyser_burst","tsunami","primordial_growth","claw_hammer"]},
+        {monsterId:8, level:53, moves:["primordial_growth","hivemind_surge","jungle_hammer","verdant_surge"]},
+        {monsterId:5, level:53, moves:["geyser_burst","tsunami","claw_hammer","ocean_tempest"]},
+        {monsterId:199, level:54, moves:["primordial_growth","hivemind_surge","hurricane_blast","jungle_hammer"]},
+        {monsterId:130, level:54, moves:["eclipse_burst","soul_rend","primordial_growth","shadowstorm"]}
       ]
     }
   },
@@ -7048,21 +7304,24 @@ const GYM_LEADERS = {
     winQuote:"You survived my venom... impressive. The Venom Badge is yours.",
     teams:{
       single:[
-        {monsterId:156, level:56, moves:["ooze_bomb","virulent_surge","toxify","acid_rain"]},
-        {monsterId:158, level:57, moves:["sludge_wave","tectonic_shift","acid_rain","toxify"]}
+        {monsterId:62, level:61, moves:["avalanche_smash","glacial_lance","gunk_blast","whiteout"]},
+        {monsterId:158, level:62, moves:["gunk_blast","sludge_cannon","worldseed_quake","venom_drown"]},
+        {monsterId:124, level:62, moves:["wraith_drive","eclipse_burst","gunk_blast","soul_rend"]}
       ],
       double:[
-        {monsterId:156, level:55, moves:["ooze_bomb","virulent_surge","toxify","acid_rain"]},
-        {monsterId:297, level:55, moves:["ooze_bomb","wind_scythe","toxify","resonance_hum"]},
-        {monsterId:208, level:56, moves:["ooze_bomb","draconic_pulse","virulent_surge","toxify"]},
-        {monsterId:158, level:57, moves:["sludge_wave","tectonic_shift","acid_rain","toxify"]}
+        {monsterId:155, level:60, moves:["gunk_blast","sludge_cannon","venom_drown","plague_burst"]},
+        {monsterId:193, level:61, moves:["ocean_crash","geyser_burst","quartz_blast","tsunami"]},
+        {monsterId:62, level:61, moves:["avalanche_smash","glacial_lance","gunk_blast","whiteout"]},
+        {monsterId:158, level:62, moves:["gunk_blast","sludge_cannon","worldseed_quake","venom_drown"]},
+        {monsterId:124, level:62, moves:["wraith_drive","eclipse_burst","gunk_blast","soul_rend"]}
       ],
       triple:[
-        {monsterId:156, level:55, moves:["ooze_bomb","virulent_surge","toxify","acid_rain"]},
-        {monsterId:297, level:55, moves:["ooze_bomb","wind_scythe","toxify","resonance_hum"]},
-        {monsterId:99,  level:56, moves:["ooze_bomb","tectonic_shift","toxify","virulent_surge"]},
-        {monsterId:208, level:56, moves:["ooze_bomb","draconic_pulse","virulent_surge","toxify"]},
-        {monsterId:158, level:57, moves:["sludge_wave","tectonic_shift","acid_rain","toxify"]}
+        {monsterId:98, level:60, moves:["worldseed_quake","continental_shift","gunk_blast","cryo_shatter"]},
+        {monsterId:155, level:60, moves:["gunk_blast","sludge_cannon","venom_drown","plague_burst"]},
+        {monsterId:193, level:61, moves:["ocean_crash","geyser_burst","quartz_blast","tsunami"]},
+        {monsterId:62, level:61, moves:["avalanche_smash","glacial_lance","gunk_blast","whiteout"]},
+        {monsterId:158, level:62, moves:["gunk_blast","sludge_cannon","worldseed_quake","venom_drown"]},
+        {monsterId:124, level:62, moves:["wraith_drive","eclipse_burst","gunk_blast","soul_rend"]}
       ]
     }
   },
@@ -7073,21 +7332,24 @@ const GYM_LEADERS = {
     winQuote:"The ground trembles in respect. The Tectonic Badge is yours.",
     teams:{
       single:[
-        {monsterId:96,  level:59, moves:["tectonic_shift","stone_slide","mud_spray","crag_strike"]},
-        {monsterId:54,  level:60, moves:["tectonic_shift","whiteout","cold_beam","geoblast"]}
+        {monsterId:192, level:65, moves:["worldseed_quake","continental_shift","cryo_shatter","bedrock_slam"]},
+        {monsterId:223, level:66, moves:["veil_collapse","temporal_collapse","prophecy","psy_blast"]},
+        {monsterId:205, level:66, moves:["sun_ray","blossom_frenzy","worldseed_quake","primordial_growth"]}
       ],
       double:[
-        {monsterId:96,  level:58, moves:["tectonic_shift","stone_slide","mud_spray","crag_strike"]},
-        {monsterId:310, level:59, moves:["mud_spray","aquatic_gun","tectonic_shift","mire_burst"]},
-        {monsterId:311, level:59, moves:["tidal_rush","tectonic_shift","geoblast","mud_spray"]},
-        {monsterId:54,  level:60, moves:["tectonic_shift","whiteout","cold_beam","geoblast"]}
+        {monsterId:249, level:64, moves:["worldseed_quake","continental_shift","cryo_shatter","bedrock_slam"]},
+        {monsterId:233, level:65, moves:["sky_surge","rampage","worldseed_quake","stellar_flare"]},
+        {monsterId:192, level:65, moves:["worldseed_quake","continental_shift","cryo_shatter","bedrock_slam"]},
+        {monsterId:223, level:66, moves:["veil_collapse","temporal_collapse","prophecy","psy_blast"]},
+        {monsterId:205, level:66, moves:["sun_ray","blossom_frenzy","worldseed_quake","primordial_growth"]}
       ],
       triple:[
-        {monsterId:96,  level:58, moves:["tectonic_shift","stone_slide","mud_spray","crag_strike"]},
-        {monsterId:310, level:59, moves:["mud_spray","aquatic_gun","tectonic_shift","mire_burst"]},
-        {monsterId:311, level:59, moves:["tidal_rush","tectonic_shift","geoblast","mud_spray"]},
-        {monsterId:250, level:59, moves:["tectonic_shift","crag_strike","stone_slide","landslide"]},
-        {monsterId:54,  level:60, moves:["tectonic_shift","whiteout","cold_beam","geoblast"]}
+        {monsterId:95, level:64, moves:["worldseed_quake","continental_shift","cryo_shatter","bedrock_slam"]},
+        {monsterId:249, level:64, moves:["worldseed_quake","continental_shift","cryo_shatter","bedrock_slam"]},
+        {monsterId:233, level:65, moves:["sky_surge","rampage","worldseed_quake","stellar_flare"]},
+        {monsterId:192, level:65, moves:["worldseed_quake","continental_shift","cryo_shatter","bedrock_slam"]},
+        {monsterId:223, level:66, moves:["veil_collapse","temporal_collapse","prophecy","psy_blast"]},
+        {monsterId:205, level:66, moves:["sun_ray","blossom_frenzy","worldseed_quake","primordial_growth"]}
       ]
     }
   },
@@ -7098,22 +7360,24 @@ const GYM_LEADERS = {
     winQuote:"Your reflexes rival even my bugs. The Chitin Badge is yours!",
     teams:{
       single:[
-        {monsterId:201, level:62, moves:["shear_strike","resonance_hum","alloy_tail","mandible_crush"]},
-        {monsterId:203, level:63, moves:["resonance_hum","lunar_burst","shear_strike","prism_flare"]}
+        {monsterId:130, level:69, moves:["abyssal_wave","abyssal_dominion","foliage_tempest","wraith_drive"]},
+        {monsterId:203, level:70, moves:["foliage_tempest","sun_ray","supernova_glow","blossom_frenzy"]},
+        {monsterId:205, level:70, moves:["foliage_tempest","sun_ray","world_root_bind","blossom_frenzy"]}
       ],
       double:[
-        {monsterId:201, level:61, moves:["shear_strike","resonance_hum","alloy_tail","mandible_crush"]},
-        {monsterId:197, level:62, moves:["mandible_bite","shear_strike","septic_prick","resonance_hum"]},
-        {monsterId:299, level:62, moves:["mandible_bite","septic_prick","shear_strike","toxify"]},
-        {monsterId:203, level:63, moves:["resonance_hum","lunar_burst","shear_strike","prism_flare"]}
+        {monsterId:199, level:68, moves:["foliage_tempest","sun_ray","thunderstorm_eruption","blossom_frenzy"]},
+        {monsterId:223, level:69, moves:["time_fracture","veil_collapse","temporal_collapse","prophecy"]},
+        {monsterId:130, level:69, moves:["abyssal_wave","abyssal_dominion","foliage_tempest","wraith_drive"]},
+        {monsterId:203, level:70, moves:["foliage_tempest","sun_ray","supernova_glow","blossom_frenzy"]},
+        {monsterId:205, level:70, moves:["foliage_tempest","sun_ray","world_root_bind","blossom_frenzy"]}
       ],
       triple:[
-        {monsterId:201, level:61, moves:["shear_strike","resonance_hum","alloy_tail","mandible_crush"]},
-        {monsterId:197, level:62, moves:["mandible_bite","shear_strike","septic_prick","resonance_hum"]},
-        {monsterId:299, level:62, moves:["mandible_bite","septic_prick","shear_strike","toxify"]},
-        {monsterId:300, level:62, moves:["shear_strike","ooze_bomb","toxify","resonance_hum"]},
-        {monsterId:199, level:63, moves:["resonance_hum","wind_scythe","shear_strike","typhoon"]},
-        {monsterId:203, level:63, moves:["resonance_hum","lunar_burst","shear_strike","prism_flare"]}
+        {monsterId:8, level:68, moves:["foliage_tempest","sun_ray","blossom_frenzy","primordial_growth"]},
+        {monsterId:199, level:68, moves:["foliage_tempest","sun_ray","thunderstorm_eruption","blossom_frenzy"]},
+        {monsterId:223, level:69, moves:["time_fracture","veil_collapse","temporal_collapse","prophecy"]},
+        {monsterId:130, level:69, moves:["abyssal_wave","abyssal_dominion","foliage_tempest","wraith_drive"]},
+        {monsterId:203, level:70, moves:["foliage_tempest","sun_ray","supernova_glow","blossom_frenzy"]},
+        {monsterId:205, level:70, moves:["foliage_tempest","sun_ray","world_root_bind","blossom_frenzy"]}
       ]
     }
   },
@@ -7124,22 +7388,22 @@ const GYM_LEADERS = {
     winQuote:"You've weathered the fiercest gale. The Tempest Badge is yours.",
     teams:{
       single:[
-        {monsterId:112, level:65, moves:["typhoon","wind_scythe","cyclone_blade","jetstream"]},
-        {monsterId:314, level:66, moves:["typhoon","volt_jet","tempest_wrath","gale_cannon"]}
+        {monsterId:112, level:77, moves:["typhoon","wind_scythe","cyclone_blade","jetstream"]},
+        {monsterId:314, level:78, moves:["typhoon","volt_jet","tempest_wrath","gale_cannon"]}
       ],
       double:[
-        {monsterId:112, level:64, moves:["typhoon","wind_scythe","cyclone_blade","jetstream"]},
-        {monsterId:294, level:65, moves:["typhoon","draconic_breath","wind_scythe","cyclone_blade"]},
-        {monsterId:295, level:65, moves:["typhoon","draconic_claw","wind_scythe","cyclone_blade"]},
-        {monsterId:314, level:66, moves:["typhoon","volt_jet","tempest_wrath","gale_cannon"]}
+        {monsterId:112, level:76, moves:["typhoon","wind_scythe","cyclone_blade","jetstream"]},
+        {monsterId:294, level:77, moves:["typhoon","draconic_breath","wind_scythe","cyclone_blade"]},
+        {monsterId:295, level:77, moves:["typhoon","draconic_claw","wind_scythe","cyclone_blade"]},
+        {monsterId:314, level:78, moves:["typhoon","volt_jet","tempest_wrath","gale_cannon"]}
       ],
       triple:[
-        {monsterId:112, level:64, moves:["typhoon","wind_scythe","cyclone_blade","jetstream"]},
-        {monsterId:294, level:65, moves:["typhoon","draconic_breath","wind_scythe","cyclone_blade"]},
-        {monsterId:295, level:65, moves:["typhoon","draconic_claw","wind_scythe","cyclone_blade"]},
-        {monsterId:186, level:65, moves:["crushing_bulk","typhoon","wind_scythe","blitz"]},
-        {monsterId:199, level:65, moves:["resonance_hum","wind_scythe","shear_strike","typhoon"]},
-        {monsterId:314, level:66, moves:["typhoon","volt_jet","tempest_wrath","gale_cannon"]}
+        {monsterId:112, level:76, moves:["typhoon","wind_scythe","cyclone_blade","jetstream"]},
+        {monsterId:294, level:77, moves:["typhoon","draconic_breath","wind_scythe","cyclone_blade"]},
+        {monsterId:295, level:77, moves:["typhoon","draconic_claw","wind_scythe","cyclone_blade"]},
+        {monsterId:186, level:77, moves:["crushing_bulk","typhoon","wind_scythe","blitz"]},
+        {monsterId:265, level:77, moves:["resonance_hum","wind_scythe","shear_strike","typhoon"]},
+        {monsterId:314, level:78, moves:["typhoon","volt_jet","tempest_wrath","gale_cannon"]}
       ]
     }
   },
@@ -7151,21 +7415,21 @@ const GYM_LEADERS = {
     winQuote:"Even steel bends before your will. The Alloy Badge is yours.",
     teams:{
       single:[
-        {monsterId:148, level:68, moves:["alloy_tail","forge_strike","forge_blast_2","jaw_crush"]},
-        {monsterId:151, level:69, moves:["tungsten_ram","forge_blast_2","stormbolt","alloy_tail"]}
+        {monsterId:148, level:81, moves:["alloy_tail","forge_strike","forge_blast_2","jaw_crush"]},
+        {monsterId:151, level:82, moves:["tungsten_ram","forge_blast_2","stormbolt","alloy_tail"]}
       ],
       double:[
-        {monsterId:148, level:67, moves:["alloy_tail","forge_strike","forge_blast_2","jaw_crush"]},
-        {monsterId:252, level:68, moves:["crag_strike","alloy_tail","forge_blast_2","stone_slide"]},
-        {monsterId:279, level:68, moves:["forge_blast_2","lunar_burst","alloy_tail","prism_flare"]},
-        {monsterId:151, level:69, moves:["tungsten_ram","forge_blast_2","stormbolt","alloy_tail"]}
+        {monsterId:148, level:80, moves:["alloy_tail","forge_strike","forge_blast_2","jaw_crush"]},
+        {monsterId:252, level:81, moves:["crag_strike","alloy_tail","forge_blast_2","stone_slide"]},
+        {monsterId:279, level:81, moves:["forge_blast_2","lunar_burst","alloy_tail","prism_flare"]},
+        {monsterId:151, level:82, moves:["tungsten_ram","forge_blast_2","stormbolt","alloy_tail"]}
       ],
       triple:[
-        {monsterId:148, level:67, moves:["alloy_tail","forge_strike","forge_blast_2","jaw_crush"]},
-        {monsterId:252, level:68, moves:["crag_strike","alloy_tail","forge_blast_2","stone_slide"]},
-        {monsterId:279, level:68, moves:["forge_blast_2","lunar_burst","alloy_tail","prism_flare"]},
-        {monsterId:174, level:68, moves:["draconic_claw","alloy_tail","draconic_breath","forge_blast_2"]},
-        {monsterId:151, level:69, moves:["tungsten_ram","forge_blast_2","stormbolt","alloy_tail"]}
+        {monsterId:148, level:80, moves:["alloy_tail","forge_strike","forge_blast_2","jaw_crush"]},
+        {monsterId:252, level:81, moves:["crag_strike","alloy_tail","forge_blast_2","stone_slide"]},
+        {monsterId:279, level:81, moves:["forge_blast_2","lunar_burst","alloy_tail","prism_flare"]},
+        {monsterId:174, level:81, moves:["draconic_claw","alloy_tail","draconic_breath","forge_blast_2"]},
+        {monsterId:151, level:82, moves:["tungsten_ram","forge_blast_2","stormbolt","alloy_tail"]}
       ]
     }
   },
@@ -7177,22 +7441,22 @@ const GYM_LEADERS = {
     winQuote:"You've shattered my defenses. The Geode Badge is yours.",
     teams:{
       single:[
-        {monsterId:191, level:70, moves:["crag_strike","stone_slide","collide","cranial_ram"]},
-        {monsterId:192, level:71, moves:["tectonic_shift","crag_strike","stone_slide","landslide"]},
-        {monsterId:152, level:72, moves:["tungsten_ram","crag_strike","alloy_tail","landslide"]}
+        {monsterId:154, level:88, moves:["crag_strike","stone_slide","collide","cranial_ram"]},
+        {monsterId:192, level:89, moves:["tectonic_shift","crag_strike","stone_slide","landslide"]},
+        {monsterId:152, level:90, moves:["tungsten_ram","crag_strike","alloy_tail","landslide"]}
       ],
       double:[
-        {monsterId:191, level:70, moves:["crag_strike","stone_slide","collide","cranial_ram"]},
-        {monsterId:192, level:70, moves:["tectonic_shift","crag_strike","stone_slide","landslide"]},
-        {monsterId:304, level:71, moves:["crystal_lance","crag_strike","cold_beam","stone_slide"]},
-        {monsterId:305, level:71, moves:["crag_strike","cold_beam","stone_slide","whiteout"]}
+        {monsterId:154, level:88, moves:["crag_strike","stone_slide","collide","cranial_ram"]},
+        {monsterId:192, level:88, moves:["tectonic_shift","crag_strike","stone_slide","landslide"]},
+        {monsterId:306, level:89, moves:["crystal_lance","crag_strike","cold_beam","stone_slide"]},
+        {monsterId:305, level:89, moves:["crag_strike","cold_beam","stone_slide","whiteout"]}
       ],
       triple:[
-        {monsterId:191, level:70, moves:["crag_strike","stone_slide","collide","cranial_ram"]},
-        {monsterId:192, level:70, moves:["tectonic_shift","crag_strike","stone_slide","landslide"]},
-        {monsterId:304, level:71, moves:["crystal_lance","crag_strike","cold_beam","stone_slide"]},
-        {monsterId:305, level:71, moves:["crag_strike","cold_beam","stone_slide","whiteout"]},
-        {monsterId:152, level:72, moves:["tungsten_ram","crag_strike","alloy_tail","landslide"]}
+        {monsterId:154, level:88, moves:["crag_strike","stone_slide","collide","cranial_ram"]},
+        {monsterId:192, level:88, moves:["tectonic_shift","crag_strike","stone_slide","landslide"]},
+        {monsterId:306, level:89, moves:["crystal_lance","crag_strike","cold_beam","stone_slide"]},
+        {monsterId:305, level:89, moves:["crag_strike","cold_beam","stone_slide","whiteout"]},
+        {monsterId:152, level:90, moves:["tungsten_ram","crag_strike","alloy_tail","landslide"]}
       ]
     }
   },
@@ -7204,21 +7468,229 @@ const GYM_LEADERS = {
     winQuote:"Your heart shines brighter than any fairy light. The Aurora Badge is yours!",
     teams:{
       single:[
-        {monsterId:302, level:74, moves:["lunar_burst","prism_flare","fairy_wind","vampiric_kiss"]},
-        {monsterId:143, level:75, moves:["lunar_burst","mental","celestial_wave","inner_calm"]}
+        {monsterId:146, level:97, moves:["lunar_burst","prism_flare","fairy_wind","vampiric_kiss"]},
+        {monsterId:143, level:98, moves:["lunar_burst","mental","celestial_wave","inner_calm"]}
       ],
       double:[
-        {monsterId:138, level:73, moves:["lunar_burst","prism_flare","fairy_wind","celestial_wave"]},
-        {monsterId:302, level:74, moves:["lunar_burst","prism_flare","fairy_wind","vampiric_kiss"]},
-        {monsterId:303, level:74, moves:["lunar_burst","mental","prism_flare","inner_calm"]},
-        {monsterId:143, level:75, moves:["lunar_burst","mental","celestial_wave","inner_calm"]}
+        {monsterId:138, level:96, moves:["lunar_burst","prism_flare","fairy_wind","celestial_wave"]},
+        {monsterId:146, level:97, moves:["lunar_burst","prism_flare","fairy_wind","vampiric_kiss"]},
+        {monsterId:303, level:97, moves:["lunar_burst","mental","prism_flare","inner_calm"]},
+        {monsterId:143, level:98, moves:["lunar_burst","mental","celestial_wave","inner_calm"]}
       ],
       triple:[
-        {monsterId:138, level:73, moves:["lunar_burst","prism_flare","fairy_wind","celestial_wave"]},
-        {monsterId:302, level:74, moves:["lunar_burst","prism_flare","fairy_wind","vampiric_kiss"]},
-        {monsterId:303, level:74, moves:["lunar_burst","mental","prism_flare","inner_calm"]},
-        {monsterId:142, level:74, moves:["mind_jolt","fairy_wind","psi_burst","prism_flare"]},
-        {monsterId:143, level:75, moves:["lunar_burst","mental","celestial_wave","inner_calm"]}
+        {monsterId:138, level:96, moves:["lunar_burst","prism_flare","fairy_wind","celestial_wave"]},
+        {monsterId:146, level:97, moves:["lunar_burst","prism_flare","fairy_wind","vampiric_kiss"]},
+        {monsterId:303, level:97, moves:["lunar_burst","mental","prism_flare","inner_calm"]},
+        {monsterId:144, level:97, moves:["mind_jolt","fairy_wind","psi_burst","prism_flare"]},
+        {monsterId:143, level:98, moves:["lunar_burst","mental","celestial_wave","inner_calm"]}
+      ]
+    }
+  },
+  kano: {
+    id:"kano", name:"Leader Kano", emoji:"🥋", type:"Fighting",
+    badge:"Resolve Badge", badgeEmoji:"🥋",
+    quote:"Strength is earned, never given. Show me your resolve!",
+    winQuote:"You fought with true heart. The Resolve Badge is yours.",
+    teams:{
+      single:[
+        {monsterId:182, level:20, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]},
+        {monsterId:123, level:21, moves:["umbral_pulse","shadow_jab","plague_strike","backstab"]},
+        {monsterId:230, level:22, moves:["brine_slash","bubble_jet","focused_beam","aquatic_pulse"]}
+      ],
+      double:[
+        {monsterId:262, level:19, moves:["focused_beam","leg_sweep","venom_ray","roundhouse"]},
+        {monsterId:280, level:20, moves:["alloy_edge","wrought_shockwave","focused_beam","magnetic_mine"]},
+        {monsterId:182, level:20, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]},
+        {monsterId:123, level:21, moves:["umbral_pulse","shadow_jab","plague_strike","backstab"]},
+        {monsterId:230, level:22, moves:["brine_slash","bubble_jet","focused_beam","aquatic_pulse"]}
+      ],
+      triple:[
+        {monsterId:69, level:18, moves:["leafblade_swirl","venom_drool","focused_beam","fae_petals"]},
+        {monsterId:262, level:19, moves:["focused_beam","leg_sweep","venom_ray","roundhouse"]},
+        {monsterId:280, level:20, moves:["alloy_edge","wrought_shockwave","focused_beam","magnetic_mine"]},
+        {monsterId:182, level:20, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]},
+        {monsterId:123, level:21, moves:["umbral_pulse","shadow_jab","plague_strike","backstab"]},
+        {monsterId:230, level:22, moves:["brine_slash","bubble_jet","focused_beam","aquatic_pulse"]}
+      ]
+    }
+  },
+  marl: {
+    id:"marl", name:"Leader Marl", emoji:"⛏️", type:"Mineral",
+    badge:"Strata Badge", badgeEmoji:"⛏️",
+    quote:"Every gem is forged under pressure. Let's apply some.",
+    winQuote:"Solid as bedrock. Take the Strata Badge.",
+    teams:{
+      single:[
+        {monsterId:168, level:32, moves:["brain_blast","noetic_burst","marble_resonance","cortex_spike"]},
+        {monsterId:132, level:33, moves:["mineral_blast","aftershock","nyx_fang","magma_stone"]},
+        {monsterId:193, level:34, moves:["riptide_slam","diving_strike","marble_resonance","torrent_fang"]}
+      ],
+      double:[
+        {monsterId:63, level:31, moves:["sylvan_radiance","pollen_storm","cocoon_burst","mandible_crush"]},
+        {monsterId:251, level:32, moves:["pyro_alloy","iron_press","marble_resonance","flywheel"]},
+        {monsterId:168, level:32, moves:["brain_blast","noetic_burst","marble_resonance","cortex_spike"]},
+        {monsterId:132, level:33, moves:["mineral_blast","aftershock","nyx_fang","magma_stone"]},
+        {monsterId:193, level:34, moves:["riptide_slam","diving_strike","marble_resonance","torrent_fang"]}
+      ],
+      triple:[
+        {monsterId:274, level:30, moves:["flare_uppercut","cinderwhirl","marble_resonance","coal_smash"]},
+        {monsterId:63, level:31, moves:["sylvan_radiance","pollen_storm","cocoon_burst","mandible_crush"]},
+        {monsterId:251, level:32, moves:["pyro_alloy","iron_press","marble_resonance","flywheel"]},
+        {monsterId:168, level:32, moves:["brain_blast","noetic_burst","marble_resonance","cortex_spike"]},
+        {monsterId:132, level:33, moves:["mineral_blast","aftershock","nyx_fang","magma_stone"]},
+        {monsterId:193, level:34, moves:["riptide_slam","diving_strike","marble_resonance","torrent_fang"]}
+      ]
+    }
+  },
+  echo: {
+    id:"echo", name:"Leader Echo", emoji:"🔊", type:"Sonic",
+    badge:"Resonance Badge", badgeEmoji:"🔊",
+    quote:"Can you keep pace with my rhythm? Let's find your frequency.",
+    winQuote:"A flawless harmony. The Resonance Badge resonates for you.",
+    teams:{
+      single:[
+        {monsterId:300, level:110, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
+        {monsterId:292, level:112, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]}
+      ],
+      double:[
+        {monsterId:243, level:108, moves:["dreamscape_smash","decibel_burst","somnia_blast","harmonic_burst"]},
+        {monsterId:356, level:110, moves:["volt_surge","concussive_strike","stormbolt","shockwave_boom"]},
+        {monsterId:292, level:112, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]}
+      ],
+      triple:[
+        {monsterId:300, level:108, moves:["venom_ray","wave_cry","radiance_cannon","pox_mark"]},
+        {monsterId:243, level:109, moves:["dreamscape_smash","decibel_burst","somnia_blast","harmonic_burst"]},
+        {monsterId:413, level:110, moves:["serpent_rage","threnody","resonance_quake","rampage"]},
+        {monsterId:389, level:111, moves:["arc_flash","threnody","volt_surge","concussive_strike"]},
+        {monsterId:292, level:112, moves:["squall_slash","resonant_smash","radiance_cannon","slipstream"]}
+      ]
+    }
+  },
+  acrid: {
+    id:"acrid", name:"Leader Acrid", emoji:"☣️", type:"Toxin",
+    badge:"Corrosion Badge", badgeEmoji:"☣️",
+    quote:"My toxins dissolve all resistance. Care to dissolve with them?",
+    winQuote:"You endured the corrosion. The badge is yours.",
+    teams:{
+      single:[
+        {monsterId:263, level:56, moves:["heaven_strike","brawl","plague_wave","spinning_kick"]},
+        {monsterId:297, level:57, moves:["venom_drown","plague_burst","plague_wave","sludge_wave"]},
+        {monsterId:163, level:58, moves:["primordial_growth","hivemind_surge","plague_wave","jungle_hammer"]}
+      ],
+      double:[
+        {monsterId:299, level:55, moves:["plague_wave","toxin_smash","harmonic_burst","malignant_storm"]},
+        {monsterId:193, level:56, moves:["geyser_burst","tsunami","basalt_eruption","claw_hammer"]},
+        {monsterId:263, level:56, moves:["heaven_strike","brawl","plague_wave","spinning_kick"]},
+        {monsterId:297, level:57, moves:["venom_drown","plague_burst","plague_wave","sludge_wave"]},
+        {monsterId:163, level:58, moves:["primordial_growth","hivemind_surge","plague_wave","jungle_hammer"]}
+      ],
+      triple:[
+        {monsterId:296, level:54, moves:["venom_drown","plague_burst","plague_wave","sludge_wave"]},
+        {monsterId:299, level:55, moves:["plague_wave","toxin_smash","harmonic_burst","malignant_storm"]},
+        {monsterId:193, level:56, moves:["geyser_burst","tsunami","basalt_eruption","claw_hammer"]},
+        {monsterId:263, level:56, moves:["heaven_strike","brawl","plague_wave","spinning_kick"]},
+        {monsterId:297, level:57, moves:["venom_drown","plague_burst","plague_wave","sludge_wave"]},
+        {monsterId:163, level:58, moves:["primordial_growth","hivemind_surge","plague_wave","jungle_hammer"]}
+      ]
+    }
+  },
+  steam: {
+    id:"steam", name:"Leader Steam", emoji:"💨", type:"Vapor",
+    badge:"Mist Badge", badgeEmoji:"💨",
+    quote:"You can't strike what you can't see. Into the mist!",
+    winQuote:"You cut clean through the haze. Take the Mist Badge.",
+    teams:{
+      single:[
+        {monsterId:161, level:72, moves:["gunk_blast","sludge_cannon","miasma_apocalypse","venom_drown"]},
+        {monsterId:217, level:73, moves:["psychic_blizzard","time_fracture","miasma_apocalypse","veil_collapse"]},
+        {monsterId:289, level:74, moves:["last_stand","reckless_charge","miasma_apocalypse","zenith_ray"]}
+      ],
+      double:[
+        {monsterId:216, level:71, moves:["psychic_blizzard","time_fracture","miasma_apocalypse","veil_collapse"]},
+        {monsterId:249, level:72, moves:["meteor_strike","mantle_surge","world_root_bind","worldseed_quake"]},
+        {monsterId:161, level:72, moves:["gunk_blast","sludge_cannon","miasma_apocalypse","venom_drown"]},
+        {monsterId:217, level:73, moves:["psychic_blizzard","time_fracture","miasma_apocalypse","veil_collapse"]},
+        {monsterId:289, level:74, moves:["last_stand","reckless_charge","miasma_apocalypse","zenith_ray"]}
+      ],
+      triple:[
+        {monsterId:160, level:70, moves:["gunk_blast","sludge_cannon","miasma_apocalypse","venom_drown"]},
+        {monsterId:216, level:71, moves:["psychic_blizzard","time_fracture","miasma_apocalypse","veil_collapse"]},
+        {monsterId:249, level:72, moves:["meteor_strike","mantle_surge","world_root_bind","worldseed_quake"]},
+        {monsterId:161, level:72, moves:["gunk_blast","sludge_cannon","miasma_apocalypse","venom_drown"]},
+        {monsterId:217, level:73, moves:["psychic_blizzard","time_fracture","miasma_apocalypse","veil_collapse"]},
+        {monsterId:289, level:74, moves:["last_stand","reckless_charge","miasma_apocalypse","zenith_ray"]}
+      ]
+    }
+  },
+  mortis: {
+    id:"mortis", name:"Leader Mortis", emoji:"👻", type:"Spectral",
+    badge:"Phantom Badge", badgeEmoji:"👻",
+    quote:"The veil between worlds is thin here. Dare you cross it?",
+    winQuote:"You faced the phantoms unflinching. The badge is yours.",
+    teams:{
+      single:[
+        {monsterId:309, level:115, moves:["geyser_burst","ghastly_wail","radiance_cannon","spectral_veil"]},
+        {monsterId:268, level:117, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]}
+      ],
+      double:[
+        {monsterId:301, level:113, moves:["searing_gale","phantom_beam","radiance_cannon","eclipse_shroud"]},
+        {monsterId:343, level:115, moves:["abyssal_dominion","reaper_scythe","neural_storm","fear_aura"]},
+        {monsterId:268, level:117, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]}
+      ],
+      triple:[
+        {monsterId:273, level:113, moves:["eternal_ember","eternal_haunt","conflagration","spirit_drain"]},
+        {monsterId:309, level:114, moves:["geyser_burst","ghastly_wail","radiance_cannon","spectral_veil"]},
+        {monsterId:301, level:115, moves:["searing_gale","phantom_beam","radiance_cannon","eclipse_shroud"]},
+        {monsterId:343, level:116, moves:["abyssal_dominion","reaper_scythe","neural_storm","fear_aura"]},
+        {monsterId:268, level:117, moves:["phantom_claw","reaper_scythe","radiance_cannon","dread_howl"]}
+      ]
+    }
+  },
+  somna: {
+    id:"somna", name:"Leader Somna", emoji:"💤", type:"Dream",
+    badge:"Reverie Badge", badgeEmoji:"💤",
+    quote:"Drift into my dreamscape... if you can stay awake.",
+    winQuote:"You kept your focus through the reverie. Well done.",
+    teams:{
+      single:[
+        {monsterId:170, level:120, moves:["shadow_lance","trance_wave","dusk_slash","war_dance"]},
+        {monsterId:261, level:122, moves:["briar_lash","dreamscape_smash","lullaby_strike","sap_seed"]}
+      ],
+      double:[
+        {monsterId:247, level:118, moves:["jolt","lullaby_strike","radiance_cannon","trance_wave"]},
+        {monsterId:431, level:120, moves:["stygian_whisper","mirage_apocalypse","soul_rend","fright_resolve"]},
+        {monsterId:378, level:122, moves:["dreamweave","hypnos_storm","slumber_eruption","nocturne_charge"]}
+      ],
+      triple:[
+        {monsterId:243, level:118, moves:["dreamscape_smash","decibel_burst","somnia_blast","harmonic_burst"]},
+        {monsterId:170, level:119, moves:["shadow_lance","trance_wave","dusk_slash","war_dance"]},
+        {monsterId:247, level:120, moves:["jolt","lullaby_strike","radiance_cannon","trance_wave"]},
+        {monsterId:431, level:121, moves:["stygian_whisper","mirage_apocalypse","soul_rend","fright_resolve"]},
+        {monsterId:261, level:122, moves:["briar_lash","dreamscape_smash","lullaby_strike","sap_seed"]}
+      ]
+    }
+  },
+  prisma: {
+    id:"prisma", name:"Leader Prisma", emoji:"💎", type:"Crystal",
+    badge:"Facet Badge", badgeEmoji:"💎",
+    quote:"Light fractures into a thousand edges here. Behold every facet.",
+    winQuote:"You shone brighter than any crystal. The Facet Badge is yours.",
+    teams:{
+      single:[
+        {monsterId:409, level:125, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
+        {monsterId:410, level:127, moves:["prism_apocalypse","lunar_burst","starlight_prism","opaline_armor"]}
+      ],
+      double:[
+        {monsterId:409, level:123, moves:["prism_ray","crystal_pulse","fairy_wind","sapphire_charge"]},
+        {monsterId:409, level:125, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
+        {monsterId:410, level:127, moves:["prism_apocalypse","lunar_burst","starlight_prism","opaline_armor"]}
+      ],
+      triple:[
+        {monsterId:409, level:123, moves:["prism_ray","crystal_pulse","fairy_wind","sapphire_charge"]},
+        {monsterId:409, level:125, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
+        {monsterId:409, level:125, moves:["prism_ray","crystal_pulse","fairy_wind","sapphire_charge"]},
+        {monsterId:409, level:126, moves:["gemstone_strike","prism_flare","crystalline_beam","jade_lattice"]},
+        {monsterId:410, level:127, moves:["prism_apocalypse","lunar_burst","starlight_prism","opaline_armor"]}
       ]
     }
   },
@@ -7230,23 +7702,23 @@ const GYM_LEADERS = {
     winQuote:"Astounding! You have defeated the Champion of Lumoria! Your name will echo through the ages! You are the new Lumoria Champion!",
     teams:{
       single:[
-        {monsterId:320, level:81, moves:["volt_jet","tungsten_ram","forge_blast_2","forge_strike"]},
-        {monsterId:321, level:83, moves:["rampage","pyroclasm","draconic_pulse","hydra_dance"]},
-        {monsterId:171, level:84, moves:["mental","draconic_pulse","temporal_rift","rampage"]}
+        {monsterId:320, level:105, moves:["volt_jet","tungsten_ram","forge_blast_2","forge_strike"]},
+        {monsterId:321, level:107, moves:["rampage","pyroclasm","draconic_pulse","hydra_dance"]},
+        {monsterId:171, level:108, moves:["mental","draconic_pulse","temporal_rift","rampage"]}
       ],
       double:[
-        {monsterId:273, level:79, moves:["inferno_jet","draconic_pulse","pyroclasm","rampage"]},
-        {monsterId:225, level:82, moves:["mental","lunar_burst","prism_flare","inner_calm"]},
-        {monsterId:321, level:83, moves:["rampage","pyroclasm","draconic_pulse","hydra_dance"]},
-        {monsterId:171, level:84, moves:["mental","draconic_pulse","temporal_rift","rampage"]}
+        {monsterId:273, level:103, moves:["inferno_jet","draconic_pulse","pyroclasm","rampage"]},
+        {monsterId:225, level:106, moves:["mental","lunar_burst","prism_flare","inner_calm"]},
+        {monsterId:321, level:107, moves:["rampage","pyroclasm","draconic_pulse","hydra_dance"]},
+        {monsterId:171, level:108, moves:["mental","draconic_pulse","temporal_rift","rampage"]}
       ],
       triple:[
-        {monsterId:273, level:79, moves:["inferno_jet","draconic_pulse","pyroclasm","rampage"]},
-        {monsterId:240, level:80, moves:["whiteout","typhoon","cold_beam","wind_scythe"]},
-        {monsterId:189, level:81, moves:["mental","crushing_bulk","blitz","second_wind"]},
-        {monsterId:190, level:82, moves:["mental","lunar_burst","blitz","inner_calm"]},
-        {monsterId:321, level:83, moves:["rampage","pyroclasm","draconic_pulse","hydra_dance"]},
-        {monsterId:171, level:84, moves:["mental","draconic_pulse","temporal_rift","rampage"]}
+        {monsterId:273, level:103, moves:["inferno_jet","draconic_pulse","pyroclasm","rampage"]},
+        {monsterId:240, level:104, moves:["whiteout","typhoon","cold_beam","wind_scythe"]},
+        {monsterId:363, level:105, moves:["mental","crushing_bulk","blitz","second_wind"]},
+        {monsterId:190, level:106, moves:["mental","lunar_burst","blitz","inner_calm"]},
+        {monsterId:321, level:107, moves:["rampage","pyroclasm","draconic_pulse","hydra_dance"]},
+        {monsterId:171, level:108, moves:["mental","draconic_pulse","temporal_rift","rampage"]}
       ]
     }
   }
@@ -7312,6 +7784,8 @@ const ITEMS_DATA = {
   duskStone:     { name:"Twilight Shard",     emoji:"🌑", desc:"A stone steeped in twilight energy. Evolves certain Lumori.", type:"evoItem" },
   dragonScale:   { name:"Wyrm Scale",   emoji:"🐉", desc:"A scale from an ancient dragon. Evolves certain Lumori.", type:"evoItem" },
   steelCoating:  { name:"Metal Coating",  emoji:"🔩", desc:"A special metallic coating. Evolves certain Lumori.", type:"evoItem" },
+  auspiciousPlate: { name:"Auspicious Plate", emoji:"🛡️", desc:"Ceremonial plating that anoints a steadfast guardian. Evolves certain Lumori.", type:"evoItem" },
+  tidePearl:     { name:"Tide Pearl",     emoji:"🦪", desc:"A luminous deep-current pearl that awakens the sea-spirit in a shelled Lumori. Evolves certain Lumori.", type:"evoItem" },
   prismShard:    { name:"Prism Shard",    emoji:"💎", desc:"A shard of prismatic crystal. Evolves certain Lumori.", type:"evoItem" }
 };
 
@@ -7364,6 +7838,8 @@ const STARTING_BAG = {
   duskStone: 0,
   dragonScale: 0,
   steelCoating: 0,
+  auspiciousPlate: 0,
+  tidePearl: 0,
   prismShard: 0
 };
 
@@ -7539,19 +8015,19 @@ const UMBRA_BATTLES = {
     winQuote:"The Abyssdrake... you won't stop us from finding it!",
     teams:{
       single:[
-        {monsterId:122, level:22, moves:["void_pulse","wingbeat","wind_scythe","nether_sphere"]},
-        {monsterId:119, level:25, moves:["jaw_crush","dusk_slash","void_pulse","crushing_bulk"]}
+        {monsterId:122, level:16, moves:["void_pulse","wingbeat","wind_scythe","nether_sphere"]},
+        {monsterId:119, level:19, moves:["jaw_crush","dusk_slash","void_pulse","crushing_bulk"]}
       ],
       double:[
-        {monsterId:122, level:22, moves:["void_pulse","wingbeat","wind_scythe","nether_sphere"]},
-        {monsterId:157, level:23, moves:["ooze_bomb","toxify","virulent_surge","second_wind"]},
-        {monsterId:119, level:25, moves:["jaw_crush","dusk_slash","void_pulse","crushing_bulk"]}
+        {monsterId:122, level:16, moves:["void_pulse","wingbeat","wind_scythe","nether_sphere"]},
+        {monsterId:157, level:17, moves:["ooze_bomb","toxify","virulent_surge","second_wind"]},
+        {monsterId:119, level:19, moves:["jaw_crush","dusk_slash","void_pulse","crushing_bulk"]}
       ],
       triple:[
-        {monsterId:122, level:22, moves:["void_pulse","wingbeat","wind_scythe","nether_sphere"]},
-        {monsterId:157, level:23, moves:["ooze_bomb","toxify","virulent_surge","second_wind"]},
-        {monsterId:119, level:25, moves:["jaw_crush","dusk_slash","void_pulse","crushing_bulk"]},
-        {monsterId:118, level:25, moves:["chomp","blitz","jaw_crush","dusk_slash"]}
+        {monsterId:122, level:16, moves:["void_pulse","wingbeat","wind_scythe","nether_sphere"]},
+        {monsterId:157, level:17, moves:["ooze_bomb","toxify","virulent_surge","second_wind"]},
+        {monsterId:119, level:19, moves:["jaw_crush","dusk_slash","void_pulse","crushing_bulk"]},
+        {monsterId:118, level:19, moves:["chomp","blitz","jaw_crush","dusk_slash"]}
       ]
     }
   },
@@ -7562,46 +8038,373 @@ const UMBRA_BATTLES = {
     winQuote:"Impossible... I was trained by Shade himself! How can a child... Our plan is bigger than you know. Volcanox WILL awaken!",
     teams:{
       single:[
-        {monsterId:14, level:36, moves:["inferno_jet","stone_slide","pyroclasm","crushing_bulk"]},
-        {monsterId:192, level:38, moves:["tectonic_shift","stone_slide","crag_strike","crushing_bulk"]}
+        {monsterId:14, level:27, moves:["inferno_jet","stone_slide","pyroclasm","crushing_bulk"]},
+        {monsterId:192, level:29, moves:["tectonic_shift","stone_slide","crag_strike","crushing_bulk"]}
       ],
       double:[
-        {monsterId:17, level:32, moves:["inferno_jet","draconic_claw","searing_gale","draconic_breath"]},
-        {monsterId:99, level:33, moves:["ooze_bomb","tectonic_shift","toxify","virulent_surge"]},
-        {monsterId:14, level:36, moves:["inferno_jet","stone_slide","pyroclasm","crushing_bulk"]},
-        {monsterId:192, level:38, moves:["tectonic_shift","stone_slide","crag_strike","crushing_bulk"]}
+        {monsterId:17, level:23, moves:["inferno_jet","draconic_claw","searing_gale","draconic_breath"]},
+        {monsterId:99, level:24, moves:["ooze_bomb","tectonic_shift","toxify","virulent_surge"]},
+        {monsterId:14, level:27, moves:["inferno_jet","stone_slide","pyroclasm","crushing_bulk"]},
+        {monsterId:192, level:29, moves:["tectonic_shift","stone_slide","crag_strike","crushing_bulk"]}
       ],
       triple:[
-        {monsterId:17, level:32, moves:["inferno_jet","draconic_claw","searing_gale","draconic_breath"]},
-        {monsterId:99, level:33, moves:["ooze_bomb","tectonic_shift","toxify","virulent_surge"]},
-        {monsterId:16, level:35, moves:["inferno_jet","blitz","pyroclasm","crushing_bulk"]},
-        {monsterId:14, level:36, moves:["inferno_jet","stone_slide","pyroclasm","crushing_bulk"]},
-        {monsterId:192, level:38, moves:["tectonic_shift","stone_slide","crag_strike","crushing_bulk"]}
+        {monsterId:17, level:23, moves:["inferno_jet","draconic_claw","searing_gale","draconic_breath"]},
+        {monsterId:99, level:24, moves:["ooze_bomb","tectonic_shift","toxify","virulent_surge"]},
+        {monsterId:16, level:26, moves:["inferno_jet","blitz","pyroclasm","crushing_bulk"]},
+        {monsterId:14, level:27, moves:["inferno_jet","stone_slide","pyroclasm","crushing_bulk"]},
+        {monsterId:192, level:29, moves:["tectonic_shift","stone_slide","crag_strike","crushing_bulk"]}
       ]
     }
   },
   umbra_commander_rex_shadow: {
-    id:"umbra_commander_rex_shadow", name:"Commander Vorn", emoji:"⚡",
+    id:"umbra_commander_rex_shadow", name:"Commander Shadow", emoji:"⚡",
     triggerLocation:"storm_plateau",
-    quote:"I am Vorn, second commander of The Umbra Order. We have awakened Tempestia from the Storm Plateau. Nothing can stop our plan now!",
-    winQuote:"You're more powerful than our intelligence suggested... But Commander Shade is still ahead of you. And Tempestia has been released!",
+    quote:"We meet a second time. You still don't know my face beneath this hood... but you know my Lumori well enough by now. I have awakened Tempestia from the Storm Plateau. Let us see how far you have come!",
+    winQuote:"...Again. How? That bond you share with your team... I once believed in something like it. Remember this storm, trainer. We are not finished — not by a long way.",
     teams:{
       single:[
-        {monsterId:109, level:45, moves:["typhoon","volt_jet","wind_scythe","stormbolt"]},
-        {monsterId:151, level:49, moves:["forge_blast_2","stormbolt","alloy_tail","crushing_bulk"]}
+        {monsterId:109, level:30, moves:["squall","windshear","coil_strike","wind_scythe"]},
+        {monsterId:183, level:32, moves:["body_blow","momentum_rush","martial_aura","aural_ray"]}
       ],
       double:[
-        {monsterId:176, level:44, moves:["stormbolt","draconic_claw","draconic_pulse","draconic_breath"]},
-        {monsterId:109, level:45, moves:["typhoon","volt_jet","wind_scythe","stormbolt"]},
-        {monsterId:122, level:47, moves:["nether_sphere","wind_scythe","typhoon","void_pulse"]},
-        {monsterId:151, level:49, moves:["forge_blast_2","stormbolt","alloy_tail","crushing_bulk"]}
+        {monsterId:176, level:28, moves:["coil_strike","volt_fang","phantom_claw","arc_flash"]},
+        {monsterId:109, level:29, moves:["squall","windshear","coil_strike","wind_scythe"]},
+        {monsterId:122, level:31, moves:["phantom_claw","obsidian_fang","squall","cheap_shot"]},
+        {monsterId:183, level:32, moves:["body_blow","momentum_rush","martial_aura","aural_ray"]}
       ],
       triple:[
-        {monsterId:176, level:44, moves:["stormbolt","draconic_claw","draconic_pulse","draconic_breath"]},
-        {monsterId:109, level:45, moves:["typhoon","volt_jet","wind_scythe","stormbolt"]},
-        {monsterId:82,  level:46, moves:["volt_jet","static_strike","crushing_bulk","stun_pulse"]},
-        {monsterId:122, level:47, moves:["nether_sphere","wind_scythe","typhoon","void_pulse"]},
-        {monsterId:151, level:49, moves:["forge_blast_2","stormbolt","alloy_tail","crushing_bulk"]}
+        {monsterId:176, level:28, moves:["coil_strike","volt_fang","phantom_claw","arc_flash"]},
+        {monsterId:109, level:29, moves:["squall","windshear","coil_strike","wind_scythe"]},
+        {monsterId:82, level:30, moves:["coil_strike","volt_fang","arc_flash","rising_voltage"]},
+        {monsterId:122, level:31, moves:["phantom_claw","obsidian_fang","squall","cheap_shot"]},
+        {monsterId:183, level:32, moves:["body_blow","momentum_rush","martial_aura","aural_ray"]}
+      ]
+    }
+  },
+  umbra_shadow_route: {
+    id:"umbra_shadow_route", name:"Commander Shadow", emoji:"🕶️",
+    triggerLocation:"emberveil",
+    quote:"Halt. The Umbra Order claims these lands now. They call me Shadow — and you will not pass while I draw breath. Show me if your bond is worth the legend they whisper of you.",
+    winQuote:"Hmph. Stronger than the reports said. We will meet again, trainer... and I will not go so easy next time.",
+    teams:{
+      single:[
+        {monsterId:90, level:18, moves:["thunder_jab","thunder_chain","gust_jab","jolt"]},
+        {monsterId:183, level:19, moves:["rapid_strike","quick_jab","ki_blast","double_smash"]}
+      ],
+      double:[
+        {monsterId:81, level:16, moves:["thunder_jab","thunder_chain","jolt","nuzzle"]},
+        {monsterId:90, level:17, moves:["thunder_jab","thunder_chain","gust_jab","jolt"]},
+        {monsterId:183, level:19, moves:["rapid_strike","quick_jab","ki_blast","double_smash"]}
+      ],
+      triple:[
+        {monsterId:81, level:16, moves:["thunder_jab","thunder_chain","jolt","nuzzle"]},
+        {monsterId:90, level:17, moves:["thunder_jab","thunder_chain","gust_jab","jolt"]},
+        {monsterId:82, level:18, moves:["thunder_jab","thunder_chain","jolt","nuzzle"]},
+        {monsterId:183, level:19, moves:["rapid_strike","quick_jab","ki_blast","double_smash"]}
+      ]
+    }
+  },
+  umbra_shadow_moor: {
+    id:"umbra_shadow_moor", name:"Commander Shadow", emoji:"🕶️",
+    triggerLocation:"dark_canyon",
+    quote:"Three times now. You have chased my shadow across half of Lumoria. No more grunts, no more storms borrowed from legends — just you, me, and the partner I have carried since before you held a single badge. This canyon is where I find out exactly what you are.",
+    winQuote:"...Three for three. I cannot beat you here — not yet. But remember this, trainer: a shadow is patient. When the badges are all yours, look for me where the dark runs deepest.",
+    teams:{
+      single:[
+        {monsterId:176, level:45, moves:["static_strike","spark_claw","umbral_pulse","shock_pulse"]},
+        {monsterId:183, level:46, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]}
+      ],
+      double:[
+        {monsterId:87, level:43, moves:["static_strike","spark_claw","brine_slash","shock_pulse"]},
+        {monsterId:209, level:44, moves:["feral_swipe","echo_beam","static_strike","echoing_shout"]},
+        {monsterId:176, level:45, moves:["static_strike","spark_claw","umbral_pulse","shock_pulse"]},
+        {monsterId:183, level:46, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]}
+      ],
+      triple:[
+        {monsterId:82, level:42, moves:["static_strike","spark_claw","shock_pulse","shock_net"]},
+        {monsterId:87, level:43, moves:["static_strike","spark_claw","brine_slash","shock_pulse"]},
+        {monsterId:209, level:44, moves:["feral_swipe","echo_beam","static_strike","echoing_shout"]},
+        {monsterId:176, level:45, moves:["static_strike","spark_claw","umbral_pulse","shock_pulse"]},
+        {monsterId:183, level:46, moves:["feral_swipe","echo_beam","focused_beam","echoing_shout"]}
+      ]
+    }
+  },
+  umbra_admin_soot: {
+    id:"umbra_admin_soot", name:"Admin Soot", emoji:"🕶️",
+    triggerLocation:"umbra_spire",
+    quote:"Remember me? A lowly Acolyte you swatted aside on the road. Leader Rex saw potential in me — promoted me to Admin of the Spire. The grunts you pitied now guard a god. You will not reach him.",
+    winQuote:"...He was right about you. Go on, then. The other Admins are waiting above.",
+    teams:{
+      single:[
+        {monsterId:125, level:101, moves:["void_dominion","abyssal_wave","gunk_blast","abyssal_dominion"]},
+        {monsterId:131, level:102, moves:["void_dominion","abyssal_wave","foliage_tempest","abyssal_dominion"]}
+      ],
+      double:[
+        {monsterId:120, level:100, moves:["void_dominion","abyssal_wave","abyssal_dominion","wraith_drive"]},
+        {monsterId:125, level:101, moves:["void_dominion","abyssal_wave","gunk_blast","abyssal_dominion"]},
+        {monsterId:131, level:102, moves:["void_dominion","abyssal_wave","foliage_tempest","abyssal_dominion"]}
+      ],
+      triple:[
+        {monsterId:80, level:98, moves:["foliage_tempest","sun_ray","void_dominion","blossom_frenzy"]},
+        {monsterId:120, level:100, moves:["void_dominion","abyssal_wave","abyssal_dominion","wraith_drive"]},
+        {monsterId:125, level:101, moves:["void_dominion","abyssal_wave","gunk_blast","abyssal_dominion"]},
+        {monsterId:131, level:102, moves:["void_dominion","abyssal_wave","foliage_tempest","abyssal_dominion"]}
+      ]
+    }
+  },
+  umbra_admin_cinder: {
+    id:"umbra_admin_cinder", name:"Admin Cinder", emoji:"🕶️",
+    triggerLocation:"umbra_spire",
+    quote:"The Zealot you met on a forgotten route kept the faith — and Leader Rex rewarded it. We are not the rabble you remember. The Spire remakes us. Prove you are still worthy of the climb.",
+    winQuote:"My faith holds... but you climb anyway. Dross is next. He has waited a long time for you.",
+    teams:{
+      single:[
+        {monsterId:136, level:103, moves:["tungsten_wrath","metal_roller","void_dominion","warden_strike"]},
+        {monsterId:125, level:104, moves:["void_dominion","abyssal_wave","gunk_blast","abyssal_dominion"]}
+      ],
+      double:[
+        {monsterId:120, level:102, moves:["void_dominion","abyssal_wave","abyssal_dominion","wraith_drive"]},
+        {monsterId:136, level:103, moves:["tungsten_wrath","metal_roller","void_dominion","warden_strike"]},
+        {monsterId:125, level:104, moves:["void_dominion","abyssal_wave","gunk_blast","abyssal_dominion"]}
+      ],
+      triple:[
+        {monsterId:65, level:100, moves:["foliage_tempest","sun_ray","gunk_blast","blossom_frenzy"]},
+        {monsterId:120, level:102, moves:["void_dominion","abyssal_wave","abyssal_dominion","wraith_drive"]},
+        {monsterId:136, level:103, moves:["tungsten_wrath","metal_roller","void_dominion","warden_strike"]},
+        {monsterId:125, level:104, moves:["void_dominion","abyssal_wave","gunk_blast","abyssal_dominion"]}
+      ]
+    }
+  },
+  umbra_admin_dross: {
+    id:"umbra_admin_dross", name:"Admin Dross", emoji:"🕶️",
+    triggerLocation:"umbra_spire",
+    quote:"Far enough. I was an Enforcer who failed to stop you once. Leader Rex gave me a second chance, and a Spire to defend. Beyond me is only him. You will not pass a third time.",
+    winQuote:"...Then go. Climb the last stair. Leader Rex has been waiting for this since the day he handed you your first badge.",
+    teams:{
+      single:[
+        {monsterId:131, level:105, moves:["void_dominion","abyssal_wave","foliage_tempest","abyssal_dominion"]},
+        {monsterId:120, level:106, moves:["void_dominion","abyssal_wave","abyssal_dominion","wraith_drive"]}
+      ],
+      double:[
+        {monsterId:100, level:104, moves:["meteor_strike","mantle_surge","gunk_blast","world_root_bind"]},
+        {monsterId:131, level:105, moves:["void_dominion","abyssal_wave","foliage_tempest","abyssal_dominion"]},
+        {monsterId:120, level:106, moves:["void_dominion","abyssal_wave","abyssal_dominion","wraith_drive"]}
+      ],
+      triple:[
+        {monsterId:80, level:102, moves:["foliage_tempest","sun_ray","void_dominion","blossom_frenzy"]},
+        {monsterId:100, level:104, moves:["meteor_strike","mantle_surge","gunk_blast","world_root_bind"]},
+        {monsterId:131, level:105, moves:["void_dominion","abyssal_wave","foliage_tempest","abyssal_dominion"]},
+        {monsterId:120, level:106, moves:["void_dominion","abyssal_wave","abyssal_dominion","wraith_drive"]}
+      ]
+    }
+  },
+  umbra_rex_vorn: {
+    id:"umbra_rex_vorn", name:"Commander Rex Vorn", emoji:"⚡",
+    triggerLocation:"umbra_spire",
+    requiresUmbraDefeated:["umbra_remnant_lab","umbra_remnant_archive","umbra_remnant_nexus"],
+    reward:{ masterOrb:2, rareCandy:8 },
+    quote:"So you climbed all the way here. Then you have earned the truth. Lower the hood — yes. Leader Rex. The Foundation Badge was mine to give... and the Umbra Order is mine to remake now that Shade has fallen. You have faced my Glutoros since you were a rookie — the same partner, battle after battle. We have both been holding back. No longer. [Glutoros blazes with light.] EVOLVE. Rise, Ursamight. I will not destroy Lumoria — I will rebuild it in order. But first, the one trainer who could ever stand against me.",
+    winQuote:"...Then it is settled. The bond beats the design, every time. Perhaps order was never the answer. Lead them better than I would have, champion. Solarcrown — stand down. We yield.",
+    teams:{
+      single:[
+        {monsterId:389, level:109, moves:["storm_sovereignty","arc_cannon","threnody","overcharge"]},
+        {monsterId:384, level:110, moves:["volcanic_wrath","pyroclastic_burst","galaxy_apocalypse","lava_drop"]},
+        {monsterId:184, level:112, moves:["stellar_collapse","radiance_cannon","haymaker","last_stand"]}
+      ],
+      double:[
+        {monsterId:396, level:108, moves:["storm_sovereignty","arc_cannon","tungsten_wrath","overcharge"]},
+        {monsterId:393, level:108, moves:["starlight_obliteration","void_dominion","storm_sovereignty","abyssal_wave"]},
+        {monsterId:389, level:109, moves:["storm_sovereignty","arc_cannon","threnody","overcharge"]},
+        {monsterId:384, level:110, moves:["volcanic_wrath","pyroclastic_burst","galaxy_apocalypse","lava_drop"]},
+        {monsterId:184, level:112, moves:["stellar_collapse","radiance_cannon","haymaker","last_stand"]}
+      ],
+      triple:[
+        {monsterId:386, level:107, moves:["storm_sovereignty","arc_cannon","spirit_calamity","overcharge"]},
+        {monsterId:393, level:108, moves:["starlight_obliteration","void_dominion","storm_sovereignty","abyssal_wave"]},
+        {monsterId:396, level:108, moves:["storm_sovereignty","arc_cannon","tungsten_wrath","overcharge"]},
+        {monsterId:389, level:109, moves:["storm_sovereignty","arc_cannon","threnody","overcharge"]},
+        {monsterId:384, level:110, moves:["volcanic_wrath","pyroclastic_burst","galaxy_apocalypse","lava_drop"]},
+        {monsterId:184, level:112, moves:["stellar_collapse","radiance_cannon","haymaker","last_stand"]}
+      ]
+    }
+  },
+  umbra_grunt_soot: {
+    id:"umbra_grunt_soot", name:"Umbra Acolyte Soot", emoji:"🕶️",
+    triggerLocation:"route8",
+    quote:"The Order spreads even here. Commander Shade rewards those who slow you down — and I intend to be rewarded.",
+    winQuote:"Tch. You really are everything they feared.",
+    teams:{
+      single:[
+        {monsterId:127, level:47, moves:["phantom_claw","obsidian_fang","telekinetic_throw","cheap_shot"]},
+        {monsterId:119, level:48, moves:["phantom_claw","obsidian_fang","cheap_shot","tenebrous_snare"]}
+      ],
+      double:[
+        {monsterId:130, level:46, moves:["phantom_claw","obsidian_fang","lumen_pulse","cheap_shot"]},
+        {monsterId:124, level:46, moves:["phantom_claw","obsidian_fang","blight_drain","cheap_shot"]},
+        {monsterId:127, level:47, moves:["phantom_claw","obsidian_fang","telekinetic_throw","cheap_shot"]},
+        {monsterId:119, level:48, moves:["phantom_claw","obsidian_fang","cheap_shot","tenebrous_snare"]}
+      ],
+      triple:[
+        {monsterId:130, level:46, moves:["phantom_claw","obsidian_fang","lumen_pulse","cheap_shot"]},
+        {monsterId:124, level:46, moves:["phantom_claw","obsidian_fang","blight_drain","cheap_shot"]},
+        {monsterId:127, level:47, moves:["phantom_claw","obsidian_fang","telekinetic_throw","cheap_shot"]},
+        {monsterId:119, level:48, moves:["phantom_claw","obsidian_fang","cheap_shot","tenebrous_snare"]}
+      ]
+    }
+  },
+  umbra_commander_kira_2: {
+    id:"umbra_commander_kira_2", name:"Commander Kira", emoji:"🌋",
+    triggerLocation:"route9",
+    quote:"You cost me the Volcano Core, child. I have been waiting for a rematch — and this time the magma answers to ME.",
+    winQuote:"Burned again... But Shade rises far above us both. You will see.",
+    teams:{
+      single:[
+        {monsterId:99, level:51, moves:["crystal_spear","underground_crush","corrosive_bite","gemburst"]},
+        {monsterId:17, level:51, moves:["coal_smash","sun_burst","tempest_wave","lava_spout"]},
+        {monsterId:192, level:52, moves:["crystal_spear","underground_crush","gemburst","auger_strike"]}
+      ],
+      double:[
+        {monsterId:16, level:50, moves:["coal_smash","sun_burst","lava_spout","magma_strike"]},
+        {monsterId:14, level:50, moves:["coal_smash","sun_burst","crystal_spear","lava_spout"]},
+        {monsterId:99, level:51, moves:["crystal_spear","underground_crush","corrosive_bite","gemburst"]},
+        {monsterId:17, level:51, moves:["coal_smash","sun_burst","tempest_wave","lava_spout"]},
+        {monsterId:192, level:52, moves:["crystal_spear","underground_crush","gemburst","auger_strike"]}
+      ],
+      triple:[
+        {monsterId:16, level:50, moves:["coal_smash","sun_burst","lava_spout","magma_strike"]},
+        {monsterId:14, level:50, moves:["coal_smash","sun_burst","crystal_spear","lava_spout"]},
+        {monsterId:99, level:51, moves:["crystal_spear","underground_crush","corrosive_bite","gemburst"]},
+        {monsterId:17, level:51, moves:["coal_smash","sun_burst","tempest_wave","lava_spout"]},
+        {monsterId:192, level:52, moves:["crystal_spear","underground_crush","gemburst","auger_strike"]}
+      ]
+    }
+  },
+  umbra_zealot_cinder: {
+    id:"umbra_zealot_cinder", name:"Umbra Zealot Cinder", emoji:"🕶️",
+    triggerLocation:"route10",
+    quote:"The light blinds you to the truth! The Umbra Order will draw a kinder darkness over all Lumoria!",
+    winQuote:"My faith... was not enough. But Shade's will is.",
+    teams:{
+      single:[
+        {monsterId:80, level:55, moves:["sylvan_radiance","pollen_storm","nyx_fang","cocoon_burst"]},
+        {monsterId:120, level:56, moves:["nyx_fang","malice_beam","nightmare_pulse","shadow_lance"]}
+      ],
+      double:[
+        {monsterId:122, level:54, moves:["nyx_fang","malice_beam","aerial_assault","nightmare_pulse"]},
+        {monsterId:80, level:55, moves:["sylvan_radiance","pollen_storm","nyx_fang","cocoon_burst"]},
+        {monsterId:120, level:56, moves:["nyx_fang","malice_beam","nightmare_pulse","shadow_lance"]}
+      ],
+      triple:[
+        {monsterId:122, level:54, moves:["nyx_fang","malice_beam","aerial_assault","nightmare_pulse"]},
+        {monsterId:80, level:55, moves:["sylvan_radiance","pollen_storm","nyx_fang","cocoon_burst"]},
+        {monsterId:120, level:56, moves:["nyx_fang","malice_beam","nightmare_pulse","shadow_lance"]}
+      ]
+    }
+  },
+  umbra_shade_2: {
+    id:"umbra_shade_2", name:"Commander Shade", emoji:"🌑",
+    triggerLocation:"route11",
+    quote:"We meet again, little light. My grunts were never meant to stop you — only to measure you. You have grown. So has the void I carry. Show me your resolve.",
+    winQuote:"Impressive... but the Order has reached its final phase. Come to our citadel when you dare. I will be waiting at the top.",
+    teams:{
+      single:[
+        {monsterId:270, level:66, moves:["eclipse_burst","soul_rend","starlit_radiance","shadowstorm"]},
+        {monsterId:314, level:67, moves:["hurricane_blast","gale_cannon","harmonic_burst","typhoon"]},
+        {monsterId:316, level:68, moves:["geyser_burst","tsunami","eclipse_burst","claw_hammer"]}
+      ],
+      double:[
+        {monsterId:217, level:64, moves:["mindbreaker","temporal_rift","nimbus_flood","neural_storm"]},
+        {monsterId:360, level:65, moves:["eclipse_burst","soul_rend","mindbreaker","shadowstorm"]},
+        {monsterId:270, level:66, moves:["eclipse_burst","soul_rend","starlit_radiance","shadowstorm"]},
+        {monsterId:314, level:67, moves:["hurricane_blast","gale_cannon","harmonic_burst","typhoon"]},
+        {monsterId:316, level:68, moves:["geyser_burst","tsunami","eclipse_burst","claw_hammer"]}
+      ],
+      triple:[
+        {monsterId:217, level:64, moves:["mindbreaker","temporal_rift","nimbus_flood","neural_storm"]},
+        {monsterId:360, level:65, moves:["eclipse_burst","soul_rend","mindbreaker","shadowstorm"]},
+        {monsterId:270, level:66, moves:["eclipse_burst","soul_rend","starlit_radiance","shadowstorm"]},
+        {monsterId:314, level:67, moves:["hurricane_blast","gale_cannon","harmonic_burst","typhoon"]},
+        {monsterId:316, level:68, moves:["geyser_burst","tsunami","eclipse_burst","claw_hammer"]}
+      ]
+    }
+  },
+  umbra_enforcer_dross: {
+    id:"umbra_enforcer_dross", name:"Umbra Enforcer Dross", emoji:"🕶️",
+    triggerLocation:"route13",
+    quote:"Far enough. The Enforcers answer only to Shade, and Shade says you go no further.",
+    winQuote:"...Then nothing stands between you and the citadel but the Commander himself.",
+    teams:{
+      single:[
+        {monsterId:120, level:71, moves:["eclipse_burst","soul_rend","shadowstorm","dark_corrosion"]},
+        {monsterId:80, level:72, moves:["primordial_growth","hivemind_surge","eclipse_burst","jungle_hammer"]}
+      ],
+      double:[
+        {monsterId:65, level:70, moves:["primordial_growth","hivemind_surge","venom_drown","jungle_hammer"]},
+        {monsterId:100, level:71, moves:["continental_shift","cryo_shatter","venom_drown","bedrock_slam"]},
+        {monsterId:120, level:71, moves:["eclipse_burst","soul_rend","shadowstorm","dark_corrosion"]},
+        {monsterId:80, level:72, moves:["primordial_growth","hivemind_surge","eclipse_burst","jungle_hammer"]}
+      ],
+      triple:[
+        {monsterId:65, level:70, moves:["primordial_growth","hivemind_surge","venom_drown","jungle_hammer"]},
+        {monsterId:100, level:71, moves:["continental_shift","cryo_shatter","venom_drown","bedrock_slam"]},
+        {monsterId:120, level:71, moves:["eclipse_burst","soul_rend","shadowstorm","dark_corrosion"]},
+        {monsterId:80, level:72, moves:["primordial_growth","hivemind_surge","eclipse_burst","jungle_hammer"]}
+      ]
+    }
+  },
+  umbra_commander_kira_3: {
+    id:"umbra_commander_kira_3", name:"Commander Kira", emoji:"🌋",
+    triggerLocation:"route14",
+    quote:"Third time, little champion-to-be. I have stopped fighting for the Order. I fight now only to beat YOU — once, before the end.",
+    winQuote:"...Heh. Worth it. Go on. Finish what Shade started — or end it.",
+    teams:{
+      single:[
+        {monsterId:99, level:79, moves:["world_root_bind","worldseed_quake","gunk_blast","continental_shift"]},
+        {monsterId:14, level:79, moves:["lava_drop","caldera_meltdown","world_root_bind","solar_flare"]},
+        {monsterId:192, level:80, moves:["world_root_bind","worldseed_quake","continental_shift","cryo_shatter"]}
+      ],
+      double:[
+        {monsterId:16, level:78, moves:["lava_drop","caldera_meltdown","solar_flare","pyroclasm"]},
+        {monsterId:17, level:78, moves:["lava_drop","caldera_meltdown","thunderstorm_eruption","solar_flare"]},
+        {monsterId:99, level:79, moves:["world_root_bind","worldseed_quake","gunk_blast","continental_shift"]},
+        {monsterId:14, level:79, moves:["lava_drop","caldera_meltdown","world_root_bind","solar_flare"]},
+        {monsterId:192, level:80, moves:["world_root_bind","worldseed_quake","continental_shift","cryo_shatter"]}
+      ],
+      triple:[
+        {monsterId:16, level:78, moves:["lava_drop","caldera_meltdown","solar_flare","pyroclasm"]},
+        {monsterId:17, level:78, moves:["lava_drop","caldera_meltdown","thunderstorm_eruption","solar_flare"]},
+        {monsterId:99, level:79, moves:["world_root_bind","worldseed_quake","gunk_blast","continental_shift"]},
+        {monsterId:14, level:79, moves:["lava_drop","caldera_meltdown","world_root_bind","solar_flare"]},
+        {monsterId:192, level:80, moves:["world_root_bind","worldseed_quake","continental_shift","cryo_shatter"]}
+      ]
+    }
+  },
+  umbra_shade_3: {
+    id:"umbra_shade_3", name:"Commander Shade", emoji:"🌑",
+    triggerLocation:"umbra_citadel",
+    reward:{ masterOrb:1, rareCandy:6 },
+    quote:"You climbed my citadel. Past every Acolyte, every Commander, every fear I sent down the mountain. Here, at the summit, there is only me and the void I have become. This is the Umbra Order's final hour — one way or the other. Come, light. Let us end the long dark.",
+    winQuote:"...So this is how the Order falls. Not to an army — to one trainer and the bonds I never understood. Take it, then. The dark is yours to lift. The remnants will scatter... but they will remember your name.",
+    teams:{
+      single:[
+        {monsterId:321, level:92, moves:["emperor_inferno","voltaic_fang","volcanic_wrath","comet_crash"]},
+        {monsterId:314, level:93, moves:["thunderstorm_eruption","canopy_strike","threnody","stratosphere_drop"]},
+        {monsterId:316, level:94, moves:["ocean_crash","geyser_burst","void_dominion","tsunami"]}
+      ],
+      double:[
+        {monsterId:360, level:91, moves:["void_dominion","abyssal_wave","psychic_blizzard","abyssal_dominion"]},
+        {monsterId:270, level:92, moves:["void_dominion","abyssal_wave","fairy_blast","abyssal_dominion"]},
+        {monsterId:321, level:92, moves:["emperor_inferno","voltaic_fang","volcanic_wrath","comet_crash"]},
+        {monsterId:314, level:93, moves:["thunderstorm_eruption","canopy_strike","threnody","stratosphere_drop"]},
+        {monsterId:316, level:94, moves:["ocean_crash","geyser_burst","void_dominion","tsunami"]}
+      ],
+      triple:[
+        {monsterId:217, level:90, moves:["psychic_blizzard","time_fracture","miasma_apocalypse","veil_collapse"]},
+        {monsterId:360, level:91, moves:["void_dominion","abyssal_wave","psychic_blizzard","abyssal_dominion"]},
+        {monsterId:270, level:92, moves:["void_dominion","abyssal_wave","fairy_blast","abyssal_dominion"]},
+        {monsterId:321, level:92, moves:["emperor_inferno","voltaic_fang","volcanic_wrath","comet_crash"]},
+        {monsterId:314, level:93, moves:["thunderstorm_eruption","canopy_strike","threnody","stratosphere_drop"]},
+        {monsterId:316, level:94, moves:["ocean_crash","geyser_burst","void_dominion","tsunami"]}
       ]
     }
   },
@@ -7613,24 +8416,24 @@ const UMBRA_BATTLES = {
     reward:{ masterOrb:1, maxPotion:5 },
     teams:{
       single:[
-        {monsterId:269, level:59, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
-        {monsterId:316, level:63, moves:["tsunami","void_pulse","draconic_pulse","jaw_crush"]},
-        {monsterId:321, level:65, moves:["rampage","pyroclasm","draconic_pulse","hydra_dance"]}
+        {monsterId:360, level:42, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
+        {monsterId:316, level:46, moves:["tsunami","void_pulse","draconic_pulse","jaw_crush"]},
+        {monsterId:321, level:48, moves:["rampage","pyroclasm","draconic_pulse","hydra_dance"]}
       ],
       double:[
-        {monsterId:217, level:58, moves:["mental","psi_strike","inner_calm","second_wind"]},
-        {monsterId:269, level:59, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
-        {monsterId:270, level:60, moves:["void_pulse","lunar_burst","nether_sphere","prism_flare"]},
-        {monsterId:314, level:62, moves:["typhoon","stormbolt","wind_scythe","hydra_dance"]},
-        {monsterId:316, level:65, moves:["tsunami","void_pulse","draconic_pulse","jaw_crush"]}
+        {monsterId:217, level:41, moves:["mental","psi_strike","inner_calm","second_wind"]},
+        {monsterId:360, level:42, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
+        {monsterId:270, level:43, moves:["void_pulse","lunar_burst","nether_sphere","prism_flare"]},
+        {monsterId:314, level:45, moves:["typhoon","stormbolt","wind_scythe","hydra_dance"]},
+        {monsterId:316, level:48, moves:["tsunami","void_pulse","draconic_pulse","jaw_crush"]}
       ],
       triple:[
-        {monsterId:217, level:58, moves:["mental","psi_strike","inner_calm","second_wind"]},
-        {monsterId:269, level:59, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
-        {monsterId:270, level:60, moves:["void_pulse","lunar_burst","nether_sphere","prism_flare"]},
-        {monsterId:321, level:61, moves:["rampage","pyroclasm","draconic_pulse","hydra_dance"]},
-        {monsterId:314, level:62, moves:["typhoon","stormbolt","wind_scythe","hydra_dance"]},
-        {monsterId:316, level:65, moves:["tsunami","void_pulse","draconic_pulse","jaw_crush"]}
+        {monsterId:217, level:41, moves:["mental","psi_strike","inner_calm","second_wind"]},
+        {monsterId:360, level:42, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
+        {monsterId:270, level:43, moves:["void_pulse","lunar_burst","nether_sphere","prism_flare"]},
+        {monsterId:321, level:44, moves:["rampage","pyroclasm","draconic_pulse","hydra_dance"]},
+        {monsterId:314, level:45, moves:["typhoon","stormbolt","wind_scythe","hydra_dance"]},
+        {monsterId:316, level:48, moves:["tsunami","void_pulse","draconic_pulse","jaw_crush"]}
       ]
     }
   },
@@ -7642,22 +8445,22 @@ const UMBRA_BATTLES = {
     winQuote:"You're stronger than I expected... but the Commander won't be stopped so easily. The Void Rift is already open!",
     teams:{
       single:[
-        {monsterId:119, level:65, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
-        {monsterId:267, level:66, moves:["jaw_crush","void_pulse","dusk_slash","shade_dash"]},
-        {monsterId:125, level:68, moves:["void_pulse","ooze_bomb","virulent_surge","dusk_slash"]}
+        {monsterId:119, level:70, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
+        {monsterId:267, level:71, moves:["jaw_crush","void_pulse","dusk_slash","shade_dash"]},
+        {monsterId:125, level:73, moves:["void_pulse","ooze_bomb","virulent_surge","dusk_slash"]}
       ],
       double:[
-        {monsterId:119, level:65, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
-        {monsterId:267, level:66, moves:["jaw_crush","void_pulse","dusk_slash","shade_dash"]},
-        {monsterId:269, level:67, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
-        {monsterId:125, level:68, moves:["void_pulse","ooze_bomb","virulent_surge","dusk_slash"]}
+        {monsterId:119, level:70, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
+        {monsterId:267, level:71, moves:["jaw_crush","void_pulse","dusk_slash","shade_dash"]},
+        {monsterId:360, level:72, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
+        {monsterId:125, level:73, moves:["void_pulse","ooze_bomb","virulent_surge","dusk_slash"]}
       ],
       triple:[
-        {monsterId:119, level:65, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
-        {monsterId:267, level:66, moves:["jaw_crush","void_pulse","dusk_slash","shade_dash"]},
-        {monsterId:269, level:67, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
-        {monsterId:125, level:68, moves:["void_pulse","ooze_bomb","virulent_surge","dusk_slash"]},
-        {monsterId:270, level:68, moves:["void_pulse","lunar_burst","nether_sphere","prism_flare"]}
+        {monsterId:119, level:70, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
+        {monsterId:267, level:71, moves:["jaw_crush","void_pulse","dusk_slash","shade_dash"]},
+        {monsterId:360, level:72, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
+        {monsterId:125, level:73, moves:["void_pulse","ooze_bomb","virulent_surge","dusk_slash"]},
+        {monsterId:270, level:73, moves:["void_pulse","lunar_burst","nether_sphere","prism_flare"]}
       ]
     }
   },
@@ -7670,22 +8473,22 @@ const UMBRA_BATTLES = {
     reward:{ ultraOrb:3, maxPotion:3 },
     teams:{
       single:[
-        {monsterId:52,  level:68, moves:["inferno_jet","pyroclasm","solar_flare","ooze_bomb"]},
-        {monsterId:159, level:70, moves:["ooze_bomb","virulent_surge","sludge_cannon","toxify"]},
-        {monsterId:315, level:72, moves:["magma_stone","pyroclasm","crag_strike","caldera_meltdown"]}
+        {monsterId:52,  level:100, moves:["inferno_jet","pyroclasm","solar_flare","ooze_bomb"]},
+        {monsterId:159, level:102, moves:["ooze_bomb","virulent_surge","sludge_cannon","toxify"]},
+        {monsterId:315, level:104, moves:["magma_stone","pyroclasm","crag_strike","caldera_meltdown"]}
       ],
       double:[
-        {monsterId:52,  level:68, moves:["inferno_jet","pyroclasm","solar_flare","ooze_bomb"]},
-        {monsterId:55,  level:69, moves:["pyroclasm","inferno_jet","searing_gale","ooze_bomb"]},
-        {monsterId:159, level:70, moves:["ooze_bomb","virulent_surge","sludge_cannon","toxify"]},
-        {monsterId:315, level:72, moves:["magma_stone","pyroclasm","crag_strike","caldera_meltdown"]}
+        {monsterId:52,  level:100, moves:["inferno_jet","pyroclasm","solar_flare","ooze_bomb"]},
+        {monsterId:56,  level:101, moves:["pyroclasm","inferno_jet","searing_gale","ooze_bomb"]},
+        {monsterId:159, level:102, moves:["ooze_bomb","virulent_surge","sludge_cannon","toxify"]},
+        {monsterId:315, level:104, moves:["magma_stone","pyroclasm","crag_strike","caldera_meltdown"]}
       ],
       triple:[
-        {monsterId:52,  level:68, moves:["inferno_jet","pyroclasm","solar_flare","ooze_bomb"]},
-        {monsterId:55,  level:69, moves:["pyroclasm","inferno_jet","searing_gale","ooze_bomb"]},
-        {monsterId:156, level:69, moves:["virulent_surge","ooze_bomb","toxify","corrosion_fang"]},
-        {monsterId:159, level:70, moves:["ooze_bomb","virulent_surge","sludge_cannon","toxify"]},
-        {monsterId:315, level:72, moves:["magma_stone","pyroclasm","crag_strike","caldera_meltdown"]}
+        {monsterId:52,  level:100, moves:["inferno_jet","pyroclasm","solar_flare","ooze_bomb"]},
+        {monsterId:56,  level:101, moves:["pyroclasm","inferno_jet","searing_gale","ooze_bomb"]},
+        {monsterId:33,  level:101, moves:["virulent_surge","ooze_bomb","toxify","corrosion_fang"]},
+        {monsterId:159, level:102, moves:["ooze_bomb","virulent_surge","sludge_cannon","toxify"]},
+        {monsterId:315, level:104, moves:["magma_stone","pyroclasm","crag_strike","caldera_meltdown"]}
       ]
     }
   },
@@ -7697,22 +8500,22 @@ const UMBRA_BATTLES = {
     reward:{ masterOrb:1, maxPotion:4 },
     teams:{
       single:[
-        {monsterId:136, level:71, moves:["forge_blast_2","alloy_tail","forge_strike","void_pulse"]},
-        {monsterId:133, level:73, moves:["jaw_crush","crag_strike","nether_sphere","void_pulse"]},
-        {monsterId:320, level:75, moves:["stormbolt","forge_blast_2","forge_strike","anvil_drop"]}
+        {monsterId:136, level:103, moves:["forge_blast_2","alloy_tail","forge_strike","void_pulse"]},
+        {monsterId:313, level:105, moves:["jaw_crush","crag_strike","nether_sphere","void_pulse"]},
+        {monsterId:320, level:107, moves:["stormbolt","forge_blast_2","forge_strike","anvil_drop"]}
       ],
       double:[
-        {monsterId:136, level:71, moves:["forge_blast_2","alloy_tail","forge_strike","void_pulse"]},
-        {monsterId:122, level:72, moves:["void_pulse","wind_scythe","nether_sphere","wingbeat"]},
-        {monsterId:133, level:73, moves:["jaw_crush","crag_strike","nether_sphere","void_pulse"]},
-        {monsterId:320, level:75, moves:["stormbolt","forge_blast_2","forge_strike","anvil_drop"]}
+        {monsterId:136, level:103, moves:["forge_blast_2","alloy_tail","forge_strike","void_pulse"]},
+        {monsterId:122, level:104, moves:["void_pulse","wind_scythe","nether_sphere","wingbeat"]},
+        {monsterId:313, level:105, moves:["jaw_crush","crag_strike","nether_sphere","void_pulse"]},
+        {monsterId:320, level:107, moves:["stormbolt","forge_blast_2","forge_strike","anvil_drop"]}
       ],
       triple:[
-        {monsterId:131, level:70, moves:["nether_sphere","void_pulse","verdant_surge","verdant_orb"]},
-        {monsterId:136, level:71, moves:["forge_blast_2","alloy_tail","forge_strike","void_pulse"]},
-        {monsterId:122, level:72, moves:["void_pulse","wind_scythe","nether_sphere","wingbeat"]},
-        {monsterId:133, level:73, moves:["jaw_crush","crag_strike","nether_sphere","void_pulse"]},
-        {monsterId:320, level:75, moves:["stormbolt","forge_blast_2","forge_strike","anvil_drop"]}
+        {monsterId:131, level:102, moves:["nether_sphere","void_pulse","verdant_surge","verdant_orb"]},
+        {monsterId:136, level:103, moves:["forge_blast_2","alloy_tail","forge_strike","void_pulse"]},
+        {monsterId:122, level:104, moves:["void_pulse","wind_scythe","nether_sphere","wingbeat"]},
+        {monsterId:313, level:105, moves:["jaw_crush","crag_strike","nether_sphere","void_pulse"]},
+        {monsterId:320, level:107, moves:["stormbolt","forge_blast_2","forge_strike","anvil_drop"]}
       ]
     }
   },
@@ -7724,25 +8527,25 @@ const UMBRA_BATTLES = {
     reward:{ masterOrb:2, rareCandy:5 },
     teams:{
       single:[
-        {monsterId:269, level:74, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
-        {monsterId:270, level:75, moves:["void_pulse","lunar_burst","nether_sphere","prism_flare"]},
-        {monsterId:319, level:77, moves:["void_pulse","lunar_burst","nether_sphere","soul_rend"]},
-        {monsterId:320, level:78, moves:["stormbolt","forge_blast_2","forge_strike","anvil_drop"]}
+        {monsterId:360, level:106, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
+        {monsterId:270, level:107, moves:["void_pulse","lunar_burst","nether_sphere","prism_flare"]},
+        {monsterId:319, level:109, moves:["void_pulse","lunar_burst","nether_sphere","soul_rend"]},
+        {monsterId:320, level:110, moves:["stormbolt","forge_blast_2","forge_strike","anvil_drop"]}
       ],
       double:[
-        {monsterId:267, level:73, moves:["jaw_crush","void_pulse","dusk_slash","shade_dash"]},
-        {monsterId:269, level:74, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
-        {monsterId:270, level:75, moves:["void_pulse","lunar_burst","nether_sphere","prism_flare"]},
-        {monsterId:319, level:77, moves:["void_pulse","lunar_burst","nether_sphere","soul_rend"]},
-        {monsterId:320, level:78, moves:["stormbolt","forge_blast_2","forge_strike","anvil_drop"]}
+        {monsterId:176, level:105, moves:["jaw_crush","void_pulse","dusk_slash","shade_dash"]},
+        {monsterId:360, level:106, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
+        {monsterId:270, level:107, moves:["void_pulse","lunar_burst","nether_sphere","prism_flare"]},
+        {monsterId:319, level:109, moves:["void_pulse","lunar_burst","nether_sphere","soul_rend"]},
+        {monsterId:320, level:110, moves:["stormbolt","forge_blast_2","forge_strike","anvil_drop"]}
       ],
       triple:[
-        {monsterId:267, level:73, moves:["jaw_crush","void_pulse","dusk_slash","shade_dash"]},
-        {monsterId:269, level:74, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
-        {monsterId:270, level:75, moves:["void_pulse","lunar_burst","nether_sphere","prism_flare"]},
-        {monsterId:125, level:75, moves:["void_pulse","ooze_bomb","virulent_surge","dusk_slash"]},
-        {monsterId:319, level:77, moves:["void_pulse","lunar_burst","nether_sphere","soul_rend"]},
-        {monsterId:320, level:78, moves:["stormbolt","forge_blast_2","forge_strike","anvil_drop"]}
+        {monsterId:176, level:105, moves:["jaw_crush","void_pulse","dusk_slash","shade_dash"]},
+        {monsterId:360, level:106, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
+        {monsterId:270, level:107, moves:["void_pulse","lunar_burst","nether_sphere","prism_flare"]},
+        {monsterId:125, level:107, moves:["void_pulse","ooze_bomb","virulent_surge","dusk_slash"]},
+        {monsterId:319, level:109, moves:["void_pulse","lunar_burst","nether_sphere","soul_rend"]},
+        {monsterId:320, level:110, moves:["stormbolt","forge_blast_2","forge_strike","anvil_drop"]}
       ]
     }
   },
@@ -7757,16 +8560,16 @@ const UMBRA_BATTLES = {
         {monsterId:319, level:74, moves:["void_pulse","lunar_burst","nether_sphere","soul_rend"]}
       ],
       double:[
-        {monsterId:269, level:68, moves:["jaw_crush","void_pulse","nether_sphere","dusk_slash"]},
+        {monsterId:360, level:68, moves:["jaw_crush","void_pulse","nether_sphere","dusk_slash"]},
         {monsterId:270, level:69, moves:["void_pulse","lunar_burst","nether_sphere","prism_flare"]},
-        {monsterId:133, level:70, moves:["jaw_crush","crag_strike","nether_sphere","void_pulse"]},
+        {monsterId:313, level:70, moves:["jaw_crush","crag_strike","nether_sphere","void_pulse"]},
         {monsterId:136, level:72, moves:["forge_blast_2","void_pulse","forge_strike","void_rend"]},
         {monsterId:319, level:74, moves:["void_pulse","lunar_burst","nether_sphere","soul_rend"]}
       ],
       triple:[
-        {monsterId:269, level:68, moves:["jaw_crush","void_pulse","nether_sphere","dusk_slash"]},
+        {monsterId:360, level:68, moves:["jaw_crush","void_pulse","nether_sphere","dusk_slash"]},
         {monsterId:270, level:69, moves:["void_pulse","lunar_burst","nether_sphere","prism_flare"]},
-        {monsterId:133, level:70, moves:["jaw_crush","crag_strike","nether_sphere","void_pulse"]},
+        {monsterId:313, level:70, moves:["jaw_crush","crag_strike","nether_sphere","void_pulse"]},
         {monsterId:125, level:71, moves:["void_pulse","ooze_bomb","virulent_surge","dusk_slash"]},
         {monsterId:136, level:72, moves:["forge_blast_2","void_pulse","forge_strike","void_rend"]},
         {monsterId:319, level:74, moves:["void_pulse","lunar_burst","nether_sphere","soul_rend"]}
@@ -7794,9 +8597,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:464, level:100, moves:["forge_blast_2","lunar_burst","celestial_forge","star_cannon"]}
     ],
     ngTeam:[
-      {monsterId:462, level:100, moves:["mental","wind_scythe","lunar_burst","aura_veil_strike"]},
-      {monsterId:463, level:102, moves:["lunar_burst","geoblast","prism_flare","luma_quake"]},
-      {monsterId:464, level:105, moves:["forge_blast_2","lunar_burst","celestial_forge","star_cannon"]}
+      {monsterId:462, level:153, moves:["mental","wind_scythe","lunar_burst","aura_veil_strike"]},
+      {monsterId:463, level:154, moves:["lunar_burst","geoblast","prism_flare","luma_quake"]},
+      {monsterId:464, level:155, moves:["forge_blast_2","lunar_burst","celestial_forge","star_cannon"]}
     ]
   },
   wielder_morrigan: {
@@ -7811,9 +8614,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:467, level:100, moves:["whiteout","psi_strike","psychic_blizzard","frost_pulse"]}
     ],
     ngTeam:[
-      {monsterId:465, level:100, moves:["nether_sphere","void_pulse","void_rend","nyx_fang"]},
-      {monsterId:466, level:102, moves:["pyroclasm","sludge_wave","void_pulse","toxic_blaze"]},
-      {monsterId:467, level:105, moves:["whiteout","psi_strike","psychic_blizzard","frost_pulse"]}
+      {monsterId:465, level:153, moves:["nether_sphere","void_pulse","void_rend","nyx_fang"]},
+      {monsterId:466, level:154, moves:["pyroclasm","sludge_wave","void_pulse","toxic_blaze"]},
+      {monsterId:467, level:155, moves:["whiteout","psi_strike","psychic_blizzard","frost_pulse"]}
     ]
   },
   wielder_kael: {
@@ -7828,9 +8631,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:470, level:100, moves:["typhoon","tsunami","torrent_shell","brood_tide"]}
     ],
     ngTeam:[
-      {monsterId:468, level:100, moves:["volt_jet","forge_blast_2","volt_surge","ampere_rail"]},
-      {monsterId:469, level:102, moves:["crag_strike","draconic_pulse","obsidian_crash","arc_strike"]},
-      {monsterId:470, level:105, moves:["typhoon","tsunami","torrent_shell","brood_tide"]}
+      {monsterId:468, level:153, moves:["volt_jet","forge_blast_2","volt_surge","ampere_rail"]},
+      {monsterId:469, level:154, moves:["crag_strike","draconic_pulse","obsidian_crash","arc_strike"]},
+      {monsterId:470, level:155, moves:["typhoon","tsunami","torrent_shell","brood_tide"]}
     ]
   },
   wielder_thessaly: {
@@ -7845,9 +8648,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:473, level:100, moves:["tectonic_shift","geoblast","tectonic_wrath","quake_barrage"]}
     ],
     ngTeam:[
-      {monsterId:471, level:100, moves:["pod_blast","ooze_bomb","verdant_orb","root_toxin"]},
-      {monsterId:472, level:102, moves:["crag_strike","forge_blast_2","obsidian_crash","mineral_lance"]},
-      {monsterId:473, level:105, moves:["tectonic_shift","geoblast","tectonic_wrath","quake_barrage"]}
+      {monsterId:471, level:153, moves:["pod_blast","ooze_bomb","verdant_orb","root_toxin"]},
+      {monsterId:472, level:154, moves:["crag_strike","forge_blast_2","obsidian_crash","mineral_lance"]},
+      {monsterId:473, level:155, moves:["tectonic_shift","geoblast","tectonic_wrath","quake_barrage"]}
     ]
   },
   wielder_nereus: {
@@ -7862,9 +8665,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:476, level:100, moves:["draconic_claw","whiteout","glacial_riptide","tidal_fang"]}
     ],
     ngTeam:[
-      {monsterId:474, level:100, moves:["tidal_rush","mental","tsunami","thought_stream"]},
-      {monsterId:475, level:102, moves:["jaw_crush","venom_lance","void_pulse","dark_corrosion"]},
-      {monsterId:476, level:105, moves:["draconic_claw","whiteout","glacial_riptide","tidal_fang"]}
+      {monsterId:474, level:153, moves:["tidal_rush","mental","tsunami","thought_stream"]},
+      {monsterId:475, level:154, moves:["jaw_crush","venom_lance","void_pulse","dark_corrosion"]},
+      {monsterId:476, level:155, moves:["draconic_claw","whiteout","glacial_riptide","tidal_fang"]}
     ]
   },
   wielder_caelia: {
@@ -7879,9 +8682,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:479, level:100, moves:["typhoon","specter_pulse","phantom_gale","void_cyclone"]}
     ],
     ngTeam:[
-      {monsterId:477, level:100, moves:["lunar_burst","volt_jet","prism_flare","aether_shock"]},
-      {monsterId:478, level:102, moves:["wind_scythe","forge_blast_2","typhoon","ferrous_gale"]},
-      {monsterId:479, level:105, moves:["typhoon","specter_pulse","phantom_gale","void_cyclone"]}
+      {monsterId:477, level:153, moves:["lunar_burst","volt_jet","prism_flare","aether_shock"]},
+      {monsterId:478, level:154, moves:["wind_scythe","forge_blast_2","typhoon","ferrous_gale"]},
+      {monsterId:479, level:155, moves:["typhoon","specter_pulse","phantom_gale","void_cyclone"]}
     ]
   },
   wielder_dravek: {
@@ -7896,9 +8699,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:482, level:100, moves:["draconic_claw","venom_lance","venom_surge","acid_burst"]}
     ],
     ngTeam:[
-      {monsterId:480, level:100, moves:["pyroclasm","forge_blast_2","solar_flare","pyro_alloy"]},
-      {monsterId:481, level:102, moves:["void_pulse","geoblast","obsidian_fang","smoldering_abyss"]},
-      {monsterId:482, level:105, moves:["draconic_claw","venom_lance","venom_surge","acid_burst"]}
+      {monsterId:480, level:153, moves:["pyroclasm","forge_blast_2","solar_flare","pyro_alloy"]},
+      {monsterId:481, level:154, moves:["void_pulse","geoblast","obsidian_fang","smoldering_abyss"]},
+      {monsterId:482, level:155, moves:["draconic_claw","venom_lance","venom_surge","acid_burst"]}
     ]
   },
   wielder_nylara: {
@@ -7913,9 +8716,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:485, level:100, moves:["specter_pulse","lunar_burst","winter_shade","glacial_spirit"]}
     ],
     ngTeam:[
-      {monsterId:483, level:100, moves:["cold_beam","forge_blast_2","alloy_edge","cryo_plate"]},
-      {monsterId:484, level:102, moves:["jaw_crush","obsidian_crash","eclipse_shroud","cryo_shatter"]},
-      {monsterId:485, level:105, moves:["specter_pulse","lunar_burst","winter_shade","glacial_spirit"]}
+      {monsterId:483, level:153, moves:["cold_beam","forge_blast_2","alloy_edge","cryo_plate"]},
+      {monsterId:484, level:154, moves:["jaw_crush","obsidian_crash","eclipse_shroud","cryo_shatter"]},
+      {monsterId:485, level:155, moves:["specter_pulse","lunar_burst","winter_shade","glacial_spirit"]}
     ]
   },
   wielder_solenne: {
@@ -7930,9 +8733,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:488, level:100, moves:["draconic_pulse","stormbolt","voltaic_fang","thunder_chain"]}
     ],
     ngTeam:[
-      {monsterId:486, level:100, moves:["mental","nether_sphere","psi_strike","dream_torrent"]},
-      {monsterId:487, level:102, moves:["lunar_burst","tidal_rush","celestial_wave","moonlit_surge"]},
-      {monsterId:488, level:105, moves:["draconic_pulse","stormbolt","voltaic_fang","thunder_chain"]}
+      {monsterId:486, level:153, moves:["mental","nether_sphere","psi_strike","dream_torrent"]},
+      {monsterId:487, level:154, moves:["lunar_burst","tidal_rush","celestial_wave","moonlit_surge"]},
+      {monsterId:488, level:155, moves:["draconic_pulse","stormbolt","voltaic_fang","thunder_chain"]}
     ]
   },
   wielder_rax: {
@@ -7947,9 +8750,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:491, level:100, moves:["draconic_claw","iron_cleave","draconic_pummels","alloy_breaker"]}
     ],
     ngTeam:[
-      {monsterId:489, level:100, moves:["alloy_tail","crag_strike","obsidian_crash","iron_fortress"]},
-      {monsterId:490, level:102, moves:["pyroclasm","void_pulse","solar_flare","forge_blast"]},
-      {monsterId:491, level:105, moves:["draconic_claw","iron_cleave","draconic_pummels","alloy_breaker"]}
+      {monsterId:489, level:153, moves:["alloy_tail","crag_strike","obsidian_crash","iron_fortress"]},
+      {monsterId:490, level:154, moves:["pyroclasm","void_pulse","solar_flare","forge_blast"]},
+      {monsterId:491, level:155, moves:["draconic_claw","iron_cleave","draconic_pummels","alloy_breaker"]}
     ]
   },
   wielder_tempris: {
@@ -7964,9 +8767,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:494, level:100, moves:["aerial_assault","verdant_surge","canopy_strike","sky_harvest"]}
     ],
     ngTeam:[
-      {monsterId:492, level:100, moves:["volt_jet","mental","volt_surge","psycho_surge"]},
-      {monsterId:493, level:102, moves:["forge_blast_2","whiteout","alloy_edge","icebound_lattice"]},
-      {monsterId:494, level:105, moves:["aerial_assault","verdant_surge","canopy_strike","sky_harvest"]}
+      {monsterId:492, level:153, moves:["volt_jet","mental","volt_surge","psycho_surge"]},
+      {monsterId:493, level:154, moves:["forge_blast_2","whiteout","alloy_edge","icebound_lattice"]},
+      {monsterId:494, level:155, moves:["aerial_assault","verdant_surge","canopy_strike","sky_harvest"]}
     ]
   },
   wielder_vayne: {
@@ -7981,9 +8784,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:497, level:100, moves:["draconic_claw","gale_cannon","abyssal_fang","void_rend_ex"]}
     ],
     ngTeam:[
-      {monsterId:495, level:100, moves:["specter_pulse","tectonic_shift","void_pulse","nihil_quake"]},
-      {monsterId:496, level:102, moves:["mental","shear_strike","psi_strike","venom_mind"]},
-      {monsterId:497, level:105, moves:["draconic_claw","gale_cannon","abyssal_fang","void_rend_ex"]}
+      {monsterId:495, level:153, moves:["specter_pulse","tectonic_shift","void_pulse","nihil_quake"]},
+      {monsterId:496, level:154, moves:["mental","shear_strike","psi_strike","venom_mind"]},
+      {monsterId:497, level:155, moves:["draconic_claw","gale_cannon","abyssal_fang","void_rend_ex"]}
     ]
   },
   wielder_azura: {
@@ -7998,9 +8801,9 @@ const VAELDRIS_WIELDERS = {
       {monsterId:500, level:100, moves:["nether_sphere","radiance_cannon","stellar_collapse","spectral_radiance"]}
     ],
     ngTeam:[
-      {monsterId:498, level:100, moves:["mental","lunar_burst","psi_strike","cosmic_dust"]},
-      {monsterId:499, level:102, moves:["draconic_pulse","solar_flare","ancient_breath","stellar_flare"]},
-      {monsterId:500, level:105, moves:["nether_sphere","radiance_cannon","stellar_collapse","spectral_radiance"]}
+      {monsterId:498, level:153, moves:["mental","lunar_burst","psi_strike","cosmic_dust"]},
+      {monsterId:499, level:154, moves:["draconic_pulse","solar_flare","ancient_breath","stellar_flare"]},
+      {monsterId:500, level:155, moves:["nether_sphere","radiance_cannon","stellar_collapse","spectral_radiance"]}
     ]
   }
 };
@@ -8099,6 +8902,7 @@ const SHOPS_DATA = {
       { itemId: "superPotion", price: 150 },
       { itemId: "revive", price: 500 },
       { itemId: "thunderStone", price: 2000 },
+      { itemId: "tidePearl", price: 2200 },
       { itemId: "rareCandy", price: 1 }
     ]
   },
@@ -8229,6 +9033,7 @@ const SHOPS_DATA = {
       { itemId: "maxPotion", price: 500 },
       { itemId: "revive", price: 500 },
       { itemId: "metalCoat", price: 3000 },
+      { itemId: "auspiciousPlate", price: 2800 },
       { itemId: "rareCandy", price: 1 }
     ]
   },
@@ -8290,24 +9095,24 @@ const ELITE_FOUR = [
     winQuote: "A beautiful performance... You've earned my respect.",
     teams: {
       single: [
-        { monsterId: 109, level: 75, moves: ["typhoon", "wind_scythe", "lunar_burst", "jetstream"] },
-        { monsterId: 303, level: 77, moves: ["lunar_burst", "mental", "prism_flare", "celestial_wave"] },
-        { monsterId: 117, level: 77, moves: ["mental", "typhoon", "cyclone_blade", "inner_calm"] }
+        { monsterId: 109, level: 98, moves: ["typhoon", "wind_scythe", "lunar_burst", "jetstream"] },
+        { monsterId: 303, level: 100, moves: ["lunar_burst", "mental", "prism_flare", "celestial_wave"] },
+        { monsterId: 117, level: 100, moves: ["mental", "typhoon", "cyclone_blade", "inner_calm"] }
       ],
       double: [
-        { monsterId: 143, level: 75, moves: ["lunar_burst", "mental", "prism_flare", "inner_calm"] },
-        { monsterId: 109, level: 75, moves: ["typhoon", "wind_scythe", "lunar_burst", "jetstream"] },
-        { monsterId: 224, level: 76, moves: ["mental", "lunar_burst", "prism_flare", "inner_calm"] },
-        { monsterId: 303, level: 77, moves: ["lunar_burst", "mental", "prism_flare", "celestial_wave"] },
-        { monsterId: 117, level: 77, moves: ["mental", "typhoon", "cyclone_blade", "inner_calm"] }
+        { monsterId: 143, level: 98, moves: ["lunar_burst", "mental", "prism_flare", "inner_calm"] },
+        { monsterId: 109, level: 98, moves: ["typhoon", "wind_scythe", "lunar_burst", "jetstream"] },
+        { monsterId: 224, level: 99, moves: ["mental", "lunar_burst", "prism_flare", "inner_calm"] },
+        { monsterId: 303, level: 100, moves: ["lunar_burst", "mental", "prism_flare", "celestial_wave"] },
+        { monsterId: 117, level: 100, moves: ["mental", "typhoon", "cyclone_blade", "inner_calm"] }
       ],
       triple: [
-        { monsterId: 143, level: 75, moves: ["lunar_burst", "mental", "prism_flare", "inner_calm"] },
-        { monsterId: 109, level: 75, moves: ["typhoon", "wind_scythe", "lunar_burst", "jetstream"] },
-        { monsterId: 224, level: 76, moves: ["mental", "lunar_burst", "prism_flare", "inner_calm"] },
-        { monsterId: 303, level: 77, moves: ["lunar_burst", "mental", "prism_flare", "celestial_wave"] },
-        { monsterId: 117, level: 77, moves: ["mental", "typhoon", "cyclone_blade", "inner_calm"] },
-        { monsterId: 138, level: 77, moves: ["lunar_burst", "prism_flare", "fairy_wind", "celestial_wave"] }
+        { monsterId: 143, level: 98, moves: ["lunar_burst", "mental", "prism_flare", "inner_calm"] },
+        { monsterId: 109, level: 98, moves: ["typhoon", "wind_scythe", "lunar_burst", "jetstream"] },
+        { monsterId: 224, level: 99, moves: ["mental", "lunar_burst", "prism_flare", "inner_calm"] },
+        { monsterId: 303, level: 100, moves: ["lunar_burst", "mental", "prism_flare", "celestial_wave"] },
+        { monsterId: 117, level: 100, moves: ["mental", "typhoon", "cyclone_blade", "inner_calm"] },
+        { monsterId: 138, level: 100, moves: ["lunar_burst", "prism_flare", "fairy_wind", "celestial_wave"] }
       ]
     }
   },
@@ -8317,24 +9122,24 @@ const ELITE_FOUR = [
     winQuote: "Tch... You hit harder than I expected. Fine, you pass.",
     teams: {
       single: [
-        { monsterId: 312, level: 76, moves: ["tectonic_shift", "void_pulse", "jaw_crush", "burial_sands"] },
-        { monsterId: 148, level: 78, moves: ["alloy_tail", "jaw_crush", "forge_blast_2", "forge_strike"] },
-        { monsterId: 213, level: 78, moves: ["rampage", "draconic_pulse", "pyroclasm", "hydra_dance"] }
+        { monsterId: 313, level: 100, moves: ["tectonic_shift", "void_pulse", "jaw_crush", "burial_sands"] },
+        { monsterId: 148, level: 102, moves: ["alloy_tail", "jaw_crush", "forge_blast_2", "forge_strike"] },
+        { monsterId: 213, level: 102, moves: ["rampage", "draconic_pulse", "pyroclasm", "hydra_dance"] }
       ],
       double: [
-        { monsterId: 123, level: 76, moves: ["jaw_crush", "ooze_bomb", "void_pulse", "septic_prick"] },
-        { monsterId: 312, level: 76, moves: ["tectonic_shift", "void_pulse", "jaw_crush", "burial_sands"] },
-        { monsterId: 208, level: 77, moves: ["sludge_wave", "draconic_pulse", "virulent_surge", "toxify"] },
-        { monsterId: 148, level: 78, moves: ["alloy_tail", "jaw_crush", "forge_blast_2", "forge_strike"] },
-        { monsterId: 213, level: 78, moves: ["rampage", "draconic_pulse", "pyroclasm", "hydra_dance"] }
+        { monsterId: 125, level: 100, moves: ["jaw_crush", "ooze_bomb", "void_pulse", "septic_prick"] },
+        { monsterId: 313, level: 100, moves: ["tectonic_shift", "void_pulse", "jaw_crush", "burial_sands"] },
+        { monsterId: 208, level: 101, moves: ["sludge_wave", "draconic_pulse", "virulent_surge", "toxify"] },
+        { monsterId: 148, level: 102, moves: ["alloy_tail", "jaw_crush", "forge_blast_2", "forge_strike"] },
+        { monsterId: 213, level: 102, moves: ["rampage", "draconic_pulse", "pyroclasm", "hydra_dance"] }
       ],
       triple: [
-        { monsterId: 123, level: 76, moves: ["jaw_crush", "ooze_bomb", "void_pulse", "septic_prick"] },
-        { monsterId: 312, level: 76, moves: ["tectonic_shift", "void_pulse", "jaw_crush", "burial_sands"] },
-        { monsterId: 208, level: 77, moves: ["sludge_wave", "draconic_pulse", "virulent_surge", "toxify"] },
-        { monsterId: 148, level: 78, moves: ["alloy_tail", "jaw_crush", "forge_blast_2", "forge_strike"] },
-        { monsterId: 213, level: 78, moves: ["rampage", "draconic_pulse", "pyroclasm", "hydra_dance"] },
-        { monsterId: 133, level: 78, moves: ["jaw_crush", "crag_strike", "nether_sphere", "void_pulse"] }
+        { monsterId: 125, level: 100, moves: ["jaw_crush", "ooze_bomb", "void_pulse", "septic_prick"] },
+        { monsterId: 313, level: 100, moves: ["tectonic_shift", "void_pulse", "jaw_crush", "burial_sands"] },
+        { monsterId: 208, level: 101, moves: ["sludge_wave", "draconic_pulse", "virulent_surge", "toxify"] },
+        { monsterId: 148, level: 102, moves: ["alloy_tail", "jaw_crush", "forge_blast_2", "forge_strike"] },
+        { monsterId: 213, level: 102, moves: ["rampage", "draconic_pulse", "pyroclasm", "hydra_dance"] },
+        { monsterId: 133, level: 102, moves: ["jaw_crush", "crag_strike", "nether_sphere", "void_pulse"] }
       ]
     }
   },
@@ -8344,24 +9149,24 @@ const ELITE_FOUR = [
     winQuote: "The cosmos acknowledges your strength. Proceed, champion-to-be.",
     teams: {
       single: [
-        { monsterId: 48,  level: 77, moves: ["whiteout", "cold_beam", "tidal_rush", "frost_crash"] },
-        { monsterId: 229, level: 78, moves: ["volt_jet", "mental", "stormbolt", "inner_calm"] },
-        { monsterId: 3,   level: 79, moves: ["inferno_jet", "draconic_claw", "searing_gale", "rampage"] }
+        { monsterId: 48,  level: 102, moves: ["whiteout", "cold_beam", "tidal_rush", "frost_crash"] },
+        { monsterId: 229, level: 103, moves: ["volt_jet", "mental", "stormbolt", "inner_calm"] },
+        { monsterId: 3,   level: 104, moves: ["inferno_jet", "draconic_claw", "searing_gale", "rampage"] }
       ],
       double: [
-        { monsterId: 168, level: 77, moves: ["mental", "prism_flare", "lunar_burst", "inner_calm"] },
-        { monsterId: 48,  level: 77, moves: ["whiteout", "cold_beam", "tidal_rush", "frost_crash"] },
-        { monsterId: 229, level: 78, moves: ["volt_jet", "mental", "stormbolt", "inner_calm"] },
-        { monsterId: 3,   level: 79, moves: ["inferno_jet", "draconic_claw", "searing_gale", "rampage"] },
-        { monsterId: 241, level: 79, moves: ["cold_beam", "mental", "whiteout", "inner_calm"] }
+        { monsterId: 169, level: 102, moves: ["mental", "prism_flare", "lunar_burst", "inner_calm"] },
+        { monsterId: 48,  level: 102, moves: ["whiteout", "cold_beam", "tidal_rush", "frost_crash"] },
+        { monsterId: 229, level: 103, moves: ["volt_jet", "mental", "stormbolt", "inner_calm"] },
+        { monsterId: 3,   level: 104, moves: ["inferno_jet", "draconic_claw", "searing_gale", "rampage"] },
+        { monsterId: 241, level: 104, moves: ["cold_beam", "mental", "whiteout", "inner_calm"] }
       ],
       triple: [
-        { monsterId: 168, level: 77, moves: ["mental", "prism_flare", "lunar_burst", "inner_calm"] },
-        { monsterId: 48,  level: 77, moves: ["whiteout", "cold_beam", "tidal_rush", "frost_crash"] },
-        { monsterId: 229, level: 78, moves: ["volt_jet", "mental", "stormbolt", "inner_calm"] },
-        { monsterId: 3,   level: 79, moves: ["inferno_jet", "draconic_claw", "searing_gale", "rampage"] },
-        { monsterId: 241, level: 79, moves: ["cold_beam", "mental", "whiteout", "inner_calm"] },
-        { monsterId: 170, level: 79, moves: ["mental", "void_pulse", "nether_sphere", "dusk_slash"] }
+        { monsterId: 169, level: 102, moves: ["mental", "prism_flare", "lunar_burst", "inner_calm"] },
+        { monsterId: 48,  level: 102, moves: ["whiteout", "cold_beam", "tidal_rush", "frost_crash"] },
+        { monsterId: 229, level: 103, moves: ["volt_jet", "mental", "stormbolt", "inner_calm"] },
+        { monsterId: 3,   level: 104, moves: ["inferno_jet", "draconic_claw", "searing_gale", "rampage"] },
+        { monsterId: 241, level: 104, moves: ["cold_beam", "mental", "whiteout", "inner_calm"] },
+        { monsterId: 170, level: 104, moves: ["mental", "void_pulse", "nether_sphere", "dusk_slash"] }
       ]
     }
   },
@@ -8371,24 +9176,24 @@ const ELITE_FOUR = [
     winQuote: "The mountain crumbles... You have the strength of a titan yourself.",
     teams: {
       single: [
-        { monsterId: 152, level: 78, moves: ["tungsten_ram", "crag_strike", "alloy_tail", "forge_blast_2"] },
-        { monsterId: 54,  level: 79, moves: ["whiteout", "tectonic_shift", "cold_beam", "geoblast"] },
-        { monsterId: 237, level: 80, moves: ["cold_beam", "crag_strike", "whiteout", "crystal_lance"] }
+        { monsterId: 152, level: 103, moves: ["tungsten_ram", "crag_strike", "alloy_tail", "forge_blast_2"] },
+        { monsterId: 54,  level: 104, moves: ["whiteout", "tectonic_shift", "cold_beam", "geoblast"] },
+        { monsterId: 237, level: 105, moves: ["cold_beam", "crag_strike", "whiteout", "crystal_lance"] }
       ],
       double: [
-        { monsterId: 195, level: 77, moves: ["crag_strike", "crystal_lance", "landslide", "stone_slide"] },
-        { monsterId: 152, level: 78, moves: ["tungsten_ram", "crag_strike", "alloy_tail", "forge_blast_2"] },
-        { monsterId: 54,  level: 79, moves: ["whiteout", "tectonic_shift", "cold_beam", "geoblast"] },
-        { monsterId: 251, level: 79, moves: ["crag_strike", "alloy_tail", "forge_blast_2", "stone_slide"] },
-        { monsterId: 237, level: 80, moves: ["cold_beam", "crag_strike", "whiteout", "crystal_lance"] }
+        { monsterId: 196, level: 102, moves: ["crag_strike", "crystal_lance", "landslide", "stone_slide"] },
+        { monsterId: 152, level: 103, moves: ["tungsten_ram", "crag_strike", "alloy_tail", "forge_blast_2"] },
+        { monsterId: 54,  level: 104, moves: ["whiteout", "tectonic_shift", "cold_beam", "geoblast"] },
+        { monsterId: 252, level: 104, moves: ["crag_strike", "alloy_tail", "forge_blast_2", "stone_slide"] },
+        { monsterId: 237, level: 105, moves: ["cold_beam", "crag_strike", "whiteout", "crystal_lance"] }
       ],
       triple: [
-        { monsterId: 195, level: 77, moves: ["crag_strike", "crystal_lance", "landslide", "stone_slide"] },
-        { monsterId: 152, level: 78, moves: ["tungsten_ram", "crag_strike", "alloy_tail", "forge_blast_2"] },
-        { monsterId: 54,  level: 79, moves: ["whiteout", "tectonic_shift", "cold_beam", "geoblast"] },
-        { monsterId: 251, level: 79, moves: ["crag_strike", "alloy_tail", "forge_blast_2", "stone_slide"] },
-        { monsterId: 237, level: 80, moves: ["cold_beam", "crag_strike", "whiteout", "crystal_lance"] },
-        { monsterId: 192, level: 80, moves: ["tectonic_shift", "crag_strike", "stone_slide", "landslide"] }
+        { monsterId: 196, level: 102, moves: ["crag_strike", "crystal_lance", "landslide", "stone_slide"] },
+        { monsterId: 152, level: 103, moves: ["tungsten_ram", "crag_strike", "alloy_tail", "forge_blast_2"] },
+        { monsterId: 54,  level: 104, moves: ["whiteout", "tectonic_shift", "cold_beam", "geoblast"] },
+        { monsterId: 252, level: 104, moves: ["crag_strike", "alloy_tail", "forge_blast_2", "stone_slide"] },
+        { monsterId: 237, level: 105, moves: ["cold_beam", "crag_strike", "whiteout", "crystal_lance"] },
+        { monsterId: 192, level: 105, moves: ["tectonic_shift", "crag_strike", "stone_slide", "landslide"] }
       ]
     }
   }
@@ -8397,24 +9202,211 @@ const ELITE_FOUR = [
 // ============================================================
 // LEVEL CAPS - Player team levels are capped in major battles
 // ============================================================
+// ============================================================
+// D3 POST-APEX REMATCH ROSTERS (unlock: NG+ & champion & apexGuardian & all 13 wielders)
+// Vanguard L146-148 (1 legendary ace each + coverage), Champion all L150.
+// ============================================================
+const REMATCH_TEAMS = {
+  aria: {
+    single:[
+      {monsterId:303, level:147, moves:["fairy_blast","supernova_glow","psychic_blizzard","fae_requiem"]},
+      {monsterId:224, level:147, moves:["psychic_blizzard","time_fracture","fairy_blast","psy_blast"]},
+      {monsterId:314, level:148, moves:["canopy_strike","thunderstorm_eruption","threnody","tempest_wrath"]}
+    ],
+    double:[
+      {monsterId:273, level:146, moves:["pyroclastic_burst","volcanic_wrath","phantom_gale","caldera_meltdown"]},
+      {monsterId:143, level:147, moves:["fairy_blast","supernova_glow","psychic_blizzard","fae_requiem"]},
+      {monsterId:303, level:147, moves:["fairy_blast","supernova_glow","psychic_blizzard","fae_requiem"]},
+      {monsterId:224, level:147, moves:["psychic_blizzard","time_fracture","fairy_blast","psy_blast"]},
+      {monsterId:314, level:148, moves:["canopy_strike","thunderstorm_eruption","threnody","tempest_wrath"]}
+    ],
+    triple:[
+      {monsterId:366, level:146, moves:["psychic_blizzard","time_fracture","metal_roller","psy_blast"]},
+      {monsterId:273, level:146, moves:["pyroclastic_burst","volcanic_wrath","phantom_gale","caldera_meltdown"]},
+      {monsterId:143, level:147, moves:["fairy_blast","supernova_glow","psychic_blizzard","fae_requiem"]},
+      {monsterId:303, level:147, moves:["fairy_blast","supernova_glow","psychic_blizzard","fae_requiem"]},
+      {monsterId:224, level:147, moves:["psychic_blizzard","time_fracture","fairy_blast","psy_blast"]},
+      {monsterId:314, level:148, moves:["canopy_strike","thunderstorm_eruption","threnody","tempest_wrath"]}
+    ]
+  },
+  grimshaw: {
+    single:[
+      {monsterId:208, level:147, moves:["sludge_cannon","gunk_blast","abyss_ray","venom_drown"]},
+      {monsterId:213, level:147, moves:["pyroclastic_burst","volcanic_wrath","glacial_riptide","caldera_meltdown"]},
+      {monsterId:319, level:148, moves:["starlight_obliteration","void_dominion","galaxy_apocalypse","abyssal_dominion"]}
+    ],
+    double:[
+      {monsterId:228, level:146, moves:["foliage_tempest","blossom_frenzy","psychic_blizzard","sun_ray"]},
+      {monsterId:377, level:147, moves:["boulder_wrecker","tectonic_wrath","quartz_blast","meteor_strike"]},
+      {monsterId:208, level:147, moves:["sludge_cannon","gunk_blast","abyss_ray","venom_drown"]},
+      {monsterId:213, level:147, moves:["pyroclastic_burst","volcanic_wrath","glacial_riptide","caldera_meltdown"]},
+      {monsterId:319, level:148, moves:["starlight_obliteration","void_dominion","galaxy_apocalypse","abyssal_dominion"]}
+    ],
+    triple:[
+      {monsterId:247, level:146, moves:["storm_sovereignty","overcharge","eternal_dream","arc_cannon"]},
+      {monsterId:228, level:146, moves:["foliage_tempest","blossom_frenzy","psychic_blizzard","sun_ray"]},
+      {monsterId:377, level:147, moves:["boulder_wrecker","tectonic_wrath","quartz_blast","meteor_strike"]},
+      {monsterId:208, level:147, moves:["sludge_cannon","gunk_blast","abyss_ray","venom_drown"]},
+      {monsterId:213, level:147, moves:["pyroclastic_burst","volcanic_wrath","glacial_riptide","caldera_meltdown"]},
+      {monsterId:319, level:148, moves:["starlight_obliteration","void_dominion","galaxy_apocalypse","abyssal_dominion"]}
+    ]
+  },
+  celeste: {
+    single:[
+      {monsterId:229, level:147, moves:["storm_sovereignty","overcharge","psychic_blizzard","arc_cannon"]},
+      {monsterId:241, level:147, moves:["glacial_riptide","glacial_lance","psychic_blizzard","avalanche_smash"]},
+      {monsterId:394, level:148, moves:["pyroclastic_burst","volcanic_wrath","galaxy_apocalypse","caldera_meltdown"]}
+    ],
+    double:[
+      {monsterId:292, level:146, moves:["canopy_strike","thunderstorm_eruption","threnody","tempest_wrath"]},
+      {monsterId:3, level:147, moves:["pyroclastic_burst","volcanic_wrath","abyss_ray","caldera_meltdown"]},
+      {monsterId:229, level:147, moves:["storm_sovereignty","overcharge","psychic_blizzard","arc_cannon"]},
+      {monsterId:241, level:147, moves:["glacial_riptide","glacial_lance","psychic_blizzard","avalanche_smash"]},
+      {monsterId:394, level:148, moves:["pyroclastic_burst","volcanic_wrath","galaxy_apocalypse","caldera_meltdown"]}
+    ],
+    triple:[
+      {monsterId:307, level:146, moves:["pyroclastic_burst","volcanic_wrath","starlight_obliteration","caldera_meltdown"]},
+      {monsterId:292, level:146, moves:["canopy_strike","thunderstorm_eruption","threnody","tempest_wrath"]},
+      {monsterId:3, level:147, moves:["pyroclastic_burst","volcanic_wrath","abyss_ray","caldera_meltdown"]},
+      {monsterId:229, level:147, moves:["storm_sovereignty","overcharge","psychic_blizzard","arc_cannon"]},
+      {monsterId:241, level:147, moves:["glacial_riptide","glacial_lance","psychic_blizzard","avalanche_smash"]},
+      {monsterId:394, level:148, moves:["pyroclastic_burst","volcanic_wrath","galaxy_apocalypse","caldera_meltdown"]}
+    ]
+  },
+  titan: {
+    single:[
+      {monsterId:385, level:147, moves:["glacial_riptide","glacial_lance","boulder_wrecker","avalanche_smash"]},
+      {monsterId:237, level:147, moves:["glacial_riptide","glacial_lance","boulder_wrecker","avalanche_smash"]},
+      {monsterId:320, level:148, moves:["metal_roller","tungsten_wrath","storm_sovereignty","anvil_drop"]}
+    ],
+    double:[
+      {monsterId:265, level:146, moves:["foliage_tempest","blossom_frenzy","canopy_strike","sun_ray"]},
+      {monsterId:152, level:147, moves:["metal_roller","tungsten_wrath","boulder_wrecker","anvil_drop"]},
+      {monsterId:385, level:147, moves:["glacial_riptide","glacial_lance","boulder_wrecker","avalanche_smash"]},
+      {monsterId:237, level:147, moves:["glacial_riptide","glacial_lance","boulder_wrecker","avalanche_smash"]},
+      {monsterId:320, level:148, moves:["metal_roller","tungsten_wrath","storm_sovereignty","anvil_drop"]}
+    ],
+    triple:[
+      {monsterId:375, level:146, moves:["storm_sovereignty","overcharge","psychic_blizzard","arc_cannon"]},
+      {monsterId:265, level:146, moves:["foliage_tempest","blossom_frenzy","canopy_strike","sun_ray"]},
+      {monsterId:152, level:147, moves:["metal_roller","tungsten_wrath","boulder_wrecker","anvil_drop"]},
+      {monsterId:385, level:147, moves:["glacial_riptide","glacial_lance","boulder_wrecker","avalanche_smash"]},
+      {monsterId:237, level:147, moves:["glacial_riptide","glacial_lance","boulder_wrecker","avalanche_smash"]},
+      {monsterId:320, level:148, moves:["metal_roller","tungsten_wrath","storm_sovereignty","anvil_drop"]}
+    ]
+  },
+  champion: {
+    single:[
+      {monsterId:392, level:150, moves:["psychic_blizzard","time_fracture","psy_blast","prophecy"]},
+      {monsterId:400, level:150, moves:["pyroclastic_burst","volcanic_wrath","world_devour","caldera_meltdown"]},
+      {monsterId:398, level:150, moves:["starlight_obliteration","void_dominion","fairy_blast","abyssal_dominion"]}
+    ],
+    double:[
+      {monsterId:404, level:150, moves:["abyss_ray","alloy_breaker","psychic_blizzard","venom_surge"]},
+      {monsterId:407, level:150, moves:["starlight_obliteration","void_dominion","metal_roller","abyssal_dominion"]},
+      {monsterId:392, level:150, moves:["psychic_blizzard","time_fracture","psy_blast","prophecy"]},
+      {monsterId:400, level:150, moves:["pyroclastic_burst","volcanic_wrath","world_devour","caldera_meltdown"]},
+      {monsterId:398, level:150, moves:["starlight_obliteration","void_dominion","fairy_blast","abyssal_dominion"]}
+    ],
+    triple:[
+      {monsterId:395, level:150, moves:["glacial_riptide","glacial_lance","radiance_cannon","avalanche_smash"]},
+      {monsterId:404, level:150, moves:["abyss_ray","alloy_breaker","psychic_blizzard","venom_surge"]},
+      {monsterId:407, level:150, moves:["starlight_obliteration","void_dominion","metal_roller","abyssal_dominion"]},
+      {monsterId:392, level:150, moves:["psychic_blizzard","time_fracture","psy_blast","prophecy"]},
+      {monsterId:400, level:150, moves:["pyroclastic_burst","volcanic_wrath","world_devour","caldera_meltdown"]},
+      {monsterId:398, level:150, moves:["starlight_obliteration","void_dominion","fairy_blast","abyssal_dominion"]}
+    ]
+  }
+};
+
+// Apex Guardian boss (apex_summit, L143-145, all-legendary capstone). Beating it sets apexGuardianDefeated.
+const APEX_GUARDIAN = {
+  id:"apex_guardian", name:"The Apex Sovereign", emoji:"🌄", triggerLocation:"apex_summit",
+  quote:"You have bested champions and wielders alike. But the summit answers to me. Show me the apex of your bond, or be cast down.",
+  winQuote:"...So. The throne of the summit passes. The Vanguard and Champion will test you anew — rise, and claim what waits above.",
+  reward:{ masterOrb:3, rareCandy:10 },
+  teams: {
+   single:[
+     {monsterId:400, level:144, moves:["pyroclastic_burst","volcanic_wrath","world_devour","caldera_meltdown"]},
+     {monsterId:398, level:145, moves:["starlight_obliteration","void_dominion","fairy_blast","abyssal_dominion"]},
+     {monsterId:401, level:145, moves:["galaxy_apocalypse","astral_blast","psychic_blizzard","supernova_eruption"]}
+   ],
+   double:[
+     {monsterId:434, level:143, moves:["foliage_tempest","blossom_frenzy","world_devour","sun_ray"]},
+     {monsterId:319, level:144, moves:["starlight_obliteration","void_dominion","galaxy_apocalypse","abyssal_dominion"]},
+     {monsterId:400, level:144, moves:["pyroclastic_burst","volcanic_wrath","world_devour","caldera_meltdown"]},
+     {monsterId:398, level:145, moves:["starlight_obliteration","void_dominion","fairy_blast","abyssal_dominion"]},
+     {monsterId:401, level:145, moves:["galaxy_apocalypse","astral_blast","psychic_blizzard","supernova_eruption"]}
+   ],
+   triple:[
+     {monsterId:394, level:143, moves:["pyroclastic_burst","volcanic_wrath","galaxy_apocalypse","caldera_meltdown"]},
+     {monsterId:434, level:143, moves:["foliage_tempest","blossom_frenzy","world_devour","sun_ray"]},
+     {monsterId:319, level:144, moves:["starlight_obliteration","void_dominion","galaxy_apocalypse","abyssal_dominion"]},
+     {monsterId:400, level:144, moves:["pyroclastic_burst","volcanic_wrath","world_devour","caldera_meltdown"]},
+     {monsterId:398, level:145, moves:["starlight_obliteration","void_dominion","fairy_blast","abyssal_dominion"]},
+     {monsterId:401, level:145, moves:["galaxy_apocalypse","astral_blast","psychic_blizzard","supernova_eruption"]}
+   ]
+ }
+};
+
 const LEVEL_CAPS = {
-  // Gym Leaders: cap = highest team member level + 2
-  rex: 16, marina: 19, pyros: 23, zara: 28,
-  glacier: 34, nyx: 39, oracle: 45, drake: 50,
-  thorne: 53, viper: 57, atlas: 60, mantis: 63,
-  zephyra: 66, ferro: 69, boulder: 72, seraphina: 75,
+  // Gym Leaders: cap = ace level + 2 (non-NG+; the engine adds ngOffset in NG+ runs)
+  rex: 12, marina: 16, pyros: 20, kano: 24,
+  zara: 28, glacier: 32, marl: 36, nyx: 40,
+  oracle: 48, drake: 52, thorne: 56, acrid: 60,
+  viper: 64, atlas: 68, mantis: 72, steam: 76,
+  zephyra: 80, ferro: 84, boulder: 92, seraphina: 100,
+  // NG+-exclusive gyms 21-24 (already NG+ levels; ace + 2)
+  echo: 114, mortis: 119, somna: 124, prisma: 129,
   // The Vanguard
-  aria: 77, grimshaw: 78, celeste: 79, titan: 80,
+  aria: 102, grimshaw: 104, celeste: 106, titan: 107,
   // Champion
-  champion: 84,
-  // Rival battles
+  champion: 110,
+  // D3 post-apex content (cap = ace + 2, clamped to the 150 global max)
+  apex_guardian: 147,
+  aria_rematch: 150, grimshaw_rematch: 150, celeste_rematch: 150, titan_rematch: 150, champion_rematch: 150,
+  // Rival battles (re-leveled in Phase E)
   rival_1: 17, rival_2: 35, rival_3: 56,
   rival_4: 68, rival_5: 77,
-  // The Umbra Order bosses
-  umbra_grunt_1: 18, umbra_grunt_2: 27,
-  umbra_phantom_grunt: 70, umbra_commander_phantom: 76,
-  umbra_commander_kira: 40, umbra_commander_rex_shadow: 51,
-  umbra_shade: 67
+  // The Umbra Order bosses — matched to the gym level cap at each progression point
+  umbra_grunt_1: 18, umbra_grunt_2: 21,
+  umbra_phantom_grunt: 75, umbra_commander_phantom: 76,
+  umbra_commander_kira: 31, umbra_commander_rex_shadow: 34,
+  umbra_shade: 50,
+  // Post-game remnant raids — Champion-tier
+  umbra_remnant_lab: 106, umbra_remnant_archive: 109, umbra_remnant_nexus: 112,
+  // Phase 2 — the post-gym-7 Umbra arc (grunts/Kira/Shade) escalating to the Citadel
+  umbra_grunt_soot: 50, umbra_commander_kira_2: 54, umbra_zealot_cinder: 58,
+  umbra_shade_2: 70, umbra_enforcer_dross: 74, umbra_commander_kira_3: 82, umbra_shade_3: 96,
+  // The Rex/Commander Shadow arc — matched to the level cap at each point
+  // (Pyros-tier, Zara-tier, Glacier-tier, Champion-tier)
+  umbra_shadow_route: 21, umbra_shadow_moor: 48, umbra_rex_vorn: 114,
+  // Post-game Umbra Spire admin gauntlet (promoted grunts under leader Rex)
+  umbra_admin_soot: 104, umbra_admin_cinder: 106, umbra_admin_dross: 108
+};
+
+// ============================================================
+// NG+ LEVEL OFFSETS — added to a major battle's team levels AND its level
+// cap when ngPlusCount > 0, producing the explicit NG+ curve (base gyms
+// 12 +5/badge, Vanguard 128-132, Champion 134). The NG+-exclusive gyms
+// 21-24 are authored directly at NG+ levels, so they carry no offset.
+// ============================================================
+const NG_OFFSETS = {
+  rex:2, marina:3, pyros:4, kano:5, zara:6, glacier:7, marl:8, nyx:9,
+  oracle:6, drake:7, thorne:8, acrid:9, viper:10, atlas:11, mantis:12, steam:13,
+  zephyra:14, ferro:15, boulder:12, seraphina:9,
+  // The Vanguard / Champion
+  aria:28, grimshaw:28, celeste:27, titan:27, champion:26,
+  // The Rex/Commander Shadow arc — scales like gym leaders at matching progression
+  umbra_shadow_route:4, umbra_shadow_moor:8, umbra_commander_rex_shadow:7, umbra_rex_vorn:26,
+  umbra_admin_soot:26, umbra_admin_cinder:26, umbra_admin_dross:26,
+  // All other Umbra Order battles — scale like the gym tier at each point
+  umbra_grunt_1:2, umbra_grunt_2:3, umbra_commander_kira:5, umbra_shade:8,
+  umbra_phantom_grunt:14, umbra_commander_phantom:14,
+  umbra_remnant_lab:26, umbra_remnant_archive:26, umbra_remnant_nexus:26,
+  // Phase 2 Umbra arc — scale like the gym tier at each point
+  umbra_grunt_soot:6, umbra_commander_kira_2:7, umbra_zealot_cinder:8, umbra_shade_2:10,
+  umbra_enforcer_dross:12, umbra_commander_kira_3:14, umbra_shade_3:27
 };
 
 // ============================================================
@@ -8485,372 +9477,372 @@ const QUESTS_DATA = [
     reward:{type:"item", itemId:"superPotion", qty:5}, rewardText:"5 Luma Draughts" },
 
   // ---- EMBERVEIL & FIRE AREAS (21-30) ----
-  { id:"q21", title:"Volcanic Challenge", desc:"Brave the Volcano Core and defeat its fiery guardian!", location:"volcano_core", type:"boss", requiredBadges:3,
+  { id:"q21", title:"Volcanic Challenge", desc:"Brave the Volcano Core and defeat its fiery guardian!", location:"volcano_core", type:"boss", requiredBadges:4,
     boss:{monsterId:20, level:35, moves:["inferno_jet","tectonic_shift","pyroclasm","geoblast"]},
     reward:{type:"item", itemId:"charcoal", qty:1}, rewardText:"Charcoal" },
-  { id:"q22", title:"Lava Fields Survivor", desc:"Cross the Lava Fields and defeat the alpha fire Lumori.", location:"lava_fields", type:"boss", requiredBadges:3,
+  { id:"q22", title:"Lava Fields Survivor", desc:"Cross the Lava Fields and defeat the alpha fire Lumori.", location:"lava_fields", type:"boss", requiredBadges:4,
     boss:{monsterId:13, level:34, moves:["inferno_jet","crushing_bulk","searing_gale","pyroclasm"]},
     reward:{type:"money", amount:2500}, rewardText:"2500 coins" },
   { id:"q23", title:"Hauntcoal Forge Master", desc:"The Forge Master tests trainers with his strongest Lumori.", location:"emberveil", type:"boss", requiredBadges:2,
     boss:{monsterId:16, level:30, moves:["inferno_jet","blitz","searing_gale","pyroclasm"]},
     reward:{type:"item", itemId:"maxPotion", qty:3}, rewardText:"3 Luma Infusions" },
-  { id:"q24", title:"Cinder Mole Hunt", desc:"A rare Cindermole has been spotted in the Lava Fields!", location:"lava_fields", type:"boss", requiredBadges:3,
+  { id:"q24", title:"Cinder Mole Hunt", desc:"A rare Cindermole has been spotted in the Lava Fields!", location:"lava_fields", type:"boss", requiredBadges:4,
     boss:{monsterId:19, level:32, moves:["inferno_jet","tectonic_shift","mud_spray","flicker"]},
     reward:{type:"item", itemId:"softSand", qty:1}, rewardText:"Coarse Sand" },
-  { id:"q25", title:"Iron Canyon Explorer", desc:"Explore the treacherous Iron Canyon and defeat its sentinel.", location:"iron_canyon", type:"boss", requiredBadges:3,
+  { id:"q25", title:"Iron Canyon Explorer", desc:"Explore the treacherous Iron Canyon and defeat its sentinel.", location:"iron_canyon", type:"boss", requiredBadges:4,
     boss:{monsterId:148, level:34, moves:["alloy_tail","jaw_crush","forge_blast_2","chrome_claw"]},
     reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Iron Shell" },
   { id:"q26", title:"Route 3 Gauntlet", desc:"Run the Route 3 trainer gauntlet and face the final boss!", location:"route3", type:"boss", requiredBadges:2,
     boss:{monsterId:26, level:26, moves:["tidal_rush","stone_slide","tidal_sweep","cranial_ram"]},
     reward:{type:"money", amount:1500}, rewardText:"1500 coins" },
-  { id:"q27", title:"Fire Dance Festival", desc:"Win the Hauntcoal Fire Dance Festival battle tournament!", location:"emberveil", type:"boss", requiredBadges:3,
+  { id:"q27", title:"Fire Dance Festival", desc:"Win the Hauntcoal Fire Dance Festival battle tournament!", location:"emberveil", type:"boss", requiredBadges:4,
     boss:{monsterId:11, level:32, moves:["inferno_jet","wingbeat","wind_scythe","searing_gale"]},
     reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 Power Charges" },
-  { id:"q28", title:"Molten Core Mystery", desc:"Strange energy readings in the Volcano Core need investigation.", location:"volcano_core", type:"boss", requiredBadges:3,
+  { id:"q28", title:"Molten Core Mystery", desc:"Strange energy readings in the Volcano Core need investigation.", location:"volcano_core", type:"boss", requiredBadges:4,
     boss:{monsterId:14, level:36, moves:["inferno_jet","stone_slide","tectonic_shift","pyroclasm"]},
     reward:{type:"money", amount:3000}, rewardText:"3000 coins" },
-  { id:"q29", title:"The Scorched Path", desc:"Clear the scorched path through Route 4 from aggressive Lumori.", location:"route4", type:"boss", requiredBadges:3,
+  { id:"q29", title:"The Scorched Path", desc:"Clear the scorched path through Route 4 from aggressive Lumori.", location:"route4", type:"boss", requiredBadges:4,
     boss:{monsterId:99, level:34, moves:["tectonic_shift","septic_prick","virulent_surge","mud_spray"]},
     reward:{type:"item", itemId:"revive", qty:3}, rewardText:"3 Luma Shards" },
-  { id:"q30", title:"Ember Guardian", desc:"The legendary ember guardian protects Hauntcoal's sacred flame.", location:"emberveil", type:"boss", requiredBadges:3,
+  { id:"q30", title:"Ember Guardian", desc:"The legendary ember guardian protects Hauntcoal's sacred flame.", location:"emberveil", type:"boss", requiredBadges:4,
     boss:{monsterId:3, level:38, moves:["inferno_jet","draconic_claw","searing_gale","rampage"]},
     reward:{type:"item", itemId:"dragonFang", qty:1}, rewardText:"Draconic Fang" },
 
   // ---- SPARKMOOR & ELECTRIC AREAS (31-40) ----
-  { id:"q31", title:"Static Shock", desc:"A dangerously charged Lumori terrorizes Sparkmoor. Stop it!", location:"sparkmoor", type:"boss", requiredBadges:3,
+  { id:"q31", title:"Static Shock", desc:"A dangerously charged Lumori terrorizes Sparkmoor. Stop it!", location:"sparkmoor", type:"boss", requiredBadges:4,
     boss:{monsterId:82, level:36, moves:["volt_jet","static_strike","stun_pulse","crushing_bulk"]},
     reward:{type:"item", itemId:"magnet", qty:1}, rewardText:"Magnet" },
-  { id:"q32", title:"Thunder Cliffs Dare", desc:"Scale the Thunder Cliffs and face the storm beast!", location:"thunder_cliffs", type:"boss", requiredBadges:4,
+  { id:"q32", title:"Thunder Cliffs Dare", desc:"Scale the Thunder Cliffs and face the storm beast!", location:"thunder_cliffs", type:"boss", requiredBadges:5,
     boss:{monsterId:92, level:40, moves:["volt_jet","stone_slide","crag_strike","static_strike"]},
     reward:{type:"money", amount:3500}, rewardText:"3500 coins" },
-  { id:"q33", title:"Power Plant Breach", desc:"Wild Electric Lumori have breached the Sparkmoor power plant!", location:"sparkmoor", type:"boss", requiredBadges:3,
+  { id:"q33", title:"Power Plant Breach", desc:"Wild Electric Lumori have breached the Sparkmoor power plant!", location:"sparkmoor", type:"boss", requiredBadges:4,
     boss:{monsterId:85, level:35, moves:["volt_jet","resonance_hum","static_strike","shear_strike"]},
     reward:{type:"item", itemId:"ultraOrb", qty:3}, rewardText:"3 Ultra Orbs" },
-  { id:"q34", title:"Route 4 Blockade", desc:"A stubborn Ground Lumori blocks Route 4. Move it!", location:"route4", type:"boss", requiredBadges:3,
+  { id:"q34", title:"Route 4 Blockade", desc:"A stubborn Ground Lumori blocks Route 4. Move it!", location:"route4", type:"boss", requiredBadges:4,
     boss:{monsterId:96, level:33, moves:["tectonic_shift","stone_slide","mud_spray","cranial_ram"]},
     reward:{type:"item", itemId:"maxPotion", qty:2}, rewardText:"2 Luma Infusions" },
-  { id:"q35", title:"Storm Chaser", desc:"Chase down and battle the legendary storm bird on Storm Plateau!", location:"storm_plateau", type:"boss", requiredBadges:4,
+  { id:"q35", title:"Storm Chaser", desc:"Chase down and battle the legendary storm bird on Storm Plateau!", location:"storm_plateau", type:"boss", requiredBadges:5,
     boss:{monsterId:90, level:42, moves:["volt_jet","typhoon","static_strike","wingbeat"]},
     reward:{type:"item", itemId:"swiftFeather", qty:1}, rewardText:"Swift Feather" },
-  { id:"q36", title:"Mirror Lake Enigma", desc:"The Mirror Lake's surface shimmers with psychic energy. Investigate!", location:"mirror_lake", type:"boss", requiredBadges:4,
+  { id:"q36", title:"Mirror Lake Enigma", desc:"The Mirror Lake's surface shimmers with psychic energy. Investigate!", location:"mirror_lake", type:"boss", requiredBadges:5,
     boss:{monsterId:58, level:40, moves:["cold_beam","prism_flare","mental","fairy_wind"]},
     reward:{type:"item", itemId:"wiseGlasses", qty:1}, rewardText:"Wise Glasses" },
-  { id:"q37", title:"Sparkmoor Circuit", desc:"Win the Sparkmoor Circuit racing tournament!", location:"sparkmoor", type:"boss", requiredBadges:3,
+  { id:"q37", title:"Sparkmoor Circuit", desc:"Win the Sparkmoor Circuit racing tournament!", location:"sparkmoor", type:"boss", requiredBadges:4,
     boss:{monsterId:75, level:35, moves:["volt_jet","vine_lash","static_strike","verdant_orb"]},
     reward:{type:"money", amount:2500}, rewardText:"2500 coins" },
-  { id:"q38", title:"Lightning Rod", desc:"Capture the wild electricity surging through Route 5.", location:"route5", type:"boss", requiredBadges:4,
+  { id:"q38", title:"Lightning Rod", desc:"Capture the wild electricity surging through Route 5.", location:"route5", type:"boss", requiredBadges:5,
     boss:{monsterId:93, level:40, moves:["volt_jet","crag_strike","stone_slide","static_strike"]},
     reward:{type:"item", itemId:"xSpeed", qty:5}, rewardText:"5 Swift Charges" },
   { id:"q39", title:"Voltforest Protector", desc:"The Voltforest needs a champion to defeat the invasive alpha.", location:"bug_forest_west", type:"boss", requiredBadges:1,
     boss:{monsterId:147, level:20, moves:["volt_jet","vine_lash","static_strike","sharp_leaves"]},
     reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Carapace Dust" },
-  { id:"q40", title:"The Magnetic Anomaly", desc:"A strange magnetic field disrupts Sparkmoor. Find the source!", location:"sparkmoor", type:"boss", requiredBadges:4,
+  { id:"q40", title:"The Magnetic Anomaly", desc:"A strange magnetic field disrupts Sparkmoor. Find the source!", location:"sparkmoor", type:"boss", requiredBadges:5,
     boss:{monsterId:151, level:42, moves:["forge_blast_2","volt_jet","alloy_tail","radiance_cannon"]},
     reward:{type:"money", amount:4000}, rewardText:"4000 coins" },
 
   // ---- FROSTPEAK & ICE AREAS (41-50) ----
-  { id:"q41", title:"Blizzard Warning", desc:"A massive blizzard Lumori rampages near Frostpeak!", location:"frostpeak", type:"boss", requiredBadges:4,
+  { id:"q41", title:"Blizzard Warning", desc:"A massive blizzard Lumori rampages near Frostpeak!", location:"frostpeak", type:"boss", requiredBadges:5,
     boss:{monsterId:50, level:44, moves:["whiteout","cold_beam","frost_crash","fortify"]},
     reward:{type:"item", itemId:"neverMeltIce", qty:1}, rewardText:"Eternal Ice" },
-  { id:"q42", title:"Frozen Lake Monster", desc:"Break through the ice and battle the creature beneath!", location:"mirror_lake", type:"boss", requiredBadges:4,
+  { id:"q42", title:"Frozen Lake Monster", desc:"Break through the ice and battle the creature beneath!", location:"mirror_lake", type:"boss", requiredBadges:5,
     boss:{monsterId:45, level:42, moves:["whiteout","tidal_rush","cold_beam","tsunami"]},
     reward:{type:"money", amount:4000}, rewardText:"4000 coins" },
-  { id:"q43", title:"Avalanche Alert", desc:"Stop the Lumori causing avalanches on Route 5!", location:"route5", type:"boss", requiredBadges:4,
+  { id:"q43", title:"Avalanche Alert", desc:"Stop the Lumori causing avalanches on Route 5!", location:"route5", type:"boss", requiredBadges:5,
     boss:{monsterId:56, level:43, moves:["whiteout","forge_blast_2","cold_beam","alloy_tail"]},
     reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Luma Shards" },
-  { id:"q44", title:"Crystal Depths Expedition", desc:"Delve into the Crystal Depths and claim the crystal prize.", location:"crystal_depths", type:"boss", requiredBadges:5,
+  { id:"q44", title:"Crystal Depths Expedition", desc:"Delve into the Crystal Depths and claim the crystal prize.", location:"crystal_depths", type:"boss", requiredBadges:7,
     boss:{monsterId:195, level:48, moves:["crystal_lance","crag_strike","stone_slide","landslide"]},
     reward:{type:"item", itemId:"hardStone", qty:1}, rewardText:"Crag Shard" },
-  { id:"q45", title:"Frostpeak Ski Challenge", desc:"Win the Frostpeak ski challenge battle tournament!", location:"frostpeak", type:"boss", requiredBadges:4,
+  { id:"q45", title:"Frostpeak Ski Challenge", desc:"Win the Frostpeak ski challenge battle tournament!", location:"frostpeak", type:"boss", requiredBadges:5,
     boss:{monsterId:47, level:42, moves:["cold_beam","frost_crash","blitz","whiteout"]},
     reward:{type:"money", amount:3000}, rewardText:"3000 coins" },
-  { id:"q46", title:"Ice Sculptor's Request", desc:"An ice sculptor needs rare ice crystals. Defeat the Lumori guarding them.", location:"frostpeak", type:"boss", requiredBadges:4,
+  { id:"q46", title:"Ice Sculptor's Request", desc:"An ice sculptor needs rare ice crystals. Defeat the Lumori guarding them.", location:"frostpeak", type:"boss", requiredBadges:5,
     boss:{monsterId:55, level:44, moves:["cold_beam","forge_blast_2","alloy_tail","whiteout"]},
     reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
-  { id:"q47", title:"Polar Expedition", desc:"Join the polar expedition and face the apex predator!", location:"route5", type:"boss", requiredBadges:4,
+  { id:"q47", title:"Polar Expedition", desc:"Join the polar expedition and face the apex predator!", location:"route5", type:"boss", requiredBadges:5,
     boss:{monsterId:54, level:45, moves:["whiteout","tectonic_shift","cold_beam","geoblast"]},
     reward:{type:"item", itemId:"xDefense", qty:5}, rewardText:"5 Guard Charges" },
-  { id:"q48", title:"The Frozen Guardian", desc:"Awaken and battle the legendary frozen guardian of Frostpeak.", location:"frostpeak", type:"boss", requiredBadges:5,
+  { id:"q48", title:"The Frozen Guardian", desc:"Awaken and battle the legendary frozen guardian of Frostpeak.", location:"frostpeak", type:"boss", requiredBadges:7,
     boss:{monsterId:48, level:50, moves:["whiteout","cold_beam","tidal_rush","frost_crash"]},
     reward:{type:"item", itemId:"ultraOrb", qty:10}, rewardText:"10 Ultra Orbs" },
-  { id:"q49", title:"Glacial Passage", desc:"Clear the glacial passage for travelers by defeating the blockade.", location:"crystal_depths", type:"boss", requiredBadges:5,
+  { id:"q49", title:"Glacial Passage", desc:"Clear the glacial passage for travelers by defeating the blockade.", location:"crystal_depths", type:"boss", requiredBadges:7,
     boss:{monsterId:61, level:46, moves:["whiteout","breeze","cold_beam","typhoon"]},
     reward:{type:"money", amount:3500}, rewardText:"3500 coins" },
-  { id:"q50", title:"Chillgust Chase", desc:"A rare Chillgust has been spotted! Track it down!", location:"storm_plateau", type:"boss", requiredBadges:4,
+  { id:"q50", title:"Chillgust Chase", desc:"A rare Chillgust has been spotted! Track it down!", location:"storm_plateau", type:"boss", requiredBadges:5,
     boss:{monsterId:62, level:45, moves:["whiteout","typhoon","cold_beam","wind_scythe"]},
     reward:{type:"item", itemId:"swiftFeather", qty:1}, rewardText:"Swift Feather" },
 
   // ---- SHADOWMERE & DARK AREAS (51-60) ----
-  { id:"q51", title:"Shadow Stalker", desc:"A shadow stalks Shadowmere at night. Put it to rest.", location:"shadowmere", type:"boss", requiredBadges:5,
+  { id:"q51", title:"Shadow Stalker", desc:"A shadow stalks Shadowmere at night. Put it to rest.", location:"shadowmere", type:"boss", requiredBadges:7,
     boss:{monsterId:119, level:48, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
     reward:{type:"item", itemId:"blackGlasses", qty:1}, rewardText:"Black Glasses" },
-  { id:"q52", title:"Haunted Grove Terror", desc:"The Haunted Grove has become more dangerous. Investigate!", location:"haunted_grove", type:"boss", requiredBadges:5,
+  { id:"q52", title:"Haunted Grove Terror", desc:"The Haunted Grove has become more dangerous. Investigate!", location:"haunted_grove", type:"boss", requiredBadges:7,
     boss:{monsterId:124, level:48, moves:["nether_sphere","void_pulse","jaw_crush","septic_prick"]},
     reward:{type:"money", amount:4500}, rewardText:"4500 coins" },
-  { id:"q53", title:"Lunar Peak Ascent", desc:"Climb Lunar Peak and face the moonlit guardian!", location:"lunar_peak", type:"boss", requiredBadges:5,
+  { id:"q53", title:"Lunar Peak Ascent", desc:"Climb Lunar Peak and face the moonlit guardian!", location:"lunar_peak", type:"boss", requiredBadges:7,
     boss:{monsterId:143, level:50, moves:["lunar_burst","mental","prism_flare","inner_calm"]},
     reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Fairy Essence" },
-  { id:"q54", title:"Spirit Canyon Crossing", desc:"Cross Spirit Canyon by defeating the ghostly guardians.", location:"spirit_canyon", type:"boss", requiredBadges:5,
+  { id:"q54", title:"Spirit Canyon Crossing", desc:"Cross Spirit Canyon by defeating the ghostly guardians.", location:"spirit_canyon", type:"boss", requiredBadges:7,
     boss:{monsterId:135, level:48, moves:["nether_sphere","forge_blast_2","void_pulse","alloy_tail"]},
     reward:{type:"item", itemId:"spiritVeil", qty:1}, rewardText:"Spirit Veil" },
-  { id:"q55", title:"Crystal Spire Mystery", desc:"Unlock the Crystal Spire's secrets by defeating its protector.", location:"crystal_spire", type:"boss", requiredBadges:5,
+  { id:"q55", title:"Crystal Spire Mystery", desc:"Unlock the Crystal Spire's secrets by defeating its protector.", location:"crystal_spire", type:"boss", requiredBadges:7,
     boss:{monsterId:58, level:48, moves:["cold_beam","prism_flare","mental","whiteout"]},
     reward:{type:"money", amount:5000}, rewardText:"5000 coins" },
-  { id:"q56", title:"Dark Canyon Depths", desc:"Venture into the Dark Canyon and face what lurks within.", location:"dark_canyon", type:"boss", requiredBadges:6,
+  { id:"q56", title:"Dark Canyon Depths", desc:"Venture into the Dark Canyon and face what lurks within.", location:"dark_canyon", type:"boss", requiredBadges:8,
     boss:{monsterId:133, level:52, moves:["void_pulse","crag_strike","nether_sphere","jaw_crush"]},
     reward:{type:"item", itemId:"ultraOrb", qty:5}, rewardText:"5 Ultra Orbs" },
-  { id:"q57", title:"Shadowmere Underworld", desc:"The underworld beneath Shadowmere holds a powerful foe.", location:"shadowmere", type:"boss", requiredBadges:5,
+  { id:"q57", title:"Shadowmere Underworld", desc:"The underworld beneath Shadowmere holds a powerful foe.", location:"shadowmere", type:"boss", requiredBadges:7,
     boss:{monsterId:79, level:48, moves:["void_pulse","verdant_orb","vine_lash","nether_sphere"]},
     reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
-  { id:"q58", title:"Grave Moss Collector", desc:"Collect rare grave moss by defeating its parasitic host.", location:"haunted_grove", type:"boss", requiredBadges:5,
+  { id:"q58", title:"Grave Moss Collector", desc:"Collect rare grave moss by defeating its parasitic host.", location:"haunted_grove", type:"boss", requiredBadges:7,
     boss:{monsterId:130, level:46, moves:["nether_sphere","verdant_orb","void_pulse","sharp_leaves"]},
     reward:{type:"money", amount:3500}, rewardText:"3500 coins" },
-  { id:"q59", title:"The Umbravine", desc:"A monstrous Umbravine has rooted in Route 6. Remove it!", location:"route6", type:"boss", requiredBadges:5,
+  { id:"q59", title:"The Umbravine", desc:"A monstrous Umbravine has rooted in Route 6. Remove it!", location:"route6", type:"boss", requiredBadges:7,
     boss:{monsterId:79, level:50, moves:["void_pulse","verdant_orb","pod_blast","nether_sphere"]},
     reward:{type:"item", itemId:"miracleSeed", qty:1}, rewardText:"Miracle Seed" },
-  { id:"q60", title:"Nightfall Reckoning", desc:"Face the most powerful dark Lumori in all of Shadowmere.", location:"shadowmere", type:"boss", requiredBadges:6,
+  { id:"q60", title:"Nightfall Reckoning", desc:"Face the most powerful dark Lumori in all of Shadowmere.", location:"shadowmere", type:"boss", requiredBadges:8,
     boss:{monsterId:123, level:55, moves:["jaw_crush","ooze_bomb","void_pulse","nether_sphere"]},
     reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 Power Charges" },
 
   // ---- SKYVAULT & PSYCHIC AREAS (61-70) ----
-  { id:"q61", title:"Mind Over Matter", desc:"A psychic barrier blocks Skyvault. Shatter it by defeating the guardian.", location:"skyvault", type:"boss", requiredBadges:6,
+  { id:"q61", title:"Mind Over Matter", desc:"A psychic barrier blocks Skyvault. Shatter it by defeating the guardian.", location:"skyvault", type:"boss", requiredBadges:8,
     boss:{monsterId:168, level:54, moves:["mental","prism_flare","psi_burst","inner_calm"]},
     reward:{type:"item", itemId:"wiseGlasses", qty:1}, rewardText:"Wise Glasses" },
-  { id:"q62", title:"Mystic Forest Patrol", desc:"Patrol the Mystic Forest and defeat rogue Lumori.", location:"mystic_forest", type:"boss", requiredBadges:6,
+  { id:"q62", title:"Mystic Forest Patrol", desc:"Patrol the Mystic Forest and defeat rogue Lumori.", location:"mystic_forest", type:"boss", requiredBadges:8,
     boss:{monsterId:78, level:50, moves:["nether_sphere","sharp_leaves","void_pulse","verdant_orb"]},
     reward:{type:"money", amount:4000}, rewardText:"4000 coins" },
-  { id:"q63", title:"Sky Harbor Defense", desc:"Sky Harbor is under attack! Defend it from the invader!", location:"sky_harbor", type:"boss", requiredBadges:6,
+  { id:"q63", title:"Sky Harbor Defense", desc:"Sky Harbor is under attack! Defend it from the invader!", location:"sky_harbor", type:"boss", requiredBadges:8,
     boss:{monsterId:112, level:52, moves:["typhoon","wind_scythe","wingbeat","jetstream"]},
     reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Luma Shards" },
-  { id:"q64", title:"Poison Swamp Cleanup", desc:"Clear the toxic Lumori polluting the Poison Swamp.", location:"poison_swamp_upper", type:"boss", requiredBadges:6,
+  { id:"q64", title:"Poison Swamp Cleanup", desc:"Clear the toxic Lumori polluting the Poison Swamp.", location:"poison_swamp_upper", type:"boss", requiredBadges:8,
     boss:{monsterId:74, level:52, moves:["sludge_wave","tectonic_shift","acid_rain","toxify"]},
     reward:{type:"item", itemId:"poisonBarb", qty:1}, rewardText:"Venom Thorn" },
-  { id:"q65", title:"Wind Bridge Battle", desc:"A wind elemental guards the Wind Bridge. Cross by defeating it!", location:"wind_bridge", type:"boss", requiredBadges:6,
+  { id:"q65", title:"Wind Bridge Battle", desc:"A wind elemental guards the Wind Bridge. Cross by defeating it!", location:"wind_bridge", type:"boss", requiredBadges:8,
     boss:{monsterId:115, level:52, moves:["typhoon","wind_scythe","cyclone_blade","jetstream"]},
     reward:{type:"money", amount:4500}, rewardText:"4500 coins" },
-  { id:"q66", title:"Umbra Base Infiltrator", desc:"Infiltrate the abandoned Umbra Base and clear remaining forces.", location:"umbra_base", type:"boss", requiredBadges:6,
+  { id:"q66", title:"Umbra Base Infiltrator", desc:"Infiltrate the abandoned Umbra Base and clear remaining forces.", location:"umbra_base", type:"boss", requiredBadges:8,
     boss:{monsterId:122, level:54, moves:["void_pulse","wingbeat","typhoon","jaw_crush"]},
     reward:{type:"item", itemId:"ultraOrb", qty:5}, rewardText:"5 Ultra Orbs" },
-  { id:"q67", title:"Mental Duel", desc:"Oracle's apprentice challenges you to a psychic duel!", location:"skyvault", type:"boss", requiredBadges:6,
+  { id:"q67", title:"Mental Duel", desc:"Oracle's apprentice challenges you to a psychic duel!", location:"skyvault", type:"boss", requiredBadges:8,
     boss:{monsterId:117, level:54, moves:["mental","typhoon","cyclone_blade","inner_calm"]},
     reward:{type:"money", amount:5000}, rewardText:"5000 coins" },
-  { id:"q68", title:"Route 7 Guardian", desc:"The ancient guardian of Route 7 awakens. Defeat it!", location:"route7", type:"boss", requiredBadges:6,
+  { id:"q68", title:"Route 7 Guardian", desc:"The ancient guardian of Route 7 awakens. Defeat it!", location:"route7", type:"boss", requiredBadges:8,
     boss:{monsterId:9, level:52, moves:["petal_blitz","lunar_burst","verdant_orb","slumber_dust"]},
     reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
-  { id:"q69", title:"Skyvault Observatory", desc:"The observatory telescope reveals a hidden Lumori. Battle it!", location:"skyvault", type:"boss", requiredBadges:6,
+  { id:"q69", title:"Skyvault Observatory", desc:"The observatory telescope reveals a hidden Lumori. Battle it!", location:"skyvault", type:"boss", requiredBadges:8,
     boss:{monsterId:319, level:56, moves:["void_pulse","lunar_burst","mental","nether_sphere"]},
     reward:{type:"item", itemId:"spiritVeil", qty:1}, rewardText:"Spirit Veil" },
-  { id:"q70", title:"Dreamweaver", desc:"A Lumori weaves dreams into reality. Snap out of it by fighting!", location:"mystic_forest", type:"boss", requiredBadges:6,
+  { id:"q70", title:"Dreamweaver", desc:"A Lumori weaves dreams into reality. Snap out of it by fighting!", location:"mystic_forest", type:"boss", requiredBadges:8,
     boss:{monsterId:142, level:52, moves:["prism_flare","fairy_wind","mental","lunar_burst"]},
     reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Fairy Essence" },
 
   // ---- DRAGONSPIRE & LATE GAME (71-80) ----
-  { id:"q71", title:"Draconic's Trial", desc:"Pass the Draconic's Trial at Dragonspire to prove your worth.", location:"dragonspire", type:"boss", requiredBadges:7,
+  { id:"q71", title:"Draconic's Trial", desc:"Pass the Draconic's Trial at Dragonspire to prove your worth.", location:"dragonspire", type:"boss", requiredBadges:9,
     boss:{monsterId:173, level:60, moves:["rampage","draconic_pulse","hydra_dance","radiance_cannon"]},
     reward:{type:"money", amount:8000}, rewardText:"8000 coins" },
-  { id:"q72", title:"Route 8 Warden", desc:"The Route 8 warden tests all who pass.", location:"route8", type:"boss", requiredBadges:7,
+  { id:"q72", title:"Route 8 Warden", desc:"The Route 8 warden tests all who pass.", location:"route8", type:"boss", requiredBadges:9,
     boss:{monsterId:321, level:58, moves:["rampage","pyroclasm","draconic_pulse","hydra_dance"]},
     reward:{type:"item", itemId:"dragonFang", qty:1}, rewardText:"Draconic Fang" },
-  { id:"q73", title:"Victory Road Preview", desc:"Get a taste of Victory Road by defeating its gatekeeper!", location:"victoryroad", type:"boss", requiredBadges:8,
+  { id:"q73", title:"Victory Road Preview", desc:"Get a taste of Victory Road by defeating its gatekeeper!", location:"victoryroad", type:"boss", requiredBadges:10,
     boss:{monsterId:152, level:60, moves:["tungsten_ram","crag_strike","alloy_tail","forge_blast_2"]},
     reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 Power Charges" },
-  { id:"q74", title:"Draconic Egg Protector", desc:"Protect the dragon eggs from poachers by defeating their leader!", location:"dragonspire", type:"boss", requiredBadges:7,
+  { id:"q74", title:"Draconic Egg Protector", desc:"Protect the dragon eggs from poachers by defeating their leader!", location:"dragonspire", type:"boss", requiredBadges:9,
     boss:{monsterId:172, level:56, moves:["draconic_claw","draconic_breath","crushing_bulk","hydra_dance"]},
     reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
-  { id:"q75", title:"The Draconic Sage", desc:"An ancient dragon sage challenges worthy trainers.", location:"dragonspire", type:"boss", requiredBadges:8,
+  { id:"q75", title:"The Draconic Sage", desc:"An ancient dragon sage challenges worthy trainers.", location:"dragonspire", type:"boss", requiredBadges:10,
     boss:{monsterId:175, level:62, moves:["tidal_rush","draconic_pulse","tsunami","draconic_claw"]},
     reward:{type:"money", amount:10000}, rewardText:"10000 coins" },
-  { id:"q76", title:"Stormforged Encounter", desc:"A rare Stormforged has been spotted near Thunder Cliffs!", location:"thunder_cliffs", type:"boss", requiredBadges:4,
+  { id:"q76", title:"Stormforged Encounter", desc:"A rare Stormforged has been spotted near Thunder Cliffs!", location:"thunder_cliffs", type:"boss", requiredBadges:5,
     boss:{monsterId:320, level:45, moves:["volt_jet","forge_blast_2","forge_strike","static_strike"]},
     reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Iron Shell" },
-  { id:"q77", title:"Route 8 Ambush", desc:"Bandits ambush travelers on Route 8. Stop them!", location:"route8", type:"boss", requiredBadges:7,
+  { id:"q77", title:"Route 8 Ambush", desc:"Bandits ambush travelers on Route 8. Stop them!", location:"route8", type:"boss", requiredBadges:9,
     boss:{monsterId:119, level:56, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
     reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Luma Shards" },
-  { id:"q78", title:"The Apex Hunter", desc:"Track down the apex predator of Dragonspire.", location:"dragonspire", type:"boss", requiredBadges:8,
+  { id:"q78", title:"The Apex Hunter", desc:"Track down the apex predator of Dragonspire.", location:"dragonspire", type:"boss", requiredBadges:10,
     boss:{monsterId:176, level:60, moves:["volt_jet","draconic_pulse","stormbolt","draconic_claw"]},
     reward:{type:"item", itemId:"dragonFang", qty:1}, rewardText:"Draconic Fang" },
-  { id:"q79", title:"Legends Awakening", desc:"The ancient legends stir. Face a lesser dragon to prove readiness.", location:"dragonspire", type:"boss", requiredBadges:8,
+  { id:"q79", title:"Legends Awakening", desc:"The ancient legends stir. Face a lesser dragon to prove readiness.", location:"dragonspire", type:"boss", requiredBadges:10,
     boss:{monsterId:171, level:62, moves:["mental","draconic_pulse","psi_strike","rampage"]},
     reward:{type:"money", amount:12000}, rewardText:"12000 coins" },
-  { id:"q80", title:"Summit Sentinel", desc:"The Summit's sentinel bars entry to the unworthy.", location:"summit", type:"boss", requiredBadges:8,
+  { id:"q80", title:"Summit Sentinel", desc:"The Summit's sentinel bars entry to the unworthy.", location:"summit", type:"boss", requiredBadges:10,
     boss:{monsterId:151, level:62, moves:["forge_blast_2","stormbolt","tungsten_ram","radiance_cannon"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
 
   // ---- NEW AREAS - BLOOMHAVEN TO STARBLOOM (81-100) ----
-  { id:"q81", title:"Bloomhaven Blossom Festival", desc:"Win the annual Blossom Festival tournament!", location:"bloomhaven", type:"boss", requiredBadges:8,
+  { id:"q81", title:"Bloomhaven Blossom Festival", desc:"Win the annual Blossom Festival tournament!", location:"bloomhaven", type:"boss", requiredBadges:10,
     boss:{monsterId:9, level:58, moves:["petal_blitz","verdant_orb","lunar_burst","canopy_crash"]},
     reward:{type:"money", amount:6000}, rewardText:"6000 coins" },
-  { id:"q82", title:"Toxic Waste Crisis", desc:"Miasma City's toxic waste has spawned a dangerous Lumori!", location:"miasmacity", type:"boss", requiredBadges:9,
+  { id:"q82", title:"Toxic Waste Crisis", desc:"Miasma City's toxic waste has spawned a dangerous Lumori!", location:"miasmacity", type:"boss", requiredBadges:12,
     boss:{monsterId:158, level:60, moves:["sludge_wave","tectonic_shift","acid_rain","toxify"]},
     reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
-  { id:"q83", title:"Terravault Excavation", desc:"Join the excavation and battle what you unearth!", location:"terravault", type:"boss", requiredBadges:10,
+  { id:"q83", title:"Terravault Excavation", desc:"Join the excavation and battle what you unearth!", location:"terravault", type:"boss", requiredBadges:13,
     boss:{monsterId:107, level:62, moves:["tectonic_shift","geoblast","fissure_slam","mud_spray"]},
     reward:{type:"item", itemId:"softSand", qty:1}, rewardText:"Coarse Sand" },
-  { id:"q84", title:"Silkwood Cocoon Crisis", desc:"Giant cocoons are hatching dangerous Lumori in Silkwood!", location:"silkwood", type:"boss", requiredBadges:11,
+  { id:"q84", title:"Silkwood Cocoon Crisis", desc:"Giant cocoons are hatching dangerous Lumori in Silkwood!", location:"silkwood", type:"boss", requiredBadges:14,
     boss:{monsterId:201, level:64, moves:["shear_strike","resonance_hum","alloy_tail","mandible_crush"]},
     reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Carapace Dust" },
-  { id:"q85", title:"Gusthaven Wind Trial", desc:"Pass the Wind Trial to earn the respect of Gusthaven.", location:"gusthaven", type:"boss", requiredBadges:12,
+  { id:"q85", title:"Gusthaven Wind Trial", desc:"Pass the Wind Trial to earn the respect of Gusthaven.", location:"gusthaven", type:"boss", requiredBadges:16,
     boss:{monsterId:109, level:66, moves:["typhoon","lunar_burst","wind_scythe","cyclone_blade"]},
     reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
-  { id:"q86", title:"Ironforge Masterwork", desc:"Defeat the Ironforge champion's ultimate creation!", location:"ironforge", type:"boss", requiredBadges:13,
+  { id:"q86", title:"Ironforge Masterwork", desc:"Defeat the Ironforge champion's ultimate creation!", location:"ironforge", type:"boss", requiredBadges:17,
     boss:{monsterId:151, level:68, moves:["tungsten_ram","forge_blast_2","stormbolt","alloy_tail"]},
     reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Iron Shell" },
-  { id:"q87", title:"Quarryville Fossil Hunt", desc:"A rare fossil Lumori has been revived! Battle it!", location:"quarryville", type:"boss", requiredBadges:14,
+  { id:"q87", title:"Quarryville Fossil Hunt", desc:"A rare fossil Lumori has been revived! Battle it!", location:"quarryville", type:"boss", requiredBadges:18,
     boss:{monsterId:195, level:68, moves:["crystal_lance","crag_strike","landslide","geode_burst"]},
     reward:{type:"item", itemId:"hardStone", qty:1}, rewardText:"Crag Shard" },
-  { id:"q88", title:"Starbloom Celestial Trial", desc:"The Celestial Trial awaits at Starbloom. Are you worthy?", location:"starbloom", type:"boss", requiredBadges:15,
+  { id:"q88", title:"Starbloom Celestial Trial", desc:"The Celestial Trial awaits at Starbloom. Are you worthy?", location:"starbloom", type:"boss", requiredBadges:19,
     boss:{monsterId:143, level:70, moves:["lunar_burst","mental","celestial_wave","prism_flare"]},
     reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Fairy Essence" },
-  { id:"q89", title:"Route 9 Pioneer", desc:"Be the first to explore the new Route 9!", location:"route9", type:"boss", requiredBadges:8,
+  { id:"q89", title:"Route 9 Pioneer", desc:"Be the first to explore the new Route 9!", location:"route9", type:"boss", requiredBadges:10,
     boss:{monsterId:8, level:55, moves:["petal_blitz","sharp_leaves","pod_blast","verdant_orb"]},
     reward:{type:"money", amount:5000}, rewardText:"5000 coins" },
-  { id:"q90", title:"Route 10 Toxin", desc:"Clear the toxic Lumori blocking Route 10.", location:"route10", type:"boss", requiredBadges:9,
+  { id:"q90", title:"Route 10 Toxin", desc:"Clear the toxic Lumori blocking Route 10.", location:"route10", type:"boss", requiredBadges:12,
     boss:{monsterId:156, level:58, moves:["ooze_bomb","virulent_surge","toxify","acid_rain"]},
     reward:{type:"item", itemId:"superPotion", qty:10}, rewardText:"10 Super Potions" },
-  { id:"q91", title:"Route 11 Tremors", desc:"Investigate the tremors shaking Route 11.", location:"route11", type:"boss", requiredBadges:10,
+  { id:"q91", title:"Route 11 Tremors", desc:"Investigate the tremors shaking Route 11.", location:"route11", type:"boss", requiredBadges:13,
     boss:{monsterId:102, level:60, moves:["tectonic_shift","geoblast","crushing_bulk","fissure_slam"]},
     reward:{type:"money", amount:6000}, rewardText:"6000 coins" },
-  { id:"q92", title:"Route 12 Swarm", desc:"A massive bug swarm threatens Route 12!", location:"route12", type:"boss", requiredBadges:11,
+  { id:"q92", title:"Route 12 Swarm", desc:"A massive bug swarm threatens Route 12!", location:"route12", type:"boss", requiredBadges:14,
     boss:{monsterId:203, level:62, moves:["resonance_hum","lunar_burst","shear_strike","prism_flare"]},
     reward:{type:"item", itemId:"revive", qty:5}, rewardText:"5 Luma Shards" },
-  { id:"q93", title:"Route 13 Gale", desc:"Navigate through the gale on Route 13.", location:"route13", type:"boss", requiredBadges:12,
+  { id:"q93", title:"Route 13 Gale", desc:"Navigate through the gale on Route 13.", location:"route13", type:"boss", requiredBadges:16,
     boss:{monsterId:112, level:64, moves:["typhoon","wind_scythe","cyclone_blade","skyfall"]},
     reward:{type:"item", itemId:"xSpeed", qty:5}, rewardText:"5 Swift Charges" },
-  { id:"q94", title:"Route 14 Forge", desc:"Cross through the active forge on Route 14.", location:"route14", type:"boss", requiredBadges:13,
+  { id:"q94", title:"Route 14 Forge", desc:"Cross through the active forge on Route 14.", location:"route14", type:"boss", requiredBadges:17,
     boss:{monsterId:148, level:66, moves:["forge_strike","alloy_tail","forge_blast_2","jaw_crush"]},
     reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
-  { id:"q95", title:"Route 15 Rockslide", desc:"Clear the massive rockslide on Route 15.", location:"route15", type:"boss", requiredBadges:14,
+  { id:"q95", title:"Route 15 Rockslide", desc:"Clear the massive rockslide on Route 15.", location:"route15", type:"boss", requiredBadges:18,
     boss:{monsterId:192, level:66, moves:["tectonic_shift","crag_strike","stone_slide","landslide"]},
     reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
-  { id:"q96", title:"Route 16 Enchantment", desc:"Break through the fairy enchantment on Route 16.", location:"route16", type:"boss", requiredBadges:15,
+  { id:"q96", title:"Route 16 Enchantment", desc:"Break through the fairy enchantment on Route 16.", location:"route16", type:"boss", requiredBadges:19,
     boss:{monsterId:146, level:68, moves:["lunar_burst","forge_blast_2","prism_flare","celestial_wave"]},
     reward:{type:"item", itemId:"ultraOrb", qty:10}, rewardText:"10 Ultra Orbs" },
-  { id:"q97", title:"Bloomhaven Herb Garden", desc:"The herb garden has been overrun! Reclaim it!", location:"bloomhaven", type:"boss", requiredBadges:8,
+  { id:"q97", title:"Bloomhaven Herb Garden", desc:"The herb garden has been overrun! Reclaim it!", location:"bloomhaven", type:"boss", requiredBadges:10,
     boss:{monsterId:64, level:56, moves:["ooze_bomb","pod_blast","spore_burst","verdant_orb"]},
     reward:{type:"item", itemId:"miracleSeed", qty:1}, rewardText:"Miracle Seed" },
-  { id:"q98", title:"Miasma Underbelly", desc:"Explore the toxic underbelly of Miasma City.", location:"miasmacity", type:"boss", requiredBadges:9,
+  { id:"q98", title:"Miasma Underbelly", desc:"Explore the toxic underbelly of Miasma City.", location:"miasmacity", type:"boss", requiredBadges:12,
     boss:{monsterId:165, level:60, moves:["resonance_hum","ooze_bomb","virulent_surge","shear_strike"]},
     reward:{type:"money", amount:6000}, rewardText:"6000 coins" },
-  { id:"q99", title:"Terravault Deep Mine", desc:"Delve into the deepest mine shaft of Terravault.", location:"terravault", type:"boss", requiredBadges:10,
+  { id:"q99", title:"Terravault Deep Mine", desc:"Delve into the deepest mine shaft of Terravault.", location:"terravault", type:"boss", requiredBadges:13,
     boss:{monsterId:154, level:62, moves:["tectonic_shift","forge_strike","forge_blast_2","geoblast"]},
     reward:{type:"item", itemId:"xDefense", qty:5}, rewardText:"5 Guard Charges" },
-  { id:"q100", title:"The Great Silkwood Tree", desc:"The Great Tree's guardian challenges all who approach!", location:"silkwood", type:"boss", requiredBadges:11,
+  { id:"q100", title:"The Great Silkwood Tree", desc:"The Great Tree's guardian challenges all who approach!", location:"silkwood", type:"boss", requiredBadges:14,
     boss:{monsterId:202, level:62, moves:["resonance_hum","lunar_burst","silk_bind","prism_flare"]},
     reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
 
   // ---- BONUS/ENDGAME QUESTS (101-110) ----
-  { id:"q101", title:"Legendary Tempest", desc:"Tempestia stirs atop the Storm Plateau. Face its wrath!", location:"storm_plateau", type:"boss", requiredBadges:12,
+  { id:"q101", title:"Legendary Tempest", desc:"Tempestia stirs atop the Storm Plateau. Face its wrath!", location:"storm_plateau", type:"boss", requiredBadges:16,
     boss:{monsterId:314, level:70, moves:["typhoon","volt_jet","tempest_wrath","gale_cannon"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
-  { id:"q102", title:"Volcanic Awakening", desc:"Volcanox rumbles in the Volcano Core. Calm it by battle!", location:"volcano_core", type:"boss", requiredBadges:10,
+  { id:"q102", title:"Volcanic Awakening", desc:"Volcanox rumbles in the Volcano Core. Calm it by battle!", location:"volcano_core", type:"boss", requiredBadges:13,
     boss:{monsterId:315, level:70, moves:["pyroclasm","crag_strike","caldera_meltdown","tectonic_shift"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
-  { id:"q103", title:"Abyssal Draconic", desc:"Abyssdrake lurks in the Deep Trench. Challenge the abyss!", location:"deep_trench", type:"boss", requiredBadges:8,
+  { id:"q103", title:"Abyssal Draconic", desc:"Abyssdrake lurks in the Deep Trench. Challenge the abyss!", location:"deep_trench", type:"boss", requiredBadges:10,
     boss:{monsterId:316, level:70, moves:["tsunami","draconic_pulse","rampage","tidal_rush"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
-  { id:"q104", title:"Temporal Rift", desc:"Chronoseer appears in the Crystal Spire. Face time itself!", location:"crystal_spire", type:"boss", requiredBadges:14,
+  { id:"q104", title:"Temporal Rift", desc:"Chronoseer appears in the Crystal Spire. Face time itself!", location:"crystal_spire", type:"boss", requiredBadges:18,
     boss:{monsterId:317, level:70, moves:["mental","temporal_rift","psi_strike","inner_calm"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
-  { id:"q105", title:"World Seed", desc:"Terranova awakens in the Ancient Ruins. Face nature's fury!", location:"ancient_ruins", type:"boss", requiredBadges:14,
+  { id:"q105", title:"World Seed", desc:"Terranova awakens in the Ancient Ruins. Face nature's fury!", location:"ancient_ruins", type:"boss", requiredBadges:18,
     boss:{monsterId:318, level:70, moves:["tectonic_shift","verdant_orb","worldseed_quake","petal_blitz"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
-  { id:"q106", title:"Void Star Rising", desc:"Voidstar manifests in the Dark Canyon. Face the void!", location:"void_rift", type:"boss", requiredBadges:15,
+  { id:"q106", title:"Void Star Rising", desc:"Voidstar manifests in the Dark Canyon. Face the void!", location:"void_rift", type:"boss", requiredBadges:19,
     boss:{monsterId:319, level:70, moves:["void_pulse","lunar_burst","nether_sphere","mental"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
-  { id:"q107", title:"Storm Forged Legend", desc:"The legendary Stormforged descends on Iron Canyon!", location:"iron_canyon", type:"boss", requiredBadges:13,
+  { id:"q107", title:"Storm Forged Legend", desc:"The legendary Stormforged descends on Iron Canyon!", location:"iron_canyon", type:"boss", requiredBadges:17,
     boss:{monsterId:320, level:70, moves:["volt_jet","tungsten_ram","forge_blast_2","forge_strike"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
-  { id:"q108", title:"Champion's Rematch", desc:"Champion Lumian offers a rematch at full power!", location:"summit", type:"boss", requiredBadges:16,
+  { id:"q108", title:"Champion's Rematch", desc:"Champion Lumian offers a rematch at full power!", location:"summit", type:"boss", requiredBadges:20,
     boss:{monsterId:321, level:80, moves:["rampage","draconic_pulse","pyroclasm","hydra_dance"]},
     reward:{type:"money", amount:25000}, rewardText:"25000 coins" },
-  { id:"q109", title:"Ultimate Trial", desc:"Face the ultimate trial: a gauntlet of the strongest wild Lumori!", location:"victoryroad", type:"boss", requiredBadges:16,
+  { id:"q109", title:"Ultimate Trial", desc:"Face the ultimate trial: a gauntlet of the strongest wild Lumori!", location:"victoryroad", type:"boss", requiredBadges:20,
     boss:{monsterId:173, level:78, moves:["rampage","draconic_pulse","hydra_dance","radiance_cannon"]},
     reward:{type:"money", amount:20000}, rewardText:"20000 coins" },
-  { id:"q110", title:"The Final Quest", desc:"Complete every challenge Lumoria has to offer.", location:"summit", type:"boss", requiredBadges:16,
+  { id:"q110", title:"The Final Quest", desc:"Complete every challenge Lumoria has to offer.", location:"summit", type:"boss", requiredBadges:20,
     boss:{monsterId:171, level:80, moves:["mental","draconic_pulse","temporal_rift","rampage"]},
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
 
   // ---- TRAINER BATTLES BETWEEN GYMS 8-16 (q111-q130) ----
   // Route 9 - Verdant Trail (post Gym 8, Grass/Bug focus)
-  { id:"q111", title:"Verdant Trail Ranger", desc:"A veteran ranger patrols Route 9 and tests every trainer who passes.", location:"route9", type:"boss", requiredBadges:8,
+  { id:"q111", title:"Verdant Trail Ranger", desc:"A veteran ranger patrols Route 9 and tests every trainer who passes.", location:"route9", type:"boss", requiredBadges:10,
     boss:{monsterId:74, level:57, moves:["celestial_wave","petal_blitz","lunar_burst","verdant_orb"]},
     reward:{type:"money", amount:6000}, rewardText:"6000 coins" },
-  { id:"q112", title:"Evolved Vine Colossus", desc:"A fully evolved Grass titan has made Route 9 its territory. Claim it!", location:"route9", type:"boss", requiredBadges:8,
+  { id:"q112", title:"Evolved Vine Colossus", desc:"A fully evolved Grass titan has made Route 9 its territory. Claim it!", location:"route9", type:"boss", requiredBadges:10,
     boss:{monsterId:68, level:58, moves:["tectonic_shift","verdant_orb","root_lance","petal_blitz"]},
     reward:{type:"item", itemId:"miracleSeed", qty:1}, rewardText:"Miracle Seed" },
-  { id:"q113", title:"Bloomhaven Bug Wrangler", desc:"The local bug wrangler challenges you with his prized evolved insects.", location:"bloomhaven", type:"boss", requiredBadges:8,
+  { id:"q113", title:"Bloomhaven Bug Wrangler", desc:"The local bug wrangler challenges you with his prized evolved insects.", location:"bloomhaven", type:"boss", requiredBadges:10,
     boss:{monsterId:203, level:57, moves:["lunar_burst","resonance_hum","prism_flare","silk_bind"]},
     reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Carapace Dust" },
 
   // Route 10 - Toxic Passage (Poison focus)
-  { id:"q114", title:"Toxic Passage Brawler", desc:"A battle-hardened Poison trainer blocks the toxic passage.", location:"route10", type:"boss", requiredBadges:9,
+  { id:"q114", title:"Toxic Passage Brawler", desc:"A battle-hardened Poison trainer blocks the toxic passage.", location:"route10", type:"boss", requiredBadges:12,
     boss:{monsterId:159, level:60, moves:["acid_rain","sludge_wave","venom_lance","geoblast"]},
     reward:{type:"money", amount:6500}, rewardText:"6500 coins" },
-  { id:"q115", title:"Miasma City Chemist", desc:"A Miasma City chemist tests trainers with toxic-type experiments.", location:"miasmacity", type:"boss", requiredBadges:9,
+  { id:"q115", title:"Miasma City Chemist", desc:"A Miasma City chemist tests trainers with toxic-type experiments.", location:"miasmacity", type:"boss", requiredBadges:12,
     boss:{monsterId:163, level:61, moves:["sludge_wave","virulent_surge","venom_lance","toxify"]},
     reward:{type:"item", itemId:"poisonBarb", qty:1}, rewardText:"Venom Thorn" },
-  { id:"q116", title:"Evolved Wind Venom", desc:"A Toxivane has evolved and taken root on Route 10. Clear it out!", location:"route10", type:"boss", requiredBadges:9,
+  { id:"q116", title:"Evolved Wind Venom", desc:"A Toxivane has evolved and taken root on Route 10. Clear it out!", location:"route10", type:"boss", requiredBadges:12,
     boss:{monsterId:161, level:60, moves:["typhoon","sludge_wave","wind_scythe","venom_lance"]},
     reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
 
   // Route 11 - Tremor Pass (Ground focus)
-  { id:"q117", title:"Tremor Pass Demolitions", desc:"A demolitions expert challenges you at the rockiest point of Route 11.", location:"route11", type:"boss", requiredBadges:10,
+  { id:"q117", title:"Tremor Pass Demolitions", desc:"A demolitions expert challenges you at the rockiest point of Route 11.", location:"route11", type:"boss", requiredBadges:13,
     boss:{monsterId:97, level:63, moves:["tectonic_shift","tectonic_slam","geoblast","crag_strike"]},
     reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
-  { id:"q118", title:"Desert Draconic Duel", desc:"A legendary desert dragon has been spotted at Route 11. Challenge it!", location:"route11", type:"boss", requiredBadges:10,
+  { id:"q118", title:"Desert Draconic Duel", desc:"A legendary desert dragon has been spotted at Route 11. Challenge it!", location:"route11", type:"boss", requiredBadges:13,
     boss:{monsterId:107, level:64, moves:["draconic_claw","tectonic_shift","geoblast","rampage"]},
     reward:{type:"item", itemId:"softSand", qty:1}, rewardText:"Coarse Sand" },
-  { id:"q119", title:"Terravault Iron Giant", desc:"An ancient iron giant guards the entrance to Terravault's mines.", location:"terravault", type:"boss", requiredBadges:10,
+  { id:"q119", title:"Terravault Iron Giant", desc:"An ancient iron giant guards the entrance to Terravault's mines.", location:"terravault", type:"boss", requiredBadges:13,
     boss:{monsterId:103, level:63, moves:["tectonic_shift","tidal_rush","geoblast","tidal_crush"]},
     reward:{type:"item", itemId:"xDefense", qty:5}, rewardText:"5 Guard Charges" },
 
   // Route 12 - Silk Road (Bug focus)
-  { id:"q120", title:"Silk Road Weaver", desc:"The legendary Silk Road Weaver challenges trainers who disturb its web.", location:"route12", type:"boss", requiredBadges:11,
+  { id:"q120", title:"Silk Road Weaver", desc:"The legendary Silk Road Weaver challenges trainers who disturb its web.", location:"route12", type:"boss", requiredBadges:14,
     boss:{monsterId:202, level:65, moves:["lunar_burst","resonance_hum","silk_bind","prism_flare"]},
     reward:{type:"money", amount:7500}, rewardText:"7500 coins" },
-  { id:"q121", title:"Silkwood Ancient Beetle", desc:"An ancient evolved beetle protects the Great Silkwood Tree's roots.", location:"silkwood", type:"boss", requiredBadges:11,
+  { id:"q121", title:"Silkwood Ancient Beetle", desc:"An ancient evolved beetle protects the Great Silkwood Tree's roots.", location:"silkwood", type:"boss", requiredBadges:14,
     boss:{monsterId:201, level:65, moves:["shear_strike","alloy_tail","forge_blast_2","mandible_crush"]},
     reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Carapace Dust" },
-  { id:"q122", title:"Rock Beetle King", desc:"The Rock Beetle King rules the Silk Road tunnels deep below.", location:"route12", type:"boss", requiredBadges:11,
+  { id:"q122", title:"Rock Beetle King", desc:"The Rock Beetle King rules the Silk Road tunnels deep below.", location:"route12", type:"boss", requiredBadges:14,
     boss:{monsterId:205, level:65, moves:["resonance_hum","tectonic_shift","crag_strike","mandible_crush"]},
     reward:{type:"item", itemId:"hardStone", qty:1}, rewardText:"Crag Shard" },
 
   // Route 13 - Gale Ridge (Wind focus)
-  { id:"q123", title:"Gale Ridge Storm Rider", desc:"A storm rider has trained her Wind Lumori to hurricane strength.", location:"route13", type:"boss", requiredBadges:12,
+  { id:"q123", title:"Gale Ridge Storm Rider", desc:"A storm rider has trained her Wind Lumori to hurricane strength.", location:"route13", type:"boss", requiredBadges:16,
     boss:{monsterId:113, level:67, moves:["typhoon","tempest_wrath","cyclone_blade","wind_scythe"]},
     reward:{type:"money", amount:8000}, rewardText:"8000 coins" },
-  { id:"q124", title:"Gusthaven Wind Sage", desc:"The ancient Wind Sage challenges only the strongest trainers.", location:"gusthaven", type:"boss", requiredBadges:12,
+  { id:"q124", title:"Gusthaven Wind Sage", desc:"The ancient Wind Sage challenges only the strongest trainers.", location:"gusthaven", type:"boss", requiredBadges:16,
     boss:{monsterId:117, level:67, moves:["typhoon","mental","cyclone_blade","astral_rend"]},
     reward:{type:"item", itemId:"swiftFeather", qty:1}, rewardText:"Swift Feather" },
-  { id:"q125", title:"Cyclondor Chase", desc:"A Cyclondor has run amok through Gale Ridge! Calm it with battle.", location:"route13", type:"boss", requiredBadges:12,
+  { id:"q125", title:"Cyclondor Chase", desc:"A Cyclondor has run amok through Gale Ridge! Calm it with battle.", location:"route13", type:"boss", requiredBadges:16,
     boss:{monsterId:110, level:66, moves:["typhoon","volt_jet","cyclone_blade","storm_surge"]},
     reward:{type:"item", itemId:"xSpeed", qty:5}, rewardText:"5 Swift Charges" },
 
   // Route 14 - Ironwork Path (Metal focus)
-  { id:"q126", title:"Ironwork Sentinel", desc:"The Ironwork Path's mechanical sentinel bars all unworthy trainers.", location:"route14", type:"boss", requiredBadges:13,
+  { id:"q126", title:"Ironwork Sentinel", desc:"The Ironwork Path's mechanical sentinel bars all unworthy trainers.", location:"route14", type:"boss", requiredBadges:17,
     boss:{monsterId:149, level:69, moves:["tungsten_ram","forge_blast_2","alloy_tail","forge_strike"]},
     reward:{type:"money", amount:8500}, rewardText:"8500 coins" },
-  { id:"q127", title:"Ironforge Champion Smith", desc:"The master blacksmith of Ironforge forged his Lumori as hard as steel.", location:"ironforge", type:"boss", requiredBadges:13,
+  { id:"q127", title:"Ironforge Champion Smith", desc:"The master blacksmith of Ironforge forged his Lumori as hard as steel.", location:"ironforge", type:"boss", requiredBadges:17,
     boss:{monsterId:154, level:69, moves:["forge_blast_2","tectonic_shift","tungsten_ram","anvil_drop"]},
     reward:{type:"item", itemId:"metalCoat", qty:1}, rewardText:"Iron Shell" },
 
   // Route 15 - Granite Pass / The Umbra Order Resurgence
-  { id:"q128", title:"Granite Pass Guardian", desc:"A Rock master guards the narrowest point of Granite Pass.", location:"route15", type:"boss", requiredBadges:14,
+  { id:"q128", title:"Granite Pass Guardian", desc:"A Rock master guards the narrowest point of Granite Pass.", location:"route15", type:"boss", requiredBadges:18,
     boss:{monsterId:196, level:71, moves:["crag_strike","frost_crash","whiteout","crystal_lance"]},
     reward:{type:"money", amount:9000}, rewardText:"9000 coins" },
-  { id:"q129", title:"Umbra Void Patrol", desc:"The Umbra Order agents have set up a checkpoint on Route 15! Clear them out!", location:"route15", type:"boss", requiredBadges:14,
+  { id:"q129", title:"Umbra Void Patrol", desc:"The Umbra Order agents have set up a checkpoint on Route 15! Clear them out!", location:"route15", type:"boss", requiredBadges:18,
     boss:{monsterId:119, level:67, moves:["jaw_crush","void_pulse","dusk_slash","nether_sphere"]},
     reward:{type:"item", itemId:"ultraOrb", qty:10}, rewardText:"10 Ultra Orbs",
     umbra:true },
 
   // Route 16 - Starlit Path / Voidraxis Storyline
-  { id:"q130", title:"Void Rift Encounter", desc:"The Void Rift on Route 16 pulses with dark and fairy energy. Investigate and face the manifestation within!", location:"route16", type:"boss", requiredBadges:15,
+  { id:"q130", title:"Void Rift Encounter", desc:"The Void Rift on Route 16 pulses with dark and fairy energy. Investigate and face the manifestation within!", location:"route16", type:"boss", requiredBadges:19,
     boss:{monsterId:319, level:72, moves:["void_pulse","lunar_burst","soul_rend","fae_requiem"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
-  { id:"q131", title:"Starbloom Fairy Guardian", desc:"A radiant fairy guardian challenges all who approach Starbloom's gates.", location:"starbloom", type:"boss", requiredBadges:15,
+  { id:"q131", title:"Starbloom Fairy Guardian", desc:"A radiant fairy guardian challenges all who approach Starbloom's gates.", location:"starbloom", type:"boss", requiredBadges:19,
     boss:{monsterId:144, level:71, moves:["lunar_burst","mental","celestial_wave","prism_flare"]},
     reward:{type:"money", amount:10000}, rewardText:"10000 coins" },
-  { id:"q132", title:"Commander Phantom's Last Stand", desc:"Commander Phantom has regrouped on Route 16! Stop The Umbra Order before they re-open the Void Rift!", location:"route16", type:"boss", requiredBadges:15,
+  { id:"q132", title:"Commander Phantom's Last Stand", desc:"Commander Phantom has regrouped on Route 16! Stop The Umbra Order before they re-open the Void Rift!", location:"route16", type:"boss", requiredBadges:19,
     boss:{monsterId:120, level:70, moves:["jaw_crush","void_pulse","void_rend","dusk_slash"]},
     reward:{type:"item", itemId:"maxPotion", qty:10}, rewardText:"10 Max Potions",
     umbra:true },
@@ -8904,7 +9896,7 @@ const QUESTS_DATA = [
     boss:{monsterId:370, level:84, moves:["stormbolt","tailwind_strike","volt_surge","wind_scythe"]},
     reward:{type:"money", amount:22000}, rewardText:"22000 coins", gymOmega:true },
   { id:"ngq16", title:"Atlas Omega Challenge", desc:"Gym Leader Atlas wields NG+ steel behemoths. Can you crack his iron fortress?", location:"ironforge", type:"boss", requiresNGPlus:true, requiredBadges:0,
-    boss:{monsterId:334, level:83, moves:["forge_blast_2","alloy_tail","terra_spike","fissure_slam"]},
+    boss:{monsterId:396, level:83, moves:["forge_blast_2","alloy_tail","terra_spike","fissure_slam"]},
     reward:{type:"money", amount:21000}, rewardText:"21000 coins", gymOmega:true },
 
   // --- Special Trainer Battles ---
@@ -8974,7 +9966,7 @@ const QUESTS_DATA = [
 
   // --- The Rival Gauntlet (your journey's rivals, all NG+ evolved) ---
   { id:"ngq33", title:"Rival Challenge: The First Rival", desc:"Your first rival has completed their own NG+ journey. Their team is unrecognisable from what you once faced.", location:"void_rift", type:"boss", requiresNGPlus:true, requiredBadges:0,
-    boss:{monsterId:345, level:89, moves:["wyrm_strike","void_rend","nether_sphere","cataclysm_breath"]},
+    boss:{monsterId:382, level:89, moves:["wyrm_strike","void_rend","nether_sphere","cataclysm_breath"]},
     reward:{type:"money", amount:30000}, rewardText:"30000 coins" },
   { id:"ngq34", title:"Rival Challenge: The Team Rocket", desc:"Your nemesis rival has rebuilt their team around pure NG+ power. They want to settle the score permanently.", location:"apex_summit", type:"boss", requiresNGPlus:true, requiredBadges:0,
     boss:{monsterId:393, level:92, moves:["void_rend","stormbolt","nether_sphere","neural_storm"]},
@@ -8995,42 +9987,42 @@ const QUESTS_DATA = [
   // NG+ scales the opposing team levels higher.
   // ============================================================
   { id:"wielder_lysara", title:"The Celestial Witness", desc:"A survivor of Vaeldris is said to rest where the stars burn brightest in Lumoria — seekers speak of a plateau so high that the air itself seems to sing. Lysara holds the memory of Vaeldris's sacred temples. She will not come to you. Seek her at the Astral Plateau in the east.",
-    location:"astral_plateau", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    location:"astral_plateau", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
   { id:"wielder_morrigan", title:"The Shadowfen's Grief", desc:"Morrigan watched Vaeldris burn. She has carried that grief into darkness — those who have wandered the Haunted Grove report a figure among the shadows who does not flinch from the dead. She is there. Bring four Lumori and choose wisely.",
-    location:"haunted_grove", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    location:"haunted_grove", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
   { id:"wielder_kael", title:"The Storm That Remembers", desc:"Kael goes where storms go. Trainers who have crossed the Storm Plateau claim to have seen a lone figure standing in the lightning who did not run. That is him. He does not move for weather. He moves for worthy challengers.",
-    location:"storm_plateau", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    location:"storm_plateau", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
   { id:"wielder_thessaly", title:"The Root Memory", desc:"Thessaly communes with old things. The Ancient Ruins hold layers of history she can read like text — she has been there since the Umbra was defeated, waiting among stones that remember. Find the deepest chamber. She will know you are coming.",
-    location:"ancient_ruins", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    location:"ancient_ruins", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
   { id:"wielder_nereus", title:"The Depth That Does Not Forgive", desc:"Nereus returned to the deepest water he could find after Vaeldris fell. The Abyssal Trench in the south — so deep that light gives up trying — is where he has stayed. Something massive guards the path to him. That is not a warning. That is information.",
-    location:"deep_trench", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    location:"deep_trench", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
   { id:"wielder_caelia", title:"Keeper of the Open Sky", desc:"Caelia's creatures belong to the sky — the one thing the Sundering could not consume. She keeps to Gale Peak at Lumoria's northwestern edge, above the clouds where her Lumori fly free. The wind there will tell you if you're close.",
-    location:"gale_peak", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    location:"gale_peak", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
   { id:"wielder_dravek", title:"The Forge That Still Burns", desc:"Dravek forged his team in Vaeldris's volcanic heart. When that forge was gone, he found Lumoria's Volcano Core — active, unforgiving, as close to what he lost as he could manage. Go south to the Volcano Core. The heat will intensify near him.",
-    location:"volcano_core", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    location:"volcano_core", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
   { id:"wielder_nylara", title:"The Glacial Keeper", desc:"Nylara preserved what cold could save. She settled at the Crystal Spire — a place of frozen permanence in Lumoria's northern reaches where the ice remembers everything. The spire is difficult to reach. She considers that appropriate.",
-    location:"crystal_spire", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    location:"crystal_spire", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
   { id:"wielder_solenne", title:"The Dream That Remains", desc:"Solenne and her Lumori dream of Vaeldris every night. She has made her home at Lunar Peak, where the moonlight never fully yields to day — a place between waking and sleep. Reach her there. She will already know you are on your way.",
-    location:"lunar_peak", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    location:"lunar_peak", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
   { id:"wielder_rax", title:"The Last Defense", desc:"After the Umbra Order fell, Rax moved into their abandoned base. He said someone should guard a place that dangerous — that leaving it empty would be its own kind of mistake. The Umbra Order Base is quiet now. Rax is not.",
-    location:"umbra_base", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    location:"umbra_base", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
   { id:"wielder_tempris", title:"The Architect of Odds", desc:"Tempris chose Thunder Cliffs for its electrical output data — the most consistent high-voltage readings in Lumoria, useful for research. He is there, running models. He already knows there is a non-trivial probability you will find him.",
-    location:"thunder_cliffs", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    location:"thunder_cliffs", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
   { id:"wielder_vayne", title:"The Void That Watches", desc:"Vayne returned to a void rift after Vaeldris — the one in Lumoria's northwest, where the boundary between worlds is thin. She says it feels like home now. The Void Rift is not safe for unprepared trainers. She is counting on that.",
-    location:"void_rift", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    location:"void_rift", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
   { id:"wielder_azura", title:"The Last Star Reader", desc:"Azura knew what was coming before it arrived. She chose Cosmic Cavern — where the star-light filters down through stone and the Ley resonance is strongest in all of Lumoria. She is the last. Find her deep within. She has been expecting you.",
-    location:"cosmic_cavern", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:16,
+    location:"cosmic_cavern", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"item", itemId:"masterOrb", qty:2}, rewardText:"2 Master Orbs" }
 ];

@@ -199,6 +199,16 @@ async function incrementCommunityProgress() {
 // ============================================================
 // TIME-BASED EVENTS (client-side, no server needed)
 // ============================================================
+// Canonical day-segment for the whole game (shared by time-gated evolution).
+// Same hour bands as getTimeEvent(): Night 21–05, Dawn 05–10, Day 10–17, Dusk 17–21.
+function getTimeSegment() {
+  const hour = new Date().getHours();
+  if (hour >= 21 || hour < 5) return "night";
+  if (hour >= 5 && hour < 10) return "dawn";
+  if (hour >= 10 && hour < 17) return "day";
+  return "dusk";
+}
+
 function getTimeEvent() {
   const now = new Date();
   const hour = now.getHours();

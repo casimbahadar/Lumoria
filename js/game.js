@@ -25,6 +25,7 @@ function newGameState(playerName, starterMonsterId) {
     seenInArea: {},
     areaEncounters: {},
     championDefeated: false,
+    apexGuardianDefeated: false,
     questsCompleted: [],
     questsActive: [],
     visitedLocations: ["seedvale"],
@@ -39,6 +40,7 @@ function newGameState(playerName, starterMonsterId) {
     ngPlusCount: 0,
     inverseMode: false,
     vaeldrisPartyLock: null,
+    vaeldrisGauntletRelaxed: false,
     defeatedWielders: [],
     forgottenLegendaryAttempted: []
   };
@@ -55,6 +57,7 @@ function createPartySlot(monsterId, level) {
   return {
     monsterId, nickname: null, level, xp: xpForLevel(level),
     maxHP, currentHP: maxHP, moves, statuses: [], heldItem: null,
+    friendship: 70, battlesWon: 0,
     nature: getRandomNature(), ivs,
     shiny: false, variant: false, variantTypes: null, variantBase: null, variantImmune: null
   };
@@ -137,8 +140,10 @@ function loadGame(slot) {
     if (data.ngPlusCount === undefined) data.ngPlusCount = 0;
     if (data.inverseMode === undefined) data.inverseMode = false;
     if (data.vaeldrisPartyLock === undefined) data.vaeldrisPartyLock = null;
+    if (data.vaeldrisGauntletRelaxed === undefined) data.vaeldrisGauntletRelaxed = false;
     if (!data.defeatedWielders) data.defeatedWielders = [];
     if (!data.forgottenLegendaryAttempted) data.forgottenLegendaryAttempted = [];
+    if (data.apexGuardianDefeated === undefined) data.apexGuardianDefeated = false;
     if (!data.discoveredTraits) data.discoveredTraits = {};
     // PvP saved team loadouts: up to 6 per format, drawn from owned Lumori.
     if (!data.pvpLoadouts) data.pvpLoadouts = { single: [], double: [] };
@@ -179,6 +184,8 @@ function timeSince(ts) {
 // ---- NG+ Scaling ----
 function ngPlusScale(level, area) {
   if (!G || !G.ngPlusCount) return level;
+  // NG+-exclusive areas are already authored at their NG+ levels — don't double-boost.
+  if (area && area.requiresNGPlus) return level;
   // Per-tier scaling cap to keep NG+ balanced by content difficulty
   let cap;
   const badges = area?.requiredBadges || 0;
@@ -192,7 +199,17 @@ function ngPlusScale(level, area) {
     cap = 0.40;  // early game (badges 1-5 or no requirement)
   }
   const boost = Math.min(cap, 0.2 * G.ngPlusCount);
-  return Math.min(100, Math.round(level * (1 + boost)));
+  return Math.min(150, Math.round(level * (1 + boost)));
+}
+
+// NG+ level offset for a major battle (gym/Elite/Champion); 0 outside NG+ or for
+// unmapped ids. Applied to both the enemy team's levels and the player's scale-down cap.
+function ngBattleOffset(id) {
+  return (G && G.ngPlusCount > 0 && typeof NG_OFFSETS !== "undefined" && NG_OFFSETS[id]) ? NG_OFFSETS[id] : 0;
+}
+function getLevelCap(id) {
+  if (typeof LEVEL_CAPS === "undefined" || !LEVEL_CAPS[id]) return null;
+  return LEVEL_CAPS[id] + ngBattleOffset(id);
 }
 
 // ---- Fullscreen ----
@@ -365,6 +382,27 @@ function showNotification(text, cb) {
   };
 }
 
+// Minimal two-button confirm, reusing the notification overlay (adds a temporary
+// "No" button beside OK so we don't need new markup).
+function showConfirm(text, onYes, yesLabel = "Yes", noLabel = "No") {
+  const overlay = document.getElementById("notification-overlay");
+  document.getElementById("notification-text").innerHTML = text;
+  const okBtn = document.getElementById("btn-notification-ok");
+  okBtn.textContent = yesLabel;
+  let noBtn = document.getElementById("btn-notification-no");
+  if (!noBtn) {
+    noBtn = document.createElement("button");
+    noBtn.id = "btn-notification-no";
+    noBtn.className = okBtn.className;
+    okBtn.parentNode.insertBefore(noBtn, okBtn.nextSibling);
+  }
+  noBtn.textContent = noLabel;
+  overlay.classList.remove("hidden");
+  const cleanup = () => { overlay.classList.add("hidden"); okBtn.textContent = "OK"; if (noBtn) noBtn.remove(); };
+  okBtn.onclick = () => { cleanup(); if (onYes) onYes(); };
+  noBtn.onclick = () => { cleanup(); };
+}
+
 // ---- Level Up Overlay ----
 function showLevelUp(partySlot, levelUps, cb) {
   if (levelUps.length === 0) { if (cb) cb(); return; }
@@ -433,6 +471,49 @@ function showEvolution(partySlot, newId, cb) {
     document.getElementById("evolution-overlay").classList.add("hidden");
     if (cb) cb();
   };
+}
+
+// Sweep the team for location-gated evolutions after entering a new area.
+// Chains via the overlay callback so multiple eligible Lumori evolve one by one.
+function checkAreaEvolutions() {
+  if (!G || !Array.isArray(G.team)) return;
+  for (const slot of G.team) {
+    if (!slot) continue;
+    const target = resolveEvolution(slot, "area");
+    if (target) {
+      showEvolution(slot, target, checkAreaEvolutions);
+      return;
+    }
+  }
+}
+
+// Human-readable evolution requirement for the dex/Luminex panel. Covers every
+// method the resolver (battle.js resolveEvolution) understands.
+function describeEvolution(def) {
+  const into = MONSTERS_DATA[def.evolveTo]?.name || "???";
+  const floor = def.evolveLevel ? ` (Lv.${def.evolveLevel}+)` : "";
+  switch (def.evolveMethod || "level") {
+    case "item":
+      return `Evolves into ${into} with ${ITEMS_DATA[def.evolveItem]?.name || "an item"}`;
+    case "held":
+      return `Evolves into ${into} by leveling up while holding ${ITEMS_DATA[def.evolveItem]?.name || "an item"}`;
+    case "location":
+      return `Evolves into ${into} at ${WORLD_DATA[def.evolveLocation]?.name || "a special place"}${floor}`;
+    case "friendship":
+      return `Evolves into ${into} by leveling up with a strong bond${floor}`;
+    case "time": {
+      const when = { day: "in daytime", night: "at night", dawn: "at dawn", dusk: "at dusk" }[def.evolveTime] || "at a certain time";
+      return `Evolves into ${into} by leveling up ${when}${floor}`;
+    }
+    case "move":
+      return `Evolves into ${into} once it knows ${MOVES_DATA[def.evolveMove]?.name || "a certain move"}${floor}`;
+    case "teammate":
+      return `Evolves into ${into} while ${MONSTERS_DATA[def.evolveWith]?.name || "a certain ally"} is in the party${floor}`;
+    case "battles":
+      return `Evolves into ${into} after winning ${def.evolveBattles || "several"} battles${floor}`;
+    default:
+      return `Evolves into ${into} at Lv.${def.evolveLevel}`;
+  }
 }
 
 // ============================================================
@@ -836,6 +917,7 @@ function travelTo(areaId) {
   trackLocationVisit(areaId);
   renderWorldMap();
   renderAreaPanel();
+  checkAreaEvolutions();
   maybeTriggerForgottenLegendaryEncounter(areaId);
 }
 
@@ -986,19 +1068,25 @@ function renderAreaPanel() {
   if (umbraAreaBtn) {
     umbraAreaBtn.classList.add("hidden");
     if (area.hasUmbraEncounter && typeof UMBRA_BATTLES !== "undefined") {
-      // Find the umbra battle for this location
-      const umbraId = Object.keys(UMBRA_BATTLES).find(k => {
-        const b = UMBRA_BATTLES[k];
-        return b.triggerLocation === G.location;
-      });
+      // Battles sharing a location form a consecutive gauntlet — surface the
+      // next undefeated one (and a counter); once all are beaten, show the last.
+      const here = Object.keys(UMBRA_BATTLES).filter(k => UMBRA_BATTLES[k].triggerLocation === G.location);
+      const beatenList = G.defeatedUmbraEncounters || [];
+      const umbraId = here.find(k => !beatenList.includes(k)) || here[here.length - 1];
       if (umbraId) {
-        const beaten = G.defeatedUmbraEncounters && G.defeatedUmbraEncounters.includes(umbraId);
+        const beaten = beatenList.includes(umbraId);
         umbraAreaBtn.classList.remove("hidden");
         const ub = UMBRA_BATTLES[umbraId];
+        const req = ub.requiresUmbraDefeated;
+        const locked = req && !req.every(r => beatenList.includes(r));
+        const idx = here.indexOf(umbraId) + 1;
+        const suffix = here.length > 1 && !beaten ? ` (${idx}/${here.length})` : "";
         umbraAreaBtn.textContent = beaten
           ? `✅ ${ub.name} (Defeated)`
-          : `🕶️ Battle ${ub.name}`;
-        umbraAreaBtn.disabled = beaten;
+          : locked
+          ? `🔒 ${ub.name} — defeat the Remnant raids first`
+          : `🕶️ Battle ${ub.name}${suffix}`;
+        umbraAreaBtn.disabled = beaten || locked;
       }
     }
   }
@@ -1052,7 +1140,31 @@ function renderAreaPanel() {
       }
     }
   }
+
+  // D3: Apex Guardian + Summit Rematch (apex_summit only)
+  const apexBtn = document.getElementById("btn-apex-guardian");
+  const rematchBtn = document.getElementById("btn-summit-rematch");
+  const atSummit = area.id === "apex_summit";
+  if (apexBtn) {
+    apexBtn.classList.toggle("hidden", !(atSummit && isApexGuardianAvailable()));
+  }
+  if (rematchBtn) {
+    let show = false;
+    if (atSummit && isSummitRematchUnlocked()) {
+      const next = SUMMIT_REMATCH_ORDER.find(id => !G.defeatedLeaders.includes(id));
+      if (next) {
+        show = true;
+        const label = next === "champion_rematch" ? "Champion" : (REMATCH_TEAMS[next.replace("_rematch","")] ? next.replace("_rematch","").replace(/^\w/, c => c.toUpperCase()) : next);
+        rematchBtn.textContent = `⚔️ Summit Rematch: ${label}`;
+        rematchBtn.disabled = false;
+      }
+    }
+    rematchBtn.classList.toggle("hidden", !show);
+  }
 }
+
+// D3: fixed order for the post-apex summit rematch (Vanguard -> Champion).
+const SUMMIT_REMATCH_ORDER = ["aria_rematch", "grimshaw_rematch", "celeste_rematch", "titan_rematch", "champion_rematch"];
 
 function renderHUD() {
   document.getElementById("hud-player-name").textContent = G.playerName;
@@ -1080,10 +1192,11 @@ function exploreArea() {
   if (!area?.wildMonsters?.length) { showNotification("There's nothing to explore here."); return; }
   if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori have fainted! Heal at a town first."); return; }
 
-  // Filter out high-BST mons until the player has enough badges; also exclude unknown IDs (BST=0)
-  let pool = G.badges.length < 3
-    ? area.wildMonsters.filter(wm => { const b = getMonBST(wm.id); return b > 0 && b <= 375; })
-    : area.wildMonsters.filter(wm => getMonBST(wm.id) > 0);
+  // Gate wild Lumori by progression: cap = gym-ramp target + 25 = min(550, 325 + 10*badges).
+  // Keeps catchable mons from outclassing the gyms ahead. Post-game catch zones are exempt.
+  const isPostgameArea = area.requiresChampion || area.requiresNGPlus;
+  const wildBstCap = isPostgameArea ? Infinity : Math.min(550, 325 + 10 * G.badges.length);
+  let pool = area.wildMonsters.filter(wm => { const b = getMonBST(wm.id); return b > 0 && b <= wildBstCap; });
   if (!pool.length) { showNotification("No wild Lumori appear here yet."); return; }
 
   // Inject NG+-exclusive spawns when in NG+ run
@@ -1575,8 +1688,29 @@ function startGymBattle(leaderId, battleType = "single") {
   if (!leader && typeof ELITE_FOUR !== "undefined") {
     leader = ELITE_FOUR.find(e => e.id === leaderId);
   }
+  // D3: Apex Guardian + post-apex Vanguard/Champion rematch (synthesised leaders).
+  if (!leader && leaderId === "apex_guardian" && typeof APEX_GUARDIAN !== "undefined") {
+    leader = APEX_GUARDIAN;
+  }
+  if (!leader && leaderId.endsWith("_rematch") && typeof REMATCH_TEAMS !== "undefined") {
+    const base = leaderId.replace("_rematch", "");
+    const rt = REMATCH_TEAMS[base];
+    if (rt) {
+      const src = base === "champion" ? GYM_LEADERS.champion
+                : (typeof ELITE_FOUR !== "undefined" ? ELITE_FOUR.find(e => e.id === base) : null);
+      leader = {
+        id: leaderId, teams: rt,
+        name: (src ? src.name : base) + " (Rematch)",
+        emoji: src ? src.emoji : "⚔️",
+        quote: src ? src.quote : "Let us settle this at the summit.",
+        winQuote: src ? src.winQuote : "A worthy rematch."
+      }; // no battleMode -> sequential single-mode gauntlet
+    }
+  }
   if (!leader) return;
-  const levelCap = (typeof LEVEL_CAPS !== "undefined" && LEVEL_CAPS[leaderId]) ? LEVEL_CAPS[leaderId] : null;
+  const isApexGuardian = leaderId === "apex_guardian";
+  const isRematch = leaderId.endsWith("_rematch");
+  const levelCap = getLevelCap(leaderId);
   // Support both old team: [...] and new teams: { single, double, triple }
   const teamSlots = (leader.teams && leader.teams[battleType]) ? leader.teams[battleType]
                   : (leader.teams && leader.teams.single) ? leader.teams.single
@@ -1588,10 +1722,15 @@ function startGymBattle(leaderId, battleType = "single") {
     isGym: true,
     isChampion: leaderId === "champion",
     isEliteFour: !!(typeof ELITE_FOUR !== "undefined" && ELITE_FOUR.find(e => e.id === leaderId)),
+    isApexGuardian,
+    isRematch,
     leaderId,
+    leaderName: leader.name,
+    leaderEmoji: leader.emoji,
+    leaderWinQuote: leader.winQuote,
     battleType,
     levelCap,
-    enemyTeam: teamSlots.map(s => buildGymMon(s)),
+    enemyTeam: teamSlots.map(s => buildGymMon(s, ngBattleOffset(leaderId))),
     battleMode,
     enemyTeamIdx: 0,
     playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
@@ -1719,6 +1858,7 @@ function createCaughtSlot(battleMon) {
     maxHP: battleMon.maxHP, currentHP: battleMon.currentHP,
     moves: battleMon.moves.map(m => m.id),
     statuses: (battleMon.statuses || []).map(s => ({ ...s })),
+    friendship: 70, battlesWon: 0,
     nature: battleMon.nature || getRandomNature(),
     ivs: battleMon.ivs || generateIVs(),
     shiny: !!battleMon.shiny, variant: !!battleMon.variant,
@@ -2397,6 +2537,7 @@ function endBattle(outcome, slot, levelUps) {
 
   if (outcome === "won") {
     G.battleWins = (G.battleWins || 0) + 1;
+    if (slot) slot.battlesWon = (slot.battlesWon || 0) + 1; // fuels battle-count evolutions
     if (battleContext.battleMode === "double" || battleContext.battleMode === "triple") checkAchievement("win_double");
     checkAchievements();
     trackDailyChallenge("battle_wins");
@@ -2404,6 +2545,25 @@ function endBattle(outcome, slot, levelUps) {
     if (slot && slot.currentHP === slot.maxHP) trackDailyChallenge("full_hp_win");
     // Show level ups then return
     const handleAfterLevelUps = () => {
+      const returnToMain = () => { showScreen("screen-main"); renderWorldMap(); renderAreaPanel(); renderHUD(); saveGame(); };
+      if (battleContext.isApexGuardian) {
+        G.apexGuardianDefeated = true;
+        if (!G.defeatedLeaders.includes("apex_guardian")) G.defeatedLeaders.push("apex_guardian");
+        const ag = typeof APEX_GUARDIAN !== "undefined" ? APEX_GUARDIAN : null;
+        if (ag?.reward) for (const [item, amt] of Object.entries(ag.reward)) G.bag[item] = (G.bag[item] || 0) + amt;
+        const unlockedMsg = isSummitRematchUnlocked()
+          ? "<br><br>The summit stirs — the Vanguard and Champion will face you anew."
+          : "<br><br>Defeat every Vaeldris wielder to unlock the summit rematch.";
+        showNotification(`${battleContext.leaderEmoji} <strong>${battleContext.leaderName}</strong>:<br>"${battleContext.leaderWinQuote}"${unlockedMsg}`, returnToMain);
+        return;
+      }
+      if (battleContext.isRematch) {
+        if (!G.defeatedLeaders.includes(battleContext.leaderId)) G.defeatedLeaders.push(battleContext.leaderId);
+        G.money += 12000;
+        checkAchievements();
+        showNotification(`⚔️ <strong>${battleContext.leaderName}</strong>:<br>"${battleContext.leaderWinQuote}"<br><br>Received 💰12000!`, returnToMain);
+        return;
+      }
       if (battleContext.isGym || battleContext.isChampion || battleContext.isEliteFour) {
         // Look up leader in GYM_LEADERS or ELITE_FOUR
         let leader = GYM_LEADERS[battleContext.leaderId];
@@ -2599,10 +2759,19 @@ function endBattle(outcome, slot, levelUps) {
       }
     };
 
+    // After the level-up overlays, re-check the participant for non-level
+    // evolutions (battle-count / teammate / friendship thresholds that may now be
+    // met without a level gain). A mon that already evolved on level-up is the new
+    // species here, so resolveEvolution returns null and nothing double-fires.
+    const afterLevels = () => {
+      const evo = slot ? resolveEvolution(slot, "level") : null;
+      if (evo) showEvolution(slot, evo, handleAfterLevelUps);
+      else handleAfterLevelUps();
+    };
     if (slot && levelUps && levelUps.length > 0) {
-      showLevelUp(slot, levelUps, handleAfterLevelUps);
+      showLevelUp(slot, levelUps, afterLevels);
     } else {
-      handleAfterLevelUps();
+      afterLevels();
     }
   }
 }
@@ -3471,6 +3640,7 @@ function useItemOnMon(itemId, monIdx) {
     if (slot.currentHP <= 0) { showNotification("Can't use on a fainted Lumori!"); return; }
     slot.currentHP = Math.min(slot.maxHP, slot.currentHP + item.healAmt);
     G.bag[itemId]--;
+    slot.friendship = Math.min(255, (slot.friendship ?? 70) + 3); // care builds bond
     showNotification(`Used ${item.name}! HP restored.`);
   } else if (item.type === "revive") {
     if (slot.currentHP > 0) { showNotification("Lumori is not fainted!"); return; }
@@ -3561,7 +3731,16 @@ function showBagScreen() {
 // PC BOX SCREEN
 // ============================================================
 function showBoxScreen() {
-  if (G.vaeldrisPartyLock) {
+  if (G.vaeldrisPartyLock && !G.vaeldrisGauntletRelaxed) {
+    // In New Game+ the player may choose to relax the gauntlet's party lock.
+    if (G.ngPlusCount > 0) {
+      showConfirm(
+        "🌀 <strong>Vaeldrian Gauntlet</strong><br><br>Your party is locked for the 13 Wielder battles. In New Game+ you may relax this rule and allow PC / party access between fights for the rest of this run.<br><br>The Wielders stand at Lv.153–155. Relax the lock, or keep the strict gauntlet?",
+        () => { G.vaeldrisGauntletRelaxed = true; saveGame(); showScreen("screen-box"); renderBoxScreen(); },
+        "Relax it", "Keep it strict"
+      );
+      return;
+    }
     showNotification("🌀 <strong>Vaeldrian Gauntlet Active</strong><br><br>Your party is locked for the duration of the 13 Wielder battles. PC access is restricted until all Wielders are defeated.");
     return;
   }
@@ -3710,6 +3889,18 @@ const FORGOTTEN_DEX_START = 462; // IDs >= this are Forgotten Lumori, gated behi
 function isForgottenUnlocked() {
   if (!G || !G.defeatedWielders || typeof VAELDRIS_WIELDERS === "undefined") return false;
   return Object.keys(VAELDRIS_WIELDERS).every(id => G.defeatedWielders.includes(id));
+}
+
+// D3: the Apex Guardian (apex_summit) becomes available once you've cleared the
+// main game in an NG+ run; beating it + every Vaeldris wielder unlocks the
+// higher-level summit rematch of the Vanguard and Champion.
+function isApexGuardianAvailable() {
+  // First-playthrough superboss: reachable once Champion (the Summit Rematch
+  // still requires NG+ via isSummitRematchUnlocked).
+  return !!(G && G.championDefeated && !G.apexGuardianDefeated);
+}
+function isSummitRematchUnlocked() {
+  return !!(G && G.ngPlusCount > 0 && G.championDefeated && G.apexGuardianDefeated && isForgottenUnlocked());
 }
 
 // Each wielder's team[0] is by convention the BST-720 Forgotten Lumori catchable
@@ -3989,13 +4180,7 @@ function showDexDetail(monsterId) {
       <div class="stat-bar"><div class="stat-fill" style="width:${Math.min(100,(bst/BST_CAP)*100)}%;background:var(--accent-yellow)"></div>${renderOverdrive(bst, BST_CAP)}</div>
       <span class="stat-val">${bst}</span>
     </div>`;
-  const evoInfo = def.evolveTo
-    ? (def.evolveMethod === "item"
-        ? `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} with ${ITEMS_DATA[def.evolveItem]?.name || "an item"}`
-        : def.evolveMethod === "location"
-          ? `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} at ${WORLD_DATA[def.evolveLocation]?.name || "a special place"}`
-          : `Evolves into ${MONSTERS_DATA[def.evolveTo]?.name} at Lv.${def.evolveLevel}`)
-    : "Does not evolve";
+  const evoInfo = def.evolveTo ? describeEvolution(def) : "Does not evolve";
 
   const dexDetailSprite = (typeof getMonsterSpriteURL === "function" && getMonsterSpriteURL(def, 110))
     ? `<img src="${getMonsterSpriteURL(def, 110)}" width="110" height="110" alt="${def.name}" style="border-radius:12px">`
@@ -4189,6 +4374,24 @@ function initEventListeners() {
     if (nextElite) {
       showBattleFormatSelection(nextElite.name, nextElite.emoji || "⚔️", nextElite.quote, fmt => startGymBattle(nextElite.id, fmt));
     }
+  });
+
+  // D3: Apex Guardian
+  document.getElementById("btn-apex-guardian")?.addEventListener("click", () => {
+    if (typeof APEX_GUARDIAN === "undefined" || !isApexGuardianAvailable()) return;
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori are fainted! Heal first."); return; }
+    showBattleFormatSelection(APEX_GUARDIAN.name, APEX_GUARDIAN.emoji || "🌄", APEX_GUARDIAN.quote, fmt => startGymBattle("apex_guardian", fmt));
+  });
+
+  // D3: Summit Rematch (Vanguard -> Champion, in order)
+  document.getElementById("btn-summit-rematch")?.addEventListener("click", () => {
+    if (typeof REMATCH_TEAMS === "undefined" || !isSummitRematchUnlocked()) return;
+    if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori are fainted! Heal first."); return; }
+    const nextId = SUMMIT_REMATCH_ORDER.find(id => !G.defeatedLeaders.includes(id));
+    if (!nextId) { showNotification("You have bested every summit rematch."); return; }
+    const base = nextId.replace("_rematch", "");
+    const src = base === "champion" ? GYM_LEADERS.champion : ELITE_FOUR.find(e => e.id === base);
+    showBattleFormatSelection((src ? src.name : base) + " (Rematch)", src ? src.emoji : "⚔️", src ? src.quote : "", fmt => startGymBattle(nextId, fmt));
   });
 
   // Bottom nav
@@ -4438,12 +4641,15 @@ function initEventListeners() {
       return;
     }
     if (typeof UMBRA_BATTLES === "undefined") return;
-    const umbraId = Object.keys(UMBRA_BATTLES).find(k => {
-      const b = UMBRA_BATTLES[k];
-      return b.triggerLocation === G.location;
-    });
+    // Gauntlet: fight the next undefeated battle at this location.
+    const beatenList = G.defeatedUmbraEncounters || [];
+    const umbraId = Object.keys(UMBRA_BATTLES).find(k => UMBRA_BATTLES[k].triggerLocation === G.location && !beatenList.includes(k));
     if (!umbraId) return;
     const battle = UMBRA_BATTLES[umbraId];
+    if (battle.requiresUmbraDefeated && !battle.requiresUmbraDefeated.every(r => beatenList.includes(r))) {
+      showNotification("The Spire's summit is sealed. Defeat the three Umbra Remnants — in the Lab, the Archive and the Nexus — before facing Rex.");
+      return;
+    }
     showNotification(`${battle.emoji} <strong>${battle.name}</strong>:<br>"${battle.quote}"`, () => {
       startUmbraAreaBattle(umbraId, battle);
     });
@@ -4614,7 +4820,7 @@ function getPendingRivalBattle() {
 function startSpecialBattle(battleId, battleData, isUmbra, battleType = "single") {
   const battle = battleData[battleId];
   if (!battle) return;
-  const levelCap = (typeof LEVEL_CAPS !== "undefined" && LEVEL_CAPS[battleId]) ? LEVEL_CAPS[battleId] : null;
+  const levelCap = getLevelCap(battleId);
   // Support both old team: [...] and new teams: { single, double, triple }
   const teamSlots = (battle.teams && battle.teams[battleType]) ? battle.teams[battleType]
                   : (battle.teams && battle.teams.single) ? battle.teams.single
@@ -4629,7 +4835,7 @@ function startSpecialBattle(battleId, battleData, isUmbra, battleType = "single"
     leaderId: battleId,
     battleType,
     levelCap,
-    enemyTeam: teamSlots.map(s => buildGymMon(s)),
+    enemyTeam: teamSlots.map(s => buildGymMon(s, ngBattleOffset(battleId))),
     enemyTeamIdx: 0,
     playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
   };
@@ -5061,7 +5267,7 @@ function ffaRender() {
 }
 
 function startUmbraAreaBattle(umbraId, battle) {
-  const levelCap = (typeof LEVEL_CAPS !== "undefined" && LEVEL_CAPS[umbraId]) ? LEVEL_CAPS[umbraId] : null;
+  const levelCap = getLevelCap(umbraId);
   battleContext = {
     isWild: false,
     isGym: false,
@@ -5071,7 +5277,7 @@ function startUmbraAreaBattle(umbraId, battle) {
     leaderId: umbraId,
     levelCap,
     battleMode: "single",
-    enemyTeam: battle.team.map(s => buildGymMon(s)),
+    enemyTeam: (battle.team || (battle.teams && (battle.teams.triple || battle.teams.double || battle.teams.single)) || []).map(s => buildGymMon(s, ngBattleOffset(umbraId))),
     enemyTeamIdx: 0,
     playerTeamIdx: G.team.findIndex(m => m.currentHP > 0)
   };
@@ -5081,7 +5287,7 @@ function startUmbraAreaBattle(umbraId, battle) {
   showScreen("screen-battle");
   clearBattleLog();
   if (levelCap) logMsg(`⚠️ Level Cap: ${levelCap} — your team is scaled down!`);
-  const fmtLabel = {single:"Single",double:"Double",triple:"Triple"}[battleType] || "Single";
+  const fmtLabel = {single:"Single",double:"Double",triple:"Triple"}[battleContext.battleMode] || "Single";
   logMsg(`⚔️ ${fmtLabel} Battle — ${battle.emoji} ${battle.name}`);
   logMsg(`${battle.name} sent out ${getDisplayName(enemyActiveMon)}!`);
   updateBattleUI();
@@ -5161,8 +5367,9 @@ function useEvoItem(itemId, partyIdx) {
 
   let targetId = null;
 
-  // Check if this mon evolves with this item
-  if (def.evolveItem === itemId && def.evolveTo) {
+  // Check if this mon evolves with this item. "held"-method evolvers share the
+  // evolveItem field but must hold it through a level-up — using it does nothing.
+  if (def.evolveItem === itemId && def.evolveTo && def.evolveMethod !== "held") {
     targetId = def.evolveTo;
   }
   // Check alt evolution

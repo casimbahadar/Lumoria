@@ -1783,21 +1783,21 @@ const MONSTERS_DATA = {
   // ===== ADDITIONAL GRASS =====
   63: { id:63, name:"Sporix",    emoji:"🍄", types:["Nature"],
     base:{hp:60,atk:58,def:57,spa:66,spd:70,spe:38},
-    learnset:[[1,"collide"],[1,"vine_lash"],[8,"septic_prick"],[16,"verdant_orb"],[20,"baleful_stare"],[22,"spore_burst"],[24,"ooze_bomb"],[32,"slumber_dust",[5,"thornwall"]],[36,"pod_blast"],[3,"mycelia_net"],[31,"verdant_edge"]],
+    learnset:[[1,"collide"],[1,"vine_lash"],[8,"septic_prick"],[16,"verdant_orb"],[20,"baleful_stare"],[22,"spore_burst"],[24,"ooze_bomb"],[32,"slumber_dust",[5,"thornwall"]],[36,"pod_blast"],[3,"mycelia_net"],[31,"verdant_edge"],[40,"sun_ray"],[10,"moth_dust"]],
     evolveTo:64, evolveLevel:25, catchRate:135, expYield:98, rarity:"common",
     desc:"A mushroom Lumori that releases paralyzing spores when threatened.",
     lore:"Sporix is a small mushroom-topped creature about 20 cm tall with a soft, spongy white body and a broad purple-spotted cap. It releases clouds of glittering green spores when disturbed. It grows in dense clusters in dark, damp forest floors and uses spore clouds to communicate danger between neighbouring clusters." },
 
   64: { id:64, name:"Myceloth",   emoji:"🍄", types:["Nature"],
     base:{hp:77,atk:87,def:85,spa:93,spd:73,spe:69},
-    learnset:[[1,"verdant_orb"],[2,"ooze_bomb"],[29,"slumber_dust"],[30,"lashing_tail"],[33,"pod_blast"],[35,"toxify"],[40,"graze"],[45,"sharp_leaves"],[50,"virulent_surge"],[55,"corrosion_fang"],[60,"petal_blitz"],[65,"verdant_surge"],[3,"spore_burst"],[42,"canopy_crash"]],
+    learnset:[[1,"verdant_orb"],[2,"ooze_bomb"],[29,"slumber_dust"],[30,"lashing_tail"],[33,"pod_blast"],[35,"toxify"],[40,"graze"],[45,"sharp_leaves"],[50,"virulent_surge"],[55,"corrosion_fang"],[60,"petal_blitz"],[65,"verdant_surge"],[3,"spore_burst"],[42,"canopy_crash"],[45,"jungle_hammer"],[35,"sky_harvest"],[25,"lumen_pulse"],[10,"brood_tide"],[45,"sun_ray"],[25,"sporecloud_burst"]],
     evolveTo:65, evolveLevel:42, catchRate:45, expYield:317, rarity:"uncommon",
     desc:"A spore king that commands an army of fungal creatures. Reeks of poison.",
     lore:"Myceloth is a taller, humanoid-shaped fungal creature 80 cm tall — Sporix's purple-spotted cap has lifted onto a humanoid stalk and its spongy juvenile body has reorganised into interwoven mycelium threads visible through a translucent outer membrane. A wide flat cap sits on its rounded head. It walks slowly through forest undergrowth, trailing filaments that connect to the underground fungal network of the forest." },
 
   66: { id:66, name:"Viridix",    emoji:"🐌", types:["Nature"],
     base:{hp:39,atk:60,def:39,spa:52,spd:40,spe:86},
-    learnset:[[1,"vine_lash",[20,"photon_leaf"]],[1,"baleful_stare"],[8,"sharp_leaves"],[16,"pod_blast"],[17,"second_wind"],[24,"verdant_orb",[5,"slumber_dust"]],[29,"graze"],[39,"canopy_crash"],[3,"spore_burst"],[32,"war_dance"]],
+    learnset:[[1,"vine_lash",[20,"photon_leaf"]],[1,"baleful_stare"],[8,"sharp_leaves"],[16,"pod_blast"],[17,"second_wind"],[24,"verdant_orb",[5,"slumber_dust"]],[29,"graze"],[39,"canopy_crash"],[3,"spore_burst"],[32,"war_dance"],[20,"sylvan_radiance"],[10,"moth_dust"]],
     evolveTo:67, evolveLevel:22, evolveMethod:"time", evolveTime:"day", catchRate:180, expYield:78, rarity:"common",
     desc:"A bright green leaf-snail whose curled shell mimics a young rolled fern. Glides slowly across forest floors leaving a faintly luminescent slime trail.",
     lore:"Viridix is a small terrestrial mollusk about 30 centimetres long including its curled spiral shell, which is lime-green and patterned like a rolled fern frond — perfect camouflage among forest undergrowth. Two long sensory tentacles rise from its head, tipped with tiny golden dots that twist toward sunlight, and its soft body is bright green with darker scale-like ripples along its mantle. It glides slowly across the forest floor on a single muscular foot, feeding on tender leaf shoots and fungi, and leaves behind a faintly luminescent slime trail that lingers for hours after sundown." },
@@ -2349,7 +2349,7 @@ const MONSTERS_DATA = {
   // ===== BUG =====
   197: { id:197, name:"Photoworm",   emoji:"🐛", types:["Nature"],
     base:{hp:42,atk:30,def:35,spa:30,spd:30,spe:39},
-    learnset:[[1,"collide",[5,"silk_bind"]],[1,"silk_spray"],[5,"mandible_bite",[6,"chitin_guard"]],[13,"daunt"],[20,"war_dance"],[27,"graze"],[34,"venom_drool"],[41,"mandible_crush"]],
+    learnset:[[1,"collide",[5,"silk_bind"]],[1,"silk_spray"],[5,"mandible_bite",[6,"chitin_guard"]],[13,"daunt"],[20,"war_dance"],[27,"graze"],[34,"venom_drool"],[41,"mandible_crush"],[30,"sky_harvest"],[20,"lumen_pulse"],[20,"sylvan_radiance"],[10,"moth_dust"]],
     evolveTo:198, evolveLevel:7, catchRate:255, expYield:39, rarity:"common",
     desc:"A cute caterpillar. Harmless and curious, though it spins strong silk.",
     lore:"Photoworm is a small, worm-like bug creature 8 cm long with a pale green segmented body and a round head with two tiny antennae. It lives entirely underground in loose soil, aerating it as it tunnels. It photosynthesises weakly through thin translucent sections of its skin even below the surface." },
@@ -2370,7 +2370,7 @@ const MONSTERS_DATA = {
 
   200: { id:200, name:"Iridibeetle",  emoji:"🪲", types:["Nature","Metal"],
     base:{hp:61,atk:73,def:71,spa:43,spd:51,spe:30},
-    learnset:[[1,"mandible_bite",[22,"mandible_crush"]],[1,"stone_throw"],[3,"chitin_guard"],[8,"chrome_claw"],[10,"cranial_ram"],[14,"metal_pulse"],[18,"shear_strike"],[20,"baleful_stare"],[22,"alloy_edge"],[26,"stone_slide"],[31,"magma_stone"],[34,"crag_strike",[5,"silk_spray"]],[36,"swarm_dive"]],
+    learnset:[[1,"mandible_bite",[22,"mandible_crush"]],[1,"stone_throw"],[3,"chitin_guard"],[8,"chrome_claw"],[10,"cranial_ram"],[14,"metal_pulse"],[18,"shear_strike"],[20,"baleful_stare"],[22,"alloy_edge"],[26,"stone_slide"],[31,"magma_stone"],[34,"crag_strike",[5,"silk_spray"]],[36,"swarm_dive"],[40,"jungle_hammer"],[5,"brood_tide"],[40,"sun_ray"],[20,"sap_bite"],[20,"sporecloud_burst"]],
     evolveTo:201, evolveLevel:25, catchRate:130, expYield:95, rarity:"common",
     desc:"A heavily armored beetle. Its rock-hard shell is practically indestructible.",
     lore:"Iridibeetle is a beetle 12 cm long with a hard iridescent wing-case that shifts between emerald and sapphire depending on viewing angle. Its underside is pale gold. It lives in old-growth forest canopy and cuts precise circular holes in leaves that it then rolls into tubes for egg-laying." },
@@ -2812,7 +2812,7 @@ const MONSTERS_DATA = {
   // 2-stage Grass/Fairy chain: Sproutix → Hypnostag (level 26)
   260: { id:260, name:"Sproutix", emoji:"🌱", types:["Nature"],
     base:{hp:48,atk:50,def:48,spa:72,spd:58,spe:65},
-    learnset:[[1,"vine_lash"],[1,"fairy_wind"],[12,"sharp_leaves"],[22,"lunar_burst"],[32,"verdant_orb"],[42,"petal_blitz"],[52,"prism_flare"],[60,"radiance_cannon"],[62,"mantis_slash"]],
+    learnset:[[1,"vine_lash"],[1,"fairy_wind"],[12,"sharp_leaves"],[22,"lunar_burst"],[32,"verdant_orb"],[42,"petal_blitz"],[52,"prism_flare"],[60,"radiance_cannon"],[62,"mantis_slash"],[40,"jungle_hammer"],[30,"sky_harvest"],[20,"lumen_pulse"],[5,"brood_tide"],[20,"sporecloud_burst"]],
     evolveTo:261, evolveLevel:26, catchRate:175, expYield:72, rarity:"common",
     desc:"A grass sprout that blooms with vibrant flowers. Its pollen causes drowsiness in those it trusts.",
     lore:"Sproutix is a small grass creature 15 cm tall resembling a tiny sapling with two leaf-hands and round soft-glowing eyes. It sprouts from the ground in spring meadows and can take root again if it stays still long enough. It leaves a trail of tiny flowers wherever it walks." },
@@ -3200,14 +3200,14 @@ const MONSTERS_DATA = {
   // 2-stage Aquatic/Nature chain: Mudpump → Marshix (level 28)
   310: { id:310, name:"Mudpump", emoji:"🦛", types:["Aquatic","Nature"],
     base:{hp:58,atk:68,def:62,spa:58,spd:55,spe:55},
-    learnset:[[1,"mud_spray"],[1,"aquatic_gun"],[7,"vine_lash"],[8,"dust_toss"],[12,"geoblast"],[14,"nature_pulse"],[20,"sharp_leaves"],[22,"tidal_rush"],[32,"tectonic_shift"],[42,"tsunami"],[52,"clay_armor"],[60,"radiance_cannon"],[50,"torrent_shell"],[30,"dream_torrent"],[40,"ocean_crash"],[20,"diving_strike"],[10,"monsoon"],[30,"claw_hammer"]],
+    learnset:[[1,"mud_spray"],[1,"aquatic_gun"],[7,"vine_lash"],[8,"dust_toss"],[12,"geoblast"],[14,"nature_pulse"],[20,"sharp_leaves"],[22,"tidal_rush"],[32,"tectonic_shift"],[42,"tsunami"],[52,"clay_armor"],[60,"radiance_cannon"],[50,"torrent_shell"],[30,"dream_torrent"],[40,"ocean_crash"],[20,"diving_strike"],[10,"monsoon"],[30,"claw_hammer"],[20,"sap_bite"],[20,"sporecloud_burst"]],
     evolveTo:311, evolveLevel:28, catchRate:155, expYield:80, rarity:"common",
     desc:"A small hippo calf perpetually slick with mud. Wallows in shallow tidal mudflats and digs out cool burrow-chambers with its broad snout.",
     lore:"Mudpump is a small hippo calf about 50 centimetres long with a broad rounded body coated in slick wet mud and a short blunt snout perfectly suited to scooping muddy water. It is too small to fully submerge in deep water, so it wallows in shallow tidal mudflats and shallow lagoons where it builds dome-shaped mud-and-reed homes by piling clay around itself with a suction-pump motion of its wide mouth. Small herds of Mudpump dig out vast networks of cool burrow-chambers connecting their wallows beneath the soft surface." },
 
   311: { id:311, name:"Marshix", emoji:"🦛", types:["Aquatic","Nature"],
     base:{hp:105,atk:118,def:100,spa:78,spd:82,spe:62},
-    learnset:[[1,"tectonic_shift"],[1,"tidal_rush"],[8,"vine_lash"],[10,"rain_cascade"],[14,"sharp_leaves"],[18,"erosion_wave"],[20,"nature_pulse"],[22,"geoblast"],[26,"quicksand_pull"],[30,"tsunami"],[34,"steam_geyser"],[38,"clay_armor"],[42,"fae_petals"],[46,"bedrock_slam"],[54,"tidal_sweep"],[62,"radiance_cannon"],[45,"ocean_crash"],[25,"diving_strike"],[15,"monsoon"],[15,"marine_blessing"],[35,"claw_hammer"],[17,"brine_slash"]],
+    learnset:[[1,"tectonic_shift"],[1,"tidal_rush"],[8,"vine_lash"],[10,"rain_cascade"],[14,"sharp_leaves"],[18,"erosion_wave"],[20,"nature_pulse"],[22,"geoblast"],[26,"quicksand_pull"],[30,"tsunami"],[34,"steam_geyser"],[38,"clay_armor"],[42,"fae_petals"],[46,"bedrock_slam"],[54,"tidal_sweep"],[62,"radiance_cannon"],[45,"ocean_crash"],[25,"diving_strike"],[15,"monsoon"],[15,"marine_blessing"],[35,"claw_hammer"],[17,"brine_slash"],[25,"sap_bite"],[15,"moth_dust"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:222, rarity:"uncommon",
     desc:"A hippo-like swamp titan that commands both mud and water. Creates marshy terrain wherever it settles.",
     lore:"Marshix is a large marshland hippo-like creature 1.5 metres at the shoulder — Mudpump's slick mud-coating has set and hardened into a broad pale grey body with mud-brown legs, and the suction-pump snout of its calf form has widened for adult marsh-feeding. It spends most of its time submerged in shallow marsh water with only its eyes and nostrils above the surface. Its movements churn the marsh bottom, aerating the sediment beneficially." },
@@ -3343,7 +3343,7 @@ const MONSTERS_DATA = {
   // ===== POISON/GRASS =====
   162: { id:162, name:"Marlix", emoji:"🌾", types:["Nature","Toxin"],
     base:{hp:55,atk:56,def:53,spa:59,spd:48,spe:66},
-    learnset:[[1,"septic_prick",[22,"miasma_cloud"]],[1,"vine_lash"],[3,"toxin_bloom"],[10,"ooze_bomb"],[12,"blight_drain"],[15,"tainted_screen"],[18,"sharp_leaves"],[20,"noxious_gas"],[25,"miasma_lure"],[26,"toxify"],[28,"pestilent_dust"],[30,"petal_blitz"],[32,"sludge_wave"],[34,"verdant_orb"],[35,"miasma_lash"],[42,"virulent_surge",[5,"toxic_surge"]]],
+    learnset:[[1,"septic_prick",[22,"miasma_cloud"]],[1,"vine_lash"],[3,"toxin_bloom"],[10,"ooze_bomb"],[12,"blight_drain"],[15,"tainted_screen"],[18,"sharp_leaves"],[20,"noxious_gas"],[25,"miasma_lure"],[26,"toxify"],[28,"pestilent_dust"],[30,"petal_blitz"],[32,"sludge_wave"],[34,"verdant_orb"],[35,"miasma_lash"],[42,"virulent_surge",[5,"toxic_surge"]],[40,"jungle_hammer"],[30,"sky_harvest"],[20,"lumen_pulse"],[5,"brood_tide"],[40,"sun_ray"],[20,"sylvan_radiance"]],
     evolveTo:163, evolveLevel:28, catchRate:120, expYield:94, rarity:"common",
     desc:"A bog plant with razor-edged thorns dripping toxic sap. Thrives in poisoned swamps.",
     lore:"Marlix is a slender grass-toxin creature 80 cm tall resembling a humanoid made of dense marsh reeds. Its stalk-body is pale green with brown banding, and it moves by bending and straightening its reed-limbs. It inhabits shallow wetlands and disguises itself as ordinary marsh vegetation between encounters." },
@@ -3479,7 +3479,7 @@ const MONSTERS_DATA = {
 
   163: { id:163, name:"Blightalis", emoji:"🪷", types:["Nature","Toxin"],
     base:{hp:88,atk:80,def:60,spa:116,spd:83,spe:58},
-    learnset:[[1,"ooze_bomb"],[2,"toxify"],[3,"septic_prick"],[4,"toxic_surge"],[5,"toxin_bloom"],[7,"bark_shield"],[10,"thorn_barrage"],[13,"sap_seed"],[15,"tainted_screen"],[17,"seed_volley"],[19,"blight_drain"],[20,"leafblade_swirl"],[22,"corrosive_rain"],[23,"fae_petals"],[25,"sulfuric_spray"],[27,"gunk_blast"],[28,"petal_blitz"],[31,"verdant_orb"],[33,"pollen_storm"],[35,"daunt"],[35,"miasma_blast"],[37,"pestilent_dust"],[39,"virulent_surge"],[40,"caustic_shock"],[42,"battle_cry"],[43,"verdant_edge"],[45,"miasma_lash"],[46,"blossom_frenzy"],[49,"photon_leaf"],[54,"sun_ray"],[56,"venom_lance"],[63,"root_lance"]],
+    learnset:[[1,"ooze_bomb"],[2,"toxify"],[3,"septic_prick"],[4,"toxic_surge"],[5,"toxin_bloom"],[7,"bark_shield"],[10,"thorn_barrage"],[13,"sap_seed"],[15,"tainted_screen"],[17,"seed_volley"],[19,"blight_drain"],[20,"leafblade_swirl"],[22,"corrosive_rain"],[23,"fae_petals"],[25,"sulfuric_spray"],[27,"gunk_blast"],[28,"petal_blitz"],[31,"verdant_orb"],[33,"pollen_storm"],[35,"daunt"],[35,"miasma_blast"],[37,"pestilent_dust"],[39,"virulent_surge"],[40,"caustic_shock"],[42,"battle_cry"],[43,"verdant_edge"],[45,"miasma_lash"],[46,"blossom_frenzy"],[49,"photon_leaf"],[54,"sun_ray"],[56,"venom_lance"],[63,"root_lance"],[45,"jungle_hammer"],[35,"sky_harvest"],[25,"lumen_pulse"],[10,"brood_tide"],[25,"sylvan_radiance"],[25,"sap_bite"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
     desc:"A carnivorous flower of potent venom. Its blooms lure in prey before injecting toxins.",
     lore:"Blightalis is a grass-toxin creature 1.2 metres tall whose Marlix reed-stalk body has bloomed into a flower-headed humanoid. Its petals are deep crimson-purple and droop downward like a wilting bloom around its head. Its stem-body is hollow and filled with toxic nectar. It lures insects and small creatures into its central chamber, trapping and dissolving them." },

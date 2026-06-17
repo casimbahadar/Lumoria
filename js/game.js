@@ -549,6 +549,12 @@ const BIOME_REGIONS = [
   // Dragon peak - central mountain
   { type:'mountain', color:'#4a3068', shadow:'#321e4a', highlight:'#624088',
     path:'M 46,36 C 44,34 42,36 44,42 C 46,46 50,48 54,46 C 58,44 60,40 60,36 C 60,34 58,32 54,32 C 50,32 48,34 46,36 Z' },
+  // Eastern archipelago — hosts the NG+ "void-touched" cities (green land like the mainland)
+  { type:'land', color:'#4a9e52', shadow:'#357a3c', highlight:'#6abb6e',
+    path:'M 82,24 C 77,24 76,32 78,41 C 79,50 83,56 89,57 C 95,58 98,51 98,42 C 98,33 96,27 91,24 C 88,22 85,23 82,24 Z' },
+  // Southeastern isle — hosts the post-game / champion-gated areas (green land like the mainland)
+  { type:'land', color:'#4a9e52', shadow:'#357a3c', highlight:'#6abb6e',
+    path:'M 78,64 C 72,64 70,72 72,80 C 73,88 77,94 86,97 C 93,99 98,95 98,86 C 98,76 97,69 93,66 C 89,63 83,63 78,64 Z' },
 ];
 
 // SVG element helper — create a namespaced element with all attrs in one call

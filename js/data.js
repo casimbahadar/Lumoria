@@ -5780,7 +5780,7 @@ const WORLD_DATA = {
       {id:356, minLv:109, maxLv:112, rate:20}, // Stormlord
       {id:348, minLv:110, maxLv:112, rate:18}  // Galeswift
     ],
-    hasGym:true, gymLeader:"echo", requiredBadges:20, requiresNGPlus:true, mapPos:{x:67, y:63}
+    hasGym:true, gymLeader:"echo", requiredBadges:20, requiresNGPlus:true, mapPos:{x:93, y:49}
   },
   phantom_crossing: {
     id:"phantom_crossing", name:"Phantom Crossing", icon:"🕯️", type:"route",
@@ -5805,7 +5805,7 @@ const WORLD_DATA = {
       {id:301, minLv:114, maxLv:117, rate:20}, // Hauntcoal
       {id:397, minLv:115, maxLv:117, rate:18}  // Abyssalord
     ],
-    hasGym:true, gymLeader:"mortis", requiredBadges:21, requiresNGPlus:true, mapPos:{x:66, y:55}
+    hasGym:true, gymLeader:"mortis", requiredBadges:21, requiresNGPlus:true, mapPos:{x:82, y:44}
   },
   dream_drift: {
     id:"dream_drift", name:"Dream Drift", icon:"🌙", type:"route",
@@ -5830,7 +5830,7 @@ const WORLD_DATA = {
       {id:247, minLv:119, maxLv:122, rate:20}, // Sparkeen
       {id:170, minLv:120, maxLv:122, rate:18}  // Oneiron
     ],
-    hasGym:true, gymLeader:"somna", requiredBadges:22, requiresNGPlus:true, mapPos:{x:65, y:47}
+    hasGym:true, gymLeader:"somna", requiredBadges:22, requiresNGPlus:true, mapPos:{x:93, y:33}
   },
   prism_causeway: {
     id:"prism_causeway", name:"Prism Causeway", icon:"🌈", type:"route",
@@ -5852,7 +5852,7 @@ const WORLD_DATA = {
       {id:225, minLv:123, maxLv:127, rate:34}, // Crealight (Fairy/Mineral)
       {id:344, minLv:124, maxLv:127, rate:28}  // Glimmeritch (Fairy/Spectral)
     ],
-    hasGym:true, gymLeader:"prisma", requiredBadges:23, requiresNGPlus:true, mapPos:{x:64, y:40}
+    hasGym:true, gymLeader:"prisma", requiredBadges:23, requiresNGPlus:true, mapPos:{x:82, y:28}
   },
   ascendant_path: {
     id:"ascendant_path", name:"Ascendant Path", icon:"⚔️", type:"route",
@@ -6085,7 +6085,7 @@ const WORLD_DATA = {
       {id:274, minLv:27, maxLv:33, rate:27},   // Gemseer
       {id:274, minLv:35, maxLv:40, rate:10}    // Prismatica (rare!)
     ],
-    hasGym:false, requiredBadges:2, mapPos:{x:88, y:52},
+    hasGym:false, requiredBadges:2, mapPos:{x:72, y:58},
     storyLocation:true, hasUmbraEncounter:true
   },
   iron_canyon: {
@@ -6318,7 +6318,7 @@ const WORLD_DATA = {
       {id:162, minLv:59, maxLv:64, rate:25},  // Blightalis (mid, 162 on route10 ✓)
       {id:164, minLv:59, maxLv:64, rate:25}   // Lepidox (mid, 164 on murk_crossing ✓)
     ],
-    hasGym:true, gymLeader:"viper", requiredBadges:12, mapPos:{x:42, y:65},
+    hasGym:true, gymLeader:"viper", requiredBadges:12, mapPos:{x:45, y:69},
     ngPlusWildMonsters:[{id:322,minLv:65,maxLv:70,rate:25},{id:324,minLv:65,maxLv:70,rate:15}]
   },
   route11: {
@@ -6539,7 +6539,7 @@ const WORLD_DATA = {
       {id:296, minLv:58, maxLv:60, rate:18}, // Plagueoth
       {id:262, minLv:58, maxLv:60, rate:12}  // Impenezard
     ],
-    hasGym:true, gymLeader:"acrid", requiredBadges:11, mapPos:{x:50, y:58}
+    hasGym:true, gymLeader:"acrid", requiredBadges:11, mapPos:{x:46, y:62}
   },
   quake_foothills: {
     id:"quake_foothills", name:"Quake Foothills", icon:"🌋", type:"route",
@@ -6943,7 +6943,7 @@ const WORLD_DATA = {
       {id:315, minLv:68, maxLv:72, rate:5}   // Ashvanus roams the vents
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true,
-    hasUmbraEncounter:true, mapPos:{x:81, y:69}
+    hasUmbraEncounter:true, mapPos:{x:82, y:69}
   },
   shadow_archive: {
     id:"shadow_archive", name:"Shadow Archive", icon:"📂", type:"special",
@@ -6957,7 +6957,7 @@ const WORLD_DATA = {
       {id:122, minLv:70, maxLv:75, rate:20}
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true,
-    hasUmbraEncounter:true, mapPos:{x:86, y:73}
+    hasUmbraEncounter:true, mapPos:{x:93, y:70}
   },
   void_nexus: {
     id:"void_nexus", name:"Void Nexus", icon:"🌑", type:"special",
@@ -6971,7 +6971,7 @@ const WORLD_DATA = {
       {id:320, minLv:74, maxLv:78, rate:5}
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true,
-    hasUmbraEncounter:true, mapPos:{x:83, y:79},
+    hasUmbraEncounter:true, mapPos:{x:93, y:80},
     ngPlusWildMonsters:[{id:382,minLv:80,maxLv:87,rate:12},{id:352,minLv:81,maxLv:87,rate:15},{id:373,minLv:82,maxLv:88,rate:8}]
   },
 
@@ -6984,7 +6984,7 @@ const WORLD_DATA = {
     connections:["void_nexus"],
     wildMonsters:[],
     hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade",
-    mapPos:{x:88, y:85}
+    mapPos:{x:97, y:87}
   },
 
   umbra_spire: {
@@ -6993,7 +6993,7 @@ const WORLD_DATA = {
     connections:["void_nexus"],
     wildMonsters:[],
     hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade",
-    mapPos:{x:80, y:78}
+    mapPos:{x:82, y:80}
   },
 
   // ===== NG+ EXCLUSIVE AREAS =====
@@ -7014,7 +7014,7 @@ const WORLD_DATA = {
       {id:406, minLv:85, maxLv:91, rate:6}
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true, requiresNGPlus:true,
-    mapPos:{x:76, y:84}
+    mapPos:{x:90, y:92}
   },
   apex_summit: {
     id:"apex_summit", name:"Apex Summit", icon:"⛰️", type:"special",
@@ -7034,7 +7034,7 @@ const WORLD_DATA = {
       {id:407, minLv:90, maxLv:96, rate:10}
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true,
-    isApexBoss:true, mapPos:{x:70, y:88}
+    isApexBoss:true, mapPos:{x:83, y:90}
   },
 
 };

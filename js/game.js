@@ -42,7 +42,8 @@ function newGameState(playerName, starterMonsterId) {
     vaeldrisPartyLock: null,
     vaeldrisGauntletRelaxed: false,
     defeatedWielders: [],
-    forgottenLegendaryAttempted: []
+    forgottenLegendaryAttempted: [],
+    gymRematchWins: {}
   };
 }
 
@@ -143,6 +144,7 @@ function loadGame(slot) {
     if (data.vaeldrisGauntletRelaxed === undefined) data.vaeldrisGauntletRelaxed = false;
     if (!data.defeatedWielders) data.defeatedWielders = [];
     if (!data.forgottenLegendaryAttempted) data.forgottenLegendaryAttempted = [];
+    if (!data.gymRematchWins) data.gymRematchWins = {};
     if (data.apexGuardianDefeated === undefined) data.apexGuardianDefeated = false;
     if (!data.discoveredTraits) data.discoveredTraits = {};
     // PvP saved team loadouts: up to 6 per format, drawn from owned Lumori.
@@ -965,9 +967,11 @@ function renderAreaPanel() {
   if (area.hasGym && area.gymLeader) {
     const leader = GYM_LEADERS[area.gymLeader];
     const beaten = G.defeatedLeaders.includes(area.gymLeader);
+    // Post-Champion: beaten gyms become repeatable rematches (champion-tier in NG+).
+    const canRematch = beaten && G.championDefeated && typeof REMATCH_TEAMS !== "undefined" && !!REMATCH_TEAMS[area.gymLeader];
     gymBtn.classList.remove("hidden");
-    gymBtn.textContent = beaten ? `✅ ${leader.name} (Won)` : `🏛 Challenge ${leader.name}`;
-    gymBtn.disabled = beaten;
+    gymBtn.textContent = canRematch ? `⚔️ Rematch ${leader.name}` : (beaten ? `✅ ${leader.name} (Won)` : `🏛 Challenge ${leader.name}`);
+    gymBtn.disabled = beaten && !canRematch;
     gymInfo.classList.remove("hidden");
     const leaderEmojiEl = document.getElementById("gym-leader-emoji");
     if (typeof getTrainerSpriteURL === "function") {
@@ -1699,9 +1703,11 @@ function startGymBattle(leaderId, battleType = "single") {
     const rt = REMATCH_TEAMS[base];
     if (rt) {
       const src = base === "champion" ? GYM_LEADERS.champion
-                : (typeof ELITE_FOUR !== "undefined" ? ELITE_FOUR.find(e => e.id === base) : null);
+                : ((typeof ELITE_FOUR !== "undefined" && ELITE_FOUR.find(e => e.id === base)) || GYM_LEADERS[base] || null);
+      // Gym rematches carry a champion-tier NG+ roster (ngTeams); use it on an NG+ run.
+      const teams = (G && G.ngPlusCount > 0 && rt.ngTeams) ? rt.ngTeams : rt;
       leader = {
-        id: leaderId, teams: rt,
+        id: leaderId, teams,
         name: (src ? src.name : base) + " (Rematch)",
         emoji: src ? src.emoji : "⚔️",
         quote: src ? src.quote : "Let us settle this at the summit.",
@@ -2560,6 +2566,21 @@ function endBattle(outcome, slot, levelUps) {
         return;
       }
       if (battleContext.isRematch) {
+        const rbase = battleContext.leaderId.replace("_rematch", "");
+        const isGymRematch = typeof GYM_LEADERS !== "undefined" && GYM_LEADERS[rbase] && rbase !== "champion";
+        if (isGymRematch) {
+          // Repeatable gym rematch — decaying payout per gym (8000/4000/2000/1000/500/0).
+          if (!G.gymRematchWins) G.gymRematchWins = {};
+          const prior = G.gymRematchWins[rbase] || 0;
+          const REMATCH_REWARDS = [8000, 4000, 2000, 1000, 500];
+          const reward = REMATCH_REWARDS[prior] || 0;
+          G.gymRematchWins[rbase] = prior + 1;
+          if (reward) G.money += reward;
+          checkAchievements();
+          const rewardMsg = reward ? `<br><br>Received 💰${reward}!` : "<br><br>(No payout this time — you've mastered this rematch.)";
+          showNotification(`⚔️ <strong>${battleContext.leaderName}</strong>:<br>"${battleContext.leaderWinQuote}"${rewardMsg}`, returnToMain);
+          return;
+        }
         if (!G.defeatedLeaders.includes(battleContext.leaderId)) G.defeatedLeaders.push(battleContext.leaderId);
         G.money += 12000;
         checkAchievements();
@@ -4350,8 +4371,15 @@ function initEventListeners() {
   document.getElementById("btn-explore").addEventListener("click", exploreArea);
   document.getElementById("btn-gym").addEventListener("click", () => {
     const area = WORLD_DATA[G.location];
-    if (!area?.gymLeader || G.defeatedLeaders.includes(area.gymLeader)) return;
+    if (!area?.gymLeader) return;
     if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori are fainted! Heal first."); return; }
+    // Post-Champion gym rematch (repeatable) once the gym is already beaten.
+    if (G.defeatedLeaders.includes(area.gymLeader)) {
+      if (!(G.championDefeated && typeof REMATCH_TEAMS !== "undefined" && REMATCH_TEAMS[area.gymLeader])) return;
+      const rl = GYM_LEADERS[area.gymLeader];
+      showBattleFormatSelection(rl.name + " (Rematch)", rl.emoji, rl.quote, fmt => startGymBattle(area.gymLeader + "_rematch", fmt));
+      return;
+    }
     // Require all gym trainers beaten first (if feature is active)
     if (typeof GYM_TRAINERS !== "undefined" && GYM_TRAINERS[area.gymLeader]) {
       const trainers = GYM_TRAINERS[area.gymLeader];

@@ -2098,7 +2098,7 @@ const MONSTERS_DATA = {
   // ===== STEEL =====
   147: { id:147, name:"Scrapsapien",     emoji:"🤖", types:["Metal"],
     base:{hp:47,atk:60,def:72,spa:37,spd:45,spe:54},
-    learnset:[[1,"graze",[22,"alloy_edge"]],[1,"chrome_claw"],[3,"ironskin"],[9,"fortify"],[11,"piston_jab"],[17,"forge_blast_2"],[20,"metal_pulse"],[25,"metal_wing"],[29,"baleful_stare"],[32,"lashing_tail"],[33,"alloy_tail"],[41,"crushing_bulk",[5,"magnetize"]]],
+    learnset:[[1,"graze",[22,"alloy_edge"]],[1,"chrome_claw"],[3,"ironskin"],[9,"fortify"],[11,"piston_jab"],[17,"forge_blast_2"],[20,"metal_pulse"],[25,"metal_wing"],[29,"baleful_stare"],[32,"lashing_tail"],[33,"alloy_tail"],[41,"crushing_bulk",[5,"magnetize"]],[40,"warden_strike"],[30,"ferrous_gale"],[20,"pyro_alloy"]],
     evolveTo:148, evolveLevel:28, evolveMethod:"held", evolveItem:"metalCoat", catchRate:120, expYield:90, rarity:"common",
     desc:"A small steel humanoid armored in iron plates. Slow but incredibly tough.",
     lore:"Scrapsapien is a small humanoid steel creature 50 cm tall with a compact body of dark grey steel plates with visible bolts and seams. Its eyes are small yellow optical lenses. It collects metal scraps and incorporates them into its own body, slowly growing more elaborate and patched over time." },
@@ -2744,14 +2744,14 @@ const MONSTERS_DATA = {
   // 2-stage Rock/Metal chain: Crumblite → Stonegrip (Metal Coat item)
   251: { id:251, name:"Crumblite", emoji:"🦞", types:["Metal","Mineral"],
     base:{hp:60,atk:75,def:85,spa:42,spd:60,spe:45},
-    learnset:[[20,"lode_strike"],[1,"stone_throw"],[1,"chrome_claw"],[14,"stone_slide"],[24,"forge_blast_2"],[34,"crag_strike"],[44,"alloy_tail"],[54,"forge_strike"],[60,"radiance_cannon"]],
+    learnset:[[20,"lode_strike"],[1,"stone_throw"],[1,"chrome_claw"],[14,"stone_slide"],[24,"forge_blast_2"],[34,"crag_strike"],[44,"alloy_tail"],[54,"forge_strike"],[60,"radiance_cannon"],[40,"warden_strike"],[30,"ferrous_gale"],[20,"pyro_alloy"],[20,"counterforge"],[20,"chromium_ray"]],
     evolveTo:252, evolveLevel:null, evolveItem:"metalCoat", evolveMethod:"item", catchRate:140, expYield:98, rarity:"common",
     desc:"A young rock-crustacean with a brittle ore-crusted shell. Pries metallic minerals from cave walls to harden itself.",
     lore:"Crumblite is a 40 cm rock-crustacean whose stony carapace is still brittle and flecked with raw ore, threaded through with thin veins of steel. Bits of shell chip away as it scuttles and are quickly regrown, each new piece setting a little harder than the last. It haunts caves and ruined masonry, prying out metallic minerals to reinforce its shell — and once a Metal Coat fully tempers that shell into bolted plate, it hardens all at once into the iron-clawed Stonegrip." },
 
   252: { id:252, name:"Stonegrip", emoji:"🦞", types:["Metal","Mineral"],
     base:{hp:95,atk:110,def:135,spa:58,spd:88,spe:52},
-    learnset:[[40,"granite_slam"],[1,"crag_strike"],[1,"forge_blast_2"],[28,"alloy_tail"],[36,"forge_strike"],[44,"tectonic_shift"],[52,"bedrock_slam"],[60,"heavy_slam"],[68,"radiance_cannon"],[70,"mud_spray"]],
+    learnset:[[40,"granite_slam"],[1,"crag_strike"],[1,"forge_blast_2"],[28,"alloy_tail"],[36,"forge_strike"],[44,"tectonic_shift"],[52,"bedrock_slam"],[60,"heavy_slam"],[68,"radiance_cannon"],[70,"mud_spray"],[45,"warden_strike"],[35,"ferrous_gale"],[25,"pyro_alloy"],[25,"counterforge"],[25,"chromium_ray"],[15,"grating_din"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"rare",
     desc:"An armored rock-lobster whose stone-and-steel claws crush boulders to powder.",
     lore:"Stonegrip is an 80 cm rock-crustacean — Crumblite's brittle shell, tempered under a Metal Coat, has set into a compact carapace of grey granite bolted with steel plating. Its two great claws crush stone to powder and grip prey or rubble with bone-cracking force, and it works obsessively to compact the loose rock around it into dense formations wherever it settles." },
@@ -2966,7 +2966,7 @@ const MONSTERS_DATA = {
   // 3-stage Metal/Fighting chain: Gearbit → Cogvex → Mechabrute
   280: { id:280, name:"Gearbit", emoji:"🔩", types:["Metal","Fighting"],
     base:{hp:50,atk:62,def:72,spa:40,spd:52,spe:48},
-    learnset:[[1,"chrome_claw"],[1,"mud_spray"],[8,"spinning_kick"],[12,"forge_blast_2"],[16,"high_kick"],[22,"geoblast"],[32,"alloy_tail"],[42,"tectonic_shift"],[52,"forge_strike"],[60,"radiance_cannon"],[62,"draconic_pummels"]],
+    learnset:[[1,"chrome_claw"],[1,"mud_spray"],[8,"spinning_kick"],[12,"forge_blast_2"],[16,"high_kick"],[22,"geoblast"],[32,"alloy_tail"],[42,"tectonic_shift"],[52,"forge_strike"],[60,"radiance_cannon"],[62,"draconic_pummels"],[40,"warden_strike"],[30,"ferrous_gale"],[20,"pyro_alloy"]],
     evolveTo:281, evolveLevel:28, evolveMethod:"held", evolveItem:"metalCoat", catchRate:165, expYield:76, rarity:"common",
     desc:"A gear-driven sparring automaton that grapples with found scrap to build strength. Restless and combative.",
     lore:"Gearbit is a small metal-fighting creature 20 cm tall shaped like a round gear-work automaton with stubby legs. Its body is a collection of interlocked cogs that rotate slowly. It spars constantly with found scrap and rival Gearbits, incorporating useful metals into its growing combat-frame. A Gearbit's slow-rotating juvenile cogs are visibly oversized for the small frame that houses them. They were forged at a scale meant for a far heavier Cogvex chassis, and the body still awaits years of martial conditioning before it grows large enough to put them properly to work." },
@@ -2978,7 +2978,7 @@ const MONSTERS_DATA = {
   // Cogvex and Mechabrute (continuing Gearbit chain from 280)
   281: { id:281, name:"Cogvex", emoji:"⚙️", types:["Metal","Fighting"],
     base:{hp:78,atk:98,def:108,spa:58,spd:75,spe:60},
-    learnset:[[1,"forge_blast_2"],[1,"geoblast"],[5,"quick_punch"],[15,"shockwave_kick"],[20,"straight_jab"],[22,"alloy_tail"],[26,"iron_will"],[30,"tectonic_shift"],[38,"forge_strike"],[46,"bedrock_slam"],[54,"heavy_slam"],[62,"radiance_cannon"]],
+    learnset:[[1,"forge_blast_2"],[1,"geoblast"],[5,"quick_punch"],[15,"shockwave_kick"],[20,"straight_jab"],[22,"alloy_tail"],[26,"iron_will"],[30,"tectonic_shift"],[38,"forge_strike"],[46,"bedrock_slam"],[54,"heavy_slam"],[62,"radiance_cannon"],[45,"warden_strike"],[35,"ferrous_gale"]],
     evolveTo:282, evolveLevel:46, evolveMethod:"battles", evolveBattles:22, catchRate:80, expYield:155, rarity:"uncommon",
     desc:"A complex gear-machine combatant that builds practice rigs from scavenged parts and trains alone for hours.",
     lore:"Cogvex is a medium metal-fighting automaton 60 cm tall — Gearbit's stubby gear-work frame has elaborated into a more complex body, and the metals it absorbed in countless sparring matches have crystallised into an exposed chest mechanism of dozens of interlocking cogs and pistons. It constructs gear-driven training apparatus from found materials and leaves functional practice rigs scattered across its territory." },

@@ -2134,7 +2134,7 @@ const MONSTERS_DATA = {
   // ===== POISON =====
   155: { id:155, name:"Toxirin",    emoji:"🐸", types:["Poison"],
     base:{hp:67,atk:56,def:58,spa:71,spd:50,spe:49},
-    learnset:[[1,"collide",[22,"miasma_cloud"]],[1,"septic_prick"],[9,"bubble_jet"],[17,"ooze_bomb"],[20,"battle_cry"],[25,"toxify"],[33,"virulent_surge"],[36,"sludge_wave"],[41,"ooze_bomb",[5,"toxic_surge"]],[3,"toxin_bloom"],[31,"baleful_stare"]],
+    learnset:[[1,"collide",[22,"miasma_cloud"]],[1,"septic_prick"],[9,"bubble_jet"],[17,"ooze_bomb"],[20,"battle_cry"],[25,"toxify"],[33,"virulent_surge"],[36,"sludge_wave"],[41,"ooze_bomb",[5,"toxic_surge"]],[3,"toxin_bloom"],[31,"baleful_stare"],[40,"venom_drown"],[20,"root_toxin"]],
     evolveTo:156, evolveLevel:24, catchRate:150, expYield:88, rarity:"common",
     desc:"A toxic toad that drips with powerful venom. Warty and repulsive but deadly.",
     lore:"Toxirin is a small plump frog about 15 cm long with vivid lime-green skin marked by patterns of yellow and black warning colours. It secretes a sticky toxic slime from its skin that deters predators effectively. It inhabits warm rainforest ponds and amplifies its chirping call to remarkable volume for its size. Older Toxirin sometimes abandon the bright lily-pads of the rainforest entirely and drift downstream for hours into darker, slower water. They are scouts ahead of their own evolution, sampling the murky river backwaters Venekon eventually settles into." },
@@ -2148,7 +2148,7 @@ const MONSTERS_DATA = {
 
   157: { id:157, name:"Acidelix",    emoji:"🫧", types:["Poison"],
     base:{hp:61,atk:47,def:47,spa:75,spd:59,spe:43},
-    learnset:[[1,"collide",[22,"putrid_pulse"]],[1,"septic_prick"],[10,"ooze_bomb"],[18,"toxify"],[21,"vital_pulse"],[26,"virulent_surge"],[34,"second_wind"],[38,"sludge_wave"],[42,"ooze_bomb",[5,"toxic_surge"]],[3,"toxin_bloom"],[32,"baleful_stare"]],
+    learnset:[[1,"collide",[22,"putrid_pulse"]],[1,"septic_prick"],[10,"ooze_bomb"],[18,"toxify"],[21,"vital_pulse"],[26,"virulent_surge"],[34,"second_wind"],[38,"sludge_wave"],[42,"ooze_bomb",[5,"toxic_surge"]],[3,"toxin_bloom"],[32,"baleful_stare"],[40,"venom_drown"],[20,"root_toxin"]],
     evolveTo:158, evolveLevel:26, evolveMethod:"location", evolveLocation:"fungal_cavern", catchRate:130, expYield:95, rarity:"common",
     desc:"A blob of acid that oozes across the ground. Dissolves things with its body.",
     lore:"Acidelix is a floating translucent orb about 20 cm in diameter filled with slowly swirling acid-green liquid. Its outer membrane is barely visible. It drifts through damp cave systems, dissolving organic material it contacts and absorbing the resulting nutrients through its outer surface." },
@@ -3109,7 +3109,7 @@ const MONSTERS_DATA = {
 
   298: { id:298, name:"Plagueoth", emoji:"🦟", types:["Poison","Toxin"],
     base:{hp:82,atk:89,def:73,spa:116,spd:95,spe:95},
-    learnset:[[1,"venom_lance"],[1,"resonance_hum"],[6,"coil"],[8,"quill_barrage"],[10,"gunk_blast"],[12,"mantis_slash"],[14,"toxic_lash"],[15,"plague_claw"],[16,"plague_strike"],[18,"maul"],[20,"blight_strike"],[22,"bane_caltrops"],[24,"infestation"],[28,"twin_sting"],[30,"sludge_wave"],[32,"hivemind_surge"],[35,"plague_wave"],[38,"toxify"],[40,"swarm_assault"],[44,"locust_fury"],[45,"rancid_charge"],[46,"virulent_surge"],[50,"swarm_strike"],[54,"mycelia_net"],[56,"sticky_web"],[60,"quiver_dance"],[62,"corrosion_fang"],[70,"radiance_cannon"]],
+    learnset:[[1,"venom_lance"],[1,"resonance_hum"],[6,"coil"],[8,"quill_barrage"],[10,"gunk_blast"],[12,"mantis_slash"],[14,"toxic_lash"],[15,"plague_claw"],[16,"plague_strike"],[18,"maul"],[20,"blight_strike"],[22,"bane_caltrops"],[24,"infestation"],[28,"twin_sting"],[30,"sludge_wave"],[32,"hivemind_surge"],[35,"plague_wave"],[38,"toxify"],[40,"swarm_assault"],[44,"locust_fury"],[45,"rancid_charge"],[46,"virulent_surge"],[50,"swarm_strike"],[54,"mycelia_net"],[56,"sticky_web"],[60,"quiver_dance"],[62,"corrosion_fang"],[70,"radiance_cannon"],[50,"venom_drown"],[30,"root_toxin"],[15,"acid_burst"],[30,"corrosive_rain"],[22,"caustic_shock"],[22,"blight_mist"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
     desc:"The plague mosquito. Ancient texts describe its awakening as an omen of great pestilence. A single drain leaves victims hollowed.",
     lore:"Plagueoth is a large poison-toxin mosquito 60 cm long — Pestquito's elongated bark-piercing proboscis has lengthened further into a needle as long as its body, and the slim juvenile abdomen has bloated into a venom-sac. Its ragged dark wings have a 1.5 m span. It inhabits abandoned buildings and decaying swampland, draining the vital fluids of any creature unfortunate enough to be caught alone at dusk." },
@@ -3576,7 +3576,7 @@ const MONSTERS_DATA = {
   // ===== POISON/BUG =====
   164: { id:164, name:"Blightmite", emoji:"🐛", types:["Poison"],
     base:{hp:56,atk:37,def:55,spa:65,spd:52,spe:30},
-    learnset:[[1,"septic_prick",[20,"venom_lance"]],[1,"silk_spray"],[8,"mandible_bite"],[16,"ooze_bomb"],[21,"second_wind"],[24,"shear_strike"],[32,"toxify",[5,"toxic_surge"]],[36,"sonic_buzz"],[3,"toxin_bloom"],[31,"mandible_crush"]],
+    learnset:[[1,"septic_prick",[20,"venom_lance"]],[1,"silk_spray"],[8,"mandible_bite"],[16,"ooze_bomb"],[21,"second_wind"],[24,"shear_strike"],[32,"toxify",[5,"toxic_surge"]],[36,"sonic_buzz"],[3,"toxin_bloom"],[31,"mandible_crush"],[40,"venom_drown"],[20,"root_toxin"],[5,"acid_burst"],[20,"corrosive_rain"],[12,"caustic_shock"],[12,"blight_mist"]],
     evolveTo:165, evolveLevel:20, catchRate:220, expYield:65, rarity:"common",
     desc:"A larva coated in toxic slime. Leaves a trail of venom wherever it crawls.",
     lore:"Blightmite is a small caterpillar-like poison creature 10 cm long. Its body is dark purple-black with short bristle-hairs that release toxins on contact. It feeds on the toxic leaves that other creatures avoid, sequestering their poisons into its own body and becoming increasingly dangerous as it eats." },
@@ -3724,7 +3724,7 @@ const MONSTERS_DATA = {
 
   161: { id:161, name:"Mistbane", emoji:"🦠", types:["Poison","Vapor"],
     base:{hp:70,atk:75,def:54,spa:102,spd:80,spe:105},
-    learnset:[[1,"septic_prick"],[1,"downdraft"],[2,"ooze_bomb"],[3,"wind_scythe"],[4,"mycelia_net"],[31,"toxify"],[36,"virulent_surge"],[40,"tempest_wrath"],[45,"corrosion_fang"],[50,"typhoon"],[55,"venom_lance"],[60,"sludge_wave"],[5,"miasma_cloud"],[43,"wingbeat"]],
+    learnset:[[1,"septic_prick"],[1,"downdraft"],[2,"ooze_bomb"],[3,"wind_scythe"],[4,"mycelia_net"],[31,"toxify"],[36,"virulent_surge"],[40,"tempest_wrath"],[45,"corrosion_fang"],[50,"typhoon"],[55,"venom_lance"],[60,"sludge_wave"],[5,"miasma_cloud"],[43,"wingbeat"],[45,"venom_drown"],[25,"root_toxin"],[10,"acid_burst"],[25,"corrosive_rain"],[17,"caustic_shock"],[17,"blight_mist"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:195, rarity:"uncommon",
     desc:"A drifting cloud-swarm of microscopic miasma-flies that moves and feeds as one creature. The swarm is denser at its centre, where a queen hovers.",
     lore:"Mistbane is a 1-metre cloud-swarm of countless microscopic miasma-flies — Miasmafly's solo form has fractured into countless tiny offspring-flies, each so small as to be barely visible individually but bound together by shared chemical signals into a single drifting collective. At its centre, sometimes glimpsed when the swarm thins, hovers a single larger queen-fly with a 30 centimetre wingspan whose pheromone trail directs the others. The swarm-cloud flows, condenses, and disperses but never fully dissolves; it inhabits bogs and toxic marshland, blending with natural mist and slowly sapping the vitality of any creature breathing the air it occupies." },

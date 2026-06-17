@@ -5512,7 +5512,7 @@ const WORLD_DATA = {
       {id:84, minLv:7, maxLv:9, rate:20}   // Electrix
     ],
     ngPlusWildMonsters:[{id:446, minLv:6, maxLv:9, rate:12}], // NG+ family base: Sporelet
-    hasGym:false, requiredBadges:1, mapPos:{x:50, y:58}
+    hasGym:false, requiredBadges:1, mapPos:{x:50, y:61}
   },
   tidewatch: {
     id:"tidewatch", name:"Tidewatch Port", icon:"⛵", type:"city",
@@ -6274,7 +6274,7 @@ const WORLD_DATA = {
       {id:72, minLv:56, maxLv:61, rate:25},
       {id:72, minLv:57, maxLv:62, rate:10}
     ],
-    hasGym:false, requiredBadges:10, mapPos:{x:60, y:48},
+    hasGym:false, requiredBadges:10, mapPos:{x:54, y:51},
     ngPlusWildMonsters:[{id:326,minLv:62,maxLv:68,rate:20},{id:328,minLv:62,maxLv:68,rate:15},{id:331,minLv:63,maxLv:69,rate:15}]
   },
   bloomhaven: {
@@ -6305,7 +6305,7 @@ const WORLD_DATA = {
       {id:266, minLv:57, maxLv:62, rate:21},  // Shadowcub (base Dark/Sonic)
       {id:299, minLv:57, maxLv:62, rate:5}    // Resinbee (base Bug/Poi)
     ],
-    hasGym:false, requiredBadges:11, mapPos:{x:48, y:60},
+    hasGym:false, requiredBadges:11, mapPos:{x:50, y:55},
     ngPlusWildMonsters:[{id:322,minLv:64,maxLv:70,rate:20},{id:323,minLv:64,maxLv:70,rate:15},{id:325,minLv:65,maxLv:71,rate:10}]
   },
   miasmacity: {
@@ -6314,9 +6314,9 @@ const WORLD_DATA = {
     connections:["toxic_bog","route11","mire_depths"],
     wildMonsters:[
       {id:155, minLv:58, maxLv:63, rate:25},  // Venekon (mid)
-      {id:157, minLv:60, maxLv:65, rate:25},  // Dissotoad (final, 158 on murk_crossing ✓)
+      {id:157, minLv:60, maxLv:65, rate:25},  // Dissotoad (final, 158 on toxic_bog ✓)
       {id:162, minLv:59, maxLv:64, rate:25},  // Blightalis (mid, 162 on route10 ✓)
-      {id:164, minLv:59, maxLv:64, rate:25}   // Lepidox (mid, 164 on murk_crossing ✓)
+      {id:164, minLv:59, maxLv:64, rate:25}   // Lepidox (mid, 164 on toxic_bog ✓)
     ],
     hasGym:true, gymLeader:"viper", requiredBadges:12, mapPos:{x:44, y:73},
     ngPlusWildMonsters:[{id:322,minLv:65,maxLv:70,rate:25},{id:324,minLv:65,maxLv:70,rate:15}]
@@ -6513,25 +6513,10 @@ const WORLD_DATA = {
     ngPlusWildMonsters:[{id:362, minLv:70, maxLv:77, rate:9}, {id:344,minLv:77,maxLv:82,rate:25},{id:351,minLv:77,maxLv:82,rate:20},{id:360,minLv:78,maxLv:83,rate:8}]
   },
   // ---- ADDITIONAL ROUTES (direction-change splits & mid-gym connectors) ----
-  murk_crossing: {
-    id:"murk_crossing", name:"Murk Crossing", icon:"🌫️", type:"route",
-    desc:"A bog-choked crossing where the path turns south through fetid marshland. Toxic vapors hang low and Poison types lurk in every murky puddle.",
-    connections:["corroden","toxic_bog"],
-    wildMonsters:[
-      {id:155, minLv:57, maxLv:62, rate:24},  // Toxirin (base)
-      {id:155, minLv:58, maxLv:63, rate:10},  // Venekon (mid → after base ✓)
-      {id:157, minLv:58, maxLv:63, rate:18},  // Corrodisc (mid, base Acidelix on route10 ✓)
-      {id:157, minLv:60, maxLv:65, rate:6},  // Dissotoad (final → after 158 ✓)
-      {id:164, minLv:58, maxLv:63, rate:28},  // Blightmite (base, new)
-      {id:164, minLv:59, maxLv:64, rate:14}   // Lepidox (mid → after 164 ✓)
-    ],
-    ngPlusWildMonsters:[{id:355, minLv:58, maxLv:65, rate:10}], // NG+ standalone: Nadiril
-    hasGym:false, requiredBadges:12, mapPos:{x:42, y:60}
-  },
   corroden: {
     id:"corroden", name:"Corroden Town", icon:"☣️", type:"city",
     desc:"A fume-wreathed town on the edge of the corrosion flats, its cobbles pitted and its air sharp enough to sting. Gym Leader Acrid thrives where lesser trainers' gear dissolves.",
-    connections:["route10","murk_crossing"],
+    connections:["route10","toxic_bog"],
     wildMonsters:[
       {id:299, minLv:56, maxLv:60, rate:25}, // Nettlebarb
       {id:296, minLv:56, maxLv:60, rate:23}, // Pestquito
@@ -6648,7 +6633,7 @@ const WORLD_DATA = {
   toxic_bog: {
     id:"toxic_bog", name:"Toxic Bog", icon:"🐸", type:"route",
     desc:"A stagnant bog where the path turns south toward Miasma City. Foul gas bubbles up through the mud and Poison types lurk beneath the surface.",
-    connections:["murk_crossing","mire_depths","miasmacity"],
+    connections:["corroden","mire_depths","miasmacity"],
     wildMonsters:[
       {id:155, minLv:58, maxLv:63, rate:20},  // Venekon (mid)
       {id:157, minLv:58, maxLv:63, rate:20},  // Corrodisc (mid)
@@ -6656,6 +6641,7 @@ const WORLD_DATA = {
       {id:164, minLv:58, maxLv:63, rate:20},  // Blightmite (base)
       {id:164, minLv:59, maxLv:64, rate:20}   // Lepidox (mid → after 164 ✓)
     ],
+    ngPlusWildMonsters:[{id:355, minLv:58, maxLv:65, rate:10}], // NG+ standalone: Nadiril (relocated from removed Murk Crossing)
     hasGym:false, requiredBadges:12, mapPos:{x:42, y:63}
   },
   tremor_summit: {
@@ -6710,7 +6696,7 @@ const WORLD_DATA = {
     wildMonsters:[
       {id:155, minLv:59, maxLv:64, rate:9},  // Venekon (mid, base 155 on route10 ✓)
       {id:296, minLv:58, maxLv:63, rate:18},  // Pestquito (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
-      {id:164, minLv:59, maxLv:64, rate:13},  // Lepidox (mid, 164 on murk_crossing ✓)
+      {id:164, minLv:59, maxLv:64, rate:13},  // Lepidox (mid, 164 on toxic_bog ✓)
       {id:296, minLv:58, maxLv:63, rate:27},  // Plaguefly (base Poi/Bug)
       {id:299, minLv:58, maxLv:63, rate:23},  // Resinbee (base Bug/Poi, also on route10)
       {id:218, minLv:59, maxLv:64, rate:10}   // Duskmist (base Spectral/Dark, item evo)

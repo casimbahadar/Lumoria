@@ -5524,7 +5524,7 @@ const WORLD_DATA = {
       {id:293, minLv:10, maxLv:12, rate:20}, // Amperix
       {id:256, minLv:11, maxLv:13, rate:20}  // Cryonik
     ],
-    hasGym:true, gymLeader:"marina", requiredBadges:1, mapPos:{x:62, y:52}
+    hasGym:true, gymLeader:"marina", requiredBadges:1, mapPos:{x:64, y:50}
   },
   route3: {
     id:"route3", name:"Route 3 - Coastal Shore", icon:"🏖️", type:"route",
@@ -6215,7 +6215,7 @@ const WORLD_DATA = {
       {id:57, minLv:30, maxLv:36, rate:14},   // Imperion
       {id:134, minLv:35, maxLv:42, rate:8}   // Titanomare
     ],
-    hasGym:false, requiredBadges:2, mapPos:{x:72, y:80},
+    hasGym:false, requiredBadges:2, mapPos:{x:68, y:82},
     storyLocation:true, hasUmbraEncounter:true
   },
   wind_bridge: {
@@ -6509,7 +6509,7 @@ const WORLD_DATA = {
       {id:223, minLv:72, maxLv:76, rate:8},  // Psytheon (final → 223 on cosmic_cavern ✓)
       {id:216, minLv:73, maxLv:77, rate:5}    // Distorsion (final Mental)
     ],
-    hasGym:true, gymLeader:"seraphina", requiredBadges:19, mapPos:{x:68, y:72},
+    hasGym:true, gymLeader:"seraphina", requiredBadges:19, mapPos:{x:64, y:69},
     ngPlusWildMonsters:[{id:362, minLv:70, maxLv:77, rate:9}, {id:344,minLv:77,maxLv:82,rate:25},{id:351,minLv:77,maxLv:82,rate:20},{id:360,minLv:78,maxLv:83,rate:8}]
   },
   // ---- ADDITIONAL ROUTES (direction-change splits & mid-gym connectors) ----
@@ -6943,7 +6943,7 @@ const WORLD_DATA = {
       {id:315, minLv:68, maxLv:72, rate:5}   // Ashvanus roams the vents
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true,
-    hasUmbraEncounter:true, mapPos:{x:82, y:69}
+    hasUmbraEncounter:true, mapPos:{x:84, y:69}
   },
   shadow_archive: {
     id:"shadow_archive", name:"Shadow Archive", icon:"📂", type:"special",
@@ -6957,7 +6957,7 @@ const WORLD_DATA = {
       {id:122, minLv:70, maxLv:75, rate:20}
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true,
-    hasUmbraEncounter:true, mapPos:{x:93, y:70}
+    hasUmbraEncounter:true, mapPos:{x:94, y:72}
   },
   void_nexus: {
     id:"void_nexus", name:"Void Nexus", icon:"🌑", type:"special",
@@ -6971,7 +6971,7 @@ const WORLD_DATA = {
       {id:320, minLv:74, maxLv:78, rate:5}
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true,
-    hasUmbraEncounter:true, mapPos:{x:93, y:80},
+    hasUmbraEncounter:true, mapPos:{x:93, y:83},
     ngPlusWildMonsters:[{id:382,minLv:80,maxLv:87,rate:12},{id:352,minLv:81,maxLv:87,rate:15},{id:373,minLv:82,maxLv:88,rate:8}]
   },
 
@@ -6984,7 +6984,7 @@ const WORLD_DATA = {
     connections:["void_nexus"],
     wildMonsters:[],
     hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade",
-    mapPos:{x:97, y:87}
+    mapPos:{x:98, y:93}
   },
 
   umbra_spire: {
@@ -6993,7 +6993,7 @@ const WORLD_DATA = {
     connections:["void_nexus"],
     wildMonsters:[],
     hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade",
-    mapPos:{x:82, y:80}
+    mapPos:{x:82, y:82}
   },
 
   // ===== NG+ EXCLUSIVE AREAS =====
@@ -7014,7 +7014,7 @@ const WORLD_DATA = {
       {id:406, minLv:85, maxLv:91, rate:6}
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true, requiresNGPlus:true,
-    mapPos:{x:90, y:92}
+    mapPos:{x:88, y:92}
   },
   apex_summit: {
     id:"apex_summit", name:"Apex Summit", icon:"⛰️", type:"special",
@@ -7034,7 +7034,7 @@ const WORLD_DATA = {
       {id:407, minLv:90, maxLv:96, rate:10}
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true,
-    isApexBoss:true, mapPos:{x:83, y:90}
+    isApexBoss:true, mapPos:{x:79, y:93}
   },
 
 };

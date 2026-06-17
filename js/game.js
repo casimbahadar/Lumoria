@@ -656,23 +656,29 @@ function renderWorldMap() {
   mapEl.style.width = mapW + "px";
   mapEl.style.height = mapH + "px";
 
-  // On-demand route-name tooltip — revealed on hover (desktop) or long-press (mobile)
+  // On-demand route-name display — revealed on hover (desktop) or long-press (mobile)
   // so roads stay unlabeled/uncluttered but players can still identify a route before
-  // travelling. Recreated each render; floats above the map via z-index.
-  const routeTip = document.createElement("div");
-  routeTip.className = "map-route-tip";
-  routeTip.style.cssText = "position:absolute;display:none;transform:translate(-50%,-120%);background:rgba(8,10,18,0.95);color:#ffe088;font-size:0.5rem;font-weight:bold;padding:2px 7px;border-radius:7px;white-space:nowrap;pointer-events:none;z-index:50;border:1px solid rgba(255,224,136,0.45);box-shadow:0 2px 6px rgba(0,0,0,0.6);letter-spacing:0.2px;";
-  mapEl.appendChild(routeTip);
-  const showRouteTip = (name, x, y) => { routeTip.textContent = name; routeTip.style.left = x + "px"; routeTip.style.top = (y - 10) + "px"; routeTip.style.display = "block"; };
+  // travelling. Shown as a fixed banner pinned to the TOP of the map panel (above the
+  // scrolling/zoomed map) so on mobile the long-pressed name isn't hidden under the
+  // finger. Persistent across renders (anchored to the non-scrolling map container).
+  let routeTip = document.getElementById("map-route-banner");
+  if (!routeTip) {
+    routeTip = document.createElement("div");
+    routeTip.id = "map-route-banner";
+    routeTip.style.cssText = "position:absolute;top:4px;left:50%;transform:translateX(-50%);display:none;background:rgba(8,10,18,0.96);color:#ffe088;font-size:0.7rem;font-weight:bold;padding:3px 12px;border-radius:8px;white-space:nowrap;pointer-events:none;z-index:60;border:1px solid rgba(255,224,136,0.5);box-shadow:0 2px 8px rgba(0,0,0,0.7);letter-spacing:0.3px;";
+    const container = document.getElementById("world-map-container") || mapEl;
+    container.appendChild(routeTip);
+  }
+  const showRouteTip = (name) => { routeTip.textContent = "🚏 " + name; routeTip.style.display = "block"; };
   const hideRouteTip = () => { routeTip.style.display = "none"; };
   // Bind hover + long-press name reveal (and tap/click travel) to a route hotspot.
   // Short tap travels; a ~450ms press reveals the name instead of travelling.
-  const bindRouteName = (el, name, x, y, onTap) => {
-    el.addEventListener("mouseenter", () => showRouteTip(name, x, y));
+  const bindRouteName = (el, name, onTap) => {
+    el.addEventListener("mouseenter", () => showRouteTip(name));
     el.addEventListener("mouseleave", hideRouteTip);
     if (onTap) el.addEventListener("click", onTap);
     let lp = null, longPressed = false;
-    el.addEventListener("touchstart", () => { longPressed = false; lp = setTimeout(() => { longPressed = true; showRouteTip(name, x, y); }, 450); }, { passive: true });
+    el.addEventListener("touchstart", () => { longPressed = false; lp = setTimeout(() => { longPressed = true; showRouteTip(name); }, 450); }, { passive: true });
     el.addEventListener("touchmove", () => { if (lp) { clearTimeout(lp); lp = null; } }, { passive: true });
     el.addEventListener("touchend", (e) => {
       if (lp) { clearTimeout(lp); lp = null; }
@@ -837,7 +843,7 @@ function renderWorldMap() {
               }
             });
             // Travel on tap/click; reveal the route name on hover / long-press
-            bindRouteName(hitArea, rArea.name, rx, ry, () => travelTo(rId));
+            bindRouteName(hitArea, rArea.name, () => travelTo(rId));
             svg.appendChild(hitArea);
           }
         }
@@ -876,7 +882,7 @@ function renderWorldMap() {
       routeLabel.style.pointerEvents = "auto";
       routeLabel.style.cursor = "pointer";
       // Travel on tap/click; reveal the route name on hover / long-press
-      bindRouteName(routeLabel, rArea.name, rx, ry, () => travelTo(rId));
+      bindRouteName(routeLabel, rArea.name, () => travelTo(rId));
     }
     mapEl.appendChild(routeLabel);
   }

@@ -5568,7 +5568,7 @@ const WORLD_DATA = {
   sparkmoor: {
     id:"sparkmoor", name:"Sparkmoor Town", icon:"⚡", type:"city",
     desc:"A town on the electric plains. Gym Leader Zara harnesses lightning power.",
-    connections:["valor_pass","route5","storm_plateau","thunder_cliffs"],
+    connections:["valor_pass","route5","thunder_cliffs"],
     wildMonsters:[
       {id:242, minLv:26, maxLv:30, rate:15}, // Pulseglow (obtainability fix)
       {id:81, minLv:26, maxLv:30, rate:25}, // Joltan
@@ -5621,7 +5621,7 @@ const WORLD_DATA = {
   frostpeak: {
     id:"frostpeak", name:"Frostpeak Village", icon:"❄️", type:"city",
     desc:"A snow-covered village atop a frozen mountain. Ice Gym Leader Glacier awaits.",
-    connections:["route5","route6","storm_plateau","crystal_depths","lunar_peak"],
+    connections:["route5","route6","storm_plateau","lunar_peak"],
     wildMonsters:[
       {id:47, minLv:34, maxLv:38, rate:25}, // Hexaprowl
       {id:50, minLv:34, maxLv:38, rate:30}, // Tundram
@@ -5933,7 +5933,7 @@ const WORLD_DATA = {
   storm_plateau: {
     id:"storm_plateau", name:"Storm Plateau", icon:"⛈️", type:"route",
     desc:"A high plateau perpetually wracked by storms. Electric and Draconic types are drawn to its crackling energy.",
-    connections:["sparkmoor","frostpeak","lunar_peak","mirror_lake","thunder_cliffs"],
+    connections:["frostpeak"],
     wildMonsters:[
       {id:84, minLv:28, maxLv:34, rate:25},  // Galvaglide
       {id:42, minLv:28, maxLv:34, rate:25},  // Cryonik
@@ -5948,7 +5948,7 @@ const WORLD_DATA = {
   crystal_depths: {
     id:"crystal_depths", name:"Crystal Depths", icon:"💠", type:"route",
     desc:"An underground crystal cavern with walls of pure ice and steel. Rare mineral-type Lumori call this glittering place home.",
-    connections:["frostpeak","shadowmere","crystal_spire"],
+    connections:["shadowmere","crystal_spire"],
     wildMonsters:[
       {id:211, minLv:34, maxLv:38, rate:28}, // Cinderfrost (obtainability fix)
       {id:50, minLv:34, maxLv:40, rate:6},  // Sapphier
@@ -6039,7 +6039,7 @@ const WORLD_DATA = {
   thunder_cliffs: {
     id:"thunder_cliffs", name:"Thunder Cliffs", icon:"⚡", type:"route",
     desc:"Sheer cliff faces perpetually struck by lightning. Electric energy crackles through every rock and stone here.",
-    connections:["sparkmoor","storm_plateau"],
+    connections:["sparkmoor"],
     wildMonsters:[
       {id:209, minLv:30, maxLv:36, rate:10}, // Sparkeen (obtainability fix)
       {id:81, minLv:28, maxLv:34, rate:28},   // Joltan
@@ -6130,7 +6130,7 @@ const WORLD_DATA = {
   lunar_peak: {
     id:"lunar_peak", name:"Lunar Peak", icon:"🌙", type:"route",
     desc:"A remote mountain summit bathed in perpetual moonlight. Ice and Draconic types roam freely under the silver glow.",
-    connections:["frostpeak","storm_plateau","crystal_spire"],
+    connections:["frostpeak","crystal_spire"],
     wildMonsters:[
       {id:47, minLv:36, maxLv:42, rate:30},   // Hexaprowl
       {id:50, minLv:36, maxLv:42, rate:10},   // Sapphier
@@ -6166,7 +6166,7 @@ const WORLD_DATA = {
   mirror_lake: {
     id:"mirror_lake", name:"Mirror Lake", icon:"🪞", type:"route",
     desc:"A perfectly still alpine lake with a surface like polished glass. The reflected sky makes it impossible to tell up from down.",
-    connections:["route5","storm_plateau"],
+    connections:["route5"],
     wildMonsters:[
       {id:189, minLv:30, maxLv:34, rate:16}, // Woolcalm (obtainability fix)
       {id:45, minLv:30, maxLv:36, rate:24},   // Slatis

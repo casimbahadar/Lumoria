@@ -1660,7 +1660,7 @@ const MONSTERS_DATA = {
 
   5: { id:5, name:"Cobaleap",    emoji:"🦦", types:["Aquatic"],
     base:{hp:60,atk:66,def:79,spa:64,spd:85,spe:64},
-    learnset:[[1,"aquatic_gun"],[2,"lashing_tail"],[3,"bubble_jet"],[4,"tidal_sweep"],[5,"tidecaller"],[6,"deepwater_hymn"],[8,"shadow_jab"],[10,"wave_dash"],[14,"cheap_shot"],[16,"second_wind"],[18,"brine_slash"],[24,"tidal_rush"],[28,"diving_strike"],[30,"fortify"],[33,"war_dance"],[35,"tsunami"],[44,"tidal_crush"]],
+    learnset:[[1,"aquatic_gun"],[2,"lashing_tail"],[3,"bubble_jet"],[4,"tidal_sweep"],[5,"tidecaller"],[6,"deepwater_hymn"],[8,"shadow_jab"],[10,"wave_dash"],[14,"cheap_shot"],[16,"second_wind"],[18,"brine_slash"],[24,"tidal_rush"],[28,"diving_strike"],[30,"fortify"],[33,"war_dance"],[35,"tsunami"],[44,"tidal_crush"],[30,"claw_hammer"],[10,"flood_tide"],[20,"whirlpool_dive"]],
     evolveTo:6, evolveLevel:36, catchRate:25, expYield:142, rarity:"uncommon",
     desc:"A sleek long-bodied otter-cousin with cobalt fur. Streaks through water in graceful leaping bounds, surfacing in a quick arc each stroke.",
     lore:"Cobaleap is a long-bodied mustelid roughly 2 metres from nose to tail, more elongated and slender than its base form. Its juvenile teal kit-fur has deepened to a glossy cobalt, and Aquatter's neck-to-tail steering fin has flattened and fused into its denser, sleeker body. Its short cobalt-blue fur is so dense it appears to gleam like polished glass when wet, and a pale turquoise stripe runs from the crown of its head to the tip of its powerful tail. A small ruff of stiffer guard-hairs flares behind its head when threatened — mistaken at a distance for a fin or crest. It hunts in shallow coastal waters by leaping between wave crests in long bounding arcs, and can sustain speeds that outpace most sailing vessels for hours at a time." },
@@ -1740,7 +1740,7 @@ const MONSTERS_DATA = {
   // ===== ADDITIONAL WATER =====
   25: { id:25, name:"Reefnip",  emoji:"🦀", types:["Aquatic"],
     base:{hp:59,atk:66,def:78,spa:43,spd:63,spe:34},
-    learnset:[[1,"graze",[22,"coral_barrage"]],[1,"aquatic_gun"],[10,"bubble_jet"],[18,"fortify"],[20,"vital_pulse"],[26,"tidal_sweep"],[34,"tidal_rush",[5,"tidecaller"]],[36,"tsunami"],[3,"deepwater_hymn"],[31,"baleful_stare"]],
+    learnset:[[1,"graze",[22,"coral_barrage"]],[1,"aquatic_gun"],[10,"bubble_jet"],[18,"fortify"],[20,"vital_pulse"],[26,"tidal_sweep"],[34,"tidal_rush",[5,"tidecaller"]],[36,"tsunami"],[3,"deepwater_hymn"],[31,"baleful_stare"],[20,"torrent_fang"]],
     evolveTo:26, evolveLevel:20, catchRate:190, expYield:71, rarity:"common",
     desc:"A crab that blows iridescent bubbles. Very territorial near shorelines.",
     lore:"Reefnip is a small crab-like creature only 15 cm across. Its shell is pale blue-green studded with tiny polyps that filter nutrients from the water. It scuttles across coral formations in shallow warm seas, using its patterned shell for camouflage, and hides inside anemones when threatened." },
@@ -1768,14 +1768,14 @@ const MONSTERS_DATA = {
 
   28: { id:28, name:"Corelin",   emoji:"🐠", types:["Aquatic"],
     base:{hp:49,atk:34,def:58,spa:59,spd:52,spe:62},
-    learnset:[[1,"collide",[22,"coral_barrage"]],[1,"aquatic_gun"],[9,"bubble_jet"],[16,"lashing_tail"],[17,"bewitching_kiss"],[25,"tidal_rush",[5,"tidecaller"]],[29,"vital_pulse"],[39,"tidal_sweep"],[3,"deepwater_hymn"],[32,"baleful_stare"]],
+    learnset:[[1,"collide",[22,"coral_barrage"]],[1,"aquatic_gun"],[9,"bubble_jet"],[16,"lashing_tail"],[17,"bewitching_kiss"],[25,"tidal_rush",[5,"tidecaller"]],[29,"vital_pulse"],[39,"tidal_sweep"],[3,"deepwater_hymn"],[32,"baleful_stare"],[30,"dream_torrent"],[20,"maelstrom"],[10,"marine_blessing"],[12,"aquatic_pulse"]],
     evolveTo:29, evolveLevel:25, catchRate:220, expYield:72, rarity:"common",
     desc:"A dazzling coral fish with rainbow fins. Lures prey with its bright colors.",
     lore:"Corelin is a delicate tropical fish 25 cm long, striped vivid orange and white with translucent fins edged in blue. It lives inside branching coral formations and carries a weak electric charge in its scales that deters predators. Its scales refract light into small rainbows in shallow water." },
 
   29: { id:29, name:"Coralisk",    emoji:"🐡", types:["Aquatic"],
     base:{hp:76,atk:69,def:64,spa:114,spd:99,spe:74},
-    learnset:[[1,"aquatic_gun"],[2,"bubble_jet"],[3,"tidal_rush"],[4,"tidecaller"],[30,"daunt"],[35,"fortify"],[40,"blitz"],[45,"prism_flare"],[50,"whirlpool_dive"],[55,"sea_serpent_strike"],[60,"lunar_burst"],[65,"tsunami"],[5,"deepwater_hymn"],[42,"second_wind"]],
+    learnset:[[1,"aquatic_gun"],[2,"bubble_jet"],[3,"tidal_rush"],[4,"tidecaller"],[30,"daunt"],[35,"fortify"],[40,"blitz"],[45,"prism_flare"],[50,"whirlpool_dive"],[55,"sea_serpent_strike"],[60,"lunar_burst"],[65,"tsunami"],[5,"deepwater_hymn"],[42,"second_wind"],[55,"torrent_shell"],[35,"steam_geyser"],[25,"maelstrom"],[17,"brine_slash"],[17,"aquatic_pulse"]],
     evolveTo:30, evolveLevel:42, evolveMethod:"location", evolveLocation:"coral_reef", catchRate:70, expYield:184, rarity:"uncommon",
     desc:"A majestic reef king with jewel-like scales. Commands schools of fish.",
     lore:"Coralisk is a rotund puffer fish about 30 cm in diameter when deflated — Corelin's vivid orange-and-white reef stripes have muted to sandy yellow with dark brown spots as it migrated from coral to lagoon, but its scales still refract faint rainbows in shallow sunlight. When startled it inflates to three times its size, erecting short sharp quills. It dwells in sandy lagoons and buries itself to ambush worms and molluscs." },
@@ -1840,7 +1840,7 @@ const MONSTERS_DATA = {
 
   84: { id:84, name:"Electrix",      emoji:"🐛", types:["Electric","Aquatic"],
     base:{hp:34,atk:48,def:43,spa:50,spd:43,spe:94},
-    learnset:[[1,"mandible_bite",[22,"arc_flash"]],[1,"jolt"],[3,"static_cage"],[7,"aquatic_gun"],[10,"static_strike"],[12,"shock_net"],[15,"wave_dash"],[18,"silk_spray"],[20,"second_wind"],[24,"shock_pulse"],[26,"volt_jet"],[28,"bubble_jet"],[30,"repulsion_field"],[31,"cocoon_burst"],[34,"resonance_hum",[5,"stun_pulse"]],[36,"shear_strike"]],
+    learnset:[[1,"mandible_bite",[22,"arc_flash"]],[1,"jolt"],[3,"static_cage"],[7,"aquatic_gun"],[10,"static_strike"],[12,"shock_net"],[15,"wave_dash"],[18,"silk_spray"],[20,"second_wind"],[24,"shock_pulse"],[26,"volt_jet"],[28,"bubble_jet"],[30,"repulsion_field"],[31,"cocoon_burst"],[34,"resonance_hum",[5,"stun_pulse"]],[36,"shear_strike"],[10,"flood_tide"]],
     evolveTo:85, evolveLevel:22, catchRate:200, expYield:74, rarity:"common",
     desc:"An electric dragonfly nymph that crawls stream beds, sparking from its wing-buds when threatened. Very energetic.",
     lore:"Electrix is a small dragonfly nymph 8 cm long, the aquatic juvenile stage of the lineage. Its body is segmented and dark with metallic gold-edged plates, and small gilled abdomen-tufts trail behind it as it crawls along stream beds. It already generates faint electrical sparks from its rudimentary wing-buds when threatened. It hunts smaller aquatic insects with its hooked predatory mandibles, and lives in colonies in slow-moving water near decaying wood, where it processes organic material into bioelectric energy." },
@@ -2334,7 +2334,7 @@ const MONSTERS_DATA = {
 
   193: { id:193, name:"Cliffpinch",    emoji:"🦞", types:["Aquatic","Mineral"],
     base:{hp:71,atk:78,def:89,spa:52,spd:63,spe:68},
-    learnset:[[1,"graze",[25,"geode_burst"]],[1,"stone_throw"],[3,"petrify_gaze"],[8,"claw_hammer"],[10,"granite_slam"],[11,"aquatic_gun"],[14,"amethyst_pulse"],[16,"war_dance"],[19,"stone_slide"],[20,"ore_polish"],[22,"torrent_fang"],[27,"tidal_sweep"],[29,"sandstone_rush"],[33,"landslide"],[35,"crag_strike"],[40,"sea_serpent_strike"],[43,"tidal_rush",[5,"granite_wall"]]],
+    learnset:[[1,"graze",[25,"geode_burst"]],[1,"stone_throw"],[3,"petrify_gaze"],[8,"claw_hammer"],[10,"granite_slam"],[11,"aquatic_gun"],[14,"amethyst_pulse"],[16,"war_dance"],[19,"stone_slide"],[20,"ore_polish"],[22,"torrent_fang"],[27,"tidal_sweep"],[29,"sandstone_rush"],[33,"landslide"],[35,"crag_strike"],[40,"sea_serpent_strike"],[43,"tidal_rush",[5,"granite_wall"]],[50,"torrent_shell"],[30,"dream_torrent"],[40,"ocean_crash"],[30,"steam_geyser"],[20,"diving_strike"],[20,"maelstrom"]],
     evolveTo:194, evolveLevel:38, catchRate:75, expYield:168, rarity:"uncommon",
     desc:"A crag claw crab that lives on rocky sea cliffs. Fiercely territorial.",
     lore:"Cliffpinch is a massive water-mineral crustacean 2 metres long with a heavily encrusted shell of barnacles and embedded pebbles. Its eight wide legs are each tipped with flat digging pads. It inhabits rocky coastlines where it is mistaken for a tide-pool feature until it suddenly moves. Cliffpinch spend long hours wedging themselves into rock crevices much smaller than their 2-metre bodies, packing their bulk inward. Older individuals also eat noticeably less in each successive moult cycle, then less again, slowly withdrawing into themselves. Both habits compound across generations into the smaller, denser rock-crab Lithomere becomes — the only Lumori evolution known to scale downward in size while gaining density." },
@@ -2782,7 +2782,7 @@ const MONSTERS_DATA = {
   // 3-stage Aquatic/Ice chain: Tideling → Coralhorn → Torrentox
   256: { id:256, name:"Scolphin", emoji:"🐬", types:["Aquatic"],
     base:{hp:48,atk:52,def:58,spa:65,spd:55,spe:52},
-    learnset:[[1,"aquatic_gun"],[1,"flurries"],[12,"bubble_jet"],[22,"cold_beam"],[32,"tidal_rush"],[42,"whiteout"],[52,"tsunami"],[60,"radiance_cannon"],[62,"wave_dash"]],
+    learnset:[[1,"aquatic_gun"],[1,"flurries"],[12,"bubble_jet"],[22,"cold_beam"],[32,"tidal_rush"],[42,"whiteout"],[52,"tsunami"],[60,"radiance_cannon"],[62,"wave_dash"],[50,"torrent_shell"],[30,"steam_geyser"],[10,"monsoon"],[12,"rain_cascade"]],
     evolveTo:257, evolveLevel:26, catchRate:170, expYield:74, rarity:"common",
     desc:"A dolphin-like creature of ice-blue water. Schools in cold coastal seas and leaps in synchronised arcing patterns.",
     lore:"Scolphin is a water creature 30 cm long resembling a small dolphin made of ice-blue water. Its body is semi-solid — more ice than liquid in cold conditions and more liquid in warmth. It schools in large groups in cold coastal waters and leaps collectively in synchronised arcing patterns. Younger Scolphin's body is roughly 60% liquid water and 40% ice, but the ratio reverses with age toward the dense solid form their narwhal and orca-calf adult stages adopt. Their tail-half is consistently denser and colder than their head-half — the body already pre-shaped along the axis Torrentox's armoured-dorsal will eventually establish — and their school-communication chirps narrow with each year into the directional precision-hunting echolocation Torrentox uses to map prey through frozen water." },
@@ -3185,14 +3185,14 @@ const MONSTERS_DATA = {
   // 2-stage Aquatic/Spectral chain: Seafraith → Tidephant (Water Stone item)
   308: { id:308, name:"Seafraith", emoji:"🌊", types:["Aquatic","Spectral"],
     base:{hp:58,atk:62,def:58,spa:88,spd:75,spe:80},
-    learnset:[[1,"aquatic_gun"],[1,"nether_sphere"],[10,"spectral_ray"],[14,"tidal_rush"],[20,"soul_chill"],[24,"phantom_claw"],[30,"spectral_veil"],[34,"tsunami"],[44,"eclipse_shroud"],[54,"soul_rend"],[60,"radiance_cannon"]],
+    learnset:[[1,"aquatic_gun"],[1,"nether_sphere"],[10,"spectral_ray"],[14,"tidal_rush"],[20,"soul_chill"],[24,"phantom_claw"],[30,"spectral_veil"],[34,"tsunami"],[44,"eclipse_shroud"],[54,"soul_rend"],[60,"radiance_cannon"],[50,"torrent_shell"],[30,"dream_torrent"],[20,"maelstrom"],[10,"marine_blessing"],[12,"aquatic_pulse"]],
     evolveTo:309, evolveLevel:null, evolveItem:"waterStone", evolveMethod:"item", catchRate:135, expYield:98, rarity:"common",
     desc:"A ghost that drowned and merged with ocean tides. Haunts coastal routes, pulling travelers into the surf.",
     lore:"Seafraith is a water-spectral creature 60 cm long resembling a deep-sea fish with a translucent dark body through which dim bioluminescent organs are visible. Its eyes are white and sightless — it navigates by sensing water displacement. It inhabits sunken ruins at depths where light never reaches." },
 
   309: { id:309, name:"Tidephant", emoji:"🦭", types:["Aquatic","Spectral"],
     base:{hp:94,atk:82,def:86,spa:113,spd:102,spe:73},
-    learnset:[[1,"tsunami"],[1,"eclipse_shroud"],[8,"wraith_claw"],[10,"aquatic_gun"],[14,"spectral_ray"],[20,"bubble_jet"],[22,"ghastly_wail"],[28,"soul_rend"],[36,"phantom_claw"],[44,"geyser_burst"],[48,"spectral_veil"],[52,"nether_sphere"],[60,"void_pulse"],[68,"radiance_cannon"]],
+    learnset:[[1,"tsunami"],[1,"eclipse_shroud"],[8,"wraith_claw"],[10,"aquatic_gun"],[14,"spectral_ray"],[20,"bubble_jet"],[22,"ghastly_wail"],[28,"soul_rend"],[36,"phantom_claw"],[44,"geyser_burst"],[48,"spectral_veil"],[52,"nether_sphere"],[60,"void_pulse"],[68,"radiance_cannon"],[40,"dream_torrent"],[40,"steam_geyser"],[20,"monsoon"],[30,"torrent_fang"],[22,"rain_cascade"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:232, rarity:"rare",
     desc:"A spectral elephant-seal that hauls out on ghost-lit shores. Half pinniped, half phantom—completely terrifying.",
     lore:"Tidephant is a large water-spectral creature 2 metres long resembling a great elephant-seal with dark blue-black hide and a broad blunt-snouted head. As it matured from Seafraith, its fins broadened into flippers and its skeleton calcified into a bull-pinniped frame — a fish-to-leviathan apotheosis. Its eyes emit a faint cold light visible in dark water. It inhabits deep ocean trenches and surfaces only to breathe, leaving minimal wake despite its size." },
@@ -3200,14 +3200,14 @@ const MONSTERS_DATA = {
   // 2-stage Aquatic/Nature chain: Mudpump → Marshix (level 28)
   310: { id:310, name:"Mudpump", emoji:"🦛", types:["Aquatic","Nature"],
     base:{hp:58,atk:68,def:62,spa:58,spd:55,spe:55},
-    learnset:[[1,"mud_spray"],[1,"aquatic_gun"],[7,"vine_lash"],[8,"dust_toss"],[12,"geoblast"],[14,"nature_pulse"],[20,"sharp_leaves"],[22,"tidal_rush"],[32,"tectonic_shift"],[42,"tsunami"],[52,"clay_armor"],[60,"radiance_cannon"]],
+    learnset:[[1,"mud_spray"],[1,"aquatic_gun"],[7,"vine_lash"],[8,"dust_toss"],[12,"geoblast"],[14,"nature_pulse"],[20,"sharp_leaves"],[22,"tidal_rush"],[32,"tectonic_shift"],[42,"tsunami"],[52,"clay_armor"],[60,"radiance_cannon"],[50,"torrent_shell"],[30,"dream_torrent"],[40,"ocean_crash"],[20,"diving_strike"],[10,"monsoon"],[30,"claw_hammer"]],
     evolveTo:311, evolveLevel:28, catchRate:155, expYield:80, rarity:"common",
     desc:"A small hippo calf perpetually slick with mud. Wallows in shallow tidal mudflats and digs out cool burrow-chambers with its broad snout.",
     lore:"Mudpump is a small hippo calf about 50 centimetres long with a broad rounded body coated in slick wet mud and a short blunt snout perfectly suited to scooping muddy water. It is too small to fully submerge in deep water, so it wallows in shallow tidal mudflats and shallow lagoons where it builds dome-shaped mud-and-reed homes by piling clay around itself with a suction-pump motion of its wide mouth. Small herds of Mudpump dig out vast networks of cool burrow-chambers connecting their wallows beneath the soft surface." },
 
   311: { id:311, name:"Marshix", emoji:"🦛", types:["Aquatic","Nature"],
     base:{hp:105,atk:118,def:100,spa:78,spd:82,spe:62},
-    learnset:[[1,"tectonic_shift"],[1,"tidal_rush"],[8,"vine_lash"],[10,"rain_cascade"],[14,"sharp_leaves"],[18,"erosion_wave"],[20,"nature_pulse"],[22,"geoblast"],[26,"quicksand_pull"],[30,"tsunami"],[34,"steam_geyser"],[38,"clay_armor"],[42,"fae_petals"],[46,"bedrock_slam"],[54,"tidal_sweep"],[62,"radiance_cannon"]],
+    learnset:[[1,"tectonic_shift"],[1,"tidal_rush"],[8,"vine_lash"],[10,"rain_cascade"],[14,"sharp_leaves"],[18,"erosion_wave"],[20,"nature_pulse"],[22,"geoblast"],[26,"quicksand_pull"],[30,"tsunami"],[34,"steam_geyser"],[38,"clay_armor"],[42,"fae_petals"],[46,"bedrock_slam"],[54,"tidal_sweep"],[62,"radiance_cannon"],[45,"ocean_crash"],[25,"diving_strike"],[15,"monsoon"],[15,"marine_blessing"],[35,"claw_hammer"],[17,"brine_slash"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:222, rarity:"uncommon",
     desc:"A hippo-like swamp titan that commands both mud and water. Creates marshy terrain wherever it settles.",
     lore:"Marshix is a large marshland hippo-like creature 1.5 metres at the shoulder — Mudpump's slick mud-coating has set and hardened into a broad pale grey body with mud-brown legs, and the suction-pump snout of its calf form has widened for adult marsh-feeding. It spends most of its time submerged in shallow marsh water with only its eyes and nostrils above the surface. Its movements churn the marsh bottom, aerating the sediment beneficially." },
@@ -3745,7 +3745,7 @@ const MONSTERS_DATA = {
 
   194: { id:194, name:"Lithomere", emoji:"🦀", types:["Aquatic","Mineral"],
     base:{hp:95,atk:100,def:115,spa:72,spd:85,spe:75},
-    learnset:[[1,"graze"],[1,"aquatic_gun"],[2,"tidal_sweep"],[3,"stalactite_drop"],[4,"fortify"],[5,"tidecaller"],[8,"claw_hammer"],[15,"crystal_shard"],[18,"ancient_tide"],[25,"calcite_resonance"],[30,"flood_tide"],[35,"shard_burst"],[39,"stone_slide"],[42,"war_dance"],[43,"tsunami"],[47,"crag_strike"],[52,"tidal_crush"],[56,"crystal_lance"],[60,"sea_serpent_strike"],[64,"quarry_crush"]],
+    learnset:[[1,"graze"],[1,"aquatic_gun"],[2,"tidal_sweep"],[3,"stalactite_drop"],[4,"fortify"],[5,"tidecaller"],[8,"claw_hammer"],[15,"crystal_shard"],[18,"ancient_tide"],[25,"calcite_resonance"],[30,"flood_tide"],[35,"shard_burst"],[39,"stone_slide"],[42,"war_dance"],[43,"tsunami"],[47,"crag_strike"],[52,"tidal_crush"],[56,"crystal_lance"],[60,"sea_serpent_strike"],[64,"quarry_crush"],[45,"ocean_crash"],[25,"diving_strike"],[15,"marine_blessing"],[25,"torrent_fang"],[17,"brine_slash"],[25,"riptide_slam"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:248, rarity:"rare",
     desc:"A colossal ancient shore titan. Its shell is older than recorded history, layered with oceanic minerals.",
     lore:"Lithomere is a crab-like water-mineral creature 60 cm across with a shell of compressed coastal rock — Cliffpinch's massive barnacle-encrusted carapace has compressed down through dense mineral deposition into a smaller but far denser shell, and the eight digging legs have shortened into wedge-shaped braces that lock its body into rock crevices during low tide, sealing gaps with a secreted mineral cement. Its shell grows thicker with each passing year." },

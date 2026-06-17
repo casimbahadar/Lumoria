@@ -6311,7 +6311,7 @@ const WORLD_DATA = {
   miasmacity: {
     id:"miasmacity", name:"Miasma City", icon:"🏭", type:"city",
     desc:"An industrial city shrouded in toxic mist. Home to Gym Leader Viper, master of Poison types.",
-    connections:["toxic_bog","route11","mire_depths"],
+    connections:["route11","mire_depths"],
     wildMonsters:[
       {id:155, minLv:58, maxLv:63, rate:25},  // Venekon (mid)
       {id:157, minLv:60, maxLv:65, rate:25},  // Dissotoad (final, 158 on toxic_bog ✓)
@@ -6633,7 +6633,7 @@ const WORLD_DATA = {
   toxic_bog: {
     id:"toxic_bog", name:"Toxic Bog", icon:"🐸", type:"route",
     desc:"A stagnant bog where the path turns south toward Miasma City. Foul gas bubbles up through the mud and Poison types lurk beneath the surface.",
-    connections:["corroden","mire_depths","miasmacity"],
+    connections:["corroden","mire_depths"],
     wildMonsters:[
       {id:155, minLv:58, maxLv:63, rate:20},  // Venekon (mid)
       {id:157, minLv:58, maxLv:63, rate:20},  // Corrodisc (mid)
@@ -6642,7 +6642,7 @@ const WORLD_DATA = {
       {id:164, minLv:59, maxLv:64, rate:20}   // Lepidox (mid → after 164 ✓)
     ],
     ngPlusWildMonsters:[{id:355, minLv:58, maxLv:65, rate:10}], // NG+ standalone: Nadiril (relocated from removed Murk Crossing)
-    hasGym:false, requiredBadges:12, mapPos:{x:42, y:63}
+    hasGym:false, requiredBadges:12, mapPos:{x:43, y:63}
   },
   tremor_summit: {
     id:"tremor_summit", name:"Tremor Summit", icon:"⛰️", type:"route",
@@ -6702,7 +6702,7 @@ const WORLD_DATA = {
       {id:218, minLv:59, maxLv:64, rate:10}   // Duskmist (base Spectral/Dark, item evo)
     ],
     legendaryEncounter:{monsterId:316, level:62}, // static legendary (obtainability fix)
-    hasGym:false, requiredBadges:12, mapPos:{x:41, y:67}
+    hasGym:false, requiredBadges:12, mapPos:{x:43, y:68}
   },
   magma_vent: {
     id:"magma_vent", name:"Magma Vent", icon:"🌋", type:"route",

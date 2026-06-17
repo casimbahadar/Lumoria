@@ -5628,7 +5628,7 @@ const WORLD_DATA = {
       {id:45, minLv:35, maxLv:38, rate:35}, // Slatis
       {id:53, minLv:35, maxLv:38, rate:10}  // Mistwhirl
     ],
-    ngPlusWildMonsters:[{id:432, minLv:34, maxLv:37, rate:6}], // NG+ family base: Woollytot
+    legendaryEncounter:{monsterId:432, level:36, requiresNGPlus:true}, // NG+ legendary Woollytot — early special static (rounded up from wild; evolves to Verdantusk/Primammoth)
     hasGym:true, gymLeader:"glacier", requiredBadges:5, mapPos:{x:32, y:18}
   },
   route6: {
@@ -5837,9 +5837,9 @@ const WORLD_DATA = {
     desc:"A bridge of fused crystal that scatters the light into drifting rainbows on the final climb toward Gleamcrest.",
     connections:["reverie_vale","gleamcrest"],
     wildMonsters:[
-      {id:408, minLv:123, maxLv:127, rate:40}, // Glimmerling (Crystal — sanctioned NG+ exception)
-      {id:225, minLv:123, maxLv:127, rate:32}, // Crealight (Fairy/Mineral)
-      {id:409, minLv:124, maxLv:127, rate:28}  // Facetite
+      {id:225, minLv:123, maxLv:127, rate:34}, // Crealight (Fairy/Mineral)
+      {id:372, minLv:123, maxLv:127, rate:33}, // Prismancer (Mental/Mineral) — backfill after Crystal legendaries rounded up
+      {id:169, minLv:124, maxLv:127, rate:33}  // Prismatica (Mental/Mineral)
     ],
     hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:65, y:43}
   },
@@ -5848,9 +5848,9 @@ const WORLD_DATA = {
     desc:"A town grown over a crest of living crystal that refracts the aurora into a thousand colors — the only place the Crystal Lumori are known to gather. Gym Leader Prisma reigns over its every facet.",
     connections:["prism_causeway","ascendant_path"],
     wildMonsters:[
-      {id:408, minLv:123, maxLv:127, rate:45}, // Glimmerling (Crystal — sanctioned NG+ exception)
-      {id:409, minLv:124, maxLv:127, rate:35}, // Facetite
-      {id:410, minLv:125, maxLv:127, rate:20}  // Prismdome
+      {id:372, minLv:123, maxLv:127, rate:38}, // Prismancer (Mental/Mineral) — backfill after Crystal legendaries rounded up
+      {id:225, minLv:123, maxLv:127, rate:34}, // Crealight (Fairy/Mineral)
+      {id:344, minLv:124, maxLv:127, rate:28}  // Glimmeritch (Fairy/Spectral)
     ],
     hasGym:true, gymLeader:"prisma", requiredBadges:23, requiresNGPlus:true, mapPos:{x:64, y:40}
   },
@@ -5859,10 +5859,9 @@ const WORLD_DATA = {
     desc:"The long stair that climbs from the crystal heights back to the Gauntlet, walked only by NG+ challengers who have bested all twenty-four gyms.",
     connections:["gleamcrest","victoryroad"],
     wildMonsters:[
-      {id:389, minLv:124, maxLv:127, rate:26}, // Stormcrown
-      {id:268, minLv:124, maxLv:127, rate:26}, // Darkfang
-      {id:261, minLv:125, maxLv:127, rate:24}, // Hypnostag
-      {id:409, minLv:125, maxLv:127, rate:24}  // Facetite
+      {id:389, minLv:124, maxLv:127, rate:34}, // Stormcrown
+      {id:268, minLv:124, maxLv:127, rate:33}, // Darkfang
+      {id:261, minLv:125, maxLv:127, rate:33}  // Hypnostag (Facetite rounded up to evolution-only)
     ],
     hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:63, y:37}
   },
@@ -5958,7 +5957,7 @@ const WORLD_DATA = {
       {id:200, minLv:36, maxLv:41, rate:18}, // Scarabion
       {id:53, minLv:36, maxLv:41, rate:14}   // Arcturex
     ],
-    ngPlusWildMonsters:[{id:408, minLv:36, maxLv:40, rate:6}], // NG+ family base: Glimmerling
+    legendaryEncounter:{monsterId:408, level:38, requiresNGPlus:true}, // NG+ legendary Glimmerling — early special static (rounded up from wild; evolves to Facetite/Prismdome)
     hasGym:false, requiredBadges:7, mapPos:{x:10, y:28}
   },
   mystic_forest: {
@@ -7022,8 +7021,8 @@ const WORLD_DATA = {
     desc:"The highest point in all of Lumoria, accessible only to trainers who have already stood as Champion. A legendary Lumori of pure light waits here for someone worthy of a second journey.",
     connections:["prismatic_rift"],
     wildMonsters:[],
+    legendaryEncounter:{monsterId:384, level:90, requiresNGPlus:true}, // NG+ legendary Solarcrown — static (rounded up from high-rate wild)
     ngPlusWildMonsters:[
-      {id:384, minLv:88, maxLv:94, rate:27},
       {id:389, minLv:89, maxLv:95, rate:16},
       {id:392, minLv:90, maxLv:96, rate:10},
       {id:394, minLv:91, maxLv:97, rate:7},

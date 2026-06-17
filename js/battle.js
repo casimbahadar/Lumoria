@@ -2,6 +2,16 @@
 // LUMORIA - Battle Engine
 // ============================================================
 
+// NG+ learnset gating: entries shaped [level, "move_id", {ng:true}] are only
+// learnable on NG+ playthroughs. Other learnset shapes (nested arrays at e[2])
+// don't have a `.ng` property so they pass the filter normally.
+function isNgPlusUnlocked() {
+  return typeof G !== "undefined" && G && (G.ngPlusCount || 0) > 0;
+}
+function learnsetEntryAvailable(e) {
+  return !e[2] || typeof e[2] !== "object" || Array.isArray(e[2]) || !e[2].ng || isNgPlusUnlocked();
+}
+
 const BattleState = {
   active: false,
   playerMon: null,
@@ -1507,7 +1517,7 @@ function buildWildMon(monsterId, level, forceShiny, forceVariant) {
   const def = MONSTERS_DATA[monsterId];
   const nature = getRandomNature();
   const ivs = generateIVs();
-  const knownMoves = def.learnset.filter(e => e[0] <= level).map(e => e[1]).slice(-4);
+  const knownMoves = def.learnset.filter(e => e[0] <= level && learnsetEntryAvailable(e)).map(e => e[1]).slice(-4);
   if (knownMoves.length === 0) knownMoves.push("collide");
 
   let shinyRate = 1/2048;
@@ -2024,7 +2034,7 @@ function giveXP(partySlot, amount) {
     const newMax = calcMaxHP(def.base.hp, lv, pIvs.hp);
     partySlot.currentHP = Math.min(newMax, (partySlot.currentHP || 1) + newMax - (partySlot.maxHP || newMax));
     partySlot.maxHP = newMax;
-    const newMoves = def.learnset.filter(e => e[0] === lv).map(e => e[1]);
+    const newMoves = def.learnset.filter(e => e[0] === lv && learnsetEntryAvailable(e)).map(e => e[1]);
     for (const mid of newMoves) {
       if (!partySlot.moves.includes(mid))
         partySlot.moves.length < 4 ? partySlot.moves.push(mid) : (partySlot.moves[3] = mid);
@@ -2140,7 +2150,7 @@ function evolveMonster(partySlot, explicitTarget) {
     }, partySlot.level);
   } else {
     const existingMoves = new Set(partySlot.moves);
-    for (const m of newDef.learnset.filter(e => e[0] <= partySlot.level).map(e => e[1]).filter(m => !existingMoves.has(m))) {
+    for (const m of newDef.learnset.filter(e => e[0] <= partySlot.level && learnsetEntryAvailable(e)).map(e => e[1]).filter(m => !existingMoves.has(m))) {
       if (partySlot.moves.length < 4) partySlot.moves.push(m);
     }
   }

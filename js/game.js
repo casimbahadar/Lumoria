@@ -51,7 +51,7 @@ function createPartySlot(monsterId, level) {
   const ivs = generateIVs();
   const maxHP = calcMaxHP(def.base.hp, level, ivs.hp);
   // Build initial moveset
-  const known = def.learnset.filter(e => e[0] <= level).map(e => e[1]);
+  const known = def.learnset.filter(e => e[0] <= level && learnsetEntryAvailable(e)).map(e => e[1]);
   const moves = known.slice(-4);
   if (moves.length === 0) moves.push("collide");
   return {
@@ -3570,7 +3570,9 @@ function moveRelearnEligible(slot) {
   const known = new Set(slot.moves);
   const seen = new Set();
   const out = [];
-  for (const [lv, key] of def.learnset) {
+  for (const entry of def.learnset) {
+    if (!learnsetEntryAvailable(entry)) continue;
+    const [lv, key] = entry;
     if (lv <= slot.level && !known.has(key) && !seen.has(key) && MOVES_DATA[key]) {
       seen.add(key); out.push([lv, key]);
     }
@@ -4191,6 +4193,7 @@ function showDexDetail(monsterId) {
   // Collect all moves with their learn levels
   const moveEntries = [];
   for (const entry of def.learnset) {
+    if (!learnsetEntryAvailable(entry)) continue;
     if (typeof entry[0] === "number" && typeof entry[1] === "string") {
       moveEntries.push({level: entry[0], moveId: entry[1]});
     }

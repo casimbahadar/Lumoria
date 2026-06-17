@@ -656,6 +656,33 @@ function renderWorldMap() {
   mapEl.style.width = mapW + "px";
   mapEl.style.height = mapH + "px";
 
+  // On-demand route-name tooltip — revealed on hover (desktop) or long-press (mobile)
+  // so roads stay unlabeled/uncluttered but players can still identify a route before
+  // travelling. Recreated each render; floats above the map via z-index.
+  const routeTip = document.createElement("div");
+  routeTip.className = "map-route-tip";
+  routeTip.style.cssText = "position:absolute;display:none;transform:translate(-50%,-120%);background:rgba(8,10,18,0.95);color:#ffe088;font-size:0.5rem;font-weight:bold;padding:2px 7px;border-radius:7px;white-space:nowrap;pointer-events:none;z-index:50;border:1px solid rgba(255,224,136,0.45);box-shadow:0 2px 6px rgba(0,0,0,0.6);letter-spacing:0.2px;";
+  mapEl.appendChild(routeTip);
+  const showRouteTip = (name, x, y) => { routeTip.textContent = name; routeTip.style.left = x + "px"; routeTip.style.top = (y - 10) + "px"; routeTip.style.display = "block"; };
+  const hideRouteTip = () => { routeTip.style.display = "none"; };
+  // Bind hover + long-press name reveal (and tap/click travel) to a route hotspot.
+  // Short tap travels; a ~450ms press reveals the name instead of travelling.
+  const bindRouteName = (el, name, x, y, onTap) => {
+    el.addEventListener("mouseenter", () => showRouteTip(name, x, y));
+    el.addEventListener("mouseleave", hideRouteTip);
+    if (onTap) el.addEventListener("click", onTap);
+    let lp = null, longPressed = false;
+    el.addEventListener("touchstart", () => { longPressed = false; lp = setTimeout(() => { longPressed = true; showRouteTip(name, x, y); }, 450); }, { passive: true });
+    el.addEventListener("touchmove", () => { if (lp) { clearTimeout(lp); lp = null; } }, { passive: true });
+    el.addEventListener("touchend", (e) => {
+      if (lp) { clearTimeout(lp); lp = null; }
+      e.preventDefault();
+      if (longPressed) setTimeout(hideRouteTip, 1600);   // long-press revealed the name — don't travel
+      else if (onTap) onTap();                            // short tap travels
+    });
+    el.addEventListener("touchcancel", () => { if (lp) { clearTimeout(lp); lp = null; } hideRouteTip(); });
+  };
+
   const svg = se("svg", { width:mapW, height:mapH, viewBox:`0 0 ${mapW} ${mapH}` });
   Object.assign(svg.style, { position:"absolute", top:"0", left:"0", zIndex:"5" });
 
@@ -796,8 +823,6 @@ function renderWorldMap() {
             const hitArea = se("path", { d:seg.pathD, stroke:"transparent", "stroke-width":"18", fill:"none", "stroke-linecap":"round", "stroke-linejoin":"round" });
             hitArea.style.cursor = "pointer";
             hitArea.style.pointerEvents = "stroke";
-            hitArea.addEventListener("click", () => travelTo(rId));
-            hitArea.addEventListener("touchend", (e) => { e.preventDefault(); travelTo(rId); });
             // Hover effect: brighten all segments of this route together
             hitArea.addEventListener("mouseenter", () => {
               for (const s of segLines) {
@@ -811,6 +836,8 @@ function renderWorldMap() {
                 s.line.setAttribute("stroke-width", "5");
               }
             });
+            // Travel on tap/click; reveal the route name on hover / long-press
+            bindRouteName(hitArea, rArea.name, rx, ry, () => travelTo(rId));
             svg.appendChild(hitArea);
           }
         }
@@ -848,7 +875,8 @@ function renderWorldMap() {
       routeLabel.style.height = "12px";
       routeLabel.style.pointerEvents = "auto";
       routeLabel.style.cursor = "pointer";
-      routeLabel.addEventListener("click", () => travelTo(rId));
+      // Travel on tap/click; reveal the route name on hover / long-press
+      bindRouteName(routeLabel, rArea.name, rx, ry, () => travelTo(rId));
     }
     mapEl.appendChild(routeLabel);
   }

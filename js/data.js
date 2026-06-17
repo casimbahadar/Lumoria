@@ -2055,14 +2055,14 @@ const MONSTERS_DATA = {
   // ===== FAIRY =====
   137: { id:137, name:"Goldefluff",     emoji:"🐶", types:["Fairy"],
     base:{hp:42,atk:35,def:50,spa:52,spd:57,spe:76},
-    learnset:[[1,"collide",[22,"pixie_bolt"]],[1,"fairy_wind"],[8,"bewitching_kiss"],[16,"prism_flare"],[20,"vital_pulse"],[24,"lunar_burst"],[32,"second_wind",[5,"stardust_veil"]],[36,"glitter_storm"],[3,"charm_bloom"],[31,"baleful_stare"]],
+    learnset:[[1,"collide",[22,"pixie_bolt"]],[1,"fairy_wind"],[8,"bewitching_kiss"],[16,"prism_flare"],[20,"vital_pulse"],[24,"lunar_burst"],[32,"second_wind",[5,"stardust_veil"]],[36,"glitter_storm"],[3,"charm_bloom"],[31,"baleful_stare"],[30,"moonlit_surge"],[12,"glacial_spirit"]],
     evolveTo:138, evolveLevel:25, catchRate:190, expYield:78, rarity:"common",
     desc:"A glowing puppy surrounded by fairy light. Brings luck wherever it goes.",
     lore:"Goldefluff is a small, round fairy dog about 30 cm at the shoulder with pure white fluffy fur that radiates a warm golden glow. Its eyes are bright violet. It bounces energetically and its glow intensifies when it is happy. It is attracted to places of celebration and is considered to bring good fortune." },
 
   138: { id:138, name:"Halocanis", emoji:"🐕", types:["Fairy"],
     base:{hp:71,atk:67,def:68,spa:100,spd:90,spe:77},
-    learnset:[[1,"fairy_wind"],[2,"prism_flare"],[3,"lunar_burst"],[4,"bewitching_kiss"],[29,"second_wind"],[30,"lashing_tail"],[35,"battle_cry"],[40,"blitz"],[45,"wish_spark"],[50,"moonveil"],[55,"celestial_wave"],[60,"psi_strike"],[5,"stardust_veil"],[39,"baleful_stare"]],
+    learnset:[[1,"fairy_wind"],[2,"prism_flare"],[3,"lunar_burst"],[4,"bewitching_kiss"],[29,"second_wind"],[30,"lashing_tail"],[35,"battle_cry"],[40,"blitz"],[45,"wish_spark"],[50,"moonveil"],[55,"celestial_wave"],[60,"psi_strike"],[5,"stardust_veil"],[39,"baleful_stare"],[35,"moonlit_surge"],[17,"glacial_spirit"],[17,"vampiric_kiss"],[10,"nymph_mist"],[55,"fairy_blast"],[35,"radiant_burst"]],
     evolveTo:139, evolveLevel:44, catchRate:50, expYield:205, rarity:"uncommon",
     desc:"A luminous hound of fairy power. Its radiance can banish dark spirits.",
     lore:"Halocanis is a sleek fairy hound 70 cm at the shoulder — Goldefluff's pure white fluffy puppy fur has lengthened into luminous adult fur, the warm golden glow has matured into a soft gold-pink aura surrounding it constantly, and the bright violet pup-eyes have deepened to amethyst. It moves with effortless grace and seeks out beings in distress, projecting a calming field of fairy light to soothe emotional pain." },
@@ -2536,7 +2536,7 @@ const MONSTERS_DATA = {
   // Standalone Fairy/Mineral: Crealight
   225: { id:225, name:"Crealight", emoji:"✨", types:["Fairy","Mineral"],
     base:{hp:82,atk:60,def:72,spa:115,spd:105,spe:88},
-    learnset:[[1,"fairy_wind"],[1,"mind_jolt"],[15,"prism_flare"],[20,"crystal_glow"],[25,"lunar_burst"],[30,"mineral_pulse"],[35,"psi_burst"],[40,"quartz_blast"],[45,"mental"],[50,"gemburst"],[55,"celestial_wave"],[65,"radiance_cannon"],[67,"ore_punch"]],
+    learnset:[[1,"fairy_wind"],[1,"mind_jolt"],[15,"prism_flare"],[20,"crystal_glow"],[25,"lunar_burst"],[30,"mineral_pulse"],[35,"psi_burst"],[40,"quartz_blast"],[45,"mental"],[50,"gemburst"],[55,"celestial_wave"],[65,"radiance_cannon"],[67,"ore_punch"],[35,"moonlit_surge"],[17,"glacial_spirit"],[17,"vampiric_kiss"],[10,"nymph_mist"]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:210, rarity:"uncommon",
     desc:"A crystalline fairy of pure prismatic energy. Its body refracts light into impossible colors.",
     lore:"Crealight is a small fairy-mineral creature 30 cm tall with a rounded glowing crystal body of warm pink-gold light. It leaves a trail of glimmer-dust wherever it floats. It inhabits libraries, art studios, and places of quiet human creativity, feeding on the ambient creative energy generated there." },

@@ -62,8 +62,22 @@ NG+-gated `legendaryEncounter` statics** (evolutions come from evolving):
   Primordiax/Starborne (r3), base 315/319/320 (r5), and the 4 pseudo-legendaries.
 - Verified: validate.js green (G6 evo chains intact); headless boot 0 real errors; all 6 areas confirmed.
 
-## Phase 1 — Thread 2: Gym Leader rematches ⏳ next
-## Phase 1 — Thread 3: Battle Frontier/Tower ⏳
+## Phase 1 — Thread 2: Gym Leader rematches ✅
+20 base gyms re-challengeable post-Champion via REMATCH_TEAMS + `<gym>_rematch` resolution
+(mirrors the Summit Rematch single-mode gauntlet). Each entry has `single/double/triple`
+(all the **full 6-member** team) + a distinct **`ngTeams`** champion-tier roster for NG+.
+- **Teams:** non-NG+ = on-type evolved core + ace + 2 diversified weakness-counter members
+  (all base-dex, non-legendary, L110). NG+ = same 2 counters kept, 4 core/ace slots swapped to
+  NG+-exclusive/legendary on-type standouts (champion-tier; legendaries uncapped per user —
+  lore: the leaders all beat the Champion). pyros excludes Dragemian/Ashvanus (used elsewhere).
+- **Levels:** flat L110 non-NG+ / L135 NG+ (via NG_OFFSETS +25); caps 112 / 137.
+- **Trigger:** the existing `btn-gym` becomes `⚔️ Rematch {Leader}` once the gym is beaten AND
+  Champion is down; routes to `startGymBattle(gym+"_rematch", fmt)`.
+- **Repeatable** with decaying payout 8000→4000→2000→1000→500→0 (per gym, `G.gymRematchWins` +
+  save migration). Engine: `_rematch` resolution gains GYM_LEADERS name fallback + `ngTeams`
+  pick when `ngPlusCount>0`.
+- Verified: validate.js green; headless non-NG+ (6×L110, cap112) & NG+ (6×L135, cap137) resolve, 0 errors.
+## Phase 1 — Thread 3: Battle Frontier/Tower ⏳ next
 ## Phase 2 — Lane A.2 (evolution audit) + D (encounter audit) ⏳
 
 ---

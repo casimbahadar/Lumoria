@@ -7021,7 +7021,8 @@ const WORLD_DATA = {
     id:"apex_summit", name:"Apex Summit", icon:"⛰️", type:"special",
     desc:"The highest point in all of Lumoria, accessible only to trainers who have already stood as Champion. A legendary Lumori of pure light waits here for someone worthy of a second journey.",
     connections:["prismatic_rift"],
-    wildMonsters:[
+    wildMonsters:[],
+    ngPlusWildMonsters:[
       {id:384, minLv:88, maxLv:94, rate:27},
       {id:389, minLv:89, maxLv:95, rate:16},
       {id:392, minLv:90, maxLv:96, rate:10},
@@ -7033,7 +7034,7 @@ const WORLD_DATA = {
       {id:404, minLv:90, maxLv:96, rate:10},
       {id:407, minLv:90, maxLv:96, rate:10}
     ],
-    hasGym:false, requiredBadges:20, requiresChampion:true, requiresNGPlus:true,
+    hasGym:false, requiredBadges:20, requiresChampion:true,
     isApexBoss:true, mapPos:{x:70, y:88}
   },
 

@@ -3863,7 +3863,9 @@ function isForgottenUnlocked() {
 // main game in an NG+ run; beating it + every Vaeldris wielder unlocks the
 // higher-level summit rematch of the Vanguard and Champion.
 function isApexGuardianAvailable() {
-  return !!(G && G.ngPlusCount > 0 && G.championDefeated && !G.apexGuardianDefeated);
+  // First-playthrough superboss: reachable once Champion (the Summit Rematch
+  // still requires NG+ via isSummitRematchUnlocked).
+  return !!(G && G.championDefeated && !G.apexGuardianDefeated);
 }
 function isSummitRematchUnlocked() {
   return !!(G && G.ngPlusCount > 0 && G.championDefeated && G.apexGuardianDefeated && isForgottenUnlocked());

@@ -5550,7 +5550,7 @@ const WORLD_DATA = {
       {id:191, minLv:19, maxLv:22, rate:25}  // Pebblet
     ],
     ngPlusWildMonsters:[{id:1, minLv:18, maxLv:22, rate:10}], // NG+-only: Solkin (fire starter line)
-    hasGym:true, gymLeader:"pyros", requiredBadges:2, mapPos:{x:75, y:35}
+    hasGym:true, gymLeader:"pyros", requiredBadges:2, mapPos:{x:72, y:40}
   },
   route4: {
     id:"route4", name:"Route 4 - Volcanic Wastes", icon:"🔥", type:"route",
@@ -5731,7 +5731,7 @@ const WORLD_DATA = {
       {id:244, minLv:59, maxLv:62, rate:25}, // Raijolt
       {id:211, minLv:59, maxLv:62, rate:15}  // Sapphier
     ],
-    hasGym:true, gymLeader:"drake", requiredBadges:9, mapPos:{x:55, y:42},
+    hasGym:true, gymLeader:"drake", requiredBadges:9, mapPos:{x:52, y:45},
     legendaryEncounter:{monsterId:84, level:60}
   },
   victoryroad: {
@@ -6034,7 +6034,7 @@ const WORLD_DATA = {
       {id:140, minLv:50, maxLv:54, rate:10},   // Iridesoar
       {id:111, minLv:49, maxLv:53, rate:30}    // Aeolin
     ],
-    hasGym:false, requiredBadges:8, mapPos:{x:18, y:62}
+    hasGym:false, requiredBadges:8, mapPos:{x:22, y:65}
   },
   thunder_cliffs: {
     id:"thunder_cliffs", name:"Thunder Cliffs", icon:"⚡", type:"route",
@@ -6215,7 +6215,7 @@ const WORLD_DATA = {
       {id:57, minLv:30, maxLv:36, rate:14},   // Imperion
       {id:134, minLv:35, maxLv:42, rate:8}   // Titanomare
     ],
-    hasGym:false, requiredBadges:2, mapPos:{x:76, y:76},
+    hasGym:false, requiredBadges:2, mapPos:{x:72, y:80},
     storyLocation:true, hasUmbraEncounter:true
   },
   wind_bridge: {
@@ -6378,7 +6378,7 @@ const WORLD_DATA = {
       {id:202, minLv:63, maxLv:68, rate:25},  // Arachnalis (mid, 202 on route12 ✓)
       {id:204, minLv:64, maxLv:69, rate:25}   // Quarrix (mid)
     ],
-    hasGym:true, gymLeader:"mantis", requiredBadges:14, mapPos:{x:15, y:88},
+    hasGym:true, gymLeader:"mantis", requiredBadges:14, mapPos:{x:12, y:84},
     ngPlusWildMonsters:[{id:357, minLv:63, maxLv:69, rate:10}, {id:330,minLv:68,maxLv:74,rate:25},{id:331,minLv:68,maxLv:74,rate:20},{id:326,minLv:68,maxLv:74,rate:10},{id:402,minLv:69,maxLv:75,rate:6},{id:405,minLv:69,maxLv:75,rate:6}]
   },
   route13: {
@@ -6539,7 +6539,7 @@ const WORLD_DATA = {
       {id:296, minLv:58, maxLv:60, rate:18}, // Plagueoth
       {id:262, minLv:58, maxLv:60, rate:12}  // Impenezard
     ],
-    hasGym:true, gymLeader:"acrid", requiredBadges:11, mapPos:{x:46, y:62}
+    hasGym:true, gymLeader:"acrid", requiredBadges:11, mapPos:{x:44, y:59}
   },
   quake_foothills: {
     id:"quake_foothills", name:"Quake Foothills", icon:"🌋", type:"route",

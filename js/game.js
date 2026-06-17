@@ -627,7 +627,9 @@ function scaleMapPath(pathStr, mapW, mapH) {
 }
 
 // Zoom state
-let mapZoom = 1;
+// Default to a higher zoom on small (mobile) screens so the map renders larger
+// than the viewport (scrollable) and markers/labels get more breathing room.
+let mapZoom = (typeof window !== "undefined" && window.innerWidth > 0 && window.innerWidth < 768) ? 1.5 : 1;
 const MAP_ZOOM_LEVELS = [1, 1.5, 2, 2.5];
 
 function setMapZoom(level) {
@@ -818,7 +820,7 @@ function renderWorldMap() {
         routeLabel.className = "map-route-label";
         if (rLocked) routeLabel.classList.add("locked");
         if (rId === G.location) routeLabel.classList.add("current");
-        routeLabel.textContent = rArea.name;
+        routeLabel.textContent = "";  // route names hidden — only cities/towns/special are named; roads stay clickable
         routeLabel.style.left = rx + "px";
         routeLabel.style.top = (ry - 8) + "px";
         mapEl.appendChild(routeLabel);
@@ -837,10 +839,13 @@ function renderWorldMap() {
     routeLabel.className = "map-route-label";
     if (rLocked) routeLabel.classList.add("locked");
     if (rId === G.location) routeLabel.classList.add("current");
-    routeLabel.textContent = rArea.name;
+    routeLabel.textContent = "";  // route names hidden
     routeLabel.style.left = rx + "px";
     routeLabel.style.top = (ry - 8) + "px";
     if (!rLocked) {
+      // keep an invisible clickable hotspot so single-connection routes stay travelable
+      routeLabel.style.width = "18px";
+      routeLabel.style.height = "12px";
       routeLabel.style.pointerEvents = "auto";
       routeLabel.style.cursor = "pointer";
       routeLabel.addEventListener("click", () => travelTo(rId));

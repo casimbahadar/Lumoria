@@ -6085,7 +6085,7 @@ const WORLD_DATA = {
       {id:274, minLv:27, maxLv:33, rate:27},   // Gemseer
       {id:274, minLv:35, maxLv:40, rate:10}    // Prismatica (rare!)
     ],
-    hasGym:false, requiredBadges:2, mapPos:{x:72, y:58},
+    hasGym:false, requiredBadges:2, mapPos:{x:81, y:60},
     storyLocation:true, hasUmbraEncounter:true
   },
   iron_canyon: {

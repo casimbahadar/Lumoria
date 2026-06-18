@@ -6021,7 +6021,7 @@ const WORLD_DATA = {
       {id:218, minLv:45, maxLv:50, rate:6}   // Necralia
     ],
     ngPlusWildMonsters:[{id:454, minLv:43, maxLv:47, rate:12}], // NG+ family base: Tollwisp
-    hasGym:false, requiredBadges:7, mapPos:{x:10, y:41}
+    hasGym:false, requiredBadges:7, mapPos:{x:14, y:42}
   },
   sky_harbor: {
     id:"sky_harbor", name:"Sky Harbor", icon:"⛵", type:"town",
@@ -6150,7 +6150,7 @@ const WORLD_DATA = {
       {id:84, minLv:11, maxLv:15, rate:35}    // Electrix
     ],
     ngPlusWildMonsters:[{id:426, minLv:10, maxLv:14, rate:12}], // NG+ family base: Pummelo
-    hasGym:false, requiredBadges:1, mapPos:{x:51, y:64}
+    hasGym:false, requiredBadges:1, mapPos:{x:48, y:60}
   },
   bug_forest_east: {
     id:"bug_forest_east", name:"Bug Forest East", icon:"🐛", type:"route",
@@ -6161,7 +6161,7 @@ const WORLD_DATA = {
       {id:123, minLv:13, maxLv:18, rate:20},  // Nocturil
       {id:10, minLv:14, maxLv:19, rate:45}    // Scorchlarva
     ],
-    hasGym:false, requiredBadges:1, mapPos:{x:56, y:70}
+    hasGym:false, requiredBadges:1, mapPos:{x:52, y:65}
   },
   mirror_lake: {
     id:"mirror_lake", name:"Mirror Lake", icon:"🪞", type:"route",
@@ -6259,7 +6259,7 @@ const WORLD_DATA = {
       {id:220, minLv:53, maxLv:58, rate:25}   // Necralia
     ],
     ngPlusWildMonsters:[{id:371, minLv:52, maxLv:58, rate:10}], // NG+ standalone: Nullform
-    hasGym:false, requiredBadges:8, mapPos:{x:9, y:51},
+    hasGym:false, requiredBadges:8, mapPos:{x:13, y:53},
     legendaryEncounter:{monsterId:166, level:55}
   },
   // ---- NEW ROUTES & GYM CITIES (badges 8-15) ----
@@ -6274,7 +6274,7 @@ const WORLD_DATA = {
       {id:72, minLv:56, maxLv:61, rate:25},
       {id:72, minLv:57, maxLv:62, rate:10}
     ],
-    hasGym:false, requiredBadges:10, mapPos:{x:54, y:45},
+    hasGym:false, requiredBadges:10, mapPos:{x:51, y:51},
     ngPlusWildMonsters:[{id:326,minLv:62,maxLv:68,rate:20},{id:328,minLv:62,maxLv:68,rate:15},{id:331,minLv:63,maxLv:69,rate:15}]
   },
   bloomhaven: {
@@ -6288,7 +6288,7 @@ const WORLD_DATA = {
       {id:75, minLv:58, maxLv:62, rate:35}
     ],
     ngPlusWildMonsters:[{id:452, minLv:56, maxLv:60, rate:12}], // NG+ family base: Dozit
-    hasGym:true, gymLeader:"thorne", requiredBadges:10, mapPos:{x:57, y:51}
+    hasGym:true, gymLeader:"thorne", requiredBadges:10, mapPos:{x:51, y:57}
   },
   route10: {
     id:"route10", hasUmbraEncounter:true, name:"Route 10 - Toxic Passage", icon:"☠️", type:"route",
@@ -6305,7 +6305,7 @@ const WORLD_DATA = {
       {id:266, minLv:57, maxLv:62, rate:21},  // Shadowcub (base Dark/Sonic)
       {id:299, minLv:57, maxLv:62, rate:5}    // Resinbee (base Bug/Poi)
     ],
-    hasGym:false, requiredBadges:11, mapPos:{x:50, y:49},
+    hasGym:false, requiredBadges:11, mapPos:{x:47, y:52},
     ngPlusWildMonsters:[{id:322,minLv:64,maxLv:70,rate:20},{id:323,minLv:64,maxLv:70,rate:15},{id:325,minLv:65,maxLv:71,rate:10}]
   },
   miasmacity: {
@@ -6428,7 +6428,7 @@ const WORLD_DATA = {
       {id:244, minLv:65, maxLv:70, rate:7},  // Staticclaw (base Electric)
       {id:280, minLv:65, maxLv:70, rate:5}    // Gearbit (base Metal/Ground)
     ],
-    hasGym:false, requiredBadges:17, mapPos:{x:28, y:90},
+    hasGym:false, requiredBadges:17, mapPos:{x:36, y:84},
     ngPlusWildMonsters:[{id:383, minLv:66, maxLv:72, rate:8}, {id:334,minLv:72,maxLv:78,rate:20},{id:347,minLv:72,maxLv:78,rate:15},{id:366,minLv:73,maxLv:79,rate:10}]
   },
   ironforge: {
@@ -6460,7 +6460,7 @@ const WORLD_DATA = {
       {id:304, minLv:67, maxLv:72, rate:17},  // Yeticub (base Earth/Ice)
       {id:232, minLv:67, maxLv:72, rate:5}    // Serphaxon (base Draconic/Ground)
     ],
-    hasGym:false, requiredBadges:18, mapPos:{x:45, y:79},
+    hasGym:false, requiredBadges:18, mapPos:{x:48, y:91},
     ngPlusWildMonsters:[{id:364, minLv:68, maxLv:74, rate:9}, {id:332,minLv:74,maxLv:80,rate:20},{id:349,minLv:66,maxLv:72,rate:18}]
   },
   quarryville: {
@@ -6492,7 +6492,7 @@ const WORLD_DATA = {
       {id:254, minLv:69, maxLv:74, rate:12},  // Bubblepuff (base Aquatic/Psy)
       {id:302, minLv:69, maxLv:74, rate:5}    // Lightpuff (base Fairy, item evo)
     ],
-    hasGym:false, requiredBadges:19, mapPos:{x:58, y:84},
+    hasGym:false, requiredBadges:19, mapPos:{x:57, y:78},
     ngPlusWildMonsters:[{id:363, minLv:71, maxLv:75, rate:9}, {id:344,minLv:76,maxLv:82,rate:20},{id:351,minLv:76,maxLv:82,rate:15},{id:360,minLv:77,maxLv:83,rate:10}]
   },
   starbloom: {
@@ -6581,7 +6581,7 @@ const WORLD_DATA = {
       {id:153, minLv:66, maxLv:71, rate:28},  // Dentshaft (base)
       {id:154, minLv:67, maxLv:72, rate:18}   // Terragolem (mid → after 153 ✓)
     ],
-    hasGym:false, requiredBadges:17, mapPos:{x:42, y:87}
+    hasGym:false, requiredBadges:17, mapPos:{x:43, y:96}
   },
   stone_plateau: {
     id:"stone_plateau", name:"Stone Plateau", icon:"🏜️", type:"route",
@@ -6655,7 +6655,7 @@ const WORLD_DATA = {
       {id:104, minLv:63, maxLv:68, rate:30},  // Dravanas (final, 104 on route11 ✓)
       {id:106, minLv:63, maxLv:68, rate:25}   // Quakeon (final, 106 on route11 ✓)
     ],
-    hasGym:false, requiredBadges:13, mapPos:{x:31, y:74}
+    hasGym:false, requiredBadges:13, mapPos:{x:26, y:69}
   },
   gale_peak: {
     id:"gale_peak", name:"Gale Peak", icon:"🌀", type:"route",
@@ -6851,7 +6851,7 @@ const WORLD_DATA = {
       {id:281, minLv:68, maxLv:73, rate:6}   // Mechabrute (final → Cogvex on smelter_pass ✓)
     ],
     ngPlusWildMonsters:[{id:374, minLv:68, maxLv:73, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:18, mapPos:{x:50, y:86}
+    hasGym:false, requiredBadges:18, mapPos:{x:47, y:75}
   },
   crystal_mine: {
     id:"crystal_mine", name:"Crystal Mine", icon:"💎", type:"route",

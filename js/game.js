@@ -645,6 +645,30 @@ function setMapZoom(level) {
   renderWorldMap();
 }
 
+// Named-landmark routes that read as real destinations, so they get a square marker
+// like cities/towns/specials (not just a road waypoint). Curated to "landmarks +
+// every legendary"; pure connector routes (Pass/Trail/Bridge/Crossing/...) stay plain
+// roads. Split-pairs collapse to a single bearer square (see LANDMARK_LABELS).
+const LANDMARK_ROUTES = new Set([
+  // legendary-bearing routes (always a square)
+  "deep_trench","ancient_grove","ancient_ruins","crystal_depths","crystal_mine",
+  "dark_canyon","iron_canyon","magma_vent","mire_depths","storm_plateau",
+  "volcano_core","wind_hollow",
+  // non-legendary named landmarks
+  "ash_fields","astral_plateau","coral_reef","cosmic_cavern","forge_ruins",
+  "fungal_cavern","gale_peak","haunted_grove","lava_fields","lumoria_jungle",
+  "lunar_peak","mirror_lake","mystic_forest","nebula_gorge","spirit_canyon",
+  "stone_plateau","tempest_cliffs","thunder_cliffs",
+  // split-pair bearers (one square per pair; the other half stays a road)
+  "bug_forest_east","fairy_meadow_south","poison_swamp_lower",
+]);
+// Display labels for the collapsed split-pair bearers.
+const LANDMARK_LABELS = {
+  bug_forest_east: "Bug Forest",
+  fairy_meadow_south: "Fairy Meadow",
+  poison_swamp_lower: "Poison Swamp",
+};
+
 function renderWorldMap() {
   const mapEl = document.getElementById("world-map");
   mapEl.innerHTML = "";
@@ -693,6 +717,7 @@ function renderWorldMap() {
   // open space. Render the route's own icon at its endpoint so it reads as a real
   // destination; it stays clickable and shows its name on hover / long-press.
   const addRouteEndIcon = (rId, rArea, rx, ry, rLocked) => {
+    if (LANDMARK_ROUTES.has(rId)) return; // landmark dead-ends get a square marker instead
     if (!rArea.icon || !rArea.connections || rArea.connections.length !== 1) return;
     const ic = document.createElement("div");
     ic.className = "map-route-endicon" + (rLocked ? " locked" : "") + (rId === G.location ? " current" : "");
@@ -908,10 +933,12 @@ function renderWorldMap() {
 
   mapEl.appendChild(svg);
 
-  // Draw location markers for cities, towns, and special locations only (not routes)
+  // Draw location markers for cities, towns, specials, and named-landmark routes
+  // (plain numbered/connector routes stay on the paths only).
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
-    if (area.type === "route") continue; // Routes are on the paths now
+    const isLandmark = area.type === "route" && LANDMARK_ROUTES.has(areaId);
+    if (area.type === "route" && !isLandmark) continue; // plain routes are on the paths now
     if (area.requiresChampion && !G?.championDefeated || (area.requiresNGPlus && !(G?.ngPlusCount > 0))) continue;
     if (area.requiresDefeated && !(G?.defeatedLeaders || []).includes(area.requiresDefeated)) continue;
     const x = (area.mapPos.x / 100) * mapW;
@@ -922,6 +949,8 @@ function renderWorldMap() {
     if (area.type === "city") loc.classList.add("city");
     if (area.type === "town") loc.classList.add("town");
     if (area.type === "special") loc.classList.add("special");
+    if (isLandmark) loc.classList.add("landmark");
+    if (area.legendaryEncounter) loc.classList.add("legendary");
     if (areaId === G.location) loc.classList.add("current");
 
     const badgesNeeded = area.requiredBadges || 0;
@@ -939,7 +968,7 @@ function renderWorldMap() {
 
     const label = document.createElement("div");
     label.className = "map-loc-label";
-    label.textContent = area.name; // Full name visible
+    label.textContent = LANDMARK_LABELS[areaId] || area.name; // Full name visible
 
     loc.appendChild(dot);
     loc.appendChild(label);

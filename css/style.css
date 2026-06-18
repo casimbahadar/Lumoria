@@ -423,6 +423,7 @@ html, body {
 .map-location:hover .map-loc-dot { transform: scale(1.15); }
 
 .map-loc-dot {
+  position: relative;
   width: 30px;
   height: 30px;
   border-radius: 4px;
@@ -446,6 +447,25 @@ html, body {
 }
 
 .map-location.town .map-loc-dot { background: #2868a8; border-color: #58a6ff; }
+
+/* Named-landmark routes: neutral slate square so they read as a place of interest,
+   clearly distinct from city (red) / town (blue) / special (gold). */
+.map-location.landmark .map-loc-dot { background: #3c4658; border-color: #8b9bb4; }
+
+/* Legendary site: gold square + glow + a small star badge so it stands out at a glance. */
+.map-location.legendary .map-loc-dot {
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.55), 0 1px 3px rgba(0,0,0,0.4);
+}
+.map-location.legendary .map-loc-dot::after {
+  content: "⭐";
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  font-size: 0.6rem;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+}
 
 .map-location.current .map-loc-dot {
   border-color: #ffd700 !important;
@@ -489,7 +509,7 @@ html, body {
   font-size: 0.8rem;
   line-height: 1;
   z-index: 11;
-  border-radius: 50%;
+  border-radius: 4px;
   background: rgba(18,22,32,0.62);
   border: 1.5px solid rgba(255,255,255,0.4);
   box-shadow: 0 1px 3px rgba(0,0,0,0.75);

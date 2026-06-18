@@ -670,10 +670,35 @@ const LANDMARK_LABELS = {
 };
 
 // Per-area name-label placement override ('top'|'bottom'|'left'|'right'); default is
-// below the icon. Used to move a name off a road it would otherwise cover.
+// below the icon. Used to force a name off a road it would otherwise cover.
 const LABEL_POS = {
   bloomhaven: "top",
 };
+
+// Auto-pick which side a marker's name sits on so it doesn't cover a road or a
+// neighbouring marker: if there's more stuff below the icon, flip the name above.
+// Manual LABEL_POS entries always win.
+function bestLabelSide(id) {
+  if (LABEL_POS[id]) return LABEL_POS[id];
+  const a = WORLD_DATA[id];
+  if (!a || !a.mapPos) return "bottom";
+  let up = 0, down = 0;
+  for (const c of (a.connections || [])) {
+    const n = WORLD_DATA[c];
+    if (!n || !n.mapPos) continue;
+    const dy = n.mapPos.y - a.mapPos.y;
+    if (dy > 1.5) down++; else if (dy < -1.5) up++;
+  }
+  for (const oid in WORLD_DATA) {
+    if (oid === id) continue;
+    const o = WORLD_DATA[oid];
+    if (!o.mapPos) continue;
+    const dx = Math.abs(o.mapPos.x - a.mapPos.x), dy = o.mapPos.y - a.mapPos.y;
+    if (dx < 7 && dy > 1 && dy < 8) down++;        // a marker sits just below
+    else if (dx < 7 && dy < -1 && dy > -8) up++;   // a marker sits just above
+  }
+  return down > up ? "top" : "bottom";
+}
 
 function renderWorldMap() {
   const mapEl = document.getElementById("world-map");
@@ -1028,8 +1053,8 @@ function renderWorldMap() {
 
     const label = document.createElement("div");
     label.className = "map-loc-label";
-    const side = LABEL_POS[areaId];
-    if (side) label.classList.add("lbl-" + side);  // move name off the icon to avoid covering roads
+    const side = bestLabelSide(areaId);
+    if (side && side !== "bottom") label.classList.add("lbl-" + side);  // keep the name off roads/markers
     label.textContent = LANDMARK_LABELS[areaId] || area.name; // Full name visible
 
     loc.appendChild(dot);

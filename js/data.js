@@ -5563,7 +5563,7 @@ const WORLD_DATA = {
       {id:98, minLv:23, maxLv:26, rate:25}
     ],
     ngPlusWildMonsters:[{id:414, minLv:22, maxLv:25, rate:12}], // NG+ family base: Grublurk
-    hasGym:false, requiredBadges:3, mapPos:{x:65, y:28}
+    hasGym:false, requiredBadges:3, mapPos:{x:66, y:38}
   },
   sparkmoor: {
     id:"sparkmoor", name:"Sparkmoor Town", icon:"⚡", type:"city",
@@ -5685,7 +5685,7 @@ const WORLD_DATA = {
   route7: {
     id:"route7", name:"Route 7 - Poison Marshes", icon:"☠️", type:"route",
     desc:"A fetid swamp full of poison. Dark and Poison types are found in abundance.",
-    connections:["shadowmere","skyvault","mystic_forest","fairy_meadow_north","poison_swamp_upper","wind_bridge"],
+    connections:["shadowmere","skyvault","mystic_forest","fairy_meadow_north","poison_swamp_upper"],
     wildMonsters:[
       {id:157, minLv:46, maxLv:50, rate:25}, // Acidelix
       {id:155, minLv:46, maxLv:50, rate:25}, // Toxirin
@@ -5697,7 +5697,7 @@ const WORLD_DATA = {
   skyvault: {
     id:"skyvault", name:"Skyvault City", icon:"🏰", type:"city",
     desc:"A city floating on clouds. Mental Gym Leader Oracle sees all futures.",
-    connections:["route7","route8"],
+    connections:["route7","wind_bridge"],
     wildMonsters:[
       {id:166, minLv:50, maxLv:54, rate:30}, // Projectery
       {id:142, minLv:50, maxLv:54, rate:25}, // Dawnirel
@@ -5710,7 +5710,7 @@ const WORLD_DATA = {
   route8: {
     id:"route8", hasUmbraEncounter:true, name:"Route 8 - Sky Corridors", icon:"🌤️", type:"route",
     desc:"Aerial paths between floating islands. Wind and Mental types soar here.",
-    connections:["skyvault","dragonspire"],
+    connections:["wind_bridge","dragonspire"],
     wildMonsters:[
       {id:108, minLv:54, maxLv:58, rate:34}, // Silvergust
       {id:111, minLv:54, maxLv:58, rate:29}, // Swirlavel
@@ -5767,7 +5767,7 @@ const WORLD_DATA = {
       {id:370, minLv:109, maxLv:112, rate:24}, // Cyclotron
       {id:292, minLv:109, maxLv:112, rate:22}  // Galehorn
     ],
-    hasGym:false, requiredBadges:20, requiresNGPlus:true, mapPos:{x:68, y:68}
+    hasGym:false, requiredBadges:20, requiresNGPlus:true, mapPos:{x:78, y:59}
   },
   clarion: {
     id:"clarion", name:"Clarion", icon:"🔊", type:"city",
@@ -5792,7 +5792,7 @@ const WORLD_DATA = {
       {id:343, minLv:114, maxLv:117, rate:24}, // Shadowreave
       {id:386, minLv:114, maxLv:117, rate:22}  // Wraithstorm
     ],
-    hasGym:false, requiredBadges:21, requiresNGPlus:true, mapPos:{x:67, y:59}
+    hasGym:false, requiredBadges:21, requiresNGPlus:true, mapPos:{x:88, y:46}
   },
   gravecourt: {
     id:"gravecourt", name:"Gravecourt", icon:"👻", type:"city",
@@ -5817,7 +5817,7 @@ const WORLD_DATA = {
       {id:453, minLv:119, maxLv:122, rate:24}, // Lullavoir
       {id:243, minLv:119, maxLv:122, rate:22}  // Stuntrap
     ],
-    hasGym:false, requiredBadges:22, requiresNGPlus:true, mapPos:{x:66, y:51}
+    hasGym:false, requiredBadges:22, requiresNGPlus:true, mapPos:{x:87, y:39}
   },
   reverie_vale: {
     id:"reverie_vale", name:"Reverie Vale", icon:"💤", type:"city",
@@ -5841,7 +5841,7 @@ const WORLD_DATA = {
       {id:372, minLv:123, maxLv:127, rate:33}, // Prismancer (Mental/Mineral) — backfill after Crystal legendaries rounded up
       {id:169, minLv:124, maxLv:127, rate:33}  // Prismatica (Mental/Mineral)
     ],
-    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:65, y:43}
+    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:88, y:30}
   },
   gleamcrest: {
     id:"gleamcrest", name:"Gleamcrest", icon:"💎", type:"city",
@@ -5863,7 +5863,7 @@ const WORLD_DATA = {
       {id:268, minLv:124, maxLv:127, rate:33}, // Darkfang
       {id:261, minLv:125, maxLv:127, rate:33}  // Hypnostag (Facetite rounded up to evolution-only)
     ],
-    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:63, y:37}
+    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:73, y:32}
   },
 
   // ===== EXTRA AREAS =====
@@ -6221,7 +6221,7 @@ const WORLD_DATA = {
   wind_bridge: {
     id:"wind_bridge", name:"Wind Bridge", icon:"🌬️", type:"route",
     desc:"A series of ancient stone arches bridging floating islands in the sky. Powerful updrafts make travel treacherous but the view is breathtaking.",
-    connections:["route7"],
+    connections:["skyvault","route8"],
     wildMonsters:[
       {id:111, minLv:48, maxLv:54, rate:25},   // Aeolin
       {id:108, minLv:48, maxLv:54, rate:25},   // Silvergust
@@ -6230,7 +6230,7 @@ const WORLD_DATA = {
       {id:108, minLv:51, maxLv:56, rate:10}    // Siroccomane
     ],
     ngPlusWildMonsters:[{id:458, minLv:48, maxLv:52, rate:12}], // NG+ family base: Tengko
-    hasGym:false, requiredBadges:8, mapPos:{x:36, y:40}
+    hasGym:false, requiredBadges:8, mapPos:{x:35, y:51}
   },
   crystal_spire: {
     id:"crystal_spire", name:"Crystal Spire", icon:"💎", type:"special",
@@ -6396,7 +6396,7 @@ const WORLD_DATA = {
       {id:222, minLv:63, maxLv:68, rate:16},  // Mindpuff (base Mental)
       {id:220, minLv:63, maxLv:68, rate:5}    // Umbrajest (base Dark/Mental)
     ],
-    hasGym:false, requiredBadges:15, mapPos:{x:10, y:92},
+    hasGym:false, requiredBadges:15, mapPos:{x:8, y:85},
     ngPlusWildMonsters:[{id:356, minLv:64, maxLv:70, rate:9}, {id:335,minLv:70,maxLv:76,rate:20},{id:348,minLv:70,maxLv:76,rate:15},{id:370,minLv:71,maxLv:77,rate:10}]
   },
   gusthaven: {
@@ -6460,7 +6460,7 @@ const WORLD_DATA = {
       {id:304, minLv:67, maxLv:72, rate:17},  // Yeticub (base Earth/Ice)
       {id:232, minLv:67, maxLv:72, rate:5}    // Serphaxon (base Draconic/Ground)
     ],
-    hasGym:false, requiredBadges:18, mapPos:{x:48, y:85},
+    hasGym:false, requiredBadges:18, mapPos:{x:42, y:86},
     ngPlusWildMonsters:[{id:364, minLv:68, maxLv:74, rate:9}, {id:332,minLv:74,maxLv:80,rate:20},{id:349,minLv:66,maxLv:72,rate:18}]
   },
   quarryville: {
@@ -6552,7 +6552,7 @@ const WORLD_DATA = {
       {id:204, minLv:63, maxLv:68, rate:24},  // Muddite (base)
       {id:204, minLv:64, maxLv:69, rate:10}   // Quarrix (mid → after 204 ✓)
     ],
-    hasGym:false, requiredBadges:14, mapPos:{x:15, y:82}
+    hasGym:false, requiredBadges:14, mapPos:{x:20, y:84}
   },
   gale_ridge_east: {
     id:"gale_ridge_east", name:"Gale Ridge East", icon:"🌪️", type:"route",
@@ -6567,7 +6567,7 @@ const WORLD_DATA = {
       {id:116, minLv:65, maxLv:70, rate:14}   // Pneumathos (mid, 116 on route13 ✓)
     ],
     ngPlusWildMonsters:[{id:393, minLv:65, maxLv:70, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:16, mapPos:{x:14, y:95}
+    hasGym:false, requiredBadges:16, mapPos:{x:7, y:97}
   },
   forge_approach: {
     id:"forge_approach", name:"Forge Approach", icon:"🔩", type:"route",
@@ -6581,7 +6581,7 @@ const WORLD_DATA = {
       {id:153, minLv:66, maxLv:71, rate:28},  // Dentshaft (base)
       {id:154, minLv:67, maxLv:72, rate:18}   // Terragolem (mid → after 153 ✓)
     ],
-    hasGym:false, requiredBadges:17, mapPos:{x:38, y:92}
+    hasGym:false, requiredBadges:17, mapPos:{x:37, y:90}
   },
   stone_plateau: {
     id:"stone_plateau", name:"Stone Plateau", icon:"🏜️", type:"route",
@@ -6642,7 +6642,7 @@ const WORLD_DATA = {
       {id:164, minLv:59, maxLv:64, rate:20}   // Lepidox (mid → after 164 ✓)
     ],
     ngPlusWildMonsters:[{id:355, minLv:58, maxLv:65, rate:10}], // NG+ standalone: Nadiril (relocated from removed Murk Crossing)
-    hasGym:false, requiredBadges:12, mapPos:{x:43, y:63}
+    hasGym:false, requiredBadges:12, mapPos:{x:43, y:57}
   },
   tremor_summit: {
     id:"tremor_summit", name:"Tremor Summit", icon:"⛰️", type:"route",

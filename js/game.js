@@ -776,16 +776,17 @@ function renderWorldMap() {
     return check(a) || check(b);
   }
 
-  // Build orthogonal segments between two map points
-  // Returns array of straight-line segment paths (split at direction changes)
-  function orthSegments(x1, y1, x2, y2) {
+  // Build orthogonal segments between two map points. `orient` ('H'|'V') forces the
+  // corner direction (from the crossing optimizer below); otherwise defaults to the
+  // longer axis first.
+  function orthSegments(x1, y1, x2, y2, orient) {
     const dx = Math.abs(x2 - x1), dy = Math.abs(y2 - y1);
     // If nearly a straight line, return single segment
     if (dx < 3 || dy < 3) {
       return [`M ${x1},${y1} L ${x2},${y2}`];
     }
-    // L-shaped: split into two straight segments at the corner
-    if (dx >= dy) {
+    const horizFirst = orient ? orient === "H" : dx >= dy;
+    if (horizFirst) {
       // Horizontal first, then vertical. Corner at (x2, y1)
       return [
         `M ${x1},${y1} L ${x2},${y1}`,
@@ -800,6 +801,59 @@ function renderWorldMap() {
     }
   }
 
+  // Choose each L-road's corner direction (H-first vs V-first) to minimise the number
+  // of road crossings — keeps the orthogonal look but routes lines around each other.
+  function computeRoadOrientations() {
+    const vis = a => a && a.mapPos &&
+      !(a.requiresChampion && !G?.championDefeated) && !(a.requiresNGPlus && !(G?.ngPlusCount > 0)) &&
+      !(a.requiresDefeated && !(G?.defeatedLeaders || []).includes(a.requiresDefeated));
+    const seen = new Set(), conns = [];
+    for (const [id, a] of Object.entries(WORLD_DATA)) {
+      if (!vis(a) || !a.connections) continue;
+      for (const c of a.connections) {
+        const b = WORLD_DATA[c];
+        if (!vis(b)) continue;
+        const k = [id, c].sort().join("|");
+        if (seen.has(k)) continue;
+        seen.add(k);
+        conns.push({ k, a:id, b:c, x1:a.mapPos.x, y1:a.mapPos.y, x2:b.mapPos.x, y2:b.mapPos.y,
+          isL: Math.abs(a.mapPos.x-b.mapPos.x) >= 3 && Math.abs(a.mapPos.y-b.mapPos.y) >= 3 });
+      }
+    }
+    const segOf = (c, o) => {
+      const dx = Math.abs(c.x2-c.x1), dy = Math.abs(c.y2-c.y1);
+      if (dx < 3 || dy < 3) return [[c.x1,c.y1,c.x2,c.y2]];
+      return o === "H" ? [[c.x1,c.y1,c.x2,c.y1],[c.x2,c.y1,c.x2,c.y2]]
+                       : [[c.x1,c.y1,c.x1,c.y2],[c.x1,c.y2,c.x2,c.y2]];
+    };
+    const segX = (p, q) => {
+      const r1=p[2]-p[0], s1=p[3]-p[1], r2=q[2]-q[0], s2=q[3]-q[1], den=r1*s2-s1*r2;
+      if (Math.abs(den) < 1e-9) return false;
+      const t=((q[0]-p[0])*s2-(q[1]-p[1])*r2)/den, u=((q[0]-p[0])*s1-(q[1]-p[1])*r1)/den;
+      return t>0.03 && t<0.97 && u>0.03 && u<0.97;
+    };
+    const pairX = (c, oc, d, od) => {
+      if (c.a===d.a || c.a===d.b || c.b===d.a || c.b===d.b) return false;
+      for (const p of segOf(c, oc)) for (const q of segOf(d, od)) if (segX(p, q)) return true;
+      return false;
+    };
+    const orient = {};
+    for (const c of conns) orient[c.k] = (Math.abs(c.x2-c.x1) >= Math.abs(c.y2-c.y1)) ? "H" : "V";
+    for (let pass = 0; pass < 8; pass++) {
+      let changed = false;
+      for (const c of conns) {
+        if (!c.isL) continue;
+        let nH = 0, nV = 0;
+        for (const d of conns) { if (d === c) continue; if (pairX(c,"H",d,orient[d.k])) nH++; if (pairX(c,"V",d,orient[d.k])) nV++; }
+        const best = nH <= nV ? "H" : "V";
+        if (best !== orient[c.k]) { orient[c.k] = best; changed = true; }
+      }
+      if (!changed) break;
+    }
+    return orient;
+  }
+  const roadOrient = computeRoadOrientations();
+
   // Collect which route areas sit on which connections (for placing route labels on paths)
   // A route area is positioned at its mapPos, which should be along the connection path
   const routeAreas = {};
@@ -813,7 +867,6 @@ function renderWorldMap() {
   // For each connection, draw the path and if a route area lies on it, make it clickable
   const drawnConnections = new Set();
   const routesMapped = new Set(); // track which route areas got placed on a connection
-  const allRoadSegs = []; // every drawn segment, for overpass treatment where roads cross
 
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
@@ -833,7 +886,7 @@ function renderWorldMap() {
       const y1 = (area.mapPos.y / 100) * mapH;
       const x2 = (toArea.mapPos.x / 100) * mapW;
       const y2 = (toArea.mapPos.y / 100) * mapH;
-      const segments = orthSegments(x1, y1, x2, y2);
+      const segments = orthSegments(x1, y1, x2, y2, roadOrient[sortedKey]);
 
       const fromLocked = G.badges.length < (area.requiredBadges || 0);
       const toLocked   = G.badges.length < (toArea.requiredBadges || 0);
@@ -850,8 +903,6 @@ function renderWorldMap() {
         const line = add(bgGroup, se("path", { ...pathAttrs, stroke:routeColor, "stroke-width":"5" }));
         add(bgGroup, se("path", { ...pathAttrs, stroke:"#ffffff", "stroke-width":"1.5", opacity:"0.2" }));
         segLines.push({ pathD: segD, line });
-        const mm = segD.match(/M\s*([-\d.]+),([-\d.]+)\s*L\s*([-\d.]+),([-\d.]+)/);
-        if (mm) allRoadSegs.push({ x1:+mm[1], y1:+mm[2], x2:+mm[3], y2:+mm[4], routeColor, shadowColor, a:areaId, b:conn });
       }
 
       // Find which route area(s) sit on or near this connection
@@ -904,35 +955,6 @@ function renderWorldMap() {
         mapEl.appendChild(routeLabel);
         addRouteEndIcon(rId, rArea, rx, ry, rLocked);
       }
-    }
-  }
-
-  // Overpass treatment: where two roads that DON'T share a node cross, redraw the
-  // later road's casing at the crossing so it reads as a clean bridge over the other
-  // (instead of a muddy X). Endpoint touches (real junctions) are excluded.
-  const segCross = (p, q) => {
-    const r1=p.x2-p.x1, s1=p.y2-p.y1, r2=q.x2-q.x1, s2=q.y2-q.y1;
-    const den = r1*s2 - s1*r2;
-    if (Math.abs(den) < 1e-6) return null; // parallel / collinear
-    const t = ((q.x1-p.x1)*s2 - (q.y1-p.y1)*r2) / den;
-    const u = ((q.x1-p.x1)*s1 - (q.y1-p.y1)*r1) / den;
-    if (t > 0.03 && t < 0.97 && u > 0.03 && u < 0.97) return { x:p.x1 + t*r1, y:p.y1 + t*s1 };
-    return null;
-  };
-  for (let i = 0; i < allRoadSegs.length; i++) {
-    for (let j = i + 1; j < allRoadSegs.length; j++) {
-      const A = allRoadSegs[i], B = allRoadSegs[j];
-      if (A.a===B.a || A.a===B.b || A.b===B.a || A.b===B.b) continue; // share a node = real junction
-      const P = segCross(A, B);
-      if (!P) continue;
-      const over = B; // later-drawn road bridges over
-      const ang = Math.atan2(over.y2 - over.y1, over.x2 - over.x1);
-      const L = 9, cx = Math.cos(ang)*L, cy = Math.sin(ang)*L;
-      const d = `M ${P.x-cx},${P.y-cy} L ${P.x+cx},${P.y+cy}`;
-      const deck = { d, fill:"none", "stroke-linecap":"round" };
-      add(bgGroup, se("path", { ...deck, stroke:over.shadowColor, "stroke-width":"9" }));      // opaque casing cuts the under-road
-      add(bgGroup, se("path", { ...deck, stroke:over.routeColor, "stroke-width":"5" }));        // over-road continues
-      add(bgGroup, se("path", { ...deck, stroke:"#ffffff", "stroke-width":"1.5", opacity:"0.25" }));
     }
   }
 

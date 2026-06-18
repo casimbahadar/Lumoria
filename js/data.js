@@ -5542,7 +5542,7 @@ const WORLD_DATA = {
   emberveil: {
     id:"emberveil", name:"Hauntcoal City", icon:"🌋", type:"city", hasUmbraEncounter:true,
     desc:"Built near an active volcano. The fiery Gym Leader Pyros waits within.",
-    connections:["route3","route4","volcano_core","iron_canyon"],
+    connections:["route3","route4","volcano_core"],
     wildMonsters:[
       {id:16, minLv:18, maxLv:22, rate:35}, // Cindercula
       {id:13, minLv:18, maxLv:22, rate:10}, // Taurcin
@@ -6091,7 +6091,7 @@ const WORLD_DATA = {
   iron_canyon: {
     id:"iron_canyon", name:"Iron Canyon", icon:"⛏️", type:"route",
     desc:"A deep canyon carved by centuries of volcanic flow. The walls glint with veins of metal ore. Metal and Ground types dominate this harsh terrain.",
-    connections:["emberveil"],
+    connections:["lava_fields"],
     wildMonsters:[
       {id:147, minLv:25, maxLv:31, rate:25},   // Scrapsapien
       {id:191, minLv:25, maxLv:31, rate:25},   // Pebblet
@@ -6181,7 +6181,7 @@ const WORLD_DATA = {
   lava_fields: {
     id:"lava_fields", name:"Lava Fields", icon:"🌋", type:"route",
     desc:"A smoldering expanse of hardened lava and glowing fissures. The ground cracks underfoot and fire vents belch superheated air.",
-    connections:["volcano_core"],
+    connections:["volcano_core","iron_canyon"],
     wildMonsters:[
       {id:53, minLv:28, maxLv:34, rate:6}, // Ashrock (obtainability fix)
       {id:13, minLv:26, maxLv:32, rate:28},   // Taurcin

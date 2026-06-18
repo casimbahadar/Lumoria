@@ -5472,7 +5472,7 @@ const WORLD_DATA = {
   seedvale: {
     id:"seedvale", name:"Seedvale Town", icon:"🏡", type:"town",
     desc:"A peaceful starter town nestled in a valley. Professor Solaris's lab is here.",
-    connections:["route1","fairy_meadow_south"],
+    connections:["route1","fairy_meadow_south","route12"],
     wildMonsters:[], hasGym:false, requiredBadges:0,
     mapPos:{x:15, y:75}
   },
@@ -6341,7 +6341,7 @@ const WORLD_DATA = {
   terravault: {
     id:"terravault", name:"Terravault City", icon:"⛏️", type:"city",
     desc:"A city carved into a mountainside, rich with mineral deposits. Home to Gym Leader Atlas.",
-    connections:["tremor_summit","route12"],
+    connections:["tremor_summit","gale_peak"],
     wildMonsters:[
       {id:95,  minLv:61, maxLv:66, rate:15},  // Quakehide (final, 96 on quake_foothills ✓)
       {id:98, minLv:61, maxLv:66, rate:15},  // Craterlurk (final, 99 on quake_foothills ✓)
@@ -6355,7 +6355,7 @@ const WORLD_DATA = {
   route12: {
     id:"route12", name:"Route 12 - Silk Road", icon:"🕸️", type:"route",
     desc:"A path threaded with giant webs. Bug types ambush travelers at every turn.",
-    connections:["terravault","fungal_cavern"],
+    connections:["seedvale","mistmoor","fungal_cavern"],
     wildMonsters:[
       {id:197, minLv:61, maxLv:66, rate:25},  // Photoworm (base)
       {id:198, minLv:62, maxLv:67, rate:20},  // Chrysalix (mid → after 197 ✓)
@@ -6365,7 +6365,7 @@ const WORLD_DATA = {
       {id:215, minLv:62, maxLv:67, rate:16},  // Veilwisp (base Mental)
       {id:262, minLv:62, maxLv:67, rate:11}   // Transluceed (base Grass/Poi)
     ],
-    hasGym:false, requiredBadges:14, mapPos:{x:17, y:68},
+    hasGym:false, requiredBadges:14, mapPos:{x:9, y:75},
     ngPlusWildMonsters:[{id:391, minLv:64, maxLv:68, rate:8}, {id:324,minLv:68,maxLv:74,rate:20},{id:329,minLv:68,maxLv:74,rate:15},{id:339,minLv:69,maxLv:75,rate:10},{id:402,minLv:68,maxLv:74,rate:8},{id:405,minLv:68,maxLv:74,rate:8}]
   },
   silkwood: {
@@ -6460,13 +6460,13 @@ const WORLD_DATA = {
       {id:304, minLv:67, maxLv:72, rate:17},  // Yeticub (base Earth/Ice)
       {id:232, minLv:67, maxLv:72, rate:5}    // Serphaxon (base Draconic/Ground)
     ],
-    hasGym:false, requiredBadges:18, mapPos:{x:48, y:91},
+    hasGym:false, requiredBadges:18, mapPos:{x:46, y:83},
     ngPlusWildMonsters:[{id:364, minLv:68, maxLv:74, rate:9}, {id:332,minLv:74,maxLv:80,rate:20},{id:349,minLv:66,maxLv:72,rate:18}]
   },
   quarryville: {
     id:"quarryville", name:"Quarryville Town", icon:"🏗️", type:"city",
     desc:"A mining town carved from solid rock. Home to Gym Leader Boulder, master of Rock types.",
-    connections:["crystal_mine","route16"],
+    connections:["crystal_mine","route16","stone_plateau"],
     wildMonsters:[
       {id:192, minLv:68, maxLv:73, rate:20},  // Boulderoll (mid)
       {id:195, minLv:69, maxLv:74, rate:25},  // Icequartz (195 on stone_plateau ✓)
@@ -6586,7 +6586,7 @@ const WORLD_DATA = {
   stone_plateau: {
     id:"stone_plateau", name:"Stone Plateau", icon:"🏜️", type:"route",
     desc:"A windswept expanse of exposed bedrock leading into Quarryville. Ancient monoliths dot the plateau and Rock and Dark types claim each one as territory.",
-    connections:["granite_tunnels","crystal_mine"],
+    connections:["granite_tunnels","quarryville"],
     wildMonsters:[
       {id:192, minLv:68, maxLv:73, rate:18},  // Boulderoll (mid, 191 on route15 ✓)
       {id:193, minLv:67, maxLv:72, rate:28},  // Cliffpinch (base)
@@ -6596,7 +6596,7 @@ const WORLD_DATA = {
       {id:195, minLv:70, maxLv:75, rate:6}   // Frigolith (mid → after 195 ✓)
     ],
     ngPlusWildMonsters:[{id:385, minLv:82, maxLv:88, rate:8}, {id:367, minLv:68, maxLv:75, rate:10}], // NG+: Permafrost (ice-golem final), Bouldertide
-    hasGym:false, requiredBadges:18, mapPos:{x:48, y:71}
+    hasGym:false, requiredBadges:18, mapPos:{x:51, y:71}
   },
   cosmic_cavern: {
     id:"cosmic_cavern", name:"Cosmic Cavern", icon:"🌌", type:"route",
@@ -6660,7 +6660,7 @@ const WORLD_DATA = {
   gale_peak: {
     id:"gale_peak", name:"Gale Peak", icon:"🌀", type:"route",
     desc:"The westernmost tip of the region — where Gale Ridge reaches its farthest point before turning sharply east. The wind here changes direction mid-step.",
-    connections:["wind_hollow","gale_ridge_east"],
+    connections:["wind_hollow","gale_ridge_east","terravault"],
     wildMonsters:[
       {id:108, minLv:63, maxLv:68, rate:24},  // Silvergust (base)
       {id:108, minLv:64, maxLv:69, rate:10},  // Siroccomane (mid → after 108 ✓)
@@ -6702,7 +6702,7 @@ const WORLD_DATA = {
       {id:218, minLv:59, maxLv:64, rate:10}   // Duskmist (base Spectral/Dark, item evo)
     ],
     legendaryEncounter:{monsterId:316, level:62}, // static legendary (obtainability fix)
-    hasGym:false, requiredBadges:12, mapPos:{x:42, y:55}
+    hasGym:false, requiredBadges:12, mapPos:{x:43, y:58}
   },
   magma_vent: {
     id:"magma_vent", name:"Magma Vent", icon:"🌋", type:"route",
@@ -6770,7 +6770,7 @@ const WORLD_DATA = {
   mistmoor: {
     id:"mistmoor", name:"Mistmoor Town", icon:"💨", type:"city",
     desc:"A fog-bound hamlet adrift on the high moor, its rooftops half-dissolved in drifting steam. Gym Leader Steam strikes from within the haze before you ever see the blow.",
-    connections:["route13","fogbank"],
+    connections:["route13","fogbank","route12"],
     wildMonsters:[
       {id:181, minLv:72, maxLv:76, rate:25}, // Bouncyblob
       {id:160, minLv:72, maxLv:76, rate:22}, // Mistbane
@@ -6851,12 +6851,12 @@ const WORLD_DATA = {
       {id:281, minLv:68, maxLv:73, rate:6}   // Mechabrute (final → Cogvex on smelter_pass ✓)
     ],
     ngPlusWildMonsters:[{id:374, minLv:68, maxLv:73, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:18, mapPos:{x:47, y:75}
+    hasGym:false, requiredBadges:18, mapPos:{x:46, y:71}
   },
   crystal_mine: {
     id:"crystal_mine", name:"Crystal Mine", icon:"💎", type:"route",
     desc:"An exhausted gem mine between Stone Plateau and Quarryville where crystalline Rock types have colonized the abandoned shafts.",
-    connections:["stone_plateau","quarryville","umbra_citadel"],
+    connections:["quarryville","umbra_citadel"],
     wildMonsters:[
       {id:249, minLv:70, maxLv:75, rate:14},  // Megalith (final → 249 on granite_tunnels ✓)
       {id:305, minLv:70, maxLv:75, rate:13},  // Yetigrand (final → 305 on granite_tunnels ✓)

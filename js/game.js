@@ -626,6 +626,42 @@ function scaleMapPath(pathStr, mapW, mapH) {
   });
 }
 
+// Flatten BIOME_REGIONS paths into %-space polygons (once) so roads can be coloured
+// by the terrain they cross (land vs ocean).
+const LAND_POLYS = (function () {
+  function flat(d) {
+    const t = (d || "").match(/[MCLZ]|[-0-9.]+/g) || [];
+    const pts = []; let cx = 0, cy = 0, sx = 0, sy = 0, x = 0;
+    const n = () => parseFloat(t[x++]);
+    while (x < t.length) {
+      const c = t[x++];
+      if (c === "M") { cx = n(); cy = n(); sx = cx; sy = cy; pts.push([cx, cy]); }
+      else if (c === "L") { cx = n(); cy = n(); pts.push([cx, cy]); }
+      else if (c === "C") {
+        const a1 = n(), b1 = n(), a2 = n(), b2 = n(), ex = n(), ey = n();
+        for (let s = 1; s <= 8; s++) { const u = s / 8, m = 1 - u;
+          pts.push([m*m*m*cx + 3*m*m*u*a1 + 3*m*u*u*a2 + u*u*u*ex,
+                    m*m*m*cy + 3*m*m*u*b1 + 3*m*u*u*b2 + u*u*u*ey]); }
+        cx = ex; cy = ey;
+      } else if (c === "Z") pts.push([sx, sy]);
+    }
+    return pts;
+  }
+  try { return (typeof BIOME_REGIONS !== "undefined" ? BIOME_REGIONS : []).map(b => flat(b.path)); }
+  catch (e) { return []; }
+})();
+function isOceanPct(x, y) {
+  for (const poly of LAND_POLYS) {
+    let inside = false;
+    for (let a = 0, b = poly.length - 1; a < poly.length; b = a++) {
+      const xi = poly[a][0], yi = poly[a][1], xj = poly[b][0], yj = poly[b][1];
+      if (((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi)) inside = !inside;
+    }
+    if (inside) return false;
+  }
+  return true;
+}
+
 // Zoom state
 // Default to a higher zoom on small (mobile) screens so the map renders larger
 // than the viewport (scrollable) and markers/labels get more breathing room.
@@ -698,6 +734,21 @@ function bestLabelSide(id) {
     else if (dx < 7 && dy < -1 && dy > -8) up++;   // a marker sits just above
   }
   return down > up ? "top" : "bottom";
+}
+
+// Pick a triangle's colour from the dominant encounter type in that area (so the
+// important/dead-end markers vary by what lives there). Returns null if unknown.
+function areaTypeColor(area) {
+  if (typeof MONSTERS_DATA === "undefined") return null;
+  const counts = {};
+  for (const m of [...(area.wildMonsters || []), ...(area.ngPlusWildMonsters || [])]) {
+    const def = MONSTERS_DATA[m.id];
+    if (!def || !def.types) continue;
+    for (const t of def.types) counts[t] = (counts[t] || 0) + (m.rate || 1);
+  }
+  let best = null, bestN = -1;
+  for (const t in counts) if (counts[t] > bestN) { best = t; bestN = counts[t]; }
+  return best ? getTypeColor(best) : null;
 }
 
 function renderWorldMap() {
@@ -922,18 +973,35 @@ function renderWorldMap() {
       const fromLocked = G.badges.length < (area.requiredBadges || 0);
       const toLocked   = G.badges.length < (toArea.requiredBadges || 0);
       const bothLocked = fromLocked && toLocked;
-      const water = isWaterConn(area, toArea);
-      const routeColor  = bothLocked ? "#4a4a4a" : water ? "#3a9acc" : "#d4a030";
-      const shadowColor = bothLocked ? "#222"    : water ? "#0d2a4a" : "#6a4a08";
+      const roadCol = (ocean) => bothLocked ? { c:"#4a4a4a", s:"#222" }
+        : ocean ? { c:"#3a9acc", s:"#0d2a4a" } : { c:"#d4a030", s:"#6a4a08" };
 
-      // Draw each segment separately so they can be clicked individually
+      // Draw each segment, split at the coastline so it's yellow over land / blue over water.
       const segLines = [];
       for (const segD of segments) {
-        const pathAttrs = { d:segD, fill:"none", "stroke-linecap":"round", "stroke-linejoin":"round" };
-        add(bgGroup, se("path", { ...pathAttrs, stroke:shadowColor, "stroke-width":"7", opacity:"0.55" }));
-        const line = add(bgGroup, se("path", { ...pathAttrs, stroke:routeColor, "stroke-width":"5" }));
-        add(bgGroup, se("path", { ...pathAttrs, stroke:"#ffffff", "stroke-width":"1.5", opacity:"0.2" }));
-        segLines.push({ pathD: segD, line });
+        const mm = segD.match(/M\s*([-\d.]+),([-\d.]+)\s*L\s*([-\d.]+),([-\d.]+)/);
+        if (!mm) continue;
+        const ax = +mm[1], ay = +mm[2], bx = +mm[3], by = +mm[4];
+        const len = Math.hypot(bx - ax, by - ay);
+        const steps = Math.max(2, Math.round(len / 6));
+        const runs = [];
+        for (let i = 0; i < steps; i++) {
+          const px1 = ax + (bx - ax) * i / steps,     py1 = ay + (by - ay) * i / steps;
+          const px2 = ax + (bx - ax) * (i + 1) / steps, py2 = ay + (by - ay) * (i + 1) / steps;
+          const ocean = isOceanPct((px1 + px2) / 2 / mapW * 100, (py1 + py2) / 2 / mapH * 100);
+          const last = runs[runs.length - 1];
+          if (last && last.ocean === ocean) { last.x2 = px2; last.y2 = py2; }
+          else runs.push({ ocean, x1: px1, y1: py1, x2: px2, y2: py2 });
+        }
+        for (const r of runs) {
+          const d = `M ${r.x1},${r.y1} L ${r.x2},${r.y2}`;
+          const col = roadCol(r.ocean);
+          const pathAttrs = { d, fill:"none", "stroke-linecap":"round", "stroke-linejoin":"round" };
+          add(bgGroup, se("path", { ...pathAttrs, stroke:col.s, "stroke-width":"7", opacity:"0.55" }));
+          const line = add(bgGroup, se("path", { ...pathAttrs, stroke:col.c, "stroke-width":"5" }));
+          add(bgGroup, se("path", { ...pathAttrs, stroke:"#ffffff", "stroke-width":"1.5", opacity:"0.2" }));
+          segLines.push({ line, ocean: r.ocean, locked: bothLocked });
+        }
       }
 
       // Find which route area(s) sit on or near this connection
@@ -950,22 +1018,22 @@ function renderWorldMap() {
         const rBadgesNeeded = rArea.requiredBadges || 0;
         const rLocked = G.badges.length < rBadgesNeeded && rId !== G.location;
 
-        // Add a clickable hit-area for each segment
+        // Add a clickable hit-area over each full segment
         if (!rLocked) {
-          for (const seg of segLines) {
-            const hitArea = se("path", { d:seg.pathD, stroke:"transparent", "stroke-width":"18", fill:"none", "stroke-linecap":"round", "stroke-linejoin":"round" });
+          for (const segD of segments) {
+            const hitArea = se("path", { d:segD, stroke:"transparent", "stroke-width":"18", fill:"none", "stroke-linecap":"round", "stroke-linejoin":"round" });
             hitArea.style.cursor = "pointer";
             hitArea.style.pointerEvents = "stroke";
-            // Hover effect: brighten all segments of this route together
+            // Hover effect: brighten all pieces of this route (keeping land/water tint)
             hitArea.addEventListener("mouseenter", () => {
               for (const s of segLines) {
-                s.line.setAttribute("stroke", water ? "#5ac0ee" : "#f0c050");
+                s.line.setAttribute("stroke", s.locked ? "#666" : s.ocean ? "#5ac0ee" : "#f0c050");
                 s.line.setAttribute("stroke-width", "6");
               }
             });
             hitArea.addEventListener("mouseleave", () => {
               for (const s of segLines) {
-                s.line.setAttribute("stroke", routeColor);
+                s.line.setAttribute("stroke", s.locked ? "#4a4a4a" : s.ocean ? "#3a9acc" : "#d4a030");
                 s.line.setAttribute("stroke-width", "5");
               }
             });
@@ -1050,6 +1118,10 @@ function renderWorldMap() {
     const dot = document.createElement("div");
     dot.className = "map-loc-dot";
     dot.textContent = "";  // plain shapes (no emoji) — colour/shape conveys type
+    if (area.type === "special" || isLandmark) {   // tint triangle by dominant encounter type
+      const tc = areaTypeColor(area);
+      if (tc) dot.style.background = tc;
+    }
 
     const label = document.createElement("div");
     label.className = "map-loc-label";

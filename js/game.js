@@ -776,24 +776,23 @@ function renderWorldMap() {
     return check(a) || check(b);
   }
 
-  // Build the segments between two map points. Default to a single STRAIGHT line
-  // (no direction change) for clean, un-zigzagged roads. Only fall back to an
-  // orthogonal L when one axis strongly dominates (a near-horizontal/vertical run
-  // with a small offset), where a slight jog reads better than a shallow slope.
+  // Build orthogonal segments between two map points
+  // Returns array of straight-line segment paths (split at direction changes)
   function orthSegments(x1, y1, x2, y2) {
     const dx = Math.abs(x2 - x1), dy = Math.abs(y2 - y1);
-    const mn = Math.min(dx, dy), mx = Math.max(dx, dy);
-    // Straight line for axis-aligned or reasonably diagonal connections.
-    if (mx < 3 || mn / mx >= 0.22) {
+    // If nearly a straight line, return single segment
+    if (dx < 3 || dy < 3) {
       return [`M ${x1},${y1} L ${x2},${y2}`];
     }
-    // One axis strongly dominates: single gentle jog.
+    // L-shaped: split into two straight segments at the corner
     if (dx >= dy) {
+      // Horizontal first, then vertical. Corner at (x2, y1)
       return [
         `M ${x1},${y1} L ${x2},${y1}`,
         `M ${x2},${y1} L ${x2},${y2}`
       ];
     } else {
+      // Vertical first, then horizontal. Corner at (x1, y2)
       return [
         `M ${x1},${y1} L ${x1},${y2}`,
         `M ${x1},${y2} L ${x2},${y2}`
@@ -814,6 +813,7 @@ function renderWorldMap() {
   // For each connection, draw the path and if a route area lies on it, make it clickable
   const drawnConnections = new Set();
   const routesMapped = new Set(); // track which route areas got placed on a connection
+  const allRoadSegs = []; // every drawn segment, for overpass treatment where roads cross
 
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
@@ -850,6 +850,8 @@ function renderWorldMap() {
         const line = add(bgGroup, se("path", { ...pathAttrs, stroke:routeColor, "stroke-width":"5" }));
         add(bgGroup, se("path", { ...pathAttrs, stroke:"#ffffff", "stroke-width":"1.5", opacity:"0.2" }));
         segLines.push({ pathD: segD, line });
+        const mm = segD.match(/M\s*([-\d.]+),([-\d.]+)\s*L\s*([-\d.]+),([-\d.]+)/);
+        if (mm) allRoadSegs.push({ x1:+mm[1], y1:+mm[2], x2:+mm[3], y2:+mm[4], routeColor, shadowColor, a:areaId, b:conn });
       }
 
       // Find which route area(s) sit on or near this connection
@@ -902,6 +904,35 @@ function renderWorldMap() {
         mapEl.appendChild(routeLabel);
         addRouteEndIcon(rId, rArea, rx, ry, rLocked);
       }
+    }
+  }
+
+  // Overpass treatment: where two roads that DON'T share a node cross, redraw the
+  // later road's casing at the crossing so it reads as a clean bridge over the other
+  // (instead of a muddy X). Endpoint touches (real junctions) are excluded.
+  const segCross = (p, q) => {
+    const r1=p.x2-p.x1, s1=p.y2-p.y1, r2=q.x2-q.x1, s2=q.y2-q.y1;
+    const den = r1*s2 - s1*r2;
+    if (Math.abs(den) < 1e-6) return null; // parallel / collinear
+    const t = ((q.x1-p.x1)*s2 - (q.y1-p.y1)*r2) / den;
+    const u = ((q.x1-p.x1)*s1 - (q.y1-p.y1)*r1) / den;
+    if (t > 0.03 && t < 0.97 && u > 0.03 && u < 0.97) return { x:p.x1 + t*r1, y:p.y1 + t*s1 };
+    return null;
+  };
+  for (let i = 0; i < allRoadSegs.length; i++) {
+    for (let j = i + 1; j < allRoadSegs.length; j++) {
+      const A = allRoadSegs[i], B = allRoadSegs[j];
+      if (A.a===B.a || A.a===B.b || A.b===B.a || A.b===B.b) continue; // share a node = real junction
+      const P = segCross(A, B);
+      if (!P) continue;
+      const over = B; // later-drawn road bridges over
+      const ang = Math.atan2(over.y2 - over.y1, over.x2 - over.x1);
+      const L = 9, cx = Math.cos(ang)*L, cy = Math.sin(ang)*L;
+      const d = `M ${P.x-cx},${P.y-cy} L ${P.x+cx},${P.y+cy}`;
+      const deck = { d, fill:"none", "stroke-linecap":"round" };
+      add(bgGroup, se("path", { ...deck, stroke:over.shadowColor, "stroke-width":"9" }));      // opaque casing cuts the under-road
+      add(bgGroup, se("path", { ...deck, stroke:over.routeColor, "stroke-width":"5" }));        // over-road continues
+      add(bgGroup, se("path", { ...deck, stroke:"#ffffff", "stroke-width":"1.5", opacity:"0.25" }));
     }
   }
 

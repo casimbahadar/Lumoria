@@ -669,6 +669,12 @@ const LANDMARK_LABELS = {
   poison_swamp_lower: "Poison Swamp",
 };
 
+// Per-area name-label placement override ('top'|'bottom'|'left'|'right'); default is
+// below the icon. Used to move a name off a road it would otherwise cover.
+const LABEL_POS = {
+  bloomhaven: "top",
+};
+
 function renderWorldMap() {
   const mapEl = document.getElementById("world-map");
   mapEl.innerHTML = "";
@@ -1018,10 +1024,12 @@ function renderWorldMap() {
 
     const dot = document.createElement("div");
     dot.className = "map-loc-dot";
-    dot.textContent = locked ? "🔒" : area.icon;
+    dot.textContent = "";  // plain shapes (no emoji) — colour/shape conveys type
 
     const label = document.createElement("div");
     label.className = "map-loc-label";
+    const side = LABEL_POS[areaId];
+    if (side) label.classList.add("lbl-" + side);  // move name off the icon to avoid covering roads
     label.textContent = LANDMARK_LABELS[areaId] || area.name; // Full name visible
 
     loc.appendChild(dot);

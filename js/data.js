@@ -5524,7 +5524,7 @@ const WORLD_DATA = {
       {id:293, minLv:10, maxLv:12, rate:20}, // Amperix
       {id:256, minLv:11, maxLv:13, rate:20}  // Cryonik
     ],
-    hasGym:true, gymLeader:"marina", requiredBadges:1, mapPos:{x:66, y:51}
+    hasGym:true, gymLeader:"marina", requiredBadges:1, mapPos:{x:63, y:59}
   },
   route3: {
     id:"route3", name:"Route 3 - Coastal Shore", icon:"🏖️", type:"route",
@@ -5988,7 +5988,7 @@ const WORLD_DATA = {
     ],
     hasGym:false, requiredBadges:8,
     hasUmbraBase:true,
-    mapPos:{x:12, y:58}
+    mapPos:{x:14, y:55}
   },
 
   // ===== NEW AREAS =====
@@ -6259,7 +6259,7 @@ const WORLD_DATA = {
       {id:220, minLv:53, maxLv:58, rate:25}   // Necralia
     ],
     ngPlusWildMonsters:[{id:371, minLv:52, maxLv:58, rate:10}], // NG+ standalone: Nullform
-    hasGym:false, requiredBadges:8, mapPos:{x:3, y:61},
+    hasGym:false, requiredBadges:8, mapPos:{x:9, y:54},
     legendaryEncounter:{monsterId:166, level:55}
   },
   // ---- NEW ROUTES & GYM CITIES (badges 8-15) ----
@@ -6410,7 +6410,7 @@ const WORLD_DATA = {
       {id:116, minLv:65, maxLv:70, rate:20},  // Pneumathos (mid)
       {id:62,  minLv:66, maxLv:70, rate:30}   // standalone
     ],
-    hasGym:true, gymLeader:"zephyra", requiredBadges:16, mapPos:{x:18, y:95},
+    hasGym:true, gymLeader:"zephyra", requiredBadges:16, mapPos:{x:33, y:89},
     ngPlusWildMonsters:[{id:338, minLv:66, maxLv:70, rate:10}, {id:335,minLv:71,maxLv:76,rate:25},{id:370,minLv:71,maxLv:76,rate:15}]
   },
   route14: {
@@ -6567,7 +6567,7 @@ const WORLD_DATA = {
       {id:116, minLv:65, maxLv:70, rate:14}   // Pneumathos (mid, 116 on route13 ✓)
     ],
     ngPlusWildMonsters:[{id:393, minLv:65, maxLv:70, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:16, mapPos:{x:7, y:97}
+    hasGym:false, requiredBadges:16, mapPos:{x:24, y:87}
   },
   forge_approach: {
     id:"forge_approach", name:"Forge Approach", icon:"🔩", type:"route",
@@ -6669,7 +6669,7 @@ const WORLD_DATA = {
       {id:116, minLv:64, maxLv:69, rate:18},  // Zephyrin (base)
       {id:116, minLv:65, maxLv:70, rate:6}   // Pneumathos (mid → after 116 ✓)
     ],
-    hasGym:false, requiredBadges:16, mapPos:{x:3, y:97}
+    hasGym:false, requiredBadges:16, mapPos:{x:20, y:86}
   },
   forge_ruins: {
     id:"forge_ruins", name:"Forge Ruins", icon:"🏚️", type:"route",
@@ -6765,7 +6765,7 @@ const WORLD_DATA = {
     ],
     legendaryEncounter:{monsterId:314, level:66}, // static legendary (obtainability fix)
     ngPlusWildMonsters:[{id:375, minLv:64, maxLv:69, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:16, mapPos:{x:9, y:91}
+    hasGym:false, requiredBadges:16, mapPos:{x:16, y:84}
   },
   mistmoor: {
     id:"mistmoor", name:"Mistmoor Town", icon:"💨", type:"city",
@@ -6778,7 +6778,7 @@ const WORLD_DATA = {
       {id:220, minLv:73, maxLv:76, rate:18}, // Umbrajest
       {id:216, minLv:74, maxLv:76, rate:15}  // Distorsion
     ],
-    hasGym:true, gymLeader:"steam", requiredBadges:15, mapPos:{x:3, y:86}
+    hasGym:true, gymLeader:"steam", requiredBadges:15, mapPos:{x:8, y:79}
   },
   fogbank: {
     id:"fogbank", name:"Fogbank Reach", icon:"🌫️", type:"route",
@@ -6790,7 +6790,7 @@ const WORLD_DATA = {
       {id:216, minLv:73, maxLv:76, rate:24}, // Mindrift
       {id:160, minLv:73, maxLv:76, rate:22}  // Miasmafly
     ],
-    hasGym:false, requiredBadges:16, mapPos:{x:4, y:91}
+    hasGym:false, requiredBadges:16, mapPos:{x:12, y:82}
   },
   tempest_cliffs: {
     id:"tempest_cliffs", name:"Tempest Cliffs", icon:"⛰️", type:"route",
@@ -6805,7 +6805,7 @@ const WORLD_DATA = {
       {id:173, minLv:65, maxLv:70, rate:14}   // Chromedrake (standalone Draconic/Metal)
     ],
     ngPlusWildMonsters:[{id:386, minLv:66, maxLv:71, rate:8}, {id:333, minLv:66, maxLv:71, rate:10}], // NG+ standalone: Voltafang
-    hasGym:false, requiredBadges:16, mapPos:{x:11, y:97}
+    hasGym:false, requiredBadges:16, mapPos:{x:29, y:88}
   },
   ash_fields: {
     id:"ash_fields", name:"Ash Fields", icon:"🏜️", type:"route",

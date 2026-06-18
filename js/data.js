@@ -5697,7 +5697,7 @@ const WORLD_DATA = {
   skyvault: {
     id:"skyvault", name:"Skyvault City", icon:"🏰", type:"city",
     desc:"A city floating on clouds. Mental Gym Leader Oracle sees all futures.",
-    connections:["route7","route8","mystic_forest","wind_bridge"],
+    connections:["route7","route8"],
     wildMonsters:[
       {id:166, minLv:50, maxLv:54, rate:30}, // Projectery
       {id:142, minLv:50, maxLv:54, rate:25}, // Dawnirel
@@ -5710,7 +5710,7 @@ const WORLD_DATA = {
   route8: {
     id:"route8", hasUmbraEncounter:true, name:"Route 8 - Sky Corridors", icon:"🌤️", type:"route",
     desc:"Aerial paths between floating islands. Wind and Mental types soar here.",
-    connections:["skyvault","dragonspire","wind_bridge"],
+    connections:["skyvault","dragonspire"],
     wildMonsters:[
       {id:108, minLv:54, maxLv:58, rate:34}, // Silvergust
       {id:111, minLv:54, maxLv:58, rate:29}, // Swirlavel
@@ -5885,7 +5885,7 @@ const WORLD_DATA = {
   ancient_ruins: {
     id:"ancient_ruins", name:"Ancient Ruins", icon:"🏛️", type:"route",
     desc:"Crumbling temples from a forgotten civilization. Mental and Dark energies fill the air. The Umbra Order has been spotted here.",
-    connections:["lumoria_jungle","bug_forest_east","reef_ruins"],
+    connections:["lumoria_jungle","reef_ruins"],
     wildMonsters:[
       {id:22, minLv:13, maxLv:17, rate:30}, // Hallucigaze (obtainability fix)
       {id:114, minLv:12, maxLv:16, rate:20},  // Dawnirel
@@ -5917,7 +5917,7 @@ const WORLD_DATA = {
   volcano_core: {
     id:"volcano_core", name:"Volcano Core", icon:"🌋", type:"route",
     desc:"The scorching heart of the volcano beneath Hauntcoal. Only the most fearless trainers descend here. Legendary energies stir within.",
-    connections:["emberveil","iron_canyon","lava_fields"],
+    connections:["emberveil","lava_fields"],
     wildMonsters:[
       {id:1, minLv:24, maxLv:29, rate:24}, // Magmote (obtainability fix)
       {id:13, minLv:22, maxLv:28, rate:12},  // Pyroclasm
@@ -5963,7 +5963,7 @@ const WORLD_DATA = {
   mystic_forest: {
     id:"mystic_forest", name:"Mystic Forest", icon:"🌌", type:"route",
     desc:"A forest where the boundary between worlds is thin. Fairy and Mental creatures drift between the trees. The Umbra Order's hideout is rumoured to be nearby.",
-    connections:["route7","skyvault","sky_harbor","umbra_base"],
+    connections:["route7","sky_harbor","umbra_base"],
     wildMonsters:[
       {id:142, minLv:46, maxLv:52, rate:6},  // Astrelle
       {id:140, minLv:46, maxLv:52, rate:24},  // Iridesoar
@@ -5995,7 +5995,7 @@ const WORLD_DATA = {
   coral_reef: {
     id:"coral_reef", name:"Coral Reef", icon:"🪸", type:"route",
     desc:"A stunning underwater coral garden teeming with colorful Aquatic and Poison types. Sunlight filters through the shimmering water above.",
-    connections:["deep_trench","reef_ruins","sunken_temple"],
+    connections:["deep_trench","reef_ruins"],
     wildMonsters:[
       {id:256, minLv:24, maxLv:28, rate:13}, // Scolphin (obtainability fix)
       {id:34, minLv:22, maxLv:26, rate:25}, // Pearlmaid (obtainability fix)
@@ -6077,7 +6077,7 @@ const WORLD_DATA = {
   sunken_temple: {
     id:"sunken_temple", name:"Sunken Temple", icon:"🏛️", type:"special",
     desc:"An ancient temple half-submerged beneath the ocean. Mental inscriptions glow on the walls. Something powerful sleeps in the inner sanctum.",
-    connections:["deep_trench","coral_reef"],
+    connections:["deep_trench"],
     wildMonsters:[
       {id:254, minLv:25, maxLv:32, rate:9},   // Biolumal
       {id:166, minLv:25, maxLv:32, rate:31},   // Projectery
@@ -6091,7 +6091,7 @@ const WORLD_DATA = {
   iron_canyon: {
     id:"iron_canyon", name:"Iron Canyon", icon:"⛏️", type:"route",
     desc:"A deep canyon carved by centuries of volcanic flow. The walls glint with veins of metal ore. Metal and Ground types dominate this harsh terrain.",
-    connections:["volcano_core","emberveil","lava_fields"],
+    connections:["emberveil"],
     wildMonsters:[
       {id:147, minLv:25, maxLv:31, rate:25},   // Scrapsapien
       {id:191, minLv:25, maxLv:31, rate:25},   // Pebblet
@@ -6155,7 +6155,7 @@ const WORLD_DATA = {
   bug_forest_east: {
     id:"bug_forest_east", name:"Bug Forest East", icon:"🐛", type:"route",
     desc:"The deeper eastern reaches of the Bug Forest. Stronger bugs and rare species inhabit the ancient trees near the ruins.",
-    connections:["bug_forest_west","ancient_ruins"],
+    connections:["bug_forest_west"],
     wildMonsters:[
       {id:200, minLv:12, maxLv:17, rate:35},  // Iridibeetle
       {id:123, minLv:13, maxLv:18, rate:20},  // Nocturil
@@ -6181,7 +6181,7 @@ const WORLD_DATA = {
   lava_fields: {
     id:"lava_fields", name:"Lava Fields", icon:"🌋", type:"route",
     desc:"A smoldering expanse of hardened lava and glowing fissures. The ground cracks underfoot and fire vents belch superheated air.",
-    connections:["volcano_core","iron_canyon"],
+    connections:["volcano_core"],
     wildMonsters:[
       {id:53, minLv:28, maxLv:34, rate:6}, // Ashrock (obtainability fix)
       {id:13, minLv:26, maxLv:32, rate:28},   // Taurcin
@@ -6221,7 +6221,7 @@ const WORLD_DATA = {
   wind_bridge: {
     id:"wind_bridge", name:"Wind Bridge", icon:"🌬️", type:"route",
     desc:"A series of ancient stone arches bridging floating islands in the sky. Powerful updrafts make travel treacherous but the view is breathtaking.",
-    connections:["route7","route8","skyvault"],
+    connections:["route7"],
     wildMonsters:[
       {id:111, minLv:48, maxLv:54, rate:25},   // Aeolin
       {id:108, minLv:48, maxLv:54, rate:25},   // Silvergust
@@ -6647,7 +6647,7 @@ const WORLD_DATA = {
   tremor_summit: {
     id:"tremor_summit", name:"Tremor Summit", icon:"⛰️", type:"route",
     desc:"The crest of the quake-ridden foothills where the shaking is strongest. Only final-stage Ground-type Lumori can hold their footing here.",
-    connections:["quake_foothills","terravault","magma_vent"],
+    connections:["quake_foothills","terravault"],
     wildMonsters:[
       {id:95,  minLv:62, maxLv:67, rate:15},  // Quakehide (final, 96 on quake_foothills ✓)
       {id:98, minLv:62, maxLv:67, rate:15},  // Craterlurk (final, 99 on quake_foothills ✓)
@@ -6707,7 +6707,7 @@ const WORLD_DATA = {
   magma_vent: {
     id:"magma_vent", name:"Magma Vent", icon:"🌋", type:"route",
     desc:"A superheated gorge where magma seeps through rock fissures between the foothills and Tremor Summit. Ground and Fire types bask in the thermal heat.",
-    connections:["quake_foothills","tremor_summit"],
+    connections:["quake_foothills"],
     wildMonsters:[
       {id:95,  minLv:61, maxLv:66, rate:8},  // Seismith (mid, 95 on quake_foothills ✓)
       {id:98,  minLv:61, maxLv:66, rate:14},  // Toxivenoth (mid, 98 on quake_foothills ✓)

@@ -629,7 +629,7 @@ function scaleMapPath(pathStr, mapW, mapH) {
 // Zoom state
 // Default to a higher zoom on small (mobile) screens so the map renders larger
 // than the viewport (scrollable) and markers/labels get more breathing room.
-let mapZoom = (typeof window !== "undefined" && window.innerWidth > 0 && window.innerWidth < 768) ? 1.5 : 1;
+let mapZoom = (typeof window !== "undefined" && window.innerWidth > 0 && window.innerWidth < 768) ? 2 : 1;
 const MAP_ZOOM_LEVELS = [1, 1.5, 2, 2.5];
 
 function setMapZoom(level) {

@@ -5655,7 +5655,7 @@ const WORLD_DATA = {
       {id:123, minLv:43, maxLv:46, rate:35}  // Nocturil
     ],
     ngPlusWildMonsters:[{id:417, minLv:42, maxLv:45, rate:12}], // NG+ family base: Glacigeist
-    hasGym:true, gymLeader:"nyx", requiredBadges:7, mapPos:{x:15, y:35}
+    hasGym:true, gymLeader:"nyx", requiredBadges:7, mapPos:{x:15, y:34}
   },
   lodehollow: {
     id:"lodehollow", name:"Lodehollow Town", icon:"⛏️", type:"city",
@@ -5880,7 +5880,7 @@ const WORLD_DATA = {
       {id:123, minLv:10, maxLv:13, rate:8}   // Miasmafly
     ],
     ngPlusWildMonsters:[{id:411, minLv:9, maxLv:12, rate:12}], // NG+ family base: Thrumquill
-    hasGym:false, requiredBadges:1, mapPos:{x:50, y:55}
+    hasGym:false, requiredBadges:1, mapPos:{x:49, y:54}
   },
   ancient_ruins: {
     id:"ancient_ruins", name:"Ancient Ruins", icon:"🏛️", type:"route",
@@ -5894,7 +5894,7 @@ const WORLD_DATA = {
       {id:189, minLv:14, maxLv:17, rate:25}   // Projectery
     ],
     ngPlusWildMonsters:[{id:448, minLv:12, maxLv:16, rate:12}], // NG+ family base: Cobblepup
-    hasGym:false, requiredBadges:1, mapPos:{x:57, y:59},
+    hasGym:false, requiredBadges:1, mapPos:{x:60, y:65},
     storyLocation:true, hasUmbraEncounter:true,
     legendaryEncounter:{monsterId:165, level:55}
   },
@@ -5988,7 +5988,7 @@ const WORLD_DATA = {
     ],
     hasGym:false, requiredBadges:8,
     hasUmbraBase:true,
-    mapPos:{x:16, y:48}
+    mapPos:{x:18, y:48}
   },
 
   // ===== NEW AREAS =====
@@ -6021,7 +6021,7 @@ const WORLD_DATA = {
       {id:218, minLv:45, maxLv:50, rate:6}   // Necralia
     ],
     ngPlusWildMonsters:[{id:454, minLv:43, maxLv:47, rate:12}], // NG+ family base: Tollwisp
-    hasGym:false, requiredBadges:7, mapPos:{x:14, y:42}
+    hasGym:false, requiredBadges:7, mapPos:{x:13, y:42}
   },
   sky_harbor: {
     id:"sky_harbor", name:"Sky Harbor", icon:"⛵", type:"town",
@@ -6161,7 +6161,7 @@ const WORLD_DATA = {
       {id:123, minLv:13, maxLv:18, rate:20},  // Nocturil
       {id:10, minLv:14, maxLv:19, rate:45}    // Scorchlarva
     ],
-    hasGym:false, requiredBadges:1, mapPos:{x:52, y:65}
+    hasGym:false, requiredBadges:1, mapPos:{x:52, y:64}
   },
   mirror_lake: {
     id:"mirror_lake", name:"Mirror Lake", icon:"🪞", type:"route",
@@ -6259,7 +6259,7 @@ const WORLD_DATA = {
       {id:220, minLv:53, maxLv:58, rate:25}   // Necralia
     ],
     ngPlusWildMonsters:[{id:371, minLv:52, maxLv:58, rate:10}], // NG+ standalone: Nullform
-    hasGym:false, requiredBadges:8, mapPos:{x:13, y:53},
+    hasGym:false, requiredBadges:8, mapPos:{x:12, y:54},
     legendaryEncounter:{monsterId:166, level:55}
   },
   // ---- NEW ROUTES & GYM CITIES (badges 8-15) ----
@@ -6274,7 +6274,7 @@ const WORLD_DATA = {
       {id:72, minLv:56, maxLv:61, rate:25},
       {id:72, minLv:57, maxLv:62, rate:10}
     ],
-    hasGym:false, requiredBadges:10, mapPos:{x:51, y:51},
+    hasGym:false, requiredBadges:10, mapPos:{x:53, y:53},
     ngPlusWildMonsters:[{id:326,minLv:62,maxLv:68,rate:20},{id:328,minLv:62,maxLv:68,rate:15},{id:331,minLv:63,maxLv:69,rate:15}]
   },
   bloomhaven: {
@@ -6288,7 +6288,7 @@ const WORLD_DATA = {
       {id:75, minLv:58, maxLv:62, rate:35}
     ],
     ngPlusWildMonsters:[{id:452, minLv:56, maxLv:60, rate:12}], // NG+ family base: Dozit
-    hasGym:true, gymLeader:"thorne", requiredBadges:10, mapPos:{x:51, y:57}
+    hasGym:true, gymLeader:"thorne", requiredBadges:10, mapPos:{x:56, y:58}
   },
   route10: {
     id:"route10", hasUmbraEncounter:true, name:"Route 10 - Toxic Passage", icon:"☠️", type:"route",
@@ -6305,7 +6305,7 @@ const WORLD_DATA = {
       {id:266, minLv:57, maxLv:62, rate:21},  // Shadowcub (base Dark/Sonic)
       {id:299, minLv:57, maxLv:62, rate:5}    // Resinbee (base Bug/Poi)
     ],
-    hasGym:false, requiredBadges:11, mapPos:{x:47, y:52},
+    hasGym:false, requiredBadges:11, mapPos:{x:51, y:52},
     ngPlusWildMonsters:[{id:322,minLv:64,maxLv:70,rate:20},{id:323,minLv:64,maxLv:70,rate:15},{id:325,minLv:65,maxLv:71,rate:10}]
   },
   miasmacity: {
@@ -6318,7 +6318,7 @@ const WORLD_DATA = {
       {id:162, minLv:59, maxLv:64, rate:25},  // Blightalis (mid, 162 on route10 ✓)
       {id:164, minLv:59, maxLv:64, rate:25}   // Lepidox (mid, 164 on toxic_bog ✓)
     ],
-    hasGym:true, gymLeader:"viper", requiredBadges:12, mapPos:{x:43, y:64},
+    hasGym:true, gymLeader:"viper", requiredBadges:12, mapPos:{x:43, y:65},
     ngPlusWildMonsters:[{id:322,minLv:65,maxLv:70,rate:25},{id:324,minLv:65,maxLv:70,rate:15}]
   },
   route11: {
@@ -6378,7 +6378,7 @@ const WORLD_DATA = {
       {id:202, minLv:63, maxLv:68, rate:25},  // Arachnalis (mid, 202 on route12 ✓)
       {id:204, minLv:64, maxLv:69, rate:25}   // Quarrix (mid)
     ],
-    hasGym:true, gymLeader:"mantis", requiredBadges:14, mapPos:{x:10, y:91},
+    hasGym:true, gymLeader:"mantis", requiredBadges:14, mapPos:{x:9, y:91},
     ngPlusWildMonsters:[{id:357, minLv:63, maxLv:69, rate:10}, {id:330,minLv:68,maxLv:74,rate:25},{id:331,minLv:68,maxLv:74,rate:20},{id:326,minLv:68,maxLv:74,rate:10},{id:402,minLv:69,maxLv:75,rate:6},{id:405,minLv:69,maxLv:75,rate:6}]
   },
   route13: {
@@ -6410,7 +6410,7 @@ const WORLD_DATA = {
       {id:116, minLv:65, maxLv:70, rate:20},  // Pneumathos (mid)
       {id:62,  minLv:66, maxLv:70, rate:30}   // standalone
     ],
-    hasGym:true, gymLeader:"zephyra", requiredBadges:16, mapPos:{x:35, y:88},
+    hasGym:true, gymLeader:"zephyra", requiredBadges:16, mapPos:{x:37, y:88},
     ngPlusWildMonsters:[{id:338, minLv:66, maxLv:70, rate:10}, {id:335,minLv:71,maxLv:76,rate:25},{id:370,minLv:71,maxLv:76,rate:15}]
   },
   route14: {
@@ -6442,7 +6442,7 @@ const WORLD_DATA = {
       {id:135, minLv:67, maxLv:72, rate:30},  // Steelvex (mid, 134 on route14 ✓)
       {id:135, minLv:68, maxLv:73, rate:12}   // Metalibat (final → after 135 ✓)
     ],
-    hasGym:true, gymLeader:"ferro", requiredBadges:17, mapPos:{x:46, y:95},
+    hasGym:true, gymLeader:"ferro", requiredBadges:17, mapPos:{x:47, y:90},
     ngPlusWildMonsters:[{id:334,minLv:73,maxLv:78,rate:25},{id:347,minLv:73,maxLv:78,rate:20}]
   },
   route15: {
@@ -6474,7 +6474,7 @@ const WORLD_DATA = {
       {id:133, minLv:69, maxLv:74, rate:15},  // Monolithox (mid)
       {id:92,  minLv:70, maxLv:74, rate:30}   // standalone
     ],
-    hasGym:true, gymLeader:"boulder", requiredBadges:18, mapPos:{x:53, y:78},
+    hasGym:true, gymLeader:"boulder", requiredBadges:18, mapPos:{x:53, y:79},
     ngPlusWildMonsters:[{id:399, minLv:69, maxLv:75, rate:8}, {id:359, minLv:74, maxLv:80, rate:9}, {id:327,minLv:70,maxLv:74,rate:25},{id:341,minLv:64,maxLv:70,rate:15},{id:349,minLv:67,maxLv:72,rate:10}]
   },
   route16: {
@@ -6509,7 +6509,7 @@ const WORLD_DATA = {
       {id:223, minLv:72, maxLv:76, rate:8},  // Psytheon (final → 223 on cosmic_cavern ✓)
       {id:216, minLv:73, maxLv:77, rate:5}    // Distorsion (final Mental)
     ],
-    hasGym:true, gymLeader:"seraphina", requiredBadges:19, mapPos:{x:64, y:69},
+    hasGym:true, gymLeader:"seraphina", requiredBadges:19, mapPos:{x:65, y:70},
     ngPlusWildMonsters:[{id:362, minLv:70, maxLv:77, rate:9}, {id:344,minLv:77,maxLv:82,rate:25},{id:351,minLv:77,maxLv:82,rate:20},{id:360,minLv:78,maxLv:83,rate:8}]
   },
   // ---- ADDITIONAL ROUTES (direction-change splits & mid-gym connectors) ----
@@ -6581,7 +6581,7 @@ const WORLD_DATA = {
       {id:153, minLv:66, maxLv:71, rate:28},  // Dentshaft (base)
       {id:154, minLv:67, maxLv:72, rate:18}   // Terragolem (mid → after 153 ✓)
     ],
-    hasGym:false, requiredBadges:17, mapPos:{x:43, y:96}
+    hasGym:false, requiredBadges:17, mapPos:{x:44, y:90}
   },
   stone_plateau: {
     id:"stone_plateau", name:"Stone Plateau", icon:"🏜️", type:"route",
@@ -6596,7 +6596,7 @@ const WORLD_DATA = {
       {id:195, minLv:70, maxLv:75, rate:6}   // Frigolith (mid → after 195 ✓)
     ],
     ngPlusWildMonsters:[{id:385, minLv:82, maxLv:88, rate:8}, {id:367, minLv:68, maxLv:75, rate:10}], // NG+: Permafrost (ice-golem final), Bouldertide
-    hasGym:false, requiredBadges:18, mapPos:{x:51, y:71}
+    hasGym:false, requiredBadges:18, mapPos:{x:50, y:72}
   },
   cosmic_cavern: {
     id:"cosmic_cavern", name:"Cosmic Cavern", icon:"🌌", type:"route",
@@ -6626,7 +6626,7 @@ const WORLD_DATA = {
       {id:119, minLv:73, maxLv:78, rate:25},  // dark-type
       {id:130, minLv:73, maxLv:78, rate:15}   // Necrothon (Dark/Grass)
     ],
-    hasGym:false, requiredBadges:19, mapPos:{x:78, y:73},
+    hasGym:false, requiredBadges:19, mapPos:{x:78, y:74},
     ngPlusWildMonsters:[{id:373, minLv:78, maxLv:84, rate:8}, {id:342,minLv:74,maxLv:79,rate:20},{id:352,minLv:79,maxLv:85,rate:8}]
   },
   // ---- ADDITIONAL MID-GYM ROUTES (phase 2) ----
@@ -6684,7 +6684,7 @@ const WORLD_DATA = {
       {id:135, minLv:67, maxLv:72, rate:14}   // Steelvex (mid → after 134 ✓)
     ],
     ngPlusWildMonsters:[{id:396, minLv:66, maxLv:72, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:17, mapPos:{x:32, y:97}
+    hasGym:false, requiredBadges:17, mapPos:{x:32, y:93}
   },
 
   // ---- NEW AREAS: GYMS 9-16 EXPANSION ----
@@ -6702,7 +6702,7 @@ const WORLD_DATA = {
       {id:218, minLv:59, maxLv:64, rate:10}   // Duskmist (base Spectral/Dark, item evo)
     ],
     legendaryEncounter:{monsterId:316, level:62}, // static legendary (obtainability fix)
-    hasGym:false, requiredBadges:12, mapPos:{x:43, y:58}
+    hasGym:false, requiredBadges:12, mapPos:{x:42, y:57}
   },
   magma_vent: {
     id:"magma_vent", name:"Magma Vent", icon:"🌋", type:"route",
@@ -6749,7 +6749,7 @@ const WORLD_DATA = {
     ],
     legendaryEncounter:{monsterId:318, level:69}, // static legendary (obtainability fix)
     ngPlusWildMonsters:[{id:390, minLv:64, maxLv:69, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:14, mapPos:{x:16, y:94}
+    hasGym:false, requiredBadges:14, mapPos:{x:17, y:94}
   },
   wind_hollow: {
     id:"wind_hollow", name:"Wind Hollow", icon:"🌬️", type:"route",
@@ -6805,7 +6805,7 @@ const WORLD_DATA = {
       {id:173, minLv:65, maxLv:70, rate:14}   // Chromedrake (standalone Draconic/Metal)
     ],
     ngPlusWildMonsters:[{id:386, minLv:66, maxLv:71, rate:8}, {id:333, minLv:66, maxLv:71, rate:10}], // NG+ standalone: Voltafang
-    hasGym:false, requiredBadges:16, mapPos:{x:22, y:95}
+    hasGym:false, requiredBadges:16, mapPos:{x:30, y:86}
   },
   ash_fields: {
     id:"ash_fields", name:"Ash Fields", icon:"🏜️", type:"route",
@@ -6836,7 +6836,7 @@ const WORLD_DATA = {
       {id:115, minLv:66, maxLv:71, rate:10}   // Pyrelynx (standalone Fire/Dark)
     ],
     ngPlusWildMonsters:[{id:365, minLv:67, maxLv:72, rate:9}], // NG+ standalone: Cinderking
-    hasGym:false, requiredBadges:17, mapPos:{x:39, y:96}
+    hasGym:false, requiredBadges:17, mapPos:{x:39, y:91}
   },
   granite_tunnels: {
     id:"granite_tunnels", name:"Granite Tunnels", icon:"⛏️", type:"route",
@@ -6867,7 +6867,7 @@ const WORLD_DATA = {
     ],
     legendaryEncounter:{monsterId:317, level:73}, // static legendary (obtainability fix)
     ngPlusWildMonsters:[{id:340, minLv:70, maxLv:75, rate:10}], // NG+: Cryoshard (Chronolith #388 now evolution-only from Mirestone)
-    hasGym:false, requiredBadges:18, mapPos:{x:53, y:94}
+    hasGym:false, requiredBadges:18, mapPos:{x:55, y:88}
   },
   umbra_citadel: {
     id:"umbra_citadel", name:"Umbra Citadel", icon:"🏰", type:"special", hasUmbraEncounter:true,
@@ -6911,7 +6911,7 @@ const WORLD_DATA = {
       {id:308, minLv:71, maxLv:76, rate:22}   // Seafraith (base Aquatic/Dark)
     ],
     ngPlusWildMonsters:[{id:346, minLv:72, maxLv:77, rate:10}], // NG+ standalone: Astralwing
-    hasGym:false, requiredBadges:19, mapPos:{x:72, y:69}
+    hasGym:false, requiredBadges:19, mapPos:{x:72, y:68}
   },
 
   // ============================================================
@@ -6929,7 +6929,7 @@ const WORLD_DATA = {
       {id:315, minLv:68, maxLv:72, rate:5}   // Ashvanus roams the vents
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true,
-    hasUmbraEncounter:true, mapPos:{x:84, y:69}
+    hasUmbraEncounter:true, mapPos:{x:84, y:68}
   },
   shadow_archive: {
     id:"shadow_archive", name:"Shadow Archive", icon:"📂", type:"special",

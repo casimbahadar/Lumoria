@@ -5486,7 +5486,7 @@ const WORLD_DATA = {
       {id:197, minLv:2, maxLv:5, rate:35}, // Photoworm
       {id:185, minLv:3, maxLv:5, rate:25}   // Hoverrow
     ],
-    hasGym:false, requiredBadges:0, mapPos:{x:25, y:68}
+    hasGym:false, requiredBadges:0, mapPos:{x:26, y:70}
   },
   ashford: {
     id:"ashford", name:"Ashford City", icon:"🏙️", type:"city",
@@ -5498,7 +5498,7 @@ const WORLD_DATA = {
       {id:69, minLv:4, maxLv:6, rate:30},
       {id:180, minLv:5, maxLv:7, rate:35}
     ],
-    hasGym:true, gymLeader:"rex", requiredBadges:0, mapPos:{x:35, y:65}
+    hasGym:true, gymLeader:"rex", requiredBadges:0, mapPos:{x:35, y:61}
   },
   route2: {
     id:"route2", name:"Route 2 - Greenwood Forest", icon:"🌲", type:"route",
@@ -5512,7 +5512,7 @@ const WORLD_DATA = {
       {id:84, minLv:7, maxLv:9, rate:20}   // Electrix
     ],
     ngPlusWildMonsters:[{id:446, minLv:6, maxLv:9, rate:12}], // NG+ family base: Sporelet
-    hasGym:false, requiredBadges:1, mapPos:{x:50, y:61}
+    hasGym:false, requiredBadges:1, mapPos:{x:48, y:58}
   },
   tidewatch: {
     id:"tidewatch", name:"Tidewatch Port", icon:"⛵", type:"city",
@@ -5563,7 +5563,7 @@ const WORLD_DATA = {
       {id:98, minLv:23, maxLv:26, rate:25}
     ],
     ngPlusWildMonsters:[{id:414, minLv:22, maxLv:25, rate:12}], // NG+ family base: Grublurk
-    hasGym:false, requiredBadges:3, mapPos:{x:66, y:38}
+    hasGym:false, requiredBadges:3, mapPos:{x:65, y:36}
   },
   sparkmoor: {
     id:"sparkmoor", name:"Sparkmoor Town", icon:"⚡", type:"city",
@@ -5767,7 +5767,7 @@ const WORLD_DATA = {
       {id:370, minLv:109, maxLv:112, rate:24}, // Cyclotron
       {id:292, minLv:109, maxLv:112, rate:22}  // Galehorn
     ],
-    hasGym:false, requiredBadges:20, requiresNGPlus:true, mapPos:{x:78, y:59}
+    hasGym:false, requiredBadges:20, requiresNGPlus:true, mapPos:{x:81, y:64}
   },
   clarion: {
     id:"clarion", name:"Clarion", icon:"🔊", type:"city",
@@ -5841,7 +5841,7 @@ const WORLD_DATA = {
       {id:372, minLv:123, maxLv:127, rate:33}, // Prismancer (Mental/Mineral) — backfill after Crystal legendaries rounded up
       {id:169, minLv:124, maxLv:127, rate:33}  // Prismatica (Mental/Mineral)
     ],
-    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:87, y:25}
+    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:89, y:25}
   },
   gleamcrest: {
     id:"gleamcrest", name:"Gleamcrest", icon:"💎", type:"city",
@@ -5880,7 +5880,7 @@ const WORLD_DATA = {
       {id:123, minLv:10, maxLv:13, rate:8}   // Miasmafly
     ],
     ngPlusWildMonsters:[{id:411, minLv:9, maxLv:12, rate:12}], // NG+ family base: Thrumquill
-    hasGym:false, requiredBadges:1, mapPos:{x:49, y:65}
+    hasGym:false, requiredBadges:1, mapPos:{x:49, y:61}
   },
   ancient_ruins: {
     id:"ancient_ruins", name:"Ancient Ruins", icon:"🏛️", type:"route",
@@ -6072,7 +6072,7 @@ const WORLD_DATA = {
       {id:72, minLv:48, maxLv:53, rate:20}    // Faevernal
     ],
     ngPlusWildMonsters:[{id:336, minLv:48, maxLv:53, rate:10}], // NG+ standalone: Coilstrike
-    hasGym:false, requiredBadges:8, mapPos:{x:36, y:76}
+    hasGym:false, requiredBadges:8, mapPos:{x:37, y:78}
   },
   sunken_temple: {
     id:"sunken_temple", name:"Sunken Temple", icon:"🏛️", type:"special",
@@ -6113,7 +6113,7 @@ const WORLD_DATA = {
       {id:111, minLv:5, maxLv:8, rate:35}     // Aeolin
     ],
     ngPlusWildMonsters:[{id:438, minLv:5, maxLv:8, rate:12}], // NG+ family base: Chimicada
-    hasGym:false, requiredBadges:0, mapPos:{x:8, y:68}
+    hasGym:false, requiredBadges:0, mapPos:{x:12, y:68}
   },
   fairy_meadow_north: {
     id:"fairy_meadow_north", name:"Fairy Meadow North", icon:"🌸", type:"route",

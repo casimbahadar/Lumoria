@@ -5550,7 +5550,7 @@ const WORLD_DATA = {
       {id:191, minLv:19, maxLv:22, rate:25}  // Pebblet
     ],
     ngPlusWildMonsters:[{id:1, minLv:18, maxLv:22, rate:10}], // NG+-only: Solkin (fire starter line)
-    hasGym:true, gymLeader:"pyros", requiredBadges:2, mapPos:{x:72, y:40}
+    hasGym:true, gymLeader:"pyros", requiredBadges:2, mapPos:{x:78, y:40}
   },
   route4: {
     id:"route4", name:"Route 4 - Volcanic Wastes", icon:"🔥", type:"route",
@@ -5841,7 +5841,7 @@ const WORLD_DATA = {
       {id:372, minLv:123, maxLv:127, rate:33}, // Prismancer (Mental/Mineral) — backfill after Crystal legendaries rounded up
       {id:169, minLv:124, maxLv:127, rate:33}  // Prismatica (Mental/Mineral)
     ],
-    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:88, y:30}
+    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:87, y:25}
   },
   gleamcrest: {
     id:"gleamcrest", name:"Gleamcrest", icon:"💎", type:"city",
@@ -5852,7 +5852,7 @@ const WORLD_DATA = {
       {id:225, minLv:123, maxLv:127, rate:34}, // Crealight (Fairy/Mineral)
       {id:344, minLv:124, maxLv:127, rate:28}  // Glimmeritch (Fairy/Spectral)
     ],
-    hasGym:true, gymLeader:"prisma", requiredBadges:23, requiresNGPlus:true, mapPos:{x:82, y:28}
+    hasGym:true, gymLeader:"prisma", requiredBadges:23, requiresNGPlus:true, mapPos:{x:82, y:19}
   },
   ascendant_path: {
     id:"ascendant_path", name:"Ascendant Path", icon:"⚔️", type:"route",
@@ -5973,7 +5973,7 @@ const WORLD_DATA = {
       {id:220, minLv:46, maxLv:52, rate:18}   // Oneiron
     ],
     ngPlusWildMonsters:[{id:429, minLv:46, maxLv:49, rate:12}], // NG+ family base: Lullasnout
-    hasGym:false, requiredBadges:8, mapPos:{x:29, y:61},
+    hasGym:false, requiredBadges:8, mapPos:{x:23, y:60},
     storyLocation:true, hasUmbraEncounter:true
   },
   umbra_base: {
@@ -6034,7 +6034,7 @@ const WORLD_DATA = {
       {id:140, minLv:50, maxLv:54, rate:10},   // Iridesoar
       {id:111, minLv:49, maxLv:53, rate:30}    // Aeolin
     ],
-    hasGym:false, requiredBadges:8, mapPos:{x:22, y:65}
+    hasGym:false, requiredBadges:8, mapPos:{x:19, y:66}
   },
   thunder_cliffs: {
     id:"thunder_cliffs", name:"Thunder Cliffs", icon:"⚡", type:"route",
@@ -6060,7 +6060,7 @@ const WORLD_DATA = {
       {id:75, minLv:45, maxLv:50, rate:35}    // Sylvolt
     ],
     ngPlusWildMonsters:[{id:442, minLv:44, maxLv:48, rate:12}], // NG+ family base: Bloatleech
-    hasGym:false, requiredBadges:8, mapPos:{x:30, y:56}
+    hasGym:false, requiredBadges:8, mapPos:{x:26, y:58}
   },
   poison_swamp_lower: {
     id:"poison_swamp_lower", name:"Poison Swamp Lower", icon:"🌿", type:"route",
@@ -6190,12 +6190,12 @@ const WORLD_DATA = {
       {id:13, minLv:28, maxLv:34, rate:10},   // Molteroth
       {id:191, minLv:29, maxLv:34, rate:18}    // Boulderoll
     ],
-    hasGym:false, requiredBadges:4, mapPos:{x:82, y:19}
+    hasGym:false, requiredBadges:4, mapPos:{x:82, y:28}
   },
   spirit_canyon: {
     id:"spirit_canyon", name:"Spirit Canyon", icon:"🌀", type:"route",
     desc:"A deep chasm where psychic resonance amplifies every thought and memory. The walls seem to shift and breathe.",
-    connections:["haunted_grove","fairy_meadow_south","dark_canyon"],
+    connections:["haunted_grove","fairy_meadow_south"],
     wildMonsters:[
       {id:166, minLv:44, maxLv:50, rate:35},   // Projectery
       {id:123, minLv:46, maxLv:51, rate:50},   // Nocturil
@@ -6250,7 +6250,7 @@ const WORLD_DATA = {
   dark_canyon: {
     id:"dark_canyon", hasUmbraEncounter:true, name:"Dark Canyon", icon:"🌑", type:"route",
     desc:"A pitch-black gorge where no light penetrates. Dark type Lumori have claimed every shadowed corner, and even the rocks seem to absorb light.",
-    connections:["spirit_canyon","umbra_base"],
+    connections:["umbra_base"],
     wildMonsters:[
       {id:118, minLv:50, maxLv:56, rate:20},   // Dreadmaw
       {id:121, minLv:50, maxLv:56, rate:10},   // Caveshroud
@@ -6492,7 +6492,7 @@ const WORLD_DATA = {
       {id:254, minLv:69, maxLv:74, rate:12},  // Bubblepuff (base Aquatic/Psy)
       {id:302, minLv:69, maxLv:74, rate:5}    // Lightpuff (base Fairy, item evo)
     ],
-    hasGym:false, requiredBadges:19, mapPos:{x:62, y:78},
+    hasGym:false, requiredBadges:19, mapPos:{x:58, y:80},
     ngPlusWildMonsters:[{id:363, minLv:71, maxLv:75, rate:9}, {id:344,minLv:76,maxLv:82,rate:20},{id:351,minLv:76,maxLv:82,rate:15},{id:360,minLv:77,maxLv:83,rate:10}]
   },
   starbloom: {
@@ -6911,7 +6911,7 @@ const WORLD_DATA = {
       {id:308, minLv:71, maxLv:76, rate:22}   // Seafraith (base Aquatic/Dark)
     ],
     ngPlusWildMonsters:[{id:346, minLv:72, maxLv:77, rate:10}], // NG+ standalone: Astralwing
-    hasGym:false, requiredBadges:19, mapPos:{x:71, y:63}
+    hasGym:false, requiredBadges:19, mapPos:{x:72, y:69}
   },
 
   // ============================================================
@@ -6970,7 +6970,7 @@ const WORLD_DATA = {
     connections:["void_nexus"],
     wildMonsters:[],
     hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade",
-    mapPos:{x:98, y:93}
+    mapPos:{x:93, y:93}
   },
 
   umbra_spire: {

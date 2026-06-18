@@ -776,23 +776,24 @@ function renderWorldMap() {
     return check(a) || check(b);
   }
 
-  // Build orthogonal segments between two map points
-  // Returns array of straight-line segment paths (split at direction changes)
+  // Build the segments between two map points. Default to a single STRAIGHT line
+  // (no direction change) for clean, un-zigzagged roads. Only fall back to an
+  // orthogonal L when one axis strongly dominates (a near-horizontal/vertical run
+  // with a small offset), where a slight jog reads better than a shallow slope.
   function orthSegments(x1, y1, x2, y2) {
     const dx = Math.abs(x2 - x1), dy = Math.abs(y2 - y1);
-    // If nearly a straight line, return single segment
-    if (dx < 3 || dy < 3) {
+    const mn = Math.min(dx, dy), mx = Math.max(dx, dy);
+    // Straight line for axis-aligned or reasonably diagonal connections.
+    if (mx < 3 || mn / mx >= 0.22) {
       return [`M ${x1},${y1} L ${x2},${y2}`];
     }
-    // L-shaped: split into two straight segments at the corner
+    // One axis strongly dominates: single gentle jog.
     if (dx >= dy) {
-      // Horizontal first, then vertical. Corner at (x2, y1)
       return [
         `M ${x1},${y1} L ${x2},${y1}`,
         `M ${x2},${y1} L ${x2},${y2}`
       ];
     } else {
-      // Vertical first, then horizontal. Corner at (x1, y2)
       return [
         `M ${x1},${y1} L ${x1},${y2}`,
         `M ${x1},${y2} L ${x2},${y2}`

@@ -5542,7 +5542,7 @@ const WORLD_DATA = {
   emberveil: {
     id:"emberveil", name:"Hauntcoal City", icon:"🌋", type:"city", hasUmbraEncounter:true,
     desc:"Built near an active volcano. The fiery Gym Leader Pyros waits within.",
-    connections:["route3","route4","volcano_core"],
+    connections:["route3","route4","volcano_core","magma_vent"],
     wildMonsters:[
       {id:16, minLv:18, maxLv:22, rate:35}, // Cindercula
       {id:13, minLv:18, maxLv:22, rate:10}, // Taurcin
@@ -5685,7 +5685,7 @@ const WORLD_DATA = {
   route7: {
     id:"route7", name:"Route 7 - Poison Marshes", icon:"☠️", type:"route",
     desc:"A fetid swamp full of poison. Dark and Poison types are found in abundance.",
-    connections:["shadowmere","skyvault","mystic_forest","fairy_meadow_north","poison_swamp_upper"],
+    connections:["shadowmere","skyvault","mystic_forest","fairy_meadow_north"],
     wildMonsters:[
       {id:157, minLv:46, maxLv:50, rate:25}, // Acidelix
       {id:155, minLv:46, maxLv:50, rate:25}, // Toxirin
@@ -5870,7 +5870,7 @@ const WORLD_DATA = {
   lumoria_jungle: {
     id:"lumoria_jungle", name:"Lumoria Jungle", icon:"🌴", type:"route",
     desc:"A dense, humid jungle teeming with Grass, Poison and Bug types. Ancient ruins peek through the canopy.",
-    connections:["route2","ancient_ruins","bug_forest_west","poison_swamp_lower"],
+    connections:["route2","ancient_ruins","bug_forest_west"],
     wildMonsters:[
       {id:200, minLv:10, maxLv:13, rate:18}, // Sproutix (obtainability fix)
       {id:7, minLv:8, maxLv:12, rate:14},   // Sporix
@@ -6053,26 +6053,26 @@ const WORLD_DATA = {
   poison_swamp_upper: {
     id:"poison_swamp_upper", name:"Poison Swamp Upper", icon:"🌿", type:"route",
     desc:"The upper reaches of the Poison Swamp, where toxic fumes seep from cracks in the earth near the marshes of Route 7.",
-    connections:["route7","poison_swamp_lower"],
+    connections:["miasmacity","poison_swamp_lower"],
     wildMonsters:[
       {id:69, minLv:44, maxLv:49, rate:30},   // Groveguard
       {id:72, minLv:44, maxLv:49, rate:35},   // Faelomis
       {id:75, minLv:45, maxLv:50, rate:35}    // Sylvolt
     ],
     ngPlusWildMonsters:[{id:442, minLv:44, maxLv:48, rate:12}], // NG+ family base: Bloatleech
-    hasGym:false, requiredBadges:8, mapPos:{x:26, y:52}
+    hasGym:false, requiredBadges:8, mapPos:{x:44, y:67}
   },
   poison_swamp_lower: {
     id:"poison_swamp_lower", name:"Poison Swamp Lower", icon:"🌿", type:"route",
     desc:"The deeper, fouler reaches of the Poison Swamp. The air is thick with noxious miasma and stronger Poison types lurk in the muck.",
-    connections:["poison_swamp_upper","lumoria_jungle"],
+    connections:["poison_swamp_upper"],
     wildMonsters:[
       {id:75, minLv:46, maxLv:51, rate:45},   // Sylvolt
       {id:118, minLv:47, maxLv:52, rate:35},  // Dreadmaw
       {id:72, minLv:48, maxLv:53, rate:20}    // Faevernal
     ],
     ngPlusWildMonsters:[{id:336, minLv:48, maxLv:53, rate:10}], // NG+ standalone: Coilstrike
-    hasGym:false, requiredBadges:8, mapPos:{x:40, y:73}
+    hasGym:false, requiredBadges:8, mapPos:{x:46, y:69}
   },
   sunken_temple: {
     id:"sunken_temple", name:"Sunken Temple", icon:"🏛️", type:"special",
@@ -6311,7 +6311,7 @@ const WORLD_DATA = {
   miasmacity: {
     id:"miasmacity", name:"Miasma City", icon:"🏭", type:"city",
     desc:"An industrial city shrouded in toxic mist. Home to Gym Leader Viper, master of Poison types.",
-    connections:["route11","mire_depths"],
+    connections:["route11","mire_depths","poison_swamp_upper"],
     wildMonsters:[
       {id:155, minLv:58, maxLv:63, rate:25},  // Venekon (mid)
       {id:157, minLv:60, maxLv:65, rate:25},  // Dissotoad (final, 158 on toxic_bog ✓)
@@ -6529,7 +6529,7 @@ const WORLD_DATA = {
   quake_foothills: {
     id:"quake_foothills", name:"Quake Foothills", icon:"🌋", type:"route",
     desc:"Rolling foothills rocked by constant tremors where Terravault's mountain range begins. Ground-type Lumori burrow through the cracked and heaving earth.",
-    connections:["route11","magma_vent","tremor_summit"],
+    connections:["route11","tremor_summit"],
     wildMonsters:[
       {id:95,  minLv:59, maxLv:64, rate:24},  // Aridhino (base)
       {id:95,  minLv:60, maxLv:65, rate:8},  // Seismith (mid → after 95 ✓)
@@ -6707,7 +6707,7 @@ const WORLD_DATA = {
   magma_vent: {
     id:"magma_vent", name:"Magma Vent", icon:"🌋", type:"route",
     desc:"A superheated gorge where magma seeps through rock fissures between the foothills and Tremor Summit. Ground and Fire types bask in the thermal heat.",
-    connections:["quake_foothills"],
+    connections:["emberveil"],
     wildMonsters:[
       {id:95,  minLv:61, maxLv:66, rate:8},  // Seismith (mid, 95 on quake_foothills ✓)
       {id:98,  minLv:61, maxLv:66, rate:14},  // Toxivenoth (mid, 98 on quake_foothills ✓)
@@ -6718,7 +6718,7 @@ const WORLD_DATA = {
     ],
     ngPlusWildMonsters:[{id:368, minLv:61, maxLv:66, rate:9}], // NG+ standalone: Willowisp
     legendaryEncounter:{monsterId:321, level:63}, // base-game legendary (relocated from NG+ mega-areas)
-    hasGym:false, requiredBadges:13, mapPos:{x:29, y:64}
+    hasGym:false, requiredBadges:13, mapPos:{x:75, y:32}
   },
   fungal_cavern: {
     id:"fungal_cavern", name:"Fungal Cavern", icon:"🍄", type:"route",

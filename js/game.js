@@ -389,7 +389,7 @@ function showNotification(text, cb) {
 
 // Minimal two-button confirm, reusing the notification overlay (adds a temporary
 // "No" button beside OK so we don't need new markup).
-function showConfirm(text, onYes, yesLabel = "Yes", noLabel = "No") {
+function showConfirm(text, onYes, yesLabel = "Yes", noLabel = "No", onNo = null) {
   const overlay = document.getElementById("notification-overlay");
   document.getElementById("notification-text").innerHTML = text;
   const okBtn = document.getElementById("btn-notification-ok");
@@ -405,7 +405,7 @@ function showConfirm(text, onYes, yesLabel = "Yes", noLabel = "No") {
   overlay.classList.remove("hidden");
   const cleanup = () => { overlay.classList.add("hidden"); okBtn.textContent = "OK"; if (noBtn) noBtn.remove(); };
   okBtn.onclick = () => { cleanup(); if (onYes) onYes(); };
-  noBtn.onclick = () => { cleanup(); };
+  noBtn.onclick = () => { cleanup(); if (onNo) onNo(); };
 }
 
 // ---- Level Up Overlay ----
@@ -2819,6 +2819,16 @@ function endBattle(outcome, slot, levelUps) {
     MusicEngine.stop();
     // Resume overworld music after a short delay
     setTimeout(() => { if (typeof MusicEngine !== "undefined" && !MusicEngine.isMuted()) MusicEngine.playOverworld(); }, 1500);
+  }
+
+  // Battle Frontier: chain into the next bout on a win (attrition — no heal, HP
+  // already synced above, statuses already cleared), or finalize the run on a loss/
+  // exit (restores the real party, records the best streak). No overworld rewards or
+  // blackout penalty. Mirrors the PvP-gauntlet chain but on the dedicated squad.
+  if (battleContext.isFrontier) {
+    if (outcome === "won") frontierAdvance();
+    else frontierFinish(outcome);
+    return;
   }
 
   // PvP resolves to a rating change and returns to the PvP screen — no wild/gym/
@@ -5371,14 +5381,19 @@ function renderFrontierSetup() {
     }
   }
   // Format chips — always pick the format (it sets the battle style; size mode only
-  // changes how many Lumori you field).
+  // changes how many Lumori you field). Double/Triple land in stage 3c; for now only
+  // Single is selectable (and is forced if a deferred format was somehow set).
+  if (s.format !== "single") s.format = "single";
   const fmtBox = document.getElementById("frontier-format-opts");
   if (fmtBox) {
     fmtBox.innerHTML = "";
     for (const f of FRONTIER_FORMATS) {
-      const sub = s.size === "three" ? "3 Lumori" : `${f.size} Lumori`;
-      fmtBox.appendChild(frontierOptBtn(`${f.icon} ${f.name}`, sub, s.format === f.id,
-        () => { s.format = f.id; renderFrontierSetup(); }));
+      const ready = (f.id === "single");
+      const sub = ready ? (s.size === "three" ? "3 Lumori" : `${f.size} Lumori`) : "coming in 3c";
+      const chip = frontierOptBtn(`${f.icon} ${f.name}`, sub, s.format === f.id,
+        () => { if (ready) { s.format = f.id; renderFrontierSetup(); } });
+      if (!ready) { chip.disabled = true; chip.classList.add("frontier-opt-disabled"); }
+      fmtBox.appendChild(chip);
     }
   }
 
@@ -5405,6 +5420,74 @@ function renderFrontierSetup() {
   if (beginBtn) beginBtn.disabled = eligible.length < need;
 }
 
+// ---- Run engine (stage 3b: single format) -------------------------------------
+// Active run, or null when not in the Tower. The squad is a set of normalized,
+// attrition-tracked party-slot clones swapped into G.team for the run's duration
+// (PvP-style), with the real party stashed in `realParty` and restored on finish.
+let frontierRun = null;
+
+// Opponent level for a given streak: starts at base, climbs +step per win, capped.
+function frontierEnemyLevel(streak) {
+  return Math.min(FRONTIER_ENEMY_LEVEL_CAP, FRONTIER_ENEMY_BASE_LEVEL + FRONTIER_ENEMY_LEVEL_STEP * streak);
+}
+
+// Clone a party slot and normalize it to `level`: recompute maxHP and (by default)
+// refill HP. Keeps real moves / IVs / nature / held item / shiny / variant so
+// team-building still matters. Statuses are cleared (fresh squad).
+function frontierNormalizeSlot(slot, level, keepHpPct) {
+  const def = MONSTERS_DATA[slot.monsterId];
+  const ivs = slot.ivs || generateIVs();
+  const maxHP = calcMaxHP(def.base.hp, level, ivs.hp);
+  const prevPct = keepHpPct && slot.maxHP ? Math.max(0, Math.min(1, slot.currentHP / slot.maxHP)) : 1;
+  return {
+    ...slot,
+    level,
+    ivs,
+    maxHP,
+    currentHP: Math.max(1, Math.round(maxHP * prevPct)),
+    statuses: [],
+  };
+}
+
+// Eligible opponent species for the run: ids 1..maxId (base 321 / NG+ 461),
+// Forgotten always excluded, BST within the tier cap.
+function frontierEligibleSpecies(cap) {
+  const maxId = frontierSpeciesMaxId();
+  const out = [];
+  for (let id = 1; id <= maxId; id++) {
+    const def = MONSTERS_DATA[id];
+    if (!def) continue;
+    const bst = getMonBST(id);
+    if (bst > 0 && bst <= cap) out.push(id);
+  }
+  return out;
+}
+
+// Pick `count` distinct species, biased by a streak-rising BST ceiling so early
+// bouts field weaker Lumori and the pool widens to the full cap as the streak grows.
+function frontierPickSpecies(cap, count, streak) {
+  const all = frontierEligibleSpecies(cap);
+  const ceil = Math.min(cap, 280 + streak * 14); // climbs from 280 toward the cap
+  let pool = all.filter(id => getMonBST(id) <= ceil);
+  if (pool.length < count) pool = all;           // thin early pools fall back to full cap
+  const picks = [];
+  const bag = pool.slice();
+  while (picks.length < count && bag.length) {
+    picks.push(bag.splice(Math.floor(Math.random() * bag.length), 1)[0]);
+  }
+  // If the pool is smaller than the team size, allow repeats to fill out the team.
+  while (picks.length < count) picks.push(pool[Math.floor(Math.random() * pool.length)]);
+  return picks;
+}
+
+// Build an enemy party-slot (monsterId + level + top-4 learnset) for buildGymMon.
+function frontierMakeEnemySlot(monsterId, level) {
+  const def = MONSTERS_DATA[monsterId];
+  const moves = def.learnset.filter(e => e[0] <= level && learnsetEntryAvailable(e)).map(e => e[1]).slice(-4);
+  if (!moves.length) moves.push("collide");
+  return { monsterId, level, moves };
+}
+
 function startFrontierRun() {
   const s = frontierSetup;
   if (!G.championDefeated) { showNotification("🔒 The Battle Tower opens only to a Champion."); return; }
@@ -5415,9 +5498,108 @@ function startFrontierRun() {
     showNotification(`You need ${need} eligible Lumori (BST ≤ ${cap}, non-Forgotten). You have ${eligible.length}.`);
     return;
   }
-  // 3a: setup is complete; the run engine (normalization, gauntlet chain, scaling,
-  // milestone rewards) lands in stage 3b.
-  showNotification("🏯 The Battle Tower's gauntlet arrives in the next update — your challenge is set up and ready.");
+  // Build the normalized attrition squad and swap it in for the real party.
+  const squad = eligible.slice(0, need).map(m => frontierNormalizeSlot(m, FRONTIER_BASE_LEVEL));
+  frontierRun = {
+    setup: { ...s }, cap, size: need, squad, realParty: G.team,
+    streak: 0, playerLevel: FRONTIER_BASE_LEVEL, upgradeOffered: false,
+  };
+  G.team = squad;
+  frontierLaunchBattle();
+}
+
+function frontierLaunchBattle() {
+  const r = frontierRun;
+  if (!r) { showFrontierScreen(); return; }
+  const pIdx = G.team.findIndex(m => m && m.currentHP > 0);
+  if (pIdx < 0) { frontierFinish("lost"); return; } // squad wiped (safety)
+
+  const level = frontierEnemyLevel(r.streak);
+  const picks = frontierPickSpecies(r.cap, r.size, r.streak);
+  const enemyTeam = picks.map(id => buildGymMon(frontierMakeEnemySlot(id, level), 0));
+
+  battleContext = {
+    isWild: false, isGym: false, isChampion: false, isTrainer: true,
+    isFrontier: true,
+    frontierStreak: r.streak,
+    frontierLevel: level,
+    battleMode: "single",
+    battleType: "single",
+    leaderName: `Tower Challenger #${r.streak + 1}`,
+    leaderEmoji: "🏯",
+    enemyTeam,
+    enemyTeamIdx: 0,
+    playerTeamIdx: pIdx,
+  };
+
+  // Squad slots are already at their run level (100/120), so no levelCap — buildBattleMon
+  // reads the carried-over currentHP (attrition between bouts; no heal).
+  playerActiveMon = buildBattleMon(G.team[pIdx]);
+  enemyActiveMon = enemyTeam[0];
+  hideMultiBattleSlots();
+  showScreen("screen-battle");
+  clearBattleLog();
+  logMsg(`🏯 Battle Tower — Bout ${r.streak + 1} (streak ${r.streak}).`, "log-catch");
+  logMsg(`⚖️ Your squad fights at Lv ${r.playerLevel}; challengers are Lv ${level}. No healing between bouts!`);
+  logMsg(`${battleContext.leaderEmoji} ${battleContext.leaderName} sent out ${getDisplayName(enemyActiveMon)}!`);
+  updateBattleUI();
+  fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+  fireOnEntryHooks(enemyActiveMon, playerActiveMon);
+  showBattleMainActions();
+  document.getElementById("btn-catch").disabled = true;
+  if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+}
+
+// Called from endBattle's isFrontier branch on a win.
+function frontierAdvance() {
+  const r = frontierRun;
+  if (!r) { showFrontierScreen(); return; }
+  const beatenLevel = frontierEnemyLevel(r.streak); // the bout we just won
+  r.streak += 1;
+
+  // Record best streak for this ruleset IN MEMORY only — we must not saveGame() while
+  // the normalized squad is swapped into G.team, or a reload would persist the L100
+  // clones over the real party. frontierFinish() saves after restoring the party.
+  if (!G.frontier) G.frontier = { best: {} };
+  const key = frontierBestKey(r.setup);
+  if (r.streak > (G.frontier.best[key] || 0)) G.frontier.best[key] = r.streak;
+
+  // L120 upgrade offer: the first time you beat an enemy at/above the trigger level.
+  if (!r.upgradeOffered && r.playerLevel < FRONTIER_UPGRADE_LEVEL
+      && beatenLevel >= FRONTIER_UPGRADE_TRIGGER_LEVEL) {
+    r.upgradeOffered = true;
+    showConfirm(
+      `🏯 Streak ${r.streak}! Challengers now reach Lv ${FRONTIER_UPGRADE_TRIGGER_LEVEL}+. `
+      + `Train your squad up to Lv ${FRONTIER_UPGRADE_LEVEL} for the rest of the run, or stay at Lv ${FRONTIER_BASE_LEVEL} for a sterner test?`,
+      () => { // Yes — bump to L120, scaling each mon's current HP%
+        r.playerLevel = FRONTIER_UPGRADE_LEVEL;
+        r.squad = r.squad.map(slot => frontierNormalizeSlot(slot, FRONTIER_UPGRADE_LEVEL, true));
+        G.team = r.squad;
+        showNotification(`💪 Your squad trains up to Lv ${FRONTIER_UPGRADE_LEVEL}!`, frontierLaunchBattle);
+      },
+      `Train to Lv ${FRONTIER_UPGRADE_LEVEL}`, `Stay at Lv ${FRONTIER_BASE_LEVEL}`,
+      frontierLaunchBattle // No — continue unchanged
+    );
+    return;
+  }
+  frontierLaunchBattle();
+}
+
+// Called from endBattle's isFrontier branch on a loss (or a deliberate exit).
+function frontierFinish(outcome) {
+  const r = frontierRun;
+  frontierRun = null;
+  if (r) G.team = r.realParty; // restore the untouched real party
+  const streak = r ? r.streak : 0;
+  const key = r ? frontierBestKey(r.setup) : null;
+  const best = key ? (G.frontier?.best?.[key] || 0) : 0;
+  const isRecord = r && streak >= best && streak > 0;
+  saveGame();
+  const head = outcome === "won"
+    ? `🏯 You cleared the Tower's available challengers — streak ${streak}!`
+    : `🏯 Tower run over — final streak ${streak}.`;
+  const tail = streak > 0 ? (isRecord ? " 🏅 New best for this ruleset!" : ` (Best: ${best}.)`) : "";
+  showNotification(head + tail, () => showFrontierScreen());
 }
 
 // Async PvP: battle a snapshot of another player's submitted team, played for real

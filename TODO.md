@@ -91,16 +91,25 @@ facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPo
   brought in**; filtered to BST ≤ tier cap, widening with streak.
 - **Mid-run choice:** first win vs an enemy ≥L130 offers a permanent bump to **L120** (or stay L100).
 - **Rewards:** milestone money/items every 7 wins; best streak per tier×size×format. FP-shop = 3d.
-- **Stages:** 3a facility+screen+setup+save ✅ (this commit) · 3b run engine (`isFrontier` endBattle
-  branch mirroring `isPvP`, normalization, opponent generator, attrition chain, L100→L120 choice) ·
-  3c milestone rewards + best-streak display + double/triple + size modes · 3d polish (themed
-  trainers, music, Frontier-Points shop, curve tuning).
+- **Stages:** 3a facility+screen+setup+save ✅ · 3b single-format run engine ✅ · 3c milestone
+  rewards + best-streak display + double/triple + size modes (next) · 3d polish (themed trainers,
+  music, Frontier-Points shop, curve tuning).
 - **3a done:** `battle_frontier` area + Lodehollow connection (js/data.js); gold-diamond marker
   (`.frontier` class in renderWorldMap + css/style.css); `#screen-frontier` + `btn-frontier`
   (index.html); `renderAreaPanel` button; `G.frontier={best:{}}` save schema + migration;
   Frontier setup module (`FRONTIER_TIERS/SIZE_MODES/FORMATS` + level/scaling consts, eligibility
-  helpers, `showFrontierScreen`/`renderFrontierSetup`/`startFrontierRun` stub) + listeners.
-  Begin button validates BST/Forgotten eligibility vs the chosen ruleset; engine stubbed for 3b.
+  helpers, `showFrontierScreen`/`renderFrontierSetup`) + listeners.
+- **3b done:** run engine in js/game.js — `frontierRun` state; `startFrontierRun` builds an
+  attrition squad (eligible members cloned & normalized to L100 via `frontierNormalizeSlot`,
+  keeping moves/IVs/nature/held/variant), stashes the real party, swaps `G.team`. `frontierLaunchBattle`
+  generates opponents (`frontierPickSpecies` — BST≤cap, Forgotten-excluded, streak-rising ceiling;
+  `buildGymMon` perfect-IV/top-4) at `min(150,100+2×streak)` and starts a single battle (no levelCap →
+  carried-over HP = attrition). `endBattle` gains an `isFrontier` branch: win → `frontierAdvance`
+  (streak++, in-memory best, L120 offer via `showConfirm`+new `onNo`), loss → `frontierFinish`
+  (restore party, save, summary). Double/Triple chips disabled in setup (gated to 3c). RUN is inert
+  (isWild:false), CATCH disabled, bag allowed. Mid-run never saves while squad is swapped in.
+  Verified headless: L100 norm, 0 over-cap/0 Forgotten across streaks 0–30, scaling 100/130/150,
+  HP attrition carries (7→7), L120 re-level, loss restores party, best persists; 0 console errors.
 ## Phase 2 — Lane A.2 (evolution audit) + D (encounter audit) ⏳
 
 ---

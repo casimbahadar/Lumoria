@@ -850,6 +850,70 @@ function renderWorldMap() {
     if (pid) add(bgGroup, se("path", { d, fill:`url(#${pid})`, opacity:"0.8" }));
   }
 
+  // --- Decorative scenery: mountains, trees, rivers painted on top of the biome fills
+  // (behind the roads/markers). Deterministic so it's stable across re-renders. ---
+  (function buildScenery() {
+    let seed = 20260601;
+    const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+    const PX = x => (x / 100) * mapW, PY = y => (y / 100) * mapH;
+    const inPoly = (x, y, poly) => { let o = false; for (let a = 0, b = poly.length - 1; a < poly.length; b = a++) { const xi = poly[a][0], yi = poly[a][1], xj = poly[b][0], yj = poly[b][1]; if (((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi)) o = !o; } return o; };
+    const onLand = (x, y) => LAND_POLYS.some(p => inPoly(x, y, p));      // any biome
+    const sc = 3.0;                                                     // fixed decoration scale (px)
+    // decoration drawers (px center)
+    const tree = (px, py, dark) => {
+      const c1 = dark ? "#1f5c3a" : "#3a8c3f", c2 = dark ? "#17492e" : "#2e7233";
+      add(bgGroup, se("path", { d:`M ${px},${py-7*sc/2} L ${px-4*sc/2},${py+sc} L ${px+4*sc/2},${py+sc} Z`, fill:c1, opacity:"0.85" }));
+      add(bgGroup, se("path", { d:`M ${px},${py-3*sc/2} L ${px-5*sc/2},${py+4*sc/2} L ${px+5*sc/2},${py+4*sc/2} Z`, fill:c2, opacity:"0.85" }));
+    };
+    const mountain = (px, py) => {
+      const w = 9*sc/2, h = 11*sc/2;
+      add(bgGroup, se("path", { d:`M ${px},${py-h} L ${px-w},${py+w*0.7} L ${px+w},${py+w*0.7} Z`, fill:"#7d7d86", stroke:"#54545c", "stroke-width":"1", opacity:"0.92" }));
+      add(bgGroup, se("path", { d:`M ${px},${py-h} L ${px-w*0.32},${py-h*0.25} L ${px+w*0.32},${py-h*0.25} Z`, fill:"#eef0f5", opacity:"0.95" }));
+    };
+    const volcano = (px, py) => {
+      const w = 9*sc/2, h = 10*sc/2;
+      add(bgGroup, se("path", { d:`M ${px},${py-h} L ${px-w},${py+w*0.7} L ${px+w},${py+w*0.7} Z`, fill:"#6e3b2b", stroke:"#3a1e15", "stroke-width":"1", opacity:"0.92" }));
+      add(bgGroup, se("path", { d:`M ${px},${py-h} L ${px-w*0.3},${py-h*0.3} L ${px+w*0.3},${py-h*0.3} Z`, fill:"#ff7a30", opacity:"0.95" }));
+    };
+    const iceberg = (px, py) => {
+      const w = 7*sc/2, h = 8*sc/2;
+      add(bgGroup, se("path", { d:`M ${px},${py-h} L ${px-w},${py+w*0.6} L ${px+w},${py+w*0.6} Z`, fill:"#d4ecf2", stroke:"#a8d0dc", "stroke-width":"1", opacity:"0.9" }));
+    };
+    // scatter decorations inside a polygon at a given density (per %-area unit)
+    const scatter = (poly, density, minGap, draw) => {
+      const xs = poly.map(p => p[0]), ys = poly.map(p => p[1]);
+      const minx = Math.min(...xs), maxx = Math.max(...xs), miny = Math.min(...ys), maxy = Math.max(...ys);
+      const target = Math.max(3, Math.floor((maxx - minx) * (maxy - miny) * density));
+      const placed = []; let tries = 0;
+      while (placed.length < target && tries < target * 10) {
+        tries++;
+        const x = minx + rnd() * (maxx - minx), y = miny + rnd() * (maxy - miny);
+        if (!inPoly(x, y, poly)) continue;
+        if (placed.some(q => Math.hypot(q[0] - x, q[1] - y) < minGap)) continue;
+        placed.push([x, y]); draw(PX(x), PY(y));
+      }
+    };
+    for (let i = 0; i < LAND_POLYS.length; i++) {
+      const t = (typeof BIOME_REGIONS !== "undefined" && BIOME_REGIONS[i]) ? BIOME_REGIONS[i].type : "land";
+      const poly = LAND_POLYS[i];
+      if (t === "mountain") scatter(poly, 0.0075, 7, mountain);
+      else if (t === "volcanic") scatter(poly, 0.005, 8, volcano);
+      else if (t === "ice") scatter(poly, 0.0035, 9, iceberg);
+      else if (t === "dark" || t === "mystic") scatter(poly, 0.0035, 9, (px, py) => tree(px, py, true));
+      else if (t === "plains") scatter(poly, 0.0035, 9, (px, py) => tree(px, py, false));
+      else if (t === "land") scatter(poly, 0.0025, 10, (px, py) => tree(px, py, false));
+    }
+    // a couple of rivers winding through the green land (blue, behind roads)
+    const river = (pts) => {
+      if (pts.some(p => !onLand(p[0], p[1]))) { /* still draw; rivers can reach the coast */ }
+      const d = "M " + pts.map(p => PX(p[0]) + "," + PY(p[1])).join(" L ");
+      add(bgGroup, se("path", { d, fill:"none", stroke:"#3f9fd0", "stroke-width":String(4*sc/2), opacity:"0.55", "stroke-linecap":"round", "stroke-linejoin":"round" }));
+      add(bgGroup, se("path", { d, fill:"none", stroke:"#8fd2ec", "stroke-width":String(1.6*sc/2), opacity:"0.5", "stroke-linecap":"round", "stroke-linejoin":"round" }));
+    };
+    river([[33,30],[35,38],[32,46],[36,54],[33,62],[30,70]]);   // central river, mountains->south
+    river([[58,44],[62,50],[60,58],[64,64],[68,70]]);           // east-central river to the SE
+  })();
+
   // Determine if a connection is a water route
   function isWaterConn(a, b) {
     const wKeys = ['ocean', 'trench', 'abyss', 'shore', 'deep sea', 'underwater', 'coral'];

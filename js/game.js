@@ -863,24 +863,12 @@ function renderWorldMap() {
   // longer axis first.
   function orthSegments(x1, y1, x2, y2, orient) {
     const dx = Math.abs(x2 - x1), dy = Math.abs(y2 - y1);
-    // If nearly a straight line, return single segment
-    if (dx < 3 || dy < 3) {
-      return [`M ${x1},${y1} L ${x2},${y2}`];
-    }
+    // Return the polyline corner points; the drawing code renders one rounded path
+    // through them so an L-road bends smoothly instead of looking like joined segments.
+    if (dx < 3 || dy < 3) return [[x1, y1], [x2, y2]];
     const horizFirst = orient ? orient === "H" : dx >= dy;
-    if (horizFirst) {
-      // Horizontal first, then vertical. Corner at (x2, y1)
-      return [
-        `M ${x1},${y1} L ${x2},${y1}`,
-        `M ${x2},${y1} L ${x2},${y2}`
-      ];
-    } else {
-      // Vertical first, then horizontal. Corner at (x1, y2)
-      return [
-        `M ${x1},${y1} L ${x1},${y2}`,
-        `M ${x1},${y2} L ${x2},${y2}`
-      ];
-    }
+    return horizFirst ? [[x1, y1], [x2, y1], [x2, y2]]
+                      : [[x1, y1], [x1, y2], [x2, y2]];
   }
 
   // Choose each L-road's corner direction (H-first vs V-first) to minimise the number
@@ -968,7 +956,7 @@ function renderWorldMap() {
       const y1 = (area.mapPos.y / 100) * mapH;
       const x2 = (toArea.mapPos.x / 100) * mapW;
       const y2 = (toArea.mapPos.y / 100) * mapH;
-      const segments = orthSegments(x1, y1, x2, y2, roadOrient[sortedKey]);
+      const verts = orthSegments(x1, y1, x2, y2, roadOrient[sortedKey]);
 
       const fromLocked = G.badges.length < (area.requiredBadges || 0);
       const toLocked   = G.badges.length < (toArea.requiredBadges || 0);
@@ -976,32 +964,33 @@ function renderWorldMap() {
       const roadCol = (ocean) => bothLocked ? { c:"#4a4a4a", s:"#222" }
         : ocean ? { c:"#3a9acc", s:"#0d2a4a" } : { c:"#d4a030", s:"#6a4a08" };
 
-      // Draw each segment, split at the coastline so it's yellow over land / blue over water.
+      // Densify the polyline, then split into land/water runs. Each run is ONE rounded
+      // path (stroke-linejoin:round) so the L bends smoothly with no segment "chain".
+      const poly = [];
+      for (let v = 0; v < verts.length - 1; v++) {
+        const ax = verts[v][0], ay = verts[v][1], bx = verts[v+1][0], by = verts[v+1][1];
+        const len = Math.hypot(bx - ax, by - ay), steps = Math.max(1, Math.round(len / 6));
+        for (let i = 0; i < steps; i++) poly.push([ax + (bx-ax)*i/steps, ay + (by-ay)*i/steps]);
+      }
+      poly.push(verts[verts.length - 1]);
+      const fullD = "M " + poly.map(p => p[0] + "," + p[1]).join(" L ");
+      const runs = [];
+      for (let i = 0; i < poly.length - 1; i++) {
+        const mx = (poly[i][0] + poly[i+1][0]) / 2, my = (poly[i][1] + poly[i+1][1]) / 2;
+        const ocean = isOceanPct(mx / mapW * 100, my / mapH * 100);
+        const last = runs[runs.length - 1];
+        if (last && last.ocean === ocean) last.pts.push(poly[i+1]);
+        else runs.push({ ocean, pts: [poly[i], poly[i+1]] });
+      }
       const segLines = [];
-      for (const segD of segments) {
-        const mm = segD.match(/M\s*([-\d.]+),([-\d.]+)\s*L\s*([-\d.]+),([-\d.]+)/);
-        if (!mm) continue;
-        const ax = +mm[1], ay = +mm[2], bx = +mm[3], by = +mm[4];
-        const len = Math.hypot(bx - ax, by - ay);
-        const steps = Math.max(2, Math.round(len / 6));
-        const runs = [];
-        for (let i = 0; i < steps; i++) {
-          const px1 = ax + (bx - ax) * i / steps,     py1 = ay + (by - ay) * i / steps;
-          const px2 = ax + (bx - ax) * (i + 1) / steps, py2 = ay + (by - ay) * (i + 1) / steps;
-          const ocean = isOceanPct((px1 + px2) / 2 / mapW * 100, (py1 + py2) / 2 / mapH * 100);
-          const last = runs[runs.length - 1];
-          if (last && last.ocean === ocean) { last.x2 = px2; last.y2 = py2; }
-          else runs.push({ ocean, x1: px1, y1: py1, x2: px2, y2: py2 });
-        }
-        for (const r of runs) {
-          const d = `M ${r.x1},${r.y1} L ${r.x2},${r.y2}`;
-          const col = roadCol(r.ocean);
-          const pathAttrs = { d, fill:"none", "stroke-linecap":"round", "stroke-linejoin":"round" };
-          add(bgGroup, se("path", { ...pathAttrs, stroke:col.s, "stroke-width":"7", opacity:"0.55" }));
-          const line = add(bgGroup, se("path", { ...pathAttrs, stroke:col.c, "stroke-width":"5" }));
-          add(bgGroup, se("path", { ...pathAttrs, stroke:"#ffffff", "stroke-width":"1.5", opacity:"0.2" }));
-          segLines.push({ line, ocean: r.ocean, locked: bothLocked });
-        }
+      for (const r of runs) {
+        const d = "M " + r.pts.map(p => p[0] + "," + p[1]).join(" L ");
+        const col = roadCol(r.ocean);
+        const pa = { d, fill:"none", "stroke-linecap":"round", "stroke-linejoin":"round" };
+        add(bgGroup, se("path", { ...pa, stroke:col.s, "stroke-width":"7", opacity:"0.55" }));
+        const line = add(bgGroup, se("path", { ...pa, stroke:col.c, "stroke-width":"5" }));
+        add(bgGroup, se("path", { ...pa, stroke:"#ffffff", "stroke-width":"1.5", opacity:"0.2" }));
+        segLines.push({ line, ocean: r.ocean, locked: bothLocked });
       }
 
       // Find which route area(s) sit on or near this connection
@@ -1018,29 +1007,19 @@ function renderWorldMap() {
         const rBadgesNeeded = rArea.requiredBadges || 0;
         const rLocked = G.badges.length < rBadgesNeeded && rId !== G.location;
 
-        // Add a clickable hit-area over each full segment
+        // One clickable hit-area over the whole rounded path
         if (!rLocked) {
-          for (const segD of segments) {
-            const hitArea = se("path", { d:segD, stroke:"transparent", "stroke-width":"18", fill:"none", "stroke-linecap":"round", "stroke-linejoin":"round" });
-            hitArea.style.cursor = "pointer";
-            hitArea.style.pointerEvents = "stroke";
-            // Hover effect: brighten all pieces of this route (keeping land/water tint)
-            hitArea.addEventListener("mouseenter", () => {
-              for (const s of segLines) {
-                s.line.setAttribute("stroke", s.locked ? "#666" : s.ocean ? "#5ac0ee" : "#f0c050");
-                s.line.setAttribute("stroke-width", "6");
-              }
-            });
-            hitArea.addEventListener("mouseleave", () => {
-              for (const s of segLines) {
-                s.line.setAttribute("stroke", s.locked ? "#4a4a4a" : s.ocean ? "#3a9acc" : "#d4a030");
-                s.line.setAttribute("stroke-width", "5");
-              }
-            });
-            // Travel on tap/click; reveal the route name on hover / long-press
-            bindRouteName(hitArea, rArea.name, () => travelTo(rId));
-            svg.appendChild(hitArea);
-          }
+          const hitArea = se("path", { d:fullD, stroke:"transparent", "stroke-width":"18", fill:"none", "stroke-linecap":"round", "stroke-linejoin":"round" });
+          hitArea.style.cursor = "pointer";
+          hitArea.style.pointerEvents = "stroke";
+          hitArea.addEventListener("mouseenter", () => {
+            for (const s of segLines) { s.line.setAttribute("stroke", s.locked ? "#666" : s.ocean ? "#5ac0ee" : "#f0c050"); s.line.setAttribute("stroke-width", "6"); }
+          });
+          hitArea.addEventListener("mouseleave", () => {
+            for (const s of segLines) { s.line.setAttribute("stroke", s.locked ? "#4a4a4a" : s.ocean ? "#3a9acc" : "#d4a030"); s.line.setAttribute("stroke-width", "5"); }
+          });
+          bindRouteName(hitArea, rArea.name, () => travelTo(rId));
+          svg.appendChild(hitArea);
         }
 
         // Route label positioned at the route area's mapPos

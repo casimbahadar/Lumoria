@@ -6138,7 +6138,7 @@ const WORLD_DATA = {
       {id:84, minLv:11, maxLv:15, rate:35}    // Electrix
     ],
     ngPlusWildMonsters:[{id:426, minLv:10, maxLv:14, rate:12}], // NG+ family base: Pummelo
-    hasGym:false, requiredBadges:1, mapPos:{x:47, y:59}
+    hasGym:false, requiredBadges:1, mapPos:{x:49, y:59}
   },
   bug_forest_east: {
     id:"bug_forest_east", name:"Bug Forest East", icon:"🐛", type:"route",
@@ -6337,7 +6337,7 @@ const WORLD_DATA = {
       {id:104, minLv:61, maxLv:66, rate:30},  // Dravanas (final, 104 on route11 ✓)
       {id:106, minLv:62, maxLv:67, rate:25}   // Quakeon (final, 106 on route11 ✓)
     ],
-    hasGym:true, gymLeader:"atlas", requiredBadges:13, mapPos:{x:23, y:71},
+    hasGym:true, gymLeader:"atlas", requiredBadges:13, mapPos:{x:26, y:72},
     ngPlusWildMonsters:[{id:353, minLv:63, maxLv:67, rate:9}, {id:327,minLv:67,maxLv:72,rate:25},{id:337,minLv:67,maxLv:72,rate:15}]
   },
   route12: {
@@ -6448,13 +6448,13 @@ const WORLD_DATA = {
       {id:304, minLv:67, maxLv:72, rate:17},  // Yeticub (base Earth/Ice)
       {id:232, minLv:67, maxLv:72, rate:5}    // Serphaxon (base Draconic/Ground)
     ],
-    hasGym:false, requiredBadges:18, mapPos:{x:52, y:78},
+    hasGym:false, requiredBadges:18, mapPos:{x:50, y:80},
     ngPlusWildMonsters:[{id:364, minLv:68, maxLv:74, rate:9}, {id:332,minLv:74,maxLv:80,rate:20},{id:349,minLv:66,maxLv:72,rate:18}]
   },
   quarryville: {
     id:"quarryville", name:"Quarryville Town", icon:"🏗️", type:"city",
     desc:"A mining town carved from solid rock. Home to Gym Leader Boulder, master of Rock types.",
-    connections:["crystal_mine","route16","stone_plateau"],
+    connections:["crystal_mine","route16","granite_tunnels"],
     wildMonsters:[
       {id:192, minLv:68, maxLv:73, rate:20},  // Boulderoll (mid)
       {id:195, minLv:69, maxLv:74, rate:25},  // Icequartz (195 on stone_plateau ✓)
@@ -6540,7 +6540,7 @@ const WORLD_DATA = {
       {id:204, minLv:63, maxLv:68, rate:24},  // Muddite (base)
       {id:204, minLv:64, maxLv:69, rate:10}   // Quarrix (mid → after 204 ✓)
     ],
-    hasGym:false, requiredBadges:14, mapPos:{x:22, y:87}
+    hasGym:false, requiredBadges:14, mapPos:{x:20, y:84}
   },
   gale_ridge_east: {
     id:"gale_ridge_east", name:"Gale Ridge East", icon:"🌪️", type:"route",
@@ -6574,7 +6574,7 @@ const WORLD_DATA = {
   stone_plateau: {
     id:"stone_plateau", name:"Stone Plateau", icon:"🏜️", type:"route",
     desc:"A windswept expanse of exposed bedrock leading into Quarryville. Ancient monoliths dot the plateau and Rock and Dark types claim each one as territory.",
-    connections:["granite_tunnels","quarryville"],
+    connections:["granite_tunnels"],
     wildMonsters:[
       {id:192, minLv:68, maxLv:73, rate:18},  // Boulderoll (mid, 191 on route15 ✓)
       {id:193, minLv:67, maxLv:72, rate:28},  // Cliffpinch (base)
@@ -6829,7 +6829,7 @@ const WORLD_DATA = {
   granite_tunnels: {
     id:"granite_tunnels", name:"Granite Tunnels", icon:"⛏️", type:"route",
     desc:"Underground tunnels bored through solid granite linking Ironforge to the Stone Plateau. Rock and Draconic types nest in the crystalline formations.",
-    connections:["route15","stone_plateau"],
+    connections:["route15","stone_plateau","quarryville"],
     wildMonsters:[
       {id:249, minLv:68, maxLv:73, rate:24},  // Boulderax (mid → 248 on route11/magma_vent ✓)
       {id:305, minLv:68, maxLv:73, rate:14},  // Yetigeist (mid → 304 Yeticub on route15 ✓)
@@ -6839,7 +6839,7 @@ const WORLD_DATA = {
       {id:281, minLv:68, maxLv:73, rate:6}   // Mechabrute (final → Cogvex on smelter_pass ✓)
     ],
     ngPlusWildMonsters:[{id:374, minLv:68, maxLv:73, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:18, mapPos:{x:51, y:77}
+    hasGym:false, requiredBadges:18, mapPos:{x:50, y:77}
   },
   crystal_mine: {
     id:"crystal_mine", name:"Crystal Mine", icon:"💎", type:"route",
@@ -6867,7 +6867,7 @@ const WORLD_DATA = {
       {id:119, minLv:85, maxLv:88, rate:25}, // Dreadmaw
       {id:130, minLv:85, maxLv:88, rate:15}  // Necralia
     ],
-    hasGym:false, requiredBadges:18, mapPos:{x:63, y:91}
+    hasGym:false, requiredBadges:18, mapPos:{x:56, y:91}
   },
   nebula_gorge: {
     id:"nebula_gorge", name:"Nebula Gorge", icon:"🌠", type:"route",

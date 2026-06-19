@@ -5566,7 +5566,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:3, mapPos:{x:64, y:33}
   },
   sparkmoor: {
-    id:"sparkmoor", name:"Sparkmoor Town", icon:"⚡", type:"city",
+    id:"sparkmoor", name:"Levin Town", icon:"⚡", type:"city",
     desc:"A town on the electric plains. Gym Leader Zara harnesses lightning power.",
     connections:["valor_pass","route5","thunder_cliffs"],
     wildMonsters:[
@@ -5594,7 +5594,7 @@ const WORLD_DATA = {
   },
   valor_pass: {
     id:"valor_pass", name:"Valor Pass", icon:"⛰️", type:"route",
-    desc:"A switchback mountain pass lined with weathered training posts, where Fighting types spar on the long climb toward Sparkmoor.",
+    desc:"A switchback mountain pass lined with weathered training posts, where Fighting types spar on the long climb toward Levin.",
     connections:["dauntridge","sparkmoor"],
     wildMonsters:[
       {id:262, minLv:22, maxLv:26, rate:30}, // Tendrilisk
@@ -5695,7 +5695,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:8, mapPos:{x:20, y:42}
   },
   skyvault: {
-    id:"skyvault", name:"Skyvault City", icon:"🏰", type:"city",
+    id:"skyvault", name:"Cirrus City", icon:"🏰", type:"city",
     desc:"A city floating on clouds. Mental Gym Leader Oracle sees all futures.",
     connections:["route7","wind_bridge"],
     wildMonsters:[
@@ -5756,7 +5756,7 @@ const WORLD_DATA = {
   },
 
   // ===== NG+-EXCLUSIVE GYM CHAIN (gyms 21-24) — requiresNGPlus =====
-  // Branches off Starbloom, rejoins The Gauntlet; hidden on a first run.,
+  // Branches off Stellaris, rejoins The Gauntlet; hidden on a first run.,
   clarion: {
     id:"clarion", name:"Clarion", icon:"🔊", type:"city",
     desc:"A bell-towered town where every street hums with layered sound, unreachable until the void-touched era reveals it. Gym Leader Echo conducts the Sonic Lumori like an orchestra.",
@@ -5919,7 +5919,7 @@ const WORLD_DATA = {
     legendaryEncounter:{monsterId:106, level:50}
   },
   storm_plateau: {
-    id:"storm_plateau", name:"Storm Plateau", icon:"⛈️", type:"route",
+    id:"storm_plateau", name:"Thunderhead Crag", icon:"⛈️", type:"route",
     desc:"A high plateau perpetually wracked by storms. Electric and Draconic types are drawn to its crackling energy.",
     connections:["frostpeak"],
     wildMonsters:[
@@ -6181,7 +6181,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:4, mapPos:{x:70, y:30}
   },
   spirit_canyon: {
-    id:"spirit_canyon", name:"Spirit Canyon", icon:"🌀", type:"route",
+    id:"spirit_canyon", name:"Resonant Chasm", icon:"🌀", type:"route",
     desc:"A deep chasm where psychic resonance amplifies every thought and memory. The walls seem to shift and breathe.",
     connections:["haunted_grove","fairy_meadow_south"],
     wildMonsters:[
@@ -6192,7 +6192,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:7, mapPos:{x:4, y:45}
   },
   reef_ruins: {
-    id:"reef_ruins", name:"Reef Ruins", icon:"🏛️", type:"special",
+    id:"reef_ruins", name:"Drowned Halls", icon:"🏛️", type:"special",
     desc:"Ancient steel structures submerged beneath the sea, overgrown with coral. A forgotten civilization once thrived here beneath the waves.",
     connections:["ancient_ruins"],
     wildMonsters:[
@@ -6310,7 +6310,7 @@ const WORLD_DATA = {
     ngPlusWildMonsters:[{id:322,minLv:65,maxLv:70,rate:25},{id:324,minLv:65,maxLv:70,rate:15}]
   },
   route11: {
-    id:"route11", hasUmbraEncounter:true, name:"Route 11 - Tremor Pass", icon:"🏔️", type:"route",
+    id:"route11", hasUmbraEncounter:true, name:"Route 11 - Fault Line", icon:"🏔️", type:"route",
     desc:"A rumbling mountain pass where the ground never stops shaking.",
     connections:["miasmacity","quake_foothills"],
     wildMonsters:[
@@ -6388,7 +6388,7 @@ const WORLD_DATA = {
     ngPlusWildMonsters:[{id:356, minLv:64, maxLv:70, rate:9}, {id:335,minLv:70,maxLv:76,rate:20},{id:348,minLv:70,maxLv:76,rate:15},{id:370,minLv:71,maxLv:77,rate:10}]
   },
   gusthaven: {
-    id:"gusthaven", name:"Gusthaven Town", icon:"🌀", type:"city",
+    id:"gusthaven", name:"Zephyr Town", icon:"🌀", type:"city",
     desc:"A town of windmills and airships. Home to Gym Leader Zephyra, master of Wind types.",
     connections:["tempest_cliffs","route14"],
     wildMonsters:[
@@ -6484,7 +6484,7 @@ const WORLD_DATA = {
     ngPlusWildMonsters:[{id:363, minLv:71, maxLv:75, rate:9}, {id:344,minLv:76,maxLv:82,rate:20},{id:351,minLv:76,maxLv:82,rate:15},{id:360,minLv:77,maxLv:83,rate:10}]
   },
   starbloom: {
-    id:"starbloom", name:"Starbloom City", icon:"🌟", type:"city",
+    id:"starbloom", name:"Stellaris City", icon:"🌟", type:"city",
     desc:"A radiant city that glows with fairy magic. Home to Gym Leader Seraphina, the last gym before The Vanguard.",
     connections:["astral_plateau","victoryroad","void_rift"],
     wildMonsters:[
@@ -6588,7 +6588,7 @@ const WORLD_DATA = {
   },
   cosmic_cavern: {
     id:"cosmic_cavern", name:"Cosmic Cavern", icon:"🌌", type:"route",
-    desc:"A glittering cavern lit by bioluminescent crystals on the approach to Starbloom. Fairy types dance in the starlight, but dark shadows hint at lurking Umbra agents.",
+    desc:"A glittering cavern lit by bioluminescent crystals on the approach to Stellaris. Fairy types dance in the starlight, but dark shadows hint at lurking Umbra agents.",
     connections:["nebula_gorge","astral_plateau"],
     wildMonsters:[
       {id:137, minLv:69, maxLv:74, rate:16},  // Goldefluff (base)
@@ -6660,7 +6660,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:16, mapPos:{x:23, y:79}
   },
   forge_ruins: {
-    id:"forge_ruins", name:"Forge Ruins", icon:"🏚️", type:"route",
+    id:"forge_ruins", name:"Rustworks", icon:"🏚️", type:"route",
     desc:"Collapsed factory halls stretching east from the old Ironwork Path. Metal-type Lumori nest in the rusted machinery, and mid-stage chains are common sightings.",
     connections:["ash_fields","smelter_pass"],
     wildMonsters:[
@@ -6678,7 +6678,7 @@ const WORLD_DATA = {
   // ---- NEW AREAS: GYMS 9-16 EXPANSION ----
 
   mire_depths: {
-    id:"mire_depths", name:"Mire Depths", icon:"🐸", type:"route",
+    id:"mire_depths", name:"Murkfen", icon:"🐸", type:"route",
     desc:"A labyrinthine deep-swamp sector south of Toxic Bog. Venomous Lumori that have shed their pre-evolutions stalk the murky waterways. Umbra scouts use the miasma as cover.",
     connections:["toxic_bog","miasmacity"],
     wildMonsters:[
@@ -6709,7 +6709,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:13, mapPos:{x:66, y:26}
   },
   fungal_cavern: {
-    id:"fungal_cavern", name:"Fungal Cavern", icon:"🍄", type:"route",
+    id:"fungal_cavern", name:"Spore Grotto", icon:"🍄", type:"route",
     desc:"An underground cavern lit by bioluminescent fungi on the route to Cobweb Gully. Grass and Bug types thrive in the moist, glowing dark.",
     connections:["route12","cobweb_gully"],
     wildMonsters:[
@@ -6724,7 +6724,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:14, mapPos:{x:9, y:69}
   },
   ancient_grove: {
-    id:"ancient_grove", name:"Ancient Grove", icon:"🌳", type:"route",
+    id:"ancient_grove", name:"Tangle Thicket", icon:"🌳", type:"route",
     desc:"A sacred forest grove of thousand-year-old trees. The air hums with ancient energy. Grass types here have evolved beyond their usual forms.",
     connections:["cobweb_gully","silkwood"],
     wildMonsters:[
@@ -6781,8 +6781,8 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:16, mapPos:{x:10, y:80}
   },
   tempest_cliffs: {
-    id:"tempest_cliffs", name:"Tempest Cliffs", icon:"⛰️", type:"route",
-    desc:"Sheer cliff faces battered by perpetual gales where Gale Ridge meets Gusthaven. Only the most powerful Wind types cling to the rockface here.",
+    id:"tempest_cliffs", name:"Tempest Bluffs", icon:"⛰️", type:"route",
+    desc:"Sheer cliff faces battered by perpetual gales where Gale Ridge meets Zephyr. Only the most powerful Wind types cling to the rockface here.",
     connections:["gale_ridge_east","gusthaven"],
     wildMonsters:[
       {id:293, minLv:65, maxLv:70, rate:24},  // Stormwing (mid → 293 on gale_peak ✓)
@@ -6797,7 +6797,7 @@ const WORLD_DATA = {
   },
   ash_fields: {
     id:"ash_fields", name:"Ash Fields", icon:"🏜️", type:"route",
-    desc:"A barren expanse of volcanic ash fields between Gusthaven and the Forge Ruins. Fire types scorch the ashen ground, and Metal types scavenge the slag.",
+    desc:"A barren expanse of volcanic ash fields between Zephyr and the Rustworks. Fire types scorch the ashen ground, and Metal types scavenge the slag.",
     connections:["route14","forge_ruins"],
     wildMonsters:[
       {id:20, minLv:66, maxLv:71, rate:6}, // Hauntcoal (obtainability fix)
@@ -6827,7 +6827,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:17, mapPos:{x:48, y:86}
   },
   granite_tunnels: {
-    id:"granite_tunnels", name:"Granite Tunnels", icon:"⛏️", type:"route",
+    id:"granite_tunnels", name:"Basalt Tunnels", icon:"⛏️", type:"route",
     desc:"Underground tunnels bored through solid granite linking Ironforge to the Stone Plateau. Rock and Draconic types nest in the crystalline formations.",
     connections:["route15","stone_plateau","quarryville"],
     wildMonsters:[
@@ -6871,7 +6871,7 @@ const WORLD_DATA = {
   },
   nebula_gorge: {
     id:"nebula_gorge", name:"Nebula Gorge", icon:"🌠", type:"route",
-    desc:"A star-dusted gorge where cosmic energy from nearby Starbloom saturates the air. Mental and Fairy types commune with the starlight here.",
+    desc:"A star-dusted gorge where cosmic energy from nearby Stellaris saturates the air. Mental and Fairy types commune with the starlight here.",
     connections:["route16","cosmic_cavern"],
     wildMonsters:[
       {id:254, minLv:70, maxLv:75, rate:21},  // Bubblepuff (base, also on route16)
@@ -8032,7 +8032,7 @@ const UMBRA_BATTLES = {
   umbra_commander_rex_shadow: {
     id:"umbra_commander_rex_shadow", name:"Commander Shadow", emoji:"⚡",
     triggerLocation:"storm_plateau",
-    quote:"We meet a second time. You still don't know my face beneath this hood... but you know my Lumori well enough by now. I have awakened Tempestia from the Storm Plateau. Let us see how far you have come!",
+    quote:"We meet a second time. You still don't know my face beneath this hood... but you know my Lumori well enough by now. I have awakened Tempestia from the Thunderhead Crag. Let us see how far you have come!",
     winQuote:"...Again. How? That bond you share with your team... I once believed in something like it. Remember this storm, trainer. We are not finished — not by a long way.",
     teams:{
       single:[
@@ -8802,8 +8802,8 @@ const STORY_EVENTS = {
     "A wounded explorer stumbles to you: 'The Umbra Order... their commander Kira... she's in the Volcano Core... you must stop her!'"
   ],
   after_badge_4: [
-    "Storm clouds gather unusually above the Storm Plateau...",
-    "Professor Solaris: 'The storm patterns are abnormal — The Umbra Order may be attempting to awaken Tempestia! Reach the Storm Plateau before it's too late!'"
+    "Storm clouds gather unusually above the Thunderhead Crag...",
+    "Professor Solaris: 'The storm patterns are abnormal — The Umbra Order may be attempting to awaken Tempestia! Reach the Thunderhead Crag before it's too late!'"
   ],
   after_badge_5: [
     "Marcus: 'Two Legendaries nearly awakened... I tried to follow The Umbra Order but they disappeared into the Mystic Forest. Their base must be there!'",
@@ -8818,7 +8818,7 @@ const STORY_EVENTS = {
     "📰 News Flash: Trainers report unusual void-like disturbances near Route 12. Scientists are baffled by readings of overlapping Dark and Fairy energy signatures."
   ],
   after_badge_14: [
-    "📰 BREAKING: A mysterious 'Void Rift' has opened near Starbloom City! Dark and Fairy energy readings are off the charts. Citizens warned to stay away from Route 16.",
+    "📰 BREAKING: A mysterious 'Void Rift' has opened near Stellaris City! Dark and Fairy energy readings are off the charts. Citizens warned to stay away from Route 16.",
     "Marcus rushes up, breathless: 'It's The Umbra Order — a new commander called Phantom! They've been working in secret since Shade was defeated. They found a new legendary, Voidraxis the Void Star, and they're trying to control it!'",
     "Professor Solaris: 'The Void Star — Voidraxis — is a legendary being of absolute dark and fairy power. If The Umbra Order binds it to their will, all of Lumoria's dark and fairy Lumori will fall under their control. You MUST stop Commander Phantom!'"
   ],
@@ -8891,7 +8891,7 @@ const SHOPS_DATA = {
     ]
   },
   sparkmoor: {
-    name: "Sparkmoor Electronics",
+    name: "Levin Electronics",
     items: [
       { itemId: "greatOrb", price: 300 },
       { itemId: "ultraOrb", price: 600 },
@@ -8924,7 +8924,7 @@ const SHOPS_DATA = {
     ]
   },
   skyvault: {
-    name: "Skyvault Boutique",
+    name: "Cirrus Boutique",
     items: [
       { itemId: "ultraOrb", price: 600 },
       { itemId: "maxPotion", price: 500 },
@@ -8989,7 +8989,7 @@ const SHOPS_DATA = {
     ]
   },
   gusthaven: {
-    name: "Gusthaven Windmill Market",
+    name: "Zephyr Windmill Market",
     items: [
       { itemId: "ultraOrb", price: 600 },
       { itemId: "maxPotion", price: 500 },
@@ -9021,7 +9021,7 @@ const SHOPS_DATA = {
     ]
   },
   starbloom: {
-    name: "Starbloom Enchantments",
+    name: "Stellaris Enchantments",
     items: [
       { itemId: "ultraOrb", price: 600 },
       { itemId: "masterOrb", price: 50000 },
@@ -10472,7 +10472,7 @@ const QUESTS_DATA = [
   { id:"q13", title:"Sunken Treasure", desc:"Dive deep in the Sunken Temple to find legendary treasure.", location:"sunken_temple", type:"boss", requiredBadges:2,
     boss:{monsterId:42, level:30, moves:["tsunami","tidal_sweep","cold_beam","tidal_rush"]},
     reward:{type:"money", amount:3000}, rewardText:"3000 coins" },
-  { id:"q14", title:"Reef Ruins Riddle", desc:"Solve the puzzle of the Reef Ruins by defeating the ancient guardian.", location:"reef_ruins", type:"boss", requiredBadges:2,
+  { id:"q14", title:"Drowned Halls Riddle", desc:"Solve the puzzle of the Drowned Halls by defeating the ancient guardian.", location:"reef_ruins", type:"boss", requiredBadges:2,
     boss:{monsterId:35, level:30, moves:["tidal_rush","lunar_burst","cold_beam","prism_flare"]},
     reward:{type:"item", itemId:"shellBell", qty:1}, rewardText:"Shell Bell" },
   { id:"q15", title:"The Lurking Depth", desc:"Something massive lurks in the Deep Trench. Defeat it!", location:"deep_trench", type:"boss", requiredBadges:2,
@@ -10527,25 +10527,25 @@ const QUESTS_DATA = [
     reward:{type:"item", itemId:"dragonFang", qty:1}, rewardText:"Draconic Fang" },
 
   // ---- SPARKMOOR & ELECTRIC AREAS (31-40) ----
-  { id:"q31", title:"Static Shock", desc:"A dangerously charged Lumori terrorizes Sparkmoor. Stop it!", location:"sparkmoor", type:"boss", requiredBadges:4,
+  { id:"q31", title:"Static Shock", desc:"A dangerously charged Lumori terrorizes Levin. Stop it!", location:"sparkmoor", type:"boss", requiredBadges:4,
     boss:{monsterId:82, level:36, moves:["volt_jet","static_strike","stun_pulse","crushing_bulk"]},
     reward:{type:"item", itemId:"magnet", qty:1}, rewardText:"Magnet" },
   { id:"q32", title:"Thunder Cliffs Dare", desc:"Scale the Thunder Cliffs and face the storm beast!", location:"thunder_cliffs", type:"boss", requiredBadges:5,
     boss:{monsterId:92, level:40, moves:["volt_jet","stone_slide","crag_strike","static_strike"]},
     reward:{type:"money", amount:3500}, rewardText:"3500 coins" },
-  { id:"q33", title:"Power Plant Breach", desc:"Wild Electric Lumori have breached the Sparkmoor power plant!", location:"sparkmoor", type:"boss", requiredBadges:4,
+  { id:"q33", title:"Power Plant Breach", desc:"Wild Electric Lumori have breached the Levin power plant!", location:"sparkmoor", type:"boss", requiredBadges:4,
     boss:{monsterId:85, level:35, moves:["volt_jet","resonance_hum","static_strike","shear_strike"]},
     reward:{type:"item", itemId:"ultraOrb", qty:3}, rewardText:"3 Ultra Orbs" },
   { id:"q34", title:"Route 4 Blockade", desc:"A stubborn Ground Lumori blocks Route 4. Move it!", location:"route4", type:"boss", requiredBadges:4,
     boss:{monsterId:96, level:33, moves:["tectonic_shift","stone_slide","mud_spray","cranial_ram"]},
     reward:{type:"item", itemId:"maxPotion", qty:2}, rewardText:"2 Luma Infusions" },
-  { id:"q35", title:"Storm Chaser", desc:"Chase down and battle the legendary storm bird on Storm Plateau!", location:"storm_plateau", type:"boss", requiredBadges:5,
+  { id:"q35", title:"Storm Chaser", desc:"Chase down and battle the legendary storm bird on Thunderhead Crag!", location:"storm_plateau", type:"boss", requiredBadges:5,
     boss:{monsterId:90, level:42, moves:["volt_jet","typhoon","static_strike","wingbeat"]},
     reward:{type:"item", itemId:"swiftFeather", qty:1}, rewardText:"Swift Feather" },
   { id:"q36", title:"Mirror Lake Enigma", desc:"The Mirror Lake's surface shimmers with psychic energy. Investigate!", location:"mirror_lake", type:"boss", requiredBadges:5,
     boss:{monsterId:58, level:40, moves:["cold_beam","prism_flare","mental","fairy_wind"]},
     reward:{type:"item", itemId:"wiseGlasses", qty:1}, rewardText:"Wise Glasses" },
-  { id:"q37", title:"Sparkmoor Circuit", desc:"Win the Sparkmoor Circuit racing tournament!", location:"sparkmoor", type:"boss", requiredBadges:4,
+  { id:"q37", title:"Levin Circuit", desc:"Win the Levin Circuit racing tournament!", location:"sparkmoor", type:"boss", requiredBadges:4,
     boss:{monsterId:75, level:35, moves:["volt_jet","vine_lash","static_strike","verdant_orb"]},
     reward:{type:"money", amount:2500}, rewardText:"2500 coins" },
   { id:"q38", title:"Lightning Rod", desc:"Capture the wild electricity surging through Route 5.", location:"route5", type:"boss", requiredBadges:5,
@@ -10554,7 +10554,7 @@ const QUESTS_DATA = [
   { id:"q39", title:"Voltforest Protector", desc:"The Voltforest needs a champion to defeat the invasive alpha.", location:"bug_forest_west", type:"boss", requiredBadges:1,
     boss:{monsterId:147, level:20, moves:["volt_jet","vine_lash","static_strike","sharp_leaves"]},
     reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Carapace Dust" },
-  { id:"q40", title:"The Magnetic Anomaly", desc:"A strange magnetic field disrupts Sparkmoor. Find the source!", location:"sparkmoor", type:"boss", requiredBadges:5,
+  { id:"q40", title:"The Magnetic Anomaly", desc:"A strange magnetic field disrupts Levin. Find the source!", location:"sparkmoor", type:"boss", requiredBadges:5,
     boss:{monsterId:151, level:42, moves:["forge_blast_2","volt_jet","alloy_tail","radiance_cannon"]},
     reward:{type:"money", amount:4000}, rewardText:"4000 coins" },
 
@@ -10600,7 +10600,7 @@ const QUESTS_DATA = [
   { id:"q53", title:"Lunar Peak Ascent", desc:"Climb Lunar Peak and face the moonlit guardian!", location:"lunar_peak", type:"boss", requiredBadges:7,
     boss:{monsterId:143, level:50, moves:["lunar_burst","mental","prism_flare","inner_calm"]},
     reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Fairy Essence" },
-  { id:"q54", title:"Spirit Canyon Crossing", desc:"Cross Spirit Canyon by defeating the ghostly guardians.", location:"spirit_canyon", type:"boss", requiredBadges:7,
+  { id:"q54", title:"Resonant Chasm Crossing", desc:"Cross Resonant Chasm by defeating the ghostly guardians.", location:"spirit_canyon", type:"boss", requiredBadges:7,
     boss:{monsterId:135, level:48, moves:["nether_sphere","forge_blast_2","void_pulse","alloy_tail"]},
     reward:{type:"item", itemId:"spiritVeil", qty:1}, rewardText:"Spirit Veil" },
   { id:"q55", title:"Crystal Spire Mystery", desc:"Unlock the Crystal Spire's secrets by defeating its protector.", location:"crystal_spire", type:"boss", requiredBadges:7,
@@ -10623,7 +10623,7 @@ const QUESTS_DATA = [
     reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 Power Charges" },
 
   // ---- SKYVAULT & PSYCHIC AREAS (61-70) ----
-  { id:"q61", title:"Mind Over Matter", desc:"A psychic barrier blocks Skyvault. Shatter it by defeating the guardian.", location:"skyvault", type:"boss", requiredBadges:8,
+  { id:"q61", title:"Mind Over Matter", desc:"A psychic barrier blocks Cirrus. Shatter it by defeating the guardian.", location:"skyvault", type:"boss", requiredBadges:8,
     boss:{monsterId:168, level:54, moves:["mental","prism_flare","psi_burst","inner_calm"]},
     reward:{type:"item", itemId:"wiseGlasses", qty:1}, rewardText:"Wise Glasses" },
   { id:"q62", title:"Mystic Forest Patrol", desc:"Patrol the Mystic Forest and defeat rogue Lumori.", location:"mystic_forest", type:"boss", requiredBadges:8,
@@ -10647,7 +10647,7 @@ const QUESTS_DATA = [
   { id:"q68", title:"Route 7 Guardian", desc:"The ancient guardian of Route 7 awakens. Defeat it!", location:"route7", type:"boss", requiredBadges:8,
     boss:{monsterId:9, level:52, moves:["petal_blitz","lunar_burst","verdant_orb","slumber_dust"]},
     reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
-  { id:"q69", title:"Skyvault Observatory", desc:"The observatory telescope reveals a hidden Lumori. Battle it!", location:"skyvault", type:"boss", requiredBadges:8,
+  { id:"q69", title:"Cirrus Observatory", desc:"The observatory telescope reveals a hidden Lumori. Battle it!", location:"skyvault", type:"boss", requiredBadges:8,
     boss:{monsterId:319, level:56, moves:["void_pulse","lunar_burst","mental","nether_sphere"]},
     reward:{type:"item", itemId:"spiritVeil", qty:1}, rewardText:"Spirit Veil" },
   { id:"q70", title:"Dreamweaver", desc:"A Lumori weaves dreams into reality. Snap out of it by fighting!", location:"mystic_forest", type:"boss", requiredBadges:8,
@@ -10699,7 +10699,7 @@ const QUESTS_DATA = [
   { id:"q84", title:"Silkwood Cocoon Crisis", desc:"Giant cocoons are hatching dangerous Lumori in Silkwood!", location:"silkwood", type:"boss", requiredBadges:14,
     boss:{monsterId:201, level:64, moves:["shear_strike","resonance_hum","alloy_tail","mandible_crush"]},
     reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Carapace Dust" },
-  { id:"q85", title:"Gusthaven Wind Trial", desc:"Pass the Wind Trial to earn the respect of Gusthaven.", location:"gusthaven", type:"boss", requiredBadges:16,
+  { id:"q85", title:"Zephyr Wind Trial", desc:"Pass the Wind Trial to earn the respect of Zephyr.", location:"gusthaven", type:"boss", requiredBadges:16,
     boss:{monsterId:109, level:66, moves:["typhoon","lunar_burst","wind_scythe","cyclone_blade"]},
     reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
   { id:"q86", title:"Ironforge Masterwork", desc:"Defeat the Ironforge champion's ultimate creation!", location:"ironforge", type:"boss", requiredBadges:17,
@@ -10708,7 +10708,7 @@ const QUESTS_DATA = [
   { id:"q87", title:"Quarryville Fossil Hunt", desc:"A rare fossil Lumori has been revived! Battle it!", location:"quarryville", type:"boss", requiredBadges:18,
     boss:{monsterId:195, level:68, moves:["crystal_lance","crag_strike","landslide","geode_burst"]},
     reward:{type:"item", itemId:"hardStone", qty:1}, rewardText:"Crag Shard" },
-  { id:"q88", title:"Starbloom Celestial Trial", desc:"The Celestial Trial awaits at Starbloom. Are you worthy?", location:"starbloom", type:"boss", requiredBadges:19,
+  { id:"q88", title:"Stellaris Celestial Trial", desc:"The Celestial Trial awaits at Stellaris. Are you worthy?", location:"starbloom", type:"boss", requiredBadges:19,
     boss:{monsterId:143, level:70, moves:["lunar_burst","mental","celestial_wave","prism_flare"]},
     reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Fairy Essence" },
   { id:"q89", title:"Route 9 Pioneer", desc:"Be the first to explore the new Route 9!", location:"route9", type:"boss", requiredBadges:10,
@@ -10749,7 +10749,7 @@ const QUESTS_DATA = [
     reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
 
   // ---- BONUS/ENDGAME QUESTS (101-110) ----
-  { id:"q101", title:"Legendary Tempest", desc:"Tempestia stirs atop the Storm Plateau. Face its wrath!", location:"storm_plateau", type:"boss", requiredBadges:16,
+  { id:"q101", title:"Legendary Tempest", desc:"Tempestia stirs atop the Thunderhead Crag. Face its wrath!", location:"storm_plateau", type:"boss", requiredBadges:16,
     boss:{monsterId:314, level:70, moves:["typhoon","volt_jet","tempest_wrath","gale_cannon"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
   { id:"q102", title:"Volcanic Awakening", desc:"Volcanox rumbles in the Volcano Core. Calm it by battle!", location:"volcano_core", type:"boss", requiredBadges:13,
@@ -10803,8 +10803,8 @@ const QUESTS_DATA = [
     boss:{monsterId:161, level:60, moves:["typhoon","sludge_wave","wind_scythe","venom_lance"]},
     reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
 
-  // Route 11 - Tremor Pass (Ground focus)
-  { id:"q117", title:"Tremor Pass Demolitions", desc:"A demolitions expert challenges you at the rockiest point of Route 11.", location:"route11", type:"boss", requiredBadges:13,
+  // Route 11 - Fault Line (Ground focus)
+  { id:"q117", title:"Fault Line Demolitions", desc:"A demolitions expert challenges you at the rockiest point of Route 11.", location:"route11", type:"boss", requiredBadges:13,
     boss:{monsterId:97, level:63, moves:["tectonic_shift","tectonic_slam","geoblast","crag_strike"]},
     reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
   { id:"q118", title:"Desert Draconic Duel", desc:"A legendary desert dragon has been spotted at Route 11. Challenge it!", location:"route11", type:"boss", requiredBadges:13,
@@ -10829,7 +10829,7 @@ const QUESTS_DATA = [
   { id:"q123", title:"Gale Ridge Storm Rider", desc:"A storm rider has trained her Wind Lumori to hurricane strength.", location:"route13", type:"boss", requiredBadges:16,
     boss:{monsterId:113, level:67, moves:["typhoon","tempest_wrath","cyclone_blade","wind_scythe"]},
     reward:{type:"money", amount:8000}, rewardText:"8000 coins" },
-  { id:"q124", title:"Gusthaven Wind Sage", desc:"The ancient Wind Sage challenges only the strongest trainers.", location:"gusthaven", type:"boss", requiredBadges:16,
+  { id:"q124", title:"Zephyr Wind Sage", desc:"The ancient Wind Sage challenges only the strongest trainers.", location:"gusthaven", type:"boss", requiredBadges:16,
     boss:{monsterId:117, level:67, moves:["typhoon","mental","cyclone_blade","astral_rend"]},
     reward:{type:"item", itemId:"swiftFeather", qty:1}, rewardText:"Swift Feather" },
   { id:"q125", title:"Cyclondor Chase", desc:"A Cyclondor has run amok through Gale Ridge! Calm it with battle.", location:"route13", type:"boss", requiredBadges:16,
@@ -10857,7 +10857,7 @@ const QUESTS_DATA = [
   { id:"q130", title:"Void Rift Encounter", desc:"The Void Rift on Route 16 pulses with dark and fairy energy. Investigate and face the manifestation within!", location:"route16", type:"boss", requiredBadges:19,
     boss:{monsterId:319, level:72, moves:["void_pulse","lunar_burst","soul_rend","fae_requiem"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
-  { id:"q131", title:"Starbloom Fairy Guardian", desc:"A radiant fairy guardian challenges all who approach Starbloom's gates.", location:"starbloom", type:"boss", requiredBadges:19,
+  { id:"q131", title:"Stellaris Fairy Guardian", desc:"A radiant fairy guardian challenges all who approach Stellaris's gates.", location:"starbloom", type:"boss", requiredBadges:19,
     boss:{monsterId:144, level:71, moves:["lunar_burst","mental","celestial_wave","prism_flare"]},
     reward:{type:"money", amount:10000}, rewardText:"10000 coins" },
   { id:"q132", title:"Commander Phantom's Last Stand", desc:"Commander Phantom has regrouped on Route 16! Stop The Umbra Order before they re-open the Void Rift!", location:"route16", type:"boss", requiredBadges:19,
@@ -11010,7 +11010,7 @@ const QUESTS_DATA = [
   { id:"wielder_morrigan", title:"The Shadowfen's Grief", desc:"Morrigan watched Vaeldris burn. She has carried that grief into darkness — those who have wandered the Haunted Grove report a figure among the shadows who does not flinch from the dead. She is there. Bring four Lumori and choose wisely.",
     location:"haunted_grove", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
-  { id:"wielder_kael", title:"The Storm That Remembers", desc:"Kael goes where storms go. Trainers who have crossed the Storm Plateau claim to have seen a lone figure standing in the lightning who did not run. That is him. He does not move for weather. He moves for worthy challengers.",
+  { id:"wielder_kael", title:"The Storm That Remembers", desc:"Kael goes where storms go. Trainers who have crossed the Thunderhead Crag claim to have seen a lone figure standing in the lightning who did not run. That is him. He does not move for weather. He moves for worthy challengers.",
     location:"storm_plateau", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
   { id:"wielder_thessaly", title:"The Root Memory", desc:"Thessaly communes with old things. The Ancient Ruins hold layers of history she can read like text — she has been there since the Umbra was defeated, waiting among stones that remember. Find the deepest chamber. She will know you are coming.",

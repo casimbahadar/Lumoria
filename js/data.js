@@ -6189,7 +6189,7 @@ const WORLD_DATA = {
       {id:123, minLv:46, maxLv:51, rate:50},   // Nocturil
       {id:166, minLv:47, maxLv:52, rate:15}    // Psymastiff
     ],
-    hasGym:false, requiredBadges:7, mapPos:{x:5, y:55}
+    hasGym:false, requiredBadges:7, mapPos:{x:10, y:48}
   },
   reef_ruins: {
     id:"reef_ruins", name:"Drowned Halls", icon:"🏛️", type:"special",

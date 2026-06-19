@@ -947,6 +947,10 @@ function renderWorldMap() {
   // For each connection, draw the path and if a route area lies on it, make it clickable
   const drawnConnections = new Set();
   const routesMapped = new Set(); // track which route areas got placed on a connection
+  // Roads are collected and drawn in layers (all shadows, then all yellow, then all
+  // highlights) so the yellow flows continuously through shared nodes/crossings
+  // instead of each road's dark outline cutting the previous one (the "chain link").
+  const roadShadows = [], roadMains = [], roadHi = [];
 
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
@@ -1002,9 +1006,10 @@ function renderWorldMap() {
         const d = "M " + r.pts.map(p => p[0] + "," + p[1]).join(" L ");
         const col = roadCol(r.ocean);
         const pa = { d, fill:"none", "stroke-linecap":"round", "stroke-linejoin":"round" };
-        add(bgGroup, se("path", { ...pa, stroke:col.s, "stroke-width":"7", opacity:"0.55" }));
-        const line = add(bgGroup, se("path", { ...pa, stroke:col.c, "stroke-width":"5" }));
-        add(bgGroup, se("path", { ...pa, stroke:"#ffffff", "stroke-width":"1.5", opacity:"0.2" }));
+        roadShadows.push(se("path", { ...pa, stroke:col.s, "stroke-width":"7", opacity:"0.55" }));
+        const line = se("path", { ...pa, stroke:col.c, "stroke-width":"5" });
+        roadMains.push(line);
+        roadHi.push(se("path", { ...pa, stroke:"#ffffff", "stroke-width":"1.5", opacity:"0.2" }));
         segLines.push({ line, ocean: r.ocean, locked: bothLocked });
       }
 
@@ -1050,6 +1055,11 @@ function renderWorldMap() {
       }
     }
   }
+
+  // Draw roads in layers so yellow flows continuously through nodes/crossings.
+  for (const e of roadShadows) add(bgGroup, e);
+  for (const e of roadMains) add(bgGroup, e);
+  for (const e of roadHi) add(bgGroup, e);
 
   // Also place labels for any route areas not yet mapped (e.g. routes only connected to one path)
   for (const [rId, rArea] of Object.entries(routeAreas)) {

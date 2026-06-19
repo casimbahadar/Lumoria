@@ -6101,7 +6101,7 @@ const WORLD_DATA = {
       {id:111, minLv:5, maxLv:8, rate:35}     // Aeolin
     ],
     ngPlusWildMonsters:[{id:438, minLv:5, maxLv:8, rate:12}], // NG+ family base: Chimicada
-    hasGym:false, requiredBadges:0, mapPos:{x:13, y:62}
+    hasGym:false, requiredBadges:0, mapPos:{x:16, y:62}
   },
   fairy_meadow_north: {
     id:"fairy_meadow_north", name:"Fairy Meadow West", icon:"🌸", type:"route",
@@ -6203,7 +6203,7 @@ const WORLD_DATA = {
       {id:57, minLv:30, maxLv:36, rate:14},   // Imperion
       {id:134, minLv:35, maxLv:42, rate:8}   // Titanomare
     ],
-    hasGym:false, requiredBadges:2, mapPos:{x:67, y:80},
+    hasGym:false, requiredBadges:2, mapPos:{x:68, y:88},
     storyLocation:true, hasUmbraEncounter:true
   },
   wind_bridge: {
@@ -6480,7 +6480,7 @@ const WORLD_DATA = {
       {id:254, minLv:69, maxLv:74, rate:12},  // Bubblepuff (base Aquatic/Psy)
       {id:302, minLv:69, maxLv:74, rate:5}    // Lightpuff (base Fairy, item evo)
     ],
-    hasGym:false, requiredBadges:19, mapPos:{x:57, y:78},
+    hasGym:false, requiredBadges:19, mapPos:{x:57, y:77},
     ngPlusWildMonsters:[{id:363, minLv:71, maxLv:75, rate:9}, {id:344,minLv:76,maxLv:82,rate:20},{id:351,minLv:76,maxLv:82,rate:15},{id:360,minLv:77,maxLv:83,rate:10}]
   },
   starbloom: {

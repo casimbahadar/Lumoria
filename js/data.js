@@ -5882,7 +5882,7 @@ const WORLD_DATA = {
       {id:189, minLv:14, maxLv:17, rate:25}   // Projectery
     ],
     ngPlusWildMonsters:[{id:448, minLv:12, maxLv:16, rate:12}], // NG+ family base: Cobblepup
-    hasGym:false, requiredBadges:1, mapPos:{x:59, y:65},
+    hasGym:false, requiredBadges:1, mapPos:{x:54, y:67},
     storyLocation:true, hasUmbraEncounter:true,
     legendaryEncounter:{monsterId:165, level:55}
   },

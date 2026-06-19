@@ -5503,7 +5503,7 @@ const WORLD_DATA = {
   route2: {
     id:"route2", name:"Route 2 - Greenwood Forest", icon:"🌲", type:"route",
     desc:"A dense forest teeming with Bug and Grass type Lumori.",
-    connections:["ashford","tidewatch","lumoria_jungle"],
+    connections:["ashford","tidewatch","lumoria_jungle","route9"],
     wildMonsters:[
       {id:197, minLv:6, maxLv:9, rate:30}, // Photoworm
       {id:200, minLv:6, maxLv:9, rate:10}, // Iridibeetle
@@ -5858,7 +5858,7 @@ const WORLD_DATA = {
   lumoria_jungle: {
     id:"lumoria_jungle", name:"Lumoria Jungle", icon:"🌴", type:"route",
     desc:"A dense, humid jungle teeming with Grass, Poison and Bug types. Ancient ruins peek through the canopy.",
-    connections:["route2","ancient_ruins","bug_forest_west","route9","route10"],
+    connections:["route2","ancient_ruins","bug_forest_west","route10"],
     wildMonsters:[
       {id:200, minLv:10, maxLv:13, rate:18}, // Sproutix (obtainability fix)
       {id:7, minLv:8, maxLv:12, rate:14},   // Sporix
@@ -6254,7 +6254,7 @@ const WORLD_DATA = {
   route9: {
     id:"route9", hasUmbraEncounter:true, name:"Route 9 - Verdant Trail", icon:"🌿", type:"route",
     desc:"A lush overgrown trail leading south from Dragonspire. Grass and Bug types thrive here.",
-    connections:["dragonspire","corroden","lumoria_jungle"],
+    connections:["dragonspire","corroden","route2"],
     wildMonsters:[
       {id:7, minLv:55, maxLv:60, rate:15},
       {id:66, minLv:55, maxLv:60, rate:20},

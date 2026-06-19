@@ -5660,7 +5660,7 @@ const WORLD_DATA = {
   lodehollow: {
     id:"lodehollow", name:"Lodehollow Town", icon:"⛏️", type:"city",
     desc:"A mining settlement carved into a gem-veined hollow, its lanterns glinting off raw ore. Gym Leader Marl reads the strength locked in stone and crystal.",
-    connections:["route6","lode_pass"],
+    connections:["route6","lode_pass","battle_frontier"],
     wildMonsters:[
       {id:47, minLv:32, maxLv:36, rate:25}, // Sapphier
       {id:251, minLv:32, maxLv:36, rate:25}, // Stonegrip
@@ -5669,6 +5669,14 @@ const WORLD_DATA = {
       {id:55, minLv:34, maxLv:36, rate:12}  // Frigolith
     ],
     hasGym:true, gymLeader:"marl", requiredBadges:6, mapPos:{x:26, y:33}
+  },
+  battle_frontier: {
+    id:"battle_frontier", name:"Battle Frontier", icon:"🏯", type:"special",
+    desc:"A coliseum-spire that rises beyond Lodehollow's ore-roads, opened only to those who have stood as Champion. Within its Battle Tower, your team faces an endless, escalating gauntlet of challengers. More trials are planned for its grounds.",
+    connections:["lodehollow"],
+    wildMonsters:[],
+    hasGym:false, requiredBadges:20, requiresChampion:true,
+    hasBattleFrontier:true, mapPos:{x:34, y:33}
   },
   lode_pass: {
     id:"lode_pass", name:"Lode Pass", icon:"💠", type:"route",

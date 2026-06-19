@@ -77,7 +77,30 @@ NG+-gated `legendaryEncounter` statics** (evolutions come from evolving):
   save migration). Engine: `_rematch` resolution gains GYM_LEADERS name fallback + `ngTeams`
   pick when `ngPlusCount>0`.
 - Verified: validate.js green; headless non-NG+ (6×L110, cap112) & NG+ (6×L135, cap137) resolve, 0 errors.
-## Phase 1 — Thread 3: Battle Frontier/Tower ⏳ next
+## Phase 1 — Thread 3: Battle Frontier/Tower 🚧 in progress
+Post-game endless gauntlet (the "Battle Tower"), entered from a dedicated **Battle Frontier**
+facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPos {x:34,y:33}`,
+`requiresChampion`, built to host future trials). Design (user-approved):
+- **Run setup:** BST **power tier** (Rookie<350 / Veteran<450 / Elite<550 / Master<720) that
+  caps **both** the player's squad AND the Tower's opponents (per-member); **team-size mode**
+  (Always-3 or Format-based: single 3 / double 5 / triple 6); **format** (single/double/triple).
+- **Player normalization:** squad copied & level-set to **L100** (real moves/IVs/natures kept);
+  **no heal between bouts** (attrition); party snapshot-restored after the run.
+- **Opponent scaling:** lvl = `min(150, 100 + 2×streak)` (130 @ streak 15, 150 @ 25); species
+  pool = ids **1–321** (base run) / **1–461** (NG+); **Forgotten ≥462 never appear & can't be
+  brought in**; filtered to BST ≤ tier cap, widening with streak.
+- **Mid-run choice:** first win vs an enemy ≥L130 offers a permanent bump to **L120** (or stay L100).
+- **Rewards:** milestone money/items every 7 wins; best streak per tier×size×format. FP-shop = 3d.
+- **Stages:** 3a facility+screen+setup+save ✅ (this commit) · 3b run engine (`isFrontier` endBattle
+  branch mirroring `isPvP`, normalization, opponent generator, attrition chain, L100→L120 choice) ·
+  3c milestone rewards + best-streak display + double/triple + size modes · 3d polish (themed
+  trainers, music, Frontier-Points shop, curve tuning).
+- **3a done:** `battle_frontier` area + Lodehollow connection (js/data.js); gold-diamond marker
+  (`.frontier` class in renderWorldMap + css/style.css); `#screen-frontier` + `btn-frontier`
+  (index.html); `renderAreaPanel` button; `G.frontier={best:{}}` save schema + migration;
+  Frontier setup module (`FRONTIER_TIERS/SIZE_MODES/FORMATS` + level/scaling consts, eligibility
+  helpers, `showFrontierScreen`/`renderFrontierSetup`/`startFrontierRun` stub) + listeners.
+  Begin button validates BST/Forgotten eligibility vs the chosen ruleset; engine stubbed for 3b.
 ## Phase 2 — Lane A.2 (evolution audit) + D (encounter audit) ⏳
 
 ---

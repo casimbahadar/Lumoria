@@ -43,7 +43,8 @@ function newGameState(playerName, starterMonsterId) {
     vaeldrisGauntletRelaxed: false,
     defeatedWielders: [],
     forgottenLegendaryAttempted: [],
-    gymRematchWins: {}
+    gymRematchWins: {},
+    frontier: { best: {} }
   };
 }
 
@@ -145,6 +146,8 @@ function loadGame(slot) {
     if (!data.defeatedWielders) data.defeatedWielders = [];
     if (!data.forgottenLegendaryAttempted) data.forgottenLegendaryAttempted = [];
     if (!data.gymRematchWins) data.gymRematchWins = {};
+    if (!data.frontier) data.frontier = { best: {} };
+    if (!data.frontier.best) data.frontier.best = {};
     if (data.apexGuardianDefeated === undefined) data.apexGuardianDefeated = false;
     if (!data.discoveredTraits) data.discoveredTraits = {};
     // PvP saved team loadouts: up to 6 per format, drawn from owned Lumori.
@@ -1166,6 +1169,7 @@ function renderWorldMap() {
     if (area.type === "town" || (area.type === "city" && nameIsTown)) loc.classList.add("town");
     if (area.type === "special") loc.classList.add("special");
     if (isLandmark) loc.classList.add("landmark");
+    if (area.hasBattleFrontier) loc.classList.add("frontier"); // gold diamond marker
     if (area.legendaryEncounter) loc.classList.add("legendary");
     if (areaId === G.location) loc.classList.add("current");
 
@@ -1454,6 +1458,10 @@ function renderAreaPanel() {
       healBtn.classList.remove("hidden");
     }
   }
+
+  // Battle Frontier facility button (post-game Battle Tower)
+  const frontierBtn = document.getElementById("btn-frontier");
+  if (frontierBtn) frontierBtn.classList.toggle("hidden", !area.hasBattleFrontier);
 
   // The Vanguard button
   const eliteBtn = document.getElementById("btn-elite-four");
@@ -5042,6 +5050,13 @@ function initEventListeners() {
   // Area shop button
   document.getElementById("btn-area-shop")?.addEventListener("click", showShopScreen);
 
+  // Battle Frontier facility
+  document.getElementById("btn-frontier")?.addEventListener("click", showFrontierScreen);
+  document.getElementById("btn-frontier-back")?.addEventListener("click", () => {
+    showScreen("screen-main"); renderWorldMap(); renderAreaPanel(); renderHUD();
+  });
+  document.getElementById("btn-frontier-begin")?.addEventListener("click", startFrontierRun);
+
   // Roaming legendary button
   document.getElementById("btn-roaming")?.addEventListener("click", () => {
     if (G.team.every(m => m.currentHP <= 0)) { showNotification("All your Lumori are fainted! Heal first."); return; }
@@ -5248,6 +5263,161 @@ function startTrainerBattle(trainerId, trainer) {
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+}
+
+// ============================================================
+// BATTLE FRONTIER / BATTLE TOWER (post-game endless gauntlet)
+// ============================================================
+// A repeatable, escalating run from the Battle Frontier facility (off Lodehollow,
+// requiresChampion). The player picks a BST power tier (caps BOTH their own squad
+// and the Tower's opponents), a team-size mode, and a format. The run engine
+// (normalization, opponent generation, attrition chain, the L100->L120 mid-run
+// choice, milestone rewards) arrives in stage 3b; this stage is the facility +
+// setup screen + save schema only.
+
+// Power tiers — the BST cap applies to every Lumori on BOTH sides.
+const FRONTIER_TIERS = [
+  { id:"rookie",  name:"Rookie",  cap:350, icon:"🌱" },
+  { id:"veteran", name:"Veteran", cap:450, icon:"⚔️" },
+  { id:"elite",   name:"Elite",   cap:550, icon:"🔥" },
+  { id:"master",  name:"Master",  cap:720, icon:"👑" },
+];
+const FRONTIER_SIZE_MODES = [
+  { id:"three",  name:"Always 3",     desc:"Three Lumori, in every format." },
+  { id:"format", name:"Format-based", desc:"Single 3 · Double 5 · Triple 6." },
+];
+const FRONTIER_FORMATS = [
+  { id:"single", name:"Single", icon:"⚔️",  size:3 },
+  { id:"double", name:"Double", icon:"👥",  size:5 },
+  { id:"triple", name:"Triple", icon:"⚔️⚔️", size:6 },
+];
+// Level normalization + opponent scaling constants (consumed by the 3b engine).
+const FRONTIER_BASE_LEVEL = 100;            // player squad is normalized to this
+const FRONTIER_UPGRADE_LEVEL = 120;         // optional mid-run bump
+const FRONTIER_ENEMY_BASE_LEVEL = 100;      // opponent level at streak 0
+const FRONTIER_ENEMY_LEVEL_STEP = 2;        // +per streak win
+const FRONTIER_ENEMY_LEVEL_CAP = 150;       // opponents cap here
+const FRONTIER_UPGRADE_TRIGGER_LEVEL = 130; // beating an enemy >= this offers the L120 bump
+
+let frontierSetup = { tier:"veteran", size:"format", format:"single" };
+
+// The species pool an opponent generator may draw from (3b). Base run = ids 1-321;
+// NG+ extends through the NG+-exclusive block (322-461). Forgotten Lumori (>=462)
+// are NEVER eligible — they cannot appear as opponents and cannot be brought in.
+function frontierSpeciesMaxId() {
+  const ngPlus = (typeof G !== "undefined" && G && G.ngPlusCount > 0);
+  const ngCeil = (typeof NG_PLUS_DEX_START !== "undefined") ? NG_PLUS_DEX_START : 322;
+  const forgotten = (typeof FORGOTTEN_DEX_START !== "undefined") ? FORGOTTEN_DEX_START : 462;
+  return ngPlus ? (forgotten - 1) : (ngCeil - 1); // 461 on NG+, 321 otherwise
+}
+
+// Is a given party slot legal for the Frontier under the chosen tier? Must satisfy
+// the BST cap AND be non-Forgotten (id < 462).
+function frontierSlotEligible(slot, cap) {
+  if (!slot) return false;
+  const forgotten = (typeof FORGOTTEN_DEX_START !== "undefined") ? FORGOTTEN_DEX_START : 462;
+  if (slot.monsterId >= forgotten) return false;
+  return getMonBST(slot.monsterId) <= cap;
+}
+
+function frontierTierDef(id) { return FRONTIER_TIERS.find(t => t.id === id) || FRONTIER_TIERS[0]; }
+function frontierBestKey(s) { return `${s.tier}_${s.size}_${s.format}`; }
+function getFrontierBest(s) {
+  return (G.frontier && G.frontier.best && G.frontier.best[frontierBestKey(s)]) || 0;
+}
+// How many Lumori the chosen size/format requires.
+function frontierRequiredSize(s) {
+  if (s.size === "three") return 3;
+  return (FRONTIER_FORMATS.find(f => f.id === s.format) || FRONTIER_FORMATS[0]).size;
+}
+
+function showFrontierScreen() {
+  if (!G.championDefeated) { showNotification("🔒 The Battle Tower opens only to a Champion."); return; }
+  if (!G.frontier) G.frontier = { best: {} };
+  showScreen("screen-frontier");
+  renderFrontierSetup();
+}
+
+// Build one selectable option chip.
+function frontierOptBtn(label, sublabel, selected, onClick) {
+  const b = document.createElement("button");
+  b.className = "frontier-opt" + (selected ? " active" : "");
+  b.innerHTML = sublabel ? `<span class="frontier-opt-main">${label}</span><span class="frontier-opt-sub">${sublabel}</span>` : label;
+  b.addEventListener("click", onClick);
+  return b;
+}
+
+function renderFrontierSetup() {
+  const s = frontierSetup;
+  const intro = document.getElementById("frontier-intro");
+  if (intro) intro.textContent = "Climb an endless gauntlet of challengers — no healing between bouts. Pick your rules, then begin. Your best streak is recorded per tier, size and format.";
+
+  // Tier chips
+  const tierBox = document.getElementById("frontier-tier-opts");
+  if (tierBox) {
+    tierBox.innerHTML = "";
+    for (const t of FRONTIER_TIERS) {
+      tierBox.appendChild(frontierOptBtn(`${t.icon} ${t.name}`, `BST ≤ ${t.cap}`, s.tier === t.id,
+        () => { s.tier = t.id; renderFrontierSetup(); }));
+    }
+  }
+  // Size-mode chips
+  const sizeBox = document.getElementById("frontier-size-opts");
+  if (sizeBox) {
+    sizeBox.innerHTML = "";
+    for (const m of FRONTIER_SIZE_MODES) {
+      sizeBox.appendChild(frontierOptBtn(m.name, m.desc, s.size === m.id,
+        () => { s.size = m.id; renderFrontierSetup(); }));
+    }
+  }
+  // Format chips — always pick the format (it sets the battle style; size mode only
+  // changes how many Lumori you field).
+  const fmtBox = document.getElementById("frontier-format-opts");
+  if (fmtBox) {
+    fmtBox.innerHTML = "";
+    for (const f of FRONTIER_FORMATS) {
+      const sub = s.size === "three" ? "3 Lumori" : `${f.size} Lumori`;
+      fmtBox.appendChild(frontierOptBtn(`${f.icon} ${f.name}`, sub, s.format === f.id,
+        () => { s.format = f.id; renderFrontierSetup(); }));
+    }
+  }
+
+  // Best-streak banner
+  const best = getFrontierBest(s);
+  const banner = document.getElementById("frontier-best-banner");
+  if (banner) banner.innerHTML = best > 0
+    ? `🏅 Best streak (this ruleset): <strong>${best}</strong>`
+    : `No streak recorded for this ruleset yet — set the first.`;
+
+  // Eligibility readout against the player's current party.
+  const cap = frontierTierDef(s.tier).cap;
+  const need = frontierRequiredSize(s);
+  const eligible = (G.team || []).filter(m => frontierSlotEligible(m, cap));
+  const elBox = document.getElementById("frontier-eligible");
+  if (elBox) {
+    const enough = eligible.length >= need;
+    elBox.className = "frontier-eligible" + (enough ? " ok" : " short");
+    elBox.innerHTML = `Your party: <strong>${eligible.length}</strong> of ${G.team.length} qualify `
+      + `(BST ≤ ${cap}, non-Forgotten). This ruleset needs <strong>${need}</strong>.`
+      + (enough ? "" : `<br><span class="frontier-warn">Adjust your team to enter.</span>`);
+  }
+  const beginBtn = document.getElementById("btn-frontier-begin");
+  if (beginBtn) beginBtn.disabled = eligible.length < need;
+}
+
+function startFrontierRun() {
+  const s = frontierSetup;
+  if (!G.championDefeated) { showNotification("🔒 The Battle Tower opens only to a Champion."); return; }
+  const cap = frontierTierDef(s.tier).cap;
+  const need = frontierRequiredSize(s);
+  const eligible = (G.team || []).filter(m => frontierSlotEligible(m, cap));
+  if (eligible.length < need) {
+    showNotification(`You need ${need} eligible Lumori (BST ≤ ${cap}, non-Forgotten). You have ${eligible.length}.`);
+    return;
+  }
+  // 3a: setup is complete; the run engine (normalization, gauntlet chain, scaling,
+  // milestone rewards) lands in stage 3b.
+  showNotification("🏯 The Battle Tower's gauntlet arrives in the next update — your challenge is set up and ready.");
 }
 
 // Async PvP: battle a snapshot of another player's submitted team, played for real

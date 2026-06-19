@@ -477,7 +477,7 @@ html, body {
 
 .map-location.locked .map-loc-dot { opacity: 0.45; cursor: not-allowed; filter: grayscale(0.85); }
 
-.map-location.gym-done .map-loc-dot { border-color: #3fb950 !important; background: #1a6030 !important; }
+/* Beaten gyms keep their normal marker colour (red square / blue circle / triangle). */
 
 /* Full location name labels */
 .map-loc-label {

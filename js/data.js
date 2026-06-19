@@ -6092,7 +6092,7 @@ const WORLD_DATA = {
     legendaryEncounter:{monsterId:167, level:55}
   },
   fairy_meadow_south: {
-    id:"fairy_meadow_south", name:"Fairy Meadow South", icon:"🌸", type:"route",
+    id:"fairy_meadow_south", name:"Fairy Meadow", icon:"🌸", type:"route",
     desc:"The southern stretch of Fairy Meadow, where gentle flowers bloom near Seedvale. Fairy and Grass types play in the warm breeze.",
     connections:["seedvale","fairy_meadow_north"],
     wildMonsters:[

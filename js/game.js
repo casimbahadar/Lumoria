@@ -545,10 +545,16 @@ const BIOME_REGIONS = [
     path:'M 4,32 C 3,30 2,34 3,40 C 4,48 6,54 10,56 C 14,58 18,56 20,52 C 22,48 22,42 20,38 C 18,34 14,32 10,32 C 8,32 6,32 4,32 Z' },
   // Mystic/psychic central zone
   { type:'mystic', color:'#2a2050', shadow:'#1a1238', highlight:'#3e3068',
-    path:'M 20,48 C 18,46 16,48 18,54 C 20,60 24,62 30,62 C 36,62 40,58 42,54 C 44,50 42,46 38,44 C 34,42 28,42 24,44 C 22,46 21,47 20,48 Z' },
+    path:'M 20,42 C 18,40 16,42 18,48 C 20,54 24,56 30,56 C 36,56 40,52 42,48 C 44,44 42,40 38,38 C 34,36 28,36 24,38 C 22,40 21,41 20,42 Z' },
   // Dragon peak - central mountain
   { type:'mountain', color:'#4a3068', shadow:'#321e4a', highlight:'#624088',
     path:'M 46,36 C 44,34 42,36 44,42 C 46,46 50,48 54,46 C 58,44 60,40 60,36 C 60,34 58,32 54,32 C 50,32 48,34 46,36 Z' },
+  // Eastern archipelago — hosts the NG+ "void-touched" cities (green land like the mainland)
+  { type:'land', color:'#4a9e52', shadow:'#357a3c', highlight:'#6abb6e',
+    path:'M 82,24 C 77,24 76,32 78,41 C 79,50 83,56 89,57 C 95,58 98,51 98,42 C 98,33 96,27 91,24 C 88,22 85,23 82,24 Z' },
+  // Southeastern isle — hosts the post-game / champion-gated areas (green land like the mainland)
+  { type:'land', color:'#4a9e52', shadow:'#357a3c', highlight:'#6abb6e',
+    path:'M 78,64 C 72,64 70,72 72,80 C 73,88 77,94 86,97 C 93,99 98,95 98,86 C 98,76 97,69 93,66 C 89,63 83,63 78,64 Z' },
 ];
 
 // SVG element helper — create a namespaced element with all attrs in one call
@@ -620,8 +626,46 @@ function scaleMapPath(pathStr, mapW, mapH) {
   });
 }
 
+// Flatten BIOME_REGIONS paths into %-space polygons (once) so roads can be coloured
+// by the terrain they cross (land vs ocean).
+const LAND_POLYS = (function () {
+  function flat(d) {
+    const t = (d || "").match(/[MCLZ]|[-0-9.]+/g) || [];
+    const pts = []; let cx = 0, cy = 0, sx = 0, sy = 0, x = 0;
+    const n = () => parseFloat(t[x++]);
+    while (x < t.length) {
+      const c = t[x++];
+      if (c === "M") { cx = n(); cy = n(); sx = cx; sy = cy; pts.push([cx, cy]); }
+      else if (c === "L") { cx = n(); cy = n(); pts.push([cx, cy]); }
+      else if (c === "C") {
+        const a1 = n(), b1 = n(), a2 = n(), b2 = n(), ex = n(), ey = n();
+        for (let s = 1; s <= 8; s++) { const u = s / 8, m = 1 - u;
+          pts.push([m*m*m*cx + 3*m*m*u*a1 + 3*m*u*u*a2 + u*u*u*ex,
+                    m*m*m*cy + 3*m*m*u*b1 + 3*m*u*u*b2 + u*u*u*ey]); }
+        cx = ex; cy = ey;
+      } else if (c === "Z") pts.push([sx, sy]);
+    }
+    return pts;
+  }
+  try { return (typeof BIOME_REGIONS !== "undefined" ? BIOME_REGIONS : []).map(b => flat(b.path)); }
+  catch (e) { return []; }
+})();
+function isOceanPct(x, y) {
+  for (const poly of LAND_POLYS) {
+    let inside = false;
+    for (let a = 0, b = poly.length - 1; a < poly.length; b = a++) {
+      const xi = poly[a][0], yi = poly[a][1], xj = poly[b][0], yj = poly[b][1];
+      if (((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi)) inside = !inside;
+    }
+    if (inside) return false;
+  }
+  return true;
+}
+
 // Zoom state
-let mapZoom = 1;
+// Default to a higher zoom on small (mobile) screens so the map renders larger
+// than the viewport (scrollable) and markers/labels get more breathing room.
+let mapZoom = (typeof window !== "undefined" && window.innerWidth > 0 && window.innerWidth < 768) ? 2 : 1;
 const MAP_ZOOM_LEVELS = [1, 1.5, 2, 2.5];
 
 function setMapZoom(level) {
@@ -637,6 +681,132 @@ function setMapZoom(level) {
   renderWorldMap();
 }
 
+// Named-landmark routes that read as real destinations, so they get a square marker
+// like cities/towns/specials (not just a road waypoint). Curated to "landmarks +
+// every legendary"; pure connector routes (Pass/Trail/Bridge/Crossing/...) stay plain
+// roads. Split-pairs collapse to a single bearer square (see LANDMARK_LABELS).
+const LANDMARK_ROUTES = new Set([
+  // legendary-bearing routes (always a square)
+  "deep_trench","ancient_grove","ancient_ruins","crystal_depths","crystal_mine",
+  "dark_canyon","iron_canyon","magma_vent","mire_depths","storm_plateau",
+  "volcano_core","wind_hollow",
+  // non-legendary named landmarks
+  "ash_fields","astral_plateau","coral_reef","cosmic_cavern","forge_ruins",
+  "fungal_cavern","gale_peak","haunted_grove","lava_fields","lumoria_jungle",
+  "lunar_peak","mirror_lake","mystic_forest","nebula_gorge","spirit_canyon",
+  "stone_plateau","tempest_cliffs","thunder_cliffs",
+  // split-pair bearers (one square per pair; the other half stays a road)
+  "bug_forest_east","fairy_meadow_south","poison_swamp_lower",
+]);
+// Display labels for the collapsed split-pair bearers.
+const LANDMARK_LABELS = {
+  bug_forest_east: "Bug Forest S",
+  fairy_meadow_south: "Fairy Meadow",
+  poison_swamp_lower: "Poison Swamp",
+};
+
+// Per-area name-label placement override ('top'|'bottom'|'left'|'right'). Only the
+// names the user pinned in earlier commits live here; everything else is auto-placed
+// by bestLabelSide() below (which keeps names off roads/edges/neighbours).
+const LABEL_POS = {
+  // --- Name above the marker ---
+  coral_reef: "top", ancient_ruins: "top", umbra_spire: "top",
+  volcano_core: "top", frostpeak: "top", shadowmere: "top",
+  lunar_peak: "top", crystal_depths: "top", iron_canyon: "top",
+  fairy_meadow_south: "top", umbra_lab: "top", haunted_grove: "top",
+  // --- Name below the marker ---
+  bloomhaven: "bottom", sparkmoor: "bottom", prismatic_rift: "bottom",
+  forge_ruins: "bottom", seedvale: "bottom",
+  ancient_grove: "bottom", tempest_cliffs: "bottom",
+  // Astral Plateau sits just beside Umbra Secret Lab; with Umbra Lab now above its
+  // marker, Astral drops below so the two names stay split and don't overlap.
+  astral_plateau: "bottom",
+  // --- Name to the left of the marker ---
+  crystal_spire: "left", umbra_citadel: "left", shadow_archive: "left",
+  miasmacity: "left", lava_fields: "left",
+  // --- Name to the right of the marker ---
+  emberveil: "right", summit: "right", gale_peak: "right", corroden: "right",
+};
+
+// NG+-only map topology. Once the player is in New Game+ these extra roads appear and
+// these existing roads are hidden, so the post-game / archipelago areas re-route through
+// the water. The base map (ngPlusCount 0) is left exactly as authored. Travel is not
+// gated by roads (see travelTo), so these overrides only affect the map's road graph.
+const NG_PLUS_ADD_EDGES = [["coral_reef", "gravecourt"], ["starbloom", "deep_trench"],
+  ["summit", "ascendant_path"]];
+const NG_PLUS_HIDE_EDGES = new Set(["summit|victoryroad", "starbloom|victoryroad"]);
+const edgeKey = (a, b) => [a, b].sort().join("|");
+
+// Effective map connections for an area, applying the NG+-only add/hide overrides above.
+function connsOf(areaId) {
+  const area = WORLD_DATA[areaId];
+  if (!area) return [];
+  const conns = area.connections || [];
+  if (!(G && G.ngPlusCount > 0)) return conns;
+  let out = conns.filter(c => !NG_PLUS_HIDE_EDGES.has(edgeKey(areaId, c)));
+  for (const [a, b] of NG_PLUS_ADD_EDGES) {
+    if (a === areaId && !out.includes(b)) out = out.concat(b);
+    else if (b === areaId && !out.includes(a)) out = out.concat(a);
+  }
+  return out;
+}
+
+// Auto-pick which side a marker's name sits on. Scores all four sides and picks the
+// cheapest: a road exiting toward a side is heavily penalised (so the name never lands
+// on a road), running off the map edge is penalised, and a neighbouring marker on a
+// side is mildly penalised (keeps spacing). Manual LABEL_POS entries always win.
+function bestLabelSide(id) {
+  if (LABEL_POS[id]) return LABEL_POS[id];
+  const a = WORLD_DATA[id];
+  if (!a || !a.mapPos) return "bottom";
+  const x = a.mapPos.x, y = a.mapPos.y;
+  const cost = { top: 0, bottom: 0, left: 0, right: 0 };
+  // Roads leaving this marker -> heavily penalise the side each road exits toward.
+  for (const c of connsOf(id)) {
+    const n = WORLD_DATA[c];
+    if (!n || !n.mapPos) continue;
+    const dx = n.mapPos.x - x, dy = n.mapPos.y - y;
+    if (Math.abs(dx) >= Math.abs(dy)) cost[dx > 0 ? "right" : "left"] += 10;
+    else cost[dy > 0 ? "bottom" : "top"] += 10;
+  }
+  // Neighbouring markers -> mild penalty so the name doesn't crowd another icon.
+  for (const oid in WORLD_DATA) {
+    if (oid === id) continue;
+    const o = WORLD_DATA[oid];
+    if (!o.mapPos) continue;
+    const dx = o.mapPos.x - x, dy = o.mapPos.y - y;
+    if (Math.abs(dy) < 7 && dx > 1 && dx < 13) cost.right += 3;
+    else if (Math.abs(dy) < 7 && dx < -1 && dx > -13) cost.left += 3;
+    if (Math.abs(dx) < 8 && dy > 1 && dy < 8) cost.bottom += 3;
+    else if (Math.abs(dx) < 8 && dy < -1 && dy > -8) cost.top += 3;
+  }
+  // Map-edge penalty -> keep the name fully on-screen.
+  if (y < 11) cost.top += 20;
+  if (y > 88) cost.bottom += 20;
+  if (x < 14) cost.left += 20;
+  if (x > 86) cost.right += 20;
+  // Tie-break preference: bottom reads most naturally, then top, then the sides.
+  const order = ["bottom", "top", "right", "left"];
+  let best = order[0];
+  for (const s of order) if (cost[s] < cost[best]) best = s;
+  return best;
+}
+
+// Pick a triangle's colour from the dominant encounter type in that area (so the
+// important/dead-end markers vary by what lives there). Returns null if unknown.
+function areaTypeColor(area) {
+  if (typeof MONSTERS_DATA === "undefined") return null;
+  const counts = {};
+  for (const m of [...(area.wildMonsters || []), ...(area.ngPlusWildMonsters || [])]) {
+    const def = MONSTERS_DATA[m.id];
+    if (!def || !def.types) continue;
+    for (const t of def.types) counts[t] = (counts[t] || 0) + (m.rate || 1);
+  }
+  let best = null, bestN = -1;
+  for (const t in counts) if (counts[t] > bestN) { best = t; bestN = counts[t]; }
+  return best ? getTypeColor(best) : null;
+}
+
 function renderWorldMap() {
   const mapEl = document.getElementById("world-map");
   mapEl.innerHTML = "";
@@ -647,6 +817,67 @@ function renderWorldMap() {
   const mapH = Math.round(baseH * mapZoom);
   mapEl.style.width = mapW + "px";
   mapEl.style.height = mapH + "px";
+
+  // On-demand route-name display — revealed on hover (desktop) or long-press (mobile)
+  // so roads stay unlabeled/uncluttered but players can still identify a route before
+  // travelling. Shown as a fixed banner pinned to the TOP of the map panel (above the
+  // scrolling/zoomed map) so on mobile the long-pressed name isn't hidden under the
+  // finger. Persistent across renders (anchored to the non-scrolling map container).
+  let routeTip = document.getElementById("map-route-banner");
+  if (!routeTip) {
+    routeTip = document.createElement("div");
+    routeTip.id = "map-route-banner";
+    routeTip.style.cssText = "position:absolute;top:4px;left:50%;transform:translateX(-50%);display:none;background:rgba(8,10,18,0.96);color:#ffe088;font-size:0.7rem;font-weight:bold;padding:3px 12px;border-radius:8px;white-space:nowrap;pointer-events:none;z-index:60;border:1px solid rgba(255,224,136,0.5);box-shadow:0 2px 8px rgba(0,0,0,0.7);letter-spacing:0.3px;";
+    const container = document.getElementById("world-map-container") || mapEl;
+    container.appendChild(routeTip);
+  }
+  const showRouteTip = (name) => { routeTip.textContent = "🚏 " + name; routeTip.style.display = "block"; };
+  const hideRouteTip = () => { routeTip.style.display = "none"; };
+  // Bind hover + long-press name reveal (and tap/click travel) to a route hotspot.
+  // Short tap travels; a ~450ms press reveals the name instead of travelling.
+  const bindRouteName = (el, name, onTap) => {
+    el.addEventListener("mouseenter", () => showRouteTip(name));
+    el.addEventListener("mouseleave", hideRouteTip);
+    if (onTap) el.addEventListener("click", onTap);
+    let lp = null, longPressed = false;
+    el.addEventListener("touchstart", () => { longPressed = false; lp = setTimeout(() => { longPressed = true; showRouteTip(name); }, 450); }, { passive: true });
+    el.addEventListener("touchmove", () => { if (lp) { clearTimeout(lp); lp = null; } }, { passive: true });
+    el.addEventListener("touchend", (e) => {
+      if (lp) { clearTimeout(lp); lp = null; }
+      e.preventDefault();
+      if (longPressed) setTimeout(hideRouteTip, 1600);   // long-press revealed the name — don't travel
+      else if (onTap) onTap();                            // short tap travels
+    });
+    el.addEventListener("touchcancel", () => { if (lp) { clearTimeout(lp); lp = null; } hideRouteTip(); });
+  };
+
+  // A dead-end route (single connection) otherwise looks like a road that just stops in
+  // open space. Render the route's own icon at its endpoint so it reads as a real
+  // destination; it stays clickable and shows its name on hover / long-press.
+  const addRouteEndIcon = (rId, rArea, rx, ry, rLocked) => {
+    if (LANDMARK_ROUTES.has(rId)) return; // landmark dead-ends get a square marker instead
+    if (connsOf(rId).length !== 1) return;
+    // A dead-end route reads as a real destination — draw the same plain triangle
+    // marker the rest of the map uses (tinted by encounter type), not an emoji.
+    const loc = document.createElement("div");
+    loc.className = "map-location landmark" + (rLocked ? " locked" : "") + (rId === G.location ? " current" : "");
+    loc.style.left = rx + "px";
+    loc.style.top = ry + "px";
+    const dot = document.createElement("div");
+    dot.className = "map-loc-dot";
+    const tc = areaTypeColor(rArea);
+    if (tc) dot.style.background = tc;
+    loc.appendChild(dot);
+    const label = document.createElement("div");
+    label.className = "map-loc-label";   // keep it directly underneath the triangle
+    label.textContent = rArea.name;
+    loc.appendChild(label);
+    if (!rLocked) {
+      loc.style.cursor = "pointer";
+      bindRouteName(loc, rArea.name, () => travelTo(rId));
+    }
+    mapEl.appendChild(loc);
+  };
 
   const svg = se("svg", { width:mapW, height:mapH, viewBox:`0 0 ${mapW} ${mapH}` });
   Object.assign(svg.style, { position:"absolute", top:"0", left:"0", zIndex:"5" });
@@ -693,29 +924,71 @@ function renderWorldMap() {
     return check(a) || check(b);
   }
 
-  // Build orthogonal segments between two map points
-  // Returns array of straight-line segment paths (split at direction changes)
-  function orthSegments(x1, y1, x2, y2) {
+  // Build orthogonal segments between two map points. `orient` ('H'|'V') forces the
+  // corner direction (from the crossing optimizer below); otherwise defaults to the
+  // longer axis first.
+  function orthSegments(x1, y1, x2, y2, orient) {
     const dx = Math.abs(x2 - x1), dy = Math.abs(y2 - y1);
-    // If nearly a straight line, return single segment
-    if (dx < 3 || dy < 3) {
-      return [`M ${x1},${y1} L ${x2},${y2}`];
-    }
-    // L-shaped: split into two straight segments at the corner
-    if (dx >= dy) {
-      // Horizontal first, then vertical. Corner at (x2, y1)
-      return [
-        `M ${x1},${y1} L ${x2},${y1}`,
-        `M ${x2},${y1} L ${x2},${y2}`
-      ];
-    } else {
-      // Vertical first, then horizontal. Corner at (x1, y2)
-      return [
-        `M ${x1},${y1} L ${x1},${y2}`,
-        `M ${x1},${y2} L ${x2},${y2}`
-      ];
-    }
+    // Return the polyline corner points; the drawing code renders one rounded path
+    // through them so an L-road bends smoothly instead of looking like joined segments.
+    if (dx < 3 || dy < 3) return [[x1, y1], [x2, y2]];
+    const horizFirst = orient ? orient === "H" : dx >= dy;
+    return horizFirst ? [[x1, y1], [x2, y1], [x2, y2]]
+                      : [[x1, y1], [x1, y2], [x2, y2]];
   }
+
+  // Choose each L-road's corner direction (H-first vs V-first) to minimise the number
+  // of road crossings — keeps the orthogonal look but routes lines around each other.
+  function computeRoadOrientations() {
+    const vis = a => a && a.mapPos &&
+      !(a.requiresChampion && !G?.championDefeated) && !(a.requiresNGPlus && !(G?.ngPlusCount > 0)) &&
+      !(a.requiresDefeated && !(G?.defeatedLeaders || []).includes(a.requiresDefeated));
+    const seen = new Set(), conns = [];
+    for (const [id, a] of Object.entries(WORLD_DATA)) {
+      if (!vis(a)) continue;
+      for (const c of connsOf(id)) {
+        const b = WORLD_DATA[c];
+        if (!vis(b)) continue;
+        const k = [id, c].sort().join("|");
+        if (seen.has(k)) continue;
+        seen.add(k);
+        conns.push({ k, a:id, b:c, x1:a.mapPos.x, y1:a.mapPos.y, x2:b.mapPos.x, y2:b.mapPos.y,
+          isL: Math.abs(a.mapPos.x-b.mapPos.x) >= 3 && Math.abs(a.mapPos.y-b.mapPos.y) >= 3 });
+      }
+    }
+    const segOf = (c, o) => {
+      const dx = Math.abs(c.x2-c.x1), dy = Math.abs(c.y2-c.y1);
+      if (dx < 3 || dy < 3) return [[c.x1,c.y1,c.x2,c.y2]];
+      return o === "H" ? [[c.x1,c.y1,c.x2,c.y1],[c.x2,c.y1,c.x2,c.y2]]
+                       : [[c.x1,c.y1,c.x1,c.y2],[c.x1,c.y2,c.x2,c.y2]];
+    };
+    const segX = (p, q) => {
+      const r1=p[2]-p[0], s1=p[3]-p[1], r2=q[2]-q[0], s2=q[3]-q[1], den=r1*s2-s1*r2;
+      if (Math.abs(den) < 1e-9) return false;
+      const t=((q[0]-p[0])*s2-(q[1]-p[1])*r2)/den, u=((q[0]-p[0])*s1-(q[1]-p[1])*r1)/den;
+      return t>0.03 && t<0.97 && u>0.03 && u<0.97;
+    };
+    const pairX = (c, oc, d, od) => {
+      if (c.a===d.a || c.a===d.b || c.b===d.a || c.b===d.b) return false;
+      for (const p of segOf(c, oc)) for (const q of segOf(d, od)) if (segX(p, q)) return true;
+      return false;
+    };
+    const orient = {};
+    for (const c of conns) orient[c.k] = (Math.abs(c.x2-c.x1) >= Math.abs(c.y2-c.y1)) ? "H" : "V";
+    for (let pass = 0; pass < 8; pass++) {
+      let changed = false;
+      for (const c of conns) {
+        if (!c.isL) continue;
+        let nH = 0, nV = 0;
+        for (const d of conns) { if (d === c) continue; if (pairX(c,"H",d,orient[d.k])) nH++; if (pairX(c,"V",d,orient[d.k])) nV++; }
+        const best = nH <= nV ? "H" : "V";
+        if (best !== orient[c.k]) { orient[c.k] = best; changed = true; }
+      }
+      if (!changed) break;
+    }
+    return orient;
+  }
+  const roadOrient = computeRoadOrientations();
 
   // Collect which route areas sit on which connections (for placing route labels on paths)
   // A route area is positioned at its mapPos, which should be along the connection path
@@ -730,12 +1003,16 @@ function renderWorldMap() {
   // For each connection, draw the path and if a route area lies on it, make it clickable
   const drawnConnections = new Set();
   const routesMapped = new Set(); // track which route areas got placed on a connection
+  // Roads are collected and drawn in layers (all shadows, then all yellow, then all
+  // highlights) so the yellow flows continuously through shared nodes/crossings
+  // instead of each road's dark outline cutting the previous one (the "chain link").
+  const roadShadows = [], roadMains = [], roadHi = [];
 
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
     if (area.requiresChampion && !G?.championDefeated || (area.requiresNGPlus && !(G?.ngPlusCount > 0))) continue;
     if (area.requiresDefeated && !(G?.defeatedLeaders || []).includes(area.requiresDefeated)) continue;
-    for (const conn of area.connections) {
+    for (const conn of connsOf(areaId)) {
       const sortedKey = [areaId, conn].sort().join("|");
       if (drawnConnections.has(sortedKey)) continue;
       drawnConnections.add(sortedKey);
@@ -749,23 +1026,47 @@ function renderWorldMap() {
       const y1 = (area.mapPos.y / 100) * mapH;
       const x2 = (toArea.mapPos.x / 100) * mapW;
       const y2 = (toArea.mapPos.y / 100) * mapH;
-      const segments = orthSegments(x1, y1, x2, y2);
+      const verts = orthSegments(x1, y1, x2, y2, roadOrient[sortedKey]);
 
       const fromLocked = G.badges.length < (area.requiredBadges || 0);
       const toLocked   = G.badges.length < (toArea.requiredBadges || 0);
-      const bothLocked = fromLocked && toLocked;
-      const water = isWaterConn(area, toArea);
-      const routeColor  = bothLocked ? "#4a4a4a" : water ? "#3a9acc" : "#d4a030";
-      const shadowColor = bothLocked ? "#222"    : water ? "#0d2a4a" : "#6a4a08";
+      // Most roads light only when BOTH ends are reachable. Two "doorstep" roads just
+      // outside the start towns light when EITHER end is reachable, so the stretch
+      // beside Seedvale / Ashford shows even though the far (high-level) area is locked.
+      const DOORSTEP_EITHER_LIT = new Set(["route12|seedvale", "ashford|quake_foothills"]);
+      const bothLocked = DOORSTEP_EITHER_LIT.has(sortedKey)
+        ? (fromLocked && toLocked) : (fromLocked || toLocked);
+      const roadCol = (ocean) => bothLocked ? { c:"#4a4a4a", s:"#222" }
+        : ocean ? { c:"#3a9acc", s:"#0d2a4a" } : { c:"#d4a030", s:"#6a4a08" };
 
-      // Draw each segment separately so they can be clicked individually
+      // Densify the polyline, then split into land/water runs. Each run is ONE rounded
+      // path (stroke-linejoin:round) so the L bends smoothly with no segment "chain".
+      const poly = [];
+      for (let v = 0; v < verts.length - 1; v++) {
+        const ax = verts[v][0], ay = verts[v][1], bx = verts[v+1][0], by = verts[v+1][1];
+        const len = Math.hypot(bx - ax, by - ay), steps = Math.max(1, Math.round(len / 6));
+        for (let i = 0; i < steps; i++) poly.push([ax + (bx-ax)*i/steps, ay + (by-ay)*i/steps]);
+      }
+      poly.push(verts[verts.length - 1]);
+      const fullD = "M " + poly.map(p => p[0] + "," + p[1]).join(" L ");
+      const runs = [];
+      for (let i = 0; i < poly.length - 1; i++) {
+        const mx = (poly[i][0] + poly[i+1][0]) / 2, my = (poly[i][1] + poly[i+1][1]) / 2;
+        const ocean = isOceanPct(mx / mapW * 100, my / mapH * 100);
+        const last = runs[runs.length - 1];
+        if (last && last.ocean === ocean) last.pts.push(poly[i+1]);
+        else runs.push({ ocean, pts: [poly[i], poly[i+1]] });
+      }
       const segLines = [];
-      for (const segD of segments) {
-        const pathAttrs = { d:segD, fill:"none", "stroke-linecap":"round", "stroke-linejoin":"round" };
-        add(bgGroup, se("path", { ...pathAttrs, stroke:shadowColor, "stroke-width":"7", opacity:"0.55" }));
-        const line = add(bgGroup, se("path", { ...pathAttrs, stroke:routeColor, "stroke-width":"5" }));
-        add(bgGroup, se("path", { ...pathAttrs, stroke:"#ffffff", "stroke-width":"1.5", opacity:"0.2" }));
-        segLines.push({ pathD: segD, line });
+      for (const r of runs) {
+        const d = "M " + r.pts.map(p => p[0] + "," + p[1]).join(" L ");
+        const col = roadCol(r.ocean);
+        const pa = { d, fill:"none", "stroke-linecap":"round", "stroke-linejoin":"round" };
+        roadShadows.push(se("path", { ...pa, stroke:col.s, "stroke-width":"7", opacity:"0.55" }));
+        const line = se("path", { ...pa, stroke:col.c, "stroke-width":"5" });
+        roadMains.push(line);
+        roadHi.push(se("path", { ...pa, stroke:"#ffffff", "stroke-width":"1.5", opacity:"0.2" }));
+        segLines.push({ line, ocean: r.ocean, locked: bothLocked });
       }
 
       // Find which route area(s) sit on or near this connection
@@ -782,29 +1083,19 @@ function renderWorldMap() {
         const rBadgesNeeded = rArea.requiredBadges || 0;
         const rLocked = G.badges.length < rBadgesNeeded && rId !== G.location;
 
-        // Add a clickable hit-area for each segment
+        // One clickable hit-area over the whole rounded path
         if (!rLocked) {
-          for (const seg of segLines) {
-            const hitArea = se("path", { d:seg.pathD, stroke:"transparent", "stroke-width":"18", fill:"none", "stroke-linecap":"round", "stroke-linejoin":"round" });
-            hitArea.style.cursor = "pointer";
-            hitArea.style.pointerEvents = "stroke";
-            hitArea.addEventListener("click", () => travelTo(rId));
-            hitArea.addEventListener("touchend", (e) => { e.preventDefault(); travelTo(rId); });
-            // Hover effect: brighten all segments of this route together
-            hitArea.addEventListener("mouseenter", () => {
-              for (const s of segLines) {
-                s.line.setAttribute("stroke", water ? "#5ac0ee" : "#f0c050");
-                s.line.setAttribute("stroke-width", "6");
-              }
-            });
-            hitArea.addEventListener("mouseleave", () => {
-              for (const s of segLines) {
-                s.line.setAttribute("stroke", routeColor);
-                s.line.setAttribute("stroke-width", "5");
-              }
-            });
-            svg.appendChild(hitArea);
-          }
+          const hitArea = se("path", { d:fullD, stroke:"transparent", "stroke-width":"18", fill:"none", "stroke-linecap":"round", "stroke-linejoin":"round" });
+          hitArea.style.cursor = "pointer";
+          hitArea.style.pointerEvents = "stroke";
+          hitArea.addEventListener("mouseenter", () => {
+            for (const s of segLines) { s.line.setAttribute("stroke", s.locked ? "#666" : s.ocean ? "#5ac0ee" : "#f0c050"); s.line.setAttribute("stroke-width", "6"); }
+          });
+          hitArea.addEventListener("mouseleave", () => {
+            for (const s of segLines) { s.line.setAttribute("stroke", s.locked ? "#4a4a4a" : s.ocean ? "#3a9acc" : "#d4a030"); s.line.setAttribute("stroke-width", "5"); }
+          });
+          bindRouteName(hitArea, rArea.name, () => travelTo(rId));
+          svg.appendChild(hitArea);
         }
 
         // Route label positioned at the route area's mapPos
@@ -812,13 +1103,19 @@ function renderWorldMap() {
         routeLabel.className = "map-route-label";
         if (rLocked) routeLabel.classList.add("locked");
         if (rId === G.location) routeLabel.classList.add("current");
-        routeLabel.textContent = rArea.name;
+        routeLabel.textContent = "";  // route names hidden — only cities/towns/special are named; roads stay clickable
         routeLabel.style.left = rx + "px";
         routeLabel.style.top = (ry - 8) + "px";
         mapEl.appendChild(routeLabel);
+        addRouteEndIcon(rId, rArea, rx, ry, rLocked);
       }
     }
   }
+
+  // Draw roads in layers so yellow flows continuously through nodes/crossings.
+  for (const e of roadShadows) add(bgGroup, e);
+  for (const e of roadMains) add(bgGroup, e);
+  for (const e of roadHi) add(bgGroup, e);
 
   // Also place labels for any route areas not yet mapped (e.g. routes only connected to one path)
   for (const [rId, rArea] of Object.entries(routeAreas)) {
@@ -831,23 +1128,30 @@ function renderWorldMap() {
     routeLabel.className = "map-route-label";
     if (rLocked) routeLabel.classList.add("locked");
     if (rId === G.location) routeLabel.classList.add("current");
-    routeLabel.textContent = rArea.name;
+    routeLabel.textContent = "";  // route names hidden
     routeLabel.style.left = rx + "px";
     routeLabel.style.top = (ry - 8) + "px";
     if (!rLocked) {
+      // keep an invisible clickable hotspot so single-connection routes stay travelable
+      routeLabel.style.width = "18px";
+      routeLabel.style.height = "12px";
       routeLabel.style.pointerEvents = "auto";
       routeLabel.style.cursor = "pointer";
-      routeLabel.addEventListener("click", () => travelTo(rId));
+      // Travel on tap/click; reveal the route name on hover / long-press
+      bindRouteName(routeLabel, rArea.name, () => travelTo(rId));
     }
     mapEl.appendChild(routeLabel);
+    addRouteEndIcon(rId, rArea, rx, ry, rLocked);
   }
 
   mapEl.appendChild(svg);
 
-  // Draw location markers for cities, towns, and special locations only (not routes)
+  // Draw location markers for cities, towns, specials, and named-landmark routes
+  // (plain numbered/connector routes stay on the paths only).
   for (const [areaId, area] of Object.entries(WORLD_DATA)) {
     if (!area.mapPos) continue;
-    if (area.type === "route") continue; // Routes are on the paths now
+    const isLandmark = area.type === "route" && LANDMARK_ROUTES.has(areaId);
+    if (area.type === "route" && !isLandmark) continue; // plain routes are on the paths now
     if (area.requiresChampion && !G?.championDefeated || (area.requiresNGPlus && !(G?.ngPlusCount > 0))) continue;
     if (area.requiresDefeated && !(G?.defeatedLeaders || []).includes(area.requiresDefeated)) continue;
     const x = (area.mapPos.x / 100) * mapW;
@@ -855,9 +1159,14 @@ function renderWorldMap() {
 
     const loc = document.createElement("div");
     loc.className = "map-location";
-    if (area.type === "city") loc.classList.add("city");
-    if (area.type === "town") loc.classList.add("town");
+    // Name-based override: anything called "... Town" or "... Village" draws as a town
+    // (blue circle) even if coded as a city, so the marker matches the name.
+    const nameIsTown = /\b(Town|Village)\b/.test(area.name || "");
+    if (area.type === "city" && !nameIsTown) loc.classList.add("city");
+    if (area.type === "town" || (area.type === "city" && nameIsTown)) loc.classList.add("town");
     if (area.type === "special") loc.classList.add("special");
+    if (isLandmark) loc.classList.add("landmark");
+    if (area.legendaryEncounter) loc.classList.add("legendary");
     if (areaId === G.location) loc.classList.add("current");
 
     const badgesNeeded = area.requiredBadges || 0;
@@ -871,11 +1180,17 @@ function renderWorldMap() {
 
     const dot = document.createElement("div");
     dot.className = "map-loc-dot";
-    dot.textContent = locked ? "🔒" : area.icon;
+    dot.textContent = "";  // plain shapes (no emoji) — colour/shape conveys type
+    if (area.type === "special" || isLandmark) {   // tint triangle by dominant encounter type
+      const tc = areaTypeColor(area);
+      if (tc) dot.style.background = tc;
+    }
 
     const label = document.createElement("div");
     label.className = "map-loc-label";
-    label.textContent = area.name; // Full name visible
+    const side = bestLabelSide(areaId);  // LABEL_POS overrides first, else auto-pick
+    if (side && side !== "bottom") label.classList.add("lbl-" + side);  // keep the name off roads/markers
+    label.textContent = LANDMARK_LABELS[areaId] || area.name; // Full name visible
 
     loc.appendChild(dot);
     loc.appendChild(label);
@@ -893,6 +1208,19 @@ function renderWorldMap() {
   regionLabel.style.cssText = "position:absolute;bottom:4px;right:8px;font-size:0.6rem;color:#adf;opacity:0.5;pointer-events:none;font-family:monospace;letter-spacing:1px;";
   regionLabel.textContent = "LUMORIA REGION";
   mapEl.appendChild(regionLabel);
+
+  // Center the viewport on the player's current location. Matters when the map is
+  // larger than the viewport (e.g. the mobile default zoom) so you start on yourself
+  // rather than the top-left corner; harmless at 1x where the map fits.
+  if (viewport) {
+    const cur = WORLD_DATA[G.location];
+    if (cur && cur.mapPos) {
+      const cx = (cur.mapPos.x / 100) * mapW;
+      const cy = (cur.mapPos.y / 100) * mapH;
+      viewport.scrollLeft = Math.max(0, Math.min(cx - viewport.clientWidth / 2, mapW - viewport.clientWidth));
+      viewport.scrollTop  = Math.max(0, Math.min(cy - viewport.clientHeight / 2, mapH - viewport.clientHeight));
+    }
+  }
 }
 
 function travelTo(areaId) {

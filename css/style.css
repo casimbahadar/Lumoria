@@ -422,35 +422,52 @@ html, body {
 
 .map-location:hover .map-loc-dot { transform: scale(1.15); }
 
+/* CITY = plain red square */
 .map-loc-dot {
-  width: 30px;
-  height: 30px;
-  border-radius: 4px;
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 3px;
   background: #c82828;
   border: 2px solid #ff6666;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
   transition: all 0.15s ease;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.45);
 }
 
-.map-location.special .map-loc-dot {
-  width: 30px;
-  height: 30px;
-  border-radius: 4px;
-  background: #a06800;
-  border: 2px solid #ffd700;
-  font-size: 1rem;
+/* TOWN = blue circle */
+.map-location.town .map-loc-dot {
+  border-radius: 50%;
+  background: #2f6fb0;
+  border-color: #6fb0ff;
 }
 
-.map-location.town .map-loc-dot { background: #2868a8; border-color: #58a6ff; }
+/* IMPORTANT / DEAD-END LOCATIONS (special + named-landmark routes) = purple triangle */
+.map-location.special .map-loc-dot,
+.map-location.landmark .map-loc-dot {
+  background: #9a4fe0;
+  border: none;
+  border-radius: 0;
+  clip-path: polygon(50% 3%, 97% 97%, 3% 97%);
+  box-shadow: none;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.55));
+}
+
+/* Legendary site: same purple triangle, subtle gold glow to mark it */
+.map-location.legendary .map-loc-dot {
+  background: #b070ff;
+  filter: drop-shadow(0 0 3px rgba(255,215,0,0.95)) drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+}
 
 .map-location.current .map-loc-dot {
   border-color: #ffd700 !important;
   box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
   animation: pulse 2s infinite;
+}
+/* triangles can't show a border/box-shadow under clip-path — glow via filter instead */
+.map-location.special.current .map-loc-dot,
+.map-location.landmark.current .map-loc-dot {
+  filter: drop-shadow(0 0 5px #ffd700) drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+  animation: none;
 }
 
 @keyframes pulse {
@@ -458,9 +475,9 @@ html, body {
   50% { box-shadow: 0 0 20px rgba(210, 153, 34, 0.9); }
 }
 
-.map-location.locked .map-loc-dot { border-color: var(--text-muted); opacity: 0.5; cursor: not-allowed; }
+.map-location.locked .map-loc-dot { opacity: 0.45; cursor: not-allowed; filter: grayscale(0.85); }
 
-.map-location.gym-done .map-loc-dot { border-color: #3fb950 !important; background: #1a6030 !important; }
+/* Beaten gyms keep their normal marker colour (red square / blue circle / triangle). */
 
 /* Full location name labels */
 .map-loc-label {
@@ -476,6 +493,32 @@ html, body {
 }
 
 .map-location.current .map-loc-label { color: var(--accent-yellow); }
+
+/* Name-label placement overrides (move the name off the icon to clear a road) */
+.map-loc-label.lbl-top    { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin: 0 0 3px 0; }
+.map-loc-label.lbl-left   { position: absolute; right: 100%; top: 50%;  transform: translateY(-50%); margin: 0 5px 0 0; }
+.map-loc-label.lbl-right  { position: absolute; left: 100%;  top: 50%;  transform: translateY(-50%); margin: 0 0 0 5px; }
+.map-loc-label.lbl-bottom { position: absolute; top: 100%;  left: 50%; transform: translateX(-50%); margin: 3px 0 0 0; }
+
+/* Icon marker at a dead-end route's endpoint (so the road doesn't just stop in space) */
+.map-route-endicon {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  line-height: 1;
+  z-index: 11;
+  border-radius: 4px;
+  background: rgba(18,22,32,0.62);
+  border: 1.5px solid rgba(255,255,255,0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.75);
+}
+.map-route-endicon.locked { opacity: 0.45; filter: grayscale(1); }
+.map-route-endicon.current { border-color: var(--accent-yellow); transform: translate(-50%, -50%) scale(1.2); }
 
 /* Route labels on paths */
 .map-route-label {
@@ -1812,7 +1855,16 @@ button, a, [role="button"] {
   /* Map dots: bigger for touch */
   .map-loc-dot { width: 26px; height: 26px; font-size: 0.85rem; }
   .map-location.city .map-loc-dot { width: 36px; height: 36px; font-size: 1.2rem; }
-  .map-loc-label { font-size: 0.65rem; }
+  .map-loc-label {
+    font-size: 0.55rem;
+    max-width: 70px;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.1;
+  }
 
   /* Smaller route labels on tablet to reduce overlap */
   .map-route-label { font-size: 0.35rem; padding: 1px 3px; }
@@ -1867,11 +1919,14 @@ button, a, [role="button"] {
   .map-loc-dot { width: 22px; height: 22px; font-size: 0.75rem; }
   .map-location.city .map-loc-dot { width: 30px; height: 30px; font-size: 1rem; }
   .map-loc-label {
-    font-size: 0.5rem;
-    max-width: 50px;
+    font-size: 0.45rem;
+    max-width: 58px;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.1;
+    line-height: 1.05;
   }
   .map-route-label { font-size: 0.3rem; padding: 1px 2px; }
   /* Add more touch area padding to map locations */

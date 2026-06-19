@@ -5472,7 +5472,7 @@ const WORLD_DATA = {
   seedvale: {
     id:"seedvale", name:"Seedvale Town", icon:"🏡", type:"town",
     desc:"A peaceful starter town nestled in a valley. Professor Solaris's lab is here.",
-    connections:["route1","fairy_meadow_south"],
+    connections:["route1","fairy_meadow_south","route12"],
     wildMonsters:[], hasGym:false, requiredBadges:0,
     mapPos:{x:15, y:75}
   },
@@ -5486,24 +5486,24 @@ const WORLD_DATA = {
       {id:197, minLv:2, maxLv:5, rate:35}, // Photoworm
       {id:185, minLv:3, maxLv:5, rate:25}   // Hoverrow
     ],
-    hasGym:false, requiredBadges:0, mapPos:{x:25, y:68}
+    hasGym:false, requiredBadges:0, mapPos:{x:19, y:64}
   },
   ashford: {
     id:"ashford", name:"Ashford City", icon:"🏙️", type:"city",
     desc:"The first city of the journey. Home to Gym Leader Rex who specializes in Normal types.",
-    connections:["route1","route2"],
+    connections:["route1","route2","quake_foothills"],
     wildMonsters:[
       {id:178, minLv:4, maxLv:7, rate:25},
       {id:187, minLv:4, maxLv:7, rate:10},
       {id:69, minLv:4, maxLv:6, rate:30},
       {id:180, minLv:5, maxLv:7, rate:35}
     ],
-    hasGym:true, gymLeader:"rex", requiredBadges:0, mapPos:{x:38, y:62}
+    hasGym:true, gymLeader:"rex", requiredBadges:0, mapPos:{x:34, y:55}
   },
   route2: {
     id:"route2", name:"Route 2 - Greenwood Forest", icon:"🌲", type:"route",
     desc:"A dense forest teeming with Bug and Grass type Lumori.",
-    connections:["ashford","tidewatch","lumoria_jungle"],
+    connections:["ashford","tidewatch","lumoria_jungle","route9"],
     wildMonsters:[
       {id:197, minLv:6, maxLv:9, rate:30}, // Photoworm
       {id:200, minLv:6, maxLv:9, rate:10}, // Iridibeetle
@@ -5512,7 +5512,7 @@ const WORLD_DATA = {
       {id:84, minLv:7, maxLv:9, rate:20}   // Electrix
     ],
     ngPlusWildMonsters:[{id:446, minLv:6, maxLv:9, rate:12}], // NG+ family base: Sporelet
-    hasGym:false, requiredBadges:1, mapPos:{x:50, y:58}
+    hasGym:false, requiredBadges:1, mapPos:{x:48, y:52}
   },
   tidewatch: {
     id:"tidewatch", name:"Tidewatch Port", icon:"⛵", type:"city",
@@ -5524,7 +5524,7 @@ const WORLD_DATA = {
       {id:293, minLv:10, maxLv:12, rate:20}, // Amperix
       {id:256, minLv:11, maxLv:13, rate:20}  // Cryonik
     ],
-    hasGym:true, gymLeader:"marina", requiredBadges:1, mapPos:{x:62, y:52}
+    hasGym:true, gymLeader:"marina", requiredBadges:1, mapPos:{x:64, y:59}
   },
   route3: {
     id:"route3", name:"Route 3 - Coastal Shore", icon:"🏖️", type:"route",
@@ -5542,7 +5542,7 @@ const WORLD_DATA = {
   emberveil: {
     id:"emberveil", name:"Hauntcoal City", icon:"🌋", type:"city", hasUmbraEncounter:true,
     desc:"Built near an active volcano. The fiery Gym Leader Pyros waits within.",
-    connections:["route3","route4","volcano_core","iron_canyon"],
+    connections:["route3","lava_fields"],
     wildMonsters:[
       {id:16, minLv:18, maxLv:22, rate:35}, // Cindercula
       {id:13, minLv:18, maxLv:22, rate:10}, // Taurcin
@@ -5550,12 +5550,12 @@ const WORLD_DATA = {
       {id:191, minLv:19, maxLv:22, rate:25}  // Pebblet
     ],
     ngPlusWildMonsters:[{id:1, minLv:18, maxLv:22, rate:10}], // NG+-only: Solkin (fire starter line)
-    hasGym:true, gymLeader:"pyros", requiredBadges:2, mapPos:{x:75, y:35}
+    hasGym:true, gymLeader:"pyros", requiredBadges:2, mapPos:{x:74, y:33}
   },
   route4: {
     id:"route4", name:"Route 4 - Volcanic Wastes", icon:"🔥", type:"route",
     desc:"A harsh volcanic wasteland. Fire and Rock types are common here.",
-    connections:["emberveil","dauntridge"],
+    connections:["lava_fields","dauntridge"],
     wildMonsters:[
       {id:16, minLv:22, maxLv:26, rate:25},
       {id:13, minLv:22, maxLv:26, rate:25},
@@ -5563,12 +5563,12 @@ const WORLD_DATA = {
       {id:98, minLv:23, maxLv:26, rate:25}
     ],
     ngPlusWildMonsters:[{id:414, minLv:22, maxLv:25, rate:12}], // NG+ family base: Grublurk
-    hasGym:false, requiredBadges:3, mapPos:{x:65, y:28}
+    hasGym:false, requiredBadges:3, mapPos:{x:64, y:33}
   },
   sparkmoor: {
-    id:"sparkmoor", name:"Sparkmoor Town", icon:"⚡", type:"city",
+    id:"sparkmoor", name:"Levin Town", icon:"⚡", type:"city",
     desc:"A town on the electric plains. Gym Leader Zara harnesses lightning power.",
-    connections:["valor_pass","route5","storm_plateau","thunder_cliffs"],
+    connections:["valor_pass","route5","thunder_cliffs"],
     wildMonsters:[
       {id:242, minLv:26, maxLv:30, rate:15}, // Pulseglow (obtainability fix)
       {id:81, minLv:26, maxLv:30, rate:25}, // Joltan
@@ -5580,7 +5580,7 @@ const WORLD_DATA = {
     hasGym:true, gymLeader:"zara", requiredBadges:4, mapPos:{x:52, y:25}
   },
   dauntridge: {
-    id:"dauntridge", name:"Dauntridge Town", icon:"🥋", type:"city",
+    id:"dauntridge", name:"Dauntridge City", icon:"🥋", type:"city",
     desc:"A cliffside dojo-town where warriors temper body and spirit against the mountain wind. Gym Leader Kano drills the unyielding discipline of the Fighting types.",
     connections:["route4","valor_pass"],
     wildMonsters:[
@@ -5594,7 +5594,7 @@ const WORLD_DATA = {
   },
   valor_pass: {
     id:"valor_pass", name:"Valor Pass", icon:"⛰️", type:"route",
-    desc:"A switchback mountain pass lined with weathered training posts, where Fighting types spar on the long climb toward Sparkmoor.",
+    desc:"A switchback mountain pass lined with weathered training posts, where Fighting types spar on the long climb toward Levin.",
     connections:["dauntridge","sparkmoor"],
     wildMonsters:[
       {id:262, minLv:22, maxLv:26, rate:30}, // Tendrilisk
@@ -5621,7 +5621,7 @@ const WORLD_DATA = {
   frostpeak: {
     id:"frostpeak", name:"Frostpeak Village", icon:"❄️", type:"city",
     desc:"A snow-covered village atop a frozen mountain. Ice Gym Leader Glacier awaits.",
-    connections:["route5","route6","storm_plateau","crystal_depths","lunar_peak"],
+    connections:["route5","route6","storm_plateau","lunar_peak"],
     wildMonsters:[
       {id:47, minLv:34, maxLv:38, rate:25}, // Hexaprowl
       {id:50, minLv:34, maxLv:38, rate:30}, // Tundram
@@ -5655,7 +5655,7 @@ const WORLD_DATA = {
       {id:123, minLv:43, maxLv:46, rate:35}  // Nocturil
     ],
     ngPlusWildMonsters:[{id:417, minLv:42, maxLv:45, rate:12}], // NG+ family base: Glacigeist
-    hasGym:true, gymLeader:"nyx", requiredBadges:7, mapPos:{x:15, y:35}
+    hasGym:true, gymLeader:"nyx", requiredBadges:7, mapPos:{x:15, y:34}
   },
   lodehollow: {
     id:"lodehollow", name:"Lodehollow Town", icon:"⛏️", type:"city",
@@ -5685,19 +5685,19 @@ const WORLD_DATA = {
   route7: {
     id:"route7", name:"Route 7 - Poison Marshes", icon:"☠️", type:"route",
     desc:"A fetid swamp full of poison. Dark and Poison types are found in abundance.",
-    connections:["shadowmere","skyvault","mystic_forest","fairy_meadow_north","poison_swamp_upper","wind_bridge"],
+    connections:["shadowmere","skyvault","mystic_forest"],
     wildMonsters:[
       {id:157, minLv:46, maxLv:50, rate:25}, // Acidelix
       {id:155, minLv:46, maxLv:50, rate:25}, // Toxirin
       {id:160, minLv:47, maxLv:50, rate:25}, // Miasmafly
       {id:121, minLv:47, maxLv:50, rate:25}  // Spiraloom
     ],
-    hasGym:false, requiredBadges:8, mapPos:{x:20, y:48}
+    hasGym:false, requiredBadges:8, mapPos:{x:20, y:42}
   },
   skyvault: {
-    id:"skyvault", name:"Skyvault City", icon:"🏰", type:"city",
+    id:"skyvault", name:"Cirrus City", icon:"🏰", type:"city",
     desc:"A city floating on clouds. Mental Gym Leader Oracle sees all futures.",
-    connections:["route7","route8","mystic_forest","wind_bridge"],
+    connections:["route7","wind_bridge"],
     wildMonsters:[
       {id:166, minLv:50, maxLv:54, rate:30}, // Projectery
       {id:142, minLv:50, maxLv:54, rate:25}, // Dawnirel
@@ -5705,12 +5705,12 @@ const WORLD_DATA = {
       {id:168, minLv:51, maxLv:54, rate:10}  // Gemseer
     ],
     ngPlusWildMonsters:[{id:460, minLv:50, maxLv:53, rate:12}], // NG+ family base: Chimebowl
-    hasGym:true, gymLeader:"oracle", requiredBadges:8, mapPos:{x:30, y:55}
+    hasGym:true, gymLeader:"oracle", requiredBadges:8, mapPos:{x:28, y:47}
   },
   route8: {
     id:"route8", hasUmbraEncounter:true, name:"Route 8 - Sky Corridors", icon:"🌤️", type:"route",
     desc:"Aerial paths between floating islands. Wind and Mental types soar here.",
-    connections:["skyvault","dragonspire","wind_bridge"],
+    connections:["wind_bridge","dragonspire","corroden"],
     wildMonsters:[
       {id:108, minLv:54, maxLv:58, rate:34}, // Silvergust
       {id:111, minLv:54, maxLv:58, rate:29}, // Swirlavel
@@ -5718,7 +5718,7 @@ const WORLD_DATA = {
       {id:211, minLv:55, maxLv:58, rate:10}, // Sapphier
       {id:128, minLv:55, maxLv:58, rate:3}   // Cranivade
     ],
-    hasGym:false, requiredBadges:9, mapPos:{x:42, y:50}
+    hasGym:false, requiredBadges:9, mapPos:{x:42, y:44}
   },
   dragonspire: {
     id:"dragonspire", name:"Dragonspire Peak", icon:"🐉", type:"city",
@@ -5731,7 +5731,7 @@ const WORLD_DATA = {
       {id:244, minLv:59, maxLv:62, rate:25}, // Raijolt
       {id:211, minLv:59, maxLv:62, rate:15}  // Sapphier
     ],
-    hasGym:true, gymLeader:"drake", requiredBadges:9, mapPos:{x:55, y:42},
+    hasGym:true, gymLeader:"drake", requiredBadges:9, mapPos:{x:52, y:45},
     legendaryEncounter:{monsterId:84, level:60}
   },
   victoryroad: {
@@ -5745,34 +5745,22 @@ const WORLD_DATA = {
       {id:151, minLv:63, maxLv:66, rate:25}  // Amperpede
     ],
     ngPlusWildMonsters:[{id:345, minLv:60, maxLv:66, rate:18}], // Sablecrow (base) — found before Oblivionwing in Void Nexus
-    hasGym:false, requiredBadges:20, mapPos:{x:62, y:35}
+    hasGym:false, requiredBadges:20, mapPos:{x:60, y:35}
   },
   summit: {
     id:"summit", name:"Victory Summit", icon:"👑", type:"special",
     desc:"The seat of the Lumoria Champion. Only the greatest trainers reach this place.",
     connections:["victoryroad"],
     wildMonsters:[], hasGym:false, isChampion:true, requiredBadges:20,
-    mapPos:{x:72, y:30}
+    mapPos:{x:60, y:25}
   },
 
   // ===== NG+-EXCLUSIVE GYM CHAIN (gyms 21-24) — requiresNGPlus =====
-  // Branches off Starbloom, rejoins The Gauntlet; hidden on a first run.
-  resonant_trail: {
-    id:"resonant_trail", name:"Resonant Trail", icon:"🎵", type:"route",
-    desc:"A canyon path that catches and replays every footfall, opening onto the hidden Sonic country beyond Starbloom only in the void-touched era.",
-    connections:["starbloom","clarion"],
-    wildMonsters:[
-      {id:300, minLv:108, maxLv:112, rate:28}, // Nettlebarb
-      {id:243, minLv:108, maxLv:112, rate:26}, // Stuntrap
-      {id:370, minLv:109, maxLv:112, rate:24}, // Cyclotron
-      {id:292, minLv:109, maxLv:112, rate:22}  // Galehorn
-    ],
-    hasGym:false, requiredBadges:20, requiresNGPlus:true, mapPos:{x:68, y:68}
-  },
+  // Branches off Stellaris, rejoins The Gauntlet; hidden on a first run.,
   clarion: {
-    id:"clarion", name:"Clarion", icon:"🔊", type:"city",
+    id:"clarion", name:"Clarion Town", icon:"🔊", type:"town",
     desc:"A bell-towered town where every street hums with layered sound, unreachable until the void-touched era reveals it. Gym Leader Echo conducts the Sonic Lumori like an orchestra.",
-    connections:["resonant_trail","phantom_crossing"],
+    connections:["phantom_crossing"],
     wildMonsters:[
       {id:389, minLv:108, maxLv:112, rate:20}, // Stormcrown
       {id:292, minLv:108, maxLv:112, rate:22}, // Galehorn
@@ -5780,7 +5768,7 @@ const WORLD_DATA = {
       {id:356, minLv:109, maxLv:112, rate:20}, // Stormlord
       {id:348, minLv:110, maxLv:112, rate:18}  // Galeswift
     ],
-    hasGym:true, gymLeader:"echo", requiredBadges:20, requiresNGPlus:true, mapPos:{x:67, y:63}
+    hasGym:true, gymLeader:"echo", requiredBadges:20, requiresNGPlus:true, mapPos:{x:93, y:49}
   },
   phantom_crossing: {
     id:"phantom_crossing", name:"Phantom Crossing", icon:"🕯️", type:"route",
@@ -5792,10 +5780,10 @@ const WORLD_DATA = {
       {id:343, minLv:114, maxLv:117, rate:24}, // Shadowreave
       {id:386, minLv:114, maxLv:117, rate:22}  // Wraithstorm
     ],
-    hasGym:false, requiredBadges:21, requiresNGPlus:true, mapPos:{x:67, y:59}
+    hasGym:false, requiredBadges:21, requiresNGPlus:true, mapPos:{x:84, y:49}
   },
   gravecourt: {
-    id:"gravecourt", name:"Gravecourt", icon:"👻", type:"city",
+    id:"gravecourt", name:"Gravecourt City", icon:"👻", type:"city",
     desc:"A walled court of mausoleums wrapped in perpetual dusk, where the boundary to the spirit world wore thin after the Sundering. Gym Leader Mortis keeps company with the Spectral dead.",
     connections:["phantom_crossing","dream_drift"],
     wildMonsters:[
@@ -5805,7 +5793,7 @@ const WORLD_DATA = {
       {id:301, minLv:114, maxLv:117, rate:20}, // Hauntcoal
       {id:397, minLv:115, maxLv:117, rate:18}  // Abyssalord
     ],
-    hasGym:true, gymLeader:"mortis", requiredBadges:21, requiresNGPlus:true, mapPos:{x:66, y:55}
+    hasGym:true, gymLeader:"mortis", requiredBadges:21, requiresNGPlus:true, mapPos:{x:84, y:45}
   },
   dream_drift: {
     id:"dream_drift", name:"Dream Drift", icon:"🌙", type:"route",
@@ -5817,10 +5805,10 @@ const WORLD_DATA = {
       {id:453, minLv:119, maxLv:122, rate:24}, // Lullavoir
       {id:243, minLv:119, maxLv:122, rate:22}  // Stuntrap
     ],
-    hasGym:false, requiredBadges:22, requiresNGPlus:true, mapPos:{x:66, y:51}
+    hasGym:false, requiredBadges:22, requiresNGPlus:true, mapPos:{x:93, y:45}
   },
   reverie_vale: {
-    id:"reverie_vale", name:"Reverie Vale", icon:"💤", type:"city",
+    id:"reverie_vale", name:"Town of Reverie Vale", icon:"💤", type:"town",
     desc:"A hushed valley wreathed in sleeping mist, where waking and dreaming blur for any who linger too long. Gym Leader Somna shepherds the Dream Lumori through the haze.",
     connections:["dream_drift","prism_causeway"],
     wildMonsters:[
@@ -5830,7 +5818,7 @@ const WORLD_DATA = {
       {id:247, minLv:119, maxLv:122, rate:20}, // Sparkeen
       {id:170, minLv:120, maxLv:122, rate:18}  // Oneiron
     ],
-    hasGym:true, gymLeader:"somna", requiredBadges:22, requiresNGPlus:true, mapPos:{x:65, y:47}
+    hasGym:true, gymLeader:"somna", requiredBadges:22, requiresNGPlus:true, mapPos:{x:93, y:33}
   },
   prism_causeway: {
     id:"prism_causeway", name:"Prism Causeway", icon:"🌈", type:"route",
@@ -5841,10 +5829,10 @@ const WORLD_DATA = {
       {id:372, minLv:123, maxLv:127, rate:33}, // Prismancer (Mental/Mineral) — backfill after Crystal legendaries rounded up
       {id:169, minLv:124, maxLv:127, rate:33}  // Prismatica (Mental/Mineral)
     ],
-    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:65, y:43}
+    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:82, y:30}
   },
   gleamcrest: {
-    id:"gleamcrest", name:"Gleamcrest", icon:"💎", type:"city",
+    id:"gleamcrest", name:"Gleamcrest City", icon:"💎", type:"city",
     desc:"A town grown over a crest of living crystal that refracts the aurora into a thousand colors — the only place the Crystal Lumori are known to gather. Gym Leader Prisma reigns over its every facet.",
     connections:["prism_causeway","ascendant_path"],
     wildMonsters:[
@@ -5852,7 +5840,7 @@ const WORLD_DATA = {
       {id:225, minLv:123, maxLv:127, rate:34}, // Crealight (Fairy/Mineral)
       {id:344, minLv:124, maxLv:127, rate:28}  // Glimmeritch (Fairy/Spectral)
     ],
-    hasGym:true, gymLeader:"prisma", requiredBadges:23, requiresNGPlus:true, mapPos:{x:64, y:40}
+    hasGym:true, gymLeader:"prisma", requiredBadges:23, requiresNGPlus:true, mapPos:{x:82, y:14}
   },
   ascendant_path: {
     id:"ascendant_path", name:"Ascendant Path", icon:"⚔️", type:"route",
@@ -5863,14 +5851,14 @@ const WORLD_DATA = {
       {id:268, minLv:124, maxLv:127, rate:33}, // Darkfang
       {id:261, minLv:125, maxLv:127, rate:33}  // Hypnostag (Facetite rounded up to evolution-only)
     ],
-    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:63, y:37}
+    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:62, y:18}
   },
 
   // ===== EXTRA AREAS =====
   lumoria_jungle: {
     id:"lumoria_jungle", name:"Lumoria Jungle", icon:"🌴", type:"route",
     desc:"A dense, humid jungle teeming with Grass, Poison and Bug types. Ancient ruins peek through the canopy.",
-    connections:["route2","ancient_ruins","bug_forest_west","poison_swamp_lower"],
+    connections:["route2","ancient_ruins","bug_forest_west","route10"],
     wildMonsters:[
       {id:200, minLv:10, maxLv:13, rate:18}, // Sproutix (obtainability fix)
       {id:7, minLv:8, maxLv:12, rate:14},   // Sporix
@@ -5880,12 +5868,12 @@ const WORLD_DATA = {
       {id:123, minLv:10, maxLv:13, rate:8}   // Miasmafly
     ],
     ngPlusWildMonsters:[{id:411, minLv:9, maxLv:12, rate:12}], // NG+ family base: Thrumquill
-    hasGym:false, requiredBadges:1, mapPos:{x:56, y:68}
+    hasGym:false, requiredBadges:1, mapPos:{x:49, y:54}
   },
   ancient_ruins: {
     id:"ancient_ruins", name:"Ancient Ruins", icon:"🏛️", type:"route",
     desc:"Crumbling temples from a forgotten civilization. Mental and Dark energies fill the air. The Umbra Order has been spotted here.",
-    connections:["lumoria_jungle","bug_forest_east","reef_ruins"],
+    connections:["lumoria_jungle","reef_ruins"],
     wildMonsters:[
       {id:22, minLv:13, maxLv:17, rate:30}, // Hallucigaze (obtainability fix)
       {id:114, minLv:12, maxLv:16, rate:20},  // Dawnirel
@@ -5894,7 +5882,7 @@ const WORLD_DATA = {
       {id:189, minLv:14, maxLv:17, rate:25}   // Projectery
     ],
     ngPlusWildMonsters:[{id:448, minLv:12, maxLv:16, rate:12}], // NG+ family base: Cobblepup
-    hasGym:false, requiredBadges:1, mapPos:{x:64, y:76},
+    hasGym:false, requiredBadges:1, mapPos:{x:54, y:67},
     storyLocation:true, hasUmbraEncounter:true,
     legendaryEncounter:{monsterId:165, level:55}
   },
@@ -5910,14 +5898,14 @@ const WORLD_DATA = {
       {id:16, minLv:20, maxLv:25, rate:10},  // Searburn
       {id:95, minLv:20, maxLv:25, rate:24}   // Aridix
     ],
-    hasGym:false, requiredBadges:2, mapPos:{x:78, y:60},
+    hasGym:false, requiredBadges:2, mapPos:{x:75, y:53},
     storyLocation:true, hasUmbraEncounter:true,
     legendaryEncounter:{monsterId:107, level:50}
   },
   volcano_core: {
     id:"volcano_core", name:"Volcano Core", icon:"🌋", type:"route",
     desc:"The scorching heart of the volcano beneath Hauntcoal. Only the most fearless trainers descend here. Legendary energies stir within.",
-    connections:["emberveil","iron_canyon","lava_fields"],
+    connections:["lava_fields","iron_canyon"],
     wildMonsters:[
       {id:1, minLv:24, maxLv:29, rate:24}, // Magmote (obtainability fix)
       {id:13, minLv:22, maxLv:28, rate:12},  // Pyroclasm
@@ -5926,14 +5914,14 @@ const WORLD_DATA = {
       {id:95, minLv:24, maxLv:29, rate:12},  // Quakehide
       {id:13, minLv:24, maxLv:29, rate:12}   // Pyroclasm
     ],
-    hasGym:false, requiredBadges:4, mapPos:{x:82, y:42},
+    hasGym:false, requiredBadges:4, mapPos:{x:72, y:23},
     storyLocation:true, hasUmbraEncounter:true,
     legendaryEncounter:{monsterId:106, level:50}
   },
   storm_plateau: {
-    id:"storm_plateau", name:"Storm Plateau", icon:"⛈️", type:"route",
+    id:"storm_plateau", name:"Thunderhead Crag", icon:"⛈️", type:"route",
     desc:"A high plateau perpetually wracked by storms. Electric and Draconic types are drawn to its crackling energy.",
-    connections:["sparkmoor","frostpeak","lunar_peak","mirror_lake","thunder_cliffs"],
+    connections:["frostpeak"],
     wildMonsters:[
       {id:84, minLv:28, maxLv:34, rate:25},  // Galvaglide
       {id:42, minLv:28, maxLv:34, rate:25},  // Cryonik
@@ -5941,14 +5929,14 @@ const WORLD_DATA = {
       {id:42, minLv:29, maxLv:34, rate:15},  // Nagislither
       {id:31, minLv:30, maxLv:35, rate:10}   // Septanemone
     ],
-    hasGym:false, requiredBadges:5, mapPos:{x:36, y:12},
+    hasGym:false, requiredBadges:5, mapPos:{x:37, y:10},
     storyLocation:true, hasUmbraEncounter:true,
     legendaryEncounter:{monsterId:105, level:50}
   },
   crystal_depths: {
     id:"crystal_depths", name:"Crystal Depths", icon:"💠", type:"route",
     desc:"An underground crystal cavern with walls of pure ice and steel. Rare mineral-type Lumori call this glittering place home.",
-    connections:["frostpeak","shadowmere","crystal_spire"],
+    connections:["shadowmere","crystal_spire"],
     wildMonsters:[
       {id:211, minLv:34, maxLv:38, rate:28}, // Cinderfrost (obtainability fix)
       {id:50, minLv:34, maxLv:40, rate:6},  // Sapphier
@@ -5958,12 +5946,12 @@ const WORLD_DATA = {
       {id:53, minLv:36, maxLv:41, rate:14}   // Arcturex
     ],
     legendaryEncounter:{monsterId:408, level:38, requiresNGPlus:true}, // NG+ legendary Glimmerling — early special static (rounded up from wild; evolves to Facetite/Prismdome)
-    hasGym:false, requiredBadges:7, mapPos:{x:10, y:28}
+    hasGym:false, requiredBadges:7, mapPos:{x:9, y:27}
   },
   mystic_forest: {
     id:"mystic_forest", name:"Mystic Forest", icon:"🌌", type:"route",
     desc:"A forest where the boundary between worlds is thin. Fairy and Mental creatures drift between the trees. The Umbra Order's hideout is rumoured to be nearby.",
-    connections:["route7","skyvault","sky_harbor","umbra_base"],
+    connections:["route7","sky_harbor","umbra_base"],
     wildMonsters:[
       {id:142, minLv:46, maxLv:52, rate:6},  // Astrelle
       {id:140, minLv:46, maxLv:52, rate:24},  // Iridesoar
@@ -5973,7 +5961,7 @@ const WORLD_DATA = {
       {id:220, minLv:46, maxLv:52, rate:18}   // Oneiron
     ],
     ngPlusWildMonsters:[{id:429, minLv:46, maxLv:49, rate:12}], // NG+ family base: Lullasnout
-    hasGym:false, requiredBadges:8, mapPos:{x:25, y:62},
+    hasGym:false, requiredBadges:8, mapPos:{x:23, y:54},
     storyLocation:true, hasUmbraEncounter:true
   },
   umbra_base: {
@@ -5988,14 +5976,14 @@ const WORLD_DATA = {
     ],
     hasGym:false, requiredBadges:8,
     hasUmbraBase:true,
-    mapPos:{x:12, y:58}
+    mapPos:{x:18, y:48}
   },
 
   // ===== NEW AREAS =====
   coral_reef: {
     id:"coral_reef", name:"Coral Reef", icon:"🪸", type:"route",
     desc:"A stunning underwater coral garden teeming with colorful Aquatic and Poison types. Sunlight filters through the shimmering water above.",
-    connections:["deep_trench","reef_ruins","sunken_temple"],
+    connections:["deep_trench"],
     wildMonsters:[
       {id:256, minLv:24, maxLv:28, rate:13}, // Scolphin (obtainability fix)
       {id:34, minLv:22, maxLv:26, rate:25}, // Pearlmaid (obtainability fix)
@@ -6006,7 +5994,7 @@ const WORLD_DATA = {
       {id:254, minLv:25, maxLv:30, rate:6}   // Gossafin
     ],
     ngPlusWildMonsters:[{id:450, minLv:22, maxLv:26, rate:12}], // NG+ family base: Jabshell
-    hasGym:false, requiredBadges:2, mapPos:{x:84, y:72}
+    hasGym:false, requiredBadges:2, mapPos:{x:81, y:52}
   },
   haunted_grove: {
     id:"haunted_grove", name:"Haunted Grove", icon:"👻", type:"route",
@@ -6021,7 +6009,7 @@ const WORLD_DATA = {
       {id:218, minLv:45, maxLv:50, rate:6}   // Necralia
     ],
     ngPlusWildMonsters:[{id:454, minLv:43, maxLv:47, rate:12}], // NG+ family base: Tollwisp
-    hasGym:false, requiredBadges:7, mapPos:{x:8, y:42}
+    hasGym:false, requiredBadges:7, mapPos:{x:13, y:42}
   },
   sky_harbor: {
     id:"sky_harbor", name:"Sky Harbor", icon:"⛵", type:"town",
@@ -6034,12 +6022,12 @@ const WORLD_DATA = {
       {id:140, minLv:50, maxLv:54, rate:10},   // Iridesoar
       {id:111, minLv:49, maxLv:53, rate:30}    // Aeolin
     ],
-    hasGym:false, requiredBadges:8, mapPos:{x:18, y:62}
+    hasGym:false, requiredBadges:8, mapPos:{x:19, y:60}
   },
   thunder_cliffs: {
     id:"thunder_cliffs", name:"Thunder Cliffs", icon:"⚡", type:"route",
     desc:"Sheer cliff faces perpetually struck by lightning. Electric energy crackles through every rock and stone here.",
-    connections:["sparkmoor","storm_plateau"],
+    connections:["sparkmoor"],
     wildMonsters:[
       {id:209, minLv:30, maxLv:36, rate:10}, // Sparkeen (obtainability fix)
       {id:81, minLv:28, maxLv:34, rate:28},   // Joltan
@@ -6048,36 +6036,36 @@ const WORLD_DATA = {
       {id:84, minLv:30, maxLv:35, rate:14},   // Shockharpe
       {id:266, minLv:31, maxLv:36, rate:6}    // Raijolt
     ],
-    hasGym:false, requiredBadges:5, mapPos:{x:60, y:16}
+    hasGym:false, requiredBadges:5, mapPos:{x:53, y:13}
   },
   poison_swamp_upper: {
     id:"poison_swamp_upper", name:"Poison Swamp Upper", icon:"🌿", type:"route",
     desc:"The upper reaches of the Poison Swamp, where toxic fumes seep from cracks in the earth near the marshes of Route 7.",
-    connections:["route7","poison_swamp_lower"],
+    connections:["miasmacity","poison_swamp_lower"],
     wildMonsters:[
       {id:69, minLv:44, maxLv:49, rate:30},   // Groveguard
       {id:72, minLv:44, maxLv:49, rate:35},   // Faelomis
       {id:75, minLv:45, maxLv:50, rate:35}    // Sylvolt
     ],
     ngPlusWildMonsters:[{id:442, minLv:44, maxLv:48, rate:12}], // NG+ family base: Bloatleech
-    hasGym:false, requiredBadges:8, mapPos:{x:30, y:56}
+    hasGym:false, requiredBadges:8, mapPos:{x:41, y:67}
   },
   poison_swamp_lower: {
     id:"poison_swamp_lower", name:"Poison Swamp Lower", icon:"🌿", type:"route",
     desc:"The deeper, fouler reaches of the Poison Swamp. The air is thick with noxious miasma and stronger Poison types lurk in the muck.",
-    connections:["poison_swamp_upper","lumoria_jungle"],
+    connections:["poison_swamp_upper"],
     wildMonsters:[
       {id:75, minLv:46, maxLv:51, rate:45},   // Sylvolt
       {id:118, minLv:47, maxLv:52, rate:35},  // Dreadmaw
       {id:72, minLv:48, maxLv:53, rate:20}    // Faevernal
     ],
     ngPlusWildMonsters:[{id:336, minLv:48, maxLv:53, rate:10}], // NG+ standalone: Coilstrike
-    hasGym:false, requiredBadges:8, mapPos:{x:42, y:70}
+    hasGym:false, requiredBadges:8, mapPos:{x:38, y:72}
   },
   sunken_temple: {
     id:"sunken_temple", name:"Sunken Temple", icon:"🏛️", type:"special",
     desc:"An ancient temple half-submerged beneath the ocean. Mental inscriptions glow on the walls. Something powerful sleeps in the inner sanctum.",
-    connections:["deep_trench","coral_reef"],
+    connections:["deep_trench"],
     wildMonsters:[
       {id:254, minLv:25, maxLv:32, rate:9},   // Biolumal
       {id:166, minLv:25, maxLv:32, rate:31},   // Projectery
@@ -6085,13 +6073,13 @@ const WORLD_DATA = {
       {id:274, minLv:27, maxLv:33, rate:27},   // Gemseer
       {id:274, minLv:35, maxLv:40, rate:10}    // Prismatica (rare!)
     ],
-    hasGym:false, requiredBadges:2, mapPos:{x:88, y:52},
+    hasGym:false, requiredBadges:2, mapPos:{x:81, y:60},
     storyLocation:true, hasUmbraEncounter:true
   },
   iron_canyon: {
     id:"iron_canyon", name:"Iron Canyon", icon:"⛏️", type:"route",
     desc:"A deep canyon carved by centuries of volcanic flow. The walls glint with veins of metal ore. Metal and Ground types dominate this harsh terrain.",
-    connections:["volcano_core","emberveil","lava_fields"],
+    connections:["volcano_core"],
     wildMonsters:[
       {id:147, minLv:25, maxLv:31, rate:25},   // Scrapsapien
       {id:191, minLv:25, maxLv:31, rate:25},   // Pebblet
@@ -6100,37 +6088,37 @@ const WORLD_DATA = {
       {id:248, minLv:28, maxLv:33, rate:10}    // Imperion
     ],
     ngPlusWildMonsters:[{id:423, minLv:25, maxLv:29, rate:12}], // NG+ family base: Pebblite
-    hasGym:false, requiredBadges:4, mapPos:{x:88, y:30},
+    hasGym:false, requiredBadges:4, mapPos:{x:77, y:20},
     legendaryEncounter:{monsterId:167, level:55}
   },
   fairy_meadow_south: {
-    id:"fairy_meadow_south", name:"Fairy Meadow South", icon:"🌸", type:"route",
+    id:"fairy_meadow_south", name:"Fairy Meadow", icon:"🌸", type:"route",
     desc:"The southern stretch of Fairy Meadow, where gentle flowers bloom near Seedvale. Fairy and Grass types play in the warm breeze.",
-    connections:["seedvale","fairy_meadow_north","spirit_canyon"],
+    connections:["seedvale","fairy_meadow_north"],
     wildMonsters:[
       {id:137, minLv:4, maxLv:7, rate:30},     // Goldefluff
       {id:69, minLv:4, maxLv:7, rate:35},     // Germix
       {id:111, minLv:5, maxLv:8, rate:35}     // Aeolin
     ],
     ngPlusWildMonsters:[{id:438, minLv:5, maxLv:8, rate:12}], // NG+ family base: Chimicada
-    hasGym:false, requiredBadges:0, mapPos:{x:8, y:68}
+    hasGym:false, requiredBadges:0, mapPos:{x:15, y:62}
   },
   fairy_meadow_north: {
-    id:"fairy_meadow_north", name:"Fairy Meadow North", icon:"🌸", type:"route",
+    id:"fairy_meadow_north", name:"Fairy Meadow West", icon:"🌸", type:"route",
     desc:"The northern stretch of Fairy Meadow leading toward the Poison Marshes. Stronger Fairy types guard this path.",
-    connections:["fairy_meadow_south","route7"],
+    connections:["fairy_meadow_south"],
     wildMonsters:[
       {id:286, minLv:8, maxLv:11, rate:25}, // Downyfawn (obtainability fix)
       {id:137, minLv:6, maxLv:10, rate:30},    // Goldefluff
       {id:145, minLv:7, maxLv:11, rate:10},   // Faedust
       {id:111, minLv:7, maxLv:11, rate:35}    // Aeolin
     ],
-    hasGym:false, requiredBadges:0, mapPos:{x:8, y:48}
+    hasGym:false, requiredBadges:0, mapPos:{x:10, y:62}
   },
   lunar_peak: {
     id:"lunar_peak", name:"Lunar Peak", icon:"🌙", type:"route",
     desc:"A remote mountain summit bathed in perpetual moonlight. Ice and Draconic types roam freely under the silver glow.",
-    connections:["frostpeak","storm_plateau","crystal_spire"],
+    connections:["frostpeak","crystal_spire"],
     wildMonsters:[
       {id:47, minLv:36, maxLv:42, rate:30},   // Hexaprowl
       {id:50, minLv:36, maxLv:42, rate:10},   // Sapphier
@@ -6141,7 +6129,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:7, mapPos:{x:20, y:10}
   },
   bug_forest_west: {
-    id:"bug_forest_west", name:"Bug Forest West", icon:"🐛", type:"route",
+    id:"bug_forest_west", name:"Bug Forest N", icon:"🐛", type:"route",
     desc:"The western edge of the Bug Forest, thick with webs and buzzing wings. Connects to the Lumoria Jungle.",
     connections:["lumoria_jungle","bug_forest_east"],
     wildMonsters:[
@@ -6150,23 +6138,23 @@ const WORLD_DATA = {
       {id:84, minLv:11, maxLv:15, rate:35}    // Electrix
     ],
     ngPlusWildMonsters:[{id:426, minLv:10, maxLv:14, rate:12}], // NG+ family base: Pummelo
-    hasGym:false, requiredBadges:1, mapPos:{x:50, y:74}
+    hasGym:false, requiredBadges:1, mapPos:{x:49, y:59}
   },
   bug_forest_east: {
-    id:"bug_forest_east", name:"Bug Forest East", icon:"🐛", type:"route",
+    id:"bug_forest_east", name:"Bug Forest S", icon:"🐛", type:"route",
     desc:"The deeper eastern reaches of the Bug Forest. Stronger bugs and rare species inhabit the ancient trees near the ruins.",
-    connections:["bug_forest_west","ancient_ruins"],
+    connections:["bug_forest_west"],
     wildMonsters:[
       {id:200, minLv:12, maxLv:17, rate:35},  // Iridibeetle
       {id:123, minLv:13, maxLv:18, rate:20},  // Nocturil
       {id:10, minLv:14, maxLv:19, rate:45}    // Scorchlarva
     ],
-    hasGym:false, requiredBadges:1, mapPos:{x:56, y:76}
+    hasGym:false, requiredBadges:1, mapPos:{x:49, y:63}
   },
   mirror_lake: {
     id:"mirror_lake", name:"Mirror Lake", icon:"🪞", type:"route",
     desc:"A perfectly still alpine lake with a surface like polished glass. The reflected sky makes it impossible to tell up from down.",
-    connections:["route5","storm_plateau"],
+    connections:["route5"],
     wildMonsters:[
       {id:189, minLv:30, maxLv:34, rate:16}, // Woolcalm (obtainability fix)
       {id:45, minLv:30, maxLv:36, rate:24},   // Slatis
@@ -6181,7 +6169,7 @@ const WORLD_DATA = {
   lava_fields: {
     id:"lava_fields", name:"Lava Fields", icon:"🌋", type:"route",
     desc:"A smoldering expanse of hardened lava and glowing fissures. The ground cracks underfoot and fire vents belch superheated air.",
-    connections:["volcano_core","iron_canyon"],
+    connections:["emberveil","route4","volcano_core","magma_vent"],
     wildMonsters:[
       {id:53, minLv:28, maxLv:34, rate:6}, // Ashrock (obtainability fix)
       {id:13, minLv:26, maxLv:32, rate:28},   // Taurcin
@@ -6190,23 +6178,23 @@ const WORLD_DATA = {
       {id:13, minLv:28, maxLv:34, rate:10},   // Molteroth
       {id:191, minLv:29, maxLv:34, rate:18}    // Boulderoll
     ],
-    hasGym:false, requiredBadges:4, mapPos:{x:82, y:26}
+    hasGym:false, requiredBadges:4, mapPos:{x:70, y:30}
   },
   spirit_canyon: {
-    id:"spirit_canyon", name:"Spirit Canyon", icon:"🌀", type:"route",
+    id:"spirit_canyon", name:"Resonant Chasm", icon:"🌀", type:"route",
     desc:"A deep chasm where psychic resonance amplifies every thought and memory. The walls seem to shift and breathe.",
-    connections:["haunted_grove","fairy_meadow_south","dark_canyon"],
+    connections:["haunted_grove"],
     wildMonsters:[
       {id:166, minLv:44, maxLv:50, rate:35},   // Projectery
       {id:123, minLv:46, maxLv:51, rate:50},   // Nocturil
       {id:166, minLv:47, maxLv:52, rate:15}    // Psymastiff
     ],
-    hasGym:false, requiredBadges:7, mapPos:{x:6, y:52}
+    hasGym:false, requiredBadges:7, mapPos:{x:10, y:48}
   },
   reef_ruins: {
-    id:"reef_ruins", name:"Reef Ruins", icon:"🏛️", type:"special",
+    id:"reef_ruins", name:"Drowned Halls", icon:"🏛️", type:"special",
     desc:"Ancient steel structures submerged beneath the sea, overgrown with coral. A forgotten civilization once thrived here beneath the waves.",
-    connections:["coral_reef","ancient_ruins"],
+    connections:["ancient_ruins"],
     wildMonsters:[
       {id:254, minLv:36, maxLv:42, rate:8}, // Petrwave (obtainability fix)
       {id:25, minLv:28, maxLv:35, rate:18},   // Brinecrush
@@ -6215,13 +6203,13 @@ const WORLD_DATA = {
       {id:57, minLv:30, maxLv:36, rate:14},   // Imperion
       {id:134, minLv:35, maxLv:42, rate:8}   // Titanomare
     ],
-    hasGym:false, requiredBadges:2, mapPos:{x:76, y:76},
+    hasGym:false, requiredBadges:2, mapPos:{x:68, y:88},
     storyLocation:true, hasUmbraEncounter:true
   },
   wind_bridge: {
     id:"wind_bridge", name:"Wind Bridge", icon:"🌬️", type:"route",
     desc:"A series of ancient stone arches bridging floating islands in the sky. Powerful updrafts make travel treacherous but the view is breathtaking.",
-    connections:["route7","route8","skyvault"],
+    connections:["skyvault","route8"],
     wildMonsters:[
       {id:111, minLv:48, maxLv:54, rate:25},   // Aeolin
       {id:108, minLv:48, maxLv:54, rate:25},   // Silvergust
@@ -6230,7 +6218,7 @@ const WORLD_DATA = {
       {id:108, minLv:51, maxLv:56, rate:10}    // Siroccomane
     ],
     ngPlusWildMonsters:[{id:458, minLv:48, maxLv:52, rate:12}], // NG+ family base: Tengko
-    hasGym:false, requiredBadges:8, mapPos:{x:36, y:40}
+    hasGym:false, requiredBadges:8, mapPos:{x:35, y:45}
   },
   crystal_spire: {
     id:"crystal_spire", name:"Crystal Spire", icon:"💎", type:"special",
@@ -6250,7 +6238,7 @@ const WORLD_DATA = {
   dark_canyon: {
     id:"dark_canyon", hasUmbraEncounter:true, name:"Dark Canyon", icon:"🌑", type:"route",
     desc:"A pitch-black gorge where no light penetrates. Dark type Lumori have claimed every shadowed corner, and even the rocks seem to absorb light.",
-    connections:["spirit_canyon","umbra_base"],
+    connections:["umbra_base"],
     wildMonsters:[
       {id:118, minLv:50, maxLv:56, rate:20},   // Dreadmaw
       {id:121, minLv:50, maxLv:56, rate:10},   // Caveshroud
@@ -6259,14 +6247,14 @@ const WORLD_DATA = {
       {id:220, minLv:53, maxLv:58, rate:25}   // Necralia
     ],
     ngPlusWildMonsters:[{id:371, minLv:52, maxLv:58, rate:10}], // NG+ standalone: Nullform
-    hasGym:false, requiredBadges:8, mapPos:{x:4, y:60},
+    hasGym:false, requiredBadges:8, mapPos:{x:12, y:54},
     legendaryEncounter:{monsterId:166, level:55}
   },
   // ---- NEW ROUTES & GYM CITIES (badges 8-15) ----
   route9: {
     id:"route9", hasUmbraEncounter:true, name:"Route 9 - Verdant Trail", icon:"🌿", type:"route",
     desc:"A lush overgrown trail leading south from Dragonspire. Grass and Bug types thrive here.",
-    connections:["dragonspire","bloomhaven"],
+    connections:["dragonspire","route2"],
     wildMonsters:[
       {id:7, minLv:55, maxLv:60, rate:15},
       {id:66, minLv:55, maxLv:60, rate:20},
@@ -6274,13 +6262,13 @@ const WORLD_DATA = {
       {id:72, minLv:56, maxLv:61, rate:25},
       {id:72, minLv:57, maxLv:62, rate:10}
     ],
-    hasGym:false, requiredBadges:10, mapPos:{x:60, y:48},
+    hasGym:false, requiredBadges:10, mapPos:{x:50, y:49},
     ngPlusWildMonsters:[{id:326,minLv:62,maxLv:68,rate:20},{id:328,minLv:62,maxLv:68,rate:15},{id:331,minLv:63,maxLv:69,rate:15}]
   },
   bloomhaven: {
     id:"bloomhaven", name:"Bloomhaven City", icon:"🌸", type:"city",
     desc:"A city built around an ancient greenhouse. Home to Gym Leader Thorne, master of Grass types.",
-    connections:["route9","route10"],
+    connections:["route10"],
     wildMonsters:[
       {id:8, minLv:56, maxLv:60, rate:30},
       {id:69, minLv:56, maxLv:60, rate:25},
@@ -6288,12 +6276,12 @@ const WORLD_DATA = {
       {id:75, minLv:58, maxLv:62, rate:35}
     ],
     ngPlusWildMonsters:[{id:452, minLv:56, maxLv:60, rate:12}], // NG+ family base: Dozit
-    hasGym:true, gymLeader:"thorne", requiredBadges:10, mapPos:{x:55, y:55}
+    hasGym:true, gymLeader:"thorne", requiredBadges:10, mapPos:{x:56, y:58}
   },
   route10: {
     id:"route10", hasUmbraEncounter:true, name:"Route 10 - Toxic Passage", icon:"☠️", type:"route",
     desc:"A murky swamp path where poisonous fumes rise from the ground.",
-    connections:["bloomhaven","corroden"],
+    connections:["bloomhaven","lumoria_jungle"],
     wildMonsters:[
       {id:155, minLv:57, maxLv:62, rate:10},  // Toxirin (base)
       {id:157, minLv:57, maxLv:62, rate:17},  // Acidelix (base)
@@ -6305,24 +6293,24 @@ const WORLD_DATA = {
       {id:266, minLv:57, maxLv:62, rate:21},  // Shadowcub (base Dark/Sonic)
       {id:299, minLv:57, maxLv:62, rate:5}    // Resinbee (base Bug/Poi)
     ],
-    hasGym:false, requiredBadges:11, mapPos:{x:48, y:60},
+    hasGym:false, requiredBadges:11, mapPos:{x:53, y:56},
     ngPlusWildMonsters:[{id:322,minLv:64,maxLv:70,rate:20},{id:323,minLv:64,maxLv:70,rate:15},{id:325,minLv:65,maxLv:71,rate:10}]
   },
   miasmacity: {
     id:"miasmacity", name:"Miasma City", icon:"🏭", type:"city",
     desc:"An industrial city shrouded in toxic mist. Home to Gym Leader Viper, master of Poison types.",
-    connections:["toxic_bog","route11","mire_depths"],
+    connections:["route11","mire_depths","poison_swamp_upper"],
     wildMonsters:[
       {id:155, minLv:58, maxLv:63, rate:25},  // Venekon (mid)
-      {id:157, minLv:60, maxLv:65, rate:25},  // Dissotoad (final, 158 on murk_crossing ✓)
+      {id:157, minLv:60, maxLv:65, rate:25},  // Dissotoad (final, 158 on toxic_bog ✓)
       {id:162, minLv:59, maxLv:64, rate:25},  // Blightalis (mid, 162 on route10 ✓)
-      {id:164, minLv:59, maxLv:64, rate:25}   // Lepidox (mid, 164 on murk_crossing ✓)
+      {id:164, minLv:59, maxLv:64, rate:25}   // Lepidox (mid, 164 on toxic_bog ✓)
     ],
-    hasGym:true, gymLeader:"viper", requiredBadges:12, mapPos:{x:42, y:65},
+    hasGym:true, gymLeader:"viper", requiredBadges:12, mapPos:{x:41, y:64},
     ngPlusWildMonsters:[{id:322,minLv:65,maxLv:70,rate:25},{id:324,minLv:65,maxLv:70,rate:15}]
   },
   route11: {
-    id:"route11", hasUmbraEncounter:true, name:"Route 11 - Tremor Pass", icon:"🏔️", type:"route",
+    id:"route11", hasUmbraEncounter:true, name:"Route 11 - Fault Line", icon:"🏔️", type:"route",
     desc:"A rumbling mountain pass where the ground never stops shaking.",
     connections:["miasmacity","quake_foothills"],
     wildMonsters:[
@@ -6335,13 +6323,13 @@ const WORLD_DATA = {
       {id:236, minLv:59, maxLv:64, rate:9},  // Iciquill (base Ice)
       {id:248, minLv:59, maxLv:64, rate:18}   // Pebblard (base Rock)
     ],
-    hasGym:false, requiredBadges:13, mapPos:{x:35, y:72},
+    hasGym:false, requiredBadges:13, mapPos:{x:39, y:68},
     ngPlusWildMonsters:[{id:361, minLv:60, maxLv:66, rate:10}, {id:325,minLv:66,maxLv:72,rate:20},{id:327,minLv:66,maxLv:72,rate:15},{id:329,minLv:67,maxLv:73,rate:10}]
   },
   terravault: {
     id:"terravault", name:"Terravault City", icon:"⛏️", type:"city",
     desc:"A city carved into a mountainside, rich with mineral deposits. Home to Gym Leader Atlas.",
-    connections:["tremor_summit","route12"],
+    connections:["tremor_summit","gale_peak"],
     wildMonsters:[
       {id:95,  minLv:61, maxLv:66, rate:15},  // Quakehide (final, 96 on quake_foothills ✓)
       {id:98, minLv:61, maxLv:66, rate:15},  // Craterlurk (final, 99 on quake_foothills ✓)
@@ -6349,13 +6337,13 @@ const WORLD_DATA = {
       {id:104, minLv:61, maxLv:66, rate:30},  // Dravanas (final, 104 on route11 ✓)
       {id:106, minLv:62, maxLv:67, rate:25}   // Quakeon (final, 106 on route11 ✓)
     ],
-    hasGym:true, gymLeader:"atlas", requiredBadges:13, mapPos:{x:28, y:78},
+    hasGym:true, gymLeader:"atlas", requiredBadges:13, mapPos:{x:28, y:70},
     ngPlusWildMonsters:[{id:353, minLv:63, maxLv:67, rate:9}, {id:327,minLv:67,maxLv:72,rate:25},{id:337,minLv:67,maxLv:72,rate:15}]
   },
   route12: {
     id:"route12", name:"Route 12 - Silk Road", icon:"🕸️", type:"route",
     desc:"A path threaded with giant webs. Bug types ambush travelers at every turn.",
-    connections:["terravault","fungal_cavern"],
+    connections:["seedvale","mistmoor","fungal_cavern"],
     wildMonsters:[
       {id:197, minLv:61, maxLv:66, rate:25},  // Photoworm (base)
       {id:198, minLv:62, maxLv:67, rate:20},  // Chrysalix (mid → after 197 ✓)
@@ -6365,7 +6353,7 @@ const WORLD_DATA = {
       {id:215, minLv:62, maxLv:67, rate:16},  // Veilwisp (base Mental)
       {id:262, minLv:62, maxLv:67, rate:11}   // Transluceed (base Grass/Poi)
     ],
-    hasGym:false, requiredBadges:14, mapPos:{x:22, y:82},
+    hasGym:false, requiredBadges:14, mapPos:{x:9, y:75},
     ngPlusWildMonsters:[{id:391, minLv:64, maxLv:68, rate:8}, {id:324,minLv:68,maxLv:74,rate:20},{id:329,minLv:68,maxLv:74,rate:15},{id:339,minLv:69,maxLv:75,rate:10},{id:402,minLv:68,maxLv:74,rate:8},{id:405,minLv:68,maxLv:74,rate:8}]
   },
   silkwood: {
@@ -6378,7 +6366,7 @@ const WORLD_DATA = {
       {id:202, minLv:63, maxLv:68, rate:25},  // Arachnalis (mid, 202 on route12 ✓)
       {id:204, minLv:64, maxLv:69, rate:25}   // Quarrix (mid)
     ],
-    hasGym:true, gymLeader:"mantis", requiredBadges:14, mapPos:{x:15, y:88},
+    hasGym:true, gymLeader:"mantis", requiredBadges:14, mapPos:{x:12, y:88},
     ngPlusWildMonsters:[{id:357, minLv:63, maxLv:69, rate:10}, {id:330,minLv:68,maxLv:74,rate:25},{id:331,minLv:68,maxLv:74,rate:20},{id:326,minLv:68,maxLv:74,rate:10},{id:402,minLv:69,maxLv:75,rate:6},{id:405,minLv:69,maxLv:75,rate:6}]
   },
   route13: {
@@ -6396,11 +6384,11 @@ const WORLD_DATA = {
       {id:222, minLv:63, maxLv:68, rate:16},  // Mindpuff (base Mental)
       {id:220, minLv:63, maxLv:68, rate:5}    // Umbrajest (base Dark/Mental)
     ],
-    hasGym:false, requiredBadges:15, mapPos:{x:10, y:92},
+    hasGym:false, requiredBadges:15, mapPos:{x:7, y:85},
     ngPlusWildMonsters:[{id:356, minLv:64, maxLv:70, rate:9}, {id:335,minLv:70,maxLv:76,rate:20},{id:348,minLv:70,maxLv:76,rate:15},{id:370,minLv:71,maxLv:77,rate:10}]
   },
   gusthaven: {
-    id:"gusthaven", name:"Gusthaven Town", icon:"🌀", type:"city",
+    id:"gusthaven", name:"Zephyr Town", icon:"🌀", type:"city",
     desc:"A town of windmills and airships. Home to Gym Leader Zephyra, master of Wind types.",
     connections:["tempest_cliffs","route14"],
     wildMonsters:[
@@ -6410,7 +6398,7 @@ const WORLD_DATA = {
       {id:116, minLv:65, maxLv:70, rate:20},  // Pneumathos (mid)
       {id:62,  minLv:66, maxLv:70, rate:30}   // standalone
     ],
-    hasGym:true, gymLeader:"zephyra", requiredBadges:16, mapPos:{x:18, y:95},
+    hasGym:true, gymLeader:"zephyra", requiredBadges:16, mapPos:{x:33, y:82},
     ngPlusWildMonsters:[{id:338, minLv:66, maxLv:70, rate:10}, {id:335,minLv:71,maxLv:76,rate:25},{id:370,minLv:71,maxLv:76,rate:15}]
   },
   route14: {
@@ -6428,7 +6416,7 @@ const WORLD_DATA = {
       {id:244, minLv:65, maxLv:70, rate:7},  // Staticclaw (base Electric)
       {id:280, minLv:65, maxLv:70, rate:5}    // Gearbit (base Metal/Ground)
     ],
-    hasGym:false, requiredBadges:17, mapPos:{x:28, y:92},
+    hasGym:false, requiredBadges:17, mapPos:{x:37, y:85},
     ngPlusWildMonsters:[{id:383, minLv:66, maxLv:72, rate:8}, {id:334,minLv:72,maxLv:78,rate:20},{id:347,minLv:72,maxLv:78,rate:15},{id:366,minLv:73,maxLv:79,rate:10}]
   },
   ironforge: {
@@ -6442,7 +6430,7 @@ const WORLD_DATA = {
       {id:135, minLv:67, maxLv:72, rate:30},  // Steelvex (mid, 134 on route14 ✓)
       {id:135, minLv:68, maxLv:73, rate:12}   // Metalibat (final → after 135 ✓)
     ],
-    hasGym:true, gymLeader:"ferro", requiredBadges:17, mapPos:{x:38, y:88},
+    hasGym:true, gymLeader:"ferro", requiredBadges:17, mapPos:{x:50, y:83},
     ngPlusWildMonsters:[{id:334,minLv:73,maxLv:78,rate:25},{id:347,minLv:73,maxLv:78,rate:20}]
   },
   route15: {
@@ -6460,13 +6448,13 @@ const WORLD_DATA = {
       {id:304, minLv:67, maxLv:72, rate:17},  // Yeticub (base Earth/Ice)
       {id:232, minLv:67, maxLv:72, rate:5}    // Serphaxon (base Draconic/Ground)
     ],
-    hasGym:false, requiredBadges:18, mapPos:{x:48, y:85},
+    hasGym:false, requiredBadges:18, mapPos:{x:50, y:80},
     ngPlusWildMonsters:[{id:364, minLv:68, maxLv:74, rate:9}, {id:332,minLv:74,maxLv:80,rate:20},{id:349,minLv:66,maxLv:72,rate:18}]
   },
   quarryville: {
     id:"quarryville", name:"Quarryville Town", icon:"🏗️", type:"city",
     desc:"A mining town carved from solid rock. Home to Gym Leader Boulder, master of Rock types.",
-    connections:["crystal_mine","route16"],
+    connections:["crystal_mine","route16","granite_tunnels"],
     wildMonsters:[
       {id:192, minLv:68, maxLv:73, rate:20},  // Boulderoll (mid)
       {id:195, minLv:69, maxLv:74, rate:25},  // Icequartz (195 on stone_plateau ✓)
@@ -6474,7 +6462,7 @@ const WORLD_DATA = {
       {id:133, minLv:69, maxLv:74, rate:15},  // Monolithox (mid)
       {id:92,  minLv:70, maxLv:74, rate:30}   // standalone
     ],
-    hasGym:true, gymLeader:"boulder", requiredBadges:18, mapPos:{x:55, y:82},
+    hasGym:true, gymLeader:"boulder", requiredBadges:18, mapPos:{x:54, y:77},
     ngPlusWildMonsters:[{id:399, minLv:69, maxLv:75, rate:8}, {id:359, minLv:74, maxLv:80, rate:9}, {id:327,minLv:70,maxLv:74,rate:25},{id:341,minLv:64,maxLv:70,rate:15},{id:349,minLv:67,maxLv:72,rate:10}]
   },
   route16: {
@@ -6492,13 +6480,13 @@ const WORLD_DATA = {
       {id:254, minLv:69, maxLv:74, rate:12},  // Bubblepuff (base Aquatic/Psy)
       {id:302, minLv:69, maxLv:74, rate:5}    // Lightpuff (base Fairy, item evo)
     ],
-    hasGym:false, requiredBadges:19, mapPos:{x:62, y:78},
+    hasGym:false, requiredBadges:19, mapPos:{x:57, y:77},
     ngPlusWildMonsters:[{id:363, minLv:71, maxLv:75, rate:9}, {id:344,minLv:76,maxLv:82,rate:20},{id:351,minLv:76,maxLv:82,rate:15},{id:360,minLv:77,maxLv:83,rate:10}]
   },
   starbloom: {
-    id:"starbloom", name:"Starbloom City", icon:"🌟", type:"city",
+    id:"starbloom", name:"Stellaris City", icon:"🌟", type:"city",
     desc:"A radiant city that glows with fairy magic. Home to Gym Leader Seraphina, the last gym before The Vanguard.",
-    connections:["astral_plateau","victoryroad","void_rift","resonant_trail"],
+    connections:["cosmic_cavern","victoryroad","astral_plateau"],
     wildMonsters:[
       {id:138, minLv:70, maxLv:75, rate:24},  // Halocanis (mid)
       {id:138, minLv:71, maxLv:76, rate:8},  // Lumiarch (final → after 138 ✓)
@@ -6509,29 +6497,14 @@ const WORLD_DATA = {
       {id:223, minLv:72, maxLv:76, rate:8},  // Psytheon (final → 223 on cosmic_cavern ✓)
       {id:216, minLv:73, maxLv:77, rate:5}    // Distorsion (final Mental)
     ],
-    hasGym:true, gymLeader:"seraphina", requiredBadges:19, mapPos:{x:68, y:72},
+    hasGym:true, gymLeader:"seraphina", requiredBadges:19, mapPos:{x:65, y:70},
     ngPlusWildMonsters:[{id:362, minLv:70, maxLv:77, rate:9}, {id:344,minLv:77,maxLv:82,rate:25},{id:351,minLv:77,maxLv:82,rate:20},{id:360,minLv:78,maxLv:83,rate:8}]
   },
   // ---- ADDITIONAL ROUTES (direction-change splits & mid-gym connectors) ----
-  murk_crossing: {
-    id:"murk_crossing", name:"Murk Crossing", icon:"🌫️", type:"route",
-    desc:"A bog-choked crossing where the path turns south through fetid marshland. Toxic vapors hang low and Poison types lurk in every murky puddle.",
-    connections:["corroden","toxic_bog"],
-    wildMonsters:[
-      {id:155, minLv:57, maxLv:62, rate:24},  // Toxirin (base)
-      {id:155, minLv:58, maxLv:63, rate:10},  // Venekon (mid → after base ✓)
-      {id:157, minLv:58, maxLv:63, rate:18},  // Corrodisc (mid, base Acidelix on route10 ✓)
-      {id:157, minLv:60, maxLv:65, rate:6},  // Dissotoad (final → after 158 ✓)
-      {id:164, minLv:58, maxLv:63, rate:28},  // Blightmite (base, new)
-      {id:164, minLv:59, maxLv:64, rate:14}   // Lepidox (mid → after 164 ✓)
-    ],
-    ngPlusWildMonsters:[{id:355, minLv:58, maxLv:65, rate:10}], // NG+ standalone: Nadiril
-    hasGym:false, requiredBadges:12, mapPos:{x:42, y:60}
-  },
   corroden: {
     id:"corroden", name:"Corroden Town", icon:"☣️", type:"city",
     desc:"A fume-wreathed town on the edge of the corrosion flats, its cobbles pitted and its air sharp enough to sting. Gym Leader Acrid thrives where lesser trainers' gear dissolves.",
-    connections:["route10","murk_crossing"],
+    connections:["route8","toxic_bog"],
     wildMonsters:[
       {id:299, minLv:56, maxLv:60, rate:25}, // Nettlebarb
       {id:296, minLv:56, maxLv:60, rate:23}, // Pestquito
@@ -6539,12 +6512,12 @@ const WORLD_DATA = {
       {id:296, minLv:58, maxLv:60, rate:18}, // Plagueoth
       {id:262, minLv:58, maxLv:60, rate:12}  // Impenezard
     ],
-    hasGym:true, gymLeader:"acrid", requiredBadges:11, mapPos:{x:50, y:58}
+    hasGym:true, gymLeader:"acrid", requiredBadges:11, mapPos:{x:43, y:47}
   },
   quake_foothills: {
     id:"quake_foothills", name:"Quake Foothills", icon:"🌋", type:"route",
     desc:"Rolling foothills rocked by constant tremors where Terravault's mountain range begins. Ground-type Lumori burrow through the cracked and heaving earth.",
-    connections:["route11","magma_vent","tremor_summit"],
+    connections:["ashford","route11","tremor_summit"],
     wildMonsters:[
       {id:95,  minLv:59, maxLv:64, rate:24},  // Aridhino (base)
       {id:95,  minLv:60, maxLv:65, rate:8},  // Seismith (mid → after 95 ✓)
@@ -6553,7 +6526,7 @@ const WORLD_DATA = {
       {id:101, minLv:59, maxLv:64, rate:28},  // Limoux (base)
       {id:101, minLv:60, maxLv:65, rate:8}   // Dunoloth (mid → after 101 ✓)
     ],
-    hasGym:false, requiredBadges:13, mapPos:{x:28, y:72}
+    hasGym:false, requiredBadges:13, mapPos:{x:34, y:70}
   },
   cobweb_gully: {
     id:"cobweb_gully", name:"Cobweb Gully", icon:"🕸️", type:"route",
@@ -6567,7 +6540,7 @@ const WORLD_DATA = {
       {id:204, minLv:63, maxLv:68, rate:24},  // Muddite (base)
       {id:204, minLv:64, maxLv:69, rate:10}   // Quarrix (mid → after 204 ✓)
     ],
-    hasGym:false, requiredBadges:14, mapPos:{x:15, y:82}
+    hasGym:false, requiredBadges:14, mapPos:{x:20, y:84}
   },
   gale_ridge_east: {
     id:"gale_ridge_east", name:"Gale Ridge East", icon:"🌪️", type:"route",
@@ -6582,7 +6555,7 @@ const WORLD_DATA = {
       {id:116, minLv:65, maxLv:70, rate:14}   // Pneumathos (mid, 116 on route13 ✓)
     ],
     ngPlusWildMonsters:[{id:393, minLv:65, maxLv:70, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:16, mapPos:{x:14, y:95}
+    hasGym:false, requiredBadges:16, mapPos:{x:27, y:82}
   },
   forge_approach: {
     id:"forge_approach", name:"Forge Approach", icon:"🔩", type:"route",
@@ -6596,12 +6569,12 @@ const WORLD_DATA = {
       {id:153, minLv:66, maxLv:71, rate:28},  // Dentshaft (base)
       {id:154, minLv:67, maxLv:72, rate:18}   // Terragolem (mid → after 153 ✓)
     ],
-    hasGym:false, requiredBadges:17, mapPos:{x:38, y:92}
+    hasGym:false, requiredBadges:17, mapPos:{x:50, y:84}
   },
   stone_plateau: {
     id:"stone_plateau", name:"Stone Plateau", icon:"🏜️", type:"route",
     desc:"A windswept expanse of exposed bedrock leading into Quarryville. Ancient monoliths dot the plateau and Rock and Dark types claim each one as territory.",
-    connections:["granite_tunnels","crystal_mine"],
+    connections:["granite_tunnels"],
     wildMonsters:[
       {id:192, minLv:68, maxLv:73, rate:18},  // Boulderoll (mid, 191 on route15 ✓)
       {id:193, minLv:67, maxLv:72, rate:28},  // Cliffpinch (base)
@@ -6611,12 +6584,12 @@ const WORLD_DATA = {
       {id:195, minLv:70, maxLv:75, rate:6}   // Frigolith (mid → after 195 ✓)
     ],
     ngPlusWildMonsters:[{id:385, minLv:82, maxLv:88, rate:8}, {id:367, minLv:68, maxLv:75, rate:10}], // NG+: Permafrost (ice-golem final), Bouldertide
-    hasGym:false, requiredBadges:18, mapPos:{x:48, y:82}
+    hasGym:false, requiredBadges:18, mapPos:{x:45, y:72}
   },
   cosmic_cavern: {
     id:"cosmic_cavern", name:"Cosmic Cavern", icon:"🌌", type:"route",
-    desc:"A glittering cavern lit by bioluminescent crystals on the approach to Starbloom. Fairy types dance in the starlight, but dark shadows hint at lurking Umbra agents.",
-    connections:["nebula_gorge","astral_plateau"],
+    desc:"A glittering cavern lit by bioluminescent crystals on the approach to Stellaris. Fairy types dance in the starlight, but dark shadows hint at lurking Umbra agents.",
+    connections:["nebula_gorge","starbloom"],
     wildMonsters:[
       {id:137, minLv:69, maxLv:74, rate:16},  // Goldefluff (base)
       {id:138, minLv:70, maxLv:75, rate:11},  // Halocanis (mid → after 137 ✓)
@@ -6629,26 +6602,26 @@ const WORLD_DATA = {
       {id:254, minLv:71, maxLv:75, rate:6}   // Psychotide (mid → Aquapuff on route16 ✓)
     ],
     ngPlusWildMonsters:[{id:397, minLv:70, maxLv:76, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:19, mapPos:{x:68, y:78}
+    hasGym:false, requiredBadges:19, mapPos:{x:73, y:76}
   },
   void_rift: {
     id:"void_rift", name:"The Void Rift", icon:"🌀", type:"special",
     desc:"A tear in reality pulsing with dark energy near Route 16. The Umbra Order's experiments cracked open this rift, and within its swirling darkness, Voidraxis — the Void Star — awaits any trainer bold enough to enter.",
-    connections:["starbloom","umbra_lab"],
+    connections:["astral_plateau","umbra_lab"],
     wildMonsters:[
       {id:119, minLv:72, maxLv:77, rate:30},  // Dreadmaw (Dark)
       {id:122, minLv:72, maxLv:77, rate:30},  // Caveshroud (Dark)
       {id:119, minLv:73, maxLv:78, rate:25},  // dark-type
       {id:130, minLv:73, maxLv:78, rate:15}   // Necrothon (Dark/Grass)
     ],
-    hasGym:false, requiredBadges:19, mapPos:{x:75, y:72},
+    hasGym:false, requiredBadges:19, mapPos:{x:78, y:74},
     ngPlusWildMonsters:[{id:373, minLv:78, maxLv:84, rate:8}, {id:342,minLv:74,maxLv:79,rate:20},{id:352,minLv:79,maxLv:85,rate:8}]
   },
   // ---- ADDITIONAL MID-GYM ROUTES (phase 2) ----
   toxic_bog: {
     id:"toxic_bog", name:"Toxic Bog", icon:"🐸", type:"route",
     desc:"A stagnant bog where the path turns south toward Miasma City. Foul gas bubbles up through the mud and Poison types lurk beneath the surface.",
-    connections:["murk_crossing","mire_depths","miasmacity"],
+    connections:["corroden","mire_depths"],
     wildMonsters:[
       {id:155, minLv:58, maxLv:63, rate:20},  // Venekon (mid)
       {id:157, minLv:58, maxLv:63, rate:20},  // Corrodisc (mid)
@@ -6656,12 +6629,13 @@ const WORLD_DATA = {
       {id:164, minLv:58, maxLv:63, rate:20},  // Blightmite (base)
       {id:164, minLv:59, maxLv:64, rate:20}   // Lepidox (mid → after 164 ✓)
     ],
-    hasGym:false, requiredBadges:12, mapPos:{x:42, y:63}
+    ngPlusWildMonsters:[{id:355, minLv:58, maxLv:65, rate:10}], // NG+ standalone: Nadiril (relocated from removed Murk Crossing)
+    hasGym:false, requiredBadges:12, mapPos:{x:43, y:51}
   },
   tremor_summit: {
     id:"tremor_summit", name:"Tremor Summit", icon:"⛰️", type:"route",
     desc:"The crest of the quake-ridden foothills where the shaking is strongest. Only final-stage Ground-type Lumori can hold their footing here.",
-    connections:["quake_foothills","terravault","magma_vent"],
+    connections:["quake_foothills","terravault"],
     wildMonsters:[
       {id:95,  minLv:62, maxLv:67, rate:15},  // Quakehide (final, 96 on quake_foothills ✓)
       {id:98, minLv:62, maxLv:67, rate:15},  // Craterlurk (final, 99 on quake_foothills ✓)
@@ -6669,12 +6643,12 @@ const WORLD_DATA = {
       {id:104, minLv:63, maxLv:68, rate:30},  // Dravanas (final, 104 on route11 ✓)
       {id:106, minLv:63, maxLv:68, rate:25}   // Quakeon (final, 106 on route11 ✓)
     ],
-    hasGym:false, requiredBadges:13, mapPos:{x:28, y:75}
+    hasGym:false, requiredBadges:13, mapPos:{x:31, y:70}
   },
   gale_peak: {
     id:"gale_peak", name:"Gale Peak", icon:"🌀", type:"route",
     desc:"The westernmost tip of the region — where Gale Ridge reaches its farthest point before turning sharply east. The wind here changes direction mid-step.",
-    connections:["wind_hollow","gale_ridge_east"],
+    connections:["wind_hollow","gale_ridge_east","terravault"],
     wildMonsters:[
       {id:108, minLv:63, maxLv:68, rate:24},  // Silvergust (base)
       {id:108, minLv:64, maxLv:69, rate:10},  // Siroccomane (mid → after 108 ✓)
@@ -6683,10 +6657,10 @@ const WORLD_DATA = {
       {id:116, minLv:64, maxLv:69, rate:18},  // Zephyrin (base)
       {id:116, minLv:65, maxLv:70, rate:6}   // Pneumathos (mid → after 116 ✓)
     ],
-    hasGym:false, requiredBadges:16, mapPos:{x:7, y:96}
+    hasGym:false, requiredBadges:16, mapPos:{x:23, y:79}
   },
   forge_ruins: {
-    id:"forge_ruins", name:"Forge Ruins", icon:"🏚️", type:"route",
+    id:"forge_ruins", name:"Rustworks", icon:"🏚️", type:"route",
     desc:"Collapsed factory halls stretching east from the old Ironwork Path. Metal-type Lumori nest in the rusted machinery, and mid-stage chains are common sightings.",
     connections:["ash_fields","smelter_pass"],
     wildMonsters:[
@@ -6698,30 +6672,30 @@ const WORLD_DATA = {
       {id:135, minLv:67, maxLv:72, rate:14}   // Steelvex (mid → after 134 ✓)
     ],
     ngPlusWildMonsters:[{id:396, minLv:66, maxLv:72, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:17, mapPos:{x:33, y:92}
+    hasGym:false, requiredBadges:17, mapPos:{x:45, y:89}
   },
 
   // ---- NEW AREAS: GYMS 9-16 EXPANSION ----
 
   mire_depths: {
-    id:"mire_depths", name:"Mire Depths", icon:"🐸", type:"route",
+    id:"mire_depths", name:"Murkfen", icon:"🐸", type:"route",
     desc:"A labyrinthine deep-swamp sector south of Toxic Bog. Venomous Lumori that have shed their pre-evolutions stalk the murky waterways. Umbra scouts use the miasma as cover.",
     connections:["toxic_bog","miasmacity"],
     wildMonsters:[
       {id:155, minLv:59, maxLv:64, rate:9},  // Venekon (mid, base 155 on route10 ✓)
       {id:296, minLv:58, maxLv:63, rate:18},  // Pestquito (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
-      {id:164, minLv:59, maxLv:64, rate:13},  // Lepidox (mid, 164 on murk_crossing ✓)
+      {id:164, minLv:59, maxLv:64, rate:13},  // Lepidox (mid, 164 on toxic_bog ✓)
       {id:296, minLv:58, maxLv:63, rate:27},  // Plaguefly (base Poi/Bug)
       {id:299, minLv:58, maxLv:63, rate:23},  // Resinbee (base Bug/Poi, also on route10)
       {id:218, minLv:59, maxLv:64, rate:10}   // Duskmist (base Spectral/Dark, item evo)
     ],
     legendaryEncounter:{monsterId:316, level:62}, // static legendary (obtainability fix)
-    hasGym:false, requiredBadges:12, mapPos:{x:41, y:67}
+    hasGym:false, requiredBadges:12, mapPos:{x:42, y:57}
   },
   magma_vent: {
     id:"magma_vent", name:"Magma Vent", icon:"🌋", type:"route",
     desc:"A superheated gorge where magma seeps through rock fissures between the foothills and Tremor Summit. Ground and Fire types bask in the thermal heat.",
-    connections:["quake_foothills","tremor_summit"],
+    connections:["lava_fields"],
     wildMonsters:[
       {id:95,  minLv:61, maxLv:66, rate:8},  // Seismith (mid, 95 on quake_foothills ✓)
       {id:98,  minLv:61, maxLv:66, rate:14},  // Toxivenoth (mid, 98 on quake_foothills ✓)
@@ -6732,10 +6706,10 @@ const WORLD_DATA = {
     ],
     ngPlusWildMonsters:[{id:368, minLv:61, maxLv:66, rate:9}], // NG+ standalone: Willowisp
     legendaryEncounter:{monsterId:321, level:63}, // base-game legendary (relocated from NG+ mega-areas)
-    hasGym:false, requiredBadges:13, mapPos:{x:28, y:74}
+    hasGym:false, requiredBadges:13, mapPos:{x:68, y:24}
   },
   fungal_cavern: {
-    id:"fungal_cavern", name:"Fungal Cavern", icon:"🍄", type:"route",
+    id:"fungal_cavern", name:"Spore Grotto", icon:"🍄", type:"route",
     desc:"An underground cavern lit by bioluminescent fungi on the route to Cobweb Gully. Grass and Bug types thrive in the moist, glowing dark.",
     connections:["route12","cobweb_gully"],
     wildMonsters:[
@@ -6747,10 +6721,10 @@ const WORLD_DATA = {
       {id:272, minLv:62, maxLv:67, rate:14}   // Embrix (base Fire, phoenix)
     ],
     ngPlusWildMonsters:[{id:350, minLv:63, maxLv:68, rate:10}], // NG+ standalone: Forewrath
-    hasGym:false, requiredBadges:14, mapPos:{x:20, y:83}
+    hasGym:false, requiredBadges:14, mapPos:{x:9, y:69}
   },
   ancient_grove: {
-    id:"ancient_grove", name:"Ancient Grove", icon:"🌳", type:"route",
+    id:"ancient_grove", name:"Tangle Thicket", icon:"🌳", type:"route",
     desc:"A sacred forest grove of thousand-year-old trees. The air hums with ancient energy. Grass types here have evolved beyond their usual forms.",
     connections:["cobweb_gully","silkwood"],
     wildMonsters:[
@@ -6763,7 +6737,7 @@ const WORLD_DATA = {
     ],
     legendaryEncounter:{monsterId:318, level:69}, // static legendary (obtainability fix)
     ngPlusWildMonsters:[{id:390, minLv:64, maxLv:69, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:14, mapPos:{x:14, y:86}
+    hasGym:false, requiredBadges:14, mapPos:{x:20, y:89}
   },
   wind_hollow: {
     id:"wind_hollow", name:"Wind Hollow", icon:"🌬️", type:"route",
@@ -6779,12 +6753,12 @@ const WORLD_DATA = {
     ],
     legendaryEncounter:{monsterId:314, level:66}, // static legendary (obtainability fix)
     ngPlusWildMonsters:[{id:375, minLv:64, maxLv:69, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:16, mapPos:{x:8, y:93}
+    hasGym:false, requiredBadges:16, mapPos:{x:15, y:80}
   },
   mistmoor: {
     id:"mistmoor", name:"Mistmoor Town", icon:"💨", type:"city",
     desc:"A fog-bound hamlet adrift on the high moor, its rooftops half-dissolved in drifting steam. Gym Leader Steam strikes from within the haze before you ever see the blow.",
-    connections:["route13","fogbank"],
+    connections:["route13","fogbank","route12"],
     wildMonsters:[
       {id:181, minLv:72, maxLv:76, rate:25}, // Bouncyblob
       {id:160, minLv:72, maxLv:76, rate:22}, // Mistbane
@@ -6792,7 +6766,7 @@ const WORLD_DATA = {
       {id:220, minLv:73, maxLv:76, rate:18}, // Umbrajest
       {id:216, minLv:74, maxLv:76, rate:15}  // Distorsion
     ],
-    hasGym:true, gymLeader:"steam", requiredBadges:15, mapPos:{x:3, y:86}
+    hasGym:true, gymLeader:"steam", requiredBadges:15, mapPos:{x:6, y:78}
   },
   fogbank: {
     id:"fogbank", name:"Fogbank Reach", icon:"🌫️", type:"route",
@@ -6804,11 +6778,11 @@ const WORLD_DATA = {
       {id:216, minLv:73, maxLv:76, rate:24}, // Mindrift
       {id:160, minLv:73, maxLv:76, rate:22}  // Miasmafly
     ],
-    hasGym:false, requiredBadges:16, mapPos:{x:4, y:91}
+    hasGym:false, requiredBadges:16, mapPos:{x:10, y:80}
   },
   tempest_cliffs: {
-    id:"tempest_cliffs", name:"Tempest Cliffs", icon:"⛰️", type:"route",
-    desc:"Sheer cliff faces battered by perpetual gales where Gale Ridge meets Gusthaven. Only the most powerful Wind types cling to the rockface here.",
+    id:"tempest_cliffs", name:"Tempest Bluffs", icon:"⛰️", type:"route",
+    desc:"Sheer cliff faces battered by perpetual gales where Gale Ridge meets Zephyr. Only the most powerful Wind types cling to the rockface here.",
     connections:["gale_ridge_east","gusthaven"],
     wildMonsters:[
       {id:293, minLv:65, maxLv:70, rate:24},  // Stormwing (mid → 293 on gale_peak ✓)
@@ -6819,11 +6793,11 @@ const WORLD_DATA = {
       {id:173, minLv:65, maxLv:70, rate:14}   // Chromedrake (standalone Draconic/Metal)
     ],
     ngPlusWildMonsters:[{id:386, minLv:66, maxLv:71, rate:8}, {id:333, minLv:66, maxLv:71, rate:10}], // NG+ standalone: Voltafang
-    hasGym:false, requiredBadges:16, mapPos:{x:16, y:97}
+    hasGym:false, requiredBadges:16, mapPos:{x:27, y:87}
   },
   ash_fields: {
     id:"ash_fields", name:"Ash Fields", icon:"🏜️", type:"route",
-    desc:"A barren expanse of volcanic ash fields between Gusthaven and the Forge Ruins. Fire types scorch the ashen ground, and Metal types scavenge the slag.",
+    desc:"A barren expanse of volcanic ash fields between Zephyr and the Rustworks. Fire types scorch the ashen ground, and Metal types scavenge the slag.",
     connections:["route14","forge_ruins"],
     wildMonsters:[
       {id:20, minLv:66, maxLv:71, rate:6}, // Hauntcoal (obtainability fix)
@@ -6835,7 +6809,7 @@ const WORLD_DATA = {
       {id:312, minLv:65, maxLv:70, rate:5}    // Dunecrawl (base, also magma_vent)
     ],
     ngPlusWildMonsters:[{id:376, minLv:67, maxLv:72, rate:8}, {id:358, minLv:66, maxLv:71, rate:9}], // NG+ standalone: Psyphoenix
-    hasGym:false, requiredBadges:17, mapPos:{x:30, y:90}
+    hasGym:false, requiredBadges:17, mapPos:{x:40, y:83}
   },
   smelter_pass: {
     id:"smelter_pass", name:"Smelter Pass", icon:"🔥", type:"route",
@@ -6850,12 +6824,12 @@ const WORLD_DATA = {
       {id:115, minLv:66, maxLv:71, rate:10}   // Pyrelynx (standalone Fire/Dark)
     ],
     ngPlusWildMonsters:[{id:365, minLv:67, maxLv:72, rate:9}], // NG+ standalone: Cinderking
-    hasGym:false, requiredBadges:17, mapPos:{x:36, y:91}
+    hasGym:false, requiredBadges:17, mapPos:{x:48, y:86}
   },
   granite_tunnels: {
-    id:"granite_tunnels", name:"Granite Tunnels", icon:"⛏️", type:"route",
+    id:"granite_tunnels", name:"Basalt Tunnels", icon:"⛏️", type:"route",
     desc:"Underground tunnels bored through solid granite linking Ironforge to the Stone Plateau. Rock and Draconic types nest in the crystalline formations.",
-    connections:["route15","stone_plateau"],
+    connections:["route15","stone_plateau","quarryville"],
     wildMonsters:[
       {id:249, minLv:68, maxLv:73, rate:24},  // Boulderax (mid → 248 on route11/magma_vent ✓)
       {id:305, minLv:68, maxLv:73, rate:14},  // Yetigeist (mid → 304 Yeticub on route15 ✓)
@@ -6865,12 +6839,12 @@ const WORLD_DATA = {
       {id:281, minLv:68, maxLv:73, rate:6}   // Mechabrute (final → Cogvex on smelter_pass ✓)
     ],
     ngPlusWildMonsters:[{id:374, minLv:68, maxLv:73, rate:8}], // thinned from mega-area
-    hasGym:false, requiredBadges:18, mapPos:{x:46, y:84}
+    hasGym:false, requiredBadges:18, mapPos:{x:50, y:77}
   },
   crystal_mine: {
     id:"crystal_mine", name:"Crystal Mine", icon:"💎", type:"route",
     desc:"An exhausted gem mine between Stone Plateau and Quarryville where crystalline Rock types have colonized the abandoned shafts.",
-    connections:["stone_plateau","quarryville","umbra_citadel"],
+    connections:["quarryville","umbra_citadel"],
     wildMonsters:[
       {id:249, minLv:70, maxLv:75, rate:14},  // Megalith (final → 249 on granite_tunnels ✓)
       {id:305, minLv:70, maxLv:75, rate:13},  // Yetigrand (final → 305 on granite_tunnels ✓)
@@ -6881,7 +6855,7 @@ const WORLD_DATA = {
     ],
     legendaryEncounter:{monsterId:317, level:73}, // static legendary (obtainability fix)
     ngPlusWildMonsters:[{id:340, minLv:70, maxLv:75, rate:10}], // NG+: Cryoshard (Chronolith #388 now evolution-only from Mirestone)
-    hasGym:false, requiredBadges:18, mapPos:{x:53, y:83}
+    hasGym:false, requiredBadges:18, mapPos:{x:58, y:84}
   },
   umbra_citadel: {
     id:"umbra_citadel", name:"Umbra Citadel", icon:"🏰", type:"special", hasUmbraEncounter:true,
@@ -6893,11 +6867,11 @@ const WORLD_DATA = {
       {id:119, minLv:85, maxLv:88, rate:25}, // Dreadmaw
       {id:130, minLv:85, maxLv:88, rate:15}  // Necralia
     ],
-    hasGym:false, requiredBadges:18, mapPos:{x:62, y:90}
+    hasGym:false, requiredBadges:18, mapPos:{x:56, y:91}
   },
   nebula_gorge: {
     id:"nebula_gorge", name:"Nebula Gorge", icon:"🌠", type:"route",
-    desc:"A star-dusted gorge where cosmic energy from nearby Starbloom saturates the air. Mental and Fairy types commune with the starlight here.",
+    desc:"A star-dusted gorge where cosmic energy from nearby Stellaris saturates the air. Mental and Fairy types commune with the starlight here.",
     connections:["route16","cosmic_cavern"],
     wildMonsters:[
       {id:254, minLv:70, maxLv:75, rate:21},  // Bubblepuff (base, also on route16)
@@ -6909,12 +6883,12 @@ const WORLD_DATA = {
       {id:79, minLv:70, maxLv:75, rate:5}    // Murkrat (standalone Dark/Normal)
     ],
     ngPlusWildMonsters:[{id:387, minLv:71, maxLv:76, rate:8}, {id:354, minLv:71, maxLv:76, rate:9}], // NG+ standalone: Riftwhale
-    hasGym:false, requiredBadges:19, mapPos:{x:64, y:76}
+    hasGym:false, requiredBadges:19, mapPos:{x:62, y:77}
   },
   astral_plateau: {
     id:"astral_plateau", name:"Astral Plateau", icon:"⭐", type:"route",
     desc:"A high plateau above Cosmic Cavern where the sky seems close enough to touch. Rare Lumori shaped by cosmic energy appear here in the hours around midnight.",
-    connections:["cosmic_cavern","starbloom"],
+    connections:["starbloom","void_rift"],
     wildMonsters:[
       {id:216, minLv:72, maxLv:77, rate:14},  // Distorsion (final Mental)
       {id:223, minLv:72, maxLv:77, rate:14},  // Psytheon (final → 223 on cosmic_cavern ✓)
@@ -6925,7 +6899,7 @@ const WORLD_DATA = {
       {id:308, minLv:71, maxLv:76, rate:22}   // Seafraith (base Aquatic/Dark)
     ],
     ngPlusWildMonsters:[{id:346, minLv:72, maxLv:77, rate:10}], // NG+ standalone: Astralwing
-    hasGym:false, requiredBadges:19, mapPos:{x:67, y:74}
+    hasGym:false, requiredBadges:19, mapPos:{x:78, y:70}
   },
 
   // ============================================================
@@ -6943,7 +6917,7 @@ const WORLD_DATA = {
       {id:315, minLv:68, maxLv:72, rate:5}   // Ashvanus roams the vents
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true,
-    hasUmbraEncounter:true, mapPos:{x:81, y:69}
+    hasUmbraEncounter:true, mapPos:{x:84, y:68}
   },
   shadow_archive: {
     id:"shadow_archive", name:"Shadow Archive", icon:"📂", type:"special",
@@ -6957,12 +6931,12 @@ const WORLD_DATA = {
       {id:122, minLv:70, maxLv:75, rate:20}
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true,
-    hasUmbraEncounter:true, mapPos:{x:86, y:73}
+    hasUmbraEncounter:true, mapPos:{x:94, y:72}
   },
   void_nexus: {
     id:"void_nexus", name:"Void Nexus", icon:"🌑", type:"special",
     desc:"The heart of Umbra's post-defeat operations — a nexus of void energy deep in unmapped territory. Only the strongest trainers reach this place. Ultra-rare Lumori cluster around the residual void energy.",
-    connections:["shadow_archive","prismatic_rift","vaeldrian_reaches","umbra_spire"],
+    connections:["shadow_archive","prismatic_rift","umbra_spire"],
     wildMonsters:[
       {id:270, minLv:72, maxLv:78, rate:18},
       {id:267, minLv:72, maxLv:78, rate:31},
@@ -6971,7 +6945,7 @@ const WORLD_DATA = {
       {id:320, minLv:74, maxLv:78, rate:5}
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true,
-    hasUmbraEncounter:true, mapPos:{x:83, y:79},
+    hasUmbraEncounter:true, mapPos:{x:93, y:83},
     ngPlusWildMonsters:[{id:382,minLv:80,maxLv:87,rate:12},{id:352,minLv:81,maxLv:87,rate:15},{id:373,minLv:82,maxLv:88,rate:8}]
   },
 
@@ -6981,10 +6955,10 @@ const WORLD_DATA = {
   vaeldrian_reaches: {
     id:"vaeldrian_reaches", name:"The Vaeldrian Reaches", icon:"🌀", type:"special",
     desc:"A convergence point where the boundary between Lumoria and the lost land of Vaeldris grows thin. Thirteen Wielders wait here — survivors of a world that no longer exists, each carrying a bond that outlasted their home.",
-    connections:["void_nexus"],
+    connections:["prismatic_rift"],
     wildMonsters:[],
     hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade",
-    mapPos:{x:88, y:85}
+    mapPos:{x:92, y:90}
   },
 
   umbra_spire: {
@@ -6993,14 +6967,14 @@ const WORLD_DATA = {
     connections:["void_nexus"],
     wildMonsters:[],
     hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade",
-    mapPos:{x:80, y:78}
+    mapPos:{x:83, y:82}
   },
 
   // ===== NG+ EXCLUSIVE AREAS =====
   prismatic_rift: {
     id:"prismatic_rift", name:"Prismatic Rift", icon:"🌈", type:"special",
     desc:"A fracture in reality shimmering with all colours at once. Only those who have already conquered Lumoria once can perceive its existence. Lumori here have been twisted by exposure to every type simultaneously.",
-    connections:["void_nexus","apex_summit"],
+    connections:["apex_summit","void_nexus","vaeldrian_reaches"],
     wildMonsters:[
       {id:300, minLv:82, maxLv:88, rate:23},
       {id:150, minLv:83, maxLv:88, rate:17},
@@ -7014,7 +6988,7 @@ const WORLD_DATA = {
       {id:406, minLv:85, maxLv:91, rate:6}
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true, requiresNGPlus:true,
-    mapPos:{x:76, y:84}
+    mapPos:{x:88, y:92}
   },
   apex_summit: {
     id:"apex_summit", name:"Apex Summit", icon:"⛰️", type:"special",
@@ -7034,7 +7008,7 @@ const WORLD_DATA = {
       {id:407, minLv:90, maxLv:96, rate:10}
     ],
     hasGym:false, requiredBadges:20, requiresChampion:true,
-    isApexBoss:true, mapPos:{x:70, y:88}
+    isApexBoss:true, mapPos:{x:79, y:93}
   },
 
 };
@@ -8058,7 +8032,7 @@ const UMBRA_BATTLES = {
   umbra_commander_rex_shadow: {
     id:"umbra_commander_rex_shadow", name:"Commander Shadow", emoji:"⚡",
     triggerLocation:"storm_plateau",
-    quote:"We meet a second time. You still don't know my face beneath this hood... but you know my Lumori well enough by now. I have awakened Tempestia from the Storm Plateau. Let us see how far you have come!",
+    quote:"We meet a second time. You still don't know my face beneath this hood... but you know my Lumori well enough by now. I have awakened Tempestia from the Thunderhead Crag. Let us see how far you have come!",
     winQuote:"...Again. How? That bond you share with your team... I once believed in something like it. Remember this storm, trainer. We are not finished — not by a long way.",
     teams:{
       single:[
@@ -8828,8 +8802,8 @@ const STORY_EVENTS = {
     "A wounded explorer stumbles to you: 'The Umbra Order... their commander Kira... she's in the Volcano Core... you must stop her!'"
   ],
   after_badge_4: [
-    "Storm clouds gather unusually above the Storm Plateau...",
-    "Professor Solaris: 'The storm patterns are abnormal — The Umbra Order may be attempting to awaken Tempestia! Reach the Storm Plateau before it's too late!'"
+    "Storm clouds gather unusually above the Thunderhead Crag...",
+    "Professor Solaris: 'The storm patterns are abnormal — The Umbra Order may be attempting to awaken Tempestia! Reach the Thunderhead Crag before it's too late!'"
   ],
   after_badge_5: [
     "Marcus: 'Two Legendaries nearly awakened... I tried to follow The Umbra Order but they disappeared into the Mystic Forest. Their base must be there!'",
@@ -8844,7 +8818,7 @@ const STORY_EVENTS = {
     "📰 News Flash: Trainers report unusual void-like disturbances near Route 12. Scientists are baffled by readings of overlapping Dark and Fairy energy signatures."
   ],
   after_badge_14: [
-    "📰 BREAKING: A mysterious 'Void Rift' has opened near Starbloom City! Dark and Fairy energy readings are off the charts. Citizens warned to stay away from Route 16.",
+    "📰 BREAKING: A mysterious 'Void Rift' has opened near Stellaris City! Dark and Fairy energy readings are off the charts. Citizens warned to stay away from Route 16.",
     "Marcus rushes up, breathless: 'It's The Umbra Order — a new commander called Phantom! They've been working in secret since Shade was defeated. They found a new legendary, Voidraxis the Void Star, and they're trying to control it!'",
     "Professor Solaris: 'The Void Star — Voidraxis — is a legendary being of absolute dark and fairy power. If The Umbra Order binds it to their will, all of Lumoria's dark and fairy Lumori will fall under their control. You MUST stop Commander Phantom!'"
   ],
@@ -8917,7 +8891,7 @@ const SHOPS_DATA = {
     ]
   },
   sparkmoor: {
-    name: "Sparkmoor Electronics",
+    name: "Levin Electronics",
     items: [
       { itemId: "greatOrb", price: 300 },
       { itemId: "ultraOrb", price: 600 },
@@ -8950,7 +8924,7 @@ const SHOPS_DATA = {
     ]
   },
   skyvault: {
-    name: "Skyvault Boutique",
+    name: "Cirrus Boutique",
     items: [
       { itemId: "ultraOrb", price: 600 },
       { itemId: "maxPotion", price: 500 },
@@ -9015,7 +8989,7 @@ const SHOPS_DATA = {
     ]
   },
   gusthaven: {
-    name: "Gusthaven Windmill Market",
+    name: "Zephyr Windmill Market",
     items: [
       { itemId: "ultraOrb", price: 600 },
       { itemId: "maxPotion", price: 500 },
@@ -9047,7 +9021,7 @@ const SHOPS_DATA = {
     ]
   },
   starbloom: {
-    name: "Starbloom Enchantments",
+    name: "Stellaris Enchantments",
     items: [
       { itemId: "ultraOrb", price: 600 },
       { itemId: "masterOrb", price: 50000 },
@@ -10498,7 +10472,7 @@ const QUESTS_DATA = [
   { id:"q13", title:"Sunken Treasure", desc:"Dive deep in the Sunken Temple to find legendary treasure.", location:"sunken_temple", type:"boss", requiredBadges:2,
     boss:{monsterId:42, level:30, moves:["tsunami","tidal_sweep","cold_beam","tidal_rush"]},
     reward:{type:"money", amount:3000}, rewardText:"3000 coins" },
-  { id:"q14", title:"Reef Ruins Riddle", desc:"Solve the puzzle of the Reef Ruins by defeating the ancient guardian.", location:"reef_ruins", type:"boss", requiredBadges:2,
+  { id:"q14", title:"Drowned Halls Riddle", desc:"Solve the puzzle of the Drowned Halls by defeating the ancient guardian.", location:"reef_ruins", type:"boss", requiredBadges:2,
     boss:{monsterId:35, level:30, moves:["tidal_rush","lunar_burst","cold_beam","prism_flare"]},
     reward:{type:"item", itemId:"shellBell", qty:1}, rewardText:"Shell Bell" },
   { id:"q15", title:"The Lurking Depth", desc:"Something massive lurks in the Deep Trench. Defeat it!", location:"deep_trench", type:"boss", requiredBadges:2,
@@ -10553,25 +10527,25 @@ const QUESTS_DATA = [
     reward:{type:"item", itemId:"dragonFang", qty:1}, rewardText:"Draconic Fang" },
 
   // ---- SPARKMOOR & ELECTRIC AREAS (31-40) ----
-  { id:"q31", title:"Static Shock", desc:"A dangerously charged Lumori terrorizes Sparkmoor. Stop it!", location:"sparkmoor", type:"boss", requiredBadges:4,
+  { id:"q31", title:"Static Shock", desc:"A dangerously charged Lumori terrorizes Levin. Stop it!", location:"sparkmoor", type:"boss", requiredBadges:4,
     boss:{monsterId:82, level:36, moves:["volt_jet","static_strike","stun_pulse","crushing_bulk"]},
     reward:{type:"item", itemId:"magnet", qty:1}, rewardText:"Magnet" },
   { id:"q32", title:"Thunder Cliffs Dare", desc:"Scale the Thunder Cliffs and face the storm beast!", location:"thunder_cliffs", type:"boss", requiredBadges:5,
     boss:{monsterId:92, level:40, moves:["volt_jet","stone_slide","crag_strike","static_strike"]},
     reward:{type:"money", amount:3500}, rewardText:"3500 coins" },
-  { id:"q33", title:"Power Plant Breach", desc:"Wild Electric Lumori have breached the Sparkmoor power plant!", location:"sparkmoor", type:"boss", requiredBadges:4,
+  { id:"q33", title:"Power Plant Breach", desc:"Wild Electric Lumori have breached the Levin power plant!", location:"sparkmoor", type:"boss", requiredBadges:4,
     boss:{monsterId:85, level:35, moves:["volt_jet","resonance_hum","static_strike","shear_strike"]},
     reward:{type:"item", itemId:"ultraOrb", qty:3}, rewardText:"3 Ultra Orbs" },
   { id:"q34", title:"Route 4 Blockade", desc:"A stubborn Ground Lumori blocks Route 4. Move it!", location:"route4", type:"boss", requiredBadges:4,
     boss:{monsterId:96, level:33, moves:["tectonic_shift","stone_slide","mud_spray","cranial_ram"]},
     reward:{type:"item", itemId:"maxPotion", qty:2}, rewardText:"2 Luma Infusions" },
-  { id:"q35", title:"Storm Chaser", desc:"Chase down and battle the legendary storm bird on Storm Plateau!", location:"storm_plateau", type:"boss", requiredBadges:5,
+  { id:"q35", title:"Storm Chaser", desc:"Chase down and battle the legendary storm bird on Thunderhead Crag!", location:"storm_plateau", type:"boss", requiredBadges:5,
     boss:{monsterId:90, level:42, moves:["volt_jet","typhoon","static_strike","wingbeat"]},
     reward:{type:"item", itemId:"swiftFeather", qty:1}, rewardText:"Swift Feather" },
   { id:"q36", title:"Mirror Lake Enigma", desc:"The Mirror Lake's surface shimmers with psychic energy. Investigate!", location:"mirror_lake", type:"boss", requiredBadges:5,
     boss:{monsterId:58, level:40, moves:["cold_beam","prism_flare","mental","fairy_wind"]},
     reward:{type:"item", itemId:"wiseGlasses", qty:1}, rewardText:"Wise Glasses" },
-  { id:"q37", title:"Sparkmoor Circuit", desc:"Win the Sparkmoor Circuit racing tournament!", location:"sparkmoor", type:"boss", requiredBadges:4,
+  { id:"q37", title:"Levin Circuit", desc:"Win the Levin Circuit racing tournament!", location:"sparkmoor", type:"boss", requiredBadges:4,
     boss:{monsterId:75, level:35, moves:["volt_jet","vine_lash","static_strike","verdant_orb"]},
     reward:{type:"money", amount:2500}, rewardText:"2500 coins" },
   { id:"q38", title:"Lightning Rod", desc:"Capture the wild electricity surging through Route 5.", location:"route5", type:"boss", requiredBadges:5,
@@ -10580,7 +10554,7 @@ const QUESTS_DATA = [
   { id:"q39", title:"Voltforest Protector", desc:"The Voltforest needs a champion to defeat the invasive alpha.", location:"bug_forest_west", type:"boss", requiredBadges:1,
     boss:{monsterId:147, level:20, moves:["volt_jet","vine_lash","static_strike","sharp_leaves"]},
     reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Carapace Dust" },
-  { id:"q40", title:"The Magnetic Anomaly", desc:"A strange magnetic field disrupts Sparkmoor. Find the source!", location:"sparkmoor", type:"boss", requiredBadges:5,
+  { id:"q40", title:"The Magnetic Anomaly", desc:"A strange magnetic field disrupts Levin. Find the source!", location:"sparkmoor", type:"boss", requiredBadges:5,
     boss:{monsterId:151, level:42, moves:["forge_blast_2","volt_jet","alloy_tail","radiance_cannon"]},
     reward:{type:"money", amount:4000}, rewardText:"4000 coins" },
 
@@ -10626,7 +10600,7 @@ const QUESTS_DATA = [
   { id:"q53", title:"Lunar Peak Ascent", desc:"Climb Lunar Peak and face the moonlit guardian!", location:"lunar_peak", type:"boss", requiredBadges:7,
     boss:{monsterId:143, level:50, moves:["lunar_burst","mental","prism_flare","inner_calm"]},
     reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Fairy Essence" },
-  { id:"q54", title:"Spirit Canyon Crossing", desc:"Cross Spirit Canyon by defeating the ghostly guardians.", location:"spirit_canyon", type:"boss", requiredBadges:7,
+  { id:"q54", title:"Resonant Chasm Crossing", desc:"Cross Resonant Chasm by defeating the ghostly guardians.", location:"spirit_canyon", type:"boss", requiredBadges:7,
     boss:{monsterId:135, level:48, moves:["nether_sphere","forge_blast_2","void_pulse","alloy_tail"]},
     reward:{type:"item", itemId:"spiritVeil", qty:1}, rewardText:"Spirit Veil" },
   { id:"q55", title:"Crystal Spire Mystery", desc:"Unlock the Crystal Spire's secrets by defeating its protector.", location:"crystal_spire", type:"boss", requiredBadges:7,
@@ -10649,7 +10623,7 @@ const QUESTS_DATA = [
     reward:{type:"item", itemId:"xAttack", qty:5}, rewardText:"5 Power Charges" },
 
   // ---- SKYVAULT & PSYCHIC AREAS (61-70) ----
-  { id:"q61", title:"Mind Over Matter", desc:"A psychic barrier blocks Skyvault. Shatter it by defeating the guardian.", location:"skyvault", type:"boss", requiredBadges:8,
+  { id:"q61", title:"Mind Over Matter", desc:"A psychic barrier blocks Cirrus. Shatter it by defeating the guardian.", location:"skyvault", type:"boss", requiredBadges:8,
     boss:{monsterId:168, level:54, moves:["mental","prism_flare","psi_burst","inner_calm"]},
     reward:{type:"item", itemId:"wiseGlasses", qty:1}, rewardText:"Wise Glasses" },
   { id:"q62", title:"Mystic Forest Patrol", desc:"Patrol the Mystic Forest and defeat rogue Lumori.", location:"mystic_forest", type:"boss", requiredBadges:8,
@@ -10673,7 +10647,7 @@ const QUESTS_DATA = [
   { id:"q68", title:"Route 7 Guardian", desc:"The ancient guardian of Route 7 awakens. Defeat it!", location:"route7", type:"boss", requiredBadges:8,
     boss:{monsterId:9, level:52, moves:["petal_blitz","lunar_burst","verdant_orb","slumber_dust"]},
     reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
-  { id:"q69", title:"Skyvault Observatory", desc:"The observatory telescope reveals a hidden Lumori. Battle it!", location:"skyvault", type:"boss", requiredBadges:8,
+  { id:"q69", title:"Cirrus Observatory", desc:"The observatory telescope reveals a hidden Lumori. Battle it!", location:"skyvault", type:"boss", requiredBadges:8,
     boss:{monsterId:319, level:56, moves:["void_pulse","lunar_burst","mental","nether_sphere"]},
     reward:{type:"item", itemId:"spiritVeil", qty:1}, rewardText:"Spirit Veil" },
   { id:"q70", title:"Dreamweaver", desc:"A Lumori weaves dreams into reality. Snap out of it by fighting!", location:"mystic_forest", type:"boss", requiredBadges:8,
@@ -10725,7 +10699,7 @@ const QUESTS_DATA = [
   { id:"q84", title:"Silkwood Cocoon Crisis", desc:"Giant cocoons are hatching dangerous Lumori in Silkwood!", location:"silkwood", type:"boss", requiredBadges:14,
     boss:{monsterId:201, level:64, moves:["shear_strike","resonance_hum","alloy_tail","mandible_crush"]},
     reward:{type:"item", itemId:"silverPowder", qty:1}, rewardText:"Carapace Dust" },
-  { id:"q85", title:"Gusthaven Wind Trial", desc:"Pass the Wind Trial to earn the respect of Gusthaven.", location:"gusthaven", type:"boss", requiredBadges:16,
+  { id:"q85", title:"Zephyr Wind Trial", desc:"Pass the Wind Trial to earn the respect of Zephyr.", location:"gusthaven", type:"boss", requiredBadges:16,
     boss:{monsterId:109, level:66, moves:["typhoon","lunar_burst","wind_scythe","cyclone_blade"]},
     reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
   { id:"q86", title:"Ironforge Masterwork", desc:"Defeat the Ironforge champion's ultimate creation!", location:"ironforge", type:"boss", requiredBadges:17,
@@ -10734,7 +10708,7 @@ const QUESTS_DATA = [
   { id:"q87", title:"Quarryville Fossil Hunt", desc:"A rare fossil Lumori has been revived! Battle it!", location:"quarryville", type:"boss", requiredBadges:18,
     boss:{monsterId:195, level:68, moves:["crystal_lance","crag_strike","landslide","geode_burst"]},
     reward:{type:"item", itemId:"hardStone", qty:1}, rewardText:"Crag Shard" },
-  { id:"q88", title:"Starbloom Celestial Trial", desc:"The Celestial Trial awaits at Starbloom. Are you worthy?", location:"starbloom", type:"boss", requiredBadges:19,
+  { id:"q88", title:"Stellaris Celestial Trial", desc:"The Celestial Trial awaits at Stellaris. Are you worthy?", location:"starbloom", type:"boss", requiredBadges:19,
     boss:{monsterId:143, level:70, moves:["lunar_burst","mental","celestial_wave","prism_flare"]},
     reward:{type:"item", itemId:"pixieDust", qty:1}, rewardText:"Fairy Essence" },
   { id:"q89", title:"Route 9 Pioneer", desc:"Be the first to explore the new Route 9!", location:"route9", type:"boss", requiredBadges:10,
@@ -10775,7 +10749,7 @@ const QUESTS_DATA = [
     reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
 
   // ---- BONUS/ENDGAME QUESTS (101-110) ----
-  { id:"q101", title:"Legendary Tempest", desc:"Tempestia stirs atop the Storm Plateau. Face its wrath!", location:"storm_plateau", type:"boss", requiredBadges:16,
+  { id:"q101", title:"Legendary Tempest", desc:"Tempestia stirs atop the Thunderhead Crag. Face its wrath!", location:"storm_plateau", type:"boss", requiredBadges:16,
     boss:{monsterId:314, level:70, moves:["typhoon","volt_jet","tempest_wrath","gale_cannon"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
   { id:"q102", title:"Volcanic Awakening", desc:"Volcanox rumbles in the Volcano Core. Calm it by battle!", location:"volcano_core", type:"boss", requiredBadges:13,
@@ -10829,8 +10803,8 @@ const QUESTS_DATA = [
     boss:{monsterId:161, level:60, moves:["typhoon","sludge_wave","wind_scythe","venom_lance"]},
     reward:{type:"item", itemId:"maxPotion", qty:5}, rewardText:"5 Luma Infusions" },
 
-  // Route 11 - Tremor Pass (Ground focus)
-  { id:"q117", title:"Tremor Pass Demolitions", desc:"A demolitions expert challenges you at the rockiest point of Route 11.", location:"route11", type:"boss", requiredBadges:13,
+  // Route 11 - Fault Line (Ground focus)
+  { id:"q117", title:"Fault Line Demolitions", desc:"A demolitions expert challenges you at the rockiest point of Route 11.", location:"route11", type:"boss", requiredBadges:13,
     boss:{monsterId:97, level:63, moves:["tectonic_shift","tectonic_slam","geoblast","crag_strike"]},
     reward:{type:"money", amount:7000}, rewardText:"7000 coins" },
   { id:"q118", title:"Desert Draconic Duel", desc:"A legendary desert dragon has been spotted at Route 11. Challenge it!", location:"route11", type:"boss", requiredBadges:13,
@@ -10855,7 +10829,7 @@ const QUESTS_DATA = [
   { id:"q123", title:"Gale Ridge Storm Rider", desc:"A storm rider has trained her Wind Lumori to hurricane strength.", location:"route13", type:"boss", requiredBadges:16,
     boss:{monsterId:113, level:67, moves:["typhoon","tempest_wrath","cyclone_blade","wind_scythe"]},
     reward:{type:"money", amount:8000}, rewardText:"8000 coins" },
-  { id:"q124", title:"Gusthaven Wind Sage", desc:"The ancient Wind Sage challenges only the strongest trainers.", location:"gusthaven", type:"boss", requiredBadges:16,
+  { id:"q124", title:"Zephyr Wind Sage", desc:"The ancient Wind Sage challenges only the strongest trainers.", location:"gusthaven", type:"boss", requiredBadges:16,
     boss:{monsterId:117, level:67, moves:["typhoon","mental","cyclone_blade","astral_rend"]},
     reward:{type:"item", itemId:"swiftFeather", qty:1}, rewardText:"Swift Feather" },
   { id:"q125", title:"Cyclondor Chase", desc:"A Cyclondor has run amok through Gale Ridge! Calm it with battle.", location:"route13", type:"boss", requiredBadges:16,
@@ -10883,7 +10857,7 @@ const QUESTS_DATA = [
   { id:"q130", title:"Void Rift Encounter", desc:"The Void Rift on Route 16 pulses with dark and fairy energy. Investigate and face the manifestation within!", location:"route16", type:"boss", requiredBadges:19,
     boss:{monsterId:319, level:72, moves:["void_pulse","lunar_burst","soul_rend","fae_requiem"]},
     reward:{type:"item", itemId:"masterOrb", qty:1}, rewardText:"Master Orb" },
-  { id:"q131", title:"Starbloom Fairy Guardian", desc:"A radiant fairy guardian challenges all who approach Starbloom's gates.", location:"starbloom", type:"boss", requiredBadges:19,
+  { id:"q131", title:"Stellaris Fairy Guardian", desc:"A radiant fairy guardian challenges all who approach Stellaris's gates.", location:"starbloom", type:"boss", requiredBadges:19,
     boss:{monsterId:144, level:71, moves:["lunar_burst","mental","celestial_wave","prism_flare"]},
     reward:{type:"money", amount:10000}, rewardText:"10000 coins" },
   { id:"q132", title:"Commander Phantom's Last Stand", desc:"Commander Phantom has regrouped on Route 16! Stop The Umbra Order before they re-open the Void Rift!", location:"route16", type:"boss", requiredBadges:19,
@@ -11036,7 +11010,7 @@ const QUESTS_DATA = [
   { id:"wielder_morrigan", title:"The Shadowfen's Grief", desc:"Morrigan watched Vaeldris burn. She has carried that grief into darkness — those who have wandered the Haunted Grove report a figure among the shadows who does not flinch from the dead. She is there. Bring four Lumori and choose wisely.",
     location:"haunted_grove", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
-  { id:"wielder_kael", title:"The Storm That Remembers", desc:"Kael goes where storms go. Trainers who have crossed the Storm Plateau claim to have seen a lone figure standing in the lightning who did not run. That is him. He does not move for weather. He moves for worthy challengers.",
+  { id:"wielder_kael", title:"The Storm That Remembers", desc:"Kael goes where storms go. Trainers who have crossed the Thunderhead Crag claim to have seen a lone figure standing in the lightning who did not run. That is him. He does not move for weather. He moves for worthy challengers.",
     location:"storm_plateau", type:"wielder", requiresChampion:true, requiresDefeated:"umbra_shade", requiredBadges:20,
     reward:{type:"money", amount:50000}, rewardText:"50000 coins" },
   { id:"wielder_thessaly", title:"The Root Memory", desc:"Thessaly communes with old things. The Ancient Ruins hold layers of history she can read like text — she has been there since the Umbra was defeated, waiting among stones that remember. Find the deepest chamber. She will know you are coming.",

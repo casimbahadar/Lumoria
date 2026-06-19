@@ -5858,7 +5858,7 @@ const WORLD_DATA = {
   lumoria_jungle: {
     id:"lumoria_jungle", name:"Lumoria Jungle", icon:"🌴", type:"route",
     desc:"A dense, humid jungle teeming with Grass, Poison and Bug types. Ancient ruins peek through the canopy.",
-    connections:["route2","ancient_ruins","bug_forest_west","route9","route10"],
+    connections:["route2","ancient_ruins","bug_forest_west"],
     wildMonsters:[
       {id:200, minLv:10, maxLv:13, rate:18}, // Sproutix (obtainability fix)
       {id:7, minLv:8, maxLv:12, rate:14},   // Sporix
@@ -6129,7 +6129,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:7, mapPos:{x:20, y:10}
   },
   bug_forest_west: {
-    id:"bug_forest_west", name:"Bug Forest West", icon:"🐛", type:"route",
+    id:"bug_forest_west", name:"Bug Forest N", icon:"🐛", type:"route",
     desc:"The western edge of the Bug Forest, thick with webs and buzzing wings. Connects to the Lumoria Jungle.",
     connections:["lumoria_jungle","bug_forest_east"],
     wildMonsters:[
@@ -6138,10 +6138,10 @@ const WORLD_DATA = {
       {id:84, minLv:11, maxLv:15, rate:35}    // Electrix
     ],
     ngPlusWildMonsters:[{id:426, minLv:10, maxLv:14, rate:12}], // NG+ family base: Pummelo
-    hasGym:false, requiredBadges:1, mapPos:{x:49, y:60}
+    hasGym:false, requiredBadges:1, mapPos:{x:49, y:59}
   },
   bug_forest_east: {
-    id:"bug_forest_east", name:"Bug Forest East", icon:"🐛", type:"route",
+    id:"bug_forest_east", name:"Bug Forest S", icon:"🐛", type:"route",
     desc:"The deeper eastern reaches of the Bug Forest. Stronger bugs and rare species inhabit the ancient trees near the ruins.",
     connections:["bug_forest_west"],
     wildMonsters:[
@@ -6149,7 +6149,7 @@ const WORLD_DATA = {
       {id:123, minLv:13, maxLv:18, rate:20},  // Nocturil
       {id:10, minLv:14, maxLv:19, rate:45}    // Scorchlarva
     ],
-    hasGym:false, requiredBadges:1, mapPos:{x:49, y:67}
+    hasGym:false, requiredBadges:1, mapPos:{x:49, y:63}
   },
   mirror_lake: {
     id:"mirror_lake", name:"Mirror Lake", icon:"🪞", type:"route",
@@ -6254,7 +6254,7 @@ const WORLD_DATA = {
   route9: {
     id:"route9", hasUmbraEncounter:true, name:"Route 9 - Verdant Trail", icon:"🌿", type:"route",
     desc:"A lush overgrown trail leading south from Dragonspire. Grass and Bug types thrive here.",
-    connections:["dragonspire","corroden","lumoria_jungle"],
+    connections:["dragonspire","bloomhaven"],
     wildMonsters:[
       {id:7, minLv:55, maxLv:60, rate:15},
       {id:66, minLv:55, maxLv:60, rate:20},
@@ -6262,13 +6262,13 @@ const WORLD_DATA = {
       {id:72, minLv:56, maxLv:61, rate:25},
       {id:72, minLv:57, maxLv:62, rate:10}
     ],
-    hasGym:false, requiredBadges:10, mapPos:{x:46, y:50},
+    hasGym:false, requiredBadges:10, mapPos:{x:53, y:53},
     ngPlusWildMonsters:[{id:326,minLv:62,maxLv:68,rate:20},{id:328,minLv:62,maxLv:68,rate:15},{id:331,minLv:63,maxLv:69,rate:15}]
   },
   bloomhaven: {
     id:"bloomhaven", name:"Bloomhaven City", icon:"🌸", type:"city",
     desc:"A city built around an ancient greenhouse. Home to Gym Leader Thorne, master of Grass types.",
-    connections:["route10"],
+    connections:["route9","route10"],
     wildMonsters:[
       {id:8, minLv:56, maxLv:60, rate:30},
       {id:69, minLv:56, maxLv:60, rate:25},
@@ -6281,7 +6281,7 @@ const WORLD_DATA = {
   route10: {
     id:"route10", hasUmbraEncounter:true, name:"Route 10 - Toxic Passage", icon:"☠️", type:"route",
     desc:"A murky swamp path where poisonous fumes rise from the ground.",
-    connections:["bloomhaven","lumoria_jungle"],
+    connections:["bloomhaven","corroden"],
     wildMonsters:[
       {id:155, minLv:57, maxLv:62, rate:10},  // Toxirin (base)
       {id:157, minLv:57, maxLv:62, rate:17},  // Acidelix (base)
@@ -6293,7 +6293,7 @@ const WORLD_DATA = {
       {id:266, minLv:57, maxLv:62, rate:21},  // Shadowcub (base Dark/Sonic)
       {id:299, minLv:57, maxLv:62, rate:5}    // Resinbee (base Bug/Poi)
     ],
-    hasGym:false, requiredBadges:11, mapPos:{x:53, y:56},
+    hasGym:false, requiredBadges:11, mapPos:{x:51, y:52},
     ngPlusWildMonsters:[{id:322,minLv:64,maxLv:70,rate:20},{id:323,minLv:64,maxLv:70,rate:15},{id:325,minLv:65,maxLv:71,rate:10}]
   },
   miasmacity: {
@@ -6504,7 +6504,7 @@ const WORLD_DATA = {
   corroden: {
     id:"corroden", name:"Corroden Town", icon:"☣️", type:"city",
     desc:"A fume-wreathed town on the edge of the corrosion flats, its cobbles pitted and its air sharp enough to sting. Gym Leader Acrid thrives where lesser trainers' gear dissolves.",
-    connections:["route9","toxic_bog"],
+    connections:["route10","toxic_bog"],
     wildMonsters:[
       {id:299, minLv:56, maxLv:60, rate:25}, // Nettlebarb
       {id:296, minLv:56, maxLv:60, rate:23}, // Pestquito

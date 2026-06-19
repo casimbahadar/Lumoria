@@ -700,7 +700,7 @@ const LANDMARK_ROUTES = new Set([
 ]);
 // Display labels for the collapsed split-pair bearers.
 const LANDMARK_LABELS = {
-  bug_forest_east: "Bug Forest",
+  bug_forest_east: "Bug Forest S",
   fairy_meadow_south: "Fairy Meadow",
   poison_swamp_lower: "Poison Swamp",
 };

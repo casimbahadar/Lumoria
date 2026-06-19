@@ -6584,7 +6584,7 @@ const WORLD_DATA = {
       {id:195, minLv:70, maxLv:75, rate:6}   // Frigolith (mid → after 195 ✓)
     ],
     ngPlusWildMonsters:[{id:385, minLv:82, maxLv:88, rate:8}, {id:367, minLv:68, maxLv:75, rate:10}], // NG+: Permafrost (ice-golem final), Bouldertide
-    hasGym:false, requiredBadges:18, mapPos:{x:50, y:71}
+    hasGym:false, requiredBadges:18, mapPos:{x:45, y:72}
   },
   cosmic_cavern: {
     id:"cosmic_cavern", name:"Cosmic Cavern", icon:"🌌", type:"route",
@@ -6958,7 +6958,7 @@ const WORLD_DATA = {
     connections:["prismatic_rift"],
     wildMonsters:[],
     hasGym:false, requiredBadges:20, requiresChampion:true, requiresDefeated:"umbra_shade",
-    mapPos:{x:97, y:91}
+    mapPos:{x:92, y:90}
   },
 
   umbra_spire: {

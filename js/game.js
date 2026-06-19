@@ -1132,7 +1132,10 @@ function renderWorldMap() {
 
     const label = document.createElement("div");
     label.className = "map-loc-label";
-    const side = bestLabelSide(areaId);
+    // Areas whose name should always sit above the marker (avoids it overlapping roads
+    // below / running off the edge); otherwise auto-pick the clearest side.
+    const LABEL_ABOVE = new Set(["coral_reef","ancient_ruins","umbra_spire","volcano_core","frostpeak","shadowmere"]);
+    const side = LABEL_ABOVE.has(areaId) ? "top" : bestLabelSide(areaId);
     if (side && side !== "bottom") label.classList.add("lbl-" + side);  // keep the name off roads/markers
     label.textContent = LANDMARK_LABELS[areaId] || area.name; // Full name visible
 

@@ -1078,8 +1078,11 @@ function renderWorldMap() {
 
     const loc = document.createElement("div");
     loc.className = "map-location";
-    if (area.type === "city") loc.classList.add("city");
-    if (area.type === "town") loc.classList.add("town");
+    // Name-based override: anything called "... Town" draws as a town (blue circle)
+    // even if coded as a city, so the marker matches the name.
+    const nameIsTown = /\bTown\b/.test(area.name || "");
+    if (area.type === "city" && !nameIsTown) loc.classList.add("city");
+    if (area.type === "town" || (area.type === "city" && nameIsTown)) loc.classList.add("town");
     if (area.type === "special") loc.classList.add("special");
     if (isLandmark) loc.classList.add("landmark");
     if (area.legendaryEncounter) loc.classList.add("legendary");

@@ -705,35 +705,68 @@ const LANDMARK_LABELS = {
   poison_swamp_lower: "Poison Swamp",
 };
 
-// Per-area name-label placement override ('top'|'bottom'|'left'|'right'); default is
-// below the icon. Used to force a name off a road it would otherwise cover.
+// Per-area name-label placement override ('top'|'bottom'|'left'|'right'). Only the
+// names the user pinned in earlier commits live here; everything else is auto-placed
+// by bestLabelSide() below (which keeps names off roads/edges/neighbours).
 const LABEL_POS = {
-  bloomhaven: "top",
+  // --- Name above the marker ---
+  coral_reef: "top", ancient_ruins: "top", umbra_spire: "top",
+  volcano_core: "top", frostpeak: "top", shadowmere: "top",
+  lunar_peak: "top", crystal_depths: "top", iron_canyon: "top",
+  fairy_meadow_south: "top", umbra_lab: "top",
+  // --- Name below the marker ---
+  bloomhaven: "bottom", sparkmoor: "bottom", prismatic_rift: "bottom",
+  forge_ruins: "bottom", seedvale: "bottom",
+  ancient_grove: "bottom", tempest_cliffs: "bottom",
+  // Astral Plateau sits just beside Umbra Secret Lab; with Umbra Lab now above its
+  // marker, Astral drops below so the two names stay split and don't overlap.
+  astral_plateau: "bottom",
+  // --- Name to the left of the marker ---
+  crystal_spire: "left", umbra_citadel: "left", shadow_archive: "left",
+  miasmacity: "left",
+  // --- Name to the right of the marker ---
+  emberveil: "right", summit: "right", gale_peak: "right",
 };
 
-// Auto-pick which side a marker's name sits on so it doesn't cover a road or a
-// neighbouring marker: if there's more stuff below the icon, flip the name above.
-// Manual LABEL_POS entries always win.
+// Auto-pick which side a marker's name sits on. Scores all four sides and picks the
+// cheapest: a road exiting toward a side is heavily penalised (so the name never lands
+// on a road), running off the map edge is penalised, and a neighbouring marker on a
+// side is mildly penalised (keeps spacing). Manual LABEL_POS entries always win.
 function bestLabelSide(id) {
   if (LABEL_POS[id]) return LABEL_POS[id];
   const a = WORLD_DATA[id];
   if (!a || !a.mapPos) return "bottom";
-  let up = 0, down = 0;
+  const x = a.mapPos.x, y = a.mapPos.y;
+  const cost = { top: 0, bottom: 0, left: 0, right: 0 };
+  // Roads leaving this marker -> heavily penalise the side each road exits toward.
   for (const c of (a.connections || [])) {
     const n = WORLD_DATA[c];
     if (!n || !n.mapPos) continue;
-    const dy = n.mapPos.y - a.mapPos.y;
-    if (dy > 1.5) down++; else if (dy < -1.5) up++;
+    const dx = n.mapPos.x - x, dy = n.mapPos.y - y;
+    if (Math.abs(dx) >= Math.abs(dy)) cost[dx > 0 ? "right" : "left"] += 10;
+    else cost[dy > 0 ? "bottom" : "top"] += 10;
   }
+  // Neighbouring markers -> mild penalty so the name doesn't crowd another icon.
   for (const oid in WORLD_DATA) {
     if (oid === id) continue;
     const o = WORLD_DATA[oid];
     if (!o.mapPos) continue;
-    const dx = Math.abs(o.mapPos.x - a.mapPos.x), dy = o.mapPos.y - a.mapPos.y;
-    if (dx < 7 && dy > 1 && dy < 8) down++;        // a marker sits just below
-    else if (dx < 7 && dy < -1 && dy > -8) up++;   // a marker sits just above
+    const dx = o.mapPos.x - x, dy = o.mapPos.y - y;
+    if (Math.abs(dy) < 7 && dx > 1 && dx < 13) cost.right += 3;
+    else if (Math.abs(dy) < 7 && dx < -1 && dx > -13) cost.left += 3;
+    if (Math.abs(dx) < 8 && dy > 1 && dy < 8) cost.bottom += 3;
+    else if (Math.abs(dx) < 8 && dy < -1 && dy > -8) cost.top += 3;
   }
-  return down > up ? "top" : "bottom";
+  // Map-edge penalty -> keep the name fully on-screen.
+  if (y < 11) cost.top += 20;
+  if (y > 88) cost.bottom += 20;
+  if (x < 14) cost.left += 20;
+  if (x > 86) cost.right += 20;
+  // Tie-break preference: bottom reads most naturally, then top, then the sides.
+  const order = ["bottom", "top", "right", "left"];
+  let best = order[0];
+  for (const s of order) if (cost[s] < cost[best]) best = s;
+  return best;
 }
 
 // Pick a triangle's colour from the dominant encounter type in that area (so the
@@ -1103,9 +1136,9 @@ function renderWorldMap() {
 
     const loc = document.createElement("div");
     loc.className = "map-location";
-    // Name-based override: anything called "... Town" draws as a town (blue circle)
-    // even if coded as a city, so the marker matches the name.
-    const nameIsTown = /\bTown\b/.test(area.name || "");
+    // Name-based override: anything called "... Town" or "... Village" draws as a town
+    // (blue circle) even if coded as a city, so the marker matches the name.
+    const nameIsTown = /\b(Town|Village)\b/.test(area.name || "");
     if (area.type === "city" && !nameIsTown) loc.classList.add("city");
     if (area.type === "town" || (area.type === "city" && nameIsTown)) loc.classList.add("town");
     if (area.type === "special") loc.classList.add("special");
@@ -1132,10 +1165,7 @@ function renderWorldMap() {
 
     const label = document.createElement("div");
     label.className = "map-loc-label";
-    // Areas whose name should always sit above the marker (avoids it overlapping roads
-    // below / running off the edge); otherwise auto-pick the clearest side.
-    const LABEL_ABOVE = new Set(["coral_reef","ancient_ruins","umbra_spire","volcano_core","frostpeak","shadowmere"]);
-    const side = LABEL_ABOVE.has(areaId) ? "top" : bestLabelSide(areaId);
+    const side = bestLabelSide(areaId);  // LABEL_POS overrides first, else auto-pick
     if (side && side !== "bottom") label.classList.add("lbl-" + side);  // keep the name off roads/markers
     label.textContent = LANDMARK_LABELS[areaId] || area.name; // Full name visible
 

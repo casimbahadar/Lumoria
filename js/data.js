@@ -5580,7 +5580,7 @@ const WORLD_DATA = {
     hasGym:true, gymLeader:"zara", requiredBadges:4, mapPos:{x:52, y:25}
   },
   dauntridge: {
-    id:"dauntridge", name:"Dauntridge Town", icon:"🥋", type:"city",
+    id:"dauntridge", name:"Dauntridge City", icon:"🥋", type:"city",
     desc:"A cliffside dojo-town where warriors temper body and spirit against the mountain wind. Gym Leader Kano drills the unyielding discipline of the Fighting types.",
     connections:["route4","valor_pass"],
     wildMonsters:[
@@ -5758,7 +5758,7 @@ const WORLD_DATA = {
   // ===== NG+-EXCLUSIVE GYM CHAIN (gyms 21-24) — requiresNGPlus =====
   // Branches off Stellaris, rejoins The Gauntlet; hidden on a first run.,
   clarion: {
-    id:"clarion", name:"Clarion", icon:"🔊", type:"city",
+    id:"clarion", name:"Clarion Town", icon:"🔊", type:"town",
     desc:"A bell-towered town where every street hums with layered sound, unreachable until the void-touched era reveals it. Gym Leader Echo conducts the Sonic Lumori like an orchestra.",
     connections:["phantom_crossing"],
     wildMonsters:[
@@ -5783,7 +5783,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:21, requiresNGPlus:true, mapPos:{x:84, y:49}
   },
   gravecourt: {
-    id:"gravecourt", name:"Gravecourt", icon:"👻", type:"city",
+    id:"gravecourt", name:"Gravecourt City", icon:"👻", type:"city",
     desc:"A walled court of mausoleums wrapped in perpetual dusk, where the boundary to the spirit world wore thin after the Sundering. Gym Leader Mortis keeps company with the Spectral dead.",
     connections:["phantom_crossing","dream_drift"],
     wildMonsters:[
@@ -5808,7 +5808,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:22, requiresNGPlus:true, mapPos:{x:93, y:45}
   },
   reverie_vale: {
-    id:"reverie_vale", name:"Reverie Vale", icon:"💤", type:"city",
+    id:"reverie_vale", name:"Town of Reverie Vale", icon:"💤", type:"town",
     desc:"A hushed valley wreathed in sleeping mist, where waking and dreaming blur for any who linger too long. Gym Leader Somna shepherds the Dream Lumori through the haze.",
     connections:["dream_drift","prism_causeway"],
     wildMonsters:[
@@ -5832,7 +5832,7 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:82, y:30}
   },
   gleamcrest: {
-    id:"gleamcrest", name:"Gleamcrest", icon:"💎", type:"city",
+    id:"gleamcrest", name:"Gleamcrest City", icon:"💎", type:"city",
     desc:"A town grown over a crest of living crystal that refracts the aurora into a thousand colors — the only place the Crystal Lumori are known to gather. Gym Leader Prisma reigns over its every facet.",
     connections:["prism_causeway","ascendant_path"],
     wildMonsters:[

@@ -5479,7 +5479,7 @@ const WORLD_DATA = {
   route1: {
     id:"route1", name:"Route 1 - Meadow Path", icon:"🌿", type:"route",
     desc:"A gentle grassy path with mild wild Lumori. Perfect for beginners.",
-    connections:["seedvale","ashford","quake_foothills"],
+    connections:["seedvale","ashford"],
     wildMonsters:[
       {id:178, minLv:2, maxLv:4, rate:10},  // Fluffen
       {id:180, minLv:2, maxLv:4, rate:30},  // Leapbun
@@ -5491,7 +5491,7 @@ const WORLD_DATA = {
   ashford: {
     id:"ashford", name:"Ashford City", icon:"🏙️", type:"city",
     desc:"The first city of the journey. Home to Gym Leader Rex who specializes in Normal types.",
-    connections:["route1","route2"],
+    connections:["route1","route2","quake_foothills"],
     wildMonsters:[
       {id:178, minLv:4, maxLv:7, rate:25},
       {id:187, minLv:4, maxLv:7, rate:10},
@@ -6254,7 +6254,7 @@ const WORLD_DATA = {
   route9: {
     id:"route9", hasUmbraEncounter:true, name:"Route 9 - Verdant Trail", icon:"🌿", type:"route",
     desc:"A lush overgrown trail leading south from Dragonspire. Grass and Bug types thrive here.",
-    connections:["dragonspire","bloomhaven"],
+    connections:["dragonspire","bloomhaven","route10"],
     wildMonsters:[
       {id:7, minLv:55, maxLv:60, rate:15},
       {id:66, minLv:55, maxLv:60, rate:20},
@@ -6281,7 +6281,7 @@ const WORLD_DATA = {
   route10: {
     id:"route10", hasUmbraEncounter:true, name:"Route 10 - Toxic Passage", icon:"☠️", type:"route",
     desc:"A murky swamp path where poisonous fumes rise from the ground.",
-    connections:["corroden"],
+    connections:["corroden","route9"],
     wildMonsters:[
       {id:155, minLv:57, maxLv:62, rate:10},  // Toxirin (base)
       {id:157, minLv:57, maxLv:62, rate:17},  // Acidelix (base)
@@ -6323,7 +6323,7 @@ const WORLD_DATA = {
       {id:236, minLv:59, maxLv:64, rate:9},  // Iciquill (base Ice)
       {id:248, minLv:59, maxLv:64, rate:18}   // Pebblard (base Rock)
     ],
-    hasGym:false, requiredBadges:13, mapPos:{x:33, y:69},
+    hasGym:false, requiredBadges:13, mapPos:{x:37, y:67},
     ngPlusWildMonsters:[{id:361, minLv:60, maxLv:66, rate:10}, {id:325,minLv:66,maxLv:72,rate:20},{id:327,minLv:66,maxLv:72,rate:15},{id:329,minLv:67,maxLv:73,rate:10}]
   },
   terravault: {
@@ -6486,7 +6486,7 @@ const WORLD_DATA = {
   starbloom: {
     id:"starbloom", name:"Stellaris City", icon:"🌟", type:"city",
     desc:"A radiant city that glows with fairy magic. Home to Gym Leader Seraphina, the last gym before The Vanguard.",
-    connections:["cosmic_cavern","victoryroad","void_rift"],
+    connections:["cosmic_cavern","victoryroad","astral_plateau"],
     wildMonsters:[
       {id:138, minLv:70, maxLv:75, rate:24},  // Halocanis (mid)
       {id:138, minLv:71, maxLv:76, rate:8},  // Lumiarch (final → after 138 ✓)
@@ -6517,7 +6517,7 @@ const WORLD_DATA = {
   quake_foothills: {
     id:"quake_foothills", name:"Quake Foothills", icon:"🌋", type:"route",
     desc:"Rolling foothills rocked by constant tremors where Terravault's mountain range begins. Ground-type Lumori burrow through the cracked and heaving earth.",
-    connections:["route11","tremor_summit","route1"],
+    connections:["ashford","route11","tremor_summit"],
     wildMonsters:[
       {id:95,  minLv:59, maxLv:64, rate:24},  // Aridhino (base)
       {id:95,  minLv:60, maxLv:65, rate:8},  // Seismith (mid → after 95 ✓)
@@ -6526,7 +6526,7 @@ const WORLD_DATA = {
       {id:101, minLv:59, maxLv:64, rate:28},  // Limoux (base)
       {id:101, minLv:60, maxLv:65, rate:8}   // Dunoloth (mid → after 101 ✓)
     ],
-    hasGym:false, requiredBadges:13, mapPos:{x:28, y:66}
+    hasGym:false, requiredBadges:13, mapPos:{x:34, y:70}
   },
   cobweb_gully: {
     id:"cobweb_gully", name:"Cobweb Gully", icon:"🕸️", type:"route",
@@ -6589,7 +6589,7 @@ const WORLD_DATA = {
   cosmic_cavern: {
     id:"cosmic_cavern", name:"Cosmic Cavern", icon:"🌌", type:"route",
     desc:"A glittering cavern lit by bioluminescent crystals on the approach to Stellaris. Fairy types dance in the starlight, but dark shadows hint at lurking Umbra agents.",
-    connections:["nebula_gorge","astral_plateau","starbloom"],
+    connections:["nebula_gorge","starbloom"],
     wildMonsters:[
       {id:137, minLv:69, maxLv:74, rate:16},  // Goldefluff (base)
       {id:138, minLv:70, maxLv:75, rate:11},  // Halocanis (mid → after 137 ✓)
@@ -6607,7 +6607,7 @@ const WORLD_DATA = {
   void_rift: {
     id:"void_rift", name:"The Void Rift", icon:"🌀", type:"special",
     desc:"A tear in reality pulsing with dark energy near Route 16. The Umbra Order's experiments cracked open this rift, and within its swirling darkness, Voidraxis — the Void Star — awaits any trainer bold enough to enter.",
-    connections:["starbloom","umbra_lab"],
+    connections:["astral_plateau","umbra_lab"],
     wildMonsters:[
       {id:119, minLv:72, maxLv:77, rate:30},  // Dreadmaw (Dark)
       {id:122, minLv:72, maxLv:77, rate:30},  // Caveshroud (Dark)
@@ -6643,7 +6643,7 @@ const WORLD_DATA = {
       {id:104, minLv:63, maxLv:68, rate:30},  // Dravanas (final, 104 on route11 ✓)
       {id:106, minLv:63, maxLv:68, rate:25}   // Quakeon (final, 106 on route11 ✓)
     ],
-    hasGym:false, requiredBadges:13, mapPos:{x:27, y:68}
+    hasGym:false, requiredBadges:13, mapPos:{x:31, y:70}
   },
   gale_peak: {
     id:"gale_peak", name:"Gale Peak", icon:"🌀", type:"route",
@@ -6855,7 +6855,7 @@ const WORLD_DATA = {
     ],
     legendaryEncounter:{monsterId:317, level:73}, // static legendary (obtainability fix)
     ngPlusWildMonsters:[{id:340, minLv:70, maxLv:75, rate:10}], // NG+: Cryoshard (Chronolith #388 now evolution-only from Mirestone)
-    hasGym:false, requiredBadges:18, mapPos:{x:57, y:87}
+    hasGym:false, requiredBadges:18, mapPos:{x:58, y:84}
   },
   umbra_citadel: {
     id:"umbra_citadel", name:"Umbra Citadel", icon:"🏰", type:"special", hasUmbraEncounter:true,
@@ -6888,7 +6888,7 @@ const WORLD_DATA = {
   astral_plateau: {
     id:"astral_plateau", name:"Astral Plateau", icon:"⭐", type:"route",
     desc:"A high plateau above Cosmic Cavern where the sky seems close enough to touch. Rare Lumori shaped by cosmic energy appear here in the hours around midnight.",
-    connections:["cosmic_cavern"],
+    connections:["starbloom","void_rift"],
     wildMonsters:[
       {id:216, minLv:72, maxLv:77, rate:14},  // Distorsion (final Mental)
       {id:223, minLv:72, maxLv:77, rate:14},  // Psytheon (final → 223 on cosmic_cavern ✓)
@@ -6899,7 +6899,7 @@ const WORLD_DATA = {
       {id:308, minLv:71, maxLv:76, rate:22}   // Seafraith (base Aquatic/Dark)
     ],
     ngPlusWildMonsters:[{id:346, minLv:72, maxLv:77, rate:10}], // NG+ standalone: Astralwing
-    hasGym:false, requiredBadges:19, mapPos:{x:74, y:71}
+    hasGym:false, requiredBadges:19, mapPos:{x:78, y:70}
   },
 
   // ============================================================

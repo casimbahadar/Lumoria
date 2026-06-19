@@ -5486,7 +5486,7 @@ const WORLD_DATA = {
       {id:197, minLv:2, maxLv:5, rate:35}, // Photoworm
       {id:185, minLv:3, maxLv:5, rate:25}   // Hoverrow
     ],
-    hasGym:false, requiredBadges:0, mapPos:{x:26, y:64}
+    hasGym:false, requiredBadges:0, mapPos:{x:23, y:64}
   },
   ashford: {
     id:"ashford", name:"Ashford City", icon:"🏙️", type:"city",
@@ -6262,7 +6262,7 @@ const WORLD_DATA = {
       {id:72, minLv:56, maxLv:61, rate:25},
       {id:72, minLv:57, maxLv:62, rate:10}
     ],
-    hasGym:false, requiredBadges:10, mapPos:{x:54, y:51},
+    hasGym:false, requiredBadges:10, mapPos:{x:53, y:52},
     ngPlusWildMonsters:[{id:326,minLv:62,maxLv:68,rate:20},{id:328,minLv:62,maxLv:68,rate:15},{id:331,minLv:63,maxLv:69,rate:15}]
   },
   bloomhaven: {
@@ -6293,7 +6293,7 @@ const WORLD_DATA = {
       {id:266, minLv:57, maxLv:62, rate:21},  // Shadowcub (base Dark/Sonic)
       {id:299, minLv:57, maxLv:62, rate:5}    // Resinbee (base Bug/Poi)
     ],
-    hasGym:false, requiredBadges:11, mapPos:{x:47, y:49},
+    hasGym:false, requiredBadges:11, mapPos:{x:49, y:49},
     ngPlusWildMonsters:[{id:322,minLv:64,maxLv:70,rate:20},{id:323,minLv:64,maxLv:70,rate:15},{id:325,minLv:65,maxLv:71,rate:10}]
   },
   miasmacity: {

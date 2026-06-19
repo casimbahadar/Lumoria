@@ -800,17 +800,23 @@ function renderWorldMap() {
   // destination; it stays clickable and shows its name on hover / long-press.
   const addRouteEndIcon = (rId, rArea, rx, ry, rLocked) => {
     if (LANDMARK_ROUTES.has(rId)) return; // landmark dead-ends get a square marker instead
-    if (!rArea.icon || !rArea.connections || rArea.connections.length !== 1) return;
-    const ic = document.createElement("div");
-    ic.className = "map-route-endicon" + (rLocked ? " locked" : "") + (rId === G.location ? " current" : "");
-    ic.textContent = rArea.icon;
-    ic.style.left = rx + "px";
-    ic.style.top = ry + "px";
+    if (!rArea.connections || rArea.connections.length !== 1) return;
+    // A dead-end route reads as a real destination — draw the same plain triangle
+    // marker the rest of the map uses (tinted by encounter type), not an emoji.
+    const loc = document.createElement("div");
+    loc.className = "map-location landmark" + (rLocked ? " locked" : "") + (rId === G.location ? " current" : "");
+    loc.style.left = rx + "px";
+    loc.style.top = ry + "px";
+    const dot = document.createElement("div");
+    dot.className = "map-loc-dot";
+    const tc = areaTypeColor(rArea);
+    if (tc) dot.style.background = tc;
+    loc.appendChild(dot);
     if (!rLocked) {
-      ic.style.cursor = "pointer";
-      bindRouteName(ic, rArea.name, () => travelTo(rId));
+      loc.style.cursor = "pointer";
+      bindRouteName(loc, rArea.name, () => travelTo(rId));
     }
-    mapEl.appendChild(ic);
+    mapEl.appendChild(loc);
   };
 
   const svg = se("svg", { width:mapW, height:mapH, viewBox:`0 0 ${mapW} ${mapH}` });

@@ -5710,7 +5710,7 @@ const WORLD_DATA = {
   route8: {
     id:"route8", hasUmbraEncounter:true, name:"Route 8 - Sky Corridors", icon:"🌤️", type:"route",
     desc:"Aerial paths between floating islands. Wind and Mental types soar here.",
-    connections:["wind_bridge","dragonspire"],
+    connections:["wind_bridge","dragonspire","corroden"],
     wildMonsters:[
       {id:108, minLv:54, maxLv:58, rate:34}, // Silvergust
       {id:111, minLv:54, maxLv:58, rate:29}, // Swirlavel
@@ -6254,7 +6254,7 @@ const WORLD_DATA = {
   route9: {
     id:"route9", hasUmbraEncounter:true, name:"Route 9 - Verdant Trail", icon:"🌿", type:"route",
     desc:"A lush overgrown trail leading south from Dragonspire. Grass and Bug types thrive here.",
-    connections:["dragonspire","corroden","route2"],
+    connections:["dragonspire","route2"],
     wildMonsters:[
       {id:7, minLv:55, maxLv:60, rate:15},
       {id:66, minLv:55, maxLv:60, rate:20},
@@ -6262,7 +6262,7 @@ const WORLD_DATA = {
       {id:72, minLv:56, maxLv:61, rate:25},
       {id:72, minLv:57, maxLv:62, rate:10}
     ],
-    hasGym:false, requiredBadges:10, mapPos:{x:46, y:47},
+    hasGym:false, requiredBadges:10, mapPos:{x:50, y:49},
     ngPlusWildMonsters:[{id:326,minLv:62,maxLv:68,rate:20},{id:328,minLv:62,maxLv:68,rate:15},{id:331,minLv:63,maxLv:69,rate:15}]
   },
   bloomhaven: {
@@ -6504,7 +6504,7 @@ const WORLD_DATA = {
   corroden: {
     id:"corroden", name:"Corroden Town", icon:"☣️", type:"city",
     desc:"A fume-wreathed town on the edge of the corrosion flats, its cobbles pitted and its air sharp enough to sting. Gym Leader Acrid thrives where lesser trainers' gear dissolves.",
-    connections:["route9","toxic_bog"],
+    connections:["route8","toxic_bog"],
     wildMonsters:[
       {id:299, minLv:56, maxLv:60, rate:25}, // Nettlebarb
       {id:296, minLv:56, maxLv:60, rate:23}, // Pestquito

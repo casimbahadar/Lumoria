@@ -5486,7 +5486,7 @@ const WORLD_DATA = {
       {id:197, minLv:2, maxLv:5, rate:35}, // Photoworm
       {id:185, minLv:3, maxLv:5, rate:25}   // Hoverrow
     ],
-    hasGym:false, requiredBadges:0, mapPos:{x:23, y:64}
+    hasGym:false, requiredBadges:0, mapPos:{x:19, y:64}
   },
   ashford: {
     id:"ashford", name:"Ashford City", icon:"🏙️", type:"city",

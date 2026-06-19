@@ -5745,7 +5745,7 @@ const WORLD_DATA = {
       {id:151, minLv:63, maxLv:66, rate:25}  // Amperpede
     ],
     ngPlusWildMonsters:[{id:345, minLv:60, maxLv:66, rate:18}], // Sablecrow (base) — found before Oblivionwing in Void Nexus
-    hasGym:false, requiredBadges:20, mapPos:{x:62, y:35}
+    hasGym:false, requiredBadges:20, mapPos:{x:60, y:35}
   },
   summit: {
     id:"summit", name:"Victory Summit", icon:"👑", type:"special",
@@ -5898,7 +5898,7 @@ const WORLD_DATA = {
       {id:16, minLv:20, maxLv:25, rate:10},  // Searburn
       {id:95, minLv:20, maxLv:25, rate:24}   // Aridix
     ],
-    hasGym:false, requiredBadges:2, mapPos:{x:73, y:53},
+    hasGym:false, requiredBadges:2, mapPos:{x:75, y:53},
     storyLocation:true, hasUmbraEncounter:true,
     legendaryEncounter:{monsterId:107, level:50}
   },
@@ -6323,7 +6323,7 @@ const WORLD_DATA = {
       {id:236, minLv:59, maxLv:64, rate:9},  // Iciquill (base Ice)
       {id:248, minLv:59, maxLv:64, rate:18}   // Pebblard (base Rock)
     ],
-    hasGym:false, requiredBadges:13, mapPos:{x:37, y:67},
+    hasGym:false, requiredBadges:13, mapPos:{x:39, y:68},
     ngPlusWildMonsters:[{id:361, minLv:60, maxLv:66, rate:10}, {id:325,minLv:66,maxLv:72,rate:20},{id:327,minLv:66,maxLv:72,rate:15},{id:329,minLv:67,maxLv:73,rate:10}]
   },
   terravault: {
@@ -6706,7 +6706,7 @@ const WORLD_DATA = {
     ],
     ngPlusWildMonsters:[{id:368, minLv:61, maxLv:66, rate:9}], // NG+ standalone: Willowisp
     legendaryEncounter:{monsterId:321, level:63}, // base-game legendary (relocated from NG+ mega-areas)
-    hasGym:false, requiredBadges:13, mapPos:{x:66, y:26}
+    hasGym:false, requiredBadges:13, mapPos:{x:68, y:24}
   },
   fungal_cavern: {
     id:"fungal_cavern", name:"Spore Grotto", icon:"🍄", type:"route",

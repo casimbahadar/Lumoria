@@ -5685,7 +5685,7 @@ const WORLD_DATA = {
   route7: {
     id:"route7", name:"Route 7 - Poison Marshes", icon:"☠️", type:"route",
     desc:"A fetid swamp full of poison. Dark and Poison types are found in abundance.",
-    connections:["shadowmere","skyvault","mystic_forest","fairy_meadow_north"],
+    connections:["shadowmere","skyvault","mystic_forest"],
     wildMonsters:[
       {id:157, minLv:46, maxLv:50, rate:25}, // Acidelix
       {id:155, minLv:46, maxLv:50, rate:25}, // Toxirin
@@ -6094,7 +6094,7 @@ const WORLD_DATA = {
   fairy_meadow_south: {
     id:"fairy_meadow_south", name:"Fairy Meadow South", icon:"🌸", type:"route",
     desc:"The southern stretch of Fairy Meadow, where gentle flowers bloom near Seedvale. Fairy and Grass types play in the warm breeze.",
-    connections:["seedvale","fairy_meadow_north","spirit_canyon"],
+    connections:["seedvale","fairy_meadow_north"],
     wildMonsters:[
       {id:137, minLv:4, maxLv:7, rate:30},     // Goldefluff
       {id:69, minLv:4, maxLv:7, rate:35},     // Germix
@@ -6104,16 +6104,16 @@ const WORLD_DATA = {
     hasGym:false, requiredBadges:0, mapPos:{x:11, y:62}
   },
   fairy_meadow_north: {
-    id:"fairy_meadow_north", name:"Fairy Meadow North", icon:"🌸", type:"route",
+    id:"fairy_meadow_north", name:"Fairy Meadow West", icon:"🌸", type:"route",
     desc:"The northern stretch of Fairy Meadow leading toward the Poison Marshes. Stronger Fairy types guard this path.",
-    connections:["fairy_meadow_south","route7"],
+    connections:["fairy_meadow_south"],
     wildMonsters:[
       {id:286, minLv:8, maxLv:11, rate:25}, // Downyfawn (obtainability fix)
       {id:137, minLv:6, maxLv:10, rate:30},    // Goldefluff
       {id:145, minLv:7, maxLv:11, rate:10},   // Faedust
       {id:111, minLv:7, maxLv:11, rate:35}    // Aeolin
     ],
-    hasGym:false, requiredBadges:0, mapPos:{x:8, y:42}
+    hasGym:false, requiredBadges:0, mapPos:{x:7, y:62}
   },
   lunar_peak: {
     id:"lunar_peak", name:"Lunar Peak", icon:"🌙", type:"route",
@@ -6183,13 +6183,13 @@ const WORLD_DATA = {
   spirit_canyon: {
     id:"spirit_canyon", name:"Resonant Chasm", icon:"🌀", type:"route",
     desc:"A deep chasm where psychic resonance amplifies every thought and memory. The walls seem to shift and breathe.",
-    connections:["haunted_grove","fairy_meadow_south"],
+    connections:["haunted_grove"],
     wildMonsters:[
       {id:166, minLv:44, maxLv:50, rate:35},   // Projectery
       {id:123, minLv:46, maxLv:51, rate:50},   // Nocturil
       {id:166, minLv:47, maxLv:52, rate:15}    // Psymastiff
     ],
-    hasGym:false, requiredBadges:7, mapPos:{x:4, y:45}
+    hasGym:false, requiredBadges:7, mapPos:{x:5, y:55}
   },
   reef_ruins: {
     id:"reef_ruins", name:"Drowned Halls", icon:"🏛️", type:"special",

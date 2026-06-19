@@ -110,6 +110,10 @@ facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPo
   (isWild:false), CATCH disabled, bag allowed. Mid-run never saves while squad is swapped in.
   Verified headless: L100 norm, 0 over-cap/0 Forgotten across streaks 0–30, scaling 100/130/150,
   HP attrition carries (7→7), L120 re-level, loss restores party, best persists; 0 console errors.
+- **Battle action-row layout (pre-3c, all battle types):** `showBattleMainActions` now hides
+  inapplicable buttons and adapts the grid column count — competitive (PvP/Frontier) = Fight+Switch
+  (`.acts-2`, two half-width), story/can't-catch (gyms, rival, Umbra, champion, elite, wielders) =
+  Fight+Bag+Switch (`.acts-3`, thirds), wild = full 5-up (unchanged, still wraps to 2-up on mobile).
 ## Phase 2 — Lane A.2 (evolution audit) + D (encounter audit) ⏳
 
 ---

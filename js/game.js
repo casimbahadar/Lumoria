@@ -1738,12 +1738,40 @@ function showBattleMainActions() {
   document.getElementById("battle-bag-panel").classList.add("hidden");
   document.getElementById("battle-switch-panel").classList.add("hidden");
   document.getElementById("battle-target-panel")?.classList.add("hidden");
-  // PvP/Gauntlet: (re)start the 60s turn timer each time control returns to the
-  // player, and disable the bag (items are banned in PvP). Story/gym/wild battles
-  // (no isPvP) are unaffected.
-  const bagBtn = document.getElementById("btn-battle-bag");
-  if (bagBtn) bagBtn.disabled = !!(battleContext && battleContext.isPvP);
-  if (battleContext && battleContext.isPvP && !battleContext.battleEnded) {
+
+  // Action-row layout by battle type. Buttons that can't apply are hidden (not just
+  // disabled) and the row's column count adapts so the rest fill the width:
+  //  • Competitive (PvP / Frontier): Fight + Switch (two half-width) — no catch/bag/run.
+  //  • Story / can't-catch (gyms, rival, Umbra, champion, elite, wielders): Fight + Bag
+  //    + Switch (thirds) — no catch/run.
+  //  • Wild: the full Fight + Catch + Bag + Switch + Run set (default 5-up layout).
+  const ctx = battleContext || {};
+  const catchBtn = document.getElementById("btn-catch");
+  const runBtn   = document.getElementById("btn-run");
+  const bagBtn   = document.getElementById("btn-battle-bag");
+  const actsRow  = document.getElementById("battle-main-actions");
+  const competitive = !!(ctx.isPvP || ctx.isFrontier);
+  actsRow.classList.remove("acts-2", "acts-3");
+  if (competitive) {
+    catchBtn?.classList.add("hidden");
+    runBtn?.classList.add("hidden");
+    bagBtn?.classList.add("hidden");
+    actsRow.classList.add("acts-2");
+  } else if (!ctx.isWild) {
+    catchBtn?.classList.add("hidden");
+    runBtn?.classList.add("hidden");
+    bagBtn?.classList.remove("hidden");
+    if (bagBtn) bagBtn.disabled = false;
+    actsRow.classList.add("acts-3");
+  } else {
+    catchBtn?.classList.remove("hidden");
+    runBtn?.classList.remove("hidden");
+    bagBtn?.classList.remove("hidden");
+    if (bagBtn) bagBtn.disabled = false;
+  }
+
+  // PvP/Gauntlet: (re)start the 60s turn timer each time control returns to the player.
+  if (ctx.isPvP && !ctx.battleEnded) {
     startTurnTimer(null, "pvp-turn-timer", pvpAutoPickBattle);
   }
 }

@@ -1051,6 +1051,11 @@ img[src*="assets/sprites/"] {
 .control-panel { width: 100%; }
 
 #battle-main-actions { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; }
+/* Adaptive layouts (set by showBattleMainActions). Higher specificity than the
+   mobile #battle-main-actions override, so two/three-up rows hold their column
+   count at every width; the default (wild, no class) still wraps to 2-up on mobile. */
+#battle-main-actions.acts-2 { grid-template-columns: repeat(2, 1fr); }
+#battle-main-actions.acts-3 { grid-template-columns: repeat(3, 1fr); }
 
 .battle-btn {
   padding: 0.5rem 0.4rem;

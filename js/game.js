@@ -970,9 +970,12 @@ function renderWorldMap() {
 
       const fromLocked = G.badges.length < (area.requiredBadges || 0);
       const toLocked   = G.badges.length < (toArea.requiredBadges || 0);
-      // A road only lights up when BOTH endpoints are reachable at the current badge
-      // count; if either side is still locked the whole road stays grey.
-      const bothLocked = fromLocked || toLocked;
+      // Most roads light only when BOTH ends are reachable. Two "doorstep" roads just
+      // outside the start towns light when EITHER end is reachable, so the stretch
+      // beside Seedvale / Ashford shows even though the far (high-level) area is locked.
+      const DOORSTEP_EITHER_LIT = new Set(["route12|seedvale", "ashford|quake_foothills"]);
+      const bothLocked = DOORSTEP_EITHER_LIT.has(sortedKey)
+        ? (fromLocked && toLocked) : (fromLocked || toLocked);
       const roadCol = (ocean) => bothLocked ? { c:"#4a4a4a", s:"#222" }
         : ocean ? { c:"#3a9acc", s:"#0d2a4a" } : { c:"#d4a030", s:"#6a4a08" };
 

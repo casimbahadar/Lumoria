@@ -6254,7 +6254,7 @@ const WORLD_DATA = {
   route9: {
     id:"route9", hasUmbraEncounter:true, name:"Route 9 - Verdant Trail", icon:"🌿", type:"route",
     desc:"A lush overgrown trail leading south from Dragonspire. Grass and Bug types thrive here.",
-    connections:["dragonspire","bloomhaven"],
+    connections:["dragonspire","route10","bloomhaven"],
     wildMonsters:[
       {id:7, minLv:55, maxLv:60, rate:15},
       {id:66, minLv:55, maxLv:60, rate:20},
@@ -6262,13 +6262,13 @@ const WORLD_DATA = {
       {id:72, minLv:56, maxLv:61, rate:25},
       {id:72, minLv:57, maxLv:62, rate:10}
     ],
-    hasGym:false, requiredBadges:10, mapPos:{x:53, y:53},
+    hasGym:false, requiredBadges:10, mapPos:{x:51, y:48},
     ngPlusWildMonsters:[{id:326,minLv:62,maxLv:68,rate:20},{id:328,minLv:62,maxLv:68,rate:15},{id:331,minLv:63,maxLv:69,rate:15}]
   },
   bloomhaven: {
     id:"bloomhaven", name:"Bloomhaven City", icon:"🌸", type:"city",
     desc:"A city built around an ancient greenhouse. Home to Gym Leader Thorne, master of Grass types.",
-    connections:["route9","route10"],
+    connections:["route9"],
     wildMonsters:[
       {id:8, minLv:56, maxLv:60, rate:30},
       {id:69, minLv:56, maxLv:60, rate:25},
@@ -6281,7 +6281,7 @@ const WORLD_DATA = {
   route10: {
     id:"route10", hasUmbraEncounter:true, name:"Route 10 - Toxic Passage", icon:"☠️", type:"route",
     desc:"A murky swamp path where poisonous fumes rise from the ground.",
-    connections:["bloomhaven","corroden"],
+    connections:["route9","corroden"],
     wildMonsters:[
       {id:155, minLv:57, maxLv:62, rate:10},  // Toxirin (base)
       {id:157, minLv:57, maxLv:62, rate:17},  // Acidelix (base)
@@ -6293,7 +6293,7 @@ const WORLD_DATA = {
       {id:266, minLv:57, maxLv:62, rate:21},  // Shadowcub (base Dark/Sonic)
       {id:299, minLv:57, maxLv:62, rate:5}    // Resinbee (base Bug/Poi)
     ],
-    hasGym:false, requiredBadges:11, mapPos:{x:51, y:52},
+    hasGym:false, requiredBadges:11, mapPos:{x:47, y:47},
     ngPlusWildMonsters:[{id:322,minLv:64,maxLv:70,rate:20},{id:323,minLv:64,maxLv:70,rate:15},{id:325,minLv:65,maxLv:71,rate:10}]
   },
   miasmacity: {

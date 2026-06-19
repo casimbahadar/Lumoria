@@ -6138,7 +6138,7 @@ const WORLD_DATA = {
       {id:84, minLv:11, maxLv:15, rate:35}    // Electrix
     ],
     ngPlusWildMonsters:[{id:426, minLv:10, maxLv:14, rate:12}], // NG+ family base: Pummelo
-    hasGym:false, requiredBadges:1, mapPos:{x:49, y:59}
+    hasGym:false, requiredBadges:1, mapPos:{x:49, y:60}
   },
   bug_forest_east: {
     id:"bug_forest_east", name:"Bug Forest East", icon:"🐛", type:"route",
@@ -6149,7 +6149,7 @@ const WORLD_DATA = {
       {id:123, minLv:13, maxLv:18, rate:20},  // Nocturil
       {id:10, minLv:14, maxLv:19, rate:45}    // Scorchlarva
     ],
-    hasGym:false, requiredBadges:1, mapPos:{x:49, y:63}
+    hasGym:false, requiredBadges:1, mapPos:{x:49, y:67}
   },
   mirror_lake: {
     id:"mirror_lake", name:"Mirror Lake", icon:"🪞", type:"route",

@@ -5542,7 +5542,7 @@ const WORLD_DATA = {
   emberveil: {
     id:"emberveil", name:"Hauntcoal City", icon:"🌋", type:"city", hasUmbraEncounter:true,
     desc:"Built near an active volcano. The fiery Gym Leader Pyros waits within.",
-    connections:["route3","route4","magma_vent","volcano_core","lava_fields"],
+    connections:["route3","lava_fields"],
     wildMonsters:[
       {id:16, minLv:18, maxLv:22, rate:35}, // Cindercula
       {id:13, minLv:18, maxLv:22, rate:10}, // Taurcin
@@ -5550,12 +5550,12 @@ const WORLD_DATA = {
       {id:191, minLv:19, maxLv:22, rate:25}  // Pebblet
     ],
     ngPlusWildMonsters:[{id:1, minLv:18, maxLv:22, rate:10}], // NG+-only: Solkin (fire starter line)
-    hasGym:true, gymLeader:"pyros", requiredBadges:2, mapPos:{x:78, y:40}
+    hasGym:true, gymLeader:"pyros", requiredBadges:2, mapPos:{x:74, y:33}
   },
   route4: {
     id:"route4", name:"Route 4 - Volcanic Wastes", icon:"🔥", type:"route",
     desc:"A harsh volcanic wasteland. Fire and Rock types are common here.",
-    connections:["emberveil","dauntridge"],
+    connections:["lava_fields","dauntridge"],
     wildMonsters:[
       {id:16, minLv:22, maxLv:26, rate:25},
       {id:13, minLv:22, maxLv:26, rate:25},
@@ -5563,7 +5563,7 @@ const WORLD_DATA = {
       {id:98, minLv:23, maxLv:26, rate:25}
     ],
     ngPlusWildMonsters:[{id:414, minLv:22, maxLv:25, rate:12}], // NG+ family base: Grublurk
-    hasGym:false, requiredBadges:3, mapPos:{x:65, y:36}
+    hasGym:false, requiredBadges:3, mapPos:{x:64, y:33}
   },
   sparkmoor: {
     id:"sparkmoor", name:"Sparkmoor Town", icon:"⚡", type:"city",
@@ -5851,7 +5851,7 @@ const WORLD_DATA = {
       {id:268, minLv:124, maxLv:127, rate:33}, // Darkfang
       {id:261, minLv:125, maxLv:127, rate:33}  // Hypnostag (Facetite rounded up to evolution-only)
     ],
-    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:73, y:32}
+    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:57, y:19}
   },
 
   // ===== EXTRA AREAS =====
@@ -5905,7 +5905,7 @@ const WORLD_DATA = {
   volcano_core: {
     id:"volcano_core", name:"Volcano Core", icon:"🌋", type:"route",
     desc:"The scorching heart of the volcano beneath Hauntcoal. Only the most fearless trainers descend here. Legendary energies stir within.",
-    connections:["emberveil"],
+    connections:["lava_fields","iron_canyon"],
     wildMonsters:[
       {id:1, minLv:24, maxLv:29, rate:24}, // Magmote (obtainability fix)
       {id:13, minLv:22, maxLv:28, rate:12},  // Pyroclasm
@@ -5914,7 +5914,7 @@ const WORLD_DATA = {
       {id:95, minLv:24, maxLv:29, rate:12},  // Quakehide
       {id:13, minLv:24, maxLv:29, rate:12}   // Pyroclasm
     ],
-    hasGym:false, requiredBadges:4, mapPos:{x:71, y:24},
+    hasGym:false, requiredBadges:4, mapPos:{x:72, y:23},
     storyLocation:true, hasUmbraEncounter:true,
     legendaryEncounter:{monsterId:106, level:50}
   },
@@ -6036,7 +6036,7 @@ const WORLD_DATA = {
       {id:84, minLv:30, maxLv:35, rate:14},   // Shockharpe
       {id:266, minLv:31, maxLv:36, rate:6}    // Raijolt
     ],
-    hasGym:false, requiredBadges:5, mapPos:{x:60, y:16}
+    hasGym:false, requiredBadges:5, mapPos:{x:53, y:13}
   },
   poison_swamp_upper: {
     id:"poison_swamp_upper", name:"Poison Swamp Upper", icon:"🌿", type:"route",
@@ -6079,7 +6079,7 @@ const WORLD_DATA = {
   iron_canyon: {
     id:"iron_canyon", name:"Iron Canyon", icon:"⛏️", type:"route",
     desc:"A deep canyon carved by centuries of volcanic flow. The walls glint with veins of metal ore. Metal and Ground types dominate this harsh terrain.",
-    connections:["lava_fields"],
+    connections:["volcano_core"],
     wildMonsters:[
       {id:147, minLv:25, maxLv:31, rate:25},   // Scrapsapien
       {id:191, minLv:25, maxLv:31, rate:25},   // Pebblet
@@ -6088,7 +6088,7 @@ const WORLD_DATA = {
       {id:248, minLv:28, maxLv:33, rate:10}    // Imperion
     ],
     ngPlusWildMonsters:[{id:423, minLv:25, maxLv:29, rate:12}], // NG+ family base: Pebblite
-    hasGym:false, requiredBadges:4, mapPos:{x:72, y:18},
+    hasGym:false, requiredBadges:4, mapPos:{x:77, y:20},
     legendaryEncounter:{monsterId:167, level:55}
   },
   fairy_meadow_south: {
@@ -6169,7 +6169,7 @@ const WORLD_DATA = {
   lava_fields: {
     id:"lava_fields", name:"Lava Fields", icon:"🌋", type:"route",
     desc:"A smoldering expanse of hardened lava and glowing fissures. The ground cracks underfoot and fire vents belch superheated air.",
-    connections:["emberveil","iron_canyon"],
+    connections:["emberveil","route4","volcano_core","magma_vent"],
     wildMonsters:[
       {id:53, minLv:28, maxLv:34, rate:6}, // Ashrock (obtainability fix)
       {id:13, minLv:26, maxLv:32, rate:28},   // Taurcin
@@ -6178,7 +6178,7 @@ const WORLD_DATA = {
       {id:13, minLv:28, maxLv:34, rate:10},   // Molteroth
       {id:191, minLv:29, maxLv:34, rate:18}    // Boulderoll
     ],
-    hasGym:false, requiredBadges:4, mapPos:{x:76, y:27}
+    hasGym:false, requiredBadges:4, mapPos:{x:70, y:30}
   },
   spirit_canyon: {
     id:"spirit_canyon", name:"Spirit Canyon", icon:"🌀", type:"route",
@@ -6695,7 +6695,7 @@ const WORLD_DATA = {
   magma_vent: {
     id:"magma_vent", name:"Magma Vent", icon:"🌋", type:"route",
     desc:"A superheated gorge where magma seeps through rock fissures between the foothills and Tremor Summit. Ground and Fire types bask in the thermal heat.",
-    connections:["emberveil"],
+    connections:["lava_fields"],
     wildMonsters:[
       {id:95,  minLv:61, maxLv:66, rate:8},  // Seismith (mid, 95 on quake_foothills ✓)
       {id:98,  minLv:61, maxLv:66, rate:14},  // Toxivenoth (mid, 98 on quake_foothills ✓)
@@ -6706,7 +6706,7 @@ const WORLD_DATA = {
     ],
     ngPlusWildMonsters:[{id:368, minLv:61, maxLv:66, rate:9}], // NG+ standalone: Willowisp
     legendaryEncounter:{monsterId:321, level:63}, // base-game legendary (relocated from NG+ mega-areas)
-    hasGym:false, requiredBadges:13, mapPos:{x:66, y:30}
+    hasGym:false, requiredBadges:13, mapPos:{x:66, y:26}
   },
   fungal_cavern: {
     id:"fungal_cavern", name:"Fungal Cavern", icon:"🍄", type:"route",

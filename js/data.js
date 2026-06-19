@@ -6101,7 +6101,7 @@ const WORLD_DATA = {
       {id:111, minLv:5, maxLv:8, rate:35}     // Aeolin
     ],
     ngPlusWildMonsters:[{id:438, minLv:5, maxLv:8, rate:12}], // NG+ family base: Chimicada
-    hasGym:false, requiredBadges:0, mapPos:{x:16, y:62}
+    hasGym:false, requiredBadges:0, mapPos:{x:15, y:62}
   },
   fairy_meadow_north: {
     id:"fairy_meadow_north", name:"Fairy Meadow West", icon:"🌸", type:"route",

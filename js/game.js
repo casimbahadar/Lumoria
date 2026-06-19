@@ -728,6 +728,29 @@ const LABEL_POS = {
   emberveil: "right", summit: "right", gale_peak: "right", corroden: "right",
 };
 
+// NG+-only map topology. Once the player is in New Game+ these extra roads appear and
+// these existing roads are hidden, so the post-game / archipelago areas re-route through
+// the water. The base map (ngPlusCount 0) is left exactly as authored. Travel is not
+// gated by roads (see travelTo), so these overrides only affect the map's road graph.
+const NG_PLUS_ADD_EDGES = [["coral_reef", "gravecourt"], ["starbloom", "deep_trench"],
+  ["summit", "ascendant_path"]];
+const NG_PLUS_HIDE_EDGES = new Set(["summit|victoryroad", "starbloom|victoryroad"]);
+const edgeKey = (a, b) => [a, b].sort().join("|");
+
+// Effective map connections for an area, applying the NG+-only add/hide overrides above.
+function connsOf(areaId) {
+  const area = WORLD_DATA[areaId];
+  if (!area) return [];
+  const conns = area.connections || [];
+  if (!(G && G.ngPlusCount > 0)) return conns;
+  let out = conns.filter(c => !NG_PLUS_HIDE_EDGES.has(edgeKey(areaId, c)));
+  for (const [a, b] of NG_PLUS_ADD_EDGES) {
+    if (a === areaId && !out.includes(b)) out = out.concat(b);
+    else if (b === areaId && !out.includes(a)) out = out.concat(a);
+  }
+  return out;
+}
+
 // Auto-pick which side a marker's name sits on. Scores all four sides and picks the
 // cheapest: a road exiting toward a side is heavily penalised (so the name never lands
 // on a road), running off the map edge is penalised, and a neighbouring marker on a
@@ -739,7 +762,7 @@ function bestLabelSide(id) {
   const x = a.mapPos.x, y = a.mapPos.y;
   const cost = { top: 0, bottom: 0, left: 0, right: 0 };
   // Roads leaving this marker -> heavily penalise the side each road exits toward.
-  for (const c of (a.connections || [])) {
+  for (const c of connsOf(id)) {
     const n = WORLD_DATA[c];
     if (!n || !n.mapPos) continue;
     const dx = n.mapPos.x - x, dy = n.mapPos.y - y;
@@ -833,7 +856,7 @@ function renderWorldMap() {
   // destination; it stays clickable and shows its name on hover / long-press.
   const addRouteEndIcon = (rId, rArea, rx, ry, rLocked) => {
     if (LANDMARK_ROUTES.has(rId)) return; // landmark dead-ends get a square marker instead
-    if (!rArea.connections || rArea.connections.length !== 1) return;
+    if (connsOf(rId).length !== 1) return;
     // A dead-end route reads as a real destination — draw the same plain triangle
     // marker the rest of the map uses (tinted by encounter type), not an emoji.
     const loc = document.createElement("div");
@@ -922,8 +945,8 @@ function renderWorldMap() {
       !(a.requiresDefeated && !(G?.defeatedLeaders || []).includes(a.requiresDefeated));
     const seen = new Set(), conns = [];
     for (const [id, a] of Object.entries(WORLD_DATA)) {
-      if (!vis(a) || !a.connections) continue;
-      for (const c of a.connections) {
+      if (!vis(a)) continue;
+      for (const c of connsOf(id)) {
         const b = WORLD_DATA[c];
         if (!vis(b)) continue;
         const k = [id, c].sort().join("|");
@@ -989,7 +1012,7 @@ function renderWorldMap() {
     if (!area.mapPos) continue;
     if (area.requiresChampion && !G?.championDefeated || (area.requiresNGPlus && !(G?.ngPlusCount > 0))) continue;
     if (area.requiresDefeated && !(G?.defeatedLeaders || []).includes(area.requiresDefeated)) continue;
-    for (const conn of area.connections) {
+    for (const conn of connsOf(areaId)) {
       const sortedKey = [areaId, conn].sort().join("|");
       if (drawnConnections.has(sortedKey)) continue;
       drawnConnections.add(sortedKey);

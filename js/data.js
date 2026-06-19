@@ -5542,7 +5542,7 @@ const WORLD_DATA = {
   emberveil: {
     id:"emberveil", name:"Hauntcoal City", icon:"🌋", type:"city", hasUmbraEncounter:true,
     desc:"Built near an active volcano. The fiery Gym Leader Pyros waits within.",
-    connections:["route3","route4","magma_vent"],
+    connections:["route3","route4","magma_vent","volcano_core","lava_fields"],
     wildMonsters:[
       {id:16, minLv:18, maxLv:22, rate:35}, // Cindercula
       {id:13, minLv:18, maxLv:22, rate:10}, // Taurcin
@@ -5829,7 +5829,7 @@ const WORLD_DATA = {
       {id:372, minLv:123, maxLv:127, rate:33}, // Prismancer (Mental/Mineral) — backfill after Crystal legendaries rounded up
       {id:169, minLv:124, maxLv:127, rate:33}  // Prismatica (Mental/Mineral)
     ],
-    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:82, y:33}
+    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:82, y:30}
   },
   gleamcrest: {
     id:"gleamcrest", name:"Gleamcrest", icon:"💎", type:"city",
@@ -5840,7 +5840,7 @@ const WORLD_DATA = {
       {id:225, minLv:123, maxLv:127, rate:34}, // Crealight (Fairy/Mineral)
       {id:344, minLv:124, maxLv:127, rate:28}  // Glimmeritch (Fairy/Spectral)
     ],
-    hasGym:true, gymLeader:"prisma", requiredBadges:23, requiresNGPlus:true, mapPos:{x:82, y:19}
+    hasGym:true, gymLeader:"prisma", requiredBadges:23, requiresNGPlus:true, mapPos:{x:82, y:14}
   },
   ascendant_path: {
     id:"ascendant_path", name:"Ascendant Path", icon:"⚔️", type:"route",
@@ -5905,7 +5905,7 @@ const WORLD_DATA = {
   volcano_core: {
     id:"volcano_core", name:"Volcano Core", icon:"🌋", type:"route",
     desc:"The scorching heart of the volcano beneath Hauntcoal. Only the most fearless trainers descend here. Legendary energies stir within.",
-    connections:["magma_vent","lava_fields"],
+    connections:["emberveil"],
     wildMonsters:[
       {id:1, minLv:24, maxLv:29, rate:24}, // Magmote (obtainability fix)
       {id:13, minLv:22, maxLv:28, rate:12},  // Pyroclasm
@@ -5914,7 +5914,7 @@ const WORLD_DATA = {
       {id:95, minLv:24, maxLv:29, rate:12},  // Quakehide
       {id:13, minLv:24, maxLv:29, rate:12}   // Pyroclasm
     ],
-    hasGym:false, requiredBadges:4, mapPos:{x:75, y:24},
+    hasGym:false, requiredBadges:4, mapPos:{x:71, y:24},
     storyLocation:true, hasUmbraEncounter:true,
     legendaryEncounter:{monsterId:106, level:50}
   },
@@ -6088,7 +6088,7 @@ const WORLD_DATA = {
       {id:248, minLv:28, maxLv:33, rate:10}    // Imperion
     ],
     ngPlusWildMonsters:[{id:423, minLv:25, maxLv:29, rate:12}], // NG+ family base: Pebblite
-    hasGym:false, requiredBadges:4, mapPos:{x:74, y:15},
+    hasGym:false, requiredBadges:4, mapPos:{x:72, y:18},
     legendaryEncounter:{monsterId:167, level:55}
   },
   fairy_meadow_south: {
@@ -6169,7 +6169,7 @@ const WORLD_DATA = {
   lava_fields: {
     id:"lava_fields", name:"Lava Fields", icon:"🌋", type:"route",
     desc:"A smoldering expanse of hardened lava and glowing fissures. The ground cracks underfoot and fire vents belch superheated air.",
-    connections:["volcano_core","iron_canyon"],
+    connections:["emberveil","iron_canyon"],
     wildMonsters:[
       {id:53, minLv:28, maxLv:34, rate:6}, // Ashrock (obtainability fix)
       {id:13, minLv:26, maxLv:32, rate:28},   // Taurcin
@@ -6178,7 +6178,7 @@ const WORLD_DATA = {
       {id:13, minLv:28, maxLv:34, rate:10},   // Molteroth
       {id:191, minLv:29, maxLv:34, rate:18}    // Boulderoll
     ],
-    hasGym:false, requiredBadges:4, mapPos:{x:75, y:19}
+    hasGym:false, requiredBadges:4, mapPos:{x:76, y:27}
   },
   spirit_canyon: {
     id:"spirit_canyon", name:"Spirit Canyon", icon:"🌀", type:"route",
@@ -6695,7 +6695,7 @@ const WORLD_DATA = {
   magma_vent: {
     id:"magma_vent", name:"Magma Vent", icon:"🌋", type:"route",
     desc:"A superheated gorge where magma seeps through rock fissures between the foothills and Tremor Summit. Ground and Fire types bask in the thermal heat.",
-    connections:["emberveil","volcano_core"],
+    connections:["emberveil"],
     wildMonsters:[
       {id:95,  minLv:61, maxLv:66, rate:8},  // Seismith (mid, 95 on quake_foothills ✓)
       {id:98,  minLv:61, maxLv:66, rate:14},  // Toxivenoth (mid, 98 on quake_foothills ✓)
@@ -6706,7 +6706,7 @@ const WORLD_DATA = {
     ],
     ngPlusWildMonsters:[{id:368, minLv:61, maxLv:66, rate:9}], // NG+ standalone: Willowisp
     legendaryEncounter:{monsterId:321, level:63}, // base-game legendary (relocated from NG+ mega-areas)
-    hasGym:false, requiredBadges:13, mapPos:{x:76, y:29}
+    hasGym:false, requiredBadges:13, mapPos:{x:66, y:30}
   },
   fungal_cavern: {
     id:"fungal_cavern", name:"Fungal Cavern", icon:"🍄", type:"route",

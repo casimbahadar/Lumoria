@@ -5851,7 +5851,7 @@ const WORLD_DATA = {
       {id:268, minLv:124, maxLv:127, rate:33}, // Darkfang
       {id:261, minLv:125, maxLv:127, rate:33}  // Hypnostag (Facetite rounded up to evolution-only)
     ],
-    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:57, y:19}
+    hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:62, y:18}
   },
 
   // ===== EXTRA AREAS =====

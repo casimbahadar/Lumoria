@@ -813,9 +813,7 @@ function renderWorldMap() {
     if (tc) dot.style.background = tc;
     loc.appendChild(dot);
     const label = document.createElement("div");
-    label.className = "map-loc-label";
-    const side = bestLabelSide(rId);
-    if (side && side !== "bottom") label.classList.add("lbl-" + side);
+    label.className = "map-loc-label";   // keep it directly underneath the triangle
     label.textContent = rArea.name;
     loc.appendChild(label);
     if (!rLocked) {

@@ -6203,7 +6203,7 @@ const WORLD_DATA = {
       {id:57, minLv:30, maxLv:36, rate:14},   // Imperion
       {id:134, minLv:35, maxLv:42, rate:8}   // Titanomare
     ],
-    hasGym:false, requiredBadges:2, mapPos:{x:67, y:83},
+    hasGym:false, requiredBadges:2, mapPos:{x:67, y:80},
     storyLocation:true, hasUmbraEncounter:true
   },
   wind_bridge: {

@@ -713,7 +713,7 @@ const LABEL_POS = {
   coral_reef: "top", ancient_ruins: "top", umbra_spire: "top",
   volcano_core: "top", frostpeak: "top", shadowmere: "top",
   lunar_peak: "top", crystal_depths: "top", iron_canyon: "top",
-  fairy_meadow_south: "top", umbra_lab: "top",
+  fairy_meadow_south: "top", umbra_lab: "top", haunted_grove: "top",
   // --- Name below the marker ---
   bloomhaven: "bottom", sparkmoor: "bottom", prismatic_rift: "bottom",
   forge_ruins: "bottom", seedvale: "bottom",
@@ -723,9 +723,9 @@ const LABEL_POS = {
   astral_plateau: "bottom",
   // --- Name to the left of the marker ---
   crystal_spire: "left", umbra_citadel: "left", shadow_archive: "left",
-  miasmacity: "left",
+  miasmacity: "left", lava_fields: "left",
   // --- Name to the right of the marker ---
-  emberveil: "right", summit: "right", gale_peak: "right",
+  emberveil: "right", summit: "right", gale_peak: "right", corroden: "right",
 };
 
 // Auto-pick which side a marker's name sits on. Scores all four sides and picks the

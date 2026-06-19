@@ -812,6 +812,12 @@ function renderWorldMap() {
     const tc = areaTypeColor(rArea);
     if (tc) dot.style.background = tc;
     loc.appendChild(dot);
+    const label = document.createElement("div");
+    label.className = "map-loc-label";
+    const side = bestLabelSide(rId);
+    if (side && side !== "bottom") label.classList.add("lbl-" + side);
+    label.textContent = rArea.name;
+    loc.appendChild(label);
     if (!rLocked) {
       loc.style.cursor = "pointer";
       bindRouteName(loc, rArea.name, () => travelTo(rId));

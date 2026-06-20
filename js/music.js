@@ -415,6 +415,7 @@ const MusicEngine = (() => {
   function getTrackForContext(context) {
     if (!context) return "overworld";
     if (context.isChampion) return "champion_battle";
+    if (context.isFrontier) return "elite_battle";   // Battle Tower gauntlet theme
     if (context.isEliteFour) return "elite_battle";
     if (context.isRival) return "rival_battle";
     if (context.isUmbra) return "umbra_battle";

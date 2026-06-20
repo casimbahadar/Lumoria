@@ -5451,6 +5451,29 @@ function frontierMilestoneFP(tierId, milestoneNum) {
   return (FRONTIER_FP_TIER_BASE[tierId] || 3) * milestoneNum;
 }
 
+// Themed challengers: an escalating rank (by streak) + a rotating flavor name/emoji.
+const FRONTIER_RANKS = [
+  { min: 35, title: "Tower Sage" },
+  { min: 28, title: "Tower Ace" },
+  { min: 21, title: "Tower Expert" },
+  { min: 14, title: "Tower Veteran" },
+  { min: 7,  title: "Tower Adept" },
+  { min: 0,  title: "Tower Novice" },
+];
+const FRONTIER_CHALLENGERS = [
+  { name: "Rurik",  emoji: "⚔️" }, { name: "Elowen", emoji: "🔮" },
+  { name: "Sable",  emoji: "🏹" }, { name: "Kira",   emoji: "🗡️" },
+  { name: "Bram",   emoji: "🛡️" }, { name: "Vesna",  emoji: "✨" },
+  { name: "Doran",  emoji: "👊" }, { name: "Lyra",   emoji: "🌙" },
+  { name: "Tovak",  emoji: "🥋" }, { name: "Quill",  emoji: "🎴" },
+  { name: "Reza",   emoji: "🏯" }, { name: "Wynn",   emoji: "🌀" },
+];
+function frontierChallenger(streak) {
+  const rank = FRONTIER_RANKS.find(r => streak >= r.min) || FRONTIER_RANKS[FRONTIER_RANKS.length - 1];
+  const ch = FRONTIER_CHALLENGERS[streak % FRONTIER_CHALLENGERS.length];
+  return { name: `${rank.title} ${ch.name}`, emoji: ch.emoji };
+}
+
 let frontierSetup = { tier:"veteran", size:"format", format:"single" };
 
 // The species pool an opponent generator may draw from (3b). Base run = ids 1-321;
@@ -5697,6 +5720,7 @@ function frontierLaunchBattle() {
   const fmt = r.setup.format; // single | double | triple (size mode only changes the count)
   const picks = frontierPickSpecies(r.cap, r.size, r.streak);
   const enemyTeam = picks.map(id => buildGymMon(frontierMakeEnemySlot(id, level), 0));
+  const challenger = frontierChallenger(r.streak);
 
   battleContext = {
     isWild: false, isGym: false, isChampion: false, isTrainer: true,
@@ -5705,8 +5729,8 @@ function frontierLaunchBattle() {
     frontierLevel: level,
     battleMode: fmt,
     battleType: fmt,
-    leaderName: `Tower Challenger #${r.streak + 1}`,
-    leaderEmoji: "🏯",
+    leaderName: challenger.name,
+    leaderEmoji: challenger.emoji,
     enemyTeam,
     enemyTeamIdx: 0,
     playerTeamIdx: pIdx,

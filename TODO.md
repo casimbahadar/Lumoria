@@ -77,7 +77,7 @@ NG+-gated `legendaryEncounter` statics** (evolutions come from evolving):
   save migration). Engine: `_rematch` resolution gains GYM_LEADERS name fallback + `ngTeams`
   pick when `ngPlusCount>0`.
 - Verified: validate.js green; headless non-NG+ (6×L110, cap112) & NG+ (6×L135, cap137) resolve, 0 errors.
-## Phase 1 — Thread 3: Battle Frontier/Tower 🚧 in progress
+## Phase 1 — Thread 3: Battle Frontier/Tower ✅ COMPLETE (3a–3d)
 Post-game endless gauntlet (the "Battle Tower"), entered from a dedicated **Battle Frontier**
 facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPos {x:34,y:33}`,
 `requiresChampion`, built to host future trials). Design (user-approved):
@@ -93,7 +93,8 @@ facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPo
 - **Rewards:** milestone money/items every 7 wins; best streak per tier×size×format. FP-shop = 3d.
 - **Stages:** 3a facility+screen+setup+save ✅ · 3b single-format run engine ✅ · 3c FP rewards +
   records + double/triple + size modes ✅ · 3d.1 FP shop + charms/held gear ✅ · 3d.2 apply-to-Lumori
-  consumables ✅ · 3d.3 polish (themed challenger names/emoji, music, curve tuning) (next).
+  consumables ✅ · 3d.3 polish (themed challenger names/emoji, Tower music, curve review) ✅ —
+  **THREAD 3 COMPLETE.**
 - **⚠️ CRITICAL ENGINE FIX (commit a7cd58c, separate from Frontier):** discovered while playtesting
   3d.1 that **all battles on main @560bed2 were broken** — every attack threw "hitTrigMsgs is not
   iterable" before dealing damage. Root cause: `applyOnMoveHit`/`applyOnFaint`/`applyOnMoveMiss`
@@ -147,6 +148,13 @@ facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPo
   with +/− effects → sets slot.nature, 20FP). Mint/Bond Bell/Bottle Cap stack; Lustre Shard one-time
   (per user). Verified headless: buys (FP 500→300), one-time/repeat rules, friendship 255, shiny+dex,
   IVs 31+maxHP recompute, nature Balanced→Blazing; nature picker + 10-item shop render; 0 errors.
+- **3d.3 done:** Tower music (`isFrontier` → `elite_battle` in music.js getTrackForContext). Themed
+  challengers — `frontierChallenger(streak)` = escalating rank (Novice→Adept→Veteran→Expert→Ace→Sage
+  by streak band) + rotating flavor name/emoji (`FRONTIER_RANKS`/`FRONTIER_CHALLENGERS`); used for
+  `leaderName`/`leaderEmoji` in `frontierLaunchBattle` (single + multi). Curve/economy reviewed and
+  left as-designed (level `100+2×streak` cap150; milestone FP by tier) — documented for the user,
+  tunable on request. Verified: ranks escalate, log shows "🏹 Tower Veteran Sable sent out Barknell!"
+  at streak 14 (enemy Lv128); 0 errors. **Thread 3 (Battle Frontier) is complete: 3a–3d shipped.**
 ## Phase 2 — Lane A.2 (evolution audit) + D (encounter audit) ⏳
 
 ---

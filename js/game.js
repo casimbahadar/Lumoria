@@ -43,7 +43,8 @@ function newGameState(playerName, starterMonsterId) {
     vaeldrisGauntletRelaxed: false,
     defeatedWielders: [],
     forgottenLegendaryAttempted: [],
-    gymRematchWins: {}
+    gymRematchWins: {},
+    frontier: { best: {}, points: 0, purchased: [] }
   };
 }
 
@@ -145,6 +146,10 @@ function loadGame(slot) {
     if (!data.defeatedWielders) data.defeatedWielders = [];
     if (!data.forgottenLegendaryAttempted) data.forgottenLegendaryAttempted = [];
     if (!data.gymRematchWins) data.gymRematchWins = {};
+    if (!data.frontier) data.frontier = { best: {}, points: 0, purchased: [] };
+    if (!data.frontier.best) data.frontier.best = {};
+    if (typeof data.frontier.points !== "number") data.frontier.points = 0;
+    if (!Array.isArray(data.frontier.purchased)) data.frontier.purchased = [];
     if (data.apexGuardianDefeated === undefined) data.apexGuardianDefeated = false;
     if (!data.discoveredTraits) data.discoveredTraits = {};
     // PvP saved team loadouts: up to 6 per format, drawn from owned Lumori.
@@ -386,7 +391,7 @@ function showNotification(text, cb) {
 
 // Minimal two-button confirm, reusing the notification overlay (adds a temporary
 // "No" button beside OK so we don't need new markup).
-function showConfirm(text, onYes, yesLabel = "Yes", noLabel = "No") {
+function showConfirm(text, onYes, yesLabel = "Yes", noLabel = "No", onNo = null) {
   const overlay = document.getElementById("notification-overlay");
   document.getElementById("notification-text").innerHTML = text;
   const okBtn = document.getElementById("btn-notification-ok");
@@ -402,7 +407,7 @@ function showConfirm(text, onYes, yesLabel = "Yes", noLabel = "No") {
   overlay.classList.remove("hidden");
   const cleanup = () => { overlay.classList.add("hidden"); okBtn.textContent = "OK"; if (noBtn) noBtn.remove(); };
   okBtn.onclick = () => { cleanup(); if (onYes) onYes(); };
-  noBtn.onclick = () => { cleanup(); };
+  noBtn.onclick = () => { cleanup(); if (onNo) onNo(); };
 }
 
 // ---- Level Up Overlay ----
@@ -1166,6 +1171,7 @@ function renderWorldMap() {
     if (area.type === "town" || (area.type === "city" && nameIsTown)) loc.classList.add("town");
     if (area.type === "special") loc.classList.add("special");
     if (isLandmark) loc.classList.add("landmark");
+    if (area.hasBattleFrontier) loc.classList.add("frontier"); // gold diamond marker
     if (area.legendaryEncounter) loc.classList.add("legendary");
     if (areaId === G.location) loc.classList.add("current");
 
@@ -1455,6 +1461,10 @@ function renderAreaPanel() {
     }
   }
 
+  // Battle Frontier facility button (post-game Battle Tower)
+  const frontierBtn = document.getElementById("btn-frontier");
+  if (frontierBtn) frontierBtn.classList.toggle("hidden", !area.hasBattleFrontier);
+
   // The Vanguard button
   const eliteBtn = document.getElementById("btn-elite-four");
   if (eliteBtn) {
@@ -1730,12 +1740,40 @@ function showBattleMainActions() {
   document.getElementById("battle-bag-panel").classList.add("hidden");
   document.getElementById("battle-switch-panel").classList.add("hidden");
   document.getElementById("battle-target-panel")?.classList.add("hidden");
-  // PvP/Gauntlet: (re)start the 60s turn timer each time control returns to the
-  // player, and disable the bag (items are banned in PvP). Story/gym/wild battles
-  // (no isPvP) are unaffected.
-  const bagBtn = document.getElementById("btn-battle-bag");
-  if (bagBtn) bagBtn.disabled = !!(battleContext && battleContext.isPvP);
-  if (battleContext && battleContext.isPvP && !battleContext.battleEnded) {
+
+  // Action-row layout by battle type. Buttons that can't apply are hidden (not just
+  // disabled) and the row's column count adapts so the rest fill the width:
+  //  • Competitive (PvP / Frontier): Fight + Switch (two half-width) — no catch/bag/run.
+  //  • Story / can't-catch (gyms, rival, Umbra, champion, elite, wielders): Fight + Bag
+  //    + Switch (thirds) — no catch/run.
+  //  • Wild: the full Fight + Catch + Bag + Switch + Run set (default 5-up layout).
+  const ctx = battleContext || {};
+  const catchBtn = document.getElementById("btn-catch");
+  const runBtn   = document.getElementById("btn-run");
+  const bagBtn   = document.getElementById("btn-battle-bag");
+  const actsRow  = document.getElementById("battle-main-actions");
+  const competitive = !!(ctx.isPvP || ctx.isFrontier);
+  actsRow.classList.remove("acts-2", "acts-3");
+  if (competitive) {
+    catchBtn?.classList.add("hidden");
+    runBtn?.classList.add("hidden");
+    bagBtn?.classList.add("hidden");
+    actsRow.classList.add("acts-2");
+  } else if (!ctx.isWild) {
+    catchBtn?.classList.add("hidden");
+    runBtn?.classList.add("hidden");
+    bagBtn?.classList.remove("hidden");
+    if (bagBtn) bagBtn.disabled = false;
+    actsRow.classList.add("acts-3");
+  } else {
+    catchBtn?.classList.remove("hidden");
+    runBtn?.classList.remove("hidden");
+    bagBtn?.classList.remove("hidden");
+    if (bagBtn) bagBtn.disabled = false;
+  }
+
+  // PvP/Gauntlet: (re)start the 60s turn timer each time control returns to the player.
+  if (ctx.isPvP && !ctx.battleEnded) {
     startTurnTimer(null, "pvp-turn-timer", pvpAutoPickBattle);
   }
 }
@@ -2453,15 +2491,17 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     logMsg(`${attacker.name}'s attack missed!`);
     // Phase 3b: onMoveMiss (Stumble, frustration-style traits)
     if (typeof applyOnMoveMiss === "function") {
-      const missMsgs = applyOnMoveMiss(attacker, defender, move);
+      const missMsgs = applyOnMoveMiss(attacker, move) || [];
       for (const m of missMsgs) logMsg(m, "log-status");
     }
     return;
   }
 
-  // Phase 3b: onMoveHit (Charge-up wind-down, Combo Builder, hit-streak traits)
+  // Phase 3b: onMoveHit (Charge-up wind-down, Combo Builder, hit-streak traits).
+  // Signature is applyOnMoveHit(mon, move, defender); guard the result so a hook
+  // returning nothing can't break the turn before damage is applied.
   if (typeof applyOnMoveHit === "function") {
-    const hitTrigMsgs = applyOnMoveHit(attacker, defender, move);
+    const hitTrigMsgs = applyOnMoveHit(attacker, move, defender) || [];
     for (const m of hitTrigMsgs) logMsg(m, "log-status");
   }
 
@@ -2641,6 +2681,16 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     }
   }
 
+  // Sanguine Fang (held, Frontier shop): drain a fraction of the damage dealt.
+  const fang = (typeof getHeldData === "function") ? getHeldData(attacker) : null;
+  if (fang?.effect === "lifesteal" && totalDamage > 0 && !attacker.fainted && attacker.currentHP < attacker.maxHP) {
+    const lifeAmt = Math.max(1, Math.floor(totalDamage * (fang.ratio || 0.25)));
+    attacker.currentHP = Math.min(attacker.maxHP, attacker.currentHP + lifeAmt);
+    logMsg(`🦇 ${attacker.name}'s Sanguine Fang drained ${lifeAmt} HP!`, "log-status");
+    if (isPlayer) syncPlayerMonHP();
+    updateBattleUI();
+  }
+
   // Secondary stat/status effects (recoil and drain moves have no additional secondary effect).
   // B4: don't apply a defender-targeted rider to an already-fainted defender ("was poisoned!"
   // on a corpse). Pure self-target moves still resolve (their buff should land on a KO).
@@ -2811,6 +2861,17 @@ function endBattle(outcome, slot, levelUps) {
     MusicEngine.stop();
     // Resume overworld music after a short delay
     setTimeout(() => { if (typeof MusicEngine !== "undefined" && !MusicEngine.isMuted()) MusicEngine.playOverworld(); }, 1500);
+  }
+
+  // Battle Frontier: chain into the next bout on a win (attrition — no heal, HP
+  // already synced above, statuses already cleared), or finalize the run on a loss/
+  // exit (restores the real party, records the best streak). No overworld rewards or
+  // blackout penalty. Mirrors the PvP-gauntlet chain but on the dedicated squad.
+  if (battleContext.isFrontier) {
+    frontierSyncSquadHP(); // persist end-of-bout HP to the squad (multi syncs all actives)
+    if (outcome === "won") frontierAdvance();
+    else frontierFinish(outcome);
+    return;
   }
 
   // PvP resolves to a rating change and returns to the PvP screen — no wild/gym/
@@ -3586,6 +3647,11 @@ async function handleMultiFaintedMons() {
     const p = playerActiveMons[i];
     if (p && (p.fainted || p.currentHP <= 0)) {
       logMsg(`${p.name} fainted!`);
+      // Frontier attrition: persist the faint to the squad slot before the bench
+      // swap reassigns this index, so a fainted Lumori stays down across bouts.
+      if (battleContext.isFrontier && playerTeamIdxs[i] != null && G.team[playerTeamIdxs[i]]) {
+        G.team[playerTeamIdxs[i]].currentHP = 0;
+      }
       // For wielder battles, restrict replacement to the selected 4 slots
       const allowedSlots = battleContext.vaeldrisPlayerSlots ||
         G.team.map((_, idx) => idx);
@@ -3822,7 +3888,7 @@ function showTeamDetail(slot, idx) {
 
   // Use item panel
   const healableItems = Object.entries(G.bag)
-    .filter(([id, cnt]) => cnt > 0 && (ITEMS_DATA[id]?.type === "heal" || ITEMS_DATA[id]?.type === "revive" || ITEMS_DATA[id]?.type === "candy"));
+    .filter(([id, cnt]) => cnt > 0 && (ITEMS_DATA[id]?.type === "heal" || ITEMS_DATA[id]?.type === "revive" || ITEMS_DATA[id]?.type === "candy" || ITEMS_DATA[id]?.type === "frontierUse"));
   const itemsHTML = healableItems.map(([id, cnt]) => {
     const item = ITEMS_DATA[id];
     return `<button class="catch-item-btn" data-item="${id}" data-mon="${idx}">
@@ -4019,7 +4085,87 @@ function useItemOnMon(itemId, monIdx) {
       }
     }
     showNotification(`🍬 ${MONSTERS_DATA[slot.monsterId].name} leveled up to Lv.${slot.level}!`);
+  } else if (item.type === "frontierUse") {
+    applyFrontierUseItem(itemId, monIdx);
   }
+}
+
+// Frontier-shop consumables applied to a party Lumori. Each consumes one on success.
+function applyFrontierUseItem(itemId, monIdx) {
+  const item = ITEMS_DATA[itemId];
+  const slot = G.team[monIdx];
+  if (!item || !slot || (G.bag[itemId] || 0) <= 0) return;
+  const name = slot.nickname || MONSTERS_DATA[slot.monsterId].name;
+  switch (item.frontierUse) {
+    case "maxFriendship": {
+      if ((slot.friendship ?? 70) >= 255) { showNotification(`${name}'s bond is already at its peak.`); return; }
+      slot.friendship = 255;
+      G.bag[itemId]--;
+      showNotification(`💞 ${name}'s friendship is now maxed!`);
+      break;
+    }
+    case "makeShiny": {
+      if (slot.shiny) { showNotification(`${name} is already shiny!`); return; }
+      slot.shiny = true;
+      if (G.shinyDexSeen) G.shinyDexSeen.add(slot.monsterId);
+      if (G.shinyDexCaught) G.shinyDexCaught.add(slot.monsterId);
+      G.bag[itemId]--;
+      showNotification(`🌟 ${name} now shines with a brilliant shiny coat!`);
+      break;
+    }
+    case "maxIVs": {
+      const ivs = slot.ivs || {};
+      if (["hp","atk","def","spa","spd","spe"].every(k => ivs[k] === 31)) { showNotification(`${name}'s potential is already perfect.`); return; }
+      const pct = slot.maxHP ? slot.currentHP / slot.maxHP : 1;
+      slot.ivs = { hp:31, atk:31, def:31, spa:31, spd:31, spe:31 };
+      const def = MONSTERS_DATA[slot.monsterId];
+      slot.maxHP = calcMaxHP(def.base.hp, slot.level, 31);
+      slot.currentHP = Math.max(1, Math.round(slot.maxHP * pct));
+      G.bag[itemId]--;
+      showNotification(`💎 ${name}'s IVs are now maxed (31 across the board)!`);
+      break;
+    }
+    case "changeNature": {
+      // Defer consumption to the picker (only spend if a nature is actually chosen).
+      showNaturePicker(monIdx, itemId);
+      return;
+    }
+  }
+  saveGame();
+}
+
+// Nature picker overlay for the Vitality Mint.
+function showNaturePicker(monIdx, itemId) {
+  const slot = G.team[monIdx];
+  if (!slot) return;
+  const overlay = document.getElementById("nature-picker-overlay");
+  const list = document.getElementById("nature-picker-list");
+  if (!overlay || !list) return;
+  document.getElementById("nature-picker-title").textContent =
+    `Change ${slot.nickname || MONSTERS_DATA[slot.monsterId].name}'s nature (now: ${slot.nature || "Balanced"})`;
+  const statLabel = { atk:"Atk", def:"Def", spa:"Sp.Atk", spd:"Sp.Def", spe:"Spe" };
+  list.innerHTML = "";
+  for (const nm of NATURES_LIST) {
+    const n = NATURES_DATA[nm];
+    const effect = n.up ? `+${statLabel[n.up]} / −${statLabel[n.down]}` : "neutral";
+    const btn = document.createElement("button");
+    btn.className = "nature-pick-btn" + (slot.nature === nm ? " current" : "");
+    btn.innerHTML = `<span class="np-name">${nm}</span><span class="np-eff">${effect}</span>`;
+    btn.addEventListener("click", () => {
+      if (slot.nature !== nm && (G.bag[itemId] || 0) > 0) {
+        slot.nature = nm;
+        G.bag[itemId]--;
+        saveGame();
+        overlay.classList.add("hidden");
+        showNotification(`🍃 ${slot.nickname || MONSTERS_DATA[slot.monsterId].name}'s nature is now ${nm}!`,
+          () => showTeamDetail(G.team[monIdx], monIdx));
+      } else {
+        overlay.classList.add("hidden");
+      }
+    });
+    list.appendChild(btn);
+  }
+  overlay.classList.remove("hidden");
 }
 
 // ============================================================
@@ -4054,7 +4200,7 @@ function showBagScreen() {
       <span class="bag-item-count">x${count}</span>
     `;
     if (item.type === "ball") orbsEl.appendChild(div);
-    else if (item.type === "held") heldEl.appendChild(div);
+    else if (item.type === "held" || item.type === "charm") heldEl.appendChild(div);
     else medEl.appendChild(div); // heal, revive, candy all go in medicine
   }
 
@@ -5038,9 +5184,21 @@ function initEventListeners() {
   document.getElementById("btn-evo-item-cancel")?.addEventListener("click", () => {
     document.getElementById("evo-item-overlay").classList.add("hidden");
   });
+  document.getElementById("btn-nature-picker-cancel")?.addEventListener("click", () => {
+    document.getElementById("nature-picker-overlay").classList.add("hidden");
+  });
 
   // Area shop button
   document.getElementById("btn-area-shop")?.addEventListener("click", showShopScreen);
+
+  // Battle Frontier facility
+  document.getElementById("btn-frontier")?.addEventListener("click", showFrontierScreen);
+  document.getElementById("btn-frontier-back")?.addEventListener("click", () => {
+    showScreen("screen-main"); renderWorldMap(); renderAreaPanel(); renderHUD();
+  });
+  document.getElementById("btn-frontier-begin")?.addEventListener("click", startFrontierRun);
+  document.getElementById("btn-frontier-shop")?.addEventListener("click", showFrontierShop);
+  document.getElementById("btn-frontier-shop-back")?.addEventListener("click", showFrontierScreen);
 
   // Roaming legendary button
   document.getElementById("btn-roaming")?.addEventListener("click", () => {
@@ -5248,6 +5406,503 @@ function startTrainerBattle(trainerId, trainer) {
   showBattleMainActions();
   document.getElementById("btn-catch").disabled = true;
   if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+}
+
+// ============================================================
+// BATTLE FRONTIER / BATTLE TOWER (post-game endless gauntlet)
+// ============================================================
+// A repeatable, escalating run from the Battle Frontier facility (off Lodehollow,
+// requiresChampion). The player picks a BST power tier (caps BOTH their own squad
+// and the Tower's opponents), a team-size mode, and a format. The run engine
+// (normalization, opponent generation, attrition chain, the L100->L120 mid-run
+// choice, milestone rewards) arrives in stage 3b; this stage is the facility +
+// setup screen + save schema only.
+
+// Power tiers — the BST cap applies to every Lumori on BOTH sides.
+const FRONTIER_TIERS = [
+  { id:"rookie",  name:"Rookie",  cap:350, icon:"🌱" },
+  { id:"veteran", name:"Veteran", cap:450, icon:"⚔️" },
+  { id:"elite",   name:"Elite",   cap:550, icon:"🔥" },
+  { id:"master",  name:"Master",  cap:720, icon:"👑" },
+];
+const FRONTIER_SIZE_MODES = [
+  { id:"three",  name:"Always 3",     desc:"Three Lumori, in every format." },
+  { id:"format", name:"Format-based", desc:"Single 3 · Double 5 · Triple 6." },
+];
+const FRONTIER_FORMATS = [
+  { id:"single", name:"Single", icon:"⚔️",  size:3 },
+  { id:"double", name:"Double", icon:"👥",  size:5 },
+  { id:"triple", name:"Triple", icon:"⚔️⚔️", size:6 },
+];
+// Level normalization + opponent scaling constants (consumed by the 3b engine).
+const FRONTIER_BASE_LEVEL = 100;            // player squad is normalized to this
+const FRONTIER_UPGRADE_LEVEL = 120;         // optional mid-run bump
+const FRONTIER_ENEMY_BASE_LEVEL = 100;      // opponent level at streak 0
+const FRONTIER_ENEMY_LEVEL_STEP = 2;        // +per streak win
+const FRONTIER_ENEMY_LEVEL_CAP = 150;       // opponents cap here
+const FRONTIER_UPGRADE_TRIGGER_LEVEL = 130; // beating an enemy >= this offers the L120 bump
+
+// Milestone rewards: every N wins grant Frontier Points (FP) — a Tower-exclusive
+// currency banked in G.frontier.points, spent at the FP shop (stage 3d). FP per
+// milestone scales with the milestone number and the tier.
+const FRONTIER_MILESTONE_INTERVAL = 7;
+const FRONTIER_FP_TIER_BASE = { rookie:3, veteran:5, elite:8, master:12 };
+function frontierMilestoneFP(tierId, milestoneNum) {
+  return (FRONTIER_FP_TIER_BASE[tierId] || 3) * milestoneNum;
+}
+
+// Themed challengers: an escalating rank (by streak) + a rotating flavor name/emoji.
+const FRONTIER_RANKS = [
+  { min: 35, title: "Tower Sage" },
+  { min: 28, title: "Tower Ace" },
+  { min: 21, title: "Tower Expert" },
+  { min: 14, title: "Tower Veteran" },
+  { min: 7,  title: "Tower Adept" },
+  { min: 0,  title: "Tower Novice" },
+];
+const FRONTIER_CHALLENGERS = [
+  { name: "Rurik",  emoji: "⚔️" }, { name: "Elowen", emoji: "🔮" },
+  { name: "Sable",  emoji: "🏹" }, { name: "Kira",   emoji: "🗡️" },
+  { name: "Bram",   emoji: "🛡️" }, { name: "Vesna",  emoji: "✨" },
+  { name: "Doran",  emoji: "👊" }, { name: "Lyra",   emoji: "🌙" },
+  { name: "Tovak",  emoji: "🥋" }, { name: "Quill",  emoji: "🎴" },
+  { name: "Reza",   emoji: "🏯" }, { name: "Wynn",   emoji: "🌀" },
+];
+function frontierChallenger(streak) {
+  const rank = FRONTIER_RANKS.find(r => streak >= r.min) || FRONTIER_RANKS[FRONTIER_RANKS.length - 1];
+  const ch = FRONTIER_CHALLENGERS[streak % FRONTIER_CHALLENGERS.length];
+  return { name: `${rank.title} ${ch.name}`, emoji: ch.emoji };
+}
+
+let frontierSetup = { tier:"veteran", size:"format", format:"single" };
+
+// The species pool an opponent generator may draw from (3b). Base run = ids 1-321;
+// NG+ extends through the NG+-exclusive block (322-461). Forgotten Lumori (>=462)
+// are NEVER eligible — they cannot appear as opponents and cannot be brought in.
+function frontierSpeciesMaxId() {
+  const ngPlus = (typeof G !== "undefined" && G && G.ngPlusCount > 0);
+  const ngCeil = (typeof NG_PLUS_DEX_START !== "undefined") ? NG_PLUS_DEX_START : 322;
+  const forgotten = (typeof FORGOTTEN_DEX_START !== "undefined") ? FORGOTTEN_DEX_START : 462;
+  return ngPlus ? (forgotten - 1) : (ngCeil - 1); // 461 on NG+, 321 otherwise
+}
+
+// Is a given party slot legal for the Frontier under the chosen tier? Must satisfy
+// the BST cap AND be non-Forgotten (id < 462).
+function frontierSlotEligible(slot, cap) {
+  if (!slot) return false;
+  const forgotten = (typeof FORGOTTEN_DEX_START !== "undefined") ? FORGOTTEN_DEX_START : 462;
+  if (slot.monsterId >= forgotten) return false;
+  return getMonBST(slot.monsterId) <= cap;
+}
+
+function frontierTierDef(id) { return FRONTIER_TIERS.find(t => t.id === id) || FRONTIER_TIERS[0]; }
+function frontierBestKey(s) { return `${s.tier}_${s.size}_${s.format}`; }
+function getFrontierBest(s) {
+  return (G.frontier && G.frontier.best && G.frontier.best[frontierBestKey(s)]) || 0;
+}
+// How many Lumori the chosen size/format requires.
+function frontierRequiredSize(s) {
+  if (s.size === "three") return 3;
+  return (FRONTIER_FORMATS.find(f => f.id === s.format) || FRONTIER_FORMATS[0]).size;
+}
+
+// Human-readable label for a best-streak key ("veteran_format_single").
+function frontierRulesetLabel(key) {
+  const [tier, size, fmt] = key.split("_");
+  const t = frontierTierDef(tier);
+  const sz = size === "three" ? "Always-3" : "Format";
+  const f = (fmt || "").charAt(0).toUpperCase() + (fmt || "").slice(1);
+  return `${t.icon} ${t.name} · ${sz} · ${f}`;
+}
+
+// Write end-of-bout HP from the live battle mon(s) back to the squad slots so it
+// carries into the next bout (attrition). Single battles already sync the active
+// mon via syncPlayerMonHP; multi battles need every active slot synced (fainted
+// slots are zeroed as they faint, in handleMultiFaintedMons under isFrontier).
+function frontierSyncSquadHP() {
+  const mode = battleContext.battleMode;
+  if ((mode === "double" || mode === "triple") && Array.isArray(playerActiveMons) && Array.isArray(playerTeamIdxs)) {
+    playerActiveMons.forEach((m, i) => {
+      const slot = G.team[playerTeamIdxs[i]];
+      if (slot && m) slot.currentHP = Math.max(0, m.currentHP);
+    });
+  } else {
+    syncPlayerMonHP();
+  }
+}
+
+function showFrontierScreen() {
+  if (!G.championDefeated) { showNotification("🔒 The Battle Tower opens only to a Champion."); return; }
+  if (!G.frontier) G.frontier = { best: {}, points: 0, purchased: [] };
+  showScreen("screen-frontier");
+  renderFrontierSetup();
+}
+
+// Build one selectable option chip.
+function frontierOptBtn(label, sublabel, selected, onClick) {
+  const b = document.createElement("button");
+  b.className = "frontier-opt" + (selected ? " active" : "");
+  b.innerHTML = sublabel ? `<span class="frontier-opt-main">${label}</span><span class="frontier-opt-sub">${sublabel}</span>` : label;
+  b.addEventListener("click", onClick);
+  return b;
+}
+
+function renderFrontierSetup() {
+  const s = frontierSetup;
+  const intro = document.getElementById("frontier-intro");
+  if (intro) intro.textContent = "Climb an endless gauntlet of challengers — no healing between bouts. Pick your rules, then begin. Your best streak is recorded per tier, size and format.";
+
+  // Tier chips
+  const tierBox = document.getElementById("frontier-tier-opts");
+  if (tierBox) {
+    tierBox.innerHTML = "";
+    for (const t of FRONTIER_TIERS) {
+      tierBox.appendChild(frontierOptBtn(`${t.icon} ${t.name}`, `BST ≤ ${t.cap}`, s.tier === t.id,
+        () => { s.tier = t.id; renderFrontierSetup(); }));
+    }
+  }
+  // Size-mode chips
+  const sizeBox = document.getElementById("frontier-size-opts");
+  if (sizeBox) {
+    sizeBox.innerHTML = "";
+    for (const m of FRONTIER_SIZE_MODES) {
+      sizeBox.appendChild(frontierOptBtn(m.name, m.desc, s.size === m.id,
+        () => { s.size = m.id; renderFrontierSetup(); }));
+    }
+  }
+  // Format chips — sets the battle style (single/double/triple). Size mode only
+  // changes how many Lumori you field; the format sets the active-per-side count.
+  const fmtBox = document.getElementById("frontier-format-opts");
+  if (fmtBox) {
+    fmtBox.innerHTML = "";
+    for (const f of FRONTIER_FORMATS) {
+      const sub = s.size === "three" ? "3 Lumori" : `${f.size} Lumori`;
+      fmtBox.appendChild(frontierOptBtn(`${f.icon} ${f.name}`, sub, s.format === f.id,
+        () => { s.format = f.id; renderFrontierSetup(); }));
+    }
+  }
+
+  // Best-streak banner
+  const best = getFrontierBest(s);
+  const banner = document.getElementById("frontier-best-banner");
+  if (banner) banner.innerHTML = best > 0
+    ? `🏅 Best streak (this ruleset): <strong>${best}</strong>`
+    : `No streak recorded for this ruleset yet — set the first.`;
+
+  // Eligibility readout against the player's current party.
+  const cap = frontierTierDef(s.tier).cap;
+  const need = frontierRequiredSize(s);
+  const eligible = (G.team || []).filter(m => frontierSlotEligible(m, cap));
+  const elBox = document.getElementById("frontier-eligible");
+  if (elBox) {
+    const enough = eligible.length >= need;
+    elBox.className = "frontier-eligible" + (enough ? " ok" : " short");
+    elBox.innerHTML = `Your party: <strong>${eligible.length}</strong> of ${G.team.length} qualify `
+      + `(BST ≤ ${cap}, non-Forgotten). This ruleset needs <strong>${need}</strong>.`
+      + (enough ? "" : `<br><span class="frontier-warn">Adjust your team to enter.</span>`);
+  }
+  const beginBtn = document.getElementById("btn-frontier-begin");
+  if (beginBtn) beginBtn.disabled = eligible.length < need;
+
+  // FP balance + Tower Records (all recorded bests across rulesets).
+  const recBox = document.getElementById("frontier-records");
+  if (recBox) {
+    const fp = (G.frontier && G.frontier.points) || 0;
+    let html = `<div class="frontier-fp">💠 Frontier Points: <strong>${fp}</strong>`
+      + ` <span class="frontier-hint">(milestone reward — spend at the Frontier shop, coming in 3d)</span></div>`;
+    const bests = Object.entries((G.frontier && G.frontier.best) || {}).filter(([, v]) => v > 0);
+    if (bests.length) {
+      html += `<div class="frontier-records-title">🏅 Tower Records</div><ul class="frontier-records-list">`;
+      for (const [k, v] of bests.sort((a, b) => b[1] - a[1])) {
+        html += `<li>${frontierRulesetLabel(k)} — <strong>${v}</strong></li>`;
+      }
+      html += `</ul>`;
+    }
+    recBox.innerHTML = html;
+  }
+}
+
+// ---- Run engine (stages 3b–3c) ------------------------------------------------
+// Active run, or null when not in the Tower. The squad is a set of normalized,
+// attrition-tracked party-slot clones swapped into G.team for the run's duration
+// (PvP-style), with the real party stashed in `realParty` and restored on finish.
+let frontierRun = null;
+
+// Opponent level for a given streak: starts at base, climbs +step per win, capped.
+function frontierEnemyLevel(streak) {
+  return Math.min(FRONTIER_ENEMY_LEVEL_CAP, FRONTIER_ENEMY_BASE_LEVEL + FRONTIER_ENEMY_LEVEL_STEP * streak);
+}
+
+// Clone a party slot and normalize it to `level`: recompute maxHP and (by default)
+// refill HP. Keeps real moves / IVs / nature / held item / shiny / variant so
+// team-building still matters. Statuses are cleared (fresh squad).
+function frontierNormalizeSlot(slot, level, keepHpPct) {
+  const def = MONSTERS_DATA[slot.monsterId];
+  const ivs = slot.ivs || generateIVs();
+  const maxHP = calcMaxHP(def.base.hp, level, ivs.hp);
+  const prevPct = keepHpPct && slot.maxHP ? Math.max(0, Math.min(1, slot.currentHP / slot.maxHP)) : 1;
+  return {
+    ...slot,
+    level,
+    ivs,
+    maxHP,
+    currentHP: Math.max(1, Math.round(maxHP * prevPct)),
+    statuses: [],
+  };
+}
+
+// Eligible opponent species for the run: ids 1..maxId (base 321 / NG+ 461),
+// Forgotten always excluded, BST within the tier cap.
+function frontierEligibleSpecies(cap) {
+  const maxId = frontierSpeciesMaxId();
+  const out = [];
+  for (let id = 1; id <= maxId; id++) {
+    const def = MONSTERS_DATA[id];
+    if (!def) continue;
+    const bst = getMonBST(id);
+    if (bst > 0 && bst <= cap) out.push(id);
+  }
+  return out;
+}
+
+// Pick `count` distinct species, biased by a streak-rising BST ceiling so early
+// bouts field weaker Lumori and the pool widens to the full cap as the streak grows.
+function frontierPickSpecies(cap, count, streak) {
+  const all = frontierEligibleSpecies(cap);
+  const ceil = Math.min(cap, 280 + streak * 14); // climbs from 280 toward the cap
+  let pool = all.filter(id => getMonBST(id) <= ceil);
+  if (pool.length < count) pool = all;           // thin early pools fall back to full cap
+  const picks = [];
+  const bag = pool.slice();
+  while (picks.length < count && bag.length) {
+    picks.push(bag.splice(Math.floor(Math.random() * bag.length), 1)[0]);
+  }
+  // If the pool is smaller than the team size, allow repeats to fill out the team.
+  while (picks.length < count) picks.push(pool[Math.floor(Math.random() * pool.length)]);
+  return picks;
+}
+
+// Build an enemy party-slot (monsterId + level + top-4 learnset) for buildGymMon.
+function frontierMakeEnemySlot(monsterId, level) {
+  const def = MONSTERS_DATA[monsterId];
+  const moves = def.learnset.filter(e => e[0] <= level && learnsetEntryAvailable(e)).map(e => e[1]).slice(-4);
+  if (!moves.length) moves.push("collide");
+  return { monsterId, level, moves };
+}
+
+function startFrontierRun() {
+  const s = frontierSetup;
+  if (!G.championDefeated) { showNotification("🔒 The Battle Tower opens only to a Champion."); return; }
+  const cap = frontierTierDef(s.tier).cap;
+  const need = frontierRequiredSize(s);
+  const eligible = (G.team || []).filter(m => frontierSlotEligible(m, cap));
+  if (eligible.length < need) {
+    showNotification(`You need ${need} eligible Lumori (BST ≤ ${cap}, non-Forgotten). You have ${eligible.length}.`);
+    return;
+  }
+  // Build the normalized attrition squad and swap it in for the real party.
+  const squad = eligible.slice(0, need).map(m => frontierNormalizeSlot(m, FRONTIER_BASE_LEVEL));
+  frontierRun = {
+    setup: { ...s }, cap, size: need, squad, realParty: G.team,
+    streak: 0, playerLevel: FRONTIER_BASE_LEVEL, upgradeOffered: false,
+  };
+  G.team = squad;
+  frontierLaunchBattle();
+}
+
+function frontierLaunchBattle() {
+  const r = frontierRun;
+  if (!r) { showFrontierScreen(); return; }
+  const pIdx = G.team.findIndex(m => m && m.currentHP > 0);
+  if (pIdx < 0) { frontierFinish("lost"); return; } // squad wiped (safety)
+
+  const level = frontierEnemyLevel(r.streak);
+  const fmt = r.setup.format; // single | double | triple (size mode only changes the count)
+  const picks = frontierPickSpecies(r.cap, r.size, r.streak);
+  const enemyTeam = picks.map(id => buildGymMon(frontierMakeEnemySlot(id, level), 0));
+  const challenger = frontierChallenger(r.streak);
+
+  battleContext = {
+    isWild: false, isGym: false, isChampion: false, isTrainer: true,
+    isFrontier: true,
+    frontierStreak: r.streak,
+    frontierLevel: level,
+    battleMode: fmt,
+    battleType: fmt,
+    leaderName: challenger.name,
+    leaderEmoji: challenger.emoji,
+    enemyTeam,
+    enemyTeamIdx: 0,
+    playerTeamIdx: pIdx,
+  };
+
+  // Squad slots are already at their run level (100/120), so no levelCap — buildBattleMon
+  // reads the carried-over currentHP (attrition between bouts; no heal).
+  if (fmt === "double" || fmt === "triple") {
+    // startMultiBattle reads battleContext + G.team (no levelCap) and shows the screen.
+    startMultiBattle(enemyTeam, battleContext.leaderName, fmt);
+    logMsg(`🏯 Battle Tower — Bout ${r.streak + 1} (streak ${r.streak}). Squad Lv ${r.playerLevel} vs Lv ${level}. No healing between bouts!`, "log-catch");
+    document.getElementById("btn-catch").disabled = true;
+    return;
+  }
+
+  playerActiveMon = buildBattleMon(G.team[pIdx]);
+  enemyActiveMon = enemyTeam[0];
+  hideMultiBattleSlots();
+  showScreen("screen-battle");
+  clearBattleLog();
+  logMsg(`🏯 Battle Tower — Bout ${r.streak + 1} (streak ${r.streak}).`, "log-catch");
+  logMsg(`⚖️ Your squad fights at Lv ${r.playerLevel}; challengers are Lv ${level}. No healing between bouts!`);
+  logMsg(`${battleContext.leaderEmoji} ${battleContext.leaderName} sent out ${getDisplayName(enemyActiveMon)}!`);
+  updateBattleUI();
+  fireOnEntryHooks(playerActiveMon, enemyActiveMon);
+  fireOnEntryHooks(enemyActiveMon, playerActiveMon);
+  showBattleMainActions();
+  document.getElementById("btn-catch").disabled = true;
+  if (typeof MusicEngine !== "undefined") MusicEngine.playForBattle(battleContext);
+}
+
+// Called from endBattle's isFrontier branch on a win.
+function frontierAdvance() {
+  const r = frontierRun;
+  if (!r) { showFrontierScreen(); return; }
+  const beatenLevel = frontierEnemyLevel(r.streak); // the bout we just won
+  r.streak += 1;
+
+  // Record best streak + accrue Frontier Points IN MEMORY only — we must not
+  // saveGame() while the normalized squad is swapped into G.team, or a reload would
+  // persist the L100 clones over the real party. frontierFinish() saves after restore.
+  if (!G.frontier) G.frontier = { best: {}, points: 0, purchased: [] };
+  if (typeof G.frontier.points !== "number") G.frontier.points = 0;
+  const key = frontierBestKey(r.setup);
+  if (r.streak > (G.frontier.best[key] || 0)) G.frontier.best[key] = r.streak;
+
+  // Milestone reward: every N wins grants Frontier Points (scaled by milestone + tier).
+  let fpMsg = "";
+  if (r.streak % FRONTIER_MILESTONE_INTERVAL === 0) {
+    const milestoneNum = r.streak / FRONTIER_MILESTONE_INTERVAL;
+    const fp = frontierMilestoneFP(r.setup.tier, milestoneNum);
+    G.frontier.points += fp;
+    r.fpEarned = (r.fpEarned || 0) + fp;
+    fpMsg = `🏯 Milestone! Streak ${r.streak} → <strong>+${fp} Frontier Points</strong> (FP: ${G.frontier.points}). `
+      + `Spend them at the Frontier shop (coming soon).`;
+  }
+
+  // Chain: milestone notice (if any) → L120 offer (if due) → next bout.
+  const launchNext = () => {
+    if (!r.upgradeOffered && r.playerLevel < FRONTIER_UPGRADE_LEVEL
+        && beatenLevel >= FRONTIER_UPGRADE_TRIGGER_LEVEL) {
+      r.upgradeOffered = true;
+      showConfirm(
+        `🏯 Streak ${r.streak}! Challengers now reach Lv ${FRONTIER_UPGRADE_TRIGGER_LEVEL}+. `
+        + `Train your squad up to Lv ${FRONTIER_UPGRADE_LEVEL} for the rest of the run, or stay at Lv ${FRONTIER_BASE_LEVEL} for a sterner test?`,
+        () => { // Yes — bump to L120, scaling each mon's current HP%
+          r.playerLevel = FRONTIER_UPGRADE_LEVEL;
+          r.squad = r.squad.map(slot => frontierNormalizeSlot(slot, FRONTIER_UPGRADE_LEVEL, true));
+          G.team = r.squad;
+          showNotification(`💪 Your squad trains up to Lv ${FRONTIER_UPGRADE_LEVEL}!`, frontierLaunchBattle);
+        },
+        `Train to Lv ${FRONTIER_UPGRADE_LEVEL}`, `Stay at Lv ${FRONTIER_BASE_LEVEL}`,
+        frontierLaunchBattle // No — continue unchanged
+      );
+      return;
+    }
+    frontierLaunchBattle();
+  };
+  if (fpMsg) showNotification(fpMsg, launchNext);
+  else launchNext();
+}
+
+// Called from endBattle's isFrontier branch on a loss (or a deliberate exit).
+function frontierFinish(outcome) {
+  const r = frontierRun;
+  frontierRun = null;
+  if (r) G.team = r.realParty; // restore the untouched real party
+  const streak = r ? r.streak : 0;
+  const key = r ? frontierBestKey(r.setup) : null;
+  const best = key ? (G.frontier?.best?.[key] || 0) : 0;
+  const isRecord = r && streak >= best && streak > 0;
+  saveGame();
+  const head = outcome === "won"
+    ? `🏯 You cleared the Tower's available challengers — streak ${streak}!`
+    : `🏯 Tower run over — final streak ${streak}.`;
+  const tail = streak > 0 ? (isRecord ? " 🏅 New best for this ruleset!" : ` (Best: ${best}.)`) : "";
+  const fpTail = (r && r.fpEarned) ? `<br>💠 Frontier Points earned this run: <strong>${r.fpEarned}</strong> (FP: ${G.frontier?.points || 0}).` : "";
+  showNotification(head + tail + fpTail, () => showFrontierScreen());
+}
+
+// ---- Frontier-Points shop (stage 3d) ------------------------------------------
+// Spent at the facility (accessed from the setup screen, so G.team is the real
+// party — saving here is safe). `once` items are tracked in G.frontier.purchased
+// so they stay "Owned" even after a held item is equipped out of the bag.
+const FRONTIER_SHOP = [
+  { id:"lustrousCharm", fp:60, once:true },
+  { id:"aberrantCharm", fp:60, once:true },
+  { id:"scholarCharm",  fp:40, once:true },
+  { id:"towerCrest",    fp:50, once:true },
+  { id:"sanguineFang",  fp:30, once:true },
+  { id:"aegisPlume",    fp:35, once:true },
+  // Apply-to-Lumori consumables (stackable, except the one-time Lustre Shard).
+  { id:"vitalityMint",  fp:20 },
+  { id:"bondBell",      fp:10 },
+  { id:"bottleCap",     fp:50 },
+  { id:"lustreShard",   fp:120, once:true },
+];
+
+function frontierItemOwned(entry) {
+  return !!(entry.once && G.frontier && Array.isArray(G.frontier.purchased) && G.frontier.purchased.includes(entry.id));
+}
+
+function showFrontierShop() {
+  if (!G.championDefeated) { showNotification("🔒 The Battle Tower opens only to a Champion."); return; }
+  if (!G.frontier) G.frontier = { best: {}, points: 0, purchased: [] };
+  if (!Array.isArray(G.frontier.purchased)) G.frontier.purchased = [];
+  showScreen("screen-frontier-shop");
+  renderFrontierShop();
+}
+
+function renderFrontierShop() {
+  const fp = (G.frontier && G.frontier.points) || 0;
+  const bal = document.getElementById("frontier-shop-balance");
+  if (bal) bal.innerHTML = `💠 Frontier Points: <strong>${fp}</strong>`;
+  const list = document.getElementById("frontier-shop-list");
+  if (!list) return;
+  list.innerHTML = "";
+  for (const entry of FRONTIER_SHOP) {
+    const item = ITEMS_DATA[entry.id];
+    if (!item) continue;
+    const owned = frontierItemOwned(entry);
+    const affordable = fp >= entry.fp;
+    const card = document.createElement("div");
+    card.className = "frontier-shop-item" + (owned ? " owned" : "");
+    const btnLabel = owned ? "Owned" : `💠 ${entry.fp}`;
+    card.innerHTML = `
+      <span class="fs-icon">${item.emoji}</span>
+      <div class="fs-body">
+        <div class="fs-name">${item.name}${entry.once ? ` <span class="fs-tag">one-time</span>` : ""}</div>
+        <div class="fs-desc">${item.desc}</div>
+      </div>
+      <button class="btn-secondary fs-buy">${btnLabel}</button>`;
+    const buyBtn = card.querySelector(".fs-buy");
+    buyBtn.disabled = owned || !affordable;
+    if (!owned && affordable) buyBtn.addEventListener("click", () => frontierBuyItem(entry));
+    list.appendChild(card);
+  }
+}
+
+function frontierBuyItem(entry) {
+  const item = ITEMS_DATA[entry.id];
+  if (!item) return;
+  if (frontierItemOwned(entry)) { showNotification("You already own that."); return; }
+  if (((G.frontier && G.frontier.points) || 0) < entry.fp) { showNotification("Not enough Frontier Points."); return; }
+  G.frontier.points -= entry.fp;
+  G.bag[entry.id] = (G.bag[entry.id] || 0) + 1;
+  if (entry.once) {
+    if (!Array.isArray(G.frontier.purchased)) G.frontier.purchased = [];
+    G.frontier.purchased.push(entry.id);
+  }
+  saveGame();
+  showNotification(`Purchased ${item.emoji} <strong>${item.name}</strong>! (FP left: ${G.frontier.points})`, renderFrontierShop);
 }
 
 // Async PvP: battle a snapshot of another player's submitted team, played for real

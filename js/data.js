@@ -5660,7 +5660,7 @@ const WORLD_DATA = {
   lodehollow: {
     id:"lodehollow", name:"Lodehollow Town", icon:"⛏️", type:"city",
     desc:"A mining settlement carved into a gem-veined hollow, its lanterns glinting off raw ore. Gym Leader Marl reads the strength locked in stone and crystal.",
-    connections:["route6","lode_pass"],
+    connections:["route6","lode_pass","battle_frontier"],
     wildMonsters:[
       {id:47, minLv:32, maxLv:36, rate:25}, // Sapphier
       {id:251, minLv:32, maxLv:36, rate:25}, // Stonegrip
@@ -5669,6 +5669,14 @@ const WORLD_DATA = {
       {id:55, minLv:34, maxLv:36, rate:12}  // Frigolith
     ],
     hasGym:true, gymLeader:"marl", requiredBadges:6, mapPos:{x:26, y:33}
+  },
+  battle_frontier: {
+    id:"battle_frontier", name:"Battle Frontier", icon:"🏯", type:"special",
+    desc:"A coliseum-spire that rises beyond Lodehollow's ore-roads, opened only to those who have stood as Champion. Within its Battle Tower, your team faces an endless, escalating gauntlet of challengers. More trials are planned for its grounds.",
+    connections:["lodehollow"],
+    wildMonsters:[],
+    hasGym:false, requiredBadges:20, requiresChampion:true,
+    hasBattleFrontier:true, mapPos:{x:34, y:33}
   },
   lode_pass: {
     id:"lode_pass", name:"Lode Pass", icon:"💠", type:"route",
@@ -7759,7 +7767,19 @@ const ITEMS_DATA = {
   steelCoating:  { name:"Metal Coating",  emoji:"🔩", desc:"A special metallic coating. Evolves certain Lumori.", type:"evoItem" },
   auspiciousPlate: { name:"Auspicious Plate", emoji:"🛡️", desc:"Ceremonial plating that anoints a steadfast guardian. Evolves certain Lumori.", type:"evoItem" },
   tidePearl:     { name:"Tide Pearl",     emoji:"🦪", desc:"A luminous deep-current pearl that awakens the sea-spirit in a shelled Lumori. Evolves certain Lumori.", type:"evoItem" },
-  prismShard:    { name:"Prism Shard",    emoji:"💎", desc:"A shard of prismatic crystal. Evolves certain Lumori.", type:"evoItem" }
+  prismShard:    { name:"Prism Shard",    emoji:"💎", desc:"A shard of prismatic crystal. Evolves certain Lumori.", type:"evoItem" },
+  // Battle Frontier exclusive — bought with Frontier Points at the Tower shop.
+  lustrousCharm: { name:"Lustrous Charm", emoji:"✨", desc:"Doubles the shiny encounter rate while in your bag.", type:"charm" },
+  aberrantCharm: { name:"Aberrant Charm", emoji:"🔀", desc:"Raises the variant encounter rate by 25% while in your bag.", type:"charm" },
+  scholarCharm:  { name:"Scholar's Charm", emoji:"📈", desc:"Boosts all XP gained by 50% while in your bag.", type:"charm" },
+  towerCrest:    { name:"Tower Crest",   emoji:"🏯", desc:"Raises all battle stats by 15% when held by any Lumori.", type:"held", held:{ effect:"allStatsUp", mult:1.15 } },
+  sanguineFang:  { name:"Sanguine Fang", emoji:"🦇", desc:"Restores 1/4 of the damage dealt to its target when held.", type:"held", held:{ effect:"lifesteal", ratio:0.25 } },
+  aegisPlume:    { name:"Aegis Plume",   emoji:"👑", desc:"Survive a fatal hit at 1 HP once per battle, and restore 1/16 max HP each turn.", type:"held", held:{ effect:"aegisPlume" } },
+  // Frontier-shop consumables applied to a party Lumori (from the Team screen).
+  bondBell:     { name:"Bond Bell",     emoji:"💞", desc:"Instantly maxes a Lumori's friendship.", type:"frontierUse", frontierUse:"maxFriendship" },
+  lustreShard:  { name:"Lustre Shard",  emoji:"🌟", desc:"Permanently turns a Lumori shiny.", type:"frontierUse", frontierUse:"makeShiny" },
+  bottleCap:    { name:"Bottle Cap",    emoji:"💎", desc:"Maxes all of a Lumori's IVs to 31.", type:"frontierUse", frontierUse:"maxIVs" },
+  vitalityMint: { name:"Vitality Mint", emoji:"🍃", desc:"Changes a Lumori's nature.", type:"frontierUse", frontierUse:"changeNature" }
 };
 
 const STARTING_BAG = {

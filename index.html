@@ -139,6 +139,7 @@
           <button class="btn-action hidden" id="btn-umbra-base">☠️ Storm the Umbra Base</button>
           <button class="btn-action hidden" id="btn-rival">🧒 Battle Rival Marcus</button>
           <button class="btn-action hidden" id="btn-area-shop">🛒 Shop</button>
+          <button class="btn-action hidden" id="btn-frontier">🏯 Enter the Battle Tower</button>
           <button class="btn-action hidden" id="btn-heal">💊 Heal Team</button>
         </div>
         <div id="area-gym-info" class="hidden">
@@ -495,6 +496,15 @@
     </div>
   </div>
 
+  <!-- NATURE PICKER OVERLAY (Vitality Mint) -->
+  <div id="nature-picker-overlay" class="hidden">
+    <div id="nature-picker-box">
+      <h3 id="nature-picker-title">Change Nature</h3>
+      <div id="nature-picker-list"></div>
+      <button id="btn-nature-picker-cancel" class="btn-secondary">Cancel</button>
+    </div>
+  </div>
+
   <!-- LEVEL UP OVERLAY -->
   <div id="levelup-overlay" class="hidden">
     <div id="levelup-box">
@@ -805,6 +815,45 @@
       <h2>🏅 Achievements</h2>
     </div>
     <div id="achievements-list"></div>
+  </div>
+
+  <!-- BATTLE FRONTIER / BATTLE TOWER SCREEN -->
+  <div id="screen-frontier" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" id="btn-frontier-back">← Back</button>
+      <h2>🏯 Battle Tower</h2>
+    </div>
+    <p id="frontier-intro" class="frontier-intro"></p>
+    <div id="frontier-best-banner" class="frontier-best-banner"></div>
+    <div class="frontier-setup">
+      <div class="frontier-setup-group">
+        <h3>Power Tier <span class="frontier-hint">caps every Lumori — yours and the Tower's</span></h3>
+        <div id="frontier-tier-opts" class="frontier-opts"></div>
+      </div>
+      <div class="frontier-setup-group">
+        <h3>Team Size</h3>
+        <div id="frontier-size-opts" class="frontier-opts"></div>
+      </div>
+      <div class="frontier-setup-group" id="frontier-format-group">
+        <h3>Battle Format</h3>
+        <div id="frontier-format-opts" class="frontier-opts"></div>
+      </div>
+    </div>
+    <div id="frontier-eligible" class="frontier-eligible"></div>
+    <button class="btn-primary" id="btn-frontier-begin">⚔️ Begin Challenge</button>
+    <button class="btn-secondary" id="btn-frontier-shop">💠 Frontier Shop</button>
+    <div id="frontier-records" class="frontier-records"></div>
+  </div>
+
+  <!-- BATTLE FRONTIER SHOP SCREEN -->
+  <div id="screen-frontier-shop" class="screen">
+    <div class="screen-header">
+      <button class="btn-back" id="btn-frontier-shop-back">← Back</button>
+      <h2>💠 Frontier Shop</h2>
+    </div>
+    <p class="frontier-intro">Tower-exclusive wares, bought with Frontier Points earned at milestones. One-time items can only be purchased once.</p>
+    <div id="frontier-shop-balance" class="frontier-best-banner"></div>
+    <div id="frontier-shop-list" class="frontier-shop-list"></div>
   </div>
 
 </div>

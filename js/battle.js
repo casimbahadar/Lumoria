@@ -1127,6 +1127,8 @@ function applyOnSelfCrit(attacker, defender, move) {
 // mon.currentHP and mon.fainted = false) — see Phoenix-Flame, Lumian Soul.
 // Returns the first non-null msg, or null if no trait intervened.
 function applyOnFaint(mon) {
+  // Returns an array of messages (callers iterate it). First-match wins, so the
+  // array holds 0 or 1 message.
   let msg = null;
   _eachTrait(mon, (reg) => {
     if (msg) return false; // first-match wins
@@ -1136,7 +1138,7 @@ function applyOnFaint(mon) {
     }
     return false;
   });
-  return msg;
+  return msg ? [msg] : [];
 }
 
 // onLowHpTrigger — fires once when HP first crosses ~25% threshold.
@@ -1182,16 +1184,30 @@ function applyOnMoveUse(mon, move) {
 
 // onMoveHit / onMoveMiss — for Steady Aim consecutive-miss tracking.
 function applyOnMoveHit(mon, move, defender) {
+  // Collect and return messages like the sibling hooks (applyOnDamageDealt, etc.),
+  // and mark a trait discovered when it fires. Always returns an array so the
+  // caller's for-of can't throw.
+  const messages = [];
   _eachTrait(mon, (reg) => {
-    if (reg.onMoveHit) reg.onMoveHit(mon, null, move, defender);
-    if (reg.onHitLanded) reg.onHitLanded(mon, null, move, 0, defender);
+    let fired = false;
+    if (reg.onMoveHit) { const r = reg.onMoveHit(mon, null, move, defender); if (r?.msg) { messages.push(r.msg); fired = true; } }
+    if (reg.onHitLanded) { const r = reg.onHitLanded(mon, null, move, 0, defender); if (r?.msg) { messages.push(r.msg); fired = true; } }
+    return fired;
   });
+  return messages;
 }
 
 function applyOnMoveMiss(mon, move) {
+  // Returns an array of messages (caller iterates it).
+  const messages = [];
   _eachTrait(mon, (reg) => {
-    if (reg.onMoveMiss) reg.onMoveMiss(mon, null, move);
+    if (reg.onMoveMiss) {
+      const r = reg.onMoveMiss(mon, null, move);
+      if (r?.msg) { messages.push(r.msg); return true; }
+    }
+    return false;
   });
+  return messages;
 }
 
 // onStatLowered — fires on the mon when a stat-lower delta lands (Pride).
@@ -1500,7 +1516,10 @@ function applyVariantTransform(baseObj, mods) {
 
 // Roll the full variant payload for a monster (or no-variant). rate 1/200.
 function rollVariant(def, forceVariant) {
-  const isVar = forceVariant !== undefined ? forceVariant : (Math.random() < 1/200);
+  // Aberrant Charm (Frontier shop): +25% variant rate while owned.
+  let variantRate = 1/200;
+  if (typeof G !== "undefined" && G && G.bag && G.bag.aberrantCharm > 0) variantRate *= 1.25;
+  const isVar = forceVariant !== undefined ? forceVariant : (Math.random() < variantRate);
   if (!isVar) return { variant:false, variantTypes:null, variantBase:null, variantImmune:null, variantMods:null };
   const mods = rollVariantTransform();
   return {
@@ -1524,6 +1543,8 @@ function buildWildMon(monsterId, level, forceShiny, forceVariant) {
   if (typeof getTimeShinyMult  === "function") shinyRate *= getTimeShinyMult();
   if (typeof getEventShinyBoost === "function") shinyRate *= getEventShinyBoost();
   if (typeof NG_PLUS_DEX_START !== "undefined" && monsterId >= NG_PLUS_DEX_START) shinyRate *= 4;
+  // Lustrous Charm (Frontier shop): doubles shiny rate while owned.
+  if (typeof G !== "undefined" && G && G.bag && G.bag.lustrousCharm > 0) shinyRate *= 2;
   const shiny = forceShiny !== undefined ? forceShiny : (Math.random() < shinyRate);
   const v = rollVariant(def, forceVariant); // 1/200; independent of shiny (they stack)
   // Variants fight with a type-derived generated moveset (see variant-content.js).
@@ -1926,10 +1947,10 @@ function tickStatus(mon) {
 
   // Leftovers: heal 1/16 max HP per turn
   const heldInfo = getHeldData(mon);
-  if (heldInfo?.effect === "leftovers" && mon.currentHP > 0 && mon.currentHP < mon.maxHP) {
+  if ((heldInfo?.effect === "leftovers" || heldInfo?.effect === "aegisPlume") && mon.currentHP > 0 && mon.currentHP < mon.maxHP) {
     const heal = Math.max(1, Math.floor(mon.maxHP / 16));
     mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
-    msgs.push(`🍎 ${mon.name}'s Leftovers restored ${heal} HP!`);
+    msgs.push(`🍎 ${mon.name}'s ${heldInfo.effect === "aegisPlume" ? "Aegis Plume" : "Leftovers"} restored ${heal} HP!`);
     // Phase 3b: keep low-HP hysteresis flag honest on heal
     for (const m of checkAndFireLowHpTrigger(mon)) msgs.push(m);
   }
@@ -1939,7 +1960,7 @@ function tickStatus(mon) {
 // Focus Sash: survive a fatal hit with 1 HP
 function applyFocusSash(mon, damage) {
   const held = getHeldData(mon);
-  if (held?.effect === "focusSash" && !mon.focusSashUsed && mon.currentHP === mon.maxHP && damage >= mon.currentHP) {
+  if ((held?.effect === "focusSash" || held?.effect === "aegisPlume") && !mon.focusSashUsed && mon.currentHP === mon.maxHP && damage >= mon.currentHP) {
     mon.focusSashUsed = true;
     return { damage: mon.currentHP - 1, triggered: true };
   }
@@ -2024,6 +2045,8 @@ function calcXPGain(defeatedMon, isWild) {
 function xpForLevel(level) { return Math.floor(Math.pow(level, 3) * 0.8); }
 
 function giveXP(partySlot, amount) {
+  // Scholar's Charm (Frontier shop): +50% XP while owned.
+  if (typeof G !== "undefined" && G && G.bag && G.bag.scholarCharm > 0) amount = Math.round(amount * 1.5);
   partySlot.xp = (partySlot.xp || 0) + amount;
   const levelUps = [];
   while (partySlot.level < 150 && partySlot.xp >= xpForLevel(partySlot.level + 1)) {

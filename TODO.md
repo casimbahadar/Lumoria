@@ -77,7 +77,84 @@ NG+-gated `legendaryEncounter` statics** (evolutions come from evolving):
   save migration). Engine: `_rematch` resolution gains GYM_LEADERS name fallback + `ngTeams`
   pick when `ngPlusCount>0`.
 - Verified: validate.js green; headless non-NG+ (6×L110, cap112) & NG+ (6×L135, cap137) resolve, 0 errors.
-## Phase 1 — Thread 3: Battle Frontier/Tower ⏳ next
+## Phase 1 — Thread 3: Battle Frontier/Tower ✅ COMPLETE (3a–3d)
+Post-game endless gauntlet (the "Battle Tower"), entered from a dedicated **Battle Frontier**
+facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPos {x:34,y:33}`,
+`requiresChampion`, built to host future trials). Design (user-approved):
+- **Run setup:** BST **power tier** (Rookie<350 / Veteran<450 / Elite<550 / Master<720) that
+  caps **both** the player's squad AND the Tower's opponents (per-member); **team-size mode**
+  (Always-3 or Format-based: single 3 / double 5 / triple 6); **format** (single/double/triple).
+- **Player normalization:** squad copied & level-set to **L100** (real moves/IVs/natures kept);
+  **no heal between bouts** (attrition); party snapshot-restored after the run.
+- **Opponent scaling:** lvl = `min(150, 100 + 2×streak)` (130 @ streak 15, 150 @ 25); species
+  pool = ids **1–321** (base run) / **1–461** (NG+); **Forgotten ≥462 never appear & can't be
+  brought in**; filtered to BST ≤ tier cap, widening with streak.
+- **Mid-run choice:** first win vs an enemy ≥L130 offers a permanent bump to **L120** (or stay L100).
+- **Rewards:** milestone money/items every 7 wins; best streak per tier×size×format. FP-shop = 3d.
+- **Stages:** 3a facility+screen+setup+save ✅ · 3b single-format run engine ✅ · 3c FP rewards +
+  records + double/triple + size modes ✅ · 3d.1 FP shop + charms/held gear ✅ · 3d.2 apply-to-Lumori
+  consumables ✅ · 3d.3 polish (themed challenger names/emoji, Tower music, curve review) ✅ —
+  **THREAD 3 COMPLETE.**
+- **⚠️ CRITICAL ENGINE FIX (commit a7cd58c, separate from Frontier):** discovered while playtesting
+  3d.1 that **all battles on main @560bed2 were broken** — every attack threw "hitTrigMsgs is not
+  iterable" before dealing damage. Root cause: `applyOnMoveHit`/`applyOnFaint`/`applyOnMoveMiss`
+  trait-hook dispatchers returned non-arrays their callers iterate (+ two wrong-order call sites).
+  Fixed all three to return message arrays (+ corrected arg order/guards). Verified: wild battle
+  deals damage→faint→XP→map; Frontier turns execute; 0 errors. This unblocked the whole game.
+- **3a done:** `battle_frontier` area + Lodehollow connection (js/data.js); gold-diamond marker
+  (`.frontier` class in renderWorldMap + css/style.css); `#screen-frontier` + `btn-frontier`
+  (index.html); `renderAreaPanel` button; `G.frontier={best:{}}` save schema + migration;
+  Frontier setup module (`FRONTIER_TIERS/SIZE_MODES/FORMATS` + level/scaling consts, eligibility
+  helpers, `showFrontierScreen`/`renderFrontierSetup`) + listeners.
+- **3b done:** run engine in js/game.js — `frontierRun` state; `startFrontierRun` builds an
+  attrition squad (eligible members cloned & normalized to L100 via `frontierNormalizeSlot`,
+  keeping moves/IVs/nature/held/variant), stashes the real party, swaps `G.team`. `frontierLaunchBattle`
+  generates opponents (`frontierPickSpecies` — BST≤cap, Forgotten-excluded, streak-rising ceiling;
+  `buildGymMon` perfect-IV/top-4) at `min(150,100+2×streak)` and starts a single battle (no levelCap →
+  carried-over HP = attrition). `endBattle` gains an `isFrontier` branch: win → `frontierAdvance`
+  (streak++, in-memory best, L120 offer via `showConfirm`+new `onNo`), loss → `frontierFinish`
+  (restore party, save, summary). Double/Triple chips disabled in setup (gated to 3c). RUN is inert
+  (isWild:false), CATCH disabled, bag allowed. Mid-run never saves while squad is swapped in.
+  Verified headless: L100 norm, 0 over-cap/0 Forgotten across streaks 0–30, scaling 100/130/150,
+  HP attrition carries (7→7), L120 re-level, loss restores party, best persists; 0 console errors.
+- **Battle action-row layout (pre-3c, all battle types):** `showBattleMainActions` now hides
+  inapplicable buttons and adapts the grid column count — competitive (PvP/Frontier) = Fight+Switch
+  (`.acts-2`, two half-width), story/can't-catch (gyms, rival, Umbra, champion, elite, wielders) =
+  Fight+Bag+Switch (`.acts-3`, thirds), wild = full 5-up (unchanged, still wraps to 2-up on mobile).
+- **3c done:** double/triple enabled (`frontierLaunchBattle` → `startMultiBattle` when fmt is multi;
+  size mode sets count 3/5/6). Multi-attrition: `handleMultiFaintedMons` zeroes a fainted player slot
+  before the bench swap (isFrontier-gated), and `frontierSyncSquadHP` writes end-of-bout HP for all
+  actives (called from the `isFrontier` endBattle branch). Milestone reward = **Frontier Points**
+  (`G.frontier.points`, new exclusive currency; `FRONTIER_FP_TIER_BASE` × milestone#, every 7 wins) —
+  awarded in memory, persisted on finish; announced via notification; FP-earned shown in the run
+  summary. Setup screen gains an FP balance + **Tower Records** list (`frontierRulesetLabel`, all
+  bests). Save schema `G.frontier.points` + migration. Verified headless: double 5v5 / triple 6v6,
+  attrition + faint-zeroing (`[9,0,269,242,233]`), FP 0→5 at streak 7, records render; 0 errors.
+- **3d.1 done:** FP shop — `#screen-frontier-shop` + `FRONTIER_SHOP` catalog, `showFrontierShop`/
+  `renderFrontierShop`/`frontierBuyItem` (spends `G.frontier.points`; one-time items tracked in
+  `G.frontier.purchased` so they stay Owned after a held item is equipped out of the bag); button on
+  the setup screen. **All items one-time except (3d.2) Mints/Bottle Caps/Bond Bells** (per user).
+  6 wares + effects: ✨ Lustrous Charm (shiny ×2, buildWildMon hook), 🔀 Aberrant Charm (variant
+  ×1.25, rollVariant hook), 📈 Scholar's Charm (XP ×1.5, giveXP hook), 🏯 Tower Crest (+15% all stats,
+  reuses allStatsUp), 🦇 Sanguine Fang (lifesteal 1/4 dmg, new block in doAttack), 👑 Aegis Plume
+  (focusSash + leftovers combined). New `charm` item type → bag held section. Verified headless: buy
+  flow, one-time re-buy block, Tower Crest +15% (44→50), Scholar 100→150 XP, variant +25% (1234 vs
+  985/200k), Aegis sash+leftovers, Sanguine Fang drained 96 HP in a real turn; 0 errors. Prices
+  (FP): charms 60/60/40, crest 50, fang 30, plume 35 (tunable). Lustre Shard repriced to 120 (3d.2).
+- **3d.2 done:** apply-to-Lumori consumables via the Team-detail "Use Item" flow (new `frontierUse`
+  item type added to the filter + `applyFrontierUseItem` in `useItemOnMon`). 💞 Bond Bell (friendship
+  →255, 10FP), 🌟 Lustre Shard (slot.shiny=true + shiny-dex, one-time, 120FP), 💎 Bottle Cap (IVs→31 +
+  maxHP recompute keeping HP%, 50FP), 🍃 Vitality Mint (nature picker overlay listing all 25 natures
+  with +/− effects → sets slot.nature, 20FP). Mint/Bond Bell/Bottle Cap stack; Lustre Shard one-time
+  (per user). Verified headless: buys (FP 500→300), one-time/repeat rules, friendship 255, shiny+dex,
+  IVs 31+maxHP recompute, nature Balanced→Blazing; nature picker + 10-item shop render; 0 errors.
+- **3d.3 done:** Tower music (`isFrontier` → `elite_battle` in music.js getTrackForContext). Themed
+  challengers — `frontierChallenger(streak)` = escalating rank (Novice→Adept→Veteran→Expert→Ace→Sage
+  by streak band) + rotating flavor name/emoji (`FRONTIER_RANKS`/`FRONTIER_CHALLENGERS`); used for
+  `leaderName`/`leaderEmoji` in `frontierLaunchBattle` (single + multi). Curve/economy reviewed and
+  left as-designed (level `100+2×streak` cap150; milestone FP by tier) — documented for the user,
+  tunable on request. Verified: ranks escalate, log shows "🏹 Tower Veteran Sable sent out Barknell!"
+  at streak 14 (enemy Lv128); 0 errors. **Thread 3 (Battle Frontier) is complete: 3a–3d shipped.**
 ## Phase 2 — Lane A.2 (evolution audit) + D (encounter audit) ⏳
 
 ---

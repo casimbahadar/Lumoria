@@ -188,17 +188,22 @@ friendship and inflated evolve-levels (8 lines @ L70-85). Fixed (user-approved):
   - (append further skipped batches/IDs here as we go.)
 - **⏸️ EVO-LEVEL AUDIT PAUSED at batch 4** — resuming from **batch 1** after the BST pass below.
 
-### 🅰️ A.1 — Base-dex BST-reduction pass (PREREQUISITE; do before resuming evo-level audit)
-Scope: base dex **ids 10–321** (ids 1–9 starters already handled by user). Reduce/redistribute BSTs
-per these rules (user-specified). Lowering BST = redistribute the 6 base stats, keeping role-appropriate
-spreads — not a single number.
-- **Standalone (no evo family):** BST **400–510**; ensure variety across all standalones.
-- **2-stage lines:** final-evo BST **≤ 480**, EXCEPT a *couple* finals total (whole base dex) may exceed.
-- **3-stage lines:**
-  - base→mid BST growth **≤ 120**.
-  - mid-stage BST **≤ 400**, EXCEPT pseudos / lines that become legendaries / a few others (Claude picks).
-  - final-evo BST **≤ 510**, EXCEPT pseudos / final-stage rares / legends / a few others (Claude picks).
-- After completion: **restart the evo-level audit from batch 1.**
+### 🅰️ A.1 — Base-dex BST-reduction pass ✅ DONE (304 mons; scripts/bst_reduce.js)
+Scope: base dex **ids 10–313** (1–9 starters + 314–321 legendaries excluded, both untouched). Each
+mon's 6 stats scaled proportionally to a target BST (role/spread preserved), via scripts/bst_reduce.js.
+Rules applied (all verified 0 violations):
+- **Standalone:** BST **400–510**, capped at original (no increase), progression-scaled + jitter.
+- **2-stage:** final **≤ 480**, base = final − (90–120) (gap ≤120); **8 exception lines ≤ 500**.
+- **3-stage:** base→mid & mid→final growth **≤ 120**; mid **≤ 400**, final **≤ 510**; **8 exception
+  lines** boost mid/base above caps to reach final **≤ 535**.
+- **Min BST 200** dex-wide; **early-game encounters trend low** (driven by earliest wild requiredBadges);
+  randomized variety (no clustering); **non-exception lines never increase** (pure reduction).
+- **Exceptions (type-diverse, incl. added typings):** 3-stage = Wyvernak, Megavolt, Moonseraph,
+  Infriglace, Eternarmor, Darkfang, Impenezard (Fighting/Toxin), Distorsion (Mental/Vapor); 2-stage =
+  Boreadrake, Tidephant, Necrothon, Spectrace, Steelhorn, Quakeon, Lithomere (Mineral), Galehorn (Sonic).
+- Result: avg base-dex BST **451 → 354**; validate.js green; headless boot 0 errors.
+- ⚠️ Legendaries (314–321) left for user to handle in a later A.1 step.
+- **NEXT: restart the evo-level audit from batch 1** (now that BSTs are settled).
 - Lane D (encounter audit) still pending.
 
 ---

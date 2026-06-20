@@ -2490,15 +2490,17 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     logMsg(`${attacker.name}'s attack missed!`);
     // Phase 3b: onMoveMiss (Stumble, frustration-style traits)
     if (typeof applyOnMoveMiss === "function") {
-      const missMsgs = applyOnMoveMiss(attacker, defender, move);
+      const missMsgs = applyOnMoveMiss(attacker, move) || [];
       for (const m of missMsgs) logMsg(m, "log-status");
     }
     return;
   }
 
-  // Phase 3b: onMoveHit (Charge-up wind-down, Combo Builder, hit-streak traits)
+  // Phase 3b: onMoveHit (Charge-up wind-down, Combo Builder, hit-streak traits).
+  // Signature is applyOnMoveHit(mon, move, defender); guard the result so a hook
+  // returning nothing can't break the turn before damage is applied.
   if (typeof applyOnMoveHit === "function") {
-    const hitTrigMsgs = applyOnMoveHit(attacker, defender, move);
+    const hitTrigMsgs = applyOnMoveHit(attacker, move, defender) || [];
     for (const m of hitTrigMsgs) logMsg(m, "log-status");
   }
 

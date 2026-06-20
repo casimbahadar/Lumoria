@@ -1127,6 +1127,8 @@ function applyOnSelfCrit(attacker, defender, move) {
 // mon.currentHP and mon.fainted = false) — see Phoenix-Flame, Lumian Soul.
 // Returns the first non-null msg, or null if no trait intervened.
 function applyOnFaint(mon) {
+  // Returns an array of messages (callers iterate it). First-match wins, so the
+  // array holds 0 or 1 message.
   let msg = null;
   _eachTrait(mon, (reg) => {
     if (msg) return false; // first-match wins
@@ -1136,7 +1138,7 @@ function applyOnFaint(mon) {
     }
     return false;
   });
-  return msg;
+  return msg ? [msg] : [];
 }
 
 // onLowHpTrigger — fires once when HP first crosses ~25% threshold.
@@ -1182,16 +1184,30 @@ function applyOnMoveUse(mon, move) {
 
 // onMoveHit / onMoveMiss — for Steady Aim consecutive-miss tracking.
 function applyOnMoveHit(mon, move, defender) {
+  // Collect and return messages like the sibling hooks (applyOnDamageDealt, etc.),
+  // and mark a trait discovered when it fires. Always returns an array so the
+  // caller's for-of can't throw.
+  const messages = [];
   _eachTrait(mon, (reg) => {
-    if (reg.onMoveHit) reg.onMoveHit(mon, null, move, defender);
-    if (reg.onHitLanded) reg.onHitLanded(mon, null, move, 0, defender);
+    let fired = false;
+    if (reg.onMoveHit) { const r = reg.onMoveHit(mon, null, move, defender); if (r?.msg) { messages.push(r.msg); fired = true; } }
+    if (reg.onHitLanded) { const r = reg.onHitLanded(mon, null, move, 0, defender); if (r?.msg) { messages.push(r.msg); fired = true; } }
+    return fired;
   });
+  return messages;
 }
 
 function applyOnMoveMiss(mon, move) {
+  // Returns an array of messages (caller iterates it).
+  const messages = [];
   _eachTrait(mon, (reg) => {
-    if (reg.onMoveMiss) reg.onMoveMiss(mon, null, move);
+    if (reg.onMoveMiss) {
+      const r = reg.onMoveMiss(mon, null, move);
+      if (r?.msg) { messages.push(r.msg); return true; }
+    }
+    return false;
   });
+  return messages;
 }
 
 // onStatLowered — fires on the mon when a stat-lower delta lands (Pride).

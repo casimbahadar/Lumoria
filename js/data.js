@@ -5063,7 +5063,7 @@ const MONSTERS_DATA = {
 
   // --- F21: tengu (Fighting / Fighting-Wind) ---
   458: { id:458, name:"Tengko", emoji:"👺", types:["Fighting"],
-    evolveTo:459, evolveLevel:32, evolveMethod:"battles", evolveBattles:14, catchRate:180, expYield:72, rarity:"common",
+    evolveTo:459, evolveLevel:34, evolveMethod:"battles", evolveBattles:14, catchRate:180, expYield:72, rarity:"common",
     base:{hp:55,atk:68,def:52,spa:55,spd:50,spe:50}, // BST 330
     learnset:[[1,"quick_punch"],[1,"battle_cry"],[5,"breeze"],[8,"swift_form"],[10,"straight_jab"],[12,"sonic_palm"],[15,"leg_sweep"],[18,"battle_rhythm"],[20,"body_check"],[26,"roundhouse"],[80,"throat_chop",{ng:true}],[80,"obsidian_crash",{ng:true}]],
     desc:"A red-faced mountain imp that practices its fist-forms atop wind-blasted crags.",

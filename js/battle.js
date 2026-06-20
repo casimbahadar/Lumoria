@@ -1516,7 +1516,10 @@ function applyVariantTransform(baseObj, mods) {
 
 // Roll the full variant payload for a monster (or no-variant). rate 1/200.
 function rollVariant(def, forceVariant) {
-  const isVar = forceVariant !== undefined ? forceVariant : (Math.random() < 1/200);
+  // Aberrant Charm (Frontier shop): +25% variant rate while owned.
+  let variantRate = 1/200;
+  if (typeof G !== "undefined" && G && G.bag && G.bag.aberrantCharm > 0) variantRate *= 1.25;
+  const isVar = forceVariant !== undefined ? forceVariant : (Math.random() < variantRate);
   if (!isVar) return { variant:false, variantTypes:null, variantBase:null, variantImmune:null, variantMods:null };
   const mods = rollVariantTransform();
   return {
@@ -1540,6 +1543,8 @@ function buildWildMon(monsterId, level, forceShiny, forceVariant) {
   if (typeof getTimeShinyMult  === "function") shinyRate *= getTimeShinyMult();
   if (typeof getEventShinyBoost === "function") shinyRate *= getEventShinyBoost();
   if (typeof NG_PLUS_DEX_START !== "undefined" && monsterId >= NG_PLUS_DEX_START) shinyRate *= 4;
+  // Lustrous Charm (Frontier shop): doubles shiny rate while owned.
+  if (typeof G !== "undefined" && G && G.bag && G.bag.lustrousCharm > 0) shinyRate *= 2;
   const shiny = forceShiny !== undefined ? forceShiny : (Math.random() < shinyRate);
   const v = rollVariant(def, forceVariant); // 1/200; independent of shiny (they stack)
   // Variants fight with a type-derived generated moveset (see variant-content.js).
@@ -1942,10 +1947,10 @@ function tickStatus(mon) {
 
   // Leftovers: heal 1/16 max HP per turn
   const heldInfo = getHeldData(mon);
-  if (heldInfo?.effect === "leftovers" && mon.currentHP > 0 && mon.currentHP < mon.maxHP) {
+  if ((heldInfo?.effect === "leftovers" || heldInfo?.effect === "aegisPlume") && mon.currentHP > 0 && mon.currentHP < mon.maxHP) {
     const heal = Math.max(1, Math.floor(mon.maxHP / 16));
     mon.currentHP = Math.min(mon.maxHP, mon.currentHP + heal);
-    msgs.push(`🍎 ${mon.name}'s Leftovers restored ${heal} HP!`);
+    msgs.push(`🍎 ${mon.name}'s ${heldInfo.effect === "aegisPlume" ? "Aegis Plume" : "Leftovers"} restored ${heal} HP!`);
     // Phase 3b: keep low-HP hysteresis flag honest on heal
     for (const m of checkAndFireLowHpTrigger(mon)) msgs.push(m);
   }
@@ -1955,7 +1960,7 @@ function tickStatus(mon) {
 // Focus Sash: survive a fatal hit with 1 HP
 function applyFocusSash(mon, damage) {
   const held = getHeldData(mon);
-  if (held?.effect === "focusSash" && !mon.focusSashUsed && mon.currentHP === mon.maxHP && damage >= mon.currentHP) {
+  if ((held?.effect === "focusSash" || held?.effect === "aegisPlume") && !mon.focusSashUsed && mon.currentHP === mon.maxHP && damage >= mon.currentHP) {
     mon.focusSashUsed = true;
     return { damage: mon.currentHP - 1, triggered: true };
   }
@@ -2040,6 +2045,8 @@ function calcXPGain(defeatedMon, isWild) {
 function xpForLevel(level) { return Math.floor(Math.pow(level, 3) * 0.8); }
 
 function giveXP(partySlot, amount) {
+  // Scholar's Charm (Frontier shop): +50% XP while owned.
+  if (typeof G !== "undefined" && G && G.bag && G.bag.scholarCharm > 0) amount = Math.round(amount * 1.5);
   partySlot.xp = (partySlot.xp || 0) + amount;
   const levelUps = [];
   while (partySlot.level < 150 && partySlot.xp >= xpForLevel(partySlot.level + 1)) {

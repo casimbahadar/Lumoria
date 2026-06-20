@@ -92,9 +92,15 @@ facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPo
 - **Mid-run choice:** first win vs an enemy ≥L130 offers a permanent bump to **L120** (or stay L100).
 - **Rewards:** milestone money/items every 7 wins; best streak per tier×size×format. FP-shop = 3d.
 - **Stages:** 3a facility+screen+setup+save ✅ · 3b single-format run engine ✅ · 3c FP rewards +
-  records + double/triple + size modes ✅ · 3d polish — **Frontier-Points shop (spend `G.frontier.points`)
-  incl. NEW Tower-exclusive premium items to design** (per user), themed trainer names/emoji, music,
-  curve tuning (next).
+  records + double/triple + size modes ✅ · 3d.1 FP shop + charms/held gear ✅ · 3d.2 apply-to-Lumori
+  consumables (Bond Bell, Lustre Shard@120, Bottle Cap, Vitality Mint — new use-on-mon flow) (next) ·
+  3d.3 polish (themed challenger names/emoji, music, curve tuning).
+- **⚠️ CRITICAL ENGINE FIX (commit a7cd58c, separate from Frontier):** discovered while playtesting
+  3d.1 that **all battles on main @560bed2 were broken** — every attack threw "hitTrigMsgs is not
+  iterable" before dealing damage. Root cause: `applyOnMoveHit`/`applyOnFaint`/`applyOnMoveMiss`
+  trait-hook dispatchers returned non-arrays their callers iterate (+ two wrong-order call sites).
+  Fixed all three to return message arrays (+ corrected arg order/guards). Verified: wild battle
+  deals damage→faint→XP→map; Frontier turns execute; 0 errors. This unblocked the whole game.
 - **3a done:** `battle_frontier` area + Lodehollow connection (js/data.js); gold-diamond marker
   (`.frontier` class in renderWorldMap + css/style.css); `#screen-frontier` + `btn-frontier`
   (index.html); `renderAreaPanel` button; `G.frontier={best:{}}` save schema + migration;
@@ -124,7 +130,17 @@ facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPo
   summary. Setup screen gains an FP balance + **Tower Records** list (`frontierRulesetLabel`, all
   bests). Save schema `G.frontier.points` + migration. Verified headless: double 5v5 / triple 6v6,
   attrition + faint-zeroing (`[9,0,269,242,233]`), FP 0→5 at streak 7, records render; 0 errors.
-  **3d note (user):** the FP shop will need NEW Tower-exclusive premium items designed to spend FP on.
+- **3d.1 done:** FP shop — `#screen-frontier-shop` + `FRONTIER_SHOP` catalog, `showFrontierShop`/
+  `renderFrontierShop`/`frontierBuyItem` (spends `G.frontier.points`; one-time items tracked in
+  `G.frontier.purchased` so they stay Owned after a held item is equipped out of the bag); button on
+  the setup screen. **All items one-time except (3d.2) Mints/Bottle Caps/Bond Bells** (per user).
+  6 wares + effects: ✨ Lustrous Charm (shiny ×2, buildWildMon hook), 🔀 Aberrant Charm (variant
+  ×1.25, rollVariant hook), 📈 Scholar's Charm (XP ×1.5, giveXP hook), 🏯 Tower Crest (+15% all stats,
+  reuses allStatsUp), 🦇 Sanguine Fang (lifesteal 1/4 dmg, new block in doAttack), 👑 Aegis Plume
+  (focusSash + leftovers combined). New `charm` item type → bag held section. Verified headless: buy
+  flow, one-time re-buy block, Tower Crest +15% (44→50), Scholar 100→150 XP, variant +25% (1234 vs
+  985/200k), Aegis sash+leftovers, Sanguine Fang drained 96 HP in a real turn; 0 errors. Prices
+  (FP): charms 60/60/40, crest 50, fang 30, plume 35 (tunable). Lustre Shard repriced to 120 (3d.2).
 ## Phase 2 — Lane A.2 (evolution audit) + D (encounter audit) ⏳
 
 ---

@@ -522,6 +522,23 @@ html, body {
   font-size: 0.8rem; color: var(--text-secondary);
   padding: 0.25rem 0.5rem; border-bottom: 1px solid var(--border-color, #2a2f3b);
 }
+/* Frontier shop */
+.frontier-shop-list { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.75rem; }
+.frontier-shop-item {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.6rem 0.75rem; border-radius: 8px;
+  background: var(--bg-card); border: 1px solid var(--border-color, #3a3f4b);
+}
+.frontier-shop-item.owned { opacity: 0.6; }
+.frontier-shop-item .fs-icon { font-size: 1.5rem; }
+.frontier-shop-item .fs-body { flex: 1; }
+.frontier-shop-item .fs-name { font-weight: bold; font-size: 0.9rem; }
+.frontier-shop-item .fs-tag {
+  font-size: 0.6rem; font-weight: normal; color: var(--accent-yellow, #e8b923);
+  border: 1px solid #e8b92355; border-radius: 4px; padding: 0 4px; margin-left: 4px;
+}
+.frontier-shop-item .fs-desc { font-size: 0.72rem; color: var(--text-secondary); }
+.frontier-shop-item .fs-buy { min-width: 76px; white-space: nowrap; }
 
 @keyframes pulse {
   0%, 100% { box-shadow: 0 0 12px rgba(210, 153, 34, 0.6); }

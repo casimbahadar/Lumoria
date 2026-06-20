@@ -44,7 +44,7 @@ function newGameState(playerName, starterMonsterId) {
     defeatedWielders: [],
     forgottenLegendaryAttempted: [],
     gymRematchWins: {},
-    frontier: { best: {}, points: 0 }
+    frontier: { best: {}, points: 0, purchased: [] }
   };
 }
 
@@ -146,9 +146,10 @@ function loadGame(slot) {
     if (!data.defeatedWielders) data.defeatedWielders = [];
     if (!data.forgottenLegendaryAttempted) data.forgottenLegendaryAttempted = [];
     if (!data.gymRematchWins) data.gymRematchWins = {};
-    if (!data.frontier) data.frontier = { best: {}, points: 0 };
+    if (!data.frontier) data.frontier = { best: {}, points: 0, purchased: [] };
     if (!data.frontier.best) data.frontier.best = {};
     if (typeof data.frontier.points !== "number") data.frontier.points = 0;
+    if (!Array.isArray(data.frontier.purchased)) data.frontier.purchased = [];
     if (data.apexGuardianDefeated === undefined) data.apexGuardianDefeated = false;
     if (!data.discoveredTraits) data.discoveredTraits = {};
     // PvP saved team loadouts: up to 6 per format, drawn from owned Lumori.
@@ -2680,6 +2681,16 @@ async function doAttack(attacker, defender, moveId, isPlayer, opts = {}) {
     }
   }
 
+  // Sanguine Fang (held, Frontier shop): drain a fraction of the damage dealt.
+  const fang = (typeof getHeldData === "function") ? getHeldData(attacker) : null;
+  if (fang?.effect === "lifesteal" && totalDamage > 0 && !attacker.fainted && attacker.currentHP < attacker.maxHP) {
+    const lifeAmt = Math.max(1, Math.floor(totalDamage * (fang.ratio || 0.25)));
+    attacker.currentHP = Math.min(attacker.maxHP, attacker.currentHP + lifeAmt);
+    logMsg(`🦇 ${attacker.name}'s Sanguine Fang drained ${lifeAmt} HP!`, "log-status");
+    if (isPlayer) syncPlayerMonHP();
+    updateBattleUI();
+  }
+
   // Secondary stat/status effects (recoil and drain moves have no additional secondary effect).
   // B4: don't apply a defender-targeted rider to an already-fainted defender ("was poisoned!"
   // on a corpse). Pure self-target moves still resolve (their buff should land on a KO).
@@ -4109,7 +4120,7 @@ function showBagScreen() {
       <span class="bag-item-count">x${count}</span>
     `;
     if (item.type === "ball") orbsEl.appendChild(div);
-    else if (item.type === "held") heldEl.appendChild(div);
+    else if (item.type === "held" || item.type === "charm") heldEl.appendChild(div);
     else medEl.appendChild(div); // heal, revive, candy all go in medicine
   }
 
@@ -5103,6 +5114,8 @@ function initEventListeners() {
     showScreen("screen-main"); renderWorldMap(); renderAreaPanel(); renderHUD();
   });
   document.getElementById("btn-frontier-begin")?.addEventListener("click", startFrontierRun);
+  document.getElementById("btn-frontier-shop")?.addEventListener("click", showFrontierShop);
+  document.getElementById("btn-frontier-shop-back")?.addEventListener("click", showFrontierScreen);
 
   // Roaming legendary button
   document.getElementById("btn-roaming")?.addEventListener("click", () => {
@@ -5414,7 +5427,7 @@ function frontierSyncSquadHP() {
 
 function showFrontierScreen() {
   if (!G.championDefeated) { showNotification("🔒 The Battle Tower opens only to a Champion."); return; }
-  if (!G.frontier) G.frontier = { best: {}, points: 0 };
+  if (!G.frontier) G.frontier = { best: {}, points: 0, purchased: [] };
   showScreen("screen-frontier");
   renderFrontierSetup();
 }
@@ -5652,7 +5665,7 @@ function frontierAdvance() {
   // Record best streak + accrue Frontier Points IN MEMORY only — we must not
   // saveGame() while the normalized squad is swapped into G.team, or a reload would
   // persist the L100 clones over the real party. frontierFinish() saves after restore.
-  if (!G.frontier) G.frontier = { best: {}, points: 0 };
+  if (!G.frontier) G.frontier = { best: {}, points: 0, purchased: [] };
   if (typeof G.frontier.points !== "number") G.frontier.points = 0;
   const key = frontierBestKey(r.setup);
   if (r.streak > (G.frontier.best[key] || 0)) G.frontier.best[key] = r.streak;
@@ -5709,6 +5722,75 @@ function frontierFinish(outcome) {
   const tail = streak > 0 ? (isRecord ? " 🏅 New best for this ruleset!" : ` (Best: ${best}.)`) : "";
   const fpTail = (r && r.fpEarned) ? `<br>💠 Frontier Points earned this run: <strong>${r.fpEarned}</strong> (FP: ${G.frontier?.points || 0}).` : "";
   showNotification(head + tail + fpTail, () => showFrontierScreen());
+}
+
+// ---- Frontier-Points shop (stage 3d) ------------------------------------------
+// Spent at the facility (accessed from the setup screen, so G.team is the real
+// party — saving here is safe). `once` items are tracked in G.frontier.purchased
+// so they stay "Owned" even after a held item is equipped out of the bag.
+const FRONTIER_SHOP = [
+  { id:"lustrousCharm", fp:60, once:true },
+  { id:"aberrantCharm", fp:60, once:true },
+  { id:"scholarCharm",  fp:40, once:true },
+  { id:"towerCrest",    fp:50, once:true },
+  { id:"sanguineFang",  fp:30, once:true },
+  { id:"aegisPlume",    fp:35, once:true },
+];
+
+function frontierItemOwned(entry) {
+  return !!(entry.once && G.frontier && Array.isArray(G.frontier.purchased) && G.frontier.purchased.includes(entry.id));
+}
+
+function showFrontierShop() {
+  if (!G.championDefeated) { showNotification("🔒 The Battle Tower opens only to a Champion."); return; }
+  if (!G.frontier) G.frontier = { best: {}, points: 0, purchased: [] };
+  if (!Array.isArray(G.frontier.purchased)) G.frontier.purchased = [];
+  showScreen("screen-frontier-shop");
+  renderFrontierShop();
+}
+
+function renderFrontierShop() {
+  const fp = (G.frontier && G.frontier.points) || 0;
+  const bal = document.getElementById("frontier-shop-balance");
+  if (bal) bal.innerHTML = `💠 Frontier Points: <strong>${fp}</strong>`;
+  const list = document.getElementById("frontier-shop-list");
+  if (!list) return;
+  list.innerHTML = "";
+  for (const entry of FRONTIER_SHOP) {
+    const item = ITEMS_DATA[entry.id];
+    if (!item) continue;
+    const owned = frontierItemOwned(entry);
+    const affordable = fp >= entry.fp;
+    const card = document.createElement("div");
+    card.className = "frontier-shop-item" + (owned ? " owned" : "");
+    const btnLabel = owned ? "Owned" : `💠 ${entry.fp}`;
+    card.innerHTML = `
+      <span class="fs-icon">${item.emoji}</span>
+      <div class="fs-body">
+        <div class="fs-name">${item.name}${entry.once ? ` <span class="fs-tag">one-time</span>` : ""}</div>
+        <div class="fs-desc">${item.desc}</div>
+      </div>
+      <button class="btn-secondary fs-buy">${btnLabel}</button>`;
+    const buyBtn = card.querySelector(".fs-buy");
+    buyBtn.disabled = owned || !affordable;
+    if (!owned && affordable) buyBtn.addEventListener("click", () => frontierBuyItem(entry));
+    list.appendChild(card);
+  }
+}
+
+function frontierBuyItem(entry) {
+  const item = ITEMS_DATA[entry.id];
+  if (!item) return;
+  if (frontierItemOwned(entry)) { showNotification("You already own that."); return; }
+  if (((G.frontier && G.frontier.points) || 0) < entry.fp) { showNotification("Not enough Frontier Points."); return; }
+  G.frontier.points -= entry.fp;
+  G.bag[entry.id] = (G.bag[entry.id] || 0) + 1;
+  if (entry.once) {
+    if (!Array.isArray(G.frontier.purchased)) G.frontier.purchased = [];
+    G.frontier.purchased.push(entry.id);
+  }
+  saveGame();
+  showNotification(`Purchased ${item.emoji} <strong>${item.name}</strong>! (FP left: ${G.frontier.points})`, renderFrontierShop);
 }
 
 // Async PvP: battle a snapshot of another player's submitted team, played for real

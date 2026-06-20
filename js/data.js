@@ -7767,7 +7767,14 @@ const ITEMS_DATA = {
   steelCoating:  { name:"Metal Coating",  emoji:"🔩", desc:"A special metallic coating. Evolves certain Lumori.", type:"evoItem" },
   auspiciousPlate: { name:"Auspicious Plate", emoji:"🛡️", desc:"Ceremonial plating that anoints a steadfast guardian. Evolves certain Lumori.", type:"evoItem" },
   tidePearl:     { name:"Tide Pearl",     emoji:"🦪", desc:"A luminous deep-current pearl that awakens the sea-spirit in a shelled Lumori. Evolves certain Lumori.", type:"evoItem" },
-  prismShard:    { name:"Prism Shard",    emoji:"💎", desc:"A shard of prismatic crystal. Evolves certain Lumori.", type:"evoItem" }
+  prismShard:    { name:"Prism Shard",    emoji:"💎", desc:"A shard of prismatic crystal. Evolves certain Lumori.", type:"evoItem" },
+  // Battle Frontier exclusive — bought with Frontier Points at the Tower shop.
+  lustrousCharm: { name:"Lustrous Charm", emoji:"✨", desc:"Doubles the shiny encounter rate while in your bag.", type:"charm" },
+  aberrantCharm: { name:"Aberrant Charm", emoji:"🔀", desc:"Raises the variant encounter rate by 25% while in your bag.", type:"charm" },
+  scholarCharm:  { name:"Scholar's Charm", emoji:"📈", desc:"Boosts all XP gained by 50% while in your bag.", type:"charm" },
+  towerCrest:    { name:"Tower Crest",   emoji:"🏯", desc:"Raises all battle stats by 15% when held by any Lumori.", type:"held", held:{ effect:"allStatsUp", mult:1.15 } },
+  sanguineFang:  { name:"Sanguine Fang", emoji:"🦇", desc:"Restores 1/4 of the damage dealt to its target when held.", type:"held", held:{ effect:"lifesteal", ratio:0.25 } },
+  aegisPlume:    { name:"Aegis Plume",   emoji:"👑", desc:"Survive a fatal hit at 1 HP once per battle, and restore 1/16 max HP each turn.", type:"held", held:{ effect:"aegisPlume" } }
 };
 
 const STARTING_BAG = {

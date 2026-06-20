@@ -5003,7 +5003,7 @@ const MONSTERS_DATA = {
 
   // --- F17: mantis shrimp (Fighting / Fighting-Fire) ---
   450: { id:450, name:"Jabshell", emoji:"🦐", types:["Fighting"],
-    evolveTo:451, evolveLevel:28, evolveMethod:"battles", evolveBattles:14, catchRate:180, expYield:70, rarity:"common",
+    evolveTo:451, evolveLevel:32, evolveMethod:"battles", evolveBattles:14, catchRate:180, expYield:70, rarity:"common",
     base:{hp:55,atk:72,def:58,spa:48,spd:47,spe:45}, // BST 325
     learnset:[[1,"quick_punch"],[1,"battle_cry"],[5,"straight_jab"],[8,"warrior_block"],[10,"body_check"],[12,"sonic_palm"],[15,"leg_sweep"],[18,"shockwave_kick"],[20,"power_drive"],[26,"roundhouse"],[70,"run_down",{ng:true}],[100,"tectonic_wrath",{ng:true}],[90,"cognition_meld",{ng:true}]],
     desc:"A small reef-shrimp whose club-arms strike fast enough to crack a shell with a snap.",
@@ -5018,7 +5018,7 @@ const MONSTERS_DATA = {
 
   // --- F18: dream sloth (Dream / Dream-Fairy) ---
   452: { id:452, name:"Dozit", emoji:"🦥", types:["Dream"],
-    evolveTo:453, evolveLevel:30, catchRate:190, expYield:64, rarity:"common",
+    evolveTo:453, evolveLevel:31, catchRate:190, expYield:64, rarity:"common",
     base:{hp:68,atk:42,def:55,spa:58,spd:57,spe:20}, // BST 300
     learnset:[[1,"collide"],[1,"lullaby_song"],[5,"dream_jab"],[7,"reverie_focus"],[10,"dream_pulse"],[12,"somnia_punch"],[15,"somnia_ray"],[17,"hypnos_speed"],[20,"lucid_beam"],[22,"slumber_armor"],[26,"lullaby_aura"],[80,"terror_slash",{ng:true}],[80,"reverie_charge",{ng:true}],[70,"nightmare_strike",{ng:true}],[80,"nightmare_storm",{ng:true}],[80,"telepathic_slam",{ng:true}],[70,"spectral_radiance",{ng:true}]],
     desc:"A perpetually half-asleep sloth that drifts through its own slow daydreams.",
@@ -5033,7 +5033,7 @@ const MONSTERS_DATA = {
 
   // --- F19: haunted bell (Spectral / Metal-Spectral) ---
   454: { id:454, name:"Tollwisp", emoji:"🔔", types:["Spectral"],
-    evolveTo:455, evolveLevel:30, evolveMethod:"time", evolveTime:"dusk", catchRate:180, expYield:68, rarity:"common",
+    evolveTo:455, evolveLevel:33, evolveMethod:"time", evolveTime:"dusk", catchRate:180, expYield:68, rarity:"common",
     base:{hp:50,atk:42,def:62,spa:72,spd:62,spe:24}, // BST 312
     learnset:[[1,"ghost_jab"],[1,"haunting_cry"],[5,"ghost_pulse"],[8,"ectoplasm_armor"],[10,"specter_pulse"],[15,"void_wail"],[20,"phantom_beam"],[26,"spirit_drain"],[70,"soul_lance",{ng:true}],[80,"ectoplasm_wave",{ng:true}],[70,"soul_chill",{ng:true}],[80,"necrotic_pulse",{ng:true}],[100,"abyssal_dominion",{ng:true}],[80,"insight_flare",{ng:true}],[75,"blight_mist",{ng:true}]],
     desc:"A small spirit that has taken up residence inside a cracked, tarnished handbell.",
@@ -5048,7 +5048,7 @@ const MONSTERS_DATA = {
 
   // --- F20: axolotl (Vapor / Aquatic-Vapor) ---
   456: { id:456, name:"Mistgill", emoji:"🦎", types:["Vapor"],
-    evolveTo:457, evolveLevel:29, catchRate:190, expYield:68, rarity:"common",
+    evolveTo:457, evolveLevel:30, catchRate:190, expYield:68, rarity:"common",
     base:{hp:65,atk:50,def:55,spa:58,spd:55,spe:35}, // BST 318
     learnset:[[1,"collide"],[1,"mist_pulse"],[5,"vapor_jab"],[10,"aquatic_gun"],[12,"stream_burst"],[15,"fog_beam"],[18,"wisp_speed"],[20,"brume_resonance"],[22,"haze_strike"],[26,"bubble_jet"],[85,"steam_slam",{ng:true}],[85,"cloud_smash",{ng:true}],[80,"boiling_strike",{ng:true}],[80,"smog_lash",{ng:true}],[70,"cloud_form",{ng:true}],[70,"smoke_calm",{ng:true}],[95,"mist_press",{ng:true}],[100,"hurricane_blast",{ng:true}]],
     desc:"A frilled, perpetually smiling amphibian whose feathery gills trail wisps of warm mist.",
@@ -5063,7 +5063,7 @@ const MONSTERS_DATA = {
 
   // --- F21: tengu (Fighting / Fighting-Wind) ---
   458: { id:458, name:"Tengko", emoji:"👺", types:["Fighting"],
-    evolveTo:459, evolveLevel:28, evolveMethod:"battles", evolveBattles:14, catchRate:180, expYield:72, rarity:"common",
+    evolveTo:459, evolveLevel:34, evolveMethod:"battles", evolveBattles:14, catchRate:180, expYield:72, rarity:"common",
     base:{hp:55,atk:68,def:52,spa:55,spd:50,spe:50}, // BST 330
     learnset:[[1,"quick_punch"],[1,"battle_cry"],[5,"breeze"],[8,"swift_form"],[10,"straight_jab"],[12,"sonic_palm"],[15,"leg_sweep"],[18,"battle_rhythm"],[20,"body_check"],[26,"roundhouse"],[80,"throat_chop",{ng:true}],[80,"obsidian_crash",{ng:true}]],
     desc:"A red-faced mountain imp that practices its fist-forms atop wind-blasted crags.",
@@ -5078,7 +5078,7 @@ const MONSTERS_DATA = {
 
   // --- F22: singing-bowl construct (Sonic / Mental-Sonic) ---
   460: { id:460, name:"Chimebowl", emoji:"🎵", types:["Sonic"],
-    evolveTo:461, evolveLevel:30, evolveMethod:"held", evolveItem:"metalCoat", catchRate:180, expYield:68, rarity:"common",
+    evolveTo:461, evolveLevel:35, evolveMethod:"held", evolveItem:"metalCoat", catchRate:180, expYield:68, rarity:"common",
     base:{hp:55,atk:45,def:58,spa:68,spd:54,spe:35}, // BST 315
     learnset:[[1,"echo_strike"],[1,"resonate"],[5,"echo_pulse"],[10,"sound_rush"],[15,"mind_jolt"],[20,"pulse_wave"],[26,"wave_cry"],[70,"melody_cascade",{ng:true}],[80,"dissonant_chord",{ng:true}],[85,"bass_blast",{ng:true}],[80,"prism_resonance",{ng:true}],[70,"resonance_field",{ng:true}],[100,"thunderstorm_eruption",{ng:true}],[80,"thunder_cage",{ng:true}]],
     desc:"A small hovering singing-bowl that hums a steady, calming tone of its own accord.",

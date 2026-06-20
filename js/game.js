@@ -2082,12 +2082,25 @@ function startGymBattle(leaderId, battleType = "single") {
     }
   }
   if (!leader) return;
+  // NG+ participation cap: a base gym only admits Lumori whose Base Stat Total is within
+  // its cap (gym NG+ avg BST + 20). Blocks entry until the player benches over-cap Lumori.
+  if (G && G.ngPlusCount > 0 && leader.ngBstCap) {
+    const cap = leader.ngBstCap;
+    const offenders = (G.team || []).filter(m => m && getMonBST(m.monsterId) > cap);
+    if (offenders.length) {
+      const names = offenders.map(m => `${m.nickname || MONSTERS_DATA[m.monsterId].name} (BST ${getMonBST(m.monsterId)})`).join(", ");
+      showNotification(`🚫 ${leader.name}'s gym admits only Lumori with a Base Stat Total of ${cap} or lower on this NG+ run.\nOver the cap: ${names}.\nSwap them out, then return to challenge.`);
+      return;
+    }
+  }
   const isApexGuardian = leaderId === "apex_guardian";
   const isRematch = leaderId.endsWith("_rematch");
   const levelCap = getLevelCap(leaderId);
-  // Support both old team: [...] and new teams: { single, double, triple }
-  const teamSlots = (leader.teams && leader.teams[battleType]) ? leader.teams[battleType]
-                  : (leader.teams && leader.teams.single) ? leader.teams.single
+  // Support old team: [...] and new teams: { single, double, triple }.
+  // On an NG+ run, base gyms swap to their dedicated ngTeams (stronger roster + bigger team).
+  const teamSrc = (G && G.ngPlusCount > 0 && leader.ngTeams) ? leader.ngTeams : leader.teams;
+  const teamSlots = (teamSrc && teamSrc[battleType]) ? teamSrc[battleType]
+                  : (teamSrc && teamSrc.single) ? teamSrc.single
                   : leader.team || [];
   const battleMode = leader.battleMode || "single";
 
@@ -4864,7 +4877,8 @@ function initEventListeners() {
       if (beatenCount < trainers.length) { showNotification("You must defeat all gym trainers before challenging the leader!"); return; }
     }
     const leader = GYM_LEADERS[area.gymLeader];
-    showBattleFormatSelection(leader.name, leader.emoji, leader.quote, fmt => startGymBattle(area.gymLeader, fmt));
+    const capNote = (G.ngPlusCount > 0 && leader.ngBstCap) ? ` (NG+ cap: Lumori must be BST ≤ ${leader.ngBstCap})` : "";
+    showBattleFormatSelection(leader.name, leader.emoji, leader.quote + capNote, fmt => startGymBattle(area.gymLeader, fmt));
   });
   document.getElementById("btn-champion").addEventListener("click", () => {
     if (G.championDefeated) return;

@@ -44,6 +44,13 @@ Continuation after PR #102 merged to main. Phase 1 = three post-game threads (le
 roundup → gym rematches → Battle Frontier); Phase 2 = Lane A.2+D (evolution + encounters).
 Per CLAUDE.md: propose → approve → apply; validate.js + run-game headless before each commit.
 
+**🔮 Future follow-up (gym/Vanguard team overhaul):** after the 6/6/6 team rebuild lands,
+audit that each newly-chosen **Vanguard** member's BST / stat-profile genuinely fits its leader's
+theme — aria = Graceful Offense (spe+spa) · grimshaw = Brutal Power (atk+hp) · celeste = Cosmic
+Balance (BST) · titan = Immovable Fortress (def+spd+hp). The generator biased picks by a stat
+heuristic, so verify the result reads thematically, not just numerically. (Champion legendary ace
+= **Dragemian**, locked.)
+
 ## Phase 1 — Thread 1: Legendary roundup ✅ (this commit)
 Full legendary-obtainability audit (all 61): **every** legendary is already obtainable —
 base via static/roam, NG+ via wild/evolution, 13 Forgotten via wielder-`team[0]` catch,

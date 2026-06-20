@@ -1,0 +1,1046 @@
+
+## GYM 1 — rex
+    BASE:
+    · single (3):
+      ★ACE   # 51 Bergyak [Ice/Normal] Lv10  {cold_beam, flurries, winter_shroud, fortify}
+      on     #180 Leapbun [Normal] Lv8  {crushing_bulk, cranial_ram, collide, blitz}
+      ✖OFF   #118 Eclipsehound [Dark] Lv6  {void_dominion, dark_corrosion, jaw_crush, void_pulse}
+    · double (3):
+      ★ACE   # 51 Bergyak [Ice/Normal] Lv10  {cold_beam, flurries, winter_shroud, fortify}
+      on     #187 Norindel [Normal] Lv8  {radiance_cannon, last_stand, all_out_assault, tornado_grab}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv6  {verdant_orb, pod_blast, vine_lash, slumber_dust}
+    · triple (3):
+      ★ACE   # 51 Bergyak [Ice/Normal] Lv10  {cold_beam, flurries, winter_shroud, fortify}
+      on     #178 Fluffen [Normal] Lv8  {collide, quick_jab, graze, daunt}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv6  {tidal_rush, tidal_sweep, fortify, tidecaller}
+    NG+:
+    · single (6):
+      ★ACE   # 51 Bergyak [Ice/Normal] Lv10  {cold_beam, flurries, winter_shroud, fortify}
+      ◆DUAL  #363 Chromaton [Normal/Mental] Lv9  {radiance_cannon, zenith_ray, psi_strike, synaptic_shatter}
+      on     #179 Velvetine [Normal] Lv8  {graze, blitz, daunt, lashing_tail}
+      on     #188 Plentorus [Normal] Lv8  {crushing_bulk, cranial_ram, collide, battle_cry}
+      ✖OFF   #198 Chrysalix [Nature] Lv7  {sharp_leaves, vine_lash, mantis_slash, nature_pulse}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv6  {abyss_ray, cataclysm_breath, time_fracture, comet_crash}
+    · double (6):
+      ★ACE   # 51 Bergyak [Ice/Normal] Lv10  {cold_beam, flurries, winter_shroud, fortify}
+      ◆DUAL  #371 Nullform [Dark/Normal] Lv9  {radiance_cannon, void_rend, crushing_bulk, nether_sphere}
+      on     #186 Continemic [Normal/Wind] Lv8  {crushing_bulk, wind_scythe, downdraft, collide}
+      on     #181 Racehare [Normal] Lv8  {cranial_ram, blitz, collide, quick_jab}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv7  {starlight_obliteration, void_dominion, abyssal_dominion, wraith_drive}
+      ✖OFF   #389 Stormcrown [Electric/Sonic] Lv6  {threnody, stormbolt, volt_jet, harmonic_wave}
+    · triple (6):
+      ★ACE   # 51 Bergyak [Ice/Normal] Lv10  {cold_beam, flurries, winter_shroud, fortify}
+      ◆DUAL  #391 Titanfang [Normal/Earth] Lv9  {radiance_cannon, mantle_surge, reckless_charge, last_stand}
+      on     #395 Glacierend [Ice/Normal] Lv8  {glaciation, reckless_charge, last_stand, whiteout}
+      on     #374 Auroratusk [Ice/Normal] Lv8  {glaciation, whiteout, zenith_ray, icebound_lattice}
+      ✖OFF   #343 Shadowreave [Dark/Spectral] Lv7  {spirit_calamity, abyssal_dominion, reaper_scythe, void_rend}
+      ✖OFF   #377 Abyssforge [Earth/Mineral] Lv6  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+
+## GYM 2 — marina
+    BASE:
+    · single (3):
+      ★ACE   #  4 Aquatter [Aquatic] Lv14  {tidal_sweep, bubble_jet, aquatic_gun, wave_dash}
+      on     # 87 Amperix [Electric/Aquatic] Lv13  {static_strike, aquatic_gun, jolt, steam_burst}
+      ✖OFF   #104 Sandpup [Normal/Earth] Lv11  {mud_spray, collide, daunt, baleful_stare}
+    · double (3):
+      ★ACE   #  4 Aquatter [Aquatic] Lv14  {tidal_sweep, bubble_jet, aquatic_gun, wave_dash}
+      on     # 84 Electrix [Electric/Aquatic] Lv13  {static_strike, shock_net, jolt, aquatic_gun}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv11  {verdant_orb, pod_blast, fairy_jab, vine_lash}
+    · triple (3):
+      ★ACE   #  4 Aquatter [Aquatic] Lv14  {tidal_sweep, bubble_jet, aquatic_gun, wave_dash}
+      on     # 34 Pearlmaid [Aquatic/Fairy] Lv13  {aquatic_gun, fairy_wind, star_ray, star_cannon}
+      ✖OFF   #149 Eternarmor [Metal] Lv11  {alloy_tail, forge_strike, forge_blast_2, chrome_claw}
+    NG+:
+    · single (6):
+      ★ACE   #  4 Aquatter [Aquatic] Lv14  {tidal_sweep, bubble_jet, aquatic_gun, wave_dash}
+      ◆DUAL  #102 Dunoloth [Earth/Aquatic] Lv13  {mud_spray, aquatic_gun, dust_veil, clay_armor}
+      on     # 88 Sparkrel [Electric/Aquatic] Lv13  {volt_jet, bubble_jet, jolt, aquatic_gun}
+      on     # 35 Seanymph [Aquatic/Fairy] Lv12  {prism_flare, bubble_jet, aquatic_gun, fairy_wind}
+      ✖OFF   #420 Steamkit [Vapor] Lv12  {drizzle, mist_pulse, vapor_jab, collide}
+      ✖OFF   #426 Pummelo [Fighting] Lv11  {spinning_kick, high_kick, leg_sweep, battle_cry}
+    · double (6):
+      ★ACE   #  4 Aquatter [Aquatic] Lv14  {tidal_sweep, bubble_jet, aquatic_gun, wave_dash}
+      ◆DUAL  # 26 Brinecrush [Aquatic/Earth] Lv13  {aquatic_gun, graze, tidecaller, deepwater_hymn}
+      on     # 29 Coralisk [Aquatic] Lv13  {tidal_rush, bubble_jet, aquatic_gun, tidecaller}
+      on     #  6 Banksnout [Aquatic/Dark] Lv12  {abyssal_wave, tidal_rush, tidal_sweep, shadow_jab}
+      ✖OFF   #414 Grublurk [Toxin] Lv12  {toxic_sting, toxin_jab, mud_spray, collide}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv11  {glaciation, reckless_charge, last_stand, whiteout}
+    · triple (6):
+      ★ACE   #  4 Aquatter [Aquatic] Lv14  {tidal_sweep, bubble_jet, aquatic_gun, wave_dash}
+      ◆DUAL  # 32 Noxaquith [Aquatic/Poison] Lv13  {ooze_bomb, tidal_rush, tidecaller, deepwater_hymn}
+      on     #387 Deepvoid [Dark/Aquatic] Lv13  {tsunami, tidal_crush, void_rend, sea_serpent_strike}
+      on     #397 Abyssalord [Aquatic/Spectral] Lv12  {spirit_calamity, tsunami, tidal_crush, sea_serpent_strike}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv12  {abyss_ray, cataclysm_breath, time_fracture, comet_crash}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv11  {alloy_tail, void_rend, hydra_dance, null_void}
+
+## GYM 3 — pyros
+    BASE:
+    · single (3):
+      ★ACE   # 17 Searburn [Fire/Wind] Lv18  {inferno_jet, cinderwhirl, flicker, scorch_veil}
+      on     #  1 Solkin [Fire] Lv17  {firebrand, cinder_lance, flame_fang, flicker}
+      ✖OFF   # 66 Viridix [Nature] Lv16  {pod_blast, sharp_leaves, vine_lash, baleful_stare}
+    · double (3):
+      ★ACE   # 17 Searburn [Fire/Wind] Lv18  {inferno_jet, cinderwhirl, flicker, scorch_veil}
+      on     #274 Charrock [Fire/Mineral] Lv17  {granite_slam, flicker, stone_slide, stone_throw}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv16  {verdant_orb, pod_blast, fairy_jab, vine_lash}
+    · triple (3):
+      ★ACE   # 17 Searburn [Fire/Wind] Lv18  {inferno_jet, cinderwhirl, flicker, scorch_veil}
+      on     # 16 Cindercula [Fire] Lv17  {inferno_jet, flicker, collide, blitz}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv16  {abyssal_wave, ocean_crash, tidal_rush, tidal_sweep}
+    NG+:
+    · single (6):
+      ★ACE   # 17 Searburn [Fire/Wind] Lv18  {inferno_jet, cinderwhirl, flicker, scorch_veil}
+      ◆DUAL  #  3 Calderaeth [Fire/Draconic] Lv18  {searing_gale, inferno_jet, cinder_lance, flame_fang}
+      on     # 20 Ignirhino [Fire/Earth] Lv17  {tectonic_shift, scorch_kick, firebrand, flame_fang}
+      on     #275 Infernox [Fire/Mineral] Lv17  {inferno_jet, coal_smash, flash_fire, crag_strike}
+      ✖OFF   #161 Mistbane [Poison/Vapor] Lv16  {ooze_bomb, miasma_cloud, acid_burst, septic_prick}
+      ✖OFF   #109 Siroccomane [Wind/Electric] Lv16  {wingbeat, breeze, mistveil, vortex_trap}
+    · double (6):
+      ★ACE   # 17 Searburn [Fire/Wind] Lv18  {inferno_jet, cinderwhirl, flicker, scorch_veil}
+      ◆DUAL  #213 Infriglace [Fire/Ice] Lv18  {caldera_meltdown, solar_flare, pyroclasm, whiteout}
+      on     # 14 Molteroth [Fire/Earth] Lv17  {magma_surge, inferno_jet, molten_claw, flicker}
+      on     # 11 Heliocoon [Fire/Wind] Lv17  {flicker, mandible_bite, fortify, embercloak}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv16  {cold_beam, icicle_smash, aurora_blast, ice_claw}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv16  {psi_strike, draconic_pulse, hydra_dance, ancient_meditation}
+    · triple (6):
+      ★ACE   # 17 Searburn [Fire/Wind] Lv18  {inferno_jet, cinderwhirl, flicker, scorch_veil}
+      ◆DUAL  #358 Psyphoenix [Fire/Mental] Lv18  {solar_flare, psi_strike, synaptic_shatter, neural_storm}
+      on     #422 Tempesteam [Fire/Vapor] Lv17  {inferno_jet, steam_burst, second_wind, boiling_rage}
+      on     #353 Infernotitan [Fire/Toxin] Lv17  {lava_drop, inferno_jet, acrid_claw, venom_fang}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv16  {eclipse_burst, alloy_tail, void_rend, hydra_dance}
+      ✖OFF   #389 Stormcrown [Electric/Sonic] Lv16  {threnody, stormbolt, volt_jet, harmonic_wave}
+
+## GYM 4 — kano
+    BASE:
+    · single (3):
+      ★ACE   #231 Sumokappa [Aquatic/Fighting] Lv22  {tidal_rush, body_check, straight_jab, quick_punch}
+      on     #230 Kappamaru [Aquatic/Fighting] Lv20  {straight_jab, quick_punch, aquatic_gun, collide}
+      ✖OFF   #123 Nocturil [Dark/Poison] Lv18  {dusk_slash, chomp, septic_prick, graze}
+    · double (3):
+      ★ACE   #231 Sumokappa [Aquatic/Fighting] Lv22  {tidal_rush, body_check, straight_jab, quick_punch}
+      on     #182 Rotunden [Normal/Fighting] Lv20  {crushing_bulk, cranial_ram, collide, daunt}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv18  {verdant_orb, pod_blast, fairy_jab, vine_lash}
+    · triple (3):
+      ★ACE   #231 Sumokappa [Aquatic/Fighting] Lv22  {tidal_rush, body_check, straight_jab, quick_punch}
+      on     #184 Ursamight [Normal/Fighting] Lv20  {crushing_bulk, cranial_ram, battle_cry, war_dance}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv18  {abyssal_wave, ocean_crash, tidal_rush, tidal_sweep}
+    NG+:
+    · single (6):
+      ★ACE   #231 Sumokappa [Aquatic/Fighting] Lv22  {tidal_rush, body_check, straight_jab, quick_punch}
+      ◆DUAL  # 56 Deepfreeze [Ice/Fighting] Lv21  {frost_crash, glacial_punch, alloy_tail, forge_blast_2}
+      on     #183 Glutoros [Normal/Fighting] Lv20  {crushing_bulk, body_blow, cranial_ram, battle_cry}
+      on     #184 Ursamight [Normal/Fighting] Lv20  {crushing_bulk, cranial_ram, battle_cry, war_dance}
+      ✖OFF   # 76 Sparkwood [Nature/Electric] Lv19  {volt_surge, sharp_leaves, vine_lash, second_wind}
+      ✖OFF   #243 Stuntrap [Dream/Sonic] Lv18  {drowse_swirl, pulse_wave, echo_pulse, dream_pulse}
+    · double (6):
+      ★ACE   #231 Sumokappa [Aquatic/Fighting] Lv22  {tidal_rush, body_check, straight_jab, quick_punch}
+      ◆DUAL  #281 Cogvex [Metal/Fighting] Lv21  {shockwave_kick, forge_blast_2, straight_jab, quick_punch}
+      on     #458 Tengko [Fighting] Lv20  {sonic_palm, body_check, leg_sweep, battle_cry}
+      on     #450 Jabshell [Fighting] Lv20  {shockwave_kick, sonic_palm, power_drive, body_check}
+      ✖OFF   # 79 Morraveth [Nature/Dark] Lv19  {verdant_orb, dusk_slash, sharp_leaves, slumber_dust}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv18  {cold_beam, icicle_smash, aurora_blast, body_blow}
+    · triple (6):
+      ★ACE   #231 Sumokappa [Aquatic/Fighting] Lv22  {tidal_rush, body_check, straight_jab, quick_punch}
+      ◆DUAL  #428 Zenkaiser [Fighting/Mental] Lv21  {ki_burst, roundhouse, mind_jolt, fighter_s_resolve}
+      on     #426 Pummelo [Fighting] Lv20  {spinning_kick, high_kick, body_check, leg_sweep}
+      on     #230 Kappamaru [Aquatic/Fighting] Lv20  {straight_jab, quick_punch, aquatic_gun, collide}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv19  {psi_strike, draconic_pulse, hydra_dance, ancient_meditation}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv18  {eclipse_burst, alloy_tail, void_rend, serpent_rage}
+
+## GYM 5 — zara
+    BASE:
+    · single (3):
+      ★ACE   #176 Raijolt [Electric/Dark] Lv26  {volt_jet, obsidian_fang, spark_claw, chomp}
+      on     # 83 Voltanox [Electric] Lv25  {volt_jet, bolt_smash, coil_strike, rising_voltage}
+      ✖OFF   # 47 Hexaprowl [Ice] Lv23  {frost_crash, flurries, frequency_blast, graze}
+    · double (3):
+      ★ACE   #176 Raijolt [Electric/Dark] Lv26  {volt_jet, obsidian_fang, spark_claw, chomp}
+      on     #210 Thundermane [Normal/Electric] Lv25  {lightning_rush, volt_jet, crushing_bulk, bolt_smash}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv23  {abyssal_wave, ocean_crash, tidal_rush, tidal_sweep}
+    · triple (3):
+      ★ACE   #176 Raijolt [Electric/Dark] Lv26  {volt_jet, obsidian_fang, spark_claw, chomp}
+      on     # 81 Joltan [Electric] Lv25  {volt_jet, static_strike, shock_pulse, jolt}
+      ✖OFF   #149 Eternarmor [Metal] Lv23  {alloy_tail, forge_strike, forge_blast_2, chrome_claw}
+    NG+:
+    · single (6):
+      ★ACE   #176 Raijolt [Electric/Dark] Lv26  {volt_jet, obsidian_fang, spark_claw, chomp}
+      ◆DUAL  #109 Siroccomane [Wind/Electric] Lv25  {wind_scythe, wingbeat, breeze, mistveil}
+      on     #210 Thundermane [Normal/Electric] Lv25  {lightning_rush, volt_jet, crushing_bulk, bolt_smash}
+      on     # 76 Sparkwood [Nature/Electric] Lv24  {verdant_orb, volt_surge, sharp_leaves, vine_lash}
+      ✖OFF   #165 Lepidox [Poison/Wind] Lv24  {ooze_bomb, tailwind_strike, breeze, toxic_surge}
+      ✖OFF   #161 Mistbane [Poison/Vapor] Lv23  {ooze_bomb, miasma_cloud, caustic_shock, blight_mist}
+    · double (6):
+      ★ACE   #176 Raijolt [Electric/Dark] Lv26  {volt_jet, obsidian_fang, spark_claw, chomp}
+      ◆DUAL  #151 Amperpede [Metal/Electric] Lv25  {volt_jet, flywheel, chrome_slash, necrotic_pulse}
+      on     # 82 Galvanos [Electric] Lv25  {lightning_rush, volt_jet, volt_fang, chain_spark}
+      on     #386 Wraithstorm [Electric/Spectral] Lv24  {jolt, wraith_claw, nether_sphere, phantom_claw}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv24  {tundra_tomb, cold_beam, icicle_smash, aurora_blast}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv23  {psi_strike, wyrm_strike, draconic_pulse, hydra_dance}
+    · triple (6):
+      ★ACE   #176 Raijolt [Electric/Dark] Lv26  {volt_jet, obsidian_fang, spark_claw, chomp}
+      ◆DUAL  # 46 Gelseal [Ice/Electric] Lv25  {cold_beam, cryo_lance, frost_bite, frigid_jab}
+      on     #393 Nullstorm [Dark/Electric] Lv25  {void_rend, nether_sphere, jolt, shade_dash}
+      on     #246 Megavolt [Electric] Lv24  {stormbolt, lightning_rush, galvanic_burst, chain_spark}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv24  {eclipse_burst, alloy_tail, void_rend, phantom_claw}
+      ✖OFF   #377 Abyssforge [Earth/Mineral] Lv23  {fissure_slam, geoblast, mineral_jab, fortify}
+
+## GYM 6 — glacier
+    BASE:
+    · single (4):
+      ★ACE   #239 Blizzariel [Ice] Lv30  {whiteout, cold_beam, frost_crash, hail_barrage}
+      ◆DUAL  #305 Yetigeist [Earth/Ice] Lv29  {crag_strike, cold_beam, cryo_lance, sandstrike}
+      on     #238 Snowble [Ice] Lv29  {cold_beam, cryo_lance, cold_snap, flurries}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv28  {verdant_orb, pod_blast, faewind, fairy_jab}
+    · double (4):
+      ★ACE   #239 Blizzariel [Ice] Lv30  {whiteout, cold_beam, frost_crash, hail_barrage}
+      ◆DUAL  # 56 Deepfreeze [Ice/Fighting] Lv29  {frost_crash, cryo_plate, ice_resonance, glacial_punch}
+      on     # 47 Hexaprowl [Ice] Lv29  {cold_beam, frost_crash, flurries, frequency_blast}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv28  {abyssal_wave, ocean_crash, tidal_rush, tidal_sweep}
+    · triple (4):
+      ★ACE   #239 Blizzariel [Ice] Lv30  {whiteout, cold_beam, frost_crash, hail_barrage}
+      ◆DUAL  #304 Yeticub [Earth/Ice] Lv29  {cold_beam, stone_slide, stone_throw, flurries}
+      on     #196 Frigolith [Ice/Mineral] Lv29  {cold_beam, icicle_smash, flurries, stone_slide}
+      ✖OFF   #149 Eternarmor [Metal] Lv28  {alloy_tail, forge_strike, forge_blast_2, chrome_claw}
+    NG+:
+    · single (6):
+      ★ACE   #239 Blizzariel [Ice] Lv30  {whiteout, cold_beam, frost_crash, hail_barrage}
+      ◆DUAL  #305 Yetigeist [Earth/Ice] Lv30  {whiteout, crag_strike, cold_beam, cryo_lance}
+      on     #418 Frostmarion [Ice/Spectral] Lv29  {specter_pulse, phantom_beam, borealis_ray, ghost_pulse}
+      on     # 51 Bergyak [Ice/Normal] Lv29  {cold_beam, flurries, winter_shroud, fortify}
+      ✖OFF   #207 Sorrowlix [Poison/Draconic] Lv28  {ooze_bomb, draconic_pulse, draconic_claw, toxify}
+      ✖OFF   #249 Boulderax [Earth] Lv28  {crag_strike, geoblast, stone_slide, prism_blow}
+    · double (6):
+      ★ACE   #239 Blizzariel [Ice] Lv30  {whiteout, cold_beam, frost_crash, hail_barrage}
+      ◆DUAL  # 56 Deepfreeze [Ice/Fighting] Lv30  {frost_crash, cryo_plate, ice_resonance, glacial_punch}
+      on     # 48 Hailgorge [Ice] Lv29  {cold_beam, frost_crash, cryo_plate, glacial_punch}
+      on     #395 Glacierend [Ice/Normal] Lv29  {tundra_tomb, cold_beam, cryogenic_breath, icicle_smash}
+      ✖OFF   #219 Nightmont [Dark] Lv28  {void_pulse, dusk_slash, aether_pulse, eclipse_shroud}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv28  {psi_strike, wyrm_strike, draconic_pulse, hydra_dance}
+    · triple (6):
+      ★ACE   #239 Blizzariel [Ice] Lv30  {whiteout, cold_beam, frost_crash, hail_barrage}
+      ◆DUAL  # 43 Boreon [Ice/Aquatic] Lv30  {cold_beam, flurries, aquatic_gun, void_wail}
+      on     #374 Auroratusk [Ice/Normal] Lv29  {cold_beam, cryo_lance, cold_snap, war_dance}
+      on     #419 Pallidoll [Ice/Spectral] Lv29  {specter_pulse, phantom_beam, borealis_ray, eidolon_dance}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv28  {eclipse_burst, alloy_tail, void_rend, shadow_lance}
+      ✖OFF   #389 Stormcrown [Electric/Sonic] Lv28  {volt_jet, resonate, discord, jolt}
+
+## GYM 7 — marl
+    BASE:
+    · single (4):
+      ★ACE   #329 Skullmite [Nature/Mineral] Lv34  {gem_storm, emerald_blade, granite_slam, mandible_bite}
+      ◆DUAL  #275 Infernox [Fire/Mineral] Lv33  {lava_drop, pyroclasm, inferno_jet, coal_smash}
+      on     #193 Cliffpinch [Aquatic/Mineral] Lv31  {claw_hammer, granite_press, emerald_blade, granite_slam}
+      ✖OFF   #132 Volcascale [Earth/Dark] Lv30  {landslide, jaw_crush, stone_slide, chomp}
+    · double (4):
+      ★ACE   #329 Skullmite [Nature/Mineral] Lv34  {gem_storm, emerald_blade, granite_slam, mandible_bite}
+      ◆DUAL  #251 Crumblite [Metal/Mineral] Lv33  {ferrous_gale, pyro_alloy, forge_blast_2, counterforge}
+      on     #194 Lithomere [Aquatic/Mineral] Lv31  {claw_hammer, tidal_sweep, calcite_resonance, riptide_slam}
+      ✖OFF   # 63 Sporix [Nature] Lv30  {verdant_orb, vine_lash, ooze_bomb, gem_scatter}
+    · triple (4):
+      ★ACE   #329 Skullmite [Nature/Mineral] Lv34  {gem_storm, emerald_blade, granite_slam, mandible_bite}
+      ◆DUAL  #168 Gemseer [Mental/Mineral] Lv33  {mental, crystal_glow, psi_burst, mind_jolt}
+      on     #367 Bouldertide [Aquatic/Mineral] Lv31  {granite_slam, tidal_rush, topaz_beam, aquatic_gun}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv30  {verdant_orb, pod_blast, faewind, fairy_jab}
+    NG+:
+    · single (6):
+      ★ACE   #329 Skullmite [Nature/Mineral] Lv34  {gem_storm, emerald_blade, granite_slam, mandible_bite}
+      ◆DUAL  #436 Cragfist [Fighting/Mineral] Lv33  {cobble_smash, ore_punch, body_check, mineral_jab}
+      on     #367 Bouldertide [Aquatic/Mineral] Lv32  {granite_slam, tidal_rush, topaz_beam, aquatic_gun}
+      on     #194 Lithomere [Aquatic/Mineral] Lv32  {claw_hammer, tidal_sweep, calcite_resonance, riptide_slam}
+      ✖OFF   #161 Mistbane [Poison/Vapor] Lv31  {ooze_bomb, root_toxin, corrosive_rain, miasma_cloud}
+      ✖OFF   #109 Siroccomane [Wind/Electric] Lv30  {typhoon, wind_scythe, wingbeat, breeze}
+    · double (6):
+      ★ACE   #329 Skullmite [Nature/Mineral] Lv34  {gem_storm, emerald_blade, granite_slam, mandible_bite}
+      ◆DUAL  #424 Geodon [Metal/Mineral] Lv33  {cobble_smash, shard_burst, ore_punch, chrome_claw}
+      on     #193 Cliffpinch [Aquatic/Mineral] Lv32  {claw_hammer, granite_press, emerald_blade, granite_slam}
+      on     #435 Knucklite [Mineral] Lv32  {granite_slam, ore_punch, lode_strike, mineral_jab}
+      ✖OFF   #249 Boulderax [Earth] Lv31  {crag_strike, tectonic_shift, geoblast, stone_slide}
+      ✖OFF   #243 Stuntrap [Dream/Sonic] Lv30  {drowse_swirl, trance_wave, resonate, pulse_wave}
+    · triple (6):
+      ★ACE   #329 Skullmite [Nature/Mineral] Lv34  {gem_storm, emerald_blade, granite_slam, mandible_bite}
+      ◆DUAL  #252 Stonegrip [Metal/Mineral] Lv33  {alloy_tail, pyro_alloy, forge_blast_2, counterforge}
+      on     #448 Cobblepup [Mineral] Lv32  {calcite_resonance, cobble_smash, ore_punch, lode_strike}
+      on     #423 Pebblite [Mineral] Lv32  {calcite_resonance, cobble_smash, crystal_shard, shard_burst}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv31  {tundra_tomb, cold_beam, cryogenic_breath, ice_resonance}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv30  {psi_strike, synaptic_shatter, wyrm_strike, draconic_pulse}
+
+## GYM 8 — nyx
+    BASE:
+    · single (4):
+      ★ACE   #324 Chittering [Nature/Dark] Lv38  {void_rend, resonance_hum, umbral_claw, mandible_bite}
+      ◆DUAL  #124 Phantorvex [Dark/Poison] Lv37  {ooze_bomb, jaw_crush, obsidian_fang, chomp}
+      on     #131 Necrothon [Dark/Nature] Lv36  {void_pulse, pod_blast, chomp, vine_lash}
+      ✖OFF   #230 Kappamaru [Aquatic/Fighting] Lv35  {straight_jab, quick_punch, aquatic_gun, wave_dash}
+    · double (4):
+      ★ACE   #324 Chittering [Nature/Dark] Lv38  {void_rend, resonance_hum, umbral_claw, mandible_bite}
+      ◆DUAL  #312 Dunecrawl [Earth/Dark] Lv37  {tectonic_shift, geoblast, dusk_slash, bone_cudgel}
+      on     #218 Duskmist [Dark] Lv36  {void_pulse, jaw_crush, dusk_slash, chomp}
+      ✖OFF   #149 Eternarmor [Metal] Lv35  {alloy_tail, forge_strike, forge_blast_2, chrome_claw}
+    · triple (4):
+      ★ACE   #324 Chittering [Nature/Dark] Lv38  {void_rend, resonance_hum, umbral_claw, mandible_bite}
+      ◆DUAL  #121 Spiraloom [Dark/Wind] Lv37  {soul_rend, void_rend, void_pulse, nether_sphere}
+      on     #271 Murkrat [Dark/Normal] Lv36  {void_pulse, dusk_slash, chomp, collide}
+      ✖OFF   #  3 Calderaeth [Fire/Draconic] Lv35  {pyroclastic_burst, searing_gale, inferno_jet, cinder_lance}
+    NG+:
+    · single (6):
+      ★ACE   #324 Chittering [Nature/Dark] Lv38  {void_rend, resonance_hum, umbral_claw, mandible_bite}
+      ◆DUAL  #430 Drowsetapir [Dark/Dream] Lv37  {lullaby_strike, reverie_charge, void_pulse, lucid_beam}
+      on     #371 Nullform [Dark/Normal] Lv37  {void_rend, crushing_bulk, nether_sphere, cranial_ram}
+      on     #271 Murkrat [Dark/Normal] Lv36  {void_pulse, dusk_slash, chomp, collide}
+      ✖OFF   #173 Cobravyrm [Draconic] Lv36  {draconic_pulse, draconic_claw, draconic_breath, iron_press}
+      ✖OFF   #167 Psymastiff [Mental] Lv35  {psy_blast, mental, noetic_burst, sixth_sense}
+    · double (6):
+      ★ACE   #324 Chittering [Nature/Dark] Lv38  {void_rend, resonance_hum, umbral_claw, mandible_bite}
+      ◆DUAL  #133 Monolithox [Earth/Dark] Lv37  {landslide, jaw_crush, void_pulse, stone_slide}
+      on     #131 Necrothon [Dark/Nature] Lv37  {void_pulse, pod_blast, chomp, vine_lash}
+      on     #290 Guisecat [Normal/Dark] Lv36  {crushing_bulk, nether_sphere, phantom_claw, collide}
+      ✖OFF   # 38 Titanariel [Aquatic/Metal] Lv36  {tidal_sweep, forge_blast_2, aquatic_gun, silent_strike}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv35  {tundra_tomb, frostbite_strike, cold_beam, cryogenic_breath}
+    · triple (6):
+      ★ACE   #324 Chittering [Nature/Dark] Lv38  {void_rend, resonance_hum, umbral_claw, mandible_bite}
+      ◆DUAL  #122 Caveshroud [Dark/Wind] Lv37  {void_pulse, nether_sphere, wind_scythe, wingbeat}
+      on     #270 Eclipsoon [Dark/Fairy] Lv37  {eclipse_burst, misty_explosion, soul_rend, lunar_burst}
+      on     #120 Nightwolf [Dark] Lv36  {jaw_crush, void_pulse, dusk_slash, chomp}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv36  {abyss_ray, psi_strike, synaptic_shatter, wyrm_strike}
+      ✖OFF   #389 Stormcrown [Electric/Sonic] Lv35  {volt_jet, harmonic_wave, resonate, discord}
+
+## GYM 9 — oracle
+    BASE:
+    · single (4):
+      ★ACE   #427 Brawlmonk [Fighting/Mental] Lv46  {iron_fist, ki_burst, cortex_ram, martial_aura}
+      ◆DUAL  #142 Dawnirel [Fairy/Mental] Lv45  {neural_storm, glitter_storm, lunar_burst, mental}
+      on     #226 Spectroo [Normal/Mental] Lv44  {lumiwave, mental, radiant_burst_2, aural_ray}
+      ✖OFF   #302 Lightpuff [Fairy] Lv43  {lunar_burst, glitter_storm, celestial_wave, prism_flare}
+    · double (4):
+      ★ACE   #427 Brawlmonk [Fighting/Mental] Lv46  {iron_fist, ki_burst, cortex_ram, martial_aura}
+      ◆DUAL  #128 Cranivade [Mental/Spectral] Lv45  {neural_storm, psi_strike, mental, ectoplasm_wave}
+      on     #223 Recallum [Mental] Lv44  {psi_strike, mental, psi_burst, lunar_burst}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv43  {verdant_surge, verdant_orb, celestial_wave, pod_blast}
+    · triple (4):
+      ★ACE   #427 Brawlmonk [Fighting/Mental] Lv46  {iron_fist, ki_burst, cortex_ram, martial_aura}
+      ◆DUAL  #168 Gemseer [Mental/Mineral] Lv45  {mental, crystal_glow, psi_burst, mind_jolt}
+      on     #259 Lumejell [Aquatic/Mental] Lv44  {tsunami, tidal_rush, mental, psi_burst}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv43  {abyssal_wave, ocean_crash, tsunami, ocean_tempest}
+    NG+:
+    · single (6):
+      ★ACE   #427 Brawlmonk [Fighting/Mental] Lv46  {iron_fist, ki_burst, cortex_ram, martial_aura}
+      ◆DUAL  #127 Wraithfox [Dark/Mental] Lv45  {astral_rend, void_pulse, nether_sphere, dreamweave}
+      on     #223 Recallum [Mental] Lv45  {psi_strike, mental, psi_burst, lunar_burst}
+      on     #428 Zenkaiser [Fighting/Mental] Lv44  {heaven_strike, iron_fist, galaxy_punch_2, ki_burst}
+      ✖OFF   #322 Sepsishade [Poison/Spectral] Lv44  {venom_drown, ooze_bomb, necrotic_pulse, ghastly_wail}
+      ✖OFF   #323 Toxicore [Poison/Fire] Lv43  {searing_gale, inferno_jet, ooze_bomb, venom_lance}
+    · double (6):
+      ★ACE   #427 Brawlmonk [Fighting/Mental] Lv46  {iron_fist, ki_burst, cortex_ram, martial_aura}
+      ◆DUAL  #129 Cerebraith [Mental/Spectral] Lv45  {psi_strike, eternal_haunt, revenant_charge, mental}
+      on     #363 Chromaton [Normal/Mental] Lv45  {radiance_cannon, psi_strike, mental, crushing_bulk}
+      on     #388 Chronolith [Earth/Mental] Lv44  {psi_strike, mental, fossil_rush, stone_slide}
+      ✖OFF   #415 Grindworm [Earth/Toxin] Lv44  {tectonic_shift, corrosive_burst, venom_thrust, coiled_lunge}
+      ✖OFF   #161 Mistbane [Poison/Vapor] Lv43  {ooze_bomb, root_toxin, corrosive_rain, miasma_cloud}
+    · triple (6):
+      ★ACE   #427 Brawlmonk [Fighting/Mental] Lv46  {iron_fist, ki_burst, cortex_ram, martial_aura}
+      ◆DUAL  #404 Auguryx [Draconic/Mental] Lv45  {abyss_ray, psi_strike, synaptic_shatter, scale_storm}
+      on     #354 Riftwhale [Aquatic/Mental] Lv45  {tsunami, psi_strike, sea_serpent_strike, tidal_rush}
+      on     #259 Lumejell [Aquatic/Mental] Lv44  {tsunami, tidal_rush, mental, psi_burst}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv44  {whiteout, tundra_tomb, frostbite_strike, cold_beam}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv43  {eclipse_burst, alloy_tail, void_rend, nightmare_smash}
+
+## GYM 10 — drake
+    BASE:
+    · single (4):
+      ★ACE   #174 Chromedrake [Draconic/Metal] Lv50  {tungsten_wrath, rampage, scale_crash, titan_blade}
+      ◆DUAL  #233 Serpenthorn [Draconic/Earth] Lv49  {tectonic_shift, geoblast, draconic_pulse, draconic_claw}
+      on     #173 Cobravyrm [Draconic] Lv48  {rampage, scale_storm, drake_rush, radiance_cannon}
+      ✖OFF   #278 Ironpix [Metal/Fairy] Lv47  {alloy_tail, lunar_burst, forge_blast_2, prism_flare}
+    · double (4):
+      ★ACE   #174 Chromedrake [Draconic/Metal] Lv50  {tungsten_wrath, rampage, scale_crash, titan_blade}
+      ◆DUAL  # 59 Lunaveris [Ice/Draconic] Lv49  {whiteout, scale_storm, cold_beam, frost_crash}
+      on     #232 Serphaxon [Draconic] Lv48  {draconic_pulse, draconic_claw, draconic_breath, tectonic_shift}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv47  {verdant_surge, petal_blitz, verdant_orb, celestial_wave}
+    · triple (4):
+      ★ACE   #174 Chromedrake [Draconic/Metal] Lv50  {tungsten_wrath, rampage, scale_crash, titan_blade}
+      ◆DUAL  #206 Forlix [Poison/Draconic] Lv49  {ooze_bomb, draconic_pulse, draconic_claw, draconic_breath}
+      on     #172 Scalurin [Draconic] Lv48  {cataclysm_breath, rampage, draconic_pulse, draconic_claw}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv47  {abyssal_wave, ocean_crash, tsunami, ocean_tempest}
+    NG+:
+    · single (6):
+      ★ACE   #174 Chromedrake [Draconic/Metal] Lv50  {tungsten_wrath, rampage, scale_crash, titan_blade}
+      ◆DUAL  #403 Dracomind [Draconic/Mental] Lv49  {psi_strike, mental, wyrm_strike, draconic_claw}
+      on     #173 Cobravyrm [Draconic] Lv49  {rampage, scale_storm, drake_rush, radiance_cannon}
+      on     #232 Serphaxon [Draconic] Lv48  {draconic_pulse, draconic_claw, draconic_breath, tectonic_shift}
+      ✖OFF   #439 Seraphene [Fairy/Sonic] Lv48  {harmonic_burst, lunar_burst, prism_flare, resonate}
+      ✖OFF   #461 Resonethe [Mental/Sonic] Lv47  {threnody, resonance_quake, harmonic_burst, mental}
+    · double (6):
+      ★ACE   #174 Chromedrake [Draconic/Metal] Lv50  {tungsten_wrath, rampage, scale_crash, titan_blade}
+      ◆DUAL  #233 Serpenthorn [Draconic/Earth] Lv49  {tectonic_shift, geoblast, draconic_pulse, draconic_claw}
+      on     #172 Scalurin [Draconic] Lv49  {cataclysm_breath, rampage, draconic_pulse, draconic_claw}
+      on     #173 Cobravyrm [Draconic] Lv48  {rampage, scale_storm, drake_rush, radiance_cannon}
+      ✖OFF   #455 Knellgeist [Metal/Spectral] Lv48  {soul_burst, plasma_smelt, specter_pulse, void_wail}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv47  {whiteout, tundra_tomb, frostbite_strike, cold_beam}
+    · triple (6):
+      ★ACE   #174 Chromedrake [Draconic/Metal] Lv50  {tungsten_wrath, rampage, scale_crash, titan_blade}
+      ◆DUAL  #288 Majesticore [Draconic/Fairy] Lv49  {fairy_blast, radiant_burst, lunar_burst, roughhouse}
+      on     #173 Cobravyrm [Draconic] Lv49  {rampage, scale_storm, drake_rush, radiance_cannon}
+      on     #232 Serphaxon [Draconic] Lv48  {draconic_pulse, draconic_claw, draconic_breath, tectonic_shift}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv48  {wraith_drive, eclipse_burst, alloy_tail, void_rend}
+      ✖OFF   #389 Stormcrown [Electric/Sonic] Lv47  {stormbolt, volt_jet, harmonic_wave, resonate}
+
+## GYM 11 — thorne
+    BASE:
+    · single (5):
+      ★ACE   #265 Mosshop [Nature/Wind] Lv54  {resonance_hum, verdant_orb, swarm_strike, locust_fury}
+      on     #  8 Barknell [Nature] Lv54  {verdant_surge, petal_blitz, verdant_orb, canopy_crash}
+      on     #199 Aeridaleth [Nature/Wind] Lv53  {resonance_hum, cocoon_burst, shear_strike, sonic_buzz}
+      ✖OFF   #  5 Cobaleap [Aquatic] Lv53  {tsunami, tidal_crush, claw_hammer, tidal_sweep}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv52  {abyssal_wave, ocean_crash, tsunami, ocean_tempest}
+    · double (5):
+      ★ACE   #265 Mosshop [Nature/Wind] Lv54  {resonance_hum, verdant_orb, swarm_strike, locust_fury}
+      on     # 65 Plaguecap [Nature/Poison] Lv54  {verdant_surge, petal_blitz, sludge_wave, verdant_orb}
+      on     #260 Sproutix [Nature] Lv53  {jungle_hammer, petal_blitz, verdant_orb, sky_harvest}
+      ✖OFF   #149 Eternarmor [Metal] Lv53  {anvil_drop, alloy_tail, forge_strike, iron_press}
+      ✖OFF   #  3 Calderaeth [Fire/Draconic] Lv52  {pyroclastic_burst, pyroclasm, eon_crash, conflagration}
+    · triple (5):
+      ★ACE   #265 Mosshop [Nature/Wind] Lv54  {resonance_hum, verdant_orb, swarm_strike, locust_fury}
+      on     # 64 Myceloth [Nature] Lv54  {sun_ray, jungle_hammer, verdant_orb, canopy_crash}
+      on     #  7 Saurbud [Nature] Lv53  {petal_blitz, verdant_orb, pod_blast, sharp_leaves}
+      ✖OFF   #268 Darkfang [Dark/Spectral] Lv53  {soul_rend, void_pulse, nether_sphere, dusk_slash}
+      ✖OFF   #144 Moonseraph [Fairy/Mental] Lv52  {supernova_glow, prophecy, starlit_radiance, fae_requiem}
+    NG+:
+    · single (6):
+      ★ACE   #265 Mosshop [Nature/Wind] Lv54  {resonance_hum, verdant_orb, swarm_strike, locust_fury}
+      ◆DUAL  #447 Fumycet [Nature/Vapor] Lv54  {smog_drill, verdant_orb, corrosive_fog, pod_blast}
+      on     #390 Necrobloom [Nature/Poison] Lv53  {fae_requiem, synaptic_shatter, void_rend, nether_sphere}
+      on     # 65 Plaguecap [Nature/Poison] Lv53  {verdant_surge, petal_blitz, sludge_wave, verdant_orb}
+      ✖OFF   #332 Glacicore [Ice/Metal] Lv52  {alloy_tail, cold_beam, cryo_lance, forge_blast_2}
+      ✖OFF   #339 Dynascarab [Electric/Sonic] Lv52  {volt_jet, volt_surge, jolt, resonance_hum}
+    · double (6):
+      ★ACE   #265 Mosshop [Nature/Wind] Lv54  {resonance_hum, verdant_orb, swarm_strike, locust_fury}
+      ◆DUAL  #311 Marshix [Aquatic/Nature] Lv54  {ocean_crash, tsunami, claw_hammer, tidal_rush}
+      on     #  8 Barknell [Nature] Lv53  {verdant_surge, petal_blitz, verdant_orb, canopy_crash}
+      on     #326 Nectartrap [Nature/Poison] Lv53  {verdant_surge, verdant_orb, ooze_bomb, root_lance}
+      ✖OFF   #333 Voltafang [Electric/Dark] Lv52  {stormbolt, void_rend, volt_jet, nether_sphere}
+      ✖OFF   #335 Frostprowl [Ice/Wind] Lv52  {whiteout, cold_beam, cryo_lance, wind_scythe}
+    · triple (6):
+      ★ACE   #265 Mosshop [Nature/Wind] Lv54  {resonance_hum, verdant_orb, swarm_strike, locust_fury}
+      ◆DUAL  # 74 Faevernal [Fairy/Nature] Lv54  {verdant_surge, fae_requiem, petal_blitz, lunar_burst}
+      on     #260 Sproutix [Nature] Lv53  {jungle_hammer, petal_blitz, verdant_orb, sky_harvest}
+      on     #199 Aeridaleth [Nature/Wind] Lv53  {resonance_hum, cocoon_burst, shear_strike, sonic_buzz}
+      ✖OFF   #449 Oredigger [Dark/Mineral] Lv52  {abyssal_wave, obsidian_strike, cobble_smash, throat_chop}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv52  {whiteout, tundra_tomb, frostbite_strike, avalanche_drive}
+
+## GYM 12 — acrid
+    BASE:
+    · single (5):
+      ★ACE   #353 Infernotitan [Fire/Toxin] Lv58  {lava_drop, tainted_breath, solar_flare, pyroclasm}
+      on     #300 Nettlebarb [Toxin/Sonic] Lv57  {threnody, resonance_quake, corrosive_finish, toxin_smash}
+      on     #163 Blightalis [Nature/Toxin] Lv56  {blossom_frenzy, sun_ray, jungle_hammer, petal_blitz}
+      ✖OFF   #193 Cliffpinch [Aquatic/Mineral] Lv55  {torrent_shell, ocean_crash, basalt_eruption, claw_hammer}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv54  {abyssal_wave, ocean_crash, tsunami, ocean_tempest}
+    · double (5):
+      ★ACE   #353 Infernotitan [Fire/Toxin] Lv58  {lava_drop, tainted_breath, solar_flare, pyroclasm}
+      on     #299 Resinbee [Toxin/Sonic] Lv57  {threnody, resonance_quake, corrosive_finish, toxin_smash}
+      on     #162 Marlix [Nature/Toxin] Lv56  {sun_ray, corrosive_finish, jungle_hammer, toxin_smash}
+      ✖OFF   #149 Eternarmor [Metal] Lv55  {anvil_drop, alloy_tail, forge_strike, iron_press}
+      ✖OFF   #  3 Calderaeth [Fire/Draconic] Lv54  {pyroclastic_burst, pyroclasm, eon_crash, conflagration}
+    · triple (5):
+      ★ACE   #353 Infernotitan [Fire/Toxin] Lv58  {lava_drop, tainted_breath, solar_flare, pyroclasm}
+      on     #441 Corrodon [Electric/Toxin] Lv57  {malignant_storm, venom_thrust, galvanic_burst, plasma_strike}
+      on     #440 Rustmite [Toxin] Lv56  {coiled_lunge, septic_bite, venom_fang, toxic_sting}
+      ✖OFF   #268 Darkfang [Dark/Spectral] Lv55  {soul_rend, void_pulse, nether_sphere, phantom_claw}
+      ✖OFF   #144 Moonseraph [Fairy/Mental] Lv54  {supernova_glow, prophecy, starlit_radiance, fae_requiem}
+    NG+:
+    · single (6):
+      ★ACE   #353 Infernotitan [Fire/Toxin] Lv58  {lava_drop, tainted_breath, solar_flare, pyroclasm}
+      ◆DUAL  #355 Nadiril [Aquatic/Toxin] Lv57  {tsunami, tidal_crush, virulent_storm, sea_serpent_strike}
+      on     #441 Corrodon [Electric/Toxin] Lv56  {malignant_storm, venom_thrust, galvanic_burst, plasma_strike}
+      on     #300 Nettlebarb [Toxin/Sonic] Lv56  {threnody, resonance_quake, corrosive_finish, toxin_smash}
+      ✖OFF   #330 Sludgejaw [Aquatic/Poison] Lv55  {tsunami, tidal_crush, sludge_wave, ooze_bomb}
+      ✖OFF   #421 Geyserook [Fire/Vapor] Lv54  {nimbus_eruption, inferno_jet, cloud_blast, burning_mist}
+    · double (6):
+      ★ACE   #353 Infernotitan [Fire/Toxin] Lv58  {lava_drop, tainted_breath, solar_flare, pyroclasm}
+      ◆DUAL  #416 Sandscourge [Earth/Toxin] Lv57  {toxin_smash, malignant_storm, tectonic_shift, corrosive_burst}
+      on     #163 Blightalis [Nature/Toxin] Lv56  {blossom_frenzy, sun_ray, jungle_hammer, petal_blitz}
+      on     #299 Resinbee [Toxin/Sonic] Lv56  {threnody, resonance_quake, corrosive_finish, toxin_smash}
+      ✖OFF   #325 Dunespike [Earth/Poison] Lv55  {fissure_slam, geoblast, ooze_bomb, venom_lance}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv54  {whiteout, tundra_tomb, frostbite_strike, avalanche_drive}
+    · triple (6):
+      ★ACE   #353 Infernotitan [Fire/Toxin] Lv58  {lava_drop, tainted_breath, solar_flare, pyroclasm}
+      ◆DUAL  #263 Tendrilisk [Fighting/Toxin] Lv57  {heaven_strike, acid_press, iron_cleave, roar_strike}
+      on     #440 Rustmite [Toxin] Lv56  {coiled_lunge, septic_bite, venom_fang, toxic_sting}
+      on     #162 Marlix [Nature/Toxin] Lv56  {sun_ray, corrosive_finish, jungle_hammer, toxin_smash}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv55  {abyss_ray, psi_strike, synaptic_shatter, neural_storm}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv54  {wraith_drive, eclipse_burst, alloy_tail, void_rend}
+
+## GYM 13 — viper
+    BASE:
+    · single (5):
+      ★ACE   #390 Necrobloom [Nature/Poison] Lv62  {fae_requiem, synaptic_shatter, neural_storm, mantis_slash}
+      on     #208 Wyrmvenom [Poison/Draconic] Lv62  {rampage, ancient_breath, sludge_wave, venom_lance}
+      on     # 62 Gelquill [Ice/Poison] Lv61  {whiteout, avalanche_drive, cold_beam, ooze_bomb}
+      ✖OFF   #193 Cliffpinch [Aquatic/Mineral] Lv61  {torrent_shell, ocean_crash, basalt_eruption, claw_hammer}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv60  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+    · double (5):
+      ★ACE   #390 Necrobloom [Nature/Poison] Lv62  {fae_requiem, synaptic_shatter, neural_storm, mantis_slash}
+      on     #207 Sorrowlix [Poison/Draconic] Lv62  {rampage, sludge_wave, ooze_bomb, radiance_cannon}
+      on     #155 Toxirin [Poison] Lv61  {venom_drown, sludge_wave, ooze_bomb, root_toxin}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv61  {abyssal_wave, ocean_crash, tsunami, ocean_tempest}
+      ✖OFF   #149 Eternarmor [Metal] Lv60  {anvil_drop, alloy_tail, forge_strike, iron_press}
+    · triple (5):
+      ★ACE   #390 Necrobloom [Nature/Poison] Lv62  {fae_requiem, synaptic_shatter, neural_storm, mantis_slash}
+      on     #171 Nagaseer [Mental/Poison] Lv62  {psi_strike, venom_mind, sludge_wave, mental}
+      on     #165 Lepidox [Poison/Wind] Lv61  {ooze_bomb, acid_rain, wind_scythe, putrid_pulse}
+      ✖OFF   #  3 Calderaeth [Fire/Draconic] Lv61  {pyroclastic_burst, solar_flare, rampage, pyroclasm}
+      ✖OFF   #268 Darkfang [Dark/Spectral] Lv60  {reaper_scythe, soul_rend, void_pulse, nether_sphere}
+    NG+:
+    · single (6):
+      ★ACE   #390 Necrobloom [Nature/Poison] Lv62  {fae_requiem, synaptic_shatter, neural_storm, mantis_slash}
+      ◆DUAL  #283 Rustpike [Metal/Poison] Lv62  {alloy_tail, ooze_bomb, forge_strike, forge_blast_2}
+      on     #208 Wyrmvenom [Poison/Draconic] Lv61  {rampage, sludge_wave, venom_lance, draconic_pulse}
+      on     #171 Nagaseer [Mental/Poison] Lv61  {psi_strike, venom_mind, sludge_wave, mental}
+      ✖OFF   #358 Psyphoenix [Fire/Mental] Lv60  {solar_flare, psi_strike, synaptic_shatter, neural_storm}
+      ✖OFF   #457 Vaporlotl [Aquatic/Vapor] Lv60  {mist_press, nimbus_eruption, tidal_sweep, tidal_rush}
+    · double (6):
+      ★ACE   #390 Necrobloom [Nature/Poison] Lv62  {fae_requiem, synaptic_shatter, neural_storm, mantis_slash}
+      ◆DUAL  #443 Miasmire [Poison/Vapor] Lv62  {nimbus_flood, cloud_smash, ooze_bomb, corrosive_fog}
+      on     #336 Coilstrike [Electric/Poison] Lv61  {stormbolt, volt_jet, ooze_bomb, volt_surge}
+      on     # 62 Gelquill [Ice/Poison] Lv61  {whiteout, avalanche_drive, cold_beam, ooze_bomb}
+      ✖OFF   #445 Sentrike [Normal/Sonic] Lv60  {crushing_bulk, decibel_burst, skyboom_strike, wail}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv60  {starlight_obliteration, void_dominion, wraith_drive, eclipse_burst}
+    · triple (6):
+      ★ACE   #390 Necrobloom [Nature/Poison] Lv62  {fae_requiem, synaptic_shatter, neural_storm, mantis_slash}
+      ◆DUAL  #159 Dissotoad [Poison/Earth] Lv62  {tectonic_shift, sludge_wave, geoblast, ooze_bomb}
+      on     #165 Lepidox [Poison/Wind] Lv61  {ooze_bomb, acid_rain, wind_scythe, putrid_pulse}
+      on     #207 Sorrowlix [Poison/Draconic] Lv61  {rampage, sludge_wave, ooze_bomb, radiance_cannon}
+      ✖OFF   #389 Stormcrown [Electric/Sonic] Lv60  {threnody, stormbolt, volt_jet, harmonic_wave}
+      ✖OFF   #343 Shadowreave [Dark/Spectral] Lv60  {spirit_calamity, abyssal_dominion, reaper_scythe, void_rend}
+
+## GYM 14 — atlas
+    BASE:
+    · single (5):
+      ★ACE   #361 Tectoshell [Earth/Nature] Lv66  {continental_shift, fissure_slam, geoblast, verdant_orb}
+      on     #249 Boulderax [Earth] Lv66  {bedrock_slam, crag_strike, tectonic_shift, geoblast}
+      on     #192 Boulderoll [Earth] Lv65  {crag_strike, tectonic_shift, landslide, geoblast}
+      ✖OFF   #223 Recallum [Mental] Lv65  {psi_strike, neural_storm, mental, astral_rend}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv64  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+    · double (5):
+      ★ACE   #361 Tectoshell [Earth/Nature] Lv66  {continental_shift, fissure_slam, geoblast, verdant_orb}
+      on     #214 Petrwave [Aquatic/Earth] Lv66  {tsunami, bedrock_slam, crag_strike, tidal_rush}
+      on     #250 Megalith [Earth] Lv65  {boulder_wrecker, worldseed_quake, bedrock_slam, continental_shift}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv65  {abyssal_wave, ocean_crash, tsunami, ocean_tempest}
+      ✖OFF   #149 Eternarmor [Metal] Lv64  {anvil_drop, alloy_tail, forge_strike, radiance_cannon}
+    · triple (5):
+      ★ACE   #361 Tectoshell [Earth/Nature] Lv66  {continental_shift, fissure_slam, geoblast, verdant_orb}
+      on     #105 Dravanas [Normal/Earth] Lv66  {radiance_cannon, tectonic_shift, geoblast, crushing_bulk}
+      on     #103 Calciderm [Earth/Aquatic] Lv65  {tsunami, tectonic_shift, tidal_crush, sea_serpent_strike}
+      ✖OFF   #  3 Calderaeth [Fire/Draconic] Lv65  {pyroclastic_burst, solar_flare, rampage, pyroclasm}
+      ✖OFF   #268 Darkfang [Dark/Spectral] Lv64  {reaper_scythe, soul_rend, void_pulse, nether_sphere}
+    NG+:
+    · single (6):
+      ★ACE   #361 Tectoshell [Earth/Nature] Lv66  {continental_shift, fissure_slam, geoblast, verdant_orb}
+      ◆DUAL  #369 Graviton [Earth/Mineral] Lv66  {fissure_slam, crag_strike, geoblast, sapphire_lance}
+      on     #214 Petrwave [Aquatic/Earth] Lv65  {tsunami, bedrock_slam, crag_strike, tidal_rush}
+      on     #391 Titanfang [Normal/Earth] Lv65  {radiance_cannon, mantle_surge, crag_strike, crushing_bulk}
+      ✖OFF   #406 Umbrasteel [Dark/Metal] Lv64  {alloy_tail, void_rend, nightmare_smash, forge_blast_2}
+      ✖OFF   #332 Glacicore [Ice/Metal] Lv64  {whiteout, alloy_tail, cold_beam, cryo_lance}
+    · double (6):
+      ★ACE   #361 Tectoshell [Earth/Nature] Lv66  {continental_shift, fissure_slam, geoblast, verdant_orb}
+      ◆DUAL  #416 Sandscourge [Earth/Toxin] Lv66  {toxin_smash, tectonic_slam, malignant_storm, tectonic_shift}
+      on     #399 Stonekeeper [Earth/Spectral] Lv65  {fossil_rush, stone_slide, bone_cudgel, neural_storm}
+      on     #250 Megalith [Earth] Lv65  {boulder_wrecker, worldseed_quake, bedrock_slam, continental_shift}
+      ✖OFF   #340 Cryoshard [Ice/Sonic] Lv64  {whiteout, prism_resonance, cold_beam, cryo_lance}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv64  {glaciation, whiteout, icebound_lattice, tundra_tomb}
+    · triple (6):
+      ★ACE   #361 Tectoshell [Earth/Nature] Lv66  {continental_shift, fissure_slam, geoblast, verdant_orb}
+      ◆DUAL  #107 Quakeon [Earth/Metal] Lv66  {worldseed_quake, continental_shift, tectonic_shift, crag_strike}
+      on     #105 Dravanas [Normal/Earth] Lv65  {radiance_cannon, tectonic_shift, geoblast, crushing_bulk}
+      on     #327 Quarrex [Earth] Lv65  {fissure_slam, geoblast, terra_spike, fossil_rush}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv64  {abyss_ray, cataclysm_breath, time_fracture, psi_strike}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv64  {starlight_obliteration, void_dominion, wraith_drive, eclipse_burst}
+
+## GYM 15 — mantis
+    BASE:
+    · single (5):
+      ★ACE   #357 Thornspire [Nature/Metal] Lv70  {verdant_surge, alloy_tail, canopy_crash, root_lance}
+      on     #  8 Barknell [Nature] Lv70  {verdant_surge, petal_blitz, verdant_orb, canopy_crash}
+      on     #199 Aeridaleth [Nature/Wind] Lv69  {typhoon, resonance_hum, stinger_lance, cocoon_burst}
+      ✖OFF   #223 Recallum [Mental] Lv69  {psi_strike, neural_storm, mental, astral_rend}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv68  {abyssal_wave, ocean_crash, tsunami, ocean_tempest}
+    · double (5):
+      ★ACE   #357 Thornspire [Nature/Metal] Lv70  {verdant_surge, alloy_tail, canopy_crash, root_lance}
+      on     #265 Mosshop [Nature/Wind] Lv70  {resonance_hum, verdant_orb, swarm_strike, radiance_cannon}
+      on     # 65 Plaguecap [Nature/Poison] Lv69  {verdant_surge, petal_blitz, sludge_wave, verdant_orb}
+      ✖OFF   #149 Eternarmor [Metal] Lv69  {anvil_drop, alloy_tail, forge_strike, radiance_cannon}
+      ✖OFF   #  3 Calderaeth [Fire/Draconic] Lv68  {pyroclastic_burst, solar_flare, rampage, pyroclasm}
+    · triple (5):
+      ★ACE   #357 Thornspire [Nature/Metal] Lv70  {verdant_surge, alloy_tail, canopy_crash, root_lance}
+      on     #260 Sproutix [Nature] Lv70  {jungle_hammer, petal_blitz, verdant_orb, radiance_cannon}
+      on     # 64 Myceloth [Nature] Lv69  {sun_ray, verdant_surge, jungle_hammer, petal_blitz}
+      ✖OFF   #268 Darkfang [Dark/Spectral] Lv69  {reaper_scythe, soul_rend, void_pulse, nether_sphere}
+      ✖OFF   #144 Moonseraph [Fairy/Mental] Lv68  {supernova_glow, prophecy, starlit_radiance, fae_requiem}
+    NG+:
+    · single (6):
+      ★ACE   #357 Thornspire [Nature/Metal] Lv70  {verdant_surge, alloy_tail, canopy_crash, root_lance}
+      ◆DUAL  #350 Forewrath [Nature/Mineral] Lv70  {verdant_surge, basalt_eruption, canopy_crash, granite_slam}
+      on     #390 Necrobloom [Nature/Poison] Lv69  {nerve_agent, fae_requiem, vine_lash, synaptic_shatter}
+      on     #265 Mosshop [Nature/Wind] Lv69  {resonance_hum, verdant_orb, swarm_strike, radiance_cannon}
+      ✖OFF   #347 Embersteel [Metal/Fire] Lv68  {solar_flare, alloy_tail, searing_gale, inferno_jet}
+      ✖OFF   #346 Astralwing [Mental/Wind] Lv68  {psi_strike, synaptic_shatter, neural_storm, mental}
+    · double (6):
+      ★ACE   #357 Thornspire [Nature/Metal] Lv70  {verdant_surge, alloy_tail, canopy_crash, root_lance}
+      ◆DUAL  #131 Necrothon [Dark/Nature] Lv70  {verdant_surge, petal_blitz, soul_rend, void_pulse}
+      on     # 65 Plaguecap [Nature/Poison] Lv69  {verdant_surge, petal_blitz, sludge_wave, verdant_orb}
+      on     #  8 Barknell [Nature] Lv69  {verdant_surge, petal_blitz, verdant_orb, canopy_crash}
+      ✖OFF   #451 Smashclaw [Fighting/Fire] Lv68  {brawl, iron_fist, ignition_kick, crippling_blow}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv68  {glaciation, whiteout, icebound_lattice, tundra_tomb}
+    · triple (6):
+      ★ACE   #357 Thornspire [Nature/Metal] Lv70  {verdant_surge, alloy_tail, canopy_crash, root_lance}
+      ◆DUAL  #228 Lunaroon [Nature/Mental] Lv70  {petal_blitz, psi_strike, neural_storm, verdant_orb}
+      on     #326 Nectartrap [Nature/Poison] Lv69  {verdant_surge, verdant_orb, ooze_bomb, root_lance}
+      on     #260 Sproutix [Nature] Lv69  {jungle_hammer, petal_blitz, verdant_orb, radiance_cannon}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv68  {abyss_ray, cataclysm_breath, time_fracture, psi_strike}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv68  {starlight_obliteration, void_dominion, wraith_drive, eclipse_burst}
+
+## GYM 16 — steam
+    BASE:
+    · single (6):
+      ★ACE   #422 Tempesteam [Fire/Vapor] Lv74  {miasma_apocalypse, nimbus_eruption, steam_slam, molten_tide}
+      ◆DUAL  #217 Distorsion [Mental/Vapor] Lv73  {mindbreaker, nimbus_eruption, psi_strike, neural_storm}
+      on     #289 Bouncyblob [Normal/Vapor] Lv72  {radiance_cannon, nimbus_flood, crushing_bulk, cloud_blast}
+      on     #421 Geyserook [Fire/Vapor] Lv72  {nimbus_eruption, inferno_jet, cloud_blast, burning_mist}
+      on     #456 Mistgill [Vapor] Lv71  {brume_resonance, stream_burst, haze_strike, fog_beam}
+      ✖OFF   #249 Boulderax [Earth] Lv70  {bedrock_slam, crag_strike, tectonic_shift, geoblast}
+    · double (6):
+      ★ACE   #422 Tempesteam [Fire/Vapor] Lv74  {miasma_apocalypse, nimbus_eruption, steam_slam, molten_tide}
+      ◆DUAL  #216 Mindrift [Mental/Vapor] Lv73  {psi_strike, neural_storm, abyssal_mist, mental}
+      on     #420 Steamkit [Vapor] Lv72  {brume_resonance, steam_burst, fog_beam, drizzle}
+      on     #446 Sporelet [Vapor] Lv72  {acid_mist, brume_resonance, vapor_ray, stream_burst}
+      on     #442 Bloatleech [Vapor] Lv71  {fume_blow, brume_resonance, steam_punch, vapor_ray}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv70  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+    · triple (6):
+      ★ACE   #422 Tempesteam [Fire/Vapor] Lv74  {miasma_apocalypse, nimbus_eruption, steam_slam, molten_tide}
+      ◆DUAL  #161 Mistbane [Poison/Vapor] Lv73  {venom_drown, sludge_wave, ooze_bomb, venom_lance}
+      on     #289 Bouncyblob [Normal/Vapor] Lv72  {radiance_cannon, nimbus_flood, crushing_bulk, cloud_blast}
+      on     #421 Geyserook [Fire/Vapor] Lv72  {nimbus_eruption, inferno_jet, cloud_blast, burning_mist}
+      on     #456 Mistgill [Vapor] Lv71  {brume_resonance, stream_burst, haze_strike, fog_beam}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv70  {abyssal_wave, ocean_crash, tsunami, ocean_tempest}
+    NG+:
+    · single (6):
+      ★ACE   #422 Tempesteam [Fire/Vapor] Lv74  {miasma_apocalypse, nimbus_eruption, steam_slam, molten_tide}
+      ◆DUAL  #217 Distorsion [Mental/Vapor] Lv73  {mindbreaker, nimbus_eruption, psi_strike, neural_storm}
+      on     #289 Bouncyblob [Normal/Vapor] Lv72  {radiance_cannon, nimbus_flood, crushing_bulk, cloud_blast}
+      on     #421 Geyserook [Fire/Vapor] Lv72  {nimbus_eruption, inferno_jet, cloud_blast, burning_mist}
+      ✖OFF   #413 Resonadon [Draconic/Sonic] Lv71  {threnody, rampage, resonance_quake, bass_blast}
+      ✖OFF   #431 Nocturnbaku [Dark/Dream] Lv70  {dream_devourer, dreamscape_smash, dread_finisher, mirage_apocalypse}
+    · double (6):
+      ★ACE   #422 Tempesteam [Fire/Vapor] Lv74  {miasma_apocalypse, nimbus_eruption, steam_slam, molten_tide}
+      ◆DUAL  #457 Vaporlotl [Aquatic/Vapor] Lv73  {mist_press, nimbus_eruption, tidal_sweep, tidal_rush}
+      on     #456 Mistgill [Vapor] Lv72  {brume_resonance, stream_burst, haze_strike, fog_beam}
+      on     #420 Steamkit [Vapor] Lv72  {brume_resonance, steam_burst, fog_beam, drizzle}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv71  {glaciation, whiteout, icebound_lattice, tundra_tomb}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv70  {abyss_ray, cataclysm_breath, time_fracture, psi_strike}
+    · triple (6):
+      ★ACE   #422 Tempesteam [Fire/Vapor] Lv74  {miasma_apocalypse, nimbus_eruption, steam_slam, molten_tide}
+      ◆DUAL  #447 Fumycet [Nature/Vapor] Lv73  {smog_drill, verdant_orb, corrosive_fog, pod_blast}
+      on     #446 Sporelet [Vapor] Lv72  {acid_mist, brume_resonance, vapor_ray, stream_burst}
+      on     #442 Bloatleech [Vapor] Lv72  {fume_blow, brume_resonance, steam_punch, vapor_ray}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv71  {starlight_obliteration, void_dominion, abyssal_dominion, wraith_drive}
+      ✖OFF   #389 Stormcrown [Electric/Sonic] Lv70  {threnody, stormbolt, volt_jet, harmonic_wave}
+
+## GYM 17 — zephyra
+    BASE:
+    · single (6):
+      ★ACE   #382 Oblivionwing [Dark/Wind] Lv78  {gale_force, cyclone_smash, void_rend, skyfall}
+      ◆DUAL  #265 Mosshop [Nature/Wind] Lv78  {resonance_hum, verdant_orb, swarm_strike, radiance_cannon}
+      on     #109 Siroccomane [Wind/Electric] Lv77  {typhoon, gale_cannon, stormbolt, storm_surge}
+      on     #186 Continemic [Normal/Wind] Lv77  {radiance_cannon, typhoon, gale_cannon, crushing_bulk}
+      on     #112 Swirlavel [Wind] Lv76  {canopy_strike, tempest_wrath, typhoon, sky_dive}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv76  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+    · double (6):
+      ★ACE   #382 Oblivionwing [Dark/Wind] Lv78  {gale_force, cyclone_smash, void_rend, skyfall}
+      ◆DUAL  # 40 Marevanos [Aquatic/Wind] Lv78  {tempest_wrath, tsunami, typhoon, tidal_crush}
+      on     #110 Aeolarch [Wind/Electric] Lv77  {tempest_wrath, typhoon, stormbolt, gale_cannon}
+      on     #285 Cloudrift [Normal/Wind] Lv77  {radiance_cannon, tempest_wrath, typhoon, gale_cannon}
+      on     #113 Cyclondor [Wind] Lv76  {tempest_wrath, typhoon, gale_cannon, aerial_slam}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv76  {abyssal_wave, ocean_crash, tsunami, ocean_tempest}
+    · triple (6):
+      ★ACE   #382 Oblivionwing [Dark/Wind] Lv78  {gale_force, cyclone_smash, void_rend, skyfall}
+      ◆DUAL  #292 Galehorn [Wind/Sonic] Lv78  {tempest_wrath, typhoon, gale_cannon, radiance_cannon}
+      on     #291 Breefawn [Wind] Lv77  {tempest_wrath, typhoon, gale_cannon, radiance_cannon}
+      on     # 54 Arcturex [Ice/Wind] Lv77  {avalanche_smash, glacial_lance, whiteout, typhoon}
+      on     #284 Fluffkin [Normal/Wind] Lv76  {radiance_cannon, typhoon, gale_cannon, crushing_bulk}
+      ✖OFF   #149 Eternarmor [Metal] Lv76  {anvil_drop, alloy_tail, forge_strike, radiance_cannon}
+    NG+:
+    · single (6):
+      ★ACE   #382 Oblivionwing [Dark/Wind] Lv78  {gale_force, cyclone_smash, void_rend, skyfall}
+      ◆DUAL  #345 Sablecrow [Dark/Wind] Lv78  {gale_force, void_rend, skyfall, squall_slash}
+      on     #346 Astralwing [Mental/Wind] Lv77  {psi_strike, synaptic_shatter, neural_storm, mental}
+      on     #110 Aeolarch [Wind/Electric] Lv77  {tempest_wrath, typhoon, stormbolt, gale_cannon}
+      ✖OFF   #389 Stormcrown [Electric/Sonic] Lv76  {threnody, stormbolt, volt_jet, harmonic_wave}
+      ✖OFF   #377 Abyssforge [Earth/Mineral] Lv76  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+    · double (6):
+      ★ACE   #382 Oblivionwing [Dark/Wind] Lv78  {gale_force, cyclone_smash, void_rend, skyfall}
+      ◆DUAL  #348 Galeswift [Wind/Sonic] Lv78  {shockwave_boom, skyboom_strike, concussive_strike, wind_scythe}
+      on     #335 Frostprowl [Ice/Wind] Lv77  {whiteout, cold_beam, cryo_lance, wind_scythe}
+      on     #285 Cloudrift [Normal/Wind] Lv77  {radiance_cannon, tempest_wrath, typhoon, gale_cannon}
+      ✖OFF   #428 Zenkaiser [Fighting/Mental] Lv76  {haymaker, heaven_strike, brawl, iron_fist}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv76  {starlight_obliteration, void_dominion, abyssal_dominion, wraith_drive}
+    · triple (6):
+      ★ACE   #382 Oblivionwing [Dark/Wind] Lv78  {gale_force, cyclone_smash, void_rend, skyfall}
+      ◆DUAL  #459 Tengrath [Fighting/Wind] Lv78  {brawl, typhoon, roar_strike, iron_fist}
+      on     #113 Cyclondor [Wind] Lv77  {tempest_wrath, typhoon, gale_cannon, aerial_slam}
+      on     #291 Breefawn [Wind] Lv77  {tempest_wrath, typhoon, gale_cannon, radiance_cannon}
+      ✖OFF   #343 Shadowreave [Dark/Spectral] Lv76  {spirit_calamity, abyssal_dominion, reaper_scythe, void_rend}
+      ✖OFF   #422 Tempesteam [Fire/Vapor] Lv76  {miasma_apocalypse, nimbus_eruption, steam_slam, molten_tide}
+
+## GYM 18 — ferro
+    BASE:
+    · single (6):
+      ★ACE   #149 Eternarmor [Metal] Lv82  {anvil_drop, alloy_tail, forge_strike, radiance_cannon}
+      ◆DUAL  #279 Steelhorn [Metal/Fairy] Lv82  {alloy_tail, heavy_slam, lunar_burst, forge_strike}
+      on     #148 Stoicguard [Metal] Lv81  {tungsten_ram, alloy_tail, forge_strike, flywheel}
+      on     #252 Stonegrip [Metal/Mineral] Lv81  {warden_strike, basalt_eruption, alloy_tail, heavy_slam}
+      on     #147 Scrapsapien [Metal] Lv80  {warden_strike, alloy_tail, ferrous_gale, pyro_alloy}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv80  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+    · double (6):
+      ★ACE   #149 Eternarmor [Metal] Lv82  {anvil_drop, alloy_tail, forge_strike, radiance_cannon}
+      ◆DUAL  #174 Chromedrake [Draconic/Metal] Lv82  {tungsten_wrath, rampage, scale_crash, titan_blade}
+      on     #251 Crumblite [Metal/Mineral] Lv81  {warden_strike, alloy_tail, ferrous_gale, forge_strike}
+      on     #425 Stragolin [Metal/Mineral] Lv81  {anvil_drop, obsidian_strike, tungsten_ram, granite_press}
+      on     #424 Geodon [Metal/Mineral] Lv80  {heavy_slam, ore_smash, ruby_strike, sapphire_lance}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv80  {abyssal_wave, ocean_crash, tsunami, ocean_tempest}
+    · triple (6):
+      ★ACE   #149 Eternarmor [Metal] Lv82  {anvil_drop, alloy_tail, forge_strike, radiance_cannon}
+      ◆DUAL  #152 Imperion [Metal/Earth] Lv82  {tungsten_wrath, iron_storm, titan_blade, alloy_tail}
+      on     #148 Stoicguard [Metal] Lv81  {tungsten_ram, alloy_tail, forge_strike, flywheel}
+      on     #252 Stonegrip [Metal/Mineral] Lv81  {warden_strike, basalt_eruption, alloy_tail, heavy_slam}
+      on     #147 Scrapsapien [Metal] Lv80  {warden_strike, alloy_tail, ferrous_gale, pyro_alloy}
+      ✖OFF   #  3 Calderaeth [Fire/Draconic] Lv80  {pyroclastic_burst, solar_flare, rampage, pyroclasm}
+    NG+:
+    · single (6):
+      ★ACE   #149 Eternarmor [Metal] Lv82  {anvil_drop, alloy_tail, forge_strike, radiance_cannon}
+      ◆DUAL  #383 Apexblade [Metal/Aquatic] Lv82  {alloy_tail, tidal_crush, tidal_sweep, torrent_fang}
+      on     #425 Stragolin [Metal/Mineral] Lv81  {anvil_drop, obsidian_strike, tungsten_ram, granite_press}
+      on     #148 Stoicguard [Metal] Lv81  {tungsten_ram, alloy_tail, forge_strike, flywheel}
+      ✖OFF   #343 Shadowreave [Dark/Spectral] Lv80  {spirit_calamity, abyssal_dominion, reaper_scythe, void_rend}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv80  {glaciation, whiteout, icebound_lattice, tundra_tomb}
+    · double (6):
+      ★ACE   #149 Eternarmor [Metal] Lv82  {anvil_drop, alloy_tail, forge_strike, radiance_cannon}
+      ◆DUAL  #396 Thunderpeak [Electric/Metal] Lv82  {stormbolt, alloy_tail, volt_jet, volt_surge}
+      on     #424 Geodon [Metal/Mineral] Lv81  {heavy_slam, ore_smash, ruby_strike, sapphire_lance}
+      on     #252 Stonegrip [Metal/Mineral] Lv81  {warden_strike, basalt_eruption, alloy_tail, heavy_slam}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv80  {abyss_ray, cataclysm_breath, time_fracture, psi_strike}
+      ✖OFF   #389 Stormcrown [Electric/Sonic] Lv80  {threnody, stormbolt, volt_jet, harmonic_wave}
+    · triple (6):
+      ★ACE   #149 Eternarmor [Metal] Lv82  {anvil_drop, alloy_tail, forge_strike, radiance_cannon}
+      ◆DUAL  #364 Deepcrawler [Aquatic/Metal] Lv82  {tsunami, tidal_crush, alloy_tail, sea_serpent_strike}
+      on     #147 Scrapsapien [Metal] Lv81  {warden_strike, alloy_tail, ferrous_gale, pyro_alloy}
+      on     #251 Crumblite [Metal/Mineral] Lv81  {warden_strike, alloy_tail, ferrous_gale, forge_strike}
+      ✖OFF   #377 Abyssforge [Earth/Mineral] Lv80  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+      ✖OFF   #422 Tempesteam [Fire/Vapor] Lv80  {miasma_apocalypse, nimbus_eruption, steam_slam, molten_tide}
+
+## GYM 19 — boulder
+    BASE:
+    · single (6):
+      ★ACE   #377 Abyssforge [Earth/Mineral] Lv90  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+      ◆DUAL  #306 Yetigrand [Earth/Ice] Lv90  {worldseed_quake, whiteout, bedrock_slam, crag_strike}
+      on     #214 Petrwave [Aquatic/Earth] Lv89  {tsunami, bedrock_slam, crag_strike, tidal_rush}
+      on     #250 Megalith [Earth] Lv89  {boulder_wrecker, worldseed_quake, bedrock_slam, continental_shift}
+      on     #249 Boulderax [Earth] Lv88  {bedrock_slam, crag_strike, tectonic_shift, geoblast}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv88  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+    · double (6):
+      ★ACE   #377 Abyssforge [Earth/Mineral] Lv90  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+      ◆DUAL  #107 Quakeon [Earth/Metal] Lv90  {worldseed_quake, continental_shift, tectonic_shift, crag_strike}
+      on     #105 Dravanas [Normal/Earth] Lv89  {radiance_cannon, tectonic_shift, geoblast, crushing_bulk}
+      on     #103 Calciderm [Earth/Aquatic] Lv89  {tsunami, tectonic_shift, tidal_crush, sea_serpent_strike}
+      on     # 27 Tidalossus [Aquatic/Earth] Lv88  {tsunami, crag_strike, tidal_crush, sea_serpent_strike}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv88  {abyssal_wave, ocean_crash, tsunami, ocean_tempest}
+    · triple (6):
+      ★ACE   #377 Abyssforge [Earth/Mineral] Lv90  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+      ◆DUAL  #152 Imperion [Metal/Earth] Lv90  {tungsten_wrath, iron_storm, titan_blade, alloy_tail}
+      on     #192 Boulderoll [Earth] Lv89  {crag_strike, tectonic_shift, landslide, geoblast}
+      on     #102 Dunoloth [Earth/Aquatic] Lv89  {tsunami, tectonic_shift, tidal_crush, tidal_rush}
+      on     # 26 Brinecrush [Aquatic/Earth] Lv88  {tsunami, tidal_crush, crag_strike, tidal_sweep}
+      ✖OFF   #149 Eternarmor [Metal] Lv88  {anvil_drop, alloy_tail, forge_strike, radiance_cannon}
+    NG+:
+    · single (6):
+      ★ACE   #377 Abyssforge [Earth/Mineral] Lv90  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+      ◆DUAL  #385 Permafrost [Ice/Earth] Lv90  {whiteout, fissure_slam, geoblast, cold_beam}
+      on     #391 Titanfang [Normal/Earth] Lv89  {radiance_cannon, mantle_surge, crag_strike, crushing_bulk}
+      on     #399 Stonekeeper [Earth/Spectral] Lv89  {fossil_rush, stone_slide, ectoplasm_strike, bone_cudgel}
+      ✖OFF   #413 Resonadon [Draconic/Sonic] Lv88  {threnody, rampage, resonance_quake, bass_blast}
+      ✖OFF   #428 Zenkaiser [Fighting/Mental] Lv88  {haymaker, heaven_strike, brawl, iron_fist}
+    · double (6):
+      ★ACE   #377 Abyssforge [Earth/Mineral] Lv90  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+      ◆DUAL  #388 Chronolith [Earth/Mental] Lv90  {psi_strike, synaptic_shatter, neural_storm, mental}
+      on     #214 Petrwave [Aquatic/Earth] Lv89  {tsunami, bedrock_slam, crag_strike, tidal_rush}
+      on     #250 Megalith [Earth] Lv89  {boulder_wrecker, worldseed_quake, bedrock_slam, continental_shift}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv88  {glaciation, whiteout, icebound_lattice, tundra_tomb}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv88  {abyss_ray, cataclysm_breath, time_fracture, psi_strike}
+    · triple (6):
+      ★ACE   #377 Abyssforge [Earth/Mineral] Lv90  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+      ◆DUAL  #361 Tectoshell [Earth/Nature] Lv90  {continental_shift, fissure_slam, geoblast, verdant_orb}
+      on     #105 Dravanas [Normal/Earth] Lv89  {radiance_cannon, tectonic_shift, geoblast, crushing_bulk}
+      on     #327 Quarrex [Earth] Lv89  {fissure_slam, geoblast, terra_spike, fossil_rush}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv88  {starlight_obliteration, void_dominion, abyssal_dominion, wraith_drive}
+      ✖OFF   #389 Stormcrown [Electric/Sonic] Lv88  {threnody, stormbolt, volt_jet, harmonic_wave}
+
+## GYM 20 — seraphina
+    BASE:
+    · single (6):
+      ★ACE   #  9 Garlawarden [Nature/Fairy] Lv98  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+      ◆DUAL  #144 Moonseraph [Fairy/Mental] Lv98  {supernova_glow, prophecy, starlit_radiance, fae_requiem}
+      on     #139 Lumiarch [Fairy] Lv97  {fae_requiem, lunar_burst, glitter_storm, celestial_wave}
+      on     #141 Iridesoar [Fairy/Wind] Lv97  {typhoon, moonlit_surge, lunar_burst, glitter_storm}
+      on     #302 Lightpuff [Fairy] Lv96  {fae_requiem, lunar_burst, glitter_storm, celestial_wave}
+      ✖OFF   #  6 Banksnout [Aquatic/Dark] Lv96  {abyssal_wave, ocean_crash, tsunami, ocean_tempest}
+    · double (6):
+      ★ACE   #  9 Garlawarden [Nature/Fairy] Lv98  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+      ◆DUAL  #303 Lumivane [Fairy/Mental] Lv98  {supernova_glow, fae_requiem, psi_strike, neural_storm}
+      on     #287 Cuddrix [Fairy] Lv97  {lunar_burst, glitter_storm, radiance_cannon, roughhouse}
+      on     #138 Halocanis [Fairy] Lv97  {fairy_blast, moonlit_surge, radiant_burst, lunar_burst}
+      on     #140 Faedust [Fairy/Wind] Lv96  {lunar_burst, prism_flare, gossamer_lance, slicing_gale}
+      ✖OFF   #149 Eternarmor [Metal] Lv96  {anvil_drop, alloy_tail, forge_strike, radiance_cannon}
+    · triple (6):
+      ★ACE   #  9 Garlawarden [Nature/Fairy] Lv98  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+      ◆DUAL  #143 Astrelle [Fairy/Mental] Lv98  {starlit_radiance, psi_strike, synaptic_shatter, moonlit_surge}
+      on     #114 Nimbusel [Wind/Fairy] Lv97  {moonlit_surge, storm_surge, lunar_burst, glimmering_song}
+      on     #286 Downyfawn [Fairy] Lv97  {lunar_burst, radiance_cannon, roughhouse, enchanted_smash}
+      on     #137 Goldefluff [Fairy] Lv96  {moonlit_surge, lunar_burst, glitter_storm, prism_flare}
+      ✖OFF   #  3 Calderaeth [Fire/Draconic] Lv96  {pyroclastic_burst, solar_flare, rampage, pyroclasm}
+    NG+:
+    · single (6):
+      ★ACE   #  9 Garlawarden [Nature/Fairy] Lv98  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+      ◆DUAL  #144 Moonseraph [Fairy/Mental] Lv98  {supernova_glow, prophecy, starlit_radiance, fae_requiem}
+      on     #453 Lullavoir [Dream/Fairy] Lv97  {lullaby_strike, starlit_dream, lunar_burst, hypnos_storm}
+      on     #141 Iridesoar [Fairy/Wind] Lv97  {typhoon, moonlit_surge, lunar_burst, glitter_storm}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv96  {starlight_obliteration, void_dominion, abyssal_dominion, wraith_drive}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv96  {glaciation, whiteout, icebound_lattice, tundra_tomb}
+    · double (6):
+      ★ACE   #  9 Garlawarden [Nature/Fairy] Lv98  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+      ◆DUAL  #376 Solarwrath [Fire/Fairy] Lv98  {solar_flare, fae_requiem, pyroclasm, wish_spark}
+      on     #139 Lumiarch [Fairy] Lv97  {fae_requiem, lunar_burst, glitter_storm, celestial_wave}
+      on     #302 Lightpuff [Fairy] Lv97  {fae_requiem, lunar_burst, glitter_storm, celestial_wave}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv96  {abyss_ray, cataclysm_breath, time_fracture, psi_strike}
+      ✖OFF   #389 Stormcrown [Electric/Sonic] Lv96  {threnody, stormbolt, volt_jet, harmonic_wave}
+    · triple (6):
+      ★ACE   #  9 Garlawarden [Nature/Fairy] Lv98  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+      ◆DUAL  #225 Crealight [Fairy/Mineral] Lv98  {quartz_blast, moonlit_surge, gem_storm, lunar_burst}
+      on     #287 Cuddrix [Fairy] Lv97  {lunar_burst, glitter_storm, radiance_cannon, roughhouse}
+      on     #138 Halocanis [Fairy] Lv97  {fairy_blast, moonlit_surge, radiant_burst, lunar_burst}
+      ✖OFF   #343 Shadowreave [Dark/Spectral] Lv96  {spirit_calamity, abyssal_dominion, reaper_scythe, void_rend}
+      ✖OFF   #377 Abyssforge [Earth/Mineral] Lv96  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+
+## GYM 21 — echo
+    NG+:
+    · single (6):
+      ★ACE   #292 Galehorn [Wind/Sonic] Lv112  {tempest_wrath, typhoon, gale_cannon, radiance_cannon}
+      ◆DUAL  #389 Stormcrown [Electric/Sonic] Lv111  {threnody, stormbolt, volt_jet, harmonic_wave}
+      on     #348 Galeswift [Wind/Sonic] Lv110  {shockwave_boom, skyboom_strike, concussive_strike, wind_scythe}
+      on     #445 Sentrike [Normal/Sonic] Lv110  {reckless_charge, last_stand, arc_strike, crushing_bulk}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv109  {glaciation, whiteout, icebound_lattice, tundra_tomb}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv108  {abyss_ray, cataclysm_breath, time_fracture, psi_strike}
+    · double (6):
+      ★ACE   #292 Galehorn [Wind/Sonic] Lv112  {tempest_wrath, typhoon, gale_cannon, radiance_cannon}
+      ◆DUAL  #413 Resonadon [Draconic/Sonic] Lv111  {threnody, rampage, resonance_quake, sky_surge}
+      on     #267 Nightclaw [Dark/Sonic] Lv110  {soul_rend, radiance_cannon, skyboom_strike, concussive_strike}
+      on     #266 Shadowcub [Dark/Sonic] Lv110  {soul_rend, radiance_cannon, void_pulse, jaw_crush}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv109  {starlight_obliteration, void_dominion, abyssal_dominion, wraith_drive}
+      ✖OFF   #343 Shadowreave [Dark/Spectral] Lv108  {spirit_calamity, abyssal_dominion, reaper_scythe, void_rend}
+    · triple (6):
+      ★ACE   #292 Galehorn [Wind/Sonic] Lv112  {tempest_wrath, typhoon, gale_cannon, radiance_cannon}
+      ◆DUAL  #356 Stormlord [Electric/Sonic] Lv111  {stormbolt, shockwave_boom, volt_jet, harmonic_wave}
+      on     #438 Chimicada [Sonic] Lv110  {bass_blast, prism_resonance, dissonant_chord, resonate}
+      on     #444 Squeaklet [Sonic] Lv110  {psychic_blizzard, silent_strike, pulse_wave, discord}
+      ✖OFF   #377 Abyssforge [Earth/Mineral] Lv109  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+      ✖OFF   #422 Tempesteam [Fire/Vapor] Lv108  {miasma_apocalypse, nimbus_eruption, steam_slam, molten_tide}
+
+## GYM 22 — mortis
+    NG+:
+    · single (6):
+      ★ACE   #268 Darkfang [Dark/Spectral] Lv117  {reaper_scythe, soul_rend, poltergeist_smash, revenant_charge}
+      ◆DUAL  #343 Shadowreave [Dark/Spectral] Lv116  {spirit_calamity, abyssal_dominion, reaper_scythe, void_rend}
+      on     #309 Tidephant [Aquatic/Spectral] Lv115  {phantom_gale, tsunami, geyser_burst, radiance_cannon}
+      on     #397 Abyssalord [Aquatic/Spectral] Lv115  {spirit_calamity, tsunami, tidal_crush, sea_serpent_strike}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv114  {abyss_ray, cataclysm_breath, time_fracture, psi_strike}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv113  {starlight_obliteration, void_dominion, abyssal_dominion, wraith_drive}
+    · double (6):
+      ★ACE   #268 Darkfang [Dark/Spectral] Lv117  {reaper_scythe, soul_rend, poltergeist_smash, revenant_charge}
+      ◆DUAL  #301 Hauntcoal [Fire/Spectral] Lv116  {lava_drop, phantom_gale, pyroclasm, forge_blast}
+      on     #399 Stonekeeper [Earth/Spectral] Lv115  {poltergeist_smash, revenant_charge, banshee_lash, fossil_rush}
+      on     #419 Pallidoll [Ice/Spectral] Lv115  {winter_shade, phantom_gale, phantom_force, whiteout}
+      ✖OFF   #389 Stormcrown [Electric/Sonic] Lv114  {threnody, stormbolt, volt_jet, harmonic_wave}
+      ✖OFF   #377 Abyssforge [Earth/Mineral] Lv113  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+    · triple (6):
+      ★ACE   #268 Darkfang [Dark/Spectral] Lv117  {reaper_scythe, soul_rend, poltergeist_smash, revenant_charge}
+      ◆DUAL  #273 Blazeon [Fire/Spectral] Lv116  {caldera_meltdown, soul_burst, pyroclasm, eternal_ember}
+      on     #455 Knellgeist [Metal/Spectral] Lv115  {tungsten_wrath, soul_burst, phantom_force, iron_storm}
+      on     #418 Frostmarion [Ice/Spectral] Lv115  {specter_pulse, cold_beam, cryogenic_breath, void_wail}
+      ✖OFF   #422 Tempesteam [Fire/Vapor] Lv114  {miasma_apocalypse, nimbus_eruption, steam_slam, molten_tide}
+      ✖OFF   #  9 Garlawarden [Nature/Fairy] Lv113  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+
+## GYM 23 — somna
+    NG+:
+    · single (6):
+      ★ACE   #378 Dreamweald [Mental/Dream] Lv122  {eternal_dream, cosmic_nightmare, temporal_collapse, psy_blast}
+      ◆DUAL  #431 Nocturnbaku [Dark/Dream] Lv121  {dream_devourer, abyssal_wave, abyssal_dominion, dreamscape_smash}
+      on     #429 Lullasnout [Dream] Lv120  {dreamscape_smash, lullaby_strike, terror_slash, reverie_charge}
+      on     #452 Dozit [Dream] Lv120  {terror_slash, nightmare_storm, reverie_charge, somnia_punch}
+      ✖OFF   #395 Glacierend [Ice/Normal] Lv119  {glaciation, reckless_charge, last_stand, whiteout}
+      ✖OFF   #404 Auguryx [Draconic/Mental] Lv118  {abyss_ray, cataclysm_breath, time_fracture, scale_crash}
+    · double (6):
+      ★ACE   #378 Dreamweald [Mental/Dream] Lv122  {eternal_dream, cosmic_nightmare, temporal_collapse, psy_blast}
+      ◆DUAL  #170 Oneiron [Dark/Dream] Lv121  {mirage_apocalypse, slumber_eruption, void_rend, dark_corrosion}
+      on     #429 Lullasnout [Dream] Lv120  {dreamscape_smash, lullaby_strike, terror_slash, reverie_charge}
+      on     #452 Dozit [Dream] Lv120  {terror_slash, nightmare_storm, reverie_charge, somnia_punch}
+      ✖OFF   #407 Voidwarden [Dark/Metal] Lv119  {starlight_obliteration, void_dominion, abyssal_dominion, wraith_drive}
+      ✖OFF   #389 Stormcrown [Electric/Sonic] Lv118  {threnody, stormbolt, volt_jet, harmonic_wave}
+    · triple (6):
+      ★ACE   #378 Dreamweald [Mental/Dream] Lv122  {eternal_dream, cosmic_nightmare, temporal_collapse, psy_blast}
+      ◆DUAL  #247 Sparkeen [Electric/Dream] Lv121  {stormbolt, lullaby_strike, hypnos_storm, volt_jet}
+      on     #429 Lullasnout [Dream] Lv120  {dreamscape_smash, lullaby_strike, terror_slash, reverie_charge}
+      on     #452 Dozit [Dream] Lv120  {terror_slash, nightmare_storm, reverie_charge, somnia_punch}
+      ✖OFF   #343 Shadowreave [Dark/Spectral] Lv119  {spirit_calamity, abyssal_dominion, reaper_scythe, void_rend}
+      ✖OFF   #377 Abyssforge [Earth/Mineral] Lv118  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+
+## GYM 24 — prisma
+    NG+:
+    · single (6):
+      ★ACE   #169 Prismatica [Mental/Mineral] Lv127  {quartz_blast, temporal_rift, gem_storm, psi_strike}
+      mix    #395 Glacierend [Ice/Normal] Lv126  {glaciation, reckless_charge, last_stand, whiteout}
+      mix    #407 Voidwarden [Dark/Metal] Lv125  {starlight_obliteration, void_dominion, abyssal_dominion, wraith_drive}
+      mix    #389 Stormcrown [Electric/Sonic] Lv125  {threnody, stormbolt, volt_jet, harmonic_wave}
+      mix    #422 Tempesteam [Fire/Vapor] Lv124  {miasma_apocalypse, nimbus_eruption, steam_slam, molten_tide}
+      mix    #  9 Garlawarden [Nature/Fairy] Lv123  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+    · double (6):
+      ★ACE   #169 Prismatica [Mental/Mineral] Lv127  {quartz_blast, temporal_rift, gem_storm, psi_strike}
+      mix    #343 Shadowreave [Dark/Spectral] Lv126  {spirit_calamity, abyssal_dominion, reaper_scythe, void_rend}
+      mix    #413 Resonadon [Draconic/Sonic] Lv125  {emperor_inferno, threnody, rampage, resonance_quake}
+      mix    #383 Apexblade [Metal/Aquatic] Lv125  {alloy_tail, tidal_crush, tidal_sweep, torrent_fang}
+      mix    #385 Permafrost [Ice/Earth] Lv124  {avalanche_smash, glacial_lance, whiteout, fissure_slam}
+      mix    #390 Necrobloom [Nature/Poison] Lv123  {foliage_tempest, hivemind_surge, primordial_growth, nerve_agent}
+    · triple (6):
+      ★ACE   #169 Prismatica [Mental/Mineral] Lv127  {quartz_blast, temporal_rift, gem_storm, psi_strike}
+      mix    #  6 Banksnout [Aquatic/Dark] Lv126  {abyssal_wave, ocean_crash, tsunami, ocean_tempest}
+      mix    #  3 Calderaeth [Fire/Draconic] Lv125  {pyroclastic_burst, solar_flare, rampage, pyroclasm}
+      mix    #386 Wraithstorm [Electric/Spectral] Lv125  {stormbolt, volt_jet, necrotic_pulse, volt_surge}
+      mix    #391 Titanfang [Normal/Earth] Lv124  {radiance_cannon, mantle_surge, reckless_charge, last_stand}
+      mix    #264 Impenezard [Fighting/Toxin] Lv123  {martial_finish, heaven_strike, malignant_storm, acid_press}
+
+## ARIA (Vanguard/Champion)
+    TEAM:
+    · single (6):
+      ★ACE   #303 Lumivane [Fairy/Mental] Lv100  {supernova_glow, fae_requiem, psi_strike, neural_storm}
+      mix    #224 Psytheon [Mental/Fairy] Lv100  {prophecy, mindbreaker, psi_strike, neural_storm}
+      mix    #143 Astrelle [Fairy/Mental] Lv99  {starlit_radiance, psi_strike, synaptic_shatter, moonlit_surge}
+      mix    #117 Pneumathos [Wind/Mental] Lv99  {typhoon, hurricane_blast, psi_strike, synaptic_shatter}
+      mix    #109 Siroccomane [Wind/Electric] Lv98  {typhoon, gale_cannon, stormbolt, sky_dive}
+      mix    #138 Halocanis [Fairy] Lv98  {fairy_blast, moonlit_surge, radiant_burst, lunar_burst}
+    · double (6):
+      ★ACE   #303 Lumivane [Fairy/Mental] Lv100  {supernova_glow, fae_requiem, psi_strike, neural_storm}
+      mix    #389 Stormcrown [Electric/Sonic] Lv100  {threnody, stormbolt, volt_jet, harmonic_wave}
+      mix    #217 Distorsion [Mental/Vapor] Lv99  {mindbreaker, nimbus_eruption, psi_strike, neural_storm}
+      mix    #395 Glacierend [Ice/Normal] Lv99  {glaciation, whiteout, icebound_lattice, tundra_tomb}
+      mix    #343 Shadowreave [Dark/Spectral] Lv98  {spirit_calamity, abyssal_dominion, reaper_scythe, void_rend}
+      mix    #368 Willowisp [Fire/Spectral] Lv98  {solar_flare, eternal_haunt, conflagration, inferno_jet}
+    · triple (6):
+      ★ACE   #303 Lumivane [Fairy/Mental] Lv100  {supernova_glow, fae_requiem, psi_strike, neural_storm}
+      mix    #370 Cyclotron [Electric/Sonic] Lv100  {stormbolt, volt_jet, harmonic_wave, dissonant_chord}
+      mix    #375 Fluxserpent [Electric/Mental] Lv99  {stormbolt, psi_strike, synaptic_shatter, neural_storm}
+      mix    #386 Wraithstorm [Electric/Spectral] Lv99  {stormbolt, volt_jet, necrotic_pulse, volt_surge}
+      mix    #  3 Calderaeth [Fire/Draconic] Lv98  {pyroclastic_burst, solar_flare, rampage, pyroclasm}
+      mix    #247 Sparkeen [Electric/Dream] Lv98  {stormbolt, lullaby_strike, hypnos_storm, volt_jet}
+
+## GRIMSHAW (Vanguard/Champion)
+    TEAM:
+    · single (6):
+      ★ACE   #213 Infriglace [Fire/Ice] Lv102  {caldera_meltdown, solar_flare, pyroclasm, whiteout}
+      mix    #148 Stoicguard [Metal] Lv102  {tungsten_ram, alloy_tail, forge_strike, flywheel}
+      mix    #133 Monolithox [Earth/Dark] Lv101  {crag_strike, tectonic_shift, landslide, blackout_bomb}
+      mix    #208 Wyrmvenom [Poison/Draconic] Lv101  {rampage, ancient_breath, sludge_wave, radiance_cannon}
+      mix    #125 Venotitan [Dark/Poison] Lv100  {soul_rend, sludge_wave, void_rend, venom_lance}
+      mix    #313 Sandrix [Earth/Dark] Lv100  {world_root_bind, bedrock_slam, tectonic_shift, soul_rend}
+    · double (6):
+      ★ACE   #213 Infriglace [Fire/Ice] Lv102  {caldera_meltdown, solar_flare, pyroclasm, whiteout}
+      mix    #437 Goliathon [Fighting/Mineral] Lv102  {seismic_force, heaven_strike, obsidian_strike, brawl}
+      mix    #149 Eternarmor [Metal] Lv101  {anvil_drop, alloy_tail, forge_strike, radiance_cannon}
+      mix    #395 Glacierend [Ice/Normal] Lv101  {glaciation, whiteout, icebound_lattice, tundra_tomb}
+      mix    #407 Voidwarden [Dark/Metal] Lv100  {starlight_obliteration, void_dominion, abyssal_dominion, wraith_drive}
+      mix    #184 Ursamight [Normal/Fighting] Lv100  {radiance_cannon, haymaker, seismic_force, brawl}
+    · triple (6):
+      ★ACE   #213 Infriglace [Fire/Ice] Lv102  {caldera_meltdown, solar_flare, pyroclasm, whiteout}
+      mix    #416 Sandscourge [Earth/Toxin] Lv102  {corrosive_finish, toxin_smash, tectonic_slam, malignant_storm}
+      mix    #234 Wyvernak [Draconic/Earth] Lv101  {comet_crash, rampage, sky_surge, bedrock_slam}
+      mix    #451 Smashclaw [Fighting/Fire] Lv101  {brawl, iron_fist, scorch_kick, ignition_kick}
+      mix    #413 Resonadon [Draconic/Sonic] Lv100  {threnody, rampage, resonance_quake, bass_blast}
+      mix    #425 Stragolin [Metal/Mineral] Lv100  {anvil_drop, obsidian_strike, tungsten_ram, granite_press}
+
+## CELESTE (Vanguard/Champion)
+    TEAM:
+    · single (6):
+      ★ACE   #  3 Calderaeth [Fire/Draconic] Lv104  {pyroclastic_burst, solar_flare, rampage, pyroclasm}
+      mix    #170 Oneiron [Dark/Dream] Lv104  {mirage_apocalypse, slumber_eruption, void_rend, dark_corrosion}
+      mix    #241 Shardlix [Ice/Mental] Lv103  {whiteout, psi_strike, synaptic_shatter, tundra_tomb}
+      mix    #229 Radiafish [Electric/Mental] Lv103  {stormbolt, psi_strike, neural_storm, volt_jet}
+      mix    # 48 Hailgorge [Ice] Lv102  {glacial_riptide, whiteout, icebound_lattice, avalanche_drive}
+      mix    #395 Glacierend [Ice/Normal] Lv102  {glaciation, whiteout, icebound_lattice, tundra_tomb}
+    · double (6):
+      ★ACE   #  3 Calderaeth [Fire/Draconic] Lv104  {pyroclastic_burst, solar_flare, rampage, pyroclasm}
+      mix    #404 Auguryx [Draconic/Mental] Lv104  {abyss_ray, cataclysm_breath, time_fracture, psi_strike}
+      mix    #407 Voidwarden [Dark/Metal] Lv103  {starlight_obliteration, void_dominion, abyssal_dominion, wraith_drive}
+      mix    #389 Stormcrown [Electric/Sonic] Lv103  {threnody, stormbolt, volt_jet, harmonic_wave}
+      mix    #343 Shadowreave [Dark/Spectral] Lv102  {spirit_calamity, abyssal_dominion, reaper_scythe, void_rend}
+      mix    #377 Abyssforge [Earth/Mineral] Lv102  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+    · triple (6):
+      ★ACE   #  3 Calderaeth [Fire/Draconic] Lv104  {pyroclastic_burst, solar_flare, rampage, pyroclasm}
+      mix    #422 Tempesteam [Fire/Vapor] Lv104  {miasma_apocalypse, nimbus_eruption, steam_slam, molten_tide}
+      mix    #  9 Garlawarden [Nature/Fairy] Lv103  {verdant_surge, petal_blitz, lunar_burst, verdant_orb}
+      mix    #413 Resonadon [Draconic/Sonic] Lv103  {threnody, rampage, resonance_quake, bass_blast}
+      mix    #428 Zenkaiser [Fighting/Mental] Lv102  {haymaker, heaven_strike, brawl, iron_fist}
+      mix    #  6 Banksnout [Aquatic/Dark] Lv102  {abyssal_wave, ocean_crash, tsunami, ocean_tempest}
+
+## TITAN (Vanguard/Champion)
+    TEAM:
+    · single (6):
+      ★ACE   #192 Boulderoll [Earth] Lv105  {mineral_lance, crag_strike, tectonic_shift, luma_quake}
+      mix    #152 Imperion [Metal/Earth] Lv104  {tungsten_wrath, iron_storm, titan_blade, alloy_tail}
+      mix    #196 Frigolith [Ice/Mineral] Lv104  {whiteout, ice_hammer, tundra_tomb, quarry_crush}
+      mix    #252 Stonegrip [Metal/Mineral] Lv103  {warden_strike, basalt_eruption, alloy_tail, heavy_slam}
+      mix    #237 Icevault [Ice/Earth] Lv103  {whiteout, crag_strike, avalanche_drive, frostbite_strike}
+      mix    # 54 Arcturex [Ice/Wind] Lv102  {avalanche_smash, glacial_lance, whiteout, typhoon}
+    · double (6):
+      ★ACE   #192 Boulderoll [Earth] Lv105  {mineral_lance, crag_strike, tectonic_shift, luma_quake}
+      mix    #149 Eternarmor [Metal] Lv104  {anvil_drop, alloy_tail, forge_strike, radiance_cannon}
+      mix    #395 Glacierend [Ice/Normal] Lv104  {glaciation, whiteout, icebound_lattice, tundra_tomb}
+      mix    #425 Stragolin [Metal/Mineral] Lv103  {anvil_drop, obsidian_strike, tungsten_ram, granite_press}
+      mix    #422 Tempesteam [Fire/Vapor] Lv103  {miasma_apocalypse, nimbus_eruption, steam_slam, molten_tide}
+      mix    #407 Voidwarden [Dark/Metal] Lv102  {starlight_obliteration, void_dominion, abyssal_dominion, wraith_drive}
+    · triple (6):
+      ★ACE   #192 Boulderoll [Earth] Lv105  {mineral_lance, crag_strike, tectonic_shift, luma_quake}
+      mix    #377 Abyssforge [Earth/Mineral] Lv104  {obsidian_strike, continental_shift, fissure_slam, crag_strike}
+      mix    #431 Nocturnbaku [Dark/Dream] Lv104  {dream_devourer, dreamscape_smash, dread_finisher, mirage_apocalypse}
+      mix    #144 Moonseraph [Fairy/Mental] Lv103  {supernova_glow, prophecy, starlit_radiance, fae_requiem}
+      mix    #306 Yetigrand [Earth/Ice] Lv103  {worldseed_quake, whiteout, bedrock_slam, crag_strike}
+      mix    #354 Riftwhale [Aquatic/Mental] Lv102  {tsunami, psi_strike, synaptic_shatter, neural_storm}
+
+## CHAMPION (Vanguard/Champion)
+    TEAM:
+    · single (6):
+      ★ACE   #321 Dragemian [Draconic/Fire] Lv108  {rampage, ancient_breath, pyroclasm, conflagration}
+      mix    #320 Galvathon [Metal/Electric] Lv107  {anvil_drop, arc_cannon, iron_storm, stormbolt}
+      mix    #363 Chromaton [Normal/Mental] Lv106  {radiance_cannon, zenith_ray, psi_strike, synaptic_shatter}
+      mix    #225 Crealight [Fairy/Mineral] Lv105  {quartz_blast, moonlit_surge, gem_storm, lunar_burst}
+      mix    #240 Tundrafox [Ice/Dark] Lv104  {starlight_obliteration, wraith_drive, glacial_lance, whiteout}
+      mix    #171 Nagaseer [Mental/Poison] Lv103  {psi_strike, venom_mind, sludge_wave, mental}
+    · double (6):
+      ★ACE   #321 Dragemian [Draconic/Fire] Lv108  {rampage, ancient_breath, pyroclasm, conflagration}
+      mix    #320 Galvathon [Metal/Electric] Lv107  {anvil_drop, arc_cannon, iron_storm, stormbolt}
+      mix    #273 Blazeon [Fire/Spectral] Lv106  {caldera_meltdown, soul_burst, pyroclasm, eternal_ember}
+      mix    #190 Aetherflock [Normal/Mental] Lv105  {radiance_cannon, psi_strike, mental, encore_blast}
+      mix    #395 Glacierend [Ice/Normal] Lv104  {glaciation, whiteout, icebound_lattice, tundra_tomb}
+      mix    #404 Auguryx [Draconic/Mental] Lv103  {abyss_ray, cataclysm_breath, time_fracture, psi_strike}
+    · triple (6):
+      ★ACE   #321 Dragemian [Draconic/Fire] Lv108  {rampage, ancient_breath, pyroclasm, conflagration}
+      mix    #320 Galvathon [Metal/Electric] Lv107  {anvil_drop, arc_cannon, iron_storm, stormbolt}
+      mix    #407 Voidwarden [Dark/Metal] Lv106  {starlight_obliteration, void_dominion, abyssal_dominion, wraith_drive}
+      mix    #389 Stormcrown [Electric/Sonic] Lv105  {threnody, stormbolt, volt_jet, harmonic_wave}
+      mix    #343 Shadowreave [Dark/Spectral] Lv104  {spirit_calamity, abyssal_dominion, reaper_scythe, void_rend}
+      mix    #377 Abyssforge [Earth/Mineral] Lv103  {obsidian_strike, continental_shift, fissure_slam, crag_strike}

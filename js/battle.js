@@ -1591,6 +1591,7 @@ function buildGymMon(slot, levelBonus) {
     moves: buildMoveArr(gymMoves),
     catchRate: 0,
     expYield: def.expYield,
+    heldItem: slot.heldItem || null,
     shiny, variant: v.variant, variantTypes: v.variantTypes, variantBase: v.variantBase, variantImmune: v.variantImmune, variantMods: v.variantMods,
   };
   if (v.variant && v.variantTypes) mon.types = [...v.variantTypes];

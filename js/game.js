@@ -44,7 +44,7 @@ function newGameState(playerName, starterMonsterId) {
     defeatedWielders: [],
     forgottenLegendaryAttempted: [],
     gymRematchWins: {},
-    frontier: { best: {} }
+    frontier: { best: {}, points: 0 }
   };
 }
 
@@ -146,8 +146,9 @@ function loadGame(slot) {
     if (!data.defeatedWielders) data.defeatedWielders = [];
     if (!data.forgottenLegendaryAttempted) data.forgottenLegendaryAttempted = [];
     if (!data.gymRematchWins) data.gymRematchWins = {};
-    if (!data.frontier) data.frontier = { best: {} };
+    if (!data.frontier) data.frontier = { best: {}, points: 0 };
     if (!data.frontier.best) data.frontier.best = {};
+    if (typeof data.frontier.points !== "number") data.frontier.points = 0;
     if (data.apexGuardianDefeated === undefined) data.apexGuardianDefeated = false;
     if (!data.discoveredTraits) data.discoveredTraits = {};
     // PvP saved team loadouts: up to 6 per format, drawn from owned Lumori.
@@ -2854,6 +2855,7 @@ function endBattle(outcome, slot, levelUps) {
   // exit (restores the real party, records the best streak). No overworld rewards or
   // blackout penalty. Mirrors the PvP-gauntlet chain but on the dedicated squad.
   if (battleContext.isFrontier) {
+    frontierSyncSquadHP(); // persist end-of-bout HP to the squad (multi syncs all actives)
     if (outcome === "won") frontierAdvance();
     else frontierFinish(outcome);
     return;
@@ -3632,6 +3634,11 @@ async function handleMultiFaintedMons() {
     const p = playerActiveMons[i];
     if (p && (p.fainted || p.currentHP <= 0)) {
       logMsg(`${p.name} fainted!`);
+      // Frontier attrition: persist the faint to the squad slot before the bench
+      // swap reassigns this index, so a fainted Lumori stays down across bouts.
+      if (battleContext.isFrontier && playerTeamIdxs[i] != null && G.team[playerTeamIdxs[i]]) {
+        G.team[playerTeamIdxs[i]].currentHP = 0;
+      }
       // For wielder battles, restrict replacement to the selected 4 slots
       const allowedSlots = battleContext.vaeldrisPlayerSlots ||
         G.team.map((_, idx) => idx);
@@ -5337,6 +5344,15 @@ const FRONTIER_ENEMY_LEVEL_STEP = 2;        // +per streak win
 const FRONTIER_ENEMY_LEVEL_CAP = 150;       // opponents cap here
 const FRONTIER_UPGRADE_TRIGGER_LEVEL = 130; // beating an enemy >= this offers the L120 bump
 
+// Milestone rewards: every N wins grant Frontier Points (FP) — a Tower-exclusive
+// currency banked in G.frontier.points, spent at the FP shop (stage 3d). FP per
+// milestone scales with the milestone number and the tier.
+const FRONTIER_MILESTONE_INTERVAL = 7;
+const FRONTIER_FP_TIER_BASE = { rookie:3, veteran:5, elite:8, master:12 };
+function frontierMilestoneFP(tierId, milestoneNum) {
+  return (FRONTIER_FP_TIER_BASE[tierId] || 3) * milestoneNum;
+}
+
 let frontierSetup = { tier:"veteran", size:"format", format:"single" };
 
 // The species pool an opponent generator may draw from (3b). Base run = ids 1-321;
@@ -5369,9 +5385,34 @@ function frontierRequiredSize(s) {
   return (FRONTIER_FORMATS.find(f => f.id === s.format) || FRONTIER_FORMATS[0]).size;
 }
 
+// Human-readable label for a best-streak key ("veteran_format_single").
+function frontierRulesetLabel(key) {
+  const [tier, size, fmt] = key.split("_");
+  const t = frontierTierDef(tier);
+  const sz = size === "three" ? "Always-3" : "Format";
+  const f = (fmt || "").charAt(0).toUpperCase() + (fmt || "").slice(1);
+  return `${t.icon} ${t.name} · ${sz} · ${f}`;
+}
+
+// Write end-of-bout HP from the live battle mon(s) back to the squad slots so it
+// carries into the next bout (attrition). Single battles already sync the active
+// mon via syncPlayerMonHP; multi battles need every active slot synced (fainted
+// slots are zeroed as they faint, in handleMultiFaintedMons under isFrontier).
+function frontierSyncSquadHP() {
+  const mode = battleContext.battleMode;
+  if ((mode === "double" || mode === "triple") && Array.isArray(playerActiveMons) && Array.isArray(playerTeamIdxs)) {
+    playerActiveMons.forEach((m, i) => {
+      const slot = G.team[playerTeamIdxs[i]];
+      if (slot && m) slot.currentHP = Math.max(0, m.currentHP);
+    });
+  } else {
+    syncPlayerMonHP();
+  }
+}
+
 function showFrontierScreen() {
   if (!G.championDefeated) { showNotification("🔒 The Battle Tower opens only to a Champion."); return; }
-  if (!G.frontier) G.frontier = { best: {} };
+  if (!G.frontier) G.frontier = { best: {}, points: 0 };
   showScreen("screen-frontier");
   renderFrontierSetup();
 }
@@ -5408,20 +5449,15 @@ function renderFrontierSetup() {
         () => { s.size = m.id; renderFrontierSetup(); }));
     }
   }
-  // Format chips — always pick the format (it sets the battle style; size mode only
-  // changes how many Lumori you field). Double/Triple land in stage 3c; for now only
-  // Single is selectable (and is forced if a deferred format was somehow set).
-  if (s.format !== "single") s.format = "single";
+  // Format chips — sets the battle style (single/double/triple). Size mode only
+  // changes how many Lumori you field; the format sets the active-per-side count.
   const fmtBox = document.getElementById("frontier-format-opts");
   if (fmtBox) {
     fmtBox.innerHTML = "";
     for (const f of FRONTIER_FORMATS) {
-      const ready = (f.id === "single");
-      const sub = ready ? (s.size === "three" ? "3 Lumori" : `${f.size} Lumori`) : "coming in 3c";
-      const chip = frontierOptBtn(`${f.icon} ${f.name}`, sub, s.format === f.id,
-        () => { if (ready) { s.format = f.id; renderFrontierSetup(); } });
-      if (!ready) { chip.disabled = true; chip.classList.add("frontier-opt-disabled"); }
-      fmtBox.appendChild(chip);
+      const sub = s.size === "three" ? "3 Lumori" : `${f.size} Lumori`;
+      fmtBox.appendChild(frontierOptBtn(`${f.icon} ${f.name}`, sub, s.format === f.id,
+        () => { s.format = f.id; renderFrontierSetup(); }));
     }
   }
 
@@ -5446,9 +5482,26 @@ function renderFrontierSetup() {
   }
   const beginBtn = document.getElementById("btn-frontier-begin");
   if (beginBtn) beginBtn.disabled = eligible.length < need;
+
+  // FP balance + Tower Records (all recorded bests across rulesets).
+  const recBox = document.getElementById("frontier-records");
+  if (recBox) {
+    const fp = (G.frontier && G.frontier.points) || 0;
+    let html = `<div class="frontier-fp">💠 Frontier Points: <strong>${fp}</strong>`
+      + ` <span class="frontier-hint">(milestone reward — spend at the Frontier shop, coming in 3d)</span></div>`;
+    const bests = Object.entries((G.frontier && G.frontier.best) || {}).filter(([, v]) => v > 0);
+    if (bests.length) {
+      html += `<div class="frontier-records-title">🏅 Tower Records</div><ul class="frontier-records-list">`;
+      for (const [k, v] of bests.sort((a, b) => b[1] - a[1])) {
+        html += `<li>${frontierRulesetLabel(k)} — <strong>${v}</strong></li>`;
+      }
+      html += `</ul>`;
+    }
+    recBox.innerHTML = html;
+  }
 }
 
-// ---- Run engine (stage 3b: single format) -------------------------------------
+// ---- Run engine (stages 3b–3c) ------------------------------------------------
 // Active run, or null when not in the Tower. The squad is a set of normalized,
 // attrition-tracked party-slot clones swapped into G.team for the run's duration
 // (PvP-style), with the real party stashed in `realParty` and restored on finish.
@@ -5543,6 +5596,7 @@ function frontierLaunchBattle() {
   if (pIdx < 0) { frontierFinish("lost"); return; } // squad wiped (safety)
 
   const level = frontierEnemyLevel(r.streak);
+  const fmt = r.setup.format; // single | double | triple (size mode only changes the count)
   const picks = frontierPickSpecies(r.cap, r.size, r.streak);
   const enemyTeam = picks.map(id => buildGymMon(frontierMakeEnemySlot(id, level), 0));
 
@@ -5551,8 +5605,8 @@ function frontierLaunchBattle() {
     isFrontier: true,
     frontierStreak: r.streak,
     frontierLevel: level,
-    battleMode: "single",
-    battleType: "single",
+    battleMode: fmt,
+    battleType: fmt,
     leaderName: `Tower Challenger #${r.streak + 1}`,
     leaderEmoji: "🏯",
     enemyTeam,
@@ -5562,6 +5616,14 @@ function frontierLaunchBattle() {
 
   // Squad slots are already at their run level (100/120), so no levelCap — buildBattleMon
   // reads the carried-over currentHP (attrition between bouts; no heal).
+  if (fmt === "double" || fmt === "triple") {
+    // startMultiBattle reads battleContext + G.team (no levelCap) and shows the screen.
+    startMultiBattle(enemyTeam, battleContext.leaderName, fmt);
+    logMsg(`🏯 Battle Tower — Bout ${r.streak + 1} (streak ${r.streak}). Squad Lv ${r.playerLevel} vs Lv ${level}. No healing between bouts!`, "log-catch");
+    document.getElementById("btn-catch").disabled = true;
+    return;
+  }
+
   playerActiveMon = buildBattleMon(G.team[pIdx]);
   enemyActiveMon = enemyTeam[0];
   hideMultiBattleSlots();
@@ -5585,32 +5647,48 @@ function frontierAdvance() {
   const beatenLevel = frontierEnemyLevel(r.streak); // the bout we just won
   r.streak += 1;
 
-  // Record best streak for this ruleset IN MEMORY only — we must not saveGame() while
-  // the normalized squad is swapped into G.team, or a reload would persist the L100
-  // clones over the real party. frontierFinish() saves after restoring the party.
-  if (!G.frontier) G.frontier = { best: {} };
+  // Record best streak + accrue Frontier Points IN MEMORY only — we must not
+  // saveGame() while the normalized squad is swapped into G.team, or a reload would
+  // persist the L100 clones over the real party. frontierFinish() saves after restore.
+  if (!G.frontier) G.frontier = { best: {}, points: 0 };
+  if (typeof G.frontier.points !== "number") G.frontier.points = 0;
   const key = frontierBestKey(r.setup);
   if (r.streak > (G.frontier.best[key] || 0)) G.frontier.best[key] = r.streak;
 
-  // L120 upgrade offer: the first time you beat an enemy at/above the trigger level.
-  if (!r.upgradeOffered && r.playerLevel < FRONTIER_UPGRADE_LEVEL
-      && beatenLevel >= FRONTIER_UPGRADE_TRIGGER_LEVEL) {
-    r.upgradeOffered = true;
-    showConfirm(
-      `🏯 Streak ${r.streak}! Challengers now reach Lv ${FRONTIER_UPGRADE_TRIGGER_LEVEL}+. `
-      + `Train your squad up to Lv ${FRONTIER_UPGRADE_LEVEL} for the rest of the run, or stay at Lv ${FRONTIER_BASE_LEVEL} for a sterner test?`,
-      () => { // Yes — bump to L120, scaling each mon's current HP%
-        r.playerLevel = FRONTIER_UPGRADE_LEVEL;
-        r.squad = r.squad.map(slot => frontierNormalizeSlot(slot, FRONTIER_UPGRADE_LEVEL, true));
-        G.team = r.squad;
-        showNotification(`💪 Your squad trains up to Lv ${FRONTIER_UPGRADE_LEVEL}!`, frontierLaunchBattle);
-      },
-      `Train to Lv ${FRONTIER_UPGRADE_LEVEL}`, `Stay at Lv ${FRONTIER_BASE_LEVEL}`,
-      frontierLaunchBattle // No — continue unchanged
-    );
-    return;
+  // Milestone reward: every N wins grants Frontier Points (scaled by milestone + tier).
+  let fpMsg = "";
+  if (r.streak % FRONTIER_MILESTONE_INTERVAL === 0) {
+    const milestoneNum = r.streak / FRONTIER_MILESTONE_INTERVAL;
+    const fp = frontierMilestoneFP(r.setup.tier, milestoneNum);
+    G.frontier.points += fp;
+    r.fpEarned = (r.fpEarned || 0) + fp;
+    fpMsg = `🏯 Milestone! Streak ${r.streak} → <strong>+${fp} Frontier Points</strong> (FP: ${G.frontier.points}). `
+      + `Spend them at the Frontier shop (coming soon).`;
   }
-  frontierLaunchBattle();
+
+  // Chain: milestone notice (if any) → L120 offer (if due) → next bout.
+  const launchNext = () => {
+    if (!r.upgradeOffered && r.playerLevel < FRONTIER_UPGRADE_LEVEL
+        && beatenLevel >= FRONTIER_UPGRADE_TRIGGER_LEVEL) {
+      r.upgradeOffered = true;
+      showConfirm(
+        `🏯 Streak ${r.streak}! Challengers now reach Lv ${FRONTIER_UPGRADE_TRIGGER_LEVEL}+. `
+        + `Train your squad up to Lv ${FRONTIER_UPGRADE_LEVEL} for the rest of the run, or stay at Lv ${FRONTIER_BASE_LEVEL} for a sterner test?`,
+        () => { // Yes — bump to L120, scaling each mon's current HP%
+          r.playerLevel = FRONTIER_UPGRADE_LEVEL;
+          r.squad = r.squad.map(slot => frontierNormalizeSlot(slot, FRONTIER_UPGRADE_LEVEL, true));
+          G.team = r.squad;
+          showNotification(`💪 Your squad trains up to Lv ${FRONTIER_UPGRADE_LEVEL}!`, frontierLaunchBattle);
+        },
+        `Train to Lv ${FRONTIER_UPGRADE_LEVEL}`, `Stay at Lv ${FRONTIER_BASE_LEVEL}`,
+        frontierLaunchBattle // No — continue unchanged
+      );
+      return;
+    }
+    frontierLaunchBattle();
+  };
+  if (fpMsg) showNotification(fpMsg, launchNext);
+  else launchNext();
 }
 
 // Called from endBattle's isFrontier branch on a loss (or a deliberate exit).
@@ -5627,7 +5705,8 @@ function frontierFinish(outcome) {
     ? `🏯 You cleared the Tower's available challengers — streak ${streak}!`
     : `🏯 Tower run over — final streak ${streak}.`;
   const tail = streak > 0 ? (isRecord ? " 🏅 New best for this ruleset!" : ` (Best: ${best}.)`) : "";
-  showNotification(head + tail, () => showFrontierScreen());
+  const fpTail = (r && r.fpEarned) ? `<br>💠 Frontier Points earned this run: <strong>${r.fpEarned}</strong> (FP: ${G.frontier?.points || 0}).` : "";
+  showNotification(head + tail + fpTail, () => showFrontierScreen());
 }
 
 // Async PvP: battle a snapshot of another player's submitted team, played for real

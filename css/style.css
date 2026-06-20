@@ -514,6 +514,14 @@ html, body {
 .frontier-eligible.ok { border-color: #3ba55d88; }
 .frontier-eligible.short { border-color: #c8282888; }
 .frontier-warn { color: var(--accent-red, #ff6666); }
+.frontier-records { margin-top: 1rem; }
+.frontier-fp { font-size: 0.85rem; color: var(--text-primary); }
+.frontier-records-title { margin: 0.6rem 0 0.3rem; font-size: 0.9rem; font-weight: bold; }
+.frontier-records-list { list-style: none; margin: 0; padding: 0; }
+.frontier-records-list li {
+  font-size: 0.8rem; color: var(--text-secondary);
+  padding: 0.25rem 0.5rem; border-bottom: 1px solid var(--border-color, #2a2f3b);
+}
 
 @keyframes pulse {
   0%, 100% { box-shadow: 0 0 12px rgba(210, 153, 34, 0.6); }

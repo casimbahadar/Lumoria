@@ -91,9 +91,10 @@ facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPo
   brought in**; filtered to BST ≤ tier cap, widening with streak.
 - **Mid-run choice:** first win vs an enemy ≥L130 offers a permanent bump to **L120** (or stay L100).
 - **Rewards:** milestone money/items every 7 wins; best streak per tier×size×format. FP-shop = 3d.
-- **Stages:** 3a facility+screen+setup+save ✅ · 3b single-format run engine ✅ · 3c milestone
-  rewards + best-streak display + double/triple + size modes (next) · 3d polish (themed trainers,
-  music, Frontier-Points shop, curve tuning).
+- **Stages:** 3a facility+screen+setup+save ✅ · 3b single-format run engine ✅ · 3c FP rewards +
+  records + double/triple + size modes ✅ · 3d polish — **Frontier-Points shop (spend `G.frontier.points`)
+  incl. NEW Tower-exclusive premium items to design** (per user), themed trainer names/emoji, music,
+  curve tuning (next).
 - **3a done:** `battle_frontier` area + Lodehollow connection (js/data.js); gold-diamond marker
   (`.frontier` class in renderWorldMap + css/style.css); `#screen-frontier` + `btn-frontier`
   (index.html); `renderAreaPanel` button; `G.frontier={best:{}}` save schema + migration;
@@ -114,6 +115,16 @@ facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPo
   inapplicable buttons and adapts the grid column count — competitive (PvP/Frontier) = Fight+Switch
   (`.acts-2`, two half-width), story/can't-catch (gyms, rival, Umbra, champion, elite, wielders) =
   Fight+Bag+Switch (`.acts-3`, thirds), wild = full 5-up (unchanged, still wraps to 2-up on mobile).
+- **3c done:** double/triple enabled (`frontierLaunchBattle` → `startMultiBattle` when fmt is multi;
+  size mode sets count 3/5/6). Multi-attrition: `handleMultiFaintedMons` zeroes a fainted player slot
+  before the bench swap (isFrontier-gated), and `frontierSyncSquadHP` writes end-of-bout HP for all
+  actives (called from the `isFrontier` endBattle branch). Milestone reward = **Frontier Points**
+  (`G.frontier.points`, new exclusive currency; `FRONTIER_FP_TIER_BASE` × milestone#, every 7 wins) —
+  awarded in memory, persisted on finish; announced via notification; FP-earned shown in the run
+  summary. Setup screen gains an FP balance + **Tower Records** list (`frontierRulesetLabel`, all
+  bests). Save schema `G.frontier.points` + migration. Verified headless: double 5v5 / triple 6v6,
+  attrition + faint-zeroing (`[9,0,269,242,233]`), FP 0→5 at streak 7, records render; 0 errors.
+  **3d note (user):** the FP shop will need NEW Tower-exclusive premium items designed to spend FP on.
 ## Phase 2 — Lane A.2 (evolution audit) + D (encounter audit) ⏳
 
 ---

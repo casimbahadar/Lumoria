@@ -4693,14 +4693,14 @@ const MONSTERS_DATA = {
 
   // --- F1: gem-shelled tortoise (Crystal / Crystal-Fairy) — LEGENDARY line ---
   408: { id:408, name:"Glimmerling", emoji:"💎", types:["Crystal"],
-    evolveTo:409, evolveLevel:18, catchRate:30, expYield:70, rarity:"legendary",
+    evolveTo:409, evolveLevel:43, catchRate:30, expYield:70, rarity:"legendary",
     base:{hp:55,atk:45,def:80,spa:65,spd:75,spe:40}, // BST 360
     learnset:[[1,"collide"],[1,"fortify"],[5,"crystal_jab"],[9,"shard_strike"],[12,"facet_focus"],[14,"fairy_wind"],[17,"gem_focus"],[19,"crystal_pulse"],[22,"crystalline_speed"],[25,"sapphire_charge"],[31,"prism_ray"],[80,"rainbow_burst",{ng:true}],[70,"crystalline_slash",{ng:true}],[80,"diamond_drill",{ng:true}],[80,"crystalline_beam",{ng:true}],[80,"flywheel",{ng:true}]],
     desc:"A hatchling tortoise no bigger than a thumb, its domed shell a cluster of cloudy raw quartz.",
     lore:"Glimmerling is born when a vein of dormant gem-crystal absorbs enough ambient ley-light to quicken into life. The cloudy quartz of its shell clears a little more each season as it basks, and hatchlings instinctively gather in sunlit hollows where the refracted glow keeps predators wary. Folk who find a Glimmerling sunning itself speak of a faint chiming hum that rises from the shell at dawn." },
 
   409: { id:409, name:"Facetite", emoji:"💎", types:["Crystal","Fairy"],
-    evolveTo:410, evolveLevel:42, catchRate:15, expYield:150, rarity:"legendary",
+    evolveTo:410, evolveLevel:52, catchRate:15, expYield:150, rarity:"legendary",
     base:{hp:80,atk:65,def:115,spa:95,spd:100,spe:50}, // BST 505
     learnset:[[1,"collide"],[1,"fortify"],[5,"crystal_jab"],[8,"bewitching_kiss"],[14,"fairy_wind"],[18,"wish_spark"],[19,"crystal_pulse"],[22,"radiant_reflection"],[27,"prism_ray"],[30,"lunar_burst"],[33,"prism_flare"],[36,"prismatic_calm"],[39,"crystalline_beam"],[43,"gemstone_strike"],[45,"jade_lattice"],[95,"starlight_prism",{ng:true}],[95,"gemstone_blast",{ng:true}],[90,"rainbow_burst",{ng:true}],[80,"shard_blade",{ng:true}],[80,"sylph_focus",{ng:true}],[90,"chrome_slash",{ng:true}]],
     desc:"Its shell has cleared into faceted gemstone planes that split sunlight into drifting fairy-glimmer.",

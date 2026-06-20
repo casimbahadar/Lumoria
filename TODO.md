@@ -179,6 +179,9 @@ friendship and inflated evolve-levels (8 lines @ L70-85). Fixed (user-approved):
   - **Batch 2 (evolvers #31–#64):** Toxaquil/Noxaquith, Pearlmaid/Seanymph, Coralossus, Gossafin,
     Cryonik/Boreon, Slatis, Hexaprowl/Hailgorge, Tundram/Bergyak, Mistwhirl, Rimeling, Glinteye,
     Lunaveris, Gelspike, Sporix/Myceloth — skipped (dupes: 28×4, 44×3, 42×3).
+  - **Batch 3 (evolvers #66–#95):** Viridix/Loamvin, Germix/Verdurus, Floralin/Faelomis, Sylvolt/
+    Sparkwood, Sylvnox/Morraveth, Joltan/Galvanos, Electrix/Shockharpe, Amperix/Sparkrel, Zephyrel,
+    Arcspine/Stonebolt, Aridhino — skipped (dupes: 44×5, 22×3, 42×3, +20/28/30 ×2).
   - (append further skipped batches/IDs here as we go.)
 - Lane D (encounter audit) still pending.
 

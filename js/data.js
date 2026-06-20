@@ -4737,7 +4737,7 @@ const MONSTERS_DATA = {
 
   // --- F3: burrowing sandworm / annelid (Toxin / Earth-Toxin) ---
   414: { id:414, name:"Grublurk", emoji:"🪱", types:["Toxin"],
-    evolveTo:415, evolveLevel:16, catchRate:160, expYield:62, rarity:"common",
+    evolveTo:415, evolveLevel:15, catchRate:160, expYield:62, rarity:"common",
     base:{hp:60,atk:55,def:58,spa:42,spd:45,spe:40}, // BST 300
     learnset:[[1,"collide"],[1,"toxic_sting"],[5,"mud_spray"],[8,"putrid_calm"],[10,"toxin_jab"],[15,"fortify"],[18,"toxic_lash_2"],[20,"sandstrike"],[26,"coiled_lunge"],[80,"bilious_drown",{ng:true}],[80,"sulfuric_spray",{ng:true}],[85,"malignant_storm",{ng:true}],[85,"acid_press",{ng:true}],[70,"miasma_lure",{ng:true}],[70,"fester_meditation",{ng:true}],[70,"caustic_shell",{ng:true}],[70,"acidic_glance",{ng:true}],[75,"toxic_kiss",{ng:true}],[75,"septic_bite",{ng:true}],[75,"venom_fang",{ng:true}],[80,"vile_cross",{ng:true}]],
     desc:"A pale, finger-thick grub that sweats an acrid slime as it inches through loose soil.",
@@ -4759,7 +4759,7 @@ const MONSTERS_DATA = {
 
   // --- F4: haunted ice-marionette (Spectral / Ice-Spectral) ---
   417: { id:417, name:"Glacigeist", emoji:"👻", types:["Spectral"],
-    evolveTo:418, evolveLevel:18, catchRate:150, expYield:65, rarity:"common",
+    evolveTo:418, evolveLevel:19, catchRate:150, expYield:65, rarity:"common",
     base:{hp:48,atk:40,def:52,spa:72,spd:58,spe:25}, // BST 295
     learnset:[[1,"ghost_jab"],[1,"flurries"],[6,"ghost_pulse"],[8,"ectoplasm_armor"],[11,"cold_snap"],[16,"specter_pulse"],[18,"fade"],[22,"borealis_ray"],[28,"phantom_beam"],[80,"void_wail",{ng:true}],[70,"soul_lance",{ng:true}],[80,"ectoplasm_wave",{ng:true}],[70,"soul_chill",{ng:true}],[70,"haunting_chorus",{ng:true}],[90,"blackout_bomb",{ng:true}],[75,"latent_force",{ng:true}]],
     desc:"A small, lonely haunt that has crept inside a cracked porcelain joint to give itself a body.",
@@ -4781,14 +4781,14 @@ const MONSTERS_DATA = {
 
   // --- F5: hot-spring capybara (Vapor / Fire-Vapor) ---
   420: { id:420, name:"Steamkit", emoji:"♨️", types:["Vapor"],
-    evolveTo:421, evolveLevel:18, catchRate:150, expYield:66, rarity:"common",
+    evolveTo:421, evolveLevel:17, catchRate:150, expYield:66, rarity:"common",
     base:{hp:62,atk:48,def:52,spa:60,spd:58,spe:30}, // BST 310
     learnset:[[1,"collide"],[1,"mist_pulse"],[5,"vapor_jab"],[8,"drizzle"],[10,"flicker"],[12,"cumulus_meditation"],[15,"fog_beam"],[18,"haze_focus"],[20,"steam_burst"],[26,"brume_resonance"],[85,"steam_slam",{ng:true}],[85,"cloud_smash",{ng:true}],[80,"boiling_strike",{ng:true}],[80,"smog_lash",{ng:true}],[95,"mist_press",{ng:true}],[75,"haze_strike",{ng:true}],[75,"rain_cascade",{ng:true}]],
     desc:"A round, downy pup that breathes out little curls of warm fog when it dozes.",
     lore:"Steamkit are gregarious and famously placid, huddling together at the edges of warm springs and exhaling soft fog that pools around them like a blanket. The warm haze keeps their fur from freezing in cold country and soothes wounds, so injured Lumori often shelter among a Steamkit colony until they mend." },
 
   421: { id:421, name:"Geyserook", emoji:"♨️", types:["Fire","Vapor"],
-    evolveTo:422, evolveLevel:38, catchRate:70, expYield:150, rarity:"uncommon",
+    evolveTo:422, evolveLevel:42, catchRate:70, expYield:150, rarity:"uncommon",
     base:{hp:85,atk:62,def:70,spa:82,spd:76,spe:35}, // BST 410
     learnset:[[1,"collide"],[5,"vapor_jab"],[10,"flicker"],[12,"mist_veil"],[14,"rain_cascade"],[16,"steam_punch"],[20,"steam_burst"],[22,"evaporate"],[24,"boiling_rage"],[26,"flame_charge"],[28,"steam_geyser"],[30,"cloud_blast"],[32,"boil"],[38,"inferno_jet"],[40,"burning_mist"],[44,"nimbus_eruption"],[46,"blazing_rush"],[80,"cumulus_strike",{ng:true}],[80,"fume_blow",{ng:true}],[85,"smog_drill",{ng:true}],[70,"fog_kick",{ng:true}]],
     desc:"A barrel-bodied beast that nests against thermal vents and vents scalding spray when alarmed.",
@@ -4832,7 +4832,7 @@ const MONSTERS_DATA = {
     lore:"Pummelo hatches already pugnacious, sparring with its broodmates and battering pebbles with its raptorial forelimbs to harden them. The faint hum it gives off while training is the first stirring of the focused mind its line is known for, and trainers prize the discipline a young Pummelo shows even at this size." },
 
   427: { id:427, name:"Brawlmonk", emoji:"🦗", types:["Fighting","Mental"],
-    evolveTo:428, evolveLevel:36, evolveMethod:"battles", evolveBattles:18, catchRate:70, expYield:145, rarity:"uncommon",
+    evolveTo:428, evolveLevel:40, evolveMethod:"battles", evolveBattles:18, catchRate:70, expYield:145, rarity:"uncommon",
     base:{hp:62,atk:95,def:66,spa:70,spd:62,spe:55}, // BST 410
     learnset:[[1,"quick_punch"],[5,"straight_jab"],[10,"battle_meditation"],[14,"body_check"],[16,"martial_aura"],[19,"mind_jolt"],[22,"fighter_s_resolve"],[25,"roundhouse"],[28,"ki_burst"],[31,"psi_burst"],[37,"iron_fist"],[43,"cortex_ram"],[45,"dreamweave"],[80,"brain_blast",{ng:true}],[70,"psi_blade",{ng:true}],[85,"cerebral_punch",{ng:true}],[70,"telekinetic_throw",{ng:true}],[70,"mental_overflow",{ng:true}],[70,"psyche_lock",{ng:true}],[75,"mind_strike",{ng:true}],[70,"dream_jab",{ng:true}],[75,"revenant_strike",{ng:true}]],
     desc:"A mantis warrior whose meditation has woken a focused psychic edge to its strikes.",
@@ -4869,14 +4869,14 @@ const MONSTERS_DATA = {
 
   // --- F9: mossy mammoth (Primal / Nature-Primal) — LEGENDARY line ---
   432: { id:432, name:"Woollytot", emoji:"🦣", types:["Primal"],
-    evolveTo:433, evolveLevel:20, catchRate:30, expYield:72, rarity:"legendary",
+    evolveTo:433, evolveLevel:40, catchRate:30, expYield:72, rarity:"legendary",
     base:{hp:75,atk:70,def:68,spa:45,spd:57,spe:50}, // BST 365
     learnset:[[1,"collide"],[1,"bestial_roar"],[5,"primal_jab"],[8,"atavistic_focus"],[10,"feral_claw"],[14,"beast_speed"],[16,"savage_bite"],[20,"wild_rage"],[22,"wild_strike"],[28,"beast_charge"],[80,"nihil_quake",{ng:true}],[85,"crushing_jaws",{ng:true}],[85,"raw_fury",{ng:true}],[80,"underground_crush",{ng:true}],[80,"uppercut",{ng:true}]],
     desc:"A shaggy calf with stubby tusks, already strong enough to topple a grown traveller.",
     lore:"Woollytot are born of a bloodline so ancient it predates the region's other Lumori, and even as calves they carry the deep, unhurried strength of their kind. A herd guards its young in a wall of bodies, and a lost Woollytot will trumpet a call that grown Primammoth answer from valleys away. The moss already creeping along its back marks the living mountain it will become." },
 
   433: { id:433, name:"Verdantusk", emoji:"🦣", types:["Nature","Primal"],
-    evolveTo:434, evolveLevel:44, catchRate:15, expYield:155, rarity:"legendary",
+    evolveTo:434, evolveLevel:54, catchRate:15, expYield:155, rarity:"legendary",
     base:{hp:105,atk:100,def:95,spa:60,spd:80,spe:70}, // BST 510
     learnset:[[1,"collide"],[5,"primal_jab"],[7,"nature_pulse"],[10,"beast_speed"],[14,"mantis_slash"],[16,"savage_bite"],[20,"wild_rage"],[22,"vine_lash"],[24,"sharp_leaves"],[28,"beast_charge"],[34,"pod_blast"],[36,"wild_aura"],[40,"crushing_jaws"],[46,"primal_smash"],[90,"nihil_quake",{ng:true}],[90,"wild_strike",{ng:true}],[90,"maul",{ng:true}],[95,"raw_fury",{ng:true}],[90,"feral_claw",{ng:true}],[90,"tidal_fang",{ng:true}],[120,"apex_predator",{ng:true}],[80,"quiver_dance",{ng:true}],[80,"sticky_web",{ng:true}],[80,"cocoon_guard",{ng:true}],[80,"thornwall",{ng:true}],[80,"bark_shield",{ng:true}],[80,"seed_volley",{ng:true}],[85,"bone_cudgel",{ng:true}]],
     desc:"A great tusker whose hide has become a hanging garden of moss, fern and clinging vine.",
@@ -4891,7 +4891,7 @@ const MONSTERS_DATA = {
 
   // --- F10: stone-fist gorilla (Mineral / Fighting-Mineral) ---
   435: { id:435, name:"Knucklite", emoji:"🦍", types:["Mineral"],
-    evolveTo:436, evolveLevel:16, catchRate:160, expYield:62, rarity:"common",
+    evolveTo:436, evolveLevel:18, catchRate:160, expYield:62, rarity:"common",
     base:{hp:55,atk:62,def:70,spa:40,spd:48,spe:45}, // BST 320
     learnset:[[1,"collide"],[1,"fortify"],[5,"mineral_jab"],[8,"granite_slam"],[10,"ore_punch"],[15,"quick_punch"],[20,"lode_strike"],[24,"ore_polish"],[26,"body_check"],[80,"crystal_shard",{ng:true}],[75,"stone_cleave",{ng:true}]],
     desc:"A stocky ape-pup that hardens its knuckles by drumming them against cave walls.",
@@ -4943,7 +4943,7 @@ const MONSTERS_DATA = {
 
   // --- F13: miasma leech (Vapor / Poison-Vapor) ---
   442: { id:442, name:"Bloatleech", emoji:"🩸", types:["Vapor"],
-    evolveTo:443, evolveLevel:26, catchRate:190, expYield:66, rarity:"common",
+    evolveTo:443, evolveLevel:25, catchRate:190, expYield:66, rarity:"common",
     base:{hp:65,atk:45,def:55,spa:58,spd:52,spe:30}, // BST 305
     learnset:[[1,"vapor_jab"],[1,"mist_pulse"],[5,"septic_prick"],[8,"fume_blow"],[10,"fog_beam"],[12,"vapor_ray"],[15,"acid_spray"],[18,"cumulus_meditation"],[20,"brume_resonance"],[26,"virulent_surge"],[80,"cumulus_strike",{ng:true}],[70,"steam_punch",{ng:true}],[85,"smog_drill",{ng:true}],[70,"fog_kick",{ng:true}],[100,"torrent_shell",{ng:true}],[80,"squall",{ng:true}]],
     desc:"A swollen, translucent leech that exhales a faint sour fog as it feeds.",
@@ -4958,7 +4958,7 @@ const MONSTERS_DATA = {
 
   // --- F14: meerkat sentinel (Sonic / Normal-Sonic) ---
   444: { id:444, name:"Squeaklet", emoji:"🐿️", types:["Sonic"],
-    evolveTo:445, evolveLevel:24, catchRate:190, expYield:68, rarity:"common",
+    evolveTo:445, evolveLevel:28, catchRate:190, expYield:68, rarity:"common",
     base:{hp:52,atk:55,def:48,spa:55,spd:50,spe:55}, // BST 315
     learnset:[[1,"chirp"],[1,"echo_strike"],[5,"blitz"],[8,"discord"],[10,"echo_pulse"],[12,"silent_strike"],[15,"sound_rush"],[18,"echo_chamber"],[20,"shake_smash"],[26,"pulse_wave"],[90,"aerial_slam",{ng:true}],[100,"psychic_blizzard",{ng:true}]],
     desc:"A bright-eyed burrow-pup that pops upright to give a piercing alarm-squeak.",
@@ -4973,7 +4973,7 @@ const MONSTERS_DATA = {
 
   // --- F15: spore myconid (Vapor / Nature-Vapor) ---
   446: { id:446, name:"Sporelet", emoji:"🍄", types:["Vapor"],
-    evolveTo:447, evolveLevel:26, catchRate:190, expYield:66, rarity:"common",
+    evolveTo:447, evolveLevel:27, catchRate:190, expYield:66, rarity:"common",
     base:{hp:60,atk:45,def:58,spa:62,spd:55,spe:30}, // BST 310
     learnset:[[1,"collide"],[1,"mist_pulse"],[5,"vapor_jab"],[8,"cumulus_meditation"],[10,"slumber_dust"],[12,"haze_focus"],[15,"fog_beam"],[18,"acid_mist"],[20,"brume_resonance"],[26,"pod_blast"],[70,"vapor_ray",{ng:true}],[70,"stream_burst",{ng:true}],[85,"nimbus_eruption",{ng:true}],[95,"nimbus_flood",{ng:true}],[80,"coral_barrage",{ng:true}]],
     desc:"A capped sprout that puffs a fine drowsy haze of spores when nudged.",
@@ -5018,7 +5018,7 @@ const MONSTERS_DATA = {
 
   // --- F18: dream sloth (Dream / Dream-Fairy) ---
   452: { id:452, name:"Dozit", emoji:"🦥", types:["Dream"],
-    evolveTo:453, evolveLevel:28, catchRate:190, expYield:64, rarity:"common",
+    evolveTo:453, evolveLevel:30, catchRate:190, expYield:64, rarity:"common",
     base:{hp:68,atk:42,def:55,spa:58,spd:57,spe:20}, // BST 300
     learnset:[[1,"collide"],[1,"lullaby_song"],[5,"dream_jab"],[7,"reverie_focus"],[10,"dream_pulse"],[12,"somnia_punch"],[15,"somnia_ray"],[17,"hypnos_speed"],[20,"lucid_beam"],[22,"slumber_armor"],[26,"lullaby_aura"],[80,"terror_slash",{ng:true}],[80,"reverie_charge",{ng:true}],[70,"nightmare_strike",{ng:true}],[80,"nightmare_storm",{ng:true}],[80,"telepathic_slam",{ng:true}],[70,"spectral_radiance",{ng:true}]],
     desc:"A perpetually half-asleep sloth that drifts through its own slow daydreams.",
@@ -5048,7 +5048,7 @@ const MONSTERS_DATA = {
 
   // --- F20: axolotl (Vapor / Aquatic-Vapor) ---
   456: { id:456, name:"Mistgill", emoji:"🦎", types:["Vapor"],
-    evolveTo:457, evolveLevel:26, catchRate:190, expYield:68, rarity:"common",
+    evolveTo:457, evolveLevel:29, catchRate:190, expYield:68, rarity:"common",
     base:{hp:65,atk:50,def:55,spa:58,spd:55,spe:35}, // BST 318
     learnset:[[1,"collide"],[1,"mist_pulse"],[5,"vapor_jab"],[10,"aquatic_gun"],[12,"stream_burst"],[15,"fog_beam"],[18,"wisp_speed"],[20,"brume_resonance"],[22,"haze_strike"],[26,"bubble_jet"],[85,"steam_slam",{ng:true}],[85,"cloud_smash",{ng:true}],[80,"boiling_strike",{ng:true}],[80,"smog_lash",{ng:true}],[70,"cloud_form",{ng:true}],[70,"smoke_calm",{ng:true}],[95,"mist_press",{ng:true}],[100,"hurricane_blast",{ng:true}]],
     desc:"A frilled, perpetually smiling amphibian whose feathery gills trail wisps of warm mist.",

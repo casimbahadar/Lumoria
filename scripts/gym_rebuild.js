@@ -254,7 +254,10 @@ baseGyms.forEach((id, i) => {
   const L = G[id], T = L.type, size = bandSize(i);
   let bBand = levelBand(L.teams), nBand = levelBand(L.ngTeams) || bBand;
   if (id === "rex") { bBand = { min: bBand.min, max: 10 }; nBand = { min: nBand.min, max: 10 }; } // ace 9->10 (LEVEL_CAPS + G1 NG+ = 12)
-  const ace = computeAce(L, T, true);   // no legendaries in base OR NG+ gyms
+  // Forced signature aces (lore): rex -> Rotunden #182, the base-stage pre-evo of
+  // Ursamight #184 (Rex's future evolved ace in the Umbra-Order arc).
+  const FORCED_ACE = { rex: 182 };
+  const ace = FORCED_ACE[id] ? M[FORCED_ACE[id]] : computeAce(L, T, true);
   const baseSet = buildSet(T, baseComp(size), FORGOTTEN, true, bBand, size, L.teams, ace, true);
   const ngSet = buildSet(T, ngComp(id), FORGOTTEN, false, nBand, 6, L.ngTeams || L.teams, ace, true);
   result[id] = { base: baseSet, ng: ngSet };

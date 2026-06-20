@@ -1,58 +1,26 @@
 {
  "rex": {
   "base": {
-   "ace": 51,
-   "aceName": "Bergyak",
+   "ace": 182,
+   "aceName": "Rotunden",
    "styles": {
     "single": [
      {
-      "monsterId": 51,
-      "name": "Bergyak",
+      "monsterId": 182,
+      "name": "Rotunden",
       "types": [
-       "Ice",
-       "Normal"
+       "Normal",
+       "Fighting"
       ],
       "role": "ace",
       "level": 10,
       "moves": [
-       "cold_beam",
-       "flurries",
-       "winter_shroud",
-       "fortify"
-      ]
-     },
-     {
-      "monsterId": 180,
-      "name": "Leapbun",
-      "types": [
-       "Normal"
-      ],
-      "role": "on",
-      "level": 8,
-      "moves": [
-       "crushing_bulk",
        "cranial_ram",
        "collide",
-       "blitz"
+       "daunt",
+       "baleful_stare"
       ]
      },
-     {
-      "monsterId": 118,
-      "name": "Eclipsehound",
-      "types": [
-       "Dark"
-      ],
-      "role": "off",
-      "level": 6,
-      "moves": [
-       "void_dominion",
-       "dark_corrosion",
-       "jaw_crush",
-       "void_pulse"
-      ]
-     }
-    ],
-    "double": [
      {
       "monsterId": 51,
       "name": "Bergyak",
@@ -60,28 +28,13 @@
        "Ice",
        "Normal"
       ],
-      "role": "ace",
-      "level": 10,
+      "role": "on",
+      "level": 8,
       "moves": [
        "cold_beam",
        "flurries",
        "winter_shroud",
        "fortify"
-      ]
-     },
-     {
-      "monsterId": 187,
-      "name": "Norindel",
-      "types": [
-       "Normal"
-      ],
-      "role": "on",
-      "level": 8,
-      "moves": [
-       "radiance_cannon",
-       "last_stand",
-       "all_out_assault",
-       "tornado_grab"
       ]
      },
      {
@@ -101,36 +54,36 @@
       ]
      }
     ],
-    "triple": [
+    "double": [
      {
-      "monsterId": 51,
-      "name": "Bergyak",
+      "monsterId": 182,
+      "name": "Rotunden",
       "types": [
-       "Ice",
-       "Normal"
+       "Normal",
+       "Fighting"
       ],
       "role": "ace",
       "level": 10,
       "moves": [
-       "cold_beam",
-       "flurries",
-       "winter_shroud",
-       "fortify"
+       "cranial_ram",
+       "collide",
+       "daunt",
+       "baleful_stare"
       ]
      },
      {
-      "monsterId": 178,
-      "name": "Fluffen",
+      "monsterId": 180,
+      "name": "Leapbun",
       "types": [
        "Normal"
       ],
       "role": "on",
       "level": 8,
       "moves": [
+       "crushing_bulk",
+       "cranial_ram",
        "collide",
-       "quick_jab",
-       "graze",
-       "daunt"
+       "blitz"
       ]
      },
      {
@@ -149,28 +102,76 @@
        "tidecaller"
       ]
      }
-    ]
-   }
-  },
-  "ng": {
-   "ace": 51,
-   "aceName": "Bergyak",
-   "styles": {
-    "single": [
+    ],
+    "triple": [
      {
-      "monsterId": 51,
-      "name": "Bergyak",
+      "monsterId": 182,
+      "name": "Rotunden",
       "types": [
-       "Ice",
-       "Normal"
+       "Normal",
+       "Fighting"
       ],
       "role": "ace",
       "level": 10,
       "moves": [
-       "cold_beam",
-       "flurries",
-       "winter_shroud",
-       "fortify"
+       "cranial_ram",
+       "collide",
+       "daunt",
+       "baleful_stare"
+      ]
+     },
+     {
+      "monsterId": 187,
+      "name": "Norindel",
+      "types": [
+       "Normal"
+      ],
+      "role": "on",
+      "level": 8,
+      "moves": [
+       "radiance_cannon",
+       "last_stand",
+       "all_out_assault",
+       "tornado_grab"
+      ]
+     },
+     {
+      "monsterId": 118,
+      "name": "Eclipsehound",
+      "types": [
+       "Dark"
+      ],
+      "role": "off",
+      "level": 6,
+      "moves": [
+       "void_dominion",
+       "dark_corrosion",
+       "jaw_crush",
+       "void_pulse"
+      ]
+     }
+    ]
+   }
+  },
+  "ng": {
+   "ace": 182,
+   "aceName": "Rotunden",
+   "styles": {
+    "single": [
+     {
+      "monsterId": 182,
+      "name": "Rotunden",
+      "types": [
+       "Normal",
+       "Fighting"
+      ],
+      "role": "ace",
+      "level": 10,
+      "moves": [
+       "cranial_ram",
+       "collide",
+       "daunt",
+       "baleful_stare"
       ]
      },
      {
@@ -187,198 +188,6 @@
        "zenith_ray",
        "psi_strike",
        "synaptic_shatter"
-      ]
-     },
-     {
-      "monsterId": 179,
-      "name": "Velvetine",
-      "types": [
-       "Normal"
-      ],
-      "role": "on",
-      "level": 8,
-      "moves": [
-       "graze",
-       "blitz",
-       "daunt",
-       "lashing_tail"
-      ]
-     },
-     {
-      "monsterId": 188,
-      "name": "Plentorus",
-      "types": [
-       "Normal"
-      ],
-      "role": "on",
-      "level": 8,
-      "moves": [
-       "crushing_bulk",
-       "cranial_ram",
-       "collide",
-       "battle_cry"
-      ]
-     },
-     {
-      "monsterId": 198,
-      "name": "Chrysalix",
-      "types": [
-       "Nature"
-      ],
-      "role": "off",
-      "level": 7,
-      "moves": [
-       "sharp_leaves",
-       "vine_lash",
-       "mantis_slash",
-       "nature_pulse"
-      ]
-     },
-     {
-      "monsterId": 404,
-      "name": "Auguryx",
-      "types": [
-       "Draconic",
-       "Mental"
-      ],
-      "role": "off",
-      "level": 6,
-      "moves": [
-       "abyss_ray",
-       "cataclysm_breath",
-       "time_fracture",
-       "comet_crash"
-      ]
-     }
-    ],
-    "double": [
-     {
-      "monsterId": 51,
-      "name": "Bergyak",
-      "types": [
-       "Ice",
-       "Normal"
-      ],
-      "role": "ace",
-      "level": 10,
-      "moves": [
-       "cold_beam",
-       "flurries",
-       "winter_shroud",
-       "fortify"
-      ]
-     },
-     {
-      "monsterId": 371,
-      "name": "Nullform",
-      "types": [
-       "Dark",
-       "Normal"
-      ],
-      "role": "dual",
-      "level": 9,
-      "moves": [
-       "radiance_cannon",
-       "void_rend",
-       "crushing_bulk",
-       "nether_sphere"
-      ]
-     },
-     {
-      "monsterId": 186,
-      "name": "Continemic",
-      "types": [
-       "Normal",
-       "Wind"
-      ],
-      "role": "on",
-      "level": 8,
-      "moves": [
-       "crushing_bulk",
-       "wind_scythe",
-       "downdraft",
-       "collide"
-      ]
-     },
-     {
-      "monsterId": 181,
-      "name": "Racehare",
-      "types": [
-       "Normal"
-      ],
-      "role": "on",
-      "level": 8,
-      "moves": [
-       "cranial_ram",
-       "blitz",
-       "collide",
-       "quick_jab"
-      ]
-     },
-     {
-      "monsterId": 407,
-      "name": "Voidwarden",
-      "types": [
-       "Dark",
-       "Metal"
-      ],
-      "role": "off",
-      "level": 7,
-      "moves": [
-       "starlight_obliteration",
-       "void_dominion",
-       "abyssal_dominion",
-       "wraith_drive"
-      ]
-     },
-     {
-      "monsterId": 389,
-      "name": "Stormcrown",
-      "types": [
-       "Electric",
-       "Sonic"
-      ],
-      "role": "off",
-      "level": 6,
-      "moves": [
-       "threnody",
-       "stormbolt",
-       "volt_jet",
-       "harmonic_wave"
-      ]
-     }
-    ],
-    "triple": [
-     {
-      "monsterId": 51,
-      "name": "Bergyak",
-      "types": [
-       "Ice",
-       "Normal"
-      ],
-      "role": "ace",
-      "level": 10,
-      "moves": [
-       "cold_beam",
-       "flurries",
-       "winter_shroud",
-       "fortify"
-      ]
-     },
-     {
-      "monsterId": 391,
-      "name": "Titanfang",
-      "types": [
-       "Normal",
-       "Earth"
-      ],
-      "role": "dual",
-      "level": 9,
-      "moves": [
-       "radiance_cannon",
-       "mantle_surge",
-       "reckless_charge",
-       "last_stand"
       ]
      },
      {
@@ -414,6 +223,119 @@
       ]
      },
      {
+      "monsterId": 404,
+      "name": "Auguryx",
+      "types": [
+       "Draconic",
+       "Mental"
+      ],
+      "role": "off",
+      "level": 7,
+      "moves": [
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "comet_crash"
+      ]
+     },
+     {
+      "monsterId": 407,
+      "name": "Voidwarden",
+      "types": [
+       "Dark",
+       "Metal"
+      ],
+      "role": "off",
+      "level": 6,
+      "moves": [
+       "starlight_obliteration",
+       "void_dominion",
+       "abyssal_dominion",
+       "wraith_drive"
+      ]
+     }
+    ],
+    "double": [
+     {
+      "monsterId": 182,
+      "name": "Rotunden",
+      "types": [
+       "Normal",
+       "Fighting"
+      ],
+      "role": "ace",
+      "level": 10,
+      "moves": [
+       "cranial_ram",
+       "collide",
+       "daunt",
+       "baleful_stare"
+      ]
+     },
+     {
+      "monsterId": 371,
+      "name": "Nullform",
+      "types": [
+       "Dark",
+       "Normal"
+      ],
+      "role": "dual",
+      "level": 9,
+      "moves": [
+       "radiance_cannon",
+       "void_rend",
+       "crushing_bulk",
+       "nether_sphere"
+      ]
+     },
+     {
+      "monsterId": 51,
+      "name": "Bergyak",
+      "types": [
+       "Ice",
+       "Normal"
+      ],
+      "role": "on",
+      "level": 8,
+      "moves": [
+       "cold_beam",
+       "flurries",
+       "winter_shroud",
+       "fortify"
+      ]
+     },
+     {
+      "monsterId": 179,
+      "name": "Velvetine",
+      "types": [
+       "Normal"
+      ],
+      "role": "on",
+      "level": 8,
+      "moves": [
+       "graze",
+       "blitz",
+       "daunt",
+       "lashing_tail"
+      ]
+     },
+     {
+      "monsterId": 389,
+      "name": "Stormcrown",
+      "types": [
+       "Electric",
+       "Sonic"
+      ],
+      "role": "off",
+      "level": 7,
+      "moves": [
+       "threnody",
+       "stormbolt",
+       "volt_jet",
+       "harmonic_wave"
+      ]
+     },
+     {
       "monsterId": 343,
       "name": "Shadowreave",
       "types": [
@@ -421,12 +343,77 @@
        "Spectral"
       ],
       "role": "off",
-      "level": 7,
+      "level": 6,
       "moves": [
        "spirit_calamity",
        "abyssal_dominion",
        "reaper_scythe",
        "void_rend"
+      ]
+     }
+    ],
+    "triple": [
+     {
+      "monsterId": 182,
+      "name": "Rotunden",
+      "types": [
+       "Normal",
+       "Fighting"
+      ],
+      "role": "ace",
+      "level": 10,
+      "moves": [
+       "cranial_ram",
+       "collide",
+       "daunt",
+       "baleful_stare"
+      ]
+     },
+     {
+      "monsterId": 391,
+      "name": "Titanfang",
+      "types": [
+       "Normal",
+       "Earth"
+      ],
+      "role": "dual",
+      "level": 9,
+      "moves": [
+       "radiance_cannon",
+       "mantle_surge",
+       "reckless_charge",
+       "last_stand"
+      ]
+     },
+     {
+      "monsterId": 188,
+      "name": "Plentorus",
+      "types": [
+       "Normal"
+      ],
+      "role": "on",
+      "level": 8,
+      "moves": [
+       "crushing_bulk",
+       "cranial_ram",
+       "collide",
+       "battle_cry"
+      ]
+     },
+     {
+      "monsterId": 186,
+      "name": "Continemic",
+      "types": [
+       "Normal",
+       "Wind"
+      ],
+      "role": "on",
+      "level": 8,
+      "moves": [
+       "crushing_bulk",
+       "wind_scythe",
+       "downdraft",
+       "collide"
       ]
      },
      {
@@ -437,12 +424,27 @@
        "Mineral"
       ],
       "role": "off",
-      "level": 6,
+      "level": 7,
       "moves": [
        "obsidian_strike",
        "continental_shift",
        "fissure_slam",
        "crag_strike"
+      ]
+     },
+     {
+      "monsterId": 198,
+      "name": "Chrysalix",
+      "types": [
+       "Nature"
+      ],
+      "role": "off",
+      "level": 6,
+      "moves": [
+       "sharp_leaves",
+       "vine_lash",
+       "mantis_slash",
+       "nature_pulse"
       ]
      }
     ]
@@ -487,19 +489,19 @@
       ]
      },
      {
-      "monsterId": 104,
-      "name": "Sandpup",
+      "monsterId": 9,
+      "name": "Garlawarden",
       "types": [
-       "Normal",
-       "Earth"
+       "Nature",
+       "Fairy"
       ],
       "role": "off",
       "level": 11,
       "moves": [
-       "mud_spray",
-       "collide",
-       "daunt",
-       "baleful_stare"
+       "verdant_orb",
+       "pod_blast",
+       "fairy_jab",
+       "vine_lash"
       ]
      }
     ],
@@ -536,19 +538,18 @@
       ]
      },
      {
-      "monsterId": 9,
-      "name": "Garlawarden",
+      "monsterId": 149,
+      "name": "Eternarmor",
       "types": [
-       "Nature",
-       "Fairy"
+       "Metal"
       ],
       "role": "off",
       "level": 11,
       "moves": [
-       "verdant_orb",
-       "pod_blast",
-       "fairy_jab",
-       "vine_lash"
+       "alloy_tail",
+       "forge_strike",
+       "forge_blast_2",
+       "chrome_claw"
       ]
      }
     ],
@@ -585,18 +586,19 @@
       ]
      },
      {
-      "monsterId": 149,
-      "name": "Eternarmor",
+      "monsterId": 104,
+      "name": "Sandpup",
       "types": [
-       "Metal"
+       "Normal",
+       "Earth"
       ],
       "role": "off",
       "level": 11,
       "moves": [
-       "alloy_tail",
-       "forge_strike",
-       "forge_blast_2",
-       "chrome_claw"
+       "mud_spray",
+       "collide",
+       "daunt",
+       "baleful_stare"
       ]
      }
     ]
@@ -639,65 +641,67 @@
       ]
      },
      {
-      "monsterId": 88,
-      "name": "Sparkrel",
+      "monsterId": 6,
+      "name": "Banksnout",
       "types": [
-       "Electric",
-       "Aquatic"
+       "Aquatic",
+       "Dark"
       ],
       "role": "on",
       "level": 13,
       "moves": [
-       "volt_jet",
-       "bubble_jet",
-       "jolt",
-       "aquatic_gun"
+       "abyssal_wave",
+       "tidal_rush",
+       "tidal_sweep",
+       "shadow_jab"
       ]
      },
      {
-      "monsterId": 35,
-      "name": "Seanymph",
+      "monsterId": 387,
+      "name": "Deepvoid",
       "types": [
-       "Aquatic",
-       "Fairy"
+       "Dark",
+       "Aquatic"
       ],
       "role": "on",
       "level": 12,
       "moves": [
-       "prism_flare",
-       "bubble_jet",
-       "aquatic_gun",
-       "fairy_wind"
+       "tsunami",
+       "tidal_crush",
+       "void_rend",
+       "sea_serpent_strike"
       ]
      },
      {
-      "monsterId": 420,
-      "name": "Steamkit",
+      "monsterId": 395,
+      "name": "Glacierend",
       "types": [
-       "Vapor"
+       "Ice",
+       "Normal"
       ],
       "role": "off",
       "level": 12,
       "moves": [
-       "drizzle",
-       "mist_pulse",
-       "vapor_jab",
-       "collide"
+       "cold_beam",
+       "icicle_smash",
+       "aurora_blast",
+       "war_dance"
       ]
      },
      {
-      "monsterId": 426,
-      "name": "Pummelo",
+      "monsterId": 404,
+      "name": "Auguryx",
       "types": [
-       "Fighting"
+       "Draconic",
+       "Mental"
       ],
       "role": "off",
       "level": 11,
       "moves": [
-       "spinning_kick",
-       "high_kick",
-       "leg_sweep",
-       "battle_cry"
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "comet_crash"
       ]
      }
     ],
@@ -734,65 +738,66 @@
       ]
      },
      {
-      "monsterId": 29,
-      "name": "Coralisk",
+      "monsterId": 397,
+      "name": "Abyssalord",
       "types": [
-       "Aquatic"
+       "Aquatic",
+       "Spectral"
       ],
       "role": "on",
       "level": 13,
       "moves": [
-       "tidal_rush",
-       "bubble_jet",
-       "aquatic_gun",
-       "tidecaller"
+       "spirit_calamity",
+       "tsunami",
+       "tidal_crush",
+       "sea_serpent_strike"
       ]
      },
      {
-      "monsterId": 6,
-      "name": "Banksnout",
+      "monsterId": 88,
+      "name": "Sparkrel",
       "types": [
-       "Aquatic",
-       "Dark"
+       "Electric",
+       "Aquatic"
       ],
       "role": "on",
       "level": 12,
       "moves": [
-       "abyssal_wave",
-       "tidal_rush",
-       "tidal_sweep",
-       "shadow_jab"
+       "volt_jet",
+       "bubble_jet",
+       "jolt",
+       "aquatic_gun"
       ]
      },
      {
-      "monsterId": 414,
-      "name": "Grublurk",
+      "monsterId": 407,
+      "name": "Voidwarden",
       "types": [
-       "Toxin"
+       "Dark",
+       "Metal"
       ],
       "role": "off",
       "level": 12,
       "moves": [
-       "toxic_sting",
-       "toxin_jab",
-       "mud_spray",
-       "collide"
+       "alloy_tail",
+       "void_rend",
+       "hydra_dance",
+       "null_void"
       ]
      },
      {
-      "monsterId": 395,
-      "name": "Glacierend",
+      "monsterId": 420,
+      "name": "Steamkit",
       "types": [
-       "Ice",
-       "Normal"
+       "Vapor"
       ],
       "role": "off",
       "level": 11,
       "moves": [
-       "glaciation",
-       "reckless_charge",
-       "last_stand",
-       "whiteout"
+       "drizzle",
+       "mist_pulse",
+       "vapor_jab",
+       "collide"
       ]
      }
     ],
@@ -829,67 +834,64 @@
       ]
      },
      {
-      "monsterId": 387,
-      "name": "Deepvoid",
+      "monsterId": 35,
+      "name": "Seanymph",
       "types": [
-       "Dark",
-       "Aquatic"
+       "Aquatic",
+       "Fairy"
       ],
       "role": "on",
       "level": 13,
       "moves": [
-       "tsunami",
-       "tidal_crush",
-       "void_rend",
-       "sea_serpent_strike"
+       "prism_flare",
+       "bubble_jet",
+       "aquatic_gun",
+       "fairy_wind"
       ]
      },
      {
-      "monsterId": 397,
-      "name": "Abyssalord",
+      "monsterId": 29,
+      "name": "Coralisk",
       "types": [
-       "Aquatic",
-       "Spectral"
+       "Aquatic"
       ],
       "role": "on",
       "level": 12,
       "moves": [
-       "spirit_calamity",
-       "tsunami",
-       "tidal_crush",
-       "sea_serpent_strike"
+       "tidal_rush",
+       "bubble_jet",
+       "aquatic_gun",
+       "tidecaller"
       ]
      },
      {
-      "monsterId": 404,
-      "name": "Auguryx",
+      "monsterId": 426,
+      "name": "Pummelo",
       "types": [
-       "Draconic",
-       "Mental"
+       "Fighting"
       ],
       "role": "off",
       "level": 12,
       "moves": [
-       "abyss_ray",
-       "cataclysm_breath",
-       "time_fracture",
-       "comet_crash"
+       "spinning_kick",
+       "high_kick",
+       "leg_sweep",
+       "battle_cry"
       ]
      },
      {
-      "monsterId": 407,
-      "name": "Voidwarden",
+      "monsterId": 414,
+      "name": "Grublurk",
       "types": [
-       "Dark",
-       "Metal"
+       "Toxin"
       ],
       "role": "off",
       "level": 11,
       "moves": [
-       "alloy_tail",
-       "void_rend",
-       "hydra_dance",
-       "null_void"
+       "toxic_sting",
+       "toxin_jab",
+       "mud_spray",
+       "collide"
       ]
      }
     ]
@@ -898,58 +900,26 @@
  },
  "pyros": {
   "base": {
-   "ace": 17,
-   "aceName": "Searburn",
+   "ace": 3,
+   "aceName": "Calderaeth",
    "styles": {
     "single": [
      {
-      "monsterId": 17,
-      "name": "Searburn",
+      "monsterId": 3,
+      "name": "Calderaeth",
       "types": [
        "Fire",
-       "Wind"
+       "Draconic"
       ],
       "role": "ace",
       "level": 18,
       "moves": [
+       "searing_gale",
        "inferno_jet",
-       "cinderwhirl",
-       "flicker",
-       "scorch_veil"
-      ]
-     },
-     {
-      "monsterId": 1,
-      "name": "Solkin",
-      "types": [
-       "Fire"
-      ],
-      "role": "on",
-      "level": 17,
-      "moves": [
-       "firebrand",
        "cinder_lance",
-       "flame_fang",
-       "flicker"
+       "flame_fang"
       ]
      },
-     {
-      "monsterId": 66,
-      "name": "Viridix",
-      "types": [
-       "Nature"
-      ],
-      "role": "off",
-      "level": 16,
-      "moves": [
-       "pod_blast",
-       "sharp_leaves",
-       "vine_lash",
-       "baleful_stare"
-      ]
-     }
-    ],
-    "double": [
      {
       "monsterId": 17,
       "name": "Searburn",
@@ -957,29 +927,13 @@
        "Fire",
        "Wind"
       ],
-      "role": "ace",
-      "level": 18,
+      "role": "on",
+      "level": 17,
       "moves": [
        "inferno_jet",
        "cinderwhirl",
        "flicker",
        "scorch_veil"
-      ]
-     },
-     {
-      "monsterId": 274,
-      "name": "Charrock",
-      "types": [
-       "Fire",
-       "Mineral"
-      ],
-      "role": "on",
-      "level": 17,
-      "moves": [
-       "granite_slam",
-       "flicker",
-       "stone_slide",
-       "stone_throw"
       ]
      },
      {
@@ -999,36 +953,36 @@
       ]
      }
     ],
-    "triple": [
+    "double": [
      {
-      "monsterId": 17,
-      "name": "Searburn",
+      "monsterId": 3,
+      "name": "Calderaeth",
       "types": [
        "Fire",
-       "Wind"
+       "Draconic"
       ],
       "role": "ace",
       "level": 18,
       "moves": [
+       "searing_gale",
        "inferno_jet",
-       "cinderwhirl",
-       "flicker",
-       "scorch_veil"
+       "cinder_lance",
+       "flame_fang"
       ]
      },
      {
-      "monsterId": 16,
-      "name": "Cindercula",
+      "monsterId": 1,
+      "name": "Solkin",
       "types": [
        "Fire"
       ],
       "role": "on",
       "level": 17,
       "moves": [
-       "inferno_jet",
-       "flicker",
-       "collide",
-       "blitz"
+       "firebrand",
+       "cinder_lance",
+       "flame_fang",
+       "flicker"
       ]
      },
      {
@@ -1047,30 +1001,8 @@
        "tidal_sweep"
       ]
      }
-    ]
-   }
-  },
-  "ng": {
-   "ace": 17,
-   "aceName": "Searburn",
-   "styles": {
-    "single": [
-     {
-      "monsterId": 17,
-      "name": "Searburn",
-      "types": [
-       "Fire",
-       "Wind"
-      ],
-      "role": "ace",
-      "level": 18,
-      "moves": [
-       "inferno_jet",
-       "cinderwhirl",
-       "flicker",
-       "scorch_veil"
-      ]
-     },
+    ],
+    "triple": [
      {
       "monsterId": 3,
       "name": "Calderaeth",
@@ -1078,7 +1010,7 @@
        "Fire",
        "Draconic"
       ],
-      "role": "dual",
+      "role": "ace",
       "level": 18,
       "moves": [
        "searing_gale",
@@ -1088,24 +1020,8 @@
       ]
      },
      {
-      "monsterId": 20,
-      "name": "Ignirhino",
-      "types": [
-       "Fire",
-       "Earth"
-      ],
-      "role": "on",
-      "level": 17,
-      "moves": [
-       "tectonic_shift",
-       "scorch_kick",
-       "firebrand",
-       "flame_fang"
-      ]
-     },
-     {
-      "monsterId": 275,
-      "name": "Infernox",
+      "monsterId": 274,
+      "name": "Charrock",
       "types": [
        "Fire",
        "Mineral"
@@ -1113,60 +1029,49 @@
       "role": "on",
       "level": 17,
       "moves": [
-       "inferno_jet",
-       "coal_smash",
-       "flash_fire",
-       "crag_strike"
+       "granite_slam",
+       "flicker",
+       "stone_slide",
+       "stone_throw"
       ]
      },
      {
-      "monsterId": 161,
-      "name": "Mistbane",
+      "monsterId": 66,
+      "name": "Viridix",
       "types": [
-       "Poison",
-       "Vapor"
+       "Nature"
       ],
       "role": "off",
       "level": 16,
       "moves": [
-       "ooze_bomb",
-       "miasma_cloud",
-       "acid_burst",
-       "septic_prick"
-      ]
-     },
-     {
-      "monsterId": 109,
-      "name": "Siroccomane",
-      "types": [
-       "Wind",
-       "Electric"
-      ],
-      "role": "off",
-      "level": 16,
-      "moves": [
-       "wingbeat",
-       "breeze",
-       "mistveil",
-       "vortex_trap"
+       "pod_blast",
+       "sharp_leaves",
+       "vine_lash",
+       "baleful_stare"
       ]
      }
-    ],
-    "double": [
+    ]
+   }
+  },
+  "ng": {
+   "ace": 3,
+   "aceName": "Calderaeth",
+   "styles": {
+    "single": [
      {
-      "monsterId": 17,
-      "name": "Searburn",
+      "monsterId": 3,
+      "name": "Calderaeth",
       "types": [
        "Fire",
-       "Wind"
+       "Draconic"
       ],
       "role": "ace",
       "level": 18,
       "moves": [
+       "searing_gale",
        "inferno_jet",
-       "cinderwhirl",
-       "flicker",
-       "scorch_veil"
+       "cinder_lance",
+       "flame_fang"
       ]
      },
      {
@@ -1183,104 +1088,6 @@
        "solar_flare",
        "pyroclasm",
        "whiteout"
-      ]
-     },
-     {
-      "monsterId": 14,
-      "name": "Molteroth",
-      "types": [
-       "Fire",
-       "Earth"
-      ],
-      "role": "on",
-      "level": 17,
-      "moves": [
-       "magma_surge",
-       "inferno_jet",
-       "molten_claw",
-       "flicker"
-      ]
-     },
-     {
-      "monsterId": 11,
-      "name": "Heliocoon",
-      "types": [
-       "Fire",
-       "Wind"
-      ],
-      "role": "on",
-      "level": 17,
-      "moves": [
-       "flicker",
-       "mandible_bite",
-       "fortify",
-       "embercloak"
-      ]
-     },
-     {
-      "monsterId": 395,
-      "name": "Glacierend",
-      "types": [
-       "Ice",
-       "Normal"
-      ],
-      "role": "off",
-      "level": 16,
-      "moves": [
-       "cold_beam",
-       "icicle_smash",
-       "aurora_blast",
-       "ice_claw"
-      ]
-     },
-     {
-      "monsterId": 404,
-      "name": "Auguryx",
-      "types": [
-       "Draconic",
-       "Mental"
-      ],
-      "role": "off",
-      "level": 16,
-      "moves": [
-       "psi_strike",
-       "draconic_pulse",
-       "hydra_dance",
-       "ancient_meditation"
-      ]
-     }
-    ],
-    "triple": [
-     {
-      "monsterId": 17,
-      "name": "Searburn",
-      "types": [
-       "Fire",
-       "Wind"
-      ],
-      "role": "ace",
-      "level": 18,
-      "moves": [
-       "inferno_jet",
-       "cinderwhirl",
-       "flicker",
-       "scorch_veil"
-      ]
-     },
-     {
-      "monsterId": 358,
-      "name": "Psyphoenix",
-      "types": [
-       "Fire",
-       "Mental"
-      ],
-      "role": "dual",
-      "level": 18,
-      "moves": [
-       "solar_flare",
-       "psi_strike",
-       "synaptic_shatter",
-       "neural_storm"
       ]
      },
      {
@@ -1316,6 +1123,104 @@
       ]
      },
      {
+      "monsterId": 395,
+      "name": "Glacierend",
+      "types": [
+       "Ice",
+       "Normal"
+      ],
+      "role": "off",
+      "level": 16,
+      "moves": [
+       "cold_beam",
+       "icicle_smash",
+       "aurora_blast",
+       "ice_claw"
+      ]
+     },
+     {
+      "monsterId": 404,
+      "name": "Auguryx",
+      "types": [
+       "Draconic",
+       "Mental"
+      ],
+      "role": "off",
+      "level": 16,
+      "moves": [
+       "psi_strike",
+       "draconic_pulse",
+       "hydra_dance",
+       "ancient_meditation"
+      ]
+     }
+    ],
+    "double": [
+     {
+      "monsterId": 3,
+      "name": "Calderaeth",
+      "types": [
+       "Fire",
+       "Draconic"
+      ],
+      "role": "ace",
+      "level": 18,
+      "moves": [
+       "searing_gale",
+       "inferno_jet",
+       "cinder_lance",
+       "flame_fang"
+      ]
+     },
+     {
+      "monsterId": 358,
+      "name": "Psyphoenix",
+      "types": [
+       "Fire",
+       "Mental"
+      ],
+      "role": "dual",
+      "level": 18,
+      "moves": [
+       "solar_flare",
+       "psi_strike",
+       "synaptic_shatter",
+       "neural_storm"
+      ]
+     },
+     {
+      "monsterId": 17,
+      "name": "Searburn",
+      "types": [
+       "Fire",
+       "Wind"
+      ],
+      "role": "on",
+      "level": 17,
+      "moves": [
+       "inferno_jet",
+       "cinderwhirl",
+       "flicker",
+       "scorch_veil"
+      ]
+     },
+     {
+      "monsterId": 20,
+      "name": "Ignirhino",
+      "types": [
+       "Fire",
+       "Earth"
+      ],
+      "role": "on",
+      "level": 17,
+      "moves": [
+       "tectonic_shift",
+       "scorch_kick",
+       "firebrand",
+       "flame_fang"
+      ]
+     },
+     {
       "monsterId": 407,
       "name": "Voidwarden",
       "types": [
@@ -1347,6 +1252,104 @@
        "harmonic_wave"
       ]
      }
+    ],
+    "triple": [
+     {
+      "monsterId": 3,
+      "name": "Calderaeth",
+      "types": [
+       "Fire",
+       "Draconic"
+      ],
+      "role": "ace",
+      "level": 18,
+      "moves": [
+       "searing_gale",
+       "inferno_jet",
+       "cinder_lance",
+       "flame_fang"
+      ]
+     },
+     {
+      "monsterId": 365,
+      "name": "Cinderking",
+      "types": [
+       "Fire",
+       "Dark"
+      ],
+      "role": "dual",
+      "level": 18,
+      "moves": [
+       "solar_flare",
+       "conflagration",
+       "void_rend",
+       "inferno_jet"
+      ]
+     },
+     {
+      "monsterId": 275,
+      "name": "Infernox",
+      "types": [
+       "Fire",
+       "Mineral"
+      ],
+      "role": "on",
+      "level": 17,
+      "moves": [
+       "inferno_jet",
+       "coal_smash",
+       "flash_fire",
+       "crag_strike"
+      ]
+     },
+     {
+      "monsterId": 14,
+      "name": "Molteroth",
+      "types": [
+       "Fire",
+       "Earth"
+      ],
+      "role": "on",
+      "level": 17,
+      "moves": [
+       "magma_surge",
+       "inferno_jet",
+       "molten_claw",
+       "flicker"
+      ]
+     },
+     {
+      "monsterId": 161,
+      "name": "Mistbane",
+      "types": [
+       "Poison",
+       "Vapor"
+      ],
+      "role": "off",
+      "level": 16,
+      "moves": [
+       "ooze_bomb",
+       "miasma_cloud",
+       "acid_burst",
+       "septic_prick"
+      ]
+     },
+     {
+      "monsterId": 109,
+      "name": "Siroccomane",
+      "types": [
+       "Wind",
+       "Electric"
+      ],
+      "role": "off",
+      "level": 16,
+      "moves": [
+       "wingbeat",
+       "breeze",
+       "mistveil",
+       "vortex_trap"
+      ]
+     }
     ]
    }
   }
@@ -1357,6 +1360,56 @@
    "aceName": "Sumokappa",
    "styles": {
     "single": [
+     {
+      "monsterId": 231,
+      "name": "Sumokappa",
+      "types": [
+       "Aquatic",
+       "Fighting"
+      ],
+      "role": "ace",
+      "level": 22,
+      "moves": [
+       "tidal_rush",
+       "body_check",
+       "straight_jab",
+       "quick_punch"
+      ]
+     },
+     {
+      "monsterId": 184,
+      "name": "Ursamight",
+      "types": [
+       "Normal",
+       "Fighting"
+      ],
+      "role": "on",
+      "level": 20,
+      "moves": [
+       "crushing_bulk",
+       "cranial_ram",
+       "battle_cry",
+       "war_dance"
+      ]
+     },
+     {
+      "monsterId": 9,
+      "name": "Garlawarden",
+      "types": [
+       "Nature",
+       "Fairy"
+      ],
+      "role": "off",
+      "level": 18,
+      "moves": [
+       "verdant_orb",
+       "pod_blast",
+       "fairy_jab",
+       "vine_lash"
+      ]
+     }
+    ],
+    "double": [
      {
       "monsterId": 231,
       "name": "Sumokappa",
@@ -1390,23 +1443,23 @@
       ]
      },
      {
-      "monsterId": 123,
-      "name": "Nocturil",
+      "monsterId": 6,
+      "name": "Banksnout",
       "types": [
-       "Dark",
-       "Poison"
+       "Aquatic",
+       "Dark"
       ],
       "role": "off",
       "level": 18,
       "moves": [
-       "dusk_slash",
-       "chomp",
-       "septic_prick",
-       "graze"
+       "abyssal_wave",
+       "ocean_crash",
+       "tidal_rush",
+       "tidal_sweep"
       ]
      }
     ],
-    "double": [
+    "triple": [
      {
       "monsterId": 231,
       "name": "Sumokappa",
@@ -1440,23 +1493,29 @@
       ]
      },
      {
-      "monsterId": 9,
-      "name": "Garlawarden",
+      "monsterId": 123,
+      "name": "Nocturil",
       "types": [
-       "Nature",
-       "Fairy"
+       "Dark",
+       "Poison"
       ],
       "role": "off",
       "level": 18,
       "moves": [
-       "verdant_orb",
-       "pod_blast",
-       "fairy_jab",
-       "vine_lash"
+       "dusk_slash",
+       "chomp",
+       "septic_prick",
+       "graze"
       ]
      }
-    ],
-    "triple": [
+    ]
+   }
+  },
+  "ng": {
+   "ace": 231,
+   "aceName": "Sumokappa",
+   "styles": {
+    "single": [
      {
       "monsterId": 231,
       "name": "Sumokappa",
@@ -1471,6 +1530,22 @@
        "body_check",
        "straight_jab",
        "quick_punch"
+      ]
+     },
+     {
+      "monsterId": 428,
+      "name": "Zenkaiser",
+      "types": [
+       "Fighting",
+       "Mental"
+      ],
+      "role": "dual",
+      "level": 21,
+      "moves": [
+       "ki_burst",
+       "roundhouse",
+       "mind_jolt",
+       "fighter_s_resolve"
       ]
      },
      {
@@ -1490,29 +1565,55 @@
       ]
      },
      {
-      "monsterId": 6,
-      "name": "Banksnout",
+      "monsterId": 183,
+      "name": "Glutoros",
       "types": [
-       "Aquatic",
-       "Dark"
+       "Normal",
+       "Fighting"
+      ],
+      "role": "on",
+      "level": 20,
+      "moves": [
+       "crushing_bulk",
+       "body_blow",
+       "cranial_ram",
+       "battle_cry"
+      ]
+     },
+     {
+      "monsterId": 395,
+      "name": "Glacierend",
+      "types": [
+       "Ice",
+       "Normal"
+      ],
+      "role": "off",
+      "level": 19,
+      "moves": [
+       "cold_beam",
+       "icicle_smash",
+       "aurora_blast",
+       "body_blow"
+      ]
+     },
+     {
+      "monsterId": 404,
+      "name": "Auguryx",
+      "types": [
+       "Draconic",
+       "Mental"
       ],
       "role": "off",
       "level": 18,
       "moves": [
-       "abyssal_wave",
-       "ocean_crash",
-       "tidal_rush",
-       "tidal_sweep"
+       "psi_strike",
+       "draconic_pulse",
+       "hydra_dance",
+       "ancient_meditation"
       ]
      }
-    ]
-   }
-  },
-  "ng": {
-   "ace": 231,
-   "aceName": "Sumokappa",
-   "styles": {
-    "single": [
+    ],
+    "double": [
      {
       "monsterId": 231,
       "name": "Sumokappa",
@@ -1546,104 +1647,6 @@
       ]
      },
      {
-      "monsterId": 183,
-      "name": "Glutoros",
-      "types": [
-       "Normal",
-       "Fighting"
-      ],
-      "role": "on",
-      "level": 20,
-      "moves": [
-       "crushing_bulk",
-       "body_blow",
-       "cranial_ram",
-       "battle_cry"
-      ]
-     },
-     {
-      "monsterId": 184,
-      "name": "Ursamight",
-      "types": [
-       "Normal",
-       "Fighting"
-      ],
-      "role": "on",
-      "level": 20,
-      "moves": [
-       "crushing_bulk",
-       "cranial_ram",
-       "battle_cry",
-       "war_dance"
-      ]
-     },
-     {
-      "monsterId": 76,
-      "name": "Sparkwood",
-      "types": [
-       "Nature",
-       "Electric"
-      ],
-      "role": "off",
-      "level": 19,
-      "moves": [
-       "volt_surge",
-       "sharp_leaves",
-       "vine_lash",
-       "second_wind"
-      ]
-     },
-     {
-      "monsterId": 243,
-      "name": "Stuntrap",
-      "types": [
-       "Dream",
-       "Sonic"
-      ],
-      "role": "off",
-      "level": 18,
-      "moves": [
-       "drowse_swirl",
-       "pulse_wave",
-       "echo_pulse",
-       "dream_pulse"
-      ]
-     }
-    ],
-    "double": [
-     {
-      "monsterId": 231,
-      "name": "Sumokappa",
-      "types": [
-       "Aquatic",
-       "Fighting"
-      ],
-      "role": "ace",
-      "level": 22,
-      "moves": [
-       "tidal_rush",
-       "body_check",
-       "straight_jab",
-       "quick_punch"
-      ]
-     },
-     {
-      "monsterId": 281,
-      "name": "Cogvex",
-      "types": [
-       "Metal",
-       "Fighting"
-      ],
-      "role": "dual",
-      "level": 21,
-      "moves": [
-       "shockwave_kick",
-       "forge_blast_2",
-       "straight_jab",
-       "quick_punch"
-      ]
-     },
-     {
       "monsterId": 458,
       "name": "Tengko",
       "types": [
@@ -1674,35 +1677,35 @@
       ]
      },
      {
-      "monsterId": 79,
-      "name": "Morraveth",
+      "monsterId": 407,
+      "name": "Voidwarden",
       "types": [
-       "Nature",
-       "Dark"
+       "Dark",
+       "Metal"
       ],
       "role": "off",
       "level": 19,
       "moves": [
-       "verdant_orb",
-       "dusk_slash",
-       "sharp_leaves",
-       "slumber_dust"
+       "eclipse_burst",
+       "alloy_tail",
+       "void_rend",
+       "serpent_rage"
       ]
      },
      {
-      "monsterId": 395,
-      "name": "Glacierend",
+      "monsterId": 76,
+      "name": "Sparkwood",
       "types": [
-       "Ice",
-       "Normal"
+       "Nature",
+       "Electric"
       ],
       "role": "off",
       "level": 18,
       "moves": [
-       "cold_beam",
-       "icicle_smash",
-       "aurora_blast",
-       "body_blow"
+       "volt_surge",
+       "sharp_leaves",
+       "vine_lash",
+       "second_wind"
       ]
      }
     ],
@@ -1724,19 +1727,19 @@
       ]
      },
      {
-      "monsterId": 428,
-      "name": "Zenkaiser",
+      "monsterId": 281,
+      "name": "Cogvex",
       "types": [
-       "Fighting",
-       "Mental"
+       "Metal",
+       "Fighting"
       ],
       "role": "dual",
       "level": 21,
       "moves": [
-       "ki_burst",
-       "roundhouse",
-       "mind_jolt",
-       "fighter_s_resolve"
+       "shockwave_kick",
+       "forge_blast_2",
+       "straight_jab",
+       "quick_punch"
       ]
      },
      {
@@ -1771,35 +1774,35 @@
       ]
      },
      {
-      "monsterId": 404,
-      "name": "Auguryx",
+      "monsterId": 243,
+      "name": "Stuntrap",
       "types": [
-       "Draconic",
-       "Mental"
+       "Dream",
+       "Sonic"
       ],
       "role": "off",
       "level": 19,
       "moves": [
-       "psi_strike",
-       "draconic_pulse",
-       "hydra_dance",
-       "ancient_meditation"
+       "drowse_swirl",
+       "pulse_wave",
+       "echo_pulse",
+       "dream_pulse"
       ]
      },
      {
-      "monsterId": 407,
-      "name": "Voidwarden",
+      "monsterId": 79,
+      "name": "Morraveth",
       "types": [
-       "Dark",
-       "Metal"
+       "Nature",
+       "Dark"
       ],
       "role": "off",
       "level": 18,
       "moves": [
-       "eclipse_burst",
-       "alloy_tail",
-       "void_rend",
-       "serpent_rage"
+       "verdant_orb",
+       "dusk_slash",
+       "sharp_leaves",
+       "slumber_dust"
       ]
      }
     ]
@@ -1844,18 +1847,19 @@
       ]
      },
      {
-      "monsterId": 47,
-      "name": "Hexaprowl",
+      "monsterId": 6,
+      "name": "Banksnout",
       "types": [
-       "Ice"
+       "Aquatic",
+       "Dark"
       ],
       "role": "off",
       "level": 23,
       "moves": [
-       "frost_crash",
-       "flurries",
-       "frequency_blast",
-       "graze"
+       "abyssal_wave",
+       "ocean_crash",
+       "tidal_rush",
+       "tidal_sweep"
       ]
      }
     ],
@@ -1893,19 +1897,18 @@
       ]
      },
      {
-      "monsterId": 6,
-      "name": "Banksnout",
+      "monsterId": 149,
+      "name": "Eternarmor",
       "types": [
-       "Aquatic",
-       "Dark"
+       "Metal"
       ],
       "role": "off",
       "level": 23,
       "moves": [
-       "abyssal_wave",
-       "ocean_crash",
-       "tidal_rush",
-       "tidal_sweep"
+       "alloy_tail",
+       "forge_strike",
+       "forge_blast_2",
+       "chrome_claw"
       ]
      }
     ],
@@ -1942,18 +1945,18 @@
       ]
      },
      {
-      "monsterId": 149,
-      "name": "Eternarmor",
+      "monsterId": 47,
+      "name": "Hexaprowl",
       "types": [
-       "Metal"
+       "Ice"
       ],
       "role": "off",
       "level": 23,
       "moves": [
-       "alloy_tail",
-       "forge_strike",
-       "forge_blast_2",
-       "chrome_claw"
+       "frost_crash",
+       "flurries",
+       "frequency_blast",
+       "graze"
       ]
      }
     ]
@@ -1997,67 +2000,67 @@
       ]
      },
      {
-      "monsterId": 210,
-      "name": "Thundermane",
+      "monsterId": 386,
+      "name": "Wraithstorm",
       "types": [
-       "Normal",
-       "Electric"
+       "Electric",
+       "Spectral"
       ],
       "role": "on",
       "level": 25,
       "moves": [
-       "lightning_rush",
-       "volt_jet",
-       "crushing_bulk",
-       "bolt_smash"
+       "soul_chill",
+       "jolt",
+       "wraith_claw",
+       "nether_sphere"
       ]
      },
      {
-      "monsterId": 76,
-      "name": "Sparkwood",
+      "monsterId": 393,
+      "name": "Nullstorm",
       "types": [
-       "Nature",
+       "Dark",
        "Electric"
       ],
       "role": "on",
       "level": 24,
       "moves": [
-       "verdant_orb",
-       "volt_surge",
-       "sharp_leaves",
-       "vine_lash"
+       "void_rend",
+       "nether_sphere",
+       "jolt",
+       "shade_dash"
       ]
      },
      {
-      "monsterId": 165,
-      "name": "Lepidox",
+      "monsterId": 395,
+      "name": "Glacierend",
       "types": [
-       "Poison",
-       "Wind"
+       "Ice",
+       "Normal"
       ],
       "role": "off",
       "level": 24,
       "moves": [
-       "ooze_bomb",
-       "tailwind_strike",
-       "breeze",
-       "toxic_surge"
+       "tundra_tomb",
+       "cold_beam",
+       "icicle_smash",
+       "aurora_blast"
       ]
      },
      {
-      "monsterId": 161,
-      "name": "Mistbane",
+      "monsterId": 404,
+      "name": "Auguryx",
       "types": [
-       "Poison",
-       "Vapor"
+       "Draconic",
+       "Mental"
       ],
       "role": "off",
       "level": 23,
       "moves": [
-       "ooze_bomb",
-       "miasma_cloud",
-       "caustic_shock",
-       "blight_mist"
+       "psi_strike",
+       "wyrm_strike",
+       "draconic_pulse",
+       "hydra_dance"
       ]
      }
     ],
@@ -2095,66 +2098,66 @@
       ]
      },
      {
-      "monsterId": 82,
-      "name": "Galvanos",
+      "monsterId": 246,
+      "name": "Megavolt",
       "types": [
        "Electric"
       ],
       "role": "on",
       "level": 25,
       "moves": [
+       "stormbolt",
        "lightning_rush",
-       "volt_jet",
-       "volt_fang",
+       "galvanic_burst",
        "chain_spark"
       ]
      },
      {
-      "monsterId": 386,
-      "name": "Wraithstorm",
+      "monsterId": 210,
+      "name": "Thundermane",
       "types": [
-       "Electric",
-       "Spectral"
+       "Normal",
+       "Electric"
       ],
       "role": "on",
       "level": 24,
       "moves": [
-       "jolt",
-       "wraith_claw",
-       "nether_sphere",
-       "phantom_claw"
+       "lightning_rush",
+       "volt_jet",
+       "crushing_bulk",
+       "bolt_smash"
       ]
      },
      {
-      "monsterId": 395,
-      "name": "Glacierend",
+      "monsterId": 407,
+      "name": "Voidwarden",
       "types": [
-       "Ice",
-       "Normal"
+       "Dark",
+       "Metal"
       ],
       "role": "off",
       "level": 24,
       "moves": [
-       "tundra_tomb",
-       "cold_beam",
-       "icicle_smash",
-       "aurora_blast"
+       "eclipse_burst",
+       "alloy_tail",
+       "void_rend",
+       "phantom_claw"
       ]
      },
      {
-      "monsterId": 404,
-      "name": "Auguryx",
+      "monsterId": 377,
+      "name": "Abyssforge",
       "types": [
-       "Draconic",
-       "Mental"
+       "Earth",
+       "Mineral"
       ],
       "role": "off",
       "level": 23,
       "moves": [
-       "psi_strike",
-       "wyrm_strike",
-       "draconic_pulse",
-       "hydra_dance"
+       "fissure_slam",
+       "geoblast",
+       "mineral_jab",
+       "fortify"
       ]
      }
     ],
@@ -2192,66 +2195,66 @@
       ]
      },
      {
-      "monsterId": 393,
-      "name": "Nullstorm",
+      "monsterId": 76,
+      "name": "Sparkwood",
       "types": [
-       "Dark",
+       "Nature",
        "Electric"
       ],
       "role": "on",
       "level": 25,
       "moves": [
-       "void_rend",
-       "nether_sphere",
-       "jolt",
-       "shade_dash"
+       "verdant_orb",
+       "volt_surge",
+       "sharp_leaves",
+       "vine_lash"
       ]
      },
      {
-      "monsterId": 246,
-      "name": "Megavolt",
+      "monsterId": 82,
+      "name": "Galvanos",
       "types": [
        "Electric"
       ],
       "role": "on",
       "level": 24,
       "moves": [
-       "stormbolt",
        "lightning_rush",
-       "galvanic_burst",
-       "chain_spark"
+       "volt_jet",
+       "chain_spark",
+       "relay_shock"
       ]
      },
      {
-      "monsterId": 407,
-      "name": "Voidwarden",
+      "monsterId": 165,
+      "name": "Lepidox",
       "types": [
-       "Dark",
-       "Metal"
+       "Poison",
+       "Wind"
       ],
       "role": "off",
       "level": 24,
       "moves": [
-       "eclipse_burst",
-       "alloy_tail",
-       "void_rend",
-       "phantom_claw"
+       "ooze_bomb",
+       "tailwind_strike",
+       "breeze",
+       "toxic_surge"
       ]
      },
      {
-      "monsterId": 377,
-      "name": "Abyssforge",
+      "monsterId": 161,
+      "name": "Mistbane",
       "types": [
-       "Earth",
-       "Mineral"
+       "Poison",
+       "Vapor"
       ],
       "role": "off",
       "level": 23,
       "moves": [
-       "fissure_slam",
-       "geoblast",
-       "mineral_jab",
-       "fortify"
+       "ooze_bomb",
+       "miasma_cloud",
+       "caustic_shock",
+       "blight_mist"
       ]
      }
     ]
@@ -2296,18 +2299,19 @@
       ]
      },
      {
-      "monsterId": 238,
-      "name": "Snowble",
+      "monsterId": 196,
+      "name": "Frigolith",
       "types": [
-       "Ice"
+       "Ice",
+       "Mineral"
       ],
       "role": "on",
       "level": 29,
       "moves": [
        "cold_beam",
-       "cryo_lance",
-       "cold_snap",
-       "flurries"
+       "icicle_smash",
+       "flurries",
+       "stone_slide"
       ]
      },
      {
@@ -2360,8 +2364,8 @@
       ]
      },
      {
-      "monsterId": 47,
-      "name": "Hexaprowl",
+      "monsterId": 238,
+      "name": "Snowble",
       "types": [
        "Ice"
       ],
@@ -2369,9 +2373,9 @@
       "level": 29,
       "moves": [
        "cold_beam",
-       "frost_crash",
-       "flurries",
-       "frequency_blast"
+       "cryo_lance",
+       "cold_snap",
+       "flurries"
       ]
      },
      {
@@ -2424,19 +2428,18 @@
       ]
      },
      {
-      "monsterId": 196,
-      "name": "Frigolith",
+      "monsterId": 47,
+      "name": "Hexaprowl",
       "types": [
-       "Ice",
-       "Mineral"
+       "Ice"
       ],
       "role": "on",
       "level": 29,
       "moves": [
        "cold_beam",
-       "icicle_smash",
+       "frost_crash",
        "flurries",
-       "stone_slide"
+       "frequency_blast"
       ]
      },
      {
@@ -2494,24 +2497,24 @@
       ]
      },
      {
-      "monsterId": 418,
-      "name": "Frostmarion",
+      "monsterId": 395,
+      "name": "Glacierend",
       "types": [
        "Ice",
-       "Spectral"
+       "Normal"
       ],
       "role": "on",
       "level": 29,
       "moves": [
-       "specter_pulse",
-       "phantom_beam",
-       "borealis_ray",
-       "ghost_pulse"
+       "tundra_tomb",
+       "cold_beam",
+       "cryogenic_breath",
+       "icicle_smash"
       ]
      },
      {
-      "monsterId": 51,
-      "name": "Bergyak",
+      "monsterId": 374,
+      "name": "Auroratusk",
       "types": [
        "Ice",
        "Normal"
@@ -2520,40 +2523,41 @@
       "level": 29,
       "moves": [
        "cold_beam",
-       "flurries",
-       "winter_shroud",
-       "fortify"
+       "cryo_lance",
+       "cold_snap",
+       "war_dance"
       ]
      },
      {
-      "monsterId": 207,
-      "name": "Sorrowlix",
+      "monsterId": 404,
+      "name": "Auguryx",
       "types": [
-       "Poison",
-       "Draconic"
+       "Draconic",
+       "Mental"
       ],
       "role": "off",
       "level": 28,
       "moves": [
-       "ooze_bomb",
+       "psi_strike",
+       "wyrm_strike",
        "draconic_pulse",
-       "draconic_claw",
-       "toxify"
+       "hydra_dance"
       ]
      },
      {
-      "monsterId": 249,
-      "name": "Boulderax",
+      "monsterId": 407,
+      "name": "Voidwarden",
       "types": [
-       "Earth"
+       "Dark",
+       "Metal"
       ],
       "role": "off",
       "level": 28,
       "moves": [
-       "crag_strike",
-       "geoblast",
-       "stone_slide",
-       "prism_blow"
+       "eclipse_burst",
+       "alloy_tail",
+       "void_rend",
+       "shadow_lance"
       ]
      }
     ],
@@ -2590,65 +2594,67 @@
       ]
      },
      {
-      "monsterId": 48,
-      "name": "Hailgorge",
-      "types": [
-       "Ice"
-      ],
-      "role": "on",
-      "level": 29,
-      "moves": [
-       "cold_beam",
-       "frost_crash",
-       "cryo_plate",
-       "glacial_punch"
-      ]
-     },
-     {
-      "monsterId": 395,
-      "name": "Glacierend",
+      "monsterId": 419,
+      "name": "Pallidoll",
       "types": [
        "Ice",
-       "Normal"
+       "Spectral"
       ],
       "role": "on",
       "level": 29,
       "moves": [
-       "tundra_tomb",
-       "cold_beam",
-       "cryogenic_breath",
-       "icicle_smash"
+       "specter_pulse",
+       "phantom_beam",
+       "borealis_ray",
+       "eidolon_dance"
       ]
      },
      {
-      "monsterId": 219,
-      "name": "Nightmont",
+      "monsterId": 418,
+      "name": "Frostmarion",
       "types": [
-       "Dark"
+       "Ice",
+       "Spectral"
+      ],
+      "role": "on",
+      "level": 29,
+      "moves": [
+       "specter_pulse",
+       "phantom_beam",
+       "borealis_ray",
+       "ghost_pulse"
+      ]
+     },
+     {
+      "monsterId": 389,
+      "name": "Stormcrown",
+      "types": [
+       "Electric",
+       "Sonic"
       ],
       "role": "off",
       "level": 28,
       "moves": [
-       "void_pulse",
-       "dusk_slash",
-       "aether_pulse",
-       "eclipse_shroud"
+       "volt_jet",
+       "resonate",
+       "discord",
+       "jolt"
       ]
      },
      {
-      "monsterId": 404,
-      "name": "Auguryx",
+      "monsterId": 207,
+      "name": "Sorrowlix",
       "types": [
-       "Draconic",
-       "Mental"
+       "Poison",
+       "Draconic"
       ],
       "role": "off",
       "level": 28,
       "moves": [
-       "psi_strike",
-       "wyrm_strike",
+       "ooze_bomb",
        "draconic_pulse",
-       "hydra_dance"
+       "draconic_claw",
+       "toxify"
       ]
      }
     ],
@@ -2685,8 +2691,8 @@
       ]
      },
      {
-      "monsterId": 374,
-      "name": "Auroratusk",
+      "monsterId": 51,
+      "name": "Bergyak",
       "types": [
        "Ice",
        "Normal"
@@ -2695,57 +2701,54 @@
       "level": 29,
       "moves": [
        "cold_beam",
-       "cryo_lance",
-       "cold_snap",
-       "war_dance"
+       "flurries",
+       "winter_shroud",
+       "fortify"
       ]
      },
      {
-      "monsterId": 419,
-      "name": "Pallidoll",
+      "monsterId": 48,
+      "name": "Hailgorge",
       "types": [
-       "Ice",
-       "Spectral"
+       "Ice"
       ],
       "role": "on",
       "level": 29,
       "moves": [
-       "specter_pulse",
-       "phantom_beam",
-       "borealis_ray",
-       "eidolon_dance"
+       "cold_beam",
+       "frost_crash",
+       "cryo_plate",
+       "glacial_punch"
       ]
      },
      {
-      "monsterId": 407,
-      "name": "Voidwarden",
+      "monsterId": 249,
+      "name": "Boulderax",
       "types": [
-       "Dark",
-       "Metal"
+       "Earth"
       ],
       "role": "off",
       "level": 28,
       "moves": [
-       "eclipse_burst",
-       "alloy_tail",
-       "void_rend",
-       "shadow_lance"
+       "crag_strike",
+       "geoblast",
+       "stone_slide",
+       "prism_blow"
       ]
      },
      {
-      "monsterId": 389,
-      "name": "Stormcrown",
+      "monsterId": 219,
+      "name": "Nightmont",
       "types": [
-       "Electric",
-       "Sonic"
+       "Dark"
       ],
       "role": "off",
       "level": 28,
       "moves": [
-       "volt_jet",
-       "resonate",
-       "discord",
-       "jolt"
+       "void_pulse",
+       "dusk_slash",
+       "aether_pulse",
+       "eclipse_shroud"
       ]
      }
     ]
@@ -2791,8 +2794,8 @@
       ]
      },
      {
-      "monsterId": 193,
-      "name": "Cliffpinch",
+      "monsterId": 194,
+      "name": "Lithomere",
       "types": [
        "Aquatic",
        "Mineral"
@@ -2801,25 +2804,25 @@
       "level": 31,
       "moves": [
        "claw_hammer",
-       "granite_press",
-       "emerald_blade",
-       "granite_slam"
+       "tidal_sweep",
+       "calcite_resonance",
+       "riptide_slam"
       ]
      },
      {
-      "monsterId": 132,
-      "name": "Volcascale",
+      "monsterId": 9,
+      "name": "Garlawarden",
       "types": [
-       "Earth",
-       "Dark"
+       "Nature",
+       "Fairy"
       ],
       "role": "off",
       "level": 30,
       "moves": [
-       "landslide",
-       "jaw_crush",
-       "stone_slide",
-       "chomp"
+       "verdant_orb",
+       "pod_blast",
+       "faewind",
+       "fairy_jab"
       ]
      }
     ],
@@ -2857,8 +2860,8 @@
       ]
      },
      {
-      "monsterId": 194,
-      "name": "Lithomere",
+      "monsterId": 193,
+      "name": "Cliffpinch",
       "types": [
        "Aquatic",
        "Mineral"
@@ -2867,24 +2870,25 @@
       "level": 31,
       "moves": [
        "claw_hammer",
-       "tidal_sweep",
-       "calcite_resonance",
-       "riptide_slam"
+       "granite_press",
+       "emerald_blade",
+       "granite_slam"
       ]
      },
      {
-      "monsterId": 63,
-      "name": "Sporix",
+      "monsterId": 132,
+      "name": "Volcascale",
       "types": [
-       "Nature"
+       "Earth",
+       "Dark"
       ],
       "role": "off",
       "level": 30,
       "moves": [
-       "verdant_orb",
-       "vine_lash",
-       "ooze_bomb",
-       "gem_scatter"
+       "landslide",
+       "jaw_crush",
+       "stone_slide",
+       "chomp"
       ]
      }
     ],
@@ -2938,19 +2942,18 @@
       ]
      },
      {
-      "monsterId": 9,
-      "name": "Garlawarden",
+      "monsterId": 63,
+      "name": "Sporix",
       "types": [
-       "Nature",
-       "Fairy"
+       "Nature"
       ],
       "role": "off",
       "level": 30,
       "moves": [
        "verdant_orb",
-       "pod_blast",
-       "faewind",
-       "fairy_jab"
+       "vine_lash",
+       "ooze_bomb",
+       "gem_scatter"
       ]
      }
     ]
@@ -3026,35 +3029,35 @@
       ]
      },
      {
-      "monsterId": 161,
-      "name": "Mistbane",
+      "monsterId": 395,
+      "name": "Glacierend",
       "types": [
-       "Poison",
-       "Vapor"
+       "Ice",
+       "Normal"
       ],
       "role": "off",
       "level": 31,
       "moves": [
-       "ooze_bomb",
-       "root_toxin",
-       "corrosive_rain",
-       "miasma_cloud"
+       "tundra_tomb",
+       "cold_beam",
+       "cryogenic_breath",
+       "ice_resonance"
       ]
      },
      {
-      "monsterId": 109,
-      "name": "Siroccomane",
+      "monsterId": 404,
+      "name": "Auguryx",
       "types": [
-       "Wind",
-       "Electric"
+       "Draconic",
+       "Mental"
       ],
       "role": "off",
       "level": 30,
       "moves": [
-       "typhoon",
-       "wind_scythe",
-       "wingbeat",
-       "breeze"
+       "psi_strike",
+       "synaptic_shatter",
+       "wyrm_strike",
+       "draconic_pulse"
       ]
      }
     ],
@@ -3123,34 +3126,35 @@
       ]
      },
      {
-      "monsterId": 249,
-      "name": "Boulderax",
+      "monsterId": 161,
+      "name": "Mistbane",
       "types": [
-       "Earth"
+       "Poison",
+       "Vapor"
       ],
       "role": "off",
       "level": 31,
       "moves": [
-       "crag_strike",
-       "tectonic_shift",
-       "geoblast",
-       "stone_slide"
+       "ooze_bomb",
+       "root_toxin",
+       "corrosive_rain",
+       "miasma_cloud"
       ]
      },
      {
-      "monsterId": 243,
-      "name": "Stuntrap",
+      "monsterId": 109,
+      "name": "Siroccomane",
       "types": [
-       "Dream",
-       "Sonic"
+       "Wind",
+       "Electric"
       ],
       "role": "off",
       "level": 30,
       "moves": [
-       "drowse_swirl",
-       "trance_wave",
-       "resonate",
-       "pulse_wave"
+       "typhoon",
+       "wind_scythe",
+       "wingbeat",
+       "breeze"
       ]
      }
     ],
@@ -3218,35 +3222,34 @@
       ]
      },
      {
-      "monsterId": 395,
-      "name": "Glacierend",
+      "monsterId": 249,
+      "name": "Boulderax",
       "types": [
-       "Ice",
-       "Normal"
+       "Earth"
       ],
       "role": "off",
       "level": 31,
       "moves": [
-       "tundra_tomb",
-       "cold_beam",
-       "cryogenic_breath",
-       "ice_resonance"
+       "crag_strike",
+       "tectonic_shift",
+       "geoblast",
+       "stone_slide"
       ]
      },
      {
-      "monsterId": 404,
-      "name": "Auguryx",
+      "monsterId": 243,
+      "name": "Stuntrap",
       "types": [
-       "Draconic",
-       "Mental"
+       "Dream",
+       "Sonic"
       ],
       "role": "off",
       "level": 30,
       "moves": [
-       "psi_strike",
-       "synaptic_shatter",
-       "wyrm_strike",
-       "draconic_pulse"
+       "drowse_swirl",
+       "trance_wave",
+       "resonate",
+       "pulse_wave"
       ]
      }
     ]
@@ -3292,35 +3295,34 @@
       ]
      },
      {
-      "monsterId": 131,
-      "name": "Necrothon",
+      "monsterId": 271,
+      "name": "Murkrat",
       "types": [
        "Dark",
-       "Nature"
+       "Normal"
       ],
       "role": "on",
       "level": 36,
       "moves": [
        "void_pulse",
-       "pod_blast",
+       "dusk_slash",
        "chomp",
-       "vine_lash"
+       "collide"
       ]
      },
      {
-      "monsterId": 230,
-      "name": "Kappamaru",
+      "monsterId": 149,
+      "name": "Eternarmor",
       "types": [
-       "Aquatic",
-       "Fighting"
+       "Metal"
       ],
       "role": "off",
       "level": 35,
       "moves": [
-       "straight_jab",
-       "quick_punch",
-       "aquatic_gun",
-       "wave_dash"
+       "alloy_tail",
+       "forge_strike",
+       "forge_blast_2",
+       "chrome_claw"
       ]
      }
     ],
@@ -3358,33 +3360,35 @@
       ]
      },
      {
-      "monsterId": 218,
-      "name": "Duskmist",
+      "monsterId": 131,
+      "name": "Necrothon",
       "types": [
-       "Dark"
+       "Dark",
+       "Nature"
       ],
       "role": "on",
       "level": 36,
       "moves": [
        "void_pulse",
-       "jaw_crush",
-       "dusk_slash",
-       "chomp"
+       "pod_blast",
+       "chomp",
+       "vine_lash"
       ]
      },
      {
-      "monsterId": 149,
-      "name": "Eternarmor",
+      "monsterId": 3,
+      "name": "Calderaeth",
       "types": [
-       "Metal"
+       "Fire",
+       "Draconic"
       ],
       "role": "off",
       "level": 35,
       "moves": [
-       "alloy_tail",
-       "forge_strike",
-       "forge_blast_2",
-       "chrome_claw"
+       "pyroclastic_burst",
+       "searing_gale",
+       "inferno_jet",
+       "cinder_lance"
       ]
      }
     ],
@@ -3422,35 +3426,34 @@
       ]
      },
      {
-      "monsterId": 271,
-      "name": "Murkrat",
+      "monsterId": 218,
+      "name": "Duskmist",
       "types": [
-       "Dark",
-       "Normal"
+       "Dark"
       ],
       "role": "on",
       "level": 36,
       "moves": [
        "void_pulse",
+       "jaw_crush",
        "dusk_slash",
-       "chomp",
-       "collide"
+       "chomp"
       ]
      },
      {
-      "monsterId": 3,
-      "name": "Calderaeth",
+      "monsterId": 230,
+      "name": "Kappamaru",
       "types": [
-       "Fire",
-       "Draconic"
+       "Aquatic",
+       "Fighting"
       ],
       "role": "off",
       "level": 35,
       "moves": [
-       "pyroclastic_burst",
-       "searing_gale",
-       "inferno_jet",
-       "cinder_lance"
+       "straight_jab",
+       "quick_punch",
+       "aquatic_gun",
+       "wave_dash"
       ]
      }
     ]
@@ -3526,33 +3529,35 @@
       ]
      },
      {
-      "monsterId": 173,
-      "name": "Cobravyrm",
+      "monsterId": 395,
+      "name": "Glacierend",
       "types": [
-       "Draconic"
+       "Ice",
+       "Normal"
       ],
       "role": "off",
       "level": 36,
       "moves": [
-       "draconic_pulse",
-       "draconic_claw",
-       "draconic_breath",
-       "iron_press"
+       "tundra_tomb",
+       "frostbite_strike",
+       "cold_beam",
+       "cryogenic_breath"
       ]
      },
      {
-      "monsterId": 167,
-      "name": "Psymastiff",
+      "monsterId": 404,
+      "name": "Auguryx",
       "types": [
+       "Draconic",
        "Mental"
       ],
       "role": "off",
       "level": 35,
       "moves": [
-       "psy_blast",
-       "mental",
-       "noetic_burst",
-       "sixth_sense"
+       "abyss_ray",
+       "psi_strike",
+       "synaptic_shatter",
+       "wyrm_strike"
       ]
      }
     ],
@@ -3622,35 +3627,34 @@
       ]
      },
      {
-      "monsterId": 38,
-      "name": "Titanariel",
+      "monsterId": 389,
+      "name": "Stormcrown",
       "types": [
-       "Aquatic",
-       "Metal"
+       "Electric",
+       "Sonic"
       ],
       "role": "off",
       "level": 36,
       "moves": [
-       "tidal_sweep",
-       "forge_blast_2",
-       "aquatic_gun",
-       "silent_strike"
+       "volt_jet",
+       "harmonic_wave",
+       "resonate",
+       "discord"
       ]
      },
      {
-      "monsterId": 395,
-      "name": "Glacierend",
+      "monsterId": 173,
+      "name": "Cobravyrm",
       "types": [
-       "Ice",
-       "Normal"
+       "Draconic"
       ],
       "role": "off",
       "level": 35,
       "moves": [
-       "tundra_tomb",
-       "frostbite_strike",
-       "cold_beam",
-       "cryogenic_breath"
+       "draconic_pulse",
+       "draconic_claw",
+       "draconic_breath",
+       "iron_press"
       ]
      }
     ],
@@ -3719,35 +3723,34 @@
       ]
      },
      {
-      "monsterId": 404,
-      "name": "Auguryx",
+      "monsterId": 167,
+      "name": "Psymastiff",
       "types": [
-       "Draconic",
        "Mental"
       ],
       "role": "off",
       "level": 36,
       "moves": [
-       "abyss_ray",
-       "psi_strike",
-       "synaptic_shatter",
-       "wyrm_strike"
+       "psy_blast",
+       "mental",
+       "noetic_burst",
+       "sixth_sense"
       ]
      },
      {
-      "monsterId": 389,
-      "name": "Stormcrown",
+      "monsterId": 38,
+      "name": "Titanariel",
       "types": [
-       "Electric",
-       "Sonic"
+       "Aquatic",
+       "Metal"
       ],
       "role": "off",
       "level": 35,
       "moves": [
-       "volt_jet",
-       "harmonic_wave",
-       "resonate",
-       "discord"
+       "tidal_sweep",
+       "forge_blast_2",
+       "aquatic_gun",
+       "silent_strike"
       ]
      }
     ]
@@ -3793,34 +3796,35 @@
       ]
      },
      {
-      "monsterId": 226,
-      "name": "Spectroo",
+      "monsterId": 259,
+      "name": "Lumejell",
       "types": [
-       "Normal",
+       "Aquatic",
        "Mental"
       ],
       "role": "on",
       "level": 44,
       "moves": [
-       "lumiwave",
+       "tsunami",
+       "tidal_rush",
        "mental",
-       "radiant_burst_2",
-       "aural_ray"
+       "psi_burst"
       ]
      },
      {
-      "monsterId": 302,
-      "name": "Lightpuff",
+      "monsterId": 9,
+      "name": "Garlawarden",
       "types": [
+       "Nature",
        "Fairy"
       ],
       "role": "off",
       "level": 43,
       "moves": [
-       "lunar_burst",
-       "glitter_storm",
+       "verdant_surge",
+       "verdant_orb",
        "celestial_wave",
-       "prism_flare"
+       "pod_blast"
       ]
      }
     ],
@@ -3858,34 +3862,35 @@
       ]
      },
      {
-      "monsterId": 223,
-      "name": "Recallum",
+      "monsterId": 226,
+      "name": "Spectroo",
       "types": [
+       "Normal",
        "Mental"
       ],
       "role": "on",
       "level": 44,
       "moves": [
-       "psi_strike",
+       "lumiwave",
        "mental",
-       "psi_burst",
-       "lunar_burst"
+       "radiant_burst_2",
+       "aural_ray"
       ]
      },
      {
-      "monsterId": 9,
-      "name": "Garlawarden",
+      "monsterId": 6,
+      "name": "Banksnout",
       "types": [
-       "Nature",
-       "Fairy"
+       "Aquatic",
+       "Dark"
       ],
       "role": "off",
       "level": 43,
       "moves": [
-       "verdant_surge",
-       "verdant_orb",
-       "celestial_wave",
-       "pod_blast"
+       "abyssal_wave",
+       "ocean_crash",
+       "tsunami",
+       "ocean_tempest"
       ]
      }
     ],
@@ -3923,35 +3928,33 @@
       ]
      },
      {
-      "monsterId": 259,
-      "name": "Lumejell",
+      "monsterId": 223,
+      "name": "Recallum",
       "types": [
-       "Aquatic",
        "Mental"
       ],
       "role": "on",
       "level": 44,
       "moves": [
-       "tsunami",
-       "tidal_rush",
+       "psi_strike",
        "mental",
-       "psi_burst"
+       "psi_burst",
+       "lunar_burst"
       ]
      },
      {
-      "monsterId": 6,
-      "name": "Banksnout",
+      "monsterId": 302,
+      "name": "Lightpuff",
       "types": [
-       "Aquatic",
-       "Dark"
+       "Fairy"
       ],
       "role": "off",
       "level": 43,
       "moves": [
-       "abyssal_wave",
-       "ocean_crash",
-       "tsunami",
-       "ocean_tempest"
+       "lunar_burst",
+       "glitter_storm",
+       "celestial_wave",
+       "prism_flare"
       ]
      }
     ]
@@ -3962,6 +3965,104 @@
    "aceName": "Brawlmonk",
    "styles": {
     "single": [
+     {
+      "monsterId": 427,
+      "name": "Brawlmonk",
+      "types": [
+       "Fighting",
+       "Mental"
+      ],
+      "role": "ace",
+      "level": 46,
+      "moves": [
+       "iron_fist",
+       "ki_burst",
+       "cortex_ram",
+       "martial_aura"
+      ]
+     },
+     {
+      "monsterId": 404,
+      "name": "Auguryx",
+      "types": [
+       "Draconic",
+       "Mental"
+      ],
+      "role": "dual",
+      "level": 45,
+      "moves": [
+       "abyss_ray",
+       "psi_strike",
+       "synaptic_shatter",
+       "scale_storm"
+      ]
+     },
+     {
+      "monsterId": 428,
+      "name": "Zenkaiser",
+      "types": [
+       "Fighting",
+       "Mental"
+      ],
+      "role": "on",
+      "level": 45,
+      "moves": [
+       "heaven_strike",
+       "iron_fist",
+       "galaxy_punch_2",
+       "ki_burst"
+      ]
+     },
+     {
+      "monsterId": 363,
+      "name": "Chromaton",
+      "types": [
+       "Normal",
+       "Mental"
+      ],
+      "role": "on",
+      "level": 44,
+      "moves": [
+       "radiance_cannon",
+       "psi_strike",
+       "mental",
+       "crushing_bulk"
+      ]
+     },
+     {
+      "monsterId": 395,
+      "name": "Glacierend",
+      "types": [
+       "Ice",
+       "Normal"
+      ],
+      "role": "off",
+      "level": 44,
+      "moves": [
+       "whiteout",
+       "tundra_tomb",
+       "frostbite_strike",
+       "cold_beam"
+      ]
+     },
+     {
+      "monsterId": 407,
+      "name": "Voidwarden",
+      "types": [
+       "Dark",
+       "Metal"
+      ],
+      "role": "off",
+      "level": 43,
+      "moves": [
+       "eclipse_burst",
+       "alloy_tail",
+       "void_rend",
+       "nightmare_smash"
+      ]
+     }
+    ],
+    "double": [
      {
       "monsterId": 427,
       "name": "Brawlmonk",
@@ -3995,9 +4096,10 @@
       ]
      },
      {
-      "monsterId": 223,
-      "name": "Recallum",
+      "monsterId": 388,
+      "name": "Chronolith",
       "types": [
+       "Earth",
        "Mental"
       ],
       "role": "on",
@@ -4005,24 +4107,24 @@
       "moves": [
        "psi_strike",
        "mental",
-       "psi_burst",
-       "lunar_burst"
+       "fossil_rush",
+       "stone_slide"
       ]
      },
      {
-      "monsterId": 428,
-      "name": "Zenkaiser",
+      "monsterId": 354,
+      "name": "Riftwhale",
       "types": [
-       "Fighting",
+       "Aquatic",
        "Mental"
       ],
       "role": "on",
       "level": 44,
       "moves": [
-       "heaven_strike",
-       "iron_fist",
-       "galaxy_punch_2",
-       "ki_burst"
+       "tsunami",
+       "psi_strike",
+       "sea_serpent_strike",
+       "tidal_rush"
       ]
      },
      {
@@ -4058,7 +4160,7 @@
       ]
      }
     ],
-    "double": [
+    "triple": [
      {
       "monsterId": 427,
       "name": "Brawlmonk",
@@ -4092,26 +4194,25 @@
       ]
      },
      {
-      "monsterId": 363,
-      "name": "Chromaton",
+      "monsterId": 259,
+      "name": "Lumejell",
       "types": [
-       "Normal",
+       "Aquatic",
        "Mental"
       ],
       "role": "on",
       "level": 45,
       "moves": [
-       "radiance_cannon",
-       "psi_strike",
+       "tsunami",
+       "tidal_rush",
        "mental",
-       "crushing_bulk"
+       "psi_burst"
       ]
      },
      {
-      "monsterId": 388,
-      "name": "Chronolith",
+      "monsterId": 223,
+      "name": "Recallum",
       "types": [
-       "Earth",
        "Mental"
       ],
       "role": "on",
@@ -4119,8 +4220,8 @@
       "moves": [
        "psi_strike",
        "mental",
-       "fossil_rush",
-       "stone_slide"
+       "psi_burst",
+       "lunar_burst"
       ]
      },
      {
@@ -4153,104 +4254,6 @@
        "root_toxin",
        "corrosive_rain",
        "miasma_cloud"
-      ]
-     }
-    ],
-    "triple": [
-     {
-      "monsterId": 427,
-      "name": "Brawlmonk",
-      "types": [
-       "Fighting",
-       "Mental"
-      ],
-      "role": "ace",
-      "level": 46,
-      "moves": [
-       "iron_fist",
-       "ki_burst",
-       "cortex_ram",
-       "martial_aura"
-      ]
-     },
-     {
-      "monsterId": 404,
-      "name": "Auguryx",
-      "types": [
-       "Draconic",
-       "Mental"
-      ],
-      "role": "dual",
-      "level": 45,
-      "moves": [
-       "abyss_ray",
-       "psi_strike",
-       "synaptic_shatter",
-       "scale_storm"
-      ]
-     },
-     {
-      "monsterId": 354,
-      "name": "Riftwhale",
-      "types": [
-       "Aquatic",
-       "Mental"
-      ],
-      "role": "on",
-      "level": 45,
-      "moves": [
-       "tsunami",
-       "psi_strike",
-       "sea_serpent_strike",
-       "tidal_rush"
-      ]
-     },
-     {
-      "monsterId": 259,
-      "name": "Lumejell",
-      "types": [
-       "Aquatic",
-       "Mental"
-      ],
-      "role": "on",
-      "level": 44,
-      "moves": [
-       "tsunami",
-       "tidal_rush",
-       "mental",
-       "psi_burst"
-      ]
-     },
-     {
-      "monsterId": 395,
-      "name": "Glacierend",
-      "types": [
-       "Ice",
-       "Normal"
-      ],
-      "role": "off",
-      "level": 44,
-      "moves": [
-       "whiteout",
-       "tundra_tomb",
-       "frostbite_strike",
-       "cold_beam"
-      ]
-     },
-     {
-      "monsterId": 407,
-      "name": "Voidwarden",
-      "types": [
-       "Dark",
-       "Metal"
-      ],
-      "role": "off",
-      "level": 43,
-      "moves": [
-       "eclipse_burst",
-       "alloy_tail",
-       "void_rend",
-       "nightmare_smash"
       ]
      }
     ]
@@ -4311,19 +4314,19 @@
       ]
      },
      {
-      "monsterId": 278,
-      "name": "Ironpix",
+      "monsterId": 9,
+      "name": "Garlawarden",
       "types": [
-       "Metal",
+       "Nature",
        "Fairy"
       ],
       "role": "off",
       "level": 47,
       "moves": [
-       "alloy_tail",
-       "lunar_burst",
-       "forge_blast_2",
-       "prism_flare"
+       "verdant_surge",
+       "petal_blitz",
+       "verdant_orb",
+       "celestial_wave"
       ]
      }
     ],
@@ -4376,19 +4379,19 @@
       ]
      },
      {
-      "monsterId": 9,
-      "name": "Garlawarden",
+      "monsterId": 6,
+      "name": "Banksnout",
       "types": [
-       "Nature",
-       "Fairy"
+       "Aquatic",
+       "Dark"
       ],
       "role": "off",
       "level": 47,
       "moves": [
-       "verdant_surge",
-       "petal_blitz",
-       "verdant_orb",
-       "celestial_wave"
+       "abyssal_wave",
+       "ocean_crash",
+       "tsunami",
+       "ocean_tempest"
       ]
      }
     ],
@@ -4441,19 +4444,19 @@
       ]
      },
      {
-      "monsterId": 6,
-      "name": "Banksnout",
+      "monsterId": 278,
+      "name": "Ironpix",
       "types": [
-       "Aquatic",
-       "Dark"
+       "Metal",
+       "Fairy"
       ],
       "role": "off",
       "level": 47,
       "moves": [
-       "abyssal_wave",
-       "ocean_crash",
-       "tsunami",
-       "ocean_tempest"
+       "alloy_tail",
+       "lunar_burst",
+       "forge_blast_2",
+       "prism_flare"
       ]
      }
     ]
@@ -4527,35 +4530,35 @@
       ]
      },
      {
-      "monsterId": 439,
-      "name": "Seraphene",
+      "monsterId": 395,
+      "name": "Glacierend",
       "types": [
-       "Fairy",
-       "Sonic"
+       "Ice",
+       "Normal"
       ],
       "role": "off",
       "level": 48,
       "moves": [
-       "harmonic_burst",
-       "lunar_burst",
-       "prism_flare",
-       "resonate"
+       "whiteout",
+       "tundra_tomb",
+       "frostbite_strike",
+       "cold_beam"
       ]
      },
      {
-      "monsterId": 461,
-      "name": "Resonethe",
+      "monsterId": 407,
+      "name": "Voidwarden",
       "types": [
-       "Mental",
-       "Sonic"
+       "Dark",
+       "Metal"
       ],
       "role": "off",
       "level": 47,
       "moves": [
-       "threnody",
-       "resonance_quake",
-       "harmonic_burst",
-       "mental"
+       "wraith_drive",
+       "eclipse_burst",
+       "alloy_tail",
+       "void_rend"
       ]
      }
     ],
@@ -4623,35 +4626,35 @@
       ]
      },
      {
-      "monsterId": 455,
-      "name": "Knellgeist",
+      "monsterId": 389,
+      "name": "Stormcrown",
       "types": [
-       "Metal",
-       "Spectral"
+       "Electric",
+       "Sonic"
       ],
       "role": "off",
       "level": 48,
       "moves": [
-       "soul_burst",
-       "plasma_smelt",
-       "specter_pulse",
-       "void_wail"
+       "stormbolt",
+       "volt_jet",
+       "harmonic_wave",
+       "resonate"
       ]
      },
      {
-      "monsterId": 395,
-      "name": "Glacierend",
+      "monsterId": 439,
+      "name": "Seraphene",
       "types": [
-       "Ice",
-       "Normal"
+       "Fairy",
+       "Sonic"
       ],
       "role": "off",
       "level": 47,
       "moves": [
-       "whiteout",
-       "tundra_tomb",
-       "frostbite_strike",
-       "cold_beam"
+       "harmonic_burst",
+       "lunar_burst",
+       "prism_flare",
+       "resonate"
       ]
      }
     ],
@@ -4719,35 +4722,35 @@
       ]
      },
      {
-      "monsterId": 407,
-      "name": "Voidwarden",
+      "monsterId": 461,
+      "name": "Resonethe",
       "types": [
-       "Dark",
-       "Metal"
+       "Mental",
+       "Sonic"
       ],
       "role": "off",
       "level": 48,
       "moves": [
-       "wraith_drive",
-       "eclipse_burst",
-       "alloy_tail",
-       "void_rend"
+       "threnody",
+       "resonance_quake",
+       "harmonic_burst",
+       "mental"
       ]
      },
      {
-      "monsterId": 389,
-      "name": "Stormcrown",
+      "monsterId": 455,
+      "name": "Knellgeist",
       "types": [
-       "Electric",
-       "Sonic"
+       "Metal",
+       "Spectral"
       ],
       "role": "off",
       "level": 47,
       "moves": [
-       "stormbolt",
-       "volt_jet",
-       "harmonic_wave",
-       "resonate"
+       "soul_burst",
+       "plasma_smelt",
+       "specter_pulse",
+       "void_wail"
       ]
      }
     ]
@@ -4760,86 +4763,6 @@
    "aceName": "Mosshop",
    "styles": {
     "single": [
-     {
-      "monsterId": 265,
-      "name": "Mosshop",
-      "types": [
-       "Nature",
-       "Wind"
-      ],
-      "role": "ace",
-      "level": 54,
-      "moves": [
-       "resonance_hum",
-       "verdant_orb",
-       "swarm_strike",
-       "locust_fury"
-      ]
-     },
-     {
-      "monsterId": 8,
-      "name": "Barknell",
-      "types": [
-       "Nature"
-      ],
-      "role": "on",
-      "level": 54,
-      "moves": [
-       "verdant_surge",
-       "petal_blitz",
-       "verdant_orb",
-       "canopy_crash"
-      ]
-     },
-     {
-      "monsterId": 199,
-      "name": "Aeridaleth",
-      "types": [
-       "Nature",
-       "Wind"
-      ],
-      "role": "on",
-      "level": 53,
-      "moves": [
-       "resonance_hum",
-       "cocoon_burst",
-       "shear_strike",
-       "sonic_buzz"
-      ]
-     },
-     {
-      "monsterId": 5,
-      "name": "Cobaleap",
-      "types": [
-       "Aquatic"
-      ],
-      "role": "off",
-      "level": 53,
-      "moves": [
-       "tsunami",
-       "tidal_crush",
-       "claw_hammer",
-       "tidal_sweep"
-      ]
-     },
-     {
-      "monsterId": 6,
-      "name": "Banksnout",
-      "types": [
-       "Aquatic",
-       "Dark"
-      ],
-      "role": "off",
-      "level": 52,
-      "moves": [
-       "abyssal_wave",
-       "ocean_crash",
-       "tsunami",
-       "ocean_tempest"
-      ]
-     }
-    ],
-    "double": [
      {
       "monsterId": 265,
       "name": "Mosshop",
@@ -4873,18 +4796,34 @@
       ]
      },
      {
-      "monsterId": 260,
-      "name": "Sproutix",
+      "monsterId": 8,
+      "name": "Barknell",
       "types": [
        "Nature"
       ],
       "role": "on",
       "level": 53,
       "moves": [
-       "jungle_hammer",
+       "verdant_surge",
        "petal_blitz",
        "verdant_orb",
-       "sky_harvest"
+       "canopy_crash"
+      ]
+     },
+     {
+      "monsterId": 6,
+      "name": "Banksnout",
+      "types": [
+       "Aquatic",
+       "Dark"
+      ],
+      "role": "off",
+      "level": 53,
+      "moves": [
+       "abyssal_wave",
+       "ocean_crash",
+       "tsunami",
+       "ocean_tempest"
       ]
      },
      {
@@ -4894,12 +4833,61 @@
        "Metal"
       ],
       "role": "off",
-      "level": 53,
+      "level": 52,
       "moves": [
        "anvil_drop",
        "alloy_tail",
        "forge_strike",
        "iron_press"
+      ]
+     }
+    ],
+    "double": [
+     {
+      "monsterId": 265,
+      "name": "Mosshop",
+      "types": [
+       "Nature",
+       "Wind"
+      ],
+      "role": "ace",
+      "level": 54,
+      "moves": [
+       "resonance_hum",
+       "verdant_orb",
+       "swarm_strike",
+       "locust_fury"
+      ]
+     },
+     {
+      "monsterId": 260,
+      "name": "Sproutix",
+      "types": [
+       "Nature"
+      ],
+      "role": "on",
+      "level": 54,
+      "moves": [
+       "jungle_hammer",
+       "petal_blitz",
+       "verdant_orb",
+       "sky_harvest"
+      ]
+     },
+     {
+      "monsterId": 199,
+      "name": "Aeridaleth",
+      "types": [
+       "Nature",
+       "Wind"
+      ],
+      "role": "on",
+      "level": 53,
+      "moves": [
+       "resonance_hum",
+       "cocoon_burst",
+       "shear_strike",
+       "sonic_buzz"
       ]
      },
      {
@@ -4910,12 +4898,28 @@
        "Draconic"
       ],
       "role": "off",
-      "level": 52,
+      "level": 53,
       "moves": [
        "pyroclastic_burst",
        "pyroclasm",
        "eon_crash",
        "conflagration"
+      ]
+     },
+     {
+      "monsterId": 268,
+      "name": "Darkfang",
+      "types": [
+       "Dark",
+       "Spectral"
+      ],
+      "role": "off",
+      "level": 52,
+      "moves": [
+       "soul_rend",
+       "void_pulse",
+       "nether_sphere",
+       "dusk_slash"
       ]
      }
     ],
@@ -4967,22 +4971,6 @@
       ]
      },
      {
-      "monsterId": 268,
-      "name": "Darkfang",
-      "types": [
-       "Dark",
-       "Spectral"
-      ],
-      "role": "off",
-      "level": 53,
-      "moves": [
-       "soul_rend",
-       "void_pulse",
-       "nether_sphere",
-       "dusk_slash"
-      ]
-     },
-     {
       "monsterId": 144,
       "name": "Moonseraph",
       "types": [
@@ -4990,12 +4978,27 @@
        "Mental"
       ],
       "role": "off",
-      "level": 52,
+      "level": 53,
       "moves": [
        "supernova_glow",
        "prophecy",
        "starlit_radiance",
        "fae_requiem"
+      ]
+     },
+     {
+      "monsterId": 5,
+      "name": "Cobaleap",
+      "types": [
+       "Aquatic"
+      ],
+      "role": "off",
+      "level": 52,
+      "moves": [
+       "tsunami",
+       "tidal_crush",
+       "claw_hammer",
+       "tidal_sweep"
       ]
      }
     ]
@@ -5071,6 +5074,22 @@
       ]
      },
      {
+      "monsterId": 395,
+      "name": "Glacierend",
+      "types": [
+       "Ice",
+       "Normal"
+      ],
+      "role": "off",
+      "level": 52,
+      "moves": [
+       "whiteout",
+       "tundra_tomb",
+       "frostbite_strike",
+       "avalanche_drive"
+      ]
+     },
+     {
       "monsterId": 332,
       "name": "Glacicore",
       "types": [
@@ -5084,22 +5103,6 @@
        "cold_beam",
        "cryo_lance",
        "forge_blast_2"
-      ]
-     },
-     {
-      "monsterId": 339,
-      "name": "Dynascarab",
-      "types": [
-       "Electric",
-       "Sonic"
-      ],
-      "role": "off",
-      "level": 52,
-      "moves": [
-       "volt_jet",
-       "volt_surge",
-       "jolt",
-       "resonance_hum"
       ]
      }
     ],
@@ -5168,6 +5171,22 @@
       ]
      },
      {
+      "monsterId": 339,
+      "name": "Dynascarab",
+      "types": [
+       "Electric",
+       "Sonic"
+      ],
+      "role": "off",
+      "level": 52,
+      "moves": [
+       "volt_jet",
+       "volt_surge",
+       "jolt",
+       "resonance_hum"
+      ]
+     },
+     {
       "monsterId": 333,
       "name": "Voltafang",
       "types": [
@@ -5181,22 +5200,6 @@
        "void_rend",
        "volt_jet",
        "nether_sphere"
-      ]
-     },
-     {
-      "monsterId": 335,
-      "name": "Frostprowl",
-      "types": [
-       "Ice",
-       "Wind"
-      ],
-      "role": "off",
-      "level": 52,
-      "moves": [
-       "whiteout",
-       "cold_beam",
-       "cryo_lance",
-       "wind_scythe"
       ]
      }
     ],
@@ -5265,6 +5268,22 @@
       ]
      },
      {
+      "monsterId": 335,
+      "name": "Frostprowl",
+      "types": [
+       "Ice",
+       "Wind"
+      ],
+      "role": "off",
+      "level": 52,
+      "moves": [
+       "whiteout",
+       "cold_beam",
+       "cryo_lance",
+       "wind_scythe"
+      ]
+     },
+     {
       "monsterId": 449,
       "name": "Oredigger",
       "types": [
@@ -5278,22 +5297,6 @@
        "obsidian_strike",
        "cobble_smash",
        "throat_chop"
-      ]
-     },
-     {
-      "monsterId": 395,
-      "name": "Glacierend",
-      "types": [
-       "Ice",
-       "Normal"
-      ],
-      "role": "off",
-      "level": 52,
-      "moves": [
-       "whiteout",
-       "tundra_tomb",
-       "frostbite_strike",
-       "avalanche_drive"
       ]
      }
     ]
@@ -5355,22 +5358,6 @@
       ]
      },
      {
-      "monsterId": 193,
-      "name": "Cliffpinch",
-      "types": [
-       "Aquatic",
-       "Mineral"
-      ],
-      "role": "off",
-      "level": 55,
-      "moves": [
-       "torrent_shell",
-       "ocean_crash",
-       "basalt_eruption",
-       "claw_hammer"
-      ]
-     },
-     {
       "monsterId": 6,
       "name": "Banksnout",
       "types": [
@@ -5378,12 +5365,27 @@
        "Dark"
       ],
       "role": "off",
-      "level": 54,
+      "level": 55,
       "moves": [
        "abyssal_wave",
        "ocean_crash",
        "tsunami",
        "ocean_tempest"
+      ]
+     },
+     {
+      "monsterId": 149,
+      "name": "Eternarmor",
+      "types": [
+       "Metal"
+      ],
+      "role": "off",
+      "level": 54,
+      "moves": [
+       "anvil_drop",
+       "alloy_tail",
+       "forge_strike",
+       "iron_press"
       ]
      }
     ],
@@ -5437,21 +5439,6 @@
       ]
      },
      {
-      "monsterId": 149,
-      "name": "Eternarmor",
-      "types": [
-       "Metal"
-      ],
-      "role": "off",
-      "level": 55,
-      "moves": [
-       "anvil_drop",
-       "alloy_tail",
-       "forge_strike",
-       "iron_press"
-      ]
-     },
-     {
       "monsterId": 3,
       "name": "Calderaeth",
       "types": [
@@ -5459,12 +5446,28 @@
        "Draconic"
       ],
       "role": "off",
-      "level": 54,
+      "level": 55,
       "moves": [
        "pyroclastic_burst",
        "pyroclasm",
        "eon_crash",
        "conflagration"
+      ]
+     },
+     {
+      "monsterId": 268,
+      "name": "Darkfang",
+      "types": [
+       "Dark",
+       "Spectral"
+      ],
+      "role": "off",
+      "level": 54,
+      "moves": [
+       "soul_rend",
+       "void_pulse",
+       "nether_sphere",
+       "phantom_claw"
       ]
      }
     ],
@@ -5517,22 +5520,6 @@
       ]
      },
      {
-      "monsterId": 268,
-      "name": "Darkfang",
-      "types": [
-       "Dark",
-       "Spectral"
-      ],
-      "role": "off",
-      "level": 55,
-      "moves": [
-       "soul_rend",
-       "void_pulse",
-       "nether_sphere",
-       "phantom_claw"
-      ]
-     },
-     {
       "monsterId": 144,
       "name": "Moonseraph",
       "types": [
@@ -5540,12 +5527,28 @@
        "Mental"
       ],
       "role": "off",
-      "level": 54,
+      "level": 55,
       "moves": [
        "supernova_glow",
        "prophecy",
        "starlit_radiance",
        "fae_requiem"
+      ]
+     },
+     {
+      "monsterId": 193,
+      "name": "Cliffpinch",
+      "types": [
+       "Aquatic",
+       "Mineral"
+      ],
+      "role": "off",
+      "level": 54,
+      "moves": [
+       "torrent_shell",
+       "ocean_crash",
+       "basalt_eruption",
+       "claw_hammer"
       ]
      }
     ]
@@ -5621,35 +5624,35 @@
       ]
      },
      {
-      "monsterId": 330,
-      "name": "Sludgejaw",
+      "monsterId": 395,
+      "name": "Glacierend",
       "types": [
-       "Aquatic",
-       "Poison"
+       "Ice",
+       "Normal"
       ],
       "role": "off",
       "level": 55,
       "moves": [
-       "tsunami",
-       "tidal_crush",
-       "sludge_wave",
-       "ooze_bomb"
+       "whiteout",
+       "icebound_lattice",
+       "tundra_tomb",
+       "frostbite_strike"
       ]
      },
      {
-      "monsterId": 421,
-      "name": "Geyserook",
+      "monsterId": 404,
+      "name": "Auguryx",
       "types": [
-       "Fire",
-       "Vapor"
+       "Draconic",
+       "Mental"
       ],
       "role": "off",
       "level": 54,
       "moves": [
-       "nimbus_eruption",
-       "inferno_jet",
-       "cloud_blast",
-       "burning_mist"
+       "abyss_ray",
+       "psi_strike",
+       "synaptic_shatter",
+       "neural_storm"
       ]
      }
     ],
@@ -5719,35 +5722,35 @@
       ]
      },
      {
-      "monsterId": 325,
-      "name": "Dunespike",
+      "monsterId": 407,
+      "name": "Voidwarden",
       "types": [
-       "Earth",
-       "Poison"
+       "Dark",
+       "Metal"
       ],
       "role": "off",
       "level": 55,
       "moves": [
-       "fissure_slam",
-       "geoblast",
-       "ooze_bomb",
-       "venom_lance"
+       "starlight_obliteration",
+       "wraith_drive",
+       "eclipse_burst",
+       "alloy_tail"
       ]
      },
      {
-      "monsterId": 395,
-      "name": "Glacierend",
+      "monsterId": 330,
+      "name": "Sludgejaw",
       "types": [
-       "Ice",
-       "Normal"
+       "Aquatic",
+       "Poison"
       ],
       "role": "off",
       "level": 54,
       "moves": [
-       "whiteout",
-       "tundra_tomb",
-       "frostbite_strike",
-       "avalanche_drive"
+       "tsunami",
+       "tidal_crush",
+       "sludge_wave",
+       "ooze_bomb"
       ]
      }
     ],
@@ -5816,35 +5819,35 @@
       ]
      },
      {
-      "monsterId": 404,
-      "name": "Auguryx",
+      "monsterId": 421,
+      "name": "Geyserook",
       "types": [
-       "Draconic",
-       "Mental"
+       "Fire",
+       "Vapor"
       ],
       "role": "off",
       "level": 55,
       "moves": [
-       "abyss_ray",
-       "psi_strike",
-       "synaptic_shatter",
-       "neural_storm"
+       "nimbus_eruption",
+       "inferno_jet",
+       "cloud_blast",
+       "burning_mist"
       ]
      },
      {
-      "monsterId": 407,
-      "name": "Voidwarden",
+      "monsterId": 325,
+      "name": "Dunespike",
       "types": [
-       "Dark",
-       "Metal"
+       "Earth",
+       "Poison"
       ],
       "role": "off",
       "level": 54,
       "moves": [
-       "wraith_drive",
-       "eclipse_burst",
-       "alloy_tail",
-       "void_rend"
+       "fissure_slam",
+       "geoblast",
+       "ooze_bomb",
+       "venom_lance"
       ]
      }
     ]
@@ -5890,35 +5893,19 @@
       ]
      },
      {
-      "monsterId": 62,
-      "name": "Gelquill",
+      "monsterId": 171,
+      "name": "Nagaseer",
       "types": [
-       "Ice",
+       "Mental",
        "Poison"
       ],
       "role": "on",
       "level": 61,
       "moves": [
-       "whiteout",
-       "avalanche_drive",
-       "cold_beam",
-       "ooze_bomb"
-      ]
-     },
-     {
-      "monsterId": 193,
-      "name": "Cliffpinch",
-      "types": [
-       "Aquatic",
-       "Mineral"
-      ],
-      "role": "off",
-      "level": 61,
-      "moves": [
-       "torrent_shell",
-       "ocean_crash",
-       "basalt_eruption",
-       "claw_hammer"
+       "psi_strike",
+       "venom_mind",
+       "sludge_wave",
+       "mental"
       ]
      },
      {
@@ -5929,16 +5916,113 @@
        "Fairy"
       ],
       "role": "off",
-      "level": 60,
+      "level": 61,
       "moves": [
        "verdant_surge",
        "petal_blitz",
        "lunar_burst",
        "verdant_orb"
       ]
+     },
+     {
+      "monsterId": 6,
+      "name": "Banksnout",
+      "types": [
+       "Aquatic",
+       "Dark"
+      ],
+      "role": "off",
+      "level": 60,
+      "moves": [
+       "abyssal_wave",
+       "ocean_crash",
+       "tsunami",
+       "ocean_tempest"
+      ]
      }
     ],
     "double": [
+     {
+      "monsterId": 390,
+      "name": "Necrobloom",
+      "types": [
+       "Nature",
+       "Poison"
+      ],
+      "role": "ace",
+      "level": 62,
+      "moves": [
+       "fae_requiem",
+       "synaptic_shatter",
+       "neural_storm",
+       "mantis_slash"
+      ]
+     },
+     {
+      "monsterId": 62,
+      "name": "Gelquill",
+      "types": [
+       "Ice",
+       "Poison"
+      ],
+      "role": "on",
+      "level": 62,
+      "moves": [
+       "whiteout",
+       "avalanche_drive",
+       "cold_beam",
+       "ooze_bomb"
+      ]
+     },
+     {
+      "monsterId": 165,
+      "name": "Lepidox",
+      "types": [
+       "Poison",
+       "Wind"
+      ],
+      "role": "on",
+      "level": 61,
+      "moves": [
+       "ooze_bomb",
+       "acid_rain",
+       "wind_scythe",
+       "putrid_pulse"
+      ]
+     },
+     {
+      "monsterId": 149,
+      "name": "Eternarmor",
+      "types": [
+       "Metal"
+      ],
+      "role": "off",
+      "level": 61,
+      "moves": [
+       "anvil_drop",
+       "alloy_tail",
+       "forge_strike",
+       "iron_press"
+      ]
+     },
+     {
+      "monsterId": 3,
+      "name": "Calderaeth",
+      "types": [
+       "Fire",
+       "Draconic"
+      ],
+      "role": "off",
+      "level": 60,
+      "moves": [
+       "pyroclastic_burst",
+       "solar_flare",
+       "rampage",
+       "pyroclasm"
+      ]
+     }
+    ],
+    "triple": [
      {
       "monsterId": 390,
       "name": "Necrobloom",
@@ -5987,103 +6071,6 @@
       ]
      },
      {
-      "monsterId": 6,
-      "name": "Banksnout",
-      "types": [
-       "Aquatic",
-       "Dark"
-      ],
-      "role": "off",
-      "level": 61,
-      "moves": [
-       "abyssal_wave",
-       "ocean_crash",
-       "tsunami",
-       "ocean_tempest"
-      ]
-     },
-     {
-      "monsterId": 149,
-      "name": "Eternarmor",
-      "types": [
-       "Metal"
-      ],
-      "role": "off",
-      "level": 60,
-      "moves": [
-       "anvil_drop",
-       "alloy_tail",
-       "forge_strike",
-       "iron_press"
-      ]
-     }
-    ],
-    "triple": [
-     {
-      "monsterId": 390,
-      "name": "Necrobloom",
-      "types": [
-       "Nature",
-       "Poison"
-      ],
-      "role": "ace",
-      "level": 62,
-      "moves": [
-       "fae_requiem",
-       "synaptic_shatter",
-       "neural_storm",
-       "mantis_slash"
-      ]
-     },
-     {
-      "monsterId": 171,
-      "name": "Nagaseer",
-      "types": [
-       "Mental",
-       "Poison"
-      ],
-      "role": "on",
-      "level": 62,
-      "moves": [
-       "psi_strike",
-       "venom_mind",
-       "sludge_wave",
-       "mental"
-      ]
-     },
-     {
-      "monsterId": 165,
-      "name": "Lepidox",
-      "types": [
-       "Poison",
-       "Wind"
-      ],
-      "role": "on",
-      "level": 61,
-      "moves": [
-       "ooze_bomb",
-       "acid_rain",
-       "wind_scythe",
-       "putrid_pulse"
-      ]
-     },
-     {
-      "monsterId": 3,
-      "name": "Calderaeth",
-      "types": [
-       "Fire",
-       "Draconic"
-      ],
-      "role": "off",
-      "level": 61,
-      "moves": [
-       "pyroclastic_burst",
-       "solar_flare",
-       "rampage",
-       "pyroclasm"
-      ]
-     },
-     {
       "monsterId": 268,
       "name": "Darkfang",
       "types": [
@@ -6091,12 +6078,28 @@
        "Spectral"
       ],
       "role": "off",
-      "level": 60,
+      "level": 61,
       "moves": [
        "reaper_scythe",
        "soul_rend",
        "void_pulse",
        "nether_sphere"
+      ]
+     },
+     {
+      "monsterId": 193,
+      "name": "Cliffpinch",
+      "types": [
+       "Aquatic",
+       "Mineral"
+      ],
+      "role": "off",
+      "level": 60,
+      "moves": [
+       "torrent_shell",
+       "ocean_crash",
+       "basalt_eruption",
+       "claw_hammer"
       ]
      }
     ]
@@ -6172,35 +6175,35 @@
       ]
      },
      {
-      "monsterId": 358,
-      "name": "Psyphoenix",
+      "monsterId": 407,
+      "name": "Voidwarden",
       "types": [
-       "Fire",
-       "Mental"
+       "Dark",
+       "Metal"
       ],
       "role": "off",
       "level": 60,
       "moves": [
-       "solar_flare",
-       "psi_strike",
-       "synaptic_shatter",
-       "neural_storm"
+       "starlight_obliteration",
+       "void_dominion",
+       "wraith_drive",
+       "eclipse_burst"
       ]
      },
      {
-      "monsterId": 457,
-      "name": "Vaporlotl",
+      "monsterId": 389,
+      "name": "Stormcrown",
       "types": [
-       "Aquatic",
-       "Vapor"
+       "Electric",
+       "Sonic"
       ],
       "role": "off",
       "level": 60,
       "moves": [
-       "mist_press",
-       "nimbus_eruption",
-       "tidal_sweep",
-       "tidal_rush"
+       "threnody",
+       "stormbolt",
+       "volt_jet",
+       "harmonic_wave"
       ]
      }
     ],
@@ -6270,35 +6273,35 @@
       ]
      },
      {
-      "monsterId": 445,
-      "name": "Sentrike",
+      "monsterId": 343,
+      "name": "Shadowreave",
       "types": [
-       "Normal",
-       "Sonic"
+       "Dark",
+       "Spectral"
       ],
       "role": "off",
       "level": 60,
       "moves": [
-       "crushing_bulk",
-       "decibel_burst",
-       "skyboom_strike",
-       "wail"
+       "spirit_calamity",
+       "abyssal_dominion",
+       "reaper_scythe",
+       "void_rend"
       ]
      },
      {
-      "monsterId": 407,
-      "name": "Voidwarden",
+      "monsterId": 358,
+      "name": "Psyphoenix",
       "types": [
-       "Dark",
-       "Metal"
+       "Fire",
+       "Mental"
       ],
       "role": "off",
       "level": 60,
       "moves": [
-       "starlight_obliteration",
-       "void_dominion",
-       "wraith_drive",
-       "eclipse_burst"
+       "solar_flare",
+       "psi_strike",
+       "synaptic_shatter",
+       "neural_storm"
       ]
      }
     ],
@@ -6368,35 +6371,35 @@
       ]
      },
      {
-      "monsterId": 389,
-      "name": "Stormcrown",
+      "monsterId": 457,
+      "name": "Vaporlotl",
       "types": [
-       "Electric",
+       "Aquatic",
+       "Vapor"
+      ],
+      "role": "off",
+      "level": 60,
+      "moves": [
+       "mist_press",
+       "nimbus_eruption",
+       "tidal_sweep",
+       "tidal_rush"
+      ]
+     },
+     {
+      "monsterId": 445,
+      "name": "Sentrike",
+      "types": [
+       "Normal",
        "Sonic"
       ],
       "role": "off",
       "level": 60,
       "moves": [
-       "threnody",
-       "stormbolt",
-       "volt_jet",
-       "harmonic_wave"
-      ]
-     },
-     {
-      "monsterId": 343,
-      "name": "Shadowreave",
-      "types": [
-       "Dark",
-       "Spectral"
-      ],
-      "role": "off",
-      "level": 60,
-      "moves": [
-       "spirit_calamity",
-       "abyssal_dominion",
-       "reaper_scythe",
-       "void_rend"
+       "crushing_bulk",
+       "decibel_burst",
+       "skyboom_strike",
+       "wail"
       ]
      }
     ]
@@ -6409,85 +6412,6 @@
    "aceName": "Tectoshell",
    "styles": {
     "single": [
-     {
-      "monsterId": 361,
-      "name": "Tectoshell",
-      "types": [
-       "Earth",
-       "Nature"
-      ],
-      "role": "ace",
-      "level": 66,
-      "moves": [
-       "continental_shift",
-       "fissure_slam",
-       "geoblast",
-       "verdant_orb"
-      ]
-     },
-     {
-      "monsterId": 249,
-      "name": "Boulderax",
-      "types": [
-       "Earth"
-      ],
-      "role": "on",
-      "level": 66,
-      "moves": [
-       "bedrock_slam",
-       "crag_strike",
-       "tectonic_shift",
-       "geoblast"
-      ]
-     },
-     {
-      "monsterId": 192,
-      "name": "Boulderoll",
-      "types": [
-       "Earth"
-      ],
-      "role": "on",
-      "level": 65,
-      "moves": [
-       "crag_strike",
-       "tectonic_shift",
-       "landslide",
-       "geoblast"
-      ]
-     },
-     {
-      "monsterId": 223,
-      "name": "Recallum",
-      "types": [
-       "Mental"
-      ],
-      "role": "off",
-      "level": 65,
-      "moves": [
-       "psi_strike",
-       "neural_storm",
-       "mental",
-       "astral_rend"
-      ]
-     },
-     {
-      "monsterId": 9,
-      "name": "Garlawarden",
-      "types": [
-       "Nature",
-       "Fairy"
-      ],
-      "role": "off",
-      "level": 64,
-      "moves": [
-       "verdant_surge",
-       "petal_blitz",
-       "lunar_burst",
-       "verdant_orb"
-      ]
-     }
-    ],
-    "double": [
      {
       "monsterId": 361,
       "name": "Tectoshell",
@@ -6536,6 +6460,22 @@
       ]
      },
      {
+      "monsterId": 9,
+      "name": "Garlawarden",
+      "types": [
+       "Nature",
+       "Fairy"
+      ],
+      "role": "off",
+      "level": 65,
+      "moves": [
+       "verdant_surge",
+       "petal_blitz",
+       "lunar_burst",
+       "verdant_orb"
+      ]
+     },
+     {
       "monsterId": 6,
       "name": "Banksnout",
       "types": [
@@ -6543,31 +6483,16 @@
        "Dark"
       ],
       "role": "off",
-      "level": 65,
+      "level": 64,
       "moves": [
        "abyssal_wave",
        "ocean_crash",
        "tsunami",
        "ocean_tempest"
       ]
-     },
-     {
-      "monsterId": 149,
-      "name": "Eternarmor",
-      "types": [
-       "Metal"
-      ],
-      "role": "off",
-      "level": 64,
-      "moves": [
-       "anvil_drop",
-       "alloy_tail",
-       "forge_strike",
-       "radiance_cannon"
-      ]
      }
     ],
-    "triple": [
+    "double": [
      {
       "monsterId": 361,
       "name": "Tectoshell",
@@ -6617,6 +6542,21 @@
       ]
      },
      {
+      "monsterId": 149,
+      "name": "Eternarmor",
+      "types": [
+       "Metal"
+      ],
+      "role": "off",
+      "level": 65,
+      "moves": [
+       "anvil_drop",
+       "alloy_tail",
+       "forge_strike",
+       "radiance_cannon"
+      ]
+     },
+     {
       "monsterId": 3,
       "name": "Calderaeth",
       "types": [
@@ -6624,12 +6564,60 @@
        "Draconic"
       ],
       "role": "off",
-      "level": 65,
+      "level": 64,
       "moves": [
        "pyroclastic_burst",
        "solar_flare",
        "rampage",
        "pyroclasm"
+      ]
+     }
+    ],
+    "triple": [
+     {
+      "monsterId": 361,
+      "name": "Tectoshell",
+      "types": [
+       "Earth",
+       "Nature"
+      ],
+      "role": "ace",
+      "level": 66,
+      "moves": [
+       "continental_shift",
+       "fissure_slam",
+       "geoblast",
+       "verdant_orb"
+      ]
+     },
+     {
+      "monsterId": 249,
+      "name": "Boulderax",
+      "types": [
+       "Earth"
+      ],
+      "role": "on",
+      "level": 66,
+      "moves": [
+       "bedrock_slam",
+       "crag_strike",
+       "tectonic_shift",
+       "geoblast"
+      ]
+     },
+     {
+      "monsterId": 192,
+      "name": "Boulderoll",
+      "types": [
+       "Earth"
+      ],
+      "role": "on",
+      "level": 65,
+      "moves": [
+       "crag_strike",
+       "tectonic_shift",
+       "landslide",
+       "geoblast"
       ]
      },
      {
@@ -6640,12 +6628,27 @@
        "Spectral"
       ],
       "role": "off",
-      "level": 64,
+      "level": 65,
       "moves": [
        "reaper_scythe",
        "soul_rend",
        "void_pulse",
        "nether_sphere"
+      ]
+     },
+     {
+      "monsterId": 223,
+      "name": "Recallum",
+      "types": [
+       "Mental"
+      ],
+      "role": "off",
+      "level": 64,
+      "moves": [
+       "psi_strike",
+       "neural_storm",
+       "mental",
+       "astral_rend"
       ]
      }
     ]
@@ -6689,22 +6692,6 @@
       ]
      },
      {
-      "monsterId": 214,
-      "name": "Petrwave",
-      "types": [
-       "Aquatic",
-       "Earth"
-      ],
-      "role": "on",
-      "level": 65,
-      "moves": [
-       "tsunami",
-       "bedrock_slam",
-       "crag_strike",
-       "tidal_rush"
-      ]
-     },
-     {
       "monsterId": 391,
       "name": "Titanfang",
       "types": [
@@ -6721,35 +6708,51 @@
       ]
      },
      {
-      "monsterId": 406,
-      "name": "Umbrasteel",
+      "monsterId": 399,
+      "name": "Stonekeeper",
       "types": [
-       "Dark",
-       "Metal"
+       "Earth",
+       "Spectral"
       ],
-      "role": "off",
-      "level": 64,
+      "role": "on",
+      "level": 65,
       "moves": [
-       "alloy_tail",
-       "void_rend",
-       "nightmare_smash",
-       "forge_blast_2"
+       "fossil_rush",
+       "stone_slide",
+       "bone_cudgel",
+       "neural_storm"
       ]
      },
      {
-      "monsterId": 332,
-      "name": "Glacicore",
+      "monsterId": 395,
+      "name": "Glacierend",
       "types": [
        "Ice",
-       "Metal"
+       "Normal"
       ],
       "role": "off",
       "level": 64,
       "moves": [
+       "glaciation",
        "whiteout",
-       "alloy_tail",
-       "cold_beam",
-       "cryo_lance"
+       "icebound_lattice",
+       "tundra_tomb"
+      ]
+     },
+     {
+      "monsterId": 404,
+      "name": "Auguryx",
+      "types": [
+       "Draconic",
+       "Mental"
+      ],
+      "role": "off",
+      "level": 64,
+      "moves": [
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "psi_strike"
       ]
      }
     ],
@@ -6787,19 +6790,19 @@
       ]
      },
      {
-      "monsterId": 399,
-      "name": "Stonekeeper",
+      "monsterId": 214,
+      "name": "Petrwave",
       "types": [
-       "Earth",
-       "Spectral"
+       "Aquatic",
+       "Earth"
       ],
       "role": "on",
       "level": 65,
       "moves": [
-       "fossil_rush",
-       "stone_slide",
-       "bone_cudgel",
-       "neural_storm"
+       "tsunami",
+       "bedrock_slam",
+       "crag_strike",
+       "tidal_rush"
       ]
      },
      {
@@ -6818,35 +6821,35 @@
       ]
      },
      {
-      "monsterId": 340,
-      "name": "Cryoshard",
+      "monsterId": 407,
+      "name": "Voidwarden",
       "types": [
-       "Ice",
-       "Sonic"
+       "Dark",
+       "Metal"
       ],
       "role": "off",
       "level": 64,
       "moves": [
-       "whiteout",
-       "prism_resonance",
-       "cold_beam",
-       "cryo_lance"
+       "starlight_obliteration",
+       "void_dominion",
+       "wraith_drive",
+       "eclipse_burst"
       ]
      },
      {
-      "monsterId": 395,
-      "name": "Glacierend",
+      "monsterId": 406,
+      "name": "Umbrasteel",
       "types": [
-       "Ice",
-       "Normal"
+       "Dark",
+       "Metal"
       ],
       "role": "off",
       "level": 64,
       "moves": [
-       "glaciation",
-       "whiteout",
-       "icebound_lattice",
-       "tundra_tomb"
+       "alloy_tail",
+       "void_rend",
+       "nightmare_smash",
+       "forge_blast_2"
       ]
      }
     ],
@@ -6915,35 +6918,35 @@
       ]
      },
      {
-      "monsterId": 404,
-      "name": "Auguryx",
+      "monsterId": 332,
+      "name": "Glacicore",
       "types": [
-       "Draconic",
-       "Mental"
-      ],
-      "role": "off",
-      "level": 64,
-      "moves": [
-       "abyss_ray",
-       "cataclysm_breath",
-       "time_fracture",
-       "psi_strike"
-      ]
-     },
-     {
-      "monsterId": 407,
-      "name": "Voidwarden",
-      "types": [
-       "Dark",
+       "Ice",
        "Metal"
       ],
       "role": "off",
       "level": 64,
       "moves": [
-       "starlight_obliteration",
-       "void_dominion",
-       "wraith_drive",
-       "eclipse_burst"
+       "whiteout",
+       "alloy_tail",
+       "cold_beam",
+       "cryo_lance"
+      ]
+     },
+     {
+      "monsterId": 340,
+      "name": "Cryoshard",
+      "types": [
+       "Ice",
+       "Sonic"
+      ],
+      "role": "off",
+      "level": 64,
+      "moves": [
+       "whiteout",
+       "prism_resonance",
+       "cold_beam",
+       "cryo_lance"
       ]
      }
     ]
@@ -6956,86 +6959,6 @@
    "aceName": "Thornspire",
    "styles": {
     "single": [
-     {
-      "monsterId": 357,
-      "name": "Thornspire",
-      "types": [
-       "Nature",
-       "Metal"
-      ],
-      "role": "ace",
-      "level": 70,
-      "moves": [
-       "verdant_surge",
-       "alloy_tail",
-       "canopy_crash",
-       "root_lance"
-      ]
-     },
-     {
-      "monsterId": 8,
-      "name": "Barknell",
-      "types": [
-       "Nature"
-      ],
-      "role": "on",
-      "level": 70,
-      "moves": [
-       "verdant_surge",
-       "petal_blitz",
-       "verdant_orb",
-       "canopy_crash"
-      ]
-     },
-     {
-      "monsterId": 199,
-      "name": "Aeridaleth",
-      "types": [
-       "Nature",
-       "Wind"
-      ],
-      "role": "on",
-      "level": 69,
-      "moves": [
-       "typhoon",
-       "resonance_hum",
-       "stinger_lance",
-       "cocoon_burst"
-      ]
-     },
-     {
-      "monsterId": 223,
-      "name": "Recallum",
-      "types": [
-       "Mental"
-      ],
-      "role": "off",
-      "level": 69,
-      "moves": [
-       "psi_strike",
-       "neural_storm",
-       "mental",
-       "astral_rend"
-      ]
-     },
-     {
-      "monsterId": 6,
-      "name": "Banksnout",
-      "types": [
-       "Aquatic",
-       "Dark"
-      ],
-      "role": "off",
-      "level": 68,
-      "moves": [
-       "abyssal_wave",
-       "ocean_crash",
-       "tsunami",
-       "ocean_tempest"
-      ]
-     }
-    ],
-    "double": [
      {
       "monsterId": 357,
       "name": "Thornspire",
@@ -7085,17 +7008,81 @@
       ]
      },
      {
+      "monsterId": 6,
+      "name": "Banksnout",
+      "types": [
+       "Aquatic",
+       "Dark"
+      ],
+      "role": "off",
+      "level": 69,
+      "moves": [
+       "abyssal_wave",
+       "ocean_crash",
+       "tsunami",
+       "ocean_tempest"
+      ]
+     },
+     {
       "monsterId": 149,
       "name": "Eternarmor",
       "types": [
        "Metal"
       ],
       "role": "off",
-      "level": 69,
+      "level": 68,
       "moves": [
        "anvil_drop",
        "alloy_tail",
        "forge_strike",
+       "radiance_cannon"
+      ]
+     }
+    ],
+    "double": [
+     {
+      "monsterId": 357,
+      "name": "Thornspire",
+      "types": [
+       "Nature",
+       "Metal"
+      ],
+      "role": "ace",
+      "level": 70,
+      "moves": [
+       "verdant_surge",
+       "alloy_tail",
+       "canopy_crash",
+       "root_lance"
+      ]
+     },
+     {
+      "monsterId": 8,
+      "name": "Barknell",
+      "types": [
+       "Nature"
+      ],
+      "role": "on",
+      "level": 70,
+      "moves": [
+       "verdant_surge",
+       "petal_blitz",
+       "verdant_orb",
+       "canopy_crash"
+      ]
+     },
+     {
+      "monsterId": 260,
+      "name": "Sproutix",
+      "types": [
+       "Nature"
+      ],
+      "role": "on",
+      "level": 69,
+      "moves": [
+       "jungle_hammer",
+       "petal_blitz",
+       "verdant_orb",
        "radiance_cannon"
       ]
      },
@@ -7107,12 +7094,28 @@
        "Draconic"
       ],
       "role": "off",
-      "level": 68,
+      "level": 69,
       "moves": [
        "pyroclastic_burst",
        "solar_flare",
        "rampage",
        "pyroclasm"
+      ]
+     },
+     {
+      "monsterId": 268,
+      "name": "Darkfang",
+      "types": [
+       "Dark",
+       "Spectral"
+      ],
+      "role": "off",
+      "level": 68,
+      "moves": [
+       "reaper_scythe",
+       "soul_rend",
+       "void_pulse",
+       "nether_sphere"
       ]
      }
     ],
@@ -7134,18 +7137,19 @@
       ]
      },
      {
-      "monsterId": 260,
-      "name": "Sproutix",
+      "monsterId": 199,
+      "name": "Aeridaleth",
       "types": [
-       "Nature"
+       "Nature",
+       "Wind"
       ],
       "role": "on",
       "level": 70,
       "moves": [
-       "jungle_hammer",
-       "petal_blitz",
-       "verdant_orb",
-       "radiance_cannon"
+       "typhoon",
+       "resonance_hum",
+       "stinger_lance",
+       "cocoon_burst"
       ]
      },
      {
@@ -7164,22 +7168,6 @@
       ]
      },
      {
-      "monsterId": 268,
-      "name": "Darkfang",
-      "types": [
-       "Dark",
-       "Spectral"
-      ],
-      "role": "off",
-      "level": 69,
-      "moves": [
-       "reaper_scythe",
-       "soul_rend",
-       "void_pulse",
-       "nether_sphere"
-      ]
-     },
-     {
       "monsterId": 144,
       "name": "Moonseraph",
       "types": [
@@ -7187,12 +7175,27 @@
        "Mental"
       ],
       "role": "off",
-      "level": 68,
+      "level": 69,
       "moves": [
        "supernova_glow",
        "prophecy",
        "starlit_radiance",
        "fae_requiem"
+      ]
+     },
+     {
+      "monsterId": 223,
+      "name": "Recallum",
+      "types": [
+       "Mental"
+      ],
+      "role": "off",
+      "level": 68,
+      "moves": [
+       "psi_strike",
+       "neural_storm",
+       "mental",
+       "astral_rend"
       ]
      }
     ]
@@ -7268,35 +7271,35 @@
       ]
      },
      {
-      "monsterId": 347,
-      "name": "Embersteel",
+      "monsterId": 395,
+      "name": "Glacierend",
       "types": [
-       "Metal",
-       "Fire"
+       "Ice",
+       "Normal"
       ],
       "role": "off",
       "level": 68,
       "moves": [
-       "solar_flare",
-       "alloy_tail",
-       "searing_gale",
-       "inferno_jet"
+       "glaciation",
+       "whiteout",
+       "icebound_lattice",
+       "tundra_tomb"
       ]
      },
      {
-      "monsterId": 346,
-      "name": "Astralwing",
+      "monsterId": 404,
+      "name": "Auguryx",
       "types": [
-       "Mental",
-       "Wind"
+       "Draconic",
+       "Mental"
       ],
       "role": "off",
       "level": 68,
       "moves": [
-       "psi_strike",
-       "synaptic_shatter",
-       "neural_storm",
-       "mental"
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "psi_strike"
       ]
      }
     ],
@@ -7365,35 +7368,35 @@
       ]
      },
      {
-      "monsterId": 451,
-      "name": "Smashclaw",
+      "monsterId": 407,
+      "name": "Voidwarden",
       "types": [
-       "Fighting",
+       "Dark",
+       "Metal"
+      ],
+      "role": "off",
+      "level": 68,
+      "moves": [
+       "starlight_obliteration",
+       "void_dominion",
+       "wraith_drive",
+       "eclipse_burst"
+      ]
+     },
+     {
+      "monsterId": 347,
+      "name": "Embersteel",
+      "types": [
+       "Metal",
        "Fire"
       ],
       "role": "off",
       "level": 68,
       "moves": [
-       "brawl",
-       "iron_fist",
-       "ignition_kick",
-       "crippling_blow"
-      ]
-     },
-     {
-      "monsterId": 395,
-      "name": "Glacierend",
-      "types": [
-       "Ice",
-       "Normal"
-      ],
-      "role": "off",
-      "level": 68,
-      "moves": [
-       "glaciation",
-       "whiteout",
-       "icebound_lattice",
-       "tundra_tomb"
+       "solar_flare",
+       "alloy_tail",
+       "searing_gale",
+       "inferno_jet"
       ]
      }
     ],
@@ -7462,35 +7465,35 @@
       ]
      },
      {
-      "monsterId": 404,
-      "name": "Auguryx",
+      "monsterId": 346,
+      "name": "Astralwing",
       "types": [
-       "Draconic",
-       "Mental"
+       "Mental",
+       "Wind"
       ],
       "role": "off",
       "level": 68,
       "moves": [
-       "abyss_ray",
-       "cataclysm_breath",
-       "time_fracture",
-       "psi_strike"
+       "psi_strike",
+       "synaptic_shatter",
+       "neural_storm",
+       "mental"
       ]
      },
      {
-      "monsterId": 407,
-      "name": "Voidwarden",
+      "monsterId": 451,
+      "name": "Smashclaw",
       "types": [
-       "Dark",
-       "Metal"
+       "Fighting",
+       "Fire"
       ],
       "role": "off",
       "level": 68,
       "moves": [
-       "starlight_obliteration",
-       "void_dominion",
-       "wraith_drive",
-       "eclipse_burst"
+       "brawl",
+       "iron_fist",
+       "ignition_kick",
+       "crippling_blow"
       ]
      }
     ]
@@ -7583,18 +7586,19 @@
       ]
      },
      {
-      "monsterId": 249,
-      "name": "Boulderax",
+      "monsterId": 9,
+      "name": "Garlawarden",
       "types": [
-       "Earth"
+       "Nature",
+       "Fairy"
       ],
       "role": "off",
       "level": 70,
       "moves": [
-       "bedrock_slam",
-       "crag_strike",
-       "tectonic_shift",
-       "geoblast"
+       "verdant_surge",
+       "petal_blitz",
+       "lunar_burst",
+       "verdant_orb"
       ]
      }
     ],
@@ -7677,19 +7681,19 @@
       ]
      },
      {
-      "monsterId": 9,
-      "name": "Garlawarden",
+      "monsterId": 6,
+      "name": "Banksnout",
       "types": [
-       "Nature",
-       "Fairy"
+       "Aquatic",
+       "Dark"
       ],
       "role": "off",
       "level": 70,
       "moves": [
-       "verdant_surge",
-       "petal_blitz",
-       "lunar_burst",
-       "verdant_orb"
+       "abyssal_wave",
+       "ocean_crash",
+       "tsunami",
+       "ocean_tempest"
       ]
      }
     ],
@@ -7774,19 +7778,18 @@
       ]
      },
      {
-      "monsterId": 6,
-      "name": "Banksnout",
+      "monsterId": 249,
+      "name": "Boulderax",
       "types": [
-       "Aquatic",
-       "Dark"
+       "Earth"
       ],
       "role": "off",
       "level": 70,
       "moves": [
-       "abyssal_wave",
-       "ocean_crash",
-       "tsunami",
-       "ocean_tempest"
+       "bedrock_slam",
+       "crag_strike",
+       "tectonic_shift",
+       "geoblast"
       ]
      }
     ]
@@ -7862,35 +7865,35 @@
       ]
      },
      {
-      "monsterId": 413,
-      "name": "Resonadon",
+      "monsterId": 395,
+      "name": "Glacierend",
       "types": [
-       "Draconic",
-       "Sonic"
+       "Ice",
+       "Normal"
       ],
       "role": "off",
       "level": 71,
       "moves": [
-       "threnody",
-       "rampage",
-       "resonance_quake",
-       "bass_blast"
+       "glaciation",
+       "whiteout",
+       "icebound_lattice",
+       "tundra_tomb"
       ]
      },
      {
-      "monsterId": 431,
-      "name": "Nocturnbaku",
+      "monsterId": 404,
+      "name": "Auguryx",
       "types": [
-       "Dark",
-       "Dream"
+       "Draconic",
+       "Mental"
       ],
       "role": "off",
       "level": 70,
       "moves": [
-       "dream_devourer",
-       "dreamscape_smash",
-       "dread_finisher",
-       "mirage_apocalypse"
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "psi_strike"
       ]
      }
     ],
@@ -7958,35 +7961,35 @@
       ]
      },
      {
-      "monsterId": 395,
-      "name": "Glacierend",
+      "monsterId": 407,
+      "name": "Voidwarden",
       "types": [
-       "Ice",
-       "Normal"
+       "Dark",
+       "Metal"
       ],
       "role": "off",
       "level": 71,
       "moves": [
-       "glaciation",
-       "whiteout",
-       "icebound_lattice",
-       "tundra_tomb"
+       "starlight_obliteration",
+       "void_dominion",
+       "abyssal_dominion",
+       "wraith_drive"
       ]
      },
      {
-      "monsterId": 404,
-      "name": "Auguryx",
+      "monsterId": 389,
+      "name": "Stormcrown",
       "types": [
-       "Draconic",
-       "Mental"
+       "Electric",
+       "Sonic"
       ],
       "role": "off",
       "level": 70,
       "moves": [
-       "abyss_ray",
-       "cataclysm_breath",
-       "time_fracture",
-       "psi_strike"
+       "threnody",
+       "stormbolt",
+       "volt_jet",
+       "harmonic_wave"
       ]
      }
     ],
@@ -8054,35 +8057,35 @@
       ]
      },
      {
-      "monsterId": 407,
-      "name": "Voidwarden",
+      "monsterId": 413,
+      "name": "Resonadon",
       "types": [
-       "Dark",
-       "Metal"
+       "Draconic",
+       "Sonic"
       ],
       "role": "off",
       "level": 71,
       "moves": [
-       "starlight_obliteration",
-       "void_dominion",
-       "abyssal_dominion",
-       "wraith_drive"
+       "threnody",
+       "rampage",
+       "resonance_quake",
+       "bass_blast"
       ]
      },
      {
-      "monsterId": 389,
-      "name": "Stormcrown",
+      "monsterId": 431,
+      "name": "Nocturnbaku",
       "types": [
-       "Electric",
-       "Sonic"
+       "Dark",
+       "Dream"
       ],
       "role": "off",
       "level": 70,
       "moves": [
-       "threnody",
-       "stormbolt",
-       "volt_jet",
-       "harmonic_wave"
+       "dream_devourer",
+       "dreamscape_smash",
+       "dread_finisher",
+       "mirage_apocalypse"
       ]
      }
     ]
@@ -8112,116 +8115,19 @@
       ]
      },
      {
-      "monsterId": 265,
-      "name": "Mosshop",
-      "types": [
-       "Nature",
-       "Wind"
-      ],
-      "role": "dual",
-      "level": 78,
-      "moves": [
-       "resonance_hum",
-       "verdant_orb",
-       "swarm_strike",
-       "radiance_cannon"
-      ]
-     },
-     {
-      "monsterId": 109,
-      "name": "Siroccomane",
+      "monsterId": 292,
+      "name": "Galehorn",
       "types": [
        "Wind",
-       "Electric"
-      ],
-      "role": "on",
-      "level": 77,
-      "moves": [
-       "typhoon",
-       "gale_cannon",
-       "stormbolt",
-       "storm_surge"
-      ]
-     },
-     {
-      "monsterId": 186,
-      "name": "Continemic",
-      "types": [
-       "Normal",
-       "Wind"
-      ],
-      "role": "on",
-      "level": 77,
-      "moves": [
-       "radiance_cannon",
-       "typhoon",
-       "gale_cannon",
-       "crushing_bulk"
-      ]
-     },
-     {
-      "monsterId": 112,
-      "name": "Swirlavel",
-      "types": [
-       "Wind"
-      ],
-      "role": "on",
-      "level": 76,
-      "moves": [
-       "canopy_strike",
-       "tempest_wrath",
-       "typhoon",
-       "sky_dive"
-      ]
-     },
-     {
-      "monsterId": 9,
-      "name": "Garlawarden",
-      "types": [
-       "Nature",
-       "Fairy"
-      ],
-      "role": "off",
-      "level": 76,
-      "moves": [
-       "verdant_surge",
-       "petal_blitz",
-       "lunar_burst",
-       "verdant_orb"
-      ]
-     }
-    ],
-    "double": [
-     {
-      "monsterId": 382,
-      "name": "Oblivionwing",
-      "types": [
-       "Dark",
-       "Wind"
-      ],
-      "role": "ace",
-      "level": 78,
-      "moves": [
-       "gale_force",
-       "cyclone_smash",
-       "void_rend",
-       "skyfall"
-      ]
-     },
-     {
-      "monsterId": 40,
-      "name": "Marevanos",
-      "types": [
-       "Aquatic",
-       "Wind"
+       "Sonic"
       ],
       "role": "dual",
       "level": 78,
       "moves": [
        "tempest_wrath",
-       "tsunami",
        "typhoon",
-       "tidal_crush"
+       "gale_cannon",
+       "radiance_cannon"
       ]
      },
      {
@@ -8272,6 +8178,103 @@
       ]
      },
      {
+      "monsterId": 9,
+      "name": "Garlawarden",
+      "types": [
+       "Nature",
+       "Fairy"
+      ],
+      "role": "off",
+      "level": 76,
+      "moves": [
+       "verdant_surge",
+       "petal_blitz",
+       "lunar_burst",
+       "verdant_orb"
+      ]
+     }
+    ],
+    "double": [
+     {
+      "monsterId": 382,
+      "name": "Oblivionwing",
+      "types": [
+       "Dark",
+       "Wind"
+      ],
+      "role": "ace",
+      "level": 78,
+      "moves": [
+       "gale_force",
+       "cyclone_smash",
+       "void_rend",
+       "skyfall"
+      ]
+     },
+     {
+      "monsterId": 265,
+      "name": "Mosshop",
+      "types": [
+       "Nature",
+       "Wind"
+      ],
+      "role": "dual",
+      "level": 78,
+      "moves": [
+       "resonance_hum",
+       "verdant_orb",
+       "swarm_strike",
+       "radiance_cannon"
+      ]
+     },
+     {
+      "monsterId": 291,
+      "name": "Breefawn",
+      "types": [
+       "Wind"
+      ],
+      "role": "on",
+      "level": 77,
+      "moves": [
+       "tempest_wrath",
+       "typhoon",
+       "gale_cannon",
+       "radiance_cannon"
+      ]
+     },
+     {
+      "monsterId": 109,
+      "name": "Siroccomane",
+      "types": [
+       "Wind",
+       "Electric"
+      ],
+      "role": "on",
+      "level": 77,
+      "moves": [
+       "typhoon",
+       "gale_cannon",
+       "stormbolt",
+       "storm_surge"
+      ]
+     },
+     {
+      "monsterId": 54,
+      "name": "Arcturex",
+      "types": [
+       "Ice",
+       "Wind"
+      ],
+      "role": "on",
+      "level": 76,
+      "moves": [
+       "avalanche_smash",
+       "glacial_lance",
+       "whiteout",
+       "typhoon"
+      ]
+     },
+     {
       "monsterId": 6,
       "name": "Banksnout",
       "types": [
@@ -8306,50 +8309,19 @@
       ]
      },
      {
-      "monsterId": 292,
-      "name": "Galehorn",
+      "monsterId": 40,
+      "name": "Marevanos",
       "types": [
-       "Wind",
-       "Sonic"
+       "Aquatic",
+       "Wind"
       ],
       "role": "dual",
       "level": 78,
       "moves": [
        "tempest_wrath",
+       "tsunami",
        "typhoon",
-       "gale_cannon",
-       "radiance_cannon"
-      ]
-     },
-     {
-      "monsterId": 291,
-      "name": "Breefawn",
-      "types": [
-       "Wind"
-      ],
-      "role": "on",
-      "level": 77,
-      "moves": [
-       "tempest_wrath",
-       "typhoon",
-       "gale_cannon",
-       "radiance_cannon"
-      ]
-     },
-     {
-      "monsterId": 54,
-      "name": "Arcturex",
-      "types": [
-       "Ice",
-       "Wind"
-      ],
-      "role": "on",
-      "level": 77,
-      "moves": [
-       "avalanche_smash",
-       "glacial_lance",
-       "whiteout",
-       "typhoon"
+       "tidal_crush"
       ]
      },
      {
@@ -8360,12 +8332,43 @@
        "Wind"
       ],
       "role": "on",
-      "level": 76,
+      "level": 77,
       "moves": [
        "radiance_cannon",
        "typhoon",
        "gale_cannon",
        "crushing_bulk"
+      ]
+     },
+     {
+      "monsterId": 186,
+      "name": "Continemic",
+      "types": [
+       "Normal",
+       "Wind"
+      ],
+      "role": "on",
+      "level": 77,
+      "moves": [
+       "radiance_cannon",
+       "typhoon",
+       "gale_cannon",
+       "crushing_bulk"
+      ]
+     },
+     {
+      "monsterId": 112,
+      "name": "Swirlavel",
+      "types": [
+       "Wind"
+      ],
+      "role": "on",
+      "level": 76,
+      "moves": [
+       "canopy_strike",
+       "tempest_wrath",
+       "typhoon",
+       "sky_dive"
       ]
      },
      {
@@ -8456,6 +8459,22 @@
       ]
      },
      {
+      "monsterId": 407,
+      "name": "Voidwarden",
+      "types": [
+       "Dark",
+       "Metal"
+      ],
+      "role": "off",
+      "level": 76,
+      "moves": [
+       "starlight_obliteration",
+       "void_dominion",
+       "abyssal_dominion",
+       "wraith_drive"
+      ]
+     },
+     {
       "monsterId": 389,
       "name": "Stormcrown",
       "types": [
@@ -8469,22 +8488,6 @@
        "stormbolt",
        "volt_jet",
        "harmonic_wave"
-      ]
-     },
-     {
-      "monsterId": 377,
-      "name": "Abyssforge",
-      "types": [
-       "Earth",
-       "Mineral"
-      ],
-      "role": "off",
-      "level": 76,
-      "moves": [
-       "obsidian_strike",
-       "continental_shift",
-       "fissure_slam",
-       "crag_strike"
       ]
      }
     ],
@@ -8554,35 +8557,35 @@
       ]
      },
      {
-      "monsterId": 428,
-      "name": "Zenkaiser",
+      "monsterId": 343,
+      "name": "Shadowreave",
       "types": [
-       "Fighting",
-       "Mental"
+       "Dark",
+       "Spectral"
       ],
       "role": "off",
       "level": 76,
       "moves": [
-       "haymaker",
-       "heaven_strike",
-       "brawl",
-       "iron_fist"
+       "spirit_calamity",
+       "abyssal_dominion",
+       "reaper_scythe",
+       "void_rend"
       ]
      },
      {
-      "monsterId": 407,
-      "name": "Voidwarden",
+      "monsterId": 377,
+      "name": "Abyssforge",
       "types": [
-       "Dark",
-       "Metal"
+       "Earth",
+       "Mineral"
       ],
       "role": "off",
       "level": 76,
       "moves": [
-       "starlight_obliteration",
-       "void_dominion",
-       "abyssal_dominion",
-       "wraith_drive"
+       "obsidian_strike",
+       "continental_shift",
+       "fissure_slam",
+       "crag_strike"
       ]
      }
     ],
@@ -8650,22 +8653,6 @@
       ]
      },
      {
-      "monsterId": 343,
-      "name": "Shadowreave",
-      "types": [
-       "Dark",
-       "Spectral"
-      ],
-      "role": "off",
-      "level": 76,
-      "moves": [
-       "spirit_calamity",
-       "abyssal_dominion",
-       "reaper_scythe",
-       "void_rend"
-      ]
-     },
-     {
       "monsterId": 422,
       "name": "Tempesteam",
       "types": [
@@ -8679,6 +8666,22 @@
        "nimbus_eruption",
        "steam_slam",
        "molten_tide"
+      ]
+     },
+     {
+      "monsterId": 428,
+      "name": "Zenkaiser",
+      "types": [
+       "Fighting",
+       "Mental"
+      ],
+      "role": "off",
+      "level": 76,
+      "moves": [
+       "haymaker",
+       "heaven_strike",
+       "brawl",
+       "iron_fist"
       ]
      }
     ]
@@ -9047,22 +9050,6 @@
       ]
      },
      {
-      "monsterId": 343,
-      "name": "Shadowreave",
-      "types": [
-       "Dark",
-       "Spectral"
-      ],
-      "role": "off",
-      "level": 80,
-      "moves": [
-       "spirit_calamity",
-       "abyssal_dominion",
-       "reaper_scythe",
-       "void_rend"
-      ]
-     },
-     {
       "monsterId": 395,
       "name": "Glacierend",
       "types": [
@@ -9076,6 +9063,22 @@
        "whiteout",
        "icebound_lattice",
        "tundra_tomb"
+      ]
+     },
+     {
+      "monsterId": 404,
+      "name": "Auguryx",
+      "types": [
+       "Draconic",
+       "Mental"
+      ],
+      "role": "off",
+      "level": 80,
+      "moves": [
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "psi_strike"
       ]
      }
     ],
@@ -9144,22 +9147,6 @@
       ]
      },
      {
-      "monsterId": 404,
-      "name": "Auguryx",
-      "types": [
-       "Draconic",
-       "Mental"
-      ],
-      "role": "off",
-      "level": 80,
-      "moves": [
-       "abyss_ray",
-       "cataclysm_breath",
-       "time_fracture",
-       "psi_strike"
-      ]
-     },
-     {
       "monsterId": 389,
       "name": "Stormcrown",
       "types": [
@@ -9173,6 +9160,22 @@
        "stormbolt",
        "volt_jet",
        "harmonic_wave"
+      ]
+     },
+     {
+      "monsterId": 343,
+      "name": "Shadowreave",
+      "types": [
+       "Dark",
+       "Spectral"
+      ],
+      "role": "off",
+      "level": 80,
+      "moves": [
+       "spirit_calamity",
+       "abyssal_dominion",
+       "reaper_scythe",
+       "void_rend"
       ]
      }
     ],
@@ -9345,18 +9348,19 @@
       ]
      },
      {
-      "monsterId": 249,
-      "name": "Boulderax",
+      "monsterId": 105,
+      "name": "Dravanas",
       "types": [
+       "Normal",
        "Earth"
       ],
       "role": "on",
       "level": 88,
       "moves": [
-       "bedrock_slam",
-       "crag_strike",
+       "radiance_cannon",
        "tectonic_shift",
-       "geoblast"
+       "geoblast",
+       "crushing_bulk"
       ]
      },
      {
@@ -9410,22 +9414,6 @@
       ]
      },
      {
-      "monsterId": 105,
-      "name": "Dravanas",
-      "types": [
-       "Normal",
-       "Earth"
-      ],
-      "role": "on",
-      "level": 89,
-      "moves": [
-       "radiance_cannon",
-       "tectonic_shift",
-       "geoblast",
-       "crushing_bulk"
-      ]
-     },
-     {
       "monsterId": 103,
       "name": "Calciderm",
       "types": [
@@ -9449,12 +9437,27 @@
        "Earth"
       ],
       "role": "on",
-      "level": 88,
+      "level": 89,
       "moves": [
        "tsunami",
        "crag_strike",
        "tidal_crush",
        "sea_serpent_strike"
+      ]
+     },
+     {
+      "monsterId": 249,
+      "name": "Boulderax",
+      "types": [
+       "Earth"
+      ],
+      "role": "on",
+      "level": 88,
+      "moves": [
+       "bedrock_slam",
+       "crag_strike",
+       "tectonic_shift",
+       "geoblast"
       ]
      },
      {
@@ -9642,35 +9645,35 @@
       ]
      },
      {
-      "monsterId": 413,
-      "name": "Resonadon",
+      "monsterId": 395,
+      "name": "Glacierend",
       "types": [
-       "Draconic",
-       "Sonic"
+       "Ice",
+       "Normal"
       ],
       "role": "off",
       "level": 88,
       "moves": [
-       "threnody",
-       "rampage",
-       "resonance_quake",
-       "bass_blast"
+       "glaciation",
+       "whiteout",
+       "icebound_lattice",
+       "tundra_tomb"
       ]
      },
      {
-      "monsterId": 428,
-      "name": "Zenkaiser",
+      "monsterId": 404,
+      "name": "Auguryx",
       "types": [
-       "Fighting",
+       "Draconic",
        "Mental"
       ],
       "role": "off",
       "level": 88,
       "moves": [
-       "haymaker",
-       "heaven_strike",
-       "brawl",
-       "iron_fist"
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "psi_strike"
       ]
      }
     ],
@@ -9739,35 +9742,35 @@
       ]
      },
      {
-      "monsterId": 395,
-      "name": "Glacierend",
+      "monsterId": 407,
+      "name": "Voidwarden",
       "types": [
-       "Ice",
-       "Normal"
+       "Dark",
+       "Metal"
       ],
       "role": "off",
       "level": 88,
       "moves": [
-       "glaciation",
-       "whiteout",
-       "icebound_lattice",
-       "tundra_tomb"
+       "starlight_obliteration",
+       "void_dominion",
+       "abyssal_dominion",
+       "wraith_drive"
       ]
      },
      {
-      "monsterId": 404,
-      "name": "Auguryx",
+      "monsterId": 389,
+      "name": "Stormcrown",
       "types": [
-       "Draconic",
-       "Mental"
+       "Electric",
+       "Sonic"
       ],
       "role": "off",
       "level": 88,
       "moves": [
-       "abyss_ray",
-       "cataclysm_breath",
-       "time_fracture",
-       "psi_strike"
+       "threnody",
+       "stormbolt",
+       "volt_jet",
+       "harmonic_wave"
       ]
      }
     ],
@@ -9836,35 +9839,35 @@
       ]
      },
      {
-      "monsterId": 407,
-      "name": "Voidwarden",
+      "monsterId": 413,
+      "name": "Resonadon",
       "types": [
-       "Dark",
-       "Metal"
-      ],
-      "role": "off",
-      "level": 88,
-      "moves": [
-       "starlight_obliteration",
-       "void_dominion",
-       "abyssal_dominion",
-       "wraith_drive"
-      ]
-     },
-     {
-      "monsterId": 389,
-      "name": "Stormcrown",
-      "types": [
-       "Electric",
+       "Draconic",
        "Sonic"
       ],
       "role": "off",
       "level": 88,
       "moves": [
        "threnody",
-       "stormbolt",
-       "volt_jet",
-       "harmonic_wave"
+       "rampage",
+       "resonance_quake",
+       "bass_blast"
+      ]
+     },
+     {
+      "monsterId": 428,
+      "name": "Zenkaiser",
+      "types": [
+       "Fighting",
+       "Mental"
+      ],
+      "role": "off",
+      "level": 88,
+      "moves": [
+       "haymaker",
+       "heaven_strike",
+       "brawl",
+       "iron_fist"
       ]
      }
     ]
@@ -9910,21 +9913,6 @@
       ]
      },
      {
-      "monsterId": 139,
-      "name": "Lumiarch",
-      "types": [
-       "Fairy"
-      ],
-      "role": "on",
-      "level": 97,
-      "moves": [
-       "fae_requiem",
-       "lunar_burst",
-       "glitter_storm",
-       "celestial_wave"
-      ]
-     },
-     {
       "monsterId": 141,
       "name": "Iridesoar",
       "types": [
@@ -9938,6 +9926,21 @@
        "moonlit_surge",
        "lunar_burst",
        "glitter_storm"
+      ]
+     },
+     {
+      "monsterId": 139,
+      "name": "Lumiarch",
+      "types": [
+       "Fairy"
+      ],
+      "role": "on",
+      "level": 97,
+      "moves": [
+       "fae_requiem",
+       "lunar_burst",
+       "glitter_storm",
+       "celestial_wave"
       ]
      },
      {
@@ -10235,22 +10238,6 @@
       ]
      },
      {
-      "monsterId": 407,
-      "name": "Voidwarden",
-      "types": [
-       "Dark",
-       "Metal"
-      ],
-      "role": "off",
-      "level": 96,
-      "moves": [
-       "starlight_obliteration",
-       "void_dominion",
-       "abyssal_dominion",
-       "wraith_drive"
-      ]
-     },
-     {
       "monsterId": 395,
       "name": "Glacierend",
       "types": [
@@ -10264,6 +10251,22 @@
        "whiteout",
        "icebound_lattice",
        "tundra_tomb"
+      ]
+     },
+     {
+      "monsterId": 404,
+      "name": "Auguryx",
+      "types": [
+       "Draconic",
+       "Mental"
+      ],
+      "role": "off",
+      "level": 96,
+      "moves": [
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "psi_strike"
       ]
      }
     ],
@@ -10331,19 +10334,19 @@
       ]
      },
      {
-      "monsterId": 404,
-      "name": "Auguryx",
+      "monsterId": 407,
+      "name": "Voidwarden",
       "types": [
-       "Draconic",
-       "Mental"
+       "Dark",
+       "Metal"
       ],
       "role": "off",
       "level": 96,
       "moves": [
-       "abyss_ray",
-       "cataclysm_breath",
-       "time_fracture",
-       "psi_strike"
+       "starlight_obliteration",
+       "void_dominion",
+       "abyssal_dominion",
+       "wraith_drive"
       ]
      },
      {
@@ -10801,22 +10804,6 @@
       ]
      },
      {
-      "monsterId": 309,
-      "name": "Tidephant",
-      "types": [
-       "Aquatic",
-       "Spectral"
-      ],
-      "role": "on",
-      "level": 115,
-      "moves": [
-       "phantom_gale",
-       "tsunami",
-       "geyser_burst",
-       "radiance_cannon"
-      ]
-     },
-     {
       "monsterId": 397,
       "name": "Abyssalord",
       "types": [
@@ -10830,6 +10817,22 @@
        "tsunami",
        "tidal_crush",
        "sea_serpent_strike"
+      ]
+     },
+     {
+      "monsterId": 399,
+      "name": "Stonekeeper",
+      "types": [
+       "Earth",
+       "Spectral"
+      ],
+      "role": "on",
+      "level": 115,
+      "moves": [
+       "poltergeist_smash",
+       "revenant_charge",
+       "banshee_lash",
+       "fossil_rush"
       ]
      },
      {
@@ -10899,22 +10902,6 @@
       ]
      },
      {
-      "monsterId": 399,
-      "name": "Stonekeeper",
-      "types": [
-       "Earth",
-       "Spectral"
-      ],
-      "role": "on",
-      "level": 115,
-      "moves": [
-       "poltergeist_smash",
-       "revenant_charge",
-       "banshee_lash",
-       "fossil_rush"
-      ]
-     },
-     {
       "monsterId": 419,
       "name": "Pallidoll",
       "types": [
@@ -10928,6 +10915,22 @@
        "phantom_gale",
        "phantom_force",
        "whiteout"
+      ]
+     },
+     {
+      "monsterId": 309,
+      "name": "Tidephant",
+      "types": [
+       "Aquatic",
+       "Spectral"
+      ],
+      "role": "on",
+      "level": 115,
+      "moves": [
+       "phantom_gale",
+       "tsunami",
+       "geyser_burst",
+       "radiance_cannon"
       ]
      },
      {
@@ -11664,24 +11667,186 @@
  },
  "aria": {
   "mixed": {
-   "ace": 303,
-   "aceName": "Lumivane",
+   "ace": 389,
+   "aceName": "Stormcrown",
    "styles": {
     "single": [
      {
-      "monsterId": 303,
-      "name": "Lumivane",
+      "monsterId": 389,
+      "name": "Stormcrown",
       "types": [
-       "Fairy",
-       "Mental"
+       "Electric",
+       "Sonic"
       ],
       "role": "ace",
       "level": 100,
       "moves": [
-       "supernova_glow",
-       "fae_requiem",
+       "threnody",
+       "stormbolt",
+       "volt_jet",
+       "harmonic_wave"
+      ]
+     },
+     {
+      "monsterId": 217,
+      "name": "Distorsion",
+      "types": [
+       "Mental",
+       "Vapor"
+      ],
+      "role": "mix",
+      "level": 100,
+      "moves": [
+       "mindbreaker",
+       "nimbus_eruption",
        "psi_strike",
        "neural_storm"
+      ]
+     },
+     {
+      "monsterId": 395,
+      "name": "Glacierend",
+      "types": [
+       "Ice",
+       "Normal"
+      ],
+      "role": "mix",
+      "level": 99,
+      "moves": [
+       "glaciation",
+       "whiteout",
+       "icebound_lattice",
+       "tundra_tomb"
+      ]
+     },
+     {
+      "monsterId": 343,
+      "name": "Shadowreave",
+      "types": [
+       "Dark",
+       "Spectral"
+      ],
+      "role": "mix",
+      "level": 99,
+      "moves": [
+       "spirit_calamity",
+       "abyssal_dominion",
+       "reaper_scythe",
+       "void_rend"
+      ]
+     },
+     {
+      "monsterId": 368,
+      "name": "Willowisp",
+      "types": [
+       "Fire",
+       "Spectral"
+      ],
+      "role": "mix",
+      "level": 98,
+      "moves": [
+       "solar_flare",
+       "eternal_haunt",
+       "conflagration",
+       "inferno_jet"
+      ]
+     },
+     {
+      "monsterId": 370,
+      "name": "Cyclotron",
+      "types": [
+       "Electric",
+       "Sonic"
+      ],
+      "role": "mix",
+      "level": 98,
+      "moves": [
+       "stormbolt",
+       "volt_jet",
+       "harmonic_wave",
+       "dissonant_chord"
+      ]
+     }
+    ],
+    "double": [
+     {
+      "monsterId": 389,
+      "name": "Stormcrown",
+      "types": [
+       "Electric",
+       "Sonic"
+      ],
+      "role": "ace",
+      "level": 100,
+      "moves": [
+       "threnody",
+       "stormbolt",
+       "volt_jet",
+       "harmonic_wave"
+      ]
+     },
+     {
+      "monsterId": 375,
+      "name": "Fluxserpent",
+      "types": [
+       "Electric",
+       "Mental"
+      ],
+      "role": "mix",
+      "level": 100,
+      "moves": [
+       "stormbolt",
+       "psi_strike",
+       "synaptic_shatter",
+       "neural_storm"
+      ]
+     },
+     {
+      "monsterId": 386,
+      "name": "Wraithstorm",
+      "types": [
+       "Electric",
+       "Spectral"
+      ],
+      "role": "mix",
+      "level": 99,
+      "moves": [
+       "stormbolt",
+       "volt_jet",
+       "necrotic_pulse",
+       "volt_surge"
+      ]
+     },
+     {
+      "monsterId": 3,
+      "name": "Calderaeth",
+      "types": [
+       "Fire",
+       "Draconic"
+      ],
+      "role": "mix",
+      "level": 99,
+      "moves": [
+       "pyroclastic_burst",
+       "solar_flare",
+       "rampage",
+       "pyroclasm"
+      ]
+     },
+     {
+      "monsterId": 247,
+      "name": "Sparkeen",
+      "types": [
+       "Electric",
+       "Dream"
+      ],
+      "role": "mix",
+      "level": 98,
+      "moves": [
+       "stormbolt",
+       "lullaby_strike",
+       "hypnos_storm",
+       "volt_jet"
       ]
      },
      {
@@ -11692,10 +11857,44 @@
        "Fairy"
       ],
       "role": "mix",
-      "level": 100,
+      "level": 98,
       "moves": [
        "prophecy",
        "mindbreaker",
+       "psi_strike",
+       "neural_storm"
+      ]
+     }
+    ],
+    "triple": [
+     {
+      "monsterId": 389,
+      "name": "Stormcrown",
+      "types": [
+       "Electric",
+       "Sonic"
+      ],
+      "role": "ace",
+      "level": 100,
+      "moves": [
+       "threnody",
+       "stormbolt",
+       "volt_jet",
+       "harmonic_wave"
+      ]
+     },
+     {
+      "monsterId": 303,
+      "name": "Lumivane",
+      "types": [
+       "Fairy",
+       "Mental"
+      ],
+      "role": "mix",
+      "level": 100,
+      "moves": [
+       "supernova_glow",
+       "fae_requiem",
        "psi_strike",
        "neural_storm"
       ]
@@ -11763,226 +11962,14 @@
        "lunar_burst"
       ]
      }
-    ],
-    "double": [
-     {
-      "monsterId": 303,
-      "name": "Lumivane",
-      "types": [
-       "Fairy",
-       "Mental"
-      ],
-      "role": "ace",
-      "level": 100,
-      "moves": [
-       "supernova_glow",
-       "fae_requiem",
-       "psi_strike",
-       "neural_storm"
-      ]
-     },
-     {
-      "monsterId": 389,
-      "name": "Stormcrown",
-      "types": [
-       "Electric",
-       "Sonic"
-      ],
-      "role": "mix",
-      "level": 100,
-      "moves": [
-       "threnody",
-       "stormbolt",
-       "volt_jet",
-       "harmonic_wave"
-      ]
-     },
-     {
-      "monsterId": 217,
-      "name": "Distorsion",
-      "types": [
-       "Mental",
-       "Vapor"
-      ],
-      "role": "mix",
-      "level": 99,
-      "moves": [
-       "mindbreaker",
-       "nimbus_eruption",
-       "psi_strike",
-       "neural_storm"
-      ]
-     },
-     {
-      "monsterId": 395,
-      "name": "Glacierend",
-      "types": [
-       "Ice",
-       "Normal"
-      ],
-      "role": "mix",
-      "level": 99,
-      "moves": [
-       "glaciation",
-       "whiteout",
-       "icebound_lattice",
-       "tundra_tomb"
-      ]
-     },
-     {
-      "monsterId": 343,
-      "name": "Shadowreave",
-      "types": [
-       "Dark",
-       "Spectral"
-      ],
-      "role": "mix",
-      "level": 98,
-      "moves": [
-       "spirit_calamity",
-       "abyssal_dominion",
-       "reaper_scythe",
-       "void_rend"
-      ]
-     },
-     {
-      "monsterId": 368,
-      "name": "Willowisp",
-      "types": [
-       "Fire",
-       "Spectral"
-      ],
-      "role": "mix",
-      "level": 98,
-      "moves": [
-       "solar_flare",
-       "eternal_haunt",
-       "conflagration",
-       "inferno_jet"
-      ]
-     }
-    ],
-    "triple": [
-     {
-      "monsterId": 303,
-      "name": "Lumivane",
-      "types": [
-       "Fairy",
-       "Mental"
-      ],
-      "role": "ace",
-      "level": 100,
-      "moves": [
-       "supernova_glow",
-       "fae_requiem",
-       "psi_strike",
-       "neural_storm"
-      ]
-     },
-     {
-      "monsterId": 370,
-      "name": "Cyclotron",
-      "types": [
-       "Electric",
-       "Sonic"
-      ],
-      "role": "mix",
-      "level": 100,
-      "moves": [
-       "stormbolt",
-       "volt_jet",
-       "harmonic_wave",
-       "dissonant_chord"
-      ]
-     },
-     {
-      "monsterId": 375,
-      "name": "Fluxserpent",
-      "types": [
-       "Electric",
-       "Mental"
-      ],
-      "role": "mix",
-      "level": 99,
-      "moves": [
-       "stormbolt",
-       "psi_strike",
-       "synaptic_shatter",
-       "neural_storm"
-      ]
-     },
-     {
-      "monsterId": 386,
-      "name": "Wraithstorm",
-      "types": [
-       "Electric",
-       "Spectral"
-      ],
-      "role": "mix",
-      "level": 99,
-      "moves": [
-       "stormbolt",
-       "volt_jet",
-       "necrotic_pulse",
-       "volt_surge"
-      ]
-     },
-     {
-      "monsterId": 3,
-      "name": "Calderaeth",
-      "types": [
-       "Fire",
-       "Draconic"
-      ],
-      "role": "mix",
-      "level": 98,
-      "moves": [
-       "pyroclastic_burst",
-       "solar_flare",
-       "rampage",
-       "pyroclasm"
-      ]
-     },
-     {
-      "monsterId": 247,
-      "name": "Sparkeen",
-      "types": [
-       "Electric",
-       "Dream"
-      ],
-      "role": "mix",
-      "level": 98,
-      "moves": [
-       "stormbolt",
-       "lullaby_strike",
-       "hypnos_storm",
-       "volt_jet"
-      ]
-     }
     ]
    }
   },
   "mixedNg": {
-   "ace": 303,
-   "aceName": "Lumivane",
+   "ace": 389,
+   "aceName": "Stormcrown",
    "styles": {
     "single": [
-     {
-      "monsterId": 303,
-      "name": "Lumivane",
-      "types": [
-       "Fairy",
-       "Mental"
-      ],
-      "role": "ace",
-      "level": 100,
-      "moves": [
-       "supernova_glow",
-       "fae_requiem",
-       "psi_strike",
-       "neural_storm"
-      ]
-     },
      {
       "monsterId": 389,
       "name": "Stormcrown",
@@ -11990,7 +11977,7 @@
        "Electric",
        "Sonic"
       ],
-      "role": "mix",
+      "role": "ace",
       "level": 100,
       "moves": [
        "threnody",
@@ -12007,7 +11994,7 @@
        "Normal"
       ],
       "role": "mix",
-      "level": 99,
+      "level": 100,
       "moves": [
        "glaciation",
        "whiteout",
@@ -12039,7 +12026,7 @@
        "Spectral"
       ],
       "role": "mix",
-      "level": 98,
+      "level": 99,
       "moves": [
        "solar_flare",
        "eternal_haunt",
@@ -12062,24 +12049,6 @@
        "harmonic_wave",
        "dissonant_chord"
       ]
-     }
-    ],
-    "double": [
-     {
-      "monsterId": 303,
-      "name": "Lumivane",
-      "types": [
-       "Fairy",
-       "Mental"
-      ],
-      "role": "ace",
-      "level": 100,
-      "moves": [
-       "supernova_glow",
-       "fae_requiem",
-       "psi_strike",
-       "neural_storm"
-      ]
      },
      {
       "monsterId": 375,
@@ -12089,12 +12058,30 @@
        "Mental"
       ],
       "role": "mix",
-      "level": 100,
+      "level": 98,
       "moves": [
        "stormbolt",
        "psi_strike",
        "synaptic_shatter",
        "neural_storm"
+      ]
+     }
+    ],
+    "double": [
+     {
+      "monsterId": 389,
+      "name": "Stormcrown",
+      "types": [
+       "Electric",
+       "Sonic"
+      ],
+      "role": "ace",
+      "level": 100,
+      "moves": [
+       "threnody",
+       "stormbolt",
+       "volt_jet",
+       "harmonic_wave"
       ]
      },
      {
@@ -12105,7 +12092,7 @@
        "Spectral"
       ],
       "role": "mix",
-      "level": 99,
+      "level": 100,
       "moves": [
        "stormbolt",
        "volt_jet",
@@ -12137,7 +12124,7 @@
        "Electric"
       ],
       "role": "mix",
-      "level": 98,
+      "level": 99,
       "moves": [
        "void_rend",
        "volt_jet",
@@ -12160,24 +12147,6 @@
        "psi_strike",
        "synaptic_shatter"
       ]
-     }
-    ],
-    "triple": [
-     {
-      "monsterId": 303,
-      "name": "Lumivane",
-      "types": [
-       "Fairy",
-       "Mental"
-      ],
-      "role": "ace",
-      "level": 100,
-      "moves": [
-       "supernova_glow",
-       "fae_requiem",
-       "psi_strike",
-       "neural_storm"
-      ]
      },
      {
       "monsterId": 376,
@@ -12187,12 +12156,30 @@
        "Fairy"
       ],
       "role": "mix",
-      "level": 100,
+      "level": 98,
       "moves": [
        "solar_flare",
        "fae_requiem",
        "pyroclasm",
        "wish_spark"
+      ]
+     }
+    ],
+    "triple": [
+     {
+      "monsterId": 389,
+      "name": "Stormcrown",
+      "types": [
+       "Electric",
+       "Sonic"
+      ],
+      "role": "ace",
+      "level": 100,
+      "moves": [
+       "threnody",
+       "stormbolt",
+       "volt_jet",
+       "harmonic_wave"
       ]
      },
      {
@@ -12203,7 +12190,7 @@
        "Spectral"
       ],
       "role": "mix",
-      "level": 99,
+      "level": 100,
       "moves": [
        "psi_strike",
        "synaptic_shatter",
@@ -12235,7 +12222,7 @@
        "Sonic"
       ],
       "role": "mix",
-      "level": 98,
+      "level": 99,
       "moves": [
        "stormbolt",
        "shockwave_boom",
@@ -12258,6 +12245,22 @@
        "synaptic_shatter",
        "neural_storm"
       ]
+     },
+     {
+      "monsterId": 344,
+      "name": "Glimmeritch",
+      "types": [
+       "Fairy",
+       "Spectral"
+      ],
+      "role": "mix",
+      "level": 98,
+      "moves": [
+       "fae_requiem",
+       "misty_explosion",
+       "dream_drain",
+       "nymph_mist"
+      ]
      }
     ]
    }
@@ -12265,24 +12268,185 @@
  },
  "grimshaw": {
   "mixed": {
-   "ace": 213,
-   "aceName": "Infriglace",
+   "ace": 437,
+   "aceName": "Goliathon",
    "styles": {
     "single": [
      {
-      "monsterId": 213,
-      "name": "Infriglace",
+      "monsterId": 437,
+      "name": "Goliathon",
       "types": [
-       "Fire",
-       "Ice"
+       "Fighting",
+       "Mineral"
       ],
       "role": "ace",
       "level": 102,
       "moves": [
-       "caldera_meltdown",
-       "solar_flare",
-       "pyroclasm",
-       "whiteout"
+       "seismic_force",
+       "heaven_strike",
+       "obsidian_strike",
+       "brawl"
+      ]
+     },
+     {
+      "monsterId": 149,
+      "name": "Eternarmor",
+      "types": [
+       "Metal"
+      ],
+      "role": "mix",
+      "level": 102,
+      "moves": [
+       "anvil_drop",
+       "alloy_tail",
+       "forge_strike",
+       "radiance_cannon"
+      ]
+     },
+     {
+      "monsterId": 395,
+      "name": "Glacierend",
+      "types": [
+       "Ice",
+       "Normal"
+      ],
+      "role": "mix",
+      "level": 101,
+      "moves": [
+       "glaciation",
+       "whiteout",
+       "icebound_lattice",
+       "tundra_tomb"
+      ]
+     },
+     {
+      "monsterId": 407,
+      "name": "Voidwarden",
+      "types": [
+       "Dark",
+       "Metal"
+      ],
+      "role": "mix",
+      "level": 101,
+      "moves": [
+       "starlight_obliteration",
+       "void_dominion",
+       "abyssal_dominion",
+       "wraith_drive"
+      ]
+     },
+     {
+      "monsterId": 184,
+      "name": "Ursamight",
+      "types": [
+       "Normal",
+       "Fighting"
+      ],
+      "role": "mix",
+      "level": 100,
+      "moves": [
+       "radiance_cannon",
+       "haymaker",
+       "seismic_force",
+       "brawl"
+      ]
+     },
+     {
+      "monsterId": 416,
+      "name": "Sandscourge",
+      "types": [
+       "Earth",
+       "Toxin"
+      ],
+      "role": "mix",
+      "level": 100,
+      "moves": [
+       "corrosive_finish",
+       "toxin_smash",
+       "tectonic_slam",
+       "malignant_storm"
+      ]
+     }
+    ],
+    "double": [
+     {
+      "monsterId": 437,
+      "name": "Goliathon",
+      "types": [
+       "Fighting",
+       "Mineral"
+      ],
+      "role": "ace",
+      "level": 102,
+      "moves": [
+       "seismic_force",
+       "heaven_strike",
+       "obsidian_strike",
+       "brawl"
+      ]
+     },
+     {
+      "monsterId": 234,
+      "name": "Wyvernak",
+      "types": [
+       "Draconic",
+       "Earth"
+      ],
+      "role": "mix",
+      "level": 102,
+      "moves": [
+       "comet_crash",
+       "rampage",
+       "sky_surge",
+       "bedrock_slam"
+      ]
+     },
+     {
+      "monsterId": 451,
+      "name": "Smashclaw",
+      "types": [
+       "Fighting",
+       "Fire"
+      ],
+      "role": "mix",
+      "level": 101,
+      "moves": [
+       "brawl",
+       "iron_fist",
+       "scorch_kick",
+       "ignition_kick"
+      ]
+     },
+     {
+      "monsterId": 413,
+      "name": "Resonadon",
+      "types": [
+       "Draconic",
+       "Sonic"
+      ],
+      "role": "mix",
+      "level": 101,
+      "moves": [
+       "threnody",
+       "rampage",
+       "resonance_quake",
+       "bass_blast"
+      ]
+     },
+     {
+      "monsterId": 425,
+      "name": "Stragolin",
+      "types": [
+       "Metal",
+       "Mineral"
+      ],
+      "role": "mix",
+      "level": 100,
+      "moves": [
+       "anvil_drop",
+       "obsidian_strike",
+       "tungsten_ram",
+       "granite_press"
       ]
      },
      {
@@ -12292,12 +12456,30 @@
        "Metal"
       ],
       "role": "mix",
-      "level": 102,
+      "level": 100,
       "moves": [
        "tungsten_ram",
        "alloy_tail",
        "forge_strike",
        "flywheel"
+      ]
+     }
+    ],
+    "triple": [
+     {
+      "monsterId": 437,
+      "name": "Goliathon",
+      "types": [
+       "Fighting",
+       "Mineral"
+      ],
+      "role": "ace",
+      "level": 102,
+      "moves": [
+       "seismic_force",
+       "heaven_strike",
+       "obsidian_strike",
+       "brawl"
       ]
      },
      {
@@ -12308,12 +12490,28 @@
        "Dark"
       ],
       "role": "mix",
-      "level": 101,
+      "level": 102,
       "moves": [
        "crag_strike",
        "tectonic_shift",
        "landslide",
        "blackout_bomb"
+      ]
+     },
+     {
+      "monsterId": 213,
+      "name": "Infriglace",
+      "types": [
+       "Fire",
+       "Ice"
+      ],
+      "role": "mix",
+      "level": 101,
+      "moves": [
+       "caldera_meltdown",
+       "solar_flare",
+       "pyroclasm",
+       "whiteout"
       ]
      },
      {
@@ -12364,225 +12562,14 @@
        "soul_rend"
       ]
      }
-    ],
-    "double": [
-     {
-      "monsterId": 213,
-      "name": "Infriglace",
-      "types": [
-       "Fire",
-       "Ice"
-      ],
-      "role": "ace",
-      "level": 102,
-      "moves": [
-       "caldera_meltdown",
-       "solar_flare",
-       "pyroclasm",
-       "whiteout"
-      ]
-     },
-     {
-      "monsterId": 437,
-      "name": "Goliathon",
-      "types": [
-       "Fighting",
-       "Mineral"
-      ],
-      "role": "mix",
-      "level": 102,
-      "moves": [
-       "seismic_force",
-       "heaven_strike",
-       "obsidian_strike",
-       "brawl"
-      ]
-     },
-     {
-      "monsterId": 149,
-      "name": "Eternarmor",
-      "types": [
-       "Metal"
-      ],
-      "role": "mix",
-      "level": 101,
-      "moves": [
-       "anvil_drop",
-       "alloy_tail",
-       "forge_strike",
-       "radiance_cannon"
-      ]
-     },
-     {
-      "monsterId": 395,
-      "name": "Glacierend",
-      "types": [
-       "Ice",
-       "Normal"
-      ],
-      "role": "mix",
-      "level": 101,
-      "moves": [
-       "glaciation",
-       "whiteout",
-       "icebound_lattice",
-       "tundra_tomb"
-      ]
-     },
-     {
-      "monsterId": 407,
-      "name": "Voidwarden",
-      "types": [
-       "Dark",
-       "Metal"
-      ],
-      "role": "mix",
-      "level": 100,
-      "moves": [
-       "starlight_obliteration",
-       "void_dominion",
-       "abyssal_dominion",
-       "wraith_drive"
-      ]
-     },
-     {
-      "monsterId": 184,
-      "name": "Ursamight",
-      "types": [
-       "Normal",
-       "Fighting"
-      ],
-      "role": "mix",
-      "level": 100,
-      "moves": [
-       "radiance_cannon",
-       "haymaker",
-       "seismic_force",
-       "brawl"
-      ]
-     }
-    ],
-    "triple": [
-     {
-      "monsterId": 213,
-      "name": "Infriglace",
-      "types": [
-       "Fire",
-       "Ice"
-      ],
-      "role": "ace",
-      "level": 102,
-      "moves": [
-       "caldera_meltdown",
-       "solar_flare",
-       "pyroclasm",
-       "whiteout"
-      ]
-     },
-     {
-      "monsterId": 416,
-      "name": "Sandscourge",
-      "types": [
-       "Earth",
-       "Toxin"
-      ],
-      "role": "mix",
-      "level": 102,
-      "moves": [
-       "corrosive_finish",
-       "toxin_smash",
-       "tectonic_slam",
-       "malignant_storm"
-      ]
-     },
-     {
-      "monsterId": 234,
-      "name": "Wyvernak",
-      "types": [
-       "Draconic",
-       "Earth"
-      ],
-      "role": "mix",
-      "level": 101,
-      "moves": [
-       "comet_crash",
-       "rampage",
-       "sky_surge",
-       "bedrock_slam"
-      ]
-     },
-     {
-      "monsterId": 451,
-      "name": "Smashclaw",
-      "types": [
-       "Fighting",
-       "Fire"
-      ],
-      "role": "mix",
-      "level": 101,
-      "moves": [
-       "brawl",
-       "iron_fist",
-       "scorch_kick",
-       "ignition_kick"
-      ]
-     },
-     {
-      "monsterId": 413,
-      "name": "Resonadon",
-      "types": [
-       "Draconic",
-       "Sonic"
-      ],
-      "role": "mix",
-      "level": 100,
-      "moves": [
-       "threnody",
-       "rampage",
-       "resonance_quake",
-       "bass_blast"
-      ]
-     },
-     {
-      "monsterId": 425,
-      "name": "Stragolin",
-      "types": [
-       "Metal",
-       "Mineral"
-      ],
-      "role": "mix",
-      "level": 100,
-      "moves": [
-       "anvil_drop",
-       "obsidian_strike",
-       "tungsten_ram",
-       "granite_press"
-      ]
-     }
     ]
    }
   },
   "mixedNg": {
-   "ace": 213,
-   "aceName": "Infriglace",
+   "ace": 437,
+   "aceName": "Goliathon",
    "styles": {
     "single": [
-     {
-      "monsterId": 213,
-      "name": "Infriglace",
-      "types": [
-       "Fire",
-       "Ice"
-      ],
-      "role": "ace",
-      "level": 102,
-      "moves": [
-       "caldera_meltdown",
-       "solar_flare",
-       "pyroclasm",
-       "whiteout"
-      ]
-     },
      {
       "monsterId": 437,
       "name": "Goliathon",
@@ -12590,7 +12577,7 @@
        "Fighting",
        "Mineral"
       ],
-      "role": "mix",
+      "role": "ace",
       "level": 102,
       "moves": [
        "seismic_force",
@@ -12607,7 +12594,7 @@
        "Normal"
       ],
       "role": "mix",
-      "level": 101,
+      "level": 102,
       "moves": [
        "glaciation",
        "whiteout",
@@ -12639,7 +12626,7 @@
        "Toxin"
       ],
       "role": "mix",
-      "level": 100,
+      "level": 101,
       "moves": [
        "corrosive_finish",
        "toxin_smash",
@@ -12662,24 +12649,6 @@
        "scorch_kick",
        "ignition_kick"
       ]
-     }
-    ],
-    "double": [
-     {
-      "monsterId": 213,
-      "name": "Infriglace",
-      "types": [
-       "Fire",
-       "Ice"
-      ],
-      "role": "ace",
-      "level": 102,
-      "moves": [
-       "caldera_meltdown",
-       "solar_flare",
-       "pyroclasm",
-       "whiteout"
-      ]
      },
      {
       "monsterId": 413,
@@ -12689,12 +12658,30 @@
        "Sonic"
       ],
       "role": "mix",
-      "level": 102,
+      "level": 100,
       "moves": [
        "threnody",
        "rampage",
        "resonance_quake",
        "bass_blast"
+      ]
+     }
+    ],
+    "double": [
+     {
+      "monsterId": 437,
+      "name": "Goliathon",
+      "types": [
+       "Fighting",
+       "Mineral"
+      ],
+      "role": "ace",
+      "level": 102,
+      "moves": [
+       "seismic_force",
+       "heaven_strike",
+       "obsidian_strike",
+       "brawl"
       ]
      },
      {
@@ -12705,7 +12692,7 @@
        "Mineral"
       ],
       "role": "mix",
-      "level": 101,
+      "level": 102,
       "moves": [
        "anvil_drop",
        "obsidian_strike",
@@ -12737,7 +12724,7 @@
        "Mental"
       ],
       "role": "mix",
-      "level": 100,
+      "level": 101,
       "moves": [
        "abyss_ray",
        "cataclysm_breath",
@@ -12760,24 +12747,6 @@
        "fissure_slam",
        "crag_strike"
       ]
-     }
-    ],
-    "triple": [
-     {
-      "monsterId": 213,
-      "name": "Infriglace",
-      "types": [
-       "Fire",
-       "Ice"
-      ],
-      "role": "ace",
-      "level": 102,
-      "moves": [
-       "caldera_meltdown",
-       "solar_flare",
-       "pyroclasm",
-       "whiteout"
-      ]
      },
      {
       "monsterId": 391,
@@ -12787,12 +12756,30 @@
        "Earth"
       ],
       "role": "mix",
-      "level": 102,
+      "level": 100,
       "moves": [
        "radiance_cannon",
        "mantle_surge",
        "crag_strike",
        "crushing_bulk"
+      ]
+     }
+    ],
+    "triple": [
+     {
+      "monsterId": 437,
+      "name": "Goliathon",
+      "types": [
+       "Fighting",
+       "Mineral"
+      ],
+      "role": "ace",
+      "level": 102,
+      "moves": [
+       "seismic_force",
+       "heaven_strike",
+       "obsidian_strike",
+       "brawl"
       ]
      },
      {
@@ -12803,7 +12790,7 @@
        "Wind"
       ],
       "role": "mix",
-      "level": 101,
+      "level": 102,
       "moves": [
        "brawl",
        "typhoon",
@@ -12835,7 +12822,7 @@
        "Vapor"
       ],
       "role": "mix",
-      "level": 100,
+      "level": 101,
       "moves": [
        "miasma_apocalypse",
        "nimbus_eruption",
@@ -12858,6 +12845,22 @@
        "frostbite_strike",
        "geoblast"
       ]
+     },
+     {
+      "monsterId": 367,
+      "name": "Bouldertide",
+      "types": [
+       "Aquatic",
+       "Mineral"
+      ],
+      "role": "mix",
+      "level": 100,
+      "moves": [
+       "tsunami",
+       "tidal_crush",
+       "granite_press",
+       "sea_serpent_strike"
+      ]
      }
     ]
    }
@@ -12865,87 +12868,24 @@
  },
  "celeste": {
   "mixed": {
-   "ace": 3,
-   "aceName": "Calderaeth",
+   "ace": 404,
+   "aceName": "Auguryx",
    "styles": {
     "single": [
      {
-      "monsterId": 3,
-      "name": "Calderaeth",
+      "monsterId": 404,
+      "name": "Auguryx",
       "types": [
-       "Fire",
-       "Draconic"
+       "Draconic",
+       "Mental"
       ],
       "role": "ace",
       "level": 104,
       "moves": [
-       "pyroclastic_burst",
-       "solar_flare",
-       "rampage",
-       "pyroclasm"
-      ]
-     },
-     {
-      "monsterId": 170,
-      "name": "Oneiron",
-      "types": [
-       "Dark",
-       "Dream"
-      ],
-      "role": "mix",
-      "level": 104,
-      "moves": [
-       "mirage_apocalypse",
-       "slumber_eruption",
-       "void_rend",
-       "dark_corrosion"
-      ]
-     },
-     {
-      "monsterId": 241,
-      "name": "Shardlix",
-      "types": [
-       "Ice",
-       "Mental"
-      ],
-      "role": "mix",
-      "level": 103,
-      "moves": [
-       "whiteout",
-       "psi_strike",
-       "synaptic_shatter",
-       "tundra_tomb"
-      ]
-     },
-     {
-      "monsterId": 229,
-      "name": "Radiafish",
-      "types": [
-       "Electric",
-       "Mental"
-      ],
-      "role": "mix",
-      "level": 103,
-      "moves": [
-       "stormbolt",
-       "psi_strike",
-       "neural_storm",
-       "volt_jet"
-      ]
-     },
-     {
-      "monsterId": 48,
-      "name": "Hailgorge",
-      "types": [
-       "Ice"
-      ],
-      "role": "mix",
-      "level": 102,
-      "moves": [
-       "glacial_riptide",
-       "whiteout",
-       "icebound_lattice",
-       "avalanche_drive"
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "psi_strike"
       ]
      },
      {
@@ -12956,46 +12896,12 @@
        "Normal"
       ],
       "role": "mix",
-      "level": 102,
+      "level": 104,
       "moves": [
        "glaciation",
        "whiteout",
        "icebound_lattice",
        "tundra_tomb"
-      ]
-     }
-    ],
-    "double": [
-     {
-      "monsterId": 3,
-      "name": "Calderaeth",
-      "types": [
-       "Fire",
-       "Draconic"
-      ],
-      "role": "ace",
-      "level": 104,
-      "moves": [
-       "pyroclastic_burst",
-       "solar_flare",
-       "rampage",
-       "pyroclasm"
-      ]
-     },
-     {
-      "monsterId": 404,
-      "name": "Auguryx",
-      "types": [
-       "Draconic",
-       "Mental"
-      ],
-      "role": "mix",
-      "level": 104,
-      "moves": [
-       "abyss_ray",
-       "cataclysm_breath",
-       "time_fracture",
-       "psi_strike"
       ]
      },
      {
@@ -13063,21 +12969,21 @@
       ]
      }
     ],
-    "triple": [
+    "double": [
      {
-      "monsterId": 3,
-      "name": "Calderaeth",
+      "monsterId": 404,
+      "name": "Auguryx",
       "types": [
-       "Fire",
-       "Draconic"
+       "Draconic",
+       "Mental"
       ],
       "role": "ace",
       "level": 104,
       "moves": [
-       "pyroclastic_burst",
-       "solar_flare",
-       "rampage",
-       "pyroclasm"
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "psi_strike"
       ]
      },
      {
@@ -13160,14 +13066,24 @@
        "ocean_tempest"
       ]
      }
-    ]
-   }
-  },
-  "mixedNg": {
-   "ace": 3,
-   "aceName": "Calderaeth",
-   "styles": {
-    "single": [
+    ],
+    "triple": [
+     {
+      "monsterId": 404,
+      "name": "Auguryx",
+      "types": [
+       "Draconic",
+       "Mental"
+      ],
+      "role": "ace",
+      "level": 104,
+      "moves": [
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "psi_strike"
+      ]
+     },
      {
       "monsterId": 3,
       "name": "Calderaeth",
@@ -13175,13 +13091,100 @@
        "Fire",
        "Draconic"
       ],
-      "role": "ace",
+      "role": "mix",
       "level": 104,
       "moves": [
        "pyroclastic_burst",
        "solar_flare",
        "rampage",
        "pyroclasm"
+      ]
+     },
+     {
+      "monsterId": 170,
+      "name": "Oneiron",
+      "types": [
+       "Dark",
+       "Dream"
+      ],
+      "role": "mix",
+      "level": 103,
+      "moves": [
+       "mirage_apocalypse",
+       "slumber_eruption",
+       "void_rend",
+       "dark_corrosion"
+      ]
+     },
+     {
+      "monsterId": 241,
+      "name": "Shardlix",
+      "types": [
+       "Ice",
+       "Mental"
+      ],
+      "role": "mix",
+      "level": 103,
+      "moves": [
+       "whiteout",
+       "psi_strike",
+       "synaptic_shatter",
+       "tundra_tomb"
+      ]
+     },
+     {
+      "monsterId": 229,
+      "name": "Radiafish",
+      "types": [
+       "Electric",
+       "Mental"
+      ],
+      "role": "mix",
+      "level": 102,
+      "moves": [
+       "stormbolt",
+       "psi_strike",
+       "neural_storm",
+       "volt_jet"
+      ]
+     },
+     {
+      "monsterId": 48,
+      "name": "Hailgorge",
+      "types": [
+       "Ice"
+      ],
+      "role": "mix",
+      "level": 102,
+      "moves": [
+       "glacial_riptide",
+       "whiteout",
+       "icebound_lattice",
+       "avalanche_drive"
+      ]
+     }
+    ]
+   }
+  },
+  "mixedNg": {
+   "ace": 404,
+   "aceName": "Auguryx",
+   "styles": {
+    "single": [
+     {
+      "monsterId": 404,
+      "name": "Auguryx",
+      "types": [
+       "Draconic",
+       "Mental"
+      ],
+      "role": "ace",
+      "level": 104,
+      "moves": [
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "psi_strike"
       ]
      },
      {
@@ -13198,22 +13201,6 @@
        "whiteout",
        "icebound_lattice",
        "tundra_tomb"
-      ]
-     },
-     {
-      "monsterId": 404,
-      "name": "Auguryx",
-      "types": [
-       "Draconic",
-       "Mental"
-      ],
-      "role": "mix",
-      "level": 103,
-      "moves": [
-       "abyss_ray",
-       "cataclysm_breath",
-       "time_fracture",
-       "psi_strike"
       ]
      },
      {
@@ -13240,7 +13227,7 @@
        "Sonic"
       ],
       "role": "mix",
-      "level": 102,
+      "level": 103,
       "moves": [
        "threnody",
        "stormbolt",
@@ -13263,24 +13250,6 @@
        "reaper_scythe",
        "void_rend"
       ]
-     }
-    ],
-    "double": [
-     {
-      "monsterId": 3,
-      "name": "Calderaeth",
-      "types": [
-       "Fire",
-       "Draconic"
-      ],
-      "role": "ace",
-      "level": 104,
-      "moves": [
-       "pyroclastic_burst",
-       "solar_flare",
-       "rampage",
-       "pyroclasm"
-      ]
      },
      {
       "monsterId": 377,
@@ -13290,12 +13259,30 @@
        "Mineral"
       ],
       "role": "mix",
-      "level": 104,
+      "level": 102,
       "moves": [
        "obsidian_strike",
        "continental_shift",
        "fissure_slam",
        "crag_strike"
+      ]
+     }
+    ],
+    "double": [
+     {
+      "monsterId": 404,
+      "name": "Auguryx",
+      "types": [
+       "Draconic",
+       "Mental"
+      ],
+      "role": "ace",
+      "level": 104,
+      "moves": [
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "psi_strike"
       ]
      },
      {
@@ -13306,7 +13293,7 @@
        "Vapor"
       ],
       "role": "mix",
-      "level": 103,
+      "level": 104,
       "moves": [
        "miasma_apocalypse",
        "nimbus_eruption",
@@ -13338,7 +13325,7 @@
        "Mental"
       ],
       "role": "mix",
-      "level": 102,
+      "level": 103,
       "moves": [
        "haymaker",
        "heaven_strike",
@@ -13361,24 +13348,6 @@
        "synaptic_shatter",
        "neural_storm"
       ]
-     }
-    ],
-    "triple": [
-     {
-      "monsterId": 3,
-      "name": "Calderaeth",
-      "types": [
-       "Fire",
-       "Draconic"
-      ],
-      "role": "ace",
-      "level": 104,
-      "moves": [
-       "pyroclastic_burst",
-       "solar_flare",
-       "rampage",
-       "pyroclasm"
-      ]
      },
      {
       "monsterId": 371,
@@ -13388,12 +13357,30 @@
        "Normal"
       ],
       "role": "mix",
-      "level": 104,
+      "level": 102,
       "moves": [
        "radiance_cannon",
        "void_rend",
        "crushing_bulk",
        "nether_sphere"
+      ]
+     }
+    ],
+    "triple": [
+     {
+      "monsterId": 404,
+      "name": "Auguryx",
+      "types": [
+       "Draconic",
+       "Mental"
+      ],
+      "role": "ace",
+      "level": 104,
+      "moves": [
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "psi_strike"
       ]
      },
      {
@@ -13404,7 +13391,7 @@
        "Wind"
       ],
       "role": "mix",
-      "level": 103,
+      "level": 104,
       "moves": [
        "gale_force",
        "cyclone_smash",
@@ -13436,7 +13423,7 @@
        "Earth"
       ],
       "role": "mix",
-      "level": 102,
+      "level": 103,
       "moves": [
        "whiteout",
        "fissure_slam",
@@ -13458,6 +13445,22 @@
        "volt_jet",
        "necrotic_pulse",
        "volt_surge"
+      ]
+     },
+     {
+      "monsterId": 387,
+      "name": "Deepvoid",
+      "types": [
+       "Dark",
+       "Aquatic"
+      ],
+      "role": "mix",
+      "level": 102,
+      "moves": [
+       "tsunami",
+       "tidal_crush",
+       "void_rend",
+       "sea_serpent_strike"
       ]
      }
     ]
@@ -13499,6 +13502,199 @@
        "iron_storm",
        "titan_blade",
        "alloy_tail"
+      ]
+     },
+     {
+      "monsterId": 149,
+      "name": "Eternarmor",
+      "types": [
+       "Metal"
+      ],
+      "role": "mix",
+      "level": 104,
+      "moves": [
+       "anvil_drop",
+       "alloy_tail",
+       "forge_strike",
+       "radiance_cannon"
+      ]
+     },
+     {
+      "monsterId": 395,
+      "name": "Glacierend",
+      "types": [
+       "Ice",
+       "Normal"
+      ],
+      "role": "mix",
+      "level": 103,
+      "moves": [
+       "glaciation",
+       "whiteout",
+       "icebound_lattice",
+       "tundra_tomb"
+      ]
+     },
+     {
+      "monsterId": 425,
+      "name": "Stragolin",
+      "types": [
+       "Metal",
+       "Mineral"
+      ],
+      "role": "mix",
+      "level": 103,
+      "moves": [
+       "anvil_drop",
+       "obsidian_strike",
+       "tungsten_ram",
+       "granite_press"
+      ]
+     },
+     {
+      "monsterId": 422,
+      "name": "Tempesteam",
+      "types": [
+       "Fire",
+       "Vapor"
+      ],
+      "role": "mix",
+      "level": 102,
+      "moves": [
+       "miasma_apocalypse",
+       "nimbus_eruption",
+       "steam_slam",
+       "molten_tide"
+      ]
+     }
+    ],
+    "double": [
+     {
+      "monsterId": 192,
+      "name": "Boulderoll",
+      "types": [
+       "Earth"
+      ],
+      "role": "ace",
+      "level": 105,
+      "moves": [
+       "mineral_lance",
+       "crag_strike",
+       "tectonic_shift",
+       "luma_quake"
+      ]
+     },
+     {
+      "monsterId": 407,
+      "name": "Voidwarden",
+      "types": [
+       "Dark",
+       "Metal"
+      ],
+      "role": "mix",
+      "level": 104,
+      "moves": [
+       "starlight_obliteration",
+       "void_dominion",
+       "abyssal_dominion",
+       "wraith_drive"
+      ]
+     },
+     {
+      "monsterId": 377,
+      "name": "Abyssforge",
+      "types": [
+       "Earth",
+       "Mineral"
+      ],
+      "role": "mix",
+      "level": 104,
+      "moves": [
+       "obsidian_strike",
+       "continental_shift",
+       "fissure_slam",
+       "crag_strike"
+      ]
+     },
+     {
+      "monsterId": 431,
+      "name": "Nocturnbaku",
+      "types": [
+       "Dark",
+       "Dream"
+      ],
+      "role": "mix",
+      "level": 103,
+      "moves": [
+       "dream_devourer",
+       "dreamscape_smash",
+       "dread_finisher",
+       "mirage_apocalypse"
+      ]
+     },
+     {
+      "monsterId": 144,
+      "name": "Moonseraph",
+      "types": [
+       "Fairy",
+       "Mental"
+      ],
+      "role": "mix",
+      "level": 103,
+      "moves": [
+       "supernova_glow",
+       "prophecy",
+       "starlit_radiance",
+       "fae_requiem"
+      ]
+     },
+     {
+      "monsterId": 306,
+      "name": "Yetigrand",
+      "types": [
+       "Earth",
+       "Ice"
+      ],
+      "role": "mix",
+      "level": 102,
+      "moves": [
+       "worldseed_quake",
+       "whiteout",
+       "bedrock_slam",
+       "crag_strike"
+      ]
+     }
+    ],
+    "triple": [
+     {
+      "monsterId": 192,
+      "name": "Boulderoll",
+      "types": [
+       "Earth"
+      ],
+      "role": "ace",
+      "level": 105,
+      "moves": [
+       "mineral_lance",
+       "crag_strike",
+       "tectonic_shift",
+       "luma_quake"
+      ]
+     },
+     {
+      "monsterId": 354,
+      "name": "Riftwhale",
+      "types": [
+       "Aquatic",
+       "Mental"
+      ],
+      "role": "mix",
+      "level": 104,
+      "moves": [
+       "tsunami",
+       "psi_strike",
+       "synaptic_shatter",
+       "neural_storm"
       ]
      },
      {
@@ -13563,199 +13759,6 @@
        "glacial_lance",
        "whiteout",
        "typhoon"
-      ]
-     }
-    ],
-    "double": [
-     {
-      "monsterId": 192,
-      "name": "Boulderoll",
-      "types": [
-       "Earth"
-      ],
-      "role": "ace",
-      "level": 105,
-      "moves": [
-       "mineral_lance",
-       "crag_strike",
-       "tectonic_shift",
-       "luma_quake"
-      ]
-     },
-     {
-      "monsterId": 149,
-      "name": "Eternarmor",
-      "types": [
-       "Metal"
-      ],
-      "role": "mix",
-      "level": 104,
-      "moves": [
-       "anvil_drop",
-       "alloy_tail",
-       "forge_strike",
-       "radiance_cannon"
-      ]
-     },
-     {
-      "monsterId": 395,
-      "name": "Glacierend",
-      "types": [
-       "Ice",
-       "Normal"
-      ],
-      "role": "mix",
-      "level": 104,
-      "moves": [
-       "glaciation",
-       "whiteout",
-       "icebound_lattice",
-       "tundra_tomb"
-      ]
-     },
-     {
-      "monsterId": 425,
-      "name": "Stragolin",
-      "types": [
-       "Metal",
-       "Mineral"
-      ],
-      "role": "mix",
-      "level": 103,
-      "moves": [
-       "anvil_drop",
-       "obsidian_strike",
-       "tungsten_ram",
-       "granite_press"
-      ]
-     },
-     {
-      "monsterId": 422,
-      "name": "Tempesteam",
-      "types": [
-       "Fire",
-       "Vapor"
-      ],
-      "role": "mix",
-      "level": 103,
-      "moves": [
-       "miasma_apocalypse",
-       "nimbus_eruption",
-       "steam_slam",
-       "molten_tide"
-      ]
-     },
-     {
-      "monsterId": 407,
-      "name": "Voidwarden",
-      "types": [
-       "Dark",
-       "Metal"
-      ],
-      "role": "mix",
-      "level": 102,
-      "moves": [
-       "starlight_obliteration",
-       "void_dominion",
-       "abyssal_dominion",
-       "wraith_drive"
-      ]
-     }
-    ],
-    "triple": [
-     {
-      "monsterId": 192,
-      "name": "Boulderoll",
-      "types": [
-       "Earth"
-      ],
-      "role": "ace",
-      "level": 105,
-      "moves": [
-       "mineral_lance",
-       "crag_strike",
-       "tectonic_shift",
-       "luma_quake"
-      ]
-     },
-     {
-      "monsterId": 377,
-      "name": "Abyssforge",
-      "types": [
-       "Earth",
-       "Mineral"
-      ],
-      "role": "mix",
-      "level": 104,
-      "moves": [
-       "obsidian_strike",
-       "continental_shift",
-       "fissure_slam",
-       "crag_strike"
-      ]
-     },
-     {
-      "monsterId": 431,
-      "name": "Nocturnbaku",
-      "types": [
-       "Dark",
-       "Dream"
-      ],
-      "role": "mix",
-      "level": 104,
-      "moves": [
-       "dream_devourer",
-       "dreamscape_smash",
-       "dread_finisher",
-       "mirage_apocalypse"
-      ]
-     },
-     {
-      "monsterId": 144,
-      "name": "Moonseraph",
-      "types": [
-       "Fairy",
-       "Mental"
-      ],
-      "role": "mix",
-      "level": 103,
-      "moves": [
-       "supernova_glow",
-       "prophecy",
-       "starlit_radiance",
-       "fae_requiem"
-      ]
-     },
-     {
-      "monsterId": 306,
-      "name": "Yetigrand",
-      "types": [
-       "Earth",
-       "Ice"
-      ],
-      "role": "mix",
-      "level": 103,
-      "moves": [
-       "worldseed_quake",
-       "whiteout",
-       "bedrock_slam",
-       "crag_strike"
-      ]
-     },
-     {
-      "monsterId": 354,
-      "name": "Riftwhale",
-      "types": [
-       "Aquatic",
-       "Mental"
-      ],
-      "role": "mix",
-      "level": 102,
-      "moves": [
-       "tsunami",
-       "psi_strike",
-       "synaptic_shatter",
-       "neural_storm"
       ]
      }
     ]
@@ -14098,67 +14101,67 @@
       ]
      },
      {
-      "monsterId": 363,
-      "name": "Chromaton",
+      "monsterId": 395,
+      "name": "Glacierend",
       "types": [
-       "Normal",
-       "Mental"
+       "Ice",
+       "Normal"
       ],
       "role": "mix",
       "level": 106,
       "moves": [
-       "radiance_cannon",
-       "zenith_ray",
-       "psi_strike",
-       "synaptic_shatter"
+       "glaciation",
+       "whiteout",
+       "icebound_lattice",
+       "tundra_tomb"
       ]
      },
      {
-      "monsterId": 225,
-      "name": "Crealight",
+      "monsterId": 404,
+      "name": "Auguryx",
       "types": [
-       "Fairy",
-       "Mineral"
+       "Draconic",
+       "Mental"
       ],
       "role": "mix",
       "level": 105,
       "moves": [
-       "quartz_blast",
-       "moonlit_surge",
-       "gem_storm",
-       "lunar_burst"
+       "abyss_ray",
+       "cataclysm_breath",
+       "time_fracture",
+       "psi_strike"
       ]
      },
      {
-      "monsterId": 240,
-      "name": "Tundrafox",
+      "monsterId": 407,
+      "name": "Voidwarden",
       "types": [
-       "Ice",
-       "Dark"
+       "Dark",
+       "Metal"
       ],
       "role": "mix",
       "level": 104,
       "moves": [
        "starlight_obliteration",
-       "wraith_drive",
-       "glacial_lance",
-       "whiteout"
+       "void_dominion",
+       "abyssal_dominion",
+       "wraith_drive"
       ]
      },
      {
-      "monsterId": 171,
-      "name": "Nagaseer",
+      "monsterId": 389,
+      "name": "Stormcrown",
       "types": [
-       "Mental",
-       "Poison"
+       "Electric",
+       "Sonic"
       ],
       "role": "mix",
       "level": 103,
       "moves": [
-       "psi_strike",
-       "venom_mind",
-       "sludge_wave",
-       "mental"
+       "threnody",
+       "stormbolt",
+       "volt_jet",
+       "harmonic_wave"
       ]
      }
     ],
@@ -14196,67 +14199,67 @@
       ]
      },
      {
-      "monsterId": 273,
-      "name": "Blazeon",
+      "monsterId": 343,
+      "name": "Shadowreave",
       "types": [
-       "Fire",
+       "Dark",
        "Spectral"
       ],
       "role": "mix",
       "level": 106,
       "moves": [
-       "caldera_meltdown",
-       "soul_burst",
-       "pyroclasm",
-       "eternal_ember"
+       "spirit_calamity",
+       "abyssal_dominion",
+       "reaper_scythe",
+       "void_rend"
       ]
      },
      {
-      "monsterId": 190,
-      "name": "Aetherflock",
+      "monsterId": 377,
+      "name": "Abyssforge",
+      "types": [
+       "Earth",
+       "Mineral"
+      ],
+      "role": "mix",
+      "level": 105,
+      "moves": [
+       "obsidian_strike",
+       "continental_shift",
+       "fissure_slam",
+       "crag_strike"
+      ]
+     },
+     {
+      "monsterId": 363,
+      "name": "Chromaton",
       "types": [
        "Normal",
        "Mental"
       ],
       "role": "mix",
-      "level": 105,
+      "level": 104,
       "moves": [
        "radiance_cannon",
        "psi_strike",
-       "mental",
-       "encore_blast"
+       "synaptic_shatter",
+       "neural_storm"
       ]
      },
      {
-      "monsterId": 395,
-      "name": "Glacierend",
+      "monsterId": 225,
+      "name": "Crealight",
       "types": [
-       "Ice",
-       "Normal"
-      ],
-      "role": "mix",
-      "level": 104,
-      "moves": [
-       "glaciation",
-       "whiteout",
-       "icebound_lattice",
-       "tundra_tomb"
-      ]
-     },
-     {
-      "monsterId": 404,
-      "name": "Auguryx",
-      "types": [
-       "Draconic",
-       "Mental"
+       "Fairy",
+       "Mineral"
       ],
       "role": "mix",
       "level": 103,
       "moves": [
-       "abyss_ray",
-       "cataclysm_breath",
-       "time_fracture",
-       "psi_strike"
+       "quartz_blast",
+       "moonlit_surge",
+       "gem_storm",
+       "lunar_burst"
       ]
      }
     ],
@@ -14294,67 +14297,67 @@
       ]
      },
      {
-      "monsterId": 407,
-      "name": "Voidwarden",
+      "monsterId": 240,
+      "name": "Tundrafox",
       "types": [
-       "Dark",
-       "Metal"
+       "Ice",
+       "Dark"
       ],
       "role": "mix",
       "level": 106,
       "moves": [
        "starlight_obliteration",
-       "void_dominion",
-       "abyssal_dominion",
-       "wraith_drive"
+       "wraith_drive",
+       "glacial_lance",
+       "whiteout"
       ]
      },
      {
-      "monsterId": 389,
-      "name": "Stormcrown",
+      "monsterId": 171,
+      "name": "Nagaseer",
       "types": [
-       "Electric",
-       "Sonic"
+       "Mental",
+       "Poison"
       ],
       "role": "mix",
       "level": 105,
       "moves": [
-       "threnody",
-       "stormbolt",
-       "volt_jet",
-       "harmonic_wave"
+       "psi_strike",
+       "venom_mind",
+       "sludge_wave",
+       "mental"
       ]
      },
      {
-      "monsterId": 343,
-      "name": "Shadowreave",
+      "monsterId": 273,
+      "name": "Blazeon",
       "types": [
-       "Dark",
+       "Fire",
        "Spectral"
       ],
       "role": "mix",
       "level": 104,
       "moves": [
-       "spirit_calamity",
-       "abyssal_dominion",
-       "reaper_scythe",
-       "void_rend"
+       "caldera_meltdown",
+       "soul_burst",
+       "pyroclasm",
+       "eternal_ember"
       ]
      },
      {
-      "monsterId": 377,
-      "name": "Abyssforge",
+      "monsterId": 190,
+      "name": "Aetherflock",
       "types": [
-       "Earth",
-       "Mineral"
+       "Normal",
+       "Mental"
       ],
       "role": "mix",
       "level": 103,
       "moves": [
-       "obsidian_strike",
-       "continental_shift",
-       "fissure_slam",
-       "crag_strike"
+       "radiance_cannon",
+       "psi_strike",
+       "mental",
+       "encore_blast"
       ]
      }
     ]

@@ -168,8 +168,15 @@ friendship and inflated evolve-levels (8 lines @ L70-85). Fixed (user-approved):
   first time/location/move/friendship evolutions.
 - Each non-level method keeps evolveLevel as a gate. Verified: validate.js G6 green; resolver
   spot-check — move/friendship/location/item each trigger only when their condition is met; 0 errors.
-- **Remaining A.2:** per-line evolve-method/level review of the base dex + Forgotten (this batch
-  targeted the clear NG+ outliers). Lane D (encounter audit) still pending.
+- **Remaining A.2:** per-line evolve-method/level review of the base dex (Forgotten don't evolve —
+  N/A). NG+ levels/methods + variety are DONE (committed). Forgotten: N/A.
+- **⏸️ DEFERRED — base-dex evolve-level / variety pass:** started a batch-of-20 walk of the base dex
+  (173 evolvers, 9 batches) but **skipped/paused it** — base-dex evolve-levels shouldn't be tuned for
+  variety/scaling until the **overall stats (BST) redistribution** happens first. These early-access
+  base lines are over-statted (e.g. ~550 BST, stronger than starters) and have drastic base→mid BST
+  jumps; once BSTs are redistributed, revisit the evo-level variety pass (batch 1 was reviewed and
+  left as-is; nothing changed). **Revisit after the BST redistribution.**
+- Lane D (encounter audit) still pending.
 
 ---
 

@@ -7774,7 +7774,12 @@ const ITEMS_DATA = {
   scholarCharm:  { name:"Scholar's Charm", emoji:"📈", desc:"Boosts all XP gained by 50% while in your bag.", type:"charm" },
   towerCrest:    { name:"Tower Crest",   emoji:"🏯", desc:"Raises all battle stats by 15% when held by any Lumori.", type:"held", held:{ effect:"allStatsUp", mult:1.15 } },
   sanguineFang:  { name:"Sanguine Fang", emoji:"🦇", desc:"Restores 1/4 of the damage dealt to its target when held.", type:"held", held:{ effect:"lifesteal", ratio:0.25 } },
-  aegisPlume:    { name:"Aegis Plume",   emoji:"👑", desc:"Survive a fatal hit at 1 HP once per battle, and restore 1/16 max HP each turn.", type:"held", held:{ effect:"aegisPlume" } }
+  aegisPlume:    { name:"Aegis Plume",   emoji:"👑", desc:"Survive a fatal hit at 1 HP once per battle, and restore 1/16 max HP each turn.", type:"held", held:{ effect:"aegisPlume" } },
+  // Frontier-shop consumables applied to a party Lumori (from the Team screen).
+  bondBell:     { name:"Bond Bell",     emoji:"💞", desc:"Instantly maxes a Lumori's friendship.", type:"frontierUse", frontierUse:"maxFriendship" },
+  lustreShard:  { name:"Lustre Shard",  emoji:"🌟", desc:"Permanently turns a Lumori shiny.", type:"frontierUse", frontierUse:"makeShiny" },
+  bottleCap:    { name:"Bottle Cap",    emoji:"💎", desc:"Maxes all of a Lumori's IVs to 31.", type:"frontierUse", frontierUse:"maxIVs" },
+  vitalityMint: { name:"Vitality Mint", emoji:"🍃", desc:"Changes a Lumori's nature.", type:"frontierUse", frontierUse:"changeNature" }
 };
 
 const STARTING_BAG = {

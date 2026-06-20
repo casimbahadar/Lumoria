@@ -93,8 +93,7 @@ facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPo
 - **Rewards:** milestone money/items every 7 wins; best streak per tier×size×format. FP-shop = 3d.
 - **Stages:** 3a facility+screen+setup+save ✅ · 3b single-format run engine ✅ · 3c FP rewards +
   records + double/triple + size modes ✅ · 3d.1 FP shop + charms/held gear ✅ · 3d.2 apply-to-Lumori
-  consumables (Bond Bell, Lustre Shard@120, Bottle Cap, Vitality Mint — new use-on-mon flow) (next) ·
-  3d.3 polish (themed challenger names/emoji, music, curve tuning).
+  consumables ✅ · 3d.3 polish (themed challenger names/emoji, music, curve tuning) (next).
 - **⚠️ CRITICAL ENGINE FIX (commit a7cd58c, separate from Frontier):** discovered while playtesting
   3d.1 that **all battles on main @560bed2 were broken** — every attack threw "hitTrigMsgs is not
   iterable" before dealing damage. Root cause: `applyOnMoveHit`/`applyOnFaint`/`applyOnMoveMiss`
@@ -141,6 +140,13 @@ facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPo
   flow, one-time re-buy block, Tower Crest +15% (44→50), Scholar 100→150 XP, variant +25% (1234 vs
   985/200k), Aegis sash+leftovers, Sanguine Fang drained 96 HP in a real turn; 0 errors. Prices
   (FP): charms 60/60/40, crest 50, fang 30, plume 35 (tunable). Lustre Shard repriced to 120 (3d.2).
+- **3d.2 done:** apply-to-Lumori consumables via the Team-detail "Use Item" flow (new `frontierUse`
+  item type added to the filter + `applyFrontierUseItem` in `useItemOnMon`). 💞 Bond Bell (friendship
+  →255, 10FP), 🌟 Lustre Shard (slot.shiny=true + shiny-dex, one-time, 120FP), 💎 Bottle Cap (IVs→31 +
+  maxHP recompute keeping HP%, 50FP), 🍃 Vitality Mint (nature picker overlay listing all 25 natures
+  with +/− effects → sets slot.nature, 20FP). Mint/Bond Bell/Bottle Cap stack; Lustre Shard one-time
+  (per user). Verified headless: buys (FP 500→300), one-time/repeat rules, friendship 255, shiny+dex,
+  IVs 31+maxHP recompute, nature Balanced→Blazing; nature picker + 10-item shop render; 0 errors.
 ## Phase 2 — Lane A.2 (evolution audit) + D (encounter audit) ⏳
 
 ---

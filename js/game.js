@@ -3888,7 +3888,7 @@ function showTeamDetail(slot, idx) {
 
   // Use item panel
   const healableItems = Object.entries(G.bag)
-    .filter(([id, cnt]) => cnt > 0 && (ITEMS_DATA[id]?.type === "heal" || ITEMS_DATA[id]?.type === "revive" || ITEMS_DATA[id]?.type === "candy"));
+    .filter(([id, cnt]) => cnt > 0 && (ITEMS_DATA[id]?.type === "heal" || ITEMS_DATA[id]?.type === "revive" || ITEMS_DATA[id]?.type === "candy" || ITEMS_DATA[id]?.type === "frontierUse"));
   const itemsHTML = healableItems.map(([id, cnt]) => {
     const item = ITEMS_DATA[id];
     return `<button class="catch-item-btn" data-item="${id}" data-mon="${idx}">
@@ -4085,7 +4085,87 @@ function useItemOnMon(itemId, monIdx) {
       }
     }
     showNotification(`🍬 ${MONSTERS_DATA[slot.monsterId].name} leveled up to Lv.${slot.level}!`);
+  } else if (item.type === "frontierUse") {
+    applyFrontierUseItem(itemId, monIdx);
   }
+}
+
+// Frontier-shop consumables applied to a party Lumori. Each consumes one on success.
+function applyFrontierUseItem(itemId, monIdx) {
+  const item = ITEMS_DATA[itemId];
+  const slot = G.team[monIdx];
+  if (!item || !slot || (G.bag[itemId] || 0) <= 0) return;
+  const name = slot.nickname || MONSTERS_DATA[slot.monsterId].name;
+  switch (item.frontierUse) {
+    case "maxFriendship": {
+      if ((slot.friendship ?? 70) >= 255) { showNotification(`${name}'s bond is already at its peak.`); return; }
+      slot.friendship = 255;
+      G.bag[itemId]--;
+      showNotification(`💞 ${name}'s friendship is now maxed!`);
+      break;
+    }
+    case "makeShiny": {
+      if (slot.shiny) { showNotification(`${name} is already shiny!`); return; }
+      slot.shiny = true;
+      if (G.shinyDexSeen) G.shinyDexSeen.add(slot.monsterId);
+      if (G.shinyDexCaught) G.shinyDexCaught.add(slot.monsterId);
+      G.bag[itemId]--;
+      showNotification(`🌟 ${name} now shines with a brilliant shiny coat!`);
+      break;
+    }
+    case "maxIVs": {
+      const ivs = slot.ivs || {};
+      if (["hp","atk","def","spa","spd","spe"].every(k => ivs[k] === 31)) { showNotification(`${name}'s potential is already perfect.`); return; }
+      const pct = slot.maxHP ? slot.currentHP / slot.maxHP : 1;
+      slot.ivs = { hp:31, atk:31, def:31, spa:31, spd:31, spe:31 };
+      const def = MONSTERS_DATA[slot.monsterId];
+      slot.maxHP = calcMaxHP(def.base.hp, slot.level, 31);
+      slot.currentHP = Math.max(1, Math.round(slot.maxHP * pct));
+      G.bag[itemId]--;
+      showNotification(`💎 ${name}'s IVs are now maxed (31 across the board)!`);
+      break;
+    }
+    case "changeNature": {
+      // Defer consumption to the picker (only spend if a nature is actually chosen).
+      showNaturePicker(monIdx, itemId);
+      return;
+    }
+  }
+  saveGame();
+}
+
+// Nature picker overlay for the Vitality Mint.
+function showNaturePicker(monIdx, itemId) {
+  const slot = G.team[monIdx];
+  if (!slot) return;
+  const overlay = document.getElementById("nature-picker-overlay");
+  const list = document.getElementById("nature-picker-list");
+  if (!overlay || !list) return;
+  document.getElementById("nature-picker-title").textContent =
+    `Change ${slot.nickname || MONSTERS_DATA[slot.monsterId].name}'s nature (now: ${slot.nature || "Balanced"})`;
+  const statLabel = { atk:"Atk", def:"Def", spa:"Sp.Atk", spd:"Sp.Def", spe:"Spe" };
+  list.innerHTML = "";
+  for (const nm of NATURES_LIST) {
+    const n = NATURES_DATA[nm];
+    const effect = n.up ? `+${statLabel[n.up]} / −${statLabel[n.down]}` : "neutral";
+    const btn = document.createElement("button");
+    btn.className = "nature-pick-btn" + (slot.nature === nm ? " current" : "");
+    btn.innerHTML = `<span class="np-name">${nm}</span><span class="np-eff">${effect}</span>`;
+    btn.addEventListener("click", () => {
+      if (slot.nature !== nm && (G.bag[itemId] || 0) > 0) {
+        slot.nature = nm;
+        G.bag[itemId]--;
+        saveGame();
+        overlay.classList.add("hidden");
+        showNotification(`🍃 ${slot.nickname || MONSTERS_DATA[slot.monsterId].name}'s nature is now ${nm}!`,
+          () => showTeamDetail(G.team[monIdx], monIdx));
+      } else {
+        overlay.classList.add("hidden");
+      }
+    });
+    list.appendChild(btn);
+  }
+  overlay.classList.remove("hidden");
 }
 
 // ============================================================
@@ -5104,6 +5184,9 @@ function initEventListeners() {
   document.getElementById("btn-evo-item-cancel")?.addEventListener("click", () => {
     document.getElementById("evo-item-overlay").classList.add("hidden");
   });
+  document.getElementById("btn-nature-picker-cancel")?.addEventListener("click", () => {
+    document.getElementById("nature-picker-overlay").classList.add("hidden");
+  });
 
   // Area shop button
   document.getElementById("btn-area-shop")?.addEventListener("click", showShopScreen);
@@ -5735,6 +5818,11 @@ const FRONTIER_SHOP = [
   { id:"towerCrest",    fp:50, once:true },
   { id:"sanguineFang",  fp:30, once:true },
   { id:"aegisPlume",    fp:35, once:true },
+  // Apply-to-Lumori consumables (stackable, except the one-time Lustre Shard).
+  { id:"vitalityMint",  fp:20 },
+  { id:"bondBell",      fp:10 },
+  { id:"bottleCap",     fp:50 },
+  { id:"lustreShard",   fp:120, once:true },
 ];
 
 function frontierItemOwned(entry) {

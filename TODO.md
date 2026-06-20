@@ -182,7 +182,23 @@ friendship and inflated evolve-levels (8 lines @ L70-85). Fixed (user-approved):
   - **Batch 3 (evolvers #66–#95):** Viridix/Loamvin, Germix/Verdurus, Floralin/Faelomis, Sylvolt/
     Sparkwood, Sylvnox/Morraveth, Joltan/Galvanos, Electrix/Shockharpe, Amperix/Sparkrel, Zephyrel,
     Arcspine/Stonebolt, Aridhino — skipped (dupes: 44×5, 22×3, 42×3, +20/28/30 ×2).
+  - **Batch 4 (evolvers #96–#128):** Seismith, Aridix/Toxivenoth, Limoux/Dunoloth, Sandpup, Geoclad,
+    Silvergust/Siroccomane, Aeolin/Swirlavel, Nimbusel, Zephyrin, Eclipsehound/Dreadmaw, Spiraloom,
+    Nocturil/Phantorvex, Impefurr, Cranivade — skipped (dupes: 44×5, 22×3, 32×3, +42/25 ×2).
   - (append further skipped batches/IDs here as we go.)
+- **⏸️ EVO-LEVEL AUDIT PAUSED at batch 4** — resuming from **batch 1** after the BST pass below.
+
+### 🅰️ A.1 — Base-dex BST-reduction pass (PREREQUISITE; do before resuming evo-level audit)
+Scope: base dex **ids 10–321** (ids 1–9 starters already handled by user). Reduce/redistribute BSTs
+per these rules (user-specified). Lowering BST = redistribute the 6 base stats, keeping role-appropriate
+spreads — not a single number.
+- **Standalone (no evo family):** BST **400–510**; ensure variety across all standalones.
+- **2-stage lines:** final-evo BST **≤ 480**, EXCEPT a *couple* finals total (whole base dex) may exceed.
+- **3-stage lines:**
+  - base→mid BST growth **≤ 120**.
+  - mid-stage BST **≤ 400**, EXCEPT pseudos / lines that become legendaries / a few others (Claude picks).
+  - final-evo BST **≤ 510**, EXCEPT pseudos / final-stage rares / legends / a few others (Claude picks).
+- After completion: **restart the evo-level audit from batch 1.**
 - Lane D (encounter audit) still pending.
 
 ---

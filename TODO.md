@@ -51,6 +51,13 @@ Balance (BST) · titan = Immovable Fortress (def+spd+hp). The generator biased p
 heuristic, so verify the result reads thematically, not just numerically. (Champion legendary ace
 = **Dragemian**, locked.)
 
+**🔬 TODO — Battle-by-battle analysis (WHOLE game):** a comprehensive pass over *every* scripted
+battle, after the team overhaul lands. Cover all gym leaders (base + NG+, all three battle styles),
+gym trainers, the Vanguard/Elite Four, Champion, rival fights, the Umbra Order bosses, the wielders,
+and the post-game rematches / Battle Frontier. For each: team composition & type coverage, level /
+curve fit, movesets (STAB + coverage + no dead slots), held items, difficulty pacing across the
+progression, and lore consistency. Goal: a coherent, well-tuned difficulty arc with no outliers.
+
 ## Phase 1 — Thread 1: Legendary roundup ✅ (this commit)
 Full legendary-obtainability audit (all 61): **every** legendary is already obtainable —
 base via static/roam, NG+ via wild/evolution, 13 Forgotten via wielder-`team[0]` catch,

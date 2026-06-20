@@ -5003,7 +5003,7 @@ const MONSTERS_DATA = {
 
   // --- F17: mantis shrimp (Fighting / Fighting-Fire) ---
   450: { id:450, name:"Jabshell", emoji:"🦐", types:["Fighting"],
-    evolveTo:451, evolveLevel:32, evolveMethod:"battles", evolveBattles:14, catchRate:180, expYield:70, rarity:"common",
+    evolveTo:451, evolveLevel:34, evolveMethod:"battles", evolveBattles:14, catchRate:180, expYield:70, rarity:"common",
     base:{hp:55,atk:72,def:58,spa:48,spd:47,spe:45}, // BST 325
     learnset:[[1,"quick_punch"],[1,"battle_cry"],[5,"straight_jab"],[8,"warrior_block"],[10,"body_check"],[12,"sonic_palm"],[15,"leg_sweep"],[18,"shockwave_kick"],[20,"power_drive"],[26,"roundhouse"],[70,"run_down",{ng:true}],[100,"tectonic_wrath",{ng:true}],[90,"cognition_meld",{ng:true}]],
     desc:"A small reef-shrimp whose club-arms strike fast enough to crack a shell with a snap.",

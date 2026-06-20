@@ -44,6 +44,20 @@ Continuation after PR #102 merged to main. Phase 1 = three post-game threads (le
 roundup → gym rematches → Battle Frontier); Phase 2 = Lane A.2+D (evolution + encounters).
 Per CLAUDE.md: propose → approve → apply; validate.js + run-game headless before each commit.
 
+**🔮 Future follow-up (gym/Vanguard team overhaul):** after the 6/6/6 team rebuild lands,
+audit that each newly-chosen **Vanguard** member's BST / stat-profile genuinely fits its leader's
+theme — aria = Graceful Offense (spe+spa) · grimshaw = Brutal Power (atk+hp) · celeste = Cosmic
+Balance (BST) · titan = Immovable Fortress (def+spd+hp). The generator biased picks by a stat
+heuristic, so verify the result reads thematically, not just numerically. (Champion legendary ace
+= **Dragemian**, locked.)
+
+**🔬 TODO — Battle-by-battle analysis (WHOLE game):** a comprehensive pass over *every* scripted
+battle, after the team overhaul lands. Cover all gym leaders (base + NG+, all three battle styles),
+gym trainers, the Vanguard/Elite Four, Champion, rival fights, the Umbra Order bosses, the wielders,
+and the post-game rematches / Battle Frontier. For each: team composition & type coverage, level /
+curve fit, movesets (STAB + coverage + no dead slots), held items, difficulty pacing across the
+progression, and lore consistency. Goal: a coherent, well-tuned difficulty arc with no outliers.
+
 ## Phase 1 — Thread 1: Legendary roundup ✅ (this commit)
 Full legendary-obtainability audit (all 61): **every** legendary is already obtainable —
 base via static/roam, NG+ via wild/evolution, 13 Forgotten via wielder-`team[0]` catch,
@@ -155,7 +169,56 @@ facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPo
   left as-designed (level `100+2×streak` cap150; milestone FP by tier) — documented for the user,
   tunable on request. Verified: ranks escalate, log shows "🏹 Tower Veteran Sable sent out Barknell!"
   at streak 14 (enemy Lv128); 0 errors. **Thread 3 (Battle Frontier) is complete: 3a–3d shipped.**
-## Phase 2 — Lane A.2 (evolution audit) + D (encounter audit) ⏳
+## Phase 2 — Lane A.2 (evolution audit) + D (encounter audit) 🚧
+**A.2 evolution audit — batch 1 done.** Dex-wide method tally: overall healthy (level 64.8%), base dex
+well-varied. Found the NG+ block (322-461) over-relied on plain level (76.1%) with NO location/move/
+friendship and inflated evolve-levels (8 lines @ L70-85). Fixed (user-approved):
+- **Level corrections (8):** Wraithking 80→48 · Crystavault 72→36 · Cryoseer 82→42 · Quarrex 75→36 ·
+  Graviton 85→44 · Auroratusk 75→54 · Mirestone 72→46 · Stormlord 70→52 (Graviton/Cryoseer set lower
+  per user — minimal BST gain). NG+ now has 0 evolve-levels ≥60 (was 8); all back in the 16-54 band.
+- **Method diversification (7):** Wraithking time:night · Tollwisp time:dusk · Crystavault
+  location:crystal_depths · Rustmite location:toxic_bog · Thrumquill move:sound_rush · Lullasnout
+  friendship · Scalit item:dragonScale. NG+ level-evos 76.1%→60.9% (matches base dex); NG+ gains its
+  first time/location/move/friendship evolutions.
+- Each non-level method keeps evolveLevel as a gate. Verified: validate.js G6 green; resolver
+  spot-check — move/friendship/location/item each trigger only when their condition is met; 0 errors.
+- **In progress — base-dex evolve-level variety pass:** batch-of-20 walk of the base dex (173
+  evolvers, 9 batches). Each batch shown as raw data; user decides per batch whether to tune now or
+  skip. NG+ levels/methods + variety are DONE (committed). Forgotten: N/A (don't evolve).
+- **⏭️ SKIPPED IDs — revisit after the overall stats (BST) redistribution:** these base-dex evolvers
+  were intentionally left untuned because their evo-levels depend on stats that will change first:
+  - **Batch 1 (evolvers #1–#29):** Solkin/Pyrevix, Aquatter/Cobaleap, Saurbud/Barknell, Scorchlarva/
+    Heliocoon, Taurcin/Molteroth, Cindercula/Searburn, Magmaurin/Ignirhino, Hallucigaze/Pyraxis,
+    Reefnip/Brinecrush, Corelin/Coralisk — reviewed, left as-is.
+  - **Batch 2 (evolvers #31–#64):** Toxaquil/Noxaquith, Pearlmaid/Seanymph, Coralossus, Gossafin,
+    Cryonik/Boreon, Slatis, Hexaprowl/Hailgorge, Tundram/Bergyak, Mistwhirl, Rimeling, Glinteye,
+    Lunaveris, Gelspike, Sporix/Myceloth — skipped (dupes: 28×4, 44×3, 42×3).
+  - **Batch 3 (evolvers #66–#95):** Viridix/Loamvin, Germix/Verdurus, Floralin/Faelomis, Sylvolt/
+    Sparkwood, Sylvnox/Morraveth, Joltan/Galvanos, Electrix/Shockharpe, Amperix/Sparkrel, Zephyrel,
+    Arcspine/Stonebolt, Aridhino — skipped (dupes: 44×5, 22×3, 42×3, +20/28/30 ×2).
+  - **Batch 4 (evolvers #96–#128):** Seismith, Aridix/Toxivenoth, Limoux/Dunoloth, Sandpup, Geoclad,
+    Silvergust/Siroccomane, Aeolin/Swirlavel, Nimbusel, Zephyrin, Eclipsehound/Dreadmaw, Spiraloom,
+    Nocturil/Phantorvex, Impefurr, Cranivade — skipped (dupes: 44×5, 22×3, 32×3, +42/25 ×2).
+  - (append further skipped batches/IDs here as we go.)
+- **⏸️ EVO-LEVEL AUDIT PAUSED at batch 4** — resuming from **batch 1** after the BST pass below.
+
+### 🅰️ A.1 — Base-dex BST-reduction pass ✅ DONE (304 mons; scripts/bst_reduce.js)
+Scope: base dex **ids 10–313** (1–9 starters + 314–321 legendaries excluded, both untouched). Each
+mon's 6 stats scaled proportionally to a target BST (role/spread preserved), via scripts/bst_reduce.js.
+Rules applied (all verified 0 violations):
+- **Standalone:** BST **400–510**, capped at original (no increase), progression-scaled + jitter.
+- **2-stage:** final **≤ 480**, base = final − (90–120) (gap ≤120); **8 exception lines ≤ 500**.
+- **3-stage:** base→mid & mid→final growth **≤ 120**; mid **≤ 400**, final **≤ 510**; **8 exception
+  lines** boost mid/base above caps to reach final **≤ 535**.
+- **Min BST 200** dex-wide; **early-game encounters trend low** (driven by earliest wild requiredBadges);
+  randomized variety (no clustering); **non-exception lines never increase** (pure reduction).
+- **Exceptions (type-diverse, incl. added typings):** 3-stage = Wyvernak, Megavolt, Moonseraph,
+  Infriglace, Eternarmor, Darkfang, Impenezard (Fighting/Toxin), Distorsion (Mental/Vapor); 2-stage =
+  Boreadrake, Tidephant, Necrothon, Spectrace, Steelhorn, Quakeon, Lithomere (Mineral), Galehorn (Sonic).
+- Result: avg base-dex BST **451 → 354**; validate.js green; headless boot 0 errors.
+- ⚠️ Legendaries (314–321) left for user to handle in a later A.1 step.
+- **NEXT: restart the evo-level audit from batch 1** (now that BSTs are settled).
+- Lane D (encounter audit) still pending.
 
 ---
 

@@ -4104,7 +4104,7 @@ const MONSTERS_DATA = {
     lore:"Nectartrap is a large ambulatory plant 1.8 metres tall with glossy dark-green leaves edged with translucent purple poison sacs. Its roots move like fingers." },
 
   327: { id:327, name:"Quarrex", emoji:"🗿", types:["Earth"],
-    base:{hp:77,atk:93,def:89,spa:48,spd:61,spe:52}, evolveTo:369, evolveLevel:75,
+    base:{hp:77,atk:93,def:89,spa:48,spd:61,spe:52}, evolveTo:369, evolveLevel:36,
     learnset:[[1,"stone_throw"],[10,"geoblast"],[20,"stone_slide"],[30,"terra_spike"],[40,"fissure_slam"],[50,"fossil_rush"],[60,"boulder_roll"],[5,"fortify"],[35,"quake_pulse"],[70,"mystic_blow",{ng:true}],[80,"ethereal_slash",{ng:true}],[80,"geode_burst",{ng:true}],[70,"tremor_stomp",{ng:true}],[105,"tectonic_wrath",{ng:true}],[105,"world_root_bind",{ng:true}],[95,"tectonic_slam",{ng:true}],[100,"haymaker",{ng:true}]],
     catchRate:50, expYield:145, rarity:"uncommon",
     desc:"A young granite golem, often mistaken for an outcrop. As its mass deepens, a strange pull warps the air around it.",
@@ -4203,7 +4203,7 @@ const MONSTERS_DATA = {
     lore:"Cryoshard is a floating faceted ice-crystal 1 metre across whose form constantly shifts. Each facet rings at its own frequency, and when the tones fall into alignment it looses a focused pulse of resonant sound — a chord of pure cold that fractures whatever stands before it." },
 
   341: { id:341, name:"Mirestone", emoji:"🪨", types:["Earth","Mental"],
-    base:{hp:72,atk:66,def:90,spa:84,spd:80,spe:53}, evolveTo:388, evolveLevel:72,
+    base:{hp:72,atk:66,def:90,spa:84,spd:80,spe:53}, evolveTo:388, evolveLevel:46,
     learnset:[[1,"stone_throw"],[10,"mental"],[20,"stone_slide"],[30,"psi_strike"],[40,"fossil_rush"],[50,"synaptic_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"fortify"],[62,"trample"],[85,"smoldering_abyss",{ng:true}],[70,"scorched_sand",{ng:true}],[70,"ancient_tide",{ng:true}],[70,"erosion_wave",{ng:true}],[105,"meteor_strike",{ng:true}],[75,"loam_leech",{ng:true}],[80,"drowse_swirl",{ng:true}]],
     catchRate:48, expYield:150, rarity:"uncommon",
     desc:"A floating rune-monolith at ley-line crossings. It slowly records each passing moment into new layers of stone.",
@@ -4211,7 +4211,7 @@ const MONSTERS_DATA = {
 
   // ---- Tier 2: Late-game NG+ (badges 12–16 areas) BST ~545–590 ----
   342: { id:342, name:"Wraithking", emoji:"👑", types:["Dark","Spectral"],
-    base:{hp:66,atk:88,def:66,spa:84,spd:74,spe:84}, evolveTo:343, evolveLevel:80,
+    base:{hp:66,atk:88,def:66,spa:84,spd:74,spe:84}, evolveTo:343, evolveLevel:48, evolveMethod:"time", evolveTime:"night",
     learnset:[[1,"nether_sphere"],[5,"toxify"],[8,"spectral_ray"],[10,"void_rend"],[15,"null_void"],[20,"umbral_claw"],[25,"ectoplasm_strike"],[30,"phantom_claw"],[33,"ghastly_wail"],[35,"spectral_lock"],[38,"synaptic_shatter"],[40,"shade_dash"],[50,"shadowstep"],[60,"neural_storm"],[95,"poltergeist_smash",{ng:true}],[90,"banshee_lash",{ng:true}],[95,"revenant_charge",{ng:true}],[90,"spirit_strike",{ng:true}],[105,"reaper_scythe",{ng:true}],[85,"revenant_strike",{ng:true}]],
     catchRate:40, expYield:160, rarity:"uncommon",
     desc:"A wraith bound in spectral regalia, lording over a small haunt of lesser ghosts — until it sheds crown and form for something greater.",
@@ -4260,7 +4260,7 @@ const MONSTERS_DATA = {
     lore:"Galeswift is a wind-swift with a 3.5-metre wingspan and long swept-back wings that generate a constant personal cyclone. It has not touched ground in its entire life — to land would still its storm and ground it forever — and the air around it is always in violent circular motion, its passage marked by a rolling sonic boom." },
 
   349: { id:349, name:"Crystavault", emoji:"💠", types:["Ice","Mineral"],
-    base:{hp:74,atk:80,def:96,spa:64,spd:76,spe:50}, evolveTo:359, evolveLevel:72,
+    base:{hp:74,atk:80,def:96,spa:64,spd:76,spe:50}, evolveTo:359, evolveLevel:36, evolveMethod:"location", evolveLocation:"crystal_depths",
     learnset:[[1,"glacial_punch"],[5,"fortify"],[10,"stone_throw"],[12,"cryogenic_field"],[15,"crystal_veil"],[18,"boreal_armor"],[20,"cold_beam"],[21,"sapphire_lance"],[22,"ice_hammer"],[25,"crystal_glow"],[28,"ice_resonance"],[29,"marble_resonance"],[30,"stone_slide"],[35,"gem_resonance"],[38,"winter_shroud"],[40,"cryo_lance"],[50,"fossil_rush"],[60,"whiteout"],[95,"avalanche_smash",{ng:true}]],
     catchRate:45, expYield:150, rarity:"uncommon",
     desc:"A young ice golem of clear glacial ice studded with raw crystal. A glacial awareness slowly stirs in its core.",
@@ -4310,7 +4310,7 @@ const MONSTERS_DATA = {
     lore:"Nadiril is a water-toxin creature 5 metres long resembling an armoured eel with bioluminescent lures. Its black scales have a refractive property that makes it nearly invisible underwater." },
 
   356: { id:356, name:"Stormlord", emoji:"🦅", types:["Electric","Sonic"],
-    base:{hp:72,atk:92,def:72,spa:104,spd:82,spe:98}, evolveTo:389, evolveLevel:70,
+    base:{hp:72,atk:92,def:72,spa:104,spd:82,spe:98}, evolveTo:389, evolveLevel:52,
     learnset:[[1,"jolt"],[10,"discord"],[20,"volt_jet"],[30,"harmonic_wave"],[40,"stormbolt"],[50,"concussive_strike"],[60,"volt_surge"],[5,"resonate"],[38,"shockwave_boom"],[80,"suction_wave",{ng:true}],[90,"insight_flare",{ng:true}]],
     catchRate:10, expYield:320, rarity:"rare",
     desc:"A colossal thunderbird whose wingbeats summon storms across entire regions — the living embodiment of a thunderhead.",
@@ -4331,7 +4331,7 @@ const MONSTERS_DATA = {
     lore:"Psyphoenix is a fire-psychic bird 1.8 metres tall with feathers of solidified flame and a crown of pure solar fire. Its thoughts manifest as bursts of psychokinetic flame." },
 
   359: { id:359, name:"Cryoseer", emoji:"❄️", types:["Ice","Mental"],
-    base:{hp:73,atk:79,def:90,spa:107,spd:93,spe:73}, evolveTo:385, evolveLevel:82,
+    base:{hp:73,atk:79,def:90,spa:107,spd:93,spe:73}, evolveTo:385, evolveLevel:42,
     learnset:[[1,"cold_beam"],[10,"mental"],[20,"cryo_lance"],[30,"psi_strike"],[40,"whiteout"],[50,"synaptic_shatter"],[60,"neural_storm"],[5,"prism_ward"],[38,"winter_shroud"],[110,"eclipse_burst",{ng:true}],[100,"ocean_tempest",{ng:true}]],
     catchRate:22, expYield:316, rarity:"uncommon",
     desc:"The sovereign of all ice-bound psychics. Its mind is as cold and clear as absolute zero.",
@@ -4402,7 +4402,7 @@ const MONSTERS_DATA = {
     lore:"Willowisp is a fire-spectral entity resembling a human-sized floating flame with a faint spectral face visible in its core. Its fire burns without fuel and consumes nothing physical." },
 
   369: { id:369, name:"Graviton", emoji:"💎", types:["Earth","Mineral"],
-    base:{hp:80,atk:94,def:88,spa:100,spd:84,spe:74}, evolveTo:377, evolveLevel:85,
+    base:{hp:80,atk:94,def:88,spa:100,spd:84,spe:74}, evolveTo:377, evolveLevel:44,
     learnset:[[1,"geoblast"],[10,"mineral_jab"],[20,"terra_spike"],[30,"sapphire_lance"],[40,"fissure_slam"],[50,"shard_volley"],[60,"crag_strike"],[5,"fortify"],[38,"gem_resonance"],[62,"gem_scatter"],[105,"quartz_blast",{ng:true}],[85,"wrought_shockwave",{ng:true}]],
     catchRate:20, expYield:320, rarity:"uncommon",
     desc:"A golem so dense it warps gravity by sheer mass. Loose stones drift up toward it as it walks.",
@@ -4438,7 +4438,7 @@ const MONSTERS_DATA = {
     lore:"Chasmrend is a dark-spectral entity 2.5 metres tall with a body that exists simultaneously in normal space and the void between dimensions. Its claws leave visible tears in reality that slowly heal." },
 
   374: { id:374, name:"Auroratusk", emoji:"🦭", types:["Ice","Normal"],
-    base:{hp:69,atk:92,def:78,spa:102,spd:85,spe:94}, evolveTo:395, evolveLevel:75,
+    base:{hp:69,atk:92,def:78,spa:102,spd:85,spe:94}, evolveTo:395, evolveLevel:54,
     learnset:[[1,"cold_beam"],[10,"cold_snap"],[20,"cryo_lance"],[30,"aurora_blast"],[40,"whiteout"],[50,"avalanche_drive"],[60,"glaciation"],[5,"war_dance"],[48,"icebound_lattice"],[62,"icy_shot"],[105,"zenith_ray",{ng:true}],[110,"abyssal_wave",{ng:true}],[110,"geyser_burst",{ng:true}]],
     catchRate:7, expYield:338, rarity:"rare",
     desc:"An arctic walrus whose translucent hide shimmers with living aurora-light. It migrates between magnetic poles by sensing the field.",
@@ -4637,7 +4637,7 @@ const MONSTERS_DATA = {
 
   // ---- Pseudo-legendary Family 1: Draconic/Mental (Dracoveil line) BST 310→470→600 ----
   402: { id:402, name:"Scalit", emoji:"🐣", types:["Draconic","Mental"],
-    evolveTo:403, evolveLevel:32, ngPlusTier:1,
+    evolveTo:403, evolveLevel:32, evolveMethod:"item", evolveItem:"dragonScale", ngPlusTier:1,
     base:{hp:50,atk:65,def:45,spa:60,spd:50,spe:40}, // BST 310
     learnset:[[1,"draconic_breath"],[1,"mental"],[12,"draconic_claw"],[20,"psi_strike"],[28,"hydra_dance"],[32,"wyrm_strike"],[34,"latent_force"],[80,"brain_blast",{ng:true}],[80,"cortex_ram",{ng:true}],[70,"psi_blade",{ng:true}],[105,"comet_crash",{ng:true}],[95,"scale_crash",{ng:true}],[80,"magma_strike",{ng:true}],[75,"falcon_dive",{ng:true}]],
     catchRate:45, expYield:65, rarity:"uncommon",
@@ -4715,7 +4715,7 @@ const MONSTERS_DATA = {
 
   // --- F2: booming ratite / cassowary (Sonic / Draconic-Sonic) ---
   411: { id:411, name:"Thrumquill", emoji:"🐤", types:["Sonic"],
-    evolveTo:412, evolveLevel:16, catchRate:150, expYield:64, rarity:"common",
+    evolveTo:412, evolveLevel:16, evolveMethod:"move", evolveMove:"sound_rush", catchRate:150, expYield:64, rarity:"common",
     base:{hp:50,atk:62,def:45,spa:50,spd:48,spe:50}, // BST 305
     learnset:[[1,"collide"],[1,"chirp"],[5,"echo_strike"],[9,"blitz"],[14,"sound_rush"],[19,"draco_jab"],[25,"rumble_smash"],[27,"wave_cry"],[75,"drumstroke",{ng:true}],[70,"resonant_smash",{ng:true}],[90,"tornado_slam",{ng:true}]],
     desc:"A flightless chick whose stiff quill-feathers buzz with a low, constant thrum.",
@@ -4847,7 +4847,7 @@ const MONSTERS_DATA = {
 
   // --- F8: dream-eating baku / tapir (Dream / Dark-Dream) ---
   429: { id:429, name:"Lullasnout", emoji:"🌙", types:["Dream"],
-    evolveTo:430, evolveLevel:18, catchRate:150, expYield:63, rarity:"common",
+    evolveTo:430, evolveLevel:18, evolveMethod:"friendship", catchRate:150, expYield:63, rarity:"common",
     base:{hp:62,atk:45,def:52,spa:58,spd:53,spe:30}, // BST 300
     learnset:[[1,"collide"],[1,"lullaby_song"],[5,"dream_jab"],[7,"reverie_focus"],[10,"dream_pulse"],[12,"doze_calm"],[15,"somnia_ray"],[17,"slumber_armor"],[20,"chomp"],[22,"lullaby_strike"],[26,"lucid_beam"],[28,"trance_wave"],[80,"terror_slash",{ng:true}],[80,"reverie_charge",{ng:true}],[80,"somnia_punch",{ng:true}],[70,"nightmare_strike",{ng:true}],[95,"dreamscape_smash",{ng:true}],[100,"psy_blast",{ng:true}]],
     desc:"A drowsy, snouted cub that snuffles through the air for the scent of dreams.",
@@ -4928,7 +4928,7 @@ const MONSTERS_DATA = {
 
   // --- F12: charged centipede (Toxin / Electric-Toxin) ---
   440: { id:440, name:"Rustmite", emoji:"🐛", types:["Toxin"],
-    evolveTo:441, evolveLevel:26, catchRate:190, expYield:70, rarity:"common",
+    evolveTo:441, evolveLevel:26, evolveMethod:"location", evolveLocation:"toxic_bog", catchRate:190, expYield:70, rarity:"common",
     base:{hp:50,atk:60,def:52,spa:48,spd:45,spe:55}, // BST 310
     learnset:[[1,"toxic_sting"],[1,"toxin_jab"],[5,"jolt"],[10,"septic_bite"],[12,"noxious_focus"],[15,"static_strike"],[20,"coiled_lunge"],[22,"poison_resolve"],[26,"venom_fang"],[85,"malignant_storm",{ng:true}],[85,"corrosive_burst",{ng:true}],[85,"blight_strike",{ng:true}],[80,"acid_slash",{ng:true}],[70,"squalid_field",{ng:true}],[70,"corrosive_step",{ng:true}],[70,"tainted_screen",{ng:true}],[70,"rancid_charge",{ng:true}],[70,"pox_mark",{ng:true}],[95,"plague_wave",{ng:true}],[75,"toxic_kiss",{ng:true}],[100,"sludge_cannon",{ng:true}],[75,"backstab",{ng:true}]],
     desc:"A many-legged grub whose corrosive secretions pit and rust whatever it crawls across.",
@@ -5033,7 +5033,7 @@ const MONSTERS_DATA = {
 
   // --- F19: haunted bell (Spectral / Metal-Spectral) ---
   454: { id:454, name:"Tollwisp", emoji:"🔔", types:["Spectral"],
-    evolveTo:455, evolveLevel:30, catchRate:180, expYield:68, rarity:"common",
+    evolveTo:455, evolveLevel:30, evolveMethod:"time", evolveTime:"dusk", catchRate:180, expYield:68, rarity:"common",
     base:{hp:50,atk:42,def:62,spa:72,spd:62,spe:24}, // BST 312
     learnset:[[1,"ghost_jab"],[1,"haunting_cry"],[5,"ghost_pulse"],[8,"ectoplasm_armor"],[10,"specter_pulse"],[15,"void_wail"],[20,"phantom_beam"],[26,"spirit_drain"],[70,"soul_lance",{ng:true}],[80,"ectoplasm_wave",{ng:true}],[70,"soul_chill",{ng:true}],[80,"necrotic_pulse",{ng:true}],[100,"abyssal_dominion",{ng:true}],[80,"insight_flare",{ng:true}],[75,"blight_mist",{ng:true}]],
     desc:"A small spirit that has taken up residence inside a cracked, tarnished handbell.",

@@ -155,7 +155,21 @@ facility — a gold-diamond marker off **Lodehollow Town** (to the right, `mapPo
   left as-designed (level `100+2×streak` cap150; milestone FP by tier) — documented for the user,
   tunable on request. Verified: ranks escalate, log shows "🏹 Tower Veteran Sable sent out Barknell!"
   at streak 14 (enemy Lv128); 0 errors. **Thread 3 (Battle Frontier) is complete: 3a–3d shipped.**
-## Phase 2 — Lane A.2 (evolution audit) + D (encounter audit) ⏳
+## Phase 2 — Lane A.2 (evolution audit) + D (encounter audit) 🚧
+**A.2 evolution audit — batch 1 done.** Dex-wide method tally: overall healthy (level 64.8%), base dex
+well-varied. Found the NG+ block (322-461) over-relied on plain level (76.1%) with NO location/move/
+friendship and inflated evolve-levels (8 lines @ L70-85). Fixed (user-approved):
+- **Level corrections (8):** Wraithking 80→48 · Crystavault 72→36 · Cryoseer 82→42 · Quarrex 75→36 ·
+  Graviton 85→44 · Auroratusk 75→54 · Mirestone 72→46 · Stormlord 70→52 (Graviton/Cryoseer set lower
+  per user — minimal BST gain). NG+ now has 0 evolve-levels ≥60 (was 8); all back in the 16-54 band.
+- **Method diversification (7):** Wraithking time:night · Tollwisp time:dusk · Crystavault
+  location:crystal_depths · Rustmite location:toxic_bog · Thrumquill move:sound_rush · Lullasnout
+  friendship · Scalit item:dragonScale. NG+ level-evos 76.1%→60.9% (matches base dex); NG+ gains its
+  first time/location/move/friendship evolutions.
+- Each non-level method keeps evolveLevel as a gate. Verified: validate.js G6 green; resolver
+  spot-check — move/friendship/location/item each trigger only when their condition is met; 0 errors.
+- **Remaining A.2:** per-line evolve-method/level review of the base dex + Forgotten (this batch
+  targeted the clear NG+ outliers). Lane D (encounter audit) still pending.
 
 ---
 

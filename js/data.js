@@ -1652,21 +1652,21 @@ const MONSTERS_DATA = {
 
   // Aquatic Starters
   4: { id:4, name:"Aquatter",     emoji:"💧", types:["Aquatic"],
-    base:{hp:45,atk:52,def:69,spa:45,spd:66,spe:46},
+    base:{hp:48,atk:55,def:72,spa:42,spd:56,spe:50},
     learnset:[[1,"collide",[20,"frost_current"]],[1,"lashing_tail"],[4,"aquatic_gun"],[6,"wave_dash"],[8,"bubble_jet"],[13,"tidal_sweep"],[15,"aquatic_pulse"],[19,"second_wind"],[27,"tidal_rush"],[38,"tsunami",[5,"tidecaller"]],[40,"reaper_scythe"],[30,"raw_fury"]],
     evolveTo:5, evolveLevel:16, catchRate:45, expYield:59, rarity:"starter",
     desc:"A water sprite that lives near ponds. Its skin is always cool and moist.",
     lore:"Aquatter is a slender otter-like creature about 60 cm long with bright teal fur and large silver-rimmed eyes. A ridged fin runs from its neck to the base of its tail for steering underwater. It inhabits clear mountain streams and wedges smooth pebbles together to form small dams as nesting sites." },
 
   5: { id:5, name:"Cobaleap",    emoji:"🦦", types:["Aquatic"],
-    base:{hp:60,atk:66,def:79,spa:64,spd:85,spe:64},
+    base:{hp:62,atk:73,def:81,spa:44,spd:60,spe:90},
     learnset:[[1,"aquatic_gun"],[2,"lashing_tail"],[3,"bubble_jet"],[4,"tidal_sweep"],[5,"tidecaller"],[6,"deepwater_hymn"],[8,"shadow_jab"],[10,"wave_dash"],[14,"cheap_shot"],[16,"second_wind"],[18,"brine_slash"],[24,"tidal_rush"],[28,"diving_strike"],[30,"fortify"],[33,"war_dance"],[35,"tsunami"],[44,"tidal_crush"],[30,"claw_hammer"],[10,"flood_tide"],[20,"whirlpool_dive"],[70,"icy_shot",{ng:true}]],
     evolveTo:6, evolveLevel:36, catchRate:25, expYield:142, rarity:"uncommon",
     desc:"A sleek long-bodied otter-cousin with cobalt fur. Streaks through water in graceful leaping bounds, surfacing in a quick arc each stroke.",
     lore:"Cobaleap is a long-bodied mustelid roughly 2 metres from nose to tail, more elongated and slender than its base form. Its juvenile teal kit-fur has deepened to a glossy cobalt, and Aquatter's neck-to-tail steering fin has flattened and fused into its denser, sleeker body. Its short cobalt-blue fur is so dense it appears to gleam like polished glass when wet, and a pale turquoise stripe runs from the crown of its head to the tip of its powerful tail. A small ruff of stiffer guard-hairs flares behind its head when threatened — mistaken at a distance for a fin or crest. It hunts in shallow coastal waters by leaping between wave crests in long bounding arcs, and can sustain speeds that outpace most sailing vessels for hours at a time." },
 
   6: { id:6, name:"Banksnout",    emoji:"🦦", types:["Aquatic","Dark"],
-    base:{hp:72,atk:90,def:97,spa:89,spd:105,spe:75},
+    base:{hp:95,atk:105,def:110,spa:50,spd:93,spe:77},
     learnset:[[1,"tidal_rush"],[2,"tidal_sweep"],[3,"fortify"],[4,"tidecaller"],[5,"deepwater_hymn"],[7,"shadow_jab"],[10,"abyssal_wave"],[15,"ocean_crash"],[20,"torrent_fang"],[22,"chomp"],[30,"wicked_torrent"],[35,"flood_tide"],[37,"tsunami"],[39,"ocean_tempest"],[40,"abyssal_jet"],[44,"mud_spray"],[48,"coral_barrage"],[52,"auger_strike"],[56,"geoblast"],[60,"fissure_slam"],[64,"tectonic_slam"],[35,"poltergeist_smash"],[45,"phantom_force"]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:265, rarity:"rare",
     desc:"An amphibious otter that has grown to thrive on land as much as in water. Its stretched limbs and digging claws make it as fearsome on the bank as in the current.",
@@ -1674,21 +1674,21 @@ const MONSTERS_DATA = {
 
   // Grass Starters
   7: { id:7, name:"Saurbud",  emoji:"🌱", types:["Nature"],
-    base:{hp:49,atk:42,def:55,spa:61,spd:70,spe:47},
+    base:{hp:50,atk:40,def:57,spa:62,spd:68,spe:47},
     learnset:[[1,"collide",[20,"root_lance"]],[1,"daunt"],[4,"vine_lash"],[8,"sharp_leaves"],[13,"pod_blast"],[19,"war_dance"],[27,"verdant_orb"],[38,"petal_blitz",[5,"slumber_dust"]],[70,"photon_leaf",{ng:true}],[100,"boulder_wrecker",{ng:true}],[80,"pixie_bolt",{ng:true}]],
     evolveTo:8, evolveLevel:16, catchRate:45, expYield:64, rarity:"starter",
     desc:"A little plant seedling that walks on root-legs. Very curious and brave.",
     lore:"Saurbud is a small round herbivore about 35 cm tall with smooth lime-green skin, stubby leg-roots and a small reptilian tail beneath its leafy lower body, and two leaf-shaped ears that absorb sunlight. A single bud sprouts from the crown of its head. It grazes in meadows during morning light and huddles with others in dense thickets at night, pressing leaves together to share warmth." },
 
   8: { id:8, name:"Barknell",   emoji:"🦕", types:["Nature"],
-    base:{hp:57,atk:68,def:63,spa:75,spd:74,spe:70},
+    base:{hp:63,atk:40,def:68,spa:89,spd:92,spe:58},
     learnset:[[1,"vine_lash"],[2,"sharp_leaves"],[3,"pod_blast"],[4,"collide"],[5,"slumber_dust"],[16,"war_dance"],[24,"verdant_orb"],[30,"canopy_crash"],[35,"petal_blitz"],[44,"verdant_surge"],[6,"spore_burst"],[33,"second_wind"],[20,"melody_cascade"],[20,"martial_intent"]],
     evolveTo:9, evolveLevel:36, catchRate:25, expYield:142, rarity:"uncommon",
     desc:"A thorny dinosaur with bark-like skin. Each spine is razor sharp.",
     lore:"Barknell is a stout quadrupedal reptile roughly the size of a large dog — Saurbud's stubby leg-roots have lengthened into true legs and its leaf-shaped ears have multiplied into rows of leaf-shaped protrusions along its spine. Its hide is textured like bark and varies from grey-green to deep brown, blending with forest undergrowth. It sleeps pressed against tree trunks, becoming nearly invisible to passing predators." },
 
   9: { id:9, name:"Garlawarden",   emoji:"🌸", types:["Nature","Fairy"],
-    base:{hp:82,atk:75,def:80,spa:101,spd:110,spe:84},
+    base:{hp:85,atk:45,def:85,spa:112,spd:119,spe:84},
     learnset:[[1,"pod_blast"],[2,"verdant_orb"],[3,"vine_lash"],[4,"slumber_dust"],[5,"spore_burst"],[10,"fairy_jab"],[15,"sylph_focus"],[20,"faewind"],[25,"healing_circle"],[36,"celestial_wave"],[40,"verdant_surge"],[41,"lashing_tail"],[44,"fairy_wind"],[47,"petal_blitz"],[48,"graze"],[52,"prism_flare"],[56,"root_lance"],[60,"lunar_burst"],[15,"gem_focus"],[15,"fright_resolve"],[15,"focus_roar"]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:265, rarity:"rare",
     desc:"A bark-armored reptile guardian. Year-round blossoms bloom along its spine, drawing pollinators wherever it roams.",

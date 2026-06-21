@@ -5651,6 +5651,7 @@ const WORLD_DATA = {
     desc:"A city forever shrouded in shadow. Dark Gym Leader Nyx commands the night.",
     connections:["lode_pass","route7","crystal_depths","haunted_grove"],
     wildMonsters:[
+      {id:126, minLv:42, maxLv:46, rate:12},  // Impefurr (4-species fill)
       {id:118, minLv:42, maxLv:46, rate:45}, // Eclipsehound
       {id:121, minLv:42, maxLv:46, rate:20}, // Spiraloom
       {id:123, minLv:43, maxLv:46, rate:35}  // Nocturil
@@ -5894,8 +5895,7 @@ const WORLD_DATA = {
     ],
     ngPlusWildMonsters:[{id:448, minLv:12, maxLv:16, rate:12}], // NG+ family base: Cobblepup
     hasGym:false, requiredBadges:1, mapPos:{x:54, y:67},
-    storyLocation:true, hasUmbraEncounter:true,
-    legendaryEncounter:{monsterId:165, level:55}
+    storyLocation:true, hasUmbraEncounter:true
   },
   deep_trench: {
     id:"deep_trench", name:"Abyssal Trench", icon:"🌊", type:"route",
@@ -5934,6 +5934,7 @@ const WORLD_DATA = {
     desc:"A high plateau perpetually wracked by storms. Electric and Draconic types are drawn to its crackling energy.",
     connections:["frostpeak"],
     wildMonsters:[
+      {id:45, minLv:28, maxLv:35, rate:12},  // Slatis (4-species fill)
       {id:84, minLv:28, maxLv:34, rate:25},  // Galvaglide
       {id:42, minLv:28, maxLv:34, rate:25},  // Cryonik
       {id:31, minLv:29, maxLv:34, rate:25},  // Toxaquil
@@ -6055,6 +6056,7 @@ const WORLD_DATA = {
     desc:"The upper reaches of the Poison Swamp, where toxic fumes seep from cracks in the earth near the marshes of Route 7.",
     connections:["miasmacity","poison_swamp_lower"],
     wildMonsters:[
+      {id:78, minLv:44, maxLv:50, rate:12},  // Sylvnox (4-species fill)
       {id:69, minLv:44, maxLv:49, rate:30},   // Groveguard
       {id:72, minLv:44, maxLv:49, rate:35},   // Faelomis
       {id:75, minLv:45, maxLv:50, rate:35}    // Sylvolt
@@ -6067,6 +6069,7 @@ const WORLD_DATA = {
     desc:"The deeper, fouler reaches of the Poison Swamp. The air is thick with noxious miasma and stronger Poison types lurk in the muck.",
     connections:["poison_swamp_upper"],
     wildMonsters:[
+      {id:123, minLv:46, maxLv:53, rate:12},  // Nocturil (4-species fill)
       {id:75, minLv:46, maxLv:51, rate:45},   // Sylvolt
       {id:118, minLv:47, maxLv:52, rate:35},  // Dreadmaw
       {id:72, minLv:48, maxLv:53, rate:20}    // Faevernal
@@ -6108,6 +6111,7 @@ const WORLD_DATA = {
     desc:"The southern stretch of Fairy Meadow, where gentle flowers bloom near Seedvale. Fairy and Grass types play in the warm breeze.",
     connections:["seedvale","fairy_meadow_north"],
     wildMonsters:[
+      {id:114, minLv:4, maxLv:8, rate:15},  // Nimbusel (4-species fill)
       {id:137, minLv:4, maxLv:7, rate:30},     // Goldefluff
       {id:69, minLv:4, maxLv:7, rate:35},     // Germix
       {id:111, minLv:5, maxLv:8, rate:35}     // Aeolin
@@ -6145,6 +6149,7 @@ const WORLD_DATA = {
     desc:"The western edge of the Bug Forest, thick with webs and buzzing wings. Connects to the Lumoria Jungle.",
     connections:["lumoria_jungle","bug_forest_east"],
     wildMonsters:[
+      {id:10, minLv:10, maxLv:15, rate:15},  // Scorchlarva (4-species fill)
       {id:197, minLv:10, maxLv:14, rate:45},  // Photoworm
       {id:200, minLv:10, maxLv:14, rate:20},  // Iridibeetle
       {id:84, minLv:11, maxLv:15, rate:35}    // Electrix
@@ -6157,6 +6162,7 @@ const WORLD_DATA = {
     desc:"The deeper eastern reaches of the Bug Forest. Stronger bugs and rare species inhabit the ancient trees near the ruins.",
     connections:["bug_forest_west"],
     wildMonsters:[
+      {id:16, minLv:12, maxLv:19, rate:15},  // Cindercula (4-species fill)
       {id:200, minLv:12, maxLv:17, rate:35},  // Iridibeetle
       {id:123, minLv:13, maxLv:18, rate:20},  // Nocturil
       {id:10, minLv:14, maxLv:19, rate:45}    // Scorchlarva
@@ -6198,6 +6204,8 @@ const WORLD_DATA = {
     desc:"A deep chasm where psychic resonance amplifies every thought and memory. The walls seem to shift and breathe.",
     connections:["haunted_grove"],
     wildMonsters:[
+      {id:118, minLv:44, maxLv:52, rate:12},  // Eclipsehound (4-species fill)
+      {id:128, minLv:44, maxLv:52, rate:12},  // Cranivade (4-species fill)
       {id:166, minLv:44, maxLv:50, rate:35},   // Projectery
       {id:123, minLv:46, maxLv:51, rate:50},   // Nocturil
       {id:166, minLv:47, maxLv:52, rate:15}    // Psymastiff
@@ -6224,6 +6232,7 @@ const WORLD_DATA = {
     desc:"A series of ancient stone arches bridging floating islands in the sky. Powerful updrafts make travel treacherous but the view is breathtaking.",
     connections:["skyvault","route8"],
     wildMonsters:[
+      {id:112, minLv:48, maxLv:56, rate:12},  // Swirlavel (4-species fill)
       {id:111, minLv:48, maxLv:54, rate:25},   // Aeolin
       {id:108, minLv:48, maxLv:54, rate:25},   // Silvergust
       {id:111, minLv:49, maxLv:55, rate:20},   // Swirlavel
@@ -6246,8 +6255,7 @@ const WORLD_DATA = {
       {id:200, minLv:42, maxLv:48, rate:20}   // Scarabion
     ],
     hasGym:false, requiredBadges:7, mapPos:{x:16, y:18},
-    storyLocation:true, hasUmbraEncounter:true,
-    legendaryEncounter:{monsterId:164, level:55}
+    storyLocation:true, hasUmbraEncounter:true
   },
   dark_canyon: {
     id:"dark_canyon", hasUmbraEncounter:true, name:"Dark Canyon", icon:"🌑", type:"route",
@@ -6630,6 +6638,7 @@ const WORLD_DATA = {
     desc:"A tear in reality pulsing with dark energy near Route 16. The Umbra Order's experiments cracked open this rift, and within its swirling darkness, Voidraxis — the Void Star — awaits any trainer bold enough to enter.",
     connections:["astral_plateau","umbra_lab"],
     wildMonsters:[
+      {id:115, minLv:72, maxLv:78, rate:10},  // Aetherworn (4-species fill)
       {id:119, minLv:72, maxLv:77, rate:30},  // Dreadmaw (Dark)
       {id:122, minLv:72, maxLv:77, rate:30},  // Caveshroud (Dark)
       {id:119, minLv:73, maxLv:78, rate:25},  // dark-type
@@ -6644,6 +6653,7 @@ const WORLD_DATA = {
     desc:"A stagnant bog where the path turns south toward Miasma City. Foul gas bubbles up through the mud and Poison types lurk beneath the surface.",
     connections:["corroden","mire_depths"],
     wildMonsters:[
+      {id:156, minLv:58, maxLv:65, rate:10},  // Venekon (4-species fill)
       {id:155, minLv:58, maxLv:63, rate:20},  // Venekon (mid)
       {id:157, minLv:58, maxLv:63, rate:20},  // Corrodisc (mid)
       {id:157, minLv:60, maxLv:65, rate:20},  // Dissotoad (final)
@@ -6801,6 +6811,7 @@ const WORLD_DATA = {
     desc:"A low bank of permanent fog rolling off the moor, where Vapor types drift unseen along the climb toward Gale Ridge.",
     connections:["mistmoor","wind_hollow"],
     wildMonsters:[
+      {id:122, minLv:72, maxLv:76, rate:10},  // Caveshroud (4-species fill)
       {id:220, minLv:72, maxLv:76, rate:28}, // Shadowveil
       {id:160, minLv:72, maxLv:76, rate:26}, // Mistbane
       {id:216, minLv:73, maxLv:76, rate:24}, // Mindrift

@@ -5519,6 +5519,7 @@ const WORLD_DATA = {
     desc:"A bustling port city on the coast. Gym Leader Marina commands the waves.",
     connections:["route2","route3","deep_trench"],
     wildMonsters:[
+      {id:37, minLv:10, maxLv:13, rate:12},  // Coralossus (obtainability add)
       {id:101, minLv:10, maxLv:13, rate:30}, // Reefnip
       {id:28, minLv:10, maxLv:13, rate:30}, // Corelin
       {id:293, minLv:10, maxLv:12, rate:20}, // Amperix
@@ -5733,6 +5734,7 @@ const WORLD_DATA = {
     desc:"The highest peak in Lumoria. Draconic Gym Leader Drake commands ancient power.",
     connections:["route8","route9"],
     wildMonsters:[
+      {id:60, minLv:58, maxLv:62, rate:5},  // Boreadrake (obtainability add)
       {id:42, minLv:58, maxLv:62, rate:10}, // Glintscale (obtainability fix)
       {id:172, minLv:58, maxLv:62, rate:30}, // Scalurin
       {id:78, minLv:58, maxLv:62, rate:20}, // Biolumal
@@ -5868,6 +5870,7 @@ const WORLD_DATA = {
     desc:"A dense, humid jungle teeming with Grass, Poison and Bug types. Ancient ruins peek through the canopy.",
     connections:["route2","ancient_ruins","bug_forest_west","route10"],
     wildMonsters:[
+      {id:63, minLv:8, maxLv:13, rate:12},  // Sporix (obtainability add)
       {id:200, minLv:10, maxLv:13, rate:18}, // Sproutix (obtainability fix)
       {id:7, minLv:8, maxLv:12, rate:14},   // Sporix
       {id:66, minLv:8, maxLv:12, rate:28},   // Viridix
@@ -5993,6 +5996,7 @@ const WORLD_DATA = {
     desc:"A stunning underwater coral garden teeming with colorful Aquatic and Poison types. Sunlight filters through the shimmering water above.",
     connections:["deep_trench"],
     wildMonsters:[
+      {id:235, minLv:22, maxLv:30, rate:5},  // Glintscale (obtainability add)
       {id:256, minLv:24, maxLv:28, rate:13}, // Scolphin (obtainability fix)
       {id:34, minLv:22, maxLv:26, rate:25}, // Pearlmaid (obtainability fix)
       {id:28, minLv:22, maxLv:28, rate:20},   // Corelin
@@ -6164,6 +6168,7 @@ const WORLD_DATA = {
     desc:"A perfectly still alpine lake with a surface like polished glass. The reflected sky makes it impossible to tell up from down.",
     connections:["route5"],
     wildMonsters:[
+      {id:59, minLv:34, maxLv:38, rate:12},  // Lunaveris (obtainability add)
       {id:189, minLv:30, maxLv:34, rate:16}, // Woolcalm (obtainability fix)
       {id:45, minLv:30, maxLv:36, rate:24},   // Slatis
       {id:50, minLv:30, maxLv:36, rate:16},   // Tundram
@@ -6233,6 +6238,7 @@ const WORLD_DATA = {
     desc:"A towering spire of pure crystal ice and steel that catches the moonlight. Few trainers have ever climbed to its pinnacle.",
     connections:["crystal_depths","lunar_peak"],
     wildMonsters:[
+      {id:41, minLv:38, maxLv:48, rate:5},  // Titanomare (obtainability add)
       {id:50, minLv:38, maxLv:45, rate:15},   // Bergyak
       {id:168, minLv:38, maxLv:45, rate:25},   // Icequartz
       {id:147, minLv:39, maxLv:46, rate:10},   // Stoicguard
@@ -6339,6 +6345,7 @@ const WORLD_DATA = {
     desc:"A city carved into a mountainside, rich with mineral deposits. Home to Gym Leader Atlas.",
     connections:["tremor_summit","gale_peak"],
     wildMonsters:[
+      {id:175, minLv:61, maxLv:67, rate:5},  // Biolumal (obtainability add)
       {id:95,  minLv:61, maxLv:66, rate:15},  // Quakehide (final, 96 on quake_foothills ✓)
       {id:98, minLv:61, maxLv:66, rate:15},  // Craterlurk (final, 99 on quake_foothills ✓)
       {id:101, minLv:61, maxLv:66, rate:15},  // Calciderm (final, 102 on quake_foothills ✓)
@@ -6369,6 +6376,7 @@ const WORLD_DATA = {
     desc:"A village nestled in an ancient forest where Bug types are revered. Home to Gym Leader Mantis.",
     connections:["ancient_grove","route13"],
     wildMonsters:[
+      {id:265, minLv:62, maxLv:69, rate:5},  // Mosshop (obtainability add)
       {id:199, minLv:63, maxLv:68, rate:25},  // Aeridaleth (final)
       {id:200, minLv:62, maxLv:67, rate:25},  // Scarabion (mid)
       {id:202, minLv:63, maxLv:68, rate:25},  // Arachnalis (mid, 202 on route12 ✓)
@@ -6432,6 +6440,7 @@ const WORLD_DATA = {
     desc:"A city of foundries and forges. Home to Gym Leader Ferro, master of Metal types.",
     connections:["forge_approach","route15"],
     wildMonsters:[
+      {id:176, minLv:66, maxLv:73, rate:5},  // Raijolt (obtainability add)
       {id:148, minLv:67, maxLv:72, rate:13},  // Eternarmor (final)
       {id:151, minLv:66, maxLv:71, rate:25},  // Amperpede (mid)
       {id:26, minLv:67, maxLv:72, rate:20},  // Imperion (Metal/Rock)
@@ -6464,6 +6473,7 @@ const WORLD_DATA = {
     desc:"A mining town carved from solid rock. Home to Gym Leader Boulder, master of Rock types.",
     connections:["crystal_mine","route16","granite_tunnels"],
     wildMonsters:[
+      {id:177, minLv:68, maxLv:75, rate:5},  // Sapphier (obtainability add)
       {id:192, minLv:68, maxLv:73, rate:20},  // Boulderoll (mid)
       {id:195, minLv:69, maxLv:74, rate:25},  // Icequartz (195 on stone_plateau ✓)
       {id:195, minLv:70, maxLv:75, rate:10},  // Frigolith (mid → after 195 ✓)
@@ -6478,6 +6488,7 @@ const WORLD_DATA = {
     desc:"A magical path where starlight dances on every surface. Fairy types float among the luminescent flowers.",
     connections:["quarryville","nebula_gorge"],
     wildMonsters:[
+      {id:228, minLv:69, maxLv:75, rate:5},  // Lunaroon (obtainability add)
       {id:137, minLv:69, maxLv:74, rate:17},  // Goldefluff (base)
       {id:72,  minLv:69, maxLv:74, rate:21},  // fairy-type (base)
       {id:73,  minLv:70, maxLv:75, rate:7},  // fairy-type (evo → after 72 ✓)
@@ -6527,6 +6538,7 @@ const WORLD_DATA = {
     desc:"Rolling foothills rocked by constant tremors where Terravault's mountain range begins. Ground-type Lumori burrow through the cracked and heaving earth.",
     connections:["ashford","route11","tremor_summit"],
     wildMonsters:[
+      {id:214, minLv:59, maxLv:66, rate:5},  // Petrwave (obtainability add)
       {id:95,  minLv:59, maxLv:64, rate:24},  // Aridhino (base)
       {id:95,  minLv:60, maxLv:65, rate:8},  // Seismith (mid → after 95 ✓)
       {id:98,  minLv:59, maxLv:64, rate:18},  // Aridix (base)
@@ -6541,6 +6553,7 @@ const WORLD_DATA = {
     desc:"A sunken gully thick with silken threads where every tree and boulder is wrapped in webs. Bug types in every stage of evolution compete for territory.",
     connections:["fungal_cavern","ancient_grove"],
     wildMonsters:[
+      {id:152, minLv:61, maxLv:69, rate:5},  // Imperion (obtainability add)
       {id:198, minLv:62, maxLv:67, rate:28},  // Chrysalix (mid, 197 on route12 ✓)
       {id:199, minLv:63, maxLv:68, rate:14},  // Aeridaleth (final → after 198 ✓)
       {id:200, minLv:61, maxLv:66, rate:18},  // Iridibeetle (base)
@@ -6672,6 +6685,7 @@ const WORLD_DATA = {
     desc:"Collapsed factory halls stretching east from the old Ironwork Path. Metal-type Lumori nest in the rusted machinery, and mid-stage chains are common sightings.",
     connections:["ash_fields","smelter_pass"],
     wildMonsters:[
+      {id:283, minLv:65, maxLv:72, rate:5},  // Rustpike (obtainability add)
       {id:147, minLv:65, maxLv:70, rate:28},  // Scrapsapien (base)
       {id:148, minLv:66, maxLv:71, rate:6},  // Stoicguard (mid → after 147 ✓)
       {id:150, minLv:65, maxLv:70, rate:24},  // Ampercrawl (base)
@@ -6690,6 +6704,7 @@ const WORLD_DATA = {
     desc:"A labyrinthine deep-swamp sector south of Toxic Bog. Venomous Lumori that have shed their pre-evolutions stalk the murky waterways. Umbra scouts use the miasma as cover.",
     connections:["toxic_bog","miasmacity"],
     wildMonsters:[
+      {id:171, minLv:58, maxLv:64, rate:5},  // Nagaseer (obtainability add)
       {id:155, minLv:59, maxLv:64, rate:9},  // Venekon (mid, base 155 on route10 ✓)
       {id:296, minLv:58, maxLv:63, rate:18},  // Pestquito (mid → 296 Toxifly on route10 ✓) WAIT - base needs earlier
       {id:164, minLv:59, maxLv:64, rate:13},  // Lepidox (mid, 164 on toxic_bog ✓)
@@ -6705,6 +6720,7 @@ const WORLD_DATA = {
     desc:"A superheated gorge where magma seeps through rock fissures between the foothills and Tremor Summit. Ground and Fire types bask in the thermal heat.",
     connections:["lava_fields"],
     wildMonsters:[
+      {id:277, minLv:60, maxLv:66, rate:5},  // Magmote (obtainability add)
       {id:95,  minLv:61, maxLv:66, rate:8},  // Seismith (mid, 95 on quake_foothills ✓)
       {id:98,  minLv:61, maxLv:66, rate:14},  // Toxivenoth (mid, 98 on quake_foothills ✓)
       {id:101, minLv:61, maxLv:66, rate:8},  // Dunoloth (mid, 101 on quake_foothills ✓)
@@ -6721,6 +6737,7 @@ const WORLD_DATA = {
     desc:"An underground cavern lit by bioluminescent fungi on the route to Cobweb Gully. Grass and Bug types thrive in the moist, glowing dark.",
     connections:["route12","cobweb_gully"],
     wildMonsters:[
+      {id:65, minLv:62, maxLv:69, rate:5},  // Plaguecap (obtainability add)
       {id:197, minLv:62, maxLv:67, rate:28},  // Photoworm (base Bug)
       {id:215, minLv:62, maxLv:67, rate:24},  // Veilwisp (base Mental)
       {id:216, minLv:63, maxLv:68, rate:10},  // Mindrift (mid → Psywisp 215 ✓)
@@ -6736,6 +6753,7 @@ const WORLD_DATA = {
     desc:"A sacred forest grove of thousand-year-old trees. The air hums with ancient energy. Grass types here have evolved beyond their usual forms.",
     connections:["cobweb_gully","silkwood"],
     wildMonsters:[
+      {id:290, minLv:63, maxLv:69, rate:5},  // Guisecat (obtainability add)
       {id:220, minLv:64, maxLv:69, rate:14},  // Shadowveil (mid → Hauntrix 220 on route13 ✓)
       {id:262, minLv:64, maxLv:69, rate:13},  // Impenezard (final → Vinrix 263 on fungal_cavern ✓)
       {id:199, minLv:63, maxLv:68, rate:27},  // Aeridaleth (final Bug)
@@ -6752,6 +6770,7 @@ const WORLD_DATA = {
     desc:"A sheltered bowl between cliff faces that creates a perfect wind tunnel. Rookie Wind-type Lumori train here before ascending Gale Ridge.",
     connections:["fogbank","gale_peak"],
     wildMonsters:[
+      {id:229, minLv:63, maxLv:69, rate:5},  // Radiafish (obtainability add)
       {id:291, minLv:64, maxLv:69, rate:6},  // Galehorn (mid → 291 Breefawn on route13 ✓)
       {id:293, minLv:63, maxLv:68, rate:18},  // Windwhelp (base Wind)
       {id:222, minLv:63, maxLv:68, rate:28},  // Mindpuff (base Mental)
@@ -6768,6 +6787,7 @@ const WORLD_DATA = {
     desc:"A fog-bound hamlet adrift on the high moor, its rooftops half-dissolved in drifting steam. Gym Leader Steam strikes from within the haze before you ever see the blow.",
     connections:["route13","fogbank","route12"],
     wildMonsters:[
+      {id:289, minLv:72, maxLv:76, rate:5},  // Bouncyblob (obtainability add)
       {id:181, minLv:72, maxLv:76, rate:25}, // Bouncyblob
       {id:160, minLv:72, maxLv:76, rate:22}, // Mistbane
       {id:216, minLv:73, maxLv:76, rate:20}, // Mindrift
@@ -6793,6 +6813,7 @@ const WORLD_DATA = {
     desc:"Sheer cliff faces battered by perpetual gales where Gale Ridge meets Zephyr. Only the most powerful Wind types cling to the rockface here.",
     connections:["gale_ridge_east","gusthaven"],
     wildMonsters:[
+      {id:241, minLv:65, maxLv:71, rate:5},  // Shardlix (obtainability add)
       {id:293, minLv:65, maxLv:70, rate:24},  // Stormwing (mid → 293 on gale_peak ✓)
       {id:293, minLv:66, maxLv:71, rate:8},  // Cyclonax (final → after 294 ✓)
       {id:239, minLv:65, maxLv:70, rate:28},  // Blizzariel (mid → 238 on gale_peak ✓)
@@ -6808,6 +6829,7 @@ const WORLD_DATA = {
     desc:"A barren expanse of volcanic ash fields between Zephyr and the Rustworks. Fire types scorch the ashen ground, and Metal types scavenge the slag.",
     connections:["route14","forge_ruins"],
     wildMonsters:[
+      {id:307, minLv:65, maxLv:72, rate:5},  // Pyrelynx (obtainability add)
       {id:20, minLv:66, maxLv:71, rate:6}, // Hauntcoal (obtainability fix)
       {id:244, minLv:66, maxLv:71, rate:9},  // Thundravex (mid Electric → 244 ✓)
       {id:275, minLv:66, maxLv:71, rate:13},  // Infernox (mid → 274 Charrock on magma_vent ✓)
@@ -6898,6 +6920,7 @@ const WORLD_DATA = {
     desc:"A high plateau above Cosmic Cavern where the sky seems close enough to touch. Rare Lumori shaped by cosmic energy appear here in the hours around midnight.",
     connections:["starbloom","void_rift"],
     wildMonsters:[
+      {id:259, minLv:71, maxLv:77, rate:5},  // Lumejell (obtainability add)
       {id:216, minLv:72, maxLv:77, rate:14},  // Distorsion (final Mental)
       {id:223, minLv:72, maxLv:77, rate:14},  // Psytheon (final → 223 on cosmic_cavern ✓)
       {id:302, minLv:72, maxLv:77, rate:15},  // Lumivane (Moon Stone evo, base 302 on route16 ✓)
@@ -6932,6 +6955,7 @@ const WORLD_DATA = {
     desc:"Umbra's encrypted data vault hidden beneath a collapsed glacier. Spectral and Metal Lumori guard the servers that hold the organization's remaining secrets.",
     connections:["umbra_lab","void_nexus"],
     wildMonsters:[
+      {id:271, minLv:68, maxLv:75, rate:5},  // Murkrat (obtainability add)
       {id:136, minLv:68, maxLv:73, rate:20},
       {id:131, minLv:68, maxLv:73, rate:20},
       {id:133, minLv:69, maxLv:74, rate:20},

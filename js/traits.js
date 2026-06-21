@@ -3446,11 +3446,11 @@ const TRAIT_ASSIGNMENTS = {
   1:   { pool: ["mastery"] },      // Solkin — Fire STAB 2.0× via Mastery
   4:   { pool: ["mirage"] },       // Aquatter — 25% incoming miss
   7:   { pool: ["mossy"] },        // Saurbud — Nature heals it
-  69:  { pool: ["thorned"] },      // Germix — phys recoil
-  178: { pool: ["lucky"] },        // Fluffen — crit-immune
-  180: { pool: ["mossy"] },        // Leapbun — Nature heals it
-  185: { pool: ["levitating"] },   // Hoverrow — Earth-immune, Wind-weak
-  197: { pool: ["thorned"] },      // Photoworm — phys recoil
+  19:  { pool: ["thorned"] },      // Germix — phys recoil
+  10: { pool: ["lucky"] },        // Fluffen — crit-immune
+  12: { pool: ["mossy"] },        // Leapbun — Nature heals it
+  17: { pool: ["levitating"] },   // Hoverrow — Earth-immune, Wind-weak
+  14: { pool: ["thorned"] },      // Photoworm — phys recoil
 };
 
 

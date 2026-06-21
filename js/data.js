@@ -5750,10 +5750,18 @@ const WORLD_DATA = {
     desc:"The final gauntlet. Only trainers with all badges may pass.",
     connections:["starbloom","summit","ascendant_path"],
     wildMonsters:[
-      {id:173, minLv:62, maxLv:66, rate:25}, // Cobravyrm
-      {id:124, minLv:62, maxLv:66, rate:25}, // Phantorvex
-      {id:142, minLv:62, maxLv:66, rate:25}, // Astrelle
-      {id:151, minLv:63, maxLv:66, rate:25}  // Amperpede
+      {id:194, minLv:102, maxLv:108, rate:8},  // Lithomere
+      {id:234, minLv:102, maxLv:108, rate:8},  // Wyvernak
+      {id:306, minLv:102, maxLv:108, rate:8},  // Yetigrand
+      {id:144, minLv:102, maxLv:108, rate:8},  // Moonseraph
+      {id:213, minLv:102, maxLv:108, rate:8},  // Infriglace
+      {id:217, minLv:102, maxLv:108, rate:8},  // Distorsion
+      {id:228, minLv:102, maxLv:108, rate:8},  // Lunaroon
+      {id:208, minLv:102, maxLv:108, rate:8},  // Wyrmvenom
+      {id:292, minLv:102, maxLv:108, rate:8},  // Galehorn
+      {id:271, minLv:102, maxLv:108, rate:8},  // Murkrat
+      {id:107, minLv:102, maxLv:108, rate:8},  // Quakeon
+      {id:225, minLv:102, maxLv:108, rate:8},  // Crealight
     ],
     ngPlusWildMonsters:[{id:345, minLv:60, maxLv:66, rate:18}], // Sablecrow (base) — found before Oblivionwing in Void Nexus
     hasGym:false, requiredBadges:20, mapPos:{x:60, y:35}
@@ -5762,7 +5770,20 @@ const WORLD_DATA = {
     id:"summit", name:"Victory Summit", icon:"👑", type:"special",
     desc:"The seat of the Lumoria Champion. Only the greatest trainers reach this place.",
     connections:["victoryroad"],
-    wildMonsters:[], hasGym:false, isChampion:true, requiredBadges:20,
+    wildMonsters:[
+      {id:268, minLv:104, maxLv:110, rate:8},  // Darkfang
+      {id:243, minLv:104, maxLv:110, rate:8},  // Stuntrap
+      {id:246, minLv:104, maxLv:110, rate:8},  // Megavolt
+      {id:264, minLv:104, maxLv:110, rate:8},  // Impenezard
+      {id:240, minLv:104, maxLv:110, rate:8},  // Tundrafox
+      {id:149, minLv:104, maxLv:110, rate:8},  // Eternarmor
+      {id:289, minLv:104, maxLv:110, rate:8},  // Bouncyblob
+      {id:300, minLv:104, maxLv:110, rate:8},  // Nettlebarb
+      {id:309, minLv:104, maxLv:110, rate:8},  // Tidephant
+      {id:174, minLv:104, maxLv:110, rate:8},  // Chromedrake
+      {id:247, minLv:104, maxLv:110, rate:8},  // Sparkeen
+      {id:307, minLv:104, maxLv:110, rate:8},  // Pyrelynx
+    ], hasGym:false, isChampion:true, requiredBadges:20,
     mapPos:{x:60, y:25}
   },
 
@@ -5860,10 +5881,18 @@ const WORLD_DATA = {
     desc:"The long stair that climbs from the crystal heights back to the Gauntlet, walked only by NG+ challengers who have bested all twenty-four gyms.",
     connections:["gleamcrest","victoryroad"],
     wildMonsters:[
-      {id:386, minLv:124, maxLv:127, rate:10},  // Wraithstorm (4-species fill)
-      {id:389, minLv:124, maxLv:127, rate:34}, // Stormcrown
-      {id:268, minLv:124, maxLv:127, rate:33}, // Darkfang
-      {id:261, minLv:125, maxLv:127, rate:33}  // Hypnostag (Facetite rounded up to evolution-only)
+      {id:261, minLv:123, maxLv:127, rate:8},  // Hypnostag
+      {id:169, minLv:123, maxLv:127, rate:8},  // Prismatica
+      {id:268, minLv:123, maxLv:127, rate:8},  // Darkfang
+      {id:344, minLv:123, maxLv:127, rate:8},  // Glimmeritch
+      {id:386, minLv:123, maxLv:127, rate:8},  // Wraithstorm
+      {id:243, minLv:123, maxLv:127, rate:8},  // Stuntrap
+      {id:397, minLv:123, maxLv:127, rate:8},  // Abyssalord
+      {id:301, minLv:123, maxLv:127, rate:8},  // Hauntcoal
+      {id:170, minLv:123, maxLv:127, rate:8},  // Oneiron
+      {id:225, minLv:123, maxLv:127, rate:8},  // Crealight
+      {id:431, minLv:123, maxLv:127, rate:8},  // Nocturnbaku
+      {id:453, minLv:123, maxLv:127, rate:8},  // Lullavoir
     ],
     hasGym:false, requiredBadges:23, requiresNGPlus:true, mapPos:{x:62, y:18}
   },

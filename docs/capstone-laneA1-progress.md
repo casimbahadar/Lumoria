@@ -27,6 +27,7 @@ finals now share BST 530 with totally different spreads:
 | #1 Solkin line (Fire) | 1–3 | ✅ adjusted | Solkin 35/53/45/64/47/81 (325). Pyrevix 52/65/62/74/63/93 (409). Calderaeth 70/85/80/105/79/111 (530). Fast special-sweeper curve; 325→409→530. |
 | #2 Aquatter line (Water) | 4–6 | ✅ adjusted | Aquatter 48/55/72/42/56/50 (323). Cobaleap 62/73/81/44/60/90 (410). Banksnout 95/105/110/50/93/77 (530). Physical-tank identity; 323→410→530. |
 | #3 Saurbud line (Nature) | 7–9 | ✅ adjusted | Saurbud 50/40/57/62/68/47 (324). Barknell 63/40/68/89/92/58 (410). Garlawarden 85/45/85/112/119/84 (530). Special-wall identity; 324→410→530. |
+| #4 Scorchlarva line | 10–12 | ✅ adjusted | Curve already healthy post-rescale; left larva 41/51/28/32/32/36 (220) + cocoon 54/27/86/40/74/38 (319) as-is. Pyromoth retuned 66/85/62/92/66/58 → 72/60/62/100/66/75 (429→435): de-mixed the off-lore atk into spa/spe + hp for a clean special flying attacker. 220→319→435. |
 
 ## Next up
-- Family #4: ids 10–12 (Scorchlarva line) — now on the **rescaled** base-dex curve (3-stage final ≤510, mid ≤400, base ~210–230). Starters were the elevated exception; from #10 on, work to the reduced caps.
+- Family #5: ids 13–15 — continue on the rescaled base-dex curve (3-stage final ≤510, mid ≤400). Mostly verify-and-fix-outliers; the rescale pass already set sane spreads.

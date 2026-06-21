@@ -3782,7 +3782,7 @@ const MONSTERS_DATA = {
 
   // 178: Pyromoth - Fire/Draconic (Embrix→Helioveth→Pyromoth)
   12: { id:12, name:"Pyromoth", emoji:"🦋", types:["Fire","Wind"],
-    base:{hp:66,atk:85,def:62,spa:92,spd:66,spe:58},
+    base:{hp:72,atk:60,def:62,spa:100,spd:66,spe:75},
     learnset:[[1,"flicker"],[1,"inferno_jet"],[2,"breeze"],[3,"searing_gale"],[4,"scorch_veil"],[38,"pyroclasm"],[43,"wingbeat"],[48,"solar_flare"],[52,"resonance_hum"],[57,"conflagration"],[62,"typhoon"],[67,"char_dance"],[5,"embercloak"],[44,"wind_scythe"],[20,"saurian_roar"],[20,"sapphire_charge"],[20,"reverie_focus"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:265, rarity:"rare",
     desc:"A regal fire-moth of vast wingspan. Heat shed by its wings rises into thermals it can ride for hours.",

@@ -5836,6 +5836,7 @@ const WORLD_DATA = {
     desc:"A bridge of fused crystal that scatters the light into drifting rainbows on the final climb toward Gleamcrest.",
     connections:["reverie_vale","gleamcrest"],
     wildMonsters:[
+      {id:344, minLv:123, maxLv:127, rate:10},  // Glimmeritch (4-species fill)
       {id:225, minLv:123, maxLv:127, rate:34}, // Crealight (Fairy/Mineral)
       {id:372, minLv:123, maxLv:127, rate:33}, // Prismancer (Mental/Mineral) — backfill after Crystal legendaries rounded up
       {id:169, minLv:124, maxLv:127, rate:33}  // Prismatica (Mental/Mineral)
@@ -5847,6 +5848,7 @@ const WORLD_DATA = {
     desc:"A town grown over a crest of living crystal that refracts the aurora into a thousand colors — the only place the Crystal Lumori are known to gather. Gym Leader Prisma reigns over its every facet.",
     connections:["prism_causeway","ascendant_path"],
     wildMonsters:[
+      {id:169, minLv:123, maxLv:127, rate:10},  // Prismatica (4-species fill)
       {id:372, minLv:123, maxLv:127, rate:38}, // Prismancer (Mental/Mineral) — backfill after Crystal legendaries rounded up
       {id:225, minLv:123, maxLv:127, rate:34}, // Crealight (Fairy/Mineral)
       {id:344, minLv:124, maxLv:127, rate:28}  // Glimmeritch (Fairy/Spectral)
@@ -5858,6 +5860,7 @@ const WORLD_DATA = {
     desc:"The long stair that climbs from the crystal heights back to the Gauntlet, walked only by NG+ challengers who have bested all twenty-four gyms.",
     connections:["gleamcrest","victoryroad"],
     wildMonsters:[
+      {id:386, minLv:124, maxLv:127, rate:10},  // Wraithstorm (4-species fill)
       {id:389, minLv:124, maxLv:127, rate:34}, // Stormcrown
       {id:268, minLv:124, maxLv:127, rate:33}, // Darkfang
       {id:261, minLv:125, maxLv:127, rate:33}  // Hypnostag (Facetite rounded up to evolution-only)

@@ -1724,14 +1724,14 @@ const MONSTERS_DATA = {
     lore:"Molteroth is a massive volcanic bull over 2 metres tall — Taurcin's rust-red hide has cooled and crusted into plates of hardened lava-rock that grind and shift as it moves, and its forward-curving horns now glow with steady amber heat rather than only at the tips. Jets of steam escape from vents along its spine. It inhabits lava fields, grazing on mineral deposits by grinding rock with its flat stone-hard teeth." },
 
   80: { id:80, name:"Cindercula",   emoji:"🐍", types:["Fire"],
-    base:{hp:31,atk:40,def:34,spa:43,spd:34,spe:35},
+    base:{hp:39,atk:50,def:42,spa:53,spd:42,spe:44},
     learnset:[[1,"collide",[20,"cinderwhirl"]],[1,"flicker"],[9,"blitz"],[14,"baleful_stare"],[17,"inferno_jet",[5,"scorch_veil"]],[24,"vital_pulse"],[32,"ashfall"],[40,"pyroclasm"],[3,"embercloak"],[31,"lashing_tail"],[40,"forge_blast"],[30,"toxic_blaze"],[20,"flare_uppercut"],[20,"lava_spout"],[30,"molten_tide"],[40,"eclipse_burst"],[75,"focused_beam",{ng:true}]],
     evolveTo:81, evolveLevel:20, evolveMethod:"move", evolveMove:"cinderwhirl", catchRate:200, expYield:65, rarity:"common",
     desc:"A shy fledgling fire-serpent with a crest of flame-coloured feathers. Breathes tiny flames.",
     lore:"Cindercula is a sinuous fire-serpent about 1.8 metres long with iridescent scales shading from copper at the head to charcoal at the tail. A thin crest of flame-coloured feathers runs from its neck to mid-body. It slithers through ash fields and hunts by sensing heat signatures with specialised pit organs. Despite having no limbs at all, Cindercula sometimes rear upright along thermal columns and flare their feathered crests outward — a rehearsal of the great plumed wings Searburn unfurls at metamorphosis and Quetzember spreads at maturity." },
 
   81: { id:81, name:"Searburn",   emoji:"🐍", types:["Fire","Wind"],
-    base:{hp:49,atk:60,def:38,spa:63,spd:47,spe:57},
+    base:{hp:59,atk:73,def:46,spa:85,spd:57,spe:60},
     learnset:[[1,"flicker"],[2,"inferno_jet"],[3,"cinderwhirl"],[4,"scorch_veil"],[5,"plume_veil"],[21,"vital_pulse"],[26,"char_dance"],[30,"wingbeat"],[38,"wind_scythe"],[44,"searing_gale"],[50,"jetstream"],[56,"conflagration"],[62,"skyfall"],[64,"embercloak"],[15,"untamed_meditation"],[15,"trance_meditation"],[15,"toxic_thread"]],
     evolveTo:82, evolveLevel:42, catchRate:45, expYield:198, rarity:"uncommon",
     desc:"A plumed fire-serpent that rides thermals on newly-grown feathered wings.",
@@ -3798,7 +3798,7 @@ const MONSTERS_DATA = {
 
   // 180: Helixareth - Fire/Draconic (Ignicula→Pyroveth→Helixareth)
   82: { id:82, name:"Quetzember", emoji:"🐍", types:["Fire","Wind"],
-    base:{hp:66,atk:85,def:55,spa:92,spd:63,spe:59},
+    base:{hp:79,atk:101,def:65,spa:110,spd:75,spe:80},
     learnset:[[1,"flicker"],[1,"inferno_jet"],[2,"wingbeat"],[3,"cinderwhirl"],[4,"scorch_veil"],[5,"embercloak"],[8,"breeze"],[20,"wind_scythe"],[30,"searing_gale"],[38,"jetstream"],[42,"pyroclasm"],[44,"skyfall"],[46,"plume_veil"],[50,"gale_cannon"],[54,"solar_flare"],[58,"typhoon"],[62,"conflagration"],[20,"slate_armor"],[20,"siren_song"],[20,"shard_form"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
     desc:"A mature plumed sky-serpent wreathed in fire. Legends say its wingbeats fan the first volcanoes alight.",

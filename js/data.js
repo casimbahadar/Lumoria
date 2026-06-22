@@ -1846,7 +1846,7 @@ const MONSTERS_DATA = {
     lore:"Electrix is a small dragonfly nymph 8 cm long, the aquatic juvenile stage of the lineage. Its body is segmented and dark with metallic gold-edged plates, and small gilled abdomen-tufts trail behind it as it crawls along stream beds. It already generates faint electrical sparks from its rudimentary wing-buds when threatened. It hunts smaller aquatic insects with its hooked predatory mandibles, and lives in colonies in slow-moving water near decaying wood, where it processes organic material into bioelectric energy." },
 
   43: { id:43, name:"Shockharpe",  emoji:"🪰", types:["Electric","Nature"],
-    base:{hp:63,atk:53,def:41,spa:83,spd:52,spe:78},
+    base:{hp:63,atk:43,def:41,spa:83,spd:52,spe:88},
     learnset:[[1,"jolt"],[2,"mandible_bite"],[3,"stun_pulse"],[4,"static_cage"],[15,"shock_net"],[23,"volt_jet"],[29,"lashing_tail"],[31,"resonance_hum"],[33,"shear_strike"],[36,"graze"],[42,"mandible_crush"],[43,"silk_bind"],[50,"swarm_dive"],[57,"volt_surge"],[64,"stormbolt"],[45,"cosmic_nightmare"],[25,"cosmic_dust"],[25,"cosmic_beam"],[95,"swarm_assault",{ng:true}],[90,"pollen_storm",{ng:true}],[80,"sonic_buzz",{ng:true}],[80,"root_drain",{ng:true}]],
     evolveTo:44, evolveLevel:42, evolveMethod:"battles", evolveBattles:20, catchRate:75, expYield:180, rarity:"uncommon",
     desc:"A dragonfly of electricity. Moves so fast it leaves lightning trails behind.",
@@ -3918,7 +3918,7 @@ const MONSTERS_DATA = {
 
   // 195: Zapoveth - Electric/Bug (Electrix→Voltharpe→Zapoveth)
   44: { id:44, name:"Galvaglide", emoji:"🪰", types:["Electric","Nature"],
-    base:{hp:73,atk:77,def:60,spa:114,spd:73,spe:83},
+    base:{hp:73,atk:57,def:60,spa:114,spd:73,spe:103},
     learnset:[[1,"jolt"],[1,"resonance_hum"],[2,"volt_jet"],[3,"shear_strike"],[4,"stun_pulse"],[5,"static_cage"],[10,"chain_spark"],[20,"repulsion_field"],[30,"shock_net"],[38,"stormbolt"],[42,"volt_surge"],[44,"silk_bind"],[46,"swarm_dive"],[50,"plasma_strike"],[54,"mandible_crush"],[58,"ion_cannon"],[62,"stinger_lance"],[20,"misty_terrain"],[20,"mist_veil"],[20,"mirror_polish"],[90,"rising_voltage",{ng:true}],[90,"photon_leaf",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
     desc:"A dragonfly of pure lightning. Its body discharges with every wingbeat; to be caught in its swarm is to stand in a thunderstorm.",

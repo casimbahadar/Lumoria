@@ -3665,14 +3665,14 @@ const MONSTERS_DATA = {
 
   // ===== FAIRY/STEEL =====
   32: { id:32, name:"Faerrin", emoji:"📌", types:["Fairy","Metal"],
-    base:{hp:22,atk:28,def:44,spa:42,spd:32,spe:32},
+    base:{hp:31,atk:40,def:62,spa:60,spd:46,spe:46},
     learnset:[[1,"fairy_wind",[22,"ironskin"]],[1,"chrome_claw"],[9,"prism_flare"],[17,"forge_blast_2"],[20,"second_wind"],[25,"lunar_burst"],[33,"alloy_tail",[5,"bewitching_kiss"]],[36,"gossamer_lance"],[3,"stardust_veil"],[31,"glitter_storm"],[10,"mistral_focus"],[10,"mist_veil"],[10,"miasma_lure"],[85,"smelter_surge",{ng:true}],[80,"titanic_beam",{ng:true}],[80,"counterforge",{ng:true}],[80,"mercurial_torrent",{ng:true}]],
     evolveTo:33, evolveLevel:null, evolveMethod:"item", evolveItem:"steelCoating", catchRate:170, expYield:82, rarity:"common",
     desc:"A tiny fairy-knight made of living silver. Fiercely guards those it bonds with.",
     lore:"Faerrin is a petite fairy-steel creature 40 cm tall resembling a humanoid knight in tiny armour. Its armour is forged from a pale silver-gold alloy that catches fairy light and redirects it as a dazzling display. It inhabits ruined ancient fortresses and maintains guard even centuries after the fort's abandonment." },
 
   33: { id:33, name:"Shinarith", emoji:"🛡️", types:["Fairy","Metal"],
-    base:{hp:45,atk:43,def:68,spa:55,spd:61,spe:34},
+    base:{hp:66,atk:63,def:100,spa:81,spd:90,spe:50},
     learnset:[[1,"prism_flare"],[2,"forge_blast_2"],[3,"lunar_burst"],[4,"chrome_claw"],[5,"bewitching_kiss"],[30,"alloy_tail"],[32,"daunt"],[38,"collide"],[44,"metal_wing"],[50,"temper_edge"],[56,"moonveil"],[62,"radiance_cannon"],[6,"stardust_veil"],[41,"forge_strike"],[25,"mystic_ray"],[17,"mire_burst"],[45,"mirage_apocalypse"],[90,"counterforge",{ng:true}],[80,"chromium_ray",{ng:true}],[80,"magnet_burst",{ng:true}],[95,"plasma_smelt",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:230, rarity:"rare",
     desc:"An armored fairy sentinel that never abandons its post. Its shield can repel any curse.",

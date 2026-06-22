@@ -2147,14 +2147,14 @@ const MONSTERS_DATA = {
     lore:"Venekon is a medium poison-water frog 35 cm long with a flattened head and webbed feet — Toxirin's lime-green skin and yellow-black warning patterns have muddied to a mottled blue-green and brown as it migrated from rainforest ponds to murky river backwaters, and its sticky skin-toxin has dispersed into a diluted aquatic toxin for fending off fish predators. It produces a diluted aquatic toxin that disperses through water to deter fish predators. It inhabits murky river backwaters and calls from beneath floating lily pads." },
 
   64: { id:64, name:"Acidelix",    emoji:"🫧", types:["Poison"],
-    base:{hp:37,atk:28,def:28,spa:45,spd:36,spe:26},
+    base:{hp:49,atk:37,def:37,spa:60,spd:48,spe:34},
     learnset:[[1,"collide",[22,"putrid_pulse"]],[1,"septic_prick"],[10,"ooze_bomb"],[18,"toxify"],[21,"vital_pulse"],[26,"virulent_surge"],[34,"second_wind"],[38,"sludge_wave"],[42,"ooze_bomb",[5,"toxic_surge"]],[3,"toxin_bloom"],[32,"baleful_stare"],[40,"venom_drown"],[20,"root_toxin"],[40,"ethereal_storm"],[85,"plague_burst",{ng:true}],[80,"malice_beam",{ng:true}]],
     evolveTo:65, evolveLevel:26, evolveMethod:"location", evolveLocation:"fungal_cavern", catchRate:130, expYield:95, rarity:"common",
     desc:"A blob of acid that oozes across the ground. Dissolves things with its body.",
     lore:"Acidelix is a floating translucent orb about 20 cm in diameter filled with slowly swirling acid-green liquid. Its outer membrane is barely visible. It drifts through damp cave systems, dissolving organic material it contacts and absorbing the resulting nutrients through its outer surface." },
 
   65: { id:65, name:"Corrodisc",  emoji:"🫧", types:["Poison","Earth"],
-    base:{hp:61,atk:43,def:53,spa:68,spd:53,spe:19},
+    base:{hp:76,atk:54,def:66,spa:84,spd:66,spe:24},
     learnset:[[1,"toxify"],[2,"collide"],[3,"virulent_surge"],[4,"toxic_surge"],[32,"daunt"],[35,"sludge_wave"],[38,"mud_spray"],[39,"ooze_bomb"],[44,"loam_leech"],[50,"terra_spike"],[56,"geoblast"],[62,"tectonic_shift"],[5,"toxin_bloom"],[41,"aftershock"],[25,"ancient_pulse"],[35,"age_burst"],[35,"aether_shock"],[95,"smoldering_abyss",{ng:true}],[80,"scorched_sand",{ng:true}],[90,"mineral_blast",{ng:true}],[90,"gemburst",{ng:true}],[85,"quicksand_pull",{ng:true}],[85,"mire_burst",{ng:true}]],
     evolveTo:66, evolveLevel:44, catchRate:45, expYield:318, rarity:"uncommon",
     desc:"A sludge behemoth that poisons everything it touches. Its territory reeks.",
@@ -4046,7 +4046,7 @@ const MONSTERS_DATA = {
 
   // 211: Acidovast - Poison/Ground (Acidelix→Toxoloth→Acidovast)
   66: { id:66, name:"Dissotoad", emoji:"🐸", types:["Poison","Earth"],
-    base:{hp:83,atk:64,def:76,spa:103,spd:72,spe:14},
+    base:{hp:101,atk:78,def:92,spa:105,spd:87,spe:17},
     learnset:[[1,"toxify"],[1,"tectonic_shift"],[2,"sludge_wave"],[3,"geoblast"],[4,"toxic_surge"],[38,"acid_rain"],[42,"venom_lance"],[46,"sand_geyser"],[50,"ooze_bomb"],[54,"virulent_surge"],[58,"scorched_earth"],[62,"putrid_pulse"],[5,"miasma_cloud"],[44,"corrosion_fang"],[20,"feral_armor"],[20,"fear_aura"],[20,"fade"],[105,"smoldering_abyss",{ng:true}],[90,"scorched_sand",{ng:true}],[100,"mineral_blast",{ng:true}],[100,"gemburst",{ng:true}],[95,"quicksand_pull",{ng:true}],[95,"mire_burst",{ng:true}],[95,"gem_scatter",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"A colossal acid behemoth that dissolves the ground wherever it treads. Entire cave systems have been created by its acidic ooze eating through the earth.",

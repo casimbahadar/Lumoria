@@ -1696,14 +1696,14 @@ const MONSTERS_DATA = {
 
   // ===== ADDITIONAL FIRE =====
   77: { id:77, name:"Scorchlarva",  emoji:"🐛", types:["Fire","Nature"],
-    base:{hp:37,atk:47,def:25,spa:29,spd:29,spe:33},
+    base:{hp:52,atk:42,def:40,spa:47,spd:44,spe:50},
     learnset:[[1,"collide",[20,"cinderwhirl"]],[1,"flicker"],[8,"mandible_bite"],[15,"flame_fang"],[17,"war_dance"],[22,"shear_strike",[5,"scorch_veil"]],[29,"venom_drool"],[39,"stinger_lance"],[30,"terror_slash"],[20,"temporal_slash"],[80,"ignition_kick",{ng:true}],[80,"flare_uppercut",{ng:true}],[85,"scorch_kick",{ng:true}],[70,"cinder_lance",{ng:true}],[75,"molten_claw",{ng:true}],[75,"inferno_chop",{ng:true}]],
     evolveTo:78, evolveLevel:18, catchRate:255, expYield:56, rarity:"common",
     desc:"A fire beetle larva. Leaves scorch marks wherever it walks.",
     lore:"Scorchlarva is a chubby flame-patterned caterpillar about 20 cm long. Its body segments alternate vivid orange and smoky black, with two antennae that glow orange at the tips. It feeds on dried bark near volcanic soil, and its silk threads are heat-resistant enough to be woven into flame-proof cloth." },
 
   78: { id:78, name:"Heliocoon",  emoji:"🥚", types:["Fire","Wind"],
-    base:{hp:53,atk:26,def:85,spa:40,spd:73,spe:37},
+    base:{hp:70,atk:30,def:100,spa:48,spd:90,spe:42},
     learnset:[[1,"fortify"],[1,"flicker"],[4,"mandible_bite"],[5,"embercloak"],[6,"kindle"],[8,"chitin_guard"],[10,"cocoon_guard"],[14,"scorch_veil"],[18,"sun_burst"],[20,"second_wind"],[22,"metamorphosis"],[26,"fortify"],[32,"embercloak"],[36,"searing_gale"],[39,"conflagration"],[41,"breeze"],[42,"suction_wave"],[43,"breeze_blast"],[44,"breeze_blade"],[25,"lava_spout"],[35,"molten_tide"],[15,"hexflame"],[95,"toxic_blaze",{ng:true}],[90,"lava_spout",{ng:true}],[80,"squall",{ng:true}],[80,"zephyr_arrow",{ng:true}]],
     evolveTo:79, evolveLevel:40, catchRate:75, expYield:158, rarity:"uncommon",
     desc:"A motionless flame-veined chrysalis hanging from charred branches. Sealed within, a future winged form slowly takes shape.",
@@ -3782,7 +3782,7 @@ const MONSTERS_DATA = {
 
   // 178: Pyromoth - Fire/Draconic (Embrix→Helioveth→Pyromoth)
   79: { id:79, name:"Pyromoth", emoji:"🦋", types:["Fire","Wind"],
-    base:{hp:63,atk:82,def:59,spa:89,spd:63,spe:55},
+    base:{hp:88,atk:48,def:65,spa:127,spd:82,spe:105},
     learnset:[[1,"flicker"],[1,"inferno_jet"],[2,"breeze"],[3,"searing_gale"],[4,"scorch_veil"],[38,"pyroclasm"],[43,"wingbeat"],[48,"solar_flare"],[52,"resonance_hum"],[57,"conflagration"],[62,"typhoon"],[67,"char_dance"],[5,"embercloak"],[44,"wind_scythe"],[20,"saurian_roar"],[20,"sapphire_charge"],[20,"reverie_focus"]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:265, rarity:"rare",
     desc:"A regal fire-moth of vast wingspan. Heat shed by its wings rises into thermals it can ride for hours.",

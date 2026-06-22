@@ -2054,14 +2054,14 @@ const MONSTERS_DATA = {
 
   // ===== FAIRY =====
   24: { id:24, name:"Goldefluff",     emoji:"🐶", types:["Fairy"],
-    base:{hp:27,atk:22,def:32,spa:33,spd:37,spe:49},
+    base:{hp:30,atk:22,def:32,spa:45,spd:37,spe:52},
     learnset:[[1,"collide",[22,"pixie_bolt"]],[1,"fairy_wind"],[8,"bewitching_kiss"],[16,"prism_flare"],[20,"vital_pulse"],[24,"lunar_burst"],[32,"second_wind",[5,"stardust_veil"]],[36,"glitter_storm"],[3,"charm_bloom"],[31,"baleful_stare"],[30,"moonlit_surge"],[12,"glacial_spirit"],[20,"expanding_force"],[80,"trance_wave",{ng:true}]],
     evolveTo:25, evolveLevel:25, catchRate:190, expYield:78, rarity:"common",
     desc:"A glowing puppy surrounded by fairy light. Brings luck wherever it goes.",
     lore:"Goldefluff is a small, round fairy dog about 30 cm at the shoulder with pure white fluffy fur that radiates a warm golden glow. Its eyes are bright violet. It bounces energetically and its glow intensifies when it is happy. It is attracted to places of celebration and is considered to bring good fortune." },
 
   25: { id:25, name:"Halocanis", emoji:"🐕", types:["Fairy"],
-    base:{hp:45,atk:42,def:43,spa:62,spd:57,spe:48},
+    base:{hp:45,atk:42,def:43,spa:70,spd:57,spe:65},
     learnset:[[1,"fairy_wind"],[2,"prism_flare"],[3,"lunar_burst"],[4,"bewitching_kiss"],[29,"second_wind"],[30,"lashing_tail"],[35,"battle_cry"],[40,"blitz"],[45,"wish_spark"],[50,"moonveil"],[55,"celestial_wave"],[60,"psi_strike"],[5,"stardust_veil"],[39,"baleful_stare"],[35,"moonlit_surge"],[17,"glacial_spirit"],[17,"vampiric_kiss"],[10,"nymph_mist"],[55,"fairy_blast"],[35,"radiant_burst"]],
     evolveTo:26, evolveLevel:44, catchRate:50, expYield:205, rarity:"uncommon",
     desc:"A luminous hound of fairy power. Its radiance can banish dark spirits.",
@@ -4014,7 +4014,7 @@ const MONSTERS_DATA = {
 
   // 207: Lumiarch - Fairy (Lumkin→Halocanis→Lumiarch)
   26: { id:26, name:"Lumiarch", emoji:"🌟", types:["Fairy"],
-    base:{hp:72,atk:64,def:64,spa:96,spd:79,spe:32},
+    base:{hp:72,atk:64,def:64,spa:112,spd:79,spe:85},
     learnset:[[1,"fairy_wind"],[1,"prism_flare"],[2,"lunar_burst"],[3,"bewitching_kiss"],[4,"stardust_veil"],[38,"celestial_wave"],[42,"glitter_storm"],[46,"fae_requiem"],[50,"moonveil"],[54,"second_wind"],[58,"wish_spark"],[62,"radiance_cannon"],[5,"charm_bloom"],[44,"vital_pulse"],[30,"mineral_dust"],[30,"mineral_blast"],[30,"millennium_burst"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"The sovereign of fairy light. Its radiance can banish every shadow from a city; dark spirits flee the land at its mere approach.",

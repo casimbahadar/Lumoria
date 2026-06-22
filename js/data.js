@@ -1932,14 +1932,14 @@ const MONSTERS_DATA = {
     lore:"Siroccomane is a wind lion 1.1 metres at the shoulder — Silvergust's silver-grey cub-fur has matured to tawny-gold and the long swept ears now top a full lion-mane that crackles electric-blue and streams behind it in the breeze it generates. Its footsteps barely touch the ground. It rules open desert plateaux, herding storms and creating complex thermals that other flying creatures use for navigation." },
 
   27: { id:27, name:"Aeolin",  emoji:"🐦", types:["Wind","Normal"],
-    base:{hp:34,atk:32,def:23,spa:33,spd:24,spe:59},
+    base:{hp:42,atk:45,def:23,spa:33,spd:24,spe:59},
     learnset:[[1,"collide",[20,"jetstream"]],[1,"breeze"],[8,"blitz"],[16,"wingbeat"],[21,"fortify"],[24,"wind_scythe"],[32,"crushing_bulk",[5,"mistveil"]],[36,"instinct_slash"],[3,"zephyr_dance"],[31,"wild_tumble"],[10,"wraith_form"],[10,"wisp_speed"],[10,"wild_rage"]],
     evolveTo:28, evolveLevel:20, catchRate:230, expYield:65, rarity:"common",
     desc:"A common draft finch that rides air currents effortlessly.",
     lore:"Aeolin is a slender bird 60 cm long with pale white-silver feathers and a long forked tail that acts as a rudder. Its wingtips curve back elegantly in flight. It inhabits high-altitude cliff faces and rarely descends below the snowline, riding permanent updrafts with minimal wing movement for days at a time." },
 
   28: { id:28, name:"Swirlavel",   emoji:"🦅", types:["Wind"],
-    base:{hp:40,atk:58,def:38,spa:55,spd:40,spe:84},
+    base:{hp:55,atk:66,def:44,spa:55,spd:46,spe:84},
     learnset:[[1,"breeze"],[2,"wingbeat"],[3,"jetstream"],[4,"mistveil"],[21,"wind_scythe"],[27,"war_dance"],[29,"crushing_bulk"],[34,"graze"],[41,"metal_wing"],[48,"skyfall"],[55,"typhoon"],[62,"tempest_wrath"],[5,"zephyr_dance"],[42,"baleful_stare"],[55,"canopy_strike"],[35,"sky_dive"],[25,"aerial_assault"],[17,"magnetic_mine"],[85,"mind_strike",{ng:true}]],
     evolveTo:29, evolveLevel:42, catchRate:65, expYield:195, rarity:"uncommon",
     desc:"A great cyclone eagle. Causes miniature tornadoes with each wingbeat.",
@@ -3974,7 +3974,7 @@ const MONSTERS_DATA = {
 
   // 202: Cyclondor - Wind (Aeolin→Cyclavel→Cyclondor)
   29: { id:29, name:"Cyclondor", emoji:"🦅", types:["Wind"],
-    base:{hp:68,atk:87,def:57,spa:85,spd:61,spe:65},
+    base:{hp:78,atk:96,def:66,spa:65,spd:70,spe:95},
     learnset:[[1,"breeze"],[1,"wingbeat"],[2,"wind_scythe"],[3,"jetstream"],[4,"mistveil"],[5,"zephyr_dance"],[12,"falcon_dive"],[18,"breeze_blast"],[24,"plume_veil"],[28,"air_barrier"],[32,"aerial_slam"],[38,"typhoon"],[42,"skyfall"],[44,"vortex_trap"],[46,"squall_slash"],[50,"thermal_dive"],[54,"gale_cannon"],[58,"tempest_wrath"],[62,"downdraft"],[20,"hypnos_speed"],[20,"hourglass_focus"],[20,"haze_focus"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
     desc:"A hurricane made flesh. It circles the highest peaks and its passage creates new storm systems that endure for years.",

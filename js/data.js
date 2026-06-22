@@ -2262,14 +2262,14 @@ const MONSTERS_DATA = {
 
   // ===== NORMAL =====
   10: { id:10, name:"Fluffen",     emoji:"🐱", types:["Normal"],
-    base:{hp:46,atk:40,def:31,spa:30,spd:35,spe:39},
+    base:{hp:53,atk:45,def:35,spa:34,spd:40,spe:44},
     learnset:[[1,"collide",[20,"momentum_rush"]],[1,"daunt"],[3,"baleful_stare"],[6,"quick_jab"],[8,"graze"],[12,"rapid_strike"],[16,"blitz"],[22,"body_blow"],[24,"crushing_bulk"],[29,"fortify"],[31,"endure_pulse"],[32,"cranial_ram"],[40,"radiance_cannon",[5,"lashing_tail"]],[10,"putrid_calm"],[10,"prismatic_calm"],[10,"poison_resolve"],[90,"landslide",{ng:true}]],
     evolveTo:11, evolveLevel:20, catchRate:220, expYield:68, rarity:"common",
     desc:"An adorable fur ball. Incredibly soft but surprisingly tough in a fight.",
     lore:"Fluffen is a small round cat about 20 cm tall with enormously fluffy cream-white fur that makes it appear twice its actual size. Its tiny face is barely visible through the fur. It is the softest-feeling creature known and produces a continuous low purr that has documented calming effects on nearby creatures." },
 
   11: { id:11, name:"Velvetine",    emoji:"🐈", types:["Normal"],
-    base:{hp:56,atk:61,def:55,spa:37,spd:44,spe:67},
+    base:{hp:64,atk:70,def:63,spa:42,spd:50,spe:76},
     learnset:[[1,"graze"],[2,"blitz"],[3,"daunt"],[21,"crushing_bulk"],[26,"fortify"],[29,"cranial_ram"],[30,"baleful_stare"],[37,"radiance_cannon"],[38,"war_dance"],[47,"vital_pulse"],[56,"instinct_slash"],[65,"dusk_slash"],[4,"lashing_tail"],[44,"collide"],[25,"tornado_kick"],[17,"time_strike"],[17,"tidal_fang"],[90,"tornado_grab",{ng:true}],[95,"all_out_assault",{ng:true}],[90,"relentless_fury",{ng:true}],[85,"feral_swipe",{ng:true}],[80,"double_smash",{ng:true}],[80,"quick_jab",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:80, expYield:180, rarity:"common",
     desc:"A graceful cat with retractable steel-like claws. Nimble and quick.",

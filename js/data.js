@@ -3620,14 +3620,14 @@ const MONSTERS_DATA = {
 
   // ===== NORMAL/PSYCHIC =====
   75: { id:75, name:"Woolcalm", emoji:"🐑", types:["Normal","Mental"],
-    base:{hp:32,atk:28,def:27,spa:41,spd:43,spe:38},
+    base:{hp:41,atk:36,def:35,spa:53,spd:56,spe:49},
     learnset:[[1,"collide",[22,"future_echo"]],[1,"mind_jolt"],[3,"baleful_stare"],[6,"mesmerize"],[9,"daunt"],[12,"cerebral_calm"],[17,"psi_burst"],[20,"mental_pulse"],[25,"second_wind"],[29,"dreamweave"],[32,"psi_blade"],[33,"mental"],[41,"inner_calm",[5,"lashing_tail"]],[10,"starlight_lock"],[10,"spore_shield"],[10,"spirit_drain"],[80,"encore_blast",{ng:true}],[80,"radiant_burst_2",{ng:true}],[70,"aural_ray",{ng:true}],[85,"lumiwave",{ng:true}],[75,"echoing_shout",{ng:true}],[75,"echo_beam",{ng:true}]],
     evolveTo:76, evolveLevel:24, catchRate:180, expYield:78, rarity:"common",
     desc:"A woolly psychic creature that reads emotional auras. Very empathetic and gentle.",
     lore:"Woolcalm is a small psychic sheep about 40 cm at the shoulder with soft white wool and calm violet eyes. Its wool carries a faint static charge from accumulated psychic energy. It grazes peacefully in highland meadows and the simple act of standing near it produces a remarkable sense of mental clarity." },
 
   76: { id:76, name:"Aetherflock", emoji:"🐏", types:["Normal","Mental"],
-    base:{hp:56,atk:36,def:43,spa:69,spd:66,spe:48},
+    base:{hp:70,atk:45,def:53,spa:85,spd:82,spe:60},
     learnset:[[1,"psi_burst"],[2,"future_echo"],[3,"daunt"],[4,"lashing_tail"],[10,"aural_ray"],[15,"psionic_wave"],[20,"astral_guard"],[24,"second_wind"],[28,"sixth_sense"],[30,"mental"],[31,"vital_pulse"],[33,"echoing_shout"],[36,"wild_tumble"],[38,"inner_calm"],[40,"cranial_ram"],[42,"crushing_bulk"],[44,"thought_wave"],[46,"encore_blast"],[48,"thought_crush"],[54,"psi_strike"],[60,"radiance_cannon"],[15,"spectral_lock"],[15,"soundproof"],[15,"soul_link"],[90,"psycho_surge",{ng:true}],[90,"radiant_burst_2",{ng:true}],[90,"arcane_beam",{ng:true}],[80,"insight_flare",{ng:true}],[85,"echo_beam",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:200, rarity:"uncommon",
     desc:"A dreaming flock manifestation. Said to appear to sleeping trainers before a great trial.",

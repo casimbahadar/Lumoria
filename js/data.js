@@ -1739,14 +1739,14 @@ const MONSTERS_DATA = {
 
   // ===== ADDITIONAL WATER =====
   83: { id:83, name:"Reefnip",  emoji:"🦀", types:["Aquatic"],
-    base:{hp:35,atk:40,def:47,spa:26,spd:38,spe:20},
+    base:{hp:48,atk:56,def:65,spa:18,spd:52,spe:36},
     learnset:[[1,"graze",[22,"coral_barrage"]],[1,"aquatic_gun"],[10,"bubble_jet"],[18,"fortify"],[20,"vital_pulse"],[26,"tidal_sweep"],[34,"tidal_rush",[5,"tidecaller"]],[36,"tsunami"],[3,"deepwater_hymn"],[31,"baleful_stare"],[20,"torrent_fang"],[80,"diving_strike",{ng:true}],[85,"claw_hammer",{ng:true}],[80,"torrent_fang",{ng:true}],[80,"icicle_volley",{ng:true}],[90,"voltaic_rush",{ng:true}]],
     evolveTo:84, evolveLevel:20, catchRate:190, expYield:71, rarity:"common",
     desc:"A crab that blows iridescent bubbles. Very territorial near shorelines.",
     lore:"Reefnip is a small crab-like creature only 15 cm across. Its shell is pale blue-green studded with tiny polyps that filter nutrients from the water. It scuttles across coral formations in shallow warm seas, using its patterned shell for camouflage, and hides inside anemones when threatened." },
 
   84: { id:84, name:"Brinecrush",    emoji:"🦞", types:["Aquatic","Earth"],
-    base:{hp:49,atk:66,def:71,spa:38,spd:44,spe:53},
+    base:{hp:60,atk:82,def:88,spa:22,spd:55,spe:58},
     learnset:[[1,"graze"],[2,"aquatic_gun"],[3,"tidecaller"],[23,"tidal_sweep"],[27,"war_dance"],[31,"tidal_rush"],[33,"tsunami"],[34,"stalactite_drop"],[41,"stone_slide"],[48,"crystal_lance"],[55,"tidal_crush"],[62,"crag_strike"],[4,"deepwater_hymn"],[42,"quarry_crush"],[55,"stellar_collapse"],[35,"steam_slam"],[25,"steam_punch"],[90,"diving_strike",{ng:true}],[95,"claw_hammer",{ng:true}],[90,"torrent_fang",{ng:true}],[90,"riptide_slam",{ng:true}]],
     evolveTo:85, evolveLevel:44, evolveMethod:"move", evolveMove:"quarry_crush", catchRate:60, expYield:188, rarity:"uncommon",
     desc:"A massive sea claw with rock-hard shell. Few can match its raw strength.",
@@ -3822,7 +3822,7 @@ const MONSTERS_DATA = {
 
   // 183: Tidalossus - Aquatic/Rock (Coralix→Brinecrush→Tidalossus)
   85: { id:85, name:"Tidalossus", emoji:"🦞", types:["Aquatic","Earth"],
-    base:{hp:72,atk:95,def:99,spa:53,spd:65,spe:49},
+    base:{hp:85,atk:118,def:120,spa:25,spd:72,spe:40},
     learnset:[[1,"graze"],[1,"tidal_rush"],[2,"tidecaller"],[3,"stalactite_drop"],[4,"stone_slide"],[38,"tidal_sweep"],[42,"crag_strike"],[46,"tidal_crush"],[50,"crystal_lance"],[54,"tsunami"],[58,"quarry_crush"],[62,"sea_serpent_strike"],[5,"deepwater_hymn"],[44,"coral_barrage"],[40,"cloud_smash"],[50,"clockwork_press"],[15,"chrono_jab"],[100,"diving_strike",{ng:true}],[105,"claw_hammer",{ng:true}],[90,"tremor_stomp",{ng:true}],[105,"diamond_storm",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
     desc:"A colossus of tide and stone that rules coastal shallows. Its claws can shear cliff faces clean through.",

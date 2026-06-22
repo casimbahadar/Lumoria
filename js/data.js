@@ -3015,21 +3015,21 @@ const MONSTERS_DATA = {
 
   // 3-stage Normal chain: Downyfawn → Cuddrix → Majesticore (lv24, lv44)
   34: { id:34, name:"Downyfawn", emoji:"🦌", types:["Fairy"],
-    base:{hp:32,atk:35,def:32,spa:29,spd:31,spe:41},
+    base:{hp:50,atk:43,def:43,spa:43,spd:43,spe:48},
     learnset:[[1,"collide"],[1,"fairy_wind"],[5,"beguile"],[10,"prism_flare"],[15,"charm_pulse"],[20,"bewitching_kiss"],[25,"healing_circle"],[30,"wish_spark"],[40,"lunar_burst"],[50,"radiance_cannon"],[12,"tailwind_strike"],[20,"sulfuric_spray"],[70,"enchanted_edge",{ng:true}],[80,"roughhouse",{ng:true}],[80,"enchanted_smash",{ng:true}],[75,"fairy_jab",{ng:true}]],
     evolveTo:35, evolveLevel:24, evolveMethod:"friendship", catchRate:185, expYield:65, rarity:"common",
     desc:"A tiny fluffy kirin-fawn so densely furred that its body looks like a creamy puffball. Its hooves are barely visible beneath its fluff.",
     lore:"Downyfawn is a small kirin-fawn 15 centimetres tall, so densely covered in cream-white fluff that its body looks like a perfectly round puffball — only its tiny hooves and gentle dark eyes peek out. Beneath the fluff are the proportions of a slender deer-fawn, and small antler-buds are already raising the fluff at the crown of its head. A faint warm fairy-glow emanates from within its fluff and intensifies when it is content, casting soft golden light on whoever holds it. It grooms itself constantly, and shed fluff accumulates into soft nest-like mounds where it has rested." },
 
   35: { id:35, name:"Cuddrix", emoji:"🦌", types:["Fairy"],
-    base:{hp:54,atk:56,def:50,spa:43,spd:47,spe:54},
+    base:{hp:72,atk:62,def:62,spa:62,spd:62,spe:70},
     learnset:[[1,"crushing_bulk"],[1,"fairy_wind"],[10,"charm_pulse"],[15,"healing_circle"],[18,"prism_flare"],[23,"disarming_voice"],[28,"bewitching_kiss"],[33,"sprite_lock"],[38,"lunar_burst"],[48,"glitter_storm"],[58,"radiance_cannon"],[12,"trample"],[40,"timewarp_blow"],[30,"timefade_strike"],[70,"enchanted_edge",{ng:true}],[80,"roughhouse",{ng:true}],[80,"enchanted_smash",{ng:true}],[75,"fairy_jab",{ng:true}]],
     evolveTo:36, evolveLevel:44, catchRate:90, expYield:140, rarity:"uncommon",
     desc:"An adolescent kirin-calf with soft pale-brown fur and developing antler-buds. Its mere presence measurably calms larger creatures.",
     lore:"Cuddrix is an adolescent kirin-calf 35 centimetres at the shoulder — Downyfawn's cream-white kit-fluff has shed to reveal a soft pale-brown undercoat, and its large gentle dark eyes are unchanged; small antler-buds tipped in pale gold are visible at its crown, growing larger with each passing season and already beginning to glow with a soft auspicious fairy-light. It is intensely affectionate and uses gentle physical contact — nuzzles, brief leans against another creature's flank — to communicate. Its presence measurably reduces stress hormone levels in larger creatures, an effect researchers attribute to the calming fairy-aura that emanates softly from its golden antler-glow." },
 
   36: { id:36, name:"Majesticore", emoji:"🌟", types:["Draconic","Fairy"],
-    base:{hp:74,atk:73,def:64,spa:73,spd:73,spe:55},
+    base:{hp:95,atk:80,def:80,spa:80,spd:80,spe:90},
     learnset:[[1,"heavy_slam"],[1,"draconic_breath"],[20,"sprite_lock"],[26,"roughhouse"],[30,"fairy_wind"],[34,"radiant_burst"],[38,"draconic_claw"],[42,"fairy_blast"],[46,"lunar_burst"],[54,"draconic_pulse"],[62,"radiance_cannon"],[70,"rampage"],[22,"amplified_jab"],[15,"aether_jab"],[40,"aeon_smash"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:265, rarity:"rare",
     desc:"A regal dragon-kirin 1.2 metres at the shoulder. Its antlers wreathed in dragonfire-light, fine scales mixed with its fur, and its passage calls down gentle rain.",

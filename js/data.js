@@ -1839,14 +1839,14 @@ const MONSTERS_DATA = {
     lore:"Galvanos is a horse-like creature 1.2 metres at the shoulder — Joltan's yellow pony-foal coat has grown into a sleek golden-yellow hide crisscrossed by electric-blue markings. Its flowing mane crackles with constant static. It can sustain a gallop at extraordinary speed for hours by converting its own electrical energy into kinetic force." },
 
   42: { id:42, name:"Electrix",      emoji:"🐛", types:["Electric","Aquatic"],
-    base:{hp:24,atk:34,def:31,spa:36,spd:31,spe:68},
+    base:{hp:28,atk:39,def:36,spa:42,spd:36,spe:79},
     learnset:[[1,"mandible_bite",[22,"arc_flash"]],[1,"jolt"],[3,"static_cage"],[7,"aquatic_gun"],[10,"static_strike"],[12,"shock_net"],[15,"wave_dash"],[18,"silk_spray"],[20,"second_wind"],[24,"shock_pulse"],[26,"volt_jet"],[28,"bubble_jet"],[30,"repulsion_field"],[31,"cocoon_burst"],[34,"resonance_hum",[5,"stun_pulse"]],[36,"shear_strike"],[10,"flood_tide"],[30,"ampere_rail"]],
     evolveTo:43, evolveLevel:22, catchRate:200, expYield:74, rarity:"common",
     desc:"An electric dragonfly nymph that crawls stream beds, sparking from its wing-buds when threatened. Very energetic.",
     lore:"Electrix is a small dragonfly nymph 8 cm long, the aquatic juvenile stage of the lineage. Its body is segmented and dark with metallic gold-edged plates, and small gilled abdomen-tufts trail behind it as it crawls along stream beds. It already generates faint electrical sparks from its rudimentary wing-buds when threatened. It hunts smaller aquatic insects with its hooked predatory mandibles, and lives in colonies in slow-moving water near decaying wood, where it processes organic material into bioelectric energy." },
 
   43: { id:43, name:"Shockharpe",  emoji:"🪰", types:["Electric","Nature"],
-    base:{hp:57,atk:48,def:37,spa:76,spd:47,spe:71},
+    base:{hp:63,atk:53,def:41,spa:83,spd:52,spe:78},
     learnset:[[1,"jolt"],[2,"mandible_bite"],[3,"stun_pulse"],[4,"static_cage"],[15,"shock_net"],[23,"volt_jet"],[29,"lashing_tail"],[31,"resonance_hum"],[33,"shear_strike"],[36,"graze"],[42,"mandible_crush"],[43,"silk_bind"],[50,"swarm_dive"],[57,"volt_surge"],[64,"stormbolt"],[45,"cosmic_nightmare"],[25,"cosmic_dust"],[25,"cosmic_beam"],[95,"swarm_assault",{ng:true}],[90,"pollen_storm",{ng:true}],[80,"sonic_buzz",{ng:true}],[80,"root_drain",{ng:true}]],
     evolveTo:44, evolveLevel:42, evolveMethod:"battles", evolveBattles:20, catchRate:75, expYield:180, rarity:"uncommon",
     desc:"A dragonfly of electricity. Moves so fast it leaves lightning trails behind.",
@@ -3918,7 +3918,7 @@ const MONSTERS_DATA = {
 
   // 195: Zapoveth - Electric/Bug (Electrix→Voltharpe→Zapoveth)
   44: { id:44, name:"Galvaglide", emoji:"🪰", types:["Electric","Nature"],
-    base:{hp:66,atk:70,def:54,spa:103,spd:66,spe:75},
+    base:{hp:73,atk:77,def:60,spa:114,spd:73,spe:83},
     learnset:[[1,"jolt"],[1,"resonance_hum"],[2,"volt_jet"],[3,"shear_strike"],[4,"stun_pulse"],[5,"static_cage"],[10,"chain_spark"],[20,"repulsion_field"],[30,"shock_net"],[38,"stormbolt"],[42,"volt_surge"],[44,"silk_bind"],[46,"swarm_dive"],[50,"plasma_strike"],[54,"mandible_crush"],[58,"ion_cannon"],[62,"stinger_lance"],[20,"misty_terrain"],[20,"mist_veil"],[20,"mirror_polish"],[90,"rising_voltage",{ng:true}],[90,"photon_leaf",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
     desc:"A dragonfly of pure lightning. Its body discharges with every wingbeat; to be caught in its swarm is to stand in a thunderstorm.",

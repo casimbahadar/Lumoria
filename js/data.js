@@ -3270,7 +3270,7 @@ const MONSTERS_DATA = {
 
   // ===== FIRE/GROUND =====
   91: { id:91, name:"Magmaurin", emoji:"🦏", types:["Fire","Earth"],
-    base:{hp:41,atk:42,def:35,spa:30,spd:26,spe:29},
+    base:{hp:58,atk:60,def:50,spa:25,spd:35,spe:52},
     learnset:[[1,"flicker",[22,"magma_surge"]],[1,"graze"],[9,"mud_spray"],[17,"flame_fang"],[20,"baleful_stare"],[25,"tectonic_shift"],[33,"inferno_jet",[5,"scorch_veil"]],[36,"cinderwhirl"],[3,"embercloak"],[31,"wildfire_surge"],[38,"sandstrike"],[50,"celestial_forge"],[30,"boiling_strike"],[40,"beryl_press"],[70,"inferno_charge",{ng:true}]],
     evolveTo:92, evolveLevel:26, evolveMethod:"held", evolveItem:"metalCoat", catchRate:150, expYield:92, rarity:"common",
     desc:"A fire-rhino calf, its hide half-plated in cooling lava and a molten horn-nub on its snout.",
@@ -3429,7 +3429,7 @@ const MONSTERS_DATA = {
     lore:"Steelvex is a larger dark-steel bat 1.2 metres long — Aeronyx's gunmetal-grey alloy wings have broadened into the metallic shields that now catch and reflect light strangely, and the blue-tinted plating of its juvenile form has darkened to a chrome-black body. It has the habit of dismantling mechanical objects it finds — gears, clockwork, small machines — studying each component before reassembling them incorrectly." },
 
   92: { id:92, name:"Ignirhino", emoji:"🦏", types:["Fire","Earth"],
-    base:{hp:60,atk:74,def:47,spa:43,spd:38,spe:40},
+    base:{hp:78,atk:85,def:72,spa:30,spd:50,spe:80},
     learnset:[[1,"flame_fang"],[2,"mud_spray"],[3,"tectonic_shift"],[4,"scorch_veil"],[5,"embercloak"],[8,"firebrand"],[12,"scorch_kick"],[16,"molten_claw"],[20,"flame_spiral"],[24,"inferno_chop"],[30,"inferno_jet"],[31,"battle_cry"],[36,"ashfall"],[40,"scorched_earth"],[41,"geoblast"],[46,"fissure_slam"],[51,"conflagration"],[56,"pyroclasm"],[61,"tectonic_slam"],[15,"dark_shroud"],[15,"crystal_veil"],[15,"cryogenic_field"],[90,"ignition_kick",{ng:true}],[90,"flare_uppercut",{ng:true}],[90,"coal_smash",{ng:true}],[90,"underground_crush",{ng:true}],[85,"flame_charge",{ng:true}],[80,"pyre_strike",{ng:true}]],
     evolveTo:93, evolveLevel:44, evolveMethod:"location", evolveLocation:"volcano_core", catchRate:45, expYield:218, rarity:"uncommon",
     desc:"An adolescent magma-rhino whose horn has hardened into a heat-radiating spike. It charges with surprising speed.",
@@ -3806,7 +3806,7 @@ const MONSTERS_DATA = {
 
   // 21: Terravore - Fire/Earth (Magmaurin→Ignirhino→Terravore)
   93: { id:93, name:"Terravore", emoji:"🦏", types:["Fire","Earth"],
-    base:{hp:76,atk:102,def:67,spa:60,spd:56,spe:56},
+    base:{hp:100,atk:110,def:95,spa:35,spd:65,spe:105},
     learnset:[[1,"flame_fang"],[1,"tectonic_shift"],[2,"magma_surge"],[3,"scorched_earth"],[4,"scorch_veil"],[5,"embercloak"],[12,"ember_focus"],[20,"inferno_charge"],[38,"inferno_jet"],[42,"geoblast"],[44,"blazing_rush"],[46,"pyroclasm"],[48,"scorched_sand"],[50,"ashfall"],[54,"conflagration"],[58,"sand_geyser"],[62,"solar_flare"],[20,"serpent_coil"],[20,"sapphire_charge"],[20,"reverie_focus"],[100,"ignition_kick",{ng:true}],[100,"flare_uppercut",{ng:true}],[105,"scorch_kick",{ng:true}],[100,"coal_smash",{ng:true}],[95,"molten_claw",{ng:true}],[95,"inferno_chop",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:260, rarity:"rare",
     desc:"A massive magma-rhino whose charge shatters bedrock. Its great horn glows white-hot before it strikes.",

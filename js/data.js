@@ -1903,14 +1903,14 @@ const MONSTERS_DATA = {
     lore:"Toxivenoth is a large scorpion 70 cm long — Aridix's pale sandstone-coloured exoskeleton has darkened to dark teal-green mottled with warning-yellow patches. Its stinger delivers a complex venom that causes progressive numbness. It inhabits poison-laced desert ravines and is territorial, using its stinger to mark the boundaries of its hunting range in the ground." },
 
   50: { id:50, name:"Limoux",     emoji:"🐊", types:["Earth","Aquatic"],
-    base:{hp:44,atk:38,def:38,spa:31,spd:33,spe:27},
+    base:{hp:55,atk:50,def:48,spa:26,spd:39,spe:32},
     learnset:[[1,"graze",[22,"sandstrike"]],[1,"mud_spray"],[10,"aquatic_gun"],[18,"bubble_jet"],[20,"lashing_tail"],[26,"tectonic_shift"],[34,"tidal_rush",[5,"dust_veil"]],[36,"whirlpool_dive"],[3,"clay_armor"],[31,"sea_serpent_strike"],[30,"beast_charge"],[20,"banshee_lash"],[40,"arc_strike"]],
     evolveTo:51, evolveLevel:22, catchRate:140, expYield:88, rarity:"common",
     desc:"A mud-crawling amphibian. Slides through swamps with ease.",
     lore:"Limoux is a compact crocodile-like creature 80 cm long with muddy olive-green hide and a wide flat head. Its underbelly is pale cream. It half-buries itself in shallow murky water with only its nostrils and eyes visible above the surface, waiting motionless for hours until prey ventures within snapping range." },
 
   51: { id:51, name:"Dunoloth",   emoji:"🐊", types:["Earth","Aquatic"],
-    base:{hp:59,atk:61,def:49,spa:58,spd:50,spe:42},
+    base:{hp:74,atk:82,def:64,spa:40,spd:64,spe:56},
     learnset:[[1,"mud_spray"],[2,"aquatic_gun"],[3,"dust_veil"],[23,"tectonic_shift"],[28,"battle_cry"],[31,"tidal_rush"],[34,"frost_current"],[40,"boulder_roll"],[46,"crushing_bulk"],[52,"geoblast"],[58,"tidal_crush"],[64,"tsunami"],[4,"clay_armor"],[42,"tidal_sweep"],[35,"geode_smash"],[35,"gemstone_strike"],[25,"fume_blow"]],
     evolveTo:52, evolveLevel:44, catchRate:45, expYield:205, rarity:"uncommon",
     desc:"A massive silt beast that haunts murky river deltas. Ancient and powerful.",
@@ -3958,7 +3958,7 @@ const MONSTERS_DATA = {
 
   // 200: Geovast - Ground/Aquatic (Limoux→Geoloth→Geovast)
   52: { id:52, name:"Calciderm", emoji:"🐊", types:["Earth","Aquatic"],
-    base:{hp:85,atk:92,def:77,spa:81,spd:65,spe:31},
+    base:{hp:100,atk:120,def:95,spa:45,spd:95,spe:40},
     learnset:[[1,"tectonic_shift"],[1,"tidal_rush"],[2,"geoblast"],[3,"tidal_crush"],[4,"mud_spray"],[38,"tsunami"],[42,"sand_geyser"],[46,"tidal_sweep"],[50,"scorched_earth"],[54,"sea_serpent_strike"],[58,"boulder_roll"],[62,"abyssal_jet"],[5,"clay_armor"],[44,"frost_current"],[20,"mirror_plating"],[20,"miasma_lure"],[20,"lucid_acuity"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:260, rarity:"rare",
     desc:"A delta titan that merges the force of river and rock. River mouths form around it; whole new coastlines appear where it settles.",

@@ -2781,21 +2781,21 @@ const MONSTERS_DATA = {
 
   // 3-stage Aquatic/Ice chain: Tideling → Coralhorn → Torrentox
   56: { id:56, name:"Scolphin", emoji:"🐬", types:["Aquatic"],
-    base:{hp:30,atk:33,def:37,spa:40,spd:35,spe:33},
+    base:{hp:60,atk:55,def:49,spa:22,spd:34,spe:55},
     learnset:[[1,"aquatic_gun"],[1,"flurries"],[12,"bubble_jet"],[22,"cold_beam"],[32,"tidal_rush"],[42,"whiteout"],[52,"tsunami"],[60,"radiance_cannon"],[62,"wave_dash"],[50,"torrent_shell"],[30,"steam_geyser"],[10,"monsoon"],[12,"rain_cascade"],[80,"chain_spark",{ng:true}]],
     evolveTo:57, evolveLevel:26, catchRate:170, expYield:74, rarity:"common",
     desc:"A dolphin-like creature of ice-blue water. Schools in cold coastal seas and leaps in synchronised arcing patterns.",
     lore:"Scolphin is a water creature 30 cm long resembling a small dolphin made of ice-blue water. Its body is semi-solid — more ice than liquid in cold conditions and more liquid in warmth. It schools in large groups in cold coastal waters and leaps collectively in synchronised arcing patterns. Younger Scolphin's body is roughly 60% liquid water and 40% ice, but the ratio reverses with age toward the dense solid form their narwhal and orca-calf adult stages adopt. Their tail-half is consistently denser and colder than their head-half — the body already pre-shaped along the axis Torrentox's armoured-dorsal will eventually establish — and their school-communication chirps narrow with each year into the directional precision-hunting echolocation Torrentox uses to map prey through frozen water." },
 
   57: { id:57, name:"Narwhirl", emoji:"🦄", types:["Aquatic","Ice"],
-    base:{hp:48,atk:54,def:59,spa:60,spd:52,spe:44},
+    base:{hp:82,atk:82,def:80,spa:40,spd:52,spe:44},
     learnset:[[1,"cold_beam"],[1,"tidal_rush"],[20,"whiteout"],[28,"tidal_sweep"],[36,"cryo_lance"],[44,"tsunami"],[52,"frost_crash"],[60,"radiance_cannon"],[62,"abyssal_jet"],[15,"dragon_focus"],[15,"dragon_calm"],[15,"doze_calm"]],
     evolveTo:58, evolveLevel:44, catchRate:80, expYield:155, rarity:"uncommon",
     desc:"A horned sea creature made partly of frozen coral. Its horns channel water and ice attacks with precision.",
     lore:"Narwhirl is a water-ice creature 60 cm long — Scolphin's ice-blue dolphin form has solidified to a denser blue-grey narwhal frame and grown a single spiralling ice horn 20 cm long from its forehead, the schooling instinct dropping away in favour of solitary reef-territory. It inhabits cold-water reefs where its horn can chip algae from rock surfaces. The horn breaks and regrows seasonally, and shed horns are used by seabirds as nesting material." },
 
   58: { id:58, name:"Torrentox", emoji:"🐋", types:["Aquatic","Ice"],
-    base:{hp:69,atk:66,def:72,spa:92,spd:76,spe:49},
+    base:{hp:108,atk:108,def:102,spa:42,spd:75,spe:65},
     learnset:[[1,"tsunami"],[1,"whiteout"],[30,"tidal_sweep"],[38,"cryo_lance"],[46,"frost_crash"],[54,"tundra_tomb"],[62,"geyser_burst"],[70,"radiance_cannon"],[72,"rain_cascade"],[20,"divine_ward"],[20,"dark_shroud"],[20,"dark_focus"]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
     desc:"An ancient orca-titan of ice. Controls ocean currents and freezes sea lanes solid in winter.",

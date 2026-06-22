@@ -1782,14 +1782,14 @@ const MONSTERS_DATA = {
 
   // ===== ADDITIONAL GRASS =====
   59: { id:59, name:"Sporix",    emoji:"🍄", types:["Nature"],
-    base:{hp:38,atk:37,def:36,spa:42,spd:45,spe:24},
+    base:{hp:45,atk:43,def:42,spa:49,spd:53,spe:28},
     learnset:[[1,"collide"],[1,"vine_lash"],[8,"septic_prick"],[16,"verdant_orb"],[20,"baleful_stare"],[22,"spore_burst"],[24,"ooze_bomb"],[32,"slumber_dust",[5,"thornwall"]],[36,"pod_blast"],[3,"mycelia_net"],[31,"verdant_edge"],[40,"sun_ray"],[10,"moth_dust"],[12,"gem_scatter"]],
     evolveTo:60, evolveLevel:25, catchRate:135, expYield:98, rarity:"common",
     desc:"A mushroom Lumori that releases paralyzing spores when threatened.",
     lore:"Sporix is a small mushroom-topped creature about 20 cm tall with a soft, spongy white body and a broad purple-spotted cap. It releases clouds of glittering green spores when disturbed. It grows in dense clusters in dark, damp forest floors and uses spore clouds to communicate danger between neighbouring clusters." },
 
   60: { id:60, name:"Myceloth",   emoji:"🍄", types:["Nature"],
-    base:{hp:51,atk:57,def:56,spa:61,spd:48,spe:45},
+    base:{hp:64,atk:70,def:63,spa:69,spd:54,spe:40},
     learnset:[[1,"verdant_orb"],[2,"ooze_bomb"],[29,"slumber_dust"],[30,"lashing_tail"],[33,"pod_blast"],[35,"toxify"],[40,"graze"],[45,"sharp_leaves"],[50,"virulent_surge"],[55,"corrosion_fang"],[60,"petal_blitz"],[65,"verdant_surge"],[3,"spore_burst"],[42,"canopy_crash"],[45,"jungle_hammer"],[35,"sky_harvest"],[25,"lumen_pulse"],[10,"brood_tide"],[45,"sun_ray"],[25,"sporecloud_burst"],[110,"boulder_wrecker",{ng:true}]],
     evolveTo:61, evolveLevel:42, catchRate:45, expYield:317, rarity:"uncommon",
     desc:"A spore king that commands an army of fungal creatures. Reeks of poison.",
@@ -3862,7 +3862,7 @@ const MONSTERS_DATA = {
 
   // 188: Plaguecap - Grass/Poison (Sporix→Myceloth→Plaguecap)
   61: { id:61, name:"Plaguecap", emoji:"🍄", types:["Nature","Poison"],
-    base:{hp:75,atk:83,def:79,spa:82,spd:67,spe:34},
+    base:{hp:81,atk:89,def:86,spa:89,spd:73,spe:45},
     learnset:[[1,"verdant_orb"],[1,"ooze_bomb"],[2,"spore_burst"],[3,"toxify"],[4,"slumber_dust"],[38,"petal_blitz"],[42,"venom_lance"],[46,"verdant_surge"],[50,"sludge_wave"],[54,"virulent_surge"],[58,"canopy_crash"],[62,"acid_rain"],[5,"mycelia_net"],[44,"corrosion_fang"],[20,"pox_mark"],[20,"polar_swift"],[20,"poison_resolve"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A fungal colossus whose spores drift on the wind for hundreds of miles, corrupting forests in days. It is the rot at the heart of every plagued wood.",

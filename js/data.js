@@ -3838,7 +3838,7 @@ const MONSTERS_DATA = {
 
   // 185: Nepturix - Aquatic (Corelin→Coralisk→Nepturix)
   47: { id:47, name:"Nepturix", emoji:"🐟", types:["Aquatic"],
-    base:{hp:80,atk:63,def:68,spa:119,spd:74,spe:81},
+    base:{hp:80,atk:63,def:60,spa:119,spd:74,spe:89},
     learnset:[[1,"aquatic_gun"],[1,"tidal_rush"],[2,"bubble_jet"],[3,"tidecaller"],[4,"whirlpool_dive"],[5,"deepwater_hymn"],[10,"aquatic_pulse"],[20,"maelstrom"],[30,"flood_tide"],[38,"tsunami"],[42,"tidal_crush"],[44,"frost_current"],[46,"sea_serpent_strike"],[50,"coral_barrage"],[54,"abyssal_jet"],[58,"ocean_tempest"],[62,"prism_flare"],[20,"atavistic_focus"],[20,"astral_resolve"],[20,"astral_focus"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
     desc:"A leviathan of the reef that commands all ocean life with a single glance. Its scales scatter light like a shattered prism.",

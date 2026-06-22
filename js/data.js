@@ -3294,7 +3294,7 @@ const MONSTERS_DATA = {
 
   // ===== WATER/POISON =====
   88: { id:88, name:"Toxaquil", emoji:"🐙", types:["Aquatic","Poison"],
-    base:{hp:33,atk:32,def:35,spa:35,spd:33,spe:32},
+    base:{hp:45,atk:44,def:49,spa:48,spd:45,spe:44},
     learnset:[[1,"aquatic_gun",[22,"putrid_pulse"]],[1,"septic_prick"],[10,"bubble_jet"],[18,"ooze_bomb"],[20,"second_wind"],[26,"tidal_rush"],[34,"toxify",[5,"tidecaller"]],[36,"corrosion_fang"],[3,"deepwater_hymn"],[31,"sludge_wave"],[10,"overcharge_coil"],[10,"noxious_focus"],[10,"nocturne_charge"]],
     evolveTo:89, evolveLevel:28, catchRate:130, expYield:90, rarity:"common",
     desc:"A polypoid sea creature that releases clouds of inky venom to escape predators.",
@@ -3450,7 +3450,7 @@ const MONSTERS_DATA = {
     lore:"Dravanas is a great desert hyena 1.2 metres at the shoulder — Sandpup's sandy pup-fur has darkened to tawny earth-tones and the small dorsal ridge of the pup has thickened into a heavy shoulder-and-back crest-mane of compressed soil and pebbles, a natural feature exaggerated in this lineage into a true earth-mantle. Its paws leave deep prints. It digs vast underground lair systems that can span a hectare, and its low whooping cackle causes nearby loose soil to tremor in concentric rings." },
 
   89: { id:89, name:"Noxaquith", emoji:"🦑", types:["Aquatic","Poison"],
-    base:{hp:50,atk:52,def:50,spa:70,spd:54,spe:35},
+    base:{hp:63,atk:65,def:63,spa:87,spd:68,spe:44},
     learnset:[[1,"ooze_bomb"],[2,"tidal_rush"],[3,"tidecaller"],[31,"toxify"],[33,"corrosion_fang"],[34,"daunt"],[38,"collide"],[43,"blight_mist"],[48,"virulent_surge"],[53,"void_pulse"],[58,"sludge_wave"],[63,"tsunami"],[4,"deepwater_hymn"],[41,"venom_lance"],[35,"nimbus_eruption"],[35,"nightmare_storm"],[25,"necrotic_pulse"]],
     evolveTo:90, evolveLevel:44, catchRate:45, expYield:318, rarity:"uncommon",
     desc:"A venomous sea predator with eight toxic-tipped tentacles. Feared by all ocean life.",
@@ -3846,7 +3846,7 @@ const MONSTERS_DATA = {
 
   // 186: Noxarith - Aquatic/Poison (Toxaquil→Noxaquith→Noxarith)
   90: { id:90, name:"Septanemone", emoji:"🦑", types:["Aquatic","Poison"],
-    base:{hp:71,atk:75,def:67,spa:97,spd:75,spe:37},
+    base:{hp:84,atk:74,def:74,spa:115,spd:89,spe:64},
     learnset:[[1,"ooze_bomb"],[1,"tidal_rush"],[2,"tidecaller"],[3,"toxify"],[4,"corrosion_fang"],[38,"venom_lance"],[42,"sludge_wave"],[46,"tsunami"],[50,"acid_rain"],[54,"virulent_surge"],[58,"putrid_pulse"],[62,"stinger_lance"],[5,"deepwater_hymn"],[44,"miasma_cloud"],[20,"resonance_field"],[20,"repulsion_field"],[20,"recovery_stance"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A massive bloomed cephalopod that drifts through poison-clouded waters. Its venom-tipped tentacles unfurl like the petals of a deep-sea anemone.",

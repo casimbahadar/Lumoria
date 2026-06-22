@@ -1946,14 +1946,14 @@ const MONSTERS_DATA = {
     lore:"Swirlavel is a compact eagle 50 cm long — Aeolin's white-silver feathers have weathered to a grey-brown pattern and its long forked tail has shortened and stiffened into a powerful rudder, with a distinctive double-spiral crest now topping its head. It creates miniature localised whirlwinds with each wingbeat that allow it to hover effortlessly in place. It hunts by dropping into these personal tornadoes and striking prey below." },
 
   22: { id:22, name:"Nimbusel",   emoji:"☁️", types:["Wind","Fairy"],
-    base:{hp:33,atk:20,def:20,spa:47,spd:44,spe:41},
+    base:{hp:40,atk:24,def:24,spa:58,spd:54,spe:50},
     learnset:[[1,"collide",[22,"mistveil"]],[1,"breeze"],[3,"vortex_trap"],[9,"fairy_wind"],[12,"breeze_blade"],[15,"squall"],[17,"bewitching_kiss"],[20,"lashing_tail"],[24,"breeze_blast"],[25,"wind_scythe"],[31,"storm_surge"],[33,"lunar_burst",[5,"zephyr_dance"]],[36,"prism_flare"],[20,"cortex_spike"],[30,"corrosive_fog"],[20,"copper_shock"],[85,"moonlit_surge",{ng:true}],[80,"glimmering_song",{ng:true}],[80,"faewind",{ng:true}],[70,"temporal_wave",{ng:true}],[75,"air_resonance",{ng:true}],[75,"sparkle_shot",{ng:true}],[75,"charm_pulse",{ng:true}]],
     evolveTo:23, evolveLevel:25, catchRate:150, expYield:80, rarity:"common",
     desc:"A fluffy cloud puffball. It floats serenely but fights with surprising force.",
     lore:"Nimbusel is a wisp-like cloud fairy creature about 30 cm tall that resembles a small humanoid formed from condensed cloud matter with gossamer wings. Its body constantly sheds small snowflake-like crystals. It drifts through mountain mist at high elevation, rarely descending, and is considered a blessing when sighted." },
 
   23: { id:23, name:"Aetherworn",  emoji:"👻", types:["Wind","Dark"],
-    base:{hp:50,atk:37,def:40,spa:66,spd:53,spe:59},
+    base:{hp:61,atk:45,def:49,spa:79,spd:64,spe:72},
     learnset:[[1,"breeze"],[2,"wind_scythe"],[3,"collide"],[4,"mistveil"],[30,"daunt"],[35,"shadowstep"],[40,"dusk_slash"],[45,"void_pulse"],[50,"nether_sphere"],[55,"cyclone_blade"],[60,"nightmare_pulse"],[65,"typhoon"],[5,"zephyr_dance"],[42,"storm_surge"],[10,"chrono_pulse"],[25,"burning_mist"],[25,"boil"],[95,"dark_corrosion",{ng:true}],[95,"wicked_torrent",{ng:true}],[90,"slicing_gale",{ng:true}],[90,"tempest_wave",{ng:true}],[85,"umbral_pulse",{ng:true}],[80,"suction_wave",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:60, expYield:195, rarity:"uncommon",
     desc:"A tattered cloud-fairy whose body has frayed into shifting smoke and ragged tatters. Its passage chills the air noticeably even on warm days.",

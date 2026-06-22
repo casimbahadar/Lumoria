@@ -3302,7 +3302,7 @@ const MONSTERS_DATA = {
 
   // ===== WATER/STEEL =====
   48: { id:48, name:"Coralossus", emoji:"🪸", types:["Aquatic","Metal"],
-    base:{hp:37,atk:35,def:48,spa:30,spd:37,spe:13},
+    base:{hp:65,atk:52,def:82,spa:35,spd:58,spe:18},
     learnset:[[1,"aquatic_gun",[25,"ironskin"]],[1,"chrome_claw"],[11,"fortify"],[16,"war_dance"],[19,"tidal_sweep"],[27,"forge_blast_2"],[29,"rivet_barrage"],[35,"tidal_rush"],[40,"tidal_crush"],[43,"alloy_tail",[5,"tidecaller"]],[3,"deepwater_hymn"],[33,"smelt_crush"],[25,"era_punch"],[35,"era_crush"],[25,"epoch_strike"]],
     evolveTo:49, evolveLevel:null, evolveMethod:"item", evolveItem:"steelCoating", catchRate:55, expYield:188, rarity:"uncommon",
     desc:"A golem formed from centuries of compressed coral and sunken steel. Nearly indestructible.",
@@ -3772,7 +3772,7 @@ const MONSTERS_DATA = {
     lore:"Necrothon is a massive dark-grass tree creature 3 metres tall — Necralia's charcoal thorned-bush branches have hardened into a twisted trunk-body of dead black wood, and the burgundy-black serrated leaves have darkened to a crown of withered crimson leaves that never fall. It stands motionless for months at a time, then relocates at night. The forest it inhabits gradually darkens and other plants around it wither." },
 
   49: { id:49, name:"Titanariel", emoji:"🗿", types:["Aquatic","Metal"],
-    base:{hp:53,atk:51,def:75,spa:45,spd:59,spe:19},
+    base:{hp:110,atk:75,def:130,spa:50,spd:100,spe:20},
     learnset:[[1,"graze"],[1,"aquatic_gun"],[2,"tidal_sweep"],[3,"forge_blast_2"],[4,"fortify"],[45,"tsunami"],[49,"alloy_tail"],[53,"tidal_crush"],[57,"magnetize"],[61,"sea_serpent_strike"],[65,"forge_strike"],[69,"anvil_drop"],[5,"tidecaller"],[50,"war_dance"],[30,"silent_strike"],[15,"shard_volley"],[22,"shard_strike"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:275, rarity:"rare",
     desc:"A 7-metre armored sea-titan whose massive coral-plated arms can capsize a galleon. Walks the deep-ocean floor in absolute silence.",

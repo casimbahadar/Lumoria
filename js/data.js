@@ -2039,14 +2039,14 @@ const MONSTERS_DATA = {
     lore:"Caveshroud is a large dark-wind bat with a 1.5-metre wingspan — Spiraloom's narrow grey-black wings have broadened to leathery dark purple-black and its echolocating nose-leaf has flattened against deeper charcoal-grey fur. When it passes, shadows move in directions contrary to light sources. It roosts alone in sea caves and hunts by riding cold offshore winds far out to sea." },
 
   67: { id:67, name:"Nocturil", emoji:"🦎", types:["Dark","Poison"],
-    base:{hp:35,atk:41,def:34,spa:41,spd:33,spe:43},
+    base:{hp:45,atk:65,def:40,spa:25,spd:35,spe:60},
     learnset:[[1,"graze",[22,"obsidian_fang"]],[1,"chomp"],[10,"septic_prick"],[18,"dusk_slash"],[26,"ooze_bomb"],[34,"jaw_crush"],[42,"void_pulse"],[50,"toxify",[5,"eclipse_shroud"]],[3,"dread_howl"],[36,"blackout_bomb"],[10,"quicksand_trap"],[10,"poison_resolve"],[10,"phobia_aura"]],
     evolveTo:68, evolveLevel:32, catchRate:90, expYield:98, rarity:"common",
     desc:"A dark lizard with venomous bite. Camouflages perfectly in shadows.",
     lore:"Nocturil is a lean dark-green lizard 60 cm long with rough scales and a venomous forked tongue. A dark stripe runs from eye to tail. It inhabits rock crevices in shadowed ravines and is almost impossible to spot when motionless. Its venom causes mild hallucinations that disorient predators long enough to allow escape. Hold a Nocturil still and watch closely: its four limbs press flat against its sides until they nearly disappear into the body, a preview written into the muscle memory of the legless serpent silhouette Phantorvex commits to fully." },
 
   68: { id:68, name:"Phantorvex", emoji:"🐍", types:["Dark","Poison"],
-    base:{hp:53,atk:65,def:50,spa:62,spd:51,spe:56},
+    base:{hp:62,atk:90,def:55,spa:33,spd:50,spe:80},
     learnset:[[1,"chomp"],[2,"eclipse_shroud"],[3,"septic_prick"],[4,"obsidian_fang"],[5,"ooze_bomb"],[32,"jaw_crush"],[39,"void_pulse"],[40,"fortify"],[47,"toxify"],[48,"dread_howl"],[56,"virulent_surge"],[64,"void_rend"],[6,"dark_shroud"],[42,"blackout_bomb"],[15,"sylvan_song"],[15,"sylph_focus"],[15,"swift_form"]],
     evolveTo:69, evolveLevel:44, evolveMethod:"location", evolveLocation:"haunted_grove", catchRate:35, expYield:218, rarity:"uncommon",
     desc:"A phantom serpent of darkness and venom. Said to haunt ancient ruins.",
@@ -4006,7 +4006,7 @@ const MONSTERS_DATA = {
 
   // 206: Phantomvast - Dark/Poison (Nocturil→Phantorvex→Phantomvast)
   69: { id:69, name:"Venotitan", emoji:"🐍", types:["Dark","Poison"],
-    base:{hp:76,atk:99,def:72,spa:92,spd:71,spe:44},
+    base:{hp:80,atk:120,def:75,spa:40,spd:65,spe:90},
     learnset:[[1,"chomp"],[1,"venom_lance"],[2,"void_pulse"],[3,"sludge_wave"],[4,"eclipse_shroud"],[38,"void_rend"],[42,"acid_rain"],[46,"nether_sphere"],[50,"soul_rend"],[54,"toxic_surge"],[58,"corrosion_fang"],[62,"dread_howl"],[5,"shadowstep"],[44,"tenebrous_snare"],[20,"gem_resonance"],[20,"gem_focus"],[20,"fright_resolve"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"A venom phantom of ancient ruin sites. It haunts deep in shadow, and those bitten by it suffer visions of oblivion they never escape.",

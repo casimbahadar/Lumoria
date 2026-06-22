@@ -1810,14 +1810,14 @@ const MONSTERS_DATA = {
     lore:"Loamvin is a substantial forest snail roughly 1 metre across at the shell's widest curl, with a body 1.2 metres long when fully extended — Viridix's small lime-green leaf-patterned shell has grown massive and so heavily overgrown with bark plates, mossy patches, and trailing vines that the underlying calcified spiral is barely visible — small ferns even sprout from cracks where the shell meets the body. Two thick sensory eyestalks rise above its head, each ending in a glowing amber-green eye, and its broad muscular foot leaves a wide damp trail through the leaf-litter as it moves. It walks slow circuits between damp forest glades over years, and the small ecosystems carried on its shell shed seeds and spores wherever it goes." },
 
   19: { id:19, name:"Germix",     emoji:"🫘", types:["Nature","Fighting"],
-    base:{hp:27,atk:29,def:35,spa:43,spd:39,spe:37},
+    base:{hp:40,atk:45,def:45,spa:30,spd:37,spe:35},
     learnset:[[1,"collide",[22,"spore_burst"]],[1,"vine_lash"],[10,"verdant_orb"],[16,"baleful_stare"],[18,"slumber_dust"],[26,"pod_blast",[5,"thornwall"]],[29,"body_check"],[39,"canopy_crash"],[30,"reptilian_gust"],[20,"rainbow_burst"],[85,"galaxy_punch_2",{ng:true}],[70,"martial_intent",{ng:true}],[85,"spirit_bomb",{ng:true}],[80,"ki_burst",{ng:true}],[75,"focused_beam",{ng:true}],[75,"ki_blast",{ng:true}]],
     evolveTo:20, evolveLevel:18, catchRate:255, expYield:58, rarity:"common",
     desc:"A living seed-pod that rolls into a headlong tackle. Scrappier than its small size suggests.",
     lore:"Germix is a round, seed-shaped creature about 15 cm tall with two tiny sprout-legs and a small face framed by curling leaf tendrils. It buries itself in rich soil by day to photosynthesise through root-hairs — but it is far scrappier than it looks: cornered, it tucks into a hard pod and rolls into a headlong tackle, or sprouts a sudden tangle of vines to snare and shove attackers back off its patch of ground." },
 
   20: { id:20, name:"Verdurus",    emoji:"🌱", types:["Nature","Fighting"],
-    base:{hp:59,atk:67,def:46,spa:62,spd:48,spe:40},
+    base:{hp:71,atk:80,def:65,spa:40,spd:50,spe:35},
     learnset:[[1,"collide"],[2,"vine_lash"],[3,"baleful_stare"],[4,"verdant_orb"],[5,"slumber_dust"],[23,"pod_blast"],[27,"war_dance"],[36,"canopy_crash"],[37,"body_check"],[45,"briar_lash"],[54,"crushing_bulk"],[63,"petal_blitz"],[6,"spore_burst"],[43,"seismic_force"],[45,"obsidian_strike"],[80,"martial_intent",{ng:true}],[80,"martial_aura",{ng:true}],[90,"shockwave_kick",{ng:true}],[90,"sonic_palm",{ng:true}]],
     evolveTo:21, evolveLevel:40, evolveMethod:"battles", evolveBattles:18, catchRate:75, expYield:186, rarity:"uncommon",
     desc:"A mid-sized walking seed-pod 1.5 metres tall with split-husk limbs it swings like clubs. Guards the trail of new growth it leaves behind.",
@@ -3878,7 +3878,7 @@ const MONSTERS_DATA = {
 
   // 190: Groveguard - Grass (Germix→Verdurus→Groveguard)
   21: { id:21, name:"Groveguard", emoji:"🌳", types:["Nature","Fighting"],
-    base:{hp:86,atk:97,def:70,spa:89,spd:70,spe:23},
+    base:{hp:110,atk:110,def:110,spa:40,spd:75,spe:20},
     learnset:[[1,"collide"],[1,"vine_lash"],[2,"verdant_orb"],[3,"slumber_dust"],[4,"pod_blast"],[5,"spore_burst"],[8,"bark_shield"],[11,"sap_seed"],[14,"root_drain"],[17,"regrow"],[20,"nature_pulse"],[23,"seed_volley"],[26,"blossom_frenzy"],[30,"primordial_growth"],[34,"foliage_tempest"],[38,"petal_blitz"],[42,"war_dance"],[44,"root_lance"],[46,"canopy_crash"],[50,"verdant_surge"],[54,"crushing_bulk"],[56,"brawl"],[58,"briar_lash"],[60,"seismic_force"],[62,"haymaker"],[20,"bulwark"],[20,"boreal_armor"],[20,"boiling_rage"],[100,"sonic_palm",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A colossal walking-garden titan that guards the grove it carries — uprooting trees to swing and crushing threats with its overgrown bulk.",

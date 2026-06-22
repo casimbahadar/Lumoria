@@ -2311,7 +2311,7 @@ const MONSTERS_DATA = {
     lore:"Hoverrow is a small sparrow-like wind bird 15 cm long with pale cream feathers and a round body. It perpetually hovers 30 cm above surfaces rather than perching, even when sleeping. Its feet have atrophied from disuse. It navigates entirely by air current and maintains a mental map of all wind patterns in its territory. Hoverrow's atrophied feet make the rare necessary landings painful and clumsy, yet the bird shows no concern: its body seems to already understand that Continemic spends entire continents aloft without ever needing to perch." },
 
   30: { id:30, name:"Norindel",     emoji:"🐷", types:["Normal"],
-    base:{hp:42,atk:44,def:40,spa:27,spd:28,spe:19},
+    base:{hp:54,atk:56,def:51,spa:34,spd:36,spe:24},
     learnset:[[1,"collide",[22,"momentum_rush"]],[1,"daunt"],[3,"baleful_stare"],[10,"cranial_ram"],[14,"second_wind"],[18,"body_blow"],[20,"crushing_bulk"],[24,"battle_cry"],[26,"relentless_fury"],[30,"war_dance"],[32,"blitz"],[33,"graze"],[36,"last_stand"],[40,"radiance_cannon",[5,"lashing_tail"]],[42,"wild_tumble"],[10,"boiling_rage"],[10,"beast_speed"],[10,"battle_rhythm"],[80,"tornado_grab",{ng:true}],[85,"all_out_assault",{ng:true}],[75,"feral_swipe",{ng:true}],[70,"double_smash",{ng:true}]],
     evolveTo:31, evolveLevel:30, catchRate:170, expYield:80, rarity:"common",
     desc:"A snuffling pig Lumori that loves digging for truffles. Stubborn and cute.",
@@ -3737,7 +3737,7 @@ const MONSTERS_DATA = {
     lore:"Continemic is a large albatross-like wind-normal bird with a 2.5-metre wingspan — Hoverrow's pale cream feathers have whitened to pure white above and pale grey below, and the perpetual-hover habit that atrophied its juvenile feet has matured into the dynamic soaring that lets it cross continents in a day without landing. It can fly continuously for months without landing using dynamic soaring — extracting energy from the boundary between fast and slow wind layers near the ocean surface." },
 
   31: { id:31, name:"Plentorus", emoji:"🐗", types:["Normal"],
-    base:{hp:67,atk:60,def:56,spa:38,spd:44,spe:39},
+    base:{hp:83,atk:75,def:70,spa:48,spd:55,spe:49},
     learnset:[[1,"collide"],[1,"daunt"],[2,"cranial_ram"],[3,"crushing_bulk"],[4,"fortify"],[5,"battle_cry"],[20,"body_blow"],[28,"relentless_fury"],[31,"war_dance"],[35,"wild_tumble"],[39,"second_wind"],[40,"baleful_stare"],[43,"momentum_rush"],[45,"last_stand"],[48,"crushing_bulk"],[53,"instinct_slash"],[58,"radiance_cannon"],[15,"arcane_meditation"],[15,"ancient_meditation"],[15,"ancient_calm"],[90,"tornado_grab",{ng:true}],[95,"all_out_assault",{ng:true}],[85,"feral_swipe",{ng:true}],[80,"double_smash",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:188, rarity:"uncommon",
     desc:"A heavyset wild boar whose back-bristles have hardened into a ridge of quill-like spines. Constantly forages, scattering seeds wherever its winter caches are forgotten.",

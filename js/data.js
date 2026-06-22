@@ -2627,14 +2627,14 @@ const MONSTERS_DATA = {
 
   // 2-stage Ice chain: Iciquill → Glacicore (level 30)
   86: { id:86, name:"Iciquill", emoji:"🧊", types:["Ice"],
-    base:{hp:36,atk:41,def:37,spa:49,spd:39,spe:44},
+    base:{hp:71,atk:62,def:58,spa:28,spd:26,spe:40},
     learnset:[[1,"flurries"],[1,"collide"],[12,"cold_snap"],[22,"cold_beam"],[32,"whiteout"],[42,"cryo_lance"],[52,"frost_crash"],[60,"radiance_cannon"],[20,"lullaby_aura"],[90,"wicked_torrent",{ng:true}]],
     evolveTo:87, evolveLevel:30, evolveMethod:"location", evolveLocation:"frostpeak", catchRate:170, expYield:78, rarity:"common",
     desc:"A porcupine of solid ice. Its quills are natural ice needles that regenerate after use.",
     lore:"Iciquill is a very small ice creature 10 cm tall shaped like an icicle with two tiny arms. Its body is pure transparent ice. It forms spontaneously in sub-zero environments and clusters in large groups on cave ceilings, combining into lattice structures for warmth. Individual ones melt quickly in warm hands." },
 
   87: { id:87, name:"Icevault", emoji:"❄️", types:["Ice","Earth"],
-    base:{hp:62,atk:69,def:75,spa:53,spd:59,spe:32},
+    base:{hp:99,atk:88,def:100,spa:35,spd:40,spe:28},
     learnset:[[1,"cold_beam"],[1,"stone_slide"],[10,"sandstrike"],[24,"whiteout"],[32,"crag_strike"],[38,"primeval_force"],[40,"cryo_lance"],[48,"frost_crash"],[56,"avalanche_drive"],[64,"radiance_cannon"],[15,"jade_lattice"],[15,"iron_will"],[15,"iron_bulwark"],[95,"frostbite_strike",{ng:true}],[80,"icicle_volley",{ng:true}],[80,"blizzard_charge",{ng:true}],[90,"subzero_slash",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:215, rarity:"uncommon",
     desc:"A glacier golem of living ice and stone. So cold that even fire moves slowly near it.",

@@ -2355,14 +2355,14 @@ const MONSTERS_DATA = {
     lore:"Photoworm is a small, worm-like bug creature 8 cm long with a pale green segmented body and a round head with two tiny antennae. It lives entirely underground in loose soil, aerating it as it tunnels. It photosynthesises weakly through thin translucent sections of its skin even below the surface." },
 
   15: { id:15, name:"Chrysalix",  emoji:"🫙", types:["Nature"],
-    base:{hp:46,atk:30,def:58,spa:30,spd:30,spe:30},
+    base:{hp:46,atk:30,def:72,spa:30,spd:50,spe:30},
     learnset:[[1,"chitin_guard"],[3,"vine_lash"],[7,"mantis_slash"],[11,"sharp_leaves"],[14,"cocoon_guard"],[17,"fortify"],[20,"nature_pulse"],[23,"metamorphosis"],[10,"battle_meditation"],[10,"basilisk_might"],[10,"bane_caltrops"]],
     evolveTo:16, evolveLevel:10, catchRate:120, expYield:72, rarity:"common",
     desc:"A shimmering cocoon. Inside, something remarkable is taking shape.",
     lore:"Chrysalix is a pupating bug creature 12 cm long encased in a hard metallic-green chrysalis shell — Photoworm's pale-green segmented body has surfaced from its underground burrow and spun its weak-photosynthesis skin into the hardened metallic-green casing, the body within now completely liquefied in the process of transformation. The chrysalis vibrates at a frequency inaudible to humans but felt by nearby insects as a call to gather and guard the emerging adult." },
 
   16: { id:16, name:"Aeridaleth",emoji:"🦋", types:["Nature","Wind"],
-    base:{hp:54,atk:29,def:39,spa:78,spd:63,spe:70},
+    base:{hp:66,atk:29,def:44,spa:88,spd:68,spe:75},
     learnset:[[14,"baleful_stare"],[18,"silk_spray"],[22,"breeze"],[26,"graze"],[30,"silk_bind"],[34,"sonic_buzz"],[38,"wind_scythe"],[42,"prism_flare"],[46,"shear_strike"],[50,"resonance_hum"],[54,"stinger_lance"],[58,"typhoon"],[3,"chitin_guard"],[39,"cocoon_burst"],[60,"suction_wave"],[30,"psycho_surge"],[40,"prismatic_eruption"],[20,"prism_ray"],[80,"sky_harvest",{ng:true}],[80,"sylvan_radiance",{ng:true}],[70,"lumen_pulse",{ng:true}],[70,"temporal_wave",{ng:true}],[75,"air_resonance",{ng:true}],[75,"infestation",{ng:true}],[75,"venom_drool",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:170, rarity:"uncommon",
     desc:"A glorious butterfly of wind and beauty. Its wing patterns mesmerize foes.",

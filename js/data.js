@@ -3530,14 +3530,14 @@ const MONSTERS_DATA = {
 
   // ===== FIRE/PSYCHIC =====
   70: { id:70, name:"Hallucigaze", emoji:"🔥", types:["Fire","Mental"],
-    base:{hp:26,atk:30,def:27,spa:43,spd:41,spe:51},
+    base:{hp:45,atk:30,def:33,spa:60,spd:42,spe:60},
     learnset:[[1,"flicker",[20,"cinderwhirl"]],[1,"mind_jolt"],[3,"embercloak"],[7,"psy_jab"],[9,"psi_burst"],[13,"cerebral_punch"],[15,"mind_strike"],[17,"inferno_jet"],[21,"second_wind"],[25,"mental"],[31,"conflagration"],[33,"pyroclasm",[5,"scorch_veil"]],[36,"magma_surge"],[10,"warrior_block"],[10,"veil_shroud"],[10,"updraft"],[80,"sun_burst",{ng:true}]],
     evolveTo:71, evolveLevel:28, catchRate:150, expYield:88, rarity:"common",
     desc:"A psychic flame sprite. Its fire burns hotter when it concentrates its mind.",
     lore:"Hallucigaze is a lightly built snake-headed lizard about 1 metre long with bright amber scales marked by psychic-violet patterns along the flanks. Its eyes glow purple when focusing energy. It preys on animals much larger than itself by implanting sensory illusions that disorient them before striking. The illusions a Hallucigaze projects to disorient prey occasionally turn back on the projector itself, showing the creature walking upright on heavy hindlegs with a great mane of fire. It treats these visions with reverence: half-prophecy, half-memory of Ignitheon." },
 
   71: { id:71, name:"Pyraxis", emoji:"🦎", types:["Fire","Mental"],
-    base:{hp:46,atk:43,def:46,spa:69,spd:54,spe:66},
+    base:{hp:65,atk:40,def:50,spa:95,spd:60,spe:75},
     learnset:[[1,"inferno_jet"],[2,"mental"],[3,"scorch_veil"],[4,"embercloak"],[15,"mind_strike"],[20,"brain_blast"],[25,"telekinetic_throw"],[30,"pyroclasm"],[32,"battle_cry"],[36,"inner_calm"],[38,"thought_crush"],[40,"dreamweave"],[44,"searing_gale"],[48,"psi_strike"],[52,"synaptic_shatter"],[56,"conflagration"],[60,"solar_flare"],[15,"battle_meditation"],[15,"basilisk_might"],[15,"aurora_veil"],[95,"toxic_blaze",{ng:true}],[90,"lava_spout",{ng:true}],[95,"forge_blast",{ng:true}],[95,"molten_tide",{ng:true}],[80,"flame_spiral",{ng:true}]],
     evolveTo:72, evolveLevel:44, catchRate:35, expYield:235, rarity:"rare",
     desc:"A bipedal saurian whose feathered mane is just beginning to bloom. Channels heat and thought through long, claw-tipped forelimbs to paralyse prey before striking.",
@@ -3814,7 +3814,7 @@ const MONSTERS_DATA = {
 
   // 182: Ignitheon - Fire/Mental (Ignorin→Pyraxis→Ignitheon)
   72: { id:72, name:"Ignitheon", emoji:"🔮", types:["Fire","Mental"],
-    base:{hp:66,atk:62,def:62,spa:107,spd:78,spe:69},
+    base:{hp:90,atk:50,def:60,spa:125,spd:75,spe:95},
     learnset:[[1,"inferno_jet"],[1,"mental"],[2,"scorch_veil"],[3,"psi_strike"],[4,"searing_gale"],[5,"embercloak"],[20,"latent_force"],[28,"telekinetic_throw"],[38,"pyroclasm"],[42,"inner_calm"],[44,"astral_rend"],[46,"solar_flare"],[50,"thought_crush"],[54,"conflagration"],[58,"synaptic_shatter"],[62,"neural_storm"],[20,"resonance_field"],[20,"recovery_stance"],[20,"radiant_reflection"],[105,"toxic_blaze",{ng:true}],[100,"lava_spout",{ng:true}],[105,"forge_blast",{ng:true}],[105,"molten_tide",{ng:true}],[95,"flash_fire",{ng:true}],[90,"flame_spiral",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
     desc:"An oracle of living flame. It reads the minds of its foes and burns their deepest fears into reality.",

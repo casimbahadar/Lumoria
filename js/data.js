@@ -1867,7 +1867,7 @@ const MONSTERS_DATA = {
     lore:"Sparkrel is a developing electric eel about 60 centimetres long — Amperix's tropical schooling body has slimmed and elongated to silver-blue with a pale yellow underbelly streaked by electric markings that pulse along its length when it accelerates. Its skin produces small sparks when disturbed, and as it grows the capacitor cells of its earlier school-fish stage have consolidated into specialised organs running the full length of its body. It floats near the surface of warm bays alongside drifting kelp, discharging static bursts to stun small prey before swallowing them whole." },
 
   62: { id:62, name:"Zephyrel",  emoji:"🐦", types:["Electric","Wind"],
-    base:{hp:35,atk:31,def:27,spa:36,spd:38,spe:64},
+    base:{hp:50,atk:28,def:30,spa:50,spd:40,spe:72},
     learnset:[[1,"breeze",[20,"volt_surge"]],[1,"jolt"],[10,"wingbeat"],[14,"daunt"],[18,"volt_jet"],[24,"collide"],[26,"wind_scythe"],[33,"static_strike"],[34,"stormbolt",[5,"stun_pulse"]],[42,"cyclone_blade"],[3,"static_cage"],[32,"storm_surge"],[30,"continuum_blast"],[30,"comet_flare"],[30,"chrono_storm"]],
     evolveTo:63, evolveLevel:28, catchRate:160, expYield:78, rarity:"common",
     desc:"A little bird of storms. Rides thunderclouds and harnesses lightning.",
@@ -3709,7 +3709,7 @@ const MONSTERS_DATA = {
   // ===== NEW EVOLUTIONS (IDs 168-177) =====
 
   63: { id:63, name:"Vortexathos", emoji:"🦅", types:["Electric","Wind"],
-    base:{hp:46,atk:56,def:39,spa:69,spd:52,spe:86},
+    base:{hp:75,atk:45,def:42,spa:88,spd:55,spe:90},
     learnset:[[1,"jolt"],[1,"downdraft"],[2,"volt_jet"],[3,"wind_scythe"],[4,"static_cage"],[30,"arc_flash"],[35,"tempest_wrath"],[40,"stormbolt"],[45,"volt_surge"],[50,"typhoon"],[55,"plasma_strike"],[60,"ball_lightning"],[6,"charge_burst"],[42,"wingbeat"],[15,"sonic_calm"],[15,"smoke_calm"],[15,"slumber_armor"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:198, rarity:"uncommon",
     desc:"An electrified storm raptor that rides cyclones. Its wingspan crackles with constant discharge.",

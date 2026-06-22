@@ -2276,14 +2276,14 @@ const MONSTERS_DATA = {
     lore:"Velvetine is a sleek adult cat 35 cm at the shoulder — Fluffen's enormously fluffy cream-white kitten-fur has shed and smoothed into short, incredibly silk-shimmering dark-grey fur, and the tiny hidden kitten-face has emerged with pale gold eyes. It moves with total silence on any surface and is nearly impossible to sneak up on in return. It prefers warmth and high vantage points in settled areas." },
 
   12: { id:12, name:"Leapbun",     emoji:"🐰", types:["Normal"],
-    base:{hp:32,atk:33,def:28,spa:28,spd:28,spe:59},
+    base:{hp:36,atk:37,def:31,spa:31,spd:31,spe:67},
     learnset:[[1,"collide",[20,"wild_tumble"]],[1,"lashing_tail"],[8,"blitz"],[16,"cranial_ram"],[17,"second_wind"],[24,"crushing_bulk",[5,"daunt"]],[29,"fortify"],[39,"vital_pulse"],[10,"phobia_aura"],[10,"phantasm_lock"],[10,"petrified_form"],[80,"tremor_stomp",{ng:true}]],
     evolveTo:13, evolveLevel:18, catchRate:255, expYield:55, rarity:"common",
     desc:"A swift rabbit with huge ears. Can hear predators from far away.",
     lore:"Leapbun is a small rabbit 25 cm long with oversized hind legs and soft white-grey fur. Its long ears pivot independently in different directions. It can leap 3 metres horizontally from standing still. It lives in warrens on open plains and maintains elaborate underground tunnel networks as escape routes." },
 
   13: { id:13, name:"Racehare",  emoji:"🐇", types:["Normal"],
-    base:{hp:60,atk:51,def:33,spa:49,spd:40,spe:80},
+    base:{hp:65,atk:55,def:36,spa:53,spd:43,spe:86},
     learnset:[[1,"blitz"],[2,"cranial_ram"],[3,"collide"],[4,"second_wind"],[5,"daunt"],[6,"lashing_tail"],[7,"quick_jab"],[12,"afterimage"],[18,"wild_tumble"],[21,"crushing_bulk"],[27,"baleful_stare"],[30,"tornado_grab"],[36,"battle_cry"],[43,"graze"],[45,"war_dance"],[54,"momentum_rush"],[63,"radiance_cannon"],[15,"chirp"],[15,"caustic_shell"],[15,"bulwark"]],
     evolveTo:null, evolveLevel:null, catchRate:100, expYield:165, rarity:"common",
     desc:"A super-quick bouncing rabbit. Few can outrun this energetic creature.",

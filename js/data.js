@@ -1796,14 +1796,14 @@ const MONSTERS_DATA = {
     lore:"Myceloth is a taller, humanoid-shaped fungal creature 80 cm tall — Sporix's purple-spotted cap has lifted onto a humanoid stalk and its spongy juvenile body has reorganised into interwoven mycelium threads visible through a translucent outer membrane. A wide flat cap sits on its rounded head. It walks slowly through forest undergrowth, trailing filaments that connect to the underground fungal network of the forest." },
 
   37: { id:37, name:"Viridix",    emoji:"🐌", types:["Nature"],
-    base:{hp:27,atk:42,def:27,spa:36,spd:28,spe:60},
+    base:{hp:40,atk:42,def:48,spa:36,spd:36,spe:33},
     learnset:[[1,"vine_lash",[20,"photon_leaf"]],[1,"baleful_stare"],[8,"sharp_leaves"],[16,"pod_blast"],[17,"second_wind"],[24,"verdant_orb",[5,"slumber_dust"]],[29,"graze"],[39,"canopy_crash"],[3,"spore_burst"],[32,"war_dance"],[20,"sylvan_radiance"],[10,"moth_dust"],[30,"oneiric_press"],[80,"geode_burst",{ng:true}]],
     evolveTo:38, evolveLevel:22, evolveMethod:"time", evolveTime:"day", catchRate:180, expYield:78, rarity:"common",
     desc:"A bright green leaf-snail whose curled shell mimics a young rolled fern. Glides slowly across forest floors leaving a faintly luminescent slime trail.",
     lore:"Viridix is a small terrestrial mollusk about 30 centimetres long including its curled spiral shell, which is lime-green and patterned like a rolled fern frond — perfect camouflage among forest undergrowth. Two long sensory tentacles rise from its head, tipped with tiny golden dots that twist toward sunlight, and its soft body is bright green with darker scale-like ripples along its mantle. It glides slowly across the forest floor on a single muscular foot, feeding on tender leaf shoots and fungi, and leaves behind a faintly luminescent slime trail that lingers for hours after sundown." },
 
   38: { id:38, name:"Loamvin", emoji:"🐌", types:["Nature","Earth"],
-    base:{hp:56,atk:64,def:54,spa:54,spd:51,spe:52},
+    base:{hp:62,atk:64,def:68,spa:54,spd:51,spe:38},
     learnset:[[1,"sharp_leaves"],[2,"pod_blast"],[3,"slumber_dust"],[22,"verdant_orb"],[27,"daunt"],[32,"collide"],[37,"sandstrike"],[42,"sand_geyser"],[47,"root_lance"],[52,"geoblast"],[57,"tectonic_shift"],[62,"petal_blitz"],[4,"spore_burst"],[40,"scorched_earth"],[17,"leg_sweep"],[25,"iron_fortress"],[10,"ghost_jab"]],
     evolveTo:39, evolveLevel:42, catchRate:55, expYield:195, rarity:"uncommon",
     desc:"A 1-metre forest snail whose massive curled shell is encrusted with bark, moss, and trailing vines. Walks slow circuits between damp glades over years.",
@@ -3870,7 +3870,7 @@ const MONSTERS_DATA = {
 
   // 189: Bonsailoth - Grass/Ground (Viridix→Terravin→Bonsailoth)
   39: { id:39, name:"Bonsailoth", emoji:"🐌", types:["Nature","Earth"],
-    base:{hp:79,atk:95,def:84,spa:75,spd:71,spe:40},
+    base:{hp:84,atk:95,def:98,spa:75,spd:76,spe:40},
     learnset:[[1,"sharp_leaves"],[1,"tectonic_shift"],[2,"pod_blast"],[3,"root_lance"],[4,"slumber_dust"],[38,"verdant_orb"],[42,"geoblast"],[46,"petal_blitz"],[50,"verdant_surge"],[54,"sand_geyser"],[58,"canopy_crash"],[62,"scorched_earth"],[5,"spore_burst"],[44,"briar_lash"],[20,"phobia_aura"],[20,"phantasm_lock"],[20,"petrified_form"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A 3-metre ancient garden snail whose colossal shell has become a rooted bonsai forest. Reorganises woodland over centuries simply by walking through it.",

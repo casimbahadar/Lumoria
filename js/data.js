@@ -1767,14 +1767,14 @@ const MONSTERS_DATA = {
     lore:"Boreon is a larger muscular seal — Cryonik's powder-blue fur has deepened to slate-blue and its perpetually crackling ice-coat has thickened into a frosted white neck-mane. Bands of ice spontaneously form around its flippers when it rears up. Its bark echoes across frozen bays, audible several kilometres away. It is highly territorial during breeding season on ice shelves." },
 
   45: { id:45, name:"Corelin",   emoji:"🐠", types:["Aquatic"],
-    base:{hp:32,atk:22,def:38,spa:38,spd:34,spe:40},
+    base:{hp:39,atk:27,def:47,spa:47,spd:42,spe:48},
     learnset:[[1,"collide",[22,"coral_barrage"]],[1,"aquatic_gun"],[9,"bubble_jet"],[16,"lashing_tail"],[17,"bewitching_kiss"],[25,"tidal_rush",[5,"tidecaller"]],[29,"vital_pulse"],[39,"tidal_sweep"],[3,"deepwater_hymn"],[32,"baleful_stare"],[30,"dream_torrent"],[20,"maelstrom"],[10,"marine_blessing"],[12,"aquatic_pulse"],[80,"aether_shock",{ng:true}],[80,"drowse_swirl",{ng:true}]],
     evolveTo:46, evolveLevel:25, catchRate:220, expYield:72, rarity:"common",
     desc:"A dazzling coral fish with rainbow fins. Lures prey with its bright colors.",
     lore:"Corelin is a delicate tropical fish 25 cm long, striped vivid orange and white with translucent fins edged in blue. It lives inside branching coral formations and carries a weak electric charge in its scales that deters predators. Its scales refract light into small rainbows in shallow water." },
 
   46: { id:46, name:"Coralisk",    emoji:"🐡", types:["Aquatic"],
-    base:{hp:46,atk:42,def:39,spa:68,spd:60,spe:45},
+    base:{hp:57,atk:52,def:48,spa:83,spd:74,spe:56},
     learnset:[[1,"aquatic_gun"],[2,"bubble_jet"],[3,"tidal_rush"],[4,"tidecaller"],[30,"daunt"],[35,"fortify"],[40,"blitz"],[45,"prism_flare"],[50,"whirlpool_dive"],[55,"sea_serpent_strike"],[60,"lunar_burst"],[65,"tsunami"],[5,"deepwater_hymn"],[42,"second_wind"],[55,"torrent_shell"],[35,"steam_geyser"],[25,"maelstrom"],[17,"brine_slash"],[17,"aquatic_pulse"],[85,"sleet_barrage",{ng:true}]],
     evolveTo:47, evolveLevel:42, evolveMethod:"location", evolveLocation:"coral_reef", catchRate:70, expYield:184, rarity:"uncommon",
     desc:"A majestic reef king with jewel-like scales. Commands schools of fish.",
@@ -3838,7 +3838,7 @@ const MONSTERS_DATA = {
 
   // 185: Nepturix - Aquatic (Corelin→Coralisk→Nepturix)
   47: { id:47, name:"Nepturix", emoji:"🐟", types:["Aquatic"],
-    base:{hp:66,atk:60,def:56,spa:99,spd:78,spe:42},
+    base:{hp:80,atk:73,def:68,spa:119,spd:94,spe:51},
     learnset:[[1,"aquatic_gun"],[1,"tidal_rush"],[2,"bubble_jet"],[3,"tidecaller"],[4,"whirlpool_dive"],[5,"deepwater_hymn"],[10,"aquatic_pulse"],[20,"maelstrom"],[30,"flood_tide"],[38,"tsunami"],[42,"tidal_crush"],[44,"frost_current"],[46,"sea_serpent_strike"],[50,"coral_barrage"],[54,"abyssal_jet"],[58,"ocean_tempest"],[62,"prism_flare"],[20,"atavistic_focus"],[20,"astral_resolve"],[20,"astral_focus"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
     desc:"A leviathan of the reef that commands all ocean life with a single glance. Its scales scatter light like a shattered prism.",

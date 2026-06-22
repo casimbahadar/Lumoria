@@ -3318,7 +3318,7 @@ const MONSTERS_DATA = {
 
   // ===== WIND/PSYCHIC =====
   73: { id:73, name:"Zephyrin", emoji:"🌀", types:["Wind","Mental"],
-    base:{hp:31,atk:23,def:25,spa:49,spd:39,spe:67},
+    base:{hp:36,atk:27,def:29,spa:57,spd:45,spe:76},
     learnset:[[1,"breeze",[22,"synaptic_shatter"]],[1,"mind_jolt"],[9,"blitz"],[17,"wind_scythe"],[25,"psi_burst"],[29,"psi_strike"],[33,"typhoon"],[41,"mental",[5,"mistveil"]],[3,"zephyr_dance"],[32,"astral_rend"],[12,"star_ray"],[12,"star_cannon"],[50,"spirit_calamity"],[80,"thought_stream",{ng:true}],[80,"cognition_meld",{ng:true}],[80,"noetic_burst",{ng:true}],[80,"expanding_force",{ng:true}],[75,"air_resonance",{ng:true}],[75,"latent_force",{ng:true}],[75,"void_rend_ex",{ng:true}]],
     evolveTo:74, evolveLevel:32, catchRate:110, expYield:90, rarity:"common",
     desc:"A wisp of wind given a curious mind. Follows trainers to observe how they think.",
@@ -3457,7 +3457,7 @@ const MONSTERS_DATA = {
     lore:"Noxaquith is a large hood-flaring squid about 1.2 metres long — Toxaquil's octopus frame has elongated into a streamlined squid silhouette for open-water hunting, the eight tentacles supplemented by two longer feeding-arms, and the paralytic skin-toxin concentrated into the defensive ink it now jets. Its body is deep navy blue with patterns that shift like oil on water. Poisoned ink jets blind and briefly paralyze anything caught in the cloud, serving as both camouflage and an offensive weapon." },
 
   74: { id:74, name:"Pneumathos", emoji:"🌪️", types:["Wind","Mental"],
-    base:{hp:45,atk:39,def:47,spa:76,spd:60,spe:74},
+    base:{hp:53,atk:46,def:55,spa:89,spd:70,spe:87},
     learnset:[[1,"wind_scythe"],[2,"psi_burst"],[3,"psi_strike"],[4,"synaptic_shatter"],[5,"mistveil"],[6,"zephyr_dance"],[10,"air_barrier"],[14,"wind_barrier"],[18,"air_resonance"],[22,"suction_wave"],[26,"cyclone_smash"],[30,"tempest_wave"],[32,"typhoon"],[34,"tornado_slam"],[38,"mental"],[39,"fortify"],[41,"astral_rend"],[44,"inner_calm"],[48,"hurricane_blast"],[50,"insight_flare"],[56,"thought_crush"],[62,"radiance_cannon"],[35,"soul_eater"],[35,"slumber_eruption"],[35,"reptilian_gust"],[95,"mystical_eruption",{ng:true}],[95,"venom_mind",{ng:true}],[90,"psycho_surge",{ng:true}],[90,"gloom_haunt",{ng:true}],[85,"void_rend_ex",{ng:true}],[85,"void_cyclone",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:240, rarity:"rare",
     desc:"A cyclone of pure psychic wind. Its thoughts create miniature tornadoes around it.",

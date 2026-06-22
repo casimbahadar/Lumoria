@@ -2304,7 +2304,7 @@ const MONSTERS_DATA = {
     lore:"Glutoros is a massive bear 1.8 metres at the shoulder — Rotunden's perfectly spherical russet-brown silhouette has elongated and grown upright into a broad rounded back with heavy russet-brown fur, and the autumn-gorging habit of its juvenile form has matured into an almost supernatural appetite. It has an almost supernatural appetite and can consume quantities of food that seem physically impossible. It is found in areas of extreme natural abundance and its presence indicates healthy ecosystem balance." },
 
   17: { id:17, name:"Hoverrow",   emoji:"🐦", types:["Normal","Wind"],
-    base:{hp:45,atk:32,def:23,spa:41,spd:38,spe:49},
+    base:{hp:45,atk:32,def:23,spa:56,spd:38,spe:64},
     learnset:[[1,"collide",[22,"wild_tumble"]],[1,"breeze"],[8,"blitz"],[14,"fortify"],[16,"wingbeat"],[24,"wind_scythe"],[25,"vortex_trap"],[32,"crushing_bulk",[5,"daunt"]],[34,"instinct_slash"],[42,"skyfall"],[3,"lashing_tail"],[33,"feral_swipe"],[10,"lucid_acuity"],[10,"life_force"],[10,"jade_lattice"]],
     evolveTo:18, evolveLevel:28, catchRate:180, expYield:72, rarity:"common",
     desc:"A pudgy bird that barely fits in trees. Better at fighting than flying.",
@@ -3730,7 +3730,7 @@ const MONSTERS_DATA = {
     lore:"Mistbane is a 1-metre cloud-swarm of countless microscopic miasma-flies — Miasmafly's solo form has fractured into countless tiny offspring-flies, each so small as to be barely visible individually but bound together by shared chemical signals into a single drifting collective. At its centre, sometimes glimpsed when the swarm thins, hovers a single larger queen-fly with a 30 centimetre wingspan whose pheromone trail directs the others. The swarm-cloud flows, condenses, and disperses but never fully dissolves; it inhabits bogs and toxic marshland, blending with natural mist and slowly sapping the vitality of any creature breathing the air it occupies." },
 
   18: { id:18, name:"Continemic", emoji:"🕊️", types:["Normal","Wind"],
-    base:{hp:59,atk:49,def:37,spa:56,spd:47,spe:75},
+    base:{hp:74,atk:49,def:37,spa:71,spd:57,spe:90},
     learnset:[[1,"collide"],[1,"downdraft"],[2,"blitz"],[3,"wind_scythe"],[4,"crushing_bulk"],[29,"wingbeat"],[34,"wild_tumble"],[38,"momentum_rush"],[43,"typhoon"],[48,"battle_cry"],[53,"radiance_cannon"],[58,"gale_cannon"],[5,"zephyr_dance"],[41,"baleful_stare"],[15,"slumber_armor"],[15,"slate_armor"],[15,"slag_shield"]],
     evolveTo:null, evolveLevel:null, catchRate:55, expYield:185, rarity:"uncommon",
     desc:"A free-spirited wind wanderer that soars over continents in a single day, carried effortlessly on warm thermals.",

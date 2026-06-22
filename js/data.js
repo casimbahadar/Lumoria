@@ -2369,14 +2369,14 @@ const MONSTERS_DATA = {
     lore:"Aeridaleth is a large butterfly 60 cm wingspan with wings displaying intricate patterns in deep teal, gold, and black. It emerged from Chrysalix through a dramatic transformation. It undertakes migrations of thousands of kilometres, navigating by magnetic fields and producing a floral scent that persists in its wake for hours." },
 
   40: { id:40, name:"Iridibeetle",  emoji:"🪲", types:["Nature","Metal"],
-    base:{hp:37,atk:45,def:43,spa:26,spd:31,spe:18},
+    base:{hp:49,atk:60,def:57,spa:34,spd:41,spe:24},
     learnset:[[1,"mandible_bite",[22,"mandible_crush"]],[1,"stone_throw"],[3,"chitin_guard"],[8,"chrome_claw"],[10,"cranial_ram"],[14,"metal_pulse"],[18,"shear_strike"],[20,"baleful_stare"],[22,"alloy_edge"],[26,"stone_slide"],[31,"magma_stone"],[34,"crag_strike",[5,"silk_spray"]],[36,"swarm_dive"],[40,"jungle_hammer"],[5,"brood_tide"],[40,"sun_ray"],[20,"sap_bite"],[20,"sporecloud_burst"],[80,"sap_bite",{ng:true}],[80,"maul",{ng:true}],[80,"swarm_strike",{ng:true}],[80,"locust_fury",{ng:true}],[75,"pheromone_rush",{ng:true}],[70,"seed_volley",{ng:true}]],
     evolveTo:41, evolveLevel:25, catchRate:130, expYield:95, rarity:"common",
     desc:"A heavily armored beetle. Its rock-hard shell is practically indestructible.",
     lore:"Iridibeetle is a beetle 12 cm long with a hard iridescent wing-case that shifts between emerald and sapphire depending on viewing angle. Its underside is pale gold. It lives in old-growth forest canopy and cuts precise circular holes in leaves that it then rolls into tubes for egg-laying." },
 
   41: { id:41, name:"Scarabion",  emoji:"🪲", types:["Nature","Metal"],
-    base:{hp:55,atk:79,def:59,spa:40,spd:43,spe:29},
+    base:{hp:70,atk:102,def:75,spa:51,spd:55,spe:37},
     learnset:[[1,"shear_strike"],[2,"silk_spray"],[3,"chitin_guard"],[15,"chrome_claw"],[25,"stone_slide"],[28,"alloy_edge"],[30,"fortify"],[31,"crag_strike"],[33,"swarm_dive"],[35,"pheromone_rush"],[39,"cocoon_burst"],[40,"forge_blast_2"],[45,"resonance_hum"],[50,"stinger_lance"],[55,"alloy_tail"],[60,"radiance_cannon"],[17,"quartz_punch"],[10,"quake_barrage"],[90,"iron_press",{ng:true}],[90,"pyro_alloy",{ng:true}],[90,"sap_bite",{ng:true}],[80,"shrapnel_burst",{ng:true}],[80,"twin_sting",{ng:true}],[80,"quill_barrage",{ng:true}],[80,"seed_volley",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:220, rarity:"uncommon",
     desc:"A steel beetle of terrifying might. Its mandibles can cut through iron.",

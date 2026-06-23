@@ -5942,8 +5942,7 @@ const WORLD_DATA = {
       {id:94, minLv:20, maxLv:25, rate:24}   // Aridix
     ],
     hasGym:false, requiredBadges:2, mapPos:{x:75, y:53},
-    storyLocation:true, hasUmbraEncounter:true,
-    legendaryEncounter:{monsterId:100, level:50}
+    storyLocation:true, hasUmbraEncounter:true
   },
   volcano_core: {
     id:"volcano_core", name:"Volcano Core", icon:"🌋", type:"route",
@@ -5958,8 +5957,7 @@ const WORLD_DATA = {
       {id:101, minLv:24, maxLv:29, rate:12}   // Pyroclasm
     ],
     hasGym:false, requiredBadges:4, mapPos:{x:72, y:23},
-    storyLocation:true, hasUmbraEncounter:true,
-    legendaryEncounter:{monsterId:99, level:50}
+    storyLocation:true, hasUmbraEncounter:true
   },
   storm_plateau: {
     id:"storm_plateau", name:"Thunderhead Crag", icon:"⛈️", type:"route",
@@ -5974,8 +5972,7 @@ const WORLD_DATA = {
       {id:88, minLv:30, maxLv:35, rate:10}   // Septanemone
     ],
     hasGym:false, requiredBadges:5, mapPos:{x:37, y:10},
-    storyLocation:true, hasUmbraEncounter:true,
-    legendaryEncounter:{monsterId:177, level:50}
+    storyLocation:true, hasUmbraEncounter:true
   },
   crystal_depths: {
     id:"crystal_depths", name:"Crystal Depths", icon:"💠", type:"route",

@@ -6132,8 +6132,7 @@ const WORLD_DATA = {
       {id:144, minLv:28, maxLv:33, rate:10}    // Imperion
     ],
     ngPlusWildMonsters:[{id:343, minLv:25, maxLv:29, rate:12}], // NG+ family base: Pebblite
-    hasGym:false, requiredBadges:4, mapPos:{x:77, y:20},
-    legendaryEncounter:{monsterId:114, level:55}
+    hasGym:false, requiredBadges:4, mapPos:{x:77, y:20}
   },
   fairy_meadow_south: {
     id:"fairy_meadow_south", name:"Fairy Meadow", icon:"🌸", type:"route",

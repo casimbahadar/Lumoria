@@ -2840,7 +2840,7 @@ const MONSTERS_DATA = {
     lore:"Tendrilisk is a fighting-toxin creature 60 cm tall whose vine-tendril limbs still wrap Transluceed's pale-green translucent seed-pod at its core. Its cactus-warrior body bristles with sharp thorns, held in a constant martial stance — the climbing vine-tendrils that grow from it extend rapidly to strike, each tipped with venomous barbs that flick out to three metres at threats or prey. It inhabits jungle undergrowth and trains daily by setting up elaborate thorn-target networks throughout its territory." },
 
   128: { id:128, name:"Impenezard", emoji:"🌳", types:["Fighting","Toxin"],
-    base:{hp:91,atk:98,def:83,spa:107,spd:89,spe:61},
+    base:{hp:96,atk:113,def:98,spa:72,spd:89,spe:61},
     learnset:[[1,"petal_blitz"],[1,"venom_lance"],[10,"flying_press"],[15,"acrid_claw"],[18,"focused_beam"],[20,"corrosive_step"],[24,"recovery_stance"],[28,"acid_slash"],[30,"grove_wrath"],[35,"martial_finish"],[38,"toxify"],[45,"acid_press"],[46,"verdant_orb"],[54,"sludge_wave"],[62,"briar_lash"],[70,"radiance_cannon"],[50,"heaven_strike"],[40,"iron_cleave"],[40,"roar_strike"],[40,"spirit_bomb"],[40,"galaxy_punch_2"],[30,"sonic_palm"],[50,"malignant_storm"],[30,"venom_thrust"],[30,"bilious_drown"],[30,"coiled_lunge"],[30,"toxic_lash_2"],[22,"crystal_pulse"],[30,"cryogenic_breath"],[105,"galaxy_punch_2",{ng:true}],[90,"martial_intent",{ng:true}],[90,"martial_aura",{ng:true}],[100,"shockwave_kick",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:260, rarity:"rare",
     desc:"An enormous walking thorn-warrior. Its 15-cm venom-thorns inject potent toxins on impact, making any approach deadly.",

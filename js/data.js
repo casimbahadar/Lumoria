@@ -2615,7 +2615,7 @@ const MONSTERS_DATA = {
 
   // Standalone Draconic/Aquatic: Glintscale
   109: { id:109, name:"Glintscale", emoji:"🐠", types:["Aquatic","Fairy"],
-    base:{hp:68,atk:75,def:63,spa:78,spd:65,spe:74},
+    base:{hp:78,atk:75,def:55,spa:62,spd:65,spe:88},
     learnset:[[1,"gossamer_lance"],[1,"tidal_rush"],[20,"celestial_wave"],[30,"tsunami"],[40,"lunar_burst"],[50,"fae_requiem"],[60,"geyser_burst"],[70,"radiance_cannon"],[72,"tidal_sweep"],[20,"earsplit"],[20,"dust_toss"],[20,"drake_armor"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:215, rarity:"uncommon",
     desc:"A great koi of iridescent scales. Legends say it swims the boundary between worlds, and to glimpse one is fortune.",

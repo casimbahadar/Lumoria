@@ -3326,7 +3326,7 @@ const MONSTERS_DATA = {
 
   // ===== WATER/FAIRY =====
   106: { id:106, name:"Pearlmaid", emoji:"🐚", types:["Aquatic","Fairy"],
-    base:{hp:26,atk:27,def:38,spa:51,spd:46,spe:42},
+    base:{hp:33,atk:34,def:48,spa:64,spd:58,spe:53},
     learnset:[[1,"collide",[22,"wish_spark"]],[1,"aquatic_gun"],[8,"fairy_wind"],[16,"bubble_jet"],[20,"baleful_stare"],[24,"prism_flare"],[32,"tidal_rush",[5,"tidecaller"]],[36,"riptide_slam"],[3,"deepwater_hymn"],[31,"lunar_burst"],[12,"star_ray"],[12,"star_cannon"],[50,"spirit_calamity"],[80,"dream_torrent",{ng:true}],[70,"maelstrom",{ng:true}],[80,"steam_geyser",{ng:true}],[70,"pixie_bolt",{ng:true}]],
     evolveTo:107, evolveLevel:null, evolveMethod:"item", evolveItem:"tidePearl", catchRate:200, expYield:74, rarity:"common",
     desc:"A tiny pearl-mermaid fry curled inside a fairy-touched oyster shell. Snaps the shell shut to hide whenever startled.",
@@ -3464,7 +3464,7 @@ const MONSTERS_DATA = {
     lore:"Pneumathos is a large wind-psychic entity 2.5 metres tall — Zephyrin's teal-blue compressed-air pillar has expanded into a swirling vortex of concentrated air with a humanoid core now visible at its centre, and the faint psychic glow has deepened to a violet tint. It reads atmospheric data from thousands of kilometres away and processes it instantly." },
 
   107: { id:107, name:"Seanymph", emoji:"🧜", types:["Aquatic","Fairy"],
-    base:{hp:45,atk:43,def:44,spa:77,spd:61,spe:72},
+    base:{hp:54,atk:52,def:53,spa:92,spd:73,spe:86},
     learnset:[[1,"aquatic_gun"],[2,"fairy_wind"],[3,"bubble_jet"],[4,"prism_flare"],[5,"tidecaller"],[29,"tidal_rush"],[30,"lashing_tail"],[36,"graze"],[42,"moonveil"],[48,"tidal_sweep"],[54,"lunar_burst"],[60,"tsunami"],[6,"deepwater_hymn"],[40,"sea_serpent_strike"],[17,"wave_cry"],[25,"wail"],[25,"void_wail"],[80,"moonlight_beam",{ng:true}],[90,"starfall",{ng:true}],[80,"lullaby_song",{ng:true}],[95,"starlit_dream",{ng:true}]],
     evolveTo:108, evolveLevel:46, catchRate:40, expYield:222, rarity:"rare",
     desc:"A sea nymph radiating both water and fairy energy. Said to protect lost sailors.",
@@ -3854,7 +3854,7 @@ const MONSTERS_DATA = {
 
   // 187: Thalassira - Aquatic/Fairy (Pearlmaid→Seanymph→Thalassira)
   108: { id:108, name:"Thalassira", emoji:"👑", types:["Aquatic","Fairy"],
-    base:{hp:76,atk:64,def:68,spa:117,spd:89,spe:48},
+    base:{hp:88,atk:58,def:78,spa:125,spd:91,spe:95},
     learnset:[[1,"aquatic_gun"],[1,"fairy_wind"],[2,"prism_flare"],[3,"tidecaller"],[4,"lunar_burst"],[5,"deepwater_hymn"],[10,"rain_cascade"],[15,"healing_circle"],[20,"marine_blessing"],[25,"glimmering_song"],[30,"monsoon"],[35,"sylvan_song"],[38,"celestial_wave"],[40,"moonglow"],[42,"tidal_rush"],[44,"bewitching_kiss"],[46,"glitter_storm"],[50,"tsunami"],[54,"fae_requiem"],[58,"sea_serpent_strike"],[62,"moonveil"],[20,"psyche_lock"],[20,"provoke"],[20,"prismatic_calm"],[90,"pixie_bolt",{ng:true}],[90,"moonlight_beam",{ng:true}],[100,"starfall",{ng:true}],[90,"dream_drain",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:275, rarity:"rare",
     desc:"The radiant sovereign of the world's oceans — a regal sea-fairy queen whose long fin-tail and gossamer wings command tides and storms alike.",

@@ -1889,14 +1889,14 @@ const MONSTERS_DATA = {
     lore:"Seismith is a medium-sized rhino around 1 metre at the shoulder, broad-chested and powerful — Aridhino's proto-armour plates have hardened into mineral-rich earth flecked with iron and copper veins, now spanning its shoulders, haunches, and along the ridges of its skull, channelling subterranean electrical currents up through its body. Its single thickening horn glows faintly amber when it lowers its head to listen for water or prey, and small arcs of static dance between its hooves and the ground with each measured step. It detects underground deposits and tremors by sensing the shifting electrical field they produce, and packs of Seismith are sometimes followed by storms drawn to the conductive metal in their hides." },
 
   123: { id:123, name:"Aridix",   emoji:"🦂", types:["Earth","Poison"],
-    base:{hp:32,atk:34,def:36,spa:34,spd:28,spe:45},
+    base:{hp:50,atk:70,def:45,spa:25,spd:45,spe:50},
     learnset:[[1,"graze",[22,"terra_spike"]],[1,"septic_prick"],[10,"mud_spray"],[18,"virulent_surge"],[26,"tectonic_shift"],[30,"fissure_slam"],[34,"ooze_bomb"],[42,"toxify",[5,"dust_veil"]],[3,"clay_armor"],[32,"geoblast"],[10,"primordial_roar"],[10,"pox_mark"],[10,"polar_swift"]],
     evolveTo:124, evolveLevel:30, evolveMethod:"time", evolveTime:"night", catchRate:100, expYield:95, rarity:"common",
     desc:"A desert scorpion with a venomous stinger. Buries itself in sand to ambush.",
     lore:"Aridix is a scorpion about 30 cm long with pale sandstone-coloured exoskeleton and a slender venomous stinger tail. Its pincers are wide and flat for digging. It inhabits deep desert dunes, burrowing down by day and emerging at night to hunt insects attracted by its faint phosphorescent glow." },
 
   124: { id:124, name:"Toxivenoth",  emoji:"🦂", types:["Earth","Poison"],
-    base:{hp:43,atk:61,def:48,spa:52,spd:57,spe:59},
+    base:{hp:70,atk:100,def:58,spa:33,spd:67,spe:67},
     learnset:[[1,"septic_prick"],[2,"fissure_slam"],[3,"mud_spray"],[4,"tectonic_shift"],[5,"virulent_surge"],[6,"dust_veil"],[31,"ooze_bomb"],[38,"vital_pulse"],[39,"toxify"],[46,"miasma_cloud"],[54,"geoblast"],[62,"plague_burst"],[7,"clay_armor"],[42,"venom_lance"],[15,"timewarp_meditation"],[15,"timefade_step"],[15,"time_meditation"],[90,"root_toxin",{ng:true}],[80,"vile_cross",{ng:true}],[90,"corrosive_bite",{ng:true}]],
     evolveTo:125, evolveLevel:42, catchRate:35, expYield:321, rarity:"uncommon",
     desc:"A great venom scorpion. Its tail sting causes hallucinations in victims.",
@@ -3950,7 +3950,7 @@ const MONSTERS_DATA = {
 
   // 199: Geovenomvast - Ground/Poison (Aridix→Geovenoth→Geovenomvast)
   125: { id:125, name:"Craterlurk", emoji:"🦂", types:["Earth","Poison"],
-    base:{hp:68,atk:90,def:68,spa:80,spd:75,spe:37},
+    base:{hp:90,atk:130,def:75,spa:40,spd:85,spe:85},
     learnset:[[1,"septic_prick"],[1,"tectonic_shift"],[2,"venom_lance"],[3,"geoblast"],[4,"toxify"],[38,"sludge_wave"],[42,"miasma_cloud"],[46,"scorched_earth"],[50,"acid_rain"],[54,"sand_geyser"],[58,"stinger_lance"],[62,"toxic_surge"],[5,"clay_armor"],[44,"corrosion_fang"],[20,"rancid_charge"],[20,"radiant_reflection"],[20,"radiant_aura"],[100,"root_toxin",{ng:true}],[100,"corrosive_bite",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:255, rarity:"rare",
     desc:"A scorpion tyrant of the poisoned badlands. Its stinger contains enough venom to wilt an entire forest, and its tail leaves craters in the earth.",

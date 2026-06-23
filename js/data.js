@@ -2920,21 +2920,21 @@ const MONSTERS_DATA = {
 
   // 3-stage Fire/Rock chain: Charrock → Infernox → Pyrovast
   115: { id:115, name:"Charrock", emoji:"🪨", types:["Fire","Mineral"],
-    base:{hp:28,atk:37,def:41,spa:34,spd:31,spe:32},
+    base:{hp:55,atk:62,def:65,spa:30,spd:38,spe:30},
     learnset:[[1,"flicker"],[1,"stone_throw"],[5,"granite_slam"],[10,"stone_slide"],[15,"mica_lattice"],[20,"inferno_jet"],[25,"amethyst_pulse"],[30,"crag_strike"],[40,"pyroclasm"],[50,"magma_stone"],[60,"radiance_cannon"],[40,"forge_blast"],[30,"toxic_blaze"],[30,"ignition_kick"],[20,"flare_uppercut"],[20,"lava_spout"],[30,"molten_tide"],[5,"ghost_jab"]],
     evolveTo:116, evolveLevel:28, catchRate:170, expYield:74, rarity:"common",
     desc:"A coal-like creature that ignites when rolling downhill. Leaves scorch marks on stone paths.",
     lore:"Charrock is a fire-mineral creature 30 cm long resembling a small lizard made of dark basalt with glowing cinders embedded in its skin. It collects small pebbles and packs them into its cinder-body over time, growing heavier and slower with age. The hottest cinders in its body mark its most active thinking. A Charrock's surface cinders glow steadily hotter and oranger as the creature ages, the body's heat-storage capacity inching toward the magma-pool levels Infernox sustains across every joint. Faint heat-shimmer extends further outward with each successive moult, approaching the eruption-radius Magmaw maintains constantly. Provoke a fully-grown Charrock and its body will produce a small but distinct ground-tremor that propagates further than its tiny mass should allow." },
 
   116: { id:116, name:"Infernox", emoji:"🌋", types:["Fire","Mineral"],
-    base:{hp:49,atk:62,def:64,spa:55,spd:46,spe:42},
+    base:{hp:80,atk:88,def:90,spa:38,spd:50,spe:39},
     learnset:[[1,"inferno_jet"],[1,"crag_strike"],[8,"coal_smash"],[12,"ember_focus"],[16,"flash_fire"],[20,"lava_drop"],[22,"pyroclasm"],[26,"magma_strike"],[30,"magma_stone"],[34,"molten_tide"],[38,"stone_slide"],[42,"pyre_strike"],[44,"searing_glare"],[46,"tectonic_shift"],[50,"volcanic_wrath"],[54,"caldera_meltdown"],[62,"radiance_cannon"],[64,"lode_strike"],[65,"ore_ray"],[66,"mineral_dust"],[67,"ore_punch"],[35,"revenant_charge"],[10,"resonant_smash"],[45,"reckless_charge"]],
     evolveTo:117, evolveLevel:46, evolveMethod:"held", evolveItem:"hardStone", catchRate:75, expYield:158, rarity:"uncommon",
     desc:"A volcanic rock beast that erupts periodically. Carries magma inside its carapace like a pressure cooker.",
     lore:"Infernox is a fire-mineral creature 80 cm long — Charrock's basalt-and-cinder juvenile body has thickened into volcanic plate armour resembling a larger armoured lizard, the embedded cinders of its early form now pooled magma glowing through every joint. Its footsteps leave brief glowing prints. It inhabits lava fields and uses its rock-hard body to deflect predator strikes while retaliating with blasts of focused fire." },
 
   117: { id:117, name:"Magmaw", emoji:"🏔️", types:["Fire","Mineral"],
-    base:{hp:81,atk:93,def:87,spa:72,spd:62,spe:42},
+    base:{hp:110,atk:105,def:110,spa:45,spd:75,spe:50},
     learnset:[[1,"pyroclasm"],[1,"magma_stone"],[8,"granite_slam"],[12,"coal_smash"],[18,"infernal_roar"],[20,"ruby_strike"],[24,"smolder_trap"],[28,"molten_armor"],[32,"caldera_meltdown"],[36,"magma_strike"],[38,"marble_resonance"],[40,"tectonic_shift"],[44,"volcanic_wrath"],[48,"crag_strike"],[52,"obsidian_burst"],[56,"bedrock_slam"],[64,"ashfall"],[72,"radiance_cannon"],[15,"primal_jab"],[30,"power_drive"]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:272, rarity:"rare",
     desc:"A living volcano of immense destructive power. When it battles, the sky fills with ash and the earth splits.",

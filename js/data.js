@@ -3094,21 +3094,21 @@ const MONSTERS_DATA = {
 
   // 3-stage Poison/Toxin chain: Plaguefly → Pestquito → Plagueoth (lv26, lv44)
   110: { id:110, name:"Plaguefly", emoji:"🦟", types:["Poison","Toxin"],
-    base:{hp:29,atk:34,def:26,spa:45,spd:34,spe:52},
+    base:{hp:42,atk:30,def:36,spa:65,spd:44,spe:63},
     learnset:[[1,"septic_prick"],[1,"resonance_hum"],[3,"barb_jab"],[5,"fester_meditation"],[8,"vile_cross"],[10,"ooze_bomb"],[14,"venom_jab"],[15,"toxin_pulse"],[18,"toxic_thread"],[20,"shear_strike"],[22,"sludge_cannon"],[25,"rancid_charge"],[30,"toxify"],[40,"virulent_surge"],[50,"venom_lance"],[60,"radiance_cannon"],[30,"smelter_surge"],[30,"slumber_eruption"],[30,"shockwave_kick"],[85,"virulent_storm",{ng:true}],[80,"miasma_blast",{ng:true}],[80,"acid_burst_2",{ng:true}],[75,"venom_ray",{ng:true}]],
     evolveTo:111, evolveLevel:26, catchRate:178, expYield:70, rarity:"common",
     desc:"A mosquito-like creature with toxic saliva. A single bite can poison most Lumori instantly.",
     lore:"Plaguefly is a large poison-toxin insect with a 30 cm wingspan. Its wings are translucent grey with poison-green venation. Its body is a bloated sack of toxic fluid. It breeds in stagnant water and its larval masses are visible as roiling dark clouds beneath the surface of contaminated ponds." },
 
   111: { id:111, name:"Pestquito", emoji:"🦟", types:["Poison","Toxin"],
-    base:{hp:48,atk:55,def:44,spa:69,spd:55,spe:69},
+    base:{hp:55,atk:85,def:48,spa:40,spd:52,spe:95},
     learnset:[[1,"shear_strike"],[1,"ooze_bomb"],[10,"vile_cross"],[12,"gunk_blast"],[15,"plague_claw"],[18,"toxic_lash"],[20,"toxify"],[22,"plague_strike"],[25,"blight_strike"],[28,"virulent_surge"],[35,"toxin_pulse"],[36,"resonance_hum"],[44,"venom_lance"],[52,"sludge_wave"],[60,"radiance_cannon"],[62,"toxin_jab"],[25,"shard_burst"],[35,"shadowstorm"],[17,"serpent_rage"],[95,"virulent_storm",{ng:true}],[90,"miasma_blast",{ng:true}]],
     evolveTo:112, evolveLevel:44, catchRate:85, expYield:148, rarity:"uncommon",
     desc:"A blight mosquito whose extended proboscis can drain entire forests of vitality. Its bite spreads withering pestilence.",
     lore:"Pestquito is a medium poison-toxin mosquito with 40 cm wingspan — Plaguefly's translucent grey wings have darkened to dark purple with the same poison-green venation now glowing faintly across them. Its elongated proboscis can pierce thick bark to drain plant sap, leaving withered scars in its wake. It inhabits areas of environmental decay, flourishing where other life struggles." },
 
   112: { id:112, name:"Plagueoth", emoji:"🦟", types:["Poison","Toxin"],
-    base:{hp:68,atk:74,def:60,spa:95,spd:79,spe:79},
+    base:{hp:72,atk:115,def:62,spa:45,spd:71,spe:115},
     learnset:[[1,"venom_lance"],[1,"resonance_hum"],[6,"coil"],[8,"quill_barrage"],[10,"gunk_blast"],[12,"mantis_slash"],[14,"toxic_lash"],[15,"plague_claw"],[16,"plague_strike"],[18,"maul"],[20,"blight_strike"],[22,"bane_caltrops"],[24,"infestation"],[28,"twin_sting"],[30,"sludge_wave"],[32,"hivemind_surge"],[35,"plague_wave"],[38,"toxify"],[40,"swarm_assault"],[44,"locust_fury"],[45,"rancid_charge"],[46,"virulent_surge"],[50,"swarm_strike"],[54,"mycelia_net"],[56,"sticky_web"],[60,"quiver_dance"],[62,"corrosion_fang"],[70,"radiance_cannon"],[50,"venom_drown"],[30,"root_toxin"],[15,"acid_burst"],[30,"corrosive_rain"],[22,"caustic_shock"],[22,"blight_mist"],[50,"corrosive_finish"],[50,"toxin_smash"],[50,"malignant_storm"],[40,"virulent_storm"],[40,"corrosive_burst"],[30,"venom_thrust"],[105,"virulent_storm",{ng:true}],[100,"miasma_blast",{ng:true}],[100,"acid_burst_2",{ng:true}],[95,"venom_ray",{ng:true}],[90,"toxin_pulse",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
     desc:"The plague mosquito. Ancient texts describe its awakening as an omen of great pestilence. A single drain leaves victims hollowed.",

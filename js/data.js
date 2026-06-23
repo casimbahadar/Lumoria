@@ -3390,7 +3390,7 @@ const MONSTERS_DATA = {
 
   // ===== ICE/FAIRY =====
   118: { id:118, name:"Glinteye", emoji:"✨", types:["Ice","Fairy"],
-    base:{hp:33,atk:24,def:40,spa:48,spd:44,spe:33},
+    base:{hp:45,atk:27,def:48,spa:62,spd:55,spe:48},
     learnset:[[1,"collide",[22,"pixie_bolt"]],[1,"flurries"],[8,"fairy_wind"],[16,"cold_beam"],[24,"prism_flare"],[29,"avalanche_drive"],[32,"lunar_burst"],[40,"whiteout",[5,"permafrost"]],[3,"winter_shroud"],[31,"subzero_slash"],[30,"thought_stream"],[30,"specter_pulse"],[20,"soul_lance"],[80,"faewind",{ng:true}],[85,"radiant_burst",{ng:true}],[85,"misty_explosion",{ng:true}],[80,"gloom_haunt",{ng:true}],[75,"hail_barrage",{ng:true}],[75,"sleet_barrage",{ng:true}],[75,"borealis_ray",{ng:true}]],
     evolveTo:119, evolveLevel:28, catchRate:150, expYield:85, rarity:"common",
     desc:"A small floating ice-fairy with a translucent lens for a face. Drifts through cold mountain air, signaling to others with prismatic flashes through its glassy mask.",
@@ -3513,7 +3513,7 @@ const MONSTERS_DATA = {
     lore:"Deepfreeze is a heavily armoured bipedal warrior 1.8 metres tall — Rimeling's jointed ice-and-steel plating has thickened and fused into broad-chested armour with pauldrons of glacial ice permanently bonded to the steel underneath, and the blue veins of compressed frost now glow more brightly across the chest and shoulders. Its footsteps leave frost-rimed prints. It patrols the deepest glacier regions and engages any intruder with sword-like projections of flash-frozen air." },
 
   119: { id:119, name:"Irisarael", emoji:"💠", types:["Ice","Fairy"],
-    base:{hp:50,atk:47,def:63,spa:65,spd:67,spe:46},
+    base:{hp:60,atk:35,def:65,spa:90,spd:80,spe:70},
     learnset:[[1,"cold_beam"],[2,"prism_flare"],[3,"collide"],[4,"permafrost"],[29,"lunar_burst"],[34,"stardust_veil"],[37,"whiteout"],[40,"daunt"],[46,"wish_spark"],[52,"cryo_lance"],[58,"frost_crash"],[64,"radiance_cannon"],[5,"winter_shroud"],[42,"subzero_slash"],[17,"nerve_agent"],[35,"nebula_burst"],[35,"mystical_eruption"]],
     evolveTo:null, evolveLevel:null, catchRate:40, expYield:218, rarity:"rare",
     desc:"A prismatic ice being of refined fairy power. Its crystalline body bends light into rainbows.",

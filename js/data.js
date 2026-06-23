@@ -1875,14 +1875,14 @@ const MONSTERS_DATA = {
 
   // ===== GROUND =====
   94: { id:94, name:"Aridhino",     emoji:"🦏", types:["Earth"],
-    base:{hp:37,atk:42,def:35,spa:24,spd:24,spe:41},
+    base:{hp:60,atk:20,def:60,spa:60,spd:40,spe:40},
     learnset:[[1,"graze",[22,"sandstrike"]],[1,"daunt"],[8,"mud_spray"],[16,"cranial_ram"],[24,"tectonic_shift"],[29,"lashing_tail"],[32,"geoblast"],[40,"crushing_bulk",[5,"dust_veil"]],[3,"clay_armor"],[31,"baleful_stare"],[50,"tectonic_wrath"],[50,"mantle_surge"],[40,"cryo_shatter"],[40,"mineral_lance"],[30,"luma_quake"],[30,"smoldering_abyss"],[85,"diamond_crash",{ng:true}],[80,"underground_crush",{ng:true}],[80,"crystal_spear",{ng:true}],[85,"oneiric_press",{ng:true}],[70,"draconic_pummels",{ng:true}]],
     evolveTo:95, evolveLevel:null, evolveMethod:"item", evolveItem:"steelCoating", catchRate:160, expYield:88, rarity:"common",
     desc:"A dusty rhino calf the size of a small dog. Stomps about arid plains, sometimes shedding tiny static crackles from its budding horn.",
     lore:"Aridhino is a stout rhino calf about 50 centimetres at the shoulder, the early form of a lineage of seismic earth-shakers. Its grey-brown hide is already beginning to thicken into proto-armour plates across its shoulders and broad chest, and a small ridged horn-bud crowns its snout — sometimes shedding tiny crackles of static when the calf scuffs the dry earth in play. It inhabits arid plains and digs shallow burrows to escape midday heat, drinking from rain pools that gather in the depressions left by its passing herd. Aridhino calves visibly flinch at faint thunder from distant storms; an unconscious recognition of the conductive iron-veined Quakehide hide they will grow into, when storms follow rather than precede them across the plains." },
 
   95: { id:95, name:"Seismith",  emoji:"🦏", types:["Earth","Electric"],
-    base:{hp:63,atk:68,def:58,spa:32,spd:39,spe:42},
+    base:{hp:88,atk:25,def:95,spa:88,spd:55,spe:44},
     learnset:[[1,"mud_spray"],[2,"cranial_ram"],[3,"tectonic_shift"],[4,"dust_veil"],[5,"clay_armor"],[10,"jolt"],[20,"shock_pulse"],[29,"geoblast"],[31,"fortify"],[37,"crushing_bulk"],[38,"static_strike"],[41,"magma_stone"],[43,"stone_slide"],[49,"crystal_lance"],[55,"fissure_slam"],[61,"voltaic_rush"],[17,"time_strike"],[17,"tidal_fang"],[25,"throat_chop"],[90,"ampere_rail",{ng:true}],[80,"sandstone_rush",{ng:true}],[80,"temporal_slash",{ng:true}],[80,"dynamo_whip",{ng:true}],[80,"basalt_volley",{ng:true}],[80,"bone_barrage",{ng:true}],[80,"nuzzle",{ng:true}]],
     evolveTo:96, evolveLevel:44, catchRate:50, expYield:218, rarity:"uncommon",
     desc:"A mid-sized rhino with conductive earthen plates fused to its hide. Each footfall sends crackling static through the surrounding ground.",
@@ -3942,7 +3942,7 @@ const MONSTERS_DATA = {
 
   // 198: Quakehide - Ground/Rock (Terrakin→Seismith→Quakehide)
   96: { id:96, name:"Quakehide", emoji:"🦏", types:["Earth","Electric"],
-    base:{hp:82,atk:101,def:86,spa:42,spd:54,spe:42},
+    base:{hp:120,atk:30,def:115,spa:115,spd:90,spe:40},
     learnset:[[1,"tectonic_shift"],[1,"volt_jet"],[2,"cranial_ram"],[3,"geoblast"],[4,"crag_strike"],[5,"clay_armor"],[6,"earthen_wall"],[8,"mineral_polish"],[10,"bolt_smash"],[12,"smack_down"],[14,"ground_circuit"],[15,"primeval_force"],[18,"erosion_wave"],[20,"telluric_wave"],[22,"stone_cleave"],[24,"quake_pulse"],[26,"meteor_strike"],[28,"boulder_wrecker"],[30,"continental_shift"],[32,"diamond_crash"],[34,"thunder_cage"],[36,"diamond_storm"],[38,"ball_lightning"],[40,"arc_cannon"],[42,"crystal_lance"],[44,"temper_edge"],[46,"sand_geyser"],[50,"overcharge"],[54,"scorched_earth"],[58,"fissure_slam"],[62,"crushing_bulk"],[30,"rumble_smash"],[30,"reverie_charge"],[50,"reckless_charge"],[105,"mineral_lance",{ng:true}],[105,"luma_quake",{ng:true}],[100,"ampere_rail",{ng:true}],[100,"sinkhole_maw",{ng:true}],[95,"burial_sands",{ng:true}],[95,"bone_cudgel",{ng:true}],[95,"trample",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"A colossal rhino-titan whose every footfall registers as both an earthquake and a thunderclap. Lightning rolls along its plated hide as it walks.",

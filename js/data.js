@@ -1710,14 +1710,14 @@ const MONSTERS_DATA = {
     lore:"Heliocoon is a 30-centimetre teardrop-shaped chrysalis spun from Scorchlarva's heat-resistant silk and anchored by a single dark thread to the underside of a charred branch. Its outer casing is layered tan and charcoal-grey, threaded with thin orange veins that pulse faintly with internal warmth as the larva continues to develop inside. It does not feed and rarely shifts — only the casing's surface trembles when the body within turns. Heat radiates from the shell strongly enough to discourage most predators, and it can hang motionless for weeks on end while it waits to emerge into its winged final form." },
 
   101: { id:101, name:"Taurcin",    emoji:"🐂", types:["Fire"],
-    base:{hp:41,atk:42,def:35,spa:32,spd:23,spe:27},
+    base:{hp:58,atk:70,def:58,spa:24,spd:33,spe:32},
     learnset:[[1,"collide",[22,"magma_surge"]],[1,"flicker"],[12,"cranial_ram"],[19,"war_dance"],[20,"inferno_jet"],[30,"crushing_bulk"],[35,"searing_gale"],[40,"pyroclasm",[5,"scorch_veil"]],[3,"embercloak"],[31,"lashing_tail"],[40,"forge_blast"],[30,"ignition_kick"],[20,"flare_uppercut"],[50,"lava_drop"],[20,"sun_burst"],[5,"mineral_jab"],[70,"quake_barrage",{ng:true}]],
     evolveTo:102, evolveLevel:22, catchRate:120, expYield:112, rarity:"common",
     desc:"A powerful bull with lava dripping from its hooves. Incredibly stubborn.",
     lore:"Taurcin is a bulky bull-like creature standing 1.5 metres at the shoulder. Its rust-red hide is thick as leather armour, and two forward-curving horns glow orange at the tips from retained heat. It stamps and snorts before charging, and the impact of its body can crack stone walls. Veteran Taurcin will stamp their hooves into bare soil until faint magma-glow rises through the cracks; the instinct comes from further down the bloodline, where Pyroclasm walks across pools of cooling lava without harm." },
 
   102: { id:102, name:"Molteroth",    emoji:"🐃", types:["Fire","Earth"],
-    base:{hp:59,atk:70,def:61,spa:49,spd:40,spe:40},
+    base:{hp:82,atk:98,def:85,spa:32,spd:48,spe:45},
     learnset:[[1,"cranial_ram"],[2,"magma_surge"],[3,"flicker"],[4,"inferno_jet"],[5,"scorch_veil"],[6,"embercloak"],[10,"flame_spiral"],[14,"molten_claw"],[18,"inferno_chop"],[22,"infernal_roar"],[26,"inferno_charge"],[30,"battle_cry"],[32,"searing_gale"],[34,"pyroclastic_burst"],[37,"pyroclasm"],[38,"stalactite_drop"],[42,"quarry_crush"],[46,"stone_slide"],[54,"crag_strike"],[62,"conflagration"],[64,"stone_throw"],[25,"mystic_blow"],[45,"mist_press"],[35,"leviathan_rush"],[80,"magma_strike",{ng:true}]],
     evolveTo:103, evolveLevel:42, evolveMethod:"location", evolveLocation:"volcano_core", catchRate:45, expYield:235, rarity:"uncommon",
     desc:"A volcanic beast covered in hardened magma. Nothing can stop its charge.",
@@ -3790,7 +3790,7 @@ const MONSTERS_DATA = {
 
   // 15: Pyroclasm - Fire/Earth (Taurcin→Molteroth→Pyroclasm)
   103: { id:103, name:"Pyroclasm", emoji:"🌋", types:["Fire","Earth"],
-    base:{hp:77,atk:95,def:81,spa:65,spd:54,spe:43},
+    base:{hp:105,atk:110,def:100,spa:40,spd:65,spe:80},
     learnset:[[1,"cranial_ram"],[1,"magma_surge"],[2,"inferno_jet"],[3,"scorch_veil"],[4,"stone_slide"],[5,"embercloak"],[8,"hexflame"],[12,"smolder_trap"],[16,"molten_armor"],[22,"infernal_roar"],[28,"inferno_charge"],[34,"pyroclastic_burst"],[36,"volcanic_wrath"],[38,"searing_gale"],[42,"crag_strike"],[44,"ashfall"],[46,"pyroclasm"],[50,"stalactite_drop"],[54,"conflagration"],[58,"quarry_crush"],[62,"solar_flare"],[64,"primeval_force"],[20,"mesmerize"],[20,"mental_overflow"],[20,"magnet_field"],[90,"cinder_lance",{ng:true}],[90,"magma_strike",{ng:true}],[100,"firebrand",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:270, rarity:"rare",
     desc:"A living caldera given form. When it charges, the ground splits and magma fountains in its wake.",

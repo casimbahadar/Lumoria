@@ -1753,14 +1753,14 @@ const MONSTERS_DATA = {
     lore:"Brinecrush is a broad-bodied rock lobster about 50 cm long — Reefnip's pale blue-green coral-polyp shell has hardened and stilled into a stone-grey carapace reinforced by calcified mineral deposits, and its tiny defensive pincers have grown into crushing claws that can crack thick coral. It dwells in rocky sea caves along the coastline, guarding its territory fiercely against any intruder." },
 
   129: { id:129, name:"Cryonik",    emoji:"🦭", types:["Ice","Aquatic"],
-    base:{hp:36,atk:37,def:43,spa:49,spd:50,spe:21},
+    base:{hp:43,atk:44,def:51,spa:58,spd:59,spe:25},
     learnset:[[1,"collide",[22,"frost_current"]],[1,"flurries"],[10,"aquatic_gun"],[18,"cold_beam"],[20,"baleful_stare"],[26,"tidal_sweep"],[34,"whiteout",[5,"permafrost"]],[36,"cryo_lance"],[3,"winter_shroud"],[31,"tidal_rush"],[40,"supernova_eruption"],[12,"stygian_whisper"],[20,"stream_burst"]],
     evolveTo:130, evolveLevel:28, catchRate:120, expYield:91, rarity:"common",
     desc:"An adorable ice seal. Its smooth skin can withstand arctic temperatures.",
     lore:"Cryonik is a plump seal-like creature about 80 cm long with pale powder-blue fur tipped in white. Its wide eyes are deep amber. A thin layer of ice perpetually coats its outer fur, crackling softly as it moves. It naps on floating ice floes and slides effortlessly into freezing water to catch fish." },
 
   130: { id:130, name:"Boreon",  emoji:"🦭", types:["Ice","Aquatic"],
-    base:{hp:57,atk:42,def:56,spa:71,spd:67,spe:56},
+    base:{hp:64,atk:47,def:63,spa:78,spd:75,spe:63},
     learnset:[[1,"flurries"],[2,"aquatic_gun"],[3,"cold_beam"],[4,"permafrost"],[31,"whiteout"],[33,"fortify"],[38,"abyssal_jet"],[43,"hoarfrost_bite"],[48,"frost_crash"],[53,"tidal_rush"],[58,"tundra_tomb"],[63,"tsunami"],[5,"winter_shroud"],[41,"tidal_sweep"],[25,"void_wail"],[17,"void_rend_ex"],[17,"void_cyclone"],[90,"cryogenic_breath",{ng:true}],[90,"hail_storm",{ng:true}],[80,"flash_freeze",{ng:true}],[95,"icebound_lattice",{ng:true}]],
     evolveTo:131, evolveLevel:44, evolveMethod:"battles", evolveBattles:20, catchRate:40, expYield:217, rarity:"uncommon",
     desc:"A regal glacial seal. It can freeze oceans with a single breath.",
@@ -3830,7 +3830,7 @@ const MONSTERS_DATA = {
 
   // 184: Polarveth - Ice/Aquatic (Cryonik→Boreon→Polarveth)
   131: { id:131, name:"Nagislither", emoji:"🧊", types:["Ice","Aquatic"],
-    base:{hp:80,atk:60,def:80,spa:100,spd:85,spe:48},
+    base:{hp:100,atk:60,def:88,spa:100,spd:90,spe:48},
     learnset:[[1,"flurries"],[1,"tidal_rush"],[2,"cold_beam"],[3,"permafrost"],[4,"winter_shroud"],[38,"whiteout"],[42,"hoarfrost_bite"],[46,"frost_crash"],[50,"tsunami"],[54,"tundra_tomb"],[58,"cryo_lance"],[62,"abyssal_jet"],[5,"tidecaller"],[44,"frost_current"],[20,"radiant_aura"],[20,"quarry_speed"],[20,"putrid_calm"],[105,"icebound_lattice",{ng:true}],[100,"ice_resonance",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A titan of polar seas whose body is half glacier and half deep ocean. Its roar shatters icebergs for miles around.",

@@ -3262,7 +3262,7 @@ const MONSTERS_DATA = {
 
   // ===== STEEL/DARK =====
   120: { id:120, name:"Aeronyx", emoji:"🦇", types:["Metal","Dark"],
-    base:{hp:33,atk:34,def:45,spa:30,spd:38,spe:44},
+    base:{hp:41,atk:43,def:55,spa:38,spd:48,spe:55},
     learnset:[[1,"chomp",[20,"shadowstep"]],[1,"chrome_claw"],[9,"wingbeat"],[17,"void_pulse"],[21,"baleful_stare"],[25,"forge_blast_2"],[33,"jaw_crush",[5,"magnetize"]],[36,"nether_sphere"],[3,"ironskin"],[31,"smelt_crush"],[50,"world_root_bind"],[50,"winter_shade"],[20,"windshear"]],
     evolveTo:121, evolveLevel:28, evolveMethod:"held", evolveItem:"metalCoat", catchRate:140, expYield:88, rarity:"common",
     desc:"A small bat with scrap-metal wings that screech on the wind. Lives in old ruins.",
@@ -3422,7 +3422,7 @@ const MONSTERS_DATA = {
     lore:"Stonebolt is a stout rock-echidna 1.3 metres at the shoulder, bulkier and broader than its Arcspine juvenile stage. Its quill-forest has consolidated into thick stone-grey plate-quills along its back and flanks, and granite ridges rim its shoulders. A pair of stubby crystalline forehead-spurs grows above its snout — discharging electricity between them creates a directed electrical bolt that strikes far ahead. It is slow but extraordinarily durable, weathering attacks that would shatter most other creatures." },
 
   121: { id:121, name:"Steelvex", emoji:"🦇", types:["Metal","Dark"],
-    base:{hp:56,atk:70,def:65,spa:41,spd:50,spe:54},
+    base:{hp:65,atk:81,def:75,spa:48,spd:58,spe:63},
     learnset:[[1,"forge_blast_2"],[2,"void_pulse"],[3,"magnetize"],[30,"jaw_crush"],[33,"nether_sphere"],[34,"fortify"],[38,"rivet_barrage"],[43,"metal_wing"],[48,"dusk_slash"],[53,"forge_strike"],[58,"void_rend"],[63,"alloy_tail"],[4,"ironskin"],[41,"smelt_crush"],[35,"terror_slash"],[25,"temporal_slash"],[55,"stellar_collapse"],[90,"nyx_fang",{ng:true}],[90,"nightmare_smash",{ng:true}],[90,"throat_chop",{ng:true}],[95,"savage_blow",{ng:true}]],
     evolveTo:122, evolveLevel:null, evolveMethod:"item", evolveItem:"steelCoating", catchRate:45, expYield:215, rarity:"uncommon",
     desc:"An iron-clad wraith bat. Its metallic screech disorients enemies from great distances.",
@@ -4038,7 +4038,7 @@ const MONSTERS_DATA = {
 
   // 210: Ferrovast - Metal/Dark (Aeronyx→Ferrovex→Ferrovast)
   122: { id:122, name:"Metalibat", emoji:"🦇", types:["Metal","Dark"],
-    base:{hp:73,atk:100,def:88,spa:57,spd:68,spe:46},
+    base:{hp:84,atk:114,def:101,spa:45,spd:76,spe:75},
     learnset:[[1,"chrome_claw"],[1,"void_pulse"],[2,"forge_blast_2"],[3,"jaw_crush"],[4,"magnetize"],[38,"forge_strike"],[42,"void_rend"],[46,"alloy_tail"],[50,"nether_sphere"],[54,"anvil_drop"],[58,"dusk_slash"],[62,"soul_rend"],[5,"ironskin"],[44,"eclipse_shroud"],[20,"focus_pose"],[20,"fighter_s_resolve"],[20,"fester_meditation"],[100,"nyx_fang",{ng:true}],[100,"nightmare_smash",{ng:true}],[100,"flywheel",{ng:true}],[100,"throat_chop",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A wraith of living iron that hunts in total darkness. Its metallic screech can shatter stone and its wings cut like blades.",

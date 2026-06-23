@@ -2766,14 +2766,14 @@ const MONSTERS_DATA = {
 
   // 2-stage Aquatic/Mental chain: Aquapuff → Wavrix (level 28)
   97: { id:97, name:"Bubblepuff", emoji:"🫧", types:["Aquatic","Mental"],
-    base:{hp:34,atk:31,def:33,spa:48,spd:42,spe:46},
+    base:{hp:41,atk:20,def:39,spa:67,spd:50,spe:63},
     learnset:[[1,"aquatic_gun"],[1,"mind_jolt"],[10,"bubble_jet"],[20,"psi_burst"],[30,"tidal_rush"],[40,"mental"],[50,"tsunami"],[60,"radiance_cannon"],[20,"dread_burst"],[20,"crystalline_beam"],[30,"crystal_storm"],[70,"mental_pulse",{ng:true}]],
     evolveTo:98, evolveLevel:28, catchRate:165, expYield:76, rarity:"common",
     desc:"A bubble of water with psychic intelligence. Floats using mental energy as much as buoyancy.",
     lore:"Bubblepuff is a round water-psychic creature 25 cm across resembling a translucent bubble of water with two bright eyes and a dreamy expression. It floats just above water surfaces and can drift through the air for short distances. It projects thoughts as visible coloured ripples across any water surface it contacts. A Bubblepuff's projected ripples grow more complex with age and begin to anticipate the water's own movements: a small, accidental version of the perfect tide-and-current prediction Psychotide performs across millennia." },
 
   98: { id:98, name:"Psychotide", emoji:"🌊", types:["Aquatic","Mental"],
-    base:{hp:51,atk:44,def:49,spa:74,spd:64,spe:58},
+    base:{hp:58,atk:20,def:56,spa:101,spd:73,spe:82},
     learnset:[[1,"tidal_rush"],[1,"mental"],[22,"tsunami"],[30,"psi_strike"],[38,"tidal_sweep"],[46,"neural_storm"],[54,"geyser_burst"],[62,"radiance_cannon"],[64,"psy_jab"],[35,"gloom_haunt"],[17,"ghost_pulse"],[35,"geyser_storm"],[80,"mental_pulse",{ng:true}],[90,"telepathic_slam",{ng:true}],[90,"future_echo",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:220, rarity:"uncommon",
     desc:"A psychic wave entity. Predicts tides and currents with perfect accuracy millennia in advance.",

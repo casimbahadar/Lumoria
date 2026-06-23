@@ -2169,14 +2169,14 @@ const MONSTERS_DATA = {
 
   // ===== PSYCHIC =====
   113: { id:113, name:"Projectery",     emoji:"🐩", types:["Mental"],
-    base:{hp:32,atk:22,def:25,spa:48,spd:47,spe:47},
+    base:{hp:41,atk:28,def:32,spa:60,spd:59,spe:60},
     learnset:[[1,"collide",[22,"synaptic_shatter"]],[1,"mind_jolt"],[3,"clairvoyance"],[6,"psy_jab"],[8,"blitz"],[12,"cerebral_calm"],[16,"psi_burst"],[20,"psy_blast"],[24,"mental"],[29,"baleful_stare"],[31,"second_wind"],[32,"inner_calm"],[40,"psi_strike",[5,"prism_ward"]],[30,"hypnos_storm"],[20,"hypnic_breath"],[80,"thought_stream",{ng:true}],[80,"cognition_meld",{ng:true}],[80,"noetic_burst",{ng:true}],[80,"expanding_force",{ng:true}],[75,"latent_force",{ng:true}],[75,"thought_wave",{ng:true}],[70,"spectral_radiance",{ng:true}]],
     evolveTo:114, evolveLevel:25, catchRate:165, expYield:86, rarity:"common",
     desc:"A psychic puppy that reads minds. Can predict attacks before they happen.",
     lore:"Projectery is a small psychic dog about 30 cm at the shoulder with smooth lavender-grey fur and a large domed forehead that glows softly when focusing. Its eyes are bright blue-silver. It reads emotions effortlessly and communicates its own feelings through projected imagery rather than vocalisation." },
 
   114: { id:114, name:"Psymastiff",   emoji:"🐩", types:["Mental"],
-    base:{hp:50,atk:37,def:34,spa:68,spd:64,spe:68},
+    base:{hp:62,atk:46,def:42,spa:83,spd:79,spe:83},
     learnset:[[1,"mind_jolt"],[2,"psi_burst"],[3,"mental"],[4,"prism_ward"],[5,"clairvoyance"],[15,"mnemonic_focus"],[18,"noetic_burst"],[22,"psy_blast"],[26,"latent_force"],[29,"inner_calm"],[31,"daunt"],[33,"sixth_sense"],[37,"psi_strike"],[38,"battle_cry"],[41,"war_dance"],[43,"second_wind"],[45,"cognition_meld"],[48,"prophecy"],[49,"wild_tumble"],[55,"telepathic_slam"],[61,"thought_crush"],[55,"miasma_apocalypse"],[55,"meteor_strike"],[25,"mercurial_torrent"],[80,"insight_flare",{ng:true}],[80,"prism_ray",{ng:true}],[90,"somnia_blast",{ng:true}],[80,"psionic_wave",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:318, rarity:"uncommon",
     desc:"A psychic hound whose mind burns with power. Can levitate small objects.",

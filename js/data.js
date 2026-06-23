@@ -2290,14 +2290,14 @@ const MONSTERS_DATA = {
     lore:"Racehare is a lean racing rabbit 45 cm long — Leapbun's soft white-grey fur has darkened to short brown across a compact aerodynamic body shape, and the oversized hind legs of the kit have lengthened into long muscular legs. Its ears lie flat when running rather than pivoting independently. It can sustain sprints of extraordinary speed for short distances and uses evasion rather than combat as its primary survival strategy." },
 
   132: { id:132, name:"Rotunden",   emoji:"🐻", types:["Normal","Fighting"],
-    base:{hp:54,atk:44,def:41,spa:34,spd:27,spe:32},
+    base:{hp:69,atk:62,def:48,spa:27,spd:43,spe:46},
     learnset:[[1,"collide",[22,"battle_cry"]],[1,"daunt"],[10,"cranial_ram"],[18,"crushing_bulk"],[26,"war_dance"],[30,"body_check"],[34,"radiance_cannon"],[42,"second_wind",[5,"lashing_tail"]],[3,"baleful_stare"],[32,"double_smash"],[10,"opaline_armor"],[10,"null_void"],[10,"noxious_focus"]],
     evolveTo:133, evolveLevel:25, evolveMethod:"friendship", catchRate:140, expYield:98, rarity:"common",
     desc:"A roly-poly bear. Loves honey and naps. Surprisingly strong when angry.",
     lore:"Rotunden is a chubby round bear-like creature 80 cm tall. Its fur is russet-brown and dense, giving it a perfectly spherical silhouette. It stores enormous fat reserves for winter and can be found in autumn gorging on berries and fruit. It is gentle by nature and rarely provoked." },
 
   133: { id:133, name:"Glutoros",    emoji:"🐻", types:["Normal","Fighting"],
-    base:{hp:79,atk:66,def:56,spa:53,spd:47,spe:41},
+    base:{hp:99,atk:88,def:69,spa:38,spd:61,spe:65},
     learnset:[[1,"cranial_ram"],[2,"battle_cry"],[3,"crushing_bulk"],[4,"lashing_tail"],[5,"daunt"],[6,"collide"],[7,"focus_roar"],[15,"body_blow"],[25,"war_dance"],[31,"radiance_cannon"],[38,"baleful_stare"],[39,"second_wind"],[44,"wild_tumble"],[45,"all_out_assault"],[51,"seismic_force"],[64,"brawl"],[15,"nocturne_charge"],[15,"mystic_charge"],[15,"murk_screen"]],
     evolveTo:134, evolveLevel:44, catchRate:50, expYield:220, rarity:"uncommon",
     desc:"A tubby great bear of enormous power. Its hugs can crush boulders.",
@@ -4054,7 +4054,7 @@ const MONSTERS_DATA = {
 
   // 212: Ursamight - Normal (Rotunden→Glutoros→Ursamight)
   134: { id:134, name:"Ursamight", emoji:"🐻", types:["Normal","Fighting"],
-    base:{hp:113,atk:94,def:78,spa:62,spd:62,spe:35},
+    base:{hp:130,atk:115,def:90,spa:50,spd:80,spe:85},
     learnset:[[1,"cranial_ram"],[1,"crushing_bulk"],[2,"battle_cry"],[3,"war_dance"],[4,"second_wind"],[38,"radiance_cannon"],[42,"wild_tumble"],[46,"momentum_rush"],[50,"seismic_force"],[54,"instinct_slash"],[58,"brawl"],[62,"haymaker"],[5,"focus_roar"],[44,"baleful_stare"],[20,"facet_focus"],[20,"evaporate"],[20,"ethereal_step"],[100,"high_kick",{ng:true}],[100,"crippling_blow",{ng:true}],[100,"relentless_fury",{ng:true}],[100,"power_drive",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:270, rarity:"rare",
     desc:"The greatest bear that has ever walked Lumoria. When it stands fully upright, it blots out the sun. Its roar has been mistaken for natural disasters.",

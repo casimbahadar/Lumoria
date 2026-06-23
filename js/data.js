@@ -2319,14 +2319,14 @@ const MONSTERS_DATA = {
 
   // ===== ROCK =====
   104: { id:104, name:"Pebblet",   emoji:"🪨", types:["Earth"],
-    base:{hp:43,atk:45,def:54,spa:33,spd:22,spe:32},
+    base:{hp:54,atk:57,def:68,spa:42,spd:28,spe:41},
     learnset:[[1,"collide",[22,"obsidian_crash"]],[1,"stone_throw"],[8,"fortify"],[16,"cranial_ram"],[24,"stone_slide"],[29,"lashing_tail"],[32,"crag_strike"],[40,"crushing_bulk",[5,"granite_wall"]],[3,"petrify_gaze"],[31,"daunt"],[50,"tectonic_wrath"],[50,"mantle_surge"],[40,"cryo_shatter"],[40,"mineral_lance"],[30,"luma_quake"],[30,"smoldering_abyss"],[75,"leg_sweep",{ng:true}],[100,"tungsten_ram",{ng:true}]],
     evolveTo:105, evolveLevel:25, catchRate:160, expYield:88, rarity:"common",
     desc:"A pebble-sized rock roly-poly. Curls into a tiny armored ball when startled, nearly invisible among river stones.",
     lore:"Pebblet is a small rock-isopod about 20 cm long, its segmented stony shell the colour of river gravel and its underside lined with many tiny legs. At the first hint of danger it tucks head and legs away and curls into a tight pebble-shaped ball, nearly indistinguishable from an ordinary stone, rolling with the current through streambeds. As it grows it learns to roll under its own power — the habit that comes to define the boulder-rolling Boulderoll it becomes." },
 
   105: { id:105, name:"Boulderoll",emoji:"🪨", types:["Earth"],
-    base:{hp:60,atk:78,def:82,spa:36,spd:41,spe:50},
+    base:{hp:71,atk:92,def:97,spa:43,spd:48,spe:59},
     learnset:[[1,"stone_throw"],[2,"cranial_ram"],[3,"fortify"],[4,"stone_slide"],[5,"granite_wall"],[29,"crag_strike"],[33,"tremor_stomp"],[37,"crushing_bulk"],[41,"geoblast"],[49,"crystal_lance"],[57,"landslide"],[65,"tectonic_shift"],[6,"petrify_gaze"],[44,"aftershock"],[17,"sound_rush"],[25,"somnia_punch"],[35,"solar_impact"],[95,"mineral_lance",{ng:true}],[95,"luma_quake",{ng:true}],[90,"sinkhole_maw",{ng:true}],[80,"sandstone_rush",{ng:true}],[85,"burial_sands",{ng:true}],[85,"stone_cleave",{ng:true}],[80,"basalt_volley",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:222, rarity:"uncommon",
     desc:"A massive rock roly-poly that curls into a boulder and rolls downhill, setting off landslides.",

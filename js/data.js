@@ -2826,14 +2826,14 @@ const MONSTERS_DATA = {
 
   // 3-stage Fighting/Toxin chain: Transluceed → Tendrilisk → Impenezard
   126: { id:126, name:"Transluceed", emoji:"🌿", types:["Fighting","Toxin"],
-    base:{hp:47,atk:54,def:46,spa:67,spd:57,spe:62},
+    base:{hp:50,atk:70,def:52,spa:42,spd:55,spe:64},
     learnset:[[1,"vine_lash"],[1,"septic_prick"],[5,"caustic_shell"],[8,"ki_blast"],[10,"sharp_leaves"],[12,"warrior_block"],[15,"corrosive_step"],[18,"martial_aura"],[20,"ooze_bomb"],[25,"acid_burst_2"],[30,"verdant_orb"],[40,"toxify"],[50,"petal_blitz"],[60,"radiance_cannon"],[40,"heaven_strike"],[30,"iron_cleave"],[30,"roar_strike"],[30,"spirit_bomb"],[30,"galaxy_punch_2"],[20,"sonic_palm"],[40,"corrosive_finish"],[40,"toxin_smash"],[30,"virulent_storm"],[20,"bilious_drown"],[20,"coiled_lunge"],[20,"toxic_lash_2"],[85,"galaxy_punch_2",{ng:true}],[70,"martial_intent",{ng:true}],[85,"spirit_bomb",{ng:true}],[80,"ki_burst",{ng:true}],[75,"focused_beam",{ng:true}]],
     evolveTo:127, evolveLevel:24, evolveMethod:"battles", evolveBattles:12, catchRate:180, expYield:68, rarity:"common",
     desc:"A seed creature wrapped in poisoned vines. It plants itself to absorb nutrients then walks away.",
     lore:"Transluceed is a small fighting-toxin creature 20 cm tall resembling a cactus sapling that has grown a face and legs. Its body is pale green and slightly translucent. Tiny venom-tipped thorn-buds dot its surface, flicked at grazing animals to deter them. As it ages, these buds harden into the vine-tendril limbs Tendrilisk wields and eventually the towering thorn-warrior Impenezard rises into decades later." },
 
   127: { id:127, name:"Tendrilisk", emoji:"🌵", types:["Fighting","Toxin"],
-    base:{hp:65,atk:74,def:63,spa:91,spd:74,spe:67},
+    base:{hp:72,atk:95,def:70,spa:55,spd:75,spe:67},
     learnset:[[1,"sharp_leaves"],[1,"ooze_bomb"],[15,"focus_pose"],[18,"verdant_orb"],[20,"acrid_claw"],[22,"martial_intent"],[25,"acid_slash"],[28,"toxify"],[30,"acid_burst_2"],[33,"crippling_blow"],[36,"petal_blitz"],[44,"venom_lance"],[45,"acid_press"],[52,"grove_wrath"],[60,"radiance_cannon"],[62,"quake_barrage"],[45,"heaven_strike"],[35,"iron_cleave"],[35,"roar_strike"],[35,"spirit_bomb"],[35,"galaxy_punch_2"],[25,"sonic_palm"],[35,"corrosive_burst"],[25,"bilious_drown"],[25,"coiled_lunge"],[25,"toxic_lash_2"],[17,"septic_bite"],[25,"crystalline_beam"],[35,"crystal_storm"],[95,"galaxy_punch_2",{ng:true}],[95,"spirit_bomb",{ng:true}],[90,"ki_burst",{ng:true}],[80,"martial_aura",{ng:true}],[85,"focused_beam",{ng:true}],[85,"ki_blast",{ng:true}]],
     evolveTo:128, evolveLevel:42, evolveMethod:"battles", evolveBattles:20, catchRate:90, expYield:145, rarity:"uncommon",
     desc:"A cactus warrior of venomous thorns. Its spines can inject toxins from up to three meters away.",

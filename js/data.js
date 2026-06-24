@@ -2672,14 +2672,14 @@ const MONSTERS_DATA = {
 
   // 2-stage Electric/Bug chain: Zappling → Voltrix (level 30)
   153: { id:153, name:"Pulseglow", emoji:"🐞", types:["Electric","Sonic"],
-    base:{hp:31,atk:37,def:28,spa:46,spd:34,spe:52},
+    base:{hp:44,atk:52,def:39,spa:65,spd:48,spe:72},
     learnset:[[1,"jolt"],[1,"echo_pulse"],[12,"static_strike"],[22,"volt_jet"],[32,"pulse_wave"],[42,"resonate"],[52,"stormbolt"],[60,"radiance_cannon"],[10,"age_resolve"],[10,"afterimage"],[10,"aevum_speed"],[80,"decibel_burst",{ng:true}]],
     evolveTo:154, evolveLevel:30, catchRate:170, expYield:75, rarity:"common",
     desc:"A firefly whose swarms pulse in both light and sound. Its abdomen flashes and hums in coordinated rhythm.",
     lore:"Pulseglow is a tiny electric creature 5 cm long resembling a glowing firefly. Its abdomen pulses with yellow-white electric light at regular intervals, each flash paired with a low matching hum. Huge swarms congregate on summer nights over open water, flashing and droning in coordinated light-and-sound patterns — a complex form of collective communication. As it matures into Stuntrap, those pulsing rhythms deepen and slow into the hypnotic sonic drone of the adult." },
 
   154: { id:154, name:"Stuntrap", emoji:"🪰", types:["Dream","Sonic"],
-    base:{hp:46,atk:53,def:44,spa:71,spd:50,spe:63},
+    base:{hp:67,atk:77,def:64,spa:102,spd:73,spe:92},
     learnset:[[1,"echo_pulse"],[1,"dream_pulse"],[10,"pulse_wave"],[18,"drowse_swirl"],[24,"resonate"],[30,"trance_wave"],[38,"lullaby_strike"],[40,"harmonic_burst"],[48,"somnia_blast"],[56,"decibel_burst"],[64,"dreamscape_smash"],[15,"divine_ward"],[15,"cumulus_meditation"],[15,"crystalline_speed"],[90,"terror_slash",{ng:true}],[90,"reverie_charge",{ng:true}],[90,"somnia_punch",{ng:true}],[80,"nightmare_strike",{ng:true}],[80,"dream_jab",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:50, expYield:215, rarity:"uncommon",
     desc:"A dragonfly whose droning wings lull prey into a daze, herding the dazzled swarm into mid-air traps.",

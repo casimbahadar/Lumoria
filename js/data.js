@@ -2111,14 +2111,14 @@ const MONSTERS_DATA = {
     lore:"Stoicguard is a large humanoid steel creature 1.5 metres tall — Scrapsapien's compact bolted-and-seamed plating has reforged into a broad powerful chest and arms that function as natural weapons, and the scrap-collecting habit of its juvenile form has left a surface of burnished dark steel with deep scratches from past battles. It is stoic, rarely speaking, and positions itself between perceived threats and those it considers worth protecting." },
 
   142: { id:142, name:"Ampercrawl",     emoji:"🐛", types:["Metal","Electric"],
-    base:{hp:36,atk:37,def:49,spa:39,spd:42,spe:40},
+    base:{hp:44,atk:46,def:61,spa:48,spd:52,spe:49},
     learnset:[[1,"chrome_claw",[22,"shrapnel_burst"]],[1,"jolt"],[3,"ironskin"],[6,"piston_jab"],[10,"forge_blast_2"],[14,"metal_pulse"],[18,"static_strike"],[20,"mirror_polish"],[21,"second_wind"],[26,"volt_jet"],[32,"ball_lightning"],[34,"forge_blast_2"],[38,"plasma_strike"],[42,"stormbolt",[5,"magnetize"]],[10,"age_resolve"],[10,"aevum_speed"],[10,"acidic_glance"],[70,"chromium_ray",{ng:true}],[70,"magnet_burst",{ng:true}],[85,"plasma_smelt",{ng:true}]],
     evolveTo:143, evolveLevel:28, catchRate:100, expYield:95, rarity:"common",
     desc:"A small armored centipede whose plated segments spark with current as it scurries.",
     lore:"Ampercrawl is a 60 cm centipede sheathed in interlocking metallic plates, a static charge building between its many legs as it scurries so that sparks leap from segment to segment. It nests in warm machinery and rock-faults, drawing charge from the air around it, and grows longer and more powerful with each moult — building toward the great Amperpede." },
 
   143: { id:143, name:"Amperpede",    emoji:"🐛", types:["Metal","Electric"],
-    base:{hp:56,atk:53,def:67,spa:79,spd:55,spe:48},
+    base:{hp:70,atk:67,def:84,spa:100,spd:69,spe:60},
     learnset:[[1,"volt_jet"],[2,"magnetize"],[3,"ironskin"],[15,"chrome_slash"],[20,"corrosion_proof"],[25,"flywheel"],[31,"forge_blast_2"],[32,"surge_field"],[33,"mirror_plating"],[35,"metal_roller"],[36,"fortify"],[37,"forge_strike"],[39,"stormbolt"],[40,"rivet_barrage"],[44,"volt_surge"],[48,"alloy_tail"],[52,"tungsten_ram"],[56,"overcharge"],[60,"radiance_cannon"],[35,"phantasm_calamity"],[35,"nightmare_storm"],[25,"necrotic_pulse"],[95,"smelter_surge",{ng:true}],[90,"titanic_beam",{ng:true}],[90,"counterforge",{ng:true}],[90,"mercurial_torrent",{ng:true}],[85,"wrought_shockwave",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"uncommon",
     desc:"A massive armored centipede crackling with stored current. Its electrified bite locks prey rigid.",

@@ -2097,14 +2097,14 @@ const MONSTERS_DATA = {
 
   // ===== STEEL =====
   139: { id:139, name:"Scrapsapien",     emoji:"🤖", types:["Metal"],
-    base:{hp:49,atk:63,def:76,spa:39,spd:47,spe:57},
+    base:{hp:50,atk:65,def:80,spa:28,spd:50,spe:37},
     learnset:[[1,"graze",[22,"alloy_edge"]],[1,"chrome_claw"],[3,"ironskin"],[9,"fortify"],[11,"piston_jab"],[17,"forge_blast_2"],[20,"metal_pulse"],[25,"metal_wing"],[29,"baleful_stare"],[32,"lashing_tail"],[33,"alloy_tail"],[41,"crushing_bulk",[5,"magnetize"]],[40,"warden_strike"],[30,"ferrous_gale"],[20,"pyro_alloy"],[20,"iron_fortress"],[70,"smart_strike",{ng:true}],[70,"rivet_barrage",{ng:true}],[75,"blazing_rush",{ng:true}]],
     evolveTo:140, evolveLevel:28, evolveMethod:"held", evolveItem:"metalCoat", catchRate:120, expYield:90, rarity:"common",
     desc:"A small steel humanoid armored in iron plates. Slow but incredibly tough.",
     lore:"Scrapsapien is a small humanoid steel creature 50 cm tall with a compact body of dark grey steel plates with visible bolts and seams. Its eyes are small yellow optical lenses. It collects metal scraps and incorporates them into its own body, slowly growing more elaborate and patched over time." },
 
   140: { id:140, name:"Stoicguard",  emoji:"🦾", types:["Metal"],
-    base:{hp:81,atk:96,def:100,spa:58,spd:75,spe:33},
+    base:{hp:85,atk:100,def:110,spa:35,spd:75,spe:20},
     learnset:[[1,"chrome_claw"],[2,"forge_blast_2"],[3,"metal_wing"],[4,"magnetize"],[5,"ironskin"],[10,"armor_meld"],[18,"flywheel"],[24,"smart_strike"],[28,"baleful_stare"],[30,"alloy_tail"],[35,"battle_cry"],[38,"crushing_bulk"],[42,"blitz"],[43,"second_wind"],[49,"rivet_barrage"],[56,"forge_strike"],[63,"tungsten_ram"],[35,"iron_fist"],[90,"cinder_lance",{ng:true}]],
     evolveTo:141, evolveLevel:null, evolveMethod:"item", evolveItem:"auspiciousPlate", catchRate:40, expYield:225, rarity:"uncommon",
     desc:"A steel hound with titanium claws. Almost nothing can break its armor.",
@@ -4030,7 +4030,7 @@ const MONSTERS_DATA = {
 
   // 209: Adamovast - Metal (Ferrokin→Adamavast→Adamovast)
   141: { id:141, name:"Eternarmor", emoji:"🐩", types:["Metal"],
-    base:{hp:97,atk:125,def:129,spa:68,spd:88,spe:22},
+    base:{hp:112,atk:120,def:130,spa:35,spd:110,spe:22},
     learnset:[[1,"chrome_claw"],[1,"forge_blast_2"],[2,"alloy_tail"],[3,"magnetize"],[4,"forge_strike"],[38,"anvil_drop"],[42,"iron_press"],[46,"slag_shield"],[50,"temper_edge"],[54,"metal_wing"],[58,"crushing_bulk"],[62,"radiance_cannon"],[5,"ironskin"],[44,"second_wind"],[15,"shade_dash"],[15,"run_down"],[30,"rumble_smash"],[100,"flywheel",{ng:true}],[90,"chrome_slash",{ng:true}],[90,"smart_strike",{ng:true}],[105,"smelt_crush",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:275, rarity:"rare",
     desc:"A steel titan of absolute indomitability. Every surface of its body is a different legendary alloy; no recorded force has ever cracked its hide.",

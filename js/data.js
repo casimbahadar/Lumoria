@@ -2717,21 +2717,21 @@ const MONSTERS_DATA = {
 
   // 3-stage Rock/Ground chain: Pebblard → Boulderax → Megalith
   144: { id:144, name:"Pebblard", emoji:"🪨", types:["Earth"],
-    base:{hp:38,atk:44,def:54,spa:28,spd:38,spe:31},
+    base:{hp:65,atk:59,def:59,spa:28,spd:38,spe:31},
     learnset:[[1,"stone_throw"],[1,"collide"],[12,"stone_slide"],[22,"geoblast"],[32,"crag_strike"],[42,"tectonic_shift"],[52,"bedrock_slam"],[60,"radiance_cannon"],[20,"psi_blade"],[90,"high_kick",{ng:true}]],
     evolveTo:145, evolveLevel:28, catchRate:175, expYield:72, rarity:"common",
     desc:"A living pebble with stubby limbs. Rolls into enemies to deal surprisingly heavy blows.",
     lore:"Pebblard is a small round rock creature 15 cm in diameter that is essentially a smooth river pebble with two tiny eyes. It camouflages perfectly among ordinary rocks. It communicates with others by clicking against nearby stone. Geologists have placed Pebblard specimens in their sample bags by mistake." },
 
   145: { id:145, name:"Boulderax", emoji:"⛰️", types:["Earth"],
-    base:{hp:60,atk:72,def:81,spa:39,spd:53,spe:39},
+    base:{hp:95,atk:75,def:84,spa:39,spd:53,spe:39},
     learnset:[[1,"stone_slide"],[1,"geoblast"],[22,"crag_strike"],[30,"tectonic_shift"],[38,"bedrock_slam"],[46,"mud_spray"],[54,"clay_armor"],[62,"radiance_cannon"],[17,"quartz_punch"],[25,"prism_blow"],[45,"primal_smash"],[90,"geode_burst",{ng:true}],[80,"tremor_stomp",{ng:true}],[95,"diamond_storm",{ng:true}],[95,"diamond_crash",{ng:true}]],
     evolveTo:146, evolveLevel:46, catchRate:80, expYield:155, rarity:"uncommon",
     desc:"A boulder-bodied titan that rolls through terrain like a wrecking ball. Nothing stops its charge.",
     lore:"Boulderax is a medium rock-ground creature 60 cm tall — Pebblard's smooth river-pebble silhouette has grown squat and boulder-shaped, sprouting thick arm-stubs and two flat feet, and the camouflage that once hid it among ordinary rocks now matches local geological formations at a much larger scale. It rolls itself into a perfect sphere for travel and unfurls only when it finds suitable terrain to defend." },
 
   146: { id:146, name:"Megalith", emoji:"🗿", types:["Earth"],
-    base:{hp:90,atk:98,def:109,spa:45,spd:72,spe:35},
+    base:{hp:126,atk:98,def:109,spa:45,spd:72,spe:35},
     learnset:[[1,"crag_strike"],[1,"tectonic_shift"],[15,"mineral_polish"],[20,"earthen_wall"],[25,"stone_cleave"],[32,"bedrock_slam"],[35,"quake_pulse"],[40,"clay_armor"],[45,"boulder_wrecker"],[48,"geoblast"],[50,"telluric_wave"],[56,"stone_slide"],[60,"continental_shift"],[64,"worldseed_quake"],[72,"radiance_cannon"],[22,"venom_fang"],[30,"umbral_claw"],[22,"toxic_sting"],[105,"mineral_lance",{ng:true}],[105,"luma_quake",{ng:true}],[100,"sinkhole_maw",{ng:true}],[90,"sandstone_rush",{ng:true}],[95,"burial_sands",{ng:true}],[95,"bone_cudgel",{ng:true}],[90,"basalt_volley",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:20, expYield:280, rarity:"rare",
     desc:"An ancient monolith that walks. Archaeological markings on its body predate all known civilizations.",

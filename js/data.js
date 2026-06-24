@@ -1853,14 +1853,14 @@ const MONSTERS_DATA = {
     lore:"Shockharpe is a 15 cm late-instar dragonfly, the metamorphic mid-stage of the Electrix lineage. Its body has elongated and slimmed from its aquatic-nymph form, and its rudimentary wing-buds have unfolded into newly emerged wings that are still soft and translucent, humming at a frequency that causes mild disorientation in nearby creatures. Its hooked predatory mandibles and accumulating electrical charge are inherited from the nymph. It drains bioelectric energy from prey rather than blood, leaving targets drained and sluggish." },
 
   155: { id:155, name:"Amperix",     emoji:"🐟", types:["Electric","Aquatic"],
-    base:{hp:30,atk:36,def:31,spa:46,spd:35,spe:39},
+    base:{hp:40,atk:48,def:41,spa:62,spd:47,spe:52},
     learnset:[[1,"aquatic_gun",[22,"arc_flash"]],[1,"jolt"],[12,"static_strike"],[19,"second_wind"],[20,"bubble_jet"],[28,"volt_jet"],[35,"voltaic_fang"],[36,"tidal_rush",[5,"stun_pulse"]],[3,"static_cage"],[31,"ion_cannon"],[40,"stratosphere_drop"],[12,"steam_burst"],[30,"starlit_dream"]],
     evolveTo:156, evolveLevel:28, catchRate:120, expYield:90, rarity:"common",
     desc:"An electric fish that shocks prey in shallow water. Glows when excited.",
     lore:"Amperix is a tropical fish 30 cm long with a vibrant yellow body striped in electric blue. Its dorsal fin doubles as an array of biological capacitor cells. It schools in large groups in warm coastal waters, and when a predator approaches the school emits a coordinated electrical pulse that stuns attackers. After a school's coordinated electrical pulse fires, a handful of Amperix tend to drift in place rather than rejoin the formation, dorsal capacitors humming with unused charge: the first stirrings of the solitary thermal-vent hunter Dynameel eventually becomes." },
 
   156: { id:156, name:"Sparkrel",    emoji:"🐟", types:["Electric","Aquatic"],
-    base:{hp:50,atk:39,def:41,spa:73,spd:55,spe:64},
+    base:{hp:63,atk:49,def:52,spa:92,spd:69,spe:80},
     learnset:[[1,"jolt"],[2,"aquatic_gun"],[3,"volt_jet"],[4,"bubble_jet"],[5,"stun_pulse"],[32,"voltaic_fang"],[33,"tidal_rush"],[35,"lashing_tail"],[42,"graze"],[49,"stormbolt"],[56,"tsunami"],[63,"overcharge"],[6,"static_cage"],[43,"tidal_sweep"],[25,"nova_burst"],[25,"noetic_burst"],[45,"nimbus_flood"],[90,"dream_torrent",{ng:true}],[80,"maelstrom",{ng:true}],[90,"steam_geyser",{ng:true}],[90,"thunder_cage",{ng:true}],[85,"shock_net",{ng:true}],[80,"thunder_chain",{ng:true}]],
     evolveTo:157, evolveLevel:42, evolveMethod:"move", evolveMove:"voltaic_fang", catchRate:50, expYield:205, rarity:"uncommon",
     desc:"A 60-centimetre developing electric eel, slim and silver-blue, that crackles when startled. Patterns of static glow along its sides as it swims.",
@@ -3926,7 +3926,7 @@ const MONSTERS_DATA = {
 
   // 196: Dynameel - Electric/Aquatic (Amperix→Volterel→Dynameel)
   157: { id:157, name:"Dynameel", emoji:"🐍", types:["Electric","Aquatic"],
-    base:{hp:71,atk:59,def:63,spa:105,spd:79,spe:45},
+    base:{hp:85,atk:40,def:75,spa:125,spd:95,spe:85},
     learnset:[[1,"jolt"],[1,"tidal_rush"],[2,"volt_jet"],[3,"aquatic_gun"],[4,"stun_pulse"],[38,"stormbolt"],[42,"tsunami"],[46,"voltaic_fang"],[50,"tidal_crush"],[54,"ion_cannon"],[58,"abyssal_jet"],[62,"overcharge"],[5,"static_cage"],[44,"frost_current"],[50,"veil_collapse"],[30,"timefade_beam"],[22,"time_ray"],[100,"thunder_cage",{ng:true}],[90,"relay_shock",{ng:true}],[90,"rising_voltage",{ng:true}],[90,"chain_spark",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A 4-metre electric eel-like leviathan whose body crackles with stored ocean current. It powers itself by siphoning thermal-vent differentials.",

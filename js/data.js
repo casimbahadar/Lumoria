@@ -2578,14 +2578,14 @@ const MONSTERS_DATA = {
 
   // 2-stage Aquatic/Fighting chain: Kappamaru → Sumokappa
   137: { id:137, name:"Kappamaru", emoji:"🐢", types:["Aquatic","Fighting"],
-    base:{hp:37,atk:47,def:40,spa:38,spd:35,spe:37},
+    base:{hp:52,atk:72,def:48,spa:30,spd:36,spe:62},
     learnset:[[1,"collide"],[1,"quick_punch"],[10,"aquatic_gun"],[16,"straight_jab"],[26,"wave_dash"],[36,"roundhouse"],[46,"brine_slash"],[56,"uppercut"],[10,"ancient_meditation"],[10,"ancient_calm"],[10,"air_barrier"]],
     evolveTo:138, evolveLevel:36, catchRate:150, expYield:90, rarity:"common",
     desc:"A young river-yokai with a water-dish crowning its head. Practises grappling holds in the shallows.",
     lore:"Kappamaru is a young river-yokai about 30 cm tall, green-skinned and webbed, with a shallow water-filled dish set into the crown of its head. So long as that dish stays full it brims with surprising strength, so it guards the precious water jealously — keeping its head level even while it tumbles and rolls. It haunts rocky shallows and pond-edges, ambushing larger creatures to practise the grappling holds it is determined to one day perfect." },
 
   138: { id:138, name:"Sumokappa", emoji:"🐢", types:["Aquatic","Fighting"],
-    base:{hp:55,atk:66,def:50,spa:56,spd:47,spe:56},
+    base:{hp:80,atk:100,def:75,spa:40,spd:50,spe:95},
     learnset:[[1,"quick_punch"],[1,"tidal_rush"],[8,"aquatic_gun"],[15,"straight_jab"],[20,"body_check"],[25,"riptide_slam"],[28,"wave_dash"],[30,"high_kick"],[38,"brawl"],[46,"tsunami"],[54,"spinning_kick"],[62,"ocean_tempest"],[70,"martial_finish"],[20,"evaporate"],[20,"epoch_charge"],[20,"empyrean_focus"]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:220, rarity:"uncommon",
     desc:"A mature river-yokai and peerless wrestler. Drags rivals into the current and pins them with grappling holds.",

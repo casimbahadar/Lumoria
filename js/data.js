@@ -1825,14 +1825,14 @@ const MONSTERS_DATA = {
 
   // ===== ELECTRIC =====
   150: { id:150, name:"Joltan",    emoji:"🐎", types:["Electric"],
-    base:{hp:30,atk:32,def:25,spa:35,spd:27,spe:69},
+    base:{hp:42,atk:55,def:30,spa:58,spd:30,spe:80},
     learnset:[[1,"graze",[20,"volt_surge"]],[1,"jolt"],[3,"charge_burst"],[6,"nuzzle"],[8,"blitz"],[10,"thunder_jab"],[16,"static_strike"],[18,"shock_pulse"],[22,"volt_jet"],[24,"static_charge"],[29,"second_wind"],[30,"stun_pulse"],[32,"baleful_stare"],[38,"stormbolt",[5,"static_cage"]],[20,"martial_aura"],[20,"magnet_burst"]],
     evolveTo:151, evolveLevel:20, catchRate:190, expYield:82, rarity:"common",
     desc:"A miniature electric pony-foal that bounds across grasslands faster than the eye can track. Tiny blue sparks drift from its short mane.",
     lore:"Joltan is a miniature electric pony-foal about 50 centimetres at the shoulder with a bright yellow short-haired coat and a dark mane that stands constantly on end from accumulated static charge. Tiny blue sparks drift from the tips of its mane and tail as it moves, and it discharges small jolts into anything that touches it unexpectedly. It cannot stand still — it races constantly across grasslands, building up kinetic and electrical energy together." },
 
   151: { id:151, name:"Galvanos",    emoji:"🐴", types:["Electric"],
-    base:{hp:39,atk:58,def:38,spa:59,spd:40,spe:92},
+    base:{hp:50,atk:80,def:42,spa:80,spd:38,spe:100},
     learnset:[[1,"jolt"],[2,"blitz"],[3,"static_strike"],[4,"static_cage"],[10,"chain_spark"],[18,"lightning_rush"],[20,"volt_jet"],[24,"relay_shock"],[27,"stun_pulse"],[28,"daunt"],[34,"fortify"],[35,"stormbolt"],[41,"wild_tumble"],[42,"baleful_stare"],[48,"arc_flash"],[55,"plasma_strike"],[62,"crushing_bulk"],[35,"ampere_rail"],[25,"volt_fang"],[25,"dynamo_whip"],[90,"jetstream",{ng:true}],[80,"metal_pulse",{ng:true}]],
     evolveTo:152, evolveLevel:44, evolveMethod:"move", evolveMove:"stormbolt", catchRate:60, expYield:200, rarity:"uncommon",
     desc:"An electric horse that gallops faster than lightning. Its mane crackles.",
@@ -3910,7 +3910,7 @@ const MONSTERS_DATA = {
 
   // 194: Voltanox - Electric (Joltan→Galvanos→Voltanox)
   152: { id:152, name:"Voltanox", emoji:"🐎", types:["Electric"],
-    base:{hp:62,atk:85,def:55,spa:89,spd:58,spe:74},
+    base:{hp:75,atk:100,def:55,spa:100,spd:50,spe:110},
     learnset:[[1,"jolt"],[1,"volt_jet"],[2,"static_strike"],[3,"stun_pulse"],[4,"blitz"],[5,"static_cage"],[10,"bolt_smash"],[15,"coil_strike"],[20,"rising_voltage"],[25,"overcharge_coil"],[30,"tesla_fists"],[36,"storm_sovereignty"],[38,"stormbolt"],[42,"arc_flash"],[44,"voltaic_rush"],[46,"plasma_strike"],[48,"arc_cannon"],[50,"volt_surge"],[54,"ion_cannon"],[58,"charge_burst"],[62,"voltaic_fang"],[20,"lucid_acuity"],[20,"life_force"],[20,"kindle"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:275, rarity:"rare",
     desc:"A heavy electric destrier whose hooves spark thunder with each strike. Cities briefly light up bright as day when it gallops through them.",

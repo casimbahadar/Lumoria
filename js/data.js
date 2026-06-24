@@ -1989,14 +1989,14 @@ const MONSTERS_DATA = {
     lore:"Bergyak is a stout woolly bovid roughly 1 metre at the shoulder, halfway in build between a frost-blooded ram and the great glacial mountain-oxen it will become. Its dense pale wool is streaked with the same blue tinge as Tundram's spine, and two short, curling horns — still tipped in old ice — sit low on its broad skull. Translucent slabs of pale-blue glacier ice have begun to fuse to its shoulders and along its back, refracting light in faint prismatic patterns when struck by the sun. Small herds roam highland tundra together, jostling against one another so that the ice plates of neighbouring beasts grind in a low keening chime that carries across snowfields for kilometres." },
 
   135: { id:135, name:"Mistwhirl",  emoji:"🦉", types:["Ice","Wind"],
-    base:{hp:37,atk:43,def:23,spa:32,spd:50,spe:68},
+    base:{hp:42,atk:49,def:26,spa:37,spd:57,spe:79},
     learnset:[[1,"flurries",[22,"cryo_lance"]],[1,"breeze"],[12,"wingbeat"],[20,"cold_beam"],[28,"wind_scythe"],[31,"tundra_tomb"],[36,"whiteout"],[44,"typhoon",[5,"permafrost"]],[3,"winter_shroud"],[33,"thermal_dive"],[10,"sundial_calm"],[10,"spectral_lock"],[10,"soul_link"],[80,"cryo_plate",{ng:true}],[80,"tornado_kick",{ng:true}],[70,"windshear",{ng:true}],[85,"tornado_slam",{ng:true}]],
     evolveTo:136, evolveLevel:30, catchRate:100, expYield:95, rarity:"common",
     desc:"A downy snowy owlet whose head pivots through near-perfect circles. Soft mist swirls outward whenever it ruffles its feathers.",
     lore:"Mistwhirl is a fluffy white-and-pale-silver owlet about 30 centimetres tall, with enormous golden eyes and a head that swivels nearly all the way around. Its downy feathers are still soft and unhardened — they shed tiny ice crystals into delicate trails of swirling mist whenever it ruffles them or pivots its head sharply. It perches in arctic conifer crowns and on snowbound branches, watching everything within its range in absolute silence, and learns the wind currents of its mountain pass as a young flier learns to glide between thermals." },
 
   136: { id:136, name:"Arcturex",     emoji:"🦉", types:["Ice","Wind"],
-    base:{hp:59,atk:75,def:39,spa:42,spd:64,spe:84},
+    base:{hp:83,atk:87,def:45,spa:49,spd:89,spe:97},
     learnset:[[1,"flurries"],[2,"cold_beam"],[3,"permafrost"],[4,"winter_shroud"],[8,"snow_veil"],[12,"boreal_armor"],[16,"hail_barrage"],[20,"polar_swift"],[24,"plume_veil"],[26,"zephyr_arrow"],[28,"falcon_dive"],[30,"tundra_tomb"],[32,"slicing_gale"],[33,"whiteout"],[34,"wind_barrier"],[35,"battle_cry"],[36,"avalanche_smash"],[38,"glacial_lance"],[40,"graze"],[42,"cyclone_blade"],[44,"aurora_blast"],[45,"rime_shard"],[48,"hail_storm"],[50,"frost_crash"],[52,"absolute_zero"],[55,"storm_surge"],[60,"avalanche_drive"],[65,"typhoon"],[17,"trample"],[45,"timewarp_blow"],[35,"timefade_strike"],[95,"sky_dive",{ng:true}],[90,"aerial_assault",{ng:true}],[90,"cryo_plate",{ng:true}],[90,"tornado_kick",{ng:true}],[85,"frost_bite",{ng:true}],[85,"gust_jab",{ng:true}],[85,"ice_claw",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:228, rarity:"uncommon",
     desc:"A massive snowy owl whose silent flight makes it the apex watcher of the polar dusk. Its talons can crack frozen earth.",

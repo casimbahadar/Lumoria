@@ -2965,7 +2965,7 @@ const MONSTERS_DATA = {
 
   // 3-stage Metal/Fighting chain: Gearbit → Cogvex → Mechabrute
   147: { id:147, name:"Gearbit", emoji:"🔩", types:["Metal","Fighting"],
-    base:{hp:36,atk:44,def:52,spa:29,spd:37,spe:34},
+    base:{hp:46,atk:56,def:66,spa:37,spd:47,spe:43},
     learnset:[[1,"chrome_claw"],[1,"mud_spray"],[8,"spinning_kick"],[12,"forge_blast_2"],[16,"high_kick"],[22,"geoblast"],[32,"alloy_tail"],[42,"tectonic_shift"],[52,"forge_strike"],[60,"radiance_cannon"],[62,"draconic_pummels"],[40,"warden_strike"],[30,"ferrous_gale"],[20,"pyro_alloy"],[30,"nihil_quake"],[80,"spear_thrust",{ng:true}],[80,"crippling_blow",{ng:true}],[80,"power_drive",{ng:true}],[70,"uppercut",{ng:true}]],
     evolveTo:148, evolveLevel:28, evolveMethod:"held", evolveItem:"metalCoat", catchRate:165, expYield:76, rarity:"common",
     desc:"A gear-driven sparring automaton that grapples with found scrap to build strength. Restless and combative.",
@@ -2977,14 +2977,14 @@ const MONSTERS_DATA = {
 
   // Cogvex and Mechabrute (continuing Gearbit chain from 280)
   148: { id:148, name:"Cogvex", emoji:"⚙️", types:["Metal","Fighting"],
-    base:{hp:55,atk:68,def:75,spa:41,spd:53,spe:42},
+    base:{hp:65,atk:80,def:89,spa:48,spd:63,spe:50},
     learnset:[[1,"forge_blast_2"],[1,"geoblast"],[5,"quick_punch"],[15,"shockwave_kick"],[20,"straight_jab"],[22,"alloy_tail"],[26,"iron_will"],[30,"tectonic_shift"],[38,"forge_strike"],[46,"bedrock_slam"],[54,"heavy_slam"],[62,"radiance_cannon"],[45,"warden_strike"],[35,"ferrous_gale"],[25,"nightmare_strike"],[90,"flying_press",{ng:true}],[90,"spear_thrust",{ng:true}],[95,"spinning_kick",{ng:true}],[90,"high_kick",{ng:true}]],
     evolveTo:149, evolveLevel:46, evolveMethod:"battles", evolveBattles:22, catchRate:80, expYield:155, rarity:"uncommon",
     desc:"A complex gear-machine combatant that builds practice rigs from scavenged parts and trains alone for hours.",
     lore:"Cogvex is a medium metal-fighting automaton 60 cm tall — Gearbit's stubby gear-work frame has elaborated into a more complex body, and the metals it absorbed in countless sparring matches have crystallised into an exposed chest mechanism of dozens of interlocking cogs and pistons. It constructs gear-driven training apparatus from found materials and leaves functional practice rigs scattered across its territory." },
 
   149: { id:149, name:"Mechabrute", emoji:"🤖", types:["Metal","Fighting"],
-    base:{hp:86,atk:100,def:103,spa:52,spd:70,spe:42},
+    base:{hp:92,atk:107,def:110,spa:56,spd:75,spe:45},
     learnset:[[1,"forge_strike"],[1,"tectonic_shift"],[15,"flying_press"],[20,"smart_strike"],[24,"focused_beam"],[26,"metal_roller"],[30,"martial_finish"],[32,"heavy_slam"],[36,"titan_blade"],[40,"bedrock_slam"],[48,"alloy_tail"],[56,"geoblast"],[64,"forge_blast_2"],[72,"radiance_cannon"],[74,"quick_punch"],[30,"prism_blow"],[50,"primal_smash"],[105,"iron_cleave",{ng:true}],[105,"roar_strike",{ng:true}],[100,"pyro_alloy",{ng:true}],[90,"shrapnel_burst",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:18, expYield:278, rarity:"rare",
     desc:"The ultimate combat titan. Its body is a perfect fusion of steel and martial precision.",

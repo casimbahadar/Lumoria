@@ -2409,14 +2409,14 @@ const MONSTERS_DATA = {
 
   // 2-stage Normal/Electric chain: Boltfur → Thundermane (level 30)
   158: { id:158, name:"Boltfur", emoji:"🐇", types:["Normal","Electric"],
-    base:{hp:37,atk:33,def:30,spa:41,spd:37,spe:55},
+    base:{hp:46,atk:41,def:37,spa:51,spd:46,spe:69},
     learnset:[[1,"jolt"],[1,"collide"],[6,"nuzzle"],[10,"thunder_jab"],[12,"static_strike"],[16,"shock_pulse"],[20,"static_charge"],[22,"volt_jet"],[32,"galvanic_burst"],[42,"volt_surge"],[52,"ball_lightning"],[60,"radiance_cannon"],[62,"graze"],[10,"hourglass_focus"],[10,"haunting_cry"],[10,"gem_resonance"]],
     evolveTo:159, evolveLevel:30, catchRate:155, expYield:82, rarity:"common",
     desc:"A rabbit-like creature whose fur stands permanently on end from static electricity. Leaves sparks wherever it hops.",
     lore:"Boltfur is a small normal-electric rabbit 20 cm long with yellow-white fur that stands permanently on end, giving it a spiky silhouette. Its long ears act as static accumulators. In dry weather its fur produces visible sparks with every movement. It communicates with other Boltfur by controlled static discharge patterns." },
 
   159: { id:159, name:"Thundermane", emoji:"🐰", types:["Normal","Electric"],
-    base:{hp:56,atk:54,def:47,spa:66,spd:55,spe:70},
+    base:{hp:70,atk:68,def:59,spa:82,spd:69,spe:87},
     learnset:[[1,"volt_jet"],[1,"crushing_bulk"],[6,"rapid_strike"],[10,"bolt_smash"],[14,"body_blow"],[16,"coil_strike"],[22,"lightning_rush"],[24,"galvanic_burst"],[28,"storm_sovereignty"],[30,"relentless_fury"],[32,"volt_surge"],[40,"stormbolt"],[48,"ball_lightning"],[56,"plasma_strike"],[64,"radiance_cannon"],[20,"gem_focus"],[20,"fright_resolve"],[20,"fighter_s_resolve"]],
     evolveTo:null, evolveLevel:null, catchRate:42, expYield:222, rarity:"uncommon",
     desc:"A colossal storm-hare with a crackling lightning-mane around its long ears. Bounds the open savannah at thunder-cracking speeds, marking territory with rolling claps.",

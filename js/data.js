@@ -6202,7 +6202,7 @@ const WORLD_DATA = {
     desc:"A perfectly still alpine lake with a surface like polished glass. The reflected sky makes it impossible to tell up from down.",
     connections:["route5"],
     wildMonsters:[
-      {id:174, minLv:34, maxLv:38, rate:12},  // Lunaveris (obtainability add)
+      {id:174, minLv:34, maxLv:38, rate:1},  // Lunaveris — rare "patience" find (strong early ice-dragon, low rate)
       {id:75, minLv:30, maxLv:34, rate:16}, // Woolcalm (obtainability fix)
       {id:172, minLv:30, maxLv:36, rate:24},   // Slatis
       {id:169, minLv:30, maxLv:36, rate:16},   // Tundram

@@ -2860,21 +2860,21 @@ const MONSTERS_DATA = {
 
   // 3-stage Dark chain: Shadowcub → Nightclaw → Darkfang (shadow-panther)
   163: { id:163, name:"Shadowcub", emoji:"🐈‍⬛", types:["Dark","Sonic"],
-    base:{hp:48,atk:62,def:45,spa:50,spd:48,spe:73},
+    base:{hp:48,atk:60,def:44,spa:52,spd:44,spe:78},
     learnset:[[16,"sound_rush"],[1,"chomp"],[1,"collide"],[10,"dusk_slash"],[20,"void_pulse"],[30,"jaw_crush"],[40,"eclipse_shroud"],[50,"soul_rend"],[60,"radiance_cannon"],[20,"reverie_charge"],[12,"revenant_strike"],[70,"rumble_smash",{ng:true}]],
     evolveTo:164, evolveLevel:26, evolveMethod:"time", evolveTime:"night", catchRate:180, expYield:70, rarity:"common",
     desc:"A shadow-panther cub whose jet-black fur drinks the light. Its soft growls press oddly on the chest.",
     lore:"Shadowcub is a small shadow-panther kitten about 25 cm at the shoulder, its jet-black fur so dark it swallows almost all light, leaving its outline against bright backgrounds looking too sharp and flat. It is playful and energetic, unaware that its eerie look unnerves others. Its quiet growls and mews are barely audible yet press faintly on the chest of those nearby, and it flinches from sudden light — both early signs of the felt-not-heard intimidation and pitch-dark sight the apex Darkfang will command." },
 
   164: { id:164, name:"Nightclaw", emoji:"🐈‍⬛", types:["Dark","Sonic"],
-    base:{hp:66,atk:87,def:59,spa:68,spd:62,spe:82},
+    base:{hp:66,atk:85,def:56,spa:70,spd:65,spe:90},
     learnset:[[40,"concussive_strike"],[1,"dusk_slash"],[1,"phantom_claw"],[20,"void_pulse"],[28,"eclipse_shroud"],[36,"jaw_crush"],[44,"soul_rend"],[52,"nether_sphere"],[60,"radiance_cannon"],[15,"cumulus_meditation"],[15,"crystalline_speed"],[15,"crystalline_focus"],[80,"silent_strike",{ng:true}],[80,"rumble_smash",{ng:true}],[90,"skyboom_strike",{ng:true}],[85,"amplified_jab",{ng:true}],[85,"drumstroke",{ng:true}],[80,"resonant_smash",{ng:true}]],
     evolveTo:165, evolveLevel:44, catchRate:85, expYield:150, rarity:"uncommon",
     desc:"A shadow-panther that phases through darkness, striking with retractable claws from the shadows.",
     lore:"Nightclaw is a sleek shadow-panther 55 cm at the shoulder — Shadowcub's light-drinking fur has deepened across a longer, more muscular frame, and the flat-edged outline of its kitten form has sharpened into non-reflective retractable claws. It hunts by slipping through deep shadow too fast to track, navigating by echolocation rather than sight, and can melt into a dark wall even in daylight." },
 
   165: { id:165, name:"Darkfang", emoji:"🐈‍⬛", types:["Dark","Spectral"],
-    base:{hp:83,atk:111,def:74,spa:82,spd:74,spe:92},
+    base:{hp:85,atk:108,def:72,spa:88,spd:75,spe:100},
     learnset:[[58,"reaper_scythe"],[1,"eclipse_shroud"],[1,"soul_rend"],[30,"void_pulse"],[38,"nether_sphere"],[46,"dusk_slash"],[54,"phantom_claw"],[62,"dread_howl"],[70,"radiance_cannon"],[20,"crystal_veil"],[20,"cryogenic_field"],[20,"corrosive_step"],[105,"poltergeist_smash",{ng:true}],[100,"banshee_lash",{ng:true}],[105,"revenant_charge",{ng:true}],[100,"spirit_strike",{ng:true}],[95,"revenant_strike",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:22, expYield:268, rarity:"rare",
     desc:"The apex shadow predator. Its roar resonates across dimensions and can be heard in the land of the dead.",

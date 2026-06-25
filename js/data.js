@@ -2750,7 +2750,7 @@ const MONSTERS_DATA = {
     lore:"Crumblite is a 40 cm rock-crustacean whose stony carapace is still brittle and flecked with raw ore, threaded through with thin veins of steel. Bits of shell chip away as it scuttles and are quickly regrown, each new piece setting a little harder than the last. It haunts caves and ruined masonry, prying out metallic minerals to reinforce its shell — and once a Metal Coat fully tempers that shell into bolted plate, it hardens all at once into the iron-clawed Stonegrip." },
 
   179: { id:179, name:"Stonegrip", emoji:"🦞", types:["Metal","Mineral"],
-    base:{hp:76,atk:88,def:111,spa:46,spd:70,spe:42},
+    base:{hp:78,atk:90,def:114,spa:47,spd:72,spe:43},
     learnset:[[40,"granite_slam"],[1,"crag_strike"],[1,"forge_blast_2"],[28,"alloy_tail"],[36,"forge_strike"],[44,"tectonic_shift"],[52,"bedrock_slam"],[60,"heavy_slam"],[68,"radiance_cannon"],[70,"mud_spray"],[45,"warden_strike"],[35,"ferrous_gale"],[25,"pyro_alloy"],[25,"counterforge"],[25,"chromium_ray"],[15,"grating_din"],[45,"basalt_eruption"],[17,"ice_claw"],[90,"obsidian_edge",{ng:true}],[80,"shrapnel_burst",{ng:true}],[80,"mystic_blow",{ng:true}],[90,"ore_smash",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:235, rarity:"rare",
     desc:"An armored rock-lobster whose stone-and-steel claws crush boulders to powder.",

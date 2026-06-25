@@ -2190,7 +2190,7 @@ const MONSTERS_DATA = {
     lore:"Gemseer is a mental-mineral gem creature 50 cm tall resembling a rounded prism of violet crystal with short limbs and a serene humanoid face embedded in the front face of the crystal. It refracts nearby psychic energy into visible light, producing beautiful patterns on surrounding surfaces." },
 
   181: { id:181, name:"Prismatica",   emoji:"💫", types:["Mental","Mineral"],
-    base:{hp:68,atk:51,def:49,spa:98,spd:81,spe:86},
+    base:{hp:75,atk:35,def:50,spa:120,spd:90,spe:105},
     learnset:[[1,"psi_burst"],[2,"mental"],[3,"prism_ward"],[20,"ore_ray"],[36,"fortify"],[38,"mineral_pulse"],[39,"inner_calm"],[40,"second_wind"],[44,"blitz"],[45,"gem_storm"],[47,"psi_strike"],[48,"telepathic_slam"],[50,"quartz_blast"],[52,"thought_crush"],[56,"temporal_rift"],[60,"radiance_cannon"],[4,"clairvoyance"],[35,"baleful_stare"],[25,"ghastly_wail"],[35,"geyser_storm"],[90,"copper_shock",{ng:true}],[90,"topaz_beam",{ng:true}],[95,"obsidian_burst",{ng:true}],[90,"arcane_beam",{ng:true}],[80,"amethyst_pulse",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:245, rarity:"rare",
     desc:"A levitating psychic core orbited by seven prism shards, held in formation by a luminous mind-field. Its serene face gleams from the central crystal.",

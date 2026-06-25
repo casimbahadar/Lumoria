@@ -3230,7 +3230,7 @@ const MONSTERS_DATA = {
 
   // ===== LEGENDARIES (IDs 314-321) =====
   314: { id:314, name:"Skybreaker",  emoji:"🌪️", types:["Wind","Sonic"],
-    base:{hp:102,atk:84,def:93,spa:125,spd:96,spe:100},
+    base:{hp:110,atk:91,def:101,spa:136,spd:104,spe:108},
     learnset:[[1,"wind_scythe"],[1,"jolt"],[7,"breeze"],[11,"concussive_strike"],[14,"static_strike"],[18,"frequency_blast"],[21,"zephyr_dance"],[25,"resonance_field"],[28,"volt_jet"],[35,"downdraft"],[40,"harmonic_wave"],[42,"typhoon"],[49,"squall_slash"],[56,"overcharge"],[60,"acoustic_shock"],[63,"tempest_wrath"],[70,"gale_cannon"],[77,"radiance_cannon"],[40,"gemstone_blast"],[40,"gem_storm"],[100,"prism_resonance",{ng:true}],[100,"wail",{ng:true}],[90,"zephyr_arrow",{ng:true}],[105,"harmonic_burst",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
     desc:"The Legendary Skybreaker. Said to control all weather in Lumoria.",

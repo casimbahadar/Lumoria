@@ -1961,14 +1961,14 @@ const MONSTERS_DATA = {
 
   // ===== ICE =====
   166: { id:166, name:"Hexaprowl",    emoji:"🐺", types:["Ice"],
-    base:{hp:42,atk:46,def:44,spa:55,spd:40,spe:63},
+    base:{hp:48,atk:33,def:55,spa:58,spd:46,spe:50},
     learnset:[[1,"graze",[22,"rime_shard"]],[1,"flurries"],[8,"blitz"],[16,"frost_crash"],[24,"cold_beam"],[29,"second_wind"],[32,"glacial_punch"],[40,"whiteout",[5,"permafrost"]],[3,"winter_shroud"],[31,"baleful_stare"],[50,"glacial_riptide"],[30,"icebound_lattice"],[20,"frequency_blast"],[100,"starlight_obliteration",{ng:true}]],
     evolveTo:167, evolveLevel:28, evolveMethod:"location", evolveLocation:"frostpeak", catchRate:120, expYield:90, rarity:"common",
     desc:"An ice wolf pup with fur as white as fresh snow. Very loyal and fierce.",
     lore:"Hexaprowl is a lean wolf-like creature about 70 cm at the shoulder with short grey-white fur overlaid by a thin shell of constantly renewing ice crystals. Its paws leave perfectly hexagonal imprints in snow. It hunts in packs across tundra, using coordinated flanking manoeuvres to drive prey toward waiting ambushers." },
 
   167: { id:167, name:"Hailgorge",emoji:"🐺", types:["Ice"],
-    base:{hp:73,atk:69,def:45,spa:66,spd:63,spe:78},
+    base:{hp:72,atk:45,def:80,spa:77,spd:60,spe:60},
     learnset:[[1,"flurries"],[2,"blitz"],[3,"cold_beam"],[4,"frost_crash"],[5,"graze"],[6,"permafrost"],[28,"second_wind"],[29,"glacial_punch"],[37,"whiteout"],[40,"hoarfrost_bite"],[52,"crushing_bulk"],[64,"avalanche_drive"],[7,"winter_shroud"],[44,"baleful_stare"],[55,"glacial_riptide"],[35,"icebound_lattice"],[25,"cryo_plate"],[35,"leviathan_rush"],[110,"starlight_obliteration",{ng:true}]],
     evolveTo:168, evolveLevel:44, catchRate:40, expYield:220, rarity:"uncommon",
     desc:"A blizzard hound that howls to summon snowstorms. Fearsome and fast.",
@@ -3982,7 +3982,7 @@ const MONSTERS_DATA = {
 
   // 203: Hailwolf - Ice (Cryokin→Boreovast→Hailwolf)
   168: { id:168, name:"Hailwolf", emoji:"🐺", types:["Ice"],
-    base:{hp:83,atk:93,def:66,spa:88,spd:79,spe:63},
+    base:{hp:78,atk:48,def:88,spa:110,spd:70,spe:78},
     learnset:[[1,"flurries"],[1,"cold_beam"],[2,"frost_crash"],[3,"whiteout"],[4,"permafrost"],[38,"hoarfrost_bite"],[42,"cryo_lance"],[46,"tundra_tomb"],[50,"avalanche_drive"],[54,"winter_shroud"],[58,"crushing_bulk"],[62,"blitz"],[5,"frostfire_veil"],[44,"instinct_slash"],[30,"shrapnel_burst"],[30,"shard_blade"],[22,"shake_smash"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A wolf of absolute zero whose howl flash-freezes the air for miles. Entire mountain valleys have become permanent glacier fields where it hunts.",

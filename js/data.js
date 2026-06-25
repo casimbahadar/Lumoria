@@ -3520,7 +3520,7 @@ const MONSTERS_DATA = {
     lore:"Irisarael is a graceful, winged fairy creature 1 metre tall — Glinteye's stubby wing-buds have unfurled into enormous flat ice-crystal wings showing the full rainbow iridescence its juvenile form only hinted at, and the lens-plate face has rounded into a proper fairy visage with eyes glinting through the prismatic glass. Its slender body is pale lavender-white. It inhabits frozen waterfalls, sleeping anchored to the ice surface by small ice anchors on its heels." },
 
   175: { id:175, name:"Boreadrake", emoji:"🐉", types:["Ice","Draconic"],
-    base:{hp:76,atk:80,def:84,spa:105,spd:82,spe:68},
+    base:{hp:80,atk:72,def:84,spa:105,spd:86,spe:68},
     learnset:[[1,"cold_beam"],[2,"draconic_pulse"],[3,"frost_crash"],[4,"permafrost"],[41,"whiteout"],[44,"war_dance"],[48,"hydra_dance"],[49,"rampage"],[52,"rime_shard"],[56,"avalanche_drive"],[60,"ancient_breath"],[64,"radiance_cannon"],[5,"winter_shroud"],[38,"drake_rush"],[50,"divine_press"],[40,"diamond_drill"],[30,"cumulus_strike"]],
     evolveTo:null, evolveLevel:null, catchRate:10, expYield:285, rarity:"rare",
     desc:"A dragon cloaked in the aurora. Its roar scatters ribbons of colored ice across the sky.",

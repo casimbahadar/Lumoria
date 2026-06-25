@@ -3716,7 +3716,7 @@ const MONSTERS_DATA = {
     lore:"Vortexathos is a massive eagle-wind creature with a 4-metre wingspan — Zephyrel's juvenile electric-blue feather-lines have brightened and now trace the leading edges of its much-larger wings, with feathers grey-white above and dark charcoal beneath. It circles high above storm systems and descends to strike prey with a diving electrical vortex that scours the ground." },
 
   173: { id:173, name:"Gelseal", emoji:"🦭", types:["Ice","Electric"],
-    base:{hp:76,atk:56,def:76,spa:93,spd:78,spe:50},
+    base:{hp:81,atk:59,def:81,spa:98,spd:83,spe:53},
     learnset:[[1,"flurries"],[1,"jolt"],[2,"cold_beam"],[3,"permafrost"],[4,"winter_shroud"],[5,"cryo_lance"],[8,"icy_shot"],[11,"capacitor_drain"],[12,"frost_bite"],[16,"frigid_jab"],[20,"snow_veil"],[24,"cold_focus"],[28,"arctic_calm"],[33,"whiteout"],[35,"magnet_field"],[38,"voltaic_fang"],[42,"hoarfrost_bite"],[43,"fortify"],[46,"frost_crash"],[50,"ion_cannon"],[54,"tundra_tomb"],[58,"ball_lightning"],[25,"rainbow_burst"],[35,"radiant_wave"],[45,"prismatic_eruption"],[90,"hail_storm",{ng:true}],[90,"thunder_cage",{ng:true}],[80,"flash_freeze",{ng:true}],[80,"relay_shock",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:205, rarity:"uncommon",
     desc:"A gelatinous pinniped of compacted living frost. Bioluminescent pulses ripple through its translucent body, mapping prey by their electric fields.",

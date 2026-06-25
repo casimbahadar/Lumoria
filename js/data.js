@@ -3990,7 +3990,7 @@ const MONSTERS_DATA = {
 
   // 204: Glaciovast - Ice/Normal (Nivelin→Glacivern→Glaciovast)
   171: { id:171, name:"Aurochill", emoji:"🐃", types:["Ice","Normal"],
-    base:{hp:93,atk:75,def:100,spa:98,spd:89,spe:17},
+    base:{hp:93,atk:90,def:111,spa:82,spd:101,spe:17},
     learnset:[[1,"flurries"],[1,"crushing_bulk"],[2,"cold_beam"],[3,"fortify"],[4,"whiteout"],[38,"cranial_ram"],[42,"hoarfrost_bite"],[46,"frost_crash"],[50,"tundra_tomb"],[54,"second_wind"],[58,"cryo_lance"],[62,"radiance_cannon"],[5,"winter_shroud"],[44,"vital_pulse"],[20,"haunting_cry"],[20,"grating_din"],[20,"ghastly_focus"],[100,"encore_blast",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:260, rarity:"rare",
     desc:"An immovable mountain-auroch armored in ancient glacier ice. When it wakes from a long slumber, the ice age returns.",

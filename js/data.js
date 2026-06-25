@@ -1975,14 +1975,14 @@ const MONSTERS_DATA = {
     lore:"Hailgorge is a massive ice wolf 1.3 metres tall at the shoulder with broad shoulders and white fur that bristles with jagged ice spines when it raises its hackles — Hexaprowl's thin ice-crystal shell has thickened into a permanent armoured mantle along its back, and the hexagonal paw-prints of its juvenile form have widened into bear-sized impressions. Its howl condenses moisture in the air into a brief localised hailstorm. It leads Hexaprowl packs with absolute authority." },
 
   169: { id:169, name:"Tundram",   emoji:"🐏", types:["Ice","Normal"],
-    base:{hp:44,atk:44,def:49,spa:47,spd:58,spe:48},
+    base:{hp:55,atk:53,def:64,spa:48,spd:58,spe:12},
     learnset:[[1,"collide",[22,"permafrost"]],[1,"flurries"],[10,"fortify"],[18,"cold_beam"],[20,"vital_pulse"],[26,"crushing_bulk"],[34,"whiteout",[5,"winter_shroud"]],[36,"cranial_ram"],[3,"frostfire_veil"],[31,"rime_shard"],[10,"untamed_meditation"],[10,"timewarp_meditation"],[10,"timefade_step"]],
     evolveTo:170, evolveLevel:24, evolveMethod:"location", evolveLocation:"frostpeak", catchRate:180, expYield:77, rarity:"common",
     desc:"A fluffy snow sheep. Its wool absorbs cold air and condenses it to ice.",
     lore:"Tundram is a stocky ram-like creature with thick white wool and curling horns coated in layers of old ice. A pale blue tinge runs through the wool near its spine. It grazes on frost-covered highland moss and climbs sheer glacier faces using hooves specially adapted to grip slick ice surfaces." },
 
   170: { id:170, name:"Bergyak",  emoji:"🦬", types:["Ice","Normal"],
-    base:{hp:61,atk:54,def:75,spa:85,spd:74,spe:45},
+    base:{hp:74,atk:72,def:88,spa:65,spd:81,spe:14},
     learnset:[[1,"flurries"],[2,"winter_shroud"],[3,"fortify"],[4,"vital_pulse"],[5,"cold_beam"],[6,"permafrost"],[31,"whiteout"],[33,"cranial_ram"],[34,"daunt"],[44,"second_wind"],[54,"hoarfrost_bite"],[64,"frost_crash"],[7,"frostfire_veil"],[43,"baleful_stare"],[15,"time_meditation"],[15,"temporal_armor"],[15,"swift_form"],[90,"encore_blast",{ng:true}],[90,"radiant_burst_2",{ng:true}],[80,"aural_ray",{ng:true}],[95,"lumiwave",{ng:true}],[85,"echoing_shout",{ng:true}],[85,"echo_beam",{ng:true}]],
     evolveTo:171, evolveLevel:42, catchRate:60, expYield:185, rarity:"uncommon",
     desc:"A sturdy frost-yak whose shoulders are starting to grow translucent slabs of glacier ice. Roams highland tundra in small herds, generating a steady chill in the air.",

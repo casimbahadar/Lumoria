@@ -3934,7 +3934,7 @@ const MONSTERS_DATA = {
 
   // 197: Basaltback - Electric/Rock (Voltrix→Petravolt→Basaltback)
   162: { id:162, name:"Basaltback", emoji:"⛰️", types:["Electric","Earth"],
-    base:{hp:84,atk:101,def:96,spa:70,spd:63,spe:58},
+    base:{hp:84,atk:101,def:96,spa:58,spd:63,spe:70},
     learnset:[[1,"stone_slide"],[1,"volt_jet"],[2,"static_strike"],[3,"crag_strike"],[4,"stun_pulse"],[5,"static_cage"],[20,"primeval_force"],[38,"stormbolt"],[42,"tectonic_shift"],[44,"temper_edge"],[46,"volt_surge"],[50,"crystal_lance"],[54,"stalactite_drop"],[58,"ion_cannon"],[62,"quarry_crush"],[40,"nova_strike"],[40,"nihil_quake"],[30,"nightmare_strike"],[90,"dynamo_whip",{ng:true}],[90,"volt_fang",{ng:true}],[90,"coil_strike",{ng:true}],[105,"tesla_fists",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A mountainous rock-echidna 2 metres at the shoulder, its body a fortress of basalt plates. Almost impossible to move once stationary.",

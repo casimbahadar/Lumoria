@@ -95,3 +95,7 @@ Use sparingly. These types remain reserved by intent.
 Suggestion lists, type-pivot proposals, and "pristine combo" recommendations for non-Forgotten ids must exclude all five types by default. The Crystal/Primal/Stellar exception only applies when explicitly justified per the legendary-criteria above.
 
 When a pre-462 Lumori already has one of these types in current data (legacy), do not auto-strip it — surface it for user discussion only. This notably covers the NG+ block **408–461**, several of which (e.g. 408 Glimmerling, 409 Facetite) currently carry Crystal from before the renumber; review them case-by-case in the UNIFIED audit rather than mass-stripping.
+
+## Output format — tables go in the chat, not tool output
+
+When the user asks to "show me a table" (or otherwise wants tabular/listed data), **render the table directly in the chat reply as a Markdown table.** Use Bash/Node/scripts only to *compute* the numbers, then write the finished table into your message text. Do not present a `Bash` command's stdout as "the table" — the user reads the chat reply, not the tool-call output panels.

@@ -2424,7 +2424,7 @@ const MONSTERS_DATA = {
 
   // 3-stage Fire/Ice chain: Cinderfrost → Glaciblaze → Pyroglacier
   191: { id:191, name:"Cinderfrost", emoji:"🔥", types:["Fire","Ice"],
-    base:{hp:48,atk:58,def:45,spa:73,spd:55,spe:69},
+    base:{hp:45,atk:54,def:42,spa:69,spd:51,spe:64},
     learnset:[[1,"flicker"],[1,"flurries"],[12,"inferno_jet"],[22,"cold_beam"],[32,"pyroclasm"],[42,"whiteout"],[52,"solar_flare"],[62,"radiance_cannon"],[10,"astral_guard"],[10,"astral_focus"],[10,"armor_meld"]],
     evolveTo:192, evolveLevel:28, catchRate:175, expYield:72, rarity:"common",
     desc:"A creature born where volcanic vents meet glacial ice. Its body perpetually cycles between fire and frost.",
@@ -2438,7 +2438,7 @@ const MONSTERS_DATA = {
     lore:"Frostscorch is a medium fire-ice creature 80 cm long — Cinderfrost's orange-and-blue lizard halves have intensified into a perfectly equal split, one half brilliant crimson and one half ice-blue, and the crackling midline-boundary has matured into mismatched eyes (one amber, one pale blue) anchoring either side of its dual nature. It inhabits the specific boundary zones between volcanic and glacial terrain, the only creature perfectly adapted for that harsh transition." },
 
   193: { id:193, name:"Infriglace", emoji:"🌋", types:["Fire","Ice"],
-    base:{hp:85,atk:89,def:77,spa:115,spd:91,spe:69},
+    base:{hp:85,atk:69,def:77,spa:115,spd:91,spe:89},
     learnset:[[1,"pyroclasm"],[1,"whiteout"],[32,"solar_flare"],[40,"tundra_tomb"],[48,"searing_gale"],[56,"frost_crash"],[64,"caldera_meltdown"],[72,"radiance_cannon"],[74,"flurries"],[20,"ethereal_step"],[20,"epoch_charge"],[20,"endure_pulse"]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:268, rarity:"rare",
     desc:"A cataclysmic being that collapses the boundary between fire and ice. Superheated geysers and flash-freezes occur in its wake.",

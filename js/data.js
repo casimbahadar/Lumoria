@@ -3700,7 +3700,7 @@ const MONSTERS_DATA = {
     lore:"Voidraxis is a dark-stellar creature 1 metre at the shoulder with a body that appears as a perfectly shaped void in reality — an absence of light surrounded by a rim of pale stellar luminescence. It inhabits boundary spaces between light and dark and feeds on ambient emotional energy at dawn and dusk." },
 
   320: { id:320, name:"Galvathon", emoji:"⚡", types:["Metal","Electric"],
-    base:{hp:91,atk:120,def:108,spa:103,spd:84,spe:93},
+    base:{hp:112,atk:102,def:130,spa:122,spd:84,spe:130},
     learnset:[[1,"chrome_claw"],[1,"jolt"],[7,"static_strike"],[14,"metal_wing"],[18,"capacitor_drain"],[21,"magnetize"],[24,"magnet_field"],[28,"volt_jet"],[32,"ground_circuit"],[35,"forge_blast_2"],[38,"chrome_slash"],[42,"forge_strike"],[45,"overcharge_coil"],[49,"alloy_tail"],[52,"plasma_punch"],[55,"thunder_cage"],[56,"ball_lightning"],[60,"iron_storm"],[63,"anvil_drop"],[65,"magnetic_mine"],[68,"mercurial_torrent"],[70,"stormbolt"],[72,"plasma_smelt"],[74,"smelter_surge"],[76,"titanic_beam"],[77,"radiance_cannon"],[80,"arc_cannon"],[20,"epoch_charge"],[20,"endure_pulse"],[20,"enchant"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
     desc:"The Legendary Stormforged. Born in the heart of the greatest storm ever recorded. Lightning is its heartbeat.",

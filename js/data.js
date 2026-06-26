@@ -3693,7 +3693,7 @@ const MONSTERS_DATA = {
     lore:"Gaiagant is a ground-grass titan 4 metres tall resembling a towering elemental figure whose lower body is packed earth and roots and whose upper body is a living forest canopy. Trees grow from its shoulders. It moves once per decade at most and its displacement creates new valleys and ridges." },
 
   319: { id:319, name:"Voidraxis", emoji:"🌌", types:["Dark","Stellar"],
-    base:{hp:95,atk:93,def:89,spa:131,spd:113,spe:88},
+    base:{hp:95,atk:122,def:95,spa:135,spd:113,spe:140},
     learnset:[[1,"fairy_wind"],[1,"chomp"],[7,"void_pulse"],[11,"starlight_lock"],[14,"prism_flare"],[21,"eclipse_shroud"],[28,"lunar_burst"],[32,"nebula_burst"],[35,"tenebrous_snare"],[42,"nether_sphere"],[49,"dread_howl"],[55,"pulsar_storm"],[56,"glitter_storm"],[63,"soul_rend"],[70,"fae_requiem"],[77,"radiance_cannon"],[80,"astral_blast"],[60,"void_dominion"],[40,"dark_corrosion"],[40,"nightmare_smash"],[90,"cosmic_beam",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
     desc:"The Legendary Void Star. A being of absolute darkness ringed by stellar light. Where it passes, stars blink out.",

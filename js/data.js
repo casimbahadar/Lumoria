@@ -4579,9 +4579,9 @@ const MONSTERS_DATA = {
     desc:"A dark electromagnetic storm given will. It communicates by interrupting every electrical device within range.",
     lore:"Nullstorm is a dark-electric entity 5 metres across that resembles a contained electromagnetic storm with a dark nucleus. Every electronic device within a kilometre malfunctions in its presence." },
 
-  458: { id:458, name:"Heliogriff", emoji:"🦅", types:["Fire","Stellar"],
+  458: { id:458, name:"Heliogriff", emoji:"🦅", types:["Fire","Sonic"],
     base:{hp:86,atk:120,def:92,spa:117,spd:92,spe:101}, evolveTo:null, evolveLevel:null, ngPlusTier:3,
-    learnset:[[1,"inferno_jet"],[5,"char_dance"],[8,"sun_burst"],[10,"ashfall"],[12,"infernal_roar"],[15,"searing_glare"],[18,"firebrand"],[20,"solar_flare"],[22,"inferno_s_grasp"],[25,"starlight_charge"],[28,"magma_baptism"],[30,"cinderwhirl"],[35,"cosmic_slam"],[40,"pyroclasm"],[50,"solar_zenith"],[55,"conflagration"],[55,"astral_resolve"],[60,"forge_blast"],[65,"galaxy_apocalypse"],[100,"nova_strike",{ng:true}],[90,"quake_barrage",{ng:true}],[95,"smack_down",{ng:true}]],
+    learnset:[[1,"inferno_jet"],[5,"char_dance"],[8,"sun_burst"],[10,"ashfall"],[12,"infernal_roar"],[15,"searing_glare"],[18,"firebrand"],[20,"solar_flare"],[22,"inferno_s_grasp"],[25,"skyboom_strike"],[28,"magma_baptism"],[30,"cinderwhirl"],[35,"bass_blast"],[40,"pyroclasm"],[50,"solar_zenith"],[55,"conflagration"],[55,"resonance_field"],[60,"forge_blast"],[65,"threnody"],[100,"resonance_quake",{ng:true}],[90,"quake_barrage",{ng:true}],[95,"smack_down",{ng:true}]],
     catchRate:4, expYield:370, rarity:"legendary",
     desc:"A solar griffin born from the sun itself. The corona of its home star still wraps its wings.",
     lore:"Heliogriff is a colossal griffin 7 metres long, its eagle's head and lion's body sheathed in plumage that burns at the surface temperature of a star, wings trailing a corona of stellar fire. It was first recorded appearing from a solar flare, and the heat of its dive reaches temperatures measurable only in solar physics." },

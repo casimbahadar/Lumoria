@@ -2233,7 +2233,7 @@ const MONSTERS_DATA = {
     lore:"Chromedrake is a powerful dragon-steel hybrid 4 metres long — Cobravyrm's green-bronze scales have hardened into steel-grey metallic plates over centuries, and the cobra-hood of its juvenile form has folded flat against the broad muscular base of its skull. Its body is broad and muscular. It moves on four limbs with its wings folded into secondary arms. Its scales have been used in legendary armour-forging projects." },
 
   321: { id:321, name:"Dragemian",  emoji:"🐉", types:["Draconic","Fire"],
-    base:{hp:86,atk:149,def:101,spa:101,spd:94,spe:66},
+    base:{hp:106,atk:149,def:119,spa:66,spd:113,spe:101},
     learnset:[[1,"rampage"],[2,"draconic_pulse"],[3,"scale_storm"],[4,"radiance_cannon"],[5,"hydra_dance"],[58,"char_dance"],[61,"daunt"],[64,"fortify"],[65,"flame_fang"],[66,"pyre_fang"],[67,"searing_gale"],[68,"conflagration"],[69,"ancient_breath"],[70,"pyroclasm"],[40,"starlight_charge"],[30,"spirit_strike"],[30,"spear_thrust"],[105,"leviathan_rush",{ng:true}],[100,"ignition_kick",{ng:true}],[100,"flare_uppercut",{ng:true}],[100,"wyvern_maw",{ng:true}],[95,"breaking_swipe",{ng:true}],[90,"twin_chop",{ng:true}],[90,"draco_jab",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:5, expYield:340, rarity:"legendary",
     desc:"The lord of all dragons. Its fire is hot enough to melt any metal.",

@@ -3560,14 +3560,14 @@ const MONSTERS_DATA = {
 
   // ===== ROCK/DARK =====
   194: { id:194, name:"Volcascale", emoji:"🗿", types:["Earth","Dark"],
-    base:{hp:62,atk:59,def:64,spa:40,spd:53,spe:28},
+    base:{hp:65,atk:62,def:67,spa:42,spd:55,spe:29},
     learnset:[[1,"stone_throw",[22,"obsidian_crash"]],[1,"chomp"],[10,"cranial_ram"],[18,"jaw_crush"],[26,"stone_slide"],[30,"landslide"],[34,"void_pulse"],[42,"crag_strike",[5,"granite_wall"]],[3,"petrify_gaze"],[32,"quarry_crush"],[20,"wild_strike"],[12,"venom_fang"],[5,"vapor_jab"]],
     evolveTo:195, evolveLevel:30, evolveMethod:"location", evolveLocation:"volcano_core", catchRate:130, expYield:97, rarity:"common",
     desc:"A small obsidian gargoyle with razor wing-ridges. It reflects almost no light and lunges from cover.",
     lore:"Volcascale is a 60 cm gargoyle that looks carved from volcanic obsidian — jet black, with razor ridges along its folded wing-stubs and a horned brow. It reflects almost no light and perches motionless in old lava tubes, betrayed only by the faint click of its glassy plates before it lunges at anything that strays too close." },
 
   195: { id:195, name:"Monolithox", emoji:"🗿", types:["Earth","Dark"],
-    base:{hp:92,atk:101,def:92,spa:55,spd:63,spe:34},
+    base:{hp:104,atk:106,def:108,spa:52,spd:68,spe:37},
     learnset:[[1,"stone_slide"],[2,"landslide"],[3,"jaw_crush"],[4,"granite_wall"],[31,"void_pulse"],[35,"battle_cry"],[39,"crag_strike"],[40,"tenebrous_snare"],[45,"nether_sphere"],[50,"blackout_bomb"],[55,"tectonic_shift"],[60,"radiance_cannon"],[5,"petrify_gaze"],[38,"malice_beam"],[25,"crystalline_slash"],[10,"crystal_jab"],[35,"crushing_jaws"],[90,"nyx_fang",{ng:true}],[90,"nightmare_smash",{ng:true}],[90,"geode_burst",{ng:true}],[90,"throat_chop",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:35, expYield:230, rarity:"uncommon",
     desc:"A towering obsidian gargoyle worshipped as a god of night. Sits still as a statue until it spreads its glassy wings.",

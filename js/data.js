@@ -3382,7 +3382,7 @@ const MONSTERS_DATA = {
 
   // ===== ICE/STEEL =====
   182: { id:182, name:"Rimeling", emoji:"🗡️", types:["Ice","Fighting"],
-    base:{hp:38,atk:60,def:55,spa:46,spd:43,spe:60},
+    base:{hp:50,atk:58,def:50,spa:32,spd:42,spe:70},
     learnset:[[15,"straight_jab"],[1,"flurries",[25,"cryo_lance"]],[1,"chrome_claw"],[11,"glacial_punch"],[19,"forge_blast_2"],[27,"frost_crash"],[30,"smelt_crush"],[35,"alloy_tail"],[43,"whiteout",[5,"permafrost"]],[3,"winter_shroud"],[33,"forge_strike"],[50,"glacial_riptide"],[30,"icebound_lattice"],[20,"cryo_plate"],[20,"ice_resonance"],[30,"geode_smash"],[70,"icicle_volley",{ng:true}],[70,"blizzard_charge",{ng:true}],[80,"subzero_slash",{ng:true}],[80,"icicle_smash",{ng:true}]],
     evolveTo:183, evolveLevel:36, evolveMethod:"held", evolveItem:"neverMeltIce", catchRate:90, expYield:110, rarity:"uncommon",
     desc:"A blade of living ice and metal. Keeps its edge forever sharp in the coldest conditions.",
@@ -3506,7 +3506,7 @@ const MONSTERS_DATA = {
     lore:"Arachnalis is a large spider 30 cm across — Sculptweave's pale-cream body has lightened to silver-white and the rose-gold leg-banding has thinned to faint shimmer, while the fairy-touched silk it once spun has crystallised into vestigial gossamer wings capable of short gliding jumps. Its web structures are architectural in complexity. It inhabits flowered glades and decorates its webs with flower petals, creating structures that attract pollinating insects as prey." },
 
   183: { id:183, name:"Deepfreeze", emoji:"⚔️", types:["Ice","Fighting"],
-    base:{hp:56,atk:98,def:85,spa:63,spd:67,spe:64},
+    base:{hp:82,atk:98,def:85,spa:45,spd:65,spe:85},
     learnset:[[46,"iron_fist"],[1,"glacial_punch"],[2,"forge_blast_2"],[3,"frost_crash"],[4,"alloy_tail"],[5,"permafrost"],[40,"whiteout"],[41,"winter_shroud"],[44,"war_dance"],[48,"rime_shard"],[52,"metal_wing"],[56,"avalanche_drive"],[60,"radiance_cannon"],[6,"frostfire_veil"],[37,"subzero_slash"],[62,"piston_jab"],[55,"glacial_riptide"],[35,"icebound_lattice"],[25,"cryo_plate"],[25,"ice_resonance"],[90,"cryo_plate",{ng:true}],[95,"frostbite_strike",{ng:true}],[90,"flying_press",{ng:true}],[90,"spear_thrust",{ng:true}],[85,"frost_bite",{ng:true}],[80,"frigid_jab",{ng:true}],[80,"icy_shot",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:25, expYield:260, rarity:"rare",
     desc:"A legendary blade forged from glacier ice and pure ore. Its strikes freeze what they cut.",

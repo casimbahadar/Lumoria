@@ -3350,7 +3350,7 @@ const MONSTERS_DATA = {
 
   // ===== DARK =====
   189: { id:189, name:"Impefurr", emoji:"🦊", types:["Dark"],
-    base:{hp:31,atk:40,def:33,spa:58,spd:62,spe:82},
+    base:{hp:32,atk:41,def:34,spa:78,spd:63,spe:65},
     learnset:[[1,"chomp"],[1,"baleful_stare"],[8,"blitz"],[16,"void_pulse"],[20,"shadowstep"],[21,"vital_pulse"],[24,"jaw_crush"],[32,"nether_sphere",[5,"eclipse_shroud"]],[36,"void_rend"],[3,"dread_howl"],[31,"second_wind"],[50,"void_dominion"],[30,"dark_corrosion"],[20,"ectoplasm_wave"],[70,"toxin_pulse",{ng:true}]],
     evolveTo:190, evolveLevel:26, catchRate:160, expYield:80, rarity:"common",
     desc:"A faint wraith of shadow energy. Haunts dark places and feeds on fearful emotions.",
@@ -3485,7 +3485,7 @@ const MONSTERS_DATA = {
     lore:"Blightalis is a grass-toxin creature 1.2 metres tall whose Marlix reed-stalk body has bloomed into a flower-headed humanoid. Its petals are deep crimson-purple and droop downward like a wilting bloom around its head. Its stem-body is hollow and filled with toxic nectar. It lures insects and small creatures into its central chamber, trapping and dissolving them." },
 
   190: { id:190, name:"Wraithfox", emoji:"👻", types:["Dark","Mental"],
-    base:{hp:69,atk:61,def:48,spa:98,spd:80,spe:81},
+    base:{hp:72,atk:64,def:50,spa:103,spd:84,spe:85},
     learnset:[[1,"void_pulse"],[2,"eclipse_shroud"],[29,"nether_sphere"],[30,"daunt"],[34,"collide"],[38,"mind_jolt"],[42,"dreamweave"],[46,"dusk_slash"],[50,"nightmare_pulse"],[54,"mental"],[58,"blackout_bomb"],[62,"psi_strike"],[3,"dread_howl"],[39,"astral_rend"],[17,"void_rend_ex"],[17,"void_cyclone"],[17,"venom_ray"],[95,"dark_corrosion",{ng:true}],[95,"wicked_torrent",{ng:true}],[95,"shadowstorm",{ng:true}],[90,"malice_beam",{ng:true}],[85,"umbral_pulse",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:318, rarity:"uncommon",
     desc:"A spectral fox-spirit whose shadowy form trails into smoke. Multiple ghostly tails fan out behind it, and its violet eyes seem to read minds at a glance.",

@@ -3334,7 +3334,7 @@ const MONSTERS_DATA = {
 
   // ===== GRASS/DARK =====
   196: { id:196, name:"Sylvnox", emoji:"🌿", types:["Nature","Dark"],
-    base:{hp:52,atk:52,def:41,spa:49,spd:46,spe:58},
+    base:{hp:60,atk:52,def:56,spa:42,spd:46,spe:58},
     learnset:[[1,"vine_lash",[22,"root_lance"]],[1,"chomp"],[10,"sharp_leaves"],[18,"dusk_slash"],[26,"verdant_orb"],[30,"grove_wrath"],[34,"jaw_crush"],[42,"void_pulse",[5,"slumber_dust"]],[3,"spore_burst"],[32,"void_rend"],[10,"toxic_thread"],[10,"timewarp_meditation"],[10,"timefade_step"]],
     evolveTo:197, evolveLevel:30, evolveMethod:"time", evolveTime:"night", catchRate:110, expYield:98, rarity:"common",
     desc:"A shadowy plant sprite that hides in dark undergrowth. Its thorns drip with shadow energy.",
@@ -3471,7 +3471,7 @@ const MONSTERS_DATA = {
     lore:"Seanymph is a mermaid-like creature 1.5 metres tall — Pearlmaid's tiny pale-violet body has grown to full mermaid stature now that the oyster shell can no longer contain it, the lower half lengthened into a deep-sea fish-tail shimmering violet and the upper retaining the humanoid torso with rose-gold core-luminescence still pulsing faintly beneath the skin. Its flowing hair is made of water-weed adorned with living sea-stars. It guides lost sailors away from dangerous reefs by projecting alluring visions of safe harbours." },
 
   197: { id:197, name:"Morraveth", emoji:"🌳", types:["Nature","Dark"],
-    base:{hp:66,atk:81,def:63,spa:80,spd:57,spe:53},
+    base:{hp:72,atk:81,def:76,spa:68,spd:57,spe:53},
     learnset:[[1,"sharp_leaves"],[2,"verdant_orb"],[3,"dusk_slash"],[4,"slumber_dust"],[31,"jaw_crush"],[35,"fortify"],[39,"void_pulse"],[40,"photon_leaf"],[45,"nether_sphere"],[50,"blackout_bomb"],[55,"void_rend"],[60,"petal_blitz"],[5,"spore_burst"],[38,"verdant_edge"],[15,"snow_veil"],[15,"smolder_trap"],[15,"smoke_calm"]],
     evolveTo:198, evolveLevel:44, evolveMethod:"time", evolveTime:"night", catchRate:40, expYield:218, rarity:"uncommon",
     desc:"A dark vine predator that ensnares prey in shadow-infused tendrils. Ancient and cunning.",
@@ -3886,7 +3886,7 @@ const MONSTERS_DATA = {
 
   // 191: Morralyn - Grass/Dark (Sylvnox→Morraveth→Morralyn)
   198: { id:198, name:"Morralyn", emoji:"🪵", types:["Nature","Dark"],
-    base:{hp:85,atk:106,def:85,spa:101,spd:75,spe:25},
+    base:{hp:92,atk:106,def:95,spa:65,spd:75,spe:60},
     learnset:[[1,"sharp_leaves"],[1,"dusk_slash"],[2,"verdant_orb"],[3,"void_pulse"],[4,"slumber_dust"],[5,"spore_burst"],[8,"bark_shield"],[14,"root_drain"],[20,"regrow"],[26,"nature_pulse"],[30,"fae_petals"],[34,"primordial_growth"],[38,"petal_blitz"],[40,"sinister_scheme"],[42,"nether_sphere"],[44,"tenebrous_snare"],[46,"void_rend"],[50,"verdant_surge"],[54,"soul_rend"],[58,"canopy_crash"],[60,"sylvan_radiance"],[62,"eclipse_shroud"],[20,"ore_polish"],[20,"opaline_armor"],[20,"noxious_gas"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A wraith of shadow and thorn that stalks moonless forests. The trees it passes through wither and grow dark, feeding it endlessly.",

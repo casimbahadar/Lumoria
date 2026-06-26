@@ -2025,14 +2025,14 @@ const MONSTERS_DATA = {
     lore:"Dreadmaw is a large dark dog 90 cm at the shoulder — Eclipsehound's jet-black light-absorbing fur has deepened to pure black across a broad powerful chest, and the skittish pup's silent-paw habit has matured into the ability to move without sound on any surface. It guards underground lairs and claims territorial ownership of shadow-filled spaces within its range, tolerating no other predators in its claimed darkness." },
 
   187: { id:187, name:"Spiraloom",     emoji:"🦇", types:["Dark","Wind"],
-    base:{hp:46,atk:42,def:30,spa:51,spd:45,spe:92},
+    base:{hp:47,atk:43,def:30,spa:52,spd:46,spe:92},
     learnset:[[1,"chomp",[22,"shadowstep"]],[1,"breeze"],[9,"wingbeat"],[17,"void_pulse"],[25,"wind_scythe"],[29,"soul_rend"],[33,"nether_sphere"],[41,"typhoon",[5,"eclipse_shroud"]],[3,"dread_howl"],[32,"void_rend"],[10,"sonic_calm"],[10,"smoke_calm"],[10,"slumber_armor"]],
     evolveTo:188, evolveLevel:28, evolveMethod:"time", evolveTime:"dusk", catchRate:130, expYield:85, rarity:"common",
     desc:"A dark bat that absorbs light. Creates zones of absolute darkness.",
     lore:"Spiraloom is a medium-sized bat 60 cm long with dark grey-black fur and long narrow wings. Its face is flat with a broad wrinkled nose-leaf for echolocation. It roosts in enormous colonies inside cave systems and emerges at dusk in spiralling columns that can darken the sky for minutes." },
 
   188: { id:188, name:"Caveshroud", emoji:"🦇", types:["Dark","Wind"],
-    base:{hp:55,atk:67,def:42,spa:101,spd:67,spe:105},
+    base:{hp:58,atk:71,def:44,spa:106,spd:71,spe:110},
     learnset:[[1,"void_pulse"],[2,"wingbeat"],[3,"wind_scythe"],[4,"shadowstep"],[5,"eclipse_shroud"],[6,"dread_howl"],[8,"shadow_jab"],[20,"shadow_cloak"],[30,"nether_sphere"],[35,"daunt"],[38,"typhoon"],[42,"collide"],[43,"void_rend"],[49,"dusk_slash"],[56,"nightmare_pulse"],[63,"cyclone_blade"],[15,"beguile"],[15,"beast_speed"],[15,"battle_rhythm"],[90,"shadow_lance",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:45, expYield:205, rarity:"uncommon",
     desc:"A spectral wing beast. Its mere passing through an area chills it completely.",

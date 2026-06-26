@@ -4580,7 +4580,7 @@ const MONSTERS_DATA = {
     lore:"Nullstorm is a dark-electric entity 5 metres across that resembles a contained electromagnetic storm with a dark nucleus. Every electronic device within a kilometre malfunctions in its presence." },
 
   458: { id:458, name:"Heliogriff", emoji:"🦅", types:["Fire","Sonic"],
-    base:{hp:86,atk:120,def:92,spa:117,spd:92,spe:101}, evolveTo:null, evolveLevel:null, ngPlusTier:3,
+    base:{hp:100,atk:130,def:75,spa:85,spd:70,spe:120}, evolveTo:null, evolveLevel:null, ngPlusTier:3,
     learnset:[[1,"inferno_jet"],[5,"char_dance"],[8,"sun_burst"],[10,"ashfall"],[12,"infernal_roar"],[15,"searing_glare"],[18,"firebrand"],[20,"solar_flare"],[22,"inferno_s_grasp"],[25,"skyboom_strike"],[28,"magma_baptism"],[30,"cinderwhirl"],[35,"bass_blast"],[40,"pyroclasm"],[50,"solar_zenith"],[55,"conflagration"],[55,"resonance_field"],[60,"forge_blast"],[65,"threnody"],[100,"resonance_quake",{ng:true}],[90,"quake_barrage",{ng:true}],[95,"smack_down",{ng:true}]],
     catchRate:4, expYield:370, rarity:"legendary",
     desc:"A solar griffin born from the sun itself. The corona of its home star still wraps its wings.",

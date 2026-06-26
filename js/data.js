@@ -4480,7 +4480,7 @@ const MONSTERS_DATA = {
     lore:"Riftmane is a kelpie 2.5 metres long — a spectral water-horse risen from a drowned otherworld no living thing can see. Its streaming mane and hide shimmer half-solid and half-ghostly, and it phases through stone and water alike, luring the unwary to follow it beneath the surface and never return." },
 
   449: { id:449, name:"Tempestborn", emoji:"⛈️", types:["Electric","Wind"],
-    base:{hp:77,atk:98,def:77,spa:116,spd:94,spe:116}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
+    base:{hp:85,atk:45,def:98,spa:132,spd:104,spe:116}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
     learnset:[[1,"jolt"],[10,"breeze"],[20,"volt_jet"],[30,"wind_scythe"],[40,"stormbolt"],[50,"volt_surge"],[60,"tailwind_strike"],[5,"zephyr_dance"],[48,"neural_storm"],[62,"arc_flash"],[63,"typhoon"],[110,"acoustic_shock",{ng:true}]],
     catchRate:6, expYield:345, rarity:"legendary",
     desc:"Born at the eye of a century-storm. It IS the storm — a permanent atmospheric event given will.",

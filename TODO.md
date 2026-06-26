@@ -94,6 +94,17 @@ Current `monsterId:319` appearances to audit/strip (found 2026-06-26): data.js ~
 9252, 9260, 10513, 10521, 10529, 11186, 11193, 11201, 11286, 11294, 11587 (boss), 11704 (boss), 11794 (boss).
 Keep ONLY: Shade's final battle team + its NG+ variant.
 
+## NG+ legend obtainability rule (ids 448–461) — decided 2026-06-26
+- **All of #448–461 are ONE-TIME (not repeatable)** EXCEPT the **Woollytot line (451–453)** and **Glimmerling
+  line (454–456)**, which stay **repeatable** (evolving lines you raise).
+- Encounter conversion TODO: the currently-repeatable wild legends — **Riftmane #448, Tempestborn #449,
+  Eonyx #457, Heliogriff #458, Voidcrown #459, Primordiax #460, Starborne #461** (wild @ Prismatic Rift /
+  Apex Summit) → convert to **one-time `legendaryEncounter`** (the mechanic enforces one-time via
+  `defeatedLegendaries`). Solarcrown #450 is already a one-time static. Woollytot/Glimmerling lines stay as
+  their evolving catchable statics.
+- **BST tiering implication:** the one-time legends are box-tier (lean higher); the two repeatable evolving
+  lines can sit lower (farmable). Applied during the stats review.
+
 ## Relation to current stats work
 - During the Lane A.1 legendary/Forgotten BST review, **SKIP #315/#316/#319/#320** (handled by this arc).
 - Skybreaker (#314) is a *separate* static box-legend, already set to BST 650 — not part of this arc.

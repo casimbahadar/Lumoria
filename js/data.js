@@ -4622,7 +4622,7 @@ const MONSTERS_DATA = {
     lore:"Stonekeeper is an earth-spectral entity 4 metres tall resembling a craggy mountain peak with a translucent interior. It is the spirit of a specific peak that was destroyed in an ancient cataclysm. It still performs the same patrol it did 10,000 years ago." },
 
   460: { id:460, name:"Primordiax", emoji:"🔥", types:["Fire","Primal"],
-    base:{hp:102,atk:136,def:110,spa:110,spd:101,spe:101}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
+    base:{hp:136,atk:102,def:110,spa:110,spd:101,spe:101}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
     learnset:[[1,"inferno_jet"],[10,"geoblast"],[15,"atavistic_focus"],[20,"magma_surge"],[25,"ancient_pulse"],[30,"fissure_slam"],[35,"ancient_calm"],[40,"solar_flare"],[45,"raw_fury"],[50,"terra_spike"],[60,"mantle_surge"],[5,"char_dance"],[55,"mantle_surge"],[90,"draconic_pummels",{ng:true}]],
     catchRate:4, expYield:375, rarity:"legendary",
     desc:"A creature born when the planet's crust cracked and the mantle met the surface. It predates all others.",

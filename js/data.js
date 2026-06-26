@@ -4884,7 +4884,7 @@ const MONSTERS_DATA = {
 
   453: { id:453, name:"Primammoth", emoji:"🦣", types:["Nature","Primal"],
     evolveTo:null, evolveLevel:null, ngPlusTier:3, catchRate:5, expYield:325, rarity:"legendary",
-    base:{hp:140,atk:130,def:118,spa:70,spd:102,spe:70}, // BST 630
+    base:{hp:140,atk:130,def:103,spa:70,spd:102,spe:70}, // BST 615
     learnset:[[1,"beast_charge"],[1,"pod_blast"],[15,"vine_lash"],[20,"wild_rage"],[28,"crushing_jaws"],[30,"feral_armor"],[36,"wild_aura"],[40,"primal_smash"],[45,"apex_predator"],[46,"verdant_orb"],[48,"nature_pulse"],[50,"raw_fury"],[52,"ancient_strike"],[55,"ancient_calm"],[58,"jungle_hammer"],[64,"primeval_eruption"],[70,"world_devour"],[100,"nihil_quake",{ng:true}],[100,"wild_strike",{ng:true}],[100,"sap_bite",{ng:true}],[100,"maul",{ng:true}],[100,"feral_claw",{ng:true}],[100,"tidal_fang",{ng:true}],[100,"primal_jab",{ng:true}],[90,"compound_glare",{ng:true}],[90,"regrow",{ng:true}],[90,"metamorphosis",{ng:true}],[90,"sap_seed",{ng:true}],[90,"spore_shield",{ng:true}],[95,"pheromone_rush",{ng:true}],[90,"twin_sting",{ng:true}],[90,"quill_barrage",{ng:true}],[110,"diamond_crash",{ng:true}],[110,"enchanted_smash",{ng:true}]],
     desc:"A living mountain of the elder world, a moss-mantled mammoth that forests follow like a wake.",
     lore:"Primammoth is reckoned legendary — a titan that has carried the first forest on its back since before the gyms were built, so vast and slow that a grove matures and dies between its footfalls. It remembers the land as it was and steers great migrations of Lumori by instinct older than memory. To stand in its shadow is to feel the weight of every age it has walked through, and the deep green hush of the world before names." },

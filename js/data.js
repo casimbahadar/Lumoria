@@ -4679,7 +4679,7 @@ const MONSTERS_DATA = {
 
   443: { id:443, name:"Voidwarden", emoji:"⚔️", types:["Dark","Metal"],
     evolveTo:null, evolveLevel:null, ngPlusTier:1,
-    base:{hp:88,atk:130,def:115,spa:85,spd:95,spe:87}, // BST 600
+    base:{hp:108,atk:130,def:115,spa:65,spd:95,spe:87}, // BST 600
     learnset:[[1,"void_rend"],[1,"alloy_tail"],[5,"hydra_dance"],[8,"null_void"],[12,"dragon_focus"],[15,"eclipse_burst"],[18,"serpent_rage"],[20,"phantom_claw"],[25,"shadow_lance"],[30,"forge_blast_2"],[35,"nightmare_smash"],[40,"umbral_claw"],[45,"wraith_drive"],[50,"alloy_edge"],[55,"starlight_obliteration"],[60,"scale_storm"],[60,"void_dominion"],[65,"stygian_whisper"],[70,"abyssal_dominion"],[72,"wrought_shockwave"],[105,"savage_blow",{ng:true}],[90,"cheap_shot",{ng:true}],[110,"scorch_kick",{ng:true}]],
     catchRate:5, expYield:300, rarity:"pseudolegendary",
     desc:"The supreme guardian of the void boundary. It wields darkness and steel as extensions of its own will.",

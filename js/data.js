@@ -3686,7 +3686,7 @@ const MONSTERS_DATA = {
     lore:"Temporith is a psychic-dragon 3 metres long whose scales appear to flicker between states of existence — slightly out of phase with the present moment. Its outline is never quite sharp. It inhabits places where history is dense — ancient battlefields, old libraries — feeding on residual temporal energy." },
 
   318: { id:318, name:"Gaiagant", emoji:"🌍", types:["Earth","Nature"],
-    base:{hp:103,atk:125,def:104,spa:92,spd:89,spe:75},
+    base:{hp:135,atk:125,def:122,spa:65,spd:113,spe:60},
     learnset:[[1,"mud_spray"],[1,"vine_lash"],[7,"sandstrike"],[14,"sharp_leaves"],[21,"geoblast"],[28,"pod_blast"],[35,"clay_armor"],[42,"briar_lash"],[49,"tectonic_shift"],[56,"grove_wrath"],[63,"worldseed_quake"],[70,"verdant_surge"],[77,"radiance_cannon"],[20,"psyche_lock"],[20,"provoke"],[20,"prismatic_calm"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
     desc:"The Legendary Spirit of the Land. Every continent in Lumoria trembles at its footfall.",

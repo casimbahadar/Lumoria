@@ -4438,7 +4438,7 @@ const MONSTERS_DATA = {
     lore:"Chasmrend is a dark-spectral entity 2.5 metres tall with a body that exists simultaneously in normal space and the void between dimensions. Its claws leave visible tears in reality that slowly heal." },
 
   446: { id:446, name:"Auroratusk", emoji:"🦭", types:["Ice","Normal"],
-    base:{hp:69,atk:92,def:78,spa:102,spd:85,spe:94}, evolveTo:447, evolveLevel:54, ngPlusTier:1,
+    base:{hp:60,atk:80,def:68,spa:87,spd:74,spe:81}, evolveTo:447, evolveLevel:54,
     learnset:[[1,"cold_beam"],[10,"cold_snap"],[20,"cryo_lance"],[30,"aurora_blast"],[40,"whiteout"],[50,"avalanche_drive"],[60,"glaciation"],[5,"war_dance"],[48,"icebound_lattice"],[62,"icy_shot"],[105,"zenith_ray",{ng:true}],[110,"abyssal_wave",{ng:true}],[110,"geyser_burst",{ng:true}]],
     catchRate:7, expYield:338, rarity:"rare",
     desc:"An arctic walrus whose translucent hide shimmers with living aurora-light. It migrates between magnetic poles by sensing the field.",
@@ -4587,9 +4587,9 @@ const MONSTERS_DATA = {
     lore:"Heliogriff is a colossal griffin 7 metres long, its eagle's head and lion's body sheathed in plumage that burns at the surface temperature of a star, wings trailing a corona of stellar fire. It was first recorded appearing from a solar flare, and the heat of its dive reaches temperatures measurable only in solar physics." },
 
   447: { id:447, name:"Glacierend", emoji:"🦭", types:["Ice","Normal"],
-    base:{hp:97,atk:124,def:110,spa:115,spd:103,spe:99}, evolveTo:null, evolveLevel:null, ngPlusTier:1,
+    base:{hp:83,atk:107,def:94,spa:98,spd:88,spe:85}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"cold_beam"],[5,"war_dance"],[10,"icicle_smash"],[12,"aurora_blast"],[15,"ice_claw"],[18,"body_blow"],[20,"cryo_lance"],[22,"tundra_tomb"],[25,"cryogenic_breath"],[28,"boreal_armor"],[30,"ice_resonance"],[35,"frostbite_strike"],[40,"whiteout"],[45,"absolute_zero"],[50,"avalanche_drive"],[55,"icebound_lattice"],[60,"glaciation"],[90,"focus_roar",{ng:true}],[90,"endure_pulse",{ng:true}],[90,"afterimage",{ng:true}],[115,"reckless_charge",{ng:true}],[115,"last_stand",{ng:true}],[115,"arc_strike",{ng:true}],[120,"wraith_drive",{ng:true}],[100,"whirlpool_dive",{ng:true}]],
-    catchRate:4, expYield:370, rarity:"pseudolegendary",
+    catchRate:4, expYield:370, rarity:"rare",
     desc:"A colossal glacier-walrus that has been growing since the last ice age. It moves slowly, but nothing stops it.",
     lore:"Glacierend is a colossal walrus 8 metres long, its hide armoured in glacial blue ice 50,000 years old and its tusks grown into vast frozen pillars — the matured form Auroratusk's aurora-glow hardens into. It hauls itself at glacial speed outside battle but in combat is explosively fast. Every valley it has dragged through remains permanently frozen." },
 

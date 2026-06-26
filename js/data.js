@@ -4708,7 +4708,7 @@ const MONSTERS_DATA = {
 
   456: { id:456, name:"Prismdome", emoji:"💎", types:["Crystal","Fairy"],
     evolveTo:null, evolveLevel:null, ngPlusTier:3, catchRate:5, expYield:320, rarity:"legendary",
-    base:{hp:110,atk:85,def:145,spa:125,spd:130,spe:30}, // BST 625
+    base:{hp:110,atk:85,def:135,spa:125,spd:130,spe:30}, // BST 615
     learnset:[[1,"crystal_pulse"],[1,"prism_flare"],[1,"second_wind"],[20,"roughhouse"],[25,"radiant_burst"],[28,"enchanted_smash"],[30,"crystal_veil"],[32,"ice_resonance"],[33,"crystalline_beam"],[35,"fairy_blast"],[38,"rainbow_burst"],[40,"beryl_press"],[42,"opaline_armor"],[45,"prism_blow"],[48,"gemstone_blast"],[50,"crystal_storm"],[54,"lunar_burst"],[55,"prismatic_eruption"],[60,"starlight_prism"],[66,"prism_apocalypse"],[90,"shard_blade",{ng:true}],[90,"prism_ray",{ng:true}],[90,"sylph_focus",{ng:true}],[90,"moonglow",{ng:true}],[90,"enchant",{ng:true}],[90,"healing_circle",{ng:true}]],
     desc:"An ancient gem-tortoise whose vast domed shell has grown into a living cathedral of prisms.",
     lore:"Prismdome is reckoned a legendary among gem-Lumori — a colossal tortoise that has carried its crystal shell for centuries until the facets fused into a single radiant dome that bends daylight into standing rainbows for leagues around. It moves perhaps once a generation, and where it finally settles, gardens of luminous crystal bloom from the soil. Pilgrims claim the light beneath its shell can mend a fractured spirit." },

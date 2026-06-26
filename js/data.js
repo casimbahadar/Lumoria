@@ -3679,7 +3679,7 @@ const MONSTERS_DATA = {
     lore:"Shinarith is a medium fairy-steel guardian 90 cm tall — Faerrin's silver-gold knight-alloy has been forged anew into gleaming platinum armour decorated with fairy-glyph engravings, and the dazzling light-redirection of its juvenile form now shines through gaps in the armour as inner warm gold tones. It is fiercely loyal and will defend any being it has bonded with from threats many times its size." },
 
   317: { id:317, name:"Temporith", emoji:"⏳", types:["Mental","Draconic"],
-    base:{hp:97,atk:100,def:99,spa:132,spd:107,spe:83},
+    base:{hp:106,atk:106,def:106,spa:106,spd:106,spe:106},
     learnset:[[1,"mind_jolt"],[1,"draconic_breath"],[7,"psi_burst"],[10,"ancient_meditation"],[14,"inner_calm"],[16,"arcane_roar"],[18,"prophecy"],[21,"draconic_claw"],[24,"draco_pulse"],[25,"gravitational_pull"],[28,"mental"],[35,"draconic_pulse"],[42,"prism_ward"],[45,"temporal_collapse"],[49,"astral_rend"],[56,"ancient_breath"],[63,"temporal_rift"],[70,"neural_storm"],[77,"radiance_cannon"],[20,"corrosion_proof"],[20,"condense_form"],[20,"cloud_form"],[100,"reptilian_gust",{ng:true}],[95,"wyvern_gust",{ng:true}],[90,"wyrm_gale",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:315, rarity:"legendary",
     desc:"The Legendary Veil of Time. Said to exist at the crossing point of past and future.",

@@ -3406,7 +3406,7 @@ const MONSTERS_DATA = {
 
   // ===== WATER/STEEL =====
   201: { id:201, name:"Titanomare", emoji:"🐋", types:["Aquatic","Metal"],
-    base:{hp:90,atk:76,def:87,spa:67,spd:73,spe:46},
+    base:{hp:80,atk:67,def:77,spa:59,spd:65,spe:41},
     learnset:[[1,"tidal_rush",[1,"sea_serpent_strike"]],[1,"alloy_tail"],[1,"tidal_sweep"],[1,"forge_blast_2"],[18,"daunt"],[31,"collide"],[44,"bubble_jet"],[55,"tsunami"],[58,"temper_edge"],[65,"radiance_cannon",[5,"tidecaller"]],[3,"deepwater_hymn"],[41,"forge_strike"],[30,"smog_lash"],[40,"smog_drill"],[30,"sinkhole_maw"]],
     evolveTo:null, evolveLevel:null, catchRate:15, expYield:280, rarity:"rare",
     desc:"A leviathan armored in barnacle-covered steel. Said to be older than the ocean floor itself.",

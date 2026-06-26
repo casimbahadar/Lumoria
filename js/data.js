@@ -4566,7 +4566,7 @@ const MONSTERS_DATA = {
 
   // ---- Tier 5b: Ultra-rare Apex Summit BST ~680–710 ----
   457: { id:457, name:"Eonyx", emoji:"🦁", types:["Mental"],
-    base:{hp:82,atk:115,def:91,spa:122,spd:95,spe:100}, evolveTo:null, evolveLevel:null, ngPlusTier:3,
+    base:{hp:100,atk:40,def:60,spa:130,spd:130,spe:120}, evolveTo:null, evolveLevel:null, ngPlusTier:3,
     learnset:[[1,"cortex_spike"],[5,"clairvoyance"],[10,"psi_strike"],[15,"psi_burst"],[20,"cerebral_punch"],[30,"synaptic_shatter"],[35,"mental"],[40,"mindbreaker"],[50,"neural_storm"],[55,"time_fracture"],[60,"cosmic_thought"],[120,"dreamscape_smash",{ng:true}],[120,"winter_shade",{ng:true}],[100,"starfall",{ng:true}]],
     catchRate:4, expYield:368, rarity:"legendary",
     desc:"An ancient sphinx that has lived so long it perceives all possible futures simultaneously. It fights battles it has already won.",

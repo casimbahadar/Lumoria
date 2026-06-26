@@ -3237,7 +3237,7 @@ const MONSTERS_DATA = {
     lore:"Skybreaker is a wind-sonic creature with a 1-metre wingspan, a sleek pale-grey raptor body trailing streamers of compressed air. From cruising altitude it folds its wings and dives faster than sound, and each plunge ends in a localised sonic boom as it exceeds natural air displacement limits. Hunters claim the shockwave can be felt before the bird itself is seen." },
 
   315: { id:315, name:"Ashvanus",   emoji:"🌋", types:["Fire","Earth"],
-    base:{hp:113,atk:145,def:111,spa:102,spd:89,spe:50},
+    base:{hp:122,atk:150,def:123,spa:108,spd:95,spe:82},
     learnset:[[1,"flicker"],[1,"stone_throw"],[7,"flame_fang"],[14,"stone_slide"],[21,"magma_surge"],[28,"crag_strike"],[35,"ashfall"],[42,"inferno_jet"],[49,"magma_stone"],[56,"pyroclasm"],[63,"caldera_meltdown"],[70,"bedrock_slam"],[77,"radiance_cannon"],[20,"quiver_dance"],[20,"quarry_speed"],[20,"putrid_calm"],[90,"inferno_charge",{ng:true}]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
     desc:"The Legendary Volcano Titan. Eruptions across Lumoria mark its awakening.",

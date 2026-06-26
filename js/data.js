@@ -2011,14 +2011,14 @@ const MONSTERS_DATA = {
 
   // ===== DARK =====
   184: { id:184, name:"Eclipsehound",   emoji:"🐕", types:["Dark"],
-    base:{hp:36,atk:50,def:39,spa:57,spd:36,spe:80},
+    base:{hp:55,atk:65,def:38,spa:25,spd:35,spe:80},
     learnset:[[1,"graze",[22,"shadowstep"]],[1,"chomp"],[8,"blitz"],[16,"dusk_slash"],[24,"jaw_crush"],[29,"second_wind"],[32,"void_pulse"],[40,"nether_sphere",[5,"eclipse_shroud"]],[3,"dread_howl"],[31,"baleful_stare"],[50,"void_dominion"],[30,"dark_corrosion"],[12,"frost_pulse"],[100,"phantom_gale",{ng:true}]],
     evolveTo:185, evolveLevel:25, evolveMethod:"time", evolveTime:"night", catchRate:150, expYield:88, rarity:"common",
     desc:"A shadow puppy that hides in darkness. Its eyes glow red at night.",
     lore:"Eclipsehound is a small dark-coloured dog about 40 cm at the shoulder with jet-black fur that absorbs nearby light, creating a subtle darkening effect around it. Its eyes glow a faint amber. It is skittish and secretive, hiding in shadows and emerging only at dusk to scavenge in settlements." },
 
   185: { id:185, name:"Dreadmaw",  emoji:"🐕", types:["Dark"],
-    base:{hp:68,atk:75,def:48,spa:69,spd:65,spe:75},
+    base:{hp:85,atk:90,def:52,spa:35,spd:53,spe:85},
     learnset:[[1,"chomp"],[2,"blitz"],[3,"jaw_crush"],[4,"dusk_slash"],[5,"graze"],[6,"eclipse_shroud"],[26,"second_wind"],[29,"void_pulse"],[37,"nether_sphere"],[38,"nightmare_pulse"],[51,"crushing_bulk"],[64,"void_rend"],[7,"dread_howl"],[44,"baleful_stare"],[55,"void_dominion"],[35,"dark_corrosion"],[35,"nightmare_smash"],[17,"leg_sweep"],[110,"phantom_force",{ng:true}]],
     evolveTo:186, evolveLevel:44, catchRate:45, expYield:316, rarity:"uncommon",
     desc:"A hound of the night. Moves silently and strikes from blind spots.",
@@ -3998,7 +3998,7 @@ const MONSTERS_DATA = {
 
   // 205: Noctovast - Dark (Umbrakin→Noctivast→Noctovast)
   186: { id:186, name:"Nightwolf", emoji:"🐕", types:["Dark"],
-    base:{hp:85,atk:102,def:66,spa:93,spd:76,spe:55},
+    base:{hp:105,atk:125,def:60,spa:35,spd:67,spe:85},
     learnset:[[1,"chomp"],[1,"jaw_crush"],[2,"dusk_slash"],[3,"void_pulse"],[4,"eclipse_shroud"],[38,"nether_sphere"],[42,"void_rend"],[46,"soul_rend"],[50,"tenebrous_snare"],[54,"dread_howl"],[58,"crushing_bulk"],[62,"blitz"],[5,"shadowstep"],[44,"second_wind"],[22,"scale_shot"],[30,"savage_bite"],[30,"sandstone_rush"]],
     evolveTo:null, evolveLevel:null, catchRate:30, expYield:265, rarity:"rare",
     desc:"A hound of the perpetual midnight. Darkness pools around it wherever it goes; even torch-flames gutter and die in its presence.",

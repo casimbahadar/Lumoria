@@ -4509,7 +4509,7 @@ const MONSTERS_DATA = {
     lore:"Apexblade is a steel swordfish 5 metres long, its streamlined body folded from ultra-steel into a single living blade tipped by a metre-long sword-bill. Every surface is an edge, and it cleaves through deep water at terrible speed; its teeth alone number 340. Hulls part like paper where it strikes." },
 
   450: { id:450, name:"Solarcrown", emoji:"🌞", types:["Fire","Stellar"],
-    base:{hp:69,atk:83,def:76,spa:115,spd:91,spe:91}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
+    base:{hp:95,atk:50,def:95,spa:140,spd:120,spe:100}, evolveTo:null, evolveLevel:null, ngPlusTier:2,
     learnset:[[1,"solar_flare"],[5,"char_dance"],[8,"sun_burst"],[10,"mental"],[12,"flash_fire"],[15,"nova_strike"],[20,"pyroclasm"],[25,"nova_burst"],[30,"psi_strike"],[40,"searing_gale"],[45,"comet_flare"],[50,"synaptic_shatter"],[52,"dreamweave"],[55,"supernova_eruption"],[60,"neural_storm"],[80,"cosmic_beam",{ng:true}],[115,"pyroclastic_burst",{ng:true}],[115,"volcanic_wrath",{ng:true}],[110,"seismic_force",{ng:true}]],
     catchRate:5, expYield:358, rarity:"legendary",
     desc:"The embodiment of solar noon — a psychic sun that walks the earth and has never known night.",

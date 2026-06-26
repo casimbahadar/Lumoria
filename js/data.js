@@ -3244,7 +3244,7 @@ const MONSTERS_DATA = {
     lore:"Ashvanus is a large fire-rock creature 2 metres tall resembling a volcanic vent that has grown a body. Its core is glowing magma surrounded by a shell of compressed ash-rock. It stands dormant for years between activity phases, during which local plants colonise its ash-body, making it appear as a small hill." },
 
   316: { id:316, name:"Abyssovex", emoji:"🌊", types:["Aquatic","Dark"],
-    base:{hp:99,atk:102,def:85,spa:130,spd:92,spe:82},
+    base:{hp:99,atk:128,def:85,spa:138,spd:128,spe:102},
     learnset:[[1,"aquatic_gun"],[1,"chomp"],[7,"bubble_jet"],[14,"jaw_crush"],[21,"abyssal_jet"],[28,"void_pulse"],[35,"tidal_rush"],[42,"tenebrous_snare"],[49,"draconic_pulse"],[56,"soul_rend"],[63,"tsunami"],[70,"geyser_burst"],[77,"radiance_cannon"],[84,"abyssal_dominion"],[50,"zenith_ray"],[22,"wyvern_gust"],[15,"wyrm_gale"]],
     evolveTo:null, evolveLevel:null, catchRate:3, expYield:310, rarity:"legendary",
     desc:"The Legendary abyssal leviathan, an enormous deep-sea squid. Lurks in the deepest ocean trenches.",

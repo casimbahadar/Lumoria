@@ -4654,7 +4654,7 @@ const MONSTERS_DATA = {
 
   440: { id:440, name:"Auguryx", emoji:"🐉", types:["Draconic","Mental"],
     evolveTo:null, evolveLevel:null, ngPlusTier:1,
-    base:{hp:92,atk:110,def:88,spa:130,spd:100,spe:80}, // BST 600
+    base:{hp:92,atk:100,def:88,spa:130,spd:100,spe:90}, // BST 600
     learnset:[[1,"draconic_pulse"],[1,"psi_strike"],[5,"hydra_dance"],[15,"ancient_meditation"],[20,"wyrm_strike"],[25,"dragon_calm"],[30,"synaptic_shatter"],[35,"abyss_ray"],[40,"scale_storm"],[50,"neural_storm"],[60,"cataclysm_breath"],[60,"time_fracture"],[62,"mind_strike"],[90,"mental_overflow",{ng:true}],[90,"psyche_lock",{ng:true}],[120,"comet_crash",{ng:true}],[115,"scale_crash",{ng:true}],[115,"stellar_flare",{ng:true}],[120,"volcanic_wrath",{ng:true}],[100,"zephyr_arrow",{ng:true}]],
     catchRate:5, expYield:300, rarity:"pseudolegendary",
     desc:"The apex of dragon-psychic evolution. It perceives battle outcomes before they happen and acts accordingly.",

@@ -5251,7 +5251,7 @@ const MONSTERS_DATA = {
 
   478: { id:478, name:"Forgotten Zephyrak", emoji:"🦅", types:["Wind","Crystal"],
     evolveTo:null, evolveLevel:null, foreignRegion:true, uncatchable:true,
-    base:{hp:90,atk:105,def:95,spa:165,spd:115,spe:180},
+    base:{hp:90,atk:165,def:115,spa:105,spd:95,spe:180},
     learnset:[[1,"breeze"],[20,"forge_blast_2"],[35,"wind_scythe"],[50,"alloy_edge"],[65,"typhoon"],[70,"warden_strike"],[80,"ferrous_gale"],[24,"geode_smash"],[38,"gemstone_strike"],[52,"crystal_storm"],[1,"sky_sentinel_dive"],[100,"resonant_feather"],[105,"starlight_prism",{ng:true}],[105,"gemstone_blast",{ng:true}],[100,"rainbow_burst",{ng:true}],[100,"slicing_gale",{ng:true}],[90,"slipstream",{ng:true}],[90,"whirlwind_force",{ng:true}],[90,"wind_barrier",{ng:true}],[90,"updraft",{ng:true}],[90,"mistral_focus",{ng:true}],[120,"thunderstorm_eruption",{ng:true}],[115,"stratosphere_drop",{ng:true}],[115,"hurricane_blast",{ng:true}],[100,"cortex_spike",{ng:true}]],
     catchRate:0, expYield:350, rarity:"legendary",
     desc:"Zephyrak navigate by the electromagnetic signatures of all living things below, seeing the world as a tapestry of pulsing lights from miles in the clouds.",

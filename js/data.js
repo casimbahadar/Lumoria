@@ -4310,7 +4310,7 @@ const MONSTERS_DATA = {
     lore:"Nadiril is a water-toxin creature 5 metres long resembling an armoured eel with bioluminescent lures. Its black scales have a refractive property that makes it nearly invisible underwater." },
 
   444: { id:444, name:"Stormlord", emoji:"🦅", types:["Electric","Sonic"],
-    base:{hp:72,atk:92,def:72,spa:104,spd:82,spe:98}, evolveTo:445, evolveLevel:52, ngPlusTier:1,
+    base:{hp:62,atk:80,def:62,spa:90,spd:71,spe:85}, evolveTo:445, evolveLevel:52,
     learnset:[[1,"jolt"],[10,"discord"],[20,"volt_jet"],[30,"harmonic_wave"],[40,"stormbolt"],[50,"concussive_strike"],[60,"volt_surge"],[5,"resonate"],[38,"shockwave_boom"],[80,"suction_wave",{ng:true}],[90,"insight_flare",{ng:true}]],
     catchRate:10, expYield:320, rarity:"rare",
     desc:"A colossal thunderbird whose wingbeats summon storms across entire regions — the living embodiment of a thunderhead.",
@@ -4544,9 +4544,9 @@ const MONSTERS_DATA = {
     lore:"Chronolith is the ancient, final form of Mirestone: a massive standing stone 2.5 metres tall whose geological strata each seal a perfect frozen moment from the past, visible to psychic sight. Having stood and recorded since the world was young, it remembers every moment of Lumoria's history simultaneously." },
 
   445: { id:445, name:"Stormcrown", emoji:"🦅", types:["Electric","Sonic"],
-    base:{hp:78,atk:103,def:85,spa:118,spd:91,spe:108}, evolveTo:null, evolveLevel:null, ngPlusTier:1,
+    base:{hp:78,atk:89,def:71,spa:118,spd:91,spe:108}, evolveTo:null, evolveLevel:null,
     learnset:[[1,"jolt"],[10,"discord"],[20,"volt_jet"],[30,"harmonic_wave"],[40,"stormbolt"],[50,"concussive_strike"],[60,"threnody"],[5,"resonate"],[52,"volt_surge"],[62,"arc_flash"],[95,"void_cyclone",{ng:true}],[100,"psionic_wave",{ng:true}]],
-    catchRate:5, expYield:360, rarity:"pseudolegendary",
+    catchRate:5, expYield:360, rarity:"rare",
     desc:"The apex thunderbird, crowned in living lightning. Every storm in Lumoria eventually answers its call.",
     lore:"Stormcrown is the apex thunderbird, a 5.5-metre raptor wreathed in storm-cloud plumage with a permanent crown of crackling lightning — the matured storm Stormlord once only carried. Its cry rolls across the land as a deafening thunderclap that scatters lesser creatures, and it is the dominant power in any region it inhabits; other electric creatures defer to it instinctively." },
 

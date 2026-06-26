@@ -4608,7 +4608,7 @@ const MONSTERS_DATA = {
     lore:"Abyssalord is a water-spectral creature 9 metres long resembling a massive spectral leviathan trailing ghostly sea-wrack. It is invisible underwater — its presence is detected only by a sudden drop in water temperature and the silencing of all sea life." },
 
   459: { id:459, name:"Voidcrown", emoji:"🌌", types:["Dark","Fairy"],
-    base:{hp:87,atk:103,def:96,spa:137,spd:112,spe:117}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
+    base:{hp:87,atk:83,def:96,spa:137,spd:129,spe:134}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
     learnset:[[1,"fae_requiem"],[10,"void_rend"],[20,"synaptic_shatter"],[30,"nether_sphere"],[40,"neural_storm"],[50,"phantom_claw"],[60,"void_dominion"],[5,"dreamweave"],[55,"void_dominion"],[62,"fairy_wind"],[63,"disarming_voice"],[64,"nymph_mist"],[66,"lunar_burst"],[120,"abyssal_wave",{ng:true}],[115,"eclipse_burst",{ng:true}],[90,"dream_pulse",{ng:true}]],
     catchRate:4, expYield:372, rarity:"legendary",
     desc:"The sovereign of corrupted fae — a ruler that bridges the beautiful and the terrible without apology.",

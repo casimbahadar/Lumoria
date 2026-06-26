@@ -34,7 +34,69 @@ _At-a-glance status of every section below. Legend: ✅ done · 🚧 in progress
 | 🧬 Abilities feature (now "Traits") | ✅ Phase 1-3b + canonical 8 merged · 🚧 UI surfacing in progress · ⏳ Phase 5 full assignment | PR #67 **merged** (265-entry registry, full battle dispatch, 8 verified end-to-end). Next branch `claude/traits-ui-surfacing`: team-menu badge, Lumori-detail traits section, battle UI inline badge. Phase 5 full assignment (~438 remaining Lumori) follows. |
 | 🤝 Inter-Lumori interactions (dedicated pass) | ⏳ not started | after abilities (bridge sweep done, PR #48) |
 | 13 wielder cutscenes (Forgotten legendaries) | ⏳ not started | after final per-Lumori analysis |
+| 🌌 Three Legendaries + Shade finale arc | ⏳ NOT STARTED — fully specced | dormant/awakened formes for Abyssdrake/Tempestia/Volcanox + Voidraxis@700 Shade-only; renames; Void Rift finale; compulsory catch post-gym-20. **Full spec: "🌌 THREE LEGENDARIES + SHADE FINALE ARC" section below.** |
 | 🚀 Pre-launch / release process | 🚧 in progress | launch draft PR #52 |
+
+---
+
+# 🌌 THREE LEGENDARIES + SHADE FINALE ARC  `[⏳ NOT STARTED — fully specced 2026-06-26, leave for later]`
+
+Surfaced during the post-reorder Lane A.1 stats walk (branch `claude/capstone-lanea1-stats-bcfywi`). The
+plot already references this arc in dialogue (Shade: *"I have awakened all three Legendaries — Tempestia,
+Volcanox, and Abyssdrake"*; *"awakened Tempestia from the Thunderhead Crag"*; Phantom: *"the Void Star
+awakens"*), but the monsters got **misplaced and misnamed** in a prior refactor. This rebuilds the arc.
+
+## Decisions LOCKED (per user, 2026-06-26)
+- **Renames** (monster `name` field — aligns monsters with existing dialogue):
+  - #316 Abyssovex → **Abyssdrake**
+  - #320 Galvathon → **Tempestia**
+  - #315 Ashvanus → **Volcanox**  (free the name **"Ashvanus"** for a possible future renamed Lumori)
+  - #319 **Voidraxis** — keep.
+- **Formes (separate stat blocks) for the THREE only** (NOT Voidraxis):
+  - Each of Abyssdrake / Tempestia / Volcanox has a **DORMANT form (BST 510)** and an **AWAKENED form (BST 680)**.
+  - Implementation undecided — see open questions (separate dex entries vs a forme system).
+- **Voidraxis**: single block, **BST 700**, and appears **ONLY** on **Commander Shade's FINAL battle team**
+  and the **NG+ version of that final battle**. Must be **REMOVED from every other team** it's currently on
+  (today it's on many: Lv56/70/72/74/109/110/144/148 boss+team entries — see "cleanup" below). No Lv56 ones,
+  no NG+ version of any non-final battle.
+- **Act 1 — early story bosses (DORMANT 510):** the three awaken early as story bosses for an **early Umbra
+  commander/admin** (identity TBD), at:
+  - **Abyssdrake** @ Abyssal Trench (`deep_trench`, rb2)
+  - **Volcanox** @ a lava area (`volcano_core` rb4 or `lava_fields` rb4) — after rb3
+  - **Tempestia** @ Thunderhead Crag (`storm_plateau`, rb5)
+  - (player memory: "available at Lv40+" — i.e. tough, over-leveled early encounters)
+- **Act 2 — finale (AWAKENED 680 + Voidraxis 700):** final showdown with **Commander Shade** at **The Void
+  Rift** (`void_rift`, rb19), featuring Voidraxis (700) + the three awakened forms (680), around the 20th gym.
+- **Reward:** after **freeing all three from Shade (post-gym-20)**, the three become **catchable in awakened
+  form (BST 680)**. Voidraxis is NOT catchable (battle-only, Shade's ace).
+
+## OPEN QUESTIONS / decisions to make later
+- **Forme implementation:** separate dex entries for dormant+awakened (extra slots → interacts with the
+  planned **availability re-derive**, and with the dex count/banding) vs a runtime forme system (battle.js/
+  data forme field). If separate entries: are dormant forms their own dex numbers, or hidden formes?
+- **Are dormant forms catchable** during Act 1, or strictly battle-only (catch only the awakened forms post-Shade)?
+- **Early commander/admin identity** — new character, or an existing Umbra commander (Vorn / Phantom / the
+  `umbra_commander_rex_shadow`→"Commander Vorn" alias noted elsewhere)? Reconcile with the Umbra cast.
+- **Compulsory-catch gate (game.js feature):** block progression past Void Rift → gym 20 / The Gauntlet /
+  Victory Summit until the three are freed/caught. Needs a `defeatedLegendaries`/flag gate + forced flow.
+- **Dialogue alignment:** verify/align ALL existing references after rename (data.js lines incl. ~8676,
+  8723, 8747, 9099, 9129, 9501, 9518, 9521; Umbra Spire desc "awaken the three Legendaries"). Most already
+  use the plot names, so the rename should *fix* alignment — confirm no stale "Ashvanus/Galvathon/Abyssovex"
+  display strings remain.
+- **Level curve** for the dormant Act-1 bosses (rb2/4/5 areas but "Lv40+" tough encounters).
+- **Remove current placements:** the three are presently rb20 wild in Umbra finale areas (Umbra Secret Lab /
+  Void Nexus); Voidraxis is rb20 wild @ Void Nexus + on many teams. Strip all of these.
+  - NOTE: the over-leveled statics already removed from Abyssal Trench / Volcano Core / Thunderhead Crag
+    (Quakeon/Geoclad/Dravanas, 2026-06-26) leave those Act-1 areas free for the dormant bosses.
+
+## Voidraxis team-cleanup checklist (remove from all but Shade's final + its NG+ form)
+Current `monsterId:319` appearances to audit/strip (found 2026-06-26): data.js ~9217, 9224, 9232, 9245,
+9252, 9260, 10513, 10521, 10529, 11186, 11193, 11201, 11286, 11294, 11587 (boss), 11704 (boss), 11794 (boss).
+Keep ONLY: Shade's final battle team + its NG+ variant.
+
+## Relation to current stats work
+- During the Lane A.1 legendary/Forgotten BST review, **SKIP #315/#316/#319/#320** (handled by this arc).
+- Skybreaker (#314) is a *separate* static box-legend, already set to BST 650 — not part of this arc.
 
 ---
 

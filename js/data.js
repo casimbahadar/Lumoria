@@ -4629,7 +4629,7 @@ const MONSTERS_DATA = {
     lore:"Primordiax is a fire-primal creature 5 metres tall resembling a primordial titan of cooling lava and deep rock. Geologists have identified its footprints in geological formations 500 million years old." },
 
   461: { id:461, name:"Starborne", emoji:"🌠", types:["Stellar","Mental"],
-    base:{hp:89,atk:94,def:94,spa:146,spd:121,spe:121}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
+    base:{hp:99,atk:94,def:104,spa:146,spd:121,spe:126}, evolveTo:null, evolveLevel:null, ngPlusTier:4,
     learnset:[[1,"fairy_wind"],[10,"mental"],[15,"star_ray"],[20,"fae_requiem"],[25,"cosmic_beam"],[30,"psi_strike"],[40,"synaptic_shatter"],[45,"starfall_2"],[50,"neural_storm"],[60,"cosmic_veil"],[5,"prism_ward"],[55,"cosmic_veil"],[55,"astral_focus"],[100,"nova_burst",{ng:true}],[115,"temporal_collapse",{ng:true}],[115,"temporal_rift",{ng:true}],[120,"psychic_blizzard",{ng:true}]],
     catchRate:3, expYield:380, rarity:"legendary",
     desc:"A being from beyond the known world. It arrived as a point of light that grew into something impossible.",
